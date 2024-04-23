@@ -41,15 +41,14 @@ export default function ProjectsMarketingHero() {
                   'bg-[#2fbc78]/10 dark:bg-[#36d387]/10',
                   'transition-colors',
                 )}
-                // TODO(projects): Update the link href
-                href="#"
+                href="/blog/a-real-world-projects-platform-for-front-end-engineers"
                 variant="unstyled">
                 <RiBardLine />
                 <Text color="inherit" size="body2" weight="medium">
                   <FormattedMessage
-                    defaultMessage="Just launched Beta"
+                    defaultMessage="Now in Beta"
                     description="Project marketing hero section badge"
-                    id="x2Q8mM"
+                    id="oA4ExN"
                   />
                 </Text>
                 <RiArrowRightSLine className={themeTextColor} />

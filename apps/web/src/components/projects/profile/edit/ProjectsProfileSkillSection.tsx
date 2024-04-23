@@ -7,7 +7,6 @@ import Heading from '~/components/ui/Heading';
 import ProjectsProfileSkillsProficientInput from './ProjectsProfileSkillsProficientInput';
 import ProjectsProfileSkillsToImproveInput from './ProjectsProfileSkillsToImproveInput';
 
-// TODO(projects): remove onboarding type from this union.
 type Values = ProjectsProfileEditFormValues;
 
 export default function ProjectsProfileSkillSection() {

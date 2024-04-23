@@ -111,12 +111,14 @@ function FooterSection({
   );
 }
 
-export type FooterNavigation = readonly [
-  FooterLinkSection,
-  FooterLinkSection,
-  FooterLinkSection,
-  FooterLinkSection,
-];
+export type FooterNavigation =
+  | readonly [
+      FooterLinkSection,
+      FooterLinkSection,
+      FooterLinkSection,
+      FooterLinkSection,
+    ]
+  | [FooterLinkSection, FooterLinkSection, FooterLinkSection];
 
 type Props = Readonly<{
   navigation: FooterNavigation;
@@ -136,6 +138,18 @@ export default function Footer({ navigation }: Props) {
         id="DiyRBB"
       />
     </Text>
+  );
+
+  const legalSection = (
+    <FooterSection
+      links={commonLinks.legal}
+      title={intl.formatMessage({
+        defaultMessage: 'Legal',
+        description:
+          'Section heading in footer for links to legal pages like privacy policy and terms of service',
+        id: '+wR7CJ',
+      })}
+    />
   );
 
   return (
@@ -199,23 +213,19 @@ export default function Footer({ navigation }: Props) {
                     links={navigation[2].links}
                     title={navigation[2].title}
                   />
-                  <div className="mt-12 md:mt-8">
-                    <FooterSection
-                      links={commonLinks.legal}
-                      title={intl.formatMessage({
-                        defaultMessage: 'Legal',
-                        description:
-                          'Section heading in footer for links to legal pages like privacy policy and terms of service',
-                        id: '+wR7CJ',
-                      })}
-                    />
-                  </div>
+                  {navigation[3] && (
+                    <div className="mt-12 md:mt-8">{legalSection}</div>
+                  )}
                 </div>
                 <div className="mt-12 md:mt-0">
-                  <FooterSection
-                    links={navigation[3].links}
-                    title={navigation[3].title}
-                  />
+                  {navigation[3] ? (
+                    <FooterSection
+                      links={navigation[3].links}
+                      title={navigation[3].title}
+                    />
+                  ) : (
+                    legalSection
+                  )}
                 </div>
               </div>
             </div>

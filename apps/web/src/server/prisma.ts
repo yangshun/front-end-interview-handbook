@@ -37,13 +37,13 @@ const prismaClientSingleton = () => {
         },
         imgSrc: {
           compute: (submission) => {
-            const pages =
+            const deploymentPages =
               submission.deploymentUrls as ProjectsChallengeSubmissionDeploymentUrls;
 
-            /* TODO(projects): Replace with placeholder.*/
+            // Find main page or first page if there's no main.
             return (
-              pages.find((page) => page.label === 'main')?.images?.desktop ??
-              'https://source.unsplash.com/random/48x48'
+              deploymentPages.find((page) => page.label === 'main')?.images
+                ?.desktop ?? deploymentPages[0].images?.desktop
             );
           },
         },

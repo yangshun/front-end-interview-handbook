@@ -951,10 +951,6 @@
     "defaultMessage": "View website",
     "description": "Link to website"
   },
-  "6ZmcXv": {
-    "defaultMessage": "Practice",
-    "description": "Section heading in Projects footer for links practice-related pages"
-  },
   "6aAzFQ": {
     "defaultMessage": "Host your site",
     "description": "Description for Deployment step in project submission checklist"
@@ -1346,10 +1342,6 @@
   "9NUuQM": {
     "defaultMessage": "Tracks | Progress | {name}",
     "description": "Title of user profile progress tracks page"
-  },
-  "9New5b": {
-    "defaultMessage": "For Beginners",
-    "description": "Link to Projects homepage for beginners"
   },
   "9Q8e4/": {
     "defaultMessage": "JavaScript Polyfills",
@@ -3031,6 +3023,10 @@
     "defaultMessage": "Skills used",
     "description": "Label for skills roadmap input on project submit page"
   },
+  "NE6GPR": {
+    "defaultMessage": "Platform",
+    "description": "Section heading in Projects footer for links practice-related pages"
+  },
   "NEkaZ4": {
     "defaultMessage": "Starter",
     "description": "Starter level blog"
@@ -3462,10 +3458,6 @@
   "Qd5BTL": {
     "defaultMessage": "Holistic front end skill roadmap",
     "description": "Title of 'Roadmap of front end skills' sub-feature in Projects marketing page"
-  },
-  "QdCE6p": {
-    "defaultMessage": "Main",
-    "description": "Section heading in Projects footer for links to home page"
   },
   "Qe4ww/": {
     "defaultMessage": "Discover focus areas tailored to your needs to help you prepare for your upcoming technical interviews.",
@@ -6143,10 +6135,6 @@
     "defaultMessage": "Quiz Questions",
     "description": "Header for quiz questions"
   },
-  "lspF70": {
-    "defaultMessage": "For Side Projects",
-    "description": "Link to Projects homepage for side projects"
-  },
   "lt1xn6": {
     "defaultMessage": "Student Discount Terms and Conditions",
     "description": "Title of legal page"
@@ -6270,10 +6258,6 @@
   "myWGmV": {
     "defaultMessage": "Coupons | Profile",
     "description": "Title of Profile coupons page"
-  },
-  "n/3FHx": {
-    "defaultMessage": "For Portfolios",
-    "description": "Link to Projects homepage for portfolios"
   },
   "n03lT2": {
     "defaultMessage": "Current plan",
@@ -6402,6 +6386,10 @@
   "o9kmTM": {
     "defaultMessage": "<bold>{author}</bold> posted on the challenge forum for <link>{challengeTitle}</link>: <comment>\"{description}\"</comment>",
     "description": "Log message for someone making a post on the challenge forum"
+  },
+  "oA4ExN": {
+    "defaultMessage": "Now in Beta",
+    "description": "Project marketing hero section badge"
   },
   "oAUXEp": {
     "defaultMessage": "Beautiful designs made by high-end designers",
@@ -7487,10 +7475,6 @@
     "defaultMessage": "You have completed this track",
     "description": "Description for projects track completed status"
   },
-  "wnzGbx": {
-    "defaultMessage": "For Experienced",
-    "description": "Link to Projects homepage for experienced users"
-  },
   "wqIwvv": {
     "defaultMessage": "{questionTitle} | JavaScript Front End Interview Questions with Solutions",
     "description": "Title of Javascript Front End interview questions page"
@@ -7510,10 +7494,6 @@
   "wzV6ho": {
     "defaultMessage": "Skills",
     "description": "Label for Skills filter for projects list"
-  },
-  "x2Q8mM": {
-    "defaultMessage": "Just launched Beta",
-    "description": "Project marketing hero section badge"
   },
   "x6+x/5": {
     "defaultMessage": "Edit profile",

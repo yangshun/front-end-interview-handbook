@@ -10,54 +10,6 @@ function useFooterNavigation() {
 
   const navigation: FooterNavigation = [
     {
-      key: 'main',
-      // TODO(projects): find out correct links.
-      links: [
-        {
-          href: '/projects?mode=beginner',
-          key: 'beginner',
-          name: intl.formatMessage({
-            defaultMessage: 'For Beginners',
-            description: 'Link to Projects homepage for beginners',
-            id: '9New5b',
-          }),
-        },
-        {
-          href: '/projects?mode=experienced',
-          key: 'experienced',
-          name: intl.formatMessage({
-            defaultMessage: 'For Experienced',
-            description: 'Link to Projects homepage for experienced users',
-            id: 'wnzGbx',
-          }),
-        },
-        {
-          href: '/projects?mode=portfolio',
-          key: 'portfolio',
-          name: intl.formatMessage({
-            defaultMessage: 'For Portfolios',
-            description: 'Link to Projects homepage for portfolios',
-            id: 'n/3FHx',
-          }),
-        },
-        {
-          href: '/projects?mode=sideProject',
-          key: 'side-project',
-          name: intl.formatMessage({
-            defaultMessage: 'For Side Projects',
-            description: 'Link to Projects homepage for side projects',
-            id: 'lspF70',
-          }),
-        },
-      ],
-      title: intl.formatMessage({
-        defaultMessage: 'Main',
-        description:
-          'Section heading in Projects footer for links to home page',
-        id: 'QdCE6p',
-      }),
-    },
-    {
       key: 'info',
       links: [
         {
@@ -127,10 +79,10 @@ function useFooterNavigation() {
         },
       ],
       title: intl.formatMessage({
-        defaultMessage: 'Practice',
+        defaultMessage: 'Platform',
         description:
           'Section heading in Projects footer for links practice-related pages',
-        id: '6ZmcXv',
+        id: 'NE6GPR',
       }),
     },
     {

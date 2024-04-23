@@ -35,19 +35,6 @@ export default function ProjectsChallengeBriefPage({
     viewerAccess.viewChallenge !== 'UNLOCKED' &&
     viewerAccess.viewChallenge !== 'ACCESSIBLE_TO_EVERYONE';
 
-  const images =
-    challenge.metadata.galleryImages.length > 0
-      ? challenge.metadata.galleryImages
-      : // TODO(projects): Use only real images url
-        [
-          `https://source.unsplash.com/random/640x360?random=${Math.random()}`,
-          `https://source.unsplash.com/random/640x560?random=${Math.random()}`,
-          `https://source.unsplash.com/random/340x260?random=${Math.random()}`,
-          `https://source.unsplash.com/random/140x360?random=${Math.random()}`,
-          `https://source.unsplash.com/random/940x360?random=${Math.random()}`,
-          `https://source.unsplash.com/random/240x160?random=${Math.random()}`,
-        ];
-
   return (
     <BlurOverlay
       align="center"
@@ -80,7 +67,9 @@ export default function ProjectsChallengeBriefPage({
             </div>
           )}
           <div className="flex flex-col gap-6">
-            <ProjectsChallengeBriefImageCarousel images={images} />
+            <ProjectsChallengeBriefImageCarousel
+              images={challenge.metadata.galleryImages}
+            />
             <Heading level="heading6">
               <FormattedMessage
                 defaultMessage="Resources provided"

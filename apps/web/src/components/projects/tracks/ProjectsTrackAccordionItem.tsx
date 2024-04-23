@@ -121,7 +121,7 @@ export default function ProjectsTrackAccordionItem({
                           <img
                             alt={challenge.info.title}
                             className={clsx(
-                              'object-fill',
+                              'object-cover',
                               'h-[100px] w-full',
                               'rounded',
                               'bg-neutral-200 dark:bg-neutral-800',

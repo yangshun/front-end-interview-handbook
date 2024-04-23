@@ -203,7 +203,7 @@ export default function ProjectsChallengeDeploymentCompletionPage({
                         id="0azrZ0"
                         values={{
                           link: (chunks) => (
-                            <Anchor href="#TODO(projects)">{chunks}</Anchor>
+                            <Anchor href="/legal/terms">{chunks}</Anchor>
                           ),
                         }}
                       />
