@@ -221,9 +221,10 @@ export const projectsChallengeSubmissionItemRouter = router({
       z.object({
         repoName: z.string(),
         repoOwner: z.string(),
+        repoSubdirectoryPath: z.string().nullable(),
       }),
     )
-    .query(async ({ input: { repoName, repoOwner } }) => {
+    .query(async ({ input: { repoName, repoOwner, repoSubdirectoryPath } }) => {
       try {
         const repo = await fetch(
           `${githubApiUrl}/repos/${repoOwner}/${repoName}`,
@@ -250,6 +251,15 @@ export const projectsChallengeSubmissionItemRouter = router({
 
         const json = await response.json();
         const data = githubRepositoryFilesSchema.parse(json);
+
+        // Only filter out the subdirectory paths only
+        if (repoSubdirectoryPath) {
+          return data.tree
+            .filter(({ type }) => type === 'blob') // Only include files; filter out folders with type === 'tree'
+            .map((file) => file.path)
+            .filter((path) => path.startsWith(repoSubdirectoryPath))
+            .map((path) => path.replace(repoSubdirectoryPath, ''));
+        }
 
         return data.tree
           .filter(({ type }) => type === 'blob') // Only include files; filter out folders with type === 'tree'

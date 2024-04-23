@@ -13,6 +13,7 @@ type Props = Readonly<{
   className?: string;
   repoName: string;
   repoOwner: string;
+  repoSubdirectoryPath: string | null;
 }>;
 
 export function isImageFile(filePath: string) {
@@ -25,6 +26,7 @@ export default function GithubRepositoryCodeViewer({
   className,
   repoName,
   repoOwner,
+  repoSubdirectoryPath,
 }: Props) {
   const intl = useIntl();
 
@@ -33,6 +35,7 @@ export default function GithubRepositoryCodeViewer({
       {
         repoName,
         repoOwner,
+        repoSubdirectoryPath,
       },
       {
         keepPreviousData: true,
@@ -45,7 +48,9 @@ export default function GithubRepositoryCodeViewer({
   const { data: fileContents, isFetching: isFetchingFileContents } =
     trpc.projects.submission.getGitHubFileContents.useQuery(
       {
-        filePath: activeFile,
+        filePath: repoSubdirectoryPath
+          ? `${repoSubdirectoryPath}${activeFile}`
+          : activeFile,
         repoName,
         repoOwner,
       },
@@ -118,7 +123,7 @@ export default function GithubRepositoryCodeViewer({
           );
         }
 
-        if (!filePaths) {
+        if (!filePaths || filePaths.length === 0) {
           return (
             <div className="flex h-full w-full items-center justify-center">
               <EmptyState

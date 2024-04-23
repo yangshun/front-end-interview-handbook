@@ -32,9 +32,20 @@ import type { ProjectsViewerProjectsProfile } from '../types';
 
 function parseGithubRepositoryUrl(url: string) {
   const urlObject = new URL(url);
-  const [repoOwner, repoName] = urlObject.pathname.split('/').slice(-2);
 
-  return { repoName, repoOwner };
+  // Github repo url structure
+  // /[repo-owner]/[repo-name]/tree/[branch-name]/[folder-name]*
+
+  const pathsArray = urlObject.pathname.split('/');
+
+  return {
+    repoName: pathsArray[2],
+    repoOwner: pathsArray[1],
+    repoSubdirectoryPath:
+      pathsArray.slice(5).length > 0
+        ? `${pathsArray.slice(5).join('/')}/`
+        : null,
+  };
 }
 
 type Props = Readonly<{
@@ -69,7 +80,7 @@ export default function ProjectsChallengeSubmissionPage({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [submissionId]);
 
-  const { repoName, repoOwner } = useMemo(
+  const { repoName, repoOwner, repoSubdirectoryPath } = useMemo(
     () => parseGithubRepositoryUrl(repositoryUrl),
     [repositoryUrl],
   );
@@ -204,6 +215,7 @@ export default function ProjectsChallengeSubmissionPage({
                 ])}
                 repoName={repoName}
                 repoOwner={repoOwner}
+                repoSubdirectoryPath={repoSubdirectoryPath}
               />
             </div>
           </div>

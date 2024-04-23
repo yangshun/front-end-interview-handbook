@@ -3,7 +3,7 @@ import { useIntl } from 'react-intl';
 import { z } from 'zod';
 
 const GITHUB_REPO_URL_REGEX =
-  /^(https?:\/\/)?(www\.)?github\.com\/[a-zA-Z0-9-]+\/[a-zA-Z0-9_.-]+\/?$/;
+  /^(https?:\/\/)?(www\.)?github\.com\/[a-zA-Z0-9-]+\/([a-zA-Z0-9_.-]+\/?)*$/;
 
 function projectsChallengeSubmissionRepositoryUrlSchema(options?: {
   urlMessage: string;
