@@ -36,14 +36,15 @@ function parseGithubRepositoryUrl(url: string) {
   // Github repo url structure
   // /[repo-owner]/[repo-name]/tree/[branch-name]/[folder-name]*
 
-  const pathsArray = urlObject.pathname.split('/');
+  // remove leading and trailing slash and split by /
+  const pathsArray = urlObject.pathname.replace(/^\/|\/$/g, '').split('/');
 
   return {
-    repoName: pathsArray[2],
-    repoOwner: pathsArray[1],
+    repoName: pathsArray[1],
+    repoOwner: pathsArray[0],
     repoSubdirectoryPath:
-      pathsArray.slice(5).length > 0
-        ? `${pathsArray.slice(5).join('/')}/`
+      pathsArray.slice(4).length > 0
+        ? `${pathsArray.slice(4).join('/')}/`
         : null,
   };
 }
