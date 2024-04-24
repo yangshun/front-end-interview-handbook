@@ -1,0 +1,96 @@
+---
+title: Layout grid
+---
+
+Grids provide a structural framework for your design, ensuring that elements align properly across different parts of the layout. This alignment creates a sense of order and cohesion.With a grid, you can streamline the design process, as it eliminates guesswork – every page-level section should take up N number of columns and the spacing between the columns have already been pre-determined.
+
+By turning on the "Layout grids" (<kbd>Shift</kbd> + <kbd>G</kbd>) in Figma, you can see the layout grids for each device breakpoint:
+
+| Device breakpoint | Width | Container max width | Side padding | Columns | Column gap |
+| --- | --- | --- | --- | --- | --- |
+| Desktop | 1440px | 1280px | 32px | 12 | 32px |
+| Tablet | 768px | 100% | 32px | 6 | 32px |
+| Mobile | 375px | 100% | 16px | 4 | 16px |
+
+A container is the maximum horizontal space allowed to display the contents for the breakpoint and should be horizontally centered on the page. For tablet and mobile, the container fills the spans of the entire screen.
+
+## Sample code
+
+This is sample code for implementing the grid layout used by GreatFrontEnd's challenges.
+
+```css
+.container {
+  box-sizing: border-box;
+  padding: 0 16px;
+  width: 100%;
+
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  column-gap: 16px;
+}
+
+@media (min-width: 768px) {
+  .container {
+    padding: 0 32px;
+    width: 100%;
+
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    column-gap: 32px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .container {
+    margin: 0 auto;
+    max-width: 1280px;
+    padding: 0 32px;
+
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    column-gap: 32px;
+  }
+}
+```
+
+To implement responsiveness for sections on the page, we change the number of columns each section takes up. This is sample code for how to implement the responsive sections for the [Hero Section (Simple)](/projects/challenges/hero-section-simple) challenge where the sections are full-width on mobile + tablet and the left/right section takes up 5 and 7 columns on desktop respectively.
+
+```css
+.left-section {
+  /* Spans the full width (4 columns) on mobile. */
+  grid-column: span 4 / span 4;
+}
+
+@media (min-width: 768px) {
+  .left-section {
+    /* Spans the full width (6 columns) on tablet. */
+    grid-column: span 6 / span 6;
+  }
+}
+
+@media (min-width: 1440px) {
+  .left-section {
+    /* Spans 5 columns on desktop. */
+    grid-column: span 5 / span 5;
+  }
+}
+
+.right-section {
+  /* Spans the full width (4 columns) on mobile. */
+  grid-column: span 4 / span 4;
+}
+
+@media (min-width: 768px) {
+  .right-section {
+    /* Spans the full width (6 columns) on tablet. */
+    grid-column: span 6 / span 6;
+  }
+}
+
+@media (min-width: 1440px) {
+  .right-section {
+    /* Spans 7 columns on desktop. */
+    grid-column: span 7 / span 7;
+  }
+}
+```
+
+By changing the values for each breakpoint, you can easily implement the responsiveness required for any challenge.
