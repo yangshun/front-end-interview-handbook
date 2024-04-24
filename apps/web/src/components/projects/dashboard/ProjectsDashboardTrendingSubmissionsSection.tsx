@@ -93,7 +93,7 @@ export default function ProjectsDashboardTrendingSubmissionsSection() {
             <div className="flex w-full items-center gap-4">
               <img
                 alt={submission.title}
-                className="size-[90px] shrink-0 rounded object-fill"
+                className="size-[90px] shrink-0 rounded object-cover"
                 src={submission.imgSrc}
               />
               <div className="flex w-full grow flex-col gap-3">
