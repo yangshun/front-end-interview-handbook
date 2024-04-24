@@ -34,10 +34,10 @@ export default function useProjectsMonthYearExperienceSchema(
       },
       {
         message: intl.formatMessage({
-          defaultMessage: 'Please enter a valid date',
+          defaultMessage: 'Please enter a valid date in the format MM/YYYY',
           description:
             'Error message for invalid "Month and year you started work as a Front End Engineer" input on Projects profile onboarding page',
-          id: '3QQssQ',
+          id: 'zAyLSU',
         }),
       },
     )

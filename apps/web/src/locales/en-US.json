@@ -599,10 +599,6 @@
     "defaultMessage": "Your name has been updated.",
     "description": "Success message when for name change"
   },
-  "3QQssQ": {
-    "defaultMessage": "Please enter a valid date",
-    "description": "Error message for invalid \"Month and year you started work as a Front End Engineer\" input on Projects profile onboarding page"
-  },
   "3QliNF": {
     "defaultMessage": "Access to Component Tracks",
     "description": "Label for component tracks feature"
@@ -7706,6 +7702,10 @@
   "zAl/H8": {
     "defaultMessage": "General account settings. Shared across all GreatFrontEnd products.",
     "description": "Description for general account settings"
+  },
+  "zAyLSU": {
+    "defaultMessage": "Please enter a valid date in the format MM/YYYY",
+    "description": "Error message for invalid \"Month and year you started work as a Front End Engineer\" input on Projects profile onboarding page"
   },
   "zBgQ/Y": {
     "defaultMessage": "Invalid LinkedIn username or URL",
