@@ -1,1 +1,36 @@
-This is a guide on how to build a **testimonial card**.
+This challenge is a basic one which requires basic mastery of HTML and CSS to complete.
+
+### Define the structure with HTML
+
+- The recommended way is to build the card first, then add the contents starting from the top.
+- Use semantic HTML elements to create containers for different parts of the card. For instance, you might have one `<div>` for the card itself, another `<div>` wrapping the user avatar and name, and a `<p>` for the testimonial content.
+- Use an `<img>` tag to display the avatar picture, making sure to provide `alt` attributes for accessibility.
+
+### Style the card with CSS
+
+- Learn about the [Box Model](https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/The_box_model), as it will help you understand padding, borders, and margins, which are crucial for layout.
+- Use classes to apply styles to specific elements. There can be more than one testimonial card per page, using classes will allow you to easily style another card.
+- Refer to the style guide for the typography values and colors to use.
+
+### Card layout
+
+Note that the card has a fixed width and is a fixed height from the top of the screen.
+
+- Set a fixed `width` and `margin-top` for the card.
+- The card should not have a hardcoded `height` value and resize according to the vertical space taken up by its contents.
+- To horizontally center the card on the page, a simple way would be `margin-left: auto; margin-right: auto` or to make the card parent `display: flex; justify-content: center`.
+- Use modern `display` properties like `flex` and `grid`. `display: flex` can be used to make the image and the words side-by-side.
+
+### Test your card
+
+- View your card in multiple browsers to ensure compatibility.
+- Validate your HTML and CSS using online validators to ensure they follow web standards.
+- Use accessibility tools to check if your card is accessible to all users, including those with disabilities.
+
+### General tips
+
+- Keep it simple initially, especially if you're just starting. You can always add more complexity later.
+- Focus on readability and organization of your code; it helps when you need to debug or extend it.
+- Comment your code to remind yourself and inform others about the purpose of various code sections.
+- Practice version control with a system like Git. This allows you to keep track of changes and revert to previous versions if something goes wrong.
+- Stay consistent with naming conventions and coding styles. This will make your code easier to read and maintain.

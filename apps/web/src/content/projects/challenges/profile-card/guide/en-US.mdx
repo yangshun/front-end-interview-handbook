@@ -1,0 +1,27 @@
+This challenge involves basic HTML and CSS, but it is fun because you can personalize it and use it as your personal homepage!
+
+### Define the structure with HTML
+
+- The recommended way is to build the card first, then add the contents starting from the top.
+- Use semantic HTML elements to create containers for different parts of the card. For instance, you might have one `<div>` for the card itself, an `<img>` tag to display the user avatar picture, and use `<div>`/`<p>` for the contents.
+
+### Style the card with CSS
+
+- Learn about the [Box Model](https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/The_box_model), as it will help you understand padding, borders, and margins, which are crucial for layout.
+- Refer to the style guide for the typography values and colors to use.
+
+### Card layout
+
+Note that the card has a fixed width and is a fixed height from the top of the screen.
+
+- Set a fixed `width` and `margin-top` for the card.
+- The card should not have a hardcoded `height` value and resize according to the vertical space taken up by its contents.
+- To horizontally center the card on the page, a simple way would be `margin-left: auto; margin-right: auto` or to make the card parent `display: flex; justify-content: center`.
+- The contents within the card can be separate into three parts:
+  - Top half: Profile details section, with a fixed `gap` between each row, which can be achieved with `display: flex; flex-direction: column; row-gap: 24px`
+  - Bottom half: Links section, with also has the same `gap` value as the top half.
+    - Social links: Center aligned icons with a consistent `gap` in between each button.
+
+### Accessibility
+
+Since the icon button/links do not have visible text, we should add `aria-label`s to the buttons in order for screen readers to announce the intentions of the links.

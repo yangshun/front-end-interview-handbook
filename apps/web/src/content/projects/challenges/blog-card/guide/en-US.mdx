@@ -1,0 +1,28 @@
+This challenge is a basic one which requires basic mastery of HTML and CSS to complete.
+
+### Define the structure with HTML
+
+- The recommended way is to build the card first, then add the contents starting from the top.
+- Use semantic HTML elements to create containers for different parts of the card. For instance, you might have one `<div>` for the card itself, an `<img>` tag to display the blog article picture, and another `<div>` for wrapping the text content.
+
+### Style the card with CSS
+
+- Learn about the [Box Model](https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/The_box_model), as it will help you understand padding, borders, and margins, which are crucial for layout.
+- Use classes to apply styles to specific elements. There can be more than one blog card per page; using classes will allow you to easily style another card.
+- Refer to the style guide for the typography values and colors to use.
+
+### Card layout
+
+Note that the card has a fixed width and is a fixed height from the top of the screen.
+
+- Set a fixed `width` and `margin-top` for the card.
+- The card should not have a hardcoded `height` value and resize according to the vertical space taken up by its contents.
+- To horizontally center the card on the page, a simple way would be `margin-left: auto; margin-right: auto` or to make the card parent `display: flex; justify-content: center`.
+- Since the the elements within the card are laid out in a vertical direction, there's no need to use `display: flex` for arranging the card elements.
+
+### Ensuring different cards have the same height
+
+In reality, blog cards are displayed along other blog cards. When they are placed side-by-side, it is more aesthetically pleasing for their contents (image, title, excerpt) to be aligned horizontally (at the same level). Let's see how we can achieve this for:
+
+- **Image**: Since the image can be of varying dimensions and aspect ratios, we can use a fixed height on the image and have the image fill up the entire allocated space. The common ways to display the image would be using an `<img>` tag or `background-image` property in CSS. In the past, developers will lean towards using `background-image` because of the ability to use [`background-size: cover`](https://developer.mozilla.org/en-US/docs/Web/CSS/background-size), which scales the image (while preserving its ratio) to the smallest possible size to fill the image container, leaving no empty space. These days, `<img>`s support the [`object-fit: cover`](https://developer.mozilla.org/en-US/docs/Web/CSS/object-fit) property which achieves a similar effect.
+- **Text**: The title and excerpt can be longer than one sentence and two sentences directly. One solution will be to clamp the text to a specific number of lines, using `-webkit-line-clamp`. Tailwind CSS' [Line Clamp utility](https://tailwindcss.com/docs/line-clamp) makes clamping text effortless. Truncating is not ideal because text is being hidden from users. Hence it is recommended to work with article authors to set a guidance on how many characters the title and excerpt should contain.
