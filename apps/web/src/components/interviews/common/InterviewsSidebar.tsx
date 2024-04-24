@@ -21,25 +21,6 @@ import type { NavbarPrimaryItem } from '~/components/ui/Navbar/NavTypes';
 import { InterviewsSidebarProfileHeader } from './InterviewsSidebarProfileHeader';
 import useInterviewsSidebarLinks from './useInterviewsSidebarLinks';
 
-function MoreMenuItems() {
-  const intl = useIntl();
-
-  return (
-    <>
-      <SidebarI18nSubMenu />
-      <DropdownMenu.Item
-        href="/profile"
-        icon={RiUserLine}
-        label={intl.formatMessage({
-          defaultMessage: 'Profile',
-          description: 'Navigation menu item label',
-          id: 'VT494Q',
-        })}
-      />
-    </>
-  );
-}
-
 export function InterviewsSidebarExpanded({
   sidebarItems,
   onCollapseClick,
@@ -53,9 +34,22 @@ export function InterviewsSidebarExpanded({
 
   return (
     <SidebarExpanded
+      bottomBarItems={<SidebarI18nSubMenu type="menu" />}
       isLoading={isLoading}
       isViewerPremium={isPremium}
-      moreMenuItems={userProfile && <MoreMenuItems />}
+      moreMenuItems={
+        userProfile ? (
+          <DropdownMenu.Item
+            href="/profile"
+            icon={RiUserLine}
+            label={intl.formatMessage({
+              defaultMessage: 'Profile',
+              description: 'Navigation menu item label',
+              id: 'VT494Q',
+            })}
+          />
+        ) : null
+      }
       product="interviews"
       renderBottomAddonElements={() => <SocialDiscountSidebarMention />}
       renderTopAddonElements={(fadeInClass) => (
@@ -95,12 +89,28 @@ function InterviewsSidebarCollapsed({
   onCollapseClick: () => void;
   sidebarItems: ReadonlyArray<NavbarPrimaryItem>;
 }>) {
+  const intl = useIntl();
   const { userProfile } = useUserProfile();
 
   return (
     <SidebarCollapsed
       isViewerPremium={userProfile?.premium ?? false}
-      moreMenuItems={userProfile && <MoreMenuItems />}
+      moreMenuItems={
+        <>
+          <SidebarI18nSubMenu type="submenu" />
+          {userProfile && (
+            <DropdownMenu.Item
+              href="/profile"
+              icon={RiUserLine}
+              label={intl.formatMessage({
+                defaultMessage: 'Profile',
+                description: 'Navigation menu item label',
+                id: 'VT494Q',
+              })}
+            />
+          )}
+        </>
+      }
       product="interviews"
       sidebarItems={sidebarItems}
       topAddonElements={

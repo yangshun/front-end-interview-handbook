@@ -137,8 +137,10 @@ export function SidebarExpanded({
   moreMenuItems,
   sidebarItems,
   onCollapseClick,
+  bottomBarItems,
   product,
 }: Readonly<{
+  bottomBarItems: React.ReactElement | false | null | undefined;
   isLoading: boolean;
   isViewerPremium: boolean;
   moreMenuItems: React.ReactElement | false | null | undefined;
@@ -185,19 +187,6 @@ export function SidebarExpanded({
       </div>
       <div className="flex justify-between gap-4">
         <div className="flex gap-4">
-          <Button
-            href={SocialLinks.linkedin.href}
-            icon={RiLinkedinFill}
-            isLabelHidden={true}
-            label="LinkedIn"
-            size="sm"
-            tooltip={intl.formatMessage({
-              defaultMessage: 'Follow on LinkedIn',
-              description: 'Link to the LinkedIn page',
-              id: 'gAep7Q',
-            })}
-            variant="secondary"
-          />
           {isViewerPremium ? (
             <Button
               href={SocialLinks.discordPremium.href}
@@ -231,6 +220,7 @@ export function SidebarExpanded({
               variant="secondary"
             />
           )}
+          {bottomBarItems}
           <DropdownMenu
             icon={RiMoreLine}
             isLabelHidden={true}

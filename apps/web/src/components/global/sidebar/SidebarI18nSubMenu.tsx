@@ -6,13 +6,20 @@ import DropdownMenu from '~/components/ui/DropdownMenu';
 import i18nLabelOptions from '~/i18n/i18nLabelOptions';
 import { useI18nPathname } from '~/next-i18nostic/src';
 
-export default function SidebarI18nSubMenu() {
+type Props = Readonly<{
+  type: 'menu' | 'submenu';
+}>;
+
+export default function SidebarI18nSubMenu({ type }: Props) {
   const intl = useIntl();
   const { pathname, locale } = useI18nPathname();
 
+  const DropdownElement = type === 'menu' ? DropdownMenu : DropdownMenu.Sub;
+
   return (
-    <DropdownMenu.Sub
+    <DropdownElement
       icon={RiTranslate2}
+      isLabelHidden={type === 'menu'}
       label={intl.formatMessage({
         defaultMessage: 'Language',
         description: 'Change site language button label',
@@ -27,6 +34,6 @@ export default function SidebarI18nSubMenu() {
           locale={localeItem}
         />
       ))}
-    </DropdownMenu.Sub>
+    </DropdownElement>
   );
 }

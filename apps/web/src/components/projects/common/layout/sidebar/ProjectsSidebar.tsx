@@ -1,8 +1,10 @@
 'use client';
 
 import clsx from 'clsx';
-import { RiSettings3Line } from 'react-icons/ri';
+import { RiLinkedinFill, RiSettings3Line } from 'react-icons/ri';
 import { useIntl } from 'react-intl';
+
+import { SocialLinks } from '~/data/SocialLinks';
 
 import type { SidebarItems } from '~/components/global/sidebar/Sidebar';
 import {
@@ -47,6 +49,21 @@ export function ProjectsSidebarExpanded({
 
   return (
     <SidebarExpanded
+      bottomBarItems={
+        <Button
+          href={SocialLinks.linkedin.href}
+          icon={RiLinkedinFill}
+          isLabelHidden={true}
+          label="LinkedIn"
+          size="sm"
+          tooltip={intl.formatMessage({
+            defaultMessage: 'Follow on LinkedIn',
+            description: 'Link to the LinkedIn page',
+            id: 'gAep7Q',
+          })}
+          variant="secondary"
+        />
+      }
       isLoading={isLoading}
       isViewerPremium={userProfile?.projectsProfile?.premium ?? false}
       moreMenuItems={userProfile && <SettingsMenuItem />}
