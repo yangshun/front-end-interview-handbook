@@ -51,6 +51,7 @@ export default function ProjectsChallengeCard({
   return (
     <div
       className={clsx(
+        'w-full',
         'flex flex-col sm:flex-row',
         'overflow-clip rounded-lg',
         'relative isolate',

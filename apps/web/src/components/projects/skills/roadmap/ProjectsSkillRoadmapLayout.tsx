@@ -13,7 +13,6 @@ import Text, { textVariants } from '~/components/ui/Text';
 
 import { useI18nRouter } from '~/next-i18nostic/src';
 
-import { projectsSkillLabel } from '../data/ProjectsSkillListData';
 import {
   projectsSkillDetermineParentSkill,
   projectsSkillFindChildSkill,
