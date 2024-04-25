@@ -1,4 +1,4 @@
-import { RiCodeSSlashFill, RiLoader4Fill } from 'react-icons/ri';
+import { RiCodeSSlashFill, RiLoader2Line } from 'react-icons/ri';
 import { useIntl } from 'react-intl';
 
 import type { ProjectsChallengeSessionStatus } from '@prisma/client';
@@ -13,7 +13,7 @@ export default function useProjectsAllChallengesFilterOptions() {
     value: ProjectsChallengeSessionStatus;
   }> = [
     {
-      icon: RiLoader4Fill,
+      icon: RiLoader2Line,
       label: intl.formatMessage({
         defaultMessage: 'In progress',
         description: 'Projects challenge in progress',
