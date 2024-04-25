@@ -21,6 +21,11 @@ export const ProjectsTrackMetadataDocument = defineDocumentType(() => ({
   },
   contentType: 'data',
   fields: {
+    order: {
+      description: 'Order to be displayed on track list page',
+      required: true,
+      type: 'number',
+    },
     premium: {
       description: 'Whether the track is premium',
       required: true,

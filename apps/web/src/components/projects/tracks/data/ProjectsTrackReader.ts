@@ -89,25 +89,27 @@ export async function readProjectsTrackList(
   ]);
 
   const { trackInfoDict } = readProjectsTrackInfoDict(requestedLocale);
-  const tracks = allProjectsTrackMetadata.map((trackMetadata) => {
-    const trackChallenges = challenges
-      .filter((challenge) => challenge.metadata.track === trackMetadata.slug)
-      .sort(
-        (challengeA, challengeB) =>
-          challengeA.metadata.order - challengeB.metadata.order,
+  const tracks = allProjectsTrackMetadata
+    .map((trackMetadata) => {
+      const trackChallenges = challenges
+        .filter((challenge) => challenge.metadata.track === trackMetadata.slug)
+        .sort(
+          (challengeA, challengeB) =>
+            challengeA.metadata.order - challengeB.metadata.order,
+        );
+      const points = sumBy(
+        trackChallenges,
+        (challengeItem) => challengeItem.metadata.points,
       );
-    const points = sumBy(
-      trackChallenges,
-      (challengeItem) => challengeItem.metadata.points,
-    );
 
-    return {
-      challenges: trackChallenges,
-      info: trackInfoDict[trackMetadata.slug],
-      metadata: trackMetadata,
-      points,
-    };
-  });
+      return {
+        challenges: trackChallenges,
+        info: trackInfoDict[trackMetadata.slug],
+        metadata: trackMetadata,
+        points,
+      };
+    })
+    .sort((trackA, trackB) => trackA.metadata.order - trackB.metadata.order);
 
   return {
     loadedLocale: requestedLocale,
