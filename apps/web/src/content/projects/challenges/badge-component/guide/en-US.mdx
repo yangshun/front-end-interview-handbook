@@ -1,0 +1,59 @@
+This challenge requires careful planning of the structure of the CSS classes in order to maximize code reuse and maintainability.
+
+See that the badges have two dimensions:
+
+- **Size**: There are 3 sizes, and the sizes are the same regardless of color.
+- **Color**: There are 5 available colors, and the colors are the same regardless of size.
+
+This indicate that the colors and sizes are independent and we can declare classes that target specifically the size/color properties.
+
+### Starting code
+
+A plausible starting point for implementing the badge component would be:
+
+```css
+/* Base class */
+.badge {
+  /* Add any common styles. */
+}
+
+/* Size classes */
+.badge_size_sm {
+  /* Define unique properties for size="sm". */
+}
+.badge_size_md {
+  /* Define unique properties for size="md". */
+}
+.badge_size_lg {
+  /* Define unique properties for size="lg". */
+}
+
+/* Color classes */
+.badge_color_neutral {
+  /* Define unique properties for color="neutral". */
+}
+.badge_color_danger {
+  /* Define unique properties for color="danger". */
+}
+.badge_color_warning {
+  /* Define unique properties for color="warning". */
+}
+.badge_color_success {
+  /* Define unique properties for color="success". */
+}
+.badge_color_brand {
+  /* Define unique properties for color="brand". */
+}
+```
+
+To create a style a large warning badge, we can use the following code:
+
+```html
+<span class="badge badge_size_lg badge_color_warning">Label</span>
+```
+
+This is the approach that many popular CSS frameworks such as [Bootstrap](https://getbootstrap.com/docs/5.3/components/badge/) and [Bulma](https://bulma.io/documentation/elements/tag/) use.
+
+### Class naming convention
+
+If you're wondering about we named the CSS classes, we're using the [Block Element Modified (BEM) naming convention](https://en.bem.info/methodology/naming-convention/#naming-rules), which helps make CSS classes easier to read – useful for code bases of all sizes. Of course, you're free to name your classes however you want as long as the resulting appearance is the same, but we recommend the BEM naming convention as many developers use it as well.

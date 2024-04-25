@@ -1,0 +1,65 @@
+This challenge requires careful planning of the structure of the CSS classes in order to maximize code reuse and maintainability.
+
+See that the buttons have a few dimensions/properties:
+
+- **Size**: There are 4 sizes. While the font sizes are the same regardless of hierarchy, the link variants do not have any padding.
+- **Hierarchy**: There are 6 hierarchy levels.
+- **Icons**: Icons can either be on the left, right, or both.
+- **Icon-only**: Only the icon is visible, no label is shown. Note that the height of the icon buttons is different from the label-visible version of the same size.
+
+Unlike the [Badge Component](/projects/challenges/badge-component) challenge, the properties aren't entirely independent as some of the buttons do not have paddings.
+
+### Rendering the icon
+
+There are many ways to use an icon on the page and we do not enforce a specific approach. All challenge icons come from [Remix Icon](https://remixicon.com/) and the easiest way to use it within vanilla HTML is to copy and paste the SVGs from the website:
+
+```jsx
+<button>
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    fill="currentColor">
+    <path d="M12.0006 18.26L4.94715 22.2082L6.52248 14.2799L0.587891 8.7918L8.61493 7.84006L12.0006 0.5L15.3862 7.84006L23.4132 8.7918L17.4787 14.2799L19.054 22.2082L12.0006 18.26ZM12.0006 15.968L16.2473 18.3451L15.2988 13.5717L18.8719 10.2674L14.039 9.69434L12.0006 5.27502L9.96214 9.69434L5.12921 10.2674L8.70231 13.5717L7.75383 18.3451L12.0006 15.968Z"></path>
+  </svg>
+  Label
+</button>
+```
+
+### Rendering various combinations of icons
+
+A simple way to render the button and the icon would be to use `inline-flex` on the `<button>` with a `column-gap` property. By doing this, you can render the icons and labels in whichever required combination and there will be spacing automatically between the icons/label.
+
+```css
+.button {
+  display: inline-flex;
+  column-gap: 8px;
+}
+```
+
+```html
+<!-- Icon on the left -->
+<button class="button"><svg>...</svg>Label</button>
+<!-- Icon on the right -->
+<button class="button">Label<svg>...</svg></button>
+<!-- Icon on both left and right -->
+<button class="button"><svg>...</svg>Label<svg>...</svg></button>
+```
+
+### Accessibility
+
+An `aria-label` is an attribute used in HTML to improve accessibility, particularly for screen readers used by visually impaired users. When applied to a button, the `aria-label` attribute provides a text label that describes the button's function. This label is not visible on the screen but is read aloud by screen readers, making it possible for users who cannot see the button to understand its purpose. It's especially useful when the button lacks text content but contains an icon or other visual-only elements, as it communicates the purpose of the button to assistive technologies.
+
+```html
+<!-- Icon-only button -->
+<button class="button" aria-label="Close"><svg>...</svg></button>
+```
+
+### Focus state shadow
+
+Creating the focus state involves using a `box-shadow` on the buttons.
+
+```css
+.button:focus {
+  box-shadow: ...;
+}
+```
