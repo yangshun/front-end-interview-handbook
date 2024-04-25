@@ -56,7 +56,7 @@ export default function ProjectsStatusBadgeInProgress({
   });
 
   return (
-    <Tooltip label={tooltip}>
+    <Tooltip label={tooltip} triggerClassName="inline-flex">
       {variant === 'badge' && (
         <Badge icon={Icon} label={label} size="sm" variant="warning" />
       )}

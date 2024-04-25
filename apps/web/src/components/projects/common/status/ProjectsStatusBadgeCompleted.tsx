@@ -56,7 +56,7 @@ export default function ProjectsStatusBadgeCompleted({
   });
 
   return (
-    <Tooltip label={tooltip}>
+    <Tooltip label={tooltip} triggerClassName="inline-flex">
       {variant === 'badge' && (
         <Badge icon={IconCheck} label={label} size="sm" variant="success" />
       )}
