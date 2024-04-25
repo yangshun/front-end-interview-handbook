@@ -35,10 +35,10 @@ Overall, the time complexity of the implementation of Kahn's algorithm is O(V + 
 
 ## Space Complexity
 
-The space complexity for topological sorting implemented with Kahn's algorithm is O(V + E), where V is the number of vertices (or nodes) in the graph, and E is the number of edges in the graph.
+The space complexity for topological sorting implemented with Kahn's algorithm is O(V), where V is the number of vertices (or nodes) in the graph.
 
 - The Map data structure "nodes" stores properties of each node and takes O(V) space.
 - The output array "order" takes O(V) space as it stores the topological order of all the nodes.
 - The Queue data structure "queue" stores nodes with in-degree equals 0 which requires space linear to the input data and hence takes O(V) space.
 
-The space complexity of the algorithm is therefore O(V + E).
+The space complexity of the algorithm is therefore O(V).
