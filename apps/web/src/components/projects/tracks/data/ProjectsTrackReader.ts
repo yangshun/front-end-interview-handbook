@@ -90,9 +90,12 @@ export async function readProjectsTrackList(
 
   const { trackInfoDict } = readProjectsTrackInfoDict(requestedLocale);
   const tracks = allProjectsTrackMetadata.map((trackMetadata) => {
-    const trackChallenges = challenges.filter(
-      (challenge) => challenge.metadata.track === trackMetadata.slug,
-    );
+    const trackChallenges = challenges
+      .filter((challenge) => challenge.metadata.track === trackMetadata.slug)
+      .sort(
+        (challengeA, challengeB) =>
+          challengeA.metadata.order - challengeB.metadata.order,
+      );
     const points = sumBy(
       trackChallenges,
       (challengeItem) => challengeItem.metadata.points,
@@ -132,9 +135,12 @@ export async function readProjectsTrackItem(
 
   const { trackInfo } = readProjectsTrackInfo(slug, requestedLocale);
 
-  const trackChallenges = challenges.filter(
-    (challenge) => challenge.metadata.track === trackMetadata.slug,
-  );
+  const trackChallenges = challenges
+    .filter((challenge) => challenge.metadata.track === trackMetadata.slug)
+    .sort(
+      (challengeA, challengeB) =>
+        challengeA.metadata.order - challengeB.metadata.order,
+    );
   const points = sumBy(
     trackChallenges,
     (challenge) => challenge.metadata.points,

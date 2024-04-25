@@ -2,6 +2,7 @@
   "createdAt": "2024-04-17",
   "difficulty": "starter",
   "track": "marketing",
+  "order": 18,
   "access": "free-plus",
   "baseCredits": 2,
   "pointsBase": 500,

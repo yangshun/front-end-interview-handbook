@@ -111,6 +111,11 @@ export const ProjectsChallengeMetadataDocument = defineDocumentType(() => ({
       required: true,
       type: 'list',
     },
+    order: {
+      description: 'Order to be displayed within a track',
+      required: true,
+      type: 'number',
+    },
     pointsBase: {
       description: 'Reputation gained by completing the challenge',
       required: true,

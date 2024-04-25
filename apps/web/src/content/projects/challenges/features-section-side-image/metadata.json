@@ -2,6 +2,7 @@
   "createdAt": "2024-04-17",
   "difficulty": "starter",
   "track": "marketing",
+  "order": 6,
   "access": "free-plus",
   "pointsBase": 500,
   "pointsForSkillGroups": {
