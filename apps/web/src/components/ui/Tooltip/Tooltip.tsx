@@ -31,6 +31,7 @@ type Props = Readonly<{
   label?: ReactNode;
   side?: TooltipContentSide;
   size?: TooltipSize;
+  triggerClassName?: string;
   triggerType?: 'button' | 'submit';
 }>;
 
@@ -39,6 +40,7 @@ export default function Tooltip({
   asChild = false,
   children,
   className,
+  triggerClassName,
   invert = false,
   label,
   side = 'top',
@@ -55,7 +57,10 @@ export default function Tooltip({
   return (
     <TooltipPrimitive.Provider>
       <TooltipPrimitive.Root>
-        <TooltipPrimitive.Trigger asChild={asChild} type={triggerType}>
+        <TooltipPrimitive.Trigger
+          asChild={asChild}
+          className={triggerClassName}
+          type={triggerType}>
           {children}
         </TooltipPrimitive.Trigger>
         <TooltipPrimitive.Portal>
