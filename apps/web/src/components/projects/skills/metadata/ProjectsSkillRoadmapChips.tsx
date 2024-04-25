@@ -81,9 +81,9 @@ export default function ProjectsSkillRoadmapChips({ skills, ...props }: Props) {
 
   skillsRoadmapConfig.forEach((levelItem) => {
     levelItem.items.forEach((parentSkillItem) => {
-      const skillsWithinParent = parentSkillItem.items.filter((skillKey) =>
-        skills.includes(skillKey),
-      );
+      const skillsWithinParent = parentSkillItem.items
+        .map(({ key }) => key)
+        .filter((skillKey) => skills.includes(skillKey));
 
       if (skillsWithinParent.length > 0) {
         addedRoadmapSkills.push({

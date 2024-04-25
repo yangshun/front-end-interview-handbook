@@ -5,7 +5,6 @@ import FilterButton from '~/components/common/FilterButton';
 import Text from '~/components/ui/Text';
 import { themeIconColor } from '~/components/ui/theme';
 
-import { projectsSkillLabel } from '../data/ProjectsSkillListData';
 import { skillsRoadmapConfig } from '../data/ProjectsSkillRoadmapConfigData';
 import type { ProjectsSkillKey } from '../types';
 
@@ -54,19 +53,19 @@ export default function ProjectsSkillRoadmapSelection({
                     color="secondary"
                     size="body3"
                     weight="bold">
-                    {parentSkillItem.key}
+                    {parentSkillItem.title}
                   </Text>
                 </div>
                 <div className="relative ml-5 inline-flex self-start">
                   <div className="flex gap-4">
-                    {parentSkillItem.items.map((skillKey) => {
+                    {parentSkillItem.items.map(({ key: skillKey, label }) => {
                       const selected = value.includes(skillKey);
 
                       return (
                         <FilterButton
                           key={skillKey}
                           icon={selected ? RiCheckFill : RiAddLine}
-                          label={projectsSkillLabel(skillKey)}
+                          label={label}
                           purpose="button"
                           selected={selected}
                           onClick={() => {

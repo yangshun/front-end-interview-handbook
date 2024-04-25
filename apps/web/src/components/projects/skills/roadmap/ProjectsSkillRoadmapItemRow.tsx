@@ -18,7 +18,6 @@ import {
   themeTextSubtleColor,
 } from '~/components/ui/theme';
 
-import { projectsSkillLabel } from '../data/ProjectsSkillListData';
 import type { ProjectsSkillSummaryItem } from '../types';
 
 type Props = Readonly<{
@@ -39,9 +38,6 @@ export default function ProjectsSkillRoadmapItemRow({
   userProfile,
 }: Props) {
   const intl = useIntl();
-
-  const href = `/projects/skills/${skillSummary.key}`;
-  const label = projectsSkillLabel(skillSummary.key);
 
   return (
     <div
@@ -83,17 +79,17 @@ export default function ProjectsSkillRoadmapItemRow({
           {isViewingOwnProfile ? (
             <Anchor
               className="relative z-[1]"
-              href={href}
+              href={skillSummary.href}
               scroll={false}
               scrollToTop={false}
               variant="flat">
               <Text size="body2" weight="medium">
-                {label}
+                {skillSummary.label}
               </Text>
             </Anchor>
           ) : (
             <Text size="body2" weight="medium">
-              {label}
+              {skillSummary.label}
             </Text>
           )}
         </div>
@@ -162,9 +158,9 @@ export default function ProjectsSkillRoadmapItemRow({
             )}
           />
           <Anchor
-            aria-label={label}
+            aria-label={skillSummary.label}
             className="absolute inset-0"
-            href={href}
+            href={skillSummary.href}
             scroll={false}
             scrollToTop={false}
           />

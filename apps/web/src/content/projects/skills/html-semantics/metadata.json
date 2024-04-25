@@ -1,7 +1,11 @@
 {
   "challenges": [
-    "order-confirmation",
-    "pricing-section",
-    "product-details-page"
+    "navbar-component",
+    "footer-section-simple",
+    "hero-section-feature-bullets",
+    "pricing-section-single",
+    "pricing-section-tiers",
+    "product-reviews",
+    "faq-section"
   ]
 }

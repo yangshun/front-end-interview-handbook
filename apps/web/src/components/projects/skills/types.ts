@@ -22,20 +22,22 @@ export type ProjectsSkillRoadmapConfig =
 // Skills roadmap page/section.
 export type ProjectsSkillSummaryItem = Readonly<{
   completedChallenges: number;
+  href: string;
   inProgressChallenges: number;
   key: ProjectsSkillKey;
+  label: string;
   points: number;
   totalChallenges: number;
 }>;
 
 export type ProjectsSkillRoadmapSectionParent = Readonly<{
   completedChallenges: number;
-  description: string;
   items: ReadonlyArray<ProjectsSkillSummaryItem>;
   key: ProjectsSkillGroupType;
   points: number;
   premium: boolean;
   tagClassname: string;
+  title: string;
   totalChallenges: number;
 }>;
 

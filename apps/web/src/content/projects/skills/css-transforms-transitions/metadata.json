@@ -1,0 +1,11 @@
+{
+  "challenges": [
+    "navbar-component",
+    "contact-section",
+    "logo-marquee-section",
+    "faq-section",
+    "product-specifications-section",
+    "product-reviews",
+    "product-listing-section"
+  ]
+}

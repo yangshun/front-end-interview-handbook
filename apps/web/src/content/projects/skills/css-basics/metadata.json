@@ -1,3 +1,10 @@
 {
-  "challenges": ["newsletter-section", "contact-section", "order-confirmation"]
+  "challenges": [
+    "testimonial-card",
+    "blog-card",
+    "profile-card",
+    "badge-component",
+    "hero-section-feature-bullets",
+    "statistics-section"
+  ]
 }

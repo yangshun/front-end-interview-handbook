@@ -20,7 +20,7 @@ export default function ProjectsSkillRoadmapParentHeading({
 }: Props) {
   const intl = useIntl();
 
-  const { description, points, premium, totalChallenges, completedChallenges } =
+  const { title, points, premium, totalChallenges, completedChallenges } =
     group;
   const completedAll =
     totalChallenges === completedChallenges && completedChallenges > 0;
@@ -30,7 +30,7 @@ export default function ProjectsSkillRoadmapParentHeading({
       <div className="flex flex-row flex-wrap justify-between gap-2">
         <div className="flex items-center gap-3">
           <Text size="body1" weight="medium">
-            {group.key}
+            {title}
           </Text>
           {premium && (
             <ProjectsPremiumBadge size="sm" unlocked={isViewerPremium} />
@@ -64,9 +64,6 @@ export default function ProjectsSkillRoadmapParentHeading({
           </div>
         )}
       </div>
-      <Text color="secondary" size="body3">
-        {description}
-      </Text>
     </div>
   );
 }

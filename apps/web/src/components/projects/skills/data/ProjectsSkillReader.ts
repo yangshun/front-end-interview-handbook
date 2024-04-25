@@ -34,7 +34,7 @@ export async function fetchProjectsSkillsRoadmapSectionData(
   return skillsRoadmapConfig.map((difficulty) => ({
     ...difficulty,
     items: difficulty.items.map((parentSkillItem) => {
-      const items = parentSkillItem.items.map((skillKey) => {
+      const items = parentSkillItem.items.map(({ key: skillKey, label }) => {
         const { skillItem } = readProjectsSkillItem(skillKey);
         const skillRoadmapChallengeSlugs =
           skillItem.metadata != null ? skillItem.metadata.challenges : [];
@@ -77,9 +77,10 @@ export async function fetchProjectsSkillsRoadmapSectionData(
 
         return {
           completedChallenges: skillCompletedChallengesSet.size,
+          href: `/projects/skills/${skillKey}`,
           inProgressChallenges: skillInProgressChallengesSet.size,
           key: skillKey,
-          name: skillItem.info?.title || skillKey,
+          label: skillItem.info?.title || label,
           points: skillReputation,
           totalChallenges: skillTotalChallenges,
         };
@@ -94,12 +95,12 @@ export async function fetchProjectsSkillsRoadmapSectionData(
 
       return {
         completedChallenges: totalCompletedChallenges,
-        description: parentSkillItem.description,
         items,
         key: parentSkillItem.key,
         points: totalReputation,
         premium: parentSkillItem.premium,
         tagClassname: parentSkillItem.tagClassname,
+        title: parentSkillItem.title,
         totalChallenges,
       };
     }),

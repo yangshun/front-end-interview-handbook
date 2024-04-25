@@ -1,0 +1,11 @@
+{
+  "challenges": [
+    "hero-section-simple",
+    "features-section-grid",
+    "team-section",
+    "product-grid-section",
+    "shopping-cart-section",
+    "checkout-section",
+    "storefront-page"
+  ]
+}

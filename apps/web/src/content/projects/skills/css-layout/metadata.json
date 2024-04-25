@@ -1,8 +1,11 @@
 {
   "challenges": [
-    "contact-section",
-    "pricing-section",
-    "product-listing-page",
-    "product-details-page"
+    "hero-section-simple",
+    "testimonials-section",
+    "features-section-grid",
+    "404-section",
+    "footer-multi-column",
+    "product-specifications-section",
+    "order-success-section"
   ]
 }

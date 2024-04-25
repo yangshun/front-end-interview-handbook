@@ -1,0 +1,10 @@
+{
+  "challenges": [
+    "navbar-component",
+    "newsletter-section",
+    "contact-section",
+    "faq-section",
+    "cookie-consent",
+    "product-reviews"
+  ]
+}

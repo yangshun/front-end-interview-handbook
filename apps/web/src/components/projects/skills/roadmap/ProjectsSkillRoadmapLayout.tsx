@@ -14,7 +14,10 @@ import Text, { textVariants } from '~/components/ui/Text';
 import { useI18nRouter } from '~/next-i18nostic/src';
 
 import { projectsSkillLabel } from '../data/ProjectsSkillListData';
-import { projectsSkillDetermineParentSkill } from '../data/ProjectsSkillUtils';
+import {
+  projectsSkillDetermineParentSkill,
+  projectsSkillFindChildSkill,
+} from '../data/ProjectsSkillUtils';
 import type { ProjectsSkillRoadmapSectionData } from '../types';
 
 type Props = Readonly<{
@@ -82,9 +85,7 @@ export default function ProjectsSkillRoadmapLayout({
 
                 return (
                   <>
-                    <Text color="subtle">
-                      {projectsSkillLabel(parentSkill.key)}
-                    </Text>
+                    <Text color="subtle">{parentSkill.title}</Text>
                     <RiArrowRightSLine
                       aria-hidden={true}
                       className={textVariants({
@@ -95,7 +96,9 @@ export default function ProjectsSkillRoadmapLayout({
                   </>
                 );
               })()}
-              <Text color="default">{projectsSkillLabel(segment!)}</Text>
+              <Text color="default">
+                {projectsSkillFindChildSkill(segment!)?.label}
+              </Text>
             </div>
           }
           onClose={() => {

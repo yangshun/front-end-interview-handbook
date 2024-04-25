@@ -4,9 +4,25 @@ import type { ProjectsSkillKey } from '../types';
 export function projectsSkillDetermineParentSkill(skillKey: ProjectsSkillKey) {
   for (const category of skillsRoadmapConfig) {
     for (const parentSkill of category.items) {
-      // TODO(projects): improve typing.
-      if ((parentSkill.items as ReadonlyArray<string>).includes(skillKey)) {
+      if (
+        // TODO(projects): improve typing.
+        (
+          parentSkill.items.map(({ key }) => key) as ReadonlyArray<string>
+        ).includes(skillKey)
+      ) {
         return parentSkill;
+      }
+    }
+  }
+}
+
+export function projectsSkillFindChildSkill(skillKey: ProjectsSkillKey) {
+  for (const category of skillsRoadmapConfig) {
+    for (const parentSkill of category.items) {
+      for (const childSkill of parentSkill.items) {
+        if (childSkill.key === skillKey) {
+          return childSkill;
+        }
       }
     }
   }
@@ -24,7 +40,7 @@ export function projectsSkillExtractParents(
 
   skillsRoadmapConfig.forEach((levelItem) => {
     levelItem.items.forEach((parentSkillItem) => {
-      parentSkillItem.items.forEach((skillKey) => {
+      parentSkillItem.items.forEach(({ key: skillKey }) => {
         if (
           skillsSet.has(skillKey) &&
           !parentSkillsSet.has(parentSkillItem.key)
