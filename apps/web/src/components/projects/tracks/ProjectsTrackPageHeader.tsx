@@ -55,32 +55,29 @@ export default function ProjectsTrackPageHeader({
         variant="tertiary"
       />
       <div className="flex flex-col gap-4">
-        <div className="flex items-center gap-6">
-          <div className="bg-red size-16 rounded-lg" />
-          <div className="flex flex-col gap-2">
-            <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
-              <Heading level="heading5">{title}</Heading>
-              {track.metadata.premium && (
-                <ProjectsPremiumBadge size="sm" unlocked={isViewerPremium} />
+        <div className="flex flex-col gap-2">
+          <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
+            <Heading level="heading5">{title}</Heading>
+            {track.metadata.premium && (
+              <ProjectsPremiumBadge size="sm" unlocked={isViewerPremium} />
+            )}
+            {showProgress &&
+              'completedCount' in props &&
+              'totalCount' in props &&
+              props.completedCount === props.totalCount && (
+                <ProjectsStatusBadgeCompleted entity="track" />
               )}
-              {showProgress &&
-                'completedCount' in props &&
-                'totalCount' in props &&
-                props.completedCount === props.totalCount && (
-                  <ProjectsStatusBadgeCompleted entity="track" />
-                )}
-            </div>
-            <div className="flex flex-wrap gap-x-4 gap-y-2">
-              <ProjectsChallengeReputationTag points={points} variant="flat" />
-              {showProgress &&
-                'completedCount' in props &&
-                'totalCount' in props && (
-                  <ProjectsChallengeProgressTag
-                    completed={props.completedCount}
-                    total={props.totalCount}
-                  />
-                )}
-            </div>
+          </div>
+          <div className="flex flex-wrap gap-x-4 gap-y-2">
+            <ProjectsChallengeReputationTag points={points} variant="flat" />
+            {showProgress &&
+              'completedCount' in props &&
+              'totalCount' in props && (
+                <ProjectsChallengeProgressTag
+                  completed={props.completedCount}
+                  total={props.totalCount}
+                />
+              )}
           </div>
         </div>
         <Text color="secondary" size="body2">
