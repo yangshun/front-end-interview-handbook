@@ -1,6 +1,8 @@
 {
   "challenges": [
     "navbar-component",
+    "text-input-component",
+    "textarea-component",
     "newsletter-section",
     "contact-section",
     "faq-section",

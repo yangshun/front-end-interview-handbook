@@ -1,0 +1,45 @@
+The textarea component should support the following features:
+
+- **States**: Default, Error, Disabled, Character limit exceeded.
+- **Character count**: Displays a configurable character count.
+- **Error message**: Configurable help text or error message.
+
+### Updating character count
+
+JavaScript is required for updating the character count in real-time. An event listener (such as `'input'`) can be added to the `<textarea>` to listen for changes in the value and the counter is updated in real-time.
+
+```html
+<textarea id="my-textarea"></textarea>
+<span id="my-textarea-count">0</span>
+<script>
+  document.querySelector('#my-textarea').addEventListener('input', (event) => {
+    document.querySelector('#my-textarea-count').textContent =
+      event.target.value.length;
+  });
+</script>
+```
+
+### Accessibility
+
+1. Link `<label>` with `<textarea>` with `htmlFor` and `id`.
+2. Link hint text / error message to `<textarea>` with `aria-described-by`.
+
+```html
+<label for="description-field">Description</label>
+<textarea aria-describedby="description-error" id="description-field">
+  This is a description.
+</textarea>
+<div id="description-error">This is an error message.</div>
+```
+
+Refer to our official "Building good HTML forms" guide for more detailed content.
+
+### Focus state shadow
+
+Creating the focus state involves using a `box-shadow`:
+
+```css
+.textarea:focus {
+  box-shadow: ...;
+}
+```

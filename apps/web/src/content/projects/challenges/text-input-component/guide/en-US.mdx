@@ -1,0 +1,84 @@
+The text input component should support the following features:
+
+- **States**: Default, Focused, Error, Disabled.
+- **Icons**: Icons can either be on the left, right, or both.
+- **Help text / error message**: Configurable help text or error message.
+
+Note that in reality, depending on the product, you might need to support different size configurations as well.
+
+### Rendering the icon
+
+There are many ways to use an icon on the page and we do not enforce a specific approach. All challenge icons come from [Remix Icon](https://remixicon.com/) and the easiest way to use it within vanilla HTML is to copy and paste the SVGs from the website:
+
+```jsx
+<button>
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    fill="currentColor">
+    <path d="M12.0006 18.26L4.94715 22.2082L6.52248 14.2799L0.587891 8.7918L8.61493 7.84006L12.0006 0.5L15.3862 7.84006L23.4132 8.7918L17.4787 14.2799L19.054 22.2082L12.0006 18.26ZM12.0006 15.968L16.2473 18.3451L15.2988 13.5717L18.8719 10.2674L14.039 9.69434L12.0006 5.27502L9.96214 9.69434L5.12921 10.2674L8.70231 13.5717L7.75383 18.3451L12.0006 15.968Z"></path>
+  </svg>
+  Label
+</button>
+```
+
+### Icon placement
+
+Rendering the icons within the `<input>` is possibly the trickiest part of the challenge. We can't render `<svg>`s within an `<input>` because it does not accept any children, but we can play with CSS positioning to achieve the desired visual result.
+
+Note that:
+
+1. We're only using inline styles here to co-locate the HTML and CSS for better readability. You should not be using inline styles in your code.
+1. Numerical values may not be the same as specified in Figma.
+
+#### Approach 1: Render `<div>` of the same size above the input to house the icon
+
+```html
+<div style="position: relative">
+  <!-- This element is entirely above the <input> and renders the SVG icon within. -->
+  <div
+    class="position: absolute; inset: 0; pointer-events: none; padding-left: 4px">
+    <svg>...</svg>
+  </div>
+  <!-- Add some spacing on the left to accommodate the icon. -->
+  <input class="padding-left: 20px" />
+</div>
+```
+
+#### Approach 2: Wrapper `<div>` that looks like an input with border and focus rings
+
+```html
+<!-- Display border on container and add focus-within styles. -->
+<div style="display: flex; column-gap: 12px; border: 1px solid #eee;">
+  <svg>...</svg>
+  <!-- Remove any default styling from input since the
+    container is meant to be styled like the input -->
+  <input class="padding-left: 20px" />
+</div>
+```
+
+In approach 2, the `<input>`'s size is actually smaller than how it looks visual, so there will be parts of the container where clicking on them will not focus on the `<input>`, which is not ideal. Therefore, approach 1 is the recommended approach.
+
+### Accessibility
+
+1. Link `<label>` with `<input>` with `htmlFor` and `id`.
+2. Link hint text / error message to `<input>` with `aria-described-by`.
+
+```html
+<label for="password-input">Password</label>
+<input aria-describedby="password-hint" id="password-input" type="password" />
+<div id="password-hint">Your password must be at least 8 characters long.</div>
+```
+
+Refer to our official "Building good HTML forms" guide for more detailed content.
+
+### Focus state shadow
+
+Creating the focus state involves using a `box-shadow`:
+
+```css
+/* Or whichever element that needs the focus state. */
+.input:focus {
+  box-shadow: ...;
+}
+```
