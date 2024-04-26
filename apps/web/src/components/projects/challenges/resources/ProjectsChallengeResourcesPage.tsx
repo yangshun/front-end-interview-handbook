@@ -152,6 +152,7 @@ export default function ProjectsChallengeResourcesPage({
               <ProjectsChallengeGuideSection
                 challengeGuide={challengeGuide}
                 commonGuides={commonGuides}
+                relevantGuides={challenge.metadata.guides}
                 slug={challenge.metadata.slug}
                 viewerGuidesAccess={viewerAccess.viewGuides}
                 viewerProjectsProfile={viewerProjectsProfile}

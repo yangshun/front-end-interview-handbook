@@ -3,6 +3,7 @@
   "difficulty": "starter",
   "track": "marketing",
   "order": 18,
+  "guides": ["layout-grid"],
   "access": "free-plus",
   "baseCredits": 2,
   "pointsBase": 500,

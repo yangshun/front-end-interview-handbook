@@ -3,6 +3,7 @@
   "difficulty": "starter",
   "track": "marketing",
   "order": 17,
+  "guides": [],
   "access": "free",
   "pointsBase": 500,
   "pointsForSkillGroups": {

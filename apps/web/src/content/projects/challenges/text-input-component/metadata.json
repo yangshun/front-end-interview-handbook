@@ -3,6 +3,7 @@
   "difficulty": "starter",
   "track": "design-system",
   "order": 3,
+  "guides": ["forms"],
   "access": "free",
   "pointsBase": 500,
   "pointsForSkillGroups": {

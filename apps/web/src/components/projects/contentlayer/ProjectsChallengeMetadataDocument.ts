@@ -111,6 +111,14 @@ export const ProjectsChallengeMetadataDocument = defineDocumentType(() => ({
       required: true,
       type: 'list',
     },
+    guides: {
+      of: {
+        options: ['figma', 'git', 'forms', 'icons', 'layout-grid', 'vs-code'],
+        type: 'enum',
+      },
+      required: true,
+      type: 'list',
+    },
     order: {
       description: 'Order to be displayed within a track',
       required: true,

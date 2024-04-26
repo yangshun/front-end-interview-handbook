@@ -3,6 +3,7 @@
   "difficulty": "starter",
   "track": "marketing",
   "order": 20,
+  "guides": ["layout-grid", "icons"],
   "access": "free-plus",
   "baseCredits": 0,
   "preReqs": [

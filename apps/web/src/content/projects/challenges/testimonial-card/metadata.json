@@ -3,6 +3,7 @@
   "difficulty": "starter",
   "track": "marketing",
   "order": 1,
+  "guides": ["figma", "vs-code", "git"],
   "access": "free",
   "pointsBase": 500,
   "pointsForSkillGroups": {

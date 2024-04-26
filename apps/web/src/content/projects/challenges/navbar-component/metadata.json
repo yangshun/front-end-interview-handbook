@@ -3,6 +3,7 @@
   "difficulty": "starter",
   "track": "design-system",
   "order": 5,
+  "guides": ["figma", "icons", "layout-grid"],
   "access": "free",
   "pointsBase": 500,
   "pointsForSkillGroups": {

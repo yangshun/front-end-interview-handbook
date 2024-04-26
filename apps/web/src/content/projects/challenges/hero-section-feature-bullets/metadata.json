@@ -3,6 +3,7 @@
   "difficulty": "starter",
   "track": "marketing",
   "order": 5,
+  "guides": ["layout-grid", "icons"],
   "access": "free-plus",
   "pointsBase": 500,
   "pointsForSkillGroups": {

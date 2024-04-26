@@ -23,6 +23,7 @@ import type { ProjectsViewerProjectsProfile } from '../../types';
 type Props = Readonly<{
   challengeGuide: ProjectsChallengeGuide | null;
   commonGuides: ReadonlyArray<ProjectsCommonGuide>;
+  relevantGuides: ReadonlyArray<string>;
   slug: string;
   viewerGuidesAccess: ProjectsPremiumAccessControlType;
   viewerProjectsProfile: ProjectsViewerProjectsProfile | null;
@@ -34,6 +35,7 @@ export default function ProjectsChallengeGuideSection({
   challengeGuide,
   commonGuides,
   slug,
+  relevantGuides,
   viewerGuidesAccess,
   viewerProjectsProfile,
 }: Props) {
@@ -50,9 +52,9 @@ export default function ProjectsChallengeGuideSection({
     viewerGuidesAccess !== 'UNLOCKED' &&
     viewerGuidesAccess !== 'ACCESSIBLE_TO_EVERYONE';
 
-  const challengeGuides = challengeGuide
-    ? [
-        {
+  const allRelevantGuides = [
+    challengeGuide
+      ? {
           slug: CHALLENGE_GUIDE_SLUG,
           title: intl.formatMessage({
             defaultMessage: 'Challenge guide',
@@ -60,59 +62,43 @@ export default function ProjectsChallengeGuideSection({
             id: 'VeRWF3',
           }),
           ...challengeGuide,
-        },
-      ]
-    : [];
-  const allGuides = [...challengeGuides, ...commonGuides];
+        }
+      : null,
+    ...relevantGuides.map((guideSlug) =>
+      commonGuides.find(
+        (commonGuideItem) => commonGuideItem.slug === guideSlug,
+      ),
+    ),
+  ].flatMap((guide) => (guide != null ? [guide] : []));
+
+  const commonGuidesWithoutRelevantGuides = commonGuides.filter(
+    (commonGuideItem) => !relevantGuides.includes(commonGuideItem.slug),
+  );
+  const allGuides = [
+    ...allRelevantGuides,
+    ...commonGuidesWithoutRelevantGuides,
+  ];
   const projectGuide =
     allGuides.find((guide) => guide.slug === activeGuideSlug) ||
     commonGuides[0];
 
-  // TODO(projects):  Remove hardcoded resources links
   const sidebarNavigation = [
-    challengeGuide
+    allRelevantGuides.length > 0
       ? {
-          items: [
-            {
-              slug: CHALLENGE_GUIDE_SLUG,
-              title: intl.formatMessage({
-                defaultMessage: 'Challenge guide',
-                description: 'Project guides category title',
-                id: 'VeRWF3',
-              }),
-              ...challengeGuide,
-            },
-          ],
+          items: allRelevantGuides,
           title: intl.formatMessage({
-            defaultMessage: 'Guides',
+            defaultMessage: 'Relevant guides',
             description: 'Project guides category title',
-            id: '8Jk9Qv',
+            id: '9/1BPE',
           }),
         }
       : null,
     {
-      items: commonGuides,
+      items: commonGuidesWithoutRelevantGuides,
       title: intl.formatMessage({
         defaultMessage: 'General guides',
         description: 'Project guides category title',
         id: 'q6xeLh',
-      }),
-    },
-    {
-      items: [
-        {
-          href: 'https://figma.com',
-          title: 'How to use Figma for development',
-        },
-        {
-          href: 'https://greatfrontend.com',
-          title: 'How to use DevTools for development',
-        },
-      ],
-      title: intl.formatMessage({
-        defaultMessage: 'External resources',
-        description: 'Project curated resources title',
-        id: 'nep7MF',
       }),
     },
   ].flatMap((category) => (category != null ? [category] : []));
@@ -184,7 +170,7 @@ export default function ProjectsChallengeGuideSection({
           projectGuide?.title && (
             <Heading level="heading4">{projectGuide?.title}</Heading>
           )}
-        {projectGuide != null &&
+        {projectGuide?.body != null &&
           (showPaywall ? (
             <ProjectsChallengeGuidePaywall
               slug={slug}

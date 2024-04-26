@@ -3,6 +3,7 @@
   "difficulty": "starter",
   "track": "e-commerce",
   "order": 3,
+  "guides": ["layout-grid"],
   "access": "free",
   "pointsBase": 500,
   "pointsForSkillGroups": {
