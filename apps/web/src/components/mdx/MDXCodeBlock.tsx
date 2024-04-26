@@ -47,20 +47,30 @@ function CopyButton({ contents }: Readonly<{ contents: string }>) {
   );
 }
 
-function convertContentToCode(children: React.ReactNode): string | null {
+function convertContentToCode(
+  children: React.ReactNode,
+): Readonly<{ code: string; language: Language | null }> | null {
   if (children == null) {
     return null;
   }
 
   if (typeof children === 'string') {
-    return children;
+    return { code: children, language: null };
   }
 
   if (
     typeof children === 'object' &&
+    // TODO: render <code> element as well.
     (children as ReactElement).type === 'code'
   ) {
-    return (children as ReactElement).props.children;
+    const { props } = children as ReactElement;
+
+    return {
+      code: props.children,
+      // MDX will parse backtick blocks as `language-jsx`,
+      // so this is to extract the language.
+      language: props.className.split('-')[1],
+    };
   }
 
   return null;
@@ -75,26 +85,23 @@ export default function MDXCodeBlock({
   language = 'jsx',
   languages = {},
 }: Props): JSX.Element {
-  let lang: keyof LanguagesCode = 'jsx';
   const allLanguages: Partial<Record<Language, string>> = {};
 
   if (language && children) {
-    const codeString = convertContentToCode(children);
+    const maybeCode = convertContentToCode(children);
 
-    if (codeString != null) {
-      allLanguages[language] = codeString;
+    if (maybeCode != null) {
+      allLanguages[maybeCode.language ?? language] = maybeCode.code;
     }
   }
 
-  for (lang in languages) {
-    if (Object.prototype.hasOwnProperty.call(languages, lang)) {
-      const codeString = convertContentToCode(languages[lang]);
+  Object.entries(languages).map(([lang, content]) => {
+    const maybeCode = convertContentToCode(content);
 
-      if (codeString != null) {
-        allLanguages[lang] = codeString;
-      }
+    if (maybeCode != null) {
+      allLanguages[maybeCode.language ?? (lang as Language)] = maybeCode.code;
     }
-  }
+  });
 
   if (Object.keys(allLanguages).length === 0) {
     // eslint-disable-next-line react/jsx-no-useless-fragment
@@ -137,7 +144,7 @@ export default function MDXCodeBlock({
         <Highlight
           {...defaultProps}
           code={selectedCode.trim()}
-          language={lang}
+          language={selectedLanguage}
           theme={codeTheme}>
           {({ className, style, tokens, getLineProps, getTokenProps }) => (
             <pre className={className} style={style}>
