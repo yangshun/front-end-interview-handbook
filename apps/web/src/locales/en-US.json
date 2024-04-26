@@ -1155,10 +1155,6 @@
     "defaultMessage": "Created: Newest to oldest",
     "description": "Sorting option for discussions comment - sort by created"
   },
-  "8Jk9Qv": {
-    "defaultMessage": "Guides",
-    "description": "Project guides category title"
-  },
   "8KFYWs": {
     "defaultMessage": "Intro to Quiz Questions",
     "description": "Introduction to front end quiz questions"
@@ -1270,6 +1266,10 @@
   "9//mtm": {
     "defaultMessage": "You may be interested",
     "description": "Title for you may be interested section on Projects challenge submission page"
+  },
+  "9/1BPE": {
+    "defaultMessage": "Relevant guides",
+    "description": "Project guides category title"
   },
   "918wg5": {
     "defaultMessage": "View LinkedIn profile",
@@ -6326,10 +6326,6 @@
   "nai6YT": {
     "defaultMessage": "Amazon logo",
     "description": "Amazon company logo"
-  },
-  "nep7MF": {
-    "defaultMessage": "External resources",
-    "description": "Project curated resources title"
   },
   "nepkqj": {
     "defaultMessage": "Cancel",
