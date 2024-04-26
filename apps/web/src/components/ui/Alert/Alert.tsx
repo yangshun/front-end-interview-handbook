@@ -18,7 +18,7 @@ import {
 
 import Heading from '../Heading';
 import Section from '../Heading/HeadingContext';
-import Text from '../Text';
+import Text, { textVariants } from '../Text';
 
 type AlertVariant =
   | 'danger'
@@ -29,6 +29,7 @@ type AlertVariant =
   | 'warning';
 
 type Props = Readonly<{
+  bodySize?: React.ComponentProps<typeof Text>['size'];
   children: ReactNode;
   icon?: (props: React.ComponentProps<'svg'>) => JSX.Element;
   title?: string;
@@ -89,6 +90,7 @@ const classes: Record<
 
 export default function Alert({
   children,
+  bodySize = 'body2',
   icon: IconProp,
   title,
   variant,
@@ -119,14 +121,19 @@ export default function Alert({
       <div className="grid gap-y-1">
         {title && (
           <Heading
-            className={clsx('text-base font-semibold', titleClass)}
+            className={textVariants({
+              className: titleClass,
+              color: 'inherit',
+              size: bodySize,
+              weight: 'bold',
+            })}
             color="custom"
             level="custom">
             {title}
           </Heading>
         )}
         <Section>
-          <Text className="block" color="secondary" size="body1">
+          <Text className="block" color="secondary" size={bodySize}>
             {children}
           </Text>
         </Section>
