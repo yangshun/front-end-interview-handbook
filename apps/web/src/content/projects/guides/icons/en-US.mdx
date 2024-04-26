@@ -1,0 +1,93 @@
+---
+title: Displaying icons
+---
+
+Icons appear frequently on digital user interfaces and can be seen in a good amount of GreatFrontEnd Projects challenges.
+
+In this guide, we will introduce some popular icon sets, ways to use icon on the web, and which you approaches you should take.
+
+### Icon sets
+
+The icons in GreatFrontEnd's challenges originate from [Remix Icon](https://remixicon.com/) which boasts nearly 3000 icons with filled and line styles. Some other good and popular ones include:
+
+1. **[Font Awesome](https://fontawesome.com/)**: One of the most popular icon libraries, FontAwesome offers a comprehensive collection of icons available in different styles (solid, regular, light, and brands). It's easy to use with CSS classes and supports both a free and a pro version.
+2. **[Material Icons](https://fonts.google.com/icons)**: Developed by Google as part of the Material Design framework, Material Icons feature a minimalist and clean design that fits well with modern user interfaces. They are freely available and integrate well with Material Design components.
+3. **[Ionicons](https://ionic.io/ionicons)**: Designed for use in Ionic Framework but suitable for any web projects, Ionicons provide a set of high-quality icons for both iOS and Android platforms, offering a cohesive look across different device types.
+4. **[Bootstrap Icons](https://icons.getbootstrap.com/)**: Created for Bootstrap, one of the most popular CSS frameworks, these icons are designed to complement the look and feel of Bootstrap components but can be used independently in any web project.
+5. **[Feather Icons](https://feathericons.com/)**: Known for their simplicity and openness, Feather Icons are a collection of beautifully simple and customizable open-source icons.
+6. **[Boxicons](https://boxicons.com/)**: A simple vector icons set carefully crafted for designers and developers to use in their digital products. It provides icons in both line and solid versions.
+7. **[Lucide](https://lucide.dev/)**: Lucide is a community-driven fork of Feather Icons, offering a collection of finely crafted, open-source icons that are easily customizable and scalable.
+
+You're free to use other icon sets that you like better, just be aware that the screenshot comparisons might not match exactly (which is entirely fine!).
+
+### Icon display approaches
+
+Displaying icons on the web can be accomplished through various methods, each suitable for different needs and scenarios. Most of the recommended icon sets above support multiple usage approaches.
+
+#### Scalable Vector Graphics (SVG)
+
+SVGs are widely used for icons because they are scalable without loss of quality, making them ideal for high-resolution images. They can be styled and customized using CSS and can be included directly in your HTML, loaded as an external file, or embedded as background images.
+
+```jsx
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+  <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path>
+</svg>
+```
+
+#### Icon libraries as components
+
+Modern frontend frameworks often offer icon components as part of their library systems, such as Material UI for React, which provides components for icons that can be imported and used directly in your project. If you are building your challenges with React, we recommend using [React Icons](https://react-icons.github.io/react-icons/), which gives you convenient access to over 20 different icon sets.
+
+```jsx
+import { IconName } from 'react-icons/ri';
+
+<IconName className="..." />;
+```
+
+#### Icon fonts
+
+These fonts provide scalable vector icons that can easily be styled with CSS. You include the font in your project, and then you use specific classes to add icons to your HTML elements.
+
+```html
+<link
+  href="https://fonts.googleapis.com/icon?family=Material+Icons"
+  rel="stylesheet" />
+<span class="material-icons">search</span>
+```
+
+Note that in most cases, this approach involves loading an entire font file just for a few icons and can be inefficient, especially if the font library is large and only a small subset of icons is used.
+
+#### Traditional `<img>` tag
+
+Traditional image files (PNG, JPG, GIF) can also be used for icons via the `<img>` tag. This method is straightforward but less flexible compared to SVGs or icon fonts, as images are not scalable without potential quality loss.
+
+That said, `<img src="...">` can also point to SVG files, which overcomes the quality loss issue but will require an extra network request by the page to fetch the SVG file.
+
+```html
+<!-- External PNG image file, non-scalable -->
+<img alt="Search" src="/path/to/icon.png" />
+
+<!-- External SVG image file, scalable -->
+<img alt="Search" src="/path/to/icon.svg" />
+```
+
+To use this method, you can save the SVG code as `.svg` files and point to them from your `<img>` tags.
+
+#### CSS sprites
+
+A sprite is a collection of images put into a single image. Using CSS, you can display the appropriate part of the image you need as an icon. This method is efficient because it reduces the number of HTTP requests for multiple icons. This method is not seen very much these days because:
+
+- **Improved HTTP protocol**: Modern HTTP protocols like HTTP/2 and HTTP/3 support multiplexing, which allows multiple files to be requested simultaneously over a single connection, diminishing the performance benefits of spritesheets.
+- **SVGs and icon fonts**: For icons and simple graphics, SVGs and icon fonts are often more flexible and easier to manage than spritesheets. SVGs scale better and can be manipulated with CSS and JavaScript.
+- **Caching granularity**: Spritesheets bundle multiple images together, which means a small change to one image requires re-downloading the entire spritesheet, potentially impacting cache efficiency.
+
+### Which approach to use?
+
+With so many approaches to choose from, which is the best approach to use?
+
+If you are using:
+
+- **Vanilla HTML**: We'd recommend the **SVG approach**. Simply copy and paste the SVGs into your HTML and you're done.
+- **JavaScript frameworks (e.g. React)**: We'd recommend the **icon component library approach**. It is convenient to use the icon just by `import`-ing it.
+
+That said, use any approach that is most suitable for your tech stack or preference.
