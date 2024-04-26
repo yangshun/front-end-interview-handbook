@@ -10,6 +10,7 @@ import { useIntl } from 'react-intl';
 import ArticlePagination from '~/components/common/ArticlePagination';
 import { SidebarLinksList } from '~/components/common/SidebarLinksList';
 import ProjectsChallengeMdxContent from '~/components/projects/common/ProjectsChallengeMdxContent';
+import Alert from '~/components/ui/Alert';
 import Button from '~/components/ui/Button';
 import Divider from '~/components/ui/Divider';
 import Heading from '~/components/ui/Heading';
@@ -177,7 +178,7 @@ export default function ProjectsChallengeGuideSection({
           />
         </SlideOut>
       </div>
-      <div className={clsx('flex flex-col gap-6', 'w-full pt-4')}>
+      <div className={clsx('flex flex-col gap-6', 'grow xl:w-0', 'pt-4')}>
         {projectGuide != null &&
           'title' in projectGuide &&
           projectGuide?.title && (
@@ -191,16 +192,24 @@ export default function ProjectsChallengeGuideSection({
               viewerProjectsProfile={viewerProjectsProfile}
             />
           ) : (
-            <div className="pt-2">
+            <>
+              {activeGuideSlug === CHALLENGE_GUIDE_SLUG && (
+                <Alert variant="info">
+                  These guides help you get started on the trickier portions of
+                  the challenge and are not meant to be exhaustive. However, do
+                  let us know what other guidance you'd benefit from and we can
+                  add it in.
+                </Alert>
+              )}
               <ProjectsChallengeMdxContent mdxCode={projectGuide.body.code} />
-            </div>
+              <Divider />
+              <ArticlePagination
+                activeItem={activeGuideSlug}
+                items={allGuides}
+                onSelect={onGuideChange}
+              />
+            </>
           ))}
-        <Divider />
-        <ArticlePagination
-          activeItem={activeGuideSlug}
-          items={allGuides}
-          onSelect={onGuideChange}
-        />
       </div>
     </div>
   );
