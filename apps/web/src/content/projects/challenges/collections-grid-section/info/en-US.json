@@ -1,7 +1,7 @@
 {
   "title": "Collections Grid Section",
-  "description": "TODO Replace Me",
+  "description": "Build a responsive dynamic section to display selected product collections",
   "specLabels": {
-    "main": "Collections Grid Section"
+    "main": "Collections grid section"
   }
 }

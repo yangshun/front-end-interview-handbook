@@ -1,6 +1,6 @@
 {
   "title": "Product Grid Section",
-  "description": "TODO Replace Me",
+  "description": "Build a responsive and modular section to display specified product listings",
   "specLabels": {
     "main": "Product grid section"
   }

@@ -1,57 +1,63 @@
-### Objective
+In this challenge, you will develop a fully functional and responsive product details section for a fictional e-commerce platform which will dynamically update according to the product shown and user's actions. The section will reflect selected product options, product review ratings, a gallery of product images, and include essential information like fabric care and shipping.
 
-The Product Details Page (PDP) is a crucial component of our e-commerce platform, providing users with comprehensive information about a specific product. The objective is to design an engaging and informative PDP that not only showcases the product but also facilitates a seamless and confident purchase decision.
+You will be provided with designs that have been adapted for mobile, tablet, and desktop interfaces. You will also be provided with data from a realistic, fictional e-commerce platform, pertaining to a sizable quantity of product listings.
 
-### Key Features
+To complete the functionality of the section, you will need to build the [Product reviews challenge](/projects/challenges/product-reviews) next (which is opened by clicking on the "See all reviews" button, or the "Be the first" button). You will also have to dynamically update the user's [Shopping cart](/projects/challenges/shopping-cart-section) when they click on "Add to Cart" in the [E-commerce website challenge](/projects/challenges/e-commerce-website).
 
-1. **Rich Product Imagery:**
+#### Implementation Requirements
 
-   - Display high-quality images of the product from various angles to give users a clear view of what they are purchasing.
+Your product details page implementation should dynamically adapt to reflect the specific product being displayed, effectively managing the unique characteristics presented by each of the 20 product listings in the data.
 
-2. **Detailed Product Description:**
+##### Price and discounts
 
-   - Provide a concise and informative product description that highlights key features, specifications, and benefits.
+- **List price vs Sale price**: If there is a platform discount available, display the discount label (different for percentage and cash discounts) and the list price with a strikethrough. Else, display only the list price.
 
-3. **Pricing Information:**
+##### Product reviews
 
-   - Clearly present the product's price, any applicable discounts, and transparent shipping costs.
+- If there are reviews, display the average rating and rating stars. Also provide a link for users to view all reviews, which includes the number of reviews that contributed to the rating.
+- If there are no reviews, display the rating as 0 and empty rating stars. Display the line "No reviews yet. Be the first" where "Be the first" is a link that leads to a future "Write a review" page.
 
-4. **Product Variations:**
+##### Product image gallery
 
-   - If applicable, allow users to select different variations (e.g., colors, sizes) with corresponding images and pricing.
+- **Display any number of images**: The gallery should dynamically display anywhere from one to two, three or more than 3 images. For more than 3 images, users should have the ability to scroll horizontally to view all available thumbnails.
+- **Selecting a thumbnail**: When a user clicks on an image thumbnail, that image should become the active display.
+- **Dynamically updated according to chosen color**: Since product images are assigned on the color variant level, the product images shown in the gallery will change according to the color option currently selected.
 
-5. **Customer Reviews and Ratings:**
+##### Product options
 
-   - Include a section for user reviews and ratings, providing social proof and insights into the product's performance.
+- **Color options**: Only type of product option with a special UI - displayed as "color swatches".
+  - Displays any one of the 10 possible colors according to the options available for the product listing.
+  - Has Normal, Hover, Focus, Selected, Out-of-stock and Selected: Out-of-stock states.
+  - By default, one of the colors should always be selected as an initial state once the user lands on the page.
+  - The user can only select one of the options at any one time.
+- **Other product options**: Currently, StyleNest only has size options apart from color options.
+  - For XS-XL sizes, we display according to the design, in Normal, Hover, Focus, Selected and Out-of-stock and Selected: Out-of-stock states.
+  - For 4-12 sizes (shoe sizes), we display those values with the same UI.
+  - By default, none of the sizes are selected.
+  - The user can only select one of the options at any one time.
+- **Determining availability**: As mentioned in the "Understanding the data" section, stock is recorded on the product variant level.
+  - Whenever a color is selected, check which "Available sizes" of the color are out-of-stock, and display those size options using the out-of-stock state.
+- **Selecting out-of-stock variants**: When an out-of-stock color or size is selected, it should disable the "-" and "+" steppers of the quantity modifier (stuck at 0), disable the "Add to Cart" button, and display a message "Sorry, this item is out of stock".
+- **Effect on product gallery**: Since product images are assigned on the color variant level, the product images shown in the gallery will change according to the color option currently selected.
 
-6. **Add to Cart and Checkout CTA:**
+##### Quantity modifier and add to cart
 
-   - Place a prominent "Add to Cart" button for quick and effortless product placement, and ensure a clear pathway to the checkout.
+- The "-" and "+" buttons control the quantity of the item to be added to the user's cart when the user clicks "Add to Cart".
+- Quantity can only be decreased till 1 ("-" will be disabled), and increased till the maximum stock of the item ("+" will be disabled, with an "Insufficient stock" tooltip).
 
-7. **Related Products:**
+##### Features accordion
 
-   - Showcase related or complementary products to encourage cross-selling and upselling.
+- Each product listing's features, as provided in the data, should be displayed in the accordion where users can tap to expand or collapse the information. This may include "Features", "Fabric & Care", "Shipping", and more.
 
-8. **Interactive Elements:**
-   - Integrate interactive elements, such as zoom functionality for images and 360-degree view options, enhancing the user's engagement.
+##### General requirements
 
-### Technological Considerations
-
-- **Responsive Design:**
-
-  - Ensure the PDP is optimized for various devices, maintaining a consistent and visually appealing experience.
-
-- **Fast Loading Times:**
-
-  - Optimize images and content to ensure fast loading times, preventing user frustration.
-
-- **Secure Payment Integration:**
-  - Integrate secure payment gateways to facilitate smooth and secure transactions.
-
-### Success Criteria
-
-- High conversion rates from the PDP to the checkout page.
-- Positive user feedback regarding the clarity and completeness of product information.
-- Increased average order value through effective cross-selling and upselling.
-
-This Product Details Page brief outlines the key features, technological considerations, and success criteria for creating an impactful and user-friendly product information experience on the e-commerce platform.
+- **Design fidelity**: Aim to follow the design as closely as possible. All elements in the design should be present, using the specified text color, font size, font weight, spacing, dimensions, etc.
+- **Button / link states**: Implement and style buttons / links to reflect different states - normal, hover, and disabled.
+- **Responsive behavior**:
+  - **Text size**: Should be responsive; font size is larger for wider devices, smaller for narrow devices.
+  - **Responsive layout**: The content should stack vertically on smaller screens and align horizontally as the screen width increases.
+- **Cross-browser compatibility**: Check that your solution works for major browsers including Chrome, Firefox, and Safari.
+- **[Stretch goal] Performance optimization**: Code for fast load times with efficient CSS and JavaScript techniques.
+- **[Stretch goal] Accessibility compliance**: Tabs should be fully keyboard navigable and screen-reader friendly, with appropriate ARIA roles and properties.
+- **Data handling**: You will be provided with data relevant to this project, including product listings available on the fictional e-commerce platform and their specific details.
+  - **[Stretch goal]** Database population: It is recommended to populate a database with the data for a more realistic implementation; however, client-side data handling is also acceptable.

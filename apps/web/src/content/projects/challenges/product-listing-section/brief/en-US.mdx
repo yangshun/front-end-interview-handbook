@@ -1,1 +1,53 @@
-TODO
+In this challenge, you will develop a responsive product listing section consisting of a product grid, a sidebar filtering side, sorting functionality, and pagination. You should develop it based on the supplied designs, which have been adapted for desktop, tablet and mobile views.
+
+You will be provided with data pertaining to all the product listings of a fictional e-commerce platform, StyleNest, to display in this section. To complete the functionality of this section, you should build the [Product Details Page](/projects/challenges/product-details-page) (to which each product listing card should redirect to). If you have already built the [Product Grid Section](/projects/challenges/product-grid-section) challenge, you may reuse the component here!
+
+### Implementation Requirements
+
+#### Product grid
+
+- **Product listing cards**: Implement and style product listing cards to reflect different states – normal, hover, and focus.
+- **Price to display**: For listings that feature multiple variants with potentially varying prices, the displayed price should be that of the lowest-priced option for default color.
+- **List price vs Sale price**: If there is a platform discount available,display the list price with a strikethrough. Otherwise, display only the list price.
+- **Color swatches on Product card**:
+  - **Color swatch states**: Implement states and display them dynamically according to the status of the variant's availability - Normal, Hover, Focus Selected, Out-of-stock and Selected: out-of-stock.
+  - **Effect of selecting a swatch: **Selecting a color swatch should change the product image to display the product in that color, if images in that color are available. The variant color label (displayed above the product name in each product listing card) should also be updated.
+- **Responsive behavior**: The content should stack vertically on smaller screens and align horizontally as the screen width increases.
+- **Empty state**: If the current filters applied results in an empty product list, then display the given empty state.
+
+#### Filtering sidebar
+
+- **Accordion**: User should be able to tap on each product filter to see the filtering options
+- **Product filter types**:
+  - **Checkbox groups**: Implement in Normal, Checked, Focus and Disabled states
+  - **Color swatches**: Works like a checkbox group. Clicking on a color swatch filter filters all product listings with that color. Implement in Normal, Hover, Focus and Selected states (no out-of-stock states)
+  - **Ratings**: Works like a checkbox group, except with rating star UI. Clicking on a rating filter filters all product listings with that rating. For e.g., clicking on 3 rating stars filters product listings with a rating of between 3 (inclusive) to 4 (exclusive). Implement in Normal, Hover, Focus and Selected states
+- **Filtering logic**:
+  - **Within the same filter type**: Union
+  - **Across filter types**: Intersection
+  - All options appear regardless of the filters already applied (in some e-commerce platforms, they remove the remaining options based on what's available after the existing filters are applied)
+  - Example: I chose the "Cozy Comfort" collection and XS size. In that case, I expect to see product listings with XS sizes available that are under the "Cozy Comfort" collection.
+- **"Clear All (X)"**:
+  - **Dynamic**: Link-button appears under the filters when any number of filters are applied. Link text should display the number of filters currently active e.g. "Clear All (5)", and disappear when filters are cleared.
+  - **Action**: When clicked, all filters should be cleared and the product listing page should revert back to view all products.
+- **Responsive behavior**: The filter sidebar should collapse into a "Filter" button on tablet and mobile breakpoints. Tapping this button/icon would slide out the filter options from the side.
+
+#### Sorting dropdown
+
+- **Dropdown chip**:
+  - **Triggered by secondary button**: Implement in Normal, Hover, Focus, Selected, Disabled
+  - **Dropdown values**: Implement in Normal, Hover, Focus, Selected
+- **Sort options**:
+  - "**Most popular**": Products with the most orders first
+  - "**Best rating**": Products with the highest rating first
+  - "**Newest**": Products with latest created date first
+  - "**Price: Low to high**": Products with the lowest prices first
+  - "**Price: High to low**": Products with the highest prices first
+  - **Note**: For sorting prices, since listings may feature multiple variants with potentially varying prices, for lowest first price sorts, the sorted price should be that of the lowest-priced variant for a product listing. For highest first price sorts, the sorted price should be that of the highest-priced variant for a product listing.
+
+#### General requirements
+
+- **Design fidelity**: Aim to follow the design as closely as possible. All elements in the design should be present, using the specified text color, font size, font weight, spacing, dimensions, etc.
+- **Cross-browser compatibility**: Check that your solution works for major browsers including Chrome, Firefox, and Safari.
+- **[Stretch goal] Performance optimization**: Code for fast load times with efficient CSS and JavaScript techniques.
+- **[Stretch goal] Accessibility and semantics**: Follow best practices for web accessibility, such as using semantic HTML and ARIA roles where necessary and using proper `alt` tags for images.

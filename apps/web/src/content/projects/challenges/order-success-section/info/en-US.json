@@ -1,6 +1,6 @@
 {
   "title": "Order Success Section",
-  "description": "TODO Replace Me",
+  "description": "Build a responsive order success page that appears after the customer completes a purchase transaction",
   "specLabels": {
     "main": "Order success section"
   }

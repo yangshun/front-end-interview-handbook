@@ -1,6 +1,6 @@
 {
   "title": "Product Details Section",
-  "description": "Provides users with comprehensive information about a specific product",
+  "description": "Build a responsive and dynamic product details section for displaying product information",
   "specLabels": {
     "main": "Product details section"
   }

@@ -1,1 +1,36 @@
-TODO
+In this challenge, you will build a multi-column footer that is consistent with the provided design across desktop, tablet, and mobile devices. The footer should include a section for newsletter registration, the company's catchphrase, navigation links for the website, connections to social media, and copyright details.
+
+If you have already built the [Newsletter Section](/projects/challenges/newsletter-section) challenge, you may reuse some of the components from that section here!
+
+### Implementation Requirements
+
+- **Design fidelity:** Aim to follow the design as closely as possible. All elements in the design should be present, using the specified text color, font size, font weight, spacing, dimensions, etc.
+- **Interactivity**:
+  - **Button / link states**: Implement and style buttons and links to reflect different states - normal, hover and focus.
+  - **Input field states**: Implement and style input fields to reflect different states - normal, focus filled, disabled, error, error filled, error focused
+- **Placeholders: **You may leave the redirection links empty for any unspecified buttons or links.
+
+#### Newsletter section
+
+- **Client-side validation:** Implement email validation on the client to catch errors before they reach the server, ensuring a smoother user experience.
+  - **Format check**: Validate that the email entered matches the standard email format (e.g., user@example.com), providing immediate feedback if the format is incorrect.
+  - **Required**: Ensure the email field is not left blank. If the field is empty upon submission attempt.
+  - **[Stretch goal] Customize error messages for better UX**:
+    - Format check: "Please enter a valid email address."
+    - Required: "Email address is required."
+- **API submission**: On successful validation, the form should submit the data to the provided API endpoint, handling responses and errors gracefully to inform the user of the subscription status:
+  - **Success feedback**: After API submission, parse the successful response and confirm subscription to the user with "Subscription successful! Please check your email to confirm."
+  - **API error response**: Handle any API error responses (e.g., 400 Bad Request, 500 Internal Server Error) by displaying an appropriate message such as "Failed to subscribe. Please ensure your email is correct or try again later."
+
+#### Copyright notice
+
+- Include dynamic year updates in the copyright notice.
+
+#### Other requirements
+
+- **Cross-browser compatibility**: Check that your solution works for major browsers including Chrome, Firefox, and Safari.
+- **[Stretch goal] Performance optimization**: Optimize image assets and code for quick load times, ensuring a smooth and responsive user experience.
+- **[Stretch goal] Accessibility**: Follow best practices for web accessibility, such as using semantic HTML and ARIA roles where necessary, using proper `alt` tags for images and ensuring that buttons can be navigated to and selected using keyboard controls.
+- **Interactivity**:
+  - **Button states**: Implement and style buttons to reflect different states - normal, hover, and disabled.
+  - **Input field states: **Implement and style input fields to reflect different states - normal, focus filled, disabled, error, error filled, error focused.

@@ -1,1 +1,55 @@
-TODO
+In this challenge, you will develop a fully functional and responsive shopping cart interface for a fictional e-commerce platform.
+
+You will be provided with designs that have been adapted for mobile, tablet, and desktop interfaces. You will also be provided with data corresponding to product listings, as well as a sample order that you will display in the shopping cart.
+
+As per standard shopping carts, the interface should allow users to add items, modify quantity, remove items, and view an order summary including subtotal, shipping, and total cost. Users should also be able to add a coupon discount code to their order. When you work on the [E-commerce website](/projects/challenges/e-commerce-website) challenge, you will have to dynamically update the user's shopping cart when the user modifies their cart anywhere on the e-commerce platform, and display the same cart contents on the [Checkout](/projects/challenges/checkout-section) page when the user clicks the "Checkout" button.
+
+### Implementation Requirements
+
+#### General layout
+
+- **Structure**: The page is divided into two main columns
+  - The left column for cart items
+  - The right column for the order summary
+- **Empty state**: If there are no items in the cart, we should display the empty state as per the supplied design.
+
+#### Cart items (Left column)
+
+- **Default sort**: Latest item added to cart first
+- **Item denomination**: Each product variant that has been added to cart should be displayed separately instead of bundled into 1 product. For e.g., if I added both Orange and Pink StepSoft socks, they should display as separate cards in cart.
+- **Item name and image**: Item name and images should be clickable and link to the product detail page. The image displayed should correspond to the variant added to cart.
+- **List price vs Sale price**: If there is a platform discount available, display the list price with a strikethrough. Else, display only the list price.
+- **Quantity selector**: '-' and '+' buttons control the quantity of the item.
+  - Quantity can only be decreased till 1, after which the user has to click 'Remove' to remove the item from cart.
+  - Quantity can only be increased till the maximum stock available. When the maximum stock is reached, the '+' icon should be disabled, with an 'Insufficient stock' tooltip.
+- **"Remove" Link**:
+  - A clickable text link that removes the item from the cart.
+  - Clicking on it triggers a confirmation prompt as per the provided design, to prevent accidental removals.
+
+#### Order summary section
+
+- **Real-time calculation**: Subtotal, shipping fees and total cost should be calculated automatically and real-time as item quantities and coupon codes are modified. You may assume shipping is always FREE for this case.
+- **"Add coupon code" button**:
+  - **Before clicking on the button:** Implement states before it is clicked, including normal, hover, focus, and disabled.
+  - **After clicking on the button**: After the user clicks on it, it should become an input field with an "Apply" button.
+- **"Add coupon code" field**:
+  - **States**: Implement the input field states in normal, filled, focus, disabled, error, error filled and error focused states (also the 'Apply' button states)
+  - **On clicking 'Apply'**:
+    - **If no coupon code was entered**: Give error "Please enter a valid code"
+    - **If coupon code does not exist**: Give error "Sorry, but this coupon doesn't exist"
+    - **If the coupon code exists**: It should give a success state wherein the coupon code is displayed as a tag under the field, and the discount amount is added under the subtotal.
+  - **On clicking 'x' on the applied coupons**: cRemove the coupon from the order summary
+
+#### Stock validation and updates
+
+- **Real-time stock validation on item quantity update by user**: As soon as a product is added to the cart or the quantity is updated in the cart, you should validate the stock availability asynchronously. If the available stock has changed, you should pop a modal as per the provided design for 'Insufficient stock'. This informs the user that there has been a change in stock. After the user clicks 'Ok', update the shopping cart with the new values.
+- **Stock validation on checkout**: When the user clicks "Checkout", you should validate the stock availability of all items in cart. If there has been a change of stock, you should pop a modal as per the provided design for 'Insufficient stock'. This informs the user that there has been a change in stock. After the user clicks 'Ok', update the shopping cart with the new values.
+- **[Stretch goal] Stock reservation**: To prevent concurrency issues where multiple customers attempt to buy the last units of a product, we can reserve the stock upon after the user clicks "Checkout". This should be time limited to prevent stock inaccuracies due to cart abandonment.
+
+#### General requirements
+
+- **Design fidelity**: Aim to follow the design as closely as possible. All elements in the design should be present, using the specified text color, font size, font weight, spacing, dimensions, etc.
+- **Responsive behavior**: The content should stack vertically on smaller screens and align horizontally as the screen width increases.
+- **Cross-browser compatibility**: Check that your solution works for major browsers including Chrome, Firefox, and Safari.
+- **[Stretch goal] Performance optimization**: Code for fast load times with efficient CSS and JavaScript techniques.
+- **[Stretch goal] Accessibility and semantics**: Follow best practices for web accessibility, such as using semantic HTML and ARIA roles where necessary and using proper `alt` tags for images.

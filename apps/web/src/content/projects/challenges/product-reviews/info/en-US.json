@@ -1,6 +1,6 @@
 {
   "title": "Product Reviews",
-  "description": "TODO Replace Me",
+  "description": "Build a responsive product reviews dialog that displays a summary of reviews with sorting and pagination",
   "specLabels": {
     "main": "Product reviews"
   }

@@ -2,19 +2,14 @@ In this challenge, you will combine some of the components you have built in pre
 
 As this challenge is a combination of other sections or components, you should build them first to ensure all states and requirements are covered.
 
-In this challenge, you will combine some of the components you have built in previous challenges into a storefront page for a fictional e-commerce platform.
-
-As this challenge is a combination of other sections or components, you should build them first to ensure all states and requirements are covered.
-
 ### Implementation Requirements
 
 The requirements that each component has to fulfill remains the same - you should refer to them in their individual briefs and ensure that their functionality remains intact after integration:
 
-- [Navbar Component (E-Commerce)](/projects/challenges/navbar-e-commerce)
-- [Hero Section (Simple)](/projects/challenges/hero-section-simple)
+- [Navbar (E-Commerce)](/projects/challenges/bobobo/navbar-e-commerce)
+- [Product Details Section](/projects/challenges/product-details-section)
+- [Product Specifications Section](/projects/challenges/product-specifications-section)
 - [Product Grid Section](/projects/challenges/product-grid-section)
-- [Collections Grid Section](/projects/challenges/collections-grid-section)
-- [Features Section (Grid)](/projects/challenges/feature-section-grid)
 - [Footer (Multi-column)](/projects/challenges/footer-multi-column)
 
 #### On the page level
@@ -28,5 +23,7 @@ The requirements that each component has to fulfill remains the same - you shoul
 
 While some of these sections may have been implemented previously, ensure the dynamic content update is working correctly after the integration:
 
-- **Product Grid ( "Latest Arrivals" section)**: Product listings shown should have the latest created date and hence belong to the "Latest Arrivals" collection. You should show up to 8 listings.
-- **Collections Grid ("Our Collections" section)**: Show 3 latest collections from the store, as per the collections `created_at`.
+- **Product Details**: Based on the current product, display the correct details corresponding to name, images, prices, reviews, variants and features (in the accordion)
+- **Shopping Cart**: When the user adds any item to cart, the number shown on the shopping cart icon should increase accordingly
+- **Product Specifications Section**: Should display the Product Specifications for this product. For this challenge, all the products should show the same Product Specifications section as per the design.
+- **"In this collection" Section**: Show latest created items from the current product's collection, minus the current product on the product details page.
