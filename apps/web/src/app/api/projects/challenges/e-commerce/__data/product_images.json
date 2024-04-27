@@ -1,0 +1,374 @@
+[
+  {
+    "product_id": "autumnal-knitwear",
+    "color": "blue",
+    "image_file_name": "autumnal-knitwear-1.jpg",
+    "image_url": "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/object/public/e-commerce-track-images/autumnal-knitwear/autumnal-knitwear-1.jpg"
+  },
+  {
+    "product_id": "autumnal-knitwear",
+    "color": "blue",
+    "image_file_name": "autumnal-knitwear-2.jpg",
+    "image_url": "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/object/public/e-commerce-track-images/autumnal-knitwear/autumnal-knitwear-2.jpg"
+  },
+  {
+    "product_id": "autumnal-knitwear",
+    "color": "blue",
+    "image_file_name": "autumnal-knitwear-3.jpg",
+    "image_url": "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/object/public/e-commerce-track-images/autumnal-knitwear/autumnal-knitwear-3.jpg"
+  },
+  {
+    "product_id": "autumnal-knitwear",
+    "color": "brown",
+    "image_file_name": "autumnal-knitwear-1.jpg",
+    "image_url": "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/object/public/e-commerce-track-images/autumnal-knitwear/autumnal-knitwear-1.jpg"
+  },
+  {
+    "product_id": "autumnal-knitwear",
+    "color": "brown",
+    "image_file_name": "autumnal-knitwear-2.jpg",
+    "image_url": "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/object/public/e-commerce-track-images/autumnal-knitwear/autumnal-knitwear-2.jpg"
+  },
+  {
+    "product_id": "autumnal-knitwear",
+    "color": "brown",
+    "image_file_name": "autumnal-knitwear-3.jpg",
+    "image_url": "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/object/public/e-commerce-track-images/autumnal-knitwear/autumnal-knitwear-3.jpg"
+  },
+  {
+    "product_id": "autumnal-knitwear",
+    "color": "beige",
+    "image_file_name": "autumnal-knitwear-1.jpg",
+    "image_url": "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/object/public/e-commerce-track-images/autumnal-knitwear/autumnal-knitwear-1.jpg"
+  },
+  {
+    "product_id": "autumnal-knitwear",
+    "color": "beige",
+    "image_file_name": "autumnal-knitwear-2.jpg",
+    "image_url": "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/object/public/e-commerce-track-images/autumnal-knitwear/autumnal-knitwear-2.jpg"
+  },
+  {
+    "product_id": "autumnal-knitwear",
+    "color": "beige",
+    "image_file_name": "autumnal-knitwear-3.jpg",
+    "image_url": "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/object/public/e-commerce-track-images/autumnal-knitwear/autumnal-knitwear-3.jpg"
+  },
+  {
+    "product_id": "azure-attitude-shades",
+    "color": "blue",
+    "image_file_name": "azure-attitude-shades-1.jpg",
+    "image_url": "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/object/public/e-commerce-track-images/azure-attitude-shades/azure-attitude-shades-1.jpg"
+  },
+  {
+    "product_id": "azure-attitude-shades",
+    "color": "blue",
+    "image_file_name": "azure-attitude-shades-2.jpg",
+    "image_url": "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/object/public/e-commerce-track-images/azure-attitude-shades/azure-attitude-shades-2.jpg"
+  },
+  {
+    "product_id": "canis-philosophus-linen-tee",
+    "color": "white",
+    "image_file_name": "canis-philosophus-linen-tee-1.jpg",
+    "image_url": "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/object/public/e-commerce-track-images/canis-philosophus-linen-tee/canis-philosophus-linen-tee-1.jpg"
+  },
+  {
+    "product_id": "city-quilted-jacket",
+    "color": "white",
+    "image_file_name": "city-quilted-jacket-1.jpg",
+    "image_url": "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/object/public/e-commerce-track-images/city-quilted-jacket/city-quilted-jacket-1.jpg"
+  },
+  {
+    "product_id": "city-quilted-jacket",
+    "color": "white",
+    "image_file_name": "city-quilted-jacket-2.jpg",
+    "image_url": "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/object/public/e-commerce-track-images/city-quilted-jacket/city-quilted-jacket-2.jpg"
+  },
+  {
+    "product_id": "city-quilted-jacket",
+    "color": "white",
+    "image_file_name": "city-quilted-jacket-3.jpg",
+    "image_url": "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/object/public/e-commerce-track-images/city-quilted-jacket/city-quilted-jacket-3.jpg"
+  },
+  {
+    "product_id": "classic-canvas-tee",
+    "color": "white",
+    "image_file_name": "classic-canvas-tee-1.jpg",
+    "image_url": "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/object/public/e-commerce-track-images/classic-canvas-tee/classic-canvas-tee-1.jpg"
+  },
+  {
+    "product_id": "classic-canvas-tee",
+    "color": "white",
+    "image_file_name": "classic-canvas-tee-2.jpg",
+    "image_url": "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/object/public/e-commerce-track-images/classic-canvas-tee/classic-canvas-tee-2.jpg"
+  },
+  {
+    "product_id": "classic-canvas-tee",
+    "color": "red",
+    "image_file_name": "classic-canvas-tee-1.jpg",
+    "image_url": "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/object/public/e-commerce-track-images/classic-canvas-tee/classic-canvas-tee-1.jpg"
+  },
+  {
+    "product_id": "classic-canvas-tee",
+    "color": "red",
+    "image_file_name": "classic-canvas-tee-2.jpg",
+    "image_url": "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/object/public/e-commerce-track-images/classic-canvas-tee/classic-canvas-tee-2.jpg"
+  },
+  {
+    "product_id": "classic-canvas-tee",
+    "color": "orange",
+    "image_file_name": "classic-canvas-tee-1.jpg",
+    "image_url": "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/object/public/e-commerce-track-images/classic-canvas-tee/classic-canvas-tee-1.jpg"
+  },
+  {
+    "product_id": "classic-canvas-tee",
+    "color": "orange",
+    "image_file_name": "classic-canvas-tee-2.jpg",
+    "image_url": "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/object/public/e-commerce-track-images/classic-canvas-tee/classic-canvas-tee-2.jpg"
+  },
+  {
+    "product_id": "classic-canvas-tee",
+    "color": "brown",
+    "image_file_name": "classic-canvas-tee-1.jpg",
+    "image_url": "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/object/public/e-commerce-track-images/classic-canvas-tee/classic-canvas-tee-1.jpg"
+  },
+  {
+    "product_id": "classic-canvas-tee",
+    "color": "brown",
+    "image_file_name": "classic-canvas-tee-2.jpg",
+    "image_url": "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/object/public/e-commerce-track-images/classic-canvas-tee/classic-canvas-tee-2.jpg"
+  },
+  {
+    "product_id": "classic-canvas-tee",
+    "color": "beige",
+    "image_file_name": "classic-canvas-tee-1.jpg",
+    "image_url": "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/object/public/e-commerce-track-images/classic-canvas-tee/classic-canvas-tee-1.jpg"
+  },
+  {
+    "product_id": "classic-canvas-tee",
+    "color": "beige",
+    "image_file_name": "classic-canvas-tee-2.jpg",
+    "image_url": "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/object/public/e-commerce-track-images/classic-canvas-tee/classic-canvas-tee-2.jpg"
+  },
+  {
+    "product_id": "color-ease-tee",
+    "color": "pink",
+    "image_file_name": "color-ease-tee.jpg",
+    "image_url": "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/object/public/e-commerce-track-images/color-ease-tee/color-ease-tee.jpg"
+  },
+  {
+    "product_id": "cool-neo-retro-shoes",
+    "color": "white",
+    "image_file_name": "cool-netro-retro-shoes-1.jpg",
+    "image_url": "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/object/public/e-commerce-track-images/cool-neo-retro-shoes/cool-netro-retro-shoes-1.jpg"
+  },
+  {
+    "product_id": "cute-banana-socks",
+    "color": "white",
+    "image_file_name": "cute-banana-socks-1.jpg",
+    "image_url": "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/object/public/e-commerce-track-images/cute-banana-socks/cute-banana-socks-1.jpg"
+  },
+  {
+    "product_id": "elemental-sneakers",
+    "color": "beige",
+    "image_file_name": "elemental-sneakers-1.jpg",
+    "image_url": "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/object/public/e-commerce-track-images/elemental-sneakers/elemental-sneakers-1.jpg"
+  },
+  {
+    "product_id": "elemental-sneakers",
+    "color": "beige",
+    "image_file_name": "elemental-sneakers-2.jpg",
+    "image_url": "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/object/public/e-commerce-track-images/elemental-sneakers/elemental-sneakers-2.jpg"
+  },
+  {
+    "product_id": "elemental-sneakers",
+    "color": "beige",
+    "image_file_name": "elemental-sneakers-3.jpg",
+    "image_url": "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/object/public/e-commerce-track-images/elemental-sneakers/elemental-sneakers-3.jpg"
+  },
+  {
+    "product_id": "harvest-cozy-turtleneck",
+    "color": "beige",
+    "image_file_name": "harvest-cozy-turtleneck-1.jpg",
+    "image_url": "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/object/public/e-commerce-track-images/harvest-cozy-turtleneck/harvest-cozy-turtleneck-1.jpg"
+  },
+  {
+    "product_id": "harvest-cozy-turtleneck",
+    "color": "beige",
+    "image_file_name": "harvest-cozy-turtleneck-2.jpg",
+    "image_url": "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/object/public/e-commerce-track-images/harvest-cozy-turtleneck/harvest-cozy-turtleneck-2.jpg"
+  },
+  {
+    "product_id": "harvest-cozy-turtleneck",
+    "color": "beige",
+    "image_file_name": "harvest-cozy-turtleneck-3.jpg",
+    "image_url": "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/object/public/e-commerce-track-images/harvest-cozy-turtleneck/harvest-cozy-turtleneck-3.jpg"
+  },
+  {
+    "product_id": "la-baseball-hat",
+    "color": "black",
+    "image_file_name": "la-baseball-hat-1.jpg",
+    "image_url": "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/object/public/e-commerce-track-images/la-baseball-hat/la-baseball-hat-1.jpg"
+  },
+  {
+    "product_id": "metro-hoodie",
+    "color": "black",
+    "image_file_name": "metro-hoodie-1.jpg",
+    "image_url": "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/object/public/e-commerce-track-images/metro-hoodie/metro-hoodie-1.jpg"
+  },
+  {
+    "product_id": "metro-hoodie",
+    "color": "black",
+    "image_file_name": "metro-hoodie-2.jpg",
+    "image_url": "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/object/public/e-commerce-track-images/metro-hoodie/metro-hoodie-2.jpg"
+  },
+  {
+    "product_id": "neutral-charm-blazer",
+    "color": "beige",
+    "image_file_name": "neutral-charm-blazer-1.jpg",
+    "image_url": "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/object/public/e-commerce-track-images/neutral-charm-blazer/neutral-charm-blazer-1.jpg"
+  },
+  {
+    "product_id": "stepsoft-socks",
+    "color": "orange",
+    "image_file_name": "stepsoft-socks-1.jpg",
+    "image_url": "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/object/public/e-commerce-track-images/stepsoft-socks/stepsoft-socks-1.jpg"
+  },
+  {
+    "product_id": "stepsoft-socks",
+    "color": "pink",
+    "image_file_name": "stepsoft-socks-2.webp",
+    "image_url": "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/object/public/e-commerce-track-images/stepsoft-socks/stepsoft-socks-2.webp"
+  },
+  {
+    "product_id": "sunbeam-mules",
+    "color": "yellow",
+    "image_file_name": "sunbeam-mules-1.jpg",
+    "image_url": "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/object/public/e-commerce-track-images/sunbeam-mules/sunbeam-mules-1.jpg"
+  },
+  {
+    "product_id": "sunbeam-mules",
+    "color": "yellow",
+    "image_file_name": "sunbeam-mules-2.jpg",
+    "image_url": "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/object/public/e-commerce-track-images/sunbeam-mules/sunbeam-mules-2.jpg"
+  },
+  {
+    "product_id": "tangerine-mini-tote",
+    "color": "orange",
+    "image_file_name": "tangerine-mini-tote-1.jpg",
+    "image_url": "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/object/public/e-commerce-track-images/tangerine-mini-tote/tangerine-mini-tote-1.jpg"
+  },
+  {
+    "product_id": "tangerine-mini-tote",
+    "color": "orange",
+    "image_file_name": "tangerine-mini-tote-2.jpg",
+    "image_url": "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/object/public/e-commerce-track-images/tangerine-mini-tote/tangerine-mini-tote-2.jpg"
+  },
+  {
+    "product_id": "tangerine-mini-tote",
+    "color": "orange",
+    "image_file_name": "tangerine-mini-tote-3.jpg",
+    "image_url": "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/object/public/e-commerce-track-images/tangerine-mini-tote/tangerine-mini-tote-3.jpg"
+  },
+  {
+    "product_id": "tangerine-mini-tote",
+    "color": "orange",
+    "image_file_name": "tangerine-mini-tote-4.jpg",
+    "image_url": "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/object/public/e-commerce-track-images/tangerine-mini-tote/tangerine-mini-tote-4.jpg"
+  },
+  {
+    "product_id": "tangerine-mini-tote",
+    "color": "orange",
+    "image_file_name": "tangerine-mini-tote-5.jpg",
+    "image_url": "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/object/public/e-commerce-track-images/tangerine-mini-tote/tangerine-mini-tote-5.jpg"
+  },
+  {
+    "product_id": "urban-bomber-jacket",
+    "color": "green",
+    "image_file_name": "urban-bomber-jacket-1.jpg",
+    "image_url": "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/object/public/e-commerce-track-images/urban-bomber-jacket/urban-bomber-jacket-1.jpg"
+  },
+  {
+    "product_id": "urban-bomber-jacket",
+    "color": "green",
+    "image_file_name": "urban-bomber-jacket-2.jpg",
+    "image_url": "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/object/public/e-commerce-track-images/urban-bomber-jacket/urban-bomber-jacket-2.jpg"
+  },
+  {
+    "product_id": "urban-bomber-jacket",
+    "color": "green",
+    "image_file_name": "urban-bomber-jacket-3.jpg",
+    "image_url": "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/object/public/e-commerce-track-images/urban-bomber-jacket/urban-bomber-jacket-3.jpg"
+  },
+  {
+    "product_id": "urban-drift-bucket-hat",
+    "color": "black",
+    "image_file_name": "urban-drift-bucket-hat-1.jpg",
+    "image_url": "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/object/public/e-commerce-track-images/urban-drift-bucket-hat/urban-drift-bucket-hat-1.jpg"
+  },
+  {
+    "product_id": "urban-drift-bucket-hat",
+    "color": "black",
+    "image_file_name": "urban-drift-bucket-hat-2.jpg",
+    "image_url": "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/object/public/e-commerce-track-images/urban-drift-bucket-hat/urban-drift-bucket-hat-2.jpg"
+  },
+  {
+    "product_id": "urban-drift-bucket-hat",
+    "color": "black",
+    "image_file_name": "urban-drift-bucket-hat-3.jpg",
+    "image_url": "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/object/public/e-commerce-track-images/urban-drift-bucket-hat/urban-drift-bucket-hat-3.jpg"
+  },
+  {
+    "product_id": "urban-drift-bucket-hat",
+    "color": "black",
+    "image_file_name": "urban-drift-bucket-hat-4.jpg",
+    "image_url": "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/object/public/e-commerce-track-images/urban-drift-bucket-hat/urban-drift-bucket-hat-4.jpg"
+  },
+  {
+    "product_id": "urban-drift-bucket-hat",
+    "color": "white",
+    "image_file_name": "urban-drift-bucket-hat-5.jpg",
+    "image_url": "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/object/public/e-commerce-track-images/urban-drift-bucket-hat/urban-drift-bucket-hat-5.jpg"
+  },
+  {
+    "product_id": "urban-drift-bucket-hat",
+    "color": "white",
+    "image_file_name": "urban-drift-bucket-hat-6.jpg",
+    "image_url": "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/object/public/e-commerce-track-images/urban-drift-bucket-hat/urban-drift-bucket-hat-6.jpg"
+  },
+  {
+    "product_id": "urban-drift-bucket-hat",
+    "color": "white",
+    "image_file_name": "urban-drift-bucket-hat-7.jpg",
+    "image_url": "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/object/public/e-commerce-track-images/urban-drift-bucket-hat/urban-drift-bucket-hat-7.jpg"
+  },
+  {
+    "product_id": "voyager-hoodie",
+    "color": "green",
+    "image_file_name": "voyager-hoodie-1.jpg",
+    "image_url": "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/object/public/e-commerce-track-images/voyager-hoodie/voyager-hoodie-1.jpg"
+  },
+  {
+    "product_id": "voyager-hoodie",
+    "color": "brown",
+    "image_file_name": "voyager-hoodie-1.jpg",
+    "image_url": "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/object/public/e-commerce-track-images/voyager-hoodie/voyager-hoodie-1.jpg"
+  },
+  {
+    "product_id": "voyager-hoodie",
+    "color": "green",
+    "image_file_name": "voyager-hoodie-2.jpg",
+    "image_url": "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/object/public/e-commerce-track-images/voyager-hoodie/voyager-hoodie-2.jpg"
+  },
+  {
+    "product_id": "voyager-hoodie",
+    "color": "green",
+    "image_file_name": "voyager-hoodie-3.jpg",
+    "image_url": "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/object/public/e-commerce-track-images/voyager-hoodie/voyager-hoodie-3.jpg"
+  },
+  {
+    "product_id": "voyager-hoodie",
+    "color": "green",
+    "image_file_name": "voyager-hoodie-4.jpg",
+    "image_url": "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/object/public/e-commerce-track-images/voyager-hoodie/voyager-hoodie-4.jpg"
+  }
+]

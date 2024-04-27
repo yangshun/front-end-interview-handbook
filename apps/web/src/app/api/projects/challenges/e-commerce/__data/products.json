@@ -1,0 +1,154 @@
+[
+  {
+    "product_id": "urban-drift-bucket-hat",
+    "name": "Urban Drift Bucket Hat",
+    "description": "Navigate the urban jungle with our Urban Drift Bucket Hat. It's not only trendy but also practical, offering shade from the hustle and bustle.",
+    "category": "unisex",
+    "collection": "urban",
+    "created_at": "2024-04-04"
+  },
+  {
+    "product_id": "tangerine-mini-tote",
+    "name": "Tangerine Mini Tote",
+    "description": "Carry a pop of color with our Tangerine Mini Tote. Compact and vibrant, it's the perfect accessory for the fashion-forward minimalist.",
+    "category": "women",
+    "collection": "fresh",
+    "created_at": "2024-04-03"
+  },
+  {
+    "product_id": "elemental-sneakers",
+    "name": "Elemental Sneakers",
+    "description": "Ground your steps in style with our Elemental Sneakers. Designed with the elements in mind, they bring a natural balance to your stride and your ensemble.",
+    "category": "unisex",
+    "collection": "fresh",
+    "created_at": "2024-03-25"
+  },
+  {
+    "product_id": "metro-hoodie",
+    "name": "Metro Hoodie",
+    "description": "The Metro Hoodie is your ticket to comfortable, laid-back fashion. Whether you're on the move or taking it easy, this hoodie has got you covered.",
+    "category": "unisex",
+    "collection": "urban",
+    "created_at": "2024-03-23"
+  },
+  {
+    "product_id": "sunbeam-mules",
+    "name": "Sunbeam Mules",
+    "description": "Let your feet bask in the glow of our Sunbeam Mules. With their radiant style and effortless slip-on design, they're sunshine for your step.",
+    "category": "women",
+    "collection": "fresh",
+    "created_at": "2024-03-22"
+  },
+  {
+    "product_id": "azure-attitude-shades",
+    "name": "Azure Attitude Shades",
+    "description": "Step out in style with our Azure Attitude Shades, featuring a bold blue tint and modern design. These sunglasses are not just an accessory but a statement of confidence.",
+    "category": "men",
+    "collection": "urban",
+    "created_at": "2024-03-21"
+  },
+  {
+    "product_id": "voyager-hoodie",
+    "name": "Voyager Hoodie",
+    "description": "The Voyager Hoodie is for the explorer at heart. Its durable fabric and roomy pockets are perfect for those who are always searching for the next adventure.",
+    "category": "unisex",
+    "collection": "urban",
+    "created_at": "2024-03-20"
+  },
+  {
+    "product_id": "la-baseball-hat",
+    "name": "LA Baseball Hat",
+    "description": "Shield your eyes and show your style with our LA Baseball Hat. It's not just a nod to the city of angels but a capstone for any casual outfit.",
+    "category": "unisex",
+    "collection": "fresh",
+    "created_at": "2024-02-29"
+  },
+  {
+    "product_id": "classic-canvas-tee",
+    "name": "Classic Canvas Tee",
+    "description": "The Classic Canvas Tee is your go-to wardrobe staple, offering unparalleled comfort and a timeless look that never goes out of style.",
+    "category": "unisex",
+    "collection": "fresh",
+    "created_at": "2024-02-26"
+  },
+  {
+    "product_id": "cool-neo-retro-shoes",
+    "name": "Cool Neo-Retro Shoes",
+    "description": "Merge past and present with our Cool Neo-Retro Shoes. Their classic silhouette with modern twists will have you walking with a foot in each era.",
+    "category": "unisex",
+    "collection": "fresh",
+    "created_at": "2024-02-20"
+  },
+  {
+    "product_id": "city-quilted-jacket",
+    "name": "City Quilted Jacket",
+    "description": "Our City Quilted Jacket is the urban adventurer's essential. With its sleek quilting and durable design, it's ready to take on the city streets while keeping you insulated.",
+    "category": "unisex",
+    "collection": "urban",
+    "created_at": "2024-02-06"
+  },
+  {
+    "product_id": "autumnal-knitwear",
+    "name": "Autumnal Knitwear",
+    "description": "Wrap yourself in the warmth of our Autumnal Knitwear, crafted from premium wool blends to keep you cozy as the leaves change color. Perfect for chilly evenings and crisp mornings.",
+    "category": "women",
+    "collection": "cozy",
+    "created_at": "2024-01-31"
+  },
+  {
+    "product_id": "stepsoft-socks",
+    "name": "StepSoft Socks",
+    "description": "Step into luxury with our StepSoft Socks, designed to pamper your feet with every step. Their cloud-like cushioning is like a spa for your soles.",
+    "category": "unisex",
+    "collection": "cozy",
+    "created_at": "2024-01-31"
+  },
+  {
+    "product_id": "color-ease-tee",
+    "name": "Color Ease Tee",
+    "description": "Experience the ease of color with our soft and simple tees available in a rainbow of hues, designed to brighten your day and your outfit.",
+    "category": "unisex",
+    "collection": "fresh",
+    "created_at": "2024-01-30"
+  },
+  {
+    "product_id": "harvest-cozy-turtleneck",
+    "name": "Harvest Cozy Turtleneck",
+    "description": "Cozy up in our Harvest Turtleneck, a snug embrace on a crisp day. Its rich texture and warm tones embody the essence of autumn comfort.",
+    "category": "women",
+    "collection": "cozy",
+    "created_at": "2024-01-26"
+  },
+  {
+    "product_id": "neutral-charm-blazer",
+    "name": "Neutral Charm Blazer",
+    "description": "Our Neutral Charm Blazer adds a touch of sophistication to any outfit. Its subtle hues and tailored fit make it a versatile choice for any occasion.",
+    "category": "women",
+    "collection": "urban",
+    "created_at": "2024-01-25"
+  },
+  {
+    "product_id": "cute-banana-socks",
+    "name": "Cute Banana Socks",
+    "description": "Add a bunch of fun to your feet with our Cute Banana Socks. They're as comfy as they are playful, perfect for lounging or peeling around town.",
+    "category": "unisex",
+    "collection": "cozy",
+    "created_at": "2024-01-14"
+  },
+  {
+    "product_id": "canis-philosophus-linen-tee",
+    "name": "Canis Philosophus Linen Tee",
+    "description": "Embrace the wisdom of comfort with our Canis Philosophus Linen Tee. Made from breathable linen, this T-shirt combines classic style with a relaxed fit for the thinker on the move.",
+    "category": "men",
+    "collection": "fresh",
+    "created_at": "2024-01-08"
+  },
+  {
+    "product_id": "urban-bomber-jacket",
+    "name": "Urban Bomber Jacket",
+    "description": "The Urban Bomber Jacket is your armor against the elements. Its edgy style and robust construction make it a city dweller's essential.",
+    "category": "men",
+    "collection": "urban",
+    "created_at": "2024-01-03"
+  }
+]

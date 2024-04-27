@@ -1,0 +1,17 @@
+[
+  {
+    "category_id": "men",
+    "name": "Men",
+    "created_at": "2024-01-01"
+  },
+  {
+    "category_id": "women",
+    "name": "Women",
+    "created_at": "2024-01-01"
+  },
+  {
+    "category_id": "unisex",
+    "name": "Unisex",
+    "created_at": "2024-01-01"
+  }
+]

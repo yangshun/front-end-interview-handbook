@@ -1,0 +1,975 @@
+[
+  {
+    "product_id": "autumnal-knitwear",
+    "user_id": "dante-lancaster",
+    "rating": 4,
+    "content": "A bit pricey, but the quality justifies the cost. Very comfortable.",
+    "created_at": "2024-04-22"
+  },
+  {
+    "product_id": "autumnal-knitwear",
+    "user_id": "jacques-griffith",
+    "rating": 5,
+    "content": "Excellent warmth and comfort, ideal for chilly autumn evenings.",
+    "created_at": "2024-02-14"
+  },
+  {
+    "product_id": "autumnal-knitwear",
+    "user_id": "keith-mcneil",
+    "rating": 4,
+    "content": "The texture and color of this knitwear make it a standout piece in my wardrobe.",
+    "created_at": "2024-03-15"
+  },
+  {
+    "product_id": "autumnal-knitwear",
+    "user_id": "natali-craig",
+    "rating": 4,
+    "content": "The orange color is just as vibrant as advertised and adds a beautiful pop to my outfits. I've washed it a few times already, and the color hasn't faded one bit. Definitely a must-have in your closet!",
+    "created_at": "2024-04-11"
+  },
+  {
+    "product_id": "autumnal-knitwear",
+    "user_id": "pat-barrett",
+    "rating": 5,
+    "content": "Love the warmth and style of this knitwear, perfect for fall weather.",
+    "created_at": "2024-04-21"
+  },
+  {
+    "product_id": "autumnal-knitwear",
+    "user_id": "sonja-fuentes",
+    "rating": 5,
+    "content": "So cozy and warm, the quality is top-notch. A great buy for the colder months.",
+    "created_at": "2024-03-14"
+  },
+  {
+    "product_id": "autumnal-knitwear",
+    "user_id": "tisha-foley",
+    "rating": 4,
+    "content": "Lovely sweater with a great fit and vibrant colors that don't fade.",
+    "created_at": "2024-02-15"
+  },
+  {
+    "product_id": "autumnal-knitwear",
+    "user_id": "tristan-howe",
+    "rating": 3,
+    "content": "Nice design but the material is a bit itchy on sensitive skin.",
+    "created_at": "2024-02-13"
+  },
+  {
+    "product_id": "azure-attitude-shades",
+    "user_id": "murray-rivers",
+    "rating": 5,
+    "content": "Stylish and effective, these sunglasses really stand out.",
+    "created_at": "2024-05-05"
+  },
+  {
+    "product_id": "azure-attitude-shades",
+    "user_id": "tatiana-moses",
+    "rating": 3,
+    "content": "Look great but feel a bit flimsy.",
+    "created_at": "2024-06-05"
+  },
+  {
+    "product_id": "azure-attitude-shades",
+    "user_id": "brenton-mosley",
+    "rating": 4,
+    "content": "Great UV protection and very stylish, but the fit is a bit loose.",
+    "created_at": "2024-05-21"
+  },
+  {
+    "product_id": "azure-attitude-shades",
+    "user_id": "emory-bridges",
+    "rating": 3,
+    "content": "Chic shades but the lenses scratch too easily.",
+    "created_at": "2024-05-22"
+  },
+  {
+    "product_id": "classic-canvas-tee",
+    "user_id": "leon-case",
+    "rating": 4,
+    "content": "Simple yet elegant tee, soft fabric and holds up well after multiple washes.",
+    "created_at": "2024-03-13"
+  },
+  {
+    "product_id": "classic-canvas-tee",
+    "user_id": "jordyn-winters",
+    "rating": 3,
+    "content": "Nice shirt, but I found the fit a bit too snug for my liking.",
+    "created_at": "2024-03-12"
+  },
+  {
+    "product_id": "classic-canvas-tee",
+    "user_id": "magdalena-kim",
+    "rating": 4,
+    "content": "Really love the feel of this tee, though it runs a bit small after the first wash.",
+    "created_at": "2024-02-09"
+  },
+  {
+    "product_id": "classic-canvas-tee",
+    "user_id": "mikaela-stark",
+    "rating": 5,
+    "content": "Perfect tee for daily wear, soft material and holds up well.",
+    "created_at": "2024-02-08"
+  },
+  {
+    "product_id": "classic-canvas-tee",
+    "user_id": "vaughn-stokes",
+    "rating": 3,
+    "content": "Decent quality but the color faded faster than expected.",
+    "created_at": "2024-02-07"
+  },
+  {
+    "product_id": "classic-canvas-tee",
+    "user_id": "helen-norton",
+    "rating": 4,
+    "content": "Great for everyday wear, though the color fades after a few washes.",
+    "created_at": "2024-04-25"
+  },
+  {
+    "product_id": "classic-canvas-tee",
+    "user_id": "alison-mathis",
+    "rating": 5,
+    "content": "Very soft and comfortable, my new favorite tee.",
+    "created_at": "2024-04-26"
+  },
+  {
+    "product_id": "color-ease-tee",
+    "user_id": "bryant-buckley",
+    "rating": 5,
+    "content": "Really vibrant colors and incredibly soft material.",
+    "created_at": "2024-04-27"
+  },
+  {
+    "product_id": "color-ease-tee",
+    "user_id": "sage-benjamin",
+    "rating": 4,
+    "content": "Good shirt, but the fit is a bit loose.",
+    "created_at": "2024-04-28"
+  },
+  {
+    "product_id": "color-ease-tee",
+    "user_id": "staci-foreman",
+    "rating": 4,
+    "content": "Vibrant colors that have lasted well through many washes.",
+    "created_at": "2024-05-13"
+  },
+  {
+    "product_id": "color-ease-tee",
+    "user_id": "wilmer-le",
+    "rating": 3,
+    "content": "Comfortable but the fabric is a bit thin for my liking.",
+    "created_at": "2024-05-14"
+  },
+  {
+    "product_id": "cool-neo-retro-shoes",
+    "user_id": "staci-foreman",
+    "rating": 5,
+    "content": "These are the coolest shoes, got so many compliments!",
+    "created_at": "2024-04-29"
+  },
+  {
+    "product_id": "cool-neo-retro-shoes",
+    "user_id": "wilmer-le",
+    "rating": 3,
+    "content": "Nice style but not very comfortable for long periods.",
+    "created_at": "2024-04-15"
+  },
+  {
+    "product_id": "cool-neo-retro-shoes",
+    "user_id": "gilbert-stanley",
+    "rating": 5,
+    "content": "Absolutely love these shoes, they are a total throwback with modern comfort.",
+    "created_at": "2024-05-15"
+  },
+  {
+    "product_id": "cool-neo-retro-shoes",
+    "user_id": "clara-hendrix",
+    "rating": 4,
+    "content": "Very stylish and receive lots of compliments, though a bit tight initially.",
+    "created_at": "2024-05-16"
+  },
+  {
+    "product_id": "cute-banana-socks",
+    "user_id": "gilbert-stanley",
+    "rating": 5,
+    "content": "Fun design and super comfy, love them!",
+    "created_at": "2024-01-05"
+  },
+  {
+    "product_id": "cute-banana-socks",
+    "user_id": "clara-hendrix",
+    "rating": 4,
+    "content": "Cute socks, but they thin out pretty fast.",
+    "created_at": "2024-02-05"
+  },
+  {
+    "product_id": "cute-banana-socks",
+    "user_id": "lana-rosario",
+    "rating": 5,
+    "content": "Super cute and fun! They brighten up my everyday outfits.",
+    "created_at": "2024-05-17"
+  },
+  {
+    "product_id": "cute-banana-socks",
+    "user_id": "ike-blackburn",
+    "rating": 3,
+    "content": "Good for a laugh but not the best quality, wore through quickly.",
+    "created_at": "2024-05-18"
+  },
+  {
+    "product_id": "elemental-sneakers",
+    "user_id": "pat-barrett",
+    "rating": 5,
+    "content": "These sneakers are not only stylish but incredibly comfortable for all-day wear.",
+    "created_at": "2024-03-11"
+  },
+  {
+    "product_id": "elemental-sneakers",
+    "user_id": "dante-lancaster",
+    "rating": 4,
+    "content": "Good value for money, and they look great with casual attire.",
+    "created_at": "2024-03-10"
+  },
+  {
+    "product_id": "elemental-sneakers",
+    "user_id": "alicia-shepard",
+    "rating": 4,
+    "content": "Great for casual walks, stylish and feels very light on the feet.",
+    "created_at": "2024-02-06"
+  },
+  {
+    "product_id": "elemental-sneakers",
+    "user_id": "rosalyn-boone",
+    "rating": 5,
+    "content": "Surprisingly comfortable for the price, and they look great with jeans or shorts.",
+    "created_at": "2024-02-05"
+  },
+  {
+    "product_id": "elemental-sneakers",
+    "user_id": "bryant-buckley",
+    "rating": 2,
+    "content": "I found them a bit stiff and uncomfortable during my first few uses.",
+    "created_at": "2024-02-04"
+  },
+  {
+    "product_id": "elemental-sneakers",
+    "user_id": "donnie-monroe",
+    "rating": 4,
+    "content": "Stylish and effective, perfect for my daily walks.",
+    "created_at": "2024-04-27"
+  },
+  {
+    "product_id": "elemental-sneakers",
+    "user_id": "kerry-love",
+    "rating": 3,
+    "content": "Good for light activities, not suitable for intensive workouts.",
+    "created_at": "2024-04-28"
+  },
+  {
+    "product_id": "harvest-cozy-turtleneck",
+    "user_id": "eldridge-craig",
+    "rating": 5,
+    "content": "This turtleneck is super soft and cozy, perfect for the winter season.",
+    "created_at": "2024-02-03"
+  },
+  {
+    "product_id": "harvest-cozy-turtleneck",
+    "user_id": "fidelia-dyer",
+    "rating": 4,
+    "content": "Keeps me warm without being too bulky, though the neck is a little tight.",
+    "created_at": "2024-02-02"
+  },
+  {
+    "product_id": "harvest-cozy-turtleneck",
+    "user_id": "dane-mosley",
+    "rating": 3,
+    "content": "Good sweater but started to pill after several washes.",
+    "created_at": "2024-02-01"
+  },
+  {
+    "product_id": "harvest-cozy-turtleneck",
+    "user_id": "erwin-case",
+    "rating": 5,
+    "content": "Fantastic quality, it's my go-to sweater for cold days.",
+    "created_at": "2024-04-29"
+  },
+  {
+    "product_id": "harvest-cozy-turtleneck",
+    "user_id": "elise-shannon",
+    "rating": 3,
+    "content": "Feels nice, but the neck is too tight which is uncomfortable.",
+    "created_at": "2024-04-30"
+  },
+  {
+    "product_id": "la-baseball-hat",
+    "user_id": "brenton-mosley",
+    "rating": 4,
+    "content": "Great hat, fits well and keeps the sun out of my eyes.",
+    "created_at": "2024-07-05"
+  },
+  {
+    "product_id": "la-baseball-hat",
+    "user_id": "emory-bridges",
+    "rating": 5,
+    "content": "Perfect for sports or just a sunny day out.",
+    "created_at": "2024-08-05"
+  },
+  {
+    "product_id": "la-baseball-hat",
+    "user_id": "angelia-rubio",
+    "rating": 5,
+    "content": "Perfect fit and keeps the sun off my face, exactly what I wanted.",
+    "created_at": "2024-05-23"
+  },
+  {
+    "product_id": "la-baseball-hat",
+    "user_id": "donovan-stark",
+    "rating": 4,
+    "content": "Solid construction, but the color is less vibrant than in the photos.",
+    "created_at": "2024-05-24"
+  },
+  {
+    "product_id": "metro-hoodie",
+    "user_id": "justine-simard",
+    "rating": 5,
+    "content": "Super cozy and the fit is just right, great for casual wear.",
+    "created_at": "2024-01-20"
+  },
+  {
+    "product_id": "metro-hoodie",
+    "user_id": "skyler-orr",
+    "rating": 4,
+    "content": "Thick material that feels built to last. A bit pricey but worth it.",
+    "created_at": "2024-01-19"
+  },
+  {
+    "product_id": "metro-hoodie",
+    "user_id": "alden-kemp",
+    "rating": 5,
+    "content": "Amazingly warm and cozy, definitely worth the price.",
+    "created_at": "2024-05-11"
+  },
+  {
+    "product_id": "metro-hoodie",
+    "user_id": "sage-benjamin",
+    "rating": 4,
+    "content": "Good hoodie, but the material pills after several washes.",
+    "created_at": "2024-05-12"
+  },
+  {
+    "product_id": "neutral-charm-blazer",
+    "user_id": "angelia-rubio",
+    "rating": 5,
+    "content": "Elegantly tailored and fits perfectly, ideal for professional settings.",
+    "created_at": "2024-01-22"
+  },
+  {
+    "product_id": "neutral-charm-blazer",
+    "user_id": "staci-foreman",
+    "rating": 3,
+    "content": "Looks good but the fabric feels a bit stiff.",
+    "created_at": "2024-01-21"
+  },
+  {
+    "product_id": "neutral-charm-blazer",
+    "user_id": "darcy-mccullough",
+    "rating": 5,
+    "content": "Beautifully tailored, perfect for professional settings and evenings out.",
+    "created_at": "2024-05-09"
+  },
+  {
+    "product_id": "neutral-charm-blazer",
+    "user_id": "kirstin-clements",
+    "rating": 3,
+    "content": "The blazer is nice, but it's tighter than I expected.",
+    "created_at": "2024-05-10"
+  },
+  {
+    "product_id": "stepsoft-socks",
+    "user_id": "lana-rosario",
+    "rating": 5,
+    "content": "These are the softest socks I've ever worn.",
+    "created_at": "2024-03-05"
+  },
+  {
+    "product_id": "stepsoft-socks",
+    "user_id": "ike-blackburn",
+    "rating": 4,
+    "content": "Very soft, but wish they were a bit more durable.",
+    "created_at": "2024-01-29"
+  },
+  {
+    "product_id": "stepsoft-socks",
+    "user_id": "murray-rivers",
+    "rating": 5,
+    "content": "Extremely soft and comfortable, great for wearing around the house.",
+    "created_at": "2024-05-19"
+  },
+  {
+    "product_id": "stepsoft-socks",
+    "user_id": "tatiana-moses",
+    "rating": 4,
+    "content": "Soft and cozy, but could be more durable.",
+    "created_at": "2024-05-20"
+  },
+  {
+    "product_id": "sunbeam-mules",
+    "user_id": "octavio-baldwin",
+    "rating": 4,
+    "content": "These mules are just fantastic – stylish yet extremely comfortable for daily wear.",
+    "created_at": "2024-01-28"
+  },
+  {
+    "product_id": "sunbeam-mules",
+    "user_id": "lorri-warf",
+    "rating": 5,
+    "content": "The cushioning is perfect, and they slip on so easily, great for quick outings!",
+    "created_at": "2024-01-27"
+  },
+  {
+    "product_id": "sunbeam-mules",
+    "user_id": "desiree-leblanc",
+    "rating": 4,
+    "content": "Great for quick outings, very chic and comfortable.",
+    "created_at": "2024-05-03"
+  },
+  {
+    "product_id": "sunbeam-mules",
+    "user_id": "darnell-hardin",
+    "rating": 2,
+    "content": "They look good but provide very little support.",
+    "created_at": "2024-05-04"
+  },
+  {
+    "product_id": "tangerine-mini-tote",
+    "user_id": "justine-simard",
+    "rating": 5,
+    "content": "Adorable and practical, fits all my essentials without being too bulky.",
+    "created_at": "2024-01-26"
+  },
+  {
+    "product_id": "tangerine-mini-tote",
+    "user_id": "chadwick-stanton",
+    "rating": 4,
+    "content": "Chic and vibrant, gets compliments everywhere I go.",
+    "created_at": "2024-01-25"
+  },
+  {
+    "product_id": "tangerine-mini-tote",
+    "user_id": "ismael-maxwell",
+    "rating": 5,
+    "content": "Perfect size for essentials, and the tangerine color is gorgeous.",
+    "created_at": "2024-05-05"
+  },
+  {
+    "product_id": "tangerine-mini-tote",
+    "user_id": "zaria-ross",
+    "rating": 4,
+    "content": "Chic and practical, though the material could be sturdier.",
+    "created_at": "2024-05-06"
+  },
+  {
+    "product_id": "urban-bomber-jacket",
+    "user_id": "kimberly-mastrangelo",
+    "rating": 5,
+    "content": "Perfect fit and excellent wind resistance, highly recommend.",
+    "created_at": "2024-01-23"
+  },
+  {
+    "product_id": "urban-bomber-jacket",
+    "user_id": "mariam-whitaker",
+    "rating": 4,
+    "content": "This jacket has become my go-to piece for chilly mornings, very well made.",
+    "created_at": "2024-01-24"
+  },
+  {
+    "product_id": "urban-bomber-jacket",
+    "user_id": "rosalie-ho",
+    "rating": 5,
+    "content": "Excellent jacket, keeps me warm and fits perfectly.",
+    "created_at": "2024-05-07"
+  },
+  {
+    "product_id": "voyager-hoodie",
+    "user_id": "lilia-mcknight",
+    "rating": 5,
+    "content": "I've worn it everywhere, super durable and fashionable.",
+    "created_at": "2024-05-26"
+  },
+  {
+    "product_id": "voyager-hoodie",
+    "user_id": "natali-craig",
+    "rating": 4,
+    "content": "I love the comfortable fit and stylish look of this hoodie. Perfect for chilly days out!",
+    "created_at": "2024-03-11"
+  },
+  {
+    "product_id": "voyager-hoodie",
+    "user_id": "kimberly-mastrangelo",
+    "rating": 5,
+    "content": "Absolutely a must-have for anyone who enjoys outdoor activities. Keeps me warm and looks great!",
+    "created_at": "2024-03-10"
+  },
+  {
+    "product_id": "voyager-hoodie",
+    "user_id": "lorri-warf",
+    "rating": 3,
+    "content": "Good hoodie but the color was a bit different from what I expected. Still, it's very practical.",
+    "created_at": "2024-03-09"
+  },
+  {
+    "product_id": "voyager-hoodie",
+    "user_id": "darren-holmes",
+    "rating": 5,
+    "content": null,
+    "created_at": "2024-03-08"
+  },
+  {
+    "product_id": "voyager-hoodie",
+    "user_id": "justine-simard",
+    "rating": 4,
+    "content": "Stylish and functional, this hoodie has become my go-to for chilly beach nights.",
+    "created_at": "2024-03-07"
+  },
+  {
+    "product_id": "voyager-hoodie",
+    "user_id": "emilio-vega",
+    "rating": 5,
+    "content": "Fantastic hoodie, offers great insulation and doesn’t sacrifice style.",
+    "created_at": "2024-03-06"
+  },
+  {
+    "product_id": "voyager-hoodie",
+    "user_id": "chadwick-stanton",
+    "rating": 4,
+    "content": "Really like the soft material and the lightweight feel, though it snags easily.",
+    "created_at": "2024-03-05"
+  },
+  {
+    "product_id": "voyager-hoodie",
+    "user_id": "mariam-whitaker",
+    "rating": 3,
+    "content": "It's okay, serves its purpose but I wish the material was a bit softer.",
+    "created_at": "2024-03-04"
+  },
+  {
+    "product_id": "voyager-hoodie",
+    "user_id": "mila-rich",
+    "rating": 5,
+    "content": "This is the best hoodie I've purchased in a while – perfect for chilly days!",
+    "created_at": "2024-03-03"
+  },
+  {
+    "product_id": "voyager-hoodie",
+    "user_id": "harris-cullen",
+    "rating": 4,
+    "content": "Great quality, though a bit pricey. Still, I find it worth the cost for its durability.",
+    "created_at": "2024-03-02"
+  },
+  {
+    "product_id": "voyager-hoodie",
+    "user_id": "helen-norton",
+    "rating": 4,
+    "content": "Chic and practical, exactly what I needed for my winter wardrobe.",
+    "created_at": "2024-03-02"
+  },
+  {
+    "product_id": "voyager-hoodie",
+    "user_id": "alison-mathis",
+    "rating": 5,
+    "content": "Superb quality, fits perfectly and is incredibly warm.",
+    "created_at": "2024-03-01"
+  },
+  {
+    "product_id": "voyager-hoodie",
+    "user_id": "gemma-dotson",
+    "rating": 5,
+    "content": "Love it! It fits well, looks stylish, and keeps me warm.",
+    "created_at": "2024-03-01"
+  },
+  {
+    "product_id": "voyager-hoodie",
+    "user_id": "donnie-monroe",
+    "rating": 3,
+    "content": "Not bad but the fit was a little tight.",
+    "created_at": "2024-02-28"
+  },
+  {
+    "product_id": "voyager-hoodie",
+    "user_id": "kerry-love",
+    "rating": 5,
+    "content": "Absolutely perfect! I wear it everywhere I go.",
+    "created_at": "2024-02-27"
+  },
+  {
+    "product_id": "voyager-hoodie",
+    "user_id": "erwin-case",
+    "rating": 4,
+    "content": "Good hoodie, but I wish there were more color options.",
+    "created_at": "2024-02-26"
+  },
+  {
+    "product_id": "voyager-hoodie",
+    "user_id": "elise-shannon",
+    "rating": 5,
+    "content": "Love the fabric, very breathable during cooler days.",
+    "created_at": "2024-02-25"
+  },
+  {
+    "product_id": "voyager-hoodie",
+    "user_id": "keenan-potts",
+    "rating": 2,
+    "content": "The style is nice, but it didn’t hold up well after washing.",
+    "created_at": "2024-02-24"
+  },
+  {
+    "product_id": "voyager-hoodie",
+    "user_id": "bonita-woodward",
+    "rating": 4,
+    "content": "Stylish and practical, though a bit pricey.",
+    "created_at": "2024-02-23"
+  },
+  {
+    "product_id": "voyager-hoodie",
+    "user_id": "desiree-leblanc",
+    "rating": 5,
+    "content": "My go-to hoodie now for outdoor activities, highly recommend.",
+    "created_at": "2024-02-22"
+  },
+  {
+    "product_id": "voyager-hoodie",
+    "user_id": "darnell-hardin",
+    "rating": 3,
+    "content": "Looks good but the material feels a bit cheap.",
+    "created_at": "2024-02-21"
+  },
+  {
+    "product_id": "voyager-hoodie",
+    "user_id": "ismael-maxwell",
+    "rating": 5,
+    "content": "Excellent hoodie, great for both rain and shine.",
+    "created_at": "2024-02-20"
+  },
+  {
+    "product_id": "voyager-hoodie",
+    "user_id": "zaria-ross",
+    "rating": 4,
+    "content": "Really nice hoodie, but a little too bulky for my taste.",
+    "created_at": "2024-02-19"
+  },
+  {
+    "product_id": "voyager-hoodie",
+    "user_id": "rosalie-ho",
+    "rating": 5,
+    "content": "Perfect for beach days and very high quality.",
+    "created_at": "2024-02-18"
+  },
+  {
+    "product_id": "voyager-hoodie",
+    "user_id": "leigh-moody",
+    "rating": 3,
+    "content": "Decent but overpriced for what it offers.",
+    "created_at": "2024-02-17"
+  },
+  {
+    "product_id": "voyager-hoodie",
+    "user_id": "darcy-mccullough",
+    "rating": 4,
+    "content": "Comfortable and fashionable, though it wrinkles easily.",
+    "created_at": "2024-02-16"
+  },
+  {
+    "product_id": "voyager-hoodie",
+    "user_id": "kirstin-clements",
+    "rating": 5,
+    "content": "I get compliments every time I wear this hoodie.",
+    "created_at": "2024-02-15"
+  },
+  {
+    "product_id": "voyager-hoodie",
+    "user_id": "alden-kemp",
+    "rating": 4,
+    "content": "Great hoodie for layering, very happy with the warmth and fit.",
+    "created_at": "2024-02-14"
+  },
+  {
+    "product_id": "voyager-hoodie",
+    "user_id": "sage-benjamin",
+    "rating": 3,
+    "content": "Nice design but not as durable as expected.",
+    "created_at": "2024-02-13"
+  },
+  {
+    "product_id": "voyager-hoodie",
+    "user_id": "staci-foreman",
+    "rating": 5,
+    "content": "Awesome design, light and keeps me warm.",
+    "created_at": "2024-02-12"
+  },
+  {
+    "product_id": "voyager-hoodie",
+    "user_id": "wilmer-le",
+    "rating": 4,
+    "content": "Good quality, but needs more insulation for colder weather.",
+    "created_at": "2024-02-11"
+  },
+  {
+    "product_id": "voyager-hoodie",
+    "user_id": "gilbert-stanley",
+    "rating": 5,
+    "content": "Perfect size and great for layering.",
+    "created_at": "2024-02-10"
+  },
+  {
+    "product_id": "voyager-hoodie",
+    "user_id": "clara-hendrix",
+    "rating": 3,
+    "content": "Functional but not as comfortable as I hoped.",
+    "created_at": "2024-02-09"
+  },
+  {
+    "product_id": "voyager-hoodie",
+    "user_id": "lana-rosario",
+    "rating": 4,
+    "content": "Lovely hoodie, but the color fades after a few washes.",
+    "created_at": "2024-02-08"
+  },
+  {
+    "product_id": "voyager-hoodie",
+    "user_id": "ike-blackburn",
+    "rating": 5,
+    "content": "Best hoodie I’ve owned for outdoor sports.",
+    "created_at": "2024-02-07"
+  },
+  {
+    "product_id": "voyager-hoodie",
+    "user_id": "murray-rivers",
+    "rating": 4,
+    "content": "Light and easy to pack, great for travel.",
+    "created_at": "2024-02-06"
+  },
+  {
+    "product_id": "voyager-hoodie",
+    "user_id": "tatiana-moses",
+    "rating": 2,
+    "content": "Not very impressed, the fit was awkward.",
+    "created_at": "2024-02-05"
+  },
+  {
+    "product_id": "voyager-hoodie",
+    "user_id": "brenton-mosley",
+    "rating": 5,
+    "content": "I love this hoodie, it’s perfect for outdoor activities.",
+    "created_at": "2024-02-04"
+  },
+  {
+    "product_id": "voyager-hoodie",
+    "user_id": "emory-bridges",
+    "rating": 4,
+    "content": "Practical and stylish, though it snags easily.",
+    "created_at": "2024-02-03"
+  },
+  {
+    "product_id": "voyager-hoodie",
+    "user_id": "angelia-rubio",
+    "rating": 5,
+    "content": "A must-have for chilly days, exceptionally high quality.",
+    "created_at": "2024-02-02"
+  },
+  {
+    "product_id": "voyager-hoodie",
+    "user_id": "donovan-stark",
+    "rating": 3,
+    "content": "Okay hoodie but not what I expected based on the pictures.",
+    "created_at": "2024-02-01"
+  },
+  {
+    "product_id": "voyager-hoodie",
+    "user_id": "alexandra-chaney",
+    "rating": 4,
+    "content": "Versatile for both casual and dressier occasions.",
+    "created_at": "2024-01-31"
+  },
+  {
+    "product_id": "voyager-hoodie",
+    "user_id": "conrad-warner",
+    "rating": 4,
+    "content": "Provides excellent warmth and fits comfortably.",
+    "created_at": "2024-01-29"
+  },
+  {
+    "product_id": "voyager-hoodie",
+    "user_id": "blaise-macias",
+    "rating": 5,
+    "content": "Fantastic hoodie, got one for my whole family.",
+    "created_at": "2024-01-28"
+  },
+  {
+    "product_id": "voyager-hoodie",
+    "user_id": "daphne-whitfield",
+    "rating": 3,
+    "content": "Fairly good but the material is thinner than I expected.",
+    "created_at": "2024-01-27"
+  },
+  {
+    "product_id": "voyager-hoodie",
+    "user_id": "cyril-holt",
+    "rating": 4,
+    "content": "Versatile and easy to clean, great for daily use.",
+    "created_at": "2024-01-26"
+  },
+  {
+    "product_id": "voyager-hoodie",
+    "user_id": "tammy-reynolds",
+    "rating": 5,
+    "content": "Exactly what I was looking for, great fit and style.",
+    "created_at": "2024-01-25"
+  },
+  {
+    "product_id": "voyager-hoodie",
+    "user_id": "dwight-rosales",
+    "rating": 4,
+    "content": "Solid construction, but I wish there were more sizes.",
+    "created_at": "2024-01-24"
+  },
+  {
+    "product_id": "voyager-hoodie",
+    "user_id": "brigitte-weeks",
+    "rating": 3,
+    "content": "It’s alright, does the job but nothing special.",
+    "created_at": "2024-01-23"
+  },
+  {
+    "product_id": "voyager-hoodie",
+    "user_id": "elias-hull",
+    "rating": 5,
+    "content": "Highly recommend, especially for those who enjoy outdoor activities.",
+    "created_at": "2024-01-22"
+  },
+  {
+    "product_id": "voyager-hoodie",
+    "user_id": "jett-waller",
+    "rating": 4,
+    "content": "Comfortable and keeps its shape, even after washing.",
+    "created_at": "2024-01-21"
+  },
+  {
+    "product_id": "voyager-hoodie",
+    "user_id": "judith-baldwin",
+    "rating": 2,
+    "content": "Not very satisfied, the fit is too loose.",
+    "created_at": "2024-01-20"
+  },
+  {
+    "product_id": "voyager-hoodie",
+    "user_id": "elias-booker",
+    "rating": 5,
+    "content": "Excellent choice for a casual or sporty look.",
+    "created_at": "2024-01-19"
+  },
+  {
+    "product_id": "voyager-hoodie",
+    "user_id": "paloma-frazier",
+    "rating": 3,
+    "content": "Useful but not quite as high quality as I expected.",
+    "created_at": "2024-01-18"
+  },
+  {
+    "product_id": "voyager-hoodie",
+    "user_id": "marcellus-church",
+    "rating": 4,
+    "content": "Nice hoodie, good for keeping warm without being too bulky.",
+    "created_at": "2024-01-17"
+  },
+  {
+    "product_id": "voyager-hoodie",
+    "user_id": "jacqueline-coffey",
+    "rating": 5,
+    "content": "Love this hoodie! It’s stylish and very comfortable.",
+    "created_at": "2024-01-16"
+  },
+  {
+    "product_id": "voyager-hoodie",
+    "user_id": "melinda-sims",
+    "rating": 3,
+    "content": "Adequate but the color is not as vibrant in person.",
+    "created_at": "2024-01-15"
+  },
+  {
+    "product_id": "voyager-hoodie",
+    "user_id": "bryson-floyd",
+    "rating": 4,
+    "content": "Solid choice for those looking for a reliable hoodie.",
+    "created_at": "2024-01-14"
+  },
+  {
+    "product_id": "voyager-hoodie",
+    "user_id": "edmond-romero",
+    "rating": 5,
+    "content": "Terrific, lightweight, and keeps me warm in the cold.",
+    "created_at": "2024-01-13"
+  },
+  {
+    "product_id": "voyager-hoodie",
+    "user_id": "janette-mckinney",
+    "rating": 4,
+    "content": "Good value for the price, nicely made.",
+    "created_at": "2024-01-12"
+  },
+  {
+    "product_id": "voyager-hoodie",
+    "user_id": "winston-mann",
+    "rating": 2,
+    "content": "Expected better quality for the price, it's just okay.",
+    "created_at": "2024-01-11"
+  },
+  {
+    "product_id": "urban-drift-bucket-hat",
+    "user_id": "skyler-orr",
+    "rating": 5,
+    "content": "Best hat I've ever owned. Super stylish and very durable.",
+    "created_at": "2024-03-09"
+  },
+  {
+    "product_id": "urban-drift-bucket-hat",
+    "user_id": "harriet-suarez",
+    "rating": 4,
+    "content": "A bit pricey, but the comfort and sun protection are definitely worth it.",
+    "created_at": "2024-03-08"
+  },
+  {
+    "product_id": "urban-drift-bucket-hat",
+    "user_id": "monika-molina",
+    "rating": 5,
+    "content": "Best hat for traveling, very soft and has a perfect fit.",
+    "created_at": "2024-01-31"
+  },
+  {
+    "product_id": "urban-drift-bucket-hat",
+    "user_id": "carla-sutton",
+    "rating": 4,
+    "content": "Loves the wide brim and functional design, but wish it came in more vibrant colors.",
+    "created_at": "2024-01-30"
+  },
+  {
+    "product_id": "urban-drift-bucket-hat",
+    "user_id": "polly-cobb",
+    "rating": 3,
+    "content": "Comfortable but heavier than I expected, not ideal for all weather conditions.",
+    "created_at": "2024-01-29"
+  },
+  {
+    "product_id": "urban-drift-bucket-hat",
+    "user_id": "keenan-potts",
+    "rating": 4,
+    "content": "Very versatile and durable, a solid choice for outdoor enthusiasts.",
+    "created_at": "2024-05-01"
+  },
+  {
+    "product_id": "urban-drift-bucket-hat",
+    "user_id": "bonita-woodward",
+    "rating": 5,
+    "content": "Extremely soft and fits well. Love the lightweight design.",
+    "created_at": "2024-05-02"
+  }
+]
