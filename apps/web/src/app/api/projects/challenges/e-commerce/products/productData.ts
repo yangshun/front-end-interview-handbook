@@ -1,12 +1,12 @@
 import { maxBy, meanBy, minBy, round, sumBy, union } from 'lodash-es';
 
-import categories from '../../__data/categories.json' assert { type: 'json' };
-import collections from '../../__data/collections.json' assert { type: 'json' };
-import inventory from '../../__data/inventory.json' assert { type: 'json' };
-import productImagesAll from '../../__data/product_images.json' assert { type: 'json' };
-import productInfoAll from '../../__data/product_info.json' assert { type: 'json' };
-import productReviewsAll from '../../__data/product_reviews.json' assert { type: 'json' };
-import productsAll from '../../__data/products.json' assert { type: 'json' };
+import categories from '../__data/categories.json' assert { type: 'json' };
+import collections from '../__data/collections.json' assert { type: 'json' };
+import inventory from '../__data/inventory.json' assert { type: 'json' };
+import productImagesAll from '../__data/product_images.json' assert { type: 'json' };
+import productInfoAll from '../__data/product_info.json' assert { type: 'json' };
+import productReviewsAll from '../__data/product_reviews.json' assert { type: 'json' };
+import productsAll from '../__data/products.json' assert { type: 'json' };
 
 export function buildProductData(productId: string) {
   const product = productsAll.find(

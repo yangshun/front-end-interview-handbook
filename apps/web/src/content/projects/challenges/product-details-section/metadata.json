@@ -2,7 +2,7 @@
   "createdAt": "2024-01-06",
   "difficulty": "mid",
   "track": "e-commerce",
-  "order": 2,
+  "order": 20,
   "guides": ["layout-grid", "icons"],
   "access": "free-plus",
   "pointsBase": 400,

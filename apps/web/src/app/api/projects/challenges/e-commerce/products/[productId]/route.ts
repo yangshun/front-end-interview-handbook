@@ -1,7 +1,7 @@
 import type { NextRequest } from 'next/server';
 import { NextResponse } from 'next/server';
 
-import { buildProductData } from './productData';
+import { buildProductData } from '../productData';
 
 export async function GET(
   _request: NextRequest,

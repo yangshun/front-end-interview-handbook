@@ -1,6 +1,6 @@
 {
   "title": "Product Listing Section",
-  "description": "Build a responsive product listing section with filters and sorting",
+  "description": "Build a responsive product listing section with filtering, sorting, and pagination",
   "specLabels": {
     "main": "Product listing section"
   }

@@ -1,7 +1,7 @@
 {
-  "title": "Product Details Section",
+  "title": "Product Details Page",
   "description": "Build a responsive and user-friendly page that highlights product features, images and allow customers to add them to the cart",
   "specLabels": {
-    "main": "Product details section"
+    "main": "Product details page"
   }
 }

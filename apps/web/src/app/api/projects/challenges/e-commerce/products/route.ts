@@ -2,7 +2,7 @@ import { intersection } from 'lodash-es';
 import type { NextRequest } from 'next/server';
 import { NextResponse } from 'next/server';
 
-import { buildProductData } from './[productId]/productData';
+import { buildProductData } from './productData';
 import productsAll from '../__data/products.json' assert { type: 'json' };
 
 const latestArrivalProductIDs = productsAll
