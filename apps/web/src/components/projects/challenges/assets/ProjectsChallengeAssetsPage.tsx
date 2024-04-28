@@ -3,10 +3,12 @@
 import clsx from 'clsx';
 import type {
   ProjectsChallengeAPIWriteup,
+  ProjectsChallengeAppendix,
   ProjectsChallengeStyleGuide,
 } from 'contentlayer/generated';
 import { useState } from 'react';
 import {
+  RiBookOpenLine,
   RiCheckboxCircleFill,
   RiCodeSSlashLine,
   RiDragMove2Fill,
@@ -39,9 +41,17 @@ import ProjectsChallengeMdxContent from '../../common/ProjectsChallengeMdxConten
 import ProjectsStartButton from '../../common/ProjectsStartButton';
 import type { ProjectsViewerProjectsProfile } from '../../types';
 
-type OnlineAssetsTabType = 'api' | 'responsive-breakpoints' | 'style-guide';
+type OnlineAssetsTabType =
+  | 'api'
+  | 'appendix'
+  | 'responsive-breakpoints'
+  | 'style-guide';
 
-function useOnlineAssetsTabs(hasStyleGuide: boolean, hasAPIWriteup: boolean) {
+function useOnlineAssetsTabs(
+  hasStyleGuide: boolean,
+  hasAPIWriteup: boolean,
+  hasAppendix: boolean,
+) {
   const intl = useIntl();
 
   const tabs: Array<TabItem<OnlineAssetsTabType>> = [
@@ -80,11 +90,24 @@ function useOnlineAssetsTabs(hasStyleGuide: boolean, hasAPIWriteup: boolean) {
     });
   }
 
+  if (hasAppendix) {
+    tabs.push({
+      icon: RiBookOpenLine,
+      label: intl.formatMessage({
+        defaultMessage: 'Appendix',
+        description: 'Project assets category label',
+        id: 'jV6cb9',
+      }),
+      value: 'appendix',
+    });
+  }
+
   return tabs;
 }
 
 type Props = Readonly<{
   apiWriteup?: ProjectsChallengeAPIWriteup;
+  appendix?: ProjectsChallengeAppendix;
   challenge: ProjectsChallengeItem;
   styleGuide?: ProjectsChallengeStyleGuide;
   viewerAccess: ProjectsPremiumAccessControlFields;
@@ -93,6 +116,7 @@ type Props = Readonly<{
 
 export default function ProjectsChallengeAssetsPage({
   apiWriteup,
+  appendix,
   challenge,
   styleGuide,
   viewerAccess,
@@ -107,6 +131,7 @@ export default function ProjectsChallengeAssetsPage({
   const onlineAssetsTabs = useOnlineAssetsTabs(
     styleGuide != null,
     apiWriteup != null,
+    appendix != null,
   );
   const [onlineAssetsTab, setOnlineAssetsTab] = useState<OnlineAssetsTabType>(
     'responsive-breakpoints',
@@ -241,6 +266,11 @@ export default function ProjectsChallengeAssetsPage({
               {onlineAssetsTab === 'api' && apiWriteup != null && (
                 <div className="pt-2">
                   <ProjectsChallengeMdxContent mdxCode={apiWriteup.body.code} />
+                </div>
+              )}
+              {onlineAssetsTab === 'appendix' && appendix != null && (
+                <div className="pt-2">
+                  <ProjectsChallengeMdxContent mdxCode={appendix.body.code} />
                 </div>
               )}
             </Section>

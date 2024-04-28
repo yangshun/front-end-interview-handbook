@@ -7,6 +7,7 @@ import fetchViewerProjectsProfile from '~/components/projects/utils/fetchViewerP
 
 import {
   readProjectsChallengeAPIWriteup,
+  readProjectsChallengeAppendix,
   readProjectsChallengeInfo,
   readProjectsChallengeItem,
   readProjectsChallengeStyleGuide,
@@ -58,12 +59,14 @@ export default async function Page({ params }: Props) {
     { challenge },
     { styleGuide },
     { apiWriteup },
+    { appendix },
   ] = await Promise.all([
     fetchViewerProjectsProfile(),
     fetchViewerProjectsChallengeAccess(slug),
     readProjectsChallengeItem(slug, locale),
     readProjectsChallengeStyleGuide(slug, locale),
     readProjectsChallengeAPIWriteup(slug, locale),
+    readProjectsChallengeAppendix(slug, locale),
   ]);
 
   const viewerAccess = ProjectsPremiumAccessControl(
@@ -75,6 +78,7 @@ export default async function Page({ params }: Props) {
   return (
     <ProjectsChallengeAssetsPage
       apiWriteup={apiWriteup ?? undefined}
+      appendix={appendix ?? undefined}
       challenge={challenge}
       styleGuide={styleGuide ?? undefined}
       viewerAccess={viewerAccess}
