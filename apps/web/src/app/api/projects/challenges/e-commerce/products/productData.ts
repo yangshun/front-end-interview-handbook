@@ -44,7 +44,7 @@ export function buildProductData(productId: string) {
     inventory: productInventory.map(
       ({ product_id: _productId, ...data }) => data,
     ),
-    price: {
+    priceRange: {
       highest:
         maxBy(productInventory, (item) => item.sale_price)?.sale_price ?? 0,
       lowest:
@@ -56,6 +56,7 @@ export function buildProductData(productId: string) {
         2,
       ) || null,
     reviews: reviews.length,
+    sizes: union(productInventory.map((item) => item.size)),
     sold: sumBy(productInventory, (item) => item.sold),
   };
 }

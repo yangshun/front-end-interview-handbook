@@ -111,8 +111,8 @@ export async function GET(request: NextRequest) {
         }
         case 'price': {
           return direction === 'asc'
-            ? a.price.lowest - b.price.lowest
-            : b.price.highest - a.price.highest;
+            ? a.priceRange.lowest - b.priceRange.lowest
+            : b.priceRange.highest - a.priceRange.highest;
         }
       }
 
