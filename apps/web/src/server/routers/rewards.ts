@@ -4,6 +4,7 @@ import type { ZodError } from 'zod';
 import { z } from 'zod';
 
 import prisma from '~/server/prisma';
+import { createSupabaseAdminClientGFE_SERVER_ONLY } from '~/supabase/SupabaseServerGFE';
 
 import { router, userProcedure } from '../trpc';
 
@@ -258,23 +259,61 @@ export const rewardsRouter = router({
         },
       });
 
-      if (profile == null || profile?.stripeCustomer == null) {
-        throw 'No profile or Stripe customer found';
+      if (profile == null) {
+        throw 'No profile found';
       }
 
       const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string, {
         apiVersion: '2023-10-16',
       });
 
+      let stripeCustomer = profile?.stripeCustomer;
+
+      if (stripeCustomer == null) {
+        // Create Stripe customer on the fly rather than error-ing.
+        const supabaseAdmin = createSupabaseAdminClientGFE_SERVER_ONLY();
+        const {
+          data: { user },
+          error,
+        } = await supabaseAdmin.auth.admin.getUserById(userId);
+
+        if (error != null || user == null) {
+          throw error;
+        }
+
+        const newCustomer = await stripe.customers.create(
+          {
+            email: user.email,
+            name: user.user_metadata.name,
+          },
+          {
+            idempotencyKey: user.id,
+          },
+        );
+
+        stripeCustomer = newCustomer.id;
+        await prisma.profile.update({
+          data: {
+            stripeCustomer,
+          },
+          where: {
+            id: user.id,
+          },
+        });
+      }
+
+      if (stripeCustomer == null) {
+        throw 'No Stripe customer found';
+      }
+
       const coupon =
         process.env.NODE_ENV === 'production'
           ? socialTasksDiscountCouponId_PROD
           : socialTasksDiscountCouponId_TEST;
-      const customer = profile.stripeCustomer;
 
       const promotionCodes = await stripe.promotionCodes.list({
         coupon,
-        customer,
+        customer: stripeCustomer,
       });
 
       // Allow 3 promo generations since some users
@@ -289,7 +328,7 @@ export const rewardsRouter = router({
 
       const promotionCode = await stripe.promotionCodes.create({
         coupon,
-        customer,
+        customer: stripeCustomer,
         expires_at: nextThreeDaysUnix,
         max_redemptions: 1,
         metadata: {

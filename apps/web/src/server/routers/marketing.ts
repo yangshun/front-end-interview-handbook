@@ -20,6 +20,7 @@ export const marketingRouter = router({
         },
       });
 
+      // TODO(projects): handle interviews vs projects premium.
       if (profile == null || profile?.premium || !profile?.stripeCustomer) {
         return null;
       }
