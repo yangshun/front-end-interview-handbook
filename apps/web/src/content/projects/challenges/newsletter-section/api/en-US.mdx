@@ -2,19 +2,21 @@
 
 To test your newsletter section, we have provided a HTTP endpoint that will return success/error response depending on the request body:
 
-- Endpoint: https://www.greatfrontend.com/api/projects/challenges/newsletter
-- HTTP Method: `POST`
-- Content Type: `json`
+```
+POST https://www.greatfrontend.com/api/projects/challenges/newsletter
+```
 
-### Request
+### Parameters
 
 All of the following fields should be present in the request body in order for the request to be successful.
 
-| Attribute | Type     | Required | Description                     |
-| --------- | -------- | -------- | ------------------------------- |
-| `email`   | `string` | Yes      | Email address of the subscriber |
+| Name    | Type     | Required | Description                     |
+| ------- | -------- | -------- | ------------------------------- |
+| `email` | `string` | Yes      | Email address of the subscriber |
 
-### Response
+### Returns
+
+A success message if the call succeeded.
 
 #### Success
 
@@ -36,7 +38,7 @@ Error responses will have a HTTP status code of 400 or 500 and contain the `erro
 }
 ```
 
-### Example
+## Example
 
 To test APIs, you're recommended to install the [Thunder Client for VS Code extension](https://www.thunderclient.com/), a lightweight REST client for testing APIs right within VS Code.
 

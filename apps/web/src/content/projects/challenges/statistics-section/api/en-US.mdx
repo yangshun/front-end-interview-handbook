@@ -2,19 +2,19 @@
 
 To test your statistics section, we have provided a HTTP endpoint that returns dynamic metrics so that your section can show the latest data in real-time:
 
-- Endpoint: https://www.greatfrontend.com/api/projects/challenges/statistics-metrics
-- HTTP Method: `GET`
-- Content Type: `json`
+```
+GET https://www.greatfrontend.com/api/projects/challenges/statistics-metrics
+```
 
-### Request
+### Parameters
 
-| Attribute | Type | Required | Description            |
-| --------- | ---- | -------- | ---------------------- |
-| `latest`  | -    | No       | Returns latest metrics |
+| Name | Type | Required | Description |
+| --- | --- | --- | --- |
+| `latest` | `boolean` | No | Returns latest metrics. Defaults to `false`. |
 
-### Response
+### Returns
 
-`GET`: https://www.greatfrontend.com/api/projects/challenges/statistics-metrics
+An array of metrics types and values.
 
 ```json
 {
@@ -39,7 +39,7 @@ To test your statistics section, we have provided a HTTP endpoint that returns d
 
 #### Latest data
 
-`GET`: https://www.greatfrontend.com/api/projects/challenges/statistics-metrics?latest
+`GET`: https://www.greatfrontend.com/api/projects/challenges/statistics-metrics?latest=true
 
 ```json
 {
@@ -60,7 +60,7 @@ To test your statistics section, we have provided a HTTP endpoint that returns d
 }
 ```
 
-### Example
+## Example
 
 To test APIs, you're recommended to install the [Thunder Client for VS Code extension](https://www.thunderclient.com/), a lightweight REST client for testing APIs right within VS Code.
 
