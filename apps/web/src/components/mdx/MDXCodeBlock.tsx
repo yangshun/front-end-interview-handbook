@@ -69,7 +69,7 @@ function convertContentToCode(
       code: props.children,
       // MDX will parse backtick blocks as `language-jsx`,
       // so this is to extract the language.
-      language: props.className.split('-')[1],
+      language: props.className ? props.className?.split('-')[1] : null,
     };
   }
 
