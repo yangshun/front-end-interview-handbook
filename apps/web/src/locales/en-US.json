@@ -1003,6 +1003,10 @@
     "defaultMessage": "Link URL",
     "description": "Label for link URL"
   },
+  "75oHxG": {
+    "defaultMessage": "Showing {currentPageCount} out of {totalCount} challenges",
+    "description": "Projects challenge pagination label"
+  },
   "78MOQL": {
     "defaultMessage": "No articles",
     "description": "Title for empty state when application of filters return no results"
@@ -1562,6 +1566,10 @@
   "BPWMw7": {
     "defaultMessage": "<bold>{author}</bold> replied to <bold>{recipient}</bold> on the submission <link>{submissionTitle}</link>: <comment>\"{description}\"</comment>",
     "description": "Log message for someone replying to someone on the challenge forum"
+  },
+  "BWcVlu": {
+    "defaultMessage": "{totalCount, plural, =0 {No challenges} one {1 challenge} other {# challenges}}",
+    "description": "Total number of challenges"
   },
   "BfCWYl": {
     "defaultMessage": "Select at least 1 skill that was used",
@@ -5731,10 +5739,6 @@
     "defaultMessage": "View subscription plans",
     "description": "Label for button to view subscription plans"
   },
-  "jFG/qC": {
-    "defaultMessage": "{totalCount, plural, =0 {No projects} one {1 project} other {# projects}}",
-    "description": "Total number of projects"
-  },
   "jGQnYd": {
     "defaultMessage": "Search coding questions",
     "description": "Placeholder for search input of coding question list"
@@ -6690,10 +6694,6 @@
   "qBPU/e": {
     "defaultMessage": "Other skills you are using which are not within the skills roadmap. Also helps community members understand more about the tech stack. If you don't see the tag you need, email us.",
     "description": "Description for tech stack input on project submit page"
-  },
-  "qBygAh": {
-    "defaultMessage": "Showing {currentPageCount} out of {totalCount} projects",
-    "description": "Projects listing label"
   },
   "qEo3cR": {
     "defaultMessage": "Filter by status",

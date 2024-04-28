@@ -271,9 +271,9 @@ function ProjectsChallengeGridListWithFiltersImpl({
             />
             <Text color="secondary" size="body3">
               <FormattedMessage
-                defaultMessage="{totalCount, plural, =0 {No projects} one {1 project} other {# projects}}"
-                description="Total number of projects"
-                id="jFG/qC"
+                defaultMessage="{totalCount, plural, =0 {No challenges} one {1 challenge} other {# challenges}}"
+                description="Total number of challenges"
+                id="BWcVlu"
                 values={{
                   totalCount: processedChallenges.length,
                 }}
@@ -290,9 +290,9 @@ function ProjectsChallengeGridListWithFiltersImpl({
         <div className="flex items-center justify-between">
           <Text color="secondary" size="body3">
             <FormattedMessage
-              defaultMessage="Showing {currentPageCount} out of {totalCount} projects"
-              description="Projects listing label"
-              id="qBygAh"
+              defaultMessage="Showing {currentPageCount} out of {totalCount} challenges"
+              description="Projects challenge pagination label"
+              id="75oHxG"
               values={{
                 currentPageCount: currentPageChallenges.length,
                 totalCount: processedChallenges.length,
