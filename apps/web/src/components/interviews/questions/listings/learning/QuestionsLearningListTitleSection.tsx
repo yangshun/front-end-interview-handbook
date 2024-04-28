@@ -115,7 +115,7 @@ export default function QuestionsLearningListTitleSection({
       </div>
       <div>
         {(() => {
-          if (userProfile == null || !userProfile?.isPremium) {
+          if (userProfile == null || !userProfile?.isInterviewsPremium) {
             return null;
           }
 

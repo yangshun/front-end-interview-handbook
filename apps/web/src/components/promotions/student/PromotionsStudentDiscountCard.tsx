@@ -129,7 +129,7 @@ export function PromotionsStudentDiscountCard() {
                 );
               }
 
-              if (userProfile?.isPremium) {
+              if (userProfile?.isInterviewsPremium) {
                 return (
                   <Button
                     display="block"

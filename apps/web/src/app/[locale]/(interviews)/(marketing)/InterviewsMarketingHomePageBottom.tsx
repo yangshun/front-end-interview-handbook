@@ -16,9 +16,9 @@ export default function InterviewsMarketingHomePageBottom() {
 
   return (
     <>
-      {!(userProfile?.isPremium && userProfile?.plan === 'lifetime') && (
-        <InterviewsPricingSectionLocalizedContainer />
-      )}
+      {!(
+        userProfile?.isInterviewsPremium && userProfile?.plan === 'lifetime'
+      ) && <InterviewsPricingSectionLocalizedContainer />}
       <InterviewsMarketingTestimonialsSection />
       <InterviewsMarketingContinuousUpdates
         title={intl.formatMessage({

@@ -40,7 +40,7 @@ function LinksListItem({
 }>) {
   const { userProfile } = useUserProfile();
 
-  const isPremiumUser = userProfile?.isPremium ?? false;
+  const isInterviewsPremium = userProfile?.isInterviewsPremium ?? false;
   const intl = useIntl();
 
   const { pathname } = useI18nPathname();
@@ -66,7 +66,7 @@ function LinksListItem({
           variant="unstyled">
           <span style={{ paddingLeft: 12 * nestedLevel }}>{link.title}</span>
           {(() => {
-            if (!isPremiumUser) {
+            if (!isInterviewsPremium) {
               if (link.premium) {
                 return <RiLockLine className="size-4 shrink-0" />;
               }

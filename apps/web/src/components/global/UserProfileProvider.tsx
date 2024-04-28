@@ -14,7 +14,7 @@ export type InterviewsProfileSubscriptionPlan =
   | 'year';
 export type UserProfile = Readonly<{
   createdAt: string;
-  isPremium: boolean;
+  isInterviewsPremium: boolean;
   plan: InterviewsProfileSubscriptionPlan | null;
   stripeCustomerID: string | null;
 }>;
@@ -42,7 +42,7 @@ function convertProfile(
 ): UserProfile {
   return {
     createdAt: payload.createdAt,
-    isPremium: payload.premium,
+    isInterviewsPremium: payload.premium,
     plan: payload.plan as InterviewsProfileSubscriptionPlan | null,
     stripeCustomerID: payload.stripeCustomer,
   };

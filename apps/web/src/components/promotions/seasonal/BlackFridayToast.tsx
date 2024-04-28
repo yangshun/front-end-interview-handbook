@@ -16,7 +16,7 @@ export default function BlackFridayToast() {
   const { userProfile, isUserProfileLoading } = useUserProfile();
 
   useEffect(() => {
-    if (isUserProfileLoading || userProfile?.isPremium) {
+    if (isUserProfileLoading || userProfile?.isInterviewsPremium) {
       return;
     }
 
@@ -60,7 +60,7 @@ export default function BlackFridayToast() {
     return () => {
       closeToast();
     };
-  }, [showToast, userProfile?.isPremium, isUserProfileLoading]);
+  }, [showToast, userProfile?.isInterviewsPremium, isUserProfileLoading]);
 
   return null;
 }

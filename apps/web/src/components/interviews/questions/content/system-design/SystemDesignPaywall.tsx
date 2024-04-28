@@ -22,7 +22,7 @@ export default function SystemDesignPaywall({
 }: Props) {
   const intl = useIntl();
   const { userProfile } = useUserProfile();
-  const isPremiumUser = userProfile?.isPremium ?? false;
+  const isPremiumUser = userProfile?.isInterviewsPremium ?? false;
   const canSeePremiumContents = !isPremium || (isPremium && isPremiumUser);
 
   if (!shouldCheckPremium || canSeePremiumContents) {

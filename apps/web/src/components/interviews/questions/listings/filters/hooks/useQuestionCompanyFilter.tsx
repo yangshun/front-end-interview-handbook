@@ -42,7 +42,7 @@ export default function useQuestionCompanyFilter({
     id: 'company',
     matches: (question) =>
       companyFilters.size === 0 ||
-      !userProfile?.isPremium ||
+      !userProfile?.isInterviewsPremium ||
       question.companies.some((company) => companyFilters.has(company)),
     name: intl.formatMessage({
       defaultMessage: 'Company',

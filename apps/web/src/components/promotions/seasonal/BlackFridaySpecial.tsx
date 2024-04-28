@@ -64,7 +64,7 @@ export function BlackFridayExclusiveTicket({
 export function BlackFridaySpecial() {
   const { userProfile, isUserProfileLoading } = useUserProfile();
 
-  if (isUserProfileLoading || userProfile?.isPremium) {
+  if (isUserProfileLoading || userProfile?.isInterviewsPremium) {
     return null;
   }
 

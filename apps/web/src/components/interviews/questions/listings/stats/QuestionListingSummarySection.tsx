@@ -21,7 +21,7 @@ export default function QuestionListingSummarySection({
 
   return (
     <section className="flex flex-col gap-2">
-      {!userProfile?.isPremium && (
+      {!userProfile?.isInterviewsPremium && (
         <div className="flex gap-2">
           {free > 0 && (
             <div className="flex-1">

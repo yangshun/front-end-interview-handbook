@@ -43,7 +43,7 @@ export default function CodingWorkspaceQuestionListSlideOutButton({
   // Processing.
   const sortedQuestions = sortQuestionsMultiple(
     questionsWithCompletionStatus,
-    userProfile?.isPremium
+    userProfile?.isInterviewsPremium
       ? defaultSortFields
       : // Show free questions first if user is not a premium user.
         defaultSortFields.concat(premiumSortFields),

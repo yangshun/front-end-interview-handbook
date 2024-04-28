@@ -230,7 +230,7 @@ function PricingButtonNonPremium({
   useEffect(() => {
     if (
       userProfile != null &&
-      !userProfile.isPremium &&
+      !userProfile.isInterviewsPremium &&
       paymentConfig.planType === 'lifetime' &&
       checkoutSessionHref == null
     ) {
@@ -328,7 +328,7 @@ function PricingButtonSection({
   }
 
   if (userProfile) {
-    if (!userProfile.isPremium) {
+    if (!userProfile.isInterviewsPremium) {
       // User is logged in but not a premium user.
       return (
         <PricingButtonNonPremium

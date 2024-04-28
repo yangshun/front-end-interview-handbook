@@ -98,7 +98,7 @@ function Contents({
   // Processing.
   const sortedQuestions = sortQuestionsMultiple(
     questions,
-    userProfile?.isPremium
+    userProfile?.isInterviewsPremium
       ? defaultSortFields
       : // Show free questions first if user is not a premium user.
         defaultSortFields.concat(premiumSortFields),
@@ -134,7 +134,7 @@ function Contents({
               filters={completionStatusFilters}
             />
           )}
-          {userProfile?.isPremium && (
+          {userProfile?.isInterviewsPremium && (
             <div className="col-span-2">
               <FilterSection
                 filterOptions={companyFilterOptions}

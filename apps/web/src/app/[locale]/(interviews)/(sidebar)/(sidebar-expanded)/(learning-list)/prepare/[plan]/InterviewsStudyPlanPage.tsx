@@ -47,7 +47,7 @@ export default function InterviewsStudyPlanPage({
 }: Props) {
   const intl = useIntl();
   const { userProfile } = useUserProfile();
-  const canViewStudyPlans = userProfile?.isPremium;
+  const canViewStudyPlans = userProfile?.isInterviewsPremium;
 
   const { data: questionProgressParam } =
     trpc.questionProgress.getAll.useQuery();

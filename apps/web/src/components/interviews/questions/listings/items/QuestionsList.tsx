@@ -172,7 +172,7 @@ export default function QuestionsList<Q extends QuestionMetadata>({
                   'flex items-center justify-center',
                   'z-10', // Needed for the icon to be above the link.
                 )}>
-                {question.premium && !userProfile?.isPremium ? (
+                {question.premium && !userProfile?.isInterviewsPremium ? (
                   <Tooltip
                     asChild={true}
                     label={intl.formatMessage({

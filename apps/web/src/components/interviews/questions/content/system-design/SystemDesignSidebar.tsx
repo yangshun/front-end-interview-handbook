@@ -22,7 +22,7 @@ export default function SystemDesignSidebar() {
   const { items: systemDesignNavigation } = useSystemDesignNavigation();
   const { pathname } = useI18nPathname();
   const { userProfile } = useUserProfile();
-  const isPremiumUser = userProfile?.isPremium ?? false;
+  const isPremiumUser = userProfile?.isInterviewsPremium ?? false;
 
   return (
     <div

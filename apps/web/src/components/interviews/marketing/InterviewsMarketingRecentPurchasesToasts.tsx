@@ -84,7 +84,7 @@ export default function InterviewsMarketingRecentPurchasesToasts() {
     null,
   );
 
-  if (isUserProfileLoading || userProfile?.isPremium) {
+  if (isUserProfileLoading || userProfile?.isInterviewsPremium) {
     return null;
   }
 

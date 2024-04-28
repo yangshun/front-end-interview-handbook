@@ -130,7 +130,7 @@ export default function QuestionsCodingListWithFilters({
   // Processing.
   const sortedQuestions = sortQuestionsMultiple(
     questions,
-    userProfile?.isPremium
+    userProfile?.isInterviewsPremium
       ? defaultSortFields
       : // Show free questions first if user is not a premium user.
         defaultSortFields.concat(premiumSortFields),
@@ -144,7 +144,8 @@ export default function QuestionsCodingListWithFilters({
   const difficultyCount = countQuestionsByDifficulty(processedQuestions);
   const premiumCount = countQuestionsByPremium(processedQuestions);
   const totalDurationMins = countQuestionsTotalDurationMins(processedQuestions);
-  const showPaywall = !userProfile?.isPremium && companyFilters.size > 0;
+  const showPaywall =
+    !userProfile?.isInterviewsPremium && companyFilters.size > 0;
 
   function makeDropdownItemProps(
     label: string,

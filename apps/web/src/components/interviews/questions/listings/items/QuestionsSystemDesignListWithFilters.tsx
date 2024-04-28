@@ -87,7 +87,7 @@ export default function QuestionsSystemDesignListWithFilters({
 
   const sortedQuestions = sortQuestionsMultiple(
     questionsWithCompletionStatus,
-    userProfile?.isPremium
+    userProfile?.isInterviewsPremium
       ? defaultSortFields
       : // Show free questions first if user is not a premium user.
         defaultSortFields.concat(premiumSortFields),
@@ -114,7 +114,8 @@ export default function QuestionsSystemDesignListWithFilters({
     sortedQuestions,
     filters.map(([_, filterFn]) => filterFn),
   );
-  const showPaywall = !userProfile?.isPremium && companyFilters.size > 0;
+  const showPaywall =
+    !userProfile?.isInterviewsPremium && companyFilters.size > 0;
   const sortAndFilters = (
     <div className="flex shrink-0 justify-end gap-2 sm:pt-0">
       <div className={clsx(layout === 'full' && 'lg:hidden')}>

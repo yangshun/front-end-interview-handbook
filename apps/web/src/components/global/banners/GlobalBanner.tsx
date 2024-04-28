@@ -23,7 +23,7 @@ import { useUserProfile } from '../UserProfileProvider';
 
 function MarketingMessage() {
   const { userProfile } = useUserProfile();
-  const isPremium = userProfile?.isPremium ?? false;
+  const isInterviewsPremium = userProfile?.isInterviewsPremium ?? false;
 
   const perpetualSaleMessage = (
     <FormattedMessage
@@ -107,7 +107,7 @@ function MarketingMessage() {
     />
   );
 
-  return isPremium ? weAreHiringMessage : perpetualSaleMessage;
+  return isInterviewsPremium ? weAreHiringMessage : perpetualSaleMessage;
 }
 
 function ComingSoonCountdown({
