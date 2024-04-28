@@ -1,7 +1,7 @@
 import type { NextRequest } from 'next/server';
 import { NextResponse } from 'next/server';
 
-import productReviewsAll from '../../../__data/product_reviews.json' assert { type: 'json' };
+import productReviewsAll from '../../../__data/product-reviews.json' assert { type: 'json' };
 import users from '../../../__data/users.json' assert { type: 'json' };
 
 export async function GET(
@@ -9,8 +9,11 @@ export async function GET(
   { params }: { params: { productId: string } },
 ) {
   const { searchParams } = new URL(request.url);
-  const perPage = Number(searchParams.get('per_page')) || 10;
+  // Pagination parameters.
   const page = Number(searchParams.get('page')) || 1;
+  const perPage = Number(searchParams.get('per_page')) || 12;
+
+  // Filtering parameters.
   const rating = searchParams.get('rating');
 
   const { productId } = params;
@@ -25,7 +28,7 @@ export async function GET(
   return NextResponse.json({
     data: filteredReviews
       .slice((page - 1) * perPage, page * perPage)
-      .map(({ user_id, ...review }) => ({
+      .map(({ user_id, product_id: _productId, ...review }) => ({
         ...review,
         user: users.find((user) => user.user_id === user_id),
       })),

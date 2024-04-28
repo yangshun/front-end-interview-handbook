@@ -1,0 +1,117 @@
+## Product listing data
+
+To display the product listing data, do one of the following:
+
+- Use `products.json` and other necessary data provided in the starter files. Feel free to seed your database with this data.
+- Fetch the data from our E-commerce product listing HTTP API.
+
+## E-commerce product listing API
+
+```
+GET https://www.greatfrontend.com/api/projects/challenges/e-commerce/products
+```
+
+### Parameters
+
+| Name | Type | Required | Description |
+| --- | --- | --- | --- |
+| `page` | `number` | No | Page number to retrieve. Defaults to 1. |
+| `per_page` | `number` | No | Number of items per page. Defaults to 9. |
+| `collection` | `Array<string>` | No | Collections to filter; Valid values include `latest` and collection IDs. |
+| `category` | `Array<string>` | No | Categories to filter; Valid values include category IDs. |
+| `color` | `Array<string>` | No | Variant colors to filter. |
+| `rating` | `Array<number>` | No | Ratings to filter. |
+| `sort` | `string` | No | Field to sort on; Valid values: `created`, `rating`, `popularity`, `price`. |
+| `direction` | `string` | No | Sorting direction; Valid values: `asc`, `desc`; Default: `desc`. |
+
+**Note**: To specify values fo `Array`-type parameters, repeat the query parameter:
+
+```
+https://www.greatfrontend.com/api/projects/challenges/e-commerce/products?color=black&color=white
+```
+
+### Returns
+
+A list of products matching the criteria. Additional pagination information is returned in the response.
+
+```json
+{
+  "data": [
+    {
+      "product_id": "urban-drift-bucket-hat",
+      "name": "Urban Drift Bucket Hat",
+      "description": "Navigate the urban jungle with our Urban Drift Bucket Hat. It's not only trendy but also practical, offering shade from the hustle and bustle.",
+      "category": {
+        "category_id": "unisex",
+        "name": "Unisex",
+        "created_at": "2024-01-01"
+      },
+      "collection": {
+        "collection_id": "urban",
+        "name": "Urban Oasis",
+        "description": "For the city dwellers",
+        "image_url": "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/object/public/e-commerce-track-images/collections/urban-oasis.jpg",
+        "created_at": "2024-01-01"
+      },
+      "created_at": "2024-04-04",
+      "colors": [
+        "black",
+        "white"
+      ],
+      "images": [
+        {
+          "color": "black",
+          "image_url": "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/object/public/e-commerce-track-images/urban-drift-bucket-hat/urban-drift-bucket-hat-1.jpg"
+        },
+        {...}
+        {...}
+        {...}
+        {...}
+      ],
+      "inventory": [
+        {
+          "sku": "udbh-black",
+          "color": "black",
+          "size": null,
+          "list_price": 15,
+          "discount": null,
+          "discount_percentage": null,
+          "sale_price": 15,
+          "sold": 65,
+          "stock": 435
+        },
+        {
+          "sku": "udbh-white",
+          "color": "white",
+          "size": null,
+          "list_price": 15,
+          "discount": null,
+          "discount_percentage": null,
+          "sale_price": 15,
+          "sold": 65,
+          "stock": 435
+        }
+      ],
+      "priceRange": {
+        "highest": 15,
+        "lowest": 15
+      },
+      "rating": 4.29,
+      "reviews": 7,
+      "sizes": [],
+      "sold": 130
+    },
+    {...}
+    {...}
+    {...}
+    {...}
+    {...}
+  ],
+  "pagination": {
+    "has_more": true,
+    "page": 1,
+    "per_page": 9,
+    "total": 19
+  }
+}
+```

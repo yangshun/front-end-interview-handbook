@@ -1,0 +1,112 @@
+## Shopping cart APIs
+
+To build a shopping cart that interacts with APIs, do one of the following:
+
+- Build your own APIs that read cart data from your own database using the provided products data.
+- Use `sample-cart.json` and `coupons.json` provided in the starter files. Feel free to seed the "Carts" and "Coupons" table in your database with this data.
+- Fetch sample cart data and apply coupons with our E-commerce HTTP APIs.
+
+## E-commerce shopping cart API (sample data)
+
+```
+GET https://www.greatfrontend.com/api/projects/challenges/e-commerce/cart-sample
+```
+
+**Warning**: This API always returns the same data as it is not meant to be used in functional applications that should show the viewer's actual cart and support cart modifications.
+
+This API is still useful in the following situations:
+
+- It can be used as initial cart data. Changes to the cart can be done within the browser and optionally persisted in browser storage (e.g. `localStorage`).
+- If you only want to practice the front end aspects of fetching the cart data and displaying it.
+
+### Parameters
+
+No parameters.
+
+### Returns
+
+Sample data for a user's shopping cart.
+
+```json
+{
+  "cart_id": "4126347157",
+  "items": [
+    {
+      "product": {
+        "product_id": "stepsoft-socks",
+        "name": "StepSoft Socks"
+      },
+      "unit": {
+        "sku": "ss-orange-xs",
+        "list_price": 25,
+        "sale_price": 22.5,
+        "size": "xs",
+        "color": "orange",
+        "image_url": "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/object/public/e-commerce-track-images/stepsoft-socks/stepsoft-socks-1.jpg"
+      },
+      "total_list_price": 25,
+      "total_sale_price": 22.5,
+      "quantity": 1,
+      "created_at": "2024-01-31"
+    },
+    {...}
+    {...}
+    {...}
+  ],
+  "summary": {
+    "subtotal": 162.5,
+    "discount": 0,
+    "discount_code": null,
+    "shipping": 0,
+    "total": 162.5
+  }
+}
+```
+
+## E-commerce coupon apply API
+
+```
+PUT https://www.greatfrontend.com/api/projects/challenges/e-commerce/coupons/apply
+```
+
+Validates whether a coupon is valid and returns the discount amount or percentage if so.
+
+**Note**: The proper way to apply coupons would be to apply the discount on the server and return the new cart total.
+
+### Parameters
+
+| Name          | Type     | Required | Description                  |
+| ------------- | -------- | -------- | ---------------------------- |
+| `coupon_code` | `string` | Yes      | Coupon code to apply to cart |
+
+### Returns
+
+Coupon discount details. Discounts can be a flat dollar amount off the total.
+
+```json
+{
+  "coupon_code": "GR8FRNTND24",
+  "discount_amount": 5,
+  "discount_percentage": null
+}
+```
+
+Discounts can also be percentage-based.
+
+```json
+{
+  "coupon_code": "10OFF",
+  "discount_amount": null,
+  "discount_percentage": 10
+}
+```
+
+### Errors
+
+For invalid coupons, the following response is returned.
+
+```json
+{
+  "error": "Invalid coupon"
+}
+```

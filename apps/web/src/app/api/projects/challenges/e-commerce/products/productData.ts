@@ -3,9 +3,9 @@ import { maxBy, meanBy, minBy, round, sumBy, union } from 'lodash-es';
 import categories from '../__data/categories.json' assert { type: 'json' };
 import collections from '../__data/collections.json' assert { type: 'json' };
 import inventory from '../__data/inventory.json' assert { type: 'json' };
-import productImagesAll from '../__data/product_images.json' assert { type: 'json' };
-import productInfoAll from '../__data/product_info.json' assert { type: 'json' };
-import productReviewsAll from '../__data/product_reviews.json' assert { type: 'json' };
+import productImagesAll from '../__data/product-images.json' assert { type: 'json' };
+import productInfoAll from '../__data/product-info.json' assert { type: 'json' };
+import productReviewsAll from '../__data/product-reviews.json' assert { type: 'json' };
 import productsAll from '../__data/products.json' assert { type: 'json' };
 
 export function buildProductData(productId: string) {
@@ -56,7 +56,9 @@ export function buildProductData(productId: string) {
         2,
       ) || null,
     reviews: reviews.length,
-    sizes: union(productInventory.map((item) => item.size)),
+    sizes: union(productInventory.map((item) => item.size)).flatMap((item) =>
+      item != null ? [item] : [],
+    ),
     sold: sumBy(productInventory, (item) => item.sold),
   };
 }

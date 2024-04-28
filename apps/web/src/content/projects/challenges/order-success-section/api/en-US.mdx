@@ -1,0 +1,81 @@
+## Order data
+
+To display the order data, do one of the following:
+
+- Build your own APIs that read order data from your own database using the provided products data.
+- Use `sample-order.json` provided in the starter files. Feel free to seed the "Orders" table in your database with this data.
+- Fetch sample order data from our E-commerce order HTTP API.
+
+## E-commerce order API (sample data)
+
+```
+GET https://www.greatfrontend.com/api/projects/challenges/e-commerce/order-sample
+```
+
+**Warning**: This API always returns the same data as is not meant to be used in functional applications that should show the viewer's completed order.
+
+This API is still useful in the following situations:
+
+- If you only want to practice the front end aspects of fetching order data and displaying it.
+
+### Parameters
+
+No parameters.
+
+### Returns
+
+Sample data for a user's completed order.
+
+```json
+{
+  "order_id": "1928371928",
+  "items": [
+    {
+      "product": {
+        "product_id": "stepsoft-socks",
+        "name": "StepSoft Socks"
+      },
+      "unit": {
+        "sku": "ss-orange-xs",
+        "list_price": 25,
+        "sale_price": 22.5,
+        "size": "xs",
+        "color": "orange",
+        "image_url": "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/object/public/e-commerce-track-images/stepsoft-socks/stepsoft-socks-1.jpg"
+      },
+      "total_list_price": 25,
+      "total_sale_price": 22.5,
+      "quantity": 1,
+      "created_at": "2024-01-31"
+    },
+    {...}
+    {...}
+    {...}
+  ],
+  "summary": {
+    "subtotal": 162.5,
+    "discount": 5,
+    "discount_code": "GR8FRNTND24",
+    "shipping": 0,
+    "total": 162.5
+  },
+  "shipping_details": {
+    "address": {
+      "line1": "150 Elm Street, Apartment 3B",
+      "line2": null,
+      "city": "Brooklyn",
+      "state": "NY",
+      "zip": 11222,
+      "country": "US"
+    },
+    "phone": "16505550198"
+  },
+  "payment_method": {
+    "type": "VISA",
+    "last_4": "1234",
+    "exp_month": 12,
+    "exp_year": 2028
+  }
+}
+
+```

@@ -1,0 +1,63 @@
+## Shopping cart data
+
+To display the shopping cart data, do one of the following:
+
+- Build your own APIs that read cart data from your own database using the provided products data.
+- Use `sample-cart.json` provided in the starter files. Feel free to seed the "Carts" table in your database with this data.
+- Fetch sample cart data from our E-commerce shopping cart HTTP API.
+
+## E-commerce shopping cart API (sample data)
+
+```
+GET https://www.greatfrontend.com/api/projects/challenges/e-commerce/cart-sample
+```
+
+**Warning**: This API always returns the same data as it is not meant to be used in functional applications that should show the viewer's actual cart.
+
+This API is still useful in the following situations:
+
+- If you only want to practice the front end aspects of fetching the cart data and displaying it.
+
+### Parameters
+
+No parameters.
+
+### Returns
+
+Sample data for a user's shopping cart.
+
+```json
+{
+  "cart_id": "4126347157",
+  "items": [
+    {
+      "product": {
+        "product_id": "stepsoft-socks",
+        "name": "StepSoft Socks"
+      },
+      "unit": {
+        "sku": "ss-orange-xs",
+        "list_price": 25,
+        "sale_price": 22.5,
+        "size": "xs",
+        "color": "orange",
+        "image_url": "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/object/public/e-commerce-track-images/stepsoft-socks/stepsoft-socks-1.jpg"
+      },
+      "total_list_price": 25,
+      "total_sale_price": 22.5,
+      "quantity": 1,
+      "created_at": "2024-01-31"
+    },
+    {...}
+    {...}
+    {...}
+  ],
+  "summary": {
+    "subtotal": 162.5,
+    "discount": 0,
+    "discount_code": null,
+    "shipping": 0,
+    "total": 162.5
+  }
+}
+```

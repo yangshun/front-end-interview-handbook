@@ -1,0 +1,99 @@
+## Product details data
+
+To display the product details data, do one of the following:
+
+- Use `products.json` and other necessary data provided in the starter files. Feel free to seed your database with this data.
+- Fetch the data from our E-commerce product details HTTP API.
+
+## E-commerce product details API
+
+```
+GET https://www.greatfrontend.com/api/projects/challenges/e-commerce/products/:productId
+```
+
+Example: https://www.greatfrontend.com/api/projects/challenges/e-commerce/products/voyager-hoodie
+
+Other product IDs include `urban-drift-bucket-hat`, `tangerine-mini-tote`, and `elemental-sneakers`. The full list of products can be found in the starter files.
+
+### Parameters
+
+No parameters.
+
+### Returns
+
+A product's details which include the name, category, collection, available colors, sizes, images, inventory (stock availability), rating, and total number of reviews.
+
+```json
+{
+  "product_id": "voyager-hoodie",
+  "name": "Voyager Hoodie",
+  "description": "The Voyager Hoodie is for the explorer at heart. Its durable fabric and roomy pockets are perfect for those who are always searching for the next adventure.",
+  "category": {
+    "category_id": "unisex",
+    "name": "Unisex",
+    "created_at": "2024-01-01"
+  },
+  "collection": {
+    "collection_id": "urban",
+    "name": "Urban Oasis",
+    "description": "For the city dwellers",
+    "image_url": "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/object/public/e-commerce-track-images/collections/urban-oasis.jpg",
+    "created_at": "2024-01-01"
+  },
+  "created_at": "2024-03-20",
+  "colors": [
+    "green",
+    "brown"
+  ],
+  "images": [
+    {
+      "color": "green",
+      "image_url": "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/object/public/e-commerce-track-images/voyager-hoodie/voyager-hoodie-1.jpg"
+    },
+    {
+      "color": "brown",
+      "image_url": "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/object/public/e-commerce-track-images/voyager-hoodie/voyager-hoodie-1.jpg"
+    },
+    {...}
+    {...}
+  ],
+  "info": [
+    {
+      "title": "Features",
+      "description": [
+        "Designed for comfort and durability.",
+        "Soft, breathable fabric ideal for travel and adventure.",
+        "Large front pocket and adjustable hood.",
+        "Minimalist design pairs well with any style.",
+        "Made with eco-conscious materials."
+      ]
+    },
+    {...}
+    {...}
+  ],
+  "inventory": [
+    {
+      "sku": "vh-green-xs",
+      "color": "green",
+      "size": "xs",
+      "list_price": 95,
+      "discount": null,
+      "discount_percentage": 20,
+      "sale_price": 76,
+      "sold": 85,
+      "stock": 415
+    },
+    {...}
+    {...}
+    {...}
+  ],
+  "priceRange": {
+    "highest": 76,
+    "lowest": 76
+  },
+  "rating": 4.06,
+  "reviews": 62,
+  "sizes": ["xs", "sm", "md", "lg", "xl"],
+  "sold": 750
+}
+```

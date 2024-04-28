@@ -1,0 +1,22 @@
+[
+  {
+    "coupon_code": "GR8FRNTND24",
+    "discount_amount": 5,
+    "discount_percentage": null
+  },
+  {
+    "coupon_code": "100OFF",
+    "discount_amount": null,
+    "discount_percentage": 100
+  },
+  {
+    "coupon_code": "50OFF",
+    "discount_amount": null,
+    "discount_percentage": 50
+  },
+  {
+    "coupon_code": "10OFF",
+    "discount_amount": null,
+    "discount_percentage": 10
+  }
+]
