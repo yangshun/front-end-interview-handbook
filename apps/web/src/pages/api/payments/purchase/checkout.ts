@@ -113,9 +113,14 @@ export default async function handler(req: NextRequest) {
         apiVersion: '2023-10-16',
       });
 
-      const customer = await stripe.customers.create({
-        email: user.email,
-      });
+      const customer = await stripe.customers.create(
+        {
+          email: user.email,
+        },
+        {
+          idempotencyKey: user.id,
+        },
+      );
 
       // Can't use Prisma here because it's not supported in edge functions.
       await supabaseAdmin

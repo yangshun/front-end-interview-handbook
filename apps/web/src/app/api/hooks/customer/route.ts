@@ -93,10 +93,15 @@ export async function POST(req: NextRequest) {
     return NextResponse.json(customer);
   }
 
-  const customer = await stripe.customers.create({
-    email: user.email,
-    name: user.user_metadata.name,
-  });
+  const customer = await stripe.customers.create(
+    {
+      email: user.email,
+      name: user.user_metadata.name,
+    },
+    {
+      idempotencyKey: user.id,
+    },
+  );
 
   // Can't use Prisma here because it's not supported in edge functions.
   const data = await supabaseAdmin
