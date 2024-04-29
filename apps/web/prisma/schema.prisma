@@ -15,26 +15,6 @@ model EmailSubscriber {
   createdAt DateTime? @default(now()) @db.Timestamp(6)
 }
 
-model EmailSubscription {
-  id        Int           @id @default(autoincrement())
-  userId    String        @db.Uuid
-  category  EmailCategory
-  createdAt DateTime      @default(now())
-  updatedAt DateTime      @updatedAt
-
-  profile Profile @relation(fields: [userId], references: [id], onDelete: Cascade, onUpdate: NoAction)
-
-  @@unique([userId, category])
-}
-
-enum EmailCategory {
-  MARKETING
-  DEALS_AND_PROMOTIONS
-  PRODUCT_ANNOUNCEMENT
-  FEEDBACK_AND_SURVEY
-  NEWSLETTER
-}
-
 model FeedbackMessage {
   id        String    @id @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
   message   String    @db.VarChar
@@ -61,10 +41,10 @@ model Profile {
   startWorkDate    DateTime?
   currentStatus    String?
 
-  stripeCustomer    String?
-  premium           Boolean @default(false)
-  plan              String?
-  mailjetContactId  BigInt?
+  stripeCustomer   String?
+  premium          Boolean @default(false)
+  plan             String?
+  mailjetContactId BigInt?
 
   createdAt DateTime @default(now()) @db.Timestamptz(6)
   updatedAt DateTime @default(now()) @updatedAt
@@ -78,7 +58,6 @@ model Profile {
   questionUserInterfaceCommunitySolutions QuestionUserInterfaceCommunitySolution[]
   projectsProfile                         ProjectsProfile?
   rewardsTaskCompletions                  RewardsTaskCompletion[]
-  EmailSubscription                       EmailSubscription[]
 }
 
 model QuestionProgress {
