@@ -57,7 +57,7 @@ export default function ProjectsPremiumAccessControl(
     return 'SUBSCRIBE';
   })();
 
-  if (challengeAccess === 'free-plus') {
+  if (challengeAccess === 'standard') {
     return {
       downloadFigma: viewerAccess,
       downloadStarterFiles: 'ACCESSIBLE_TO_EVERYONE',

@@ -1,22 +1,10 @@
 {
   "createdAt": "2024-04-17",
   "difficulty": "starter",
-  "track": "marketing",
-  "order": 26,
+  "track": "e-commerce",
+  "order": 200,
   "guides": ["layout-grid", "icons"],
-  "access": "standard",
-  "baseCredits": 0,
-  "preReqs": [
-    "navbar-component",
-    "about-us-page",
-    "contact-us-page",
-    "features-page",
-    "marketing-landing-page",
-    "pricing-page",
-    "404-page",
-    "cookie-consent",
-    "footer-section-simple"
-  ],
+  "access": "free",
   "pointsBase": 500,
   "pointsForSkillGroups": {
     "html": 50,

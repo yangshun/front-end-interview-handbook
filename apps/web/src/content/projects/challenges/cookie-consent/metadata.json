@@ -4,7 +4,7 @@
   "track": "marketing",
   "order": 18,
   "guides": ["layout-grid"],
-  "access": "free-plus",
+  "access": "standard",
   "baseCredits": 2,
   "pointsBase": 500,
   "pointsForSkillGroups": {

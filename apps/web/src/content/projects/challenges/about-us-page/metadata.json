@@ -4,7 +4,7 @@
   "track": "marketing",
   "order": 23,
   "guides": [],
-  "access": "free-plus",
+  "access": "standard",
   "baseCredits": 0,
   "preReqs": [
     "navbar-component",

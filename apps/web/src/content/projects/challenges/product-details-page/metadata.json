@@ -4,7 +4,7 @@
   "track": "e-commerce",
   "order": 60,
   "guides": ["layout-grid", "icons"],
-  "access": "free-plus",
+  "access": "standard",
   "pointsBase": 400,
   "pointsForSkillGroups": {
     "html": 50,

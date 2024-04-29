@@ -1,0 +1,59 @@
+In this challenge, you will integrate and assemble a fully functional e-commerce website for a fictional e-commerce brand, by linking individual pre-developed pages and sections.
+
+As per previous e-commerce challenges, you will be provided with data belonging to the fictional e-commerce brand, including its product listings, collections and user reviews.
+
+As this challenge is a combination of other sections or components, you should build them first to ensure all states and requirements are covered.
+
+### Implementation requirements
+
+The requirements that each component has to fulfill remains the same - you should refer to them in their individual briefs and ensure that their functionality remains intact after integration:
+
+- [Navbar (E-Commerce)](/projects/challenges/navbar-e-commerce)
+- [Footer (Multi-column)](/projects/challenges/footer-multi-column)
+- [Storefront Page](/projects/challenges/storefront-page)
+- [Product Details Page](/projects/challenges/product-details-page)
+- [Shopping Cart Section](/projects/challenges/shopping-cart-section)
+- [Checkout Section](/projects/challenges/checkout-section)
+- [Order Success Section](/projects/challenges/order-success-section)
+
+### Integration requirements
+
+- **Connect footer and navbar**: Create the following pages by connecting the navbar and footer to them:
+  - Product Listing Page
+  - Shopping Cart Page
+  - Checkout Page
+  - Order Success Page
+  - Note: the Storefront page and Product Detail pages were already linked to the navbar and footer from previous challenges.
+- **Connect pages and functions**:
+  - Navbar
+    - StyleNest logo: Link to Storefront page.
+    - "Shop all": Link to Product Listing Page, no filters.
+    - "Latest arrivals": Link to Product Listing Page, filtered by the "Latest arrivals" collection.
+    - Shopping Cart icon: Link to Shopping Cart page.
+  - Footer
+    - StyleNest logo: Link to Storefront page.
+    - Clicking on any category or collection: Leads to the Product Listing Page, with filter on the respective collection or category.
+    - Social links: Leave them empty or put your own links.
+  - Storefront page
+    - "Shop now": Link to Product Listing Page, no filters.
+    - "View all" on Latest Arrivals section: Link to Product Listing Page, filtered by the "Latest arrivals" collection.
+    - Clicking on any product card: Leads to Product Details Page for that product.
+    - Clicking on any collection card: Leads to the Product Listing Page, filtered by the respective collection.
+  - Product Detail page
+    - "See all X reviews": Opens up the Review dialog for that product.
+    - "Add to Cart": Add the appropriate quantity of the selected variant to cart (the shopping cart icon in the nav should also be updated with the new count)
+    - Clicking on any product item: Leads to Product Details Page for that product.
+  - Product Listing page
+    - Clicking on any product item: Leads to Product Details Page for that product.
+  - Shopping cart page
+    - Clicking on any product item: Leads to Product Details Page for that product.
+    - Clicking on "Checkout": Passes all the items in cart, as well as any applied coupons, to the Checkout page (after the inventory check passes, as specified in the Shopping cart page)
+    - "Explore products" on empty state: Leads to Product Listing Page, no filters selected.
+  - Checkout page
+    - Clicking on "Confirm order": Results in the atomic transaction that creates the order and passes the details to the Order Success Page.
+    - If user exits checkout: Cancels the checkout and returns items back to Shopping cart.
+  - Order success page
+    - Clicking on "Continue Shopping": Link to Product Listing Page, no filters selected.
+- **Pages**: Each page should be on its own route and visitors can navigate between the pages easily. Since this is a multi-page challenge, consider building the website as a Single Page Application or using frameworks like [Next.js](http://Next.js) and [Astro](https://astro.build/).
+- **Cross-browser compatibility**: Check that your solution works for major browsers including Chrome, Firefox, and Safari.
+- **Lighthouse audit**: Perform a [Lighthouse audit](https://developer.chrome.com/docs/lighthouse) and achieve above 90 rating for all sections of the report.

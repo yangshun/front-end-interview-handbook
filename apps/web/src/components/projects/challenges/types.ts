@@ -34,7 +34,7 @@ export const projectChallengeResourceOptions = [
 export type ProjectsChallengeResource =
   (typeof projectChallengeResourceOptions)[number];
 
-export const projectAccessOptions = ['free', 'free-plus', 'premium'];
+export const projectAccessOptions = ['free', 'standard', 'premium'];
 export type ProjectsChallengeAccess = (typeof projectAccessOptions)[number];
 
 export type ProjectsChallengeVariantPageImages = Readonly<{
