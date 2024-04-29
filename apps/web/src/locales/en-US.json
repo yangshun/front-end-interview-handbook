@@ -4855,6 +4855,10 @@
     "defaultMessage": "Professional designs in 3 breakpoints",
     "description": "Label for breakpoints feature"
   },
+  "bG0da2": {
+    "defaultMessage": "Download the unlocked Figma file (<code>.fig</code>) and open it using the <link>Figma desktop app</link> or the <link2>Figma website</link2>.",
+    "description": "Download a premium Figma file"
+  },
   "bGwCko": {
     "defaultMessage": "GreatFrontEnd has been a great resource for preparing and continuing in the ever-shifting front-end world. Allowing me to brush up on fundamentals, hone new concepts and practices to put my best foot forward in technical ability and confidence to be able to get interviews AND offers.",
     "description": "Ryan Van Valkenburg's testimonial"
@@ -7238,10 +7242,6 @@
   "ujRHIv": {
     "defaultMessage": "Including core maintainers at popular open source projects and creators of Blind 75 and Front End Interview Handbook.",
     "description": "Description of 'Guided by well-known senior engineers' feature in marketing page"
-  },
-  "uoPJJV": {
-    "defaultMessage": "Download your unlocked Figma file",
-    "description": "Download a premium Figma file"
   },
   "uogn1k": {
     "defaultMessage": "Practice build all sorts of user interfaces: components, apps, games, etc, in the framework of your choice.",

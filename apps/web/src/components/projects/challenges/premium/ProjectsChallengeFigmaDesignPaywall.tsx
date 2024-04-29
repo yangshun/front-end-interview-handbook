@@ -7,11 +7,12 @@ import {
   RiLockUnlockLine,
 } from 'react-icons/ri';
 import { RxFigmaLogo } from 'react-icons/rx';
-import { useIntl } from 'react-intl';
+import { FormattedMessage, useIntl } from 'react-intl';
 
 import { trpc } from '~/hooks/trpc';
 
 import { useToast } from '~/components/global/toasts/useToast';
+import Anchor from '~/components/ui/Anchor';
 import Button from '~/components/ui/Button';
 import Text from '~/components/ui/Text';
 
@@ -107,11 +108,22 @@ function DownloadSection({
             className="block"
             color="secondary"
             size={placement === 'ASSETS_PAGE' ? 'body3' : 'body2'}>
-            {intl.formatMessage({
-              defaultMessage: 'Download your unlocked Figma file',
-              description: 'Download a premium Figma file',
-              id: 'uoPJJV',
-            })}
+            <FormattedMessage
+              defaultMessage="Download the unlocked Figma file (<code>.fig</code>) and open it using the <link>Figma desktop app</link> or the <link2>Figma website</link2>."
+              description="Download a premium Figma file"
+              id="bG0da2"
+              values={{
+                code: (chunks) => <code>{chunks}</code>,
+                link: (chunks) => (
+                  <Anchor href="https://www.figma.com/downloads/">
+                    {chunks}
+                  </Anchor>
+                ),
+                link2: (chunks) => (
+                  <Anchor href="https://www.figma.com/">{chunks}</Anchor>
+                ),
+              }}
+            />
           </Text>
         </>
       )}
