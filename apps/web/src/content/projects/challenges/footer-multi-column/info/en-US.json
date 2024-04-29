@@ -1,6 +1,6 @@
 {
   "title": "Footer (Multi-column)",
-  "description": "Build a multi-column footer featuring a section for newsletter registration, the company's catchphrase, navigation links for the website, connections to social media, and copyright details",
+  "description": "Build a multi-column footer featuring navigation links for the website, social media channels, and newsletter signup section",
   "specLabels": {
     "main": "Footer (multi-column)"
   }

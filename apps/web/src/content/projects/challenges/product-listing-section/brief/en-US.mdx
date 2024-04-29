@@ -1,8 +1,10 @@
 In this challenge, you will develop a responsive product listing section consisting of a product grid, a sidebar filtering side, sorting functionality, and pagination. You should develop it based on the supplied designs, which have been adapted for desktop, tablet and mobile views.
 
-You will be provided with data pertaining to all the product listings of a fictional e-commerce platform, StyleNest, to display in this section. To complete the functionality of this section, you should build the [Product Details Page](/projects/challenges/product-details-page) (to which each product listing card should redirect to). If you have already built the [Product Grid Section](/projects/challenges/product-grid-section) challenge, you may reuse the component here!
+You will be provided with data pertaining to all the product listings of a fictional e-commerce platform, to display in this section. To complete the functionality of this section, you should build the [Product Details Page](/projects/challenges/product-details-page) (to which each product listing card should redirect to). If you have already built the [Product Grid Section](/projects/challenges/product-grid-section) challenge, you may reuse the component here!
 
-### Implementation Requirements
+### Implementation requirements
+
+This is a complex challenge with many sections and components, please read the requirements carefully.
 
 #### Product grid
 
@@ -11,13 +13,13 @@ You will be provided with data pertaining to all the product listings of a ficti
 - **List price vs Sale price**: If there is a platform discount available,display the list price with a strikethrough. Otherwise, display only the list price.
 - **Color swatches on Product card**:
   - **Color swatch states**: Implement states and display them dynamically according to the status of the variant's availability - Normal, Hover, Focus Selected, Out-of-stock and Selected: out-of-stock.
-  - **Effect of selecting a swatch: **Selecting a color swatch should change the product image to display the product in that color, if images in that color are available. The variant color label (displayed above the product name in each product listing card) should also be updated.
+  - **Effect of selecting a swatch**: Selecting a color swatch should change the product image to display the product in that color, if images in that color are available. The variant color label (displayed above the product name in each product listing card) should also be updated.
 - **Responsive behavior**: The content should stack vertically on smaller screens and align horizontally as the screen width increases.
 - **Empty state**: If the current filters applied results in an empty product list, then display the given empty state.
 
 #### Filtering sidebar
 
-- **Accordion**: User should be able to tap on each product filter to see the filtering options
+- **Accordion**: Users should be able to tap on each product filter to see the filtering options.
 - **Product filter types**:
   - **Checkbox groups**: Implement in Normal, Checked, Focus and Disabled states
   - **Color swatches**: Works like a checkbox group. Clicking on a color swatch filter filters all product listings with that color. Implement in Normal, Hover, Focus and Selected states (no out-of-stock states)
@@ -32,11 +34,11 @@ You will be provided with data pertaining to all the product listings of a ficti
   - **Action**: When clicked, all filters should be cleared and the product listing page should revert back to view all products.
 - **Responsive behavior**: The filter sidebar should collapse into a "Filter" button on tablet and mobile breakpoints. Tapping this button/icon would slide out the filter options from the side.
 
-#### Sorting dropdown
+#### Dropdown menu
 
-- **Dropdown chip**:
+- **Dropdown trigger**:
   - **Triggered by secondary button**: Implement in Normal, Hover, Focus, Selected, Disabled
-  - **Dropdown values**: Implement in Normal, Hover, Focus, Selected
+  - **Dropdown menu values**: Implement in Normal, Hover, Focus, Selected
 - **Sort options**:
   - "**Most popular**": Products with the most orders first
   - "**Best rating**": Products with the highest rating first

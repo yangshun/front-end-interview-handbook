@@ -11,9 +11,9 @@ const latestArrivalProductIDs = productsAll
     const date1 = new Date(a.created_at).getTime();
     const date2 = new Date(b.created_at).getTime();
 
-    return date1 - date2;
+    return date2 - date1;
   })
-  .slice(0, 10)
+  .slice(0, 8)
   .map(({ product_id }) => product_id);
 
 export async function GET(request: NextRequest) {

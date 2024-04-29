@@ -10,17 +10,17 @@ You will be provided with data pertaining to the "Latest Arrivals" collection to
 
 - **Product listing cards**: Implement and style product listing cards to reflect different states - normal, hover, and focus.
 - **Price to display**: For listings that feature multiple variants with potentially varying prices, the displayed price should be that of the lowest-priced option for default color.
-- **List price vs Sale price**: If there is a platform discount available,display the list price with a strikethrough. Else, display only the list price.
+- **List price vs Sale price**: If there is a platform discount available,display the list price with a strikethrough. Otherwise, display only the list price.
 - **Color swatches on Product card**:
   - **Color swatch states**: Implement states and display them dynamically according to the status of the variant's availability - Normal, Hover, Focus Selected, Out-of-stock and Selected: out-of-stock.
   - **Effect of selecting a swatch**: Selecting a color swatch should change the product image to display the product in that color, if images in that color are available. The variant color label (displayed above the product name in each product listing card) should also be updated.
 - **Responsive behavior**: The content should stack vertically on smaller screens and align horizontally as the screen width increases.
 - **Empty state**: If the current filters applied results in an empty product list, then display the given empty state.
 
-#### Dynamic updates
+#### Dynamic display
 
 - **Modularity and configurability**: The component should be built to be reusable and modular, displaying any list of product listings, and also capped at a certain number of listings per section. The section's title should also be configurable.
-- **Latest arrivals**: For the current task, you will display up to 8 product listings belonging to the "Latest Arrivals" section. As mentioned above, a product listing is categorized under the "Latest Arrivals" collection if it is among the 10 most recent listings created.
+- **Latest arrivals**: Fetch the product listings belonging to the "Latest Arrivals" section and display them.
 
 #### General requirements
 

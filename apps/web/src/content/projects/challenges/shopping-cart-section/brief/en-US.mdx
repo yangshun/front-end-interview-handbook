@@ -4,25 +4,27 @@ You will be provided with designs that have been adapted for mobile, tablet, and
 
 As per standard shopping carts, the interface should allow users to add items, modify quantity, remove items, and view an order summary including subtotal, shipping, and total cost. Users should also be able to add a coupon discount code to their order. When you work on the [E-commerce website](/projects/challenges/e-commerce-website) challenge, you will have to dynamically update the user's shopping cart when the user modifies their cart anywhere on the e-commerce platform, and display the same cart contents on the [Checkout](/projects/challenges/checkout-section) page when the user clicks the "Checkout" button.
 
-### Implementation Requirements
+### Implementation requirements
+
+This is a complex challenge with many sections and components, please read the requirements carefully.
 
 #### General layout
 
 - **Structure**: The page is divided into two main columns
-  - The left column for cart items
-  - The right column for the order summary
-- **Empty state**: If there are no items in the cart, we should display the empty state as per the supplied design.
+  - **Left section**: Cart items
+  - **Right section**: Order summary
+- **Empty state**: If there are no items in the cart, the empty state should be displayed.
 
 #### Cart items (Left column)
 
-- **Default sort**: Latest item added to cart first
-- **Item denomination**: Each product variant that has been added to cart should be displayed separately instead of bundled into 1 product. For e.g., if I added both Orange and Pink StepSoft socks, they should display as separate cards in cart.
+- **Default sort**: Latest item added to cart first.
+- **Item denomination**: Each product variant that has been added to cart should be displayed separately instead of bundled into 1 product. For e.g., if I added both Orange and Pink StepSoft socks, they should be display as separate rows in the cart.
 - **Item name and image**: Item name and images should be clickable and link to the product detail page. The image displayed should correspond to the variant added to cart.
-- **List price vs Sale price**: If there is a platform discount available, display the list price with a strikethrough. Else, display only the list price.
-- **Quantity selector**: '-' and '+' buttons control the quantity of the item.
-  - Quantity can only be decreased till 1, after which the user has to click 'Remove' to remove the item from cart.
-  - Quantity can only be increased till the maximum stock available. When the maximum stock is reached, the '+' icon should be disabled, with an 'Insufficient stock' tooltip.
-- **"Remove" Link**:
+- **List price vs Sale price**: If there is a platform discount available, display the list price with a strikethrough. Otherwise, display only the list price.
+- **Quantity selector**: "-" and "+" buttons control the quantity of the item.
+  - Quantity can only be decreased till 1, after which the user has to click "Remove" to remove the item from cart.
+  - Quantity can only be increased till the maximum stock available. When the maximum stock is reached, the "+" icon should be disabled, with an 'Insufficient stock' tooltip.
+- **"Remove" link**:
   - A clickable text link that removes the item from the cart.
   - Clicking on it triggers a confirmation prompt as per the provided design, to prevent accidental removals.
 
@@ -34,11 +36,11 @@ As per standard shopping carts, the interface should allow users to add items, m
   - **After clicking on the button**: After the user clicks on it, it should become an input field with an "Apply" button.
 - **"Add coupon code" field**:
   - **States**: Implement the input field states in normal, filled, focus, disabled, error, error filled and error focused states (also the 'Apply' button states)
-  - **On clicking 'Apply'**:
-    - **If no coupon code was entered**: Give error "Please enter a valid code"
-    - **If coupon code does not exist**: Give error "Sorry, but this coupon doesn't exist"
+  - **On clicking "Apply"**:
+    - **If no coupon code was entered**: Give error "Please enter a valid code".
+    - **If coupon code does not exist**: Give error "Sorry, but this coupon doesn't exist".
     - **If the coupon code exists**: It should give a success state wherein the coupon code is displayed as a tag under the field, and the discount amount is added under the subtotal.
-  - **On clicking 'x' on the applied coupons**: cRemove the coupon from the order summary
+  - **On clicking "x" on the applied coupons**: Remove the coupon from the order summary.
 
 #### Stock validation and updates
 

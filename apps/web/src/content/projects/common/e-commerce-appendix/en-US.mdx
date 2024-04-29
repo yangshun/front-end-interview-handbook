@@ -1,0 +1,78 @@
+## E-commerce Data Appendix
+
+You will be using data from a fictional e-commerce platform, StyleNest. The following article explains the available data entities.
+
+### Products
+
+_Data: `products.json`_
+
+There are approximately 20 products about hats, bags, footwear, eyewear, or clothing. Each product has a unique `product_id` and most of the product-related data will be associated with a `product_id`.
+
+### Product categories
+
+_Data: `categories.json`_
+
+There are 3 product categories: Men (`men`), Women (`women`), Unisex (`unisex`).
+
+### Product collections
+
+_Data: `collections.json`_
+
+There are 4 product collections in total:
+
+- 3 curated collections: Cozy Comfort (`cozy`), Urban Oasis (`urban`), Fresh Fusion (`fresh`).
+- Latest Arrivals: The 8 newest products in `products.json` will belong to this collection.
+
+Each product belongs to at most 1 curated collection and can also be part of the "Latest Arrivals" collection.
+
+### Product inventory
+
+_Data: `inventory.json`_
+
+Some products have multiple product variants ("SKU"s) distinguished by 1 or more attributes.
+
+There are 2 available attributes: Color and Size.
+
+- **Colors**: White, Black, Red, Orange, Yellow, Green, Purple, Brown, Beige, and Pink
+- **Sizes**:
+  - Shoes: Sizes 4 - 12, with intervals of 0.5.
+  - Others: Sizes ranging from XS, S, M, L, XL.
+  - Note that some products do not have sizes!
+
+Stock is assigned at the variant level. A product variant might be out of stock, for e.g. the beige-colored Classic Canvas Tee.
+
+Prices / Discounts are assigned at the product variant level, since it is very common for XL listings to be more expensive than smaller listings in a realistic setting. Currently, all prices and discounts are the same across all variants for a product.
+
+- **List price**: Refers to original price before discounts.
+- **Sale price**: Refers to price after discounts.
+- **Discount**: Refers to platform-wide discount for the product variant. This discount can either be percentage based or cash-off based, not both. Not all listings have platform discounts.
+
+### Product images
+
+_Data: `product-images.json`_
+
+Product images are assigned at the color variant level. For e.g., the Voyager Hoodie has 2 colors – green and brown – and each with different images, although they share the same images.
+
+### Product reviews
+
+_Data: `product-reviews.json`_
+
+Each product can have any number of user reviews. The displayed rating for each product is the average across all ratings given.
+
+### Product information
+
+_Data: `product-info.json`_
+
+Each product has additional information. These information are grouped under headings like "Features" or "Fabric & Care", and are typically described in bullet points under each group title.
+
+### Users
+
+_Data: `users.json`_
+
+This file contains the names and avatar images of users who have reviewed products.
+
+### Coupons
+
+_Data: `coupons.json`_
+
+A list of valid coupons on the platform and their associated discount values.
