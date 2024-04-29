@@ -83,7 +83,7 @@ export default function ProjectsMarketingFeaturesRow() {
         Features
       </Heading>
       <Section>
-        <div className="grid grid-cols-3">
+        <div className="grid grid-cols-1 gap-y-6 sm:grid-cols-3">
           {heroFeatures.map(({ content, icon, key }) => (
             <div key={key} className="flex flex-col items-center gap-y-4">
               <ProjectsMarketingFeaturedIcon icon={icon} />

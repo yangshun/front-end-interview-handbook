@@ -121,10 +121,10 @@ export default function ProjectsMarketingEmailSubscribe() {
   } = trpc.marketing.signUpWithEmail.useMutation();
 
   const content = (
-    <div className="relative isolate flex flex-col justify-center gap-y-8 overflow-hidden px-4 py-16 lg:min-h-[400px] lg:gap-y-8 lg:rounded-[48px] lg:p-20">
+    <div className=" relative isolate flex flex-col justify-center gap-y-8 overflow-hidden rounded-[48px]  px-4 py-16 lg:min-h-[400px] lg:gap-y-8 lg:p-20">
       <Background
         aria-hidden={true}
-        className="absolute inset-0 -z-10 hidden h-full w-full lg:block"
+        className="absolute inset-0 -z-10  h-full w-full"
       />
       <div className="text-balance flex flex-col gap-y-3 sm:text-center md:gap-y-4">
         <Heading className="mx-auto max-w-3xl text-center" level="heading2">
@@ -238,13 +238,5 @@ building projects - no spam!"
     </div>
   );
 
-  return (
-    <div
-      className={clsx(
-        'isolate rounded-t-3xl lg:rounded-t-[48px] lg:before:hidden',
-      )}>
-      <div className="hidden lg:contents">{content}</div>
-      <div className={clsx('lg:hidden')}>{content}</div>
-    </div>
-  );
+  return <div className={clsx('isolate')}>{content}</div>;
 }

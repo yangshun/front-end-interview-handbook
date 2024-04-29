@@ -406,7 +406,7 @@ export default function ProjectsMarketingLearningFeatures() {
                 'Learning features of the product in Projects marketing page',
               id: '6H0D7u',
             })}
-            className="flex flex-col gap-y-16 lg:gap-y-32">
+            className="flex flex-col gap-y-20 lg:gap-y-32">
             {features.map((feature) => {
               const featureId = `${id}-${feature.key}`;
 
@@ -447,13 +447,14 @@ export default function ProjectsMarketingLearningFeatures() {
                             'Subfeatures of a feature in Projects marketing page',
                           id: 'tvsV5d',
                         })}
-                        className="mt-10 grid grid-cols-2 gap-6 lg:grid-cols-3">
+                        className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
                         {feature.subFeatures.map((subFeature) => (
                           <li
                             key={subFeature.key}
-                            className="flex flex-col items-start gap-y-4 xl:gap-y-6">
+                            className="flex flex-row items-start gap-4 lg:flex-col xl:gap-y-6">
                             <ProjectsMarketingFeaturedIcon
                               icon={subFeature.icon}
+                              isResponsive={true}
                             />
                             <Text
                               className="text-pretty"
