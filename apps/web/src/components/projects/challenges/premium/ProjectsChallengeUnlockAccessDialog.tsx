@@ -1,4 +1,8 @@
 import clsx from 'clsx';
+import type {
+  ProjectsChallengeInfo,
+  ProjectsChallengeMetadata,
+} from 'contentlayer/generated';
 import { FormattedMessage, useIntl } from 'react-intl';
 
 import { trpc } from '~/hooks/trpc';
@@ -24,6 +28,60 @@ type Props = Readonly<{
   trigger: React.ReactNode;
 }>;
 
+function PrerequisiteChallengesList({
+  challenges,
+}: Readonly<{
+  challenges: ReadonlyArray<{
+    info: ProjectsChallengeInfo;
+    metadata: ProjectsChallengeMetadata;
+  }>;
+}>) {
+  return (
+    <div
+      className={clsx(
+        'flex flex-col gap-2',
+        'p-3',
+        'rounded-md',
+        themeBackgroundElementColor,
+        textVariants({ size: 'body3' }),
+      )}>
+      <FormattedMessage
+        defaultMessage="The following challenges will be unlocked:"
+        description="Confirmation text for unlocking a premium challenge"
+        id="Cqx/J0"
+      />
+      <ul className="list-inside list-disc">
+        {challenges.map((challengeToUnlock) => (
+          <li
+            key={challengeToUnlock.metadata.slug}
+            className="flex items-center justify-between gap-3">
+            <Anchor href={challengeToUnlock.metadata.href} target="_blank">
+              {challengeToUnlock.info.title}
+            </Anchor>
+            {challengeToUnlock.metadata.baseCredits > 0 && (
+              <>
+                <div
+                  className={clsx('h-px grow', themeBackgroundLayerEmphasized)}
+                />
+                <Text color="secondary">
+                  <FormattedMessage
+                    defaultMessage="{count, plural, one {1 credit} other {# credits}}"
+                    description="Number of credits"
+                    id="47jdAi"
+                    values={{
+                      count: challengeToUnlock.metadata.baseCredits,
+                    }}
+                  />
+                </Text>
+              </>
+            )}
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
 export default function ProjectsChallengeUnlockAccessDialog({
   credits,
   isShown,
@@ -44,6 +102,15 @@ export default function ProjectsChallengeUnlockAccessDialog({
 
   return (
     <ConfirmationDialog
+      confirmButtonLabel={
+        hasSufficientCreditsToUnlock
+          ? undefined
+          : intl.formatMessage({
+              defaultMessage: 'Ok',
+              description: 'Ok label',
+              id: 'LXcvcX',
+            })
+      }
       isDisabled={!data || !hasSufficientCreditsToUnlock}
       isLoading={unlockAccessMutation.isLoading}
       isShown={isShown}
@@ -104,31 +171,43 @@ export default function ProjectsChallengeUnlockAccessDialog({
           );
         }
 
-        if (creditsLeftAfterUnlocking < 0) {
-          return (
-            <Text className="block">
-              <FormattedMessage
-                defaultMessage="Unlocking this challenge requires {countRequired, plural, =0 {no premium credits} one {<bold>1</bold> premium credit} other {<bold>#</bold> premium credits}} but you only have {countAvailable, plural, =0 {no premium credits} one {<bold>1</bold> premium credit} other {<bold>#</bold> premium credits}} available."
-                description="Confirmation text for unlocking a premium challenge"
-                id="mtMKkm"
-                values={{
-                  bold: (chunks) => <Text weight="medium">{chunks}</Text>,
-                  countAvailable: credits,
-                  countRequired: data?.creditsRequired,
-                }}
-              />
-            </Text>
-          );
-        }
-
-        if (creditsLeftAfterUnlocking >= 0) {
+        if (!hasSufficientCreditsToUnlock) {
           return (
             <div className="flex flex-col gap-2">
               <Text className="block">
                 <FormattedMessage
-                  defaultMessage="Unlocking this challenge requires a total of {count, plural, one {<bold>1</bold> premium credit} other {<bold>#</bold> premium credits}}."
+                  defaultMessage="Unlocking this challenge requires {countRequired, plural, =0 {no premium credits} one {<bold>1</bold> premium credit} other {<bold>#</bold> premium credits}} but you only have {countAvailable, plural, =0 {no premium credits} one {<bold>1</bold> premium credit} other {<bold>#</bold> premium credits}} available."
                   description="Confirmation text for unlocking a premium challenge"
-                  id="nyzajq"
+                  id="mtMKkm"
+                  values={{
+                    bold: (chunks) => <Text weight="medium">{chunks}</Text>,
+                    countAvailable: credits,
+                    countRequired: data?.creditsRequired,
+                  }}
+                />
+              </Text>
+              <PrerequisiteChallengesList
+                challenges={data.challengesToUnlock}
+              />
+              <Text className="block">
+                <FormattedMessage
+                  defaultMessage="As this is a composite challenge, you may choose to unlock the dependent challenges first."
+                  description="Confirmation text for unlocking a premium challenge"
+                  id="6J+fmT"
+                />
+              </Text>
+            </div>
+          );
+        }
+
+        if (hasSufficientCreditsToUnlock) {
+          return (
+            <div className="flex flex-col gap-2">
+              <Text className="block">
+                <FormattedMessage
+                  defaultMessage="Unlocking this challenge requires a total of {count, plural, one {<bold>1 premium credit</bold>} other {<bold># premium credits</bold>}}."
+                  description="Confirmation text for unlocking a premium challenge"
+                  id="2zikko"
                   values={{
                     bold: (chunks) => <Text weight="medium">{chunks}</Text>,
                     count: data?.creditsRequired,
@@ -138,70 +217,19 @@ export default function ProjectsChallengeUnlockAccessDialog({
               {(data.challengesToUnlock.length > 1 ||
                 (data.challengesToUnlock.length === 1 &&
                   data.challengesToUnlock[0].metadata.slug !== slug)) && (
-                <div
-                  className={clsx(
-                    'flex flex-col gap-2',
-                    'p-3',
-                    'rounded-md',
-                    themeBackgroundElementColor,
-                    textVariants({ size: 'body3' }),
-                  )}>
-                  <FormattedMessage
-                    defaultMessage="The following challenges will be unlocked:"
-                    description="Confirmation text for unlocking a premium challenge"
-                    id="Cqx/J0"
-                  />
-                  <ul className="list-inside list-disc">
-                    {data.challengesToUnlock.map((challengeToUnlock) => (
-                      <li
-                        key={challengeToUnlock.metadata.slug}
-                        className="flex items-center justify-between gap-3">
-                        <Anchor
-                          href={challengeToUnlock.metadata.href}
-                          target="_blank">
-                          {challengeToUnlock.info.title}
-                        </Anchor>
-                        {challengeToUnlock.metadata.baseCredits > 0 && (
-                          <>
-                            <div
-                              className={clsx(
-                                'h-px grow',
-                                themeBackgroundLayerEmphasized,
-                              )}
-                            />
-                            <Text color="secondary">
-                              <FormattedMessage
-                                defaultMessage="{count, plural, one {1 credit} other {# credits}}"
-                                description="Number of credits"
-                                id="47jdAi"
-                                values={{
-                                  count: challengeToUnlock.metadata.baseCredits,
-                                }}
-                              />
-                            </Text>
-                          </>
-                        )}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+                <PrerequisiteChallengesList
+                  challenges={data.challengesToUnlock}
+                />
               )}
               <Text className="block">
                 <FormattedMessage
-                  defaultMessage="You will have {countRemaining, plural, =0 {no premium credits} one {<bold>1</bold> premium credit} other {<bold>#</bold> premium credits}} remaining after unlocking this challenge."
+                  defaultMessage="You currently have {count, plural, =0 {no premium credits} one {<bold>1 premium credit</bold>} other {<bold># premium credits</bold>}}. Proceed to unlock?"
                   description="Confirmation text for unlocking a premium challenge"
-                  id="sdLEml"
+                  id="3n0B1m"
                   values={{
                     bold: (chunks) => <Text weight="medium">{chunks}</Text>,
-                    countRemaining: credits - data?.creditsRequired,
+                    count: credits,
                   }}
-                />
-              </Text>
-              <Text className="block">
-                <FormattedMessage
-                  defaultMessage="Proceed to unlock challenge?"
-                  description="Confirmation text for unlocking a premium challenge"
-                  id="ADJi+V"
                 />
               </Text>
             </div>

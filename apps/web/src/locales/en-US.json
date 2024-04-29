@@ -563,6 +563,10 @@
     "defaultMessage": "Familiar with these skills / tools / frameworks",
     "description": "Projects profile tech stack proficient section title"
   },
+  "2zikko": {
+    "defaultMessage": "Unlocking this challenge requires a total of {count, plural, one {<bold>1 premium credit</bold>} other {<bold># premium credits</bold>}}.",
+    "description": "Confirmation text for unlocking a premium challenge"
+  },
   "32cQk/": {
     "defaultMessage": "Warm Up Question",
     "description": "Label for warm up questions"
@@ -658,6 +662,10 @@
   "3lEE1N": {
     "defaultMessage": "New",
     "description": "Label for new questions ribbon"
+  },
+  "3n0B1m": {
+    "defaultMessage": "You currently have {count, plural, =0 {no premium credits} one {<bold>1 premium credit</bold>} other {<bold># premium credits</bold>}}. Proceed to unlock?",
+    "description": "Confirmation text for unlocking a premium challenge"
   },
   "3nYNbd": {
     "defaultMessage": "Learn together with like-minded others",
@@ -906,6 +914,10 @@
   "6H0D7u": {
     "defaultMessage": "Learning features",
     "description": "Learning features of the product in Projects marketing page"
+  },
+  "6J+fmT": {
+    "defaultMessage": "As this is a composite challenge, you may choose to unlock the dependent challenges first.",
+    "description": "Confirmation text for unlocking a premium challenge"
   },
   "6O2Mng": {
     "defaultMessage": "Show as submissions",
@@ -1402,10 +1414,6 @@
   "ABJ7ip": {
     "defaultMessage": "<bold>{completedQuestions}</bold>/{totalQuestions} completed",
     "description": "Line describing the number of questions completed by user over the total number of questions"
-  },
-  "ADJi+V": {
-    "defaultMessage": "Proceed to unlock challenge?",
-    "description": "Confirmation text for unlocking a premium challenge"
   },
   "AEDpDO": {
     "defaultMessage": "The company you currently work at. This information can be made private on more sensitive products like interviews.",
@@ -2822,6 +2830,10 @@
   "LU7oiZ": {
     "defaultMessage": "Preparation areas",
     "description": "Preparation tabs title"
+  },
+  "LXcvcX": {
+    "defaultMessage": "Ok",
+    "description": "Ok label"
   },
   "LYaH0T": {
     "defaultMessage": "Free",
@@ -6387,10 +6399,6 @@
     "defaultMessage": "Warnings",
     "description": "Select label for warning log level in console filter"
   },
-  "nyzajq": {
-    "defaultMessage": "Unlocking this challenge requires a total of {count, plural, one {<bold>1</bold> premium credit} other {<bold>#</bold> premium credits}}.",
-    "description": "Confirmation text for unlocking a premium challenge"
-  },
   "o+1cag": {
     "defaultMessage": "Clear Console",
     "description": "Button label to clear the console in the coding workspace"
@@ -6954,10 +6962,6 @@
   "saFHOR": {
     "defaultMessage": "Learn new skills, improve your techniques and stay updated on latest front end trends and developments.",
     "description": "Description of GreatFrontEnd blog homepage"
-  },
-  "sdLEml": {
-    "defaultMessage": "You will have {countRemaining, plural, =0 {no premium credits} one {<bold>1</bold> premium credit} other {<bold>#</bold> premium credits}} remaining after unlocking this challenge.",
-    "description": "Confirmation text for unlocking a premium challenge"
   },
   "sfJ1Oa": {
     "defaultMessage": "Purchase premium to get access to all component tracks as well as exclusive skills, official how-to guides and production-ready Figma files.",
