@@ -146,7 +146,7 @@ export default function ProjectsChallengeSubmissionPage({
         </div>
         {submission.summary && (
           <Text
-            className="my-8 block max-w-prose"
+            className="mt-10 block max-w-prose lg:mt-8"
             color="secondary"
             size="body2">
             {submission.summary}
