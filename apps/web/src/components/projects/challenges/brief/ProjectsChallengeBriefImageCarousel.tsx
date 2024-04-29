@@ -92,9 +92,8 @@ export default function ProjectsChallengeBriefImageCarousel({ images }: Props) {
           <img
             key={image}
             alt=""
-            className="h-[266px] w-full snap-center rounded-lg object-cover md:h-[372px]"
-            // TODO(projects): parse then add query parameters.
-            src={`${image}?width=${750}&resize=contain`}
+            className="aspect-[1500/1116] w-full snap-center rounded-lg object-cover"
+            src={image}
             style={{
               maxWidth: `${imageWidth}px`,
               minWidth: `${imageWidth}px`,
