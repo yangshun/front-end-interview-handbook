@@ -6,8 +6,8 @@ import type {
 import { Client } from 'node-mailjet';
 
 const mailjet = new Client({
-  apiKey: process.env.MJ_APIKEY_PUBLIC,
-  apiSecret: process.env.MJ_APIKEY_PRIVATE,
+  apiKey: process.env.MAILJET_API_KEY,
+  apiSecret: process.env.MAILJET_SECRET_KEY,
 });
 
 const CONTACT_LIST_IDS_DEV = [
