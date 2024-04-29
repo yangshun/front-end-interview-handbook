@@ -103,7 +103,6 @@
     "prism-react-renderer": "^1.3.5",
     "prisma": "5.7.0",
     "puppeteer-core": "^22.6.0",
-    "radix-ui": "^1.0.1",
     "react": "^18.2.0",
     "react-advanced-cropper": "^0.19.4",
     "react-circular-progressbar": "^2.1.0",
