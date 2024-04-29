@@ -47,29 +47,38 @@ export default function ProjectsChallengeBriefPage({
       }
       showOverlay={showPaywall}>
       <div className="flex flex-col items-stretch gap-20 pb-40">
-        <div className="grid grid-cols-1 gap-6 gap-y-12 lg:grid-cols-2">
-          {challengeBrief && (
-            <div className="flex flex-col gap-6">
-              <Heading level="heading6">
-                <FormattedMessage
-                  defaultMessage="Project brief"
-                  description="Title for Project Brief section on Projects project page"
-                  id="S98EuF"
-                />
-              </Heading>
-              <Section>
-                <Prose textSize="sm">
-                  <ProjectsChallengeMdxContent
-                    mdxCode={challengeBrief.body.code}
-                  />
-                </Prose>
-              </Section>
-            </div>
-          )}
+        <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
           <div className="flex flex-col gap-6">
-            <ProjectsChallengeBriefImageCarousel
-              images={challenge.metadata.galleryImages}
-            />
+            <div className="lg:hidden">
+              <ProjectsChallengeBriefImageCarousel
+                images={challenge.metadata.galleryImages}
+              />
+            </div>
+            {challengeBrief && (
+              <div className="flex flex-col gap-6">
+                <Heading level="heading6">
+                  <FormattedMessage
+                    defaultMessage="Project brief"
+                    description="Title for Project Brief section on Projects project page"
+                    id="S98EuF"
+                  />
+                </Heading>
+                <Section>
+                  <Prose textSize="sm">
+                    <ProjectsChallengeMdxContent
+                      mdxCode={challengeBrief.body.code}
+                    />
+                  </Prose>
+                </Section>
+              </div>
+            )}
+          </div>
+          <div className="flex flex-col gap-6">
+            <div className="hidden lg:block">
+              <ProjectsChallengeBriefImageCarousel
+                images={challenge.metadata.galleryImages}
+              />
+            </div>
             <Heading level="heading6">
               <FormattedMessage
                 defaultMessage="Resources provided"
