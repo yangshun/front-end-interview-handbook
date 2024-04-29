@@ -4,11 +4,9 @@ import {
   RiArrowRightLine,
   RiGraduationCapLine,
   RiQuillPenLine,
-  RiUserFollowLine,
 } from 'react-icons/ri';
 
 import usePromotionsReviewCashbackLabels from '~/components/promotions/review/usePromotionsReviewCashbackLabels';
-import { useSocialDiscountLabels } from '~/components/promotions/social/useSocialDiscountLabels';
 import useStudentDiscountLabels from '~/components/promotions/student/usePromotionsStudentDiscountLabels';
 import Alert from '~/components/ui/Alert';
 import Button from '~/components/ui/Button';
@@ -50,18 +48,11 @@ function LimitedRibbon() {
 
 export default function ProjectsPricingPromotions() {
   const [index, setIndex] = useState(0);
-  const socialDiscountLabels = useSocialDiscountLabels();
   const studentDiscountLabels = useStudentDiscountLabels();
   const reviewCashbackDiscountLabels = usePromotionsReviewCashbackLabels();
   const timer = useRef<NodeJS.Timeout>();
 
   const alerts = [
-    {
-      description: <div>{socialDiscountLabels.subtitle}</div>,
-      icon: RiUserFollowLine,
-      title: socialDiscountLabels.title,
-      value: 'social',
-    },
     {
       description: studentDiscountLabels.subtitle,
       icon: RiGraduationCapLine,
