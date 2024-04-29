@@ -1,4 +1,3 @@
-import GlobalBanner from '~/components/global/banners/GlobalBanner';
 import FeedbackWidget from '~/components/global/feedback/FeedbackWidget';
 import ProjectsNavbar from '~/components/projects/common/layout/navbar/ProjectsNavbar';
 import ProjectsSidebarContainer from '~/components/projects/common/layout/sidebar/ProjectsSidebarContainer';
@@ -12,7 +11,6 @@ export default function ProjectsSidebarLayout({ children }: Props) {
   return (
     <>
       <FeedbackWidget position="end" />
-      <GlobalBanner />
       <div className="flex min-h-screen flex-col">
         <ProjectsNavbar hideOnDesktop={true} />
         <div className="flex">
