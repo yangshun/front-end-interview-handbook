@@ -29,8 +29,8 @@ const headingLevelClasses: Record<HeadingLevel, string> = {
     'lg:text-3xl lg:-tracking-1 lg:font-bold',
     'text-2xl font-semibold',
   ),
-  heading5: clsx('lg:text-2xl lg:font-semibold', 'text-xl font-semibold'),
-  heading6: clsx('lg:text-xl lg:font-semibold', 'text-lg font-semibold'),
+  heading5: clsx('text-2xl font-semibold'),
+  heading6: clsx('text-xl font-semibold'),
 };
 
 const headingColorClasses: Record<HeadingColor, string> = {
