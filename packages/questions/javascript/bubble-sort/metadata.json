@@ -1,0 +1,13 @@
+{
+  "slug": "bubble-sort",
+  "created": "2024-04-26T00:00:00.000Z",
+  "languages": ["js", "ts"],
+  "companies": [],
+  "premium": false,
+  "duration": 15,
+  "published": true,
+  "importance": "low",
+  "difficulty": "easy",
+  "similar_questions": ["insertion-sort", "selection-sort"],
+  "next_questions": ["quick-sort"]
+}

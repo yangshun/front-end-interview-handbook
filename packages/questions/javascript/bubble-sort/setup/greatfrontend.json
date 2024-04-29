@@ -1,0 +1,8 @@
+{
+  "run": "/src/bubble-sort.run.test.ts",
+  "submit": "/src/bubble-sort.submit.test.ts",
+  "skeleton": {
+    "js": "/src/bubble-sort.skeleton.js",
+    "ts": "/src/bubble-sort.skeleton.ts"
+  }
+}

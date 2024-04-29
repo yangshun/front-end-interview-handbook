@@ -457,6 +457,38 @@
     "topics": []
   },
   {
+    "author": null,
+    "companies": [],
+    "created": 1714089600,
+    "difficulty": "easy",
+    "duration": 15,
+    "excerpt": "Implement a function that performs a bubble sort",
+    "featured": false,
+    "format": "javascript",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/javascript/bubble-sort",
+    "importance": "low",
+    "languages": [
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [
+      "quick-sort"
+    ],
+    "premium": false,
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [
+      "insertion-sort",
+      "selection-sort"
+    ],
+    "slug": "bubble-sort",
+    "subtitle": null,
+    "title": "Bubble Sort",
+    "topics": []
+  },
+  {
     "author": "zhenghao",
     "companies": [],
     "created": 1656460800,

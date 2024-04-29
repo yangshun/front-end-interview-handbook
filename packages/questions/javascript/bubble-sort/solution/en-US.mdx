@@ -1,0 +1,44 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import bubbleSortJs from '../setup/src/bubble-sort.js';
+import bubbleSortTs from '../setup/src/bubble-sort.ts';
+
+Bubble sort is a stable, in-place, comparison-based algorithm that works well for small to medium-sized arrays as well as arrays that are partially sorted.
+
+## Clarification Questions
+
+If unspecified:
+
+- Should the data be sorted in an ascending or descending order?
+- What kinds of inputs do we need to handle?
+  - Will it just be an array of integers or should we handle other data types?
+  - Are there a large number of duplicate elements?
+  - How should negative numbers be handled?
+
+## Solution
+
+Note: This question tackles in-place sorting for an output in ascending order. Refer to the 'Notes' section below on how to handle other cases.
+
+<MDXCodeBlock languages={{ jsx: bubbleSortJs, tsx: bubbleSortTs }} />
+
+## Edge Cases
+
+- Non-integer element input: If the input array comprises of elements of different data types, you may need to return an error or settle for sorting on a best-effort basis, for e.g., only sorting a subset of the input data, or even define custom comparison functions for non-integers.
+- Single element / Empty input: Either return the original data structure, raise an error, or clarify required handling.
+- Invalid input: If the input is not a array, consider throwing an error.
+
+## Notes
+
+- If asked to sort in descending order: Just change the comparison to `<` instead of `>`, as per below:
+
+```js
+if (arr[j] < arr[j + 1])
+```
+
+## Time Complexity
+
+In the case of bubble sort, the time complexity is O(n<sup>2</sup>) as it requires a nested loop structure. The outer loop does multiple iterations over the array and the inner loop iterates over the array to compare each adjacent pairs and swap elements based on their correct order.
+
+## Space Complexity
+
+The space complexity for bubble sort is O(1), as it does in-place sorting and does not require additional storage proportional to input size.
