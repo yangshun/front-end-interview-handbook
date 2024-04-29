@@ -9,7 +9,8 @@ export default function maxBy(array, iteratee) {
   // Iterate through array to find the maximum `result`.
   for (const value of array) {
     const current = iteratee(value);
-    if (current != null && (current > computed || computed === undefined)) {
+    // Check whether `computed` is assigned any value yet then compare with `current`, else assign an initial value to `computed` where `current` is not `null`.
+    if (current != null && (computed === undefined || current > computed)) {
       computed = current; // Store the calculated value of the current `result`.
       result = value;
     }
