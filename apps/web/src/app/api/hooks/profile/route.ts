@@ -88,11 +88,24 @@ export async function POST(req: NextRequest) {
     ? null
     : suggestedUsername;
 
-  const {
-    data: { contactId },
-  } = await createMailjetContact(user.email!);
+  let mailjetContactId = undefined;
 
-  await updateMailjetContactsLists(user.email!);
+  // Don't create Mailjet contacts for dev environment.
+  if (process.env.NODE_ENV !== 'development') {
+    // Wrap in try/catch so that Mailjet creation failure
+    // does not block the other updates.
+    try {
+      const {
+        data: { contactId },
+      } = await createMailjetContact(user.email!);
+
+      mailjetContactId = contactId;
+
+      await updateMailjetContactsLists(user.email!);
+    } catch (err) {
+      console.error(err);
+    }
+  }
 
   const data = await supabaseAdmin
     .from('Profile')
@@ -101,9 +114,8 @@ export async function POST(req: NextRequest) {
       avatarUrl: user.user_metadata.avatar_url,
       // Use GitHub username or leave empty.
       gitHubUsername: user.user_metadata.user_name || undefined,
-
-      mailjetContactId: contactId,
-
+      // Mailjet contact ID.
+      mailjetContactId,
       // Use GitHub name or leave empty.
       name: user.user_metadata.name,
       // Use GitHub username or derive from email.
