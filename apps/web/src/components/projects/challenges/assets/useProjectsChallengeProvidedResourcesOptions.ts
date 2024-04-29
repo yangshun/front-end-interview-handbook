@@ -35,27 +35,27 @@ export default function useProjectsChallengeProvidedResourcesOptions() {
       icon: RxFigmaLogo,
       id: 'design-files',
       label: intl.formatMessage({
-        defaultMessage: 'JPEG design files for mobile & desktop layouts',
+        defaultMessage: 'Design files for desktop, tablet and mobile',
         description: 'Provided resource for project',
-        id: 'ueUG6Q',
+        id: 'mRneIU',
       }),
     },
     'image-assets': {
       icon: RiImageLine,
       id: 'image-assets',
       label: intl.formatMessage({
-        defaultMessage: 'Optimized image assets',
+        defaultMessage: 'High resolution image assets',
         description: 'Provided resource for project',
-        id: 'tOPOx+',
+        id: 'G11qgw',
       }),
     },
     readme: {
       icon: RiFile2Line,
       id: 'readme',
       label: intl.formatMessage({
-        defaultMessage: 'README file to help you get started',
+        defaultMessage: 'README file',
         description: 'Provided resource for project',
-        id: 'pCZPGj',
+        id: 'QaaZVv',
       }),
     },
     'starter-code': {
@@ -71,9 +71,9 @@ export default function useProjectsChallengeProvidedResourcesOptions() {
       icon: RiPaletteLine,
       id: 'style-guide',
       label: intl.formatMessage({
-        defaultMessage: 'Style guide for fonts, colors, etc.',
+        defaultMessage: 'Style guide for typography, colors and spacing',
         description: 'Provided resource for project',
-        id: 'vAyAVU',
+        id: 'WHJSVt',
       }),
     },
   };

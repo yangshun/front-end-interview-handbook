@@ -26,7 +26,8 @@
     "image-assets",
     "readme",
     "starter-code",
-    "style-guide"
+    "style-guide",
+    "api"
   ],
   "coverImage": "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/render/image/public/projects-images/about-us-page/cover.jpg",
   "galleryImages": [

@@ -2055,6 +2055,10 @@
     "defaultMessage": "Manage your subscription status and payment methods on the Stripe billing portal.",
     "description": "Call to action text to uppgrade plan."
   },
+  "G11qgw": {
+    "defaultMessage": "High resolution image assets",
+    "description": "Provided resource for project"
+  },
   "G38r8R": {
     "defaultMessage": "Email rate limit exceeded. Please try again later",
     "description": "Sign up error message"
@@ -3451,6 +3455,10 @@
     "defaultMessage": "Premium User",
     "description": "Tooltip for premium icon"
   },
+  "QaaZVv": {
+    "defaultMessage": "README file",
+    "description": "Provided resource for project"
+  },
   "Qaxh+6": {
     "defaultMessage": "User submissions",
     "description": "Title of Projects submissions page"
@@ -4226,6 +4234,10 @@
   "WFsVuQ": {
     "defaultMessage": "Browse project solutions from our community. Interact with each unique submission, share your expertise, and evolve alongside our collaborative community.",
     "description": "Description of Projects submissions page"
+  },
+  "WHJSVt": {
+    "defaultMessage": "Style guide for typography, colors and spacing",
+    "description": "Provided resource for project"
   },
   "WIHUwS": {
     "defaultMessage": "Quarterly plan",
@@ -5787,6 +5799,10 @@
     "defaultMessage": "Intro to Behavioral Round",
     "description": "Introduction to behavioral interviews"
   },
+  "jV6cb9": {
+    "defaultMessage": "Appendix",
+    "description": "Project assets category label"
+  },
   "jVSwXw": {
     "defaultMessage": "Purchase premium to unlock full access to the question.",
     "description": "Subtitle on question paywall appearing on the question pages of premium questions"
@@ -6203,6 +6219,10 @@
     "defaultMessage": "Prepare end-to-end for front end interviews",
     "description": "Title for question format category links in navbar"
   },
+  "mRneIU": {
+    "defaultMessage": "Design files for desktop, tablet and mobile",
+    "description": "Provided resource for project"
+  },
   "mU5c9N": {
     "defaultMessage": "After completion",
     "description": "Tab label for projects challenges"
@@ -6534,10 +6554,6 @@
   "pBR3LI": {
     "defaultMessage": "Blog",
     "description": "Link to blog"
-  },
-  "pCZPGj": {
-    "defaultMessage": "README file to help you get started",
-    "description": "Provided resource for project"
   },
   "pDlGO7": {
     "defaultMessage": "Explore articles related to \"{tagName}\".",
@@ -7047,10 +7063,6 @@
     "defaultMessage": "Activity | Profile",
     "description": "Title of Profile Activity page"
   },
-  "tOPOx+": {
-    "defaultMessage": "Optimized image assets",
-    "description": "Provided resource for project"
-  },
   "tP5+Am": {
     "defaultMessage": "Sign Up",
     "description": "Label of Sign Up button on Email Sign Up page"
@@ -7195,10 +7207,6 @@
     "defaultMessage": "Help others improve",
     "description": "Title for recommended action for new projects platform user"
   },
-  "ueUG6Q": {
-    "defaultMessage": "JPEG design files for mobile & desktop layouts",
-    "description": "Provided resource for project"
-  },
   "ufyNP1": {
     "defaultMessage": "Created: Newest to oldest",
     "description": "Sorting option for projects list - sort by created"
@@ -7286,10 +7294,6 @@
   "v7xpbV": {
     "defaultMessage": "Stripe",
     "description": "Company name for Stripe"
-  },
-  "vAyAVU": {
-    "defaultMessage": "Style guide for fonts, colors, etc.",
-    "description": "Provided resource for project"
   },
   "vHNURr": {
     "defaultMessage": "View all filters",
