@@ -3,8 +3,9 @@
 import clsx from 'clsx';
 import { useToggle } from 'usehooks-ts';
 
-import InterviewsSidebar from '~/components/interviews/common/InterviewsSidebar';
 import { themeBorderColor } from '~/components/ui/theme';
+
+import InterviewsSidebar_DEPRECATED from './InterviewsSidebar_DEPRECATED';
 
 type Props = Readonly<{
   initialCollapsed?: boolean;
@@ -24,7 +25,7 @@ export default function InterviewsSidebarContainer({
         ['border-e', themeBorderColor],
         isCollapsed ? 'w-[68px]' : 'w-60',
       )}>
-      <InterviewsSidebar
+      <InterviewsSidebar_DEPRECATED
         isCollapsed={isCollapsed}
         onCollapseClick={toggleIsCollapsed}
       />

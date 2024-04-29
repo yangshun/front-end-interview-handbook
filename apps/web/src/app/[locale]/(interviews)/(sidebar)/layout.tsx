@@ -14,7 +14,7 @@ export default function InterviewsSidebarLayout({ children }: Props) {
       <FeedbackWidget position="end" />
       <GlobalBanner />
       <div className="flex min-h-screen flex-col">
-        <InterviewsNavbar hideOnDesktop={true} />
+        <InterviewsNavbar />
         <div className="grow">{children}</div>
         <Section>
           <InterviewsFooter />

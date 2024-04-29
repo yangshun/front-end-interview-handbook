@@ -97,15 +97,25 @@ function SocialDiscountSidebarMentionImpl() {
               <Text className="block" size="body3" weight="medium">
                 {socialDiscountLabels.title}
               </Text>
-              <Anchor href="/rewards/social" variant="flat">
+              <div className="flex flex-col items-center gap-4 pt-2">
+                <SocialDiscountSpecialTicket
+                  subtitle={socialDiscountLabels.ticketSubtitle}
+                  title={socialDiscountLabels.ticketTitle}
+                  width={182}
+                />
                 <Text className="block" color="secondary" size="body3">
-                  {socialDiscountLabels.subtitle}{' '}
-                  <RiArrowRightLine
-                    aria-hidden={true}
-                    className="size-3 inline-flex shrink-0"
-                  />
+                  {socialDiscountLabels.subtitle}
                 </Text>
-              </Anchor>
+                <div className="w-full">
+                  <Button
+                    addonPosition="end"
+                    href="/rewards/social"
+                    icon={RiArrowRightLine}
+                    label={socialDiscountLabels.ctaLabel}
+                    variant="secondary"
+                  />
+                </div>
+              </div>
             </div>
           );
         })()}
