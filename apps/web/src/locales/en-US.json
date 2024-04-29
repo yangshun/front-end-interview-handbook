@@ -1287,10 +1287,6 @@
     "defaultMessage": "You may be interested",
     "description": "Title for you may be interested section on Projects challenge submission page"
   },
-  "9/1BPE": {
-    "defaultMessage": "Relevant guides",
-    "description": "Project guides category title"
-  },
   "918wg5": {
     "defaultMessage": "View LinkedIn profile",
     "description": "Link to LinkedIn profile"
@@ -2386,6 +2382,10 @@
   "IIyxmO": {
     "defaultMessage": "End project session?",
     "description": "Title for end project session dialog"
+  },
+  "IK3TnA": {
+    "defaultMessage": "Relevant techniques",
+    "description": "Project guides category title"
   },
   "IQ9qW7": {
     "defaultMessage": "Get promo code",
@@ -4714,6 +4714,10 @@
   "aHGdFm": {
     "defaultMessage": "{current}/{total} completed",
     "description": "Label for Projects segmented progress bar"
+  },
+  "aICrh0": {
+    "defaultMessage": "Challenge walkthrough",
+    "description": "Project guides category title"
   },
   "aJWJvF": {
     "defaultMessage": "Apply",

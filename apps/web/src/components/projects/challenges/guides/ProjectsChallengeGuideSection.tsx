@@ -43,7 +43,11 @@ export default function ProjectsChallengeGuideSection({
   const guideRef: React.RefObject<HTMLDivElement> = useRef(null);
 
   const [activeGuideSlug, setActiveGuideSlug] = useState(
-    challengeGuide ? CHALLENGE_GUIDE_SLUG : commonGuides[0].slug,
+    challengeGuide
+      ? CHALLENGE_GUIDE_SLUG
+      : relevantGuides.length > 0
+        ? relevantGuides[0]
+        : commonGuides[0].slug,
   );
   const [isLeftSidebarOpen, setIsLeftSidebarOpen] = useState(false);
 
@@ -52,9 +56,9 @@ export default function ProjectsChallengeGuideSection({
     viewerGuidesAccess !== 'UNLOCKED' &&
     viewerGuidesAccess !== 'ACCESSIBLE_TO_EVERYONE';
 
-  const allRelevantGuides = [
-    challengeGuide
-      ? {
+  const challengeGuideItems = challengeGuide
+    ? [
+        {
           slug: CHALLENGE_GUIDE_SLUG,
           title: intl.formatMessage({
             defaultMessage: 'Challenge guide',
@@ -62,20 +66,24 @@ export default function ProjectsChallengeGuideSection({
             id: 'VeRWF3',
           }),
           ...challengeGuide,
-        }
-      : null,
-    ...relevantGuides.map((guideSlug) =>
+        },
+      ]
+    : null;
+
+  const relevantGuideItems = relevantGuides
+    .map((guideSlug) =>
       commonGuides.find(
         (commonGuideItem) => commonGuideItem.slug === guideSlug,
       ),
-    ),
-  ].flatMap((guide) => (guide != null ? [guide] : []));
+    )
+    .flatMap((guide) => (guide != null ? [guide] : []));
 
   const commonGuidesWithoutRelevantGuides = commonGuides.filter(
     (commonGuideItem) => !relevantGuides.includes(commonGuideItem.slug),
   );
   const allGuides = [
-    ...allRelevantGuides,
+    ...(challengeGuideItems ?? []),
+    ...relevantGuideItems,
     ...commonGuidesWithoutRelevantGuides,
   ];
   const projectGuide =
@@ -83,13 +91,23 @@ export default function ProjectsChallengeGuideSection({
     commonGuides[0];
 
   const sidebarNavigation = [
-    allRelevantGuides.length > 0
+    challengeGuideItems != null && challengeGuideItems.length > 0
       ? {
-          items: allRelevantGuides,
+          items: challengeGuideItems,
           title: intl.formatMessage({
-            defaultMessage: 'Relevant guides',
+            defaultMessage: 'Challenge walkthrough',
             description: 'Project guides category title',
-            id: '9/1BPE',
+            id: 'aICrh0',
+          }),
+        }
+      : null,
+    relevantGuideItems.length > 0
+      ? {
+          items: relevantGuideItems,
+          title: intl.formatMessage({
+            defaultMessage: 'Relevant techniques',
+            description: 'Project guides category title',
+            id: 'IK3TnA',
           }),
         }
       : null,
