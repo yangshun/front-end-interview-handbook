@@ -79,19 +79,19 @@ export default function ProjectsMarketingHero() {
                 href="/projects/challenges"
                 icon={RiArrowRightLine}
                 label={intl.formatMessage({
-                  defaultMessage: 'Explore projects',
+                  defaultMessage: 'Explore challenges',
                   description:
                     'Label for Explore projects button in Projects marketing hero section',
-                  id: 'aplNQq',
+                  id: '731FKz',
                 })}
                 size="lg"
                 variant="primary"
               />
               <Text color="subtitle" size="body3">
                 <FormattedMessage
-                  defaultMessage="90% of projects are <bold>free to do</bold>"
+                  defaultMessage="80% of challenges are <bold>free to do</bold>"
                   description="Caption for Explore projects button in Projects marketing hero section"
-                  id="m9Hj73"
+                  id="zYh2Tl"
                   values={{
                     bold: (chunks) => (
                       <span className="font-bold">{chunks}</span>

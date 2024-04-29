@@ -1003,6 +1003,10 @@
     "defaultMessage": "Available in {frameworkLabel}",
     "description": "Label indicating what JavaScript frameworks this question is available in"
   },
+  "731FKz": {
+    "defaultMessage": "Explore challenges",
+    "description": "Label for Explore projects button in Projects marketing hero section"
+  },
   "73S/pd": {
     "defaultMessage": "Netlify",
     "description": "Label for \"Netlify\" option in Deployment Info"
@@ -4771,10 +4775,6 @@
     "defaultMessage": "Please enter your status",
     "description": "Error message for empty other input for yoe status on projects profile page"
   },
-  "aplNQq": {
-    "defaultMessage": "Explore projects",
-    "description": "Label for Explore projects button in Projects marketing hero section"
-  },
   "apypGU": {
     "defaultMessage": "If you are logged in with OAuth (e.g. GitHub), you can set a password here to use email and password to log in instead.",
     "description": "Tip to set password if third-party sign in methods were used, on Change Password page"
@@ -6198,10 +6198,6 @@
   "m2WYh/": {
     "defaultMessage": "Insert code block",
     "description": "Insert code block tooltip for Richtext toolbar"
-  },
-  "m9Hj73": {
-    "defaultMessage": "90% of projects are <bold>free to do</bold>",
-    "description": "Caption for Explore projects button in Projects marketing hero section"
   },
   "mACTSv": {
     "defaultMessage": "Skills | Progress | Dashboard",
@@ -7754,6 +7750,10 @@
   "zUz27Y": {
     "defaultMessage": "Custom page",
     "description": "Project submission page"
+  },
+  "zYh2Tl": {
+    "defaultMessage": "80% of challenges are <bold>free to do</bold>",
+    "description": "Caption for Explore projects button in Projects marketing hero section"
   },
   "zeK111": {
     "defaultMessage": "E.g. \"Responsive solution with React and Tailwind CSS\"",
