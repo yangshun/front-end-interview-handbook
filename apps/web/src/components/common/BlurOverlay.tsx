@@ -3,7 +3,7 @@ import clsx from 'clsx';
 type Props = Readonly<{
   align?: 'bottom' | 'center' | 'top';
   children: React.ReactNode;
-  maxHeight?: number;
+  height?: number;
   overlay: React.ReactNode;
   showOverlay?: boolean;
 }>;
@@ -13,7 +13,7 @@ export default function BlurOverlay({
   align = 'top',
   showOverlay = false,
   overlay,
-  maxHeight = 500,
+  height = 500,
 }: Props) {
   if (!showOverlay) {
     // eslint-disable-next-line react/jsx-no-useless-fragment
@@ -25,8 +25,8 @@ export default function BlurOverlay({
       <div
         aria-hidden={true}
         className="h-full overflow-hidden blur"
-        style={{ maxHeight }}>
-        <div className="blur-overlay h-full" style={{ maxHeight }}>
+        style={{ height }}>
+        <div className="blur-overlay h-full" style={{ height }}>
           {children}
         </div>
       </div>

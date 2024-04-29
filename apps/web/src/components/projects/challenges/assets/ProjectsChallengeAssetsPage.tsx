@@ -201,7 +201,6 @@ export default function ProjectsChallengeAssetsPage({
   return (
     <BlurOverlay
       align="center"
-      maxHeight={500}
       overlay={overlay}
       showOverlay={showPaywall || !accessAllSteps}>
       <div className="flex flex-col items-stretch">
