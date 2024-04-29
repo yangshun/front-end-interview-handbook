@@ -120,7 +120,11 @@ export default function ProjectsChallengeResourcesPage({
             />
           </Heading>
           <div>
-            <ProjectsStartButton viewerAccess={viewerAccess} />
+            <ProjectsStartButton
+              slug={challenge.metadata.slug}
+              viewerContentAccess={viewerAccess.viewChallenge}
+              viewerProjectsProfile={viewerProjectsProfile}
+            />
           </div>
         </>
       )}

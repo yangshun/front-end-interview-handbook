@@ -88,6 +88,14 @@ export default function ProjectsChallengeHeader({
     skillRoadmapPlanSkill,
   ]);
 
+  const startButton = (
+    <ProjectsStartButton
+      slug={challenge.metadata.slug}
+      viewerContentAccess={viewerAccess.viewChallenge}
+      viewerProjectsProfile={viewerProjectsProfile}
+    />
+  );
+
   return (
     <>
       {/* Sticky steps bar */}
@@ -133,7 +141,7 @@ export default function ProjectsChallengeHeader({
               variant="primary"
             />
           ) : (
-            <ProjectsStartButton viewerAccess={viewerAccess} />
+            startButton
           )}
         </div>
       </div>
@@ -232,7 +240,7 @@ export default function ProjectsChallengeHeader({
               />
             ) : (
               <div className="flex items-center gap-x-4 gap-y-4 lg:flex-col lg:items-end">
-                <ProjectsStartButton viewerAccess={viewerAccess} />
+                {startButton}
                 <ProjectsCompletedUsersTag
                   avatarBorderClassName="border-white dark:border-neutral-900"
                   count={completedCount}

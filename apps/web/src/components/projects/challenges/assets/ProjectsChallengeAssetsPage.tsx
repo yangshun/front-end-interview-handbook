@@ -191,7 +191,11 @@ export default function ProjectsChallengeAssetsPage({
             </ul>
           </div>
           <div>
-            <ProjectsStartButton viewerAccess={viewerAccess} />
+            <ProjectsStartButton
+              slug={challenge.metadata.slug}
+              viewerContentAccess={viewerAccess.viewChallenge}
+              viewerProjectsProfile={viewerProjectsProfile}
+            />
           </div>
         </>
       )}
