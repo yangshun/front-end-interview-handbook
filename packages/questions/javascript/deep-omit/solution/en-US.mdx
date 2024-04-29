@@ -23,6 +23,6 @@ Since arrays and objects need special handling, there are three categories of va
 
 <MDXCodeBlock languages={{ jsx: deepOmitJs, tsx: deepOmitTs }} />
 
-Both arrays and objects can be iterated using `for...of` loops. A shorter version is as follows. This is safe because the `keys` inputs are strings and will not match the array keys, which are integers. However, writing it this way is not recommended as the code becomes harder to understand. It also becomes more challenging to write a typesafe version if you are using TypeScript.
+Both arrays and objects can be iterated using `for...in` loops. A shorter version is as follows. This is safe because the `keys` inputs are strings and will not match the array keys, which are integers. However, writing it this way is not recommended as the code becomes harder to understand. It also becomes more challenging to write a typesafe version if you are using TypeScript.
 
 <MDXCodeBlock>{deepOmitTerse}</MDXCodeBlock>
