@@ -23,7 +23,10 @@
   "galleryImages": [
     "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/render/image/public/projects-images/features-section-side-image/gallery/Desktop.jpg",
     "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/render/image/public/projects-images/features-section-side-image/gallery/Tablet.jpg",
-    "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/render/image/public/projects-images/features-section-side-image/gallery/Mobile.jpg"
+    "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/render/image/public/projects-images/features-section-side-image/gallery/Mobile.jpg",
+    "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/render/image/public/projects-images/features-section-side-image/gallery/Desktop-1.jpg",
+    "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/render/image/public/projects-images/features-section-side-image/gallery/Tablet-1.jpg",
+    "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/render/image/public/projects-images/features-section-side-image/gallery/Mobile-1.jpg"
   ],
   "specImages": {
     "default": [

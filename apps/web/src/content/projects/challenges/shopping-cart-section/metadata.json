@@ -20,11 +20,13 @@
     "style-guide",
     "api"
   ],
-  "coverImage": "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/render/image/public/projects-images/todo-replace-me/cover.jpg",
+  "coverImage": "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/render/image/public/projects-images/shopping-cart-section/cover.jpg",
   "galleryImages": [
-    "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/render/image/public/projects-images/todo-replace-me/gallery/Desktop.jpg",
-    "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/render/image/public/projects-images/todo-replace-me/gallery/Tablet.jpg",
-    "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/render/image/public/projects-images/todo-replace-me/gallery/Mobile.jpg"
+    "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/render/image/public/projects-images/shopping-cart-section/gallery/Desktop.jpg",
+    "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/render/image/public/projects-images/shopping-cart-section/gallery/Desktop-1.jpg",
+    "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/render/image/public/projects-images/shopping-cart-section/gallery/Tablet.jpg",
+    "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/render/image/public/projects-images/shopping-cart-section/gallery/Mobile.jpg",
+    "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/render/image/public/projects-images/shopping-cart-section/gallery/Mobile-1.jpg"
   ],
   "specImages": {
     "default": [

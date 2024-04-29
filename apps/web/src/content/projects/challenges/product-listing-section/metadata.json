@@ -20,11 +20,11 @@
     "style-guide",
     "api"
   ],
-  "coverImage": "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/render/image/public/projects-images/todo-replace-me/cover.jpg",
+  "coverImage": "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/render/image/public/projects-images/product-listing-section/cover.jpg",
   "galleryImages": [
-    "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/render/image/public/projects-images/todo-replace-me/gallery/Desktop.jpg",
-    "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/render/image/public/projects-images/todo-replace-me/gallery/Tablet.jpg",
-    "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/render/image/public/projects-images/todo-replace-me/gallery/Mobile.jpg"
+    "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/render/image/public/projects-images/product-listing-section/gallery/Desktop.jpg",
+    "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/render/image/public/projects-images/product-listing-section/gallery/Tablet.jpg",
+    "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/render/image/public/projects-images/product-listing-section/gallery/Mobile.jpg"
   ],
   "specImages": {
     "default": [
