@@ -1,5 +1,9 @@
 import { type NextRequest, NextResponse } from 'next/server';
 
+import {
+  createMailjetContact,
+  updateMailjetContactsLists,
+} from '~/mailjet/createContact';
 import { createSupabaseAdminClientGFE_SERVER_ONLY } from '~/supabase/SupabaseServerGFE';
 
 // This API is called by Supabase database hooks whenever a new
@@ -84,6 +88,12 @@ export async function POST(req: NextRequest) {
     ? null
     : suggestedUsername;
 
+  const {
+    data: { contactId },
+  } = await createMailjetContact(user.email!);
+
+  await updateMailjetContactsLists(user.email!);
+
   const data = await supabaseAdmin
     .from('Profile')
     .update({
@@ -91,6 +101,9 @@ export async function POST(req: NextRequest) {
       avatarUrl: user.user_metadata.avatar_url,
       // Use GitHub username or leave empty.
       gitHubUsername: user.user_metadata.user_name || undefined,
+
+      mailjetContactId: contactId,
+
       // Use GitHub name or leave empty.
       name: user.user_metadata.name,
       // Use GitHub username or derive from email.
