@@ -4,7 +4,7 @@ import type {
   ProjectsCommonGuide,
 } from 'contentlayer/generated';
 import { useRef, useState } from 'react';
-import { RiMenu2Line } from 'react-icons/ri';
+import { RiLockLine, RiLockUnlockLine, RiMenu2Line } from 'react-icons/ri';
 import { useIntl } from 'react-intl';
 
 import ArticlePagination from '~/components/common/ArticlePagination';
@@ -13,8 +13,10 @@ import ProjectsChallengeMdxContent from '~/components/projects/common/ProjectsCh
 import Alert from '~/components/ui/Alert';
 import Button from '~/components/ui/Button';
 import Divider from '~/components/ui/Divider';
+import EmptyState from '~/components/ui/EmptyState';
 import Heading from '~/components/ui/Heading';
 import SlideOut from '~/components/ui/SlideOut';
+import { themeBorderColor } from '~/components/ui/theme';
 
 import ProjectsChallengeGuidePaywall from '../premium/ProjectsChallengeGuidePaywall';
 import type { ProjectsPremiumAccessControlType } from '../premium/ProjectsPremiumAccessControl';
@@ -56,19 +58,29 @@ export default function ProjectsChallengeGuideSection({
     viewerGuidesAccess !== 'UNLOCKED' &&
     viewerGuidesAccess !== 'ACCESSIBLE_TO_EVERYONE';
 
-  const challengeGuideItems = challengeGuide
-    ? [
-        {
-          slug: CHALLENGE_GUIDE_SLUG,
-          title: intl.formatMessage({
-            defaultMessage: 'Challenge guide',
-            description: 'Project guides category title',
-            id: 'VeRWF3',
-          }),
-          ...challengeGuide,
-        },
-      ]
-    : null;
+  const Icon = (() => {
+    if (
+      viewerGuidesAccess === 'UNLOCKED' ||
+      viewerGuidesAccess === 'ACCESSIBLE_TO_EVERYONE'
+    ) {
+      return RiLockUnlockLine;
+    }
+
+    return RiLockLine;
+  })();
+
+  const challengeGuideItems = [
+    {
+      addOnElement: <Icon aria-hidden={true} className="size-4 shrink-0" />,
+      slug: CHALLENGE_GUIDE_SLUG,
+      title: intl.formatMessage({
+        defaultMessage: 'Challenge guide',
+        description: 'Project guides category title',
+        id: 'VeRWF3',
+      }),
+      ...challengeGuide,
+    },
+  ];
 
   const relevantGuideItems = relevantGuides
     .map((guideSlug) =>
@@ -82,7 +94,7 @@ export default function ProjectsChallengeGuideSection({
     (commonGuideItem) => !relevantGuides.includes(commonGuideItem.slug),
   );
   const allGuides = [
-    ...(challengeGuideItems ?? []),
+    ...challengeGuideItems,
     ...relevantGuideItems,
     ...commonGuidesWithoutRelevantGuides,
   ];
@@ -188,32 +200,43 @@ export default function ProjectsChallengeGuideSection({
           projectGuide?.title && (
             <Heading level="heading4">{projectGuide?.title}</Heading>
           )}
-        {projectGuide?.body != null &&
-          (showPaywall ? (
-            <ProjectsChallengeGuidePaywall
-              slug={slug}
-              viewerGuideAccess={viewerGuidesAccess}
-              viewerProjectsProfile={viewerProjectsProfile}
+        {showPaywall ? (
+          <ProjectsChallengeGuidePaywall
+            slug={slug}
+            viewerGuideAccess={viewerGuidesAccess}
+            viewerProjectsProfile={viewerProjectsProfile}
+          />
+        ) : projectGuide?.body == null ? (
+          <div
+            className={clsx('px-8 py-10', 'rounded-lg', [
+              'border',
+              themeBorderColor,
+            ])}>
+            <EmptyState
+              subtitle="Challenge guides are in-the-works and we aim to complete guides for all challenges by the end of May."
+              title="Coming soon"
+              variant="under_construction"
             />
-          ) : (
-            <>
-              {activeGuideSlug === CHALLENGE_GUIDE_SLUG && (
-                <Alert variant="info">
-                  These guides help you get started on the trickier portions of
-                  the challenge and are not meant to be exhaustive. However, do
-                  let us know what other guidance you'd benefit from and we can
-                  add it in.
-                </Alert>
-              )}
-              <ProjectsChallengeMdxContent mdxCode={projectGuide.body.code} />
-              <Divider />
-              <ArticlePagination
-                activeItem={activeGuideSlug}
-                items={allGuides}
-                onSelect={onGuideChange}
-              />
-            </>
-          ))}
+          </div>
+        ) : (
+          <>
+            {activeGuideSlug === CHALLENGE_GUIDE_SLUG && (
+              <Alert variant="info">
+                These guides help you get started on the trickier portions of
+                the challenge and are not meant to be exhaustive. However, do
+                let us know what other guidance you'd benefit from and we can
+                add it in.
+              </Alert>
+            )}
+            <ProjectsChallengeMdxContent mdxCode={projectGuide.body.code} />
+            <Divider />
+            <ArticlePagination
+              activeItem={activeGuideSlug}
+              items={allGuides}
+              onSelect={onGuideChange}
+            />
+          </>
+        )}
       </div>
     </div>
   );

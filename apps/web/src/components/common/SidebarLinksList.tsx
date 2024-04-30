@@ -15,11 +15,13 @@ import { useI18nPathname } from '~/next-i18nostic/src';
 
 type SidebarItemType = Readonly<
   | {
+      addOnElement?: React.ReactNode;
       href: string;
       slug?: string;
       title: string;
     }
   | {
+      addOnElement?: React.ReactNode;
       href?: string;
       slug: string;
       title: string;
@@ -75,7 +77,8 @@ function LinksListItem({
           <button
             key={String(link.slug)}
             className={clsx(
-              '-ml-px flex w-full items-center gap-x-2 border-l py-[7px] text-sm',
+              'flex items-center justify-between gap-x-2',
+              '-ml-px w-full border-s py-1.5 text-sm',
               activeItem === link.slug
                 ? clsx(themeTextBrandColor, 'border-current font-semibold')
                 : clsx(
@@ -86,6 +89,7 @@ function LinksListItem({
             type="button"
             onClick={() => onSelect?.(link.slug ?? '')}>
             <span className="pl-4 text-left">{link.title}</span>
+            {link.addOnElement}
           </button>
         );
       })}
