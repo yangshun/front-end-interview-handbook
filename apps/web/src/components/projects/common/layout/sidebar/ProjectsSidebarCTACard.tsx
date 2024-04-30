@@ -66,12 +66,12 @@ function FreePlanVersion({ credits: unlocks }: Readonly<{ credits: number }>) {
         </div>
         <Text className="block" color="secondary" size="body3">
           <FormattedMessage
-            defaultMessage="Access to {freeChallengeCount}+ free challenges. {unlocks, plural, =0 {No access to <tooltip>premium credits</tooltip>} one {<tooltip>1 premium credit</tooltip> unused} other {<tooltip># premium credits</tooltip> unused}}"
+            defaultMessage="Access to over {freeChallengeCount} free challenges. {unlocks, plural, =0 {No access to <tooltip>premium credits</tooltip>} one {<tooltip>1 premium credit</tooltip> unused} other {<tooltip># premium credits</tooltip> unused}}"
             description="Subtitle of Free Plan CTA card in Projects sidebar"
-            id="rXnCpL"
+            id="7htD3m"
             values={{
               // TODO(projects): Make this number dynamic.
-              freeChallengeCount: 50,
+              freeChallengeCount: 30,
               tooltip: (chunks) => (
                 <UnlockCreditsTooltip>
                   <Text className="underline" weight="medium">

@@ -1107,6 +1107,10 @@
     "defaultMessage": "Task has not been completed! Please try again.",
     "description": "Error task label"
   },
+  "7htD3m": {
+    "defaultMessage": "Access to over {freeChallengeCount} free challenges. {unlocks, plural, =0 {No access to <tooltip>premium credits</tooltip>} one {<tooltip>1 premium credit</tooltip> unused} other {<tooltip># premium credits</tooltip> unused}}",
+    "description": "Subtitle of Free Plan CTA card in Projects sidebar"
+  },
   "7kN2mI": {
     "defaultMessage": "Progress",
     "description": "Completion status"
@@ -3574,6 +3578,10 @@
   "R68iHH": {
     "defaultMessage": "Search Svelte questions",
     "description": "Placeholder for search input of Svelte question list"
+  },
+  "R9G9bY": {
+    "defaultMessage": "Dashboard",
+    "description": "Sidebar navigation label"
   },
   "RBApo9": {
     "defaultMessage": "Promotions",
@@ -6874,10 +6882,6 @@
   "rWhQtZ": {
     "defaultMessage": "Full list of shortcuts can be found on the <link>Visual Studio Code website</link>.",
     "description": "Text in coding workspace shortcuts that provides user with the link to the full list of shortcuts"
-  },
-  "rXnCpL": {
-    "defaultMessage": "Access to {freeChallengeCount}+ free challenges. {unlocks, plural, =0 {No access to <tooltip>premium credits</tooltip>} one {<tooltip>1 premium credit</tooltip> unused} other {<tooltip># premium credits</tooltip> unused}}",
-    "description": "Subtitle of Free Plan CTA card in Projects sidebar"
   },
   "rZaG+f": {
     "defaultMessage": "Unpin one or more existing submissions to pin a new one.",
