@@ -556,7 +556,7 @@ Some interesting things about the Masonry component:
 - It accepts a list of items and does not do any data fetching. It fires a callback to inform the parent when the user scrolls past a given threshold based on the height of the container, to fetch the next page of items.
 - Multiple layout strategies are supported:
   - **Default**: Yields a grid of items with a constant column width. This is the layout we have discussed above. ([source](https://github.com/pinterest/gestalt/blob/master/packages/gestalt/src/Masonry/defaultLayout.js))
-  - **Uniform row**: Yields a grid of tiems in rows of uniform height. The height of the row will be the tallest item in the row. this is the same as a normal table behavior. ([source](https://github.com/pinterest/gestalt/blob/master/packages/gestalt/src/Masonry/uniformRowLayout.js))
+  - **Uniform row**: Yields a grid of items in rows of uniform height. The height of the row will be the tallest item in the row. this is the same as a normal table behavior. ([source](https://github.com/pinterest/gestalt/blob/master/packages/gestalt/src/Masonry/uniformRowLayout.js))
   - **Full-width**: Yields a grid of items with flexible column widths. The grid will expand or shrink (by expanding or shrinking all column widths) to accommodate the width of its container; there are no breakpoints. ([source](https://github.com/pinterest/gestalt/blob/master/packages/gestalt/src/Masonry/fullWidthLayout.js))
 - Virtualization can be enabled/disabled.
 
