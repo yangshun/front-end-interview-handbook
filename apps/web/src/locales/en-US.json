@@ -1079,10 +1079,6 @@
     "defaultMessage": "All the assets you need to build a {challengeName}, including design assets, technical specs, starter code, and more",
     "description": "Description of Projects challenge assets page"
   },
-  "7WbXyE": {
-    "defaultMessage": "All our challenges come with at least 1 official solution and step-by-step guide from senior big tech engineers. Learn best practices as early as possible.",
-    "description": "Description of 'Practical foundation' feature in Projects marketing page"
-  },
   "7Wsapt": {
     "defaultMessage": "Quiz",
     "description": "Quiz questions short title"
@@ -1122,6 +1118,10 @@
   "7lppmr": {
     "defaultMessage": "Blog",
     "description": "Link to blog page"
+  },
+  "7o0DXO": {
+    "defaultMessage": "All our challenges come with at least 1 official solution (coming soon) and step-by-step guide from senior big tech engineers. Learn best practices as early as possible.",
+    "description": "Description of 'Practical foundation' feature in Projects marketing page"
   },
   "7solt2": {
     "defaultMessage": "Filter logs",

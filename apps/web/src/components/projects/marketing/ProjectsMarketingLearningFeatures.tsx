@@ -152,10 +152,10 @@ function useLearningFeatures(): Array<LearningFeature> {
       {
         description: intl.formatMessage({
           defaultMessage:
-            'All our challenges come with at least 1 official solution and step-by-step guide from senior big tech engineers. Learn best practices as early as possible.',
+            'All our challenges come with at least 1 official solution (coming soon) and step-by-step guide from senior big tech engineers. Learn best practices as early as possible.',
           description:
             "Description of 'Practical foundation' feature in Projects marketing page",
-          id: '7WbXyE',
+          id: '7o0DXO',
         }),
         imgSrc:
           colorScheme === 'light'
