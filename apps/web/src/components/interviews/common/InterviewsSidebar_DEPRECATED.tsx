@@ -180,14 +180,14 @@ function SidebarIcon({
 
 type Props = Readonly<{
   isCollapsed?: boolean;
-  onCollapseChange: () => void;
+  onCollapseClick: () => void;
 }>;
 
 // TODO: delete this and use InterviewsSidebar after ensuring
 // that the new sidebar does not cause any regressions.
 export default function InterviewsSidebar_DEPRECATED({
   isCollapsed = false,
-  onCollapseChange,
+  onCollapseClick,
 }: Props) {
   const intl = useIntl();
   const { pathname } = useI18nPathname();
@@ -333,7 +333,7 @@ export default function InterviewsSidebar_DEPRECATED({
               tooltip={isCollapsed ? collapseButtonLabel : undefined}
               tooltipSide="right"
               variant="secondary"
-              onClick={() => onCollapseChange()}
+              onClick={() => onCollapseClick()}
             />
           </div>
         </div>

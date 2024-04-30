@@ -14,6 +14,12 @@ export default function ProjectsRootLayout({ children }: Props) {
   return (
     <>
       <ProductThemeScript theme="projects" />
+      {/* Always hide banner on projects for now. */}
+      <style
+        dangerouslySetInnerHTML={{
+          __html: `:root { --banner-height: 0px; }`,
+        }}
+      />
       {children}
     </>
   );
