@@ -70,6 +70,21 @@ export const projectsChallengeRouter = router({
       }
 
       const supabaseAdmin = createSupabaseAdminClientGFE_SERVER_ONLY();
+
+      const { data: detachedData } = await supabaseAdmin.storage
+        .from('projects')
+        .createSignedUrl(
+          `challenges/${challengeMetadata.slug}/${challengeMetadata.slug}-detached.fig`,
+          300,
+          {
+            download: `${challengeMetadata.slug}-figma.fig`,
+          },
+        );
+
+      if (detachedData != null) {
+        return detachedData;
+      }
+
       const { data, error } = await supabaseAdmin.storage
         .from('projects')
         .createSignedUrl(
