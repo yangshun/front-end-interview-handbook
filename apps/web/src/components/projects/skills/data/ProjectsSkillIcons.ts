@@ -1,8 +1,8 @@
 import {
   RiBox1Line,
-  RiCheckLine,
   RiDashboard2Line,
   RiHammerLine,
+  RiTestTubeLine,
 } from 'react-icons/ri';
 
 import CSS3Logo from '~/components/icons/CSS3Logo';
@@ -26,5 +26,5 @@ export const ProjectsSkillIcons: Record<
   'package-managers': RiBox1Line,
   performance: RiDashboard2Line,
   react: ReactLogo,
-  testing: RiCheckLine,
+  testing: RiTestTubeLine,
 };

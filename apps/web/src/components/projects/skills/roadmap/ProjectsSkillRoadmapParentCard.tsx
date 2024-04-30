@@ -10,7 +10,10 @@ import ProjectsSkillRoadmapParentHeading from '~/components/projects/skills/road
 import Button from '~/components/ui/Button';
 import {
   themeBackgroundBrandColor,
+  themeBackgroundColor,
   themeBackgroundLayerEmphasized,
+  themeBorderBrandColor,
+  themeBorderElementColor,
   themeBorderSecondaryColor,
   themeGlassyBorder,
   themeTextSubtleColor,
@@ -100,10 +103,12 @@ export default function ProjectsSkillRoadmapParentCard({
             <div
               className={clsx(
                 'flex items-center justify-center',
-                'size-6 rounded-md bg-white',
-                themeBackgroundBrandColor,
+                'size-8 rounded-md',
+                themeBackgroundLayerEmphasized,
+                ['border', themeBorderElementColor],
+                '-translate-x-1 -translate-y-1',
               )}>
-              <Icon className="size-4" />
+              <Icon className="size-5" />
             </div>
           </div>
           <ProjectsSkillRoadmapParentHeading
