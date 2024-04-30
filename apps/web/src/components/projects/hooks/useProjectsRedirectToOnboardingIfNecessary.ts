@@ -4,7 +4,7 @@ import { trpc } from '~/hooks/trpc';
 
 import { useI18nPathname, useI18nRouter } from '~/next-i18nostic/src';
 
-const EXCLUSIONS = ['/projects', '/projects/onboarding'];
+const EXCLUSIONS = ['/projects/onboarding'];
 
 export default function useProjectsRedirectToOnboardingIfNecessary() {
   const router = useI18nRouter();
