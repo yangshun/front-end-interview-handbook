@@ -5,6 +5,7 @@
   "order": 80,
   "guides": ["layout-grid", "icons"],
   "access": "standard",
+  "preReqs": ["product-grid-section"],
   "pointsBase": 2500,
   "pointsForSkillGroups": {
     "html": 50,

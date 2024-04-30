@@ -5,7 +5,6 @@
   "order": 26,
   "guides": ["layout-grid", "icons"],
   "access": "premium",
-  "baseCredits": 0,
   "preReqs": [
     "navbar-component",
     "about-us-page",

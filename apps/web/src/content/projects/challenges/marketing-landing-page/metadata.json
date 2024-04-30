@@ -5,7 +5,6 @@
   "order": 20,
   "guides": ["layout-grid", "icons"],
   "access": "standard",
-  "baseCredits": 0,
   "preReqs": [
     "navbar-component",
     "hero-section-simple",

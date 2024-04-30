@@ -5,6 +5,7 @@
   "order": 25,
   "guides": ["icons"],
   "access": "standard",
+  "baseCredits": 2,
   "pointsBase": 2500,
   "pointsForSkillGroups": {
     "html": 50,

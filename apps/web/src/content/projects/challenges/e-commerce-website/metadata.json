@@ -5,6 +5,15 @@
   "order": 200,
   "guides": ["layout-grid", "icons"],
   "access": "premium",
+  "preReqs": [
+    "navbar-e-commerce",
+    "footer-multi-column",
+    "storefront-page",
+    "product-details-page",
+    "shopping-cart-section",
+    "checkout-section",
+    "order-success-section"
+  ],
   "pointsBase": 10000,
   "pointsForSkillGroups": {
     "html": 50,

@@ -5,6 +5,7 @@
   "order": 20,
   "guides": ["layout-grid", "icons"],
   "access": "free",
+  "baseCredits": 0,
   "pointsBase": 2500,
   "pointsForSkillGroups": {
     "html": 50,

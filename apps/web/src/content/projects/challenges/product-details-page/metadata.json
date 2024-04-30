@@ -5,6 +5,13 @@
   "order": 60,
   "guides": ["layout-grid", "icons"],
   "access": "standard",
+  "preReqs": [
+    "navbar-e-commerce",
+    "product-details-section",
+    "product-specifications-section",
+    "product-grid-section",
+    "footer-multi-columns"
+  ],
   "pointsBase": 2500,
   "pointsForSkillGroups": {
     "html": 50,

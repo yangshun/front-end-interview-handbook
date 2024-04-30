@@ -5,7 +5,6 @@
   "order": 23,
   "guides": [],
   "access": "premium",
-  "baseCredits": 0,
   "preReqs": [
     "navbar-component",
     "hero-section-simple",

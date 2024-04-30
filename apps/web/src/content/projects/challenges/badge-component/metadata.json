@@ -5,6 +5,7 @@
   "order": 1,
   "guides": ["figma"],
   "access": "free",
+  "baseCredits": 0,
   "pointsBase": 100,
   "pointsForSkillGroups": {
     "html": 50,

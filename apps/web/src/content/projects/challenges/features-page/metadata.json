@@ -5,7 +5,6 @@
   "order": 21,
   "guides": ["layout-grid", "icons"],
   "access": "standard",
-  "baseCredits": 0,
   "preReqs": [
     "navbar-component",
     "hero-section-feature-bullets",

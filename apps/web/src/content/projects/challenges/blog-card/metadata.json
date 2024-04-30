@@ -5,6 +5,7 @@
   "order": 2,
   "guides": ["figma", "vs-code", "git"],
   "access": "free",
+  "baseCredits": 0,
   "pointsBase": 100,
   "pointsForSkillGroups": {
     "html": 50,

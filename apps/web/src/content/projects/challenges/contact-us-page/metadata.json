@@ -5,7 +5,6 @@
   "order": 24,
   "guides": ["forms", "layout-grid"],
   "access": "premium",
-  "baseCredits": 0,
   "preReqs": [
     "navbar-component",
     "contact-section",
