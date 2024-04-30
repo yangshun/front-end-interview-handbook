@@ -407,10 +407,6 @@
     "defaultMessage": "Based on your activity, we think you might be interested in these projects",
     "description": "Description for projects you may be interested in section on project submission success page"
   },
-  "1L7vdf": {
-    "defaultMessage": "We will pull code from this repo for code reviews",
-    "description": "Description for GitHub repo step in project submission checklist"
-  },
   "1NRSGb": {
     "defaultMessage": "Pin",
     "description": "Label for pin submission button"
@@ -470,6 +466,10 @@
   "228NCy": {
     "defaultMessage": "Number of challenges you have completed across skill plans of child skills",
     "description": "Tooltip for skill group"
+  },
+  "22EoCQ": {
+    "defaultMessage": "We will pull code from your repository and display it on your submission for code reviews.",
+    "description": "Description for GitHub repo step in project submission checklist"
   },
   "23bxK1": {
     "defaultMessage": "Blogs List",
@@ -655,10 +655,6 @@
     "defaultMessage": "GreatFrontEnd has been a great help to me for prepping front end focussed interviews. Lot of focus on JavaScript utility and React/Vanilla implementations. The system design questions asked in interviews are slightly different in front end interviews and GreatFrontEnd really shines here. I will continue to use this amazing platform!",
     "description": "Anand Dharne's testimonial"
   },
-  "3jfsNU": {
-    "defaultMessage": "Backward compatibility: xxxx",
-    "description": "Warning message for GitHub repo step in project submission checklist"
-  },
   "3lEE1N": {
     "defaultMessage": "New",
     "description": "Label for new questions ribbon"
@@ -814,10 +810,6 @@
   "5BEps7": {
     "defaultMessage": "You can find your promos codes on the <link>profile page</link>.",
     "description": "Subtext for rewards complete page"
-  },
-  "5BQAdK": {
-    "defaultMessage": "Responsive breakpoints",
-    "description": "Project assets category label"
   },
   "5Gjt4J": {
     "defaultMessage": "Something went wrong. Try again later or contact <link>support@greatfrontend.com</link>!",
@@ -1187,9 +1179,9 @@
     "defaultMessage": "Walmart",
     "description": "Company name for Walmart"
   },
-  "8OWx2n": {
-    "defaultMessage": "Browser compatibility: xxx",
-    "description": "Warning message for GitHub repo step in project submission checklist"
+  "8RQw6L": {
+    "defaultMessage": "Now in BETA",
+    "description": "Project marketing hero section badge"
   },
   "8RXTKM": {
     "defaultMessage": "Submit",
@@ -1271,10 +1263,6 @@
     "defaultMessage": "Focus areas for Front End Interviews",
     "description": "Title of focus areas page"
   },
-  "8x6UPf": {
-    "defaultMessage": "You will submit the link to your public GitHub repo in the submission screen",
-    "description": "Description for GitHub repo step in project submission checklist"
-  },
   "8yHADh": {
     "defaultMessage": "Bold",
     "description": "Bold tooltip for Richtext toolbar"
@@ -1326,10 +1314,6 @@
   "9DlLF1": {
     "defaultMessage": "GreatFrontEnd",
     "description": "Title of GreatFrontEnd page"
-  },
-  "9EReUF": {
-    "defaultMessage": "Store your code in a public GitHub repo",
-    "description": "Description for GitHub repo step in project submission checklist"
   },
   "9FUDxZ": {
     "defaultMessage": "Know the recommended projects to do to progress from beginner to advanced with the skills roadmap",
@@ -2167,10 +2151,6 @@
     "defaultMessage": "Premium Feature",
     "description": "Title on question paywall appearing on the question pages of premium questions"
   },
-  "GVNK36": {
-    "defaultMessage": "Follow <link>this guide</link> on how to create a GitHub repo",
-    "description": "Description for GitHub repo step in project submission checklist"
-  },
   "GZnl60": {
     "defaultMessage": "Tips for making a strong first impression in your self introduction",
     "description": "How to make strong first impressions during self introductions"
@@ -2627,10 +2607,6 @@
     "defaultMessage": "Must be two characters or more",
     "description": "Error message for min length"
   },
-  "KM0VJJ": {
-    "defaultMessage": "Before you deploy, always ensure the following:",
-    "description": "Warning message for GitHub repo step in project submission checklist"
-  },
   "KPn83+": {
     "defaultMessage": "Series Contents",
     "description": "Series contents navigation menu button label"
@@ -2919,10 +2895,6 @@
     "defaultMessage": "Confirm",
     "description": "Confirm action button label"
   },
-  "M3V59d": {
-    "defaultMessage": "GitHub repo",
-    "description": "Title for GitHub repo step in project submission checklist"
-  },
   "M9z02W": {
     "defaultMessage": "Airbnb",
     "description": "Company name for Airbnb"
@@ -2962,6 +2934,10 @@
   "MNgJK6": {
     "defaultMessage": "Easy",
     "description": "Easy difficulty question"
+  },
+  "MNzCyG": {
+    "defaultMessage": "Store your code in a public GitHub repository",
+    "description": "Description for GitHub repo step in project submission checklist"
   },
   "MOxuKN": {
     "defaultMessage": "Select question category",
@@ -3415,6 +3391,10 @@
     "defaultMessage": "Manage your subscription",
     "description": "Title for manage your subscription section"
   },
+  "PoylyF": {
+    "defaultMessage": "Follow <link>this guide</link> on how to create a GitHub repository.",
+    "description": "Description for GitHub repo step in project submission checklist"
+  },
   "Ptmnjq": {
     "defaultMessage": "Free continuous updates",
     "description": "Title for free continuous updates feature"
@@ -3446,6 +3426,10 @@
   "Q0sZmk": {
     "defaultMessage": "An email containing the password reset instructions will be sent if an associated account exists",
     "description": "Message indicating a successful password reset request"
+  },
+  "Q1/LnD": {
+    "defaultMessage": "GitHub repository",
+    "description": "Title for GitHub repo step in project submission checklist"
   },
   "Q4VMV2": {
     "defaultMessage": "<bold>You</bold> replied to <bold>yourself</bold> on the challenge forum for <link>{challengeTitle}</link>: <comment>\"{description}\"</comment>",
@@ -3590,10 +3574,6 @@
   "R68iHH": {
     "defaultMessage": "Search Svelte questions",
     "description": "Placeholder for search input of Svelte question list"
-  },
-  "R9G9bY": {
-    "defaultMessage": "Dashboard",
-    "description": "Sidebar navigation label"
   },
   "RBApo9": {
     "defaultMessage": "Promotions",
@@ -3830,6 +3810,10 @@
   "SdYw31": {
     "defaultMessage": "Nothing found just yet",
     "description": "Title for empty state when application of filters return no results"
+  },
+  "SiWL+G": {
+    "defaultMessage": "Once you're done developing, follow this step-by-step guide to host your solution and submit the challenge.",
+    "description": "Description for the project submission checklist section"
   },
   "Sj1CaY": {
     "defaultMessage": "Practice developing inclusive and accessible web experiences.",
@@ -4411,6 +4395,10 @@
     "defaultMessage": "Complete | Rewards",
     "description": "Title of Rewards Complete page"
   },
+  "XK5qY6": {
+    "defaultMessage": "You will submit the link to your public GitHub repo on the submission page.",
+    "description": "Description for GitHub repo step in project submission checklist"
+  },
   "XMHcvt": {
     "defaultMessage": "We recommend quality submissions from more senior engineers using a similar tech stack to you, or tech stack you expressed interest in learning",
     "description": "Tooltip label for Trending submissions section on Projects dashboard page"
@@ -4850,6 +4838,10 @@
   "b0OofK": {
     "defaultMessage": "Front end coding interview questions come in many forms — practice writing JavaScript functions, data structures, and algorithms.",
     "description": "Subtitle for an example list of JavaScript Questions on marketing pages"
+  },
+  "b28Bb0": {
+    "defaultMessage": "Designs",
+    "description": "Project assets category label"
   },
   "b2csyI": {
     "defaultMessage": "Next",
@@ -5731,10 +5723,6 @@
     "defaultMessage": "<bold>{author}</bold> contributed a code review for <bold>{recipient}</bold> on their submission <link>{submissionTitle}</link>: <comment>\"{description}\"</comment>",
     "description": "Log message for someone reviewing a submission"
   },
-  "imHjx3": {
-    "defaultMessage": "Tip",
-    "description": "Tip badge label for Deployment step in project submission checklist"
-  },
   "inG9hv": {
     "defaultMessage": "Do unused credits roll over?",
     "description": "Question on projects pricing's FAQ section - unused credits"
@@ -5974,10 +5962,6 @@
   "kF3Llo": {
     "defaultMessage": "Knowledge is power. Over {count} short questions with answers to build and solidify your front end fundamentals.",
     "description": "Subtitle for an example list of Quiz Questions on marketing pages"
-  },
-  "kF4lTl": {
-    "defaultMessage": "You can edit your submission and code anytime",
-    "description": "Description for Submit step in project submission checklist"
   },
   "kGgqDu": {
     "defaultMessage": "Angular Questions",
@@ -6287,6 +6271,10 @@
     "defaultMessage": "{points} rep",
     "description": "Reputation points to be gained"
   },
+  "mh0xHS": {
+    "defaultMessage": "You can edit your submission and code anytime.",
+    "description": "Description for Submit step in project submission checklist"
+  },
   "mhZ4FL": {
     "defaultMessage": "{name} in progress",
     "description": "User is working on this challenge"
@@ -6438,10 +6426,6 @@
   "o9kmTM": {
     "defaultMessage": "<bold>{author}</bold> posted on the challenge forum for <link>{challengeTitle}</link>: <comment>\"{description}\"</comment>",
     "description": "Log message for someone making a post on the challenge forum"
-  },
-  "oA4ExN": {
-    "defaultMessage": "Now in Beta",
-    "description": "Project marketing hero section badge"
   },
   "oAUXEp": {
     "defaultMessage": "Beautiful designs made by high-end designers",
@@ -7422,10 +7406,6 @@
   "w3pn1B": {
     "defaultMessage": "Pick your framework",
     "description": "Label for an example list of User Interface Questions on marketing pages"
-  },
-  "w3tshW": {
-    "defaultMessage": "Once you're done coding, follow this step-by-step guide to host your solution and submit the project.",
-    "description": "Description for the project submission checklist section"
   },
   "w5+zQe": {
     "defaultMessage": "{difficulty}",

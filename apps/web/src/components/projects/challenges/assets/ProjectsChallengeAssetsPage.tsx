@@ -11,8 +11,8 @@ import {
   RiBookOpenLine,
   RiCheckboxCircleFill,
   RiCodeSSlashLine,
-  RiDragMove2Fill,
   RiPaletteLine,
+  RiPencilRuler2Line,
 } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
 
@@ -41,11 +41,7 @@ import ProjectsChallengeMdxContent from '../../common/ProjectsChallengeMdxConten
 import ProjectsStartButton from '../../common/ProjectsStartButton';
 import type { ProjectsViewerProjectsProfile } from '../../types';
 
-type OnlineAssetsTabType =
-  | 'api'
-  | 'appendix'
-  | 'responsive-breakpoints'
-  | 'style-guide';
+type OnlineAssetsTabType = 'api' | 'appendix' | 'designs' | 'style-guide';
 
 function useOnlineAssetsTabs(
   hasStyleGuide: boolean,
@@ -56,13 +52,13 @@ function useOnlineAssetsTabs(
 
   const tabs: Array<TabItem<OnlineAssetsTabType>> = [
     {
-      icon: RiDragMove2Fill,
+      icon: RiPencilRuler2Line,
       label: intl.formatMessage({
-        defaultMessage: 'Responsive breakpoints',
+        defaultMessage: 'Designs',
         description: 'Project assets category label',
-        id: '5BQAdK',
+        id: 'b28Bb0',
       }),
-      value: 'responsive-breakpoints',
+      value: 'designs',
     },
   ];
 
@@ -133,9 +129,8 @@ export default function ProjectsChallengeAssetsPage({
     apiWriteup != null,
     appendix != null,
   );
-  const [onlineAssetsTab, setOnlineAssetsTab] = useState<OnlineAssetsTabType>(
-    'responsive-breakpoints',
-  );
+  const [onlineAssetsTab, setOnlineAssetsTab] =
+    useState<OnlineAssetsTabType>('designs');
 
   const showPaywall =
     viewerAccess.viewChallenge !== 'UNLOCKED' &&
@@ -256,7 +251,7 @@ export default function ProjectsChallengeAssetsPage({
                 value={onlineAssetsTab}
                 onSelect={setOnlineAssetsTab}
               />
-              {onlineAssetsTab === 'responsive-breakpoints' && (
+              {onlineAssetsTab === 'designs' && (
                 <ProjectsChallengeAssetsResponsiveBreakpointsTab
                   challenge={challenge}
                 />

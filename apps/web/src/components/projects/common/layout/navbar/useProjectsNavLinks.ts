@@ -11,7 +11,6 @@ export default function useProjectsNavLinks(
   const projectsNavItems = useProjectsNavItems('nav');
 
   const links: ReadonlyArray<NavbarPrimaryItem | null> = [
-    projectsNavItems.dashboard,
     projectsNavItems.challenges,
     projectsNavItems.submissions,
     !isPremium ? projectsNavItems.pricing : null,

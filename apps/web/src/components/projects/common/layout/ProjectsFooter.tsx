@@ -22,7 +22,7 @@ function useFooterNavigation() {
           }),
         },
         {
-          href: '#',
+          href: '/projects#faq',
           key: 'faq',
           name: intl.formatMessage({
             defaultMessage: 'FAQ',

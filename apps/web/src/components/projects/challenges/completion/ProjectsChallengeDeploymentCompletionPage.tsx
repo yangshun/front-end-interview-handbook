@@ -107,11 +107,11 @@ export default function ProjectsChallengeDeploymentCompletionPage({
         </Heading>
         <Section>
           <div className="flex max-w-2xl flex-col">
-            <Text className="mt-4" color="secondary" size="body2">
+            <Text className="text-pretty mt-4" color="secondary" size="body2">
               <FormattedMessage
-                defaultMessage="Once you're done coding, follow this step-by-step guide to host your solution and submit the project."
+                defaultMessage="Once you're done developing, follow this step-by-step guide to host your solution and submit the challenge."
                 description="Description for the project submission checklist section"
-                id="w3tshW"
+                id="SiWL+G"
               />
             </Text>
             <ul className="relative mt-8 flex flex-col gap-6">
@@ -143,35 +143,35 @@ export default function ProjectsChallengeDeploymentCompletionPage({
                     <div className="flex flex-col gap-0.5">
                       <Text size="body1" weight="bold">
                         <FormattedMessage
-                          defaultMessage="GitHub repo"
+                          defaultMessage="GitHub repository"
                           description="Title for GitHub repo step in project submission checklist"
-                          id="M3V59d"
+                          id="Q1/LnD"
                         />
                       </Text>
                       <Text color="secondary" size="body2">
                         <FormattedMessage
-                          defaultMessage="Store your code in a public GitHub repo"
+                          defaultMessage="Store your code in a public GitHub repository"
                           description="Description for GitHub repo step in project submission checklist"
-                          id="9EReUF"
+                          id="MNzCyG"
                         />
                       </Text>
                     </div>
                   </div>
                   <Prose textSize="sm">
                     <FormattedMessage
-                      defaultMessage="We will pull code from this repo for code reviews"
+                      defaultMessage="We will pull code from your repository and display it on your submission for code reviews."
                       description="Description for GitHub repo step in project submission checklist"
-                      id="1L7vdf"
+                      id="22EoCQ"
                     />
                     <ul>
                       <li>
                         <FormattedMessage
-                          defaultMessage="Follow <link>this guide</link> on how to create a GitHub repo"
+                          defaultMessage="Follow <link>this guide</link> on how to create a GitHub repository."
                           description="Description for GitHub repo step in project submission checklist"
-                          id="GVNK36"
+                          id="PoylyF"
                           values={{
                             link: (chunks) => (
-                              <Anchor href="https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-new-repository">
+                              <Anchor href="https://docs.github.com/repositories/creating-and-managing-repositories/creating-a-new-repository">
                                 {chunks}
                               </Anchor>
                             ),
@@ -180,9 +180,9 @@ export default function ProjectsChallengeDeploymentCompletionPage({
                       </li>
                       <li>
                         <FormattedMessage
-                          defaultMessage="You will submit the link to your public GitHub repo in the submission screen"
+                          defaultMessage="You will submit the link to your public GitHub repo on the submission page."
                           description="Description for GitHub repo step in project submission checklist"
-                          id="8x6UPf"
+                          id="XK5qY6"
                         />
                       </li>
                     </ul>
@@ -274,52 +274,6 @@ export default function ProjectsChallengeDeploymentCompletionPage({
                       </li>
                     </ul>
                   </Prose>
-                  <Divider />
-                  <div className="flex items-start gap-4">
-                    <Badge
-                      label={intl.formatMessage({
-                        defaultMessage: 'Tip',
-                        description:
-                          'Tip badge label for Deployment step in project submission checklist',
-                        id: 'imHjx3',
-                      })}
-                      size="sm"
-                      variant="info"
-                    />
-                    <Prose textSize="sm">
-                      <FormattedMessage
-                        defaultMessage="Before you deploy, always ensure the following:"
-                        description="Warning message for GitHub repo step in project submission checklist"
-                        id="KM0VJJ"
-                        values={{
-                          li: (chunks) => (
-                            <li className="ps-2">
-                              <span className="-ms-1">{chunks}</span>
-                            </li>
-                          ),
-                          ul: (chunks) => (
-                            <ul className="list-inside list-disc">{chunks}</ul>
-                          ),
-                        }}
-                      />
-                      <ul>
-                        <li>
-                          <FormattedMessage
-                            defaultMessage="Backward compatibility: xxxx"
-                            description="Warning message for GitHub repo step in project submission checklist"
-                            id="3jfsNU"
-                          />
-                        </li>
-                        <li>
-                          <FormattedMessage
-                            defaultMessage="Browser compatibility: xxx"
-                            description="Warning message for GitHub repo step in project submission checklist"
-                            id="8OWx2n"
-                          />
-                        </li>
-                      </ul>
-                    </Prose>
-                  </div>
                 </Card>
               </li>
               <li className="flex gap-x-4">
@@ -355,9 +309,9 @@ export default function ProjectsChallengeDeploymentCompletionPage({
                     </Text>
                     <Text color="secondary" size="body2">
                       <FormattedMessage
-                        defaultMessage="You can edit your submission and code anytime"
+                        defaultMessage="You can edit your submission and code anytime."
                         description="Description for Submit step in project submission checklist"
-                        id="kF4lTl"
+                        id="mh0xHS"
                       />
                     </Text>
                     <Button

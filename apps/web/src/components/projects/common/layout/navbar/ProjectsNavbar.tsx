@@ -235,11 +235,7 @@ export default function ProjectsNavbar({ hideOnDesktop = false }: Props) {
       links={navLinks}
       logo={<LogoLink href="/projects" />}
       mobileSidebarBottomItems={mobileSidebarBottomItems}
-      productMenu={
-        <NavProductDropdownMenu
-          value={PROJECTS_SHOW_MYSTERY_PRODUCT ? 'mystery' : 'projects'}
-        />
-      }
+      productMenu={<NavProductDropdownMenu value="projects" />}
       renderMobileSidebarAddOnItems={renderMobileSidebarAddOnItems}
       transparent={!isSticky}
     />
