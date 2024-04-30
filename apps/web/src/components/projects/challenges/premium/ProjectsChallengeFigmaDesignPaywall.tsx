@@ -11,6 +11,7 @@ import { FormattedMessage, useIntl } from 'react-intl';
 
 import { trpc } from '~/hooks/trpc';
 
+import ConfirmationDialog from '~/components/common/ConfirmationDialog';
 import { useToast } from '~/components/global/toasts/useToast';
 import Anchor from '~/components/ui/Anchor';
 import Button from '~/components/ui/Button';
@@ -26,12 +27,12 @@ type Placement = 'ASSETS_PAGE' | 'GET_STARTED_DIALOG';
 
 function DownloadSection({
   access,
-  slug,
+  challengeMetadata,
   placement,
 }: Readonly<{
   access: ProjectsPremiumAccessControlType;
+  challengeMetadata: ProjectsChallengeMetadata;
   placement: Placement;
-  slug: string;
 }>) {
   const intl = useIntl();
   const label = intl.formatMessage({
@@ -39,35 +40,40 @@ function DownloadSection({
     description: 'Download Figma file button label',
     id: 'RGdxr7',
   });
+  const [showFreeFigmaDialog, setShowFreeFigmaDialog] = useState(false);
   const { showToast } = useToast();
 
   const downloadDesignFilesMutation =
-    trpc.projects.challenge.downloadDesignFiles.useMutation();
+    trpc.projects.challenge.downloadDesignFiles.useMutation({
+      onError() {
+        showToast({
+          title: intl.formatMessage({
+            defaultMessage: 'Error downloading file',
+            description: 'Error message',
+            id: 'ETNZXt',
+          }),
+          variant: 'danger',
+        });
+      },
+      onSuccess({ signedUrl }) {
+        window.location.href = signedUrl;
+        setShowFreeFigmaDialog(false);
+      },
+    });
 
   const downloadProps = {
     isDisabled: downloadDesignFilesMutation.isLoading,
     isLoading: downloadDesignFilesMutation.isLoading,
     onClick: async () => {
-      downloadDesignFilesMutation.mutate(
-        {
-          slug,
-        },
-        {
-          onError() {
-            showToast({
-              title: intl.formatMessage({
-                defaultMessage: 'Error downloading file',
-                description: 'Error message',
-                id: 'ETNZXt',
-              }),
-              variant: 'danger',
-            });
-          },
-          onSuccess({ signedUrl }) {
-            window.location.href = signedUrl;
-          },
-        },
-      );
+      if (challengeMetadata.access === 'free') {
+        setShowFreeFigmaDialog(true);
+
+        return;
+      }
+
+      downloadDesignFilesMutation.mutate({
+        slug: challengeMetadata.slug,
+      });
     },
   };
 
@@ -80,14 +86,37 @@ function DownloadSection({
         placement === 'GET_STARTED_DIALOG' && 'items-start',
       )}>
       {access === 'ACCESSIBLE_TO_EVERYONE' && (
-        <Button
-          addonPosition="start"
-          icon={RxFigmaLogo}
-          label={label}
-          size={buttonSize}
-          variant="secondary"
-          {...downloadProps}
-        />
+        <>
+          <Button
+            addonPosition="start"
+            icon={RxFigmaLogo}
+            label={label}
+            size={buttonSize}
+            variant="secondary"
+            {...downloadProps}
+          />
+          <Text
+            className="block"
+            color="secondary"
+            size={placement === 'ASSETS_PAGE' ? 'body3' : 'body2'}>
+            <FormattedMessage
+              defaultMessage="Download this Figma file (<code>.fig</code>) and open it using the <link>Figma desktop app</link> or the <link2>Figma website</link2>."
+              description="Download a premium Figma file"
+              id="XVCsHH"
+              values={{
+                code: (chunks) => <code>{chunks}</code>,
+                link: (chunks) => (
+                  <Anchor href="https://www.figma.com/downloads/">
+                    {chunks}
+                  </Anchor>
+                ),
+                link2: (chunks) => (
+                  <Anchor href="https://www.figma.com/">{chunks}</Anchor>
+                ),
+              }}
+            />
+          </Text>
+        </>
       )}
       {access === 'UNLOCKED' && (
         <>
@@ -109,9 +138,9 @@ function DownloadSection({
             color="secondary"
             size={placement === 'ASSETS_PAGE' ? 'body3' : 'body2'}>
             <FormattedMessage
-              defaultMessage="Download the unlocked Figma file (<code>.fig</code>) and open it using the <link>Figma desktop app</link> or the <link2>Figma website</link2>."
+              defaultMessage="Download your unlocked Figma file (<code>.fig</code>) and open it using the <link>Figma desktop app</link> or the <link2>Figma website</link2>."
               description="Download a premium Figma file"
-              id="bG0da2"
+              id="fg9NRy"
               values={{
                 code: (chunks) => <code>{chunks}</code>,
                 link: (chunks) => (
@@ -127,6 +156,36 @@ function DownloadSection({
           </Text>
         </>
       )}
+      <ConfirmationDialog
+        confirmButtonLabel={intl.formatMessage({
+          defaultMessage: 'Download',
+          description: 'Download file label',
+          id: 'K2G0qM',
+        })}
+        isDisabled={downloadDesignFilesMutation.isLoading}
+        isLoading={downloadDesignFilesMutation.isLoading}
+        isShown={showFreeFigmaDialog}
+        title="Figma files are a premium feature"
+        onCancel={() => {
+          setShowFreeFigmaDialog(false);
+        }}
+        onConfirm={() => {
+          downloadDesignFilesMutation.mutate({
+            slug: challengeMetadata.slug,
+          });
+        }}>
+        <div className="flex flex-col gap-2">
+          <Text className="block" size="body2">
+            While our challenges are free to access, Figma files,
+            challenge-specific guides and official solutions are usually premium
+            features.
+          </Text>
+          <Text className="block" size="body2">
+            We have provided this Figma file free to help you get started and as
+            an example of the quality you may expect from our Figma files.
+          </Text>
+        </div>
+      </ConfirmationDialog>
     </div>
   );
 }
@@ -406,8 +465,8 @@ export default function ProjectsChallengeFigmaDesignPaywall({
       return (
         <DownloadSection
           access={viewerFigmaAccess}
+          challengeMetadata={challengeMetadata}
           placement={placement}
-          slug={challengeMetadata.slug}
         />
       );
     case 'UNLOCK':

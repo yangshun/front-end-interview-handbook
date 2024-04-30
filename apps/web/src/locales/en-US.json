@@ -2583,6 +2583,10 @@
     "defaultMessage": "Curated learning resources",
     "description": "Title of 'Curated learning resources' sub-feature in Projects marketing page"
   },
+  "K2G0qM": {
+    "defaultMessage": "Download",
+    "description": "Download file label"
+  },
   "K6BzpD": {
     "defaultMessage": "Intermediate",
     "description": "Intermediate blog"
@@ -4419,6 +4423,10 @@
     "defaultMessage": "Become an Affiliate",
     "description": "Link to affiliate marketing program page"
   },
+  "XVCsHH": {
+    "defaultMessage": "Download this Figma file (<code>.fig</code>) and open it using the <link>Figma desktop app</link> or the <link2>Figma website</link2>.",
+    "description": "Download a premium Figma file"
+  },
   "XVPYZg": {
     "defaultMessage": "Forgot your password?",
     "description": "Label of forget password button on Email Sign In page"
@@ -4878,10 +4886,6 @@
   "bFDEGM": {
     "defaultMessage": "Professional designs in 3 breakpoints",
     "description": "Label for breakpoints feature"
-  },
-  "bG0da2": {
-    "defaultMessage": "Download the unlocked Figma file (<code>.fig</code>) and open it using the <link>Figma desktop app</link> or the <link2>Figma website</link2>.",
-    "description": "Download a premium Figma file"
   },
   "bGwCko": {
     "defaultMessage": "GreatFrontEnd has been a great resource for preparing and continuing in the ever-shifting front-end world. Allowing me to brush up on fundamentals, hone new concepts and practices to put my best foot forward in technical ability and confidence to be able to get interviews AND offers.",
@@ -5402,6 +5406,10 @@
   "fevC5W": {
     "defaultMessage": "Free",
     "description": "Label indicating that quiz questions are free"
+  },
+  "fg9NRy": {
+    "defaultMessage": "Download your unlocked Figma file (<code>.fig</code>) and open it using the <link>Figma desktop app</link> or the <link2>Figma website</link2>.",
+    "description": "Download a premium Figma file"
   },
   "fg9e1P": {
     "defaultMessage": "Component tracks",
