@@ -3,6 +3,7 @@
   "difficulty": "senior",
   "track": "e-commerce",
   "order": 60,
+  "priority": 9,
   "guides": ["layout-grid", "icons"],
   "access": "standard",
   "preReqs": [

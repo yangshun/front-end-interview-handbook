@@ -3,6 +3,7 @@
   "difficulty": "starter",
   "track": "design-system",
   "order": 52,
+  "priority": 4,
   "guides": ["figma"],
   "access": "standard",
   "baseCredits": 0,

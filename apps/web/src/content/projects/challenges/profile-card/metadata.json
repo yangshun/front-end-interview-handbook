@@ -3,6 +3,7 @@
   "difficulty": "starter",
   "track": "marketing",
   "order": 3,
+  "priority": 3,
   "guides": ["figma", "icons", "vs-code"],
   "access": "free",
   "baseCredits": 0,

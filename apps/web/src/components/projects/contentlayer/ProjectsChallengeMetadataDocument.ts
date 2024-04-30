@@ -141,6 +141,12 @@ export const ProjectsChallengeMetadataDocument = defineDocumentType(() => ({
       required: false,
       type: 'list',
     },
+    priority: {
+      default: 999,
+      description: 'Global priority to be displayed on listing pages',
+      required: false,
+      type: 'number',
+    },
     resources: {
       of: { options: projectChallengeResourceOptions, type: 'enum' },
       required: true,

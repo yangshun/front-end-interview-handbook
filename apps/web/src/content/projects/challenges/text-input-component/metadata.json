@@ -3,6 +3,7 @@
   "difficulty": "starter",
   "track": "design-system",
   "order": 53,
+  "priority": 4,
   "guides": ["forms"],
   "access": "standard",
   "baseCredits": 0,

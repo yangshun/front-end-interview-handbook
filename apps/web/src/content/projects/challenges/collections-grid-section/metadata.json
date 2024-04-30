@@ -3,6 +3,7 @@
   "difficulty": "starter",
   "track": "e-commerce",
   "order": 70,
+  "priority": 6,
   "guides": ["layout-grid"],
   "access": "standard",
   "pointsBase": 100,

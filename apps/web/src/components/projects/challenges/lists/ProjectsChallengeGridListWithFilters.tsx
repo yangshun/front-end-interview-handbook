@@ -34,7 +34,7 @@ import ProjectsChallengeListFilter from './ProjectsChallengeListFilter';
 import type { ProjectsChallengeItem } from '../types';
 import type { ProjectsTrackItem } from '../../tracks/data/ProjectsTracksData';
 
-const ITEMS_PER_PAGE = 12;
+const ITEMS_PER_PAGE = 18;
 
 function ProjectsChallengeGridListWithFiltersImpl({
   challenges,

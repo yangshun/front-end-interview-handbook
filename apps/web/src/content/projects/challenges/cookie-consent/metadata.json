@@ -3,8 +3,9 @@
   "difficulty": "senior",
   "track": "marketing",
   "order": 18,
+  "priority": 8,
   "guides": ["layout-grid"],
-  "access": "standard",
+  "access": "premium",
   "baseCredits": 2,
   "pointsBase": 2500,
   "pointsForSkillGroups": {

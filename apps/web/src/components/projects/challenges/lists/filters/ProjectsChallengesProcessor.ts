@@ -27,15 +27,7 @@ export function sortProjectsChallenges<T extends ProjectsChallengeItem>(
   return projects.slice().sort((a, b) => {
     switch (field) {
       case 'recommended': {
-        // TODO(projects): factor in the completion status.
-        const aDifficulty = DIFFICULTY_MAPPING[a.metadata.difficulty];
-        const bDifficulty = DIFFICULTY_MAPPING[a.metadata.difficulty];
-
-        if (aDifficulty !== bDifficulty) {
-          return aDifficulty - bDifficulty;
-        }
-
-        return a.metadata.order - b.metadata.order;
+        return a.metadata.priority - b.metadata.priority;
       }
       case 'completedCount': {
         const comp = (a.completedCount ?? 0) - (b.completedCount ?? 0);

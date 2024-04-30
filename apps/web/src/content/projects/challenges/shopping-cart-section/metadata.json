@@ -3,6 +3,7 @@
   "difficulty": "senior",
   "track": "e-commerce",
   "order": 110,
+  "priority": 10,
   "guides": ["icons"],
   "access": "premium",
   "baseCredits": 2,

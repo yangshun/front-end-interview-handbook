@@ -3,6 +3,7 @@
   "difficulty": "mid",
   "track": "marketing",
   "order": 11,
+  "priority": 7,
   "guides": ["forms", "icons"],
   "access": "standard",
   "pointsBase": 500,
