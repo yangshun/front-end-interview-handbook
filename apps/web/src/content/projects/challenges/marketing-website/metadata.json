@@ -1,6 +1,6 @@
 {
   "createdAt": "2024-04-17",
-  "difficulty": "starter",
+  "difficulty": "senior",
   "track": "marketing",
   "order": 26,
   "guides": ["layout-grid", "icons"],
@@ -17,7 +17,7 @@
     "cookie-consent",
     "footer-section-simple"
   ],
-  "pointsBase": 500,
+  "pointsBase": 2500,
   "pointsForSkillGroups": {
     "html": 50,
     "css": 50,

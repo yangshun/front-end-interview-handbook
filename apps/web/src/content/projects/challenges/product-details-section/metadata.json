@@ -1,16 +1,16 @@
 {
   "createdAt": "2024-01-06",
-  "difficulty": "mid",
+  "difficulty": "senior",
   "track": "e-commerce",
   "order": 20,
   "guides": ["layout-grid", "icons"],
   "access": "free",
-  "pointsBase": 400,
+  "pointsBase": 2500,
   "pointsForSkillGroups": {
     "html": 50,
     "css": 50
   },
-  "skills": ["html-basics", "css-basics", "css-flex"],
+  "skills": [],
   "resources": [
     "design-files",
     "image-assets",

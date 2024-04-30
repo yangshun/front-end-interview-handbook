@@ -1,16 +1,16 @@
 {
   "createdAt": "2024-01-12",
-  "difficulty": "starter",
+  "difficulty": "mid",
   "track": "marketing",
   "order": 12,
   "guides": ["forms", "layout-grid"],
   "access": "premium",
-  "pointsBase": 600,
+  "pointsBase": 500,
   "pointsForSkillGroups": {
     "html": 50,
     "css": 50
   },
-  "skills": ["html-semantics", "html-forms"],
+  "skills": [],
   "resources": [
     "design-files",
     "image-assets",

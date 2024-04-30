@@ -5,11 +5,10 @@
   "order": 13,
   "guides": [],
   "access": "standard",
-  "pointsBase": 500,
+  "pointsBase": 100,
   "pointsForSkillGroups": {
     "html": 50,
-    "css": 50,
-    "javascript": 50
+    "css": 50
   },
   "skills": [],
   "resources": [

@@ -5,7 +5,7 @@
   "order": 12,
   "guides": ["layout-grid"],
   "access": "premium",
-  "pointsBase": 500,
+  "pointsBase": 100,
   "pointsForSkillGroups": {
     "html": 50,
     "css": 50,

@@ -5,7 +5,7 @@
   "order": 2,
   "guides": ["figma"],
   "access": "free",
-  "pointsBase": 500,
+  "pointsBase": 100,
   "pointsForSkillGroups": {
     "html": 50,
     "css": 50,
@@ -23,7 +23,6 @@
   "galleryImages": [
     "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/render/image/public/projects-images/button-component/gallery/Gallery.jpg",
     "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/render/image/public/projects-images/button-component/gallery/Gallery-1.jpg"
-
   ],
   "specImages": {
     "default": [

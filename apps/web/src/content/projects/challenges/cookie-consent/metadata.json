@@ -1,12 +1,12 @@
 {
   "createdAt": "2024-04-17",
-  "difficulty": "starter",
+  "difficulty": "senior",
   "track": "marketing",
   "order": 18,
   "guides": ["layout-grid"],
   "access": "standard",
   "baseCredits": 2,
-  "pointsBase": 500,
+  "pointsBase": 2500,
   "pointsForSkillGroups": {
     "html": 50,
     "css": 50,
