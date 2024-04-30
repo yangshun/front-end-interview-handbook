@@ -41,7 +41,10 @@ export default function ProjectsOnboardingProfilePage() {
         <Section>
           <ProjectsOnboardingProfileStep1
             onFinish={() => {
-              router.push(nextPathname);
+              // TODO(projects): Use full-page redirect for because there's a cache issue
+              // where the projects profile is not updated and the user is being sent through
+              // the onboarding flow again.
+              window.location.href = nextPathname;
             }}
           />
         </Section>
