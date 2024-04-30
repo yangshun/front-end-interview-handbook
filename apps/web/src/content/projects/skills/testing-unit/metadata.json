@@ -1,3 +1,10 @@
 {
-  "challenges": []
+  "challenges": [
+    "blog-card",
+    "profile-card",
+    "pricing-section-tiers",
+    "navbar-e-commerce",
+    "faq-section",
+    "product-specifications-section"
+  ]
 }

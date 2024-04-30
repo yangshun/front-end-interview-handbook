@@ -1,3 +1,8 @@
 {
-  "challenges": []
+  "challenges": [
+    "profile-card",
+    "hero-section-simple",
+    "pricing-section",
+    "faq-section"
+  ]
 }

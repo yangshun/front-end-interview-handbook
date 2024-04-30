@@ -34,8 +34,8 @@ export const skillsRoadmapConfig = [
       },
       {
         items: [
-          { key: 'javascript-events', label: 'DOM events' },
-          { key: 'javascript-dom-manipulation', label: 'DOM manipulation' },
+          { key: 'javascript-events', label: 'DOM Events' },
+          { key: 'javascript-dom-manipulation', label: 'DOM Manipulation' },
           { key: 'javascript-fetch', label: 'Fetch' },
           { key: 'javascript-storage', label: 'Storage' },
         ],
@@ -54,9 +54,9 @@ export const skillsRoadmapConfig = [
         items: [
           { key: 'react-basics', label: 'Basics' },
           { key: 'react-components', label: 'Components' },
-          { key: 'react-list', label: 'List rendering' },
-          { key: 'react-event', label: 'Event handling' },
-          { key: 'react-form', label: 'Form handling' },
+          { key: 'react-list', label: 'List Rendering' },
+          { key: 'react-event', label: 'Event Handling' },
+          { key: 'react-form', label: 'Form Handling' },
           { key: 'react-effects', label: 'Effects' },
         ],
         key: 'react',
@@ -78,9 +78,9 @@ export const skillsRoadmapConfig = [
       },
       {
         items: [
-          { key: 'build-bundling', label: 'Bundling' },
-          { key: 'build-linting-formatting', label: 'Linting & Formatting' },
           { key: 'build-typechecking', label: 'Typechecking' },
+          { key: 'build-linting-formatting', label: 'Linting & Formatting' },
+          { key: 'build-bundling', label: 'Bundling' },
         ],
         key: 'build-tools',
         premium: true,
@@ -95,8 +95,8 @@ export const skillsRoadmapConfig = [
     items: [
       {
         items: [
-          { key: 'testing-unit', label: 'Unit tests' },
-          { key: 'testing-e2e', label: 'End-to-end tests' },
+          { key: 'testing-unit', label: 'Unit Tests' },
+          { key: 'testing-e2e', label: 'End-to-end Tests' },
         ],
         key: 'testing',
         premium: true,
@@ -106,9 +106,9 @@ export const skillsRoadmapConfig = [
       },
       {
         items: [
-          { key: 'performance-fonts', label: 'Font loading' },
-          { key: 'performance-images', label: 'Image loading' },
-          { key: 'performance-code', label: 'Code loading' },
+          { key: 'performance-fonts', label: 'Font Loading' },
+          { key: 'performance-images', label: 'Image Loading' },
+          { key: 'performance-code', label: 'Code Loading' },
         ],
         key: 'performance',
         premium: true,

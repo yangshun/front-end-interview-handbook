@@ -1,3 +1,8 @@
 {
-  "challenges": []
+  "challenges": [
+    "marketing-landing-page",
+    "product-details-section",
+    "product-reviews",
+    "checkout-section"
+  ]
 }

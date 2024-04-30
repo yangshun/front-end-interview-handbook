@@ -1,3 +1,13 @@
 {
-  "challenges": []
+  "challenges": [
+    "textarea-component",
+    "pricing-section-tiers",
+    "navbar-e-commerce",
+    "faq-section",
+    "product-details-section",
+    "product-specifications-section",
+    "cookie-consent",
+    "shopping-cart-section",
+    "order-success-section"
+  ]
 }

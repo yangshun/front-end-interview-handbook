@@ -1,3 +1,9 @@
 {
-  "challenges": []
+  "challenges": [
+    "newsletter-section",
+    "text-input-component",
+    "contact-section",
+    "textarea-component",
+    "checkout-section"
+  ]
 }

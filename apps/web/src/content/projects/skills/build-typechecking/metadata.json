@@ -1,3 +1,8 @@
 {
-  "challenges": []
+  "challenges": [
+    "statistics-section",
+    "team-section",
+    "pricing-section-tiers",
+    "product-reviews"
+  ]
 }

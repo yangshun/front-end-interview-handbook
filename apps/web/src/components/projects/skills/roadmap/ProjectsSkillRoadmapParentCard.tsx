@@ -9,6 +9,7 @@ import ProjectsSkillRoadmapItemRow from '~/components/projects/skills/roadmap/Pr
 import ProjectsSkillRoadmapParentHeading from '~/components/projects/skills/roadmap/ProjectsSkillRoadmapParentHeading';
 import Button from '~/components/ui/Button';
 import {
+  themeBackgroundBrandColor,
   themeBackgroundLayerEmphasized,
   themeBorderSecondaryColor,
   themeGlassyBorder,
@@ -100,6 +101,7 @@ export default function ProjectsSkillRoadmapParentCard({
               className={clsx(
                 'flex items-center justify-center',
                 'size-6 rounded-md bg-white',
+                themeBackgroundBrandColor,
               )}>
               <Icon className="size-4" />
             </div>

@@ -1,3 +1,8 @@
 {
-  "challenges": []
+  "challenges": [
+    "product-details-section",
+    "product-reviews",
+    "cookie-consent",
+    "shopping-cart-section"
+  ]
 }

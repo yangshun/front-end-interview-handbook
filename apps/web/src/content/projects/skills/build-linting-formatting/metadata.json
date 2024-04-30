@@ -1,3 +1,12 @@
 {
-  "challenges": []
+  "challenges": [
+    "blog-card",
+    "hero-section-simple",
+    "statistics-section",
+    "newsletter-section",
+    "marketing-landing-page",
+    "features-page",
+    "product-details-section",
+    "collections-grid-section"
+  ]
 }

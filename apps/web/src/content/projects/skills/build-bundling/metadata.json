@@ -1,3 +1,10 @@
 {
-  "challenges": []
+  "challenges": [
+    "marketing-landing-page",
+    "features-page",
+    "pricing-page",
+    "about-us-page",
+    "contact-us-page",
+    "marketing-website"
+  ]
 }

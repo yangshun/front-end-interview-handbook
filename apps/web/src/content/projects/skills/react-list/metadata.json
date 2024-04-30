@@ -1,3 +1,11 @@
 {
-  "challenges": []
+  "challenges": [
+    "hero-section-feature-bullets",
+    "statistics-section",
+    "features-section-grid",
+    "team-section",
+    "faq-section",
+    "product-listing-section",
+    "product-reviews"
+  ]
 }

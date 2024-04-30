@@ -1,3 +1,8 @@
 {
-  "challenges": []
+  "challenges": [
+    "cookie-consent",
+    "product-details-section",
+    "marketing-landing-page",
+    "storefront-page"
+  ]
 }

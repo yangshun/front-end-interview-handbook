@@ -1,3 +1,10 @@
 {
-  "challenges": []
+  "challenges": [
+    "badge-component",
+    "button-component",
+    "text-input-component",
+    "testimonial-card",
+    "testimonials-section",
+    "pricing-section-tiers"
+  ]
 }
