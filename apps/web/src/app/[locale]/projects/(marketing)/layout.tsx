@@ -1,3 +1,4 @@
+import GlobalBanner from '~/components/global/banners/GlobalBanner';
 import FeedbackWidget from '~/components/global/feedback/FeedbackWidget';
 import ProjectsNavbar from '~/components/projects/common/layout/navbar/ProjectsNavbar';
 import FooterProjects from '~/components/projects/common/layout/ProjectsFooter';
@@ -11,6 +12,7 @@ export default function ProjectsMarketingLayout({ children }: Props) {
   return (
     <>
       <FeedbackWidget position="end" />
+      <GlobalBanner />
       <div className="flex min-h-screen flex-col">
         <ProjectsNavbar />
         <div className="grow">{children}</div>

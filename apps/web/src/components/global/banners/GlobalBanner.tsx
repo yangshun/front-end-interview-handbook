@@ -10,12 +10,15 @@ import Anchor from '~/components/ui/Anchor';
 import Banner from '~/components/ui/Banner';
 
 import logEvent from '~/logging/logEvent';
+import { useI18nPathname } from '~/next-i18nostic/src';
 
 import { useUserPreferences } from '../UserPreferencesProvider';
 import { useUserProfile } from '../UserProfileProvider';
 
 function MarketingMessage() {
   const { userProfile } = useUserProfile();
+  const { pathname } = useI18nPathname();
+
   const isInterviewsPremium = userProfile?.isInterviewsPremium ?? false;
 
   const perpetualSaleMessage = (
@@ -69,16 +72,16 @@ function MarketingMessage() {
     />
   );
 
-  const weAreHiringMessage = (
+  const launchSaleMessage = (
     <FormattedMessage
-      defaultMessage="GreatFrontEnd is hiring! Check out our <link>jobs page</link>!"
+      defaultMessage="GreatFrontEnd Projects is now in BETA! For a limited time, get {percentage}% off with the promo code {promoCode}. <link>Check it out</link>! 🚀"
       description="Text on Promo Banner"
-      id="wfod1+"
+      id="g9Db2B"
       values={{
         link: (chunks) => (
           <Anchor
             className="whitespace-nowrap font-medium"
-            href="/jobs"
+            href="/projects"
             target="_blank"
             underline={true}
             variant="flat"
@@ -96,11 +99,17 @@ function MarketingMessage() {
             {chunks}
           </Anchor>
         ),
+        percentage: 30,
+        promoCode: 'BETA30',
       }}
     />
   );
 
-  return isInterviewsPremium ? weAreHiringMessage : perpetualSaleMessage;
+  if (pathname?.startsWith('/projects')) {
+    return launchSaleMessage;
+  }
+
+  return isInterviewsPremium ? launchSaleMessage : perpetualSaleMessage;
 }
 
 export default function GlobalBanner() {
