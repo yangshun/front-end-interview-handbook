@@ -307,38 +307,6 @@
     "topics": []
   },
   {
-    "author": null,
-    "companies": [],
-    "created": 1714089600,
-    "difficulty": "easy",
-    "duration": 15,
-    "excerpt": "Implement a function that performs a bubble sort",
-    "featured": false,
-    "format": "javascript",
-    "frameworkDefault": null,
-    "frameworks": [],
-    "href": "/questions/javascript/bubble-sort",
-    "importance": "low",
-    "languages": [
-      "js",
-      "ts"
-    ],
-    "nextQuestions": [
-      "quick-sort"
-    ],
-    "premium": false,
-    "published": true,
-    "ranking": 100,
-    "similarQuestions": [
-      "insertion-sort",
-      "selection-sort"
-    ],
-    "slug": "bubble-sort",
-    "subtitle": null,
-    "title": "Bubble Sort",
-    "topics": []
-  },
-  {
     "author": "zhenghao",
     "companies": [],
     "created": 1656460800,
@@ -1954,35 +1922,6 @@
     "topics": []
   },
   {
-    "author": null,
-    "companies": [],
-    "created": 1712102400,
-    "difficulty": "medium",
-    "duration": 20,
-    "excerpt": "Implement a function that compares object and source to determine if they contain equivalent property values",
-    "featured": false,
-    "format": "javascript",
-    "frameworkDefault": null,
-    "frameworks": [],
-    "href": "/questions/javascript/is-match",
-    "importance": "low",
-    "languages": [
-      "js",
-      "ts"
-    ],
-    "nextQuestions": [],
-    "premium": true,
-    "published": true,
-    "ranking": 100,
-    "similarQuestions": [
-      "conforms-to"
-    ],
-    "slug": "is-match",
-    "subtitle": null,
-    "title": "Is Match",
-    "topics": []
-  },
-  {
     "author": "yangshun",
     "companies": [],
     "created": 1655510400,
@@ -2357,37 +2296,6 @@
   {
     "author": null,
     "companies": [],
-    "created": 1710806400,
-    "difficulty": "easy",
-    "duration": 15,
-    "excerpt": "Implement a function that finds the mean value based on the specified criteria",
-    "featured": false,
-    "format": "javascript",
-    "frameworkDefault": null,
-    "frameworks": [],
-    "href": "/questions/javascript/mean-by",
-    "importance": "low",
-    "languages": [
-      "js",
-      "ts"
-    ],
-    "nextQuestions": [],
-    "premium": true,
-    "published": true,
-    "ranking": 100,
-    "similarQuestions": [
-      "group-by",
-      "min-by",
-      "mean"
-    ],
-    "slug": "mean-by",
-    "subtitle": null,
-    "title": "Mean By",
-    "topics": []
-  },
-  {
-    "author": null,
-    "companies": [],
     "created": 1690848000,
     "difficulty": "medium",
     "duration": 20,
@@ -2496,33 +2404,6 @@
     "slug": "min-by",
     "subtitle": null,
     "title": "Min By",
-    "topics": []
-  },
-  {
-    "author": null,
-    "companies": [],
-    "created": 1712188800,
-    "difficulty": "medium",
-    "duration": 10,
-    "excerpt": "Implement a function that creates a function that negates the result of the predicate function",
-    "featured": false,
-    "format": "javascript",
-    "frameworkDefault": null,
-    "frameworks": [],
-    "href": "/questions/javascript/negate",
-    "importance": "low",
-    "languages": [
-      "js",
-      "ts"
-    ],
-    "nextQuestions": [],
-    "premium": true,
-    "published": true,
-    "ranking": 100,
-    "similarQuestions": [],
-    "slug": "negate",
-    "subtitle": null,
-    "title": "Negate",
     "topics": []
   },
   {
@@ -3278,37 +3159,6 @@
     "topics": []
   },
   {
-    "author": null,
-    "companies": [],
-    "created": 1710806400,
-    "difficulty": "easy",
-    "duration": 15,
-    "excerpt": "Implement a function that finds the sum based on the specified criteria",
-    "featured": false,
-    "format": "javascript",
-    "frameworkDefault": null,
-    "frameworks": [],
-    "href": "/questions/javascript/sum-by",
-    "importance": "low",
-    "languages": [
-      "js",
-      "ts"
-    ],
-    "nextQuestions": [],
-    "premium": true,
-    "published": true,
-    "ranking": 100,
-    "similarQuestions": [
-      "group-by",
-      "min-by",
-      "mean-by"
-    ],
-    "slug": "sum-by",
-    "subtitle": null,
-    "title": "Sum By",
-    "topics": []
-  },
-  {
     "author": "yangshun",
     "companies": [
       "google"
@@ -3558,37 +3408,6 @@
   {
     "author": null,
     "companies": [],
-    "created": 1712016000,
-    "difficulty": "easy",
-    "duration": 10,
-    "excerpt": "Implement a function that creates an array of unique values, in order, from all given arrays",
-    "featured": false,
-    "format": "javascript",
-    "frameworkDefault": null,
-    "frameworks": [],
-    "href": "/questions/javascript/union",
-    "importance": "low",
-    "languages": [
-      "js",
-      "ts"
-    ],
-    "nextQuestions": [
-      "unique-array"
-    ],
-    "premium": true,
-    "published": true,
-    "ranking": 100,
-    "similarQuestions": [
-      "intersection"
-    ],
-    "slug": "union",
-    "subtitle": null,
-    "title": "Union",
-    "topics": []
-  },
-  {
-    "author": null,
-    "companies": [],
     "created": 1711929600,
     "difficulty": "medium",
     "duration": 15,
@@ -3614,99 +3433,6 @@
     "slug": "union-by",
     "subtitle": null,
     "title": "Union By",
-    "topics": []
-  },
-  {
-    "author": null,
-    "companies": [],
-    "created": 1712016000,
-    "difficulty": "medium",
-    "duration": 15,
-    "excerpt": "Implement a function that creates an array of unique values, in order, from all given arrays, based on a specific comparison criteria",
-    "featured": false,
-    "format": "javascript",
-    "frameworkDefault": null,
-    "frameworks": [],
-    "href": "/questions/javascript/union-with",
-    "importance": "low",
-    "languages": [
-      "js",
-      "ts"
-    ],
-    "nextQuestions": [
-      "uniq-with",
-      "union",
-      "union-by"
-    ],
-    "premium": true,
-    "published": true,
-    "ranking": 100,
-    "similarQuestions": [],
-    "slug": "union-with",
-    "subtitle": null,
-    "title": "Union With",
-    "topics": []
-  },
-  {
-    "author": null,
-    "companies": [],
-    "created": 1710806400,
-    "difficulty": "medium",
-    "duration": 15,
-    "excerpt": "Implement a function to remove all duplicate values from an array based on a specific criteria",
-    "featured": false,
-    "format": "javascript",
-    "frameworkDefault": null,
-    "frameworks": [],
-    "href": "/questions/javascript/uniq-by",
-    "importance": "low",
-    "languages": [
-      "js",
-      "ts"
-    ],
-    "nextQuestions": [],
-    "premium": true,
-    "published": true,
-    "ranking": 100,
-    "similarQuestions": [
-      "data-selection",
-      "unique-array",
-      "max-by"
-    ],
-    "slug": "uniq-by",
-    "subtitle": null,
-    "title": "Unique By",
-    "topics": []
-  },
-  {
-    "author": null,
-    "companies": [],
-    "created": 1712016000,
-    "difficulty": "medium",
-    "duration": 15,
-    "excerpt": "Implement a function to remove all duplicate values from an array based on a specific comparison criteria",
-    "featured": false,
-    "format": "javascript",
-    "frameworkDefault": null,
-    "frameworks": [],
-    "href": "/questions/javascript/uniq-with",
-    "importance": "low",
-    "languages": [
-      "js",
-      "ts"
-    ],
-    "nextQuestions": [],
-    "premium": true,
-    "published": true,
-    "ranking": 100,
-    "similarQuestions": [
-      "data-selection",
-      "unique-array",
-      "uniq-by"
-    ],
-    "slug": "uniq-with",
-    "subtitle": null,
-    "title": "Unique With",
     "topics": []
   },
   {
@@ -3736,36 +3462,6 @@
     "slug": "unique-array",
     "subtitle": null,
     "title": "Unique Array",
-    "topics": []
-  },
-  {
-    "author": null,
-    "companies": [],
-    "created": 1711929600,
-    "difficulty": "easy",
-    "duration": 10,
-    "excerpt": "Implement a function that creates an array excluding all given values.",
-    "featured": false,
-    "format": "javascript",
-    "frameworkDefault": null,
-    "frameworks": [],
-    "href": "/questions/javascript/without",
-    "importance": "low",
-    "languages": [
-      "js",
-      "ts"
-    ],
-    "nextQuestions": [],
-    "premium": true,
-    "published": true,
-    "ranking": 100,
-    "similarQuestions": [
-      "difference",
-      "union"
-    ],
-    "slug": "without",
-    "subtitle": null,
-    "title": "Without",
     "topics": []
   }
 ]
