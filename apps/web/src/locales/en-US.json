@@ -851,6 +851,10 @@
     "defaultMessage": "Created: Oldest to newest",
     "description": "Sorting option for projects list - sort by created"
   },
+  "5c7RMQ": {
+    "defaultMessage": "Practice by framework",
+    "description": "Sidebar label for Questions list page"
+  },
   "5gYLMr": {
     "defaultMessage": "Once you're done, host your project with <tooltip>our recommended hosts</tooltip> and submit your project URL for code reviews.",
     "description": "FAQ answer for projects platform"
@@ -1459,6 +1463,10 @@
     "defaultMessage": "{completedCount} completed",
     "description": "Label for number of completed users for a project"
   },
+  "Aa86vz": {
+    "defaultMessage": "Free",
+    "description": "Label to indicate the item is free"
+  },
   "AaYDa2": {
     "defaultMessage": "Implementation details",
     "description": "Challenge submission form label"
@@ -1642,6 +1650,10 @@
   "CCiMOz": {
     "defaultMessage": "We recommend well-rated submissions using the same stack for your reference",
     "description": "Description for \"Learn from good code\" item in Expected Support section on Projects project page"
+  },
+  "CIPW07": {
+    "defaultMessage": "Interview guides",
+    "description": "Sidebar label for Interview Guides category"
   },
   "CNjnh0": {
     "defaultMessage": "Not written for this question.",
@@ -3355,6 +3367,10 @@
     "defaultMessage": "Purchase premium to unlock filtering questions by companies.",
     "description": "Subtitle for paywall over company tagging"
   },
+  "PXLoIh": {
+    "defaultMessage": "Focus areas",
+    "description": "Sidebar label for interview focus area category"
+  },
   "PbcB1O": {
     "defaultMessage": "If you haven’t started a job in SWE or front end yet, select another status to display in place of your YOE",
     "description": "Label for \"Status\" choices on Projects profile page"
@@ -4155,6 +4171,10 @@
     "defaultMessage": "Get the right practical foundation from the get-go",
     "description": "Title of 'Practical foundation' feature in Projects marketing page"
   },
+  "VcLkXG": {
+    "defaultMessage": "Free",
+    "description": "Label to indicate that the item is free of charge"
+  },
   "VeRWF3": {
     "defaultMessage": "Challenge guide",
     "description": "Project guides category title"
@@ -4270,6 +4290,10 @@
   "WNERnb": {
     "defaultMessage": "End session",
     "description": "Label for \"End session\" button on current project session card"
+  },
+  "WNRcvy": {
+    "defaultMessage": "Study plans",
+    "description": "Sidebar label for Study Plans category"
   },
   "WPmd3v": {
     "defaultMessage": "Guides & discussions",
@@ -7594,6 +7618,10 @@
   "y3aYKb": {
     "defaultMessage": "User Interface",
     "description": "Front end user interface questions"
+  },
+  "y4l5Q0": {
+    "defaultMessage": "Prep dashboard",
+    "description": "Sidebar label for Front End Interview Prep Dashboard page"
   },
   "y4v8AZ": {
     "defaultMessage": "Component libraries",

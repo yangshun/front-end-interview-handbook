@@ -1,20 +1,13 @@
 'use client';
 
 import clsx from 'clsx';
-import { RiArrowRightLine } from 'react-icons/ri';
 import { FormattedMessage } from 'react-intl';
-import { useInterval, useToggle } from 'usehooks-ts';
 
 import gtag from '~/lib/gtag';
-import useCountdownTimer from '~/hooks/useCountdownTime';
 
-import { PROJECT_LAUNCH_DATE } from '~/data/FeatureFlags';
-
-import Timer from '~/components/countdown/Timer';
 import { SOCIAL_DISCOUNT_PERCENTAGE } from '~/components/promotions/social/SocialDiscountConfig';
 import Anchor from '~/components/ui/Anchor';
 import Banner from '~/components/ui/Banner';
-import Text from '~/components/ui/Text';
 
 import logEvent from '~/logging/logEvent';
 
@@ -110,75 +103,9 @@ function MarketingMessage() {
   return isInterviewsPremium ? weAreHiringMessage : perpetualSaleMessage;
 }
 
-function ComingSoonCountdown({
-  onClose,
-}: Readonly<{
-  onClose: () => void;
-}>) {
-  const { days, hours, minutes, seconds, finished } =
-    useCountdownTimer(PROJECT_LAUNCH_DATE);
-
-  const bannerTextLg = finished
-    ? `Our new product just launched BETA: Build real world projects with GreatFrontEnd Projects 🚀`
-    : `Mystery product dropping. Coming soon in`;
-
-  const bannerTextSm = finished
-    ? `Now in BETA: GreatFrontEnd Projects 🚀`
-    : `New Product in`;
-
-  const redirectUrl = finished ? `/projects` : `/coming-soon`;
-
-  return (
-    <div className="flex flex-wrap items-center justify-center gap-x-2 sm:gap-x-4">
-      <Text
-        className="hidden sm:block"
-        color="inherit"
-        size="body2"
-        weight="medium">
-        {bannerTextLg}
-      </Text>
-      <Text
-        className="block sm:hidden"
-        color="inherit"
-        size="body2"
-        weight="medium">
-        {bannerTextSm}
-      </Text>
-      {finished === false && (
-        <Timer
-          color="inherit"
-          days={days}
-          hours={hours}
-          minutes={minutes}
-          seconds={seconds}
-        />
-      )}
-      <Anchor
-        href={redirectUrl}
-        variant="unstyled"
-        onClick={() => {
-          // Dismiss the global banner on link click when counter
-          // is finished as it redirects to projects homepage
-          // and projects page also have global banner which is
-          // currently showing the same content.
-          if (finished) {
-            onClose();
-          }
-        }}>
-        <RiArrowRightLine aria-hidden={true} className="size-4 shrink-0" />
-      </Anchor>
-    </div>
-  );
-}
-
 export default function GlobalBanner() {
   const { isUserProfileLoading } = useUserProfile();
   const { setShowGlobalBanner } = useUserPreferences();
-  const [showCountdownMessage, toggleCountdownMessage] = useToggle();
-
-  useInterval(() => {
-    toggleCountdownMessage();
-  }, 15000);
 
   return (
     <div

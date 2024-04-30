@@ -5,7 +5,6 @@ import { RiArrowRightLine } from 'react-icons/ri';
 import { trpc } from '~/hooks/trpc';
 import useUserProfile from '~/hooks/user/useUserProfile';
 
-import Anchor from '~/components/ui/Anchor';
 import Button from '~/components/ui/Button';
 import Text from '~/components/ui/Text';
 import {
