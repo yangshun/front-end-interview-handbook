@@ -4,7 +4,7 @@
   "track": "design-system",
   "order": 51,
   "guides": ["figma"],
-  "access": "free",
+  "access": "standard",
   "baseCredits": 0,
   "pointsBase": 100,
   "pointsForSkillGroups": {

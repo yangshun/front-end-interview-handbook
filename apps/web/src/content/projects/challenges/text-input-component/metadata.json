@@ -4,7 +4,7 @@
   "track": "design-system",
   "order": 53,
   "guides": ["forms"],
-  "access": "free",
+  "access": "standard",
   "baseCredits": 0,
   "pointsBase": 100,
   "pointsForSkillGroups": {
