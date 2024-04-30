@@ -2,7 +2,7 @@
   "createdAt": "2024-04-17",
   "difficulty": "mid",
   "track": "design-system",
-  "order": 5,
+  "order": 53,
   "guides": ["figma", "icons", "layout-grid"],
   "access": "standard",
   "pointsBase": 500,

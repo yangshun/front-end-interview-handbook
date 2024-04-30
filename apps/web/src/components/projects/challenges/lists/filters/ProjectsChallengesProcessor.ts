@@ -27,22 +27,15 @@ export function sortProjectsChallenges<T extends ProjectsChallengeItem>(
   return projects.slice().sort((a, b) => {
     switch (field) {
       case 'recommended': {
-        // Move all the completed project by user at the bottom
-        const aIsCompleted = a.status === 'COMPLETED';
-        const bIsCompleted = b.status === 'COMPLETED';
+        // TODO(projects): factor in the completion status.
+        const aDifficulty = DIFFICULTY_MAPPING[a.metadata.difficulty];
+        const bDifficulty = DIFFICULTY_MAPPING[a.metadata.difficulty];
 
-        if (aIsCompleted !== bIsCompleted) {
-          return aIsCompleted ? 1 : -1;
+        if (aDifficulty !== bDifficulty) {
+          return aDifficulty - bDifficulty;
         }
 
-        const comp = (b.completedCount ?? 0) - (a.completedCount ?? 0);
-        const value =
-          comp !== 0
-            ? comp
-            : DIFFICULTY_MAPPING[a.metadata.difficulty] -
-              DIFFICULTY_MAPPING[b.metadata.difficulty];
-
-        return value;
+        return a.metadata.order - b.metadata.order;
       }
       case 'completedCount': {
         const comp = (a.completedCount ?? 0) - (b.completedCount ?? 0);
@@ -61,7 +54,13 @@ export function sortProjectsChallenges<T extends ProjectsChallengeItem>(
           DIFFICULTY_MAPPING[a.metadata.difficulty] -
           DIFFICULTY_MAPPING[b.metadata.difficulty];
 
-        return isAscendingOrder ? value : -value;
+        if (value !== 0) {
+          return isAscendingOrder ? value : -value;
+        }
+
+        const orderValue = a.metadata.order - b.metadata.order;
+
+        return isAscendingOrder ? orderValue : -orderValue;
       }
 
       case 'createdAt': {
