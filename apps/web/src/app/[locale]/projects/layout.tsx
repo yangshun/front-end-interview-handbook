@@ -1,7 +1,4 @@
 import type { Metadata } from 'next';
-import { redirect } from 'next/navigation';
-
-import { PROJECTS_IS_LIVE } from '~/data/FeatureFlags';
 
 import ProjectsRootLayout from '~/components/projects/common/layout/ProjectsRootLayout';
 
@@ -41,9 +38,5 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function Layout({ children }: Props) {
-  if (!PROJECTS_IS_LIVE) {
-    redirect('/');
-  }
-
   return <ProjectsRootLayout>{children}</ProjectsRootLayout>;
 }
