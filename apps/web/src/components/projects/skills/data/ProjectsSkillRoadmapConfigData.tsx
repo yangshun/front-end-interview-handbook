@@ -52,24 +52,12 @@ export const skillsRoadmapConfig = [
     items: [
       {
         items: [
-          { key: 'package-manager-basics', label: 'Basics' },
-          { key: 'package-manager-workspaces', label: 'Workspaces' },
-        ],
-        key: 'package-managers',
-        premium: true,
-        tagClassname:
-          'bg-red-500 text-black dark:bg-neutral-700 dark:text-red-500',
-        title: 'Package managers',
-      },
-      {
-        items: [
           { key: 'react-basics', label: 'Basics' },
           { key: 'react-components', label: 'Components' },
           { key: 'react-list', label: 'List rendering' },
           { key: 'react-event', label: 'Event handling' },
           { key: 'react-form', label: 'Form handling' },
-          { key: 'react-interactivity', label: 'Interactivity' },
-          { key: 'react-lifecycle', label: 'Lifecycle' },
+          { key: 'react-effects', label: 'Effects' },
         ],
         key: 'react',
         premium: true,
@@ -79,15 +67,26 @@ export const skillsRoadmapConfig = [
       },
       {
         items: [
-          { key: 'build-bundlers', label: 'Bundlers' },
-          { key: 'build-linters-formatters', label: 'Linters & Formatters' },
+          { key: 'package-manager-basics', label: 'Basics' },
+          { key: 'package-manager-workspaces', label: 'Workspaces' },
+        ],
+        key: 'package-managers',
+        premium: true,
+        tagClassname:
+          'bg-red-500 text-black dark:bg-neutral-700 dark:text-red-500',
+        title: 'Package Managers',
+      },
+      {
+        items: [
+          { key: 'build-bundling', label: 'Bundling' },
+          { key: 'build-linting-formatting', label: 'Linting & Formatting' },
           { key: 'build-typechecking', label: 'Typechecking' },
         ],
         key: 'build-tools',
         premium: true,
         tagClassname:
           'bg-cyan-500 text-black dark:bg-neutral-700 dark:text-cyan-500',
-        title: 'Build tools',
+        title: 'Build Tools',
       },
     ],
     title: 'Intermediate skills',
@@ -107,9 +106,9 @@ export const skillsRoadmapConfig = [
       },
       {
         items: [
-          { key: 'performance-fonts', label: 'Fonts' },
-          { key: 'performance-image', label: 'Images' },
-          { key: 'performance-resource', label: 'Resources' },
+          { key: 'performance-fonts', label: 'Font loading' },
+          { key: 'performance-images', label: 'Image loading' },
+          { key: 'performance-code', label: 'Code loading' },
         ],
         key: 'performance',
         premium: true,
