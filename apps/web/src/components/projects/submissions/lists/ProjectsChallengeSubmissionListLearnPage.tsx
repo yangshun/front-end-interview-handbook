@@ -35,9 +35,9 @@ export default function ProjectsChallengeSubmissionListLearnPage({
         <Section>
           <Text color="secondary" size="body2">
             <FormattedMessage
-              defaultMessage="Browse project solutions from our community. Interact with each unique submission, share your expertise, and evolve alongside our collaborative coding community."
+              defaultMessage="Explore user submissions handpicked for your growth - based on your profile, skills you're keen to learn, and the projects you've completed."
               description="Page subtitle"
-              id="eRu+ff"
+              id="Xcw/lL"
             />
           </Text>
         </Section>

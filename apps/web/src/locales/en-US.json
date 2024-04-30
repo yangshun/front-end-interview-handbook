@@ -4431,6 +4431,10 @@
     "defaultMessage": "Forgot your password?",
     "description": "Label of forget password button on Email Sign In page"
   },
+  "Xcw/lL": {
+    "defaultMessage": "Explore user submissions handpicked for your growth - based on your profile, skills you're keen to learn, and the projects you've completed.",
+    "description": "Page subtitle"
+  },
   "XdezZk": {
     "defaultMessage": "What to expect, which rounds to expect them, and how to prepare",
     "description": "What to expect in front end quiz interviews"
