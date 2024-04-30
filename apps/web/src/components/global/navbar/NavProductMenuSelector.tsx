@@ -2,8 +2,6 @@ import clsx from 'clsx';
 import { RiArrowDownSLine } from 'react-icons/ri';
 import { useIsClient, useLocalStorage } from 'usehooks-ts';
 
-import { PROJECTS_SHOW_TEASER } from '~/data/FeatureFlags';
-
 import InterviewsLogo from '~/components/global/logos/InterviewsLogo';
 import LogoMark from '~/components/global/logos/LogoMark';
 import ProjectsLogo from '~/components/global/logos/ProjectsLogo';
@@ -69,7 +67,7 @@ export default function NavProductMenuSelector({ variant, value }: Props) {
               ) : (
                 <ProjectsLogo height={32} />
               )}
-              {isClient && showUnseenIndicator && PROJECTS_SHOW_TEASER && (
+              {isClient && showUnseenIndicator && (
                 <span
                   className={clsx(
                     'bg-red size-2 -translate-y-1/2 rounded-full',

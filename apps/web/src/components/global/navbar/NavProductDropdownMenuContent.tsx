@@ -1,18 +1,8 @@
 import clsx from 'clsx';
 import { RiAwardLine, RiBriefcaseLine } from 'react-icons/ri';
 
-import useCountdownTimer from '~/hooks/useCountdownTime';
-
-import {
-  PROJECT_LAUNCH_DATE,
-  PROJECTS_SHOW_MYSTERY_PRODUCT,
-  PROJECTS_SHOW_TEASER,
-} from '~/data/FeatureFlags';
-
 import useCommonNavItems from '~/components/common/navigation/useCommonNavItems';
-import Timer from '~/components/countdown/Timer';
 import InterviewsLogo from '~/components/global/logos/InterviewsLogo';
-import MysteryProductLogo from '~/components/global/logos/MysteryProductLogo';
 import ProjectsLogo from '~/components/global/logos/ProjectsLogo';
 import Anchor from '~/components/ui/Anchor';
 import Badge from '~/components/ui/Badge';
@@ -66,43 +56,6 @@ function NavProductDropdownMenuItem({
   );
 }
 
-function NavProductDropdownMenuItemCountdown() {
-  const { days, hours, minutes, seconds } =
-    useCountdownTimer(PROJECT_LAUNCH_DATE);
-
-  return (
-    <DropdownMenuPrimitive.Item
-      asChild={true}
-      className={clsx(
-        'relative flex flex-col gap-3 rounded p-4',
-        'select-none outline-none',
-        themeBackgroundElementEmphasizedStateColor_Hover,
-        themeBackgroundElementEmphasizedStateColor_Focus,
-      )}>
-      <Anchor
-        aria-label="New product coming soon"
-        href="/coming-soon"
-        variant="unstyled">
-        <div className="flex justify-between">
-          <MysteryProductLogo height={32} />
-          <span>
-            <Badge label="Upcoming" size="sm" variant="warning" />
-          </span>
-        </div>
-        <div>
-          <Timer
-            days={days}
-            hours={hours}
-            minutes={minutes}
-            seconds={seconds}
-            variant="special"
-          />
-        </div>
-      </Anchor>
-    </DropdownMenuPrimitive.Item>
-  );
-}
-
 export default function NavProductDropdownMenuContent() {
   const items = useCommonNavItems();
 
@@ -124,18 +77,13 @@ export default function NavProductDropdownMenuContent() {
           logo={InterviewsLogo}
           subtitle="Learn and train for your front end interviews"
         />
-        {PROJECTS_SHOW_TEASER &&
-          (PROJECTS_SHOW_MYSTERY_PRODUCT ? (
-            <NavProductDropdownMenuItemCountdown />
-          ) : (
-            <NavProductDropdownMenuItem
-              beta={true}
-              href="/projects"
-              label="GreatFrontEnd Projects"
-              logo={ProjectsLogo}
-              subtitle="Build real-world projects to learn skills or for portfolio"
-            />
-          ))}
+        <NavProductDropdownMenuItem
+          beta={true}
+          href="/projects"
+          label="GreatFrontEnd Projects"
+          logo={ProjectsLogo}
+          subtitle="Build real-world projects to learn skills or for portfolio"
+        />
       </div>
       <div
         className={clsx(
