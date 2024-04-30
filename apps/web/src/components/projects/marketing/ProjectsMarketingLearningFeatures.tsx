@@ -451,7 +451,7 @@ export default function ProjectsMarketingLearningFeatures() {
                         {feature.subFeatures.map((subFeature) => (
                           <li
                             key={subFeature.key}
-                            className="flex flex-row items-start gap-4 lg:flex-col xl:gap-y-6">
+                            className="flex flex-row items-center gap-4 lg:flex-col lg:items-start xl:gap-y-6">
                             <ProjectsMarketingFeaturedIcon
                               icon={subFeature.icon}
                               isResponsive={true}
