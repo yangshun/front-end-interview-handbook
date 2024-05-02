@@ -58,7 +58,7 @@ export default function ProjectsChallengeAddSkillFromSkillPlanDialog({
         );
       }}>
       <FormattedMessage
-        defaultMessage='Do you want to add the <bold>"{skillName}"</bold> skill to this challenge so that completing the challenge will count towards that skill&apos;s progress?'
+        defaultMessage={`Do you want to add the <bold>"{skillName}"</bold> skill to this challenge so that completing the challenge will count towards that skill's progress?`}
         description="Message about adding a skill to a challenge session"
         id="t5o9Z7"
         values={{
