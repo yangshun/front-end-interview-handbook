@@ -15,20 +15,26 @@ import {
   themeBorderElementColor,
 } from '~/components/ui/theme';
 
+import { useProductMenuUnseenIndicator } from '../product-theme/useProductMenuUnseenIndicator';
+
 import * as DropdownMenuPrimitive from '@radix-ui/react-dropdown-menu';
 
 function NavProductDropdownMenuItem({
   beta = false,
   href,
+  theme,
   logo: Logo,
   label,
+  showNewIndicator,
   subtitle,
 }: Readonly<{
   beta?: boolean;
   href: string;
   label: string;
   logo: (props: Readonly<{ height?: number }>) => JSX.Element;
+  showNewIndicator: boolean;
   subtitle: string;
+  theme: 'interviews' | 'projects';
 }>) {
   return (
     <DropdownMenuPrimitive.Item
@@ -39,9 +45,25 @@ function NavProductDropdownMenuItem({
         themeBackgroundElementEmphasizedStateColor_Hover,
         themeBackgroundElementEmphasizedStateColor_Focus,
       )}>
-      <Anchor aria-label={label} href={href} variant="unstyled">
+      <Anchor
+        aria-label={label}
+        data-theme={theme}
+        href={href}
+        variant="unstyled">
         <div className="flex justify-between">
-          <Logo height={32} />
+          <div className="relative">
+            <Logo height={32} />
+            {showNewIndicator && (
+              <span
+                aria-hidden={true}
+                className={clsx(
+                  'size-1.5 inline-block',
+                  'bg-red rounded-full',
+                  'absolute -right-1.5 -top-0.5',
+                )}
+              />
+            )}
+          </div>
           {beta && (
             <span>
               <Badge label="Beta" size="sm" variant="primary" />
@@ -58,6 +80,7 @@ function NavProductDropdownMenuItem({
 
 export default function NavProductDropdownMenuContent() {
   const items = useCommonNavItems();
+  const [showUnseenIndicator] = useProductMenuUnseenIndicator();
 
   return (
     <DropdownMenuPrimitive.Content
@@ -75,14 +98,18 @@ export default function NavProductDropdownMenuContent() {
           href="/"
           label="GreatFrontEnd Interviews"
           logo={InterviewsLogo}
+          showNewIndicator={false}
           subtitle="Learn and train for your front end interviews"
+          theme="interviews"
         />
         <NavProductDropdownMenuItem
           beta={true}
           href="/projects"
           label="GreatFrontEnd Projects"
           logo={ProjectsLogo}
+          showNewIndicator={showUnseenIndicator}
           subtitle="Build real-world projects to learn skills or for portfolio"
+          theme="projects"
         />
       </div>
       <div

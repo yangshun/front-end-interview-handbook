@@ -1,6 +1,5 @@
 import clsx from 'clsx';
 import { RiArrowDownSLine } from 'react-icons/ri';
-import { useIsClient, useLocalStorage } from 'usehooks-ts';
 
 import InterviewsLogo from '~/components/global/logos/InterviewsLogo';
 import LogoMark from '~/components/global/logos/LogoMark';
@@ -14,10 +13,9 @@ import {
   themeOutlineElementBrandColor_FocusVisible,
 } from '~/components/ui/theme';
 
-import * as DropdownMenuPrimitive from '@radix-ui/react-dropdown-menu';
+import { useProductMenuUnseenIndicator } from '../product-theme/useProductMenuUnseenIndicator';
 
-// Increment number whenever the indicator is to be shown again.
-const indicatorKey = 'gfe:product-menu-unseen-indicator:0';
+import * as DropdownMenuPrimitive from '@radix-ui/react-dropdown-menu';
 
 type Props = Readonly<{
   value: 'interviews' | 'projects';
@@ -38,17 +36,10 @@ const buttonBaseClassname = clsx(
 );
 
 export default function NavProductMenuSelector({ variant, value }: Props) {
-  const isClient = useIsClient();
-  const [showUnseenIndicator, setShowUnseenIndicator] = useLocalStorage(
-    indicatorKey,
-    true,
-  );
+  const [showUnseenIndicator] = useProductMenuUnseenIndicator();
 
   return (
-    <DropdownMenuPrimitive.Root
-      onOpenChange={() => {
-        setShowUnseenIndicator(false);
-      }}>
+    <DropdownMenuPrimitive.Root>
       <DropdownMenuPrimitive.Trigger asChild={true}>
         {variant === 'full' ? (
           <button
@@ -67,8 +58,9 @@ export default function NavProductMenuSelector({ variant, value }: Props) {
               ) : (
                 <ProjectsLogo height={32} />
               )}
-              {isClient && showUnseenIndicator && (
+              {showUnseenIndicator && (
                 <span
+                  aria-hidden={true}
                   className={clsx(
                     'bg-red size-2 -translate-y-1/2 rounded-full',
                   )}

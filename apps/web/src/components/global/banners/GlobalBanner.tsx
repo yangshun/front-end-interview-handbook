@@ -121,8 +121,7 @@ export default function GlobalBanner() {
       className={clsx(
         'global-banner', // Non-Tailwind class. Sync with sticky.css.
         'z-sticky sticky top-0 w-full',
-      )}
-      data-theme="projects">
+      )}>
       <Banner
         className="h-9" // Sync with sticky.css.
         size="sm"

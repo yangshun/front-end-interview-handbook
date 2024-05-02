@@ -16,6 +16,8 @@ import {
   themeTextSubtleColor,
 } from '~/components/ui/theme';
 
+import { useProductMenuUnseenIndicator } from '../product-theme/useProductMenuUnseenIndicator';
+
 import * as DropdownMenuPrimitive from '@radix-ui/react-dropdown-menu';
 
 type ProductValue = 'interviews' | 'projects';
@@ -37,12 +39,18 @@ export default function NavProductDropdownMenu({ value }: Props) {
       label: 'Interviews',
     },
     projects: {
-      icon: RiRocketLine,
+      icon: ({ className, ...props }) => (
+        <RiRocketLine
+          className={clsx('-translate-y-0.5 rotate-45', className)}
+          {...props}
+        />
+      ),
       label: 'Projects',
     },
   };
 
   const { icon: Icon, label } = labels[value];
+  const [showUnseenIndicator] = useProductMenuUnseenIndicator();
 
   return (
     <DropdownMenuPrimitive.Root>
@@ -65,8 +73,21 @@ export default function NavProductDropdownMenu({ value }: Props) {
             />
           )}
           label={label}
-          variant="unstyled"
-        />
+          variant="unstyled">
+          <span className="relative">
+            {label}
+            {showUnseenIndicator && (
+              <span
+                aria-hidden={true}
+                className={clsx(
+                  'size-1.5 inline-block',
+                  'bg-red rounded-full',
+                  'absolute -right-1.5 -top-0.5',
+                )}
+              />
+            )}
+          </span>
+        </Button>
       </DropdownMenuPrimitive.Trigger>
       <DropdownMenuPrimitive.Portal>
         <NavProductDropdownMenuContent />
