@@ -94,7 +94,6 @@ function InterviewsSidebarCollapsed({
 
   return (
     <SidebarCollapsed
-      isViewerPremium={userProfile?.premium ?? false}
       moreMenuItems={
         <>
           <SidebarI18nSubMenu type="submenu" />
@@ -112,6 +111,7 @@ function InterviewsSidebarCollapsed({
         </>
       }
       product="interviews"
+      showPremiumDiscord={userProfile?.premium ?? false}
       sidebarItems={sidebarItems}
       topAddonElements={
         userProfile && (

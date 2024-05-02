@@ -35,14 +35,9 @@ import { useUser } from '@supabase/auth-helpers-react';
 
 type Props = Readonly<{
   hideOnDesktop?: boolean;
-  // TODO(projects): remove clean mode after Projects is launched.
-  mysteryMode?: boolean;
 }>;
 
-export default function InterviewsNavbar({
-  hideOnDesktop = false,
-  mysteryMode = false,
-}: Props) {
+export default function InterviewsNavbar({ hideOnDesktop = false }: Props) {
   const { colorSchemePreference, setColorSchemePreference } =
     useColorSchemePreferences();
   const user = useUser();
@@ -51,7 +46,6 @@ export default function InterviewsNavbar({
   const isLoggedIn = user != null;
   const isPremium = userProfile?.premium ?? false;
   const navLinksFull = useInterviewsNavLinks(isLoggedIn, isPremium);
-  const links = mysteryMode ? [] : navLinksFull;
   const loggedInLinks = useInterviewsLoggedInLinks();
   const { locale, pathname } = useI18nPathname();
   const router = useI18nRouter();
@@ -62,7 +56,7 @@ export default function InterviewsNavbar({
     <>
       <NavI18nDropdown />
       <NavColorSchemeDropdown />
-      {!isPremium && !mysteryMode && (
+      {!isPremium && (
         <Button
           href="/pricing"
           label={intl.formatMessage({
@@ -181,14 +175,10 @@ export default function InterviewsNavbar({
       endAddOnItems={endAddOnItems}
       hideOnDesktop={hideOnDesktop}
       isLoading={isUserProfileLoading}
-      links={links}
+      links={navLinksFull}
       logo={<LogoLink />}
       mobileSidebarBottomItems={mobileSidebarBottomItems}
-      productMenu={
-        <NavProductDropdownMenu
-          value={mysteryMode ? 'mystery' : 'interviews'}
-        />
-      }
+      productMenu={<NavProductDropdownMenu value="interviews" />}
       renderMobileSidebarAddOnItems={renderMobileSidebarAddOnItems}
       transparent={!isSticky}
     />

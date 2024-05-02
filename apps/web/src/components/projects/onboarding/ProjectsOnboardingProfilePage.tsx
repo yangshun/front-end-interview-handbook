@@ -8,12 +8,9 @@ import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 import Text from '~/components/ui/Text';
 
-import { useI18nRouter } from '~/next-i18nostic/src';
-
 import ProjectsOnboardingProfileStep1 from './ProjectsOnboardingProfileStep1';
 
 export default function ProjectsOnboardingProfilePage() {
-  const router = useI18nRouter();
   const searchParams = useSearchParams();
   const nextPathname = searchParams?.get('next') || '/projects/challenges';
 

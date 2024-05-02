@@ -9,10 +9,7 @@ import ProjectsSkillRoadmapItemRow from '~/components/projects/skills/roadmap/Pr
 import ProjectsSkillRoadmapParentHeading from '~/components/projects/skills/roadmap/ProjectsSkillRoadmapParentHeading';
 import Button from '~/components/ui/Button';
 import {
-  themeBackgroundBrandColor,
-  themeBackgroundColor,
   themeBackgroundLayerEmphasized,
-  themeBorderBrandColor,
   themeBorderElementColor,
   themeBorderSecondaryColor,
   themeGlassyBorder,

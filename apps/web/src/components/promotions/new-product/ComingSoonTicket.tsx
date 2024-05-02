@@ -1,13 +1,9 @@
 import { RiArrowRightLine } from 'react-icons/ri';
 
-import useCountdownTimer from '~/hooks/useCountdownTime';
-
-import {
-  PROJECT_ACTIVATION_AVAILABLE,
-  PROJECT_LAUNCH_DATE,
-} from '~/data/FeatureFlags';
+import { PROJECT_ACTIVATION_AVAILABLE } from '~/data/FeatureFlags';
 
 import Timer from '~/components/countdown/Timer';
+import useCountdownTimer from '~/components/countdown/useCountdownTimer';
 import ProjectsLogo from '~/components/global/logos/ProjectsLogo';
 import type { BadgeVariant } from '~/components/ui/Badge';
 import Badge from '~/components/ui/Badge';
@@ -22,9 +18,11 @@ type Props = Readonly<{
   width?: number;
 }>;
 
+const LAUNCH_DATE = new Date('Apr 22 2024 14:00:00');
+
 export default function ComingSoonTicket({ height, width }: Props) {
   const { days, hours, minutes, seconds, finished } =
-    useCountdownTimer(PROJECT_LAUNCH_DATE);
+    useCountdownTimer(LAUNCH_DATE);
 
   const label = finished ? 'Launched' : 'Upcoming';
   const badgeVariant: BadgeVariant = finished ? 'success' : 'warning';

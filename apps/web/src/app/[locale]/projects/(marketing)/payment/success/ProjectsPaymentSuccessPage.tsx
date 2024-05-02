@@ -11,12 +11,11 @@ import Container from '~/components/ui/Container';
 /* TODO: i18n */
 const actions = [
   {
-    description:
-      'Join over 2000 users in our private Discord community for Premium users',
+    description: 'Join our Discord community for Projects users',
     featured: true,
-    href: SocialLinks.discordPremium.href,
-    icon: SocialLinks.discordPremium.icon,
-    title: 'Join Premium Discord',
+    href: SocialLinks.discord.href,
+    icon: SocialLinks.discord.icon,
+    title: 'Join Discord',
   },
   {
     description:

@@ -8,8 +8,6 @@ import { useIntl } from 'react-intl';
 import gtag from '~/lib/gtag';
 import useIsSticky from '~/hooks/useIsSticky';
 
-import { PROJECTS_SHOW_MYSTERY_PRODUCT } from '~/data/FeatureFlags';
-
 import useCommonNavItems from '~/components/common/navigation/useCommonNavItems';
 import { useColorSchemePreferences } from '~/components/global/color-scheme/ColorSchemePreferencesProvider';
 import ColorSchemeSelect from '~/components/global/color-scheme/ColorSchemeSelect';

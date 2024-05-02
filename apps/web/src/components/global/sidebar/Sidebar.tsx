@@ -31,13 +31,13 @@ export function SidebarCollapsed({
   topAddonElements,
   sidebarItems,
   onCollapseClick,
-  isViewerPremium,
+  showPremiumDiscord: isViewerPremium,
   product,
 }: Readonly<{
-  isViewerPremium: boolean;
   moreMenuItems: React.ReactElement | false | null | undefined;
   onCollapseClick: () => void;
   product: React.ComponentProps<typeof NavProductMenuSelector>['value'];
+  showPremiumDiscord: boolean;
   sidebarItems: SidebarItems;
   topAddonElements?: React.ReactNode;
 }>) {

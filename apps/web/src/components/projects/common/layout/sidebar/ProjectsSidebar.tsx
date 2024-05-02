@@ -113,9 +113,10 @@ function ProjectsSidebarCollapsed({
 
   return (
     <SidebarCollapsed
-      isViewerPremium={userProfile?.projectsProfile?.premium ?? false}
       moreMenuItems={userProfile && <SettingsMenuItem />}
       product="projects"
+      // Projects users don't get to use the premium Discord server.
+      showPremiumDiscord={false}
       sidebarItems={sidebarItems}
       topAddonElements={
         userProfile && (

@@ -18,7 +18,7 @@ import {
 
 import * as DropdownMenuPrimitive from '@radix-ui/react-dropdown-menu';
 
-type ProductValue = 'interviews' | 'mystery' | 'projects';
+type ProductValue = 'interviews' | 'projects';
 
 type Props = Readonly<{
   value: ProductValue;
@@ -35,10 +35,6 @@ export default function NavProductDropdownMenu({ value }: Props) {
     interviews: {
       icon: RiBriefcaseLine,
       label: 'Interviews',
-    },
-    mystery: {
-      icon: RiRocketLine,
-      label: '???',
     },
     projects: {
       icon: RiRocketLine,
