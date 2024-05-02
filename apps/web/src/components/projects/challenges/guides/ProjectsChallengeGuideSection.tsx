@@ -142,7 +142,9 @@ export default function ProjectsChallengeGuideSection({
   };
 
   return (
-    <div ref={guideRef} className="flex flex-col gap-4 xl:flex-row xl:gap-12">
+    <div
+      ref={guideRef}
+      className="flex scroll-mt-[calc(var(--global-sticky-height)_+_100px)] flex-col gap-4 xl:flex-row xl:gap-12">
       <div
         className={clsx(
           'hidden xl:contents',
