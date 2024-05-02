@@ -122,6 +122,19 @@ export default function ProjectsChallengeSubmissionHeroPinButton({
               })
         }
         size="sm"
+        tooltip={
+          hasPinned
+            ? intl.formatMessage({
+                defaultMessage: 'Unpin this submission',
+                description: 'Tooltip for unpin submission button',
+                id: '7ObNmA',
+              })
+            : intl.formatMessage({
+                defaultMessage: 'Pin this submission',
+                description: 'Tooltip for pin submission button',
+                id: 'fO4Txx',
+              })
+        }
         variant={hasPinned ? 'danger' : 'secondary'}
         onClick={() =>
           hasPinned

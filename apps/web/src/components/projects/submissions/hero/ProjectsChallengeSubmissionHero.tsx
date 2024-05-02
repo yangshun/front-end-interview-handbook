@@ -18,6 +18,7 @@ import Button from '~/components/ui/Button';
 import Heading from '~/components/ui/Heading';
 import Text from '~/components/ui/Text';
 import { themeBackgroundColor, themeBorderColor } from '~/components/ui/theme';
+import Tooltip from '~/components/ui/Tooltip';
 
 type Props = Readonly<{
   challenge: ProjectsChallengeItem;
@@ -71,6 +72,11 @@ export default function ProjectsChallengeSubmissionHero({
         id: '2rcoOT',
       })}
       size="sm"
+      tooltip={intl.formatMessage({
+        defaultMessage: 'Edit',
+        description: 'Tooltip for Edit button',
+        id: '8hrzCT',
+      })}
       variant="secondary"
     />
   );
@@ -95,6 +101,11 @@ export default function ProjectsChallengeSubmissionHero({
       icon={RiMessage2Fill}
       label={String(submission.comments ?? 0)}
       purpose="button"
+      tooltip={intl.formatMessage({
+        defaultMessage: 'Comment on this submission',
+        description: 'Tooltip for Comment on submission button',
+        id: 'JKajif',
+      })}
       onClick={onScrollToDiscussionsButtonClick}
     />
   );
@@ -126,7 +137,14 @@ export default function ProjectsChallengeSubmissionHero({
             {submission.title}
           </Text>
           <div className="flex gap-4">
-            {views}
+            <Tooltip
+              label={intl.formatMessage({
+                defaultMessage: 'Number of views on this submission',
+                description: 'Tooltip for Number of views on this submission',
+                id: 'hAdl7d',
+              })}>
+              {views}
+            </Tooltip>
             <div className="flex w-full gap-3">
               {voteButton}
               {commentButton}
@@ -168,7 +186,15 @@ export default function ProjectsChallengeSubmissionHero({
                     {submission.title}
                   </Heading>
                   <div className="flex items-center gap-6">
-                    {views}
+                    <Tooltip
+                      label={intl.formatMessage({
+                        defaultMessage: 'Number of views on this submission',
+                        description:
+                          'Tooltip for Number of views on this submission',
+                        id: 'hAdl7d',
+                      })}>
+                      {views}
+                    </Tooltip>
                     <div className="flex items-center gap-2">
                       {voteButton}
                       {commentButton}

@@ -34,14 +34,14 @@ export default function ProjectsDiscussionsCommentVoteButton({
   const hasVoted = likedComments?.includes(commentId);
   const actionLabel = hasVoted
     ? intl.formatMessage({
-        defaultMessage: 'Unvote comment',
+        defaultMessage: 'Unvote',
         description: 'Vote button label',
-        id: 'Oc17My',
+        id: 'pjndkX',
       })
     : intl.formatMessage({
-        defaultMessage: 'Upvote comment',
+        defaultMessage: 'Upvote',
         description: 'Vote button label',
-        id: 'Ox+G1g',
+        id: 'bj5dJV',
       });
 
   return (

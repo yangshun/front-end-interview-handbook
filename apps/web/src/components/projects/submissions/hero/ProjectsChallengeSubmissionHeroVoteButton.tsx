@@ -57,6 +57,19 @@ export default function ProjectsChallengeSubmissionHeroVoteButton({
       label={String(votes)}
       purpose="button"
       selected={viewerUpvoted}
+      tooltip={
+        viewerUpvoted
+          ? intl.formatMessage({
+              defaultMessage: 'Unvote this submission',
+              description: 'Tooltip for Like submission button',
+              id: 'uBy1d5',
+            })
+          : intl.formatMessage({
+              defaultMessage: 'Upvote this submission',
+              description: 'Tooltip for Like submission button',
+              id: 'F2XjBS',
+            })
+      }
       onClick={() =>
         viewerUpvoted
           ? unvote.mutate({ submissionId })

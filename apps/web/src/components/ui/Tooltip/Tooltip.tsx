@@ -72,6 +72,7 @@ export default function Tooltip({
               'z-tooltip',
               'max-w-64',
               tooltipBackgroundColor,
+              'hyphens-auto',
               sizeClasses[size],
               textVariants({
                 className,

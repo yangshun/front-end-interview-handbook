@@ -15,6 +15,10 @@
     "defaultMessage": "Your username has been updated.",
     "description": "Success message when for username changes"
   },
+  "+8VXz/": {
+    "defaultMessage": "Reply",
+    "description": "Tooltip for reply button on project discussions page"
+  },
   "+98gxd": {
     "defaultMessage": "Upload a photo",
     "description": "Label for upload photo"
@@ -1055,6 +1059,10 @@
     "defaultMessage": "Level",
     "description": "Blog Level"
   },
+  "7ObNmA": {
+    "defaultMessage": "Unpin this submission",
+    "description": "Tooltip for unpin submission button"
+  },
   "7Ozzmy": {
     "defaultMessage": "Start coding!",
     "description": "Label for \"Start coding!\" step in dialog on Projects project page"
@@ -1222,6 +1230,10 @@
   "8gXpts": {
     "defaultMessage": "Tasks | Rewards",
     "description": "Title of Rewards tasks page"
+  },
+  "8hrzCT": {
+    "defaultMessage": "Edit",
+    "description": "Tooltip for Edit button"
   },
   "8iiFM+": {
     "defaultMessage": "Contact Us",
@@ -1951,6 +1963,10 @@
     "defaultMessage": "Try changing the filters",
     "description": "Subtitle for empty state when no articles are returned from application of filters on blog list"
   },
+  "EqpH9/": {
+    "defaultMessage": "Go to the live site for this submission",
+    "description": "Tooltip for preview solution button"
+  },
   "Et6OSf": {
     "defaultMessage": "Could not load the file from the repository. Select a different file to view.",
     "description": "Error message when the file from the repository could not be loaded"
@@ -1970,6 +1986,10 @@
   "F09XFi": {
     "defaultMessage": "Full access to tracks & skills",
     "description": "Subtitle of premium plan CTA card"
+  },
+  "F2XjBS": {
+    "defaultMessage": "Upvote this submission",
+    "description": "Tooltip for Like submission button"
   },
   "F4esBf": {
     "defaultMessage": "Our projects are never one-off - they always fit into some component library or design system which can be composed into your very own toolset to build future projects",
@@ -2486,6 +2506,10 @@
   "JKBRGr": {
     "defaultMessage": "Enter your email",
     "description": "Placeholder text for email input field"
+  },
+  "JKajif": {
+    "defaultMessage": "Comment on this submission",
+    "description": "Tooltip for Comment on submission button"
   },
   "JLYqCO": {
     "defaultMessage": "Includes starter code, image assets, images of the designs, along with a README to help you get started.",
@@ -3191,10 +3215,6 @@
     "defaultMessage": "API specifications or sample data",
     "description": "Provided resource for project"
   },
-  "Oc17My": {
-    "defaultMessage": "Unvote comment",
-    "description": "Vote button label"
-  },
   "Od0Qjl": {
     "defaultMessage": "Skills used",
     "description": "Label for \"Skills used\" text input"
@@ -3242,10 +3262,6 @@
   "OumyBP": {
     "defaultMessage": "Showcase your knowledge of web accessibility in front end interviews",
     "description": "Title for interview preparation focus area"
-  },
-  "Ox+G1g": {
-    "defaultMessage": "Upvote comment",
-    "description": "Vote button label"
   },
   "Oxj7x1": {
     "defaultMessage": "Company (optional)",
@@ -3570,6 +3586,10 @@
   "R68iHH": {
     "defaultMessage": "Search Svelte questions",
     "description": "Placeholder for search input of Svelte question list"
+  },
+  "R7Qjr9": {
+    "defaultMessage": "Edit",
+    "description": "Tooltip for edit button on project discussions page"
   },
   "R9G9bY": {
     "defaultMessage": "Dashboard",
@@ -4935,6 +4955,10 @@
     "defaultMessage": "Confirm delete submission?",
     "description": "Delete challenge submission confirmation"
   },
+  "bj5dJV": {
+    "defaultMessage": "Upvote",
+    "description": "Vote button label"
+  },
   "bj6RGb": {
     "defaultMessage": "Filter by roadmap skills used by the creator",
     "description": "Label for skills filter"
@@ -5359,6 +5383,10 @@
     "defaultMessage": "{submissionTitle} | {username} | {challengeName}",
     "description": "Title of Projects submission page"
   },
+  "fO4Txx": {
+    "defaultMessage": "Pin this submission",
+    "description": "Tooltip for pin submission button"
+  },
   "fO8U+i": {
     "defaultMessage": "Will this be a timed challenge?",
     "description": "FAQ question for projects platform"
@@ -5582,6 +5610,10 @@
   "h63G52": {
     "defaultMessage": "Discounted rate for a typical job hunt duration.",
     "description": "Supporting statement for a quarterly pricing plan"
+  },
+  "hAdl7d": {
+    "defaultMessage": "Number of views on this submission",
+    "description": "Tooltip for Number of views on this submission"
   },
   "hBwVFF": {
     "defaultMessage": "Theme preferences",
@@ -6031,6 +6063,10 @@
     "defaultMessage": "edited {editedAtTime}",
     "description": "Updated time stamp for submission detail page"
   },
+  "khP9e5": {
+    "defaultMessage": "Delete",
+    "description": "Tooltip for Delete button"
+  },
   "kj9QHG": {
     "defaultMessage": "Build a whole component library or design system for your portfolio",
     "description": "Description for recommended action for new projects platform user"
@@ -6399,6 +6435,10 @@
     "defaultMessage": "General",
     "description": "Profile settings tab title"
   },
+  "nodFHk": {
+    "defaultMessage": "Go to this submission's GitHub repository",
+    "description": "Tooltip for view code button"
+  },
   "npvgQq": {
     "defaultMessage": "Prepare for your front end interviews in one week. Efficiently focus on the most important concepts through a good mix of coding and quiz questions.",
     "description": "Description for one week study plan"
@@ -6670,6 +6710,10 @@
   "piqimi": {
     "defaultMessage": "OFF",
     "description": "Amount cashback/discount"
+  },
+  "pjndkX": {
+    "defaultMessage": "Unvote",
+    "description": "Vote button label"
   },
   "pkWsMA": {
     "defaultMessage": "Masters CS",
@@ -7198,6 +7242,10 @@
   "uBhDCw": {
     "defaultMessage": "A forum where you can clarify doubts",
     "description": "FAQ answer for projects platform"
+  },
+  "uBy1d5": {
+    "defaultMessage": "Unvote this submission",
+    "description": "Tooltip for Like submission button"
   },
   "uCT1Lh": {
     "defaultMessage": "All challenges",

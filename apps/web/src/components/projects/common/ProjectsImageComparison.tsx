@@ -168,14 +168,18 @@ export default function ProjectsImageComparison({
             </Text>
           )}
           {deploymentUrls && (
-            <Text
-              className="flex gap-2 truncate whitespace-nowrap"
-              size="body2">
-              <Anchor
-                href={deploymentUrls[selectedScreenIndex].href}
-                warnAboutExternalLink={true}>
-                {deploymentUrls[selectedScreenIndex].href}
-              </Anchor>
+            <div className="flex items-center gap-2">
+              <Tooltip
+                asChild={true}
+                label={deploymentUrls[selectedScreenIndex].href}>
+                <Text className="truncate whitespace-nowrap" size="body2">
+                  <Anchor
+                    href={deploymentUrls[selectedScreenIndex].href}
+                    warnAboutExternalLink={true}>
+                    {deploymentUrls[selectedScreenIndex].href}
+                  </Anchor>
+                </Text>
+              </Tooltip>
               {(() => {
                 const timestamp = deploymentUrls[selectedScreenIndex].updatedAt;
 
@@ -199,7 +203,7 @@ export default function ProjectsImageComparison({
                   </Tooltip>
                 );
               })()}
-            </Text>
+            </div>
           )}
         </div>
         <div className="col-span-1 flex items-center justify-end md:order-last">
@@ -211,26 +215,34 @@ export default function ProjectsImageComparison({
         {deploymentImagesForBreakpointWithComparison.length > 1 && (
           <div className={clsx('flex justify-center gap-2', 'col-span-2')}>
             {deploymentImagesForBreakpointWithComparison.map((page, index) => (
-              <button
+              <Tooltip
                 key={page.label}
-                aria-label={page.label}
-                className={clsx(
-                  'size-12 overflow-clip rounded',
-                  'border',
-                  index === selectedScreenIndex
-                    ? themeBorderBrandColor
-                    : themeBorderElementColor,
-                  themeOutlineElement_FocusVisible,
-                  themeOutlineElementBrandColor_FocusVisible,
-                )}
-                type="button"
-                onClick={() => setSelectedScreenIndex(index)}>
-                <img
-                  alt={page.label}
-                  className="size-full object-cover"
-                  src={page.image}
-                />
-              </button>
+                asChild={true}
+                label={
+                  specLabels[
+                    deploymentImagesForBreakpointWithComparison[index].label
+                  ] || deploymentImagesForBreakpointWithComparison[index].label
+                }>
+                <button
+                  aria-label={page.label}
+                  className={clsx(
+                    'size-12 overflow-clip rounded',
+                    'border',
+                    index === selectedScreenIndex
+                      ? themeBorderBrandColor
+                      : themeBorderElementColor,
+                    themeOutlineElement_FocusVisible,
+                    themeOutlineElementBrandColor_FocusVisible,
+                  )}
+                  type="button"
+                  onClick={() => setSelectedScreenIndex(index)}>
+                  <img
+                    alt={page.label}
+                    className="size-full object-cover"
+                    src={page.image}
+                  />
+                </button>
+              </Tooltip>
             ))}
           </div>
         )}

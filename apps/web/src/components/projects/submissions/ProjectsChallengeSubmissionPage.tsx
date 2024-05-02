@@ -123,6 +123,11 @@ export default function ProjectsChallengeSubmissionPage({
                     description: 'Label for preview solution button',
                     id: 'NL7HsI',
                   })}
+                  tooltip={intl.formatMessage({
+                    defaultMessage: 'Go to the live site for this submission',
+                    description: 'Tooltip for preview solution button',
+                    id: 'EqpH9/',
+                  })}
                   variant="primary"
                   warnAboutExternalLink={true}
                 />
@@ -136,6 +141,11 @@ export default function ProjectsChallengeSubmissionPage({
                     defaultMessage: 'View code',
                     description: 'Label for view code button',
                     id: 'd8RJic',
+                  })}
+                  tooltip={intl.formatMessage({
+                    defaultMessage: `Go to this submission's GitHub repository`,
+                    description: 'Tooltip for view code button',
+                    id: 'nodFHk',
                   })}
                   variant="secondary"
                   warnAboutExternalLink={true}
