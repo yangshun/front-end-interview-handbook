@@ -1,9 +1,9 @@
 import ProgressBar from './index';
 import UIExamplesGroup from '../misc/UIExamplesGroup';
 import {
-  themeGradientBlueGreen,
   themeGradientGreenYellow,
   themeGradientPinkPurple,
+  themeGradientPurpleGreen,
 } from '../theme';
 
 export default function ProgressBarExamples() {
@@ -32,7 +32,7 @@ export default function ProgressBarExamples() {
       </div>
       <div className="flex flex-col gap-y-6">
         {[
-          themeGradientBlueGreen,
+          themeGradientPurpleGreen,
           themeGradientGreenYellow,
           themeGradientPinkPurple,
         ].map((themeGradient) => (

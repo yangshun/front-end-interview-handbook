@@ -14,9 +14,9 @@ import SvelteLogo from '~/components/icons/SvelteLogo';
 import VueLogoMonochrome from '~/components/icons/VueLogoMonochrome';
 import type { QuestionUserFacingFormat } from '~/components/interviews/questions/common/QuestionsTypes';
 import {
-  themeGradientBlueGreen,
   themeGradientGreenYellow,
   themeGradientPinkPurple,
+  themeGradientPurpleGreen,
 } from '~/components/ui/theme';
 
 type QuestionListLink = Readonly<{
@@ -58,7 +58,7 @@ export function useQuestionFormatLists() {
         description: 'Placeholder for search input of coding question list',
         id: 'jGQnYd',
       }),
-      themeGradient: themeGradientBlueGreen.className,
+      themeGradient: themeGradientPurpleGreen.className,
     },
     quiz: {
       description: intl.formatMessage({

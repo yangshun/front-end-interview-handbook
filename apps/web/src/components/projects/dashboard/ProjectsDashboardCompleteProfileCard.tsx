@@ -18,10 +18,10 @@ import {
   themeBackgroundCardColor,
   themeBackgroundColor,
   themeGlassyBorder,
-  themeGradientBlueGreen,
+  themeGradientPurpleGreen,
 } from '~/components/ui/theme';
 
-const progressBarClassName = themeGradientBlueGreen.className;
+const progressBarClassName = themeGradientPurpleGreen.className;
 
 export default function ProjectsDashboardCompleteProfileCard() {
   const intl = useIntl();

@@ -37,9 +37,9 @@ import Section from '~/components/ui/Heading/HeadingContext';
 import UIExamplesGroup from '~/components/ui/misc/UIExamplesGroup';
 import Text from '~/components/ui/Text';
 import {
-  themeGradientBlueGreen,
   themeGradientGreenYellow,
   themeGradientPinkPurple,
+  themeGradientPurpleGreen,
 } from '~/components/ui/theme';
 
 const mockQuestion: QuestionMetadata = {
@@ -181,7 +181,7 @@ export default function ScrapbookPage() {
             </UIExamplesGroup>
             <UIExamplesGroup darkMode="horizontal">
               <QuestionProgressLabel
-                barClassName={themeGradientBlueGreen.className}
+                barClassName={themeGradientPurpleGreen.className}
                 completed={50}
                 total={120}
               />
@@ -198,7 +198,7 @@ export default function ScrapbookPage() {
               <div className="inline-grid grid-cols-3 gap-x-6">
                 <QuestionsProgressPanel
                   completedQuestions={58}
-                  progressBarClassName={themeGradientBlueGreen.className}
+                  progressBarClassName={themeGradientPurpleGreen.className}
                   title="Coding"
                   totalQuestions={116}
                   variant="default"
@@ -220,7 +220,7 @@ export default function ScrapbookPage() {
               </div>
               <QuestionsProgressPanel
                 completedQuestions={58}
-                progressBarClassName={themeGradientBlueGreen.className}
+                progressBarClassName={themeGradientPurpleGreen.className}
                 title="Coding"
                 totalQuestions={116}
                 variant="compact"
@@ -363,7 +363,7 @@ export default function ScrapbookPage() {
                     {
                       completedCount: 30,
                       durationMins: 92,
-                      gradient: themeGradientBlueGreen,
+                      gradient: themeGradientPurpleGreen,
                       href: '/dev__/scrapbook?plan=algo',
                       questionsCount: 47,
                       reverseGradient: true,
@@ -407,7 +407,7 @@ export default function ScrapbookPage() {
                 icon={TbBinaryTree}
                 questionCount={47}
                 questionListKey="one-month"
-                themeBackgroundClass={themeGradientBlueGreen.className}
+                themeBackgroundClass={themeGradientPurpleGreen.className}
                 title="Data structure and algorithms"
                 totalDurationMins={560}
               />

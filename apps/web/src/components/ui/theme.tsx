@@ -157,9 +157,14 @@ export type ThemeGradient<
 };
 
 // Gradient colors.
-export const themeGradientBlueGreen: ThemeGradient<'#6366F1', '#10B981'> = {
+export const themeGradientPurpleGreen: ThemeGradient<'#6366F1', '#10B981'> = {
   className: 'bg-[linear-gradient(133.77deg,_#6366F1_0%,_#10B981_97.95%)]',
   endColor: '#10B981',
+  startColor: '#6366F1',
+};
+export const themeGradientPurple: ThemeGradient<'#6366F1', '#818CF8'> = {
+  className: 'bg-[linear-gradient(133.77deg,_#6366F1_0%,_#818CF8_97.95%)]',
+  endColor: '#818CF8',
   startColor: '#6366F1',
 };
 

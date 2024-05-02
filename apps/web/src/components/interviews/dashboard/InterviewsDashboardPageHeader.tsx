@@ -10,8 +10,8 @@ import {
   themeBackgroundCardColor,
   themeBackgroundChipColor,
   themeBackgroundElementEmphasizedStateColor_Hover,
-  themeGradientBlueGreen,
   themeGradientGreenYellow,
+  themeGradientPurpleGreen,
   themeTextBrandColor,
   themeTextBrandColor_GroupHover,
   themeTextSecondaryColor,
@@ -29,7 +29,7 @@ function ContinueLearningCard() {
         {
           completedCount: 24,
           durationMins: 92,
-          gradient: themeGradientBlueGreen,
+          gradient: themeGradientPurpleGreen,
           href: '/dsa',
           questionsCount: 47,
           reverseGradient: true,
