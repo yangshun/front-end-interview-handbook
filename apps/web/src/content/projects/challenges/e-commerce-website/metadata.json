@@ -29,6 +29,7 @@
     "style-guide",
     "api"
   ],
+  "hasStarterAndDesignFiles": false,
   "coverImage": "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/render/image/public/projects-images/e-commerce-website/cover.jpg",
   "galleryImages": [
     "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/render/image/public/projects-images/e-commerce-website/gallery/Desktop.jpg",

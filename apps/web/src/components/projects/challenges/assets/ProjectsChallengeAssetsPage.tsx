@@ -218,16 +218,28 @@ export default function ProjectsChallengeAssetsPage({
             </Heading>
             <Section>
               <div className="flex flex-col gap-4">
-                <ProjectsChallengeDownloadStarterFilesButton
-                  size="lg"
-                  slug={metadata.slug}
-                />
-                <ProjectsChallengeFigmaDesignPaywall
-                  challengeMetadata={metadata}
-                  placement="ASSETS_PAGE"
-                  viewerFigmaAccess={viewerAccess.downloadFigma}
-                  viewerProjectsProfile={viewerProjectsProfile}
-                />
+                {challenge.metadata.hasStarterAndDesignFiles ? (
+                  <>
+                    <ProjectsChallengeDownloadStarterFilesButton
+                      size="lg"
+                      slug={metadata.slug}
+                    />
+                    <ProjectsChallengeFigmaDesignPaywall
+                      challengeMetadata={metadata}
+                      placement="ASSETS_PAGE"
+                      viewerFigmaAccess={viewerAccess.downloadFigma}
+                      viewerProjectsProfile={viewerProjectsProfile}
+                    />
+                  </>
+                ) : (
+                  <Text color="secondary" size="body3">
+                    <FormattedMessage
+                      defaultMessage="This challenge does not have starter files and design files."
+                      description="Informationational for challenges that do not have any provided files."
+                      id="Q062o6"
+                    />
+                  </Text>
+                )}
               </div>
             </Section>
           </div>

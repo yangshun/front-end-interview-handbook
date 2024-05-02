@@ -30,6 +30,7 @@
     "starter-code",
     "style-guide"
   ],
+  "hasStarterAndDesignFiles": false,
   "coverImage": "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/render/image/public/projects-images/marketing-website/cover.jpg",
   "galleryImages": [
     "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/render/image/public/projects-images/marketing-website/gallery/Desktop.jpg",

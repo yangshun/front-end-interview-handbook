@@ -119,6 +119,12 @@ export const ProjectsChallengeMetadataDocument = defineDocumentType(() => ({
       required: true,
       type: 'list',
     },
+    hasStarterAndDesignFiles: {
+      default: true,
+      description: 'Whether there are starter and design files to download',
+      required: false,
+      type: 'boolean',
+    },
     order: {
       description: 'Order to be displayed within a track',
       required: true,

@@ -48,36 +48,40 @@ function useDialogSteps({
 }) {
   const intl = useIntl();
   const dialogSteps: Array<DialogStep> = [
-    {
-      content: (
-        <ProjectsChallengeGetStartedDownloadStarterFiles
-          slug={challenge.metadata.slug}
-        />
-      ),
-      id: 'download-starter-files',
-      label: intl.formatMessage({
-        defaultMessage: 'Download starter files',
-        description:
-          'Label for "Download starter files" step in dialog on Projects project page',
-        id: 'e/t5dH',
-      }),
-    },
-    {
-      content: (
-        <ProjectsChallengeGetStartedDownloadFigmaDesign
-          challengeMetadata={challenge.metadata}
-          viewerFigmaAccess={viewerFigmaAccess}
-          viewerProjectsProfile={viewerProjectsProfile}
-        />
-      ),
-      id: 'download-design-assets',
-      label: intl.formatMessage({
-        defaultMessage: 'Download design assets',
-        description:
-          'Label for "Download design assets" step in dialog on Projects project page',
-        id: 'B2171J',
-      }),
-    },
+    challenge.metadata.hasStarterAndDesignFiles
+      ? {
+          content: (
+            <ProjectsChallengeGetStartedDownloadStarterFiles
+              slug={challenge.metadata.slug}
+            />
+          ),
+          id: 'download-starter-files',
+          label: intl.formatMessage({
+            defaultMessage: 'Download starter files',
+            description:
+              'Label for "Download starter files" step in dialog on Projects project page',
+            id: 'e/t5dH',
+          }),
+        }
+      : null,
+    challenge.metadata.hasStarterAndDesignFiles
+      ? {
+          content: (
+            <ProjectsChallengeGetStartedDownloadFigmaDesign
+              challengeMetadata={challenge.metadata}
+              viewerFigmaAccess={viewerFigmaAccess}
+              viewerProjectsProfile={viewerProjectsProfile}
+            />
+          ),
+          id: 'download-design-assets',
+          label: intl.formatMessage({
+            defaultMessage: 'Download design assets',
+            description:
+              'Label for "Download design assets" step in dialog on Projects project page',
+            id: 'B2171J',
+          }),
+        }
+      : null,
     {
       content: (
         <ProjectsChallengeGetStartedSkillSelection
@@ -119,7 +123,7 @@ function useDialogSteps({
         id: '7Ozzmy',
       }),
     },
-  ];
+  ].flatMap((item) => (item != null ? [item] : []));
 
   return dialogSteps;
 }
