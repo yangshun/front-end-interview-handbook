@@ -38,6 +38,7 @@ type BaseProps = Readonly<{
   'aria-controls'?: AriaAttributes['aria-controls'];
   'aria-current'?: AriaAttributes['aria-current'];
   'aria-label'?: AriaAttributes['aria-controls'];
+  children?: ReactNode;
   className?: string;
   display?: ButtonDisplay;
   icon?: (props: React.ComponentProps<'svg'>) => JSX.Element;
@@ -228,6 +229,7 @@ function Button(
     'aria-controls': ariaControls,
     'aria-current': ariaCurrent,
     'aria-label': ariaLabel,
+    children: children_USE_SPARINGLY,
     className,
     display = 'inline',
     icon: Icon,
@@ -264,7 +266,7 @@ function Button(
     IconSecondary != null ? (
       <>
         {addOn}
-        {!isLabelHidden && <div>{label}</div>}
+        {!isLabelHidden && <div>{children_USE_SPARINGLY ?? label}</div>}
         <IconSecondary
           aria-hidden="true"
           className={clsx('shrink-0', addOnSizeClass, iconClassName)}
@@ -273,7 +275,7 @@ function Button(
     ) : (
       <>
         {addonPosition === 'start' && addOn}
-        {!isLabelHidden && <div>{label}</div>}
+        {!isLabelHidden && <div>{children_USE_SPARINGLY ?? label}</div>}
         {addonPosition === 'end' && addOn}
       </>
     );
