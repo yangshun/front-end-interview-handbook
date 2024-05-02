@@ -1,4 +1,4 @@
-import GlobalBanner from '~/components/global/banners/GlobalBanner';
+import { GlobalBannerInterviews } from '~/components/global/banners/GlobalBannerInterviews';
 import InterviewsNavbar from '~/components/interviews/common/InterviewsNavbar';
 
 type Props = Readonly<{
@@ -8,7 +8,7 @@ type Props = Readonly<{
 export default function FooterlessLayout({ children }: Props) {
   return (
     <>
-      <GlobalBanner />
+      <GlobalBannerInterviews />
       <InterviewsNavbar />
       {children}
     </>

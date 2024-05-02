@@ -1,4 +1,4 @@
-import GlobalBanner from '~/components/global/banners/GlobalBanner';
+import { GlobalBannerInterviews } from '~/components/global/banners/GlobalBannerInterviews';
 import FeedbackWidget from '~/components/global/feedback/FeedbackWidget';
 import InterviewsFooter from '~/components/interviews/common/InterviewsFooter';
 import InterviewsNavbar from '~/components/interviews/common/InterviewsNavbar';
@@ -13,7 +13,7 @@ export default function InterviewsMarketingLayout({ children }: Props) {
   return (
     <>
       <FeedbackWidget position="end" />
-      <GlobalBanner />
+      <GlobalBannerInterviews />
       <div className="flex min-h-screen flex-col">
         <InterviewsNavbar />
         <div className="grow">{children}</div>

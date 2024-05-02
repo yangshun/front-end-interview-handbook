@@ -112,7 +112,15 @@ function MarketingMessage() {
   return isInterviewsPremium ? launchSaleMessage : perpetualSaleMessage;
 }
 
-export default function GlobalBanner() {
+type Props = Readonly<{
+  className?: string;
+  variant?: 'custom' | 'primary';
+}>;
+
+export default function GlobalBanner({
+  className,
+  variant = 'primary',
+}: Props) {
   const { isUserProfileLoading } = useUserProfile();
   const { setShowGlobalBanner } = useUserPreferences();
 
@@ -123,9 +131,9 @@ export default function GlobalBanner() {
         'z-sticky sticky top-0 w-full',
       )}>
       <Banner
-        className="h-9" // Sync with sticky.css.
+        className={clsx('h-9', className)} // Sync with sticky.css.
         size="sm"
-        variant="primary"
+        variant={variant}
         onHide={() => {
           setShowGlobalBanner(false);
         }}>

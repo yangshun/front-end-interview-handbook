@@ -1,4 +1,4 @@
-import GlobalBanner from '~/components/global/banners/GlobalBanner';
+import { GlobalBannerInterviews } from '~/components/global/banners/GlobalBannerInterviews';
 import InterviewsFooter from '~/components/interviews/common/InterviewsFooter';
 import InterviewsNavbar from '~/components/interviews/common/InterviewsNavbar';
 import Section from '~/components/ui/Heading/HeadingContext';
@@ -10,7 +10,7 @@ type Props = Readonly<{
 export default function StandardLayout({ children }: Props) {
   return (
     <>
-      <GlobalBanner />
+      <GlobalBannerInterviews />
       <div className="flex min-h-screen flex-col">
         <InterviewsNavbar />
         <div className="flex grow items-center">{children}</div>

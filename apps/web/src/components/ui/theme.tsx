@@ -168,10 +168,10 @@ export const themeGradientPurple: ThemeGradient<'#6366F1', '#818CF8'> = {
   startColor: '#6366F1',
 };
 
-export const themeGradientGreenYellow: ThemeGradient<'#059669', '#F59E0B'> = {
-  className: 'bg-[linear-gradient(133.77deg,_#059669_0%,_#F59E0B_97.95%)]',
-  endColor: '#F59E0B',
-  startColor: '#059669',
+export const themeGradientGreenYellow: ThemeGradient<'#1C9F5E', '#F1C000'> = {
+  className: 'bg-[linear-gradient(133.77deg,_#1C9F5E_0%,_#F1C000_97.95%)]',
+  endColor: '#F1C000',
+  startColor: '#1C9F5E',
 };
 
 export const themeGradientPinkPurple: ThemeGradient<'#EC4899', '#818CF8'> = {

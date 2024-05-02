@@ -4,7 +4,7 @@ import { RiCloseLine } from 'react-icons/ri';
 
 import Text from '../Text';
 
-type BannerVariant = 'primary' | 'special';
+type BannerVariant = 'custom' | 'primary' | 'special';
 
 type Props = Readonly<{
   children: React.ReactNode;
@@ -23,6 +23,11 @@ const variantClasses: Record<
     textColorClass: string;
   }>
 > = {
+  custom: {
+    backgroundColorClass: '',
+    buttonClass: '',
+    textColorClass: '',
+  },
   primary: {
     backgroundColorClass: 'bg-brand-dark',
     buttonClass: 'hover:bg-brand',
