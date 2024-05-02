@@ -1,6 +1,7 @@
 import { startCase } from 'lodash-es';
 
 import { allRoadmapSkillsSet } from './ProjectsSkillProcessor';
+import { projectsSkillRoadmapItemLabelsDict } from './ProjectsSkillUtils';
 import type { ProjectsSkillKey } from '../types';
 
 const ProjectsSkillLabels: Record<ProjectsSkillKey, string> = {
@@ -77,8 +78,14 @@ const ProjectsSkillLabels: Record<ProjectsSkillKey, string> = {
   zustand: 'Zustand',
 };
 
+const ProjectsRoadmapSkillLabels = projectsSkillRoadmapItemLabelsDict();
+
 export function projectsSkillLabel(skillKey: ProjectsSkillKey): string {
-  return ProjectsSkillLabels[skillKey] ?? startCase(skillKey);
+  return (
+    ProjectsSkillLabels[skillKey] ??
+    ProjectsRoadmapSkillLabels[skillKey] ??
+    startCase(skillKey)
+  );
 }
 
 export function ProjectsSkillArrayToTypeaheadValues(

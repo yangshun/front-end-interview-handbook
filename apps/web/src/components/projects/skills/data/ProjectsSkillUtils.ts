@@ -57,3 +57,18 @@ export function projectsSkillExtractParents(
 
   return parentSkillsItems;
 }
+
+export function projectsSkillRoadmapItemLabelsDict() {
+  const obj: Record<string, string> = {};
+
+  skillsRoadmapConfig.forEach((levelItem) => {
+    levelItem.items.forEach((parentSkillItem) => {
+      obj[parentSkillItem.key] = parentSkillItem.title;
+      parentSkillItem.items.forEach((childSkill) => {
+        obj[childSkill.key] = childSkill.label;
+      });
+    });
+  });
+
+  return obj;
+}
