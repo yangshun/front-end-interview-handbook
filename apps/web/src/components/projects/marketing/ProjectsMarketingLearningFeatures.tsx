@@ -3,20 +3,22 @@ import Image from 'next/image';
 import { useId, useMemo } from 'react';
 import {
   RiBrushLine,
-  RiCheckboxCircleLine,
+  RiChatSmile2Line,
+  RiCodeSSlashLine,
   RiDashboard3Line,
   RiFacebookFill,
   RiFileList3Line,
   RiFireLine,
-  RiGlobalLine,
+  RiFoldersLine,
+  RiGroupLine,
+  RiGuideLine,
   RiHtml5Line,
-  RiImageLine,
-  RiMessage2Line,
-  RiPagesLine,
-  RiSpeakLine,
-  RiTerminalBoxLine,
-  RiTerminalWindowLine,
+  RiListCheck3,
+  RiNodeTree,
+  RiPencilRuler2Line,
+  RiThumbUpLine,
   RiTrophyLine,
+  RiVerifiedBadgeLine,
 } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
 
@@ -71,10 +73,10 @@ function useLearningFeatures(): Array<LearningFeature> {
             icon: RiFileList3Line,
             key: 'specs-by-product-managers',
             label: intl.formatMessage({
-              defaultMessage: 'Specs by product managers',
+              defaultMessage: 'Requirement specs by product managers',
               description:
                 "Title of 'Specs by product managers' sub-feature in Projects marketing page",
-              id: '4g93ac',
+              id: 'r00qIX',
             }),
           },
           {
@@ -99,45 +101,42 @@ function useLearningFeatures(): Array<LearningFeature> {
       {
         description: intl.formatMessage({
           defaultMessage:
-            'Everything else apart from the actual technical execution has been prepared for you. Just click "Start project", and we will take care of everything else',
+            'Everything else apart from the actual technical execution has been prepared for you. Just click "Start project", and we will take care of everything else.',
           description:
             "Description of 'Start building' feature in Projects marketing page",
-          id: 'CgQLIL',
+          id: 'hqeSrQ',
         }),
-        imgSrc:
-          colorScheme === 'light'
-            ? 'img/marketing/projects/start-building-light.svg'
-            : 'img/marketing/projects/start-building-dark.svg',
+        imgSrc: 'img/marketing/projects/how-it-works-step-2.svg',
         key: 'start-building',
         subFeatures: [
           {
-            icon: RiImageLine,
+            icon: RiPencilRuler2Line,
             key: 'images-style-guides-design-files',
             label: intl.formatMessage({
-              defaultMessage: 'Images, style guides, design files',
+              defaultMessage: 'Design files, style guides, image assets',
               description:
                 "Title of 'Images, style guides, design files' sub-feature in Projects marketing page",
-              id: 'yhRL5u',
+              id: '3aIVJ5',
             }),
           },
           {
             icon: RiHtml5Line,
             key: 'html-pre-written-content',
             label: intl.formatMessage({
-              defaultMessage: 'HTML pre-written content',
+              defaultMessage: 'HTML with pre-written content',
               description:
                 "Title of 'HTML pre-written content' sub-feature in Projects marketing page",
-              id: '79LK1Q',
+              id: 'Uzg/FF',
             }),
           },
           {
-            icon: RiTerminalBoxLine,
-            key: 'starter-code-and-apis',
+            icon: RiFoldersLine,
+            key: 'starter-files-and-apis',
             label: intl.formatMessage({
-              defaultMessage: 'Starter code and APIs',
+              defaultMessage: 'Starter files and APIs',
               description:
                 "Title of 'Starter code and APIs' sub-feature in Projects marketing page",
-              id: '/ujFys',
+              id: 'Z00R7H',
             }),
           },
         ],
@@ -164,7 +163,7 @@ function useLearningFeatures(): Array<LearningFeature> {
         key: 'practical-foundation',
         subFeatures: [
           {
-            icon: RiCheckboxCircleLine,
+            icon: RiVerifiedBadgeLine,
             key: 'official-solutions',
             label: intl.formatMessage({
               defaultMessage: 'Official solutions',
@@ -174,7 +173,7 @@ function useLearningFeatures(): Array<LearningFeature> {
             }),
           },
           {
-            icon: RiGlobalLine,
+            icon: RiGuideLine,
             key: 'practical-dev-guides',
             label: intl.formatMessage({
               defaultMessage: 'Practical guides',
@@ -187,10 +186,10 @@ function useLearningFeatures(): Array<LearningFeature> {
             icon: RiFacebookFill,
             key: 'written-by-ex-faang-senior-devs',
             label: intl.formatMessage({
-              defaultMessage: 'Written by ex-FAANG senior devs',
+              defaultMessage: 'Written by ex-FAANG senior developers',
               description:
                 "Title of 'Written by ex-FAANG senior devs' sub-feature in Projects marketing page",
-              id: 'ZE/21F',
+              id: '1YpkpS',
             }),
           },
         ],
@@ -221,7 +220,7 @@ function useLearningFeatures(): Array<LearningFeature> {
         key: 'train-any-frontend-skill',
         subFeatures: [
           {
-            icon: RiTerminalWindowLine,
+            icon: RiNodeTree,
             key: 'roadmap-of-front-end-skills',
             label: intl.formatMessage({
               defaultMessage: 'Holistic front end skill roadmap',
@@ -231,17 +230,17 @@ function useLearningFeatures(): Array<LearningFeature> {
             }),
           },
           {
-            icon: RiPagesLine,
+            icon: RiListCheck3,
             key: 'recommended-projects-to-build',
             label: intl.formatMessage({
-              defaultMessage: 'Suggests best projects for skill',
+              defaultMessage: 'Suggests best projects for honing a skill',
               description:
                 "Title of 'Recommended projects to build' sub-feature in Projects marketing page",
-              id: 'Xmdm8f',
+              id: 'uoKX/p',
             }),
           },
           {
-            icon: RiTerminalWindowLine,
+            icon: RiThumbUpLine,
             key: 'curated-learning-resources',
             label: intl.formatMessage({
               defaultMessage: 'Curated learning resources',
@@ -286,10 +285,10 @@ function useLearningFeatures(): Array<LearningFeature> {
             icon: RiFireLine,
             key: 'earn-rep-for-productive-tasks',
             label: intl.formatMessage({
-              defaultMessage: 'Earn rep for productive tasks',
+              defaultMessage: 'Earn reputation points for productive tasks',
               description:
                 "Title of 'Earn rep for productive tasks' sub-feature in Projects marketing page",
-              id: '7XFQoX',
+              id: '6Zb63P',
             }),
           },
           {
@@ -313,10 +312,10 @@ function useLearningFeatures(): Array<LearningFeature> {
       {
         description: intl.formatMessage({
           defaultMessage:
-            'Our platform was built to support community-driven development. From project discussion to code reviews and approach sharing, you will never feel alone in your learning.',
+            'Our platform was built to support community-driven development. From questions, discussions to code reviews and sharing approaches in our Discord community, you will never feel alone in your learning.',
           description:
             "Description of 'Learn together' feature in Projects marketing page",
-          id: 'Ludb5F',
+          id: 'w68qdd',
         }),
         imgSrc:
           colorScheme === 'light'
@@ -325,17 +324,17 @@ function useLearningFeatures(): Array<LearningFeature> {
         key: 'learn-together',
         subFeatures: [
           {
-            icon: RiSpeakLine,
+            icon: RiGroupLine,
             key: 'reference-others-approach',
             label: intl.formatMessage({
-              defaultMessage: "Reference other's approach",
+              defaultMessage: "Reference others' approaches",
               description:
                 "Title of 'Reference other's approach' sub-feature in Projects marketing page",
-              id: '+JozON',
+              id: 'vq1VAh',
             }),
           },
           {
-            icon: RiTerminalBoxLine,
+            icon: RiCodeSSlashLine,
             key: 'review-others-code-on-platform',
             label: intl.formatMessage({
               defaultMessage: "Review other's code on-platform",
@@ -345,13 +344,13 @@ function useLearningFeatures(): Array<LearningFeature> {
             }),
           },
           {
-            icon: RiMessage2Line,
+            icon: RiChatSmile2Line,
             key: 'clarify-doubts-in-forums',
             label: intl.formatMessage({
-              defaultMessage: 'Clarify doubts in forums',
+              defaultMessage: 'Clarify doubts in forums and Discord',
               description:
                 "Title of 'Clarify doubts in forums' sub-feature in Projects marketing page",
-              id: '8cguZA',
+              id: 'Gte3Al',
             }),
           },
         ],

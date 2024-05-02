@@ -83,12 +83,12 @@ export default function ProjectsMarketingFeaturesRow() {
         Features
       </Heading>
       <Section>
-        <div className="grid grid-cols-1 gap-y-6 sm:grid-cols-3">
+        <div className="grid grid-cols-1 gap-x-6 gap-y-12 sm:grid-cols-3">
           {heroFeatures.map(({ content, icon, key }) => (
             <div key={key} className="flex flex-col items-center gap-y-4">
               <ProjectsMarketingFeaturedIcon icon={icon} />
               <Text
-                className="text-balance text-center"
+                className="text-balance max-w-72 text-center"
                 color="subtitle"
                 size="body2">
                 {content}

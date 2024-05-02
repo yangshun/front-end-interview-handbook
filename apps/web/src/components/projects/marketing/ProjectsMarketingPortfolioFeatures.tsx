@@ -73,9 +73,9 @@ function usePortfolioFeatures(): Array<PortfolioFeature> {
       {
         description: (
           <FormattedMessage
-            defaultMessage="Our <link>Component Tracks</link> allow you to build entire design systems or component libraries from scratch - including very practical ones like Marketing, E-Commerce and Web Applications."
+            defaultMessage="Our <link>Component Tracks</link> allow you to build entire design systems or component libraries from scratch – including very practical ones like Marketing, E-Commerce and Web Applications."
             description="Description of 'Build entire design systems or component libraries with our Component Tracks' feature in Projects marketing page"
-            id="YENFnJ"
+            id="C/Z5Ui"
             values={{
               link: (chunks) => (
                 <Anchor href="/projects/tracks">{chunks}</Anchor>

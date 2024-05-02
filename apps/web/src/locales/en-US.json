@@ -43,10 +43,6 @@
     "defaultMessage": "Congratulations on completing the question! Sign into your account or sign up for free to save your progress!",
     "description": "Message shown when user completes a question"
   },
-  "+JozON": {
-    "defaultMessage": "Reference other's approach",
-    "description": "Title of 'Reference other's approach' sub-feature in Projects marketing page"
-  },
   "+OVTKu": {
     "defaultMessage": "Billing | Profile",
     "description": "Title of Profile Billing page"
@@ -226,10 +222,6 @@
   "/pokLY": {
     "defaultMessage": "This is the name that will be shown on your profile. Use a maximum of {maxLength} character(s).",
     "description": "Name field description"
-  },
-  "/ujFys": {
-    "defaultMessage": "Starter code and APIs",
-    "description": "Title of 'Starter code and APIs' sub-feature in Projects marketing page"
   },
   "01jNoZ": {
     "defaultMessage": "Get started",
@@ -418,6 +410,10 @@
   "1PHE0Y": {
     "defaultMessage": "Most complete all-in-one front end interview preparation.",
     "description": "Short description for 3 months study plan"
+  },
+  "1YpkpS": {
+    "defaultMessage": "Written by ex-FAANG senior developers",
+    "description": "Title of 'Written by ex-FAANG senior devs' sub-feature in Projects marketing page"
   },
   "1gkgr4": {
     "defaultMessage": "Sign In",
@@ -619,6 +615,10 @@
     "defaultMessage": "Cheatsheet",
     "description": "One-page summary sheet for front end system design interviews"
   },
+  "3aIVJ5": {
+    "defaultMessage": "Design files, style guides, image assets",
+    "description": "Title of 'Images, style guides, design files' sub-feature in Projects marketing page"
+  },
   "3aT98+": {
     "defaultMessage": "Recommended actions for you",
     "description": "Title for Recommended actions section on Projects dashboard page"
@@ -750,10 +750,6 @@
   "4g6SOx": {
     "defaultMessage": "{upvoteCount, plural, =0 {No upvotes} one {# upvote} other {# upvotes}}",
     "description": "Number of upvotes for project submission"
-  },
-  "4g93ac": {
-    "defaultMessage": "Specs by product managers",
-    "description": "Title of 'Specs by product managers' sub-feature in Projects marketing page"
   },
   "4gesVU": {
     "defaultMessage": "Premium challenge",
@@ -955,6 +951,10 @@
     "defaultMessage": "View website",
     "description": "Link to website"
   },
+  "6Zb63P": {
+    "defaultMessage": "Earn reputation points for productive tasks",
+    "description": "Title of 'Earn rep for productive tasks' sub-feature in Projects marketing page"
+  },
   "6aAzFQ": {
     "defaultMessage": "Host your site",
     "description": "Description for Deployment step in project submission checklist"
@@ -1023,10 +1023,6 @@
     "defaultMessage": "No articles",
     "description": "Title for empty state when application of filters return no results"
   },
-  "79LK1Q": {
-    "defaultMessage": "HTML pre-written content",
-    "description": "Title of 'HTML pre-written content' sub-feature in Projects marketing page"
-  },
   "79YODs": {
     "defaultMessage": "Let's begin!",
     "description": "Title for Start Coding content section on Before You Get Started dialog"
@@ -1082,10 +1078,6 @@
   "7Wsapt": {
     "defaultMessage": "Quiz",
     "description": "Quiz questions short title"
-  },
-  "7XFQoX": {
-    "defaultMessage": "Earn rep for productive tasks",
-    "description": "Title of 'Earn rep for productive tasks' sub-feature in Projects marketing page"
   },
   "7ZjmR2": {
     "defaultMessage": "Implementation must contain at least {minLength} character(s).",
@@ -1226,10 +1218,6 @@
   "8bcHtK": {
     "defaultMessage": "Progress | Dashboard",
     "description": "Title of progress section on dashboard page"
-  },
-  "8cguZA": {
-    "defaultMessage": "Clarify doubts in forums",
-    "description": "Title of 'Clarify doubts in forums' sub-feature in Projects marketing page"
   },
   "8gXpts": {
     "defaultMessage": "Tasks | Rewards",
@@ -1607,6 +1595,10 @@
     "defaultMessage": "Pinned submissions",
     "description": "Pinned project submissions"
   },
+  "C/Z5Ui": {
+    "defaultMessage": "Our <link>Component Tracks</link> allow you to build entire design systems or component libraries from scratch – including very practical ones like Marketing, E-Commerce and Web Applications.",
+    "description": "Description of 'Build entire design systems or component libraries with our Component Tracks' feature in Projects marketing page"
+  },
   "C34sRh": {
     "defaultMessage": "Account Settings",
     "description": "Screenreader text for account settings."
@@ -1666,10 +1658,6 @@
   "CfSKv4": {
     "defaultMessage": "Other skills you are using which are not within the skills roadmap. Also helps community members understand more about the tech stack. If you don't see the tag you need, email us.",
     "description": "Description for \"Other tech stack used\" text input"
-  },
-  "CgQLIL": {
-    "defaultMessage": "Everything else apart from the actual technical execution has been prepared for you. Just click \"Start project\", and we will take care of everything else",
-    "description": "Description of 'Start building' feature in Projects marketing page"
   },
   "Cjz59k": {
     "defaultMessage": "Click here to try out the actual workspace instead of this embed.",
@@ -2186,6 +2174,10 @@
   "Gqq8RF": {
     "defaultMessage": "Build front end real-world projects",
     "description": "Title of Projects page"
+  },
+  "Gte3Al": {
+    "defaultMessage": "Clarify doubts in forums and Discord",
+    "description": "Title of 'Clarify doubts in forums' sub-feature in Projects marketing page"
   },
   "Gttxsq": {
     "defaultMessage": "Try these popular Svelte questions",
@@ -2874,10 +2866,6 @@
   "LnzTdG": {
     "defaultMessage": "CSS",
     "description": "CSS questions category short title"
-  },
-  "Ludb5F": {
-    "defaultMessage": "Our platform was built to support community-driven development. From project discussion to code reviews and approach sharing, you will never feel alone in your learning.",
-    "description": "Description of 'Learn together' feature in Projects marketing page"
   },
   "Lv6+nn": {
     "defaultMessage": "React, HTML, JavaScript",
@@ -4087,6 +4075,10 @@
     "defaultMessage": "Use code at checkout. Code expires on {expiryDate}.",
     "description": "Instruction to apply discount"
   },
+  "Uzg/FF": {
+    "defaultMessage": "HTML with pre-written content",
+    "description": "Title of 'HTML pre-written content' sub-feature in Projects marketing page"
+  },
   "V0hPhI": {
     "defaultMessage": "Sign Up",
     "description": "Title of Sign Up page"
@@ -4475,10 +4467,6 @@
     "defaultMessage": "Update",
     "description": "Update existing URL in a form"
   },
-  "Xmdm8f": {
-    "defaultMessage": "Suggests best projects for skill",
-    "description": "Title of 'Recommended projects to build' sub-feature in Projects marketing page"
-  },
   "XuVGsX": {
     "defaultMessage": "Account",
     "description": "Profile account tab title"
@@ -4522,10 +4510,6 @@
   "YBlo/J": {
     "defaultMessage": "As mentioned above, there are many ways to host your project for free. Our recommend hosts are:",
     "description": "Text for Deployment Info in Projects"
-  },
-  "YENFnJ": {
-    "defaultMessage": "Our <link>Component Tracks</link> allow you to build entire design systems or component libraries from scratch - including very practical ones like Marketing, E-Commerce and Web Applications.",
-    "description": "Description of 'Build entire design systems or component libraries with our Component Tracks' feature in Projects marketing page"
   },
   "YGqz7y": {
     "defaultMessage": "Gain proficiency in front end fundamentals by implementing JavaScript and DOM APIs from scratch.",
@@ -4615,6 +4599,10 @@
     "defaultMessage": "Expires on {expiryDate}",
     "description": "Subtext for rewards complete page"
   },
+  "Z00R7H": {
+    "defaultMessage": "Starter files and APIs",
+    "description": "Title of 'Starter code and APIs' sub-feature in Projects marketing page"
+  },
   "Z3Z5Fp": {
     "defaultMessage": "Review other's project code and help them improve",
     "description": "Description for recommended action for new projects platform user"
@@ -4642,10 +4630,6 @@
   "ZCmkG3": {
     "defaultMessage": "Can't find the answer you are looking for? <link>Reach out to us!</link>",
     "description": "Subtitle under the Title of the FAQ section on the 'Become An Affiliate' page"
-  },
-  "ZE/21F": {
-    "defaultMessage": "Written by ex-FAANG senior devs",
-    "description": "Title of 'Written by ex-FAANG senior devs' sub-feature in Projects marketing page"
   },
   "ZFDU0d": {
     "defaultMessage": "Woohoo!",
@@ -5491,6 +5475,10 @@
     "defaultMessage": "3 Months Plan",
     "description": "Short label for 3 months study plan"
   },
+  "g9Db2B": {
+    "defaultMessage": "GreatFrontEnd Projects is now in BETA! For a limited time, get {percentage}% off with the promo code {promoCode}. <link>Check it out</link>! 🚀",
+    "description": "Text on Promo Banner"
+  },
   "g9OX0J": {
     "defaultMessage": "{replyCount, plural, one {Show # reply} other {Show # replies}}",
     "description": "Label for more replies button on project discussions page"
@@ -5654,6 +5642,10 @@
   "hphZ3y": {
     "defaultMessage": "Practice questions",
     "description": "Section title for links to question lists by category and format"
+  },
+  "hqeSrQ": {
+    "defaultMessage": "Everything else apart from the actual technical execution has been prepared for you. Just click \"Start project\", and we will take care of everything else.",
+    "description": "Description of 'Start building' feature in Projects marketing page"
   },
   "hqzG5o": {
     "defaultMessage": "Choose your pricing plan",
@@ -6847,6 +6839,10 @@
     "defaultMessage": "Premium accounts are not eligible",
     "description": "Button label for student discount"
   },
+  "r00qIX": {
+    "defaultMessage": "Requirement specs by product managers",
+    "description": "Title of 'Specs by product managers' sub-feature in Projects marketing page"
+  },
   "r0Ddhm": {
     "defaultMessage": "Preparation dashboard",
     "description": "Preparation dashboard section title"
@@ -7267,6 +7263,10 @@
     "defaultMessage": "Including core maintainers at popular open source projects and creators of Blind 75 and Front End Interview Handbook.",
     "description": "Description of 'Guided by well-known senior engineers' feature in marketing page"
   },
+  "uoKX/p": {
+    "defaultMessage": "Suggests best projects for honing a skill",
+    "description": "Title of 'Recommended projects to build' sub-feature in Projects marketing page"
+  },
   "uogn1k": {
     "defaultMessage": "Practice build all sorts of user interfaces: components, apps, games, etc, in the framework of your choice.",
     "description": "Subtitle for an example list of User Interface Questions on marketing pages"
@@ -7371,6 +7371,10 @@
     "defaultMessage": "Check out the available <link>promotions</link>.",
     "description": "Promotional message"
   },
+  "vq1VAh": {
+    "defaultMessage": "Reference others' approaches",
+    "description": "Title of 'Reference other's approach' sub-feature in Projects marketing page"
+  },
   "vqKJ0D": {
     "defaultMessage": "Design patterns and architecture of front end apps",
     "description": "Description of system design questions"
@@ -7427,6 +7431,10 @@
     "defaultMessage": "{difficulty}",
     "description": "Difficulty for track in Continue tracks and skills section on Projects dashboard page"
   },
+  "w68qdd": {
+    "defaultMessage": "Our platform was built to support community-driven development. From questions, discussions to code reviews and sharing approaches in our Discord community, you will never feel alone in your learning.",
+    "description": "Description of 'Learn together' feature in Projects marketing page"
+  },
   "w9U/8b": {
     "defaultMessage": "Team",
     "description": "Link to company's team page"
@@ -7482,10 +7490,6 @@
   "wdlzwm": {
     "defaultMessage": "Your Message",
     "description": "Feedback widget textarea title"
-  },
-  "wfod1+": {
-    "defaultMessage": "GreatFrontEnd is hiring! Check out our <link>jobs page</link>!",
-    "description": "Text on Promo Banner"
   },
   "wkkRGq": {
     "defaultMessage": "GitHub repository or subdirectory URL",
@@ -7674,10 +7678,6 @@
   "yhHx9e": {
     "defaultMessage": "All your question progress will be reset. This is an irreversible action, are you sure you want to proceed?",
     "description": "Warning message in reset progress confirmation dialog"
-  },
-  "yhRL5u": {
-    "defaultMessage": "Images, style guides, design files",
-    "description": "Title of 'Images, style guides, design files' sub-feature in Projects marketing page"
   },
   "ykwubP": {
     "defaultMessage": "You are on the <bold>Quarterly</bold> plan.",
