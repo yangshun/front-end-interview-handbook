@@ -141,7 +141,7 @@ export default function GithubRepositoryCodeViewer({
 
         return (
           <>
-            <div className="flex w-[300px] flex-col overflow-y-auto p-2">
+            <div className="hidden w-[300px] flex-col overflow-y-auto p-2 md:flex">
               <ReadonlyDirectoryExplorer
                 activeFile={activeFile}
                 filePaths={filePaths}

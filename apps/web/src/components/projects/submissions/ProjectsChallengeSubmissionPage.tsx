@@ -208,26 +208,24 @@ export default function ProjectsChallengeSubmissionPage({
           </div>
         </div>
         <div className={clsx('flex flex-col', 'mt-10 lg:mt-16')}>
-          <div className="flex flex-col md:flex-row">
-            <div className="flex flex-1 flex-col gap-3">
-              <Heading level="heading6">
-                <FormattedMessage
-                  defaultMessage="Code"
-                  description="Section title for code viewer"
-                  id="T6xgeP"
-                />
-              </Heading>
-              <GithubRepositoryCodeViewer
-                className={clsx('h-[500px] rounded-t-lg', [
-                  'border-x border-t',
-                  themeBorderColor,
-                  themeBackgroundCardColor,
-                ])}
-                repoName={repoName}
-                repoOwner={repoOwner}
-                repoSubdirectoryPath={repoSubdirectoryPath}
+          <div className="flex flex-1 flex-col gap-3">
+            <Heading level="heading6">
+              <FormattedMessage
+                defaultMessage="Code"
+                description="Section title for code viewer"
+                id="T6xgeP"
               />
-            </div>
+            </Heading>
+            <GithubRepositoryCodeViewer
+              className={clsx('h-[500px] rounded-t-lg', [
+                'border-x border-t',
+                themeBorderColor,
+                themeBackgroundCardColor,
+              ])}
+              repoName={repoName}
+              repoOwner={repoOwner}
+              repoSubdirectoryPath={repoSubdirectoryPath}
+            />
           </div>
           <div ref={discussionSectionRef}>
             <ProjectsChallengeSubmissionDiscussionsSection
