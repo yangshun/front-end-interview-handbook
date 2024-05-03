@@ -719,7 +719,7 @@ export default function ProjectsPricingTable({
                   scope="row">
                   <span className="flex items-center gap-3">
                     <Text
-                      className="max-w-72 block"
+                      className="max-w-72 block text-justify"
                       color="secondary"
                       size="body2"
                       weight="normal">
