@@ -13,7 +13,7 @@ import type { ProjectsChallengeSubmissionDeploymentUrls } from '~/components/pro
 import Anchor from '~/components/ui/Anchor';
 import Button from '~/components/ui/Button';
 import Heading from '~/components/ui/Heading';
-import Text from '~/components/ui/Text';
+import Text, { textVariants } from '~/components/ui/Text';
 import {
   themeBorderBrandColor,
   themeBorderElementColor,
@@ -172,13 +172,15 @@ export default function ProjectsImageComparison({
               <Tooltip
                 asChild={true}
                 label={deploymentUrls[selectedScreenIndex].href}>
-                <Text className="truncate whitespace-nowrap" size="body2">
-                  <Anchor
-                    href={deploymentUrls[selectedScreenIndex].href}
-                    warnAboutExternalLink={true}>
-                    {deploymentUrls[selectedScreenIndex].href}
-                  </Anchor>
-                </Text>
+                <Anchor
+                  className={clsx(
+                    'truncate whitespace-nowrap',
+                    textVariants({ color: 'inherit', size: 'body2' }),
+                  )}
+                  href={deploymentUrls[selectedScreenIndex].href}
+                  warnAboutExternalLink={true}>
+                  {deploymentUrls[selectedScreenIndex].href}
+                </Anchor>
               </Tooltip>
               {(() => {
                 const timestamp = deploymentUrls[selectedScreenIndex].updatedAt;

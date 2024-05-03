@@ -31,8 +31,7 @@ export default function ProjectsProfileSocialLinks({ userProfile }: Props) {
                 ? userProfile.githubUsername
                 : `https://www.github.com/${userProfile.githubUsername}`
             }
-            variant="secondary"
-            warnAboutExternalLink={true}>
+            variant="secondary">
             <span className="sr-only">GitHub</span>
             <RiGithubFill aria-hidden="true" className="size-5" />
           </Anchor>
@@ -52,8 +51,7 @@ export default function ProjectsProfileSocialLinks({ userProfile }: Props) {
                 ? userProfile.linkedInUsername
                 : `https://www.linkedin.com/in/${userProfile.linkedInUsername}`
             }
-            variant="secondary"
-            warnAboutExternalLink={true}>
+            variant="secondary">
             <span className="sr-only">LinkedIn</span>
             <RiLinkedinBoxFill aria-hidden="true" className="size-5" />
           </Anchor>

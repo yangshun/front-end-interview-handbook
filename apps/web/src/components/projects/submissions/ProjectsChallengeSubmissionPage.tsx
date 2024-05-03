@@ -148,7 +148,6 @@ export default function ProjectsChallengeSubmissionPage({
                     id: 'nodFHk',
                   })}
                   variant="secondary"
-                  warnAboutExternalLink={true}
                 />
               )}
             </div>
@@ -156,7 +155,7 @@ export default function ProjectsChallengeSubmissionPage({
         </div>
         {submission.summary && (
           <Text
-            className="mt-10 block max-w-prose lg:mt-8"
+            className="mt-10 block max-w-prose overflow-hidden lg:mt-8"
             color="secondary"
             size="body2">
             {submission.summary}
