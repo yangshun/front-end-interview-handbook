@@ -68,10 +68,12 @@ export default function UserProfileExperience({
               yoe: yearsOfExperience,
             }}
           />
-        ) : (
-          userProfile.currentStatus &&
+        ) : userProfile.currentStatus &&
+          userProfile.currentStatus in yoeOptionMap ? (
           yoeOptionMap[userProfile.currentStatus as ProjectsYoeReplacement]
             .label
+        ) : (
+          userProfile.currentStatus
         )}
       </Text>
     </div>
