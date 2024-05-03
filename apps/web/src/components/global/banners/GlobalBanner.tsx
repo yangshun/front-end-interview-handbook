@@ -131,7 +131,7 @@ export default function GlobalBanner({
         'z-sticky sticky top-0 w-full',
       )}>
       <Banner
-        className={clsx('h-9', className)} // Sync with sticky.css.
+        className={clsx('h-10 sm:h-8', className)} // Sync with sticky.css.
         size="sm"
         variant={variant}
         onHide={() => {

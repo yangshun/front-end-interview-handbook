@@ -1,5 +1,5 @@
 :root {
-  --banner-height: 36px; /* Sync height with GlobalBanner.tsx */
+  --banner-height: 40px; /* Sync height with GlobalBanner.tsx */
 
   --navbar-height: 0px;
   --navbar-border: 0px;
@@ -7,6 +7,13 @@
   --global-sticky-height: calc(
     var(--navbar-height) + var(--navbar-border) + var(--banner-height)
   );
+}
+
+/* Sync responsiveness with GlobalBanner.tsx */
+@media (min-width: 640px) {
+  :root {
+    --banner-height: 32px;
+  }
 }
 
 /* Sync data attribute with GlobalBannerDisplayScript.tsx */
