@@ -3431,6 +3431,10 @@
     "defaultMessage": "No sign in required",
     "description": "Additional text below Get Start button on Hero section of HomePage. To let users know that they can try the product without signing in."
   },
+  "Q062o6": {
+    "defaultMessage": "This challenge does not have starter files and design files.",
+    "description": "Informationational for challenges that do not have any provided files."
+  },
   "Q0gWLB": {
     "defaultMessage": "Resubscribe",
     "description": "Button CTA to encourage upgrading"
@@ -3478,10 +3482,6 @@
   "QVh3mt": {
     "defaultMessage": "Dropbox",
     "description": "Company name for Dropbox"
-  },
-  "QYVlxD": {
-    "defaultMessage": "Premium User",
-    "description": "Tooltip for premium icon"
   },
   "QaaZVv": {
     "defaultMessage": "README file",
@@ -5202,6 +5202,10 @@
   "doYVKC": {
     "defaultMessage": "Enter",
     "description": "Richtext placeholder"
+  },
+  "dq3W2/": {
+    "defaultMessage": "Premium user",
+    "description": "Tooltip for premium icon"
   },
   "drvlbZ": {
     "defaultMessage": "Efficient strategies to prepare and ace behavioral interviews.",

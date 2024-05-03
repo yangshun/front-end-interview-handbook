@@ -30,6 +30,7 @@ import ProjectsCommentCountTag from '../../stats/ProjectsCommentCountTag';
 import ProjectsViewCountTag from '../../stats/ProjectsViewCountTag';
 import ProjectsVoteCountTag from '../../stats/ProjectsVoteCountTag';
 import ProjectsProfileDisplayNameLink from '../../users/ProjectsProfileDisplayNameLink';
+import ProjectsProfilePremiumChip from '../../users/ProjectsProfilePremiumChip';
 
 import type { ProjectsChallengeSessionStatus } from '@prisma/client';
 
@@ -155,11 +156,15 @@ export default function ProjectsChallengeSubmissionCard({
             userProfile={author}
           />
           <div className="flex flex-col gap-1">
-            <Text className="relative" size="body2" weight="medium">
+            <Text
+              className="relative flex flex-wrap items-center gap-2"
+              size="body2"
+              weight="medium">
               <ProjectsProfileDisplayNameLink
                 color="subtitle"
                 userProfile={author}
               />
+              {projectsProfile?.premium && <ProjectsProfilePremiumChip />}
             </Text>
             <UserProfileInformationRow size="body3" userProfile={author} />
           </div>

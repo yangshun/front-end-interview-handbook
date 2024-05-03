@@ -6,6 +6,7 @@ import { FormattedMessage, useIntl } from 'react-intl';
 
 import { trpc } from '~/hooks/trpc';
 
+import ProjectsProfilePremiumChip from '~/components/projects/users/ProjectsProfilePremiumChip';
 import Anchor from '~/components/ui/Anchor';
 import UserAvatar from '~/components/ui/Avatar/UserAvatar';
 import Button from '~/components/ui/Button';
@@ -130,17 +131,20 @@ export default function ProjectsDashboardTrendingSubmissionsSection() {
                 </div>
                 <div className="flex gap-3 lg:gap-4">
                   {submission.projectsProfile?.userProfile && (
-                    <div className="flex items-center gap-1.5 lg:gap-2">
+                    <div className="z-[1] flex items-center gap-1.5 lg:gap-2">
                       <UserAvatar
                         size="xs"
                         userProfile={submission.projectsProfile.userProfile}
                       />
-                      <Text className="z-[1]" size="body3" weight="medium">
+                      <Text size="body3" weight="medium">
                         <ProjectsProfileDisplayNameLink
                           color="subtitle"
                           userProfile={submission.projectsProfile.userProfile}
                         />
                       </Text>
+                      {submission.projectsProfile?.premium && (
+                        <ProjectsProfilePremiumChip />
+                      )}
                     </div>
                   )}
                   <div className="flex items-center gap-4">

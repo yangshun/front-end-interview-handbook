@@ -5,6 +5,7 @@ import { FormattedMessage } from 'react-intl';
 import { useAuthSignInUp } from '~/hooks/user/useAuthFns';
 
 import ProjectsProfileAvatar from '~/components/projects/users/ProjectsProfileAvatar';
+import ProjectsProfilePremiumChip from '~/components/projects/users/ProjectsProfilePremiumChip';
 import ProjectsUserReputation from '~/components/projects/users/ProjectsUserReputation';
 import Anchor from '~/components/ui/Anchor';
 import Avatar from '~/components/ui/Avatar';
@@ -81,6 +82,11 @@ export function ProjectsSidebarProfileHeader() {
           <div className="flex flex-col gap-1">
             <Text className="line-clamp-2" size="body2" weight="medium">
               <ProjectsProfileDisplayNameLink userProfile={userProfile} />
+              {userProfile.projectsProfile?.premium && (
+                <span className="ml-1 mt-0.5">
+                  <ProjectsProfilePremiumChip />
+                </span>
+              )}
             </Text>
             {userProfile.projectsProfile?.points && (
               <ProjectsUserReputation

@@ -121,7 +121,7 @@ export default function Chip({
         borderClass,
         className,
       )}>
-      {Icon && <Icon className={clsx(iconClass, 'size-4', iconClassName)} />}
+      {Icon && <Icon className={clsx(iconClass, 'size-3', iconClassName)} />}
       {!isLabelHidden && (
         <span className={clsx(textClass, textSizeClasses[size])}>{label}</span>
       )}

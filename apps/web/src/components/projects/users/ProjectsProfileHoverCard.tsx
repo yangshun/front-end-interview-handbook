@@ -14,6 +14,7 @@ import Text from '~/components/ui/Text';
 import Tooltip from '~/components/ui/Tooltip';
 
 import ProjectsProfileDisplayNameLink from './ProjectsProfileDisplayNameLink';
+import ProjectsProfilePremiumChip from './ProjectsProfilePremiumChip';
 import ProjectsUserReputation from './ProjectsUserReputation';
 import useProjectsProfileStats from '../hooks/useProjectsProfileStats';
 import { getFormattedNumber } from '../misc';
@@ -74,25 +75,7 @@ export default function ProjectsProfileHoverCard({ userId }: Props) {
                   userProfile={profile!}
                 />
                 {profile?.projectsProfile?.premium && (
-                  <Tooltip
-                    className="flex items-center"
-                    label={intl.formatMessage({
-                      defaultMessage: 'Premium User',
-                      description: 'Tooltip for premium icon',
-                      id: 'QYVlxD',
-                    })}>
-                    <Chip
-                      icon={RiStarSmileFill}
-                      isLabelHidden={true}
-                      label={intl.formatMessage({
-                        defaultMessage: 'Premium',
-                        description: 'Label for premium',
-                        id: 'ymmDf7',
-                      })}
-                      size="xs"
-                      variant="special"
-                    />
-                  </Tooltip>
+                  <ProjectsProfilePremiumChip />
                 )}
                 <ProjectsProfileSocialLinks userProfile={profile!} />
               </div>
