@@ -44,8 +44,7 @@ export default function ProjectMarketingGeneralFAQSection() {
       <Container
         className={clsx(
           'relative isolate flex flex-col gap-y-12',
-          'py-24 lg:py-32',
-          'max-lg:theme-bg-radial-glow max-lg:rounded-t-3xl',
+          'py-12 lg:py-24',
         )}
         variant="narrow">
         <MarketingSectionHeader

@@ -15,7 +15,7 @@ export default function ProjectsMarketingFutureToolkit() {
     <Container className="py-16 lg:py-32">
       <div
         className={clsx(
-          'text-balance rounded-[48px] border px-6 py-20 lg:px-[72px]',
+          'text-balance rounded-[48px] border px-6 py-12 lg:px-[72px] lg:py-20',
           themeBackgroundCardAltColor,
           themeGlassyBorder,
         )}>
