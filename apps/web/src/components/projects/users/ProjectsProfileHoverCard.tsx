@@ -1,5 +1,4 @@
 import clsx from 'clsx';
-import { useIntl } from 'react-intl';
 import { useMediaQuery } from 'usehooks-ts';
 
 import { trpc } from '~/hooks/trpc';

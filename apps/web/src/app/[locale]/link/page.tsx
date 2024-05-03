@@ -2,16 +2,24 @@
 
 import clsx from 'clsx';
 import { notFound, useSearchParams } from 'next/navigation';
+import { useEffect } from 'react';
 import { RiLink } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
 
-import LogoLink from '~/components/global/logos/LogoLink';
 import Button from '~/components/ui/Button';
+import Container from '~/components/ui/Container';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
-import Navbar from '~/components/ui/Navbar/Navbar';
 import Text from '~/components/ui/Text';
 import { themeTextSecondaryColor } from '~/components/ui/theme';
+
+const SAFE_DOMAINS = [
+  'github.com',
+  'github.io',
+  'vercel.app',
+  'netlify.app',
+  'pages.dev',
+];
 
 export default function ExternalLinkPage() {
   const intl = useIntl();
@@ -21,17 +29,43 @@ export default function ExternalLinkPage() {
     ? decodeURIComponent(searchParams.get('u') ?? '')
     : '';
 
+  function navigateToUrl(url: string) {
+    window.open(url, '_self', 'noopener, noreferrer');
+  }
+
+  useEffect(() => {
+    if (!externalUrl || !URL.canParse(externalUrl)) {
+      return;
+    }
+
+    const urlParts = new URL(externalUrl);
+
+    if (!SAFE_DOMAINS.some((domain) => urlParts.hostname.endsWith(domain))) {
+      return;
+    }
+
+    navigateToUrl(externalUrl);
+  }, [externalUrl]);
+
   if (!externalUrl) {
     return notFound();
   }
 
   return (
     <div className="flex min-h-screen flex-col">
-      <Navbar isLoading={false} links={[]} logo={<LogoLink />} />
-      <div className="flex h-full flex-1 flex-col items-center justify-center gap-4">
-        <RiLink className={clsx('size-10 shrink-0', themeTextSecondaryColor)} />
-        <div className="flex max-w-[360px] flex-col items-center justify-center gap-1 px-4 md:px-0">
-          <Heading level="heading5">
+      <Container
+        className="flex h-full flex-1 flex-col items-center justify-center gap-6"
+        variant="md">
+        <div
+          className={clsx(
+            'flex flex-col items-center justify-center gap-2',
+            'max-w-sm',
+          )}>
+          <RiLink
+            aria-hidden={true}
+            className={clsx('size-10 shrink-0', themeTextSecondaryColor)}
+          />
+          <Heading level="heading6">
             <FormattedMessage
               defaultMessage="You're about to open a link:"
               description="Title for external link page"
@@ -44,30 +78,26 @@ export default function ExternalLinkPage() {
               level="heading5">
               {externalUrl}
             </Heading>
-            <Text
-              className="text-center text-neutral-500 dark:text-neutral-200"
-              size="body2">
+            <Text className="text-center" color="secondary" size="body2">
               <FormattedMessage
-                defaultMessage="You're about to open an external website. Be cautious and keep your personal information safe"
+                defaultMessage="You're about to visit an external website. Proceed with caution and keep your personal information safe!"
                 description="Subtitle for external link page"
-                id="p9Ml7d"
+                id="uK9SHL"
               />
             </Text>
           </Section>
         </div>
         <Button
           label={intl.formatMessage({
-            defaultMessage: 'Open anyway',
+            defaultMessage: 'Visit external link',
             description: 'Label for open external link button',
-            id: 'XGThSq',
+            id: '2BQudu',
           })}
           size="md"
           variant="primary"
-          onClick={() =>
-            window.open(externalUrl, '_self', 'noopener,noreferrer')
-          }
+          onClick={() => navigateToUrl(externalUrl)}
         />
-      </div>
+      </Container>
     </div>
   );
 }
