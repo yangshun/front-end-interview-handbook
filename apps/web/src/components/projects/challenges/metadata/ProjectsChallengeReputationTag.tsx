@@ -60,7 +60,7 @@ export default function ProjectsChallengeReputationTag({
             description="Reputation points to be gained"
             id="md057S"
             values={{
-              points,
+              points: new Intl.NumberFormat().format(points),
             }}
           />
         )}
@@ -70,7 +70,7 @@ export default function ProjectsChallengeReputationTag({
             description="Reputation points to be gained"
             id="4G2EHJ"
             values={{
-              points,
+              points: new Intl.NumberFormat().format(points),
             }}
           />
         )}
@@ -80,7 +80,7 @@ export default function ProjectsChallengeReputationTag({
             description="Reputation points to be gained"
             id="OrjlW6"
             values={{
-              points,
+              points: new Intl.NumberFormat().format(points),
             }}
           />
         )}

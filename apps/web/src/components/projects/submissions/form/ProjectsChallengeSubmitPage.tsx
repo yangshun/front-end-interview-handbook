@@ -59,7 +59,7 @@ export default function ProjectsChallengeSubmitPage({
             id: 'fv5WXh',
           },
           {
-            points,
+            points: new Intl.NumberFormat().format(points),
           },
         ),
         title: intl.formatMessage({

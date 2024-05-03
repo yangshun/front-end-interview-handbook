@@ -33,7 +33,7 @@ export default function ProjectsUserReputation({
           defaultMessage="{points} Reputation"
           description="Label showing reputation count in profile header of Projects sidebar"
           id="xyPOJe"
-          values={{ points }}
+          values={{ points: new Intl.NumberFormat().format(points) }}
         />
       </Text>
     </div>
