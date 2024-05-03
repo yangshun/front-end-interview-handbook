@@ -55,7 +55,7 @@ export async function createMailjetContact(email: string) {
     console.error(e);
 
     return {
-      data: { contactId: null },
+      data: null,
       error: e,
     };
   }

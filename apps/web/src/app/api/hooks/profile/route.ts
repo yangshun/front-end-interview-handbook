@@ -95,11 +95,11 @@ export async function POST(req: NextRequest) {
     // Wrap in try/catch so that Mailjet creation failure
     // does not block the other updates.
     try {
-      const {
-        data: { contactId },
-      } = await createMailjetContact(user.email!);
+      const { data } = await createMailjetContact(user.email!);
 
-      mailjetContactId = contactId;
+      if (data?.contactId) {
+        mailjetContactId = data.contactId;
+      }
 
       await updateMailjetContactsLists(user.email!);
     } catch (err) {
@@ -115,7 +115,7 @@ export async function POST(req: NextRequest) {
       // Use GitHub username or leave empty.
       gitHubUsername: user.user_metadata.user_name || undefined,
       // Mailjet contact ID.
-      mailjetContactId: String(mailjetContactId),
+      mailjetContactId: mailjetContactId ? String(mailjetContactId) : undefined,
       // Use GitHub name or leave empty.
       name: user.user_metadata.name,
       // Use GitHub username or derive from email.
