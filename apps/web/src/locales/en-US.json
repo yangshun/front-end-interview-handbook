@@ -483,6 +483,10 @@
     "defaultMessage": "Your motivations",
     "description": "Title of projects onboarding motivations page"
   },
+  "2BQudu": {
+    "defaultMessage": "Visit external link",
+    "description": "Label for open external link button"
+  },
   "2CZvP8": {
     "defaultMessage": "Title",
     "description": "Label for \"Job Title\" input on Projects profile onboarding page"
@@ -1435,6 +1439,10 @@
     "defaultMessage": "Choose up to 2 reasons so that we can improve your experience",
     "description": "Subtitle of motivation for joining section of projects profile edit page"
   },
+  "AU4H9N": {
+    "defaultMessage": "<bold>You</bold> replied to <recipientProfileLink>{recipient}</recipientProfileLink> on the submission <link>{submissionTitle}</link>: <comment>\"{description}\"</comment>",
+    "description": "Log message for you replying to someone on a submission"
+  },
   "AVk8pE": {
     "defaultMessage": "Name",
     "description": "Label for \"Name\" input on Projects profile onboarding page"
@@ -1787,10 +1795,6 @@
     "defaultMessage": "FAQs",
     "description": "Frequently Asked Questions"
   },
-  "DJFRri": {
-    "defaultMessage": "<bold>You</bold> made a post on <bold>{recipient}</bold>'s submission <link>{submissionTitle}</link>: <comment>\"{description}\"</comment>",
-    "description": "Log message for you making a post on a submission"
-  },
   "DJMUGB": {
     "defaultMessage": "more challenges",
     "description": "Progress percentage label in Continue Learning section in preparation dashboard"
@@ -2003,6 +2007,10 @@
     "defaultMessage": "Real-time support from the team and the growing community.",
     "description": "Lifetime membership feature of real-time support."
   },
+  "F82aIY": {
+    "defaultMessage": "<bold>You</bold> contributed a code review for <recipientProfileLink>{recipient}</recipientProfileLink> on their submission <link>{submissionTitle}</link>: <comment>\"{description}\"</comment>",
+    "description": "Log message for you reviewing a submission"
+  },
   "F8wNUD": {
     "defaultMessage": "Starter code with content copy",
     "description": "Provided resource for project"
@@ -2163,6 +2171,10 @@
     "defaultMessage": "Premium Feature",
     "description": "Title on question paywall appearing on the question pages of premium questions"
   },
+  "GX0ZcE": {
+    "defaultMessage": "<authorProfileLink>{author}</authorProfileLink> contributed a code review for <recipientProfileLink>{recipient}</recipientProfileLink> on their submission <link>{submissionTitle}</link>: <comment>\"{description}\"</comment>",
+    "description": "Log message for someone reviewing a submission"
+  },
   "GZnl60": {
     "defaultMessage": "Tips for making a strong first impression in your self introduction",
     "description": "How to make strong first impressions during self introductions"
@@ -2222,10 +2234,6 @@
   "H/xTN5": {
     "defaultMessage": "Explore community submissions",
     "description": "Recommended action for new projects platform user"
-  },
-  "H1H/bd": {
-    "defaultMessage": "<bold>You</bold> asked <bold>{recipient}</bold> a question on their submission <link>{submissionTitle}</link>: <comment>\"{description}\"</comment>",
-    "description": "Log message for you asking question on a submission"
   },
   "H1aK4/": {
     "defaultMessage": "Style guide",
@@ -2330,10 +2338,6 @@
   "HloN+i": {
     "defaultMessage": "Start coding!",
     "description": "Label for \"Start coding!\" button on Projects project page"
-  },
-  "HmrIqx": {
-    "defaultMessage": "<bold>You</bold> contributed a code review for <bold>{recipient}</bold> on their submission <link>{submissionTitle}</link>: <comment>\"{description}\"</comment>",
-    "description": "Log message for you reviewing a submission"
   },
   "HtFDkf": {
     "defaultMessage": "Official guides",
@@ -3071,10 +3075,6 @@
     "defaultMessage": "The <underline>great</underline> way to prepare for <span>front end</span> interviews",
     "description": "Title of Hero section on Homepage. To describe the product in 1 line so that users understand it immediately."
   },
-  "NN0VZi": {
-    "defaultMessage": "<bold>You</bold> replied to <bold>{recipient}</bold> on the submission <link>{submissionTitle}</link>: <comment>\"{description}\"</comment>",
-    "description": "Log message for you replying to someone on a submission"
-  },
   "NO9tAQ": {
     "defaultMessage": "This is an irreversible action. You will not be able to resume the study list and all progress will be erased. Are you sure?",
     "description": "Confirmation text for stopping a study plan"
@@ -3126,6 +3126,10 @@
   "NoFZV/": {
     "defaultMessage": "Strengthen your proficiency in JavaScript through writing Lodash functions from scratch.",
     "description": "Description for interview preparation focus area"
+  },
+  "Npq6Bh": {
+    "defaultMessage": "<authorProfileLink>{author}</authorProfileLink> asked <recipientProfileLink>{recipient}</recipientProfileLink> a question on their submission <link>{submissionTitle}</link>: <comment>\"{description}\"</comment>",
+    "description": "Log message for someone asking question on a submission"
   },
   "Nt+P5A": {
     "defaultMessage": "Simulate real interview conditions, no need for any setup!",
@@ -3687,10 +3691,6 @@
     "defaultMessage": "Completed",
     "description": "The question has been completed"
   },
-  "RihnWB": {
-    "defaultMessage": "<bold>{author}</bold> replied to <bold>{recipient}</bold> on the submission <link>{submissionTitle}</link>: <comment>\"{description}\"</comment>",
-    "description": "Log message for someone replying to someone on a submission"
-  },
   "RjpadL": {
     "defaultMessage": "Reference practical guides, learn from other's submissions and ask any questions in the",
     "description": "Instruction for projects"
@@ -3838,6 +3838,10 @@
   "Sj1CaY": {
     "defaultMessage": "Practice developing inclusive and accessible web experiences.",
     "description": "Description for interview preparation focus area"
+  },
+  "Sj7pMJ": {
+    "defaultMessage": "<authorProfileLink>{author}</authorProfileLink> replied to <recipientProfileLink>{recipient}</recipientProfileLink> on the submission <link>{submissionTitle}</link>: <comment>\"{description}\"</comment>",
+    "description": "Log message for someone replying to someone on a submission"
   },
   "SlcOi4": {
     "defaultMessage": "Number of challenges completed in skill plan",
@@ -4410,10 +4414,6 @@
   "XD52zM": {
     "defaultMessage": "More",
     "description": "Label for \"More\" button in pagination"
-  },
-  "XGThSq": {
-    "defaultMessage": "Open anyway",
-    "description": "Label for open external link button"
   },
   "XIMn32": {
     "defaultMessage": "Complete | Rewards",
@@ -5243,6 +5243,10 @@
     "defaultMessage": "User submissions",
     "description": "Sidebar navigation label"
   },
+  "e35sSF": {
+    "defaultMessage": "<bold>You</bold> made a post on <recipientProfileLink>{recipient}</recipientProfileLink>'s submission <link>{submissionTitle}</link>: <comment>\"{description}\"</comment>",
+    "description": "Log message for you making a post on a submission"
+  },
   "e5o4mU": {
     "defaultMessage": "Heading",
     "description": "Label for heading"
@@ -5298,6 +5302,10 @@
   "eeWLAW": {
     "defaultMessage": "Framework",
     "description": "Label for the selection dropdown used to select the framework to use for the question"
+  },
+  "ei1/AH": {
+    "defaultMessage": "<authorProfileLink>{author}</authorProfileLink> made a post on <recipientProfileLink>{recipient}</recipientProfileLink>'s submission <link>{submissionTitle}</link>: <comment>\"{description}\"</comment>",
+    "description": "Log message for someone making a post on a submission"
   },
   "ekSPPz": {
     "defaultMessage": "Flashcard format",
@@ -5766,10 +5774,6 @@
   "iSFCj/": {
     "defaultMessage": "Signing Out",
     "description": "Title of Logout page"
-  },
-  "ibMNT0": {
-    "defaultMessage": "<bold>{author}</bold> contributed a code review for <bold>{recipient}</bold> on their submission <link>{submissionTitle}</link>: <comment>\"{description}\"</comment>",
-    "description": "Log message for someone reviewing a submission"
   },
   "inG9hv": {
     "defaultMessage": "Do unused credits roll over?",
@@ -6267,6 +6271,10 @@
     "defaultMessage": "Insert code block",
     "description": "Insert code block tooltip for Richtext toolbar"
   },
+  "m8aR6S": {
+    "defaultMessage": "<bold>You</bold> asked <recipientProfileLink>{recipient}</recipientProfileLink> a question on their submission <link>{submissionTitle}</link>: <comment>\"{description}\"</comment>",
+    "description": "Log message for you asking question on a submission"
+  },
   "mACTSv": {
     "defaultMessage": "Skills | Progress | Dashboard",
     "description": "Title of skills section on dashboard page"
@@ -6623,10 +6631,6 @@
     "defaultMessage": "GitHub username",
     "description": "GitHub profile form label"
   },
-  "p9Ml7d": {
-    "defaultMessage": "You're about to open an external website. Be cautious and keep your personal information safe",
-    "description": "Subtitle for external link page"
-  },
   "pBR3LI": {
     "defaultMessage": "Blog",
     "description": "Link to blog"
@@ -6662,10 +6666,6 @@
   "pQVvOB": {
     "defaultMessage": "Invalid GitHub repository URL",
     "description": "Error message"
-  },
-  "pQZgsm": {
-    "defaultMessage": "<bold>{author}</bold> asked <bold>{recipient}</bold> a question on their submission <link>{submissionTitle}</link>: <comment>\"{description}\"</comment>",
-    "description": "Log message for someone asking question on a submission"
   },
   "pRCMpc": {
     "defaultMessage": "View plans",
@@ -7223,10 +7223,6 @@
     "defaultMessage": "View All Questions",
     "description": "Link label to the list of all Quiz coding questions"
   },
-  "u2sucM": {
-    "defaultMessage": "<bold>{author}</bold> made a post on <bold>{recipient}</bold>'s submission <link>{submissionTitle}</link>: <comment>\"{description}\"</comment>",
-    "description": "Log message for someone making a post on a submission"
-  },
   "u2wpqq": {
     "defaultMessage": "Redo",
     "description": "Redo tooltip for Richtext toolbar"
@@ -7266,6 +7262,10 @@
   "uGIcYs": {
     "defaultMessage": "Welcome to GreatFrontEnd Projects!",
     "description": "Title for Projects profile onboarding page"
+  },
+  "uK9SHL": {
+    "defaultMessage": "You're about to visit an external website. Proceed with caution and keep your personal information safe!",
+    "description": "Subtitle for external link page"
   },
   "uKEj2Z": {
     "defaultMessage": "Official guides & resources",

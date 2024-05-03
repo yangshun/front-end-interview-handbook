@@ -21,6 +21,7 @@ export type ProjectsProfileCommunityComment = ProjectsDiscussionComment &
     entity?: Readonly<{
       href: string;
       recipient?: string;
+      recipientUserName?: string;
       title: string;
     }> | null;
   }> &

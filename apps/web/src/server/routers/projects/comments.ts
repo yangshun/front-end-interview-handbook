@@ -309,6 +309,8 @@ export const projectsCommentsRouter = router({
 
               const submissionAuthorName =
                 submission?.projectsProfile?.userProfile.name;
+              const submissionAuthorUserName =
+                submission?.projectsProfile?.userProfile.username;
 
               if (!submission?.title || !submissionAuthorName) {
                 return comment;
@@ -319,6 +321,7 @@ export const projectsCommentsRouter = router({
                 entity: {
                   href: submission.hrefs.detail,
                   recipient: submissionAuthorName,
+                  recipientUserName: submissionAuthorUserName,
                   title: submission.title,
                 },
               };
