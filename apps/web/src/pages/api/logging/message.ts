@@ -57,21 +57,41 @@ export default async function handler(
     sha,
   } = req.body;
 
-  const finalMessage = [
-    `Level: ${levelIcon[level as MessageLevel]}`,
-    `Title: ${title}`,
-    `Message: ${message}`,
-    req.headers.referer && `Referer: ${req.headers.referer}`,
-    userIdentifier && `User Identifier: ${userIdentifier}`,
-    user?.email && `Email: ${user?.email}`,
-    user?.id && `User ID: ${user?.id}`,
-    sha && `Client SHA: ${sha}`,
-    process.env.VERCEL_GIT_COMMIT_SHA &&
-      `Server SHA: ${process.env.VERCEL_GIT_COMMIT_SHA.slice(0, 7)}`,
-    cookies.gfp && `GFP: ${cookies.gfp}`,
-    cookies.country && `Country: ${cookies.country}`,
-  ]
-    .filter(Boolean)
+  const messageRows: ReadonlyArray<{ key: string; value: string }> = [
+    { key: 'Level', value: levelIcon[level as MessageLevel] },
+    {
+      key: 'Title',
+      value: title,
+    },
+    {
+      key: 'Message',
+      value: message,
+    },
+    req.headers.referer
+      ? {
+          key: 'Referer',
+          value: URL.canParse(req.headers.referer)
+            ? new URL(req.headers.referer).pathname
+            : req.headers.referer,
+        }
+      : null,
+    userIdentifier && { key: 'User Identifier', value: userIdentifier },
+    user?.email && { key: 'Email', value: user?.email },
+    user?.id && { key: 'User ID', value: user?.id },
+    {
+      key: 'SHA',
+      value: `${sha} (C) ${
+        process.env.VERCEL_GIT_COMMIT_SHA
+          ? process.env.VERCEL_GIT_COMMIT_SHA.slice(0, 7)
+          : '<nil>'
+      } (S)`,
+    },
+    cookies.gfp && { key: 'GFP', value: cookies.gfp },
+    cookies.country && { key: 'Country', value: cookies.country },
+  ].flatMap((item) => (item != null ? [item] : []));
+
+  const finalMessage = messageRows
+    .map(({ key, value }) => key + ': ' + value)
     .join('\n');
 
   await fetch(
