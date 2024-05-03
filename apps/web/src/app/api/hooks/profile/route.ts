@@ -115,7 +115,7 @@ export async function POST(req: NextRequest) {
       // Use GitHub username or leave empty.
       gitHubUsername: user.user_metadata.user_name || undefined,
       // Mailjet contact ID.
-      mailjetContactId,
+      mailjetContactId: String(mailjetContactId),
       // Use GitHub name or leave empty.
       name: user.user_metadata.name,
       // Use GitHub username or derive from email.

@@ -44,7 +44,7 @@ model Profile {
   stripeCustomer   String?
   premium          Boolean @default(false)
   plan             String?
-  mailjetContactId BigInt?
+  mailjetContactId String?
 
   createdAt DateTime @default(now()) @db.Timestamptz(6)
   updatedAt DateTime @default(now()) @updatedAt
