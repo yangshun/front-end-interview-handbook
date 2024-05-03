@@ -1,3 +1,4 @@
+import clsx from 'clsx';
 import { RiThumbUpFill } from 'react-icons/ri';
 import { useIntl } from 'react-intl';
 
@@ -51,7 +52,10 @@ export default function ProjectsChallengeSubmissionHeroVoteButton({
 
   return (
     <FilterButton
-      className="flex-1 md:flex-none"
+      className={clsx(
+        ' flex-1 md:flex-none',
+        'dark:!bg-neutral-800 dark:md:!bg-neutral-900',
+      )}
       icon={RiThumbUpFill}
       isDisabled={isLoading || vote.isLoading || unvote.isLoading}
       label={String(votes)}
