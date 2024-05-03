@@ -1,3 +1,4 @@
+import clsx from 'clsx';
 import { FormattedMessage } from 'react-intl';
 
 import { trpc } from '~/hooks/trpc';
@@ -35,7 +36,7 @@ export default function ProjectsProfilePinnedSubmissions({
         />
       </Heading>
       <Section>
-        <div className="grid grid-cols-1 gap-3 md:grid-cols-2 md:gap-4 lg:grid-cols-3 lg:gap-6">
+        <div className={clsx('grid gap-6', 'md:grid-cols-2', 'xl:grid-cols-3')}>
           {pinnedSubmissions.map((submission) => (
             <ProjectsChallengeSubmissionCard
               key={submission.id}
