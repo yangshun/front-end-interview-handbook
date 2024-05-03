@@ -33,8 +33,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function Page() {
   const cookieStore = cookies();
   const countryCode: string = cookieStore.get('country')?.value ?? 'US';
-  const plans =
+  const plansPaymentConfig =
     await fetchInterviewsPricingPlanPaymentConfigLocalizedRecord(countryCode);
 
-  return <InterviewsPaymentSuccessPage plans={plans} />;
+  return (
+    <InterviewsPaymentSuccessPage plansPaymentConfig={plansPaymentConfig} />
+  );
 }

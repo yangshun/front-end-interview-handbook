@@ -1,5 +1,4 @@
 import clsx from 'clsx';
-import { RiStarSmileFill } from 'react-icons/ri';
 import { useIntl } from 'react-intl';
 import { useMediaQuery } from 'usehooks-ts';
 
@@ -8,10 +7,8 @@ import { trpc } from '~/hooks/trpc';
 import UserProfileInformationRow from '~/components/profile/info/UserProfileInformationRow';
 import ProjectsProfileAvatar from '~/components/projects/users/ProjectsProfileAvatar';
 import Anchor from '~/components/ui/Anchor';
-import Chip from '~/components/ui/Chip';
 import Spinner from '~/components/ui/Spinner';
 import Text from '~/components/ui/Text';
-import Tooltip from '~/components/ui/Tooltip';
 
 import ProjectsProfileDisplayNameLink from './ProjectsProfileDisplayNameLink';
 import ProjectsProfilePremiumChip from './ProjectsProfilePremiumChip';
@@ -27,7 +24,6 @@ type Props = Readonly<{
 }>;
 
 export default function ProjectsProfileHoverCard({ userId }: Props) {
-  const intl = useIntl();
   const user = useUser();
   const isMobileAndBelow = useMediaQuery('(max-width: 768px)');
   const { data, isLoading } = trpc.projects.profile.hovercard.useQuery({

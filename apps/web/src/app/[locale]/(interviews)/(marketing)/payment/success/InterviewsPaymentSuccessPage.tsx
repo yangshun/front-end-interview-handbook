@@ -44,10 +44,12 @@ const actions = [
 ];
 
 type Props = Readonly<{
-  plans: InterviewsPricingPlanPaymentConfigLocalizedRecord;
+  plansPaymentConfig: InterviewsPricingPlanPaymentConfigLocalizedRecord;
 }>;
 
-export default function PaymentSuccessPage({ plans }: Props): JSX.Element {
+export default function PaymentSuccessPage({
+  plansPaymentConfig,
+}: Props): JSX.Element {
   const searchParams = useSearchParams();
   const planSearchParam = searchParams?.get(
     'plan',
@@ -55,7 +57,7 @@ export default function PaymentSuccessPage({ plans }: Props): JSX.Element {
 
   useEffect(() => {
     if (planSearchParam != null) {
-      const plan = plans[planSearchParam];
+      const plan = plansPaymentConfig[planSearchParam];
 
       // Special conversion event expected by GA.
       gtag.event({
@@ -117,7 +119,7 @@ export default function PaymentSuccessPage({ plans }: Props): JSX.Element {
         value: plan.unitCostCurrency.withPPP.after,
       });
     }
-  }, [planSearchParam, plans]);
+  }, [planSearchParam, plansPaymentConfig]);
 
   return (
     <Container className="py-16" variant="3xl">

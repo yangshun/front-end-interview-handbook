@@ -213,7 +213,7 @@ async function processOneTimePlan(
   const cancelUrl = `${
     queryParams.cancel_url || origin + urls.cancel
   }?checkout_cancel=1&plan=${planType}`;
-  const successUrl = `${origin}${urls.success}?plan=${planType}`;
+  const successUrl = `${origin + urls.success}?plan=${planType}`;
 
   const session = await stripe.checkout.sessions.create({
     allow_promotion_codes: planPaymentConfig.allowPromoCode,
