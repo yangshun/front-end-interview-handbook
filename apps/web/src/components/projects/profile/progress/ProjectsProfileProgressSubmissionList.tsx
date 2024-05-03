@@ -15,7 +15,7 @@ type Props = Readonly<{
   targetUserId: string;
 }>;
 
-const ITEMS_PER_PAGE = 6;
+const ITEMS_PER_PAGE = 12;
 
 export default function ProjectsProfileProgressSubmissionList({
   emptyState,

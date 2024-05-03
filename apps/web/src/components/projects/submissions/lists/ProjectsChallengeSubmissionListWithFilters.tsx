@@ -26,7 +26,7 @@ import {
   themeIconColor,
 } from '~/components/ui/theme';
 
-const ITEMS_PER_PAGE = 12;
+const ITEMS_PER_PAGE = 30;
 
 type Props = Readonly<{
   challengeInfoDict: Record<string, ProjectsChallengeInfo>;
@@ -92,8 +92,8 @@ export default function ProjectsChallengeSubmissionListWithFilters({
           yoeExperience,
         },
         pagination: {
-          currentPage,
-          itemPerPage: ITEMS_PER_PAGE,
+          limit: ITEMS_PER_PAGE,
+          page: currentPage,
         },
         sort: { field: sortField, isAscendingOrder },
       },

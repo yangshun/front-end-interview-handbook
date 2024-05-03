@@ -254,8 +254,12 @@ export const projectsChallengeSubmissionListRouter = router({
           yoeExperience: z.array(z.enum(['junior', 'mid', 'senior'])),
         }),
         pagination: z.object({
-          currentPage: z.number(),
-          itemPerPage: z.number(),
+          limit: z
+            .number()
+            .int()
+            .positive()
+            .transform((val) => Math.min(30, val)),
+          page: z.number().int().positive(),
         }),
         sort: z.object({
           field: z.enum(['createdAt', 'difficulty', 'votes', 'recommended']),
@@ -279,7 +283,7 @@ export const projectsChallengeSubmissionListRouter = router({
           submissionType,
           hasClientFilterApplied,
         } = filter;
-        const { itemPerPage, currentPage } = pagination;
+        const { limit, page } = pagination;
 
         const hasNotStarted = challengeSessionStatus.includes('NOT_STARTED');
         const statusWithoutNotStarted = challengeSessionStatus.filter(
@@ -448,8 +452,8 @@ export const projectsChallengeSubmissionListRouter = router({
               },
             },
             orderBy: orderBy ?? undefined,
-            skip: (currentPage - 1) * itemPerPage,
-            take: itemPerPage,
+            skip: (page - 1) * limit,
+            take: limit,
             where,
           }),
         ]);
@@ -546,7 +550,11 @@ export const projectsChallengeSubmissionListRouter = router({
   listLatest: projectsUserProcedure
     .input(
       z.object({
-        limit: z.number().int().positive(),
+        limit: z
+          .number()
+          .int()
+          .positive()
+          .transform((val) => Math.min(30, val)),
       }),
     )
     .query(async ({ input: { limit }, ctx: { projectsProfileId } }) => {
@@ -577,7 +585,7 @@ export const projectsChallengeSubmissionListRouter = router({
         orderBy: {
           createdAt: 'desc',
         },
-        take: Math.min(limit, 10),
+        take: limit,
         where: {
           NOT: {
             profileId: projectsProfileId,
