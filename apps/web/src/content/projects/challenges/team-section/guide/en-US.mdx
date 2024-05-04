@@ -1,0 +1,75 @@
+This challenge requires knowledge of basic responsive CSS and grid layouts and is probably one of your first exposures to a challenge that is using responsive layout grids.
+
+### Relevant concepts
+
+- [Grid](https://css-tricks.com/snippets/css/complete-guide-grid/): The team members are laid out in a grid-like fashion with gaps between each cell, making CSS grid the perfect option.
+- [Flex](https://css-tricks.com/snippets/css/a-guide-to-flexbox/): Flex layouts are useful for adding gaps between a stack of elements. While flex is not the only way to achieve the layout, it is the modern way of doing so.
+- [Media queries](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_media_queries/Using_media_queries): Media queries allow you to apply different CSS styles based on the characteristics of the device displaying the page, such as screen width, height, orientation, etc. They are crucial for making your features section responsive across various devices. You can define breakpoints where the layout or styles change to accommodate different screen sizes.
+
+### Recommended approach
+
+1. **Build the header section**: Use semantic HTML elements like `<header>`, `<div>`, `<section>`, and appropriate content elements such as `<h2>`, `<p>`. Ensure responsiveness – the heading element has a different `font-size` and `line-height` on mobile. If you've built the other marketing section challenges that include a similar header, you're highly advised to reuse the styles.
+2. **Implement a team member item**: The elements within each team member item is vertically stacked and doesn't require complex styling. Do note that the images are of a fixed height but span the full item width.
+3. **Implement a responsive grid containing the team members**: Turn on the layout grids in Figma and see that each team member spans 3 columns on desktop (25% of the container), 3 columns on tablet (50% of the container), and 4 columns on mobile (100% of the container). If you are using a templating system or a JavaScript framework, render each item using iteration helpers rather then repeating the team member markup.
+
+### Grid columns
+
+Grids provide a structural framework for your design, ensuring that elements align properly across different parts of the layout. With a grid, you can streamline the design process, as it eliminates guesswork – every page-level section should take up N number of columns and the spacing between the columns have already been pre-determined.
+
+By turning on the "Layout grids" in Figma (<kbd>Shift</kbd> + <kbd>G</kbd>), you can see that on the "Desktop" breakpoint, each team member item spans 3 columns.
+
+Here's how the team members grid can be implemented in HTML and CSS.
+
+```css
+/* These are only for desktop breakpoint.
+  Changes have to made to also support mobile and tablet. */
+.container {
+  max-width: 1440px;
+  padding: 0 32px;
+  width: 100%;
+
+  display: grid;
+  column-gap: 32px;
+  row-gap: 48px;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+}
+
+.team-member {
+  grid-column: span 3 / span 3;
+}
+```
+
+```html
+<div class="container">
+  <div class="team-member">Joe Jackson</div>
+  <div class="team-member">Ash Karter</div>
+  <div class="team-member">Farias Amed</div>
+  <div class="team-member">Sarah Haust</div>
+</div>
+```
+
+Read up on [CSS Grid](https://css-tricks.com/snippets/css/complete-guide-grid/) if you aren't familiar with using CSS grid for layouts.
+
+### Responsive section behavior
+
+To make the sections stack on top of each other on mobile and tablet, we can specify a different `grid-column` value for each non-desktop breakpoints to take up the desired number of columns – 4 on mobile and 3 on tablet.
+
+```css
+/* Changes have to be made to the container as well. Refer to the "Layout grid" guide. */
+
+.team-member {
+  grid-column: span 3 / span 3;
+}
+
+@media (min-width: 768px) {
+  .team-member {
+    grid-column: span 3 / span 3;
+  }
+}
+
+@media (min-width: 1440px) {
+  .team-member {
+    grid-column: span 4 / span 4;
+  }
+}
+```

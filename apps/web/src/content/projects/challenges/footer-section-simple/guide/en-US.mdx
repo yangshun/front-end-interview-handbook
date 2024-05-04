@@ -1,0 +1,30 @@
+This challenge requires knowledge of basic responsive CSS and flex layouts.
+
+### Relevant concepts
+
+- [Flex](https://css-tricks.com/snippets/css/a-guide-to-flexbox/): Flex layouts are useful for adding gaps between a stack of elements. While flex is not the only way to achieve the layout, it is the modern way of doing so.
+- Icon buttons/links: How to render icon-only links where there are the text isn't visible yet keeping them accessible.
+
+### Recommended approach
+
+1. **Define the footer container**: Define a `<footer>` that has a vertical padding of 96px, center-aligned content, and is vertically-centered on the page.
+2. **Build the row of links**: Nothing too special here. Note that the gap between each link item is smaller on mobile.
+3. **Build the row of social media links**:
+   1. Icons are obtained from [Remix Icon](https://remixicon.com). Refer to our "Icons Guide" for more details on rendering the icons.
+   2. Since the icon button/links do not have visible text, `aria-label`s should be added to the button links in order for screen readers to announce the intentions of the links.
+4. **Add the copyright label**: While you can hardcode the year, it'd better to dynamically render it based on the current date by doing `new Date().getFullYear()`.
+
+### Accessibility
+
+Since the icon button/links do not have visible text, `aria-label`s should be added to the button links in order for screen readers to announce the intentions of the links.
+
+Example HTML for building accessible icon button links:
+
+```html
+<!-- Add custom styling -->
+<a
+  aria-label="Link to GreatFrontEnd's GitHub profile"
+  href="https://github.com/greatfrontend">
+  <svg aria-hidden="true">...</svg>
+</a>
+```

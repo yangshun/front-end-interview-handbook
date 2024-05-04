@@ -1,0 +1,77 @@
+This challenge requires knowledge of basic responsive CSS and grid layouts and is probably one of your first exposures to a challenge that is using responsive layout grids.
+
+### Relevant concepts
+
+- [Flex](https://css-tricks.com/snippets/css/a-guide-to-flexbox/): Flex layouts are useful for adding gaps between a stack of elements. While flex is not the only way to achieve the layout, it is the modern way of doing so.
+- [Grid](https://css-tricks.com/snippets/css/complete-guide-grid/): The sections are built using a 12-column grid so CSS grids can help with implementing such layouts.
+- [Media queries](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_media_queries/Using_media_queries): Media queries allow you to apply different CSS styles based on the characteristics of the device displaying the page, such as screen width, height, orientation, etc. They are crucial for making your features section responsive across various devices. You can define breakpoints where the layout or styles change to accommodate different screen sizes.
+
+### Recommended approach
+
+1. **Build the header section**: Use semantic HTML elements like `<header>`, `<div>`, `<section>`, and appropriate content elements such as `<h2>`, `<p>`. Ensure responsiveness – the heading element has a different `font-size` and `line-height` on mobile. If you've built the other marketing section challenges that include a similar header, you're highly advised to reuse the styles.
+2. **Implement a responsive grid for the bottom section**: Turn on the layout grids in Figma and see that the left and right side each spans 6 columns half on desktop (50% of the container), 6 columns on tablet (100% of the container), and 4 columns on mobile (100% of the container).
+3. **Implement the feature list**: Icons are obtained from [Remix Icon](https://remixicon.com). Refer to our "Icons Guide" for more details on rendering the icons. Note that the icons are contained within a circle that has a subtle shadow.
+4. **Display the image**: Render the image using its natural height for the permitted width, as specified by the design. This will allow the image to preserve its original aspect ratio.
+5. **Implement the other side**: With the above approach, minimal changes are needed to implement the image on the other side – simply swap the contents within each section.
+
+### Grid columns
+
+Grids provide a structural framework for your design, ensuring that elements align properly across different parts of the layout. With a grid, you can streamline the design process, as it eliminates guesswork – every page-level section should take up N number of columns and the spacing between the columns have already been pre-determined.
+
+By turning on the "Layout grids" in Figma (<kbd>Shift</kbd> + <kbd>G</kbd>), you can see that for the bottom section on the "Desktop" breakpoint, the left section and right section each span 6 columns. A sample approach on how to divide the sections is:
+
+```css
+/* These are only for desktop breakpoint.
+  Changes have to made to also support mobile and tablet. */
+.container {
+  max-width: 1440px;
+  padding: 0 32px;
+  width: 100%;
+
+  display: grid;
+  gap: 32px;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+}
+
+.left-section {
+  grid-column: span 6 / span 6;
+}
+
+.right-section {
+  grid-column: span 6 / span 6;
+}
+```
+
+Read up on [CSS Grid](https://css-tricks.com/snippets/css/complete-guide-grid/) if you aren't familiar with using CSS grid for layouts.
+
+Typically, all pages for a specific website will be using the same grid layout. Most challenges on GreatFrontEnd Projects are designed using the same grid layout across all breakpoints.
+
+### Responsive section behavior
+
+To make the sections stack on top of each other on mobile and tablet, we can specify a different `grid-column` value for each non-desktop breakpoints to take up the full number of columns – 4 on mobile and 6 on tablet.
+
+```css
+/* Changes have to be made to the container as well. Refer to the "Layout grid" guide. */
+
+.left-section {
+  background-color: red;
+  grid-column: span 4 / span 4;
+}
+
+@media (min-width: 768px) {
+  .left-section {
+    grid-column: span 6 / span 6;
+  }
+}
+
+.right-section {
+  background-color: green;
+  grid-column: span 4 / span 4;
+}
+
+@media (min-width: 768px) {
+  .right-section {
+    grid-column: span 6 / span 6;
+  }
+}
+```

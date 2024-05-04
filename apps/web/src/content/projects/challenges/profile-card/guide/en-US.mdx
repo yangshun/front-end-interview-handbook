@@ -1,30 +1,59 @@
-This challenge involves basic HTML and CSS, but it is fun because you can personalize it and use it as your personal homepage!
+Welcome to GreatFrontEnd Projects! We hope that this is the beginning of your wonderful front end journey with us. If you haven't already, join our [Discord channel](https://discord.gg/NDFx8f6P6B) and introduce yourself there.
 
-### Define the structure with HTML
+This challenge involves basic HTML and CSS, but it is a fun one to complete because you can personalize it and use it as your personal homepage!
 
-- The recommended way is to build the card first, then add the contents starting from the top.
-- Use semantic HTML elements to create containers for different parts of the card. For instance, you might have one `<div>` for the card itself, an `<img>` tag to display the user avatar picture, and use `<div>`/`<p>` for the contents.
+### Relevant concepts
 
-### Style the card with CSS
+These CSS concepts will be useful for this challenge.
 
-- Learn about the [Box Model](https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/The_box_model), as it will help you understand padding, borders, and margins, which are crucial for layout.
-- Refer to the style guide for the typography values and colors to use.
+- [Box model](https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/The_box_model): Understanding padding, borders, and margins is necessary for achieving the desired layout.
+- [Flex](https://css-tricks.com/snippets/css/a-guide-to-flexbox/): Flex layouts are useful for adding gaps between a stack of elements. While flex is not the only way to achieve the layout, it is the modern way of doing so.
+- Icon buttons/links: How to render icon-only links where there are the text isn't visible yet keeping them accessible.
+
+### Recommended approach
+
+1. **Build the page layout**: Render a background color for the page. Within the page, add a horizontally-centered card that is a fixed distance of `200px` from the top of the page.
+1. **Build the card and its contents**: Display the avatar image, name, title, bio, button, and social links.
 
 ### Card layout
 
-Note that the card has a fixed width and is a fixed height from the top of the screen.
+Observe that the card has a fixed width of `340px` and is a fixed distance of `200px` from the top of the screen (it is not vertically centered!).
 
 - Set a fixed `width` and `margin-top` for the card.
-- The card should not have a hardcoded `height` value and resize according to the vertical space taken up by its contents.
+- The card should not have a hardcoded `height` value; its height should be according to the vertical space taken up by its contents. This is the behavior by default in CSS, so there are no extra steps needed.
 - To horizontally center the card on the page, a simple way would be `margin-left: auto; margin-right: auto` or to make the card parent `display: flex; justify-content: center`.
-- The contents within the card can be separate into three parts:
-  - Top half: Profile details section, with a fixed `gap` between each row, which can be achieved with `display: flex; flex-direction: column; row-gap: 24px`
-  - Bottom half: Links section, with also has the same `gap` value as the top half.
-    - Social links: Center aligned icons with a consistent `gap` in between each button.
+
+The contents within the card can be separated into two sections:
+
+#### Top section
+
+Profile details section, with a fixed `gap` between each row, which can be achieved with `display: flex; flex-direction: column; row-gap: 24px`.
+
+Note that the lines of text can differ in terms of font size and line height and also the color! Inspect the properties carefully and refer to the style guide.
+
+#### Bottom section
+
+This section also has the same `gap` value as the top section.
+
+- **Button**: This button is full-width and should span across the entire card.
+- **Social links**: Center-aligned icons with a consistent `gap` between each link button. Icons can be obtained from [Remix Icons](https://remixicon.com/). Refer to our "Icons Guide" for more guidance on using icons.
+
+Pay attention to the focus styles on the buttons and the icon links.
 
 ### Accessibility
 
-Since the icon button/links do not have visible text, we should add `aria-label`s to the buttons in order for screen readers to announce the intentions of the links.
+Since the icon button/links do not have visible text, `aria-label`s should be added to the button links in order for screen readers to announce the intentions of the links.
+
+Example HTML for building accessible icon button links:
+
+```html
+<!-- Add custom styling -->
+<a
+  aria-label="Link to GreatFrontEnd's GitHub profile"
+  href="https://github.com/greatfrontend">
+  <svg aria-hidden="true">...</svg>
+</a>
+```
 
 ### Customizing
 

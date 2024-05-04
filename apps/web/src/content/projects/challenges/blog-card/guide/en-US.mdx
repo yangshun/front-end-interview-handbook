@@ -1,28 +1,60 @@
-This challenge is a basic one which requires basic mastery of HTML and CSS to complete.
+Welcome to GreatFrontEnd Projects! We hope that this is the beginning of your wonderful front end journey with us. If you haven't already, join our [Discord channel](https://discord.gg/NDFx8f6P6B) and introduce yourself there.
 
-### Define the structure with HTML
+The blog card challenge is a gentle introduction to the platform and only requires basic mastery of HTML and CSS to complete. The challenges get progressively harder and you will soon be building engaging sections of a [marketing website](/projects/tracks/marketing), reusable UI components of a [design system](/projects/tracks/design-system), and fully interactive pages of an [e-commerce platform](/projects/tracks/e-commerce).
 
-- The recommended way is to build the card first, then add the contents starting from the top.
-- Use semantic HTML elements to create containers for different parts of the card. For instance, you might have one `<div>` for the card itself, an `<img>` tag to display the blog article picture, and another `<div>` for wrapping the text content.
+Since this is likely one of your first few challenges, more guidance will be provided. As we move on to the more complex challenges, there will be less guidance on the fundamentals and more emphasis on topics like accessibility, performance, and code structure.
 
-### Style the card with CSS
+Let's start building a blog card!
 
-- Learn about the [Box Model](https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/The_box_model), as it will help you understand padding, borders, and margins, which are crucial for layout.
-- Use classes to apply styles to specific elements. There can be more than one blog card per page; using classes will allow you to easily style another card.
-- Refer to the style guide for the typography values and colors to use.
+### Relevant concepts
+
+These CSS concepts will be useful for this challenge.
+
+- [Box model](https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/The_box_model): Understanding padding, borders, and margins is necessary for achieving the desired layout.
+- [Flex](https://css-tricks.com/snippets/css/a-guide-to-flexbox/): Flex layouts are useful for adding gaps between a stack of elements. While flex is not the only way to achieve the layout, it is the modern way of doing so.
+- [Images](https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Images_in_HTML): How to render images where the original image doesn't necessarily fit within the allocated dimensions.
+
+### Recommended approach
+
+1. **Build the page layout**: Render a background color for the page. Within the page, add a horizontally-centered card that is a fixed distance of `120px` from the top of the page.
+1. **Build the card and its contents**: Display the article image, badge, title, excerpt, and button link.
+
+### Card structure
+
+- Build the card container first, then add the contents starting from the top.
+- Use semantic HTML elements to create containers for different parts of the card. For instance, you might have one `<div>` for the card itself, an `<img>` tag to display the blog article image, and another `<div>` for wrapping the textual content.
+- You can use either an `<img>` or a `<picture>` tag to display the blog article image, just be sure to provide `alt` attributes for accessibility.
 
 ### Card layout
 
-Note that the card has a fixed width and is a fixed height from the top of the screen.
+Observe that the card has a fixed width of `340px` and is a fixed distance of `120px` from the top of the screen (it is not vertically centered!).
 
 - Set a fixed `width` and `margin-top` for the card.
-- The card should not have a hardcoded `height` value and resize according to the vertical space taken up by its contents.
+- The card should not have a hardcoded `height` value; its height should be according to the vertical space taken up by its contents. This is the behavior by default in CSS, so there are no extra steps needed.
 - To horizontally center the card on the page, a simple way would be `margin-left: auto; margin-right: auto` or to make the card parent `display: flex; justify-content: center`.
-- Since the the elements within the card are laid out in a vertical direction, there's no need to use `display: flex` for arranging the card elements.
+- Since the the elements within the card are laid out in a vertical direction, there's no need to use `display: flex` for arranging the card elements. However, do try using `display: flex; flex-direction: column` and `gap` for the vertical spacing between the text elements.
 
-### Ensuring different cards have the same height
+### Styling the card and its contents
 
-In reality, blog cards are displayed along other blog cards. When they are placed side-by-side, it is more aesthetically pleasing for their contents (image, title, excerpt) to be aligned horizontally (at the same level). Let's see how we can achieve this for:
+- When styling, use classes to apply styles to specific elements as opposed to inline styles. There can be more than one blog card per page, using classes will allow you to apply the styles to another blog card instance.
+- Notice that the card has a box shadow, a border, a background color and rounded corners! Be sure to add the necessary styling.
+- Refer to the style guide for the appropriate typography values and colors to use.
+- Notice that the button link has a custom focus style.
 
-- **Image**: Since the image can be of varying dimensions and aspect ratios, we can use a fixed height on the image and have the image fill up the entire allocated space. The common ways to display the image would be using an `<img>` tag or `background-image` property in CSS. In the past, developers will lean towards using `background-image` because of the ability to use [`background-size: cover`](https://developer.mozilla.org/en-US/docs/Web/CSS/background-size), which scales the image (while preserving its ratio) to the smallest possible size to fill the image container, leaving no empty space. These days, `<img>`s support the [`object-fit: cover`](https://developer.mozilla.org/en-US/docs/Web/CSS/object-fit) property which achieves a similar effect.
-- **Text**: The title and excerpt can be longer than one sentence and two sentences directly. One solution will be to clamp the text to a specific number of lines, using `-webkit-line-clamp`. Tailwind CSS' [Line Clamp utility](https://tailwindcss.com/docs/line-clamp) makes clamping text effortless. Truncating is not ideal because text is being hidden from users. Hence it is recommended to work with article authors to set a guidance on how many characters the title and excerpt should contain.
+### Ensuring cards have the same height
+
+In reality, blog cards are usually displayed in a list, along other blog cards. When they are placed side-by-side, it is more aesthetically pleasing for their contents (image, title, excerpt) to be aligned horizontally (at the same level). At the very least, the cards in a list should be of the same height. In fact, we use these techniques on this very platform to have same-height challenge cards and submission cards.
+
+Let's see how we can achieve this.
+
+#### Image
+
+Since the image can be of varying dimensions and aspect ratios, we can use a fixed height on the image and have the image fill up the entire allocated space.
+
+Common ways to display the images include using an `<img>` tag or the `background-image` CSS property. In the past, developers will lean towards using `background-image` because of the ability to use [`background-size: cover`](https://developer.mozilla.org/en-US/docs/Web/CSS/background-size), which scales the image (while preserving its ratio) to the smallest possible size to fill the image container, leaving no empty space. These days, `<img>`s support the [`object-fit: cover`](https://developer.mozilla.org/en-US/docs/Web/CSS/object-fit) property which achieves a similar effect.
+
+#### Text elements
+
+The title and excerpt can be longer than one sentence and two sentences respectively. One solution will be to clamp the text to a specific number of lines, using `-webkit-line-clamp`. Tailwind CSS' [Line Clamp utility](https://tailwindcss.com/docs/line-clamp) makes clamping text effortless.
+
+That said, truncation is not ideal because text is being hidden from users. Hence it is recommended to work with article authors to set a guidance on how many characters the title and excerpt should contain.

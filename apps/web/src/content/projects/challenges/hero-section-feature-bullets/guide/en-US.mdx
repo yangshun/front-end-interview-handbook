@@ -1,10 +1,27 @@
 This challenge requires knowledge of basic responsive CSS and grid layouts and is probably one of your first exposures to a challenge that is using responsive layout grids.
 
+### Relevant concepts
+
+- [Flex](https://css-tricks.com/snippets/css/a-guide-to-flexbox/): Flex layouts are useful for adding gaps between a stack of elements. While flex is not the only way to achieve the layout, it is the modern way of doing so.
+- [Media queries](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_media_queries/Using_media_queries): Media queries allow you to apply different CSS styles based on the characteristics of the device displaying the page, such as screen width, height, orientation, etc. They are crucial for making your hero section responsive across various devices. You can define breakpoints where the layout or styles change to accommodate different screen sizes.
+- [Images](https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Images_in_HTML): How to render images where the original image doesn't necessarily fit within the allocated dimensions.
+
+### Recommended approach
+
+1. **Define the layout**: Start by outlining the structure of your hero section using HTML. Use semantic HTML elements like `<header>`, `<div>`, `<section>`, and appropriate content elements such as `<h1>`, `<p>`, `<button>`, and `<img>`. Ensure that the HTML structure is clean, logical, and accessible.
+2. **Implement responsive design**:
+   1. **Layout**: Use CSS to style the hero section and make it responsive. Utilize CSS Flexbox and/or Grid to create flexible layouts that adapt to different screen sizes (side-by-side on desktop, stacked for tablet and below).
+   2. **Typography**: Implement different text sizes for the hero title for the various breakpoints.
+   3. **Button positioning**: Note that the primary button is on the left on mobile! Try using different `flex-direction` values for mobile vs non-mobile to achieve this.
+3. **Implement feature bullets**: Icons are obtained from [Remix Icon](https://remixicon.com). Refer to our "Icons Guide" for more details on rendering the icons.
+4. **Implement buttons with common styles**: The buttons share some common styling such as typography and dimensions. Implement the styles such that the common styles can be reused for the two buttons yet allowing for differences in background and text color. If you have completed the [Button Component](/projects/challenges/button-component) challenges you should reuse the component/styles here.
+5. **Add the image**: Render the image using its natural height for the permitted width, as specified by the design. This will allow the image to preserve its original aspect ratio.
+
 ### Grid columns
 
-Grids provide a structural framework for your design, ensuring that elements align properly across different parts of the layout. This alignment creates a sense of order and cohesion.With a grid, you can streamline the design process, as it eliminates guesswork – every page-level section should take up N number of columns and the spacing between the columns have already been pre-determined.
+Grids provide a structural framework for your design, ensuring that elements align properly across different parts of the layout. With a grid, you can streamline the design process, as it eliminates guesswork – every page-level section should take up N number of columns and the spacing between the columns have already been pre-determined.
 
-By turning on the "Layout grids" (<kbd>Shift</kbd> + <kbd>G</kbd>) in Figma, you can see that on the "Desktop" breakpoint, the left section spans 5 columns whereas the right column spans 7 columns. A sample approach on how to divide the sections into 5 and 7 columns respectively is:
+By turning on the "Layout grids" in Figma (<kbd>Shift</kbd> + <kbd>G</kbd>), you can see that on the "Desktop" breakpoint, the left section spans 5 columns whereas the right column spans 7 columns. A sample approach on how to divide the sections into 5 and 7 columns respectively is:
 
 ```css
 /* These are only for desktop breakpoint.
@@ -37,6 +54,8 @@ Typically, all pages for a specific website will be using the same grid layout. 
 To make the sections stack on top of each other on mobile and tablet, we can specify a different `grid-column` value for each non-desktop breakpoints to take up the full number of columns – 4 on mobile and 6 on tablet.
 
 ```css
+/* Changes have to be made to the container as well. Refer to the "Layout grid" guide. */
+
 .left-section {
   background-color: red;
   grid-column: span 4 / span 4;
