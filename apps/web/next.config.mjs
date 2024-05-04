@@ -83,6 +83,27 @@ const nextConfig = {
       },
     ];
   },
+  async headers() {
+    return [
+      {
+        source: '/api/projects/:path*',
+        headers: [
+          {
+            key: 'Access-Control-Allow-Origin',
+            value: '*', // Set your origin
+          },
+          {
+            key: 'Access-Control-Allow-Methods',
+            value: 'GET, POST, PUT, DELETE, OPTIONS',
+          },
+          {
+            key: 'Access-Control-Allow-Headers',
+            value: 'Content-Type',
+          },
+        ],
+      },
+    ];
+  },
   webpack: (config) => {
     config.externals.push({
       'utf-8-validate': 'commonjs utf-8-validate',
