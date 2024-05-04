@@ -1,8 +1,9 @@
-import { CustomLinkNode } from './nodes/CustomLinkNode';
+import { CustomAutoLinkNode, CustomLinkNode } from './nodes/CustomLinkNode';
 import RichTextEditorTheme from './theme/RichTextEditorTheme';
 
 import { CodeHighlightNode, CodeNode } from '@lexical/code';
-import { AutoLinkNode, LinkNode } from '@lexical/link';
+import { AutoLinkNode } from '@lexical/link';
+import { LinkNode } from '@lexical/link';
 import { ListItemNode, ListNode } from '@lexical/list';
 import { HorizontalRuleNode } from '@lexical/react/LexicalHorizontalRuleNode';
 import { HeadingNode, QuoteNode } from '@lexical/rich-text';
@@ -17,13 +18,19 @@ export const RichTextEditorConfig = {
     QuoteNode,
     HeadingNode,
     CustomLinkNode,
+    CustomAutoLinkNode,
     {
       replace: LinkNode,
       with: (node: LinkNode) => {
         return new CustomLinkNode(node.getURL());
       },
     },
-    AutoLinkNode,
+    {
+      replace: AutoLinkNode,
+      with: (node: AutoLinkNode) => {
+        return new CustomAutoLinkNode(node.getURL());
+      },
+    },
     HorizontalRuleNode,
   ],
   onError() {},
