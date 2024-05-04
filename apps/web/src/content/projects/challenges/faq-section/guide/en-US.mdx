@@ -1,0 +1,67 @@
+This challenge will require JavaScript as the component is an interactive one and the accordion items can collapse/expand upon the user triggering.
+
+### Introduction to accordions
+
+As mentioned in the brief, the questions and answers in the FAQ is built using an "accordion" component. Accordion components allow users to expand and collapse sections of content. It is typically used to organize complex or lengthy content into manageable sections, making the user interface cleaner and more navigable, reducing the need to scroll when presenting multiple sections of content on a single page.
+
+Accordions are very useful in scenarios where space is limited, or where you want to present information in a way that doesn't overwhelm the user, such as FAQs, lengthy forms, mobile menus, and product descriptions (case in point – we used accordions for displaying product information in the [Product Details Section](/projects/challenges/product-details-section) challenge).
+
+Try out an [accordion example](https://www.w3.org/WAI/ARIA/apg/patterns/accordion/examples/accordion/) on the ARIA Authoring Practices Guide website.
+
+Typically, FAQs and accordions are collapsed by default and users expand the questions that interest them. However, for the sake of screenshots comparison, we will build a version where every section is initially expanded, otherwise there's little to compare.
+
+### Accordions terminology
+
+An accordion consists of a vertically stacked list of sections, and each section contains:
+
+1. **Header**: A control for showing and hiding the section of content.
+1. **Panel**: The content to be revealed or hidden, it has a one-one association with a header.
+
+### Recommended approach
+
+1. **Build the structure for a section**: A section consists of the header, the button, and the panel (the contents). The required layout is simple and can be accomplished using `display: flex`.
+2. **Add interactivity**: Enable the expansion/collapsing interactions. Upon clicking the button, the panel state should toggle between expanded and collapsed.
+3. **Componentize**: Componentize the section to allow for multiple instances of the accordion section. Ensure that each section is standalone, aka each section's state should be encapsulated and not be influenced or affected by other sections. Popular JavaScript frameworks like React and Vue are perfect for making encapsulated components.
+
+**Note:** For production apps, instead of building your own accordion, use a headless (unstyled) accordion component and add custom styling to it. Recommendations for headless UI libraries can be found at the bottom.
+
+### Accessibility (A11y)
+
+Accessibility should be kept in mind when building accordions. Some basic a11y requirements include:
+
+#### Keyboard navigation
+
+- Ensure that all accordion headers can be navigated to and activated using the keyboard alone, typically using the <kbd>Tab</kbd> key to navigate and <kbd>Enter</kbd> or <kbd>Space</kbd> to toggle open/close.
+- Provide visual focus indicators (like a border or a color change) to show which element is currently focused when using keyboard navigation.
+
+#### ARIA attributes
+
+Use the appropriate ARIA attributes to enhance accessibility:
+
+- Add `role="button"` on each accordion header.
+- Add `aria-expanded="true"` or `aria-expanded="false"` on accordion headers to indicate whether the associated panel is open or closed.
+- Add `aria-controls` on the accordion header to point to the ID of the content panel that the header controls.
+- Add the `id` attribute on each content panel that matches the `aria-controls` attribute of the corresponding header.
+
+#### Screen reader support
+
+Make sure that all text inside the accordion is readable by screen readers, and consider the use of `aria-live` regions for dynamic content updates.
+
+The above is by no means a complete list. Refer to the [ARIA Authoring Practices Guide Accordion Pattern](https://www.w3.org/WAI/ARIA/apg/patterns/accordion/) for the full a11y requirements.
+
+### Beyond the challenge
+
+In practice, it is a chore to have to implement the accessibility aspects of accordion components and headless library components have been created to save front end developers the trouble. Headless components refer to a design pattern in software development where the UI component's logic is separated from its presentation. This means that the "head" (the visual part) is decoupled from the "body" (the logic and functionality), allowing developers to reuse the logic with different styles or in different contexts without rewriting the functional aspects.
+
+The following are popular libraries for implementing accordions in modern React web apps:
+
+- [Accordion – Radix Primitives](https://www.radix-ui.com/primitives/docs/components/accordion)
+- [Disclosure - Headless UI](https://headlessui.com/react/disclosure)
+- [Disclosure - Ariakit](https://ariakit.org/components/disclosure)
+- [Accordion | Reach UI](https://reach.tech/accordion/)
+
+### Challenge yourself
+
+- Add "Collapse all" / "Expand all" buttons to collapse/expand all sections.
+- Add transitions to animate the expansion/collapsing of each section.
+- Add keyboard shortcuts as per the [ARIA Authoring Practices Guide Accordion Pattern](https://www.w3.org/WAI/ARIA/apg/patterns/accordion/), including the optional ones.
