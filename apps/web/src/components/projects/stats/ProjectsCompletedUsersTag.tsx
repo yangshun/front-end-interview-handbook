@@ -13,15 +13,13 @@ type Props = Readonly<{
   profiles: ReadonlyArray<ProjectsProfileAvatarDataSlim>;
 }>;
 
-const MINIMUM_COUNT_TO_DISPLAY_LABEL = 5;
-
 export default function ProjectsCompletedUsersTag({
   avatarBorderClassName,
   count,
   className,
   profiles,
 }: Props) {
-  if (count == null || count < MINIMUM_COUNT_TO_DISPLAY_LABEL) {
+  if (count == null || count === 0) {
     return null;
   }
 
