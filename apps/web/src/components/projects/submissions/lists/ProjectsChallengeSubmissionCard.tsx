@@ -74,7 +74,7 @@ export default function ProjectsChallengeSubmissionCard({
         'relative isolate',
         'flex flex-col gap-4',
         'rounded-lg',
-        'px-4 py-6',
+        'p-4',
         themeGlassyBorder,
         themeBackgroundCardAltColor,
       )}>
@@ -181,7 +181,10 @@ export default function ProjectsChallengeSubmissionCard({
             <ProjectsCommentCountTag count={comments ?? 0} />
           </div>
           <Text className="z-[1]" color="secondary" size="body3">
-            <RelativeTimestamp timestamp={submission.createdAt} />
+            <RelativeTimestamp
+              capitalize={true}
+              timestamp={submission.createdAt}
+            />
           </Text>
         </div>
       </div>

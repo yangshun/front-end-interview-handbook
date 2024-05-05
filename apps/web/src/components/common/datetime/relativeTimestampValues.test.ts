@@ -44,8 +44,8 @@ describe('getTimeUnitAndValue', () => {
 
       now.setDate(now.getDate() - 1);
       expect(getTimeUnitAndValue(now)).toEqual({
-        unit: 'yesterday',
-        value: null,
+        unit: 'days',
+        value: 1,
       });
     });
 
