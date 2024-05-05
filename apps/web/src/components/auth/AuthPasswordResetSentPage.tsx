@@ -23,7 +23,7 @@ export default function AuthPasswordResetSentPage({ next }: Props) {
     <Container
       className={clsx('flex flex-col', 'py-8 md:py-12 lg:py-16')}
       variant="xl">
-      <Heading className="text-pretty text-center" level="heading5">
+      <Heading className="text-center" level="heading5">
         {intl.formatMessage({
           defaultMessage:
             'An email containing the password reset instructions will be sent if an associated account exists',

@@ -109,9 +109,7 @@ export default function ProjectsPremiumPaywall({
       {icon}
       {size === 'lg' ? (
         <div className="flex flex-col gap-4">
-          <Heading className="text-pretty" level="heading5">
-            {title}
-          </Heading>
+          <Heading level="heading5">{title}</Heading>
           <Text
             className="text-pretty mt-4 block"
             color="subtitle"

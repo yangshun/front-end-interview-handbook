@@ -40,7 +40,7 @@ const headingColorClasses: Record<HeadingColor, string> = {
   light: 'text-white',
 };
 
-export const headingCVA = cva('', {
+export const headingCVA = cva('text-pretty', {
   defaultVariants: {
     color: 'auto',
     level: 'heading6',
