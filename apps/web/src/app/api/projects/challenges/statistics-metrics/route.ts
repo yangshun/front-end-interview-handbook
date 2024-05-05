@@ -3,6 +3,10 @@ import { NextResponse } from 'next/server';
 
 const baseTimestamp = 1713829932;
 
+export async function OPTIONS() {
+  return NextResponse.json({});
+}
+
 export async function GET(req: NextRequest) {
   const { searchParams } = req.nextUrl;
   const delta = searchParams.has('latest')

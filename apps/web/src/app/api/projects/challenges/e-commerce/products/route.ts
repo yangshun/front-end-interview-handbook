@@ -16,6 +16,10 @@ const latestArrivalProductIDs = productsAll
   .slice(0, 8)
   .map(({ product_id }) => product_id);
 
+export async function OPTIONS() {
+  return NextResponse.json({});
+}
+
 export async function GET(request: NextRequest) {
   const { searchParams } = new URL(request.url);
   // Pagination parameters.

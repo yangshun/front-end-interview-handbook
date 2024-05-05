@@ -3,6 +3,10 @@ import { NextResponse } from 'next/server';
 
 import { buildProductData } from '../productData';
 
+export async function OPTIONS() {
+  return NextResponse.json({});
+}
+
 export async function GET(
   _request: NextRequest,
   { params }: { params: { productId: string } },

@@ -4,6 +4,10 @@ import { NextResponse } from 'next/server';
 import productReviewsAll from '../../../__data/product-reviews.json' assert { type: 'json' };
 import users from '../../../__data/users.json' assert { type: 'json' };
 
+export async function OPTIONS() {
+  return NextResponse.json({});
+}
+
 export async function GET(
   request: NextRequest,
   { params }: { params: { productId: string } },

@@ -7,6 +7,10 @@ type FormBody = Readonly<{
   coupon_code?: string;
 }>;
 
+export async function OPTIONS() {
+  return NextResponse.json({});
+}
+
 export async function PUT(request: NextRequest) {
   const { coupon_code: couponCode }: FormBody = await request.json();
 

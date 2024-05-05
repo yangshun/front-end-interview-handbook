@@ -6,6 +6,10 @@ type FormBody = Readonly<{
   name?: string;
 }>;
 
+export async function OPTIONS() {
+  return NextResponse.json({});
+}
+
 export async function POST(req: NextRequest) {
   const { name, email, message }: FormBody = await req.json();
 
