@@ -1,1 +1,30 @@
-This is a guide on how to build a **contact section**.
+This challenge requires knowledge of form submission, using `fetch` for serve communication, and positioning elements that are out of the normal page flow.
+
+### Relevant concepts
+
+1. **Form handling and client-side validation**: HTML forms are fundamental for collecting user input. Utilize HTML `<form>` elements to structure your contact subscription form. JavaScript can be used to handle form submission events (`submit`), prevent default behavior, and perform client-side validation to ensure that the user input meets the required criteria (e.g., valid email format). Techniques like regular expressions or built-in browser validation APIs (`checkValidity()`, `setCustomValidity()`) can help with this validation process.
+2. **Use the `fetch` API for server communication**: The `fetch` API enables asynchronous communication between the client and server without reloading the entire webpage. Use JavaScript's XMLHttpRequest (XHR) object or modern `fetch` API to send form data to the server in the background. Handle the server's response asynchronously, allowing you to update the UI based on the server's feedback without interrupting the user's interaction with the page.
+3. **Toast Notifications for User Feedback**: Toast notifications provide unobtrusive feedback to users about the outcome of their actions. Implement a toast notification system using HTML, CSS, and JavaScript to display messages (success, error, etc.) in response to the server's validation or submission response, informing the user whether the contact subscription was successful or encountered an error.
+
+### Recommended approach
+
+Due to the interactive nature of this section, it is recommended that JavaScript frameworks like React, Vue, or Svelte be used to build this challenge.
+
+1. **Build the page layout while ensuring responsiveness**: Start by structuring the contact section within the overall page layout using HTML and CSS. Utilize responsive design principles, such as CSS Flexbox or Grid, to create a layout that adapts gracefully to different screen sizes and devices. Test the responsiveness of the layout across various viewports to ensure a consistent user experience.
+2. **Implement client-side form validation**: Write JavaScript code to handle form validation on the client side. Attach event listeners to the form's submit event to intercept form submission. Validate user input using JavaScript functions to ensure that required fields are in the correct format. Provide visual feedback to users by highlighting invalid fields and displaying error messages below the `<input>`.
+3. **Submit to the server using `fetch`**: Upon successful client-side validation, use the `fetch` API to send the form data to the server asynchronously. Construct a `POST` request to the server endpoint responsible for processing contact subscriptions. Include the form data in the request body using JSON or FormData format. Handle the server's response using promises or `async`/`await` syntax to manage asynchronous operations. Parse the response to determine the outcome of the subscription attempt (success, error, etc.).
+4. **Implement the toast component**: Create a toast notification component to provide feedback to the user regarding the server's response. Have the toast component to appear at the top of the page and display messages with customizable styles (success, error, warning, etc.). Dynamically update the toast content based on the server's response. Implement functionality to show and hide the toast messages with smooth animations (optional) and a configurable duration.
+5. **Show success state**: Hide the form and show the success state upon successful form submission. Add the "Send another message" button to show the contact form again so that users can send another message.
+
+### Building accessible forms
+
+If it is your first time building a form, do check out the "Building good HTML forms" guide on the left. Some key points to take note of:
+
+- Wrap the `<input>` within a `<form>` to enable the browser's enter-to-submit behavior.
+- `<label>` and `<input>` should be associated using `for` and `id` attributes.
+- Link the error message with the `<input>` using `aria-describedby`.
+- Since the client-side validation experience is custom, the default browser validation is not necessary.
+
+### Toasts
+
+While building the toasts from scratch is good practice of your JavaScript and CSS skills, you can also consider libraries like [Sonner](https://sonner.emilkowal.ski/), [React Hot Toast](https://react-hot-toast.com/), and [React Toastify](https://github.com/fkhadra/react-toastify) which takes care of accessibility and animations for you – all you have to do is customize the appearance.

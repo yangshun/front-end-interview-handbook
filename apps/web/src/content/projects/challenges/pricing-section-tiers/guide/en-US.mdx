@@ -1,0 +1,66 @@
+This challenge requires knowledge of basic responsive CSS, grid layouts and DOM manipulation using JavaScript to toggle between pricing cards for monthly vs annual.
+
+### Relevant concepts
+
+- DOM manipulation using JavaScript: JavaScript is essential for adding interactivity to the pricing section, such as implementing the toggle functionality between annual and monthly pricing options. You can use event listeners to detect user interactions with the toggle button and dynamically update the pricing displayed based on the selected option. JavaScript frameworks like React or Vue.js can also simplify state management and UI updates in more complex applications.
+- CSS grid/flex for Layout: CSS Grid or Flexbox layouts can be used to structure the pricing section's columns and ensuring they adapt responsively to different screen sizes. You can use these layout techniques to arrange the pricing cards or tables in a 3-column grid format and specify how they should stack or rearrange on smaller screens.
+- [Media queries](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_media_queries/Using_media_queries): Media queries allow you to apply different CSS styles based on the characteristics of the device displaying the page, such as screen width, height, orientation, etc. They are crucial for making your features section responsive across various devices. You can define breakpoints where the layout or styles change to accommodate different screen sizes.
+
+### Recommended approach
+
+Due to the interactive nature of this section along with multiple repeated components, it is recommended that JavaScript frameworks like React, Vue, or Svelte be used to build this challenge.
+
+1. **Build the header section**: Use semantic HTML elements like `<header>`, `<div>`, `<section>`, and appropriate content elements such as `<h2>`, `<p>`. Ensure responsiveness – the heading element has a different `font-size` and `line-height` on mobile. If you've built the other marketing section challenges that include a similar header, you're highly advised to reuse the styles.
+2. **Implement the monthly/annual toggle**: Ensure that when one button is active, the other button is no longer active.
+3. **Implement the pricing card element components**:
+   1. **Plan information component**: A component that accepts the plan name and description as props. It does not have to be responsive.
+   2. **Feature list**: A component that accepts a list of features to be rendered in the list format with icon checkmarks.
+   3. **Price display**: A component that takes in a price and a frequency.
+4. **Implement the pricing card component**: Combine the elements above into a pricing card component. The pricing card component should allow for a "Most Popular" variant where there's a "Most Popular" label at the top, the price is rendered in the brand color, and using a primary button as CTA.
+5. **Design a data shape for the pricing plans**: Define the pricing plans data as a data structure of your choice. This data will be rendered by the pricing card component.
+6. **Integrate data with UI**: Render the pricing cards using the pricing plans data.
+
+### Pricing plans data
+
+There are many ways to model the pricing plans data, here's one possible way:
+
+```json
+{
+  "monthly": [
+    {
+      "plan": "basic",
+      "price": 9.99,
+      "features": [...],
+      "popular": false,
+    },
+    {
+      "plan": "standard",
+      "price": 19.99,
+      "features": [...],
+      "popular": true,
+    },
+    {...}
+  ],
+  "annually": [
+    {
+      "plan": "basic",
+      "price": 6.99,
+      "features": [...],
+      "popular": false,
+    },
+    {
+      "plan": "standard",
+      "price": 19.99,
+      "features": [...],
+      "popular": true,
+    },
+    {...}
+  ],
+}
+```
+
+This approach of decoupling data from presentation will allow changes to the UI to be updated easily. In practical website, the pricing plans are often dynamic and are fetched from servers rather than hardcoded in the HTML.
+
+### Implementing the toggle
+
+There are many ways to implement the toggle – it can be built as a [Tabs](https://www.radix-ui.com/primitives/docs/components/tabs) component or a [Toggle Group](https://www.radix-ui.com/primitives/docs/components/toggle-group). Our recommendation is to use the Tabs pattern since there's a content section corresponding to each button and only one section can be shown at a time.
