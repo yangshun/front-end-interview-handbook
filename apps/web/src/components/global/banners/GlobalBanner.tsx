@@ -1,6 +1,7 @@
 'use client';
 
 import clsx from 'clsx';
+import { useEffect, useState } from 'react';
 import { FormattedMessage } from 'react-intl';
 
 import gtag from '~/lib/gtag';
@@ -15,13 +16,29 @@ import { useI18nPathname } from '~/next-i18nostic/src';
 import { useUserPreferences } from '../UserPreferencesProvider';
 import { useUserProfile } from '../UserProfileProvider';
 
-function MarketingMessage() {
+function MarketingMessage({
+  rotateMessages,
+}: Readonly<{
+  rotateMessages: boolean;
+}>) {
   const { userProfile } = useUserProfile();
   const { pathname } = useI18nPathname();
+  const [isShowingSocialMediaMessage, setIsShowingSocialMediaMessage] =
+    useState(rotateMessages);
+
+  useEffect(() => {
+    if (!rotateMessages) {
+      return;
+    }
+
+    setTimeout(() => {
+      setIsShowingSocialMediaMessage((value) => !value);
+    }, 8000);
+  }, [isShowingSocialMediaMessage, rotateMessages]);
 
   const isInterviewsPremium = userProfile?.isInterviewsPremium ?? false;
 
-  const perpetualSaleMessage = (
+  const socialMediaSaleMessage = (
     <FormattedMessage
       defaultMessage="Enjoy {discountPercentage}% off all plans by <follow>following us on social media</follow>. Check out other <promotion>promotions</promotion>!"
       description="Text on Promo Banner appearing almost on all application pages to inform user of a discount"
@@ -72,7 +89,7 @@ function MarketingMessage() {
     />
   );
 
-  const launchSaleMessage = (
+  const projectsLaunchMessage = (
     <FormattedMessage
       defaultMessage="GreatFrontEnd Projects is now in BETA! For a limited time, get {percentage}% off with the promo code {promoCode}. <link>Check it out</link>! 🚀"
       description="Text on Promo Banner"
@@ -106,19 +123,27 @@ function MarketingMessage() {
   );
 
   if (pathname?.startsWith('/projects')) {
-    return launchSaleMessage;
+    return projectsLaunchMessage;
   }
 
-  return isInterviewsPremium ? launchSaleMessage : perpetualSaleMessage;
+  if (isInterviewsPremium) {
+    return projectsLaunchMessage;
+  }
+
+  return isShowingSocialMediaMessage
+    ? socialMediaSaleMessage
+    : projectsLaunchMessage;
 }
 
 type Props = Readonly<{
   className?: string;
+  rotateMessages: boolean;
   variant?: 'custom' | 'primary';
 }>;
 
 export default function GlobalBanner({
   className,
+  rotateMessages,
   variant = 'primary',
 }: Props) {
   const { isUserProfileLoading } = useUserProfile();
@@ -143,7 +168,7 @@ export default function GlobalBanner({
             isUserProfileLoading ? 'opacity-0' : 'opacity-100',
           )}
           suppressHydrationWarning={true}>
-          <MarketingMessage />
+          <MarketingMessage rotateMessages={rotateMessages} />
         </span>
       </Banner>
     </div>

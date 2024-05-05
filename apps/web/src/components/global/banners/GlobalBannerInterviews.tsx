@@ -3,6 +3,10 @@ import { themeGradientPurple } from '~/components/ui/theme';
 
 export function GlobalBannerInterviews() {
   return (
-    <GlobalBanner className={themeGradientPurple.className} variant="custom" />
+    <GlobalBanner
+      className={themeGradientPurple.className}
+      rotateMessages={true}
+      variant="custom"
+    />
   );
 }

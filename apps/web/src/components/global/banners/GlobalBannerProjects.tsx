@@ -6,6 +6,7 @@ export function GlobalBannerProjects() {
   return (
     <GlobalBanner
       className={themeGradientGreenYellow.className}
+      rotateMessages={false}
       variant="custom"
     />
   );
