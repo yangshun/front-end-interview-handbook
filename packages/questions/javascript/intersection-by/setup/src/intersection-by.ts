@@ -7,8 +7,12 @@ export default function intersectionBy<T, R>(
   }
 
   const mappedArrays = arrays.map((array) => array.map(iteratee));
-  const intersectedValues = mappedArrays[0].filter((value) => {
+  let intersectedValues = mappedArrays[0].filter((value) => {
     return mappedArrays.every((mappedArray) => mappedArray.includes(value));
+  });
+
+  intersectedValues = intersectedValues.filter((value, index, self) => {
+    return self.indexOf(value) === index;
   });
 
   return intersectedValues.map((value) => {

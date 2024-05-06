@@ -45,12 +45,22 @@ describe('intersectionBy', () => {
     expect(intersectionBy(iteratee, arr1, arr2)).toEqual([{ id: 2 }]);
   });
 
-  it('different iteratee values', () => {
+  test('different iteratee values', () => {
     const arr1 = ['apple', 'banana', 'pear'];
     const arr2 = ['orange', 'kiwi', 'banana'];
     const arr3 = ['grape', 'pear', 'watermelon'];
     const iteratee = (value: string) => value.length;
 
     expect(intersectionBy(iteratee, arr1, arr2, arr3)).toEqual(['pear']);
+  });
+
+  test('same iteratee values in one array', () => {
+    expect(
+      intersectionBy(
+        (str) => str.toLowerCase(),
+        ['apple', 'banana', 'ORANGE', 'orange'],
+        ['Apple', 'Banana', 'Orange'],
+      ),
+    ).toEqual(['apple', 'banana', 'ORANGE']);
   });
 });
