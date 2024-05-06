@@ -1,6 +1,7 @@
 'use client';
 
 import clsx from 'clsx';
+import type { ReactNode } from 'react';
 import { useEffect, useState } from 'react';
 import { FormattedMessage } from 'react-intl';
 
@@ -9,6 +10,10 @@ import gtag from '~/lib/gtag';
 import { SOCIAL_DISCOUNT_PERCENTAGE } from '~/components/promotions/social/SocialDiscountConfig';
 import Anchor from '~/components/ui/Anchor';
 import Banner from '~/components/ui/Banner';
+import {
+  themeGradientGreenYellow,
+  themeGradientPurple,
+} from '~/components/ui/theme';
 
 import logEvent from '~/logging/logEvent';
 import { useI18nPathname } from '~/next-i18nostic/src';
@@ -16,11 +21,7 @@ import { useI18nPathname } from '~/next-i18nostic/src';
 import { useUserPreferences } from '../UserPreferencesProvider';
 import { useUserProfile } from '../UserProfileProvider';
 
-function MarketingMessage({
-  rotateMessages,
-}: Readonly<{
-  rotateMessages: boolean;
-}>) {
+function MarketingMessage({ rotateMessages }: Props) {
   const { userProfile } = useUserProfile();
   const { pathname } = useI18nPathname();
   const [isShowingSocialMediaMessage, setIsShowingSocialMediaMessage] =
@@ -122,55 +123,67 @@ function MarketingMessage({
     />
   );
 
-  if (pathname?.startsWith('/projects')) {
-    return projectsLaunchMessage;
+  if (pathname?.startsWith('/projects') || isInterviewsPremium) {
+    return (
+      <BannerShell className={themeGradientGreenYellow.className}>
+        {projectsLaunchMessage}
+      </BannerShell>
+    );
   }
 
-  if (isInterviewsPremium) {
-    return projectsLaunchMessage;
-  }
-
-  return isShowingSocialMediaMessage
-    ? socialMediaSaleMessage
-    : projectsLaunchMessage;
+  return isShowingSocialMediaMessage ? (
+    <BannerShell className={themeGradientPurple.className}>
+      {socialMediaSaleMessage}
+    </BannerShell>
+  ) : (
+    <BannerShell className={themeGradientGreenYellow.className}>
+      {projectsLaunchMessage}
+    </BannerShell>
+  );
 }
 
 type Props = Readonly<{
-  className?: string;
   rotateMessages: boolean;
-  variant?: 'custom' | 'primary';
 }>;
 
-export default function GlobalBanner({
+function BannerShell({
   className,
-  rotateMessages,
-  variant = 'primary',
-}: Props) {
+  children,
+}: Readonly<{
+  children: ReactNode;
+  className: string;
+}>) {
   const { isUserProfileLoading } = useUserProfile();
   const { setShowGlobalBanner } = useUserPreferences();
 
+  return (
+    <Banner
+      className={clsx('h-10 sm:h-8', className)} // Sync with sticky.css.
+      size="sm"
+      variant="custom"
+      onHide={() => {
+        setShowGlobalBanner(false);
+      }}>
+      <span
+        className={clsx(
+          'transition-opacity duration-500',
+          isUserProfileLoading ? 'opacity-0' : 'opacity-100',
+        )}
+        suppressHydrationWarning={true}>
+        {children}
+      </span>
+    </Banner>
+  );
+}
+
+export default function GlobalBanner({ rotateMessages }: Props) {
   return (
     <div
       className={clsx(
         'global-banner', // Non-Tailwind class. Sync with sticky.css.
         'z-sticky sticky top-0 w-full',
       )}>
-      <Banner
-        className={clsx('h-10 sm:h-8', className)} // Sync with sticky.css.
-        size="sm"
-        variant={variant}
-        onHide={() => {
-          setShowGlobalBanner(false);
-        }}>
-        <span
-          className={clsx(
-            'transition-opacity duration-500',
-            isUserProfileLoading ? 'opacity-0' : 'opacity-100',
-          )}
-          suppressHydrationWarning={true}>
-          <MarketingMessage rotateMessages={rotateMessages} />
-        </span>
-      </Banner>
+      <MarketingMessage rotateMessages={rotateMessages} />
     </div>
   );
 }
