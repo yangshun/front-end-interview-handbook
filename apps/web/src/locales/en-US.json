@@ -259,6 +259,10 @@
     "defaultMessage": "Previous submissions",
     "description": "Historical project submissions"
   },
+  "0AnwRY": {
+    "defaultMessage": "GreatFrontEnd Interviews",
+    "description": "GreatFrontEnd product vertical"
+  },
   "0BbsyI": {
     "defaultMessage": "Algo concepts to cover and tips to succeed",
     "description": "Algorithm concepts needed in front end coding interviews"
@@ -1431,10 +1435,6 @@
     "defaultMessage": "Name must contain at least {minLength} character(s).",
     "description": "Error message when display name is too short"
   },
-  "APztnK": {
-    "defaultMessage": "Existing subscribers can upgrade to the lifetime plan at a discount, send an email to <link>contact@greatfrontend</link>.",
-    "description": "Call to action text to upgrade plan."
-  },
   "ATjflV": {
     "defaultMessage": "Choose up to 2 reasons so that we can improve your experience",
     "description": "Subtitle of motivation for joining section of projects profile edit page"
@@ -1470,6 +1470,10 @@
   "Aarfzt": {
     "defaultMessage": "Start task",
     "description": "Label for button to start task"
+  },
+  "AcrAV0": {
+    "defaultMessage": "You are not subscribed. <link>View subscription plans</link> for GreatFrontEnd Projects.",
+    "description": "Text describing user's subscription plan."
   },
   "Ad94JV": {
     "defaultMessage": "Use code at checkout",
@@ -1742,6 +1746,10 @@
   "D4BYZm": {
     "defaultMessage": "Even when you are not actively subscribed, unspent premium credits will roll over to the next month. However, they can only be used when you are an active premium member.",
     "description": "Description of premium feature"
+  },
+  "D5644P": {
+    "defaultMessage": "Existing subscribers can upgrade to the lifetime plan at a discount, send an email to <link>contact@greatfrontend</link> to find out more.",
+    "description": "Call to action text to upgrade plan."
   },
   "D5IZKC": {
     "defaultMessage": "Problem Solving Questions",
@@ -2070,6 +2078,10 @@
   "Fgr6w/": {
     "defaultMessage": "See all",
     "description": "Link to see all submissions"
+  },
+  "FlysR+": {
+    "defaultMessage": "You are not subscribed. <link>View subscription plans</link> for GreatFrontEnd Interviews.",
+    "description": "Text describing user's subscription plan."
   },
   "FonVOb": {
     "defaultMessage": "All question progress has been reset.",
@@ -3259,6 +3271,10 @@
     "defaultMessage": "{points} rep (in total)",
     "description": "Reputation points to be gained"
   },
+  "OtaEwl": {
+    "defaultMessage": "Purchase premium to get access to all 200+ interview questions, official solutions, study plans, and company tags.",
+    "description": "Text describing user's subscription plan."
+  },
   "Ou1LIp": {
     "defaultMessage": "Marked question as completed",
     "description": "Success message shown when a question was marked as complete"
@@ -3802,10 +3818,6 @@
   "STZOEm": {
     "defaultMessage": "Assets",
     "description": "Tab title for projects challenges"
-  },
-  "SUjf8L": {
-    "defaultMessage": "Not Subscribed",
-    "description": "Text describing user's subscription status."
   },
   "SUmtwn": {
     "defaultMessage": "Check it out",
@@ -4759,10 +4771,6 @@
     "defaultMessage": "Apply",
     "description": "Label for apply button"
   },
-  "aP9GUx": {
-    "defaultMessage": "[DEV-ONLY] Stripe Customer ID",
-    "description": "Label for Stripe customer ID."
-  },
   "aPfuzs": {
     "defaultMessage": "Reset password",
     "description": "Title of Password Reset page"
@@ -4830,6 +4838,10 @@
   "as1hw8": {
     "defaultMessage": "Submit your code",
     "description": "Title of test panel for coding workspace"
+  },
+  "asLCAB": {
+    "defaultMessage": "GreatFrontEnd Projects",
+    "description": "GreatFrontEnd product vertical"
   },
   "au4m82": {
     "defaultMessage": "JavaScript",
@@ -5831,10 +5843,6 @@
     "defaultMessage": "You can add more skills e.g. UI frameworks used after starting the project",
     "description": "Additional information for skills section on Projects project page"
   },
-  "jEYebN": {
-    "defaultMessage": "View subscription plans",
-    "description": "Label for button to view subscription plans"
-  },
   "jGQnYd": {
     "defaultMessage": "Search coding questions",
     "description": "Placeholder for search input of coding question list"
@@ -5902,10 +5910,6 @@
   "jb3oKk": {
     "defaultMessage": "Community contributions",
     "description": "Community contributions item label"
-  },
-  "jbJq96": {
-    "defaultMessage": "Get premium to unlock <bold>full access to all questions and solutions</bold>!",
-    "description": "Call to action text for premium upgrade."
   },
   "jblvez": {
     "defaultMessage": "Title: Z to A",
@@ -6366,10 +6370,6 @@
   "myWGmV": {
     "defaultMessage": "Coupons | Profile",
     "description": "Title of Profile coupons page"
-  },
-  "n03lT2": {
-    "defaultMessage": "Current plan",
-    "description": "Current customer subscription plan"
   },
   "n0mDHU": {
     "defaultMessage": "Author",
@@ -7218,6 +7218,10 @@
   "txe6H8": {
     "defaultMessage": "Info",
     "description": "Section heading in Projects footer for links to more information"
+  },
+  "u/s8vM": {
+    "defaultMessage": "for Interviews",
+    "description": "GreatFrontEnd product vertical"
   },
   "u0dndi": {
     "defaultMessage": "View All Questions",

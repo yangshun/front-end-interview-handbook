@@ -9,7 +9,7 @@ import {
   RiShieldUserLine,
   RiUserLine,
 } from 'react-icons/ri';
-import { useIntl } from 'react-intl';
+import { FormattedMessage, useIntl } from 'react-intl';
 
 import { trpc } from '~/hooks/trpc';
 
@@ -155,14 +155,24 @@ export default function ProfileShell({ user, children }: Props) {
                           )}
                           <div className="flex items-center gap-x-2">
                             {profileDataQuery.data?.premium ? (
-                              <Badge
-                                label={intl.formatMessage({
-                                  defaultMessage: 'Premium',
-                                  description: 'Premium badge on profile page',
-                                  id: 'RBB42Z',
-                                })}
-                                variant="special"
-                              />
+                              <div className="flex items-center gap-2">
+                                <Badge
+                                  label={intl.formatMessage({
+                                    defaultMessage: 'Premium',
+                                    description:
+                                      'Premium badge on profile page',
+                                    id: 'RBB42Z',
+                                  })}
+                                  variant="special"
+                                />
+                                <Text color="secondary" size="body3">
+                                  <FormattedMessage
+                                    defaultMessage="for Interviews"
+                                    description="GreatFrontEnd product vertical"
+                                    id="u/s8vM"
+                                  />
+                                </Text>
+                              </div>
                             ) : (
                               <Button
                                 display="block"

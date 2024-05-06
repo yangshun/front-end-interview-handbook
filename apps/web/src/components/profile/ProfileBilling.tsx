@@ -2,30 +2,31 @@
 
 import clsx from 'clsx';
 import type { ReactNode } from 'react';
-import { RiBankCardLine } from 'react-icons/ri';
+import { RiBriefcaseLine, RiRocketLine } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
 
 import { trpc } from '~/hooks/trpc';
 
 import type { InterviewsProfileSubscriptionPlan } from '~/components/global/UserProfileProvider';
-import { useUserProfile } from '~/components/global/UserProfileProvider';
 import Alert from '~/components/ui/Alert';
 import Anchor from '~/components/ui/Anchor';
 import Button from '~/components/ui/Button';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
+import Spinner from '~/components/ui/Spinner';
 import Text from '~/components/ui/Text';
 import { themeBorderColor } from '~/components/ui/theme';
 
-function PlanLabel({
+import { useProjectsChallengePaywallSubtitle } from '../projects/challenges/premium/ProjectsPremiumPaywallStrings';
+import useUserProfileWithProjectsProfile from '../projects/common/useUserProfileWithProjectsProfile';
+
+import type { ProjectsSubscriptionPlan } from '@prisma/client';
+
+function InterviewsPlanLabel({
   plan,
 }: Readonly<{
   plan?: InterviewsProfileSubscriptionPlan | null;
-}>): JSX.Element {
-  if (plan == null) {
-    return <Text size="body1">N/A</Text>;
-  }
-
+}>): JSX.Element | null {
   const autoRenewal = (
     <FormattedMessage
       defaultMessage="Subscriptions are automatically renewed and you will be charged again then. You may cancel your subscription anytime via the Stripe billing portal."
@@ -46,6 +47,36 @@ function PlanLabel({
   );
 
   switch (plan) {
+    case null: {
+      return (
+        <div className="flex flex-col gap-4">
+          <div>
+            <FormattedMessage
+              defaultMessage="You are not subscribed. <link>View subscription plans</link> for GreatFrontEnd Interviews."
+              description="Text describing user's subscription plan."
+              id="FlysR+"
+              values={{
+                link: (chunks) => <Anchor href="/pricing">{chunks}</Anchor>,
+              }}
+            />
+          </div>
+          <Alert
+            bodySize="body3"
+            icon={RiBriefcaseLine}
+            title="GreatFrontEnd Interviews Premium"
+            variant="primary">
+            <FormattedMessage
+              defaultMessage="Purchase premium to get access to all 200+ interview questions, official solutions, study plans, and company tags."
+              description="Text describing user's subscription plan."
+              id="OtaEwl"
+              values={{
+                link: (chunks) => <Anchor href="/pricing">{chunks}</Anchor>,
+              }}
+            />
+          </Alert>
+        </div>
+      );
+    }
     case 'year': {
       return (
         <FormattedMessage
@@ -105,17 +136,107 @@ function PlanLabel({
       );
     }
   }
+
+  return null;
 }
 
-function ManageSubscriptionSection({
+function ProjectsPlanLabel({
   plan,
 }: Readonly<{
-  plan?: InterviewsProfileSubscriptionPlan | null;
+  plan?: ProjectsSubscriptionPlan | null;
 }>): JSX.Element | null {
+  const subtitle = useProjectsChallengePaywallSubtitle('SUBSCRIBE');
+
+  const autoRenewal = (
+    <FormattedMessage
+      defaultMessage="Subscriptions are automatically renewed and you will be charged again then. You may cancel your subscription anytime via the Stripe billing portal."
+      description="Call to action text to uppgrade plan."
+      id="b/4l5Z"
+      values={{
+        link: (chunks) => (
+          <Anchor href="mailto:contact@greatfrontend.com">{chunks}</Anchor>
+        ),
+      }}
+    />
+  );
+
+  const renderBold = (chunks: Array<ReactNode>) => (
+    <Text size="inherit" weight="bold">
+      {chunks}
+    </Text>
+  );
+
+  switch (plan) {
+    case null: {
+      return (
+        <div className="flex flex-col gap-4" data-theme="projects">
+          <div>
+            <FormattedMessage
+              defaultMessage="You are not subscribed. <link>View subscription plans</link> for GreatFrontEnd Projects."
+              description="Text describing user's subscription plan."
+              id="AcrAV0"
+              values={{
+                link: (chunks) => (
+                  <Anchor href="/projects/pricing">{chunks}</Anchor>
+                ),
+              }}
+            />
+          </div>
+          <Alert
+            bodySize="body3"
+            icon={({ className, ...props }) => (
+              <RiRocketLine
+                className={clsx('-translate-y-0.5 rotate-45', className)}
+                {...props}
+              />
+            )}
+            title="GreatFrontEnd Projects Premium"
+            variant="primary">
+            {subtitle}
+          </Alert>
+        </div>
+      );
+    }
+    case 'ANNUAL': {
+      return (
+        <FormattedMessage
+          defaultMessage="You are on the <bold>Annual</bold> plan."
+          description="Text describing user's subscription plan."
+          id="kvhZfI"
+          values={{
+            bold: renderBold,
+          }}
+        />
+      );
+    }
+    case 'MONTH': {
+      return (
+        <>
+          <FormattedMessage
+            defaultMessage="You are on the <bold>Monthly</bold> plan."
+            description="Text describing user's subscription plan."
+            id="i7VsUe"
+            values={{
+              bold: renderBold,
+            }}
+          />{' '}
+          {autoRenewal}
+        </>
+      );
+    }
+  }
+
+  return null;
+}
+
+function ManageSubscriptionSection(): JSX.Element | null {
+  const { userProfile } = useUserProfileWithProjectsProfile();
   const intl = useIntl();
   const billingPortalMutation = trpc.purchases.billingPortal.useMutation();
 
-  if (plan == null) {
+  const plan = userProfile?.plan;
+
+  if (plan == null && userProfile?.projectsProfile?.plan == null) {
     return null;
   }
 
@@ -127,31 +248,89 @@ function ManageSubscriptionSection({
     window.location.href = billingPortalUrl;
   }
 
-  switch (plan) {
-    case 'year':
-    case 'month':
-    case 'quarter': {
-      return (
-        <div
-          className={clsx(
-            'flex flex-col gap-4',
-            'p-4',
-            ['border', themeBorderColor],
-            'rounded-lg',
-          )}>
-          <div className={clsx('flex flex-col gap-1')}>
-            <Heading level="heading6">
+  return (
+    <div
+      className={clsx(
+        'flex flex-col gap-4',
+        'p-4',
+        ['border', themeBorderColor],
+        'rounded-lg',
+      )}>
+      <div className={clsx('flex flex-col gap-1')}>
+        <Text className="block" size="body1" weight="bold">
+          <FormattedMessage
+            defaultMessage="Manage subscription"
+            description="Manage billing subscription"
+            id="jMTHcm"
+          />
+        </Text>
+        <Text className="block" color="secondary" size="body3">
+          <FormattedMessage
+            defaultMessage="Manage your subscription status and payment methods on the Stripe billing portal."
+            description="Call to action text to uppgrade plan."
+            id="Ftjz7y"
+            values={{
+              link: (chunks) => (
+                <Anchor href="mailto:contact@greatfrontend.com">
+                  {chunks}
+                </Anchor>
+              ),
+            }}
+          />
+        </Text>
+      </div>
+      <div>
+        <Button
+          isDisabled={billingPortalMutation.isLoading}
+          isLoading={billingPortalMutation.isLoading}
+          label={intl.formatMessage({
+            defaultMessage: 'Manage subscription on Stripe',
+            description: 'Label for button to manage subscription',
+            id: 'Fg3V0y',
+          })}
+          variant="secondary"
+          onClick={navigateToStripePortal}
+        />
+      </div>
+    </div>
+  );
+}
+
+function InterviewsSubscriptionSection() {
+  const { userProfile } = useUserProfileWithProjectsProfile();
+
+  return (
+    <div
+      className={clsx('flex flex-col', 'p-4', 'rounded-lg', [
+        'border',
+        themeBorderColor,
+      ])}>
+      <div className="flex flex-col gap-2">
+        <Text className="block" size="body1" weight="bold">
+          <FormattedMessage
+            defaultMessage="GreatFrontEnd Interviews"
+            description="GreatFrontEnd product vertical"
+            id="0AnwRY"
+          />
+        </Text>
+        <div className="flex flex-col gap-2">
+          <Text className="block" color="secondary" size="body3">
+            <InterviewsPlanLabel
+              plan={
+                userProfile?.plan as InterviewsProfileSubscriptionPlan | null
+              }
+            />
+          </Text>
+          {(userProfile?.plan === 'month' ||
+            userProfile?.plan === 'quarter') && (
+            <Alert
+              bodySize="body3"
+              title="Upgrade to lifetime plan"
+              variant="success">
               <FormattedMessage
-                defaultMessage="Manage subscription"
-                description="Manage billing subscription"
-                id="jMTHcm"
-              />
-            </Heading>
-            <Text className="block" color="secondary" size="body2">
-              <FormattedMessage
-                defaultMessage="Manage your subscription status and payment methods on the Stripe billing portal."
-                description="Call to action text to uppgrade plan."
-                id="Ftjz7y"
+                defaultMessage="Existing subscribers can upgrade to the lifetime plan at a discount, send an email to <link>contact@greatfrontend</link> to find out more."
+                description="Call to action text to upgrade plan."
+                id="D5644P"
                 values={{
                   link: (chunks) => (
                     <Anchor href="mailto:contact@greatfrontend.com">
@@ -160,80 +339,44 @@ function ManageSubscriptionSection({
                   ),
                 }}
               />
-            </Text>
-          </div>
-          <div>
-            <Button
-              isDisabled={billingPortalMutation.isLoading}
-              isLoading={billingPortalMutation.isLoading}
-              label={intl.formatMessage({
-                defaultMessage: 'Manage subscription on Stripe',
-                description: 'Label for button to manage subscription',
-                id: 'Fg3V0y',
-              })}
-              variant="secondary"
-              onClick={navigateToStripePortal}
-            />
-          </div>
+            </Alert>
+          )}
         </div>
-      );
-    }
-
-    case 'lifetime': {
-      return null;
-    }
-  }
+      </div>
+    </div>
+  );
 }
 
-function NoBillingPlan() {
-  const intl = useIntl();
+function ProjectsSubscriptionSection() {
+  const { userProfile } = useUserProfileWithProjectsProfile();
 
   return (
-    <div className="py-12 text-center">
-      <RiBankCardLine className="size-12 mx-auto text-neutral-400" />
-      <Heading className="mt-2 text-sm font-medium" level="custom">
-        <FormattedMessage
-          defaultMessage="Not Subscribed"
-          description="Text describing user's subscription status."
-          id="SUjf8L"
-        />
-      </Heading>
-      <Section>
-        <Text className="mt-1 block" color="secondary" size="body2">
+    <div
+      className={clsx('flex flex-col', 'p-4', 'rounded-lg', [
+        'border',
+        themeBorderColor,
+      ])}>
+      <div className="flex flex-col gap-2">
+        <Text className="block" size="body1" weight="bold">
           <FormattedMessage
-            defaultMessage="Get premium to unlock <bold>full access to all questions and solutions</bold>!"
-            description="Call to action text for premium upgrade."
-            id="jbJq96"
-            values={{
-              bold: (chunks) => (
-                <Text size="body2" weight="bold">
-                  {chunks}
-                </Text>
-              ),
-            }}
+            defaultMessage="GreatFrontEnd Projects"
+            description="GreatFrontEnd product vertical"
+            id="asLCAB"
           />
         </Text>
-        <div className="mt-6">
-          <Button
-            href="/pricing"
-            label={intl.formatMessage({
-              defaultMessage: 'View subscription plans',
-              description: 'Label for button to view subscription plans',
-              id: 'jEYebN',
-            })}
-            variant="primary"
-          />
-        </div>
-      </Section>
+        <Text className="block" color="secondary" size="body3">
+          <ProjectsPlanLabel plan={userProfile?.projectsProfile?.plan} />
+        </Text>
+      </div>
     </div>
   );
 }
 
 export default function ProfileBilling() {
-  const { userProfile } = useUserProfile();
+  const { isLoading } = useUserProfileWithProjectsProfile();
 
   return (
-    <div className="flex flex-col gap-y-6 lg:max-w-md">
+    <div className="flex flex-col gap-y-6 lg:max-w-lg">
       <Heading className="sr-only" level="custom">
         <FormattedMessage
           defaultMessage="Billing"
@@ -242,69 +385,13 @@ export default function ProfileBilling() {
         />
       </Heading>
       <Section>
-        {userProfile == null || !userProfile?.plan ? (
-          <NoBillingPlan />
+        {isLoading ? (
+          <Spinner size="md" />
         ) : (
           <>
-            <div
-              className={clsx('flex flex-col gap-4', 'p-4', 'rounded-lg', [
-                'border',
-                themeBorderColor,
-              ])}>
-              <div className="flex flex-col gap-1">
-                <Heading level="heading6">
-                  <FormattedMessage
-                    defaultMessage="Current plan"
-                    description="Current customer subscription plan"
-                    id="n03lT2"
-                  />
-                </Heading>
-                <Text className="block" color="secondary" size="body2">
-                  <PlanLabel plan={userProfile?.plan} />
-                </Text>
-              </div>
-              {(userProfile?.plan === 'month' ||
-                userProfile?.plan === 'quarter') && (
-                <Alert title="Upgrade to lifetime plan" variant="success">
-                  <Text className="block" color="inherit" size="body2">
-                    <FormattedMessage
-                      defaultMessage="Existing subscribers can upgrade to the lifetime plan at a discount, send an email to <link>contact@greatfrontend</link>."
-                      description="Call to action text to upgrade plan."
-                      id="APztnK"
-                      values={{
-                        link: (chunks) => (
-                          <Anchor href="mailto:contact@greatfrontend.com">
-                            {chunks}
-                          </Anchor>
-                        ),
-                      }}
-                    />
-                  </Text>
-                </Alert>
-              )}
-            </div>
-            <ManageSubscriptionSection plan={userProfile?.plan} />
-            {process.env.NODE_ENV === 'development' && (
-              <div
-                className={clsx(
-                  'flex flex-col gap-1',
-                  'p-4',
-                  'border',
-                  'rounded-lg',
-                  themeBorderColor,
-                )}>
-                <Heading level="heading6">
-                  <FormattedMessage
-                    defaultMessage="[DEV-ONLY] Stripe Customer ID"
-                    description="Label for Stripe customer ID."
-                    id="aP9GUx"
-                  />
-                </Heading>
-                <Text className="block" color="secondary" size="body2">
-                  <code>{userProfile?.stripeCustomerID}</code>
-                </Text>
-              </div>
-            )}
+            <InterviewsSubscriptionSection />
+            <ProjectsSubscriptionSection />
+            <ManageSubscriptionSection />
           </>
         )}
       </Section>
