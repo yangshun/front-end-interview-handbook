@@ -1539,6 +1539,10 @@
     "defaultMessage": "Quiz Questions",
     "description": "Title for an example list of Quiz Questions on marketing pages"
   },
+  "BHjWCo": {
+    "defaultMessage": "API specifications and sample data",
+    "description": "Provided resource for project"
+  },
   "BI4wLY": {
     "defaultMessage": "Get feedback and code reviews from the community",
     "description": "Step 5 of the \"How it works\" section on the Projects home page"
@@ -3155,6 +3159,10 @@
     "defaultMessage": "Simulate real interview conditions, no need for any setup!",
     "description": "Subtitle for in-browser coding workspace feature"
   },
+  "NtN98C": {
+    "defaultMessage": "Welcome!",
+    "description": "Welcome message"
+  },
   "Nz7W/0": {
     "defaultMessage": "Oops something went wrong",
     "description": "Error message"
@@ -3234,10 +3242,6 @@
   "OYgvni": {
     "defaultMessage": "New here? <link>How it works</link>",
     "description": "Link to 'How it works' page on Projects project page"
-  },
-  "Ob2cWZ": {
-    "defaultMessage": "API specifications or sample data",
-    "description": "Provided resource for project"
   },
   "Od0Qjl": {
     "defaultMessage": "Skills used",
@@ -7890,6 +7894,10 @@
   "zqNjnp": {
     "defaultMessage": "CSS",
     "description": "Label for CSS language"
+  },
+  "zrKftp": {
+    "defaultMessage": "You just gained {points} reputation points for completing your profile!",
+    "description": "Success message after completing profile form"
   },
   "zs7+sC": {
     "defaultMessage": "A confirmation link has been sent to the new email address. The email will not be changed until the confirmation link has been accessed.",

@@ -1,6 +1,6 @@
 'use client';
 
-import { RiArrowLeftLine } from 'react-icons/ri';
+import { RiArrowLeftLine, RiFireFill } from 'react-icons/ri';
 import { FormattedMessage } from 'react-intl';
 import { useIntl } from 'react-intl';
 
@@ -51,7 +51,11 @@ export default function ProjectsChallengeSubmitPage({
     onSuccess: ({ submission, points }) => {
       takeScreenshotMutation.mutate({ submissionId: submission.id });
 
+      const formattedPoints = new Intl.NumberFormat().format(points);
+
       showToast({
+        addOnIcon: RiFireFill,
+        addOnLabel: `+${formattedPoints}`,
         description: intl.formatMessage(
           {
             defaultMessage: 'You have gained {points} reputation points!',
@@ -59,7 +63,7 @@ export default function ProjectsChallengeSubmitPage({
             id: 'fv5WXh',
           },
           {
-            points: new Intl.NumberFormat().format(points),
+            points: formattedPoints,
           },
         ),
         title: intl.formatMessage({

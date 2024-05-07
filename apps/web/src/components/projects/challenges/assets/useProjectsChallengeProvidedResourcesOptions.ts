@@ -26,9 +26,9 @@ export default function useProjectsChallengeProvidedResourcesOptions() {
       icon: RiCloudLine,
       id: 'api',
       label: intl.formatMessage({
-        defaultMessage: 'API specifications or sample data',
+        defaultMessage: 'API specifications and sample data',
         description: 'Provided resource for project',
-        id: 'Ob2cWZ',
+        id: 'BHjWCo',
       }),
     },
     'design-files': {
