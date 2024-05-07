@@ -3839,6 +3839,10 @@
     "defaultMessage": "Search",
     "description": "Placeholder for search input of blog list"
   },
+  "SaptIB": {
+    "defaultMessage": "{points} Reputation",
+    "description": "Tooltip for User reputation in project"
+  },
   "SbE8XR": {
     "defaultMessage": "Add your socials so that others can find you!",
     "description": "Description for social link input on Projects profile onboarding page"

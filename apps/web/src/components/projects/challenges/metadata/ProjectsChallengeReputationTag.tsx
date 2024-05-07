@@ -1,6 +1,8 @@
+'use client';
+
 import clsx from 'clsx';
 import { RiFireLine } from 'react-icons/ri';
-import { FormattedMessage } from 'react-intl';
+import { FormattedMessage, useIntl } from 'react-intl';
 
 import Text from '~/components/ui/Text';
 import {
@@ -10,6 +12,8 @@ import {
 } from '~/components/ui/theme';
 import { themeTextSubtleColor } from '~/components/ui/theme';
 import Tooltip from '~/components/ui/Tooltip';
+
+import { getFormattedNumber } from '../../misc';
 
 type TagVariant = 'filled' | 'flat' | 'underline';
 
@@ -28,6 +32,23 @@ export default function ProjectsChallengeReputationTag({
   variant = 'flat',
   tooltip,
 }: Props) {
+  const intl = useIntl();
+  const showToolReputationFullNumberTooltip = points >= 1000;
+  let reputationTooltip = tooltip;
+
+  if (!tooltip && showToolReputationFullNumberTooltip) {
+    reputationTooltip = intl.formatMessage(
+      {
+        defaultMessage: '{points} Reputation',
+        description: 'Tooltip for User reputation in project',
+        id: 'SaptIB',
+      },
+      {
+        points: new Intl.NumberFormat().format(points),
+      },
+    );
+  }
+
   const contents = (
     <div
       className={clsx(
@@ -60,7 +81,7 @@ export default function ProjectsChallengeReputationTag({
             description="Reputation points to be gained"
             id="md057S"
             values={{
-              points: new Intl.NumberFormat().format(points),
+              points: getFormattedNumber(points),
             }}
           />
         )}
@@ -70,7 +91,7 @@ export default function ProjectsChallengeReputationTag({
             description="Reputation points to be gained"
             id="4G2EHJ"
             values={{
-              points: new Intl.NumberFormat().format(points),
+              points: getFormattedNumber(points),
             }}
           />
         )}
@@ -80,7 +101,7 @@ export default function ProjectsChallengeReputationTag({
             description="Reputation points to be gained"
             id="OrjlW6"
             values={{
-              points: new Intl.NumberFormat().format(points),
+              points: getFormattedNumber(points),
             }}
           />
         )}
@@ -88,5 +109,9 @@ export default function ProjectsChallengeReputationTag({
     </div>
   );
 
-  return tooltip ? <Tooltip label={tooltip}>{contents}</Tooltip> : contents;
+  return reputationTooltip ? (
+    <Tooltip label={reputationTooltip}>{contents}</Tooltip>
+  ) : (
+    contents
+  );
 }
