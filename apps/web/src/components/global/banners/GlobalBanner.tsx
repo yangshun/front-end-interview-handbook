@@ -158,7 +158,7 @@ function BannerShell({
 
   return (
     <Banner
-      className={clsx('h-10 sm:h-8', className)} // Sync with sticky.css.
+      className={clsx('h-11 lg:h-8', className)} // Sync with sticky.css.
       size="sm"
       variant="custom"
       onHide={() => {
