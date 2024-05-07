@@ -58,7 +58,7 @@ export default function ProfileCoupons() {
   if (profilePromoCodes.isLoading) {
     return (
       <div className="py-10">
-        <Spinner display="block" size="lg" />
+        <Spinner display="block" />
       </div>
     );
   }

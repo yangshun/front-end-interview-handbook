@@ -70,7 +70,9 @@ export default function ProjectsChallengeDeploymentCompletionPage({
         'text-center',
       )}>
       {fetchingCanAccessAllSteps ? (
-        <Spinner size="md" />
+        <div className="py-10">
+          <Spinner display="block" />
+        </div>
       ) : (
         <>
           <Heading level="heading5">

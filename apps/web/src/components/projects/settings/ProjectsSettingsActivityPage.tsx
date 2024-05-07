@@ -52,8 +52,8 @@ function ProjectsSettingsActivitySection() {
 
   if (isLoading) {
     return (
-      <div className="py-10">
-        <Spinner display="block" size="md" />
+      <div className="py-20">
+        <Spinner display="block" />
       </div>
     );
   }

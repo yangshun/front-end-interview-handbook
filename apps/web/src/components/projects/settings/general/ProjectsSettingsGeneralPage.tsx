@@ -20,7 +20,11 @@ export default function ProjectsSettingsGeneralPage() {
   const user = useUser();
 
   if (userProfile == null) {
-    return <Spinner size="lg" />;
+    return (
+      <div className="py-10">
+        <Spinner display="block" />
+      </div>
+    );
   }
 
   return (

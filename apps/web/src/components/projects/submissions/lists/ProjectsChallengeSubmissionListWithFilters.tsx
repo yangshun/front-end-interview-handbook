@@ -146,7 +146,9 @@ export default function ProjectsChallengeSubmissionListWithFilters({
           )}
         </div>
         {isLoading && !submissions ? (
-          <Spinner display="block" size="lg" />
+          <div className="py-10">
+            <Spinner display="block" />
+          </div>
         ) : (
           <div className="flex flex-col gap-6">
             <ProjectsChallengeSubmissionList submissions={submissions ?? []} />

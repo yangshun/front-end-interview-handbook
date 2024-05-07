@@ -44,7 +44,7 @@ export default function ProjectsChallengeReferenceSubmissions({
             />
           </Text>
           {isLoading ? (
-            <Spinner display="block" size="lg" />
+            <Spinner display="block" />
           ) : (
             <ProjectsChallengeSubmissionList
               submissions={referenceSubmissions ?? []}

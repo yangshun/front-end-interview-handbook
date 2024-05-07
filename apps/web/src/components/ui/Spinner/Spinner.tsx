@@ -9,7 +9,7 @@ type Props = Readonly<{
   color?: SpinnerColor;
   display?: SpinnerDisplay;
   label?: string;
-  size: SpinnerSize;
+  size?: SpinnerSize;
 }>;
 
 const colorClasses: Record<SpinnerColor, string> = {
@@ -29,7 +29,7 @@ export default function Spinner({
   color = 'default',
   display = 'inline',
   label = 'Loading...',
-  size,
+  size = 'md',
 }: Props) {
   const spinner = (
     <div

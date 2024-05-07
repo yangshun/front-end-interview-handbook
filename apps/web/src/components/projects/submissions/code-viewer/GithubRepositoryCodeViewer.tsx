@@ -63,7 +63,7 @@ export default function GithubRepositoryCodeViewer({
     if (!fileContents && isFetchingFileContents) {
       return (
         <div className="flex h-full w-full items-center justify-center">
-          <Spinner size="lg" />
+          <Spinner size="md" />
         </div>
       );
     }
@@ -118,7 +118,7 @@ export default function GithubRepositoryCodeViewer({
         if (isFetchingFilePaths) {
           return (
             <div className="flex h-full w-full items-center justify-center">
-              <Spinner size="lg" />
+              <Spinner size="md" />
             </div>
           );
         }

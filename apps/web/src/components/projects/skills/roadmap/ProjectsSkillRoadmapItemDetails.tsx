@@ -142,7 +142,9 @@ export default function ProjectsSkillRoadmapItemDetails({
               )}
           </div>
           {challengesQuery.data?.challenges == null ? (
-            <Spinner display="block" size="md" />
+            <div className="py-10">
+              <Spinner display="block" />
+            </div>
           ) : (
             <ProjectsChallengeList
               challengeStatuses={skillPlanProgressData?.challengeStatuses}

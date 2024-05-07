@@ -149,7 +149,9 @@ export default function ProjectsChallengeAssetsPage({
         'text-center',
       )}>
       {fetchingCanAccessAllSteps ? (
-        <Spinner size="md" />
+        <div className="py-10">
+          <Spinner display="block" />
+        </div>
       ) : (
         <>
           <Heading className="text-center drop-shadow" level="heading5">

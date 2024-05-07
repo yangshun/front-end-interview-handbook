@@ -94,7 +94,7 @@ export default function ProjectsProfilePhotoUploadDialog({
           themeBackgroundLayerColor,
         )}>
         {isImageLoading ? (
-          <Spinner size="sm" />
+          <Spinner display="block" />
         ) : (
           <Cropper
             ref={cropperRef}

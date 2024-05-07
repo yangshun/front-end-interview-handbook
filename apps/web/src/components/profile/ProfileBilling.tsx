@@ -386,7 +386,9 @@ export default function ProfileBilling() {
       </Heading>
       <Section>
         {isLoading ? (
-          <Spinner size="md" />
+          <div className="py-10">
+            <Spinner display="block" />
+          </div>
         ) : (
           <>
             <InterviewsSubscriptionSection />

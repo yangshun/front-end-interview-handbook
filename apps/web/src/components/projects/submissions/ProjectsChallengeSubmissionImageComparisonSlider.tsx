@@ -80,7 +80,7 @@ export default function ProjectsChallengeSubmissionImageComparisonSlider({
           skeleton={
             <div
               className={clsx('flex items-center justify-center', 'size-full')}>
-              <Spinner size="md" />
+              <Spinner display="block" />
             </div>
           }
           sliderLineColor="hsl(var(--brand-default))"

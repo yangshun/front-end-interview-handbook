@@ -40,7 +40,7 @@ export default function ProjectsChallengeSubmissionsDialog({
               description: 'Loading historical project submissions',
               id: '8tTY7b',
             })}
-            size="lg"
+            size="md"
           />
         </div>
       ) : (

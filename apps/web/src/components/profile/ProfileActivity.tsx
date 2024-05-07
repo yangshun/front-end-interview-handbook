@@ -80,7 +80,7 @@ export default function ProfileActivity() {
   if (isFetchingQuestionProgress || isFetchingQuestionList) {
     return (
       <div className="py-10">
-        <Spinner display="block" size="lg" />
+        <Spinner display="block" />
       </div>
     );
   }

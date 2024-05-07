@@ -59,7 +59,7 @@ function ProjectsProfileCommunityListWithFiltersImpl({
       </div>
       {isLoading ? (
         <div className="flex h-96 items-center justify-center">
-          <Spinner display="block" size="md" />
+          <Spinner display="block" />
         </div>
       ) : (
         <ProjectsProfileCommunityCommentsSection

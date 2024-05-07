@@ -13,7 +13,7 @@ export default function ProjectsSettingsBillingPage() {
   if (isLoading || data == null) {
     return (
       <div className="py-20">
-        <Spinner display="block" size="lg" />
+        <Spinner display="block" />
       </div>
     );
   }

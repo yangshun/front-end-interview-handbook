@@ -44,8 +44,8 @@ export default function ProjectsDiscussionsCommentList({
 
   if (isLoading) {
     return (
-      <div className="w-full p-8">
-        <Spinner display="block" size="lg" />
+      <div className="p-18 w-full">
+        <Spinner display="block" />
       </div>
     );
   }
