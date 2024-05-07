@@ -3,7 +3,6 @@
 import { useState } from 'react';
 import { RiRocketLine } from 'react-icons/ri';
 import { useIntl } from 'react-intl';
-import { useSessionStorage } from 'usehooks-ts';
 
 import FilterButton from '~/components/common/FilterButton';
 import useProjectsAllChallengesFilterOptions from '~/components/projects/profile/progress/useProjectsAllChallengesFilterOptions';
@@ -30,9 +29,9 @@ export default function ProjectsProfileProgressSectionAllChallenges({
   const intl = useIntl();
   const [showAsSubmissions, setShowAsSubmissions] = useState(true);
   const [challengeStatusFilter, setChallengeStatusFilter] =
-    useSessionStorage<ProjectsChallengeSessionStatus>(
-      `gfe:projects:all-challenges:status-filter`,
-      'IN_PROGRESS',
+    useState<ProjectsChallengeSessionStatus>(
+      // Show completed challenges first if viewing someone else's profile.
+      isViewingOwnProfile ? 'IN_PROGRESS' : 'COMPLETED',
     );
   const { name: filterName, options: filterOptions } =
     useProjectsAllChallengesFilterOptions();
