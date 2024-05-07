@@ -72,6 +72,20 @@ async function takeScreenshotForViewport(
   viewport: Parameters<Page['setViewport']>[0],
 ) {
   await page.setViewport(viewport);
+  await page.goto(url, { waitUntil: 'networkidle2' });
+  await page.evaluate(() => {
+    function hideElement(selector: string) {
+      const elements: NodeListOf<HTMLElement> =
+        document.querySelectorAll(selector);
+
+      for (const element of Array.from(elements)) {
+        element.style.display = 'none';
+      }
+    }
+
+    hideElement('.credits');
+    hideElement('[data-gfe-screenshot-exclude]');
+  });
 
   const screenshotBuffer = await page.screenshot({
     fullPage: true,
@@ -91,21 +105,6 @@ async function takeScreenshots(
   url: string,
 ) {
   const page = await browser.newPage();
-
-  await page.goto(url, { waitUntil: 'networkidle2' });
-  await page.evaluate(() => {
-    function hideElement(selector: string) {
-      const elements: NodeListOf<HTMLElement> =
-        document.querySelectorAll(selector);
-
-      for (const element of Array.from(elements)) {
-        element.style.display = 'none';
-      }
-    }
-
-    hideElement('.credits');
-    hideElement('[data-gfe-screenshot-exclude]');
-  });
 
   const desktopScreenshot = await takeScreenshotForViewport(
     submissionId,
