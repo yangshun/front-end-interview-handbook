@@ -234,9 +234,9 @@ export default function ProjectsChallengeAssetsPage({
                 ) : (
                   <Text color="secondary" size="body3">
                     <FormattedMessage
-                      defaultMessage="This challenge does not have starter files and design files."
-                      description="Informationational for challenges that do not have any provided files."
-                      id="Q062o6"
+                      defaultMessage="No starter files and design files required because it is an integration of other challenges."
+                      description="Information for challenges that do not have any provided files."
+                      id="kpdNBu"
                     />
                   </Text>
                 )}
