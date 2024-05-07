@@ -44,9 +44,9 @@ export default function ProjectsChallengeSubmissionComparison({
         specLabels={specLabels}
         specShowGridLayoutButton={specShowGridLayoutButton}
         title={intl.formatMessage({
-          defaultMessage: 'Solution vs Design comparison',
+          defaultMessage: 'Submission vs Design',
           description: 'Solution vs design comparison title',
-          id: '3ffp8N',
+          id: 'WxYlE0',
         })}
         onTakeScreenshot={() =>
           takeScreenshotMutation.mutateAsync({ submissionId }).then(() => {

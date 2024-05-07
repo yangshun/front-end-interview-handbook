@@ -12,7 +12,6 @@ import ProjectsChallengeSubmissionImageComparisonSlider from '~/components/proje
 import type { ProjectsChallengeSubmissionDeploymentUrls } from '~/components/projects/submissions/types';
 import Anchor from '~/components/ui/Anchor';
 import Button from '~/components/ui/Button';
-import Heading from '~/components/ui/Heading';
 import Text, { textVariants } from '~/components/ui/Text';
 import {
   themeBorderBrandColor,
@@ -23,9 +22,9 @@ import {
 } from '~/components/ui/theme';
 import Tooltip from '~/components/ui/Tooltip';
 
-import ProjectImageMatchScore from './ProjectImageMatchScore';
 import ProjectsImageViewer from './ProjectsImageViewer';
 import type { ProjectsChallengeVariantImages } from '../challenges/types';
+import ProjectsChallengeSubmissionImageMatchScore from '../submissions/screenshots/ProjectsChallengeSubmissionImageMatchScore';
 
 type Props = Readonly<{
   allowRetakeScreenshot?: boolean;
@@ -93,9 +92,11 @@ export default function ProjectsImageComparison({
             'flex flex-col justify-between gap-4 md:flex-row',
             'px-4 py-4 md:px-6',
           )}>
-          <div className="flex flex-wrap gap-4">
-            <Heading level="heading6">{title}</Heading>
-            <ProjectImageMatchScore
+          <div className="flex flex-wrap items-center gap-4">
+            <Text size="body1" weight="bold">
+              {title}
+            </Text>
+            <ProjectsChallengeSubmissionImageMatchScore
               baseImage={baseImage}
               selectedBreakpoint={selectedBreakpoint}
               userSubmittedImage={userSubmittedImage}

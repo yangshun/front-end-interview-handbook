@@ -195,6 +195,10 @@
     "defaultMessage": "We use this to calculate your YOE and keep it updated",
     "description": "Description for \"When did you start work\" input on Projects profile onboarding page"
   },
+  "/fHWzJ": {
+    "defaultMessage": "{matchScore}% match with the design for selected device breakpoint",
+    "description": "Tooltip for match score"
+  },
   "/ftlBv": {
     "defaultMessage": "Undo",
     "description": "Text describing undo command in the coding workspace shortcuts menu"
@@ -654,10 +658,6 @@
   "3edoDu": {
     "defaultMessage": "Page name must contain at least {minLength} character(s).",
     "description": "Error message"
-  },
-  "3ffp8N": {
-    "defaultMessage": "Solution vs Design comparison",
-    "description": "Solution vs design comparison title"
   },
   "3i5xK8": {
     "defaultMessage": "Large question bank",
@@ -2795,10 +2795,6 @@
     "defaultMessage": "Clear all",
     "description": "Label for clear all button"
   },
-  "LFMo5z": {
-    "defaultMessage": "Your solution for {breakpoint} is {matchScore}% matching with original design.",
-    "description": "Tooltip for match score"
-  },
   "LFxhgC": {
     "defaultMessage": "Never waste your time building one-off projects again!",
     "description": "Part 2 of subtitle of the 'Permanent toolkit' marketing section on Projects home page"
@@ -4410,6 +4406,10 @@
   "Wtrj0o": {
     "defaultMessage": "Take the structured route to front end learning by building projects according to our skills roadmap. Learn any front end core skill you may need.",
     "description": "Description of Projects skills roadmap page"
+  },
+  "WxYlE0": {
+    "defaultMessage": "Submission vs Design",
+    "description": "Solution vs design comparison title"
   },
   "WyHdb2": {
     "defaultMessage": "Proficient skills",

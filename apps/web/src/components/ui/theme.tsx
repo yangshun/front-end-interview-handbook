@@ -174,6 +174,12 @@ export const themeGradientGreenYellow: ThemeGradient<'#1C9F5E', '#F1C000'> = {
   startColor: '#1C9F5E',
 };
 
+export const themeGradientYellowGreen: ThemeGradient<'#F1C000', '#1C9F5E'> = {
+  className: 'bg-[linear-gradient(133.77deg,_#F1C000_0%,_#1C9F5E_97.95%)]',
+  endColor: '#1C9F5E',
+  startColor: '#F1C000',
+};
+
 export const themeGradientPinkPurple: ThemeGradient<'#EC4899', '#818CF8'> = {
   className: 'bg-[linear-gradient(133.77deg,_#EC4899_0%,_#818CF8_97.95%)]',
   endColor: '#818CF8',
