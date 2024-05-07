@@ -18,7 +18,7 @@ import ProjectsStatusBadge from '../../common/status/ProjectsStatusBadge';
 import ProjectsPremiumBadge from '../../purchase/ProjectsPremiumBadge';
 import { projectsSkillExtractParents } from '../../skills/data/ProjectsSkillUtils';
 import ProjectsSkillParentSkillList from '../../skills/metadata/ProjectsSkillParentSkillList';
-import ProjectsCompletedUsersTag from '../../stats/ProjectsCompletedUsersTag';
+import ProjectsStartedUsersTag from '../../stats/ProjectsStartedUsersTag';
 
 type BaseProps = Readonly<{
   challenge: ProjectsChallengeItem;
@@ -43,8 +43,8 @@ export default function ProjectsChallengeCard({
 }: Props) {
   const intl = useIntl();
   const {
-    completedProfiles,
-    completedCount,
+    startedProfiles: completedProfiles,
+    startedCount: completedCount,
     metadata,
     status,
     track,
@@ -141,7 +141,7 @@ export default function ProjectsChallengeCard({
               variant="primary"
             />
           )}
-          <ProjectsCompletedUsersTag
+          <ProjectsStartedUsersTag
             avatarBorderClassName="border-white dark:border-neutral-800/70"
             count={completedCount}
             profiles={completedProfiles}

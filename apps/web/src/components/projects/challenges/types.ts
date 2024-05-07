@@ -61,10 +61,10 @@ export type ProjectsChallengeTrackPayload = Readonly<{
 }>;
 
 export type ProjectsChallengeItem = Readonly<{
-  completedCount: number | null;
-  completedProfiles: ReadonlyArray<ProjectsProfileAvatarDataSlim>;
   info: ProjectsChallengeInfo;
   metadata: ProjectsChallengeMetadata;
+  startedCount: number | null;
+  startedProfiles: ReadonlyArray<ProjectsProfileAvatarDataSlim>;
   status: ProjectsChallengeSessionStatus | null;
   track: ProjectsChallengeTrackPayload;
   userUnlocked: boolean | null;

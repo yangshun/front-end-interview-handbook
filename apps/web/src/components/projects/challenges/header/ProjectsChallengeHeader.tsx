@@ -9,7 +9,7 @@ import ProjectsChallengeDifficultyTag from '~/components/projects/challenges/met
 import ProjectsChallengeReputationTag from '~/components/projects/challenges/metadata/ProjectsChallengeReputationTag';
 import ProjectsChallengeTrackTag from '~/components/projects/challenges/metadata/ProjectsChallengeTrackTag';
 import type { ProjectsChallengeItem } from '~/components/projects/challenges/types';
-import ProjectsCompletedUsersTag from '~/components/projects/stats/ProjectsCompletedUsersTag';
+import ProjectsStartedUsersTag from '~/components/projects/stats/ProjectsStartedUsersTag';
 import Anchor from '~/components/ui/Anchor';
 import Button from '~/components/ui/Button';
 import Heading from '~/components/ui/Heading';
@@ -46,8 +46,7 @@ export default function ProjectsChallengeHeader({
   const intl = useIntl();
   const isMounted = useIsMounted();
   const tabs = useProjectDetailsStepsTabs(challenge);
-  const { completedCount, completedProfiles, metadata, info, track } =
-    challenge;
+  const { startedCount, startedProfiles, metadata, info, track } = challenge;
   const { access, difficulty, points, skills, submitHref } = metadata;
   const { title, description } = info;
 
@@ -241,10 +240,10 @@ export default function ProjectsChallengeHeader({
             ) : (
               <div className="flex items-center gap-x-4 gap-y-4 lg:flex-col lg:items-end">
                 {startButton}
-                <ProjectsCompletedUsersTag
+                <ProjectsStartedUsersTag
                   avatarBorderClassName="border-white dark:border-neutral-900"
-                  count={completedCount}
-                  profiles={completedProfiles}
+                  count={startedCount}
+                  profiles={startedProfiles}
                 />
               </div>
             )}

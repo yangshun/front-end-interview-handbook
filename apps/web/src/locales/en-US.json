@@ -1455,10 +1455,6 @@
     "defaultMessage": "Questions List",
     "description": "Screenreader text for quiz questions list"
   },
-  "AZInep": {
-    "defaultMessage": "{completedCount} completed",
-    "description": "Label for number of completed users for a project"
-  },
   "Aa86vz": {
     "defaultMessage": "Free",
     "description": "Label to indicate the item is free"
@@ -1962,6 +1958,10 @@
   "EflBca": {
     "defaultMessage": "Started: {daysSinceStarted} days",
     "description": "Days since started for Continue projects section on Projects dashboard page"
+  },
+  "EfwT/A": {
+    "defaultMessage": "{startedCount, plural, one {A user} other {# users}} started working on this challenge",
+    "description": "Number of users who have started the challenge"
   },
   "EjbpUe": {
     "defaultMessage": "Open navigation profile menu",
@@ -2766,6 +2766,10 @@
   "L1Wgz6": {
     "defaultMessage": "Tracks | Progress | Dashboard",
     "description": "Title of tracks section on dashboard page"
+  },
+  "L1cfzu": {
+    "defaultMessage": "{startedCount} started",
+    "description": "Label for number of users who have started the challenge"
   },
   "L33SIl": {
     "defaultMessage": "Popularity: Least to most upvotes",

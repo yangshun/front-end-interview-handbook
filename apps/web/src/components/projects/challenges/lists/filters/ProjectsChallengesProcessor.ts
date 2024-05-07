@@ -30,7 +30,7 @@ export function sortProjectsChallenges<T extends ProjectsChallengeItem>(
         return a.metadata.priority - b.metadata.priority;
       }
       case 'completedCount': {
-        const comp = (a.completedCount ?? 0) - (b.completedCount ?? 0);
+        const comp = (a.startedCount ?? 0) - (b.startedCount ?? 0);
         const value =
           comp !== 0
             ? isAscendingOrder

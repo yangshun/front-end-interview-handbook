@@ -115,8 +115,8 @@ export async function readProjectsChallengeList(
   const [
     sessionsForUserGroupedBySlug,
     challengeAccessSet,
-    completedCountsGroupedBySlug,
-    completedProfileIdsGroupedBySlug,
+    startedCountsGroupedBySlug,
+    startedProfileIdsGroupedBySlug,
   ] = await Promise.all([
     fetchSessionsForUserGroupedBySlug(userId),
     fetchChallengeAccessForUserGroupedBySlug(userId),
@@ -127,7 +127,9 @@ export async function readProjectsChallengeList(
             _count: true,
             by: ['slug'],
             where: {
-              status: 'COMPLETED',
+              status: {
+                in: ['COMPLETED', 'IN_PROGRESS'],
+              },
             },
           });
 
@@ -161,7 +163,7 @@ export async function readProjectsChallengeList(
           JOIN LATERAL (
             SELECT * FROM public."ProjectsChallengeSession" p_inner
             WHERE p_inner.slug = p_outer.slug
-            AND p_inner."status" = 'COMPLETED'
+            AND p_inner."status" IN ('COMPLETED', 'IN_PROGRESS')
             LIMIT ${limit}
           ) p_top ON TRUE
           ORDER BY p_outer.slug) q
@@ -198,12 +200,12 @@ export async function readProjectsChallengeList(
   const challenges = allProjectsChallengeMetadata.map((challengeMetadata) =>
     challengeItemAddTrackMetadata(
       {
-        completedCount:
-          completedCountsGroupedBySlug?.[challengeMetadata.slug] ?? null,
-        completedProfiles:
-          completedProfileIdsGroupedBySlug?.[challengeMetadata.slug] ?? [],
         info: challengeInfoDict[challengeMetadata.slug],
         metadata: challengeMetadata,
+        startedCount:
+          startedCountsGroupedBySlug?.[challengeMetadata.slug] ?? null,
+        startedProfiles:
+          startedProfileIdsGroupedBySlug?.[challengeMetadata.slug] ?? [],
         status: sessionsForUserGroupedBySlug?.[challengeMetadata.slug] ?? null,
         userUnlocked: challengeAccessSet?.has(challengeMetadata.slug) ?? null,
       },
@@ -233,7 +235,7 @@ export async function readProjectsChallengeItem(
   const challengeMetadata = readProjectsChallengeMetadata(slug);
   const { challengeInfo } = readProjectsChallengeInfo(slug, requestedLocale);
 
-  const [completedCount, completedUsers, viewerUnlocked, viewerSessionStatus] =
+  const [startedCount, startedUsers, viewerUnlocked, viewerSessionStatus] =
     await Promise.all([
       (async () => {
         try {
@@ -243,7 +245,9 @@ export async function readProjectsChallengeItem(
               by: ['slug'],
               where: {
                 slug,
-                status: 'COMPLETED',
+                status: {
+                  in: ['COMPLETED', 'IN_PROGRESS'],
+                },
               },
             });
 
@@ -254,7 +258,7 @@ export async function readProjectsChallengeItem(
       })(),
       (async () => {
         try {
-          const completedSessions =
+          const startedSessions =
             await prisma.projectsChallengeSession.findMany({
               distinct: ['profileId'],
               include: {
@@ -277,11 +281,13 @@ export async function readProjectsChallengeItem(
               take: 4,
               where: {
                 slug,
-                status: 'COMPLETED',
+                status: {
+                  in: ['COMPLETED', 'IN_PROGRESS'],
+                },
               },
             });
 
-          return completedSessions.map(
+          return startedSessions.map(
             (session) => session.projectsProfile!.userProfile!,
           );
         } catch (_err) {
@@ -335,10 +341,10 @@ export async function readProjectsChallengeItem(
   return {
     challenge: challengeItemAddTrackMetadata(
       {
-        completedCount,
-        completedProfiles: completedUsers,
         info: challengeInfo,
         metadata: challengeMetadata,
+        startedCount,
+        startedProfiles: startedUsers,
         status: viewerSessionStatus,
         userUnlocked: viewerUnlocked,
       },
