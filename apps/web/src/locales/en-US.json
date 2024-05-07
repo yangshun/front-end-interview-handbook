@@ -2731,6 +2731,10 @@
     "defaultMessage": "Save changes",
     "description": "Label for save changes button for projects profile edit page"
   },
+  "Kp+YJx": {
+    "defaultMessage": "Start your first <link>project</link>.",
+    "description": "Label to start a project"
+  },
   "KsNZvV": {
     "defaultMessage": "Get premium",
     "description": "Description of the pricing section in the Projects marketing page"
@@ -3910,6 +3914,10 @@
   "T9GECe": {
     "defaultMessage": "Dive into the world of element selection and modification in the DOM. Practice selecting elements using CSS selectors, traverse the DOM hierarchy, and manipulate their properties, content, and styles.",
     "description": "Description for interview preparation focus area"
+  },
+  "T9XIQX": {
+    "defaultMessage": "Challenges you have started before or completed will appear here.",
+    "description": "Subtitle for challenge activity page"
   },
   "TAuaop": {
     "defaultMessage": "While working on project",
@@ -6567,6 +6575,10 @@
     "defaultMessage": "Topic",
     "description": "Question quiz topic"
   },
+  "ojo22x": {
+    "defaultMessage": "No challenges started yet",
+    "description": "Title of empty state on projects activity page"
+  },
   "ojtNa2": {
     "defaultMessage": "3 Months",
     "description": "Short label for 3 months study plan"
@@ -7110,6 +7122,10 @@
   "t5o9Z7": {
     "defaultMessage": "Do you want to add the <bold>\"{skillName}\"</bold> skill to this challenge so that completing the challenge will count towards that skill's progress?",
     "description": "Message about adding a skill to a challenge session"
+  },
+  "tBeimS": {
+    "defaultMessage": "Challenges activity",
+    "description": "Title for challenge activity page"
   },
   "tCiU5O": {
     "defaultMessage": "No series",

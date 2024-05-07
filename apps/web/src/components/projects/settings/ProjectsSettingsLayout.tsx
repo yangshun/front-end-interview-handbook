@@ -98,7 +98,7 @@ export default function ProjectsSettingsLayout({ children }: Props) {
         <div className="flex items-center">
           <Tabs
             label="Select navigation item"
-            size="md"
+            size="sm"
             tabs={tabsList}
             value={segment}
           />

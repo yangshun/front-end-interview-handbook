@@ -1,11 +1,15 @@
 'use client';
 
 import clsx from 'clsx';
+import { RiRocketLine } from 'react-icons/ri';
+import { FormattedMessage, useIntl } from 'react-intl';
 
 import { trpc } from '~/hooks/trpc';
 
 import Timestamp from '~/components/common/datetime/Timestamp';
 import Anchor from '~/components/ui/Anchor';
+import EmptyState from '~/components/ui/EmptyState';
+import Heading from '~/components/ui/Heading';
 import Spinner from '~/components/ui/Spinner';
 import Text from '~/components/ui/Text';
 import {
@@ -13,15 +17,75 @@ import {
   themeBackgroundEmphasized_Hover,
   themeBorderColor,
   themeDivideColor,
+  themeTextSuccessColor,
 } from '~/components/ui/theme';
 
 export default function ProjectsSettingsActivityPage() {
+  return (
+    <div className="flex flex-col gap-4">
+      <div className="flex flex-col gap-2">
+        <Heading level="heading6">
+          <FormattedMessage
+            defaultMessage="Challenges activity"
+            description="Title for challenge activity page"
+            id="tBeimS"
+          />
+        </Heading>
+        <Text className="block" color="secondary" size="body2">
+          <FormattedMessage
+            defaultMessage="Challenges you have started before or completed will appear here."
+            description="Subtitle for challenge activity page"
+            id="T9XIQX"
+          />
+        </Text>
+      </div>
+      <ProjectsSettingsActivitySection />
+    </div>
+  );
+}
+
+function ProjectsSettingsActivitySection() {
+  const intl = useIntl();
   const { data: sessions, isLoading } = trpc.projects.sessions.list.useQuery({
     orderBy: 'desc',
   });
 
   if (isLoading) {
-    return <Spinner display="block" size="lg" />;
+    return (
+      <div className="py-10">
+        <Spinner display="block" size="md" />
+      </div>
+    );
+  }
+
+  if (sessions?.length === 0) {
+    return (
+      <EmptyState
+        icon={({ className, ...props }) => (
+          <RiRocketLine
+            className={clsx('-translate-y-0.5 rotate-45', className)}
+            {...props}
+          />
+        )}
+        subtitle={
+          <FormattedMessage
+            defaultMessage="Start your first <link>project</link>."
+            description="Label to start a project"
+            id="Kp+YJx"
+            values={{
+              link: (chunks) => (
+                <Anchor href="/projects/challenges">{chunks}</Anchor>
+              ),
+            }}
+          />
+        }
+        title={intl.formatMessage({
+          defaultMessage: 'No challenges started yet',
+          description: 'Title of empty state on projects activity page',
+          id: 'ojo22x',
+        })}
+      />
+    );
   }
 
   return (
@@ -59,22 +123,30 @@ export default function ProjectsSettingsActivityPage() {
               size="body3">
               {session.status === 'IN_PROGRESS' && (
                 <span>
-                  In progress (Started at <Timestamp date={session.createdAt} />
-                  )
+                  <Text color="warning" weight="medium">
+                    In progress
+                  </Text>{' '}
+                  &middot; Started at <Timestamp date={session.createdAt} />
                 </span>
               )}
               {session.status === 'COMPLETED' &&
                 (session.stoppedAt ? (
                   <span>
-                    {session.status} at <Timestamp date={session.stoppedAt} />
+                    <Text color="success" weight="medium">
+                      Completed
+                    </Text>{' '}
+                    &middot; Completed at <Timestamp date={session.stoppedAt} />
                   </span>
                 ) : (
-                  <span>Completed</span>
+                  <span className={themeTextSuccessColor}>Completed</span>
                 ))}
               {session.status === 'STOPPED' &&
                 (session.stoppedAt ? (
                   <span>
-                    Stopped at <Timestamp date={session.stoppedAt} />
+                    <Text color="error" weight="medium">
+                      Stopped
+                    </Text>{' '}
+                    &middot; Stopped at <Timestamp date={session.stoppedAt} />
                   </span>
                 ) : (
                   <span>Stopped</span>

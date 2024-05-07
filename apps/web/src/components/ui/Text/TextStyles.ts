@@ -13,6 +13,7 @@ import {
   themeTextSubtitleColor,
   themeTextSubtleColor,
   themeTextSuccessColor,
+  themeTextWarningColor,
 } from '~/components/ui/theme';
 
 import { themeTextColor } from '../theme';
@@ -31,7 +32,8 @@ export type TextColor =
   | 'secondary'
   | 'subtitle'
   | 'subtle'
-  | 'success';
+  | 'success'
+  | 'warning';
 export type TextSize = 'body0' | 'body1' | 'body2' | 'body3' | 'inherit';
 export type TextWeight = 'bold' | 'inherit' | 'medium' | 'normal';
 
@@ -65,6 +67,7 @@ const colorClasses: Record<TextColor, string> = {
   subtitle: themeTextSubtitleColor,
   subtle: themeTextSubtleColor,
   success: themeTextSuccessColor,
+  warning: themeTextWarningColor,
 };
 
 export const textVariants = cva('', {

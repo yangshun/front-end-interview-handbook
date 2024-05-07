@@ -27,7 +27,7 @@ export default function ProjectsSettingsExperienceThemeSelector() {
   return (
     <Section>
       <div className="flex flex-col gap-4">
-        <Heading level="heading5">
+        <Heading level="heading6">
           <FormattedMessage
             defaultMessage="Theme preferences"
             description="Title for Theme preferences in projects settings page"

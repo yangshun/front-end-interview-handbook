@@ -41,7 +41,7 @@ export default function ProjectsSettingsBillingSubscriptionSection({
   return (
     <Section>
       <div className="flex flex-col gap-6">
-        <Heading level="heading5">
+        <Heading level="heading6">
           <FormattedMessage
             defaultMessage="Manage your subscription"
             description="Title for manage your subscription section"
