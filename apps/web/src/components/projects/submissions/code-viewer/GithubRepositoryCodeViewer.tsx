@@ -7,6 +7,7 @@ import { trpc } from '~/hooks/trpc';
 import ReadonlyDirectoryExplorer from '~/components/common/directory-explorer/ReadonlyDirectoryExplorer';
 import EmptyState from '~/components/ui/EmptyState';
 import Spinner from '~/components/ui/Spinner';
+import { themeBorderColor } from '~/components/ui/theme';
 import MonacoCodeEditor from '~/components/workspace/common/editor/MonacoCodeEditor';
 
 type Props = Readonly<{
@@ -141,14 +142,29 @@ export default function GithubRepositoryCodeViewer({
 
         return (
           <>
-            <div className="hidden w-[300px] flex-col overflow-y-auto p-2 md:flex">
+            <div
+              className={clsx(
+                'hidden overflow-y-auto p-2',
+                'flex-col',
+                'md:flex',
+                'w-[300px]',
+                ['border-e', themeBorderColor],
+              )}>
               <ReadonlyDirectoryExplorer
                 activeFile={activeFile}
                 filePaths={filePaths}
                 onActiveFileChange={setActiveFile}
               />
             </div>
-            <div className="flex-1">{renderFileContent()}</div>
+            <div className="flex-1 overflow-auto">
+              {isFetchingFileContents ? (
+                <div className="size-full flex items-center justify-center">
+                  <Spinner className="block" />
+                </div>
+              ) : (
+                renderFileContent()
+              )}
+            </div>
           </>
         );
       })()}

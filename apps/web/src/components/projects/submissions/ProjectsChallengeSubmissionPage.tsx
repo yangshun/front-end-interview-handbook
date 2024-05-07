@@ -227,7 +227,9 @@ export default function ProjectsChallengeSubmissionPage({
               repoSubdirectoryPath={repoSubdirectoryPath}
             />
           </div>
-          <div ref={discussionSectionRef}>
+          <div
+            ref={discussionSectionRef}
+            className={clsx('border-t', themeBorderColor)}>
             <ProjectsChallengeSubmissionDiscussionsSection
               submission={submission}
             />
