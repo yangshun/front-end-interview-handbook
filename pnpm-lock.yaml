@@ -523,6 +523,9 @@ importers:
       '@types/react-dom':
         specifier: 18.0.11
         version: 18.0.11
+      '@types/resemblejs':
+        specifier: ^4.1.3
+        version: 4.1.3
       '@types/strip-comments':
         specifier: ^2.0.1
         version: 2.0.4
@@ -6071,6 +6074,10 @@ packages:
       '@types/prop-types': 15.7.11
       '@types/scheduler': 0.16.8
       csstype: 3.1.2
+
+  /@types/resemblejs@4.1.3:
+    resolution: {integrity: sha512-p0NA5aACdWCK+I4NJbwUvFoixwYxvfLu+UqaiZt/J3+3PJavMYOxRrdbeXbbiKiMGdKdDFjoxlFWkkaMU7SDxA==}
+    dev: true
 
   /@types/resolve@1.20.6:
     resolution: {integrity: sha512-A4STmOXPhMUtHH+S6ymgE2GiBSMqf4oTvcQZMcHzokuTLVYzXTB8ttjcgxOVaAp2lGwEdzZ0J+cRbbeevQj1UQ==}

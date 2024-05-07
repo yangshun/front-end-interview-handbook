@@ -23,6 +23,7 @@ import {
 } from '~/components/ui/theme';
 import Tooltip from '~/components/ui/Tooltip';
 
+import ProjectImageMatchScore from './ProjectImageMatchScore';
 import ProjectsImageViewer from './ProjectsImageViewer';
 import type { ProjectsChallengeVariantImages } from '../challenges/types';
 
@@ -74,6 +75,9 @@ export default function ProjectsImageComparison({
   });
   const { width } = ProjectsImageBreakpointDimensions[selectedBreakpoint];
 
+  const { image: userSubmittedImage, original: baseImage } =
+    deploymentImagesForBreakpointWithComparison[selectedScreenIndex];
+
   return (
     <div
       className={clsx(
@@ -89,7 +93,14 @@ export default function ProjectsImageComparison({
             'flex flex-col justify-between gap-4 md:flex-row',
             'px-4 py-4 md:px-6',
           )}>
-          <Heading level="heading6">{title}</Heading>
+          <div className="flex flex-wrap gap-4">
+            <Heading level="heading6">{title}</Heading>
+            <ProjectImageMatchScore
+              baseImage={baseImage}
+              selectedBreakpoint={selectedBreakpoint}
+              userSubmittedImage={userSubmittedImage}
+            />
+          </div>
           {allowRetakeScreenshot && (
             <Button
               addonPosition="start"

@@ -2795,6 +2795,10 @@
     "defaultMessage": "Clear all",
     "description": "Label for clear all button"
   },
+  "LFMo5z": {
+    "defaultMessage": "Your solution for {breakpoint} is {matchScore}% matching with original design.",
+    "description": "Tooltip for match score"
+  },
   "LFxhgC": {
     "defaultMessage": "Never waste your time building one-off projects again!",
     "description": "Part 2 of subtitle of the 'Permanent toolkit' marketing section on Projects home page"
