@@ -71,9 +71,6 @@ async function takeScreenshotForViewport(
   url: string,
   viewport: Parameters<Page['setViewport']>[0],
 ) {
-  const path = createStoragePath(submissionId, url, device);
-
-  await page.goto(url, { waitUntil: 'load' });
   await page.setViewport(viewport);
 
   const screenshotBuffer = await page.screenshot({
@@ -81,6 +78,8 @@ async function takeScreenshotForViewport(
     quality: 100, // TODO(projects): lower for non-premium.
     type: 'webp',
   });
+
+  const path = createStoragePath(submissionId, url, device);
 
   return await saveScreenshot(screenshotBuffer, path);
 }
@@ -92,6 +91,21 @@ async function takeScreenshots(
   url: string,
 ) {
   const page = await browser.newPage();
+
+  await page.goto(url, { waitUntil: 'networkidle2' });
+  await page.evaluate(() => {
+    function hideElement(selector: string) {
+      const elements: NodeListOf<HTMLElement> =
+        document.querySelectorAll(selector);
+
+      for (const element of Array.from(elements)) {
+        element.style.display = 'none';
+      }
+    }
+
+    hideElement('.credits');
+    hideElement('[data-gfe-screenshot-exclude]');
+  });
 
   const desktopScreenshot = await takeScreenshotForViewport(
     submissionId,
