@@ -1,4 +1,5 @@
 import { capitalize } from 'lodash-es';
+import { RiFireFill } from 'react-icons/ri';
 
 import { useToast } from '~/components/global/toasts/useToast';
 
@@ -41,8 +42,15 @@ export default function ToastExamples() {
       </div>
       {variants.map((variant) => (
         <div key={variant} className="flex flex-col items-center gap-4">
-          <ToastImpl title={capitalize(variant) + ' Title'} variant={variant} />
           <ToastImpl
+            addOnIcon={RiFireFill}
+            addOnLabel="+50"
+            title={capitalize(variant) + ' Title'}
+            variant={variant}
+          />
+          <ToastImpl
+            addOnIcon={RiFireFill}
+            addOnLabel="+50"
             description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore."
             title={capitalize(variant) + ' Title'}
             variant={variant}

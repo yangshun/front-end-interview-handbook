@@ -40,6 +40,7 @@ export const themeTextSuccessColor = clsx(
 export const themeTextWarningColor = clsx(
   'text-warning dark:text-warning-light',
 );
+export const themeTextInfoColor = clsx('text-info dark:text-info-light');
 export const themeTextDangerColor = clsx('text-danger');
 export const themeTextPlaceholderColor = themeTextFaintColor;
 export const themeTextDisabledColor = themeTextFainterColor;

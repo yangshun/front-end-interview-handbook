@@ -13,7 +13,14 @@ import { FormattedMessage } from 'react-intl';
 
 import type { TextColor } from '../Text';
 import Text from '../Text';
-import { themeTextInvertColor } from '../theme';
+import {
+  themeTextColor,
+  themeTextDangerColor,
+  themeTextInfoColor,
+  themeTextInvertColor,
+  themeTextSuccessColor,
+  themeTextWarningColor,
+} from '../theme';
 
 import * as ToastPrimitive from '@radix-ui/react-toast';
 
@@ -30,6 +37,7 @@ export type ToastVariant =
 const classes: Record<
   ToastVariant,
   Readonly<{
+    addOnClass: string;
     backgroundClass: string;
     borderClass?: string;
     icon?: (props: React.ComponentProps<'svg'>) => JSX.Element;
@@ -38,47 +46,58 @@ const classes: Record<
   }>
 > = {
   danger: {
+    addOnClass: 'bg-white text-danger',
     backgroundClass: 'bg-danger',
     icon: RiCloseCircleFill,
     iconClass: 'text-white focus:ring-white-500',
     textColor: 'light',
   },
   dark: {
+    addOnClass: 'bg-white text-neutral-900',
     backgroundClass: 'bg-neutral-900',
     borderClass: 'border-neutral-700',
     iconClass: 'text-white focus:ring-white-500',
     textColor: 'light',
   },
   info: {
+    addOnClass: 'bg-white text-info',
     backgroundClass: 'bg-info',
     icon: RiInformationFill,
     iconClass: 'text-white focus:ring-white-500',
     textColor: 'light',
   },
   invert: {
+    addOnClass: clsx(
+      'bg-neutral-900 dark:bg-neutral-100',
+      themeTextInvertColor,
+    ),
     backgroundClass: 'bg-neutral-100 dark:bg-neutral-900',
     borderClass: 'border-neutral-200 dark:border-neutral-700',
     iconClass: 'focus:ring-white-500',
     textColor: 'default',
   },
   plain: {
+    addOnClass: clsx('bg-neutral-100 dark:bg-neutral-900', themeTextColor),
     backgroundClass: 'bg-neutral-900 dark:bg-neutral-100',
     iconClass: clsx(themeTextInvertColor, 'focus:ring-neutral-500'),
     textColor: 'invert',
   },
   special: {
+    addOnClass: 'bg-white text-brand-dark',
     backgroundClass: 'bg-brand-dark',
     icon: RiStarFill,
     iconClass: 'text-white focus:ring-white-500',
     textColor: 'light',
   },
   success: {
+    addOnClass: 'bg-white text-success',
     backgroundClass: 'bg-success',
     icon: RiCheckboxCircleFill,
     iconClass: 'text-white focus:ring-white-500',
     textColor: 'light',
   },
   warning: {
+    addOnClass: 'bg-white text-warning',
     backgroundClass: 'bg-warning',
     icon: RiErrorWarningFill,
     iconClass: 'text-white focus:ring-white-500',
@@ -205,6 +224,8 @@ ToastDescription.displayName = ToastPrimitive.Description.displayName;
 export function ToastImpl({
   className,
   title,
+  addOnIcon: AddOnIcon,
+  addOnLabel,
   variant,
   description,
   icon: IconProp,
@@ -213,6 +234,7 @@ export function ToastImpl({
 }: Props) {
   const {
     icon: VariantIcon,
+    addOnClass,
     borderClass,
     backgroundClass,
     iconClass,
@@ -235,8 +257,27 @@ export function ToastImpl({
         size="body1">
         {Icon && <Icon className={clsx('size-5 shrink-0', iconClass)} />}
         <div className="flex w-full grow flex-col gap-y-1">
-          <div className="flex justify-between gap-2">
-            {title && <ToastTitle>{title}</ToastTitle>}
+          <div className="flex items-center justify-between gap-2">
+            {title && (
+              <div className="flex grow items-center justify-between gap-2">
+                <ToastTitle>{title}</ToastTitle>
+                {(AddOnIcon || addOnLabel) && (
+                  <Text
+                    className={clsx(
+                      'inline-flex items-center gap-1',
+                      'rounded-full',
+                      'px-2 py-0.5',
+                      addOnClass,
+                    )}
+                    color="inherit"
+                    size="body3"
+                    weight="bold">
+                    {AddOnIcon && <AddOnIcon className="size-3" />}
+                    {addOnLabel}
+                  </Text>
+                )}
+              </div>
+            )}
             <ToastClose className={iconClass} onClick={onClose} />
           </div>
           {description && (
@@ -251,6 +292,8 @@ export function ToastImpl({
 }
 
 type Props = Readonly<{
+  addOnIcon?: (props: React.ComponentProps<'svg'>) => JSX.Element;
+  addOnLabel?: string;
   className?: string;
   description?: React.ReactNode;
   icon?: (props: React.ComponentProps<'svg'>) => JSX.Element;
@@ -269,18 +312,35 @@ export type ToastProps = Omit<
 const Toast = React.forwardRef<
   React.ElementRef<typeof ToastPrimitive.Root>,
   ToastProps
->(({ maxWidth, description, icon, title, variant, onClose, ...props }, ref) => (
-  <ToastPrimitive.Root ref={ref} asChild={true} {...props}>
-    <ToastImpl
-      description={description}
-      icon={icon}
-      maxWidth={maxWidth}
-      title={title}
-      variant={variant}
-      onClose={onClose}
-    />
-  </ToastPrimitive.Root>
-));
+>(
+  (
+    {
+      maxWidth,
+      description,
+      icon,
+      title,
+      addOnIcon,
+      addOnLabel,
+      variant,
+      onClose,
+      ...props
+    },
+    ref,
+  ) => (
+    <ToastPrimitive.Root ref={ref} asChild={true} {...props}>
+      <ToastImpl
+        addOnIcon={addOnIcon}
+        addOnLabel={addOnLabel}
+        description={description}
+        icon={icon}
+        maxWidth={maxWidth}
+        title={title}
+        variant={variant}
+        onClose={onClose}
+      />
+    </ToastPrimitive.Root>
+  ),
+);
 
 export default Toast;
 
