@@ -3855,6 +3855,10 @@
     "defaultMessage": "<authorProfileLink>{author}</authorProfileLink> replied to <recipientProfileLink>{recipient}</recipientProfileLink> on the submission <link>{submissionTitle}</link>: <comment>\"{description}\"</comment>",
     "description": "Log message for someone replying to someone on a submission"
   },
+  "SjMWlG": {
+    "defaultMessage": "Tip: Many users have reimbursed GreatFrontEnd Projects Premium as part of their company's flexible benefits or learning and training budget.",
+    "description": "Tip at the bottom of the Pricing section to let users they can reimburse their purchase of GreatFrontEnd with their company's learning budgets"
+  },
   "SlcOi4": {
     "defaultMessage": "Number of challenges completed in skill plan",
     "description": "Tooltip for skill plan challenges label"

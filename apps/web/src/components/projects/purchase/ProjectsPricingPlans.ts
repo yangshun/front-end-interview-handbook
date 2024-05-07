@@ -35,7 +35,7 @@ export const ProjectsPricingPlansPaymentConfig: Record<
       before: 108, // Not used
     },
     checkoutMode: 'subscription',
-    discount: 20,
+    discount: 40,
     priceType: 'recurring',
     productId,
     recurring: { count: 1, interval: 'year' },

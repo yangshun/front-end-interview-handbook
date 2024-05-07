@@ -44,7 +44,7 @@ export default function ProjectsPricingSection({
     <div
       className={clsx(
         'isolate',
-        'py-12 lg:mx-8 lg:py-24',
+        'py-12 lg:mx-8 lg:pt-24',
         'lg:rounded-t-3xl xl:rounded-t-[48px]',
         themeRadialGlowBackground,
       )}>
@@ -93,9 +93,9 @@ export default function ProjectsPricingSection({
                 <Text className="block" color="secondary" size="body3">
                   *{' '}
                   <FormattedMessage
-                    defaultMessage="Tip: Many users have reimbursed GreatFrontEnd Premium as part of their company's flexible benefits or learning and training budget."
+                    defaultMessage="Tip: Many users have reimbursed GreatFrontEnd Projects Premium as part of their company's flexible benefits or learning and training budget."
                     description="Tip at the bottom of the Pricing section to let users they can reimburse their purchase of GreatFrontEnd with their company's learning budgets"
-                    id="Xka4d3"
+                    id="SjMWlG"
                   />
                 </Text>
                 <Text className="block" color="secondary" size="body3">

@@ -24,32 +24,30 @@ export default function ProjectsPricingPage({
   return (
     <div
       className={clsx('flex flex-col gap-y-16 sm:gap-y-20', 'pb-12 lg:pt-8')}>
-      <div className="flex flex-col">
-        <ProjectsPricingSection
-          countryCode={countryCode}
-          countryName={countryName}
-          heading={
-            <FormattedMessage
-              defaultMessage="Choose your pricing plan"
-              description="Title of Pricing section"
-              id="hqzG5o"
-            />
-          }
-          plansPaymentConfig={plansPaymentConfig}
-          title={
-            <FormattedMessage
-              defaultMessage="Pricing plans"
-              description="Section label on Pricing section of Homepage or Pricing page"
-              id="ZWMfa0"
-            />
-          }
-          useCurrentPageAsCancelUrl={true}
-        />
-        <ProjectsPricingPromotions />
-        <Section>
-          <ProjectsPricingFAQSection />
-        </Section>
-      </div>
+      <ProjectsPricingSection
+        countryCode={countryCode}
+        countryName={countryName}
+        heading={
+          <FormattedMessage
+            defaultMessage="Choose your pricing plan"
+            description="Title of Pricing section"
+            id="hqzG5o"
+          />
+        }
+        plansPaymentConfig={plansPaymentConfig}
+        title={
+          <FormattedMessage
+            defaultMessage="Pricing plans"
+            description="Section label on Pricing section of Homepage or Pricing page"
+            id="ZWMfa0"
+          />
+        }
+        useCurrentPageAsCancelUrl={true}
+      />
+      <ProjectsPricingPromotions />
+      <Section>
+        <ProjectsPricingFAQSection />
+      </Section>
     </div>
   );
 }

@@ -30,7 +30,7 @@ export default function ProjectsPricingFAQSection() {
 
   return (
     <Container
-      className="relative isolate flex flex-col gap-y-12 py-56 lg:py-32"
+      className="relative isolate flex flex-col gap-y-12"
       variant="narrow">
       <MarketingSectionHeader
         description={
@@ -59,17 +59,15 @@ export default function ProjectsPricingFAQSection() {
         }
       />
       <Section>
-        <div className="flex flex-col gap-y-6">
-          <MarketingFAQSection
-            faqs={purchaseFaqs}
-            hideTitle={true}
-            title={intl.formatMessage({
-              defaultMessage: 'Purchase',
-              description: 'Title for FAQ section',
-              id: 'UWucPu',
-            })}
-          />
-        </div>
+        <MarketingFAQSection
+          faqs={purchaseFaqs}
+          hideTitle={true}
+          title={intl.formatMessage({
+            defaultMessage: 'Purchase',
+            description: 'Title for FAQ section',
+            id: 'UWucPu',
+          })}
+        />
       </Section>
     </Container>
   );

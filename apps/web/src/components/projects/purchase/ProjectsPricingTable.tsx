@@ -388,9 +388,11 @@ function PricingPlanComparisonDiscount({
   paymentConfig,
 }: Readonly<{
   paymentConfig: ProjectsPricingPlanPaymentConfigLocalized;
-  planType: ProjectsSubscriptionPlan;
+  planType: ProjectsSubscriptionPlanIncludingFree;
 }>) {
   switch (planType) {
+    case 'FREE':
+      return null;
     case 'MONTH':
       return null;
     case 'ANNUAL':
@@ -414,7 +416,7 @@ function FeatureItem({
         aria-hidden={true}
         className={clsx('size-6 shrink-0', themeTextSuccessColor)}
       />
-      <Text className="block" color="secondary" size="body1">
+      <Text className="block" color="secondary" size="body2">
         {title}
       </Text>
       {description && (
@@ -429,38 +431,46 @@ function FeatureItem({
 }
 
 function ProjectsPricingPriceCell({
+  amountAfterPPP,
+  amountBeforePPP,
   className,
   countryCode,
+  currency,
+  symbol,
   showPPPMessage,
   paymentConfig,
   planType,
   numberOfMonths,
   useCurrentPageAsCancelUrl,
 }: Readonly<{
+  amountAfterPPP: number;
+  amountBeforePPP: number;
   className: string;
   countryCode: string;
+  currency: string;
   numberOfMonths?: number;
   paymentConfig: ProjectsPricingPlanPaymentConfigLocalized;
-  planType: ProjectsSubscriptionPlan;
+  planType: ProjectsSubscriptionPlanIncludingFree;
   showPPPMessage: boolean;
+  symbol: string;
   useCurrentPageAsCancelUrl: boolean;
 }>) {
   const { userProfile } = useUserProfileWithProjectsProfile();
 
   return (
     <div className={className}>
-      <div className="flex items-end justify-between gap-2 md:flex-col md:items-start lg:items-center">
-        <div>
+      <div className="flex items-end justify-between gap-2 xl:flex-col xl:items-center">
+        <div className="xl:text-center">
           {showPPPMessage && (
             <Text
-              className="inline-flex items-baseline line-through"
+              className={clsx(
+                'block w-full line-through',
+                amountBeforePPP === 0 && 'opacity-0',
+              )}
               color="subtle"
               size="body1">
               <PurchasePriceLabel
-                amount={priceRoundToNearestNiceNumber(
-                  paymentConfig.unitCostCurrency.base.after /
-                    (numberOfMonths ?? 1),
-                )}
+                amount={amountBeforePPP}
                 currency={paymentConfig.currency.toUpperCase()}
                 symbol={paymentConfig.symbol}
               />{' '}
@@ -478,20 +488,17 @@ function ProjectsPricingPriceCell({
                 />
               )}
             </Text>
-          )}{' '}
+          )}
           <Text
-            className="inline-flex items-baseline gap-x-2"
+            className="flex items-baseline justify-center gap-x-2"
             color="subtitle"
             size="body1"
             weight="medium">
             <span>
               <PurchasePriceLabel
-                amount={priceRoundToNearestNiceNumber(
-                  paymentConfig.unitCostCurrency.withPPP.after /
-                    (numberOfMonths ?? 1),
-                )}
-                currency={paymentConfig.currency.toUpperCase()}
-                symbol={paymentConfig.symbol}>
+                amount={amountAfterPPP}
+                currency={currency}
+                symbol={symbol}>
                 {(parts) => (
                   <>
                     {parts[0].value}
@@ -511,7 +518,7 @@ function ProjectsPricingPriceCell({
                 )}
               </PurchasePriceLabel>
             </span>
-            {numberOfMonths != null ? (
+            {amountAfterPPP === 0 || numberOfMonths != null ? (
               <FormattedMessage
                 defaultMessage="/month"
                 description="Per month"
@@ -526,23 +533,31 @@ function ProjectsPricingPriceCell({
             )}
           </Text>
         </div>
-        <Text
-          className={clsx(
-            'flex items-center justify-center',
-            'md:min-h-8 pb-2 md:pb-0',
-          )}
-          size="body3">
-          {userProfile?.projectsProfile?.plan === planType ? (
-            <span className="hidden lg:inline">
-              <PurchaseActivePlanLabel />
-            </span>
-          ) : (
+        {(userProfile?.projectsProfile != null &&
+          userProfile?.projectsProfile?.plan == null &&
+          planType === 'FREE') ||
+        userProfile?.projectsProfile?.plan === planType ? (
+          <Text
+            className={clsx(
+              'flex items-center justify-center',
+              'md:min-h-8 pb-2 md:pb-0',
+            )}
+            size="body3">
+            <PurchaseActivePlanLabel />
+          </Text>
+        ) : (
+          <Text
+            className={clsx(
+              'flex items-center justify-center',
+              'xl:min-h-8 pb-1 xl:pb-0',
+            )}
+            size="body3">
             <PricingPlanComparisonDiscount
               paymentConfig={paymentConfig}
               planType={planType}
             />
-          )}
-        </Text>
+          </Text>
+        )}
       </div>
       <div className="mt-5 w-full">
         <PricingButtonSection
@@ -552,7 +567,7 @@ function ProjectsPricingPriceCell({
           useCurrentPageAsCancelUrl={useCurrentPageAsCancelUrl}
         />
       </div>
-      {!userProfile?.projectsProfile?.premium && (
+      {!userProfile?.projectsProfile?.premium && planType !== 'FREE' && (
         <Text
           className="mt-2 block whitespace-nowrap text-center"
           color="secondary"
@@ -601,7 +616,7 @@ export default function ProjectsPricingTable({
 
   return (
     <div>
-      {/* Lg and above */}
+      {/* Xl and above */}
       <div
         className={clsx(
           'hidden flex-col xl:flex',
@@ -621,7 +636,7 @@ export default function ProjectsPricingTable({
               <th />
               {planList.map((plan) => (
                 <th key={plan.name} className="px-6 xl:px-8" scope="col">
-                  <Text color="subtitle" size="body1" weight="medium">
+                  <Text size="body1" weight="medium">
                     {plan.name}
                   </Text>
                 </th>
@@ -636,64 +651,37 @@ export default function ProjectsPricingTable({
               {planList.map(({ name, paymentConfig, numberOfMonths, type }) => (
                 <td key={name} className="px-4 py-5 align-top">
                   {type === 'FREE' ? (
-                    <div className="flex w-full flex-col items-center">
-                      <Text
-                        className="inline-flex items-baseline gap-x-2"
-                        color="subtitle"
-                        size="body1"
-                        weight="medium">
-                        <span>
-                          <PurchasePriceLabel
-                            amount={0}
-                            currency={planList[1].paymentConfig!.currency.toUpperCase()}
-                            symbol={planList[1].paymentConfig!.symbol}>
-                            {(parts) => (
-                              <>
-                                {parts[0].value}
-                                <Text
-                                  className="text-3xl font-bold tracking-tight"
-                                  color="default"
-                                  size="inherit"
-                                  weight="inherit">
-                                  <>
-                                    {parts
-                                      .slice(1)
-                                      .map((part) => part.value)
-                                      .join('')}
-                                  </>
-                                </Text>
-                              </>
-                            )}
-                          </PurchasePriceLabel>
-                        </span>
-                        <FormattedMessage
-                          defaultMessage="/month"
-                          description="Per month"
-                          id="aE1FCD"
-                        />
-                      </Text>
-                      <div className="min-h-8 mt-2 flex items-center justify-center">
-                        {userProfile?.projectsProfile != null &&
-                          userProfile?.projectsProfile?.plan == null && (
-                            <PurchaseActivePlanLabel />
-                          )}
-                      </div>
-                      <div className="mt-5 w-full">
-                        <PricingButtonSection
-                          countryCode={countryCode}
-                          planType="FREE"
-                          useCurrentPageAsCancelUrl={useCurrentPageAsCancelUrl}
-                        />
-                      </div>
-                    </div>
-                  ) : paymentConfig != null ? (
                     <ProjectsPricingPriceCell
+                      amountAfterPPP={0}
+                      amountBeforePPP={0}
                       className="text-center"
                       countryCode={countryCode}
+                      currency={plansPaymentConfig.MONTH.currency.toUpperCase()}
+                      numberOfMonths={numberOfMonths}
+                      paymentConfig={plansPaymentConfig.MONTH}
+                      planType={type}
+                      showPPPMessage={showPPPMessage}
+                      symbol={plansPaymentConfig.MONTH.symbol}
+                      useCurrentPageAsCancelUrl={useCurrentPageAsCancelUrl}
+                    />
+                  ) : paymentConfig != null ? (
+                    <ProjectsPricingPriceCell
+                      amountAfterPPP={priceRoundToNearestNiceNumber(
+                        paymentConfig.unitCostCurrency.withPPP.after /
+                          (numberOfMonths ?? 1),
+                      )}
+                      amountBeforePPP={priceRoundToNearestNiceNumber(
+                        paymentConfig.unitCostCurrency.base.after /
+                          (numberOfMonths ?? 1),
+                      )}
+                      className="text-center"
+                      countryCode={countryCode}
+                      currency={paymentConfig.currency.toUpperCase()}
                       numberOfMonths={numberOfMonths}
                       paymentConfig={paymentConfig}
                       planType={type}
                       showPPPMessage={showPPPMessage}
+                      symbol={paymentConfig.symbol}
                       useCurrentPageAsCancelUrl={useCurrentPageAsCancelUrl}
                     />
                   ) : null}
@@ -773,7 +761,7 @@ export default function ProjectsPricingTable({
           </tbody>
         </table>
       </div>
-      {/* Below lg */}
+      {/* Below xl */}
       <div
         className={clsx(
           'mx-auto flex flex-col xl:hidden',
@@ -787,39 +775,50 @@ export default function ProjectsPricingTable({
             name,
             paymentConfig,
             numberOfMonths,
-            type,
+            type: planType,
           }) => {
             return (
               <div key={name} className={clsx('px-8 py-6')}>
                 <div className="flex items-center justify-between gap-2">
-                  <Text color="subtitle" size="body1" weight="medium">
+                  <Text size="body1" weight="bold">
                     {name}
                   </Text>
-                  {(userProfile?.projectsProfile?.plan === type ||
-                    (userProfile?.projectsProfile != null &&
-                      userProfile?.projectsProfile?.plan == null &&
-                      type === 'FREE')) && <PurchaseActivePlanLabel />}
                 </div>
-                {type === 'FREE' && (
-                  <div className="mt-5">
-                    <PricingButtonSection
-                      countryCode={countryCode}
-                      planType="FREE"
-                      useCurrentPageAsCancelUrl={useCurrentPageAsCancelUrl}
-                    />
-                  </div>
-                )}
-                {paymentConfig != null && type !== 'FREE' && (
+                {planType === 'FREE' ? (
                   <ProjectsPricingPriceCell
+                    amountAfterPPP={0}
+                    amountBeforePPP={0}
                     className="mt-8"
                     countryCode={countryCode}
+                    currency={plansPaymentConfig.MONTH.currency.toUpperCase()}
                     numberOfMonths={numberOfMonths}
-                    paymentConfig={paymentConfig}
-                    planType={type}
+                    paymentConfig={plansPaymentConfig.MONTH}
+                    planType={planType}
                     showPPPMessage={showPPPMessage}
+                    symbol={plansPaymentConfig.MONTH.symbol}
                     useCurrentPageAsCancelUrl={useCurrentPageAsCancelUrl}
                   />
-                )}
+                ) : paymentConfig != null ? (
+                  <ProjectsPricingPriceCell
+                    amountAfterPPP={priceRoundToNearestNiceNumber(
+                      paymentConfig.unitCostCurrency.withPPP.after /
+                        (numberOfMonths ?? 1),
+                    )}
+                    amountBeforePPP={priceRoundToNearestNiceNumber(
+                      paymentConfig.unitCostCurrency.base.after /
+                        (numberOfMonths ?? 1),
+                    )}
+                    className="mt-8"
+                    countryCode={countryCode}
+                    currency={paymentConfig.currency.toUpperCase()}
+                    numberOfMonths={numberOfMonths}
+                    paymentConfig={paymentConfig}
+                    planType={planType}
+                    showPPPMessage={showPPPMessage}
+                    symbol={paymentConfig.symbol}
+                    useCurrentPageAsCancelUrl={useCurrentPageAsCancelUrl}
+                  />
+                ) : null}
                 <div className={clsx('mt-6', [themeDivideColor, 'divide-y'])}>
                   {planFeatures.freeChallenges && (
                     <FeatureItem feature={features.freeChallenges} />
