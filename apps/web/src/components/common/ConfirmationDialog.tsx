@@ -16,6 +16,7 @@ type Props = Readonly<{
   isShown: boolean;
   onCancel?: () => void;
   onConfirm: () => void;
+  showCancelButton?: boolean;
   title?: string;
   trigger?: ReactNode;
 }>;
@@ -29,6 +30,7 @@ export default function ConfirmationDialog({
   isShown,
   onCancel,
   onConfirm,
+  showCancelButton,
   title,
   trigger,
 }: Props) {
@@ -55,17 +57,19 @@ export default function ConfirmationDialog({
         />
       }
       secondaryButton={
-        <Button
-          isDisabled={isLoading}
-          label={intl.formatMessage({
-            defaultMessage: 'Cancel',
-            description: 'Cancel button label in confirmation dialog',
-            id: 'ldxi7D',
-          })}
-          size="md"
-          variant="secondary"
-          onClick={() => onCancel?.()}
-        />
+        showCancelButton ? (
+          <Button
+            isDisabled={isLoading}
+            label={intl.formatMessage({
+              defaultMessage: 'Cancel',
+              description: 'Cancel button label in confirmation dialog',
+              id: 'ldxi7D',
+            })}
+            size="md"
+            variant="secondary"
+            onClick={() => onCancel?.()}
+          />
+        ) : undefined
       }
       title={
         title ??

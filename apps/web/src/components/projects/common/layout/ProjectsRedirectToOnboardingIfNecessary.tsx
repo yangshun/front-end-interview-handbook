@@ -49,6 +49,7 @@ export default function ProjectsRedirectToOnboardingIfNecessary() {
     <ConfirmationDialog
       confirmButtonLabel="Get started"
       isShown={showDialog}
+      showCancelButton={false}
       title="Create your projects profile"
       onCancel={navigateToOnboarding}
       onConfirm={navigateToOnboarding}>
