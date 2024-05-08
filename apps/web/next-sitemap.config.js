@@ -1,5 +1,8 @@
 // @ts-check
 
+import allProjectsChallengeMetadata from './.contentlayer/generated/ProjectsChallengeMetadata/_index.json' assert { type: 'json' };
+import allProjectsSkillMetadata from './.contentlayer/generated/ProjectsSkillMetadata/_index.json' assert { type: 'json' };
+import allProjectsTrackMetadata from './.contentlayer/generated/ProjectsTrackMetadata/_index.json' assert { type: 'json' };
 import codingQuestionsList from './src/__generated__/questions/coding/list.en-US.json' assert { type: 'json' };
 import i18nConfig from './next-i18nostic.config.cjs';
 
@@ -18,6 +21,8 @@ export default {
     '/payment/success',
     '/profile',
     '/profile/*',
+    '/projects/payment/success',
+    '/projects/settings/*',
   ],
   priority,
   changefreq,
@@ -31,6 +36,15 @@ export default {
       i18nConfig.locales.includes(maybeLocale)
     ) {
       return undefined;
+    }
+
+    if (path.startsWith('/projects')) {
+      return {
+        loc: path,
+        changefreq: config.changefreq,
+        priority: config.priority,
+        lastmod: config.autoLastmod ? new Date().toISOString() : undefined,
+      };
     }
 
     return {
@@ -49,7 +63,7 @@ export default {
   additionalPaths: async (config) => {
     const paths = [
       ...codingQuestionsList.map(({ href }) => href),
-      // Question list pages.
+      // Interviews.
       '/get-started',
       '/prepare',
       '/prepare/behavioral',
@@ -64,6 +78,18 @@ export default {
       '/questions/vanilla',
       '/focus-areas',
       '/study-plans',
+      // Projects.
+      '/projects',
+      '/projects/pricing',
+      '/projects/challenges',
+      ...allProjectsChallengeMetadata.map(({ href }) => href),
+      '/projects/skills',
+      ...allProjectsSkillMetadata.map(({ href }) => href),
+      '/projects/tracks',
+      ...allProjectsTrackMetadata.map(({ href }) => href),
+      '/projects/submissions',
+      '/projects/submissions/learn',
+      '/projects/submissions/mentor',
       // Marketing pages.
       '/',
       '/affiliates',
