@@ -1,5 +1,5 @@
 // Inspired by react-hot-toast library
-import * as React from 'react';
+import { useCallback, useEffect, useState } from 'react';
 
 import type { ToastProps } from '~/components/ui/Toast/Toast';
 
@@ -169,9 +169,9 @@ function showToast({ ...props }: Toast) {
 }
 
 function useToast() {
-  const [state, setState] = React.useState<State>(memoryState);
+  const [state, setState] = useState<State>(memoryState);
 
-  React.useEffect(() => {
+  useEffect(() => {
     listeners.push(setState);
 
     return () => {
@@ -183,9 +183,14 @@ function useToast() {
     };
   }, [state]);
 
+  const dismissToast = useCallback(
+    (toastId?: string) => dispatch({ toastId, type: 'DISMISS_TOAST' }),
+    [],
+  );
+
   return {
     ...state,
-    dismiss: (toastId?: string) => dispatch({ toastId, type: 'DISMISS_TOAST' }),
+    dismissToast,
     showToast,
   };
 }
