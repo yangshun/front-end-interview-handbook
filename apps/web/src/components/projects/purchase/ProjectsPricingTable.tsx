@@ -601,7 +601,6 @@ export default function ProjectsPricingTable({
   useProjectsPurchaseCancelLogging(plansPaymentConfig);
 
   const planList = useProjectsPricingPlansList(plansPaymentConfig);
-  const { userProfile } = useUserProfileWithProjectsProfile();
   const features = useProjectsPricingPlanFeatures({
     ANNUAL: annualPlanFeatures,
     FREE: freePlanFeatures,

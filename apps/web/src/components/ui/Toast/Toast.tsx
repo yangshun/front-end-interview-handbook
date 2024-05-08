@@ -13,14 +13,7 @@ import { FormattedMessage } from 'react-intl';
 
 import type { TextColor } from '../Text';
 import Text from '../Text';
-import {
-  themeTextColor,
-  themeTextDangerColor,
-  themeTextInfoColor,
-  themeTextInvertColor,
-  themeTextSuccessColor,
-  themeTextWarningColor,
-} from '../theme';
+import { themeTextColor, themeTextInvertColor } from '../theme';
 
 import * as ToastPrimitive from '@radix-ui/react-toast';
 
