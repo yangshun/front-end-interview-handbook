@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import { RiStarSmileLine } from 'react-icons/ri';
 import { FormattedMessage } from 'react-intl';
 import { useLocalStorage } from 'usehooks-ts';
@@ -21,7 +21,8 @@ function MarketingRecentPurchasesImpl({
 }: Readonly<{
   setLastShown: (lastShown: number) => void;
 }>) {
-  const { showToast } = useToast();
+  const { showToast, dismissToast } = useToast();
+  const lastToastId = useRef<string | null>(null);
   const { data } = trpc.purchases.recent.useQuery();
 
   const [index, setIndex] = useLocalStorage(MARKETING_TOAST_INDEX, 0);
@@ -43,7 +44,14 @@ function MarketingRecentPurchasesImpl({
       return;
     }
 
-    showToast({
+    // Manual dismissing because the toast may still be present
+    // as Radix still shows the previous toast if it's being focused
+    // or the page is blurred.
+    if (lastToastId.current) {
+      dismissToast(lastToastId.current);
+    }
+
+    const { id } = showToast({
       duration: 8000,
       icon: RiStarSmileLine,
       onClose: () => {
@@ -64,6 +72,8 @@ function MarketingRecentPurchasesImpl({
       variant: 'dark',
     });
 
+    lastToastId.current = id;
+
     const timer = setTimeout(() => {
       setIndex((curr) => curr + 1);
     }, 30000);
@@ -71,7 +81,7 @@ function MarketingRecentPurchasesImpl({
     return () => {
       clearTimeout(timer);
     };
-  }, [index, data, showToast, setLastShown, setIndex]);
+  }, [index, data, showToast, dismissToast, setLastShown, setIndex]);
 
   return null;
 }
