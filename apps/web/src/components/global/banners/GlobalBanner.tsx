@@ -100,6 +100,7 @@ function MarketingMessage({ rotateMessages }: Props) {
           <Anchor
             className="whitespace-nowrap font-medium"
             href="/projects"
+            locale="en-US"
             target="_blank"
             underline={true}
             variant="flat"

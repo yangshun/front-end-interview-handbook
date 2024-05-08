@@ -49,6 +49,7 @@ function NavProductDropdownMenuItem({
         aria-label={label}
         data-theme={theme}
         href={href}
+        locale="en-US"
         variant="unstyled">
         <div className="flex justify-between">
           <div className="relative">
