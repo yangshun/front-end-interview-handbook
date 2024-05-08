@@ -4,6 +4,7 @@ import { useMediaQuery } from 'usehooks-ts';
 
 import RichTextEditorBoldPlugin from '~/components/ui/RichTextEditor/plugin/RichTextEditorBoldPlugin';
 import RichTextEditorCodePlugin from '~/components/ui/RichTextEditor/plugin/RichTextEditorCodePlugin';
+import RichTextEditorInlineCodePlugin from '~/components/ui/RichTextEditor/plugin/RichTextEditorInlineCodePlugin';
 import RichTextEditorInsertPlugin from '~/components/ui/RichTextEditor/plugin/RichTextEditorInsertPlugin';
 import RichTextEditorItalicPlugin from '~/components/ui/RichTextEditor/plugin/RichTextEditorItalicPlugin';
 import RichTextEditorOrderedListPlugin from '~/components/ui/RichTextEditor/plugin/RichTextEditorOrderedListPlugin';
@@ -66,6 +67,7 @@ export default function RichTextEditorToolbar({ floatingAnchorElem }: Props) {
           <RichTextEditorBoldPlugin />
           <RichTextEditorItalicPlugin />
           <RichTextEditorUnderlinePlugin />
+          <RichTextEditorInlineCodePlugin />
           <RichTextEditorSpecialCasePlugin />
           {!isMobileAndBelow && (
             <>

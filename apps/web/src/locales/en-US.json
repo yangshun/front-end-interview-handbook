@@ -6655,6 +6655,10 @@
     "defaultMessage": "USA",
     "description": "Anand Dharne's location"
   },
+  "p8zMao": {
+    "defaultMessage": "Insert inline code",
+    "description": "Inline code tooltip for Richtext toolbar"
+  },
   "p97ubP": {
     "defaultMessage": "Coming Soon",
     "description": "Front end system design questions that are coming soon"
