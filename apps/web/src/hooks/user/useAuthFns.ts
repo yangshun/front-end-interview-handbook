@@ -1,7 +1,7 @@
 import { usePathname } from 'next/navigation';
-import type { UrlObject } from 'node:url';
 import type { ParsedUrlQueryInput } from 'querystring';
 import { useIntl } from 'react-intl';
+import url from 'url';
 
 import { useAuthSignedInBefore } from '~/components/auth/useAuthSignedInBefore';
 
@@ -19,17 +19,14 @@ export function useAuthSignInUp() {
   // To redirect post-login, so we can use the full pathname.
   const pathname = usePathname();
 
-  function signInUpHref({
-    next,
-    query,
-  }: HrefProps | undefined = {}): UrlObject {
-    return {
+  function signInUpHref({ next, query }: HrefProps | undefined = {}): string {
+    return url.format({
       pathname: signedInBefore ? '/login' : '/sign-up',
       query: {
         next: next || pathname || window.location.pathname,
         ...query,
       },
-    };
+    });
   }
 
   return {
@@ -50,14 +47,14 @@ export function useAuthLogout() {
   // To redirect post-login, so we can use the full pathname.
   const pathname = usePathname();
 
-  function logoutHref({ next, query }: HrefProps | undefined = {}): UrlObject {
-    return {
+  function logoutHref({ next, query }: HrefProps | undefined = {}): string {
+    return url.format({
       pathname: '/logout',
       query: {
         next: next || pathname || window.location.pathname,
         ...query,
       },
-    };
+    });
   }
 
   return {
