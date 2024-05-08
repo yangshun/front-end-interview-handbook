@@ -74,7 +74,7 @@ export default function ExternalLinkPage() {
           </Heading>
           <Section>
             <Heading
-              className="max-w-full truncate md:max-w-lg"
+              className="max-w-full truncate text-center md:max-w-lg"
               level="heading5">
               {externalUrl}
             </Heading>
