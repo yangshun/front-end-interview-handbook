@@ -179,63 +179,102 @@ const ToastDescription = React.forwardRef<
 
 ToastDescription.displayName = ToastPrimitive.Description.displayName;
 
-export function ToastImpl({
-  title,
-  addOnIcon: AddOnIcon,
-  addOnLabel,
-  variant,
-  description,
-  icon: IconProp,
-  onClose,
-}: Props) {
-  const {
-    icon: VariantIcon,
-    addOnClass,
-    iconClass,
-    textColor,
-  } = classes[variant];
+export const ToastImpl = React.forwardRef<
+  React.ElementRef<typeof ToastPrimitive.Root>,
+  ToastProps
+>(
+  (
+    {
+      title,
+      className,
+      addOnIcon: AddOnIcon,
+      addOnLabel,
+      variant,
+      maxWidth,
+      description,
+      icon: IconProp,
+      onClose,
+      ...props
+    },
+    ref,
+  ) => {
+    const {
+      borderClass,
+      backgroundClass,
+      icon: VariantIcon,
+      addOnClass,
+      iconClass,
+      textColor,
+    } = classes[variant];
 
-  const Icon = IconProp ?? VariantIcon;
+    const Icon = IconProp ?? VariantIcon;
 
-  return (
-    <Text
-      className="flex w-full items-start gap-x-2 px-3 py-2"
-      color={textColor}
-      size="body1">
-      {Icon && <Icon className={clsx('size-5 shrink-0', iconClass)} />}
-      <div className="flex w-full grow flex-col gap-y-1">
-        <div className="flex items-center justify-between gap-2">
-          {title && (
-            <div className="flex grow items-center justify-between gap-2">
-              <ToastTitle>{title}</ToastTitle>
-              {(AddOnIcon || addOnLabel) && (
-                <Text
-                  className={clsx(
-                    'inline-flex items-center gap-1',
-                    'rounded-full',
-                    'px-2 py-0.5',
-                    addOnClass,
-                  )}
-                  color="inherit"
-                  size="body3"
-                  weight="bold">
-                  {AddOnIcon && <AddOnIcon className="size-3" />}
-                  {addOnLabel}
-                </Text>
-              )}
-            </div>
-          )}
-          <ToastClose className={iconClass} onClick={onClose} />
-        </div>
-        {description && (
-          <ToastDescription textColor={textColor}>
-            {description}
-          </ToastDescription>
+    return (
+      <li
+        ref={ref}
+        className={clsx(
+          'group pointer-events-auto relative',
+          'flex items-center justify-between gap-x-4',
+          'overflow-hidden rounded shadow-lg',
+          'w-full',
+          'transition-all',
+          'data-[swipe=cancel]:translate-x-0',
+          'data-[swipe=end]:translate-x-[var(--radix-toast-swipe-end-x)]',
+          'data-[swipe=end]:animate-out',
+          'data-[swipe=move]:translate-x-[var(--radix-toast-swipe-move-x)]',
+          'data-[swipe=move]:transition-none',
+          'data-[state=open]:animate-in',
+          'data-[state=open]:sm:slide-in-from-left-full',
+          'data-[state=closed]:animate-out',
+          'data-[state=closed]:fade-out-80',
+          'data-[state=closed]:slide-out-to-left-full',
+          backgroundClass,
+          borderClass && ['border', borderClass],
+          maxWidth === 'sm' && 'max-w-sm',
+          maxWidth === 'md' && 'max-w-md',
+          className,
         )}
-      </div>
-    </Text>
-  );
-}
+        {...props}>
+        <Text
+          className="flex w-full items-start gap-x-2 px-3 py-2"
+          color={textColor}
+          size="body1">
+          {Icon && <Icon className={clsx('size-5 shrink-0', iconClass)} />}
+          <div className="flex w-full grow flex-col gap-y-1">
+            <div className="flex items-center justify-between gap-2">
+              {title && (
+                <div className="flex grow items-center justify-between gap-2">
+                  <ToastTitle>{title}</ToastTitle>
+                  {(AddOnIcon || addOnLabel) && (
+                    <Text
+                      className={clsx(
+                        'inline-flex items-center gap-1',
+                        'rounded-full',
+                        'px-2 py-0.5',
+                        addOnClass,
+                      )}
+                      color="inherit"
+                      size="body3"
+                      weight="bold">
+                      {AddOnIcon && <AddOnIcon className="size-3" />}
+                      {addOnLabel}
+                    </Text>
+                  )}
+                </div>
+              )}
+              <ToastClose className={iconClass} onClick={onClose} />
+            </div>
+            {description && (
+              <ToastDescription textColor={textColor}>
+                {description}
+              </ToastDescription>
+            )}
+          </div>
+        </Text>
+      </li>
+    );
+  },
+);
 
 type Props = Readonly<{
   addOnIcon?: (props: React.ComponentProps<'svg'>) => JSX.Element;
@@ -274,38 +313,12 @@ const Toast = React.forwardRef<
     },
     ref,
   ) => {
-    const { borderClass, backgroundClass } = classes[variant];
-
     return (
-      <ToastPrimitive.Root
-        ref={ref}
-        className={clsx(
-          'group pointer-events-auto relative',
-          'flex items-center justify-between gap-x-4',
-          'overflow-hidden rounded shadow-lg',
-          'w-full',
-          'transition-all',
-          'data-[swipe=cancel]:translate-x-0',
-          'data-[swipe=end]:translate-x-[var(--radix-toast-swipe-end-x)]',
-          'data-[swipe=end]:animate-out',
-          'data-[swipe=move]:translate-x-[var(--radix-toast-swipe-move-x)]',
-          'data-[swipe=move]:transition-none',
-          'data-[state=open]:animate-in',
-          'data-[state=open]:slide-in-from-top-full',
-          'data-[state=open]:sm:slide-in-from-bottom-full',
-          'data-[state=closed]:animate-out',
-          'data-[state=closed]:fade-out-80',
-          'data-[state=closed]:slide-out-to-right-full',
-          backgroundClass,
-          borderClass && ['border', borderClass],
-          maxWidth === 'sm' && 'max-w-sm',
-          maxWidth === 'md' && 'max-w-md',
-          className,
-        )}
-        {...props}>
+      <ToastPrimitive.Root ref={ref} asChild={true} {...props}>
         <ToastImpl
           addOnIcon={addOnIcon}
           addOnLabel={addOnLabel}
+          className={className}
           description={description}
           icon={icon}
           maxWidth={maxWidth}
