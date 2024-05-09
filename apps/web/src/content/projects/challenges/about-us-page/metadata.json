@@ -13,7 +13,7 @@
     "contact-section",
     "footer-section-simple"
   ],
-  "pointsBase": 500,
+  "pointsBase": 300,
   "pointsForSkillGroups": {
     "html": 50,
     "css": 50,

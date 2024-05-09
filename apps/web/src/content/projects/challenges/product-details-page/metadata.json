@@ -13,7 +13,7 @@
     "product-grid-section",
     "footer-multi-column"
   ],
-  "pointsBase": 2500,
+  "pointsBase": 1000,
   "pointsForSkillGroups": {
     "html": 50,
     "css": 50

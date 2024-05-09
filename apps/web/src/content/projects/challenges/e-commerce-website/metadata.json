@@ -14,7 +14,7 @@
     "checkout-section",
     "order-success-section"
   ],
-  "pointsBase": 10000,
+  "pointsBase": 5000,
   "pointsForSkillGroups": {
     "html": 50,
     "css": 50,

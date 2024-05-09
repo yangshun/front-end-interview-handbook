@@ -6,7 +6,7 @@
   "guides": ["forms", "layout-grid"],
   "access": "premium",
   "baseCredits": 2,
-  "pointsBase": 2500,
+  "pointsBase": 1000,
   "pointsForSkillGroups": {
     "html": 50,
     "css": 50,
