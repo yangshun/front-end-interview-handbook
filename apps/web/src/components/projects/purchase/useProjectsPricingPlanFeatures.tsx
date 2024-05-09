@@ -18,7 +18,7 @@ export default function useProjectsPricingPlanFeatures(
     ProjectsSubscriptionPlanFeatures
   >,
 ) {
-  const { MONTH: monthPlan, ANNUAL: annualPlan } = plans;
+  const { MONTH: monthPlan } = plans;
   const intl = useIntl();
 
   const features: Record<
@@ -50,10 +50,20 @@ export default function useProjectsPricingPlanFeatures(
         </div>
       ),
       plan: {
+        ANNUAL: intl.formatMessage({
+          defaultMessage: 'All tracks',
+          description: 'Label for component tracks feature for pricing plan',
+          id: 'yCyxT4',
+        }),
         FREE: intl.formatMessage({
           defaultMessage: 'Only Marketing track',
-          description: 'Label for component tracks feature for free plan',
-          id: 'WK23Hh',
+          description: 'Label for component tracks feature for pricing plan',
+          id: 'F+4T7/',
+        }),
+        MONTH: intl.formatMessage({
+          defaultMessage: 'All tracks',
+          description: 'Label for component tracks feature for pricing plan',
+          id: 'yCyxT4',
         }),
       },
       title: intl.formatMessage({
@@ -82,16 +92,11 @@ export default function useProjectsPricingPlanFeatures(
         </div>
       ),
       plan: {
-        ANNUAL: intl.formatMessage(
-          {
-            defaultMessage: '{count} premium credits every year',
-            description: 'Label for unlocks feature for annual plan',
-            id: 'Mdr+6V',
-          },
-          {
-            count: annualPlan.credits,
-          },
-        ),
+        ANNUAL: intl.formatMessage({
+          defaultMessage: 'Unlimited premium credits',
+          description: 'Label for unlocks feature for annual plan',
+          id: 'V6uY86',
+        }),
         MONTH: intl.formatMessage(
           {
             defaultMessage: '{count} premium credits every month',
@@ -105,9 +110,9 @@ export default function useProjectsPricingPlanFeatures(
       },
       title: intl.formatMessage({
         defaultMessage:
-          'Able to unlock premium challenges, or premium features on free challenges',
+          'Unlock premium challenges and premium features on free challenges',
         description: 'Label for unlocks feature',
-        id: '/pkHfz',
+        id: 'l5U3bQ',
       }),
     },
     freeChallenges: {

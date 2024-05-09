@@ -19,8 +19,7 @@ import { themeBorderColor } from '~/components/ui/theme';
 
 import { useProjectsChallengePaywallSubtitle } from '../projects/challenges/premium/ProjectsPremiumPaywallStrings';
 import useUserProfileWithProjectsProfile from '../projects/common/useUserProfileWithProjectsProfile';
-
-import type { ProjectsSubscriptionPlan } from '@prisma/client';
+import type { ProjectsViewerProjectsProfile } from '../projects/types';
 
 function InterviewsPlanLabel({
   plan,
@@ -141,11 +140,16 @@ function InterviewsPlanLabel({
 }
 
 function ProjectsPlanLabel({
-  plan,
+  viewerProjectsProfile,
 }: Readonly<{
-  plan?: ProjectsSubscriptionPlan | null;
+  viewerProjectsProfile?: ProjectsViewerProjectsProfile | null;
 }>): JSX.Element | null {
-  const subtitle = useProjectsChallengePaywallSubtitle('SUBSCRIBE');
+  const subtitle = useProjectsChallengePaywallSubtitle(
+    'SUBSCRIBE',
+    viewerProjectsProfile,
+  );
+
+  const plan = viewerProjectsProfile?.plan;
 
   const autoRenewal = (
     <FormattedMessage
@@ -365,7 +369,9 @@ function ProjectsSubscriptionSection() {
           />
         </Text>
         <Text className="block" color="secondary" size="body3">
-          <ProjectsPlanLabel plan={userProfile?.projectsProfile?.plan} />
+          <ProjectsPlanLabel
+            viewerProjectsProfile={userProfile?.projectsProfile}
+          />
         </Text>
       </div>
     </div>

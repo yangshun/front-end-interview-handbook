@@ -4,7 +4,7 @@ export type ProjectsSubscriptionPlanFeatures = Readonly<{
   apps: boolean;
   breakpoints: boolean;
   componentTracks: boolean;
-  credits: number | null;
+  credits: number | 'unlimited' | null;
   freeChallenges: boolean;
   skillRoadmap: boolean;
 }>;
@@ -12,30 +12,30 @@ export type ProjectsSubscriptionPlanFeatures = Readonly<{
 export type ProjectsSubscriptionPlanFeatureName =
   keyof ProjectsSubscriptionPlanFeatures;
 
-export const freePlanFeatures: ProjectsSubscriptionPlanFeatures = {
+export const freePlanFeatures = {
   apps: true,
   breakpoints: true,
   componentTracks: false,
   credits: null,
   freeChallenges: true,
   skillRoadmap: false,
-};
-export const monthlyPlanFeatures: ProjectsSubscriptionPlanFeatures = {
+} as const;
+export const monthlyPlanFeatures = {
   apps: true,
   breakpoints: true,
   componentTracks: true,
   credits: 5,
   freeChallenges: true,
   skillRoadmap: true,
-};
-export const annualPlanFeatures: ProjectsSubscriptionPlanFeatures = {
+} as const;
+export const annualPlanFeatures = {
   apps: true,
   breakpoints: true,
   componentTracks: true,
-  credits: 80,
+  credits: 'unlimited',
   freeChallenges: true,
   skillRoadmap: true,
-};
+} as const;
 
 export const projectsPaidPlanFeatures: Record<
   ProjectsSubscriptionPlan,

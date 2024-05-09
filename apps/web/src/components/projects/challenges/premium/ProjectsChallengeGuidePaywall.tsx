@@ -23,16 +23,15 @@ export default function ProjectsChallengeGuidePaywall({
   slug,
 }: Props) {
   const title = useProjectsChallengePaywallTitle(viewerContentAccess);
-  const credits = viewerProjectsProfile?.credits ?? 0;
+
   const subtitle = useProjectsChallengePaywallSubtitle(
     viewerContentAccess,
-    viewerProjectsProfile?.credits ?? 0,
+    viewerProjectsProfile,
   );
 
   return (
     <div className={clsx('rounded-md p-12', ['border', themeBorderColor])}>
       <ProjectsPremiumPaywall
-        credits={credits}
         icon={
           <RiLockLine
             aria-hidden={true}
@@ -44,6 +43,7 @@ export default function ProjectsChallengeGuidePaywall({
         subtitle={subtitle}
         title={title!}
         viewerContentAccess={viewerContentAccess}
+        viewerProjectsProfile={viewerProjectsProfile}
       />
     </div>
   );

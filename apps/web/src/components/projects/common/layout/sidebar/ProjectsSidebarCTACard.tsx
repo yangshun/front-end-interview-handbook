@@ -17,9 +17,10 @@ import Tooltip from '~/components/ui/Tooltip';
 
 import useUserProfileWithProjectsProfile from '../../useUserProfileWithProjectsProfile';
 import ProjectsPremiumPricingTableDialog from '../../../challenges/premium/ProjectsPremiumPricingTableDialog';
-import { projectsPaidPlanFeatures } from '../../../purchase/ProjectsPricingFeaturesConfig';
-
-import type { ProjectsSubscriptionPlan } from '@prisma/client';
+import {
+  annualPlanFeatures,
+  monthlyPlanFeatures,
+} from '../../../purchase/ProjectsPricingFeaturesConfig';
 
 function UnlockCreditsTooltip({ children }: Readonly<{ children: ReactNode }>) {
   return (
@@ -36,9 +37,9 @@ function UnlockCreditsTooltip({ children }: Readonly<{ children: ReactNode }>) {
           </p>
           <p>
             <FormattedMessage
-              defaultMessage="Even when you are not actively subscribed, unspent premium credits will roll over to the next month. However, they can only be used when you are an active premium member."
+              defaultMessage="Even when you are not actively subscribed, unspent premium credits will roll over to the next cycle. For annual users, we will roll over credits for projects that remain locked at the end of your subscription cycle. However, credits can only be used when you are an active premium member."
               description="Description of premium feature"
-              id="D4BYZm"
+              id="2kxohv"
             />
           </p>
         </div>
@@ -49,7 +50,7 @@ function UnlockCreditsTooltip({ children }: Readonly<{ children: ReactNode }>) {
   );
 }
 
-function FreePlanVersion({ credits: unlocks }: Readonly<{ credits: number }>) {
+function FreePlanCard({ credits: unlocks }: Readonly<{ credits: number }>) {
   const intl = useIntl();
 
   return (
@@ -110,10 +111,10 @@ function FreePlanVersion({ credits: unlocks }: Readonly<{ credits: number }>) {
 }
 
 function RenewalTooltip({
-  credits,
+  creditsAwardedDuringRenewal,
   timestamp,
 }: Readonly<{
-  credits: number;
+  creditsAwardedDuringRenewal: number | 'unlimited';
   timestamp: number;
 }>) {
   const date = new Intl.DateTimeFormat('en-US', {
@@ -125,20 +126,31 @@ function RenewalTooltip({
   return (
     <Tooltip
       label={
-        <FormattedMessage
-          defaultMessage="{creditCount} new premium credits will be added when your subscription renews on <bold>{date}</bold>"
-          description="Information about subscription"
-          id="7SOBHl"
-          values={{
-            bold: (chunks) => (
-              <Text className="whitespace-nowrap" color="inherit" weight="bold">
-                {chunks}
-              </Text>
-            ),
-            creditCount: credits,
-            date,
-          }}
-        />
+        creditsAwardedDuringRenewal === 'unlimited' ? (
+          <FormattedMessage
+            defaultMessage="Your subscription renews on <bold>{date}</bold>"
+            description="Information about subscription"
+            id="CUkv2F"
+          />
+        ) : (
+          <FormattedMessage
+            defaultMessage="{creditCount} new premium credits will be added when your subscription renews on <bold>{date}</bold>"
+            description="Information about subscription"
+            id="7SOBHl"
+            values={{
+              bold: (chunks) => (
+                <Text
+                  className="whitespace-nowrap"
+                  color="inherit"
+                  weight="bold">
+                  {chunks}
+                </Text>
+              ),
+              creditCount: creditsAwardedDuringRenewal,
+              date,
+            }}
+          />
+        )
       }>
       <RiInformationLine
         className={clsx('size-4 shrink-0', themeTextSecondaryColor)}
@@ -147,14 +159,12 @@ function RenewalTooltip({
   );
 }
 
-function PremiumVersion({
+function MonthlyPlanCard({
   credits,
   creditsAtStartOfCycle,
-  plan,
 }: Readonly<{
   credits: number;
   creditsAtStartOfCycle: number;
-  plan: ProjectsSubscriptionPlan;
 }>) {
   const intl = useIntl();
   const { data: activeSubscription } =
@@ -162,45 +172,23 @@ function PremiumVersion({
       domain: 'PROJECTS',
     });
 
-  const planConfigs: Record<
-    ProjectsSubscriptionPlan,
-    Readonly<{ creditsPerInterval: number; label: string }>
-  > = {
-    ANNUAL: {
-      creditsPerInterval: projectsPaidPlanFeatures.ANNUAL.credits!,
-      label: intl.formatMessage({
-        defaultMessage: 'Annual plan',
-        description: 'Subscription plan type',
-        id: '9nK/kc',
-      }),
-    },
-    MONTH: {
-      creditsPerInterval: projectsPaidPlanFeatures.MONTH.credits!,
-      label: intl.formatMessage({
-        defaultMessage: 'Monthly plan',
-        description: 'Subscription plan type',
-        id: 'QruCxn',
-      }),
-    },
-  };
-  const planConfig = planConfigs[plan];
-  const totalCredits = Math.max(
-    creditsAtStartOfCycle,
-    credits,
-    planConfig.creditsPerInterval,
-  );
+  const creditsPerInterval = monthlyPlanFeatures.credits;
 
   return (
     <div className="flex flex-col items-stretch gap-2 p-3">
       <div className="flex items-center justify-between">
         <Text size="body3" weight="bold">
-          {planConfig.label}
+          {intl.formatMessage({
+            defaultMessage: 'Monthly plan',
+            description: 'Subscription plan type',
+            id: 'QruCxn',
+          })}
         </Text>
         {activeSubscription &&
           !activeSubscription.cancelAtPeriodEnd &&
           activeSubscription.currentPeriodEnd && (
             <RenewalTooltip
-              credits={planConfig.creditsPerInterval}
+              creditsAwardedDuringRenewal={creditsPerInterval}
               timestamp={activeSubscription.currentPeriodEnd}
             />
           )}
@@ -227,7 +215,11 @@ function PremiumVersion({
                 </Text>
               </UnlockCreditsTooltip>
             ),
-            totalCredits,
+            totalCredits: Math.max(
+              creditsAtStartOfCycle,
+              credits,
+              creditsPerInterval,
+            ),
           }}
         />
       </Text>
@@ -238,9 +230,55 @@ function PremiumVersion({
           id: 'DOTuWP',
         })}
         progressClass={themeGradientGreenYellow.className}
-        total={totalCredits}
+        total={Math.max(creditsAtStartOfCycle, credits, creditsPerInterval)}
         value={credits}
       />
+    </div>
+  );
+}
+
+function AnnualPlanCard() {
+  const intl = useIntl();
+  const { data: activeSubscription } =
+    trpc.purchases.activeSubscription.useQuery({
+      domain: 'PROJECTS',
+    });
+
+  return (
+    <div className="flex flex-col items-stretch gap-2 p-3">
+      <div className="flex items-center justify-between">
+        <Text size="body3" weight="bold">
+          {intl.formatMessage({
+            defaultMessage: 'Annual plan',
+            description: 'Subscription plan type',
+            id: '9nK/kc',
+          })}
+        </Text>
+        {activeSubscription &&
+          !activeSubscription.cancelAtPeriodEnd &&
+          activeSubscription.currentPeriodEnd && (
+            <RenewalTooltip
+              creditsAwardedDuringRenewal={annualPlanFeatures.credits}
+              timestamp={activeSubscription.currentPeriodEnd}
+            />
+          )}
+      </div>
+      <Text className="block" color="secondary" size="body3">
+        <FormattedMessage
+          defaultMessage="Full access to tracks & skills. You have unlimited <tooltip>premium credits</tooltip>"
+          description="Subtitle of premium plan CTA card"
+          id="I1LWUq"
+          values={{
+            tooltip: (chunks) => (
+              <UnlockCreditsTooltip>
+                <Text className="underline" color="inherit" weight="medium">
+                  {chunks}
+                </Text>
+              </UnlockCreditsTooltip>
+            ),
+          }}
+        />
+      </Text>
     </div>
   );
 }
@@ -254,17 +292,17 @@ export function ProjectsSidebarCTACard() {
 
   return (
     <Card disableSpotlight={true} padding={false} pattern={false}>
-      {userProfile.projectsProfile?.premium &&
-      userProfile.projectsProfile.plan != null ? (
-        <PremiumVersion
+      {userProfile.projectsProfile?.plan === 'MONTH' ? (
+        <MonthlyPlanCard
           credits={userProfile.projectsProfile.credits}
           creditsAtStartOfCycle={
             userProfile.projectsProfile.creditsAtStartOfCycle
           }
-          plan={userProfile.projectsProfile.plan}
         />
+      ) : userProfile.projectsProfile?.plan === 'ANNUAL' ? (
+        <AnnualPlanCard />
       ) : (
-        <FreePlanVersion credits={userProfile.projectsProfile?.credits ?? 0} />
+        <FreePlanCard credits={userProfile.projectsProfile?.credits ?? 0} />
       )}
     </Card>
   );

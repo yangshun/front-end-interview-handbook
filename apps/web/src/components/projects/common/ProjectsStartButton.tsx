@@ -11,11 +11,11 @@ import ProjectsPremiumPricingTableDialog from '../challenges/premium/ProjectsPre
 import type { ProjectsViewerProjectsProfile } from '../types';
 
 function UnlockButton({
-  credits,
   slug,
+  viewerProjectsProfile,
 }: Readonly<{
-  credits: number;
   slug: string;
+  viewerProjectsProfile: ProjectsViewerProjectsProfile | null;
 }>) {
   const intl = useIntl();
   const [unlockDialogShown, setUnlockDialogShown] = useState(false);
@@ -23,7 +23,6 @@ function UnlockButton({
   return (
     <div>
       <ProjectsChallengeUnlockAccessDialog
-        credits={credits}
         isShown={unlockDialogShown}
         slug={slug}
         trigger={
@@ -43,6 +42,7 @@ function UnlockButton({
             }}
           />
         }
+        viewerProjectsProfile={viewerProjectsProfile}
         onClose={() => {
           setUnlockDialogShown(false);
         }}
@@ -65,8 +65,6 @@ export default function ProjectsStartButton({
   const intl = useIntl();
   const { startProject } = useProjectsChallengeSessionContext();
 
-  const credits = viewerProjectsProfile?.credits ?? 0;
-
   if (viewerContentAccess === 'ACCESSIBLE_TO_EVERYONE') {
     return (
       <Button
@@ -85,7 +83,9 @@ export default function ProjectsStartButton({
   }
 
   if (viewerContentAccess === 'UNLOCK') {
-    return <UnlockButton credits={credits} slug={slug} />;
+    return (
+      <UnlockButton slug={slug} viewerProjectsProfile={viewerProjectsProfile} />
+    );
   }
 
   if (viewerContentAccess === 'UNLOCKED') {

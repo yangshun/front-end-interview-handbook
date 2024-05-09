@@ -219,10 +219,6 @@
     "defaultMessage": "Create your developer profile on GreatFrontEnd. Showcase your skills, experiences and connect with the community.",
     "description": "Description of projects onboarding profile page"
   },
-  "/pkHfz": {
-    "defaultMessage": "Able to unlock premium challenges, or premium features on free challenges",
-    "description": "Label for unlocks feature"
-  },
   "/pokLY": {
     "defaultMessage": "This is the name that will be shown on your profile. Use a maximum of {maxLength} character(s).",
     "description": "Name field description"
@@ -546,6 +542,10 @@
   "2gImEH": {
     "defaultMessage": "Online assets",
     "description": "Title for Online Assets section on Projects project assets page"
+  },
+  "2kxohv": {
+    "defaultMessage": "Even when you are not actively subscribed, unspent premium credits will roll over to the next cycle. For annual users, we will roll over credits for projects that remain locked at the end of your subscription cycle. However, credits can only be used when you are an active premium member.",
+    "description": "Description of premium feature"
   },
   "2rcoOT": {
     "defaultMessage": "Edit",
@@ -1679,6 +1679,10 @@
     "defaultMessage": "Be part of our large community of passionate Front End Engineers across the world",
     "description": "Description of community page"
   },
+  "CUkv2F": {
+    "defaultMessage": "Your subscription renews on <bold>{date}</bold>",
+    "description": "Information about subscription"
+  },
   "CXs8z4": {
     "defaultMessage": "Practice Front End Quiz Interview Questions With Solutions",
     "description": "Title of Interview Preparation Quiz page"
@@ -1998,6 +2002,10 @@
   "Euaee/": {
     "defaultMessage": "Resubscribe to unlock",
     "description": "Title for a premium project paywall"
+  },
+  "F+4T7/": {
+    "defaultMessage": "Only Marketing track",
+    "description": "Label for component tracks feature for pricing plan"
   },
   "F+dxo7": {
     "defaultMessage": "Recommended focus areas",
@@ -2363,6 +2371,10 @@
     "defaultMessage": "An eye-catching name to describe your solution. Will be displayed under the original Project's name and help other users identify your submission.",
     "description": "Description for submission title input on project submit page"
   },
+  "I1LWUq": {
+    "defaultMessage": "Full access to tracks & skills. You have unlimited <tooltip>premium credits</tooltip>",
+    "description": "Subtitle of premium plan CTA card"
+  },
   "I4lo5m": {
     "defaultMessage": "Practice Svelte Interview Questions with Solutions",
     "description": "Title of Svelte Interview Questions page"
@@ -2550,6 +2562,10 @@
   "JUhFP/": {
     "defaultMessage": "Minimum {minNumber} characters. Letters and digits required.",
     "description": "Password creation criteria"
+  },
+  "JUlJ9C": {
+    "defaultMessage": "You have <bold>unlimited premium credits</bold>. Unlock this challenge to learn from user submissions for premium challenges.",
+    "description": "Subtitle for project paywall"
   },
   "JWwqmr": {
     "defaultMessage": "{tagName} | Blog",
@@ -3019,10 +3035,6 @@
     "defaultMessage": "User Interface Questions",
     "description": "Front End User Interface interview questions"
   },
-  "Mdr+6V": {
-    "defaultMessage": "{count} premium credits every year",
-    "description": "Label for unlocks feature for annual plan"
-  },
   "MeV/ww": {
     "defaultMessage": "Microsoft",
     "description": "Company name for Microsoft"
@@ -3262,6 +3274,10 @@
   "Ol2L0M": {
     "defaultMessage": "View GitHub profile",
     "description": "Link to GitHub profile"
+  },
+  "Omqpux": {
+    "defaultMessage": "You have <bold>unlimited premium credits</bold>. Unlock this project to access all premium features for this challenge, including the Figma design files, official guides, and solutions.",
+    "description": "Subtitle for project paywall"
   },
   "OoOyEp": {
     "defaultMessage": "More on <link>Review Cashback Discount Terms and Conditions</link>",
@@ -4151,6 +4167,10 @@
     "defaultMessage": "System Design content will be released on a rolling basis. Purchase premium to unlock full access to exclusive System Design content including an interview guide, high quality solutions and companies which ask this question.",
     "description": "System design questions paywall"
   },
+  "V6uY86": {
+    "defaultMessage": "Unlimited premium credits",
+    "description": "Label for unlocks feature for annual plan"
+  },
   "V7Ifp8": {
     "defaultMessage": "Find user submissions suggested for your review, based on your completed challenges, skills, and experience.",
     "description": "Description of projects mentor page"
@@ -4322,10 +4342,6 @@
   "WJ/3Qn": {
     "defaultMessage": "The complete preparation platform for front end interviews. {questionCount}+ practice questions (with answers) across system design, UI and more. By ex-FAANG interviewers.",
     "description": "Description of GreatFrontEnd standard page"
-  },
-  "WK23Hh": {
-    "defaultMessage": "Only Marketing track",
-    "description": "Label for component tracks feature for free plan"
   },
   "WNERnb": {
     "defaultMessage": "End session",
@@ -5055,10 +5071,6 @@
     "defaultMessage": "Sharpen your skills in asynchronous programming by practicing the use of async/await, Promises, and callback functions. Dive into scenarios that require asynchronous operations, such as making API requests and delayed code execution.",
     "description": "Description for interview preparation focus area"
   },
-  "c7dkVm": {
-    "defaultMessage": "Unlock this challenge to learn from user submissions for premium challenges. You have <bold>{amountLeft}</bold>/{totalAmount} premium credits remaining.",
-    "description": "Subtitle for project paywall"
-  },
   "c7eREh": {
     "defaultMessage": "Status",
     "description": "Label for Status filter for projects list"
@@ -5550,6 +5562,10 @@
   "fzfMZ2": {
     "defaultMessage": "Explore series | Blog",
     "description": "Title of GreatFrontEnd blog explore series page"
+  },
+  "g+jqM2": {
+    "defaultMessage": "You currently have <bold>unlimited premium credits</bold>. Proceed to unlock?",
+    "description": "Confirmation text for unlocking a premium challenge"
   },
   "g2Nt5j": {
     "defaultMessage": "Edit",
@@ -6206,6 +6222,10 @@
   "l27vTV": {
     "defaultMessage": "Back to all challenges",
     "description": "Back button label"
+  },
+  "l5U3bQ": {
+    "defaultMessage": "Unlock premium challenges and premium features on free challenges",
+    "description": "Label for unlocks feature"
   },
   "l5t9Em": {
     "defaultMessage": "<bold>+{count}</bold> completed",
@@ -7391,6 +7411,10 @@
     "defaultMessage": "Senior Software Engineer — Front End, UserTesting",
     "description": "Prashanth Reddy's job title"
   },
+  "ut9h+K": {
+    "defaultMessage": "You have <bold>{amountLeft}</bold>/{totalAmount} premium credits remaining. Unlock this challenge to learn from user submissions for premium challenges.",
+    "description": "Subtitle for project paywall"
+  },
   "uxNShP": {
     "defaultMessage": "Activity | Settings",
     "description": "Title of activities page for projects"
@@ -7750,6 +7774,10 @@
   "y9hdD1": {
     "defaultMessage": "Reading time",
     "description": "Reading time of the article"
+  },
+  "yCyxT4": {
+    "defaultMessage": "All tracks",
+    "description": "Label for component tracks feature for pricing plan"
   },
   "yM3vbW": {
     "defaultMessage": "Editor Shortcuts",

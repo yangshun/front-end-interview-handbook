@@ -10,13 +10,14 @@ import Text from '~/components/ui/Text';
 import ProjectsChallengeUnlockAccessDialog from './ProjectsChallengeUnlockAccessDialog';
 import type { ProjectsPremiumAccessControlType } from './ProjectsPremiumAccessControl';
 import ProjectsPremiumPricingTableDialog from './ProjectsPremiumPricingTableDialog';
+import type { ProjectsViewerProjectsProfile } from '../../types';
 
 function UnlockButton({
-  credits,
   slug,
+  viewerProjectsProfile,
 }: Readonly<{
-  credits: number;
   slug: string;
+  viewerProjectsProfile: ProjectsViewerProjectsProfile | null;
 }>) {
   const intl = useIntl();
   const [unlockDialogShown, setUnlockDialogShown] = useState(false);
@@ -24,7 +25,6 @@ function UnlockButton({
   return (
     <div>
       <ProjectsChallengeUnlockAccessDialog
-        credits={credits}
         isShown={unlockDialogShown}
         slug={slug}
         trigger={
@@ -41,6 +41,7 @@ function UnlockButton({
             }}
           />
         }
+        viewerProjectsProfile={viewerProjectsProfile}
         onClose={() => {
           setUnlockDialogShown(false);
         }}
@@ -50,17 +51,17 @@ function UnlockButton({
 }
 
 type Props = Readonly<{
-  credits: number;
   icon?: ReactNode;
   size: 'lg' | 'md';
   slug: string;
   subtitle: ReactNode;
   title: string;
   viewerContentAccess: ProjectsPremiumAccessControlType;
+  viewerProjectsProfile: ProjectsViewerProjectsProfile | null;
 }>;
 
 export default function ProjectsPremiumPaywall({
-  credits,
+  viewerProjectsProfile,
   icon,
   size,
   slug,
@@ -77,7 +78,12 @@ export default function ProjectsPremiumPaywall({
     }
 
     if (viewerContentAccess === 'UNLOCK') {
-      return <UnlockButton credits={credits} slug={slug} />;
+      return (
+        <UnlockButton
+          slug={slug}
+          viewerProjectsProfile={viewerProjectsProfile}
+        />
+      );
     }
 
     return (

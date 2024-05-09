@@ -20,13 +20,8 @@ import {
 
 import { useI18nRouter } from '~/next-i18nostic/src';
 
-type Props = Readonly<{
-  credits: number;
-  isShown: boolean;
-  onClose: () => void;
-  slug: string;
-  trigger: React.ReactNode;
-}>;
+import { projectsPaidPlanFeatures } from '../../purchase/ProjectsPricingFeaturesConfig';
+import type { ProjectsViewerProjectsProfile } from '../../types';
 
 function PrerequisiteChallengesList({
   challenges,
@@ -82,13 +77,24 @@ function PrerequisiteChallengesList({
   );
 }
 
+type Props = Readonly<{
+  isShown: boolean;
+  onClose: () => void;
+  slug: string;
+  trigger: React.ReactNode;
+  viewerProjectsProfile: ProjectsViewerProjectsProfile | null;
+}>;
+
 export default function ProjectsChallengeUnlockAccessDialog({
-  credits,
+  viewerProjectsProfile,
   isShown,
   slug,
   trigger,
   onClose,
 }: Props) {
+  const plan = viewerProjectsProfile?.plan;
+  const credits = viewerProjectsProfile?.credits ?? 0;
+
   const intl = useIntl();
   const router = useI18nRouter();
   const { showToast } = useToast();
@@ -221,17 +227,32 @@ export default function ProjectsChallengeUnlockAccessDialog({
                   challenges={data.challengesToUnlock}
                 />
               )}
-              <Text className="block">
-                <FormattedMessage
-                  defaultMessage="You currently have {count, plural, =0 {no premium credits} one {<bold>1 premium credit</bold>} other {<bold># premium credits</bold>}}. Proceed to unlock?"
-                  description="Confirmation text for unlocking a premium challenge"
-                  id="3n0B1m"
-                  values={{
-                    bold: (chunks) => <Text weight="medium">{chunks}</Text>,
-                    count: credits,
-                  }}
-                />
-              </Text>
+              {plan != null &&
+                (projectsPaidPlanFeatures[plan].credits === 'unlimited' ? (
+                  <Text className="block">
+                    <FormattedMessage
+                      defaultMessage="You currently have <bold>unlimited premium credits</bold>. Proceed to unlock?"
+                      description="Confirmation text for unlocking a premium challenge"
+                      id="g+jqM2"
+                      values={{
+                        bold: (chunks) => <Text weight="medium">{chunks}</Text>,
+                        count: credits,
+                      }}
+                    />
+                  </Text>
+                ) : (
+                  <Text className="block">
+                    <FormattedMessage
+                      defaultMessage="You currently have {count, plural, =0 {no premium credits} one {<bold>1 premium credit</bold>} other {<bold># premium credits</bold>}}. Proceed to unlock?"
+                      description="Confirmation text for unlocking a premium challenge"
+                      id="3n0B1m"
+                      values={{
+                        bold: (chunks) => <Text weight="medium">{chunks}</Text>,
+                        count: credits,
+                      }}
+                    />
+                  </Text>
+                ))}
             </div>
           );
         }

@@ -4,6 +4,7 @@ import Text from '~/components/ui/Text';
 
 import type { ProjectsPremiumAccessControlType } from './ProjectsPremiumAccessControl';
 import { projectsPaidPlanFeatures } from '../../purchase/ProjectsPricingFeaturesConfig';
+import type { ProjectsViewerProjectsProfile } from '../../types';
 
 import type { ProjectsSubscriptionPlan } from '@prisma/client';
 
@@ -43,9 +44,11 @@ export function useProjectsChallengePaywallTitle(
 
 export function useProjectsChallengePaywallSubtitle(
   access: ProjectsPremiumAccessControlType,
-  credits = 0,
+  viewerProjectsProfile?: ProjectsViewerProjectsProfile | null,
 ) {
   const intl = useIntl();
+  const plan = viewerProjectsProfile?.plan;
+  const credits = viewerProjectsProfile?.credits ?? 0;
 
   switch (access) {
     case 'SUBSCRIBE':
@@ -75,7 +78,23 @@ export function useProjectsChallengePaywallSubtitle(
           }}
         />
       );
-    case 'UNLOCK':
+    case 'UNLOCK': {
+      if (
+        plan != null &&
+        projectsPaidPlanFeatures[plan].credits === 'unlimited'
+      ) {
+        return (
+          <FormattedMessage
+            defaultMessage="You have <bold>unlimited premium credits</bold>. Unlock this project to access all premium features for this challenge, including the Figma design files, official guides, and solutions."
+            description="Subtitle for project paywall"
+            id="Omqpux"
+            values={{
+              bold: (chunks) => <Text weight="bold">{chunks}</Text>,
+            }}
+          />
+        );
+      }
+
       return (
         <FormattedMessage
           defaultMessage="You have <bold>{amountLeft}</bold> premium credits remaining. Unlock this project to access all premium features for this challenge, including the Figma design files, official guides, and solutions."
@@ -87,6 +106,7 @@ export function useProjectsChallengePaywallSubtitle(
           }}
         />
       );
+    }
     case 'INSUFFICIENT_CREDITS':
       return (
         <FormattedMessage
@@ -166,23 +186,43 @@ export function useProjectsChallengeSubmissionPaywallSubtitle(
           }}
         />
       );
-    case 'UNLOCK':
+    case 'UNLOCK': {
+      if (plan == null) {
+        return null;
+      }
+
+      const planCredits = projectsPaidPlanFeatures[plan!]?.credits;
+
+      if (planCredits === 'unlimited') {
+        return (
+          <FormattedMessage
+            defaultMessage="You have <bold>unlimited premium credits</bold>. Unlock this challenge to learn from user submissions for premium challenges."
+            description="Subtitle for project paywall"
+            id="JUlJ9C"
+            values={{
+              bold: (chunks) => <Text weight="bold">{chunks}</Text>,
+            }}
+          />
+        );
+      }
+
       return (
         <FormattedMessage
-          defaultMessage="Unlock this challenge to learn from user submissions for premium challenges. You have <bold>{amountLeft}</bold>/{totalAmount} premium credits remaining."
+          defaultMessage="You have <bold>{amountLeft}</bold>/{totalAmount} premium credits remaining. Unlock this challenge to learn from user submissions for premium challenges."
           description="Subtitle for project paywall"
-          id="c7dkVm"
+          id="ut9h+K"
           values={{
             amountLeft: credits,
             bold: (chunks) => <Text weight="bold">{chunks}</Text>,
             totalAmount: Math.max(
               creditsAtStartOfCycle,
               credits,
-              projectsPaidPlanFeatures[plan!]?.credits || 0,
+              planCredits || 0,
             ),
           }}
         />
       );
+    }
     case 'INSUFFICIENT_CREDITS':
       return (
         <FormattedMessage

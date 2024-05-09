@@ -692,9 +692,9 @@ export default function ProjectsPricingTable({
                 'freeChallenges',
                 'breakpoints',
                 'apps',
+                'credits',
                 'skillRoadmap',
                 'componentTracks',
-                'credits',
               ] as const
             ).map((featureKey, index) => (
               <tr key={featureKey}>
@@ -826,14 +826,14 @@ export default function ProjectsPricingTable({
                     <FeatureItem feature={features.breakpoints} />
                   )}
                   {planFeatures.apps && <FeatureItem feature={features.apps} />}
+                  {planFeatures.credits && (
+                    <FeatureItem feature={features.credits} />
+                  )}
                   {planFeatures.skillRoadmap && (
                     <FeatureItem feature={features.skillRoadmap} />
                   )}
                   {planFeatures.componentTracks && (
                     <FeatureItem feature={features.componentTracks} />
-                  )}
-                  {planFeatures.credits && (
-                    <FeatureItem feature={features.credits} />
                   )}
                 </div>
               </div>

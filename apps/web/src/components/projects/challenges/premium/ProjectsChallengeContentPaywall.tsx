@@ -18,20 +18,19 @@ export default function ProjectsChallengeContentPaywall({
   slug,
 }: Props) {
   const title = useProjectsChallengePaywallTitle(viewerContentAccess);
-  const credits = viewerProjectsProfile?.credits ?? 0;
   const subtitle = useProjectsChallengePaywallSubtitle(
     viewerContentAccess,
-    viewerProjectsProfile?.credits ?? 0,
+    viewerProjectsProfile,
   );
 
   return (
     <ProjectsPremiumPaywall
-      credits={credits}
       size="lg"
       slug={slug}
       subtitle={subtitle}
       title={title!}
       viewerContentAccess={viewerContentAccess}
+      viewerProjectsProfile={viewerProjectsProfile}
     />
   );
 }

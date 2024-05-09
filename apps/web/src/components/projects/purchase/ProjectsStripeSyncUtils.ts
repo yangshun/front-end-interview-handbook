@@ -48,7 +48,8 @@ export async function projectsCustomerAddPlan(
       },
     });
   const features = projectsPaidPlanFeatures[planName];
-  const creditsForPlan = features.credits ?? 0;
+  const creditsForPlan =
+    features.credits === 'unlimited' ? 100 : features.credits ?? 0;
 
   await prisma.$transaction([
     prisma.projectsProfile.updateMany({
