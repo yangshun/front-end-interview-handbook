@@ -50,7 +50,7 @@ export default function ProjectsStartedUsersTag({
             startedCount: count,
           },
         )}
-        triggerClassName="flex z-[1]">
+        triggerClassName="flex z-[1] text-nowrap">
         <Text color="subtle" size="body3">
           <FormattedMessage
             defaultMessage="{startedCount} started"

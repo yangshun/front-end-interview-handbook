@@ -166,7 +166,7 @@ export default function ProjectsChallengeAssetsPage({
               'flex flex-col rounded-lg p-4',
               themeBackgroundEmphasized,
             )}>
-            <Text size="body0" weight="bold">
+            <Text className="text-left" size="body0" weight="bold">
               <FormattedMessage
                 defaultMessage="Assets provided"
                 description="Label for Assets Provided card on start project overlay on Projects project assets page"

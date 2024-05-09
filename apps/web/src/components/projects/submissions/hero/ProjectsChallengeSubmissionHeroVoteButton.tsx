@@ -10,6 +10,7 @@ import { useToast } from '~/components/global/toasts/useToast';
 import { useI18nRouter } from '~/next-i18nostic/src';
 
 type Props = Readonly<{
+  disabled?: boolean;
   submissionId: string;
   votes: number;
 }>;
@@ -17,6 +18,7 @@ type Props = Readonly<{
 export default function ProjectsChallengeSubmissionHeroVoteButton({
   votes,
   submissionId,
+  disabled = false,
 }: Props) {
   const { showToast } = useToast();
   const intl = useIntl();
@@ -57,7 +59,7 @@ export default function ProjectsChallengeSubmissionHeroVoteButton({
         'dark:!bg-neutral-800 dark:md:!bg-neutral-900',
       )}
       icon={RiThumbUpFill}
-      isDisabled={isLoading || vote.isLoading || unvote.isLoading}
+      isDisabled={isLoading || vote.isLoading || unvote.isLoading || disabled}
       label={String(votes)}
       purpose="button"
       selected={viewerUpvoted}

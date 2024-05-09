@@ -68,6 +68,14 @@ const blue = {
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+  /**
+   This will get rid of sticky hover problem in mobile devices
+    refer: https://css-tricks.com/solving-sticky-hover-states-with-media-hover-hover/
+    https://github.com/tailwindlabs/tailwindcss/pull/8394
+**/
+  future: {
+    hoverOnlyWhenSupported: true,
+  },
   darkMode: ['class', '[data-color-scheme="dark"]'],
   content: [
     './app/**/*.{js,jsx,ts,tsx,md,mdx}',

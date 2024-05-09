@@ -223,7 +223,7 @@ export default function ProjectsChallengeHeader({
               )}
             </div>
           </div>
-          <div className="flex flex-col items-end gap-4">
+          <div className="flex flex-col items-start gap-4 md:items-end">
             {!isGetLatestSessionFetched ? (
               <Spinner size="sm" />
             ) : hasSession ? (
@@ -238,7 +238,7 @@ export default function ProjectsChallengeHeader({
                 }}
               />
             ) : (
-              <div className="flex items-center gap-x-4 gap-y-4 lg:flex-col lg:items-end">
+              <div className="flex items-center gap-4 lg:flex-col lg:items-end">
                 {startButton}
                 <ProjectsStartedUsersTag
                   avatarBorderClassName="border-white dark:border-neutral-900"

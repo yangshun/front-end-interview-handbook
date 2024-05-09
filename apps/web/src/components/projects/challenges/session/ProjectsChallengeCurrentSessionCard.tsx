@@ -185,7 +185,7 @@ export default function ProjectsChallengeCurrentProjectSessionCard({
             </div>
             <div className="flex w-full shrink-0 gap-4 md:w-auto md:gap-2">
               <Button
-                className="flex min-w-[100px] grow md:inline-flex md:grow-0"
+                className="flex min-w-[100px] flex-1 md:inline-flex md:grow-0"
                 href={submitHref}
                 label={intl.formatMessage({
                   defaultMessage: 'Submit',
@@ -196,10 +196,9 @@ export default function ProjectsChallengeCurrentProjectSessionCard({
                 size="xs"
                 variant="primary"
               />
-              {/* Unable to make the button equal width on mobile because of the tooltip wrapper.
-              We'll prioritize code cleanliness over matching the design. */}
               <Button
                 addonPosition="start"
+                className="flex min-w-[100px] flex-1 md:inline-flex md:grow-0"
                 icon={RiStopCircleLine}
                 label={intl.formatMessage({
                   defaultMessage: 'End session',
