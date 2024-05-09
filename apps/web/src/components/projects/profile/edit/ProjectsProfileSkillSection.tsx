@@ -6,6 +6,8 @@ import Heading from '~/components/ui/Heading';
 
 import ProjectsProfileSkillsProficientInput from './ProjectsProfileSkillsProficientInput';
 import ProjectsProfileSkillsToImproveInput from './ProjectsProfileSkillsToImproveInput';
+import ProjectsChallengeReputationTag from '../../challenges/metadata/ProjectsChallengeReputationTag';
+import { ProjectsReputationPointsConfig } from '../../reputation/ProjectsReputationPointsConfig';
 
 type Values = ProjectsProfileEditFormValues;
 
@@ -22,10 +24,20 @@ export default function ProjectsProfileSkillSection() {
         />
       </Heading>
       <div className="flex w-full flex-col gap-6 md:flex-row">
-        <div className="flex-1">
+        <div className="relative flex-1">
+          <ProjectsChallengeReputationTag
+            className="absolute -top-0.5 end-0"
+            points={ProjectsReputationPointsConfig.PROFILE_FIELD_PER_OPTIONAL}
+            variant="filled"
+          />
           <ProjectsProfileSkillsProficientInput control={control} />
         </div>
-        <div className="flex-1">
+        <div className="relative flex-1">
+          <ProjectsChallengeReputationTag
+            className="absolute -top-0.5 end-0"
+            points={ProjectsReputationPointsConfig.PROFILE_FIELD_PER_OPTIONAL}
+            variant="filled"
+          />
           <ProjectsProfileSkillsToImproveInput control={control} />
         </div>
       </div>

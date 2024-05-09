@@ -77,9 +77,9 @@ export default function ProjectsChallengeReputationTag({
         weight={variant === 'filled' ? 'medium' : 'normal'}>
         {labelVariant === 'default' && (
           <FormattedMessage
-            defaultMessage="{points} rep"
+            defaultMessage="+{points} rep"
             description="Reputation points to be gained"
-            id="md057S"
+            id="XHzBpN"
             values={{
               points: getFormattedNumber(points),
             }}

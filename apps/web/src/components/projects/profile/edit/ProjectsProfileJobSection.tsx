@@ -1,6 +1,7 @@
 import { Controller, useFormContext } from 'react-hook-form';
 import { FormattedMessage, useIntl } from 'react-intl';
 
+import ProjectsChallengeReputationTag from '~/components/projects/challenges/metadata/ProjectsChallengeReputationTag';
 import type { ProjectsProfileOnboardingStep1FormValues } from '~/components/projects/onboarding/ProjectsOnboardingProfileStep1';
 import type { ProjectsProfileEditFormValues } from '~/components/projects/types';
 import Heading from '~/components/ui/Heading';
@@ -12,6 +13,7 @@ import TextInput from '~/components/ui/TextInput';
 
 import { getProjectsProfileJobStatusOthersFieldAttributes } from '../fields/ProjectsProfileJobSchema';
 import useProjectsYOEReplacementOptions from '../../hooks/useProjectsYOEReplacementOptions';
+import { ProjectsReputationPointsConfig } from '../../reputation/ProjectsReputationPointsConfig';
 
 type Values =
   | ProjectsProfileEditFormValues
@@ -120,7 +122,14 @@ export default function ProjectsProfileJobSection() {
               control={control}
               name="company"
               render={({ field }) => (
-                <div className="flex-1">
+                <div className="relative flex-1">
+                  <ProjectsChallengeReputationTag
+                    className="absolute -top-0.5 end-0"
+                    points={
+                      ProjectsReputationPointsConfig.PROFILE_FIELD_PER_OPTIONAL
+                    }
+                    variant="filled"
+                  />
                   <TextInput
                     description={intl.formatMessage({
                       defaultMessage:

@@ -4451,6 +4451,10 @@
     "defaultMessage": "More",
     "description": "Label for \"More\" button in pagination"
   },
+  "XHzBpN": {
+    "defaultMessage": "+{points} rep",
+    "description": "Reputation points to be gained"
+  },
   "XIMn32": {
     "defaultMessage": "Complete | Rewards",
     "description": "Title of Rewards Complete page"
@@ -5567,10 +5571,6 @@
     "defaultMessage": "Follow on LinkedIn",
     "description": "Link to the LinkedIn page"
   },
-  "gAep7Q": {
-    "defaultMessage": "Follow on LinkedIn",
-    "description": "Link to the LinkedIn page"
-  },
   "gDAVYm": {
     "defaultMessage": "Report an issue",
     "description": "Tooltip for button to report an issue"
@@ -6370,10 +6370,6 @@
   "mcOOtE": {
     "defaultMessage": "Host the project for free on our recommended hosts and submit your project URL for reviews",
     "description": "Instruction for projects"
-  },
-  "md057S": {
-    "defaultMessage": "{points} rep",
-    "description": "Reputation points to be gained"
   },
   "mh0xHS": {
     "defaultMessage": "You can edit your submission and code anytime.",
