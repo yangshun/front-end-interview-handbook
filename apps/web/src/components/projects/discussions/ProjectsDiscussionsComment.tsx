@@ -181,12 +181,6 @@ export default function ProjectsDiscussionsComment({
                     'Label for reply button on project discussions page',
                   id: 'buggxJ',
                 })}
-                tooltip={intl.formatMessage({
-                  defaultMessage: 'Reply',
-                  description:
-                    'Tooltip for reply button on project discussions page',
-                  id: '+8VXz/',
-                })}
                 variant="tertiary"
                 onClick={() => setMode(mode === 'reply' ? null : 'reply')}
               />
@@ -201,12 +195,6 @@ export default function ProjectsDiscussionsComment({
                   description:
                     'Label for edit button on project discussions page',
                   id: 'g2Nt5j',
-                })}
-                tooltip={intl.formatMessage({
-                  defaultMessage: 'Edit',
-                  description:
-                    'Tooltip for edit button on project discussions page',
-                  id: 'R7Qjr9',
                 })}
                 variant="tertiary"
                 onClick={() => setMode(mode === 'edit' ? null : 'edit')}

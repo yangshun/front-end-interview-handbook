@@ -51,11 +51,6 @@ export default function ProjectsDiscussionsCommentDeleteButton({
               description: 'Delete button label',
               id: 'WodcPq',
             })}
-            tooltip={intl.formatMessage({
-              defaultMessage: 'Delete',
-              description: 'Tooltip for Delete button',
-              id: 'khP9e5',
-            })}
             variant="tertiary"
             onClick={onClick}
           />

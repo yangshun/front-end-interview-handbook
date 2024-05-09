@@ -15,10 +15,6 @@
     "defaultMessage": "Your username has been updated.",
     "description": "Success message when for username changes"
   },
-  "+8VXz/": {
-    "defaultMessage": "Reply",
-    "description": "Tooltip for reply button on project discussions page"
-  },
   "+98gxd": {
     "defaultMessage": "Upload a photo",
     "description": "Label for upload photo"
@@ -650,6 +646,10 @@
   "3c9VZh": {
     "defaultMessage": "Clarify doubts in project-specific forums",
     "description": "Short description for \"Learn from others\" feature on Projects home page"
+  },
+  "3cNSBC": {
+    "defaultMessage": "Upvote this submission",
+    "description": "Tooltip for Upvote submission button"
   },
   "3du5bC": {
     "defaultMessage": "Toptal",
@@ -2002,10 +2002,6 @@
   "F09XFi": {
     "defaultMessage": "Full access to tracks & skills",
     "description": "Subtitle of premium plan CTA card"
-  },
-  "F2XjBS": {
-    "defaultMessage": "Upvote this submission",
-    "description": "Tooltip for Like submission button"
   },
   "F4esBf": {
     "defaultMessage": "Our projects are never one-off - they always fit into some component library or design system which can be composed into your very own toolset to build future projects",
@@ -3614,10 +3610,6 @@
   "R68iHH": {
     "defaultMessage": "Search Svelte questions",
     "description": "Placeholder for search input of Svelte question list"
-  },
-  "R7Qjr9": {
-    "defaultMessage": "Edit",
-    "description": "Tooltip for edit button on project discussions page"
   },
   "R9G9bY": {
     "defaultMessage": "Dashboard",
@@ -6111,10 +6103,6 @@
     "defaultMessage": "edited {editedAtTime}",
     "description": "Updated time stamp for submission detail page"
   },
-  "khP9e5": {
-    "defaultMessage": "Delete",
-    "description": "Tooltip for Delete button"
-  },
   "kj9QHG": {
     "defaultMessage": "Build a whole component library or design system for your portfolio",
     "description": "Description for recommended action for new projects platform user"
@@ -7095,6 +7083,10 @@
     "defaultMessage": "To build my <keywords>portfolio</keywords>",
     "description": "Onboarding motivation option"
   },
+  "soQjY2": {
+    "defaultMessage": "You upvoted this",
+    "description": "Tooltip for upvoted submission button"
+  },
   "sr3vXR": {
     "defaultMessage": "JavaScript questions",
     "description": "JavaScript Questions list page title"
@@ -7298,10 +7290,6 @@
   "uBhDCw": {
     "defaultMessage": "A forum where you can clarify doubts",
     "description": "FAQ answer for projects platform"
-  },
-  "uBy1d5": {
-    "defaultMessage": "Unvote this submission",
-    "description": "Tooltip for Like submission button"
   },
   "uCT1Lh": {
     "defaultMessage": "All challenges",
