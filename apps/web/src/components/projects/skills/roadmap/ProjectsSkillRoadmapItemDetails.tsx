@@ -5,11 +5,13 @@ import type {
   ProjectsSkillMetadata,
 } from 'contentlayer/generated';
 import { sumBy } from 'lodash-es';
-import { useIntl } from 'react-intl';
+import type { ReactNode } from 'react';
+import { FormattedMessage, useIntl } from 'react-intl';
 
 import { trpc } from '~/hooks/trpc';
 
 import ProjectsChallengeMdxContent from '~/components/projects/common/ProjectsChallengeMdxContent';
+import Alert from '~/components/ui/Alert';
 import Divider from '~/components/ui/Divider';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
@@ -67,6 +69,12 @@ export default function ProjectsSkillRoadmapItemDetails({
           ),
         ]
       : [null, null];
+
+  const renderBold = (chunks: Array<ReactNode>) => (
+    <Text size="inherit" weight="bold">
+      {chunks}
+    </Text>
+  );
 
   return (
     <div className="flex flex-col gap-y-8 pb-8">
@@ -140,6 +148,26 @@ export default function ProjectsSkillRoadmapItemDetails({
                   total={challengesQuery.data.challenges.length}
                 />
               )}
+          </div>
+          <div className="my-2">
+            <Alert
+              title={intl.formatMessage({
+                defaultMessage: 'Tracking your progress',
+                description: 'Tooltip for skill track warning section',
+                id: 'bgxpIw',
+              })}
+              variant="warning">
+              <Text color="secondary" size="body3">
+                <FormattedMessage
+                  defaultMessage={`To progress in the skill plan, you must add the skill to the <bold>"Skills used"</bold> field when completing a challenge.`}
+                  description="Warning message for skill plan section"
+                  id="amYRnY"
+                  values={{
+                    bold: renderBold,
+                  }}
+                />
+              </Text>
+            </Alert>
           </div>
           {challengesQuery.data?.challenges == null ? (
             <div className="py-10">

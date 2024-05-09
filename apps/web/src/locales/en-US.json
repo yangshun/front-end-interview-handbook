@@ -4843,6 +4843,10 @@
     "defaultMessage": "Try changing the filters",
     "description": "Subtitle for empty state when no questions are returned from application of filters on quiz questions list"
   },
+  "amYRnY": {
+    "defaultMessage": "To progress in the skill plan, you must add the skill to the <bold>\"Skills used\"</bold> field when completing a challenge.",
+    "description": "Warning message for skill plan section"
+  },
   "anZw89": {
     "defaultMessage": "Please enter your status",
     "description": "Error message for empty other input for yoe status on projects profile page"
@@ -4990,6 +4994,10 @@
   "bfmJR5": {
     "defaultMessage": "Confirm delete submission?",
     "description": "Delete challenge submission confirmation"
+  },
+  "bgxpIw": {
+    "defaultMessage": "Tracking your progress",
+    "description": "Tooltip for skill track warning section"
   },
   "bj5dJV": {
     "defaultMessage": "Upvote",
