@@ -10,6 +10,7 @@ import gtag from '~/lib/gtag';
 import { SOCIAL_DISCOUNT_PERCENTAGE } from '~/components/promotions/social/SocialDiscountConfig';
 import Anchor from '~/components/ui/Anchor';
 import Banner from '~/components/ui/Banner';
+import { textVariants } from '~/components/ui/Text';
 import {
   themeGradientGreenYellow,
   themeGradientPurple,
@@ -159,7 +160,11 @@ function BannerShell({
 
   return (
     <Banner
-      className={clsx('h-11 lg:h-8', className)} // Sync with sticky.css.
+      className={clsx(
+        'h-11 lg:h-8', // Sync with sticky.css.
+        textVariants({ color: 'light' }),
+        className,
+      )}
       size="sm"
       variant="custom"
       onHide={() => {
