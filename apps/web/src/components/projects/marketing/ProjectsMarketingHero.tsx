@@ -1,9 +1,5 @@
 import clsx from 'clsx';
-import {
-  RiArrowRightLine,
-  RiArrowRightSLine,
-  RiBardLine,
-} from 'react-icons/ri';
+import { RiArrowRightLine, RiBardLine } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
 
 import MarketingHeroBackground from '~/components/marketing/MarketingHeroBackground';
@@ -43,15 +39,22 @@ export default function ProjectsMarketingHero() {
                 )}
                 href="/blog/a-real-world-projects-platform-for-front-end-engineers"
                 variant="unstyled">
-                <RiBardLine />
-                <Text color="inherit" size="body2" weight="medium">
+                <RiBardLine className={themeTextColor} />
+                <Text size="body2" weight="medium">
                   <FormattedMessage
                     defaultMessage="Now in BETA"
                     description="Project marketing hero section badge"
                     id="8RQw6L"
                   />
                 </Text>
-                <RiArrowRightSLine className={themeTextColor} />
+                <Text color="inherit" size="body2" weight="medium">
+                  <FormattedMessage
+                    defaultMessage="Read more"
+                    description="Project marketing hero Read more section badge"
+                    id="1b+8YV"
+                  />
+                </Text>
+                <RiArrowRightLine className="text-inherit" />
               </Anchor>
               <div className="mb-10 flex flex-col items-center gap-y-6 sm:gap-y-7">
                 <Heading className="max-w-3xl text-center" level="heading1">

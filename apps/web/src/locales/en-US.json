@@ -423,6 +423,10 @@
     "defaultMessage": "Written by ex-FAANG senior developers",
     "description": "Title of 'Written by ex-FAANG senior devs' sub-feature in Projects marketing page"
   },
+  "1b+8YV": {
+    "defaultMessage": "Read more",
+    "description": "Project marketing hero Read more section badge"
+  },
   "1gkgr4": {
     "defaultMessage": "Sign In",
     "description": "Label of Sign In button on Email Sign In page"
