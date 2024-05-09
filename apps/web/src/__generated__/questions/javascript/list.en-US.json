@@ -601,6 +601,35 @@
   {
     "author": null,
     "companies": [],
+    "created": 1712102400,
+    "difficulty": "medium",
+    "duration": 20,
+    "excerpt": "Implement a function that checks if object conforms to source",
+    "featured": false,
+    "format": "javascript",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/javascript/conforms-to",
+    "importance": "low",
+    "languages": [
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [],
+    "premium": true,
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [
+      "count-by"
+    ],
+    "slug": "conforms-to",
+    "subtitle": null,
+    "title": "Conforms To",
+    "topics": []
+  },
+  {
+    "author": null,
+    "companies": [],
     "created": 1690416000,
     "difficulty": "medium",
     "duration": 15,

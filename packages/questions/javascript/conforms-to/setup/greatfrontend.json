@@ -1,0 +1,8 @@
+{
+  "run": "/src/conforms-to.run.test.ts",
+  "submit": "/src/conforms-to.submit.test.ts",
+  "skeleton": {
+    "js": "/src/conforms-to.skeleton.js",
+    "ts": "/src/conforms-to.skeleton.ts"
+  }
+}

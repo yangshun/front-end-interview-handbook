@@ -1,0 +1,25 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import conformsToJs from '../setup/src/conforms-to.js';
+import conformsToTs from '../setup/src/conforms-to.ts';
+import conformsToAltJs from '../setup/src/conforms-to-alt.js';
+import conformsToAltTs from '../setup/src/conforms-to-alt.ts';
+
+## Solution
+
+### Solution 1: Iterate through all predicates and return `false` once any predicate is not fulfilled
+
+1. Iterates over the predicates in the `source` object and ensure if the `key` is not inherited by `source`.
+1. Returns `false` if predicate is not fulfilled, and only returns `true` after all predicate are checked to be `true`.
+
+<MDXCodeBlock languages={{ jsx: conformsToJs, tsx: conformsToTs }} />
+
+### Solution 2: Uses `.every()` to ensure all predicate is fulfilled
+
+By using `Object.keys(source).every(...)`, it ensures that to return `true`, every predicate must evaluate to `true` when passed its corresponding value from `object`.
+
+<MDXCodeBlock languages={{ jsx: conformsToAltJs, tsx: conformsToAltTs }} />
+
+## Resources
+
+- [Lodash `_.conformsTo`](https://lodash.com/docs/#conformsTo)
