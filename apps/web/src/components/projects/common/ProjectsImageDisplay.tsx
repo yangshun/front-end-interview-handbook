@@ -56,7 +56,7 @@ export default function ProjectsImageDisplay({
       <div className="flex-1">
         <ProjectsImageViewer
           alt={specImagesForVariant[selectedScreenIndex].label}
-          aspectRatio="5/3"
+          aspectRatioClass="aspect-[5/3]"
           grid={ProjectsImageBreakpointDimensions[selectedBreakpoint].grid}
           specShowGridLayoutButton={specShowGridLayoutButton}
           src={

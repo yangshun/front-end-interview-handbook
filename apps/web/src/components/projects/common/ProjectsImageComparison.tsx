@@ -130,7 +130,7 @@ export default function ProjectsImageComparison({
         {deploymentImagesForBreakpointWithComparison[selectedScreenIndex]
           .original ? (
           <ProjectsChallengeSubmissionImageComparisonSlider
-            aspectRatio="7/3"
+            aspectRatioClass="aspect-[5/3] md:aspect-[7/3]"
             image={
               deploymentImagesForBreakpointWithComparison[selectedScreenIndex]
                 .image
@@ -147,7 +147,7 @@ export default function ProjectsImageComparison({
               deploymentImagesForBreakpointWithComparison[selectedScreenIndex]
                 .label
             }
-            aspectRatio="7/3"
+            aspectRatioClass="aspect-[5/3] md:aspect-[7/3]"
             grid={ProjectsImageBreakpointDimensions[selectedBreakpoint].grid}
             specShowGridLayoutButton={specShowGridLayoutButton}
             src={
@@ -161,14 +161,18 @@ export default function ProjectsImageComparison({
       {/* Footer */}
       <div
         className={clsx(
-          'grid grid-cols-2 gap-4',
+          'grid grid-cols-4 gap-4',
           deploymentImagesForBreakpointWithComparison.length > 1 &&
-            'md:grid-cols-4',
+            'md:grid-cols-3',
           'px-4 py-4 md:px-6',
           'w-full',
           ['border-t', themeBorderElementColor],
         )}>
-        <div className={clsx('col-span-1 flex flex-col justify-center')}>
+        <div
+          className={clsx(
+            'flex flex-col justify-center',
+            'col-span-4 md:col-span-1',
+          )}>
           {deploymentImagesForBreakpointWithComparison.length > 1 && (
             <Text color="secondary" size="body1" weight="medium">
               {specLabels[
@@ -220,14 +224,12 @@ export default function ProjectsImageComparison({
             </div>
           )}
         </div>
-        <div className="col-span-1 flex items-center justify-end md:order-last">
-          <ProjectsImageBreakpointButtonGroup
-            breakpoint={selectedBreakpoint}
-            setBreakpoint={setSelectedBreakpoint}
-          />
-        </div>
         {deploymentImagesForBreakpointWithComparison.length > 1 && (
-          <div className={clsx('flex justify-center gap-2', 'col-span-2')}>
+          <div
+            className={clsx(
+              'flex gap-2 md:justify-center',
+              'col-span-2 md:col-span-1',
+            )}>
             {deploymentImagesForBreakpointWithComparison.map((page, index) => (
               <Tooltip
                 key={page.label}
@@ -260,6 +262,16 @@ export default function ProjectsImageComparison({
             ))}
           </div>
         )}
+        <div
+          className={clsx(
+            'flex items-center justify-end',
+            'col-span-2 md:col-span-1',
+          )}>
+          <ProjectsImageBreakpointButtonGroup
+            breakpoint={selectedBreakpoint}
+            setBreakpoint={setSelectedBreakpoint}
+          />
+        </div>
       </div>
     </div>
   );

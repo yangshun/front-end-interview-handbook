@@ -10,7 +10,7 @@ import { useWheel } from '@use-gesture/react';
 
 type Props = Readonly<{
   alt: string;
-  aspectRatio: '5/3' | '7/3';
+  aspectRatioClass: string;
   grid: {
     columnGap: number;
     columns: number;
@@ -27,7 +27,7 @@ const MAX_ZOOM_LEVEL = 200;
 
 export default function ProjectsImageViewer({
   alt,
-  aspectRatio,
+  aspectRatioClass,
   specShowGridLayoutButton,
   src,
   width,
@@ -116,8 +116,7 @@ export default function ProjectsImageViewer({
         ref={wrapperRef}
         className={clsx(
           'w-full overflow-auto',
-          aspectRatio === '5/3' && 'aspect-[5/3]',
-          aspectRatio === '7/3' && 'aspect-[7/3]',
+          aspectRatioClass,
           (imageSmallerThanWrapper.height || imageSmallerThanWrapper.width) &&
             'flex',
           imageSmallerThanWrapper.height ? 'items-center' : 'items-baseline',
