@@ -32,7 +32,7 @@ export default function useProjectsProfileExperienceValueInitializer(
       ? `${initialValues.startWorkDate.toLocaleDateString(undefined, {
           month: '2-digit',
         })}/${initialValues.startWorkDate.getFullYear()}`
-      : undefined,
+      : '',
     title: hasStartedWork ? '' : initialValues?.title ?? '',
     yoeReplacement: {
       option: yoeReplacementSchema

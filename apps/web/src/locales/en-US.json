@@ -5355,6 +5355,10 @@
     "defaultMessage": "What kind of guidance will this platform provide me?",
     "description": "FAQ question for projects platform"
   },
+  "ex2n84": {
+    "defaultMessage": "Work start date is required",
+    "description": "Required Error message for work start date"
+  },
   "exLMBi": {
     "defaultMessage": "Skills roadmap",
     "description": "Title of Projects skill roadmap page"
@@ -5686,6 +5690,10 @@
   "hIOUCl": {
     "defaultMessage": "Profile completion progress bar",
     "description": "Label for Profile completion progress bar on Projects dashboard page"
+  },
+  "hJp3H7": {
+    "defaultMessage": "This date is too long ago to be possible. Please recheck your selections",
+    "description": "Error message for invalid \"Month and year you started work as a Front End Engineer\" input on Projects profile onboarding page"
   },
   "hMx0CX": {
     "defaultMessage": "Everything from the blog",
@@ -7138,6 +7146,10 @@
   "t5o9Z7": {
     "defaultMessage": "Do you want to add the <bold>\"{skillName}\"</bold> skill to this challenge so that completing the challenge will count towards that skill's progress?",
     "description": "Message about adding a skill to a challenge session"
+  },
+  "t9DHGL": {
+    "defaultMessage": "Work start date cannot be in future. Please recheck your selections",
+    "description": "Error message for invalid \"Month and year you started work as a Front End Engineer\" input on Projects profile onboarding page"
   },
   "tBeimS": {
     "defaultMessage": "Challenges activity",
