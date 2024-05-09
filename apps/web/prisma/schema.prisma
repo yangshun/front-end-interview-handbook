@@ -280,19 +280,26 @@ model ProjectsChallengeCreditTransaction {
   access          ProjectsChallengeAccess?
 }
 
+enum ProjectsChallengeSubmissionScreenshotStatus {
+  PENDING
+  COMPLETED
+  FAILED
+}
+
 model ProjectsChallengeSubmission {
-  id              String   @id @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
-  shortId         String   @unique @default(dbgenerated("SUBSTRING((gen_random_uuid())::text FROM 1 FOR 8)")) @db.Citext
-  profileId       String   @db.Uuid
-  slug            String
-  title           String
-  summary         String
-  repositoryUrl   String
-  deploymentUrls  Json
-  implementation  String
-  views           Int      @default(0)
-  roadmapSkills   String[]
-  techStackSkills String[]
+  id               String                                      @id @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
+  shortId          String                                      @unique @default(dbgenerated("SUBSTRING((gen_random_uuid())::text FROM 1 FOR 8)")) @db.Citext
+  profileId        String                                      @db.Uuid
+  slug             String
+  title            String
+  summary          String
+  repositoryUrl    String
+  deploymentUrls   Json
+  implementation   String
+  views            Int                                         @default(0)
+  roadmapSkills    String[]
+  techStackSkills  String[]
+  screenshotStatus ProjectsChallengeSubmissionScreenshotStatus @default(PENDING)
 
   createdAt DateTime @default(now()) @db.Timestamptz(6)
   updatedAt DateTime @default(now()) @updatedAt
