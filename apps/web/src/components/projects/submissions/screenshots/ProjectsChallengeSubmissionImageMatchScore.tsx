@@ -8,7 +8,7 @@ import type * as ResembleTypes from 'resemblejs';
 import resemble from '~/lib/resemble';
 
 import ProgressBar from '~/components/ui/ProgressBar';
-import Text from '~/components/ui/Text';
+import Text, { textVariants } from '~/components/ui/Text';
 import {
   themeBackgroundElementEmphasizedStateColor_Hover,
   themeBackgroundElementPressedStateColor_Active,
@@ -19,20 +19,23 @@ import {
 } from '~/components/ui/theme';
 import Tooltip from '~/components/ui/Tooltip';
 
-import type { ProjectsImageBreakpointCategory } from '../../common/ProjectsImageBreakpoints';
+import {
+  type ProjectsImageBreakpointCategory,
+  ProjectsImageBreakpointDimensions,
+} from '../../common/ProjectsImageBreakpoints';
 
 type ComparisonResult = ResembleTypes.ComparisonResult;
 
 type Props = Readonly<{
   baseImage: string;
-  selectedBreakpoint: ProjectsImageBreakpointCategory;
+  breakpoint: ProjectsImageBreakpointCategory;
   userSubmittedImage: string;
 }>;
 
 export default function ProjectsChallengeSubmissionImageMatchScore({
   baseImage,
   userSubmittedImage,
-  selectedBreakpoint,
+  breakpoint,
 }: Props) {
   const intl = useIntl();
   const [isCalculating, setIsCalculating] = useState(false);
@@ -62,9 +65,10 @@ export default function ProjectsChallengeSubmissionImageMatchScore({
         }
       },
     );
-  }, [baseImage, userSubmittedImage, selectedBreakpoint]);
+  }, [baseImage, userSubmittedImage, breakpoint]);
 
   const shouldShow = matchScore != null && matchScore > 0 && !isCalculating;
+  const Icon = ProjectsImageBreakpointDimensions[breakpoint].icon;
 
   return (
     <Tooltip
@@ -89,6 +93,12 @@ export default function ProjectsChallengeSubmissionImageMatchScore({
         themeOutlineElement_FocusVisible,
         themeOutlineElementBrandColor_FocusVisible,
       )}>
+      <Icon
+        className={textVariants({
+          className: 'size-4 shrink-0',
+          color: 'secondary',
+        })}
+      />
       <ProgressBar
         heightClass="h-1.5"
         label="Match score"
@@ -98,7 +108,8 @@ export default function ProjectsChallengeSubmissionImageMatchScore({
       />
       <Text
         className={clsx(
-          'w-9',
+          'inline-flex gap-2',
+          'w-15',
           'transition-opacity',
           !shouldShow && 'opacity-0',
         )}

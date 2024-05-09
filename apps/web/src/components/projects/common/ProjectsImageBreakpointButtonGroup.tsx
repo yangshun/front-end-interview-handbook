@@ -1,4 +1,3 @@
-import { RiComputerLine, RiSmartphoneLine, RiTabletLine } from 'react-icons/ri';
 import { useIntl } from 'react-intl';
 
 import FilterButton from '~/components/common/FilterButton';
@@ -20,7 +19,7 @@ export default function ProjectsImageBreakpointButtonGroup({
 
   const breakpoints = [
     {
-      icon: RiComputerLine,
+      icon: ProjectsImageBreakpointDimensions.desktop.icon,
       label: intl.formatMessage(
         {
           defaultMessage: 'Desktop ({width}px x {height}px)',
@@ -35,7 +34,7 @@ export default function ProjectsImageBreakpointButtonGroup({
       value: 'desktop',
     },
     {
-      icon: RiTabletLine,
+      icon: ProjectsImageBreakpointDimensions.tablet.icon,
       label: intl.formatMessage(
         {
           defaultMessage: 'Tablet ({width}px x {height}px)',
@@ -50,7 +49,7 @@ export default function ProjectsImageBreakpointButtonGroup({
       value: 'tablet',
     },
     {
-      icon: RiSmartphoneLine,
+      icon: ProjectsImageBreakpointDimensions.mobile.icon,
       label: intl.formatMessage(
         {
           defaultMessage: 'Mobile ({width}px x {height}px)',

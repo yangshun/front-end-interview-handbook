@@ -1,3 +1,5 @@
+import { RiComputerLine, RiSmartphoneLine, RiTabletLine } from 'react-icons/ri';
+
 export type ProjectsImageBreakpointCategory = 'desktop' | 'mobile' | 'tablet';
 
 export const ProjectsImageBreakpointDimensions: Record<
@@ -10,6 +12,7 @@ export const ProjectsImageBreakpointDimensions: Record<
       sidePadding: number;
     };
     height: number;
+    icon: (props: React.ComponentProps<'svg'>) => JSX.Element;
     width: number;
   }>
 > = {
@@ -22,6 +25,7 @@ export const ProjectsImageBreakpointDimensions: Record<
       sidePadding: 32,
     },
     height: 768,
+    icon: RiComputerLine,
     width: 1440,
   },
   mobile: {
@@ -32,6 +36,7 @@ export const ProjectsImageBreakpointDimensions: Record<
       sidePadding: 16,
     },
     height: 812,
+    icon: RiSmartphoneLine,
     width: 375,
   },
   tablet: {
@@ -42,6 +47,7 @@ export const ProjectsImageBreakpointDimensions: Record<
       sidePadding: 32,
     },
     height: 1024,
+    icon: RiTabletLine,
     width: 768,
   },
 };

@@ -98,7 +98,7 @@ export default function ProjectsImageComparison({
             </Text>
             <ProjectsChallengeSubmissionImageMatchScore
               baseImage={baseImage}
-              selectedBreakpoint={selectedBreakpoint}
+              breakpoint={selectedBreakpoint}
               userSubmittedImage={userSubmittedImage}
             />
           </div>
