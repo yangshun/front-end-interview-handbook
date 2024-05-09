@@ -19,9 +19,14 @@
   ],
   "pointsBase": 300,
   "pointsForSkillGroups": {
-    "html": 50,
-    "css": 50,
-    "javascript": 50
+    "html": 5,
+    "css": 5,
+    "javascript": 5,
+    "react": 15,
+    "package-managers": 15,
+    "build-tools": 5,
+    "testing": 5,
+    "performance": 5
   },
   "skills": [],
   "resources": [

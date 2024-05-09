@@ -8,8 +8,14 @@
   "baseCredits": 0,
   "pointsBase": 1000,
   "pointsForSkillGroups": {
-    "html": 50,
-    "css": 50
+    "html": 15,
+    "css": 15,
+    "javascript": 5,
+    "react": 5,
+    "package-managers": 5,
+    "build-tools": 5,
+    "testing": 5,
+    "performance": 5
   },
   "skills": [],
   "resources": [
