@@ -129,7 +129,7 @@ export default function ProjectsChallengeSubmissionHero({
       {/* Sticky action bar */}
       <div
         className={clsx(
-          'z-sticky sticky top-[var(--global-sticky-height)]',
+          'z-sticky sticky top-[var(--global-sticky-height)] hidden',
           'py-4',
           ['border-b', themeBorderColor],
           themeBackgroundColor,
