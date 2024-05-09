@@ -12,43 +12,33 @@ type Values = ProjectsProfileEditFormValues;
 
 type Props = Readonly<{
   control: Control<Values>;
-  showReputationCountIncreaseTag?: boolean;
 }>;
 
-export default function ProjectsProfileSocialInput({
-  control,
-  showReputationCountIncreaseTag,
-}: Props) {
+export default function ProjectsProfileSocialInput({ control }: Props) {
   return (
     <div className="flex flex-col gap-6">
       <div className="relative">
-        {showReputationCountIncreaseTag && (
-          <ProjectsChallengeReputationTag
-            className="absolute end-0 top-0"
-            points={ProjectsReputationPointsConfig.PROFILE_FIELD}
-            variant="filled"
-          />
-        )}
+        <ProjectsChallengeReputationTag
+          className="absolute -top-0.5 end-0"
+          points={ProjectsReputationPointsConfig.PROFILE_FIELD_PER_OPTIONAL}
+          variant="filled"
+        />
         <ProjectsProfileGithubInput control={control} />
       </div>
       <div className="relative">
-        {showReputationCountIncreaseTag && (
-          <ProjectsChallengeReputationTag
-            className="absolute end-0 top-0"
-            points={ProjectsReputationPointsConfig.PROFILE_FIELD}
-            variant="filled"
-          />
-        )}
+        <ProjectsChallengeReputationTag
+          className="absolute -top-0.5 end-0"
+          points={ProjectsReputationPointsConfig.PROFILE_FIELD_PER_OPTIONAL}
+          variant="filled"
+        />
         <ProjectsProfileLinkedInInput control={control} />
       </div>
       <div className="relative">
-        {showReputationCountIncreaseTag && (
-          <ProjectsChallengeReputationTag
-            className="absolute end-0 top-0"
-            points={ProjectsReputationPointsConfig.PROFILE_FIELD}
-            variant="filled"
-          />
-        )}
+        <ProjectsChallengeReputationTag
+          className="absolute -top-0.5 end-0"
+          points={ProjectsReputationPointsConfig.PROFILE_FIELD_PER_OPTIONAL}
+          variant="filled"
+        />
         <ProjectsProfileWebsiteInput control={control} />
       </div>
     </div>

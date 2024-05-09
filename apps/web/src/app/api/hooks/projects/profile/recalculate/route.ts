@@ -2,7 +2,8 @@ import { type NextRequest, NextResponse } from 'next/server';
 
 import {
   projectsReputationProfileCompleteConfig,
-  projectsReputationProfileFieldConfig,
+  projectsReputationProfileFieldOptionalConfig,
+  projectsReputationProfileFieldRequiredConfig,
   projectsReputationProfileSignUpConfig,
 } from '~/components/projects/reputation/ProjectsReputationPointsItemCalculator';
 import { projectsReputationConnectOrCreateShape } from '~/components/projects/reputation/ProjectsReputationUtils';
@@ -51,21 +52,25 @@ export async function POST(req: NextRequest) {
     }),
   ];
 
-  let allComplete = true;
+  let allRequiredComplete = true;
 
   if (
-    projectsProfile?.motivations != null &&
-    projectsProfile.motivations.length > 0
+    projectsProfile.userProfile.name &&
+    projectsProfile.userProfile.currentStatus &&
+    projectsProfile.userProfile.title &&
+    projectsProfile.motivations?.length > 0
   ) {
     connectOrCreateItems.push(
       projectsReputationConnectOrCreateShape({
-        ...projectsReputationProfileFieldConfig('motivation'),
+        ...projectsReputationProfileFieldRequiredConfig(),
         profileId: projectsProfileId,
       }),
     );
   } else {
-    allComplete = false;
+    allRequiredComplete = false;
   }
+
+  let allOptionalComplete = true;
 
   if (
     projectsProfile?.skillsProficient != null &&
@@ -73,12 +78,12 @@ export async function POST(req: NextRequest) {
   ) {
     connectOrCreateItems.push(
       projectsReputationConnectOrCreateShape({
-        ...projectsReputationProfileFieldConfig('skills_proficient'),
+        ...projectsReputationProfileFieldOptionalConfig('skills_proficient'),
         profileId: projectsProfileId,
       }),
     );
   } else {
-    allComplete = false;
+    allOptionalComplete = false;
   }
 
   if (
@@ -87,70 +92,81 @@ export async function POST(req: NextRequest) {
   ) {
     connectOrCreateItems.push(
       projectsReputationConnectOrCreateShape({
-        ...projectsReputationProfileFieldConfig('skills_to_grow'),
+        ...projectsReputationProfileFieldOptionalConfig('skills_to_grow'),
         profileId: projectsProfileId,
       }),
     );
   } else {
-    allComplete = false;
+    allOptionalComplete = false;
   }
 
   if (projectsProfile?.userProfile.bio) {
     connectOrCreateItems.push(
       projectsReputationConnectOrCreateShape({
-        ...projectsReputationProfileFieldConfig('bio'),
+        ...projectsReputationProfileFieldOptionalConfig('bio'),
         profileId: projectsProfileId,
       }),
     );
   } else {
-    allComplete = false;
+    allOptionalComplete = false;
   }
 
   if (projectsProfile?.userProfile.avatarUrl) {
     connectOrCreateItems.push(
       projectsReputationConnectOrCreateShape({
-        ...projectsReputationProfileFieldConfig('avatar'),
+        ...projectsReputationProfileFieldOptionalConfig('avatar'),
         profileId: projectsProfileId,
       }),
     );
   } else {
-    allComplete = false;
+    allOptionalComplete = false;
   }
 
   if (projectsProfile?.userProfile.linkedInUsername) {
     connectOrCreateItems.push(
       projectsReputationConnectOrCreateShape({
-        ...projectsReputationProfileFieldConfig('linkedin'),
+        ...projectsReputationProfileFieldOptionalConfig('linkedin'),
         profileId: projectsProfileId,
       }),
     );
   } else {
-    allComplete = false;
+    allOptionalComplete = false;
   }
 
   if (projectsProfile?.userProfile.githubUsername) {
     connectOrCreateItems.push(
       projectsReputationConnectOrCreateShape({
-        ...projectsReputationProfileFieldConfig('github'),
+        ...projectsReputationProfileFieldOptionalConfig('github'),
         profileId: projectsProfileId,
       }),
     );
   } else {
-    allComplete = false;
+    allOptionalComplete = false;
   }
 
   if (projectsProfile?.userProfile.website) {
     connectOrCreateItems.push(
       projectsReputationConnectOrCreateShape({
-        ...projectsReputationProfileFieldConfig('website'),
+        ...projectsReputationProfileFieldOptionalConfig('website'),
         profileId: projectsProfileId,
       }),
     );
   } else {
-    allComplete = false;
+    allOptionalComplete = false;
   }
 
-  if (allComplete) {
+  if (projectsProfile?.userProfile.company) {
+    connectOrCreateItems.push(
+      projectsReputationConnectOrCreateShape({
+        ...projectsReputationProfileFieldOptionalConfig('company'),
+        profileId: projectsProfileId,
+      }),
+    );
+  } else {
+    allOptionalComplete = false;
+  }
+
+  if (allRequiredComplete && allOptionalComplete) {
     connectOrCreateItems.push(
       projectsReputationConnectOrCreateShape({
         ...projectsReputationProfileCompleteConfig(),

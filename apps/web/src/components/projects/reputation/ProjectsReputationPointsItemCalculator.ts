@@ -10,9 +10,16 @@ export const projectsReputationProfileSignUpConfig = () => ({
   points: ProjectsReputationPointsConfig.PROFILE_SIGN_UP,
 });
 
-export const projectsReputationProfileFieldConfig = (field: string) => ({
+export const projectsReputationProfileFieldRequiredConfig = () => ({
+  key: `projects.profile.field.required`,
+  points: ProjectsReputationPointsConfig.PROFILE_FIELD_REQUIRED,
+});
+
+export const projectsReputationProfileFieldOptionalConfig = (
+  field: string,
+) => ({
   key: `projects.profile.field.${field}`,
-  points: ProjectsReputationPointsConfig.PROFILE_FIELD,
+  points: ProjectsReputationPointsConfig.PROFILE_FIELD_PER_OPTIONAL,
 });
 
 export const projectsReputationProfileCompleteConfig = () => ({
