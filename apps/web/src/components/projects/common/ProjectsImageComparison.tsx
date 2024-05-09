@@ -169,10 +169,11 @@ export default function ProjectsImageComparison({
           ['border-t', themeBorderElementColor],
         )}>
         <div
-          className={clsx(
-            'flex flex-col justify-center',
-            'col-span-4 md:col-span-1',
-          )}>
+          className={clsx('flex flex-col justify-center', [
+            deploymentImagesForBreakpointWithComparison.length > 1
+              ? 'col-span-4 md:col-span-1'
+              : 'col-span-2',
+          ])}>
           {deploymentImagesForBreakpointWithComparison.length > 1 && (
             <Text color="secondary" size="body1" weight="medium">
               {specLabels[
@@ -263,10 +264,11 @@ export default function ProjectsImageComparison({
           </div>
         )}
         <div
-          className={clsx(
-            'flex items-center justify-end',
-            'col-span-2 md:col-span-1',
-          )}>
+          className={clsx('flex items-center justify-end', [
+            'col-span-2',
+            deploymentImagesForBreakpointWithComparison.length > 1 &&
+              'md:col-span-1',
+          ])}>
           <ProjectsImageBreakpointButtonGroup
             breakpoint={selectedBreakpoint}
             setBreakpoint={setSelectedBreakpoint}
