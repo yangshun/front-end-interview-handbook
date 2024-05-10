@@ -1,4 +1,5 @@
 import { createContext, useCallback, useContext, useState } from 'react';
+import { RiFireFill } from 'react-icons/ri';
 import { FormattedMessage } from 'react-intl';
 
 import { trpc } from '~/hooks/trpc';
@@ -9,6 +10,7 @@ import { useToast } from '~/components/global/toasts/useToast';
 import Anchor from '~/components/ui/Anchor';
 
 import type { ProjectsChallengeSessionSkillsFormValues } from '../types';
+import { ProjectsReputationPointsConfig } from '../../reputation/ProjectsReputationPointsConfig';
 
 import type { ProjectsChallengeSession } from '@prisma/client';
 import { useQueryClient } from '@tanstack/react-query';
@@ -169,35 +171,45 @@ export default function ProjectsChallengeSessionContextProvider({
             showErrorToast();
           },
           onSuccess: () => {
-            showToast({
-              description: startedBefore ? (
-                <FormattedMessage
-                  defaultMessage="Project started! Leverage the provided resources and submit a link to your site once ready!"
-                  description="Toast subtitle for project session started"
-                  id="Et7nC7"
-                />
-              ) : (
-                <FormattedMessage
-                  defaultMessage="You have started your first project!"
-                  description="Toast subtitle for project session started"
-                  id="T6+Y/z"
-                />
-              ),
-              title: startedBefore ? (
-                <FormattedMessage
-                  defaultMessage="Woohoo!"
-                  description="Toast title for project session started"
-                  id="ZFDU0d"
-                />
-              ) : (
-                <FormattedMessage
-                  defaultMessage="Great start!"
-                  description="Toast title for project session started"
-                  id="r9Az7V"
-                />
-              ),
-              variant: 'success',
-            });
+            showToast(
+              startedBefore
+                ? {
+                    description: (
+                      <FormattedMessage
+                        defaultMessage="Project started! Leverage the provided resources and submit a link to your site once ready!"
+                        description="Toast subtitle for project session started"
+                        id="Et7nC7"
+                      />
+                    ),
+                    title: (
+                      <FormattedMessage
+                        defaultMessage="Woohoo!"
+                        description="Toast title for project session started"
+                        id="ZFDU0d"
+                      />
+                    ),
+                    variant: 'success',
+                  }
+                : {
+                    addOnIcon: RiFireFill,
+                    addOnLabel: `+${ProjectsReputationPointsConfig.SESSION_FIRST}`,
+                    description: (
+                      <FormattedMessage
+                        defaultMessage="You have started your first project!"
+                        description="Toast subtitle for project session started"
+                        id="T6+Y/z"
+                      />
+                    ),
+                    title: (
+                      <FormattedMessage
+                        defaultMessage="Great start!"
+                        description="Toast title for project session started"
+                        id="r9Az7V"
+                      />
+                    ),
+                    variant: 'success',
+                  },
+            );
           },
         },
       );

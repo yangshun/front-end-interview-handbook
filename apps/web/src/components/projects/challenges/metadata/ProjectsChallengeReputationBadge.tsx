@@ -1,12 +1,7 @@
 'use client';
 
 import clsx from 'clsx';
-import {
-  RiCheckboxCircleFill,
-  RiCheckFill,
-  RiCheckLine,
-  RiFireLine,
-} from 'react-icons/ri';
+import { RiCheckboxCircleFill, RiFireLine } from 'react-icons/ri';
 import { useIntl } from 'react-intl';
 
 import Badge from '~/components/ui/Badge';

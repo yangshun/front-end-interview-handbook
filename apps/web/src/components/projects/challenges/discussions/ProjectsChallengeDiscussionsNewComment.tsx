@@ -1,11 +1,13 @@
 import { useState } from 'react';
 import type { SubmitHandler } from 'react-hook-form';
 import { useForm } from 'react-hook-form';
+import { RiFireFill } from 'react-icons/ri';
 import { useIntl } from 'react-intl';
 import { z } from 'zod';
 
 import { trpc } from '~/hooks/trpc';
 
+import { useToast } from '~/components/global/toasts/useToast';
 import UserProfileInformationRow from '~/components/profile/info/UserProfileInformationRow';
 import {
   getDiscussionsCommentBodyAttributes,
@@ -19,6 +21,7 @@ import RichTextEditor from '~/components/ui/RichTextEditor';
 import Text from '~/components/ui/Text';
 
 import type { ProjectsChallengeItem } from '../types';
+import { ProjectsReputationPointsConfig } from '../../reputation/ProjectsReputationPointsConfig';
 import ProjectsProfileDisplayNameLink from '../../users/ProjectsProfileDisplayNameLink';
 
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -38,6 +41,7 @@ export default function ProjectsChallengeDiscussionsNewComment({
   viewer,
 }: Props) {
   const intl = useIntl();
+  const { showToast } = useToast();
   const [editorRerenderKey, setEditorRerenderKey] = useState(0);
   const createCommentMutation = trpc.projects.comments.create.useMutation();
   const attrs = getDiscussionsCommentBodyAttributes(intl);
@@ -69,6 +73,16 @@ export default function ProjectsChallengeDiscussionsNewComment({
       {
         onSuccess: () => {
           setEditorRerenderKey((prevKey) => prevKey + 1);
+          showToast({
+            addOnIcon: RiFireFill,
+            addOnLabel: `+${ProjectsReputationPointsConfig.DISCUSSIONS_COMMENT}`,
+            title: intl.formatMessage({
+              defaultMessage: 'You gained reputation for commenting',
+              description: 'Toast message about gaining reputation points',
+              id: 'IzZSMd',
+            }),
+            variant: 'success',
+          });
           reset();
         },
       },

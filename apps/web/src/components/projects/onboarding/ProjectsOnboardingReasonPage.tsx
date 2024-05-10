@@ -2,12 +2,13 @@
 
 import { useSearchParams } from 'next/navigation';
 import { FormProvider, useForm } from 'react-hook-form';
-import { RiArrowRightLine } from 'react-icons/ri';
+import { RiArrowRightLine, RiFireFill } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
 import { z } from 'zod';
 
 import { trpc } from '~/hooks/trpc';
 
+import { useToast } from '~/components/global/toasts/useToast';
 import useProjectsMotivationReasonSchema from '~/components/projects/hooks/useProjectsMotivationReasonSchema';
 import type { ProjectsMotivationReasonFormValues } from '~/components/projects/types';
 import Button from '~/components/ui/Button';
@@ -19,6 +20,7 @@ import Text from '~/components/ui/Text';
 import { useI18nRouter } from '~/next-i18nostic/src';
 
 import ProjectsProfileMotivationsField from '../profile/edit/ProjectsProfileMotivationsField';
+import { ProjectsReputationPointsConfig } from '../reputation/ProjectsReputationPointsConfig';
 
 import { zodResolver } from '@hookform/resolvers/zod';
 
@@ -27,6 +29,7 @@ type OnboardingProfileFormTransformedValues = {
 };
 
 export default function ProjectsOnboardingReasonPage() {
+  const { showToast } = useToast();
   const searchParams = useSearchParams();
   const router = useI18nRouter();
   const intl = useIntl();
@@ -98,6 +101,24 @@ export default function ProjectsOnboardingReasonPage() {
                   motivations: motivations.flatMap((motivation) =>
                     motivation != null ? [motivation] : [],
                   ),
+                });
+
+                showToast({
+                  addOnIcon: RiFireFill,
+                  addOnLabel: `+${ProjectsReputationPointsConfig.PROFILE_SIGN_UP}`,
+                  description: intl.formatMessage({
+                    defaultMessage:
+                      "You've gained reputation points for signing up",
+                    description:
+                      'Toast message about gaining reputation points',
+                    id: 'kaEcHw',
+                  }),
+                  title: intl.formatMessage({
+                    defaultMessage: 'Welcome!',
+                    description: 'Welcome message',
+                    id: 'NtN98C',
+                  }),
+                  variant: 'success',
                 });
 
                 router.push({

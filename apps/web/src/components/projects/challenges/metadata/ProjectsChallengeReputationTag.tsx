@@ -62,6 +62,7 @@ export default function ProjectsChallengeReputationTag({
             themeBorderSubtleColor,
           ],
         )}
+        color="inherit"
         size="body3">
         {labelVariant === 'default' && (
           <FormattedMessage

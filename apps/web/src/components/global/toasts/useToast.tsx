@@ -195,4 +195,4 @@ function useToast() {
   };
 }
 
-export { showToast, useToast };
+export { useToast };

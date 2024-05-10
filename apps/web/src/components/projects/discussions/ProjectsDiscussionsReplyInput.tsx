@@ -1,11 +1,13 @@
 import clsx from 'clsx';
 import type { SubmitHandler } from 'react-hook-form';
 import { useForm } from 'react-hook-form';
+import { RiFireFill } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
 import { z } from 'zod';
 
 import { trpc } from '~/hooks/trpc';
 
+import { useToast } from '~/components/global/toasts/useToast';
 import ProjectsProfileAvatar from '~/components/projects/users/ProjectsProfileAvatar';
 import Button from '~/components/ui/Button';
 import Text from '~/components/ui/Text';
@@ -19,6 +21,7 @@ import type {
   ProjectsDiscussionsCommentAuthor,
   ProjectsDiscussionsCommentItem,
 } from './types';
+import { ProjectsReputationPointsConfig } from '../reputation/ProjectsReputationPointsConfig';
 import RichTextEditor from '../../ui/RichTextEditor';
 
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -41,6 +44,7 @@ export default function ProjectsDiscussionsReplyInput({
   parentComment,
 }: Props) {
   const intl = useIntl();
+  const { showToast } = useToast();
   const createReplyMutation = trpc.projects.comments.reply.useMutation();
   const attrs = getDiscussionsCommentBodyAttributes(intl);
   const discussionsCommentBodySchema = useDiscussionsCommentBodySchema();
@@ -67,6 +71,16 @@ export default function ProjectsDiscussionsReplyInput({
       },
       {
         onSuccess: () => {
+          showToast({
+            addOnIcon: RiFireFill,
+            addOnLabel: `+${ProjectsReputationPointsConfig.DISCUSSIONS_COMMENT}`,
+            title: intl.formatMessage({
+              defaultMessage: 'You gained reputation for replying',
+              description: 'Toast message about gaining reputation points',
+              id: 'bM/mXK',
+            }),
+            variant: 'success',
+          });
           onCancel();
         },
       },
