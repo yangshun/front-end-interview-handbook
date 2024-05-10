@@ -4,21 +4,38 @@ import Anchor from '~/components/ui/Anchor';
 
 import type { FAQItem } from './FAQs';
 
-export const unusedCredits: FAQItem = {
+export const unspentCredits: FAQItem = {
   answer: (
-    <FormattedMessage
-      defaultMessage="Yes, rest assured that unused credits will roll over to the next month or
-      year and never expire."
-      description="Answer on projects pricing's FAQ section - unused credits"
-      id="PuEgKi"
-    />
+    <>
+      <p>
+        <FormattedMessage
+          defaultMessage="Yes, rest assured that unspent credits will roll over to the next month or year and never expire."
+          description="Answer on projects pricing's FAQ section - unused credits"
+          id="L15VNt"
+        />
+      </p>
+      <p>
+        <FormattedMessage
+          defaultMessage="Since annual users have unlimited credits, we will roll over credits for projects that remain locked at the end of their subscription cycle."
+          description="Answer on projects pricing's FAQ section - unused credits"
+          id="0z/V+d"
+        />
+      </p>
+      <p>
+        <FormattedMessage
+          defaultMessage="However, note that credits can only be spent when you are an active premium member."
+          description="Answer on projects pricing's FAQ section - unused credits"
+          id="zF6est"
+        />
+      </p>
+    </>
   ),
-  key: 'unused-credits',
+  key: 'unspent-credits',
   question: (
     <FormattedMessage
-      defaultMessage="Do unused credits roll over?"
+      defaultMessage="Do unspent credits roll over?"
       description="Question on projects pricing's FAQ section - unused credits"
-      id="inG9hv"
+      id="CjH8DZ"
     />
   ),
 };
@@ -28,9 +45,19 @@ export const studentDiscounts: FAQItem = {
     <FormattedMessage
       defaultMessage="We currently offer student discounts at up to 40% off plans if you sign in
       / up with your .edu student email account. Alumni are excluded from this
-      discount. Please read more at our Student Discount Terms and Conditions."
+      discount. Please read more at our <link>Student Discount Terms and Conditions</link>."
       description="Answer on projects pricing's FAQ section - student discounts"
-      id="wKANGc"
+      id="u/YBSN"
+      values={{
+        link: (chunks) => (
+          <Anchor
+            className="whitespace-nowrap"
+            href="/legal/student-discount"
+            weight="medium">
+            {chunks}
+          </Anchor>
+        ),
+      }}
     />
   ),
   key: 'student-discounts',
@@ -102,9 +129,9 @@ export const offerRefunds: FAQItem = {
 export const cancelSubscription: FAQItem = {
   answer: (
     <FormattedMessage
-      defaultMessage="You can easily cancel your subscription at any time in the Billing tab of the Settings page. The current subscription will only end at the end of the current billing period (not immediately!)."
+      defaultMessage='You can easily cancel your subscription at any time in the "Billing" tab of the "Settings" page. The subscription and your access to premium contents will only end at the end of the current billing period (not immediately).'
       description="Answer on projects pricing's FAQ section - cancel subscription"
-      id="P/kxU9"
+      id="ZC3dbI"
     />
   ),
   key: 'cancel-subscription',
@@ -120,9 +147,9 @@ export const cancelSubscription: FAQItem = {
 export const autoRenew: FAQItem = {
   answer: (
     <FormattedMessage
-      defaultMessage="Yes, our subscription auto-renews at the end of each billing period. An email reminder will be sent a few days before that - so you can cancel it if you wish from the Billing tab of the Settings page."
+      defaultMessage='Yes, our subscription auto-renews at the end of each billing period. An email reminder will be sent a few days before that so you can cancel it if you wish from the "Billing" tab of the "Settings" page.'
       description="Answer on projects pricing's FAQ section - auto renew"
-      id="LLXnUM"
+      id="Vge6qx"
     />
   ),
   key: 'auto-renew',

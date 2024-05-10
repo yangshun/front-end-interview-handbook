@@ -71,9 +71,9 @@ const projectsStuck: FAQItem = {
   answer: (
     <p>
       <FormattedMessage
-        defaultMessage="If you're stuck, clarify any doubts within the project discussion forums in Step 3's tab. If you need answers urgently for a critical issue, email as at <link>support@greatfrontend.com</link>."
+        defaultMessage="If you're stuck, clarify any doubts within the discussion forums in Step 3's. If you need answers urgently for a critical issue, email as at <link>support@greatfrontend.com</link>."
         description="FAQ answer for projects platform"
-        id="JeIp7K"
+        id="fxfae3"
         values={{
           link: (chunks) => (
             <Anchor href="mailto:support@greatfrontend.com">{chunks}</Anchor>
@@ -105,51 +105,51 @@ const projectsGuidance: FAQItem = {
       <ul className="list-outside list-decimal">
         <li>
           <FormattedMessage
-            defaultMessage="[For complete beginners] Basic general development guides, such as how to download and use an IDE, how to use tools like Github and Figma"
+            defaultMessage="Basic general development guides, such as how to download and use an IDE, how to use tools like GitHub and Figma."
             description="FAQ answer for projects platform"
-            id="mU6vix"
+            id="2eIa8j"
           />
         </li>
         <li>
           <FormattedMessage
-            defaultMessage="Curated, external resources that could be helpful"
+            defaultMessage="Curated, external resources that could be helpful."
             description="FAQ answer for projects platform"
-            id="oJPsPU"
+            id="rUiB1g"
           />
         </li>
         <li>
           <FormattedMessage
-            defaultMessage="Official solutions from senior engineers, possibly using different stacks"
+            defaultMessage="Official solutions from senior engineers, possibly using different stacks."
             description="FAQ answer for projects platform"
-            id="gkQHSv"
+            id="LF10F3"
           />
         </li>
         <li>
           <FormattedMessage
-            defaultMessage="Step-by-step guides on how to approach the challenge"
+            defaultMessage="Step-by-step guides on how to approach the challenge."
             description="FAQ answer for projects platform"
-            id="xegXNt"
+            id="E63Iix"
           />
         </li>
         <li>
           <FormattedMessage
-            defaultMessage="Recommended user submissions you can reference"
+            defaultMessage="Recommended user submissions you can reference."
             description="FAQ answer for projects platform"
-            id="TWZbhr"
+            id="ELcn8L"
           />
         </li>
         <li>
           <FormattedMessage
-            defaultMessage="A forum where you can clarify doubts"
+            defaultMessage="A forum where you can clarify doubts."
             description="FAQ answer for projects platform"
-            id="uBhDCw"
+            id="I9lFwb"
           />
         </li>
         <li>
           <FormattedMessage
-            defaultMessage="Deployment and submission checklist and guide"
+            defaultMessage="Deployment and submission checklist and guide."
             description="FAQ answer for projects platform"
-            id="y1/vKv"
+            id="hbgKC2"
           />
         </li>
       </ul>
@@ -226,9 +226,9 @@ const projectsStop: FAQItem = {
   answer: (
     <p>
       <FormattedMessage
-        defaultMessage="Yes. Every project you start creates a 'session' of the project, which you can end. You can start a new session anytime."
+        defaultMessage='Yes. Every challenge you start creates a "session" of the challenge, which you can end. You can start a new session anytime.'
         description="FAQ answer for projects platform"
-        id="LHxvVR"
+        id="ZfPNnW"
       />
     </p>
   ),
@@ -247,9 +247,9 @@ const projectsSkills: FAQItem = {
     <div>
       <p>
         <FormattedMessage
-          defaultMessage="Yes of course! You are encouraged to use your own customized stack to build the projects and share your implementation approach."
+          defaultMessage="Yes of course! You are encouraged to use your own customized stack to build the challenges and share your implementation and approach."
           description="FAQ answer for projects platform"
-          id="Uwu0Y3"
+          id="56Mzxg"
         />
       </p>
       <p>
@@ -264,9 +264,9 @@ const projectsSkills: FAQItem = {
   key: 'skills',
   question: (
     <FormattedMessage
-      defaultMessage="I want to use React on this project, but it's not listed as one of the skills. Can I still use it?"
+      defaultMessage="I want to use React for this challenge, but it's not listed as one of the skills. Can I still use it?"
       description="FAQ question for projects platform"
-      id="EBw1EY"
+      id="WiZAwx"
     />
   ),
 };

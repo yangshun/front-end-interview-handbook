@@ -7,7 +7,7 @@ import {
   institutionsOrgDiscounts,
   offerRefunds,
   studentDiscounts,
-  unusedCredits,
+  unspentCredits,
 } from '~/data/faqs/ProjectsPurchaseFAQs';
 
 import MarketingFAQSection from '~/components/marketing/faqs/MarketingFAQSection';
@@ -17,7 +17,7 @@ import Container from '~/components/ui/Container';
 import Section from '~/components/ui/Heading/HeadingContext';
 
 const purchaseFaqs: FAQItems = [
-  unusedCredits,
+  unspentCredits,
   studentDiscounts,
   institutionsOrgDiscounts,
   offerRefunds,

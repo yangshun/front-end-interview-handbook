@@ -367,6 +367,10 @@
     "defaultMessage": "Study list session stopped",
     "description": "Success message for stopping a study plan"
   },
+  "0z/V+d": {
+    "defaultMessage": "Since annual users have unlimited credits, we will roll over credits for projects that remain locked at the end of their subscription cycle.",
+    "description": "Answer on projects pricing's FAQ section - unused credits"
+  },
   "1/mHuG": {
     "defaultMessage": "Tech stack",
     "description": "Section title for tech stack"
@@ -538,6 +542,10 @@
   "2a6qgD": {
     "defaultMessage": "Your code was restored from client storage. <link>Reset to default</link>",
     "description": "Message that appears under the coding workspace when user has previously worked on this problem and we restored their code"
+  },
+  "2eIa8j": {
+    "defaultMessage": "Basic general development guides, such as how to download and use an IDE, how to use tools like GitHub and Figma.",
+    "description": "FAQ answer for projects platform"
   },
   "2gImEH": {
     "defaultMessage": "Online assets",
@@ -810,6 +818,10 @@
   "55uCRp": {
     "defaultMessage": "Premium",
     "description": "Tooltip for Premium questions label"
+  },
+  "56Mzxg": {
+    "defaultMessage": "Yes of course! You are encouraged to use your own customized stack to build the challenges and share your implementation and approach.",
+    "description": "FAQ answer for projects platform"
   },
   "58dfbv": {
     "defaultMessage": "Language",
@@ -1114,10 +1126,6 @@
   "7hlP1A": {
     "defaultMessage": "Task has not been completed! Please try again.",
     "description": "Error task label"
-  },
-  "7htD3m": {
-    "defaultMessage": "Access to over {freeChallengeCount} free challenges. {unlocks, plural, =0 {No access to <tooltip>premium credits</tooltip>} one {<tooltip>1 premium credit</tooltip> unused} other {<tooltip># premium credits</tooltip> unused}}",
-    "description": "Subtitle of Free Plan CTA card in Projects sidebar"
   },
   "7kN2mI": {
     "defaultMessage": "Progress",
@@ -1691,6 +1699,10 @@
     "defaultMessage": "Other skills you are using which are not within the skills roadmap. Also helps community members understand more about the tech stack. If you don't see the tag you need, email us.",
     "description": "Description for \"Other tech stack used\" text input"
   },
+  "CjH8DZ": {
+    "defaultMessage": "Do unspent credits roll over?",
+    "description": "Question on projects pricing's FAQ section - unused credits"
+  },
   "Cjz59k": {
     "defaultMessage": "Click here to try out the actual workspace instead of this embed.",
     "description": "Button label within embed"
@@ -1899,6 +1911,10 @@
     "defaultMessage": "Undergrad CS",
     "description": "Label for \"Undergrad CS\" option in YOE replacement"
   },
+  "E63Iix": {
+    "defaultMessage": "Step-by-step guides on how to approach the challenge.",
+    "description": "FAQ answer for projects platform"
+  },
   "E6yHUQ": {
     "defaultMessage": "Evaluation Axes",
     "description": "Evaluation axes in front end system design interviews"
@@ -1914,10 +1930,6 @@
   "E9mfba": {
     "defaultMessage": "Build your way up to a well-rounded front end / full stack skillset. Hone a specific skill, or follow our skills progression starting from zero.",
     "description": "Description of Projects skill tree page"
-  },
-  "EBw1EY": {
-    "defaultMessage": "I want to use React on this project, but it's not listed as one of the skills. Can I still use it?",
-    "description": "FAQ question for projects platform"
   },
   "ECjV1e": {
     "defaultMessage": "Ready to start building?",
@@ -1943,6 +1955,10 @@
     "defaultMessage": "1 Month",
     "description": "Short label for one month study plan"
   },
+  "ELcn8L": {
+    "defaultMessage": "Recommended user submissions you can reference.",
+    "description": "FAQ answer for projects platform"
+  },
   "EM2v4V": {
     "defaultMessage": "By creators of",
     "description": "Text above logos on Hero section of HomePage. To let users know that the authors of this platform have also created the stated products."
@@ -1962,6 +1978,10 @@
   "ETNZXt": {
     "defaultMessage": "Error downloading file",
     "description": "Error message"
+  },
+  "EYI2aK": {
+    "defaultMessage": "Access to over {freeChallengeCount} free challenges. {unlocks, plural, =0 {No access to <tooltip>premium credits</tooltip>} one {<tooltip>1 premium credit</tooltip> unspent} other {<tooltip># premium credits</tooltip> unspent}}",
+    "description": "Subtitle of Free Plan CTA card in Projects sidebar"
   },
   "EaMmzf": {
     "defaultMessage": "Edit submission",
@@ -2399,6 +2419,10 @@
     "defaultMessage": "Community | {name}",
     "description": "Title of Projects Dashboard page"
   },
+  "I9lFwb": {
+    "defaultMessage": "A forum where you can clarify doubts.",
+    "description": "FAQ answer for projects platform"
+  },
   "IBP/D0": {
     "defaultMessage": "Tell us your email if you want us to follow up with you.",
     "description": "Feedback widget text to request for optional email input for following up"
@@ -2582,10 +2606,6 @@
   "Jbo+rf": {
     "defaultMessage": "Reset",
     "description": "Label for reset button for projects profile edit page"
-  },
-  "JeIp7K": {
-    "defaultMessage": "If you're stuck, clarify any doubts within the project discussion forums in Step 3's tab. If you need answers urgently for a critical issue, email as at <link>support@greatfrontend.com</link>.",
-    "description": "FAQ answer for projects platform"
   },
   "JhZ/aF": {
     "defaultMessage": "Quiz Questions",
@@ -2791,6 +2811,10 @@
     "defaultMessage": "{numberOfQuestions} questions",
     "description": "Number of questions in a list"
   },
+  "L15VNt": {
+    "defaultMessage": "Yes, rest assured that unspent credits will roll over to the next month or year and never expire.",
+    "description": "Answer on projects pricing's FAQ section - unused credits"
+  },
   "L1Wgz6": {
     "defaultMessage": "Tracks | Progress | Dashboard",
     "description": "Title of tracks section on dashboard page"
@@ -2819,6 +2843,10 @@
     "defaultMessage": "Clear all",
     "description": "Label for clear all button"
   },
+  "LF10F3": {
+    "defaultMessage": "Official solutions from senior engineers, possibly using different stacks.",
+    "description": "FAQ answer for projects platform"
+  },
   "LFxhgC": {
     "defaultMessage": "Never waste your time building one-off projects again!",
     "description": "Part 2 of subtitle of the 'Permanent toolkit' marketing section on Projects home page"
@@ -2831,17 +2859,9 @@
     "defaultMessage": "Async Operations",
     "description": "Name of focus area questions"
   },
-  "LHxvVR": {
-    "defaultMessage": "Yes. Every project you start creates a 'session' of the project, which you can end. You can start a new session anytime.",
-    "description": "FAQ answer for projects platform"
-  },
   "LKILl5": {
     "defaultMessage": "Submission successfully unpinned!",
     "description": "Submission unpin toaster"
-  },
-  "LLXnUM": {
-    "defaultMessage": "Yes, our subscription auto-renews at the end of each billing period. An email reminder will be sent a few days before that - so you can cancel it if you wish from the Billing tab of the Settings page.",
-    "description": "Answer on projects pricing's FAQ section - auto renew"
   },
   "LNBK2M": {
     "defaultMessage": "Our services are unavailable at your location.",
@@ -3327,10 +3347,6 @@
     "defaultMessage": "Go to Stripe",
     "description": "Label for CTA for stripe"
   },
-  "P/kxU9": {
-    "defaultMessage": "You can easily cancel your subscription at any time in the Billing tab of the Settings page. The current subscription will only end at the end of the current billing period (not immediately!).",
-    "description": "Answer on projects pricing's FAQ section - cancel subscription"
-  },
   "P2baTC": {
     "defaultMessage": "Coding Format",
     "description": "Front end coding interview questions"
@@ -3462,10 +3478,6 @@
   "Ptmnjq": {
     "defaultMessage": "Free continuous updates",
     "description": "Title for free continuous updates feature"
-  },
-  "PuEgKi": {
-    "defaultMessage": "Yes, rest assured that unused credits will roll over to the next month or year and never expire.",
-    "description": "Answer on projects pricing's FAQ section - unused credits"
   },
   "PvVu6g": {
     "defaultMessage": "View focus areas",
@@ -3983,10 +3995,6 @@
     "defaultMessage": "Front End System Design",
     "description": "Short title of front end system design guidebook"
   },
-  "TWZbhr": {
-    "defaultMessage": "Recommended user submissions you can reference",
-    "description": "FAQ answer for projects platform"
-  },
   "TaIXVz": {
     "defaultMessage": "Purchase premium to unlock full access to exclusive System Design content including high quality solutions and companies which ask this question.",
     "description": "System design questions paywall"
@@ -4139,10 +4147,6 @@
     "defaultMessage": "Get the right foundation",
     "description": "Short title for \"Get the right foundation for practical development\" feature marketing section on Projects home page"
   },
-  "Uwu0Y3": {
-    "defaultMessage": "Yes of course! You are encouraged to use your own customized stack to build the projects and share your implementation approach.",
-    "description": "FAQ answer for projects platform"
-  },
   "UxRVYP": {
     "defaultMessage": "Use code at checkout. Code expires on {expiryDate}.",
     "description": "Instruction to apply discount"
@@ -4246,6 +4250,10 @@
   "VfNkH+": {
     "defaultMessage": "CASHBACK",
     "description": "Amount cashback/discount"
+  },
+  "Vge6qx": {
+    "defaultMessage": "Yes, our subscription auto-renews at the end of each billing period. An email reminder will be sent a few days before that so you can cancel it if you wish from the \"Billing\" tab of the \"Settings\" page.",
+    "description": "Answer on projects pricing's FAQ section - auto renew"
   },
   "VlLGKt": {
     "defaultMessage": "Payment Success",
@@ -4402,6 +4410,10 @@
   "Wgz18L": {
     "defaultMessage": "Try these popular HTML questions",
     "description": "Title for featured questions section"
+  },
+  "WiZAwx": {
+    "defaultMessage": "I want to use React for this challenge, but it's not listed as one of the skills. Can I still use it?",
+    "description": "FAQ question for projects platform"
   },
   "WmI0h+": {
     "defaultMessage": "{numberOfSeries} series",
@@ -4703,6 +4715,10 @@
     "defaultMessage": "<bold>You</bold> asked a question on the challenge forum for <link>{challengeTitle}</link>: <comment>\"{description}\"</comment>",
     "description": "Log message for you asking a question on the challenge forum"
   },
+  "ZC3dbI": {
+    "defaultMessage": "You can easily cancel your subscription at any time in the \"Billing\" tab of the \"Settings\" page. The subscription and your access to premium contents will only end at the end of the current billing period (not immediately).",
+    "description": "Answer on projects pricing's FAQ section - cancel subscription"
+  },
   "ZCmkG3": {
     "defaultMessage": "Can't find the answer you are looking for? <link>Reach out to us!</link>",
     "description": "Subtitle under the Title of the FAQ section on the 'Become An Affiliate' page"
@@ -4758,6 +4774,10 @@
   "Zdojj9": {
     "defaultMessage": "Other",
     "description": "Label for \"Other\" onboarding option in Projects"
+  },
+  "ZfPNnW": {
+    "defaultMessage": "Yes. Every challenge you start creates a \"session\" of the challenge, which you can end. You can start a new session anytime.",
+    "description": "FAQ answer for projects platform"
   },
   "Zm3csd": {
     "defaultMessage": "Dark",
@@ -5563,6 +5583,10 @@
     "defaultMessage": "You have gained {points} reputation points!",
     "description": "Success message after submitting a project"
   },
+  "fxfae3": {
+    "defaultMessage": "If you're stuck, clarify any doubts within the discussion forums in Step 3's. If you need answers urgently for a critical issue, email as at <link>support@greatfrontend.com</link>.",
+    "description": "FAQ answer for projects platform"
+  },
   "fzfMZ2": {
     "defaultMessage": "Explore series | Blog",
     "description": "Title of GreatFrontEnd blog explore series page"
@@ -5651,10 +5675,6 @@
     "defaultMessage": "Next",
     "description": "Label for Next button on Projects profile onboarding page"
   },
-  "gkQHSv": {
-    "defaultMessage": "Official solutions from senior engineers, possibly using different stacks",
-    "description": "FAQ answer for projects platform"
-  },
   "glQWNv": {
     "defaultMessage": "Articles",
     "description": "Label for articles blog"
@@ -5742,6 +5762,10 @@
   "hYp7sF": {
     "defaultMessage": "Normal",
     "description": "Label for Normal"
+  },
+  "hbgKC2": {
+    "defaultMessage": "Deployment and submission checklist and guide.",
+    "description": "FAQ answer for projects platform"
   },
   "hkKaPn": {
     "defaultMessage": "Numbered list",
@@ -5846,10 +5870,6 @@
   "iSFCj/": {
     "defaultMessage": "Signing Out",
     "description": "Title of Logout page"
-  },
-  "inG9hv": {
-    "defaultMessage": "Do unused credits roll over?",
-    "description": "Question on projects pricing's FAQ section - unused credits"
   },
   "iq1rXh": {
     "defaultMessage": "Settings",
@@ -6383,10 +6403,6 @@
     "defaultMessage": "After completion",
     "description": "Tab label for projects challenges"
   },
-  "mU6vix": {
-    "defaultMessage": "[For complete beginners] Basic general development guides, such as how to download and use an IDE, how to use tools like Github and Figma",
-    "description": "FAQ answer for projects platform"
-  },
   "mVYEky": {
     "defaultMessage": "Reference code",
     "description": "Reference code for projects"
@@ -6570,10 +6586,6 @@
   "oIktGl": {
     "defaultMessage": "One-time use; can only be completed once.",
     "description": "Condition for promotion"
-  },
-  "oJPsPU": {
-    "defaultMessage": "Curated, external resources that could be helpful",
-    "description": "FAQ answer for projects platform"
   },
   "oNMAi3": {
     "defaultMessage": "Difficulty: Easy to Hard",
@@ -7007,6 +7019,10 @@
     "defaultMessage": "Build projects to learn any front end skill using our <link>Skills roadmap</link>",
     "description": "Caption for Projects marketing hero section skills roadmap feature"
   },
+  "rUiB1g": {
+    "defaultMessage": "Curated, external resources that could be helpful.",
+    "description": "FAQ answer for projects platform"
+  },
   "rWhQtZ": {
     "defaultMessage": "Full list of shortcuts can be found on the <link>Visual Studio Code website</link>.",
     "description": "Text in coding workspace shortcuts that provides user with the link to the full list of shortcuts"
@@ -7303,6 +7319,10 @@
     "defaultMessage": "Info",
     "description": "Section heading in Projects footer for links to more information"
   },
+  "u/YBSN": {
+    "defaultMessage": "We currently offer student discounts at up to 40% off plans if you sign in / up with your .edu student email account. Alumni are excluded from this discount. Please read more at our <link>Student Discount Terms and Conditions</link>.",
+    "description": "Answer on projects pricing's FAQ section - student discounts"
+  },
   "u/s8vM": {
     "defaultMessage": "for Interviews",
     "description": "GreatFrontEnd product vertical"
@@ -7326,10 +7346,6 @@
   "uAAJxp": {
     "defaultMessage": "Upon purchasing premium, you will be given a number of premium credits. A premium credit gives you access to all premium features in a free project (Figma files, official solutions & guides from senior engineers), or can unlock a premium challenge.",
     "description": "Description of premium feature"
-  },
-  "uBhDCw": {
-    "defaultMessage": "A forum where you can clarify doubts",
-    "description": "FAQ answer for projects platform"
   },
   "uCT1Lh": {
     "defaultMessage": "All challenges",
@@ -7603,10 +7619,6 @@
     "defaultMessage": "Build personalized projects, instead of the same as everyone else",
     "description": "Title of 'Personalized projects' feature in Projects marketing page"
   },
-  "wKANGc": {
-    "defaultMessage": "We currently offer student discounts at up to 40% off plans if you sign in / up with your .edu student email account. Alumni are excluded from this discount. Please read more at our Student Discount Terms and Conditions.",
-    "description": "Answer on projects pricing's FAQ section - student discounts"
-  },
   "wO0zga": {
     "defaultMessage": "Skills roadmap",
     "description": "Title for \"Skills roadmap\" feature on Projects home page"
@@ -7715,10 +7727,6 @@
     "defaultMessage": "Framework",
     "description": "Question framework"
   },
-  "xegXNt": {
-    "defaultMessage": "Step-by-step guides on how to approach the challenge",
-    "description": "FAQ answer for projects platform"
-  },
   "xiEHQ1": {
     "defaultMessage": "Job title",
     "description": "Label for \"Job Title\" input on Projects profile onboarding page"
@@ -7746,10 +7754,6 @@
   "xyS+2S": {
     "defaultMessage": "<bold>{author}</bold> asked a question on the challenge forum for <link>{challengeTitle}</link>: <comment>\"{description}\"</comment>",
     "description": "Log message for someone asking a question on the challenge forum"
-  },
-  "y1/vKv": {
-    "defaultMessage": "Deployment and submission checklist and guide",
-    "description": "FAQ answer for projects platform"
   },
   "y16Lzt": {
     "defaultMessage": "Find out what questions companies are asking their candidates.",
@@ -7894,6 +7898,10 @@
   "zEnL8r": {
     "defaultMessage": "Difficulty: Easy to Hard",
     "description": "Sorting option for submissions list - sort by difficulty from easy to hard"
+  },
+  "zF6est": {
+    "defaultMessage": "However, note that credits can only be spent when you are an active premium member.",
+    "description": "Answer on projects pricing's FAQ section - unused credits"
   },
   "zG7GM9": {
     "defaultMessage": "You completed <button>{completedTimes, plural, one {once} other {# times}}</button>",
