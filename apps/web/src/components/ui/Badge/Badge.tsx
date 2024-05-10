@@ -1,8 +1,10 @@
 import clsx from 'clsx';
+import type { HTMLAttributes } from 'react';
+import { type ForwardedRef, forwardRef } from 'react';
 
 import {
   themeTextBrandColor,
-  themeTextSecondaryColor,
+  themeTextColor,
   themeTextSubtitleColor,
   themeTextSuccessColor,
   themeTextWarningColor,
@@ -18,14 +20,15 @@ export type BadgeVariant =
   | 'warning';
 export type BadgeSize = 'md' | 'sm';
 
-type Props = Readonly<{
-  className?: string;
-  icon?: (props: React.ComponentProps<'svg'>) => JSX.Element;
-  iconClassName?: string;
-  label: string;
-  size?: BadgeSize;
-  variant: BadgeVariant;
-}>;
+type Props = HTMLAttributes<HTMLSpanElement> &
+  Readonly<{
+    className?: string;
+    icon?: (props: React.ComponentProps<'svg'>) => JSX.Element;
+    iconClassName?: string;
+    label: string;
+    size?: BadgeSize;
+    variant: BadgeVariant;
+  }>;
 
 const variantClasses: Record<
   BadgeVariant,
@@ -53,10 +56,10 @@ const variantClasses: Record<
   },
   neutral: {
     backgroundClass: 'bg-neutral-50 dark:bg-neutral-800',
-    borderClass: '',
+    borderClass: 'border border-transparent',
     iconClass: 'text-neutral-500',
     paddingClass: 'py-px',
-    textClass: themeTextSecondaryColor,
+    textClass: themeTextColor,
   },
   primary: {
     backgroundClass: 'bg-brand-lightest dark:bg-neutral-800',
@@ -98,28 +101,35 @@ const iconSizeClasses: Record<BadgeSize, string> = {
   sm: '-ms-0.5 size-3',
 };
 
-export default function Badge({
-  className,
-  label,
-  icon: Icon,
-  size = 'md',
-  variant,
-  iconClassName,
-}: Props) {
+function Badge(
+  {
+    className,
+    label,
+    icon: Icon,
+    size = 'md',
+    variant,
+    iconClassName,
+    ...props
+  }: Props,
+  ref: ForwardedRef<HTMLSpanElement>,
+) {
   const { backgroundClass, borderClass, textClass, iconClass, paddingClass } =
     variantClasses[variant];
 
   return (
     <span
+      ref={ref}
       className={clsx(
+        'relative', // Needed by special to render the border.
         'inline-flex items-center',
-        'relative rounded-full',
+        'rounded-full',
         sizeClasses[size],
         backgroundClass,
         borderClass,
         paddingClass,
         className,
-      )}>
+      )}
+      {...props}>
       {Icon && (
         <Icon
           aria-hidden={true}
@@ -137,3 +147,5 @@ export default function Badge({
     </span>
   );
 }
+
+export default forwardRef(Badge);

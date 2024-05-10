@@ -17,8 +17,13 @@ export default function BadgeExamples() {
           <Badge label="Special" variant="special" />
         </div>
         <div className="flex flex-wrap gap-4">
-          <Badge label="Small" size="sm" variant="primary" />
-          <Badge label="Medium" size="md" variant="primary" />
+          <Badge label="Brand" size="sm" variant="primary" />
+          <Badge label="Success" size="sm" variant="success" />
+          <Badge label="Information" size="sm" variant="info" />
+          <Badge label="Warning" size="sm" variant="warning" />
+          <Badge label="Danger" size="sm" variant="danger" />
+          <Badge label="Neutral" size="sm" variant="neutral" />
+          <Badge label="Special" size="sm" variant="special" />
         </div>
         <div className="flex flex-wrap gap-4">
           <Badge
