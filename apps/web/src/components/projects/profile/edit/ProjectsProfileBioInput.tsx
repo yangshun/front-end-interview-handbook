@@ -2,10 +2,12 @@ import type { Control } from 'react-hook-form';
 import { Controller } from 'react-hook-form';
 import { useIntl } from 'react-intl';
 
+import ProjectsChallengeReputationBadge from '~/components/projects/challenges/metadata/ProjectsChallengeReputationBadge';
 import type { ProjectsProfileEditFormValues } from '~/components/projects/types';
 import TextArea from '~/components/ui/TextArea';
 
 import { getProjectsProfileBioAttrs } from '../fields/ProjectsProfileBioSchema';
+import { ProjectsReputationPointsConfig } from '../../reputation/ProjectsReputationPointsConfig';
 
 type Values = ProjectsProfileEditFormValues;
 
@@ -23,20 +25,28 @@ export default function ProjectsProfileBioInput({ control }: Props) {
       control={control}
       name="bio"
       render={({ field, formState }) => (
-        <TextArea
-          description={attrs.description}
-          descriptionStyle="tooltip"
-          errorMessage={
-            formState.dirtyFields.bio || formState.submitCount > 0
-              ? formState.errors.bio?.message
-              : undefined
-          }
-          label={attrs.label}
-          maxLength={attrs.validation.maxLength}
-          placeholder={attrs.placeholder}
-          rows={3}
-          {...field}
-        />
+        <div className="relative flex-1">
+          <span className="absolute end-0">
+            <ProjectsChallengeReputationBadge
+              completed={!!field.value}
+              points={ProjectsReputationPointsConfig.PROFILE_FIELD_PER_OPTIONAL}
+            />
+          </span>
+          <TextArea
+            description={attrs.description}
+            descriptionStyle="tooltip"
+            errorMessage={
+              formState.dirtyFields.bio || formState.submitCount > 0
+                ? formState.errors.bio?.message
+                : undefined
+            }
+            label={attrs.label}
+            maxLength={attrs.validation.maxLength}
+            placeholder={attrs.placeholder}
+            rows={3}
+            {...field}
+          />
+        </div>
       )}
     />
   );

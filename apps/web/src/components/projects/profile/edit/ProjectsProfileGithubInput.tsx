@@ -3,9 +3,12 @@ import { Controller } from 'react-hook-form';
 import { RiGithubFill } from 'react-icons/ri';
 import { useIntl } from 'react-intl';
 
+import ProjectsChallengeReputationBadge from '~/components/projects/challenges/metadata/ProjectsChallengeReputationBadge';
 import { getProjectsProfileGitHubAttrs } from '~/components/projects/profile/fields/ProjectsProfileGithubSchema';
 import type { ProjectsProfileEditFormValues } from '~/components/projects/types';
 import TextInput from '~/components/ui/TextInput';
+
+import { ProjectsReputationPointsConfig } from '../../reputation/ProjectsReputationPointsConfig';
 
 type Values = ProjectsProfileEditFormValues;
 
@@ -23,17 +26,25 @@ export default function ProjectsProfileGithubInput({ control }: Props) {
       control={control}
       name="githubUsername"
       render={({ field, formState }) => (
-        <TextInput
-          errorMessage={
-            formState.dirtyFields.githubUsername || formState.submitCount > 0
-              ? formState.errors.githubUsername?.message
-              : undefined
-          }
-          label={attrs.label}
-          placeholder={attrs.placeholder}
-          startIcon={RiGithubFill}
-          {...field}
-        />
+        <div className="relative flex-1">
+          <span className="absolute end-0">
+            <ProjectsChallengeReputationBadge
+              completed={field.value.length > 0}
+              points={ProjectsReputationPointsConfig.PROFILE_FIELD_PER_OPTIONAL}
+            />
+          </span>
+          <TextInput
+            errorMessage={
+              formState.dirtyFields.githubUsername || formState.submitCount > 0
+                ? formState.errors.githubUsername?.message
+                : undefined
+            }
+            label={attrs.label}
+            placeholder={attrs.placeholder}
+            startIcon={RiGithubFill}
+            {...field}
+          />
+        </div>
       )}
     />
   );

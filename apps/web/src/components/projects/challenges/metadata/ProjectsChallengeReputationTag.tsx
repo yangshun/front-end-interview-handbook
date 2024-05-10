@@ -5,17 +5,13 @@ import { RiFireLine } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
 
 import Text from '~/components/ui/Text';
-import {
-  themeBackgroundLayerEmphasized,
-  themeBorderSubtleColor,
-  themeTextBrandColor,
-} from '~/components/ui/theme';
+import { themeBorderSubtleColor } from '~/components/ui/theme';
 import { themeTextSubtleColor } from '~/components/ui/theme';
 import Tooltip from '~/components/ui/Tooltip';
 
 import { getFormattedNumber } from '../../misc';
 
-type TagVariant = 'filled' | 'flat' | 'underline';
+type TagVariant = 'flat' | 'underline';
 
 type Props = Readonly<{
   className?: string;
@@ -54,15 +50,9 @@ export default function ProjectsChallengeReputationTag({
       className={clsx(
         'flex items-center gap-1',
         themeTextSubtleColor,
-        variant === 'filled' && [
-          'rounded-full px-3 py-1',
-          themeBackgroundLayerEmphasized,
-        ],
         className,
       )}>
-      <RiFireLine
-        className={clsx('size-4', variant === 'filled' && themeTextBrandColor)}
-      />
+      <RiFireLine className={clsx('size-4')} />
       <Text
         className={clsx(
           variant === 'underline' && [
@@ -72,9 +62,7 @@ export default function ProjectsChallengeReputationTag({
             themeBorderSubtleColor,
           ],
         )}
-        color={variant === 'filled' ? 'default' : 'inherit'}
-        size="body3"
-        weight={variant === 'filled' ? 'medium' : 'normal'}>
+        size="body3">
         {labelVariant === 'default' && (
           <FormattedMessage
             defaultMessage="+{points} rep"

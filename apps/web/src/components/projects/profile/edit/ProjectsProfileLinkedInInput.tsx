@@ -3,9 +3,12 @@ import { Controller } from 'react-hook-form';
 import { RiLinkedinFill } from 'react-icons/ri';
 import { useIntl } from 'react-intl';
 
+import ProjectsChallengeReputationBadge from '~/components/projects/challenges/metadata/ProjectsChallengeReputationBadge';
 import { getProjectsProfileLinkedInAttrs } from '~/components/projects/profile/fields/ProjectsProfileLinkedInSchema';
 import type { ProjectsProfileEditFormValues } from '~/components/projects/types';
 import TextInput from '~/components/ui/TextInput';
+
+import { ProjectsReputationPointsConfig } from '../../reputation/ProjectsReputationPointsConfig';
 
 type Values = ProjectsProfileEditFormValues;
 
@@ -22,17 +25,26 @@ export default function ProjectsProfileLinkedInInput({ control }: Props) {
       control={control}
       name="linkedInUsername"
       render={({ field, formState }) => (
-        <TextInput
-          errorMessage={
-            formState.dirtyFields.linkedInUsername || formState.submitCount > 0
-              ? formState.errors.linkedInUsername?.message
-              : undefined
-          }
-          label={attrs.label}
-          placeholder={attrs.placeholder}
-          startIcon={RiLinkedinFill}
-          {...field}
-        />
+        <div className="relative flex-1">
+          <span className="absolute end-0">
+            <ProjectsChallengeReputationBadge
+              completed={field.value.length > 0}
+              points={ProjectsReputationPointsConfig.PROFILE_FIELD_PER_OPTIONAL}
+            />
+          </span>
+          <TextInput
+            errorMessage={
+              formState.dirtyFields.linkedInUsername ||
+              formState.submitCount > 0
+                ? formState.errors.linkedInUsername?.message
+                : undefined
+            }
+            label={attrs.label}
+            placeholder={attrs.placeholder}
+            startIcon={RiLinkedinFill}
+            {...field}
+          />
+        </div>
       )}
     />
   );

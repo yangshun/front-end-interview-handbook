@@ -1,7 +1,7 @@
 import { Controller, useFormContext } from 'react-hook-form';
 import { FormattedMessage, useIntl } from 'react-intl';
 
-import ProjectsChallengeReputationTag from '~/components/projects/challenges/metadata/ProjectsChallengeReputationTag';
+import ProjectsChallengeReputationBadge from '~/components/projects/challenges/metadata/ProjectsChallengeReputationBadge';
 import type { ProjectsProfileOnboardingStep1FormValues } from '~/components/projects/onboarding/ProjectsOnboardingProfileStep1';
 import type { ProjectsProfileEditFormValues } from '~/components/projects/types';
 import Heading from '~/components/ui/Heading';
@@ -123,13 +123,14 @@ export default function ProjectsProfileJobSection() {
               name="company"
               render={({ field }) => (
                 <div className="relative flex-1">
-                  <ProjectsChallengeReputationTag
-                    className="absolute -top-0.5 end-0"
-                    points={
-                      ProjectsReputationPointsConfig.PROFILE_FIELD_PER_OPTIONAL
-                    }
-                    variant="filled"
-                  />
+                  <span className="absolute end-0">
+                    <ProjectsChallengeReputationBadge
+                      completed={!!field.value}
+                      points={
+                        ProjectsReputationPointsConfig.PROFILE_FIELD_PER_OPTIONAL
+                      }
+                    />
+                  </span>
                   <TextInput
                     description={intl.formatMessage({
                       defaultMessage:

@@ -3,14 +3,12 @@ import { Controller, useFormContext } from 'react-hook-form';
 import { useIntl } from 'react-intl';
 
 import { getProfileNameAttrs } from '~/components/profile/fields/ProfileNameSchema';
-import ProjectsChallengeReputationTag from '~/components/projects/challenges/metadata/ProjectsChallengeReputationTag';
 import type { ProjectsProfileEditFormValues } from '~/components/projects/types';
 import TextInput from '~/components/ui/TextInput';
 
 import ProjectsProfileBioInput from './ProjectsProfileBioInput';
 import ProjectsProfileEditAvatar from './ProjectsProfileEditAvatar';
 import ProjectsProfileUsernameInput from './ProjectsProfileUsernameInput';
-import { ProjectsReputationPointsConfig } from '../../reputation/ProjectsReputationPointsConfig';
 
 type Values = ProjectsProfileEditFormValues;
 
@@ -74,14 +72,7 @@ export default function ProjectsProfileBasicInfoSection({
             )}
           />
         </div>
-        <div className="relative flex-1">
-          <ProjectsChallengeReputationTag
-            className="absolute -top-0.5 end-0"
-            points={ProjectsReputationPointsConfig.PROFILE_FIELD_PER_OPTIONAL}
-            variant="filled"
-          />
-          <ProjectsProfileBioInput control={control as Control<Values>} />
-        </div>
+        <ProjectsProfileBioInput control={control as Control<Values>} />
       </div>
     </div>
   );

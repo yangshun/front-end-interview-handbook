@@ -2,9 +2,12 @@ import type { Control } from 'react-hook-form';
 import { Controller } from 'react-hook-form';
 import { useIntl } from 'react-intl';
 
+import ProjectsChallengeReputationBadge from '~/components/projects/challenges/metadata/ProjectsChallengeReputationBadge';
 import ProjectsSkillTechStackInput from '~/components/projects/skills/form/ProjectsSkillTechStackInput';
 import type { ProjectsProfileEditFormValues } from '~/components/projects/types';
 import Anchor from '~/components/ui/Anchor';
+
+import { ProjectsReputationPointsConfig } from '../../reputation/ProjectsReputationPointsConfig';
 
 type Values = ProjectsProfileEditFormValues;
 
@@ -24,39 +27,47 @@ export default function ProjectsProfileSkillsToImproveInput({
       control={control}
       name={name}
       render={({ field, formState }) => (
-        <ProjectsSkillTechStackInput
-          description={intl.formatMessage(
-            {
-              defaultMessage:
-                'The skills / tools / frameworks you are hoping to grow in. Cannot find the tag you need? Email us at {supportEmail}',
-              description: 'Description for tech stack field',
-              id: 'W1Vfmc',
-            },
-            {
-              supportEmail: (
-                <Anchor href="mailto:support@greatfrontend.com">
-                  support@greatfrontend.com
-                </Anchor>
-              ),
-            },
-          )}
-          errorMessage={
-            formState.dirtyFields[name] || formState.submitCount > 0
-              ? formState.errors[name]?.message
-              : undefined
-          }
-          label={intl.formatMessage({
-            defaultMessage: 'Skills you are hoping to grow in',
-            description: 'Label for tech stack field',
-            id: 'cJWhQr',
-          })}
-          placeholder={intl.formatMessage({
-            defaultMessage: 'Next.js, Nuxt, SvelteKit',
-            description: 'Placeholder for tech stack field',
-            id: 'MA/YA9',
-          })}
-          {...field}
-        />
+        <div className="relative flex-1">
+          <span className="absolute end-0">
+            <ProjectsChallengeReputationBadge
+              completed={field.value.length > 0}
+              points={ProjectsReputationPointsConfig.PROFILE_FIELD_PER_OPTIONAL}
+            />
+          </span>
+          <ProjectsSkillTechStackInput
+            description={intl.formatMessage(
+              {
+                defaultMessage:
+                  'The skills / tools / frameworks you are hoping to grow in. Cannot find the tag you need? Email us at {supportEmail}',
+                description: 'Description for tech stack field',
+                id: 'W1Vfmc',
+              },
+              {
+                supportEmail: (
+                  <Anchor href="mailto:support@greatfrontend.com">
+                    support@greatfrontend.com
+                  </Anchor>
+                ),
+              },
+            )}
+            errorMessage={
+              formState.dirtyFields[name] || formState.submitCount > 0
+                ? formState.errors[name]?.message
+                : undefined
+            }
+            label={intl.formatMessage({
+              defaultMessage: 'Skills you are hoping to grow in',
+              description: 'Label for tech stack field',
+              id: 'cJWhQr',
+            })}
+            placeholder={intl.formatMessage({
+              defaultMessage: 'Next.js, Nuxt, SvelteKit',
+              description: 'Placeholder for tech stack field',
+              id: 'MA/YA9',
+            })}
+            {...field}
+          />
+        </div>
       )}
     />
   );
