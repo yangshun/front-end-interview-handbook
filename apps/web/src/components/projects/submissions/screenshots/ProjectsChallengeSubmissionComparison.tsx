@@ -9,9 +9,12 @@ import { useI18nRouter } from '~/next-i18nostic/src';
 import useProjectsChallengeSubmissionTakeScreenshotMutation from './useProjectsChallengeSubmissionTakeScreenshotMutation';
 import type { ProjectsChallengeVariantImages } from '../../challenges/types';
 
+import type { ProjectsChallengeSubmissionScreenshotStatus } from '@prisma/client';
+
 type Props = Readonly<{
   allowRetakeScreenshot?: boolean;
   deploymentUrls: ProjectsChallengeSubmissionDeploymentUrls;
+  screenshotStatus: ProjectsChallengeSubmissionScreenshotStatus;
   specImagesForVariant: ProjectsChallengeVariantImages;
   specLabels: Record<string, string>;
   specShowGridLayoutButton: React.ComponentProps<
@@ -27,6 +30,7 @@ export default function ProjectsChallengeSubmissionComparison({
   deploymentUrls,
   specShowGridLayoutButton,
   submissionId,
+  screenshotStatus,
 }: Props) {
   const intl = useIntl();
   const router = useI18nRouter();
@@ -39,7 +43,8 @@ export default function ProjectsChallengeSubmissionComparison({
       <ProjectsImageComparison
         allowRetakeScreenshot={allowRetakeScreenshot}
         deploymentUrls={deploymentUrls}
-        isTakingScreenshot={takeScreenshotMutation.isLoading}
+        isRetakingScreenshot={takeScreenshotMutation.isLoading}
+        screenshotStatus={screenshotStatus}
         specImagesForVariant={specImagesForVariant}
         specLabels={specLabels}
         specShowGridLayoutButton={specShowGridLayoutButton}

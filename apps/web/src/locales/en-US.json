@@ -2063,6 +2063,10 @@
     "defaultMessage": "Cut line (empty selection)",
     "description": "Text describing command to cut line(s) in the coding workspace shortcuts menu"
   },
+  "FLv3Wf": {
+    "defaultMessage": "Error generating screenshots.",
+    "description": "Error message for error while taking screenshot"
+  },
   "FQQRsa": {
     "defaultMessage": "U.P. {price} <span>({discountPercentage}% off)</span>",
     "description": "Usual price of the item and the discount off"
@@ -6327,6 +6331,10 @@
     "defaultMessage": "Front End Engineer",
     "description": "Anonymous Front End Engineer's job title"
   },
+  "m/O2AA": {
+    "defaultMessage": "Generating screenshots, please check back later.",
+    "description": "Message for Screenshot in progress"
+  },
   "m0cej4": {
     "defaultMessage": "Started tracking progress",
     "description": "Success message for starting a study plan"
@@ -7674,6 +7682,10 @@
   "xK578g": {
     "defaultMessage": "Please enter a valid email address.",
     "description": "Email validation error message"
+  },
+  "xP6aru": {
+    "defaultMessage": "Please try retaking the screenshot",
+    "description": "Retake error message for screenshot"
   },
   "xU32y0": {
     "defaultMessage": "3 subcategories of questions: JavaScript, User Interfaces & Data Structures and Algorithms",

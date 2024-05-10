@@ -71,8 +71,13 @@ export default function ProjectsChallengeSubmissionPage({
   const viewSubmissionMutation =
     trpc.projects.submission.incrementView.useMutation();
   const submissionId = submission.id;
-  const { deploymentUrls, repositoryUrl, roadmapSkills, techStackSkills } =
-    submission;
+  const {
+    deploymentUrls,
+    repositoryUrl,
+    roadmapSkills,
+    techStackSkills,
+    screenshotStatus,
+  } = submission;
 
   useEffect(() => {
     viewSubmissionMutation.mutate({
@@ -165,6 +170,7 @@ export default function ProjectsChallengeSubmissionPage({
           <ProjectsChallengeSubmissionComparison
             allowRetakeScreenshot={isViewingOwnSubmission}
             deploymentUrls={deploymentUrls}
+            screenshotStatus={screenshotStatus}
             specImagesForVariant={challenge.metadata.specImages.default}
             specLabels={challenge.info.specLabels}
             specShowGridLayoutButton={

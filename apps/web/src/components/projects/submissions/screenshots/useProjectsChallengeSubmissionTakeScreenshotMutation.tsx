@@ -36,6 +36,8 @@ export default function useProjectsChallengeSubmissionTakeScreenshotMutation(
         }),
         variant: 'danger',
       });
+      // Refetch submission page data to fetch latest status of screenshot
+      router.refresh();
     },
     onMutate: () => {
       showToast({

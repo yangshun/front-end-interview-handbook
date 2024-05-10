@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import { useState } from 'react';
 import { RiImageLine, RiInformationLine } from 'react-icons/ri';
-import { useIntl } from 'react-intl';
+import { FormattedMessage, useIntl } from 'react-intl';
 
 import ProjectsImageBreakpointButtonGroup from '~/components/projects/common/ProjectsImageBreakpointButtonGroup';
 import {
@@ -12,6 +12,8 @@ import ProjectsChallengeSubmissionImageComparisonSlider from '~/components/proje
 import type { ProjectsChallengeSubmissionDeploymentUrls } from '~/components/projects/submissions/types';
 import Anchor from '~/components/ui/Anchor';
 import Button from '~/components/ui/Button';
+import EmptyState from '~/components/ui/EmptyState';
+import Spinner from '~/components/ui/Spinner';
 import Text, { textVariants } from '~/components/ui/Text';
 import {
   themeBorderBrandColor,
@@ -26,11 +28,14 @@ import ProjectsImageViewer from './ProjectsImageViewer';
 import type { ProjectsChallengeVariantImages } from '../challenges/types';
 import ProjectsChallengeSubmissionImageMatchScore from '../submissions/screenshots/ProjectsChallengeSubmissionImageMatchScore';
 
+import type { ProjectsChallengeSubmissionScreenshotStatus } from '@prisma/client';
+
 type Props = Readonly<{
   allowRetakeScreenshot?: boolean;
   deploymentUrls: ProjectsChallengeSubmissionDeploymentUrls;
-  isTakingScreenshot: boolean;
+  isRetakingScreenshot: boolean;
   onTakeScreenshot: () => void;
+  screenshotStatus: ProjectsChallengeSubmissionScreenshotStatus;
   specImagesForVariant: ProjectsChallengeVariantImages;
   specLabels: Record<string, string>;
   specShowGridLayoutButton: React.ComponentProps<
@@ -46,13 +51,14 @@ const dateFormatter = new Intl.DateTimeFormat(undefined, {
 
 export default function ProjectsImageComparison({
   allowRetakeScreenshot,
-  isTakingScreenshot,
+  screenshotStatus,
   title,
   specLabels,
   specShowGridLayoutButton,
   specImagesForVariant,
   onTakeScreenshot,
   deploymentUrls,
+  isRetakingScreenshot,
 }: Props) {
   const intl = useIntl();
   const [selectedBreakpoint, setSelectedBreakpoint] =
@@ -77,6 +83,10 @@ export default function ProjectsImageComparison({
   const { image: userSubmittedImage, original: baseImage } =
     deploymentImagesForBreakpointWithComparison[selectedScreenIndex];
 
+  const isScreenshotInProgress = screenshotStatus === 'PENDING';
+  const isScreenshotFailed = screenshotStatus === 'FAILED';
+  const isScreenshotSuccess = screenshotStatus === 'COMPLETED';
+
   return (
     <div
       className={clsx(
@@ -96,18 +106,20 @@ export default function ProjectsImageComparison({
             <Text size="body1" weight="bold">
               {title}
             </Text>
-            <ProjectsChallengeSubmissionImageMatchScore
-              baseImage={baseImage}
-              breakpoint={selectedBreakpoint}
-              userSubmittedImage={userSubmittedImage}
-            />
+            {isScreenshotSuccess && (
+              <ProjectsChallengeSubmissionImageMatchScore
+                baseImage={baseImage}
+                breakpoint={selectedBreakpoint}
+                userSubmittedImage={userSubmittedImage}
+              />
+            )}
           </div>
           {allowRetakeScreenshot && (
             <Button
               addonPosition="start"
               icon={RiImageLine}
-              isDisabled={isTakingScreenshot}
-              isLoading={isTakingScreenshot}
+              isDisabled={isRetakingScreenshot || isScreenshotInProgress}
+              isLoading={isRetakingScreenshot}
               label={intl.formatMessage({
                 defaultMessage: 'Retake screenshot',
                 description: 'Retake screenshot button label',
@@ -125,39 +137,83 @@ export default function ProjectsImageComparison({
           )}
         </div>
       )}
+      {isScreenshotInProgress && (
+        <div
+          className={clsx(
+            'flex flex-1 flex-col items-center justify-center gap-4',
+            'aspect-[5/3] md:aspect-[7/3]',
+            'size-full',
+          )}>
+          <Spinner display="block" />
+          <Text size="body1" weight="bold">
+            <FormattedMessage
+              defaultMessage="Generating screenshots, please check back later."
+              description="Message for Screenshot in progress"
+              id="m/O2AA"
+            />
+          </Text>
+        </div>
+      )}
+      {isScreenshotFailed && (
+        <div
+          className={clsx(
+            'flex flex-1 flex-col items-center justify-center gap-4',
+            'aspect-[5/3] md:aspect-[7/3]',
+            'size-full',
+          )}>
+          <EmptyState
+            subtitle={
+              allowRetakeScreenshot &&
+              intl.formatMessage({
+                defaultMessage: 'Please try retaking the screenshot',
+                description: 'Retake error message for screenshot',
+                id: 'xP6aru',
+              })
+            }
+            title={intl.formatMessage({
+              defaultMessage: 'Error generating screenshots.',
+              description: 'Error message for error while taking screenshot',
+              id: 'FLv3Wf',
+            })}
+            variant="error"
+          />
+        </div>
+      )}
       {/* Image Comparison Slider */}
-      <div className="flex-1">
-        {deploymentImagesForBreakpointWithComparison[selectedScreenIndex]
-          .original ? (
-          <ProjectsChallengeSubmissionImageComparisonSlider
-            aspectRatioClass="aspect-[5/3] md:aspect-[7/3]"
-            image={
-              deploymentImagesForBreakpointWithComparison[selectedScreenIndex]
-                .image
-            }
-            maxWidth={width}
-            originalImage={
-              deploymentImagesForBreakpointWithComparison[selectedScreenIndex]
-                .original
-            }
-          />
-        ) : (
-          <ProjectsImageViewer
-            alt={
-              deploymentImagesForBreakpointWithComparison[selectedScreenIndex]
-                .label
-            }
-            aspectRatioClass="aspect-[5/3] md:aspect-[7/3]"
-            grid={ProjectsImageBreakpointDimensions[selectedBreakpoint].grid}
-            specShowGridLayoutButton={specShowGridLayoutButton}
-            src={
-              deploymentImagesForBreakpointWithComparison[selectedScreenIndex]
-                .image
-            }
-            width={width}
-          />
-        )}
-      </div>
+      {isScreenshotSuccess && (
+        <div className="flex-1">
+          {deploymentImagesForBreakpointWithComparison[selectedScreenIndex]
+            .original ? (
+            <ProjectsChallengeSubmissionImageComparisonSlider
+              aspectRatioClass="aspect-[5/3] md:aspect-[7/3]"
+              image={
+                deploymentImagesForBreakpointWithComparison[selectedScreenIndex]
+                  .image
+              }
+              maxWidth={width}
+              originalImage={
+                deploymentImagesForBreakpointWithComparison[selectedScreenIndex]
+                  .original
+              }
+            />
+          ) : (
+            <ProjectsImageViewer
+              alt={
+                deploymentImagesForBreakpointWithComparison[selectedScreenIndex]
+                  .label
+              }
+              aspectRatioClass="aspect-[5/3] md:aspect-[7/3]"
+              grid={ProjectsImageBreakpointDimensions[selectedBreakpoint].grid}
+              specShowGridLayoutButton={specShowGridLayoutButton}
+              src={
+                deploymentImagesForBreakpointWithComparison[selectedScreenIndex]
+                  .image
+              }
+              width={width}
+            />
+          )}
+        </div>
+      )}
       {/* Footer */}
       <div
         className={clsx(

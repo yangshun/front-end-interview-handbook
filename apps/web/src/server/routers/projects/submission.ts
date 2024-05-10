@@ -22,7 +22,10 @@ import prisma from '~/server/prisma';
 import { projectsUserProcedure } from './procedures';
 import { publicProcedure, router } from '../../trpc';
 
-import { Prisma } from '@prisma/client';
+import {
+  Prisma,
+  ProjectsChallengeSubmissionScreenshotStatus,
+} from '@prisma/client';
 import { TRPCError } from '@trpc/server';
 
 const projectsChallengeProcedure = projectsUserProcedure.input(
@@ -364,20 +367,39 @@ export const projectsChallengeSubmissionItemRouter = router({
           });
         }
 
-        const deploymentUrlsWithScreenshots = await generateScreenshots(
-          submissionId,
-          submission.deploymentUrls,
-        );
+        try {
+          const deploymentUrlsWithScreenshots = await generateScreenshots(
+            submissionId,
+            submission.deploymentUrls,
+          );
 
-        // TODO(projects): Delete old screenshots from bucket.
-        return await prisma.projectsChallengeSubmission.update({
-          data: {
-            deploymentUrls: deploymentUrlsWithScreenshots,
-          },
-          where: {
-            id: submissionId,
-          },
-        });
+          // TODO(projects): Delete old screenshots from bucket.
+          return await prisma.projectsChallengeSubmission.update({
+            data: {
+              deploymentUrls: deploymentUrlsWithScreenshots,
+              screenshotStatus:
+                ProjectsChallengeSubmissionScreenshotStatus.COMPLETED,
+            },
+            where: {
+              id: submissionId,
+            },
+          });
+        } catch (_) {
+          await prisma.projectsChallengeSubmission.update({
+            data: {
+              screenshotStatus:
+                ProjectsChallengeSubmissionScreenshotStatus.FAILED,
+            },
+            where: {
+              id: submissionId,
+            },
+          });
+
+          throw new TRPCError({
+            code: 'INTERNAL_SERVER_ERROR',
+            message: 'Failed to take Screenshot',
+          });
+        }
       },
     ),
   unpin: projectsUserProcedure
