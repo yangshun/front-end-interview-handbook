@@ -10,8 +10,11 @@ import {
   RiClipboardFill,
   RiCodeSSlashFill,
   RiQuestionAnswerFill,
+  RiVerifiedBadgeFill,
 } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
+
+import { PROJECTS_OFFICIAL_SOLUTIONS_IS_LIVE } from '~/data/FeatureFlags';
 
 import BlurOverlay from '~/components/common/BlurOverlay';
 import ProjectsChallengeDiscussionsSection from '~/components/projects/challenges/discussions/ProjectsChallengeDiscussionsSection';
@@ -25,18 +28,23 @@ import type { TabItem } from '~/components/ui/Tabs';
 import Tabs from '~/components/ui/Tabs';
 import { themeBorderColor } from '~/components/ui/theme';
 
+import ProjectsChallengeOfficialSolutionSection from './ProjectsChallengeOfficialSolutionSection';
 import ProjectsChallengeGuideSection from '../guides/ProjectsChallengeGuideSection';
 import ProjectsChallengeContentPaywall from '../premium/ProjectsChallengeContentPaywall';
 import type { ProjectsPremiumAccessControlFields } from '../premium/ProjectsPremiumAccessControl';
 import ProjectsStartButton from '../../common/ProjectsStartButton';
 import type { ProjectsViewerProjectsProfile } from '../../types';
 
-type TipsResourcesDiscussionsTabType = 'discussions' | 'guides' | 'references';
+type ProjectsChallengeResourcesDiscussionsTabType =
+  | 'discussions'
+  | 'guides'
+  | 'official_solutions'
+  | 'reference_submissions';
 
 function useTipsResourcesDiscussionsTabs() {
   const intl = useIntl();
 
-  const tabs: Array<TabItem<TipsResourcesDiscussionsTabType>> = [
+  const tabs: Array<TabItem<ProjectsChallengeResourcesDiscussionsTabType>> = [
     {
       icon: RiClipboardFill,
       label: intl.formatMessage({
@@ -58,13 +66,25 @@ function useTipsResourcesDiscussionsTabs() {
     {
       icon: RiCodeSSlashFill,
       label: intl.formatMessage({
-        defaultMessage: 'Reference code',
+        defaultMessage: 'Reference submissions',
         description: 'Reference code for projects',
-        id: 'mVYEky',
+        id: 'Q+qNTr',
       }),
-      value: 'references',
+      value: 'reference_submissions',
     },
   ];
+
+  if (PROJECTS_OFFICIAL_SOLUTIONS_IS_LIVE) {
+    tabs.push({
+      icon: RiVerifiedBadgeFill,
+      label: intl.formatMessage({
+        defaultMessage: 'Official solutions',
+        description: 'Reference code for projects',
+        id: '+9bM81',
+      }),
+      value: 'official_solutions',
+    });
+  }
 
   return tabs;
 }
@@ -87,7 +107,7 @@ export default function ProjectsChallengeResourcesPage({
   const intl = useIntl();
   const tipsResourcesDiscussionsTabs = useTipsResourcesDiscussionsTabs();
   const [tipsResourcesDiscussionsTab, setTipsResourcesDiscussionsTab] =
-    useState<TipsResourcesDiscussionsTabType>('guides');
+    useState<ProjectsChallengeResourcesDiscussionsTabType>('guides');
 
   const { accessAllSteps, fetchingCanAccessAllSteps } =
     useProjectsChallengeSessionContext();
@@ -163,9 +183,11 @@ export default function ProjectsChallengeResourcesPage({
                 viewerGuidesAccess={viewerAccess.viewGuides}
                 viewerProjectsProfile={viewerProjectsProfile}
               />
+            ) : tipsResourcesDiscussionsTab === 'reference_submissions' ? (
+              <ProjectsChallengeReferenceSubmissions challenge={challenge} />
             ) : (
-              tipsResourcesDiscussionsTab === 'references' && (
-                <ProjectsChallengeReferenceSubmissions challenge={challenge} />
+              tipsResourcesDiscussionsTab === 'official_solutions' && (
+                <ProjectsChallengeOfficialSolutionSection />
               )
             )
           ) : (

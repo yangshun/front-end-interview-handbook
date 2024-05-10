@@ -24,7 +24,7 @@ import UserInterfaceCodingWorkspaceBottomBar from './UserInterfaceCodingWorkspac
 import UserInterfaceCodingWorkspaceCodeEditor from './UserInterfaceCodingWorkspaceCodeEditor';
 import UserInterfaceCodingWorkspaceCommunitySolutionCreateTab from './UserInterfaceCodingWorkspaceCommunitySolutionCreateTab';
 import UserInterfaceCodingWorkspaceCommunitySolutionList from './UserInterfaceCodingWorkspaceCommunitySolutionList';
-import UserInterfaceCodingWorkspaceFileExplorer from './UserInterfaceCodingWorkspaceExplorer';
+import UserInterfaceCodingWorkspaceExplorer from './UserInterfaceCodingWorkspaceExplorer';
 import { getUserInterfaceCodingWorkspaceLayout } from './UserInterfaceCodingWorkspaceLayouts';
 import UserInterfaceCodingWorkspaceMobile from './UserInterfaceCodingWorkspaceMobile';
 import UserInterfaceCodingWorkspaceNewTab from './UserInterfaceCodingWorkspaceNewTab';
@@ -238,7 +238,7 @@ function UserInterfaceCodingWorkspaceImpl({
       label: 'Description',
     },
     file_explorer: {
-      contents: <UserInterfaceCodingWorkspaceFileExplorer />,
+      contents: <UserInterfaceCodingWorkspaceExplorer />,
       icon: CodingWorkspaceTabIcons.explorer.icon,
       label: 'File explorer',
     },

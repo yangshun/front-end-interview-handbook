@@ -1,39 +1,37 @@
 import { RiCodeLine } from 'react-icons/ri';
 
-import { INTERVIEWS_UI_COMMUNITY_SOLUTIONS_IS_LIVE } from '~/data/FeatureFlags';
-
 import Button from '~/components/ui/Button';
 import Text from '~/components/ui/Text';
-
-import type {
-  UserInterfaceCodingWorkspacePredefinedTabsContents,
-  UserInterfaceCodingWorkspacePredefinedTabsType,
-} from './UserInterfaceCodingWorkspaceTypes';
-import useUserInterfaceCodingWorkspaceTilesContext from './useUserInterfaceCodingWorkspaceTilesContext';
-import { codingWorkspaceExtractFileNameFromPath } from '../common/codingWorkspaceExtractFileNameFromPath';
-import { codingWorkspaceExplorerFilePathToIcon } from '../common/explorer/codingWorkspaceExplorerFilePathToIcon';
+import { codingWorkspaceExtractFileNameFromPath } from '~/components/workspace/common/codingWorkspaceExtractFileNameFromPath';
+import { codingWorkspaceExplorerFilePathToIcon } from '~/components/workspace/common/explorer/codingWorkspaceExplorerFilePathToIcon';
 import {
   codingWorkspaceTabFileId,
   codingWorkspaceTabFilePattern,
-} from '../common/tabs/codingWorkspaceTabId';
+} from '~/components/workspace/common/tabs/codingWorkspaceTabId';
+import useUserInterfaceCodingWorkspaceTilesContext from '~/components/workspace/user-interface/useUserInterfaceCodingWorkspaceTilesContext';
+
+import type {
+  ProjectsChallengeOfficialSolutionWorkspacePredefinedTabsContents,
+  ProjectsChallengeOfficialSolutionWorkspacePredefinedTabsType,
+} from './ProjectsChallengeOfficialSolutionWorkspaceTypes';
 
 import { useSandpack } from '@codesandbox/sandpack-react';
 
-type UserInterfaceCodingNewTabTypeData =
+type NewTabTypeData =
   | {
       payload: { code: string; file: string };
       type: 'code';
     }
   | {
-      type: UserInterfaceCodingWorkspacePredefinedTabsType;
+      type: ProjectsChallengeOfficialSolutionWorkspacePredefinedTabsType;
     };
 
-export default function UserInterfaceCodingWorkspaceNewTab({
+export default function ProjectsChallengeOfficialSolutionWorkspaceNewTab({
   onSelectTabType,
   predefinedTabs,
 }: Readonly<{
-  onSelectTabType: (data: UserInterfaceCodingNewTabTypeData) => void;
-  predefinedTabs: UserInterfaceCodingWorkspacePredefinedTabsContents;
+  onSelectTabType: (data: NewTabTypeData) => void;
+  predefinedTabs: ProjectsChallengeOfficialSolutionWorkspacePredefinedTabsContents;
 }>) {
   const { sandpack } = useSandpack();
   const { files } = sandpack;
@@ -52,27 +50,20 @@ export default function UserInterfaceCodingWorkspaceNewTab({
           Tabs
         </Text>
         <div className="flex flex-wrap gap-2">
-          {Object.entries(predefinedTabs)
-            .filter(([tabType]) =>
-              INTERVIEWS_UI_COMMUNITY_SOLUTIONS_IS_LIVE
-                ? true
-                : tabType !== 'community_solutions' &&
-                  tabType !== 'community_solution_create',
-            )
-            .map(([tabType, tabDetails]) => (
-              <Button
-                key={tabType}
-                addonPosition="start"
-                icon={tabDetails.icon}
-                label={tabDetails.label}
-                variant="secondary"
-                onClick={() => {
-                  onSelectTabType({
-                    type: tabType as UserInterfaceCodingWorkspacePredefinedTabsType,
-                  });
-                }}
-              />
-            ))}
+          {Object.entries(predefinedTabs).map(([tabType, tabDetails]) => (
+            <Button
+              key={tabType}
+              addonPosition="start"
+              icon={tabDetails.icon}
+              label={tabDetails.label}
+              variant="secondary"
+              onClick={() => {
+                onSelectTabType({
+                  type: tabType as ProjectsChallengeOfficialSolutionWorkspacePredefinedTabsType,
+                });
+              }}
+            />
+          ))}
         </div>
       </div>
       {unopenedFiles.length > 0 && (
