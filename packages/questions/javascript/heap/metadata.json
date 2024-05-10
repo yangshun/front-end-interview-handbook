@@ -1,0 +1,12 @@
+{
+  "slug": "heap",
+  "created": "2024-05-06T00:00:00.000Z",
+  "languages": ["js", "ts"],
+  "companies": [],
+  "premium": false,
+  "duration": 15,
+  "published": false,
+  "importance": "low",
+  "difficulty": "hard",
+  "similar_questions": ["heap-sort"]
+}

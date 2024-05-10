@@ -1,0 +1,39 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import heapJs from '../setup/src/heap.js';
+import heapTs from '../setup/src/heap.ts';
+
+## Solution
+
+Heaps are specialized tree-based data structures that satisfy the heap property, where in a max heap, each parent node is greater than or equal to the values of its children. This property makes heaps ideal for implementing priority queues, where the highest (or lowest) priority element needs to be accessed quickly.
+
+### Operations
+
+- `heapify(array)`: Constructs the heap from an unordered array. This is done by performing a series of insert operations from the bottom half of the array to build the heap in place.
+- `insert(value)`: Adds a new element to a heap. This involves appending the element at the end of the array (which represents the heap) and then move up the newly added element until the heap property is restored if it's violated.
+
+![Insert](/img/questions/heap/insert.png)
+
+- `delete()`: Removes the root element of the heap, which is the maximum value in a max heap. The last element of the heap replaces the root, and then slowly move it down until the heap property is restored.
+
+![Delete](/img/questions/heap/delete.png)
+
+- `findMax()`: Returns the element at the root of the heap without removing it, providing constant time access to the maximum value.
+
+Since the operations `insert` and `delete` can potentially involve moving elements across the height of the heap, their time complexity is O(log n), where n is the number of elements in the heap. `findMax` is a constant-time operation, O(1), as it returns the first element. `Heapify` has a time complexity of O(n log(n)) as it goes through each element and slowly inserting them one by one.
+
+### Edge Cases
+
+- Inserting into an empty heap.
+- Deleting from an empty heap.
+- Calling `findMax` on an empty heap.
+
+### Techniques
+
+- Object-oriented programming.
+- Array manipulation to simulate a binary tree.
+- Understanding of logarithmic time complexity and how operations can affect it.
+
+This heap implementation focuses on efficient data manipulation, taking advantage of the properties of binary trees to ensure that high-priority items are quickly accessible while maintaining the ability to adjust in logarithmic time.
+
+<MDXCodeBlock languages={{ jsx: heapJs, tsx: heapTs }} />

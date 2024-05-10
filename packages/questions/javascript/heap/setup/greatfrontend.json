@@ -1,0 +1,8 @@
+{
+  "run": "/src/heap.run.test.ts",
+  "submit": "/src/heap.submit.test.ts",
+  "skeleton": {
+    "js": "/src/heap.skeleton.js",
+    "ts": "/src/heap.skeleton.ts"
+  }
+}

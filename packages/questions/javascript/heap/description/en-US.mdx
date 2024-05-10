@@ -1,0 +1,29 @@
+---
+title: Heap
+excerpt: Implement a heap data structure containing essential heap operations
+---
+
+Implement a heap data structure in JavaScript that supports the following operations:
+
+- `new Heap(array)`: Creates an instance of a Heap class initialized with `array` and heapifies it to form as the initial Heap structure. It also initializes any internal structure needed to maintain the heap properties.
+- `heapify(array)`: Constructs the heap from an unordered array, establishing the max heap property across all elements. This is performed as part of the constructor, or can be a separate method that resets and rebuilds the heap. Required time complexity: O(n), where n is the number of elements in the array.
+- `insert(value)`: Adds a new value to the heap, maintaining the max heap property. Required time complexity: O(log n), where n is the number of elements in the heap after insertion.
+- `delete()`: Removes and returns the maximum value from the heap, maintaining the max heap property after removal. Required time complexity: O(log n).
+- `findMax()`: Returns the maximum value in the heap without removing it. Required time complexity: O(1).
+
+## Examples
+
+```js
+const heap = new Heap();
+heap.insert(20);
+heap.insert(15);
+heap.insert(30);
+heap.findMax(); // 30
+heap.insert(10);
+heap.delete(); // 30
+heap.findMax(); // 20
+
+const array = [5, 3, 17, 10, 84, 19, 6, 22, 9];
+const newHeap = new Heap(array);
+newHeap.findMax(); // 84
+```
