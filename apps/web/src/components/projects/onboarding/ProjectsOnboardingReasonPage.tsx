@@ -75,7 +75,7 @@ export default function ProjectsOnboardingReasonPage() {
                 id="GJbSo1"
               />
             </Text>
-            <Heading level="heading5">
+            <Heading className="text-center" level="heading5">
               <FormattedMessage
                 defaultMessage="Welcome to GreatFrontEnd Projects!"
                 description="Title for Projects onboarding page"

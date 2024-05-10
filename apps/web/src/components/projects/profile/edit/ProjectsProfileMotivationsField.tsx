@@ -81,7 +81,6 @@ export default function ProjectsProfileMotivationsField({
                     ],
                     themeOutlineElement_FocusVisible,
                     themeOutlineElementBrandColor_FocusVisible,
-                    'disabled:touch-none disabled:select-none',
                   )}
                   disabled={disabled}
                   role="checkbox"
