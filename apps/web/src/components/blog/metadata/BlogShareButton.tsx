@@ -9,7 +9,7 @@ import { useIntl } from 'react-intl';
 import type { BlogMetadata } from '~/components/blog/BlogTypes';
 import DropdownMenu from '~/components/ui/DropdownMenu';
 
-import { getSiteUrl } from '~/seo/siteUrl';
+import { getSiteOrigin } from '~/seo/siteUrl';
 
 export default function BlogShareButton({
   metadata,
@@ -24,7 +24,7 @@ export default function BlogShareButton({
     value: string;
   }> = [
     {
-      href: `https://www.linkedin.com/shareArticle?mini=true&url=${getSiteUrl()}${
+      href: `https://www.linkedin.com/shareArticle?mini=true&url=${getSiteOrigin()}${
         metadata.href
       }&title=${metadata.title}&summary=${metadata.description}`,
       icon: RiLinkedinBoxFill,
@@ -34,13 +34,15 @@ export default function BlogShareButton({
     {
       href: `https://twitter.com/intent/tweet?text=${
         metadata.title
-      }&url=${getSiteUrl()}${metadata.href}&via=greatfrontend`,
+      }&url=${getSiteOrigin()}${metadata.href}&via=greatfrontend`,
       icon: RiTwitterFill,
       label: 'Twitter',
       value: 'twitter',
     },
     {
-      href: `https://facebook.com/sharer.php?u=${getSiteUrl()}${metadata.href}`,
+      href: `https://facebook.com/sharer.php?u=${getSiteOrigin()}${
+        metadata.href
+      }`,
       icon: RiFacebookFill,
       label: 'Facebook',
       value: 'facebook',

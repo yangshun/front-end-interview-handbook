@@ -5,7 +5,7 @@ import useCopyToClipboardWithRevert from '~/hooks/useCopyToClipboardWithRevert';
 
 import Button from '~/components/ui/Button';
 
-import { getSiteUrl } from '~/seo/siteUrl';
+import { getSiteOrigin } from '~/seo/siteUrl';
 
 export default function BlogCopyLinkButton({ href }: { href: string }) {
   const intl = useIntl();
@@ -31,7 +31,7 @@ export default function BlogCopyLinkButton({ href }: { href: string }) {
       }
       size="sm"
       variant="secondary"
-      onClick={() => onCopy(`${getSiteUrl()}${href}`)}
+      onClick={() => onCopy(`${getSiteOrigin()}${href}`)}
     />
   );
 }

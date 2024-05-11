@@ -9,7 +9,7 @@ import { fetchQuestionsListQuiz } from '~/db/QuestionsListReader';
 import { getIntlServerOnly } from '~/i18n';
 import { generateStaticParamsWithLocale } from '~/next-i18nostic/src';
 import defaultMetadata from '~/seo/defaultMetadata';
-import { getSiteUrl } from '~/seo/siteUrl';
+import { getSiteOrigin } from '~/seo/siteUrl';
 
 type Props = Readonly<{
   params: Readonly<{
@@ -73,7 +73,7 @@ export default async function Page({ params }: Props) {
         images={[]}
         isAccessibleForFree={true}
         title={question.metadata.title}
-        url={`${getSiteUrl()}${question.metadata.href}`}
+        url={`${getSiteOrigin()}${question.metadata.href}`}
         useAppDir={true}
       />
       <QuestionQuizContents

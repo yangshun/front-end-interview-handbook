@@ -4,7 +4,7 @@ import type { Metadata } from 'next/types';
 
 import { i18nMetadata } from '~/next-i18nostic/src';
 
-import { getSiteUrl } from './siteUrl';
+import { getSiteOrigin } from './siteUrl';
 
 type PageMetadata = Readonly<{
   description?: string;
@@ -31,7 +31,7 @@ export default function defaultMetadata({
         canonical: pathname,
       },
       description,
-      metadataBase: new URL(getSiteUrl()),
+      metadataBase: new URL(getSiteOrigin()),
       openGraph: {
         description,
         images: imageUrl || '/img/seo/og.jpg',

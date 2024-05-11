@@ -16,7 +16,7 @@ import { fetchQuestionsBySlug } from '~/db/QuestionsListReader';
 import { getIntlServerOnly } from '~/i18n';
 import { generateStaticParamsWithLocale } from '~/next-i18nostic/src';
 import defaultMetadata from '~/seo/defaultMetadata';
-import { getSiteUrl } from '~/seo/siteUrl';
+import { getSiteOrigin } from '~/seo/siteUrl';
 
 import InterviewsStudyPlanPage from './InterviewsStudyPlanPage';
 
@@ -96,7 +96,7 @@ export default async function Page({ params }: Props) {
         description={description}
         provider={{
           name: 'GreatFrontEnd',
-          url: getSiteUrl(),
+          url: getSiteOrigin(),
         }}
         useAppDir={true}
       />

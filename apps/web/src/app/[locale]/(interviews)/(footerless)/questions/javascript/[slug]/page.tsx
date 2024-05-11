@@ -9,7 +9,7 @@ import { readQuestionJavaScriptContents } from '~/db/QuestionsContentsReader';
 import { fetchQuestionsListCoding } from '~/db/QuestionsListReader';
 import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
-import { getSiteUrl } from '~/seo/siteUrl';
+import { getSiteOrigin } from '~/seo/siteUrl';
 import { readViewerFromToken } from '~/supabase/SupabaseServerGFE';
 import { createSupabaseAdminClientGFE_SERVER_ONLY } from '~/supabase/SupabaseServerGFE';
 
@@ -115,7 +115,7 @@ export default async function Page({ params }: Props) {
         images={[]}
         isAccessibleForFree={!question.metadata.premium}
         title={`Front End Coding Interview Question: ${question.metadata.title}`}
-        url={`${getSiteUrl()}${question.metadata.href}`}
+        url={`${getSiteOrigin()}${question.metadata.href}`}
         useAppDir={true}
       />
       {isQuestionLockedForUser ? (

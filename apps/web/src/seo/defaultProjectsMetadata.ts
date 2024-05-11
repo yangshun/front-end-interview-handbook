@@ -1,4 +1,4 @@
-import { getSiteUrl } from './siteUrl';
+import { getSiteOrigin } from './siteUrl';
 
 import type { IntlShape } from '@formatjs/intl';
 
@@ -23,7 +23,7 @@ export default function defaultProjectsMetadata(
       canonical: pathname,
     },
     description,
-    metadataBase: new URL(getSiteUrl()),
+    metadataBase: new URL(getSiteOrigin()),
     openGraph: {
       description,
       images: '/img/seo/og-projects.jpg',

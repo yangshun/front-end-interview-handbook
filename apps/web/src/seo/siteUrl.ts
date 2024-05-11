@@ -1,4 +1,4 @@
-export function getSiteUrl(): string {
+export function getSiteOrigin(): string {
   if (process.env.NODE_ENV === 'development') {
     return `http://localhost:${process.env.PORT || 3000}`;
   }
