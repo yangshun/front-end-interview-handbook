@@ -20,7 +20,7 @@ function usePlatforms() {
       userCount: null,
     },
     SocialLinks.github,
-    SocialLinks.twitter,
+    SocialLinks.x,
     SocialLinks.linkedin,
   ];
 

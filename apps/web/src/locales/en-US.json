@@ -3363,10 +3363,6 @@
     "defaultMessage": "CSS",
     "description": "CSS topic for quiz questions"
   },
-  "P6iF2f": {
-    "defaultMessage": "Follow us on Twitter",
-    "description": "Title for task"
-  },
   "P99cBr": {
     "defaultMessage": "Overview of various question formats",
     "description": "Overview of front end system design interview question formats"
@@ -3690,6 +3686,10 @@
   "RJ4spU": {
     "defaultMessage": "Worry about a shaky foundation? Harness curated tools from senior engineers at big tech and learn the best practices for practical development",
     "description": "Description for \"Get the right foundation for practical development\" feature marketing section on Projects home page"
+  },
+  "RL7b8v": {
+    "defaultMessage": "Follow us on X / Twitter",
+    "description": "Title for task"
   },
   "RMBCok": {
     "defaultMessage": "Snap",

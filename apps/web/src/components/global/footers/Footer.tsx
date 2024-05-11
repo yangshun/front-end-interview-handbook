@@ -60,7 +60,7 @@ function useCommonFooterLinks() {
       SocialLinks.linkedin,
       SocialLinks.discord,
       SocialLinks.github,
-      SocialLinks.twitter,
+      SocialLinks.x,
     ],
   };
 }

@@ -44,9 +44,9 @@ export function useRewardsTasks() {
       actionName: 'TWITTER_FOLLOW',
       icon: RiTwitterXFill,
       label: intl.formatMessage({
-        defaultMessage: 'Follow us on Twitter',
+        defaultMessage: 'Follow us on X / Twitter',
         description: 'Title for task',
-        id: 'P6iF2f',
+        id: 'RL7b8v',
       }),
       taskHref: 'https://twitter.com/greatfrontend',
     },

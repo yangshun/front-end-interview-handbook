@@ -2,7 +2,7 @@ import {
   RiFacebookFill,
   RiLinkedinBoxFill,
   RiShareLine,
-  RiTwitterFill,
+  RiTwitterXFill,
 } from 'react-icons/ri';
 import { useIntl } from 'react-intl';
 import url from 'url';
@@ -53,7 +53,7 @@ export default function BlogShareButton({
         }),
         'https://twitter.com',
       ).toString(),
-      icon: RiTwitterFill,
+      icon: RiTwitterXFill,
       label: 'Twitter',
       value: 'twitter',
     },

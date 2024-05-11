@@ -3,7 +3,7 @@ import {
   RiGithubFill,
   RiLinkedinBoxFill,
   RiRedditFill,
-  RiTwitterFill,
+  RiTwitterXFill,
 } from 'react-icons/ri';
 
 type SocialLinkPlatform =
@@ -12,7 +12,7 @@ type SocialLinkPlatform =
   | 'github'
   | 'linkedin'
   | 'reddit'
-  | 'twitter';
+  | 'x';
 
 export const SocialLinks: Record<
   SocialLinkPlatform,
@@ -59,11 +59,11 @@ export const SocialLinks: Record<
     name: 'Reddit',
     userCount: null,
   },
-  twitter: {
+  x: {
     href: 'https://www.twitter.com/greatfrontend',
-    icon: RiTwitterFill,
-    key: 'twitter',
-    name: 'Twitter',
+    icon: RiTwitterXFill,
+    key: 'x',
+    name: 'X',
     userCount: 2_175,
   },
 };

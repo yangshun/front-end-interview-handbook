@@ -9,8 +9,8 @@ type Author = Readonly<{
   links: {
     github?: string;
     linkedin?: string;
-    twitter?: string;
     website?: string;
+    x?: string;
     youtube?: string;
   };
   name: string;
@@ -67,8 +67,8 @@ const authors: Record<string, Author> = {
     links: {
       github: 'https://github.com/tanhauhau',
       linkedin: 'https://www.linkedin.com/in/lihautan/',
-      twitter: 'https://twitter.com/lihautan',
       website: 'https://lihautan.com/',
+      x: 'https://twitter.com/lihautan',
       youtube: 'https://www.youtube.com/@lihautan',
     },
     name: 'Tan Li Hau',
@@ -104,8 +104,8 @@ const authors: Record<string, Author> = {
     links: {
       github: 'https://www.github.com/yangshun',
       linkedin: 'https://www.linkedin.com/in/yangshun',
-      twitter: 'https://www.twitter.com/yangshunz',
       website: 'https://yangshuntay.com',
+      x: 'https://www.twitter.com/yangshunz',
     },
     name: 'Yangshun Tay',
     role: 'Staff Front End Engineer, ex-Meta',
@@ -124,8 +124,8 @@ const authors: Record<string, Author> = {
     imageUrl: '/img/team/zhenghao.jpg',
     links: {
       linkedin: 'https://www.linkedin.com/in/zhenghao-he/',
-      twitter: 'https://twitter.com/he_zhenghao',
       website: 'https://www.zhenghao.io',
+      x: 'https://twitter.com/he_zhenghao',
     },
     name: 'Zhenghao He',
     role: 'Senior Software Engineer, ex-Amazon, ex-Instacart',

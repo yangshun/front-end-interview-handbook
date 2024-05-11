@@ -46,7 +46,7 @@ export default function MarketingCommunitySection() {
               SocialLinks.linkedin,
               SocialLinks.discord,
               SocialLinks.github,
-              SocialLinks.twitter,
+              SocialLinks.x,
             ].map((platform) => (
               <Anchor
                 key={platform.key}

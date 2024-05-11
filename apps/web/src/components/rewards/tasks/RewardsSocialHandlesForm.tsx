@@ -138,7 +138,7 @@ export default function RewardsSocialHandlesForm({
           </div>
         </div>
         <div className="flex items-center justify-between gap-4 py-4">
-          <Text size="body2">Twitter</Text>
+          <Text size="body2">X / Twitter</Text>
           <div className="w-full max-w-sm">
             <TextInput
               className="w-full"
@@ -149,7 +149,7 @@ export default function RewardsSocialHandlesForm({
               }
               isDisabled={isLoading}
               isLabelHidden={true}
-              label="Twitter"
+              label="X / Twitter"
               name="twitter"
               placeholder="https://twitter.com/john-doe"
               value={handlesData.twitterUsername}
