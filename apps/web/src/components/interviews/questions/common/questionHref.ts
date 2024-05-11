@@ -1,4 +1,6 @@
-const dummyOrigin = 'https://blahblahblah.com';
+import { getSiteOrigin } from '~/seo/siteUrl';
+
+const origin = getSiteOrigin();
 
 export function questionHrefWithList(
   href: string,
@@ -8,10 +10,9 @@ export function questionHrefWithList(
     return href;
   }
 
-  // Just to get this to be a full URL.
-  const url = new URL(dummyOrigin + href);
+  const urlObject = new URL(href, origin);
 
-  url.searchParams.append('list', listKey);
+  urlObject.searchParams.append('list', listKey);
 
-  return url.href.replace(dummyOrigin, '');
+  return urlObject.pathname + urlObject.search + urlObject.hash;
 }

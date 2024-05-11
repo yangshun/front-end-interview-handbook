@@ -13,6 +13,7 @@ import { readQuestionUserInterface } from '~/db/QuestionsContentsReader';
 import { fetchQuestionsListCoding } from '~/db/QuestionsListReader';
 import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
+import { getSiteOrigin } from '~/seo/siteUrl';
 import {
   createSupabaseAdminClientGFE_SERVER_ONLY,
   readViewerFromToken,
@@ -33,7 +34,10 @@ function frameworkAgnosticLinks(
   const frameworkAgnosticPathname = `${question.metadata.href}${
     mode === 'solution' ? '/solution' : ''
   }`;
-  const frameworkAgnosticUrl = `https://www.greatfrontend.com${frameworkAgnosticPathname}`;
+  const frameworkAgnosticUrl = new URL(
+    frameworkAgnosticPathname,
+    getSiteOrigin(),
+  ).toString();
 
   return {
     pathname: frameworkAgnosticPathname,

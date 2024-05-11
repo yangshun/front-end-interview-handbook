@@ -1,4 +1,5 @@
 import type { NextApiRequest } from 'next';
+import url from 'url';
 
 import absoluteUrl from '~/lib/absoluteUrl';
 
@@ -11,16 +12,17 @@ export async function fetchProjectsProfileRecalculatePoints(
   }
 
   const { origin } = absoluteUrl(req);
-
-  await fetch(
-    `${origin}/api/hooks/projects/profile/recalculate?${new URLSearchParams({
+  const href = url.format({
+    pathname: '/api/hooks/projects/profile/recalculate',
+    query: {
       api_route_secret: process.env.API_ROUTE_SECRET ?? '',
-    })}`,
-    {
-      body: JSON.stringify({
-        projectsProfileId,
-      }),
-      method: 'POST',
     },
-  );
+  });
+
+  await fetch(new URL(href, origin).toString(), {
+    body: JSON.stringify({
+      projectsProfileId,
+    }),
+    method: 'POST',
+  });
 }

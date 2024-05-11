@@ -115,7 +115,7 @@ export default async function Page({ params }: Props) {
         images={[]}
         isAccessibleForFree={!question.metadata.premium}
         title={`Front End Coding Interview Question: ${question.metadata.title}`}
-        url={`${getSiteOrigin()}${question.metadata.href}`}
+        url={new URL(question.metadata.href, getSiteOrigin()).toString()}
         useAppDir={true}
       />
       {isQuestionLockedForUser ? (

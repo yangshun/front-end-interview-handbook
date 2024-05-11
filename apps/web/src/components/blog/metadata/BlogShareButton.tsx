@@ -5,6 +5,7 @@ import {
   RiTwitterFill,
 } from 'react-icons/ri';
 import { useIntl } from 'react-intl';
+import url from 'url';
 
 import type { BlogMetadata } from '~/components/blog/BlogTypes';
 import DropdownMenu from '~/components/ui/DropdownMenu';
@@ -24,25 +25,48 @@ export default function BlogShareButton({
     value: string;
   }> = [
     {
-      href: `https://www.linkedin.com/shareArticle?mini=true&url=${getSiteOrigin()}${
-        metadata.href
-      }&title=${metadata.title}&summary=${metadata.description}`,
+      href: new URL(
+        url.format({
+          pathname: '/shareArticle',
+          query: {
+            mini: true,
+            summary: metadata.description,
+            title: metadata.title,
+            url: new URL(metadata.href, getSiteOrigin()).toString(),
+          },
+        }),
+        'https://linkedin.com',
+      ).toString(),
       icon: RiLinkedinBoxFill,
       label: 'LinkedIn',
       value: 'linkedin',
     },
     {
-      href: `https://twitter.com/intent/tweet?text=${
-        metadata.title
-      }&url=${getSiteOrigin()}${metadata.href}&via=greatfrontend`,
+      href: new URL(
+        url.format({
+          pathname: '/intent/tweet',
+          query: {
+            text: metadata.title,
+            u: new URL(metadata.href, getSiteOrigin()).toString(),
+            via: 'greatfrontend',
+          },
+        }),
+        'https://twitter.com',
+      ).toString(),
       icon: RiTwitterFill,
       label: 'Twitter',
       value: 'twitter',
     },
     {
-      href: `https://facebook.com/sharer.php?u=${getSiteOrigin()}${
-        metadata.href
-      }`,
+      href: new URL(
+        url.format({
+          pathname: '/sharer.php',
+          query: {
+            u: new URL(metadata.href, getSiteOrigin()).toString(),
+          },
+        }),
+        'https://facebook.com',
+      ).toString(),
       icon: RiFacebookFill,
       label: 'Facebook',
       value: 'facebook',
