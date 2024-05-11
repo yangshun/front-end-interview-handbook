@@ -24,7 +24,7 @@ import {
 
 export type Props = Omit<I18nLinkProps, 'href'> &
   Readonly<{
-    href?: I18nLinkProps['href'];
+    href?: string;
     locale?: string;
     scrollToTop?: boolean;
     suppressHydrationWarning?: boolean;
@@ -80,9 +80,9 @@ function Anchor(
     isExternalURL ||
     // TODO: <Link> when used in app directory with an anchor href causes
     // a redirect to the homepage. Let's use a vanilla <a> for now.
-    (typeof finalHref === 'string' && finalHref.startsWith('#'))
+    finalHref.startsWith('#')
   ) {
-    const finalHrefString = finalHref.toString();
+    const finalHrefString = url.format(finalHref);
 
     return (
       <a
