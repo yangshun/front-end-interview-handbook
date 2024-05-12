@@ -1,8 +1,10 @@
+'use client';
+
 import type {
   AppRouterInstance,
   NavigateOptions,
   PrefetchOptions,
-} from 'next/dist/shared/lib/app-router-context';
+} from 'next/dist/shared/lib/app-router-context.shared-runtime';
 import type { LinkProps } from 'next/link';
 import { useRouter } from 'next/navigation';
 import url from 'url';
