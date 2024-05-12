@@ -1,6 +1,7 @@
 import clsx from 'clsx';
 import { useEffect, useState } from 'react';
 import { RiCodeLine } from 'react-icons/ri';
+import { mergeRefs } from 'react-merge-refs';
 
 import useQuestionLogEventCopyContents from '~/components/interviews/questions/common/useQuestionLogEventCopyContents';
 import { codingFilesShouldUseTypeScript } from '~/components/workspace/common/codingFilesShouldUseTypeScript';
@@ -16,7 +17,6 @@ import useMonacoLanguagesJSONDefaults from '~/components/workspace/common/editor
 import useMonacoLanguagesLoadTSConfig from '~/components/workspace/common/editor/useMonacoLanguagesLoadTSConfig';
 import useMonacoLanguagesTypeScriptRunDiagnostics from '~/components/workspace/common/editor/useMonacoLanguagesTypeScriptRunDiagnostics';
 import { codingWorkspaceExplorerFilePathToIcon } from '~/components/workspace/common/explorer/codingWorkspaceExplorerFilePathToIcon';
-import useRestartSandpack from '~/components/workspace/common/sandpack/useRestartSandpack';
 import {
   codingWorkspaceTabFileId,
   codingWorkspaceTabFilePattern,
@@ -51,8 +51,6 @@ function ProjectsChallengeOfficialSolutionWorkspaceImpl({
   const { dispatch } = useUserInterfaceCodingWorkspaceTilesContext();
   const { sandpack } = useSandpack();
   const { activeFile, visibleFiles, files } = sandpack;
-
-  useRestartSandpack();
 
   const shouldUseTypeScript = codingFilesShouldUseTypeScript(
     Object.keys(files),
@@ -177,6 +175,8 @@ function ProjectsChallengeOfficialSolutionWorkspaceImpl({
     ),
   });
 
+  const mergedRef = mergeRefs([copyRef, sandpack.lazyAnchorRef]);
+
   return (
     <CodingWorkspaceProvider
       value={{
@@ -185,7 +185,9 @@ function ProjectsChallengeOfficialSolutionWorkspaceImpl({
         openFile,
         resetToDefaultCode,
       }}>
-      <div ref={copyRef} className={clsx('size-full flex-col text-sm', 'flex')}>
+      <div
+        ref={mergedRef}
+        className={clsx('size-full flex-col text-sm', 'flex')}>
         <div className="flex grow overflow-x-auto">
           <div className={clsx('flex w-full grow', 'min-w-[1024px]')}>
             <UserInterfaceCodingWorkspaceTilesPanelRoot

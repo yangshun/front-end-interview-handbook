@@ -1,6 +1,7 @@
 import clsx from 'clsx';
 import { useCallback, useEffect, useState } from 'react';
 import { RiCodeLine } from 'react-icons/ri';
+import { mergeRefs } from 'react-merge-refs';
 
 import type {
   QuestionFramework,
@@ -49,7 +50,6 @@ import useMonacoLanguagesJSONDefaults from '../common/editor/useMonacoLanguagesJ
 import useMonacoLanguagesLoadTSConfig from '../common/editor/useMonacoLanguagesLoadTSConfig';
 import useMonacoLanguagesTypeScriptRunDiagnostics from '../common/editor/useMonacoLanguagesTypeScriptRunDiagnostics';
 import { codingWorkspaceExplorerFilePathToIcon } from '../common/explorer/codingWorkspaceExplorerFilePathToIcon';
-import useRestartSandpack from '../common/sandpack/useRestartSandpack';
 import {
   codingWorkspaceTabFileId,
   codingWorkspaceTabFilePattern,
@@ -101,7 +101,6 @@ function UserInterfaceCodingWorkspaceImpl({
   const { sandpack } = useSandpack();
   const { activeFile, visibleFiles, files } = sandpack;
 
-  useRestartSandpack();
   useEffect(() => {
     if (mode === 'practice') {
       saveUserInterfaceQuestionCodeLocally(question, sandpack.files);
@@ -332,6 +331,8 @@ function UserInterfaceCodingWorkspaceImpl({
     ),
   });
 
+  const mergedRef = mergeRefs([copyRef, sandpack.lazyAnchorRef]);
+
   return (
     <CodingWorkspaceProvider
       loadedFilesFromLocalStorage={loadedFilesFromLocalStorage}
@@ -392,7 +393,7 @@ function UserInterfaceCodingWorkspaceImpl({
         </div>
       )}
       <div
-        ref={copyRef}
+        ref={mergedRef}
         className={clsx(
           'size-full flex-col text-sm',
           !embed ? 'hidden lg:flex' : 'flex',

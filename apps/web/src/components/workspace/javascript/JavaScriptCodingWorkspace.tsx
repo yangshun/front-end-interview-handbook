@@ -1,6 +1,7 @@
 import clsx from 'clsx';
 import { useCallback, useState } from 'react';
 import { RiCodeLine } from 'react-icons/ri';
+import { mergeRefs } from 'react-merge-refs';
 
 import type {
   QuestionCodingWorkingLanguage,
@@ -46,7 +47,6 @@ import useMonacoEditorModels from '../common/editor/useMonacoEditorModels';
 import useMonacoLanguagesFetchTypeDeclarations from '../common/editor/useMonacoLanguagesFetchTypeDeclarations';
 import useMonacoLanguagesLoadTSConfig from '../common/editor/useMonacoLanguagesLoadTSConfig';
 import useMonacoLanguagesTypeScriptRunDiagnostics from '../common/editor/useMonacoLanguagesTypeScriptRunDiagnostics';
-import useRestartSandpack from '../common/sandpack/useRestartSandpack';
 import {
   codingWorkspaceTabCommunitySolutionId,
   codingWorkspaceTabCommunitySolutionPattern,
@@ -93,8 +93,6 @@ function JavaScriptCodingWorkspaceImpl({
 
   const { sandpack } = useSandpack();
   const { files, updateFile } = sandpack;
-
-  useRestartSandpack();
 
   const shouldUseTypeScript = codingFilesShouldUseTypeScript(
     Object.keys(files),
@@ -290,6 +288,8 @@ function JavaScriptCodingWorkspaceImpl({
     workspace.main,
   ]);
 
+  const mergedRef = mergeRefs([copyRef, sandpack.lazyAnchorRef]);
+
   return (
     <CodingWorkspaceProvider
       loadedFilesFromLocalStorage={loadedFilesFromLocalStorage}
@@ -324,7 +324,7 @@ function JavaScriptCodingWorkspaceImpl({
           </div>
         )}
         <div
-          ref={copyRef}
+          ref={mergedRef}
           className={clsx(
             'size-full flex-col text-sm',
             !embed ? 'hidden lg:flex' : 'flex',
