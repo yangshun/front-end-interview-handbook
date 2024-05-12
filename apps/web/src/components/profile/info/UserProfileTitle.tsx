@@ -37,9 +37,9 @@ export default function UserProfileTitle({
   return (
     <div className={clsx('flex items-center', gap[size])}>
       <RiBuildingLine
-        className={clsx(iconClasses[size], themeTextSecondaryColor)}
+        className={clsx(iconClasses[size], themeTextSecondaryColor, 'shrink-0')}
       />
-      <Text color="secondary" size={size}>
+      <Text className="line-clamp-1" color="secondary" size={size}>
         {company ? `${title} @ ${company}` : title}
       </Text>
     </div>

@@ -56,9 +56,9 @@ export default function UserProfileExperience({
   return (
     <div className={clsx('flex items-center', gap[size])}>
       <RiGraduationCapLine
-        className={clsx(iconClasses[size], themeTextSecondaryColor)}
+        className={clsx(iconClasses[size], themeTextSecondaryColor, 'shrink-0')}
       />
-      <Text color="secondary" size={size}>
+      <Text className="line-clamp-1" color="secondary" size={size}>
         {userProfile.startWorkDate ? (
           <FormattedMessage
             defaultMessage="{yoe} YOE"

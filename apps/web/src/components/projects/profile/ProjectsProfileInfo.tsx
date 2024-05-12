@@ -48,7 +48,7 @@ export default function ProjectsProfileInfo({
   return (
     <div className="flex flex-col gap-6 md:gap-8">
       <Section>
-        <div className="flex items-center gap-6">
+        <div className="flex gap-6">
           <ProjectsProfileAvatar
             points={projectsProfile.points}
             size="3xl"
