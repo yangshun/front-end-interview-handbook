@@ -77,7 +77,7 @@ function NewSaveButton({
       onSuccess: (data) => {
         setIsDialogOpen(false);
         showToast({
-          title: `Successfully created "${saveName}"`,
+          title: `Saved as "${saveName}"`,
           variant: 'success',
         });
         // TODO(submission): Add study list parameter if exists.

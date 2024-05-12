@@ -23,6 +23,10 @@
     "defaultMessage": "{questionCount}+ interview questions across <clink>coding</clink> and <qlink>quiz</qlink> formats and new questions constantly being added.",
     "description": "Subtitle for huge question bank feature"
   },
+  "+9bM81": {
+    "defaultMessage": "Official solutions",
+    "description": "Reference code for projects"
+  },
   "+B60u6": {
     "defaultMessage": "{totalCount} submissions",
     "description": "Total number of projects submissions"
@@ -214,6 +218,10 @@
   "/kvO93": {
     "defaultMessage": "Additionally, we offer a gamified progress tracking system to monitor your proficiency in applying these skills across our projects.",
     "description": "Description for skill roadmap feature"
+  },
+  "/mJXTQ": {
+    "defaultMessage": "Warm up question",
+    "description": "Label for warm up questions"
   },
   "/nidaR": {
     "defaultMessage": "Create your developer profile on GreatFrontEnd. Showcase your skills, experiences and connect with the community.",
@@ -586,10 +594,6 @@
   "2zikko": {
     "defaultMessage": "Unlocking this challenge requires a total of {count, plural, one {<bold>1 premium credit</bold>} other {<bold># premium credits</bold>}}.",
     "description": "Confirmation text for unlocking a premium challenge"
-  },
-  "32cQk/": {
-    "defaultMessage": "Warm Up Question",
-    "description": "Label for warm up questions"
   },
   "37Ttml": {
     "defaultMessage": "Security",
@@ -1194,6 +1198,10 @@
   "87c2KI": {
     "defaultMessage": "Created: Newest to oldest",
     "description": "Sorting option for discussions comment - sort by created"
+  },
+  "8JoIUN": {
+    "defaultMessage": "Coming soon",
+    "description": "Tooltip for Coming Soon questions label"
   },
   "8KFYWs": {
     "defaultMessage": "Intro to Quiz Questions",
@@ -3494,6 +3502,10 @@
   "PzZtIi": {
     "defaultMessage": "No sign in required",
     "description": "Additional text below Get Start button on Hero section of HomePage. To let users know that they can try the product without signing in."
+  },
+  "Q+qNTr": {
+    "defaultMessage": "Reference submissions",
+    "description": "Reference code for projects"
   },
   "Q0gWLB": {
     "defaultMessage": "Resubscribe",
@@ -6099,10 +6111,6 @@
     "defaultMessage": "Errors",
     "description": "Select label for error log level in console filter"
   },
-  "kEhkCv": {
-    "defaultMessage": "Coming Soon",
-    "description": "Tooltip for Coming Soon questions label"
-  },
   "kF3Llo": {
     "defaultMessage": "Knowledge is power. Over {count} short questions with answers to build and solidify your front end fundamentals.",
     "description": "Subtitle for an example list of Quiz Questions on marketing pages"
@@ -6414,10 +6422,6 @@
   "mU5c9N": {
     "defaultMessage": "After completion",
     "description": "Tab label for projects challenges"
-  },
-  "mVYEky": {
-    "defaultMessage": "Reference code",
-    "description": "Reference code for projects"
   },
   "mb7erW": {
     "defaultMessage": "Importance",

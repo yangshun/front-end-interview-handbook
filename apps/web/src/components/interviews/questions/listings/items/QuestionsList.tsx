@@ -311,12 +311,13 @@ export default function QuestionsList<Q extends QuestionMetadata>({
                   <span aria-hidden="true" className="absolute inset-0" />
                   {question.title}
                 </Anchor>
+                {/* TODO: remove hardcoding of "counter" and shift it into metadata */}
                 {question.slug === 'counter' && (
                   <Badge
                     label={intl.formatMessage({
-                      defaultMessage: 'Warm Up Question',
+                      defaultMessage: 'Warm up question',
                       description: 'Label for warm up questions',
-                      id: '32cQk/',
+                      id: '/mJXTQ',
                     })}
                     size="sm"
                     variant="warning"
@@ -326,9 +327,9 @@ export default function QuestionsList<Q extends QuestionMetadata>({
                   !ReadyQuestions.includes(question.slug) && (
                     <Badge
                       label={intl.formatMessage({
-                        defaultMessage: 'Coming Soon',
+                        defaultMessage: 'Coming soon',
                         description: 'Tooltip for Coming Soon questions label',
-                        id: 'kEhkCv',
+                        id: '8JoIUN',
                       })}
                       size="sm"
                       variant="warning"

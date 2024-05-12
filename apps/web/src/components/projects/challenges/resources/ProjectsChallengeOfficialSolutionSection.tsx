@@ -5,7 +5,7 @@ import { useColorSchemePreferences } from '~/components/global/color-scheme/Colo
 import sandpackProviderOptions from '~/components/workspace/common/sandpack/sandpackProviderOptions';
 import SandpackTimeoutLogger from '~/components/workspace/common/sandpack/SandpackTimeoutLogger';
 
-import solution from '~/__generated__/questions/user-interface/counter/react/solution.json';
+import solution from '~/__generated__/questions/user-interface/counter/vanilla/solution.json';
 
 import ProjectsChallengeOfficialSolutionWorkspace from './ProjectsChallengeOfficialSolutionWorkspace';
 
