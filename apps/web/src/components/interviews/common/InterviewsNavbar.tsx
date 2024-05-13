@@ -54,8 +54,11 @@ export default function InterviewsNavbar({ hideOnDesktop = false }: Props) {
 
   const endAddOnItems = (
     <>
-      <NavI18nDropdown />
-      <NavColorSchemeDropdown />
+      {/* This custom breakpoint is set to avoid overlapping of elements on near tab breakpoint */}
+      <div className="hidden gap-x-4 min-[1150px]:flex">
+        <NavI18nDropdown />
+        <NavColorSchemeDropdown />
+      </div>
       {!isPremium && (
         <Button
           href="/pricing"
