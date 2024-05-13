@@ -26,7 +26,7 @@ function useSteps(): Array<HowItWorksStep> {
 
   return [
     {
-      imgSrc: 'img/marketing/projects/how-it-works-step-1.svg',
+      imgSrc: '/img/marketing/projects/how-it-works-step-1.webp',
       key: 'choose-project',
       label: intl.formatMessage({
         defaultMessage: 'Choose and start a project',
@@ -36,7 +36,7 @@ function useSteps(): Array<HowItWorksStep> {
       }),
     },
     {
-      imgSrc: 'img/marketing/projects/how-it-works-step-2.svg',
+      imgSrc: '/img/marketing/projects/how-it-works-step-2.webp',
       key: 'assets',
       label: intl.formatMessage({
         defaultMessage:
@@ -47,7 +47,7 @@ function useSteps(): Array<HowItWorksStep> {
       }),
     },
     {
-      imgSrc: 'img/marketing/projects/how-it-works-step-3.svg',
+      imgSrc: '/img/marketing/projects/how-it-works-step-3.webp',
       key: 'build-project',
       label: intl.formatMessage({
         defaultMessage:
@@ -69,7 +69,7 @@ function useSteps(): Array<HowItWorksStep> {
       }),
     },
     {
-      imgSrc: 'img/marketing/projects/how-it-works-step-5.svg',
+      imgSrc: '/img/marketing/projects/how-it-works-step-5.webp',
       key: 'feedback',
       label: intl.formatMessage({
         defaultMessage: 'Get feedback and code reviews from the community',

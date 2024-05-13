@@ -106,7 +106,7 @@ function useLearningFeatures(): Array<LearningFeature> {
             "Description of 'Start building' feature in Projects marketing page",
           id: 'hqeSrQ',
         }),
-        imgSrc: 'img/marketing/projects/how-it-works-step-2.svg',
+        imgSrc: '/img/marketing/projects/how-it-works-step-2.webp',
         key: 'start-building',
         subFeatures: [
           {
@@ -156,10 +156,7 @@ function useLearningFeatures(): Array<LearningFeature> {
             "Description of 'Practical foundation' feature in Projects marketing page",
           id: '7o0DXO',
         }),
-        imgSrc:
-          colorScheme === 'light'
-            ? 'img/marketing/projects/practical-foundation-light.svg'
-            : 'img/marketing/projects/practical-foundation-dark.svg',
+        imgSrc: '/img/marketing/projects/practical-foundation.webp',
         key: 'practical-foundation',
         subFeatures: [
           {
@@ -416,7 +413,7 @@ export default function ProjectsMarketingLearningFeatures() {
                   className="flex flex-col items-center gap-x-28 gap-y-12 lg:flex-row lg:items-start lg:even:flex-row-reverse">
                   <div
                     className={clsx(
-                      'aspect-[453/328] h-fit w-full max-w-[453px] shrink-0 rounded-lg lg:w-auto',
+                      'aspect-[453/328] h-fit w-full max-w-[453px] shrink-0 overflow-clip rounded-lg lg:w-auto',
                       themeBackgroundCardColor,
                       themeGlassyBorder,
                     )}>
