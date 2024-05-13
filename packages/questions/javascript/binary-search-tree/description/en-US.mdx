@@ -1,0 +1,23 @@
+---
+title: Binary Search Tree
+excerpt: Implement a binary search tree data structure including essential BST operations
+---
+
+Implement a binary search tree (BST) data structure that supports the following operations:
+
+- `new BST()`: Creates an instance of a BST class. It initializes the root to `null` as there are no nodes in the tree initially.
+- `insert(value)`: Adds a new value to the BST. The new value is inserted in the correct position to maintain the binary search tree order. If the tree is empty, the new value becomes the root. Required time complexity: O(log n) on average, but can degrade to O(n) in the worst case where the tree becomes a linear chain.
+- `search(value)`: Searches for a value in the BST. Returns `true` if the value exists in the tree; otherwise, returns `false`. This operation also adheres to the average time complexity of O(log n) but can become O(n) in the worst case.
+- `delete(value)`: Removes a value from the BST, if it exists. This method requires handling three cases: deleting a node with no children, one child, or two children. The function maintains the properties of the BST after deletion. Required time complexity: O(log n) on average, but may be O(n) in the worst case.
+
+## Examples
+
+```js
+const bst = new BST();
+bst.insert(15);
+bst.insert(10);
+bst.insert(20);
+bst.search(10); // true
+bst.delete(10);
+bst.search(10); // false
+```

@@ -1,0 +1,43 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import binarySearchTreeJs from '../setup/src/binary-search-tree.js';
+import binarySearchTreeTs from '../setup/src/binary-search-tree.ts';
+
+## Solution
+
+Binary Search Trees (BSTs) are a fundamental data structure in computer science, primarily used to maintain a dynamically changing dataset in a sorted order. Each node in a BST contains a key and pointers to its left and right children. The tree is structured such that for any given node, all nodes in its left subtree have keys less than the node’s key, and all nodes in its right subtree have keys greater than the node’s key. This property enables efficient searching, insertion, and deletion operations.
+
+<MDXCodeBlock
+  languages={{ jsx: binarySearchTreeJs, tsx: binarySearchTreeTs }}
+/>
+
+### Operations
+
+- `new BST()`: Initializes a new instance of a BST. The constructor sets the root of the tree to null, indicating that the tree is initially empty.
+- `insert(value)`: Adds a new node with the given value to the BST. If the tree is empty, the new node becomes the root. If not, the tree is traversed starting from the root to find the correct position for the new node to maintain the BST property. This operation involves comparing the new value with the current node’s value and deciding to move left or right. The average time complexity is O(log n), but it can degrade to O(n) if values are inserted in an ascending/descending order.
+
+![Insert](/img/questions/binary-search-tree/insert.png)
+
+- `search(value)`: Searches for a node containing the specified value. Starting from the root, the tree is traversed to the left or right depending on how the target value compares to the current node’s value. The process is repeated until the value is found or until a leaf is reached. Similar to `insert(value)`, the average time complexity is O(log n), with a worst-case of O(n).
+- `delete(value)`: Removes a node with the specified value from the BST. This operation is more complex as it needs to handle three cases:
+   - Leaf Node: Directly remove the node.
+   - Node with One Child: Remove the node and replace it with its child.
+   - Node with Two Children: Replace the node's value with the smallest value in the right subtree and then delete the successor node.
+
+![Delete](/img/questions/binary-search-tree/delete.png)
+
+The deletion process ensures that the BST properties are maintained after the node is removed. Similar to insertion, the time complexity averages O(log n) but can become O(n).
+
+### Edge Cases
+
+- Inserting a value that already exists in the tree.
+- Deleting a node from an empty tree or a non-existent value.
+- Searching for a value not present in the tree.
+- Deleting duplicate values in the binary search tree.
+
+### Techniques
+
+- In-Order Traversal: Utilized during the delete operation to find the successor.
+- Object-Oriented Design: Using a Node class to represent each tree node and a BST class for the tree operations provides a clear structure and encapsulation.
+
+This binary search tree implementation uses iterative solution, whereas a recursive solution for `delete(value)` may be easier to implement.
