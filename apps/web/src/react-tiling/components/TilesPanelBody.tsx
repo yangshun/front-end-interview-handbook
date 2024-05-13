@@ -1,5 +1,4 @@
 import clsx from 'clsx';
-import { isEqual } from 'lodash-es';
 import { useEffect, useRef, useState } from 'react';
 import { useDrop } from 'react-dnd';
 
@@ -180,10 +179,7 @@ export default function TilesPanelBody<TabType>({
 
     const newPosition = getPosition();
 
-    // To prevent infinite setState calls
-    if (!isEqual(position, newPosition)) {
-      setPosition(newPosition);
-    }
+    setPosition(newPosition);
   }, [dropAreaSection, parentRect, position, setPosition, isOver]);
 
   drop(tabPanelBodyRef);
