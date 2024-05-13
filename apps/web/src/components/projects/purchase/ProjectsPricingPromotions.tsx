@@ -120,7 +120,7 @@ export default function ProjectsPricingPromotions() {
               <button
                 aria-label={alert.title}
                 className={clsx(
-                  'h-2 w-10 rounded',
+                  'h-[5px] w-10 rounded',
                   alert,
                   alert.value === alertValue
                     ? themeBackgroundBrandColor
