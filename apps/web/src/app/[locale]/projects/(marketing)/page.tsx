@@ -40,8 +40,17 @@ export default async function Page({ params }: Props) {
   const [{ challenges }] = await Promise.all([
     readProjectsChallengeList(locale),
   ]);
-  // TODO(projects): Actual featured projects.
-  const featuredChallenges = challenges.slice(0, 10);
+
+  const featuredChallengesTemp = challenges
+    .slice(0, 12)
+    .sort((a, b) => (b.startedCount ?? 0) - (a.startedCount ?? 0));
+  // Number of challenges from the end to shift to the start because
+  // the marquee would have moved a bit since the page loaded.
+  const shiftOffset = featuredChallengesTemp.length - 2;
+  const featuredChallenges = [
+    ...featuredChallengesTemp.slice(shiftOffset),
+    ...featuredChallengesTemp.slice(0, shiftOffset),
+  ];
 
   return <ProjectsMarketingHomePage featuredChallenges={featuredChallenges} />;
 }
