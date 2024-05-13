@@ -35,7 +35,7 @@ export default function ProjectsSkillSummaryList({
       <div className="shrink-0">
         <ProjectsSkillParentSkillList parentSkills={groups} />
       </div>
-      <div className="shrink-0">
+      <div className="flex shrink-0 flex-wrap items-center gap-2">
         <ProjectsSkillList
           limit={Math.max(3 - groups.length, 0)}
           skills={techStackSkills}

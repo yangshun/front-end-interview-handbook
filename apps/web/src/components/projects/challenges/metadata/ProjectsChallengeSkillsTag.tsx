@@ -72,7 +72,9 @@ export default function ProjectsChallengeSkillsTag({
                 id="excuaF"
               />
             </Text>
-            <ProjectsSkillRoadmapChips readonly={true} skills={skills} />
+            <div className="flex flex-wrap items-center gap-2">
+              <ProjectsSkillRoadmapChips readonly={true} skills={skills} />
+            </div>
             <div
               className={clsx('flex items-center gap-1', themeTextSubtleColor)}>
               <RiInformationLine className="size-4 shrink-0" />

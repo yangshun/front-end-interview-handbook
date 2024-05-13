@@ -81,7 +81,7 @@ export default function ProjectsProfileJobSection() {
       />
       {hasStartedWork && (
         <div className="flex flex-col space-y-6">
-          <div className="flex w-full flex-col gap-x-4 gap-y-2 md:flex-row">
+          <div className="flex w-full flex-col gap-x-4 gap-y-6 md:flex-row md:gap-y-2">
             <Controller
               control={control}
               name="jobTitle"
@@ -111,7 +111,10 @@ export default function ProjectsProfileJobSection() {
                 </div>
               )}
             />
-            <Text className="md:mt-9" size="body2" weight="medium">
+            <Text
+              className="hidden md:mt-9 md:block"
+              size="body2"
+              weight="medium">
               {intl.formatMessage({
                 defaultMessage: 'at',
                 description: 'Where the user is working at',

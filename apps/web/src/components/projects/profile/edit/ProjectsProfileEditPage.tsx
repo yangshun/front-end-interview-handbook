@@ -216,13 +216,13 @@ export default function ProjectsProfileEditPage({ userProfile }: Props) {
               await onSave(data),
           )}>
           <div className="flex flex-col gap-8">
-            <div className="flex flex-col gap-14 md:gap-20">
+            <div className="flex flex-col gap-16 md:gap-20">
               <ProjectsProfileBasicInfoSection
                 setUsernameExistsError={setUsernameExistsError}
               />
               <ProjectsProfileMotivationSection view="profile" />
               <ProjectsProfileSkillSection />
-              <div className="flex flex-col gap-6 md:flex-row">
+              <div className="flex flex-col gap-x-6 gap-y-16 md:flex-row">
                 <div className="flex-1">
                   <ProjectsProfileJobSection />
                 </div>

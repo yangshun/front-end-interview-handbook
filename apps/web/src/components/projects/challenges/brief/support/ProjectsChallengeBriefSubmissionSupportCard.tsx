@@ -9,7 +9,12 @@ export default function ProjectsChallengeBriefSubmissionSupportCard() {
         <Text size="body1" weight="bold">
           Responsive solution built with React
         </Text>
-        <ProjectsSkillList limit={3} skills={['react', 'tailwind', 'nextjs']} />
+        <div className="flex flex-wrap items-center gap-2">
+          <ProjectsSkillList
+            limit={3}
+            skills={['react', 'tailwind', 'nextjs']}
+          />
+        </div>
         <img
           alt="Submission support card image"
           className="h-[190px] w-full rounded-md"

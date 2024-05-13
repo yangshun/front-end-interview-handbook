@@ -42,9 +42,9 @@ export default function ProjectsMarketingHero() {
                 <RiBardLine className={themeTextColor} />
                 <Text size="body2" weight="medium">
                   <FormattedMessage
-                    defaultMessage="Now in BETA"
+                    defaultMessage="Now in BETA."
                     description="Project marketing hero section badge"
-                    id="8RQw6L"
+                    id="bVOC6y"
                   />
                 </Text>
                 <Text color="inherit" size="body2" weight="medium">

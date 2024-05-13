@@ -101,13 +101,17 @@ function ProjectsSkillRoadmapSelectionInput(
             {placeholder}
           </Text>
         ) : (
-          <ProjectsSkillRoadmapChips
-            readonly={false}
-            skills={value}
-            onDelete={(deletedSkills) => {
-              onChange(value.filter((skill) => !deletedSkills.includes(skill)));
-            }}
-          />
+          <div className="flex flex-wrap items-center gap-2">
+            <ProjectsSkillRoadmapChips
+              readonly={false}
+              skills={value}
+              onDelete={(deletedSkills) => {
+                onChange(
+                  value.filter((skill) => !deletedSkills.includes(skill)),
+                );
+              }}
+            />
+          </div>
         )}
         <Button
           addonPosition="start"

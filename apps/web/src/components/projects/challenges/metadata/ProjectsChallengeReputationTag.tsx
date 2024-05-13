@@ -76,10 +76,15 @@ export default function ProjectsChallengeReputationTag({
         )}
         {labelVariant === 'gained-skill' && (
           <FormattedMessage
-            defaultMessage="{points} rep gained for this skill"
+            defaultMessage="<bold>{points}</bold> rep gained for this skill"
             description="Reputation points to be gained"
-            id="4G2EHJ"
+            id="SR8949"
             values={{
+              bold: (chunks) => (
+                <Text color="secondary" size="body2" weight="medium">
+                  {chunks}
+                </Text>
+              ),
               points: getFormattedNumber(points),
             }}
           />

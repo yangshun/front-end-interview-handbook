@@ -202,15 +202,17 @@ export default function ProjectsChallengeSubmissionPage({
                 id="1/mHuG"
               />
             </Heading>
-            {roadmapSkills.length > 0 && (
-              <ProjectsSkillRoadmapChips
-                readonly={true}
-                skills={roadmapSkills}
-              />
-            )}
-            {techStackSkills.length > 0 && (
-              <ProjectsSkillList skills={techStackSkills} />
-            )}
+            <div className="flex flex-wrap items-center gap-2">
+              {roadmapSkills.length > 0 && (
+                <ProjectsSkillRoadmapChips
+                  readonly={true}
+                  skills={roadmapSkills}
+                />
+              )}
+              {techStackSkills.length > 0 && (
+                <ProjectsSkillList skills={techStackSkills} />
+              )}
+            </div>
           </div>
         </div>
         <div className={clsx('flex flex-col', 'mt-10 lg:mt-16')}>

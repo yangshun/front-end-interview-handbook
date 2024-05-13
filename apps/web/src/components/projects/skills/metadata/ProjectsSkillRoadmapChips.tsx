@@ -95,7 +95,7 @@ export default function ProjectsSkillRoadmapChips({ skills, ...props }: Props) {
   });
 
   return (
-    <div className="flex flex-wrap gap-2">
+    <>
       {addedRoadmapSkills.map((item) => (
         <ProjectsSkillParentChip
           key={item.parentSkill}
@@ -104,6 +104,6 @@ export default function ProjectsSkillRoadmapChips({ skills, ...props }: Props) {
           {...props}
         />
       ))}
-    </div>
+    </>
   );
 }

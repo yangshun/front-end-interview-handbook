@@ -23,14 +23,12 @@ export default function ProjectsSkillList({ limit = Infinity, skills }: Props) {
   const remainingCount = remainingSkills.length;
 
   return (
-    <ul className="flex flex-wrap items-center gap-2">
+    <>
       {listedSkills.map((skill) => (
-        <li key={skill}>
-          <ProjectsSkillChip readonly={true} value={skill} />
-        </li>
+        <ProjectsSkillChip key={skill} readonly={true} value={skill} />
       ))}
       {remainingCount > 0 && (
-        <li
+        <div
           className={clsx(
             'flex h-5 items-center justify-center rounded border px-2 text-xs',
             themeBorderElementColor,
@@ -48,8 +46,8 @@ export default function ProjectsSkillList({ limit = Infinity, skills }: Props) {
               />
             </Text>
           </Tooltip>
-        </li>
+        </div>
       )}
-    </ul>
+    </>
   );
 }

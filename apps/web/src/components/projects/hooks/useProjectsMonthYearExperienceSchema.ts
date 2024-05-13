@@ -81,10 +81,10 @@ export default function useProjectsMonthYearExperienceSchema(
       {
         message: intl.formatMessage({
           defaultMessage:
-            'Work start date cannot be in future. Please recheck your selections',
+            'Work start date cannot be in the future. Please recheck your selections',
           description:
             'Error message for invalid "Month and year you started work as a Front End Engineer" input on Projects profile onboarding page',
-          id: 't9DHGL',
+          id: 'tbIHno',
         }),
       },
     )

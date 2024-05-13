@@ -751,10 +751,6 @@
     "defaultMessage": "Reset progress",
     "description": "Label to reset study plan progress"
   },
-  "4G2EHJ": {
-    "defaultMessage": "{points} rep gained for this skill",
-    "description": "Reputation points to be gained"
-  },
   "4KjsB6": {
     "defaultMessage": "Number of challenges completed using this skill, including challenges not in the recommended skill plan",
     "description": "Tooltip for completed challenges label"
@@ -1206,10 +1202,6 @@
   "8Nm9WZ": {
     "defaultMessage": "Walmart",
     "description": "Company name for Walmart"
-  },
-  "8RQw6L": {
-    "defaultMessage": "Now in BETA",
-    "description": "Project marketing hero section badge"
   },
   "8RXTKM": {
     "defaultMessage": "Submit",
@@ -3847,6 +3839,10 @@
     "defaultMessage": "You are currently working on this challenge",
     "description": "Description for projects in progress status"
   },
+  "SR8949": {
+    "defaultMessage": "<bold>{points}</bold> rep gained for this skill",
+    "description": "Reputation points to be gained"
+  },
   "SSiHbz": {
     "defaultMessage": "Add LinkedIn",
     "description": "Title for Add LinkedIn task on Projects dashboard page"
@@ -5014,6 +5010,10 @@
   "bT5MuR": {
     "defaultMessage": "Insufficient credits",
     "description": "Title for unlocking a premium challenge"
+  },
+  "bVOC6y": {
+    "defaultMessage": "Now in BETA.",
+    "description": "Project marketing hero section badge"
   },
   "bWymcE": {
     "defaultMessage": "Guide to preparing for Front End-focused System Design questions in front end / web developer interviews",
@@ -7199,10 +7199,6 @@
     "defaultMessage": "Do you want to add the <bold>\"{skillName}\"</bold> skill to this challenge so that completing the challenge will count towards that skill's progress?",
     "description": "Message about adding a skill to a challenge session"
   },
-  "t9DHGL": {
-    "defaultMessage": "Work start date cannot be in future. Please recheck your selections",
-    "description": "Error message for invalid \"Month and year you started work as a Front End Engineer\" input on Projects profile onboarding page"
-  },
   "tBeimS": {
     "defaultMessage": "Challenges activity",
     "description": "Title for challenge activity page"
@@ -7258,6 +7254,10 @@
   "tZPTnS": {
     "defaultMessage": "Difficulty: Hard to Easy",
     "description": "Sorting option for projects list - sort by difficulty from hard to easy"
+  },
+  "tbIHno": {
+    "defaultMessage": "Work start date cannot be in the future. Please recheck your selections",
+    "description": "Error message for invalid \"Month and year you started work as a Front End Engineer\" input on Projects profile onboarding page"
   },
   "tcKl41": {
     "defaultMessage": "Design, architecture and optimization decisions for common front end apps",
