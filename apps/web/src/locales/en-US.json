@@ -7591,10 +7591,6 @@
     "defaultMessage": "Pick your framework",
     "description": "Label for an example list of User Interface Questions on marketing pages"
   },
-  "w5+zQe": {
-    "defaultMessage": "{difficulty}",
-    "description": "Difficulty for track in Continue tracks and skills section on Projects dashboard page"
-  },
   "w68qdd": {
     "defaultMessage": "Our platform was built to support community-driven development. From questions, discussions to code reviews and sharing approaches in our Discord community, you will never feel alone in your learning.",
     "description": "Description of 'Learn together' feature in Projects marketing page"

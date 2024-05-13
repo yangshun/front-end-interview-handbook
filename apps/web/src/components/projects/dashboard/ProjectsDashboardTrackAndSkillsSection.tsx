@@ -1,7 +1,7 @@
 'use client';
 
 import clsx from 'clsx';
-import { RiArrowRightLine, RiFlashlightLine } from 'react-icons/ri';
+import { RiArrowRightLine } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
 
 import { trpc } from '~/hooks/trpc';
@@ -15,15 +15,14 @@ import {
   themeBackgroundEmphasized_Hover,
   themeBorderColor,
   themeDivideColor,
-  themeGradientPinkPurple,
-  themeIconColor,
+  themeGradientGreenYellow,
   themeTextBrandColor_GroupHover,
   themeTextFaintColor,
 } from '~/components/ui/theme';
 
 import ProjectsChallengeProgressTag from '../challenges/metadata/ProjectsChallengeProgressTag';
 
-const trackGradient = themeGradientPinkPurple;
+const trackGradient = themeGradientGreenYellow;
 
 const limit = 2;
 
@@ -134,29 +133,11 @@ export default function ProjectsDashboardTrackAndSkillsSection() {
                       },
                     )}
                   </Anchor>
-                  <div className="flex flex-row gap-2 sm:gap-4 md:gap-6">
-                    <div className="flex flex-row items-center gap-1.5">
-                      <RiFlashlightLine className={clsx(themeIconColor)} />
-                      <Text color="success" size="body3">
-                        {intl.formatMessage(
-                          {
-                            defaultMessage: '{difficulty}',
-                            description:
-                              'Difficulty for track in Continue tracks and skills section on Projects dashboard page',
-                            id: 'w5+zQe',
-                          },
-                          {
-                            difficulty: 'Starter', // TODO(projects): get difficulty
-                          },
-                        )}
-                      </Text>
-                    </div>
-                    <ProjectsChallengeProgressTag
-                      completed={track.numChallengesCompleted}
-                      showProgress={false}
-                      total={track.numChallenges}
-                    />
-                  </div>
+                  <ProjectsChallengeProgressTag
+                    completed={track.numChallengesCompleted}
+                    showProgress={false}
+                    total={track.numChallenges}
+                  />
                 </div>
                 <RiArrowRightLine
                   aria-hidden="true"
