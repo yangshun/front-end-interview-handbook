@@ -1,4 +1,3 @@
-import { useSearchParams } from 'next/navigation';
 import React, { useState } from 'react';
 import { RiCheckLine } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
@@ -32,8 +31,6 @@ export default function QuestionProgressAction({
   questionProgress,
   metadata,
 }: Props) {
-  const searchParams = useSearchParams();
-
   const intl = useIntl();
   const user = useUser();
   const [isLoginDialogShown, setIsLoginDialogShown] = useState(false);
@@ -165,10 +162,13 @@ export default function QuestionProgressAction({
       size="xs"
       variant="secondary"
       onClick={() => {
+        const listKey =
+          new URL(window.location.href).searchParams.get('list') ?? undefined;
+
         addProgressMutation.mutate(
           {
             format: metadata.format,
-            listKey: searchParams?.get('list') ?? undefined,
+            listKey,
             progressId: questionProgress?.id,
             slug: metadata.slug,
             status: 'complete',

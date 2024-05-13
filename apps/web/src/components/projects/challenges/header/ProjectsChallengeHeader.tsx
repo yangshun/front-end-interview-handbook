@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 import { useSearchParams } from 'next/navigation';
-import { useEffect, useState } from 'react';
+import { Suspense, useEffect, useState } from 'react';
 import { RiArrowLeftLine } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
 import { useIsMounted } from 'usehooks-ts';
@@ -37,7 +37,7 @@ type Props = Readonly<{
   viewerProjectsProfile: ProjectsViewerProjectsProfile | null;
 }>;
 
-export default function ProjectsChallengeHeader({
+function ProjectsChallengeHeaderImpl({
   challenge,
   viewerAccess,
   viewerProjectsProfile,
@@ -266,5 +266,15 @@ export default function ProjectsChallengeHeader({
         />
       </div>
     </>
+  );
+}
+
+// UseSearchParams should be within a suspense boundary according to
+// https://nextjs.org/docs/messages/missing-suspense-with-csr-bailout
+export default function ProjectsChallengeHeader(props: Props) {
+  return (
+    <Suspense>
+      <ProjectsChallengeHeaderImpl {...props} />
+    </Suspense>
   );
 }
