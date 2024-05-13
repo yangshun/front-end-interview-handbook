@@ -138,7 +138,7 @@ export default function ProjectsChallengeCurrentProjectSessionCard({
         <div className="@container flex gap-2">
           <div
             className={clsx(
-              '@md:flex-row flex w-full flex-col flex-wrap justify-between gap-3',
+              '@md:flex-row flex w-full flex-col flex-wrap justify-between gap-5',
             )}>
             <div className="flex shrink-0 flex-col gap-2">
               <div className="flex items-center justify-between">

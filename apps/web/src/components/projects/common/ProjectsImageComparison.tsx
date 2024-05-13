@@ -99,42 +99,44 @@ export default function ProjectsImageComparison({
       {title && (
         <div
           className={clsx(
-            'flex flex-col justify-between gap-4 md:flex-row',
+            'flex flex-col justify-between gap-4 md:flex-row md:items-center',
             'px-4 py-4 md:px-6',
           )}>
-          <div className="flex flex-wrap items-center gap-4">
-            <Text size="body1" weight="bold">
-              {title}
-            </Text>
+          <Text size="body1" weight="bold">
+            {title}
+          </Text>
+          <div className="flex flex-1 items-center justify-between gap-2 md:gap-4">
             {isScreenshotSuccess && (
-              <ProjectsChallengeSubmissionImageMatchScore
-                baseImage={baseImage}
-                breakpoint={selectedBreakpoint}
-                userSubmittedImage={userSubmittedImage}
-              />
+              <>
+                <ProjectsChallengeSubmissionImageMatchScore
+                  baseImage={baseImage}
+                  breakpoint={selectedBreakpoint}
+                  userSubmittedImage={userSubmittedImage}
+                />
+                {allowRetakeScreenshot && (
+                  <Button
+                    addonPosition="start"
+                    icon={RiImageLine}
+                    isDisabled={isRetakingScreenshot}
+                    isLoading={isRetakingScreenshot}
+                    label={intl.formatMessage({
+                      defaultMessage: 'Retake screenshot',
+                      description: 'Retake screenshot button label',
+                      id: 'e0C2cj',
+                    })}
+                    tooltip={intl.formatMessage({
+                      defaultMessage:
+                        'When your site URL was submitted, we automatically take screenshots of your pages. You can manually trigger retake with this button if your site has been updated',
+                      description: 'Tooltip for retake screenshot button',
+                      id: 'eNCfLw',
+                    })}
+                    variant="secondary"
+                    onClick={onTakeScreenshot}
+                  />
+                )}
+              </>
             )}
           </div>
-          {allowRetakeScreenshot && (
-            <Button
-              addonPosition="start"
-              icon={RiImageLine}
-              isDisabled={isRetakingScreenshot || isScreenshotInProgress}
-              isLoading={isRetakingScreenshot}
-              label={intl.formatMessage({
-                defaultMessage: 'Retake screenshot',
-                description: 'Retake screenshot button label',
-                id: 'e0C2cj',
-              })}
-              tooltip={intl.formatMessage({
-                defaultMessage:
-                  'When your site URL was submitted, we automatically take screenshots of your pages. You can manually trigger retake with this button if your site has been updated',
-                description: 'Tooltip for retake screenshot button',
-                id: 'eNCfLw',
-              })}
-              variant="secondary"
-              onClick={onTakeScreenshot}
-            />
-          )}
         </div>
       )}
       {isScreenshotInProgress && (
@@ -281,55 +283,63 @@ export default function ProjectsImageComparison({
             </div>
           )}
         </div>
-        {deploymentImagesForBreakpointWithComparison.length > 1 && (
-          <div
-            className={clsx(
-              'flex gap-2 md:justify-center',
-              'col-span-2 md:col-span-1',
-            )}>
-            {deploymentImagesForBreakpointWithComparison.map((page, index) => (
-              <Tooltip
-                key={page.label}
-                asChild={true}
-                label={
-                  specLabels[
-                    deploymentImagesForBreakpointWithComparison[index].label
-                  ] || deploymentImagesForBreakpointWithComparison[index].label
-                }>
-                <button
-                  aria-label={page.label}
-                  className={clsx(
-                    'size-12 overflow-clip rounded',
-                    'border',
-                    index === selectedScreenIndex
-                      ? themeBorderBrandColor
-                      : themeBorderElementColor,
-                    themeOutlineElement_FocusVisible,
-                    themeOutlineElementBrandColor_FocusVisible,
-                  )}
-                  type="button"
-                  onClick={() => setSelectedScreenIndex(index)}>
-                  <img
-                    alt={page.label}
-                    className="size-full object-cover"
-                    src={page.image}
-                  />
-                </button>
-              </Tooltip>
-            ))}
-          </div>
+        {isScreenshotSuccess && (
+          <>
+            {deploymentImagesForBreakpointWithComparison.length > 1 && (
+              <div
+                className={clsx(
+                  'flex gap-2 md:justify-center',
+                  'col-span-2 md:col-span-1',
+                )}>
+                {deploymentImagesForBreakpointWithComparison.map(
+                  (page, index) => (
+                    <Tooltip
+                      key={page.label}
+                      asChild={true}
+                      label={
+                        specLabels[
+                          deploymentImagesForBreakpointWithComparison[index]
+                            .label
+                        ] ||
+                        deploymentImagesForBreakpointWithComparison[index].label
+                      }>
+                      <button
+                        aria-label={page.label}
+                        className={clsx(
+                          'size-12 overflow-clip rounded',
+                          'border',
+                          index === selectedScreenIndex
+                            ? themeBorderBrandColor
+                            : themeBorderElementColor,
+                          themeOutlineElement_FocusVisible,
+                          themeOutlineElementBrandColor_FocusVisible,
+                        )}
+                        type="button"
+                        onClick={() => setSelectedScreenIndex(index)}>
+                        <img
+                          alt={page.label}
+                          className="size-full object-cover"
+                          src={page.image}
+                        />
+                      </button>
+                    </Tooltip>
+                  ),
+                )}
+              </div>
+            )}
+            <div
+              className={clsx('flex items-center justify-end', [
+                'col-span-2',
+                deploymentImagesForBreakpointWithComparison.length > 1 &&
+                  'md:col-span-1',
+              ])}>
+              <ProjectsImageBreakpointButtonGroup
+                breakpoint={selectedBreakpoint}
+                setBreakpoint={setSelectedBreakpoint}
+              />
+            </div>
+          </>
         )}
-        <div
-          className={clsx('flex items-center justify-end', [
-            'col-span-2',
-            deploymentImagesForBreakpointWithComparison.length > 1 &&
-              'md:col-span-1',
-          ])}>
-          <ProjectsImageBreakpointButtonGroup
-            breakpoint={selectedBreakpoint}
-            setBreakpoint={setSelectedBreakpoint}
-          />
-        </div>
       </div>
     </div>
   );

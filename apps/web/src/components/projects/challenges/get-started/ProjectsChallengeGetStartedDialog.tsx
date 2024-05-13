@@ -225,7 +225,7 @@ export default function ProjectsChallengeGetStartedDialog({
       })}
       width="screen-sm"
       onClose={onStartClick}>
-      <ol className="relative flex flex-col pt-3">
+      <ol className="relative flex flex-col pb-4 pt-3">
         {dialogSteps.map((step, index) => {
           const isStepSelected = index === currentStepIndex;
           const isStepCompleted = index < currentStepIndex;
