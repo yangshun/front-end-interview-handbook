@@ -47,10 +47,10 @@ import type {
   ProjectsPricingPlanPaymentConfigLocalizedRecord,
   ProjectsSubscriptionPlanIncludingFree,
 } from './ProjectsPricingPlans';
+import ProjectsPurchaseCancelLogging from './ProjectsPurchaseCancelLogging';
 import type { ProjectsSubscriptionPlanFeature } from './useProjectsPricingPlanFeatures';
 import useProjectsPricingPlanFeatures from './useProjectsPricingPlanFeatures';
 import useProjectsPricingPlansList from './useProjectsPricingPlansList';
-import useProjectsPurchaseCancelLogging from './useProjectsPurchaseCancelLogging';
 import useUserProfileWithProjectsProfile from '../common/useUserProfileWithProjectsProfile';
 
 import type { ProjectsSubscriptionPlan } from '@prisma/client';
@@ -598,8 +598,6 @@ export default function ProjectsPricingTable({
   showPPPMessage,
   useCurrentPageAsCancelUrl,
 }: Props) {
-  useProjectsPurchaseCancelLogging(plansPaymentConfig);
-
   const planList = useProjectsPricingPlansList(plansPaymentConfig);
   const features = useProjectsPricingPlanFeatures({
     ANNUAL: annualPlanFeatures,
@@ -615,6 +613,7 @@ export default function ProjectsPricingTable({
 
   return (
     <div>
+      <ProjectsPurchaseCancelLogging plansPaymentConfig={plansPaymentConfig} />
       {/* Xl and above */}
       <div
         className={clsx(

@@ -2,11 +2,10 @@ import { cookies } from 'next/headers';
 import type { Metadata } from 'next/types';
 
 import fetchInterviewsPricingPlanPaymentConfigLocalizedRecord from '~/components/interviews/purchase/fetchInterviewsPricingPlanPaymentConfigLocalizedRecord';
+import InterviewsPaymentSuccessPage from '~/components/interviews/purchase/InterviewsPaymentSuccessPage';
 
 import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
-
-import InterviewsPaymentSuccessPage from './InterviewsPaymentSuccessPage';
 
 type Props = Readonly<{
   params: Readonly<{
