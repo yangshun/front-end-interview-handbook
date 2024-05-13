@@ -38,7 +38,6 @@ export default function ProjectsChallengeGuidePaywall({
             className={clsx('size-10 shrink-0', themeTextSubtleColor)}
           />
         }
-        size="md"
         slug={slug}
         subtitle={subtitle}
         title={title!}

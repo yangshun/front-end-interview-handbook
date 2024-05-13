@@ -25,7 +25,6 @@ export default function ProjectsChallengeContentPaywall({
 
   return (
     <ProjectsPremiumPaywall
-      size="lg"
       slug={slug}
       subtitle={subtitle}
       title={title!}

@@ -84,9 +84,9 @@ export default function useProjectsPricingPlanFeatures(
           </p>
           <p>
             <FormattedMessage
-              defaultMessage="Even when you are not actively subscribed, unspent premium credits will roll over to the next month. However, they can only be used when you are an active premium member."
+              defaultMessage="Even when you are not actively subscribed, unspent premium credits will roll over to the next cycle. For annual users, we will roll over credits for projects that remain locked at the end of your subscription cycle. However, credits can only be spent when you are an active premium member."
               description="Description of premium feature"
-              id="D4BYZm"
+              id="xleg5b"
             />
           </p>
         </div>

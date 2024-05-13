@@ -4,8 +4,7 @@ import { useState } from 'react';
 import { useIntl } from 'react-intl';
 
 import Button from '~/components/ui/Button';
-import Heading from '~/components/ui/Heading';
-import Text from '~/components/ui/Text';
+import EmptyState from '~/components/ui/EmptyState';
 
 import ProjectsChallengeUnlockAccessDialog from './ProjectsChallengeUnlockAccessDialog';
 import type { ProjectsPremiumAccessControlType } from './ProjectsPremiumAccessControl';
@@ -52,7 +51,6 @@ function UnlockButton({
 
 type Props = Readonly<{
   icon?: ReactNode;
-  size: 'lg' | 'md';
   slug: string;
   subtitle: ReactNode;
   title: string;
@@ -62,8 +60,6 @@ type Props = Readonly<{
 
 export default function ProjectsPremiumPaywall({
   viewerProjectsProfile,
-  icon,
-  size,
   slug,
   subtitle,
   title,
@@ -112,29 +108,12 @@ export default function ProjectsPremiumPaywall({
         'mx-auto max-w-xl',
         'text-center',
       )}>
-      {icon}
-      {size === 'lg' ? (
-        <div className="flex flex-col gap-4">
-          <Heading level="heading5">{title}</Heading>
-          <Text
-            className="text-pretty mt-4 block"
-            color="subtitle"
-            size="body1">
-            {subtitle}
-          </Text>
-        </div>
-      ) : (
-        <div className="flex flex-col gap-1">
-          <Text className="text-pretty block" size="body1" weight="medium">
-            {title}
-          </Text>
-          <Text className="text-pretty block" color="secondary" size="body2">
-            {subtitle}
-          </Text>
-        </div>
-      )}
-
-      {action && <div className="mt-7">{action}</div>}
+      <EmptyState
+        action={action}
+        subtitle={subtitle}
+        title={title}
+        variant="not_subscribed"
+      />
     </div>
   );
 }

@@ -559,10 +559,6 @@
     "defaultMessage": "Online assets",
     "description": "Title for Online Assets section on Projects project assets page"
   },
-  "2kxohv": {
-    "defaultMessage": "Even when you are not actively subscribed, unspent premium credits will roll over to the next cycle. For annual users, we will roll over credits for projects that remain locked at the end of your subscription cycle. However, credits can only be used when you are an active premium member.",
-    "description": "Description of premium feature"
-  },
   "2rcoOT": {
     "defaultMessage": "Edit",
     "description": "Edit button label"
@@ -1771,10 +1767,6 @@
     "defaultMessage": "Study and practice the exact questions and concepts you need to prepare for front end interviews within a week",
     "description": "Description of 1 Week Preparation Plan page"
   },
-  "D4BYZm": {
-    "defaultMessage": "Even when you are not actively subscribed, unspent premium credits will roll over to the next month. However, they can only be used when you are an active premium member.",
-    "description": "Description of premium feature"
-  },
   "D5644P": {
     "defaultMessage": "Existing subscribers can upgrade to the lifetime plan at a discount, send an email to <link>contact@greatfrontend</link> to find out more.",
     "description": "Call to action text to upgrade plan."
@@ -2402,10 +2394,6 @@
   "I+Qcp7": {
     "defaultMessage": "An eye-catching name to describe your solution. Will be displayed under the original Project's name and help other users identify your submission.",
     "description": "Description for submission title input on project submit page"
-  },
-  "I1LWUq": {
-    "defaultMessage": "Full access to tracks & skills. You have unlimited <tooltip>premium credits</tooltip>",
-    "description": "Subtitle of premium plan CTA card"
   },
   "I4lo5m": {
     "defaultMessage": "Practice Svelte Interview Questions with Solutions",
@@ -7515,6 +7503,10 @@
     "defaultMessage": "Explore user submissions handpicked for your growth - based on your profile, skills you're keen to learn, and the projects you've completed.",
     "description": "Description of projects learn from others page"
   },
+  "vWzLH8": {
+    "defaultMessage": "Full access to tracks & skills. Unlimited <tooltip>premium credits</tooltip>",
+    "description": "Subtitle of premium plan CTA card"
+  },
   "vbwUYs": {
     "defaultMessage": "Clarify any doubts on a project in project-specific forums",
     "description": "Description for \"Learn from others\" feature on Projects home page"
@@ -7750,6 +7742,10 @@
   "xjHSyF": {
     "defaultMessage": "All log levels",
     "description": "Select label for all log levels in console filter"
+  },
+  "xleg5b": {
+    "defaultMessage": "Even when you are not actively subscribed, unspent premium credits will roll over to the next cycle. For annual users, we will roll over credits for projects that remain locked at the end of your subscription cycle. However, credits can only be spent when you are an active premium member.",
+    "description": "Description of premium feature"
   },
   "xmK6tB": {
     "defaultMessage": "Build the foundation from ground up for reuse",
