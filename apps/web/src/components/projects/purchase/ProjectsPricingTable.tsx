@@ -178,14 +178,18 @@ function PricingButtonNonPremium({
 
     setIsCheckoutSessionLoading(true);
     setErrorMessage(null);
+
     try {
+      const cancelURL = new URL(
+        window.location.pathname,
+        window.location.origin,
+      );
+
       const res = await fetch(
         url.format({
           pathname: '/api/payments/purchase/checkout',
           query: {
-            cancel_url: useCurrentPageAsCancelUrl
-              ? window.location.href
-              : undefined,
+            cancel_url: useCurrentPageAsCancelUrl ? cancelURL.href : undefined,
             plan_type: planTypeParam,
             product_domain: 'projects',
           },
