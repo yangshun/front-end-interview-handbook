@@ -1,5 +1,6 @@
 import chalk from 'chalk';
 import fs from 'fs';
+import url from 'node:url';
 import path from 'path';
 
 import pricing from '../data/purchase/purchasingPowerParity.json' assert { type: 'json' };
@@ -15,10 +16,6 @@ export type PurchasingPowerParity = Readonly<{
   }>;
   ppp: number;
   pppConversionFactor: number;
-}>;
-
-type PurchasingPowerParityPayload = Readonly<{
-  ppp: PurchasingPowerParity;
 }>;
 
 type CountryCode = keyof typeof pricing;
@@ -45,22 +42,19 @@ async function updateCountryPPP() {
   for (const countryCode of countries) {
     console.info(chalk.cyan(`info`), `Fetching PPP data for ${countryCode}`);
     try {
-      const response = await fetch(
-        `https://api.purchasing-power-parity.com/?target=${countryCode}`,
+      const urlPath = new URL(
+        url.format({ pathname: '/', query: { target: countryCode } }),
+        'https://ppp-api.fly.dev',
       );
-      const payload = (await response.json()) as PurchasingPowerParityPayload;
-      const { ppp: purchasingPowerParity } = payload;
+
+      const response = await fetch(urlPath);
+      const purchasingPowerParity =
+        (await response.json()) as PurchasingPowerParity;
 
       const oldPrice: PPP = pricing[countryCode];
       const mainCurrencyName = purchasingPowerParity.currencyMain.name;
       const currencyCode = (() => {
-        for (const [currency, { name }] of Object.entries(
-          purchasingPowerParity.currenciesCountry,
-        )) {
-          if (name === mainCurrencyName) {
-            return currency;
-          }
-        }
+        return Object.keys(purchasingPowerParity.currenciesCountry)[0];
       })();
 
       if (currencyCode == null) {
@@ -87,7 +81,7 @@ async function updateCountryPPP() {
           code: currencyCode.toLocaleLowerCase(),
           exchangeRate: purchasingPowerParity.currencyMain.exchangeRate,
           symbol:
-            purchasingPowerParity.currencyMain.symbol ??
+            purchasingPowerParity.currenciesCountry[currencyCode].symbol ??
             oldPrice.currency.symbol,
         },
       };
@@ -105,10 +99,7 @@ async function updateCountryPPP() {
   }
 
   fs.writeFileSync(
-    path.join(
-      process.cwd(),
-      'src/components/pricing/purchasingPowerParity.json',
-    ),
+    path.join(process.cwd(), 'src/data/purchase/purchasingPowerParity.json'),
     JSON.stringify(newPricing, null, 2),
   );
 
