@@ -8,7 +8,11 @@ import { useI18nPathname, useI18nRouter } from '~/next-i18nostic/src';
 
 import ConfirmationDialog from '../../../common/ConfirmationDialog';
 
-const EXCLUSIONS = ['/projects', '/projects/onboarding'];
+const EXCLUSIONS = [
+  '/projects',
+  '/projects/onboarding',
+  '/projects/onboarding/profile',
+];
 
 export default function ProjectsRedirectToOnboardingIfNecessary() {
   const router = useI18nRouter();
@@ -18,23 +22,40 @@ export default function ProjectsRedirectToOnboardingIfNecessary() {
   const { data: userProfile } = trpc.projects.profile.viewer.useQuery();
 
   useEffect(() => {
-    if (
-      userProfile != null &&
-      // Redirect to onboarding page if projectsProfile has not been set up.
-      userProfile?.projectsProfile == null &&
-      !EXCLUSIONS.includes(pathname ?? '')
-    ) {
-      setShowDialog(true);
+    if (EXCLUSIONS.includes(pathname ?? '')) {
+      setShowDialog(false);
+
+      return;
     }
 
-    if (pathname === '/projects/onboarding') {
-      setShowDialog(false);
+    if (userProfile != null) {
+      if (
+        // Redirect to onboarding page if projectsProfile has not been set up.
+        userProfile?.projectsProfile == null
+      ) {
+        setShowDialog(true);
+      }
+
+      if (
+        // Redirect to profile setup page if projectsProfile not fully set up.
+        !userProfile?.name ||
+        !userProfile?.title
+      ) {
+        setShowDialog(true);
+      }
     }
   }, [router, userProfile, pathname]);
 
   function navigateToOnboarding() {
+    if (userProfile == null) {
+      return;
+    }
+
     router.push({
-      pathname: '/projects/onboarding',
+      pathname:
+        userProfile?.projectsProfile == null
+          ? '/projects/onboarding'
+          : '/projects/onboarding/profile',
       query: {
         next: pathname,
       },

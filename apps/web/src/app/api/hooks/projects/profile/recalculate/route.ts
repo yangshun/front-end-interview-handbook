@@ -56,7 +56,6 @@ export async function POST(req: NextRequest) {
 
   if (
     projectsProfile.userProfile.name &&
-    projectsProfile.userProfile.currentStatus &&
     projectsProfile.userProfile.title &&
     projectsProfile.motivations?.length > 0
   ) {

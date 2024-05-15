@@ -16,7 +16,19 @@ export default function ProjectsOnboardingProfilePage() {
   const intl = useIntl();
   const { showToast } = useToast();
   const searchParams = useSearchParams();
-  const nextPathname = searchParams?.get('next') || '/projects/challenges';
+  const nextPathname = (() => {
+    const next = searchParams?.get('next');
+
+    if (
+      !next ||
+      next === '/projects/onboarding' ||
+      next === '/projects/onboarding/profile'
+    ) {
+      return '/projects/challenges';
+    }
+
+    return next;
+  })();
 
   return (
     <main>
