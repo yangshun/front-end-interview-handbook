@@ -1,0 +1,3 @@
+## Hacker News API
+
+The Hacker News API is public on https://github.com/HackerNews/API. Their API does not include item details with the list, so you will have to first hit the list APIs (e.g. `/v0/topstories.json`, `/v0/askstories.json`, etc.) to obtain a list of item IDs, then individually query each item using `/v0/item/{id}.json`.

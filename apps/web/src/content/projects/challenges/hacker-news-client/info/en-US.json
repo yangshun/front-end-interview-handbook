@@ -1,0 +1,7 @@
+{
+  "title": "Hacker News Client",
+  "description": "Build a modern Hacker News client which offers an improved user interface while displaying real-time data from the official Hacker News API",
+  "specLabels": {
+    "main": "Hacker news client"
+  }
+}

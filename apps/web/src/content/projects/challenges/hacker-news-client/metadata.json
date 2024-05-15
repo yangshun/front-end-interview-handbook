@@ -1,0 +1,49 @@
+{
+  "createdAt": "2024-05-15",
+  "difficulty": "senior",
+  "track": "apps",
+  "order": 999,
+  "guides": ["layout-grid", "icons"],
+  "access": "standard",
+  "baseCredits": 2,
+  "pointsBase": 1000,
+  "pointsForSkillGroups": {
+    "html": 5,
+    "css": 5,
+    "javascript": 10,
+    "react": 10,
+    "package-managers": 5,
+    "build-tools": 5,
+    "testing": 5,
+    "performance": 5
+  },
+  "skills": [],
+  "resources": [
+    "design-files",
+    "image-assets",
+    "readme",
+    "starter-code",
+    "style-guide",
+    "api"
+  ],
+  "coverImage": "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/render/image/public/projects-images/hacker-news-client/cover.jpg",
+  "galleryImages": [
+    "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/render/image/public/projects-images/hacker-news-client/gallery/Desktop-1.jpg",
+    "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/render/image/public/projects-images/hacker-news-client/gallery/Desktop-2.jpg",
+    "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/render/image/public/projects-images/hacker-news-client/gallery/Desktop-3.jpg",
+    "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/render/image/public/projects-images/hacker-news-client/gallery/Tablet.jpg",
+    "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/render/image/public/projects-images/hacker-news-client/gallery/Mobile.jpg"
+  ],
+  "specImages": {
+    "default": [
+      {
+        "label": "main",
+        "images": {
+          "desktop": "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/render/image/public/projects-images/hacker-news-client/specs/Desktop.jpg",
+          "tablet": "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/render/image/public/projects-images/hacker-news-client/specs/Tablet.jpg",
+          "mobile": "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/render/image/public/projects-images/hacker-news-client/specs/Mobile.jpg"
+        }
+      }
+    ]
+  }
+}
