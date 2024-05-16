@@ -147,7 +147,7 @@ export default function ProjectsProfileEditPage({ userProfile }: Props) {
         avatarUrl: data.avatarUrl,
         bio: data.bio,
         company: data.company,
-        currentStatus: data.hasStartedWork ? null : data.yoeReplacement,
+        currentStatus: data.yoeReplacement,
         githubUsername: data.githubUsername,
         linkedInUsername: data.linkedInUsername,
         motivations: data.motivations.flatMap((motivation) =>
@@ -157,7 +157,7 @@ export default function ProjectsProfileEditPage({ userProfile }: Props) {
         skillsProficient: data.skillsProficient,
         skillsToGrow: data.skillsToGrow,
         startWorkDate: data.monthYearExperience,
-        title: data.jobTitle,
+        title: data.hasStartedWork ? data.jobTitle : data.title,
         username: data.username,
         website: data.website,
       },

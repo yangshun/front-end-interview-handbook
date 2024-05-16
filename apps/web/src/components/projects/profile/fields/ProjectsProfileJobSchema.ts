@@ -80,6 +80,10 @@ export function useProjectsJobStartedSchema() {
       .string()
       .optional()
       .transform(() => undefined),
+    yoeReplacement: z
+      .any()
+      .optional()
+      .transform(() => null),
   };
 }
 
@@ -143,7 +147,9 @@ export function useProjectsJobNotStartedSchema() {
       .string()
       .optional()
       .transform(() => undefined),
-    monthYearExperience: z.string().optional()
+    monthYearExperience: z
+      .string()
+      .optional()
       .transform(() => null),
     title: titleSchema,
     yoeReplacement: z

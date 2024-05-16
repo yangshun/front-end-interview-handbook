@@ -110,7 +110,7 @@ export default function ProjectsOnboardingProfileStep1({ onFinish }: Props) {
             await onboardingStep1UpdateMutation.mutateAsync({
               avatarUrl: data.avatarUrl,
               company: data.company,
-              currentStatus: data.hasStartedWork ? null : data.yoeReplacement,
+              currentStatus: data.yoeReplacement,
               name: data.name,
               startWorkDate: data.monthYearExperience,
               title: data.hasStartedWork ? data.jobTitle : data.title,
