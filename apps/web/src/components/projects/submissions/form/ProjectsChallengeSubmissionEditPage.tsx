@@ -100,7 +100,7 @@ export default function ProjectsChallengeSubmissionEditPage({
         }),
         variant: 'info',
       });
-      router.push('/projects/dashboard');
+      router.push('/projects/dashboard/progress/challenges');
       // Refetch latest profile page data.
       router.refresh();
     },
