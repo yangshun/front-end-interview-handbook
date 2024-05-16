@@ -130,9 +130,6 @@ export function getProjectsProfileJobStatusOthersFieldAttributes(
 
 export function useProjectsJobNotStartedSchema() {
   const intl = useIntl();
-  const monthYearExperienceSchema = useProjectsMonthYearExperienceSchema({
-    isRequired: true,
-  });
   const titleSchema = useProjectsJobTitleInputSchema({ type: 'title' });
   const intlStrings = getProjectsProfileJobStatusOthersFieldAttributes(intl);
 
@@ -146,8 +143,7 @@ export function useProjectsJobNotStartedSchema() {
       .string()
       .optional()
       .transform(() => undefined),
-    monthYearExperience: monthYearExperienceSchema
-      .optional()
+    monthYearExperience: z.string().optional()
       .transform(() => null),
     title: titleSchema,
     yoeReplacement: z
