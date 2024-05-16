@@ -131,6 +131,17 @@ function RenewalTooltip({
             defaultMessage="Your subscription renews on <bold>{date}</bold>"
             description="Information about subscription"
             id="CUkv2F"
+            values={{
+              bold: (chunks) => (
+                <Text
+                  className="whitespace-nowrap"
+                  color="inherit"
+                  weight="bold">
+                  {chunks}
+                </Text>
+              ),
+              date,
+            }}
           />
         ) : (
           <FormattedMessage
