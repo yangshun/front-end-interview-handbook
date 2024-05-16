@@ -82,7 +82,7 @@ export default function ProjectsSkillRoadmapItemDetails({
         <Heading level="heading6" tag="h1">
           {skillInfo.title}
         </Heading>
-        <div className="flex flex-wrap gap-x-6">
+        <div className="flex flex-wrap gap-x-6 gap-y-2">
           {(skillPlanProgressData?.points ?? 0) > 0 && (
             <ProjectsChallengeReputationTag
               labelVariant="gained-skill"
