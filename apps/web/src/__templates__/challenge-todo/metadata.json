@@ -5,6 +5,7 @@
   "order": 999,
   "guides": [],
   "access": "standard",
+  "baseCredits": 1,
   "pointsBase": 100,
   "pointsForSkillGroups": {
     "html": 5,
