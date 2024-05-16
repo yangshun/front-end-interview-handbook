@@ -1,3 +1,5 @@
+'use client'
+
 import DiscussionsCommentList from '~/components/projects/discussions/ProjectsDiscussionsCommentList';
 
 import ProjectsChallengeDiscussionsNewComment from './ProjectsChallengeDiscussionsNewComment';

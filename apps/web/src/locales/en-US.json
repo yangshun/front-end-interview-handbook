@@ -767,6 +767,10 @@
     "defaultMessage": "Info",
     "description": "Select label for info log level in console filter"
   },
+  "4elzbc": {
+    "defaultMessage": "Challenge: {challengeName} | Reference submissions",
+    "description": "Title of Projects challenge resources submissions page"
+  },
   "4g6SOx": {
     "defaultMessage": "{upvoteCount, plural, =0 {No upvotes} one {# upvote} other {# upvotes}}",
     "description": "Number of upvotes for project submission"
@@ -2138,10 +2142,6 @@
   "G7d68r": {
     "defaultMessage": "Changes saved successfully!",
     "description": "Update challenge success message"
-  },
-  "G8ONGa": {
-    "defaultMessage": "Challenge: {challengeName} | Resources",
-    "description": "Title of Projects challenge resources page"
   },
   "G9r7uh": {
     "defaultMessage": "Coding questions supported in Vanilla JavaScript and React, with support for more libraries coming soon!",
@@ -4683,6 +4683,10 @@
     "defaultMessage": "The skills you are using in this project, which are in our skills roadmap. Helps us track your progress on skills development",
     "description": "Description for skills roadmap input on project submit page"
   },
+  "Yx+36F": {
+    "defaultMessage": "Challenge: {challengeName} | Guides",
+    "description": "Title of Projects challenge resources guides age"
+  },
   "YzW/Zb": {
     "defaultMessage": "Expires on {expiryDate}",
     "description": "Subtext for rewards complete page"
@@ -5091,6 +5095,10 @@
     "defaultMessage": "User Interface Questions",
     "description": "Title for an example list of User Interface Questions on marketing pages"
   },
+  "c2emAw": {
+    "defaultMessage": "Challenge: {challengeName} | Discussions",
+    "description": "Title of Projects challenge resources discussions page"
+  },
   "c2hcfm": {
     "defaultMessage": "Submit",
     "description": "Feedback widget submit button label"
@@ -5278,6 +5286,10 @@
   "dgTN/f": {
     "defaultMessage": "More",
     "description": "Label for \"More\" button on current project session card"
+  },
+  "dhbnY3": {
+    "defaultMessage": "Challenge: {challengeName} | Official solutions",
+    "description": "Title of Projects challenge resources solutions page"
   },
   "dhfVpJ": {
     "defaultMessage": "This is the unique username used to identify you. Use a maximum of {maxLength} character(s).",

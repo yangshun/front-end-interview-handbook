@@ -56,12 +56,36 @@ export const ProjectsChallengeMetadataDocument = defineDocumentType(() => ({
       },
       type: 'number',
     },
-    resourcesHref: {
-      description: 'Link to projects resources step contents',
+    resourcesDiscussionsHref: {
+      description: 'Link to projects resources discussions step contents',
       resolve: (doc) =>
         `/projects/challenges/${parseProjectSlug(
           doc._raw.sourceFilePath,
-        )}/resources`,
+        )}/resources/discussions`,
+      type: 'string',
+    },
+    resourcesGuidesHref: {
+      description: 'Link to projects resources gudies step contents',
+      resolve: (doc) =>
+        `/projects/challenges/${parseProjectSlug(
+          doc._raw.sourceFilePath,
+        )}/resources/guides`,
+      type: 'string',
+    },
+    resourcesSolutionsHref: {
+      description: 'Link to projects resources submissions step contents',
+      resolve: (doc) =>
+        `/projects/challenges/${parseProjectSlug(
+          doc._raw.sourceFilePath,
+        )}/resources/solutions`,
+      type: 'string',
+    },
+    resourcesSubmissionsHref: {
+      description: 'Link to projects resources submissions step contents',
+      resolve: (doc) =>
+        `/projects/challenges/${parseProjectSlug(
+          doc._raw.sourceFilePath,
+        )}/resources/submissions`,
       type: 'string',
     },
     slug: {

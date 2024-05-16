@@ -62,7 +62,7 @@ export function useProjectDetailsStepsTabs(challenge: ProjectsChallengeItem) {
         description: 'Tab label for projects challenges',
         id: 'TAuaop',
       }),
-      href: metadata.resourcesHref,
+      href: metadata.resourcesGuidesHref,
       subtitle: intl.formatMessage({
         defaultMessage: 'Guides & discussions',
         description: 'Tab title for projects challenges',

@@ -1,3 +1,5 @@
+'use client';
+
 import { FormattedMessage } from 'react-intl';
 
 import { trpc } from '~/hooks/trpc';
