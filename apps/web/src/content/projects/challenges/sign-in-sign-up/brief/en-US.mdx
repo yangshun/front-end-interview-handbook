@@ -1,0 +1,78 @@
+In this challenge, you will develop a responsive and secure user authentication interface that allows users to register and log in using their email and password. You are to build it with the supplied designs on desktop, tablet and mobile.
+
+We've painstakingly outlined all the necessary specifications to construct your own authentication mechanism manually. While difficult, this challenge is designed to give you a deeper understanding of authentication flows.
+
+If you wish, you can also integrate with an external authentication service to complete this exercise, which is practically useful for your real-world projects. Completing the exercise manually once, then repeating it with integration, will also reinforce what you've learned through hands-on development.
+
+### Functional Requirements
+
+#### 1. Password field
+
+- This field should mask the password input by default, displaying characters as asterisks.
+- It should also include a visibility toggle icon that switches the display of the password between masked and plaintext.
+
+#### 2. Sign Up
+
+- **Client side email validation**
+  - **Required**: On submission, ensure the email field is not left blank. Otherwise display "Email address is required.".
+  - **Format check**: Validate that the email entered matches the standard email format (e.g., user@example.com), providing feedback when the field is filled and blurred. Otherwise, display "Please enter a valid email address.".
+- **Client side password validation**
+  - **Real-time complexity check**: Validate that the entered password matches requirements in real time, checking off each one:
+    - Criteria:
+      - 8 - 64 characters
+      - At least one uppercase letter
+      - At least one lowercase letter
+      - At least one number
+      - At least one special character (e.g., ! @ # $ % ^ & \*)
+    - **Check icons**: Implement check icons in active and normal states. When a password requirement is met, the icon should be switched from normal to active state.
+    - On submission, if format requirements are not met, display "Password should contain [criteria (lowercase)]"
+  - **Required**: On submission, the field should not be empty, , display "Password is required"
+- **Client side required checkbox validation**
+  - **Terms of service**: Check that the user has checked the Terms of Service agreement checkbox. Else, display an error toast notification stating "You must agree to the Terms of Service to create an account."
+- **Server side validation**
+  - **Same checks**: Repeat above checks on the server side to ensure consistency.
+  - **Account already exists**: Check if email already exists in the database. If so, show an error toast notification stating "Account already exists. Sign in instead?"
+  - **[Stretch goal] Domain validation**: Check that the email’s domain name has a valid MX (Mail Exchange) record. Otherwise display "This email does not exist".
+
+#### 3. Sign In
+
+- **Client side validation**
+  - **Required**: On submission, the fields should not be empty, display "Email is required" / "Password is required".
+- **Login credentials validation**
+  - **Retrieve**: On submit, retrieve stored credentials (hashed password and salt, if used) associated with the provided email from the database.
+  - **Verify**: The password provided by the user is hashed using the same hash function and salt (if applicable) as the stored password. This hashed value is then compared with the hashed stored password.
+  - **Secure**: Prevent SQL injection attacks. Some ways include using parameterized queries or prepared statements.
+  - **If authentication fails**: Provide a generic error message without revealing if an account already exists via an error toast notification, display "Incorrect email or password.".
+
+#### 4. Session management
+
+- **Session token handling**
+  - **Create token**: Create a session token that is both cryptographically secure and randomly generated to prevent session hijacking and fixation attacks.
+  - **Store in browser**: Maintain the user's session by storing this token as a cookie in the user's browser. The cookie should be marked with attributes like **HttpOnly,** **Secure**, **SameSite** and with session expiry to avoid session hijacking.
+- **Redirection post-registration**:
+  - **Server side**: The redirection should happen on the server-side, typically via a 302 HTTP response code.
+  - **User-specific**: Retrieve user-specific information from the server using the session token to display relevant content "Welcome back, [user's email address]". This also serves as a verification method to ensure that your registration and sign-in processes are functioning correctly by accurately fetching the appropriate user data.
+
+#### 5. Data storage and security
+
+- **Data encryption**: Use built0in options in your database of choice to encrypt sensitive columns like passwords or personal information.
+  - **Encryption keys should be stored securely**: Use a dedicated key management service to ensure that keys are stored separately from the data they encrypt.
+  - **Encryption in transit**: Connections to and fro the database should be encrypted using TLS.
+  - **Secure connection strings**: Use secure connection strings that include encryption parameters and do not hard-code credentials.
+- **Secure storage**
+  - **Password hashing**: Use a strong, adaptive hashing algorithm designed for passwords, such as bcrypt, Argon2, or PBKDF2.
+  - **Password salting**: Consider adding salt to hashes to prevent rainbow table attacks.
+  - **Case insensitive emails**: Convert all emails to lower case before storing and comparing.
+  - **Session storage**: Store session IDs and related data either in a database or in-memory stores like Redis (faster). Configure them to use encrypted connections.
+
+### General requirements
+
+- **Design fidelity**: Aim to follow the design as closely as possible. All elements in the design should be present, using the specified text color, font size, font weight, spacing, dimensions, etc.
+- **Interactivity:**
+  - **Toast notification: **This component is used for displaying error messages when it is not specific to any input field
+  - **Checkbox**: Implement normal, focus and disabled states for checked and unchecked respectively.
+  - **Link / Button states**: Implement and style links and buttons to reflect different states - normal, hover, focus and disabled.
+  - **Input field states:** Implement and style input fields to reflect different states - normal, focus filled, disabled, error, error filled, error focused.
+- **Cross-browser compatibility**: Check that your solution works for major browsers including Chrome, Firefox, and Safari.
+- **[Stretch goal] Performance optimization**: Code for fast load times with efficient CSS and JavaScript techniques.
+- **[Stretch goal] Accessibility and semantics**: Follow best practices for web accessibility, such as using semantic HTML and ARIA roles where necessary and using proper `alt` tags for images.

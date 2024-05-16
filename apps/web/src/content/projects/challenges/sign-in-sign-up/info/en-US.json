@@ -1,0 +1,8 @@
+{
+  "title": "Sign in / Sign up",
+  "description": "Build a responsive and secure user authentication flow that includes sign in and sign up forms",
+  "specLabels": {
+    "sign-in": "Sign in",
+    "sign-up": "Sign up"
+  }
+}

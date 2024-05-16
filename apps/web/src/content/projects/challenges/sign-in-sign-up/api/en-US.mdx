@@ -1,0 +1,102 @@
+## Auth APIs (Sign in / sign up)
+
+To test your sign in / sign up flows, we have provided HTTP endpoints that will return success/error responses depending on the request body.
+
+### Mock users
+
+Mock users have been created which the API will use to validate existence of users and password validity.
+
+| ID   | Name     | Email              | Password  |
+| ---- | -------- | ------------------ | --------- |
+| 1234 | Jane Doe | jane.doe@gmail.com | $uPah4ckr |
+| 1235 | John Doe | john.doe@gmail.com | P@s$w0rd  |
+
+To test the sign in flow, you can try logging in with one of the above email and password combinations. To test the "existing users error" sign up flow, you can try signing up with one of the above emails.
+
+## Sign in API
+
+```
+POST https://www.greatfrontend.com/api/projects/challenges/auth/sign-in
+```
+
+### Parameters
+
+All of the following fields should be present in the request body in order for the request to be successful.
+
+| Name       | Type     | Required | Description               |
+| ---------- | -------- | -------- | ------------------------- |
+| `email`    | `string` | Yes      | Email address of the user |
+| `password` | `string` | Yes      | Password of the user      |
+
+### Returns
+
+A success message if the call succeeded.
+
+#### Success
+
+Success responses will have a HTTP status code of 200 and contain the `user` field in the response body containing details of the user.
+
+```json
+{
+  "user": {
+    "email": "jane.doe@gmail.com",
+    "id": 1234,
+    "name": "Jane Doe"
+  }
+}
+```
+
+#### Error
+
+Error responses will have a HTTP status code of 400 or 500 and contain the `error` field in the response body.
+
+```json
+{
+  "error": "Incorrect email or password."
+}
+```
+
+## Sign up API
+
+```
+POST https://www.greatfrontend.com/api/projects/challenges/auth/sign-up
+```
+
+### Parameters
+
+All of the following fields should be present in the request body in order for the request to be successful.
+
+| Name | Type | Required | Description |
+| --- | --- | --- | --- |
+| `email` | `string` | Yes | Email address of the user |
+| `password` | `string` | Yes | Password of the user |
+| `terms_of_service` | `boolean` | Yes | Whether the user has agreed to the Terms of Service |
+
+### Returns
+
+A success message if the call succeeded.
+
+#### Success
+
+Success responses will have a HTTP status code of 200 and contain the `user` object but without the `name` field.
+
+```json
+{
+  "user": {
+    "email": "josh.doe@gmail.com",
+    "id": 1236
+  }
+}
+```
+
+**Note**: No actual new users are being created.
+
+#### Error
+
+Error responses will have a HTTP status code of 400 or 500 and contain the `error` field in the response body.
+
+```json
+{
+  "error": "Account already exists. Sign in instead?"
+}
+```
