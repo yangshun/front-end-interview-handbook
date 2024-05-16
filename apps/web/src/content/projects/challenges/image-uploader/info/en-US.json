@@ -1,0 +1,7 @@
+{
+  "title": "Image Uploader",
+  "description": "Build a flexible and user-friendly image uploader component that supports both single and multiple image uploads with robust interaction features like drag-and-drop, cropping and removing images",
+  "specLabels": {
+    "main": "Image uploader"
+  }
+}

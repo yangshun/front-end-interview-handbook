@@ -1,0 +1,46 @@
+{
+  "createdAt": "2024-05-16",
+  "difficulty": "senior",
+  "track": "apps",
+  "order": 999,
+  "guides": [],
+  "access": "standard",
+  "baseCredits": 2,
+  "pointsBase": 1000,
+  "pointsForSkillGroups": {
+    "html": 5,
+    "css": 5,
+    "javascript": 15,
+    "react": 15,
+    "package-managers": 5,
+    "build-tools": 5,
+    "testing": 5,
+    "performance": 5
+  },
+  "skills": [],
+  "resources": [
+    "design-files",
+    "image-assets",
+    "readme",
+    "starter-code",
+    "style-guide"
+  ],
+  "coverImage": "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/render/image/public/projects-images/image-uploader/cover.jpg",
+  "galleryImages": [
+    "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/render/image/public/projects-images/image-uploader/gallery/Drag.jpg",
+    "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/render/image/public/projects-images/image-uploader/gallery/Crop.jpg",
+    "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/render/image/public/projects-images/image-uploader/gallery/Desktop.jpg"
+  ],
+  "specImages": {
+    "default": [
+      {
+        "label": "main",
+        "images": {
+          "desktop": "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/render/image/public/projects-images/image-uploader/specs/Desktop.jpg",
+          "tablet": "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/render/image/public/projects-images/image-uploader/specs/Tablet.jpg",
+          "mobile": "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/render/image/public/projects-images/image-uploader/specs/Mobile.jpg"
+        }
+      }
+    ]
+  }
+}

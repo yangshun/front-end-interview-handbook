@@ -1,0 +1,66 @@
+In this challenge, you will create a versatile and user-friendly image uploader component. This component should support both single and multiple image uploads, providing a seamless user experience. It should include robust interaction features, such as:
+
+1. Drag-and-drop functionality for easy file selection.
+2. Cropping capabilities.
+3. Image management capabilities like cropping, removing and selection.
+4. Progress indicators to show the status of image uploads.
+5. [Stretch] API integration: Build your own endpoints to fetch and save avatar images.
+
+Apart from the provided designs, which have been adapted for desktop, tablet and mobile.
+
+### Functional Requirements
+
+#### 1. Profile picture interface
+
+- Profile picture displays if its uploaded; else, display the default avatar.
+- Clicking on "Update picture" opens the image uploader.
+
+#### 2. Image upload interface
+
+- **Click or drag and drop**: Allow users to upload images either by using a drag-and-drop interface or by selecting files from their computer.
+- **Single or multiple uploads**: Developers should be able to set the component to accept only one image at a time or multiple images based on the use case. In this case, we allow users to upload multiple (up to 5), but only pick 1 as their profile picture.
+- **Error handling**: Once the upload limit is reached, display the image limit message. Only successfully uploaded images are counted in the upload limit.
+- **Edge case**: If the user closes the modal while an image is still uploading, allow the upload to complete in the background.
+
+#### 3. Progress and Error Handling
+
+- **Upload in progress**: Display a loading bar to indicate progress %.
+- **Error handling**: Implement at least the following:
+  - **File size limit exceeded**: "This image is larger than [size]. Please select a smaller image."
+  - **Unsupported file format**: "The file format of [filename] is not supported. Please upload an image in one of the following formats: [supported formats]."
+  - **Network error**: "An error occurred during the upload. Please check your network connection and try again."
+  - **Server error**: "An unexpected error occurred during the upload. Please contact support if the issue persists."
+- **Success**: Display a transient success animation
+
+#### 4. Image management - Removal, Cropping, Selection
+
+- **"Crop image" function**: The user may choose to crop each picture at a fixed 1:1 circular aspect ratio. After confirming the cropped area, the state of the crop selected by the user should be saved in the image library. To allow users to modify the crop later on, the original image should not be directly replaced.
+- **"Delete" function**: Allow users to delete images without confirmation.
+- **[Stretch goal] Reusable component**:
+  - **Flexible crop ratios**: The cropping functionality should include adjustable boundaries that respect certain aspect ratios that can be predefined by the developer - including Square (1:1), Landscape (16:9), Portrait (4:5), Panorama (21:9)
+  - **Flexible shape cropping**: Allow developers to define either or Rectangular or Circular (1:1 aspect ratio) cropping. In this case, we use the Circular cropping.
+- **Selecting profile image**: For this challenge, allow the user to select only 1 image as their profile picture, implemented as a radio selection. Upon selecting a picture, the user should be asked to crop it a final time before confirming.
+
+#### 5. Saving preferences & fetching data
+
+- **[Stretch goal] Populate database**: Design a database schema and populate a database with the given dummy data
+- **[Stretch goal] Create endpoints**: Build your own endpoints based on the provided or created database schema to fetch data and save image preferences.
+- **API integration**: Use your endpoints to fetch data and save preferences.
+- **Submission**: On clicking "Confirm" and successful client side validation of all fields, submit the data to your API endpoint, handling responses and errors gracefully:
+  - **Success feedback**: Provide success feedback with "Changes saved successfully"
+  - **API error response**: Handle any API error responses (e.g., 400 Bad Request, 500 Internal Server Error) by displaying an appropriate message such as "Unexpected error. Please try again later or contact support."
+
+#### 6. Image library persistence
+
+- The image uploader component should maintain a persistent storage of all images successfully uploaded by the user during the current session and across sessions.
+- Errors or removed images do not have to persist once the uploader component is closed
+
+#### 7. Error states
+
+- **Data fetch error**: Show an empty state message titled "Unexpected error" with the description "We're facing some issues at the moment. Please try again later or contact support at [support@codepulse.com](mailto:support@codepulse.com)."
+
+### Non-functional requirements
+
+- **Cross-browser compatibility**: Check that your solution works for major browsers including Chrome, Firefox, and Safari.
+- **[Stretch goal] Performance optimization**: Optimize image assets and code for quick load times, ensuring a smooth and responsive user experience.
+- **[Stretch goal] Accessibility**: Follow best practices for web accessibility, such as using semantic HTML and ARIA roles where necessary, using proper `alt` tags for images and ensuring that buttons can be navigated to and selected using keyboard controls.
