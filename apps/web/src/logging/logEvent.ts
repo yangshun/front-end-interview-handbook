@@ -25,7 +25,9 @@ type LoggingAction =
   | 'question.run'
   | 'question.submit'
   | 'sandpack.timeout'
-  | 'web_vitals';
+  | 'web_vitals'
+  | 'window.blur'
+  | 'window.focus';
 // TODO: Improve typing.
 type LoggingPayload = Record<string, unknown>;
 
@@ -66,6 +68,8 @@ export default async function logEvent(
     process.env.NODE_ENV === 'production' || searchParams?.get('debug');
 
   if (!shouldLog) {
+    console.info('[axiom]', action, payload);
+
     return;
   }
 
