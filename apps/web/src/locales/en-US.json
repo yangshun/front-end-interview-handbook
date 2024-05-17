@@ -427,10 +427,6 @@
     "defaultMessage": "Most complete all-in-one front end interview preparation.",
     "description": "Short description for 3 months study plan"
   },
-  "1YpkpS": {
-    "defaultMessage": "Written by ex-FAANG senior developers",
-    "description": "Title of 'Written by ex-FAANG senior devs' sub-feature in Projects marketing page"
-  },
   "1b+8YV": {
     "defaultMessage": "Read more",
     "description": "Project marketing hero Read more section badge"
@@ -638,10 +634,6 @@
   "3WHiQS": {
     "defaultMessage": "Cheatsheet",
     "description": "One-page summary sheet for front end system design interviews"
-  },
-  "3aIVJ5": {
-    "defaultMessage": "Design files, style guides, image assets",
-    "description": "Title of 'Images, style guides, design files' sub-feature in Projects marketing page"
   },
   "3aT98+": {
     "defaultMessage": "Recommended actions for you",
@@ -1051,6 +1043,10 @@
     "defaultMessage": "No articles",
     "description": "Title for empty state when application of filters return no results"
   },
+  "79LK1Q": {
+    "defaultMessage": "HTML pre-written content",
+    "description": "Title of 'HTML pre-written content' sub-feature in Projects marketing page"
+  },
   "79YODs": {
     "defaultMessage": "Let's begin!",
     "description": "Title for Start Coding content section on Before You Get Started dialog"
@@ -1246,6 +1242,10 @@
   "8bcHtK": {
     "defaultMessage": "Progress | Dashboard",
     "description": "Title of progress section on dashboard page"
+  },
+  "8cguZA": {
+    "defaultMessage": "Clarify doubts in forums",
+    "description": "Title of 'Clarify doubts in forums' sub-feature in Projects marketing page"
   },
   "8gXpts": {
     "defaultMessage": "Tasks | Rewards",
@@ -2247,10 +2247,6 @@
     "defaultMessage": "Build front end real-world projects",
     "description": "Title of Projects page"
   },
-  "Gte3Al": {
-    "defaultMessage": "Clarify doubts in forums and Discord",
-    "description": "Title of 'Clarify doubts in forums' sub-feature in Projects marketing page"
-  },
   "Gttxsq": {
     "defaultMessage": "Try these popular Svelte questions",
     "description": "Title for featured questions section"
@@ -2950,6 +2946,10 @@
   "LnzTdG": {
     "defaultMessage": "CSS",
     "description": "CSS questions category short title"
+  },
+  "Ludb5F": {
+    "defaultMessage": "Our platform was built to support community-driven development. From project discussion to code reviews and approach sharing, you will never feel alone in your learning.",
+    "description": "Description of 'Learn together' feature in Projects marketing page"
   },
   "Lv6+nn": {
     "defaultMessage": "React, HTML, JavaScript",
@@ -4151,10 +4151,6 @@
     "defaultMessage": "Use code at checkout. Code expires on {expiryDate}.",
     "description": "Instruction to apply discount"
   },
-  "Uzg/FF": {
-    "defaultMessage": "HTML with pre-written content",
-    "description": "Title of 'HTML pre-written content' sub-feature in Projects marketing page"
-  },
   "V0hPhI": {
     "defaultMessage": "Sign Up",
     "description": "Title of Sign Up page"
@@ -4555,6 +4551,10 @@
     "defaultMessage": "Update",
     "description": "Update existing URL in a form"
   },
+  "Xmdm8f": {
+    "defaultMessage": "Suggests best projects for skill",
+    "description": "Title of 'Recommended projects to build' sub-feature in Projects marketing page"
+  },
   "XuVGsX": {
     "defaultMessage": "Account",
     "description": "Profile account tab title"
@@ -4726,6 +4726,10 @@
   "ZCmkG3": {
     "defaultMessage": "Can't find the answer you are looking for? <link>Reach out to us!</link>",
     "description": "Subtitle under the Title of the FAQ section on the 'Become An Affiliate' page"
+  },
+  "ZE/21F": {
+    "defaultMessage": "Written by ex-FAANG senior devs",
+    "description": "Title of 'Written by ex-FAANG senior devs' sub-feature in Projects marketing page"
   },
   "ZFDU0d": {
     "defaultMessage": "Woohoo!",
@@ -7439,10 +7443,6 @@
     "defaultMessage": "Including core maintainers at popular open source projects and creators of Blind 75 and Front End Interview Handbook.",
     "description": "Description of 'Guided by well-known senior engineers' feature in marketing page"
   },
-  "uoKX/p": {
-    "defaultMessage": "Suggests best projects for honing a skill",
-    "description": "Title of 'Recommended projects to build' sub-feature in Projects marketing page"
-  },
   "uogn1k": {
     "defaultMessage": "Practice build all sorts of user interfaces: components, apps, games, etc, in the framework of your choice.",
     "description": "Subtitle for an example list of User Interface Questions on marketing pages"
@@ -7610,10 +7610,6 @@
   "w3pn1B": {
     "defaultMessage": "Pick your framework",
     "description": "Label for an example list of User Interface Questions on marketing pages"
-  },
-  "w68qdd": {
-    "defaultMessage": "Our platform was built to support community-driven development. From questions, discussions to code reviews and sharing approaches in our Discord community, you will never feel alone in your learning.",
-    "description": "Description of 'Learn together' feature in Projects marketing page"
   },
   "w9U/8b": {
     "defaultMessage": "Team",
@@ -7858,6 +7854,10 @@
   "yhHx9e": {
     "defaultMessage": "All your question progress will be reset. This is an irreversible action, are you sure you want to proceed?",
     "description": "Warning message in reset progress confirmation dialog"
+  },
+  "yhRL5u": {
+    "defaultMessage": "Images, style guides, design files",
+    "description": "Title of 'Images, style guides, design files' sub-feature in Projects marketing page"
   },
   "ykwubP": {
     "defaultMessage": "You are on the <bold>Quarterly</bold> plan.",

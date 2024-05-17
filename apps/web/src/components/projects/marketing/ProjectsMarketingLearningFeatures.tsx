@@ -113,20 +113,20 @@ function useLearningFeatures(): Array<LearningFeature> {
             icon: RiPencilRuler2Line,
             key: 'images-style-guides-design-files',
             label: intl.formatMessage({
-              defaultMessage: 'Design files, style guides, image assets',
+              defaultMessage: 'Images, style guides, design files',
               description:
                 "Title of 'Images, style guides, design files' sub-feature in Projects marketing page",
-              id: '3aIVJ5',
+              id: 'yhRL5u',
             }),
           },
           {
             icon: RiHtml5Line,
             key: 'html-pre-written-content',
             label: intl.formatMessage({
-              defaultMessage: 'HTML with pre-written content',
+              defaultMessage: 'HTML pre-written content',
               description:
                 "Title of 'HTML pre-written content' sub-feature in Projects marketing page",
-              id: 'Uzg/FF',
+              id: '79LK1Q',
             }),
           },
           {
@@ -183,10 +183,10 @@ function useLearningFeatures(): Array<LearningFeature> {
             icon: RiFacebookFill,
             key: 'written-by-ex-faang-senior-devs',
             label: intl.formatMessage({
-              defaultMessage: 'Written by ex-FAANG senior developers',
+              defaultMessage: 'Written by ex-FAANG senior devs',
               description:
                 "Title of 'Written by ex-FAANG senior devs' sub-feature in Projects marketing page",
-              id: '1YpkpS',
+              id: 'ZE/21F',
             }),
           },
         ],
@@ -230,10 +230,10 @@ function useLearningFeatures(): Array<LearningFeature> {
             icon: RiListCheck3,
             key: 'recommended-projects-to-build',
             label: intl.formatMessage({
-              defaultMessage: 'Suggests best projects for honing a skill',
+              defaultMessage: 'Suggests best projects for skill',
               description:
                 "Title of 'Recommended projects to build' sub-feature in Projects marketing page",
-              id: 'uoKX/p',
+              id: 'Xmdm8f',
             }),
           },
           {
@@ -309,10 +309,10 @@ function useLearningFeatures(): Array<LearningFeature> {
       {
         description: intl.formatMessage({
           defaultMessage:
-            'Our platform was built to support community-driven development. From questions, discussions to code reviews and sharing approaches in our Discord community, you will never feel alone in your learning.',
+            'Our platform was built to support community-driven development. From project discussion to code reviews and approach sharing, you will never feel alone in your learning.',
           description:
             "Description of 'Learn together' feature in Projects marketing page",
-          id: 'w68qdd',
+          id: 'Ludb5F',
         }),
         imgSrc:
           colorScheme === 'light'
@@ -344,10 +344,10 @@ function useLearningFeatures(): Array<LearningFeature> {
             icon: RiChatSmile2Line,
             key: 'clarify-doubts-in-forums',
             label: intl.formatMessage({
-              defaultMessage: 'Clarify doubts in forums and Discord',
+              defaultMessage: 'Clarify doubts in forums',
               description:
                 "Title of 'Clarify doubts in forums' sub-feature in Projects marketing page",
-              id: 'Gte3Al',
+              id: '8cguZA',
             }),
           },
         ],
