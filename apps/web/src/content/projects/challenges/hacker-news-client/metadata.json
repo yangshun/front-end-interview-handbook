@@ -4,7 +4,7 @@
   "track": "apps",
   "order": 999,
   "guides": ["layout-grid", "icons"],
-  "access": "standard",
+  "access": "premium",
   "baseCredits": 2,
   "pointsBase": 1000,
   "pointsForSkillGroups": {
