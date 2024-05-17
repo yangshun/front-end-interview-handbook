@@ -83,6 +83,7 @@ export default function InterviewsMarketingQuizQuestionsExamples({
                 logEvent('click', {
                   element: 'Homepage Quiz question embed',
                   label: 'View All Questions',
+                  namespace: 'interviews',
                 });
               }}
             />

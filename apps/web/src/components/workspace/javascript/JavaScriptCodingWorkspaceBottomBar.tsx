@@ -44,6 +44,7 @@ export default function JavaScriptCodingWorkspaceBottomBar({
           onClick={() => {
             logEvent('question.run', {
               format: metadata.format,
+              namespace: 'interviews',
               slug: metadata.slug,
             });
             runTests();
@@ -61,6 +62,7 @@ export default function JavaScriptCodingWorkspaceBottomBar({
           onClick={() => {
             logEvent('question.submit', {
               format: metadata.format,
+              namespace: 'interviews',
               slug: metadata.slug,
             });
             submit();

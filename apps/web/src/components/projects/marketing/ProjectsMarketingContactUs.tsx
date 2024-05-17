@@ -84,6 +84,7 @@ export default function ProjectsMarketingContactUs() {
                     logEvent('click', {
                       element: 'Social link',
                       label: platform.name,
+                      namespace: 'projects',
                     });
                   }}>
                   <platform.icon className="size-6" />

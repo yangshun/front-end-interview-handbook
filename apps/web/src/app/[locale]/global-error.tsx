@@ -20,6 +20,7 @@ export default function GlobalError({ error }: Props) {
     });
     logEvent('error', {
       message: `${error.message}`,
+      namespace: 'general',
       title: 'Global error',
     });
   }, [error]);

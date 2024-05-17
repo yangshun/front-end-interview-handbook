@@ -63,6 +63,7 @@ export default function SupabaseAuthEmailSignIn({
       logEvent('auth.sign_in.fail', {
         email,
         message: signInError.message,
+        namespace: 'auth',
         type: 'email',
       });
 
@@ -88,6 +89,7 @@ export default function SupabaseAuthEmailSignIn({
 
     logEvent('auth.sign_in.success', {
       email,
+      namespace: 'auth',
       type: 'email',
     });
     // Redirect to the next page is done in a hook on AuthPage.tsx.
@@ -134,6 +136,7 @@ export default function SupabaseAuthEmailSignIn({
             logEvent('click', {
               element: 'Auth page forgot your password button',
               label: 'Forgot your password?',
+              namespace: 'auth',
             });
             setAuthView('forgotten_password');
           }}>
@@ -183,6 +186,7 @@ export default function SupabaseAuthEmailSignIn({
           logEvent('auth.sign_in', {
             element: 'Auth page email sign in button',
             label: 'Sign in',
+            namespace: 'auth',
           });
         }}
       />

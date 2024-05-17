@@ -53,6 +53,7 @@ function SocialPlatform() {
               logEvent('click', {
                 element: 'Social link',
                 label: platform.name,
+                namespace: 'general',
               });
             }}
           />

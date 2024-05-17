@@ -101,6 +101,7 @@ function PreparationPlansSection() {
                       logEvent('click', {
                         element: 'Get Started button',
                         label: 'See plan',
+                        namespace: 'interviews',
                       });
                     }}>
                     {/* Extend touch target to entire panel */}

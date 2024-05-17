@@ -167,6 +167,7 @@ export default function SupabaseAuthUpdatePassword({
                   logEvent('auth.password.change', {
                     element: 'Auth page change password button',
                     label: 'Change password',
+                    namespace: 'auth',
                   });
                 }}
               />

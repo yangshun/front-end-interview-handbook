@@ -82,6 +82,7 @@ export default function MarketingContactUs() {
                     logEvent('click', {
                       element: 'Social link',
                       label: platform.name,
+                      namespace: 'marketing',
                     });
                   }}>
                   <platform.icon className="size-8" />

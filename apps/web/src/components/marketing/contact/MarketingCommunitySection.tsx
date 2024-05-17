@@ -62,6 +62,7 @@ export default function MarketingCommunitySection() {
                   logEvent('click', {
                     element: 'Social link',
                     label: platform.name,
+                    namespace: 'marketing',
                   });
                 }}>
                 <MetricCard

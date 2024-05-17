@@ -33,7 +33,8 @@ export function purchaseInitiateLoggingNonSignedIn({
   });
   logEvent('checkout.attempt.not_logged_in', {
     currency: purchasePrice.currency.toLocaleUpperCase(),
-    plan,
+    namespace: product,
+    plan: `${product}.${plan}`,
     value: purchasePrice.unitCostCurrency.withPPP.after,
   });
 }
@@ -71,7 +72,8 @@ export function purchaseInitiateLogging({
   });
   logEvent('checkout.attempt', {
     currency: purchasePrice.currency.toLocaleUpperCase(),
-    plan,
+    namespace: product,
+    plan: `${product}.${plan}`,
     value: purchasePrice.unitCostCurrency.withPPP.after,
   });
 }
@@ -95,7 +97,8 @@ export function purchaseFailureLogging({
   });
   logEvent('checkout.fail', {
     currency: purchasePrice.currency.toLocaleUpperCase(),
-    plan,
+    namespace: product,
+    plan: `${product}.${plan}`,
     value: purchasePrice.unitCostCurrency.withPPP.after,
   });
 }
@@ -119,6 +122,7 @@ export function purchaseCancelLogging({ product, plan, purchasePrice }: Props) {
   });
   logEvent('checkout.cancel', {
     currency: purchasePrice.currency.toLocaleUpperCase(),
+    namespace: product,
     plan: `${product}.${plan}`,
     value: purchasePrice.unitCostCurrency.withPPP.after,
   });
@@ -184,6 +188,7 @@ export function purchaseSuccessLogging({
   });
   logEvent('checkout.success', {
     currency: purchasePrice.currency.toLocaleUpperCase(),
+    namespace: product,
     plan: `${product}.${plan}`,
     value: purchasePrice.unitCostCurrency.withPPP.after,
   });

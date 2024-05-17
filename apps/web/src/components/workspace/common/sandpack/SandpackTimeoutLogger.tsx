@@ -18,6 +18,7 @@ export default function SandpackTimeoutLogger({ instance }: Props) {
     if (sandpackStatus === 'timeout' && !sentRef.current) {
       logEvent('sandpack.timeout', {
         instance,
+        namespace: 'general',
       });
       sentRef.current = true;
     }

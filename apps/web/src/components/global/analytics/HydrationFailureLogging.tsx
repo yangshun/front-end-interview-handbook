@@ -12,6 +12,7 @@ export default function HydrationFailureLogging() {
     window.__hydrated = true;
     logEvent('hydration.success', {
       clientCountry: jsCookie.get('country'),
+      namespace: 'general',
       url: window.location.href,
     });
   }, []);

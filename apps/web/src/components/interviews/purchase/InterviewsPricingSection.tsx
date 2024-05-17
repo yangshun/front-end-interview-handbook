@@ -536,6 +536,7 @@ export default function InterviewsPricingSection({
               logEvent('click', {
                 element: 'Promo banner rewards',
                 label: 'following us on social media',
+                namespace: 'interviews',
               });
             }}>
             {chunks}
@@ -556,6 +557,7 @@ export default function InterviewsPricingSection({
               logEvent('click', {
                 element: 'Promo banner',
                 label: 'Promotions',
+                namespace: 'interviews',
               });
             }}>
             {chunks}

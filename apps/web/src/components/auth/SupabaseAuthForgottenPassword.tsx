@@ -75,6 +75,7 @@ export default function SupabaseAuthForgottenPassword({
       logEvent('auth.password.reset.fail', {
         email,
         message: resetError.message,
+        namespace: 'auth',
         type: 'email',
       });
 
@@ -83,6 +84,7 @@ export default function SupabaseAuthForgottenPassword({
 
     logEvent('auth.password.reset.success', {
       email,
+      namespace: 'auth',
       type: 'email',
     });
 
@@ -147,6 +149,7 @@ export default function SupabaseAuthForgottenPassword({
               logEvent('auth.password.reset', {
                 element: 'Reset password button',
                 label: 'Send reset password instructions',
+                namespace: 'auth',
               });
             }}
           />

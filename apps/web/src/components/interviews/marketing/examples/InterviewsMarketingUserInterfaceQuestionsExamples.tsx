@@ -67,6 +67,7 @@ export default function InterviewsMarketingUserInterfaceQuestionsExamples({
                 logEvent('click', {
                   element: 'Homepage User Interface questions list',
                   label: 'View All Questions',
+                  namespace: 'interviews',
                 });
               }}
             />

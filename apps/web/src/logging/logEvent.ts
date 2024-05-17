@@ -29,7 +29,16 @@ type LoggingAction =
   | 'window.blur'
   | 'window.focus';
 // TODO: Improve typing.
-type LoggingPayload = Record<string, unknown>;
+type LoggingPayload = Readonly<{
+  namespace:
+    | 'auth'
+    | 'general'
+    | 'interviews'
+    | 'marketing'
+    | 'performance'
+    | 'projects';
+}> &
+  Record<string, unknown>;
 
 /**
  * Client-side logging to Axiom. Don't use on the server.

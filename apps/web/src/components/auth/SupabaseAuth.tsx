@@ -92,6 +92,7 @@ export default function SupabaseAuth({
                                 element: 'Auth page sign up button',
                                 label:
                                   'Don\t have an account? Sign up for free',
+                                namespace: 'auth',
                               });
                               setAuthView('sign_up');
                             }}>
@@ -118,6 +119,7 @@ export default function SupabaseAuth({
                               logEvent('click', {
                                 element: 'Auth page sign in button',
                                 label: 'Already have an account? Sign in',
+                                namespace: 'auth',
                               });
                             }}>
                             {chunks}

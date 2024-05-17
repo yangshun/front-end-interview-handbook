@@ -62,6 +62,7 @@ function MarketingMessage({ rotateMessages }: Props) {
               logEvent('click', {
                 element: 'Promo banner rewards',
                 label: 'following us on social media',
+                namespace: 'general',
               });
             }}>
             {chunks}
@@ -82,6 +83,7 @@ function MarketingMessage({ rotateMessages }: Props) {
               logEvent('click', {
                 element: 'Promo banner',
                 label: 'Promotions',
+                namespace: 'general',
               });
             }}>
             {chunks}
@@ -114,6 +116,7 @@ function MarketingMessage({ rotateMessages }: Props) {
               logEvent('click', {
                 element: 'Promo banner',
                 label: "We're hiring contributors",
+                namespace: 'general',
               });
             }}>
             {chunks}

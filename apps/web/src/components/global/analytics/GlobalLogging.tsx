@@ -7,7 +7,9 @@ import logEvent from '~/logging/logEvent';
 export default function GlobalLogging() {
   useEffect(() => {
     function log() {
-      logEvent('window.focus', {});
+      logEvent('window.focus', {
+        namespace: 'general',
+      });
     }
 
     window.addEventListener('focus', log);
@@ -19,7 +21,9 @@ export default function GlobalLogging() {
 
   useEffect(() => {
     function log() {
-      logEvent('window.blur', {});
+      logEvent('window.blur', {
+        namespace: 'general',
+      });
     }
 
     window.addEventListener('blur', log);

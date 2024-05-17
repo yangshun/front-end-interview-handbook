@@ -67,6 +67,7 @@ export default function InterviewsMarketingJavaScriptQuestionsExamples({
                 logEvent('click', {
                   element: 'Homepage JavaScript questions list',
                   label: 'View All Questions',
+                  namespace: 'interviews',
                 });
               }}
             />

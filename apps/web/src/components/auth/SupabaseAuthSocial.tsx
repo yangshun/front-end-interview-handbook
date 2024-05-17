@@ -78,6 +78,7 @@ export default function SupabaseAuthSocial({
       setErrorMessage(error.message);
       logEvent('auth.sign_in.fail', {
         message: error.message,
+        namespace: 'auth',
         type: provider,
       });
     }
@@ -127,6 +128,7 @@ export default function SupabaseAuthSocial({
                   logEvent('auth.sign_in', {
                     element: 'Auth page OAuth sign in button',
                     label,
+                    namespace: 'auth',
                   });
                   handleProviderSignIn(provider);
                 }}

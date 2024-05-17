@@ -67,6 +67,7 @@ export default function InterviewsMarketingSystemDesignQuestionsExamples({
                 logEvent('click', {
                   element: 'Homepage System Design question embed',
                   label: 'View All Questions',
+                  namespace: 'interviews',
                 });
               }}
             />

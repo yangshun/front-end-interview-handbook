@@ -15,6 +15,7 @@ export default function useQuestionLogEventCopyContents<
       logEvent('copy', {
         content: selectedContents?.slice(0, 50),
         length: selectedContents?.length,
+        namespace: 'general',
       });
     }
 

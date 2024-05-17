@@ -88,7 +88,9 @@ export default function UserProfileProvider({ children }: Props) {
   const { pathname } = useI18nPathname();
 
   useEffect(() => {
-    logEvent('pageview', {});
+    logEvent('pageview', {
+      namespace: 'general',
+    });
   }, [pathname]);
 
   useEffect(() => {

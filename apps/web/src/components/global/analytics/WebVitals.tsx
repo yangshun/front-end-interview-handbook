@@ -11,6 +11,7 @@ const logWebVitals: ReportCallback = (metric) => {
     'web_vitals',
     {
       name: metric.name,
+      namespace: 'performance',
       rating: metric.rating,
     },
     metric.value,

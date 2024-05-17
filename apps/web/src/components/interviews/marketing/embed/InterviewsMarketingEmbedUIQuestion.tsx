@@ -98,6 +98,7 @@ export default function InterviewsMarketingEmbedUIQuestion({
             element: 'Homepage UI question embed',
             label:
               'Click here to try out the actual workspace instead of this embed',
+            namespace: 'interviews',
           });
         }}>
         <Banner size="xs">

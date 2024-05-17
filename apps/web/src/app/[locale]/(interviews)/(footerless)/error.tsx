@@ -20,6 +20,7 @@ export default function Error({ error }: Props) {
     });
     logEvent('error', {
       message: `${error.message}`,
+      namespace: 'interviews',
       title: 'Page error',
     });
   }, [error]);

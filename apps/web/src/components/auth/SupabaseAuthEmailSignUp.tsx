@@ -84,6 +84,7 @@ export default function SupabaseAuthEmailSignUp({
       logEvent('auth.sign_up.fail', {
         email,
         message: signUpError.message,
+        namespace: 'auth',
         type: 'email',
       });
 
@@ -106,6 +107,7 @@ export default function SupabaseAuthEmailSignUp({
       if (signUpUser.identities?.length === 0) {
         logEvent('auth.sign_up.existing_user', {
           email,
+          namespace: 'auth',
           type: 'email',
         });
 
@@ -116,6 +118,7 @@ export default function SupabaseAuthEmailSignUp({
 
       logEvent('auth.sign_up.success', {
         email,
+        namespace: 'auth',
         type: 'email',
       });
       // Redirect to email verify page.
@@ -213,6 +216,7 @@ export default function SupabaseAuthEmailSignUp({
           logEvent('auth.sign_up', {
             element: 'Auth page email sign up button',
             label: 'Sign up',
+            namespace: 'auth',
           });
         }}
       />

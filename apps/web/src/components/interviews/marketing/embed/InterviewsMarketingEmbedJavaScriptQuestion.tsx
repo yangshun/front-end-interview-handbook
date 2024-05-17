@@ -74,6 +74,7 @@ export default function InterviewsMarketingEmbedJavaScriptQuestion({
             element: 'Homepage JavaScript embed',
             label:
               'Click here to try out the actual workspace instead of this embed',
+            namespace: 'interviews',
           });
         }}>
         <Banner size="xs">

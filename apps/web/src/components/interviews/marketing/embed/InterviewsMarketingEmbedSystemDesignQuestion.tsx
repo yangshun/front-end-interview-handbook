@@ -39,6 +39,7 @@ function ReadFullQuestionAlert() {
               element:
                 'Homepage System Design questions embed (Try out button)',
               label: 'View the full solution and other System Design guides.',
+              namespace: 'interviews',
             });
           }}>
           {intl.formatMessage({
@@ -404,6 +405,7 @@ function Interface() {
             logEvent('click', {
               element: 'Homepage System Design questions embed API tab',
               label: 'Read full content...',
+              namespace: 'interviews',
             });
           }}>
           Read full content...
@@ -473,6 +475,7 @@ function Optimizations() {
               element:
                 'Homepage System Design questions embed optimizations tab',
               label: 'Read full content...',
+              namespace: 'interviews',
             });
           }}>
           Read full content...
@@ -629,6 +632,7 @@ export default function InterviewsMarketingEmbedSystemDesignQuestion() {
             element: 'Homepage System Design questions embed',
             label:
               'Click here to view the full solution and other System Design guides.',
+            namespace: 'interviews',
           });
         }}>
         <Banner size="xs">

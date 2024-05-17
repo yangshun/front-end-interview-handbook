@@ -201,6 +201,7 @@ export default function QuestionProgressAction({
         );
         logEvent('question.mark_complete', {
           format: metadata.format,
+          namespace: 'interviews',
           slug: metadata.slug,
         });
       }}
