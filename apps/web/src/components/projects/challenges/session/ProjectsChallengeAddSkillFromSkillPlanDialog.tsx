@@ -6,6 +6,7 @@ import ConfirmationDialog from '~/components/common/ConfirmationDialog';
 import Text from '~/components/ui/Text';
 
 import { projectsSkillLabel } from '../../skills/data/ProjectsSkillListData';
+import { projectsSkillDetermineParentSkill } from '../../skills/data/ProjectsSkillUtils';
 import type { ProjectsSkillKey } from '../../skills/types';
 
 import type { ProjectsChallengeSession } from '@prisma/client';
@@ -26,23 +27,39 @@ export default function ProjectsChallengeAddSkillFromSkillPlanDialog({
   const intl = useIntl();
   const updateSessionSkillsMutation =
     trpc.projects.sessions.skillsUpdate.useMutation();
+  const parentSkill = projectsSkillDetermineParentSkill(skillToAdd);
 
   return (
     <ConfirmationDialog
       isDisabled={updateSessionSkillsMutation.isLoading}
       isLoading={updateSessionSkillsMutation.isLoading}
       isShown={isShown}
-      title={intl.formatMessage(
-        {
-          defaultMessage:
-            'Add "{skillName}" to skills used for this challenge?',
-          description: 'Dialog title for challenge session',
-          id: 'MVPtTG',
-        },
-        {
-          skillName: projectsSkillLabel(skillToAdd),
-        },
-      )}
+      title={
+        parentSkill == null
+          ? intl.formatMessage(
+              {
+                defaultMessage:
+                  'Add "{skillName}" to the skills used for this challenge?',
+                description: 'Dialog title for challenge session',
+                id: 'aqjjbk',
+              },
+              {
+                skillName: projectsSkillLabel(skillToAdd),
+              },
+            )
+          : intl.formatMessage(
+              {
+                defaultMessage:
+                  'Add "{parentSkill} - {skillName}" to the skills used for this challenge?',
+                description: 'Dialog title for challenge session',
+                id: 'eOYq41',
+              },
+              {
+                parentSkill: projectsSkillLabel(parentSkill.key),
+                skillName: projectsSkillLabel(skillToAdd),
+              },
+            )
+      }
       onCancel={onClose}
       onConfirm={() => {
         updateSessionSkillsMutation.mutate(
@@ -57,15 +74,28 @@ export default function ProjectsChallengeAddSkillFromSkillPlanDialog({
           },
         );
       }}>
-      <FormattedMessage
-        defaultMessage={`Do you want to add the <bold>"{skillName}"</bold> skill to this challenge so that completing the challenge will count towards that skill's progress?`}
-        description="Message about adding a skill to a challenge session"
-        id="t5o9Z7"
-        values={{
-          bold: (chunks) => <Text weight="medium">{chunks}</Text>,
-          skillName: projectsSkillLabel(skillToAdd),
-        }}
-      />
+      {parentSkill == null ? (
+        <FormattedMessage
+          defaultMessage={`Are you intending to use <bold>"{childSkill}"</bold> for this challenge? We will add it to the skills used so your progress for its skill plan will be tracked.`}
+          description="Message about adding a skill to a challenge session"
+          id="aZ648A"
+          values={{
+            bold: (chunks) => <Text weight="medium">{chunks}</Text>,
+            childSkill: projectsSkillLabel(skillToAdd),
+          }}
+        />
+      ) : (
+        <FormattedMessage
+          defaultMessage={`Are you intending to use <bold>"{parentSkill} - {childSkill}"</bold> for this challenge? We will add it to the skills used so your progress for its skill plan will be tracked.`}
+          description="Message about adding a skill to a challenge session"
+          id="NX+p0K"
+          values={{
+            bold: (chunks) => <Text weight="medium">{chunks}</Text>,
+            childSkill: projectsSkillLabel(skillToAdd),
+            parentSkill: projectsSkillLabel(parentSkill.key),
+          }}
+        />
+      )}
     </ConfirmationDialog>
   );
 }

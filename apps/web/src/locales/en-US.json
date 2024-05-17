@@ -3023,10 +3023,6 @@
     "defaultMessage": "Select question category",
     "description": "Tab label to select another question category"
   },
-  "MVPtTG": {
-    "defaultMessage": "Add \"{skillName}\" to skills used for this challenge?",
-    "description": "Dialog title for challenge session"
-  },
   "MVgsuv": {
     "defaultMessage": "We provide a refund policy based on the principle of \"fair use\" during the initial 14-day period of your first subscription. The concept of fair use implies that if you download a couple of premium assets such as designs or premium challenges and realize that our service isn't suitable for you, we are more than happy to process a refund. However, if you download three or more premium assets and then request a refund, we retain the right to decline your request. To initiate a refund, please send an email to <link>projects@greatfrontend.com</link> within 14 days of commencing your subscription.",
     "description": "Answer on projects pricing's FAQ section - offer refunds"
@@ -3142,6 +3138,10 @@
   "NVGZEe": {
     "defaultMessage": "Close menu",
     "description": "Button to close menu"
+  },
+  "NX+p0K": {
+    "defaultMessage": "Are you intending to use <bold>\"{parentSkill} - {childSkill}\"</bold> for this challenge? We will add it to the skills used so your progress for its skill plan will be tracked.",
+    "description": "Message about adding a skill to a challenge session"
   },
   "NXw886": {
     "defaultMessage": "Other",
@@ -4859,6 +4859,10 @@
     "defaultMessage": "The great way to prepare for Front End Interviews",
     "description": "Title of GreatFrontEnd standard page"
   },
+  "aZ648A": {
+    "defaultMessage": "Are you intending to use <bold>\"{childSkill}\"</bold> for this challenge? We will add it to the skills used so your progress for its skill plan will be tracked.",
+    "description": "Message about adding a skill to a challenge session"
+  },
   "aZqFm4": {
     "defaultMessage": "Completed",
     "description": "Tooltip for Completed questions label"
@@ -4898,6 +4902,10 @@
   "apypGU": {
     "defaultMessage": "If you are logged in with OAuth (e.g. GitHub), you can set a password here to use email and password to log in instead.",
     "description": "Tip to set password if third-party sign in methods were used, on Change Password page"
+  },
+  "aqjjbk": {
+    "defaultMessage": "Add \"{skillName}\" to the skills used for this challenge?",
+    "description": "Dialog title for challenge session"
   },
   "aqtrYi": {
     "defaultMessage": "Dashboard",
@@ -5370,6 +5378,10 @@
   "eNCfLw": {
     "defaultMessage": "When your site URL was submitted, we automatically take screenshots of your pages. You can manually trigger retake with this button if your site has been updated",
     "description": "Tooltip for retake screenshot button"
+  },
+  "eOYq41": {
+    "defaultMessage": "Add \"{parentSkill} - {skillName}\" to the skills used for this challenge?",
+    "description": "Dialog title for challenge session"
   },
   "ePyk/V": {
     "defaultMessage": "Get notified about new front end resources, interview tips and practice questions",
@@ -7206,10 +7218,6 @@
   "t5nQRB": {
     "defaultMessage": "Discover study plans tailored to your needs to help you prepare for your upcoming technical interviews.",
     "description": "Description for study plans page"
-  },
-  "t5o9Z7": {
-    "defaultMessage": "Do you want to add the <bold>\"{skillName}\"</bold> skill to this challenge so that completing the challenge will count towards that skill's progress?",
-    "description": "Message about adding a skill to a challenge session"
   },
   "tBeimS": {
     "defaultMessage": "Challenges activity",
