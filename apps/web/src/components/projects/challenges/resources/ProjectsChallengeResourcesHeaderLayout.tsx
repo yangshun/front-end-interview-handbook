@@ -71,7 +71,7 @@ function useTipsResourcesDiscussionsTabs(challenge: ProjectsChallengeItem) {
     },
   ];
 
-  if (PROJECTS_OFFICIAL_SOLUTIONS_IS_LIVE) {
+  if (PROJECTS_OFFICIAL_SOLUTIONS_IS_LIVE && metadata.solutions?.[0]) {
     tabs.push({
       href: metadata.resourcesSolutionsHref,
       icon: RiVerifiedBadgeFill,

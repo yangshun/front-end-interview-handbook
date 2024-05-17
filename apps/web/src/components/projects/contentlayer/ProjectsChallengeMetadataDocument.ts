@@ -6,6 +6,7 @@ import {
   projectAccessOptions,
   projectChallengeResourceOptions,
   projectDifficultyOptions,
+  projectsChallengeSupportedSolutionOptions,
   projectTrackOptions,
 } from '../challenges/types';
 import { projectsSkillDetermineParentSkill } from '../skills/data/ProjectsSkillUtils';
@@ -186,6 +187,12 @@ export const ProjectsChallengeMetadataDocument = defineDocumentType(() => ({
       description: 'Skills for the challenge',
       of: { type: 'string' },
       required: true,
+      type: 'list',
+    },
+    solutions: {
+      description: 'List of available official solutions',
+      of: { options: projectsChallengeSupportedSolutionOptions, type: 'enum' },
+      required: false,
       type: 'list',
     },
     specImages: {

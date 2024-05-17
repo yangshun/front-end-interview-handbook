@@ -19,5 +19,5 @@ export function getChallengeSolutionsSrcPath(slug: string) {
   return path.join(CHALLENGES_SOLUTIONS_SRC_DIR, slug);
 }
 export function getChallengeSolutionsOutPath(slug: string) {
-  return path.join(CHALLENGES_SOLUTIONS_OUT_DIR, slug);
+  return path.join(CHALLENGES_SOLUTIONS_OUT_DIR, slug, 'solutions');
 }

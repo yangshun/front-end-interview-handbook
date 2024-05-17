@@ -7,9 +7,7 @@ import type {
 
 import type { ProjectsImageBreakpointCategory } from './common/ProjectsImageBreakpoints';
 import type { ProjectsSkillKey } from './skills/types';
-import type { QuestionUserInterfaceWorkspace } from '../interviews/questions/common/QuestionsTypes';
 
-import type { SandpackFiles } from '@codesandbox/sandpack-react';
 import type { ProjectsSubscriptionPlan } from '@prisma/client';
 
 export type ProjectsMotivationReasonValue = z.infer<
@@ -109,12 +107,3 @@ export type ProjectsBaseScreenshot = Readonly<{
 }>;
 
 export type FieldView = 'onboarding' | 'profile';
-
-export type ChallengeSolutionType = 'react' | 'vanilla';
-
-export type ChallengeSolutionSetupType = 'solutions';
-
-export type ChallengeSolutionUserInterfaceBundle = Readonly<{
-  files: SandpackFiles;
-  workspace: QuestionUserInterfaceWorkspace;
-}>;

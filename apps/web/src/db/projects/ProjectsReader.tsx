@@ -16,8 +16,14 @@ import {
   allProjectsChallengeStyleGuides,
   allProjectsCommonGuides,
 } from 'contentlayer/generated';
+import fs from 'fs';
+import path from 'path';
 
 import type { ProjectsChallengeItem } from '~/components/projects/challenges/types';
+import type {
+  ProjectsChallengeSolutionBundle,
+  ProjectsChallengeSolutionType,
+} from '~/components/projects/challenges/types';
 import {
   readProjectsTrackInfo,
   readProjectsTrackMetadata,
@@ -25,6 +31,8 @@ import {
 import type { ProjectsProfileAvatarDataSlim } from '~/components/projects/types';
 
 import prisma from '~/server/prisma';
+
+import { getChallengeSolutionsOutPath } from './ProjectsChallengeSolutionConfig';
 
 import type { ProjectsChallengeSessionStatus } from '@prisma/client';
 
@@ -576,4 +584,23 @@ export async function readProjectsCommonGuideList(
     commonGuides,
     loadedLocale: requestedLocale,
   };
+}
+
+export async function readProjectsChallengeSolutions(
+  slug: string,
+  solutionTypeParam?: ProjectsChallengeSolutionType | null,
+): Promise<ProjectsChallengeSolutionBundle> {
+  const challengeSolutionsOutDir = getChallengeSolutionsOutPath(slug);
+
+  const solutionType = solutionTypeParam ?? 'vanilla';
+
+  const solutionBundle = (() => {
+    const response = fs.readFileSync(
+      path.join(challengeSolutionsOutDir, `${solutionType}.json`),
+    );
+
+    return JSON.parse(String(response)) as ProjectsChallengeSolutionBundle;
+  })();
+
+  return solutionBundle;
 }

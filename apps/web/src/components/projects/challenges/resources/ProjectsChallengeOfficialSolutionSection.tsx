@@ -4,17 +4,22 @@ import clsx from 'clsx';
 
 import CodingPreferencesProvider from '~/components/global/CodingPreferencesProvider';
 import { useColorSchemePreferences } from '~/components/global/color-scheme/ColorSchemePreferencesProvider';
+import type { ProjectsChallengeSolutionBundle } from '~/components/projects/challenges/types';
 import sandpackProviderOptions from '~/components/workspace/common/sandpack/sandpackProviderOptions';
 import SandpackTimeoutLogger from '~/components/workspace/common/sandpack/SandpackTimeoutLogger';
-
-import solution from '~/__generated__/projects/challenges/profile-card/solutions/vanilla.json';
 
 import ProjectsChallengeOfficialSolutionWorkspace from './ProjectsChallengeOfficialSolutionWorkspace';
 
 import type { SandboxEnvironment } from '@codesandbox/sandpack-react';
 import { SandpackProvider } from '@codesandbox/sandpack-react';
 
-export default function ProjectsChallengeOfficialSolutionSection() {
+type Props = Readonly<{
+  solution: ProjectsChallengeSolutionBundle;
+}>;
+
+export default function ProjectsChallengeOfficialSolutionSection({
+  solution,
+}: Props) {
   const { colorScheme } = useColorSchemePreferences();
 
   const { workspace, files } = solution;
@@ -35,7 +40,7 @@ export default function ProjectsChallengeOfficialSolutionSection() {
             'sp-stack': 'h-full',
             'sp-wrapper': clsx('!w-full !text-sm !h-[650px]'),
           },
-          visibleFiles: workspace?.visibleFiles.slice() ?? undefined,
+          visibleFiles: workspace?.visibleFiles?.slice() ?? undefined,
         }}
         theme={colorScheme === 'dark' ? 'dark' : undefined}>
         <ProjectsChallengeOfficialSolutionWorkspace

@@ -1,8 +1,13 @@
 import type { Metadata } from 'next';
+import { redirect } from 'next/navigation';
 
 import ProjectsChallengeOfficialSolutionSection from '~/components/projects/challenges/resources/ProjectsChallengeOfficialSolutionSection';
 
-import { readProjectsChallengeInfo } from '~/db/projects/ProjectsReader';
+import {
+  readProjectsChallengeInfo,
+  readProjectsChallengeItem,
+  readProjectsChallengeSolutions,
+} from '~/db/projects/ProjectsReader';
 import { getIntlServerOnly } from '~/i18n';
 import defaultProjectsMetadata from '~/seo/defaultProjectsMetadata';
 
@@ -44,6 +49,19 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   });
 }
 
-export default async function Page() {
-  return <ProjectsChallengeOfficialSolutionSection />;
+export default async function Page({ params }: Props) {
+  const { slug, locale } = params;
+  const { challenge } = await readProjectsChallengeItem(slug, locale);
+  const { metadata } = challenge;
+
+  if (!metadata.solutions?.[0]) {
+    return redirect(metadata.resourcesGuidesHref);
+  }
+
+  const solution = await readProjectsChallengeSolutions(
+    slug,
+    metadata.solutions[0],
+  );
+
+  return <ProjectsChallengeOfficialSolutionSection solution={solution} />;
 }

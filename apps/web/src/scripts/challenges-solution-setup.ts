@@ -7,10 +7,10 @@ import path from 'path';
 
 import type { QuestionUserInterfaceWorkspace } from '~/components/interviews/questions/common/QuestionsTypes';
 import type {
-  ChallengeSolutionSetupType,
-  ChallengeSolutionType,
-  ChallengeSolutionUserInterfaceBundle,
-} from '~/components/projects/types';
+  ProjectsChallengeSolutionBundle,
+  ProjectsChallengeSolutionSetupType,
+  ProjectsChallengeSolutionType,
+} from '~/components/projects/challenges/types';
 
 import {
   CHALLENGES_SOLUTIONS_SRC_DIR,
@@ -20,10 +20,8 @@ import {
 
 import type { SandpackFile } from '@codesandbox/sandpack-react';
 
-const SUPPORTED_CHALLENGE_SOLUTION_TYPE = new Set<ChallengeSolutionType>([
-  'vanilla',
-  'react',
-]);
+const SUPPORTED_CHALLENGE_SOLUTION_TYPE =
+  new Set<ProjectsChallengeSolutionType>(['vanilla', 'react']);
 
 async function generateSetupForChallengesSolutions(slug: string) {
   const challengeSolutionsPath = getChallengeSolutionsSrcPath(slug);
@@ -56,8 +54,8 @@ async function generateSetupForChallengesSolutions(slug: string) {
     Object.entries(groupedFiles).map(async ([key, paths]) => {
       const parts = key.split('/');
 
-      const setupType = parts[0] as ChallengeSolutionSetupType;
-      const solutionType = parts[1] as ChallengeSolutionType;
+      const setupType = parts[0] as ProjectsChallengeSolutionSetupType;
+      const solutionType = parts[1] as ProjectsChallengeSolutionType;
 
       assert(
         SUPPORTED_CHALLENGE_SOLUTION_TYPE.has(solutionType),
@@ -130,7 +128,7 @@ async function generateSetupForChallengesSolutions(slug: string) {
 
       fs.mkdirSync(path.dirname(outPath), { recursive: true });
 
-      const bundle: ChallengeSolutionUserInterfaceBundle = {
+      const bundle: ProjectsChallengeSolutionBundle = {
         files,
         workspace,
       };
