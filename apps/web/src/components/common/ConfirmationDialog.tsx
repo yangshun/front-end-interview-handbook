@@ -30,7 +30,7 @@ export default function ConfirmationDialog({
   isShown,
   onCancel,
   onConfirm,
-  showCancelButton,
+  showCancelButton = true,
   title,
   trigger,
 }: Props) {
