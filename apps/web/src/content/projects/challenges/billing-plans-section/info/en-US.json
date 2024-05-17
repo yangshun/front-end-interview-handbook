@@ -1,0 +1,7 @@
+{
+  "title": "Billing Plans Section",
+  "description": "Build a billing plans section that incorporates functions for managing subscription plans, including the ability to subscribe, upgrade, and downgrade plans",
+  "specLabels": {
+    "main": "Billing plans section"
+  }
+}

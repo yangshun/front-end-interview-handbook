@@ -1,0 +1,51 @@
+In this challenge, you will create a billing plan section that enables users to manage their subscriptions. This includes capabilities to subscribe to a plan, upgrade or downgrade from their current plan, and view detailed information about their current subscription.
+
+This section is typically as part of the Billing module in a SaaS settings page.
+
+### Functional Requirements
+
+#### 1. Plan interface
+
+- Responsive: Ensure that the plan details are clearly visible on all devices (desktop, tablet, mobile) with consistent styling and functionality.
+- Current subscription information: Dynamically display the user's current subscription information, including the "plan type", "pricing", and the "date of the next billing" (not for the Starter plan, since it is free).
+- Allow users to select one plan at a time. Changing from their current plan allows them to "Save changes", triggering the upgrade or downgrade logic.
+
+#### 2. Plan Management:
+
+- Upgrading from the Free plan ("Starter" plan):
+  - Effected immediately.
+  - Display a confirmation modal before triggering the billing.
+  - After the billing is completed, return the user to the plan module, with the current plan information updated and a success notification.
+- Mid-cycle downgrades (including unsubscriptions / plan cancellations):
+  - Downgrades are effected at the end of the current subscription cycle.
+  - Display a confirmation modal before confirming.
+  - Display a banner to allow users to cancel the downgrade before the end of the current subscription cycle.
+- Mid-cycle upgrades:
+  - Upgrades are billed and effected immediately.
+  - The billed amount is prorated based on the remaining duration till the end of the current subscription cycle. The prorated charge is calculated as: (New monthly rate - Old monthly rate / Total days in month) x Remaining days in month after upgrade.
+  - Display a confirmation modal before triggering the billing, including information about the prorated amount to be billed.
+  - After the billing is completed, return the user to the plan module, with the current plan information updated and a success notification.
+- In all cases, after the user confirms the plan change in the confirmation modal:
+  - If the user has not filled their billing information, trigger the prompt for them to do so.
+
+#### 3. API integration
+
+- **[Stretch goal] Populate database:**: Design a database schema and populate a database with the given dummy data.
+- **[Stretch goal] Create and integrate with API endpoints**: Build your own endpoints based on the database schema to fetch data and save the subscription.
+- **Submission**: On clicking "Save changes" and successful client side validation of all fields, the form should submit the data to your API endpoint, handling responses and errors gracefully:
+  - **Success feedback**: Provide success feedback with "Changes saved successfully.".
+  - **API error response**: Handle any API error responses (e.g., 400 Bad Request, 500 Internal Server Error) by displaying an appropriate message such as "Unexpected error. Please try again later or contact support.".
+
+#### 4. State persistence
+
+- On loading the settings page, the toggles should reflect the current user settings fetched from the back end.
+
+#### 5. Error states
+
+- **Data fetch error**: Show an empty state message titled "Unexpected error" with the description "We're facing some issues at the moment. Please try again later or contact support.".
+
+### Non-functional requirements
+
+- **Cross-browser compatibility**: Check that your solution works for major browsers including Chrome, Firefox, and Safari.
+- **[Stretch goal] Performance optimization**: Optimize image assets and code for quick load times, ensuring a smooth and responsive user experience.
+- **[Stretch goal] Accessibility**: Follow best practices for web accessibility, such as using semantic HTML and ARIA roles where necessary, using proper `alt` tags for images and ensuring that buttons can be navigated to and selected using keyboard controls.

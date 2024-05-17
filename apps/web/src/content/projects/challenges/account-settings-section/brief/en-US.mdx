@@ -1,0 +1,111 @@
+In this challenge, you will develop an account settings interface which allows the user to update their avatar, name, email and username. It should include the following features:
+
+1. Profile image: Allow the users to upload an image as their display photo
+2. Input validation: Validate inputs for correctness and completeness
+3. [Stretch] API integration: Build your own endpoints to fetch data and save the account information
+
+### Functional Requirements
+
+#### 1. Profile image
+
+- Allow the user to upload a profile image with specific format (JPG or PNG) and size (800x800 px)
+- Implement this with the [Image Uploader](/projects/challenges/image-uploader) component (recommended), or allow the user to select a file and crop it for them automatically (circular, 1:1 aspect ratio). If you choose to do the latter, display any error messages according to the Style guide.
+
+#### 2. Field and input validation
+
+The form fields are detailed in the table below.
+
+- **Allowed values**: Refers to the types of values that the user can type into the field
+- **Validation:** Refers to the validation to be done when the field is filled and blurred. All validation should nonetheless be triggered at once on Submission, with focus placed on the first field that has validation errors.
+
+<table>
+  <tr>
+    <td>
+      <strong>Field label</strong>
+    </td>
+    <td>
+      <strong>Placeholder</strong>
+    </td>
+    <td>
+      <strong>Allowed values</strong>
+    </td>
+    <td>
+      <strong>Validation</strong>
+    </td>
+    <td>
+      <strong>Validation message</strong>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <strong>All fields </strong>(except Profile image)
+    </td>
+    <td>-</td>
+    <td>-</td>
+    <td>Required</td>
+    <td>"[Field name] is required"</td>
+  </tr>
+  <tr>
+    <td>
+      <strong>First name</strong>
+    </td>
+    <td>"John"</td>
+    <td>Alphanumeric</td>
+    <td>-</td>
+    <td>-</td>
+  </tr>
+  <tr>
+    <td>
+      <strong>Last name</strong>
+    </td>
+    <td>"Appleseed"</td>
+    <td>Alphanumeric</td>
+    <td>-</td>
+    <td>-</td>
+  </tr>
+  <tr>
+    <td>
+      <strong>Email</strong>
+    </td>
+    <td>"user@example.com"</td>
+    <td>-</td>
+    <td>
+      Email format matches the standard email format (e.g., user@example.com)
+    </td>
+    <td>"Please enter a valid email address."</td>
+  </tr>
+  <tr>
+    <td>
+      <strong>Username</strong>
+    </td>
+    <td>johnappleseed</td>
+    <td>Alphanumeric without spaces</td>
+    <td>Must be unique (case insensitive)</td>
+    <td>"[username] already exists"</td>
+  </tr>
+</table>
+
+- **Special case for "Username" field**: If the uniqueness check is passed, there will be a visual cue for success for the username field; else, a visual cue for error will appear, with the error message in the table.
+
+#### 3. API integration and submission
+
+- **[Stretch goal] Populate database**: Design a database schema and populate a database with the given dummy data
+- **[Stretch goal] Create endpoints**: Build your own endpoints based on the provided or created database schema to fetch data and save preferences
+- **API integration**: Use the provided or created endpoints to fetch data and save preferences.
+- **Submission**: On clicking 'Save changes' and successful client side validation of all fields, the form should submit the data to the API endpoint (provided by us or created by you), handling responses and errors gracefully:
+  - **Success feedback**: Provide success feedback with "Changes saved successfully"
+  - **API error response**: Handle any API error responses (e.g., 400 Bad Request, 500 Internal Server Error) by displaying an appropriate message such as "Unexpected error. Please try again later or contact support."
+
+#### 4. State persistence
+
+- On loading the settings page, the fields should reflect the current user settings fetched from the back end.
+
+#### 5. Error states
+
+- **Data fetch error**: Show an empty state message titled "Unexpected error" with the description "We're facing some issues at the moment. Please try again later or contact support.".
+
+### Non-functional requirements
+
+- **Cross-browser compatibility**: Check that your solution works for major browsers including Chrome, Firefox, and Safari.
+- **[Stretch goal] Performance optimization**: Optimize image assets and code for quick load times, ensuring a smooth and responsive user experience.
+- **[Stretch goal] Accessibility**: Follow best practices for web accessibility, such as using semantic HTML and ARIA roles where necessary, using proper `alt` tags for images and ensuring that buttons can be navigated to and selected using keyboard controls.

@@ -1,0 +1,7 @@
+{
+  "title": "Billing History Section",
+  "description": "Build a responsive payment history section that allows users to view and download their past invoice details",
+  "specLabels": {
+    "main": "Billing history section"
+  }
+}

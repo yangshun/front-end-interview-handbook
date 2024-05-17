@@ -1,0 +1,42 @@
+In this challenge, you are tasked with creating a user interface according to the specific layouts provided for desktop, tablet, and mobile views. The section will display a list of invoices, including details such as the date, status, amount, and associated plan, with an option to download each invoice.
+
+Apart from the provided designs, which have been adapted for desktop, tablet and mobile, you will be provided with a few sample users' data, including dummy invoices.
+
+### Functional Requirements
+
+#### 1. Invoice listing
+
+- Display each invoice with details such as:
+  - Invoice date (e.g., "1 Mar 2024")
+  - Status: "Paid"
+  - Invoice amount (e.g., "$10.00")
+  - Plan: "Starter plan", "Basic plan", "Professional plan"
+  - A link or button for downloading the invoice – "Download"
+
+#### 2. Fetching data dynamically
+
+- Dynamically load and display invoice data as retrieved from the back end server, including real-time updates if applicable.
+- **[Stretch goal] Populate database**: Design a database schema and populate a database with the given provided data.
+- **[Stretch goal] Create endpoints**: Build your own endpoints based on the provided or created database schema to fetch data.
+- **API integration**: Use the provided or created endpoints to fetch data.
+
+#### 3. [Stretch goal] Download functionality
+
+- Host and serve invoice PDFs upon user clicking "Download".
+- Provide a secure method for users to download invoices directly from the server.
+- **API integration:**: Integrate with blob hosting services like Amazon S3 to generate secure and time-limited URLs for downloading invoices to ensure that access is controlled and secure.
+
+#### 4. Various states
+
+- **No payment history**: Show an empty state message titled "No payment history available" with the description "Once you start making transactions, your payment details will appear here.".
+- **Data fetch error**: Show an empty state message titled "Unexpected error" with the description "We're facing some issues at the moment. Please try again later or contact support.".
+
+### General requirements
+
+- **Design fidelity**: Aim to follow the design as closely as possible. All elements in the design should be present, using the specified text color, font size, font weight, spacing, dimensions, etc.
+- **Interactivity:**
+  - **Toast notification**: This component is used for displaying error messages when it is not specific to any input field
+  - **Link / Button states**: Implement and style links and buttons to reflect different states - normal, hover, focus and disabled.
+- **Cross-browser compatibility**: Check that your solution works for major browsers including Chrome, Firefox, and Safari.
+- **[Stretch goal] Performance optimization**: Code for fast load times with efficient CSS and JavaScript techniques.
+- **[Stretch goal] Accessibility and semantics**: Follow best practices for web accessibility, such as using semantic HTML and ARIA roles where necessary and using proper `alt` tags for images.

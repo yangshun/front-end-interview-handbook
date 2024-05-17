@@ -1,0 +1,169 @@
+In this challenge, you are tasked with developing a responsive interface that enables users to update their payment method, email, and address details.
+
+### Functional Requirements
+
+#### 1. Fields and validation
+
+The table below describes the fields required in the billing form, as well as their validation. Here is what some of the columns mean:
+
+- **Allowed values**: Refers to the types of values that the user can type into the field
+- **Validation**: Refers to the validation to be done when the field is filled and blurred. All validation should nonetheless be triggered at once on Submission, with focus placed on the first field that has validation errors.
+
+<table>
+  <tr>
+    <td>
+      <strong>Field label</strong>
+    </td>
+    <td>
+      <strong>Placeholder</strong>
+    </td>
+    <td>
+      <strong>Allowed values</strong>
+    </td>
+    <td>
+      <strong>Validation</strong>
+    </td>
+    <td>
+      <strong>Validation message</strong>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <strong>All fields</strong>
+    </td>
+    <td>-</td>
+    <td>-</td>
+    <td>Required, except "Apartment, suite, etc."</td>
+    <td>"[Field name] is required"</td>
+  </tr>
+  <tr>
+    <td>
+      <strong>Card number</strong>
+    </td>
+    <td>"1234 1234 1234 1234"</td>
+    <td>Digits, up to 16 digits</td>
+    <td>-</td>
+    <td>-</td>
+  </tr>
+  <tr>
+    <td>
+      <strong>Cardholder name</strong>
+    </td>
+    <td>"Full name on card"</td>
+    <td>Alphanumeric</td>
+    <td>-</td>
+    <td>-</td>
+  </tr>
+  <tr>
+    <td>
+      <strong>Expiry</strong>
+    </td>
+    <td>"MM / YY"</td>
+    <td>Digits, up to 4 to fill up 'MM / YYYY'</td>
+    <td>Cannot be before current date</td>
+    <td>"Enter a valid expiration date"</td>
+  </tr>
+  <tr>
+    <td>
+      <strong>CVV</strong>
+    </td>
+    <td>"CVV"</td>
+    <td>Digits, up to 3</td>
+    <td>-</td>
+    <td>-</td>
+  </tr>
+  <tr>
+    <td>
+      <strong>Email</strong>
+    </td>
+    <td>"user@example.com"</td>
+    <td>-</td>
+    <td>
+      Email format matches the standard email format (e.g., user@example.com)
+    </td>
+    <td>"Please enter a valid email address."</td>
+  </tr>
+  <tr>
+    <td>
+      <strong>Country / Region</strong>
+    </td>
+    <td colspan="4">
+      "United States" is chosen by default and disabled. In general, shipping
+      information fields change according to country-specific customs, but we
+      will avoid that complication.
+    </td>
+  </tr>
+  <tr>
+    <td rowspan="2">
+      <strong>Address</strong>
+    </td>
+    <td>"Street address"</td>
+    <td>Unicode</td>
+    <td>-</td>
+    <td>-</td>
+  </tr>
+  <tr>
+    <td>"Apartment, suite, etc. (optional)"</td>
+    <td>Unicode</td>
+    <td>-</td>
+    <td>-</td>
+  </tr>
+  <tr>
+    <td>
+      <strong>City</strong>
+    </td>
+    <td>"City"</td>
+    <td>Unicode</td>
+    <td>-</td>
+    <td>-</td>
+  </tr>
+  <tr>
+    <td>
+      <strong>State</strong>
+    </td>
+    <td>"State"</td>
+    <td>List of values provided to you in the data</td>
+    <td>-</td>
+    <td>-</td>
+  </tr>
+  <tr>
+    <td>
+      <strong>Zip</strong>
+    </td>
+    <td>"12345"</td>
+    <td>Digits, up to 5</td>
+    <td></td>
+    <td></td>
+  </tr>
+</table>
+
+Other field requirements
+
+- **[Stretch goal] Detect payment type**: For the "Card number" field, it is common to detect the card type and display the logo of the card e.g. Mastercard, Visa or AMEX.
+
+#### 2. Form submission
+
+- **[Stretch goal] Populate database**: Design a database schema and populate a database with your own dummy data.
+- **[Stretch goal] Create and integrate with API endpoints**: Build your own endpoints based on the database schema to fetch data and save the subscription.
+- **Submission**: On clicking "Save changes", the form should submit the data to your API endpoint, handling responses and errors gracefully:
+  - **Success feedback**: Provide success feedback with "Changes saved successfully".
+  - **Error response**: Handle any API error responses (e.g., 400 Bad Request, 500 Internal Server Error) by displaying an appropriate message such as "Unexpected error. Please try again later or contact support.".
+
+#### 3. State persistence
+
+- On loading the settings page, the fields should reflect the current user settings fetched from the back end.
+
+#### 4. Error states
+
+- **Data fetch error**: Show an empty state message titled "Unexpected error" with the description "We're facing some issues at the moment. Please try again later or contact support.".
+
+### General requirements
+
+- **Design fidelity**: Aim to follow the design as closely as possible. All elements in the design should be present, using the specified text color, font size, font weight, spacing, dimensions, etc.
+- **Interactivity:**
+  - **Toast notification**: This component is used for displaying error messages when it is not specific to any input field
+  - **Link / Button states**: Implement and style links and buttons to reflect different states - normal, hover, focus and disabled.
+  - **Input field states:** Implement and style input fields to reflect different states - normal, focus filled, disabled, error, error filled, error focused.
+- **Cross-browser compatibility**: Check that your solution works for major browsers including Chrome, Firefox, and Safari.
+- **[Stretch goal] Performance optimization**: Code for fast load times with efficient CSS and JavaScript techniques.
+- **[Stretch goal] Accessibility and semantics**: Follow best practices for web accessibility, such as using semantic HTML and ARIA roles where necessary and using proper `alt` tags for images.

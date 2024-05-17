@@ -1,0 +1,45 @@
+In this challenge, you are tasked with developing a responsive interface that enables users to update their notifications settings by channel and content.
+
+### Functional Requirements
+
+#### 1. Notifications form
+
+- **Multiple notification types**: Include toggles for various notification types such as:
+  - Marketing & promotional events
+  - System updates
+  - Course alerts
+  - Updates from friends
+  - Friend requests
+- **Multi-channel notification toggles**: Each notification type should have toggles for the following channels:
+  - Push (App)
+  - Email
+  - SMS
+- **Toggle functionality**: Each toggle should be clickable and reflect the current setting for that notification type and channel.
+
+#### 2. Form submission
+
+- **[Stretch goal] Populate database**: Design a database schema that is able to support saving the notifications preferences.
+- **[Stretch goal] Create endpoints**: Build your own endpoints based on the provided or created database schema to fetch data and save preferences.
+- **API integration**: Use the provided or created endpoints to fetch data and save preferences.
+- **Submission**: On clicking "Save changes", the form should submit the data to the API endpoint (provided or self-created), handling responses and errors gracefully:
+  - **Success feedback**: Provide success feedback with "Changes saved successfully".
+  - **Error response**: Handle any API error responses (e.g., 400 Bad Request, 500 Internal Server Error) by displaying an appropriate message such as "Unexpected error. Please try again later or contact support.".
+
+#### 3. State persistence
+
+- On loading the settings page, the toggles should reflect the current user settings fetched from the back end.
+
+#### 4. Error states
+
+- **Data fetch error**: Show an empty state message titled "Unexpected error" with the description "We're facing some issues at the moment. Please try again later or contact support.".
+
+### General requirements
+
+- **Design fidelity**: Aim to follow the design as closely as possible. All elements in the design should be present, using the specified text color, font size, font weight, spacing, dimensions, etc.
+- **Interactivity:**
+  - **Toast notification**: This component is used for displaying error messages when it is not specific to any input field.
+  - **Link / Button states**: Implement and style links and buttons to reflect different states - normal, hover, focus and disabled.
+  - **Toggle states:** Implement and style toggles to reflect different states - normal, hover, focus and disabled.
+- **Cross-browser compatibility**: Check that your solution works for major browsers including Chrome, Firefox, and Safari.
+- **[Stretch goal] Performance optimization**: Code for fast load times with efficient CSS and JavaScript techniques.
+- **[Stretch goal] Accessibility and semantics**: Follow best practices for web accessibility, such as using semantic HTML and ARIA roles where necessary and using proper `alt` tags for images.

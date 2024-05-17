@@ -1,0 +1,7 @@
+{
+  "title": "Password Section",
+  "description": "Build a responsive password settings section that allows users to update their password while following recommended security guidelines",
+  "specLabels": {
+    "main": "Password section"
+  }
+}

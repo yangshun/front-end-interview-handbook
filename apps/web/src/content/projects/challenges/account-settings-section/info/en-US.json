@@ -1,0 +1,7 @@
+{
+  "title": "Account Settings Section",
+  "description": "Build a responsive account settings interface that allows users to update avatar and account information",
+  "specLabels": {
+    "main": "Account settings section"
+  }
+}

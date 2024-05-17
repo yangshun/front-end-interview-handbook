@@ -1,0 +1,7 @@
+{
+  "title": "Notifications Settings Section",
+  "description": "Build a responsive notifications settings module that allows users to manage how they receive notifications across different communication channels (push, email, SMS)",
+  "specLabels": {
+    "main": "Notifications settings section"
+  }
+}
