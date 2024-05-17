@@ -7,7 +7,6 @@ import { RiArrowRightLine, RiCheckLine } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
 import url from 'url';
 
-import { fbqGFE } from '~/lib/fbq';
 import gtag from '~/lib/gtag';
 import { isProhibitedCountry } from '~/lib/stripeUtils';
 import { useAuthSignInUp } from '~/hooks/user/useAuthFns';
@@ -25,6 +24,11 @@ import { SOCIAL_DISCOUNT_PERCENTAGE } from '~/components/promotions/social/Socia
 import PurchasePriceAnnualComparison from '~/components/purchase/comparison/PurchasePriceAnnualComparison';
 import PurchasePriceMonthlyComparison from '~/components/purchase/comparison/PurchasePriceMonthlyComparison';
 import PurchasePriceQuarterlyComparison from '~/components/purchase/comparison/PurchasePriceQuarterlyComparison';
+import {
+  purchaseFailureLogging,
+  purchaseInitiateLogging,
+  purchaseInitiateLoggingNonSignedIn,
+} from '~/components/purchase/PurchaseLogging';
 import PurchasePPPDiscountAlert from '~/components/purchase/PurchasePPPDiscountAlert';
 import PurchasePriceLabel from '~/components/purchase/PurchasePriceLabel';
 import PurchaseProhibitedCountryAlert from '~/components/purchase/PurchaseProhibitedCountryAlert';
@@ -45,8 +49,6 @@ import {
 } from '~/components/ui/theme';
 
 import logEvent from '~/logging/logEvent';
-import logMessage from '~/logging/logMessage';
-import { getErrorMessage } from '~/utils/getErrorMessage';
 
 import PurchaseBlockCard from '../../purchase/PurchaseBlockCard';
 import { MAXIMUM_PPP_CONVERSION_FACTOR_TO_DISPLAY_BEFORE_PRICE } from '../../purchase/PurchasePricingConfig';
@@ -123,25 +125,10 @@ function PricingButtonNonLoggedIn({
         id: '9gs1LO',
       })}
       onClick={() => {
-        gtag.event({
-          action: `checkout.sign_up`,
-          category: 'ecommerce',
-          label: 'Buy Now (not logged in)',
-        });
-        logMessage({
-          level: 'info',
-          message: `${
-            paymentConfig.planType
-          } plan for ${paymentConfig.currency.toLocaleUpperCase()} ${
-            paymentConfig.unitCostCurrency.withPPP.after
-          } but not signed in`,
-          namespace: 'interviews',
-          title: 'Checkout initiate (non-signed in)',
-        });
-        logEvent('checkout.attempt.not_logged_in', {
-          currency: paymentConfig.currency.toLocaleUpperCase(),
+        purchaseInitiateLoggingNonSignedIn({
           plan: paymentConfig.planType,
-          value: paymentConfig.unitCostCurrency.withPPP.after,
+          product: 'interviews',
+          purchasePrice: paymentConfig,
         });
       }}
     />
@@ -208,21 +195,11 @@ function PricingButtonNonPremium({
         );
       }
 
-      gtag.event({
-        action: 'checkout.failure',
-        category: 'ecommerce',
-        label: planType,
-      });
-      logMessage({
-        level: 'error',
-        message: getErrorMessage(error),
-        namespace: 'interviews',
-        title: 'Checkout attempt error',
-      });
-      logEvent('checkout.fail', {
-        currency: paymentConfig.currency.toLocaleUpperCase(),
+      purchaseFailureLogging({
+        error,
         plan: planType,
-        value: paymentConfig.unitCostCurrency.withPPP.after,
+        product: 'interviews',
+        purchasePrice: paymentConfig,
       });
     } finally {
       setIsCheckoutSessionLoading(false);
@@ -261,38 +238,11 @@ function PricingButtonNonPremium({
         onClick={() => {
           setHasClicked(true);
           hasClickedRef.current = true;
-          gtag.event({
-            action: 'checkout.attempt',
-            category: 'ecommerce',
-            label: 'Buy Now',
-          });
-          gtag.event({
-            action: 'begin_checkout',
-            category: 'ecommerce',
-            extra: {
-              currency: paymentConfig.currency.toLocaleUpperCase(),
-            },
-            value: paymentConfig.unitCostCurrency.withPPP.after,
-          });
-          fbqGFE('track', 'InitiateCheckout', {
-            content_category: paymentConfig.planType,
-            currency: paymentConfig.currency.toLocaleUpperCase(),
-            value: paymentConfig.unitCostCurrency.withPPP.after,
-          });
-          logMessage({
-            level: 'info',
-            message: `${
-              paymentConfig.planType
-            } plan for ${paymentConfig.currency.toLocaleUpperCase()} ${
-              paymentConfig.unitCostCurrency.withPPP.after
-            }`,
-            namespace: 'interviews',
-            title: 'Checkout Initiate',
-          });
-          logEvent('checkout.attempt', {
-            currency: paymentConfig.currency.toLocaleUpperCase(),
+
+          purchaseInitiateLogging({
             plan: paymentConfig.planType,
-            value: paymentConfig.unitCostCurrency.withPPP.after,
+            product: 'interviews',
+            purchasePrice: paymentConfig,
           });
 
           if (checkoutSessionHref != null) {

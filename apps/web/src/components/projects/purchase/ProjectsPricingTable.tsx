@@ -10,7 +10,6 @@ import { RiExternalLinkFill } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
 import url from 'url';
 
-import { fbqGFE } from '~/lib/fbq';
 import gtag from '~/lib/gtag';
 import { isProhibitedCountry } from '~/lib/stripeUtils';
 import { trpc } from '~/hooks/trpc';
@@ -18,6 +17,11 @@ import { useAuthSignInUp } from '~/hooks/user/useAuthFns';
 
 import PurchasePriceAnnualComparison from '~/components/purchase/comparison/PurchasePriceAnnualComparison';
 import PurchaseActivePlanLabel from '~/components/purchase/PurchaseActivePlanLabel';
+import {
+  purchaseFailureLogging,
+  purchaseInitiateLogging,
+  purchaseInitiateLoggingNonSignedIn,
+} from '~/components/purchase/PurchaseLogging';
 import PurchasePriceLabel from '~/components/purchase/PurchasePriceLabel';
 import { priceRoundToNearestNiceNumber } from '~/components/purchase/PurchasePricingUtils';
 import type { Props as AnchorProps } from '~/components/ui/Anchor';
@@ -32,10 +36,6 @@ import {
   themeTextSuccessColor,
 } from '~/components/ui/theme';
 import Tooltip from '~/components/ui/Tooltip';
-
-import logEvent from '~/logging/logEvent';
-import logMessage from '~/logging/logMessage';
-import { getErrorMessage } from '~/utils/getErrorMessage';
 
 import {
   annualPlanFeatures,
@@ -130,18 +130,10 @@ function PricingButtonNonLoggedIn({
           label: 'Unlock premium (not logged in)',
         });
         if (paymentConfig != null) {
-          logMessage({
-            level: 'info',
-            message: `${planType} plan for ${paymentConfig.currency.toLocaleUpperCase()} ${
-              paymentConfig.unitCostCurrency.withPPP.after
-            } but not signed in`,
-            namespace: 'projects',
-            title: 'Checkout initiate (non-signed in)',
-          });
-          logEvent('checkout.attempt.not_logged_in', {
-            currency: paymentConfig.currency.toLocaleUpperCase(),
+          purchaseInitiateLoggingNonSignedIn({
             plan: planType,
-            value: paymentConfig.unitCostCurrency.withPPP.after,
+            product: 'projects',
+            purchasePrice: paymentConfig,
           });
         }
       }}
@@ -218,21 +210,11 @@ function PricingButtonNonPremium({
         );
       }
 
-      gtag.event({
-        action: 'checkout.failure',
-        category: 'ecommerce',
-        label: planTypeParam,
-      });
-      logMessage({
-        level: 'error',
-        message: getErrorMessage(error),
-        namespace: 'projects',
-        title: 'Checkout attempt error',
-      });
-      logEvent('checkout.fail', {
-        currency: paymentConfig.currency.toLocaleUpperCase(),
-        plan: planTypeParam,
-        value: paymentConfig.unitCostCurrency.withPPP.after,
+      purchaseFailureLogging({
+        error,
+        plan: planType,
+        product: 'projects',
+        purchasePrice: paymentConfig,
       });
     } finally {
       setIsCheckoutSessionLoading(false);
@@ -256,36 +238,11 @@ function PricingButtonNonPremium({
         onClick={() => {
           setHasClicked(true);
           hasClickedRef.current = true;
-          gtag.event({
-            action: 'checkout.attempt',
-            category: 'ecommerce',
-            label: 'Buy Now',
-          });
-          gtag.event({
-            action: 'begin_checkout',
-            category: 'ecommerce',
-            extra: {
-              currency: paymentConfig.currency.toLocaleUpperCase(),
-            },
-            value: paymentConfig.unitCostCurrency.withPPP.after,
-          });
-          fbqGFE('track', 'InitiateCheckout', {
-            content_category: planType,
-            currency: paymentConfig.currency.toLocaleUpperCase(),
-            value: paymentConfig.unitCostCurrency.withPPP.after,
-          });
-          logMessage({
-            level: 'info',
-            message: `${planType} plan for ${paymentConfig.currency.toLocaleUpperCase()} ${
-              paymentConfig.unitCostCurrency.withPPP.after
-            }`,
-            namespace: 'projects',
-            title: 'Checkout Initiate',
-          });
-          logEvent('checkout.attempt', {
-            currency: paymentConfig.currency.toLocaleUpperCase(),
+
+          purchaseInitiateLogging({
             plan: planType,
-            value: paymentConfig.unitCostCurrency.withPPP.after,
+            product: 'projects',
+            purchasePrice: paymentConfig,
           });
 
           if (checkoutSessionHref != null) {
