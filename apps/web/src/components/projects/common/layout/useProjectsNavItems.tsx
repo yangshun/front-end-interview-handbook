@@ -88,7 +88,7 @@ export default function useProjectsNavItems(placement: 'nav' | 'sidebar') {
       });
     },
     position: 'end',
-    scrollToTop: false,
+    scroll: false,
     type: 'link',
   };
   const pricing: NavbarPrimaryItem = {

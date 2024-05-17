@@ -69,7 +69,7 @@ export default function useInterviewsNavItems(placement: 'nav' | 'sidebar') {
       });
     },
     position: 'end',
-    scrollToTop: false,
+    scroll: false,
     type: 'link',
   };
   const guides: NavbarPrimaryItem = {

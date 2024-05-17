@@ -89,7 +89,7 @@ export default function ProjectsProfileCategoryTabs({
         description: 'Tab label to select another dashboard category',
         id: '1O3xR8',
       })}
-      scrollToTop={false}
+      scroll={false}
       size="md"
       tabs={tabs}
       value={value}

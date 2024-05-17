@@ -68,7 +68,7 @@ export default function ProjectsProfileProgressTabs({ baseUrl }: Props) {
         description: 'Tab label to select another project category',
         id: 'GcmSpX',
       })}
-      scrollToTop={false}
+      scroll={false}
       size="sm"
       tabs={progressTabs}
       value={value}

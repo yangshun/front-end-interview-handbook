@@ -13,7 +13,7 @@ export type NavLinkItem = NavBaseItem &
     href: AnchorProps['href'];
     icon?: (props: React.ComponentProps<'svg'>) => JSX.Element;
     labelAddon?: React.ReactNode;
-    scrollToTop?: boolean;
+    scroll?: boolean;
     type: 'link';
   }>;
 

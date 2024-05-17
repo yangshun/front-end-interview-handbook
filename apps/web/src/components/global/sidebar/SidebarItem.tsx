@@ -84,7 +84,7 @@ export default function SidebarLinkItem({
           isLinkSelected ? activeClassName : defaultClassName,
         )}
         href={props.href}
-        scrollToTop={props.scrollToTop}
+        scroll={props.scroll}
         variant="unstyled"
         onClick={onClick}>
         {iconElement}

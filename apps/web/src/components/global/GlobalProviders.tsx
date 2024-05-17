@@ -12,7 +12,6 @@ import type { Database } from '~/supabase/database.types';
 
 import AppContextProvider from './AppContextProvider';
 import ColorSchemePreferencesProvider from './color-scheme/ColorSchemePreferencesProvider';
-import ScrollManagementProvider from './ScrollManagementProvider';
 import TrpcClientProvider from './TrpcClientProvider';
 import UserPreferencesProvider from './UserPreferencesProvider';
 import UserProfileProvider from './UserProfileProvider';
@@ -47,15 +46,13 @@ export default function GlobalProviders({
           <ColorSchemePreferencesProvider>
             <SessionContextProvider supabaseClient={supabaseClient}>
               <AppContextProvider>
-                <ScrollManagementProvider>
-                  <UserProfileProvider>
-                    <UserPreferencesProvider>
-                      <MDXProvider components={MDXComponents}>
-                        {children}
-                      </MDXProvider>
-                    </UserPreferencesProvider>
-                  </UserProfileProvider>
-                </ScrollManagementProvider>
+                <UserProfileProvider>
+                  <UserPreferencesProvider>
+                    <MDXProvider components={MDXComponents}>
+                      {children}
+                    </MDXProvider>
+                  </UserPreferencesProvider>
+                </UserProfileProvider>
               </AppContextProvider>
             </SessionContextProvider>
           </ColorSchemePreferencesProvider>

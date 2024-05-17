@@ -7,7 +7,6 @@ import React from 'react';
 import url from 'url';
 
 import { useAppContext } from '~/components/global/AppContextProvider';
-import { useScrollManagement } from '~/components/global/ScrollManagementProvider';
 
 import type { I18nLinkProps } from '~/next-i18nostic/src';
 import { i18nHref, I18nLink, useI18n } from '~/next-i18nostic/src';
@@ -26,7 +25,6 @@ export type Props = Omit<I18nLinkProps, 'href'> &
   Readonly<{
     href?: string;
     locale?: string;
-    scrollToTop?: boolean;
     suppressHydrationWarning?: boolean;
     underline?: boolean;
     variant?: AnchorVariant;
@@ -41,7 +39,6 @@ function Anchor(
     href = '#',
     rel: relProp,
     target: targetProp,
-    scrollToTop = true,
     underline = false,
     variant,
     warnAboutExternalLink = false,
@@ -53,7 +50,6 @@ function Anchor(
 ) {
   const { locale } = useI18n();
   const { serverMismatch } = useAppContext();
-  const { setShouldScrollToTop } = useScrollManagement();
   const isExternalURL =
     typeof href === 'string' ? /^(http|mailto)/.test(href ?? '') : false;
 
@@ -128,12 +124,7 @@ function Anchor(
       href={finalHref}
       rel={rel}
       target={target}
-      onClick={(event) => {
-        if (scrollToTop) {
-          setShouldScrollToTop(true);
-        }
-        onClick?.(event);
-      }}
+      onClick={onClick}
       {...props}>
       {children}
     </I18nLink>

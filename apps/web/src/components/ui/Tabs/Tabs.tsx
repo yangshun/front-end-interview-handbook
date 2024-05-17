@@ -24,7 +24,7 @@ type Props<T> = Readonly<{
   hasBorder?: boolean;
   label: string;
   onSelect?: (value: T) => void;
-  scrollToTop?: boolean;
+  scroll?: boolean;
   size?: TabSize;
   tabs: ReadonlyArray<TabItem<T>>;
   value: T;
@@ -73,7 +73,7 @@ function Tabs<T>(
     hasBorder = true,
     label,
     tabs,
-    scrollToTop = true,
+    scroll,
     size = 'md',
     value,
     onSelect,
@@ -160,7 +160,7 @@ function Tabs<T>(
                 <Anchor
                   key={String(tabItemValue)}
                   href={href}
-                  scrollToTop={scrollToTop}
+                  scroll={scroll}
                   variant="unstyled"
                   {...commonProps}
                 />

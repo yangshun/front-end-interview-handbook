@@ -81,7 +81,6 @@ export default function ProjectsSkillRoadmapItemRow({
               className="relative z-[1]"
               href={skillSummary.href}
               scroll={false}
-              scrollToTop={false}
               variant="flat">
               <Text size="body2" weight="medium">
                 {skillSummary.label}
@@ -162,7 +161,6 @@ export default function ProjectsSkillRoadmapItemRow({
             className="absolute inset-0"
             href={skillSummary.href}
             scroll={false}
-            scrollToTop={false}
           />
         </>
       )}

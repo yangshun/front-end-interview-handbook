@@ -62,7 +62,7 @@ function ProjectsChallengeStepsTabItem({
           : [themeTextBrandColor_Hover, themeTextColor, 'border-transparent'],
       )}
       href={href}
-      scrollToTop={false}
+      scroll={false}
       variant="unstyled"
       onClick={() => {
         onSelect?.(tabItemValue);

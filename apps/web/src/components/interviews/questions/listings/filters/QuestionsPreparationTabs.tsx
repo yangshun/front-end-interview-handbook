@@ -31,7 +31,7 @@ export default function QuestionsPreparationTabs({ area }: Props) {
             description: 'Tab label to navigate to another preparation page',
             id: 'rhLand',
           })}
-          scrollToTop={false}
+          scroll={false}
           size="sm"
           tabs={[
             {
