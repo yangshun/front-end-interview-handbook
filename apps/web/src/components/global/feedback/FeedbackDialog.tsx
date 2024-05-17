@@ -129,6 +129,7 @@ export default function FeedbackDialog({
                 logMessage({
                   level: 'info',
                   message: (data.get('message') ?? '')?.toString(),
+                  namespace: 'general',
                   title: 'User Feedback',
                 });
               }

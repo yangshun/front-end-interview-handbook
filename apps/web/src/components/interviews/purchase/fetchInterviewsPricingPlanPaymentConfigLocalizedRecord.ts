@@ -31,6 +31,7 @@ export default async function fetchInterviewsPricingPlanPaymentConfigLocalizedRe
     logMessage({
       level: 'error',
       message: `Error fetching purchasing power parity for ${countryCode}`,
+      namespace: 'interviews',
       title: 'Purchasing power parity error',
     });
     // Fallback to US ppp.

@@ -26,6 +26,7 @@ export function purchaseCancelLogging({ product, plan, purchasePrice }: Props) {
   logMessage({
     level: 'warning',
     message: `[${product}] Cancelled checkout for ${plan}`,
+    namespace: product,
     title: 'Checkout cancel',
   });
   logEvent('checkout.cancel', {
@@ -90,6 +91,7 @@ export function purchaseSuccessLogging({
     message: `[${product}] Purchased ${plan} plan for ${purchasePrice.currency.toLocaleUpperCase()} ${
       purchasePrice.unitCostCurrency.withPPP.after
     }`,
+    namespace: product,
     title: 'Purchase',
   });
   logEvent('checkout.success', {

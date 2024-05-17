@@ -135,6 +135,7 @@ function PricingButtonNonLoggedIn({
           } plan for ${paymentConfig.currency.toLocaleUpperCase()} ${
             paymentConfig.unitCostCurrency.withPPP.after
           } but not signed in`,
+          namespace: 'interviews',
           title: 'Checkout initiate (non-signed in)',
         });
         logEvent('checkout.attempt.not_logged_in', {
@@ -215,6 +216,7 @@ function PricingButtonNonPremium({
       logMessage({
         level: 'error',
         message: getErrorMessage(error),
+        namespace: 'interviews',
         title: 'Checkout attempt error',
       });
       logEvent('checkout.fail', {
@@ -284,6 +286,7 @@ function PricingButtonNonPremium({
             } plan for ${paymentConfig.currency.toLocaleUpperCase()} ${
               paymentConfig.unitCostCurrency.withPPP.after
             }`,
+            namespace: 'interviews',
             title: 'Checkout Initiate',
           });
           logEvent('checkout.attempt', {

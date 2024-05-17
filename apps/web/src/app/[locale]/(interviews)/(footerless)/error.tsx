@@ -15,6 +15,7 @@ export default function Error({ error }: Props) {
     logMessage({
       level: 'error',
       message: error.message,
+      namespace: 'interviews',
       title: 'Page error',
     });
     logEvent('error', {

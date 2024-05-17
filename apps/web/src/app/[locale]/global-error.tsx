@@ -15,6 +15,7 @@ export default function GlobalError({ error }: Props) {
     logMessage({
       level: 'error',
       message: `${error.message}`,
+      namespace: 'general',
       title: 'Global error',
     });
     logEvent('error', {

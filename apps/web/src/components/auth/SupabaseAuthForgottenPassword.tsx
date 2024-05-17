@@ -68,6 +68,7 @@ export default function SupabaseAuthForgottenPassword({
       logMessage({
         level: 'error',
         message: resetError.message,
+        namespace: 'auth',
         title: 'Reset password error',
         userIdentifier: email,
       });
