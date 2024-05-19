@@ -1,0 +1,59 @@
+This challenge requires knowledge of media queries, using JavaScript for DOM manipulation, and CSS positioning so that the mobile menu can be displayed above the page's contents.
+
+### Relevant concepts
+
+- [Grid](https://css-tricks.com/snippets/css/complete-guide-grid/): The cards are laid out in a grid-like fashion with gaps between each card, making CSS grid the perfect option. 3-column grids can be used for desktop, 2-column grids for tablets, and a single column for mobile.
+- [Media queries](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_media_queries/Using_media_queries): Media queries allow you to apply different CSS styles based on the characteristics of the device displaying the page, such as screen width, height, orientation, etc. They are crucial for customizing the number of displayed columns on different devices.
+
+### Recommended approach
+
+1. Build a testimonial card component. This testimonial card is mostly the same as the one in the [Testimonial Card](/projects/challenges/testimonial-card) challenge except the width should be flexible and fills the available space of its container.
+2. Build the responsive grid layout. Note that a 3-column grid should be used and the cards are rendered as a list within each column.
+
+### Masonry layout
+
+This layout is called the masonry layout and is popularized by Pinterest. Masonry layouts have the following characteristics:
+
+- **Non-uniform element sizes**: Each item in a masonry layout can have a unique height (and sometimes width), unlike in a standard grid where all elements conform to the same row height.
+- **Optimized use of space**: The layout algorithm places elements in a way that aims to fill gaps and save space, which often involves complex calculations to determine the best position for each item such that the height of each column is balanced. For this challenge, we are not bothered with balancing the column heights.
+
+Notice that the cards can have different heights based on the content length of the testimonial message. If the cards were rendered as a single list using grid, each row will have the same height and there will most definitely be spacing between some cards. To achieve the desired layout, the grid should have 3 columns with cards rendered within each column. Each card within a column will have a fixed spacing between them.
+
+```css
+.cards-list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+```
+
+As mentioned above, rendering the cards as a single list is not the right approach because each grid row (containing 3 cards each) will have the same height but the cards are not guaranteed to be of the same height.
+
+```html
+<div class="cards-list">
+  <div class="card">...</div>
+  <div class="card">...</div>
+  <div class="card">...</div>
+  <div class="card">...</div>
+  <div class="card">...</div>
+  <div class="card">...</div>
+</div>
+```
+
+This structure works better by putting cards within a column. The column can define the spacing using `display: flex; flex-direction: column; row-gap: 24px` so that the cards only have to bother with the spacing within the column it is in.
+
+```html
+<div class="cards-list">
+  <div class="column">
+    <div class="card">...</div>
+    <div class="card">...</div>
+  </div>
+  <div class="column">
+    <div class="card">...</div>
+    <div class="card">...</div>
+  </div>
+  <div class="column">
+    <div class="card">...</div>
+    <div class="card">...</div>
+  </div>
+</div>
+```
