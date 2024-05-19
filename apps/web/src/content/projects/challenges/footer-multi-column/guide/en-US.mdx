@@ -1,0 +1,47 @@
+This challenge requires good mastery of grid layouts.
+
+### Relevant concepts
+
+1. **[Grid](https://css-tricks.com/snippets/css/complete-guide-grid/)**: The footer links section has layout needs that are best implemented using a combination CSS grid and responsive media queries.
+2. **Icon buttons/links**: How to render icon-only links where there are the text isn't visible yet keeping them accessible.
+3. **Toast notifications for user feedback**: Toast notifications provide unobtrusive feedback to users about the outcome of their actions. Implement a toast notification system using HTML, CSS, and JavaScript to display messages (success, error, etc.) in response to the server's validation or submission response, informing the user whether the newsletter subscription was successful or encountered an error.
+
+### Recommended approach
+
+1. **Define the footer container**: Define a `<footer>` that has a vertical padding of `96px`, center-aligned content, and is vertically-centered on the page.
+2. **Build the newsletter section**: This section can be built in a similar fashion as the [Newsletter Section](/projects/challenges/newsletter-section) challenge, including the validation and submission aspects.
+3. **Build the middle links section**: This section requires a slightly complex grid layout as the number of columns each subsection takes up is different across device breakpoints.
+4. **Build the copyright and social media links section**: This section can be built in a similar fashion as [Footer Section (Simple)](/projects/challenges/footer-section-simple) challenge, with some tweaks to the layout.
+
+### Links section grid layout
+
+The table below outlines the number of columns each section takes up for specific breakpoints.
+
+| Section              | Desktop | Tablet | Mobile |
+| -------------------- | ------- | ------ | ------ |
+| Logo and description | 6       | 6      | 4      |
+| Links                | 3       | 3      | 4      |
+
+Adding on to the usual grid layout CSS, the layout of this section can be implemented via the following CSS:
+
+```css
+.logo-section {
+  grid-column: span 4 / span 4;
+}
+
+@media (min-width: 768px) {
+  .logo-section {
+    grid-column: span 6 / span 6;
+  }
+}
+
+.links-section {
+  grid-column: span 4 / span 4;
+}
+
+@media (min-width: 768px) {
+  .links-section {
+    grid-column: span 3 / span 3;
+  }
+}
+```
