@@ -1,0 +1,132 @@
+This challenge requires knowledge of media queries, using JavaScript for DOM manipulation, and CSS positioning so that the mobile menu can be displayed above the page's contents.
+
+### Relevant concepts
+
+- [Media queries](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_media_queries/Using_media_queries): Media queries allow you to apply different CSS styles based on the characteristics of the device displaying the page, such as screen width, height, orientation, etc. They are crucial for making your links and hamburger menu button visible for the appropriate device widths.
+- **DOM manipulation using JavaScript**: JavaScript plays a key role in handling the interactive elements of the navbar. When a user clicks the hamburger menu icon on a mobile device, JavaScript can be used to toggle the visibility of the slideout menu. This typically involves adding an event listener to the hamburger icon that changes the class of the menu element, which in turn changes its visibility or transforms it on and off the screen.
+- **CSS positioning**: The mobile menu is full-height and is displayed above the page's contents. Achieving this will require knowledge of CSS positioning and the relevant attributes to use.
+
+### Recommended approach
+
+1. Build the navbar links for desktop.
+2. Add media queries to hide the links on tablet and below and also show the hamburger menu button on the appropriate device widths.
+3. Build the mobile menu.
+4. Add JavaScript to show/hide the mobile menu.
+5. Retrieve the number of cart items and display the count.
+
+The responsive layout implementation is well-covered by other challenges, so this guide will focus on building the slideout menu.
+
+### Implementing the slideout menu
+
+Implementing a slideout menu that appears when a hamburger menu icon is triggered is trickier than it looks.
+
+#### 1. HTML structure
+
+Firstly, you need a solid HTML structure that divides the page into the main content and the menu. The menu should be initially hidden and only displayed when the hamburger menu button is clicked. Here's a basic structure:
+
+```html
+<body>
+  <button aria-label="Open mobile menu" id="mobile-menu-button">
+    <span aria-hidden="true">☰</span>
+  </button>
+  <nav id="slideout-menu">
+    <!-- Slideout menu content here -->
+  </nav>
+  <main>
+    <!-- Main page content -->
+  </main>
+</body>
+```
+
+#### 2. Menu styling and visibility
+
+Using CSS, you initially hide the slideout menu and define its appearance (`position`, `width`, etc.). You can also use CSS for transitions to make the menu slide in and out smoothly.
+
+- **Visibility and positioning**: The menu is typically positioned absolutely or fixed relative to the viewport, often on the left or right side. It is initially set to be out of view, for example, `left: -100%` for a menu that slides from the left.
+- **Transitions**: CSS transitions are used to animate the movement of the menu. This could involve changing the `transform` property from `translateX(-100%)` to `translateX(0)` to slide the menu in from the left.
+
+Either CSS positioning properties or CSS transforms can be used to implement the mobile menu layout.
+
+The following CSS demonstrates a CSS positioning properties approach.
+
+```css
+#slideout-menu {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: 300px;
+  left: -100%; /* Ensure it is fully off-screen to the left. */
+  transition: left 0.3s ease-in-out;
+}
+
+#slideout-menu.open {
+  left: 0; /* Slide in */
+}
+```
+
+The following CSS demonstrates using a CSS transforms approach.
+
+```css
+#slideout-menu {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: 300px;
+  transform: translateX(-100%); /* Ensure it is fully off-screen to the left. */
+  transition: transform 0.3s ease-in-out;
+}
+
+#slideout-menu.open {
+  transform: translateX(0); /* Slide in */
+}
+```
+
+The CSS transforms approach is better for performance as CSS transforms are often hardware-accelerated, meaning they can leverage GPU power for rendering, which results in smoother animations.
+
+#### 3. Adding JavaScript to show/hide the menu
+
+JavaScript adds the interactivity needed to toggle the menu visibility. When the hamburger icon is clicked, JavaScript modifies the CSS properties of the menu or toggles a class to show or hide the menu.
+
+- **Event handling**: An event listener is attached to the hamburger icon. When clicked, it triggers a function that toggles a class on the menu (e.g., `open`).
+- **Class toggling**: Use JavaScript function to toggles the `.open` class on the mobile menu, changing the position of the menu and utilizing CSS transitions to animate the process.
+
+```js
+document.getElementById('mobile-menu-button').addEventListener('click', () => {
+  document.getElementById('slideout-menu').classList.toggle('open');
+});
+```
+
+### Displaying the number of cart items
+
+There are a few common approaches for displaying the latest number of cart items and they depend on your tech stack:
+
+1. **Client-side rendering (CSR)**: Create an API to return the number of cart items and use `fetch` on the client to retrieve the value.
+2. **Server-side rendering (SSR)**: Fetch the cart items on the server and display the value. SSR is preferred for e-commerce websites as SSR-ed websites tend to have better SEO and performance which are important qualities of e-commerce websites.
+
+### Accessibility considerations
+
+A good slideout menu goes beyond basic functionality and should be accessible as well. This includes managing focus when the menu is open and ensuring that screen readers correctly interpret the menu state.
+
+- **Focus management**: When the menu opens, focus should be moved to the menu. Focus should be trapped within the menu and not be allowed to "leak" into the page. When the menu closes, focus should return to the main content or the hamburger icon.
+- **ARIA attributes**: Use ARIA attributes to enhance accessibility. For example:
+  - Adding `aria-expanded` on the `#mobile-menu-button` can indicate whether the menu is open or closed.
+  - Adding `aria-controls="slideout-menu"` on the `#mobile-menu-button` indicates that the button controls the visibility of `#slideout-menu`.
+
+### Z-index considerations
+
+The slideout menu has to appear above most other elements on the page. By using `position: fixed`, the `#slideout-menu` will already be above the normal elements on the page, but if elements on the page has a positive `z-index` applied to them (common for `position: sticky` or other `position: fixed` elements), then they might appear on top of the menu. Therefore the `#slideout-menu` also requires a high-enough `z-index` value.
+
+The exact value to use depends on the `z-index` system of your website. It is useful to have a centralized list of `z-index` values for the various elements on the page that can appear above other elements. For example, this is what [Bootstrap CSS uses](https://github.com/twbs/bootstrap/blob/main/scss/_variables.scss#L1133):
+
+```scss
+$zindex-dropdown: 1000;
+$zindex-sticky: 1020;
+$zindex-fixed: 1030;
+$zindex-offcanvas-backdrop: 1040;
+$zindex-offcanvas: 1045;
+$zindex-modal-backdrop: 1050;
+$zindex-modal: 1055;
+$zindex-popover: 1070;
+$zindex-tooltip: 1080;
+$zindex-toast: 1090;
+```
