@@ -8,7 +8,6 @@ import path from 'path';
 import type { QuestionUserInterfaceWorkspace } from '~/components/interviews/questions/common/QuestionsTypes';
 import type {
   ProjectsChallengeSolutionBundle,
-  ProjectsChallengeSolutionSetupType,
   ProjectsChallengeSolutionType,
 } from '~/components/projects/challenges/types';
 
@@ -54,7 +53,6 @@ async function generateSetupForChallengesSolutions(slug: string) {
     Object.entries(groupedFiles).map(async ([key, paths]) => {
       const parts = key.split('/');
 
-      const setupType = parts[0] as ProjectsChallengeSolutionSetupType;
       const solutionType = parts[1] as ProjectsChallengeSolutionType;
 
       assert(
@@ -68,7 +66,7 @@ async function generateSetupForChallengesSolutions(slug: string) {
         // Read files needed.
         paths.reduce<Record<string, SandpackFile>>((accFiles, filePath) => {
           const relativePath = path.relative(
-            path.join(setupType, solutionType),
+            path.join('solutions', solutionType),
             filePath,
           );
           const fullPath = path.join(challengeSolutionsPath, filePath);
@@ -86,7 +84,7 @@ async function generateSetupForChallengesSolutions(slug: string) {
         (() => {
           const greatfrontendConfigPath = path.join(
             challengeSolutionsPath,
-            setupType,
+            'solutions',
             solutionType,
             'greatfrontend.json',
           );
@@ -103,7 +101,6 @@ async function generateSetupForChallengesSolutions(slug: string) {
 
       return {
         files,
-        setupType,
         solutionType,
         workspace: nullthrows(workspace),
       };
@@ -111,18 +108,17 @@ async function generateSetupForChallengesSolutions(slug: string) {
   );
 
   await Promise.all([
-    ...setups.map(async ({ solutionType, setupType, files, workspace }) => {
+    ...setups.map(async ({ solutionType, files, workspace }) => {
       workspace?.visibleFiles?.forEach((file) => {
         if (!(file in files)) {
           throw Error(
-            `Visible file "${file}" not found in files for ${setupType} of ${solutionType} for ${slug}`,
+            `Visible file "${file}" not found in files for solution of ${solutionType} for ${slug}`,
           );
         }
       });
 
       const outPath = path.join(
         getChallengeSolutionsOutPath(slug),
-        setupType,
         `${solutionType}.json`,
       );
 

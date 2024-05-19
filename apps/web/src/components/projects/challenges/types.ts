@@ -85,8 +85,6 @@ export type ProjectsChallengeSessionSkillsFormValues = Readonly<{
 
 export type ProjectsChallengeSolutionType = 'react' | 'vanilla';
 
-export type ProjectsChallengeSolutionSetupType = 'solutions';
-
 export type ProjectsChallengeSolutionBundle = Readonly<{
   files: SandpackFiles;
   workspace: QuestionUserInterfaceWorkspace;
