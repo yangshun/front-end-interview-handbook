@@ -8,7 +8,7 @@ import path from 'path';
 import type { QuestionUserInterfaceWorkspace } from '~/components/interviews/questions/common/QuestionsTypes';
 import type {
   ProjectsChallengeSolutionBundle,
-  ProjectsChallengeSolutionType,
+  ProjectsChallengeSolutionFrameworkType,
 } from '~/components/projects/challenges/types';
 
 import {
@@ -20,7 +20,7 @@ import {
 import type { SandpackFile } from '@codesandbox/sandpack-react';
 
 const SUPPORTED_CHALLENGE_SOLUTION_TYPE =
-  new Set<ProjectsChallengeSolutionType>(['vanilla', 'react']);
+  new Set<ProjectsChallengeSolutionFrameworkType>(['vanilla', 'react']);
 
 async function generateSetupForChallengesSolutions(slug: string) {
   const challengeSolutionsPath = getChallengeSolutionsSrcPath(slug);
@@ -53,11 +53,12 @@ async function generateSetupForChallengesSolutions(slug: string) {
     Object.entries(groupedFiles).map(async ([key, paths]) => {
       const parts = key.split('/');
 
-      const solutionType = parts[1] as ProjectsChallengeSolutionType;
+      const solutionFrameworkType =
+        parts[1] as ProjectsChallengeSolutionFrameworkType;
 
       assert(
-        SUPPORTED_CHALLENGE_SOLUTION_TYPE.has(solutionType),
-        `Unsupported solution type: ${solutionType}`,
+        SUPPORTED_CHALLENGE_SOLUTION_TYPE.has(solutionFrameworkType),
+        `Unsupported solution type: ${solutionFrameworkType}`,
       );
 
       paths.sort((a, b) => a.localeCompare(b));
@@ -66,7 +67,7 @@ async function generateSetupForChallengesSolutions(slug: string) {
         // Read files needed.
         paths.reduce<Record<string, SandpackFile>>((accFiles, filePath) => {
           const relativePath = path.relative(
-            path.join('solutions', solutionType),
+            path.join('solutions', solutionFrameworkType),
             filePath,
           );
           const fullPath = path.join(challengeSolutionsPath, filePath);
@@ -85,7 +86,7 @@ async function generateSetupForChallengesSolutions(slug: string) {
           const greatfrontendConfigPath = path.join(
             challengeSolutionsPath,
             'solutions',
-            solutionType,
+            solutionFrameworkType,
             'greatfrontend.json',
           );
 
@@ -101,25 +102,25 @@ async function generateSetupForChallengesSolutions(slug: string) {
 
       return {
         files,
-        solutionType,
+        solutionFrameworkType,
         workspace: nullthrows(workspace),
       };
     }),
   );
 
   await Promise.all([
-    ...setups.map(async ({ solutionType, files, workspace }) => {
+    ...setups.map(async ({ solutionFrameworkType, files, workspace }) => {
       workspace?.visibleFiles?.forEach((file) => {
         if (!(file in files)) {
           throw Error(
-            `Visible file "${file}" not found in files for solution of ${solutionType} for ${slug}`,
+            `Visible file "${file}" not found in files for solution of ${solutionFrameworkType} for ${slug}`,
           );
         }
       });
 
       const outPath = path.join(
         getChallengeSolutionsOutPath(slug),
-        `${solutionType}.json`,
+        `${solutionFrameworkType}.json`,
       );
 
       fs.mkdirSync(path.dirname(outPath), { recursive: true });

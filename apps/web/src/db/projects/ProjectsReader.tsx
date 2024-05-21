@@ -22,7 +22,7 @@ import path from 'path';
 import type { ProjectsChallengeItem } from '~/components/projects/challenges/types';
 import type {
   ProjectsChallengeSolutionBundle,
-  ProjectsChallengeSolutionType,
+  ProjectsChallengeSolutionFrameworkType,
 } from '~/components/projects/challenges/types';
 import {
   readProjectsTrackInfo,
@@ -588,15 +588,15 @@ export async function readProjectsCommonGuideList(
 
 export async function readProjectsChallengeSolutions(
   slug: string,
-  solutionTypeParam?: ProjectsChallengeSolutionType | null,
+  solutionFrameworkParam?: ProjectsChallengeSolutionFrameworkType | null,
 ): Promise<ProjectsChallengeSolutionBundle> {
   const challengeSolutionsOutDir = getChallengeSolutionsOutPath(slug);
 
-  const solutionType = solutionTypeParam ?? 'vanilla';
+  const solutionFramework = solutionFrameworkParam ?? 'vanilla';
 
   const solutionBundle = (() => {
     const response = fs.readFileSync(
-      path.join(challengeSolutionsOutDir, `${solutionType}.json`),
+      path.join(challengeSolutionsOutDir, `${solutionFramework}.json`),
     );
 
     return JSON.parse(String(response)) as ProjectsChallengeSolutionBundle;

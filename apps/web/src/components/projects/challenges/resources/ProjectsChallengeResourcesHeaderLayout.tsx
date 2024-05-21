@@ -71,7 +71,7 @@ function useTipsResourcesDiscussionsTabs(challenge: ProjectsChallengeItem) {
     },
   ];
 
-  if (PROJECTS_OFFICIAL_SOLUTIONS_IS_LIVE && metadata.solutions?.[0]) {
+  if (PROJECTS_OFFICIAL_SOLUTIONS_IS_LIVE && metadata.solutionFrameworks?.[0]) {
     tabs.push({
       href: metadata.resourcesSolutionsHref,
       icon: RiVerifiedBadgeFill,
@@ -109,7 +109,9 @@ export default function ProjectsChallengeResourcesHeaderLayout({
 
   const currentTabValue: ProjectsChallengeResourcesDiscussionsTabType =
     useMemo(() => {
-      const tab = tipsResourcesDiscussionsTabs.find((t) => t.href === pathname);
+      const tab = tipsResourcesDiscussionsTabs.find(
+        (t) => pathname?.startsWith(t.href ?? ''),
+      );
 
       return tab?.value ?? DEFAULT_TAB;
     }, [pathname, tipsResourcesDiscussionsTabs]);

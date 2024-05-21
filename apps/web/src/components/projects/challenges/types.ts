@@ -83,11 +83,14 @@ export type ProjectsChallengeSessionSkillsFormValues = Readonly<{
   techStackSkills: Array<ProjectsSkillKey>;
 }>;
 
-export type ProjectsChallengeSolutionType = 'react' | 'vanilla';
+export type ProjectsChallengeSolutionFrameworkType = 'react' | 'vanilla';
 
 export type ProjectsChallengeSolutionBundle = Readonly<{
   files: SandpackFiles;
   workspace: QuestionUserInterfaceWorkspace;
 }>;
 
-export const projectsChallengeSupportedSolutionOptions = ['vanilla', 'react'];
+export const projectsChallengeSupportedSolutionFrameworkOptions = [
+  'vanilla',
+  'react',
+];

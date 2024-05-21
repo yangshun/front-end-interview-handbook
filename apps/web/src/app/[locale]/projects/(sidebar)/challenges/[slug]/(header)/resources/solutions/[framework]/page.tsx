@@ -4,14 +4,14 @@ import { readProjectsChallengeInfo } from '~/db/projects/ProjectsReader';
 import { getIntlServerOnly } from '~/i18n';
 import defaultProjectsMetadata from '~/seo/defaultProjectsMetadata';
 
-import ProjectsChallengeResourcesSolutionsPage from './[framework]/ProjectsChallengeResourceSolutionsPage';
+import ProjectsChallengeResourcesSolutionsPage from './ProjectsChallengeResourceSolutionsPage';
 
 type Props = Readonly<{
-  params: Readonly<{ locale: string; slug: string }>;
+  params: Readonly<{ framework: string; locale: string; slug: string }>;
 }>;
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { locale, slug } = params;
+  const { locale, slug, framework } = params;
   const [intl, { challengeInfo }] = await Promise.all([
     getIntlServerOnly(locale),
     readProjectsChallengeInfo(slug, locale),
@@ -30,7 +30,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       },
     ),
     locale,
-    pathname: `/projects/challenges/${slug}/resources/solutions`,
+    pathname: `/projects/challenges/${slug}/resources/solutions/${framework}`,
     title: intl.formatMessage(
       {
         defaultMessage: 'Challenge: {challengeName} | Official solutions',
