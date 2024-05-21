@@ -19,10 +19,10 @@ export function cleanLinkedInUserInput(value: string) {
 }
 
 export function cleanTwitterUserInput(value: string) {
-  const match = value.match(/twitter\.com\/([a-zA-Z0-9-_]+)/);
+  const match = value.match(/(x|twitter)\.com\/([a-zA-Z0-9-_]+)/);
 
   if (match) {
-    return match[1].trim();
+    return match[2].trim();
   }
 
   return value.trim();

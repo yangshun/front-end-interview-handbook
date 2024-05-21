@@ -151,7 +151,7 @@ export default function RewardsSocialHandlesForm({
               isLabelHidden={true}
               label="X / Twitter"
               name="twitter"
-              placeholder="https://twitter.com/john-doe"
+              placeholder="https://x.com/john-doe"
               value={handlesData.twitterUsername}
               onChange={(value) => {
                 onHandlesDataChange({
