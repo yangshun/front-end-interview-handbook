@@ -22,7 +22,7 @@ Most spacing values (padding, margin, gap) are multiples of 4px.
 
 Font family: [Noto Sans](https://fonts.google.com/noto/specimen/Noto+Sans)
 
-**Note**: The custom font has been loaded for you in the starter code's `index.html`.
+**Note**: The Noto Sans font has been loaded for you in the starter code.
 
 #### Font weights
 
@@ -30,9 +30,9 @@ All the available font weights from 100 - 900 have been loaded for you but you p
 
 | Weight | Name | Tailwind class | Commonly used for |
 | --- | --- | --- | --- |
-| 400 | Normal | `font-normal` | Body |
-| 500 | Medium | `font-medium` | Buttons, labels, links, and other interactive elements |
-| 600 | Semibold | `font-semibold` | Headings |
+| 400 | <span className="font-normal">Normal</span> | `font-normal` | Body |
+| 500 | <span className="font-medium">Medium</span> | `font-medium` | Buttons, labels, links, and other interactive elements |
+| 600 | <span className="font-semibold">Semibold</span> | `font-semibold` | Headings |
 
 Feel free to load fewer font weights if your challenge does not use them.
 
@@ -42,16 +42,16 @@ The typography scale has been taken from [Tailwind CSS' default font size scale]
 
 | Name | Size / Height | Tailwind class | Commonly used for |
 | --- | --- | --- | --- |
-| xs | 12px / 16px | `text-xs` | Badge labels |
-| sm | 14px / 20px | `text-sm` | Badge labels, Form labels, Form placeholders, Form hint text |
-| base | 16px / 24px | `text-base` | Body, Section labels, Button labels |
-| lg | 18px / 28px | `text-lg` | Button labels |
-| xl | 20px / 28px | `text-xl` | Section subtitles |
-| 2xl | 24px / 32px | `text-2xl` | Card titles |
-| 3xl | 30px / 36px | `text-3xl` | Section titles (mobile) |
-| 4xl | 36px / 40px | `text-4xl` | Main title (mobile) |
-| 5xl | 48px / 48px | `text-5xl` | Main title (tablet), Section titles (desktop and tablet) |
-| 6xl | 60px / 60px | `text-6xl` | Main title (desktop) |
+| <span className="text-xs">xs</span> | 12px / 16px | `text-xs` | Badge labels |
+| <span className="text-sm">sm</span> | 14px / 20px | `text-sm` | Badge labels, Form labels, Form placeholders, Form hint text |
+| <span className="text-base">base</span> | 16px / 24px | `text-base` | Body, Section labels, Button labels |
+| <span className="text-lg">lg</span> | 18px / 28px | `text-lg` | Button labels |
+| <span className="text-xl">xl</span> | 20px / 28px | `text-xl` | Section subtitles |
+| <span className="text-2xl">2xl</span> | 24px / 32px | `text-2xl` | Card titles |
+| <span className="text-3xl">3xl</span> | 30px / 36px | `text-3xl` | Section titles (mobile) |
+| <span className="text-4xl">4xl</span> | 36px / 40px | `text-4xl` | Main title (mobile) |
+| <span className="text-5xl">5xl</span> | 48px / 48px | `text-5xl` | Main title (tablet), Section titles (desktop and tablet) |
+| <span className="text-6xl">6xl</span> | 60px / 60px | `text-6xl` | Main title (desktop) |
 
 ### Icons
 
@@ -65,78 +65,78 @@ The color palette is taken entirely from [Tailwind CSS' default color palette](h
 
 #### Text colors
 
-| Color | Name | Tailwind class | Hex |
+| Color | Name | Hex | Tailwind class |
 | --- | --- | --- | --- |
-| <span className="align-middle border border-neutral-500 rounded-full size-4 inline-block" style={{backgroundColor: '#171717'}} /> | `primary` | `text-neutral-900` | `#171717` |
-| <span className="align-middle rounded-full size-4 inline-block" style={{backgroundColor: '#0a0a0a'}} /> | `primary-hover` | `text-neutral-950` | `#0a0a0a` |
-| <span className="align-middle rounded-full size-4 inline-block" style={{backgroundColor: '#fff'}} /> | `primary-invert` | `text-white` | `#fff` |
-| <span className="align-middle rounded-full size-4 inline-block" style={{backgroundColor: '#525252'}} /> | `secondary` | `text-neutral-600` | `#525252` |
-| <span className="align-middle rounded-full size-4 inline-block" style={{backgroundColor: '#737373'}} /> | `tertiary` | `text-neutral-500` | `#737373` |
-| <span className="align-middle rounded-full size-4 inline-block" style={{backgroundColor: '#4338ca'}} /> | `brand` | `text-indigo-700` | `#4338ca` |
-| <span className="align-middle rounded-full size-4 inline-block" style={{backgroundColor: '#a3a3a3'}} /> | `disabled` | `text-neutral-400` | `#a3a3a3` |
-| <span className="align-middle rounded-full size-4 inline-block" style={{backgroundColor: '#dc2626'}} /> | `error` | `text-red-600` | `#dc2626` |
-| <span className="align-middle rounded-full size-4 inline-block" style={{backgroundColor: '#991b1b'}} /> | `error-emphasize` | `text-red-800` | `#991b1b` |
-| <span className="align-middle rounded-full size-4 inline-block" style={{backgroundColor: '#15803d'}} /> | `success` | `text-green-700` | `#15803d` |
-| <span className="align-middle rounded-full size-4 inline-block" style={{backgroundColor: '#a16207'}} /> | `warning` | `text-amber-700` | `#a16207` |
+| <span className="align-middle rounded-full size-4 inline-block dark:outline dark:outline-neutral-300" style={{backgroundColor: '#171717'}} /> | `primary` | `#171717` | `text-neutral-900` |
+| <span className="align-middle rounded-full size-4 inline-block dark:outline dark:outline-neutral-300" style={{backgroundColor: '#0a0a0a'}} /> | `primary-hover` | `#0a0a0a` | `text-neutral-950` |
+| <span className="align-middle rounded-full size-4 inline-block outline outline-1 outline-neutral-300 dark:outline-none" style={{backgroundColor: '#fff'}} /> | `primary-invert` | `#fff` | `text-white` |
+| <span className="align-middle rounded-full size-4 inline-block" style={{backgroundColor: '#525252'}} /> | `secondary` | `#525252` | `text-neutral-600` |
+| <span className="align-middle rounded-full size-4 inline-block" style={{backgroundColor: '#737373'}} /> | `tertiary` | `#737373` | `text-neutral-500` |
+| <span className="align-middle rounded-full size-4 inline-block" style={{backgroundColor: '#4338ca'}} /> | `brand` | `#4338ca` | `text-indigo-700` |
+| <span className="align-middle rounded-full size-4 inline-block" style={{backgroundColor: '#a3a3a3'}} /> | `disabled` | `#a3a3a3` | `text-neutral-400` |
+| <span className="align-middle rounded-full size-4 inline-block" style={{backgroundColor: '#dc2626'}} /> | `error` | `#dc2626` | `text-red-600` |
+| <span className="align-middle rounded-full size-4 inline-block" style={{backgroundColor: '#991b1b'}} /> | `error-emphasize` | `#991b1b` | `text-red-800` |
+| <span className="align-middle rounded-full size-4 inline-block" style={{backgroundColor: '#15803d'}} /> | `success` | `#15803d` | `text-green-700` |
+| <span className="align-middle rounded-full size-4 inline-block" style={{backgroundColor: '#a16207'}} /> | `warning` | `#a16207` | `text-amber-700` |
 
 #### Background colors
 
-| Color | Name | Tailwind class | Hex |
+| Color | Name | Hex | Tailwind class |
 | --- | --- | --- | --- |
-| <span className="align-middle rounded-full size-4 inline-block" style={{backgroundColor: '#fff'}} /> | `primary` | `bg-white` | `#fff` |
-| <span className="align-middle rounded-full size-4 inline-block" style={{backgroundColor: '#0a0a0a'}} /> | `primary-inverted` | `bg-neutral-950` | `#0a0a0a` |
-| <span className="align-middle rounded-full size-4 inline-block" style={{backgroundColor: '#fafafa'}} /> | `primary-hover` | `bg-neutral-50` | `#fafafa` |
-| <span className="align-middle rounded-full size-4 inline-block" style={{backgroundColor: '#e5e7eb'}} /> | `secondary` | `bg-gray-200` | `#e5e7eb` |
-| <span className="align-middle rounded-full size-4 inline-block" style={{backgroundColor: '#d1d5db'}} /> | `secondary-hover` | `bg-gray-300` | `#d1d5db` |
-| <span className="align-middle rounded-full size-4 inline-block" style={{backgroundColor: '#fafafa'}} /> | `tertiary` | `bg-neutral-50` | `#fafafa` |
-| <span className="align-middle rounded-full size-4 inline-block" style={{backgroundColor: '#f5f5f5'}} /> | `disabled` | `bg-neutral-100` | `#f5f5f5` |
-| <span className="align-middle rounded-full size-4 inline-block" style={{backgroundColor: '#f3f4f6'}} /> | `disabled-emphasize` | `bg-gray-100` | `#f3f4f6` |
-| <span className="align-middle rounded-full size-4 inline-block" style={{backgroundColor: '#4338ca'}} /> | `brand-primary` | `bg-indigo-700` | `#4338ca` |
-| <span className="align-middle rounded-full size-4 inline-block" style={{backgroundColor: '#3730a3'}} /> | `brand-primary-emphasize` | `bg-indigo-800` | `#3730a3` |
-| <span className="align-middle rounded-full size-4 inline-block" style={{backgroundColor: '#dc2626'}} /> | `error` | `bg-red-600` | `#dc2626` |
-| <span className="align-middle rounded-full size-4 inline-block" style={{backgroundColor: '#b91c1c'}} /> | `error-emphasize` | `bg-red-700` | `#b91c1c` |
-| <span className="align-middle rounded-full size-4 inline-block" style={{backgroundColor: '#fef2f2'}} /> | `error-subtle` | `bg-red-50` | `#fef2f2` |
-| <span className="align-middle rounded-full size-4 inline-block" style={{backgroundColor: '#f0fdf4'}} /> | `success-subtle` | `bg-green-50` | `#f0fdf4` |
-| <span className="align-middle rounded-full size-4 inline-block" style={{backgroundColor: '#eef2ff'}} /> | `brand-subtle` | `bg-indigo-50` | `#eef2ff` |
-| <span className="align-middle rounded-full size-4 inline-block" style={{backgroundColor: '#f9fafb'}} /> | `neutral-subtle` | `bg-gray-50` | `#f9fafb` |
-| <span className="align-middle rounded-full size-4 inline-block" style={{backgroundColor: '#fffbeb'}} /> | `warning-subtle` | `bg-amber-50` | `#fffbeb` |
+| <span className="align-middle rounded-full size-4 inline-block outline outline-1 outline-neutral-300 dark:outline-none" style={{backgroundColor: '#fff'}} /> | `primary` | `#fff` | `bg-white` |
+| <span className="align-middle rounded-full size-4 inline-block dark:outline dark:outline-neutral-300" style={{backgroundColor: '#0a0a0a'}} /> | `primary-inverted` | `#0a0a0a` | `bg-neutral-950` |
+| <span className="align-middle rounded-full size-4 inline-block outline outline-1 outline-neutral-300 dark:outline-none" style={{backgroundColor: '#fafafa'}} /> | `primary-hover` | `#fafafa` | `bg-neutral-50` |
+| <span className="align-middle rounded-full size-4 inline-block outline outline-1 outline-neutral-300 dark:outline-none" style={{backgroundColor: '#e5e7eb'}} /> | `secondary` | `#e5e7eb` | `bg-gray-200` |
+| <span className="align-middle rounded-full size-4 inline-block outline outline-1 outline-neutral-300 dark:outline-none" style={{backgroundColor: '#d1d5db'}} /> | `secondary-hover` | `#d1d5db` | `bg-gray-300` |
+| <span className="align-middle rounded-full size-4 inline-block outline outline-1 outline-neutral-300 dark:outline-none" style={{backgroundColor: '#fafafa'}} /> | `tertiary` | `#fafafa` | `bg-neutral-50` |
+| <span className="align-middle rounded-full size-4 inline-block outline outline-1 outline-neutral-300 dark:outline-none" style={{backgroundColor: '#f5f5f5'}} /> | `disabled` | `#f5f5f5` | `bg-neutral-100` |
+| <span className="align-middle rounded-full size-4 inline-block outline outline-1 outline-neutral-300 dark:outline-none" style={{backgroundColor: '#f3f4f6'}} /> | `disabled-emphasize` | `#f3f4f6` | `bg-gray-100` |
+| <span className="align-middle rounded-full size-4 inline-block" style={{backgroundColor: '#4338ca'}} /> | `brand-primary` | `#4338ca` | `bg-indigo-700` |
+| <span className="align-middle rounded-full size-4 inline-block" style={{backgroundColor: '#3730a3'}} /> | `brand-primary-emphasize` | `#3730a3` | `bg-indigo-800` |
+| <span className="align-middle rounded-full size-4 inline-block" style={{backgroundColor: '#dc2626'}} /> | `error` | `#dc2626` | `bg-red-600` |
+| <span className="align-middle rounded-full size-4 inline-block" style={{backgroundColor: '#b91c1c'}} /> | `error-emphasize` | `#b91c1c` | `bg-red-700` |
+| <span className="align-middle rounded-full size-4 inline-block outline outline-1 outline-neutral-300 dark:outline-none" style={{backgroundColor: '#fef2f2'}} /> | `error-subtle` | `#fef2f2` | `bg-red-50` |
+| <span className="align-middle rounded-full size-4 inline-block outline outline-1 outline-neutral-300 dark:outline-none" style={{backgroundColor: '#f0fdf4'}} /> | `success-subtle` | `#f0fdf4` | `bg-green-50` |
+| <span className="align-middle rounded-full size-4 inline-block outline outline-1 outline-neutral-300 dark:outline-none" style={{backgroundColor: '#eef2ff'}} /> | `brand-subtle` | `#eef2ff` | `bg-indigo-50` |
+| <span className="align-middle rounded-full size-4 inline-block outline outline-1 outline-neutral-300 dark:outline-none" style={{backgroundColor: '#f9fafb'}} /> | `neutral-subtle` | `#f9fafb` | `bg-gray-50` |
+| <span className="align-middle rounded-full size-4 inline-block outline outline-1 outline-neutral-300 dark:outline-none" style={{backgroundColor: '#fffbeb'}} /> | `warning-subtle` | `#fffbeb` | `bg-amber-50` |
 
 #### Line colors (border/rings)
 
-| Color | Name | Tailwind class | Hex |
+| Color | Name | Hex | Tailwind class |
 | --- | --- | --- | --- |
-| <span className="align-middle rounded-full size-4 inline-block" style={{backgroundColor: '#e5e5e5'}} /> | `primary` | `border-neutral-200` | `#e5e5e5` |
-| <span className="align-middle rounded-full size-4 inline-block" style={{backgroundColor: '#9ca3af'}} /> | `secondary` | `border-gray-400` | `#9ca3af` |
-| <span className="align-middle rounded-full size-4 inline-block" style={{backgroundColor: '#bbf7d0'}} /> | `success` | `border-green-200` | `#bbf7d0` |
-| <span className="align-middle rounded-full size-4 inline-block" style={{backgroundColor: '#4f46e5'}} /> | `brand-solid` | `border-indigo-600` | `#4f46e5` |
-| <span className="align-middle rounded-full size-4 inline-block" style={{backgroundColor: '#c7d2fe'}} /> | `brand-subtle` | `border-indigo-200` | `#c7d2fe` |
-| <span className="align-middle rounded-full size-4 inline-block" style={{backgroundColor: '#fecaca'}} /> | `error-subtle` | `border-red-200` | `#fecaca` |
-| <span className="align-middle rounded-full size-4 inline-block" style={{backgroundColor: '#fde68a'}} /> | `warning-subtle` | `border-amber-200` | `#fde68a` |
+| <span className="align-middle rounded-full size-4 inline-block outline outline-1 outline-neutral-300 dark:outline-none" style={{backgroundColor: '#e5e5e5'}} /> | `primary` | `#e5e5e5` | `border-neutral-200` |
+| <span className="align-middle rounded-full size-4 inline-block" style={{backgroundColor: '#9ca3af'}} /> | `secondary` | `#9ca3af` | `border-gray-400` |
+| <span className="align-middle rounded-full size-4 inline-block" style={{backgroundColor: '#bbf7d0'}} /> | `success` | `#bbf7d0` | `border-green-200` |
+| <span className="align-middle rounded-full size-4 inline-block" style={{backgroundColor: '#4f46e5'}} /> | `brand-solid` | `#4f46e5` | `border-indigo-600` |
+| <span className="align-middle rounded-full size-4 inline-block outline outline-1 outline-neutral-300 dark:outline-none" style={{backgroundColor: '#c7d2fe'}} /> | `brand-subtle` | `#c7d2fe` | `border-indigo-200` |
+| <span className="align-middle rounded-full size-4 inline-block outline outline-1 outline-neutral-300 dark:outline-none" style={{backgroundColor: '#fecaca'}} /> | `error-subtle` | `#fecaca` | `border-red-200` |
+| <span className="align-middle rounded-full size-4 inline-block outline outline-1 outline-neutral-300 dark:outline-none" style={{backgroundColor: '#fde68a'}} /> | `warning-subtle` | `#fde68a` | `border-amber-200` |
 
-_Note_: some designs might use `ring-` Tailwind classes instead.
+**Note**: Some designs might require usage of `ring-` or `outline-` Tailwind classes instead.
 
 #### Icon colors
 
-| Color | Name | Tailwind class | Hex |
+| Color | Name | Hex | Tailwind class |
 | --- | --- | --- | --- |
-| <span className="align-middle rounded-full size-4 inline-block" style={{backgroundColor: '#404040'}} /> | `emphasize` | `neutral-700` | `#404040` |
-| <span className="align-middle rounded-full size-4 inline-block" style={{backgroundColor: '#a3a3a3'}} /> | `primary` | `neutral-400` | `#a3a3a3` |
-| <span className="align-middle rounded-full size-4 inline-block" style={{backgroundColor: '#737373'}} /> | `primary-hover` | `neutral-500` | `#737373` |
-| <span className="align-middle rounded-full size-4 inline-block" style={{backgroundColor: '#6366f1'}} /> | `brand` | `indigo-500` | `#6366f1` |
-| <span className="align-middle rounded-full size-4 inline-block" style={{backgroundColor: '#eef2ff'}} /> | `brand-background` | `indigo-50` | `#eef2ff` |
-| <span className="align-middle rounded-full size-4 inline-block" style={{backgroundColor: '#15803d'}} /> | `success` | `green-700` | `#15803d` |
-| <span className="align-middle rounded-full size-4 inline-block" style={{backgroundColor: '#dc2626'}} /> | `error` | `red-600` | `#dc2626` |
-| <span className="align-middle rounded-full size-4 inline-block" style={{backgroundColor: '#facc15'}} /> | `warning` | `yellow-400` | `#facc15` |
+| <span className="align-middle rounded-full size-4 inline-block" style={{backgroundColor: '#404040'}} /> | `emphasize` | `#404040` | `neutral-700` |
+| <span className="align-middle rounded-full size-4 inline-block" style={{backgroundColor: '#a3a3a3'}} /> | `primary` | `#a3a3a3` | `neutral-400` |
+| <span className="align-middle rounded-full size-4 inline-block" style={{backgroundColor: '#737373'}} /> | `primary-hover` | `#737373` | `neutral-500` |
+| <span className="align-middle rounded-full size-4 inline-block" style={{backgroundColor: '#6366f1'}} /> | `brand` | `#6366f1` | `indigo-500` |
+| <span className="align-middle rounded-full size-4 inline-block outline outline-1 outline-neutral-300 dark:outline-none" style={{backgroundColor: '#eef2ff'}} /> | `brand-background` | `#eef2ff` | `indigo-50` |
+| <span className="align-middle rounded-full size-4 inline-block" style={{backgroundColor: '#15803d'}} /> | `success` | `#15803d` | `green-700` |
+| <span className="align-middle rounded-full size-4 inline-block" style={{backgroundColor: '#dc2626'}} /> | `error` | `#dc2626` | `red-600` |
+| <span className="align-middle rounded-full size-4 inline-block" style={{backgroundColor: '#facc15'}} /> | `warning` | `#facc15` | `yellow-400` |
 
 #### Input field, Form, Textarea colors
 
-| Color | Name | Tailwind class | Hex |
+| Color | Name | Hex | Tailwind class |
 | --- | --- | --- | --- |
-| <span className="align-middle rounded-full size-4 inline-block" style={{backgroundColor: '#404040'}} /> | `text-title` | `text-neutral-700` | `#404040` |
-| <span className="align-middle rounded-full size-4 inline-block" style={{backgroundColor: '#737373'}} /> | `text-placeholder` | `text-neutral-500` | `#737373` |
-| <span className="align-middle rounded-full size-4 inline-block" style={{backgroundColor: '#737373'}} /> | `text-hint` | `text-neutral-500` | `#737373` |
-| <span className="align-middle rounded-full size-4 inline-block" style={{backgroundColor: '#171717'}} /> | `text-filled` | `text-neutral-900` | `#171717` |
-| <span className="align-middle rounded-full size-4 inline-block" style={{backgroundColor: '#a3a3a3'}} /> | `text-disabled` | `text-neutral-400` | `#a3a3a3` |
-| <span className="align-middle rounded-full size-4 inline-block" style={{backgroundColor: '#dc2626'}} /> | `text-error` | `text-red-600` | `#dc2626` |
-| <span className="align-middle rounded-full size-4 inline-block" style={{backgroundColor: '#fafafa'}} /> | `background` | `bg-neutral-50` | `#fafafa` |
-| <span className="align-middle rounded-full size-4 inline-block" style={{backgroundColor: '#e5e5e5'}} /> | `border` | `border-neutral-200` | `#e5e5e5` |
+| <span className="align-middle rounded-full size-4 inline-block" style={{backgroundColor: '#404040'}} /> | `text-title` | `#404040` | `text-neutral-700` |
+| <span className="align-middle rounded-full size-4 inline-block" style={{backgroundColor: '#737373'}} /> | `text-placeholder` | `#737373` | `text-neutral-500` |
+| <span className="align-middle rounded-full size-4 inline-block" style={{backgroundColor: '#737373'}} /> | `text-hint` | `#737373` | `text-neutral-500` |
+| <span className="align-middle rounded-full size-4 inline-block dark:outline dark:outline-neutral-300" style={{backgroundColor: '#171717'}} /> | `text-filled` | `#171717` | `text-neutral-900` |
+| <span className="align-middle rounded-full size-4 inline-block" style={{backgroundColor: '#a3a3a3'}} /> | `text-disabled` | `#a3a3a3` | `text-neutral-400` |
+| <span className="align-middle rounded-full size-4 inline-block" style={{backgroundColor: '#dc2626'}} /> | `text-error` | `#dc2626` | `text-red-600` |
+| <span className="align-middle rounded-full size-4 inline-block outline outline-1 outline-neutral-300 dark:outline-none" style={{backgroundColor: '#fafafa'}} /> | `background` | `#fafafa` | `bg-neutral-50` |
+| <span className="align-middle rounded-full size-4 inline-block" style={{backgroundColor: '#e5e5e5'}} /> | `border` | `#e5e5e5` | `border-neutral-200` |
