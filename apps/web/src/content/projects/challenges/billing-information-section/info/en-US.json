@@ -1,0 +1,7 @@
+{
+  "title": "Billing Information Section",
+  "description": "Build a responsive billing information section that allows users to update their payment method, email, and address details securely",
+  "specLabels": {
+    "main": "Billing information section"
+  }
+}

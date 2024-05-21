@@ -8,10 +8,10 @@
   "preReqs": [
     "account-settings-section",
     "password-section",
-    "billing-history-section",
+    "notifications-settings-section",
+    "billing-information-section",
     "billing-plans-section",
-    "billing-settings-section",
-    "notifications-settings-section"
+    "billing-history-section"
   ],
   "baseCredits": 1,
   "pointsBase": 1000,

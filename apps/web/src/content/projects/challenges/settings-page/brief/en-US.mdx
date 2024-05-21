@@ -9,9 +9,9 @@ The requirements that each component has to fulfill remains the same – you sho
 - [Account Settings Section](/projects/challenges/account-settings-section)
 - [Password Section](/projects/challenges/password-section)
 - [Notifications Settings Section](/projects/challenges/notifications-settings-section)
-- [Billing History Section](/projects/challenges/billing-history-section)
-- [Billing Settings Section](/projects/challenges/billing-settings-section)
+- [Billing Information Section](/projects/challenges/billing-information-section)
 - [Billing Plans Section](/projects/challenges/billing-plans-section)
+- [Billing History Section](/projects/challenges/billing-history-section)
 
 ##### On the page level
 
@@ -24,9 +24,13 @@ The requirements that each component has to fulfill remains the same – you sho
 
 While some of these sections may have been implemented previously, ensure the dynamic content update is working correctly after the integration:
 
-- **Billing plans**: If the user has not filled their billing information, trigger the prompt for them to do so, then lead them to the "Billing" tab, anchor scrolled to the "Billing Information" section. Once the billing information is filled, if there is an immediate payment required (e.g. upgrades), a payment is triggered.
+- **Billing plans**:
+  - If the user has not filled their billing information, display the prompt for them to do so.
+  - Then, lead them to the "Billing" tab, scrolled to the "Billing Information" section.
+  - Once the billing information section is filled, if there is an immediate payment required (e.g. upgrades), a payment is triggered.
+  - If the user tries to leave in the middle of the process, display a modal for them to confirm that they will cancel their upgrade before leaving.
 - **Payment history**: Any new payments should have information correctly updated onto the Payment History table
 
 ##### [Stretch goal] Integration with actual payment gateway
 
-- Integrating with a payment gateway like [Stripe](https://stripe.com/) is usually free, with fees incurred upon transaction. You are recommended to try it out as part of practice. You can use the standard test card number 4242 4242 4242 4242, which is a well known placeholder used in testing payment transactions. Stripe will not charge you for this because they recognize it as a test card.
+- Integrating with a payment gateway like [Stripe](https://stripe.com/) is usually free, with fees incurred upon transaction. You are recommended to try it out as part of practice. You can use the standard test card number "4242 4242 4242 4242", which is a well known placeholder used in testing payment transactions. Stripe will not charge you for this because they recognize it as a test card.

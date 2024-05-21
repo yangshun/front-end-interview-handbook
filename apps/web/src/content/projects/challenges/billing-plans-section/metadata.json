@@ -5,7 +5,7 @@
   "order": 960,
   "guides": [],
   "access": "premium",
-  "preReqs": ["billing-settings-section"],
+  "preReqs": ["billing-information-section"],
   "baseCredits": 2,
   "pointsBase": 1000,
   "pointsForSkillGroups": {
