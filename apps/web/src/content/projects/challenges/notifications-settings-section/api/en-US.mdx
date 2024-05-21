@@ -1,0 +1,109 @@
+## Notification settings APIs
+
+To test your notifications section, we have provided HTTP endpoints that will return the initial notifications preferences and one to receive updates (without persisting the changes).
+
+## Get notification settings API
+
+```
+GET https://www.greatfrontend.com/api/projects/challenges/account/notifications
+```
+
+### Returns
+
+Notification channel preferences for the various categories.
+
+```json
+{
+  "preferences": {
+    "comments": {
+      "email": true,
+      "push": false,
+      "sms": false
+    },
+    "features": {
+      "email": true,
+      "push": false,
+      "sms": false
+    },
+    "friend_requests": {
+      "email": true,
+      "push": false,
+      "sms": false
+    },
+    "friend_updates": {
+      "email": true,
+      "push": false,
+      "sms": false
+    },
+    "marketing": {
+      "email": true,
+      "push": false,
+      "sms": false
+    }
+  }
+}
+```
+
+## Update notifications settings API
+
+```
+PUT https://www.greatfrontend.com/api/projects/challenges/account/notifications
+```
+
+### Parameters
+
+| Name          | Type     | Required | Description                  |
+| ------------- | -------- | -------- | ---------------------------- |
+| `preferences` | `Object` | Yes      | New notification preferences |
+
+The `preferences` field has the same shape as the data returned from the `GET` API. It accepts partial fields and will be merged with the existing preferences data.
+
+### Returns
+
+The combined notifications settings object.
+
+#### Success
+
+```json
+{
+  "preferences": {
+    "comments": {
+      "email": true,
+      "push": true,
+      "sms": true
+    },
+    "features": {
+      "email": true,
+      "push": true,
+      "sms": true
+    },
+    "friend_requests": {
+      "email": true,
+      "push": true,
+      "sms": true
+    },
+    "friend_updates": {
+      "email": true,
+      "push": true,
+      "sms": true
+    },
+    "marketing": {
+      "email": true,
+      "push": true,
+      "sms": true
+    }
+  }
+}
+```
+
+**Note**: No actual changes are being persisted.
+
+#### Error
+
+Error responses will have a HTTP status code of 400 or 500 and contain the `error` field in the response body.
+
+```json
+{
+  "error": "Invalid notifications preferences."
+}
+```
