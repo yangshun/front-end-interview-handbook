@@ -46,13 +46,8 @@ export default function ProjectsChallengeReputationTag({
   }
 
   const contents = (
-    <div
-      className={clsx(
-        'flex items-center gap-1',
-        themeTextSubtleColor,
-        className,
-      )}>
-      <RiFireLine className={clsx('size-4')} />
+    <div className={clsx('flex items-center gap-1', className)}>
+      <RiFireLine className={clsx('size-4 shrink-0', themeTextSubtleColor)} />
       <Text
         className={clsx(
           variant === 'underline' && [
@@ -62,7 +57,7 @@ export default function ProjectsChallengeReputationTag({
             themeBorderSubtleColor,
           ],
         )}
-        color="inherit"
+        color="subtle"
         size="body3">
         {labelVariant === 'default' && (
           <FormattedMessage

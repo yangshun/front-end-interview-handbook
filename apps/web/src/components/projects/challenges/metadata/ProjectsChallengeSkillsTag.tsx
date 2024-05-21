@@ -12,7 +12,6 @@ import {
 import Text from '~/components/ui/Text';
 import {
   themeBorderSubtleColor,
-  themeTextSecondaryColor,
   themeTextSubtleColor,
 } from '~/components/ui/theme';
 
@@ -35,7 +34,7 @@ export default function ProjectsChallengeSkillsTag({
         <button className={clsx('flex items-center gap-1')} type="button">
           <RiNodeTree
             aria-hidden={true}
-            className={clsx('size-4 shrink-0', themeTextSecondaryColor)}
+            className={clsx('size-4 shrink-0', themeTextSubtleColor)}
           />
           <Text
             className={clsx(
@@ -46,7 +45,7 @@ export default function ProjectsChallengeSkillsTag({
                 themeBorderSubtleColor,
               ],
             )}
-            color="secondary"
+            color="subtle"
             size="body3">
             {intl.formatMessage(
               {

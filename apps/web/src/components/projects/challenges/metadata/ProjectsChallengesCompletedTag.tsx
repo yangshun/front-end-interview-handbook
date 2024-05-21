@@ -16,12 +16,12 @@ export default function ProjectsChallengesCompletedTag({
   tooltip,
 }: Props) {
   const contents = (
-    <div className={clsx('flex items-center gap-1', themeTextSubtleColor)}>
+    <div className={clsx('flex items-center gap-1')}>
       <RiCheckboxCircleLine
         aria-hidden={true}
-        className={clsx('size-4 shrink-0')}
+        className={clsx('size-4 shrink-0', themeTextSubtleColor)}
       />
-      <Text color="inherit" size="body3">
+      <Text color="subtle" size="body3">
         <FormattedMessage
           defaultMessage="{count, plural, =0 {No challenges} one {<bold>1</bold> challenge} other {<bold>#</bold> challenges}} completed using skill"
           description="Completed project challenges label"

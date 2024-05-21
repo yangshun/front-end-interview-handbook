@@ -5,7 +5,7 @@ import { RiFlashlightLine } from 'react-icons/ri';
 import type { BadgeSize, BadgeVariant } from '~/components/ui/Badge';
 import Badge from '~/components/ui/Badge';
 import Text from '~/components/ui/Text';
-import { themeTextSecondaryColor } from '~/components/ui/theme';
+import { themeTextSubtleColor } from '~/components/ui/theme';
 import Tooltip from '~/components/ui/Tooltip';
 
 import type { ProjectsChallengeDifficulty } from '../types';
@@ -31,7 +31,7 @@ const difficultyColors: Record<
 > = {
   mid: { badgeVariant: 'info', textColor: 'text-blue' },
   nightmare: { badgeVariant: 'danger', textColor: 'text-red' },
-  senior: { badgeVariant: 'warning', textColor: 'text-yellow' },
+  senior: { badgeVariant: 'warning', textColor: 'text-yellow-500' },
   starter: { badgeVariant: 'success', textColor: 'text-green' },
 };
 
@@ -57,8 +57,12 @@ export default function ProjectsChallengeDifficultyTag({
   return (
     <Tooltip label="Difficulty">
       <div className="flex items-center gap-1">
-        <Icon className={clsx('size-4', themeTextSecondaryColor)} />
-        <Text className={textColor} color="inherit" size="body3">
+        <Icon className={clsx('size-4', themeTextSubtleColor)} />
+        <Text
+          className={textColor}
+          color="inherit"
+          size="body3"
+          weight="medium">
           {label}
         </Text>
       </div>

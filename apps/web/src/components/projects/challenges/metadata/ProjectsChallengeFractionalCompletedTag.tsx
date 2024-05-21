@@ -18,9 +18,12 @@ export default function ProjectsChallengeFractionalCompletedTag({
   total,
 }: Props) {
   const contents = (
-    <div className={clsx('flex items-center gap-1', themeTextSubtleColor)}>
-      <RiRocketLine aria-hidden={true} className="size-4 shrink-0" />
-      <Text color="inherit" size="body3">
+    <div className={clsx('flex items-center gap-1')}>
+      <RiRocketLine
+        aria-hidden={true}
+        className={clsx('size-4 shrink-0', themeTextSubtleColor)}
+      />
+      <Text color="subtle" size="body3">
         <FormattedMessage
           defaultMessage="{totalCount, plural, one {<bold>{completedCount}</bold>/# challenge} other {<bold>{completedCount}</bold>/# challenges}}"
           description="Rep count label in Projects"
