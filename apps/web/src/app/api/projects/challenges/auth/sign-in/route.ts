@@ -1,6 +1,6 @@
 import { type NextRequest, NextResponse } from 'next/server';
 
-import { users } from '../ProjectsFakeAPIAuthUtils';
+import { usersByEmail } from '../ProjectsFakeAPIAuthUtils';
 
 export const dynamic = 'force-dynamic';
 
@@ -30,12 +30,14 @@ export async function POST(req: NextRequest) {
     );
   }
 
-  if (users[email].password === password) {
+  const user = usersByEmail[email];
+
+  if (password === user?.password) {
     return NextResponse.json({
       user: {
-        email,
-        id: users[email].id,
-        name: users[email].name,
+        email: user.email,
+        id: user.id,
+        name: user.name,
       },
     });
   }

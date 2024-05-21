@@ -1,6 +1,10 @@
 import { type NextRequest, NextResponse } from 'next/server';
 
-import { EMAIL_REGEX, users } from '../ProjectsFakeAPIAuthUtils';
+import {
+  EMAIL_REGEX,
+  usersByEmail,
+  validatePassword,
+} from '../ProjectsFakeAPIAuthUtils';
 
 export const dynamic = 'force-dynamic';
 
@@ -12,39 +16,6 @@ type FormBody = Readonly<{
 
 export async function OPTIONS() {
   return NextResponse.json({});
-}
-
-function validatePassword(password: string) {
-  if (password.length < 8 || password.length > 64) {
-    return { error: 'Invalid password length.', valid: false };
-  }
-
-  if (!/[A-Z]/.test(password)) {
-    return {
-      error: 'Password must contain one uppercase letter.',
-      valid: false,
-    };
-  }
-
-  if (!/[a-z]/.test(password)) {
-    return {
-      error: 'Password must contain one lowercase letter.',
-      valid: false,
-    };
-  }
-
-  if (!/\d/.test(password)) {
-    return { error: 'Password must contain one number.', valid: false };
-  }
-
-  if (!/[!@$%^&*]/.test(password)) {
-    return {
-      error: 'Password must contain one special character.',
-      valid: false,
-    };
-  }
-
-  return { error: null, valid: true };
 }
 
 export async function POST(req: NextRequest) {
@@ -64,7 +35,7 @@ export async function POST(req: NextRequest) {
     );
   }
 
-  if (users[email]) {
+  if (usersByEmail[email]) {
     return NextResponse.json(
       { error: 'Account already exists. Sign in instead?' },
       { status: 401 },

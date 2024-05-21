@@ -1,0 +1,54 @@
+## Mock users
+
+Mock users have been created which the API will use to validate existence of users and current password.
+
+| ID   | Name     | Email              | Password  |
+| ---- | -------- | ------------------ | --------- |
+| 1234 | Jane Doe | jane.doe@gmail.com | $uPah4ckr |
+| 1235 | John Doe | john.doe@gmail.com | P@s$w0rd  |
+
+## Change password API
+
+```
+POST https://www.greatfrontend.com/api/projects/challenges/auth/change-password
+```
+
+### Parameters
+
+All of the following fields should be present in the request body in order for the request to be successful.
+
+| Name | Type | Required | Description |
+| --- | --- | --- | --- |
+| `user_id` | `number` | Yes | User ID of the user to change the password for |
+| `password` | `string` | Yes | Current password of the user |
+| `new_password` | `string` | Yes | New password of the user |
+
+### Returns
+
+A user object if the user ID + current password combination is valid, as well as the new password meets the requirements.
+
+#### Success
+
+Success responses will have a HTTP status code of 200 and contain the `user` field in the response body containing details of the user.
+
+```json
+{
+  "user": {
+    "email": "jane.doe@gmail.com",
+    "id": 1234,
+    "name": "Jane Doe"
+  }
+}
+```
+
+**Note**: No actual password changes are being saved.
+
+#### Error
+
+Error responses will have a HTTP status code of 400 or 500 and contain the `error` field in the response body.
+
+```json
+{
+  "error": "Current password does not match."
+}
+```
