@@ -1,0 +1,41 @@
+## Unsplash API
+
+This challenge relies on [Unsplash's Developers API](https://unsplash.com/documentation).
+
+### Set up an application
+
+1. Firstly sign up with [Unsplash](https://unsplash.com/) as a user.
+2. Create a [developer application](https://unsplash.com/oauth/applications).
+3. Upon successful creation, obtain the "Access key".
+
+Note that demo apps are limited to 50 requests an hour, which should be sufficient for development.
+
+### Unsplash JavaScript SDK
+
+Consider using [Unsplash's official JavaScript wrapper](https://github.com/unsplash/unsplash-js) to save yourself the hassle of constructing HTTP requests.
+
+### Relevant APIs
+
+These are the relevant APIs that can be used for each page.
+
+#### Homepage
+
+- **Topics list**: [List topics](https://unsplash.com/documentation#list-topics) API.
+- **Masonry images**: [List photos](https://unsplash.com/documentation#list-photos) API.
+
+#### Search results page
+
+- **Masonry images**: [Search photos](https://unsplash.com/documentation#search-photos) API.
+
+#### Photo details page
+
+- **Photo details**: [Get a photo](https://unsplash.com/documentation#get-a-photo) API.
+- **Download image**: Refer to the section on [Dynamically resizable images](https://unsplash.com/documentation#dynamically-resizable-images) to enabling downloading of images in various resolutions.
+- **Related images**: There's no API for related images, but you are free to decide what constitutes related images. Some suggestions:
+  1. Use the [Search photos](https://unsplash.com/documentation#search-photos) API using some keywords from the photo's description.
+  2. Use the [Get a topic's photos](https://unsplash.com/documentation#get-a-topics-photos) API by passing in the tags of the photo.
+
+#### Topics page
+
+- **Topics list**: [List topics](https://unsplash.com/documentation#list-topics) API.
+- **Masonry images**: [Get a topic's photos](https://unsplash.com/documentation#get-a-topics-photos) API.

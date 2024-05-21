@@ -1,0 +1,7 @@
+{
+  "title": "Pinsplash",
+  "description": "Develop a responsive web client that allows users to browse, search, and interact with Unsplash images",
+  "specLabels": {
+    "main": "Homepage"
+  }
+}
