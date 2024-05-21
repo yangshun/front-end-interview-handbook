@@ -1,0 +1,30 @@
+[
+  {
+    "amount": 12,
+    "plan": "professional",
+    "status": "paid",
+    "invoice_url": "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/object/public/projects-images/billing-history-section/starter/invoices/GFE-0004.pdf",
+    "created_at": "2024-03-01"
+  },
+  {
+    "amount": 6,
+    "plan": "basic",
+    "status": "paid",
+    "invoice_url": "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/object/public/projects-images/billing-history-section/starter/invoices/GFE-0003.pdf",
+    "created_at": "2024-02-01"
+  },
+  {
+    "amount": 6,
+    "plan": "basic",
+    "status": "paid",
+    "invoice_url": "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/object/public/projects-images/billing-history-section/starter/invoices/GFE-0002.pdf",
+    "created_at": "2024-01-01"
+  },
+  {
+    "amount": 0,
+    "plan": "starter",
+    "status": "paid",
+    "invoice_url": "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/object/public/projects-images/billing-history-section/starter/invoices/GFE-0001.pdf",
+    "created_at": "2023-12-01"
+  }
+]

@@ -1,0 +1,60 @@
+## Billing history API
+
+To build a billing history page that interacts with APIs, do one of the following:
+
+- Build your own APIs that read billing history data from your own database using the provided billing history data.
+- Use `billing-history.json` provided in the starter files.
+- Fetch billing history data and apply coupons with our E-commerce HTTP APIs.
+
+## Billing history API (sample data)
+
+```
+GET https://www.greatfrontend.com/api/projects/challenges/account/billing/history
+```
+
+**Warning**: This API always returns the same data as it is not meant to be used in functional applications that should show the user's billing history.
+
+This API is still useful if you only want to practice the front end aspects of fetching billing history data and displaying it.
+
+### Parameters
+
+No parameters.
+
+### Returns
+
+Sample data for a user's billing history.
+
+```json
+{
+  "data": [
+    {
+      "amount": 12,
+      "plan": "professional",
+      "status": "paid",
+      "invoice_url": "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/object/public/projects-images/billing-history-section/starter/invoices/GFE-0004.pdf",
+      "created_at": "2024-03-01"
+    },
+    {
+      "amount": 6,
+      "plan": "basic",
+      "status": "paid",
+      "invoice_url": "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/object/public/projects-images/billing-history-section/starter/invoices/GFE-0003.pdf",
+      "created_at": "2024-02-01"
+    },
+    {
+      "amount": 6,
+      "plan": "basic",
+      "status": "paid",
+      "invoice_url": "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/object/public/projects-images/billing-history-section/starter/invoices/GFE-0002.pdf",
+      "created_at": "2024-01-01"
+    },
+    {
+      "amount": 0,
+      "plan": "starter",
+      "status": "paid",
+      "invoice_url": "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/object/public/projects-images/billing-history-section/starter/invoices/GFE-0001.pdf",
+      "created_at": "2023-12-01"
+    }
+  ]
+}
+```
