@@ -1,13 +1,25 @@
 /* Put any custom CSS styles here.  */
 /* Be sure to delete the <style> tag in index.html if you want to use this stylesheet. */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
 * {
   box-sizing: border-box;
   margin: 0;
 }
 
 body {
-  font-family: "Noto Sans", system-ui, -apple-system, BlinkMacSystemFont,
-    "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+  font-family:
+    'Noto Sans',
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    Roboto,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    'Open Sans',
+    'Helvetica Neue',
     sans-serif;
   min-height: 100vh;
   background: linear-gradient(147.52deg, #f9fafb 8.89%, #d2d6db 100.48%);
@@ -38,7 +50,7 @@ body {
   padding-right: 17.5px;
 }
 
-.blog-card {
+.profile-card {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -53,18 +65,18 @@ body {
   border-radius: 8px;
 }
 
-.blog-card__author {
+.profile-card__author {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 24px;
 }
 
-.blog-card__author__image {
+.profile-card__author__image {
   width: 64px;
 }
 
-.blog-card__author__metadata {
+.profile-card__author__metadata {
   margin-top: 1px;
   display: flex;
   flex-direction: column;
@@ -72,7 +84,7 @@ body {
   align-items: center;
 }
 
-.blog-card__author__metadata__name {
+.profile-card__author__metadata__name {
   font-weight: 500;
   font-size: 20px;
   line-height: 28px;
@@ -81,7 +93,7 @@ body {
   color: #171717;
 }
 
-.blog-card__author__metadata__designation {
+.profile-card__author__metadata__designation {
   font-size: 14px;
   line-height: 20px;
   font-weight: 400;
@@ -89,14 +101,14 @@ body {
   color: #525252;
 }
 
-.blog-card__author__bio {
+.profile-card__author__bio {
   font-size: 16px;
   line-height: 24px;
   text-align: center;
   color: #525252;
 }
 
-.blog-card__author__actions {
+.profile-card__author__actions {
   display: flex;
   flex-direction: column;
   gap: 24px;
@@ -109,7 +121,9 @@ body {
   align-items: center;
   padding: 0 14px;
   height: 44px;
-  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.06);
+  box-shadow:
+    0px 1px 3px rgba(0, 0, 0, 0.1),
+    0px 1px 2px rgba(0, 0, 0, 0.06);
   border-radius: 4px;
 
   border: none;
@@ -137,12 +151,12 @@ body {
   color: #ffffff;
 }
 
-.blog-card__author__actions__socials {
+.profile-card__author__actions__socials {
   display: flex;
   justify-content: center;
 }
 
-.blog-card__author__actions__socials__btn {
+.profile-card__author__actions__socials__btn {
   display: flex;
   gap: 16px;
 }
