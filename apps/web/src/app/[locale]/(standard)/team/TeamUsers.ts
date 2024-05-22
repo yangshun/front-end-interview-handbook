@@ -138,16 +138,6 @@ export const teamUsers: ReadonlyArray<TeamUser> = [
     category: 'community',
     companyLogos: [],
     description:
-      'A passionate Front End Engineer and YouTuber who has helped hundreds of developers crack their dream jobs.',
-    href: 'https://www.linkedin.com/in/piyush-eon/',
-    image: '/img/team/piyush-agarwal.jpg',
-    name: 'Piyush Agarwal',
-    title: 'Software Engineer @ Cars24',
-  },
-  {
-    category: 'community',
-    companyLogos: [],
-    description:
       "Luke's tenure as a software engineer narrates a tale of technical expertise intertwined with a keen enjoyment of sharing knowledge. Transitioning through various roles and projects, the space for sharing technical wisdom always finds a place.",
     href: 'https://www.linkedin.com/in/lukefiji/',
     image: '/img/team/luke-fiji.jpg',
