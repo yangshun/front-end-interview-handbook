@@ -4,9 +4,15 @@
   --navbar-height: 0px;
   --navbar-border: 0px;
 
-  --global-sticky-height: calc(
-    var(--navbar-height) + var(--navbar-border) + var(--banner-height)
-  );
+  --global-sticky-height: calc(var(--navbar-height) + var(--banner-height));
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --global-sticky-height: calc(
+      var(--navbar-height) + var(--navbar-border) + var(--banner-height)
+    );
+  }
 }
 
 /* Sync responsiveness with GlobalBanner.tsx */

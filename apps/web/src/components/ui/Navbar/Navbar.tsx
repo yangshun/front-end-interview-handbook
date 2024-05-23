@@ -57,7 +57,7 @@ function Navbar(
     <div
       ref={ref}
       className={clsx(
-        'z-sticky sticky top-[var(--banner-height)] backdrop-blur',
+        'z-fixed sticky top-[var(--banner-height)] backdrop-blur',
         ['border-b', themeBorderColor],
         transparent && 'bg-white dark:bg-neutral-900/60',
         'transition-[background-color]',
