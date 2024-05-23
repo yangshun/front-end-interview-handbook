@@ -1,31 +1,34 @@
 {
   "files": {
     "/package.json": {
-      "code": "{\n  \"name\": \"@gfe-questions/contact-form-react-solution\",\n  \"author\": \"yangshun\",\n  \"version\": \"0.0.1\",\n  \"private\": true,\n  \"dependencies\": {\n    \"react\": \"18.2.0\",\n    \"react-dom\": \"18.2.0\",\n    \"react-scripts\": \"5.0.1\"\n  },\n  \"scripts\": {\n    \"start\": \"react-scripts start\",\n    \"build\": \"react-scripts build\",\n    \"test\": \"react-scripts test\",\n    \"eject\": \"react-scripts eject\"\n  }\n}\n"
+      "code": "{\n  \"name\": \"@gfe-challenges/profile-card-react-solution\",\n  \"version\": \"0.0.1\",\n  \"dependencies\": {\n    \"@remixicon/react\": \"^4.2.0\",\n    \"clsx\": \"^2.1.1\",\n    \"react\": \"^18.3.1\",\n    \"react-dom\": \"^18.3.1\",\n    \"react-scripts\": \"5.0.1\"\n  },\n  \"scripts\": {\n    \"start\": \"react-scripts start\",\n    \"build\": \"react-scripts build\",\n    \"test\": \"react-scripts test\",\n    \"eject\": \"react-scripts eject\"\n  }\n}\n"
     },
     "/public/index.html": {
-      "code": "<!doctype html>\n<html lang=\"en\">\n  <head>\n    <meta charset=\"UTF-8\" />\n    <meta\n      name=\"viewport\"\n      content=\"width=device-width, initial-scale=1.0\" />\n  </head>\n  <body>\n    <div id=\"root\"></div>\n  </body>\n</html>\n"
+      "code": "<!doctype html>\n<html lang=\"en\">\n  <head>\n    <meta charset=\"UTF-8\" />\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" />\n    <script src=\"https://cdn.tailwindcss.com\"></script>\n  </head>\n  <body>\n    <div id=\"root\"></div>\n  </body>\n</html>\n"
     },
     "/src/App.js": {
-      "code": "import './styles.css';\nimport submitForm from './submitForm';\n\nexport default function App() {\n  return (\n    <form\n      // Ignore the onSubmit prop, it's used by GFE to\n      // intercept the form submit event to check your solution.\n      onSubmit={submitForm}\n      action=\"https://www.greatfrontend.com/api/questions/contact-form\"\n      method=\"post\">\n      <div>\n        <label htmlFor=\"name-input\">Name</label>\n        <input id=\"name-input\" name=\"name\" type=\"text\" />\n      </div>\n      <div>\n        <label htmlFor=\"email-input\">Email</label>\n        <input id=\"email-input\" name=\"email\" type=\"email\" />\n      </div>\n      <div>\n        <label htmlFor=\"message-input\">Message</label>\n        <textarea\n          id=\"message-input\"\n          name=\"message\"></textarea>\n      </div>\n      <div>\n        <button>Send</button>\n      </div>\n    </form>\n  );\n}\n"
+      "code": "import './styles.css';\nimport clsx from 'clsx';\nimport ProfileCard from './ProfileCard';\n\nfunction App() {\n  return (\n    <div\n      className={clsx(\n        'bg-gradient min-h-screen',\n        'flex items-start justify-center',\n        'px-[17.5px] pt-[200px]',\n      )}>\n      <ProfileCard />\n    </div>\n  );\n}\n\nexport default App;\n"
     },
     "/src/index.js": {
       "code": "import React, { StrictMode } from 'react';\nimport { createRoot } from 'react-dom/client';\n\nimport App from './App';\n\nconst root = createRoot(document.getElementById('root'));\nroot.render(\n  <StrictMode>\n    <App />\n  </StrictMode>,\n);\n"
     },
-    "/src/styles.css": {
-      "code": "body {\n  font-family: sans-serif;\n}\n\nform {\n  display: flex;\n  flex-direction: column;\n  row-gap: 12px;\n}\n\nlabel {\n  font-size: 12px;\n}\n\ninput,\ntextarea {\n  display: block;\n}\n"
+    "/src/ProfileCard.js": {
+      "code": "import clsx from 'clsx';\nimport {\n  RiGithubFill,\n  RiLinkedinBoxFill,\n  RiInstagramFill,\n  RiTwitterXFill,\n} from '@remixicon/react';\n\nconst socials = [\n  {\n    icon: RiGithubFill,\n    url: 'https://github.com',\n    name: 'Link to Github profile',\n  },\n  {\n    icon: RiLinkedinBoxFill,\n    url: 'https://linkedin.com',\n    name: 'Link to Linkedin profile',\n  },\n  {\n    icon: RiInstagramFill,\n    url: 'https://instagram.com',\n    name: 'Link to Instagram profile',\n  },\n  {\n    icon: RiTwitterXFill,\n    url: 'https://twitter.com',\n    name: 'Link to Twitter profile',\n  },\n];\n\nconst ProfileCard = () => {\n  return (\n    <div\n      className={clsx(\n        'w-[340px] bg-white px-[15px] py-[23px]',\n        'flex flex-col items-center gap-10',\n        'rounded-lg border border-neutral-200 shadow',\n      )}>\n      <div className=\"flex flex-col items-center gap-6\">\n        <img\n          src=\"https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/object/public/projects-images/profile-card/starter/img/profile-thumbnail.png\"\n          alt=\"Sarah Dole's profile pic\"\n          className=\"w-16\"\n        />\n        <div\n          className={clsx('flex flex-col items-center gap-[3px]', 'mt-[1px]')}>\n          <div className=\"text-xl font-medium text-neutral-900\">Sarah Dole</div>\n          <div className=\"text-center text-sm text-neutral-600\">\n            Front End Engineer @ Microsoft\n          </div>\n        </div>\n        <p class=\"text-center text-neutral-600\">\n          I turn coffee into bugs which are fixed by someone else. Certified\n          Stack Overflow and ChatGPT developer.\n        </p>\n      </div>\n      <div className=\"flex w-full flex-col items-center gap-6\">\n        <button\n          className={clsx(\n            'rounded bg-indigo-700 shadow',\n            'cursor-pointer font-medium text-white',\n            'h-11 w-full px-3.5',\n            'hover:bg-indigo-800 focus:bg-indigo-800 focus:outline-none focus-visible:ring-4 focus-visible:ring-indigo-600/[.12]',\n            'disabled:pointer-events-none disabled:bg-neutral-100 disabled:text-neutral-400 disabled:shadow-none',\n          )}>\n          Contact me\n        </button>\n\n        <div className=\"flex space-x-4\">\n          {socials.map(({ icon: Icon, url, name }) => (\n            <a\n              key={url}\n              href={url}\n              aria-label={name}\n              target=\"_blank\"\n              rel=\"noreferrer\"\n              tabIndex={0}\n              className={clsx(\n                'cursor-pointer rounded p-2',\n                'hover:bg-neutral-50 focus:bg-neutral-50 focus:outline-none focus-visible:ring-4 focus-visible:ring-indigo-600/[.12]',\n              )}>\n              <Icon className=\"fill-indigo-700\" size={20} />\n            </a>\n          ))}\n        </div>\n      </div>\n    </div>\n  );\n};\n\nexport default ProfileCard;\n"
     },
-    "/src/submitForm.js": {
-      "code": "const SUBMIT_URL =\n  'https://www.greatfrontend.com/api/questions/contact-form';\n\nexport default async function submitForm(event) {\n  event.preventDefault();\n  const form = event.target;\n\n  try {\n    if (form.action !== SUBMIT_URL) {\n      alert('Incorrect form action value');\n      return;\n    }\n\n    if (form.method.toLowerCase() !== 'post') {\n      alert('Incorrect form method value');\n      return;\n    }\n\n    const formData = new FormData(form);\n    const response = await fetch(SUBMIT_URL, {\n      method: 'POST',\n      headers: {\n        'Content-Type': 'application/json',\n      },\n      body: JSON.stringify({\n        name: formData.get('name'),\n        email: formData.get('email'),\n        message: formData.get('message'),\n      }),\n    });\n\n    const text = await response.text();\n    alert(text);\n  } catch (_) {\n    alert('Error submitting form!');\n  }\n}\n"
+    "/src/styles.css": {
+      "code": "@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');\n\nbody {\n  margin: 0;\n  font-family:\n    'Noto Sans',\n    system-ui,\n    -apple-system,\n    BlinkMacSystemFont,\n    'Segoe UI',\n    Roboto,\n    Oxygen,\n    Ubuntu,\n    Cantarell,\n    'Open Sans',\n    'Helvetica Neue',\n    sans-serif;\n}\n\n.bg-gradient {\n  background: linear-gradient(147.52deg, #f9fafb 8.89%, #d2d6db 100.48%);\n}\n"
     }
   },
   "workspace": {
     "visibleFiles": [
       "/src/App.js",
       "/src/styles.css",
-      "/src/submitForm.js"
+      "/src/ProfileCard.js"
     ],
     "activeFile": "/src/App.js",
-    "environment": "create-react-app"
+    "environment": "create-react-app",
+    "externalResources": [
+      "https://cdn.tailwindcss.com"
+    ]
   }
 }

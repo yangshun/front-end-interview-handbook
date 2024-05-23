@@ -40,6 +40,7 @@ export default function ProjectsChallengeOfficialSolutionSection({
             'sp-stack': 'h-full',
             'sp-wrapper': clsx('!w-full !text-sm !h-[650px]'),
           },
+          externalResources: workspace?.externalResources,
           visibleFiles: workspace?.visibleFiles?.slice() ?? undefined,
         }}
         theme={colorScheme === 'dark' ? 'dark' : undefined}>

@@ -1,11 +1,11 @@
 {
-  "name": "@gfe-questions/contact-form-react-solution",
-  "author": "yangshun",
+  "name": "@gfe-challenges/profile-card-react-solution",
   "version": "0.0.1",
-  "private": true,
   "dependencies": {
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
+    "@remixicon/react": "^4.2.0",
+    "clsx": "^2.1.1",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
     "react-scripts": "5.0.1"
   },
   "scripts": {

@@ -3,15 +3,16 @@ import type {
   ProjectsChallengeMetadata,
 } from 'contentlayer/generated';
 
-import type { QuestionUserInterfaceWorkspace } from '~/components/interviews/questions/common/QuestionsTypes';
-
 import type { ProjectsSkillKey } from '../skills/types';
 import type {
   ProjectsDeviceImages,
   ProjectsProfileAvatarDataSlim,
 } from '../types';
 
-import type { SandpackFiles } from '@codesandbox/sandpack-react';
+import type {
+  SandboxEnvironment,
+  SandpackFiles,
+} from '@codesandbox/sandpack-react';
 import type { ProjectsChallengeSessionStatus } from '@prisma/client';
 
 // Sorted in order of difficulty.
@@ -85,9 +86,16 @@ export type ProjectsChallengeSessionSkillsFormValues = Readonly<{
 
 export type ProjectsChallengeSolutionFrameworkType = 'react' | 'vanilla';
 
+export type ProjectsChallengeSolutionWorkspace = Readonly<{
+  activeFile?: string;
+  environment: SandboxEnvironment;
+  externalResources?: Array<string>;
+  visibleFiles?: Array<string>;
+}>;
+
 export type ProjectsChallengeSolutionBundle = Readonly<{
   files: SandpackFiles;
-  workspace: QuestionUserInterfaceWorkspace;
+  workspace: ProjectsChallengeSolutionWorkspace;
 }>;
 
 export const projectsChallengeSupportedSolutionFrameworkOptions = [

@@ -5,10 +5,10 @@ import lodash from 'lodash-es';
 import nullthrows from 'nullthrows';
 import path from 'path';
 
-import type { QuestionUserInterfaceWorkspace } from '~/components/interviews/questions/common/QuestionsTypes';
 import type {
   ProjectsChallengeSolutionBundle,
   ProjectsChallengeSolutionFrameworkType,
+  ProjectsChallengeSolutionWorkspace,
 } from '~/components/projects/challenges/types';
 
 import {
@@ -93,7 +93,7 @@ async function generateSetupForChallengesSolutions(slug: string) {
           try {
             return JSON.parse(
               fs.readFileSync(greatfrontendConfigPath).toString(),
-            ) as QuestionUserInterfaceWorkspace;
+            ) as ProjectsChallengeSolutionWorkspace;
           } catch {
             return null;
           }
