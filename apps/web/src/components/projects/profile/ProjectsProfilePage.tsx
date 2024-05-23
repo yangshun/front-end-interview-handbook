@@ -1,5 +1,7 @@
 'use client';
 
+import clsx from 'clsx';
+
 import { trpc } from '~/hooks/trpc';
 
 import ProjectsProfileCategoryTabs from '~/components/projects/profile/ProjectsProfileCategoryTabs';
@@ -38,7 +40,7 @@ export default function ProjectsProfilePage({
         isViewingOwnProfile={isViewingOwnProfile}
         userProfile={{ ...userProfile, projectsProfile }}
       />
-      <div className="mt-12">
+      <div className="mt-16 md:mt-12">
         <ProjectsProfileStats
           codeReviews={profileStatistics?.codeReviews ?? 0}
           completedChallenges={profileStatistics?.completedChallenges ?? 0}
@@ -47,12 +49,12 @@ export default function ProjectsProfilePage({
           upvotes={profileStatistics?.upvotes ?? 0}
         />
       </div>
-      <div className="mt-[60px]">
+      <div className="mt-16 md:mt-[60px]">
         <ProjectsProfilePinnedSubmissions
           projectsProfileId={projectsProfileId}
         />
       </div>
-      <div className="mt-[72px] flex flex-col gap-8">
+      <div className={clsx('flex flex-col gap-8', 'mt-16 md:mt-[72px]')}>
         <ProjectsProfileCategoryTabs baseUrl={baseUrl} />
         {children}
       </div>

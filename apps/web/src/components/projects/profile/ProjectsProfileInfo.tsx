@@ -8,7 +8,6 @@ import ProjectsProfileSkillsList from '~/components/projects/profile/info/Projec
 import ProjectsProfileAvatar from '~/components/projects/users/ProjectsProfileAvatar';
 import ProjectsUserReputation from '~/components/projects/users/ProjectsUserReputation';
 import Button from '~/components/ui/Button';
-import Section from '~/components/ui/Heading/HeadingContext';
 import Text from '~/components/ui/Text';
 
 import ProjectsProfileSocialLinks from './info/ProjectsProfileSocialLinks';
@@ -46,39 +45,48 @@ export default function ProjectsProfileInfo({
   );
 
   return (
-    <div className="flex flex-col gap-6 md:gap-8">
-      <Section>
-        <div className="flex gap-6">
+    <div className="flex flex-col  gap-8">
+      <div className="flex gap-3 md:gap-6">
+        <div className="hidden md:contents">
           <ProjectsProfileAvatar
             points={projectsProfile.points}
             size="3xl"
             userProfile={userProfile}
           />
-          <div className="flex grow flex-col gap-6 md:flex-row md:justify-between">
-            <div className="flex flex-col gap-3">
-              <div className="flex items-center gap-4">
-                <Text size="body1" weight="medium">
-                  <ProjectsProfileDisplayNameLink userProfile={userProfile} />
-                </Text>
-                <ProjectsProfileUsernameBadge
-                  premium={projectsProfile.premium}
-                  username={userProfile.username}
-                />
-              </div>
-              <UserProfileInformationRow userProfile={userProfile} />
-              <div className="flex items-center gap-3">
-                <ProjectsUserReputation
-                  points={projectsProfile.points}
-                  size="body2"
-                />
-                <ProjectsProfileSocialLinks userProfile={userProfile} />
-              </div>
-            </div>
-            {isViewingOwnProfile && editProfileButton}
-          </div>
         </div>
-      </Section>
-      <div className="grid grid-cols-2 gap-4 md:gap-8">
+        <div className="contents md:hidden">
+          <ProjectsProfileAvatar
+            className="pt-4"
+            points={projectsProfile.points}
+            size="xl"
+            userProfile={userProfile}
+          />
+        </div>
+
+        <div className="flex grow flex-col gap-6 md:flex-row md:justify-between">
+          <div className="flex flex-col gap-3">
+            <div className="flex items-center gap-4">
+              <Text size="body1" weight="medium">
+                <ProjectsProfileDisplayNameLink userProfile={userProfile} />
+              </Text>
+              <ProjectsProfileUsernameBadge
+                premium={projectsProfile.premium}
+                username={userProfile.username}
+              />
+            </div>
+            <UserProfileInformationRow userProfile={userProfile} />
+            <div className="flex items-center gap-3">
+              <ProjectsUserReputation
+                points={projectsProfile.points}
+                size="body2"
+              />
+              <ProjectsProfileSocialLinks userProfile={userProfile} />
+            </div>
+          </div>
+          {isViewingOwnProfile && editProfileButton}
+        </div>
+      </div>
+      <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
         {userProfile.bio && <ProjectsProfileBio bio={userProfile.bio} />}
         {projectsProfile.motivations &&
           projectsProfile.motivations.length > 0 && (
