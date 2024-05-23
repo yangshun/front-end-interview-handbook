@@ -503,6 +503,10 @@
     "defaultMessage": "Title",
     "description": "Label for \"Job Title\" input on Projects profile onboarding page"
   },
+  "2Hqklu": {
+    "defaultMessage": "You contributed a code review for <recipientProfileLink>{recipient}</recipientProfileLink> on their submission <link>{submissionTitle}</link>: <comment>\"{description}\"</comment>",
+    "description": "Log message for you reviewing others submission"
+  },
   "2Hvmmw": {
     "defaultMessage": "Build better and learn faster with Premium",
     "description": "Title of Pricing section in Projects marketing page"
@@ -586,6 +590,10 @@
   "2zikko": {
     "defaultMessage": "Unlocking this challenge requires a total of {count, plural, one {<bold>1 premium credit</bold>} other {<bold># premium credits</bold>}}.",
     "description": "Confirmation text for unlocking a premium challenge"
+  },
+  "3+YLNZ": {
+    "defaultMessage": "You replied to <recipientProfileLink>{recipient}</recipientProfileLink> on the challenge forum for <link>{challengeTitle}</link>: <comment>\"{description}\"</comment>",
+    "description": "Log message for you replying to someone on the challenge forum"
   },
   "37Ttml": {
     "defaultMessage": "Security",
@@ -827,6 +835,10 @@
     "defaultMessage": "You can find your promos codes on the <link>profile page</link>.",
     "description": "Subtext for rewards complete page"
   },
+  "5DKztB": {
+    "defaultMessage": "<authorProfileLink>{author}</authorProfileLink> posted on their submission <link>{submissionTitle}</link>: <comment>\"{description}\"</comment>",
+    "description": "Log message for user making a post on their submission"
+  },
   "5Gjt4J": {
     "defaultMessage": "Something went wrong. Try again later or contact <link>support@greatfrontend.com</link>!",
     "description": "Error toast for project"
@@ -898,6 +910,10 @@
   "5y9YGh": {
     "defaultMessage": "Submission title must contain at most {maxLength} character(s).",
     "description": "Error message for submission title"
+  },
+  "5ykFzo": {
+    "defaultMessage": "You replied to <bold>yourself</bold> on the submission <link>{submissionTitle}</link>: <comment>\"{description}\"</comment>",
+    "description": "Log message for you replying to yourself on a submission"
   },
   "6+IMdW": {
     "defaultMessage": "Question",
@@ -1399,10 +1415,6 @@
     "defaultMessage": "Pricing",
     "description": "Sidebar navigation label"
   },
-  "9rPKTB": {
-    "defaultMessage": "<bold>You</bold> posted on the challenge forum for <link>{challengeTitle}</link>: <comment>\"{description}\"</comment>",
-    "description": "Log message for you making a post on the challenge forum"
-  },
   "9wRhlQ": {
     "defaultMessage": "Front End Interview",
     "description": "Short title for Front End Interview Guidebook"
@@ -1450,10 +1462,6 @@
   "ATjflV": {
     "defaultMessage": "Choose up to 2 reasons so that we can improve your experience",
     "description": "Subtitle of motivation for joining section of projects profile edit page"
-  },
-  "AU4H9N": {
-    "defaultMessage": "<bold>You</bold> replied to <recipientProfileLink>{recipient}</recipientProfileLink> on the submission <link>{submissionTitle}</link>: <comment>\"{description}\"</comment>",
-    "description": "Log message for you replying to someone on a submission"
   },
   "AVk8pE": {
     "defaultMessage": "Name",
@@ -1591,8 +1599,8 @@
     "defaultMessage": "Best value for money with real-time support from the team and community.",
     "description": "Supporting statement for an annual pricing plan"
   },
-  "BPWMw7": {
-    "defaultMessage": "<bold>{author}</bold> replied to <bold>{recipient}</bold> on the submission <link>{submissionTitle}</link>: <comment>\"{description}\"</comment>",
+  "BVZEeY": {
+    "defaultMessage": "<authorProfileLink>{author}</authorProfileLink> replied to <recipientProfileLink>{recipient}</recipientProfileLink> on the challenge forum for <link>{challengeTitle}</link>: <comment>\"{description}\"</comment>",
     "description": "Log message for someone replying to someone on the challenge forum"
   },
   "BWcVlu": {
@@ -1695,6 +1703,10 @@
     "defaultMessage": "Practice Front End Quiz Interview Questions With Solutions",
     "description": "Title of Interview Preparation Quiz page"
   },
+  "CfLpPw": {
+    "defaultMessage": "<authorProfileLink>{author}</authorProfileLink> posted on the challenge forum for <link>{challengeTitle}</link>: <comment>\"{description}\"</comment>",
+    "description": "Log message for someone making a post on the challenge forum"
+  },
   "CfSKv4": {
     "defaultMessage": "Other skills you are using which are not within the skills roadmap. Also helps community members understand more about the tech stack. If you don't see the tag you need, email us.",
     "description": "Description for \"Other tech stack used\" text input"
@@ -1770,10 +1782,6 @@
   "D5IZKC": {
     "defaultMessage": "Problem Solving Questions",
     "description": "Title for sidebar on problem solving situation questions in behavioral interviews"
-  },
-  "D5Sip4": {
-    "defaultMessage": "<bold>You</bold> replied to <bold>{recipient}</bold> on the challenge forum for <link>{challengeTitle}</link>: <comment>\"{description}\"</comment>",
-    "description": "Log message for you replying to someone on the challenge forum"
   },
   "D7z/wQ": {
     "defaultMessage": "Keep your reason to under {characterLimit} characters",
@@ -2042,10 +2050,6 @@
   "F74ozi": {
     "defaultMessage": "Real-time support from the team and the growing community.",
     "description": "Lifetime membership feature of real-time support."
-  },
-  "F82aIY": {
-    "defaultMessage": "<bold>You</bold> contributed a code review for <recipientProfileLink>{recipient}</recipientProfileLink> on their submission <link>{submissionTitle}</link>: <comment>\"{description}\"</comment>",
-    "description": "Log message for you reviewing a submission"
   },
   "F8wNUD": {
     "defaultMessage": "Starter code with content copy",
@@ -2971,6 +2975,10 @@
     "defaultMessage": "Confirm",
     "description": "Confirm action button label"
   },
+  "M7RwUF": {
+    "defaultMessage": "You left a question on your submission <link>{submissionTitle}</link>: <comment>\"{description}\"</comment>",
+    "description": "Log message for you asking question on your submission"
+  },
   "M9z02W": {
     "defaultMessage": "Airbnb",
     "description": "Company name for Airbnb"
@@ -3018,6 +3026,10 @@
   "MOxuKN": {
     "defaultMessage": "Select question category",
     "description": "Tab label to select another question category"
+  },
+  "MV3NI4": {
+    "defaultMessage": "You posted on the challenge forum for <link>{challengeTitle}</link>: <comment>\"{description}\"</comment>",
+    "description": "Log message for you making a post on the challenge forum"
   },
   "MVgsuv": {
     "defaultMessage": "We provide a refund policy based on the principle of \"fair use\" during the initial 14-day period of your first subscription. The concept of fair use implies that if you download a couple of premium assets such as designs or premium challenges and realize that our service isn't suitable for you, we are more than happy to process a refund. However, if you download three or more premium assets and then request a refund, we retain the right to decline your request. To initiate a refund, please send an email to <link>projects@greatfrontend.com</link> within 14 days of commencing your subscription.",
@@ -3175,10 +3187,6 @@
     "defaultMessage": "Strengthen your proficiency in JavaScript through writing Lodash functions from scratch.",
     "description": "Description for interview preparation focus area"
   },
-  "Npq6Bh": {
-    "defaultMessage": "<authorProfileLink>{author}</authorProfileLink> asked <recipientProfileLink>{recipient}</recipientProfileLink> a question on their submission <link>{submissionTitle}</link>: <comment>\"{description}\"</comment>",
-    "description": "Log message for someone asking question on a submission"
-  },
   "Nt+P5A": {
     "defaultMessage": "Simulate real interview conditions, no need for any setup!",
     "description": "Subtitle for in-browser coding workspace feature"
@@ -3242,6 +3250,10 @@
   "OKKVCO": {
     "defaultMessage": "Login successful",
     "description": "Title of login successful page"
+  },
+  "OOT9uz": {
+    "defaultMessage": "<authorProfileLink>{author}</authorProfileLink> left a code review on their submission <link>{submissionTitle}</link>: <comment>\"{description}\"</comment>",
+    "description": "Log message for someone reviewing their submission"
   },
   "OOYktU": {
     "defaultMessage": "Data structures and algorithms",
@@ -3471,9 +3483,17 @@
     "defaultMessage": "All of our payments are processed using <link>Stripe</link>; we do not directly store your payment and billing information. If you would like to change them, please use Stripe's customer billing portal to do so. {goToStripeCTA}",
     "description": "Description for payments and billing section of projects setting page"
   },
+  "Pwr5QY": {
+    "defaultMessage": "You replied to <recipientProfileLink>{recipient}</recipientProfileLink> on the submission <link>{submissionTitle}</link>: <comment>\"{description}\"</comment>",
+    "description": "Log message for you replying to someone  on a submission"
+  },
   "PyDwDF": {
     "defaultMessage": "Close",
     "description": "Close button label"
+  },
+  "Pz65hO": {
+    "defaultMessage": "You left a code review on your submission <link>{submissionTitle}</link>: <comment>\"{description}\"</comment>",
+    "description": "Log message for you reviewing your submission"
   },
   "PzZtIi": {
     "defaultMessage": "No sign in required",
@@ -3494,10 +3514,6 @@
   "Q1/LnD": {
     "defaultMessage": "GitHub repository",
     "description": "Title for GitHub repo step in project submission checklist"
-  },
-  "Q4VMV2": {
-    "defaultMessage": "<bold>You</bold> replied to <bold>yourself</bold> on the challenge forum for <link>{challengeTitle}</link>: <comment>\"{description}\"</comment>",
-    "description": "Log message for you replying to yourself on the challenge forum"
   },
   "Q7EpE5": {
     "defaultMessage": "HTML Questions",
@@ -3790,6 +3806,10 @@
   "S5984+": {
     "defaultMessage": "Free plan",
     "description": "Title of free pricing plan"
+  },
+  "S8SLzJ": {
+    "defaultMessage": "You asked a question on the challenge forum for <link>{challengeTitle}</link>: <comment>\"{description}\"</comment>",
+    "description": "Log message for you asking a question on the challenge forum"
   },
   "S98EuF": {
     "defaultMessage": "Project brief",
@@ -4303,6 +4323,10 @@
     "defaultMessage": "Unlock premium",
     "description": "Purchase button label"
   },
+  "W7aHCG": {
+    "defaultMessage": "<authorProfileLink>{author}</authorProfileLink> asked <recipientProfileLink>{recipient}</recipientProfileLink> a question on their submission <link>{submissionTitle}</link>: <comment>\"{description}\"</comment>",
+    "description": "Log message for someone asking question on others submission"
+  },
   "WB/L0V": {
     "defaultMessage": "{numberOfHours} hours weekly",
     "description": "Number of hours needed on a weekly basis. E.g. 4 hours weekly"
@@ -4710,10 +4734,6 @@
   "ZB+f95": {
     "defaultMessage": "Preparation by Question Type",
     "description": "Preparing by front end interview question format"
-  },
-  "ZBv485": {
-    "defaultMessage": "<bold>You</bold> asked a question on the challenge forum for <link>{challengeTitle}</link>: <comment>\"{description}\"</comment>",
-    "description": "Log message for you asking a question on the challenge forum"
   },
   "ZC3dbI": {
     "defaultMessage": "You can easily cancel your subscription at any time in the \"Billing\" tab of the \"Settings\" page. The subscription and your access to premium contents will only end at the end of the current billing period (not immediately).",
@@ -5155,6 +5175,10 @@
     "defaultMessage": "Started",
     "description": "Started on study plan label"
   },
+  "cPeTVK": {
+    "defaultMessage": "You asked <recipientProfileLink>{recipient}</recipientProfileLink> a question on their submission <link>{submissionTitle}</link>: <comment>\"{description}\"</comment>",
+    "description": "Log message for you asking question on others submission"
+  },
   "cZVPou": {
     "defaultMessage": "HTML",
     "description": "Label for HTML language"
@@ -5351,10 +5375,6 @@
     "defaultMessage": "User submissions",
     "description": "Sidebar navigation label"
   },
-  "e35sSF": {
-    "defaultMessage": "<bold>You</bold> made a post on <recipientProfileLink>{recipient}</recipientProfileLink>'s submission <link>{submissionTitle}</link>: <comment>\"{description}\"</comment>",
-    "description": "Log message for you making a post on a submission"
-  },
   "e5o4mU": {
     "defaultMessage": "Heading",
     "description": "Label for heading"
@@ -5414,10 +5434,6 @@
   "eeWLAW": {
     "defaultMessage": "Framework",
     "description": "Label for the selection dropdown used to select the framework to use for the question"
-  },
-  "ei1/AH": {
-    "defaultMessage": "<authorProfileLink>{author}</authorProfileLink> made a post on <recipientProfileLink>{recipient}</recipientProfileLink>'s submission <link>{submissionTitle}</link>: <comment>\"{description}\"</comment>",
-    "description": "Log message for someone making a post on a submission"
   },
   "ekSPPz": {
     "defaultMessage": "Flashcard format",
@@ -5506,6 +5522,10 @@
   "fJYFo8": {
     "defaultMessage": "Quiz",
     "description": "Label for quiz questions"
+  },
+  "fMAedf": {
+    "defaultMessage": "You replied to <bold>yourself</bold> on the challenge forum for <link>{challengeTitle}</link>: <comment>\"{description}\"</comment>",
+    "description": "Log message for you replying to yourself on the challenge forum"
   },
   "fMV5UU": {
     "defaultMessage": "{submissionTitle} | {username} | {challengeName}",
@@ -5690,6 +5710,10 @@
   "gZL62Q": {
     "defaultMessage": "Change password for {userEmail}",
     "description": "Title of Change Password page"
+  },
+  "gbjgjg": {
+    "defaultMessage": "<authorProfileLink>{author}</authorProfileLink> left a question on their submission <link>{submissionTitle}</link>: <comment>\"{description}\"</comment>",
+    "description": "Log message for someone asking question on their submission"
   },
   "gdGavv": {
     "defaultMessage": "Premium Question",
@@ -5966,6 +5990,10 @@
   "jKk5c3": {
     "defaultMessage": "CSS Questions",
     "description": "CSS questions category long title"
+  },
+  "jLJBBH": {
+    "defaultMessage": "<authorProfileLink>{author}</authorProfileLink> replied to <bold>themselves</bold> on the submission <link>{submissionTitle}</link>: <comment>\"{description}\"</comment>",
+    "description": "Log message for someone replying to themselves on a submission"
   },
   "jLTDtP": {
     "defaultMessage": "Software Engineer — Front End, Perch",
@@ -6395,10 +6423,6 @@
     "defaultMessage": "Insert code block",
     "description": "Insert code block tooltip for Richtext toolbar"
   },
-  "m8aR6S": {
-    "defaultMessage": "<bold>You</bold> asked <recipientProfileLink>{recipient}</recipientProfileLink> a question on their submission <link>{submissionTitle}</link>: <comment>\"{description}\"</comment>",
-    "description": "Log message for you asking question on a submission"
-  },
   "mACTSv": {
     "defaultMessage": "Skills | Progress | Dashboard",
     "description": "Title of skills section on dashboard page"
@@ -6442,6 +6466,10 @@
   "mcOOtE": {
     "defaultMessage": "Host the project for free on our recommended hosts and submit your project URL for reviews",
     "description": "Instruction for projects"
+  },
+  "mflEX7": {
+    "defaultMessage": "You made a post on <recipientProfileLink>{recipient}</recipientProfileLink>'s submission <link>{submissionTitle}</link>: <comment>\"{description}\"</comment>",
+    "description": "Log message for you making a post on others submission"
   },
   "mh0xHS": {
     "defaultMessage": "You can edit your submission and code anytime.",
@@ -6595,10 +6623,6 @@
     "defaultMessage": "Session status",
     "description": "Completed and in progress challenges"
   },
-  "o9kmTM": {
-    "defaultMessage": "<bold>{author}</bold> posted on the challenge forum for <link>{challengeTitle}</link>: <comment>\"{description}\"</comment>",
-    "description": "Log message for someone making a post on the challenge forum"
-  },
   "oAUXEp": {
     "defaultMessage": "Beautiful designs made by high-end designers",
     "description": "Title of 'Beautiful designs made by high-end designers' feature in Projects marketing page"
@@ -6654,6 +6678,10 @@
   "ofUX5S": {
     "defaultMessage": "Challenge status",
     "description": "Label for Status filter for submissions list"
+  },
+  "ogPUIe": {
+    "defaultMessage": "<authorProfileLink>{author}</authorProfileLink> replied to <bold>themselves</bold> on the challenge forum for <link>{challengeTitle}</link>: <comment>\"{description}\"</comment>",
+    "description": "Log message for someone replying to someone on the challenge forum"
   },
   "oiMKy3": {
     "defaultMessage": "Here are the tasks for this campaign:",
@@ -7015,6 +7043,10 @@
     "defaultMessage": "Prepare for tackling data structures and algorithms questions in front end interviews",
     "description": "Title for interview preparation focus area"
   },
+  "r6RLjU": {
+    "defaultMessage": "<authorProfileLink>{author}</authorProfileLink> made a post on <recipientProfileLink>{recipient}</recipientProfileLink>'s submission <link>{submissionTitle}</link>: <comment>\"{description}\"</comment>",
+    "description": "Log message for someone making a post on others submission"
+  },
   "r8JR1/": {
     "defaultMessage": "Read less",
     "description": "Read less"
@@ -7035,9 +7067,9 @@
     "defaultMessage": "This challenge can be unlocked without spending any credits because you have unlocked all pre-requisite challenges. Proceed to unlock challenge?",
     "description": "Message about unlocking challenges"
   },
-  "rNKP7U": {
-    "defaultMessage": "<bold>You</bold> replied to <bold>yourself</bold> on the submission <link>{submissionTitle}</link>: <comment>\"{description}\"</comment>",
-    "description": "Log message for you replying to yourself on a submission"
+  "rLSGMd": {
+    "defaultMessage": "<authorProfileLink>{author}</authorProfileLink> asked a question on the challenge forum for <link>{challengeTitle}</link>: <comment>\"{description}\"</comment>",
+    "description": "Log message for someone asking a question on the challenge forum"
   },
   "rR79ua": {
     "defaultMessage": "Learn from others",
@@ -7479,6 +7511,10 @@
     "defaultMessage": "Coupons",
     "description": "Profile coupons tab title"
   },
+  "uyYB0h": {
+    "defaultMessage": "You posted on your submission <link>{submissionTitle}</link>: <comment>\"{description}\"</comment>",
+    "description": "Log message for you making a post on your submission"
+  },
   "uz7f93": {
     "defaultMessage": "Salesforce",
     "description": "Company name for Salesforce"
@@ -7774,10 +7810,6 @@
   "xyPOJe": {
     "defaultMessage": "{points} Reputation",
     "description": "Label showing reputation count in profile header of Projects sidebar"
-  },
-  "xyS+2S": {
-    "defaultMessage": "<bold>{author}</bold> asked a question on the challenge forum for <link>{challengeTitle}</link>: <comment>\"{description}\"</comment>",
-    "description": "Log message for someone asking a question on the challenge forum"
   },
   "y16Lzt": {
     "defaultMessage": "Find out what questions companies are asking their candidates.",

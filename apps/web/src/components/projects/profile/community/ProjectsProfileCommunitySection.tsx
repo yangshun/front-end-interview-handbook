@@ -20,8 +20,11 @@ export type ProjectsProfileCommunityComment = ProjectsDiscussionComment &
   Readonly<{
     entity?: Readonly<{
       href: string;
-      recipient?: string;
-      recipientUserName?: string;
+      recipient?: {
+        id?: string;
+        name?: string;
+        username?: string;
+      };
       title: string;
     }> | null;
   }> &

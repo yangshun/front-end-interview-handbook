@@ -226,6 +226,7 @@ export const projectsCommentsRouter = router({
           include: {
             author: {
               select: {
+                userId: true,
                 userProfile: {
                   select: {
                     avatarUrl: true,
@@ -311,6 +312,8 @@ export const projectsCommentsRouter = router({
                 submission?.projectsProfile?.userProfile.name;
               const submissionAuthorUserName =
                 submission?.projectsProfile?.userProfile.username;
+              const submissionAuthorUserId =
+                submission?.projectsProfile?.userProfile.id;
 
               if (!submission?.title || !submissionAuthorName) {
                 return comment;
@@ -320,8 +323,11 @@ export const projectsCommentsRouter = router({
                 ...comment,
                 entity: {
                   href: submission.hrefs.detail,
-                  recipient: submissionAuthorName,
-                  recipientUserName: submissionAuthorUserName,
+                  recipient: {
+                    id: submissionAuthorUserId,
+                    name: submissionAuthorName,
+                    username: submissionAuthorUserName,
+                  },
                   title: submission.title,
                 },
               };

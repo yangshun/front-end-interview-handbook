@@ -52,20 +52,53 @@ export default function ProjectsProfileCommunitySubmissionCommentLog({
 
   if (comment.category === 'QUESTION') {
     if (isViewingOwnProfile) {
+      if (comment.entity?.recipient?.id === targetUserId) {
+        return (
+          <FormattedMessage
+            defaultMessage='You left a question on your submission <link>{submissionTitle}</link>: <comment>"{description}"</comment>'
+            description="Log message for you asking question on your submission"
+            id="M7RwUF"
+            values={{
+              comment: commentValue,
+              description: plainText(comment.body),
+              link: linkValue,
+              submissionTitle: comment.entity?.title ?? '',
+            }}
+          />
+        );
+      }
+
       return (
         <FormattedMessage
-          defaultMessage='<bold>You</bold> asked <recipientProfileLink>{recipient}</recipientProfileLink> a question on their submission <link>{submissionTitle}</link>: <comment>"{description}"</comment>'
-          description="Log message for you asking question on a submission"
-          id="m8aR6S"
+          defaultMessage='You asked <recipientProfileLink>{recipient}</recipientProfileLink> a question on their submission <link>{submissionTitle}</link>: <comment>"{description}"</comment>'
+          description="Log message for you asking question on others submission"
+          id="cPeTVK"
           values={{
-            bold: boldValue,
             comment: commentValue,
             description: plainText(comment.body),
             link: linkValue,
-            recipient: comment.entity?.recipient ?? '',
+            recipient: comment.entity?.recipient?.name ?? '',
             recipientProfileLink: profileLink(
-              comment.entity?.recipientUserName ?? '',
+              comment.entity?.recipient?.username ?? '',
             ),
+            submissionTitle: comment.entity?.title ?? '',
+          }}
+        />
+      );
+    }
+
+    if (comment.entity?.recipient?.id === comment.author.userId) {
+      return (
+        <FormattedMessage
+          defaultMessage='<authorProfileLink>{author}</authorProfileLink> left a question on their submission <link>{submissionTitle}</link>: <comment>"{description}"</comment>'
+          description="Log message for someone asking question on their submission"
+          id="gbjgjg"
+          values={{
+            author: comment.author.userProfile.name,
+            authorProfileLink: profileLink(comment.author.userProfile.username),
+            comment: commentValue,
+            description: plainText(comment.body),
+            link: linkValue,
             submissionTitle: comment.entity?.title ?? '',
           }}
         />
@@ -75,18 +108,17 @@ export default function ProjectsProfileCommunitySubmissionCommentLog({
     return (
       <FormattedMessage
         defaultMessage='<authorProfileLink>{author}</authorProfileLink> asked <recipientProfileLink>{recipient}</recipientProfileLink> a question on their submission <link>{submissionTitle}</link>: <comment>"{description}"</comment>'
-        description="Log message for someone asking question on a submission"
-        id="Npq6Bh"
+        description="Log message for someone asking question on others submission"
+        id="W7aHCG"
         values={{
           author: comment.author.userProfile.name,
           authorProfileLink: profileLink(comment.author.userProfile.username),
-          bold: boldValue,
           comment: commentValue,
           description: plainText(comment.body),
           link: linkValue,
-          recipient: comment.entity?.recipient ?? '',
+          recipient: comment.entity?.recipient?.name ?? '',
           recipientProfileLink: profileLink(
-            comment.entity?.recipientUserName ?? '',
+            comment.entity?.recipient?.username ?? '',
           ),
           submissionTitle: comment.entity?.title ?? '',
         }}
@@ -96,20 +128,55 @@ export default function ProjectsProfileCommunitySubmissionCommentLog({
 
   if (comment.category === 'CODE_REVIEW') {
     if (isViewingOwnProfile) {
+      // Target user is viewer.
+      if (comment.entity?.recipient?.id === targetUserId) {
+        return (
+          <FormattedMessage
+            defaultMessage='You left a code review on your submission <link>{submissionTitle}</link>: <comment>"{description}"</comment>'
+            description="Log message for you reviewing your submission"
+            id="Pz65hO"
+            values={{
+              comment: commentValue,
+              description: plainText(comment.body),
+              link: linkValue,
+              submissionTitle: comment.entity?.title ?? '',
+            }}
+          />
+        );
+      }
+
       return (
         <FormattedMessage
-          defaultMessage='<bold>You</bold> contributed a code review for <recipientProfileLink>{recipient}</recipientProfileLink> on their submission <link>{submissionTitle}</link>: <comment>"{description}"</comment>'
-          description="Log message for you reviewing a submission"
-          id="F82aIY"
+          defaultMessage='You contributed a code review for <recipientProfileLink>{recipient}</recipientProfileLink> on their submission <link>{submissionTitle}</link>: <comment>"{description}"</comment>'
+          description="Log message for you reviewing others submission"
+          id="2Hqklu"
           values={{
-            bold: boldValue,
             comment: commentValue,
             description: plainText(comment.body),
             link: linkValue,
-            recipient: comment.entity?.recipient ?? '',
+            recipient: comment.entity?.recipient?.name ?? '',
             recipientProfileLink: profileLink(
-              comment.entity?.recipientUserName ?? '',
+              comment.entity?.recipient?.username ?? '',
             ),
+            submissionTitle: comment.entity?.title ?? '',
+          }}
+        />
+      );
+    }
+
+    // User action on their entity.
+    if (comment.entity?.recipient?.id === comment.author.userId) {
+      return (
+        <FormattedMessage
+          defaultMessage='<authorProfileLink>{author}</authorProfileLink> left a code review on their submission <link>{submissionTitle}</link>: <comment>"{description}"</comment>'
+          description="Log message for someone reviewing their submission"
+          id="OOT9uz"
+          values={{
+            author: comment.author.userProfile.name,
+            authorProfileLink: profileLink(comment.author.userProfile.username),
+            comment: commentValue,
+            description: plainText(comment.body),
+            link: linkValue,
             submissionTitle: comment.entity?.title ?? '',
           }}
         />
@@ -124,13 +191,12 @@ export default function ProjectsProfileCommunitySubmissionCommentLog({
         values={{
           author: comment.author.userProfile.name,
           authorProfileLink: profileLink(comment.author.userProfile.username),
-          bold: boldValue,
           comment: commentValue,
           description: plainText(comment.body),
           link: linkValue,
-          recipient: comment.entity?.recipient ?? '',
+          recipient: comment.entity?.recipient?.name ?? '',
           recipientProfileLink: profileLink(
-            comment.entity?.recipientUserName ?? '',
+            comment.entity?.recipient?.username ?? '',
           ),
           submissionTitle: comment.entity?.title ?? '',
         }}
@@ -140,20 +206,55 @@ export default function ProjectsProfileCommunitySubmissionCommentLog({
 
   if (!comment.parentComment) {
     if (isViewingOwnProfile) {
+      // Target user is viewer.
+      if (comment.entity?.recipient?.id === targetUserId) {
+        return (
+          <FormattedMessage
+            defaultMessage={`You posted on your submission <link>{submissionTitle}</link>: <comment>"{description}"</comment>`}
+            description="Log message for you making a post on your submission"
+            id="uyYB0h"
+            values={{
+              comment: commentValue,
+              description: plainText(comment.body),
+              link: linkValue,
+              submissionTitle: comment.entity?.title ?? '',
+            }}
+          />
+        );
+      }
+
       return (
         <FormattedMessage
-          defaultMessage={`<bold>You</bold> made a post on <recipientProfileLink>{recipient}</recipientProfileLink>'s submission <link>{submissionTitle}</link>: <comment>"{description}"</comment>`}
-          description="Log message for you making a post on a submission"
-          id="e35sSF"
+          defaultMessage={`You made a post on <recipientProfileLink>{recipient}</recipientProfileLink>'s submission <link>{submissionTitle}</link>: <comment>"{description}"</comment>`}
+          description="Log message for you making a post on others submission"
+          id="mflEX7"
           values={{
-            bold: boldValue,
             comment: commentValue,
             description: plainText(comment.body),
             link: linkValue,
-            recipient: comment.entity?.recipient ?? '',
+            recipient: comment.entity?.recipient?.name ?? '',
             recipientProfileLink: profileLink(
-              comment.entity?.recipientUserName ?? '',
+              comment.entity?.recipient?.username ?? '',
             ),
+            submissionTitle: comment.entity?.title ?? '',
+          }}
+        />
+      );
+    }
+
+    // User action on their own entity.
+    if (comment.entity?.recipient?.id === comment.author?.userId) {
+      return (
+        <FormattedMessage
+          defaultMessage={`<authorProfileLink>{author}</authorProfileLink> posted on their submission <link>{submissionTitle}</link>: <comment>"{description}"</comment>`}
+          description="Log message for user making a post on their submission"
+          id="5DKztB"
+          values={{
+            author: comment.author.userProfile.name,
+            authorProfileLink: profileLink(comment.author.userProfile.username),
+            comment: commentValue,
+            description: plainText(comment.body),
+            link: linkValue,
             submissionTitle: comment.entity?.title ?? '',
           }}
         />
@@ -163,18 +264,17 @@ export default function ProjectsProfileCommunitySubmissionCommentLog({
     return (
       <FormattedMessage
         defaultMessage={`<authorProfileLink>{author}</authorProfileLink> made a post on <recipientProfileLink>{recipient}</recipientProfileLink>'s submission <link>{submissionTitle}</link>: <comment>"{description}"</comment>`}
-        description="Log message for someone making a post on a submission"
-        id="ei1/AH"
+        description="Log message for someone making a post on others submission"
+        id="r6RLjU"
         values={{
           author: comment.author.userProfile.name,
           authorProfileLink: profileLink(comment.author.userProfile.username),
-          bold: boldValue,
           comment: commentValue,
           description: plainText(comment.body),
           link: linkValue,
-          recipient: comment.entity?.recipient ?? '',
+          recipient: comment.entity?.recipient?.name ?? '',
           recipientProfileLink: profileLink(
-            comment.entity?.recipientUserName ?? '',
+            comment.entity?.recipient?.username ?? '',
           ),
           submissionTitle: comment.entity?.title ?? '',
         }}
@@ -187,9 +287,9 @@ export default function ProjectsProfileCommunitySubmissionCommentLog({
     if (comment.parentComment.author?.userId === targetUserId) {
       return (
         <FormattedMessage
-          defaultMessage='<bold>You</bold> replied to <bold>yourself</bold> on the submission <link>{submissionTitle}</link>: <comment>"{description}"</comment>'
+          defaultMessage='You replied to <bold>yourself</bold> on the submission <link>{submissionTitle}</link>: <comment>"{description}"</comment>'
           description="Log message for you replying to yourself on a submission"
-          id="rNKP7U"
+          id="5ykFzo"
           values={{
             bold: boldValue,
             comment: commentValue,
@@ -203,11 +303,10 @@ export default function ProjectsProfileCommunitySubmissionCommentLog({
 
     return (
       <FormattedMessage
-        defaultMessage='<bold>You</bold> replied to <recipientProfileLink>{recipient}</recipientProfileLink> on the submission <link>{submissionTitle}</link>: <comment>"{description}"</comment>'
-        description="Log message for you replying to someone on a submission"
-        id="AU4H9N"
+        defaultMessage='You replied to <recipientProfileLink>{recipient}</recipientProfileLink> on the submission <link>{submissionTitle}</link>: <comment>"{description}"</comment>'
+        description="Log message for you replying to someone  on a submission"
+        id="Pwr5QY"
         values={{
-          bold: boldValue,
           comment: commentValue,
           description: plainText(comment.body),
           link: linkValue,
@@ -215,6 +314,26 @@ export default function ProjectsProfileCommunitySubmissionCommentLog({
           recipientProfileLink: profileLink(
             comment.parentComment.author.userProfile.username,
           ),
+          submissionTitle: comment.entity?.title ?? '',
+        }}
+      />
+    );
+  }
+
+  // User action on their entity.
+  if (comment.parentComment.author?.userId === comment.author.userId) {
+    return (
+      <FormattedMessage
+        defaultMessage='<authorProfileLink>{author}</authorProfileLink> replied to <bold>themselves</bold> on the submission <link>{submissionTitle}</link>: <comment>"{description}"</comment>'
+        description="Log message for someone replying to themselves on a submission"
+        id="jLJBBH"
+        values={{
+          author: comment.author.userProfile.name,
+          authorProfileLink: profileLink(comment.author.userProfile.username),
+          bold: boldValue,
+          comment: commentValue,
+          description: plainText(comment.body),
+          link: linkValue,
           submissionTitle: comment.entity?.title ?? '',
         }}
       />
@@ -229,7 +348,6 @@ export default function ProjectsProfileCommunitySubmissionCommentLog({
       values={{
         author: comment.author.userProfile.name,
         authorProfileLink: profileLink(comment.author.userProfile.username),
-        bold: boldValue,
         comment: commentValue,
         description: plainText(comment.body),
         link: linkValue,

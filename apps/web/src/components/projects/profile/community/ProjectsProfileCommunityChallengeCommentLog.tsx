@@ -3,7 +3,7 @@ import { FormattedMessage } from 'react-intl';
 import type { ProjectsProfileCommunityComment } from '~/components/projects/profile/community/ProjectsProfileCommunitySection';
 import Anchor from '~/components/ui/Anchor';
 import plainText from '~/components/ui/RichTextEditor/plainText';
-import Text from '~/components/ui/Text';
+import Text, { textVariants } from '~/components/ui/Text';
 
 type Props = Readonly<{
   comment: ProjectsProfileCommunityComment;
@@ -32,15 +32,32 @@ export default function ProjectsProfileCommunityChallengeCommentLog({
     </Anchor>
   );
 
+  const profileLink = (userName: string) => {
+    return function link(chunks: Array<React.ReactNode>) {
+      if (!userName) {
+        return boldValue(chunks);
+      }
+
+      return (
+        <Anchor
+          className={textVariants({
+            weight: 'bold',
+          })}
+          href={`/projects/u/${userName}`}>
+          {chunks}
+        </Anchor>
+      );
+    };
+  };
+
   if (comment.category === 'QUESTION') {
     if (isViewingOwnProfile) {
       return (
         <FormattedMessage
-          defaultMessage='<bold>You</bold> asked a question on the challenge forum for <link>{challengeTitle}</link>: <comment>"{description}"</comment>'
+          defaultMessage='You asked a question on the challenge forum for <link>{challengeTitle}</link>: <comment>"{description}"</comment>'
           description="Log message for you asking a question on the challenge forum"
-          id="ZBv485"
+          id="S8SLzJ"
           values={{
-            bold: boldValue,
             challengeTitle: comment.entity?.title ?? '',
             comment: commentValue,
             description: plainText(comment.body),
@@ -52,17 +69,16 @@ export default function ProjectsProfileCommunityChallengeCommentLog({
 
     return (
       <FormattedMessage
-        defaultMessage='<bold>{author}</bold> asked a question on the challenge forum for <link>{challengeTitle}</link>: <comment>"{description}"</comment>'
+        defaultMessage='<authorProfileLink>{author}</authorProfileLink> asked a question on the challenge forum for <link>{challengeTitle}</link>: <comment>"{description}"</comment>'
         description="Log message for someone asking a question on the challenge forum"
-        id="xyS+2S"
+        id="rLSGMd"
         values={{
           author: comment.author.userProfile.name,
-          bold: boldValue,
+          authorProfileLink: profileLink(comment.author.userProfile.username),
           challengeTitle: comment.entity?.title ?? '',
           comment: commentValue,
           description: plainText(comment.body),
           link: linkValue,
-          recipient: comment.entity?.recipient ?? '',
         }}
       />
     );
@@ -72,11 +88,10 @@ export default function ProjectsProfileCommunityChallengeCommentLog({
     if (isViewingOwnProfile) {
       return (
         <FormattedMessage
-          defaultMessage={`<bold>You</bold> posted on the challenge forum for <link>{challengeTitle}</link>: <comment>"{description}"</comment>`}
+          defaultMessage={`You posted on the challenge forum for <link>{challengeTitle}</link>: <comment>"{description}"</comment>`}
           description="Log message for you making a post on the challenge forum"
-          id="9rPKTB"
+          id="MV3NI4"
           values={{
-            bold: boldValue,
             challengeTitle: comment.entity?.title ?? '',
             comment: commentValue,
             description: plainText(comment.body),
@@ -88,12 +103,12 @@ export default function ProjectsProfileCommunityChallengeCommentLog({
 
     return (
       <FormattedMessage
-        defaultMessage={`<bold>{author}</bold> posted on the challenge forum for <link>{challengeTitle}</link>: <comment>"{description}"</comment>`}
+        defaultMessage={`<authorProfileLink>{author}</authorProfileLink> posted on the challenge forum for <link>{challengeTitle}</link>: <comment>"{description}"</comment>`}
         description="Log message for someone making a post on the challenge forum"
-        id="o9kmTM"
+        id="CfLpPw"
         values={{
           author: comment.author.userProfile.name,
-          bold: boldValue,
+          authorProfileLink: profileLink(comment.author.userProfile.username),
           challengeTitle: comment.entity?.title ?? '',
           comment: commentValue,
           description: plainText(comment.body),
@@ -108,9 +123,9 @@ export default function ProjectsProfileCommunityChallengeCommentLog({
     if (comment.parentComment.author?.userId === targetUserId) {
       return (
         <FormattedMessage
-          defaultMessage='<bold>You</bold> replied to <bold>yourself</bold> on the challenge forum for <link>{challengeTitle}</link>: <comment>"{description}"</comment>'
+          defaultMessage='You replied to <bold>yourself</bold> on the challenge forum for <link>{challengeTitle}</link>: <comment>"{description}"</comment>'
           description="Log message for you replying to yourself on the challenge forum"
-          id="Q4VMV2"
+          id="fMAedf"
           values={{
             bold: boldValue,
             challengeTitle: comment.entity?.title ?? '',
@@ -124,16 +139,38 @@ export default function ProjectsProfileCommunityChallengeCommentLog({
 
     return (
       <FormattedMessage
-        defaultMessage='<bold>You</bold> replied to <bold>{recipient}</bold> on the challenge forum for <link>{challengeTitle}</link>: <comment>"{description}"</comment>'
+        defaultMessage='You replied to <recipientProfileLink>{recipient}</recipientProfileLink> on the challenge forum for <link>{challengeTitle}</link>: <comment>"{description}"</comment>'
         description="Log message for you replying to someone on the challenge forum"
-        id="D5Sip4"
+        id="3+YLNZ"
         values={{
-          bold: boldValue,
           challengeTitle: comment.entity?.title ?? '',
           comment: commentValue,
           description: plainText(comment.body),
           link: linkValue,
           recipient: comment.parentComment.author.userProfile.name,
+          recipientProfileLink: profileLink(
+            comment.parentComment.author.userProfile.username ?? '',
+          ),
+        }}
+      />
+    );
+  }
+
+  // User action on their entity.
+  if (comment.parentComment.author?.userId === comment.author.userId) {
+    return (
+      <FormattedMessage
+        defaultMessage='<authorProfileLink>{author}</authorProfileLink> replied to <bold>themselves</bold> on the challenge forum for <link>{challengeTitle}</link>: <comment>"{description}"</comment>'
+        description="Log message for someone replying to someone on the challenge forum"
+        id="ogPUIe"
+        values={{
+          author: comment.author.userProfile.name,
+          authorProfileLink: profileLink(comment.author.userProfile.username),
+          bold: boldValue,
+          challengeTitle: comment.entity?.title ?? '',
+          comment: commentValue,
+          description: plainText(comment.body),
+          link: linkValue,
         }}
       />
     );
@@ -141,17 +178,20 @@ export default function ProjectsProfileCommunityChallengeCommentLog({
 
   return (
     <FormattedMessage
-      defaultMessage='<bold>{author}</bold> replied to <bold>{recipient}</bold> on the submission <link>{submissionTitle}</link>: <comment>"{description}"</comment>'
+      defaultMessage='<authorProfileLink>{author}</authorProfileLink> replied to <recipientProfileLink>{recipient}</recipientProfileLink> on the challenge forum for <link>{challengeTitle}</link>: <comment>"{description}"</comment>'
       description="Log message for someone replying to someone on the challenge forum"
-      id="BPWMw7"
+      id="BVZEeY"
       values={{
         author: comment.author.userProfile.name,
-        bold: boldValue,
+        authorProfileLink: profileLink(comment.author.userProfile.username),
+        challengeTitle: comment.entity?.title ?? '',
         comment: commentValue,
         description: plainText(comment.body),
         link: linkValue,
         recipient: comment.parentComment.author.userProfile.name,
-        submissionTitle: comment.entity?.title ?? '',
+        recipientProfileLink: profileLink(
+          comment.parentComment.author.userProfile.username ?? '',
+        ),
       }}
     />
   );
