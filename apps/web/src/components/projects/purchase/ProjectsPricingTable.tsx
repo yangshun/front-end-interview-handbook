@@ -380,16 +380,18 @@ function FeatureItem({
         aria-hidden={true}
         className={clsx('size-6 shrink-0', themeTextSuccessColor)}
       />
-      <Text className="block" color="secondary" size="body2">
-        {title}
-      </Text>
-      {description && (
-        <Tooltip label={description}>
-          <RiQuestionFill
-            className={clsx('size-5 shrink-0', themeTextSubtleColor)}
-          />
-        </Tooltip>
-      )}
+      <div className="flex flex-1 items-center justify-between gap-3">
+        <Text className="block" color="secondary" size="body2">
+          {title}
+        </Text>
+        {description && (
+          <Tooltip label={description}>
+            <RiQuestionFill
+              className={clsx('size-5 shrink-0', themeTextSubtleColor)}
+            />
+          </Tooltip>
+        )}
+      </div>
     </div>
   );
 }
@@ -588,10 +590,10 @@ export default function ProjectsPricingTable({
         <table className="w-full table-fixed border-separate border-spacing-x-4">
           <caption className="sr-only">Pricing plan comparison</caption>
           <colgroup>
-            <col className="w-2/5" />
-            <col className="w-1/5" />
-            <col className="w-1/5" />
-            <col className="w-1/5" />
+            <col className="w-1/4 2xl:w-2/5" />
+            <col className="w-1/4 2xl:w-1/5" />
+            <col className="w-1/4 2xl:w-1/5" />
+            <col className="w-1/4 2xl:w-1/5" />
           </colgroup>
           <thead>
             <tr>
@@ -667,9 +669,9 @@ export default function ProjectsPricingTable({
                     index > 0 && ['border-t', themeBorderColor],
                   )}
                   scope="row">
-                  <span className="flex items-center gap-3">
+                  <span className="max-w-80 flex items-center justify-between gap-3">
                     <Text
-                      className="max-w-72 block text-justify"
+                      className="max-w-72 block"
                       color="secondary"
                       size="body2"
                       weight="normal">
