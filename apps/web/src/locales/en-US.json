@@ -2519,10 +2519,6 @@
     "defaultMessage": "Features",
     "description": "Sidebar navigation label"
   },
-  "IzZSMd": {
-    "defaultMessage": "You gained reputation for commenting",
-    "description": "Toast message about gaining reputation points"
-  },
   "J/UPQZ": {
     "defaultMessage": "For learning",
     "description": "Title of the 'We help you learn through building - without tutorial hell' marketing section on Projects home page"
@@ -4987,6 +4983,10 @@
     "defaultMessage": "Redo",
     "description": "Text describing redo command in the coding workspace shortcuts menu"
   },
+  "bEHqsi": {
+    "defaultMessage": "Your thoughts are valued",
+    "description": "Toast message description about gaining reputation points"
+  },
   "bFDEGM": {
     "defaultMessage": "Professional designs in 3 breakpoints",
     "description": "Label for breakpoints feature"
@@ -4998,10 +4998,6 @@
   "bJ3A5y": {
     "defaultMessage": "You will be able to modify the skills and tech stack used once you start the project.",
     "description": "FAQ answer for projects platform"
-  },
-  "bM/mXK": {
-    "defaultMessage": "You gained reputation for replying",
-    "description": "Toast message about gaining reputation points"
   },
   "bNW00Y": {
     "defaultMessage": "Available frameworks",
@@ -7318,6 +7314,10 @@
   "tonRki": {
     "defaultMessage": "Internationalization",
     "description": "Internationalization topic for quiz questions"
+  },
+  "tpQwtr": {
+    "defaultMessage": "Thanks for contributing",
+    "description": "Toast message title about gaining reputation points"
   },
   "trXVQB": {
     "defaultMessage": "Search CSS questions",

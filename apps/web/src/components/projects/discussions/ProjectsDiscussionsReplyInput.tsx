@@ -74,10 +74,17 @@ export default function ProjectsDiscussionsReplyInput({
           showToast({
             addOnIcon: RiFireFill,
             addOnLabel: `+${ProjectsReputationPointsConfig.DISCUSSIONS_COMMENT}`,
+            description: intl.formatMessage({
+              defaultMessage: 'Your thoughts are valued',
+              description:
+                'Toast message description about gaining reputation points',
+              id: 'bEHqsi',
+            }),
             title: intl.formatMessage({
-              defaultMessage: 'You gained reputation for replying',
-              description: 'Toast message about gaining reputation points',
-              id: 'bM/mXK',
+              defaultMessage: 'Thanks for contributing',
+              description:
+                'Toast message title about gaining reputation points',
+              id: 'tpQwtr',
             }),
             variant: 'success',
           });

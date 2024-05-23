@@ -75,10 +75,17 @@ export default function ProjectsChallengeSubmissionDiscussionsNewComment({
           showToast({
             addOnIcon: RiFireFill,
             addOnLabel: `+${ProjectsReputationPointsConfig.DISCUSSIONS_COMMENT}`,
+            description: intl.formatMessage({
+              defaultMessage: 'Your thoughts are valued',
+              description:
+                'Toast message description about gaining reputation points',
+              id: 'bEHqsi',
+            }),
             title: intl.formatMessage({
-              defaultMessage: 'You gained reputation for commenting',
-              description: 'Toast message about gaining reputation points',
-              id: 'IzZSMd',
+              defaultMessage: 'Thanks for contributing',
+              description:
+                'Toast message title about gaining reputation points',
+              id: 'tpQwtr',
             }),
             variant: 'success',
           });
