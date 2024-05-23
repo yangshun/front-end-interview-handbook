@@ -7,8 +7,11 @@ import gtag from '~/lib/gtag';
 
 import { useI18nPathname } from '~/next-i18nostic/src';
 
+import { useUser } from '@supabase/auth-helpers-react';
+
 export default function GoogleAnalytics() {
   const { pathname } = useI18nPathname();
+  const user = useUser();
 
   useEffect(() => {
     if (pathname == null) {
@@ -33,6 +36,16 @@ export default function GoogleAnalytics() {
       window.removeEventListener('beforeunload', beforeUnload);
     };
   }, []);
+
+  useEffect(() => {
+    if (user == null) {
+      return;
+    }
+
+    gtag.config(gtag.trackingID, {
+      user_id: user.id,
+    });
+  }, [user]);
 
   return (
     <>

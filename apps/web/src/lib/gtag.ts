@@ -58,7 +58,19 @@ function event({
   }
 }
 
+function config(tagId: string, extra?: Record<string, unknown>) {
+  // Don't log analytics during development.
+  if (process.env.NODE_ENV === 'development') {
+    console.info('[gtag]', tagId, extra);
+
+    return;
+  }
+
+  window.gtag('config', tagId, extra);
+}
+
 const gtag = Object.freeze({
+  config,
   event,
   pageview,
   trackingID: GA_TRACKING_ID,
