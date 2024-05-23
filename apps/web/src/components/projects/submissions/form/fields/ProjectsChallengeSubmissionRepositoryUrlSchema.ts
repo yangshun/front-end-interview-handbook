@@ -2,8 +2,13 @@ import type { IntlShape } from 'react-intl';
 import { useIntl } from 'react-intl';
 import { z } from 'zod';
 
+/**
+ * https://www.github.com/username/repository-name/subfolderName
+ * since this is an url we are allowing all the url safe characters for subfolder
+ * check https://datatracker.ietf.org/doc/html/rfc3986#section-2.2
+ */
 const GITHUB_REPO_URL_REGEX =
-  /^(https?:\/\/)?(www\.)?github\.com\/[a-zA-Z0-9-]+\/([a-zA-Z0-9_.-]+\/?)*$/;
+  /^(https?:\/\/)?(www\.)?github\.com\/([a-zA-Z0-9-]+)\/([a-zA-Z0-9_.-]+)(\/[a-zA-Z0-9_.~:?#[\]@!$&'()*+,;=%-]*)*$/;
 
 function projectsChallengeSubmissionRepositoryUrlSchema(options?: {
   urlMessage: string;
