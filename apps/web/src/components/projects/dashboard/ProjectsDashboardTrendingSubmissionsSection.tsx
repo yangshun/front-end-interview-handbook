@@ -95,6 +95,8 @@ export default function ProjectsDashboardTrendingSubmissionsSection() {
               <img
                 alt={submission.title}
                 className="size-[90px] shrink-0 rounded object-cover"
+                decoding="async"
+                loading="lazy"
                 src={submission.imgSrc}
               />
               <div className="flex w-full grow flex-col gap-3">

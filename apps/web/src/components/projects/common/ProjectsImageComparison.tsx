@@ -319,6 +319,8 @@ export default function ProjectsImageComparison({
                         <img
                           alt={page.label}
                           className="size-full object-cover"
+                          decoding="async"
+                          loading="lazy"
                           src={page.image}
                         />
                       </button>

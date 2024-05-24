@@ -108,7 +108,9 @@ export default function InterviewsMarketingCompaniesMarquee() {
               <img
                 alt={logo.alt}
                 className={logo.className}
+                decoding="async"
                 height={logo.height}
+                loading="lazy"
                 src={logo.src}
                 width={logo.width}
               />

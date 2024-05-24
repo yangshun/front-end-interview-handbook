@@ -29,6 +29,8 @@ export default function MDXImage({ alt, ...props }: ComponentProps<'img'>) {
       ref={ref}
       alt={alt}
       className={clsx('mx-auto w-full max-w-lg', canExpand && 'cursor-zoom-in')}
+      decoding="async"
+      loading="lazy"
       onLoad={onLoad}
       {...props}
     />

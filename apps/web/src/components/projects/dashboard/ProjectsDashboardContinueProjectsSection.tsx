@@ -68,6 +68,8 @@ export default function ProjectsDashboardContinueProjectsSection() {
               <img
                 alt={session.challenge.info.title}
                 className="h-[70px] w-[90px] rounded object-cover"
+                decoding="async"
+                loading="lazy"
                 src={session.challenge.metadata.coverImage}
               />
               <div className="flex grow flex-col gap-1">

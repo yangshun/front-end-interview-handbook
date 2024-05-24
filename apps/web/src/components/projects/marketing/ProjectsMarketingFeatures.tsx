@@ -86,7 +86,12 @@ function FeatureSection({ feature }: { feature: ProjectMarketingFeature }) {
                   </Text>
                 </div>
               )}
-              <img alt={'title' in item ? item.title : ''} src={item.imgSrc} />
+              <img
+                alt={'title' in item ? item.title : ''}
+                decoding="async"
+                loading="lazy"
+                src={item.imgSrc}
+              />
               <div className="hidden p-4 lg:block">
                 <Text color="secondary" size="body2">
                   {item.description}

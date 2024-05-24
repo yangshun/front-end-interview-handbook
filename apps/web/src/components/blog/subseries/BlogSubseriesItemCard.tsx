@@ -24,6 +24,8 @@ export default function BlogSubseriesItemCard({
         <img
           alt={data.title}
           className="!m-0 hidden aspect-[15/8] h-[80px] shrink-0 rounded-lg bg-neutral-800 object-cover lg:block"
+          decoding="async"
+          loading="lazy"
           src={data?.imageUrl}
         />
       )}
@@ -33,6 +35,8 @@ export default function BlogSubseriesItemCard({
             <img
               alt={data.title}
               className="size-8 !m-0 shrink-0 rounded-lg bg-neutral-800 object-cover lg:hidden"
+              decoding="async"
+              loading="lazy"
               src={data.imageUrl}
             />
             <Anchor href={data.href} variant="unstyled">

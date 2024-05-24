@@ -81,6 +81,8 @@ export default function ProjectsChallengeCard({
             'aspect-[16/9] w-full object-cover',
             props.variant === 'hovercard' ? 'rounded-md' : 'rounded-t-lg',
           )}
+          decoding="async"
+          loading="lazy"
           src={coverImage}
         />
         <div className="absolute start-3 top-3 flex items-center gap-1">

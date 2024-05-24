@@ -26,6 +26,8 @@ export default function BlogRelatedArticleCard({ metadata }: Props) {
       <img
         alt={metadata.title}
         className="!m-0 h-[175px] w-full rounded object-cover"
+        decoding="async"
+        loading="lazy"
         src={metadata.imageUrl}
       />
       <div className="flex flex-col gap-y-2">

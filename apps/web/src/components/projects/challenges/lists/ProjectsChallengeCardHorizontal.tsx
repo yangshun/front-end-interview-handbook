@@ -61,6 +61,8 @@ export default function ProjectsChallengeCard({
         <img
           alt={title}
           className={clsx('h-full w-full sm:w-[188px]', 'object-cover')}
+          decoding="async"
+          loading="lazy"
           src={coverImage}
         />
         <div className="absolute start-2 top-2 flex items-center gap-1">

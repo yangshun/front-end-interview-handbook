@@ -94,6 +94,8 @@ export default function ProjectsTrackDetailsPage({
                   'object-cover',
                   'rounded-s-lg',
                 )}
+                decoding="async"
+                loading="lazy"
                 src={challenge.metadata.coverImage}
               />
               <div className="flex grow flex-col items-start gap-4 py-4">

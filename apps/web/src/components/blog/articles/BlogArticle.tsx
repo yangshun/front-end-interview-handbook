@@ -38,7 +38,12 @@ export default function BlogArticle({
         <BlogMetadataSection metadata={metadata} />
       </div>
       {metadata.imageUrl && (
-        <img alt={metadata.title} loading="lazy" src={metadata.imageUrl} />
+        <img
+          alt={metadata.title}
+          decoding="async"
+          loading="lazy"
+          src={metadata.imageUrl}
+        />
       )}
       {children}
     </div>

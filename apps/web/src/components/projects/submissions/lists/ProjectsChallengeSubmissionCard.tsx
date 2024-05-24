@@ -145,6 +145,8 @@ export default function ProjectsChallengeSubmissionCard({
         <img
           alt={title}
           className="h-[190px] w-full rounded-md object-cover"
+          decoding="async"
+          loading="lazy"
           src={imgSrc}
         />
       </div>

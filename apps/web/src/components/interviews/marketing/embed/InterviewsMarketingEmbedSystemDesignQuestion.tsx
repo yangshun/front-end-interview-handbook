@@ -91,6 +91,8 @@ function Architecture() {
       <img
         alt="News Feed Architecture"
         className="mx-auto w-full max-w-md"
+        decoding="async"
+        loading="lazy"
         src="/img/questions/news-feed-facebook/news-feed-architecture.png"
       />
       <h3>Component Responsibilities</h3>
@@ -569,6 +571,8 @@ export default function InterviewsMarketingEmbedSystemDesignQuestion() {
                 <img
                   alt="News Feed Example"
                   className="mx-auto w-full max-w-md"
+                  decoding="async"
+                  loading="lazy"
                   src="/img/questions/news-feed-facebook/news-feed-example.png"
                 />
                 <div className="contents lg:hidden">

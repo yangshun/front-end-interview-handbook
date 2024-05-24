@@ -126,6 +126,8 @@ export default function ProjectsTrackAccordionItem({
                               'rounded',
                               'bg-neutral-200 dark:bg-neutral-800',
                             )}
+                            decoding="async"
+                            loading="lazy"
                             src={challenge.metadata.coverImage}
                           />
                           {challenge.metadata.access === 'premium' && (

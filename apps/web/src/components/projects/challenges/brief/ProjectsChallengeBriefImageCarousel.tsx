@@ -93,6 +93,8 @@ export default function ProjectsChallengeBriefImageCarousel({ images }: Props) {
             key={image}
             alt=""
             className="aspect-[1500/1116] w-full snap-center rounded-lg object-cover"
+            decoding="async"
+            loading="lazy"
             src={image}
             style={{
               maxWidth: `${imageWidth}px`,

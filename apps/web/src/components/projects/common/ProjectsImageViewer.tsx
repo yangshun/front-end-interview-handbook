@@ -156,6 +156,8 @@ export default function ProjectsImageViewer({
             ref={imageRef}
             alt={alt}
             className="pointer-events-none max-w-none touch-none select-none"
+            decoding="async"
+            loading="lazy"
             src={src}
             style={{
               width: (width * zoomLevel) / 100,

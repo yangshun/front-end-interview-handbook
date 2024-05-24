@@ -112,6 +112,8 @@ export default function ProjectsImageDisplay({
                   alt={page.label}
                   className="size-full object-cover"
                   src={page.image}
+                  decoding="async"
+                  loading="lazy"
                 />
               </button>
             ))}
