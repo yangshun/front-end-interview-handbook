@@ -1,0 +1,43 @@
+{
+  "name": "@gfe/figma-plugin",
+  "version": "0.0.1",
+  "scripts": {
+    "build": "npm run build:css && npm run build:js",
+    "build:css": "tailwindcss --input ./src/styles/input.css --output ./src/styles/output.css",
+    "build:js": "build-figma-plugin --typecheck --minify",
+    "watch": "npm run build:css && concurrently npm:watch:css npm:watch:js",
+    "watch:css": "tailwindcss --input ./src/styles/input.css --output ./src/styles/output.css --watch",
+    "watch:js": "build-figma-plugin --typecheck --watch",
+    "tsc": "tsc",
+    "lint": "eslint src --fix"
+  },
+  "dependencies": {
+    "@create-figma-plugin/ui": "^3.2.0",
+    "@create-figma-plugin/utilities": "^3.2.0",
+    "clsx": "^2.1.1",
+    "preact": ">=10"
+  },
+  "devDependencies": {
+    "@create-figma-plugin/build": "^3.2.0",
+    "@create-figma-plugin/tsconfig": "^3.2.0",
+    "@figma/plugin-typings": "1.90.0",
+    "@gfe/eslint-config-gfe-core": "workspace:0.0.0",
+    "@typescript-eslint/eslint-plugin": "^5.53.0",
+    "@typescript-eslint/parser": "^5.53.0",
+    "concurrently": ">=8",
+    "eslint": "8.34.0",
+    "prettier": "^3.1.1",
+    "prettier-plugin-tailwindcss": "^0.5.9",
+    "tailwindcss": "^3.4.1",
+    "typescript": "^5.3.3"
+  },
+  "figma-plugin": {
+    "editorType": [
+      "figma"
+    ],
+    "id": "1376738172846085359",
+    "name": "GreatFrontEnd - Figma to Code",
+    "main": "src/main.ts",
+    "ui": "src/ui.tsx"
+  }
+}
