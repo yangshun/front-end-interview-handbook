@@ -20,13 +20,26 @@ function PropertyRow({
       className={clsx(
         'flex gap-2',
         'px-3 py-1',
-        'w-full hover:bg-neutral-100 transition-colors',
+        'w-full',
+        'hover:bg-neutral-100 hover:dark:bg-neutral-700',
+        'transition-colors',
       )}
       onClick={() => {
         copyCss(String(value));
       }}>
-      <div className="shrink-0 w-20 text-neutral-500">{label}</div>
-      <div className="grow truncate select-text">{value}</div>
+      <div
+        className={clsx(
+          'shrink-0 w-20 text-neutral-600 dark:text-neutral-300',
+        )}>
+        {label}
+      </div>
+      <div
+        className={clsx(
+          'grow truncate select-text',
+          'text-neutral-950 dark:text-white',
+        )}>
+        {value}
+      </div>
     </div>
   );
 }
@@ -44,7 +57,11 @@ export function NodeProperties({
     processGFENode(node);
 
   return (
-    <div className={clsx('divide-y divide-neutral-200', 'pb-4')}>
+    <div
+      className={clsx(
+        'divide-y divide-neutral-200 dark:divide-neutral-700',
+        'pb-4',
+      )}>
       <div className="py-3 flex flex-col gap-y-3">
         <h2 className="px-3 font-semibold">Properties</h2>
         <div>
@@ -62,14 +79,14 @@ export function NodeProperties({
         code={
           <Fragment>
             {Object.entries(cssProperties).map(([key, value]) => (
-              <div className="select-text" key={key}>
+              <div className="select-text whitespace-nowrap" key={key}>
                 <span className="select-text">{key}</span>:{' '}
                 <span
                   className={clsx(
                     'select-text',
                     value.toString().startsWith('"')
-                      ? 'text-green-600'
-                      : 'text-pink-500',
+                      ? 'text-green-600 dark:text-green-400'
+                      : 'text-pink-500 dark:text-pink-400',
                   )}>
                   {value}
                 </span>

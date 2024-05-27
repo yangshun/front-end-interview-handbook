@@ -8,9 +8,10 @@ export function EmptyState() {
         className={clsx(
           'grid place-items-center',
           'size-full',
-          'border border-sky-300',
+          'border border-sky-300 dark:border-sky-700',
           'text-center text-sm',
-          'text-sky-700 bg-sky-50',
+          'text-sky-700 dark:text-sky-300',
+          'bg-sky-50 dark:bg-sky-950',
           'p-6 rounded',
         )}>
         Select an element to inspect its properties (maximum of one)

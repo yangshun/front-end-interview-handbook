@@ -38,12 +38,12 @@ function Plugin() {
         )}
       </div>
       {/* The bar is primarily here so that the main contents scrollbar
-      isn't a document level one so that the scrollbars will be within 
+      isn't a document level one so that the scrollbars will be within
       the document and resizing area is more natural. */}
       <div
         className={clsx(
-          'py-1 px-3 bg-neutral-50',
-          'border-t border-neutral-200',
+          'py-1 px-3 bg-indigo-50 dark:bg-neutral-800',
+          'border-t border-neutral-200 dark:border-neutral-700',
           'select-text',
         )}>
         A plugin by{' '}

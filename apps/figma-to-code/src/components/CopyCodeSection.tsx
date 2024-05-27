@@ -26,7 +26,10 @@ export function CopyCodeSection({
       <div className="flex gap-4 justify-between items-center">
         <h2 className="font-semibold">{title}</h2>
         <button
-          className="invisible group-hover:visible text-green-600 font-semibold"
+          className={clsx(
+            'invisible group-hover:visible font-semibold',
+            'text-green-600 dark:text-green-500',
+          )}
           onClick={() => {
             if (!codeToCopy) {
               return;
@@ -43,11 +46,17 @@ export function CopyCodeSection({
         className={clsx(
           'p-2 rounded-sm',
           'text-wrap select-text',
-          'transition-colors',
-          [isHovering ? 'bg-green-50' : 'bg-neutral-50'],
+          'overflow-x-auto',
+          [
+            isHovering
+              ? 'bg-green-50 dark:bg-green-900'
+              : 'bg-neutral-50 dark:bg-neutral-700',
+          ],
           [
             'outline outline-1',
-            isHovering ? 'outline-green-500' : 'outline-transparent',
+            isHovering
+              ? 'outline-green-600 dark:outline-green-400'
+              : 'outline-transparent',
           ],
         )}>
         {code}
