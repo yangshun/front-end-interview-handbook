@@ -39,11 +39,13 @@ export function processEffects(
   cssProperties: GFECSSProperties,
   _tailwindClasses: GFETailwindClasses,
 ) {
-  if (node.effects.length === 0) {
+  const visibleEffects = node.effects.filter((effect) => effect.visible);
+
+  if (visibleEffects.length === 0) {
     return;
   }
 
-  node.effects.forEach((effect) => {
+  visibleEffects.forEach((effect) => {
     switch (effect.type) {
       case 'DROP_SHADOW': {
         return;
@@ -54,9 +56,9 @@ export function processEffects(
     }
   });
 
-  const dropShadowEffects = node.effects.filter(
-    (effect) => effect.type === 'DROP_SHADOW',
-  ) as Array<DropShadowEffect>;
+  const dropShadowEffects = visibleEffects.flatMap((effect) =>
+    effect.type === 'DROP_SHADOW' ? [effect] : [],
+  );
 
   cssProperties['box-shadow'] = dropShadowEffects
     .map(
@@ -66,5 +68,5 @@ export function processEffects(
     .join(', ');
   // TODO: map to Tailwind shadows.
 
-  // TODO: handle other types.
+  // TODO: handle other types of effects.
 }
