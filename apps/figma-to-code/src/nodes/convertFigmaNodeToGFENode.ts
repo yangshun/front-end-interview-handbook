@@ -67,6 +67,9 @@ export function convertFigmaNodeToGFENode(node: SceneNode): GFENode | null {
       nodeObject.layoutGrow = node.layoutGrow;
       nodeObject.layoutPositioning = node.layoutPositioning; // TODO: Process it.
 
+      nodeObject.layoutSizingHorizontal = node.layoutSizingHorizontal;
+      nodeObject.layoutSizingVertical = node.layoutSizingVertical;
+
       nodeObject.paddingLeft = node.paddingLeft;
       nodeObject.paddingRight = node.paddingRight;
       nodeObject.paddingTop = node.paddingTop;

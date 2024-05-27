@@ -91,9 +91,16 @@ export interface GFETextNode
   readonly type: 'TEXT';
 }
 
+export interface GFELayoutMixin
+  extends GFEDimensionAndPositionMixin,
+    GFEAutoLayoutChildrenMixin {
+  layoutSizingHorizontal: LayoutMixin['layoutSizingHorizontal'];
+  layoutSizingVertical: LayoutMixin['layoutSizingVertical'];
+}
+
 export interface GFEFrameMixin
   extends GFEAutoLayoutMixin,
-    GFEAutoLayoutChildrenMixin,
+    GFELayoutMixin,
     GFEMinimalStrokesMixin,
     GFEIndividualStrokesMixin,
     GFEMinimalFillsMixin,

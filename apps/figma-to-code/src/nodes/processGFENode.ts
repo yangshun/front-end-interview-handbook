@@ -2,6 +2,7 @@ import * as autoLayoutChildrenPropsPrinter from './props/autoLayoutChildrenProps
 import * as autoLayoutPropsPrinter from './props/autoLayoutPropsPrinter';
 import * as blendPropsPrinter from './props/blendPropsPrinter';
 import * as frameNodePropsPrinter from './props/frameNodePropsPrinter';
+import * as layoutPropsPrinter from './props/layoutPropsPrinter';
 import * as strokesPropsPrinter from './props/strokesPropsPrinter';
 import * as textNodePropsPrinter from './props/textNodePropsPrinter';
 import type {
@@ -74,6 +75,9 @@ export function processGFENode(node: GFENode) {
         ...extractionArgs,
       );
       autoLayoutChildrenPropsPrinter.processLayoutGrow(node, ...extractionArgs);
+
+      layoutPropsPrinter.processLayoutSizingHorizontal(node, ...extractionArgs);
+      layoutPropsPrinter.processLayoutSizingVertical(node, ...extractionArgs);
 
       frameNodePropsPrinter.processPadding(node, ...extractionArgs);
       frameNodePropsPrinter.processFills(node, ...extractionArgs);
