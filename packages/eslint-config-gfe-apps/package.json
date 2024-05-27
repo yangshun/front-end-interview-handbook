@@ -5,7 +5,7 @@
   "license": "MIT",
   "main": "index.js",
   "dependencies": {
-    "@gfe/eslint-config-gfe-core": "*",
+    "@gfe/eslint-config-gfe-core": "workspace:0.0.0",
     "eslint-plugin-formatjs": "^4.7.1"
   },
   "peerDependencies": {

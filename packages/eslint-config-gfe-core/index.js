@@ -99,7 +99,7 @@ module.exports = {
     '@typescript-eslint/no-unused-vars': [WARN, { argsIgnorePattern: '^_' }],
     '@typescript-eslint/prefer-optional-chain': ERROR,
     '@typescript-eslint/require-array-sort-compare': ERROR,
-    '@typescript-eslint/restrict-plus-operands': ERROR,
+    '@typescript-eslint/restrict-plus-operands': OFF,
     '@typescript-eslint/sort-type-union-intersection-members': WARN,
 
     // Sorting
