@@ -11,7 +11,7 @@ export function convertFigmaNodeToGFENode(node: SceneNode): GFENode | null {
   nodeObject.width = node.width;
   nodeObject.height = node.height;
 
-  console.log(node);
+  console.info(node);
 
   switch (node.type) {
     case 'TEXT': {
