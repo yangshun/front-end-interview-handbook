@@ -3,6 +3,7 @@ import { useEffect, useState } from 'preact/hooks';
 import type { HighlighterCore } from 'shiki/core';
 import { getHighlighterCore } from 'shiki/core';
 import htmlLang from 'shiki/langs/html.mjs';
+import gitHubLightDefault from 'shiki/themes/github-light-default.mjs';
 import materialThemeOcean from 'shiki/themes/material-theme-ocean.mjs';
 import getWasm from 'shiki/wasm';
 
@@ -20,14 +21,17 @@ export function useHighlightedCode({
         highlighter = await getHighlighterCore({
           langs: [htmlLang],
           loadWasm: getWasm,
-          themes: [materialThemeOcean],
+          themes: [materialThemeOcean, gitHubLightDefault],
         });
       }
 
       try {
         const html = await highlighter.codeToHtml(code, {
           lang,
-          theme: 'material-theme-ocean',
+          themes: {
+            dark: 'material-theme-ocean',
+            light: 'github-light-default',
+          },
         });
 
         setHighlightedCode(html);
