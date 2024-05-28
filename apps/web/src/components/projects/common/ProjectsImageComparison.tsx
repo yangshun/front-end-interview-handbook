@@ -30,12 +30,12 @@ import ProjectsChallengeSubmissionImageMatchScore from '../submissions/screensho
 
 import type { ProjectsChallengeSubmissionScreenshotStatus } from '@prisma/client';
 
-type Status = 'error' | 'idle' | 'loading' | 'success';
+type RetakeScreenshotStatus = 'error' | 'idle' | 'loading' | 'success';
 type Props = Readonly<{
   allowRetakeScreenshot?: boolean;
   deploymentUrls: ProjectsChallengeSubmissionDeploymentUrls;
   onTakeScreenshot: () => void;
-  retakeScreenshotStatus: Status;
+  retakeScreenshotStatus: RetakeScreenshotStatus;
   screenshotStatus: ProjectsChallengeSubmissionScreenshotStatus;
   specImagesForVariant: ProjectsChallengeVariantImages;
   specLabels: Record<string, string>;
@@ -52,8 +52,8 @@ const dateFormatter = new Intl.DateTimeFormat(undefined, {
 
 const mapScreenshotStatusToImageComparisonStatus = (
   screenshotStatus: ProjectsChallengeSubmissionScreenshotStatus,
-): Status => {
-  let status: Status = 'loading';
+): RetakeScreenshotStatus => {
+  let status: RetakeScreenshotStatus = 'loading';
 
   if (screenshotStatus === 'PENDING') {
     status = 'loading';
@@ -85,11 +85,10 @@ export default function ProjectsImageComparison({
   const [selectedBreakpoint, setSelectedBreakpoint] =
     useState<ProjectsImageBreakpointCategory>('desktop');
   const [selectedScreenIndex, setSelectedScreenIndex] = useState(0);
-  const [imageComparisonStatus, setImageComparisonStatus] = useState<Status>(
-    () => {
+  const [imageComparisonStatus, setImageComparisonStatus] =
+    useState<RetakeScreenshotStatus>(() => {
       return mapScreenshotStatusToImageComparisonStatus(screenshotStatus);
-    },
-  );
+    });
   const deploymentImagesForBreakpointWithComparison = (
     deploymentUrls ?? []
   ).map((deploymentUrlItem) => {
