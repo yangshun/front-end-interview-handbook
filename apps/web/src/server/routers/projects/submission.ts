@@ -385,19 +385,25 @@ export const projectsChallengeSubmissionItemRouter = router({
             },
           });
         } catch (_) {
-          await prisma.projectsChallengeSubmission.update({
-            data: {
-              screenshotStatus:
-                ProjectsChallengeSubmissionScreenshotStatus.FAILED,
-            },
-            where: {
-              id: submissionId,
-            },
-          });
+          const projectChallengeSubmission =
+            await prisma.projectsChallengeSubmission.update({
+              data: {
+                screenshotStatus:
+                  ProjectsChallengeSubmissionScreenshotStatus.FAILED,
+              },
+              where: {
+                id: submissionId,
+              },
+            });
+
+          const errorData = {
+            data: projectChallengeSubmission,
+            message: 'Failed to take Screenshot for submission',
+          };
 
           throw new TRPCError({
             code: 'INTERNAL_SERVER_ERROR',
-            message: 'Failed to take Screenshot',
+            message: JSON.stringify(errorData),
           });
         }
       },

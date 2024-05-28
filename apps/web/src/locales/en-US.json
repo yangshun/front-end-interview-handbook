@@ -1143,10 +1143,6 @@
     "defaultMessage": "Progress",
     "description": "Completion status"
   },
-  "7khf0o": {
-    "defaultMessage": "Please manually trigger retaking of the screenshots from the submission page",
-    "description": "Error message for screenshot generation"
-  },
   "7lppmr": {
     "defaultMessage": "Blog",
     "description": "Link to blog page"
@@ -1331,10 +1327,6 @@
     "defaultMessage": "Coding",
     "description": "Label for coding questions"
   },
-  "97G4Pr": {
-    "defaultMessage": "Screenshots for the submission have been generated",
-    "description": "Success message for screenshot generation"
-  },
   "97HVxk": {
     "defaultMessage": "Key features",
     "description": "Key features of the product"
@@ -1495,13 +1487,13 @@
     "defaultMessage": "Use code at checkout",
     "description": "Instruction to apply discount"
   },
+  "AeJ6Oz": {
+    "defaultMessage": "Screenshot failure",
+    "description": "Screen failure error title"
+  },
   "AfXYpF": {
     "defaultMessage": "Current project session",
     "description": "Title for current project session card"
-  },
-  "AgOTU5": {
-    "defaultMessage": "Please try again later",
-    "description": "Error message for screenshot generation"
   },
   "AhoxQ8": {
     "defaultMessage": "Retaking screenshots for the submission, it might take a while",
@@ -4251,6 +4243,10 @@
     "defaultMessage": "Get the right practical foundation from the get-go",
     "description": "Title of 'Practical foundation' feature in Projects marketing page"
   },
+  "Va2o/g": {
+    "defaultMessage": "There were some issues with taking a screenshot for your site.",
+    "description": "Error message for screenshot generation"
+  },
   "VcLkXG": {
     "defaultMessage": "Free",
     "description": "Label to indicate that the item is free of charge"
@@ -4278,6 +4274,10 @@
   "Vm0aAX": {
     "defaultMessage": "{discountPercentage}% off all plans",
     "description": "Title for rewards page"
+  },
+  "VmzkpS": {
+    "defaultMessage": "Screenshot-taking success!",
+    "description": "Success message for screenshot generation"
   },
   "Vp6BGE": {
     "defaultMessage": "At least {minLength} character(s).",
@@ -6315,6 +6315,10 @@
     "defaultMessage": "<bold>+{count}</bold> completed",
     "description": "Tooltip for completed segments in Projects segmented progress bar"
   },
+  "l6Y1+i": {
+    "defaultMessage": "Screenshots for your submission <bold>\"{title}\"</bold> have been generated.",
+    "description": "Success message for screenshot generation"
+  },
   "l9OWsu": {
     "defaultMessage": "Testing",
     "description": "Testing topic for quiz questions"
@@ -7619,10 +7623,6 @@
     "defaultMessage": "Our projects are never one-off - they always fit into some component library or design system with other projects. Any projects you build can be composed to build future projects, forming an ever-growing toolkit for your future.",
     "description": "Part 1 of subtitle of the 'Permanent toolkit' marketing section on Projects home page"
   },
-  "w0CYrm": {
-    "defaultMessage": "Screenshot generation failed",
-    "description": "Update challenge success message"
-  },
   "w0Gmne": {
     "defaultMessage": "Front End Interview Guidebook",
     "description": "Front End Interview Guidebook title"
@@ -7982,6 +7982,10 @@
   "zMpEuy": {
     "defaultMessage": "Popularity: Least to most completed",
     "description": "Sorting option for projects list - popularity"
+  },
+  "zQCyNh": {
+    "defaultMessage": "View",
+    "description": "View link inside toast of screenshot"
   },
   "zSySsj": {
     "defaultMessage": "Question Formats",

@@ -2,6 +2,7 @@
 
 import clsx from 'clsx';
 import { useInView } from 'framer-motion';
+import { useSearchParams } from 'next/navigation';
 import { useEffect, useMemo, useRef } from 'react';
 import { RiShareCircleLine } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
@@ -27,6 +28,7 @@ import {
 } from '~/components/ui/theme';
 
 import GithubRepositoryCodeViewer from './code-viewer/GithubRepositoryCodeViewer';
+import { SUBMISSION_TARGETS } from './constants';
 import ProjectsChallengeSubmissionDiscussionsSection from './discussions/ProjectsChallengeSubmissionDiscussionsSection';
 import type { ProjectsViewerProjectsProfile } from '../types';
 
@@ -63,6 +65,11 @@ export default function ProjectsChallengeSubmissionPage({
   viewerProjectsProfile,
 }: Props) {
   const intl = useIntl();
+  const searchParams = useSearchParams();
+  const imageComparisonContainerRef: React.RefObject<HTMLDivElement> =
+    useRef(null);
+  const target = searchParams?.get('target');
+
   const discussionSectionRef = useRef<HTMLDivElement>(null);
   const parentRef = useRef(null);
   const isParentInView = useInView(parentRef);
@@ -79,6 +86,14 @@ export default function ProjectsChallengeSubmissionPage({
     techStackSkills,
     screenshotStatus,
   } = submission;
+
+  useEffect(() => {
+    if (target === SUBMISSION_TARGETS.imageComparison) {
+      imageComparisonContainerRef?.current?.scrollIntoView({
+        behavior: 'smooth',
+      });
+    }
+  }, [target]);
 
   useEffect(() => {
     viewSubmissionMutation.mutate({
@@ -167,7 +182,9 @@ export default function ProjectsChallengeSubmissionPage({
             {submission.summary}
           </Text>
         )}
-        <div className="mt-10 lg:mt-12">
+        <div
+          ref={imageComparisonContainerRef}
+          className="mt-10 scroll-mt-[calc(var(--global-sticky-height)_+_100px)] lg:mt-12">
           <ProjectsChallengeSubmissionComparison
             allowRetakeScreenshot={isViewingOwnSubmission}
             deploymentUrls={deploymentUrls}
