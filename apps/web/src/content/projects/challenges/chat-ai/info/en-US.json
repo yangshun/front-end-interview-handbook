@@ -1,0 +1,7 @@
+{
+  "title": "Chat AI",
+  "description": "Develop a responsive web application to interact with Large Language Models (LLMs) like ChatGPT, providing an interactive chat interface where users can send messages and receive responses from an AI",
+  "specLabels": {
+    "main": "Chat AI"
+  }
+}

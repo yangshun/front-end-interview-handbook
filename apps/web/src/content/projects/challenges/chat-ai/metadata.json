@@ -1,0 +1,48 @@
+{
+  "createdAt": "2024-05-28",
+  "difficulty": "nightmare",
+  "track": "apps",
+  "order": 999,
+  "guides": [],
+  "access": "premium",
+  "baseCredits": 2,
+  "pointsBase": 5000,
+  "pointsForSkillGroups": {
+    "html": 5,
+    "css": 5,
+    "javascript": 5,
+    "react": 15,
+    "package-managers": 15,
+    "build-tools": 15,
+    "testing": 5,
+    "performance": 5
+  },
+  "skills": [],
+  "resources": [
+    "design-files",
+    "image-assets",
+    "readme",
+    "starter-code",
+    "style-guide",
+    "api"
+  ],
+  "coverImage": "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/render/image/public/projects-images/chat-ai/cover.jpg",
+  "galleryImages": [
+    "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/render/image/public/projects-images/chat-ai/gallery/Desktop.jpg",
+    "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/render/image/public/projects-images/chat-ai/gallery/Desktop-1.jpg",
+    "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/render/image/public/projects-images/chat-ai/gallery/Tablet.jpg",
+    "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/render/image/public/projects-images/chat-ai/gallery/Mobile.jpg"
+  ],
+  "specImages": {
+    "default": [
+      {
+        "label": "main",
+        "images": {
+          "desktop": "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/render/image/public/projects-images/chat-ai/specs/Desktop.jpg",
+          "tablet": "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/render/image/public/projects-images/chat-ai/specs/Tablet.jpg",
+          "mobile": "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/render/image/public/projects-images/chat-ai/specs/Mobile.jpg"
+        }
+      }
+    ]
+  }
+}

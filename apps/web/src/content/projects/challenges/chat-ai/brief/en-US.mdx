@@ -1,0 +1,79 @@
+In this challenge, you are tasked with creating a fully functional, responsive Chat AI application that adheres to the design specifications provided in the Figma files. The interface should include the following features:
+
+1. **AI chat interface**: Allow users to input their queries and receive responses from the AI. Include response actions such as upvote, downvote, copy, and regenerate.
+2. **Code generation**: Display code snippets with syntax highlighting. Allow users to copy code snippets easily.
+3. **User authentication**: Allow users to sign up, login and access personalized features
+4. **Guest mode**: Allow users to interact with the AI in guest mode without saving their chat histories
+5. **Optional OpenAI key management**: Prompt users to input their OpenAI key if required, protecting your own credits.
+
+The Chat AI will require users to sign in to store their chats. You may choose to build the [Sign In / Sign Up](/projects/challenges/sign-in-sign-up) challenges and the [Account Settings Section](/projects/challenges/account-settings-section) challenges first, or do this challenge without them - leaving the buttons as placeholders.
+
+### Functional Requirements
+
+#### 1. Chat Interface
+
+- **New chats**: Display a welcome screen with a few example prompts as quickstarts for the user
+- **Text input**: Provide a text input for users to type and submit their queries. The 'Submit' button should be disabled till the field is filled.
+- **Real-time interaction**: Implement real-time chat functionality where messages are displayed immediately after sending
+- **Response animation**: Display a "..." loading indicator while waiting for the AI's response. When the response is received, display it with a typing animation.
+- **Response actions**:
+  - **Copy**: Allow users to copy the response into their clipboard
+  - **Regenerate**: Allow users to regenerate the response
+- **Response error handling**: Show error messages in the response when the chat service is down – "An error occurred. Please try again."
+- **Scrolling**: Implement smooth scrolling to keep the latest message in view. If user scrolls up the chats, allow them to jump to the bottom with a "Jump to bottom" button.
+- **Loading state**: Display a loading indicator while fetching chats (Note – this loading indicator is an animation).
+
+#### 2. Regenerate responses
+
+- **Regenerate**: Include a button to regenerate AI responses if users are unsatisfied with the initial reply.
+- **Upon regeneration**:
+  - Allow users to go back to a previous or newer response
+  - Ask users for feedback on the new response
+- **Regenerating a previous AI response**:
+  - If a previous AI response is being regenerated, revert all the chat history after the previous response and regenerate it. If the user switches back to the old response, redisplay the chat history.
+
+#### 3. Code generation
+
+- Format and display code snippets clearly, using appropriate syntax highlighting.
+- Allow users to copy code snippets with a single click.
+- Preserve the formatting of any code when pasting
+
+#### 4. Chat History
+
+- Display the user's chat history in descending order of modified date as sidebar chips on the sidebar
+- Any ongoing prompt is display at the top before the history, named as "Ongoing prompt"
+- After the first prompt, infer the title of the chat and display it in the sidebar
+
+#### 5. [Optional] OpenAI key
+
+- You may choose to make the OpenAI key required for a user to interact with the AI. This is so that your own OpenAI credits are not spent.
+- If a Guest user does not have an OpenAI key stored for their account, prompt the user to input their OpenAI keys via a modal when they attempt to interact with the AI, including searching something on the Chat Interface, or using the quickstart prompts.
+  - "Get your API key…" link: Leads user to sign in to OpenAI and view their API keys.
+  - API key validation: Connect to OpenAI API server to check if the API Key is valid. Otherwise, display the error message: "Invalid API key. Check that it is still valid".
+
+#### 6. User Authentication and Account details
+
+- Implement the [Sign In / Sign Up](/projects/challenges/sign-in-sign-up) flow & [Account Settings Section](/projects/challenges/account-settings-section).
+  - Include a tab for OpenAI API key under settings as well and make it a required field.
+- Guest state
+  - Users are able to use Chat AI in the Guest state, where they are not signed in. If so, we only display chat histories for that session and do not associate it with any user's account.
+  - In this state, we also display a reminder card on the sidebar for the user to sign in to save their chat histories in their account.
+  - If the user attempts to leave Chat AI, show them a modal with a friendly reminder that their chat history will be lost.
+- "Signed in" state
+  - If the user was using the Chat AI app using the Guest state and then decided to sign in, sync their chat history to their account.
+
+### General requirements
+
+- **Design fidelity**: Aim to follow the design as closely as possible. All elements in the design should be present, using the specified text color, font size, font weight, spacing, dimensions, etc.
+- **Responsive behavior**:
+  - **Text size**: Should be responsive; font size is larger for wider devices, smaller for narrow devices.
+  - **Responsive layout**: The content should stack vertically on smaller screens and align horizontally as the screen width increases.
+  - **Hamburger menu**: Hamburger menu should be implemented for tablet and mobile views. The menu should be shown once the hamburger icon button is tapped on.
+- **Interactivity:**
+  - **Toast notification: **This component is used for displaying error messages when it is not specific to any input field
+  - **Link / Button states**: Implement and style links and buttons to reflect different states - normal, hover, focus and disabled.
+  - **Sidebar chips**: Implement in Selected and Normal statues
+  - **Input field states:** Implement and style input fields to reflect different states - normal, focus filled, disabled, error, error filled, error focused.
+- **Cross-browser compatibility**: Check that your solution works for major browsers including Chrome, Firefox, and Safari.
+- **[Stretch goal] Performance optimization**: Code for fast load times with efficient CSS and JavaScript techniques.
+- **[Stretch goal] Accessibility and semantics**: Follow best practices for web accessibility, such as using semantic HTML and ARIA roles where necessary and using proper `alt` tags for images.
