@@ -11,6 +11,8 @@ export function convertFigmaNodeToGFENode(node: SceneNode): GFENode | null {
   nodeObject.width = node.width;
   nodeObject.height = node.height;
 
+  console.log(node);
+
   switch (node.type) {
     case 'TEXT': {
       nodeObject.opacity = node.opacity;
@@ -44,6 +46,10 @@ export function convertFigmaNodeToGFENode(node: SceneNode): GFENode | null {
     case 'COMPONENT':
     case 'INSTANCE':
     case 'FRAME': {
+      nodeObject.children = node.children
+        .map((childNode) => convertFigmaNodeToGFENode(childNode))
+        .flatMap((childNode) => (childNode != null ? [childNode] : []));
+
       nodeObject.opacity = node.opacity;
       nodeObject.effects = node.effects;
 

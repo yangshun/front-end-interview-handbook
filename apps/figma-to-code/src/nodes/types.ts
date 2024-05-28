@@ -98,8 +98,13 @@ export interface GFELayoutMixin
   layoutSizingVertical: LayoutMixin['layoutSizingVertical'];
 }
 
+export interface GFEChildrenMixin {
+  readonly children: ReadonlyArray<GFENode>;
+}
+
 export interface GFEFrameMixin
-  extends GFEAutoLayoutMixin,
+  extends GFEChildrenMixin,
+    GFEAutoLayoutMixin,
     GFELayoutMixin,
     GFEMinimalStrokesMixin,
     GFEIndividualStrokesMixin,

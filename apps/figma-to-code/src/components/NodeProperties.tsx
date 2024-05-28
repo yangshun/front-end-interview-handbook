@@ -2,8 +2,9 @@ import clsx from 'clsx';
 import { Fragment, h } from 'preact';
 
 import { CopyCodeSection } from './CopyCodeSection';
+import { HTMLCodeSection } from './HTMLCodeSection';
 import { useCopyToClipboard } from '../hooks/useCopyToClipboard';
-import { processGFENode } from '../nodes/processGFENode';
+import { visitGFENode } from '../nodes/processGFENode';
 import type { GFENode } from '../nodes/types';
 
 function PropertyRow({
@@ -54,7 +55,7 @@ export function NodeProperties({
   }
 
   const { content, properties, cssProperties, tailwindClasses } =
-    processGFENode(node);
+    visitGFENode(node);
 
   return (
     <div
@@ -105,6 +106,7 @@ export function NodeProperties({
         codeToCopy={Array.from(tailwindClasses).join(' ')}
       />
       <CopyCodeSection title="Content" codeToCopy={content} code={content} />
+      <HTMLCodeSection node={node} />
     </div>
   );
 }

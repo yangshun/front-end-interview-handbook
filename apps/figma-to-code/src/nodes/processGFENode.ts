@@ -12,7 +12,7 @@ import type {
 } from './props/types';
 import type { GFENode } from './types';
 
-export function processGFENode(node: GFENode) {
+export function visitGFENode(node: GFENode) {
   type NewType = GFENodePropertiesList;
 
   const propertiesList: NewType = [];
@@ -99,4 +99,58 @@ export function processGFENode(node: GFENode) {
     properties: propertiesList,
     tailwindClasses,
   };
+}
+
+type GFEHTMLNode = Readonly<{
+  children: ReadonlyArray<GFEHTMLNode> | string | null;
+  className: string | null;
+  type: 'div' | 'span';
+}>;
+
+export function transformGFENode(node: GFENode): GFEHTMLNode | undefined {
+  const { content, tailwindClasses } = visitGFENode(node);
+
+  switch (node.type) {
+    case 'TEXT': {
+      return {
+        children: content,
+        className: Array.from(tailwindClasses).join(' '),
+        type: 'span',
+      };
+    }
+    case 'COMPONENT':
+    case 'INSTANCE':
+    case 'FRAME': {
+      return {
+        children: node.children
+          .map((childNode) => transformGFENode(childNode))
+          .flatMap((htmlNode) => (htmlNode != null ? [htmlNode] : [])),
+        className: Array.from(tailwindClasses).join(' '),
+        type: 'div',
+      };
+    }
+  }
+}
+
+export function printGFEHTMLNode(node: GFEHTMLNode): string {
+  const openingElement =
+    `<${node.type}` +
+    (node.className !== '' ? ` class="${node.className}"` : '') +
+    `>`;
+  const children = (() => {
+    if (node.children == null) {
+      return;
+    }
+
+    if (typeof node.children === 'string') {
+      return node.children;
+    }
+
+    return node.children
+      .map((childNode) => printGFEHTMLNode(childNode))
+      .join('');
+  })();
+  const closingElement = `</${node.type}>`;
+
+  return openingElement + children + closingElement;
 }
