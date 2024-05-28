@@ -1,0 +1,182 @@
+/* Put any custom CSS styles here.  */
+/* Be sure to delete the <style> tag in index.html if you want to use this stylesheet. */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+body {
+  font-family:
+    'Noto Sans',
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    Roboto,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    'Open Sans',
+    'Helvetica Neue',
+    sans-serif;
+  min-height: 100vh;
+  background: linear-gradient(147.52deg, #f9fafb 8.89%, #d2d6db 100.48%);
+}
+
+.container {
+  padding: 16px;
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+.features-section {
+  background: #ffffff;
+  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);
+  border-radius: 4px;
+
+  padding: 48px 12px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+
+.header {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.header__supporting-text {
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: center;
+  color: #4338ca;
+}
+
+.header__content {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.header__content__title {
+  font-weight: 600;
+  font-size: 30px;
+  line-height: 36px;
+  text-align: center;
+  color: #171717;
+}
+
+.header__content__subtitle {
+  font-size: 18px;
+  line-height: 28px;
+  text-align: center;
+  color: #525252;
+}
+
+.features-section__features {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 32px;
+  list-style-type: none;
+  padding: 0;
+}
+
+.features-section__features__item {
+  grid-column: span 4 / span 4;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.features-section__features__item__icon {
+  width: 48px;
+  height: 48px;
+
+  background: #ffffff;
+  box-shadow:
+    0px 1px 3px rgba(0, 0, 0, 0.1),
+    0px 1px 2px rgba(0, 0, 0, 0.06);
+  border-radius: 9999px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.feature__content {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  font-size: 16px;
+  line-height: 24px;
+  color: #525252;
+  text-align: center;
+}
+
+.feature__content__title {
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 28px;
+  color: #171717;
+}
+
+@media screen and (min-width: 768px) {
+  .features-section {
+    box-shadow:
+      0px 4px 6px -1px rgba(0, 0, 0, 0.1),
+      0px 2px 4px -1px rgba(0, 0, 0, 0.06);
+    padding: 64px 16px;
+    gap: 64px;
+  }
+
+  .header__content__title {
+    font-size: 48px;
+    line-height: 48px;
+  }
+
+  .header__content__subtitle {
+    font-size: 20px;
+  }
+
+  .features-section__features {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
+
+  .features-section__features__item {
+    grid-column: span 3 / span 3;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .features-section {
+    box-shadow:
+      0px 10px 15px -3px rgba(0, 0, 0, 0.1),
+      0px 4px 6px -2px rgba(0, 0, 0, 0.05);
+    border-radius: 6px;
+
+    padding: 96px;
+  }
+  .header__content__subtitle {
+    padding: 0 200px;
+  }
+
+  .features-section__features {
+    column-gap: 32px;
+    row-gap: 48px;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+  }
+
+  .features-section__features__item {
+    grid-column: span 4 / span 4;
+  }
+}
