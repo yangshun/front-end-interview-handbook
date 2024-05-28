@@ -1,8 +1,10 @@
 import type { ReactNode } from 'react';
 import { RiArrowRightLine } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
+import url from 'url';
 
 import { trpc } from '~/hooks/trpc';
+import { SCROLL_HASH_PROJECTS_IMAGE_COMPARISON } from '~/hooks/useScrollToHash';
 
 import { useToast } from '~/components/global/toasts/useToast';
 import Button from '~/components/ui/Button';
@@ -10,26 +12,25 @@ import Text from '~/components/ui/Text';
 
 import { useI18nRouter } from '~/next-i18nostic/src';
 
-import { SUBMISSION_TARGETS } from '../constants';
-
 function isOnSubmissionPage(href: string) {
-  const { pathname } = window.location;
-
-  return pathname === href;
+  return window.location.pathname === href;
 }
 
-function ViewButton({ href }: { href: string }) {
+function ViewSubmissionButton({ href }: { href: string }) {
   const intl = useIntl();
 
   return (
     <Button
       addonPosition="end"
-      href={`${href}?target=${SUBMISSION_TARGETS.imageComparison}`}
+      href={url.format({
+        hash: SCROLL_HASH_PROJECTS_IMAGE_COMPARISON,
+        pathname: href,
+      })}
       icon={RiArrowRightLine}
       label={intl.formatMessage({
-        defaultMessage: 'View',
-        description: 'View link inside toast of screenshot',
-        id: 'zQCyNh',
+        defaultMessage: 'View submission',
+        description: 'Link to a submission page',
+        id: 'mNS3v5',
       })}
       variant="unstyled"
     />
@@ -70,10 +71,9 @@ export default function useProjectsChallengeSubmissionTakeScreenshotMutation(
                 id="Va2o/g"
               />
             </Text>
-
             {showViewLink && (
               <div>
-                <ViewButton href={href} />
+                <ViewSubmissionButton href={href} />
               </div>
             )}
           </div>
@@ -129,7 +129,7 @@ export default function useProjectsChallengeSubmissionTakeScreenshotMutation(
 
             {showViewLink && (
               <div>
-                <ViewButton href={data.hrefs.detail} />
+                <ViewSubmissionButton href={data.hrefs.detail} />
               </div>
             )}
           </div>

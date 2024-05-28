@@ -4,6 +4,8 @@ import nextI18nosticConfig from 'next-i18nostic/config';
 import { useState } from 'react';
 import { IntlProvider } from 'react-intl';
 
+import useScrollToHash from '~/hooks/useScrollToHash';
+
 import MDXComponents from '~/components/mdx/MDXComponents';
 
 import type { IntlMessages } from '~/i18n';
@@ -35,6 +37,8 @@ export default function GlobalProviders({
   const [supabaseClient] = useState(() =>
     createBrowserSupabaseClient<Database>(),
   );
+
+  useScrollToHash();
 
   return (
     <TrpcClientProvider>

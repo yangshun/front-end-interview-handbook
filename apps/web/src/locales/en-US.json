@@ -6447,6 +6447,10 @@
     "defaultMessage": "See all",
     "description": "See all button label in study guides list section in preparation dashboard"
   },
+  "mNS3v5": {
+    "defaultMessage": "View submission",
+    "description": "Link to a submission page"
+  },
   "mNb3b2": {
     "defaultMessage": "Hard",
     "description": "Hard difficulty question"
@@ -7982,10 +7986,6 @@
   "zMpEuy": {
     "defaultMessage": "Popularity: Least to most completed",
     "description": "Sorting option for projects list - popularity"
-  },
-  "zQCyNh": {
-    "defaultMessage": "View",
-    "description": "View link inside toast of screenshot"
   },
   "zSySsj": {
     "defaultMessage": "Question Formats",

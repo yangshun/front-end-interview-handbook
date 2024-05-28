@@ -22,6 +22,8 @@ import {
 } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
 
+import { SCROLL_HASH_PROJECTS_FEATURES } from '~/hooks/useScrollToHash';
+
 import { useColorSchemePreferences } from '~/components/global/color-scheme/ColorSchemePreferencesProvider';
 import MarketingSectionHeader from '~/components/marketing/MarketingSectionHeader';
 import Anchor from '~/components/ui/Anchor';
@@ -374,7 +376,7 @@ export default function ProjectsMarketingLearningFeatures() {
         'isolate rounded-t-3xl lg:mx-8 lg:rounded-t-[48px]',
         themeRadialGlowBackground,
       )}
-      id="features">
+      id={SCROLL_HASH_PROJECTS_FEATURES}>
       <Container className="flex flex-col gap-y-16 py-16 lg:gap-y-32 lg:py-32">
         <div className="mx-auto md:max-w-screen-sm lg:max-w-4xl">
           <MarketingSectionHeader

@@ -2,12 +2,12 @@
 
 import clsx from 'clsx';
 import { useInView } from 'framer-motion';
-import { useSearchParams } from 'next/navigation';
 import { useEffect, useMemo, useRef } from 'react';
 import { RiShareCircleLine } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
 
 import { trpc } from '~/hooks/trpc';
+import { SCROLL_HASH_PROJECTS_IMAGE_COMPARISON } from '~/hooks/useScrollToHash';
 
 import type { ProjectsChallengeItem } from '~/components/projects/challenges/types';
 import ProjectsSkillList from '~/components/projects/skills/metadata/ProjectsSkillList';
@@ -28,7 +28,6 @@ import {
 } from '~/components/ui/theme';
 
 import GithubRepositoryCodeViewer from './code-viewer/GithubRepositoryCodeViewer';
-import { SUBMISSION_TARGETS } from './constants';
 import ProjectsChallengeSubmissionDiscussionsSection from './discussions/ProjectsChallengeSubmissionDiscussionsSection';
 import type { ProjectsViewerProjectsProfile } from '../types';
 
@@ -65,10 +64,8 @@ export default function ProjectsChallengeSubmissionPage({
   viewerProjectsProfile,
 }: Props) {
   const intl = useIntl();
-  const searchParams = useSearchParams();
   const imageComparisonContainerRef: React.RefObject<HTMLDivElement> =
     useRef(null);
-  const target = searchParams?.get('target');
 
   const discussionSectionRef = useRef<HTMLDivElement>(null);
   const parentRef = useRef(null);
@@ -86,14 +83,6 @@ export default function ProjectsChallengeSubmissionPage({
     techStackSkills,
     screenshotStatus,
   } = submission;
-
-  useEffect(() => {
-    if (target === SUBMISSION_TARGETS.imageComparison) {
-      imageComparisonContainerRef?.current?.scrollIntoView({
-        behavior: 'smooth',
-      });
-    }
-  }, [target]);
 
   useEffect(() => {
     viewSubmissionMutation.mutate({
@@ -184,7 +173,8 @@ export default function ProjectsChallengeSubmissionPage({
         )}
         <div
           ref={imageComparisonContainerRef}
-          className="mt-10 scroll-mt-[calc(var(--global-sticky-height)_+_100px)] lg:mt-12">
+          className="mt-10 scroll-mt-[calc(var(--global-sticky-height)_+_100px)] lg:mt-12"
+          id={SCROLL_HASH_PROJECTS_IMAGE_COMPARISON}>
           <ProjectsChallengeSubmissionComparison
             allowRetakeScreenshot={isViewingOwnSubmission}
             deploymentUrls={deploymentUrls}

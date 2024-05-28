@@ -7,8 +7,10 @@ import {
   RiTerminalWindowLine,
 } from 'react-icons/ri';
 import { useIntl } from 'react-intl';
+import url from 'url';
 
 import gtag from '~/lib/gtag';
+import { SCROLL_HASH_INTERVIEWS_FEATURES } from '~/hooks/useScrollToHash';
 
 import { getFocusAreaTheme } from '~/data/focus-areas/FocusAreas';
 import { useFocusAreas } from '~/data/focus-areas/FocusAreasHooks';
@@ -53,7 +55,10 @@ export default function useInterviewsNavItems(placement: 'nav' | 'sidebar') {
     type: 'link',
   };
   const features: NavbarPrimaryItem = {
-    href: '/#features',
+    href: url.format({
+      hash: SCROLL_HASH_INTERVIEWS_FEATURES,
+      pathname: '/',
+    }),
     icon: RiShiningLine,
     itemKey: 'features',
     label: intl.formatMessage({

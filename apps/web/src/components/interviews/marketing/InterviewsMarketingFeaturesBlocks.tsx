@@ -5,6 +5,8 @@ import type { ReactNode } from 'react';
 import { RiCheckLine } from 'react-icons/ri';
 import { FormattedMessage } from 'react-intl';
 
+import { SCROLL_HASH_INTERVIEWS_FEATURES } from '~/hooks/useScrollToHash';
+
 import Container from '~/components/ui/Container';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
@@ -74,7 +76,7 @@ export default function InterviewsMarketingFeaturesBlocks() {
         'isolate rounded-t-3xl lg:mx-8 lg:rounded-t-[48px]',
         themeRadialGlowBackground,
       )}
-      id="features">
+      id={SCROLL_HASH_INTERVIEWS_FEATURES}>
       <Container className="flex flex-col gap-y-24 py-24 lg:gap-y-32 lg:py-32">
         <div className="mx-auto md:max-w-screen-sm lg:max-w-4xl">
           <MarketingSectionHeader

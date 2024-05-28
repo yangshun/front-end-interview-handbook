@@ -6,8 +6,10 @@ import {
   RiShiningLine,
 } from 'react-icons/ri';
 import { useIntl } from 'react-intl';
+import url from 'url';
 
 import gtag from '~/lib/gtag';
+import { SCROLL_HASH_PROJECTS_FEATURES } from '~/hooks/useScrollToHash';
 
 import type { NavbarPrimaryItem } from '~/components/ui/Navbar/NavTypes';
 
@@ -72,7 +74,10 @@ export default function useProjectsNavItems(placement: 'nav' | 'sidebar') {
     type: 'link',
   };
   const features: NavbarPrimaryItem = {
-    href: '/projects#features',
+    href: url.format({
+      hash: SCROLL_HASH_PROJECTS_FEATURES,
+      pathname: '/projects',
+    }),
     icon: RiShiningLine,
     itemKey: 'features',
     label: intl.formatMessage({

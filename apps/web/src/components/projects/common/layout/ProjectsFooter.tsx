@@ -1,6 +1,9 @@
 'use client';
 
 import { useIntl } from 'react-intl';
+import url from 'url';
+
+import { SCROLL_HASH_PROJECTS_FEATURES } from '~/hooks/useScrollToHash';
 
 import type { FooterNavigation } from '~/components/global/footers/Footer';
 import Footer from '~/components/global/footers/Footer';
@@ -13,7 +16,10 @@ function useFooterNavigation() {
       key: 'info',
       links: [
         {
-          href: '/projects#features',
+          href: url.format({
+            hash: SCROLL_HASH_PROJECTS_FEATURES,
+            pathname: '/projects',
+          }),
           key: 'features',
           name: intl.formatMessage({
             defaultMessage: 'Features',
