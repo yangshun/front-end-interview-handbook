@@ -1,0 +1,223 @@
+/* Put any custom CSS styles here.  */
+/* Be sure to delete the <style> tag in index.html if you want to use this stylesheet. */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+body {
+  font-family:
+    'Noto Sans',
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    Roboto,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    'Open Sans',
+    'Helvetica Neue',
+    sans-serif;
+  min-height: 100vh;
+}
+
+.credits {
+  color: #777;
+  position: fixed;
+  bottom: 24px;
+  left: 24px;
+  font-size: 11px;
+  text-align: center;
+}
+
+.credits a {
+  color: #000;
+  font-weight: bold;
+}
+
+.container {
+  min-height: 100vh;
+  padding: 16px;
+  background: linear-gradient(147.52deg, #f9fafb 8.89%, #d2d6db 100.48%);
+}
+
+.hero-section {
+  background: linear-gradient(176.17deg, #f9fafb 0.94%, #edf0f3 316.54%);
+  box-shadow:
+    0px 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0px 4px 6px -2px rgba(0, 0, 0, 0.05);
+  border-radius: 6px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+
+  padding: 62px 16px;
+}
+
+.hero-section__content {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.hero-section__content__title {
+  font-weight: 600;
+  font-size: 36px;
+  line-height: 40px;
+  color: #171717;
+}
+
+.subheading {
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 28px;
+  color: #525252;
+}
+
+.hero-section__content__features {
+  list-style: none;
+  font-size: 18px;
+  line-height: 28px;
+  color: #525252;
+
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 0;
+}
+
+.hero-section__content__features li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.hero-section__content__actions {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  flex-direction: row-reverse;
+}
+
+.btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 24px;
+  height: 48px;
+  box-shadow:
+    0px 1px 3px rgba(0, 0, 0, 0.1),
+    0px 1px 2px rgba(0, 0, 0, 0.06);
+  border-radius: 4px;
+
+  border: none;
+  outline: none;
+  font-family: inherit;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  cursor: pointer;
+  width: 100%;
+}
+.btn:focus {
+  box-shadow: 0px 0px 0px 4px rgba(68, 76, 231, 0.12);
+}
+.btn:disabled {
+  pointer-events: none;
+  background: #f5f5f5;
+  color: #a3a3a3;
+  box-shadow: none;
+}
+.btn--primary {
+  background: #4338ca;
+  color: #ffffff;
+}
+.btn--primary:hover,
+.btn--primary:focus {
+  background: #3730a3;
+}
+
+.btn--secondary {
+  background: #ffffff;
+  border: 0.5px solid #e6e6e6;
+  color: #0a0a0a;
+  box-shadow:
+    0px 1px 3px rgba(0, 0, 0, 0.1),
+    0px 1px 2px rgba(0, 0, 0, 0.06);
+}
+.btn--secondary:hover,
+.btn--secondary:focus {
+  background: #fafafa;
+  border: 1px solid #e6e6e6;
+}
+.hero-section__content__actions__btn {
+  flex: 1 1 0%;
+}
+
+.hero-section__banner {
+  height: 264px;
+}
+
+@media screen and (min-width: 768px) {
+  .hero-section {
+    gap: 32px;
+    padding: 72px 16px;
+  }
+
+  .hero-section__content {
+    gap: 64px;
+  }
+
+  .hero-section__content__title {
+    font-size: 48px;
+    line-height: 48px;
+  }
+
+  .subheading {
+    font-size: 20px;
+    line-height: 28px;
+  }
+
+  .hero-section__content__actions {
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 32px;
+  }
+  .hero-section__banner {
+    height: 526px;
+    object-fit: cover;
+  }
+
+  .btn {
+    height: 60px;
+    font-size: 18px;
+    line-height: 28px;
+  }
+  .hero-section__content__actions__btn {
+    width: 213px;
+    flex: none;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .hero-section {
+    flex-direction: row;
+    padding: 105px 96px;
+    align-items: center;
+  }
+
+  .hero-section__content__title {
+    font-size: 60px;
+    line-height: 60px;
+  }
+
+  .hero-section__content__actions__btn {
+    width: 175.5px;
+    flex: none;
+  }
+}

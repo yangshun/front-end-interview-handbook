@@ -39,9 +39,9 @@ const ProfileCard = () => {
       )}>
       <div className="flex flex-col items-center gap-6">
         <img
-          src="https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/object/public/projects-images/profile-card/starter/img/profile-thumbnail.png"
+          src="https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/object/public/projects-images/profile-card/starter/img/profile-thumbnail.jpg"
           alt="Sarah Dole's profile pic"
-          className="w-16"
+          className="w-16 rounded-full"
         />
         <div
           className={clsx('flex flex-col items-center gap-[3px]', 'mt-[1px]')}>
