@@ -4,8 +4,6 @@ import ProjectsImageComparison from '~/components/projects/common/ProjectsImageC
 import type { ProjectsChallengeSubmissionDeploymentUrls } from '~/components/projects/submissions/types';
 import Section from '~/components/ui/Heading/HeadingContext';
 
-import { useI18nRouter } from '~/next-i18nostic/src';
-
 import useProjectsChallengeSubmissionTakeScreenshotMutation from './useProjectsChallengeSubmissionTakeScreenshotMutation';
 import type { ProjectsChallengeVariantImages } from '../../challenges/types';
 
@@ -33,7 +31,6 @@ export default function ProjectsChallengeSubmissionComparison({
   screenshotStatus,
 }: Props) {
   const intl = useIntl();
-  const router = useI18nRouter();
 
   const takeScreenshotMutation =
     useProjectsChallengeSubmissionTakeScreenshotMutation('comparison');
@@ -43,7 +40,7 @@ export default function ProjectsChallengeSubmissionComparison({
       <ProjectsImageComparison
         allowRetakeScreenshot={allowRetakeScreenshot}
         deploymentUrls={deploymentUrls}
-        isRetakingScreenshot={takeScreenshotMutation.isLoading}
+        retakeScreenshotStatus={takeScreenshotMutation.status}
         screenshotStatus={screenshotStatus}
         specImagesForVariant={specImagesForVariant}
         specLabels={specLabels}
@@ -54,9 +51,7 @@ export default function ProjectsChallengeSubmissionComparison({
           id: 'WxYlE0',
         })}
         onTakeScreenshot={() =>
-          takeScreenshotMutation.mutateAsync({ submissionId }).then(() => {
-            router.refresh();
-          })
+          takeScreenshotMutation.mutateAsync({ submissionId })
         }
       />
     </Section>

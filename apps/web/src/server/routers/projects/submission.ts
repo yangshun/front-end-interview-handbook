@@ -473,6 +473,8 @@ export const projectsChallengeSubmissionItemRouter = router({
                 implementation,
                 repositoryUrl,
                 roadmapSkills,
+                screenshotStatus:
+                  ProjectsChallengeSubmissionScreenshotStatus.PENDING,
                 summary,
                 techStackSkills,
                 title,

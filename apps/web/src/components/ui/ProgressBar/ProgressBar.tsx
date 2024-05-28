@@ -27,7 +27,7 @@ export default function ProgressBar({
       aria-valuenow={value}
       className={clsx(
         'w-full rounded-full',
-        'min-w-[100px]',
+        'min-w-16',
         backgroundClass,
         heightClass,
       )}

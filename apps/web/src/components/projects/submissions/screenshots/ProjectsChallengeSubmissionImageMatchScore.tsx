@@ -100,7 +100,7 @@ export default function ProjectsChallengeSubmissionImageMatchScore({
         })}
       />
       <ProgressBar
-        heightClass="h-1.5 min-w-16 sm:min-w-[100px]"
+        heightClass="h-1.5 sm:min-w-[100px]"
         label="Match score"
         progressClass={themeGradientYellowGreen.className}
         total={100}

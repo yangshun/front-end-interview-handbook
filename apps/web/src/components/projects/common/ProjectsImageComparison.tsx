@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { RiImageLine, RiInformationLine } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
 
@@ -30,11 +30,12 @@ import ProjectsChallengeSubmissionImageMatchScore from '../submissions/screensho
 
 import type { ProjectsChallengeSubmissionScreenshotStatus } from '@prisma/client';
 
+type Status = 'error' | 'idle' | 'loading' | 'success';
 type Props = Readonly<{
   allowRetakeScreenshot?: boolean;
   deploymentUrls: ProjectsChallengeSubmissionDeploymentUrls;
-  isRetakingScreenshot: boolean;
   onTakeScreenshot: () => void;
+  retakeScreenshotStatus: Status;
   screenshotStatus: ProjectsChallengeSubmissionScreenshotStatus;
   specImagesForVariant: ProjectsChallengeVariantImages;
   specLabels: Record<string, string>;
@@ -49,6 +50,26 @@ const dateFormatter = new Intl.DateTimeFormat(undefined, {
   timeStyle: 'short',
 });
 
+const mapScreenshotStatusToImageComparisonStatus = (
+  screenshotStatus: ProjectsChallengeSubmissionScreenshotStatus,
+): Status => {
+  let status: Status = 'loading';
+
+  if (screenshotStatus === 'PENDING') {
+    status = 'loading';
+  }
+
+  if (screenshotStatus === 'COMPLETED') {
+    status = 'success';
+  }
+
+  if (screenshotStatus === 'FAILED') {
+    status = 'error';
+  }
+
+  return status;
+};
+
 export default function ProjectsImageComparison({
   allowRetakeScreenshot,
   screenshotStatus,
@@ -58,13 +79,17 @@ export default function ProjectsImageComparison({
   specImagesForVariant,
   onTakeScreenshot,
   deploymentUrls,
-  isRetakingScreenshot,
+  retakeScreenshotStatus,
 }: Props) {
   const intl = useIntl();
   const [selectedBreakpoint, setSelectedBreakpoint] =
     useState<ProjectsImageBreakpointCategory>('desktop');
   const [selectedScreenIndex, setSelectedScreenIndex] = useState(0);
-
+  const [imageComparisonStatus, setImageComparisonStatus] = useState<Status>(
+    () => {
+      return mapScreenshotStatusToImageComparisonStatus(screenshotStatus);
+    },
+  );
   const deploymentImagesForBreakpointWithComparison = (
     deploymentUrls ?? []
   ).map((deploymentUrlItem) => {
@@ -83,9 +108,22 @@ export default function ProjectsImageComparison({
   const { image: userSubmittedImage, original: baseImage } =
     deploymentImagesForBreakpointWithComparison[selectedScreenIndex];
 
-  const isScreenshotInProgress = screenshotStatus === 'PENDING';
-  const isScreenshotFailed = screenshotStatus === 'FAILED';
-  const isScreenshotSuccess = screenshotStatus === 'COMPLETED';
+  useEffect(() => {
+    setImageComparisonStatus(retakeScreenshotStatus);
+  }, [retakeScreenshotStatus]);
+
+  useEffect(() => {
+    const status = mapScreenshotStatusToImageComparisonStatus(screenshotStatus);
+
+    setImageComparisonStatus(status);
+  }, [screenshotStatus]);
+
+  const showRetakeScreenshotButton =
+    allowRetakeScreenshot && screenshotStatus !== 'PENDING';
+  const isRetakingScreenshotInProgress = retakeScreenshotStatus === 'loading';
+  const showLoadingState = imageComparisonStatus === 'loading';
+  const showSuccessState = imageComparisonStatus === 'success';
+  const showErrorState = imageComparisonStatus === 'error';
 
   return (
     <div
@@ -99,55 +137,57 @@ export default function ProjectsImageComparison({
       {title && (
         <div
           className={clsx(
-            'flex flex-col justify-between gap-4 md:flex-row md:items-center',
+            'flex flex-wrap justify-between gap-4',
             'px-4 py-4 md:px-6',
           )}>
           <Text size="body1" weight="bold">
             {title}
           </Text>
-          <div className="flex flex-1 items-center justify-between gap-2 md:gap-4">
-            {isScreenshotSuccess && (
-              <>
-                <ProjectsChallengeSubmissionImageMatchScore
-                  baseImage={baseImage}
-                  breakpoint={selectedBreakpoint}
-                  userSubmittedImage={userSubmittedImage}
-                />
-                {allowRetakeScreenshot && (
-                  <Button
-                    addonPosition="start"
-                    icon={RiImageLine}
-                    isDisabled={isRetakingScreenshot}
-                    isLoading={isRetakingScreenshot}
-                    label={intl.formatMessage({
-                      defaultMessage: 'Retake screenshot',
-                      description: 'Retake screenshot button label',
-                      id: 'e0C2cj',
-                    })}
-                    tooltip={intl.formatMessage({
-                      defaultMessage:
-                        'When your site URL was submitted, we automatically take screenshots of your pages. You can manually trigger retake with this button if your site has been updated',
-                      description: 'Tooltip for retake screenshot button',
-                      id: 'eNCfLw',
-                    })}
-                    variant="secondary"
-                    onClick={onTakeScreenshot}
-                  />
-                )}
-              </>
+          <div
+            className={clsx(
+              'flex items-center gap-2 md:gap-4',
+              showSuccessState ? 'flex-1 justify-between' : 'justify-start',
+            )}>
+            {showSuccessState && (
+              <ProjectsChallengeSubmissionImageMatchScore
+                baseImage={baseImage}
+                breakpoint={selectedBreakpoint}
+                userSubmittedImage={userSubmittedImage}
+              />
+            )}
+            {showRetakeScreenshotButton && (
+              <Button
+                addonPosition="start"
+                icon={RiImageLine}
+                isDisabled={isRetakingScreenshotInProgress}
+                isLoading={isRetakingScreenshotInProgress}
+                label={intl.formatMessage({
+                  defaultMessage: 'Retake screenshot',
+                  description: 'Retake screenshot button label',
+                  id: 'e0C2cj',
+                })}
+                tooltip={intl.formatMessage({
+                  defaultMessage:
+                    'When your site URL was submitted, we automatically take screenshots of your pages. You can manually trigger retake with this button if your site has been updated',
+                  description: 'Tooltip for retake screenshot button',
+                  id: 'eNCfLw',
+                })}
+                variant="secondary"
+                onClick={onTakeScreenshot}
+              />
             )}
           </div>
         </div>
       )}
-      {isScreenshotInProgress && (
+      {showLoadingState && (
         <div
           className={clsx(
             'flex flex-1 flex-col items-center justify-center gap-4',
             'aspect-[5/3] md:aspect-[7/3]',
-            'size-full',
+            'size-full px-4',
           )}>
           <Spinner display="block" />
-          <Text size="body1" weight="bold">
+          <Text className="text-center" size="body1" weight="bold">
             <FormattedMessage
               defaultMessage="Generating screenshots, please check back later."
               description="Message for Screenshot in progress"
@@ -156,7 +196,7 @@ export default function ProjectsImageComparison({
           </Text>
         </div>
       )}
-      {isScreenshotFailed && (
+      {showErrorState && (
         <div
           className={clsx(
             'flex flex-1 flex-col items-center justify-center gap-4',
@@ -182,7 +222,7 @@ export default function ProjectsImageComparison({
         </div>
       )}
       {/* Image Comparison Slider */}
-      {isScreenshotSuccess && (
+      {showSuccessState && (
         <div className="flex-1">
           {deploymentImagesForBreakpointWithComparison[selectedScreenIndex]
             .original ? (
@@ -283,7 +323,7 @@ export default function ProjectsImageComparison({
             </div>
           )}
         </div>
-        {isScreenshotSuccess && (
+        {showSuccessState && (
           <>
             {deploymentImagesForBreakpointWithComparison.length > 1 && (
               <div
