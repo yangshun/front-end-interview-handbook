@@ -259,7 +259,7 @@ export const projectsChallengeSubmissionItemRouter = router({
         if (repoSubdirectoryPath) {
           return data.tree
             .filter(({ type }) => type === 'blob') // Only include files; filter out folders with type === 'tree'
-            .map((file) => file.path)
+            .map((file) => encodeURI(file.path))
             .filter((path) => path.startsWith(repoSubdirectoryPath))
             .map((path) => path.replace(repoSubdirectoryPath, ''));
         }
