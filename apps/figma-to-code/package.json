@@ -15,7 +15,8 @@
     "@create-figma-plugin/ui": "^3.2.0",
     "@create-figma-plugin/utilities": "^3.2.0",
     "clsx": "^2.1.1",
-    "preact": ">=10"
+    "preact": ">=10",
+    "shiki": "^1.6.0"
   },
   "devDependencies": {
     "@create-figma-plugin/build": "^3.2.0",

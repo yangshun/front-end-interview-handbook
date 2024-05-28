@@ -1,3 +1,16 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+[class*='language-'] pre {
+  position: relative;
+  z-index: 1;
+  margin: 0;
+  padding: 8px;
+  background: transparent;
+  overflow-x: auto;
+}
+
+pre span {
+  user-select: text;
+}

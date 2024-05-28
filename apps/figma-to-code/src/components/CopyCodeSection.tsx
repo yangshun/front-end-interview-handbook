@@ -6,18 +6,22 @@ import { useCopyToClipboard } from '../hooks/useCopyToClipboard';
 import { useHover } from '../hooks/useHover';
 
 export function CopyCodeSection({
-  codeToCopy,
   code,
+  codeToCopy,
+  codeHtml,
+  lang,
   title,
 }: Readonly<{
-  code: VNode | string | null;
+  code?: VNode | string | null;
+  codeHtml?: string | null;
   codeToCopy: string | null;
+  lang?: string | null;
   title: string;
 }>) {
   const [, copyCss] = useCopyToClipboard();
   const { isHovering, onMouseEnter, onMouseLeave } = useHover();
 
-  if (!code) {
+  if (!code && !codeHtml) {
     return null;
   }
 
@@ -42,25 +46,41 @@ export function CopyCodeSection({
           Copy
         </button>
       </div>
-      <pre
-        className={clsx(
-          'p-2 rounded-sm',
-          'text-wrap select-text',
-          'overflow-x-auto',
-          [
-            isHovering
-              ? 'bg-green-50 dark:bg-green-900'
-              : 'bg-neutral-50 dark:bg-neutral-700',
-          ],
-          [
-            'outline outline-1',
-            isHovering
-              ? 'outline-green-600 dark:outline-green-400'
-              : 'outline-transparent',
-          ],
-        )}>
-        {code}
-      </pre>
+      {codeHtml ? (
+        <div
+          className={clsx(
+            'rounded-sm overflow-hidden select-text',
+            lang ? `language-${lang}` : undefined,
+            [
+              'outline outline-1',
+              isHovering
+                ? 'outline-green-600 dark:outline-green-400'
+                : 'outline-transparent',
+            ],
+          )}
+          dangerouslySetInnerHTML={{ __html: codeHtml }}
+        />
+      ) : (
+        <pre
+          className={clsx(
+            'p-2 rounded-sm',
+            'text-wrap select-text',
+            'overflow-x-auto',
+            [
+              isHovering
+                ? 'bg-green-50 dark:bg-green-900'
+                : 'bg-neutral-50 dark:bg-neutral-700',
+            ],
+            [
+              'outline outline-1',
+              isHovering
+                ? 'outline-green-600 dark:outline-green-400'
+                : 'outline-transparent',
+            ],
+          )}>
+          {code}
+        </pre>
+      )}
     </div>
   );
 }

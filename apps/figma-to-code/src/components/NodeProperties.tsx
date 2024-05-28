@@ -105,8 +105,8 @@ export function NodeProperties({
         code={Array.from(tailwindClasses).join(' ')}
         codeToCopy={Array.from(tailwindClasses).join(' ')}
       />
-      <CopyCodeSection title="Content" codeToCopy={content} code={content} />
       <HTMLCodeSection node={node} />
+      <CopyCodeSection title="Content" codeToCopy={content} code={content} />
     </div>
   );
 }
