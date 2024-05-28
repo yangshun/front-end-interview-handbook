@@ -72,7 +72,13 @@ async function takeScreenshotForViewport(
   viewport: Parameters<Page['setViewport']>[0],
 ) {
   await page.setViewport(viewport);
-  await page.goto(url, { waitUntil: 'networkidle2' });
+  /** *
+   *  Ref: https://pptr.dev/api/puppeteer.puppeteerlifecycleevent
+   *  WaitUntil for network has two options:
+   * `networkidle0` : Waits till there are no more than 0 network connections for at least `500` ms
+   * `networkidle2` : Waits till there are no more than 2 network connections for at least `500` ms
+   */
+  await page.goto(url, { waitUntil: 'networkidle0' });
   await page.evaluate(() => {
     function hideElement(selector: string) {
       const elements: NodeListOf<HTMLElement> =
