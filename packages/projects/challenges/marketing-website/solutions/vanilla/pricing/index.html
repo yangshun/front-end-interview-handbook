@@ -1,0 +1,1512 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Pricing | GreatFrontEnd Projects</title>
+    <meta
+      name="description"
+      content="Pricing page built from GreatFrontEnd projects" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet" />
+    <link rel="stylesheet" href="../css/style.css" />
+
+    <link rel="icon" href="../img/favicon.ico" sizes="any" />
+  </head>
+
+  <body>
+    <div class="toast" id="toaster">
+      <div class="toast__content">
+        <div class="toast__content__badge">Error</div>
+        <div>
+          Failed to submit. Please ensure your details are correct or try again
+          later.
+        </div>
+      </div>
+    </div>
+    <header class="navbar">
+      <div class="navbar__logo">
+        <img
+          src="https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/object/public/projects-images/navbar-component/starter/img/abstractly.svg"
+          alt="Abstractly's logo" />
+      </div>
+      <nav class="navbar__content">
+        <div class="navbar__content__links">
+          <a class="link link--nav-primary" href="/">Home</a>
+          <a class="link link--nav-primary" href="/features/">Features</a>
+          <a class="link link--nav-primary link--nav-active" href="/pricing/"
+            >Pricing</a
+          >
+          <a class="link link--nav-primary" href="/about/">About us</a>
+          <a class="link link--nav-primary" href="/contact/">Contact</a>
+        </div>
+        <div class="navbar__content__actions">
+          <button type="button" class="btn btn--secondary btn--navbar-learn">
+            Learn more
+          </button>
+          <button type="" button class="btn btn--primary btn--navbar-pricing">
+            See pricing
+          </button>
+        </div>
+      </nav>
+      <button
+        id="mobile-menu-button"
+        type="button"
+        aria-label="Open mobile menu"
+        class="navbar__menu-btn">
+        <svg
+          width="20"
+          height="20"
+          viewBox="0 0 20 20"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M2.5 3.33333H17.5V5H2.5V3.33333ZM2.5 9.16667H17.5V10.8333H2.5V9.16667ZM2.5 15H17.5V16.6667H2.5V15Z"
+            fill="#525252" />
+        </svg>
+      </button>
+    </header>
+    <nav id="slideout-menu">
+      <div class="nav__mobile__header">
+        <div class="navbar__mobile__header__logo">
+          <img
+            src="https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/object/public/projects-images/navbar-component/starter/img/abstractly.svg"
+            alt="Abstractly's logo" />
+        </div>
+        <button
+          id="mobile-close-menu-button"
+          type="button"
+          aria-label="Close mobile menu"
+          class="navbar__close-btn">
+          <svg
+            width="20"
+            height="20"
+            viewBox="0 0 20 20"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M10.0006 8.82208L14.1253 4.69727L15.3038 5.87577L11.1791 10.0006L15.3038 14.1253L14.1253 15.3038L10.0006 11.1791L5.87577 15.3038L4.69727 14.1253L8.82208 10.0006L4.69727 5.87577L5.87577 4.69727L10.0006 8.82208Z"
+              fill="#525252" />
+          </svg>
+        </button>
+      </div>
+      <div class="navbar__content__links">
+        <a class="link link--nav link--nav-active" href="/">Home</a>
+        <a class="link link--nav" href="/features/">Features</a>
+        <a class="link link--nav link--nav-active" href="/pricing/">Pricing</a>
+        <a class="link link--nav" href="/about/">About us</a>
+        <a class="link link--nav" href="/contact/">Contact</a>
+      </div>
+      <div class="navbar__content__actions">
+        <button type="button" class="btn btn--secondary btn--navbar-learn">
+          Learn more
+        </button>
+        <button type="" button class="btn btn--primary btn--navbar-pricing">
+          See pricing
+        </button>
+      </div>
+    </nav>
+    <main class="content">
+      <!-- Pricing tiers -->
+      <section class="pricing-tiers" aria-labelledby="pricing-tiers">
+        <header class="header header--pricing-tiers">
+          <div class="header__supporting-text">Pricing Tiers</div>
+          <div class="header__content">
+            <h2 class="header__content__title">Fit for all your needs</h2>
+            <p class="header__content__subtitle">
+              Pick the plan that suits you today and step up as your demands
+              grow - our flexible options have your journey mapped out.
+            </p>
+          </div>
+        </header>
+
+        <div class="pricing-tiers__content">
+          <div
+            class="pricing-tiers__toggle"
+            role="group"
+            aria-label="Pricing plan toggle button">
+            <button
+              class="btn--toggle btn btn--secondary"
+              aria-pressed="true"
+              id="monthlyPlanBtn">
+              Monthly
+            </button>
+            <button class="btn--toggle" aria-pressed="false" id="annualPlanBtn">
+              Annually
+            </button>
+          </div>
+          <div class="pricing-tiers__plans">
+            <div class="pricing-tiers__plan">
+              <div class="pricing-tiers__plan__header">
+                <h6>Basic Plan</h6>
+                <p>Access to a curated selection of abstract images</p>
+              </div>
+              <div class="pricing-tiers__plan__price">
+                <div>
+                  <span
+                    class="pricing-tiers__plan__price__amount"
+                    id="basicPlanPrice"
+                    >$9.99</span
+                  ><span> / month</span>
+                </div>
+                <div
+                  class="pricing-tiers__plan__price__label"
+                  id="basicPlanLabel">
+                  Billed monthly
+                </div>
+              </div>
+              <ul class="pricing-tiers__plan__features">
+                <li>
+                  <svg
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M0 12C0 5.37258 5.37258 0 12 0C18.6274 0 24 5.37258 24 12C24 18.6274 18.6274 24 12 24C5.37258 24 0 18.6274 0 12Z"
+                      fill="#EEF2FF" />
+                    <path
+                      d="M9.64715 15.5245L10.0007 15.878L10.3543 15.5245L19.1931 6.68562L19.9002 7.39272L10.0007 17.2922L4.34383 11.6354L5.05093 10.9283L9.64715 15.5245Z"
+                      fill="#6366F1"
+                      stroke="#6366F1" />
+                  </svg>
+                  <span>Standard quality images</span>
+                </li>
+                <li>
+                  <svg
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M0 12C0 5.37258 5.37258 0 12 0C18.6274 0 24 5.37258 24 12C24 18.6274 18.6274 24 12 24C5.37258 24 0 18.6274 0 12Z"
+                      fill="#EEF2FF" />
+                    <path
+                      d="M9.64715 15.5245L10.0007 15.878L10.3543 15.5245L19.1931 6.68562L19.9002 7.39272L10.0007 17.2922L4.34383 11.6354L5.05093 10.9283L9.64715 15.5245Z"
+                      fill="#6366F1"
+                      stroke="#6366F1" />
+                  </svg>
+                  <span>Limited to personal use</span>
+                </li>
+                <li>
+                  <svg
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M0 12C0 5.37258 5.37258 0 12 0C18.6274 0 24 5.37258 24 12C24 18.6274 18.6274 24 12 24C5.37258 24 0 18.6274 0 12Z"
+                      fill="#EEF2FF" />
+                    <path
+                      d="M9.64715 15.5245L10.0007 15.878L10.3543 15.5245L19.1931 6.68562L19.9002 7.39272L10.0007 17.2922L4.34383 11.6354L5.05093 10.9283L9.64715 15.5245Z"
+                      fill="#6366F1"
+                      stroke="#6366F1" />
+                  </svg>
+                  <span>Email support</span>
+                </li>
+              </ul>
+              <button type="button" class="btn btn--secondary btn--pricing">
+                Buy now
+              </button>
+            </div>
+            <div class="pricing-tiers__plan pricing-tiers__plan__active">
+              <div class="pricing-tiers__plan__highlight">
+                <div>Most Popular</div>
+              </div>
+              <div class="pricing-tiers__plan__header">
+                <h6>Standard Plan</h6>
+                <p>Next-level Integrations, priced economically</p>
+              </div>
+              <div
+                class="pricing-tiers__plan__price pricing-tiers__plan__price__active">
+                <div>
+                  <span
+                    class="pricing-tiers__plan__price__amount"
+                    id="standardPlanPrice"
+                    >$19.99</span
+                  ><span> / month</span>
+                </div>
+                <div
+                  class="pricing-tiers__plan__price__label"
+                  id="standardPlanLabel">
+                  Billed monthly
+                </div>
+              </div>
+              <ul class="pricing-tiers__plan__features">
+                <li>
+                  <svg
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M0 12C0 5.37258 5.37258 0 12 0C18.6274 0 24 5.37258 24 12C24 18.6274 18.6274 24 12 24C5.37258 24 0 18.6274 0 12Z"
+                      fill="#EEF2FF" />
+                    <path
+                      d="M9.64715 15.5245L10.0007 15.878L10.3543 15.5245L19.1931 6.68562L19.9002 7.39272L10.0007 17.2922L4.34383 11.6354L5.05093 10.9283L9.64715 15.5245Z"
+                      fill="#6366F1"
+                      stroke="#6366F1" />
+                  </svg>
+                  <span>
+                    Expanded library with more diverse abstract images
+                  </span>
+                </li>
+                <li>
+                  <svg
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M0 12C0 5.37258 5.37258 0 12 0C18.6274 0 24 5.37258 24 12C24 18.6274 18.6274 24 12 24C5.37258 24 0 18.6274 0 12Z"
+                      fill="#EEF2FF" />
+                    <path
+                      d="M9.64715 15.5245L10.0007 15.878L10.3543 15.5245L19.1931 6.68562L19.9002 7.39272L10.0007 17.2922L4.34383 11.6354L5.05093 10.9283L9.64715 15.5245Z"
+                      fill="#6366F1"
+                      stroke="#6366F1" />
+                  </svg>
+                  <span>High-resolution images available</span>
+                </li>
+                <li>
+                  <svg
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M0 12C0 5.37258 5.37258 0 12 0C18.6274 0 24 5.37258 24 12C24 18.6274 18.6274 24 12 24C5.37258 24 0 18.6274 0 12Z"
+                      fill="#EEF2FF" />
+                    <path
+                      d="M9.64715 15.5245L10.0007 15.878L10.3543 15.5245L19.1931 6.68562L19.9002 7.39272L10.0007 17.2922L4.34383 11.6354L5.05093 10.9283L9.64715 15.5245Z"
+                      fill="#6366F1"
+                      stroke="#6366F1" />
+                  </svg>
+                  <span>Suitable for commercial use</span>
+                </li>
+                <li>
+                  <svg
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M0 12C0 5.37258 5.37258 0 12 0C18.6274 0 24 5.37258 24 12C24 18.6274 18.6274 24 12 24C5.37258 24 0 18.6274 0 12Z"
+                      fill="#EEF2FF" />
+                    <path
+                      d="M9.64715 15.5245L10.0007 15.878L10.3543 15.5245L19.1931 6.68562L19.9002 7.39272L10.0007 17.2922L4.34383 11.6354L5.05093 10.9283L9.64715 15.5245Z"
+                      fill="#6366F1"
+                      stroke="#6366F1" />
+                  </svg>
+                  <span>Priority email support</span>
+                </li>
+                <li>
+                  <svg
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M0 12C0 5.37258 5.37258 0 12 0C18.6274 0 24 5.37258 24 12C24 18.6274 18.6274 24 12 24C5.37258 24 0 18.6274 0 12Z"
+                      fill="#EEF2FF" />
+                    <path
+                      d="M9.64715 15.5245L10.0007 15.878L10.3543 15.5245L19.1931 6.68562L19.9002 7.39272L10.0007 17.2922L4.34383 11.6354L5.05093 10.9283L9.64715 15.5245Z"
+                      fill="#6366F1"
+                      stroke="#6366F1" />
+                  </svg>
+                  <span>Advanced analytics</span>
+                </li>
+              </ul>
+              <button type="button" class="btn btn--primary btn--pricing">
+                Buy now
+              </button>
+            </div>
+            <div class="pricing-tiers__plan">
+              <div class="pricing-tiers__plan__header">
+                <h6>Premium Plan</h6>
+                <p>Experience limitless living for power users</p>
+              </div>
+              <div class="pricing-tiers__plan__price">
+                <div>
+                  <span
+                    class="pricing-tiers__plan__price__amount"
+                    id="premiumPlanPrice"
+                    >$29.99</span
+                  ><span> / month</span>
+                </div>
+                <div
+                  class="pricing-tiers__plan__price__label"
+                  id="premiumPlanLabel">
+                  Billed monthly
+                </div>
+              </div>
+              <ul class="pricing-tiers__plan__features">
+                <li>
+                  <svg
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M0 12C0 5.37258 5.37258 0 12 0C18.6274 0 24 5.37258 24 12C24 18.6274 18.6274 24 12 24C5.37258 24 0 18.6274 0 12Z"
+                      fill="#EEF2FF" />
+                    <path
+                      d="M9.64715 15.5245L10.0007 15.878L10.3543 15.5245L19.1931 6.68562L19.9002 7.39272L10.0007 17.2922L4.34383 11.6354L5.05093 10.9283L9.64715 15.5245Z"
+                      fill="#6366F1"
+                      stroke="#6366F1" />
+                  </svg>
+                  <span>
+                    Full access to the entire image library, including exclusive
+                    content
+                  </span>
+                </li>
+                <li>
+                  <svg
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M0 12C0 5.37258 5.37258 0 12 0C18.6274 0 24 5.37258 24 12C24 18.6274 18.6274 24 12 24C5.37258 24 0 18.6274 0 12Z"
+                      fill="#EEF2FF" />
+                    <path
+                      d="M9.64715 15.5245L10.0007 15.878L10.3543 15.5245L19.1931 6.68562L19.9002 7.39272L10.0007 17.2922L4.34383 11.6354L5.05093 10.9283L9.64715 15.5245Z"
+                      fill="#6366F1"
+                      stroke="#6366F1" />
+                  </svg>
+                  <span>
+                    Highest quality images, including premium collections
+                  </span>
+                </li>
+                <li>
+                  <svg
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M0 12C0 5.37258 5.37258 0 12 0C18.6274 0 24 5.37258 24 12C24 18.6274 18.6274 24 12 24C5.37258 24 0 18.6274 0 12Z"
+                      fill="#EEF2FF" />
+                    <path
+                      d="M9.64715 15.5245L10.0007 15.878L10.3543 15.5245L19.1931 6.68562L19.9002 7.39272L10.0007 17.2922L4.34383 11.6354L5.05093 10.9283L9.64715 15.5245Z"
+                      fill="#6366F1"
+                      stroke="#6366F1" />
+                  </svg>
+                  <span>Commercial and resale rights</span>
+                </li>
+                <li>
+                  <svg
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M0 12C0 5.37258 5.37258 0 12 0C18.6274 0 24 5.37258 24 12C24 18.6274 18.6274 24 12 24C5.37258 24 0 18.6274 0 12Z"
+                      fill="#EEF2FF" />
+                    <path
+                      d="M9.64715 15.5245L10.0007 15.878L10.3543 15.5245L19.1931 6.68562L19.9002 7.39272L10.0007 17.2922L4.34383 11.6354L5.05093 10.9283L9.64715 15.5245Z"
+                      fill="#6366F1"
+                      stroke="#6366F1" />
+                  </svg>
+                  <span>Dedicated customer support line</span>
+                </li>
+                <li>
+                  <svg
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M0 12C0 5.37258 5.37258 0 12 0C18.6274 0 24 5.37258 24 12C24 18.6274 18.6274 24 12 24C5.37258 24 0 18.6274 0 12Z"
+                      fill="#EEF2FF" />
+                    <path
+                      d="M9.64715 15.5245L10.0007 15.878L10.3543 15.5245L19.1931 6.68562L19.9002 7.39272L10.0007 17.2922L4.34383 11.6354L5.05093 10.9283L9.64715 15.5245Z"
+                      fill="#6366F1"
+                      stroke="#6366F1" />
+                  </svg>
+                  <span>24/7 support response time</span>
+                </li>
+                <li>
+                  <svg
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M0 12C0 5.37258 5.37258 0 12 0C18.6274 0 24 5.37258 24 12C24 18.6274 18.6274 24 12 24C5.37258 24 0 18.6274 0 12Z"
+                      fill="#EEF2FF" />
+                    <path
+                      d="M9.64715 15.5245L10.0007 15.878L10.3543 15.5245L19.1931 6.68562L19.9002 7.39272L10.0007 17.2922L4.34383 11.6354L5.05093 10.9283L9.64715 15.5245Z"
+                      fill="#6366F1"
+                      stroke="#6366F1" />
+                  </svg>
+                  <span>Advanced analytics and insights</span>
+                </li>
+              </ul>
+              <button type="button" class="btn btn--secondary btn--pricing">
+                Buy now
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- FAQ -->
+      <section class="faq-section" aria-labelledby="faq-section">
+        <div class="faq__header">
+          <h2 class="faq__header__title">Frequently asked questions</h2>
+          <p class="faq__header__subtitle">Choose any questions you need</p>
+        </div>
+        <div class="faqs">
+          <div class="faq__accordion">
+            <button
+              class="faq__accordion__label"
+              type="button"
+              aria-expanded="true"
+              aria-controls="faq1">
+              <span>
+                Are there any discounts available for long-term subscriptions?
+              </span>
+              <div aria-hidden="true">
+                <div class="faq__accordion__toggle-icon open">
+                  <svg
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22ZM12 20C16.4183 20 20 16.4183 20 12C20 7.58172 16.4183 4 12 4C7.58172 4 4 7.58172 4 12C4 16.4183 7.58172 20 12 20ZM7 11H17V13H7V11Z"
+                      fill="#A3A3A3" />
+                  </svg>
+                </div>
+                <div class="faq__accordion__toggle-icon">
+                  <svg
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M11 11V7H13V11H17V13H13V17H11V13H7V11H11ZM12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22ZM12 20C16.4183 20 20 16.4183 20 12C20 7.58172 16.4183 4 12 4C7.58172 4 4 7.58172 4 12C4 16.4183 7.58172 20 12 20Z"
+                      fill="#A3A3A3" />
+                  </svg>
+                </div>
+              </div>
+            </button>
+            <div class="faq__accordion__content open" id="faq1">
+              <p>
+                Yes! We offer a discount on annual subscriptions. If you choose
+                an annual payment plan, you will receive a discount compared to
+                monthly payments. This is a great way to enjoy all the features
+                of our platform at a reduced cost.
+              </p>
+            </div>
+          </div>
+          <hr />
+          <div class="faq__accordion">
+            <button
+              class="faq__accordion__label"
+              type="button"
+              aria-expanded="true"
+              aria-controls="faq2">
+              <span>Can I change my subscription plan at any time? </span>
+              <div aria-hidden="true">
+                <div class="faq__accordion__toggle-icon open">
+                  <svg
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22ZM12 20C16.4183 20 20 16.4183 20 12C20 7.58172 16.4183 4 12 4C7.58172 4 4 7.58172 4 12C4 16.4183 7.58172 20 12 20ZM7 11H17V13H7V11Z"
+                      fill="#A3A3A3" />
+                  </svg>
+                </div>
+                <div class="faq__accordion__toggle-icon">
+                  <svg
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M11 11V7H13V11H17V13H13V17H11V13H7V11H11ZM12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22ZM12 20C16.4183 20 20 16.4183 20 12C20 7.58172 16.4183 4 12 4C7.58172 4 4 7.58172 4 12C4 16.4183 7.58172 20 12 20Z"
+                      fill="#A3A3A3" />
+                  </svg>
+                </div>
+              </div>
+            </button>
+            <div class="faq__accordion__content open" id="faq2">
+              <p>
+                Absolutely! You can upgrade or downgrade your subscription at
+                any time. Changes to your plan will take effect at the start of
+                your next billing cycle.
+              </p>
+            </div>
+          </div>
+          <hr />
+          <div class="faq__accordion">
+            <button
+              class="faq__accordion__label"
+              type="button"
+              aria-expanded="true"
+              aria-controls="faq3">
+              <span>What forms of payment do you accept?</span>
+              <div aria-hidden="true">
+                <div class="faq__accordion__toggle-icon open">
+                  <svg
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22ZM12 20C16.4183 20 20 16.4183 20 12C20 7.58172 16.4183 4 12 4C7.58172 4 4 7.58172 4 12C4 16.4183 7.58172 20 12 20ZM7 11H17V13H7V11Z"
+                      fill="#A3A3A3" />
+                  </svg>
+                </div>
+                <div class="faq__accordion__toggle-icon">
+                  <svg
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M11 11V7H13V11H17V13H13V17H11V13H7V11H11ZM12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22ZM12 20C16.4183 20 20 16.4183 20 12C20 7.58172 16.4183 4 12 4C7.58172 4 4 7.58172 4 12C4 16.4183 7.58172 20 12 20Z"
+                      fill="#A3A3A3" />
+                  </svg>
+                </div>
+              </div>
+            </button>
+            <div class="faq__accordion__content open" id="faq3">
+              <p>
+                We accept all major credit cards, including Visa, MasterCard,
+                and American Express. We also accept payments through PayPal for
+                added convenience.
+              </p>
+            </div>
+          </div>
+          <hr />
+          <div class="faq__accordion">
+            <button
+              class="faq__accordion__label"
+              type="button"
+              aria-expanded="true"
+              aria-controls="faq4">
+              <span>
+                Do you offer any special pricing for educational institutions or
+                non-profits?
+              </span>
+              <div aria-hidden="true">
+                <div class="faq__accordion__toggle-icon open">
+                  <svg
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22ZM12 20C16.4183 20 20 16.4183 20 12C20 7.58172 16.4183 4 12 4C7.58172 4 4 7.58172 4 12C4 16.4183 7.58172 20 12 20ZM7 11H17V13H7V11Z"
+                      fill="#A3A3A3" />
+                  </svg>
+                </div>
+                <div class="faq__accordion__toggle-icon">
+                  <svg
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M11 11V7H13V11H17V13H13V17H11V13H7V11H11ZM12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22ZM12 20C16.4183 20 20 16.4183 20 12C20 7.58172 16.4183 4 12 4C7.58172 4 4 7.58172 4 12C4 16.4183 7.58172 20 12 20Z"
+                      fill="#A3A3A3" />
+                  </svg>
+                </div>
+              </div>
+            </button>
+            <div class="faq__accordion__content open" id="faq4">
+              <p>
+                Yes, we support educational institutions and non-profit
+                organizations by offering special discounted pricing. Please
+                contact us for more details and to see if you qualify.
+              </p>
+            </div>
+          </div>
+          <hr />
+          <div class="faq__accordion">
+            <button
+              class="faq__accordion__label"
+              type="button"
+              aria-expanded="true"
+              aria-controls="faq5">
+              <span>What is your refund policy?</span>
+              <div aria-hidden="true">
+                <div class="faq__accordion__toggle-icon open">
+                  <svg
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22ZM12 20C16.4183 20 20 16.4183 20 12C20 7.58172 16.4183 4 12 4C7.58172 4 4 7.58172 4 12C4 16.4183 7.58172 20 12 20ZM7 11H17V13H7V11Z"
+                      fill="#A3A3A3" />
+                  </svg>
+                </div>
+                <div class="faq__accordion__toggle-icon">
+                  <svg
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M11 11V7H13V11H17V13H13V17H11V13H7V11H11ZM12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22ZM12 20C16.4183 20 20 16.4183 20 12C20 7.58172 16.4183 4 12 4C7.58172 4 4 7.58172 4 12C4 16.4183 7.58172 20 12 20Z"
+                      fill="#A3A3A3" />
+                  </svg>
+                </div>
+              </div>
+            </button>
+            <div class="faq__accordion__content open" id="faq5">
+              <p>
+                We offer a 30-day money-back guarantee. If you're not satisfied
+                with our service within the first 30 days of your subscription,
+                you can cancel your plan and receive a full refund.
+              </p>
+            </div>
+          </div>
+          <hr />
+          <div class="faq__accordion">
+            <button
+              class="faq__accordion__label"
+              type="button"
+              aria-expanded="true"
+              aria-controls="faq6">
+              <span
+                >Are there any additional fees apart from the subscription
+                cost?</span
+              >
+              <div aria-hidden="true">
+                <div class="faq__accordion__toggle-icon open">
+                  <svg
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22ZM12 20C16.4183 20 20 16.4183 20 12C20 7.58172 16.4183 4 12 4C7.58172 4 4 7.58172 4 12C4 16.4183 7.58172 20 12 20ZM7 11H17V13H7V11Z"
+                      fill="#A3A3A3" />
+                  </svg>
+                </div>
+                <div class="faq__accordion__toggle-icon">
+                  <svg
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M11 11V7H13V11H17V13H13V17H11V13H7V11H11ZM12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22ZM12 20C16.4183 20 20 16.4183 20 12C20 7.58172 16.4183 4 12 4C7.58172 4 4 7.58172 4 12C4 16.4183 7.58172 20 12 20Z"
+                      fill="#A3A3A3" />
+                  </svg>
+                </div>
+              </div>
+            </button>
+            <div class="faq__accordion__content open" id="faq6">
+              <p>
+                No, there are no hidden fees. The subscription price is
+                all-inclusive, covering full access to our library and all
+                features listed in your chosen plan.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq__support__card">
+            <div class="faq__support__content">
+              <h6>Can’t find the answer you’re looking for?</h6>
+              <p>
+                Reach out to our
+                <a class="link" href="mailto:support@greatfrontend.com">
+                  customer support
+                </a>
+                team.
+              </p>
+            </div>
+            <button class="btn btn--primary btn--faq" type="button">
+              Get in touch
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Features grid -->
+      <section class="features-grid" aria-labelledby="features-grid">
+        <header class="header">
+          <div class="header__supporting-text">Premium abstract images</div>
+          <div class="header__content">
+            <h2 class="header__content__title">
+              Easy access to top quality images
+            </h2>
+            <p
+              class="header__content__subtitle header__content__subtitle--features-grid">
+              In a world where storytelling constantly evolves, we lead with
+              groundbreaking images designed for your presentation excellence.
+            </p>
+          </div>
+        </header>
+        <ul class="features-grid__features" role="list">
+          <li class="features-grid__features__item">
+            <div class="features-grid__features__item__icon" aria-hidden="true">
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M13 10H18L12 16L6 10H11V3H13V10ZM4 19H20V12H22V20C22 20.5523 21.5523 21 21 21H3C2.44772 21 2 20.5523 2 20V12H4V19Z"
+                  fill="#4338CA" />
+              </svg>
+            </div>
+            <div class="features-grid__features__item__content">
+              <h6 class="features-grid__features__item__content__title">
+                Infinite Download
+              </h6>
+              <p>
+                Once you subscribe to our plans, they're all yours. Download as
+                many as you want and use them for work presentations,
+                wallpapers, and much more.
+              </p>
+            </div>
+          </li>
+          <li class="features-grid__features__item">
+            <div class="features-grid__features__item__icon" aria-hidden="true">
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M15.4565 9.67491L15.3144 9.53285C14.6661 8.90783 13.8549 8.43357 12.9235 8.18399C10.0168 7.40515 7.22541 9.05261 6.43185 12.0142C6.38901 12.1741 6.36574 12.3536 6.3285 12.805C6.17423 14.675 5.73449 16.0696 4.5286 17.4841C6.78847 18.3726 9.46572 18.9984 11.5016 18.9984C13.9702 18.9984 16.1644 17.3393 16.8126 14.9201C17.3306 12.9868 16.7513 11.018 15.4565 9.67491ZM13.2886 6.21289L18.2278 2.3713C18.6259 2.06168 19.1922 2.09694 19.5488 2.45355L22.543 5.44774C22.8997 5.80435 22.9349 6.3707 22.6253 6.76879L18.7847 11.7067C19.0778 12.895 19.0836 14.1719 18.7444 15.4377C17.8463 18.7896 14.8142 20.9984 11.5016 20.9984C8 20.9984 3.5 19.4966 1 17.9966C4.97978 14.9966 4.04722 13.1864 4.5 11.4966C5.55843 7.54646 9.34224 5.23923 13.2886 6.21289ZM16.7015 8.09149C16.7673 8.15494 16.8319 8.21952 16.8952 8.2852L18.0297 9.41972L20.5046 6.23774L18.7589 4.49198L15.5769 6.96685L16.7015 8.09149Z"
+                  fill="#4338CA" />
+              </svg>
+            </div>
+            <div class="features-grid__features__item__content">
+              <h6 class="features-grid__features__item__content__title">
+                Purely Handcrafted
+              </h6>
+              <p>
+                No AI, no generic images. Crafted from various chemicals,
+                fabrics, clouds, or even particles as small as dust.
+              </p>
+            </div>
+          </li>
+          <li class="features-grid__features__item">
+            <div class="features-grid__features__item__icon" aria-hidden="true">
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M16.2877 9.42773C15.413 7.97351 13.8195 7 12 7C9.23999 7 7 9.23999 7 12C7 14.76 9.23999 17 12 17C13.8195 17 15.413 16.0265 16.2877 14.5723L14.5729 13.5442C14.0483 14.4166 13.0927 15 12 15C10.3425 15 9 13.6575 9 12C9 10.3425 10.3425 9 12 9C13.093 9 14.0491 9.58386 14.5735 10.4568L16.2877 9.42773ZM22 12C22 6.47998 17.52 2 12 2C6.47998 2 2 6.47998 2 12C2 17.52 6.47998 22 12 22C17.52 22 22 17.52 22 12ZM4 12C4 7.57996 7.57996 4 12 4C16.42 4 20 7.57996 20 12C20 16.42 16.42 20 12 20C7.57996 20 4 16.42 4 12Z"
+                  fill="#4338CA" />
+              </svg>
+            </div>
+            <div class="features-grid__features__item__content">
+              <h6 class="features-grid__features__item__content__title">
+                All Are Under licensed
+              </h6>
+              <p>
+                The only limitation with these abstract images is that you are
+                not able to sell them in any form, whether digital or hard copy
+                (such as paintings or prints on paper).
+              </p>
+            </div>
+          </li>
+          <li class="features-grid__features__item">
+            <div class="features-grid__features__item__icon" aria-hidden="true">
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M12.0049 2C17.5277 2 22.0049 6.47715 22.0049 12C22.0049 17.5228 17.5277 22 12.0049 22C9.57847 22 7.3539 21.1358 5.62216 19.6985L5.37815 19.4892L6.27949 17.5875C7.73229 19.0759 9.76067 20 12.0049 20C16.4232 20 20.0049 16.4183 20.0049 12C20.0049 7.58172 16.4232 4 12.0049 4C7.66997 4 4.14034 7.44784 4.00869 11.7508L4.00488 12H6.50488L3.79854 17.7161C2.66796 16.096 2.00488 14.1254 2.00488 12C2.00488 6.47715 6.48204 2 12.0049 2ZM13.0049 6V8H15.5049V10H10.0049C9.72874 10 9.50488 10.2239 9.50488 10.5C9.50488 10.7455 9.68176 10.9496 9.91501 10.9919L10.0049 11H14.0049C15.3856 11 16.5049 12.1193 16.5049 13.5C16.5049 14.8807 15.3856 16 14.0049 16H13.0049V18H11.0049V16H8.50488V14H14.0049C14.281 14 14.5049 13.7761 14.5049 13.5C14.5049 13.2545 14.328 13.0504 14.0948 13.0081L14.0049 13H10.0049C8.62417 13 7.50488 11.8807 7.50488 10.5C7.50488 9.11929 8.62417 8 10.0049 8H11.0049V6H13.0049Z"
+                  fill="#4338CA" />
+              </svg>
+            </div>
+            <div class="features-grid__features__item__content">
+              <h6 class="features-grid__features__item__content__title">
+                Cancel Anytime
+              </h6>
+              <p>
+                Subscribe at your own pace, and cancel when you feel it's
+                enough.
+              </p>
+            </div>
+          </li>
+          <li class="features-grid__features__item">
+            <div class="features-grid__features__item__icon" aria-hidden="true">
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M12 11C14.7614 11 17 13.2386 17 16V22H15V16C15 14.4023 13.7511 13.0963 12.1763 13.0051L12 13C10.4023 13 9.09634 14.2489 9.00509 15.8237L9 16V22H7V16C7 13.2386 9.23858 11 12 11ZM5.5 14C5.77885 14 6.05009 14.0326 6.3101 14.0942C6.14202 14.594 6.03873 15.122 6.00896 15.6693L6 16L6.0007 16.0856C5.88757 16.0456 5.76821 16.0187 5.64446 16.0069L5.5 16C4.7203 16 4.07955 16.5949 4.00687 17.3555L4 17.5V22H2V17.5C2 15.567 3.567 14 5.5 14ZM18.5 14C20.433 14 22 15.567 22 17.5V22H20V17.5C20 16.7203 19.4051 16.0796 18.6445 16.0069L18.5 16C18.3248 16 18.1566 16.03 18.0003 16.0852L18 16C18 15.3343 17.8916 14.694 17.6915 14.0956C17.9499 14.0326 18.2211 14 18.5 14ZM5.5 8C6.88071 8 8 9.11929 8 10.5C8 11.8807 6.88071 13 5.5 13C4.11929 13 3 11.8807 3 10.5C3 9.11929 4.11929 8 5.5 8ZM18.5 8C19.8807 8 21 9.11929 21 10.5C21 11.8807 19.8807 13 18.5 13C17.1193 13 16 11.8807 16 10.5C16 9.11929 17.1193 8 18.5 8ZM5.5 10C5.22386 10 5 10.2239 5 10.5C5 10.7761 5.22386 11 5.5 11C5.77614 11 6 10.7761 6 10.5C6 10.2239 5.77614 10 5.5 10ZM18.5 10C18.2239 10 18 10.2239 18 10.5C18 10.7761 18.2239 11 18.5 11C18.7761 11 19 10.7761 19 10.5C19 10.2239 18.7761 10 18.5 10ZM12 2C14.2091 2 16 3.79086 16 6C16 8.20914 14.2091 10 12 10C9.79086 10 8 8.20914 8 6C8 3.79086 9.79086 2 12 2ZM12 4C10.8954 4 10 4.89543 10 6C10 7.10457 10.8954 8 12 8C13.1046 8 14 7.10457 14 6C14 4.89543 13.1046 4 12 4Z"
+                  fill="#4338CA" />
+              </svg>
+            </div>
+            <div class="features-grid__features__item__content">
+              <h6 class="features-grid__features__item__content__title">
+                Empowering For Team
+              </h6>
+              <p>
+                We support multiple seats at once, requiring only a single
+                payment.
+              </p>
+            </div>
+          </li>
+          <li class="features-grid__features__item">
+            <div class="features-grid__features__item__icon" aria-hidden="true">
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M5.46257 4.43262C7.21556 2.91688 9.5007 2 12 2C17.5228 2 22 6.47715 22 12C22 14.1361 21.3302 16.1158 20.1892 17.7406L17 12H20C20 7.58172 16.4183 4 12 4C9.84982 4 7.89777 4.84827 6.46023 6.22842L5.46257 4.43262ZM18.5374 19.5674C16.7844 21.0831 14.4993 22 12 22C6.47715 22 2 17.5228 2 12C2 9.86386 2.66979 7.88416 3.8108 6.25944L7 12H4C4 16.4183 7.58172 20 12 20C14.1502 20 16.1022 19.1517 17.5398 17.7716L18.5374 19.5674Z"
+                  fill="#4338CA" />
+              </svg>
+            </div>
+            <div class="features-grid__features__item__content">
+              <h6 class="features-grid__features__item__content__title">
+                No Limitations
+              </h6>
+              <p>
+                Use as many as you want, from Dribbble presentations to
+                PowerPoint presentations.
+              </p>
+            </div>
+          </li>
+        </ul>
+      </section>
+
+      <!-- Testimonials -->
+      <section class="testimonials" aria-labelledby="testimonials">
+        <header class="header">
+          <div
+            class="header__supporting-text header__supporting-text--testimonials">
+            Testimonials
+          </div>
+          <div class="header__content">
+            <h2 class="header__content__title">
+              Countless users, countless smiles
+            </h2>
+            <p class="header__content__subtitle">
+              Explore our community's journey and discover why satisfaction
+              defines us.
+            </p>
+          </div>
+        </header>
+        <div class="testimonials-list">
+          <figure class="testimonial-card">
+            <figcaption class="testimonial-card__author">
+              <img
+                src="https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/object/public/projects-images/testimonials-section/starter/img/sarah.jpg"
+                alt="Sarah Dole's profile picture" />
+              <div class="testimonial-card__author__info">
+                <div class="testimonial-card__author__info__name">
+                  Sarah Dole
+                </div>
+                <div class="testimonial-card__author__info__username">
+                  @sarahdole
+                </div>
+              </div>
+            </figcaption>
+            <blockquote>
+              <p>
+                I've been searching for high-quality abstract images for my
+                design projects, and I'm thrilled to have found this platform.
+                The variety and depth of creativity are astounding!
+              </p>
+            </blockquote>
+          </figure>
+          <figure class="testimonial-card">
+            <figcaption class="testimonial-card__author">
+              <img
+                src="https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/object/public/projects-images/testimonials-section/starter/img/john.jpg"
+                alt="Marcus Thompson's profile picture" />
+              <div class="testimonial-card__author__info">
+                <div class="testimonial-card__author__info__name">
+                  John Appleseed
+                </div>
+                <div class="testimonial-card__author__info__username">
+                  @johnaseed
+                </div>
+              </div>
+            </figcaption>
+            <blockquote>
+              <p>
+                As an artist, finding inspiration is crucial. This platform has
+                become my go-to source for unique abstract images that ignite my
+                creativity like never before.
+              </p>
+            </blockquote>
+          </figure>
+          <figure class="testimonial-card">
+            <figcaption class="testimonial-card__author">
+              <img
+                src="https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/object/public/projects-images/testimonials-section/starter/img/jean.jpg"
+                alt="Jean Gray's profile picture" />
+              <div class="testimonial-card__author__info">
+                <div class="testimonial-card__author__info__name">
+                  Jean Gray
+                </div>
+                <div class="testimonial-card__author__info__username">
+                  @jeniic
+                </div>
+              </div>
+            </figcaption>
+            <blockquote>
+              <p>
+                I never thought I'd find such stunning abstract images for free!
+                This platform has exceeded my expectations in every way.
+              </p>
+            </blockquote>
+          </figure>
+          <figure class="testimonial-card">
+            <figcaption class="testimonial-card__author">
+              <img
+                src="https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/object/public/projects-images/testimonials-section/starter/img/jake.jpg"
+                alt="Jake Johnson's profile picture" />
+              <div class="testimonial-card__author__info">
+                <div class="testimonial-card__author__info__name">
+                  Jake Johnson
+                </div>
+                <div class="testimonial-card__author__info__username">
+                  @jakejohnshon
+                </div>
+              </div>
+            </figcaption>
+            <blockquote>
+              <p>
+                From corporate presentations to personal projects, the abstract
+                images on this platform have added a touch of elegance and
+                sophistication to everything I create.
+              </p>
+            </blockquote>
+          </figure>
+          <figure class="testimonial-card">
+            <figcaption class="testimonial-card__author">
+              <img
+                src="https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/object/public/projects-images/testimonials-section/starter/img/igor.jpg"
+                alt="Igor Stravinsky's profile picture" />
+              <div class="testimonial-card__author__info">
+                <div class="testimonial-card__author__info__name">
+                  Igor Stravinsky
+                </div>
+                <div class="testimonial-card__author__info__username">
+                  @igorstrav
+                </div>
+              </div>
+            </figcaption>
+            <blockquote>
+              <p>
+                The subscription plans are worth every penny. Having unlimited
+                access to premium abstract images has transformed my design
+                workflow and elevated the quality of my work
+              </p>
+            </blockquote>
+          </figure>
+          <figure class="testimonial-card">
+            <figcaption class="testimonial-card__author">
+              <img
+                src="https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/object/public/projects-images/testimonials-section/starter/img/declan.jpg"
+                alt="Declan Rice's profile picture" />
+              <div class="testimonial-card__author__info">
+                <div class="testimonial-card__author__info__name">
+                  Declan Rice
+                </div>
+                <div class="testimonial-card__author__info__username">
+                  @drice
+                </div>
+              </div>
+            </figcaption>
+            <blockquote>
+              <p>
+                I'm amazed by the attention to detail in every image on this
+                platform. It's clear that a lot of thought and creativity goes
+                into curating the collection.
+              </p>
+            </blockquote>
+          </figure>
+          <figure class="testimonial-card">
+            <figcaption class="testimonial-card__author">
+              <img
+                src="https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/object/public/projects-images/testimonials-section/starter/img/marcus.jpg"
+                alt="Marcus Thompson's profile picture" />
+              <div class="testimonial-card__author__info">
+                <div class="testimonial-card__author__info__name">
+                  Marcus Thompson
+                </div>
+                <div class="testimonial-card__author__info__username">
+                  @mthompson
+                </div>
+              </div>
+            </figcaption>
+            <blockquote>
+              <p>
+                Using abstract images from this platform has helped me convey
+                complex concepts in a visually engaging way. My clients are
+                always impressed!
+              </p>
+            </blockquote>
+          </figure>
+          <figure class="testimonial-card">
+            <figcaption class="testimonial-card__author">
+              <img
+                src="https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/object/public/projects-images/testimonials-section/starter/img/oliver.jpg"
+                alt="Oliver Neverloved's profile picture" />
+              <div class="testimonial-card__author__info">
+                <div class="testimonial-card__author__info__name">
+                  Oliver Neverloved
+                </div>
+                <div class="testimonial-card__author__info__username">
+                  @olivernever
+                </div>
+              </div>
+            </figcaption>
+            <blockquote>
+              <p>
+                I appreciate how user-friendly the platform is. Browsing,
+                downloading, and managing my image library couldn't be easier.
+              </p>
+            </blockquote>
+          </figure>
+          <figure class="testimonial-card">
+            <figcaption class="testimonial-card__author">
+              <img
+                src="https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/object/public/projects-images/testimonials-section/starter/img/mark.jpg"
+                alt="Mark Dennis's profile picture" />
+              <div class="testimonial-card__author__info">
+                <div class="testimonial-card__author__info__name">
+                  Mark Dennis
+                </div>
+                <div class="testimonial-card__author__info__username">
+                  @marked
+                </div>
+              </div>
+            </figcaption>
+            <blockquote>
+              <p>
+                The customer support team went above and beyond to help me with
+                a subscription issue. Their dedication to customer satisfaction
+                is truly commendable
+              </p>
+            </blockquote>
+          </figure>
+        </div>
+      </section>
+
+      <!-- Contact -->
+      <section class="contact-section" aria-labelledby="contact-section">
+        <div class="contact-section__left">
+          <div class="contact-section__left__header">
+            <h1 class="contact-section__left__header__title">
+              Talk to our team
+            </h1>
+            <p>
+              We're committed to delivering the support you require to make your
+              experience as smooth as possible.
+            </p>
+          </div>
+          <div class="contact-section__left__metadata">
+            <div class="contact-section__left__metadata__item">
+              <div class="contact-section__left__metadata__item_icon">
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M21 19H23V21H1V19H3V4C3 3.44772 3.44772 3 4 3H14C14.5523 3 15 3.44772 15 4V19H19V11H17V9H20C20.5523 9 21 9.44772 21 10V19ZM5 5V19H13V5H5ZM7 11H11V13H7V11ZM7 7H11V9H7V7Z"
+                    fill="currentColor" />
+                </svg>
+              </div>
+              <p>123 Maple Street, Springfield, IL, USA</p>
+            </div>
+            <div class="contact-section__left__metadata__item">
+              <div class="contact-section__left__metadata__item_icon">
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M9.36556 10.6821C10.302 12.3288 11.6712 13.698 13.3179 14.6344L14.2024 13.3961C14.4965 12.9845 15.0516 12.8573 15.4956 13.0998C16.9024 13.8683 18.4571 14.3353 20.0789 14.4637C20.599 14.5049 21 14.9389 21 15.4606V19.9234C21 20.4361 20.6122 20.8657 20.1022 20.9181C19.5723 20.9726 19.0377 21 18.5 21C9.93959 21 3 14.0604 3 5.5C3 4.96227 3.02742 4.42771 3.08189 3.89776C3.1343 3.38775 3.56394 3 4.07665 3H8.53942C9.0611 3 9.49513 3.40104 9.5363 3.92109C9.66467 5.54288 10.1317 7.09764 10.9002 8.50444C11.1427 8.9484 11.0155 9.50354 10.6039 9.79757L9.36556 10.6821ZM6.84425 10.0252L8.7442 8.66809C8.20547 7.50514 7.83628 6.27183 7.64727 5H5.00907C5.00303 5.16632 5 5.333 5 5.5C5 12.9558 11.0442 19 18.5 19C18.667 19 18.8337 18.997 19 18.9909V16.3527C17.7282 16.1637 16.4949 15.7945 15.3319 15.2558L13.9748 17.1558C13.4258 16.9425 12.8956 16.6915 12.3874 16.4061L12.3293 16.373C10.3697 15.2587 8.74134 13.6303 7.627 11.6707L7.59394 11.6126C7.30849 11.1044 7.05754 10.5742 6.84425 10.0252Z"
+                    fill="currentColor" />
+                </svg>
+              </div>
+              <p>+1 (650) 555-0198</p>
+            </div>
+            <div class="contact-section__left__metadata__item">
+              <div class="contact-section__left__metadata__item_icon">
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M3 3H21C21.5523 3 22 3.44772 22 4V20C22 20.5523 21.5523 21 21 21H3C2.44772 21 2 20.5523 2 20V4C2 3.44772 2.44772 3 3 3ZM20 7.23792L12.0718 14.338L4 7.21594V19H20V7.23792ZM4.51146 5L12.0619 11.662L19.501 5H4.51146Z"
+                    fill="currentColor" />
+                </svg>
+              </div>
+              <a class="link link--contact" href="mailto:hello@abstractly.com"
+                >hello@abstractly.com</a
+              >
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-section__right">
+          <!-- Contact form -->
+          <form class="contact-form" id="contact-form">
+            <div class="contact-form__fields">
+              <div class="contact-form__fields__name-email">
+                <div class="input input--width">
+                  <label class="input__label" for="contact-name">Name</label>
+                  <input
+                    class="input__field"
+                    id="contact-name"
+                    aria-describedby="contact-name-error"
+                    required
+                    placeholder="Your name" />
+                  <p
+                    class="input__error input__error--contact"
+                    id="contact-name-error">
+                    Name is required
+                  </p>
+                </div>
+                <div class="input input--width">
+                  <label class="input__label" for="contact-email">Email</label>
+                  <input
+                    class="input__field"
+                    id="contact-email"
+                    aria-describedby="contact-email-error"
+                    type="email"
+                    required
+                    placeholder="example@example.com" />
+                  <p
+                    class="input__error input__error--contact"
+                    id="contact-email-error">
+                    Email address is required
+                  </p>
+                </div>
+              </div>
+              <div class="input">
+                <label class="input__label" for="contact-message"
+                  >Message</label
+                >
+                <textarea
+                  id="contact-message"
+                  aria-describedby="contact-message-error"
+                  class="input__field--text-area input__field"
+                  rows="4"
+                  required
+                  placeholder="Write your message..."></textarea>
+                <p
+                  class="input__error input__error--contact input__error--bottom"
+                  id="contact-message-error">
+                  Message is required
+                </p>
+                <div
+                  class="input__char-count"
+                  id="contact-message-char-count-label">
+                  <span id="contact-message-char-count-value">0</span>
+                  <span>/500</span>
+                </div>
+              </div>
+            </div>
+            <button type="submit" class="btn btn--primary">Submit</button>
+          </form>
+
+          <!-- Confirmation -->
+          <div class="confirmation" id="contact-confirmation">
+            <div class="confirmation__content">
+              <div class="confirmation__content__icon">
+                <svg
+                  width="32"
+                  height="32"
+                  viewBox="0 0 32 32"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M13.3344 20.2279L25.591 7.97137L27.4766 9.85699L13.3344 23.9991L4.84912 15.5139L6.73473 13.6283L13.3344 20.2279Z"
+                    fill="#15803D" />
+                </svg>
+              </div>
+              <p class="confirmation__content__message">
+                Submission successful! We will get back to you in 3-5 days via
+                email.
+              </p>
+            </div>
+            <button
+              class="btn btn--secondary btn--send-message"
+              id="send-another-message">
+              Send another message
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Footer -->
+      <footer class="footer">
+        <div class="footer__content">
+          <nav class="footer__content__items" aria-label="Footer navigation">
+            <a href="https://greatfrontend.com">Features</a>
+            <a href="https://greatfrontend.com">Pricing</a>
+            <a href="https://greatfrontend.com">About us</a>
+            <a href="https://greatfrontend.com">Contact</a>
+          </nav>
+          <div class="footer__content__items footer__content__items--icons">
+            <a
+              href="https://youtube.com"
+              target="_blank"
+              aria-label="Link to GreatFrontEnd's Youtube channel">
+              <svg
+                aria-hidden="true"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M19.6069 6.99482C19.5307 6.69695 19.3152 6.47221 19.0684 6.40288C18.6299 6.28062 16.501 6 12.001 6C7.50098 6 5.37252 6.28073 4.93225 6.40323C4.68776 6.47123 4.4723 6.69593 4.3951 6.99482C4.2863 7.41923 4.00098 9.19595 4.00098 12C4.00098 14.804 4.2863 16.5808 4.3954 17.0064C4.47126 17.3031 4.68676 17.5278 4.93251 17.5968C5.37252 17.7193 7.50098 18 12.001 18C16.501 18 18.6299 17.7194 19.0697 17.5968C19.3142 17.5288 19.5297 17.3041 19.6069 17.0052C19.7157 16.5808 20.001 14.8 20.001 12C20.001 9.2 19.7157 7.41923 19.6069 6.99482ZM21.5442 6.49818C22.001 8.28 22.001 12 22.001 12C22.001 12 22.001 15.72 21.5442 17.5018C21.2897 18.4873 20.547 19.2618 19.6056 19.5236C17.8971 20 12.001 20 12.001 20C12.001 20 6.10837 20 4.39637 19.5236C3.45146 19.2582 2.70879 18.4836 2.45774 17.5018C2.00098 15.72 2.00098 12 2.00098 12C2.00098 12 2.00098 8.28 2.45774 6.49818C2.71227 5.51273 3.45495 4.73818 4.39637 4.47636C6.10837 4 12.001 4 12.001 4C12.001 4 17.8971 4 19.6056 4.47636C20.5505 4.74182 21.2932 5.51636 21.5442 6.49818ZM10.001 15.5V8.5L16.001 12L10.001 15.5Z"
+                  fill="currentColor" />
+              </svg>
+            </a>
+            <a
+              href="https://instagram.com"
+              target="_blank"
+              aria-label="Link to GreatFrontEnd's Instagram profile">
+              <svg
+                aria-hidden="true"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M12.001 9C10.3436 9 9.00098 10.3431 9.00098 12C9.00098 13.6573 10.3441 15 12.001 15C13.6583 15 15.001 13.6569 15.001 12C15.001 10.3427 13.6579 9 12.001 9ZM12.001 7C14.7614 7 17.001 9.2371 17.001 12C17.001 14.7605 14.7639 17 12.001 17C9.24051 17 7.00098 14.7629 7.00098 12C7.00098 9.23953 9.23808 7 12.001 7ZM18.501 6.74915C18.501 7.43926 17.9402 7.99917 17.251 7.99917C16.5609 7.99917 16.001 7.4384 16.001 6.74915C16.001 6.0599 16.5617 5.5 17.251 5.5C17.9393 5.49913 18.501 6.0599 18.501 6.74915ZM12.001 4C9.5265 4 9.12318 4.00655 7.97227 4.0578C7.18815 4.09461 6.66253 4.20007 6.17416 4.38967C5.74016 4.55799 5.42709 4.75898 5.09352 5.09255C4.75867 5.4274 4.55804 5.73963 4.3904 6.17383C4.20036 6.66332 4.09493 7.18811 4.05878 7.97115C4.00703 9.0752 4.00098 9.46105 4.00098 12C4.00098 14.4745 4.00753 14.8778 4.05877 16.0286C4.0956 16.8124 4.2012 17.3388 4.39034 17.826C4.5591 18.2606 4.7605 18.5744 5.09246 18.9064C5.42863 19.2421 5.74179 19.4434 6.17187 19.6094C6.66619 19.8005 7.19148 19.9061 7.97212 19.9422C9.07618 19.9939 9.46203 20 12.001 20C14.4755 20 14.8788 19.9934 16.0296 19.9422C16.8117 19.9055 17.3385 19.7996 17.827 19.6106C18.2604 19.4423 18.5752 19.2402 18.9074 18.9085C19.2436 18.5718 19.4445 18.2594 19.6107 17.8283C19.8013 17.3358 19.9071 16.8098 19.9432 16.0289C19.9949 14.9248 20.001 14.5389 20.001 12C20.001 9.52552 19.9944 9.12221 19.9432 7.97137C19.9064 7.18906 19.8005 6.66149 19.6113 6.17318C19.4434 5.74038 19.2417 5.42635 18.9084 5.09255C18.573 4.75715 18.2616 4.55693 17.8271 4.38942C17.338 4.19954 16.8124 4.09396 16.0298 4.05781C14.9258 4.00605 14.5399 4 12.001 4ZM12.001 2C14.7176 2 15.0568 2.01 16.1235 2.06C17.1876 2.10917 17.9135 2.2775 18.551 2.525C19.2101 2.77917 19.7668 3.1225 20.3226 3.67833C20.8776 4.23417 21.221 4.7925 21.476 5.45C21.7226 6.08667 21.891 6.81333 21.941 7.8775C21.9885 8.94417 22.001 9.28333 22.001 12C22.001 14.7167 21.991 15.0558 21.941 16.1225C21.8918 17.1867 21.7226 17.9125 21.476 18.55C21.2218 19.2092 20.8776 19.7658 20.3226 20.3217C19.7668 20.8767 19.2076 21.22 18.551 21.475C17.9135 21.7217 17.1876 21.89 16.1235 21.94C15.0568 21.9875 14.7176 22 12.001 22C9.28431 22 8.94514 21.99 7.87848 21.94C6.81431 21.8908 6.08931 21.7217 5.45098 21.475C4.79264 21.2208 4.23514 20.8767 3.67931 20.3217C3.12348 19.7658 2.78098 19.2067 2.52598 18.55C2.27848 17.9125 2.11098 17.1867 2.06098 16.1225C2.01348 15.0558 2.00098 14.7167 2.00098 12C2.00098 9.28333 2.01098 8.94417 2.06098 7.8775C2.11014 6.8125 2.27848 6.0875 2.52598 5.45C2.78014 4.79167 3.12348 4.23417 3.67931 3.67833C4.23514 3.1225 4.79348 2.78 5.45098 2.525C6.08848 2.2775 6.81348 2.11 7.87848 2.06C8.94514 2.0125 9.28431 2 12.001 2Z"
+                  fill="currentColor" />
+              </svg>
+            </a>
+            <a
+              href="https://facebook.com"
+              target="_blank"
+              aria-label="Link to GreatFrontEnd's Facebook profile">
+              <svg
+                aria-hidden="true"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M14 19H19V5H5V19H12V14H10V12H12V10.3458C12 9.00855 12.1392 8.52362 12.4007 8.03473C12.6622 7.54584 13.0458 7.16216 13.5347 6.9007C13.9174 6.69604 14.3922 6.57252 15.2217 6.51954C15.551 6.49851 15.9771 6.52533 16.5 6.6V8.5H16C15.0827 8.5 14.7042 8.54332 14.4779 8.66433C14.3376 8.73939 14.2394 8.83758 14.1643 8.97793C14.0433 9.20418 14 9.42853 14 10.3458V12H16.5L16 14H14V19ZM4 3H20C20.5523 3 21 3.44772 21 4V20C21 20.5523 20.5523 21 20 21H4C3.44772 21 3 20.5523 3 20V4C3 3.44772 3.44772 3 4 3Z"
+                  fill="currentColor" />
+              </svg>
+            </a>
+            <a
+              href="https://github.com"
+              target="_blank"
+              aria-label="Link to GreatFrontEnd's GitHub profile">
+              <svg
+                aria-hidden="true"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M5.88401 18.6531C5.58404 18.4523 5.32587 18.1972 5.0239 17.8366C4.91473 17.7062 4.47283 17.1521 4.55811 17.258C4.09533 16.6831 3.80296 16.4168 3.50156 16.3087C2.9817 16.1223 2.7114 15.5497 2.89784 15.0298C3.08428 14.51 3.65685 14.2397 4.17672 14.4261C4.92936 14.696 5.43847 15.1609 6.12425 16.0141C6.03025 15.8972 6.46364 16.4408 6.55731 16.5526C6.74784 16.7802 6.88732 16.918 6.99629 16.9909C7.20118 17.128 7.58451 17.1871 8.14709 17.1308C8.17065 16.7487 8.24136 16.378 8.34919 16.0355C5.38097 15.3101 3.70116 13.3949 3.70116 9.63947C3.70116 8.4006 4.0704 7.28368 4.75917 6.34756C4.5415 5.45368 4.57433 4.37259 5.06092 3.15611C5.1725 2.87715 5.40361 2.66314 5.69031 2.57328C5.77242 2.54949 5.81791 2.5389 5.89878 2.52648C6.70167 2.40319 7.83573 2.69681 9.31449 3.62311C10.181 3.41855 11.0885 3.31476 12.0012 3.31476C12.9129 3.31476 13.8196 3.41835 14.6854 3.62253C16.1619 2.68976 17.2986 2.39625 18.1072 2.52627C18.1919 2.53988 18.2645 2.55758 18.3249 2.57741C18.6059 2.66967 18.8316 2.88155 18.9414 3.15611C19.4279 4.37232 19.4608 5.45319 19.2433 6.34695C19.9342 7.28313 20.3012 8.39184 20.3012 9.63947C20.3012 13.3966 18.627 15.3046 15.6588 16.0318C15.7837 16.4467 15.8496 16.9103 15.8496 17.4118C15.8496 18.0763 15.8471 18.7108 15.8424 19.4223C15.8412 19.6124 15.8397 19.8156 15.8375 20.1279C16.2129 20.2107 16.5229 20.5074 16.6031 20.9086C16.7114 21.4502 16.3602 21.977 15.8186 22.0853C14.6794 22.3132 13.8353 21.5535 13.8353 20.5608C13.8353 20.4705 13.836 20.3414 13.8375 20.1142C13.8398 19.8012 13.8412 19.5987 13.8425 19.4092C13.8471 18.7017 13.8496 18.0714 13.8496 17.4118C13.8496 16.7145 13.6664 16.26 13.4237 16.0508C12.7627 15.481 13.0977 14.3971 13.965 14.2996C16.9314 13.9663 18.3012 12.8174 18.3012 9.63947C18.3012 8.68484 17.9893 7.89547 17.3881 7.23534C17.1301 6.95209 17.0567 6.54634 17.199 6.19062C17.3647 5.77639 17.4354 5.2336 17.2941 4.57678L17.2847 4.57944C16.7928 4.71861 16.1744 5.01956 15.4261 5.52826C15.182 5.69413 14.8772 5.74377 14.5932 5.66388C13.7729 5.43319 12.8913 5.31476 12.0012 5.31476C11.111 5.31476 10.2294 5.43319 9.40916 5.66388C9.12662 5.74335 8.82344 5.69468 8.57997 5.53077C7.8274 5.02414 7.2056 4.72355 6.71079 4.58352C6.56735 5.23672 6.63814 5.77758 6.80336 6.19062C6.94565 6.54634 6.87219 6.95209 6.61423 7.23534C6.01715 7.89096 5.70116 8.69352 5.70116 9.63947C5.70116 12.8114 7.07225 13.9681 10.023 14.2996C10.8883 14.3969 11.2246 15.4767 10.5675 16.048C10.3751 16.2153 10.1384 16.7799 10.1384 17.4118V20.5608C10.1384 21.5472 9.30356 22.2866 8.17878 22.0898C7.63476 21.9946 7.27093 21.4764 7.36613 20.9324C7.43827 20.5201 7.75331 20.2114 8.13841 20.1274V19.1379C7.22829 19.1991 6.47656 19.0496 5.88401 18.6531Z"
+                  fill="currentColor" />
+              </svg>
+            </a>
+            <a href="https://twitter.com" target="_blank" aria-label="Twitter">
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M8 2H1L9.26086 13.0145L1.44995 21.9999H4.09998L10.4883 14.651L16 22H23L14.3917 10.5223L21.8001 2H19.1501L13.1643 8.88578L8 2ZM17 20L5 4H7L19 20H17Z"
+                  fill="currentColor" />
+              </svg>
+            </a>
+          </div>
+        </div>
+        <p>
+          &copy; <span id="copyrightYear"></span> Abstractly, Inc. All rights
+          reserved.
+        </p>
+      </footer>
+    </main>
+
+    <!-- Cookie consent -->
+    <div class="cookie-consent-banner" id="cookie-consent-banner">
+      <div class="cookie-consent-banner__content">
+        <h6>We use cookies</h6>
+        <p>
+          We use cookies to enhance your browsing experience and improve our
+          website's performance. By continuing to use this site, you consent to
+          the use of cookies. To learn more about how we use cookies and your
+          options, please read our
+          <a href="https://greatfrontend.com">cookie policy</a>.
+        </p>
+      </div>
+      <div class="cookie-consent-banner__actions">
+        <div class="cookie-consent-banner__actions__decline">
+          <button
+            type="button"
+            class="btn btn--danger btn--decline-cookie"
+            id="reject-all-cookies">
+            Decline all
+          </button>
+        </div>
+        <div class="cookie-consent-banner__actions__allow">
+          <button
+            type="button"
+            class="btn btn--primary btn--allow-cookie"
+            id="accept-all-cookies">
+            Allow cookies
+          </button>
+          <button
+            type="button"
+            class="btn btn--secondary btn--allow-cookie"
+            id="manage-cookies">
+            Manage cookies
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="popup-overlay" id="popup-overlay">
+      <div class="popup" id="popup">
+        <div class="popup__content">
+          <div class="popup__content__cookie">
+            <div class="popup__content__cookie__header">
+              <h6>Essentials</h6>
+              <label class="switch">
+                <input type="checkbox" checked disabled />
+                <span class="switch__slider"></span>
+              </label>
+            </div>
+            <p>
+              These cookies are essential for the proper functioning of our
+              services and cannot be disabled.
+            </p>
+          </div>
+          <div class="popup__content__cookie">
+            <div class="popup__content__cookie__header">
+              <h6>Analytics</h6>
+              <label class="switch">
+                <input type="checkbox" checked id="analytics-consent" />
+                <span class="switch__slider"></span>
+              </label>
+            </div>
+            <p>
+              These cookies collect information about how you use our services
+              or potential errors you encounter. Based on this information we
+              are able to improve your experience and react to any issues.
+            </p>
+          </div>
+          <div class="popup__content__cookie">
+            <div class="popup__content__cookie__header">
+              <h6>Marketing</h6>
+              <label class="switch">
+                <input type="checkbox" checked id="marketing-consent" />
+                <span class="switch__slider"></span>
+              </label>
+            </div>
+            <p>
+              These cookies allow us to show you advertisements relevant to you
+              through our advertising partners.
+            </p>
+          </div>
+          <div class="popup__content__actions">
+            <div class="popup__content__actions__allow">
+              <div class="popup__content__actions__btn__wrapper">
+                <button
+                  type="button"
+                  class="btn btn--primary btn-popup-action"
+                  id="accept-all-cookies">
+                  Accept all
+                </button>
+              </div>
+              <div class="popup__content__actions__btn__wrapper">
+                <button
+                  type="button"
+                  class="btn btn--secondary btn-popup-action"
+                  id="save-cookies">
+                  Save
+                </button>
+              </div>
+            </div>
+            <button
+              type="button"
+              class="btn btn--danger btn--popup-decline-cookie"
+              id="reject-all-cookies">
+              Decline all
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Attribute this challenge to yourself! -->
+    <div class="credits">
+      A challenge by
+      <a
+        href="https://www.greatfrontend.com/projects?ref=challenges"
+        target="_blank"
+        >GreatFrontEnd Projects</a
+      >. Built by
+      <a href="https://www.greatfrontend.com/u/niteshseram" target="_blank"
+        >Nitesh Seram</a
+      >.
+    </div>
+    <script src="../js/index.js"></script>
+  </body>
+</html>

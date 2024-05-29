@@ -28,6 +28,8 @@
     "performance": 15
   },
   "skills": [],
+  "solutionFrameworks": ["vanilla"],
+  "solutionFrameworkDefault": "vanilla",
   "resources": [
     "design-files",
     "image-assets",
