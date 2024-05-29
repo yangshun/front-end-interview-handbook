@@ -47,6 +47,7 @@ import useMonacoEditorModels from '../common/editor/useMonacoEditorModels';
 import useMonacoLanguagesFetchTypeDeclarations from '../common/editor/useMonacoLanguagesFetchTypeDeclarations';
 import useMonacoLanguagesLoadTSConfig from '../common/editor/useMonacoLanguagesLoadTSConfig';
 import useMonacoLanguagesTypeScriptRunDiagnostics from '../common/editor/useMonacoLanguagesTypeScriptRunDiagnostics';
+import useRestartSandpack from '../common/sandpack/useRestartSandpack';
 import {
   codingWorkspaceTabCommunitySolutionId,
   codingWorkspaceTabCommunitySolutionPattern,
@@ -93,6 +94,8 @@ function JavaScriptCodingWorkspaceImpl({
 
   const { sandpack } = useSandpack();
   const { files, updateFile } = sandpack;
+
+  useRestartSandpack();
 
   const shouldUseTypeScript = codingFilesShouldUseTypeScript(
     Object.keys(files),

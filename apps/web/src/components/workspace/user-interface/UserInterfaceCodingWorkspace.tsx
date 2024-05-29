@@ -50,6 +50,7 @@ import useMonacoLanguagesJSONDefaults from '../common/editor/useMonacoLanguagesJ
 import useMonacoLanguagesLoadTSConfig from '../common/editor/useMonacoLanguagesLoadTSConfig';
 import useMonacoLanguagesTypeScriptRunDiagnostics from '../common/editor/useMonacoLanguagesTypeScriptRunDiagnostics';
 import { codingWorkspaceExplorerFilePathToIcon } from '../common/explorer/codingWorkspaceExplorerFilePathToIcon';
+import useRestartSandpack from '../common/sandpack/useRestartSandpack';
 import {
   codingWorkspaceTabFileId,
   codingWorkspaceTabFilePattern,
@@ -100,6 +101,8 @@ function UserInterfaceCodingWorkspaceImpl({
   const { dispatch } = useUserInterfaceCodingWorkspaceTilesContext();
   const { sandpack } = useSandpack();
   const { activeFile, visibleFiles, files } = sandpack;
+
+  useRestartSandpack();
 
   useEffect(() => {
     if (mode === 'practice') {

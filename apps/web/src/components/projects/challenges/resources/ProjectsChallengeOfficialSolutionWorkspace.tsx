@@ -17,6 +17,7 @@ import useMonacoLanguagesJSONDefaults from '~/components/workspace/common/editor
 import useMonacoLanguagesLoadTSConfig from '~/components/workspace/common/editor/useMonacoLanguagesLoadTSConfig';
 import useMonacoLanguagesTypeScriptRunDiagnostics from '~/components/workspace/common/editor/useMonacoLanguagesTypeScriptRunDiagnostics';
 import { codingWorkspaceExplorerFilePathToIcon } from '~/components/workspace/common/explorer/codingWorkspaceExplorerFilePathToIcon';
+import useRestartSandpack from '~/components/workspace/common/sandpack/useRestartSandpack';
 import {
   codingWorkspaceTabFileId,
   codingWorkspaceTabFilePattern,
@@ -51,6 +52,8 @@ function ProjectsChallengeOfficialSolutionWorkspaceImpl({
   const { dispatch } = useUserInterfaceCodingWorkspaceTilesContext();
   const { sandpack } = useSandpack();
   const { activeFile, visibleFiles, files } = sandpack;
+
+  useRestartSandpack();
 
   const shouldUseTypeScript = codingFilesShouldUseTypeScript(
     Object.keys(files),

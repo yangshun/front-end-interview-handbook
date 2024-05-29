@@ -34,7 +34,7 @@ const withNextI18nostic = nextI18nostic();
  **/
 const nextConfig = {
   pageExtensions: ['js', 'jsx', 'ts', 'tsx', 'md', 'mdx'],
-  // reactStrictMode: true, // TODO: re-enable this and fix the stale tests issue with coding workspace.
+  reactStrictMode: false, // TODO: setting to true will cause stale Sandpack compilation issues.
   experimental: {
     serverComponentsExternalPackages: [
       'mdx-bundler',
