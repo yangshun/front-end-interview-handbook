@@ -1,0 +1,13 @@
+{
+  "name": "@gfe-challenges/404-section-solution",
+  "version": "0.0.1",
+  "private": true,
+  "devDependencies": {
+    "parcel": "2.9.3"
+  },
+  "source": "index.html",
+  "scripts": {
+    "start": "parcel",
+    "build": "parcel build"
+  }
+}

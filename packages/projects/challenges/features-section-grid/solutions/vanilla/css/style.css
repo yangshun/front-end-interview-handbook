@@ -171,7 +171,6 @@ body {
   }
 
   .features-section__features {
-    column-gap: 32px;
     row-gap: 48px;
     grid-template-columns: repeat(12, minmax(0, 1fr));
   }

@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Cookie Consent | GreatFrontEnd Projects</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div class="cookie-consent-banner" id="cookie-consent-banner">
+      <div class="cookie-consent-banner__content">
+        <h6>We use cookies</h6>
+        <p>
+          We use cookies to enhance your browsing experience and improve our
+          website's performance. By continuing to use this site, you consent to
+          the use of cookies. To learn more about how we use cookies and your
+          options, please read our
+          <a href="https://greatfrontend.com">cookie policy</a>.
+        </p>
+      </div>
+      <div class="cookie-consent-banner__actions">
+        <div class="cookie-consent-banner__actions__decline">
+          <button
+            type="button"
+            class="btn btn--danger btn--decline-cookie"
+            id="reject-all-cookies">
+            Decline all
+          </button>
+        </div>
+        <div class="cookie-consent-banner__actions__allow">
+          <button
+            type="button"
+            class="btn btn--primary btn--allow-cookie"
+            id="accept-all-cookies">
+            Allow cookies
+          </button>
+          <button
+            type="button"
+            class="btn btn--secondary btn--allow-cookie"
+            id="manage-cookies">
+            Manage cookies
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Manage cookie popup -->
+    <div class="popup-overlay" id="popup-overlay">
+      <div class="popup" id="popup">
+        <div class="popup__content">
+          <div class="popup__content__cookie">
+            <div class="popup__content__cookie__header">
+              <h6>Essentials</h6>
+              <label class="switch">
+                <input type="checkbox" checked disabled />
+                <span class="switch__slider"></span>
+              </label>
+            </div>
+            <p>
+              These cookies are essential for the proper functioning of our
+              services and cannot be disabled.
+            </p>
+          </div>
+          <div class="popup__content__cookie">
+            <div class="popup__content__cookie__header">
+              <h6>Analytics</h6>
+              <label class="switch">
+                <input type="checkbox" checked id="analytics-consent" />
+                <span class="switch__slider"></span>
+              </label>
+            </div>
+            <p>
+              These cookies collect information about how you use our services
+              or potential errors you encounter. Based on this information we
+              are able to improve your experience and react to any issues.
+            </p>
+          </div>
+          <div class="popup__content__cookie">
+            <div class="popup__content__cookie__header">
+              <h6>Marketing</h6>
+              <label class="switch">
+                <input type="checkbox" checked id="marketing-consent" />
+                <span class="switch__slider"></span>
+              </label>
+            </div>
+            <p>
+              These cookies allow us to show you advertisements relevant to you
+              through our advertising partners.
+            </p>
+          </div>
+          <div class="popup__content__actions">
+            <div class="popup__content__actions__allow">
+              <div class="popup__content__actions__btn__wrapper">
+                <button
+                  type="button"
+                  class="btn btn--primary btn-popup-action"
+                  id="accept-all-cookies">
+                  Accept all
+                </button>
+              </div>
+              <div class="popup__content__actions__btn__wrapper">
+                <button
+                  type="button"
+                  class="btn btn--secondary btn-popup-action"
+                  id="save-cookies">
+                  Save
+                </button>
+              </div>
+            </div>
+            <button
+              type="button"
+              class="btn btn--danger btn--popup-decline-cookie"
+              id="reject-all-cookies">
+              Decline all
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="js/index.js"></script>
+  </body>
+</html>

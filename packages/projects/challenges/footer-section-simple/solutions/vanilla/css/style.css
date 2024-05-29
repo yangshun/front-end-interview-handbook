@@ -1,0 +1,137 @@
+/* Put any custom CSS styles here.  */
+/* Be sure to delete the <style> tag in index.html if you want to use this stylesheet. */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+body {
+  font-family:
+    'Noto Sans',
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    Roboto,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    'Open Sans',
+    'Helvetica Neue',
+    sans-serif;
+  min-height: 100vh;
+  background: linear-gradient(147.52deg, #f9fafb 8.89%, #d2d6db 100.48%);
+}
+
+.container {
+  min-height: 100vh;
+  padding: 16px;
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+.footer-section {
+  background: #ffffff;
+  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);
+  border-radius: 4px;
+
+  padding: 286px 0px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+
+.footer {
+  padding: 48px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 16px;
+
+  font-size: 14px;
+  line-height: 20px;
+  text-align: center;
+  color: #171717;
+}
+
+.footer__content {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  justify-content: center;
+
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 20px;
+  color: #525252;
+}
+.footer__content__items {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+}
+
+.footer__content__items a {
+  text-decoration: none;
+  outline: none;
+  color: #525252;
+  padding: 0 2px;
+}
+.footer__content__items--icons {
+  gap: 24px;
+}
+.footer__content__items--icons a {
+  padding: 0;
+  color: #a3a3a3;
+}
+.footer__content__items a:hover {
+  color: #171717;
+}
+.footer__content__items a:focus {
+  color: #171717;
+  box-shadow: 0px 0px 0px 4px rgba(68, 76, 231, 0.12);
+  border-radius: 4px;
+}
+.footer__content__items a:disabled {
+  pointer-events: none;
+  color: #a3a3a3;
+}
+
+.footer__content__items svg {
+  display: block;
+}
+
+@media screen and (min-width: 768px) {
+  .footer-section {
+    box-shadow:
+      0px 4px 6px -1px rgba(0, 0, 0, 0.1),
+      0px 2px 4px -1px rgba(0, 0, 0, 0.06);
+    padding: 376px 0px;
+  }
+
+  .footer {
+    padding: 64px 16px;
+  }
+
+  .footer__content__items {
+    gap: 24px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .footer-section {
+    box-shadow:
+      0px 10px 15px -3px rgba(0, 0, 0, 0.1),
+      0px 4px 6px -2px rgba(0, 0, 0, 0.05);
+    border-radius: 6px;
+    padding: 216px 0px;
+  }
+
+  .footer {
+    padding: 96px 16px;
+  }
+}

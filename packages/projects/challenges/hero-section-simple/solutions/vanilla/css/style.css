@@ -22,26 +22,14 @@ body {
     'Helvetica Neue',
     sans-serif;
   min-height: 100vh;
-}
-
-.credits {
-  color: #777;
-  position: fixed;
-  bottom: 24px;
-  left: 24px;
-  font-size: 11px;
-  text-align: center;
-}
-
-.credits a {
-  color: #000;
-  font-weight: bold;
+  background: linear-gradient(147.52deg, #f9fafb 8.89%, #d2d6db 100.48%);
 }
 
 .container {
   min-height: 100vh;
   padding: 16px;
-  background: linear-gradient(147.52deg, #f9fafb 8.89%, #d2d6db 100.48%);
+  max-width: 1440px;
+  margin: 0 auto;
 }
 
 .hero-section {
@@ -50,17 +38,23 @@ body {
     0px 10px 15px -3px rgba(0, 0, 0, 0.1),
     0px 4px 6px -2px rgba(0, 0, 0, 0.05);
   border-radius: 6px;
-
-  display: flex;
-  flex-direction: column;
-  gap: 48px;
-
   padding: 104px 12px;
+
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 32px;
+  grid-row-gap: 48px;
+}
+
+.hero-section__content,
+.hero-section__banner {
+  grid-column: span 4 / span 4;
 }
 
 .hero-section__content {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   gap: 32px;
 }
 
@@ -147,13 +141,20 @@ body {
 }
 
 .hero-section__banner {
-  height: 264px;
+  width: 100%;
 }
 
 @media screen and (min-width: 768px) {
   .hero-section {
-    gap: 32px;
     padding: 91px 16px;
+
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    grid-row-gap: 32px;
+  }
+
+  .hero-section__content,
+  .hero-section__banner {
+    grid-column: span 6 / span 6;
   }
 
   .hero-section__content {
@@ -178,9 +179,6 @@ body {
     justify-content: flex-start;
     gap: 32px;
   }
-  .hero-section__banner {
-    height: 526px;
-  }
 
   .btn {
     height: 60px;
@@ -195,9 +193,17 @@ body {
 
 @media screen and (min-width: 1024px) {
   .hero-section {
-    flex-direction: row;
     padding: 105px 96px;
-    align-items: center;
+
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+  }
+
+  .hero-section__content {
+    grid-column: span 5 / span 5;
+  }
+
+  .hero-section__banner {
+    grid-column: span 7 / span 7;
   }
 
   .hero-section__content__header__title {
