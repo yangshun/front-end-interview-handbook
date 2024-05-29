@@ -16,7 +16,7 @@ export function EmptyState() {
               'text-sm text-center max-w-56',
               'text-neutral-700 dark:text-neutral-300',
             )}>
-            Select a layer (maximum of one)
+            Select <span className="font-bold">one</span> frame or text layer
           </p>
         </div>
       </div>
