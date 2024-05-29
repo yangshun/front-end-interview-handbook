@@ -36,6 +36,8 @@ export default function main() {
     );
   });
 
+  let currentPageNode: PageNode | null = null;
+
   function setSelectedNode() {
     if (figma.currentPage.selection.length !== 1) {
       emit<SelectionChangedHandler>('SELECTION_CHANGED', null);
@@ -49,12 +51,20 @@ export default function main() {
     emit<SelectionChangedHandler>('SELECTION_CHANGED', serializedNode);
   }
 
+  function onNodeChange() {
+    setSelectedNode();
+  }
+
   figma.on('selectionchange', () => {
     setSelectedNode();
-  });
 
-  figma.on('documentchange', () => {
-    setSelectedNode();
+    if (currentPageNode?.id === figma.currentPage.id) {
+      return;
+    }
+
+    currentPageNode?.off('nodechange', onNodeChange);
+    currentPageNode = figma.currentPage;
+    currentPageNode.on('nodechange', onNodeChange);
   });
 
   showUI({

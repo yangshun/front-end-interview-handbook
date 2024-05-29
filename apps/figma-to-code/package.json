@@ -37,9 +37,15 @@
     "editorType": [
       "figma"
     ],
-    "id": "1376738172846085359",
+    "id": "1377511503285748115",
     "name": "GreatFrontEnd - Figma to Code",
     "main": "src/main.ts",
-    "ui": "src/ui.tsx"
+    "ui": "src/ui.tsx",
+    "documentAccess": "dynamic-page",
+    "networkAccess": {
+      "allowedDomains": [
+        "none"
+      ]
+    }
   }
 }
