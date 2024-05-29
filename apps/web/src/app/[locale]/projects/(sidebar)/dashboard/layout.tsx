@@ -1,4 +1,4 @@
-import ProjectsDashboardPage from '~/components/projects/dashboard/ProjectsDashboardPage';
+import ProjectsDashboardLayout from '~/components/projects/dashboard/ProjectsDashboardLayout';
 
 import { readViewerFromToken } from '~/supabase/SupabaseServerGFE';
 
@@ -10,6 +10,8 @@ export default async function Layout({ children }: Props) {
   const viewer = await readViewerFromToken();
 
   return (
-    <ProjectsDashboardPage viewer={viewer}>{children}</ProjectsDashboardPage>
+    <ProjectsDashboardLayout viewer={viewer}>
+      {children}
+    </ProjectsDashboardLayout>
   );
 }

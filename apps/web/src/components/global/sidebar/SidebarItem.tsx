@@ -1,6 +1,7 @@
 import clsx from 'clsx';
 import { useState } from 'react';
 import { RiArrowRightSLine } from 'react-icons/ri';
+import url from 'url';
 
 import Anchor from '~/components/ui/Anchor';
 import NavbarPopover from '~/components/ui/Navbar/NavbarPopover';
@@ -73,7 +74,8 @@ export default function SidebarLinkItem({
   );
 
   if (props.type === 'link') {
-    const isLinkSelected = pathname === props.href || isSelected;
+    const urlObject = url.parse(props.href ?? '');
+    const isLinkSelected = pathname === urlObject.pathname || isSelected;
 
     const link = (
       <Anchor

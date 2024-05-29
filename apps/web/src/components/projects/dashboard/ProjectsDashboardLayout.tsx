@@ -6,6 +6,7 @@ import { FormattedMessage, useIntl } from 'react-intl';
 
 import { trpc } from '~/hooks/trpc';
 import { useAuthSignInUp } from '~/hooks/user/useAuthFns';
+import { SCROLL_HASH_PROJECTS_DASHBOARD } from '~/hooks/useScrollToHash';
 
 import BlurOverlay from '~/components/common/BlurOverlay';
 import ProjectsProfileCategoryTabs from '~/components/projects/profile/ProjectsProfileCategoryTabs';
@@ -27,7 +28,7 @@ type Props = Readonly<{
   } | null;
 }>;
 
-export default function ProjectsDashboardPage({ children, viewer }: Props) {
+export default function ProjectsDashboardLayout({ children, viewer }: Props) {
   const intl = useIntl();
 
   const { data: profileStatistics, isLoading: isProfileStatisticsLoading } =
@@ -103,7 +104,7 @@ export default function ProjectsDashboardPage({ children, viewer }: Props) {
         </div>
       }
       showOverlay={viewer == null}>
-      <div className="flex flex-col gap-16">
+      <div className="flex flex-col gap-16" id={SCROLL_HASH_PROJECTS_DASHBOARD}>
         <div className="flex flex-col gap-8">
           <div className="relative flex flex-col gap-6 lg:flex-row lg:justify-between">
             <Heading level="heading5">

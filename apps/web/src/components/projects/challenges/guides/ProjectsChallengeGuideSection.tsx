@@ -217,7 +217,7 @@ export default function ProjectsChallengeGuideSection({
               themeBorderColor,
             ])}>
             <EmptyState
-              subtitle="Challenge guides are in-the-works and we aim to complete guides for all challenges by the end of May."
+              subtitle="Challenge guides are in-progress and we aim to complete guides on a rolling basis."
               title="Coming soon"
               variant="under_construction"
             />

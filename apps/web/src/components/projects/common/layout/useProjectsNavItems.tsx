@@ -9,7 +9,10 @@ import { useIntl } from 'react-intl';
 import url from 'url';
 
 import gtag from '~/lib/gtag';
-import { SCROLL_HASH_PROJECTS_FEATURES } from '~/hooks/useScrollToHash';
+import {
+  SCROLL_HASH_PROJECTS_DASHBOARD,
+  SCROLL_HASH_PROJECTS_FEATURES,
+} from '~/hooks/useScrollToHash';
 
 import type { NavbarPrimaryItem } from '~/components/ui/Navbar/NavTypes';
 
@@ -17,7 +20,10 @@ export default function useProjectsNavItems(placement: 'nav' | 'sidebar') {
   const intl = useIntl();
 
   const dashboard: NavbarPrimaryItem = {
-    href: '/projects/dashboard',
+    href: url.format({
+      hash: SCROLL_HASH_PROJECTS_DASHBOARD,
+      pathname: '/projects/dashboard',
+    }),
     icon: RiHome3Line,
     itemKey: 'dashboard',
     label: intl.formatMessage({
