@@ -32,6 +32,9 @@ importers:
       preact:
         specifier: '>=10'
         version: 10.22.0
+      react-icons:
+        specifier: ^4.12.0
+        version: 4.12.0(react@18.2.0)
       shiki:
         specifier: ^1.6.0
         version: 1.6.0
