@@ -1,0 +1,216 @@
+/* Put any custom CSS styles here.  */
+/* Be sure to delete the <style> tag in index.html if you want to use this stylesheet. */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+body {
+  font-family:
+    'Noto Sans',
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    Roboto,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    'Open Sans',
+    'Helvetica Neue',
+    sans-serif;
+  min-height: 100vh;
+}
+
+.container {
+  width: 100%;
+  min-height: 100vh;
+  padding: 16px;
+  background: linear-gradient(147.52deg, #f9fafb 8.89%, #d2d6db 100.48%);
+}
+
+.stats {
+  background: #ffffff;
+  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);
+  border-radius: 4px;
+
+  padding: 48px 16px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+
+.header {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.header__supporting-text {
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: center;
+  color: #4338ca;
+}
+
+.header__content {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.header__content__title {
+  font-weight: 600;
+  font-size: 30px;
+  line-height: 36px;
+  text-align: center;
+  color: #171717;
+}
+
+.header__content__subtitle {
+  font-size: 20px;
+  line-height: 28px;
+  text-align: center;
+  color: #525252;
+}
+
+.stats__wrapper {
+  display: grid;
+  gap: 32px;
+  grid-row-gap: 48px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  width: 100%;
+}
+
+.stats__banner {
+  height: 311px;
+  width: 100%;
+  object-fit: cover;
+
+  grid-column: span 4 / span 4;
+}
+
+.stats__content {
+  grid-column: span 4 / span 4;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.stats__content__title {
+  font-size: 18px;
+  line-height: 28px;
+  color: #525252;
+}
+
+.stats__content__items {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 100%;
+}
+
+.stats__content__items__card {
+  width: 100%;
+  padding: 23px 0px;
+  background: #ffffff;
+  border: 1px solid #e6e6e6;
+  box-shadow:
+    0px 1px 3px rgba(0, 0, 0, 0.1),
+    0px 1px 2px rgba(0, 0, 0, 0.06);
+  border-radius: 8px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 20px;
+  line-height: 28px;
+  text-align: center;
+  color: #525252;
+}
+
+.stats__content__items__card__number {
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 40px;
+  text-align: center;
+  color: #4338ca;
+}
+
+@media screen and (min-width: 768px) {
+  .stats {
+    box-shadow:
+      0px 4px 6px -1px rgba(0, 0, 0, 0.1),
+      0px 2px 4px -1px rgba(0, 0, 0, 0.06);
+    padding: 64px 16px;
+    gap: 64px;
+  }
+
+  .header__content__title {
+    font-size: 48px;
+    line-height: 48px;
+  }
+
+  .stats__wrapper {
+    grid-row-gap: 64px;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
+
+  .stats__banner {
+    height: 656px;
+    grid-column: span 6 / span 6;
+  }
+
+  .stats__content {
+    grid-column: span 6 / span 6;
+    gap: 32px;
+  }
+
+  .stats__content__items {
+    gap: 32px;
+  }
+
+  .stats__content__items__card__number {
+    font-size: 48px;
+    line-height: 48px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .stats {
+    box-shadow:
+      0px 10px 15px -3px rgba(0, 0, 0, 0.1),
+      0px 4px 6px -2px rgba(0, 0, 0, 0.05);
+    border-radius: 6px;
+
+    padding: 126px 96px;
+  }
+
+  .header__content__title {
+    font-size: 48px;
+    line-height: 48px;
+  }
+
+  .stats__wrapper {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+  }
+
+  .stats__banner {
+    height: 544px;
+  }
+
+  .stats__content__items__card__number {
+    font-size: 48px;
+    line-height: 48px;
+  }
+}

@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Newsletter Section | GreatFrontEnd Projects</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div class="toast" id="toaster">
+      <div class="toast__content">
+        <div class="toast__content__badge">Error</div>
+        <div>
+          Failed to submit. Please ensure your details are correct or try again
+          later.
+        </div>
+      </div>
+    </div>
+
+    <main class="container">
+      <section class="newsletter" aria-describedby="newsletter-section">
+        <div class="newsletter__wrapper">
+          <div class="newsletter__content">
+            <h2 class="newsletter__content__title">
+              Get the finest curated abstracts delivered weekly to your inbox
+            </h2>
+
+            <ul class="newsletter__content__features">
+              <li>
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M0 12C0 5.37258 5.37258 0 12 0C18.6274 0 24 5.37258 24 12C24 18.6274 18.6274 24 12 24C5.37258 24 0 18.6274 0 12Z"
+                    fill="#EEF2FF" />
+                  <path
+                    d="M9.64715 15.5245L10.0007 15.878L10.3543 15.5245L19.1931 6.68562L19.9002 7.39272L10.0007 17.2922L4.34383 11.6354L5.05093 10.9283L9.64715 15.5245Z"
+                    fill="#6366F1"
+                    stroke="#6366F1" />
+                </svg>
+                <span>
+                  Exclusive access to new abstract images and collections
+                </span>
+              </li>
+              <li>
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M0 12C0 5.37258 5.37258 0 12 0C18.6274 0 24 5.37258 24 12C24 18.6274 18.6274 24 12 24C5.37258 24 0 18.6274 0 12Z"
+                    fill="#EEF2FF" />
+                  <path
+                    d="M9.64715 15.5245L10.0007 15.878L10.3543 15.5245L19.1931 6.68562L19.9002 7.39272L10.0007 17.2922L4.34383 11.6354L5.05093 10.9283L9.64715 15.5245Z"
+                    fill="#6366F1"
+                    stroke="#6366F1" />
+                </svg>
+                <span>Unlock special promotions only for subscribers</span>
+              </li>
+              <li>
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M0 12C0 5.37258 5.37258 0 12 0C18.6274 0 24 5.37258 24 12C24 18.6274 18.6274 24 12 24C5.37258 24 0 18.6274 0 12Z"
+                    fill="#EEF2FF" />
+                  <path
+                    d="M9.64715 15.5245L10.0007 15.878L10.3543 15.5245L19.1931 6.68562L19.9002 7.39272L10.0007 17.2922L4.34383 11.6354L5.05093 10.9283L9.64715 15.5245Z"
+                    fill="#6366F1"
+                    stroke="#6366F1" />
+                </svg>
+                <span>Regular doses of artistic inspiration</span>
+              </li>
+            </ul>
+          </div>
+
+          <form class="newsletter__form" id="newsletter-form">
+            <div class="newsletter__form__content">
+              <div class="newsletter__form__content__input-wrapper">
+                <input
+                  class="input__field"
+                  id="email"
+                  type="email"
+                  required
+                  placeholder="Enter your email"
+                  aria-describedby="email-error" />
+                <p class="input__error" id="email-error"></p>
+              </div>
+
+              <p class="newsletter__form__content__message">
+                We only send you the best! No spam.
+              </p>
+            </div>
+
+            <div class="newsletter__form__content__btn">
+              <button class="btn btn--primary" type="submit">Subscribe</button>
+            </div>
+          </form>
+        </div>
+
+        <img
+          src="https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/object/public/projects-images/newsletter-section/starter/img/abstract.jpg"
+          alt="Banner image for newsletter section"
+          class="newsletter__banner" />
+      </section>
+    </main>
+
+    <script src="js/index.js"></script>
+  </body>
+</html>
