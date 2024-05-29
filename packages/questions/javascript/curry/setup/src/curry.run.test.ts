@@ -2,8 +2,7 @@ import curry from './curry';
 
 const empty = () => 0;
 const square = (a: number) => a * a;
-const add = (a: number, b: number) => a * b;
-const mulThree = (a: number, b: number, c: number) => a * b * c;
+const mul = (a: number, b: number) => a * b;
 
 describe('curry', () => {
   test('returns function', () => {
@@ -23,7 +22,7 @@ describe('curry', () => {
   });
 
   test('two arguments', () => {
-    const curried = curry(add);
+    const curried = curry(mul);
     expect(curried()).toBeInstanceOf(Function);
     expect(curried(7)(3)).toBe(21);
   });
