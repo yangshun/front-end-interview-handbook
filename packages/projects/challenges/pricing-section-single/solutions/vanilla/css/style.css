@@ -1,0 +1,317 @@
+/* Put any custom CSS styles here.  */
+/* Be sure to delete the <style> tag in index.html if you want to use this stylesheet. */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+body {
+  font-family:
+    'Noto Sans',
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    Roboto,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    'Open Sans',
+    'Helvetica Neue',
+    sans-serif;
+  min-height: 100vh;
+  background: linear-gradient(147.52deg, #f9fafb 8.89%, #d2d6db 100.48%);
+}
+
+.container {
+  min-height: 100vh;
+  padding: 16px;
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+.pricing {
+  background: #ffffff;
+  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);
+  border-radius: 4px;
+
+  padding: 48px 12px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 64px;
+}
+
+.header {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.header_supporting-text {
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: center;
+  color: #4338ca;
+}
+
+.header__content {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.header__content_title {
+  font-weight: 600;
+  font-size: 30px;
+  line-height: 36px;
+  text-align: center;
+  color: #171717;
+}
+
+.header__content__subtitle {
+  font-size: 18px;
+  line-height: 28px;
+  text-align: center;
+  color: #525252;
+}
+
+.pricing__content {
+  display: grid;
+  gap: 32px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.pricing__content__features {
+  grid-column: span 4 / span 4;
+
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  width: 100%;
+  padding: 0 4px;
+}
+
+.pricing__content__features h3 {
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 32px;
+  color: #171717;
+}
+
+.pricing__content__features__list {
+  list-style: none;
+  font-size: 18px;
+  line-height: 28px;
+  color: #525252;
+
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 0;
+}
+
+.pricing__content__features__list li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.pricing__content__features__list svg {
+  flex-shrink: 0;
+}
+
+.pricing__content__card {
+  grid-column: span 4 / span 4;
+  width: 100%;
+  padding: 31px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+
+  background: #ffffff;
+  border: 1px solid #e6e6e6;
+  box-shadow:
+    0px 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0px 4px 6px -2px rgba(0, 0, 0, 0.05);
+  border-radius: 8px;
+}
+
+.badge {
+  padding: 3px 10px;
+  border-radius: 9999px;
+
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  text-align: center;
+}
+
+.badge--success {
+  color: #15803d;
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+}
+
+.pricing__content__card__info {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: center;
+
+  font-size: 14px;
+  line-height: 20px;
+  text-align: center;
+  color: #525252;
+}
+
+.pricing__content__card__info__price {
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 48px;
+  text-align: center;
+  color: #171717;
+}
+
+.pricing__content__card__desc {
+  font-size: 20px;
+  line-height: 28px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: #171717;
+
+  width: 80%;
+}
+
+.btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 14px;
+  height: 44px;
+  box-shadow:
+    0px 1px 3px rgba(0, 0, 0, 0.1),
+    0px 1px 2px rgba(0, 0, 0, 0.06);
+  border-radius: 4px;
+
+  border: none;
+  outline: none;
+  font-family: inherit;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  cursor: pointer;
+  width: 100%;
+  white-space: noWrap;
+}
+.btn:focus {
+  box-shadow: 0px 0px 0px 4px rgba(68, 76, 231, 0.12);
+}
+.btn:disabled {
+  pointer-events: none;
+  background: #f5f5f5;
+  color: #a3a3a3;
+  box-shadow: none;
+}
+.btn--primary {
+  background: #4338ca;
+  color: #ffffff;
+}
+.btn--primary:hover,
+.btn--primary:focus {
+  background: #3730a3;
+}
+
+@media screen and (min-width: 768px) {
+  .pricing {
+    box-shadow:
+      0px 4px 6px -1px rgba(0, 0, 0, 0.1),
+      0px 2px 4px -1px rgba(0, 0, 0, 0.06);
+    padding: 64px 16px;
+  }
+
+  .header {
+    padding: 0 32px;
+  }
+
+  .header__content_title {
+    font-size: 48px;
+    line-height: 48px;
+  }
+
+  .header__content__subtitle {
+    font-size: 20px;
+  }
+
+  .pricing__content {
+    grid-row-gap: 48px;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
+
+  .pricing__content__features,
+  .pricing__content__card {
+    grid-column: span 6 / span 6;
+  }
+
+  .pricing__content__features {
+    gap: 64px;
+    padding: 0;
+  }
+
+  .pricing__content__features h3 {
+    font-size: 36px;
+    line-height: 40px;
+  }
+
+  .pricing__content__card__info__price {
+    font-size: 60px;
+    line-height: 60px;
+  }
+
+  .pricing__content__card__desc {
+    width: 48%;
+  }
+
+  .btn {
+    height: 48px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .pricing {
+    box-shadow:
+      0px 10px 15px -3px rgba(0, 0, 0, 0.1),
+      0px 4px 6px -2px rgba(0, 0, 0, 0.05);
+    border-radius: 6px;
+
+    padding: 96px;
+  }
+
+  .pricing__content {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+  }
+
+  .pricing__content__features {
+    grid-column: span 7 / span 7;
+  }
+
+  .pricing__content__card {
+    grid-column: span 5 / span 5;
+  }
+
+  .pricing__content__features__list {
+    padding: 0 16px;
+  }
+
+  .pricing__content__card__desc {
+    width: 70%;
+  }
+}

@@ -1,0 +1,366 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Pricing Section Tiers | GreatFrontEnd Projects</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <main class="container">
+      <section class="pricing-tiers" aria-describedby="pricing-tiers-section">
+        <header class="header">
+          <div class="header__supporting-text">Pricing Tiers</div>
+          <div class="header__content">
+            <h2 class="header__content__title">Fit for all your needs</h2>
+            <p class="header__content__subtitle">
+              Pick the plan that suits you today and step up as your demands
+              grow - our flexible options have your journey mapped out.
+            </p>
+          </div>
+        </header>
+
+        <div class="pricing-tiers__content">
+          <div
+            class="pricing-tiers__toggle"
+            role="group"
+            aria-label="Pricing plan toggle button">
+            <button
+              class="btn--toggle btn btn--secondary"
+              aria-pressed="true"
+              id="monthlyPlanBtn">
+              Monthly
+            </button>
+            <button class="btn--toggle" aria-pressed="false" id="annualPlanBtn">
+              Annually
+            </button>
+          </div>
+          <div class="pricing-tiers__plans">
+            <div class="pricing-tiers__plan">
+              <div class="pricing-tiers__plan__header">
+                <h6>Basic Plan</h6>
+                <p>Access to a curated selection of abstract images</p>
+              </div>
+              <div class="pricing-tiers__plan__price">
+                <div>
+                  <span
+                    class="pricing-tiers__plan__price__amount"
+                    id="basicPlanPrice"
+                    >$9.99</span
+                  ><span> / month</span>
+                </div>
+                <div
+                  class="pricing-tiers__plan__price__label"
+                  id="basicPlanLabel">
+                  Billed monthly
+                </div>
+              </div>
+              <ul class="pricing-tiers__plan__features">
+                <li>
+                  <svg
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M0 12C0 5.37258 5.37258 0 12 0C18.6274 0 24 5.37258 24 12C24 18.6274 18.6274 24 12 24C5.37258 24 0 18.6274 0 12Z"
+                      fill="#EEF2FF" />
+                    <path
+                      d="M9.64715 15.5245L10.0007 15.878L10.3543 15.5245L19.1931 6.68562L19.9002 7.39272L10.0007 17.2922L4.34383 11.6354L5.05093 10.9283L9.64715 15.5245Z"
+                      fill="#6366F1"
+                      stroke="#6366F1" />
+                  </svg>
+                  <span>Standard quality images</span>
+                </li>
+                <li>
+                  <svg
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M0 12C0 5.37258 5.37258 0 12 0C18.6274 0 24 5.37258 24 12C24 18.6274 18.6274 24 12 24C5.37258 24 0 18.6274 0 12Z"
+                      fill="#EEF2FF" />
+                    <path
+                      d="M9.64715 15.5245L10.0007 15.878L10.3543 15.5245L19.1931 6.68562L19.9002 7.39272L10.0007 17.2922L4.34383 11.6354L5.05093 10.9283L9.64715 15.5245Z"
+                      fill="#6366F1"
+                      stroke="#6366F1" />
+                  </svg>
+                  <span>Limited to personal use</span>
+                </li>
+                <li>
+                  <svg
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M0 12C0 5.37258 5.37258 0 12 0C18.6274 0 24 5.37258 24 12C24 18.6274 18.6274 24 12 24C5.37258 24 0 18.6274 0 12Z"
+                      fill="#EEF2FF" />
+                    <path
+                      d="M9.64715 15.5245L10.0007 15.878L10.3543 15.5245L19.1931 6.68562L19.9002 7.39272L10.0007 17.2922L4.34383 11.6354L5.05093 10.9283L9.64715 15.5245Z"
+                      fill="#6366F1"
+                      stroke="#6366F1" />
+                  </svg>
+                  <span>Email support</span>
+                </li>
+              </ul>
+              <button type="button" class="btn btn--secondary">Buy now</button>
+            </div>
+
+            <div class="pricing-tiers__plan pricing-tiers__plan__active">
+              <div class="pricing-tiers__plan__highlight">
+                <div>Most Popular</div>
+              </div>
+              <div class="pricing-tiers__plan__header">
+                <h6>Standard Plan</h6>
+                <p>Next-level Integrations, priced economically</p>
+              </div>
+              <div
+                class="pricing-tiers__plan__price pricing-tiers__plan__price__active">
+                <div>
+                  <span
+                    class="pricing-tiers__plan__price__amount"
+                    id="standardPlanPrice"
+                    >$19.99</span
+                  ><span> / month</span>
+                </div>
+                <div
+                  class="pricing-tiers__plan__price__label"
+                  id="standardPlanLabel">
+                  Billed monthly
+                </div>
+              </div>
+              <ul class="pricing-tiers__plan__features">
+                <li>
+                  <svg
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M0 12C0 5.37258 5.37258 0 12 0C18.6274 0 24 5.37258 24 12C24 18.6274 18.6274 24 12 24C5.37258 24 0 18.6274 0 12Z"
+                      fill="#EEF2FF" />
+                    <path
+                      d="M9.64715 15.5245L10.0007 15.878L10.3543 15.5245L19.1931 6.68562L19.9002 7.39272L10.0007 17.2922L4.34383 11.6354L5.05093 10.9283L9.64715 15.5245Z"
+                      fill="#6366F1"
+                      stroke="#6366F1" />
+                  </svg>
+                  <span>
+                    Expanded library with more diverse abstract images
+                  </span>
+                </li>
+                <li>
+                  <svg
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M0 12C0 5.37258 5.37258 0 12 0C18.6274 0 24 5.37258 24 12C24 18.6274 18.6274 24 12 24C5.37258 24 0 18.6274 0 12Z"
+                      fill="#EEF2FF" />
+                    <path
+                      d="M9.64715 15.5245L10.0007 15.878L10.3543 15.5245L19.1931 6.68562L19.9002 7.39272L10.0007 17.2922L4.34383 11.6354L5.05093 10.9283L9.64715 15.5245Z"
+                      fill="#6366F1"
+                      stroke="#6366F1" />
+                  </svg>
+                  <span>High-resolution images available</span>
+                </li>
+                <li>
+                  <svg
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M0 12C0 5.37258 5.37258 0 12 0C18.6274 0 24 5.37258 24 12C24 18.6274 18.6274 24 12 24C5.37258 24 0 18.6274 0 12Z"
+                      fill="#EEF2FF" />
+                    <path
+                      d="M9.64715 15.5245L10.0007 15.878L10.3543 15.5245L19.1931 6.68562L19.9002 7.39272L10.0007 17.2922L4.34383 11.6354L5.05093 10.9283L9.64715 15.5245Z"
+                      fill="#6366F1"
+                      stroke="#6366F1" />
+                  </svg>
+                  <span>Suitable for commercial use</span>
+                </li>
+                <li>
+                  <svg
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M0 12C0 5.37258 5.37258 0 12 0C18.6274 0 24 5.37258 24 12C24 18.6274 18.6274 24 12 24C5.37258 24 0 18.6274 0 12Z"
+                      fill="#EEF2FF" />
+                    <path
+                      d="M9.64715 15.5245L10.0007 15.878L10.3543 15.5245L19.1931 6.68562L19.9002 7.39272L10.0007 17.2922L4.34383 11.6354L5.05093 10.9283L9.64715 15.5245Z"
+                      fill="#6366F1"
+                      stroke="#6366F1" />
+                  </svg>
+                  <span>Priority email support</span>
+                </li>
+                <li>
+                  <svg
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M0 12C0 5.37258 5.37258 0 12 0C18.6274 0 24 5.37258 24 12C24 18.6274 18.6274 24 12 24C5.37258 24 0 18.6274 0 12Z"
+                      fill="#EEF2FF" />
+                    <path
+                      d="M9.64715 15.5245L10.0007 15.878L10.3543 15.5245L19.1931 6.68562L19.9002 7.39272L10.0007 17.2922L4.34383 11.6354L5.05093 10.9283L9.64715 15.5245Z"
+                      fill="#6366F1"
+                      stroke="#6366F1" />
+                  </svg>
+                  <span>Advanced analytics</span>
+                </li>
+              </ul>
+              <button type="button" class="btn btn--primary">Buy now</button>
+            </div>
+
+            <div class="pricing-tiers__plan">
+              <div class="pricing-tiers__plan__header">
+                <h6>Premium Plan</h6>
+                <p>Experience limitless living for power users</p>
+              </div>
+              <div class="pricing-tiers__plan__price">
+                <div>
+                  <span
+                    class="pricing-tiers__plan__price__amount"
+                    id="premiumPlanPrice"
+                    >$29.99</span
+                  ><span> / month</span>
+                </div>
+                <div
+                  class="pricing-tiers__plan__price__label"
+                  id="premiumPlanLabel">
+                  Billed monthly
+                </div>
+              </div>
+              <ul class="pricing-tiers__plan__features">
+                <li>
+                  <svg
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M0 12C0 5.37258 5.37258 0 12 0C18.6274 0 24 5.37258 24 12C24 18.6274 18.6274 24 12 24C5.37258 24 0 18.6274 0 12Z"
+                      fill="#EEF2FF" />
+                    <path
+                      d="M9.64715 15.5245L10.0007 15.878L10.3543 15.5245L19.1931 6.68562L19.9002 7.39272L10.0007 17.2922L4.34383 11.6354L5.05093 10.9283L9.64715 15.5245Z"
+                      fill="#6366F1"
+                      stroke="#6366F1" />
+                  </svg>
+                  <span>
+                    Full access to the entire image library, including exclusive
+                    content
+                  </span>
+                </li>
+                <li>
+                  <svg
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M0 12C0 5.37258 5.37258 0 12 0C18.6274 0 24 5.37258 24 12C24 18.6274 18.6274 24 12 24C5.37258 24 0 18.6274 0 12Z"
+                      fill="#EEF2FF" />
+                    <path
+                      d="M9.64715 15.5245L10.0007 15.878L10.3543 15.5245L19.1931 6.68562L19.9002 7.39272L10.0007 17.2922L4.34383 11.6354L5.05093 10.9283L9.64715 15.5245Z"
+                      fill="#6366F1"
+                      stroke="#6366F1" />
+                  </svg>
+                  <span>
+                    Highest quality images, including premium collections
+                  </span>
+                </li>
+                <li>
+                  <svg
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M0 12C0 5.37258 5.37258 0 12 0C18.6274 0 24 5.37258 24 12C24 18.6274 18.6274 24 12 24C5.37258 24 0 18.6274 0 12Z"
+                      fill="#EEF2FF" />
+                    <path
+                      d="M9.64715 15.5245L10.0007 15.878L10.3543 15.5245L19.1931 6.68562L19.9002 7.39272L10.0007 17.2922L4.34383 11.6354L5.05093 10.9283L9.64715 15.5245Z"
+                      fill="#6366F1"
+                      stroke="#6366F1" />
+                  </svg>
+                  <span>Commercial and resale rights</span>
+                </li>
+                <li>
+                  <svg
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M0 12C0 5.37258 5.37258 0 12 0C18.6274 0 24 5.37258 24 12C24 18.6274 18.6274 24 12 24C5.37258 24 0 18.6274 0 12Z"
+                      fill="#EEF2FF" />
+                    <path
+                      d="M9.64715 15.5245L10.0007 15.878L10.3543 15.5245L19.1931 6.68562L19.9002 7.39272L10.0007 17.2922L4.34383 11.6354L5.05093 10.9283L9.64715 15.5245Z"
+                      fill="#6366F1"
+                      stroke="#6366F1" />
+                  </svg>
+                  <span>Dedicated customer support line</span>
+                </li>
+                <li>
+                  <svg
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M0 12C0 5.37258 5.37258 0 12 0C18.6274 0 24 5.37258 24 12C24 18.6274 18.6274 24 12 24C5.37258 24 0 18.6274 0 12Z"
+                      fill="#EEF2FF" />
+                    <path
+                      d="M9.64715 15.5245L10.0007 15.878L10.3543 15.5245L19.1931 6.68562L19.9002 7.39272L10.0007 17.2922L4.34383 11.6354L5.05093 10.9283L9.64715 15.5245Z"
+                      fill="#6366F1"
+                      stroke="#6366F1" />
+                  </svg>
+                  <span>24/7 support response time</span>
+                </li>
+                <li>
+                  <svg
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M0 12C0 5.37258 5.37258 0 12 0C18.6274 0 24 5.37258 24 12C24 18.6274 18.6274 24 12 24C5.37258 24 0 18.6274 0 12Z"
+                      fill="#EEF2FF" />
+                    <path
+                      d="M9.64715 15.5245L10.0007 15.878L10.3543 15.5245L19.1931 6.68562L19.9002 7.39272L10.0007 17.2922L4.34383 11.6354L5.05093 10.9283L9.64715 15.5245Z"
+                      fill="#6366F1"
+                      stroke="#6366F1" />
+                  </svg>
+                  <span>Advanced analytics and insights</span>
+                </li>
+              </ul>
+              <button type="button" class="btn btn--secondary">Buy now</button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="js/index.js"></script>
+  </body>
+</html>
