@@ -3515,6 +3515,10 @@
     "defaultMessage": "No coupons available",
     "description": "Title of empty state on coupons page"
   },
+  "QB8XoS": {
+    "defaultMessage": "View",
+    "description": "Link to a submission page"
+  },
   "QHtJPS": {
     "defaultMessage": "Practice end-to-end",
     "description": "Practice questions for all stages"
@@ -3979,6 +3983,10 @@
     "defaultMessage": "Lyft",
     "description": "Company name for Lyft"
   },
+  "TE0JLl": {
+    "defaultMessage": "Retaking screenshots",
+    "description": "Title for project submission screenshot generation"
+  },
   "THTioO": {
     "defaultMessage": "Tell us anything - about your journey as a front end developer, your goals and next steps, or how you want to connect with others",
     "description": "Bio field description"
@@ -4418,6 +4426,10 @@
   "WZy7m4": {
     "defaultMessage": "Table of Contents",
     "description": "Guides table of contents menu button label"
+  },
+  "WctnWS": {
+    "defaultMessage": "Generating screenshots",
+    "description": "Title for project submission screenshot generation"
   },
   "WelJgL": {
     "defaultMessage": "Here you'll find curated collection of our most insightful and engaging blog content, neatly organized into series for your convenience. Each series focuses on a unique theme or topic providing deep dive subject.",
@@ -5346,6 +5358,10 @@
   "dxQHSA": {
     "defaultMessage": "Start building any project you can dream of to train your front end / full stack skills or to build a useful toolkit.",
     "description": "Description of Projects challenges page"
+  },
+  "dxmK3O": {
+    "defaultMessage": "Retaking screenshots, please check back later.",
+    "description": "Message for screenshot in progress"
   },
   "dz24ro": {
     "defaultMessage": "Send reset password instructions",
@@ -6415,10 +6431,6 @@
     "defaultMessage": "Front End Engineer",
     "description": "Anonymous Front End Engineer's job title"
   },
-  "m/O2AA": {
-    "defaultMessage": "Generating screenshots, please check back later.",
-    "description": "Message for Screenshot in progress"
-  },
   "m0cej4": {
     "defaultMessage": "Started tracking progress",
     "description": "Success message for starting a study plan"
@@ -6446,10 +6458,6 @@
   "mLRZ25": {
     "defaultMessage": "See all",
     "description": "See all button label in study guides list section in preparation dashboard"
-  },
-  "mNS3v5": {
-    "defaultMessage": "View submission",
-    "description": "Link to a submission page"
   },
   "mNb3b2": {
     "defaultMessage": "Hard",
@@ -7786,6 +7794,10 @@
   "xbmWBx": {
     "defaultMessage": "Framework",
     "description": "Question framework"
+  },
+  "xcLT+y": {
+    "defaultMessage": "Generating screenshots, please check back later.",
+    "description": "Message for screenshot in progress"
   },
   "xiEHQ1": {
     "defaultMessage": "Job title",

@@ -123,6 +123,9 @@ export default function ProjectsImageComparison({
   const showLoadingState = imageComparisonStatus === 'loading';
   const showSuccessState = imageComparisonStatus === 'success';
   const showErrorState = imageComparisonStatus === 'error';
+  // TODO(projects): there's still a bug where if a user freshly loads the page
+  // while the screenshotsStatus is pending, there's no pending mutation
+  // that will refresh the page when the screenshot taking is failed/completed.
 
   return (
     <div
@@ -187,11 +190,19 @@ export default function ProjectsImageComparison({
           )}>
           <Spinner display="block" />
           <Text className="text-center" size="body1" weight="bold">
-            <FormattedMessage
-              defaultMessage="Generating screenshots, please check back later."
-              description="Message for Screenshot in progress"
-              id="m/O2AA"
-            />
+            {isRetakingScreenshotInProgress ? (
+              <FormattedMessage
+                defaultMessage="Retaking screenshots, please check back later."
+                description="Message for screenshot in progress"
+                id="dxmK3O"
+              />
+            ) : (
+              <FormattedMessage
+                defaultMessage="Generating screenshots, please check back later."
+                description="Message for screenshot in progress"
+                id="xcLT+y"
+              />
+            )}
           </Text>
         </div>
       )}

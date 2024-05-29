@@ -28,10 +28,11 @@ function ViewSubmissionButton({ href }: { href: string }) {
       })}
       icon={RiArrowRightLine}
       label={intl.formatMessage({
-        defaultMessage: 'View submission',
+        defaultMessage: 'View',
         description: 'Link to a submission page',
-        id: 'mNS3v5',
+        id: 'QB8XoS',
       })}
+      size="xs"
       variant="unstyled"
     />
   );
@@ -53,17 +54,12 @@ export default function useProjectsChallengeSubmissionTakeScreenshotMutation(
   return trpc.projects.submission.retakeScreenshot.useMutation({
     onError: (error) => {
       const message = JSON.parse(error.message);
-      let showViewLink = false;
-      let href = '';
-
-      if (message.data) {
-        href = message.data.hrefs.detail;
-        showViewLink = !isOnSubmissionPage(href);
-      }
+      const href = message.data ? message.data.hrefs.detail : null;
+      const onSubmissionPage = isOnSubmissionPage(href);
 
       showToast({
         description: (
-          <div className="flex flex-col gap-3 pt-1">
+          <div className="flex items-center gap-3 pt-1">
             <Text className="block" color="inherit" size="inherit">
               <FormattedMessage
                 defaultMessage="There were some issues with taking a screenshot for your site."
@@ -71,11 +67,7 @@ export default function useProjectsChallengeSubmissionTakeScreenshotMutation(
                 id="Va2o/g"
               />
             </Text>
-            {showViewLink && (
-              <div>
-                <ViewSubmissionButton href={href} />
-              </div>
-            )}
+            {!onSubmissionPage && <ViewSubmissionButton href={href} />}
           </div>
         ),
         title: intl.formatMessage({
@@ -86,11 +78,13 @@ export default function useProjectsChallengeSubmissionTakeScreenshotMutation(
         variant: 'danger',
       });
       // Refetch submission page data to fetch latest status of screenshot
-      router.refresh();
+      if (onSubmissionPage) {
+        router.refresh();
+      }
     },
     onMutate: () => {
       showToast({
-        title:
+        description:
           source === 'form'
             ? intl.formatMessage({
                 defaultMessage:
@@ -106,15 +100,29 @@ export default function useProjectsChallengeSubmissionTakeScreenshotMutation(
                   'Message for project submission screenshot generation',
                 id: 'AhoxQ8',
               }),
+        title:
+          source === 'form'
+            ? intl.formatMessage({
+                defaultMessage: 'Generating screenshots',
+                description:
+                  'Title for project submission screenshot generation',
+                id: 'WctnWS',
+              })
+            : intl.formatMessage({
+                defaultMessage: 'Retaking screenshots',
+                description:
+                  'Title for project submission screenshot generation',
+                id: 'TE0JLl',
+              }),
         variant: 'info',
       });
     },
     onSuccess: (data) => {
-      const showViewLink = !isOnSubmissionPage(data.hrefs.detail);
+      const onSubmissionPage = isOnSubmissionPage(data.hrefs.detail);
 
       showToast({
         description: (
-          <div className="flex flex-col gap-3 pt-1">
+          <div className="flex items-center gap-3 pt-1">
             <Text className="block" color="inherit" size="inherit">
               <FormattedMessage
                 defaultMessage={`Screenshots for your submission <bold>"{title}"</bold> have been generated.`}
@@ -126,11 +134,8 @@ export default function useProjectsChallengeSubmissionTakeScreenshotMutation(
                 }}
               />
             </Text>
-
-            {showViewLink && (
-              <div>
-                <ViewSubmissionButton href={data.hrefs.detail} />
-              </div>
+            {!onSubmissionPage && (
+              <ViewSubmissionButton href={data.hrefs.detail} />
             )}
           </div>
         ),
@@ -141,6 +146,10 @@ export default function useProjectsChallengeSubmissionTakeScreenshotMutation(
         }),
         variant: 'success',
       });
+      // Refetch submission page data to fetch latest status of screenshot
+      if (onSubmissionPage) {
+        router.refresh();
+      }
     },
   });
 }
