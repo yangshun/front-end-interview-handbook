@@ -34,11 +34,15 @@
     "typescript": "^5.3.3"
   },
   "figma-plugin": {
+    "capabilities": [
+      "inspect"
+    ],
     "editorType": [
-      "figma"
+      "figma",
+      "dev"
     ],
     "id": "1377511503285748115",
-    "name": "GreatFrontEnd - Figma to Code",
+    "name": "GreatFrontEnd – Figma to Code (HTML, CSS, Tailwind)",
     "main": "src/main.ts",
     "ui": "src/ui.tsx",
     "documentAccess": "dynamic-page",

@@ -11,13 +11,17 @@ export function EmptyState() {
             className="text-neutral-500 size-16 shrink-0"
             aria-hidden={true}
           />
-          <p
+          <div
             className={clsx(
-              'text-sm text-center max-w-56',
+              'text-sm text-center max-w-72',
               'text-neutral-700 dark:text-neutral-300',
             )}>
-            Select <span className="font-bold">one</span> frame or text layer
-          </p>
+            <p>
+              Select <span className="font-bold underline">one</span> frame or
+              text layer.
+            </p>
+            <p>Works best for auto layout frames.</p>
+          </div>
         </div>
       </div>
     </div>
