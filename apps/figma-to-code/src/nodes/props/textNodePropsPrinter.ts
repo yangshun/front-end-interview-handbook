@@ -1,5 +1,6 @@
 import type {
   GFECSSProperties,
+  GFENodeMetadata,
   GFENodePropertiesList,
   GFETailwindClasses,
 } from './types';
@@ -9,6 +10,7 @@ import { convertHexColorToTailwindColor } from '../../utils/tailwindConversions'
 import { convertRgbColorToHexColor } from '@create-figma-plugin/utilities';
 
 export function processFontName(
+  metadata: GFENodeMetadata,
   node: GFETextNode,
   propertiesList: GFENodePropertiesList,
   cssProperties: GFECSSProperties,
@@ -29,6 +31,7 @@ export function processFontName(
 }
 
 export function processFontWeight(
+  metadata: GFENodeMetadata,
   node: GFETextNode,
   propertiesList: GFENodePropertiesList,
   cssProperties: GFECSSProperties,
@@ -86,6 +89,7 @@ export function processFontWeight(
 }
 
 export function processFontSize(
+  metadata: GFENodeMetadata,
   node: GFETextNode,
   propertiesList: GFENodePropertiesList,
   cssProperties: GFECSSProperties,
@@ -187,6 +191,7 @@ export function processFontSize(
 }
 
 export function processLetterSpacing(
+  metadata: GFENodeMetadata,
   node: GFETextNode,
   propertiesList: GFENodePropertiesList,
   cssProperties: GFECSSProperties,
@@ -237,6 +242,7 @@ export function processLetterSpacing(
 }
 
 export function processLineHeight(
+  metadata: GFENodeMetadata,
   node: GFETextNode,
   propertiesList: GFENodePropertiesList,
   cssProperties: GFECSSProperties,
@@ -353,6 +359,7 @@ export function processLineHeight(
 }
 
 export function processTextAlignHorizontal(
+  metadata: GFENodeMetadata,
   node: GFETextNode,
   propertiesList: GFENodePropertiesList,
   cssProperties: GFECSSProperties,
@@ -396,6 +403,7 @@ export function processTextAlignHorizontal(
 }
 
 export function processTextDecoration(
+  metadata: GFENodeMetadata,
   node: GFETextNode,
   propertiesList: GFENodePropertiesList,
   cssProperties: GFECSSProperties,
@@ -430,6 +438,7 @@ export function processTextDecoration(
 }
 
 export function processTextCase(
+  metadata: GFENodeMetadata,
   node: GFETextNode,
   propertiesList: GFENodePropertiesList,
   cssProperties: GFECSSProperties,
@@ -480,6 +489,7 @@ export function processTextCase(
 }
 
 export function processFills(
+  metadata: GFENodeMetadata,
   node: GFETextNode,
   propertiesList: GFENodePropertiesList,
   cssProperties: GFECSSProperties,

@@ -2,6 +2,7 @@ import { convertSizeToTailwind } from '~/utils/tailwindConversions';
 
 import type {
   GFECSSProperties,
+  GFENodeMetadata,
   GFENodePropertiesList,
   GFETailwindClasses,
 } from './types';
@@ -9,6 +10,7 @@ import type { GFELayoutMixin } from '../types';
 
 // https://www.figma.com/plugin-docs/api/properties/nodes-layoutsizinghorizontal/
 export function processLayoutSizingHorizontal(
+  metadata: GFENodeMetadata,
   node: GFELayoutMixin,
   propertiesList: GFENodePropertiesList,
   cssProperties: GFECSSProperties,
@@ -33,6 +35,7 @@ export function processLayoutSizingHorizontal(
 
 // https://www.figma.com/plugin-docs/api/properties/nodes-layoutsizingvertical/
 export function processLayoutSizingVertical(
+  metadata: GFENodeMetadata,
   node: GFELayoutMixin,
   propertiesList: GFENodePropertiesList,
   cssProperties: GFECSSProperties,

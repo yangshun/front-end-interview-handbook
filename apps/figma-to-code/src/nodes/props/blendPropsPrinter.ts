@@ -1,5 +1,6 @@
 import type {
   GFECSSProperties,
+  GFENodeMetadata,
   GFENodePropertiesList,
   GFETailwindClasses,
 } from './types';
@@ -7,6 +8,7 @@ import type { GFEBlendMixin } from '../types';
 import { convertOpacityToTailwind } from '../../utils/tailwindConversions';
 
 export function processOpacity(
+  metadata: GFENodeMetadata,
   node: GFEBlendMixin,
   propertiesList: GFENodePropertiesList,
   cssProperties: GFECSSProperties,
@@ -34,6 +36,7 @@ export function processOpacity(
 }
 
 export function processEffects(
+  metadata: GFENodeMetadata,
   node: GFEBlendMixin,
   propertiesList: GFENodePropertiesList,
   cssProperties: GFECSSProperties,

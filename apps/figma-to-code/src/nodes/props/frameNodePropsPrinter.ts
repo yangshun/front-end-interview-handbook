@@ -1,5 +1,6 @@
 import type {
   GFECSSProperties,
+  GFENodeMetadata,
   GFENodePropertiesList,
   GFETailwindClasses,
 } from './types';
@@ -13,6 +14,7 @@ import {
 import { convertRgbColorToHexColor } from '@create-figma-plugin/utilities';
 
 export function processPadding(
+  metadata: GFENodeMetadata,
   node: GFEFrameMixin,
   propertiesList: GFENodePropertiesList,
   cssProperties: GFECSSProperties,
@@ -120,8 +122,7 @@ export function processPadding(
       );
     }
 
-    cssProperties.padding =
-      `${node.paddingTop}px ${node.paddingLeft}px ${node.paddingBottom}px`;
+    cssProperties.padding = `${node.paddingTop}px ${node.paddingLeft}px ${node.paddingBottom}px`;
 
     return;
   }
@@ -185,6 +186,7 @@ export function processPadding(
 }
 
 export function processCornerRadius(
+  metadata: GFENodeMetadata,
   node: GFEFrameMixin,
   propertiesList: GFENodePropertiesList,
   cssProperties: GFECSSProperties,
@@ -286,6 +288,7 @@ export function processCornerRadius(
 }
 
 export function processFills(
+  metadata: GFENodeMetadata,
   node: GFEFrameMixin,
   propertiesList: GFENodePropertiesList,
   cssProperties: GFECSSProperties,
@@ -368,6 +371,28 @@ export function processFills(
       });
 
       return;
+    }
+    case 'IMAGE': {
+      metadata.type = 'IMAGE';
+      switch (fill.scaleMode) {
+        case 'FILL': {
+          cssProperties['object-fit'] = 'cover';
+          tailwindClasses.add('object-cover');
+
+          return;
+        }
+        case 'FIT': {
+          cssProperties['object-fit'] = 'contain';
+          tailwindClasses.add('object-contain');
+
+          return;
+        }
+        default: {
+          console.warn(`Image fill scaleMode "${fill.type}" is unsupported.`);
+
+          return;
+        }
+      }
     }
     default: {
       console.warn(`Fill type "${fill.type}" is unsupported.`);

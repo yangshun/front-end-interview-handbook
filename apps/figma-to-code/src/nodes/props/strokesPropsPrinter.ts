@@ -1,9 +1,13 @@
 import type {
   GFECSSProperties,
+  GFENodeMetadata,
   GFENodePropertiesList,
   GFETailwindClasses,
 } from './types';
-import type { GFEIndividualStrokesMixin, GFEMinimalStrokesMixin } from '../types';
+import type {
+  GFEIndividualStrokesMixin,
+  GFEMinimalStrokesMixin,
+} from '../types';
 import {
   convertBorderWidthToTailwind,
   convertHexColorToTailwindColor,
@@ -13,6 +17,7 @@ import {
 import { convertRgbColorToHexColor } from '@create-figma-plugin/utilities';
 
 export function processStrokesColor(
+  metadata: GFENodeMetadata,
   node: GFEMinimalStrokesMixin,
   propertiesList: GFENodePropertiesList,
   cssProperties: GFECSSProperties,
@@ -84,6 +89,7 @@ export function processStrokesColor(
 }
 
 export function processStrokesStyle(
+  metadata: GFENodeMetadata,
   node: GFEMinimalStrokesMixin,
   propertiesList: GFENodePropertiesList,
   cssProperties: GFECSSProperties,
@@ -149,6 +155,7 @@ export function processStrokesStyle(
 }
 
 export function processStrokeWeight(
+  metadata: GFENodeMetadata,
   node: GFEIndividualStrokesMixin & GFEMinimalStrokesMixin,
   propertiesList: GFENodePropertiesList,
   cssProperties: GFECSSProperties,

@@ -1,11 +1,13 @@
 import type {
   GFECSSProperties,
+  GFENodeMetadata,
   GFENodePropertiesList,
   GFETailwindClasses,
 } from './types';
 import type { GFEAutoLayoutChildrenMixin } from '../types';
 
 export function processLayoutAlign(
+  metadata: GFENodeMetadata,
   node: GFEAutoLayoutChildrenMixin,
   propertiesList: GFENodePropertiesList,
   cssProperties: GFECSSProperties,
@@ -36,6 +38,7 @@ export function processLayoutAlign(
 }
 
 export function processLayoutGrow(
+  metadata: GFENodeMetadata,
   node: GFEAutoLayoutChildrenMixin,
   propertiesList: GFENodePropertiesList,
   cssProperties: GFECSSProperties,

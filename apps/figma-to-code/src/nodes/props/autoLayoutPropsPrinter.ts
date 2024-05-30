@@ -1,5 +1,6 @@
 import type {
   GFECSSProperties,
+  GFENodeMetadata,
   GFENodePropertiesList,
   GFETailwindClasses,
 } from './types';
@@ -11,6 +12,7 @@ import type {
 import { convertSizeToTailwind } from '../../utils/tailwindConversions';
 
 export function processLayoutMode(
+  metadata: GFENodeMetadata,
   node: GFEAutoLayoutMixin,
   propertiesList: GFENodePropertiesList,
   cssProperties: GFECSSProperties,
@@ -38,6 +40,7 @@ export function processLayoutMode(
 }
 
 export function processLayoutWrap(
+  metadata: GFENodeMetadata,
   node: GFEAutoLayoutMixin,
   propertiesList: GFENodePropertiesList,
   cssProperties: GFECSSProperties,
@@ -54,7 +57,10 @@ export function processLayoutWrap(
 }
 
 export function processPrimaryAxisSizingMode(
-  node: GFEAutoLayoutChildrenMixin & GFEAutoLayoutMixin & GFEDimensionAndPositionMixin,
+  metadata: GFENodeMetadata,
+  node: GFEAutoLayoutChildrenMixin &
+    GFEAutoLayoutMixin &
+    GFEDimensionAndPositionMixin,
   propertiesList: GFENodePropertiesList,
   cssProperties: GFECSSProperties,
   tailwindClasses: GFETailwindClasses,
@@ -91,7 +97,10 @@ export function processPrimaryAxisSizingMode(
 }
 
 export function processCounterAxisSizingMode(
-  node: GFEAutoLayoutChildrenMixin & GFEAutoLayoutMixin & GFEDimensionAndPositionMixin,
+  metadata: GFENodeMetadata,
+  node: GFEAutoLayoutChildrenMixin &
+    GFEAutoLayoutMixin &
+    GFEDimensionAndPositionMixin,
   propertiesList: GFENodePropertiesList,
   cssProperties: GFECSSProperties,
   tailwindClasses: GFETailwindClasses,
@@ -127,6 +136,7 @@ export function processCounterAxisSizingMode(
 }
 
 export function processPrimaryAxisAlignItems(
+  metadata: GFENodeMetadata,
   node: GFEAutoLayoutMixin,
   propertiesList: GFENodePropertiesList,
   cssProperties: GFECSSProperties,
@@ -170,6 +180,7 @@ export function processPrimaryAxisAlignItems(
 }
 
 export function processCounterAxisAlignItems(
+  metadata: GFENodeMetadata,
   node: GFEAutoLayoutMixin,
   propertiesList: GFENodePropertiesList,
   cssProperties: GFECSSProperties,
@@ -213,6 +224,7 @@ export function processCounterAxisAlignItems(
 }
 
 export function processCounterAxisAlignContent(
+  metadata: GFENodeMetadata,
   node: GFEAutoLayoutMixin,
   propertiesList: GFENodePropertiesList,
   cssProperties: GFECSSProperties,
@@ -240,6 +252,7 @@ export function processCounterAxisAlignContent(
 }
 
 export function processSpacing(
+  metadata: GFENodeMetadata,
   node: GFEAutoLayoutMixin,
   propertiesList: GFENodePropertiesList,
   cssProperties: GFECSSProperties,

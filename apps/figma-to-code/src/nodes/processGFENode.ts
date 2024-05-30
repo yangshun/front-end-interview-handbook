@@ -7,6 +7,7 @@ import * as strokesPropsPrinter from './props/strokesPropsPrinter';
 import * as textNodePropsPrinter from './props/textNodePropsPrinter';
 import type {
   GFECSSProperties,
+  GFENodeMetadata,
   GFENodePropertiesList,
   GFETailwindClasses,
 } from './props/types';
@@ -17,6 +18,8 @@ export function visitGFENode(node: GFENode) {
 
   const propertiesList: NewType = [];
   let content = null;
+
+  const metadata: GFENodeMetadata = { type: null };
   const cssProperties: GFECSSProperties = {};
   const tailwindClasses: GFETailwindClasses = new Set();
 
@@ -28,67 +31,123 @@ export function visitGFENode(node: GFENode) {
 
   switch (node.type) {
     case 'TEXT': {
+      metadata.type = 'INLINE';
       content = node.characters;
 
-      textNodePropsPrinter.processFontName(node, ...extractionArgs);
-      textNodePropsPrinter.processFontWeight(node, ...extractionArgs);
-      textNodePropsPrinter.processFontSize(node, ...extractionArgs);
-      textNodePropsPrinter.processLetterSpacing(node, ...extractionArgs);
-      textNodePropsPrinter.processLineHeight(node, ...extractionArgs);
-      textNodePropsPrinter.processTextAlignHorizontal(node, ...extractionArgs);
-      textNodePropsPrinter.processTextDecoration(node, ...extractionArgs);
-      textNodePropsPrinter.processTextCase(node, ...extractionArgs);
-      textNodePropsPrinter.processFills(node, ...extractionArgs);
+      textNodePropsPrinter.processFontName(metadata, node, ...extractionArgs);
+      textNodePropsPrinter.processFontWeight(metadata, node, ...extractionArgs);
+      textNodePropsPrinter.processFontSize(metadata, node, ...extractionArgs);
+      textNodePropsPrinter.processLetterSpacing(
+        metadata,
+        node,
+        ...extractionArgs,
+      );
+      textNodePropsPrinter.processLineHeight(metadata, node, ...extractionArgs);
+      textNodePropsPrinter.processTextAlignHorizontal(
+        metadata,
+        node,
+        ...extractionArgs,
+      );
+      textNodePropsPrinter.processTextDecoration(
+        metadata,
+        node,
+        ...extractionArgs,
+      );
+      textNodePropsPrinter.processTextCase(metadata, node, ...extractionArgs);
+      textNodePropsPrinter.processFills(metadata, node, ...extractionArgs);
 
-      blendPropsPrinter.processOpacity(node, ...extractionArgs);
+      blendPropsPrinter.processOpacity(metadata, node, ...extractionArgs);
       break;
     }
     case 'COMPONENT':
     case 'INSTANCE':
     case 'FRAME': {
+      metadata.type = 'BLOCK';
       autoLayoutPropsPrinter.processPrimaryAxisSizingMode(
+        metadata,
         node,
         ...extractionArgs,
       );
       autoLayoutPropsPrinter.processCounterAxisSizingMode(
+        metadata,
         node,
         ...extractionArgs,
       );
-      autoLayoutPropsPrinter.processLayoutMode(node, ...extractionArgs);
-      autoLayoutPropsPrinter.processLayoutWrap(node, ...extractionArgs);
+      autoLayoutPropsPrinter.processLayoutMode(
+        metadata,
+        node,
+        ...extractionArgs,
+      );
+      autoLayoutPropsPrinter.processLayoutWrap(
+        metadata,
+        node,
+        ...extractionArgs,
+      );
       autoLayoutPropsPrinter.processPrimaryAxisAlignItems(
+        metadata,
         node,
         ...extractionArgs,
       );
       autoLayoutPropsPrinter.processCounterAxisAlignItems(
+        metadata,
         node,
         ...extractionArgs,
       );
       autoLayoutPropsPrinter.processCounterAxisAlignContent(
+        metadata,
         node,
         ...extractionArgs,
       );
-      autoLayoutPropsPrinter.processSpacing(node, ...extractionArgs);
+      autoLayoutPropsPrinter.processSpacing(metadata, node, ...extractionArgs);
 
       autoLayoutChildrenPropsPrinter.processLayoutAlign(
+        metadata,
         node,
         ...extractionArgs,
       );
-      autoLayoutChildrenPropsPrinter.processLayoutGrow(node, ...extractionArgs);
+      autoLayoutChildrenPropsPrinter.processLayoutGrow(
+        metadata,
+        node,
+        ...extractionArgs,
+      );
 
-      layoutPropsPrinter.processLayoutSizingHorizontal(node, ...extractionArgs);
-      layoutPropsPrinter.processLayoutSizingVertical(node, ...extractionArgs);
+      layoutPropsPrinter.processLayoutSizingHorizontal(
+        metadata,
+        node,
+        ...extractionArgs,
+      );
+      layoutPropsPrinter.processLayoutSizingVertical(
+        metadata,
+        node,
+        ...extractionArgs,
+      );
 
-      frameNodePropsPrinter.processPadding(node, ...extractionArgs);
-      frameNodePropsPrinter.processFills(node, ...extractionArgs);
-      frameNodePropsPrinter.processCornerRadius(node, ...extractionArgs);
+      frameNodePropsPrinter.processPadding(metadata, node, ...extractionArgs);
+      frameNodePropsPrinter.processFills(metadata, node, ...extractionArgs);
+      frameNodePropsPrinter.processCornerRadius(
+        metadata,
+        node,
+        ...extractionArgs,
+      );
 
-      strokesPropsPrinter.processStrokeWeight(node, ...extractionArgs);
-      strokesPropsPrinter.processStrokesStyle(node, ...extractionArgs);
-      strokesPropsPrinter.processStrokesColor(node, ...extractionArgs);
+      strokesPropsPrinter.processStrokeWeight(
+        metadata,
+        node,
+        ...extractionArgs,
+      );
+      strokesPropsPrinter.processStrokesStyle(
+        metadata,
+        node,
+        ...extractionArgs,
+      );
+      strokesPropsPrinter.processStrokesColor(
+        metadata,
+        node,
+        ...extractionArgs,
+      );
 
-      blendPropsPrinter.processOpacity(node, ...extractionArgs);
-      blendPropsPrinter.processEffects(node, ...extractionArgs);
+      blendPropsPrinter.processOpacity(metadata, node, ...extractionArgs);
+      blendPropsPrinter.processEffects(metadata, node, ...extractionArgs);
       break;
     }
   }
@@ -96,6 +155,7 @@ export function visitGFENode(node: GFENode) {
   return {
     content,
     cssProperties,
+    metadata,
     properties: propertiesList,
     tailwindClasses,
   };
@@ -104,11 +164,11 @@ export function visitGFENode(node: GFENode) {
 type GFEHTMLNode = Readonly<{
   children: ReadonlyArray<GFEHTMLNode> | string | null;
   className: string | null;
-  type: 'div' | 'span';
+  type: 'div' | 'img' | 'span';
 }>;
 
 export function transformGFENode(node: GFENode): GFEHTMLNode | undefined {
-  const { content, tailwindClasses } = visitGFENode(node);
+  const { metadata, content, tailwindClasses } = visitGFENode(node);
 
   switch (node.type) {
     case 'TEXT': {
@@ -126,7 +186,14 @@ export function transformGFENode(node: GFENode): GFEHTMLNode | undefined {
           .map((childNode) => transformGFENode(childNode))
           .flatMap((htmlNode) => (htmlNode != null ? [htmlNode] : [])),
         className: Array.from(tailwindClasses).join(' '),
-        type: 'div',
+        type:
+          metadata.type === 'BLOCK'
+            ? 'div'
+            : metadata.type === 'IMAGE'
+              ? 'img'
+              : metadata.type === 'INLINE'
+                ? 'span'
+                : 'div',
       };
     }
   }

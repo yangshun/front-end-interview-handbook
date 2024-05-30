@@ -5,7 +5,7 @@
     "build": "npm run build:css && npm run build:js",
     "build:css": "tailwindcss --input ./src/styles/input.css --output ./src/styles/output.css",
     "build:js": "build-figma-plugin --typecheck --minify",
-    "watch": "npm run build:css && concurrently npm:watch:css npm:watch:js",
+    "dev": "npm run build:css && concurrently npm:watch:css npm:watch:js",
     "watch:css": "tailwindcss --input ./src/styles/input.css --output ./src/styles/output.css --watch",
     "watch:js": "build-figma-plugin --typecheck --watch",
     "tsc": "tsc",
