@@ -1,0 +1,237 @@
+/* Put any custom CSS styles here.  */
+/* Be sure to delete the <style> tag in index.html if you want to use this stylesheet. */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+body {
+  font-family:
+    'Noto Sans',
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    Roboto,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    'Open Sans',
+    'Helvetica Neue',
+    sans-serif;
+  min-height: 100vh;
+  background: linear-gradient(147.52deg, #f9fafb 8.89%, #d2d6db 100.48%);
+  padding: 16px;
+}
+
+.navbar {
+  height: 68px;
+  max-width: 1216px;
+  margin: 0 auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 80px;
+}
+
+.navbar__logo {
+  height: 32px;
+  width: 163px;
+}
+
+.navbar__mobile__header__logo {
+  height: 32px;
+}
+
+.navbar__menu-btn,
+.navbar__close-btn {
+  outline: none;
+  border: none;
+  border-radius: 4px;
+  padding: 0;
+  cursor: pointer;
+  background: none;
+}
+.navbar__menu-btn svg,
+.navbar__close-btn svg {
+  display: block;
+}
+.navbar__menu-btn:focus,
+.navbar__close-btn:focus {
+  box-shadow: 0px 0px 0px 4px rgba(68, 76, 231, 0.12);
+}
+
+.navbar__content {
+  flex: 1;
+  display: none;
+  align-items: center;
+  gap: 80px;
+}
+
+.navbar__content__links {
+  display: flex;
+  gap: 8px;
+  flex-direction: column;
+  flex: 1;
+}
+
+.navbar__content__actions {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.link {
+  outline: none;
+  color: #525252;
+  font-weight: 500;
+  text-decoration: none;
+  padding: 0px 2px;
+  line-height: 24px;
+}
+.link:hover {
+  color: #171717;
+}
+.link:focus {
+  color: #171717;
+  box-shadow: 0px 0px 0px 4px rgba(68, 76, 231, 0.12);
+  border-radius: 4px;
+}
+.link:disabled {
+  pointer-events: none;
+  color: #a3a3a3;
+}
+
+.link--nav {
+  font-size: 14px;
+  line-height: 20px;
+  color: #171717;
+  padding: 8px 12px;
+  width: 100%;
+}
+
+.btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 14px;
+  height: 44px;
+  box-shadow:
+    0px 1px 3px rgba(0, 0, 0, 0.1),
+    0px 1px 2px rgba(0, 0, 0, 0.06);
+  border-radius: 4px;
+
+  border: none;
+  outline: none;
+  font-family: inherit;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  cursor: pointer;
+  width: 100%;
+  white-space: noWrap;
+}
+.btn:focus {
+  box-shadow: 0px 0px 0px 4px rgba(68, 76, 231, 0.12);
+}
+.btn:disabled {
+  pointer-events: none;
+  background: #f5f5f5;
+  color: #a3a3a3;
+  box-shadow: none;
+}
+.btn--primary {
+  background: #4338ca;
+  color: #ffffff;
+}
+.btn--primary:hover,
+.btn--primary:focus {
+  background: #3730a3;
+}
+.btn--secondary {
+  background: #ffffff;
+  border: 0.5px solid #e6e6e6;
+  color: #171717;
+  box-shadow:
+    0px 1px 3px rgba(0, 0, 0, 0.1),
+    0px 1px 2px rgba(0, 0, 0, 0.06);
+}
+.btn--secondary:hover,
+.btn--secondary:focus {
+  background: #fafafa;
+  border: 1px solid #e6e6e6;
+}
+
+.btn--navbar-learn,
+.btn--navbar-pricing {
+  width: 100%;
+}
+
+#slideout-menu {
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  z-index: 1070;
+  top: 0;
+  bottom: 0;
+  background-color: #fff;
+  overflow-x: hidden;
+  transform: translateX(calc(-100% - 16px));
+  transition: transform 0.3s ease-in-out;
+  padding: 32px 16px;
+  width: 300px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+#slideout-menu.open {
+  transform: translateX(calc(0px - 16px));
+}
+
+.nav__mobile__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav__mobile__header__logo {
+  height: 32px;
+  width: auto;
+}
+
+@media screen and (min-width: 768px) {
+  .navbar {
+    padding: 0 16px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .navbar {
+    padding: 0;
+  }
+  .navbar__content {
+    display: flex;
+  }
+  .navbar__menu-btn {
+    display: none;
+  }
+  .navbar__content__links {
+    gap: 32px;
+    align-items: center;
+    flex-direction: row;
+  }
+  .navbar__content__actions {
+    flex-direction: row;
+  }
+  .btn--navbar-learn {
+    width: 125px;
+  }
+  .btn--navbar-pricing {
+    width: 121px;
+  }
+}
