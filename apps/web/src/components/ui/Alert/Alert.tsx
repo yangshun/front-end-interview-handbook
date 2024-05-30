@@ -10,6 +10,7 @@ import {
 
 import {
   themeBorderBrandColor,
+  themeBorderElementColor,
   themeTextBrandColor,
   themeTextColor,
   themeTextSuccessColor,
@@ -23,6 +24,7 @@ import Text, { textVariants } from '../Text';
 type AlertVariant =
   | 'danger'
   | 'info'
+  | 'neutral'
   | 'primary'
   | 'special'
   | 'success'
@@ -30,6 +32,7 @@ type AlertVariant =
 
 type Props = Readonly<{
   bodySize?: React.ComponentProps<typeof Text>['size'];
+  borderClass?: string;
   children: ReactNode;
   icon?: (props: React.ComponentProps<'svg'>) => JSX.Element;
   title?: string;
@@ -41,7 +44,7 @@ const classes: Record<
   Readonly<{
     backgroundClass: string;
     borderClass?: string;
-    icon: (props: React.ComponentProps<'svg'>) => JSX.Element;
+    icon?: (props: React.ComponentProps<'svg'>) => JSX.Element;
     iconClass: string;
     titleClass: string;
   }>
@@ -57,6 +60,11 @@ const classes: Record<
     icon: RiInformationFill,
     iconClass: 'text-info',
     titleClass: 'text-info',
+  },
+  neutral: {
+    backgroundClass: 'bg-neutral-100 dark:bg-neutral-800/70',
+    iconClass: themeTextColor,
+    titleClass: themeTextColor,
   },
   primary: {
     backgroundClass: 'bg-brand-lighter dark:bg-neutral-800/70',
@@ -89,6 +97,7 @@ const classes: Record<
 };
 
 export default function Alert({
+  borderClass: borderClassProp,
   children,
   bodySize = 'body2',
   icon: IconProp,
@@ -97,12 +106,13 @@ export default function Alert({
 }: Props) {
   const {
     backgroundClass,
-    borderClass,
+    borderClass: variantBorderClass,
     iconClass,
     titleClass,
     icon: VariantIcon,
   } = classes[variant];
 
+  const borderClass = borderClassProp || variantBorderClass;
   const Icon = IconProp ?? VariantIcon;
 
   return (
@@ -115,9 +125,12 @@ export default function Alert({
         borderClass,
       )}
       role="alert">
-      <div className="shrink-0">
-        <Icon aria-hidden="true" className={clsx('size-5 mt-0.5', iconClass)} />
-      </div>
+      {Icon && (
+        <Icon
+          aria-hidden="true"
+          className={clsx('size-5 mt-0.5 shrink-0', iconClass)}
+        />
+      )}
       <div className="grid gap-y-1">
         {title && (
           <Heading
