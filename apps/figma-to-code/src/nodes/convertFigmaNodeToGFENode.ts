@@ -22,6 +22,8 @@ export function convertFigmaNodeToGFENode(node: SceneNode): GFENode | null {
 
   switch (node.type) {
     case 'TEXT': {
+      // SceneNodeMixin
+      nodeObject.visible = node.visible;
       // MinimalBlendMixin
       nodeObject.opacity = node.opacity;
       nodeObject.effects = node.effects;
@@ -52,6 +54,8 @@ export function convertFigmaNodeToGFENode(node: SceneNode): GFENode | null {
     }
 
     case 'RECTANGLE': {
+      // SceneNodeMixin
+      nodeObject.visible = node.visible;
       // MinimalBlendMixin
       nodeObject.opacity = node.opacity;
       // BlendMixin
@@ -85,6 +89,8 @@ export function convertFigmaNodeToGFENode(node: SceneNode): GFENode | null {
     }
 
     case 'VECTOR': {
+      // SceneNodeMixin
+      nodeObject.visible = node.visible;
       // MinimalBlendMixin
       nodeObject.opacity = node.opacity;
       // BlendMixin
@@ -113,6 +119,9 @@ export function convertFigmaNodeToGFENode(node: SceneNode): GFENode | null {
     case 'COMPONENT':
     case 'INSTANCE':
     case 'FRAME': {
+      // SceneNodeMixin
+      nodeObject.visible = node.visible;
+
       nodeObject.children = node.children
         .map((childNode) => convertFigmaNodeToGFENode(childNode))
         .flatMap((childNode) => (childNode != null ? [childNode] : []));

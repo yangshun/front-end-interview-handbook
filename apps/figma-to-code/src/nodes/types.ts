@@ -1,6 +1,10 @@
 /* eslint-disable @typescript-eslint/consistent-type-definitions */
 /* eslint-disable @typescript-eslint/no-empty-interface */
 
+interface GFESceneNodeMixin {
+  visible: boolean;
+}
+
 interface GFEBaseNode {
   readonly id: string;
   name: string;
@@ -93,11 +97,13 @@ export interface GFEChildrenMixin {
 
 export interface GFEDefaultShapeMixin
   extends GFEBlendMixin,
+    GFESceneNodeMixin,
     GFEGeometryMixin,
     GFELayoutMixin {}
 
 export interface GFEBaseFrameMixin
   extends GFEChildrenMixin,
+    GFESceneNodeMixin,
     GFEAutoLayoutMixin,
     GFELayoutMixin,
     GFEMinimalStrokesMixin,

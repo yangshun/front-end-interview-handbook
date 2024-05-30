@@ -18,9 +18,12 @@ export function visitGFENode(node: GFENode) {
   type NewType = GFENodePropertiesList;
 
   const propertiesList: NewType = [];
-  let content = null;
 
-  const metadata: GFENodeMetadata = { type: null };
+  const metadata: GFENodeMetadata = {
+    content: null,
+    type: null,
+    visible: node.visible,
+  };
   const cssProperties: GFECSSProperties = {};
   const tailwindClasses: GFETailwindClasses = new Set();
 
@@ -33,7 +36,7 @@ export function visitGFENode(node: GFENode) {
   switch (node.type) {
     case 'TEXT': {
       metadata.type = 'INLINE';
-      content = node.characters;
+      metadata.content = node.characters;
 
       textNodePropsPrinter.processFontName(metadata, node, ...extractionArgs);
       textNodePropsPrinter.processFontWeight(metadata, node, ...extractionArgs);
@@ -194,7 +197,6 @@ export function visitGFENode(node: GFENode) {
   }
 
   return {
-    content,
     cssProperties,
     metadata,
     properties: propertiesList,
@@ -209,12 +211,12 @@ type GFEHTMLNode = Readonly<{
 }>;
 
 export function transformGFENode(node: GFENode): GFEHTMLNode | undefined {
-  const { metadata, content, tailwindClasses } = visitGFENode(node);
+  const { metadata, tailwindClasses } = visitGFENode(node);
 
   switch (node.type) {
     case 'TEXT': {
       return {
-        children: content,
+        children: metadata.content,
         className: Array.from(tailwindClasses).join(' '),
         type: 'span',
       };
@@ -224,6 +226,7 @@ export function transformGFENode(node: GFENode): GFEHTMLNode | undefined {
     case 'FRAME': {
       return {
         children: node.children
+          .filter((childNode) => childNode.visible)
           .map((childNode) => transformGFENode(childNode))
           .flatMap((htmlNode) => (htmlNode != null ? [htmlNode] : [])),
         className: Array.from(tailwindClasses).join(' '),
