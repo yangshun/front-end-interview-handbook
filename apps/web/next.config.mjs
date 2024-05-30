@@ -37,6 +37,7 @@ const nextConfig = {
   reactStrictMode: false, // TODO: setting to true will cause stale Sandpack compilation issues.
   experimental: {
     serverComponentsExternalPackages: [
+      'lighthouse',
       'mdx-bundler',
       '@react-email/components',
       '@react-email/render',
