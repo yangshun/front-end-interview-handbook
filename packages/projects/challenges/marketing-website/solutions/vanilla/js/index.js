@@ -9,12 +9,11 @@ document
     document.getElementById('slideout-menu').classList.toggle('open');
   });
 
-
 // Get stats data
-if(document.getElementById('stats-section')){
+if (document.getElementById('stats-section')) {
   fetch(
-    'https://www.greatfrontend.com/api/projects/challenges/statistics-metrics'
-  ).then(async response => {
+    'https://www.greatfrontend.com/api/projects/challenges/statistics-metrics',
+  ).then(async (response) => {
     if (response.ok) {
       const { data } = await response.json();
       document.getElementById('downloads-stats').innerText =
@@ -95,7 +94,7 @@ if (accordions.length > 0) {
         ariaExpandedValue = 'true';
       }
       accordions[i].setAttribute('aria-expanded', ariaExpandedValue);
-      
+
       const faqContent = this.nextElementSibling;
       const activeIcon = this.lastElementChild.firstElementChild;
       const inactiveIcon = this.lastElementChild.lastElementChild;
@@ -142,7 +141,7 @@ if (newsletterEmailField && newsletterEmailError && newsletterForm && toast) {
     // Make the request
     const response = await fetch(
       'https://www.greatfrontend.com/api/projects/challenges/newsletter',
-      requestOptions
+      requestOptions,
     );
     const result = await response.json();
 
@@ -179,10 +178,10 @@ const contactMessageField = document.getElementById('contact-message');
 const contactMessageError = document.getElementById('contact-message-error');
 
 const contactMessageCharCountValue = document.getElementById(
-  'contact-message-char-count-value'
+  'contact-message-char-count-value',
 );
 const contactMessageCharCountLabel = document.getElementById(
-  'contact-message-char-count-label'
+  'contact-message-char-count-label',
 );
 const contactForm = document.getElementById('contact-form');
 const contactConfirmation = document.getElementById('contact-confirmation');
@@ -209,7 +208,7 @@ if (
       contactMessageField.classList.add('input__field--error');
     } else {
       contactMessageCharCountLabel.classList.remove(
-        'input__char-count--exceed'
+        'input__char-count--exceed',
       );
       contactMessageField.classList.remove('input__field--error');
     }
@@ -267,7 +266,7 @@ if (
     // Make the request
     const response = await fetch(
       'https://www.greatfrontend.com/api/projects/challenges/contact',
-      requestOptions
+      requestOptions,
     );
     const result = await response.json();
 
@@ -316,6 +315,39 @@ const cookieConsentBanner = document.getElementById('cookie-consent-banner');
 const analyticsConsent = document.getElementById('analytics-consent');
 const marketingConsent = document.getElementById('marketing-consent');
 
+function getCookie(name) {
+  const value = `; ${document.cookie}`;
+  const parts = value.split(`; ${name}=`);
+  if (parts.length === 2) return parts.pop().split(';').shift();
+}
+
+function loadScript() {
+  const previousEssentialConsent = getCookie('essential');
+  const previousMarketingConsent = getCookie('marketing');
+  const previousAnalyticsConsent = getCookie('analytics');
+
+  if (previousEssentialConsent === 'true') {
+    addScript('js/essentials.js');
+  }
+  if (previousMarketingConsent === 'true') {
+    addScript('js/marketing.js');
+  }
+  if (previousAnalyticsConsent === 'true') {
+    addScript('js/analytics.js');
+  }
+}
+
+function addScript(src) {
+  let script = document.createElement('script');
+  script.src = src;
+  script.type = 'text/javascript';
+  script.onload = () => console.log(`${src} has been loaded successfully.`);
+  document.head.appendChild(script);
+}
+
+// load script on first load
+loadScript();
+
 if (
   popupElement &&
   cookieConsentBanner &&
@@ -347,11 +379,19 @@ if (
     // Hide the cookie consent banner after setting the consent
     popupElement.style.display = 'none';
     cookieConsentBanner.style.display = 'none';
+
+    //load the scripts after setting cookies
+    loadScript();
   }
 
   // Accept all cookies
   document
     .getElementById('accept-all-cookies')
+    .addEventListener('click', function () {
+      setCookieConsent(true, true);
+    });
+  document
+    .getElementById('popup-accept-all-cookies')
     .addEventListener('click', function () {
       setCookieConsent(true, true);
     });
@@ -362,6 +402,11 @@ if (
     .addEventListener('click', function () {
       setCookieConsent(false, false);
     });
+  document
+    .getElementById('popup-reject-all-cookies')
+    .addEventListener('click', function () {
+      setCookieConsent(false, false);
+    });
 
   // Save cookies
   document
@@ -369,12 +414,6 @@ if (
     .addEventListener('click', function () {
       setCookieConsent(marketingConsent.checked, analyticsConsent.checked);
     });
-
-  function getCookie(name) {
-    const value = `; ${document.cookie}`;
-    const parts = value.split(`; ${name}=`);
-    if (parts.length === 2) return parts.pop().split(';').shift();
-  }
 
   // Check if there's a previous consent
   const previousEssentialConsent = getCookie('essential');

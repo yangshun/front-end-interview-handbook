@@ -31,6 +31,9 @@ function setCookieConsent(marketing, analytics) {
   // Hide the cookie consent banner after setting the consent
   popupElement.style.display = 'none';
   cookieConsentBanner.style.display = 'none';
+
+  //load the scripts after setting cookies
+  loadScript();
 }
 
 // Accept all cookies
@@ -39,10 +42,20 @@ document
   .addEventListener('click', function () {
     setCookieConsent(true, true);
   });
+document
+  .getElementById('popup-accept-all-cookies')
+  .addEventListener('click', function () {
+    setCookieConsent(true, true);
+  });
 
 // Reject all cookies
 document
   .getElementById('reject-all-cookies')
+  .addEventListener('click', function () {
+    setCookieConsent(false, false);
+  });
+document
+  .getElementById('popup-reject-all-cookies')
   .addEventListener('click', function () {
     setCookieConsent(false, false);
   });
@@ -71,3 +84,30 @@ if (
   // Hide the cookie consent banner if all consents are previously given
   cookieConsentBanner.style.display = 'none';
 }
+
+function loadScript() {
+  const previousEssentialConsent = getCookie('essential');
+  const previousMarketingConsent = getCookie('marketing');
+  const previousAnalyticsConsent = getCookie('analytics');
+
+  if (previousEssentialConsent === 'true') {
+    addScript('js/essentials.js');
+  }
+  if (previousMarketingConsent === 'true') {
+    addScript('js/marketing.js');
+  }
+  if (previousAnalyticsConsent === 'true') {
+    addScript('js/analytics.js');
+  }
+}
+
+function addScript(src) {
+  let script = document.createElement('script');
+  script.src = src;
+  script.type = 'text/javascript';
+  script.onload = () => console.log(`${src} has been loaded successfully.`);
+  document.head.appendChild(script);
+}
+
+// load script on first load
+loadScript();
