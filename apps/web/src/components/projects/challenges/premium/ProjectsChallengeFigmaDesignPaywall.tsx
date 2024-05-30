@@ -13,14 +13,17 @@ import { trpc } from '~/hooks/trpc';
 
 import ConfirmationDialog from '~/components/common/ConfirmationDialog';
 import { useToast } from '~/components/global/toasts/useToast';
+import Alert from '~/components/ui/Alert';
 import Anchor from '~/components/ui/Anchor';
 import Button from '~/components/ui/Button';
 import Text from '~/components/ui/Text';
+import { themeBorderElementColor } from '~/components/ui/theme';
 
 import ProjectsChallengeUnlockAccessDialog from './ProjectsChallengeUnlockAccessDialog';
 import type { ProjectsPremiumAccessControlType } from './ProjectsPremiumAccessControl';
 import { useProjectsChallengePaywallSubtitle } from './ProjectsPremiumPaywallStrings';
 import ProjectsPremiumPricingTableDialog from './ProjectsPremiumPricingTableDialog';
+import { FIGMA_TO_CODE_PLUGIN_URL } from '../ProjectsConstants';
 import type { ProjectsViewerProjectsProfile } from '../../types';
 
 type Placement = 'ASSETS_PAGE' | 'GET_STARTED_DIALOG';
@@ -116,6 +119,24 @@ function DownloadSection({
               }}
             />
           </Text>
+          <Alert
+            bodySize="body3"
+            borderClass={clsx('border', themeBorderElementColor)}
+            icon={RxFigmaLogo}
+            title="Turn Figma into Code"
+            variant="neutral">
+            <FormattedMessage
+              defaultMessage="Quickly convert challenge designs into
+            HTML, CSS, and Tailwind code by using our <link>Figma to Code plugin</link>."
+              description="Use the Figma to code plugin"
+              id="95Is5V"
+              values={{
+                link: (chunks) => (
+                  <Anchor href={FIGMA_TO_CODE_PLUGIN_URL}>{chunks}</Anchor>
+                ),
+              }}
+            />
+          </Alert>
         </>
       )}
       {access === 'UNLOCKED' && (
