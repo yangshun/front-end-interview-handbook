@@ -1,4 +1,5 @@
 /* eslint-disable @typescript-eslint/consistent-type-definitions */
+/* eslint-disable @typescript-eslint/no-empty-interface */
 
 interface GFEBaseNode {
   readonly id: string;
@@ -12,6 +13,11 @@ export interface GFEDimensionAndPositionMixin {
   y: number;
 }
 
+interface GFECornerMixin {
+  cornerRadius: number | null;
+  cornerSmoothing: number;
+}
+
 interface GFERectangleCornerMixin {
   bottomLeftRadius: number;
   bottomRightRadius: number;
@@ -19,7 +25,7 @@ interface GFERectangleCornerMixin {
   topRightRadius: number;
 }
 
-interface GFEMinimalFillsMixin {
+export interface GFEMinimalFillsMixin {
   fills: ReadonlyArray<Paint>;
 }
 
@@ -30,8 +36,6 @@ export interface GFEMinimalBlendMixin {
 export interface GFEBlendMixin extends GFEMinimalBlendMixin {
   effects: ReadonlyArray<Effect>;
 }
-
-type GFEDefaultShapeMixin = GFEBlendMixin;
 
 export interface GFEAutoLayoutMixin {
   counterAxisAlignContent: 'AUTO' | 'SPACE_BETWEEN';
@@ -72,6 +76,51 @@ export interface GFEIndividualStrokesMixin {
   strokeTopWeight: number;
 }
 
+export interface GFEGeometryMixin
+  extends GFEMinimalStrokesMixin,
+    GFEMinimalFillsMixin {}
+
+export interface GFELayoutMixin
+  extends GFEDimensionAndPositionMixin,
+    GFEAutoLayoutChildrenMixin {
+  layoutSizingHorizontal: LayoutMixin['layoutSizingHorizontal'];
+  layoutSizingVertical: LayoutMixin['layoutSizingVertical'];
+}
+
+export interface GFEChildrenMixin {
+  readonly children: ReadonlyArray<GFENode>;
+}
+
+export interface GFEDefaultShapeMixin
+  extends GFEBlendMixin,
+    GFEGeometryMixin,
+    GFELayoutMixin {}
+
+export interface GFEBaseFrameMixin
+  extends GFEChildrenMixin,
+    GFEAutoLayoutMixin,
+    GFELayoutMixin,
+    GFEMinimalStrokesMixin,
+    GFEIndividualStrokesMixin,
+    GFEMinimalFillsMixin,
+    GFECornerMixin,
+    GFEBlendMixin,
+    GFERectangleCornerMixin,
+    GFEDimensionAndPositionMixin,
+    GFEBaseNode {}
+
+export interface GFEVectorNode extends GFEDefaultShapeMixin, GFECornerMixin {
+  readonly type: 'VECTOR';
+}
+
+export interface GFERectangleNode
+  extends GFEDefaultShapeMixin,
+    GFECornerMixin,
+    GFERectangleCornerMixin,
+    GFEIndividualStrokesMixin {
+  readonly type: 'RECTANGLE';
+}
+
 export interface GFETextNode
   extends GFEMinimalFillsMixin,
     GFEDimensionAndPositionMixin,
@@ -91,41 +140,16 @@ export interface GFETextNode
   readonly type: 'TEXT';
 }
 
-export interface GFELayoutMixin
-  extends GFEDimensionAndPositionMixin,
-    GFEAutoLayoutChildrenMixin {
-  layoutSizingHorizontal: LayoutMixin['layoutSizingHorizontal'];
-  layoutSizingVertical: LayoutMixin['layoutSizingVertical'];
-}
-
-export interface GFEChildrenMixin {
-  readonly children: ReadonlyArray<GFENode>;
-}
-
-export interface GFEFrameMixin
-  extends GFEChildrenMixin,
-    GFEAutoLayoutMixin,
-    GFELayoutMixin,
-    GFEMinimalStrokesMixin,
-    GFEIndividualStrokesMixin,
-    GFEMinimalFillsMixin,
-    GFERectangleCornerMixin,
-    GFEDimensionAndPositionMixin,
-    GFEBlendMixin,
-    GFEBaseNode {
-  fills: Array<Paint>;
-}
-
-export interface GFEFrameNode extends GFEFrameMixin {
+export interface GFEFrameNode extends GFEBaseFrameMixin {
   inferredAutoLayout: GFEInferredAutoLayoutResult | null;
 
   readonly type: 'FRAME';
 }
 
-export interface GFEComponentNode extends GFEFrameMixin {
+export interface GFEComponentNode extends GFEBaseFrameMixin {
   readonly type: 'COMPONENT';
 }
-export interface GFEInstanceNode extends GFEFrameMixin {
+export interface GFEInstanceNode extends GFEBaseFrameMixin {
   readonly type: 'INSTANCE';
 }
 
@@ -133,4 +157,6 @@ export type GFENode =
   | GFEComponentNode
   | GFEFrameNode
   | GFEInstanceNode
-  | GFETextNode;
+  | GFERectangleNode
+  | GFETextNode
+  | GFEVectorNode;

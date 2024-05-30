@@ -1,6 +1,7 @@
 import * as autoLayoutChildrenPropsPrinter from './props/autoLayoutChildrenPropsPrinter';
 import * as autoLayoutPropsPrinter from './props/autoLayoutPropsPrinter';
 import * as blendPropsPrinter from './props/blendPropsPrinter';
+import * as fillsPrinter from './props/fillsPrinter';
 import * as frameNodePropsPrinter from './props/frameNodePropsPrinter';
 import * as layoutPropsPrinter from './props/layoutPropsPrinter';
 import * as strokesPropsPrinter from './props/strokesPropsPrinter';
@@ -54,7 +55,7 @@ export function visitGFENode(node: GFENode) {
         ...extractionArgs,
       );
       textNodePropsPrinter.processTextCase(metadata, node, ...extractionArgs);
-      textNodePropsPrinter.processFills(metadata, node, ...extractionArgs);
+      fillsPrinter.processFills(metadata, node, ...extractionArgs);
 
       blendPropsPrinter.processOpacity(metadata, node, ...extractionArgs);
       break;
@@ -122,8 +123,9 @@ export function visitGFENode(node: GFENode) {
         ...extractionArgs,
       );
 
+      fillsPrinter.processFills(metadata, node, ...extractionArgs);
+
       frameNodePropsPrinter.processPadding(metadata, node, ...extractionArgs);
-      frameNodePropsPrinter.processFills(metadata, node, ...extractionArgs);
       frameNodePropsPrinter.processCornerRadius(
         metadata,
         node,
@@ -150,6 +152,45 @@ export function visitGFENode(node: GFENode) {
       blendPropsPrinter.processEffects(metadata, node, ...extractionArgs);
       break;
     }
+    case 'RECTANGLE': {
+      metadata.type = 'BLOCK';
+      layoutPropsPrinter.processLayoutSizingHorizontal(
+        metadata,
+        node,
+        ...extractionArgs,
+      );
+      layoutPropsPrinter.processLayoutSizingVertical(
+        metadata,
+        node,
+        ...extractionArgs,
+      );
+
+      blendPropsPrinter.processOpacity(metadata, node, ...extractionArgs);
+      blendPropsPrinter.processEffects(metadata, node, ...extractionArgs);
+
+      fillsPrinter.processFills(metadata, node, ...extractionArgs);
+      break;
+    }
+    case 'VECTOR': {
+      metadata.type = 'SVG';
+
+      layoutPropsPrinter.processLayoutSizingHorizontal(
+        metadata,
+        node,
+        ...extractionArgs,
+      );
+      layoutPropsPrinter.processLayoutSizingVertical(
+        metadata,
+        node,
+        ...extractionArgs,
+      );
+
+      blendPropsPrinter.processOpacity(metadata, node, ...extractionArgs);
+      blendPropsPrinter.processEffects(metadata, node, ...extractionArgs);
+
+      fillsPrinter.processFills(metadata, node, ...extractionArgs);
+      break;
+    }
   }
 
   return {
@@ -164,7 +205,7 @@ export function visitGFENode(node: GFENode) {
 type GFEHTMLNode = Readonly<{
   children: ReadonlyArray<GFEHTMLNode> | string | null;
   className: string | null;
-  type: 'div' | 'img' | 'span';
+  type: 'div' | 'img' | 'span' | 'svg';
 }>;
 
 export function transformGFENode(node: GFENode): GFEHTMLNode | undefined {
@@ -196,6 +237,20 @@ export function transformGFENode(node: GFENode): GFEHTMLNode | undefined {
                 : 'div',
       };
     }
+    case 'RECTANGLE': {
+      return {
+        children: null,
+        className: Array.from(tailwindClasses).join(' '),
+        type: metadata.type === 'IMAGE' ? 'img' : 'div',
+      };
+    }
+    case 'VECTOR': {
+      return {
+        children: null,
+        className: Array.from(tailwindClasses).join(' '),
+        type: metadata.type === 'IMAGE' ? 'img' : 'svg',
+      };
+    }
   }
 }
 
@@ -219,5 +274,5 @@ export function printGFEHTMLNode(node: GFEHTMLNode): string {
   })();
   const closingElement = `</${node.type}>`;
 
-  return openingElement + children + closingElement;
+  return openingElement + (children || '') + closingElement;
 }

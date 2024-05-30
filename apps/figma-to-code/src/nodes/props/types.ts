@@ -4,7 +4,7 @@ export type GFENodePropertiesList = Array<{
 }>;
 
 export type GFENodeMetadata = {
-  type: 'BLOCK' | 'IMAGE' | 'INLINE' | null;
+  type: 'BLOCK' | 'IMAGE' | 'INLINE' | 'SVG' | null;
 };
 
 export type GFECSSProperties = Record<string, number | string>;

@@ -1,4 +1,10 @@
-import type { GFEFrameNode, GFENode, GFETextNode } from './types';
+import type {
+  GFEFrameNode,
+  GFENode,
+  GFERectangleNode,
+  GFETextNode,
+  GFEVectorNode,
+} from './types';
 
 export function convertFigmaNodeToGFENode(node: SceneNode): GFENode | null {
   // TODO: fix any.
@@ -8,6 +14,7 @@ export function convertFigmaNodeToGFENode(node: SceneNode): GFENode | null {
   nodeObject.type = node.type;
   nodeObject.id = node.id;
   nodeObject.name = node.name;
+  // DimensionAndPositionMixin
   nodeObject.width = node.width;
   nodeObject.height = node.height;
 
@@ -15,6 +22,7 @@ export function convertFigmaNodeToGFENode(node: SceneNode): GFENode | null {
 
   switch (node.type) {
     case 'TEXT': {
+      // MinimalBlendMixin
       nodeObject.opacity = node.opacity;
       nodeObject.effects = node.effects;
 
@@ -43,6 +51,65 @@ export function convertFigmaNodeToGFENode(node: SceneNode): GFENode | null {
       return nodeObject as GFETextNode;
     }
 
+    case 'RECTANGLE': {
+      // MinimalBlendMixin
+      nodeObject.opacity = node.opacity;
+      // BlendMixin
+      nodeObject.effects = node.effects;
+
+      // LayoutMixin
+      nodeObject.layoutSizingHorizontal = node.layoutSizingHorizontal;
+      nodeObject.layoutSizingVertical = node.layoutSizingVertical;
+
+      // RectangleCornerMixin
+      nodeObject.topLeftRadius = node.topLeftRadius;
+      nodeObject.topRightRadius = node.topRightRadius;
+      nodeObject.bottomRightRadius = node.bottomRightRadius;
+      nodeObject.bottomLeftRadius = node.bottomLeftRadius;
+
+      // CornerMixin
+      nodeObject.cornerRadius = node.cornerRadius;
+      nodeObject.cornerRadius = node.cornerSmoothing;
+
+      // IndividualStrokesMixin
+      nodeObject.strokeTopWeight = node.strokeTopWeight;
+      nodeObject.strokeBottomWeight = node.strokeBottomWeight;
+      nodeObject.strokeLeftWeight = node.strokeLeftWeight;
+      nodeObject.strokeRightWeight = node.strokeRightWeight;
+
+      // MinimalFillsMixin
+      nodeObject.fills = node.fills !== figma.mixed ? node.fills : [];
+
+      // TODO: improve typesafety.
+      return nodeObject as GFERectangleNode;
+    }
+
+    case 'VECTOR': {
+      // MinimalBlendMixin
+      nodeObject.opacity = node.opacity;
+      // BlendMixin
+      nodeObject.effects = node.effects;
+
+      // LayoutMixin
+      nodeObject.layoutSizingHorizontal = node.layoutSizingHorizontal;
+      nodeObject.layoutSizingVertical = node.layoutSizingVertical;
+
+      // CornerMixin
+      nodeObject.cornerRadius = node.cornerRadius;
+      nodeObject.cornerRadius = node.cornerSmoothing;
+
+      // MinimalStrokesMixin
+      nodeObject.strokes = node.strokes;
+      nodeObject.strokeAlign = node.strokeAlign;
+      nodeObject.dashPattern = node.dashPattern;
+
+      // MinimalFillsMixin
+      nodeObject.fills = node.fills !== figma.mixed ? node.fills : [];
+
+      // TODO: improve typesafety.
+      return nodeObject as GFEVectorNode;
+    }
+
     case 'COMPONENT':
     case 'INSTANCE':
     case 'FRAME': {
@@ -50,9 +117,12 @@ export function convertFigmaNodeToGFENode(node: SceneNode): GFENode | null {
         .map((childNode) => convertFigmaNodeToGFENode(childNode))
         .flatMap((childNode) => (childNode != null ? [childNode] : []));
 
+      // MinimalBlendMixin
       nodeObject.opacity = node.opacity;
+      // BlendMixin
       nodeObject.effects = node.effects;
 
+      // MinimalFillsMixin
       nodeObject.fills = node.fills !== figma.mixed ? node.fills : [];
 
       nodeObject.layoutMode = node.layoutMode;
@@ -81,18 +151,22 @@ export function convertFigmaNodeToGFENode(node: SceneNode): GFENode | null {
       nodeObject.paddingTop = node.paddingTop;
       nodeObject.paddingBottom = node.paddingBottom;
 
+      // RectangleCornerMixin
       nodeObject.topLeftRadius = node.topLeftRadius;
       nodeObject.topRightRadius = node.topRightRadius;
       nodeObject.bottomRightRadius = node.bottomRightRadius;
       nodeObject.bottomLeftRadius = node.bottomLeftRadius;
 
+      // MinimalStrokesMixin
       nodeObject.strokes = node.strokes;
       nodeObject.strokeAlign = node.strokeAlign;
+      nodeObject.dashPattern = node.dashPattern;
+
+      // IndividualStrokesMixin
       nodeObject.strokeTopWeight = node.strokeTopWeight;
       nodeObject.strokeBottomWeight = node.strokeBottomWeight;
       nodeObject.strokeLeftWeight = node.strokeLeftWeight;
       nodeObject.strokeRightWeight = node.strokeRightWeight;
-      nodeObject.dashPattern = node.dashPattern;
 
       // TODO: improve typesafety.
       return nodeObject as GFEFrameNode;
