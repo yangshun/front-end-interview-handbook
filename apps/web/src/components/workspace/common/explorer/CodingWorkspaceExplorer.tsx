@@ -2,8 +2,6 @@ import { useMemo, useState } from 'react';
 
 import { DirectoryExplorerContext } from '~/components/common/directory-explorer/DirectoryExplorerContext';
 import { ExplorerDirectory } from '~/components/common/directory-explorer/DirectoryExplorerItem';
-import Alert from '~/components/ui/Alert';
-import Text from '~/components/ui/Text';
 
 import type { FileExplorerItem } from './types';
 import {
@@ -14,11 +12,13 @@ import {
 import { useSandpack } from '@codesandbox/sandpack-react';
 
 type Props = Readonly<{
+  bottomAddOn?: React.ReactNode;
   onOpenFile?: (fileName: string, fromFilePath?: string) => void;
   readOnly?: boolean;
 }>;
 
 export default function CodingWorkspaceExplorer({
+  bottomAddOn,
   readOnly = true,
   onOpenFile,
 }: Props) {
@@ -147,12 +147,7 @@ export default function CodingWorkspaceExplorer({
         <div className="flex w-full flex-col">
           <ExplorerDirectory {...rootDirectory} />
         </div>
-        <Alert variant="warning">
-          <Text size="body2">
-            For now, files cannot be created or renamed. It's acceptable to
-            write multiple components within a single file during interviews.
-          </Text>
-        </Alert>
+        {bottomAddOn}
       </div>
     </DirectoryExplorerContext.Provider>
   );

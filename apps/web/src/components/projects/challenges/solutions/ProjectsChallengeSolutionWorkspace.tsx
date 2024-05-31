@@ -16,6 +16,7 @@ import useMonacoLanguagesFetchTypeDeclarations from '~/components/workspace/comm
 import useMonacoLanguagesJSONDefaults from '~/components/workspace/common/editor/useMonacoLanguagesJSONDefaults';
 import useMonacoLanguagesLoadTSConfig from '~/components/workspace/common/editor/useMonacoLanguagesLoadTSConfig';
 import useMonacoLanguagesTypeScriptRunDiagnostics from '~/components/workspace/common/editor/useMonacoLanguagesTypeScriptRunDiagnostics';
+import CodingWorkspaceExplorer from '~/components/workspace/common/explorer/CodingWorkspaceExplorer';
 import { codingWorkspaceExplorerFilePathToIcon } from '~/components/workspace/common/explorer/codingWorkspaceExplorerFilePathToIcon';
 import useRestartSandpack from '~/components/workspace/common/sandpack/useRestartSandpack';
 import {
@@ -23,27 +24,26 @@ import {
   codingWorkspaceTabFilePattern,
 } from '~/components/workspace/common/tabs/codingWorkspaceTabId';
 import UserInterfaceCodingWorkspaceCodeEditor from '~/components/workspace/user-interface/UserInterfaceCodingWorkspaceCodeEditor';
-import UserInterfaceCodingWorkspaceExplorer from '~/components/workspace/user-interface/UserInterfaceCodingWorkspaceExplorer';
 import useUserInterfaceCodingWorkspaceTilesContext from '~/components/workspace/user-interface/useUserInterfaceCodingWorkspaceTilesContext';
 
 import { TilesPanelRoot } from '~/react-tiling/components/TilesPanelRoot';
 import { TilesProvider } from '~/react-tiling/state/TilesProvider';
 import type { TilesPanelConfig } from '~/react-tiling/types';
 
-import ProjectsChallengeOfficialSolutionWorkspaceNewTab from './ProjectsChallengeOfficialSolutionWorkspaceNewTab';
+import ProjectsChallengeSolutionWorkspaceNewTab from './ProjectsChallengeSolutionWorkspaceNewTab';
 import type {
-  ProjectsChallengeOfficialSolutionWorkspacePredefinedTabsContents,
-  ProjectsChallengeOfficialSolutionWorkspaceTabsType,
-} from './ProjectsChallengeOfficialSolutionWorkspaceTypes';
+  ProjectsChallengeSolutionWorkspacePredefinedTabsContents,
+  ProjectsChallengeSolutionWorkspaceTabsType,
+} from './ProjectsChallengeSolutionWorkspaceTypes';
 
 import type { SandpackFiles } from '@codesandbox/sandpack-react';
 import { SandpackPreview, useSandpack } from '@codesandbox/sandpack-react';
 import { useMonaco } from '@monaco-editor/react';
 
 const UserInterfaceCodingWorkspaceTilesPanelRoot =
-  TilesPanelRoot<ProjectsChallengeOfficialSolutionWorkspaceTabsType>;
+  TilesPanelRoot<ProjectsChallengeSolutionWorkspaceTabsType>;
 
-function ProjectsChallengeOfficialSolutionWorkspaceImpl({
+function ProjectsChallengeSolutionWorkspaceImpl({
   defaultFiles,
 }: Readonly<{
   defaultFiles: SandpackFiles;
@@ -132,7 +132,7 @@ function ProjectsChallengeOfficialSolutionWorkspaceImpl({
     });
   }
 
-  const predefinedTabs: ProjectsChallengeOfficialSolutionWorkspacePredefinedTabsContents =
+  const predefinedTabs: ProjectsChallengeSolutionWorkspacePredefinedTabsContents =
     {
       console: {
         contents: <CodingWorkspaceConsole />,
@@ -140,7 +140,11 @@ function ProjectsChallengeOfficialSolutionWorkspaceImpl({
         label: 'Console',
       },
       file_explorer: {
-        contents: <UserInterfaceCodingWorkspaceExplorer />,
+        contents: (
+          <div className="flex w-full p-2">
+            <CodingWorkspaceExplorer onOpenFile={openFile} />
+          </div>
+        ),
         icon: CodingWorkspaceTabIcons.explorer.icon,
         label: 'File explorer',
       },
@@ -154,7 +158,7 @@ function ProjectsChallengeOfficialSolutionWorkspaceImpl({
     };
 
   const [tabContents, setTabContents] = useState<
-    CodingWorkspaceTabContents<ProjectsChallengeOfficialSolutionWorkspaceTabsType>
+    CodingWorkspaceTabContents<ProjectsChallengeSolutionWorkspaceTabsType>
   >({
     ...predefinedTabs,
     ...Object.fromEntries(
@@ -221,7 +225,7 @@ function ProjectsChallengeOfficialSolutionWorkspaceImpl({
                     {tabContents[tabId]!.contents}
                   </div>
                 ) : (
-                  <ProjectsChallengeOfficialSolutionWorkspaceNewTab
+                  <ProjectsChallengeSolutionWorkspaceNewTab
                     predefinedTabs={predefinedTabs}
                     onSelectTabType={(data) => {
                       if (data.type === 'code') {
@@ -274,7 +278,7 @@ function ProjectsChallengeOfficialSolutionWorkspaceImpl({
   );
 }
 
-export default function ProjectsChallengeOfficialSolutionWorkspace({
+export default function ProjectsChallengeSolutionWorkspace({
   activeTabScrollIntoView = true,
   defaultFiles,
 }: Readonly<{
@@ -284,57 +288,54 @@ export default function ProjectsChallengeOfficialSolutionWorkspace({
   const { sandpack } = useSandpack();
   const { activeFile, visibleFiles } = sandpack;
 
-  const layout: TilesPanelConfig<ProjectsChallengeOfficialSolutionWorkspaceTabsType> =
-    {
-      direction: 'horizontal',
-      id: 'root',
-      items: [
-        {
-          activeTabId: codingWorkspaceTabFileId(activeFile),
-          collapsible: true,
-          defaultSize: 40,
-          id: 'left-column',
-          tabs: [
-            {
-              closeable: true,
-              id: 'file_explorer',
-            },
-            ...visibleFiles.map((file) => ({
-              allowOverflow: true,
-              closeable: true,
-              id: codingWorkspaceTabFileId(file),
-            })),
-          ],
-          type: 'item',
-        },
-        {
-          activeTabId: 'preview',
-          collapsible: true,
-          defaultSize: 30,
-          id: 'right-column',
-          tabs: [
-            {
-              closeable: false,
-              id: 'preview',
-            },
-            {
-              closeable: true,
-              id: 'console',
-            },
-          ],
-          type: 'item',
-        },
-      ],
-      type: 'group',
-    } as const;
+  const layout: TilesPanelConfig<ProjectsChallengeSolutionWorkspaceTabsType> = {
+    direction: 'horizontal',
+    id: 'root',
+    items: [
+      {
+        activeTabId: codingWorkspaceTabFileId(activeFile),
+        collapsible: true,
+        defaultSize: 40,
+        id: 'left-column',
+        tabs: [
+          {
+            closeable: true,
+            id: 'file_explorer',
+          },
+          ...visibleFiles.map((file) => ({
+            allowOverflow: true,
+            closeable: true,
+            id: codingWorkspaceTabFileId(file),
+          })),
+        ],
+        type: 'item',
+      },
+      {
+        activeTabId: 'preview',
+        collapsible: true,
+        defaultSize: 30,
+        id: 'right-column',
+        tabs: [
+          {
+            closeable: false,
+            id: 'preview',
+          },
+          {
+            closeable: true,
+            id: 'console',
+          },
+        ],
+        type: 'item',
+      },
+    ],
+    type: 'group',
+  } as const;
 
   return (
     <TilesProvider
       activeTabScrollIntoView={activeTabScrollIntoView}
       defaultValue={layout}>
-      <ProjectsChallengeOfficialSolutionWorkspaceImpl
-        defaultFiles={defaultFiles}
-      />
+      <ProjectsChallengeSolutionWorkspaceImpl defaultFiles={defaultFiles} />
     </TilesProvider>
   );
 }

@@ -2,7 +2,7 @@ import { redirect } from 'next/navigation';
 
 import ProjectsChallengeResourcePaywall from '~/components/projects/challenges/premium/ProjectsChallengeResourcePaywall';
 import ProjectsPremiumAccessControl from '~/components/projects/challenges/premium/ProjectsPremiumAccessControl';
-import ProjectsChallengeOfficialSolutionSection from '~/components/projects/challenges/resources/ProjectsChallengeOfficialSolutionSection';
+import ProjectsChallengeSolutionSection from '~/components/projects/challenges/solutions/ProjectsChallengeSolutionSection';
 import type { ProjectsChallengeSolutionFrameworkType } from '~/components/projects/challenges/types';
 import fetchViewerProjectsChallengeAccess from '~/components/projects/utils/fetchViewerProjectsChallengeAccess';
 import fetchViewerProjectsProfile from '~/components/projects/utils/fetchViewerProjectsProfile';
@@ -69,5 +69,5 @@ export default async function ProjectsChallengeResourcesSolutionsPage({
     solutionFramework,
   );
 
-  return <ProjectsChallengeOfficialSolutionSection solution={solution} />;
+  return <ProjectsChallengeSolutionSection solution={solution} />;
 }

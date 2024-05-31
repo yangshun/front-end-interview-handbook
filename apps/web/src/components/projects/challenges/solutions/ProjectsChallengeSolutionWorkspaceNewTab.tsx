@@ -11,9 +11,9 @@ import {
 import useUserInterfaceCodingWorkspaceTilesContext from '~/components/workspace/user-interface/useUserInterfaceCodingWorkspaceTilesContext';
 
 import type {
-  ProjectsChallengeOfficialSolutionWorkspacePredefinedTabsContents,
-  ProjectsChallengeOfficialSolutionWorkspacePredefinedTabsType,
-} from './ProjectsChallengeOfficialSolutionWorkspaceTypes';
+  ProjectsChallengeSolutionWorkspacePredefinedTabsContents,
+  ProjectsChallengeSolutionWorkspacePredefinedTabsType,
+} from './ProjectsChallengeSolutionWorkspaceTypes';
 
 import { useSandpack } from '@codesandbox/sandpack-react';
 
@@ -23,15 +23,15 @@ type NewTabTypeData =
       type: 'code';
     }
   | {
-      type: ProjectsChallengeOfficialSolutionWorkspacePredefinedTabsType;
+      type: ProjectsChallengeSolutionWorkspacePredefinedTabsType;
     };
 
-export default function ProjectsChallengeOfficialSolutionWorkspaceNewTab({
+export default function ProjectsChallengeSolutionWorkspaceNewTab({
   onSelectTabType,
   predefinedTabs,
 }: Readonly<{
   onSelectTabType: (data: NewTabTypeData) => void;
-  predefinedTabs: ProjectsChallengeOfficialSolutionWorkspacePredefinedTabsContents;
+  predefinedTabs: ProjectsChallengeSolutionWorkspacePredefinedTabsContents;
 }>) {
   const { sandpack } = useSandpack();
   const { files } = sandpack;
@@ -59,7 +59,7 @@ export default function ProjectsChallengeOfficialSolutionWorkspaceNewTab({
               variant="secondary"
               onClick={() => {
                 onSelectTabType({
-                  type: tabType as ProjectsChallengeOfficialSolutionWorkspacePredefinedTabsType,
+                  type: tabType as ProjectsChallengeSolutionWorkspacePredefinedTabsType,
                 });
               }}
             />

@@ -8,7 +8,7 @@ import type { ProjectsChallengeSolutionBundle } from '~/components/projects/chal
 import sandpackProviderOptions from '~/components/workspace/common/sandpack/sandpackProviderOptions';
 import SandpackTimeoutLogger from '~/components/workspace/common/sandpack/SandpackTimeoutLogger';
 
-import ProjectsChallengeOfficialSolutionWorkspace from './ProjectsChallengeOfficialSolutionWorkspace';
+import ProjectsChallengeSolutionWorkspace from './ProjectsChallengeSolutionWorkspace';
 
 import type { SandboxEnvironment } from '@codesandbox/sandpack-react';
 import { SandpackProvider } from '@codesandbox/sandpack-react';
@@ -17,9 +17,7 @@ type Props = Readonly<{
   solution: ProjectsChallengeSolutionBundle;
 }>;
 
-export default function ProjectsChallengeOfficialSolutionSection({
-  solution,
-}: Props) {
+export default function ProjectsChallengeSolutionSection({ solution }: Props) {
   const { colorScheme } = useColorSchemePreferences();
 
   const { workspace, files } = solution;
@@ -44,7 +42,7 @@ export default function ProjectsChallengeOfficialSolutionSection({
           visibleFiles: workspace?.visibleFiles?.slice() ?? undefined,
         }}
         theme={colorScheme === 'dark' ? 'dark' : undefined}>
-        <ProjectsChallengeOfficialSolutionWorkspace
+        <ProjectsChallengeSolutionWorkspace
           activeTabScrollIntoView={true}
           defaultFiles={files}
         />
