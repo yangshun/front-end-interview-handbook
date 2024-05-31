@@ -1,8 +1,4 @@
 {
-  "++gUWh": {
-    "defaultMessage": "Access to continuously updating questions and content.",
-    "description": "Feature of monthly pricing plan"
-  },
   "+59/34": {
     "defaultMessage": "Questions to Ask (End of Interview)",
     "description": "Best questions to ask at the end of a behavioral interviews"
@@ -375,6 +371,10 @@
     "defaultMessage": "Study list session stopped",
     "description": "Success message for stopping a study plan"
   },
+  "0ySzlP": {
+    "defaultMessage": "It is a <strong>one-time purchase, with no recurring subscription</strong>. You get access to all the content on the GreatFrontEnd Interviews platform forever, along with any future updates. This will be useful and relevant for all future job hunts.",
+    "description": "Answer to 'What does lifetime access mean?' on Homepage's FAQ sections"
+  },
   "0z/V+d": {
     "defaultMessage": "Since annual users have unlimited credits, we will roll over credits for projects that remain locked at the end of their subscription cycle.",
     "description": "Answer on projects pricing's FAQ section - unused credits"
@@ -398,10 +398,6 @@
   "19uyd3": {
     "defaultMessage": "<bold>+{points}</bold> rep",
     "description": "Tooltip for rep count increase in Projects level progress bar"
-  },
-  "1AGOZJ": {
-    "defaultMessage": "Access updates to the interview platform for life.",
-    "description": "Lifetime membership feature of accessing updates to interview platforms"
   },
   "1BwkZf": {
     "defaultMessage": "Gamify your learning and track your progress",
@@ -539,10 +535,6 @@
     "defaultMessage": "{price} billed every 3 months",
     "description": "Description of billing frequency for quarterly plan"
   },
-  "2YMuJe": {
-    "defaultMessage": "What does \"lifetime access\" mean?",
-    "description": "Question on Homepage's FAQ section - on the scope of the lifetime access pricing plan on the interview platform"
-  },
   "2Zjh+z": {
     "defaultMessage": "Ontario, Canada",
     "description": "Nafis Hasnain's location"
@@ -574,10 +566,6 @@
   "2w8GaX": {
     "defaultMessage": "Claim {discountPercentage}% off all plans by completing simple social tasks!",
     "description": "Title for rewards page"
-  },
-  "2wms0e": {
-    "defaultMessage": "For a limited time, we are offering our lifetime plans at {symbol}{unitCostLocalizedInCurrency}. Meanwhile, the reward for acing your interviews could be <strong>hundreds of thousands</strong> in total compensation.",
-    "description": "Subtitle of Pricing section on Homepage or Pricing page"
   },
   "2y24a/": {
     "defaultMessage": "Save",
@@ -1203,6 +1191,10 @@
     "defaultMessage": "Created: Newest to oldest",
     "description": "Sorting option for discussions comment - sort by created"
   },
+  "8F7JlA": {
+    "defaultMessage": "Access updates to the interviews platform for life.",
+    "description": "Lifetime membership feature of accessing updates to interview platforms"
+  },
   "8JoIUN": {
     "defaultMessage": "Coming soon",
     "description": "Tooltip for Coming Soon questions label"
@@ -1302,10 +1294,6 @@
   "8yHADh": {
     "defaultMessage": "Bold",
     "description": "Bold tooltip for Richtext toolbar"
-  },
-  "8yJWMC": {
-    "defaultMessage": "Pay once, get full access to the interview platform forever, including updates.",
-    "description": "Subtitle of LifeTime Access Pricing Plan found on Homepage or Pricing page"
   },
   "8yQk1V": {
     "defaultMessage": "Most Common Questions",
@@ -2007,6 +1995,10 @@
     "defaultMessage": "Master async programming for front end interviews",
     "description": "Title for interview preparation focus area"
   },
+  "EnNFW9": {
+    "defaultMessage": "Access to continuously updating interview questions and content.",
+    "description": "Feature of monthly pricing plan"
+  },
   "EpJ74A": {
     "defaultMessage": "Try changing the filters",
     "description": "Subtitle for empty state when no articles are returned from application of filters on blog list"
@@ -2114,6 +2106,10 @@
   "Fgr6w/": {
     "defaultMessage": "See all",
     "description": "Link to see all submissions"
+  },
+  "FixyP6": {
+    "defaultMessage": "Tip: Many users have reimbursed GreatFrontEnd Interviews Premium as part of their company's flexible benefits or learning and training budget.",
+    "description": "Tip at the bottom of the Pricing section to let users they can reimburse their purchase of GreatFrontEnd with their company's learning budgets"
   },
   "FlysR+": {
     "defaultMessage": "You are not subscribed. <link>View subscription plans</link> for GreatFrontEnd Interviews.",
@@ -2450,10 +2446,6 @@
   "ITq0p4": {
     "defaultMessage": "Privacy Policy",
     "description": "Link to privacy policy page"
-  },
-  "IUYG0x": {
-    "defaultMessage": "It is a <strong>one-time purchase, with no recurring subscription</strong>. You get access to all the content in GreatFrontEnd's interview platform forever, along with any future updates. This will be useful and relevant for all future job hunts.",
-    "description": "Answer to 'What does lifetime access mean?' on Homepage's FAQ sections"
   },
   "IWsI3H": {
     "defaultMessage": "%s | GreatFrontEnd Projects - Real-world project challenges",
@@ -2823,6 +2815,10 @@
     "defaultMessage": "Software Engineer",
     "description": "Jacky Liang's job title"
   },
+  "LBnblQ": {
+    "defaultMessage": "Is GreatFrontEnd Interviews targeted at engineers of specific seniority?",
+    "description": "Question on Homepage's FAQ section - on the seniority level of engineers that GreatFrontEnd targets"
+  },
   "LChIT/": {
     "defaultMessage": "Show completed challenges",
     "description": "Description of completed challenges filter"
@@ -2878,10 +2874,6 @@
   "LREMMc": {
     "defaultMessage": "Retry task",
     "description": "Label for button to start task"
-  },
-  "LSKN5A": {
-    "defaultMessage": "Unlock all premium content including official solutions, company tags, and study plans.",
-    "description": "Feature of quarterly pricing plan"
   },
   "LSQPwj": {
     "defaultMessage": "Skills roadmap",
@@ -3819,10 +3811,6 @@
     "defaultMessage": "Project brief",
     "description": "Title for Project Brief section on Projects project page"
   },
-  "SAFY5p": {
-    "defaultMessage": "Is it really worth it to buy GreatFrontEnd?",
-    "description": "Question on Homepage's FAQ section - on the worthiness of purchasing the product"
-  },
   "SAjGy/": {
     "defaultMessage": "Review must not be generated or written with the assistance of artificial intelligence.",
     "description": "Condition for promotion"
@@ -4575,10 +4563,6 @@
     "defaultMessage": "Projects you may be interested in",
     "description": "Title for projects you may be interested in section on project submission success page"
   },
-  "Xka4d3": {
-    "defaultMessage": "Tip: Many users have reimbursed GreatFrontEnd Premium as part of their company's flexible benefits or learning and training budget.",
-    "description": "Tip at the bottom of the Pricing section to let users they can reimburse their purchase of GreatFrontEnd with their company's learning budgets"
-  },
   "XliVbn": {
     "defaultMessage": "Everything you need to host and deploy your solution for {challengeName} upon project completion",
     "description": "Description of Projects challenge completion page"
@@ -4838,6 +4822,10 @@
   "ZsOMcv": {
     "defaultMessage": "Select online asset type",
     "description": "Label for tabs to select online asset type"
+  },
+  "ZtqhZJ": {
+    "defaultMessage": "Pay once, get full access to the interviews platform forever, including updates.",
+    "description": "Subtitle of LifeTime Access Pricing Plan found on Homepage or Pricing page"
   },
   "Zui1cu": {
     "defaultMessage": "Focus areas",
@@ -5611,10 +5599,6 @@
     "defaultMessage": "Your edits have been successfully saved. Thank you for contributing to our community!",
     "description": "Update challenge success message"
   },
-  "fjKhks": {
-    "defaultMessage": "Invest in fuss-free, quality preparation",
-    "description": "Title of Pricing section of Homepage or Pricing page"
-  },
   "fjj5BL": {
     "defaultMessage": "Profile saved!",
     "description": "Toast for project profile saved"
@@ -6119,10 +6103,6 @@
     "defaultMessage": "Learn from good code",
     "description": "Label for \"Learn from good code\" item in Expected Support section on Projects project page"
   },
-  "jzVpyI": {
-    "defaultMessage": "Is GreatFrontEnd targeted at engineers of specific seniority?",
-    "description": "Question on Homepage's FAQ section - on the seniority level of engineers that GreatFrontEnd targets"
-  },
   "k+T8RZ": {
     "defaultMessage": "Warning",
     "description": "Warning badge label for GitHub repo step in project submission checklist"
@@ -6182,6 +6162,10 @@
   "kHB06P": {
     "defaultMessage": "I got the job and a great ROI!",
     "description": "Larry Almeida's testimonial"
+  },
+  "kJOJ4u": {
+    "defaultMessage": "Is it really worth it to buy GreatFrontEnd Interviews?",
+    "description": "Question on Homepage's FAQ section - on the worthiness of purchasing the product"
   },
   "kK7Cf2": {
     "defaultMessage": "Invalid inputs. Please check that you have filled in the username or profile URL correctly.",
@@ -6318,6 +6302,10 @@
   "l/ErWd": {
     "defaultMessage": "Our projects are designed with real world specs meant for professionals, allowing you to hit the ground running with whatever you learn while building them.",
     "description": "Description of 'Learn by building real world projects for professionals' feature in Projects marketing page"
+  },
+  "l1Ksil": {
+    "defaultMessage": "Unlock all premium interviews content including official solutions, company tags, and study plans.",
+    "description": "Feature of quarterly pricing plan"
   },
   "l1ZqoW": {
     "defaultMessage": "Join Discord",
@@ -6603,6 +6591,10 @@
     "defaultMessage": "General",
     "description": "Profile settings tab title"
   },
+  "nll//D": {
+    "defaultMessage": "What does \"lifetime access\" to GreatFrontEnd Interviews mean?",
+    "description": "Question on Homepage's FAQ section - on the scope of the lifetime access pricing plan on the interview platform"
+  },
   "nodFHk": {
     "defaultMessage": "Go to this submission's GitHub repository",
     "description": "Tooltip for view code button"
@@ -6674,6 +6666,10 @@
   "oQYa8+": {
     "defaultMessage": "You have unlocked this Figma file",
     "description": "Tooltip for premium Figma file download button"
+  },
+  "oQzWOu": {
+    "defaultMessage": "For a limited time, we are offering lifetime plan for the interviews platform at {symbol}{unitCostLocalizedInCurrency}. The reward for acing your interviews could be <strong>hundreds of thousands</strong> in total compensation.",
+    "description": "Subtitle of Pricing section on Homepage or Pricing page"
   },
   "oR0ECI": {
     "defaultMessage": "Marked question as incomplete",
@@ -7538,6 +7534,10 @@
   "uz7f93": {
     "defaultMessage": "Salesforce",
     "description": "Company name for Salesforce"
+  },
+  "uzBcpK": {
+    "defaultMessage": "Invest in fuss-free, quality interview preparation",
+    "description": "Title of Pricing section of Homepage or Pricing page"
   },
   "v2TGFl": {
     "defaultMessage": "High",

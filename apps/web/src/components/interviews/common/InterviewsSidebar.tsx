@@ -64,7 +64,7 @@ export function InterviewsSidebarExpanded({
           {userProfile == null && (
             <Button
               display="block"
-              href="/pricing"
+              href="/interviews/pricing"
               label={intl.formatMessage({
                 defaultMessage: 'Get full access',
                 description: 'Button CTA to encourage upgrading',

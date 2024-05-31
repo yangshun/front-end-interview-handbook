@@ -60,7 +60,10 @@ export function EmailPaymentFailed({ name }: Props) {
               </li>
             </ol>
             <Text style={paragraph}>
-              <Link href="https://www.greatfrontend.com/pricing" style={link}>
+              {/* TODO: generalize for projects */}
+              <Link
+                href="https://www.greatfrontend.com/interviews/pricing"
+                style={link}>
                 Click here to try again
               </Link>
             </Text>

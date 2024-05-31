@@ -176,7 +176,7 @@ export default function ProfileShell({ user, children }: Props) {
                             ) : (
                               <Button
                                 display="block"
-                                href="/pricing"
+                                href="/interviews/pricing"
                                 label={intl.formatMessage({
                                   defaultMessage: 'Get full access',
                                   description: 'Get full access button label',

@@ -20,7 +20,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   return defaultMetadata({
     locale,
-    pathname: '/payment/success',
+    pathname: '/interviews/payment/success',
     title: intl.formatMessage({
       defaultMessage: 'Payment Success',
       description: 'Title of Payment Success page',

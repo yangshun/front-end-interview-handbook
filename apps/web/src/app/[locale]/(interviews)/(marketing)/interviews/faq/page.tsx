@@ -3,7 +3,7 @@ import type { Metadata } from 'next/types';
 import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
 
-import FAQPage from './FAQPage';
+import InterviewsFAQPage from './InterviewsFAQPage';
 
 type Props = Readonly<{
   params: Readonly<{
@@ -18,7 +18,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   return defaultMetadata({
     locale,
-    pathname: '/faq',
+    pathname: '/interviews/faq',
     title: intl.formatMessage({
       defaultMessage: 'Frequently asked questions',
       description: 'Title of frequently asked questions page',
@@ -28,5 +28,5 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default function Page() {
-  return <FAQPage />;
+  return <InterviewsFAQPage />;
 }

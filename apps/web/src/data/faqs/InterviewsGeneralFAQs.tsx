@@ -8,21 +8,24 @@ export const generalTarget: FAQItem = {
   answer: (
     <>
       <p>
-        GreatFrontEnd is excellent for engineers who are preparing for front
-        end-focused interviews. Front end interviews have a different focus from
-        traditional software engineering interviews as there is more emphasis on
-        front end technologies, building user interfaces using frameworks like
-        React, Vue, and Angular, and front end client architecture.
+        GreatFrontEnd Interviews is excellent for engineers who are preparing
+        for front end-focused interviews. Front end interviews have a different
+        focus from traditional software engineering interviews as there is more
+        emphasis on front end technologies, such as browser technologies,
+        solving JavaScript-specific coding problems, building user interfaces
+        using frameworks like React, Vue, and Angular, and front end client
+        architecture.
       </p>
       <p>
-        That said, even if you are not interviewing, engineers who develop for
-        the web will still benefit from the high quality content and questions
-        authored by our senior team of ex-FAANG engineers and interviewers.
+        That said, even if you are not interviewing, or not officially a Front
+        End Engineer, software engineers who develop for the web will still
+        benefit from the high quality content and questions authored by our
+        senior team of ex-FAANG engineers and interviewers.
       </p>
     </>
   ),
   key: 'general-target',
-  question: <>Who is GreatFrontEnd for?</>,
+  question: <>Who is GreatFrontEnd Interviews for?</>,
 };
 
 export const generalBuying: FAQItem = {
@@ -47,7 +50,7 @@ export const generalBuying: FAQItem = {
     </ul>
   ),
   key: 'general-buying',
-  question: <>What does GreatFrontEnd's interview platform offer?</>,
+  question: <>What does GreatFrontEnd Interviews offer?</>,
 };
 
 export const generalUnique: FAQItem = {
@@ -60,7 +63,7 @@ export const generalUnique: FAQItem = {
     </>
   ),
   key: 'general-unique',
-  question: <>What is unique about GreatFrontEnd?</>,
+  question: <>What is unique about GreatFrontEnd Interviews?</>,
 };
 
 export const generalWhatsIncluded: FAQItem = {
@@ -71,7 +74,7 @@ export const generalWhatsIncluded: FAQItem = {
     </>
   ),
   key: 'general-included',
-  question: <>What's included in GreatFrontEnd Premium?</>,
+  question: <>What's included in GreatFrontEnd Interviews premium?</>,
 };
 
 export const generalFreeUpdates: FAQItem = {
@@ -84,7 +87,7 @@ export const generalFreeUpdates: FAQItem = {
     </>
   ),
   key: 'general-free-updates',
-  question: <>What does "free updates" include?</>,
+  question: <>What does "free updates" for GreatFrontEnd Interviews include?</>,
 };
 
 export const generalWorthIt: FAQItem = {
@@ -114,9 +117,9 @@ export const generalWorthIt: FAQItem = {
   key: 'general-worth-it',
   question: (
     <FormattedMessage
-      defaultMessage="Is it really worth it to buy GreatFrontEnd?"
+      defaultMessage="Is it really worth it to buy GreatFrontEnd Interviews?"
       description="Question on Homepage's FAQ section - on the worthiness of purchasing the product"
-      id="SAFY5p"
+      id="kJOJ4u"
     />
   ),
 };
@@ -142,9 +145,9 @@ export const generalSeniority: FAQItem = {
   key: 'general-seniority',
   question: (
     <FormattedMessage
-      defaultMessage="Is GreatFrontEnd targeted at engineers of specific seniority?"
+      defaultMessage="Is GreatFrontEnd Interviews targeted at engineers of specific seniority?"
       description="Question on Homepage's FAQ section - on the seniority level of engineers that GreatFrontEnd targets"
-      id="jzVpyI"
+      id="LBnblQ"
     />
   ),
 };

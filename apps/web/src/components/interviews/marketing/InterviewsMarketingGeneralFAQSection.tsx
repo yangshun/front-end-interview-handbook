@@ -10,7 +10,7 @@ import {
   generalUnique,
   generalWhatsIncluded,
   generalWorthIt,
-} from '~/data/faqs/GeneralFAQs';
+} from '~/data/faqs/InterviewsGeneralFAQs';
 
 import Anchor from '~/components/ui/Anchor';
 import Container from '~/components/ui/Container';
@@ -50,7 +50,7 @@ export default function InterviewsMarketingGeneralFAQSection() {
               link: (chunks) => (
                 <Anchor
                   className="whitespace-nowrap"
-                  href="/faq"
+                  href="/interviews/faq"
                   weight="medium">
                   {chunks}
                 </Anchor>

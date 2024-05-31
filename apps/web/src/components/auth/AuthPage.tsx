@@ -49,7 +49,7 @@ export default function AuthPage({ view }: Props) {
             initialView={view}
             next={nextSearchParam || '/prepare'}
             preBodyContents={
-              nextSearchParam === '/pricing' &&
+              nextSearchParam === '/interviews/pricing' &&
               sourceSearchParam === 'buy_now' ? (
                 <Alert
                   title={intl.formatMessage({

@@ -27,8 +27,8 @@ export type InterviewsPricingPlanPaymentConfigLocalizedRecord = Record<
 >;
 
 const urls = {
-  cancel: '/pricing',
-  success: '/payment/success',
+  cancel: '/interviews/pricing',
+  success: '/interviews/payment/success',
 };
 
 const productId = process.env.STRIPE_PRODUCT_ID_INTERVIEWS!;

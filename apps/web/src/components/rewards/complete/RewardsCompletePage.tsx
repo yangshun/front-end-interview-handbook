@@ -147,7 +147,7 @@ export default function RewardsCompletePage() {
             <Button
               className="self-stretch sm:self-auto"
               display="block"
-              href="/pricing"
+              href="/interviews/pricing"
               icon={RiArrowRightLine}
               label={intl.formatMessage({
                 defaultMessage: 'Use now',

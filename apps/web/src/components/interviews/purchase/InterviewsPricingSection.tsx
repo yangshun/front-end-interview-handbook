@@ -396,14 +396,15 @@ export default function InterviewsPricingSection({
 
   const featureAllAccess = intl.formatMessage({
     defaultMessage:
-      'Unlock all premium content including official solutions, company tags, and study plans.',
+      'Unlock all premium interviews content including official solutions, company tags, and study plans.',
     description: 'Feature of quarterly pricing plan',
-    id: 'LSKN5A',
+    id: 'l1Ksil',
   });
   const featureContinuousUpdates = intl.formatMessage({
-    defaultMessage: 'Access to continuously updating questions and content.',
+    defaultMessage:
+      'Access to continuously updating interview questions and content.',
     description: 'Feature of monthly pricing plan',
-    id: '++gUWh',
+    id: 'EnNFW9',
   });
   const featureDiscordAccess = intl.formatMessage({
     defaultMessage: 'Exclusive private Discord channel access for life.',
@@ -478,18 +479,18 @@ export default function InterviewsPricingSection({
   const lifetimePlanDetails: InterviewsPricingPlanItem = {
     description: intl.formatMessage({
       defaultMessage:
-        'Pay once, get full access to the interview platform forever, including updates.',
+        'Pay once, get full access to the interviews platform forever, including updates.',
       description:
         'Subtitle of LifeTime Access Pricing Plan found on Homepage or Pricing page',
-      id: '8yJWMC',
+      id: 'ZtqhZJ',
     }),
     includedFeatures: [
       featureAllAccess,
       intl.formatMessage({
-        defaultMessage: 'Access updates to the interview platform for life.',
+        defaultMessage: 'Access updates to the interviews platform for life.',
         description:
           'Lifetime membership feature of accessing updates to interview platforms',
-        id: '1AGOZJ',
+        id: '8F7JlA',
       }),
       featureDiscordAccess,
       featureRealtimeSupport,
@@ -580,9 +581,9 @@ export default function InterviewsPricingSection({
           <MarketingSectionHeader
             description={
               <FormattedMessage
-                defaultMessage="For a limited time, we are offering our lifetime plans at {symbol}{unitCostLocalizedInCurrency}. Meanwhile, the reward for acing your interviews could be <strong>hundreds of thousands</strong> in total compensation."
+                defaultMessage="For a limited time, we are offering lifetime plan for the interviews platform at {symbol}{unitCostLocalizedInCurrency}. The reward for acing your interviews could be <strong>hundreds of thousands</strong> in total compensation."
                 description="Subtitle of Pricing section on Homepage or Pricing page"
-                id="2wms0e"
+                id="oQzWOu"
                 values={{
                   strong: (chunks) => (
                     <strong className="font-semibold">{chunks}</strong>
@@ -595,9 +596,9 @@ export default function InterviewsPricingSection({
             }
             heading={
               <FormattedMessage
-                defaultMessage="Invest in fuss-free, quality preparation"
+                defaultMessage="Invest in fuss-free, quality interview preparation"
                 description="Title of Pricing section of Homepage or Pricing page"
-                id="fjKhks"
+                id="uzBcpK"
               />
             }
             title={
@@ -982,9 +983,9 @@ export default function InterviewsPricingSection({
                 <Text className="block" color="secondary" size="body3">
                   *{' '}
                   <FormattedMessage
-                    defaultMessage="Tip: Many users have reimbursed GreatFrontEnd Premium as part of their company's flexible benefits or learning and training budget."
+                    defaultMessage="Tip: Many users have reimbursed GreatFrontEnd Interviews Premium as part of their company's flexible benefits or learning and training budget."
                     description="Tip at the bottom of the Pricing section to let users they can reimburse their purchase of GreatFrontEnd with their company's learning budgets"
-                    id="Xka4d3"
+                    id="FixyP6"
                   />
                 </Text>
                 <Text className="block" color="secondary" size="body3">

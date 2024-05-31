@@ -2,6 +2,7 @@ import { FormattedMessage, useIntl } from 'react-intl';
 
 import type { FAQItems } from '~/data/faqs/FAQs';
 import {
+  projectsAccess,
   purchaseDiscounts,
   purchaseIssues,
   purchaseLifetimeAccess,
@@ -11,7 +12,7 @@ import {
   purchaseSubscriptionCancel,
   purchaseSubscriptionCancelled,
   purchaseSubscriptionRenew,
-} from '~/data/faqs/PurchaseFAQs';
+} from '~/data/faqs/InterviewsPurchaseFAQs';
 
 import MarketingSectionHeader from '~/components/marketing/MarketingSectionHeader';
 import Anchor from '~/components/ui/Anchor';
@@ -30,6 +31,7 @@ const purchaseFaqs: FAQItems = [
   purchaseSubscriptionCancel,
   purchaseSubscriptionCancelled,
   purchaseIssues,
+  projectsAccess,
 ];
 
 export default function InterviewsPricingFAQSection() {
@@ -49,7 +51,7 @@ export default function InterviewsPricingFAQSection() {
               link: (chunks) => (
                 <Anchor
                   className="whitespace-nowrap"
-                  href="/faq"
+                  href="/interviews/faq"
                   weight="medium">
                   {chunks}
                 </Anchor>

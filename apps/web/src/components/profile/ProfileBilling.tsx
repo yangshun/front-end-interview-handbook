@@ -55,7 +55,9 @@ function InterviewsPlanLabel({
               description="Text describing user's subscription plan."
               id="FlysR+"
               values={{
-                link: (chunks) => <Anchor href="/pricing">{chunks}</Anchor>,
+                link: (chunks) => (
+                  <Anchor href="/interviews/pricing">{chunks}</Anchor>
+                ),
               }}
             />
           </div>
@@ -69,7 +71,7 @@ function InterviewsPlanLabel({
               description="Text describing user's subscription plan."
               id="OtaEwl"
               values={{
-                link: (chunks) => <Anchor href="/pricing">{chunks}</Anchor>,
+                link: (chunks) => <Anchor href="/interviews/pricing">{chunks}</Anchor>,
               }}
             />
           </Alert>

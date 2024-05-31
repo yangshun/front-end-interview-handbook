@@ -509,7 +509,7 @@ export default function useInterviewsNavItems(placement: 'nav' | 'sidebar') {
     type: 'popover-tabs',
   };
   const pricing: NavbarPrimaryItem = {
-    href: '/pricing',
+    href: '/interviews/pricing',
     icon: RiPriceTag3Line,
     itemKey: 'pricing',
     label: intl.formatMessage({

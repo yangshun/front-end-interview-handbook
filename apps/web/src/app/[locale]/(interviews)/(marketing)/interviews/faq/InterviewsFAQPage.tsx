@@ -11,8 +11,9 @@ import {
   generalUnique,
   generalWhatsIncluded,
   generalWorthIt,
-} from '~/data/faqs/GeneralFAQs';
+} from '~/data/faqs/InterviewsGeneralFAQs';
 import {
+  projectsAccess,
   purchaseDiscounts,
   purchaseIssues,
   purchaseLifetimeAccess,
@@ -22,7 +23,7 @@ import {
   purchaseSubscriptionCancel,
   purchaseSubscriptionCancelled,
   purchaseSubscriptionRenew,
-} from '~/data/faqs/PurchaseFAQs';
+} from '~/data/faqs/InterviewsPurchaseFAQs';
 import { supportHow, supportTechnical } from '~/data/faqs/SupportFAQs';
 
 import MarketingFAQSection from '~/components/marketing/faqs/MarketingFAQSection';
@@ -30,6 +31,7 @@ import Container from '~/components/ui/Container';
 import Divider from '~/components/ui/Divider';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
+import Text from '~/components/ui/Text';
 
 const generalFaqs: FAQItems = [
   generalTarget,
@@ -51,6 +53,7 @@ const purchaseFaqs: FAQItems = [
   purchaseSubscriptionCancel,
   purchaseSubscriptionCancelled,
   purchaseIssues,
+  projectsAccess,
 ];
 
 const supportFaqs: FAQItems = [supportTechnical, supportHow];
@@ -60,7 +63,10 @@ export default function FAQPage() {
 
   return (
     <Container className="my-20 flex flex-col gap-y-8" variant="4xl">
-      <Heading level="heading2">FAQs</Heading>
+      <Heading level="heading2">GreatFrontEnd Interviews FAQs</Heading>
+      <Text color="secondary">
+        This page answers questions related to GreatFrontEnd Interviews.
+      </Text>
       <Divider />
       <Section>
         <MarketingFAQSection

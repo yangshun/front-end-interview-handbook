@@ -49,7 +49,7 @@ export default function QuestionPaywallSmall({
         </Text>
       </div>
       <Button
-        href="/pricing"
+        href="/interviews/pricing"
         label={intl.formatMessage({
           defaultMessage: 'View plans',
           description:

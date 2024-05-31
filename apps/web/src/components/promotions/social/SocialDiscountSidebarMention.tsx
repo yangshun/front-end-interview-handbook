@@ -82,7 +82,7 @@ function SocialDiscountSidebarMentionImpl() {
                 </div>
                 <Button
                   addonPosition="end"
-                  href="/pricing"
+                  href="/interviews/pricing"
                   icon={RiArrowRightLine}
                   label={socialDiscountLabels.existingPromoCtaLabel}
                   variant="secondary"

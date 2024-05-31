@@ -48,6 +48,16 @@ const nextConfig = {
   async redirects() {
     return [
       {
+        source: '/pricing',
+        destination: '/interviews/pricing',
+        permanent: false,
+      },
+      {
+        source: '/payment/success',
+        destination: '/interviews/payment/success',
+        permanent: false,
+      },
+      {
         source: '/questions/javascript',
         destination: '/questions/js',
         permanent: false,

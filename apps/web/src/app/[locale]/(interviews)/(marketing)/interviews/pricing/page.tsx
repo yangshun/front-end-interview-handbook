@@ -28,7 +28,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       },
     ),
     locale,
-    pathname: '/pricing',
+    pathname: '/interviews/pricing',
     title: intl.formatMessage({
       defaultMessage: 'Pricing',
       description: 'Title of Pricing page',

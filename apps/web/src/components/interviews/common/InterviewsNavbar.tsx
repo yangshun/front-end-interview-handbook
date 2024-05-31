@@ -61,7 +61,7 @@ export default function InterviewsNavbar({ hideOnDesktop = false }: Props) {
       </div>
       {!isPremium && (
         <Button
-          href="/pricing"
+          href="/interviews/pricing"
           label={intl.formatMessage({
             defaultMessage: 'Get full access',
             description:
@@ -139,7 +139,7 @@ export default function InterviewsNavbar({ hideOnDesktop = false }: Props) {
           <div className="px-4">
             <Button
               display="block"
-              href="/pricing"
+              href="/interviews/pricing"
               label={intl.formatMessage({
                 defaultMessage: 'Get full access',
                 description: 'Link label to the pricing page',

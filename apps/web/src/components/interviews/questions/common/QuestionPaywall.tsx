@@ -49,7 +49,7 @@ export default function QuestionPaywall({
       <EmptyState
         action={
           <Button
-            href="/pricing"
+            href="/interviews/pricing"
             label={intl.formatMessage({
               defaultMessage: 'View subscription plans',
               description:

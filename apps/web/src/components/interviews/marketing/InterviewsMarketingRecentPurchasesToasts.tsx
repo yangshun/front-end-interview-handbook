@@ -65,7 +65,9 @@ function MarketingRecentPurchasesImpl({
           id="5gqGca"
           values={{
             country: currentPurchase.country,
-            link: (chunks) => <Anchor href="/pricing">{chunks}</Anchor>,
+            link: (chunks) => (
+              <Anchor href="/interviews/pricing">{chunks}</Anchor>
+            ),
           }}
         />
       ),

@@ -116,7 +116,7 @@ function useFooterNavigation() {
       key: 'company',
       links: [
         {
-          href: '/pricing',
+          href: '/interviews/pricing',
           key: 'pricing',
           name: intl.formatMessage({
             defaultMessage: 'Pricing',
