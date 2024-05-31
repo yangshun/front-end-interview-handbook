@@ -1,5 +1,3 @@
-// Write custom JavaScript here.
-// You may ignore this file and delete if if JavaScript is not required for your challenge.
 const emailField = document.getElementById('email');
 const emailError = document.getElementById('email-error');
 const newsletterForm = document.getElementById('newsletter-form');

@@ -1,6 +1,3 @@
-// Write custom JavaScript here.
-// You may ignore this file and delete if if JavaScript is not required for your challenge.
-
 // Navbar
 document.getElementById('mobile-menu-button').addEventListener('click', () => {
   document.getElementById('slideout-menu').classList.toggle('open');
@@ -13,17 +10,17 @@ document
   });
 
 // Pricing tiers
-const monthlyPlanBtn = document.getElementById("monthlyPlanBtn");
-const annualPlanBtn = document.getElementById("annualPlanBtn");
+const monthlyPlanBtn = document.getElementById('monthlyPlanBtn');
+const annualPlanBtn = document.getElementById('annualPlanBtn');
 
-const basicPlanPrice = document.getElementById("basicPlanPrice");
-const basicPlanLabel = document.getElementById("basicPlanLabel");
+const basicPlanPrice = document.getElementById('basicPlanPrice');
+const basicPlanLabel = document.getElementById('basicPlanLabel');
 
-const standardPlanPrice = document.getElementById("standardPlanPrice");
-const standardPlanLabel = document.getElementById("standardPlanLabel");
+const standardPlanPrice = document.getElementById('standardPlanPrice');
+const standardPlanLabel = document.getElementById('standardPlanLabel');
 
-const premiumPlanPrice = document.getElementById("premiumPlanPrice");
-const premiumPlanLabel = document.getElementById("premiumPlanLabel");
+const premiumPlanPrice = document.getElementById('premiumPlanPrice');
+const premiumPlanLabel = document.getElementById('premiumPlanLabel');
 
 annualPlanBtn.addEventListener('click', function () {
   annualPlanBtn.classList.add('btn', 'btn--secondary');
@@ -58,10 +55,10 @@ monthlyPlanBtn.addEventListener('click', function () {
 });
 
 // FAQ
-const accordions = document.getElementsByClassName("faq__accordion__label");
+const accordions = document.getElementsByClassName('faq__accordion__label');
 
 for (let i = 0; i < accordions.length; i++) {
-  accordions[i].addEventListener("click", function () {
+  accordions[i].addEventListener('click', function () {
     let ariaExpandedValue = accordions[i].getAttribute('aria-expanded');
     if (ariaExpandedValue == 'true') {
       ariaExpandedValue = 'false';
@@ -69,7 +66,7 @@ for (let i = 0; i < accordions.length; i++) {
       ariaExpandedValue = 'true';
     }
     accordions[i].setAttribute('aria-expanded', ariaExpandedValue);
-    
+
     const faqContent = this.nextElementSibling;
     const activeIcon = this.lastElementChild.firstElementChild;
     const inactiveIcon = this.lastElementChild.lastElementChild;
@@ -115,7 +112,7 @@ newsletterForm.addEventListener('submit', async function (event) {
   // Make the request
   const response = await fetch(
     'https://www.greatfrontend.com/api/projects/challenges/newsletter',
-    requestOptions
+    requestOptions,
   );
   const result = await response.json();
 
@@ -151,10 +148,10 @@ const contactMessageField = document.getElementById('contact-message');
 const contactMessageError = document.getElementById('contact-message-error');
 
 const contactMessageCharCountValue = document.getElementById(
-  'contact-message-char-count-value'
+  'contact-message-char-count-value',
 );
 const contactMessageCharCountLabel = document.getElementById(
-  'contact-message-char-count-label'
+  'contact-message-char-count-label',
 );
 const contactForm = document.getElementById('contact-form');
 const contactConfirmation = document.getElementById('contact-confirmation');
@@ -225,7 +222,7 @@ contactForm.addEventListener('submit', async function (event) {
   // Make the request
   const response = await fetch(
     'https://www.greatfrontend.com/api/projects/challenges/contact',
-    requestOptions
+    requestOptions,
   );
   const result = await response.json();
 
@@ -261,6 +258,6 @@ document
 
 // Footer
 const year = new Date().getFullYear();
-const copyrightYearElement = document.getElementById("copyrightYear");
+const copyrightYearElement = document.getElementById('copyrightYear');
 
 copyrightYearElement.innerText = year;

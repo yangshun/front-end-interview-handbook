@@ -1,6 +1,3 @@
-// Write custom JavaScript here.
-// You may ignore this file and delete if if JavaScript is not required for your challenge.
-
 // Navbar
 document.getElementById('mobile-menu-button').addEventListener('click', () => {
   document.getElementById('slideout-menu').classList.toggle('open');
@@ -13,8 +10,8 @@ document
   });
 
 fetch(
-  'https://www.greatfrontend.com/api/projects/challenges/statistics-metrics'
-).then(async response => {
+  'https://www.greatfrontend.com/api/projects/challenges/statistics-metrics',
+).then(async (response) => {
   if (response.ok) {
     const { data } = await response.json();
     document.getElementById('downloads-stats').innerText =
@@ -25,7 +22,6 @@ fetch(
       data[2].value.toLocaleString();
   }
 });
-
 
 // Contact
 const contactNameField = document.getElementById('contact-name');
@@ -38,10 +34,10 @@ const contactMessageField = document.getElementById('contact-message');
 const contactMessageError = document.getElementById('contact-message-error');
 
 const contactMessageCharCountValue = document.getElementById(
-  'contact-message-char-count-value'
+  'contact-message-char-count-value',
 );
 const contactMessageCharCountLabel = document.getElementById(
-  'contact-message-char-count-label'
+  'contact-message-char-count-label',
 );
 const contactForm = document.getElementById('contact-form');
 const contactConfirmation = document.getElementById('contact-confirmation');
@@ -113,7 +109,7 @@ contactForm.addEventListener('submit', async function (event) {
   // Make the request
   const response = await fetch(
     'https://www.greatfrontend.com/api/projects/challenges/contact',
-    requestOptions
+    requestOptions,
   );
   const result = await response.json();
 
@@ -149,6 +145,6 @@ document
 
 // Footer
 const year = new Date().getFullYear();
-const copyrightYearElement = document.getElementById("copyrightYear");
+const copyrightYearElement = document.getElementById('copyrightYear');
 
 copyrightYearElement.innerText = year;

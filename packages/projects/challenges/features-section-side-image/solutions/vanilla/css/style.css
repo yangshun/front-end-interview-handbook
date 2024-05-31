@@ -1,5 +1,3 @@
-/* Put any custom CSS styles here.  */
-/* Be sure to delete the <style> tag in index.html if you want to use this stylesheet. */
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
 
 * {
@@ -21,12 +19,18 @@ body {
     'Open Sans',
     'Helvetica Neue',
     sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+
   min-height: 100vh;
+  background: linear-gradient(147.52deg, #f9fafb 8.89%, #d2d6db 100.48%);
 }
 
 .container {
   padding: 16px;
-  background: linear-gradient(147.52deg, #f9fafb 8.89%, #d2d6db 100.48%);
+  max-width: 1440px;
+  margin: 0 auto;
 }
 
 .features-section {

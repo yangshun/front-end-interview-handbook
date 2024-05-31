@@ -33,9 +33,9 @@ const ProfileCard = () => {
   return (
     <div
       className={clsx(
-        'w-[340px] bg-white px-[15px] py-[23px]',
+        'w-[340px] bg-white px-4 py-6',
         'flex flex-col items-center gap-10',
-        'rounded-lg border border-neutral-200 shadow',
+        'rounded-lg shadow',
       )}>
       <div className="flex flex-col items-center gap-6">
         <img

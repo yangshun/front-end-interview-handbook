@@ -21,7 +21,9 @@ body {
     'Open Sans',
     'Helvetica Neue',
     sans-serif;
-  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
 .container {
@@ -29,8 +31,20 @@ body {
   justify-content: center;
   align-items: flex-start;
   margin: 0 auto;
-  min-height: 100vh;
+  min-height: 812px;
   padding-top: 112px;
+}
+
+@media screen and (min-width: 768px) {
+  .container {
+    min-height: 1024px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .container {
+    min-height: 768px;
+  }
 }
 
 .input-variants {
