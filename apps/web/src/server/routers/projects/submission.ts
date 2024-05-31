@@ -18,6 +18,7 @@ import { projectsChallengeSubmissionTitleSchemaServer } from '~/components/proje
 import { generateScreenshots } from '~/components/projects/utils/screenshotUtils';
 
 import prisma from '~/server/prisma';
+import { getErrorMessage } from '~/utils/getErrorMessage';
 
 import { projectsUserProcedure } from './procedures';
 import { publicProcedure, router } from '../../trpc';
@@ -384,26 +385,20 @@ export const projectsChallengeSubmissionItemRouter = router({
               id: submissionId,
             },
           });
-        } catch (_) {
-          const projectChallengeSubmission =
-            await prisma.projectsChallengeSubmission.update({
-              data: {
-                screenshotStatus:
-                  ProjectsChallengeSubmissionScreenshotStatus.FAILED,
-              },
-              where: {
-                id: submissionId,
-              },
-            });
-
-          const errorData = {
-            data: projectChallengeSubmission,
-            message: 'Failed to take Screenshot for submission',
-          };
+        } catch (error) {
+          await prisma.projectsChallengeSubmission.update({
+            data: {
+              screenshotStatus:
+                ProjectsChallengeSubmissionScreenshotStatus.FAILED,
+            },
+            where: {
+              id: submissionId,
+            },
+          });
 
           throw new TRPCError({
             code: 'INTERNAL_SERVER_ERROR',
-            message: JSON.stringify(errorData),
+            message: getErrorMessage(error),
           });
         }
       },

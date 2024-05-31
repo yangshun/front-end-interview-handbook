@@ -45,29 +45,18 @@ export default function useProjectsChallengeSubmissionTakeScreenshotMutation(
   const { showToast } = useToast();
   const intl = useIntl();
 
-  const renderBold = (chunks: Array<ReactNode>) => (
-    <Text color="inherit" size="inherit" weight="bold">
-      {chunks}
-    </Text>
-  );
-
   return trpc.projects.submission.retakeScreenshot.useMutation({
-    onError: (error) => {
-      const message = JSON.parse(error.message);
-      const href = message.data ? message.data.hrefs.detail : null;
-      const onSubmissionPage = isOnSubmissionPage(href);
-
+    onError: () => {
       showToast({
         description: (
           <div className="flex items-center gap-3 pt-1">
             <Text className="block" color="inherit" size="inherit">
               <FormattedMessage
-                defaultMessage="There were some issues with taking a screenshot for your site."
+                defaultMessage="There were some issues with taking a screenshot for your site. Please try again."
                 description="Error message for screenshot generation"
-                id="Va2o/g"
+                id="ECojDz"
               />
             </Text>
-            {!onSubmissionPage && <ViewSubmissionButton href={href} />}
           </div>
         ),
         title: intl.formatMessage({
@@ -77,10 +66,9 @@ export default function useProjectsChallengeSubmissionTakeScreenshotMutation(
         }),
         variant: 'danger',
       });
-      // Refetch submission page data to fetch latest status of screenshot
-      if (onSubmissionPage) {
-        router.refresh();
-      }
+      // Refetch page data to fetch latest status of screenshot.
+      // The user might not be on the submission page but that's ok since this case is quite rare.
+      router.refresh();
     },
     onMutate: () => {
       showToast({
@@ -129,7 +117,11 @@ export default function useProjectsChallengeSubmissionTakeScreenshotMutation(
                 description="Success message for screenshot generation"
                 id="l6Y1+i"
                 values={{
-                  bold: renderBold,
+                  bold: (chunks) => (
+                    <Text color="inherit" size="inherit" weight="bold">
+                      {chunks}
+                    </Text>
+                  ),
                   title: data.title,
                 }}
               />

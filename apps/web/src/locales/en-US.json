@@ -1939,6 +1939,10 @@
     "defaultMessage": "Stop session",
     "description": "Label to stop study plan"
   },
+  "ECojDz": {
+    "defaultMessage": "There were some issues with taking a screenshot for your site. Please try again.",
+    "description": "Error message for screenshot generation"
+  },
   "EHPx/Z": {
     "defaultMessage": "Solving Common Questions",
     "description": "Title for solving common behavioral questions section"
@@ -4254,10 +4258,6 @@
   "VZ4Yky": {
     "defaultMessage": "Get the right practical foundation from the get-go",
     "description": "Title of 'Practical foundation' feature in Projects marketing page"
-  },
-  "Va2o/g": {
-    "defaultMessage": "There were some issues with taking a screenshot for your site.",
-    "description": "Error message for screenshot generation"
   },
   "VcLkXG": {
     "defaultMessage": "Free",
