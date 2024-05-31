@@ -93,9 +93,9 @@ export default {
       // Marketing pages.
       '/',
       '/interviews/pricing',
+      '/interviews/faq',
       '/affiliates',
       '/contact',
-      '/faq',
       '/promotions',
       '/jobs',
       '/rewards/social',

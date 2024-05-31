@@ -1503,10 +1503,6 @@
     "defaultMessage": "No questions",
     "description": "Title for empty state when application of filters return no results"
   },
-  "AwOPCW": {
-    "defaultMessage": "Do you offer refunds?",
-    "description": "Question on projects pricing's FAQ section - offer refunds"
-  },
   "AzJz7v": {
     "defaultMessage": "Menu",
     "description": "Project guide navigation menu button label"
@@ -1695,10 +1691,6 @@
     "defaultMessage": "Other skills you are using which are not within the skills roadmap. Also helps community members understand more about the tech stack. If you don't see the tag you need, email us.",
     "description": "Description for \"Other tech stack used\" text input"
   },
-  "CjH8DZ": {
-    "defaultMessage": "Do unspent credits roll over?",
-    "description": "Question on projects pricing's FAQ section - unused credits"
-  },
   "Cjz59k": {
     "defaultMessage": "Click here to try out the actual workspace instead of this embed.",
     "description": "Button label within embed"
@@ -1838,10 +1830,6 @@
   "DTIb2e": {
     "defaultMessage": "Pagination",
     "description": "Pagination label"
-  },
-  "Db9ssR": {
-    "defaultMessage": "Does the subscription auto-renew?",
-    "description": "Question on projects pricing's FAQ section - auto renew"
   },
   "DbEF7d": {
     "defaultMessage": "Master the art of building interactive and user-friendly forms.",
@@ -2514,6 +2502,10 @@
   "IveIL+": {
     "defaultMessage": "Features",
     "description": "Sidebar navigation label"
+  },
+  "IxaZ5e": {
+    "defaultMessage": "Are there student discounts available for GreatFrontEnd Projects?",
+    "description": "Question on projects pricing's FAQ section - student discounts"
   },
   "J/UPQZ": {
     "defaultMessage": "For learning",
@@ -4259,10 +4251,6 @@
     "defaultMessage": "CASHBACK",
     "description": "Amount cashback/discount"
   },
-  "Vge6qx": {
-    "defaultMessage": "Yes, our subscription auto-renews at the end of each billing period. An email reminder will be sent a few days before that so you can cancel it if you wish from the \"Billing\" tab of the \"Settings\" page.",
-    "description": "Answer on projects pricing's FAQ section - auto renew"
-  },
   "VlLGKt": {
     "defaultMessage": "Payment Success",
     "description": "Title of Payment Success page"
@@ -4282,10 +4270,6 @@
   "Vp6BGE": {
     "defaultMessage": "At least {minLength} character(s).",
     "description": "Error message"
-  },
-  "VrTcVl": {
-    "defaultMessage": "Are there student discounts available?",
-    "description": "Question on projects pricing's FAQ section - student discounts"
   },
   "Vtp5JU": {
     "defaultMessage": "A long time ago",
@@ -4651,6 +4635,10 @@
     "defaultMessage": "Our lifetime access plan costs less than 1 hour of an average Front End Engineer's salary. Meanwhile, the reward for acing your interviews could be an increase in hundreds of thousands of total compensation.",
     "description": "Paragraph 1 answer to 'Is it really worth it to buy GreatFrontEnd?' on Homepage's FAQ sections"
   },
+  "YOv8Qc": {
+    "defaultMessage": "Do unspent GreatFrontEnd Projects credits roll over?",
+    "description": "Question on projects pricing's FAQ section - unused credits"
+  },
   "YRVMeX": {
     "defaultMessage": "Review Cashback Terms and Conditions",
     "description": "Title of legal page"
@@ -4734,10 +4722,6 @@
   "ZB+f95": {
     "defaultMessage": "Preparation by Question Type",
     "description": "Preparing by front end interview question format"
-  },
-  "ZC3dbI": {
-    "defaultMessage": "You can easily cancel your subscription at any time in the \"Billing\" tab of the \"Settings\" page. The subscription and your access to premium contents will only end at the end of the current billing period (not immediately).",
-    "description": "Answer on projects pricing's FAQ section - cancel subscription"
   },
   "ZCmkG3": {
     "defaultMessage": "Can't find the answer you are looking for? <link>Reach out to us!</link>",
@@ -5723,10 +5707,6 @@
     "defaultMessage": "Premium Question",
     "description": "Title on question paywall displayed on premium question's pages"
   },
-  "gdu/01": {
-    "defaultMessage": "Can I cancel my subscription any time?",
-    "description": "Question on projects pricing's FAQ section - cancel subscription"
-  },
   "ghmPBf": {
     "defaultMessage": "Solved previously, mark as completed",
     "description": "Label for questions solved in the past"
@@ -6398,6 +6378,10 @@
   "lt1xn6": {
     "defaultMessage": "Student Discount Terms and Conditions",
     "description": "Title of legal page"
+  },
+  "ltBiLe": {
+    "defaultMessage": "Do you offer refunds for GreatFrontEnd Projects?",
+    "description": "Question on projects pricing's FAQ section - offer refunds"
   },
   "lu/XVn": {
     "defaultMessage": "No community contributions",

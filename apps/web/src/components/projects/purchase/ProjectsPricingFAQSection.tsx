@@ -2,11 +2,12 @@ import { FormattedMessage, useIntl } from 'react-intl';
 
 import type { FAQItems } from '~/data/faqs/FAQs';
 import {
-  autoRenew,
-  cancelSubscription,
   institutionsOrgDiscounts,
+  interviewsAccess,
   offerRefunds,
+  purchaseSubscriptionRenew,
   studentDiscounts,
+  subscriptionCancel,
   unspentCredits,
 } from '~/data/faqs/ProjectsPurchaseFAQs';
 
@@ -21,8 +22,9 @@ const purchaseFaqs: FAQItems = [
   studentDiscounts,
   institutionsOrgDiscounts,
   offerRefunds,
-  cancelSubscription,
-  autoRenew,
+  subscriptionCancel,
+  purchaseSubscriptionRenew,
+  interviewsAccess,
 ];
 
 export default function ProjectsPricingFAQSection() {

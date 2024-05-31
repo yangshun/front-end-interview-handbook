@@ -33,9 +33,9 @@ export const unspentCredits: FAQItem = {
   key: 'unspent-credits',
   question: (
     <FormattedMessage
-      defaultMessage="Do unspent credits roll over?"
+      defaultMessage="Do unspent GreatFrontEnd Projects credits roll over?"
       description="Question on projects pricing's FAQ section - unused credits"
-      id="CjH8DZ"
+      id="YOv8Qc"
     />
   ),
 };
@@ -63,9 +63,9 @@ export const studentDiscounts: FAQItem = {
   key: 'student-discounts',
   question: (
     <FormattedMessage
-      defaultMessage="Are there student discounts available?"
+      defaultMessage="Are there student discounts available for GreatFrontEnd Projects?"
       description="Question on projects pricing's FAQ section - student discounts"
-      id="VrTcVl"
+      id="IxaZ5e"
     />
   ),
 };
@@ -119,45 +119,58 @@ export const offerRefunds: FAQItem = {
   key: 'offer-refund',
   question: (
     <FormattedMessage
-      defaultMessage="Do you offer refunds?"
+      defaultMessage="Do you offer refunds for GreatFrontEnd Projects?"
       description="Question on projects pricing's FAQ section - offer refunds"
-      id="AwOPCW"
+      id="ltBiLe"
     />
   ),
 };
 
-export const cancelSubscription: FAQItem = {
+export const subscriptionCancel: FAQItem = {
   answer: (
-    <FormattedMessage
-      defaultMessage='You can easily cancel your subscription at any time in the "Billing" tab of the "Settings" page. The subscription and your access to premium contents will only end at the end of the current billing period (not immediately).'
-      description="Answer on projects pricing's FAQ section - cancel subscription"
-      id="ZC3dbI"
-    />
+    <>
+      You can cancel your GreatFrontEnd Projects subscription anytime by
+      visiting the{' '}
+      <Anchor href="/projects/settings/billing">Settings &gt; Billing</Anchor>{' '}
+      page. Your subscription will remain active until the end of your current
+      subscription period and will not be renewed after it ends.
+    </>
   ),
-  key: 'cancel-subscription',
+  key: 'purchase-subscription-cancel',
   question: (
-    <FormattedMessage
-      defaultMessage="Can I cancel my subscription any time?"
-      description="Question on projects pricing's FAQ section - cancel subscription"
-      id="gdu/01"
-    />
+    <>Where and how do I cancel my GreatFrontEnd Projects subscription?</>
   ),
 };
 
-export const autoRenew: FAQItem = {
+export const purchaseSubscriptionRenew: FAQItem = {
   answer: (
-    <FormattedMessage
-      defaultMessage='Yes, our subscription auto-renews at the end of each billing period. An email reminder will be sent a few days before that so you can cancel it if you wish from the "Billing" tab of the "Settings" page.'
-      description="Answer on projects pricing's FAQ section - auto renew"
-      id="Vge6qx"
-    />
+    <>
+      Yes, the recurring subscriptions are automatically renewed at the end of
+      its period for the convenience of subscribers. Monthly plans are renewed
+      every month and annual plans are renewed every year. An email reminder
+      will be sent days before the subscription is renewed to give you ample
+      time to cancel if you do not intend to renew.
+    </>
   ),
-  key: 'auto-renew',
+  key: 'purchase-subscription-renew',
   question: (
-    <FormattedMessage
-      defaultMessage="Does the subscription auto-renew?"
-      description="Question on projects pricing's FAQ section - auto renew"
-      id="Db9ssR"
-    />
+    <>Are GreatFrontEnd Projects subscriptions automatically renewed?</>
+  ),
+};
+
+export const interviewsAccess: FAQItem = {
+  answer: (
+    <>
+      GreatFrontEnd Interviews is a separate product targeted at a different
+      audience. The memberships and access for these two products are
+      independent.
+    </>
+  ),
+  key: 'interviews-access',
+  question: (
+    <>
+      Do I get access to GreatFrontEnd Interviews' premium features by
+      purchasing GreatFrontEnd Projects premium?
+    </>
   ),
 };

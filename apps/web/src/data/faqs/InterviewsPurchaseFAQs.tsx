@@ -127,10 +127,10 @@ export const purchaseSubscriptionRenew: FAQItem = {
 export const purchaseSubscriptionCancel: FAQItem = {
   answer: (
     <>
-      You can cancel your subscription anytime by visiting the{' '}
-      <Anchor href="/profile/billing">Profile &gt; Billing</Anchor> page. Your
-      subscription will remain active until the end of your current subscription
-      period and will not be renewed after it ends.
+      You can cancel your GreatFrontEnd Interviews subscription anytime by
+      visiting the <Anchor href="/profile/billing">Profile &gt; Billing</Anchor>{' '}
+      page. Your subscription will remain active until the end of your current
+      subscription period and will not be renewed after it ends.
     </>
   ),
   key: 'purchase-subscription-cancel',
@@ -187,7 +187,7 @@ export const projectsAccess: FAQItem = {
   question: (
     <>
       Do I get access to GreatFrontEnd Projects' premium features by purchasing
-      GreatFrontEnd Interviews?
+      GreatFrontEnd Interviews premium?
     </>
   ),
 };
