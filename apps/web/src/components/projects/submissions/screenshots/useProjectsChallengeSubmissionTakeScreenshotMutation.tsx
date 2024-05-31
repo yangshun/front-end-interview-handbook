@@ -1,4 +1,3 @@
-import type { ReactNode } from 'react';
 import { RiArrowRightLine } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
 import url from 'url';

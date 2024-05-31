@@ -1,3 +1,5 @@
+'use client';
+
 import clsx from 'clsx';
 import { RiLockLine } from 'react-icons/ri';
 
@@ -13,14 +15,14 @@ import type { ProjectsViewerProjectsProfile } from '../../types';
 
 type Props = Readonly<{
   slug: string;
-  viewerGuideAccess: ProjectsPremiumAccessControlType;
   viewerProjectsProfile: ProjectsViewerProjectsProfile | null;
+  viewerResourceAccess: ProjectsPremiumAccessControlType;
 }>;
 
-export default function ProjectsChallengeGuidePaywall({
-  viewerGuideAccess: viewerContentAccess,
-  viewerProjectsProfile,
+export default function ProjectsChallengeResourcePaywall({
   slug,
+  viewerProjectsProfile,
+  viewerResourceAccess: viewerContentAccess,
 }: Props) {
   const title = useProjectsChallengePaywallTitle(viewerContentAccess);
 

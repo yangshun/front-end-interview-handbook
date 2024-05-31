@@ -1,7 +1,11 @@
 import { redirect } from 'next/navigation';
 
+import ProjectsChallengeResourcePaywall from '~/components/projects/challenges/premium/ProjectsChallengeResourcePaywall';
+import ProjectsPremiumAccessControl from '~/components/projects/challenges/premium/ProjectsPremiumAccessControl';
 import ProjectsChallengeOfficialSolutionSection from '~/components/projects/challenges/resources/ProjectsChallengeOfficialSolutionSection';
 import type { ProjectsChallengeSolutionFrameworkType } from '~/components/projects/challenges/types';
+import fetchViewerProjectsChallengeAccess from '~/components/projects/utils/fetchViewerProjectsChallengeAccess';
+import fetchViewerProjectsProfile from '~/components/projects/utils/fetchViewerProjectsProfile';
 
 import {
   readProjectsChallengeItem,
@@ -16,8 +20,36 @@ export default async function ProjectsChallengeResourcesSolutionsPage({
   params,
 }: Props) {
   const { slug, locale, framework } = params;
-  const { challenge } = await readProjectsChallengeItem(slug, locale);
+
+  const [{ viewerProjectsProfile }, viewerUnlockedAccess, { challenge }] =
+    await Promise.all([
+      fetchViewerProjectsProfile(),
+      fetchViewerProjectsChallengeAccess(slug),
+      readProjectsChallengeItem(slug, locale),
+    ]);
+
   const { metadata } = challenge;
+  const viewerAccess = ProjectsPremiumAccessControl(
+    challenge.metadata.access,
+    viewerProjectsProfile,
+    viewerUnlockedAccess,
+  );
+
+  const viewerSolutionsAccess = viewerAccess.viewSolutions;
+  const showPaywall =
+    viewerSolutionsAccess !== 'UNLOCKED' &&
+    viewerSolutionsAccess !== 'ACCESSIBLE_TO_EVERYONE';
+
+  if (showPaywall) {
+    return (
+      <ProjectsChallengeResourcePaywall
+        slug={slug}
+        viewerProjectsProfile={viewerProjectsProfile}
+        viewerResourceAccess={viewerSolutionsAccess}
+      />
+    );
+  }
+
   const solutionFramework = (framework ??
     metadata.solutionFrameworkDefault ??
     'vanilla') as ProjectsChallengeSolutionFrameworkType;

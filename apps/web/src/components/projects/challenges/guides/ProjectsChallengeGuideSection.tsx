@@ -20,7 +20,7 @@ import Heading from '~/components/ui/Heading';
 import SlideOut from '~/components/ui/SlideOut';
 import { themeBorderColor } from '~/components/ui/theme';
 
-import ProjectsChallengeGuidePaywall from '../premium/ProjectsChallengeGuidePaywall';
+import ProjectsChallengeResourcePaywall from '../premium/ProjectsChallengeResourcePaywall';
 import type { ProjectsPremiumAccessControlType } from '../premium/ProjectsPremiumAccessControl';
 import type { ProjectsViewerProjectsProfile } from '../../types';
 
@@ -205,10 +205,10 @@ export default function ProjectsChallengeGuideSection({
             <Heading level="heading4">{projectGuide?.title}</Heading>
           )}
         {showPaywall ? (
-          <ProjectsChallengeGuidePaywall
+          <ProjectsChallengeResourcePaywall
             slug={slug}
-            viewerGuideAccess={viewerGuidesAccess}
             viewerProjectsProfile={viewerProjectsProfile}
+            viewerResourceAccess={viewerGuidesAccess}
           />
         ) : projectGuide?.body == null ? (
           <div

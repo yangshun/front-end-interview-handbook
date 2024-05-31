@@ -10,7 +10,6 @@ import {
 
 import {
   themeBorderBrandColor,
-  themeBorderElementColor,
   themeTextBrandColor,
   themeTextColor,
   themeTextSuccessColor,
