@@ -1,3 +1,4 @@
+import { countBy, sum } from 'lodash-es';
 import type { NextRequest } from 'next/server';
 import { NextResponse } from 'next/server';
 
@@ -25,11 +26,45 @@ export async function GET(
     (productReview) => productReview.product_id === productId,
   );
 
+  const ratingCounts = countBy(productReviews.map((review) => review.rating));
+  const totalRating = sum(productReviews.map((review) => review.rating));
+
+  const averageRating =
+    productReviews.length === 0
+      ? 0
+      : Math.round((totalRating / productReviews.length) * 10) / 10;
+
   const filteredReviews = rating
     ? productReviews.filter((review) => review.rating === +rating)
     : productReviews;
 
   return NextResponse.json({
+    aggregate: {
+      counts: [
+        {
+          count: ratingCounts[1] ?? 0,
+          rating: 1,
+        },
+        {
+          count: ratingCounts[2] ?? 0,
+          rating: 2,
+        },
+        {
+          count: ratingCounts[3] ?? 0,
+          rating: 3,
+        },
+        {
+          count: ratingCounts[4] ?? 0,
+          rating: 4,
+        },
+        {
+          count: ratingCounts[5] ?? 0,
+          rating: 5,
+        },
+      ],
+      rating: averageRating,
+      total: productReviews.length,
+    },
     data: filteredReviews
       .slice((page - 1) * perPage, page * perPage)
       .map(({ user_id, product_id: _productId, ...review }) => ({
