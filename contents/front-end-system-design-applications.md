@@ -18,8 +18,8 @@ Front End Interview Handbook is now part of [GreatFrontEnd](https://www.greatfro
 - Photo sharing application (e.g. Instagram): [Read example solution](https://www.greatfrontend.com/questions/system-design/photo-sharing-instagram) (Paid)
 - Pinterest: [Read example solution](https://www.greatfrontend.com/questions/system-design/pinterest) (Paid)
 - Travel booking website (e.g. Airbnb): [Read example solution](https://www.greatfrontend.com/questions/system-design/travel-booking-airbnb) (Paid)
-- Video watching website
-- Email client
+- Video watching website (e.g. Netflix): [Read example solution](https://www.greatfrontend.com/questions/system-design/video-streaming-netflix) (Paid)
+- Email client (e.g. Microsoft Outlook): [Read example solution](https://www.greatfrontend.com/questions/system-design/email-client-outlook) (Paid)
 
 ## Framework
 
