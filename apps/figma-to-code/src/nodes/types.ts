@@ -1,17 +1,16 @@
 /* eslint-disable @typescript-eslint/consistent-type-definitions */
 /* eslint-disable @typescript-eslint/no-empty-interface */
 
-interface GFEBaseNodeMixin {
+export interface GFEBaseNodeMixin {
   readonly id: string;
   name: string;
 }
 
-// Checked
-interface GFESceneNodeMixin {
+export interface GFESceneNodeMixin {
   visible: boolean;
 }
 
-interface GFEChildrenMixin {
+export interface GFEChildrenMixin {
   readonly children: ReadonlyArray<GFESceneNode>;
 }
 
@@ -57,7 +56,7 @@ export interface GFEAutoLayoutChildrenMixin {
   layoutPositioning: AutoLayoutChildrenMixin['layoutPositioning'];
 }
 
-interface GFEInferredAutoLayoutResult
+export interface GFEInferredAutoLayoutResult
   extends GFEAutoLayoutMixin,
     GFEAutoLayoutChildrenMixin {}
 
@@ -79,16 +78,16 @@ export interface GFEMinimalFillsMixin {
   fills: ReadonlyArray<Paint>;
 }
 
-interface GFEGeometryMixin
+export interface GFEGeometryMixin
   extends GFEMinimalStrokesMixin,
     GFEMinimalFillsMixin {}
 
-interface GFECornerMixin {
+export interface GFECornerMixin {
   cornerRadius: number | 'mixed';
   cornerSmoothing: number;
 }
 
-interface GFERectangleCornerMixin {
+export interface GFERectangleCornerMixin {
   bottomLeftRadius: number;
   bottomRightRadius: number;
   topLeftRadius: number;
@@ -141,7 +140,7 @@ export interface GFEVectorNode extends GFEDefaultShapeMixin, GFECornerMixin {
   readonly type: 'VECTOR';
 }
 
-interface GFENonResizableTextMixin {
+export interface GFENonResizableTextMixin {
   characters: string;
   fontName: FontName | null;
   fontSize: number | null;

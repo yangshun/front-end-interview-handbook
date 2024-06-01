@@ -1,188 +1,315 @@
 import type {
+  GFEAutoLayoutChildrenMixin,
+  GFEAutoLayoutMixin,
+  GFEBaseFrameMixin,
+  GFEBaseNodeMixin,
+  GFEBlendMixin,
+  GFEChildrenMixin,
+  GFEComponentNode,
+  GFECornerMixin,
+  GFEDefaultFrameMixin,
+  GFEDefaultShapeMixin,
+  GFEDimensionAndPositionMixin,
   GFEFrameNode,
+  GFEGeometryMixin,
+  GFEIndividualStrokesMixin,
+  GFEInferredAutoLayoutResult,
+  GFEInstanceNode,
+  GFELayoutMixin,
+  GFEMinimalBlendMixin,
+  GFEMinimalFillsMixin,
+  GFEMinimalStrokesMixin,
+  GFENonResizableTextMixin,
+  GFERectangleCornerMixin,
   GFERectangleNode,
   GFESceneNode,
+  GFESceneNodeMixin,
   GFETextNode,
   GFEVectorNode,
 } from './types';
 
+function convertFigmaBaseNodeMixin(node: BaseNodeMixin): GFEBaseNodeMixin {
+  return {
+    id: node.id,
+    name: node.name,
+  };
+}
+
+function convertFigmaSceneNodeMixin(node: SceneNodeMixin): GFESceneNodeMixin {
+  return {
+    visible: node.visible,
+  };
+}
+
+function convertFigmaChildrenMixin(node: ChildrenMixin): GFEChildrenMixin {
+  return {
+    children: node.children
+      .map((childNode) => convertFigmaNodeToGFENode(childNode))
+      .flatMap((childNode) => (childNode != null ? [childNode] : [])),
+  };
+}
+
+function convertFigmaDimensionAndPositionMixin(
+  node: DimensionAndPositionMixin,
+): GFEDimensionAndPositionMixin {
+  return {
+    height: node.height,
+    width: node.width,
+    x: node.x,
+    y: node.y,
+  };
+}
+
+function convertFigmaAutoLayoutChildrenMixin(
+  node: AutoLayoutChildrenMixin,
+): GFEAutoLayoutChildrenMixin {
+  return {
+    layoutAlign: node.layoutAlign,
+    layoutGrow: node.layoutGrow,
+    layoutPositioning: node.layoutPositioning,
+  };
+}
+
+function convertFigmaLayoutMixin(node: LayoutMixin): GFELayoutMixin {
+  return {
+    layoutSizingHorizontal: node.layoutSizingHorizontal,
+    layoutSizingVertical: node.layoutSizingVertical,
+    ...convertFigmaDimensionAndPositionMixin(node),
+    ...convertFigmaAutoLayoutChildrenMixin(node),
+  };
+}
+
+function convertFigmaAutoLayoutMixin(
+  node: AutoLayoutMixin,
+): GFEAutoLayoutMixin {
+  return {
+    counterAxisAlignContent: node.counterAxisAlignContent,
+    counterAxisAlignItems: node.counterAxisAlignItems,
+    counterAxisSizingMode: node.counterAxisSizingMode,
+    counterAxisSpacing: node.counterAxisSpacing,
+    itemSpacing: node.itemSpacing,
+    layoutMode: node.layoutMode,
+    layoutWrap: node.layoutWrap,
+    paddingBottom: node.paddingBottom,
+    paddingLeft: node.paddingLeft,
+    paddingRight: node.paddingRight,
+    paddingTop: node.paddingTop,
+    primaryAxisAlignItems: node.primaryAxisAlignItems,
+    primaryAxisSizingMode: node.primaryAxisSizingMode,
+  };
+}
+
+function convertFigmaMinimalBlendMixin(
+  node: MinimalBlendMixin,
+): GFEMinimalBlendMixin {
+  return {
+    opacity: node.opacity,
+  };
+}
+
+function convertFigmaBlendMixin(node: BlendMixin): GFEBlendMixin {
+  return {
+    effects: node.effects,
+    ...convertFigmaMinimalBlendMixin(node),
+  };
+}
+
+function convertFigmaInferredAutoLayoutResult(
+  node: InferredAutoLayoutResult,
+): GFEInferredAutoLayoutResult {
+  return {
+    ...convertFigmaAutoLayoutMixin(node),
+    ...convertFigmaAutoLayoutChildrenMixin(node),
+  };
+}
+
+function convertFigmaMinimalStrokesMixin(
+  node: MinimalStrokesMixin,
+): GFEMinimalStrokesMixin {
+  return {
+    dashPattern: node.dashPattern,
+    strokeAlign: node.strokeAlign,
+    strokes: node.strokes,
+  };
+}
+
+function convertFigmaIndividualStrokesMixin(
+  node: IndividualStrokesMixin,
+): GFEIndividualStrokesMixin {
+  return {
+    strokeBottomWeight: node.strokeBottomWeight,
+    strokeLeftWeight: node.strokeLeftWeight,
+    strokeRightWeight: node.strokeRightWeight,
+    strokeTopWeight: node.strokeTopWeight,
+  };
+}
+
+function convertFigmaMinimalFillsMixin(
+  node: MinimalFillsMixin,
+): GFEMinimalFillsMixin {
+  return {
+    // TODO: handle mixed.
+    fills: node.fills !== figma.mixed ? node.fills : [],
+  };
+}
+
+function convertFigmaGeometryMixin(node: GeometryMixin): GFEGeometryMixin {
+  return {
+    ...convertFigmaMinimalStrokesMixin(node),
+    ...convertFigmaMinimalFillsMixin(node),
+  };
+}
+
+function convertFigmaCornerMixin(node: CornerMixin): GFECornerMixin {
+  return {
+    cornerRadius:
+      node.cornerRadius !== figma.mixed ? node.cornerRadius : 'mixed',
+    cornerSmoothing: node.cornerSmoothing,
+  };
+}
+
+function convertFigmaRectangleCornerMixin(
+  node: RectangleCornerMixin,
+): GFERectangleCornerMixin {
+  return {
+    bottomLeftRadius: node.bottomLeftRadius,
+    bottomRightRadius: node.bottomRightRadius,
+    topLeftRadius: node.topLeftRadius,
+    topRightRadius: node.topRightRadius,
+  };
+}
+
+function convertFigmaDefaultShapeMixin(
+  node: DefaultShapeMixin,
+): GFEDefaultShapeMixin {
+  return {
+    ...convertFigmaBaseNodeMixin(node),
+    ...convertFigmaSceneNodeMixin(node),
+    ...convertFigmaBlendMixin(node),
+    ...convertFigmaGeometryMixin(node),
+    ...convertFigmaLayoutMixin(node),
+  };
+}
+
+function convertFigmaBaseFrameMixin(node: BaseFrameMixin): GFEBaseFrameMixin {
+  return {
+    clipsContent: node.clipsContent,
+    ...convertFigmaBaseNodeMixin(node),
+    ...convertFigmaSceneNodeMixin(node),
+    ...convertFigmaChildrenMixin(node),
+    ...convertFigmaGeometryMixin(node),
+    ...convertFigmaCornerMixin(node),
+    ...convertFigmaRectangleCornerMixin(node),
+    ...convertFigmaBlendMixin(node),
+    ...convertFigmaLayoutMixin(node),
+    ...convertFigmaGeometryMixin(node),
+    ...convertFigmaIndividualStrokesMixin(node),
+    ...convertFigmaAutoLayoutMixin(node),
+  };
+}
+
+function convertFigmaDefaultFrameMixin(
+  node: DefaultFrameMixin,
+): GFEDefaultFrameMixin {
+  return {
+    ...convertFigmaBaseFrameMixin(node),
+  };
+}
+
+function convertFigmaFrameNode(node: FrameNode): GFEFrameNode {
+  return {
+    inferredAutoLayout: convertFigmaInferredAutoLayoutResult(node),
+    type: 'FRAME',
+    ...convertFigmaDefaultFrameMixin(node),
+  };
+}
+
+function convertFigmaRectangleNode(node: RectangleNode): GFERectangleNode {
+  return {
+    type: 'RECTANGLE',
+    ...convertFigmaDefaultShapeMixin(node),
+    ...convertFigmaCornerMixin(node),
+    ...convertFigmaRectangleCornerMixin(node),
+    ...convertFigmaIndividualStrokesMixin(node),
+  };
+}
+
+function convertFigmaVectorNode(node: VectorNode): GFEVectorNode {
+  return {
+    type: 'VECTOR',
+    ...convertFigmaDefaultShapeMixin(node),
+    ...convertFigmaCornerMixin(node),
+  };
+}
+
+function convertFigmaNonResizableTextMixin(
+  node: NonResizableTextMixin,
+): GFENonResizableTextMixin {
+  return {
+    characters: node.characters,
+    fontName: node.fontName !== figma.mixed ? node.fontName : null,
+    fontSize: node.fontSize !== figma.mixed ? node.fontSize : null,
+    fontWeight: node.fontWeight !== figma.mixed ? node.fontWeight : null,
+    letterSpacing:
+      node.letterSpacing !== figma.mixed ? node.letterSpacing : null,
+    lineHeight: node.lineHeight !== figma.mixed ? node.lineHeight : null,
+    textCase: node.textCase !== figma.mixed ? node.textCase : null,
+    textDecoration:
+      node.textDecoration !== figma.mixed ? node.textDecoration : null,
+  };
+}
+
+function convertFigmaTextNode(node: TextNode): GFETextNode {
+  return {
+    textAlignHorizontal: node.textAlignHorizontal,
+    type: 'TEXT',
+    ...convertFigmaDefaultShapeMixin(node),
+    ...convertFigmaNonResizableTextMixin(node),
+  };
+}
+
+function convertFigmaComponentNode(node: ComponentNode): GFEComponentNode {
+  return {
+    type: 'COMPONENT',
+    ...convertFigmaDefaultFrameMixin(node),
+  };
+}
+
+function convertFigmaInstanceNode(node: InstanceNode): GFEInstanceNode {
+  return {
+    type: 'INSTANCE',
+    ...convertFigmaDefaultFrameMixin(node),
+  };
+}
+
 export function convertFigmaNodeToGFENode(
   node: SceneNode,
 ): GFESceneNode | null {
-  // TODO: fix any.
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const nodeObject: Record<string, any> = {};
-
-  nodeObject.type = node.type;
-  nodeObject.id = node.id;
-  nodeObject.name = node.name;
-  // DimensionAndPositionMixin
-  nodeObject.width = node.width;
-  nodeObject.height = node.height;
-
   console.info(node);
 
   switch (node.type) {
     case 'TEXT': {
-      // SceneNodeMixin
-      nodeObject.visible = node.visible;
-      // MinimalBlendMixin
-      nodeObject.opacity = node.opacity;
-      nodeObject.effects = node.effects;
-
-      nodeObject.characters = node.characters;
-      nodeObject.fontName =
-        node.fontName !== figma.mixed ? node.fontName : null;
-      nodeObject.fontWeight =
-        node.fontWeight !== figma.mixed ? node.fontWeight : null;
-      nodeObject.fontSize =
-        node.fontSize !== figma.mixed ? node.fontSize : null;
-      nodeObject.letterSpacing =
-        node.letterSpacing !== figma.mixed ? node.letterSpacing : null;
-      nodeObject.lineHeight =
-        node.lineHeight !== figma.mixed ? node.lineHeight : null;
-      nodeObject.textAlignHorizontal = node.textAlignHorizontal;
-      nodeObject.textDecoration =
-        node.textDecoration !== figma.mixed ? node.textDecoration : null;
-      nodeObject.textCase =
-        node.textCase !== figma.mixed ? node.textCase : null;
-
-      const fills = node.getRangeFills(0, node.characters.length);
-
-      nodeObject.fills = fills !== figma.mixed ? fills : [];
-
-      // TODO: improve typesafety.
-      return nodeObject as GFETextNode;
+      return convertFigmaTextNode(node);
     }
-
     case 'RECTANGLE': {
-      // SceneNodeMixin
-      nodeObject.visible = node.visible;
-      // MinimalBlendMixin
-      nodeObject.opacity = node.opacity;
-      // BlendMixin
-      nodeObject.effects = node.effects;
-
-      // LayoutMixin
-      nodeObject.layoutSizingHorizontal = node.layoutSizingHorizontal;
-      nodeObject.layoutSizingVertical = node.layoutSizingVertical;
-
-      // RectangleCornerMixin
-      nodeObject.topLeftRadius = node.topLeftRadius;
-      nodeObject.topRightRadius = node.topRightRadius;
-      nodeObject.bottomRightRadius = node.bottomRightRadius;
-      nodeObject.bottomLeftRadius = node.bottomLeftRadius;
-
-      // CornerMixin
-      nodeObject.cornerRadius = node.cornerRadius;
-      nodeObject.cornerRadius = node.cornerSmoothing;
-
-      // IndividualStrokesMixin
-      nodeObject.strokeTopWeight = node.strokeTopWeight;
-      nodeObject.strokeBottomWeight = node.strokeBottomWeight;
-      nodeObject.strokeLeftWeight = node.strokeLeftWeight;
-      nodeObject.strokeRightWeight = node.strokeRightWeight;
-
-      // MinimalFillsMixin
-      nodeObject.fills = node.fills !== figma.mixed ? node.fills : [];
-
-      // TODO: improve typesafety.
-      return nodeObject as GFERectangleNode;
+      return convertFigmaRectangleNode(node);
     }
-
     case 'VECTOR': {
-      // SceneNodeMixin
-      nodeObject.visible = node.visible;
-      // MinimalBlendMixin
-      nodeObject.opacity = node.opacity;
-      // BlendMixin
-      nodeObject.effects = node.effects;
-
-      // LayoutMixin
-      nodeObject.layoutSizingHorizontal = node.layoutSizingHorizontal;
-      nodeObject.layoutSizingVertical = node.layoutSizingVertical;
-
-      // CornerMixin
-      nodeObject.cornerRadius = node.cornerRadius;
-      nodeObject.cornerRadius = node.cornerSmoothing;
-
-      // MinimalStrokesMixin
-      nodeObject.strokes = node.strokes;
-      nodeObject.strokeAlign = node.strokeAlign;
-      nodeObject.dashPattern = node.dashPattern;
-
-      // MinimalFillsMixin
-      nodeObject.fills = node.fills !== figma.mixed ? node.fills : [];
-
-      // TODO: improve typesafety.
-      return nodeObject as GFEVectorNode;
+      return convertFigmaVectorNode(node);
     }
-
-    case 'COMPONENT':
-    case 'INSTANCE':
+    case 'COMPONENT': {
+      return convertFigmaComponentNode(node);
+    }
+    case 'INSTANCE': {
+      return convertFigmaInstanceNode(node);
+    }
     case 'FRAME': {
-      // SceneNodeMixin
-      nodeObject.visible = node.visible;
+      return convertFigmaFrameNode(node);
+    }
+    default: {
+      console.info(`Unsupported ${node.type} node (${node.id})`);
 
-      nodeObject.children = node.children
-        .map((childNode) => convertFigmaNodeToGFENode(childNode))
-        .flatMap((childNode) => (childNode != null ? [childNode] : []));
-
-      // MinimalBlendMixin
-      nodeObject.opacity = node.opacity;
-      // BlendMixin
-      nodeObject.effects = node.effects;
-
-      // MinimalFillsMixin
-      nodeObject.fills = node.fills !== figma.mixed ? node.fills : [];
-
-      nodeObject.layoutMode = node.layoutMode;
-      nodeObject.layoutWrap = node.layoutWrap;
-
-      nodeObject.primaryAxisSizingMode = node.primaryAxisSizingMode;
-      nodeObject.counterAxisSizingMode = node.counterAxisSizingMode;
-
-      nodeObject.primaryAxisAlignItems = node.primaryAxisAlignItems;
-      nodeObject.counterAxisAlignItems = node.counterAxisAlignItems;
-      nodeObject.counterAxisAlignContent = node.counterAxisAlignContent;
-
-      nodeObject.itemSpacing = node.itemSpacing;
-      nodeObject.counterAxisSpacing = node.counterAxisSpacing;
-      nodeObject.inferredAutoLayout = node.inferredAutoLayout; // TODO: use it for non-autolayout.
-
-      nodeObject.layoutAlign = node.layoutAlign;
-      nodeObject.layoutGrow = node.layoutGrow;
-      nodeObject.layoutPositioning = node.layoutPositioning; // TODO: Process it.
-
-      nodeObject.layoutSizingHorizontal = node.layoutSizingHorizontal;
-      nodeObject.layoutSizingVertical = node.layoutSizingVertical;
-
-      nodeObject.paddingLeft = node.paddingLeft;
-      nodeObject.paddingRight = node.paddingRight;
-      nodeObject.paddingTop = node.paddingTop;
-      nodeObject.paddingBottom = node.paddingBottom;
-
-      // RectangleCornerMixin
-      nodeObject.topLeftRadius = node.topLeftRadius;
-      nodeObject.topRightRadius = node.topRightRadius;
-      nodeObject.bottomRightRadius = node.bottomRightRadius;
-      nodeObject.bottomLeftRadius = node.bottomLeftRadius;
-
-      // MinimalStrokesMixin
-      nodeObject.strokes = node.strokes;
-      nodeObject.strokeAlign = node.strokeAlign;
-      nodeObject.dashPattern = node.dashPattern;
-
-      // IndividualStrokesMixin
-      nodeObject.strokeTopWeight = node.strokeTopWeight;
-      nodeObject.strokeBottomWeight = node.strokeBottomWeight;
-      nodeObject.strokeLeftWeight = node.strokeLeftWeight;
-      nodeObject.strokeRightWeight = node.strokeRightWeight;
-
-      // TODO: improve typesafety.
-      return nodeObject as GFEFrameNode;
+      return null;
     }
   }
-
-  return null;
 }
