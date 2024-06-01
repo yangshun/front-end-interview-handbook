@@ -4,14 +4,14 @@ import { Fragment, h } from 'preact';
 import { CopyCodeSection } from './CopyCodeSection';
 import { HTMLCodeSection } from './HTMLCodeSection';
 import { visitGFENode } from '../nodes/processGFENode';
-import type { GFENode } from '../nodes/types';
+import type { GFESceneNode } from '../nodes/types';
 
 import { Banner, IconInfo32 } from '@create-figma-plugin/ui';
 
 export function NodeProperties({
   node,
 }: Readonly<{
-  node: GFENode;
+  node: GFESceneNode;
 }>) {
   if (node == null) {
     return <div>Loading</div>;

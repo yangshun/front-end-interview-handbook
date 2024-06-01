@@ -12,9 +12,9 @@ import type {
   GFENodePropertiesList,
   GFETailwindClasses,
 } from './props/types';
-import type { GFENode } from './types';
+import type { GFESceneNode } from './types';
 
-export function visitGFENode(node: GFENode) {
+export function visitGFENode(node: GFESceneNode) {
   type NewType = GFENodePropertiesList;
 
   const propertiesList: NewType = [];
@@ -210,7 +210,7 @@ type GFEHTMLNode = Readonly<{
   type: 'div' | 'img' | 'span' | 'svg';
 }>;
 
-export function transformGFENode(node: GFENode): GFEHTMLNode | undefined {
+export function transformGFENode(node: GFESceneNode): GFEHTMLNode | undefined {
   const { metadata, tailwindClasses } = visitGFENode(node);
 
   switch (node.type) {

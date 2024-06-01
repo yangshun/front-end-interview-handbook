@@ -1,13 +1,18 @@
 /* eslint-disable @typescript-eslint/consistent-type-definitions */
 /* eslint-disable @typescript-eslint/no-empty-interface */
 
+interface GFEBaseNodeMixin {
+  readonly id: string;
+  name: string;
+}
+
+// Checked
 interface GFESceneNodeMixin {
   visible: boolean;
 }
 
-interface GFEBaseNode {
-  readonly id: string;
-  name: string;
+interface GFEChildrenMixin {
+  readonly children: ReadonlyArray<GFESceneNode>;
 }
 
 export interface GFEDimensionAndPositionMixin {
@@ -17,24 +22,12 @@ export interface GFEDimensionAndPositionMixin {
   y: number;
 }
 
-interface GFECornerMixin {
-  cornerRadius: number | null;
-  cornerSmoothing: number;
-}
-
-interface GFERectangleCornerMixin {
-  bottomLeftRadius: number;
-  bottomRightRadius: number;
-  topLeftRadius: number;
-  topRightRadius: number;
-}
-
-export interface GFEMinimalFillsMixin {
-  fills: ReadonlyArray<Paint>;
-}
-
-export interface GFEMinimalBlendMixin {
-  opacity: number;
+export interface GFELayoutMixin
+  extends GFEDimensionAndPositionMixin,
+    GFEAutoLayoutChildrenMixin {
+  // TODO: support rotation.
+  layoutSizingHorizontal: LayoutMixin['layoutSizingHorizontal'];
+  layoutSizingVertical: LayoutMixin['layoutSizingVertical'];
 }
 
 export interface GFEBlendMixin extends GFEMinimalBlendMixin {
@@ -42,25 +35,26 @@ export interface GFEBlendMixin extends GFEMinimalBlendMixin {
 }
 
 export interface GFEAutoLayoutMixin {
-  counterAxisAlignContent: 'AUTO' | 'SPACE_BETWEEN';
-  counterAxisAlignItems: 'BASELINE' | 'CENTER' | 'MAX' | 'MIN';
-  counterAxisSizingMode: 'AUTO' | 'FIXED';
-  counterAxisSpacing: number | null;
-  itemSpacing: number;
-  layoutMode: 'HORIZONTAL' | 'NONE' | 'VERTICAL';
-  layoutWrap: 'NO_WRAP' | 'WRAP';
-  paddingBottom: number;
-  paddingLeft: number;
-  paddingRight: number;
-  paddingTop: number;
-  primaryAxisAlignItems: 'CENTER' | 'MAX' | 'MIN' | 'SPACE_BETWEEN';
-  primaryAxisSizingMode: 'AUTO' | 'FIXED';
+  counterAxisAlignContent: AutoLayoutMixin['counterAxisAlignContent'];
+  counterAxisAlignItems: AutoLayoutMixin['counterAxisAlignItems'];
+  counterAxisSizingMode: AutoLayoutMixin['counterAxisSizingMode'];
+  counterAxisSpacing: AutoLayoutMixin['counterAxisSpacing'];
+  itemSpacing: AutoLayoutMixin['itemSpacing'];
+  layoutMode: AutoLayoutMixin['layoutMode'];
+  layoutWrap: AutoLayoutMixin['layoutWrap'];
+  paddingBottom: AutoLayoutMixin['paddingBottom'];
+  paddingLeft: AutoLayoutMixin['paddingLeft'];
+  paddingRight: AutoLayoutMixin['paddingRight'];
+  paddingTop: AutoLayoutMixin['paddingTop'];
+  primaryAxisAlignItems: AutoLayoutMixin['primaryAxisAlignItems'];
+  primaryAxisSizingMode: AutoLayoutMixin['primaryAxisSizingMode'];
+  // TODO: add strokesIncludedInLayout
 }
 
 export interface GFEAutoLayoutChildrenMixin {
-  layoutAlign: 'CENTER' | 'INHERIT' | 'MAX' | 'MIN' | 'STRETCH';
-  layoutGrow: number;
-  layoutPositioning: 'ABSOLUTE' | 'AUTO';
+  layoutAlign: AutoLayoutChildrenMixin['layoutAlign'];
+  layoutGrow: AutoLayoutChildrenMixin['layoutGrow'];
+  layoutPositioning: AutoLayoutChildrenMixin['layoutPositioning'];
 }
 
 interface GFEInferredAutoLayoutResult
@@ -68,8 +62,9 @@ interface GFEInferredAutoLayoutResult
     GFEAutoLayoutChildrenMixin {}
 
 export interface GFEMinimalStrokesMixin {
+  // TODO: strokeWeight
   dashPattern: ReadonlyArray<number>;
-  strokeAlign: 'CENTER' | 'INSIDE' | 'OUTSIDE';
+  strokeAlign: MinimalStrokesMixin['strokeAlign'];
   strokes: ReadonlyArray<Paint>;
 }
 
@@ -80,43 +75,58 @@ export interface GFEIndividualStrokesMixin {
   strokeTopWeight: number;
 }
 
-export interface GFEGeometryMixin
+export interface GFEMinimalFillsMixin {
+  fills: ReadonlyArray<Paint>;
+}
+
+interface GFEGeometryMixin
   extends GFEMinimalStrokesMixin,
     GFEMinimalFillsMixin {}
 
-export interface GFELayoutMixin
-  extends GFEDimensionAndPositionMixin,
-    GFEAutoLayoutChildrenMixin {
-  layoutSizingHorizontal: LayoutMixin['layoutSizingHorizontal'];
-  layoutSizingVertical: LayoutMixin['layoutSizingVertical'];
+interface GFECornerMixin {
+  cornerRadius: number | 'mixed';
+  cornerSmoothing: number;
 }
 
-export interface GFEChildrenMixin {
-  readonly children: ReadonlyArray<GFENode>;
+interface GFERectangleCornerMixin {
+  bottomLeftRadius: number;
+  bottomRightRadius: number;
+  topLeftRadius: number;
+  topRightRadius: number;
+}
+
+export interface GFEMinimalBlendMixin {
+  opacity: number;
 }
 
 export interface GFEDefaultShapeMixin
-  extends GFEBlendMixin,
+  extends GFEBaseNodeMixin,
     GFESceneNodeMixin,
+    GFEBlendMixin,
     GFEGeometryMixin,
     GFELayoutMixin {}
 
 export interface GFEBaseFrameMixin
-  extends GFEChildrenMixin,
+  extends GFEBaseNodeMixin,
     GFESceneNodeMixin,
-    GFEAutoLayoutMixin,
-    GFELayoutMixin,
-    GFEMinimalStrokesMixin,
-    GFEIndividualStrokesMixin,
-    GFEMinimalFillsMixin,
+    GFEChildrenMixin,
+    GFEGeometryMixin,
     GFECornerMixin,
-    GFEBlendMixin,
     GFERectangleCornerMixin,
-    GFEDimensionAndPositionMixin,
-    GFEBaseNode {}
+    GFEBlendMixin,
+    GFELayoutMixin,
+    GFEIndividualStrokesMixin,
+    GFEAutoLayoutMixin {
+  // TODO: Process this
+  clipsContent: boolean;
+}
 
-export interface GFEVectorNode extends GFEDefaultShapeMixin, GFECornerMixin {
-  readonly type: 'VECTOR';
+export interface GFEDefaultFrameMixin extends GFEBaseFrameMixin {}
+
+export interface GFEFrameNode extends GFEDefaultFrameMixin {
+  inferredAutoLayout: GFEInferredAutoLayoutResult | null;
+
+  readonly type: 'FRAME';
 }
 
 export interface GFERectangleNode
@@ -127,39 +137,37 @@ export interface GFERectangleNode
   readonly type: 'RECTANGLE';
 }
 
-export interface GFETextNode
-  extends GFEMinimalFillsMixin,
-    GFEDimensionAndPositionMixin,
-    GFEAutoLayoutChildrenMixin,
-    GFEBaseNode,
-    GFEDefaultShapeMixin {
+export interface GFEVectorNode extends GFEDefaultShapeMixin, GFECornerMixin {
+  readonly type: 'VECTOR';
+}
+
+interface GFENonResizableTextMixin {
   characters: string;
   fontName: FontName | null;
   fontSize: number | null;
   fontWeight: number | null;
   letterSpacing: LetterSpacing | null;
   lineHeight: LineHeight | null;
-  textAlignHorizontal: TextNode['textAlignHorizontal'];
   textCase: TextCase | null;
   textDecoration: TextDecoration | null;
+}
+
+export interface GFETextNode
+  extends GFEDefaultShapeMixin,
+    GFENonResizableTextMixin {
+  textAlignHorizontal: TextNode['textAlignHorizontal'];
 
   readonly type: 'TEXT';
 }
 
-export interface GFEFrameNode extends GFEBaseFrameMixin {
-  inferredAutoLayout: GFEInferredAutoLayoutResult | null;
-
-  readonly type: 'FRAME';
-}
-
-export interface GFEComponentNode extends GFEBaseFrameMixin {
+export interface GFEComponentNode extends GFEDefaultFrameMixin {
   readonly type: 'COMPONENT';
 }
-export interface GFEInstanceNode extends GFEBaseFrameMixin {
+export interface GFEInstanceNode extends GFEDefaultFrameMixin {
   readonly type: 'INSTANCE';
 }
 
-export type GFENode =
+export type GFESceneNode =
   | GFEComponentNode
   | GFEFrameNode
   | GFEInstanceNode

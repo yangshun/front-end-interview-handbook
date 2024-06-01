@@ -5,7 +5,7 @@ import { useEffect, useState } from 'preact/hooks';
 import { EmptyState } from './components/EmptyState';
 import { NodeProperties } from './components/NodeProperties';
 import { useWindowResizeImpl } from './hooks/useWindowResizeImpl';
-import type { GFENode } from './nodes/types';
+import type { GFESceneNode } from './nodes/types';
 import type { SelectionChangedHandler, UIReadyHandler } from './utils/types';
 
 import '!./styles/output.css';
@@ -15,7 +15,7 @@ import { emit, on } from '@create-figma-plugin/utilities';
 
 function Plugin() {
   const [loading, setIsLoading] = useState(true);
-  const [selectedNode, setSelectedNode] = useState<GFENode | null>(null);
+  const [selectedNode, setSelectedNode] = useState<GFESceneNode | null>(null);
 
   useEffect(() => {
     on<SelectionChangedHandler>('SELECTION_CHANGED', (node) => {

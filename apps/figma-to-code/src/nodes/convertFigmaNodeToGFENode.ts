@@ -1,12 +1,14 @@
 import type {
   GFEFrameNode,
-  GFENode,
   GFERectangleNode,
+  GFESceneNode,
   GFETextNode,
   GFEVectorNode,
 } from './types';
 
-export function convertFigmaNodeToGFENode(node: SceneNode): GFENode | null {
+export function convertFigmaNodeToGFENode(
+  node: SceneNode,
+): GFESceneNode | null {
   // TODO: fix any.
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const nodeObject: Record<string, any> = {};
