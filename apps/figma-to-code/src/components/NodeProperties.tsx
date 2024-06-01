@@ -17,7 +17,7 @@ export function NodeProperties({
     return <div>Loading</div>;
   }
 
-  const { content, cssProperties, tailwindClasses } = visitGFENode(node);
+  const { metadata, cssProperties, tailwindClasses } = visitGFENode(node);
 
   return (
     <div className={clsx('flex flex-col h-full')}>
@@ -57,7 +57,11 @@ export function NodeProperties({
           codeToCopy={Array.from(tailwindClasses).join(' ')}
         />
         <HTMLCodeSection node={node} />
-        <CopyCodeSection title="Content" codeToCopy={content} code={content} />
+        <CopyCodeSection
+          title="Content"
+          codeToCopy={metadata.content}
+          code={metadata.content}
+        />
       </div>
       <div className="shrink-0">
         <Banner variant="warning" icon={<IconInfo32 />}>
