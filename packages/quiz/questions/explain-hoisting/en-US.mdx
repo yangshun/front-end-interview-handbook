@@ -36,8 +36,18 @@ Variables declared via `let` and `const` are hoisted as well. However, unlike `v
 
 ```js
 x; // undefined
-y; // Reference error: y is not defined
+y; // ReferenceError: Cannot access 'y' before initialization
 
 var x = 'local';
 let y = 'local';
 ```
+
+In reality, JavaScript creates all variables in the current scope before it even tries to executes the code. Variables created using `var` keyword will have the value of `undefined` where variables created using `let` and `const` keywords will be marked as `<value unavailable>`. Thus, accessing them will cause a `ReferenceError` preventing you to access them before intialization.
+
+In ECMAScript specifications `let` and `const` declarations are [explained as below](https://tc39.es/ecma262/#sec-let-and-const-declarations):
+
+> The variables are created when their containing Environment Record is instantiated but may not be accessed in any way until the variable's LexicalBinding is evaluated.
+
+However, this statement is [a litle bit different for `var` keyword](https://tc39.es/ecma262/#sec-variable-statement):
+
+> Var variables are created when their containing Environment Record is instantiated and are initialized to `undefined` when created.
