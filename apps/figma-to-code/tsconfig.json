@@ -1,6 +1,7 @@
 {
   "extends": "@create-figma-plugin/tsconfig",
   "compilerOptions": {
+    "skipLibCheck": true,
     "baseUrl": "./src",
     "noEmit": true,
     "paths": {
