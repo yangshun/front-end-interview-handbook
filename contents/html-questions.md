@@ -192,3 +192,20 @@ Yes, Pug (formerly Jade), ERB, Slim, Handlebars, Jinja, Liquid, and EJS just to 
 
 - https://neal.codes/blog/front-end-interview-questions-html/
 - http://peterdoes.it/2015/12/03/a-personal-exercise-front-end-job-interview-questions-and-my-answers-all/
+
+### What is the difference between canvas and SVG?
+
+Canvas is raster-based, working with pixels, while SVG is vector-based, employing mathematical descriptions of shapes. Canvas employs imperative drawing, where each step is specified with JavaScript, ideal for dynamic and interactive graphics like animations and games.
+
+Conversely, SVG uses declarative drawing, with shapes and paths defined directly in HTML, making it more accessible and SEO-friendly. Canvas is optimal for complex scenes due to its lower overhead, but scaling may lead to image quality loss. SVG, being resolution-independent, adapts to various screen sizes without sacrificing quality.
+
+Ultimately, canvas suits dynamic, performance-intensive graphics, while SVG excels in scalable, resolution-independent graphics, with inherent accessibility and SEO advantages.
+
+### What are empty elements in HTML?
+
+Empty elements in HTML are elements that do not contain any content between their opening and closing tags. Instead, they are self-closing tags, meaning they have a forward slash (`/`) before the closing angle bracket (`>`). Some common examples of empty elements include:
+
+- `<img>`: Used to embed images into the document.
+- `<input>`: Used to accept user input.
+- `<br>`: Used to insert line breaks or forced line breaks.
+- `<hr>`: Used to create horizontal rules or separators.
