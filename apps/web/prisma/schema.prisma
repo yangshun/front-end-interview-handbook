@@ -419,3 +419,15 @@ model RewardsTaskCompletion {
 
   @@unique([userId, campaign, action])
 }
+
+model Roadmap {
+  id          String @id @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
+  title       String
+  description String
+  dueDate     DateTime @db.Timestamptz(6)
+  tags        String[]
+  launched    Boolean @default(false)
+  url         String?
+  createdAt   DateTime @default(now()) @db.Timestamptz(6)
+  updatedAt   DateTime @default(now()) @updatedAt
+}
