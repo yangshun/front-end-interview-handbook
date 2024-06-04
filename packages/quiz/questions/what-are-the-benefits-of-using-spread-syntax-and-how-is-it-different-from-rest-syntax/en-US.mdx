@@ -27,7 +27,6 @@ function sum(...numbers) {
 }
 
 console.log(sum(1, 2, 3)); // Output: 6
-console.log(sum(4, 5, 6, 7)); // Output: 22
 ```
 
 ---
@@ -61,12 +60,13 @@ const person = {
 };
 
 const copyOfTodd = { ...person };
-console.log(copyOfTodd) // Output: {name: "Todd", age: 29}
+console.log(copyOfTodd); // Output: {name: "Todd", age: 29}
 ```
 
 Only iterable values like `Array` and `String`, can be spread in array and trying to do so will result into TypeError. On the other hand, arrays can be spread into objects.
 
 Spreading object into array:
+
 ```js
 const person = {
   name: 'Todd',
@@ -74,7 +74,9 @@ const person = {
 };
 const array = [...person]; // Error: Uncaught TypeError: person is not iterable
 ```
+
 Spreading array into object:
+
 ```js
 const array = [1, 2, 3];
 const obj = { ...array }; // { 0: 1, 1: 2, 2: 3 }
@@ -90,8 +92,8 @@ function addFiveToABunchOfNumbers(...numbers) {
   return numbers.map((x) => x + 5);
 }
 
-const result = addFiveToABunchOfNumbers(4, 5, 6, 7, 8, 9, 10); 
-console.log(result) // Output: [9, 10, 11, 12, 13, 14, 15]
+const result = addFiveToABunchOfNumbers(4, 5, 6, 7, 8, 9, 10);
+console.log(result); // Output: [9, 10, 11, 12, 13, 14, 15]
 
 // Example 2: Creating a new array from the remaining elements
 const [a, b, ...rest] = [1, 2, 3, 4]; // a: 1, b: 2, rest: [3, 4]
