@@ -8,8 +8,6 @@ title: Describe event bubbling
 
 **Practical Use:** Event bubbling is essential for event delegation, where a single event handler manages events for multiple child elements, enhancing performance and code simplicity.
 
-**Benefit:** Understanding event bubbling helps in creating efficient, maintainable front-end code.
-
 **Pitfall:** Failing to manage event propagation can lead to unintended behavior, such as multiple handlers firing for a single event.
 
 ---
@@ -82,7 +80,7 @@ parent.addEventListener('click', (event) => {
 
 Here are some of the practical use cases with code examples.
 
-- Reducing Code with Event Delegation:
+### Reducing Code with Event Delegation
 
 Imagine you have a product list with numerous items, each with a "Buy Now" button. Traditionally, you might attach a separate click event listener to each button:
 
@@ -129,7 +127,7 @@ function handleBuyClick(event) {
 
 By attaching the listener to the parent (`productList`) and checking the clicked element (`event.target`) within the handler, you achieve the same functionality with less code. This approach scales efficiently as you add more items.
 
-- Dropdown Menus:
+### Dropdown Menus
 
 Consider a dropdown menu where clicking anywhere on the menu element (parent) should close it. With event bubbling, you can achieve this with a single listener:
 
@@ -159,7 +157,7 @@ function handleDropdownClick(event) {
 
 Here, the click event bubbles up from the clicked element (button or list item) to the `dropdown` element. The handler checks if the clicked element is not the button and closes the menu accordingly.
 
-- Accordion Menus:
+### Accordion Menus
 
 Imagine an accordion menu where clicking a section header (parent) expands or collapses the content section (child) below it. Event bubbling makes this straightforward:
 
