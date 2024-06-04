@@ -2,34 +2,101 @@
 title: What are the benefits of using spread syntax and how is it different from rest syntax?
 ---
 
+## TL;DR
+
+**Spread syntax** allows you to expand an iterable (such as an array or string) into individual elements. This is often used to create new arrays or objects by combining existing ones.
+
+```js
+// Spreading an array
+const numbers = [1, 2, 3];
+const newNumbers = [...numbers, 4, 5];
+console.log(newNumbers); // Output: [1, 2, 3, 4, 5]
+
+// Spreading an object
+const person = { name: 'John', age: 30 };
+const newPerson = { ...person, city: 'New York' };
+console.log(newPerson); // Output: { name: 'John', age: 30, city: 'New York' }
+```
+
+**Rest syntax** is just the opposite of what Spread syntax does. It collects a variable number of arguments into an array. This is often used in function parameters to handle a dynamic number of arguments.
+
+```js
+// Using rest syntax in a function
+function sum(...numbers) {
+  return numbers.reduce((total, num) => total + num, 0);
+}
+
+console.log(sum(1, 2, 3)); // Output: 6
+console.log(sum(4, 5, 6, 7)); // Output: 22
+```
+
+---
+
+## Spread Syntax
+
 ES2015's spread syntax is very useful when coding in a functional paradigm as we can easily create copies of arrays or objects without resorting to `Object.create`, `slice`, or a library function. This language feature is used often in Redux and RxJS projects.
 
 ```js
-function putDookieInAnyArray(arr) {
-  return [...arr, 'dookie'];
-}
+// Example 1: Merging arrays
+let array1 = [1, 2, 3];
+let array2 = [4, 5, 6];
+let mergedArray = [...array1, ...array2];
+console.log(mergedArray); // Output: [1, 2, 3, 4, 5, 6]
 
-const result = putDookieInAnyArray(['I', 'really', "don't", 'like']); // ["I", "really", "don't", "like", "dookie"]
+// Example 2: Adding elements to the end of an array
+let array = [1, 2, 3];
+let newElement = 4;
+let updatedArray = [...array, newElement];
+console.log(updatedArray); // Output: [1, 2, 3, 4]
 
+// Example 3: Creating a new array from an existing one
+let array3 = [1, 2, 3];
+let newArray = [...array3];
+console.log(newArray); // Output: [1, 2, 3]
+
+// Example 4: Creating a new object from an existing one
 const person = {
   name: 'Todd',
   age: 29,
 };
 
 const copyOfTodd = { ...person };
+console.log(copyOfTodd) // Output: {name: "Todd", age: 29}
 ```
+
+Only iterable values like `Array` and `String`, can be spread in array and trying to do so will result into TypeError. On the other hand, arrays can be spread into objects.
+
+Spreading object into array:
+```js
+const person = {
+  name: 'Todd',
+  age: 29,
+};
+const array = [...person]; // Error: Uncaught TypeError: person is not iterable
+```
+Spreading array into object:
+```js
+const array = [1, 2, 3];
+const obj = { ...array }; // { 0: 1, 1: 2, 2: 3 }
+```
+
+## Rest Syntax
 
 ES2015's rest syntax offers a shorthand for including an arbitrary number of arguments to be passed to a function. It is like an inverse of the spread syntax, taking data and stuffing it into an array rather than unpacking an array of data, and it works in function arguments, as well as in array and object destructuring assignments.
 
 ```js
+// Example 1: To gather all arguments into array `numbers`
 function addFiveToABunchOfNumbers(...numbers) {
   return numbers.map((x) => x + 5);
 }
 
-const result = addFiveToABunchOfNumbers(4, 5, 6, 7, 8, 9, 10); // [9, 10, 11, 12, 13, 14, 15]
+const result = addFiveToABunchOfNumbers(4, 5, 6, 7, 8, 9, 10); 
+console.log(result) // Output: [9, 10, 11, 12, 13, 14, 15]
 
+// Example 2: Creating a new array from the remaining elements
 const [a, b, ...rest] = [1, 2, 3, 4]; // a: 1, b: 2, rest: [3, 4]
 
+// Example 3: Creating a new object from the remaining properties
 const { e, f, ...others } = {
   e: 1,
   f: 2,
@@ -37,3 +104,17 @@ const { e, f, ...others } = {
   h: 4,
 }; // e: 1, f: 2, others: { g: 3, h: 4 }
 ```
+
+Note that the rest parameters must be at the end. The rest parameters gather all remaining arguments, so the following does not make sense and causes an error:
+
+```js
+function addFiveToABunchOfNumbers(arg1, ...numbers, arg2) {
+  // Error: Uncaught Rest element must be last element.
+}
+```
+
+## Further Reading
+
+- [Spread syntax | MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax)
+- [Rest parameters | MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/rest_parameters)
+- [Rest parameters and spread syntax | JavaScript.info](https://javascript.info/rest-parameters-spread)
