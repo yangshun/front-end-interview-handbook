@@ -2,11 +2,15 @@
 title: Explain `Function.prototype.bind`
 ---
 
+## TL;DR
+
 > The `bind()` method creates a new function that, when called, has its `this` keyword set to the provided value, with a given sequence of arguments preceding any provided when the new function is called.
 
 _Source: [Function.prototype.bind() - JavaScript | MDN](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_objects/Function/bind)_
 
-`bind()` is most useful for binding the value of `this` in methods of classes that you want to pass into other functions. This was frequently done in React class component methods which were not defined using arrow functions.
+---
+
+`Function.prototype.bind` allows you to create a new function with a specific `this` context and, optionally, preset arguments. `bind()` is most useful for binding the value of `this` in methods of classes that you want to pass into other functions. This was frequently done in React class component methods which were not defined using arrow functions.
 
 ```js
 const john = {
@@ -33,10 +37,82 @@ In the example above, when the `getAge` method is called without a calling objec
 
 We can even use `getAge` on another object which is not `john`! `boundGetAgeMary` returns the `age` of `mary`.
 
+## Use Cases
+
+### Fixing the `this` value in callbacks
+
+When you pass a function as a callback, the `this` value inside the function can be unpredictable. Using `bind()` helps ensure that the correct `this` value is maintained.
+
+```js
+const person = {
+  name: 'John Doe',
+  greet: function() {
+    console.log(`Hello, my name is ${this.name}`);
+  }
+};
+
+// Without bind(), `this` inside the callback will be the global object
+setTimeout(person.greet, 1000); // Output: "Hello, my name is undefined"
+
+// Using bind() to fix the `this` value
+setTimeout(person.greet.bind(person), 1000); // Output: "Hello, my name is John Doe"
+```
+
+You can also use [arrow functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions) for this purpose instead of `bind`.
+
+```js
+const person = {
+  name: 'John Doe',
+  greet: function() {
+    console.log(`Hello, my name is ${this.name}`);
+  }
+};
+
+setTimeout(() => person.greet(), 1000); // Output: "Hello, my name is John Doe"
+```
+
+### Partial application of functions (currying)
+
+`bind()` can be used to create a new function with some arguments pre-set. This is known as partial application or currying.
+
+```js
+function multiply(a, b) {
+  return a * b;
+}
+
+// Using bind() to create a new function with some arguments pre-set
+const multiplyBy5 = multiply.bind(null, 5);
+console.log(multiplyBy5(3)); // Output: 15
+```
+
+### Converting instance methods to standalone functions
+
+When you need to use an instance method as a standalone function, `bind()` can help.
+
+```js
+class Person {
+  constructor(name) {
+    this.name = name;
+  }
+
+  greet() {
+    console.log(`Hello, my name is ${this.name}`);
+  }
+}
+
+const john = new Person('John');
+john.greet(); // Output: "Hello, my name is John"
+
+// Converting the instance method to a standalone function using bind()
+const johnGreet = john.greet.bind(john);
+johnGreet(); // Output: "Hello, my name is John"
+```
+
 ## Practice
 
-Try [implementing your own `Function.prototype.bind()` method](/questions/javascript/function-bind) on Great Front End.
+Try [implementing your own `Function.prototype.bind()` method](/questions/javascript/function-bind) on GreatFrontEnd.
 
-## References
+## Further Reading
 
 - [Function.prototype.bind() - JavaScript | MDN](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_objects/Function/bind)
+- [Function Binding | javascript.info](https://javascript.info/bind)
