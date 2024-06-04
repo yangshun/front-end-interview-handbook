@@ -46,9 +46,9 @@ When you pass a function as a callback, the `this` value inside the function can
 ```js
 const person = {
   name: 'John Doe',
-  greet: function() {
+  greet: function () {
     console.log(`Hello, my name is ${this.name}`);
-  }
+  },
 };
 
 // Without bind(), `this` inside the callback will be the global object
@@ -63,9 +63,9 @@ You can also use [arrow functions](https://developer.mozilla.org/en-US/docs/Web/
 ```js
 const person = {
   name: 'John Doe',
-  greet: function() {
+  greet: function () {
     console.log(`Hello, my name is ${this.name}`);
-  }
+  },
 };
 
 setTimeout(() => person.greet(), 1000); // Output: "Hello, my name is John Doe"
