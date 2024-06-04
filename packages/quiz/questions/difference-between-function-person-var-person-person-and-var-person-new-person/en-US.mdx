@@ -5,8 +5,8 @@ title: 'Difference between: `function Person(){}`, `var person = Person()`, and 
 ## TL;DR
 
 - `function Person(){}`: A function declaration in JavaScript. It can be used as a regular function or as a constructor.
-- `var person = Person()`: Calls Person as a regular function, not a constructor. If Person is intended to be a constructor, this will lead to unexpected behavior.
-- `var person = new Person()`: Creates a new instance of Person, correctly utilizing the constructor function to initialize the new object.
+- `var person = Person()`: Calls `Person` as a regular function, not a constructor. If Person is intended to be a constructor, this will lead to unexpected behavior.
+- `var person = new Person()`: Creates a new instance of `Person`, correctly utilizing the constructor function to initialize the new object.
 
 | Aspect           | `function Person(){}` | `var person = Person()`                     | `var person = new Person()`       |
 |------------------|-----------------------|---------------------------------------------|-----------------------------------|
@@ -45,7 +45,7 @@ In this case, `Person('John')` does not create a new object. The `person` variab
 
 ## Constructor call 
 
-`var person = new Person()` creates an instance of the Person object using the new operator, which inherits from `Person.prototype`. An alternative would be to use `Object.create`, such as: `Object.create(Person.prototype)` and `Person.call(person, 'John')` initializes the object.
+`var person = new Person()` creates an instance of the `Person` object using the new operator, which inherits from `Person.prototype`. An alternative would be to use `Object.create`, such as: `Object.create(Person.prototype)` and `Person.call(person, 'John')` initializes the object.
 
 ```js
 function Person(name) {
