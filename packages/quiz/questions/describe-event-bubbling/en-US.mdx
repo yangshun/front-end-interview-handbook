@@ -2,9 +2,23 @@
 title: Describe event bubbling
 ---
 
+## TL;DR
+
+**Event bubbling** is a DOM event propagation mechanism where an event, like a click, starts at the target element and bubbles up to the root of the document. This allows ancestor elements to also respond to the event.
+
+**Practical Use:** Event bubbling is essential for event delegation, where a single event handler manages events for multiple child elements, enhancing performance and code simplicity.
+
+**Benefit:** Understanding event bubbling helps in creating efficient, maintainable front-end code.
+
+**Pitfall:** Failing to manage event propagation can lead to unintended behavior, such as multiple handlers firing for a single event.
+
+---
+
+## What is Event Bubbling?
+
 Event bubbling is a propagation mechanism in the DOM (Document Object Model) where an event, such as a click or a keyboard event, is first triggered on the target element that initiated the event and then propagates upward (bubbles) through the DOM tree to the root of the document.
 
-## Bubbling phase
+## Bubbling Phase
 
 During the bubbling phase, the event starts at the target element and bubbles up through its ancestors in the DOM hierarchy. This means that the event handlers attached to the target element and its ancestors can all potentially receive and respond to the event.
 
@@ -28,18 +42,154 @@ child.addEventListener('click', () => {
 });
 ```
 
-When you click the "Click me!" button, both the child and parent event handlers will be triggered due to event bubbling.
+When you click the "Click me!" button, both the child and parent event handlers will be triggered due to the event bubbling.
 
 ## Stopping propagation
 
 Event propagation can be stopped during the bubbling phase using the `stopPropagation()` method. If an event handler calls `stopPropagation()`, it prevents the event from further bubbling up the DOM tree, ensuring that only the handlers of the elements up to that point in the hierarchy are executed.
 
+```js
+child.addEventListener('click', (event) => {
+  console.log('Child element clicked');
+  event.stopPropagation();
+});
+```
+
 ## Event delegation
 
 Event bubbling is the basis for a technique called "event delegation", where you attach a single event handler to a common ancestor of multiple elements and use event delegation to handle events for those elements efficiently. This is particularly useful when you have a large number of similar elements, like a list of items, and you want to avoid attaching individual event handlers to each item.
+```js
+parent.addEventListener('click', (event) => {
+  if (event.target && event.target.id === 'child') {
+    console.log('Child element clicked');
+  }
+});
+```
 
-## References
+## Benefits
+
+- **Cleaner Code:** Reduced number of event listeners improves code readability and maintainability.
+- **Efficient Event Handling:** Minimizes performance overhead by attaching fewer listeners.
+- **Flexibility:** Allows handling events happening on child elements without directly attaching listeners to them.
+
+## Pitfalls
+
+- **Accidental Event Handling:** Be mindful that parent elements might unintentionally capture events meant for children. Use `event.target` to identify the specific element that triggered the event.
+- **Event Order:** Events bubble up in a specific order. If multiple parents have event listeners, their order of execution depends on the DOM hierarchy.
+- **Over-delegation:** While delegating events to a common ancestor is efficient, attaching a listener too high in the DOM tree might capture unintended events.
+
+## Use Cases
+
+Here are some of the practical use cases with code examples.
+
+- Reducing Code with Event Delegation:
+
+Imagine you have a product list with numerous items, each with a "Buy Now" button. Traditionally, you might attach a separate click event listener to each button:
+
+```js
+// HTML:
+// <ul id="product-list">
+//   <li><button id="item1-buy">Buy Now</button></li>
+//   <li><button id="item2-buy">Buy Now</button></li>
+// </ul>
+
+const item1Buy = document.getElementById("item1-buy");
+const item2Buy = document.getElementById("item2-buy");
+
+item1Buy.addEventListener("click", handleBuyClick);
+item2Buy.addEventListener("click", handleBuyClick);
+
+// ... repeat for each item ...
+
+function handleBuyClick(event) {
+  console.log("Buy button clicked for item:", event.target.id);
+}
+```
+
+This approach becomes cumbersome as the number of items grows. Here's how event bubbling can simplify things:
+
+```js
+// HTML:
+// <ul id="product-list">
+//   <li><button id="item1-buy">Buy Now</button></li>
+//   <li><button id="item2-buy">Buy Now</button></li>
+// </ul>
+
+const productList = document.getElementById("product-list");
+
+productList.addEventListener("click", handleBuyClick);
+
+function handleBuyClick(event) {
+  // Check if the clicked element is a button within the list
+  if (event.target.tagName.toLowerCase() === "button") {
+    console.log("Buy button clicked for item:", event.target.textContent);
+  }
+}
+```
+
+By attaching the listener to the parent (`productList`) and checking the clicked element (`event.target`) within the handler, you achieve the same functionality with less code. This approach scales efficiently as you add more items.
+
+- Dropdown Menus:
+
+Consider a dropdown menu where clicking anywhere on the menu element (parent) should close it. With event bubbling, you can achieve this with a single listener:
+
+```js
+
+// HTML:
+// <div id="dropdown">
+//  <button>Open Menu</button>
+//   <ul>
+//    <li>Item 1</li>
+//    <li>Item 2</li>
+//   </ul>
+// </div>
+
+const dropdown = document.getElementById("dropdown");
+
+dropdown.addEventListener("click", handleDropdownClick);
+
+function handleDropdownClick(event) {
+  // Close the dropdown if clicked outside the button
+  if (event.target !== dropdown.querySelector("button")) {
+    console.log("Dropdown closed");
+    // Your logic to hide the dropdown content
+  }
+}
+```
+
+Here, the click event bubbles up from the clicked element (button or list item) to the `dropdown` element. The handler checks if the clicked element is not the button and closes the menu accordingly.
+
+- Accordion Menus:
+
+Imagine an accordion menu where clicking a section header (parent) expands or collapses the content section (child) below it. Event bubbling makes this straightforward:
+
+```js
+// HTML:
+// <div class="accordion">
+//   <div class="header">Section 1</div>
+//   <div class="content">Content for Section 1</div>
+//   <div class="header">Section 2</div>
+//   <div class="content">Content for Section 2</div>
+// </div>
+
+const accordion = document.querySelector(".accordion");
+
+accordion.addEventListener("click", handleAccordionClick);
+
+function handleAccordionClick(event) {
+  // Check if clicked element is a header
+  if (event.target.classList.contains("header")) {
+    const content = event.target.nextElementSibling;
+    content.classList.toggle("active"); // Toggle display of content
+  }
+}
+```
+
+By attaching the listener to the `accordion` element, clicking on any header triggers the event. The handler checks if the clicked element is a header and toggles the visibility of the corresponding content section.
+
+## Further reading
 
 - [MDN Web Docs on Event Bubbling](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/Events#event_bubbling)
 - [JavaScript.info - Bubbling and Capturing](https://javascript.info/bubbling-and-capturing)
 - [W3C DOM Level 3 Events Specification](https://www.w3.org/TR/DOM-Level-3-Events/#event-flow)
+

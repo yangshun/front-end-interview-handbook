@@ -2,6 +2,16 @@
 title: Explain event delegation
 ---
 
+## TL;DR
+**Event delegation** is a JavaScript design pattern where a single event listener is attached to a common ancestor to manage events for multiple child elements efficiently.
+
+**Practical Use:** It's essential for handling events on dynamic or numerous elements, such as list items, without attaching individual listeners to each.
+
+**Benefit:** Event delegation improves performance, reduces memory usage, and simplifies code maintenance.
+
+**Pitfall:** Incorrectly identifying the event target can lead to unintended behavior.
+
+---
 Event delegation is a design pattern in JavaScript used to efficiently manage and handle events on multiple child elements by attaching a single event listener to a common ancestor element. This pattern is particularly valuable in scenarios where you have a large number of similar elements, such as list items, and want to streamline event handling.
 
 ## How Event Delegation works
@@ -44,10 +54,79 @@ In this example, a single click event listener is attached to the `<ul>` element
 Event delegation is commonly used in scenarios like:
 
 - Managing lists, menus, or tables with many items or rows.
+
+```js
+// HTML:
+// <ul id="item-list">
+//   <li>Item 1</li>
+//   <li>Item 2</li>
+//   <li>Item 3</li>
+// </ul>
+
+const itemList = document.getElementById('item-list');
+
+itemList.addEventListener('click', (event) => {
+  if (event.target.tagName === 'LI') {
+    console.log(`Clicked on ${event.target.textContent}`);
+  }
+});
+```
+
+In this example, a single click event listener is attached to the `<ul>` element. When a click event occurs on an `<li>` element, the event bubbles up to the `<ul>` element, where the event listener checks the target's tag name to identify which list item was clicked.
+
 - Handling dynamic content in single-page applications.
+```js
+// HTML:
+// <div id="button-container">
+//   <button>Button 1</button>
+//   <button>Button 2</button>
+// </div>
+// <button id="add-button">Add Button</button>
+
+const buttonContainer = document.getElementById('button-container');
+const addButton = document.getElementById('add-button');
+
+buttonContainer.addEventListener('click', (event) => {
+  if (event.target.tagName === 'BUTTON') {
+    console.log(`Clicked on ${event.target.textContent}`);
+  }
+});
+
+addButton.addEventListener('click', () => {
+  const newButton = document.createElement('button');
+  newButton.textContent = `Button ${buttonContainer.children.length + 1}`;
+  buttonContainer.appendChild(newButton);
+});
+```
+
+In this example, a click event listener is attached to the `<div>` container. When a new button is added dynamically and clicked, the event listener on the container handles the click event.
+
 - Simplifying code by avoiding the need to attach and remove event listeners for elements that change.
 
-## Resources
+```js
+// HTML:
+// <form id="user-form">
+//   <input type="text" name="username" placeholder="Username">
+//   <input type="email" name="email" placeholder="Email">
+//   <input type="password" name="password" placeholder="Password">
+// </form>
+
+const userForm = document.getElementById('user-form');
+
+userForm.addEventListener('input', (event) => {
+  const { name, value } = event.target;
+  console.log(`Changed ${name}: ${value}`);
+});
+```
+
+In this example, a single input event listener is attached to the form element. It handles input changes for all child input elements, simplifying the code by avoiding multiple event listeners.
+
+## Pitfalls
+
+- **Incorrect Target Handling:** Ensure correct identification of the event target to avoid unintended actions.
+- **Event Overhead:** While event delegation is efficient, handling complex logic within the event listener can introduce overhead if not managed properly.
+
+## Further reading
 
 - [MDN Web Docs on Event Delegation](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/Events#event_delegation)
 - [JavaScript.info - Event Delegation](https://javascript.info/event-delegation)
