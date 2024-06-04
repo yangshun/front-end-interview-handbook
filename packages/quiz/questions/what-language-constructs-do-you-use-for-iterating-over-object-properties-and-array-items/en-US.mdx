@@ -2,9 +2,96 @@
 title: What language constructions do you use for iterating over object properties and array items?
 ---
 
+## TL;DR
+
+There are multiple ways to iterate over object properties as well as array in JavaScript. Following are few of them
+
+### Iterating over object properties
+
+#### Good old `for...in` loop
+
+The for...in loop iterates over all enumerable properties of an object, including inherited enumerable properties. So it is important to have a check if you only want to iterate over object's own properties
+
+```js
+const obj = {
+  a: 1,
+  b: 2,
+  c: 3,
+};
+
+for (const key in obj) {
+  // Optional: to avoid iterating over inherited properties
+  if (obj.hasOwn(obj, key)) {
+    console.log(`${key}: ${obj[key]}`);
+  }
+}
+```
+
+#### Using `Object.keys()`
+
+Object.keys() returns an array of the object's own enumerable property names. You can then use a for...of loop or forEach to iterate over this array.
+
+```js
+const obj = {
+  a: 1,
+  b: 2,
+  c: 3,
+};
+
+Object.keys(obj).forEach((key) => {
+  console.log(`${key}: ${obj[key]}`);
+});
+```
+
+### Iterating over array
+
+Most common ways to iterate over array are using `for` loop and `Array.prototype.forEach` method.
+
+#### Using `for` loop
+
+```js
+let array = [1, 2, 3, 4, 5, 6];
+for (let index = 0; index < array.length; index++) {
+  console.log(array[index]);
+}
+```
+
+#### Using `Array.prototype.forEach` Method:
+
+```js
+let array = [1, 2, 3, 4, 5, 6];
+array.forEach((number, index) => {
+  console.log(`${number} at index ${index}`);
+});
+```
+
+#### Using `for...of` loop
+
+This method is the newest and most convenient way to iterate over arrays. It automatically iterates over each element without requiring you to manage the index.
+
+```js
+const numbers = [1, 2, 3, 4, 5];
+
+for (const number of numbers) {
+  console.log(number);
+}
+```
+
+There are also other inbuilt methods available which are suitable for specific scenarios for example:
+
+- `Array.prototype.filter`: You can use the `filter` method to create a new array containing only the elements that satisfy a certain condition.
+- `Array.prototype.map`: You can use the `map` method to create a new array based on the existing one, transforming each element with a provided function.
+- `Array.prototype.reduce`: You can use the `reduce` method to combine all elements into a single value by repeatedly calling a function that takes two arguments: the accumulated value and the current element.
+
+---
+
+Iterating over object properties and array is very common in JavaScript and we have various ways to achieve this. Here are some of the ways to do it:
+
 ## Objects
 
 ### `for...in` statement
+
+This loop iterates over all **enumerable** properties of an object, including those inherited from its prototype chain.
 
 ```js
 for (const property in obj) {
@@ -12,7 +99,7 @@ for (const property in obj) {
 }
 ```
 
-The `for...in` statement iterates over all the object's **enumerable** properties (including inherited enumerable properties). Hence most of the time you should check whether the property exists on directly on the object via `Object.hasOwn(object, property)` before using it.
+Since `for...in` statement iterates over all the object's **enumerable** properties (including inherited enumerable properties). Hence most of the time you should check whether the property exists on directly on the object via `Object.hasOwn(object, property)` before using it.
 
 ```js
 for (const property in obj) {
@@ -26,15 +113,24 @@ Note that `obj.hasOwnProperty()` is not recommended because it doesn't work for 
 
 ### `Object.keys()`
 
+`Object.keys()` is a static method that will return an array of all the enumerable property names of the object that you pass it. Since `Object.keys()` returns an array, you can also use the array iteration approaches listed below to iterate through it.
+
 ```js
 Object.keys(obj).forEach((property) => {
   console.log(property);
 });
 ```
 
-`Object.keys()` is a static method that will return an array of all the enumerable property names of the object that you pass it. Since `Object.keys()` returns an array, you can also use the array iteration approaches listed below to iterate through it.
+### `Object.entries()`:
 
-_Reference: [Object.keys() - JavaScript | MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/keys)_
+This method returns an array of an object's enumerable properties in `[key, value]` pairs.
+
+```js
+const obj = { a: 1, b: 2, c: 3 };
+Object.entries(obj).forEach(([key, value]) => {
+  console.log(`${key}: ${value}`);
+});
+```
 
 ### `Object.getOwnPropertyNames()`
 
@@ -45,8 +141,6 @@ Object.getOwnPropertyNames(obj).forEach((property) => {
 ```
 
 `Object.getOwnPropertyNames()` is a static method that will lists all enumerable and non-enumerable properties of the object that you pass it. Since `Object.getOwnPropertyNames()` returns an array, you can also use the array iteration approaches listed below to iterate through it.
-
-_Reference: [Object.getOwnPropertyNames() - JavaScript | MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/getOwnPropertyNames)_
 
 ## Arrays
 
@@ -76,8 +170,6 @@ arr.forEach((element, index) => {
 
 The `Array.prototype.forEach()` method can be more convenient at times if you do not need to use the `index` and all you need is the individual array elements. However, the downside is that you cannot stop the iteration halfway and the provided function will be executed on the elements once. A `for` loop or `for...of` statement is more relevant if you need finer control over the iteration.
 
-_Reference: [Array.prototype.forEach() - JavaScript | MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach)_
-
 ### `for...of` statement
 
 ```js
@@ -100,4 +192,9 @@ for (let [index, elem] of arr.entries()) {
 }
 ```
 
-_Reference: [for...of - JavaScript | MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...of)_
+## Further reading
+
+- [Object.getOwnPropertyNames() - JavaScript | MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/getOwnPropertyNames)
+- [Object.keys() - JavaScript | MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/keys)
+- [for...of - JavaScript | MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...of)
+- [Array.prototype.forEach() - JavaScript | MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach)
