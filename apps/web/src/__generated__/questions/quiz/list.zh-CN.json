@@ -344,6 +344,7 @@
   {
     "author": null,
     "companies": [
+      "amazon",
       "bytedance"
     ],
     "created": 1630800000,
@@ -1781,6 +1782,7 @@
   {
     "author": null,
     "companies": [
+      "amazon",
       "salesforce"
     ],
     "created": 1630800000,
@@ -2349,7 +2351,7 @@
     "similarQuestions": [],
     "slug": "why-is-it-in-general-a-good-idea-to-leave-the-global-scope-of-a-website-as-is-and-never-touch-it",
     "subtitle": null,
-    "title": "为什么一般来说，让一个网站的全局范围保持原样，永远不可触及是个好主意？",
+    "title": "为什么通常最好保留网站的全局作用域不做任何修改?",
     "topics": [
       "javascript"
     ]

@@ -14,7 +14,7 @@
     "tsc": "tsc",
     "db:projects-sync": "ts-node --esm --experimentalSpecifierResolution node ./src/scripts/projects-challenges-sync.ts",
     "gen": "cross-env NODE_ENV=production tsx ./src/scripts/questions-gen-cli.ts",
-    "gen:watch": "npm run gen:all && ts-node --esm --experimentalSpecifierResolution node ./src/scripts/questions-watcher.ts",
+    "gen:watch": "npm run gen:all && NODE_ENV=production tsx ./src/scripts/questions-watcher.ts",
     "//": "TODO: make gen:ts faster and use it somewhere",
     "gen:ts": "ts-node --esm --experimentalSpecifierResolution node ./src/scripts/questions-javascript-preprocess.ts",
     "gen:all": "npm run gen:clean && npm run gen",

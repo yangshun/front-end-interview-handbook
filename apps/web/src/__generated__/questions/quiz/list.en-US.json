@@ -344,6 +344,7 @@
   {
     "author": null,
     "companies": [
+      "amazon",
       "bytedance"
     ],
     "created": 1630800000,
@@ -1781,6 +1782,7 @@
   {
     "author": null,
     "companies": [
+      "amazon",
       "salesforce"
     ],
     "created": 1630800000,
@@ -1905,7 +1907,7 @@
     "similarQuestions": [],
     "slug": "what-is-the-difference-between-double-equal-and-triple-equal",
     "subtitle": null,
-    "title": "What is the difference between `==` and `===`?",
+    "title": "What is the difference between `==` and `===` in JavaScript?",
     "topics": [
       "javascript"
     ]
