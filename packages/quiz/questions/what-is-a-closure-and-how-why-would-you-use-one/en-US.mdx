@@ -1,7 +1,9 @@
 ---
 title: What is a closure, and how/why would you use one?
 ---
+
 ## TL;DR
+
 In the book ["You Don't Know JS"](https://github.com/getify/You-Dont-Know-JS/tree/2nd-ed/scope-closures) (YDKJS) by Kyle Simpson, closer are defined as follows:
 
 > Closure is when a function is able to remember and access its lexical scope even when that function is executing outside its lexical scope
@@ -10,7 +12,7 @@ In simple terms, functions have access to variables that were in their scope at 
 
 ```js
 function outerFunction() {
-  const outerVar = "I am from the outer function";
+  const outerVar = 'I am from the outer function';
 
   function innerFunction() {
     console.log(outerVar); // innerFunction can still access outerVar
@@ -21,16 +23,16 @@ function outerFunction() {
 
 const closure = outerFunction(); // closure now holds a reference to innerFunction
 
-closure(); //  "I am from the outer function" 
+closure(); //  "I am from the outer function"
 // Even though outerFunction has completed execution closure still have access to variables defined inside outer function
-
 ```
-### Key points: 
 
-* Closure occurs when an inner function has access to variables in its outer (lexical) scope, even when the outer function has finished executing.
-* Closure allows a function to `remember` the environment in which it was created, even if that environment is no longer present.
+### Key points:
 
-* Closures are used extensively in JavaScript, such as in callbacks, event handlers, and asynchronous functions.
+- Closure occurs when an inner function has access to variables in its outer (lexical) scope, even when the outer function has finished executing.
+- Closure allows a function to `remember` the environment in which it was created, even if that environment is no longer present.
+
+- Closures are used extensively in JavaScript, such as in callbacks, event handlers, and asynchronous functions.
 
 ---
 
