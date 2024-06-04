@@ -2,4 +2,112 @@
 title: Why you might want to create static class members?
 ---
 
-Static class members (properties/methods) are not tied to a specific instance of a class and have the same value regardless of which instance is referring to it. Static properties are typically configuration variables and static methods are usually pure utility functions which do not depend on the state of the instance.
+## TL;DR
+
+Static class members (properties/methods) has a static keyword prepended to itself. Such members cannot be directly accessed on instances of the class. Instead, they're accessed on the class itself.
+
+```js
+class Car {
+  static noOfWheel = 4;
+  static compare() {
+    return 'static method has been called.';
+  }
+}
+```
+
+---
+
+Static class members (properties/methods) are not tied to a specific instance of a class and have the same value regardless of which instance is referring to it. Static properties are typically configuration variables and static methods are usually pure utility functions which do not depend on the state of the instance. Such properties has a static keyword prepended to itself.
+
+```js
+class Car {
+  static noOfWheel = 4;
+  static compare() {
+    return 'static method has been called.';
+  }
+}
+
+console.log(Car.noOfWheel); // Output: 4
+console.log(Car.compare()); // Output: static method has been called.
+```
+
+Static members are not accessible by specific instance of class.
+
+```js
+class Car {
+  static noOfWheel = 4;
+  static compare() {
+    return 'static method has been called.';
+  }
+}
+
+const car = new Car();
+console.log(car.noOfWheel); // Output: undefined
+console.log(car.compare()); // Error: TypeError: car.compare is not a function
+```
+
+## Reasons to Use Static Class Members
+
+### Utility Functions
+
+Static class members can be useful for defining utility functions that don't require any instance-specific data or behavior. For example, you might have a Math class with static methods for common mathematical operations.
+
+```js
+class Math {
+  static add(a, b) {
+    return a + b;
+  }
+
+  static subtract(a, b) {
+    return a - b;
+  }
+}
+
+console.log(Math.add(2, 3)); // Output: 5
+console.log(Math.subtract(5, 2)); // Output: 3
+```
+
+### Singletons
+
+Static class members can be used to implement the Singleton pattern, where you want to ensure that only one instance of a class exists throughout your application.
+
+```js
+class Singleton {
+  static instance;
+
+  static getInstance() {
+    if (!this.instance) {
+      this.instance = new Singleton();
+    }
+    return this.instance;
+  }
+}
+
+const singleton1 = Singleton.getInstance();
+const singleton2 = Singleton.getInstance();
+
+console.log(singleton1 === singleton2); // Output: true
+```
+
+### Configurations
+
+Static class members can be used to store configuration or settings that are shared across all instances of a class. This can be useful for things like API keys, feature flags, or other global settings.
+
+```js
+class Config {
+  static API_KEY = 'your-api-key';
+  static FEATURE_FLAG = true;
+}
+
+console.log(Config.API_KEY); // Output: 'your-api-key'
+console.log(Config.FEATURE_FLAG); // Output: true
+```
+
+### Performance
+
+In some cases, using static class members can improve performance by reducing the amount of memory used by your application. This is because static class members are shared across all instances of a class, rather than being duplicated for each instance.
+
+## Further Reading
+
+- [Static methods and properties | MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/static)
+- [Static properties and methods | Javascript.info](https://javascript.info/static-properties-methods)
