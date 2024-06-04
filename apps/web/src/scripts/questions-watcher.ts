@@ -31,12 +31,26 @@ async function regenerateArtifactsImpl() {
 
 const regenerateArtifacts = _.debounce(regenerateArtifactsImpl, 50);
 
+const quizPath = path.resolve(
+  path.join(
+    __dirname,
+    '../../../../front-end-interview-handbook/packages/quiz',
+  ),
+);
+const codingQuestionsPath = path.resolve(
+  path.join(__dirname, '../../../../packages/questions'),
+);
+const pathsToWatch = [quizPath, codingQuestionsPath];
 const watcher = chokidar
-  .watch(path.resolve(path.join(__dirname, '../../questions/')), {
+  .watch(pathsToWatch, {
     atomic: true,
   })
   .on('ready', () => {
-    console.info(chalk.inverse.green(`ready`), ' -', 'started watching');
+    console.info(
+      chalk.inverse.green(`ready`),
+      ' -',
+      `started watching ${pathsToWatch.join(', ')}`,
+    );
     watchEvents();
   });
 
