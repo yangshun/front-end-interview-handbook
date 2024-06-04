@@ -3,7 +3,8 @@ title: Explain how prototypal inheritance works
 ---
 
 ## TL;DR
-Prototypical inheritance in JavaScript is a way for objects to inherit properties and methods from other objects. Every JavaScript object has a special hidden property called `[[Prototype]]`  (commonly accessed via `__proto__` or using `Object.getPrototypeOf()`) that is a reference to another object, which is called the object's "prototype". When a property is accessed on an object and if the property is not found on that object, the JavaScript engine looks at the object's `__proto__`, and the `__proto__`'s `__proto__` and so on, until it finds the property defined on one of the `__proto__`s or until it reaches the end of the prototype chain. This behavior simulates classical inheritance, but it is really more of [delegation than inheritance](https://davidwalsh.name/javascript-objects).
+
+Prototypical inheritance in JavaScript is a way for objects to inherit properties and methods from other objects. Every JavaScript object has a special hidden property called `[[Prototype]]` (commonly accessed via `__proto__` or using `Object.getPrototypeOf()`) that is a reference to another object, which is called the object's "prototype". When a property is accessed on an object and if the property is not found on that object, the JavaScript engine looks at the object's `__proto__`, and the `__proto__`'s `__proto__` and so on, until it finds the property defined on one of the `__proto__`s or until it reaches the end of the prototype chain. This behavior simulates classical inheritance, but it is really more of [delegation than inheritance](https://davidwalsh.name/javascript-objects).
 
 ## Example of Prototypal Inheritance
 
@@ -49,7 +50,7 @@ Things to note are:
 
 ## Prototypical Inheritance in Javascript
 
-Prototypical inheritance is a feature in JavaScript used to create objects that inherit properties and methods from other objects. Instead of a class-based inheritance model, JavaScript uses a prototype-based model, where objects can directly inherit from other objects. 
+Prototypical inheritance is a feature in JavaScript used to create objects that inherit properties and methods from other objects. Instead of a class-based inheritance model, JavaScript uses a prototype-based model, where objects can directly inherit from other objects.
 
 ### Key Concepts
 
@@ -63,9 +64,9 @@ function Person(name, age) {
 }
 
 // Add a method to the prototype
-Person.prototype.sayHello = function() {
+Person.prototype.sayHello = function () {
   console.log(`Hello, my name is ${this.name} and I am ${this.age} years old.`);
-}
+};
 
 // Create a new object using the constructor function
 let john = new Person('John', 30);
@@ -81,9 +82,9 @@ console.log(Object.getPrototypeOf(john) === Person.prototype); // true
 
 // You can set the prototype of an object using Object.setPrototypeOf()
 let newProto = {
-  sayGoodbye: function() {
+  sayGoodbye: function () {
     console.log(`Goodbye, my name is ${this.name}`);
-  }
+  },
 };
 
 Object.setPrototypeOf(john, newProto);
@@ -106,9 +107,9 @@ function Animal(name) {
 }
 
 // Add a method to the prototype
-Animal.prototype.sayName = function() {
+Animal.prototype.sayName = function () {
   console.log(`My name is ${this.name}`);
-}
+};
 
 // Define a new constructor function
 function Dog(name, breed) {
@@ -120,9 +121,9 @@ function Dog(name, breed) {
 Dog.prototype = Object.create(Animal.prototype);
 
 // Add a method to the Dog prototype
-Dog.prototype.bark = function() {
+Dog.prototype.bark = function () {
   console.log('Woof!');
-}
+};
 
 // Create a new object using the Dog constructor function
 let fido = new Dog('Fido', 'Labrador');
@@ -140,12 +141,12 @@ console.log(fido.fly); // undefined
 ```js
 // Define a prototype object
 let proto = {
-  greet: function() {
+  greet: function () {
     console.log(`Hello, my name is ${this.name}`);
-  }
+  },
 };
 
-// Use Object.create() to create a new object with the specified prototype
+// Use `Object.create()` to create a new object with the specified prototype
 let person = Object.create(proto);
 person.name = 'John';
 
@@ -164,7 +165,7 @@ console.log(animal.toString); // undefined
 console.log(animal.hasOwnProperty); // undefined
 
 // But you can still add and access custom properties
-animal.describe = function() {
+animal.describe = function () {
   console.log(`Name of the animal is ${this.name}`);
 };
 
