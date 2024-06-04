@@ -46,6 +46,16 @@ console.log(car.noOfWheel); // Output: undefined
 console.log(car.compare()); // Error: TypeError: car.compare is not a function
 ```
 
+The `Math` class in JavaScript is a good example of a common library that uses static members. The `Math` class in JavaScript is a built-in object that provides a collection of mathematical constants and functions. It is a static class, meaning that all of its properties and methods are static. Here's an example of how the `Math` class uses static members:
+
+```js
+console.log(Math.PI); // Output: 3.141592653589793
+console.log(Math.abs(-5)); // Output: 5
+console.log(Math.max(1, 2, 3)); // Output: 3
+```
+
+In this example, `PI`, `abs()`, and `max()` are all static members of the `Math` class. They can be accessed directly on the `Math` object without the need to create an instance of the class.
+
 ## Reasons to Use Static Class Members
 
 ### Utility Functions
