@@ -44,6 +44,7 @@ function add(a, b) {
 console.log(add.call(null, 1, 2)); // 3
 console.log(add.apply(null, [4, 5])); // 9
 ```
+
 Both `.call` and `.apply` allow dynamic invocation of functions with specific arguments.
 
 ### Context Management
@@ -53,7 +54,7 @@ const person = {
   name: 'John',
   greet() {
     console.log(`Hello, my name is ${this.name}`);
-  }
+  },
 };
 
 const anotherPerson = { name: 'Alice' };
@@ -61,6 +62,7 @@ const anotherPerson = { name: 'Alice' };
 person.greet.call(anotherPerson); // Hello, my name is Alice
 person.greet.apply(anotherPerson); // Hello, my name is Alice
 ```
+
 `.call` and `.apply` can set the this context explicitly when invoking methods on different objects.
 
 ### Function Borrowing
@@ -76,6 +78,7 @@ const person2 = { name: 'Alice' };
 greet.call(person1); // Hello, my name is John
 greet.call(person2); // Hello, my name is Alice
 ```
+
 Both `.call` and `.apply` allow borrowing methods from one object and using them in the context of another.
 
 ### Array Manipulation
@@ -88,6 +91,7 @@ Array.prototype.push.apply(arr1, arr2);
 
 console.log(arr1); // [1, 2, 3, 4, 5, 6]
 ```
+
 `.apply` is commonly used for concatenating or manipulating arrays by passing them as arguments.
 
 ## Follow-Up Questions
@@ -96,7 +100,7 @@ console.log(arr1); // [1, 2, 3, 4, 5, 6]
 
 ## Practice
 
- - Try implementing your own [`Function.prototype.call` method](/questions/javascript/function-call) and [`Function.prototype.apply` method](/questions/javascript/function-apply) on GreatFrontEnd.
+- Try implementing your own [`Function.prototype.call` method](/questions/javascript/function-call) and [`Function.prototype.apply` method](/questions/javascript/function-apply) on GreatFrontEnd.
 
 ## Further Reading
 
