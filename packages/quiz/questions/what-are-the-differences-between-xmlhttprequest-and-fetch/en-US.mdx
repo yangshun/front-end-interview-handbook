@@ -11,6 +11,7 @@ XMLHttpRequest (XHR) and Fetch API are both used for asynchronous HTTP requests 
 - `XMLHttpRequest` uses event listeners, while `fetch` utilizes promise chaining.
 - `fetch` provides more flexibility in headers and request bodies.
 - `fetch` support cleaner error handling with `catch()`.
+- Handling caching with `XMLHttpRequest` is difficult but caching is supported by `fetch` by default in the second parameter of the init object.
 - `fetch` requires an AbortController for cancellation, while for `XMLHttpRequest`, it provides `abort()` property.
 - `XMLHttpRequest` supports progress tracking, which `fetch` lacks.
 
@@ -137,7 +138,7 @@ xhr.send();
 
 #### `fetch`
 
-However, `fetch` provides a unified response object with methods for accessing data using the then method.
+However, `fetch` provides a unified response object with `then` method for accessing data.
 
 ```js
 fetch('YOUR_API_URL')
@@ -171,6 +172,17 @@ fetch('YOUR_API_URL')
     ```
 ````
 
+### Caching Control
+
+Handling caching with `XMLHttpRequest` is difficult, and you might need to add a random value to the query string in order to get around the browser cache. Caching is supported by `fetch` by default in the second parameter of the init object:
+
+```js
+const res = await fetch('YOUR_API_URL', {
+  method: 'GET',
+  cache: 'default',
+});
+```
+
 ### Cancellation
 
 #### `XMLHttpRequest`
@@ -188,7 +200,7 @@ xhr.abort();
 
 #### `fetch`
 
-You can abort a `fetch` but it requires a [AbortController](https://developer.mozilla.org/en-US/docs/Web/API/AbortController) object:
+You can abort a `fetch` but it requires a [AbortController](https://developer.mozilla.org/en-US/docs/Web/API/AbortController) object. But soon, it going to support abort using `fetch` directly according to this [post](https://hacks.mozilla.org/2015/03/this-api-is-so-fetching/).
 
 ```js
 const controller = new AbortController();
@@ -218,8 +230,15 @@ xhr.upload.onprogress = (p) => {
 
 #### `fetch`
 
-However, the `fetch` API does not offer any way to track upload progress.
+However, the `fetch` API does not offer any way to track upload progress. But it is going to be available sooner or later according to this [post](https://hacks.mozilla.org/2015/03/this-api-is-so-fetching/).
 
 ### Choosing Between XHR and Fetch
 
 In most modern development scenarios, `fetch` API is the preferred choice due to its cleaner syntax, promise-based approach, and improved handling of features like error handling, headers, and CORS.
+
+## Further reading
+
+- [Fetch API | MDN](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch)
+- [XMLHttpRequest | MDN](https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest)
+- [Request: cache property | MDN](https://developer.mozilla.org/en-US/docs/Web/API/Request/cache)
+- [XMLHttpRequest | Javascript.info](https://javascript.info/xmlhttprequest)
