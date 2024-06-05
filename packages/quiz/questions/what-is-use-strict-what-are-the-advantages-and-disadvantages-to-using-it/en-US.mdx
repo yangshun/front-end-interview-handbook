@@ -3,6 +3,8 @@ title: What is `"use strict";`?
 subtitle: What are the advantages and disadvantages to using it?
 ---
 
+## TL;DR
+
 `'use strict'` is a statement used to enable strict mode to entire scripts or individual functions. Strict mode is a way to opt into a restricted variant of JavaScript.
 
 ## Advantages
@@ -22,3 +24,103 @@ subtitle: What are the advantages and disadvantages to using it?
 - Concatenation of scripts written in different strict modes might cause issues.
 
 Overall, the benefits outweigh the disadvantages and there is not really a need to rely on the features that strict mode prohibits. We should all be using strict mode by default.
+
+---
+
+## What is `"use strict"` in JavaScript
+
+In essence, `"use strict"` is a directive introduced in ECMAScript 5 (ES5) that signals to the JavaScript engine that the code it surrounds should be executed in "strict mode". Strict mode imposes stricter parsing and error handling rules, essentially making your code more secure and less error-prone.
+
+When you use "use strict", it helps you to write cleaner code, like preventing you from using undeclared variables. It can also make your code more secure because it disallows some potentially insecure actions.
+
+### How to use strict mode
+
+1. **Global Scope**: To enable strict mode globally, add the directive at the beginning of the JavaScript file:
+
+   ```js
+   'use strict';
+   // any code in this file will be run in strict mode
+   function add(a, b) {
+     return a + b;
+   }
+   ```
+
+2. **Local Scope**: To enable strict mode within a function, add the directive at the beginning of the function:
+
+   ```js
+   function myFunction() {
+     'use strict';
+     // this will tell JavaScript engine to use strict mode only for the `myFunction`
+     // Anything that is outside of the scope of this function will be treated as non-strict mode unless specified to use strict mode
+   }
+   ```
+
+### Key Features of Strict Mode
+
+1. **Error Prevention** : Strict mode prevents common errors such as:
+   - Using undeclared variables.
+   - Assigning values to non-writable properties.
+   - Using non-existent properties or variables.
+   - Deleting undeletable properties.
+   - Using reserved keywords as identifiers.
+   - Duplicating parameter names in functions.
+2. **Improved Security**: Strict mode helps in writing more secure code by:
+   - Preventing the use of deprecated features like arguments.caller and arguments.callee.
+   - Restricting the use of eval() to prevent variable declarations in the calling scope.
+3. **Compatibility** : Strict mode ensures compatibility with future versions of JavaScript by preventing the use of reserved keywords as identifiers.
+
+### Examples
+
+1. Preventing accidental global
+
+   ```js
+   // without strict mode
+
+   function defineNumber() {
+     count = 123;
+   }
+   defineNumber();
+   console.log(count); // logs: 123
+
+   // with strict mode
+   function strictFunc() {
+     'use strict';
+     strictVar = 123; // ReferenceError: strictVar is not defined
+   }
+   strictFunc();
+   console.log(strictVar); // ReferenceError: strictVar is not defined
+   ```
+
+2. Making assignments which would otherwise silently fail to throw an exception:
+
+   ```js
+   // without strict mode
+   NaN = 'foo'; // This fails silently
+   console.log(NaN); // logs: NaN
+
+   // with strict mode
+   ('use strict');
+   NaN = 'foo'; // TypeError: Assignment to read-only properties is not allowed in strict mode
+   ```
+
+3. Making attempts to delete undeletable properties throw an error in strict mode:
+
+   ```js
+   // without strict mode
+   delete Object.prototype; // This fails silently
+
+   // with strict mode
+   ('use strict');
+   delete Object.prototype; // TypeError: Cannot delete property 'prototype' of function Object() { [native code] }
+   ```
+
+### Important Notes
+
+1. **Placement**: The "use strict" directive must be placed at the beginning of the file or function. Placing it anywhere else will not have any effect.
+2. **Compatibility**: Strict mode is supported by all modern browsers except Internet Explorer 9 and lower.
+3. There is no way to cancel `"use strict"`
+
+## Further reading
+
+- [Strict mode - MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Strict_mode)
+- [The modern mode, "use strict"](https://javascript.info/strict-mode)
