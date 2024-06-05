@@ -3,8 +3,92 @@ title: What is event loop?
 subtitle: What is the difference between call stack and task queue?
 ---
 
+## TL;DR
+
 The event loop is a single-threaded loop that monitors the call stack and checks if there is any work to be done in the task queue. If the call stack is empty and there are callback functions in the task queue, a function is dequeued and pushed onto the call stack to be executed.
 
 If you haven't already checked out Philip Robert's [talk on the Event Loop](https://2014.jsconf.eu/speakers/philip-roberts-what-the-heck-is-the-event-loop-anyway.html), you should. It is one of the most viewed videos on JavaScript.
 
 For a visual demonstration of the event loop, accounting for different types of tasks, check out Jake Archibald's talk titled ["In The Loop"](https://www.youtube.com/watch?v=cCOL7MC4Pl0).
+
+---
+
+## Event loop in JavaScript
+
+The event loop is the heart of JavaScript's asynchronous operation. It's is a mechanism in JavaScript that handles the execution of code, allowing for asynchronous operations and ensuring that the single-threaded nature of JavaScript does not block the execution of the program.
+
+To understand it better we need to understand about all the parts of the system. Here is an excellent illustration by [Lydia Hallie](https://x.com/lydiahallie)
+
+![event loop and call stack](https://github.com/yangshun/front-end-interview-handbook/blob/main/assets/javascript-runtime.png)
+
+### Call stack
+
+Call stack keeps track of the functions being executed in a program. When a function is called, it is added to the top of the call stack. When the function completes, it is removed from the call stack. This allows the program to keep track of where it is in the execution of a function and return to the correct location when the function completes. As the name suggests it is a `Stack` data structure which follows `last in first out`
+
+### Task queue
+
+The task queue, also known as the macro task queue or event queue, is a queue that holds tasks that need to be executed. These tasks are typically asynchronous operations, such as setTimeout, setInterval, and event handlers.
+
+### Macro tasks
+
+Macro tasks are tasks that are added to the task queue and executed one by one in the order they were added. Point to note here is that these macro tasks will be executed after `micro tasks`
+
+#### Macro task examples
+
+- setTimeout
+- setInterval
+- I/O events
+- UI rendering (in browsers)
+
+### Micro tasks
+
+Micro tasks are tasks that have a higher priority than macro tasks and are executed immediately after the currently executing script is completed and before the next macro task is executed. Micro tasks are usually used for more immediate, lightweight operations that should be executed as soon as possible after the current operation completes. There is a dedicated `micro task queue` for micro tasks.
+
+#### Micro task examples
+
+- Promises (with then, catch, and finally)
+- MutationObserver callbacks
+
+## How everything work together
+
+1. **Execution Starts**: JavaScript starts executing the code in the global context.
+2. **Call Stack**: As functions are called, they are pushed onto the call stack.
+3. **Async Operations**: When an asynchronous operation is encountered (e.g., setTimeout, a promise), the corresponding callback is sent to the appropriate task queue.
+4. **Event Loop**: The event loop continuously checks if the call stack is empty.
+5. **Micro Tasks First**: If the call stack is empty, the event loop first processes all the micro tasks.
+6. **Macro Tasks**: Once all micro tasks are processed, the event loop will then take the first macro task from the task queue and push it onto the call stack for execution.
+7. **Repeat**: This process repeats, ensuring a smooth and controlled execution of asynchronous operations.
+
+## Example
+
+```js
+console.log('Start');
+
+setTimeout(() => {
+  console.log('Timeout 1');
+}, 0);
+
+Promise.resolve().then(() => {
+  console.log('Promise 1');
+});
+
+setTimeout(() => {
+  console.log('Timeout 2');
+}, 0);
+
+console.log('End');
+```
+
+### Execution order
+
+1. `Start` and `End` are logged first because they are part of the initial script.
+2. `Promise 1` is logged next because promises are micro tasks and micro tasks are executed immediately after the current script.
+3. `Timeout 1` and `Timeout 2` are logged last because they are macro tasks and are processed after the micro tasks.
+
+## Further reading and resources
+
+- [The event loop - MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Event_loop)
+- [Event loop: microtasks and macrotasks](https://javascript.info/event-loop)
+- [JavaScript Visualized - Event Loop, Web APIs, (Micro)task Queue by Lydia Hallie](https://www.youtube.com/watch?v=eiC58R16hb8)
+- [Philip Robert's talk on the Event Loop](https://2014.jsconf.eu/speakers/philip-roberts-what-the-heck-is-the-event-loop-anyway.html)
+- [In The Loop by Jake Archibald](https://www.youtube.com/watch?v=cCOL7MC4Pl0).
