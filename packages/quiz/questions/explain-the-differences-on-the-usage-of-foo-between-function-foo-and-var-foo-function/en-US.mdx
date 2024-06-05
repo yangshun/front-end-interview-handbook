@@ -2,9 +2,45 @@
 title: Explain the differences on the usage of `foo` between `function foo() {}` and `var foo = function() {}`
 ---
 
-The former is a function declaration while the latter is a function expression. The key difference is that function declarations have its body hoisted but the bodies of function expressions are not (they have the same hoisting behavior as variables). For more explanation on hoisting, refer to the question on [hoisting](/questions/quiz/explain-hoisting). If you try to invoke a function expression before it is defined, you will get an `Uncaught TypeError: XXX is not a function` error.
+## TL;DR
+
+The former is a function declaration while the latter is a function expression.
+
+### Function Declaration
+
+- When you want to create a function on the global scope and make it available throughout your code
+- If a function is reusable and needs to be called multiple times
+
+### Function Expression
+
+- If a function is only needed once or in a specific context
+- Use to limit the function availability and keep your global scope clean
+
+---
 
 ## Function Declaration
+
+A function declaration is a statement that defines a function with a name. It is typically used to declare a function that can be called multiple times throughout the code.
+
+```js
+function foo() {
+  console.log('FOOOOO');
+}
+```
+
+## Function Expression
+
+A function expression is an expression that defines a function and assigns it to a variable. It is often used when a function is needed only once or in a specific context.
+
+```js
+var foo = function () {
+  console.log('FOOOOO');
+};
+```
+
+The key difference is that function declarations have its body hoisted but the bodies of function expressions are not (they have the same hoisting behavior as variables). For more explanation on hoisting, refer to the question on [hoisting](/questions/quiz/explain-hoisting). If you try to invoke a function expression before it is defined, you will get an `Uncaught TypeError: XXX is not a function` error.
+
+Function Declaration:
 
 ```js
 foo(); // 'FOOOOO'
@@ -13,7 +49,7 @@ function foo() {
 }
 ```
 
-## Function Expression
+Function Expression:
 
 ```js
 foo(); // Uncaught TypeError: foo is not a function
@@ -21,3 +57,58 @@ var foo = function () {
   console.log('FOOOOO');
 };
 ```
+
+## Use Cases
+
+### Function Declaration
+
+- **Global Functions**: When you need functions accessible from anywhere in your code, use function declarations at the top level of your script.
+
+- **Readability and Maintainability**: Function declarations can improve readability by providing function names that act as documentation for what the function does.
+
+### Function Expression
+
+- **Callback**: Functions often passed as arguments to other functions (e.g., `array.forEach(callbackFunction)`) are typically defined as function expressions.
+
+```js
+const numbers = [1, 2, 3, 4, 5];
+
+// `forEach` method expects a callback function
+numbers.forEach(function (element) {
+  console.log(element * 2);
+});
+```
+
+- **Immediately Invoked Function Expression (IIFE)**: Function expressions can be wrapped in parentheses and followed by parentheses () to create IIFEs that execute immediately after definition, often used for private variable scoping or module creation.
+
+```js
+(function () {
+  // Private variables and functions within the IIFE
+  let counter = 0;
+
+  function incrementCounter() {
+    counter++;
+    console.log('Counter:', counter);
+  }
+
+  incrementCounter();
+})();
+```
+
+## When to use each
+
+### Function Declaration
+
+- When you want to create a function on the global scope and make it available throughout your code
+- If a function is reusable and needs to be called multiple times
+
+### Function Expression
+
+- If a function is only needed once or in a specific context
+- Use to limit the function availability and keep your global scope clean
+
+
+## Further reading
+
+- [Function declaration | MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)
+- [Function expression | MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/function)
