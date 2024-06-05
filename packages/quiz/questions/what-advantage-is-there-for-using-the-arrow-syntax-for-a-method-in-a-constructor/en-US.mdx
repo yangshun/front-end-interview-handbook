@@ -2,6 +2,8 @@
 title: What advantage is there for using the arrow syntax for a method in a constructor?
 ---
 
+## TL;DR
+
 The main advantage of using an arrow function as a method inside a constructor is that the value of `this` gets set at the time of the function creation and can't change after that. So, when the constructor is used to create a new object, `this` will always refer to that object. For example, let's say we have a `Person` constructor that takes a first name as an argument has two methods to `console.log` that name, one as a regular function and one as an arrow function:
 
 ```js
@@ -40,4 +42,126 @@ sayNameFromWindow2(); // John
 
 The main takeaway here is that `this` can be changed for a normal function, but the context always stays the same for an arrow function. So even if you are passing around your arrow function to different parts of your application, you wouldn't have to worry about the context changing.
 
+---
+
+## Arrow functions
+
+Arrow functions are introduced in ES6 and it provides a concise way to write functions in Javascript. One of the key features of arrow function is that it lexically bind the `this` value, which means that it takes the `this` value from containing scope.
+
+### Syntax
+
+Arrow functions use the `=>` syntax instead of the function keyword. The basic syntax is:
+
+```js
+let myFunction = (arg1, arg2, ...argN) => {
+  // function body
+};
+```
+
+If the function body has only one expression, you can omit the curly braces and the return keyword:
+
+```js
+let myFunction = (arg1, arg2, ...argN) => expression;
+```
+
+### Examples
+
+```js
+// Arrow function with parameters
+let multiply = (x, y) => x * y;
+
+// Arrow function with no parameters
+let sayHello = () => 'Hello, World!';
+
+// Arrow function with a single parameter (parentheses can be omitted)
+let square = (x) => x * x;
+```
+
+### Advantages
+
+- Arrow functions provide a more concise syntax, especially for short functions.
+- They have an implicit return for single-line functions.
+- Arrow functions lexically bind the `this` value, inheriting it from the enclosing scope.
+
+### Limitations
+
+- Arrow functions cannot be used as constructors and will throw an error when used with the `new` keyword.
+
+```js
+const Foo = () => {};
+const foo = new Foo(); // TypeError: Foo is not a constructor
+```
+
+- They do not have their own `this`,` arguments`, `super`. Since arrow functions do not have their own this, they are not suitable for defining methods in an object. Traditional function expressions or function declarations should be used instead.
+
+```js
+const obj = {
+  value: 42,
+  getValue: () => this.value, // `this` does not refer to `obj`
+};
+
+console.log(obj.getValue()); // undefined
+```
+
+## What makes arrow function good to be used for a method in constructor
+
+One of the most notable features of arrow functions is their behavior with `this`. Unlike regular functions, arrow functions do not have their own `this`. Instead, they inherit `this` from the parent scope at the time they are defined. This makes arrow functions particularly useful for scenarios like event handlers, callbacks, and methods in classes.
+
+### Arrow Function inside function constructor
+
+```js
+const Person = function (firstName) {
+  this.firstName = firstName;
+  this.sayName1 = function () {
+    console.log(this.firstName);
+  };
+  this.sayName2 = () => {
+    console.log(this.firstName);
+  };
+};
+
+const john = new Person('John');
+const dave = new Person('Dave');
+
+john.sayName1(); // John
+john.sayName2(); // John
+
+// The regular function can have its 'this' value changed, but the arrow function cannot
+john.sayName1.call(dave); // Dave (because "this" is now the dave object)
+john.sayName2.call(dave); // John
+
+john.sayName1.apply(dave); // Dave (because 'this' is now the dave object)
+john.sayName2.apply(dave); // John
+
+john.sayName1.bind(dave)(); // Dave (because 'this' is now the dave object)
+john.sayName2.bind(dave)(); // John
+
+var sayNameFromWindow1 = john.sayName1;
+sayNameFromWindow1(); // undefined (because 'this' is now the window object)
+
+var sayNameFromWindow2 = john.sayName2;
+sayNameFromWindow2(); // John
+```
+
+### Arrow Function in an Event Handler
+
+```js
+const button = document.getElementById('myButton');
+
+button.addEventListener('click', function () {
+  console.log(this); // Output: Button
+  console.log(this === button); // Output: true
+});
+
+button.addEventListener('click', () => {
+  console.log(this); // Output: Window
+  console.log(this === window); // Output: true
+});
+```
+
 This can be particularly helpful in React class components. If you define a class method for something such as a click handler using a normal function, and then you pass that click handler down into a child component as a prop, you will need to also bind `this` in the constructor of the parent component. If you instead use an arrow function, there is no need to also bind "this", as the method will automatically get its "this" value from its enclosing lexical context. (See this article for an excellent demonstration and sample code: https://medium.com/@machnicki/handle-events-in-react-with-arrow-functions-ede88184bbb)
+
+## Resources
+
+- [Arrow function expressions - MDN ](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions)
+- [How to Use JavaScript Arrow Functions – Explained in Detail](https://www.freecodecamp.org/news/javascript-arrow-functions-in-depth/)
