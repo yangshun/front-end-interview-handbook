@@ -1,0 +1,225 @@
+---
+title: What are the differences between `XMLHttpRequest` and `fetch`?
+---
+
+**TL;DR**
+
+XMLHttpRequest (XHR) and Fetch API are both used for asynchronous HTTP requests in JavaScript. Fetch offers a cleaner syntax, promise-based approach, and more modern feature set compared to XHR.
+
+### Differences
+
+- `XMLHttpRequest` uses event listeners, while `fetch` utilizes promise chaining.
+- `fetch` provides more flexibility in headers and request bodies.
+- `fetch` support cleaner error handling with `catch()`.
+- `fetch` requires an AbortController for cancellation, while for `XMLHttpRequest`, it provides `abort()` property.
+- `XMLHttpRequest` supports progress tracking, which `fetch` lacks.
+
+`fetch` is preferred for its cleaner syntax and modern features.
+
+---
+
+Both `XMLHttpRequest` (XHR) and `fetch` API are methods for making asynchronous HTTP requests in JavaScript. However, they differ significantly in syntax, promise handling, and feature set.
+
+## Differeces
+
+### Syntax and Usage
+
+#### `XMLHttpRequest`
+
+It is Event-driven and requires attaching event listeners to handle response/error states. The basic syntax for creating an XMLHttpRequest object and sending a request is as follows:
+
+```js
+const xhr = new XMLHttpRequest();
+xhr.open('GET', 'YOUR_API_URL', true);
+xhr.responseType = 'json';
+xhr.onload = function () {
+  if (xhr.status === 200) {
+    console.log(xhr.response);
+  }
+};
+xhr.send();
+```
+
+`xhr` is an instance of the `XMLHttpRequest` class. The `open` method is used to specify the request method, URL, and whether the request should be asynchronous. The `onload` event is used to handle the response, and the `send` method is used to send the request.
+
+#### `fetch`
+
+It provides a more straightforward and intuitive way of making HTTP requests. It is a promise-based and returns a promise that resolves with the response or rejects with an error. The basic syntax for making a GET request using `fetch` is as follows:
+
+```js
+fetch('YOUR_API_URL')
+  .then((response) => response.text())
+  .then((data) => console.log(data));
+```
+
+### Request headers
+
+Both `XMLHttpRequest` and `fetch` support setting request headers. However, `fetch` provides more flexibility in terms of setting headers, as it supports custom headers and allows for more complex header configurations.
+
+#### `XMLHttpRequest`
+
+It supports setting request headers using the `setRequestHeader` method:
+
+```js
+xhr.setRequestHeader('Content-Type', 'application/json');
+xhr.setRequestHeader('Authorization', 'Bearer YOUR_TOKEN');
+```
+
+#### `fetch`
+
+Headers are passed as an object in the second argument to `fetch`:
+
+```js
+fetch('YOUR_API_URL', {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json',
+    Authorization: 'Bearer YOUR_TOKEN',
+  },
+  body: JSON.stringify({
+    name: 'John Doe',
+    age: 30,
+  }),
+});
+```
+
+### Request body
+
+Both `XMLHttpRequest` and `fetch` support sending request bodies. However, Fetch provides more flexibility in terms of sending request bodies, as it supports sending JSON data, form data, and more.
+
+#### `XMLHttpRequest`
+
+It supports sending request bodies using the `send` method:
+
+```js
+xhr.send(
+  JSON.stringify({
+    name: 'John Doe',
+    age: 30,
+  }),
+);
+```
+
+#### `fetch`
+
+It supports sending request bodies using the body property:
+
+```js
+fetch('YOUR_API_URL', {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json',
+  },
+  body: JSON.stringify({
+    name: 'John Doe',
+    age: 30,
+  }),
+});
+```
+
+### Response handling
+
+#### `XMLHttpRequest`
+
+It provides a `responseType` property to set the response format that we are expecting. `responseType` is "text" by default but it support types likes "text", "arraybuffer", "blob", "document" and "json".
+
+```js
+const xhr = new XMLHttpRequest();
+xhr.open('GET', 'YOUR_API_URL', true);
+xhr.responseType = 'json';
+xhr.onload = function () {
+  if (xhr.status === 200) {
+    console.log(xhr.response);
+  }
+};
+xhr.send();
+```
+
+#### `fetch`
+
+However, `fetch` provides a unified response object with methods for accessing data using the then method.
+
+```js
+fetch('YOUR_API_URL')
+  .then((response) => response.json())
+  .then((data) => console.log(data));
+```
+
+### Error handling
+
+Both support error handling but `fetch` provides more flexibility in terms of error handling, as it supports handling errors using the `catch` method.
+
+#### `XMLHttpRequest`
+
+It supports error handling using the `onerror` event:
+
+```js
+xhr.onerror = function () {
+  console.log('Error occurred');
+};
+```
+
+#### `fetch`
+
+It supports error handling using the `catch `method:
+
+````js
+fetch('YOUR_API_URL')
+    .then(response => response.json())
+    .then(data => console.log(data))
+    .catch(error => console.log('Error occurred: ' + error));
+    ```
+````
+
+### Cancellation
+
+#### `XMLHttpRequest`
+
+An in-flight request can be cancelled by running the `XMLHttpRequest` `abort()` method. An `abort` handler can be attached if necessary:
+
+```js
+const xhr = new XMLHttpRequest();
+xhr.open('GET', 'YOUR_API_URL');
+xhr.send();
+// ...
+xhr.onabort = () => console.log('aborted');
+xhr.abort();
+```
+
+#### `fetch`
+
+You can abort a `fetch` but it requires a [AbortController](https://developer.mozilla.org/en-US/docs/Web/API/AbortController) object:
+
+```js
+const controller = new AbortController();
+fetch('YOUR_API_URL')
+  .then((response) => response.json())
+  .then((data) => console.log(data))
+  .catch((error) => console.log('Error occurred: ' + error));
+
+// abort request
+controller.abort();
+```
+
+### Progress support
+
+#### `XMLHttpRequest`
+
+It supports tracking the progress of requests by attaching a handler to the `XMLHttpRequest` object's progress event. This is especially useful when uploading large files such as videos to track the progress of the upload.
+
+```js
+const xhr = new XMLHttpRequest();
+
+// progress event
+xhr.upload.onprogress = (p) => {
+  console.log(Math.round((p.loaded / p.total) * 100) + '%');
+};
+```
+
+#### `fetch`
+
+However, the `fetch` API does not offer any way to track upload progress.
+
+### Choosing Between XHR and Fetch
+
+In most modern development scenarios, `fetch` API is the preferred choice due to its cleaner syntax, promise-based approach, and improved handling of features like error handling, headers, and CORS.
