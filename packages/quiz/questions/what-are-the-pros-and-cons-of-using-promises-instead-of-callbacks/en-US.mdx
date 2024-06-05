@@ -4,7 +4,7 @@ title: What are the pros and cons of using Promises instead of callbacks?
 
 ## TL;DR
 
-Promises offer a cleaner alternative to callbacks, helping to avoid callback hell and making asynchronous code more readable. They facilitate writing sequential and parallel asynchronous operations with ease. However, using promises may introduce slightly more complex code, and in older browsers without ES2015 support, a polyfill is required.
+Promises offer a cleaner alternative to callbacks, helping to avoid callback hell and making asynchronous code more readable. They facilitate writing sequential and parallel asynchronous operations with ease. However, using promises may introduce slightly more complex code.
 
 ---
 
@@ -133,7 +133,6 @@ Promise.all([getData1(), getData2(), getData3()])
 ## Cons
 
 - Slightly more complex code (debatable).
-- In older browsers where ES2015 is not supported, you need to load a polyfill in order to use it.
 
 ## Practice
 
