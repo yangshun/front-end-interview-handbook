@@ -2,17 +2,47 @@
 title: What are the advantages and disadvantages of using Ajax?
 ---
 
+**TL;DR**
+
+### Advantages:
+
+- **Smoother User Experience**: Updates happen without full page reloads, like in chat applications.
+- **Lighter Server Load**: Only necessary data is fetched, improving performance.
+- **Maintains State**: User interactions and data persist within the page.
+
+### Disadvantages:
+
+- **Bookmarking Issues**: Dynamic content makes bookmarking specific page states difficult.
+- **Reliance on JavaScript**: If disabled, Ajax functionality breaks.
+- **SEO Challenges**: Search engines may struggle to index dynamic content.
+- **Performance Concerns**: Processing Ajax data on low-end devices can be slow.
+
+---
+
+Ajax (Asynchronous JavaScript and XML) revolutionized web development by enabling dynamic updates to web pages without full reloads. This creates a smoother and more responsive user experience.
+
 ## Advantages
 
-- Better interactivity. New content from the server can be changed dynamically without the need to reload the entire page.
-- Reduce connections to the server since scripts and stylesheets only have to be requested once.
-- State can be maintained on a page. JavaScript variables and DOM state will persist because the main container page was not reloaded.
-- Basically most of the advantages of an SPA.
+- **Enhanced User Experience**: Ajax allows for seamless updates to specific parts of a page, keeping the user engaged and avoiding disruptive full-page reloads. Imagine a chat application where new messages appear in real-time without needing to refresh the entire page.
+- **Reduced Server Load and Bandwidth Usage**: Instead of fetching the entire page for minor updates, Ajax requests only the necessary data. This reduces server load and improves performance, especially for users with limited bandwidth.
+- **Maintained State**: With Ajax, state can be maintained on a page, as JavaScript variables and DOM state persist because the main container page wasn't needed to be reloaded. This enables the development of dynamic web applications where user interactions are preserved seamlessly.
 
 ## Disadvantages
 
-- Dynamic webpages are harder to bookmark.
-- Does not work if JavaScript has been disabled in the browser.
-- Some web crawlers do not execute JavaScript and would not see content that has been loaded by JavaScript.
-- Webpages using Ajax to fetch data will likely have to combine the fetched remote data with client-side templates to update the DOM. For this to happen, JavaScript will have to be parsed and executed on the browser, and low-end mobile devices might struggle with this.
-- Basically most of the disadvantages of an SPA.
+- **Bookmarking Challenges**: Dynamic web pages generated using Ajax are harder to bookmark since the URL often remains unchanged. This can affect usability and SEO, as users may find it difficult to return to specific pages or share URLs. For an example, imagine a web application that uses Ajax to sort data. When the user bookmarks the page after sorting, the bookmarked URL will not reflect the sorted data. If the user tries to access the bookmarked page, they will see the original unsorted data.
+- **JavaScript Dependency**: If JavaScript is disabled in the browser, Ajax functionality breaks. This is simply because JavaScript is required for dynamic content updates, to execute the scripts that are included in the content and DOM manipulation.
+- **SEO Challenges**: Search engines often rely on rendered content to index web pages. Ajax content loaded dynamically might not be readily accessible to crawlers, impacting Search Engine Optimization (SEO).
+- **Performance Concerns**: Web pages using Ajax to fetch data often require combining fetched remote data with client-side templates to update the DOM. This process involves parsing and executing JavaScript on the browser, which may pose performance challenges, especially on low-end mobile devices with limited processing power.
+
+## CSR vs SSR vs SPA in relation to Ajax:
+
+- **Client-Side Rendering (CSR)**: Rely heavily on Ajax for fetching data and updating the DOM entirely on the client-side. This approach leverages Ajax's strengths in user experience but inherits its SEO and JavaScript-dependency drawbacks.
+
+- **Server-Side Rendering (SSR)**: The server generates the initial HTML with all the required data, often seen in using frontend frameworks like Next.js. Ajax can then be used for subsequent updates. This improves SEO and accessibility but might require more server resources.
+
+- **Single-Page Applications (SPAs)**: SPAs often use CSR and rely heavily on Ajax for dynamic updates. These applications load a single HTML page and use Ajax extensively to fetch and update content dynamically. SPAs provide a seamless user experience but face similar challenges as heavy Ajax usage: SEO and JavaScript dependency.
+
+## Further reading
+
+- [Ajax | MDN](https://developer.mozilla.org/en-US/docs/Glossary/AJAX)
+- [Fetching data from the server | MDN](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Client-side_web_APIs/Fetching_data)
