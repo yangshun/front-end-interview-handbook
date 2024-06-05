@@ -2,7 +2,9 @@
 title: How do you abort a web request using `AbortController`?
 ---
 
-**TL;DR** `AbortController` is a Web API for canceling ongoing asynchronous operations like fetch requests.
+**TL;DR**
+
+`AbortController` is a Web API for canceling ongoing asynchronous operations like fetch requests.
 
 ```js
 const controller = new AbortController();
@@ -33,11 +35,11 @@ controller.abort();
 
 `AbortController` is a powerful Web API introduced in 2019 that empowers developers to gracefully cancel ongoing asynchronous operations like fetch requests. It offers a mechanism to signal to the underlying network layer that the request is no longer required, preventing unnecessary resource consumption and improving user experience.
 
-## How to Use AbortController
+## How to Use `AbortController`?
 
 To use `AbortController`, you need to follow these steps:
 
-- **Create an AbortController Instance**: Initialize an `AbortController` instance, which creates a signal that can be used to abort requests.
+- **Create an `AbortController` Instance**: Initialize an `AbortController` instance, which creates a signal that can be used to abort requests.
 - **Pass the Signal to the Request**: Pass the signal to the request, typically through the `signal` property in the request options.
 - **Abort the Request**: Call the `abort` method on the `AbortController` instance to cancel the ongoing request. Here is an example of how to use AbortController with the Fetch API:
 
