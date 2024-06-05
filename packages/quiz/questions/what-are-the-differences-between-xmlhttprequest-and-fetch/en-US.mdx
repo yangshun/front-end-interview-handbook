@@ -204,7 +204,9 @@ You can abort a `fetch` but it requires a [AbortController](https://developer.mo
 
 ```js
 const controller = new AbortController();
-fetch('YOUR_API_URL')
+const signal = controller.signal;
+
+fetch('YOUR_API_URL', { signal })
   .then((response) => response.json())
   .then((data) => console.log(data))
   .catch((error) => console.log('Error occurred: ' + error));
