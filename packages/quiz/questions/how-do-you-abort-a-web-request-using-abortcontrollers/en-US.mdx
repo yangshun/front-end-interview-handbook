@@ -1,0 +1,135 @@
+---
+title: How do you abort a web request using `AbortController`?
+---
+
+**TL;DR**
+
+`AbortController` is a Web API for canceling ongoing asynchronous operations like fetch requests.
+
+```js
+const controller = new AbortController();
+const signal = controller.signal;
+
+fetch('YOUR_API_URL', { signal })
+  .then((response) => {
+    // Handle response
+  })
+  .catch((error) => {
+    if (error.name === 'AbortError') {
+      console.log('Request aborted');
+    } else {
+      console.error('Error:', error);
+    }
+  });
+
+// Call abort() to abort the request
+controller.abort();
+```
+
+### Use Cases
+
+- Canceling requests based on user actions, like canceling a search.
+- Prioritizing the latest requests in scenarios with multiple simultaneous requests.
+
+---
+
+`AbortController` is a powerful Web API introduced in 2019 that empowers developers to gracefully cancel ongoing asynchronous operations like fetch requests. It offers a mechanism to signal to the underlying network layer that the request is no longer required, preventing unnecessary resource consumption and improving user experience.
+
+## How to Use `AbortController`?
+
+To use `AbortController`, you need to follow these steps:
+
+- **Create an `AbortController` Instance**: Initialize an `AbortController` instance, which creates a signal that can be used to abort requests.
+- **Pass the Signal to the Request**: Pass the signal to the request, typically through the `signal` property in the request options.
+- **Abort the Request**: Call the `abort` method on the `AbortController` instance to cancel the ongoing request. Here is an example of how to use AbortController with the Fetch API:
+
+```js
+const controller = new AbortController();
+const signal = controller.signal;
+
+fetch('YOUR_API_URL', { signal })
+  .then((response) => {
+    // Handle response
+  })
+  .catch((error) => {
+    if (error.name === 'AbortError') {
+      console.log('Request aborted');
+    } else {
+      console.error('Error:', error);
+    }
+  });
+
+// Call abort() to abort the request
+controller.abort();
+```
+
+## Use cases
+
+### Canceling a Fetch Request on User Action
+
+Cancel requests that take too long or are no longer relevant due to user interactions (e.g., user cancels a search before results load).
+
+```js
+// HTML:
+// <div>
+//     <button id="cancelBtn">Cancel</button>
+// </div>
+
+const controller = new AbortController();
+const signal = controller.signal;
+
+fetch('YOUR_API_URL', { signal })
+  .then((response) => {
+    // Handle successful response
+  })
+  .catch((error) => {
+    if (error.name === 'AbortError') {
+      console.log('Request canceled');
+    } else {
+      console.error('Network or other error:', error);
+    }
+  });
+
+document.getElementById('cancelBtn').addEventListener('click', () => {
+  controller.abort();
+});
+```
+
+When you click the "Cancel" button, it will abort the fetch request.
+
+### Prioritizing Latest Requests in a Race Condition
+
+In scenarios where multiple requests are initiated for the same data, use `AbortController` to prioritize the latest request and abort earlier ones.
+
+```js
+let latestController = null; // Keeps track of the latest controller
+
+function fetchData(url) {
+  if (latestController) {
+    latestController.abort(); // Abort any previous request
+  }
+
+  const controller = new AbortController();
+  latestController = controller;
+  const signal = controller.signal;
+
+  fetch(url, { signal })
+    .then((response) => {
+      // Handle successful response
+    })
+    .catch((error) => {
+      if (error.name === 'AbortError') {
+        console.log('Request canceled');
+      } else {
+        console.error('Network or other error:', error);
+      }
+    });
+}
+```
+
+In this example, when the `fetchData()` function is called multitple times triggering multipe fetch requests, `AbortController` will cancel all the previous requests except the latest request.
+
+## Further reading
+
+- [AbortController | MDN](https://developer.mozilla.org/en-US/docs/Web/API/AbortController)
+- [Fetch: Abort | Javascript.info](https://javascript.info/fetch-abort)
