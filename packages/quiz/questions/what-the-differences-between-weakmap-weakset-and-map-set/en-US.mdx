@@ -1,0 +1,384 @@
+---
+title: What are the differences between `WeakMap`, `WeakSet`, and `Map`, `Set`?
+---
+
+**TL;DR**
+
+## `Map` vs. `Set`
+
+### `Map`
+
+- Collection of key-value pairs.
+- Keys can be any data type.
+- Maintains insertion order.
+- Methods: `set`, `get`, `has`, `delete`.
+- Use cases: Storing data with unique keys (e.g., configurations, caches).
+
+```js
+const map = new Map();
+map.set('name', 'Alice');
+map.set('age', 25);
+console.log(map.get('name')); // Alice
+```
+
+### `Set`
+
+- Collection of unique values.
+- Values can be any data type.
+- Maintains insertion order.
+- Methods: `add`, `has`, `delete`.
+- Use cases: Maintaining collections of unique values (e.g., user IDs, removing duplicates).
+
+```js
+const set = new Set();
+set.add(1);
+set.add(2);
+set.add(1); // Duplicate ignored
+console.log(set.has(1)); // true
+```
+
+## `WeakMap` vs. `WeakSet`
+
+### `WeakMap`
+
+- Similar to `Map`, but only allows objects as keys.
+- Keys are weakly referenced (garbage-collectible).
+- Not iterable, no size property.
+- Use cases: Caching results, private data on third-party objects.
+
+```js
+let weakMap = new WeakMap();
+let obj = { name: 'Alice' };
+weakMap.set(obj, 'Developer');
+obj = null; // The entry is eligible for garbage collection
+```
+
+### `WeakSet`
+
+- Similar to `Set`, but only allows objects as values.
+- Values are weakly referenced (garbage-collectible).
+- Not iterable, no size property.
+- Use cases: Tracking active users, detecting circular references.
+
+```js
+let weakSet = new WeakSet();
+let obj1 = { name: 'Alice' };
+weakSet.add(obj1);
+obj1 = null; // The entry is eligible for garbage collection
+```
+
+| Feature            | `Set`          | `Map`          | `WeakSet`                   | `WeakMap`                |
+|--------------------|----------------|----------------|-----------------------------|--------------------------|
+| Key type           | N/A            | Any data type  | N/A                         | Object                   |
+| Value              | Any data type  | Any data type  | Object                      | Any data type            |
+| Reference strength | Strong         | Strong         | Weak                        | Weak                     |
+| Garbage collection | Not affected   | Not affected   | When no reference to value  | When no reference to key |
+
+---
+
+## `Map` vs `Set`
+
+### `Map`
+
+A `Map` is a collection of key-value pairs where the keys can be of any data type. This is different from plain objects, where keys are typically strings or symbols.
+
+#### Characteristics
+
+- Keys can be any data type (primitives or objects).
+- Maintains the order of insertion.
+- Allows keys of any type, including objects and primitive types.
+- Provides methods like `set`, `get`, `has`, and `delete`.
+
+```js
+const map = new Map();
+
+// Setting values
+map.set('name', 'Alice');
+map.set('age', 25);
+map.set({ city: 'New York' }, 'value can be any type');
+
+// Getting values
+console.log(map.get('name')); // Output: Alice
+console.log(map.get('age')); // Output: 25
+
+// Checking existence of a key
+console.log(map.has('name')); // Output: true
+
+// Deleting a key-value pair
+map.delete('age');
+
+// Iterating over a Map
+map.forEach((value, key) => {
+  console.log(key, value);
+});
+```
+
+#### Use cases
+
+- Storing collections of data with unique keys, such as configurations or settings.
+- Implementing caches where you need to check for the existence of keys quickly.
+
+### `Set`
+
+A `Set` is a collection of unique values. It ensures that no duplicates are present.
+
+#### Characteristics
+
+- Stores unique values of any data type (primitives like numbers, strings, or objects).
+- Maintains the order of insertion.
+- Only stores unique values.
+- Provides methods like `add`, `has`, and `delete`.
+
+```js
+let set = new Set();
+
+// Adding values
+set.add(1);
+set.add(2);
+set.add(3);
+set.add(1); // Duplicate values are ignored
+
+// Checking existence of a value
+console.log(set.has(1)); // Output: true
+console.log(set.has(4)); // Output: false
+
+// Deleting a value
+set.delete(2);
+
+// Iterating over a Set
+set.forEach((value) => {
+  console.log(value);
+});
+```
+
+#### Use cases
+
+- Maintaining a collection of unique values, such as a list of user IDs or product IDs.
+- Removing duplicates from an array.
+
+## `WeakMap` vs `WeakSet`
+
+Before undering `WeakMap` and `WeakSet`, lets first understand a bit about Garbarge collection and Weak references in JavaScript.
+
+In JavaScript, memory management is handled by the JavaScript engine, which automatically allocates and deallocates memory as needed. Garbage collection is the process by which the engine identifies and removes objects that are no longer reachable or needed, thereby freeing up memory.
+
+And a weak reference is a reference to an object that does not prevent the object from being garbage-collected. In JavaScript, `WeakMap` and `WeakSet` utilize weak references for their keys and values, respectively.
+
+In `Map`, both keys and values are strongly referenced. As long as a key-value pair exists in a `Map`, both the key and value cannot be garbage-collected. And in `Set`, values are strongly referenced. As long as a value exists in a `Set`, it cannot be garbage-collected.
+
+```js
+const map = new Map();
+const key = {};
+map.set(key, 'value');
+
+// Even if we set key to null, the entry in the map prevents it from being garbage collected
+key = null;
+
+// The Map still holds a reference to the original key object
+console.log([...map.keys()]); // Output: [{}]
+```
+
+### `WeakMap`
+
+A `WeakMap` is similar to a `Map`, but it only allows objects as keys and holds “weak” references to them. This means if there are no other references to the key object, it can be garbage-collected, freeing up memory.
+
+#### Characteristics
+
+- Keys must be objects (not primitive values).
+- Holds weak references to keys.
+- Not iterable and doesn’t have a size property.
+
+```js
+let weakMap = new WeakMap();
+
+let obj = { name: 'Alice' };
+weakMap.set(obj, 'Developer');
+
+// Getting values
+console.log(weakMap.get(obj)); // Output: Developer
+
+// Checking existence of a key
+console.log(weakMap.has(obj)); // Output: true
+
+// If we set obj to null, the entry in the WeakMap is eligible for garbage collection
+obj = null;
+
+// The WeakMap no longer holds a reference to the original key object
+// The entry will be removed in the next garbage collection cycle
+```
+
+#### Use cases
+
+##### Caching
+
+A `WeakMap` can be used to store the cached results, along with the function arguments as keys. When the function is called again with the same arguments, the cached result can be retrieved from the `WeakMap`, avoiding redundant calculations.
+
+```js
+const calculationCache = new WeakMap();
+
+function calculateExpensiveValue(obj) {
+  // Simulate an expensive calculation that depends on the object properties
+  const result = Math.random() * obj.property1 + obj.property2;
+
+  // Check if the calculation has already been done for this specific object
+  if (calculationCache.has(obj)) {
+    return calculationCache.get(obj);
+  }
+
+  calculationCache.set(obj, result);
+  return result;
+}
+
+// Usage
+
+let myObject = { property1: 5, property2: 10 };
+const result1 = calculateExpensiveValue(myObject);
+const result2 = calculateExpensiveValue(myObject);
+
+console.log(result1, result2); // Output: Will likely be the same value (cached)
+
+// ... later, when myObject is no longer needed:
+
+myObject = null;
+
+// The entry in the calculationCache for myObject will be removed automatically
+// when there are no other references to myObject.
+```
+
+We can use `Map` but it would be suboptimal apporach because if the reference `myObject` no longer exists, we need to clean the cache manually. Whereas, with `WeakMap`, the cached result will be removed from memory automatically after the reference object gets garbage collected.
+
+##### Private Data on Third-Party Objects
+
+Sometimes, you might need to associate additional data with objects that you don't own or control (e.g., objects from external libraries). Since you can't modify their prototype to add properties, a `WeakMap` can be used to store this private data, ensuring it's garbage collected when the original object is no longer needed.
+
+```js
+const libraryObject = someLibrary.createObject();
+const privateData = new WeakMap();
+privateData.set(libraryObject, { myCustomData: 'some value' });
+
+// Use the private data associated with the library object
+console.log(privateData.get(libraryObject).myCustomData);
+```
+
+### `WeakSet`
+
+A `WeakSet` is similar to a Set, but it only allows objects as values and holds weak references to them.
+
+#### Characteristics
+
+- Only stores objects.
+- Holds weak references to its values.
+- Not iterable and doesn’t have a size property.
+
+```js
+let weakSet = new WeakSet();
+
+let obj1 = { name: 'Alice' };
+let obj2 = { name: 'Bob' };
+
+weakSet.add(obj1);
+weakSet.add(obj2);
+
+// Checking existence of a value
+console.log(weakSet.has(obj1)); // Output: true
+
+// Deleting a value
+weakSet.delete(obj2);
+
+// Attempting to add a primitive value throws an error
+// weakSet.add(1); // TypeError: Invalid value used in weak set
+```
+
+#### Use cases
+
+##### Tracking active users
+
+In a chat application, you might want to track which user objects are currently active without preventing garbage collection when the user logs out or the session expires. We use a `WeakSet` to track active user objects. When a user logs out or their session expires, the user object can be garbage-collected if there are no other references to it.
+
+```js
+const activeUsers = new WeakSet();
+
+// Function to mark a user as active
+function markUserActive(user) {
+  activeUsers.add(user);
+}
+
+// Function to check if a user is active
+function isUserActive(user) {
+  return activeUsers.has(user);
+}
+
+// Example usage
+let user1 = { id: 1, name: 'Alice' };
+let user2 = { id: 2, name: 'Bob' };
+
+markUserActive(user1);
+markUserActive(user2);
+
+console.log(isUserActive(user1)); // true
+console.log(isUserActive(user2)); // true
+
+// Simulate user logging out
+user1 = null;
+
+// user1 is now eligible for garbage collection
+console.log(isUserActive(user1)); // false
+```
+
+#### Detecting circular references
+
+`WeakSet` is provides a way of guarding against circular data structures by tracking which objects have already been processed.
+
+```js
+// Create a WeakSet to track visited objects
+const visited = new WeakSet();
+
+// Function to traverse an object recursively
+function traverse(obj) {
+  // Check if the object has already been visited
+  if (visited.has(obj)) {
+    return;
+  }
+
+  // Add the object to the visited set
+  visited.add(obj);
+
+  // Traverse the object's properties
+  for (let prop in obj) {
+    if (obj.hasOwnProperty(prop)) {
+      let value = obj[prop];
+      if (typeof value === 'object' && value !== null) {
+        traverse(value);
+      }
+    }
+  }
+
+  // Process the object
+  console.log(obj);
+}
+
+// Create an object with a circular reference
+const obj = {
+  name: 'John',
+  age: 30,
+  friends: [
+    { name: 'Alice', age: 25 },
+    { name: 'Bob', age: 28 },
+  ],
+};
+
+// Create a circular reference
+obj.self = obj;
+
+// Traverse the object
+traverse(obj);
+```
+
+## Further reading
+
+- [`Map` | MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map)
+- [`WeakMap` | MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakMap)
+- [`Set` | MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set)
+- [`WeakSet` | MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakSet)
+- [`Map` and `Set` | Javascript.info](https://javascript.info/map-set)
+- [`WeakMap` and `WeakSet` | Javascript.info](https://javascript.info/weakmap-weakset)
