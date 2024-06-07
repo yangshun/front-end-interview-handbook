@@ -6,7 +6,7 @@ sidebar_label: Algorithms coding
 
 :::info We are now part of GreatFrontEnd!
 
-Front End Interview Handbook is now part of [GreatFrontEnd](https://www.greatfrontend.com)! We are working to migrate the content over and you may find the latest version of this page on [GreatFrontEnd](https://www.greatfrontend.com/front-end-interview-guidebook/algorithms).
+Front End Interview Handbook is now part of [GreatFrontEnd](https://www.greatfrontend.com?fpr=yangshun)! We are working to migrate the content over and you may find the latest version of this page on [GreatFrontEnd](https://www.greatfrontend.com/front-end-interview-guidebook/algorithms?fpr=yangshun).
 
 :::
 
@@ -22,7 +22,7 @@ The [Tech Interview Handbook](https://www.techinterviewhandbook.org/algorithms/s
 
 ### GreatFrontEnd
 
-[GreatFrontEnd](https://www.greatfrontend.com) provides **free** questions for you to practice implementing [Data Structures and Algorithms](https://www.greatfrontend.com/questions/js/coding/data-structures-algorithms) in JavaScript. You can practice implementing common data structures (e.g. [Stacks](https://www.greatfrontend.com/questions/javascript/stack), [Queues](https://www.greatfrontend.com/questions/javascript/queue)) and algorithms (e.g. [Binary Search](https://www.greatfrontend.com/questions/javascript/binary-search), [Merge Sort](https://www.greatfrontend.com/questions/javascript/merge-sort)). [**Check it out →**](https://www.greatfrontend.com/questions/js/coding/data-structures-algorithms)
+[GreatFrontEnd](https://www.greatfrontend.com?fpr=yangshun) provides **free** questions for you to practice implementing [Data Structures and Algorithms](https://www.greatfrontend.com/questions/js/coding/data-structures-algorithms?fpr=yangshun) in JavaScript. You can practice implementing common data structures (e.g. [Stacks](https://www.greatfrontend.com/questions/javascript/stack?fpr=yangshun), [Queues](https://www.greatfrontend.com/questions/javascript/queue?fpr=yangshun)) and algorithms (e.g. [Binary Search](https://www.greatfrontend.com/questions/javascript/binary-search?fpr=yangshun), [Merge Sort](https://www.greatfrontend.com/questions/javascript/merge-sort?fpr=yangshun)). [**Check it out →**](https://www.greatfrontend.com/questions/js/coding/data-structures-algorithms?fpr=yangshun)
 
 ## Algorithm courses
 

@@ -5,14 +5,14 @@ sidebar_label: LinkedIn interview questions
 
 :::info We are now part of GreatFrontEnd!
 
-Front End Interview Handbook is now part of [GreatFrontEnd](https://www.greatfrontend.com)! We are working to migrate the content over and you may find the latest version of this page on [GreatFrontEnd](https://www.greatfrontend.com/prepare).
+Front End Interview Handbook is now part of [GreatFrontEnd](https://www.greatfrontend.com?fpr=yangshun)! We are working to migrate the content over and you may find the latest version of this page on [GreatFrontEnd](https://www.greatfrontend.com/prepare?fpr=yangshun).
 
 :::
 
 ## JavaScript
 
 - Write a `getElementsByClassName` function.
-  - [Practice question](https://www.greatfrontend.com/questions/javascript/get-elements-by-class-name) (Paid)
+  - [Practice question](https://www.greatfrontend.com/questions/javascript/get-elements-by-class-name?fpr=yangshun) (Paid)
 
 ## User interface coding
 
@@ -22,14 +22,14 @@ Front End Interview Handbook is now part of [GreatFrontEnd](https://www.greatfro
 ## Trivia
 
 - Difference between CSS `padding` and `margin`.
-  - [Read answer](https://www.greatfrontend.com/questions/quiz/explain-your-understanding-of-the-box-model-and-how-you-would-tell-the-browser-in-css-to-render-your-layout-in-different-box-models) (Free)
+  - [Read answer](https://www.greatfrontend.com/questions/quiz/explain-your-understanding-of-the-box-model-and-how-you-would-tell-the-browser-in-css-to-render-your-layout-in-different-box-models?fpr=yangshun) (Free)
 - Difference between promise and callback?
 - Difference between event bubbling and capturing?
 - Difference between callback and closure in JavaScript?
 - What are the advantages of using preprocessors? e.g. Sass, Stylus, Less.
-  - [Read answer](https://www.greatfrontend.com/questions/quiz/what-are-the-advantages-disadvantages-of-using-css-preprocessors) (Free)
+  - [Read answer](https://www.greatfrontend.com/questions/quiz/what-are-the-advantages-disadvantages-of-using-css-preprocessors?fpr=yangshun) (Free)
 - What is event delegation?
-  - [Read answer](https://www.greatfrontend.com/questions/quiz/explain-event-delegation) (Free)
+  - [Read answer](https://www.greatfrontend.com/questions/quiz/explain-event-delegation?fpr=yangshun) (Free)
 
 ## Algorithm
 

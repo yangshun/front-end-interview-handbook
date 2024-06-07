@@ -6,7 +6,7 @@ sidebar_label: JavaScript coding
 
 :::info We are now part of GreatFrontEnd!
 
-Front End Interview Handbook is now part of [GreatFrontEnd](https://www.greatfrontend.com)! We are working to migrate the content over and you may find the latest version of this page on [GreatFrontEnd](https://www.greatfrontend.com/front-end-interview-guidebook/javascript).
+Front End Interview Handbook is now part of [GreatFrontEnd](https://www.greatfrontend.com?fpr=yangshun)! We are working to migrate the content over and you may find the latest version of this page on [GreatFrontEnd](https://www.greatfrontend.com/front-end-interview-guidebook/javascript?fpr=yangshun).
 
 :::
 
@@ -46,13 +46,13 @@ Advanced questions are usually given to more senior candidates and expect around
     </video>
 </div>
 
-- These questions and many others are available on [GreatFrontEnd](https://www.greatfrontend.com). Apart from a [huge question bank of coding questions](https://www.greatfrontend.com/questions/js/coding/utilities) that you can access by frameworks, each question also comes with a solution authored by ex-FAANG engineers and automated test cases.
+- These questions and many others are available on [GreatFrontEnd](https://www.greatfrontend.com?fpr=yangshun). Apart from a [huge question bank of coding questions](https://www.greatfrontend.com/questions/js/coding/utilities?fpr=yangshun) that you can access by frameworks, each question also comes with a solution authored by ex-FAANG engineers and automated test cases.
 - Here are some questions you can start with:
-    - [Debounce](https://www.greatfrontend.com/questions/javascript/debounce) (Free)
-    - [Promise.all()](https://www.greatfrontend.com/questions/javascript/promise-all) (Free)
-    - [Deep Clone](https://www.greatfrontend.com/questions/javascript/deep-clone) (Free)
-    - [Event Emitter](https://www.greatfrontend.com/questions/javascript/event-emitter) (Free)
-    - [Array.prototype.filter()](https://www.greatfrontend.com/questions/javascript/array-filter) (Paid)
+    - [Debounce](https://www.greatfrontend.com/questions/javascript/debounce?fpr=yangshun) (Free)
+    - [Promise.all()](https://www.greatfrontend.com/questions/javascript/promise-all?fpr=yangshun) (Free)
+    - [Deep Clone](https://www.greatfrontend.com/questions/javascript/deep-clone?fpr=yangshun) (Free)
+    - [Event Emitter](https://www.greatfrontend.com/questions/javascript/event-emitter?fpr=yangshun) (Free)
+    - [Array.prototype.filter()](https://www.greatfrontend.com/questions/javascript/array-filter?fpr=yangshun) (Paid)
 
 ## Tips
 

@@ -5,7 +5,7 @@ sidebar_label: Overview
 
 :::info We are now part of GreatFrontEnd!
 
-Front End Interview Handbook is now part of [GreatFrontEnd](https://www.greatfrontend.com)! We are working to migrate the content over and you may find the latest version of this page on [GreatFrontEnd](https://www.greatfrontend.com/front-end-interview-guidebook/quiz).
+Front End Interview Handbook is now part of [GreatFrontEnd](https://www.greatfrontend.com?fpr=yangshun)! We are working to migrate the content over and you may find the latest version of this page on [GreatFrontEnd](https://www.greatfrontend.com/front-end-interview-guidebook/quiz?fpr=yangshun).
 
 :::
 
@@ -35,7 +35,7 @@ The best and correct way to prepare for such questions is to really understand t
 
 ## Where to practice
 
-If you're looking for free questions to practice, try [GreatFrontEnd](https://www.greatfrontend.com), which has a [huge bank of free questions](https://www.greatfrontend.com/prepare/quiz). Each question also comes with a solution authored by me. 
+If you're looking for free questions to practice, try [GreatFrontEnd](https://www.greatfrontend.com?fpr=yangshun), which has a [huge bank of free questions](https://www.greatfrontend.com/prepare/quiz?fpr=yangshun). Each question also comes with a solution authored by me. 
 
 ## Common questions
 

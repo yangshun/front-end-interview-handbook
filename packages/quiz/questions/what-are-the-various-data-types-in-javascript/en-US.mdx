@@ -1,22 +1,22 @@
 ---
-title: What are the various data types in javascript ?
+title: What are the various data types in JavaScript?
 ---
 
 ## TL;DR
 
 In JavaScript, data types can be categorized into `primitive` and `non-primitive` types:
 
-**Primitive data type**
+**Primitive data types**
 
 - **Number**: Represents both integers and floating-point numbers.
 - **String**: Represents sequences of characters.
 - **Boolean**: Represents `true` or `false` values.
 - **Undefined**: A variable that has been declared but not assigned a value.
 - **Null**: Represents the intentional absence of any object value.
-- **Symbol**: A unique and immutable value used as object property keys.
+- **Symbol**: A unique and immutable value used as object property keys. Read more in our [deep dive on `Symbol`s](/questions/quiz/what-are-symbols-used-for)
 - **BigInt**: Represents integers with arbitrary precision.
 
-**Non-Primitive (Reference) Data Types**
+**Non-primitive (Reference) data types**
 
 - **Object**: Used to store collections of data.
 - **Array**: An ordered collection of data.
@@ -26,13 +26,13 @@ In JavaScript, data types can be categorized into `primitive` and `non-primitive
 - **Map**: A collection of keyed data items.
 - **Set**: A collection of unique values.
 
-The `primitive` types store a single value, while `non-primitive` types can store collections of data or complex entities.
+The primitive types store a single value, while non-primitive types can store collections of data or complex entities.
 
 ---
 
 ## Data types in JavaScript
 
-JavaScript, like many programming languages, has a variety of data types to represent different kinds of data. The main data types in JavaScript can be divided into two categories: `primitive` and `non-primitive (reference)` types.
+JavaScript, like many programming languages, has a variety of data types to represent different kinds of data. The main data types in JavaScript can be divided into two categories: primitive and non-primitive (reference) types.
 
 ### Primitive data types
 
@@ -85,7 +85,7 @@ let bigNumber = BigInt(9007199254740991);
 let anotherBigNumber = 1234567890123456789012345678901234567890n;
 ```
 
-### `Non-primitive` (reference) data types
+### Non-primitive (reference) data types
 
 1. **Object**: It is used to store collections of data and more complex entities. `Objects` are created using curly braces `{}`.
 
@@ -141,18 +141,9 @@ set.add(1);
 set.add(2);
 ```
 
-## Pitfalls
+## Determining data types
 
-### Type coercion:
-
-JavaScript often performs type coercion, converting values from one type to another, which can lead to unexpected results.
-
-```js
-let result = '5' + 5; // '55' (string concatenation)
-let sum = '5' - 2; // 3 (numeric subtraction)
-```
-
-JavaScript is a `dynamically-typed` language, which means variables can hold values of different data types over time. The `typeof` operator can be used to determine the data type of a value or variable.
+JavaScript is a dynamically-typed language, which means variables can hold values of different data types over time. The `typeof` operator can be used to determine the data type of a value or variable.
 
 ```js
 console.log(typeof 42); // "number"
@@ -167,9 +158,22 @@ console.log(typeof []); // "object"
 console.log(typeof function () {}); // "function"
 ```
 
+## Pitfalls
+
+### Type coercion
+
+JavaScript often performs type coercion, converting values from one type to another, which can lead to unexpected results.
+
+```js
+let result = '5' + 2; // '52' (string concatenation)
+let difference = '5' - 2; // 3 (numeric subtraction)
+```
+
+In the first example, since strings can be concatenated with the `+` operator, the number is converted into a string and the two strings are concatenated together. In the second example, strings cannot work with the minus operator (`-`), but two numbers can be minused, so the string is first converted into a number and the result is the difference.
+
 ## Further reading
 
 - [JavaScript data types and data structures - MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures)
 - [JavaScript guide: Data types](https://www.linkedin.com/pulse/javascript-guide-data-types-mila-mirovi%C4%87-jykmf)
-- [JavaScript data types](https://www.programiz.com/javascript/data-types)
 - [Data types - javascript.info](https://javascript.info/types)
+- [JavaScript data types](https://www.programiz.com/javascript/data-types)

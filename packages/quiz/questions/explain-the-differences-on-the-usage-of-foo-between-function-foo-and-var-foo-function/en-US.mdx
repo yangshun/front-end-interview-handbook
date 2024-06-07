@@ -4,23 +4,44 @@ title: Explain the differences on the usage of `foo` between `function foo() {}`
 
 ## TL;DR
 
-The former is a function declaration while the latter is a function expression.
+`function foo() {}` a function declaration while the `var foo = function() {}` is a function expression. The key difference is that function declarations have its body hoisted but the bodies of function expressions are not (they have the same hoisting behavior as `var`-declared variables).
 
-### Function Declaration
+If you try to invoke a function expression before it is declared, you will get an `Uncaught TypeError: XXX is not a function` error.
 
-- When you want to create a function on the global scope and make it available throughout your code
-- If a function is reusable and needs to be called multiple times
+Function declarations can be called in the enclosing scope even before they are declared.
 
-### Function Expression
+```js
+foo(); // 'FOOOOO'
+function foo() {
+  console.log('FOOOOO');
+}
+```
 
-- If a function is only needed once or in a specific context
-- Use to limit the function availability and keep your global scope clean
+Function expressions if called before they are declared will result in an error.
+
+```js
+foo(); // Uncaught TypeError: foo is not a function
+var foo = function () {
+  console.log('FOOOOO');
+};
+```
+
+Another key difference is in the scope of the function name. Function expressions can be named by defining it after the `function` and before the parenthesis. However when using named function expressions, the function name is only accessible within the function itself. Trying to access it outside will result in an error or `undefined`.
+
+```js
+const myFunc = function namedFunc() {
+  console.log(namedFunc); // Works
+};
+console.log(namedFunc); // undefined
+```
+
+**Note**: The examples uses `var` due to legacy reasons. Function expressions can be defined using `let` and `const` and the key difference is in the hoisting behavior of those keywords.
 
 ---
 
-## Function Declaration
+## Function declarations
 
-A function declaration is a statement that defines a function with a name. It is typically used to declare a function that can be called multiple times throughout the code.
+A function declaration is a statement that defines a function with a name. It is typically used to declare a function that can be called multiple times throughout the enclosing scope.
 
 ```js
 function foo() {
@@ -28,7 +49,7 @@ function foo() {
 }
 ```
 
-## Function Expression
+## Function expressions
 
 A function expression is an expression that defines a function and assigns it to a variable. It is often used when a function is needed only once or in a specific context.
 
@@ -38,9 +59,15 @@ var foo = function () {
 };
 ```
 
-The key difference is that function declarations have its body hoisted but the bodies of function expressions are not (they have the same hoisting behavior as variables). For more explanation on hoisting, refer to the question on [hoisting](/questions/quiz/explain-hoisting). If you try to invoke a function expression before it is defined, you will get an `Uncaught TypeError: XXX is not a function` error.
+**Note**: The examples uses `var` due to legacy reasons. Function expressions can be defined using `let` and `const` and the key difference is in the hoisting behavior of those keywords.
 
-Function Declaration:
+## Key differences
+
+### Hoisting
+
+The key difference is that function declarations have its body hoisted but the bodies of function expressions are not (they have the same hoisting behavior as `var`-declared variables). For more explanation on hoisting, refer to the quiz question on [hoisting](/questions/quiz/explain-hoisting). If you try to invoke a function expression before it is defined, you will get an `Uncaught TypeError: XXX is not a function` error.
+
+Function declarations:
 
 ```js
 foo(); // 'FOOOOO'
@@ -49,7 +76,7 @@ function foo() {
 }
 ```
 
-Function Expression:
+Function expressions:
 
 ```js
 foo(); // Uncaught TypeError: foo is not a function
@@ -58,55 +85,27 @@ var foo = function () {
 };
 ```
 
-## Use Cases
+### Name scope
 
-### Function Declaration
-
-- **Global Functions**: When you need functions accessible from anywhere in your code, use function declarations at the top level of your script.
-
-- **Readability and Maintainability**: Function declarations can improve readability by providing function names that act as documentation for what the function does.
-
-### Function Expression
-
-- **Callback**: Functions often passed as arguments to other functions (e.g., `array.forEach(callbackFunction)`) are typically defined as function expressions.
+Function expressions can be named by defining it after the `function` and before the parenthesis. However when using named function expressions, the function name is only accessible within the function itself. Trying to access it outside will result in `undefined` and calling it will result in an error.
 
 ```js
-const numbers = [1, 2, 3, 4, 5];
-
-// `forEach` method expects a callback function
-numbers.forEach(function (element) {
-  console.log(element * 2);
-});
-```
-
-- **Immediately Invoked Function Expression (IIFE)**: Function expressions can be wrapped in parentheses and followed by parentheses () to create IIFEs that execute immediately after definition, often used for private variable scoping or module creation.
-
-```js
-(function () {
-  // Private variables and functions within the IIFE
-  let counter = 0;
-
-  function incrementCounter() {
-    counter++;
-    console.log('Counter:', counter);
-  }
-
-  incrementCounter();
-})();
+const myFunc = function namedFunc() {
+  console.log(namedFunc); // Works
+};
+console.log(namedFunc); // undefined
 ```
 
 ## When to use each
 
-### Function Declaration
+- Function declarations:
+  - When you want to create a function on the global scope and make it available throughout the enclosing scope.
+  - If a function is reusable and needs to be called multiple times.
+- Function expressions:
+  - If a function is only needed once or in a specific context.
+  - Use to limit the function availability to subsequent code and keep the enclosing scope clean.
 
-- When you want to create a function on the global scope and make it available throughout your code
-- If a function is reusable and needs to be called multiple times
-
-### Function Expression
-
-- If a function is only needed once or in a specific context
-- Use to limit the function availability and keep your global scope clean
-
+In general, it's preferable to use function declarations to avoid the mental overhead of determining if a function can be called. The practical usages of function expressions is quite rare.
 
 ## Further reading
 

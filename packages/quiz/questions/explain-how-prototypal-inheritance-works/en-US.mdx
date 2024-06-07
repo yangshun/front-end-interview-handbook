@@ -43,8 +43,8 @@ bolt.bark(); // "Woof!"
 
 Things to note are:
 
-- `.makeSound` is not defined on `Dog`, so the engine goes up the prototype chain and finds `.makeSound` off the inherited `Animal`.
-- Using `Object.create` to build the inheritance chain is no longer recommended. Use `Object.setPrototypeOf` instead.
+- `.makeSound` is not defined on `Dog`, so the JavaScript engine goes up the prototype chain and finds `.makeSound` on the inherited `Animal`.
+- Using `Object.create()` to build the inheritance chain is no longer recommended. Use `Object.setPrototypeOf()` instead.
 
 ---
 
@@ -96,9 +96,9 @@ john.sayGoodbye(); // "Goodbye, my name is John"
 console.log(john.sayHello); // undefined
 ```
 
-2. **Prototype Chain**: When a property or method is accessed on an object, JavaScript first looks for it on the object itself. If it doesn't find it there, it looks at the object's prototype, and then the prototype's prototype, and so on, until it either finds the property or reaches the end of the chain (i.e., null).
+2. **Prototype chain**: When a property or method is accessed on an object, JavaScript first looks for it on the object itself. If it doesn't find it there, it looks at the object's prototype, and then the prototype's prototype, and so on, until it either finds the property or reaches the end of the chain (i.e., `null`).
 
-3. **Constructor Functions**: JavaScript provides constructor functions to create objects. When a function is used as a constructor with the new keyword, the new object’s prototype ([[Prototype]]) is set to the constructor’s prototype property.
+3. **Constructor functions**: JavaScript provides constructor functions to create objects. When a function is used as a constructor with the new keyword, the new object's prototype (`[[Prototype]]`) is set to the constructor's prototype property.
 
 ```js
 // Define a constructor function
@@ -136,7 +136,7 @@ fido.sayName(); // "My name is Fido"
 console.log(fido.fly); // undefined
 ```
 
-4. **Object.create()**: This method creates a new object with the specified prototype object and properties. It's a straightforward way to set up prototypical inheritance. If you create a object via `Object.create(null)` it will not inherit any properties from `Object.prototype`. This means the object will not have any built-in properties or methods like `toString()`, `hasOwnProperty()`,
+4. **`Object.create()`**: This method creates a new object with the specified prototype object and properties. It's a straightforward way to set up prototypical inheritance. If you create a object via `Object.create(null)` it will not inherit any properties from `Object.prototype`. This means the object will not have any built-in properties or methods like `toString()`, `hasOwnProperty()`,
 
 ```js
 // Define a prototype object
@@ -175,3 +175,4 @@ animal.describe(); // "Name of the animal is Rocky"
 ## Resources
 
 - [Inheritance and the prototype chain | MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Inheritance_and_the_prototype_chain)
+- [JavaScript Visualized: Prototypal Inheritance](https://dev.to/lydiahallie/javascript-visualized-prototypal-inheritance-47co)

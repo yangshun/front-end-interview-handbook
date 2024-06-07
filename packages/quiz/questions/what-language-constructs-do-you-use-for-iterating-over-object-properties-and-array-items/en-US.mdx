@@ -4,13 +4,13 @@ title: What language constructions do you use for iterating over object properti
 
 ## TL;DR
 
-There are multiple ways to iterate over object properties as well as array in JavaScript. Following are few of them
+There are multiple ways to iterate over object properties as well as array in JavaScript. The following are a few of them:
 
 ### Iterating over object properties
 
 #### Good old `for...in` loop
 
-The for...in loop iterates over all enumerable properties of an object, including inherited enumerable properties. So it is important to have a check if you only want to iterate over object's own properties
+The `for...in` loop iterates over all enumerable properties of an object, including inherited enumerable properties. So it is important to have a check if you only want to iterate over object's own properties
 
 ```js
 const obj = {
@@ -29,7 +29,7 @@ for (const key in obj) {
 
 #### Using `Object.keys()`
 
-Object.keys() returns an array of the object's own enumerable property names. You can then use a for...of loop or forEach to iterate over this array.
+`Object.keys()` returns an array of the object's own enumerable property names. You can then use a for...of loop or forEach to iterate over this array.
 
 ```js
 const obj = {
@@ -85,9 +85,9 @@ There are also other inbuilt methods available which are suitable for specific s
 
 ---
 
-Iterating over object properties and array is very common in JavaScript and we have various ways to achieve this. Here are some of the ways to do it:
+## Iterating over objects
 
-## Objects
+Iterating over object properties and array is very common in JavaScript and we have various ways to achieve this. Here are some of the ways to do it:
 
 ### `for...in` statement
 

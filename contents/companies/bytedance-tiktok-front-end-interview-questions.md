@@ -5,7 +5,7 @@ sidebar_label: ByteDance/TikTok interview questions
 
 :::info We are now part of GreatFrontEnd!
 
-Front End Interview Handbook is now part of [GreatFrontEnd](https://www.greatfrontend.com)! We are working to migrate the content over and you may find the latest version of this page on [GreatFrontEnd](https://www.greatfrontend.com/prepare).
+Front End Interview Handbook is now part of [GreatFrontEnd](https://www.greatfrontend.com?fpr=yangshun)! We are working to migrate the content over and you may find the latest version of this page on [GreatFrontEnd](https://www.greatfrontend.com/prepare?fpr=yangshun).
 
 :::
 
@@ -14,19 +14,19 @@ ByteDance/TikTok's front end interview is quite balanced in terms of interview f
 ## JavaScript
 
 - Implement `Promise.all`.
-  - [Practice question](https://www.greatfrontend.com/questions/javascript/promise-all) (Free)
+  - [Practice question](https://www.greatfrontend.com/questions/javascript/promise-all?fpr=yangshun) (Free)
 - Implement a function which extends `Array.prototype`.
-  - [Practice questions](https://www.greatfrontend.com/prepare/coding)
+  - [Practice questions](https://www.greatfrontend.com/prepare/coding?fpr=yangshun)
 
 ## User interface coding
 
 - Implement a dropdown component.
-  - [Read answer](https://www.greatfrontend.com/questions/system-design/dropdown-menu) (Paid)
+  - [Read answer](https://www.greatfrontend.com/questions/system-design/dropdown-menu?fpr=yangshun) (Paid)
 
 ## Trivia
 
 - Difference between `localStorage` and cookies.
-  - [Read answer](https://www.greatfrontend.com/questions/quiz/describe-the-difference-between-a-cookie-sessionstorage-and-localstorage) (Free)
+  - [Read answer](https://www.greatfrontend.com/questions/quiz/describe-the-difference-between-a-cookie-sessionstorage-and-localstorage?fpr=yangshun) (Free)
 
 ## Algorithm
 

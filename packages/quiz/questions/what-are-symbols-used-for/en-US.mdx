@@ -1,14 +1,14 @@
 ---
-title: What are `Symbols` used for ?
+title: What are `Symbol`s used for?
 ---
 
 ## TL;DR
 
-`Symbols` in JavaScript are a new `primitive` data type introduced in `ES6 (ECMAScript 2015)`. They are unique and immutable identifiers that is primarily for object property keys to avoid name collisions. These values can be created using `Symbol(...)` function, and each `Symbol` value is guaranteed to be unique, even if they have the same description. `Symbol` properties are not enumerable in `for...in` loops or `Object.keys()`, making them suitable for creating private/internal object state.
+`Symbol`s in JavaScript are a new primitive data type introduced in ES6 (ECMAScript 2015). They are unique and immutable identifiers that is primarily for object property keys to avoid name collisions. These values can be created using `Symbol(...)` function, and each `Symbol` value is guaranteed to be unique, even if they have the same key/description. `Symbol` properties are not enumerable in `for...in` loops or `Object.keys()`, making them suitable for creating private/internal object state.
 
 ```js
 let sym1 = Symbol();
-let sym2 = Symbol('description');
+let sym2 = Symbol('myKey');
 
 console.log(typeof sym1); // "symbol"
 console.log(sym1 === sym2); // false, because each symbol is unique
@@ -20,27 +20,27 @@ obj[sym] = 'value';
 console.log(obj[sym]); // "value"
 ```
 
-> The `Symbol(..)` function must be called without the `new` keyword.
+**Note**: The `Symbol()` function must be called without the `new` keyword. It is not exactly a constructor because it can only be called as a function instead of with `new Symbol()`.
 
 ---
 
-## `Symbols` in JavaScript
+## `Symbol`s in JavaScript
 
 Symbols in JavaScript are a unique and immutable data type used primarily for object property keys to avoid name collisions.
 
-### Key Characteristics
+## Key characteristics
 
 - **Uniqueness**: Each Symbol value is unique, even if they have the same description.
 - **Immutability**: Symbol values are immutable, meaning their value cannot be changed.
-- **Non-Enumerable**: Symbol properties are not included in for...in loops or Object.keys().
+- **Non-enumerable**: Symbol properties are not included in for...in loops or Object.keys().
 
-### Creating `Symbol`
+## Creating `Symbol`s
 
-You can create a `Symbol` using the `Symbol()` function:
+`Symbol`s can be created using the `Symbol()` function:
 
 ```js
-let sym1 = Symbol();
-let sym2 = Symbol('description');
+const sym1 = Symbol();
+const sym2 = Symbol('uniqueKey');
 
 console.log(typeof sym1); // "symbol"
 console.log(sym1 === sym2); // false, because each symbol is unique
@@ -48,47 +48,58 @@ console.log(sym1 === sym2); // false, because each symbol is unique
 
 > The `Symbol(..)` function must be called without the `new` keyword.
 
-### Using `Symbols` as `object` property keys
+## Using `Symbol`s as `object` property keys
 
-`Symbols` can be used to add properties to an object without risk of name collision:
+`Symbol`s can be used to add properties to an object without risk of name collision:
 
 ```js
-let obj = {};
-let sym = Symbol('uniqueKey');
+const obj = {};
+const sym = Symbol('uniqueKey');
 
 obj[sym] = 'value';
 console.log(obj[sym]); // "value"
 ```
 
-### `Symbol` are not enumerable
+## `Symbol`s are not enumerable
 
 - `Symbol` properties are not included in `for...in` loops or` Object.keys()`.
 - This makes them suitable for creating private/internal object state.
-- You can use` Object.getOwnPropertySymbols(obj)` to get all symbol properties of an object
+- Use` Object.getOwnPropertySymbols(obj)` to get all symbol properties on an object.
+
+```js
+const mySymbol = Symbol('privateProperty');
+const obj = {
+  name: 'John',
+  [mySymbol]: 42,
+};
+
+console.log(Object.keys(obj)); // Output: ['name']
+console.log(obj[mySymbol]); // Output: 42
+```
 
 ### Global `Symbol` registry
 
-You can create global `symbols` using `Symbol.for('key')`, which creates a new `symbol` in the global registry if it doesn't exist, or returns the existing on. This allows you to reuse `symbols` across different parts of your codebase or even across different code bases.
+You can create global `Symbol`s using `Symbol.for('key')`, which creates a new `Symbol` in the global registry if it doesn't exist, or returns the existing one. This allows you to reuse `Symbol`s across different parts of your code base or even across different code bases.
 
 ```js
-let globalSym1 = Symbol.for('globalKey');
-let globalSym2 = Symbol.for('globalKey');
+const globalSym1 = Symbol.for('globalKey');
+const globalSym2 = Symbol.for('globalKey');
 
 console.log(globalSym1 === globalSym2); // true
 
-let key = Symbol.keyFor(globalSym1);
+const key = Symbol.keyFor(globalSym1);
 console.log(key); // "globalKey"
 ```
 
 ## Well-known `Symbol`
 
-JavaScript includes several built-in `symbols`, referred as `well-known symbols`.
+JavaScript includes several built-in `Symbol`s, referred as well-known `Symbol`s.
 
-- **Symbol.iterator**: Defines the default `iterator` for an `object`.
-- **Symbol.toStringTag**: Used to create a string description for an `object`.
-- **Symbol.hasInstance**: Used to determine if an `object` is an instance of a `constructor`.
+- **`Symbol.iterator`**: Defines the default `iterator` for an object.
+- **`Symbol.toStringTag`**: Used to create a string description for an object.
+- **`Symbol.hasInstance`**: Used to determine if an object is an instance of a constructor.
 
-**`Symbol.iterator`**:
+### `Symbol.iterator`
 
 ```js
 let iterable = {
@@ -111,7 +122,7 @@ for (let value of iterable) {
 }
 ```
 
-**`Symbol.toStringTag`**:
+### `Symbol.toStringTag`
 
 ```js
 let myObj = {
@@ -127,7 +138,7 @@ Symbols are a powerful feature in JavaScript, especially useful for creating uni
 
 ## Further reading
 
-- [Symbol- MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol)
+- [Symbol - MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol)
 - [Symbol type](https://javascript.info/symbol)
 - [A quick overview of JavaScript symbols](https://www.freecodecamp.org/news/how-did-i-miss-javascript-symbols-c1f1c0e1874a/)
 - [Symbol Values - You Don't Know JS Yet](https://github.com/getify/You-Dont-Know-JS/blob/2nd-ed/types-grammar/ch1.md#symbol-values)

@@ -4,13 +4,21 @@ title: Explain `Function.prototype.bind`
 
 ## TL;DR
 
-> The `bind()` method creates a new function that, when called, has its `this` keyword set to the provided value, with a given sequence of arguments preceding any provided when the new function is called.
+`Function.prototype.bind` is a method in JavaScript that allows you to create a new function with a specific `this` value and optional initial arguments. It's primary purpose is to:
 
-_Source: [Function.prototype.bind() - JavaScript | MDN](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_objects/Function/bind)_
+- **Binding `this` value to preserve context**: The primary purpose of `bind` is to bind the `this` value of a function to a specific object. When you call `func.bind(thisArg)`, it creates a new function with the same body as `func`, but with `this` permanently bound to `thisArg`.
+- **Partial application of arguments**: `bind` also allows you to pre-specify arguments for the new function. Any arguments passed to `bind` after `thisArg` will be prepended to the arguments list when the new function is called.
+- **Method borrowing**: `bind` allows you to borrow methods from one object and apply them to another object, even if they were not originally designed to work with that object.
+
+The `bind` method is particularly useful in scenarios where you need to ensure that a function is called with a specific `this` context, such as in event handlers, callbacks, or method borrowing.
 
 ---
 
-`Function.prototype.bind` allows you to create a new function with a specific `this` context and, optionally, preset arguments. `bind()` is most useful for binding the value of `this` in methods of classes that you want to pass into other functions. This was frequently done in React class component methods which were not defined using arrow functions.
+## `Function.prototype.bind`
+
+`Function.prototype.bind` allows you to create a new function with a specific `this` context and, optionally, preset arguments. `bind()` is most useful for preserving the value of `this` in methods of classes that you want to pass into other functions.
+
+`bind` was frequently used on legacy React class component methods which were not defined using arrow functions.
 
 ```js
 const john = {
@@ -37,43 +45,52 @@ In the example above, when the `getAge` method is called without a calling objec
 
 We can even use `getAge` on another object which is not `john`! `boundGetAgeMary` returns the `age` of `mary`.
 
-## Use Cases
+## Use cases
 
-### Fixing the `this` value in callbacks
+Here are some common scenarios where `bind` is frequently used:
 
-When you pass a function as a callback, the `this` value inside the function can be unpredictable. Using `bind()` helps ensure that the correct `this` value is maintained.
+### Preserving context and fixing the `this` value in callbacks
+
+When you pass a function as a callback, the `this` value inside the function can be unpredictable because it is determined by the execution context. Using `bind()` helps ensure that the correct `this` value is maintained.
 
 ```js
-const person = {
-  name: 'John Doe',
-  greet: function () {
+class Person {
+  constructor(name) {
+    this.name = name;
+  }
+  greet() {
     console.log(`Hello, my name is ${this.name}`);
   },
 };
+
+const john = new Person('John Doe');
 
 // Without bind(), `this` inside the callback will be the global object
-setTimeout(person.greet, 1000); // Output: "Hello, my name is undefined"
+setTimeout(john.greet, 1000); // Output: "Hello, my name is undefined"
 
 // Using bind() to fix the `this` value
-setTimeout(person.greet.bind(person), 1000); // Output: "Hello, my name is John Doe"
+setTimeout(john.greet.bind(john), 2000); // Output: "Hello, my name is John Doe"
 ```
 
-You can also use [arrow functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions) for this purpose instead of `bind`.
+You can also use [arrow functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions) to define class methods for this purpose instead of using `bind`. Arrow functions have the `this` value bound to its lexical context.
 
 ```js
-const person = {
-  name: 'John Doe',
-  greet: function () {
+class Person {
+  constructor(name) {
+    this.name = name;
+  }
+  greet = () => {
     console.log(`Hello, my name is ${this.name}`);
-  },
-};
+  };
+}
 
-setTimeout(() => person.greet(), 1000); // Output: "Hello, my name is John Doe"
+const john = new Person('John Doe');
+setTimeout(john.greet, 1000); // Output: "Hello, my name is John Doe"
 ```
 
 ### Partial application of functions (currying)
 
-`bind()` can be used to create a new function with some arguments pre-set. This is known as partial application or currying.
+`bind` can be used to create a new function with some arguments pre-set. This is known as partial application or currying.
 
 ```js
 function multiply(a, b) {
@@ -85,27 +102,20 @@ const multiplyBy5 = multiply.bind(null, 5);
 console.log(multiplyBy5(3)); // Output: 15
 ```
 
-### Converting instance methods to standalone functions
+### Method borrowing
 
-When you need to use an instance method as a standalone function, `bind()` can help.
+`bind` allows you to borrow methods from one object and apply them to another object, even if they were not originally designed to work with that object. This can be handy when you need to reuse functionality across different objects
 
 ```js
-class Person {
-  constructor(name) {
-    this.name = name;
-  }
+const person = {
+  name: 'John',
+  greet: function () {
+    console.log(`Hello, ${this.name}!`);
+  },
+};
 
-  greet() {
-    console.log(`Hello, my name is ${this.name}`);
-  }
-}
-
-const john = new Person('John');
-john.greet(); // Output: "Hello, my name is John"
-
-// Converting the instance method to a standalone function using bind()
-const johnGreet = john.greet.bind(john);
-johnGreet(); // Output: "Hello, my name is John"
+const greetPerson = person.greet.bind({ name: 'Alice' });
+greetPerson(); // Output: Hello, Alice!
 ```
 
 ## Practice

@@ -6,7 +6,7 @@ sidebar_label: User interface coding
 
 :::info We are now part of GreatFrontEnd!
 
-Front End Interview Handbook is now part of [GreatFrontEnd](https://www.greatfrontend.com)! We are working to migrate the content over and you may find the latest version of this page on [GreatFrontEnd](https://www.greatfrontend.com/front-end-interview-guidebook/user-interface).
+Front End Interview Handbook is now part of [GreatFrontEnd](https://www.greatfrontend.com?fpr=yangshun)! We are working to migrate the content over and you may find the latest version of this page on [GreatFrontEnd](https://www.greatfrontend.com/front-end-interview-guidebook/user-interface?fpr=yangshun).
 
 :::
 
@@ -22,26 +22,26 @@ Companies that ask such questions usually ask candidates to code in one of these
 ## Examples
 
 - Components
-  - Tabs — [Practice](https://www.greatfrontend.com/questions/user-interface/tabs) (Paid)
-  - Accordion — [Practice](https://www.greatfrontend.com/questions/user-interface/accordion) (Paid)
+  - Tabs — [Practice](https://www.greatfrontend.com/questions/user-interface/tabs?fpr=yangshun) (Paid)
+  - Accordion — [Practice](https://www.greatfrontend.com/questions/user-interface/accordion?fpr=yangshun) (Paid)
   - Photo Gallery
   - Other possible components - [Refer to Bootstrap's list](https://getbootstrap.com/docs/5.3/components/)
 - Apps
-  - TODO list — [Practice](https://www.greatfrontend.com/questions/user-interface/todo-list) (Free)
+  - Todo list — [Practice](https://www.greatfrontend.com/questions/user-interface/todo-list?fpr=yangshun) (Free)
   - Sortable Data Table (with extensions for filtering)
   - Kanban Board
 - Games
-  - Tic-tac-toe — [Practice](https://www.greatfrontend.com/questions/user-interface/tic-tac-toe) (Paid)
-  - Whack-a-mole — [Practice](https://www.greatfrontend.com/questions/user-interface/whack-a-mole) (Paid)
-  - Wordle — [Practice](https://www.greatfrontend.com/questions/user-interface/wordle) (Paid)
+  - Tic-tac-toe — [Practice](https://www.greatfrontend.com/questions/user-interface/tic-tac-toe?fpr=yangshun) (Paid)
+  - Whack-a-mole — [Practice](https://www.greatfrontend.com/questions/user-interface/whack-a-mole?fpr=yangshun) (Paid)
+  - Wordle — [Practice](https://www.greatfrontend.com/questions/user-interface/wordle?fpr=yangshun) (Paid)
   - Tetris (advanced)
   - Snake (advanced)
 
 ## Where to practice
-- Each of these questions and over 200+ more can be found on [GreatFrontEnd](https://www.greatfrontend.com). 
+- Each of these questions and over 200+ more can be found on [GreatFrontEnd](https://www.greatfrontend.com?fpr=yangshun). 
   - Each question comes with official solutions in popular frameworks such as React, Angular, Svelte and Vue. 
   - With live previews, you can practice online directly, simulating a real interview environment with no set-up required. 
-- [Start practicing immediately](https://www.greatfrontend.com/questions)
+- [Start practicing immediately](https://www.greatfrontend.com/questions?fpr=yangshun)
 
 ## Considerations
 

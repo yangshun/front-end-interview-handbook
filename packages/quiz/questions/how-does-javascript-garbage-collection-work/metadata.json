@@ -1,5 +1,5 @@
 {
-  "slug": "what-are-polyfills-for",
+  "slug": "how-does-javascript-garbage-collection-work",
   "languages": [],
   "companies": [],
   "premium": false,
@@ -7,5 +7,5 @@
   "published": true,
   "topics": ["javascript"],
   "importance": "mid",
-  "difficulty": "medium"
+  "difficulty": "hard"
 }

@@ -14,7 +14,7 @@ module.exports = {
   themeConfig: {
     announcementBar: {
       id: 'gfe', // Increment on change
-      content: `⭐️ We are now part of <a href="https://www.greatfrontend.com/?utm_source=frontendinterviewhandbook&utm_medium=referral&utm_content=banner&fpr=frontendinterviewhandbook" target="_blank">GreatFrontEnd</a>, a front end interview preparation platform created by ex-FAANG Senior Engineers. <a href="https://www.greatfrontend.com/?utm_source=frontendinterviewhandbook&utm_medium=referral&utm_content=banner&fpr=frontendinterviewhandbook" target="_blank">Get 20% off today</a>! ⭐️`,
+      content: `⭐️ We are now part of <a href="https://www.greatfrontend.com/?fpr=yangshun&utm_source=frontendinterviewhandbook&utm_medium=referral&utm_content=banner&fpr=frontendinterviewhandbook" target="_blank">GreatFrontEnd</a>, a front end interview preparation platform created by ex-FAANG Senior Engineers. <a href="https://www.greatfrontend.com/?fpr=yangshun&utm_source=frontendinterviewhandbook&utm_medium=referral&utm_content=banner&fpr=frontendinterviewhandbook" target="_blank">Get 20% off today</a>! ⭐️`,
       isCloseable: false,
     },
     prism: {
@@ -36,15 +36,15 @@ module.exports = {
           items: [
             {
               label: 'Coding Questions',
-              href: 'https://www.greatfrontend.com/prepare/coding',
+              href: 'https://www.greatfrontend.com/prepare/coding?fpr=yangshun',
             },
             {
               label: 'System Design',
-              href: 'https://www.greatfrontend.com/prepare/system-design',
+              href: 'https://www.greatfrontend.com/prepare/system-design?fpr=yangshun',
             },
             {
               label: 'Quiz Questions',
-              href: 'https://www.greatfrontend.com/prepare/quiz',
+              href: 'https://www.greatfrontend.com/prepare/quiz?fpr=yangshun',
             },
           ],
         },
@@ -154,7 +154,7 @@ module.exports = {
           items: [
             {
               label: 'GreatFrontEnd',
-              href: 'https://www.greatfrontend.com',
+              href: 'https://www.greatfrontend.com?fpr=yangshun',
             },
             {
               label: 'GitHub',

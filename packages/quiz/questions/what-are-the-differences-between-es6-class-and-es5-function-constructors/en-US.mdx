@@ -1,12 +1,10 @@
 ---
-title: What are the differences between ES2015 class and ES5 function constructors?
+title: What are the differences between ES2015 classes and ES5 function constructors?
 ---
 
 ## TL;DR
 
-ES6 introduces a new way of creating classes, which provides a more intuitive and concise way to define and work with objects and inheritance compared to the ES5 function constructor syntax.
-
-Let's first look at example of each:
+ES2015 introduces a new way of creating classes, which provides a more intuitive and concise way to define and work with objects and inheritance compared to the ES5 function constructor syntax. Here's an example of each:
 
 ```js
 // ES5 Function Constructor
@@ -22,9 +20,7 @@ class Person {
 }
 ```
 
-For simple constructors, they look pretty similar.
-
-The main difference in the constructor comes when using inheritance. If we want to create a `Student` class that subclasses `Person` and add a `studentId` field, this is what we have to do in addition to the above.
+For simple constructors, they look pretty similar. The main difference in the constructor comes when using inheritance. If we want to create a `Student` class that subclasses `Person` and add a `studentId` field, this is what we have to do in addition to the above.
 
 ```js
 // ES5 Function Constructor
@@ -50,9 +46,9 @@ class Student extends Person {
 
 It's much more verbose to use inheritance in ES5 and the ES2015 version is easier to understand and remember.
 
-### Comparison of ES6 Class and ES5 Function constructor
+**Comparison of ES5 function constructors vs ES2015 classes**
 
-| Feature | ES5 Function Constructor | ES6 Class |
+| Feature | ES5 Function Constructor | ES2015 Class |
 | --- | --- | --- |
 | Syntax | Uses function constructors and prototypes | Uses `class` keyword |
 | Constructor | Function with properties assigned using `this` | `constructor` method inside the class |
@@ -63,13 +59,13 @@ It's much more verbose to use inheritance in ES5 and the ES2015 version is easie
 
 ---
 
-## ES5 Function constructor vs ES6 Classes
+## ES5 function constructor vs ES2015 classes
 
-ES6 classes and ES5 function constructors are two different ways of defining `classes` in JavaScript. They both serve the same purpose, but they have different syntax and behavior.
+ES5 function constructors and ES2015 classes are two different ways of defining classes in JavaScript. They both serve the same purpose, but they have different syntax and behavior.
 
-### ES5 Function Constructor
+### ES5 function constructors
 
-In ES5, you define a class-like structure using a function constructor and prototypes. Here’s an example:
+In ES5, you define a class-like structure using a function constructor and prototypes. Here's an example:
 
 ```js
 // ES5 Function Constructor
@@ -89,12 +85,12 @@ var person1 = new Person('John', 30);
 person1.greet(); // Hello, my name is John and I am 30 years old.
 ```
 
-### ES6 Class
+### ES2015 classes
 
-ES6 introduced the class syntax, which simplifies the definition of classes and supports more features such as static methods and subclassing. Here’s the same example using ES6:
+ES2015 introduced the `class` syntax, which simplifies the definition of classes and supports more features such as static methods and subclassing. Here's the same example using ES2015:
 
 ```js
-// ES6 Class
+// ES2015 Class
 class Person {
   constructor(name, age) {
     this.name = name;
@@ -118,12 +114,12 @@ person1.greet(); // Hello, my name is John and I am 30 years old.
 1. **Syntax and Readability**:
 
    - **ES5**: Uses function constructors and prototypes, which can be less intuitive and harder to read.
-   - **ES6**: Uses the `class` keyword, making the code more concise and easier to understand.
+   - **ES2015**: Uses the `class` keyword, making the code more concise and easier to understand.
 
 2. **Static Methods**:
 
    - **ES5**: Static methods are added directly to the constructor function.
-   - **ES6**: Static methods are defined within the class using the `static` keyword.
+   - **ES2015**: Static methods are defined within the class using the `static` keyword.
 
    ```js
    // ES5
@@ -138,7 +134,7 @@ person1.greet(); // Hello, my name is John and I am 30 years old.
 
    Person.sayHi(); // Hi!
 
-   // ES6
+   // ES2015
    class Person {
      static sayHi() {
        console.log('Hi!');
@@ -150,7 +146,7 @@ person1.greet(); // Hello, my name is John and I am 30 years old.
 3. **Inheritance**
 
    - **ES5**: Inheritance is achieved using `Object.create()` and manually setting the prototype chain.
-   - **ES6**: Inheritance is much simpler and more intuitive with the extends keyword.
+   - **ES2015**: Inheritance is much simpler and more intuitive with the extends keyword.
 
    ```js
    // ES5 Inheritance
@@ -187,9 +183,9 @@ person1.greet(); // Hello, my name is John and I am 30 years old.
    student1.greet(); // Hello, my name is Alice and I am 20 years old.
    student1.study(); // Alice is studying.
 
-   // ES6 Inheritance
+   // ES2015 Inheritance
 
-   // ES6 Class
+   // ES2015 Class
    class Person {
      constructor(name, age) {
        this.name = name;
@@ -219,18 +215,18 @@ person1.greet(); // Hello, my name is John and I am 30 years old.
    student1.study(); // Alice is studying.
    ```
 
-4. Super Calls:
+4. `super` calls:
 
    - **ES5**: Manually call the parent constructor function.
-   - **ES6**: Use the `super` keyword to call the parent class's constructor and methods.
+   - **ES2015**: Use the `super` keyword to call the parent class's constructor and methods.
 
 ### Conclusion
 
-While both ES5 and ES6 approaches can achieve the same functionality, ES6 classes provide a clearer and more concise way to define and work with object-oriented constructs in JavaScript. This makes the code easier to write, read, and maintain. If you are working with modern JavaScript, it is generally recommended to use ES6 classes over ES5 function constructors
+While both ES5 and ES2015 approaches can achieve the same functionality, ES2015 classes provide a clearer and more concise way to define and work with object-oriented constructs in JavaScript, which makes the code easier to write, read, and maintain. If you are working with modern JavaScript, it is generally recommended to use ES2015 classes over ES5 function constructors.
 
 ## Resources
 
 - [Classes - MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes)
 - [Inheritance- MDN ](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes#inheritance)
 - [The Secret Life Of Objects](https://eloquentjavascript.net/06_object.html)
-- [ES6 vs ES5](https://www.educative.io/courses/learn-object-oriented-programming-in-javascript/es6-vs-es5)
+- [ES2015 vs ES5](https://www.educative.io/courses/learn-object-oriented-programming-in-javascript/es2015-vs-es5)

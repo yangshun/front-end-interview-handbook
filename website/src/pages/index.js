@@ -101,7 +101,7 @@ function GreatFrontEndSection() {
                 <div className="margin-vert--md">
                   <a
                     className="button button--secondary button--lg"
-                    href="https://www.greatfrontend.com/prepare/"
+                    href="https://www.greatfrontend.com/prepare?fpr=yangshun"
                     rel="noopener"
                     target="_blank"
                     onClick={() => {

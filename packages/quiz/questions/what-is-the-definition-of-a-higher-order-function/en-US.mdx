@@ -6,11 +6,9 @@ title: What is the definition of a higher-order function?
 
 A higher-order function is any function that takes one or more functions as arguments, which it uses to operate on some data, and/or returns a function as a result.
 
-Higher-order functions are meant to abstract some operation that is performed repeatedly. The classic example of this is `map`, which takes an array and a function as arguments. `map` then uses this function to transform each item in the array, returning a new array with the transformed data. Other popular examples in JavaScript are `forEach`, `filter`, and `reduce`. A higher-order function doesn't just need to be manipulating arrays as there are many use cases for returning a function from another function. `Function.prototype.bind` is one such example in JavaScript.
+Higher-order functions are meant to abstract some operation that is performed repeatedly. The classic example of this is `Array.prototype.map()`, which takes an array and a function as arguments. `Array.prototype.map()` then uses this function to transform each item in the array, returning a new array with the transformed data. Other popular examples in JavaScript are `Array.prototype.forEach()`, `Array.prototype.filter()`, and `Array.prototype.reduce()`. A higher-order function doesn't just need to be manipulating arrays as there are many use cases for returning a function from another function. `Function.prototype.bind()` is an example that returns another function.
 
-## Map
-
-Let's say we have an array of names that we need to transform to uppercase.
+Imagine a scenario where we have an array of names that we need to transform to uppercase.
 
 ```js
 const names = ['irish', 'daisy', 'anna'];
@@ -19,22 +17,24 @@ const names = ['irish', 'daisy', 'anna'];
 The imperative way will be as such:
 
 ```js
-const transformNamesToUppercase = function (names) {
+function transformNamesToUppercase(names) {
   const results = [];
   for (let i = 0; i < names.length; i++) {
     results.push(names[i].toUpperCase());
   }
   return results;
-};
+}
+
 transformNamesToUppercase(names); // ['IRISH', 'DAISY', 'ANNA']
 ```
 
-Use `.map(transformerFn)` makes the code shorter and more declarative.
+Using `Array.prototype.map(transformerFn)` makes the code shorter and more declarative.
 
 ```js
-const transformNamesToUppercase = function (names) {
+function transformNamesToUppercase(names) {
   return names.map((name) => name.toUpperCase());
-};
+}
+
 transformNamesToUppercase(names); // ['IRISH', 'DAISY', 'ANNA']
 ```
 
@@ -44,25 +44,27 @@ transformNamesToUppercase(names); // ['IRISH', 'DAISY', 'ANNA']
 
 A higher-order function is a function that takes another function as an argument or returns a function as its result.
 
-### Types
+### Functions as arguments
 
-- **Function as an argument**: A function that takes another function as an argument and executes it.
+A higher-order function can takes another function as an argument and execute it.
 
 ```js
 function greet(name) {
   return `Hello, ${name}!`;
 }
 
-function greet_name(greeter, name) {
+function greetName(greeter, name) {
   console.log(greeter(name));
 }
 
-greet_name(greet, 'Alice'); // Output: Hello, Alice!
+greetName(greet, 'Alice'); // Output: Hello, Alice!
 ```
 
-In this example, the `greet_name` function takes another function `greet` as an argument and executes it with the name `Alice`. The `greet` function is a higher-order function because it is passed as an argument to another function.
+In this example, the `greetName` function takes another function `greet` as an argument and executes it with the name `Alice`. The `greet` function is a higher-order function because it is passed as an argument to another function.
 
-- **Function as a return value**: A function that returns another function.
+### Functions as return values
+
+A higher-order function can return another function.
 
 ```js
 function multiplier(factor) {
@@ -80,9 +82,9 @@ console.log(triple(5)); // Output: 15
 
 In this example, the `multiplier` function returns a new function that multiplies any number by the specified factor. The returned function is a closure that remembers the `factor` value from the outer function. The `multiplier` function is a higher-order function because it returns another function.
 
-### Examples
+### Practical examples
 
-1. **Logging Decorator**: A higher-order function that adds logging functionality to another function:
+1. **Logging decorator**: A higher-order function that adds logging functionality to another function:
 
 ```js
 function withLogging(fn) {
@@ -127,11 +129,27 @@ const memoizedFibonacci = memoize(fibonacci);
 console.log(memoizedFibonacci(10)); // Output: 55
 ```
 
-The `memoize` function is a higher-order function that takes a function `fn` as an argument and returns a new function that caches the results of the original function based on its arguments
+The `memoize` function is a higher-order function that takes a function `fn` as an argument and returns a new function that caches the results of the original function based on its arguments.
 
-## Summary
+1. **Lodash**: Lodash is a utility library that provides a wide range of functions for working with arrays, objects, strings, and more, most of which are higher-order functions.
 
-Higher-order functions can be used to create more abstract, reusable, and flexible code in JavaScript.
+```js
+import _ from 'lodash';
+
+const numbers = [1, 2, 3, 4, 5];
+
+// Filter array
+const evenNumbers = _.filter(numbers, (n) => n % 2 === 0); // [2, 4]
+
+// Map array
+const doubledNumbers = _.map(numbers, (n) => n * 2); // [2, 4, 6, 8, 10]
+
+// Find the maximum value
+const maxValue = _.max(numbers); // 5
+
+// Sum all values
+const sum = _.sum(numbers); // 15
+```
 
 ## Further reading
 

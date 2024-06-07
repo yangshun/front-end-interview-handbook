@@ -1,11 +1,11 @@
 {
-  "slug": "how-does-garbage-collection-in-the-context-of-javascript-work",
+  "slug": "what-are-javascript-object-property-flags-and-descriptors",
   "languages": [],
   "companies": [],
   "premium": false,
   "duration": 5,
   "published": true,
   "topics": ["javascript"],
-  "importance": "mid",
-  "difficulty": "hard"
+  "importance": "medium",
+  "difficulty": "medium"
 }

@@ -1,14 +1,12 @@
 ---
-title: Explain the differences between commonjs modules-and-es-modules ?
+title: Explain the differences between CommonJS modules and ES modules
 ---
 
 ## TL;DR
 
-In JavaScript, `modules` are reusable pieces of code that encapsulate functionality, making it easier to manage, maintain, and structure your applications. Modules allow you to break down your code into smaller, manageable parts, each with its own scope.
+In JavaScript, modules are reusable pieces of code that encapsulate functionality, making it easier to manage, maintain, and structure your applications. Modules allow you to break down your code into smaller, manageable parts, each with its own scope.
 
-**CommonJS**:
-
-CommonJS is an older module system that was initially designed for server-side JavaScript development with Node.js. It uses the require function to load modules and the module.exports or exports object to define the exports of a module.
+**CommonJS** is an older module system that was initially designed for server-side JavaScript development with Node.js. It uses the `require()` function to load modules and the `module.exports` or `exports` object to define the exports of a module.
 
 ```js
 // my-module.js
@@ -20,9 +18,7 @@ const myModule = require('./my-module.js');
 console.log(myModule.value); // 42
 ```
 
-**ES Modules**:
-
-ES Modules (ECMAScript Modules) are the standardized module system introduced in ES6 (ECMAScript 2015). They use the import and export statements to handle module dependencies.
+**ES Modules** (ECMAScript Modules) are the standardized module system introduced in ES6 (ECMAScript 2015). They use the `import` and `export` statements to handle module dependencies.
 
 ```js
 // my-module.js
@@ -33,16 +29,16 @@ import { value } from './my-module.js';
 console.log(value); // 42
 ```
 
-**CommonJs vs ES Modules**
+**CommonJS vs ES modules**
 
-| Feature | CommonJS | ES Modules |
+| Feature | CommonJS | ES modules |
 | --- | --- | --- |
 | Module Syntax | `require()` for importing `module.exports` for exporting | `import` for importing `export` for exporting |
-| Environment | Primarily used in `Node.js` for server-side development | Designed for both browser and server-side JavaScript (Node.js) |
+| Environment | Primarily used in Node.js for server-side development | Designed for both browser and server-side JavaScript (Node.js) |
 | Loading | Synchronous loading of modules | Asynchronous loading of modules |
 | Structure | Dynamic imports, can be conditionally called | Static imports/exports at the top level |
-| File Extensions | `.js` (default) | `.mjs` or `.js` (with `type`: `module` in `package.json`) |
-| Browser Support | Not natively supported in browsers | Natively supported in modern browsers |
+| File extensions | `.js` (default) | `.mjs` or `.js` (with `type: "module"` in `package.json`) |
+| Browser support | Not natively supported in browsers | Natively supported in modern browsers |
 | Optimization | Limited optimization due to dynamic nature | Allows for optimizations like tree-shaking due to static structure |
 | Compatibility | Widely used in existing Node.js codebases and libraries | Newer standard, but gaining adoption in modern projects |
 
@@ -50,15 +46,16 @@ console.log(value); // 42
 
 ## Modules in Javascript
 
-`Modules` in JavaScript are a way to organize and encapsulate code into reusable and maintainable units. They allow developers to break down their codebase into smaller, self-contained pieces, promoting code reuse, separation of concerns, and better organization. There are two main module systems in JavaScript: `CommonJS` and `ES Modules`.
+Modules in JavaScript are a way to organize and encapsulate code into reusable and maintainable units. They allow developers to break down their codebase into smaller, self-contained pieces, promoting code reuse, separation of concerns, and better organization. There are two main module systems in JavaScript: CommonJS and ES modules.
 
 ### CommonJS
 
-CommonJS is an older module system that was initially designed for server-side JavaScript development with Node.js. It uses the require function to load modules and the module.exports or exports object to define the exports of a module.
+CommonJS is an older module system that was initially designed for server-side JavaScript development with Node.js. It uses the require function to load modules and the `module.exports` or `exports` object to define the exports of a module.
 
 - **Syntax**: Modules are included using `require()` and exported using `module.exports`.
 - **Environment**: Primarily used in `Node.js`.
-- **Execution**: Modules are loaded `synchronously`.
+- **Execution**: Modules are loaded synchronously.
+- Modules are loaded dynamically at runtime.
 
 ```js
 // my-module.js
@@ -70,21 +67,16 @@ const myModule = require('./my-module.js');
 console.log(myModule.value); // 42
 ```
 
-#### Key points about CommonJS:
-
-- `Synchronous` loading of modules
-- `Designed for server-side` environments (`Node.js`)
-- Uses `require` for importing and `module.exports` for exporting
-- Modules are `loaded dynamically at runtime`
-
 ### ES Modules
 
-ES Modules (ECMAScript Modules) are the standardized module system introduced in ES6 (ECMAScript 2015). They use the import and export statements to handle module dependencies.
+ES Modules (ECMAScript Modules) are the standardized module system introduced in ES6 (ECMAScript 2015). They use the `import` and `export` statements to handle module dependencies.
 
 - **Syntax**: Modules are imported using `import` and exported using `export`.
-- **Environment**: Can be used in both `browser` environments and `Node.js` (with certain configurations).
-- **Execution**: Modules are loaded `asynchronously`.
-- **Support**: Introduced in `ES6 (2015)`, now widely supported in modern browsers and `Node.js`.
+- **Environment**: Can be used in both browser environments and Node.js (with certain configurations).
+- **Execution**: Modules are loaded asynchronously.
+- **Support**: Introduced in ES2015, now widely supported in modern browsers and Node.js.
+- Modules are loaded statically at compile-time.
+- Enables better performance due to static analysis and tree-shaking.
 
 ```js
 // my-module.js
@@ -95,17 +87,9 @@ import { value } from './my-module.js';
 console.log(value); // 42
 ```
 
-#### Key points about `ES Modules`:
-
-- `Asynchronous loading` of modules
-- Designed for both `client-side` (browsers) and `server-side` (`Node.js`)
-- Uses `import` for importing and `export` for exporting
-- Modules are loaded statically at `compile-time`
-- Better performance due to `static analysis` and `tree-shaking`
-
 ## Summary
 
-While `CommonJS` was the default module system in `Node.js` initially,`ES Modules` are now the recommended approach for new projects, as they provide better tooling, performance, and ecosystem compatibility. However, `CommonJS` modules are still widely used in existing code bases and libraries.
+While CommonJS was the default module system in Node.js initially, ES modules are now the recommended approach for new projects, as they provide better tooling, performance, and ecosystem compatibility. However, CommonJS modules are still widely used in existing code bases and libraries especially for legacy dependencies.
 
 ## Further reading
 

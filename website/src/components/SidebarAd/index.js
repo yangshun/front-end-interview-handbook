@@ -34,7 +34,7 @@ function GreatFrontEnd({ position }) {
   return (
     <a
       className={clsx(styles.container, styles.backgroundPurple)}
-      href={`https://www.greatfrontend.com?utm_source=frontendinterviewhandbook&utm_medium=referral&utm_content=${position}&fpr=frontendinterviewhandbook`}
+      href={`https://www.greatfrontend.com?fpr=yangshun&utm_source=frontendinterviewhandbook&utm_medium=referral&utm_content=${position}&fpr=frontendinterviewhandbook`}
       target="_blank"
       rel="noopener"
       onClick={() => {

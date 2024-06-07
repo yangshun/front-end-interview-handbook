@@ -6,20 +6,20 @@ sidebar_label: UI components
 
 :::info We are now part of GreatFrontEnd!
 
-Front End Interview Handbook is now part of [GreatFrontEnd](https://www.greatfrontend.com)! We are working to migrate the content over and you may find the latest version of this page on [GreatFrontEnd](https://www.greatfrontend.com/system-design/types-of-questions).
+Front End Interview Handbook is now part of [GreatFrontEnd](https://www.greatfrontend.com?fpr=yangshun)! We are working to migrate the content over and you may find the latest version of this page on [GreatFrontEnd](https://www.greatfrontend.com/system-design/types-of-questions?fpr=yangshun).
 
 :::
 
 ## Examples
 
-- Autocomplete: [Read example solution](https://www.greatfrontend.com/questions/system-design/autocomplete) (Free)
-- Image carousel: [Read example solution](https://www.greatfrontend.com/questions/system-design/image-carousel) (Paid)
-- Dropdown menu: [Read example solution](https://www.greatfrontend.com/questions/system-design/dropdown-menu) (Paid)
-- Modal dialog: [Read example solution](https://www.greatfrontend.com/questions/system-design/modal-dialog) (Paid)
-- Poll widget: [Read example solution](https://www.greatfrontend.com/questions/system-design/poll-widget) (Paid)
+- Autocomplete: [Read example solution](https://www.greatfrontend.com/questions/system-design/autocomplete?fpr=yangshun) (Free)
+- Image carousel: [Read example solution](https://www.greatfrontend.com/questions/system-design/image-carousel?fpr=yangshun) (Paid)
+- Dropdown menu: [Read example solution](https://www.greatfrontend.com/questions/system-design/dropdown-menu?fpr=yangshun) (Paid)
+- Modal dialog: [Read example solution](https://www.greatfrontend.com/questions/system-design/modal-dialog?fpr=yangshun) (Paid)
+- Poll widget: [Read example solution](https://www.greatfrontend.com/questions/system-design/poll-widget?fpr=yangshun) (Paid)
 - Selector which loads options over the network
 
-To find out more, check out [GreatFrontEnd](https://www.greatfrontend.com/), which shows you how to approach front end system design interviews with their [front end system design guide](https://www.greatfrontend.com/system-design) and case studies. There are also [blogs](https://www.greatfrontend.com/blog) that will cover some of the following topics in more detail. 
+To find out more, check out [GreatFrontEnd](https://www.greatfrontend.com?fpr=yangshun), which shows you how to approach front end system design interviews with their [front end system design guide](https://www.greatfrontend.com/system-design?fpr=yangshun) and case studies. There are also [blogs](https://www.greatfrontend.com/blog?fpr=yangshun) that will cover some of the following topics in more detail. 
 
 ## Framework
 
