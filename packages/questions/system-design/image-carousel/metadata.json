@@ -2,7 +2,7 @@
   "slug": "image-carousel",
   "created": "2022-10-16T00:00:00.000Z",
   "languages": [],
-  "companies": ["dropbox", "google"],
+  "companies": ["amazon", "doordash", "dropbox", "google", "microsoft"],
   "premium": true,
   "duration": 30,
   "featured": true,

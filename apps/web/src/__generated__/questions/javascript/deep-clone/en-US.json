@@ -10,7 +10,9 @@
   "format": "javascript",
   "metadata": {
     "author": "zhenghao",
-    "companies": [],
+    "companies": [
+      "bytedance"
+    ],
     "created": 1653091200,
     "difficulty": "medium",
     "duration": 25,

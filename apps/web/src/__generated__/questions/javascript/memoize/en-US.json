@@ -10,7 +10,9 @@
   "format": "javascript",
   "metadata": {
     "author": null,
-    "companies": [],
+    "companies": [
+      "intuit"
+    ],
     "created": 1690848000,
     "difficulty": "medium",
     "duration": 20,

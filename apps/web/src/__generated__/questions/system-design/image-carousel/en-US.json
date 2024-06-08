@@ -4,8 +4,11 @@
   "metadata": {
     "author": null,
     "companies": [
+      "amazon",
+      "doordash",
       "dropbox",
-      "google"
+      "google",
+      "microsoft"
     ],
     "created": 1665878400,
     "difficulty": "medium",

@@ -142,6 +142,7 @@
   {
     "author": null,
     "companies": [
+      "adobe",
       "amazon",
       "apple",
       "sprinklr"
@@ -658,7 +659,9 @@
   },
   {
     "author": "yangshun",
-    "companies": [],
+    "companies": [
+      "intuit"
+    ],
     "created": 1655510400,
     "difficulty": "medium",
     "duration": 15,
@@ -920,7 +923,9 @@
   },
   {
     "author": "zhenghao",
-    "companies": [],
+    "companies": [
+      "bytedance"
+    ],
     "created": 1653091200,
     "difficulty": "medium",
     "duration": 25,
@@ -1221,7 +1226,8 @@
     "author": null,
     "companies": [
       "google",
-      "lyft"
+      "lyft",
+      "tiktok"
     ],
     "created": 1669420800,
     "difficulty": "medium",
@@ -2324,7 +2330,9 @@
   },
   {
     "author": null,
-    "companies": [],
+    "companies": [
+      "intuit"
+    ],
     "created": 1690848000,
     "difficulty": "medium",
     "duration": 20,

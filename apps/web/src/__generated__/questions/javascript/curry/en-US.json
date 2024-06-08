@@ -10,7 +10,9 @@
   "format": "javascript",
   "metadata": {
     "author": "yangshun",
-    "companies": [],
+    "companies": [
+      "intuit"
+    ],
     "created": 1655510400,
     "difficulty": "medium",
     "duration": 15,
