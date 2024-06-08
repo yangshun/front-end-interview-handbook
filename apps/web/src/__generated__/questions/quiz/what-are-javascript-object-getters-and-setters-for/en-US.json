@@ -12,7 +12,7 @@
     "format": "quiz",
     "frameworkDefault": null,
     "frameworks": [],
-    "href": "/questions/quiz/what-are-javascript-object-getters-and-settes-for",
+    "href": "/questions/quiz/what-are-javascript-object-getters-and-setters-for",
     "importance": "medium",
     "languages": [],
     "nextQuestions": [],
@@ -20,7 +20,7 @@
     "published": true,
     "ranking": 100,
     "similarQuestions": [],
-    "slug": "what-are-javascript-object-getters-and-settes-for",
+    "slug": "what-are-javascript-object-getters-and-setters-for",
     "subtitle": null,
     "title": "What are JavaScript object getters and setters for?",
     "topics": [
