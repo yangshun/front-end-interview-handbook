@@ -416,7 +416,7 @@ Jest to string zgłaszany przez przeglądarkę, który umożliwia elementom prot
 
 Ajax (asynchronous JavaScript and XML - asynchroniczny JavaScript i XML) to zestaw technik tworzenia stron internetowych wykorzystujących wiele technologii sieciowych po stronie klienta do tworzenia asynchronicznych aplikacji internetowych. Dzięki Ajax aplikacje internetowe mogą wysyłać dane i pobierać je z serwera asynchronicznie (w tle) bez ingerencji w wyświetlanie i zachowanie istniejącej strony. Oddzielając warstwę wymiany danych od warstwy prezentacji, Ajax pozwala stronom internetowym, a poprzez rozszerzenia aplikacji internetowych, dynamicznie zmieniać treść bez konieczności ponownego ładowania całej strony. W praktyce nowoczesne implementacje często zastępują użycie JSON zamiast XML, ze względu na zalety natywnej obsługi JSON w JavaScript.
 
-API `XMLHttpRequest` jest często używany do komunikacji asynchronicznej lub w dzisiejszych czasach, `fetch` API.
+API `XMLHttpRequest` jest często używany do komunikacji asynchronicznej lub w dzisiejszych czasach, `fetch()` API.
 
 ###### Bibliografia
 

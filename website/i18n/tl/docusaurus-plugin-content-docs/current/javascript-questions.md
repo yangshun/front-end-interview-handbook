@@ -322,7 +322,7 @@ Ito ay isang string na iniulat ng browser na nagbibigay-daan sa mga network prot
 
 Ang Ajax ay (sinkronisadong JavaScript at XML) ay isang set ng mga diskarte sa pag-develop ng web gamit ang maraming mga teknolohiya ng web sa panig ng kliyente upang lumikha ng mga aplikasyon ng web na sinkronisado. Sa Ajax, ang mga web na aplikasyon ay maaaring magpadala ng datos sa at kunin mula sa isang serber na di-sinkronisado (sa background) nang hindi nakakasagabal sa displey at pag-uugali ng umiiral na pahina. Sa pamamagitan ng pag-decoupling ng layer ng pagpapalit ng datos mula sa layer ng pagtatanghal, ang Ajax ay nagbibigay-daan para sa mga web na pahina, at sa pamamagitan ng extension ng mga aplikasyon sa web, upang baguhin ang nilalaman na dynamic na walang kailangang i-reload ang buong pahina. Sa pagsasagawa, ang mga modernong pagpapatupad ay kadalasang kapalit ng JSON para sa XML dahil sa mga pakinabang ng pagiging likas sa JavaScript.
 
-Ang `XMLHttpRequest` na API ay madalas na ginagamit para sa di-sinkronisadong komunikasyon o sa mga araw ngayon, ang`fetch` na API.
+Ang `XMLHttpRequest` na API ay madalas na ginagamit para sa di-sinkronisadong komunikasyon o sa mga araw ngayon, ang`fetch()` na API.
 
 ###### Mga Reperensiya
 

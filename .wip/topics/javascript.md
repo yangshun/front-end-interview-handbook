@@ -51,7 +51,7 @@ WIP.
 ### Async
 
 - Reference: [Async and Peformance](https://github.com/getify/You-Dont-Know-JS/blob/master/async%20&%20performance/README.md#you-dont-know-js-async--performance)
-- `setTimeout`, `setInterval` and event loop
+- `setTimeout()`, `setInterval()` and event loop
   - [setImmediate() vs nextTick() vs setTimeout(fn,0)](http://voidcanvas.com/setimmediate-vs-nexttick-vs-settimeout/)
 - Event Loop
 - Debounce and Throttle

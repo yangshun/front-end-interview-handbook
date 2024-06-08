@@ -25,7 +25,7 @@ Regardless of which type of format you are given, one thing stays true - you nee
 Be _extremely_ familiar with the following concepts:
 
 - CSS: Specificity, Box model, Layout, Positioning
-- JavaScript: `this` keyword, Prototypes, closures, Async-style code, Promises, Timers (`setTimeout`, `setInterval`)
+- JavaScript: `this` keyword, Prototypes, closures, Async-style code, Promises, Timers (`setTimeout()`, `setInterval()`)
 - JavaScript design patterns: Observer pattern, Module pattern
 - HTML: Event delegation (it was useful in almost every interview), DOM traversal, DOM manipulation, Form validation and submission
 - Vanilla JS, or jQuery at the very least. Not all interviews allow you to use React as they want to see mastery of the fundamentals
