@@ -51,8 +51,8 @@ export default class BackboneModel {
         callback.fn.call(
           callback.context ?? null,
           attribute,
-          attributeData.value,
           value,
+          attributeData.value,
         );
       });
     }

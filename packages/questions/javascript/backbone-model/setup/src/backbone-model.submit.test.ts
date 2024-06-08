@@ -95,7 +95,7 @@ describe('BackboneModel', () => {
         person.set('name', 'Johnny');
 
         expect(person.get('name')).toBe('Johnny');
-        expect(args).toEqual(['name', 'John', 'Johnny']);
+        expect(args).toEqual(['name', 'Johnny', 'John']);
       });
 
       test('callback invoked with `this`', () => {
@@ -107,8 +107,8 @@ describe('BackboneModel', () => {
           function (
             this: any,
             attribute: string,
-            _oldValue: any,
             newValue: any,
+            _oldValue: any,
           ) {
             this[attribute] = newValue;
           },
@@ -131,11 +131,11 @@ describe('BackboneModel', () => {
 
         person.set('name', 'Johnny');
         expect(person.get('name')).toBe('Johnny');
-        expect(args).toEqual(['name', 'John', 'Johnny']);
+        expect(args).toEqual(['name', 'Johnny', 'John']);
 
         person.set('name', 'Carol');
         expect(person.get('name')).toBe('Carol');
-        expect(args).toEqual(['name', 'Johnny', 'Carol']);
+        expect(args).toEqual(['name', 'Carol', 'Johnny']);
       });
 
       test('does not fire when no change', () => {
@@ -160,7 +160,7 @@ describe('BackboneModel', () => {
         let times = 0;
 
         const person = new BackboneModel({ name: 'John' });
-        person.on('change', 'name', (...args_: Array<any>) => {
+        person.on('change', 'name', () => {
           times++;
         });
 

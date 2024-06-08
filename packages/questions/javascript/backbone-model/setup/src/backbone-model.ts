@@ -64,8 +64,8 @@ export default class BackboneModel implements IBackboneModel {
         callback.fn.call(
           callback.context ?? null,
           attribute,
-          attributeData.value,
           value,
+          attributeData.value,
         );
       });
     }

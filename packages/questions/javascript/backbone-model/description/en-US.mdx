@@ -73,7 +73,7 @@ Register an event listener for changes to a specific attribute.
 | `context` | `any` | (Optional) The context in which to execute the callback. |
 
 - Each event `callback` is invoked with different parameters depending on the event:
-  - `change`: Fired when the value of an attribute changes (via `model.set()`). The callback is invoked with attribute name, new value and, old value, in that order.
+  - `change`: Fired when the value of an attribute changes (via `model.set()`). The callback is invoked with attribute name, new value, and old value, in that order.
   - `unset`: Fired when an attribute is unset (via `model.unset()`). The callback is invoked with the attribute name.
 - The `context` parameter is optional and is used to specify the context (`this` value) in which the callback function should be executed.
 
@@ -114,7 +114,7 @@ person.unset('age');
 console.log(person.get('age')); // undefined
 
 function nameChangeCallback(attribute, newName, oldName) {
-  console.log(`'${attribute}' changed from '${oldName}' to '${newName}'`);
+  console.log(`'${attribute}' changed from '${newName}' to '${oldName}'`);
 }
 // Register an event listener for a change in the `name` field.
 person.on('change', 'name', nameChangeCallback);
@@ -130,3 +130,7 @@ person.off('name', nameChangeCallback);
 person.set('name', 'Alice');
 // No output because the listener was removed.
 ```
+
+## Changelog
+
+- **2024/06/08**: Changed `on` callback parameter order to be `(attribute, newValue, oldValue)`.
