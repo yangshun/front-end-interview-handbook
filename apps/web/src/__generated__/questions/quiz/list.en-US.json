@@ -603,7 +603,7 @@
     "similarQuestions": [],
     "slug": "explain-ajax-in-as-much-detail-as-possible",
     "subtitle": null,
-    "title": "Explain Ajax in as much detail as possible.",
+    "title": "Explain AJAX in as much detail as possible",
     "topics": [
       "javascript",
       "network"
@@ -1564,32 +1564,6 @@
     "author": null,
     "companies": [],
     "created": 1630800000,
-    "difficulty": "medium",
-    "duration": 5,
-    "excerpt": null,
-    "featured": false,
-    "format": "quiz",
-    "frameworkDefault": null,
-    "frameworks": [],
-    "href": "/questions/quiz/what-are-microtasks-and-macrotasks",
-    "importance": "high",
-    "languages": [],
-    "nextQuestions": [],
-    "premium": false,
-    "published": true,
-    "ranking": 100,
-    "similarQuestions": [],
-    "slug": "what-are-microtasks-and-macrotasks",
-    "subtitle": null,
-    "title": "What are microtasks and macrotasks?",
-    "topics": [
-      "javascript"
-    ]
-  },
-  {
-    "author": null,
-    "companies": [],
-    "created": 1630800000,
     "difficulty": "hard",
     "duration": 5,
     "excerpt": null,
@@ -1607,7 +1581,7 @@
     "similarQuestions": [],
     "slug": "what-are-server-sent-events",
     "subtitle": null,
-    "title": "What are server sent events ?",
+    "title": "What are server-sent events?",
     "topics": [
       "javascript"
     ]
@@ -1711,7 +1685,7 @@
     "similarQuestions": [],
     "slug": "what-are-the-advantages-and-disadvantages-of-using-ajax",
     "subtitle": null,
-    "title": "What are the advantages and disadvantages of using Ajax?",
+    "title": "What are the advantages and disadvantages of using AJAX?",
     "topics": [
       "javascript",
       "network"
@@ -1872,7 +1846,7 @@
     "similarQuestions": [],
     "slug": "what-are-the-differences-between-xmlhttprequest-and-fetch",
     "subtitle": null,
-    "title": "What are the differences between `XMLHttpRequest` and `fetch`?",
+    "title": "What are the differences between `XMLHttpRequest` and `fetch()`?",
     "topics": [
       "javascript",
       "network"
@@ -2032,7 +2006,7 @@
     "similarQuestions": [],
     "slug": "what-are-workers-in-javascript-used-for",
     "subtitle": null,
-    "title": "What are workers in javascript used for?",
+    "title": "What are workers in JavaScript used for?",
     "topics": [
       "javascript"
     ]
