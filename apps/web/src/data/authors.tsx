@@ -8,7 +8,7 @@ type Author = Readonly<{
   imageUrl: string;
   links: {
     github?: string;
-    linkedin?: string;
+    linkedin: string;
     website?: string;
     x?: string;
     youtube?: string;
