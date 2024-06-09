@@ -1,46 +1,51 @@
 ---
-title: What are the advantages and disadvantages of using Ajax?
+title: What are the advantages and disadvantages of using AJAX?
 ---
 
 ## TL;DR
 
-### Advantages:
+AJAX (Asynchronous JavaScript and XML) is a technique in JavaScript that allows web pages to send and retrieve data asynchronously from servers without refreshing or reloading the entire page.
 
-- **Smoother User Experience**: Updates happen without full page reloads, like in chat applications.
-- **Lighter Server Load**: Only necessary data is fetched, improving performance.
-- **Maintains State**: User interactions and data persist within the page.
+**Advantages**
 
-### Disadvantages:
+- **Smoother User Experience**: Updates happen without full page reloads, like in mail and chat applications.
+- **Lighter server Load**: Only necessary data is fetched via AJAX, reducing server load and improving perceived performance of webpages.
+- **Maintains client state**: User interactions and any client states are persisted within the page.
 
-- **Bookmarking Issues**: Dynamic content makes bookmarking specific page states difficult.
+**Disadvantages**
+
 - **Reliance on JavaScript**: If disabled, Ajax functionality breaks.
+- **Bookmarking issues**: Dynamic content makes bookmarking specific page states difficult.
 - **SEO Challenges**: Search engines may struggle to index dynamic content.
 - **Performance Concerns**: Processing Ajax data on low-end devices can be slow.
 
 ---
 
-Ajax (Asynchronous JavaScript and XML) revolutionized web development by enabling dynamic updates to web pages without full reloads. This creates a smoother and more responsive user experience.
+## AJAX (Asynchronous JavaScript and XML)
 
-## Advantages
+AJAX (Asynchronous JavaScript and XML) is a technique in JavaScript that allows web pages to send and retrieve data asynchronously from servers without refreshing or reloading the entire page. When it was first created, it revolutionized web development and resulted in a smoother and more responsive user experience. AJAX is explained in detail in [this question](/questions/quiz/explain-ajax-in-as-much-detail-as-possible).
 
-- **Enhanced User Experience**: Ajax allows for seamless updates to specific parts of a page, keeping the user engaged and avoiding disruptive full-page reloads. Imagine a chat application where new messages appear in real-time without needing to refresh the entire page.
-- **Reduced Server Load and Bandwidth Usage**: Instead of fetching the entire page for minor updates, Ajax requests only the necessary data. This reduces server load and improves performance, especially for users with limited bandwidth.
-- **Maintained State**: With Ajax, state can be maintained on a page, as JavaScript variables and DOM state persist because the main container page wasn't needed to be reloaded. This enables the development of dynamic web applications where user interactions are preserved seamlessly.
+Here's a breakdown of AJAX's pros and cons:
 
-## Disadvantages
+### Advantages
 
-- **Bookmarking Challenges**: Dynamic web pages generated using Ajax are harder to bookmark since the URL often remains unchanged. This can affect usability and SEO, as users may find it difficult to return to specific pages or share URLs. For an example, imagine a web application that uses Ajax to sort data. When the user bookmarks the page after sorting, the bookmarked URL will not reflect the sorted data. If the user tries to access the bookmarked page, they will see the original unsorted data.
-- **JavaScript Dependency**: If JavaScript is disabled in the browser, Ajax functionality breaks. This is simply because JavaScript is required for dynamic content updates, to execute the scripts that are included in the content and DOM manipulation.
-- **SEO Challenges**: Search engines often rely on rendered content to index web pages. Ajax content loaded dynamically might not be readily accessible to crawlers, impacting Search Engine Optimization (SEO).
-- **Performance Concerns**: Web pages using Ajax to fetch data often require combining fetched remote data with client-side templates to update the DOM. This process involves parsing and executing JavaScript on the browser, which may pose performance challenges, especially on low-end mobile devices with limited processing power.
+- **Enhanced user experience**: AJAX allows for partial page updates without full reloads. This creates a smoother and more responsive feel for users, as they don't have to wait for the entire page to refresh for every interaction.
+- **Reduced server load and bandwidth usage**: By exchanging only specific data with the server, AJAX minimizes the amount of data transferred. This leads to faster loading times and reduced server strain, especially for frequently updated content.
+- **Improved performance**: Faster data exchange and partial page updates contribute to a quicker web application overall. Users perceive the application as more responsive and efficient.
+- **Dynamic content updates, preserving client-only state**: AJAX enables real-time data updates without full page reloads, preserving client-only state like form inputs and scroll positions. This is ideal for features like live chat, stock tickers, or collaborative editing.
+- **Form validation**: AJAX can be used for client-side form validation that requires back end interactions (e.g. checking for duplicate usernames), providing immediate feedback to users without requiring a form submission request. This improves the user experience and avoids unnecessary full page reloads for invalid submissions.
 
-## CSR vs SSR vs SPA in relation to Ajax:
+### Disadvantages
 
-- **Client-Side Rendering (CSR)**: Rely heavily on Ajax for fetching data and updating the DOM entirely on the client-side. This approach leverages Ajax's strengths in user experience but inherits its SEO and JavaScript-dependency drawbacks.
+- **Increased complexity**: Developing AJAX-powered applications can be more complex compared to traditional web development. It requires handling asynchronous communication and potential race conditions between requests and responses. Since pages are not reloaded, parts of the page can be outdated overtime and can be confusing.
+- **Dependency on JavaScript**: AJAX relies on JavaScript to function. Users with JavaScript disabled or unsupported browsers won't experience the full functionality of the application. A fallback mechanism (graceful degradation) is necessary to ensure basic functionality for these users.
+- **Security concerns**: AJAX introduces new security considerations like Cross-Site Scripting (XSS) vulnerabilities (if servers return directly HTML markup) if not implemented carefully. Proper data validation and sanitization are crucial to prevent security risks.
+- **Browser support**: Older browsers might not fully support AJAX features. Developers need to consider compatibility when building with AJAX to ensure a good user experience across different browsers.
+- **SEO challenges**: Search engines might have difficulty indexing content dynamically loaded through AJAX. Developers need to employ techniques like server-side rendering or proper content embedding to ensure search engine visibility.
+- **Navigation problems**: AJAX can interfere with the browser's back and forward navigation buttons, as well as bookmarking, since the URL may not change with asynchronous updates.
+- **State management**: Maintaining the application state and ensuring proper navigation can be challenging with AJAX, requiring additional techniques such as the History API or URL hash fragments.
 
-- **Server-Side Rendering (SSR)**: The server generates the initial HTML with all the required data, often seen in using frontend frameworks like Next.js. Ajax can then be used for subsequent updates. This improves SEO and accessibility but might require more server resources.
-
-- **Single-Page Applications (SPAs)**: SPAs often use CSR and rely heavily on Ajax for dynamic updates. These applications load a single HTML page and use Ajax extensively to fetch and update content dynamically. SPAs provide a seamless user experience but face similar challenges as heavy Ajax usage: SEO and JavaScript dependency.
+While AJAX offers significant advantages in terms of user experience, performance, and functionality, it also introduces complexities and potential drawbacks related to development, SEO, browser compatibility, security, and navigation.
 
 ## Further reading
 

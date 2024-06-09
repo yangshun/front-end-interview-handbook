@@ -4,13 +4,13 @@ title: How do you abort a web request using `AbortController`?
 
 ## TL;DR
 
-`AbortController` is a Web API for canceling ongoing asynchronous operations like fetch requests.
+`AbortController` is used to cancel ongoing asynchronous operations like fetch requests.
 
 ```js
 const controller = new AbortController();
 const signal = controller.signal;
 
-fetch('YOUR_API_URL', { signal })
+fetch('https://jsonplaceholder.typicode.com/todos/1', { signal })
   .then((response) => {
     // Handle response
   })
@@ -26,28 +26,33 @@ fetch('YOUR_API_URL', { signal })
 controller.abort();
 ```
 
-### Use Cases
+Aborting web requests is useful for:
 
-- Canceling requests based on user actions, like canceling a search.
+- Canceling requests based on user actions.
 - Prioritizing the latest requests in scenarios with multiple simultaneous requests.
+- Canceling requests that are no longer needed, e.g. after the user has navigated away from the page.
 
 ---
 
-`AbortController` is a powerful Web API introduced in 2019 that empowers developers to gracefully cancel ongoing asynchronous operations like fetch requests. It offers a mechanism to signal to the underlying network layer that the request is no longer required, preventing unnecessary resource consumption and improving user experience.
+## `AbortController`s
 
-## How to Use `AbortController`?
+`AbortController` allows graceful cancelation of ongoing asynchronous operations like fetch requests. It offers a mechanism to signal to the underlying network layer that the request is no longer required, preventing unnecessary resource consumption and improving user experience.
 
-To use `AbortController`, you need to follow these steps:
+## Using `AbortController`s
 
-- **Create an `AbortController` Instance**: Initialize an `AbortController` instance, which creates a signal that can be used to abort requests.
-- **Pass the Signal to the Request**: Pass the signal to the request, typically through the `signal` property in the request options.
-- **Abort the Request**: Call the `abort` method on the `AbortController` instance to cancel the ongoing request. Here is an example of how to use AbortController with the Fetch API:
+Using `AbortController`s involve the following steps:
+
+1. **Create an `AbortController` instance**: Initialize an `AbortController` instance, which creates a signal that can be used to abort requests.
+1. **Pass the signal to the request**: Pass the signal to the request, typically through the `signal` property in the request options.
+1. **Abort the request**: Call the `abort()` method on the `AbortController` instance to cancel the ongoing request.
+
+Here is an example of how to use `AbortController`s with the `fetch()` API:
 
 ```js
 const controller = new AbortController();
 const signal = controller.signal;
 
-fetch('YOUR_API_URL', { signal })
+fetch('https://jsonplaceholder.typicode.com/todos/1', { signal })
   .then((response) => {
     // Handle response
   })
@@ -65,20 +70,20 @@ controller.abort();
 
 ## Use cases
 
-### Canceling a Fetch Request on User Action
+### Canceling a `fetch()` request on a user action
 
-Cancel requests that take too long or are no longer relevant due to user interactions (e.g., user cancels a search before results load).
+Cancel requests that take too long or are no longer relevant due to user interactions (e.g., user cancels uploading of a huge file).
 
 ```js
 // HTML:
 // <div>
-//     <button id="cancelBtn">Cancel</button>
+//   <button id="cancel-button">Cancel upload</button>
 // </div>
 
 const controller = new AbortController();
 const signal = controller.signal;
 
-fetch('YOUR_API_URL', { signal })
+fetch('https://jsonplaceholder.typicode.com/todos/1', { signal })
   .then((response) => {
     // Handle successful response
   })
@@ -90,14 +95,14 @@ fetch('YOUR_API_URL', { signal })
     }
   });
 
-document.getElementById('cancelBtn').addEventListener('click', () => {
+document.getElementById('cancel-button').addEventListener('click', () => {
   controller.abort();
 });
 ```
 
-When you click the "Cancel" button, it will abort the fetch request.
+When you click the "Cancel upload" button, in-flight request will be aborted.
 
-### Prioritizing Latest Requests in a Race Condition
+### Prioritizing latest requests in a race condition
 
 In scenarios where multiple requests are initiated for the same data, use `AbortController` to prioritize the latest request and abort earlier ones.
 
@@ -127,7 +132,17 @@ function fetchData(url) {
 }
 ```
 
-In this example, when the `fetchData()` function is called multitple times triggering multipe fetch requests, `AbortController` will cancel all the previous requests except the latest request.
+In this example, when the `fetchData()` function is called multiple times triggering multiple fetch requests, `AbortController`s will cancel all the previous requests except the latest request. This is common in scenarios like type-ahead search or infinite scrolling, where new requests are triggered frequently.
+
+### Canceling requests that are no longer needed
+
+In situations where the user has navigated away from the page, aborting the request can prevent unnecessary operations (e.g. success callback handling), and freeing up resources by lowering the likelihood of memory leaks.
+
+## Notes
+
+- `AbortController`s is not `fetch()`-specific, it can be used to abort other asynchronous tasks as well.
+- A singular `AbortContoller` instance can be reused or multiple async tasks and cancel all of them at once.
+- Calling `abort()` on `AbortController`s does not send any notification or signal to the server. The server is unaware of the cancelation and will continue processing the request until it completes or times out.
 
 ## Further reading
 
