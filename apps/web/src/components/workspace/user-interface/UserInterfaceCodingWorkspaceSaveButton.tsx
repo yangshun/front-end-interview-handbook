@@ -18,12 +18,14 @@ import { useUserInterfaceCodingWorkspaceSavesContext } from './UserInterfaceCodi
 import { useSandpack } from '@codesandbox/sandpack-react';
 import type { QuestionUserInterfaceSave } from '@prisma/client';
 import { useUser } from '@supabase/auth-helpers-react';
+import { useQueryClient } from '@tanstack/react-query';
 
 function UpdateSaveButton({
   save,
 }: Readonly<{
   save: QuestionUserInterfaceSave;
 }>) {
+  const queryClient = useQueryClient();
   const { showToast } = useToast();
   const { sandpack } = useSandpack();
   const { files } = sandpack;
@@ -34,6 +36,9 @@ function UpdateSaveButton({
           title: `Successfully updated "${save.name}"`,
           variant: 'info',
         });
+
+        // TODO(trpc): invalidate finegrain queries
+        queryClient.invalidateQueries();
       },
     });
 
@@ -59,6 +64,7 @@ function NewSaveButton({
 }: Readonly<{
   question: QuestionUserInterface;
 }>) {
+  const queryClient = useQueryClient();
   const router = useI18nRouter();
   const { showToast } = useToast();
   const { data: saves } = trpc.questionSave.userInterfaceGetAll.useQuery({
@@ -84,6 +90,9 @@ function NewSaveButton({
         router.push(
           `/questions/user-interface/${question.metadata.slug}/v/${data?.id}`,
         );
+
+        // TODO(trpc): invalidate finegrain queries
+        queryClient.invalidateQueries();
       },
     });
 

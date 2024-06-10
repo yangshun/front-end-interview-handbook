@@ -21,8 +21,10 @@ import usePromotionsStudentDiscountLabels from './usePromotionsStudentDiscountLa
 import { PromotionsEmailUsLink } from '../PromotionsEmailUsLink';
 
 import { useUser } from '@supabase/auth-helpers-react';
+import { useQueryClient } from '@tanstack/react-query';
 
 export function PromotionsStudentDiscountCard() {
+  const queryClient = useQueryClient();
   const intl = useIntl();
   const labels = usePromotionsStudentDiscountLabels();
   const discountPercentage = STUDENT_DISCOUNT_PERCENTAGE;
@@ -38,6 +40,9 @@ export function PromotionsStudentDiscountCard() {
   } = trpc.marketing.generateStudentDiscountPromoCode.useMutation({
     onSuccess: (data) => {
       setPromoCode(data);
+
+      // TODO(trpc): invalidate finegrain queries
+      queryClient.invalidateQueries();
     },
   });
   const { signInUpHref } = useAuthSignInUp();

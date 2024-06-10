@@ -36,6 +36,8 @@ import type { Props as RewardsTaskProps } from './RewardsTaskItem';
 import type { RewardsTasksActionName } from './RewardsTaskItem';
 import { useRewardsTasks } from './useRewardsTasks';
 
+import { useQueryClient } from '@tanstack/react-query';
+
 function RewardsStepLabel({
   label,
   step,
@@ -122,19 +124,45 @@ const handles: ReadonlyArray<{
 
 export default function RewardsTasksPage() {
   const intl = useIntl();
+  const queryClient = useQueryClient();
   const router = useI18nRouter();
   const { showToast } = useToast();
 
   const { data: completedTasks } = trpc.rewards.getTasksCompleted.useQuery();
-  const checkGitHubStarMutation = trpc.rewards.checkGitHubStarred.useMutation();
+  const checkGitHubStarMutation = trpc.rewards.checkGitHubStarred.useMutation({
+    onSuccess: () => {
+      // TODO(trpc): invalidate finegrain queries
+      queryClient.invalidateQueries();
+    },
+  });
   const checkGitHubFollowMutation =
-    trpc.rewards.checkGitHubFollowing.useMutation();
+    trpc.rewards.checkGitHubFollowing.useMutation({
+      onSuccess: () => {
+        // TODO(trpc): invalidate finegrain queries
+        queryClient.invalidateQueries();
+      },
+    });
   const checkLinkedInFollowMutation =
-    trpc.rewards.checkLinkedInFollowing.useMutation();
+    trpc.rewards.checkLinkedInFollowing.useMutation({
+      onSuccess: () => {
+        // TODO(trpc): invalidate finegrain queries
+        queryClient.invalidateQueries();
+      },
+    });
   const checkTwitterFollowMutation =
-    trpc.rewards.checkTwitterFollowing.useMutation();
+    trpc.rewards.checkTwitterFollowing.useMutation({
+      onSuccess: () => {
+        // TODO(trpc): invalidate finegrain queries
+        queryClient.invalidateQueries();
+      },
+    });
   const generateSocialTasksPromoCodeMutation =
-    trpc.rewards.generateSocialTasksPromoCode.useMutation();
+    trpc.rewards.generateSocialTasksPromoCode.useMutation({
+      onSuccess: () => {
+        // TODO(trpc): invalidate finegrain queries
+        queryClient.invalidateQueries();
+      },
+    });
 
   const [currentStep, setCurrentStep] = useState(1);
   const [handlesData, setHandlesData] = useSessionStorage<RewardsHandlesData>(

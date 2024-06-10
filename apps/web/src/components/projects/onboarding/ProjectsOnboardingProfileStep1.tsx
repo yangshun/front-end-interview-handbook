@@ -20,6 +20,7 @@ import Heading from '~/components/ui/Heading';
 import TextInput from '~/components/ui/TextInput';
 
 import { zodResolver } from '@hookform/resolvers/zod';
+import { useQueryClient } from '@tanstack/react-query';
 
 export type ProjectsProfileOnboardingStep1FormValues = {
   avatarUrl?: string | undefined;
@@ -71,11 +72,17 @@ type Props = Readonly<{
 
 export default function ProjectsOnboardingProfileStep1({ onFinish }: Props) {
   const intl = useIntl();
+  const queryClient = useQueryClient();
   const onboardingProfileStep1Schema = useOnboardingProfileStep1Schema();
   const { data: initialValues } =
     trpc.projects.profile.onboardingStep1.useQuery();
   const onboardingStep1UpdateMutation =
-    trpc.projects.profile.onboardingStep1Update.useMutation();
+    trpc.projects.profile.onboardingStep1Update.useMutation({
+      onSuccess: () => {
+        // TODO(trpc): invalidate finegrain queries
+        queryClient.invalidateQueries();
+      },
+    });
   const [usernameExistsError, setUsernameExistsError] = useState(false);
 
   const experienceInitialValues = useProjectsProfileExperienceValueInitializer({

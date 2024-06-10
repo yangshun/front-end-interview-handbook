@@ -11,6 +11,8 @@ import Text from '~/components/ui/Text';
 
 import { useI18nRouter } from '~/next-i18nostic/src';
 
+import { useQueryClient } from '@tanstack/react-query';
+
 function isOnSubmissionPage(href: string) {
   return window.location.pathname === href;
 }
@@ -40,6 +42,7 @@ function ViewSubmissionButton({ href }: { href: string }) {
 export default function useProjectsChallengeSubmissionTakeScreenshotMutation(
   source: 'comparison' | 'form',
 ) {
+  const queryClient = useQueryClient();
   const router = useI18nRouter();
   const { showToast } = useToast();
   const intl = useIntl();
@@ -141,6 +144,9 @@ export default function useProjectsChallengeSubmissionTakeScreenshotMutation(
       if (onSubmissionPage) {
         router.refresh();
       }
+
+      // TODO(trpc): invalidate finegrain queries
+      queryClient.invalidateQueries();
     },
   });
 }

@@ -15,6 +15,8 @@ import {
   cleanTwitterUserInput,
 } from './RewardsSocialHandlesUtils';
 
+import { useQueryClient } from '@tanstack/react-query';
+
 export type RewardsHandlesData = Readonly<{
   gitHubUsername: string;
   linkedInUsername: string;
@@ -38,8 +40,14 @@ export default function RewardsSocialHandlesForm({
   onHandlesDataChange,
   onNextStage,
 }: Props) {
+  const queryClient = useQueryClient();
   const { mutate: verifySocialHandles, isLoading } =
-    trpc.rewards.verifySocialHandles.useMutation();
+    trpc.rewards.verifySocialHandles.useMutation({
+      onSuccess: () => {
+        // TODO(trpc): invalidate finegrain queries
+        queryClient.invalidateQueries();
+      },
+    });
   const [validationErrors, setValidationErrors] =
     useState<RewardsHandlesValidation | null>(null);
   const [hasError, setHasError] = useState(false);

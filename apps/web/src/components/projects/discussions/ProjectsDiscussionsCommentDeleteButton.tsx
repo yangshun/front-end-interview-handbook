@@ -8,6 +8,8 @@ import { themeTextSubtleColor } from '~/components/ui/theme';
 
 import ConfirmationDialog from '../../common/ConfirmationDialog';
 
+import { useQueryClient } from '@tanstack/react-query';
+
 type Props = Readonly<{
   commentId: string;
   dialogShown: boolean;
@@ -22,7 +24,13 @@ export default function ProjectsDiscussionsCommentDeleteButton({
   onDismiss,
 }: Props) {
   const intl = useIntl();
-  const deleteCommentMutation = trpc.projects.comments.delete.useMutation();
+  const queryClient = useQueryClient();
+  const deleteCommentMutation = trpc.projects.comments.delete.useMutation({
+    onSuccess: () => {
+      // TODO(trpc): invalidate finegrain queries
+      queryClient.invalidateQueries();
+    },
+  });
 
   return (
     <div>

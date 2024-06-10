@@ -86,11 +86,15 @@ export default function ProjectsChallengeSessionContextProvider({
   const startProjectMutation = trpc.projects.sessions.start.useMutation({
     onSuccess: () => {
       queryClient.invalidateQueries(latestSessionQueryKey);
+      // TODO(trpc): invalidate finegrain queries
+      queryClient.invalidateQueries();
     },
   });
   const endSessionMutation = trpc.projects.sessions.end.useMutation({
     onSuccess: () => {
       queryClient.invalidateQueries(latestSessionQueryKey);
+      // TODO(trpc): invalidate finegrain queries
+      queryClient.invalidateQueries();
     },
   });
 

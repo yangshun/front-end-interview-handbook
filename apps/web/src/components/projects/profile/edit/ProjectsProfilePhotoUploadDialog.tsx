@@ -14,6 +14,8 @@ import { themeBackgroundLayerColor } from '~/components/ui/theme';
 
 import 'react-advanced-cropper/dist/style.css';
 
+import { useQueryClient } from '@tanstack/react-query';
+
 type Props = Readonly<{
   image: string;
   isShown: boolean;
@@ -28,9 +30,15 @@ export default function ProjectsProfilePhotoUploadDialog({
   onChange,
 }: Props) {
   const intl = useIntl();
+  const queryClient = useQueryClient();
   const cropperRef = useRef<CropperRef>(null);
   const [isImageLoading, setIsImageLoading] = useState<boolean>(true);
-  const uploadPhoto = trpc.projects.profile.uploadProfilePhoto.useMutation();
+  const uploadPhoto = trpc.projects.profile.uploadProfilePhoto.useMutation({
+    onSuccess: () => {
+      // TODO(trpc): invalidate finegrain queries
+      queryClient.invalidateQueries();
+    },
+  });
 
   // To determine the custom visible area in the image cropper
   useEffect(() => {

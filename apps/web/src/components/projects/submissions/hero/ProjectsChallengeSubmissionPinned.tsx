@@ -74,6 +74,9 @@ export default function ProjectsChallengeSubmissionPinned({
       );
       queryClient.invalidateQueries(pinnedSubmissionQueryKey);
       onClose();
+
+      // TODO(trpc): invalidate finegrain queries
+      queryClient.invalidateQueries();
     },
   });
 

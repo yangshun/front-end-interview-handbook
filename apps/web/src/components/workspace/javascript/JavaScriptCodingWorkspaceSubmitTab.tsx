@@ -21,6 +21,7 @@ import type { CodingWorkspaceTabFileType } from '../common/tabs/codingWorkspaceT
 import TestsSection from '../common/tests/TestsSection';
 
 import { useUser } from '@supabase/auth-helpers-react';
+import { useQueryClient } from '@tanstack/react-query';
 
 export default function JavaScriptCodingWorkspaceTestsSubmitTab({
   metadata,
@@ -31,13 +32,19 @@ export default function JavaScriptCodingWorkspaceTestsSubmitTab({
   openBesideTabId: CodingWorkspaceTabFileType;
   specPath: string;
 }>) {
+  const queryClient = useQueryClient();
   const intl = useIntl();
   const { dispatch } = useJavaScriptCodingWorkspaceTilesContext();
   const { status } = useCodingWorkspaceContext();
   const { language, mainFileCode } = useJavaScriptCodingWorkspaceContext();
   const addProgressMutation = useMutationQuestionProgressAdd();
   const javaScriptAddSubmissionMutation =
-    trpc.questionSubmission.javaScriptAdd.useMutation();
+    trpc.questionSubmission.javaScriptAdd.useMutation({
+      onSuccess: () => {
+        // TODO(trpc): invalidate finegrain queries
+        queryClient.invalidateQueries();
+      },
+    });
 
   const user = useUser();
   const { data: questionProgress } = useQueryQuestionProgress(metadata);

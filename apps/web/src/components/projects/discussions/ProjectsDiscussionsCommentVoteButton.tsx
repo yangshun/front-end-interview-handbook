@@ -12,6 +12,8 @@ import {
 
 import type { ProjectsDiscussionsCommentItem } from './types';
 
+import { useQueryClient } from '@tanstack/react-query';
+
 type Props = Readonly<{
   comment: ProjectsDiscussionsCommentItem;
   count: number;
@@ -21,10 +23,21 @@ export default function ProjectsDiscussionsCommentVoteButton({
   comment,
   count,
 }: Props) {
-  const { id: commentId } = comment;
   const intl = useIntl();
-  const voteCommentMutation = trpc.projects.comments.vote.useMutation();
-  const unvoteCommentMutation = trpc.projects.comments.unvote.useMutation();
+  const queryClient = useQueryClient();
+  const { id: commentId } = comment;
+  const voteCommentMutation = trpc.projects.comments.vote.useMutation({
+    onSuccess: () => {
+      // TODO(trpc): invalidate finegrain queries
+      queryClient.invalidateQueries();
+    },
+  });
+  const unvoteCommentMutation = trpc.projects.comments.unvote.useMutation({
+    onSuccess: () => {
+      // TODO(trpc): invalidate finegrain queries
+      queryClient.invalidateQueries();
+    },
+  });
 
   const { data: likedComments } = trpc.projects.comments.liked.useQuery({
     domain: comment.domain,

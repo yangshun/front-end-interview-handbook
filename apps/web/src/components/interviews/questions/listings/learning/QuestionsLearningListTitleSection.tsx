@@ -27,6 +27,8 @@ import type { QuestionDifficulty } from '../../common/QuestionsTypes';
 import QuestionCountLabel from '../../metadata/QuestionCountLabel';
 import QuestionDurationLabel from '../../metadata/QuestionDurationLabel';
 
+import { useQueryClient } from '@tanstack/react-query';
+
 type Props = Readonly<{
   description?: ReactNode;
   difficultySummary?: Record<QuestionDifficulty, number>;
@@ -50,6 +52,7 @@ export default function QuestionsLearningListTitleSection({
   themeBackgroundClass,
   title,
 }: Props) {
+  const queryClient = useQueryClient();
   const intl = useIntl();
   const { userProfile } = useUserProfile();
   const { data: questionListSession, isLoading: isQuestionListSessionLoading } =
@@ -57,10 +60,25 @@ export default function QuestionsLearningListTitleSection({
       listKey: questionListKey,
     });
 
-  const startSessionMutation = trpc.questionLists.startSession.useMutation();
-  const stopSessionMutation = trpc.questionLists.stopSession.useMutation();
+  const startSessionMutation = trpc.questionLists.startSession.useMutation({
+    onSuccess() {
+      // TODO(trpc): invalidate finegrain queries
+      queryClient.invalidateQueries();
+    },
+  });
+  const stopSessionMutation = trpc.questionLists.stopSession.useMutation({
+    onSuccess() {
+      // TODO(trpc): invalidate finegrain queries
+      queryClient.invalidateQueries();
+    },
+  });
   const resetSessionProgressMutation =
-    trpc.questionLists.resetSessionProgress.useMutation();
+    trpc.questionLists.resetSessionProgress.useMutation({
+      onSuccess() {
+        // TODO(trpc): invalidate finegrain queries
+        queryClient.invalidateQueries();
+      },
+    });
 
   const completedQuestions = questionListSession?.progress?.length ?? 0;
   const [showStopStudyPlanConfirmation, setShowStopStudyPlanConfirmation] =

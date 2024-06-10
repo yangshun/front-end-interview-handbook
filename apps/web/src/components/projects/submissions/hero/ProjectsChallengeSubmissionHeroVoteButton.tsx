@@ -9,6 +9,8 @@ import { useToast } from '~/components/global/toasts/useToast';
 
 import { useI18nRouter } from '~/next-i18nostic/src';
 
+import { useQueryClient } from '@tanstack/react-query';
+
 type Props = Readonly<{
   disabled?: boolean;
   submissionId: string;
@@ -20,6 +22,7 @@ export default function ProjectsChallengeSubmissionHeroVoteButton({
   submissionId,
   disabled = false,
 }: Props) {
+  const queryClient = useQueryClient();
   const { showToast } = useToast();
   const intl = useIntl();
   const router = useI18nRouter();
@@ -41,12 +44,18 @@ export default function ProjectsChallengeSubmissionHeroVoteButton({
         }),
         variant: 'success',
       });
+
+      // TODO(trpc): invalidate finegrain queries
+      queryClient.invalidateQueries();
     },
   });
   const unvote = trpc.projects.submission.unvote.useMutation({
     onSuccess: () => {
       // Refresh number of votes by refetching from the server.
       router.refresh();
+
+      // TODO(trpc): invalidate finegrain queries
+      queryClient.invalidateQueries();
     },
   });
 

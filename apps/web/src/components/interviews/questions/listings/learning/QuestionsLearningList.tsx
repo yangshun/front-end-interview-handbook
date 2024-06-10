@@ -20,6 +20,8 @@ import QuestionsFormatTabs from '../filters/QuestionsFormatsTabs';
 import { sortQuestionsMultiple } from '../filters/QuestionsProcessor';
 import QuestionsList from '../items/QuestionsList';
 
+import { useQueryClient } from '@tanstack/react-query';
+
 export default function QuestionsLearningList({
   listKey,
   sessionProgress,
@@ -35,6 +37,7 @@ export default function QuestionsLearningList({
   sessionProgress: QuestionsCategorizedProgress;
   systemDesignQuestions: ReadonlyArray<QuestionMetadata>;
 }>) {
+  const queryClient = useQueryClient();
   const intl = useIntl();
   const { data: questionListSession, isLoading: isQuestionListSessionLoading } =
     trpc.questionLists.getActiveSession.useQuery({
@@ -58,9 +61,19 @@ export default function QuestionsLearningList({
     listKey,
     systemDesignQuestions,
   );
-  const markCompleteMutation = trpc.questionLists.markComplete.useMutation();
+  const markCompleteMutation = trpc.questionLists.markComplete.useMutation({
+    onSuccess() {
+      // TODO(trpc): invalidate finegrain queries
+      queryClient.invalidateQueries();
+    },
+  });
   const markAsNotCompleteMutation =
-    trpc.questionLists.markAsNotComplete.useMutation();
+    trpc.questionLists.markAsNotComplete.useMutation({
+      onSuccess() {
+        // TODO(trpc): invalidate finegrain queries
+        queryClient.invalidateQueries();
+      },
+    });
 
   function canMarkQuestions() {
     if (isQuestionListSessionLoading) {

@@ -23,6 +23,8 @@ import { useI18nRouter } from '~/next-i18nostic/src';
 import { projectsPaidPlanFeatures } from '../../purchase/ProjectsPricingFeaturesConfig';
 import type { ProjectsViewerProjectsProfile } from '../../types';
 
+import { useQueryClient } from '@tanstack/react-query';
+
 function PrerequisiteChallengesList({
   challenges,
 }: Readonly<{
@@ -96,12 +98,19 @@ export default function ProjectsChallengeUnlockAccessDialog({
   const credits = viewerProjectsProfile?.credits ?? 0;
 
   const intl = useIntl();
+  const queryClient = useQueryClient();
   const router = useI18nRouter();
   const { showToast } = useToast();
   const { data, isLoading } =
     trpc.projects.challenge.unlockCreditsDetails.useQuery({ slug });
-  const unlockAccessMutation =
-    trpc.projects.challenge.unlockAccess.useMutation();
+  const unlockAccessMutation = trpc.projects.challenge.unlockAccess.useMutation(
+    {
+      onSuccess: () => {
+        // TODO(trpc): invalidate finegrain queries
+        queryClient.invalidateQueries();
+      },
+    },
+  );
 
   const creditsLeftAfterUnlocking = credits - (data?.creditsRequired ?? 0);
   const hasSufficientCreditsToUnlock = creditsLeftAfterUnlocking > 0;

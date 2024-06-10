@@ -16,6 +16,7 @@ import TextInput from '~/components/ui/TextInput';
 import { themeBorderColor } from '~/components/ui/theme';
 
 import { zodResolver } from '@hookform/resolvers/zod';
+import { useQueryClient } from '@tanstack/react-query';
 
 type DisplayNameFormValues = Readonly<{
   name: string;
@@ -34,6 +35,7 @@ function useDisplayNameFormSchema() {
 }
 
 export default function ProfileAccountDisplayName() {
+  const queryClient = useQueryClient();
   const intl = useIntl();
   const attrs = getProfileNameAttrs(intl);
 
@@ -46,7 +48,12 @@ export default function ProfileAccountDisplayName() {
     });
 
   const profileDataQuery = trpc.profile.getProfile.useQuery();
-  const nameUpdateMutation = trpc.profile.nameUpdate.useMutation();
+  const nameUpdateMutation = trpc.profile.nameUpdate.useMutation({
+    onSuccess() {
+      // TODO(trpc): invalidate finegrain queries
+      queryClient.invalidateQueries();
+    },
+  });
 
   return (
     <div className={clsx('p-4', 'rounded-lg border', themeBorderColor)}>

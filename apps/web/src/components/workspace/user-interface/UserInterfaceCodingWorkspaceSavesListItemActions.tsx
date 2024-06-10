@@ -11,6 +11,8 @@ import Dialog from '~/components/ui/Dialog';
 import DropdownMenu from '~/components/ui/DropdownMenu';
 import TextInput from '~/components/ui/TextInput';
 
+import { useQueryClient } from '@tanstack/react-query';
+
 type Props = Readonly<{
   saveId: string;
   saveName: string;
@@ -20,16 +22,27 @@ export default function UserInterfaceCodingWorkspaceSavesListItemActions({
   saveId,
   saveName,
 }: Props) {
+  const queryClient = useQueryClient();
   const intl = useIntl();
   const { showToast } = useToast();
   const inputRef = useRef<HTMLInputElement>(null);
 
   const userInterfaceSaveDeleteMutation =
-    trpc.questionSave.userInterfaceDelete.useMutation();
+    trpc.questionSave.userInterfaceDelete.useMutation({
+      onSuccess: () => {
+        // TODO(trpc): invalidate finegrain queries
+        queryClient.invalidateQueries();
+      },
+    });
   const [isDeleting, setIsDeleting] = useState(false);
 
   const userInterfaceSaveUpdateMutation =
-    trpc.questionSave.userInterfaceUpdate.useMutation();
+    trpc.questionSave.userInterfaceUpdate.useMutation({
+      onSuccess: () => {
+        // TODO(trpc): invalidate finegrain queries
+        queryClient.invalidateQueries();
+      },
+    });
   const [isEditing, setIsEditing] = useState(false);
   // Note that this value will be stale if the name is updated in the background.
   const [newSaveName, setNewSaveName] = useState(saveName);

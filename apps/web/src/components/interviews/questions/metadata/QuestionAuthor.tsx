@@ -1,4 +1,3 @@
-import { truncate } from 'fs/promises';
 import { useId } from 'react';
 import { RiLinkedinBoxFill } from 'react-icons/ri';
 import { useIntl } from 'react-intl';

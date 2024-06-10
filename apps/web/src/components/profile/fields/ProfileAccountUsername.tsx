@@ -18,6 +18,7 @@ import { themeBorderColor } from '~/components/ui/theme';
 import { getErrorMessage } from '~/utils/getErrorMessage';
 
 import { zodResolver } from '@hookform/resolvers/zod';
+import { useQueryClient } from '@tanstack/react-query';
 
 type UserNameFormValues = Readonly<{
   username: string;
@@ -36,13 +37,19 @@ function useUsernameFormSchema() {
 }
 
 export default function ProfileAccountUsername() {
+  const queryClient = useQueryClient();
   const intl = useIntl();
   const attrs = getProfileUsernameAttrs(intl);
 
   const toast = useToast();
   const userNameFormSchema = useUsernameFormSchema();
   const { data } = trpc.profile.getProfile.useQuery();
-  const userNameUpdateMutation = trpc.profile.userNameUpdate.useMutation();
+  const userNameUpdateMutation = trpc.profile.userNameUpdate.useMutation({
+    onSuccess() {
+      // TODO(trpc): invalidate finegrain queries
+      queryClient.invalidateQueries();
+    },
+  });
 
   const { control, handleSubmit, reset, setError, formState } =
     useForm<UserNameFormValues>({
