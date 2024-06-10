@@ -14,6 +14,7 @@ type Props = Readonly<{
   align?: PopoverContentAlignment;
   asChild?: boolean;
   children: React.ReactNode;
+  className?: string;
   side?: PopoverContentSide;
   trigger: React.ReactNode;
   width?: PopoverContentWidth;
@@ -33,6 +34,7 @@ export default function Popover({
   side = 'bottom',
   trigger,
   width = 'md',
+  className,
 }: Props) {
   return (
     <PopoverPrimitive.Root>
@@ -42,7 +44,11 @@ export default function Popover({
       <PopoverPrimitive.Portal>
         <PopoverPrimitive.Content
           align={align}
-          className={clsx(popoverContentClassName, panelWidthClasses[width])}
+          className={clsx(
+            popoverContentClassName,
+            panelWidthClasses[width],
+            className,
+          )}
           data-color-scheme={__forceDark ? 'dark' : undefined}
           side={side}
           sideOffset={8}>
