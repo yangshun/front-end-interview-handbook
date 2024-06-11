@@ -17,8 +17,6 @@ import TextInput from '~/components/ui/TextInput';
 import JavaScriptCodingWorkspaceWorkingLanguageSelect from './JavaScriptCodingWorkspaceWorkingLanguageSelect';
 import MonacoCodeEditor from '../common/editor/MonacoCodeEditor';
 
-import { useQueryClient } from '@tanstack/react-query';
-
 type Props = Readonly<{
   metadata: QuestionMetadata;
 }>;
@@ -33,12 +31,13 @@ type CommunitySolutionDraft = Readonly<{
 function JavaScriptCodingWorkspaceCommunitySolutionCreateTabImpl({
   metadata: { slug },
 }: Props) {
-  const queryClient = useQueryClient();
+  const trpcUtils = trpc.useUtils();
+
   const { isLoading, mutateAsync: addSolution } =
     trpc.questionCommunitySolution.javaScriptAdd.useMutation({
       onSuccess: () => {
-        // TODO(trpc): invalidate finegrain queries
-        queryClient.invalidateQueries();
+        trpcUtils.questionCommunitySolution.javaScriptGet.invalidate();
+        trpcUtils.questionCommunitySolution.javaScriptGetAll.invalidate();
       },
     });
 

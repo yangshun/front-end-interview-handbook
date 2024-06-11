@@ -18,14 +18,14 @@ import { useUserInterfaceCodingWorkspaceSavesContext } from './UserInterfaceCodi
 import { useSandpack } from '@codesandbox/sandpack-react';
 import type { QuestionUserInterfaceSave } from '@prisma/client';
 import { useUser } from '@supabase/auth-helpers-react';
-import { useQueryClient } from '@tanstack/react-query';
 
 function UpdateSaveButton({
   save,
 }: Readonly<{
   save: QuestionUserInterfaceSave;
 }>) {
-  const queryClient = useQueryClient();
+  const trpcUtils = trpc.useUtils();
+
   const { showToast } = useToast();
   const { sandpack } = useSandpack();
   const { files } = sandpack;
@@ -36,9 +36,8 @@ function UpdateSaveButton({
           title: `Successfully updated "${save.name}"`,
           variant: 'info',
         });
-
-        // TODO(trpc): invalidate finegrain queries
-        queryClient.invalidateQueries();
+        trpcUtils.questionSave.userInterfaceGet.invalidate();
+        trpcUtils.questionSave.userInterfaceGetAll.invalidate();
       },
     });
 
@@ -64,7 +63,7 @@ function NewSaveButton({
 }: Readonly<{
   question: QuestionUserInterface;
 }>) {
-  const queryClient = useQueryClient();
+  const trpcUtils = trpc.useUtils();
   const router = useI18nRouter();
   const { showToast } = useToast();
   const { data: saves } = trpc.questionSave.userInterfaceGetAll.useQuery({
@@ -91,8 +90,8 @@ function NewSaveButton({
           `/questions/user-interface/${question.metadata.slug}/v/${data?.id}`,
         );
 
-        // TODO(trpc): invalidate finegrain queries
-        queryClient.invalidateQueries();
+        trpcUtils.questionSave.userInterfaceGet.invalidate();
+        trpcUtils.questionSave.userInterfaceGetAll.invalidate();
       },
     });
 

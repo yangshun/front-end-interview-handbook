@@ -1,5 +1,4 @@
-import { Controller } from 'react-hook-form';
-import { useForm } from 'react-hook-form';
+import { Controller, useForm } from 'react-hook-form';
 
 import { trpc } from '~/hooks/trpc';
 
@@ -17,7 +16,6 @@ import TextInput from '~/components/ui/TextInput';
 import { staticUpperCase } from '~/utils/typescript/stringTransform';
 
 import { useSandpack } from '@codesandbox/sandpack-react';
-import { useQueryClient } from '@tanstack/react-query';
 
 type Props = Readonly<{
   framework: QuestionFramework;
@@ -34,7 +32,7 @@ function UserInterfaceCodingWorkspaceCommunitySolutionCreateTabImpl({
   framework,
 }: Props) {
   const { showToast } = useToast();
-  const queryClient = useQueryClient();
+  const trpcUtils = trpc.useUtils();
 
   const {
     sandpack: { files },
@@ -62,9 +60,7 @@ function UserInterfaceCodingWorkspaceCommunitySolutionCreateTabImpl({
           variant: 'success',
         });
         reset();
-
-        // TODO(trpc): invalidate finegrain queries
-        queryClient.invalidateQueries();
+        trpcUtils.questionCommunitySolution.userInterfaceGetAll.invalidate();
       },
     });
 
