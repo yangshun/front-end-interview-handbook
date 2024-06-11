@@ -27,8 +27,6 @@ import type { QuestionDifficulty } from '../../common/QuestionsTypes';
 import QuestionCountLabel from '../../metadata/QuestionCountLabel';
 import QuestionDurationLabel from '../../metadata/QuestionDurationLabel';
 
-import { useQueryClient } from '@tanstack/react-query';
-
 type Props = Readonly<{
   description?: ReactNode;
   difficultySummary?: Record<QuestionDifficulty, number>;
@@ -52,9 +50,10 @@ export default function QuestionsLearningListTitleSection({
   themeBackgroundClass,
   title,
 }: Props) {
-  const queryClient = useQueryClient();
   const intl = useIntl();
+  const trpcUtils = trpc.useUtils();
   const { userProfile } = useUserProfile();
+
   const { data: questionListSession, isLoading: isQuestionListSessionLoading } =
     trpc.questionLists.getActiveSession.useQuery({
       listKey: questionListKey,
@@ -62,21 +61,18 @@ export default function QuestionsLearningListTitleSection({
 
   const startSessionMutation = trpc.questionLists.startSession.useMutation({
     onSuccess() {
-      // TODO(trpc): invalidate finegrain queries
-      queryClient.invalidateQueries();
+      trpcUtils.questionLists.invalidate();
     },
   });
   const stopSessionMutation = trpc.questionLists.stopSession.useMutation({
     onSuccess() {
-      // TODO(trpc): invalidate finegrain queries
-      queryClient.invalidateQueries();
+      trpcUtils.questionLists.invalidate();
     },
   });
   const resetSessionProgressMutation =
     trpc.questionLists.resetSessionProgress.useMutation({
       onSuccess() {
-        // TODO(trpc): invalidate finegrain queries
-        queryClient.invalidateQueries();
+        trpcUtils.questionLists.invalidate();
       },
     });
 
