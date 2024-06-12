@@ -25,7 +25,6 @@ import { ProjectsReputationPointsConfig } from '../reputation/ProjectsReputation
 import RichTextEditor from '../../ui/RichTextEditor';
 
 import { zodResolver } from '@hookform/resolvers/zod';
-import { useQueryClient } from '@tanstack/react-query';
 
 type Props = Readonly<{
   hasNext: boolean;
@@ -45,12 +44,11 @@ export default function ProjectsDiscussionsReplyInput({
   parentComment,
 }: Props) {
   const intl = useIntl();
-  const queryClient = useQueryClient();
+  const trpcUtils = trpc.useUtils();
   const { showToast } = useToast();
   const createReplyMutation = trpc.projects.comments.reply.useMutation({
     onSuccess: () => {
-      // TODO(trpc): invalidate finegrain queries
-      queryClient.invalidateQueries();
+      trpcUtils.projects.comments.invalidate();
     },
   });
   const attrs = getDiscussionsCommentBodyAttributes(intl);

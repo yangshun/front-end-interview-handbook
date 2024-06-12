@@ -15,7 +15,6 @@ import type { ProjectsDiscussionsCommentItem } from './types';
 import RichTextEditor from '../../ui/RichTextEditor';
 
 import { zodResolver } from '@hookform/resolvers/zod';
-import { useQueryClient } from '@tanstack/react-query';
 
 type Props = Readonly<{
   comment: ProjectsDiscussionsCommentItem;
@@ -31,11 +30,12 @@ export default function ProjectsDiscussionsCommentEditInput({
   onCancel,
 }: Props) {
   const intl = useIntl();
-  const queryClient = useQueryClient();
+
+  const trpcUtils = trpc.useUtils();
+
   const updateCommentMutation = trpc.projects.comments.update.useMutation({
     onSuccess: () => {
-      // TODO(trpc): invalidate finegrain queries
-      queryClient.invalidateQueries();
+      trpcUtils.projects.comments.invalidate();
     },
   });
   const attrs = getDiscussionsCommentBodyAttributes(intl);
