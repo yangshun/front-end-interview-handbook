@@ -36,8 +36,6 @@ import type { Props as RewardsTaskProps } from './RewardsTaskItem';
 import type { RewardsTasksActionName } from './RewardsTaskItem';
 import { useRewardsTasks } from './useRewardsTasks';
 
-import { useQueryClient } from '@tanstack/react-query';
-
 function RewardsStepLabel({
   label,
   step,

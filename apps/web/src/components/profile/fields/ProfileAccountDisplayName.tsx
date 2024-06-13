@@ -16,7 +16,6 @@ import TextInput from '~/components/ui/TextInput';
 import { themeBorderColor } from '~/components/ui/theme';
 
 import { zodResolver } from '@hookform/resolvers/zod';
-import { useQueryClient } from '@tanstack/react-query';
 
 type DisplayNameFormValues = Readonly<{
   name: string;

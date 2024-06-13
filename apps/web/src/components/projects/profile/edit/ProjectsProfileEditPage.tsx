@@ -38,7 +38,6 @@ import { useProjectsProfileLinkedInSchema } from '../fields/ProjectsProfileLinke
 
 import { zodResolver } from '@hookform/resolvers/zod';
 import type { Profile, ProjectsProfile } from '@prisma/client';
-import { useQueryClient } from '@tanstack/react-query';
 
 function useProjectsProfileEditSchema() {
   const motivationReasonSchema = useProjectsMotivationReasonSchema({
@@ -91,14 +90,13 @@ type Props = Readonly<{
 
 export default function ProjectsProfileEditPage({ userProfile }: Props) {
   const intl = useIntl();
-  const queryClient = useQueryClient();
+  const trpcUtils = trpc.useUtils();
   const router = useI18nRouter();
   const { showToast } = useToast();
   const projectsProfileUpdateMutation =
     trpc.projects.profile.update.useMutation({
-      onSuccess: () => {
-        // TODO(trpc): invalidate finegrain queries
-        queryClient.invalidateQueries();
+      onSuccess: (data) => {
+        trpcUtils.projects.profile.viewer.setData(undefined, data);
       },
     });
   const { data: initialValues } = trpc.projects.profile.viewer.useQuery(

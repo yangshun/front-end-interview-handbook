@@ -23,7 +23,6 @@ import ProjectsProfileMotivationsField from '../profile/edit/ProjectsProfileMoti
 import { ProjectsReputationPointsConfig } from '../reputation/ProjectsReputationPointsConfig';
 
 import { zodResolver } from '@hookform/resolvers/zod';
-import { useQueryClient } from '@tanstack/react-query';
 
 type OnboardingProfileFormTransformedValues = {
   motivations: z.infer<ReturnType<typeof useProjectsMotivationReasonSchema>>;
@@ -31,7 +30,6 @@ type OnboardingProfileFormTransformedValues = {
 
 export default function ProjectsOnboardingReasonPage() {
   const { showToast } = useToast();
-  const queryClient = useQueryClient();
   const searchParams = useSearchParams();
   const router = useI18nRouter();
   const intl = useIntl();
@@ -40,12 +38,7 @@ export default function ProjectsOnboardingReasonPage() {
   });
 
   const motivationsUpdateMutation =
-    trpc.projects.profile.motivationsUpdate.useMutation({
-      onSuccess: () => {
-        // TODO(trpc): invalidate finegrain queries
-        queryClient.invalidateQueries();
-      },
-    });
+    trpc.projects.profile.motivationsUpdate.useMutation();
 
   const methods = useForm<
     ProjectsMotivationReasonFormValues,

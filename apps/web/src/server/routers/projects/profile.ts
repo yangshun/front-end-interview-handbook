@@ -200,22 +200,6 @@ export const projectsProfileRouter = router({
 
       return result;
     }),
-  onboardingStep1: userProcedure.query(async ({ ctx: { viewer } }) => {
-    return await prisma.profile.findUnique({
-      select: {
-        avatarUrl: true,
-        company: true,
-        currentStatus: true,
-        name: true,
-        startWorkDate: true,
-        title: true,
-        username: true,
-      },
-      where: {
-        id: viewer.id,
-      },
-    });
-  }),
   onboardingStep1Update: userProcedure
     .input(
       z.object({
@@ -251,12 +235,8 @@ export const projectsProfileRouter = router({
             title,
             username,
           },
-          select: {
-            projectsProfile: {
-              select: {
-                id: true,
-              },
-            },
+          include: {
+            projectsProfile: true,
           },
           where: {
             id: viewer.id,
@@ -273,25 +253,6 @@ export const projectsProfileRouter = router({
         return result;
       },
     ),
-  onboardingStep2: userProcedure.query(async ({ ctx: { viewer } }) => {
-    return await prisma.profile.findUnique({
-      select: {
-        bio: true,
-        githubUsername: true,
-        linkedInUsername: true,
-        projectsProfile: {
-          select: {
-            skillsProficient: true,
-            skillsToGrow: true,
-          },
-        },
-        website: true,
-      },
-      where: {
-        id: viewer.id,
-      },
-    });
-  }),
   update: projectsUserProcedure
     .input(
       z
@@ -359,12 +320,8 @@ export const projectsProfileRouter = router({
             username,
             website,
           },
-          select: {
-            projectsProfile: {
-              select: {
-                id: true,
-              },
-            },
+          include: {
+            projectsProfile: true,
           },
           where: {
             id: viewer.id,

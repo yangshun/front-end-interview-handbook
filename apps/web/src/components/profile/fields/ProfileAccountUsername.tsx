@@ -18,7 +18,6 @@ import { themeBorderColor } from '~/components/ui/theme';
 import { getErrorMessage } from '~/utils/getErrorMessage';
 
 import { zodResolver } from '@hookform/resolvers/zod';
-import { useQueryClient } from '@tanstack/react-query';
 
 type UserNameFormValues = Readonly<{
   username: string;
