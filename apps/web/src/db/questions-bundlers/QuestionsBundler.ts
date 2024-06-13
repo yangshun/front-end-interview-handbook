@@ -80,6 +80,8 @@ export async function readMDXFile(
       }
 
       options.remarkPlugins = remarkPlugins;
+      // https://github.com/mdx-js/mdx/pull/2045#issuecomment-1136338668
+      options.development = false;
 
       return options;
     },
