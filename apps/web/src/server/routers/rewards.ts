@@ -374,15 +374,12 @@ export const rewardsRouter = router({
     return promotionCodes.data[0];
   }),
   getTasksCompleted: userProcedure.query(async ({ ctx: { viewer } }) => {
-    const userId = viewer.id;
-    const tasks = await prisma.rewardsTaskCompletion.findMany({
+    return await prisma.rewardsTaskCompletion.findMany({
       where: {
         campaign: SOCIAL_TASKS_DISCOUNT_CAMPAIGN,
-        userId,
+        userId: viewer.id,
       },
     });
-
-    return tasks;
   }),
   verifySocialHandles: userProcedure
     .input(

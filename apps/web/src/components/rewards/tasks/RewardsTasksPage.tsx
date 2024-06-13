@@ -124,43 +124,22 @@ const handles: ReadonlyArray<{
 
 export default function RewardsTasksPage() {
   const intl = useIntl();
-  const queryClient = useQueryClient();
+  const trpcUtils = trpc.useUtils();
   const router = useI18nRouter();
   const { showToast } = useToast();
 
   const { data: completedTasks } = trpc.rewards.getTasksCompleted.useQuery();
-  const checkGitHubStarMutation = trpc.rewards.checkGitHubStarred.useMutation({
-    onSuccess: () => {
-      // TODO(trpc): invalidate finegrain queries
-      queryClient.invalidateQueries();
-    },
-  });
+  const checkGitHubStarMutation = trpc.rewards.checkGitHubStarred.useMutation();
   const checkGitHubFollowMutation =
-    trpc.rewards.checkGitHubFollowing.useMutation({
-      onSuccess: () => {
-        // TODO(trpc): invalidate finegrain queries
-        queryClient.invalidateQueries();
-      },
-    });
+    trpc.rewards.checkGitHubFollowing.useMutation();
   const checkLinkedInFollowMutation =
-    trpc.rewards.checkLinkedInFollowing.useMutation({
-      onSuccess: () => {
-        // TODO(trpc): invalidate finegrain queries
-        queryClient.invalidateQueries();
-      },
-    });
+    trpc.rewards.checkLinkedInFollowing.useMutation();
   const checkTwitterFollowMutation =
-    trpc.rewards.checkTwitterFollowing.useMutation({
-      onSuccess: () => {
-        // TODO(trpc): invalidate finegrain queries
-        queryClient.invalidateQueries();
-      },
-    });
+    trpc.rewards.checkTwitterFollowing.useMutation();
   const generateSocialTasksPromoCodeMutation =
     trpc.rewards.generateSocialTasksPromoCode.useMutation({
       onSuccess: () => {
-        // TODO(trpc): invalidate finegrain queries
-        queryClient.invalidateQueries();
+        trpcUtils.marketing.userPromoCodes.invalidate();
       },
     });
 
@@ -215,7 +194,6 @@ export default function RewardsTasksPage() {
     if (task == null) {
       setCurrentVerifyingTask(null);
 
-      // TODO: Generate promo code.
       return;
     }
 
@@ -225,6 +203,7 @@ export default function RewardsTasksPage() {
         setCurrentVerifyingTask(null);
       },
       onSuccess: () => {
+        trpcUtils.rewards.getTasksCompleted.invalidate();
         findNextTaskToVerify();
       },
     });
