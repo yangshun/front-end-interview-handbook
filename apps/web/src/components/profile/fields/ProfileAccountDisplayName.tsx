@@ -35,8 +35,8 @@ function useDisplayNameFormSchema() {
 }
 
 export default function ProfileAccountDisplayName() {
-  const queryClient = useQueryClient();
   const intl = useIntl();
+  const trpcUtils = trpc.useUtils();
   const attrs = getProfileNameAttrs(intl);
 
   const toast = useToast();
@@ -47,11 +47,10 @@ export default function ProfileAccountDisplayName() {
       resolver: zodResolver(displayNameFormSchema),
     });
 
-  const profileDataQuery = trpc.profile.getProfile.useQuery();
+  const profileDataQuery = trpc.profile.viewer.useQuery();
   const nameUpdateMutation = trpc.profile.nameUpdate.useMutation({
-    onSuccess() {
-      // TODO(trpc): invalidate finegrain queries
-      queryClient.invalidateQueries();
+    onSuccess(newProfile) {
+      trpcUtils.profile.viewer.setData(undefined, newProfile);
     },
   });
 

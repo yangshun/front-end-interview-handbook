@@ -37,17 +37,16 @@ function useUsernameFormSchema() {
 }
 
 export default function ProfileAccountUsername() {
-  const queryClient = useQueryClient();
   const intl = useIntl();
+  const trpcUtils = trpc.useUtils();
   const attrs = getProfileUsernameAttrs(intl);
 
   const toast = useToast();
   const userNameFormSchema = useUsernameFormSchema();
-  const { data } = trpc.profile.getProfile.useQuery();
+  const { data } = trpc.profile.viewer.useQuery();
   const userNameUpdateMutation = trpc.profile.userNameUpdate.useMutation({
-    onSuccess() {
-      // TODO(trpc): invalidate finegrain queries
-      queryClient.invalidateQueries();
+    onSuccess(newProfile) {
+      trpcUtils.profile.viewer.setData(undefined, newProfile);
     },
   });
 

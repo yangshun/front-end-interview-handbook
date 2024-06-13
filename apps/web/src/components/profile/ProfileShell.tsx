@@ -52,7 +52,7 @@ export default function ProfileShell({ user, children }: Props) {
   const intl = useIntl();
   const segment: ProfileTabItem =
     (useSelectedLayoutSegment() as ProfileTabItem) ?? 'activity';
-  const profileDataQuery = trpc.profile.getProfile.useQuery();
+  const profileDataQuery = trpc.profile.viewer.useQuery();
 
   const tabsData: Record<ProfileTabItem, ProfileTabItemData> = {
     account: {
