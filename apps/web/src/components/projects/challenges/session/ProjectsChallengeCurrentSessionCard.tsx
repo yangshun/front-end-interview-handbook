@@ -26,7 +26,6 @@ import { useProjectsChallengeSessionContext } from './ProjectsChallengeSessionCo
 import type { ProjectsChallengeItem } from '../types';
 
 import type { ProjectsChallengeSession } from '@prisma/client';
-import { useQueryClient } from '@tanstack/react-query';
 
 type Props = Readonly<{
   challenge: ProjectsChallengeItem;
@@ -38,7 +37,7 @@ export default function ProjectsChallengeCurrentProjectSessionCard({
   session,
 }: Props) {
   const intl = useIntl();
-  const queryClient = useQueryClient();
+  const trpcUtils = trpc.useUtils();
   const [showEndSessionDialog, setShowEndSessionDialog] = useState(false);
   const [isExpanded, setIsExpanded] = useState(false);
 
@@ -50,8 +49,7 @@ export default function ProjectsChallengeCurrentProjectSessionCard({
   const updateSessionSkillsMutation =
     trpc.projects.sessions.skillsUpdate.useMutation({
       onSuccess: () => {
-        // TODO(trpc): invalidate finegrain queries
-        queryClient.invalidateQueries();
+        trpcUtils.projects.sessions.latestInProgress.invalidate();
       },
     });
 

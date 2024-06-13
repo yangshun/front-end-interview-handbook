@@ -13,12 +13,6 @@ import type { ProjectsChallengeSessionSkillsFormValues } from '../types';
 import { ProjectsReputationPointsConfig } from '../../reputation/ProjectsReputationPointsConfig';
 
 import type { ProjectsChallengeSession } from '@prisma/client';
-import { useQueryClient } from '@tanstack/react-query';
-import { getQueryKey } from '@trpc/react-query';
-
-const latestSessionQueryKey = getQueryKey(
-  trpc.projects.sessions.latestInProgress,
-);
 
 type ProjectsChallengeSessionContextType = Readonly<{
   accessAllSteps: boolean;
@@ -66,7 +60,7 @@ export default function ProjectsChallengeSessionContextProvider({
 }: Props) {
   const { userProfile } = useUserProfile();
   const { navigateToSignInUpPage } = useAuthSignInUp();
-  const queryClient = useQueryClient();
+  const trpcUtils = trpc.useUtils();
   const { showToast } = useToast();
   const { data: canAccessAllSteps, isLoading: fetchingCanAccessAllSteps } =
     trpc.projects.challenge.canAccessAllSteps.useQuery({ slug });
@@ -85,16 +79,12 @@ export default function ProjectsChallengeSessionContextProvider({
 
   const startProjectMutation = trpc.projects.sessions.start.useMutation({
     onSuccess: () => {
-      queryClient.invalidateQueries(latestSessionQueryKey);
-      // TODO(trpc): invalidate finegrain queries
-      queryClient.invalidateQueries();
+      trpcUtils.projects.sessions.invalidate();
     },
   });
   const endSessionMutation = trpc.projects.sessions.end.useMutation({
     onSuccess: () => {
-      queryClient.invalidateQueries(latestSessionQueryKey);
-      // TODO(trpc): invalidate finegrain queries
-      queryClient.invalidateQueries();
+      trpcUtils.projects.sessions.invalidate();
     },
   });
 

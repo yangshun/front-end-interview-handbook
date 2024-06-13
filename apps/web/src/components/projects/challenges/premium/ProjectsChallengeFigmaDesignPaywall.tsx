@@ -26,8 +26,6 @@ import ProjectsPremiumPricingTableDialog from './ProjectsPremiumPricingTableDial
 import { FIGMA_TO_CODE_PLUGIN_URL } from '../ProjectsConstants';
 import type { ProjectsViewerProjectsProfile } from '../../types';
 
-import { useQueryClient } from '@tanstack/react-query';
-
 type Placement = 'ASSETS_PAGE' | 'GET_STARTED_DIALOG';
 
 function DownloadSection({
@@ -39,7 +37,6 @@ function DownloadSection({
   challengeMetadata: ProjectsChallengeMetadata;
   placement: Placement;
 }>) {
-  const queryClient = useQueryClient();
   const intl = useIntl();
   const label = intl.formatMessage({
     defaultMessage: 'Figma design file',
@@ -64,8 +61,6 @@ function DownloadSection({
       onSuccess({ signedUrl }) {
         window.location.href = signedUrl;
         setShowFreeFigmaDialog(false);
-        // TODO(trpc): invalidate finegrain queries
-        queryClient.invalidateQueries();
       },
     });
 

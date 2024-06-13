@@ -10,7 +10,6 @@ import { projectsSkillDetermineParentSkill } from '../../skills/data/ProjectsSki
 import type { ProjectsSkillKey } from '../../skills/types';
 
 import type { ProjectsChallengeSession } from '@prisma/client';
-import { useQueryClient } from '@tanstack/react-query';
 
 type Props = Readonly<{
   isShown: boolean;
@@ -26,12 +25,11 @@ export default function ProjectsChallengeAddSkillFromSkillPlanDialog({
   onClose,
 }: Props) {
   const intl = useIntl();
-  const queryClient = useQueryClient();
+  const trpcUtils = trpc.useUtils();
   const updateSessionSkillsMutation =
     trpc.projects.sessions.skillsUpdate.useMutation({
       onSuccess: () => {
-        // TODO(trpc): invalidate finegrain queries
-        queryClient.invalidateQueries();
+        trpcUtils.projects.sessions.latestInProgress.invalidate();
       },
     });
   const parentSkill = projectsSkillDetermineParentSkill(skillToAdd);
