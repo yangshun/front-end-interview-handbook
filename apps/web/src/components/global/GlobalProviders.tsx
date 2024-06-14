@@ -12,6 +12,7 @@ import type { IntlMessages } from '~/i18n';
 import { I18nProvider } from '~/next-i18nostic/src';
 import type { Database } from '~/supabase/database.types';
 
+import { useWriteSearchParamsToCookie } from './analytics/useWriteSearchParamsToCookie';
 import AppContextProvider from './AppContextProvider';
 import ColorSchemePreferencesProvider from './color-scheme/ColorSchemePreferencesProvider';
 import TrpcClientProvider from './TrpcClientProvider';
@@ -39,6 +40,7 @@ export default function GlobalProviders({
   );
 
   useScrollToHash();
+  useWriteSearchParamsToCookie();
 
   return (
     <TrpcClientProvider>

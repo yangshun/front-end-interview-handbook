@@ -1,6 +1,8 @@
 import Cors from 'cors';
 import type { NextApiRequest, NextApiResponse } from 'next';
 
+import { shouldPersistQueryParam } from '~/components/global/analytics/useWriteSearchParamsToCookie';
+
 import { gfeFingerprintName } from '~/logging/fingerprint';
 import { gfeFirstVisitName } from '~/logging/firstVisit';
 import { parseJWTAccessToken } from '~/supabase/SupabaseServerGFE';
@@ -68,6 +70,22 @@ export default async function handler(
     req.body;
 
   const eventPayload = {
+    cookies: Object.keys(req.cookies).reduce(
+      (acc: Record<string, unknown>, key: string) => {
+        if (!shouldPersistQueryParam(key)) {
+          return acc;
+        }
+
+        const cookieValue = req.cookies[key];
+
+        if (cookieValue) {
+          acc[key] = JSON.parse(cookieValue);
+        }
+
+        return acc;
+      },
+      {},
+    ),
     event: {
       name,
       payload,
