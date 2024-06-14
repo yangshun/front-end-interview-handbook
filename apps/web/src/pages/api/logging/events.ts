@@ -1,4 +1,3 @@
-import cookie from 'cookie';
 import Cors from 'cors';
 import type { NextApiRequest, NextApiResponse } from 'next';
 
@@ -48,15 +47,13 @@ export default async function handler(
     return res.status(405).json({ message: 'Only POST requests allowed' });
   }
 
-  const cookies = cookie.parse(req.headers.cookie ?? '');
-
   let userEmail = null;
   let userId = null;
 
   try {
-    if (cookies['supabase-auth-token']) {
+    if (req.cookies['supabase-auth-token']) {
       const { id, email } = await parseJWTAccessToken(
-        cookies['supabase-auth-token'],
+        req.cookies['supabase-auth-token'],
       );
 
       userId = id || null;
@@ -81,14 +78,14 @@ export default async function handler(
         (process.env.VERCEL_GIT_COMMIT_SHA || '').slice(0, 7) || undefined,
     },
     request: {
-      country: cookies.country,
+      country: req.cookies.country,
       pathname,
       query,
       referer: referer || req.headers.referer,
     },
     user: {
       email: userEmail,
-      fingerprint: cookies[gfeFingerprintName],
+      fingerprint: req.cookies[gfeFingerprintName],
       id: userId,
     },
   };

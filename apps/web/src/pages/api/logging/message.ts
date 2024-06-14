@@ -1,4 +1,3 @@
-import cookie from 'cookie';
 import Cors from 'cors';
 import type { NextApiRequest, NextApiResponse } from 'next';
 
@@ -49,7 +48,6 @@ export default async function handler(
     data: { user },
   } = await supabase.auth.getUser();
 
-  const cookies = cookie.parse(req.headers.cookie ?? '');
   const {
     level,
     message,
@@ -87,11 +85,11 @@ export default async function handler(
           : '<nil>'
       } (S)`,
     },
-    cookies[gfeFingerprintName] && {
+    req.cookies[gfeFingerprintName] && {
       key: 'GFP',
-      value: cookies[gfeFingerprintName],
+      value: req.cookies[gfeFingerprintName],
     },
-    cookies.country && { key: 'Country', value: cookies.country },
+    req.cookies.country && { key: 'Country', value: req.cookies.country },
   ].flatMap((item) => (item != null ? [item] : []));
 
   const finalMessage = messageRows

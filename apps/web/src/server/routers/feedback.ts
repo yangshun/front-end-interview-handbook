@@ -1,4 +1,3 @@
-import cookie from 'cookie';
 import { z } from 'zod';
 
 import prisma from '../prisma';
@@ -14,13 +13,11 @@ export const feedbackRouter = router({
       }),
     )
     .mutation(async ({ input: { message }, ctx: { viewer, req } }) => {
-      const cookies = cookie.parse(req.headers.cookie ?? '');
-
       const feedbackMessage = await prisma.feedbackMessage.create({
         data: {
           message,
           metadata: {
-            country: cookies.country,
+            country: req.cookies.country,
             referer: req.headers.referer ?? null,
           },
           userEmail: viewer?.email,
