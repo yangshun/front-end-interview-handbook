@@ -1,10 +1,11 @@
 import type { NextRequest } from 'next/server';
 import { NextResponse } from 'next/server';
-import { v4 as uuidv4 } from 'uuid';
 
 import { currentExperiment } from '~/components/experiments';
 
 import { i18nMiddleware } from '~/next-i18nostic/src';
+
+import { addBrowserFingerprint } from './logging/fingerprint';
 
 function upsertCookie(request: NextRequest, response: NextResponse) {
   if (
@@ -20,12 +21,12 @@ function upsertCookie(request: NextRequest, response: NextResponse) {
   }
 }
 
-function addBrowserFingerprint(req: NextRequest, res: NextResponse) {
-  if (req.cookies.get('gfp')?.value) {
-    return;
-  }
+function addCountry(req: NextRequest, res: NextResponse) {
+  const country = req.geo?.country ?? null;
 
-  res.cookies.set('gfp', `gfp-${uuidv4()}`);
+  if (country != null) {
+    res.cookies.set('country', country);
+  }
 }
 
 export function middleware(req: NextRequest) {
@@ -38,12 +39,7 @@ export function middleware(req: NextRequest) {
 
   upsertCookie(req, res);
   addBrowserFingerprint(req, res);
-
-  const country = req.geo?.country ?? null;
-
-  if (country != null) {
-    res.cookies.set('country', country);
-  }
+  addCountry(req, res);
 
   return res;
 }

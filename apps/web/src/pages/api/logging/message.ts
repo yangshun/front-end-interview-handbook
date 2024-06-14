@@ -2,6 +2,7 @@ import cookie from 'cookie';
 import Cors from 'cors';
 import type { NextApiRequest, NextApiResponse } from 'next';
 
+import { gfeFingerprintName } from '~/logging/fingerprint';
 import type { MessageLevel } from '~/logging/logMessage';
 import { createSupabaseClientGFE_SERVER_ONLY } from '~/supabase/SupabaseServerGFE';
 
@@ -86,7 +87,10 @@ export default async function handler(
           : '<nil>'
       } (S)`,
     },
-    cookies.gfp && { key: 'GFP', value: cookies.gfp },
+    cookies[gfeFingerprintName] && {
+      key: 'GFP',
+      value: cookies[gfeFingerprintName],
+    },
     cookies.country && { key: 'Country', value: cookies.country },
   ].flatMap((item) => (item != null ? [item] : []));
 
