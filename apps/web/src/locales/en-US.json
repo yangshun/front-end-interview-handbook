@@ -4783,6 +4783,10 @@
     "defaultMessage": "Yes. Every challenge you start creates a \"session\" of the challenge, which you can end. You can start a new session anytime.",
     "description": "FAQ answer for projects platform"
   },
+  "ZhcmRF": {
+    "defaultMessage": "The URL must not be localhost or an IP address. Provide a valid, publicly accessible URL.",
+    "description": "Error message"
+  },
   "Zm3csd": {
     "defaultMessage": "Dark",
     "description": "Dark color scheme option label"

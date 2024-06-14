@@ -7,34 +7,51 @@ import { URL_REGEX } from '~/components/projects/misc';
 const MIN_LENGTH = 2;
 const MAX_LENGTH = 50;
 
-function urlSchema(options?: { urlMessage: string }) {
-  const { urlMessage } = options ?? {};
+const LOCALHOST_REGEX = /^(https?:\/\/)?localhost(:\d+)?/;
+const IP_ADDRESS_REGEX =
+  /^(https?:\/\/)?\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}(:\d+)?/;
 
-  return z
-    .string()
-    .regex(URL_REGEX, urlMessage)
-    .transform((url) => {
-      const match = url.match(URL_REGEX);
+function urlSchema(options?: {
+  urlMessage: string;
+  urlMessageLocalhost: string;
+}) {
+  const { urlMessage, urlMessageLocalhost } = options ?? {};
 
-      // If no https present in the url, add https in the url
-      if (match && !match[1]) {
-        return `https://${url}`;
-      }
+  return (
+    z
+      .string()
+      .regex(URL_REGEX, urlMessage)
+      .refine(
+        (val) => !val.match(LOCALHOST_REGEX) && !val.match(IP_ADDRESS_REGEX),
+        urlMessageLocalhost,
+      )
+      // TODO: Make error msg more specific / guide user to reason of why IPs/localhost are not allowed
+      .transform((url) => {
+        const match = url.match(URL_REGEX);
 
-      return url;
-    });
+        // If no https present in the url, add https in the url
+        if (match && !match[1]) {
+          return `https://${url}`;
+        }
+
+        return url;
+      })
+  );
 }
 
 function projectsChallengeSubmissionDeploymentUrlItemSchema(options?: {
   maxMessage: string;
   minMessage: string;
   urlMessage: string;
+  urlMessageLocalhost: string;
 }) {
-  const { urlMessage, maxMessage, minMessage } = options ?? {};
+  const { urlMessage, maxMessage, minMessage, urlMessageLocalhost } =
+    options ?? {};
 
   return z.object({
     href: urlSchema({
       urlMessage: urlMessage ?? '',
+      urlMessageLocalhost: urlMessageLocalhost ?? '',
     }),
     label: z
       .string()
@@ -49,13 +66,23 @@ function projectsChallengeSubmissionDeploymentUrlsSchema(options?: {
   minItemMessage: string;
   minMessage: string;
   urlMessage: string;
+  urlMessageLocalhost: string;
 }) {
-  const { urlMessage, maxMessage, minMessage, minItemMessage } = options ?? {};
+  const {
+    urlMessage,
+    maxMessage,
+    minMessage,
+    minItemMessage,
+    urlMessageLocalhost,
+  } = options ?? {};
 
   return z
     .array(
       projectsChallengeSubmissionDeploymentUrlItemSchema(options).extend({
-        href: urlSchema({ urlMessage: urlMessage ?? '' }),
+        href: urlSchema({
+          urlMessage: urlMessage ?? '',
+          urlMessageLocalhost: urlMessageLocalhost ?? '',
+        }),
         images: z.record(z.string().min(1), z.string().min(1)).optional(),
         label: z
           .string()
@@ -76,6 +103,8 @@ export const projectsChallengeSubmissionDeploymentUrlsSchemaServer =
     minItemMessage: `Provide at least 1 URL where you hosted your solution`,
     minMessage: `Page name must contain at least ${MIN_LENGTH} character(s).`,
     urlMessage: 'Invalid URL',
+    urlMessageLocalhost:
+      'The URL must not be localhost or an IP address. Provide a valid, publicly accessible URL.',
   });
 
 export function getProjectsChallengeSubmissionDeploymentUrlsAttributes(
@@ -102,6 +131,12 @@ export function getProjectsChallengeSubmissionDeploymentUrlsAttributes(
     defaultMessage: "URL is invalid. Check if you've typed it correctly.",
     description: 'Error message',
     id: 'uy8H0k',
+  });
+  const urlMessageLocalhost = intl.formatMessage({
+    defaultMessage:
+      'The URL must not be localhost or an IP address. Provide a valid, publicly accessible URL.',
+    description: 'Error message',
+    id: 'ZhcmRF',
   });
   const maxMessage = intl.formatMessage(
     {
@@ -145,6 +180,7 @@ export function getProjectsChallengeSubmissionDeploymentUrlsAttributes(
       minMessage,
       required: true,
       urlMessage,
+      urlMessageLocalhost,
     },
   } as const;
 }
@@ -158,6 +194,7 @@ export function useProjectsChallengeSubmissionDeploymentUrlItemSchema() {
     maxMessage: intlStrings.validation.maxMessage,
     minMessage: intlStrings.validation.minMessage,
     urlMessage: intlStrings.validation.urlMessage,
+    urlMessageLocalhost: intlStrings.validation.urlMessageLocalhost,
   });
 }
 
@@ -171,5 +208,6 @@ export function useProjectsChallengeSubmissionDeploymentUrlsSchema() {
     minItemMessage: intlStrings.validation.minItemMessage,
     minMessage: intlStrings.validation.minMessage,
     urlMessage: intlStrings.validation.urlMessage,
+    urlMessageLocalhost: intlStrings.validation.urlMessageLocalhost,
   });
 }
