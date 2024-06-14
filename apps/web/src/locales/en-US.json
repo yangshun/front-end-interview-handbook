@@ -2271,10 +2271,6 @@
     "defaultMessage": "Are you sure you want to terminate this session? You will be able to restart the project anytime.",
     "description": "Content for end project session dialog"
   },
-  "H8hr3R": {
-    "defaultMessage": "Must have a personal website or other acceptable channel where you can publish the review. Please email us to check channel eligibility before posting.",
-    "description": "Condition for promotion"
-  },
   "H94EnK": {
     "defaultMessage": "<strong>Note</strong>: We have some basic policies on affiliate conduct. Please read the agreement carefully in the sign up process.",
     "description": "Tip at the bottom of the 'How does it work' section on the 'Become an Affiliate' page to highlight the affiliate agreement"
@@ -5634,6 +5630,10 @@
   "g+jqM2": {
     "defaultMessage": "You currently have <bold>unlimited premium credits</bold>. Proceed to unlock?",
     "description": "Confirmation text for unlocking a premium challenge"
+  },
+  "g/7FuM": {
+    "defaultMessage": "Post the review on your personal blog, social media or other channels. Please email us to check on channel eligibility before posting.",
+    "description": "Condition for promotion"
   },
   "g2Nt5j": {
     "defaultMessage": "Edit",

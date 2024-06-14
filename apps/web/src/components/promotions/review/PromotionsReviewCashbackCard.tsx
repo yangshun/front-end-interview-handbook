@@ -26,14 +26,14 @@ export function PromotionsReviewCashbackCard() {
             id: 'q2NV/N',
           },
           {
-            quantity: 20,
+            quantity: 10,
           },
         ),
         intl.formatMessage({
           defaultMessage:
-            'Must have a personal website or other acceptable channel where you can publish the review. Please email us to check channel eligibility before posting.',
+            'Post the review on your personal blog, social media or other channels. Please email us to check on channel eligibility before posting.',
           description: 'Condition for promotion',
-          id: 'H8hr3R',
+          id: 'g/7FuM',
         }),
         intl.formatMessage({
           defaultMessage:
@@ -49,8 +49,8 @@ export function PromotionsReviewCashbackCard() {
             id: 'cgIBe4',
           },
           {
-            videoDurationInSeconds: 15,
-            wordCount: 300,
+            videoDurationInSeconds: 10,
+            wordCount: 200,
           },
         ),
         intl.formatMessage({
