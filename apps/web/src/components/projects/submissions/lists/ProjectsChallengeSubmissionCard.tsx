@@ -3,6 +3,8 @@ import type {
   ProjectsChallengeInfo,
   ProjectsChallengeMetadata,
 } from 'contentlayer/generated';
+import { useState } from 'react';
+import { RiFileDamageLine } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
 
 import RelativeTimestamp from '~/components/common/datetime/RelativeTimestamp';
@@ -19,6 +21,7 @@ import Text from '~/components/ui/Text';
 import {
   themeBackgroundCardAltColor,
   themeGlassyBorder,
+  themeTextSubtleColor,
 } from '~/components/ui/theme';
 
 import ProjectsChallengeHoverCard from './ProjectsChallengeHoverCard';
@@ -67,6 +70,7 @@ export default function ProjectsChallengeSubmissionCard({
   } = submission;
   const author = projectsProfile?.userProfile;
   const { votes } = submission._count;
+  const [showImageFallback, setShowImageFallback] = useState<boolean>(!imgSrc);
 
   return (
     <div
@@ -141,14 +145,29 @@ export default function ProjectsChallengeSubmissionCard({
           techStackSkills={techStackSkills}
         />
       </div>
-      <div className="h-[190px]">
-        <img
-          alt={title}
-          className="h-[190px] w-full rounded-md object-cover"
-          decoding="async"
-          loading="lazy"
-          src={imgSrc}
-        />
+      <div
+        className={clsx(
+          'h-[190px] shrink-0 overflow-hidden rounded-md',
+          'bg-neutral-100 dark:bg-neutral-900/70',
+        )}>
+        {showImageFallback ? (
+          <div className="absolute inset-0 flex items-center justify-center">
+            <RiFileDamageLine
+              className={clsx('size-8', themeTextSubtleColor)}
+            />
+          </div>
+        ) : (
+          <img
+            alt={title}
+            className={clsx('size-full object-cover')}
+            decoding="async"
+            loading="lazy"
+            src={imgSrc}
+            onError={() => {
+              setShowImageFallback(true);
+            }}
+          />
+        )}
       </div>
       {!isPinned && author != null && (
         <div className="z-[1] flex items-center gap-4">

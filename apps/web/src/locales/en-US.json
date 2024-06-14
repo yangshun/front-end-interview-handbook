@@ -4635,6 +4635,10 @@
     "defaultMessage": "Do unspent GreatFrontEnd Projects credits roll over?",
     "description": "Question on projects pricing's FAQ section - unused credits"
   },
+  "YPNHFR": {
+    "defaultMessage": "Back to companies",
+    "description": "Link text to navigate to companies list page"
+  },
   "YRVMeX": {
     "defaultMessage": "Review Cashback Terms and Conditions",
     "description": "Title of legal page"
