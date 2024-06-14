@@ -2,6 +2,7 @@ import Cors from 'cors';
 import type { NextApiRequest, NextApiResponse } from 'next';
 
 import { gfeFingerprintName } from '~/logging/fingerprint';
+import { gfeFirstVisitName } from '~/logging/firstVisit';
 import { parseJWTAccessToken } from '~/supabase/SupabaseServerGFE';
 
 import { Axiom } from '@axiomhq/js';
@@ -86,6 +87,7 @@ export default async function handler(
     user: {
       email: userEmail,
       fingerprint: req.cookies[gfeFingerprintName],
+      firstVisit: req.cookies[gfeFirstVisitName],
       id: userId,
     },
   };

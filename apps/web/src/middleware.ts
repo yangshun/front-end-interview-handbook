@@ -6,6 +6,7 @@ import { currentExperiment } from '~/components/experiments';
 import { i18nMiddleware } from '~/next-i18nostic/src';
 
 import { addBrowserFingerprint } from './logging/fingerprint';
+import { addFirstVisit } from './logging/firstVisit';
 
 function upsertCookie(request: NextRequest, response: NextResponse) {
   if (
@@ -40,6 +41,7 @@ export function middleware(req: NextRequest) {
   upsertCookie(req, res);
   addBrowserFingerprint(req, res);
   addCountry(req, res);
+  addFirstVisit(req, res);
 
   return res;
 }
