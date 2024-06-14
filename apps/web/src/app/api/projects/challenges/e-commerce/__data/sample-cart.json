@@ -4,7 +4,8 @@
     {
       "product": {
         "product_id": "stepsoft-socks",
-        "name": "StepSoft Socks"
+        "name": "StepSoft Socks",
+        "description": "Step into luxury with our StepSoft Socks, designed to pamper your feet with every step. Their cloud-like cushioning is like a spa for your soles."
       },
       "unit": {
         "sku": "ss-orange-xs",
@@ -12,6 +13,7 @@
         "sale_price": 22.5,
         "size": "xs",
         "color": "orange",
+        "stock": 10,
         "image_url": "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/object/public/e-commerce-track-images/stepsoft-socks/stepsoft-socks-1.jpg"
       },
       "total_list_price": 25,
@@ -22,7 +24,8 @@
     {
       "product": {
         "product_id": "elemental-sneakers",
-        "name": "Elemental Sneakers"
+        "name": "Elemental Sneakers",
+        "description": "Ground your steps in style with our Elemental Sneakers. Designed with the elements in mind, they bring a natural balance to your stride and your ensemble."
       },
       "unit": {
         "sku": "es-beige-6",
@@ -30,6 +33,7 @@
         "sale_price": 80,
         "size": "6",
         "color": "beige",
+        "stock": 440,
         "image_url": "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/object/public/e-commerce-track-images/elemental-sneakers/elemental-sneakers-3.jpg"
       },
       "quantity": 1,
@@ -40,7 +44,8 @@
     {
       "product": {
         "product_id": "azure-attitude-shades",
-        "name": "Azure Attitude Shades"
+        "name": "Azure Attitude Shades",
+        "description": "Step out in style with our Azure Attitude Shades, featuring a bold blue tint and modern design. These sunglasses are not just an accessory but a statement of confidence."
       },
       "unit": {
         "sku": "aas-blue",
@@ -48,6 +53,7 @@
         "sale_price": 45,
         "size": null,
         "color": "blue",
+        "stock": 435,
         "image_url": "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/object/public/e-commerce-track-images/azure-attitude-shades/azure-attitude-shades-1.jpg"
       },
       "quantity": 1,
@@ -58,7 +64,8 @@
     {
       "product": {
         "product_id": "urban-drift-bucket-hat",
-        "name": "Urban Drift Bucket Hat"
+        "name": "Urban Drift Bucket Hat",
+        "description": "Navigate the urban jungle with our Urban Drift Bucket Hat. It's not only trendy but also practical, offering shade from the hustle and bustle."
       },
       "unit": {
         "sku": "udbh-white",
@@ -66,6 +73,7 @@
         "sale_price": 15,
         "size": null,
         "color": "white",
+        "stock": 435,
         "image_url": "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/object/public/e-commerce-track-images/urban-drift-bucket-hat/urban-drift-bucket-hat-1.jpg"
       },
       "quantity": 1,
