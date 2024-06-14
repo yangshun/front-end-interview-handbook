@@ -21,7 +21,6 @@ import ProjectsChallengeSubmissionForm from './ProjectsChallengeSubmissionForm';
 import useProjectsChallengeSubmissionTakeScreenshotMutation from '../screenshots/useProjectsChallengeSubmissionTakeScreenshotMutation';
 
 import type { ProjectsChallengeSession } from '@prisma/client';
-import { useQueryClient } from '@tanstack/react-query';
 
 type Props = Readonly<{
   challenge: ProjectsChallengeItem;
@@ -32,7 +31,7 @@ export default function ProjectsChallengeSubmitPage({
   challenge,
   session,
 }: Props) {
-  const queryClient = useQueryClient();
+  const trpcUtils = trpc.useUtils();
   const intl = useIntl();
   const { showToast } = useToast();
   const router = useI18nRouter();
@@ -76,8 +75,8 @@ export default function ProjectsChallengeSubmitPage({
         variant: 'success',
       });
 
-      // TODO(trpc): invalidate finegrain queries
-      queryClient.invalidateQueries();
+      trpcUtils.projects.profile.invalidate();
+      trpcUtils.projects.submissions.invalidate();
       router.push(submission.hrefs.detail);
     },
   });

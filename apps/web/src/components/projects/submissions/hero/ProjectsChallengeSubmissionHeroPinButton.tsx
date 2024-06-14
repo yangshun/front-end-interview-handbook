@@ -12,7 +12,6 @@ import Button from '~/components/ui/Button';
 import ProjectsChallengeSubmissionPinned from './ProjectsChallengeSubmissionPinned';
 
 import type { ProjectsProfile } from '@prisma/client';
-import { useQueryClient } from '@tanstack/react-query';
 
 type Props = Readonly<{
   projectsProfile:
@@ -28,7 +27,7 @@ export default function ProjectsChallengeSubmissionHeroPinButton({
   submissionId,
   projectsProfile,
 }: Props) {
-  const queryClient = useQueryClient();
+  const trpcUtils = trpc.useUtils();
   const intl = useIntl();
   const { showToast } = useToast();
   const [hasPinned, setHasPinned] = useState(false);
@@ -82,8 +81,7 @@ export default function ProjectsChallengeSubmissionHeroPinButton({
         variant: 'success',
       });
 
-      // TODO(trpc): invalidate finegrain queries
-      queryClient.invalidateQueries();
+      trpcUtils.projects.submissions.listPinned.invalidate();
     },
   });
   const unpinSubmission = trpc.projects.submission.unpin.useMutation({
@@ -102,8 +100,7 @@ export default function ProjectsChallengeSubmissionHeroPinButton({
         variant: 'success',
       });
 
-      // TODO(trpc): invalidate finegrain queries
-      queryClient.invalidateQueries();
+      trpcUtils.projects.submissions.listPinned.invalidate();
     },
   });
 

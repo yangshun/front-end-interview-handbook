@@ -22,8 +22,6 @@ import type {
   ProjectsChallengeVariantImages,
 } from '../../challenges/types';
 
-import { useQueryClient } from '@tanstack/react-query';
-
 type Props = Readonly<{
   challenge: ProjectsChallengeItem;
   submission: NonNullable<ProjectsChallengeSubmissionExtended>;
@@ -33,7 +31,7 @@ export default function ProjectsChallengeSubmissionEditPage({
   challenge,
   submission,
 }: Props) {
-  const queryClient = useQueryClient();
+  const trpcUtils = trpc.useUtils();
   const intl = useIntl();
   const { showToast } = useToast();
   const router = useI18nRouter();
@@ -73,8 +71,7 @@ export default function ProjectsChallengeSubmissionEditPage({
       takeScreenshotMutation.mutate({ submissionId: submission_.id });
       router.push(submission_.hrefs.detail);
 
-      // TODO(trpc): invalidate finegrain queries
-      queryClient.invalidateQueries();
+      trpcUtils.projects.submissions.invalidate();
       // Refetch latest dashboard page data.
       router.refresh();
     },
@@ -108,8 +105,7 @@ export default function ProjectsChallengeSubmissionEditPage({
       });
       router.push('/projects/dashboard/progress/challenges');
 
-      // TODO(trpc): invalidate finegrain queries
-      queryClient.invalidateQueries();
+      trpcUtils.projects.submissions.invalidate();
       // Refetch latest profile page data.
       router.refresh();
     },

@@ -11,8 +11,6 @@ import Text from '~/components/ui/Text';
 
 import { useI18nRouter } from '~/next-i18nostic/src';
 
-import { useQueryClient } from '@tanstack/react-query';
-
 function isOnSubmissionPage(href: string) {
   return window.location.pathname === href;
 }
@@ -42,7 +40,7 @@ function ViewSubmissionButton({ href }: { href: string }) {
 export default function useProjectsChallengeSubmissionTakeScreenshotMutation(
   source: 'comparison' | 'form',
 ) {
-  const queryClient = useQueryClient();
+  const trpcUtils = trpc.useUtils();
   const router = useI18nRouter();
   const { showToast } = useToast();
   const intl = useIntl();
@@ -68,6 +66,7 @@ export default function useProjectsChallengeSubmissionTakeScreenshotMutation(
         }),
         variant: 'danger',
       });
+      trpcUtils.projects.submissions.invalidate();
       // Refetch page data to fetch latest status of screenshot.
       // The user might not be on the submission page but that's ok since this case is quite rare.
       router.refresh();
@@ -145,8 +144,7 @@ export default function useProjectsChallengeSubmissionTakeScreenshotMutation(
         router.refresh();
       }
 
-      // TODO(trpc): invalidate finegrain queries
-      queryClient.invalidateQueries();
+      trpcUtils.projects.submissions.invalidate();
     },
   });
 }

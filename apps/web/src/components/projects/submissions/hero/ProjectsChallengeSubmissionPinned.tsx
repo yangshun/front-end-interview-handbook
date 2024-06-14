@@ -12,13 +12,6 @@ import Dialog from '~/components/ui/Dialog';
 import Section from '~/components/ui/Heading/HeadingContext';
 import Text from '~/components/ui/Text';
 
-import { useQueryClient } from '@tanstack/react-query';
-import { getQueryKey } from '@trpc/react-query';
-
-const pinnedSubmissionQueryKey = getQueryKey(
-  trpc.projects.submissions.listPinned,
-);
-
 type Props = Readonly<{
   isShown: boolean;
   onClose: () => void;
@@ -33,7 +26,7 @@ export default function ProjectsChallengeSubmissionPinned({
   setPinnedSubmissionsCount,
 }: Props) {
   const intl = useIntl();
-  const queryClient = useQueryClient();
+  const trpcUtils = trpc.useUtils();
   const { showToast } = useToast();
 
   const [unpinnedSubmissionIds, setUnpinnedSubmissionIds] = useState<
@@ -72,11 +65,8 @@ export default function ProjectsChallengeSubmissionPinned({
       setPinnedSubmissionsCount(
         pinnedSubmissions.length - unpinnedSubmissionIds.length,
       );
-      queryClient.invalidateQueries(pinnedSubmissionQueryKey);
       onClose();
-
-      // TODO(trpc): invalidate finegrain queries
-      queryClient.invalidateQueries();
+      trpcUtils.projects.submissions.listPinned.invalidate();
     },
   });
 

@@ -31,8 +31,6 @@ import GithubRepositoryCodeViewer from './code-viewer/GithubRepositoryCodeViewer
 import ProjectsChallengeSubmissionDiscussionsSection from './discussions/ProjectsChallengeSubmissionDiscussionsSection';
 import type { ProjectsViewerProjectsProfile } from '../types';
 
-import { useQueryClient } from '@tanstack/react-query';
-
 function parseGithubRepositoryUrl(url: string) {
   const urlObject = new URL(url);
 
@@ -66,7 +64,6 @@ export default function ProjectsChallengeSubmissionPage({
   viewerProjectsProfile,
 }: Props) {
   const intl = useIntl();
-  const queryClient = useQueryClient();
   const imageComparisonContainerRef: React.RefObject<HTMLDivElement> =
     useRef(null);
 
@@ -76,12 +73,7 @@ export default function ProjectsChallengeSubmissionPage({
   const isViewingOwnSubmission =
     viewerId === submission.projectsProfile?.userProfile?.id;
   const viewSubmissionMutation =
-    trpc.projects.submission.incrementView.useMutation({
-      onSuccess: () => {
-        // TODO(trpc): invalidate finegrain queries
-        queryClient.invalidateQueries();
-      },
-    });
+    trpc.projects.submission.incrementView.useMutation();
 
   const {
     id: submissionId,
