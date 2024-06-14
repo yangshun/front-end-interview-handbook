@@ -220,6 +220,9 @@ importers:
       '@axiomhq/axiom-node':
         specifier: ^0.11.0
         version: 0.11.0
+      '@axiomhq/js':
+        specifier: ^1.0.0
+        version: 1.0.0
       '@codesandbox/sandpack-client':
         specifier: 2.13.8
         version: 2.13.8
@@ -787,6 +790,14 @@ packages:
       winston-transport: 4.6.0
     transitivePeerDependencies:
       - debug
+    dev: false
+
+  /@axiomhq/js@1.0.0:
+    resolution: {integrity: sha512-4xf0b/KFVFmNvjxK4lHHuwioQ6TPr+PZLqEdMl/vcot1RqFwDnjaOEOp0/VPhyTgdE0di8bl/hOsu33bHMM27w==}
+    engines: {node: '>=16'}
+    dependencies:
+      fetch-retry: 6.0.0
+      uuid: 8.3.2
     dev: false
 
   /@babel/code-frame@7.23.5:
@@ -9424,6 +9435,10 @@ packages:
     dependencies:
       node-domexception: 1.0.0
       web-streams-polyfill: 3.2.1
+
+  /fetch-retry@6.0.0:
+    resolution: {integrity: sha512-BUFj1aMubgib37I3v4q78fYo63Po7t4HUPTpQ6/QE6yK6cIQrP+W43FYToeTEyg5m2Y7eFUtijUuAv/PDlWuag==}
+    dev: false
 
   /file-entry-cache@6.0.1:
     resolution: {integrity: sha512-7Gps/XWymbLk2QLYK4NzpMOrYjMhdIxXuIvy2QBsLE6ljuodKvdkWs/cpyJJ3CVIVpH0Oi1Hvg1ovbMzLdFBBg==}

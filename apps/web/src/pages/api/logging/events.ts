@@ -4,11 +4,10 @@ import type { NextApiRequest, NextApiResponse } from 'next';
 
 import { parseJWTAccessToken } from '~/supabase/SupabaseServerGFE';
 
-import Client from '@axiomhq/axiom-node';
+import { Axiom } from '@axiomhq/js';
 
-const client = new Client({
-  orgId: process.env.AXIOM_ORG_ID,
-  token: process.env.AXIOM_TOKEN,
+const axiom = new Axiom({
+  token: process.env.AXIOM_TOKEN!,
 });
 
 const cors = Cors({
@@ -93,7 +92,7 @@ export default async function handler(
     },
   };
 
-  await client.ingestEvents('events', [eventPayload]);
+  await axiom.ingest('events', [eventPayload]);
 
   return res.status(204).send(null);
 }

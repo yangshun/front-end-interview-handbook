@@ -30,7 +30,7 @@
     "prisma:deploy": "dotenv -e .env.production.local -- prisma migrate deploy"
   },
   "dependencies": {
-    "@axiomhq/axiom-node": "^0.11.0",
+    "@axiomhq/js": "^1.0.0",
     "@codesandbox/sandpack-client": "2.13.8",
     "@codesandbox/sandpack-react": "2.13.8",
     "@formatjs/intl": "^2.9.9",
