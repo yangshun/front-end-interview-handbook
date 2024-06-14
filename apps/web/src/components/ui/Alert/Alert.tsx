@@ -33,6 +33,7 @@ type Props = Readonly<{
   bodySize?: React.ComponentProps<typeof Text>['size'];
   borderClass?: string;
   children: ReactNode;
+  className?: string;
   icon?: (props: React.ComponentProps<'svg'>) => JSX.Element;
   title?: string;
   variant: AlertVariant;
@@ -98,6 +99,7 @@ const classes: Record<
 export default function Alert({
   borderClass: borderClassProp,
   children,
+  className,
   bodySize = 'body2',
   icon: IconProp,
   title,
@@ -122,6 +124,7 @@ export default function Alert({
         'rounded-lg p-4',
         backgroundClass,
         borderClass,
+        className,
       )}
       role="alert">
       {Icon && (
