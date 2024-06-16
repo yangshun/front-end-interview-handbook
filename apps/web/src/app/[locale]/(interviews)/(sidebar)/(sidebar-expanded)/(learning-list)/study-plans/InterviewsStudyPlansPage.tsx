@@ -12,8 +12,8 @@ import type {
   PreparationPlanType,
 } from '~/data/plans/PreparationPlans';
 import { getPreparationPlanTheme } from '~/data/plans/PreparationPlans';
-import { useTestimonials } from '~/data/Testimonials';
 
+import { useTestimonials } from '~/components/interviews/marketing/testimonials/MarketingTestimonials';
 import TestimonialCard from '~/components/interviews/marketing/testimonials/TestimonialCard';
 import type { QuestionDifficulty } from '~/components/interviews/questions/common/QuestionsTypes';
 import QuestionCountLabel from '~/components/interviews/questions/metadata/QuestionCountLabel';
@@ -218,8 +218,8 @@ export default function InterviewsStudyPlansPage({
             <Section>
               <CardContainer>
                 <div className="flex flex-col gap-y-4">
-                  <TestimonialCard {...testimonials.luke} />
-                  <TestimonialCard {...testimonials.alan} />
+                  <TestimonialCard {...testimonials.lucaVaccarini} />
+                  <TestimonialCard {...testimonials.chenweiZhang} />
                 </div>
               </CardContainer>
             </Section>

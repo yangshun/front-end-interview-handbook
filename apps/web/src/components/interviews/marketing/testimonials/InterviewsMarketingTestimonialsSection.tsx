@@ -1,33 +1,38 @@
 import { FormattedMessage } from 'react-intl';
 
-import type { Testimonial } from '~/data/Testimonials';
-import { useTestimonials } from '~/data/Testimonials';
-
 import MarketingSectionHeader from '~/components/marketing/MarketingSectionHeader';
 import CardContainer from '~/components/ui/Card/CardContainer';
 import Container from '~/components/ui/Container';
 import Section from '~/components/ui/Heading/HeadingContext';
 import Marquee from '~/components/ui/Marquee';
 
+import type { Testimonial } from './MarketingTestimonials';
+import { useTestimonials } from './MarketingTestimonials';
 import TestimonialCard from './TestimonialCard';
 
 export default function InterviewsMarketingTestimonialsSection() {
   const testimonialsObjects = useTestimonials();
 
-  const testimonials: ReadonlyArray<Testimonial> = [
-    testimonialsObjects.alan,
-    testimonialsObjects.larry,
-    testimonialsObjects.gouse,
-    testimonialsObjects.delhi,
+  const testimonials: Array<Testimonial> = [
+    // Col 1
+    testimonialsObjects.edWang,
+    testimonialsObjects.shoaibAhmed,
     testimonialsObjects.luke,
-    testimonialsObjects.prashanth,
-    testimonialsObjects.anand,
-    testimonialsObjects.vietnam,
-    testimonialsObjects.jacky,
-    testimonialsObjects.ryan,
     testimonialsObjects.nafis,
-    testimonialsObjects.zhenchao,
-    testimonialsObjects.india,
+    testimonialsObjects.yuChienChan,
+    testimonialsObjects.gouseBasha,
+    // Col 2
+    testimonialsObjects.lucaVaccarini,
+    testimonialsObjects.pratikMehta,
+    testimonialsObjects.larry,
+    testimonialsObjects.ismail,
+    testimonialsObjects.jacky,
+    // Col 3
+    testimonialsObjects.chenweiZhang,
+    testimonialsObjects.alan,
+    testimonialsObjects.ryan,
+    testimonialsObjects.anand,
+    testimonialsObjects.prashanth,
   ];
 
   return (
@@ -36,9 +41,9 @@ export default function InterviewsMarketingTestimonialsSection() {
         <MarketingSectionHeader
           heading={
             <FormattedMessage
-              defaultMessage="We have helped thousands of Software Engineers"
+              defaultMessage="We have helped tens of thousands of Software Engineers"
               description="Testimonial section heading"
-              id="E7SqUY"
+              id="2bqhXu"
             />
           }
           title={
@@ -51,7 +56,7 @@ export default function InterviewsMarketingTestimonialsSection() {
         />
       </div>
       <Section>
-        <div className="mx-auto mt-16 hidden max-w-2xl sm:mt-20 lg:mx-0 lg:flow-root lg:max-w-none">
+        <div className="mx-auto mt-16 hidden max-w-2xl sm:mt-20 sm:flow-root lg:mx-0 lg:max-w-none">
           <CardContainer className="-mt-8 sm:-mx-4 sm:columns-2 sm:text-[0] lg:columns-3">
             {testimonials.map((testimonial) => (
               <div

@@ -35,10 +35,6 @@
     "defaultMessage": "View full questions list",
     "description": "Link to questions page"
   },
-  "+IQinv": {
-    "defaultMessage": "Toronto, Canada",
-    "description": "Prashanth Reddy's location"
-  },
   "+JhlMu": {
     "defaultMessage": "Congratulations on completing the question! Sign into your account or sign up for free to save your progress!",
     "description": "Message shown when user completes a question"
@@ -535,13 +531,13 @@
     "defaultMessage": "{price} billed every 3 months",
     "description": "Description of billing frequency for quarterly plan"
   },
-  "2Zjh+z": {
-    "defaultMessage": "Ontario, Canada",
-    "description": "Nafis Hasnain's location"
-  },
   "2a6qgD": {
     "defaultMessage": "Your code was restored from client storage. <link>Reset to default</link>",
     "description": "Message that appears under the coding workspace when user has previously worked on this problem and we restored their code"
+  },
+  "2bqhXu": {
+    "defaultMessage": "We have helped tens of thousands of Software Engineers",
+    "description": "Testimonial section heading"
   },
   "2eIa8j": {
     "defaultMessage": "Basic general development guides, such as how to download and use an IDE, how to use tools like GitHub and Figma.",
@@ -586,10 +582,6 @@
   "37Ttml": {
     "defaultMessage": "Security",
     "description": "Title for Security section on profile page"
-  },
-  "3HUfI+": {
-    "defaultMessage": "You are doing great things for the Front End community. Especially for those who are Junior engineers like me, advanced solutions covering various aspects of front end development help a lot. Thank you to the team.",
-    "description": "Anonymous Software Engineer's testimonial"
   },
   "3IiqOd": {
     "defaultMessage": "Copy promo code",
@@ -662,10 +654,6 @@
   "3i5xK8": {
     "defaultMessage": "Large question bank",
     "description": "Title of the 'Practice Everything Here' marketing section on Homepage"
-  },
-  "3iv+7q": {
-    "defaultMessage": "GreatFrontEnd has been a great help to me for prepping front end focussed interviews. Lot of focus on JavaScript utility and React/Vanilla implementations. The system design questions asked in interviews are slightly different in front end interviews and GreatFrontEnd really shines here. I will continue to use this amazing platform!",
-    "description": "Anand Dharne's testimonial"
   },
   "3lEE1N": {
     "defaultMessage": "New",
@@ -1427,10 +1415,6 @@
     "defaultMessage": "The company you currently work at. This information can be made private on more sensitive products like interviews.",
     "description": "Description for \"Company\" input on Projects profile onboarding page"
   },
-  "AJSVim": {
-    "defaultMessage": "Seattle, WA, USA",
-    "description": "Seattle in USA"
-  },
   "AJuXmH": {
     "defaultMessage": "Add profile photo",
     "description": "Label for add profile photo button on projects profile"
@@ -1779,10 +1763,6 @@
     "defaultMessage": "When did you start work?",
     "description": "Label for \"When did you start work\" input on Projects profile onboarding page"
   },
-  "DCBQiM": {
-    "defaultMessage": "If you are looking for front end interviews, GreatFrontEnd is for you. It has a wide variety of coding questions ranging from HTML, CSS, JavaScript, to React. It also covers formats like functions, algorithms, user interface, quiz etc. If you want to get into top tech companies for front end roles, GreatFrontEnd is best for you.",
-    "description": "Gouse Basha's testimonial"
-  },
   "DDJTQX": {
     "defaultMessage": "Intro to Coding Round",
     "description": "Introduction to front end coding interview"
@@ -1894,10 +1874,6 @@
   "E6yHUQ": {
     "defaultMessage": "Evaluation Axes",
     "description": "Evaluation axes in front end system design interviews"
-  },
-  "E7SqUY": {
-    "defaultMessage": "We have helped thousands of Software Engineers",
-    "description": "Testimonial section heading"
   },
   "E9Yr6B": {
     "defaultMessage": "Billing",
@@ -2799,10 +2775,6 @@
     "defaultMessage": "You can choose to end a project session if you choose not to work on it anymore. We will stop prompting you to continue the project in the dashboard",
     "description": "Tooltip for \"End session\" button on current project session card"
   },
-  "LAWtL6": {
-    "defaultMessage": "Software Engineer",
-    "description": "Jacky Liang's job title"
-  },
   "LBnblQ": {
     "defaultMessage": "Is GreatFrontEnd Interviews targeted at engineers of specific seniority?",
     "description": "Question on Homepage's FAQ section - on the seniority level of engineers that GreatFrontEnd targets"
@@ -3238,10 +3210,6 @@
   "OOYktU": {
     "defaultMessage": "Data structures and algorithms",
     "description": "Title of study plan"
-  },
-  "OQHvfy": {
-    "defaultMessage": "I'm always on the lookout for resources that can help me level up my skills as a frontend engineer, and I can confidently say that GreatFrontEnd delivers in that regard. It is by far the most comprehensive frontend-focused interview prep platform I have come across. They've helped strengthen my fundamentals and given me the confidence I need to succeed in my job search. Additionally, the people behind the platform have been incredibly approachable and responsive to feedback - and I can't thank them enough!",
-    "description": "Luke Fiji's testimonial"
   },
   "OSrT+C": {
     "defaultMessage": "Share",
@@ -4023,10 +3991,6 @@
     "defaultMessage": "This URL is invalid. Check if you've typed it correctly.",
     "description": "Error message"
   },
-  "Tvr6Mn": {
-    "defaultMessage": "Senior Software Engineer",
-    "description": "Ryan Van Valkenburg's job title"
-  },
   "TyQdcx": {
     "defaultMessage": "Sort by",
     "description": "Label for sort button"
@@ -4042,10 +4006,6 @@
   "U17xuY": {
     "defaultMessage": "Filter by the creator’s years of experience or their job status",
     "description": "Tooltip for experience filter for submissions list"
-  },
-  "U3qfpb": {
-    "defaultMessage": "As a Frontend Engineer I had a hard time finding resources that focused specifically on Frontend interview questions, Data Structures & Algorithms etc., After I found GreatFrontEnd it made my life very easy because I found answers to all my questions. The program and questions are structured and categorized meticulously. If you are looking to improve your frontend interview skills I highly recommend their premium feature as it gives you access to not only data structures & algo questions but also front end system design questions with detailed answers. Not only that, they also have a vibrant and helpful Discord community. It's totally worth it.",
-    "description": "Prashanth Reddy's testimonial"
   },
   "U4YjHx": {
     "defaultMessage": "Real world specs",
@@ -4098,10 +4058,6 @@
   "UX45fV": {
     "defaultMessage": "Homepage",
     "description": "Placeholder for name field of the deployment url"
-  },
-  "UXNTcT": {
-    "defaultMessage": "India",
-    "description": "India country"
   },
   "UbCsf6": {
     "defaultMessage": "Stack",
@@ -4382,10 +4338,6 @@
   "WUv05Y": {
     "defaultMessage": "Challenge: <hover>{title}</hover>",
     "description": "Link to project submission's original challenge"
-  },
-  "WWRfWH": {
-    "defaultMessage": "If you are a developer or engineer looking to excel in the front-end world, GreatFrontEnd is an excellent resource to have. It's very common to practice LeetCode style questions in the world of engineering, but rarely does anyone talk about system designs and behavioral questions. This is one of the biggest reasons why I joined! It's challenging, fun, and there's also a community that looks out for you!",
-    "description": "Jacky Liang's testimonial"
   },
   "WYR3gj": {
     "defaultMessage": "Terms of service",
@@ -5003,10 +4955,6 @@
     "defaultMessage": "Professional designs in 3 breakpoints",
     "description": "Label for breakpoints feature"
   },
-  "bGwCko": {
-    "defaultMessage": "GreatFrontEnd has been a great resource for preparing and continuing in the ever-shifting front-end world. Allowing me to brush up on fundamentals, hone new concepts and practices to put my best foot forward in technical ability and confidence to be able to get interviews AND offers.",
-    "description": "Ryan Van Valkenburg's testimonial"
-  },
   "bJ3A5y": {
     "defaultMessage": "You will be able to modify the skills and tech stack used once you start the project.",
     "description": "FAQ answer for projects platform"
@@ -5187,10 +5135,6 @@
     "defaultMessage": "Status",
     "description": "Label for \"Years of experience replacement status\" choices on Projects profile onboarding page"
   },
-  "cicVHX": {
-    "defaultMessage": "Delhi, India",
-    "description": "Anonymous Front End Engineer's location"
-  },
   "cjgzTz": {
     "defaultMessage": "Read how to solve {questionTitle} using {questionFramework}",
     "description": "Description of Front End Interview UI Coding Questions solution page"
@@ -5246,10 +5190,6 @@
   "d4ZiFU": {
     "defaultMessage": "Quote",
     "description": "Quote tooltip for richtext toolbar"
-  },
-  "d7gVP2": {
-    "defaultMessage": "Chennai, India",
-    "description": "Chennai in India"
   },
   "d8RJic": {
     "defaultMessage": "View code",
@@ -5539,10 +5479,6 @@
     "defaultMessage": "Number of questions",
     "description": "Total number of questions in a list"
   },
-  "fSn4nv": {
-    "defaultMessage": "As someone who has given as well as taken a lot of interviews, I can say GreatFrontEnd is a f'king goldmine. I would highly recommend GreatFrontEnd to anyone who is preparing for front end interviews or anyone who just wants to learn some new concepts. The content is well-organized, has some great practical coding challenges, and the system design part is just amazing!!!",
-    "description": "Anonymous Front End Engineer's testimonial"
-  },
   "fXNw/d": {
     "defaultMessage": "Your Email",
     "description": "Feedback widget email input field label"
@@ -5550,10 +5486,6 @@
   "fXyTam": {
     "defaultMessage": "Nightmare",
     "description": "Nightmare blog"
-  },
-  "fYyYBk": {
-    "defaultMessage": "GreatFrontEnd has really helped prepare me for many of my frontend internship interviews - their front end system design guidebook is stellar and it helped boost my confidence to write front end components faster during time paced interviews. Thank you, GFE!",
-    "description": "Nafis Hasnain's testimonial"
   },
   "fcKx8Z": {
     "defaultMessage": "Advanced",
@@ -5747,10 +5679,6 @@
     "defaultMessage": "Premium Discord",
     "description": "Link to the premium Discord server"
   },
-  "gwrYNC": {
-    "defaultMessage": "Software Engineer",
-    "description": "Anonymous Software Engineer's job title"
-  },
   "h38yCs": {
     "defaultMessage": "Questions List",
     "description": "Screenreader text indicating the question list component on question list pages"
@@ -5903,10 +5831,6 @@
     "defaultMessage": "Completed",
     "description": "Label indicating that the question has been completed"
   },
-  "iLr1LJ": {
-    "defaultMessage": "New York, NY, USA",
-    "description": "Jacky Liang's location"
-  },
   "iLx/BQ": {
     "defaultMessage": "Amazon",
     "description": "Company name for Amazon"
@@ -5986,10 +5910,6 @@
   "jLJBBH": {
     "defaultMessage": "<authorProfileLink>{author}</authorProfileLink> replied to <bold>themselves</bold> on the submission <link>{submissionTitle}</link>: <comment>\"{description}\"</comment>",
     "description": "Log message for someone replying to themselves on a submission"
-  },
-  "jLTDtP": {
-    "defaultMessage": "Software Engineer — Front End, Perch",
-    "description": "Anand Dharne's job title"
   },
   "jMHsyQ": {
     "defaultMessage": "Skills",
@@ -6147,10 +6067,6 @@
     "defaultMessage": "Angular Questions",
     "description": "Angular questions category long title"
   },
-  "kHB06P": {
-    "defaultMessage": "I got the job and a great ROI!",
-    "description": "Larry Almeida's testimonial"
-  },
   "kJOJ4u": {
     "defaultMessage": "Is it really worth it to buy GreatFrontEnd Interviews?",
     "description": "Question on Homepage's FAQ section - on the worthiness of purchasing the product"
@@ -6278,10 +6194,6 @@
   "kzxwOd": {
     "defaultMessage": "We appreciate any feedback or bug reports on the product. Feedback that the team finds useful will be rewarded with freebies and discounts or even cashbacks on your order!",
     "description": "Feedback widget description."
-  },
-  "l+OESW": {
-    "defaultMessage": "Seattle, WA, USA",
-    "description": "Seattle location"
   },
   "l/9/qK": {
     "defaultMessage": "Write or film a review of your experience with GreatFrontEnd for a {discountPercentage}% cashback on your first order amount. Success stories are welcome too!",
@@ -6411,10 +6323,6 @@
     "defaultMessage": "Easy",
     "description": "Easy difficulty label for question difficulty summary in question listing"
   },
-  "lztLqo": {
-    "defaultMessage": "Front End Engineer",
-    "description": "Anonymous Front End Engineer's job title"
-  },
   "m0cej4": {
     "defaultMessage": "Started tracking progress",
     "description": "Success message for starting a study plan"
@@ -6543,10 +6451,6 @@
     "defaultMessage": "Progress | {name}",
     "description": "Title of user profile progress page"
   },
-  "nJYzIr": {
-    "defaultMessage": "I could have spent my time scouring the internet for resources. Instead I choose to invest my money wisely. GreatFrontEnd turned out to be a fantastic resource with its curated Study Plans, interactive Practice Questions and Guides that cover all your typical big tech interview needs. Their quiz questions helped me to recap my knowledge on the days before my interview. I especially appreciated the System Design Guide with solutions that cover a range of front end design problems along with frameworks that are easy to remember and apply to any problem type.",
-    "description": "Larry Almeida's testimonial"
-  },
   "nL4iPh": {
     "defaultMessage": "We offer bulk discounts at attractive rates for group trainings. Please send an email to <link>institutions@greatfrontend.com</link> with your company email and address, and we would be happy to assist.",
     "description": "Answer on projects pricing's FAQ section - institutions and organizations discounts"
@@ -6611,10 +6515,6 @@
     "defaultMessage": "We recommend these {numberOfAreas} areas of learning to prepare you holistically for your front end interview rounds. Explore guides and {count}+ practice questions here.",
     "description": "Message in onboarding card on prepare page"
   },
-  "nwtLb2": {
-    "defaultMessage": "Senior Software Engineer — Front End",
-    "description": "Larry Almeida's job title"
-  },
   "nxJioH": {
     "defaultMessage": "Warnings",
     "description": "Select label for warning log level in console filter"
@@ -6674,10 +6574,6 @@
   "oWznNz": {
     "defaultMessage": "Status must contain at most {maxLength} character(s).",
     "description": "Error message for exceed char limit in other input for yoe status on projects profile page"
-  },
-  "obU6+a": {
-    "defaultMessage": "Software Engineer",
-    "description": "Gouse Basha's job title"
   },
   "ofFMGr": {
     "defaultMessage": "Check out other available <link>promotions</link>.",
@@ -6751,10 +6647,6 @@
     "defaultMessage": "Learn from official solutions and guides",
     "description": "Title of 'Learn from official solutions and guides' feature in marketing page"
   },
-  "p0uvxa": {
-    "defaultMessage": "Zalando, Berlin, Germany",
-    "description": "Larry Almeida's location"
-  },
   "p17SP8": {
     "defaultMessage": "Useful into the future",
     "description": "Title of the 'Permanent toolkit' marketing section on Projects home page"
@@ -6762,10 +6654,6 @@
   "p3mRa0": {
     "defaultMessage": "Job title is required.",
     "description": "Error message"
-  },
-  "p42Bxa": {
-    "defaultMessage": "USA",
-    "description": "Anand Dharne's location"
   },
   "p8zMao": {
     "defaultMessage": "Insert inline code",
@@ -6911,10 +6799,6 @@
     "defaultMessage": "Must have completed at least {quantity} coding or system design questions (to ensure sufficient experience before reviewing).",
     "description": "Condition for promotion"
   },
-  "q4xRCW": {
-    "defaultMessage": "Amazing to see such a comprehensive resource for front end dev interviews. Coming from a more traditional backend role I found this website to be a treasure trove of knowledge and it really takes you from a beginner to advanced level.",
-    "description": "Anonymous Front End Engineer's testimonial"
-  },
   "q6xeLh": {
     "defaultMessage": "General guides",
     "description": "Project guides category title"
@@ -7022,10 +6906,6 @@
   "qwP4CA": {
     "defaultMessage": "Huge question bank",
     "description": "Title for huge question bank feature"
-  },
-  "qyEq1P": {
-    "defaultMessage": "Software Developer Intern, Vidyard",
-    "description": "Nafis Hasnain's job title"
   },
   "qzlnBr": {
     "defaultMessage": "Accessibility",
@@ -7495,10 +7375,6 @@
     "defaultMessage": "Sign in to your account",
     "description": "Subtitle of Sign In page"
   },
-  "usTItb": {
-    "defaultMessage": "Senior Software Engineer — Front End, UserTesting",
-    "description": "Prashanth Reddy's job title"
-  },
   "ut9h+K": {
     "defaultMessage": "You have <bold>{amountLeft}</bold>/{totalAmount} premium credits remaining. Unlock this challenge to learn from user submissions for premium challenges.",
     "description": "Subtitle for project paywall"
@@ -7542,10 +7418,6 @@
   "v4ChUi": {
     "defaultMessage": "Get started with GreatFrontEnd's study plans or practice over {questionCount} questions across all front end interview formats",
     "description": "Description of Get Started page"
-  },
-  "v4Ssos": {
-    "defaultMessage": "Vietnam",
-    "description": "Vietnam country"
   },
   "v7xpbV": {
     "defaultMessage": "Stripe",
