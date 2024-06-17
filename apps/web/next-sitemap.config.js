@@ -78,6 +78,7 @@ export default {
       '/questions/vanilla',
       '/focus-areas',
       '/study-plans',
+      '/interviews/roadmap',
       // Projects.
       '/projects',
       '/projects/pricing',
@@ -90,6 +91,7 @@ export default {
       '/projects/submissions',
       '/projects/submissions/learn',
       '/projects/submissions/mentor',
+      '/projects/roadmap',
       // Marketing pages.
       '/',
       '/interviews/pricing',
