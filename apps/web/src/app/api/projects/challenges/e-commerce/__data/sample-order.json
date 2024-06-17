@@ -30,7 +30,7 @@
         "sale_price": 80,
         "size": "6",
         "color": "beige",
-        "image_url": "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/object/public/e-commerce-track-images/elemental-sneakers/elemental-sneakers-3.jpg"
+        "image_url": "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/object/public/e-commerce-track-images/elemental-sneakers/elemental-sneakers-1.jpg"
       },
       "quantity": 1,
       "total_list_price": 100,
@@ -66,7 +66,7 @@
         "sale_price": 15,
         "size": null,
         "color": "white",
-        "image_url": "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/object/public/e-commerce-track-images/urban-drift-bucket-hat/urban-drift-bucket-hat-1.jpg"
+        "image_url": "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/object/public/e-commerce-track-images/urban-drift-bucket-hat/urban-drift-bucket-hat-5.jpg"
       },
       "quantity": 1,
       "total_list_price": 15,
@@ -79,7 +79,7 @@
     "discount": 5,
     "discount_code": "GR8FRNTND24",
     "shipping": 0,
-    "total": 162.5
+    "total": 157.5
   },
   "shipping_details": {
     "address": {
