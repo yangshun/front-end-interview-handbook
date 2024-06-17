@@ -1463,6 +1463,10 @@
     "defaultMessage": "Use code at checkout",
     "description": "Instruction to apply discount"
   },
+  "Ae22GD": {
+    "defaultMessage": "Images just for illustration. Actual page(s) could be longer",
+    "description": "Info for carousel images in project brief"
+  },
   "AeJ6Oz": {
     "defaultMessage": "Screenshot failure",
     "description": "Screen failure error title"
