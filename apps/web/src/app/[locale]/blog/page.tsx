@@ -1,9 +1,9 @@
 import type { Metadata } from 'next';
 
+import BlogHomePage from '~/components/blog/listing/BlogHomePage';
+
 import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
-
-import BlogHomePage from './BlogHomePage';
 
 type Props = Readonly<{
   params: Readonly<{

@@ -9,7 +9,7 @@ import { getIntlServerOnly } from '~/i18n';
 import { generateStaticParamsWithLocale } from '~/next-i18nostic/src';
 import defaultMetadata from '~/seo/defaultMetadata';
 
-import BlogExploreTagPage from './BlogExploreTagPage';
+import BlogExploreTagPage from '../../../../../components/blog/explore/BlogExploreTagPage';
 
 type Props = Readonly<{
   params: {

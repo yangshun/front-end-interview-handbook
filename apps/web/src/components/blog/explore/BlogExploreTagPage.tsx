@@ -4,7 +4,7 @@ import { startCase } from 'lodash-es';
 import { useIntl } from 'react-intl';
 
 import type { BlogMetadata } from '~/components/blog/BlogTypes';
-import BlogExploreTagList from '~/components/blog/listing/BlogExploreTagList';
+import BlogExploreTagList from '~/components/blog/explore/BlogExploreTagList';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 import Text from '~/components/ui/Text';

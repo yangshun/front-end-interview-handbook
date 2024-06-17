@@ -1,12 +1,11 @@
 import type { Metadata } from 'next';
 
 import { readBlogPostsAll } from '~/components/blog/data/BlogReader';
+import { BlogLatestPage } from '~/components/blog/listing/BlogLatestPage';
 import BlogWhatsNewListing from '~/components/blog/listing/BlogWhatsNewListing';
 
 import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
-
-import { BlogLatestPage } from './BlogLatestPage';
 
 type Props = Readonly<{
   params: Readonly<{
