@@ -6,12 +6,15 @@ import { ProductThemeScript } from '~/components/global/product-theme/ProductThe
 import { useProductMenuUnseenIndicator } from '~/components/global/product-theme/useProductMenuUnseenIndicator';
 
 import ProjectsRedirectToOnboardingIfNecessary from './ProjectsRedirectToOnboardingIfNecessary';
+import useProjectsLevelUpToaster from './useProjectsLevelUpToaster';
 
 type Props = Readonly<{
   children: React.ReactElement;
 }>;
 
 export default function ProjectsRootLayout({ children }: Props) {
+  useProjectsLevelUpToaster();
+
   const [, setProductMenuUnseenIndicator] = useProductMenuUnseenIndicator();
 
   useEffect(() => {

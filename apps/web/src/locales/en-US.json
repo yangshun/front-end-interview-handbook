@@ -4935,6 +4935,10 @@
     "defaultMessage": "Front end coding interview questions come in many forms — practice writing JavaScript functions, data structures, and algorithms.",
     "description": "Subtitle for an example list of JavaScript Questions on marketing pages"
   },
+  "b1hMr+": {
+    "defaultMessage": "You've just attained level {level} ✨ Congratulations!",
+    "description": "Level up message"
+  },
   "b28Bb0": {
     "defaultMessage": "Designs",
     "description": "Project assets category label"
