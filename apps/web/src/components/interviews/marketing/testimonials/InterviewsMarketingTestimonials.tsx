@@ -1,48 +1,33 @@
-import type { ReactNode } from 'react';
+import type { InterviewsMarketingTestimonial } from './InterviewsMarketingTestimonialCard';
 
-export type Testimonial = Readonly<{
-  anonymous: boolean;
-  authorThumbnailUrl?: string | null;
-  authorUrl?: string | null;
-  companyLogoUrl?: string | null;
-  createdAt: string;
-  fromCompany?: string | null;
-  id: string;
-  location?: string | null;
-  name?: string | null;
-  newCompany?: string | null;
-  offers?: ReadonlyArray<string>;
-  testimonial: ReactNode;
-  title?: string | null;
-}>;
-
-export function useTestimonials() {
-  const luke: Testimonial = {
+export function useInterviewsMarketingTestimonialsDict() {
+  const luke: InterviewsMarketingTestimonial = {
     anonymous: false,
     authorThumbnailUrl: '/img/testimonials/users/luke-fiji.webp',
     authorUrl: 'https://www.linkedin.com/in/lukefiji/',
     createdAt: '2023-11-01',
     id: 'luke-fiji',
-    location: 'Seattle, USA',
+    location: 'Seattle, US',
     name: 'Luke Fiji',
     newCompany: null,
     testimonial:
       "I'm always on the lookout for resources that can help me level up my skills as a frontend engineer, and I can confidently say that GreatFrontEnd delivers in that regard. It is by far the most comprehensive frontend-focused interview prep platform I have come across. They've helped strengthen my fundamentals and given me the confidence I need to succeed in my job search. Additionally, the people behind the platform have been incredibly approachable and responsive to feedback - and I can't thank them enough!",
+    title: 'Frontend Engineer',
   };
-  const alan: Testimonial = {
+  const alan: InterviewsMarketingTestimonial = {
     anonymous: false,
     companyLogoUrl: '/img/testimonials/company/tiktok.svg',
     createdAt: '2023-06-08',
     fromCompany: 'Google',
     id: 'alan',
-    location: 'Mountain View, USA',
+    location: 'Mountain View, US',
     name: 'Alan',
     newCompany: 'TikTok',
     testimonial:
       "Just want to say THANK YOU! I was laid off from Google and my interviews were really different from previous interview cycles in that they tested heavy frontend knowledge as opposed to typical LeetCode like I was used to. This platform provided a comprehensive way for me to study all the basics and really solidify my frontend fundamentals. I found the system design questions especially helpful, as I wasn't able to find any other front end system design resources anywhere near the quality provided on this platform. I was able to land a front end engineering role at TikTok thanks in huge part to this platform. I am really glad I decided to pay for this platform.",
     title: 'Software Engineer, TikTok',
   };
-  const larry: Testimonial = {
+  const larry: InterviewsMarketingTestimonial = {
     anonymous: false,
     authorThumbnailUrl: '/img/testimonials/users/larry-almeida.webp',
     authorUrl: 'https://www.linkedin.com/in/larrydalmeida/',
@@ -56,7 +41,7 @@ export function useTestimonials() {
       'I could have spent my time scouring the internet for resources. Instead I choose to invest my money wisely. GreatFrontEnd turned out to be a fantastic resource with its curated Study Plans, interactive Practice Questions and Guides that cover all your typical big tech interview needs. Their quiz questions helped me to recap my knowledge on the days before my interview. I especially appreciated the System Design Guide with solutions that cover a range of front end design problems along with frameworks that are easy to remember and apply to any problem type. I got the job and a great ROI!',
     title: 'Senior Software Engineer — Front End',
   };
-  const nafis: Testimonial = {
+  const nafis: InterviewsMarketingTestimonial = {
     anonymous: false,
     authorThumbnailUrl: '/img/testimonials/users/nafis-hasnain.webp',
     authorUrl: 'https://www.linkedin.com/in/nhasnain/',
@@ -70,7 +55,7 @@ export function useTestimonials() {
       'GreatFrontEnd has really helped prepare me for many of my frontend internship interviews - their front end system design guidebook is stellar and it helped boost my confidence to write front end components faster during time paced interviews. Thank you, GFE!',
     title: 'Software Developer Intern',
   };
-  const delhi: Testimonial = {
+  const delhi: InterviewsMarketingTestimonial = {
     anonymous: true,
     createdAt: '2023-04-01',
     id: 'delhi',
@@ -80,20 +65,20 @@ export function useTestimonials() {
       "As someone who has given as well as taken a lot of interviews, I can say GreatFrontEnd is a f'king goldmine. I would highly recommend GreatFrontEnd to anyone who is preparing for front end interviews or anyone who just wants to learn some new concepts. The content is well-organized, has some great practical coding challenges, and the system design part is just amazing!!!",
     title: 'Front End Engineer',
   };
-  const jacky: Testimonial = {
+  const jacky: InterviewsMarketingTestimonial = {
     anonymous: false,
     authorThumbnailUrl: '/img/testimonials/users/jacky-liang.webp',
     authorUrl: 'https://www.linkedin.com/in/mrjackyliang/',
     createdAt: '2023-04-01',
     id: 'jacky-liang',
-    location: 'New York, USA',
+    location: 'New York, US',
     name: 'Jacky Liang',
     newCompany: null,
     testimonial:
       "If you are a developer or engineer looking to excel in the front-end world, GreatFrontEnd is an excellent resource to have. It's very common to practice LeetCode style questions in the world of engineering, but rarely does anyone talk about system designs and behavioral questions. This is one of the biggest reasons why I joined! It's challenging, fun, and there's also a community that looks out for you!",
     title: 'Software Engineer',
   };
-  const anand: Testimonial = {
+  const anand: InterviewsMarketingTestimonial = {
     anonymous: false,
     authorThumbnailUrl: '/img/testimonials/users/anand-dharne.jpg',
     authorUrl: 'https://www.linkedin.com/in/ananddharne/',
@@ -107,7 +92,7 @@ export function useTestimonials() {
       'GreatFrontEnd has been a great help to me for prepping front end focussed interviews. Lot of focus on JavaScript utility and React/Vanilla implementations. The system design questions asked in interviews are slightly different in front end interviews and GreatFrontEnd really shines here. I will continue to use this amazing platform!',
     title: 'Senior Software Engineer',
   };
-  const vietnam: Testimonial = {
+  const vietnam: InterviewsMarketingTestimonial = {
     anonymous: true,
     createdAt: '2023-04-01',
     id: 'vietnam',
@@ -117,21 +102,21 @@ export function useTestimonials() {
       'You are doing great things for the Front End community. Especially for those who are Junior engineers like me, advanced solutions covering various aspects of front end development help a lot. Thank you to the team.',
     title: 'Software Engineer',
   };
-  const ryan: Testimonial = {
+  const ryan: InterviewsMarketingTestimonial = {
     anonymous: false,
     authorThumbnailUrl: '/img/testimonials/users/ryanlvv.jpg',
     authorUrl: 'https://www.linkedin.com/in/ryanlvv/',
     companyLogoUrl: '/img/testimonials/company/seashell.png',
     createdAt: '2023-07-01',
     id: 'ryanlvv',
-    location: 'Seattle, USA',
+    location: 'Seattle, US',
     name: 'Ryan Van Valkenburg',
     newCompany: 'Seashell',
     testimonial:
       'GreatFrontEnd has been a great resource for preparing and continuing in the ever-shifting front-end world. Allowing me to brush up on fundamentals, hone new concepts and practices to put my best foot forward in technical ability and confidence to be able to get interviews AND offers.',
     title: 'Senior Software Engineer',
   };
-  const prashanth: Testimonial = {
+  const prashanth: InterviewsMarketingTestimonial = {
     anonymous: false,
     authorThumbnailUrl: '/img/testimonials/users/prashanth-reddy.webp',
     authorUrl: 'https://www.linkedin.com/in/prshnthrddy/',
@@ -145,7 +130,7 @@ export function useTestimonials() {
       "As a Frontend Engineer I had a hard time finding resources that focused specifically on Frontend interview questions, Data Structures & Algorithms etc., After I found GreatFrontEnd it made my life very easy because I found answers to all my questions. The program and questions are structured and categorized meticulously. If you are looking to improve your frontend interview skills I highly recommend their premium feature as it gives you access to not only data structures & algo questions but also front end system design questions with detailed answers. Not only that, they also have a vibrant and helpful Discord community. It's totally worth it.",
     title: 'Senior Software Engineer',
   };
-  const gouseBasha: Testimonial = {
+  const gouseBasha: InterviewsMarketingTestimonial = {
     anonymous: false,
     authorUrl: 'https://www.linkedin.com/in/gouse-basha-7a0902191/',
     createdAt: '2023-07-01',
@@ -157,7 +142,7 @@ export function useTestimonials() {
       'If you are looking for front end interviews, GreatFrontEnd is for you. It has a wide variety of coding questions ranging from HTML, CSS, JavaScript, to React. It also covers formats like functions, algorithms, user interface, quiz etc. If you want to get into top tech companies for front end roles, GreatFrontEnd is best for you.',
     title: 'Software Engineer',
   };
-  const india: Testimonial = {
+  const india: InterviewsMarketingTestimonial = {
     anonymous: true,
     createdAt: '2023-08-01',
     id: 'india',
@@ -167,18 +152,18 @@ export function useTestimonials() {
       'Amazing to see such a comprehensive resource for front end dev interviews. Coming from a more traditional backend role I found this website to be a treasure trove of knowledge and it really takes you from a beginner to advanced level.',
     title: 'Front End Engineer',
   };
-  const zhenchao: Testimonial = {
+  const zhenchao: InterviewsMarketingTestimonial = {
     anonymous: false,
     createdAt: '2023-08-01',
     id: 'zhenchao',
-    location: 'USA',
+    location: 'US',
     name: 'Zhenchao',
     newCompany: null,
     testimonial:
       'I wish GreatFrontEnd existed earlier in my career when I was preparing for interviews. It has made the process of interview preparation significantly less painful and more efficient. The platform is a game-changer for anyone seeking to enhance their frontend development skills and succeed in interviews.',
     title: 'Software Engineer',
   };
-  const chenweiZhang: Testimonial = {
+  const chenweiZhang: InterviewsMarketingTestimonial = {
     anonymous: false,
     authorThumbnailUrl: '/img/testimonials/users/chenwei-zhang.jpg',
     authorUrl: 'https://www.linkedin.com/in/chenwei-z-6568b3177/',
@@ -186,7 +171,7 @@ export function useTestimonials() {
     createdAt: '2024-04-23',
     fromCompany: 'Amazon',
     id: 'chenwei',
-    location: 'San Francisco, CA',
+    location: 'San Francisco, US',
     name: 'Chenwei Zhang',
     newCompany: 'Meta',
     offers: ['Meta', 'TikTok'],
@@ -194,7 +179,7 @@ export function useTestimonials() {
       'I joined GreatFrontEnd at the beginning of this year when I was trying to prepare my interviews. There are many resources about system design out there on the Internet but they are more for distributed systems and not meant for front end engineers. The system design materials on GFE are definitely gems. It opens up my mind about how to approach a system design question by using the RADIO framework. More importantly, the team behind it is super responsive and supportive. They not only provide interview guidance in a timely manner but also give you advice about career growth whenever necessary. All in all, I really appreciate the help I get from GFE!',
     title: 'Front End Engineer',
   };
-  const lucaVaccarini: Testimonial = {
+  const lucaVaccarini: InterviewsMarketingTestimonial = {
     anonymous: false,
     authorThumbnailUrl: '/img/testimonials/users/luca-vaccarini.webp',
     authorUrl: 'https://www.linkedin.com/in/gianluca-vaccarini/',
@@ -210,7 +195,7 @@ export function useTestimonials() {
       "In today's extremely competitive and challenging job market, GreatFrontEnd was key to my success in frontend interviews, which led to me landing 4 senior level job offers, all at large tech companies. The system design content on the site is in my opinion better than any other system design content available online for frontend. Prior to joining GFE, I had no structure to my frontend system design interviews, but after going through the material and following their recommended framework, I passed every single one of my system design rounds. GFE covers frontend knowledge as well as frontend coding very well, their questions appeared in several of my interview loops which helped me not only be fully prepared for all of my interviews, but helped me excel in them. For frontend developers looking to stand out in today's job market via interview performance, GreatFrontEnd is a must have.",
     title: 'Senior Software Engineer',
   };
-  const yuChienChan: Testimonial = {
+  const yuChienChan: InterviewsMarketingTestimonial = {
     anonymous: false,
     authorThumbnailUrl: '/img/testimonials/users/yu-chien-chan.jpg',
     authorUrl:
@@ -228,19 +213,20 @@ export function useTestimonials() {
     title: 'Senior Front End Engineer',
   };
 
-  const t4d95: Testimonial = {
+  const t4d95: InterviewsMarketingTestimonial = {
     anonymous: true,
     createdAt: '2023-08-21',
     fromCompany: null,
     id: 't4d95',
     location: 'Brazil (Remote)',
+    name: 't4d95',
     newCompany: 'Brex',
     testimonial:
       "I got an offer from Brex for Senior Software Engineer (Frontend)! I am very happy because Brex was my target company and preparing for this interview process was the reason I joined GFE. I'd like to specially thank the community for the mock interviews and tips along the journey. I will work remotely from Brazil!",
     title: 'Senior Software Engineer (Frontend)',
   };
 
-  const vali: Testimonial = {
+  const vali: InterviewsMarketingTestimonial = {
     anonymous: true,
     authorThumbnailUrl: '/img/testimonials/users/vali.webp',
     authorUrl: null,
@@ -256,7 +242,7 @@ export function useTestimonials() {
     title: 'Front End Engineer',
   };
 
-  const ismail: Testimonial = {
+  const ismail: InterviewsMarketingTestimonial = {
     anonymous: false,
     authorThumbnailUrl: '/img/testimonials/users/ismail.webp',
     authorUrl: 'https://www.linkedin.com/in/ismailbentabett/',
@@ -271,7 +257,7 @@ export function useTestimonials() {
     title: 'Vue Front-End Engineer',
   };
 
-  const anonymousJake: Testimonial = {
+  const anonymousJake: InterviewsMarketingTestimonial = {
     anonymous: true,
     authorThumbnailUrl: null,
     authorUrl: null,
@@ -284,7 +270,7 @@ export function useTestimonials() {
     title: 'Front End Engineer',
   };
 
-  const pratikMehta: Testimonial = {
+  const pratikMehta: InterviewsMarketingTestimonial = {
     anonymous: false,
     authorThumbnailUrl: '/img/testimonials/users/pratik-mehta.jpg',
     authorUrl: 'https://www.linkedin.com/in/pratikgmehta/',
@@ -300,13 +286,12 @@ export function useTestimonials() {
     title: 'Sr. Engineer',
   };
 
-  const anonNVIDIA: Testimonial = {
+  const anonNVIDIA: InterviewsMarketingTestimonial = {
     anonymous: true,
     companyLogoUrl: '/img/testimonials/company/nvidia.svg',
     createdAt: '2024-02-14',
     id: 'anon-nvidia',
     location: 'Seattle, US',
-    name: 'Anonymous',
     newCompany: 'NVIDIA',
     offers: ['NVIDIA'],
     testimonial:
@@ -314,7 +299,7 @@ export function useTestimonials() {
     title: 'Senior Software Engineer',
   };
 
-  const purplePaisley: Testimonial = {
+  const purplePaisley: InterviewsMarketingTestimonial = {
     anonymous: true,
     authorThumbnailUrl: '/img/testimonials/users/purple-paisley.webp',
     createdAt: '2024-03-01',
@@ -326,7 +311,7 @@ export function useTestimonials() {
       'Recently accepted an offer 🥳 Thanks so much to the GFE team and everyone who contributed to this platform, it was super helpful in my prep. The system design (and the design systems lol) questions in particular were amazing.',
   };
 
-  const nikki: Testimonial = {
+  const nikki: InterviewsMarketingTestimonial = {
     anonymous: true,
     createdAt: '2024-03-06',
     id: 'nikki',
@@ -336,7 +321,7 @@ export function useTestimonials() {
       'I accepted an offer 🥳 . Thanks so much to the GFE team and everyone who contributed to this platform, it was super helpful.',
   };
 
-  const skarKing: Testimonial = {
+  const skarKing: InterviewsMarketingTestimonial = {
     anonymous: true,
     createdAt: '2024-04-11',
     id: 'skarking',
@@ -348,7 +333,7 @@ export function useTestimonials() {
     title: 'Frontend Tech Lead',
   };
 
-  const curryspices: Testimonial = {
+  const curryspices: InterviewsMarketingTestimonial = {
     anonymous: true,
     createdAt: '2024-04-12',
     id: 'curryspices',
@@ -358,7 +343,7 @@ export function useTestimonials() {
     title: 'Frontend Tech Lead',
   };
 
-  const felipeSalazar: Testimonial = {
+  const felipeSalazar: InterviewsMarketingTestimonial = {
     anonymous: true,
     createdAt: '2024-04-17',
     id: 'felipe-salazar',
@@ -368,7 +353,7 @@ export function useTestimonials() {
     title: 'Senior Software Engineer',
   };
 
-  const notrxx: Testimonial = {
+  const notrxx: InterviewsMarketingTestimonial = {
     anonymous: true,
     createdAt: '2024-04-19',
     id: 'notrxx',
@@ -379,7 +364,7 @@ export function useTestimonials() {
     title: 'Senior Software Engineer II',
   };
 
-  const zizib2000: Testimonial = {
+  const zizib2000: InterviewsMarketingTestimonial = {
     anonymous: true,
     authorThumbnailUrl: '/img/testimonials/users/zizib.webp',
     createdAt: '2024-04-23',
@@ -392,7 +377,7 @@ export function useTestimonials() {
     title: 'Frontend Engineer',
   };
 
-  const uncleTito: Testimonial = {
+  const uncleTito: InterviewsMarketingTestimonial = {
     anonymous: true,
     createdAt: '2024-04-25',
     id: 'uncle-tito',
@@ -404,8 +389,9 @@ export function useTestimonials() {
     title: 'Frontend Engineer',
   };
 
-  const skykillz: Testimonial = {
+  const skykillz: InterviewsMarketingTestimonial = {
     anonymous: true,
+    companyLogoUrl: '/img/testimonials/company/tiktok.svg',
     createdAt: '2024-05-02',
     id: 'skykillz',
     location: 'New York City, US',
@@ -416,7 +402,7 @@ export function useTestimonials() {
     title: 'Front End Engineer',
   };
 
-  const deewee: Testimonial = {
+  const deewee: InterviewsMarketingTestimonial = {
     anonymous: true,
     createdAt: '2024-06-07',
     id: 'deewee',
@@ -426,17 +412,18 @@ export function useTestimonials() {
     title: 'Software Engineer',
   };
 
-  const saiSrinivas: Testimonial = {
+  const saiSrinivas: InterviewsMarketingTestimonial = {
     anonymous: true,
     createdAt: '2024-06-07',
     id: 'sai-srinivas',
+    location: 'Texas, US',
     name: 'Sai Srinivas',
     testimonial:
       "Initially practised few free questions on the platform, loved the UI and bought a lifetime subscription. It contains interview-level JS and React ready for practice that too in a Leetcode style. Didn't see this much quality of questions anywhere. And the way they handled system design content makes this a one stop resource for interview preparation and also for upskilling as a developer. Thanks @greatfrontend.",
-    title: 'Sai Srinivas',
+    title: 'Software Engineer',
   };
 
-  const edWang: Testimonial = {
+  const edWang: InterviewsMarketingTestimonial = {
     anonymous: false,
     authorThumbnailUrl: '/img/testimonials/users/ed-wang.jpg',
     authorUrl: 'https://www.linkedin.com/in/eddaword/',
@@ -451,7 +438,7 @@ export function useTestimonials() {
     title: 'Principal UX Engineer',
   };
 
-  const fernando: Testimonial = {
+  const fernando: InterviewsMarketingTestimonial = {
     anonymous: true,
     companyLogoUrl: '/img/testimonials/company/meta.svg',
     createdAt: '2024-06-11',
@@ -466,7 +453,7 @@ export function useTestimonials() {
     title: 'Frontend Engineer',
   };
 
-  const shoaibAhmed: Testimonial = {
+  const shoaibAhmed: InterviewsMarketingTestimonial = {
     anonymous: false,
     authorThumbnailUrl: '/img/testimonials/users/shoaib-ahmed.jpg',
     authorUrl: 'http://linkedin.com/in/pixeledcode',

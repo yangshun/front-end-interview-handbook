@@ -1,6 +1,6 @@
 import type { Metadata } from 'next/types';
 
-import InterviewsFAQPage from '~/components/interviews/marketing/faq/InterviewsFAQPage';
+import InterviewsMarketingTestimonialsPage from '~/components/interviews/marketing/testimonials/InterviewsMarketingTestimonialsPage';
 
 import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
@@ -18,15 +18,15 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   return defaultMetadata({
     locale,
-    pathname: '/interviews/faq',
+    pathname: '/interviews/testimonials',
     title: intl.formatMessage({
-      defaultMessage: 'Frequently asked questions',
-      description: 'Title of frequently asked questions page',
-      id: 'bBbCZY',
+      defaultMessage: 'Testimonials',
+      description: 'Title of testimonials page',
+      id: 'ssyz8C',
     }),
   });
 }
 
 export default function Page() {
-  return <InterviewsFAQPage />;
+  return <InterviewsMarketingTestimonialsPage />;
 }

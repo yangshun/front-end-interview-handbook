@@ -4,6 +4,7 @@ import { useUserProfile } from '~/components/global/UserProfileProvider';
 import InterviewsMarketingContinuousUpdates from '~/components/interviews/marketing/InterviewsMarketingContinuousUpdates';
 import InterviewsMarketingGeneralFAQSection from '~/components/interviews/marketing/InterviewsMarketingGeneralFAQSection';
 import InterviewsMarketingTestimonialsSection from '~/components/interviews/marketing/testimonials/InterviewsMarketingTestimonialsSection';
+import { useInterviewsMarketingTestimonials } from '~/components/interviews/marketing/testimonials/useInterviewsMarketingTestimonials';
 import InterviewsPricingSectionLocalizedContainer from '~/components/interviews/purchase/InterviewsPricingSectionLocalizedContainer';
 import MarketingCommunitySection from '~/components/marketing/contact/MarketingCommunitySection';
 import MarketingContactUs from '~/components/marketing/contact/MarketingContactUs';
@@ -11,15 +12,16 @@ import MarketingEmailSubscribe from '~/components/marketing/contact/MarketingEma
 import Text from '~/components/ui/Text';
 
 export default function InterviewsMarketingHomePageBottom() {
-  const { userProfile } = useUserProfile();
   const intl = useIntl();
+  const { userProfile } = useUserProfile();
+  const testimonials = useInterviewsMarketingTestimonials();
 
   return (
     <>
       {!(
         userProfile?.isInterviewsPremium && userProfile?.plan === 'lifetime'
       ) && <InterviewsPricingSectionLocalizedContainer />}
-      <InterviewsMarketingTestimonialsSection />
+      <InterviewsMarketingTestimonialsSection testimonials={testimonials} />
       <InterviewsMarketingContinuousUpdates
         title={intl.formatMessage({
           defaultMessage: "We're still growing our question base",

@@ -93,6 +93,7 @@ export default {
       // Marketing pages.
       '/',
       '/interviews/pricing',
+      '/interviews/testimonials',
       '/interviews/faq',
       '/affiliates',
       '/contact',

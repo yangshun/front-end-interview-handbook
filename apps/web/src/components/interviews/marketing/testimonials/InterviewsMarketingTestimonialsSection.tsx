@@ -1,42 +1,40 @@
+import clsx from 'clsx';
+import type { ComponentProps } from 'react';
+import { RiArrowRightSFill } from 'react-icons/ri';
 import { FormattedMessage } from 'react-intl';
 
 import MarketingSectionHeader from '~/components/marketing/MarketingSectionHeader';
+import Button from '~/components/ui/Button';
 import CardContainer from '~/components/ui/Card/CardContainer';
 import Container from '~/components/ui/Container';
 import Section from '~/components/ui/Heading/HeadingContext';
 import Marquee from '~/components/ui/Marquee';
 
-import type { Testimonial } from './MarketingTestimonials';
-import { useTestimonials } from './MarketingTestimonials';
-import TestimonialCard from './TestimonialCard';
+import type { InterviewsMarketingTestimonial } from './InterviewsMarketingTestimonialCard';
+import TestimonialCard from './InterviewsMarketingTestimonialCard';
 
-export default function InterviewsMarketingTestimonialsSection() {
-  const testimonialsObjects = useTestimonials();
+type Props = Readonly<{
+  columns?: number;
+  containerVariant?: ComponentProps<typeof Container>['variant'];
+  showSeeAllLink?: boolean;
+  testimonials: ReadonlyArray<InterviewsMarketingTestimonial>;
+}>;
 
-  const testimonials: Array<Testimonial> = [
-    // Col 1
-    testimonialsObjects.edWang,
-    testimonialsObjects.shoaibAhmed,
-    testimonialsObjects.luke,
-    testimonialsObjects.nafis,
-    testimonialsObjects.yuChienChan,
-    testimonialsObjects.gouseBasha,
-    // Col 2
-    testimonialsObjects.lucaVaccarini,
-    testimonialsObjects.pratikMehta,
-    testimonialsObjects.larry,
-    testimonialsObjects.ismail,
-    testimonialsObjects.jacky,
-    // Col 3
-    testimonialsObjects.chenweiZhang,
-    testimonialsObjects.alan,
-    testimonialsObjects.ryan,
-    testimonialsObjects.anand,
-    testimonialsObjects.prashanth,
-  ];
-
+export default function InterviewsMarketingTestimonialsSection({
+  containerVariant,
+  columns = 3,
+  showSeeAllLink = true,
+  testimonials,
+}: Props) {
   return (
-    <Container className="max-lg:theme-bg-radial-glow isolate py-24 max-lg:rounded-t-3xl sm:py-32">
+    <Container
+      className={clsx(
+        'max-lg:theme-bg-radial-glow',
+        'max-lg:rounded-t-3xl',
+        'isolate',
+        'py-16 sm:py-24',
+      )}
+      variant={containerVariant}>
       <div className="mx-auto max-w-3xl">
         <MarketingSectionHeader
           heading={
@@ -56,8 +54,13 @@ export default function InterviewsMarketingTestimonialsSection() {
         />
       </div>
       <Section>
-        <div className="mx-auto mt-16 hidden max-w-2xl sm:mt-20 sm:flow-root lg:mx-0 lg:max-w-none">
-          <CardContainer className="-mt-8 sm:-mx-4 sm:columns-2 sm:text-[0] lg:columns-3">
+        <div className="mx-auto mt-16 hidden sm:mt-20 sm:flow-root md:mx-0">
+          <CardContainer
+            className={clsx(
+              '-mt-8 sm:-mx-4 sm:columns-2 sm:text-[0]',
+              columns === 3 && 'lg:columns-3',
+              columns === 4 && 'md:columns-3 xl:columns-4',
+            )}>
             {testimonials.map((testimonial) => (
               <div
                 key={testimonial.id}
@@ -82,6 +85,17 @@ export default function InterviewsMarketingTestimonialsSection() {
             </Marquee>
           </CardContainer>
         </div>
+        {showSeeAllLink && (
+          <div className="mt-8 text-center">
+            <Button
+              href="/interviews/testimonials"
+              icon={RiArrowRightSFill}
+              label="See all testimonials"
+              size="md"
+              variant="secondary"
+            />
+          </div>
+        )}
       </Section>
     </Container>
   );

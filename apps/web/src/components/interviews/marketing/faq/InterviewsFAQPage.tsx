@@ -58,7 +58,7 @@ const purchaseFaqs: FAQItems = [
 
 const supportFaqs: FAQItems = [supportTechnical, supportHow];
 
-export default function FAQPage() {
+export default function InterviewsFAQPage() {
   const intl = useIntl();
 
   return (

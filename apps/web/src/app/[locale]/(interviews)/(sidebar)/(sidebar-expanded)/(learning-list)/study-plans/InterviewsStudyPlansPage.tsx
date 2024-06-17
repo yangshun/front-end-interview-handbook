@@ -13,8 +13,8 @@ import type {
 } from '~/data/plans/PreparationPlans';
 import { getPreparationPlanTheme } from '~/data/plans/PreparationPlans';
 
-import { useTestimonials } from '~/components/interviews/marketing/testimonials/MarketingTestimonials';
-import TestimonialCard from '~/components/interviews/marketing/testimonials/TestimonialCard';
+import InterviewsMarketingTestimonialCard from '~/components/interviews/marketing/testimonials/InterviewsMarketingTestimonialCard';
+import { useInterviewsMarketingTestimonialsDict } from '~/components/interviews/marketing/testimonials/InterviewsMarketingTestimonials';
 import type { QuestionDifficulty } from '~/components/interviews/questions/common/QuestionsTypes';
 import QuestionCountLabel from '~/components/interviews/questions/metadata/QuestionCountLabel';
 import QuestionDifficultySummary from '~/components/interviews/questions/metadata/QuestionDifficultySummary';
@@ -135,7 +135,7 @@ export default function InterviewsStudyPlansPage({
   plansDifficultySummary,
 }: Props) {
   const intl = useIntl();
-  const testimonials = useTestimonials();
+  const testimonials = useInterviewsMarketingTestimonialsDict();
   const { data: questionListSessions } =
     trpc.questionLists.getActiveSessions.useQuery();
 
@@ -218,8 +218,12 @@ export default function InterviewsStudyPlansPage({
             <Section>
               <CardContainer>
                 <div className="flex flex-col gap-y-4">
-                  <TestimonialCard {...testimonials.lucaVaccarini} />
-                  <TestimonialCard {...testimonials.chenweiZhang} />
+                  <InterviewsMarketingTestimonialCard
+                    {...testimonials.lucaVaccarini}
+                  />
+                  <InterviewsMarketingTestimonialCard
+                    {...testimonials.chenweiZhang}
+                  />
                 </div>
               </CardContainer>
             </Section>

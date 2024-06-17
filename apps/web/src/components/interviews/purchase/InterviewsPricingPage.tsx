@@ -10,6 +10,7 @@ import InterviewsPricingSection from '~/components/interviews/purchase/Interview
 import Section from '~/components/ui/Heading/HeadingContext';
 
 import InterviewsPurchaseCancelLogging from './InterviewsPurchaseCancelLogging';
+import { useInterviewsMarketingTestimonials } from '../marketing/testimonials/useInterviewsMarketingTestimonials';
 
 type Props = Readonly<{
   countryCode: string;
@@ -22,6 +23,8 @@ export default function InterviewsPricingPage({
   countryName,
   plans,
 }: Props) {
+  const testimonials = useInterviewsMarketingTestimonials();
+
   return (
     <div
       className={clsx(
@@ -40,7 +43,7 @@ export default function InterviewsPricingPage({
         <InterviewsMarketingFeatures />
         <div>
           <InterviewsPricingFAQSection />
-          <InterviewsMarketingTestimonialsSection />
+          <InterviewsMarketingTestimonialsSection testimonials={testimonials} />
         </div>
       </Section>
     </div>

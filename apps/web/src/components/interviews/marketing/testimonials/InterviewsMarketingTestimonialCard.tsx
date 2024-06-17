@@ -5,12 +5,23 @@ import Anchor from '~/components/ui/Anchor';
 import Avatar from '~/components/ui/Avatar';
 import Card from '~/components/ui/Card';
 import Text, { textVariants } from '~/components/ui/Text';
-import {
-  themeBackgroundCardColor,
-  themeBackgroundEmphasized,
-} from '~/components/ui/theme';
+import { themeBackgroundEmphasized } from '~/components/ui/theme';
 
-import type { Testimonial } from './MarketingTestimonials';
+export type InterviewsMarketingTestimonial = Readonly<{
+  anonymous: boolean;
+  authorThumbnailUrl?: string | null;
+  authorUrl?: string | null;
+  companyLogoUrl?: string | null;
+  createdAt: string;
+  fromCompany?: string | null;
+  id: string;
+  location?: string | null;
+  name?: string | null;
+  newCompany?: string | null;
+  offers?: ReadonlyArray<string>;
+  testimonial: string;
+  title?: string | null;
+}>;
 
 function formatDate(
   inputDate: string, // YYYY-MM-DD format
@@ -25,7 +36,7 @@ function formatDate(
   return formatter.format(date);
 }
 
-export default function TestimonialCard({
+export default function InterviewsMarketingTestimonialCard({
   authorThumbnailUrl,
   authorUrl,
   createdAt,
@@ -36,7 +47,7 @@ export default function TestimonialCard({
   name,
   offers,
   title,
-}: Testimonial) {
+}: InterviewsMarketingTestimonial) {
   return (
     <Card
       className="rounded-2xl p-4 text-sm leading-6"
