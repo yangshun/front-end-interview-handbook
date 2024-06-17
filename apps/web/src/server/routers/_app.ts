@@ -12,6 +12,7 @@ import { questionSaveRouter } from './question-save';
 import { questionSubmissionRouter } from './question-submission';
 import { questionsRouter } from './questions';
 import { rewardsRouter } from './rewards';
+import { roadmapRouter } from './roadmap';
 import { router } from '../trpc';
 
 export const appRouter = router({
@@ -29,6 +30,7 @@ export const appRouter = router({
   questionSubmission: questionSubmissionRouter,
   questions: questionsRouter,
   rewards: rewardsRouter,
+  roadmap: roadmapRouter,
 });
 
 // Export type definition of API
