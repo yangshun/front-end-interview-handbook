@@ -8,9 +8,15 @@ export function useInterviewsMarketingTestimonials(
   const testimonialsObjects = useInterviewsMarketingTestimonialsDict();
 
   const testimonials: ReadonlyArray<InterviewsMarketingTestimonial> = showAll
-    ? Object.values(testimonialsObjects).sort((a, b) =>
-        a.createdAt < b.createdAt ? 1 : -1,
-      )
+    ? (() => {
+        const items = Object.values(testimonialsObjects).sort((a, b) =>
+          a.createdAt < b.createdAt ? 1 : -1,
+        );
+        const featuredItems = items.filter((item) => item.featured);
+        const nonFeaturedItems = items.filter((item) => !item.featured);
+
+        return [...featuredItems, ...nonFeaturedItems];
+      })()
     : [
         testimonialsObjects.edWang,
         testimonialsObjects.lucaVaccarini,
@@ -49,7 +55,6 @@ export function useInterviewsMarketingTestimonials(
         smallestColumn = i;
       }
     }
-
     testimonialColumns[smallestColumn].items.push(testimonial);
     testimonialColumns[smallestColumn].charCount +=
       testimonial.testimonial.length;

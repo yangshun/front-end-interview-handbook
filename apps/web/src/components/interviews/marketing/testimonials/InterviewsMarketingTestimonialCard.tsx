@@ -13,6 +13,7 @@ export type InterviewsMarketingTestimonial = Readonly<{
   authorUrl?: string | null;
   companyLogoUrl?: string | null;
   createdAt: string;
+  featured?: boolean;
   fromCompany?: string | null;
   id: string;
   location?: string | null;

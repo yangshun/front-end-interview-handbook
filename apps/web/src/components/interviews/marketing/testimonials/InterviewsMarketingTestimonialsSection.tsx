@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 import type { ComponentProps } from 'react';
-import { RiArrowRightSFill } from 'react-icons/ri';
+import { RiArrowRightSLine } from 'react-icons/ri';
 import { FormattedMessage } from 'react-intl';
 
 import MarketingSectionHeader from '~/components/marketing/MarketingSectionHeader';
@@ -89,7 +89,7 @@ export default function InterviewsMarketingTestimonialsSection({
           <div className="mt-8 text-center">
             <Button
               href="/interviews/testimonials"
-              icon={RiArrowRightSFill}
+              icon={RiArrowRightSLine}
               label="See all testimonials"
               size="md"
               variant="secondary"
