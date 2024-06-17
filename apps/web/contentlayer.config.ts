@@ -22,7 +22,7 @@ import { ProjectsTrackMetadataDocument } from './src/components/projects/content
 import { ProjectsTrackInfoDocument } from './src/components/projects/contentlayer/ProjectsTrackInfoDocument';
 import { ProjectsSkillMetadataDocument } from './src/components/projects/contentlayer/ProjectsSkillMetadataDocument';
 import { ProjectsSkillInfoDocument } from './src/components/projects/contentlayer/ProjectsSkillInfoDocument';
-import { JobsPostingDocument } from './src/contentlayer/document/JobsPostingDocument';
+import { JobsPostingDocument } from './src/components/hiring/contentlayer/JobsPostingDocument.ts';
 
 export default makeSource({
   contentDirPath: 'src/content',

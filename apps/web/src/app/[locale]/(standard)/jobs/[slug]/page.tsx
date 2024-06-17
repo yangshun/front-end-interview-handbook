@@ -3,10 +3,10 @@ import { notFound } from 'next/navigation';
 import type { Metadata } from 'next/types';
 import { JobPostingJsonLd } from 'next-seo';
 
+import JobPostingPage from '~/components/hiring/JobPostingPage';
+
 import { generateStaticParamsWithLocale } from '~/next-i18nostic/src';
 import defaultMetadata from '~/seo/defaultMetadata';
-
-import JobPostingPage from './JobPostingPage';
 
 type Props = Readonly<{
   params: Readonly<{ locale: string; slug: string }>;
