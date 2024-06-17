@@ -2,6 +2,7 @@ import clsx from 'clsx';
 import { useEffect, useState } from 'react';
 import { RiImageLine, RiInformationLine } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
+import url from 'url';
 
 import ProjectsImageBreakpointButtonGroup from '~/components/projects/common/ProjectsImageBreakpointButtonGroup';
 import {
@@ -96,8 +97,14 @@ export default function ProjectsImageComparison({
       (comparisonImage) => comparisonImage.label === deploymentUrlItem.label,
     );
 
+    // To invalidate cached images after taking screenshot
+    const updatedAt = deploymentUrlItem?.updatedAt?.getTime();
+    const imageUrl = deploymentUrlItem?.images?.[selectedBreakpoint] ?? '';
+
     return {
-      image: deploymentUrlItem?.images?.[selectedBreakpoint] ?? '',
+      image: imageUrl
+        ? new URL(url.format({ query: { updatedAt } }), imageUrl).toString()
+        : '',
       label: deploymentUrlItem?.label,
       original: matchingComparisonImage?.images?.[selectedBreakpoint] ?? '',
     };
