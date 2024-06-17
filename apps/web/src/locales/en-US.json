@@ -171,6 +171,10 @@
     "defaultMessage": "Bio",
     "description": "Label for bio field"
   },
+  "/ElgZZ": {
+    "defaultMessage": "All filters",
+    "description": "Label for All Filters button for roadmap page on mobile"
+  },
   "/F80kH": {
     "defaultMessage": "Read our <link>Front End Interview Guidebook</link>",
     "description": "Link to front end interview guidebook"
@@ -1182,6 +1186,10 @@
   "8F7JlA": {
     "defaultMessage": "Access updates to the interviews platform for life.",
     "description": "Lifetime membership feature of accessing updates to interview platforms"
+  },
+  "8GDujz": {
+    "defaultMessage": "Months",
+    "description": "Label for Months filter button"
   },
   "8JoIUN": {
     "defaultMessage": "Coming soon",
@@ -4207,6 +4215,10 @@
     "defaultMessage": "CASHBACK",
     "description": "Amount cashback/discount"
   },
+  "Vh9mwM": {
+    "defaultMessage": "Years",
+    "description": "Title of years accordion in Roadmap Slide out filter"
+  },
   "VlLGKt": {
     "defaultMessage": "Payment Success",
     "description": "Title of Payment Success page"
@@ -6375,6 +6387,10 @@
     "defaultMessage": "Importance",
     "description": "Label for question importance - how important it is to practice this question"
   },
+  "mbOL/R": {
+    "defaultMessage": "Projects",
+    "description": "Label for Project filter button"
+  },
   "mcOOtE": {
     "defaultMessage": "Host the project for free on our recommended hosts and submit your project URL for reviews",
     "description": "Instruction for projects"
@@ -7435,9 +7451,17 @@
     "defaultMessage": "View all filters",
     "description": "Tooltip for All Filters button for projects list"
   },
+  "vHU58I": {
+    "defaultMessage": "Interviews",
+    "description": "Label for Interviews filter button"
+  },
   "vLdUUt": {
     "defaultMessage": "View other's code and learn from their approach",
     "description": "Description for recommended action for new projects platform user"
+  },
+  "vMy9f3": {
+    "defaultMessage": "Months",
+    "description": "Title of months accordion in Roadmap Slide out filter"
   },
   "vNvx2g": {
     "defaultMessage": "Purchase premium to get access to all skill plans as well as exclusive component tracks, official how-to guides and production-ready Figma files.",
