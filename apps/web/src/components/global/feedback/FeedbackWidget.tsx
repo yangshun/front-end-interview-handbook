@@ -11,13 +11,12 @@ import { trpc } from '~/hooks/trpc';
 import { useUserPreferences } from '~/components/global/UserPreferencesProvider';
 import Button from '~/components/ui/Button';
 import {
-  themeBackgroundElementEmphasizedStateColor_Hover,
   themeBackgroundElementPressedStateColor_Active,
   themeBorderEmphasizeColor,
   themeBoxShadow,
   themeOutlineElementBrandColor_FocusVisible,
   themeTextBrandColor_Hover,
-  themeTextSubtleColor,
+  themeTextSubtitleColor,
 } from '~/components/ui/theme';
 import Tooltip from '~/components/ui/Tooltip';
 
@@ -36,10 +35,7 @@ function OnlineUsers({ count }: Readonly<{ count: number }>) {
         id: 'Qhyafe',
       })}>
       <div className="flex items-center gap-2 px-2">
-        <span className="size-2.5 relative flex">
-          <span className="bg-success size-full absolute inline-flex animate-ping rounded-full opacity-75" />
-          <span className="bg-success size-full relative inline-flex rounded-full" />
-        </span>
+        <span className="bg-success size-2.5 relative inline-flex animate-pulse rounded-full" />
         <Text size="body3" weight="medium">
           <FormattedMessage
             defaultMessage="{noOfOnlineUsers} users"
@@ -80,31 +76,31 @@ export default function FeedbackWidget() {
           'flex items-center justify-start',
           'rounded-full',
           'p-2',
-          'bg-white transition-colors dark:bg-neutral-800',
+          'bg-white transition-colors dark:bg-neutral-900',
           ['border', themeBorderEmphasizeColor],
           'overflow-hidden',
+          themeBoxShadow,
         )}>
         {isFeedbackWidgetExpanded ? (
           <>
             {showOnlineUsers && (
-              <div className="pr-1">
+              <div className="pr-2">
                 <OnlineUsers count={count} />
               </div>
             )}
             <Button
               addonPosition="start"
               className={clsx(
-                themeTextSubtleColor,
+                themeTextSubtitleColor,
                 themeTextBrandColor_Hover,
                 'border-transparent',
                 // This is needed so that the button is visible
                 // in contrast to the page background because
                 // this variant doesn't have a border.
-                'bg-neutral-200 dark:bg-neutral-900',
+                'bg-neutral-100 dark:bg-neutral-800',
                 themeBackgroundElementPressedStateColor_Active,
                 themeOutlineElementBrandColor_FocusVisible,
               )}
-              icon={RiFeedbackLine}
               label={intl.formatMessage({
                 defaultMessage: 'Feedback',
                 description: 'Label for feedback button',
@@ -141,7 +137,7 @@ export default function FeedbackWidget() {
         ) : (
           <Button
             className={clsx(
-              themeTextSubtleColor,
+              themeTextSubtitleColor,
               themeTextBrandColor_Hover,
               'border-transparent',
               themeBackgroundElementPressedStateColor_Active,
@@ -160,7 +156,7 @@ export default function FeedbackWidget() {
               description: 'Label for feedback button',
               id: 'FDiHN7',
             })}
-            variant="tertiary"
+            variant="unstyled"
             onClick={() => setIsFeedbackWidgetExpanded(true)}
           />
         )}
