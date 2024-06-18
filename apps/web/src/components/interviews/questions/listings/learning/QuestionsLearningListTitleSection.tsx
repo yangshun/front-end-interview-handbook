@@ -25,27 +25,26 @@ import Text from '~/components/ui/Text';
 
 import type { QuestionDifficulty } from '../../common/QuestionsTypes';
 import QuestionCountLabel from '../../metadata/QuestionCountLabel';
-import QuestionDurationLabel from '../../metadata/QuestionDurationLabel';
 
 type Props = Readonly<{
   description?: ReactNode;
   difficultySummary?: Record<QuestionDifficulty, number>;
   icon: (props: React.ComponentProps<'svg'>) => JSX.Element;
+  logoImgSrc?: string;
   questionCount: number;
   questionListKey: string;
   schedule?: PreparationPlanSchedule;
   themeBackgroundClass: string;
   title: string;
-  totalDurationMins: number;
 }>;
 
 export default function QuestionsLearningListTitleSection({
   description,
   difficultySummary,
+  logoImgSrc,
   questionListKey,
   questionCount,
   schedule,
-  totalDurationMins,
   icon: Icon,
   themeBackgroundClass,
   title,
@@ -89,24 +88,25 @@ export default function QuestionsLearningListTitleSection({
         <div className="flex gap-x-6">
           <div
             className={clsx(
-              'size-16 inline-flex shrink-0 items-center justify-center rounded-lg text-white',
+              'inline-flex shrink-0 items-center justify-center',
+              'size-16 rounded-lg',
+              'text-white',
               themeBackgroundClass,
             )}>
-            <Icon aria-hidden={true} className="size-10" />
+            {logoImgSrc ? (
+              <img alt={title} className="size-10" src={logoImgSrc} />
+            ) : (
+              <Icon aria-hidden={true} className="size-10" />
+            )}
           </div>
           <div className="flex flex-col gap-y-2">
             <Heading level="heading5">{title}</Heading>
             <div className="flex flex-wrap items-center gap-x-8 gap-y-2">
               <QuestionCountLabel count={questionCount} showIcon={true} />
-              {schedule != null ? (
+              {schedule != null && (
                 <QuestionStudyAllocationLabel
                   frequency={schedule.frequency}
                   hours={schedule.hours}
-                  showIcon={true}
-                />
-              ) : (
-                <QuestionDurationLabel
-                  mins={totalDurationMins}
                   showIcon={true}
                 />
               )}

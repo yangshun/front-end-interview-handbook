@@ -15,7 +15,6 @@ import type {
   QuestionDifficulty,
   QuestionMetadata,
 } from '~/components/interviews/questions/common/QuestionsTypes';
-import { countQuestionsTotalDurationMins } from '~/components/interviews/questions/listings/filters/QuestionsProcessor';
 import QuestionsList from '~/components/interviews/questions/listings/items/QuestionsList';
 import QuestionsLearningList from '~/components/interviews/questions/listings/learning/QuestionsLearningList';
 import QuestionsLearningListTitleSection from '~/components/interviews/questions/listings/learning/QuestionsLearningListTitleSection';
@@ -73,12 +72,6 @@ export default function InterviewsStudyPlanPage({
   const planTheme = getPreparationPlanTheme(plan.type);
   const questionCount = countNumberOfQuestionsInList(plan.questions);
 
-  const totalDuration = countQuestionsTotalDurationMins([
-    ...codingQuestions,
-    ...quizQuestions,
-    ...systemDesignQuestions,
-  ]);
-
   return (
     <div
       className={clsx(
@@ -111,7 +104,6 @@ export default function InterviewsStudyPlanPage({
           schedule={plan.schedule}
           themeBackgroundClass={planTheme.gradient.className}
           title={plan.longName}
-          totalDurationMins={totalDuration}
         />
       </Container>
       <Section>

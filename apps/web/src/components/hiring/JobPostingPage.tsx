@@ -23,7 +23,7 @@ type Props = Readonly<{
   title: string;
 }>;
 
-export default function JobPage({
+export default function JobPostingPage({
   content,
   href,
   employmentType,

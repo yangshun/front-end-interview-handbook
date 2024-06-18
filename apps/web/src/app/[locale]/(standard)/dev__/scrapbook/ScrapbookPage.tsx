@@ -409,7 +409,6 @@ export default function ScrapbookPage() {
                 questionListKey="one-month"
                 themeBackgroundClass={themeGradientPurpleGreen.className}
                 title="Data structure and algorithms"
-                totalDurationMins={560}
               />
             </UIExamplesGroup>
           </div>

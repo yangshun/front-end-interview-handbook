@@ -10,7 +10,6 @@ import type { FocusArea } from '~/data/focus-areas/FocusAreas';
 import { getFocusAreaTheme } from '~/data/focus-areas/FocusAreas';
 
 import type { QuestionMetadata } from '~/components/interviews/questions/common/QuestionsTypes';
-import { countQuestionsTotalDurationMins } from '~/components/interviews/questions/listings/filters/QuestionsProcessor';
 import QuestionsLearningList from '~/components/interviews/questions/listings/learning/QuestionsLearningList';
 import QuestionsLearningListTitleSection from '~/components/interviews/questions/listings/learning/QuestionsLearningListTitleSection';
 import Button from '~/components/ui/Button';
@@ -62,12 +61,6 @@ export default function InterviewsFocusAreaPage({
   const focusAreaTheme = getFocusAreaTheme(focusArea.type);
   const questionCount = countNumberOfQuestionsInList(focusArea.questions);
 
-  const totalDuration = countQuestionsTotalDurationMins([
-    ...codingQuestions,
-    ...quizQuestions,
-    ...systemDesignQuestions,
-  ]);
-
   return (
     <div
       className={clsx(
@@ -98,7 +91,6 @@ export default function InterviewsFocusAreaPage({
           questionListKey={focusArea.type}
           themeBackgroundClass={focusAreaTheme.gradient.className}
           title={focusArea.longName}
-          totalDurationMins={totalDuration}
         />
       </Container>
       <Section>
