@@ -89,6 +89,7 @@ module.exports = {
         'accordion-up': 'accordion-up 0.2s ease-out',
         marquee: 'marquee linear infinite',
         marquee2: 'marquee2 linear infinite',
+        'pulse-slow': 'pulse 5s cubic-bezier(0.4, 0, 0.6, 1) infinite',
       },
       keyframes: {
         'accordion-down': {
@@ -141,6 +142,7 @@ module.exports = {
       },
       boxShadow: {
         glow: '0 0 24px 8px var(--tw-shadow)',
+        'glow-sm': '0 2px 8px 0px var(--tw-shadow)',
       },
       letterSpacing: {
         1: '.015625em',

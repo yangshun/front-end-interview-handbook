@@ -9,11 +9,11 @@ import { fbqGFE } from '~/lib/fbq';
 import { trpc } from '~/hooks/trpc';
 
 import { useUserPreferences } from '~/components/global/UserPreferencesProvider';
+import { getFormattedNumber } from '~/components/projects/misc';
 import Button from '~/components/ui/Button';
 import {
   themeBackgroundElementPressedStateColor_Active,
-  themeBorderEmphasizeColor,
-  themeBoxShadow,
+  themeBorderColor,
   themeOutlineElementBrandColor_FocusVisible,
   themeTextBrandColor_Hover,
   themeTextSubtitleColor,
@@ -21,7 +21,6 @@ import {
 import Tooltip from '~/components/ui/Tooltip';
 
 import FeedbackDialog from './FeedbackDialog';
-import { getFormattedNumber } from '../../projects/misc';
 import Text from '../../ui/Text';
 
 function OnlineUsers({ count }: Readonly<{ count: number }>) {
@@ -35,12 +34,17 @@ function OnlineUsers({ count }: Readonly<{ count: number }>) {
         id: 'Qhyafe',
       })}>
       <div className="flex items-center gap-2 px-2">
-        <span className="bg-success size-2.5 relative inline-flex animate-pulse rounded-full" />
+        <span
+          className={clsx(
+            'bg-success size-2.5 relative inline-flex rounded-full',
+            'animate-pulse-slow',
+          )}
+        />
         <Text size="body3" weight="medium">
           <FormattedMessage
-            defaultMessage="{noOfOnlineUsers} users"
+            defaultMessage="{noOfOnlineUsers} online"
             description="Text describing online users"
-            id="Yw3g8b"
+            id="6VId29"
             values={{
               noOfOnlineUsers: getFormattedNumber(count),
             }}
@@ -77,9 +81,9 @@ export default function FeedbackWidget() {
           'rounded-full',
           'p-2',
           'bg-white transition-colors dark:bg-neutral-900',
-          ['border', themeBorderEmphasizeColor],
+          ['border', themeBorderColor],
+          'shadow-glow-sm shadow-brand/10',
           'overflow-hidden',
-          themeBoxShadow,
         )}>
         {isFeedbackWidgetExpanded ? (
           <>

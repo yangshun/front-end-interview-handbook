@@ -971,6 +971,10 @@
     "defaultMessage": "Something went wrong",
     "description": "Text that appears when the solution fails to load"
   },
+  "6VId29": {
+    "defaultMessage": "{noOfOnlineUsers} online",
+    "description": "Text describing online users"
+  },
   "6WpcdM": {
     "defaultMessage": "CS student at MIT",
     "description": "Placeholder for \"Title\" input on Projects profile onboarding page"
@@ -4690,10 +4694,6 @@
   "YpJ3q8": {
     "defaultMessage": "Reply to comment",
     "description": "Label for discussion post reply input"
-  },
-  "Yw3g8b": {
-    "defaultMessage": "{noOfOnlineUsers} users",
-    "description": "Text describing online users"
   },
   "YwBuE7": {
     "defaultMessage": "The skills you are using in this project, which are in our skills roadmap. Helps us track your progress on skills development",
