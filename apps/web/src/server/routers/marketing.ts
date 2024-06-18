@@ -12,11 +12,10 @@ import { Prisma } from '@prisma/client';
 const STUDENT_DISCOUNT_CAMPAIGN = 'STUDENT_DISCOUNT';
 const studentDiscountCouponId_TEST = 'r1nhvjSn';
 const studentDiscountCouponId_PROD = 'tgklHrfQ';
-const TIME_DIFF_IN_HOURS = 4;
+const TIME_DIFF_IN_HOURS = 2;
 
 const axiom = new Axiom({
-  orgId: process.env.AXIOM_ORG_ID as string,
-  token: process.env.AXIOM_TOKEN as string,
+  token: process.env.AXIOM_TOKEN!,
 });
 
 export const marketingRouter = router({
@@ -71,7 +70,6 @@ export const marketingRouter = router({
       return promotionCode;
     },
   ),
-
   getOnlineUsers: publicProcedure.query(async () => {
     const aplQuery = "['events'] | summarize dcount(['user.fingerprint'])";
 

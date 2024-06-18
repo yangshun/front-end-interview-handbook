@@ -2259,10 +2259,6 @@
     "defaultMessage": "Are you sure you want to terminate this session? You will be able to restart the project anytime.",
     "description": "Content for end project session dialog"
   },
-  "H8K2Jz": {
-    "defaultMessage": "{noOfOnlineUsers} Online",
-    "description": "Text describing online users"
-  },
   "H94EnK": {
     "defaultMessage": "<strong>Note</strong>: We have some basic policies on affiliate conduct. Please read the agreement carefully in the sign up process.",
     "description": "Tip at the bottom of the 'How does it work' section on the 'Become an Affiliate' page to highlight the affiliate agreement"
@@ -3551,6 +3547,10 @@
     "defaultMessage": "How does it work?",
     "description": "Section label for 'How does it work' section on the 'Become an Affiliate'  page to explain how the affiliate program works"
   },
+  "Qhyafe": {
+    "defaultMessage": "Active users in the last 2 hours",
+    "description": "Label for online user count"
+  },
   "QjQj5L": {
     "defaultMessage": "Build projects to train every front end skill from beginner to advanced",
     "description": "Description for recommended action for new projects platform user"
@@ -4658,6 +4658,10 @@
   "YpJ3q8": {
     "defaultMessage": "Reply to comment",
     "description": "Label for discussion post reply input"
+  },
+  "Yw3g8b": {
+    "defaultMessage": "{noOfOnlineUsers} users",
+    "description": "Text describing online users"
   },
   "YwBuE7": {
     "defaultMessage": "The skills you are using in this project, which are in our skills roadmap. Helps us track your progress on skills development",
