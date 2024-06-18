@@ -11,7 +11,7 @@ type Props = Readonly<{
 export default function ProjectsMarketingLayout({ children }: Props) {
   return (
     <>
-      <FeedbackWidget position="end" />
+      <FeedbackWidget />
       <GlobalBannerProjects />
       <div className="flex min-h-screen flex-col">
         <ProjectsNavbar />

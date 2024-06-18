@@ -11,7 +11,7 @@ type Props = Readonly<{
 export default function ProjectsSidebarLayout({ children }: Props) {
   return (
     <>
-      <FeedbackWidget position="end" />
+      <FeedbackWidget />
       <GlobalBannerProjects />
       <div className="flex min-h-screen flex-col">
         <ProjectsNavbar hideOnDesktop={true} />

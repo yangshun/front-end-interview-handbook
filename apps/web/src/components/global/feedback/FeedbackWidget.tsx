@@ -2,67 +2,119 @@
 
 import clsx from 'clsx';
 import { useState } from 'react';
-import { RiArrowDownSLine, RiCloseLine } from 'react-icons/ri';
-import { FormattedMessage } from 'react-intl';
+import { RiCloseLine, RiFeedbackLine } from 'react-icons/ri';
+import { FormattedMessage, useIntl } from 'react-intl';
 
 import { fbqGFE } from '~/lib/fbq';
+import { trpc } from '~/hooks/trpc';
 
 import { useUserPreferences } from '~/components/global/UserPreferencesProvider';
+import Button from '~/components/ui/Button';
+import {
+  themeBorderEmphasizeColor,
+  themeBoxShadow,
+} from '~/components/ui/theme';
 
 import FeedbackDialog from './FeedbackDialog';
+import { getFormattedNumber } from '../../projects/misc';
 import Text from '../../ui/Text';
 
-type Props = Readonly<{
-  position: 'bottom' | 'end';
-}>;
+function OnlineUsers({ count }: Readonly<{ count: number }>) {
+  return (
+    <div className="flex items-center gap-1">
+      <span className="size-2 relative flex">
+        <span className="bg-success absolute inline-flex h-full w-full animate-ping rounded-full opacity-75"></span>
+        <span className="bg-success size-2 relative inline-flex rounded-full"></span>
+      </span>
+      <Text size="body3" weight="medium">
+        <FormattedMessage
+          defaultMessage="{noOfOnlineUsers} Online"
+          description="Text describing online users"
+          id="H8K2Jz"
+          values={{
+            noOfOnlineUsers: getFormattedNumber(count),
+          }}
+        />
+      </Text>
+    </div>
+  );
+}
 
-export default function FeedbackWidget({ position }: Props) {
-  const { showFeedbackWidget, setShowFeedbackWidget } = useUserPreferences();
+export default function FeedbackWidget() {
+  const intl = useIntl();
+  const {
+    showFeedbackWidget,
+    setShowFeedbackWidget,
+    isFeedbackWidgetExpanded,
+    setIsFeedbackWidgetExpanded,
+  } = useUserPreferences();
   const [isOpen, setIsOpen] = useState(false);
+  const { data: count, isLoading } = trpc.marketing.getOnlineUsers.useQuery();
 
-  if (!showFeedbackWidget) {
+  const showOnlineUsers = count && count > 0;
+
+  if (!showFeedbackWidget || isLoading) {
     return null;
   }
 
   return (
     <>
-      <button
+      <div
         className={clsx(
-          'z-fixed fixed hidden items-center text-xs text-white drop-shadow-xl transition-colors md:block',
-          'focus:ring-2 focus:ring-offset-2',
-          'focus:outline-brand-dark dark:focus:outline-brand',
-          'bg-neutral-900 dark:bg-neutral-800',
-          'hover:bg-neutral-800',
-          position === 'end' &&
-            'right-0 h-56 w-9 rounded-l-lg sm:bottom-[20px] md:top-1/2 md:-translate-y-1/2',
-          position === 'bottom' &&
-            'bottom-0 h-9 w-56 rounded-t-lg md:left-1/4 ',
-        )}
-        type="button"
-        onClick={() => {
-          const newOpenState = !isOpen;
+          'z-fixed group fixed bottom-6 right-6',
+          'flex items-center justify-start gap-4',
+          'rounded-full',
+          isFeedbackWidgetExpanded ? ' px-4 py-2 ' : 'p-2',
+          'bg-white transition-colors dark:bg-neutral-800',
+          'border',
+          themeBorderEmphasizeColor,
+          themeBoxShadow,
+        )}>
+        {isFeedbackWidgetExpanded ? (
+          <>
+            {showOnlineUsers && <OnlineUsers count={count} />}
+            <Button
+              label={intl.formatMessage({
+                defaultMessage: 'Feedback',
+                description: 'Label for feedback button',
+                id: 'FDiHN7',
+              })}
+              size="xs"
+              variant="secondary"
+              onClick={() => {
+                const newOpenState = !isOpen;
 
-          setIsOpen(newOpenState);
-
-          fbqGFE('track', 'Contact');
-        }}>
-        <div
-          className={clsx(
-            'flex items-center justify-center gap-3 whitespace-nowrap',
-            position === 'end' && '-mt-4 w-10 origin-center -rotate-90',
-          )}>
-          <FormattedMessage
-            defaultMessage="Chat with us directly!"
-            description="Text on Feedback Widget when it is closed to notify users of its presence"
-            id="8+Ezk6"
+                setIsOpen(newOpenState);
+                fbqGFE('track', 'Contact');
+              }}
+            />
+            <Button
+              addonPosition="start"
+              className={clsx('!size-4', 'hidden group-hover:flex')}
+              icon={RiCloseLine}
+              iconClassName="!size-4 !shrink-0"
+              isLabelHidden={true}
+              label="Close Feedback"
+              size="xs"
+              variant="tertiary"
+              onClick={() => setIsFeedbackWidgetExpanded(false)}
+            />
+          </>
+        ) : (
+          <Button
+            icon={RiFeedbackLine}
+            isLabelHidden={true}
+            label={intl.formatMessage({
+              defaultMessage: 'Feedback',
+              description: 'Label for feedback button',
+              id: 'FDiHN7',
+            })}
+            size="md"
+            variant="tertiary"
+            onClick={() => setIsFeedbackWidgetExpanded(true)}
           />
-          {isOpen ? (
-            <RiCloseLine aria-hidden={true} className="size-5 shrink-0" />
-          ) : (
-            <RiArrowDownSLine aria-hidden={true} className="size-5 shrink-0" />
-          )}
-        </div>
-      </button>
+        )}
+      </div>
       <FeedbackDialog
         isShown={isOpen}
         preBodyContents={

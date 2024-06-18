@@ -12,7 +12,7 @@ type Props = Readonly<{
 export default function InterviewsMarketingLayout({ children }: Props) {
   return (
     <>
-      <FeedbackWidget position="end" />
+      <FeedbackWidget />
       <GlobalBannerInterviews />
       <div className="flex min-h-screen flex-col">
         <InterviewsNavbar />

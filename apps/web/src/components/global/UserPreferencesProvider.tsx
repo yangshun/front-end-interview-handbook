@@ -8,6 +8,8 @@ type Props = Readonly<{
 }>;
 
 type UserPreferencesContextType = Readonly<{
+  isFeedbackWidgetExpanded: boolean;
+  setIsFeedbackWidgetExpanded: (isExpanded: boolean) => void;
   setShowFeedbackWidget: (collapsed: boolean) => void;
   setShowGlobalBanner: (isHidden: boolean) => void;
   setShowSidebar: (collapsed: boolean) => void;
@@ -19,8 +21,11 @@ type UserPreferencesContextType = Readonly<{
 const DEFAULT_SHOW_SIDEBAR = true;
 const DEFAULT_SHOW_FEEDBACK_WIDGET = true;
 const DEFAULT_SHOW_GLOBAL_BANNER = true;
+const DEFAULT_EXPAND_FEEDBACK_WIDGET = true;
 
 const UserPreferencesContext = createContext<UserPreferencesContextType>({
+  isFeedbackWidgetExpanded: DEFAULT_EXPAND_FEEDBACK_WIDGET,
+  setIsFeedbackWidgetExpanded: () => {},
   setShowFeedbackWidget: () => {},
   setShowGlobalBanner: () => {},
   setShowSidebar: () => {},
@@ -38,6 +43,9 @@ export default function UserPreferencesProvider({ children }: Props) {
   const [showFeedbackWidget, setShowFeedbackWidget] = useState(
     DEFAULT_SHOW_FEEDBACK_WIDGET,
   );
+  const [isFeedbackWidgetExpanded, setIsFeedbackWidgetExpanded] = useState(
+    DEFAULT_EXPAND_FEEDBACK_WIDGET,
+  );
   const [showGlobalBanner, setShowGlobalBanner] = useLocalStorage(
     GLOBAL_BANNER_STORAGE_KEY, // Update when banner contents are changed.
     DEFAULT_SHOW_GLOBAL_BANNER,
@@ -54,6 +62,8 @@ export default function UserPreferencesProvider({ children }: Props) {
   return (
     <UserPreferencesContext.Provider
       value={{
+        isFeedbackWidgetExpanded,
+        setIsFeedbackWidgetExpanded,
         setShowFeedbackWidget,
         setShowGlobalBanner,
         setShowSidebar,

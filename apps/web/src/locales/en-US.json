@@ -1155,10 +1155,6 @@
     "defaultMessage": "We are also the only platform offering decent front end system design content.",
     "description": "FAQ answer"
   },
-  "8+Ezk6": {
-    "defaultMessage": "Chat with us directly!",
-    "description": "Text on Feedback Widget when it is closed to notify users of its presence"
-  },
   "81i+95": {
     "defaultMessage": "Profile",
     "description": "Profile page title"
@@ -2043,6 +2039,10 @@
     "defaultMessage": "Deployment instructions",
     "description": "Label for button to open deployment instructions"
   },
+  "FDiHN7": {
+    "defaultMessage": "Feedback",
+    "description": "Label for feedback button"
+  },
   "FEamkQ": {
     "defaultMessage": "Submit a comment",
     "description": "Label for discussion input textarea"
@@ -2258,6 +2258,10 @@
   "H6Hg+y": {
     "defaultMessage": "Are you sure you want to terminate this session? You will be able to restart the project anytime.",
     "description": "Content for end project session dialog"
+  },
+  "H8K2Jz": {
+    "defaultMessage": "{noOfOnlineUsers} Online",
+    "description": "Text describing online users"
   },
   "H94EnK": {
     "defaultMessage": "<strong>Note</strong>: We have some basic policies on affiliate conduct. Please read the agreement carefully in the sign up process.",

@@ -191,3 +191,9 @@ export const themeRadialGlowBackground = clsx(
   'relative before:rounded-[inherit] before:opacity-50 before:-z-10 before:top-0 before:left-0 before:right-0 before:absolute before:bg-top before:bg-cover before:w-full before:h-[500px]',
   'before:bg-[radial-gradient(78.57%_78.57%_at_50.65%_0.84%,_var(--brand-gradient-radial-light)_0%,_var(--brand-gradient-radial-dark)_0%,_rgba(15,_23,_42,_0.0001)_100%)]',
 );
+
+// Shadow
+export const themeBoxShadow = clsx(
+  'shadow-[0_26px_80px_0_rgba(0,0,0,0.1)] shadow-[0_0_1_0_rgba(0,0,0,0.1]',
+  'dark:shadow-[0_2px_8px_0px] dark:shadow-brand/20',
+);
