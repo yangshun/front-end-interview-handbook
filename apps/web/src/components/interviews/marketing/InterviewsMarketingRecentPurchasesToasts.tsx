@@ -3,7 +3,7 @@
 import { useEffect, useRef } from 'react';
 import { RiStarSmileLine } from 'react-icons/ri';
 import { FormattedMessage } from 'react-intl';
-import { useLocalStorage } from 'usehooks-ts';
+import { useLocalStorage, useMediaQuery } from 'usehooks-ts';
 
 import { trpc } from '~/hooks/trpc';
 
@@ -90,13 +90,18 @@ function MarketingRecentPurchasesImpl({
 
 export default function InterviewsMarketingRecentPurchasesToasts() {
   const { isUserProfileLoading, userProfile } = useUserProfile();
+  const isMobileAndBelow = useMediaQuery('(max-width: 768px)');
 
   const [lastShown, setLastShown] = useLocalStorage<number | null>(
     'gfe:marketing.purchases.toast.last_shown',
     null,
   );
 
-  if (isUserProfileLoading || userProfile?.isInterviewsPremium) {
+  if (
+    isUserProfileLoading ||
+    userProfile?.isInterviewsPremium ||
+    isMobileAndBelow
+  ) {
     return null;
   }
 
