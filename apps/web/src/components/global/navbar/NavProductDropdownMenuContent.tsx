@@ -19,6 +19,8 @@ import { useProductMenuUnseenIndicator } from '../product-theme/useProductMenuUn
 
 import * as DropdownMenuPrimitive from '@radix-ui/react-dropdown-menu';
 
+type ProductValue = 'interviews' | 'projects';
+
 function NavProductDropdownMenuItem({
   beta = false,
   href,
@@ -79,7 +81,12 @@ function NavProductDropdownMenuItem({
   );
 }
 
-type Props = Readonly<{ product: 'interviews' | 'projects' }>;
+type Props = Readonly<{ product: ProductValue }>;
+
+const roadmapLinks: Record<ProductValue, string> = {
+  interviews: '/interviews/roadmap',
+  projects: '/projects/roadmap',
+};
 
 export default function NavProductDropdownMenuContent({ product }: Props) {
   const items = useCommonNavItems();
@@ -160,7 +167,7 @@ export default function NavProductDropdownMenuContent({ product }: Props) {
               weight: 'medium',
             }),
           )}
-          href={`/${product}/roadmap`}
+          href={roadmapLinks[product]}
           variant="secondary">
           <RiTimelineView className="size-4 shrink-0" />
           Roadmap
