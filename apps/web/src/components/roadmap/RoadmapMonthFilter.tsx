@@ -5,15 +5,15 @@ import { useIntl } from 'react-intl';
 import FilterButton from '~/components/common/FilterButton';
 import Popover from '~/components/ui/Popover';
 
-import { MONTHS } from '../constants';
-import ProductFilterButton from '../productFilterButton/ProductFilterButton';
+import { MONTHS } from './constants';
+import RoadmapProductFilterButton from './RoadmapProductFilterButton';
 
 type Props = Readonly<{
   months: Array<string>;
   onMonthsChange: (months: Array<string>) => void;
 }>;
 
-function MonthFilter({ months, onMonthsChange }: Props) {
+function RoadmapMonthFilter({ months, onMonthsChange }: Props) {
   const intl = useIntl();
 
   const handleMonthChange = (month: string) => {
@@ -53,7 +53,7 @@ function MonthFilter({ months, onMonthsChange }: Props) {
           const selected = months.includes(month);
 
           return (
-            <ProductFilterButton
+            <RoadmapProductFilterButton
               key={month}
               label={month}
               selected={selected}
@@ -67,4 +67,4 @@ function MonthFilter({ months, onMonthsChange }: Props) {
   );
 }
 
-export default MonthFilter;
+export default RoadmapMonthFilter;

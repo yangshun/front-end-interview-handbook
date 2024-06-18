@@ -18,7 +18,7 @@ type Props = Omit<ButtonProps, 'variant'> &
     selected?: boolean;
   }>;
 
-function ProductFilterButton(
+function RoadmapProductFilterButton(
   { selected, className, ...props }: Props,
   ref: ForwardedRef<HTMLAnchorElement | HTMLButtonElement>,
 ) {
@@ -48,4 +48,4 @@ function ProductFilterButton(
   );
 }
 
-export default forwardRef(ProductFilterButton);
+export default forwardRef(RoadmapProductFilterButton);

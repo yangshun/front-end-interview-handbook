@@ -17,9 +17,9 @@ import Divider from '~/components/ui/Divider';
 import SlideOut from '~/components/ui/SlideOut';
 import Text from '~/components/ui/Text';
 
-import { MONTHS } from '../constants';
-import ProductFilterButton from '../productFilterButton/ProductFilterButton';
-import { getMonthsForYear } from '../utils';
+import { MONTHS } from './constants';
+import RoadmapProductFilterButton from './RoadmapProductFilterButton';
+import { getMonthsForYear } from './utils';
 
 type RoadmapFiltersType = 'months' | 'years';
 
@@ -103,7 +103,7 @@ function FilterSection({
             const selected = selectedOptions.includes(option);
 
             return (
-              <ProductFilterButton
+              <RoadmapProductFilterButton
                 key={option}
                 label={option}
                 selected={selected}

@@ -2,15 +2,18 @@
 
 import { useIntl } from 'react-intl';
 
-import type { Product } from '../hooks/useRoadmap';
-import ProductFilterButton from '../productFilterButton/ProductFilterButton';
+import type { Product } from './RoadmapPage';
+import RoadmapProductFilterButton from './RoadmapProductFilterButton';
 
 type Props = Readonly<{
   onProductFilterChange: (filters: Array<Product>) => void;
   selectedProducts: Array<Product>;
 }>;
 
-function ProductFilter({ onProductFilterChange, selectedProducts }: Props) {
+function RoadmapProductFilter({
+  onProductFilterChange,
+  selectedProducts,
+}: Props) {
   const intl = useIntl();
 
   const handleProductFilterChange = (product: Product) => {
@@ -28,7 +31,7 @@ function ProductFilter({ onProductFilterChange, selectedProducts }: Props) {
 
   return (
     <div className="flex items-center gap-4">
-      <ProductFilterButton
+      <RoadmapProductFilterButton
         label={intl.formatMessage({
           defaultMessage: 'Interviews',
           description: 'Label for Interviews filter button',
@@ -38,7 +41,7 @@ function ProductFilter({ onProductFilterChange, selectedProducts }: Props) {
         size="sm"
         onClick={() => handleProductFilterChange('interviews')}
       />
-      <ProductFilterButton
+      <RoadmapProductFilterButton
         label={intl.formatMessage({
           defaultMessage: 'Projects',
           description: 'Label for Project filter button',
@@ -52,4 +55,4 @@ function ProductFilter({ onProductFilterChange, selectedProducts }: Props) {
   );
 }
 
-export default ProductFilter;
+export default RoadmapProductFilter;

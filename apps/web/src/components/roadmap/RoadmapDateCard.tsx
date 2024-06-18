@@ -9,7 +9,7 @@ type Props = Readonly<{
   month: string;
 }>;
 
-function DateCard({ day, month }: Props) {
+function RoadmapDateCard({ day, month }: Props) {
   return (
     <div
       className={clsx(
@@ -25,4 +25,4 @@ function DateCard({ day, month }: Props) {
   );
 }
 
-export default DateCard;
+export default RoadmapDateCard;

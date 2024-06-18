@@ -10,7 +10,7 @@ type Props = Readonly<{
   years: Array<string>;
 }>;
 
-function YearFilter({ onYearChange, years }: Props) {
+function RoadmapYearFilter({ onYearChange, years }: Props) {
   const [selectedYear, setSelectedYear] = useState(() => years[0]);
 
   return (
@@ -47,4 +47,4 @@ function YearFilter({ onYearChange, years }: Props) {
   );
 }
 
-export default YearFilter;
+export default RoadmapYearFilter;

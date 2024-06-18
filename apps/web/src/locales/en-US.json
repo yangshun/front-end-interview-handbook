@@ -135,6 +135,10 @@
     "defaultMessage": "Company-tagged questions",
     "description": "Title for company-tagged questions feature"
   },
+  "/5Oi3r": {
+    "defaultMessage": "Nothing found just yet",
+    "description": "Title for empty state for roadmap"
+  },
   "/8GtPZ": {
     "defaultMessage": "All plans, including lifetime",
     "description": "Rewards discount message"
@@ -186,6 +190,10 @@
   "/TtmMj": {
     "defaultMessage": "Official solutions",
     "description": "Title of 'Official solutions' sub-feature in Projects marketing page"
+  },
+  "/Vt+sJ": {
+    "defaultMessage": "Launched",
+    "description": "Tooltip for launched icon in roadmap"
   },
   "/c/hHN": {
     "defaultMessage": "We use this to calculate your YOE and keep it updated",
@@ -1030,6 +1038,10 @@
   "74BSpM": {
     "defaultMessage": "Link URL",
     "description": "Label for link URL"
+  },
+  "75OcQW": {
+    "defaultMessage": "Roadmap for Front End Interviews",
+    "description": "Title of interview roadmap page"
   },
   "75oHxG": {
     "defaultMessage": "Showing {currentPageCount} out of {totalCount} challenges",
@@ -2355,6 +2367,10 @@
     "defaultMessage": "An eye-catching name to describe your solution. Will be displayed under the original Project's name and help other users identify your submission.",
     "description": "Description for submission title input on project submit page"
   },
+  "I1R2rY": {
+    "defaultMessage": "Something went wrong. Please try again later.",
+    "description": "Title for error state for roadmap"
+  },
   "I4lo5m": {
     "defaultMessage": "Practice Svelte Interview Questions with Solutions",
     "description": "Title of Svelte Interview Questions page"
@@ -2426,6 +2442,10 @@
   "IXT5w0": {
     "defaultMessage": "Question Language",
     "description": "Coding question language"
+  },
+  "IYbT+9": {
+    "defaultMessage": "Discover roadmap for upcoming features in Great Frontend Interviews.",
+    "description": "Description for interview roadmap page"
   },
   "IYc+7l": {
     "defaultMessage": "Light",
@@ -4059,6 +4079,10 @@
     "defaultMessage": "Filter by log level",
     "description": "Select label to filter console log by level"
   },
+  "USCbSv": {
+    "defaultMessage": "Adjust your filters a bit, and let’s see what we can find!",
+    "description": "Subtitle for empty state for roadmap"
+  },
   "UTPE3y": {
     "defaultMessage": "Dashboard",
     "description": "Title of Projects dashboard page"
@@ -5347,6 +5371,10 @@
     "defaultMessage": "Reset Progress",
     "description": "Title for reset progress confirmation dialog"
   },
+  "eC2IBn": {
+    "defaultMessage": "Roadmap for GreatFrontEnd in Projects",
+    "description": "Title of interview roadmap page"
+  },
   "eC4GRM": {
     "defaultMessage": "Filter user submissions by whether you have completed their corresponding challenges",
     "description": "Tooltip for Status filter for projects list"
@@ -5706,6 +5734,10 @@
   "gvLQbK": {
     "defaultMessage": "Premium Discord",
     "description": "Link to the premium Discord server"
+  },
+  "h37Wmk": {
+    "defaultMessage": "Discover roadmap for upcoming features in Great Frontend Projects.",
+    "description": "Description for roadmap page in projects"
   },
   "h38yCs": {
     "defaultMessage": "Questions List",
@@ -6859,6 +6891,10 @@
     "defaultMessage": "Filter by status",
     "description": "Tooltip for Status filter for projects list"
   },
+  "qJhNva": {
+    "defaultMessage": "Public roadmap",
+    "description": "Title of Public roadmap page"
+  },
   "qMWBqm": {
     "defaultMessage": "Easy code reviews",
     "description": "Title for \"Easy code reviews\" feature on Projects home page"
@@ -7042,6 +7078,10 @@
   "rzu02O": {
     "defaultMessage": "Nothing at all! Just click \"Start project\", and we will take care of everything else and guide you along the way.",
     "description": "FAQ answer for projects platform"
+  },
+  "s0MeXj": {
+    "defaultMessage": "Check it out",
+    "description": "Button label for check it out"
   },
   "s7CwKz": {
     "defaultMessage": "Behavioral Interview Study Guides",
@@ -7914,6 +7954,10 @@
   "zSySsj": {
     "defaultMessage": "Question Formats",
     "description": "Label for tabs for question formats"
+  },
+  "zUB9Jv": {
+    "defaultMessage": "Upcoming content or features to be launched. Not all features will be publicized on the roadmap.",
+    "description": "Description of Public roadmap page"
   },
   "zUR/Om": {
     "defaultMessage": "The page you requested could not be found",
