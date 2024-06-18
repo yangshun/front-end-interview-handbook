@@ -101,7 +101,7 @@ export default function NavProductMenuSelector({ variant, value }: Props) {
         )}
       </DropdownMenuPrimitive.Trigger>
       <DropdownMenuPrimitive.Portal>
-        <NavProductDropdownMenuContent />
+        <NavProductDropdownMenuContent product={value} />
       </DropdownMenuPrimitive.Portal>
     </DropdownMenuPrimitive.Root>
   );

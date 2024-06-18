@@ -104,6 +104,15 @@ function useFooterNavigation() {
           }),
         },
         {
+          href: '/projects/roadmap',
+          key: 'projects-roadmap',
+          name: intl.formatMessage({
+            defaultMessage: 'Roadmap',
+            description: 'Link to roadmap page',
+            id: '7VXf2Y',
+          }),
+        },
+        {
           href: '/about',
           key: 'about',
           name: intl.formatMessage({

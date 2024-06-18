@@ -90,7 +90,7 @@ export default function NavProductDropdownMenu({ value }: Props) {
         </Button>
       </DropdownMenuPrimitive.Trigger>
       <DropdownMenuPrimitive.Portal>
-        <NavProductDropdownMenuContent />
+        <NavProductDropdownMenuContent product={value} />
       </DropdownMenuPrimitive.Portal>
     </DropdownMenuPrimitive.Root>
   );

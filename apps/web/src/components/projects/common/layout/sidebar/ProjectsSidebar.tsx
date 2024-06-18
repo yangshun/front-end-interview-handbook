@@ -1,7 +1,11 @@
 'use client';
 
 import clsx from 'clsx';
-import { RiLinkedinFill, RiSettings3Line } from 'react-icons/ri';
+import {
+  RiLinkedinFill,
+  RiSettings3Line,
+  RiTimelineView,
+} from 'react-icons/ri';
 import { useIntl } from 'react-intl';
 
 import { SocialLinks } from '~/data/SocialLinks';
@@ -37,6 +41,22 @@ function SettingsMenuItem() {
   );
 }
 
+function RoadmapMenuItem() {
+  const intl = useIntl();
+
+  return (
+    <DropdownMenu.Item
+      href="/projects/roadmap"
+      icon={RiTimelineView}
+      label={intl.formatMessage({
+        defaultMessage: 'Roadmap',
+        description: 'Label for roadmap in sidebar',
+        id: 'e6dIRP',
+      })}
+    />
+  );
+}
+
 export function ProjectsSidebarExpanded({
   onCollapseClick,
   sidebarItems,
@@ -66,7 +86,12 @@ export function ProjectsSidebarExpanded({
       }
       isLoading={isLoading}
       isViewerPremium={userProfile?.projectsProfile?.premium ?? false}
-      moreMenuItems={userProfile && <SettingsMenuItem />}
+      moreMenuItems={
+        <>
+          {userProfile && <SettingsMenuItem />}
+          <RoadmapMenuItem />
+        </>
+      }
       product="projects"
       renderBottomAddonElements={() => <ProjectsSidebarCTACard />}
       renderTopAddonElements={(fadeInClass) => (

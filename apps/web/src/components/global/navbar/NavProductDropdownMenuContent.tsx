@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import { RiAwardLine, RiBriefcaseLine } from 'react-icons/ri';
+import { RiAwardLine, RiBriefcaseLine, RiTimelineView } from 'react-icons/ri';
 
 import useCommonNavItems from '~/components/common/navigation/useCommonNavItems';
 import InterviewsLogo from '~/components/global/logos/InterviewsLogo';
@@ -79,7 +79,9 @@ function NavProductDropdownMenuItem({
   );
 }
 
-export default function NavProductDropdownMenuContent() {
+type Props = Readonly<{ product: 'interviews' | 'projects' }>;
+
+export default function NavProductDropdownMenuContent({ product }: Props) {
   const items = useCommonNavItems();
   const [showUnseenIndicator] = useProductMenuUnseenIndicator();
 
@@ -148,6 +150,20 @@ export default function NavProductDropdownMenuContent() {
           variant="secondary">
           <RiAwardLine className="size-4 shrink-0" />
           Become an affiliate
+        </Anchor>
+        <Anchor
+          className={clsx(
+            'inline-flex items-center gap-2 p-3',
+            textVariants({
+              color: 'inherit',
+              size: 'body2',
+              weight: 'medium',
+            }),
+          )}
+          href={`/${product}/roadmap`}
+          variant="secondary">
+          <RiTimelineView className="size-4 shrink-0" />
+          Roadmap
         </Anchor>
         <Anchor
           className={clsx(

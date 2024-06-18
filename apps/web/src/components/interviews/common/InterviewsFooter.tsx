@@ -134,6 +134,15 @@ function useFooterNavigation() {
           }),
         },
         {
+          href: '/interviews/roadmap',
+          key: 'interviews-roadmap',
+          name: intl.formatMessage({
+            defaultMessage: 'Roadmap',
+            description: 'Link to roadmap page',
+            id: '7VXf2Y',
+          }),
+        },
+        {
           href: '/about',
           key: 'about',
           name: intl.formatMessage({

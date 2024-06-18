@@ -667,6 +667,10 @@
     "defaultMessage": "Large question bank",
     "description": "Title of the 'Practice Everything Here' marketing section on Homepage"
   },
+  "3l9u0k": {
+    "defaultMessage": "View roadmap",
+    "description": "Entrypoint for view roadmap on hero section of Interviews"
+  },
   "3lEE1N": {
     "defaultMessage": "New",
     "description": "Label for new questions ribbon"
@@ -1110,6 +1114,10 @@
   "7SbsXo": {
     "defaultMessage": "All the assets you need to build a {challengeName}, including design assets, technical specs, starter code, and more",
     "description": "Description of Projects challenge assets page"
+  },
+  "7VXf2Y": {
+    "defaultMessage": "Roadmap",
+    "description": "Link to roadmap page"
   },
   "7Wsapt": {
     "defaultMessage": "Quiz",
@@ -5366,6 +5374,10 @@
   "e5o4mU": {
     "defaultMessage": "Heading",
     "description": "Label for heading"
+  },
+  "e6dIRP": {
+    "defaultMessage": "Roadmap",
+    "description": "Label for roadmap in sidebar"
   },
   "eBp6vh": {
     "defaultMessage": "Reset Progress",

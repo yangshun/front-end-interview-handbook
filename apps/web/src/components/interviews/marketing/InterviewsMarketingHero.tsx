@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import { RiArrowRightLine, RiBriefcaseLine } from 'react-icons/ri';
+import { RiArrowRightLine, RiTimelineView } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
 
 import MarketingHeroBackground from '~/components/marketing/MarketingHeroBackground';
@@ -110,10 +110,20 @@ export default function InterviewsMarketingHero() {
                     'bg-brand/20 hover:bg-brand/30 transition-colors',
                     'shiny shadow-sm',
                   )}
-                  href="/jobs"
+                  href="/interviews/roadmap"
                   variant="unstyled">
-                  We're hiring!
-                  <RiBriefcaseLine
+                  <RiTimelineView
+                    className={clsx(
+                      'text-brand size-4 shrink-0',
+                      'transition-transform duration-150 ease-in-out group-hover:scale-105',
+                    )}
+                  />
+                  <FormattedMessage
+                    defaultMessage="View roadmap"
+                    description="Entrypoint for view roadmap on hero section of Interviews"
+                    id="3l9u0k"
+                  />
+                  <RiArrowRightLine
                     className={clsx(
                       'text-brand size-4 shrink-0',
                       'transition-transform duration-150 ease-in-out group-hover:scale-105',
