@@ -11,7 +11,8 @@
   "metadata": {
     "author": null,
     "companies": [
-      "lyft"
+      "lyft",
+      "uber"
     ],
     "created": 1699401600,
     "difficulty": "medium",

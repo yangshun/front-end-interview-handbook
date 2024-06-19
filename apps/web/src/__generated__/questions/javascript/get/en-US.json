@@ -10,7 +10,9 @@
   "format": "javascript",
   "metadata": {
     "author": "yangshun",
-    "companies": [],
+    "companies": [
+      "tiktok"
+    ],
     "created": 1649894400,
     "difficulty": "easy",
     "duration": 10,

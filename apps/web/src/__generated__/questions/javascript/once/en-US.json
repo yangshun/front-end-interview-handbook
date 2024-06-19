@@ -10,7 +10,9 @@
   "format": "javascript",
   "metadata": {
     "author": "yangshun",
-    "companies": [],
+    "companies": [
+      "amazon"
+    ],
     "created": 1670803200,
     "difficulty": "easy",
     "duration": 10,

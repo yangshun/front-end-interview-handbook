@@ -10,7 +10,9 @@
   "format": "javascript",
   "metadata": {
     "author": "zhenghao",
-    "companies": [],
+    "companies": [
+      "tiktok"
+    ],
     "created": 1654992000,
     "difficulty": "medium",
     "duration": 20,

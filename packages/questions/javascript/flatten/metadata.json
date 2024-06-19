@@ -3,7 +3,7 @@
   "author": "zhenghao",
   "created": "2022-04-14T00:00:00.000Z",
   "languages": ["js", "ts"],
-  "companies": ["apple", "salesforce"],
+  "companies": ["amazon", "apple", "lyft", "meta", "rippling", "salesforce"],
   "premium": false,
   "duration": 20,
   "published": true,

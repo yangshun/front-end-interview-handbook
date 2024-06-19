@@ -10,7 +10,10 @@
   "format": "javascript",
   "metadata": {
     "author": "zhenghao",
-    "companies": [],
+    "companies": [
+      "amazon",
+      "rippling"
+    ],
     "created": 1656201600,
     "difficulty": "easy",
     "duration": 15,

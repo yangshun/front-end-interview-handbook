@@ -331,7 +331,8 @@
   {
     "author": null,
     "companies": [
-      "bytedance"
+      "bytedance",
+      "linkedin"
     ],
     "created": 1652832000,
     "difficulty": "easy",
@@ -1527,6 +1528,7 @@
     "companies": [
       "google",
       "lyft",
+      "rippling",
       "tiktok"
     ],
     "created": 1669420800,
@@ -1682,7 +1684,11 @@
   {
     "author": "zhenghao",
     "companies": [
+      "amazon",
       "apple",
+      "lyft",
+      "meta",
+      "rippling",
       "salesforce"
     ],
     "created": 1649894400,
@@ -1838,7 +1844,10 @@
   },
   {
     "author": "zhenghao",
-    "companies": [],
+    "companies": [
+      "amazon",
+      "rippling"
+    ],
     "created": 1656201600,
     "difficulty": "easy",
     "duration": 15,
@@ -1938,7 +1947,9 @@
   },
   {
     "author": "yangshun",
-    "companies": [],
+    "companies": [
+      "tiktok"
+    ],
     "created": 1649894400,
     "difficulty": "easy",
     "duration": 10,
@@ -2168,7 +2179,9 @@
   },
   {
     "author": "zhenghao",
-    "companies": [],
+    "companies": [
+      "tiktok"
+    ],
     "created": 1654992000,
     "difficulty": "medium",
     "duration": 20,
@@ -2747,7 +2760,8 @@
   {
     "author": null,
     "companies": [
-      "lyft"
+      "lyft",
+      "uber"
     ],
     "created": 1699401600,
     "difficulty": "medium",
@@ -2780,7 +2794,8 @@
   {
     "author": null,
     "companies": [
-      "lyft"
+      "lyft",
+      "uber"
     ],
     "created": 1699401600,
     "difficulty": "medium",
@@ -2870,7 +2885,8 @@
   {
     "author": null,
     "companies": [
-      "intuit"
+      "intuit",
+      "linkedin"
     ],
     "created": 1690848000,
     "difficulty": "medium",
@@ -2898,7 +2914,9 @@
   },
   {
     "author": null,
-    "companies": [],
+    "companies": [
+      "linkedin"
+    ],
     "created": 1690848000,
     "difficulty": "medium",
     "duration": 30,
@@ -3124,7 +3142,9 @@
   },
   {
     "author": "yangshun",
-    "companies": [],
+    "companies": [
+      "amazon"
+    ],
     "created": 1670803200,
     "difficulty": "easy",
     "duration": 10,
@@ -3404,6 +3424,7 @@
   {
     "author": "yangshun",
     "companies": [
+      "amazon",
       "bytedance",
       "lyft",
       "tiktok"
@@ -4392,6 +4413,7 @@
     "author": "yangshun",
     "companies": [
       "google",
+      "tiktok",
       "walmart",
       "yelp"
     ],

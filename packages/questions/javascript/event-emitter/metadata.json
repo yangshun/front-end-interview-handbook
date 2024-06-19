@@ -2,7 +2,7 @@
   "slug": "event-emitter",
   "created": "2022-11-26T00:00:00.000Z",
   "languages": ["js", "ts"],
-  "companies": ["google", "lyft", "tiktok"],
+  "companies": ["google", "lyft", "rippling", "tiktok"],
   "premium": false,
   "duration": 20,
   "published": true,
