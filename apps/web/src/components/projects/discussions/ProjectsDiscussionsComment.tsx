@@ -57,6 +57,7 @@ export default function ProjectsDiscussionsComment({
     body,
     category,
     replies,
+    updatedAt,
   } = comment;
   const intl = useIntl();
   const replyCount = replies?.length ?? 0;
@@ -155,7 +156,12 @@ export default function ProjectsDiscussionsComment({
               }}
             />
           ) : (
-            <RichText color="body" size="sm" value={body} />
+            <RichText
+              key={updatedAt.getTime()}
+              color="body"
+              size="sm"
+              value={body}
+            />
           )}
           <div
             className={clsx(
