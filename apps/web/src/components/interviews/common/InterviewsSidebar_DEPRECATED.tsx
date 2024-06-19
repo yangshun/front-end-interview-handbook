@@ -2,6 +2,7 @@ import clsx from 'clsx';
 import type { ReactNode } from 'react';
 import {
   RiBookOpenLine,
+  RiBuildingLine,
   RiCalendar2Line,
   RiContractLeftLine,
   RiContractRightLine,
@@ -91,18 +92,6 @@ function useSidebarNavigation() {
           href: guidesData['front-end-interview-guidebook'].href,
           icon: guidesData['front-end-interview-guidebook'].icon,
           key: guidesData['front-end-interview-guidebook'].key,
-          labelAddon: (
-            <Badge
-              label={intl.formatMessage({
-                defaultMessage: 'Free',
-                description:
-                  'Label to indicate that the item is free of charge',
-                id: 'VcLkXG',
-              })}
-              size="sm"
-              variant="success"
-            />
-          ),
           name: guidesData['front-end-interview-guidebook'].name,
           type: 'link',
         },
@@ -162,6 +151,19 @@ function useSidebarNavigation() {
         defaultMessage: 'Focus areas',
         description: 'Sidebar label for interview focus area category',
         id: 'PXLoIh',
+      }),
+      type: 'link',
+    },
+    {
+      currentMatchRegex: /^\/interviews\/company/,
+      href: '/interviews/company',
+      icon: RiBuildingLine,
+      key: 'company',
+      labelAddon: <Badge label="New!" size="xs" variant="success" />,
+      name: intl.formatMessage({
+        defaultMessage: 'Company guides',
+        description: 'Sidebar label for page showing list of companies',
+        id: 'k1fJ6k',
       }),
       type: 'link',
     },
@@ -260,6 +262,7 @@ export default function InterviewsSidebar_DEPRECATED({
                 href={item.href}
                 variant="unstyled">
                 {label}
+                {item.labelAddon}
               </Anchor>
             );
 

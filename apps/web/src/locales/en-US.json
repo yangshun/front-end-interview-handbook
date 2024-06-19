@@ -1843,6 +1843,10 @@
     "defaultMessage": "Pagination",
     "description": "Pagination label"
   },
+  "DXfMmT": {
+    "defaultMessage": "Purchase premium to unlock full access to the company guides and all questions with high quality solutions",
+    "description": "Study plans paywall description"
+  },
   "DbEF7d": {
     "defaultMessage": "Master the art of building interactive and user-friendly forms.",
     "description": "Description for interview preparation focus area"
@@ -2794,10 +2798,6 @@
   "L/BHun": {
     "defaultMessage": "Send us a Message",
     "description": "Title for send us a feedback modal"
-  },
-  "L/qzr6": {
-    "defaultMessage": "{numberOfQuestions} questions",
-    "description": "Number of questions in a list"
   },
   "L15VNt": {
     "defaultMessage": "Yes, rest assured that unspent credits will roll over to the next month or year and never expire.",
@@ -5803,6 +5803,10 @@
     "defaultMessage": "Why be a GreatFrontEnd Affiliate?",
     "description": "Title for the 'Why become an affiliate' section on the 'Become an Affiliate' page"
   },
+  "hRQS6E": {
+    "defaultMessage": "Premium company guides",
+    "description": "Company guides paywall title"
+  },
   "hYp7sF": {
     "defaultMessage": "Normal",
     "description": "Label for Normal"
@@ -7794,6 +7798,10 @@
   "xsaQ0d": {
     "defaultMessage": "Student Discount",
     "description": "Promotion title"
+  },
+  "xtxnjG": {
+    "defaultMessage": "{numberOfQuestions, plural, =0 {no questions} one {1 question} other {# questions}}",
+    "description": "Number of questions in a list"
   },
   "xyPOJe": {
     "defaultMessage": "{points} Reputation",

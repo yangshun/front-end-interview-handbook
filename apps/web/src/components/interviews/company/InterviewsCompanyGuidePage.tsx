@@ -7,11 +7,14 @@ import { useIntl } from 'react-intl';
 
 import { trpc } from '~/hooks/trpc';
 
+import { useUserProfile } from '~/components/global/UserProfileProvider';
+import QuestionPaywall from '~/components/interviews/questions/common/QuestionPaywall';
 import type {
   QuestionFormat,
   QuestionMetadata,
   QuestionSlug,
 } from '~/components/interviews/questions/common/QuestionsTypes';
+import QuestionsList from '~/components/interviews/questions/listings/items/QuestionsList';
 import QuestionsLearningList from '~/components/interviews/questions/listings/learning/QuestionsLearningList';
 import QuestionsLearningListTitleSection from '~/components/interviews/questions/listings/learning/QuestionsLearningListTitleSection';
 import Button from '~/components/ui/Button';
@@ -42,6 +45,9 @@ export default function InterviewsCompanyGuidePage({
   systemDesignQuestions,
 }: Props) {
   const intl = useIntl();
+  const { userProfile } = useUserProfile();
+  const canViewStudyPlans = userProfile?.isInterviewsPremium;
+
   const { data: questionProgressParam } =
     trpc.questionProgress.getAll.useQuery();
   const { data: questionListsProgressParam } =
@@ -108,7 +114,7 @@ export default function InterviewsCompanyGuidePage({
             questionCount={questionCount}
             questionListKey={companyGuide.slug}
             themeBackgroundClass={clsx('bg-white', 'shadow-md')}
-            title={companyGuide.name}
+            title={`${companyGuide.name} front end interview questions guide`}
           />
         </div>
       </Container>
@@ -138,14 +144,59 @@ export default function InterviewsCompanyGuidePage({
               title="Final round"
             />
           </CardContainer> */}
-          <QuestionsLearningList
-            codingQuestions={codingQuestions}
-            listKey={companyGuide.slug}
-            overallProgress={questionsOverallProgress}
-            quizQuestions={quizQuestions}
-            sessionProgress={questionsSessionProgress}
-            systemDesignQuestions={systemDesignQuestions}
-          />
+          {canViewStudyPlans ? (
+            <QuestionsLearningList
+              codingQuestions={codingQuestions}
+              listKey={companyGuide.slug}
+              overallProgress={questionsOverallProgress}
+              quizQuestions={quizQuestions}
+              sessionProgress={questionsSessionProgress}
+              systemDesignQuestions={systemDesignQuestions}
+            />
+          ) : (
+            <div className="relative">
+              <div
+                className={clsx(
+                  'min-h-[500px]',
+                  'pointer-events-none touch-none select-none',
+                )}
+                // So that focus cannot go into the card, which is not meant to be used.
+                {...{ inert: '' }}>
+                <QuestionsList
+                  checkIfCompletedQuestion={() => false}
+                  questions={[...codingQuestions, ...quizQuestions].slice(0, 4)}
+                />
+              </div>
+              <div
+                className={clsx(
+                  'absolute bottom-0 top-0',
+                  'w-full overflow-hidden rounded-b-lg',
+                )}>
+                <div
+                  className={clsx(
+                    'absolute bottom-0 top-0 w-full',
+                    'bg-gradient-to-t from-white via-white dark:from-neutral-950 dark:via-neutral-950',
+                  )}
+                />
+                <div className={clsx('absolute bottom-0 w-full px-8')}>
+                  <QuestionPaywall
+                    background={false}
+                    subtitle={intl.formatMessage({
+                      defaultMessage:
+                        'Purchase premium to unlock full access to the company guides and all questions with high quality solutions',
+                      description: 'Study plans paywall description',
+                      id: 'DXfMmT',
+                    })}
+                    title={intl.formatMessage({
+                      defaultMessage: 'Premium company guides',
+                      description: 'Company guides paywall title',
+                      id: 'hRQS6E',
+                    })}
+                  />
+                </div>
+              </div>
+            </div>
+          )}
         </Container>
       </Section>
     </div>

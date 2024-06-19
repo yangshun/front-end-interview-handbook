@@ -59,7 +59,7 @@ const testimonials = [
       <img
         alt="Microsoft logo mark"
         className="size-8 flex-none rounded-full object-cover"
-        src="/img/company-logos/microsoft-logomark.png"
+        src="/img/company-logos/microsoft-logomark.svg"
       />
     ),
     quote: (
@@ -83,7 +83,7 @@ const testimonials = [
       <img
         alt="Amazon logo mark"
         className="size-8 flex-none rounded-full object-cover"
-        src="/img/company-logos/amazon-logomark.png"
+        src="/img/company-logos/amazon-logomark.svg"
       />
     ),
     quote: (
