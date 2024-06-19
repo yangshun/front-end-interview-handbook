@@ -429,8 +429,8 @@ export function processTextDecoration(
         label: 'Text decoration',
         value: 'Linethrough',
       });
-      cssProperties['text-decoration-line'] = 'strikethrough';
-      tailwindClasses.add('strikethrough');
+      cssProperties['text-decoration-line'] = 'line-through';
+      tailwindClasses.add('line-through');
 
       return;
     }
