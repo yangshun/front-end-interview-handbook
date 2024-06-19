@@ -16,6 +16,7 @@ import { getPreparationPlanTheme } from '~/data/plans/PreparationPlans';
 import InterviewsMarketingTestimonialCard from '~/components/interviews/marketing/testimonials/InterviewsMarketingTestimonialCard';
 import { useInterviewsMarketingTestimonialsDict } from '~/components/interviews/marketing/testimonials/InterviewsMarketingTestimonials';
 import type { QuestionDifficulty } from '~/components/interviews/questions/common/QuestionsTypes';
+import CompletionCountSummary from '~/components/interviews/questions/listings/stats/CompletionCountSummary';
 import QuestionCountLabel from '~/components/interviews/questions/metadata/QuestionCountLabel';
 import QuestionDifficultySummary from '~/components/interviews/questions/metadata/QuestionDifficultySummary';
 import QuestionStudyAllocationLabel from '~/components/interviews/questions/metadata/QuestionStudyAllocationLabel';
@@ -29,8 +30,6 @@ import Text from '~/components/ui/Text';
 import { themeGlassyBorder } from '~/components/ui/theme';
 
 import { countNumberOfQuestionsInList } from '~/db/QuestionsUtils';
-
-import CompletionCountSummary from './CompletionCountSummary';
 
 function PreparationPlanCard({
   difficultySummary,

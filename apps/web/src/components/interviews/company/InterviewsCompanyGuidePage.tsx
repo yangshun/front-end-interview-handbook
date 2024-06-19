@@ -79,7 +79,7 @@ export default function InterviewsCompanyGuidePage({
           <Button
             addonPosition="start"
             className="-mb-2 -ml-5"
-            href="/interviews/companies"
+            href="/interviews/company"
             icon={RiArrowLeftLine}
             label={intl.formatMessage({
               defaultMessage: 'Back to companies',

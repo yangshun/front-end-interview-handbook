@@ -11,6 +11,8 @@ import Tooltip from '~/components/ui/Tooltip';
 type Props = Readonly<{
   color?: 'default' | 'inherit';
   count: number;
+  icon?: (props: React.ComponentProps<'svg'>) => JSX.Element;
+  label?: string;
   showIcon?: boolean;
   size?: TextSize;
 }>;
@@ -18,16 +20,21 @@ type Props = Readonly<{
 export default function QuestionCountLabel({
   count,
   color = 'default',
+  icon,
+  label: labelProp,
   showIcon = false,
   size = 'body3',
 }: Props) {
   const id = useId();
   const intl = useIntl();
-  const label = intl.formatMessage({
+  const defaultLabel = intl.formatMessage({
     defaultMessage: 'Number of questions',
     description: 'Total number of questions in a list',
     id: 'fRGOI+',
   });
+  const label = labelProp ?? defaultLabel;
+
+  const Icon = icon ?? RiBookOpenLine;
 
   return (
     <Tooltip label={label}>
@@ -36,7 +43,7 @@ export default function QuestionCountLabel({
       </span>
       <div aria-labelledby={id} className="flex items-center gap-x-1.5">
         {showIcon && (
-          <RiBookOpenLine
+          <Icon
             aria-hidden="true"
             className={clsx('size-5 shrink-0', themeIconColor)}
           />

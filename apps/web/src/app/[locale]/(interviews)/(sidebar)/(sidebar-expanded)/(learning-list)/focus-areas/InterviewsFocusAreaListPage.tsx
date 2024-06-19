@@ -14,6 +14,7 @@ import type {
 import { getFocusAreaTheme } from '~/data/focus-areas/FocusAreas';
 
 import type { QuestionDifficulty } from '~/components/interviews/questions/common/QuestionsTypes';
+import CompletionCountSummary from '~/components/interviews/questions/listings/stats/CompletionCountSummary';
 import QuestionCountLabel from '~/components/interviews/questions/metadata/QuestionCountLabel';
 import QuestionDifficultySummary from '~/components/interviews/questions/metadata/QuestionDifficultySummary';
 import Anchor from '~/components/ui/Anchor';
@@ -25,8 +26,6 @@ import Text from '~/components/ui/Text';
 import { themeGlassyBorder } from '~/components/ui/theme';
 
 import { countNumberOfQuestionsInList } from '~/db/QuestionsUtils';
-
-import CompletionCountSummary from '../study-plans/CompletionCountSummary';
 
 function FocusAreaCard({
   difficultySummary,

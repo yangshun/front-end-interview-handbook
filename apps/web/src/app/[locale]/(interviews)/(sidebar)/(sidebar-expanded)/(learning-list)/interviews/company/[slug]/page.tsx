@@ -32,7 +32,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
 
   return defaultMetadata({
-    description: `Ace your ${companyGuide.name} front end interview with these curated questions.`,
+    description: `Ace your ${companyGuide.name} front end interview with these curated questions`,
     locale,
     pathname: `/interviews/company/${slug}`,
     title: companyGuide.name,

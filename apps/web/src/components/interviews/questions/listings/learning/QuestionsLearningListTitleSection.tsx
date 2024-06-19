@@ -94,7 +94,13 @@ export default function QuestionsLearningListTitleSection({
               themeBackgroundClass,
             )}>
             {logoImgSrc ? (
-              <img alt={title} className="size-10" src={logoImgSrc} />
+              <img
+                alt={title}
+                className="size-10"
+                decoding="async"
+                loading="lazy"
+                src={logoImgSrc}
+              />
             ) : (
               <Icon aria-hidden={true} className="size-10" />
             )}

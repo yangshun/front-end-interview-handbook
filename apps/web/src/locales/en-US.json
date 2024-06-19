@@ -6099,6 +6099,10 @@
     "defaultMessage": "Filters",
     "description": "Label for filters button"
   },
+  "k2qYCS": {
+    "defaultMessage": "Company guides",
+    "description": "Title of company guides page"
+  },
   "k64L83": {
     "defaultMessage": "{discountPercentage}% off GreatFrontEnd Annual plan.",
     "description": "Subtitle of discount promotion card"
@@ -7058,6 +7062,10 @@
   "rZaG+f": {
     "defaultMessage": "Unpin one or more existing submissions to pin a new one.",
     "description": "Dialog subtitle for pinned submission"
+  },
+  "rejvXu": {
+    "defaultMessage": "Explore guides, interview questions, and preparation resources tailored to popular companies and ace your interviews.",
+    "description": "Description for company guides page"
   },
   "rfI2w+": {
     "defaultMessage": "Cancel",
