@@ -19,7 +19,7 @@ import Section from '~/components/ui/Heading/HeadingContext';
 import Text from '~/components/ui/Text';
 import { themeGlassyBorder } from '~/components/ui/theme';
 
-function CompanyGuideCard({
+function InterviewsCompanyGuideCard({
   companyGuide,
   isStarted = false,
   completionCount = 0,
@@ -51,9 +51,10 @@ function CompanyGuideCard({
       className={clsx(
         'flex-2 group relative flex items-center gap-6',
         'rounded-lg p-4',
-        'isolate',
-        'bg-white transition dark:bg-neutral-800/70 dark:hover:bg-neutral-800/80',
+        'bg-white hover:bg-neutral-50 dark:bg-neutral-800/70 dark:hover:bg-neutral-800/80',
+        'transition',
         themeGlassyBorder,
+        'isolate',
       )}>
       <div className="flex flex-grow gap-4 self-stretch">
         <div
@@ -65,7 +66,7 @@ function CompanyGuideCard({
           )}>
           <img
             alt={name}
-            className="size-12"
+            className="size-10"
             decoding="async"
             loading="lazy"
             src={logoUrl}
@@ -91,7 +92,7 @@ function CompanyGuideCard({
               </span>
             )}
           </div>
-          <div className="z-[1] flex flex-wrap items-center gap-x-8 gap-y-2">
+          <div className="z-[1] flex flex-wrap items-center gap-x-4 gap-y-2">
             {questionsCodingCount > 0 && (
               <QuestionCountLabel
                 count={questionsCodingCount}
@@ -134,7 +135,9 @@ type Props = Readonly<{
   companyGuides: Array<InterviewsCompanyGuide>;
 }>;
 
-export default function InterviewsFocusAreaListPage({ companyGuides }: Props) {
+export default function InterviewsCompanyGuideListPage({
+  companyGuides,
+}: Props) {
   const intl = useIntl();
   const { data: questionListSessions } =
     trpc.questionLists.getActiveSessions.useQuery();
@@ -174,7 +177,7 @@ export default function InterviewsFocusAreaListPage({ companyGuides }: Props) {
             const completionCount = session?._count.progress;
 
             return (
-              <CompanyGuideCard
+              <InterviewsCompanyGuideCard
                 key={companyGuide.slug}
                 companyGuide={companyGuide}
                 completionCount={completionCount}

@@ -23,9 +23,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function Page() {
-  return (
-    <InterviewsCompanyGuideListPage
-      companyGuides={allInterviewsCompanyGuides}
-    />
-  );
+  const sortedGuides = allInterviewsCompanyGuides
+    .slice()
+    .sort((a, b) => a.ranking - b.ranking);
+
+  return <InterviewsCompanyGuideListPage companyGuides={sortedGuides} />;
 }

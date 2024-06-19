@@ -4243,10 +4243,6 @@
     "defaultMessage": "Get the right practical foundation from the get-go",
     "description": "Title of 'Practical foundation' feature in Projects marketing page"
   },
-  "VcLkXG": {
-    "defaultMessage": "Free",
-    "description": "Label to indicate that the item is free of charge"
-  },
   "VeRWF3": {
     "defaultMessage": "Challenge guide",
     "description": "Project guides category title"
@@ -6094,6 +6090,10 @@
   "k1dcHz": {
     "defaultMessage": "Latest first",
     "description": "Sorting option for blog list"
+  },
+  "k1fJ6k": {
+    "defaultMessage": "Company guides",
+    "description": "Sidebar label for page showing list of companies"
   },
   "k2Oi+j": {
     "defaultMessage": "Filters",

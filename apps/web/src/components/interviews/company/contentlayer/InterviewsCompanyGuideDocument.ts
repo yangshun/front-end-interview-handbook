@@ -10,7 +10,9 @@ export const InterviewsCompanyGuideDocument = defineDocumentType(() => ({
     href: {
       description: 'Link to company guide page',
       resolve: (doc) =>
-        `/interviews/company/${parseCompanySlug(doc._raw.sourceFilePath)}`,
+        `/interviews/company/${parseCompanySlug(
+          doc._raw.sourceFilePath,
+        )}/questions-guides`,
       type: 'string',
     },
     slug: {
@@ -55,6 +57,7 @@ export const InterviewsCompanyGuideDocument = defineDocumentType(() => ({
       required: false,
       type: 'list',
     },
+    ranking: { default: 999, required: false, type: 'number' },
   },
   filePathPattern: 'interviews/company/*.mdx',
   name: 'InterviewsCompanyGuide',

@@ -14,6 +14,7 @@ type Props = Readonly<{
   icon?: (props: React.ComponentProps<'svg'>) => JSX.Element;
   label?: string;
   showIcon?: boolean;
+  showQuestionsLabel?: boolean;
   size?: TextSize;
 }>;
 
@@ -22,6 +23,7 @@ export default function QuestionCountLabel({
   color = 'default',
   icon,
   label: labelProp,
+  showQuestionsLabel = true,
   showIcon = false,
   size = 'body3',
 }: Props) {
@@ -55,14 +57,18 @@ export default function QuestionCountLabel({
           )}
           color="inherit"
           size={size}>
-          <FormattedMessage
-            defaultMessage="{numberOfQuestions} questions"
-            description="Number of questions in a list"
-            id="L/qzr6"
-            values={{
-              numberOfQuestions: count,
-            }}
-          />
+          {showQuestionsLabel ? (
+            <FormattedMessage
+              defaultMessage="{numberOfQuestions, plural, =0 {no questions} one {1 question} other {# questions}}"
+              description="Number of questions in a list"
+              id="xtxnjG"
+              values={{
+                numberOfQuestions: count,
+              }}
+            />
+          ) : (
+            count
+          )}
         </Text>
       </div>
     </Tooltip>
