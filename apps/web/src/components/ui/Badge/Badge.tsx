@@ -18,7 +18,7 @@ export type BadgeVariant =
   | 'special'
   | 'success'
   | 'warning';
-export type BadgeSize = 'md' | 'sm';
+export type BadgeSize = 'md' | 'sm' | 'xs';
 
 type Props = HTMLAttributes<HTMLSpanElement> &
   Readonly<{
@@ -94,11 +94,13 @@ const variantClasses: Record<
 const sizeClasses: Record<BadgeSize, string> = {
   md: 'px-3 text-sm gap-1.5',
   sm: 'px-2 text-xs gap-1',
+  xs: 'px-1.5 text-2xs gap-1',
 };
 
 const iconSizeClasses: Record<BadgeSize, string> = {
   md: '-ms-0.5 size-4',
   sm: '-ms-0.5 size-3',
+  xs: '-ms-0.5 size-2.5',
 };
 
 function Badge(
