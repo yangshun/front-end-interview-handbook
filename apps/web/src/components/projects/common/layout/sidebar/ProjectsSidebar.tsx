@@ -1,11 +1,8 @@
 'use client';
 
 import clsx from 'clsx';
-import {
-  RiLinkedinFill,
-  RiSettings3Line,
-  RiTimelineView,
-} from 'react-icons/ri';
+import { PiPathBold } from 'react-icons/pi';
+import { RiLinkedinFill, RiSettings3Line } from 'react-icons/ri';
 import { useIntl } from 'react-intl';
 
 import { SocialLinks } from '~/data/SocialLinks';
@@ -47,7 +44,7 @@ function RoadmapMenuItem() {
   return (
     <DropdownMenu.Item
       href="/projects/roadmap"
-      icon={RiTimelineView}
+      icon={PiPathBold}
       label={intl.formatMessage({
         defaultMessage: 'Roadmap',
         description: 'Label for roadmap in sidebar',

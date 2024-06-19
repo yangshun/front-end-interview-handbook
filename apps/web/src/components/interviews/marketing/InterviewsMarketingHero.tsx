@@ -1,5 +1,6 @@
 import clsx from 'clsx';
-import { RiArrowRightLine, RiTimelineView } from 'react-icons/ri';
+import { PiPathBold } from 'react-icons/pi';
+import { RiArrowRightLine } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
 
 import MarketingHeroBackground from '~/components/marketing/MarketingHeroBackground';
@@ -112,7 +113,7 @@ export default function InterviewsMarketingHero() {
                   )}
                   href="/interviews/roadmap"
                   variant="unstyled">
-                  <RiTimelineView
+                  <PiPathBold
                     className={clsx(
                       'text-brand size-4 shrink-0',
                       'transition-transform duration-150 ease-in-out group-hover:scale-105',

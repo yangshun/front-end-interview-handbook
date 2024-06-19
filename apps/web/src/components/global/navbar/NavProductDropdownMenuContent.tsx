@@ -1,5 +1,6 @@
 import clsx from 'clsx';
-import { RiAwardLine, RiBriefcaseLine, RiTimelineView } from 'react-icons/ri';
+import { PiPathBold } from 'react-icons/pi';
+import { RiAwardLine, RiBriefcaseLine } from 'react-icons/ri';
 
 import useCommonNavItems from '~/components/common/navigation/useCommonNavItems';
 import InterviewsLogo from '~/components/global/logos/InterviewsLogo';
@@ -169,7 +170,7 @@ export default function NavProductDropdownMenuContent({ product }: Props) {
           )}
           href={roadmapLinks[product]}
           variant="secondary">
-          <RiTimelineView className="size-4 shrink-0" />
+          <PiPathBold className="size-4 shrink-0" />
           Roadmap
         </Anchor>
         <Anchor
