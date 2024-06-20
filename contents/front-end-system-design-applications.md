@@ -6,20 +6,20 @@ sidebar_label: Applications
 
 :::info We are now part of GreatFrontEnd!
 
-Front End Interview Handbook is now part of [GreatFrontEnd](https://www.greatfrontend.com?fpr=yangshun)! We are working to migrate the content over and you may find the latest version of this page on [GreatFrontEnd](https://www.greatfrontend.com/system-design/types-of-questions?fpr=yangshun).
+Front End Interview Handbook is now part of [GreatFrontEnd](https://www.greatfrontend.com?utm_source=frontendinterviewhandbook&utm_medium=referral&fpr=frontendinterviewhandbook)! We are working to migrate the content over and you may find the latest version of this page on [GreatFrontEnd](https://www.greatfrontend.com/system-design/types-of-questions?utm_source=frontendinterviewhandbook&utm_medium=referral&fpr=frontendinterviewhandbook).
 
 :::
 
 ## Examples
 
-- News feed (e.g. Facebook): [Read example solution](https://www.greatfrontend.com/questions/system-design/news-feed-facebook?fpr=yangshun) (Free)
-- E-commerce marketplace (e.g. Amazon): [Read example solution](https://www.greatfrontend.com/questions/system-design/e-commerce-amazon?fpr=yangshun) (Paid)
-- Chat application (e.g. Messenger): [Read example solution](https://www.greatfrontend.com/questions/system-design/chat-application-messenger?fpr=yangshun) (Paid)
-- Photo sharing application (e.g. Instagram): [Read example solution](https://www.greatfrontend.com/questions/system-design/photo-sharing-instagram?fpr=yangshun) (Paid)
-- Pinterest: [Read example solution](https://www.greatfrontend.com/questions/system-design/pinterest?fpr=yangshun) (Paid)
-- Travel booking website (e.g. Airbnb): [Read example solution](https://www.greatfrontend.com/questions/system-design/travel-booking-airbnb?fpr=yangshun) (Paid)
-- Video watching website (e.g. Netflix): [Read example solution](https://www.greatfrontend.com/questions/system-design/video-streaming-netflix?fpr=yangshun) (Paid)
-- Email client (e.g. Microsoft Outlook): [Read example solution](https://www.greatfrontend.com/questions/system-design/email-client-outlook?fpr=yangshun) (Paid)
+- News feed (e.g. Facebook): [Read example solution](https://www.greatfrontend.com/questions/system-design/news-feed-facebook?utm_source=frontendinterviewhandbook&utm_medium=referral&fpr=frontendinterviewhandbook) (Free)
+- E-commerce marketplace (e.g. Amazon): [Read example solution](https://www.greatfrontend.com/questions/system-design/e-commerce-amazon?utm_source=frontendinterviewhandbook&utm_medium=referral&fpr=frontendinterviewhandbook) (Paid)
+- Chat application (e.g. Messenger): [Read example solution](https://www.greatfrontend.com/questions/system-design/chat-application-messenger?utm_source=frontendinterviewhandbook&utm_medium=referral&fpr=frontendinterviewhandbook) (Paid)
+- Photo sharing application (e.g. Instagram): [Read example solution](https://www.greatfrontend.com/questions/system-design/photo-sharing-instagram?utm_source=frontendinterviewhandbook&utm_medium=referral&fpr=frontendinterviewhandbook) (Paid)
+- Pinterest: [Read example solution](https://www.greatfrontend.com/questions/system-design/pinterest?utm_source=frontendinterviewhandbook&utm_medium=referral&fpr=frontendinterviewhandbook) (Paid)
+- Travel booking website (e.g. Airbnb): [Read example solution](https://www.greatfrontend.com/questions/system-design/travel-booking-airbnb?utm_source=frontendinterviewhandbook&utm_medium=referral&fpr=frontendinterviewhandbook) (Paid)
+- Video watching website (e.g. Netflix): [Read example solution](https://www.greatfrontend.com/questions/system-design/video-streaming-netflix?utm_source=frontendinterviewhandbook&utm_medium=referral&fpr=frontendinterviewhandbook) (Paid)
+- Email client (e.g. Microsoft Outlook): [Read example solution](https://www.greatfrontend.com/questions/system-design/email-client-outlook?utm_source=frontendinterviewhandbook&utm_medium=referral&fpr=frontendinterviewhandbook) (Paid)
 
 ## Framework
 
@@ -84,4 +84,4 @@ Many companies blog about their technical challenges in the front end domain and
 - [A React And Preact Progressive Web App Performance Case Study: Treebo](https://medium.com/dev-channel/treebo-a-react-and-preact-progressive-web-app-performance-case-study-5e4f450d5299)
 - [Rebuilding our tech stack for the new Facebook.com](https://engineering.fb.com/2020/05/08/web/facebook-redesign/)
 
-[GreatFrontEnd](https://www.greatfrontend.com?fpr=yangshun) shows you how to approach front end system design interviews with their [front end system design guide](https://www.greatfrontend.com/system-design?fpr=yangshun) and case studies. You can also do hands-on practice through their [huge question bank](https://www.greatfrontend.com/prepare?fpr=yangshun), each with solutions written by ex-FAANG senior engineers to learn more about system design. 
+[GreatFrontEnd](https://www.greatfrontend.com?utm_source=frontendinterviewhandbook&utm_medium=referral&fpr=frontendinterviewhandbook) shows you how to approach front end system design interviews with their [front end system design guide](https://www.greatfrontend.com/system-design?utm_source=frontendinterviewhandbook&utm_medium=referral&fpr=frontendinterviewhandbook) and case studies. You can also do hands-on practice through their [huge question bank](https://www.greatfrontend.com/prepare?utm_source=frontendinterviewhandbook&utm_medium=referral&fpr=frontendinterviewhandbook), each with solutions written by ex-FAANG senior engineers to learn more about system design.

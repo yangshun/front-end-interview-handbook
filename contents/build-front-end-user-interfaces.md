@@ -6,7 +6,7 @@ sidebar_label: User interface coding
 
 :::info We are now part of GreatFrontEnd!
 
-Front End Interview Handbook is now part of [GreatFrontEnd](https://www.greatfrontend.com?fpr=yangshun)! We are working to migrate the content over and you may find the latest version of this page on [GreatFrontEnd](https://www.greatfrontend.com/front-end-interview-guidebook/user-interface?fpr=yangshun).
+Front End Interview Handbook is now part of [GreatFrontEnd](https://www.greatfrontend.com?utm_source=frontendinterviewhandbook&utm_medium=referral&fpr=frontendinterviewhandbook)! We are working to migrate the content over and you may find the latest version of this page on [GreatFrontEnd](https://www.greatfrontend.com/front-end-interview-guidebook/user-interface?utm_source=frontendinterviewhandbook&utm_medium=referral&fpr=frontendinterviewhandbook).
 
 :::
 
@@ -22,26 +22,27 @@ Companies that ask such questions usually ask candidates to code in one of these
 ## Examples
 
 - Components
-  - Tabs — [Practice](https://www.greatfrontend.com/questions/user-interface/tabs?fpr=yangshun) (Paid)
-  - Accordion — [Practice](https://www.greatfrontend.com/questions/user-interface/accordion?fpr=yangshun) (Paid)
+  - Tabs — [Practice](https://www.greatfrontend.com/questions/user-interface/tabs?utm_source=frontendinterviewhandbook&utm_medium=referral&fpr=frontendinterviewhandbook) (Paid)
+  - Accordion — [Practice](https://www.greatfrontend.com/questions/user-interface/accordion?utm_source=frontendinterviewhandbook&utm_medium=referral&fpr=frontendinterviewhandbook) (Paid)
   - Photo Gallery
   - Other possible components - [Refer to Bootstrap's list](https://getbootstrap.com/docs/5.3/components/)
 - Apps
-  - Todo list — [Practice](https://www.greatfrontend.com/questions/user-interface/todo-list?fpr=yangshun) (Free)
+  - Todo list — [Practice](https://www.greatfrontend.com/questions/user-interface/todo-list?utm_source=frontendinterviewhandbook&utm_medium=referral&fpr=frontendinterviewhandbook) (Free)
   - Sortable Data Table (with extensions for filtering)
   - Kanban Board
 - Games
-  - Tic-tac-toe — [Practice](https://www.greatfrontend.com/questions/user-interface/tic-tac-toe?fpr=yangshun) (Paid)
-  - Whack-a-mole — [Practice](https://www.greatfrontend.com/questions/user-interface/whack-a-mole?fpr=yangshun) (Paid)
-  - Wordle — [Practice](https://www.greatfrontend.com/questions/user-interface/wordle?fpr=yangshun) (Paid)
+  - Tic-tac-toe — [Practice](https://www.greatfrontend.com/questions/user-interface/tic-tac-toe?utm_source=frontendinterviewhandbook&utm_medium=referral&fpr=frontendinterviewhandbook) (Paid)
+  - Whack-a-mole — [Practice](https://www.greatfrontend.com/questions/user-interface/whack-a-mole?utm_source=frontendinterviewhandbook&utm_medium=referral&fpr=frontendinterviewhandbook) (Paid)
+  - Wordle — [Practice](https://www.greatfrontend.com/questions/user-interface/wordle?utm_source=frontendinterviewhandbook&utm_medium=referral&fpr=frontendinterviewhandbook) (Paid)
   - Tetris (advanced)
   - Snake (advanced)
 
 ## Where to practice
-- Each of these questions and over 200+ more can be found on [GreatFrontEnd](https://www.greatfrontend.com?fpr=yangshun). 
-  - Each question comes with official solutions in popular frameworks such as React, Angular, Svelte and Vue. 
-  - With live previews, you can practice online directly, simulating a real interview environment with no set-up required. 
-- [Start practicing immediately](https://www.greatfrontend.com/questions?fpr=yangshun)
+
+- Each of these questions and over 200+ more can be found on [GreatFrontEnd](https://www.greatfrontend.com?utm_source=frontendinterviewhandbook&utm_medium=referral&fpr=frontendinterviewhandbook).
+  - Each question comes with official solutions in popular frameworks such as React, Angular, Svelte and Vue.
+  - With live previews, you can practice online directly, simulating a real interview environment with no set-up required.
+- [Start practicing immediately](https://www.greatfrontend.com/questions?utm_source=frontendinterviewhandbook&utm_medium=referral&fpr=frontendinterviewhandbook)
 
 ## Considerations
 

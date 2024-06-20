@@ -4,7 +4,7 @@ title: Introduction
 
 :::info We are now part of GreatFrontEnd!
 
-Front End Interview Handbook is now part of [GreatFrontEnd](https://www.greatfrontend.com?fpr=yangshun)! We are working to migrate the content over and you may find the latest version of this page on [GreatFrontEnd](https://www.greatfrontend.com/front-end-interview-guidebook?fpr=yangshun).
+Front End Interview Handbook is now part of [GreatFrontEnd](https://www.greatfrontend.com?utm_source=frontendinterviewhandbook&utm_medium=referral&fpr=frontendinterviewhandbook)! We are working to migrate the content over and you may find the latest version of this page on [GreatFrontEnd](https://www.greatfrontend.com/front-end-interview-guidebook?utm_source=frontendinterviewhandbook&utm_medium=referral&fpr=frontendinterviewhandbook).
 
 :::
 
@@ -16,7 +16,7 @@ Many front end interviews are highly-focused on domain knowledge and applying th
 
 While there are some existing resources to help front end developers in preparing for interviews, they aren't as abundant as materials for a general software engineer interview. Among the existing resources, the most helpful question bank would probably be [Front-end Developer Interview Questions](https://github.com/h5bp/Front-end-Developer-Interview-Questions). Unfortunately, there aren't many complete and satisfactory answers to these questions readily available online. This handbook answers these trivia-style questions along with information and guidance for other front end interview formats.
 
-To solve this problem, [GreatFrontEnd](https://www.greatfrontend.com?fpr=yangshun), an interview preparation platform for Front End interviews, was created. It contains Front End interview questions and answers written by ex-FAANG Senior Engineers (such as myself!) and have both questions and answers for various formats: JavaScript, TypeScript, User Interface Component questions, quiz-style front end questions.
+To solve this problem, [GreatFrontEnd](https://www.greatfrontend.com?utm_source=frontendinterviewhandbook&utm_medium=referral&fpr=frontendinterviewhandbook), an interview preparation platform for Front End interviews, was created. It contains Front End interview questions and answers written by ex-FAANG Senior Engineers (such as myself!) and have both questions and answers for various formats: JavaScript, TypeScript, User Interface Component questions, quiz-style front end questions.
 
 ## General tips for front end interviews
 
@@ -50,7 +50,7 @@ Short questions which test your knowledge and have clear non-subjective answers.
 
 [**Read more about front end trivia questions →**](./trivia.md)
 
-[**Practice front end trivia questions**](https://www.greatfrontend.com/prepare/quiz?fpr=yangshun)
+[**Practice front end trivia questions**](https://www.greatfrontend.com/prepare/quiz?utm_source=frontendinterviewhandbook&utm_medium=referral&fpr=frontendinterviewhandbook)
 
 ### JavaScript coding
 
@@ -63,7 +63,7 @@ This is the front end version of LeetCode-style algorithm questions. Implement a
 
 [**Read more about JavaScript coding questions →**](./javascript-questions.md)
 
-[**Practice JavaScript coding questions**](https://www.greatfrontend.com/questions/js?fpr=yangshun)
+[**Practice JavaScript coding questions**](https://www.greatfrontend.com/questions/js?utm_source=frontendinterviewhandbook&utm_medium=referral&fpr=frontendinterviewhandbook)
 
 ### User interface coding
 
@@ -81,7 +81,7 @@ Build user interfaces (can be a UI component, an app, or a game) using HTML, CSS
 
 [**Read more about user interface coding questions →**](./build-front-end-user-interfaces.md)
 
-[**Practice user interface coding questions**](https://www.greatfrontend.com/prepare/coding?fpr=yangshun)
+[**Practice user interface coding questions**](https://www.greatfrontend.com/prepare/coding?utm_source=frontendinterviewhandbook&utm_medium=referral&fpr=frontendinterviewhandbook)
 
 ### Algorithmic coding
 
@@ -89,7 +89,7 @@ LeetCode-style algorithmic coding questions which evaluate your core data struct
 
 [**Read more about algorithm coding questions →**](./algorithms.md)
 
-[**Practice algorithm questions**](https://www.greatfrontend.com/focus-areas/data-structures-algorithms?fpr=yangshun)
+[**Practice algorithm questions**](https://www.greatfrontend.com/focus-areas/data-structures-algorithms?utm_source=frontendinterviewhandbook&utm_medium=referral&fpr=frontendinterviewhandbook)
 
 ### System design
 
@@ -100,9 +100,9 @@ Describe and discuss how you would build a UI component/app/game and its archite
 
 [**Read more about front end system design →**](./front-end-system-design.md)
 
-[**Practice front end system design questions**](https://www.greatfrontend.com/prepare/system-design?fpr=yangshun)
+[**Practice front end system design questions**](https://www.greatfrontend.com/prepare/system-design?utm_source=frontendinterviewhandbook&utm_medium=referral&fpr=frontendinterviewhandbook)
 
-You can also try out the above mentioned question types at [GreatFrontEnd](https://www.greatfrontend.com?fpr=yangshun). It has [over 200+ practice questions](https://www.greatfrontend.com/prepare?fpr=yangshun) and all of them are provided with comprehensive answers written by ex-FAANG senior engineers.
+You can also try out the above mentioned question types at [GreatFrontEnd](https://www.greatfrontend.com?utm_source=frontendinterviewhandbook&utm_medium=referral&fpr=frontendinterviewhandbook). It has [over 200+ practice questions](https://www.greatfrontend.com/prepare?utm_source=frontendinterviewhandbook&utm_medium=referral&fpr=frontendinterviewhandbook) and all of them are provided with comprehensive answers written by ex-FAANG senior engineers.
 
 ## Company interview formats
 

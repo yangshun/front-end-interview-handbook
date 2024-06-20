@@ -6,7 +6,7 @@ sidebar_label: JavaScript coding
 
 :::info We are now part of GreatFrontEnd!
 
-Front End Interview Handbook is now part of [GreatFrontEnd](https://www.greatfrontend.com?fpr=yangshun)! We are working to migrate the content over and you may find the latest version of this page on [GreatFrontEnd](https://www.greatfrontend.com/front-end-interview-guidebook/javascript?fpr=yangshun).
+Front End Interview Handbook is now part of [GreatFrontEnd](https://www.greatfrontend.com?utm_source=frontendinterviewhandbook&utm_medium=referral&fpr=frontendinterviewhandbook)! We are working to migrate the content over and you may find the latest version of this page on [GreatFrontEnd](https://www.greatfrontend.com/front-end-interview-guidebook/javascript?utm_source=frontendinterviewhandbook&utm_medium=referral&fpr=frontendinterviewhandbook).
 
 :::
 
@@ -46,13 +46,13 @@ Advanced questions are usually given to more senior candidates and expect around
     </video>
 </div>
 
-- These questions and many others are available on [GreatFrontEnd](https://www.greatfrontend.com?fpr=yangshun). Apart from a [huge question bank of coding questions](https://www.greatfrontend.com/questions/js/coding/utilities?fpr=yangshun) that you can access by frameworks, each question also comes with a solution authored by ex-FAANG engineers and automated test cases.
+- These questions and many others are available on [GreatFrontEnd](https://www.greatfrontend.com?utm_source=frontendinterviewhandbook&utm_medium=referral&fpr=frontendinterviewhandbook). Apart from a [huge question bank of coding questions](https://www.greatfrontend.com/questions/js/coding/utilities?utm_source=frontendinterviewhandbook&utm_medium=referral&fpr=frontendinterviewhandbook) that you can access by frameworks, each question also comes with a solution authored by ex-FAANG engineers and automated test cases.
 - Here are some questions you can start with:
-    - [Debounce](https://www.greatfrontend.com/questions/javascript/debounce?fpr=yangshun) (Free)
-    - [Promise.all()](https://www.greatfrontend.com/questions/javascript/promise-all?fpr=yangshun) (Free)
-    - [Deep Clone](https://www.greatfrontend.com/questions/javascript/deep-clone?fpr=yangshun) (Free)
-    - [Event Emitter](https://www.greatfrontend.com/questions/javascript/event-emitter?fpr=yangshun) (Free)
-    - [Array.prototype.filter()](https://www.greatfrontend.com/questions/javascript/array-filter?fpr=yangshun) (Paid)
+  - [Debounce](https://www.greatfrontend.com/questions/javascript/debounce?utm_source=frontendinterviewhandbook&utm_medium=referral&fpr=frontendinterviewhandbook) (Free)
+  - [Promise.all()](https://www.greatfrontend.com/questions/javascript/promise-all?utm_source=frontendinterviewhandbook&utm_medium=referral&fpr=frontendinterviewhandbook) (Free)
+  - [Deep Clone](https://www.greatfrontend.com/questions/javascript/deep-clone?utm_source=frontendinterviewhandbook&utm_medium=referral&fpr=frontendinterviewhandbook) (Free)
+  - [Event Emitter](https://www.greatfrontend.com/questions/javascript/event-emitter?utm_source=frontendinterviewhandbook&utm_medium=referral&fpr=frontendinterviewhandbook) (Free)
+  - [Array.prototype.filter()](https://www.greatfrontend.com/questions/javascript/array-filter?utm_source=frontendinterviewhandbook&utm_medium=referral&fpr=frontendinterviewhandbook) (Paid)
 
 ## Tips
 

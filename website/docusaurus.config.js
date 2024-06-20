@@ -14,7 +14,7 @@ module.exports = {
   themeConfig: {
     announcementBar: {
       id: 'gfe', // Increment on change
-      content: `⭐️ We are now part of <a href="https://www.greatfrontend.com/?fpr=yangshun&utm_source=frontendinterviewhandbook&utm_medium=referral&utm_content=banner&fpr=frontendinterviewhandbook" target="_blank">GreatFrontEnd</a>, a front end interview preparation platform created by ex-FAANG Senior Engineers. <a href="https://www.greatfrontend.com/?fpr=yangshun&utm_source=frontendinterviewhandbook&utm_medium=referral&utm_content=banner&fpr=frontendinterviewhandbook" target="_blank">Get 20% off today</a>! ⭐️`,
+      content: `⭐️ We are now part of <a href="https://www.greatfrontend.com/?utm_source=frontendinterviewhandbook&utm_medium=referral&utm_content=banner&fpr=frontendinterviewhandbook" target="_blank">GreatFrontEnd</a>, a front end interview preparation platform created by ex-FAANG Senior Engineers. <a href="https://www.greatfrontend.com/?utm_source=frontendinterviewhandbook&utm_medium=referral&utm_content=banner&fpr=frontendinterviewhandbook" target="_blank">Get 20% off today</a>! ⭐️`,
       isCloseable: false,
     },
     prism: {

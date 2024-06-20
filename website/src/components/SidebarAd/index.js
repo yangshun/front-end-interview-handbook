@@ -34,7 +34,7 @@ function GreatFrontEnd({ position }) {
   return (
     <a
       className={clsx(styles.container, styles.backgroundPurple)}
-      href={`https://www.greatfrontend.com?fpr=yangshun&utm_source=frontendinterviewhandbook&utm_medium=referral&utm_content=${position}&fpr=frontendinterviewhandbook`}
+      href={`https://www.greatfrontend.com?utm_source=frontendinterviewhandbook&utm_medium=referral&utm_content=${position}&fpr=frontendinterviewhandbook`}
       target="_blank"
       rel="noopener"
       onClick={() => {
@@ -44,7 +44,9 @@ function GreatFrontEnd({ position }) {
         <strong className={styles.title}>
           LeetCode for Front End Interviews
         </strong>
-        Looking for front end interview practice? Try <u>GreatFrontEnd</u> - a platform with curated practice questions, well-explained solutions and automated test cases.
+        Looking for front end interview practice? Try <u>GreatFrontEnd</u> - a
+        platform with curated practice questions, well-explained solutions and
+        automated test cases.
       </p>
     </a>
   );
