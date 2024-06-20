@@ -40,7 +40,7 @@ export const InterviewsPricingPlansPaymentConfig: Record<
   annual: {
     allowPromoCode: true,
     basePriceInUSD: {
-      after: 120,
+      after: 125,
       before: 188, // Not used
     },
     checkoutMode: 'subscription',
@@ -54,7 +54,7 @@ export const InterviewsPricingPlansPaymentConfig: Record<
   lifetime: {
     allowPromoCode: true,
     basePriceInUSD: {
-      after: 154,
+      after: 160,
       before: 300,
     },
     checkoutMode: 'payment',
@@ -82,7 +82,7 @@ export const InterviewsPricingPlansPaymentConfig: Record<
   quarterly: {
     allowPromoCode: true,
     basePriceInUSD: {
-      after: 70,
+      after: 75,
       before: 90, // Not used
     },
     checkoutMode: 'subscription',
