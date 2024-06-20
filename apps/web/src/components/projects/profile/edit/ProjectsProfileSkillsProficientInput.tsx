@@ -2,6 +2,8 @@ import type { Control } from 'react-hook-form';
 import { Controller } from 'react-hook-form';
 import { useIntl } from 'react-intl';
 
+import { SCROLL_HASH_PROJECTS_PROFILE } from '~/hooks/useScrollToHash';
+
 import ProjectsChallengeReputationBadge from '~/components/projects/challenges/metadata/ProjectsChallengeReputationBadge';
 import type { ProjectsProfileEditFormValues } from '~/components/projects/types';
 import Anchor from '~/components/ui/Anchor';
@@ -27,7 +29,9 @@ export default function ProjectsProfileSkillsProficientInput({
       control={control}
       name={name}
       render={({ field, formState }) => (
-        <div className="relative flex-1">
+        <div
+          className="relative flex-1"
+          id={SCROLL_HASH_PROJECTS_PROFILE.SKILLS_PROFICIENT}>
           <span className="absolute end-0">
             <ProjectsChallengeReputationBadge
               completed={field.value.length > 0}

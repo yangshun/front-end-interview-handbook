@@ -2,6 +2,8 @@ import type { Control } from 'react-hook-form';
 import { Controller } from 'react-hook-form';
 import { useIntl } from 'react-intl';
 
+import { SCROLL_HASH_PROJECTS_PROFILE } from '~/hooks/useScrollToHash';
+
 import ProjectsChallengeReputationBadge from '~/components/projects/challenges/metadata/ProjectsChallengeReputationBadge';
 import type { ProjectsProfileEditFormValues } from '~/components/projects/types';
 import TextArea from '~/components/ui/TextArea';
@@ -25,7 +27,7 @@ export default function ProjectsProfileBioInput({ control }: Props) {
       control={control}
       name="bio"
       render={({ field, formState }) => (
-        <div className="relative flex-1">
+        <div className="relative flex-1" id={SCROLL_HASH_PROJECTS_PROFILE.BIO}>
           <span className="absolute end-0">
             <ProjectsChallengeReputationBadge
               completed={!!field.value}

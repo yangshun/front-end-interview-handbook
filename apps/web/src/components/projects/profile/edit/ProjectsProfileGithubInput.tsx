@@ -3,6 +3,8 @@ import { Controller } from 'react-hook-form';
 import { RiGithubFill } from 'react-icons/ri';
 import { useIntl } from 'react-intl';
 
+import { SCROLL_HASH_PROJECTS_PROFILE } from '~/hooks/useScrollToHash';
+
 import ProjectsChallengeReputationBadge from '~/components/projects/challenges/metadata/ProjectsChallengeReputationBadge';
 import { getProjectsProfileGitHubAttrs } from '~/components/projects/profile/fields/ProjectsProfileGithubSchema';
 import type { ProjectsProfileEditFormValues } from '~/components/projects/types';
@@ -26,7 +28,9 @@ export default function ProjectsProfileGithubInput({ control }: Props) {
       control={control}
       name="githubUsername"
       render={({ field, formState }) => (
-        <div className="relative flex-1">
+        <div
+          className="relative flex-1"
+          id={SCROLL_HASH_PROJECTS_PROFILE.GITHUB}>
           <span className="absolute end-0">
             <ProjectsChallengeReputationBadge
               completed={field.value.length > 0}

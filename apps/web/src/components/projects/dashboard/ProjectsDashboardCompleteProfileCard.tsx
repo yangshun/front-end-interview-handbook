@@ -7,8 +7,10 @@ import {
   RiCheckFill,
 } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
+import url from 'url';
 
 import { trpc } from '~/hooks/trpc';
+import { SCROLL_HASH_PROJECTS_PROFILE } from '~/hooks/useScrollToHash';
 
 import Anchor from '~/components/ui/Anchor';
 import Chip from '~/components/ui/Chip';
@@ -30,6 +32,7 @@ export default function ProjectsDashboardCompleteProfileCard() {
   const { data: userProfile } = trpc.projects.profile.viewer.useQuery();
   const profileTasks = [
     {
+      formHash: SCROLL_HASH_PROJECTS_PROFILE.BIO,
       isComplete: Boolean(userProfile?.bio),
       title: intl.formatMessage({
         defaultMessage: 'Add Bio',
@@ -38,6 +41,7 @@ export default function ProjectsDashboardCompleteProfileCard() {
       }),
     },
     {
+      formHash: SCROLL_HASH_PROJECTS_PROFILE.GITHUB,
       isComplete: Boolean(userProfile?.githubUsername),
       title: intl.formatMessage({
         defaultMessage: 'Add GitHub',
@@ -46,6 +50,7 @@ export default function ProjectsDashboardCompleteProfileCard() {
       }),
     },
     {
+      formHash: SCROLL_HASH_PROJECTS_PROFILE.LINKEDIN,
       isComplete: Boolean(userProfile?.linkedInUsername),
       title: intl.formatMessage({
         defaultMessage: 'Add LinkedIn',
@@ -54,6 +59,7 @@ export default function ProjectsDashboardCompleteProfileCard() {
       }),
     },
     {
+      formHash: SCROLL_HASH_PROJECTS_PROFILE.WEBSITE,
       isComplete: Boolean(userProfile?.website),
       title: intl.formatMessage({
         defaultMessage: 'Add website',
@@ -62,6 +68,7 @@ export default function ProjectsDashboardCompleteProfileCard() {
       }),
     },
     {
+      formHash: SCROLL_HASH_PROJECTS_PROFILE.SKILLS_PROFICIENT,
       isComplete: Boolean(
         userProfile?.projectsProfile?.skillsProficient?.length,
       ),
@@ -73,6 +80,7 @@ export default function ProjectsDashboardCompleteProfileCard() {
       }),
     },
     {
+      formHash: SCROLL_HASH_PROJECTS_PROFILE.SKILLS_TOGROW,
       isComplete: Boolean(userProfile?.projectsProfile?.skillsToGrow?.length),
       title: intl.formatMessage({
         defaultMessage: 'Add skills to grow in',
@@ -160,7 +168,10 @@ export default function ProjectsDashboardCompleteProfileCard() {
                 />
                 <Anchor
                   className="flex grow justify-between gap-3"
-                  href="/projects/profile/edit"
+                  href={url.format({
+                    hash: task.formHash,
+                    pathname: '/projects/profile/edit',
+                  })}
                   variant="secondary">
                   <Text
                     className={clsx(task.isComplete && 'line-through')}

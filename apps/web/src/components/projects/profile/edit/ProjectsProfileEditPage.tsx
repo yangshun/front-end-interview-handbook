@@ -6,6 +6,7 @@ import { FormattedMessage, useIntl } from 'react-intl';
 import { z } from 'zod';
 
 import { trpc } from '~/hooks/trpc';
+import useScrollToHash from '~/hooks/useScrollToHash';
 
 import { useToast } from '~/components/global/toasts/useToast';
 import { useProfileNameSchema } from '~/components/profile/fields/ProfileNameSchema';
@@ -89,6 +90,8 @@ type Props = Readonly<{
 }>;
 
 export default function ProjectsProfileEditPage({ userProfile }: Props) {
+  useScrollToHash();
+
   const intl = useIntl();
   const trpcUtils = trpc.useUtils();
   const router = useI18nRouter();

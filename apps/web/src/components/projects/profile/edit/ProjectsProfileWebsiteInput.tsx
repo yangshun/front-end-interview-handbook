@@ -3,6 +3,8 @@ import { Controller } from 'react-hook-form';
 import { RiGlobalLine } from 'react-icons/ri';
 import { useIntl } from 'react-intl';
 
+import { SCROLL_HASH_PROJECTS_PROFILE } from '~/hooks/useScrollToHash';
+
 import ProjectsChallengeReputationBadge from '~/components/projects/challenges/metadata/ProjectsChallengeReputationBadge';
 import { getProjectsProfileWebsiteAttributes } from '~/components/projects/profile/fields/ProjectsProfileWebsiteSchema';
 import type { ProjectsProfileEditFormValues } from '~/components/projects/types';
@@ -26,7 +28,9 @@ export default function ProjectsProfileWebsiteInput({ control }: Props) {
       control={control}
       name="website"
       render={({ field, formState }) => (
-        <div className="relative flex-1">
+        <div
+          className="relative flex-1"
+          id={SCROLL_HASH_PROJECTS_PROFILE.WEBSITE}>
           <span className="absolute end-0">
             <ProjectsChallengeReputationBadge
               completed={field.value.length > 0}

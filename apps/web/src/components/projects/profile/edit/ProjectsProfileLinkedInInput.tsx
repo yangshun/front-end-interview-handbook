@@ -3,6 +3,8 @@ import { Controller } from 'react-hook-form';
 import { RiLinkedinFill } from 'react-icons/ri';
 import { useIntl } from 'react-intl';
 
+import { SCROLL_HASH_PROJECTS_PROFILE } from '~/hooks/useScrollToHash';
+
 import ProjectsChallengeReputationBadge from '~/components/projects/challenges/metadata/ProjectsChallengeReputationBadge';
 import { getProjectsProfileLinkedInAttrs } from '~/components/projects/profile/fields/ProjectsProfileLinkedInSchema';
 import type { ProjectsProfileEditFormValues } from '~/components/projects/types';
@@ -25,7 +27,9 @@ export default function ProjectsProfileLinkedInInput({ control }: Props) {
       control={control}
       name="linkedInUsername"
       render={({ field, formState }) => (
-        <div className="relative flex-1">
+        <div
+          className="relative flex-1"
+          id={SCROLL_HASH_PROJECTS_PROFILE.LINKEDIN}>
           <span className="absolute end-0">
             <ProjectsChallengeReputationBadge
               completed={field.value.length > 0}
