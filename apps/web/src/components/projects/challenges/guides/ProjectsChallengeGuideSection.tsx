@@ -11,7 +11,7 @@ import { useIntl } from 'react-intl';
 
 import ArticlePagination from '~/components/common/ArticlePagination';
 import { SidebarLinksList } from '~/components/common/SidebarLinksList';
-import ProjectsChallengeMdxContent from '~/components/projects/common/ProjectsChallengeMdxContent';
+import MDXContent from '~/components/mdx/MDXContent';
 import Alert from '~/components/ui/Alert';
 import Button from '~/components/ui/Button';
 import Divider from '~/components/ui/Divider';
@@ -232,7 +232,7 @@ export default function ProjectsChallengeGuideSection({
                 add it in.
               </Alert>
             )}
-            <ProjectsChallengeMdxContent mdxCode={projectGuide.body.code} />
+            <MDXContent mdxCode={projectGuide.body.code} />
             <Divider />
             <ArticlePagination
               activeItem={activeGuideSlug}

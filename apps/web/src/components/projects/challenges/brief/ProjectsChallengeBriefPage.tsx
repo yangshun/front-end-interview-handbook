@@ -15,8 +15,8 @@ import ProjectsChallengeBriefProvidedResources from './ProjectsChallengeBriefPro
 import ProjectsChallengeBriefSupportSection from './ProjectsChallengeBriefSupportSection';
 import ProjectsChallengeContentPaywall from '../premium/ProjectsChallengeContentPaywall';
 import type { ProjectsPremiumAccessControlFields } from '../premium/ProjectsPremiumAccessControl';
-import ProjectsChallengeMdxContent from '../../common/ProjectsChallengeMdxContent';
 import type { ProjectsViewerProjectsProfile } from '../../types';
+import MDXContent from '../../../mdx/MDXContent';
 
 type Props = Readonly<{
   challenge: ProjectsChallengeItem;
@@ -65,9 +65,7 @@ export default function ProjectsChallengeBriefPage({
                 </Heading>
                 <Section>
                   <Prose textSize="sm">
-                    <ProjectsChallengeMdxContent
-                      mdxCode={challengeBrief.body.code}
-                    />
+                    <MDXContent mdxCode={challengeBrief.body.code} />
                   </Prose>
                 </Section>
               </div>

@@ -7,12 +7,12 @@ type Props = Readonly<{
   mdxCode: string;
 }>;
 
-export default function ProjectsChallengeMdxContent({ mdxCode }: Props) {
-  const MDXContent = useMDXComponent(mdxCode);
+export default function MDXContent({ mdxCode }: Props) {
+  const Content = useMDXComponent(mdxCode);
 
   return (
     <Prose textSize="sm">
-      <MDXContent components={MDXComponents} />
+      <Content components={MDXComponents} />
     </Prose>
   );
 }

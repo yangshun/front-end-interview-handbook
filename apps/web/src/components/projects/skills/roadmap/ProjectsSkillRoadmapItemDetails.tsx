@@ -10,7 +10,7 @@ import { FormattedMessage, useIntl } from 'react-intl';
 
 import { trpc } from '~/hooks/trpc';
 
-import ProjectsChallengeMdxContent from '~/components/projects/common/ProjectsChallengeMdxContent';
+import MDXContent from '~/components/mdx/MDXContent';
 import Alert from '~/components/ui/Alert';
 import Divider from '~/components/ui/Divider';
 import Heading from '~/components/ui/Heading';
@@ -115,7 +115,7 @@ export default function ProjectsSkillRoadmapItemDetails({
       <Section level={2}>
         <Divider color="emphasized" />
         <Prose textSize="sm">
-          <ProjectsChallengeMdxContent mdxCode={skillInfo.body.code} />
+          <MDXContent mdxCode={skillInfo.body.code} />
         </Prose>
         <Divider color="emphasized" />
         <div className="flex flex-col gap-y-4">

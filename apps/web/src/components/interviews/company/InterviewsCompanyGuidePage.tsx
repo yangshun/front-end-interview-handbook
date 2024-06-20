@@ -17,6 +17,7 @@ import type {
 import QuestionsList from '~/components/interviews/questions/listings/items/QuestionsList';
 import QuestionsLearningList from '~/components/interviews/questions/listings/learning/QuestionsLearningList';
 import QuestionsLearningListTitleSection from '~/components/interviews/questions/listings/learning/QuestionsLearningListTitleSection';
+import MDXContent from '~/components/mdx/MDXContent';
 import Button from '~/components/ui/Button';
 import Container from '~/components/ui/Container';
 import Section from '~/components/ui/Heading/HeadingContext';
@@ -98,12 +99,7 @@ export default function InterviewsCompanyGuidePage({
         </div>
         <div className="md:col-span-2">
           <QuestionsLearningListTitleSection
-            description={
-              <Prose
-                dangerouslySetInnerHTML={{ __html: companyGuide.body.html }}
-                textSize="sm"
-              />
-            }
+            description={<MDXContent mdxCode={companyGuide.body.code} />}
             icon={({ className, ...props }) => (
               <RiGoogleFill
                 className={clsx('text-neutral-900', className)}
@@ -114,7 +110,7 @@ export default function InterviewsCompanyGuidePage({
             questionCount={questionCount}
             questionListKey={companyGuide.slug}
             themeBackgroundClass={clsx('bg-white', 'shadow-md')}
-            title={`${companyGuide.name} front end interview questions guide`}
+            title={`${companyGuide.name} Front End Engineer Interview Questions and Guides`}
           />
         </div>
       </Container>

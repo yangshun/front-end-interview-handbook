@@ -17,6 +17,7 @@ import {
 import { FormattedMessage, useIntl } from 'react-intl';
 
 import BlurOverlay from '~/components/common/BlurOverlay';
+import MDXContent from '~/components/mdx/MDXContent';
 import { useProjectsChallengeSessionContext } from '~/components/projects/challenges/session/ProjectsChallengeSessionContext';
 import type { ProjectsChallengeItem } from '~/components/projects/challenges/types';
 import Heading from '~/components/ui/Heading';
@@ -37,7 +38,6 @@ import useProjectsChallengeProvidedResourcesOptions from './useProjectsChallenge
 import ProjectsChallengeContentPaywall from '../premium/ProjectsChallengeContentPaywall';
 import ProjectsChallengeFigmaDesignPaywall from '../premium/ProjectsChallengeFigmaDesignPaywall';
 import type { ProjectsPremiumAccessControlFields } from '../premium/ProjectsPremiumAccessControl';
-import ProjectsChallengeMdxContent from '../../common/ProjectsChallengeMdxContent';
 import ProjectsStartButton from '../../common/ProjectsStartButton';
 import type { ProjectsViewerProjectsProfile } from '../../types';
 
@@ -272,17 +272,17 @@ export default function ProjectsChallengeAssetsPage({
               )}
               {onlineAssetsTab === 'style-guide' && styleGuide != null && (
                 <div className="pt-2">
-                  <ProjectsChallengeMdxContent mdxCode={styleGuide.body.code} />
+                  <MDXContent mdxCode={styleGuide.body.code} />
                 </div>
               )}
               {onlineAssetsTab === 'api' && apiWriteup != null && (
                 <div className="pt-2">
-                  <ProjectsChallengeMdxContent mdxCode={apiWriteup.body.code} />
+                  <MDXContent mdxCode={apiWriteup.body.code} />
                 </div>
               )}
               {onlineAssetsTab === 'appendix' && appendix != null && (
                 <div className="pt-2">
-                  <ProjectsChallengeMdxContent mdxCode={appendix.body.code} />
+                  <MDXContent mdxCode={appendix.body.code} />
                 </div>
               )}
             </Section>

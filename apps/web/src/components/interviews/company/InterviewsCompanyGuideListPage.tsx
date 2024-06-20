@@ -154,17 +154,17 @@ export default function InterviewsCompanyGuideListPage({
       <div className="flex flex-col gap-3">
         <Heading level="heading5">
           {intl.formatMessage({
-            defaultMessage: 'Company guides',
+            defaultMessage: 'Company Guides for Front End Engineer Interviews',
             description: 'Title of company guides page',
-            id: 'k2qYCS',
+            id: 'BvkdTb',
           })}
         </Heading>
         <Text className="block" color="secondary" size="body2">
           {intl.formatMessage({
             defaultMessage:
-              'Explore guides, interview questions, and preparation resources tailored to popular companies and ace your interviews.',
+              'Explore front end engineering interview questions and preparation resources tailored to popular companies and ace your interviews.',
             description: 'Description for company guides page',
-            id: 'rejvXu',
+            id: 'hf8Jl7',
           })}
         </Text>
       </div>

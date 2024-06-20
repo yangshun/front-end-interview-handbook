@@ -21,7 +21,7 @@ export const InterviewsCompanyGuideDocument = defineDocumentType(() => ({
       type: 'string',
     },
   },
-  contentType: 'markdown',
+  contentType: 'mdx',
   fields: {
     logoUrl: {
       description: 'Path to company logo',
