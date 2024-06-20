@@ -87,6 +87,7 @@ export default function InterviewsFocusAreaPage({
         <QuestionsLearningListTitleSection
           description={focusArea.description}
           icon={focusAreaTheme.iconOutline}
+          progressTrackingAvailableToNonPremiumUsers={true}
           questionCount={questionCount}
           questionListKey={focusArea.type}
           themeBackgroundClass={focusAreaTheme.gradient.className}

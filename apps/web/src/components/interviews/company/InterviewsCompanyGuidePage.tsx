@@ -21,7 +21,6 @@ import MDXContent from '~/components/mdx/MDXContent';
 import Button from '~/components/ui/Button';
 import Container from '~/components/ui/Container';
 import Section from '~/components/ui/Heading/HeadingContext';
-import Prose from '~/components/ui/Prose';
 
 import {
   categorizeQuestionListSessionProgress,

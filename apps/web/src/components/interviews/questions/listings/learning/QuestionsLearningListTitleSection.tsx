@@ -31,6 +31,7 @@ type Props = Readonly<{
   difficultySummary?: Record<QuestionDifficulty, number>;
   icon: (props: React.ComponentProps<'svg'>) => JSX.Element;
   logoImgSrc?: string;
+  progressTrackingAvailableToNonPremiumUsers?: boolean;
   questionCount: number;
   questionListKey: string;
   schedule?: PreparationPlanSchedule;
@@ -41,11 +42,12 @@ type Props = Readonly<{
 export default function QuestionsLearningListTitleSection({
   description,
   difficultySummary,
+  icon: Icon,
   logoImgSrc,
+  progressTrackingAvailableToNonPremiumUsers = false,
   questionListKey,
   questionCount,
   schedule,
-  icon: Icon,
   themeBackgroundClass,
   title,
 }: Props) {
@@ -135,11 +137,18 @@ export default function QuestionsLearningListTitleSection({
       </div>
       <div>
         {(() => {
-          if (userProfile == null || !userProfile?.isInterviewsPremium) {
+          if (userProfile == null) {
             return null;
           }
 
           if (isQuestionListSessionLoading) {
+            return null;
+          }
+
+          if (
+            !progressTrackingAvailableToNonPremiumUsers &&
+            !userProfile?.isInterviewsPremium
+          ) {
             return null;
           }
 

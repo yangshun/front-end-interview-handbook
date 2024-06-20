@@ -15,7 +15,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = params;
 
   return defaultMetadata({
-    description: `Ace your front end interviews with your dream companies with our company-specific guides`,
+    description: `Ace your front end engineer interviews with your dream companies with our company-specific guides`,
     locale,
     pathname: `/interviews/company`,
     title: 'Front end interviews company guides',
