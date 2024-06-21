@@ -84,10 +84,10 @@ export default function ProfileAccountEmail({ user }: Props) {
             setMessage(
               intl.formatMessage({
                 defaultMessage:
-                  'A confirmation link has been sent to the new email address. The email will not be changed until the confirmation link has been accessed.',
+                  'A confirmation email has been sent to both new and current email addresses. The email change will not take effect until the confirmation link in both new and current email addresses have been clicked.',
                 description:
                   'Message shown after an email change request is successful.',
-                id: 'zs7+sC',
+                id: 'gVQ1qU',
               }),
             );
           }
@@ -130,7 +130,7 @@ export default function ProfileAccountEmail({ user }: Props) {
           )}
         />
         {message && (
-          <Text className="block" color="success" size="body2">
+          <Text className="block" color="success" size="body3">
             {message}
           </Text>
         )}

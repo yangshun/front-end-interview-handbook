@@ -1623,6 +1623,10 @@
     "defaultMessage": "Bio must contain at most {maxLength} character(s).",
     "description": "Error message when bio is too long"
   },
+  "BvkdTb": {
+    "defaultMessage": "Company Guides for Front End Engineer Interviews",
+    "description": "Title of company guides page"
+  },
   "BwHkBU": {
     "defaultMessage": "Profile",
     "description": "Link label to the profile page"
@@ -5699,6 +5703,10 @@
     "defaultMessage": "Top Angular front end interview coding questions to practice, with detailed solutions and explanations by ex-interviewers at FAANG.",
     "description": "Description of Angular Interview Questions page"
   },
+  "gVQ1qU": {
+    "defaultMessage": "A confirmation email has been sent to both new and current email addresses. The email change will not take effect until the confirmation link in both new and current email addresses have been clicked.",
+    "description": "Message shown after an email change request is successful."
+  },
   "gZL62Q": {
     "defaultMessage": "Change password for {userEmail}",
     "description": "Title of Change Password page"
@@ -5814,6 +5822,10 @@
   "hbgKC2": {
     "defaultMessage": "Deployment and submission checklist and guide.",
     "description": "FAQ answer for projects platform"
+  },
+  "hf8Jl7": {
+    "defaultMessage": "Explore front end engineering interview questions and preparation resources tailored to popular companies and ace your interviews.",
+    "description": "Description for company guides page"
   },
   "hkKaPn": {
     "defaultMessage": "Numbered list",
@@ -6102,10 +6114,6 @@
   "k2Oi+j": {
     "defaultMessage": "Filters",
     "description": "Label for filters button"
-  },
-  "k2qYCS": {
-    "defaultMessage": "Company guides",
-    "description": "Title of company guides page"
   },
   "k64L83": {
     "defaultMessage": "{discountPercentage}% off GreatFrontEnd Annual plan.",
@@ -7067,10 +7075,6 @@
     "defaultMessage": "Unpin one or more existing submissions to pin a new one.",
     "description": "Dialog subtitle for pinned submission"
   },
-  "rejvXu": {
-    "defaultMessage": "Explore guides, interview questions, and preparation resources tailored to popular companies and ace your interviews.",
-    "description": "Description for company guides page"
-  },
   "rfI2w+": {
     "defaultMessage": "Cancel",
     "description": "Label for button to cancel action"
@@ -8026,10 +8030,6 @@
   "zrKftp": {
     "defaultMessage": "You just gained {points} reputation points for completing your profile!",
     "description": "Success message after completing profile form"
-  },
-  "zs7+sC": {
-    "defaultMessage": "A confirmation link has been sent to the new email address. The email will not be changed until the confirmation link has been accessed.",
-    "description": "Message shown after an email change request is successful."
   },
   "zul/L1": {
     "defaultMessage": "Earlier this month",
