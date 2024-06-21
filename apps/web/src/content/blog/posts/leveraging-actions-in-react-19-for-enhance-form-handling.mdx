@@ -1,0 +1,297 @@
+---
+title: Leveraging Actions in React 19 for Enhanced Form Handling
+description: React 19 introduces actions to streamline form handling via the addition of new hook APIs. Let's look at how they can be used and discuss the advantages of this approach over traditional form handling methods
+tags:
+  - react
+level: intermediate
+createdAt: 2024-06-21
+published: true
+author: blog/author/vikas-yadav.json
+category: blog/category/real-world-front-end.json
+relatedPosts:
+  - slug: front-end-performance-techniques
+---
+
+If you have used [Next.js](https://nextjs.org/), you have probably heard of [Server Actions](https://nextjs.org/docs/app/building-your-application/data-fetching/server-actions-and-mutations) as a new way to handle form submissions and data mutations in Next.js applications. Server Actions have both server-side and client-side aspects to them and Actions, the client-side APIs are landing in [React 19](https://19.react.dev/blog/2024/04/25/react-19#actions)! Actions are not specific to Next.js and can be used with any asynchronous operations.
+
+In this post, we will elaborate on what React Actions are and how to use the new hooks like `useActionState` and `useFormStatus` to build form submission experiences the modern way.
+
+**Warning**: As of writing, React 19 has not been published. The API might be updated, so you should always refer to the latest version of the documentation.
+
+## Actions in HTML forms
+
+Before we dive deeper into React Actions, we should first understand the `action` property in native [HTML forms](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form). Before JavaScript was introduced, the common way to send the data to the server was via the `action` attribute on `<form>`s.
+
+When we define a `<form>` element, we can also set an [`action`](https://developer.mozilla.org/en-US/docs/Learn/Forms/Sending_and_retrieving_form_data#the_action_attribute) attribute to a URI which will be used as the endpoint to send the data to the server. The `action` attribute is often combined with `method` attribute which can be set to HTTP methods like `GET` or `PUT`.
+
+```html
+<form action="/user" method="POST">
+  <input name="name" id="name" value="" />
+  <div>
+    <button type="submit">Save</button>
+  </div>
+</form>
+```
+
+When a user clicks on the "Save" button, the browser will make a HTTP request to the `/user` endpoint using the specified HTTP method. This is a very powerful pattern that does not rely on JavaScript, however there are downsides of this approach:
+
+1. It results in a full-page refresh
+2. Form states like loading and error cannot be displayed
+
+## Form submissions in React
+
+Submitting forms in React is straightforward. It can be done by utilizing the `onSubmit` prop and `fetch` API. We can show loading and error states through usage of the `useState` hook and `onSubmit` prop.
+
+```jsx
+import { useState } from 'react';
+
+export default function UserForm() {
+  const [isPending, setIsPending] = useState(false);
+  const [error, setError] = useState(null);
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    const data = new FormData(event.target);
+
+    try {
+      setError(false);
+      setIsPending(true);
+
+      await fetch('/user', {
+        method: 'POST',
+        body: JSON.stringify(data),
+      });
+      event.target.reset();
+    } catch (err) {
+      setError(err.message);
+    } finally {
+      setIsPending(false);
+    }
+  };
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <input id="name" name="name" />
+      {error && <p>{error}</p>}
+      <button type="submit">{isPending ? 'Saving...' : 'Save'}</button>
+    </form>
+  );
+}
+```
+
+Client-side form submissions and updates offer several advantages, particularly in terms of user experience and performance:
+
+- Server requests made without a full-page refresh, which results in faster feedback.
+- Show different form states like loading and error – better user experience.
+
+While client-side form submissions and updates provide numerous benefits, there are also potential problems and pitfalls that we should be aware of:
+
+- Need to remember to use `event.preventDefault` otherwise the browser will do a full page refresh on submission of the form.
+- Boilerplate code is required to manually manage the form state.
+- Requires JavaScript to run.
+
+## React Actions
+
+Enter the era of new React APIs! With the introduction of Actions in React 19, we can harness the power of form actions on the client side as well.
+
+### How to use React Actions in forms
+
+Typically, HTML `<form>`s support URI strings for values to the `action` attribute. However, `<form>`'s in React 19 accept functions as valid values for the `action` prop! We can even pass in `async` functions to the action. When a string is passed to the `action`, the `<form>` will behave like native HTML forms, however if a function is passed, the form will be enhanced by React.
+
+```jsx
+<form action={actionFunction}>
+```
+
+Let's convert the form above to use React 19's Actions:
+
+```jsx
+import { useState } from 'react';
+
+export default function UserForm() {
+  const [isPending, setIsPending] = useState(false);
+  const [error, setError] = useState(null);
+
+  async function createUserAction(formData) {
+    setError(false);
+    setIsPending(true);
+    try {
+      await fetch('/user', {
+        method: 'POST',
+        body: JSON.stringify({ name: formData.get('name') }),
+      });
+
+      alert('User has been created successfully');
+    } catch (err) {
+      setError(err.message);
+    } finally {
+      setIsPending(false);
+    }
+  }
+
+  return (
+    <form action={createUserAction}>
+      <input id="name" name="name" />
+      {error && <p>{error}</p>}
+      <button type="submit">{isPending ? 'Saving...' : 'Save'}</button>
+    </form>
+  );
+}
+```
+
+React does a few special things under the hood when we pass a function to `action`:
+
+1. We do not need to worry about calling `event.preventDefault()`, React does this automatically if a function is passed to `action`
+2. The action function will receive `FormData` as a parameter, so we do not need to construct form data ourselves via `new FormData(event.target)`
+3. Uncontrolled input components within the `<form>` will be reset upon action success
+
+That's useful, but do we still have to maintain the pending and error state variables ourselves? Not at all, React also has a solution for them. These issues are addressed by the introduction of new hooks – `useActionState` and `useFormStatus`. Let's look at these two new hooks.
+
+## `useActionState` hook
+
+The `useActionState` hook helps make the common cases easier for Actions. `useActionState` hook accepts multiple parameters:
+
+- `actionFn`: A function which will be used as action for the form. `actionFn` accepts two parameters: `previousState` and `formData`
+- `initialState`: Value to be used as the initial state. It is ignored after the action is first invoked
+- `permalink` (optional): A string containing the unique page URI that this form modifies
+
+The `useActionState` hook returns an array containing two values:
+
+- `formState`: A value which will be derived from return value of action function. Defaults to `initialState`
+- `formAction`: Reference to action function which was passed to the `<form>`'s `action`
+
+```jsx
+const [state, formAction] = useActionState(actionFn, initialState);
+```
+
+Let's rewrite our earlier form example using the `useActionState` hook:
+
+```js
+import { useActionState } from 'react';
+
+async function createUserAction(prevState, formData) {
+  try {
+    await fetch('/user', {
+      method: 'POST',
+      body: JSON.stringify({ name: formData.get('name') }),
+    });
+  } catch (err) {
+    return {
+      success: false,
+      message: err.message,
+    };
+  }
+
+  return {
+    success: true,
+    message: 'User created successfully!',
+  };
+}
+
+export default function UserForm() {
+  const [formState, formAction] = useActionState(createUserAction, null);
+
+  return (
+    <form action={formAction}>
+      <input id="name" name="name" />
+      {formState?.success === true && (
+        <p className="success">{formState?.message}</p>
+      )}
+      {formState?.success === false && (
+        <p className="error">{formState?.message}</p>
+      )}
+      <button type="submit">Save</button>
+    </form>
+  );
+}
+```
+
+A little better! We no longer need a state just for the error message, it is now part of the action state. Astute readers will notice that this new example does not handle the pending/loading states. That's where the `useFormStatus` hook comes in.
+
+## `useFormStatus` hook
+
+The [`useFormStatus` hook](https://19.react.dev/reference/react-dom/hooks/useFormStatus) provides status information of the last form submission, which can be used by components to render pending states (e.g. loading indicators, disabling buttons and inputs).
+
+It does not accept any parameters and returns a `status` object with the following properties:
+
+- `pending`: A `boolean` value that indicates whether the parent `<form>` is pending submission
+- `data`: A `FormData` object containing data of the parent `<form>`. It is `null` if there is no submission or no parent `<form>`
+- `method`: A string value of either `get` or `post`. This tells us whether the form is getting submitted using `GET` or `POST`
+- `action`: A reference to the `action` prop on the parent `<form>`. It is `null` if there is no parent `<form>` or if a string URI value provided to the `action` prop
+
+```js
+const { pending, data, method, action } = useFormStatus();
+```
+
+Using the `useFormStatus` hook comes with a caveat – `useFormStatus()` will only return status information for a parent `<form>`. It will not return status information for any `<form>` rendered in that same component or children components. Hence the `useFormStatus` hook must be called from a component that is rendered inside a `<form>`.
+
+Let's rewrite our example to use `useFormStatus` for handling pending states:
+
+```js
+import { useActionState } from 'react';
+import { useFormStatus } from 'react-dom';
+
+async function createUserAction(prevState, formData) {
+  try {
+    await fetch('/user', {
+      method: 'POST',
+      body: JSON.stringify({ name: formData.get('name') }),
+    });
+  } catch (err) {
+    return {
+      success: false,
+      message: err.message,
+    };
+  }
+
+  return {
+    success: true,
+    message: 'User created successfully!',
+  };
+}
+
+// In order for `useFormStatus` to work we have to extract the button
+// into a separate component so the <form> is now a parent component.
+function SubmitButton() {
+  const { pending } = useFormStatus();
+
+  return <button type="submit">{pending ? 'Saving...' : 'Save'}</button>;
+}
+
+export default function UserForm() {
+  const [formState, formAction] = useActionState(createUserAction, null);
+
+  return (
+    <form action={formAction}>
+      <div>
+        <input id="name" name="name" />
+      </div>
+      {formState?.success === true && (
+        <p className="success">{formState?.message}</p>
+      )}
+      {formState?.success === false && (
+        <p className="error">{formState?.message}</p>
+      )}
+      <SubmitButton />
+    </form>
+  );
+}
+```
+
+In order for `useFormStatus` hook to work, we have to extract the `<button>` into a separate component so the `<form>` is now a parent component.
+
+By using the new `useActionState` and `useFormStatus` hooks:
+
+- There is no need to manually maintain `pending` status. We can utilize the `pending` field from the return value of `useFormStatus`. There is no need to do prop drilling or use context for passing the pending state.
+- The returned state can contain `success` and `error` fields from the `action` function and be used to display success and error messages.
+
+## React Actions gotchas
+
+- When a `<form>` action succeeds, React will automatically reset the form for uncontrolled components. If you need to reset the `<form>` manually, a new `requestFormReset` React DOM API is available.
+- When a function is passed as the `action` or `formAction` props of `<form>`, `<input>`, and `<button>` elements, the HTTP method will be `POST` regardless of the value of the `method` prop.
+- The `action` prop can be overridden by a `formAction` prop on a `<button>` or `<input>` component as these support the `formAction` prop.
+
+## Conclusion
+
+The new React Actions, along with the `useActionState` and `useFormStatus` hooks provide apps with a new way to write form submissions in React efficiently and can easily manage the form's pending, success, and error states.
+
+Say goodbye to form boilerplate code!
