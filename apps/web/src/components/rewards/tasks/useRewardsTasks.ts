@@ -1,7 +1,7 @@
 import {
   RiGithubFill,
   RiLinkedinFill,
-  RiStarLine,
+  RiStarFill,
   RiTwitterXFill,
 } from 'react-icons/ri';
 import { useIntl } from 'react-intl';
@@ -9,17 +9,6 @@ import { useIntl } from 'react-intl';
 export function useRewardsTasks() {
   const intl = useIntl();
   const tasks = [
-    {
-      actionName: 'GITHUB_STAR',
-      icon: RiStarLine,
-      label: intl.formatMessage({
-        defaultMessage: 'Star our GitHub repo',
-        description: 'Title for task',
-        id: 'Ne4i1M',
-      }),
-      taskHref:
-        'https://github.com/greatfrontend/awesome-front-end-system-design',
-    },
     {
       actionName: 'GITHUB_FOLLOW',
       icon: RiGithubFill,
@@ -29,6 +18,28 @@ export function useRewardsTasks() {
         id: 'oS10TF',
       }),
       taskHref: 'https://github.com/greatfrontend',
+    },
+    {
+      actionName: 'GITHUB_STAR.JS_INTERVIEWS',
+      icon: RiStarFill,
+      label: intl.formatMessage({
+        defaultMessage: 'Star our "JavaScript Interview Questions" repo',
+        description: 'Title for task',
+        id: '/aaSHm',
+      }),
+      taskHref:
+        'https://github.com/yangshun/top-javascript-interview-questions',
+    },
+    {
+      actionName: 'GITHUB_STAR.SYSTEM_DESIGN',
+      icon: RiStarFill,
+      label: intl.formatMessage({
+        defaultMessage: 'Star our "Front End System Design" repo',
+        description: 'Title for task',
+        id: 'M8S0Dp',
+      }),
+      taskHref:
+        'https://github.com/greatfrontend/awesome-front-end-system-design',
     },
     {
       actionName: 'LINKEDIN_FOLLOW',

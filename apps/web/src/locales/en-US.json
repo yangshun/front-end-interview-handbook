@@ -195,6 +195,10 @@
     "defaultMessage": "Launched",
     "description": "Tooltip for launched icon in roadmap"
   },
+  "/aaSHm": {
+    "defaultMessage": "Star our \"JavaScript Interview Questions\" repo",
+    "description": "Title for task"
+  },
   "/c/hHN": {
     "defaultMessage": "We use this to calculate your YOE and keep it updated",
     "description": "Description for \"When did you start work\" input on Projects profile onboarding page"
@@ -2979,6 +2983,10 @@
     "defaultMessage": "You left a question on your submission <link>{submissionTitle}</link>: <comment>\"{description}\"</comment>",
     "description": "Log message for you asking question on your submission"
   },
+  "M8S0Dp": {
+    "defaultMessage": "Star our \"Front End System Design\" repo",
+    "description": "Title for task"
+  },
   "M9z02W": {
     "defaultMessage": "Airbnb",
     "description": "Company name for Airbnb"
@@ -3158,10 +3166,6 @@
   "NdDD5W": {
     "defaultMessage": "Front End System Design Guidebook",
     "description": "Front end system design guidebook title"
-  },
-  "Ne4i1M": {
-    "defaultMessage": "Star our GitHub repo",
-    "description": "Title for task"
   },
   "NgxUnY": {
     "defaultMessage": "Difficulty",

@@ -3,6 +3,11 @@ import Stripe from 'stripe';
 import type { ZodError } from 'zod';
 import { z } from 'zod';
 
+import {
+  GITHUB_STAR_JS_INTERVIEWS,
+  GITHUB_STAR_SYSTEM_DESIGN,
+} from '~/components/rewards/tasks/RewardsTaskItem';
+
 import prisma from '~/server/prisma';
 import { createSupabaseAdminClientGFE_SERVER_ONLY } from '~/supabase/SupabaseServerGFE';
 
@@ -11,8 +16,21 @@ import { router, userProcedure } from '../trpc';
 const GITHUB_USERNAME_REGEX = /^[a-zA-Z0-9-]+$/;
 const LINKEDIN_USERNAME_REGEX = /^[a-zA-Z0-9-_]+$/;
 const TWITTER_USERNAME_REGEX = /^[a-zA-Z0-9-_]+$/;
-// ID for https://github.com/greatfrontend/awesome-front-end-system-design
-const GITHUB_REPO_ID = 593048179;
+const GITHUB_REPO_ID_SYSTEM_DESIGN = 593048179; // https://github.com/greatfrontend/awesome-front-end-system-design
+const GITHUB_REPO_ID_JS_INTERVIEW = 812973427; // https://github.com/yangshun/top-javascript-interview-questions
+
+const GitHubStarActionNames = [
+  GITHUB_STAR_JS_INTERVIEWS,
+  GITHUB_STAR_SYSTEM_DESIGN,
+] as const;
+
+const GitHubStarActionToRepoId: Record<
+  (typeof GitHubStarActionNames)[number],
+  number
+> = {
+  [GITHUB_STAR_JS_INTERVIEWS]: GITHUB_REPO_ID_JS_INTERVIEW,
+  [GITHUB_STAR_SYSTEM_DESIGN]: GITHUB_REPO_ID_SYSTEM_DESIGN,
+};
 const GITHUB_ORG_NAME = 'greatfrontend';
 const SOCIAL_TASKS_DISCOUNT_CAMPAIGN = 'SOCIAL_TASKS_DISCOUNT';
 
@@ -90,18 +108,24 @@ export const rewardsRouter = router({
   checkGitHubStarred: userProcedure
     .input(
       z.object({
+        action: z.enum(GitHubStarActionNames),
         username: gitHubUsernameSchema,
       }),
     )
-    .mutation(async ({ input: { username }, ctx: { viewer } }) => {
+    .mutation(async ({ input: { action, username }, ctx: { viewer } }) => {
       const octokit = new Octokit({});
+      const repoId = GitHubStarActionToRepoId[action];
+
       const lastPattern = /(?<=<)([\S]*)(?=>; rel="last")/i;
       const normalUrl = `/users/${username}/starred`;
       const pagesToCheck = 5;
       const campaign = SOCIAL_TASKS_DISCOUNT_CAMPAIGN;
-      const action = 'GITHUB_STAR';
       const userId = viewer.id;
       const identifier = username;
+
+      if (repoId == null) {
+        throw `No matching repo for ${action}`;
+      }
 
       // TODO: Migrate to octokit SDK methods.
       const initialResponse = await octokit.request(`GET ${normalUrl}`, {
@@ -121,7 +145,7 @@ export const rewardsRouter = router({
         if (
           !data.some(
             // TODO: Remove manual typing after migrating to octokit SDK methods.
-            (repo: Readonly<{ id: number }>) => repo.id === GITHUB_REPO_ID,
+            (repo: Readonly<{ id: number }>) => repo.id === repoId,
           )
         ) {
           throw 'Not starred';
@@ -171,7 +195,7 @@ export const rewardsRouter = router({
         response.data.map((repo: Readonly<{ id: number }>) => repo.id),
       );
 
-      const isStarred = ids.includes(GITHUB_REPO_ID);
+      const isStarred = ids.includes(GITHUB_REPO_ID_JS_INTERVIEW);
 
       if (!isStarred && lastNumber <= pagesToCheck) {
         throw 'Not starred';

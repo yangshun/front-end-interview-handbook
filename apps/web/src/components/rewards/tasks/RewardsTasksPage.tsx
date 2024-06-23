@@ -207,13 +207,25 @@ export default function RewardsTasksPage() {
     });
 
     switch (task.actionName) {
-      case 'GITHUB_STAR': {
-        setCurrentVerifyingTask('GITHUB_STAR');
+      case 'GITHUB_STAR.JS_INTERVIEWS': {
+        setCurrentVerifyingTask('GITHUB_STAR.JS_INTERVIEWS');
         checkGitHubStarMutation.mutate(
           {
+            action: 'GITHUB_STAR.JS_INTERVIEWS',
             username: handlesData.gitHubUsername,
           },
-          verifyCallback('GITHUB_STAR'),
+          verifyCallback('GITHUB_STAR.JS_INTERVIEWS'),
+        );
+        break;
+      }
+      case 'GITHUB_STAR.SYSTEM_DESIGN': {
+        setCurrentVerifyingTask('GITHUB_STAR.SYSTEM_DESIGN');
+        checkGitHubStarMutation.mutate(
+          {
+            action: 'GITHUB_STAR.SYSTEM_DESIGN',
+            username: handlesData.gitHubUsername,
+          },
+          verifyCallback('GITHUB_STAR.SYSTEM_DESIGN'),
         );
         break;
       }
