@@ -1,18 +1,45 @@
 import RedditPlatform from './RedditPlatform';
 import type { Platform } from '../Platform';
+import keyword from '../../data/keyword.json' assert { type: 'json' };
+import subreddit from '../../data/subreddit.json' assert { type: 'json' };
+
+type RedditParams = Readonly<{
+  clientId: string;
+  clientSecret: string;
+  password: string;
+  userAgent: string;
+  username: string;
+}>;
+
+type PlatformType = 'Reddit';
+
+const platformMap = {
+  Reddit: RedditPlatform,
+};
 
 class PlatformManager {
-  private platforms: Array<string>;
-  private platformsToImplementation: Map<string, Platform>;
+  private platformsToImplementation: Map<PlatformType, Platform>;
+  private static instance: PlatformManager;
 
-  constructor(platforms: Array<string>) {
-    this.platforms = platforms;
-    this.platformsToImplementation = new Map<string, Platform>();
+  private constructor() {
+    this.platformsToImplementation = new Map<PlatformType, Platform>();
   }
 
-  public async getPlatform(platform: string): Promise<Platform> {
+  // Static method to get the single instance of PlatformManager
+  public static getInstance(): PlatformManager {
+    if (!PlatformManager.instance) {
+      PlatformManager.instance = new PlatformManager();
+    }
+
+    return PlatformManager.instance;
+  }
+
+  public getPlatform(
+    platform: PlatformType,
+    platformParams: RedditParams,
+  ): Platform {
     // Check if platform is a platform that is being managed
-    if (!this.platforms.includes(platform)) {
+    if (!(platform in platformMap)) {
       throw new Error(`Platform ${platform} is not being managed`);
     }
 
@@ -22,27 +49,29 @@ class PlatformManager {
     }
 
     // Initialize platform
-    const platformImplementation = await this.initializePlatform(platform);
+    const platformImplementation = this.initializePlatform(
+      platform,
+      platformParams,
+    );
 
     this.platformsToImplementation.set(platform, platformImplementation);
 
     return platformImplementation;
   }
 
-  private async initializePlatform(platform: string): Promise<Platform> {
-    const namespaceObject = await import(
-      `../implementations/${platform}Platform`
-    );
+  private initializePlatform(
+    platform: PlatformType,
+    platformParams: RedditParams,
+  ): Platform {
+    // TODO: Later add switch case when there are more than 1 platform
+    console.info(`${platform} is initializing...`);
 
-    console.info(namespaceObject.default);
-
-    const clientId = process.env.REDDIT_CLIENT_ID as string;
-    const clientSecret = process.env.REDDIT_CLIENT_SECRET as string;
-    const userAgent = process.env.REDDIT_USER_AGENT as string;
-    const username = process.env.REDDIT_USERNAME as string;
-    const password = process.env.REDDIT_PASSWORD as string;
-    const subreddits = ['reactjs', 'javascript'];
-    const keywords = ['typescript', 'javascript'];
+    const { clientId, clientSecret, userAgent, username, password } =
+      platformParams;
+    const subreddits = subreddit.items;
+    const keywords = keyword.items;
+    // Const subreddits = ['frontend', 'reactjs'];
+    // const keywords = ['typescript', 'javascript'];
     const timeframeInHours = 1;
 
     const platformImplementation: Platform = new RedditPlatform(

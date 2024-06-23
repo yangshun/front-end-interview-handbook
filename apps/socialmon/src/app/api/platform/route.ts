@@ -1,5 +1,4 @@
-import RedditPlatform from '../../../interfaces/implementations/RedditPlatform';
-import { type Platform } from '../../../interfaces/Platform';
+import PlatformManager from '~/interfaces/implementations/PlatformManager';
 
 export async function GET() {
   const clientId = process.env.REDDIT_CLIENT_ID as string;
@@ -7,28 +6,27 @@ export async function GET() {
   const userAgent = process.env.REDDIT_USER_AGENT as string;
   const username = process.env.REDDIT_USERNAME as string;
   const password = process.env.REDDIT_PASSWORD as string;
-  const subreddits = ['reactjs', 'javascript'];
-  const keywords = ['typescript', 'javascript'];
-  const timeframeInHours = 1;
 
-  const platform: Platform = new RedditPlatform(
+  const platformManager = PlatformManager.getInstance();
+
+  const redditPlatformParams = {
     clientId,
     clientSecret,
+    password,
     userAgent,
     username,
-    password,
-    subreddits,
-    keywords,
-    timeframeInHours,
+  };
+
+  const redditPlatform = platformManager.getPlatform(
+    'Reddit',
+    redditPlatformParams,
   );
 
   try {
-    const posts = await platform.getRelevantPosts();
+    await redditPlatform.getRelevantPosts();
 
-    return new Response(JSON.stringify(posts), {
-      headers: {
-        'Content-Type': 'application/json',
-      },
+    return new Response('Posts fetched successfully!', {
+      status: 200,
     });
   } catch (error) {
     console.error('Error fetching posts:', error);

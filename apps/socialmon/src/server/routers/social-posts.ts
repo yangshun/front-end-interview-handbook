@@ -1,6 +1,6 @@
 import { z } from 'zod';
 
-import RedditPlatform from '~/interfaces/implementations/RedditPlatform';
+import PlatformManager from '~/interfaces/implementations/PlatformManager';
 
 import { publicProcedure, router } from '../trpc';
 import { type AIProvider } from '../../interfaces/AIProvider';
@@ -14,22 +14,23 @@ function getPlatform(): Platform {
   const userAgent = process.env.REDDIT_USER_AGENT as string;
   const username = process.env.REDDIT_USERNAME as string;
   const password = process.env.REDDIT_PASSWORD as string;
-  const subreddits = ['reactjs', 'javascript'];
-  const keywords = ['typescript', 'javascript'];
-  const timeframeInHours = 1;
 
-  const platform: Platform = new RedditPlatform(
+  const platformManager = PlatformManager.getInstance();
+
+  const redditPlatformParams = {
     clientId,
     clientSecret,
+    password,
     userAgent,
     username,
-    password,
-    subreddits,
-    keywords,
-    timeframeInHours,
+  };
+
+  const redditPlatform = platformManager.getPlatform(
+    'Reddit',
+    redditPlatformParams,
   );
 
-  return platform;
+  return redditPlatform;
 }
 
 function getAIProvider(): AIProvider {

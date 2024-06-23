@@ -65,6 +65,7 @@ class RedditPlatform implements Platform {
             url: post.url,
           };
         }),
+        skipDuplicates: true,
       })
       .then(() => {
         console.info('Successfully inserted posts to database');
@@ -80,9 +81,9 @@ class RedditPlatform implements Platform {
     return result;
   }
 
-  async getRelevantPosts(): Promise<Array<Post>> {
-    const currentTime = Math.floor(Date.now() / 1000);
-    const startTime = currentTime - this.timeframeInHours * 3600;
+  async getRelevantPosts(): Promise<boolean> {
+    const currentTime = Date.now();
+    const startTime = currentTime - this.timeframeInHours * 3600000;
 
     const relevantSubmissions: Array<Submission> = [];
 
@@ -96,11 +97,15 @@ class RedditPlatform implements Platform {
       // const posts = await subredditInstance.getNew({after: 't3_1iwx6i'});
       const posts = await subredditInstance.getNew();
 
+      const keywordRegex = new RegExp(this.keywords.join('|'), 'gi');
+
       // Filter posts based on keywords and timeframe
       const filteredPosts = posts.filter((post) => {
+        const createdAtInMillisecond = post.created_utc * 1000;
+
         return (
-          // This.keywords.some(keyword => post.title.toLowerCase().includes(keyword.toLowerCase())) &&
-          post.created_utc >= startTime
+          (keywordRegex.test(post.title) || keywordRegex.test(post.selftext)) &&
+          createdAtInMillisecond >= startTime
         );
       });
 
@@ -114,12 +119,10 @@ class RedditPlatform implements Platform {
     const success = await this.insertPostsToDatabase(relevantPosts);
 
     if (!success) {
-      // TODO: throw an error
-      console.error('Failed to insert posts to database');
+      throw new Error('Failed to insert posts to database');
     }
 
-    // Probably no longer need to return - just return if it's successful or not
-    return relevantPosts;
+    return success;
   }
 
   async replyToPost(post: RedditPost): Promise<boolean> {

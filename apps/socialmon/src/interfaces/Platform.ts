@@ -1,7 +1,7 @@
 import type { Post } from '~/models/Post';
 
 export type Platform = {
-  getRelevantPosts(): Promise<Array<Post>>;
+  getRelevantPosts(): Promise<boolean>;
   getRepliedPosts(): Promise<Array<Post>>;
   getUnrepliedPosts(): Promise<Array<Post>>;
   replyToPost(post: Post): Promise<boolean>;
