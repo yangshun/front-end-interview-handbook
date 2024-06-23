@@ -14,6 +14,7 @@ export default function BadgeExamples() {
           <Badge label="Warning" variant="warning" />
           <Badge label="Danger" variant="danger" />
           <Badge label="Neutral" variant="neutral" />
+          <Badge label="Neutral active" variant="neutral-active" />
           <Badge label="Special" variant="special" />
         </div>
         <div className="flex flex-wrap gap-4">
@@ -23,6 +24,7 @@ export default function BadgeExamples() {
           <Badge label="Warning" size="sm" variant="warning" />
           <Badge label="Danger" size="sm" variant="danger" />
           <Badge label="Neutral" size="sm" variant="neutral" />
+          <Badge label="Neutral active" variant="neutral-active" />
           <Badge label="Special" size="sm" variant="special" />
         </div>
         <div className="flex flex-wrap gap-4">
@@ -32,6 +34,7 @@ export default function BadgeExamples() {
           <Badge label="Warning" size="xs" variant="warning" />
           <Badge label="Danger" size="xs" variant="danger" />
           <Badge label="Neutral" size="xs" variant="neutral" />
+          <Badge label="Neutral active" variant="neutral-active" />
           <Badge label="Special" size="xs" variant="special" />
         </div>
         <div className="flex flex-wrap gap-4">

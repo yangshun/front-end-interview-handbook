@@ -27,7 +27,7 @@ export default function TextPairing({
       <Heading className={clsx('flex items-center gap-4')} level="heading6">
         {title}
         {titleAddOnText && (
-          <Badge label={titleAddOnText} size="sm" variant="neutral" />
+          <Badge label={titleAddOnText} size="sm" variant="neutral-active" />
         )}
       </Heading>
       {description && (

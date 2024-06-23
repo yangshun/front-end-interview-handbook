@@ -50,7 +50,7 @@ export default function ProjectsChallengeReputationBadge({
         }
         label={`+${points}`}
         size="sm"
-        variant="neutral"
+        variant="neutral-active"
       />
     </Tooltip>
   );

@@ -5,6 +5,7 @@ import { type ForwardedRef, forwardRef } from 'react';
 import {
   themeTextBrandColor,
   themeTextColor,
+  themeTextSecondaryColor,
   themeTextSubtitleColor,
   themeTextSuccessColor,
   themeTextWarningColor,
@@ -13,6 +14,7 @@ import {
 export type BadgeVariant =
   | 'danger'
   | 'info'
+  | 'neutral-active'
   | 'neutral'
   | 'primary'
   | 'special'
@@ -55,6 +57,13 @@ const variantClasses: Record<
     textClass: 'text-info dark:text-info-light',
   },
   neutral: {
+    backgroundClass: 'bg-neutral-50 dark:bg-neutral-800',
+    borderClass: 'border border-neutral-500',
+    iconClass: 'text-neutral-500',
+    paddingClass: 'py-px',
+    textClass: themeTextSecondaryColor,
+  },
+  'neutral-active': {
     backgroundClass: 'bg-neutral-50 dark:bg-neutral-800',
     borderClass: 'border border-transparent',
     iconClass: 'text-neutral-500',
