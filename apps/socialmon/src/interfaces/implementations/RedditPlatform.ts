@@ -38,10 +38,10 @@ class RedditPlatform implements Platform {
 
   private createRedditPost(post: Submission): RedditPost {
     return {
-      content: post.selftext,
+      content: post.selftext_html ?? post.selftext,
       foundAt: new Date(),
       id: post.id,
-      postedAt: new Date((post.created_utc + 3600 * 8) * 1000), // GMT +8
+      postedAt: new Date(post.created_utc * 1000), // In milliseconds
       replied: false,
       repliedAt: null,
       response: null,
@@ -219,6 +219,9 @@ class RedditPlatform implements Platform {
   async getUnrepliedPosts(): Promise<Array<RedditPost>> {
     // Get posts from database where replied is false
     const posts = await prisma.redditPost.findMany({
+      orderBy: {
+        postedAt: 'desc',
+      },
       where: {
         replied: false,
       },
@@ -230,6 +233,9 @@ class RedditPlatform implements Platform {
   async getRepliedPosts(): Promise<Array<RedditPost>> {
     // Get posts from database where replied is true
     const posts = await prisma.redditPost.findMany({
+      orderBy: {
+        postedAt: 'desc',
+      },
       where: {
         replied: true,
       },

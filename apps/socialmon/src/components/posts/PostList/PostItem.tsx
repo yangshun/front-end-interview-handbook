@@ -1,6 +1,9 @@
 'use client';
 
+import DOMPurify from 'dompurify';
 import { type ChangeEvent } from 'react';
+
+import RelativeTimestamp from '~/components/common/datetime/RelativeTimestamp';
 
 import { type Post } from '~/models/Post';
 
@@ -18,18 +21,21 @@ import {
 import { useInputState } from '@mantine/hooks';
 
 type Props = Readonly<{
-  editResponse: (response: string | null) => void;
-  generateResponse: (setter: (value: ChangeEvent | string | null | undefined) => void) => Promise<void>;
+  generateResponse: (
+    setter: (value: ChangeEvent | string | null | undefined) => void,
+  ) => Promise<void>;
   post: Post;
   replyToPost: (response: string | null) => void;
 }>;
 
-export default function PostItem({ editResponse, generateResponse, post, replyToPost }: Props) {
+export default function PostItem({
+  generateResponse,
+  post,
+  replyToPost,
+}: Props) {
   const [response, setResponse] = useInputState<string | null>(post.response);
 
-  function handleUpdateResponseButton() {
-    editResponse(response);
-  }
+  const cleanHtml = DOMPurify.sanitize(post.content);
 
   function handleReplyToPostButton() {
     replyToPost(response);
@@ -37,14 +43,20 @@ export default function PostItem({ editResponse, generateResponse, post, replyTo
 
   // TODO: truncate content and add url?
   // TODO: minimise the card?
-  // TODO: if response is null, call the AIProvider to generate a response
   return (
     <Card mb="md" padding="lg" radius="md" shadow="sm" withBorder={true}>
       <Group justify="space-between" mb="xs" mt="md">
-        <Title order={3}>Title: {post.title}</Title>
-        <Text size="sm">Date: {post.postedAt.toString()}</Text>
+        <Title order={3}>{post.title}</Title>
+        <Text size="sm">
+          <RelativeTimestamp timestamp={new Date(post.postedAt)} />
+        </Text>
       </Group>
-      <Text size="sm">{post.content}</Text>
+      <Text size="sm">
+        <span
+          dangerouslySetInnerHTML={{ __html: cleanHtml }}
+          className="prose"
+        />
+      </Text>
       <Divider my="md" />
       <Textarea
         autosize={true}
@@ -53,10 +65,9 @@ export default function PostItem({ editResponse, generateResponse, post, replyTo
         onChange={setResponse}
       />
       <Group justify="space-between" mb="xs" mt="md">
-        <Button onClick={() => generateResponse(setResponse)}>Generate Response</Button>
-      </Group>
-      <Group justify="space-between" mb="xs" mt="md">
-        <Button onClick={handleUpdateResponseButton}>Update Response</Button>
+        <Button onClick={() => generateResponse(setResponse)}>
+          Generate Response
+        </Button>
         <Button onClick={handleReplyToPostButton}>Reply</Button>
       </Group>
     </Card>

@@ -17,16 +17,13 @@ export default function PostList() {
   const { isLoading, data } = trpc.socialPosts.getUnrepliedPosts.useQuery();
   const generateResponseMutation =
     trpc.socialPosts.generateResponse.useMutation();
-  const updatePostMutation = trpc.socialPosts.updatePost.useMutation();
   const replyPostMutation = trpc.socialPosts.replyToPost.useMutation();
 
   async function generateResponse(
     postId: string,
     setResponse: (value: ChangeEvent | string | null | undefined) => void,
   ) {
-    const postToGenerateResponseFor = unrepliedPosts.find(
-      (post) => post.id === postId,
-    );
+    const postToGenerateResponseFor = data?.find((post) => post.id === postId);
 
     if (!postToGenerateResponseFor) {
       // TODO: Handle error
@@ -44,30 +41,6 @@ export default function PostList() {
 
     postToGenerateResponseFor.response = response;
     setResponse(response);
-  }
-
-  async function updatePost(postId: string, response: string | null) {
-    const postToEdit = unrepliedPosts.find((post) => post.id === postId);
-
-    if (!postToEdit) {
-      // TODO: Handle error
-      return;
-    }
-
-    const oldResponse = postToEdit.response;
-
-    postToEdit.response = response;
-
-    console.info('Updating post:', postToEdit.title);
-
-    const success = await updatePostMutation.mutateAsync({ post: postToEdit });
-
-    console.info(success);
-
-    if (!success) {
-      // TODO: Handle error
-      postToEdit.response = oldResponse;
-    }
   }
 
   async function replyToPost(postId: string, response: string | null) {
@@ -99,11 +72,6 @@ export default function PostList() {
       postToReplyTo.repliedAt = null;
     }
   }
-
-  function sortByPostDate(a: Post, b: Post) {
-    return new Date(a.postedAt).getTime() - new Date(b.postedAt).getTime();
-  }
-
   useEffect(() => {
     if (!data) {
       // Something went wrong(?)
@@ -111,9 +79,8 @@ export default function PostList() {
     }
 
     const convertedPosts = data as unknown as Array<Post>;
-    const sortedPosts = convertedPosts.sort(sortByPostDate);
 
-    setUnrepliedPosts(sortedPosts);
+    setUnrepliedPosts(convertedPosts);
   }, [data]);
 
   // TODO: tab for replied posts
@@ -128,9 +95,6 @@ export default function PostList() {
       {unrepliedPosts.map((post) => (
         <PostItem
           key={post.id}
-          editResponse={(response: string | null) =>
-            updatePost(post.id, response)
-          }
           generateResponse={(
             setResponse: (
               value: ChangeEvent | string | null | undefined,
