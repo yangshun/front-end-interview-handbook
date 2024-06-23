@@ -5091,10 +5091,6 @@
     "defaultMessage": "Filter by roadmap skills used by the creator",
     "description": "Label for skills filter"
   },
-  "bjt3N6": {
-    "defaultMessage": "Month",
-    "description": "Label for Month filter button"
-  },
   "bnqijt": {
     "defaultMessage": "Post",
     "description": "Label for post button on project discussions page"

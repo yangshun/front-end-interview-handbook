@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import { useState } from 'react';
+import { startCase } from 'lodash-es';
 import { RiArrowDownSLine } from 'react-icons/ri';
 import type { IntlShape } from 'react-intl';
 import { useIntl } from 'react-intl';
@@ -20,11 +20,7 @@ function getMonthLabel(
   }
 
   if (months.length === 1) {
-    return intl.formatMessage({
-      defaultMessage: 'Month',
-      description: 'Label for Month filter button',
-      id: 'bjt3N6',
-    });
+    return startCase(months[0]);
   }
 
   return intl.formatMessage({
@@ -62,7 +58,7 @@ function RoadmapMonthFilter({
 
   return (
     <Popover
-      align="center"
+      align="end"
       className={clsx('w-[186px] !p-3')}
       trigger={
         <FilterButton

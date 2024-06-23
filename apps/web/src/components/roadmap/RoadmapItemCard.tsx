@@ -54,8 +54,8 @@ function RoadmapItemCard({
           {description}
         </Text>
       </div>
-      <div className="flex flex-col gap-4 md:flex-row  md:justify-between">
-        <div className="flex flex-1 flex-wrap items-center gap-3">
+      <div className="flex flex-col gap-4 lg:flex-row lg:justify-between">
+        <div className="flex flex-1 flex-wrap items-center gap-x-2 gap-y-3">
           {tags.map((tag) => {
             const isInterviews = tag.toLowerCase() === 'interviews';
             const isProjects = tag.toLowerCase() === 'projects';
@@ -82,6 +82,7 @@ function RoadmapItemCard({
                 className={clsx(
                   '!bg-neutral-100 dark:!bg-neutral-900',
                   '!border !border-neutral-300 dark:!border-neutral-600',
+                  '!text-neutral-500',
                 )}
                 label={`#${tag}`}
                 variant="neutral"

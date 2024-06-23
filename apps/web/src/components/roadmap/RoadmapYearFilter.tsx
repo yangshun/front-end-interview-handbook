@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import React, { useState } from 'react';
+import React from 'react';
 import { RiCheckboxCircleLine } from 'react-icons/ri';
 
 import Button from '~/components/ui/Button';
