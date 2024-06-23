@@ -931,6 +931,10 @@
     "defaultMessage": "Study plans for Front End Interviews",
     "description": "Title of study plans page"
   },
+  "6CQPs9": {
+    "defaultMessage": "Months",
+    "description": "Label for  Months filter button"
+  },
   "6H0D7u": {
     "defaultMessage": "Learning features",
     "description": "Learning features of the product in Projects marketing page"
@@ -1206,10 +1210,6 @@
   "8F7JlA": {
     "defaultMessage": "Access updates to the interviews platform for life.",
     "description": "Lifetime membership feature of accessing updates to interview platforms"
-  },
-  "8GDujz": {
-    "defaultMessage": "Months",
-    "description": "Label for Months filter button"
   },
   "8JoIUN": {
     "defaultMessage": "Coming soon",
@@ -5086,6 +5086,10 @@
   "bj6RGb": {
     "defaultMessage": "Filter by roadmap skills used by the creator",
     "description": "Label for skills filter"
+  },
+  "bjt3N6": {
+    "defaultMessage": "Month",
+    "description": "Label for Month filter button"
   },
   "bnqijt": {
     "defaultMessage": "Post",

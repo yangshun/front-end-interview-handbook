@@ -31,6 +31,7 @@ function RoadmapPage() {
     error,
     selectedYear,
     onApplyFilter,
+    showDefaultMonths,
   } = useRoadmap();
 
   const hasError = !isLoading && !!error;
@@ -47,14 +48,16 @@ function RoadmapPage() {
 
     if (hasError) {
       return (
-        <EmptyState
-          title={intl.formatMessage({
-            defaultMessage: 'Something went wrong. Please try again later.',
-            description: 'Title for error state for roadmap',
-            id: 'I1R2rY',
-          })}
-          variant="error"
-        />
+        <div className="py-24 md:p-24">
+          <EmptyState
+            title={intl.formatMessage({
+              defaultMessage: 'Something went wrong. Please try again later.',
+              description: 'Title for error state for roadmap',
+              id: 'I1R2rY',
+            })}
+            variant="error"
+          />
+        </div>
       );
     }
 
@@ -69,6 +72,7 @@ function RoadmapPage() {
             <div className="hidden md:block">
               <RoadmapMonthFilter
                 months={months}
+                showDefaultMonths={showDefaultMonths}
                 onMonthsChange={onMonthChange}
               />
             </div>
@@ -83,7 +87,7 @@ function RoadmapPage() {
             </div>
           </div>
           {noData ? (
-            <div className="md:p24 p-4">
+            <div className="py-24 md:p-24">
               <EmptyState
                 icon={FaRegFolderOpen}
                 subtitle={intl.formatMessage({
@@ -108,7 +112,11 @@ function RoadmapPage() {
         </div>
         {years.length > 1 && (
           <div className="hidden md:block">
-            <YearFilter years={years} onYearChange={onYearChange} />
+            <YearFilter
+              selectedYear={selectedYear}
+              years={years}
+              onYearChange={onYearChange}
+            />
           </div>
         )}
       </div>

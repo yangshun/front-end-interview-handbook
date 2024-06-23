@@ -50,12 +50,12 @@ function RoadmapItemCard({
             </Tooltip>
           )}
         </div>
-        <Text size="body2" weight="normal">
+        <Text color="secondary" size="body2" weight="normal">
           {description}
         </Text>
       </div>
       <div className="flex flex-col gap-4 md:flex-row  md:justify-between">
-        <div className="flex flex-1 flex-wrap items-center gap-1">
+        <div className="flex flex-1 flex-wrap items-center gap-3">
           {tags.map((tag) => {
             const isInterviews = tag.toLowerCase() === 'interviews';
             const isProjects = tag.toLowerCase() === 'projects';

@@ -3,7 +3,12 @@ import { useEffect, useMemo, useState } from 'react';
 
 import { trpc } from '~/hooks/trpc';
 
-import { getFilteredData, getMonthsForYear, getYears } from '../utils';
+import {
+  getFilteredData,
+  getMonthsForYear,
+  getYears,
+  hasCurrentYear,
+} from '../utils';
 
 import type { RoadmapItem } from '@prisma/client';
 
@@ -21,15 +26,24 @@ export const useRoadmap = () => {
   const [selectedYear, setSelectedYear] = useState('');
   const [selectedMonths, setSelectedMonths] = useState<Array<string>>([]);
   const [selectedProducts, setSelectedProducts] = useState<Array<Product>>([]);
+  const [showDefaultMonths, setShowDefaultMonths] = useState(true);
 
-  const years = useMemo(
+  const years: Array<string> = useMemo(
     () => (roadmapItems ? getYears(roadmapItems) : []),
     [roadmapItems],
   );
 
   useEffect(() => {
     if (roadmapItems?.length) {
-      const year: string | undefined = format(roadmapItems[0].dueDate, 'yyyy');
+      /**
+       * Check if data has current year
+       * if not then select the first year in the data
+       */
+      const dataHasCurrentYear = hasCurrentYear(roadmapItems);
+
+      const year: string | undefined = dataHasCurrentYear
+        ? format(new Date(), 'yyyy')
+        : format(roadmapItems[0].dueDate, 'yyyy');
 
       if (year) {
         setSelectedYear(year);
@@ -65,6 +79,7 @@ export const useRoadmap = () => {
     onMonthChange: (months: Array<string>) => {
       setSelectedMonths(months);
       filterData(selectedYear, months, selectedProducts);
+      setShowDefaultMonths(false);
     },
     onProductFilterChange: (products: Array<Product>) => {
       setSelectedProducts(products);
@@ -75,11 +90,14 @@ export const useRoadmap = () => {
 
       const months = getMonthsForYear(year);
 
+      setShowDefaultMonths(true);
+
       setSelectedMonths(months);
       filterData(year, months, selectedProducts);
     },
     selectedProducts,
     selectedYear,
+    showDefaultMonths,
     years,
   };
 };

@@ -7,12 +7,11 @@ import Card from '~/components/ui/Card';
 
 type Props = Readonly<{
   onYearChange: (year: string) => void;
+  selectedYear: string;
   years: Array<string>;
 }>;
 
-function RoadmapYearFilter({ onYearChange, years }: Props) {
-  const [selectedYear, setSelectedYear] = useState(() => years[0]);
-
+function RoadmapYearFilter({ onYearChange, years, selectedYear }: Props) {
   return (
     <Card
       className={clsx('space-y-1', 'w-40  p-3')}
@@ -33,11 +32,11 @@ function RoadmapYearFilter({ onYearChange, years }: Props) {
               selected && '!text-brand',
             )}
             icon={RiCheckboxCircleLine}
+            iconClassName={clsx('text-neutral-500', selected && '!text-brand')}
             label={year}
             size="md"
             variant="unstyled"
             onClick={() => {
-              setSelectedYear(year);
               onYearChange(year);
             }}
           />

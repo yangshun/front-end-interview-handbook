@@ -5,7 +5,7 @@ export const roadmapRouter = router({
   getRoadmapItems: publicProcedure.query(async () => {
     const roadmapItems = await prisma.roadmapItem.findMany({
       orderBy: {
-        dueDate: 'desc',
+        dueDate: 'asc',
       },
     });
 

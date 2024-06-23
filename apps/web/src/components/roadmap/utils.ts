@@ -1,6 +1,6 @@
 import format from 'date-fns/format';
 
-import { DEC, JAN, MONTHS } from './constants';
+import { DEC, JAN, MONTH_DELTA, MONTHS } from './constants';
 import type { Product } from './hooks/useRoadmap';
 
 import type { RoadmapItem } from '@prisma/client';
@@ -50,7 +50,7 @@ export function getMonthsForYear(year: string) {
   let startMonth = JAN;
 
   if (currentYear.toString() === year) {
-    startMonth = currentMonth === DEC ? currentMonth : currentMonth + 1;
+    startMonth = currentMonth + MONTH_DELTA;
   }
 
   const defaultOption = [];
@@ -75,4 +75,10 @@ export function groupRoadmapItemByDay(roadmapItems: Array<RoadmapItem>) {
 
     return acc;
   }, groupedItems);
+}
+
+export function hasCurrentYear(roadmapItems: Array<RoadmapItem>) {
+  return roadmapItems.some(
+    (item) => new Date(item.dueDate).getFullYear === new Date().getFullYear,
+  );
 }

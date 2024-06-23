@@ -1,5 +1,7 @@
 import clsx from 'clsx';
+import { useState } from 'react';
 import { RiArrowDownSLine } from 'react-icons/ri';
+import type { IntlShape } from 'react-intl';
 import { useIntl } from 'react-intl';
 
 import FilterButton from '~/components/common/FilterButton';
@@ -8,12 +10,40 @@ import Popover from '~/components/ui/Popover';
 import { MONTHS } from './constants';
 import RoadmapProductFilterButton from './RoadmapProductFilterButton';
 
+function getMonthLabel(
+  isDefaultSelected: boolean,
+  months: Array<string>,
+  intl: IntlShape,
+) {
+  if (isDefaultSelected) {
+    return `${months[0]} - ${months.at(-1)}`;
+  }
+
+  if (months.length === 1) {
+    return intl.formatMessage({
+      defaultMessage: 'Month',
+      description: 'Label for Month filter button',
+      id: 'bjt3N6',
+    });
+  }
+
+  return intl.formatMessage({
+    defaultMessage: 'Months',
+    description: 'Label for  Months filter button',
+    id: '6CQPs9',
+  });
+}
 type Props = Readonly<{
   months: Array<string>;
   onMonthsChange: (months: Array<string>) => void;
+  showDefaultMonths: boolean;
 }>;
 
-function RoadmapMonthFilter({ months, onMonthsChange }: Props) {
+function RoadmapMonthFilter({
+  months,
+  onMonthsChange,
+  showDefaultMonths,
+}: Props) {
   const intl = useIntl();
 
   const handleMonthChange = (month: string) => {
@@ -38,11 +68,7 @@ function RoadmapMonthFilter({ months, onMonthsChange }: Props) {
         <FilterButton
           addonPosition="end"
           icon={RiArrowDownSLine}
-          label={intl.formatMessage({
-            defaultMessage: 'Months',
-            description: 'Label for Months filter button',
-            id: '8GDujz',
-          })}
+          label={getMonthLabel(showDefaultMonths, months, intl)}
           purpose="button"
           selected={true}
           size="md"

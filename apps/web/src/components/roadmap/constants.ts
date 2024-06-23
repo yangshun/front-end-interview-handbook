@@ -15,3 +15,4 @@ export const MONTHS = [
 
 export const JAN = 0;
 export const DEC = 11;
+export const MONTH_DELTA = -1;

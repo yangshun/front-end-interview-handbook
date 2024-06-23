@@ -35,7 +35,7 @@ function RoadmapProductFilterButton(
               'bg-brand-lightest dark:bg-neutral-800',
             )
           : clsx(
-              'border-transparent text-neutral-600 dark:text-neutral-200',
+              'border-transparent text-neutral-500',
               themeBackgroundElementEmphasizedStateColor,
               themeBackgroundElementEmphasizedStateColor_Hover,
               themeBackgroundElementPressedStateColor_Active,
