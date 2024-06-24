@@ -3,9 +3,11 @@ import React, { useEffect, useRef, useState } from 'react';
 import { RiArrowLeftSLine, RiArrowRightSLine } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
 
-import Button from '~/components/ui/Button';
 import Text from '~/components/ui/Text';
-import { themeBackgroundBrandColor } from '~/components/ui/theme';
+import {
+  themeBackgroundBrandColor,
+  themeTextLightColor,
+} from '~/components/ui/theme';
 
 function NavigationButton({
   direction,
@@ -16,7 +18,7 @@ function NavigationButton({
 }>) {
   const intl = useIntl();
 
-  const icon = direction === 'left' ? RiArrowLeftSLine : RiArrowRightSLine;
+  const Icon = direction === 'left' ? RiArrowLeftSLine : RiArrowRightSLine;
   const label =
     direction === 'left'
       ? intl.formatMessage({
@@ -31,27 +33,21 @@ function NavigationButton({
         });
 
   return (
-    <div
+    <button
+      aria-label={label}
       className={clsx(
+        'flex items-center justify-center',
         'group absolute bottom-0 top-0 w-12',
         direction === 'left' ? 'left-0' : 'right-0',
-        'flex items-center justify-center',
-        'bg-none hover:bg-neutral-800/40',
-      )}>
-      <Button
-        className={clsx(
-          'hidden group-hover:flex',
-          'text-neutral-200 hover:text-white',
-          'border-none',
-        )}
-        icon={icon}
-        isLabelHidden={true}
-        label={label}
-        size="lg"
-        variant="unstyled"
-        onClick={onClick}
+        'bg-neutral-800/20 opacity-0 transition-opacity duration-[1000ms] hover:opacity-100',
+      )}
+      type="button"
+      onClick={onClick}>
+      <Icon
+        aria-hidden={true}
+        className={clsx('size-8 shrink-0', themeTextLightColor)}
       />
-    </div>
+    </button>
   );
 }
 
