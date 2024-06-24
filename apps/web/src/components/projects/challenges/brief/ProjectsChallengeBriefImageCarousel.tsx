@@ -39,12 +39,16 @@ function NavigationButton({
         'bg-none hover:bg-neutral-800/40',
       )}>
       <Button
-        className="parent hidden text-white group-hover:flex"
+        className={clsx(
+          'hidden group-hover:flex',
+          'text-neutral-200 hover:text-white',
+          'border-none',
+        )}
         icon={icon}
         isLabelHidden={true}
         label={label}
         size="lg"
-        variant="tertiary"
+        variant="unstyled"
         onClick={onClick}
       />
     </div>
