@@ -1,27 +1,32 @@
 import format from 'date-fns/format';
 
 import { DEC, JAN, MONTH_DELTA, MONTHS } from './constants';
-import type { Product } from './hooks/useRoadmap';
+import type { RoadmapProduct } from './hooks/useRoadmap';
 
 import type { RoadmapItem } from '@prisma/client';
 
-export function getYears(roadmapItems: Array<RoadmapItem>) {
-  const years = new Set<string>();
+export function getYears(roadmapItems: ReadonlyArray<RoadmapItem>) {
+  const yearsSet = new Set<string>();
 
-  for (const item of roadmapItems) {
+  roadmapItems.forEach((item) => {
     const year = format(item.dueDate, 'yyyy');
 
-    years.add(year);
-  }
+    yearsSet.add(year);
+  });
 
-  return Array.from(years);
+  const years = Array.from(yearsSet);
+
+  // Sort by descending years.
+  years.sort((a, b) => (a > b ? -1 : 1));
+
+  return years;
 }
 
 export function getFilteredData(
-  data: Array<RoadmapItem>,
+  data: ReadonlyArray<RoadmapItem>,
   year: string,
-  months: Array<string>,
-  selectedProducts: Array<Product>,
+  months: ReadonlyArray<string>,
+  selectedProducts: ReadonlyArray<RoadmapProduct>,
 ) {
   const monthlyRoadmapItems = data.filter((item) => {
     const itemYear = format(item.dueDate, 'yyyy');
@@ -33,7 +38,7 @@ export function getFilteredData(
   if (selectedProducts.length) {
     const filteredData = monthlyRoadmapItems.filter((roadmapItem) => {
       return roadmapItem.tags.some((tag) =>
-        (selectedProducts as Array<string>).includes(tag.toLowerCase()),
+        (selectedProducts as ReadonlyArray<string>).includes(tag.toLowerCase()),
       );
     });
 
@@ -62,7 +67,9 @@ export function getMonthsForYear(year: string) {
   return defaultOption;
 }
 
-export function groupRoadmapItemByDay(roadmapItems: Array<RoadmapItem>) {
+export function groupRoadmapItemByDay(
+  roadmapItems: ReadonlyArray<RoadmapItem>,
+) {
   const groupedItems = new Map<string, Array<RoadmapItem>>();
 
   return roadmapItems.reduce((acc, item) => {
@@ -77,7 +84,7 @@ export function groupRoadmapItemByDay(roadmapItems: Array<RoadmapItem>) {
   }, groupedItems);
 }
 
-export function hasCurrentYear(roadmapItems: Array<RoadmapItem>) {
+export function hasCurrentYear(roadmapItems: ReadonlyArray<RoadmapItem>) {
   return roadmapItems.some(
     (item) => new Date(item.dueDate).getFullYear === new Date().getFullYear,
   );

@@ -6,8 +6,8 @@ import type { Product } from './RoadmapPage';
 import RoadmapProductFilterButton from './RoadmapProductFilterButton';
 
 type Props = Readonly<{
-  onProductFilterChange: (filters: Array<Product>) => void;
-  selectedProducts: Array<Product>;
+  onProductFilterChange: (filters: ReadonlyArray<Product>) => void;
+  selectedProducts: ReadonlyArray<Product>;
 }>;
 
 function RoadmapProductFilter({

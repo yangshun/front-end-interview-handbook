@@ -8,7 +8,7 @@ import Card from '~/components/ui/Card';
 type Props = Readonly<{
   onYearChange: (year: string) => void;
   selectedYear: string;
-  years: Array<string>;
+  years: ReadonlyArray<string>;
 }>;
 
 function RoadmapYearFilter({ onYearChange, years, selectedYear }: Props) {

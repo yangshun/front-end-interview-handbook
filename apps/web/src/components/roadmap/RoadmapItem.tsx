@@ -9,7 +9,7 @@ import type { RoadmapItem as RoadmapItemType } from '@prisma/client';
 
 type Props = Readonly<{
   date: string;
-  roadmapItems: Array<RoadmapItemType>;
+  roadmapItems: ReadonlyArray<RoadmapItemType>;
 }>;
 
 function RoadmapItem({ date, roadmapItems }: Props) {
@@ -17,7 +17,7 @@ function RoadmapItem({ date, roadmapItems }: Props) {
 
   return (
     <div className={clsx('flex items-start gap-x-4 md:gap-x-6')}>
-      <div className="sticky top-[calc(var(--global-sticky-height)_+_24px)]">
+      <div className="sticky top-[calc(var(--global-sticky-height)_+_24px)] w-[68px]">
         <RoadmapDateCard day={day} month={month} />
       </div>
       <div className="flex flex-1 flex-col gap-4">

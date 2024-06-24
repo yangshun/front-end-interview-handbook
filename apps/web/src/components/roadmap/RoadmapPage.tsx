@@ -1,6 +1,6 @@
 'use client';
 
-import { FaRegFolderOpen } from 'react-icons/fa6';
+import { RiFolderOpenLine } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
 
 import { useRoadmap } from './hooks/useRoadmap';
@@ -89,7 +89,7 @@ function RoadmapPage() {
           {noData ? (
             <div className="py-24 md:p-24">
               <EmptyState
-                icon={FaRegFolderOpen}
+                icon={RiFolderOpenLine}
                 subtitle={intl.formatMessage({
                   defaultMessage:
                     'Adjust your filters a bit, and let’s see what we can find!',

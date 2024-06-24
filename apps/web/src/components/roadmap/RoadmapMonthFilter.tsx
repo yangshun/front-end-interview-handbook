@@ -12,7 +12,7 @@ import RoadmapProductFilterButton from './RoadmapProductFilterButton';
 
 function getMonthLabel(
   isDefaultSelected: boolean,
-  months: Array<string>,
+  months: ReadonlyArray<string>,
   intl: IntlShape,
 ) {
   if (isDefaultSelected) {
@@ -30,8 +30,8 @@ function getMonthLabel(
   });
 }
 type Props = Readonly<{
-  months: Array<string>;
-  onMonthsChange: (months: Array<string>) => void;
+  months: ReadonlyArray<string>;
+  onMonthsChange: (months: ReadonlyArray<string>) => void;
   showDefaultMonths: boolean;
 }>;
 

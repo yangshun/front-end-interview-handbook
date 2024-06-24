@@ -8,11 +8,11 @@ import {
   getMonthsForYear,
   getYears,
   hasCurrentYear,
-} from '../utils';
+} from '../RoadmapUtils';
 
 import type { RoadmapItem } from '@prisma/client';
 
-export type Product = 'interviews' | 'projects';
+export type RoadmapProduct = 'interviews' | 'projects';
 
 export const useRoadmap = () => {
   const {
@@ -21,14 +21,18 @@ export const useRoadmap = () => {
     error,
   } = trpc.roadmap.getRoadmapItems.useQuery();
   const [filteredData, setFilteredData] = useState<
-    Map<string, Array<RoadmapItem>>
+    Map<string, ReadonlyArray<RoadmapItem>>
   >(new Map());
   const [selectedYear, setSelectedYear] = useState('');
-  const [selectedMonths, setSelectedMonths] = useState<Array<string>>([]);
-  const [selectedProducts, setSelectedProducts] = useState<Array<Product>>([]);
+  const [selectedMonths, setSelectedMonths] = useState<ReadonlyArray<string>>(
+    [],
+  );
+  const [selectedProducts, setSelectedProducts] = useState<
+    ReadonlyArray<RoadmapProduct>
+  >([]);
   const [showDefaultMonths, setShowDefaultMonths] = useState(true);
 
-  const years: Array<string> = useMemo(
+  const years: ReadonlyArray<string> = useMemo(
     () => (roadmapItems ? getYears(roadmapItems) : []),
     [roadmapItems],
   );
@@ -56,32 +60,35 @@ export const useRoadmap = () => {
     }
   }, [roadmapItems]);
 
-  const filterData = (
+  function filterData(
     year: string,
-    months: Array<string>,
-    products: Array<Product>,
-  ) => {
+    months: ReadonlyArray<string>,
+    products: ReadonlyArray<RoadmapProduct>,
+  ) {
     if (roadmapItems) {
       setFilteredData(getFilteredData(roadmapItems, year, months, products));
     }
-  };
+  }
 
   return {
     data: filteredData,
     error,
     isLoading,
     months: selectedMonths,
-    onApplyFilter: (appliedMonths: Array<string>, appliedYear: string) => {
+    onApplyFilter: (
+      appliedMonths: ReadonlyArray<string>,
+      appliedYear: string,
+    ) => {
       setSelectedMonths(appliedMonths);
       setSelectedYear(appliedYear);
       filterData(appliedYear, appliedMonths, selectedProducts);
     },
-    onMonthChange: (months: Array<string>) => {
+    onMonthChange: (months: ReadonlyArray<string>) => {
       setSelectedMonths(months);
       filterData(selectedYear, months, selectedProducts);
       setShowDefaultMonths(false);
     },
-    onProductFilterChange: (products: Array<Product>) => {
+    onProductFilterChange: (products: ReadonlyArray<RoadmapProduct>) => {
       setSelectedProducts(products);
       filterData(selectedYear, selectedMonths, products);
     },

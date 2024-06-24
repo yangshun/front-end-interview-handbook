@@ -13,9 +13,9 @@ function RoadmapDateCard({ day, month }: Props) {
   return (
     <div
       className={clsx(
-        'flex flex-col items-center justify-center gap-y-[2px]',
+        'flex flex-col items-center justify-center gap-y-0.5',
         'bg-neutral-50 dark:bg-neutral-800',
-        'rounded-[5px] px-[14px] py-[11px]',
+        'rounded-md p-2.5',
       )}>
       <Heading level="heading4">{day}</Heading>
       <Text size="body2" weight="medium">

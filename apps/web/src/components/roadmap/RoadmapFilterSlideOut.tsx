@@ -19,33 +19,39 @@ import Text from '~/components/ui/Text';
 
 import { MONTHS } from './constants';
 import RoadmapProductFilterButton from './RoadmapProductFilterButton';
-import { getMonthsForYear } from './utils';
+import { getMonthsForYear } from './RoadmapUtils';
 
 type RoadmapFiltersType = 'months' | 'years';
 
-const accordionDefaultValues: Array<RoadmapFiltersType> = ['months', 'years'];
+const accordionDefaultValues: ReadonlyArray<RoadmapFiltersType> = [
+  'months',
+  'years',
+];
 
 type RoadmapFilter = Record<
   RoadmapFiltersType,
   {
-    options: Array<string>;
-    selectedOptions: Array<string>;
+    options: ReadonlyArray<string>;
+    selectedOptions: ReadonlyArray<string>;
     type: RoadmapFiltersType;
   }
 >;
 
 type FilterSectionOptions = {
   label: string;
-  onFilterChange: (type: RoadmapFiltersType, filters: Array<string>) => void;
-  options: Array<string>;
-  selectedOptions: Array<string>;
+  onFilterChange: (
+    type: RoadmapFiltersType,
+    filters: ReadonlyArray<string>,
+  ) => void;
+  options: ReadonlyArray<string>;
+  selectedOptions: ReadonlyArray<string>;
   type: RoadmapFiltersType;
 };
 
 function getInitialFilters(
-  years: Array<string>,
+  years: ReadonlyArray<string>,
   selectedYear: string,
-  selectedMonths: Array<string>,
+  selectedMonths: ReadonlyArray<string>,
 ): RoadmapFilter {
   return {
     months: {
@@ -139,10 +145,10 @@ function getLabel(type: RoadmapFiltersType, intl: IntlShape) {
 }
 
 type Props = Readonly<{
-  onApplyFilter: (months: Array<string>, year: string) => void;
-  selectedMonths: Array<string>;
+  onApplyFilter: (months: ReadonlyArray<string>, year: string) => void;
+  selectedMonths: ReadonlyArray<string>;
   selectedYear: string;
-  years: Array<string>;
+  years: ReadonlyArray<string>;
 }>;
 
 function RoadmapFilterSlideOut({
@@ -160,7 +166,7 @@ function RoadmapFilterSlideOut({
 
   const handleFilterChange = (
     type: RoadmapFiltersType,
-    options: Array<string>,
+    options: ReadonlyArray<string>,
   ) => {
     let newFilters = {
       ...filters,
@@ -233,7 +239,7 @@ function RoadmapFilterSlideOut({
         <Divider color="emphasized" />
         <Accordion
           className="flex flex-col"
-          defaultValue={accordionDefaultValues}
+          defaultValue={accordionDefaultValues.slice()}
           type="multiple">
           {Object.entries(filters).map(([key, filter]) => {
             const label = getLabel(filter.type, intl);

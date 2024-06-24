@@ -13,7 +13,7 @@ import Tooltip from '~/components/ui/Tooltip';
 type Props = Readonly<{
   description: string;
   launched?: boolean;
-  tags: Array<string>;
+  tags: ReadonlyArray<string>;
   title: string;
   url?: string | null;
 }>;
