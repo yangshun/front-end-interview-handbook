@@ -138,6 +138,9 @@ importers:
       snoowrap:
         specifier: ^1.23.0
         version: 1.23.0
+      superjson:
+        specifier: ^2.2.1
+        version: 2.2.1
       usehooks-ts:
         specifier: ^2.9.1
         version: 2.9.1(react-dom@18.2.0)(react@18.2.0)

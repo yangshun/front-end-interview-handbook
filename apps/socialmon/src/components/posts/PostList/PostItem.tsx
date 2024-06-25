@@ -5,7 +5,7 @@ import { type ChangeEvent } from 'react';
 
 import RelativeTimestamp from '~/components/common/datetime/RelativeTimestamp';
 
-import { type Post } from '~/models/Post';
+import type { Post } from '~/types';
 
 import '@mantine/core/styles.css';
 

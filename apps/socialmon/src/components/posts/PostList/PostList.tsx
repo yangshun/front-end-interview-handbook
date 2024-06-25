@@ -1,10 +1,8 @@
 'use client';
 
-import { type ChangeEvent, useEffect, useState } from 'react';
+import { type ChangeEvent } from 'react';
 
 import { trpc } from '~/hooks/trpc';
-
-import { type Post } from '~/models/Post';
 
 import PostItem from './PostItem';
 
@@ -13,7 +11,6 @@ import '@mantine/core/styles.css';
 import { Box, Text, Title } from '@mantine/core';
 
 export default function PostList() {
-  const [unrepliedPosts, setUnrepliedPosts] = useState<Array<Post>>([]);
   const { isLoading, data } = trpc.socialPosts.getUnrepliedPosts.useQuery();
   const generateResponseMutation =
     trpc.socialPosts.generateResponse.useMutation();
@@ -44,44 +41,24 @@ export default function PostList() {
   }
 
   async function replyToPost(postId: string, response: string | null) {
-    const postToReplyTo = unrepliedPosts.find((post) => post.id === postId);
+    const postToReplyTo = data?.find((post) => post.id === postId);
 
     if (!postToReplyTo) {
       // TODO: Handle error
       return;
     }
 
-    const oldResponse = postToReplyTo.response;
-
-    postToReplyTo.response = response;
-    postToReplyTo.replied = true;
-    postToReplyTo.repliedAt = new Date();
-
     console.info('Replying to post:', postToReplyTo.title);
 
-    const success = await replyPostMutation.mutateAsync({
-      post: postToReplyTo,
+    await replyPostMutation.mutateAsync({
+      post: {
+        ...postToReplyTo,
+        replied: true,
+        repliedAt: new Date(),
+        response,
+      },
     });
-
-    console.info(success);
-
-    if (!success) {
-      // TODO: handle error
-      postToReplyTo.response = oldResponse;
-      postToReplyTo.replied = false;
-      postToReplyTo.repliedAt = null;
-    }
   }
-  useEffect(() => {
-    if (!data) {
-      // Something went wrong(?)
-      return;
-    }
-
-    const convertedPosts = data as unknown as Array<Post>;
-
-    setUnrepliedPosts(convertedPosts);
-  }, [data]);
 
   // TODO: tab for replied posts
   return (
@@ -92,7 +69,7 @@ export default function PostList() {
       <Text hidden={!isLoading} size="md">
         Loading...
       </Text>
-      {unrepliedPosts.map((post) => (
+      {data?.map((post) => (
         <PostItem
           key={post.id}
           generateResponse={(

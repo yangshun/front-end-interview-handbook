@@ -1,4 +1,4 @@
-import type { Post } from '~/models/Post';
+import type { Post } from '~/types';
 
 export type Platform = {
   getRelevantPosts(): Promise<boolean>;

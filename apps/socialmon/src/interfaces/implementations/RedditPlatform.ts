@@ -1,12 +1,11 @@
 import type { Submission } from 'snoowrap';
 import Snoowrap from 'snoowrap';
 
-import type { Post } from '~/models/Post';
 import prisma from '~/server/prisma';
 
 import type { Platform } from '../Platform';
 
-import type { RedditPost } from '@prisma/client';
+import type { Post } from '~/types';
 
 class RedditPlatform implements Platform {
   private snooWrap: Snoowrap;
@@ -36,7 +35,7 @@ class RedditPlatform implements Platform {
     this.timeframeInHours = timeframeInHours;
   }
 
-  private createRedditPost(post: Submission): RedditPost {
+  private createRedditPost(post: Submission): Post {
     return {
       content: post.selftext_html ?? post.selftext,
       foundAt: new Date(),
@@ -125,7 +124,7 @@ class RedditPlatform implements Platform {
     return success;
   }
 
-  async replyToPost(post: RedditPost): Promise<boolean> {
+  async replyToPost(post: Post): Promise<boolean> {
     // Check conditions for replying
     if (!post.response) {
       return false; // TODO: throw an error
@@ -175,7 +174,7 @@ class RedditPlatform implements Platform {
     }
   }
 
-  private createRedditPostFromDatabase(redditPost: RedditPost): RedditPost {
+  private createRedditPostFromDatabase(redditPost: Post): Post {
     return {
       content: redditPost.content,
       foundAt: redditPost.foundAt,
@@ -189,7 +188,7 @@ class RedditPlatform implements Platform {
     };
   }
 
-  async updatePost(post: RedditPost): Promise<boolean> {
+  async updatePost(post: Post): Promise<boolean> {
     // Update the post in the database
     const success = await prisma.redditPost
       .update({
@@ -216,7 +215,7 @@ class RedditPlatform implements Platform {
     return success;
   }
 
-  async getUnrepliedPosts(): Promise<Array<RedditPost>> {
+  async getUnrepliedPosts(): Promise<Array<Post>> {
     // Get posts from database where replied is false
     const posts = await prisma.redditPost.findMany({
       orderBy: {
@@ -230,7 +229,7 @@ class RedditPlatform implements Platform {
     return posts.map((post) => this.createRedditPostFromDatabase(post));
   }
 
-  async getRepliedPosts(): Promise<Array<RedditPost>> {
+  async getRepliedPosts(): Promise<Array<Post>> {
     // Get posts from database where replied is true
     const posts = await prisma.redditPost.findMany({
       orderBy: {

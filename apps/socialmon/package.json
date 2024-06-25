@@ -35,6 +35,7 @@
     "react-icons": "^4.12.0",
     "server-only": "^0.0.1",
     "snoowrap": "^1.23.0",
+    "superjson": "^2.2.1",
     "usehooks-ts": "^2.9.1",
     "zod": "^3.21.4"
   },

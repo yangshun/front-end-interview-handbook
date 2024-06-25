@@ -1,6 +1,7 @@
 'use client';
 
 import type { ReactNode } from 'react';
+import superjson from 'superjson';
 
 import { trpc } from '~/hooks/trpc';
 
@@ -31,6 +32,7 @@ const trpcClient = trpc.createClient({
       url: '/api/trpc',
     }),
   ],
+  transformer: superjson,
 });
 
 export default function TrpcClientProvider({ children }: Props) {

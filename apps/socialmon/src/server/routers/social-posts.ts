@@ -6,7 +6,8 @@ import { publicProcedure, router } from '../trpc';
 import { type AIProvider } from '../../interfaces/AIProvider';
 import OpenAIProvider from '../../interfaces/implementations/OpenAIProvider';
 import { type Platform } from '../../interfaces/Platform';
-import { type Post } from '../../models/Post';
+
+import type { Post } from '~/types';
 
 function getPlatform(): Platform {
   const clientId = process.env.REDDIT_CLIENT_ID as string;
