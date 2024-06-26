@@ -92,50 +92,46 @@ body {
   color: #737373;
 }
 .input__field input:focus {
-  box-shadow:
-    0px 0px 0px 1px #444ce7,
-    0px 1px 2px rgba(16, 24, 40, 0.05),
+  box-shadow: 0px 0px 0px 1px #444ce7, 0px 1px 2px rgba(16, 24, 40, 0.05),
     0px 0px 0px 4px rgba(68, 76, 231, 0.12);
 }
 
 .input__field input.error:focus {
-  box-shadow:
-    0px 0px 0px 1px #d92d20,
-    0px 0px 0px 4px rgba(217, 45, 32, 0.12);
+  box-shadow: 0px 0px 0px 1px #d92d20, 0px 0px 0px 4px rgba(217, 45, 32, 0.12);
 }
 
 .input__field input:disabled::placeholder {
-  color: #a3a3a3;
+  color: #A3A3A3;
 }
 .input__field input:disabled {
-  border: 1px solid #f5f5f5;
-  color: #a3a3a3;
+  border: 1px solid #F5F5F5;
+  color: #A3A3A3;
   pointer-events: none;
 }
 
 input.input__field__left-icon-padding {
-  padding-left: 41px;
+  padding-left: 41px; 
 }
-input.input__field__right-icon-padding {
-  padding-right: 38px;
+input.input__field--padding-right {
+  padding-right: 38px; 
 }
 
-.input__field__icon {
+.input__field__icon{
   position: absolute;
   pointer-events: none;
   top: 0;
   bottom: 0;
   display: flex;
   align-items: center;
-  color: #a3a3a3;
+  color: #A3A3A3;
 }
 
-.input__field__left-icon {
+.input__field__icon--left{
   inset: 0;
   padding-left: 14px;
 }
 
-.input__field__right-icon {
+.input__field__icon--right {
   right: 0px;
   padding-right: 14px;
 }
@@ -146,7 +142,6 @@ input.input__field__right-icon-padding {
   color: #737373;
 }
 
-.input__field__right-icon.error,
-.input__message.error {
+.input__field__icon--right.error, .input__message.error {
   color: #dc2626;
 }

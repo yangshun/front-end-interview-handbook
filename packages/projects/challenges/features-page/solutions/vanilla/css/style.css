@@ -130,8 +130,8 @@ body {
   height: 32px;
 }
 
-.navbar__menu-btn,
-.navbar__close-btn {
+.navbar__btn--open,
+.navbar__btn--close {
   outline: none;
   border: none;
   border-radius: 4px;
@@ -139,12 +139,12 @@ body {
   cursor: pointer;
   background: none;
 }
-.navbar__menu-btn svg,
-.navbar__close-btn svg {
+.navbar__btn--open svg,
+.navbar__btn--close svg {
   display: block;
 }
-.navbar__menu-btn:focus,
-.navbar__close-btn:focus {
+.navbar__btn--open:focus,
+.navbar__btn--close:focus {
   box-shadow: 0px 0px 0px 4px rgba(68, 76, 231, 0.12);
 }
 
@@ -1247,7 +1247,7 @@ hr {
   .navbar__content {
     display: flex;
   }
-  .navbar__menu-btn {
+  .navbar__btn--open {
     display: none;
   }
   .navbar__content__links {
