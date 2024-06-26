@@ -1,6 +1,7 @@
 'use client';
 
 import clsx from 'clsx';
+import { kebabCase } from 'lodash-es';
 import { RiArrowRightLine, RiCheckboxCircleFill } from 'react-icons/ri';
 import { useIntl } from 'react-intl';
 
@@ -84,13 +85,13 @@ function RoadmapItemCard({
                   '!border !border-neutral-300 dark:!border-neutral-600',
                   '!text-neutral-500',
                 )}
-                label={`#${tag}`}
+                label={`#${kebabCase(tag.toLocaleLowerCase())}`}
                 variant="neutral"
               />
             );
           })}
         </div>
-        {!!url && (
+        {launched && !!url && (
           <Button
             href={url}
             icon={RiArrowRightLine}
