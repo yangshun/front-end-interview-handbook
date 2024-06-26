@@ -413,11 +413,15 @@ export function useInterviewsMarketingTestimonialsDict() {
 
   const deewee: InterviewsMarketingTestimonial = {
     anonymous: true,
-    createdAt: '2024-06-07',
+    companyLogoUrl: '/img/testimonials/company/cloudflare.svg',
+    createdAt: '2024-06-24',
     id: 'deewee',
-    name: 'deewee',
+    location: 'Remote',
+    name: 'Deewee',
+    newCompany: 'Cloudflare',
+    offers: ['Wealthfront', 'Superscript', 'Brigit'],
     testimonial:
-      'After 6 months of looking, I finally signed an offer! Thank you so much to @GreatFrontEnd for this community and all the studying resources!!! I got to choose from 3 total offers! My base pay will increase over 17% from my previous job and over 46% total comp!! Literally life changing!',
+      "GreatFrontEnd's product and community were crucial to my success in finding a new job after being laid off. GFE gave me guardrails around how I should focus my studying, I learned so much that I'll use in my career, not just for interviews. With their help, I achieved a 17% increase in base pay and 46% increase in total compensation at Cloudflare! Thank the universe for GreatFrontEnd!",
     title: 'Software Engineer',
   };
 

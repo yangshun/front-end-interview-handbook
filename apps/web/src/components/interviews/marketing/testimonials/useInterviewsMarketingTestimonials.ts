@@ -19,6 +19,7 @@ export function useInterviewsMarketingTestimonials(
       })()
     : [
         testimonialsObjects.edWang,
+        testimonialsObjects.deewee,
         testimonialsObjects.lucaVaccarini,
         testimonialsObjects.chenweiZhang,
         testimonialsObjects.shoaibAhmed,
