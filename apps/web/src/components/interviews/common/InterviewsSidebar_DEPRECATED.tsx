@@ -262,7 +262,7 @@ export default function InterviewsSidebar_DEPRECATED({
                 href={item.href}
                 variant="unstyled">
                 {label}
-                {item.labelAddon}
+                {!isCollapsed && item.labelAddon}
               </Anchor>
             );
 
