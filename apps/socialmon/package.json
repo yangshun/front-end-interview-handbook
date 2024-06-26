@@ -15,6 +15,7 @@
     "prisma:deploy": "dotenv -e .env.production.local -- prisma migrate deploy"
   },
   "dependencies": {
+    "@ai-sdk/openai": "^0.0.33",
     "@mantine/core": "^7.3.1",
     "@mantine/hooks": "^7.3.1",
     "@prisma/client": "5.7.0",
@@ -23,12 +24,12 @@
     "@trpc/next": "^10.18.0",
     "@trpc/react-query": "^10.18.0",
     "@trpc/server": "^10.18.0",
+    "ai": "^3.2.8",
     "clsx": "^2.0.0",
     "dompurify": "^3.1.5",
     "dotenv": "^16.3.1",
     "lodash-es": "^4.17.21",
     "next": "14.2.3",
-    "openai": "^4.21.0",
     "prisma": "5.7.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

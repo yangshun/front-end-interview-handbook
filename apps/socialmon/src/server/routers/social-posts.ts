@@ -35,9 +35,7 @@ function getPlatform(): Platform {
 }
 
 function getAIProvider(): AIProvider {
-  const openaiApiKey = process.env.OPENAI_API_KEY as string;
-
-  return new OpenAIProvider(openaiApiKey);
+  return new OpenAIProvider();
 }
 
 const postSchema = z.object({
@@ -65,7 +63,7 @@ export const socialPostsRouter = router({
       const aiProvider = getAIProvider();
 
       try {
-        const response = await aiProvider.generateResponseTo(post);
+        const result = await aiProvider.generateResponseTo(post);
 
         const platform = getPlatform();
         const success = await platform.updatePost({
@@ -75,7 +73,7 @@ export const socialPostsRouter = router({
           postedAt: post.postedAt,
           replied: post.replied,
           repliedAt: post.repliedAt,
-          response,
+          response: result.response,
           title: post.title,
           url: post.url,
         });
@@ -86,7 +84,7 @@ export const socialPostsRouter = router({
           return null;
         }
 
-        return response;
+        return result;
       } catch (error) {
         console.error('Error generating response:', error);
 

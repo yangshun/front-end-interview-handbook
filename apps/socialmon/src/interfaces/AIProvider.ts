@@ -1,5 +1,7 @@
-import { type Post } from "~/models/Post";
+import type { Post } from '~/types';
 
 export type AIProvider = {
-  generateResponseTo(post: Post): Promise<string>;
-}
+  generateResponseTo(
+    post: Post,
+  ): Promise<{ promotion: boolean; response: string }>;
+};

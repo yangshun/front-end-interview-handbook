@@ -6,6 +6,8 @@ import { trpc } from '~/hooks/trpc';
 
 import PostItem from './PostItem';
 
+import type { Post } from '~/types';
+
 import '@mantine/core/styles.css';
 
 import { Box, Text, Title } from '@mantine/core';
@@ -17,42 +19,27 @@ export default function PostList() {
   const replyPostMutation = trpc.socialPosts.replyToPost.useMutation();
 
   async function generateResponse(
-    postId: string,
+    post: Post,
     setResponse: (value: ChangeEvent | string | null | undefined) => void,
   ) {
-    const postToGenerateResponseFor = data?.find((post) => post.id === postId);
-
-    if (!postToGenerateResponseFor) {
-      // TODO: Handle error
-      return;
-    }
-
-    const response = await generateResponseMutation.mutateAsync({
-      post: postToGenerateResponseFor,
+    const result = await generateResponseMutation.mutateAsync({
+      post,
     });
 
-    if (!response) {
+    if (!result) {
       // TODO: Handle error
       return;
     }
 
-    postToGenerateResponseFor.response = response;
-    setResponse(response);
+    setResponse(result.response);
   }
 
-  async function replyToPost(postId: string, response: string | null) {
-    const postToReplyTo = data?.find((post) => post.id === postId);
-
-    if (!postToReplyTo) {
-      // TODO: Handle error
-      return;
-    }
-
-    console.info('Replying to post:', postToReplyTo.title);
+  async function replyToPost(post: Post, response: string | null) {
+    console.info('Replying to post:', post.title);
 
     await replyPostMutation.mutateAsync({
       post: {
-        ...postToReplyTo,
+        ...post,
         replied: true,
         repliedAt: new Date(),
         response,
@@ -76,11 +63,10 @@ export default function PostList() {
             setResponse: (
               value: ChangeEvent | string | null | undefined,
             ) => void,
-          ) => generateResponse(post.id, setResponse)}
+          ) => generateResponse(post, setResponse)}
           post={post}
-          replyToPost={(response: string | null) =>
-            replyToPost(post.id, response)
-          }></PostItem>
+          replyToPost={(response: string | null) => replyToPost(post, response)}
+        />
       ))}
     </Box>
   );
