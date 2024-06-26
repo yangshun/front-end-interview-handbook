@@ -19,7 +19,7 @@ import {
 
 import InterviewsDashboardContinueLearning from './InterviewsDashboardContinueLearning';
 
-function ContinueLearningCard() {
+function MockContinueLearningCard() {
   const intl = useIntl();
 
   return (
@@ -153,7 +153,7 @@ export default function InterviewsDashboardPageHeader() {
               className="pointer-events-none absolute w-[650px] origin-top-left scale-[0.4] p-2"
               // So that focus cannot go into the card, which is not meant to be used.
               {...{ inert: '' }}>
-              <ContinueLearningCard />
+              <MockContinueLearningCard />
             </div>
             <div className="size-full absolute bg-gradient-to-t from-neutral-200/70 dark:from-neutral-900" />
           </div>

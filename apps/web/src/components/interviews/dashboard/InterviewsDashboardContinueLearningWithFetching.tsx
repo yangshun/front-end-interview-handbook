@@ -22,15 +22,18 @@ export default function InterviewsDashboardContinueLearningContainer({
 
   return (
     <InterviewsDashboardContinueLearning
-      items={items.map(({ listKey, completedCount }) => ({
-        completedCount,
-        gradient: themes[listKey].gradient,
-        href: questionLists[listKey]?.href,
-        questionsCount: countNumberOfQuestionsInList(
-          questionLists[listKey].questions,
-        ),
-        title: questionLists[listKey].longName,
-      }))}
+      items={items
+        // TODO: filter out company lists for now because company list rendering is not yet supported on the dashboard.
+        .filter(({ listKey }) => questionLists[listKey] != null)
+        .map(({ listKey, completedCount }) => ({
+          completedCount,
+          gradient: themes[listKey].gradient,
+          href: questionLists[listKey]?.href,
+          questionsCount: countNumberOfQuestionsInList(
+            questionLists[listKey].questions,
+          ),
+          title: questionLists[listKey].longName,
+        }))}
     />
   );
 }
