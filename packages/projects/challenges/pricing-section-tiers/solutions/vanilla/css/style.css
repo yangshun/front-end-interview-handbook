@@ -23,7 +23,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
 
-  min-height: 100vh;
   background: linear-gradient(147.52deg, #f9fafb 8.89%, #d2d6db 100.48%);
 }
 
@@ -105,13 +104,13 @@ body {
 /* Size classes */
 .button--size-lg {
   height: 44px;
-  padding: 10px 16px; 
+  padding: 10px 16px;
 
   font-size: 16px;
   line-height: 24px;
 }
 .button--secondary.button--size-lg {
-  padding: 9px 15px; 
+  padding: 9px 15px;
 }
 
 .button--size-xl {
@@ -122,7 +121,7 @@ body {
   line-height: 24px;
 }
 .button--secondary.button--size-xl {
-  padding: 11px 19px; 
+  padding: 11px 19px;
 }
 
 /* button variants */
@@ -183,10 +182,6 @@ body {
 
 .button--toggle[aria-pressed='true'] {
   color: #171717;
-}
-.button--toggle:focus {
-  border-radius: 4;
-  box-shadow: 0px 0px 0px 4px rgba(68, 76, 231, 0.12);
 }
 
 .pricing-tiers__plans {
@@ -346,7 +341,7 @@ body {
   }
 }
 
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 1440px) {
   .pricing-tiers {
     box-shadow:
       0px 10px 15px -3px rgba(0, 0, 0, 0.1),

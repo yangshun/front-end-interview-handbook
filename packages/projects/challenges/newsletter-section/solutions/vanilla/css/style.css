@@ -210,10 +210,6 @@ body {
   pointer-events: none;
 }
 
-.button--width-newsletter {
-  width: 100%;
-}
-
 .toast {
   z-index: 20;
   position: fixed;
@@ -316,7 +312,7 @@ body {
   }
 }
 
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 1440px) {
   .newsletter {
     box-shadow:
       0px 10px 15px -3px rgba(0, 0, 0, 0.1),

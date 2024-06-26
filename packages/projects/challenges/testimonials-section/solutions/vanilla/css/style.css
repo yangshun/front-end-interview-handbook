@@ -23,7 +23,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
 
-  min-height: 100vh;
   background: linear-gradient(147.52deg, #f9fafb 8.89%, #d2d6db 100.48%);
 }
 
@@ -170,7 +169,7 @@ body {
   }
 }
 
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 1440px) {
   .testimonials-section {
     box-shadow:
       0px 10px 15px -3px rgba(0, 0, 0, 0.1),

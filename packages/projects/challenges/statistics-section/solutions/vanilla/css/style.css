@@ -23,7 +23,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
 
-  min-height: 100vh;
 }
 
 .container {
@@ -188,7 +187,7 @@ body {
   }
 }
 
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 1440px) {
   .stats {
     box-shadow:
       0px 10px 15px -3px rgba(0, 0, 0, 0.1),

@@ -368,13 +368,13 @@ body {
 .button--size-lg {
   height: 44px;
   column-gap: 8px;
-  padding: 10px 16px; 
+  padding: 10px 16px;
 
   font-size: 16px;
   line-height: 24px;
 }
 .button--secondary.button--size-lg {
-  padding: 9px 15px; 
+  padding: 9px 15px;
 }
 
 /* button variants */
@@ -408,7 +408,7 @@ body {
   box-shadow: 0px 0px 0px 4px rgba(68, 76, 231, 0.12);
 }
 
-.button--send-message-width {
+.button--width-send-message {
   width: 212px;
 }
 
@@ -462,7 +462,7 @@ body {
   }
 }
 
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 1440px) {
   .contact-section {
     padding: 169px 96px;
     box-shadow:

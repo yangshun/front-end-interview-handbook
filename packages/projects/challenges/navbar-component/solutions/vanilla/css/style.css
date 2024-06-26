@@ -220,7 +220,7 @@ body {
   }
 }
 
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 1440px) {
   .navbar {
     padding: 0;
   }

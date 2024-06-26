@@ -50,8 +50,8 @@ if (
   premiumPlanLabel
 ) {
   annualPlanBtn.addEventListener('click', function () {
-    annualPlanBtn.classList.add('btn', 'btn--secondary');
-    monthlyPlanBtn.classList.remove('btn', 'btn--secondary');
+    annualPlanBtn.classList.remove('button--toggle-inactive');
+    monthlyPlanBtn.classList.add('button--toggle-inactive');
     annualPlanBtn.setAttribute('aria-pressed', 'true');
     monthlyPlanBtn.setAttribute('aria-pressed', 'false');
 
@@ -66,8 +66,8 @@ if (
   });
 
   monthlyPlanBtn.addEventListener('click', function () {
-    annualPlanBtn.classList.remove('btn', 'btn--secondary');
-    monthlyPlanBtn.classList.add('btn', 'btn--secondary');
+    annualPlanBtn.classList.add('button--toggle-inactive');
+    monthlyPlanBtn.classList.remove('button--toggle-inactive');
     annualPlanBtn.setAttribute('aria-pressed', 'false');
     monthlyPlanBtn.setAttribute('aria-pressed', 'true');
 

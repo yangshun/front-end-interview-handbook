@@ -22,7 +22,6 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
-  min-height: 100vh;
   background: linear-gradient(147.52deg, #f9fafb 8.89%, #d2d6db 100.48%);
 }
 
@@ -156,7 +155,7 @@ body {
   }
 }
 
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 1440px) {
   .notfound-wrapper {
     padding: 232px 96px;
     background: linear-gradient(
