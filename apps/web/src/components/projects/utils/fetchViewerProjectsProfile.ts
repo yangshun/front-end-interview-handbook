@@ -33,6 +33,7 @@ export default async function fetchViewerProjectsProfile(
       creditsAtStartOfCycle: true,
       id: true,
       plan: true,
+      points: true,
       premium: true,
     },
     where: {

@@ -2,6 +2,7 @@ import { redirect } from 'next/navigation';
 import type { Metadata } from 'next/types';
 
 import ProjectsChallengeSubmitPage from '~/components/projects/submissions/form/ProjectsChallengeSubmitPage';
+import fetchViewerProjectsProfile from '~/components/projects/utils/fetchViewerProjectsProfile';
 
 import {
   readProjectsChallengeInfo,
@@ -55,21 +56,30 @@ export default async function Page({ params }: Props) {
     readProjectsChallengeItem(slug, locale),
   ]);
 
-  const session = await prisma.projectsChallengeSession.findFirst({
-    where: {
-      projectsProfile: {
-        userId: viewer?.id,
+  const [session, { viewerProjectsProfile }] = await Promise.all([
+    prisma.projectsChallengeSession.findFirst({
+      where: {
+        projectsProfile: {
+          userId: viewer?.id,
+        },
+        slug: challenge.metadata.slug,
+        status: 'IN_PROGRESS',
       },
-      slug: challenge.metadata.slug,
-      status: 'IN_PROGRESS',
-    },
-  });
+    }),
+    fetchViewerProjectsProfile(viewer),
+  ]);
 
   if (session == null) {
     return redirect(challenge.metadata.href);
   }
 
   return (
-    <ProjectsChallengeSubmitPage challenge={challenge} session={session} />
+    <ProjectsChallengeSubmitPage
+      challenge={challenge}
+      isViewerPremium={viewerProjectsProfile?.premium ?? false}
+      locale={locale}
+      points={viewerProjectsProfile?.points ?? 0}
+      session={session}
+    />
   );
 }

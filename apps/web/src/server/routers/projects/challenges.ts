@@ -1,7 +1,14 @@
 import { z } from 'zod';
 
 import type { ProjectsChallengeHistoricalStatuses } from '~/components/projects/challenges/types';
-import { readProjectsChallengeItemsForSkill } from '~/components/projects/skills/data/ProjectsSkillReader';
+import {
+  fetchProjectsSkillsRoadmapSectionData,
+  readProjectsChallengeItemsForSkill,
+} from '~/components/projects/skills/data/ProjectsSkillReader';
+import {
+  fetchProjectsTrackChallengeHistoricalStatuses,
+  readProjectsTrackList,
+} from '~/components/projects/tracks/data/ProjectsTrackReader';
 
 import prisma from '~/server/prisma';
 import { publicProcedure, router } from '~/server/trpc';
@@ -37,6 +44,38 @@ export const projectsChallengesRouter = router({
     )
     .query(async ({ input: { skillSlug, locale }, ctx: { viewer } }) => {
       return readProjectsChallengeItemsForSkill(skillSlug, locale, viewer?.id);
+    }),
+  progress: publicProcedure
+    .input(
+      z.object({
+        locale: z.string(),
+      }),
+    )
+    .query(async ({ input: { locale }, ctx: { viewer } }) => {
+      const [
+        skillsRoadmap,
+        { tracks },
+        challengeHistoricalStatuses,
+        completedChallenges,
+      ] = await Promise.all([
+        fetchProjectsSkillsRoadmapSectionData(viewer?.id),
+        readProjectsTrackList(locale, viewer?.id),
+        fetchProjectsTrackChallengeHistoricalStatuses(viewer?.id),
+        prisma.projectsChallengeSubmission.count({
+          where: {
+            projectsProfile: {
+              userId: viewer?.id,
+            },
+          },
+        }),
+      ]);
+
+      return {
+        challengeHistoricalStatuses,
+        completedChallenges,
+        projectTracks: tracks,
+        skillsRoadmap,
+      };
     }),
   skillPlanProgress: publicProcedure
     .input(

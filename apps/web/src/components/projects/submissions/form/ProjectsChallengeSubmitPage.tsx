@@ -1,10 +1,12 @@
 'use client';
 
+import { useState } from 'react';
 import { RiArrowLeftLine, RiFireFill } from 'react-icons/ri';
-import { FormattedMessage } from 'react-intl';
-import { useIntl } from 'react-intl';
+import { FormattedMessage, useIntl } from 'react-intl';
 
 import { trpc } from '~/hooks/trpc';
+
+import { SUBMISSION_SUCCESS_PAGE_AVAILABLE } from '~/data/FeatureFlags';
 
 import { useToast } from '~/components/global/toasts/useToast';
 import type {
@@ -18,23 +20,49 @@ import Section from '~/components/ui/Heading/HeadingContext';
 import { useI18nRouter } from '~/next-i18nostic/src';
 
 import ProjectsChallengeSubmissionForm from './ProjectsChallengeSubmissionForm';
+import ProjectsChallengeSubmissionSuccessPage from '../ProjectsChallengeSubmissionSuccessPage';
 import useProjectsChallengeSubmissionTakeScreenshotMutation from '../screenshots/useProjectsChallengeSubmissionTakeScreenshotMutation';
+import { projectsReputationLevel } from '../../reputation/projectsReputationLevelUtils';
 
 import type { ProjectsChallengeSession } from '@prisma/client';
-
+type SuccessPageInformationState = Readonly<{
+  gainedPoints: number;
+  isLeveledUp: boolean;
+  level: number;
+  showSuccess: boolean;
+  submissionUrl: string;
+}>;
 type Props = Readonly<{
   challenge: ProjectsChallengeItem;
+  isViewerPremium: boolean;
+  locale: string;
+  points: number;
   session: ProjectsChallengeSession;
 }>;
 
 export default function ProjectsChallengeSubmitPage({
   challenge,
   session,
+  isViewerPremium,
+  locale,
+  points: initialPoints,
 }: Props) {
   const trpcUtils = trpc.useUtils();
   const intl = useIntl();
   const { showToast } = useToast();
   const router = useI18nRouter();
+
+  const [successPageInfo, setSuccessPageInfo] =
+    useState<SuccessPageInformationState>({
+      gainedPoints: 0,
+      isLeveledUp: false,
+      level: projectsReputationLevel(initialPoints).level,
+      showSuccess: false,
+      submissionUrl: '',
+    });
+
+  const { showSuccess, isLeveledUp, level, submissionUrl, gainedPoints } =
+    successPageInfo;
 
   const takeScreenshotMutation =
     useProjectsChallengeSubmissionTakeScreenshotMutation('form');
@@ -51,6 +79,8 @@ export default function ProjectsChallengeSubmitPage({
     },
     onSuccess: ({ submission, points }) => {
       takeScreenshotMutation.mutate({ submissionId: submission.id });
+      trpcUtils.projects.profile.invalidate();
+      trpcUtils.projects.submissions.invalidate();
 
       const formattedPoints = new Intl.NumberFormat().format(points);
 
@@ -59,9 +89,10 @@ export default function ProjectsChallengeSubmitPage({
         addOnLabel: `+${formattedPoints}`,
         description: intl.formatMessage(
           {
-            defaultMessage: 'You have gained {points} reputation points!',
+            defaultMessage:
+              'You have gained {points} rep for completing the project! ✨',
             description: 'Success message after submitting a project',
-            id: 'fv5WXh',
+            id: 'dZR5Qu',
           },
           {
             points: formattedPoints,
@@ -75,13 +106,40 @@ export default function ProjectsChallengeSubmitPage({
         variant: 'success',
       });
 
-      trpcUtils.projects.profile.invalidate();
-      trpcUtils.projects.submissions.invalidate();
-      router.push(submission.hrefs.detail);
+      if (SUBMISSION_SUCCESS_PAGE_AVAILABLE) {
+        const newPoints = initialPoints + points;
+        const { level: newLevel } = projectsReputationLevel(newPoints);
+
+        const { level: oldLevel } = successPageInfo;
+
+        setSuccessPageInfo((oldInfo) => ({
+          ...oldInfo,
+          gainedPoints: points,
+          isLeveledUp: newLevel > oldLevel,
+          level: newLevel,
+          showSuccess: true,
+          submissionUrl: submission.hrefs.detail,
+        }));
+      } else {
+        router.push(submission.hrefs.detail);
+      }
     },
   });
 
   const { href } = challenge.metadata;
+
+  if (showSuccess && SUBMISSION_SUCCESS_PAGE_AVAILABLE) {
+    return (
+      <ProjectsChallengeSubmissionSuccessPage
+        isLeveledUp={isLeveledUp}
+        isViewerPremium={isViewerPremium}
+        level={level}
+        locale={locale}
+        points={gainedPoints}
+        submissionUrl={submissionUrl}
+      />
+    );
+  }
 
   return (
     <div>

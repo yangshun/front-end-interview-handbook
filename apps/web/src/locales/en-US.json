@@ -147,10 +147,6 @@
     "defaultMessage": "Username should begin and end with an alphanumeric character, and only contain alphanumeric characters or dashes.",
     "description": "Error message when username contains invalid characters"
   },
-  "/9JvuU": {
-    "defaultMessage": "{trackName} progress",
-    "description": "Label for track progress on project submission success page"
-  },
   "/9OFji": {
     "defaultMessage": "Train any front end skill from beginner to advanced",
     "description": "Title of 'Train any front end skill' feature in Projects marketing page"
@@ -419,10 +415,6 @@
     "defaultMessage": "Browse content series that are tailored to your experience level.",
     "description": "Browse series section description in blog homepage"
   },
-  "1GF83M": {
-    "defaultMessage": "Based on your activity, we think you might be interested in these projects",
-    "description": "Description for projects you may be interested in section on project submission success page"
-  },
   "1NRSGb": {
     "defaultMessage": "Pin",
     "description": "Label for pin submission button"
@@ -659,6 +651,10 @@
     "defaultMessage": "Upvote this submission",
     "description": "Tooltip for Upvote submission button"
   },
+  "3d2VAC": {
+    "defaultMessage": "Skill plan completed",
+    "description": "Subtext for skill plan completed"
+  },
   "3du5bC": {
     "defaultMessage": "Toptal",
     "description": "Company name for Toptal"
@@ -798,10 +794,6 @@
   "4uyrtd": {
     "defaultMessage": "Guides & solutions from Sr. Engineers and code reviews from <link>community</link>",
     "description": "Caption for Projects marketing hero section community feature"
-  },
-  "5+8FGz": {
-    "defaultMessage": "Submission success",
-    "description": "Title for the project submission success page"
   },
   "50kzzq": {
     "defaultMessage": "Select question format",
@@ -1450,10 +1442,6 @@
   "AJuXmH": {
     "defaultMessage": "Add profile photo",
     "description": "Label for add profile photo button on projects profile"
-  },
-  "AK/+j2": {
-    "defaultMessage": "Your code has been successfully submitted and is now available for community review.",
-    "description": "Description for the project submission success page"
   },
   "AKnqip": {
     "defaultMessage": "Name must contain at least {minLength} character(s).",
@@ -2319,10 +2307,6 @@
     "defaultMessage": "Mentor others",
     "description": "Label for Mentor others sidebar item in Projects sidebar"
   },
-  "HGXFQP": {
-    "defaultMessage": "<emph>+ {points}</emph><small>reputation points</small>",
-    "description": "Reputation point increase on project submission success page"
-  },
   "HMJJLh": {
     "defaultMessage": "Hone your computer science fundamentals by implementing important data structures and algorithms from scratch.",
     "description": "Description for interview preparation focus area"
@@ -2738,10 +2722,6 @@
   "KeMz9W": {
     "defaultMessage": "Views on your submissions",
     "description": "Number of views on the project submissions"
-  },
-  "KgN46v": {
-    "defaultMessage": "Leveling progress",
-    "description": "Label for leveling progress on project submission success page"
   },
   "KhMTHf": {
     "defaultMessage": "We're largely free to use, but Premium gives you access to our best material and efforts.",
@@ -3735,10 +3715,6 @@
     "defaultMessage": "Gamified and socialized",
     "description": "Short title for \"Build together with other like-minded individuals\" feature marketing section on Projects home page"
   },
-  "RZedau": {
-    "defaultMessage": "See all",
-    "description": "Label for See all button on project submission success page"
-  },
   "Rbapby": {
     "defaultMessage": "What's new | Blog",
     "description": "Title of GreatFrontEnd blog what's new page"
@@ -3903,6 +3879,10 @@
     "defaultMessage": "Nothing found just yet",
     "description": "Title for empty state when application of filters return no results"
   },
+  "SgTflO": {
+    "defaultMessage": "+{reputation}",
+    "description": "Title for level Up"
+  },
   "SiWL+G": {
     "defaultMessage": "Once you're done developing, follow this step-by-step guide to host your solution and submit the challenge.",
     "description": "Description for the project submission checklist section"
@@ -4034,10 +4014,6 @@
   "TfBpeT": {
     "defaultMessage": "Here are some highly-rated submissions you can reference while doing your project. We prioritize submissions by their ratings, the similarity of their tech stack to yours, and the seniority level of the commenter.",
     "description": "Description for Reference Submissions section on Projects project tips & resources page"
-  },
-  "TgOWsI": {
-    "defaultMessage": "You've gained rep in these skills:",
-    "description": "Label for skills gained on project submission success page"
   },
   "Tjz+5U": {
     "defaultMessage": "Giving away {discountPercentage}% off all plans!",
@@ -4411,6 +4387,10 @@
     "defaultMessage": "Table of Contents",
     "description": "Guides table of contents menu button label"
   },
+  "WbLzwZ": {
+    "defaultMessage": "Leveled Up!",
+    "description": "Subtext for level Up"
+  },
   "WctnWS": {
     "defaultMessage": "Generating screenshots",
     "description": "Title for project submission screenshot generation"
@@ -4550,10 +4530,6 @@
   "XkNVS1": {
     "defaultMessage": "Complete your profile",
     "description": "Title for Complete profile card on Projects dashboard page"
-  },
-  "XkPGFj": {
-    "defaultMessage": "Projects you may be interested in",
-    "description": "Title for projects you may be interested in section on project submission success page"
   },
   "XliVbn": {
     "defaultMessage": "Everything you need to host and deploy your solution for {challengeName} upon project completion",
@@ -4842,6 +4818,10 @@
   "a8ETQr": {
     "defaultMessage": "Meta logo",
     "description": "Meta company logo"
+  },
+  "aCjI8I": {
+    "defaultMessage": "Track completed",
+    "description": "Subtext for track completed"
   },
   "aE1FCD": {
     "defaultMessage": "/month",
@@ -5299,6 +5279,10 @@
     "defaultMessage": "Contact us",
     "description": "Link to contact page"
   },
+  "dZR5Qu": {
+    "defaultMessage": "You have gained {points} rep for completing the project! ✨",
+    "description": "Success message after submitting a project"
+  },
   "da4RLj": {
     "defaultMessage": "Google logo",
     "description": "Google company logo"
@@ -5334,6 +5318,10 @@
   "dq3W2/": {
     "defaultMessage": "Premium user",
     "description": "Tooltip for premium icon"
+  },
+  "dqSf6I": {
+    "defaultMessage": "You've conquered {challengeNumber, plural, one {# challenge} other {# challenges}}! 🌟",
+    "description": "Title for the project submission success page"
   },
   "drvlbZ": {
     "defaultMessage": "Efficient strategies to prepare and ace behavioral interviews.",
@@ -5626,10 +5614,6 @@
   "fv+TLc": {
     "defaultMessage": "Back to study plans",
     "description": "Link text to navigate to study plans page"
-  },
-  "fv5WXh": {
-    "defaultMessage": "You have gained {points} reputation points!",
-    "description": "Success message after submitting a project"
   },
   "fxfae3": {
     "defaultMessage": "If you're stuck, clarify any doubts within the discussion forums in Step 3's. If you need answers urgently for a critical issue, email as at <link>support@greatfrontend.com</link>.",
@@ -5947,10 +5931,6 @@
     "defaultMessage": "No community contributions",
     "description": "Title for empty state when there are no contributions"
   },
-  "iyz4Hv": {
-    "defaultMessage": "{skillPlanName} progress",
-    "description": "Label for skill plan progress on project submission success page"
-  },
   "iyzDmo": {
     "defaultMessage": "Submission summary",
     "description": "Form label"
@@ -6243,10 +6223,6 @@
     "defaultMessage": "In-browser coding workspace",
     "description": "Title for in-browser coding workspace feature"
   },
-  "kp/6uR": {
-    "defaultMessage": "Challenge: {challengeName} | Submission successful",
-    "description": "Title of Projects challenge submission success page"
-  },
   "kpP56G": {
     "defaultMessage": "Last month",
     "description": "Title for last month list of comments"
@@ -6510,6 +6486,10 @@
   "myWGmV": {
     "defaultMessage": "Coupons | Profile",
     "description": "Title of Profile coupons page"
+  },
+  "n0RD9S": {
+    "defaultMessage": "Reputation points",
+    "description": "Subtext for Reputation Reputation"
   },
   "n0mDHU": {
     "defaultMessage": "Author",
@@ -6923,6 +6903,10 @@
     "defaultMessage": "Filter by status",
     "description": "Tooltip for Status filter for projects list"
   },
+  "qFJskj": {
+    "defaultMessage": "Level {level}",
+    "description": "Title for level Up"
+  },
   "qJhNva": {
     "defaultMessage": "Public roadmap",
     "description": "Title of Public roadmap page"
@@ -6962,10 +6946,6 @@
   "qVn8Yq": {
     "defaultMessage": "Trending user submissions",
     "description": "Title for Trending submissions section on Projects dashboard page"
-  },
-  "qVqTyf": {
-    "defaultMessage": "Congratulations on completing the {challengeName} challenge! Your submission is successful and now available for community feedback.",
-    "description": "Description of Projects challenge submission success page"
   },
   "qZRTqi": {
     "defaultMessage": "Data Structures & Algorithms",
@@ -7094,10 +7074,6 @@
   "rmYPMV": {
     "defaultMessage": "Start learning",
     "description": "Button label to start study plan / focus area"
-  },
-  "rxpmQt": {
-    "defaultMessage": "Next project:",
-    "description": "Title for next project section on project submission success page"
   },
   "ryCcOP": {
     "defaultMessage": "Notify Me",
@@ -7742,6 +7718,10 @@
   "xEvm93": {
     "defaultMessage": "Features",
     "description": "Link to features page"
+  },
+  "xJJGlf": {
+    "defaultMessage": "Your submission is successful and now available for community code reviews",
+    "description": "Description for the project submission success page"
   },
   "xK578g": {
     "defaultMessage": "Please enter a valid email address.",
