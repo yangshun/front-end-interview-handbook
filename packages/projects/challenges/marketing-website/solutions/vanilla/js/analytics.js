@@ -1,3 +1,3 @@
 (() => {
-  document.cookie = "analytics_user_id=2345";
+  document.cookie = 'analytics_user_id=2345';
 })();

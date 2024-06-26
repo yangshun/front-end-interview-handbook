@@ -75,27 +75,27 @@ body {
 
 /* Color classes */
 .badge--color-neutral {
-  background: #F9FAFB;
-  border-color: #E6E6E6;
+  background: #f9fafb;
+  border-color: #e6e6e6;
   color: #525252;
 }
 .badge--color-danger {
-  background: #FEF2F2;
-  border-color: #FECACA;
-  color: #DC2626;
+  background: #fef2f2;
+  border-color: #fecaca;
+  color: #dc2626;
 }
 .badge--color-warning {
-  background: #FFFBEB;
-  border-color: #FDE68A;
-  color: #B45309;
+  background: #fffbeb;
+  border-color: #fde68a;
+  color: #b45309;
 }
 .badge--color-success {
-  background: #F0FDF4;
-  border-color:#BBF7D0;
-  color: #15803D;
+  background: #f0fdf4;
+  border-color: #bbf7d0;
+  color: #15803d;
 }
 .badge--color-brand {
-  background: #EEF2FF;
-  border-color: #C7D2FE;
-  color: #4338CA;
+  background: #eef2ff;
+  border-color: #c7d2fe;
+  color: #4338ca;
 }

@@ -190,18 +190,21 @@ hr {
 }
 
 /* button variants */
-.button--primary{
-  background: #4338CA;
-  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.06);
+.button--primary {
+  background: #4338ca;
+  box-shadow:
+    0px 1px 3px rgba(0, 0, 0, 0.1),
+    0px 1px 2px rgba(0, 0, 0, 0.06);
   color: #ffffff;
 }
-.button--primary:hover, .button--primary:focus  {
-  background: #3730A3;
+.button--primary:hover,
+.button--primary:focus {
+  background: #3730a3;
 }
-.button--primary:disabled{
-  background: #F5F5F5;
+.button--primary:disabled {
+  background: #f5f5f5;
   box-shadow: none;
-  color: #A3A3A3;
+  color: #a3a3a3;
   pointer-events: none;
 }
 

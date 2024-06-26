@@ -1,6 +1,6 @@
 const descriptionField1 = document.querySelector('#description-field1');
 
-descriptionField1.addEventListener('input', event => {
+descriptionField1.addEventListener('input', (event) => {
   const count = event.target.value.length;
   const countElement = document.querySelector('#description-field-count1');
   countElement.textContent = event.target.value.length;
