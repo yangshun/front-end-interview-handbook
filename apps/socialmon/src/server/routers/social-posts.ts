@@ -66,16 +66,11 @@ export const socialPostsRouter = router({
         const result = await aiProvider.generateResponseTo(post);
 
         const platform = getPlatform();
-        const success = await platform.updatePost({
-          content: post.content,
-          foundAt: post.foundAt,
+        const success = await platform.updateResponse({
           id: post.id,
-          postedAt: post.postedAt,
-          replied: post.replied,
-          repliedAt: post.repliedAt,
+          replied: false,
+          repliedAt: null,
           response: result.response,
-          title: post.title,
-          url: post.url,
         });
 
         if (!success) {
@@ -92,93 +87,65 @@ export const socialPostsRouter = router({
       }
     }),
 
-  getRepliedPosts: publicProcedure.query(async () => {
-    const platform = getPlatform();
+  getRepliedPosts: publicProcedure
+    .input(
+      z.object({
+        cursor: z.string().nullish(),
+        limit: z.number().min(1).max(100).default(10),
+      }),
+    )
+    .query(async ({ input }) => {
+      const { limit, cursor } = input;
+      const platform = getPlatform();
 
-    try {
-      const repliedPosts = await platform.getRepliedPosts();
+      try {
+        const repliedPosts = await platform.getRepliedPosts({
+          cursor,
+          limit,
+        });
 
-      return repliedPosts;
-    } catch (error) {
-      console.error('Error fetching replied posts:', error);
+        return repliedPosts;
+      } catch (error) {
+        console.error('Error fetching replied posts:', error);
 
-      return null;
-    }
-  }),
+        return null;
+      }
+    }),
 
-  getUnrepliedPosts: publicProcedure.query(async () => {
-    const platform = getPlatform();
+  getUnrepliedPosts: publicProcedure
+    .input(
+      z.object({
+        cursor: z.string().nullish(),
+        limit: z.number().min(1).max(100).default(10),
+      }),
+    )
+    .query(async ({ input }) => {
+      const { limit, cursor } = input;
+      const platform = getPlatform();
 
-    try {
-      const unrepliedPosts = await platform.getUnrepliedPosts();
-
-      return unrepliedPosts;
-    } catch (error) {
-      console.error('Error fetching unreplied posts:', error);
-
-      return null;
-    }
-  }),
+      return await platform.getUnrepliedPosts({
+        cursor,
+        limit,
+      });
+    }),
 
   replyToPost: publicProcedure
     .input(
       z.object({
-        post: postSchema,
+        postId: z.string(),
+        response: z.string(),
       }),
     )
-    .mutation(async (opts) => {
-      const { input } = opts;
-      const post = input.post as Post;
+    .mutation(async ({ input }) => {
+      const { postId, response } = input;
       const platform = getPlatform();
 
       try {
-        const success = await platform.replyToPost({
-          content: post.content,
-          foundAt: post.foundAt,
-          id: post.id,
-          postedAt: post.postedAt,
-          replied: post.replied,
-          repliedAt: post.repliedAt,
-          response: post.response,
-          title: post.title,
-          url: post.url,
-        });
+        const success = await platform.replyToPost({ postId, response });
 
         return success;
       } catch (error) {
         console.error('Error replying to post:', error);
-
-        return false;
-      }
-    }),
-
-  updatePost: publicProcedure
-    .input(
-      z.object({
-        post: postSchema,
-      }),
-    )
-    .mutation(async (opts) => {
-      const { input } = opts;
-      const post = input.post as Post;
-      const platform = getPlatform();
-
-      try {
-        const success = await platform.updatePost({
-          content: post.content,
-          foundAt: post.foundAt,
-          id: post.id,
-          postedAt: post.postedAt,
-          replied: post.replied,
-          repliedAt: post.repliedAt,
-          response: post.response,
-          title: post.title,
-          url: post.url,
-        });
-
-        return success;
-      } catch (error) {
-        console.error('Error updating post:', error);
 
         return false;
       }

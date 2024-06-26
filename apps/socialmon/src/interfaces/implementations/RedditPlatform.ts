@@ -5,7 +5,7 @@ import prisma from '~/server/prisma';
 
 import type { Platform } from '../Platform';
 
-import type { Post } from '~/types';
+import type { RedditPost } from '@prisma/client';
 
 class RedditPlatform implements Platform {
   private snooWrap: Snoowrap;
@@ -35,7 +35,44 @@ class RedditPlatform implements Platform {
     this.timeframeInHours = timeframeInHours;
   }
 
-  private createRedditPost(post: Submission): Post {
+  async updateResponse({
+    id,
+    response,
+    repliedAt,
+    replied,
+  }: {
+    id: string;
+    replied: boolean;
+    repliedAt: Date | null;
+    response: string;
+  }): Promise<boolean> {
+    // Update the post in the database
+    const success = await prisma.redditPost
+      .update({
+        data: {
+          replied,
+          repliedAt,
+          response,
+        },
+        where: {
+          id,
+        },
+      })
+      .then(() => {
+        console.info('Successfully updated post in database');
+
+        return true;
+      })
+      .catch((error) => {
+        console.error(error);
+
+        return false;
+      });
+
+    return success;
+  }
+
+  private createRedditPost(post: Submission): RedditPost {
     return {
       content: post.selftext_html ?? post.selftext,
       foundAt: new Date(),
@@ -49,7 +86,9 @@ class RedditPlatform implements Platform {
     };
   }
 
-  private async insertPostsToDatabase(posts: Array<Post>): Promise<boolean> {
+  private async insertPostsToDatabase(
+    posts: Array<RedditPost>,
+  ): Promise<boolean> {
     // If post exists in database, just skip over it?
     const result = await prisma.redditPost
       .createMany({
@@ -124,21 +163,25 @@ class RedditPlatform implements Platform {
     return success;
   }
 
-  async replyToPost(post: Post): Promise<boolean> {
+  async replyToPost({
+    postId,
+    response,
+  }: {
+    postId: string;
+    response: string;
+  }): Promise<boolean> {
     // Check conditions for replying
-    if (!post.response) {
-      return false; // TODO: throw an error
+    if (!response) {
+      throw new Error('Response is mandatory to reply to a post');
     }
 
     try {
       const replySuccess = await this.snooWrap
-        .getSubmission(post.id)
-        .reply(post.response)
+        .getSubmission(postId)
+        .reply(response)
         .then(
           () => {
             console.info('Successfully replied to post');
-            post.replied = true;
-            post.repliedAt = new Date();
 
             return true;
           },
@@ -156,91 +199,96 @@ class RedditPlatform implements Platform {
         return false;
       }
 
-      const updateSuccess = await this.updatePost(post);
+      // Update response and replied flag in DB
+      const updateSuccess = await this.updateResponse({
+        id: postId,
+        replied: true,
+        repliedAt: new Date(),
+        response,
+      });
 
       if (!updateSuccess) {
-        // TODO: throw an error
-        console.error('Failed to update post in database');
-
-        return false;
+        throw new Error('Failed to update post in database');
       }
 
       return true;
     } catch (error) {
-      // TODO: throw an error
       console.error(error);
 
       return false;
     }
   }
 
-  private createRedditPostFromDatabase(redditPost: Post): Post {
-    return {
-      content: redditPost.content,
-      foundAt: redditPost.foundAt,
-      id: redditPost.id,
-      postedAt: redditPost.postedAt,
-      replied: redditPost.replied,
-      repliedAt: redditPost.repliedAt,
-      response: redditPost.response,
-      title: redditPost.title,
-      url: redditPost.url,
-    };
-  }
-
-  async updatePost(post: Post): Promise<boolean> {
-    // Update the post in the database
-    const success = await prisma.redditPost
-      .update({
-        data: {
-          replied: post.replied,
-          repliedAt: post.repliedAt,
-          response: post.response,
-        },
-        where: {
-          id: post.id,
-        },
-      })
-      .then(() => {
-        console.info('Successfully updated post in database');
-
-        return true;
-      })
-      .catch((error) => {
-        console.error(error);
-
-        return false;
-      });
-
-    return success;
-  }
-
-  async getUnrepliedPosts(): Promise<Array<Post>> {
+  async getUnrepliedPosts({
+    limit,
+    cursor,
+  }: Readonly<{ cursor?: string | null; limit: number }>): Promise<{
+    nextCursor?: string;
+    posts: Array<RedditPost>;
+  }> {
     // Get posts from database where replied is false
     const posts = await prisma.redditPost.findMany({
+      cursor: cursor ? { id: cursor } : undefined,
       orderBy: {
         postedAt: 'desc',
       },
+      take: limit + 1,
       where: {
         replied: false,
       },
     });
 
-    return posts.map((post) => this.createRedditPostFromDatabase(post));
+    let nextCursor: typeof cursor | undefined = undefined;
+
+    if (posts.length > limit) {
+      // Remove the last item and use it as next cursor
+
+      // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+      const nextItem = posts.pop()!;
+
+      nextCursor = nextItem.id;
+    }
+
+    return {
+      nextCursor,
+      posts,
+    };
   }
 
-  async getRepliedPosts(): Promise<Array<Post>> {
+  async getRepliedPosts({
+    limit,
+    cursor,
+  }: Readonly<{ cursor?: string | null; limit: number }>): Promise<{
+    nextCursor?: string;
+    posts: Array<RedditPost>;
+  }> {
     // Get posts from database where replied is true
     const posts = await prisma.redditPost.findMany({
+      cursor: cursor ? { id: cursor } : undefined,
       orderBy: {
         postedAt: 'desc',
       },
+      take: limit + 1,
       where: {
         replied: true,
       },
     });
 
-    return posts.map((post) => this.createRedditPostFromDatabase(post));
+    let nextCursor: typeof cursor | undefined = undefined;
+
+    if (posts.length > limit) {
+      // Remove the last item and use it as next cursor
+
+      // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+      const nextItem = posts.pop()!;
+
+      nextCursor = nextItem.id;
+    }
+
+    return {
+      nextCursor,
+      posts,
+    };
   }
 }
 

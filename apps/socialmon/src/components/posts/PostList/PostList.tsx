@@ -12,13 +12,27 @@ import type { Post } from '~/types';
 
 import '@mantine/core/styles.css';
 
-import { Text, Title } from '@mantine/core';
+import { Button, Text, Title } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 
+const LIMIT = 20;
+
 export default function PostList() {
-  const { isLoading, data } = trpc.socialPosts.getUnrepliedPosts.useQuery();
+  const { isLoading, data, hasNextPage, fetchNextPage, isFetchingNextPage } =
+    trpc.socialPosts.getUnrepliedPosts.useInfiniteQuery(
+      {
+        limit: LIMIT,
+      },
+      {
+        getNextPageParam(lastPage) {
+          return lastPage?.nextCursor;
+        },
+      },
+    );
   const [opened, { open, close }] = useDisclosure(false);
   const [selectedPost, setSelectedPost] = useState<Post | null>(null);
+
+  const posts = data?.pages.flatMap((page) => page.posts);
 
   const handleSelectPost = (post: Post) => {
     setSelectedPost(post);
@@ -33,6 +47,7 @@ export default function PostList() {
           'flex flex-col gap-2',
           'h-full w-3/5',
           'w-full lg:w-3/5',
+          'lg:border-r',
         )}>
         <div className="">
           <Title mb="md" order={2}>
@@ -42,23 +57,34 @@ export default function PostList() {
         <Text hidden={!isLoading} size="md">
           Loading...
         </Text>
-        {!isLoading && data?.length === 0 && (
+        {!isLoading && posts?.length === 0 && (
           <Text size="md">No post found</Text>
         )}
         <div className={clsx('flex-1', 'overflow-y-auto', 'divide-y')}>
-          {data?.map((post) => (
+          {posts?.map((post) => (
             <PostItem
               key={post.id}
               post={post}
               onClick={() => handleSelectPost(post)}
             />
           ))}
+
+          {hasNextPage && (
+            <div className="flex w-full justify-center py-6">
+              <Button
+                disabled={isFetchingNextPage}
+                onClick={() => fetchNextPage()}>
+                {isFetchingNextPage ? 'Loading more...' : 'See more'}
+              </Button>
+            </div>
+          )}
         </div>
       </div>
       <PostDetailSection
         closeModal={close}
         openedModal={opened}
         selectedPost={selectedPost}
+        setSelectedPost={setSelectedPost}
       />
     </div>
   );

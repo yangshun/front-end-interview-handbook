@@ -27,7 +27,7 @@ type Props = Readonly<{
   isGeneratingResponse: boolean;
   isReplying: boolean;
   post: Post;
-  replyToPost: (response: string | null) => void;
+  replyToPost: (response: string) => void;
 }>;
 
 export default function PostDetail({
@@ -42,7 +42,9 @@ export default function PostDetail({
   const cleanHtml = DOMPurify.sanitize(post.content);
 
   function handleReplyToPostButton() {
-    replyToPost(response);
+    if (response) {
+      replyToPost(response);
+    }
   }
 
   // TODO: truncate content and add url?

@@ -14,17 +14,25 @@ type Props = Readonly<{
   closeModal: () => void;
   openedModal: boolean;
   selectedPost: Post | null;
+  setSelectedPost: (post: Post | null) => void;
 }>;
 
 export default function PostDetailSection({
   selectedPost,
+  setSelectedPost,
   openedModal,
   closeModal,
 }: Props) {
+  const utils = trpc.useUtils();
   const isBelowDesktop = useMediaQuery('(max-width: 1023px)');
   const generateResponseMutation =
     trpc.socialPosts.generateResponse.useMutation();
-  const replyPostMutation = trpc.socialPosts.replyToPost.useMutation();
+  const replyPostMutation = trpc.socialPosts.replyToPost.useMutation({
+    onSuccess() {
+      utils.socialPosts.invalidate();
+      setSelectedPost(null);
+    },
+  });
 
   async function generateResponse(
     post: Post,
@@ -42,16 +50,12 @@ export default function PostDetailSection({
     setResponse(result.response);
   }
 
-  async function replyToPost(post: Post, response: string | null) {
+  async function replyToPost(post: Post, response: string) {
     console.info('Replying to post:', post.title);
 
     await replyPostMutation.mutateAsync({
-      post: {
-        ...post,
-        replied: true,
-        repliedAt: new Date(),
-        response,
-      },
+      postId: post.id,
+      response,
     });
   }
 
@@ -64,9 +68,7 @@ export default function PostDetailSection({
       isGeneratingResponse={generateResponseMutation.isLoading}
       isReplying={replyPostMutation.isLoading}
       post={selectedPost}
-      replyToPost={(response: string | null) =>
-        replyToPost(selectedPost, response)
-      }
+      replyToPost={(response: string) => replyToPost(selectedPost, response)}
     />
   );
 
