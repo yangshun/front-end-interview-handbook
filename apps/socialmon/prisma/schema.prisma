@@ -18,4 +18,5 @@ model RedditPost {
   response  String?   @db.VarChar
   replied   Boolean   @default(false)
   repliedAt DateTime? @db.Timestamp(6)
+  subreddit String    @db.VarChar
 }

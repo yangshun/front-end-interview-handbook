@@ -1,21 +1,17 @@
 import type { Post } from '~/types';
 
 export type Platform = {
+  getPosts({
+    pagination,
+    filter,
+  }: Readonly<{
+    filter: { tab: string };
+    pagination: { cursor?: string | null; limit: number };
+  }>): Promise<{
+    nextCursor?: string;
+    posts: Array<Post>;
+  }>;
   getRelevantPosts(): Promise<boolean>;
-  getRepliedPosts({
-    cursor,
-    limit,
-  }: Readonly<{ cursor?: string | null; limit: number }>): Promise<{
-    nextCursor?: string;
-    posts: Array<Post>;
-  }>;
-  getUnrepliedPosts({
-    cursor,
-    limit,
-  }: Readonly<{ cursor?: string | null; limit: number }>): Promise<{
-    nextCursor?: string;
-    posts: Array<Post>;
-  }>;
   replyToPost({
     postId,
     response,

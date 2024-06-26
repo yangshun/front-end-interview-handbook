@@ -9,19 +9,24 @@ import PostDetailSection from './PostDetailSection';
 import PostItem from './PostItem';
 
 import type { Post } from '~/types';
+import type { PostTab } from '~/types';
 
 import '@mantine/core/styles.css';
 
-import { Button, Text, Title } from '@mantine/core';
+import { Button, Tabs, Text, Title } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 
 const LIMIT = 20;
 
 export default function PostList() {
+  const [activeTab, setActiveTab] = useState<PostTab>('all');
   const { isLoading, data, hasNextPage, fetchNextPage, isFetchingNextPage } =
-    trpc.socialPosts.getUnrepliedPosts.useInfiniteQuery(
+    trpc.socialPosts.getPosts.useInfiniteQuery(
       {
-        limit: LIMIT,
+        filter: {
+          tab: activeTab,
+        },
+        pagination: { limit: LIMIT },
       },
       {
         getNextPageParam(lastPage) {
@@ -39,7 +44,6 @@ export default function PostList() {
     open();
   };
 
-  // TODO: tab for replied posts
   return (
     <div className={clsx('mx-auto h-screen max-w-screen-2xl', 'p-4', 'flex')}>
       <div
@@ -49,11 +53,18 @@ export default function PostList() {
           'w-full lg:w-3/5',
           'lg:border-r',
         )}>
-        <div className="">
-          <Title mb="md" order={2}>
-            Unreplied Posts for Reddit
-          </Title>
-        </div>
+        <Title mb="md" order={2}>
+          Posts from Reddit
+        </Title>
+        <Tabs
+          value={activeTab}
+          onChange={(value) => setActiveTab(value as PostTab)}>
+          <Tabs.List>
+            <Tabs.Tab value="all">All</Tabs.Tab>
+            <Tabs.Tab value="unreplied">Unreplied</Tabs.Tab>
+            <Tabs.Tab value="replied">Replied</Tabs.Tab>
+          </Tabs.List>
+        </Tabs>
         <Text hidden={!isLoading} size="md">
           Loading...
         </Text>
@@ -65,6 +76,8 @@ export default function PostList() {
             <PostItem
               key={post.id}
               post={post}
+              selected={post.id === selectedPost?.id}
+              showRepliedBadge={activeTab === 'all'}
               onClick={() => handleSelectPost(post)}
             />
           ))}

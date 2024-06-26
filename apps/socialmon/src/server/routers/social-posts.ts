@@ -87,45 +87,25 @@ export const socialPostsRouter = router({
       }
     }),
 
-  getRepliedPosts: publicProcedure
+  getPosts: publicProcedure
     .input(
       z.object({
         cursor: z.string().nullish(),
-        limit: z.number().min(1).max(100).default(10),
+        filter: z.object({
+          tab: z.enum(['all', 'unreplied', 'replied']),
+        }),
+        pagination: z.object({
+          limit: z.number().min(1).max(100).default(10),
+        }),
       }),
     )
     .query(async ({ input }) => {
-      const { limit, cursor } = input;
+      const { pagination, filter, cursor } = input;
       const platform = getPlatform();
 
-      try {
-        const repliedPosts = await platform.getRepliedPosts({
-          cursor,
-          limit,
-        });
-
-        return repliedPosts;
-      } catch (error) {
-        console.error('Error fetching replied posts:', error);
-
-        return null;
-      }
-    }),
-
-  getUnrepliedPosts: publicProcedure
-    .input(
-      z.object({
-        cursor: z.string().nullish(),
-        limit: z.number().min(1).max(100).default(10),
-      }),
-    )
-    .query(async ({ input }) => {
-      const { limit, cursor } = input;
-      const platform = getPlatform();
-
-      return await platform.getUnrepliedPosts({
-        cursor,
-        limit,
+      return await platform.getPosts({
+        filter,
+        pagination: { cursor, ...pagination },
       });
     }),
 

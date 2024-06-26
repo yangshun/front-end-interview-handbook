@@ -5,6 +5,8 @@ import prisma from '~/server/prisma';
 
 import type { Platform } from '../Platform';
 
+import type { PostTab } from '~/types';
+
 import type { RedditPost } from '@prisma/client';
 
 class RedditPlatform implements Platform {
@@ -81,6 +83,7 @@ class RedditPlatform implements Platform {
       replied: false,
       repliedAt: null,
       response: null,
+      subreddit: post.subreddit_name_prefixed,
       title: post.title,
       url: post.url,
     };
@@ -92,17 +95,7 @@ class RedditPlatform implements Platform {
     // If post exists in database, just skip over it?
     const result = await prisma.redditPost
       .createMany({
-        data: posts.map((post) => {
-          return {
-            content: post.content,
-            id: post.id,
-            postedAt: post.postedAt,
-            replied: post.replied,
-            response: post.response,
-            title: post.title,
-            url: post.url,
-          };
-        }),
+        data: posts,
         skipDuplicates: true,
       })
       .then(() => {
@@ -176,12 +169,17 @@ class RedditPlatform implements Platform {
     }
 
     try {
+      // TODO(socialmon): Figure out how to add type here.
+      let finalResponse: any = null;
+
       const replySuccess = await this.snooWrap
         .getSubmission(postId)
         .reply(response)
         .then(
-          () => {
+          (result) => {
             console.info('Successfully replied to post');
+
+            finalResponse = result;
 
             return true;
           },
@@ -193,18 +191,17 @@ class RedditPlatform implements Platform {
         );
 
       if (!replySuccess) {
-        // TODO: throw an error
-        console.error('Failed to reply to post');
-
-        return false;
+        throw new Error('Failed to reply to post');
       }
 
       // Update response and replied flag in DB
       const updateSuccess = await this.updateResponse({
         id: postId,
         replied: true,
-        repliedAt: new Date(),
-        response,
+        repliedAt: finalResponse?.created_utc
+          ? new Date(finalResponse.created_utc * 1000) // In milliseconds
+          : new Date(),
+        response: finalResponse?.body_html || response,
       });
 
       if (!updateSuccess) {
@@ -219,13 +216,26 @@ class RedditPlatform implements Platform {
     }
   }
 
-  async getUnrepliedPosts({
-    limit,
-    cursor,
-  }: Readonly<{ cursor?: string | null; limit: number }>): Promise<{
+  async getPosts({
+    pagination,
+    filter,
+  }: Readonly<{
+    filter: { tab: PostTab };
+    pagination: { cursor?: string | null; limit: number };
+  }>): Promise<{
     nextCursor?: string;
     posts: Array<RedditPost>;
   }> {
+    const { cursor, limit } = pagination;
+    const { tab } = filter;
+
+    const postFilter =
+      tab === 'all'
+        ? {}
+        : tab === 'unreplied'
+          ? { replied: false }
+          : { replied: true };
+
     // Get posts from database where replied is false
     const posts = await prisma.redditPost.findMany({
       cursor: cursor ? { id: cursor } : undefined,
@@ -234,43 +244,7 @@ class RedditPlatform implements Platform {
       },
       take: limit + 1,
       where: {
-        replied: false,
-      },
-    });
-
-    let nextCursor: typeof cursor | undefined = undefined;
-
-    if (posts.length > limit) {
-      // Remove the last item and use it as next cursor
-
-      // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-      const nextItem = posts.pop()!;
-
-      nextCursor = nextItem.id;
-    }
-
-    return {
-      nextCursor,
-      posts,
-    };
-  }
-
-  async getRepliedPosts({
-    limit,
-    cursor,
-  }: Readonly<{ cursor?: string | null; limit: number }>): Promise<{
-    nextCursor?: string;
-    posts: Array<RedditPost>;
-  }> {
-    // Get posts from database where replied is true
-    const posts = await prisma.redditPost.findMany({
-      cursor: cursor ? { id: cursor } : undefined,
-      orderBy: {
-        postedAt: 'desc',
-      },
-      take: limit + 1,
-      where: {
-        replied: true,
+        ...postFilter,
       },
     });
 

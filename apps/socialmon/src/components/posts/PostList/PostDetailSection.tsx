@@ -26,7 +26,11 @@ export default function PostDetailSection({
   const utils = trpc.useUtils();
   const isBelowDesktop = useMediaQuery('(max-width: 1023px)');
   const generateResponseMutation =
-    trpc.socialPosts.generateResponse.useMutation();
+    trpc.socialPosts.generateResponse.useMutation({
+      onSuccess() {
+        utils.socialPosts.invalidate();
+      },
+    });
   const replyPostMutation = trpc.socialPosts.replyToPost.useMutation({
     onSuccess() {
       utils.socialPosts.invalidate();
