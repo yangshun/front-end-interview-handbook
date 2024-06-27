@@ -1,3 +1,6 @@
 [submodule "front-end-interview-handbook"]
 	path = front-end-interview-handbook
 	url = https://github.com/yangshun/front-end-interview-handbook
+[submodule "top-javascript-interview-questions"]
+	path = top-javascript-interview-questions
+	url = https://github.com/yangshun/top-javascript-interview-questions
