@@ -21,7 +21,7 @@ async function generateSetupForQuestion(slug: string, questionPath: string) {
   fs.mkdirSync(outDir, { recursive: true });
   await Promise.all(
     locales.map(async (locale) => {
-      const content = await readQuestionQuiz(slug, questionPath, locale);
+      const content = await readQuestionQuiz(questionPath, locale);
       const outPath = path.join(outDir, `${locale}.json`);
 
       fs.writeFileSync(outPath, JSON.stringify(content, null, 2));

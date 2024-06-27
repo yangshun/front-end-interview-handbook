@@ -18,7 +18,7 @@
     "nextQuestions": [],
     "premium": false,
     "published": true,
-    "ranking": 100,
+    "ranking": 999,
     "similarQuestions": [],
     "slug": "difference-between-document-load-event-and-document-domcontentloaded-event",
     "subtitle": null,

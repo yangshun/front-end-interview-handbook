@@ -9,19 +9,20 @@ import type {
 
 import { readMDXFile } from './QuestionsBundler';
 import {
+  getQuestionSrcPathQuizJavaScript,
   getQuestionSrcPathQuizNonJavaScript,
+  QUESTIONS_SRC_DIR_QUIZ_JS,
   QUESTIONS_SRC_DIR_QUIZ_NON_JS,
 } from './QuestionsBundlerQuizConfig';
 import { normalizeQuestionFrontMatter } from '../QuestionsUtils';
 
 async function readQuestionMetadataQuiz(
-  slug: string,
+  questionPath: string,
   locale = 'en-US',
 ): Promise<QuestionMetadata> {
-  const questionPath = getQuestionSrcPathQuizNonJavaScript(slug);
-
   // Read frontmatter from MDX file.
   const filePath = path.join(questionPath, `${locale}.mdx`);
+
   const source = fs.readFileSync(filePath).toString().trim();
   const { data: frontMatter } = grayMatter(source);
 
@@ -38,17 +39,17 @@ async function readQuestionMetadataQuiz(
 }
 
 async function readQuestionMetadataWithFallbackQuiz(
-  slug: string,
+  questionPath: string,
   requestedLocale = 'en-US',
 ): Promise<{ loadedLocale: string; metadata: QuestionMetadata }> {
   let loadedLocale = requestedLocale;
   const metadata = await (async () => {
     try {
-      return await readQuestionMetadataQuiz(slug, requestedLocale);
+      return await readQuestionMetadataQuiz(questionPath, requestedLocale);
     } catch {
       loadedLocale = 'en-US';
 
-      return await readQuestionMetadataQuiz(slug, loadedLocale);
+      return await readQuestionMetadataQuiz(questionPath, loadedLocale);
     }
   })();
 
@@ -59,12 +60,11 @@ async function readQuestionMetadataWithFallbackQuiz(
 }
 
 export async function readQuestionQuiz(
-  slug: string,
   questionPath: string,
   locale = 'en-US',
 ): Promise<QuestionQuiz> {
   const [metadata, description] = await Promise.all([
-    readQuestionMetadataQuiz(slug, locale),
+    readQuestionMetadataQuiz(questionPath, locale),
     readMDXFile(path.join(questionPath, `${locale}.mdx`), {}),
   ]);
 
@@ -79,24 +79,49 @@ export async function readQuestionQuiz(
 export async function readQuestionListMetadataQuiz(
   locale = 'en-US',
 ): Promise<ReadonlyArray<QuestionMetadata>> {
-  const directories = fs
+  // Non-JavaScript.
+  const nonJavaScriptQuestionsDirectories = fs
     .readdirSync(QUESTIONS_SRC_DIR_QUIZ_NON_JS, {
       withFileTypes: true,
     })
     .filter((dirent) => dirent.isDirectory());
 
-  const questions = await Promise.all(
-    directories.map(async (dirent) => {
+  const nonJavaScriptQuestions = await Promise.all(
+    nonJavaScriptQuestionsDirectories.map(async (dirent) => {
       const slug = dirent.name;
+      const questionPath = getQuestionSrcPathQuizNonJavaScript(slug);
 
       const { metadata } = await readQuestionMetadataWithFallbackQuiz(
-        slug,
+        questionPath,
         locale,
       );
 
       return metadata;
     }),
   );
+
+  // JavaScript.
+  const javaScriptQuestionsDirectories = fs
+    .readdirSync(QUESTIONS_SRC_DIR_QUIZ_JS, {
+      withFileTypes: true,
+    })
+    .filter((dirent) => dirent.isDirectory());
+
+  const javaScriptQuestions = await Promise.all(
+    javaScriptQuestionsDirectories.map(async (dirent) => {
+      const slug = dirent.name;
+      const questionPath = getQuestionSrcPathQuizJavaScript(slug);
+
+      const { metadata } = await readQuestionMetadataWithFallbackQuiz(
+        questionPath,
+        locale,
+      );
+
+      return metadata;
+    }),
+  );
+
+  const questions = [...nonJavaScriptQuestions, ...javaScriptQuestions];
 
   return questions.filter(({ published }) => published);
 }

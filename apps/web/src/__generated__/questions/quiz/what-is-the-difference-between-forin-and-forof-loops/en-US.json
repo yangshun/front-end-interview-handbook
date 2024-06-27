@@ -1,0 +1,31 @@
+{
+  "description": null,
+  "format": "quiz",
+  "metadata": {
+    "author": null,
+    "companies": [],
+    "created": 1630800000,
+    "difficulty": "easy",
+    "duration": 5,
+    "excerpt": null,
+    "featured": false,
+    "format": "quiz",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/quiz/what-is-the-difference-between-forin-and-forof-loops",
+    "importance": "low",
+    "languages": [],
+    "nextQuestions": [],
+    "premium": false,
+    "published": true,
+    "ranking": 999,
+    "similarQuestions": [],
+    "slug": "what-is-the-difference-between-forin-and-forof-loops",
+    "subtitle": null,
+    "title": "What is the difference between `for...in` and `for...of` loops?",
+    "topics": [
+      "javascript"
+    ]
+  },
+  "solution": "var Component=(()=>{var h=Object.create;var l=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var b=Object.getPrototypeOf,u=Object.prototype.hasOwnProperty;var g=(r,e)=>()=>(e||r((e={exports:{}}).exports,e),e.exports),m=(r,e)=>{for(var o in e)l(r,o,{get:e[o],enumerable:!0})},c=(r,e,o,i)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let t of p(e))!u.call(r,t)&&t!==o&&l(r,t,{get:()=>e[t],enumerable:!(i=f(e,t))||i.enumerable});return r};var j=(r,e,o)=>(o=r!=null?h(b(r)):{},c(e||!r||!r.__esModule?l(o,\"default\",{value:r,enumerable:!0}):o,r)),v=r=>c(l({},\"__esModule\",{value:!0}),r);var a=g((N,s)=>{s.exports=_jsx_runtime});var I={};m(I,{default:()=>D,frontmatter:()=>y});var n=j(a()),y={title:\"What is the difference between `for...in` and `for...of` loops?\"};function d(r){let e=Object.assign({h2:\"h2\",p:\"p\",code:\"code\",pre:\"pre\",hr:\"hr\",h3:\"h3\",h4:\"h4\",ul:\"ul\",li:\"li\",a:\"a\"},r.components);return(0,n.jsxs)(n.Fragment,{children:[(0,n.jsx)(e.h2,{children:\"TL;DR\"}),`\n`,(0,n.jsxs)(e.p,{children:[(0,n.jsx)(e.code,{children:\"for...in\"}),\" loops iterate over the enumerable properties of an object, including inherited properties. It is best used for objects. \",(0,n.jsx)(e.code,{children:\"for...of\"}),\" loops iterate over the values of an iterable object like arrays, strings, or NodeLists. It is best used for arrays and other iterable collections.\"]}),`\n`,(0,n.jsx)(e.pre,{children:(0,n.jsx)(e.code,{className:\"language-js\",children:`// for...in example\nconst obj = { a: 1, b: 2, c: 3 };\nfor (let key in obj) {\n  console.log(key); // logs \"a\", \"b\", \"c\"\n}\n\n// for...of example\nconst arr = [1, 2, 3];\nfor (let value of arr) {\n  console.log(value); // logs 1, 2, 3\n}\n`})}),`\n`,(0,n.jsx)(e.hr,{}),`\n`,(0,n.jsxs)(e.h2,{children:[\"Difference between \",(0,n.jsx)(e.code,{children:\"for...in\"}),\" and \",(0,n.jsx)(e.code,{children:\"for...of\"}),\" loops\"]}),`\n`,(0,n.jsxs)(e.h3,{children:[(0,n.jsx)(e.code,{children:\"for...in\"}),\" loop\"]}),`\n`,(0,n.jsxs)(e.p,{children:[\"The \",(0,n.jsx)(e.code,{children:\"for...in\"}),\" loop is used to iterate over the enumerable properties of an object. It iterates over the keys (property names) of the object.\"]}),`\n`,(0,n.jsx)(e.pre,{children:(0,n.jsx)(e.code,{className:\"language-js\",children:`const obj = { a: 1, b: 2, c: 3 };\nfor (let key in obj) {\n  console.log(key); // logs \"a\", \"b\", \"c\"\n}\n`})}),`\n`,(0,n.jsx)(e.h4,{children:\"Key points\"}),`\n`,(0,n.jsxs)(e.ul,{children:[`\n`,(0,n.jsx)(e.li,{children:\"Iterates over the keys of an object\"}),`\n`,(0,n.jsx)(e.li,{children:\"Includes inherited properties\"}),`\n`,(0,n.jsx)(e.li,{children:\"Not recommended for arrays as it can lead to unexpected results\"}),`\n`]}),`\n`,(0,n.jsxs)(e.h3,{children:[(0,n.jsx)(e.code,{children:\"for...of\"}),\" loop\"]}),`\n`,(0,n.jsxs)(e.p,{children:[\"The \",(0,n.jsx)(e.code,{children:\"for...of\"}),\" loop is used to iterate over the values of an iterable object. It works with arrays, strings, maps, sets, and other iterable collections.\"]}),`\n`,(0,n.jsx)(e.pre,{children:(0,n.jsx)(e.code,{className:\"language-js\",children:`const arr = [1, 2, 3];\nfor (let value of arr) {\n  console.log(value); // logs 1, 2, 3\n}\n`})}),`\n`,(0,n.jsx)(e.h4,{children:\"Key points\"}),`\n`,(0,n.jsxs)(e.ul,{children:[`\n`,(0,n.jsx)(e.li,{children:\"Iterates over the values of an iterable object\"}),`\n`,(0,n.jsx)(e.li,{children:\"Does not include inherited properties\"}),`\n`,(0,n.jsx)(e.li,{children:\"Ideal for arrays and other iterable collections\"}),`\n`]}),`\n`,(0,n.jsx)(e.h2,{children:\"Further reading\"}),`\n`,(0,n.jsxs)(e.ul,{children:[`\n`,(0,n.jsx)(e.li,{children:(0,n.jsx)(e.a,{href:\"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...in\",children:\"MDN Web Docs: for...in\"})}),`\n`,(0,n.jsx)(e.li,{children:(0,n.jsx)(e.a,{href:\"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...of\",children:\"MDN Web Docs: for...of\"})}),`\n`,(0,n.jsx)(e.li,{children:(0,n.jsx)(e.a,{href:\"https://javascript.info/iterable\",children:\"JavaScript.info: Iterables\"})}),`\n`]})]})}function x(r={}){let{wrapper:e}=r.components||{};return e?(0,n.jsx)(e,Object.assign({},r,{children:(0,n.jsx)(d,r)})):d(r)}var D=x;return v(I);})();\n;return Component;"
+}

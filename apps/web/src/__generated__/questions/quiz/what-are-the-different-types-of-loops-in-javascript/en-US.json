@@ -1,0 +1,31 @@
+{
+  "description": null,
+  "format": "quiz",
+  "metadata": {
+    "author": null,
+    "companies": [],
+    "created": 1630800000,
+    "difficulty": "easy",
+    "duration": 5,
+    "excerpt": null,
+    "featured": false,
+    "format": "quiz",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/quiz/what-are-the-different-types-of-loops-in-javascript",
+    "importance": "low",
+    "languages": [],
+    "nextQuestions": [],
+    "premium": false,
+    "published": true,
+    "ranking": 999,
+    "similarQuestions": [],
+    "slug": "what-are-the-different-types-of-loops-in-javascript",
+    "subtitle": null,
+    "title": "What are the different types of loops in JavaScript?",
+    "topics": [
+      "javascript"
+    ]
+  },
+  "solution": "var Component=(()=>{var d=Object.create;var t=Object.defineProperty;var p=Object.getOwnPropertyDescriptor;var f=Object.getOwnPropertyNames;var u=Object.getPrototypeOf,m=Object.prototype.hasOwnProperty;var g=(n,e)=>()=>(e||n((e={exports:{}}).exports,e),e.exports),b=(n,e)=>{for(var i in e)t(n,i,{get:e[i],enumerable:!0})},c=(n,e,i,l)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let r of f(e))!m.call(n,r)&&r!==i&&t(n,r,{get:()=>e[r],enumerable:!(l=p(e,r))||l.enumerable});return n};var w=(n,e,i)=>(i=n!=null?d(u(n)):{},c(e||!n||!n.__esModule?t(i,\"default\",{value:n,enumerable:!0}):i,n)),j=n=>c(t({},\"__esModule\",{value:!0}),n);var a=g((S,s)=>{s.exports=_jsx_runtime});var _={};b(_,{default:()=>y,frontmatter:()=>v});var o=w(a()),v={title:\"What are the different types of loops in JavaScript?\"};function h(n){let e=Object.assign({h2:\"h2\",p:\"p\",code:\"code\",hr:\"hr\",h3:\"h3\",pre:\"pre\",ul:\"ul\",li:\"li\",a:\"a\"},n.components);return(0,o.jsxs)(o.Fragment,{children:[(0,o.jsx)(e.h2,{children:\"TL;DR\"}),`\n`,(0,o.jsxs)(e.p,{children:[\"In JavaScript, there are several types of loops used to iterate over data structures or execute a block of code multiple times. The main types are \",(0,o.jsx)(e.code,{children:\"for\"}),\", \",(0,o.jsx)(e.code,{children:\"while\"}),\", \",(0,o.jsx)(e.code,{children:\"do...while\"}),\", \",(0,o.jsx)(e.code,{children:\"for...in\"}),\", and \",(0,o.jsx)(e.code,{children:\"for...of\"}),\". Each loop has its specific use case. For example, \",(0,o.jsx)(e.code,{children:\"for\"}),\" loops are great for iterating a known number of times, while \",(0,o.jsx)(e.code,{children:\"for...of\"}),\" is useful for iterating over iterable objects like arrays.\"]}),`\n`,(0,o.jsx)(e.hr,{}),`\n`,(0,o.jsx)(e.h2,{children:\"Different types of loops in JavaScript\"}),`\n`,(0,o.jsx)(e.h3,{children:\"For loop\"}),`\n`,(0,o.jsxs)(e.p,{children:[\"The \",(0,o.jsx)(e.code,{children:\"for\"}),\" loop is used when the number of iterations is known beforehand. It consists of three parts: initialization, condition, and increment/decrement.\"]}),`\n`,(0,o.jsx)(e.pre,{children:(0,o.jsx)(e.code,{className:\"language-js\",children:`for (let i = 0; i < 5; i++) {\n  console.log(i);\n}\n`})}),`\n`,(0,o.jsx)(e.h3,{children:\"While loop\"}),`\n`,(0,o.jsxs)(e.p,{children:[\"The \",(0,o.jsx)(e.code,{children:\"while\"}),\" loop continues to execute as long as the specified condition is \",(0,o.jsx)(e.code,{children:\"true\"}),\". It is useful when the number of iterations is not known.\"]}),`\n`,(0,o.jsx)(e.pre,{children:(0,o.jsx)(e.code,{className:\"language-js\",children:`let i = 0;\nwhile (i < 5) {\n  console.log(i);\n  i++;\n}\n`})}),`\n`,(0,o.jsx)(e.h3,{children:\"Do...while loop\"}),`\n`,(0,o.jsxs)(e.p,{children:[\"The \",(0,o.jsx)(e.code,{children:\"do...while\"}),\" loop is similar to the \",(0,o.jsx)(e.code,{children:\"while\"}),\" loop, but it guarantees that the code block will be executed at least once.\"]}),`\n`,(0,o.jsx)(e.pre,{children:(0,o.jsx)(e.code,{className:\"language-js\",children:`let i = 0;\ndo {\n  console.log(i);\n  i++;\n} while (i < 5);\n`})}),`\n`,(0,o.jsx)(e.h3,{children:\"For...in loop\"}),`\n`,(0,o.jsxs)(e.p,{children:[\"The \",(0,o.jsx)(e.code,{children:\"for...in\"}),\" loop is used to iterate over the enumerable properties of an object. It is not recommended for arrays due to potential issues with inherited properties.\"]}),`\n`,(0,o.jsx)(e.pre,{children:(0,o.jsx)(e.code,{className:\"language-js\",children:`const obj = { a: 1, b: 2, c: 3 };\nfor (let key in obj) {\n  console.log(key, obj[key]);\n}\n`})}),`\n`,(0,o.jsx)(e.h3,{children:\"For...of loop\"}),`\n`,(0,o.jsxs)(e.p,{children:[\"The \",(0,o.jsx)(e.code,{children:\"for...of\"}),\" loop is used to iterate over iterable objects like arrays, strings, and NodeLists. It is more suitable for arrays compared to \",(0,o.jsx)(e.code,{children:\"for...in\"}),\".\"]}),`\n`,(0,o.jsx)(e.pre,{children:(0,o.jsx)(e.code,{className:\"language-js\",children:`const arr = [1, 2, 3, 4, 5];\nfor (let value of arr) {\n  console.log(value);\n}\n`})}),`\n`,(0,o.jsx)(e.h2,{children:\"Further reading\"}),`\n`,(0,o.jsxs)(e.ul,{children:[`\n`,(0,o.jsx)(e.li,{children:(0,o.jsx)(e.a,{href:\"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Loops_and_iteration\",children:\"MDN Web Docs: Loops and iteration\"})}),`\n`,(0,o.jsx)(e.li,{children:(0,o.jsx)(e.a,{href:\"https://javascript.info/while-for\",children:\"JavaScript.info: Loops\"})}),`\n`,(0,o.jsx)(e.li,{children:(0,o.jsx)(e.a,{href:\"https://www.w3schools.com/js/js_loop_for.asp\",children:\"W3Schools: JavaScript Loops\"})}),`\n`]})]})}function x(n={}){let{wrapper:e}=n.components||{};return e?(0,o.jsx)(e,Object.assign({},n,{children:(0,o.jsx)(h,n)})):h(n)}var y=x;return j(_);})();\n;return Component;"
+}
