@@ -14,7 +14,7 @@ module.exports = {
   themeConfig: {
     announcementBar: {
       id: 'gfe', // Increment on change
-      content: `⭐️ We are now part of <a href="https://www.greatfrontend.com/?utm_source=frontendinterviewhandbook&utm_medium=referral&utm_content=banner&fpr=frontendinterviewhandbook" target="_blank">GreatFrontEnd</a>, a front end interview preparation platform created by ex-FAANG Senior Engineers. <a href="https://www.greatfrontend.com/?utm_source=frontendinterviewhandbook&utm_medium=referral&utm_content=banner&fpr=frontendinterviewhandbook" target="_blank">Get 20% off today</a>! ⭐️`,
+      content: `⭐️ We are now part of <a href="https://www.greatfrontend.com/?utm_source=frontendinterviewhandbook&utm_medium=referral&utm_content=banner&gnrs=frontendinterviewhandbook" target="_blank">GreatFrontEnd</a>, a front end interview preparation platform created by ex-FAANG Senior Engineers. <a href="https://www.greatfrontend.com/?utm_source=frontendinterviewhandbook&utm_medium=referral&utm_content=banner&gnrs=frontendinterviewhandbook" target="_blank">Get 20% off today</a>! ⭐️`,
       isCloseable: false,
     },
     prism: {
@@ -36,15 +36,15 @@ module.exports = {
           items: [
             {
               label: 'Coding Questions',
-              href: 'https://www.greatfrontend.com/prepare/coding?fpr=yangshun',
+              href: 'https://www.greatfrontend.com/prepare/coding?utm_source=frontendinterviewhandbook&utm_medium=referral&utm_content=banner&gnrs=frontendinterviewhandbook',
             },
             {
               label: 'System Design',
-              href: 'https://www.greatfrontend.com/prepare/system-design?fpr=yangshun',
+              href: 'https://www.greatfrontend.com/prepare/system-design?utm_source=frontendinterviewhandbook&utm_medium=referral&utm_content=banner&gnrs=frontendinterviewhandbook',
             },
             {
               label: 'Quiz Questions',
-              href: 'https://www.greatfrontend.com/prepare/quiz?fpr=yangshun',
+              href: 'https://www.greatfrontend.com/prepare/quiz?utm_source=frontendinterviewhandbook&utm_medium=referral&utm_content=banner&gnrs=frontendinterviewhandbook',
             },
           ],
         },
@@ -154,7 +154,7 @@ module.exports = {
           items: [
             {
               label: 'GreatFrontEnd',
-              href: 'https://www.greatfrontend.com?fpr=yangshun',
+              href: 'https://www.greatfrontend.com?utm_source=frontendinterviewhandbook&utm_medium=referral&utm_content=banner&gnrs=frontendinterviewhandbook',
             },
             {
               label: 'GitHub',

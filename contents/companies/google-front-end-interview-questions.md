@@ -1,11 +1,11 @@
 ---
-title: Google front end interview questions
+title: Google Front End Interview Questions
 sidebar_label: Google interview questions
 ---
 
-:::info We are now part of GreatFrontEnd!
+:::info Page migrated to GreatFrontEnd
 
-Front End Interview Handbook is now part of [GreatFrontEnd](https://www.greatfrontend.com?utm_source=frontendinterviewhandbook&utm_medium=referral&fpr=frontendinterviewhandbook)! We are working to migrate the content over and you may find the latest version of this page on [GreatFrontEnd](https://www.greatfrontend.com/prepare?utm_source=frontendinterviewhandbook&utm_medium=referral&fpr=frontendinterviewhandbook).
+Find the latest version of this page on [GreatFrontEnd](https://www.greatfrontend.com/interviews/company/google/questions-guides?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook).
 
 :::
 
@@ -22,26 +22,26 @@ Refer to Google's official interview preparation guides for:
 ## JavaScript
 
 - How do you make a function that takes a callback function `fn` and returns a function that calls `fn` on a timeout?
-  - [Practice question](https://www.greatfrontend.com/questions/javascript/debounce?utm_source=frontendinterviewhandbook&utm_medium=referral&fpr=frontendinterviewhandbook) (Free)
+  - [Practice question](https://www.greatfrontend.com/questions/javascript/debounce?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) (Free)
 - Implement the outline view for a Google doc.
-  - [Practice question](https://www.greatfrontend.com/questions/javascript/table-of-contents?utm_source=frontendinterviewhandbook&utm_medium=referral&fpr=frontendinterviewhandbook) (Paid)
+  - [Practice question](https://www.greatfrontend.com/questions/javascript/table-of-contents?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) (Paid)
 - DFS on HTML nodes.
-  - [Practice question](https://www.greatfrontend.com/questions/javascript/get-elements-by-tag-name?utm_source=frontendinterviewhandbook&utm_medium=referral&fpr=frontendinterviewhandbook) (Paid)
+  - [Practice question](https://www.greatfrontend.com/questions/javascript/get-elements-by-tag-name?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) (Paid)
 - Implement `throttle`.
-  - [Practice question](https://www.greatfrontend.com/questions/javascript/throttle?utm_source=frontendinterviewhandbook&utm_medium=referral&fpr=frontendinterviewhandbook) (Paid)
+  - [Practice question](https://www.greatfrontend.com/questions/javascript/throttle?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) (Paid)
 - How do you make a function that only calls input function f every 50 milliseconds?
-  - [Practice question](https://www.greatfrontend.com/questions/javascript/throttle?utm_source=frontendinterviewhandbook&utm_medium=referral&fpr=frontendinterviewhandbook) (Paid)
+  - [Practice question](https://www.greatfrontend.com/questions/javascript/throttle?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) (Paid)
 - Given a timeline write the JavaScript to select all nodes within selection of timeline.
 
 ## User interface coding
 
 - Design a slider component.
 - Design a Tic-Tac-Toe game/design an algorithm for Tic-Tac-Toe game.
-  - [Practice question](https://www.greatfrontend.com/questions/user-interface/tic-tac-toe?utm_source=frontendinterviewhandbook&utm_medium=referral&fpr=frontendinterviewhandbook) (Paid)
+  - [Practice question](https://www.greatfrontend.com/questions/user-interface/tic-tac-toe?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) (Paid)
 - Implement nested checkboxes (when the parent is checked, children are checked and vice versa. Use `<input type="checkbox">`). Similar to [Indeterminate checkboxes](https://css-tricks.com/indeterminate-checkboxes/).
 - Design a webpage which can auto load new posts when you reach the bottom of the page by using JavaScript. You may use AJAX and JavaScript event listeners.
 - Write a UI using HTML, CSS, JavaScript that allows uses to enter the number of rows and columns in text input fields within a form and renders a table.
-  - [Practice question](https://www.greatfrontend.com/questions/javascript/generate-table?utm_source=frontendinterviewhandbook&utm_medium=referral&fpr=frontendinterviewhandbook) (Paid)
+  - [Practice question](https://www.greatfrontend.com/questions/javascript/generate-table?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) (Paid)
   - Example: Number of rows: 4, Number of columns: 5, "Submit" button. Clicking on the "Submit" button will show the following table (ignore the styling):
 
 | 1   | 8   | 9   | 16  | 17  |
@@ -53,16 +53,16 @@ Refer to Google's official interview preparation guides for:
 ## Trivia
 
 - Explain the CSS Box Model.
-  - [Read answer](https://www.greatfrontend.com/questions/quiz/explain-your-understanding-of-the-box-model-and-how-you-would-tell-the-browser-in-css-to-render-your-layout-in-different-box-models?utm_source=frontendinterviewhandbook&utm_medium=referral&fpr=frontendinterviewhandbook) (Free)
+  - [Read answer](https://www.greatfrontend.com/questions/quiz/explain-your-understanding-of-the-box-model-and-how-you-would-tell-the-browser-in-css-to-render-your-layout-in-different-box-models?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) (Free)
 - What happens when you type a URL into the browser and hits enter?
 - Given some text on a web page, how many ways can you make the text disappear?
 - How do you send data from a web page to a server without a page refresh?
-  - [Read answer](https://www.greatfrontend.com/questions/quiz/what-are-the-advantages-and-disadvantages-of-using-ajax?utm_source=frontendinterviewhandbook&utm_medium=referral&fpr=frontendinterviewhandbook) (Free)
+  - [Read answer](https://www.greatfrontend.com/questions/quiz/what-are-the-advantages-and-disadvantages-of-using-ajax?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) (Free)
 
 ## System design
 
 - Design emoji autocomplete.
-  - [Read answer](https://www.greatfrontend.com/questions/system-design/autocomplete?utm_source=frontendinterviewhandbook&utm_medium=referral&fpr=frontendinterviewhandbook) (Free)
+  - [Read answer](https://www.greatfrontend.com/questions/system-design/autocomplete?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) (Free)
 - Design JS Bin.
 - How would you create a Google Analytics SDK used by webpages?
 

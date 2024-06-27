@@ -1,25 +1,25 @@
 ---
-title: Front end system design interview - UI components
+title: Front End System Design Interview - UI Components
 slug: front-end-system-design/ui-components
 sidebar_label: UI components
 ---
 
-:::info We are now part of GreatFrontEnd!
+:::info Page migrated to GreatFrontEnd
 
-Front End Interview Handbook is now part of [GreatFrontEnd](https://www.greatfrontend.com?utm_source=frontendinterviewhandbook&utm_medium=referral&fpr=frontendinterviewhandbook)! We are working to migrate the content over and you may find the latest version of this page on [GreatFrontEnd](https://www.greatfrontend.com/system-design/types-of-questions?utm_source=frontendinterviewhandbook&utm_medium=referral&fpr=frontendinterviewhandbook).
+Front End Interview Handbook is now part of [GreatFrontEnd](https://www.greatfrontend.com?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook)! Find the latest version of this page on [GreatFrontEnd](https://www.greatfrontend.com/system-design/types-of-questions?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook).
 
 :::
 
 ## Examples
 
-- Autocomplete: [Read example solution](https://www.greatfrontend.com/questions/system-design/autocomplete?utm_source=frontendinterviewhandbook&utm_medium=referral&fpr=frontendinterviewhandbook) (Free)
-- Image carousel: [Read example solution](https://www.greatfrontend.com/questions/system-design/image-carousel?utm_source=frontendinterviewhandbook&utm_medium=referral&fpr=frontendinterviewhandbook) (Paid)
-- Dropdown menu: [Read example solution](https://www.greatfrontend.com/questions/system-design/dropdown-menu?utm_source=frontendinterviewhandbook&utm_medium=referral&fpr=frontendinterviewhandbook) (Paid)
-- Modal dialog: [Read example solution](https://www.greatfrontend.com/questions/system-design/modal-dialog?utm_source=frontendinterviewhandbook&utm_medium=referral&fpr=frontendinterviewhandbook) (Paid)
-- Poll widget: [Read example solution](https://www.greatfrontend.com/questions/system-design/poll-widget?utm_source=frontendinterviewhandbook&utm_medium=referral&fpr=frontendinterviewhandbook) (Paid)
+- Autocomplete: [Read example solution](https://www.greatfrontend.com/questions/system-design/autocomplete?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) (Free)
+- Image carousel: [Read example solution](https://www.greatfrontend.com/questions/system-design/image-carousel?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) (Paid)
+- Dropdown menu: [Read example solution](https://www.greatfrontend.com/questions/system-design/dropdown-menu?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) (Paid)
+- Modal dialog: [Read example solution](https://www.greatfrontend.com/questions/system-design/modal-dialog?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) (Paid)
+- Poll widget: [Read example solution](https://www.greatfrontend.com/questions/system-design/poll-widget?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) (Paid)
 - Selector which loads options over the network
 
-To find out more, check out [GreatFrontEnd](https://www.greatfrontend.com?utm_source=frontendinterviewhandbook&utm_medium=referral&fpr=frontendinterviewhandbook), which shows you how to approach front end system design interviews with their [front end system design guide](https://www.greatfrontend.com/system-design?utm_source=frontendinterviewhandbook&utm_medium=referral&fpr=frontendinterviewhandbook) and case studies. There are also [blogs](https://www.greatfrontend.com/blog?utm_source=frontendinterviewhandbook&utm_medium=referral&fpr=frontendinterviewhandbook) that will cover some of the following topics in more detail.
+To find out more, check out [GreatFrontEnd](https://www.greatfrontend.com?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook), which shows you how to approach front end system design interviews with their [front end system design guide](https://www.greatfrontend.com/system-design?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) and case studies. There are also [blogs](https://www.greatfrontend.com/blog?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) that will cover some of the following topics in more detail.
 
 ## Framework
 
@@ -53,9 +53,9 @@ For components, list down the various subcomponents that will exist within it an
 
 Let's take an image carousel example. Subcomponents within an image carousel would be:
 
-- Main image - An image that displays the photo in focus
-- Thumbnail - Smaller images below the (Will there be thumbnails? You will only know if you clarified requirements earlier)
-- Image store - A client side cache of the list of photos to display
+- **Main image**: An image that displays the photo in focus
+- **Thumbnail**: Smaller images below the (Will there be thumbnails? You will only know if you clarified requirements earlier)
+- **Image store**: A client side cache of the list of photos to display
 
 If you have a whiteboard/online drawing tool, it would also be helpful to draw diagrams to illustrate the entities and their relationships. Which subcomponent communicates with which when a user interaction occurs.
 
@@ -110,17 +110,17 @@ UX might not fall squarely under engineering but good front end engineers have g
 
 In front end, performance typically refers to a few things - loading speed, how fast the UI responds to user interactions, memory space (heap) required by the component.
 
-- Loading speed - The less JavaScript the component contains, the less JavaScript the browser has to download to load the component and the lower the network request time. It's also important to modularize components and allow users to download only the necessary JavaScript modules needed for their use case.
-- Responsiveness to user interactions
+- **Loading speed**: The less JavaScript the component contains, the less JavaScript the browser has to download to load the component and the lower the network request time. It's also important to modularize components and allow users to download only the necessary JavaScript modules needed for their use case.
+- **Responsiveness to user interactions**
   - If a user interaction results in displaying of data that has to be loaded over the network, there will be a delay between the user interaction and updating of the UI. Minimizing that delay or removing it entirely is the key to improving responsiveness.
   - JavaScript in a browser is single-threaded. The browser can only do execute one line of code at any one time. The less work (JavaScript executed, DOM updates) the component has to do when a user does something on the page, the faster the component can update the UI to respond to the changes.
-- Memory space - The more memory your component takes up on the page, the slower the browser performs and the experience will feel sluggish/janky. If your component has to render hundreds/thousands of items (e.g. number of images in a carousel, number of items in a selector), memory space might become significant.
+- **Memory space**: The more memory your component takes up on the page, the slower the browser performs and the experience will feel sluggish/janky. If your component has to render hundreds/thousands of items (e.g. number of images in a carousel, number of items in a selector), memory space might become significant.
 
 **Optimization tips**
 
-- Render only what is displayed on the screen - For example, in a selector, only a few items are displayed to the user even if the list can contain hundreds of elements. Rendering all of them into the browser would be a waste of processing power and memory space. We can leverage a technique called windowing/virtualization to emulate a list with many elements while only rendering a few as possible to make the final result look as if there was no optimization done (especially preserving scroll height). Read more about virtualization [here](https://web.dev/virtualize-long-lists-react-window/).
-- Lazy loading/load only necessary data - For example, in a photo gallery component, a user can have hundreds and thousands of photos, but it won't be feasible to load all of them eagerly. Most likely the user won't be browsing all of them in that session too. An optimization could be to load only the ones that the user is likely to view, or those that are within the viewport (which we call "above the fold"). The rest of the photos can be loaded on demand, which introduces responsiveness delay, but the next tip will help you to handle that.
-- Preloading/prefetching data ahead of time - For example, in an image carousel where there are too many images to load beforehand, an optimization could be to load the next image ahead of time while the user is still on the current image, such that when the user clicks the "Next" button, there's no network delay needed because the next image has already been loaded. This technique can also be modified to load the next N images to handle the case where users click "Next" in rapid succession.
+- **Render only what is displayed on the screen**: For example, in a selector, only a few items are displayed to the user even if the list can contain hundreds of elements. Rendering all of them into the browser would be a waste of processing power and memory space. We can leverage a technique called windowing/virtualization to emulate a list with many elements while only rendering a few as possible to make the final result look as if there was no optimization done (especially preserving scroll height). Read more about virtualization [here](https://web.dev/virtualize-long-lists-react-window/).
+- **Lazy loading/load only necessary data**: For example, in a photo gallery component, a user can have hundreds and thousands of photos, but it won't be feasible to load all of them eagerly. Most likely the user won't be browsing all of them in that session too. An optimization could be to load only the ones that the user is likely to view, or those that are within the viewport (which we call "above the fold"). The rest of the photos can be loaded on demand, which introduces responsiveness delay, but the next tip will help you to handle that.
+- **Preloading/prefetching data ahead of time**: For example, in an image carousel where there are too many images to load beforehand, an optimization could be to load the next image ahead of time while the user is still on the current image, such that when the user clicks the "Next" button, there's no network delay needed because the next image has already been loaded. This technique can also be modified to load the next N images to handle the case where users click "Next" in rapid succession.
 
 #### Accessibility (a11y)
 
@@ -145,8 +145,8 @@ a11y is one of the most commonly neglected areas as most of the time they're inv
 
 Internationalization (i18n) is the design and development of a product, application or document content that enables easy localization for target audiences that vary in culture, region, or language. Typically components shouldn't have to worry about i18n unless under few specific circumstances:
 
-- Component uses strings - Strings used in the component shouldn't be hardcoded to a specific language (e.g. "Prev"/"Next" in the controls of a photo gallery component). The strings can be specified as a prop with the English version as default
-- Order of content matters - Does your component support RTL (right to left) languages like Arabic and Hebrew?
+- **Component uses strings**: Strings used in the component shouldn't be hardcoded to a specific language (e.g. "Prev"/"Next" in the controls of a photo gallery component). The strings can be specified as a prop with the English version as default
+- **Order of content matters**: Does your component support RTL (right to left) languages like Arabic and Hebrew?
 
 #### Multi-device support
 

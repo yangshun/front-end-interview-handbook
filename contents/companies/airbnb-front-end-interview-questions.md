@@ -1,11 +1,11 @@
 ---
-title: Airbnb front end interview questions
+title: Airbnb Front End Interview Questions
 sidebar_label: Airbnb interview questions
 ---
 
-:::info We are now part of GreatFrontEnd!
+:::info Page migrated to GreatFrontEnd
 
-Front End Interview Handbook is now part of [GreatFrontEnd](https://www.greatfrontend.com?utm_source=frontendinterviewhandbook&utm_medium=referral&fpr=frontendinterviewhandbook)! We are working to migrate the content over and you may find the latest version of this page on [GreatFrontEnd](https://www.greatfrontend.com/prepare?utm_source=frontendinterviewhandbook&utm_medium=referral&fpr=frontendinterviewhandbook).
+Find the latest version of this page on [GreatFrontEnd](https://www.greatfrontend.com/interviews/company/airbnb/questions-guides?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook).
 
 :::
 
@@ -17,9 +17,9 @@ Front End Interview Handbook is now part of [GreatFrontEnd](https://www.greatfro
 ## User interface coding
 
 - Given an input and an endpoint which returns a JSON list, as a result, extend it to autocomplete on change, handle key navigation through the results.
-  - [Read answer](https://www.greatfrontend.com/questions/system-design/autocomplete?utm_source=frontendinterviewhandbook&utm_medium=referral&fpr=frontendinterviewhandbook) (Free)
+  - [Read answer](https://www.greatfrontend.com/questions/system-design/autocomplete?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) (Free)
 - Given a star widget embedded in a form write the code to select the stars and submit the correct value through a normal form action. Make reusable for multiple star widgets.
-  - [Practice question](https://www.greatfrontend.com/questions/user-interface/star-rating?utm_source=frontendinterviewhandbook&utm_medium=referral&fpr=frontendinterviewhandbook) (Free)
+  - [Practice question](https://www.greatfrontend.com/questions/user-interface/star-rating?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) (Free)
 
 _Source: [Glassdoor Airbnb Front End Engineer Interview Questions](https://www.glassdoor.sg/Interview/Airbnb-Front-End-Engineer-Interview-Questions-EI_IE391850.0,6_KO7,25.htm)_
 

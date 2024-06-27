@@ -1,6 +1,6 @@
 <div align="center">
   <h1>Front End Interview Handbook</h1>
-  <p>By <a href="https://www.greatfrontend.com/?fpr=yangshun">GreatFrontEnd</a></p>
+  <p>By <a href="https://www.greatfrontend.com/?utm_source=github&utm_medium=referral&gnrs=frontendinterviewhandbook">GreatFrontEnd</a></p>
 </div>
 
 <div align="center">
@@ -12,7 +12,7 @@
     <a href="https://www.frontendinterviewhandbook.com">Read on the website</a>
   </h3>
   <p>
-    Join/follow us on <a href="https://discord.gg/NDFx8f6P6B" target="_blank">Discord</a> | <a href="https://twitter.com/greatfrontend" target="_blank">𝕏 (Twitter)</a> | <a href="https://facebook.com/greatfrontend" target="_blank">Facebook</a>
+    Join/follow us on <a href="https://linkedin.com/company/greatfrontend" target="_blank">LinkedIn</a> | <a href="https://discord.gg/NDFx8f6P6B" target="_blank">Discord</a> | <a href="https://x.com/greatfrontend" target="_blank">𝕏 (Twitter)</a> | <a href="https://facebook.com/greatfrontend" target="_blank">Facebook</a>
   </p>
 </div>
 
@@ -24,7 +24,7 @@
 
 <p dir="auto"></p>
 
-<a href="https://www.greatfrontend.com/prepare/?fpr=yangshun" target="_blank">
+<a href="https://www.greatfrontend.com/prepare/?utm_source=github&utm_medium=referral&gnrs=frontendinterviewhandbook" target="_blank">
   <img src="assets/start-practicing-button.jpg" alt="Start Practicing Front End Questions on GreatFrontEnd" />
 </a>
 
@@ -41,22 +41,22 @@ Unlike typical software engineer job interviews, front end job interviews have l
 ## Where to get hands on practice?
 
 <div align="center">
-  <a href="https://www.greatfrontend.com?fpr=yangshun">
+  <a href="https://www.greatfrontend.com?utm_source=github&utm_medium=referral&gnrs=frontendinterviewhandbook">
     <img src="assets/mark-brand-light.png" alt="GreatFrontEnd" width="400"/>
   </a>
 </div>
 
-After getting a good understanding about front end interview preparation, try out [GreatFrontEnd](https://www.greatfrontend.com?fpr=yangshun), a platform built by me! Not only that there are 200+ practice questions, each with multiple solutions from senior front end engineers, there are also automated test case suites to help you identify what's wrong with your code. Thus, check out the following resources:
+After getting a good understanding about front end interview preparation, try out [GreatFrontEnd](https://www.greatfrontend.com?utm_source=github&utm_medium=referral&gnrs=frontendinterviewhandbook), a platform built by me! Not only are there 200+ practice questions, each with multiple solutions from Senior Front End Engineers, there are also automated test case suites to help you identify what's wrong with your code. Thus, check out the following resources:
 
-- [Study plans](https://www.greatfrontend.com/study-plans?fpr=yangshun) help you prepare for your upcoming technical interviews, whether it is in a week or 3 months later.
-- [Focus areas](https://www.greatfrontend.com/focus-areas?fpr=yangshun) allow you to focus on your weak areas and also further improve your strengths depending on your preferences.
-- [Preparation by stage](https://www.greatfrontend.com/prepare?fpr=yangshun) prepares you for each phase of your interview process, from quiz to coding interviews. 
-- [Individual framework questions](https://www.greatfrontend.com/questions?fpr=yangshun) offer training based on specific frameworks that may be tested during your technical interviews.
+- [Study plans](https://www.greatfrontend.com/study-plans?utm_source=github&utm_medium=referral&gnrs=frontendinterviewhandbook) help you prepare for your upcoming technical interviews, whether it is in a week or 3 months later.
+- [Focus areas](https://www.greatfrontend.com/focus-areas?utm_source=github&utm_medium=referral&gnrs=frontendinterviewhandbook) allow you to focus on your weak areas and also further improve your strengths depending on your preferences.
+- [Preparation by stage](https://www.greatfrontend.com/prepare?utm_source=github&utm_medium=referral&gnrs=frontendinterviewhandbook) prepares you for each phase of your interview process, from quiz to coding interviews.
+- [Individual framework questions](https://www.greatfrontend.com/questions?utm_source=github&utm_medium=referral&gnrs=frontendinterviewhandbook) offer training based on specific frameworks that may be tested during your technical interviews.
 
 ---
 
 <div align="center">
-  <h3>Need to practice front end interview questions? <a href="https://www.greatfrontend.com?fpr=yangshun">GreatFrontEnd</a> is holding a limited time promotion for 20% off their lifetime plan of high quality practice questions and reference solutions written by ex-FAANG interviewers 🚀</h3>
+  <h3>Need to practice front end interview questions? <a href="https://www.greatfrontend.com?utm_source=github&utm_medium=referral&gnrs=frontendinterviewhandbook">GreatFrontEnd</a> is holding a limited time promotion for 20% off their lifetime plan of high quality practice questions and reference solutions written by ex-FAANG interviewers 🚀</h3>
 </div>
 
 ---

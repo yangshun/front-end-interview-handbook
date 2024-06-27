@@ -1,11 +1,11 @@
 ---
-title: ByteDance/TikTok front end interview questions
+title: ByteDance/TikTok Front End Interview Questions
 sidebar_label: ByteDance/TikTok interview questions
 ---
 
-:::info We are now part of GreatFrontEnd!
+:::info Page migrated to GreatFrontEnd
 
-Front End Interview Handbook is now part of [GreatFrontEnd](https://www.greatfrontend.com?utm_source=frontendinterviewhandbook&utm_medium=referral&fpr=frontendinterviewhandbook)! We are working to migrate the content over and you may find the latest version of this page on [GreatFrontEnd](https://www.greatfrontend.com/prepare?utm_source=frontendinterviewhandbook&utm_medium=referral&fpr=frontendinterviewhandbook).
+Find the latest version of this page on [GreatFrontEnd](https://www.greatfrontend.com/interviews/company/bytedance/questions-guides?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook).
 
 :::
 
@@ -14,19 +14,19 @@ ByteDance/TikTok's front end interview is quite balanced in terms of interview f
 ## JavaScript
 
 - Implement `Promise.all`.
-  - [Practice question](https://www.greatfrontend.com/questions/javascript/promise-all?utm_source=frontendinterviewhandbook&utm_medium=referral&fpr=frontendinterviewhandbook) (Free)
+  - [Practice question](https://www.greatfrontend.com/questions/javascript/promise-all?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) (Free)
 - Implement a function which extends `Array.prototype`.
-  - [Practice questions](https://www.greatfrontend.com/prepare/coding?utm_source=frontendinterviewhandbook&utm_medium=referral&fpr=frontendinterviewhandbook)
+  - [Practice questions](https://www.greatfrontend.com/prepare/coding?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook)
 
 ## User interface coding
 
 - Implement a dropdown component.
-  - [Read answer](https://www.greatfrontend.com/questions/system-design/dropdown-menu?utm_source=frontendinterviewhandbook&utm_medium=referral&fpr=frontendinterviewhandbook) (Paid)
+  - [Read answer](https://www.greatfrontend.com/questions/system-design/dropdown-menu?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) (Paid)
 
 ## Trivia
 
 - Difference between `localStorage` and cookies.
-  - [Read answer](https://www.greatfrontend.com/questions/quiz/describe-the-difference-between-a-cookie-sessionstorage-and-localstorage?utm_source=frontendinterviewhandbook&utm_medium=referral&fpr=frontendinterviewhandbook) (Free)
+  - [Read answer](https://www.greatfrontend.com/questions/quiz/describe-the-difference-between-a-cookie-sessionstorage-and-localstorage?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) (Free)
 
 ## Algorithm
 

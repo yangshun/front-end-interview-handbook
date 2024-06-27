@@ -1,12 +1,12 @@
 ---
-title: Coding algorithms in front end interviews
+title: Algorithms Interview Questions (Machine Coding) in Front End Interviews
 slug: coding/algorithms
 sidebar_label: Algorithms coding
 ---
 
-:::info We are now part of GreatFrontEnd!
+:::info Page migrated to GreatFrontEnd
 
-Front End Interview Handbook is now part of [GreatFrontEnd](https://www.greatfrontend.com?utm_source=frontendinterviewhandbook&utm_medium=referral&fpr=frontendinterviewhandbook)! We are working to migrate the content over and you may find the latest version of this page on [GreatFrontEnd](https://www.greatfrontend.com/front-end-interview-guidebook/algorithms?utm_source=frontendinterviewhandbook&utm_medium=referral&fpr=frontendinterviewhandbook).
+Front End Interview Handbook is now part of [GreatFrontEnd](https://www.greatfrontend.com?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook)! Find the latest version of this page on [GreatFrontEnd](https://www.greatfrontend.com/front-end-interview-guidebook/algorithms?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook).
 
 :::
 
@@ -22,7 +22,7 @@ The [Tech Interview Handbook](https://www.techinterviewhandbook.org/algorithms/s
 
 ### GreatFrontEnd
 
-[GreatFrontEnd](https://www.greatfrontend.com?utm_source=frontendinterviewhandbook&utm_medium=referral&fpr=frontendinterviewhandbook) provides **free** questions for you to practice implementing [Data Structures and Algorithms](https://www.greatfrontend.com/questions/js/coding/data-structures-algorithms?utm_source=frontendinterviewhandbook&utm_medium=referral&fpr=frontendinterviewhandbook) in JavaScript. You can practice implementing common data structures (e.g. [Stacks](https://www.greatfrontend.com/questions/javascript/stack?utm_source=frontendinterviewhandbook&utm_medium=referral&fpr=frontendinterviewhandbook), [Queues](https://www.greatfrontend.com/questions/javascript/queue?utm_source=frontendinterviewhandbook&utm_medium=referral&fpr=frontendinterviewhandbook)) and algorithms (e.g. [Binary Search](https://www.greatfrontend.com/questions/javascript/binary-search?utm_source=frontendinterviewhandbook&utm_medium=referral&fpr=frontendinterviewhandbook), [Merge Sort](https://www.greatfrontend.com/questions/javascript/merge-sort?utm_source=frontendinterviewhandbook&utm_medium=referral&fpr=frontendinterviewhandbook)). [**Check it out →**](https://www.greatfrontend.com/questions/js/coding/data-structures-algorithms?utm_source=frontendinterviewhandbook&utm_medium=referral&fpr=frontendinterviewhandbook)
+[GreatFrontEnd](https://www.greatfrontend.com?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) provides **free** questions for you to practice implementing [Data Structures and Algorithms](https://www.greatfrontend.com/questions/js/coding/data-structures-algorithms?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) in JavaScript. You can practice implementing common data structures (e.g. [Stacks](https://www.greatfrontend.com/questions/javascript/stack?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook), [Queues](https://www.greatfrontend.com/questions/javascript/queue?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook)) and algorithms (e.g. [Binary Search](https://www.greatfrontend.com/questions/javascript/binary-search?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook), [Merge Sort](https://www.greatfrontend.com/questions/javascript/merge-sort?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook)). [**Check it out →**](https://www.greatfrontend.com/questions/js/coding/data-structures-algorithms?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook)
 
 ## Algorithm courses
 
