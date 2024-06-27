@@ -1,9 +1,0 @@
----
-title: What do you think of AMD vs CommonJS?
----
-
-Both are ways to implement a module system, which was not natively present in JavaScript until ES2015 came along. CommonJS is synchronous while AMD (Asynchronous Module Definition) is obviously asynchronous. CommonJS is designed with server-side development in mind while AMD, with its support for asynchronous loading of modules, is more intended for browsers.
-
-AMD syntax can be quite verbose and CommonJS is closer to the style you would write import statements in other languages. Most of the time, AMD is unnecessary, because if you served all your JavaScript into one concatenated bundle file, you wouldn't benefit from the async loading properties. Also, CommonJS syntax is closer to Node.js style of writing/importing modules and there is less context-switching overhead when switching between client-side and server-side JavaScript development.
-
-The future standard, ES modules (ESM) has support for both synchronous and asynchronous loading and is supported by both browsers and server-side runtimes. We can finally just stick to one approach (barring upgrading legacy applications).

@@ -1,7 +1,0 @@
----
-title: Explique a diferença entre funções síncronas e assíncronas
----
-
-Funções síncronas são bloqueadoras enquanto funções assíncronas não são. Em funções síncronas, as instruções são concluídas antes que a próxima instrução seja executada. Nesse caso, o programa é avaliado exatamente na ordem das instruções, e a execução do programa é pausada se uma das instruções demorar muito tempo.
-
-Funções assíncronas geralmente aceitam uma função de retorno de chamada como parâmetro e a execução continua na próxima linha imediatamente após a invocação da função assíncrona. A callback só é invocada quando a operação assíncrona é concluída e a pilha de chamadas está vazia. Operações pesadas, como carregar dados de um servidor web ou consultar um banco de dados, devem ser feitas de forma assíncrona para que a thread principal possa continuar executando outras operações em vez de bloquear até que aquela operação longa seja concluída (no caso dos navegadores, a interface do usuário ficará congelada).

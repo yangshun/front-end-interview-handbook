@@ -1,7 +1,0 @@
----
-title: 您什么时候使用 `document.write()`？
----
-
-`document.write()`将一串文本写入由`document.open()`打开的文档流。 当`document.write()`在页面加载后被执行时，它将调用`document.open`来清除整个文档（`<head>`和`<body>`被移除！）。 并用给定的参数值替换内容。 因此，它通常被认为是危险的，容易被滥用。
-
-网上有一些答案，解释说`document.write()`被用于分析代码或[当你想包括只有在启用 JavaScript 的情况下才应该工作的样式](https://www.quirksmode.org/blog/archives/2005/06/three_javascrip_1.html)。 它甚至被用于 HTML5 模板中，以[并行加载脚本并保留执行顺序](https://github.com/paulirish/html5-boilerplate/wiki/Script-Loading-Techniques#documentwrite-script-tag)! 然而，这些原因可能已经过时，在这个时代，可以在没有使用“document.write()”的情况下实现。

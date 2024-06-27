@@ -1,7 +1,0 @@
----
-title: Por que estender objetos JavaScript nativos não é uma boa ideia?
----
-
-Estender um objeto nativo/embutido do JavaScript significa adicionar propriedades/funções ao seu prototype. Embora isso possa parecer uma boa ideia a princípio, é perigoso na prática. Imagine que seu código use algumas bibliotecas que estendem o `Array.prototype` adicionando o mesmo método `contains`. As implementações se sobrescreverão e seu código quebrará se o comportamento desses dois métodos não for o mesmo.
-
-A única vez que você pode querer estender um objeto nativo é quando deseja criar um polyfill, essencialmente fornecendo sua própria implementação para um método que faz parte da especificação do JavaScript, mas pode não existir no navegador do usuário devido a ser um navegador mais antigo.

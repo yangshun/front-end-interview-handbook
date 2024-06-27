@@ -1,7 +1,0 @@
----
-title: Quando você usaria `document.write()`?
----
-
-`document.write()` escreve uma string de texto em um fluxo de documento aberto por `document.open()`. Quando o `document.write()` é executado após o carregamento da página, ele chamará o `document.open`, o que limpará todo o documento (`<head>` e `<body>` removidos!) e substitui o conteúdo pelo valor do parâmetro dado. Portanto, geralmente é considerado perigoso e propenso a uso indevido.
-
-Existem algumas respostas online que explicam `documento.write()` está sendo usado no código analítico ou [quando deseja incluir estilos que só devem funcionar se o JavaScript estiver ativado](https://www.quirksmode.org/blog/archives/2005/06/three_javascrip_1.html). Ele está até sendo usado em boilerplate HTML5 para [carregar scripts em paralelo e preservar a ordem de execução](https://github.com/paulirish/html5-boilerplate/wiki/Script-Loading-Techniques#documentwrite-script-tag)! No entanto, esses motivos podem estar desatualizados e, atualmente, podem ser alcançados sem o uso do `document.write()`.
