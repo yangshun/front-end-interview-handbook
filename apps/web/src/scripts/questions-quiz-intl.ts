@@ -2,12 +2,12 @@ import fs from 'fs';
 
 import { generateLocalizedFiles } from './intl-mdx';
 import {
-  getQuestionSrcPathQuiz,
-  QUESTIONS_SRC_DIR_QUIZ,
+  getQuestionSrcPathQuizNonJavaScript,
+  QUESTIONS_SRC_DIR_QUIZ_NON_JS,
 } from '../db/questions-bundlers/QuestionsBundlerQuizConfig';
 
 export async function localizeQuestions() {
-  fs.readdirSync(QUESTIONS_SRC_DIR_QUIZ, {
+  fs.readdirSync(QUESTIONS_SRC_DIR_QUIZ_NON_JS, {
     withFileTypes: true,
   })
     .filter((dirent) => dirent.isDirectory())
@@ -15,6 +15,6 @@ export async function localizeQuestions() {
     .map((dirName) => {
       const slug = dirName;
 
-      generateLocalizedFiles(getQuestionSrcPathQuiz(slug));
+      generateLocalizedFiles(getQuestionSrcPathQuizNonJavaScript(slug));
     });
 }

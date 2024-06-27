@@ -9,8 +9,8 @@ import type {
 
 import { readMDXFile } from './QuestionsBundler';
 import {
-  getQuestionSrcPathQuiz,
-  QUESTIONS_SRC_DIR_QUIZ,
+  getQuestionSrcPathQuizNonJavaScript,
+  QUESTIONS_SRC_DIR_QUIZ_NON_JS,
 } from './QuestionsBundlerQuizConfig';
 import { normalizeQuestionFrontMatter } from '../QuestionsUtils';
 
@@ -18,7 +18,7 @@ async function readQuestionMetadataQuiz(
   slug: string,
   locale = 'en-US',
 ): Promise<QuestionMetadata> {
-  const questionPath = getQuestionSrcPathQuiz(slug);
+  const questionPath = getQuestionSrcPathQuizNonJavaScript(slug);
 
   // Read frontmatter from MDX file.
   const filePath = path.join(questionPath, `${locale}.mdx`);
@@ -60,10 +60,9 @@ async function readQuestionMetadataWithFallbackQuiz(
 
 export async function readQuestionQuiz(
   slug: string,
+  questionPath: string,
   locale = 'en-US',
 ): Promise<QuestionQuiz> {
-  const questionPath = getQuestionSrcPathQuiz(slug);
-
   const [metadata, description] = await Promise.all([
     readQuestionMetadataQuiz(slug, locale),
     readMDXFile(path.join(questionPath, `${locale}.mdx`), {}),
@@ -81,7 +80,7 @@ export async function readQuestionListMetadataQuiz(
   locale = 'en-US',
 ): Promise<ReadonlyArray<QuestionMetadata>> {
   const directories = fs
-    .readdirSync(QUESTIONS_SRC_DIR_QUIZ, {
+    .readdirSync(QUESTIONS_SRC_DIR_QUIZ_NON_JS, {
       withFileTypes: true,
     })
     .filter((dirent) => dirent.isDirectory());
