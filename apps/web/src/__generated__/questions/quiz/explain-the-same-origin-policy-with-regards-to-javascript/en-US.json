@@ -26,7 +26,8 @@
     "topics": [
       "javascript",
       "network"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/explain-the-same-origin-policy-with-regards-to-javascript/en-US.mdx"
   },
   "solution": "var Component=(()=>{var u=Object.create;var i=Object.defineProperty;var d=Object.getOwnPropertyDescriptor;var g=Object.getOwnPropertyNames;var h=Object.getPrototypeOf,l=Object.prototype.hasOwnProperty;var f=(e,t)=>()=>(t||e((t={exports:{}}).exports,t),t.exports),b=(e,t)=>{for(var n in t)i(e,n,{get:t[n],enumerable:!0})},r=(e,t,n,s)=>{if(t&&typeof t==\"object\"||typeof t==\"function\")for(let o of g(t))!l.call(e,o)&&o!==n&&i(e,o,{get:()=>t[o],enumerable:!(s=d(t,o))||s.enumerable});return e};var x=(e,t,n)=>(n=e!=null?u(h(e)):{},r(t||!e||!e.__esModule?i(n,\"default\",{value:e,enumerable:!0}):n,e)),j=e=>r(i({},\"__esModule\",{value:!0}),e);var m=f((D,c)=>{c.exports=_jsx_runtime});var M={};b(M,{default:()=>y,frontmatter:()=>v});var a=x(m()),v={title:\"Explain the same-origin policy with regards to JavaScript\"};function p(e){let t=Object.assign({p:\"p\"},e.components);return(0,a.jsx)(t.p,{children:\"The same-origin policy prevents JavaScript from making requests across domain boundaries. An origin is defined as a combination of URI scheme, hostname, and port number. This policy prevents a malicious script on one page from obtaining access to sensitive data on another web page through that page's Document Object Model.\"})}function _(e={}){let{wrapper:t}=e.components||{};return t?(0,a.jsx)(t,Object.assign({},e,{children:(0,a.jsx)(p,e)})):p(e)}var y=_;return j(M);})();\n;return Component;"
 }

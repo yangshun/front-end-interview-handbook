@@ -99,13 +99,15 @@ export type QuestionMetadata = {
       href: string;
     }>
   >;
+  readonly gitHubEditUrl?: string | null;
   readonly href: string;
   readonly importance: QuestionImportance;
   readonly languages: ReadonlyArray<QuestionLanguage>;
   readonly nextQuestions: ReadonlyArray<QuestionSlug>;
   readonly premium: boolean;
   readonly published: boolean;
-  readonly ranking: number; // Value from 1-100 where 1 is the highest ranking.
+  readonly ranking: number;
+  // Value from 1-100 where 1 is the highest ranking.
   readonly similarQuestions: ReadonlyArray<QuestionSlug>;
   readonly slug: QuestionSlug;
   readonly subtitle: string | null;

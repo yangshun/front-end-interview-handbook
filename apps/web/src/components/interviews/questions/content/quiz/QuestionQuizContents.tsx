@@ -17,8 +17,6 @@ import Prose from '~/components/ui/Prose';
 import Text from '~/components/ui/Text';
 import { themeBorderColor } from '~/components/ui/theme';
 
-import { useI18n } from '~/next-i18nostic/src';
-
 import QuestionQuizBottomNav from './QuestionQuizBottomNav';
 import QuestionReportIssueButton from '../../common/QuestionReportIssueButton';
 import type {
@@ -41,11 +39,14 @@ function GitHubEditButton({
   question: QuestionQuiz;
 }>) {
   const intl = useIntl();
-  const { locale } = useI18n();
+
+  if (!question.metadata.gitHubEditUrl) {
+    return null;
+  }
 
   return (
     <Button
-      href={`https://github.com/yangshun/front-end-interview-handbook/blob/main/packages/quiz/questions/${question.metadata.slug}/${locale}.mdx`}
+      href={question.metadata.gitHubEditUrl}
       icon={RiEditBoxLine}
       label={intl.formatMessage({
         defaultMessage: 'Edit on GitHub',

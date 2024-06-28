@@ -23,7 +23,8 @@
     "title": "您是否熟悉SVG样式？",
     "topics": [
       "css"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/front-end-interview-handbook/blob/main/packages/quiz/questions/are-you-familiar-with-styling-svg/zh-CN.mdx"
   },
   {
     "author": null,
@@ -49,7 +50,8 @@
     "title": "你能解释一下将网站编码为响应式与使用移动优先策略之间的区别吗？",
     "topics": [
       "css"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/front-end-interview-handbook/blob/main/packages/quiz/questions/can-you-explain-the-difference-between-coding-a-website-to-be-responsive-versus-using-a-mobile-first-strategy/zh-CN.mdx"
   },
   {
     "author": null,
@@ -75,7 +77,8 @@
     "title": "你能举例说明除 \"screen \"以外的媒体查询属性吗？",
     "topics": [
       "css"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/front-end-interview-handbook/blob/main/packages/quiz/questions/can-you-give-an-example-of-an-media-property-other-than-screen/zh-CN.mdx"
   },
   {
     "author": null,
@@ -102,7 +105,8 @@
     "topics": [
       "html",
       "performance"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/front-end-interview-handbook/blob/main/packages/quiz/questions/css-link-between-head-and-js-script-just-before-body/zh-CN.mdx"
   },
   {
     "author": null,
@@ -128,7 +132,8 @@
     "title": "描述块级格式化上下文(BFC)及其工作方式。",
     "topics": [
       "css"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/front-end-interview-handbook/blob/main/packages/quiz/questions/describe-block-formatting-context-bfc-and-how-it-works/zh-CN.mdx"
   },
   {
     "author": null,
@@ -154,7 +159,8 @@
     "title": "描述“浮动”及其工作方式。",
     "topics": [
       "css"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/front-end-interview-handbook/blob/main/packages/quiz/questions/describe-floats-and-how-they-work/zh-CN.mdx"
   },
   {
     "author": null,
@@ -180,7 +186,8 @@
     "title": "描述伪元素并讨论其用途。",
     "topics": [
       "css"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/front-end-interview-handbook/blob/main/packages/quiz/questions/describe-pseudo-elements-and-discuss-what-they-are-used-for/zh-CN.mdx"
   },
   {
     "author": null,
@@ -206,7 +213,8 @@
     "title": "描述您喜欢和不喜欢使用的 CSS 预处理器。",
     "topics": [
       "css"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/front-end-interview-handbook/blob/main/packages/quiz/questions/describe-what-you-like-and-dislike-about-the-css-preprocessors-you-have-used/zh-CN.mdx"
   },
   {
     "author": null,
@@ -232,7 +240,8 @@
     "title": "描述 `z-index` 和堆叠上下文是如何形成的。",
     "topics": [
       "css"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/front-end-interview-handbook/blob/main/packages/quiz/questions/describe-z-index-and-how-stacking-context-is-formed/zh-CN.mdx"
   },
   {
     "author": null,
@@ -259,7 +268,8 @@
     "topics": [
       "html",
       "i18n"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/front-end-interview-handbook/blob/main/packages/quiz/questions/designing-or-developing-for-multilingual-sites/zh-CN.mdx"
   },
   {
     "author": null,
@@ -286,7 +296,8 @@
     "topics": [
       "css",
       "performance"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/front-end-interview-handbook/blob/main/packages/quiz/questions/explain-css-sprites-and-how-you-would-implement-them-on-a-page-or-site/zh-CN.mdx"
   },
   {
     "author": null,
@@ -312,7 +323,8 @@
     "title": "解释浏览器如何决定什么元素与 CSS 选择器匹配。",
     "topics": [
       "css"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/front-end-interview-handbook/blob/main/packages/quiz/questions/explain-how-a-browser-determines-what-elements-match-a-css-selector/zh-CN.mdx"
   },
   {
     "author": null,
@@ -342,7 +354,8 @@
     "title": "解释您对盒模型的理解，以及您如何告诉浏览器在 CSS 中渲染您在不同盒模型中的布局。",
     "topics": [
       "css"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/front-end-interview-handbook/blob/main/packages/quiz/questions/explain-your-understanding-of-the-box-model-and-how-you-would-tell-the-browser-in-css-to-render-your-layout-in-different-box-models/zh-CN.mdx"
   },
   {
     "author": null,
@@ -368,7 +381,8 @@
     "title": "您是否曾经使用过网格系统，如果使用的话，您喜欢什么？",
     "topics": [
       "css"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/front-end-interview-handbook/blob/main/packages/quiz/questions/have-you-ever-used-a-grid-system-and-if-so-what-do-you-prefer/zh-CN.mdx"
   },
   {
     "author": null,
@@ -394,7 +408,8 @@
     "title": "您是否曾使用视网膜屏幕工作过？",
     "topics": [
       "css"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/front-end-interview-handbook/blob/main/packages/quiz/questions/have-you-ever-worked-with-retina-graphics-if-so-when-and-what-techniques-did-you-use/zh-CN.mdx"
   },
   {
     "author": null,
@@ -420,7 +435,8 @@
     "title": "你玩过新的CSS Flexbox或Grid规范吗？",
     "topics": [
       "css"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/front-end-interview-handbook/blob/main/packages/quiz/questions/have-you-played-around-with-the-new-css-flexbox-or-grid-specs/zh-CN.mdx"
   },
   {
     "author": null,
@@ -446,7 +462,8 @@
     "title": "你是否使用或配置过媒体查询或移动端专用布局/CSS？",
     "topics": [
       "css"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/front-end-interview-handbook/blob/main/packages/quiz/questions/have-you-used-or-implemented-media-queries-or-mobile-specific-layouts-css/zh-CN.mdx"
   },
   {
     "author": null,
@@ -473,7 +490,8 @@
     "topics": [
       "html",
       "i18n"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/front-end-interview-handbook/blob/main/packages/quiz/questions/how-do-you-serve-a-page-with-content-in-multiple-languages/zh-CN.mdx"
   },
   {
     "author": null,
@@ -499,7 +517,8 @@
     "title": "你如何为功能受限的浏览器提供你的网页？",
     "topics": [
       "css"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/front-end-interview-handbook/blob/main/packages/quiz/questions/how-do-you-serve-your-pages-for-feature-constrained-browsers-what-techniques-processes-do-you-use/zh-CN.mdx"
   },
   {
     "author": null,
@@ -525,7 +544,8 @@
     "title": "响应设计与自适应设计有何不同？",
     "topics": [
       "css"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/front-end-interview-handbook/blob/main/packages/quiz/questions/how-is-responsive-design-different-from-adaptive-design/zh-CN.mdx"
   },
   {
     "author": null,
@@ -551,7 +571,8 @@
     "title": "您将如何解决特定浏览器特有的样式问题？",
     "topics": [
       "css"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/front-end-interview-handbook/blob/main/packages/quiz/questions/how-would-you-approach-fixing-browser-specific-styling-issues/zh-CN.mdx"
   },
   {
     "author": null,
@@ -577,7 +598,8 @@
     "title": "将 HTML5 视为一个开放的网络平台。 HTML5 由哪些东西构成？",
     "topics": [
       "html"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/front-end-interview-handbook/blob/main/packages/quiz/questions/html5-as-an-open-web-platform-building-blocks/zh-CN.mdx"
   },
   {
     "author": null,
@@ -604,7 +626,8 @@
     "topics": [
       "css",
       "performance"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/front-end-interview-handbook/blob/main/packages/quiz/questions/is-there-any-reason-youd-want-to-use-translate-instead-of-absolute-positioning-or-vice-versa-and-why/zh-CN.mdx"
   },
   {
     "author": null,
@@ -631,7 +654,8 @@
     "topics": [
       "html",
       "testing"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/front-end-interview-handbook/blob/main/packages/quiz/questions/what-are-data-attributes-good-for/zh-CN.mdx"
   },
   {
     "author": null,
@@ -657,7 +681,8 @@
     "title": "编写高效的CSS有哪些 \"麻烦\"？",
     "topics": [
       "css"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/front-end-interview-handbook/blob/main/packages/quiz/questions/what-are-some-of-the-gotchas-for-writing-efficient-css/zh-CN.mdx"
   },
   {
     "author": null,
@@ -685,7 +710,8 @@
     "title": "使用CSS 预处理器的优点/缺点是什么？",
     "topics": [
       "css"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/front-end-interview-handbook/blob/main/packages/quiz/questions/what-are-the-advantages-disadvantages-of-using-css-preprocessors/zh-CN.mdx"
   },
   {
     "author": null,
@@ -712,7 +738,8 @@
     "topics": [
       "css",
       "a11y"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/front-end-interview-handbook/blob/main/packages/quiz/questions/what-are-the-different-ways-to-visually-hide-content-and-make-it-available-only-for-screen-readers/zh-CN.mdx"
   },
   {
     "author": null,
@@ -738,7 +765,8 @@
     "title": "有哪些不同的清浮动技术，哪些适合什么情况？",
     "topics": [
       "css"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/front-end-interview-handbook/blob/main/packages/quiz/questions/what-are-the-various-clearing-techniques-and-which-is-appropriate-for-what-context/zh-CN.mdx"
   },
   {
     "author": null,
@@ -764,7 +792,8 @@
     "title": "`DOCTYPE` 是做什么的？",
     "topics": [
       "html"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/front-end-interview-handbook/blob/main/packages/quiz/questions/what-does-a-doctype-do/zh-CN.mdx"
   },
   {
     "author": null,
@@ -790,7 +819,8 @@
     "title": "`* { box-sizing: border-box; }` 是干什么的？",
     "topics": [
       "css"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/front-end-interview-handbook/blob/main/packages/quiz/questions/what-does-box-sizing-border-box-do-what-are-its-advantages/zh-CN.mdx"
   },
   {
     "author": null,
@@ -816,7 +846,8 @@
     "title": "您在本地或在生产中使用了哪些现有的 CSS 框架？",
     "topics": [
       "css"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/front-end-interview-handbook/blob/main/packages/quiz/questions/what-existing-css-frameworks-have-you-used-locally-or-in-production-how-would-you-changeimprove-them/zh-CN.mdx"
   },
   {
     "author": null,
@@ -842,7 +873,8 @@
     "title": "CSS 选择器的优先级以及它是如何工作的？",
     "topics": [
       "css"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/front-end-interview-handbook/blob/main/packages/quiz/questions/what-is-css-selector-specificity-and-how-does-it-work/zh-CN.mdx"
   },
   {
     "author": null,
@@ -868,7 +900,8 @@
     "title": "什么是渐进式渲染？",
     "topics": [
       "html"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/front-end-interview-handbook/blob/main/packages/quiz/questions/what-is-progressive-rendering/zh-CN.mdx"
   },
   {
     "author": null,
@@ -894,7 +927,8 @@
     "title": "CSS `display` 属性是什么，你可以举几个例子说明它的使用情况？",
     "topics": [
       "css"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/front-end-interview-handbook/blob/main/packages/quiz/questions/what-is-the-css-display-property-and-can-you-give-a-few-examples-of-its-use/zh-CN.mdx"
   },
   {
     "author": null,
@@ -923,7 +957,8 @@
     "title": "`relative`, `absolute`, `fixed` 和 `sticky` 定位的元素之间有什么区别？",
     "topics": [
       "css"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/front-end-interview-handbook/blob/main/packages/quiz/questions/whats-the-difference-between-a-relative-fixed-absolute-and-statically-positioned-element/zh-CN.mdx"
   },
   {
     "author": null,
@@ -949,7 +984,8 @@
     "title": "功能检测、功能推断和使用UA字符串之间有什么区别？",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/front-end-interview-handbook/blob/main/packages/quiz/questions/whats-the-difference-between-feature-detection-feature-inference-and-using-the-ua-string/zh-CN.mdx"
   },
   {
     "author": null,
@@ -975,7 +1011,8 @@
     "title": "`inline` 和 `inline-block`之间有什么区别？",
     "topics": [
       "css"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/front-end-interview-handbook/blob/main/packages/quiz/questions/whats-the-difference-between-inline-and-inline-block/zh-CN.mdx"
   },
   {
     "author": null,
@@ -1001,7 +1038,8 @@
     "title": "“ resetting”和“normalizing”CSS 之间有什么区别？",
     "topics": [
       "css"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/front-end-interview-handbook/blob/main/packages/quiz/questions/whats-the-difference-between-resetting-and-normalizing-css-which-would-you-choose-and-why/zh-CN.mdx"
   },
   {
     "author": null,
@@ -1027,7 +1065,8 @@
     "title": "你为什么要使用 `load` 事件？",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/front-end-interview-handbook/blob/main/packages/quiz/questions/why-would-you-use-something-like-the-load-event-does-this-event-have-disadvantages-do-you-know-any-alternatives-and-why-would-you-use-those/zh-CN.mdx"
   },
   {
     "author": null,
@@ -1053,7 +1092,8 @@
     "title": "为什么你会在图片标签中使用 `srcset` 属性？",
     "topics": [
       "html"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/front-end-interview-handbook/blob/main/packages/quiz/questions/why-you-would-use-a-srcset-attribute-in-an-image-tag/zh-CN.mdx"
   },
   {
     "author": null,
@@ -1081,7 +1121,8 @@
     "title": "你能描述一个 `.forEach` 循环和 `.map()` 循环之间的主要差异吗？",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/can-you-describe-the-main-difference-between-a-foreach-loop-and-a-map-loop-and-why-you-would-pick-one-versus-the-other/zh-CN.mdx"
   },
   {
     "author": null,
@@ -1107,7 +1148,8 @@
     "title": "您可以为新箭头函数语法提供一个用例吗？",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/can-you-offer-a-use-case-for-the-new-arrow-function-syntax-how-does-this-new-syntax-differ-from-other-functions/zh-CN.mdx"
   },
   {
     "author": null,
@@ -1133,7 +1175,8 @@
     "title": "创建一个for循环，迭代到`100`，同时在`3`的倍数上输出**\"fizz \"**，在`5`的倍数上输出**\"buzz\"**，在`3`和`5`的公倍数上输出**\"fizzbuzz\"**。",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/create-a-for-loop-that-iterates-up-to-100-while-outputting-fizz-at-multiples-of-3-buzz-at-multiples-of-5-and-fizzbuzz-at-multiples-of-3-and-5/zh-CN.mdx"
   },
   {
     "author": null,
@@ -1160,7 +1203,8 @@
     "topics": [
       "javascript",
       "html"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/describe-event-bubbling/zh-CN.mdx"
   },
   {
     "author": null,
@@ -1187,7 +1231,8 @@
     "topics": [
       "javascript",
       "html"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/describe-event-capturing/en-US.mdx"
   },
   {
     "author": null,
@@ -1217,7 +1262,8 @@
     "topics": [
       "html",
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/describe-the-difference-between-a-cookie-sessionstorage-and-localstorage/zh-CN.mdx"
   },
   {
     "author": null,
@@ -1244,7 +1290,8 @@
     "topics": [
       "html",
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/describe-the-difference-between-script-async-and-script-defer/zh-CN.mdx"
   },
   {
     "author": null,
@@ -1270,7 +1317,8 @@
     "title": "Document `load` 事件和 `DOMContentLoaded` 事件之间的区别？",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/difference-between-document-load-event-and-document-domcontentloaded-event/zh-CN.mdx"
   },
   {
     "author": null,
@@ -1296,7 +1344,8 @@
     "title": "比较差异: `function Person(){}`, `var person = Person()`, 和 `var person = new Person()`?",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/difference-between-function-person-var-person-person-and-var-person-new-person/zh-CN.mdx"
   },
   {
     "author": null,
@@ -1322,7 +1371,8 @@
     "title": "ES2015 模板字面量在生成字符串时具有很大的灵活性，您能给出一个例子吗？",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/es6-template-literals-offer-a-lot-of-flexibility-in-generating-strings-can-you-give-an-example/zh-CN.mdx"
   },
   {
     "author": null,
@@ -1349,7 +1399,8 @@
     "topics": [
       "javascript",
       "network"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/explain-ajax-in-as-much-detail-as-possible/zh-CN.mdx"
   },
   {
     "author": null,
@@ -1378,7 +1429,8 @@
     "topics": [
       "javascript",
       "html"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/explain-event-delegation/zh-CN.mdx"
   },
   {
     "author": null,
@@ -1404,7 +1456,8 @@
     "title": "解释 `Function.prototype.bind`",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/explain-function-prototype-bind/zh-CN.mdx"
   },
   {
     "author": null,
@@ -1430,7 +1483,8 @@
     "title": "解释“（变量）提升”",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/explain-hoisting/zh-CN.mdx"
   },
   {
     "author": null,
@@ -1458,7 +1512,8 @@
       "javascript",
       "network",
       "security"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/explain-how-jsonp-works-and-how-its-not-really-ajax/zh-CN.mdx"
   },
   {
     "author": null,
@@ -1484,7 +1539,8 @@
     "title": "解释原型继承如何工作",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/explain-how-prototypal-inheritance-works/zh-CN.mdx"
   },
   {
     "author": null,
@@ -1510,7 +1566,8 @@
     "title": "解释 JavaScript `this` 如何工作",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/explain-how-this-works-in-javascript/zh-CN.mdx"
   },
   {
     "author": null,
@@ -1536,7 +1593,8 @@
     "title": "Explain the concept of a callback function in asynchronous operations",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/explain-the-concept-of-a-callback-function-in-asynchronous-operations/en-US.mdx"
   },
   {
     "author": null,
@@ -1562,7 +1620,8 @@
     "title": "Explain the concept of a microtask queue",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/explain-the-concept-of-a-microtask-queue/en-US.mdx"
   },
   {
     "author": null,
@@ -1588,7 +1647,8 @@
     "title": "Explain the concept of caching and how it can be used to improve performance",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/explain-the-concept-of-caching-and-how-it-can-be-used-to-improve-performance/en-US.mdx"
   },
   {
     "author": null,
@@ -1614,7 +1674,8 @@
     "title": "Explain the concept of classes in ES2015 and how they differ from constructor functions",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/explain-the-concept-of-classes-in-es2015-and-how-they-differ-from-constructor-functions/en-US.mdx"
   },
   {
     "author": null,
@@ -1640,7 +1701,8 @@
     "title": "Explain the concept of code coverage and how it can be used to assess test quality",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/explain-the-concept-of-code-coverage-and-how-it-can-be-used-to-assess-test-quality/en-US.mdx"
   },
   {
     "author": null,
@@ -1666,7 +1728,8 @@
     "title": "Explain the concept of Content Security Policy (CSP) and how it enhances security",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/explain-the-concept-of-content-security-policy-csp-and-how-it-enhances-security/en-US.mdx"
   },
   {
     "author": null,
@@ -1692,7 +1755,8 @@
     "title": "Explain the concept of Cross-Site Request Forgery (CSRF) and its mitigation techniques",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/explain-the-concept-of-cross-site-request-forgery-csrf-and-its-mitigation-techniques/en-US.mdx"
   },
   {
     "author": null,
@@ -1718,7 +1782,8 @@
     "title": "Explain the concept of debouncing and throttling",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/explain-the-concept-of-debouncing-and-throttling/en-US.mdx"
   },
   {
     "author": null,
@@ -1744,7 +1809,8 @@
     "title": "Explain the concept of destructuring assignment for objects and arrays",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/explain-the-concept-of-destructuring-assignment-for-objects-and-arrays/en-US.mdx"
   },
   {
     "author": null,
@@ -1770,7 +1836,8 @@
     "title": "Explain the concept of error propagation in JavaScript",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/explain-the-concept-of-error-propagation-in-javascript/en-US.mdx"
   },
   {
     "author": null,
@@ -1796,7 +1863,8 @@
     "title": "Explain the concept of higher-order functions",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/explain-the-concept-of-higher-order-functions/en-US.mdx"
   },
   {
     "author": null,
@@ -1822,7 +1890,8 @@
     "title": "Explain the concept of hoisting with regards to functions",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/explain-the-concept-of-hoisting-with-regards-to-functions/en-US.mdx"
   },
   {
     "author": null,
@@ -1848,7 +1917,8 @@
     "title": "Explain the concept of inheritance in ES2015 classes",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/explain-the-concept-of-inheritance-in-es2015-classes/en-US.mdx"
   },
   {
     "author": null,
@@ -1874,7 +1944,8 @@
     "title": "Explain the concept of input validation and its importance in security",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/explain-the-concept-of-input-validation-and-its-importance-in-security/en-US.mdx"
   },
   {
     "author": null,
@@ -1900,7 +1971,8 @@
     "title": "Explain the concept of lazy loading and how it can improve performance",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/explain-the-concept-of-lazy-loading-and-how-it-can-improve-performance/en-US.mdx"
   },
   {
     "author": null,
@@ -1926,7 +1998,8 @@
     "title": "Explain the concept of lexical scoping",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/explain-the-concept-of-lexical-scoping/en-US.mdx"
   },
   {
     "author": null,
@@ -1952,7 +2025,8 @@
     "title": "Explain the concept of partial application",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/explain-the-concept-of-partial-application/en-US.mdx"
   },
   {
     "author": null,
@@ -1978,7 +2052,8 @@
     "title": "Explain the concept of scope in JavaScript",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/explain-the-concept-of-scope-in-javascript/en-US.mdx"
   },
   {
     "author": null,
@@ -2004,7 +2079,8 @@
     "title": "Explain the concept of tagged templates",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/explain-the-concept-of-tagged-templates/en-US.mdx"
   },
   {
     "author": null,
@@ -2030,7 +2106,8 @@
     "title": "Explain the concept of test-driven development (TDD)",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/explain-the-concept-of-test-driven-development-tdd/en-US.mdx"
   },
   {
     "author": null,
@@ -2056,7 +2133,8 @@
     "title": "Explain the concept of the Prototype pattern",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/explain-the-concept-of-the-prototype-pattern/en-US.mdx"
   },
   {
     "author": null,
@@ -2082,7 +2160,8 @@
     "title": "Explain the concept of the Singleton pattern",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/explain-the-concept-of-the-singleton-pattern/en-US.mdx"
   },
   {
     "author": null,
@@ -2108,7 +2187,8 @@
     "title": "Explain the concept of the spread operator and its uses",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/explain-the-concept-of-the-spread-operator-and-its-uses/en-US.mdx"
   },
   {
     "author": null,
@@ -2134,7 +2214,8 @@
     "title": "Explain the concept of the Strategy pattern",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/explain-the-concept-of-the-strategy-pattern/en-US.mdx"
   },
   {
     "author": null,
@@ -2160,7 +2241,8 @@
     "title": "Explain the concept of the Web Socket API",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/explain-the-concept-of-the-web-socket-api/en-US.mdx"
   },
   {
     "author": null,
@@ -2186,7 +2268,8 @@
     "title": "Explain the concept of `this` binding in event handlers",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/explain-the-concept-of-this-binding-in-event-handlers/en-US.mdx"
   },
   {
     "author": null,
@@ -2212,7 +2295,8 @@
     "title": "Explain the concept of tree shaking in module bundling",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/explain-the-concept-of-tree-shaking-in-module-bundling/en-US.mdx"
   },
   {
     "author": null,
@@ -2238,7 +2322,8 @@
     "title": "Explain the difference between classical inheritance and prototypal inheritance",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/explain-the-difference-between-classical-inheritance-and-prototypal-inheritance/en-US.mdx"
   },
   {
     "author": null,
@@ -2264,7 +2349,8 @@
     "title": "Explain the difference between CommonJS and ES modules",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/explain-the-difference-between-commonjs-and-es-modules/en-US.mdx"
   },
   {
     "author": null,
@@ -2290,7 +2376,8 @@
     "title": "Explain the difference between `document.querySelector()` and `document.getElementById()`",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/explain-the-difference-between-documentqueryselector-and-documentgetelementbyid/en-US.mdx"
   },
   {
     "author": null,
@@ -2316,7 +2403,8 @@
     "title": "Explain the difference between dot notation and bracket notation for accessing object properties",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/explain-the-difference-between-dot-notation-and-bracket-notation-for-accessing-object-properties/en-US.mdx"
   },
   {
     "author": null,
@@ -2342,7 +2430,8 @@
     "title": "Explain the difference between global scope, function scope, and block scope",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/explain-the-difference-between-global-scope-function-scope-and-block-scope/en-US.mdx"
   },
   {
     "author": null,
@@ -2368,7 +2457,8 @@
     "title": "解释可变和不可变对象之间的差异",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/explain-the-difference-between-mutable-and-immutable-objects/zh-CN.mdx"
   },
   {
     "author": null,
@@ -2394,7 +2484,8 @@
     "title": "Explain the difference between shallow copy and deep copy",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/explain-the-difference-between-shallow-copy-and-deep-copy/en-US.mdx"
   },
   {
     "author": null,
@@ -2420,7 +2511,8 @@
     "title": "解释同步函数和异步函数之间的差异",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/explain-the-difference-between-synchronous-and-asynchronous-functions/zh-CN.mdx"
   },
   {
     "author": null,
@@ -2446,7 +2538,8 @@
     "title": "Explain the difference between the `==` and `===` operators",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/explain-the-difference-between-the-double-equal-and-triple-equal-operators/en-US.mdx"
   },
   {
     "author": null,
@@ -2472,7 +2565,8 @@
     "title": "Explain the difference between unit testing, integration testing, and end-to-end testing",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/explain-the-difference-between-unit-testing-integration-testing-and-end-to-end-testing/en-US.mdx"
   },
   {
     "author": null,
@@ -2498,7 +2592,8 @@
     "title": "Explain the difference in hoisting between `var`, `let`, and `const`",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/explain-the-difference-in-hoisting-between-var-let-and-const/en-US.mdx"
   },
   {
     "author": null,
@@ -2524,7 +2619,8 @@
     "title": "Explain the differences between CommonJS modules and ES modules in JavaScript",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/explain-the-differences-between-commonjs-modules-and-es-modules/en-US.mdx"
   },
   {
     "author": null,
@@ -2550,7 +2646,8 @@
     "title": "解释`function foo() {}` 和 `var foo = function() {}` 之间在`foo` 使用方法上的差异",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/explain-the-differences-on-the-usage-of-foo-between-function-foo-and-var-foo-function/zh-CN.mdx"
   },
   {
     "author": null,
@@ -2576,7 +2673,8 @@
     "title": "Explain the different states of a Promise",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/explain-the-different-states-of-a-promise/en-US.mdx"
   },
   {
     "author": null,
@@ -2602,7 +2700,8 @@
     "title": "Explain the different ways the `this` keyword can be bound",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/explain-the-different-ways-the-this-keyword-can-be-bound/en-US.mdx"
   },
   {
     "author": null,
@@ -2628,7 +2727,8 @@
     "title": "Explain the event phases in a browser",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/explain-the-event-phases-in-a-browser/en-US.mdx"
   },
   {
     "author": null,
@@ -2654,7 +2754,8 @@
     "title": "Explain the Observer pattern and its use cases",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/explain-the-observer-pattern-and-its-use-cases/en-US.mdx"
   },
   {
     "author": null,
@@ -2681,7 +2782,8 @@
     "topics": [
       "javascript",
       "network"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/explain-the-same-origin-policy-with-regards-to-javascript/zh-CN.mdx"
   },
   {
     "author": null,
@@ -2707,7 +2809,8 @@
     "title": "解释一个单页应用程序是什么以及如何优化SEO",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/explain-what-a-single-page-app-is-and-how-to-make-one-seo-friendly/zh-CN.mdx"
   },
   {
     "author": null,
@@ -2733,7 +2836,8 @@
     "title": "解释这为什么不能以IIFE工作: `function foo(){ }();`. 为了使它成为一个IIFE，需要作出哪些改变？",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/explain-why-the-following-doesnt-work-as-an-iife-function-foo--what-needs-to-be-changed-to-properly-make-it-an-iife/zh-CN.mdx"
   },
   {
     "author": null,
@@ -2759,7 +2863,8 @@
     "title": "How can closures be used to create private variables?",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/how-can-closures-be-used-to-create-private-variables/en-US.mdx"
   },
   {
     "author": null,
@@ -2785,7 +2890,8 @@
     "title": "How can you avoid problems related to hoisting?",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/how-can-you-avoid-problems-related-to-hoisting/en-US.mdx"
   },
   {
     "author": null,
@@ -2811,7 +2917,8 @@
     "title": "How can you create custom error objects?",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/how-can-you-create-custom-error-objects/en-US.mdx"
   },
   {
     "author": null,
@@ -2837,7 +2944,8 @@
     "title": "How can you implement secure authentication and authorization in JavaScript applications?",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/how-can-you-implement-secure-authentication-and-authorization-in-javascript-applications/en-US.mdx"
   },
   {
     "author": null,
@@ -2863,7 +2971,8 @@
     "title": "How can you optimize DOM manipulation for better performance?",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/how-can-you-optimize-dom-manipulation-for-better-performance/en-US.mdx"
   },
   {
     "author": null,
@@ -2889,7 +2998,8 @@
     "title": "How can you optimize network requests for better performance?",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/how-can-you-optimize-network-requests-for-better-performance/en-US.mdx"
   },
   {
     "author": null,
@@ -2915,7 +3025,8 @@
     "title": "How can you prevent clickjacking attacks?",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/how-can-you-prevent-clickjacking-attacks/en-US.mdx"
   },
   {
     "author": null,
@@ -2941,7 +3052,8 @@
     "title": "How can you prevent SQL injection vulnerabilities in JavaScript applications?",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/how-can-you-prevent-sql-injection-vulnerabilities-in-javascript-applications/en-US.mdx"
   },
   {
     "author": null,
@@ -2967,7 +3079,8 @@
     "title": "如何在文件之间共享代码？",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/how-can-you-share-code-between-files/zh-CN.mdx"
   },
   {
     "author": null,
@@ -2993,7 +3106,8 @@
     "title": "How can you test asynchronous code in JavaScript?",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/how-can-you-test-asynchronous-code-in-javascript/en-US.mdx"
   },
   {
     "author": null,
@@ -3019,7 +3133,8 @@
     "title": "How do currying and partial application differ from each other?",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/how-do-currying-and-partial-application-differ-from-each-other/en-US.mdx"
   },
   {
     "author": null,
@@ -3045,7 +3160,8 @@
     "title": "How do `<iframe>` on a page communicate?",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/how-do-iframe-on-a-page-communicate/en-US.mdx"
   },
   {
     "author": null,
@@ -3071,7 +3187,8 @@
     "title": "How do `Map`s in JavaScript differ from `Object`s?",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/how-do-maps-in-javascript-differ-from-objects/en-US.mdx"
   },
   {
     "author": null,
@@ -3097,7 +3214,8 @@
     "title": "How do `Set`s and `Map`s handle equality checks for objects?",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/how-do-sets-and-maps-handle-equality-checks-for-objects/en-US.mdx"
   },
   {
     "author": null,
@@ -3124,7 +3242,8 @@
     "topics": [
       "javascript",
       "network"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/how-do-you-abort-a-web-request-using-abortcontrollers/en-US.mdx"
   },
   {
     "author": null,
@@ -3150,7 +3269,8 @@
     "title": "How do you access the index of an element in an array during iteration?",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/how-do-you-access-the-index-of-an-element-in-an-array-during-iteration/en-US.mdx"
   },
   {
     "author": null,
@@ -3176,7 +3296,8 @@
     "title": "How do you add, remove, and modify HTML elements using JavaScript?",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/how-do-you-add-remove-and-modify-html-elements-using-javascript/en-US.mdx"
   },
   {
     "author": null,
@@ -3202,7 +3323,8 @@
     "title": "How do you add, remove, and update elements in an array?",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/how-do-you-add-remove-and-update-elements-in-an-array/en-US.mdx"
   },
   {
     "author": null,
@@ -3228,7 +3350,8 @@
     "title": "How do you cancel a `fetch` request?",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/how-do-you-cancel-a-fetch-request/en-US.mdx"
   },
   {
     "author": null,
@@ -3254,7 +3377,8 @@
     "title": "How do you check if an object has a specific property?",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/how-do-you-check-if-an-object-has-a-specific-property/en-US.mdx"
   },
   {
     "author": null,
@@ -3280,7 +3404,8 @@
     "title": "How do you check the data type of a variable?",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/how-do-you-check-the-data-type-of-a-variable/en-US.mdx"
   },
   {
     "author": null,
@@ -3306,7 +3431,8 @@
     "title": "How do you convert a `Set` to an array in JavaScript?",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/how-do-you-convert-a-set-to-an-array-in-javascript/en-US.mdx"
   },
   {
     "author": null,
@@ -3332,7 +3458,8 @@
     "title": "How do you convert a string to a number in JavaScript?",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/how-do-you-convert-a-string-to-a-number-in-javascript/en-US.mdx"
   },
   {
     "author": null,
@@ -3358,7 +3485,8 @@
     "title": "How do you create a constructor function?",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/how-do-you-create-a-constructor-function/en-US.mdx"
   },
   {
     "author": null,
@@ -3384,7 +3512,8 @@
     "title": "How do you detect if JavaScript is disabled on a page?",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/how-do-you-detect-if-javascript-is-disabled-on-a-page/en-US.mdx"
   },
   {
     "author": null,
@@ -3410,7 +3539,8 @@
     "title": "How do you get the query string values of the current page in JavaScript?",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/how-do-you-get-the-query-string-values-of-the-current-page-in-javascript/en-US.mdx"
   },
   {
     "author": null,
@@ -3436,7 +3566,8 @@
     "title": "How do you handle errors in asynchronous operations?",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/how-do-you-handle-errors-in-asynchronous-operations/en-US.mdx"
   },
   {
     "author": null,
@@ -3462,7 +3593,8 @@
     "title": "How do you handle errors using `try...catch` blocks?",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/how-do-you-handle-errors-using-trycatch-blocks/en-US.mdx"
   },
   {
     "author": null,
@@ -3488,7 +3620,8 @@
     "title": "How do you import and export modules in JavaScript?",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/how-do-you-import-and-export-modules-in-javascript/en-US.mdx"
   },
   {
     "author": null,
@@ -3514,7 +3647,8 @@
     "title": "How do you make an HTTP request using the Fetch API?",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/how-do-you-make-an-http-request-using-the-fetch-api/en-US.mdx"
   },
   {
     "author": null,
@@ -3540,7 +3674,8 @@
     "title": "How do you manipulate CSS styles using JavaScript?",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/how-do-you-manipulate-css-styles-using-javascript/en-US.mdx"
   },
   {
     "author": null,
@@ -3566,7 +3701,8 @@
     "title": "您如何组织您的代码？",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/how-do-you-organize-your-code-module-pattern-classical-inheritance/zh-CN.mdx"
   },
   {
     "author": null,
@@ -3592,7 +3728,8 @@
     "title": "How do you prevent the default behavior of an event?",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/how-do-you-prevent-the-default-behavior-of-an-event/en-US.mdx"
   },
   {
     "author": null,
@@ -3618,7 +3755,8 @@
     "title": "How do you redirect to a new page in JavaScript?",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/how-do-you-redirect-to-a-new-page-in-javascript/en-US.mdx"
   },
   {
     "author": null,
@@ -3644,7 +3782,8 @@
     "title": "How do you reliably determine whether an object is empty?",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/how-do-you-reliably-determine-whether-an-object-is-empty/en-US.mdx"
   },
   {
     "author": null,
@@ -3670,7 +3809,8 @@
     "title": "How do you use `window.history` API?",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/how-do-you-use-windowhistory-api/en-US.mdx"
   },
   {
     "author": null,
@@ -3696,7 +3836,8 @@
     "title": "How do you validate form elements using the Constraint Validation API?",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/how-do-you-validate-form-elements-using-the-constraint-validation-api/en-US.mdx"
   },
   {
     "author": null,
@@ -3722,7 +3863,8 @@
     "title": "How do you write unit tests for JavaScript code?",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/how-do-you-write-unit-tests-for-javascript-code/en-US.mdx"
   },
   {
     "author": null,
@@ -3748,7 +3890,8 @@
     "title": "How does hoisting affect function declarations and expressions?",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/how-does-hoisting-affect-function-declarations-and-expressions/en-US.mdx"
   },
   {
     "author": null,
@@ -3774,7 +3917,8 @@
     "title": "How does JavaScript garbage collection work?",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/how-does-javascript-garbage-collection-work/en-US.mdx"
   },
   {
     "author": null,
@@ -3800,7 +3944,8 @@
     "title": "How does the `this` keyword behave in arrow functions?",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/how-does-the-this-keyword-behave-in-arrow-functions/en-US.mdx"
   },
   {
     "author": null,
@@ -3826,7 +3971,8 @@
     "title": "How is `Promise.all()` different from `Promise.allSettled()`?",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/how-is-promiseall-different-from-promiseallsettled/en-US.mdx"
   },
   {
     "author": null,
@@ -3852,7 +3998,8 @@
     "title": "Provide some examples of how currying and partial application can be used",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/provide-some-examples-of-how-currying-and-partial-application-can-be-used/en-US.mdx"
   },
   {
     "author": null,
@@ -3878,7 +4025,8 @@
     "title": "在构造函数中对方法使用箭头语法有什么好处？",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-advantage-is-there-for-using-the-arrow-syntax-for-a-method-in-a-constructor/zh-CN.mdx"
   },
   {
     "author": null,
@@ -3904,7 +4052,8 @@
     "title": "What are arrow functions and how do they differ from regular functions?",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-are-arrow-functions-and-how-do-they-differ-from-regular-functions/en-US.mdx"
   },
   {
     "author": null,
@@ -3930,7 +4079,8 @@
     "title": "What are callback functions and how are they used?",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-are-callback-functions-and-how-are-they-used/en-US.mdx"
   },
   {
     "author": null,
@@ -3956,7 +4106,8 @@
     "title": "What are default parameters and how are they used?",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-are-default-parameters-and-how-are-they-used/en-US.mdx"
   },
   {
     "author": null,
@@ -3982,7 +4133,8 @@
     "title": "What are design patterns and why are they useful?",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-are-design-patterns-and-why-are-they-useful/en-US.mdx"
   },
   {
     "author": null,
@@ -4008,7 +4160,8 @@
     "title": "What are event listeners and how are they used?",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-are-event-listeners-and-how-are-they-used/en-US.mdx"
   },
   {
     "author": null,
@@ -4034,7 +4187,8 @@
     "title": "What are global variables and why are they generally avoided?",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-are-global-variables-and-why-are-they-generally-avoided/en-US.mdx"
   },
   {
     "author": null,
@@ -4060,7 +4214,8 @@
     "title": "What are iterators and generators in JavaScript and what are they used for?",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-are-iterators-and-generators-and-what-are-they-used-for/en-US.mdx"
   },
   {
     "author": null,
@@ -4086,7 +4241,8 @@
     "title": "What are JavaScript object getters and setters for?",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-are-javascript-object-getters-and-setters-for/en-US.mdx"
   },
   {
     "author": null,
@@ -4112,7 +4268,8 @@
     "title": "What are JavaScript object property flags and descriptors?",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-are-javascript-object-property-flags-and-descriptors/en-US.mdx"
   },
   {
     "author": null,
@@ -4138,7 +4295,8 @@
     "title": "What are JavaScript polyfills for?",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-are-javascript-polyfills-for/en-US.mdx"
   },
   {
     "author": null,
@@ -4164,7 +4322,8 @@
     "title": "What are mocks and stubs and how are they used in testing?",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-are-mocks-and-stubs-and-how-are-they-used-in-testing/en-US.mdx"
   },
   {
     "author": null,
@@ -4190,7 +4349,8 @@
     "title": "What are modules and why are they useful?",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-are-modules-and-why-are-they-useful/en-US.mdx"
   },
   {
     "author": null,
@@ -4216,7 +4376,8 @@
     "title": "What are polyfills used for?",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-are-polyfills-used-for/en-US.mdx"
   },
   {
     "author": null,
@@ -4242,7 +4403,8 @@
     "title": "What are Progressive Web Applications (PWAs)?",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-are-progressive-web-applications-pwas/en-US.mdx"
   },
   {
     "author": null,
@@ -4268,7 +4430,8 @@
     "title": "What are Promises and how do they work?",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-are-promises-and-how-do-they-work/en-US.mdx"
   },
   {
     "author": null,
@@ -4294,7 +4457,8 @@
     "title": "What are proxies in JavaScript used for?",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-are-proxies-in-javascript-used-for/en-US.mdx"
   },
   {
     "author": null,
@@ -4320,7 +4484,8 @@
     "title": "What are rest parameters and how are they used?",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-are-rest-parameters-and-how-are-they-used/en-US.mdx"
   },
   {
     "author": null,
@@ -4346,7 +4511,8 @@
     "title": "What are server-sent events?",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-are-server-sent-events/en-US.mdx"
   },
   {
     "author": null,
@@ -4372,7 +4538,8 @@
     "title": "What are `Set`s and `Map`s and how are they used?",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-are-sets-and-maps-and-how-are-they-used/en-US.mdx"
   },
   {
     "author": null,
@@ -4398,7 +4565,8 @@
     "title": "What are some best practices for handling sensitive data in JavaScript?",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-are-some-best-practices-for-handling-sensitive-data-in-javascript/en-US.mdx"
   },
   {
     "author": null,
@@ -4424,7 +4592,8 @@
     "title": "What are some best practices for writing maintainable and effective tests?",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-are-some-best-practices-for-writing-maintainable-and-effective-tests/en-US.mdx"
   },
   {
     "author": null,
@@ -4450,7 +4619,8 @@
     "title": "What are some common performance bottlenecks in JavaScript applications?",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-are-some-common-performance-bottlenecks-in-javascript-applications/en-US.mdx"
   },
   {
     "author": null,
@@ -4476,7 +4646,8 @@
     "title": "What are some common security headers and their purpose?",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-are-some-common-security-headers-and-their-purpose/en-US.mdx"
   },
   {
     "author": null,
@@ -4502,7 +4673,8 @@
     "title": "用编译成 JavaScript 的语言编写JavaScript 代码的一些优点/缺点是什么？",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-are-some-of-the-advantages-disadvantages-of-writing-javascript-code-in-a-language-that-compiles-to-javascript/zh-CN.mdx"
   },
   {
     "author": null,
@@ -4528,7 +4700,8 @@
     "title": "What are some popular JavaScript testing frameworks?",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-are-some-popular-javascript-testing-frameworks/en-US.mdx"
   },
   {
     "author": null,
@@ -4554,7 +4727,8 @@
     "title": "What are some techniques for reducing reflows and repaints?",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-are-some-techniques-for-reducing-reflows-and-repaints/en-US.mdx"
   },
   {
     "author": null,
@@ -4580,7 +4754,8 @@
     "title": "What are some tools and techniques for identifying security vulnerabilities in JavaScript code?",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-are-some-tools-and-techniques-for-identifying-security-vulnerabilities-in-javascript-code/en-US.mdx"
   },
   {
     "author": null,
@@ -4606,7 +4781,8 @@
     "title": "What are some tools that can be used for JavaScript testing?",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-are-some-tools-that-can-be-used-for-javascript-testing/en-US.mdx"
   },
   {
     "author": null,
@@ -4632,7 +4808,8 @@
     "title": "What are some tools that can be used to measure and analyze JavaScript performance?",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-are-some-tools-that-can-be-used-to-measure-and-analyze-javascript-performance/en-US.mdx"
   },
   {
     "author": null,
@@ -4658,7 +4835,8 @@
     "title": "What are some use cases for using a `WeakSet` or `WeakMap` in JavaScript?",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-are-some-use-cases-for-using-a-weakset-or-weakmap-in-javascript/en-US.mdx"
   },
   {
     "author": null,
@@ -4684,7 +4862,8 @@
     "title": "What are static methods in classes?",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-are-static-methods-in-classes/en-US.mdx"
   },
   {
     "author": null,
@@ -4710,7 +4889,8 @@
     "title": "What are `Symbol`s used for in JavaScript?",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-are-symbols-used-for/en-US.mdx"
   },
   {
     "author": null,
@@ -4736,7 +4916,8 @@
     "title": "What are template literals and how are they used?",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-are-template-literals-and-how-are-they-used/en-US.mdx"
   },
   {
     "author": null,
@@ -4763,7 +4944,8 @@
     "topics": [
       "javascript",
       "network"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-are-the-advantages-and-disadvantages-of-using-ajax/zh-CN.mdx"
   },
   {
     "author": null,
@@ -4789,7 +4971,8 @@
     "title": "What are the advantages of using Promises over callbacks?",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-are-the-advantages-of-using-promises-over-callbacks/en-US.mdx"
   },
   {
     "author": null,
@@ -4815,7 +4998,8 @@
     "title": "What are the advantages of using the spread operator with arrays and objects?",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-are-the-advantages-of-using-the-spread-operator-with-arrays-and-objects/en-US.mdx"
   },
   {
     "author": null,
@@ -4841,7 +5025,8 @@
     "title": "What are the benefits of using a module bundler?",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-are-the-benefits-of-using-a-module-bundler/en-US.mdx"
   },
   {
     "author": null,
@@ -4867,7 +5052,8 @@
     "title": "What are the benefits of using currying and partial application?",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-are-the-benefits-of-using-currying-and-partial-application/en-US.mdx"
   },
   {
     "author": null,
@@ -4893,7 +5079,8 @@
     "title": "使用展开语法 (Spread syntax) 的好处是什么？ 它与剩余语法 (Rest syntax) 有何不同？",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-are-the-benefits-of-using-spread-syntax-and-how-is-it-different-from-rest-syntax/zh-CN.mdx"
   },
   {
     "author": null,
@@ -4919,7 +5106,8 @@
     "title": "What are the common pitfalls of using the `this` keyword?",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-are-the-common-pitfalls-of-using-the-this-keyword/en-US.mdx"
   },
   {
     "author": null,
@@ -4945,7 +5133,8 @@
     "title": "ES2015类和 ES5 函数构造函数之间有什么区别？",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-are-the-differences-between-es6-class-and-es5-function-constructors/zh-CN.mdx"
   },
   {
     "author": null,
@@ -4971,7 +5160,8 @@
     "title": "What are the differences between `Map`/`Set` and `WeakMap`/`WeakSet` in JavaScript?",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-are-the-differences-between-map-set-and-weakmap-weakset/en-US.mdx"
   },
   {
     "author": null,
@@ -4999,7 +5189,8 @@
     "title": "使用`let`、`var`或`const`创建的变量之间有什么差异？",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-are-the-differences-between-variables-created-using-let-var-or-const/zh-CN.mdx"
   },
   {
     "author": null,
@@ -5026,7 +5217,8 @@
     "topics": [
       "javascript",
       "network"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-are-the-differences-between-xmlhttprequest-and-fetch/en-US.mdx"
   },
   {
     "author": null,
@@ -5052,7 +5244,8 @@
     "title": "What are the different methods for iterating over an array?",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-are-the-different-methods-for-iterating-over-an-array/en-US.mdx"
   },
   {
     "author": null,
@@ -5078,7 +5271,8 @@
     "title": "What are the different types of errors in JavaScript?",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-are-the-different-types-of-errors-in-javascript/en-US.mdx"
   },
   {
     "author": null,
@@ -5104,7 +5298,8 @@
     "title": "What are the different types of loops in JavaScript?",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-are-the-different-types-of-loops-in-javascript/en-US.mdx"
   },
   {
     "author": null,
@@ -5130,7 +5325,8 @@
     "title": "What are the different types of testing in software development?",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-are-the-different-types-of-testing-in-software-development/en-US.mdx"
   },
   {
     "author": null,
@@ -5156,7 +5352,8 @@
     "title": "What are the different ways to copy an object or an array?",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-are-the-different-ways-to-copy-an-object-or-an-array/en-US.mdx"
   },
   {
     "author": null,
@@ -5182,7 +5379,8 @@
     "title": "What are the different ways to create an object in JavaScript?",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-are-the-different-ways-to-create-an-object-in-javascript/en-US.mdx"
   },
   {
     "author": null,
@@ -5208,7 +5406,8 @@
     "title": "What are the different ways to make an API call in JavaScript?",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-are-the-different-ways-to-make-an-api-call-in-javascript/en-US.mdx"
   },
   {
     "author": null,
@@ -5234,7 +5433,8 @@
     "title": "What are the metadata fields of a module?",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-are-the-metadata-fields-of-a-module/en-US.mdx"
   },
   {
     "author": null,
@@ -5260,7 +5460,8 @@
     "title": "What are the potential issues caused by hoisting?",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-are-the-potential-issues-caused-by-hoisting/en-US.mdx"
   },
   {
     "author": null,
@@ -5286,7 +5487,8 @@
     "title": "What are the potential pitfalls of using closures?",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-are-the-potential-pitfalls-of-using-closures/en-US.mdx"
   },
   {
     "author": null,
@@ -5312,7 +5514,8 @@
     "title": "What are the primitive data types in JavaScript?",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-are-the-primitive-data-types-in-javascript/en-US.mdx"
   },
   {
     "author": null,
@@ -5340,7 +5543,8 @@
     "title": "使用Promise而不是回调的利弊是什么？",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-are-the-pros-and-cons-of-using-promises-instead-of-callbacks/zh-CN.mdx"
   },
   {
     "author": null,
@@ -5366,7 +5570,8 @@
     "title": "What are the various data types in JavaScript?",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-are-the-various-data-types-in-javascript/en-US.mdx"
   },
   {
     "author": null,
@@ -5392,7 +5597,8 @@
     "title": "What are the various ways to create objects in JavaScript?",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-are-the-various-ways-to-create-objects-in-javascript/en-US.mdx"
   },
   {
     "author": null,
@@ -5418,7 +5624,8 @@
     "title": "What are Web Workers and how can they be used?",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-are-web-workers-and-how-can-they-be-used/en-US.mdx"
   },
   {
     "author": null,
@@ -5444,7 +5651,8 @@
     "title": "What are Web Workers and how can they be used to improve performance?",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-are-web-workers-and-how-can-they-be-used-to-improve-performance/en-US.mdx"
   },
   {
     "author": null,
@@ -5470,7 +5678,8 @@
     "title": "What are workers in JavaScript used for?",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-are-workers-in-javascript-used-for/en-US.mdx"
   },
   {
     "author": null,
@@ -5496,7 +5705,8 @@
     "title": "您对AMD与 CommonJS的看法如何？",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-do-you-think-of-amd-vs-commonjs/zh-CN.mdx"
   },
   {
     "author": null,
@@ -5527,7 +5737,8 @@
     "title": "什么是闭包？ 你如何/为何使用？",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-is-a-closure-and-how-why-would-you-use-one/zh-CN.mdx"
   },
   {
     "author": null,
@@ -5553,7 +5764,8 @@
     "title": "What is async/await and how does it simplify asynchronous code?",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-is-asyncawait-and-how-does-it-simplify-asynchronous-code/en-US.mdx"
   },
   {
     "author": null,
@@ -5579,7 +5791,8 @@
     "title": "What is Cross-Site Scripting (XSS) and how can you prevent it?",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-is-cross-site-scripting-xss-and-how-can-you-prevent-it/en-US.mdx"
   },
   {
     "author": null,
@@ -5605,7 +5818,8 @@
     "title": "What is currying and how does it work?",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-is-currying-and-how-does-it-work/en-US.mdx"
   },
   {
     "author": null,
@@ -5634,7 +5848,8 @@
     "title": "什么是事件循环？",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-is-event-loop-what-is-the-difference-between-call-stack-and-task-queue/zh-CN.mdx"
   },
   {
     "author": null,
@@ -5660,7 +5875,8 @@
     "title": "What is `Object.freeze()` for?",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-is-objectfreeze-for/en-US.mdx"
   },
   {
     "author": null,
@@ -5686,7 +5902,8 @@
     "title": "What is `Object.preventExtensions()` for?",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-is-objectpreventextensions-for/en-US.mdx"
   },
   {
     "author": null,
@@ -5712,7 +5929,8 @@
     "title": "What is `Object.seal()` for?",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-is-objectseal-for/en-US.mdx"
   },
   {
     "author": null,
@@ -5738,7 +5956,8 @@
     "title": "What is recursion and how is it used in JavaScript?",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-is-recursion-and-how-is-it-used-in-javascript/en-US.mdx"
   },
   {
     "author": null,
@@ -5764,7 +5983,8 @@
     "title": "What is the Command pattern and how is it used?",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-is-the-command-pattern-and-how-is-it-used/en-US.mdx"
   },
   {
     "author": null,
@@ -5790,7 +6010,8 @@
     "title": "What is the Decorator pattern and how is it used?",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-is-the-decorator-pattern-and-how-is-it-used/en-US.mdx"
   },
   {
     "author": null,
@@ -5816,7 +6037,8 @@
     "title": "高阶函数的定义是什么？",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-is-the-definition-of-a-higher-order-function/zh-CN.mdx"
   },
   {
     "author": null,
@@ -5842,7 +6064,8 @@
     "title": "What is the difference between a `Map` object and a plain object in JavaScript?",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-is-the-difference-between-a-map-object-and-a-plain-object-in-javascript/en-US.mdx"
   },
   {
     "author": null,
@@ -5868,7 +6091,8 @@
     "title": "What is the difference between a parameter and an argument?",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-is-the-difference-between-a-parameter-and-an-argument/en-US.mdx"
   },
   {
     "author": null,
@@ -5894,7 +6118,8 @@
     "title": "`==` 和 `===`之间有什么区别？",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-is-the-difference-between-double-equal-and-triple-equal/zh-CN.mdx"
   },
   {
     "author": null,
@@ -5920,7 +6145,8 @@
     "title": "What is the difference between `event.preventDefault()` and `event.stopPropagation()`?",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-is-the-difference-between-eventpreventdefault-and-eventstoppropagation/en-US.mdx"
   },
   {
     "author": null,
@@ -5946,7 +6172,8 @@
     "title": "What is the difference between `for...in` and `for...of` loops?",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-is-the-difference-between-forin-and-forof-loops/en-US.mdx"
   },
   {
     "author": null,
@@ -5972,7 +6199,8 @@
     "title": "What is the difference between `innerHTML` and `textContent`?",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-is-the-difference-between-innerhtml-and-textcontent/en-US.mdx"
   },
   {
     "author": null,
@@ -5998,7 +6226,8 @@
     "title": "What is the difference between `mouseenter` and `mouseover` event in JavaScript and browsers?",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-is-the-difference-between-mouseenter-and-mouseover-event/en-US.mdx"
   },
   {
     "author": null,
@@ -6024,7 +6253,8 @@
     "title": "What is the difference between `null` and `undefined`?",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-is-the-difference-between-null-and-undefined/en-US.mdx"
   },
   {
     "author": null,
@@ -6050,7 +6280,8 @@
     "title": "What is the difference between `setTimeout()`, `setImmediate()`, and `process.nextTick()`?",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-is-the-difference-between-settimeout-setimmediate-and-processnexttick/en-US.mdx"
   },
   {
     "author": null,
@@ -6076,7 +6307,8 @@
     "title": "What is the difference between the Window object and the Document object?",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-is-the-difference-between-the-window-object-and-the-document-object/en-US.mdx"
   },
   {
     "author": null,
@@ -6102,7 +6334,8 @@
     "title": "What is the DOM and how is it structured?",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-is-the-dom-and-how-is-it-structured/en-US.mdx"
   },
   {
     "author": null,
@@ -6128,7 +6361,8 @@
     "title": "What is the event loop and how does it relate to asynchronous JavaScript?",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-is-the-event-loop-and-how-does-it-relate-to-asynchronous-javascript/en-US.mdx"
   },
   {
     "author": null,
@@ -6154,7 +6388,8 @@
     "title": "你对Promise和/或其polyfills的经验有多少？",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-is-the-extent-of-your-experience-with-promises-andor-their-polyfills/zh-CN.mdx"
   },
   {
     "author": null,
@@ -6180,7 +6415,8 @@
     "title": "What is the Factory pattern and how is it used?",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-is-the-factory-pattern-and-how-is-it-used/en-US.mdx"
   },
   {
     "author": null,
@@ -6206,7 +6442,8 @@
     "title": "What is the `Intl` namespace object for?",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-is-the-intl-namespace-object-for/en-US.mdx"
   },
   {
     "author": null,
@@ -6232,7 +6469,8 @@
     "title": "What is the Module pattern and how does it help with encapsulation?",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-is-the-module-pattern-and-how-does-it-help-with-encapsulation/en-US.mdx"
   },
   {
     "author": null,
@@ -6258,7 +6496,8 @@
     "title": "What is the prototype chain and how does it work?",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-is-the-prototype-chain-and-how-does-it-work/en-US.mdx"
   },
   {
     "author": null,
@@ -6284,7 +6523,8 @@
     "title": "What is the purpose of the `break` and `continue` statements?",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-is-the-purpose-of-the-break-and-continue-statements/en-US.mdx"
   },
   {
     "author": null,
@@ -6310,7 +6550,8 @@
     "title": "What is the purpose of the `finally` block?",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-is-the-purpose-of-the-finally-block/en-US.mdx"
   },
   {
     "author": null,
@@ -6336,7 +6577,8 @@
     "title": "What is the purpose of the `new` keyword?",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-is-the-purpose-of-the-new-keyword/en-US.mdx"
   },
   {
     "author": null,
@@ -6362,7 +6604,8 @@
     "title": "What is the purpose of the `switch` statement?",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-is-the-purpose-of-the-switch-statement/en-US.mdx"
   },
   {
     "author": null,
@@ -6388,7 +6631,8 @@
     "title": "What is the spread operator and how is it used?",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-is-the-spread-operator-and-how-is-it-used/en-US.mdx"
   },
   {
     "author": null,
@@ -6414,7 +6658,8 @@
     "title": "What is the ternary operator and how is it used?",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-is-the-ternary-operator-and-how-is-it-used/en-US.mdx"
   },
   {
     "author": null,
@@ -6440,7 +6685,8 @@
     "title": "What is the use of `Promise.all()`",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-is-the-use-of-promiseall/en-US.mdx"
   },
   {
     "author": null,
@@ -6466,7 +6712,8 @@
     "title": "什么是`严格模式`？",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-is-use-strict-what-are-the-advantages-and-disadvantages-to-using-it/zh-CN.mdx"
   },
   {
     "author": null,
@@ -6492,7 +6739,8 @@
     "title": "你用什么语言结构来迭代对象的属性和数组项目？",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-language-constructs-do-you-use-for-iterating-over-object-properties-and-array-items/zh-CN.mdx"
   },
   {
     "author": null,
@@ -6518,7 +6766,8 @@
     "title": "你使用什么工具和技术来调试 JavaScript 代码？",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-tools-and-techniques-do-you-use-for-debugging-javascript-code/zh-CN.mdx"
   },
   {
     "author": null,
@@ -6544,7 +6793,8 @@
     "title": "匿名函数的典型使用案例是什么？",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/whats-a-typical-use-case-for-anonymous-functions/zh-CN.mdx"
   },
   {
     "author": null,
@@ -6570,7 +6820,8 @@
     "title": "`null`, `undefined` 和未声明变量的区别是什么？",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/whats-the-difference-between-a-variable-that-is-null-undefined-or-undeclared-how-would-you-go-about-checking-for-any-of-these-states/zh-CN.mdx"
   },
   {
     "author": null,
@@ -6596,7 +6847,8 @@
     "title": "\"attribute\" 和 \"property\" 之间有什么区别？",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/whats-the-difference-between-an-attribute-and-a-property/zh-CN.mdx"
   },
   {
     "author": null,
@@ -6622,7 +6874,8 @@
     "title": "`.call`和`.apply`之间有什么区别？",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/whats-the-difference-between-call-and-apply/zh-CN.mdx"
   },
   {
     "author": null,
@@ -6648,7 +6901,8 @@
     "title": "宿主对象和本地对象之间有什么区别？",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/whats-the-difference-between-host-objects-and-native-objects/zh-CN.mdx"
   },
   {
     "author": null,
@@ -6674,7 +6928,8 @@
     "title": "您什么时候使用 `document.write()`？",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/when-would-you-use-document-write/zh-CN.mdx"
   },
   {
     "author": null,
@@ -6700,7 +6955,8 @@
     "title": "为什么扩展内置的 JavaScript 对象不是一个好主意？",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/why-is-extending-built-in-javascript-objects-not-a-good-idea/zh-CN.mdx"
   },
   {
     "author": null,
@@ -6726,7 +6982,8 @@
     "title": "为什么它被称为三元表达？\"三元 \"一词表示什么？",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/why-is-it-called-a-ternary-expression-what-does-the-word-ternary-indicate/zh-CN.mdx"
   },
   {
     "author": null,
@@ -6752,7 +7009,8 @@
     "title": "为什么通常最好保留网站的全局作用域不做任何修改?",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/why-is-it-in-general-a-good-idea-to-leave-the-global-scope-of-a-website-as-is-and-never-touch-it/zh-CN.mdx"
   },
   {
     "author": null,
@@ -6778,6 +7036,7 @@
     "title": "为什么你想要创建静态类成员？",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/why-you-might-want-to-create-static-class-members/zh-CN.mdx"
   }
 ]

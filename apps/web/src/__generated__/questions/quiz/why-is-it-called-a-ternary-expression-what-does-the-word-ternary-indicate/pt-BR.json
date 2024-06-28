@@ -25,7 +25,8 @@
     "title": "Por que se chama uma expressão Ternária, o que indica a palavra \"Ternary\"?",
     "topics": [
       "javascript"
-    ]
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/why-is-it-called-a-ternary-expression-what-does-the-word-ternary-indicate/pt-BR.mdx"
   },
   "solution": "var Component=(()=>{var x=Object.create;var r=Object.defineProperty;var m=Object.getOwnPropertyDescriptor;var u=Object.getOwnPropertyNames;var l=Object.getPrototypeOf,j=Object.prototype.hasOwnProperty;var f=(e,t)=>()=>(t||e((t={exports:{}}).exports,t),t.exports),_=(e,t)=>{for(var s in t)r(e,s,{get:t[s],enumerable:!0})},c=(e,t,s,a)=>{if(t&&typeof t==\"object\"||typeof t==\"function\")for(let o of u(t))!j.call(e,o)&&o!==s&&r(e,o,{get:()=>t[o],enumerable:!(a=m(t,o))||a.enumerable});return e};var h=(e,t,s)=>(s=e!=null?x(l(e)):{},c(t||!e||!e.__esModule?r(s,\"default\",{value:e,enumerable:!0}):s,e)),v=e=>c(r({},\"__esModule\",{value:!0}),e);var d=f((q,i)=>{i.exports=_jsx_runtime});var b={};_(b,{default:()=>T,frontmatter:()=>y});var n=h(d()),y={title:'Por que se chama uma express\\xE3o Tern\\xE1ria, o que indica a palavra \"Ternary\"?'};function p(e){let t=Object.assign({p:\"p\",code:\"code\"},e.components);return(0,n.jsxs)(t.p,{children:[(0,n.jsx)(t.code,{children:\"Ternary\"}),' indica tr\\xEAs, e uma express\\xE3o tern\\xE1ria aceita tr\\xEAs operandos: a condi\\xE7\\xE3o de teste, a express\\xE3o \"then\" e a express\\xE3o \"else\". As express\\xF5es tern\\xE1rias n\\xE3o s\\xE3o espec\\xEDficas do JavaScript e n\\xE3o estou certo do motivo de estarem nesta lista.']})}function M(e={}){let{wrapper:t}=e.components||{};return t?(0,n.jsx)(t,Object.assign({},e,{children:(0,n.jsx)(p,e)})):p(e)}var T=M;return v(b);})();\n;return Component;"
 }

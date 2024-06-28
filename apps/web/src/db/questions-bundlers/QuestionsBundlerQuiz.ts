@@ -1,6 +1,5 @@
 import fs from 'fs';
 import grayMatter from 'gray-matter';
-import path from 'path';
 
 import type {
   QuestionMetadata,
@@ -8,26 +7,26 @@ import type {
 } from '~/components/interviews/questions/common/QuestionsTypes';
 
 import { readMDXFile } from './QuestionsBundler';
+import type { QuestionsQuizSourceConfig } from './QuestionsBundlerQuizConfig';
 import {
-  getQuestionSrcPathQuizJavaScript,
-  getQuestionSrcPathQuizNonJavaScript,
-  QUESTIONS_SRC_DIR_QUIZ_JS,
-  QUESTIONS_SRC_DIR_QUIZ_NON_JS,
+  QuestionsQuizSourceConfigJavaScript,
+  QuestionsQuizSourceConfigNonJavaScript,
 } from './QuestionsBundlerQuizConfig';
 import { normalizeQuestionFrontMatter } from '../QuestionsUtils';
 
 async function readQuestionMetadataQuiz(
-  questionPath: string,
+  quizSourceConfig: QuestionsQuizSourceConfig,
+  slug: string,
   locale = 'en-US',
 ): Promise<QuestionMetadata> {
   // Read frontmatter from MDX file.
-  const filePath = path.join(questionPath, `${locale}.mdx`);
+  const filePath = quizSourceConfig.questionsItemFilePath(slug, locale);
 
   const source = fs.readFileSync(filePath).toString().trim();
   const { data: frontMatter } = grayMatter(source);
 
   // Read locale-agnostic metadata file.
-  const metadataPath = path.join(questionPath, 'metadata.json');
+  const metadataPath = quizSourceConfig.questionsItemMetadataPath(slug);
   const metadataJSON = JSON.parse(String(fs.readFileSync(metadataPath)));
   // Combine them together.
   const metadata = normalizeQuestionFrontMatter(
@@ -35,21 +34,33 @@ async function readQuestionMetadataQuiz(
     'quiz',
   );
 
-  return metadata;
+  return {
+    ...metadata,
+    gitHubEditUrl: quizSourceConfig.gitHubEditUrl(slug, locale),
+  };
 }
 
 async function readQuestionMetadataWithFallbackQuiz(
-  questionPath: string,
+  quizSourceConfig: QuestionsQuizSourceConfig,
+  slug: string,
   requestedLocale = 'en-US',
 ): Promise<{ loadedLocale: string; metadata: QuestionMetadata }> {
   let loadedLocale = requestedLocale;
   const metadata = await (async () => {
     try {
-      return await readQuestionMetadataQuiz(questionPath, requestedLocale);
+      return await readQuestionMetadataQuiz(
+        quizSourceConfig,
+        slug,
+        requestedLocale,
+      );
     } catch {
       loadedLocale = 'en-US';
 
-      return await readQuestionMetadataQuiz(questionPath, loadedLocale);
+      return await readQuestionMetadataQuiz(
+        quizSourceConfig,
+        slug,
+        loadedLocale,
+      );
     }
   })();
 
@@ -60,12 +71,13 @@ async function readQuestionMetadataWithFallbackQuiz(
 }
 
 export async function readQuestionQuiz(
-  questionPath: string,
+  quizSourceConfig: QuestionsQuizSourceConfig,
+  slug: string,
   locale = 'en-US',
 ): Promise<QuestionQuiz> {
   const [metadata, description] = await Promise.all([
-    readQuestionMetadataQuiz(questionPath, locale),
-    readMDXFile(path.join(questionPath, `${locale}.mdx`), {}),
+    readQuestionMetadataQuiz(quizSourceConfig, slug, locale),
+    readMDXFile(quizSourceConfig.questionsItemFilePath(slug, locale), {}),
   ]);
 
   return {
@@ -81,7 +93,7 @@ export async function readQuestionListMetadataQuiz(
 ): Promise<ReadonlyArray<QuestionMetadata>> {
   // Non-JavaScript.
   const nonJavaScriptQuestionsDirectories = fs
-    .readdirSync(QUESTIONS_SRC_DIR_QUIZ_NON_JS, {
+    .readdirSync(QuestionsQuizSourceConfigNonJavaScript.questionsListPath, {
       withFileTypes: true,
     })
     .filter((dirent) => dirent.isDirectory());
@@ -89,10 +101,10 @@ export async function readQuestionListMetadataQuiz(
   const nonJavaScriptQuestions = await Promise.all(
     nonJavaScriptQuestionsDirectories.map(async (dirent) => {
       const slug = dirent.name;
-      const questionPath = getQuestionSrcPathQuizNonJavaScript(slug);
 
       const { metadata } = await readQuestionMetadataWithFallbackQuiz(
-        questionPath,
+        QuestionsQuizSourceConfigNonJavaScript,
+        slug,
         locale,
       );
 
@@ -102,7 +114,7 @@ export async function readQuestionListMetadataQuiz(
 
   // JavaScript.
   const javaScriptQuestionsDirectories = fs
-    .readdirSync(QUESTIONS_SRC_DIR_QUIZ_JS, {
+    .readdirSync(QuestionsQuizSourceConfigJavaScript.questionsListPath, {
       withFileTypes: true,
     })
     .filter((dirent) => dirent.isDirectory());
@@ -110,10 +122,10 @@ export async function readQuestionListMetadataQuiz(
   const javaScriptQuestions = await Promise.all(
     javaScriptQuestionsDirectories.map(async (dirent) => {
       const slug = dirent.name;
-      const questionPath = getQuestionSrcPathQuizJavaScript(slug);
 
       const { metadata } = await readQuestionMetadataWithFallbackQuiz(
-        questionPath,
+        QuestionsQuizSourceConfigJavaScript,
+        slug,
         locale,
       );
 
