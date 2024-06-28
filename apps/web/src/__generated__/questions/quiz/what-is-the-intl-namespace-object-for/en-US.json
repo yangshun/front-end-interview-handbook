@@ -24,7 +24,8 @@
     "subtitle": null,
     "title": "What is the `Intl` namespace object for?",
     "topics": [
-      "javascript"
+      "javascript",
+      "i18n"
     ],
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-is-the-intl-namespace-object-for/en-US.mdx"
   },

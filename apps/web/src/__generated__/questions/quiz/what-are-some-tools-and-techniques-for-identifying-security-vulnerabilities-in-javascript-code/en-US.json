@@ -24,7 +24,8 @@
     "subtitle": null,
     "title": "What are some tools and techniques for identifying security vulnerabilities in JavaScript code?",
     "topics": [
-      "javascript"
+      "javascript",
+      "security"
     ],
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-are-some-tools-and-techniques-for-identifying-security-vulnerabilities-in-javascript-code/en-US.mdx"
   },

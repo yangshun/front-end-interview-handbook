@@ -24,7 +24,8 @@
     "subtitle": null,
     "title": "What are some common performance bottlenecks in JavaScript applications?",
     "topics": [
-      "javascript"
+      "javascript",
+      "performance"
     ],
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-are-some-common-performance-bottlenecks-in-javascript-applications/en-US.mdx"
   },

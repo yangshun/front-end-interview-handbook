@@ -24,7 +24,8 @@
     "subtitle": null,
     "title": "What are some tools that can be used to measure and analyze JavaScript performance?",
     "topics": [
-      "javascript"
+      "javascript",
+      "performance"
     ],
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-are-some-tools-that-can-be-used-to-measure-and-analyze-javascript-performance/en-US.mdx"
   },

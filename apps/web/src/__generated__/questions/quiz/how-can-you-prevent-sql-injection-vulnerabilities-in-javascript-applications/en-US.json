@@ -24,7 +24,8 @@
     "subtitle": null,
     "title": "How can you prevent SQL injection vulnerabilities in JavaScript applications?",
     "topics": [
-      "javascript"
+      "javascript",
+      "security"
     ],
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/how-can-you-prevent-sql-injection-vulnerabilities-in-javascript-applications/en-US.mdx"
   },

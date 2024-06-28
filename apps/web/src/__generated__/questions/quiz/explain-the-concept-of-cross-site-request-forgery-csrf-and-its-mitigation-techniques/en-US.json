@@ -24,7 +24,9 @@
     "subtitle": null,
     "title": "Explain the concept of Cross-Site Request Forgery (CSRF) and its mitigation techniques",
     "topics": [
-      "javascript"
+      "javascript",
+      "network",
+      "security"
     ],
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/explain-the-concept-of-cross-site-request-forgery-csrf-and-its-mitigation-techniques/en-US.mdx"
   },

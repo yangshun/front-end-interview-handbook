@@ -24,7 +24,8 @@
     "subtitle": null,
     "title": "What are the different ways to make an API call in JavaScript?",
     "topics": [
-      "javascript"
+      "javascript",
+      "network"
     ],
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-are-the-different-ways-to-make-an-api-call-in-javascript/en-US.mdx"
   },

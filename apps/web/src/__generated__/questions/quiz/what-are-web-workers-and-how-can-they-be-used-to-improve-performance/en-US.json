@@ -24,7 +24,8 @@
     "subtitle": null,
     "title": "What are Web Workers and how can they be used to improve performance?",
     "topics": [
-      "javascript"
+      "javascript",
+      "performance"
     ],
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-are-web-workers-and-how-can-they-be-used-to-improve-performance/en-US.mdx"
   },

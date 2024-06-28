@@ -8,7 +8,7 @@
     "difficulty": "hard",
     "duration": 5,
     "excerpt": null,
-    "featured": true,
+    "featured": false,
     "format": "quiz",
     "frameworkDefault": null,
     "frameworks": [],

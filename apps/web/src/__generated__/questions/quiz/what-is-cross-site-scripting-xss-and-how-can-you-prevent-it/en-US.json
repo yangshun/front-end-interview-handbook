@@ -24,7 +24,8 @@
     "subtitle": null,
     "title": "What is Cross-Site Scripting (XSS) and how can you prevent it?",
     "topics": [
-      "javascript"
+      "javascript",
+      "security"
     ],
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-is-cross-site-scripting-xss-and-how-can-you-prevent-it/en-US.mdx"
   },

@@ -24,7 +24,8 @@
     "subtitle": null,
     "title": "What are some tools that can be used for JavaScript testing?",
     "topics": [
-      "javascript"
+      "javascript",
+      "testing"
     ],
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-are-some-tools-that-can-be-used-for-javascript-testing/en-US.mdx"
   },

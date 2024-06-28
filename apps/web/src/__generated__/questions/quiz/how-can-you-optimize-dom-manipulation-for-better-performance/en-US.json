@@ -24,7 +24,8 @@
     "subtitle": null,
     "title": "How can you optimize DOM manipulation for better performance?",
     "topics": [
-      "javascript"
+      "javascript",
+      "performance"
     ],
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/how-can-you-optimize-dom-manipulation-for-better-performance/en-US.mdx"
   },

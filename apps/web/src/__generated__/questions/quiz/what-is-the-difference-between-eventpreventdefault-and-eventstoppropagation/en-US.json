@@ -24,7 +24,8 @@
     "subtitle": null,
     "title": "What is the difference between `event.preventDefault()` and `event.stopPropagation()`?",
     "topics": [
-      "javascript"
+      "javascript",
+      "html"
     ],
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-is-the-difference-between-eventpreventdefault-and-eventstoppropagation/en-US.mdx"
   },

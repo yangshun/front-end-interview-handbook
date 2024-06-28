@@ -133,7 +133,7 @@ export async function readQuestionListMetadataQuiz(
     }),
   );
 
-  const questions = [...nonJavaScriptQuestions, ...javaScriptQuestions];
+  const questions = [...javaScriptQuestions, ...nonJavaScriptQuestions];
 
   return questions.filter(({ published }) => published);
 }

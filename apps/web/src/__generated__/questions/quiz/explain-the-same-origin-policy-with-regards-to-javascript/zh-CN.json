@@ -8,7 +8,7 @@
     "difficulty": "hard",
     "duration": 5,
     "excerpt": null,
-    "featured": true,
+    "featured": false,
     "format": "quiz",
     "frameworkDefault": null,
     "frameworks": [],
@@ -25,7 +25,8 @@
     "title": "解释与JavaScript有关的同源策略。",
     "topics": [
       "javascript",
-      "network"
+      "network",
+      "security"
     ],
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/explain-the-same-origin-policy-with-regards-to-javascript/zh-CN.mdx"
   },

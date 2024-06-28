@@ -24,7 +24,8 @@
     "subtitle": null,
     "title": "How can you implement secure authentication and authorization in JavaScript applications?",
     "topics": [
-      "javascript"
+      "javascript",
+      "security"
     ],
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/how-can-you-implement-secure-authentication-and-authorization-in-javascript-applications/en-US.mdx"
   },

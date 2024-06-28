@@ -24,7 +24,8 @@
     "subtitle": null,
     "title": "What are some best practices for handling sensitive data in JavaScript?",
     "topics": [
-      "javascript"
+      "javascript",
+      "security"
     ],
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-are-some-best-practices-for-handling-sensitive-data-in-javascript/en-US.mdx"
   },

@@ -24,7 +24,8 @@
     "subtitle": null,
     "title": "How do you add, remove, and modify HTML elements using JavaScript?",
     "topics": [
-      "javascript"
+      "javascript",
+      "html"
     ],
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/how-do-you-add-remove-and-modify-html-elements-using-javascript/en-US.mdx"
   },

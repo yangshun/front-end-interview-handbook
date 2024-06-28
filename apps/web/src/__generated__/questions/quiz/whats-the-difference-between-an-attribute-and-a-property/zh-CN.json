@@ -24,7 +24,8 @@
     "subtitle": null,
     "title": "\"attribute\" 和 \"property\" 之间有什么区别？",
     "topics": [
-      "javascript"
+      "javascript",
+      "html"
     ],
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/whats-the-difference-between-an-attribute-and-a-property/zh-CN.mdx"
   },

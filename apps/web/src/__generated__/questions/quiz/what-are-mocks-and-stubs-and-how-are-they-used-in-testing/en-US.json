@@ -24,7 +24,8 @@
     "subtitle": null,
     "title": "What are mocks and stubs and how are they used in testing?",
     "topics": [
-      "javascript"
+      "javascript",
+      "testing"
     ],
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-are-mocks-and-stubs-and-how-are-they-used-in-testing/en-US.mdx"
   },

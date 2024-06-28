@@ -24,7 +24,8 @@
     "subtitle": null,
     "title": "Explain the concept of caching and how it can be used to improve performance",
     "topics": [
-      "javascript"
+      "javascript",
+      "performance"
     ],
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/explain-the-concept-of-caching-and-how-it-can-be-used-to-improve-performance/en-US.mdx"
   },

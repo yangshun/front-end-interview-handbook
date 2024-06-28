@@ -24,7 +24,8 @@
     "subtitle": null,
     "title": "Explain the concept of test-driven development (TDD)",
     "topics": [
-      "javascript"
+      "javascript",
+      "testing"
     ],
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/explain-the-concept-of-test-driven-development-tdd/en-US.mdx"
   },
