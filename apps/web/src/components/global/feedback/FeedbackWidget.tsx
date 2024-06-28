@@ -55,7 +55,13 @@ function OnlineUsers({ count }: Readonly<{ count: number }>) {
   );
 }
 
-export default function FeedbackWidget() {
+type Props = Readonly<{
+  bottomClassname?: string;
+}>;
+
+export default function FeedbackWidget({
+  bottomClassname = 'bottom-6',
+}: Props) {
   const intl = useIntl();
   const {
     showFeedbackWidget,
@@ -76,7 +82,8 @@ export default function FeedbackWidget() {
     <>
       <div
         className={clsx(
-          'z-fixed group fixed bottom-6 right-6',
+          'z-fixed group',
+          ['fixed right-6', bottomClassname],
           'flex items-center justify-start',
           'rounded-full',
           'p-2',
