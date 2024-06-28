@@ -4,6 +4,7 @@ export const QUESTIONS_SRC_DIR_QUIZ_NON_JS = path.join(
   process.cwd(),
   '..',
   '..',
+  'submodules',
   'front-end-interview-handbook',
   'packages',
   'quiz',
@@ -13,6 +14,7 @@ export const QUESTIONS_SRC_DIR_QUIZ_JS = path.join(
   process.cwd(),
   '..',
   '..',
+  'submodules',
   'top-javascript-interview-questions',
   'questions',
 );

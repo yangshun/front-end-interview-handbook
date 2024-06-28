@@ -52,6 +52,7 @@ function requestToPaths({ params }: Props): Readonly<{
     process.cwd(),
     '..',
     '..',
+    'submodules',
     'front-end-interview-handbook',
     'packages',
     'front-end-interview-guidebook',
