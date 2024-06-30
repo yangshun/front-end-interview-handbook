@@ -1534,7 +1534,8 @@
     "subtitle": null,
     "title": "解释一个单页应用程序是什么以及如何优化SEO",
     "topics": [
-      "javascript"
+      "javascript",
+      "html"
     ],
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/explain-what-a-single-page-app-is-and-how-to-make-one-seo-friendly/zh-CN.mdx"
   },
@@ -5198,7 +5199,8 @@
     "subtitle": null,
     "title": "您什么时候使用 `document.write()`？",
     "topics": [
-      "javascript"
+      "javascript",
+      "html"
     ],
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/when-would-you-use-document-write/zh-CN.mdx"
   },

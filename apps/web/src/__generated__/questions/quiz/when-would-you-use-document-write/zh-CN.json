@@ -24,7 +24,8 @@
     "subtitle": null,
     "title": "您什么时候使用 `document.write()`？",
     "topics": [
-      "javascript"
+      "javascript",
+      "html"
     ],
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/when-would-you-use-document-write/zh-CN.mdx"
   },
