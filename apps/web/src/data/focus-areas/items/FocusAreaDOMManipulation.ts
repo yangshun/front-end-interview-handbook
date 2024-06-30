@@ -28,6 +28,7 @@ export function getFocusAreaDOMManipulation(intl: IntlShape): FocusArea {
     questions: {
       javascript: [
         'get-elements-by-class-name',
+        'get-elements-by-style',
         'get-elements-by-tag-name',
         'jquery-class-manipulation',
         'jquery-css',

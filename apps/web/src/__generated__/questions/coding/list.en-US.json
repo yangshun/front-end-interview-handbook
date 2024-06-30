@@ -2003,11 +2003,46 @@
     "published": true,
     "ranking": 100,
     "similarQuestions": [
-      "get-elements-by-tag-name"
+      "get-elements-by-tag-name",
+      "get-elements-by-style"
     ],
     "slug": "get-elements-by-class-name",
     "subtitle": null,
     "title": "getElementsByClassName",
+    "topics": []
+  },
+  {
+    "author": "yangshun",
+    "companies": [
+      "amazon"
+    ],
+    "created": 1719705600,
+    "difficulty": "medium",
+    "duration": 20,
+    "excerpt": "Implement a function to get all DOM elements that are rendered using the specified style",
+    "featured": false,
+    "format": "javascript",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/javascript/get-elements-by-style",
+    "importance": "mid",
+    "languages": [
+      "html",
+      "css",
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [],
+    "premium": true,
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [
+      "get-elements-by-tag-name",
+      "get-elements-by-class-name"
+    ],
+    "slug": "get-elements-by-style",
+    "subtitle": null,
+    "title": "getElementsByStyle",
     "topics": []
   },
   {
@@ -2033,7 +2068,8 @@
     "published": true,
     "ranking": 100,
     "similarQuestions": [
-      "get-elements-by-class-name"
+      "get-elements-by-class-name",
+      "get-elements-by-style"
     ],
     "slug": "get-elements-by-tag-name",
     "subtitle": null,

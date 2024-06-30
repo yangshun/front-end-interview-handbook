@@ -1,0 +1,8 @@
+{
+  "run": "/src/get-elements-by-style.run.test.ts",
+  "submit": "/src/get-elements-by-style.submit.test.ts",
+  "skeleton": {
+    "js": "/src/get-elements-by-style.skeleton.js",
+    "ts": "/src/get-elements-by-style.skeleton.ts"
+  }
+}

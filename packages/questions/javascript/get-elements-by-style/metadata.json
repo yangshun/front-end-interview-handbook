@@ -1,0 +1,16 @@
+{
+  "slug": "get-elements-by-style",
+  "author": "yangshun",
+  "created": "2024-06-30T00:00:00.000Z",
+  "languages": ["html", "css", "js", "ts"],
+  "companies": ["amazon"],
+  "premium": true,
+  "duration": 20,
+  "published": true,
+  "importance": "mid",
+  "difficulty": "medium",
+  "similar_questions": [
+    "get-elements-by-tag-name",
+    "get-elements-by-class-name"
+  ]
+}

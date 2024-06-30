@@ -7,9 +7,11 @@ excerpt: Implement a function to get all DOM elements that contain the specified
 
 Let's implement our own [`Element.getElementsByClassName()`](https://developer.mozilla.org/en-US/docs/Web/API/Element/getElementsByClassName) that is similar but slightly different:
 
-- It is a pure function which takes in an element and a `classNames` string, a string containing one or more class names to match on, separated by whitespace.
-- Like `Element.getElementsByClassName()`, only descendants of the specified element are searched, not the element itself.
+- It is a pure function which takes in an element and a `classNames` string, a string containing one or more class names to match on, separated by whitespace. E.g. `getElementsByClassName(document.body, 'foo bar')`.
+- Similar to `Element.getElementsByClassName()`, only descendants of the element argument are searched, not the element itself.
 - Return an array of `Element`s, instead of an `HTMLCollection` of `Element`s.
+
+Do not use `document.querySelectorAll()` which will make the problem trivial otherwise. You will not be allowed to use it during real interviews.
 
 ## Examples
 

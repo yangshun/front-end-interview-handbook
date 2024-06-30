@@ -7,14 +7,16 @@ excerpt: Implement a function to get all DOM elements that match a tag
 
 Let's implement our own [`Element.getElementsByTagName()`](https://developer.mozilla.org/en-US/docs/Web/API/Element/getElementsByTagName) that is similar but slightly different:
 
-- It is a pure function which takes in an element and a tag name string.
-- Like `Element.getElementsByTagName()`, only descendants of the specified element are searched, not the element itself.
+- It is a pure function which takes in an element and a tag name string. E.g. `getElementsByTagName(document.body, 'div')`.
+- Similar to `Element.getElementsByTagName()`, only descendants of the element argument are searched, not the element itself.
 - Return an array of `Element`s, instead of an `HTMLCollection` of `Element`s.
+
+Do not use `document.querySelectorAll()` which will otherwise make the problem trivial.
 
 ## Examples
 
 ```js
-const document = new DOMParser().parseFromString(
+const doc = new DOMParser().parseFromString(
   `<div id="foo">
     <span>Span</span>
     <p>Paragraph</p>
@@ -23,7 +25,7 @@ const document = new DOMParser().parseFromString(
   'text/html',
 );
 
-getElementsByTagName(document.body, 'div');
+getElementsByTagName(doc.body, 'div');
 // [div#foo, div#bar] <-- This is an array of elements.
 ```
 

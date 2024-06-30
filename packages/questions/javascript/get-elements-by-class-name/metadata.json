@@ -9,5 +9,5 @@
   "published": true,
   "importance": "mid",
   "difficulty": "medium",
-  "similar_questions": ["get-elements-by-tag-name"]
+  "similar_questions": ["get-elements-by-tag-name", "get-elements-by-style"]
 }
