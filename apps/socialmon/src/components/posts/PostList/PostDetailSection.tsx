@@ -1,5 +1,6 @@
 import clsx from 'clsx';
 import { type ChangeEvent } from 'react';
+import toast from 'react-hot-toast';
 
 import { trpc } from '~/hooks/trpc';
 
@@ -27,14 +28,22 @@ export default function PostDetailSection({
   const isBelowDesktop = useMediaQuery('(max-width: 1023px)');
   const generateResponseMutation =
     trpc.socialPosts.generateResponse.useMutation({
+      onError() {
+        toast.error('Something went wrong. Try again later.');
+      },
       onSuccess() {
         utils.socialPosts.invalidate();
+        toast.success('Response has been generated!');
       },
     });
   const replyPostMutation = trpc.socialPosts.replyToPost.useMutation({
+    onError() {
+      toast.error('Something went wrong. Try again later.');
+    },
     onSuccess() {
       utils.socialPosts.invalidate();
       setSelectedPost(null);
+      toast.success('You have replied to the post successfully!');
     },
   });
 
@@ -47,7 +56,6 @@ export default function PostDetailSection({
     });
 
     if (!result) {
-      // TODO(socialmon): show toast
       return;
     }
 

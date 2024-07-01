@@ -1,6 +1,7 @@
 import clsx from 'clsx';
 
 import GlobalProviders from '~/components/global/GlobalProviders';
+import CustomToaster from '~/components/ui/CustomToaster';
 
 import '~/styles/globals.css';
 import '@mantine/core/styles.css';
@@ -17,6 +18,7 @@ export default function RootLayout({ children }: Props) {
       <body className={clsx('antialiased')}>
         <GlobalProviders>
           <MantineProvider>
+            <CustomToaster />
             <div className="bg-white">{children}</div>
           </MantineProvider>
         </GlobalProviders>
