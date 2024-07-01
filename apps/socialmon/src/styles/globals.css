@@ -34,7 +34,3 @@ a {
   color: inherit;
   text-decoration: none;
 }
-
-[data-mode='dark'] {
-  color-scheme: dark; /* Makes some default elements (e.g. scrollbar) dark */
-}

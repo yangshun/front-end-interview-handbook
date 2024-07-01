@@ -5,15 +5,18 @@ import { useState } from 'react';
 
 import { trpc } from '~/hooks/trpc';
 
+import Container from '~/components/ui/Container';
+
+import { NAVBAR_HEIGHT } from '~/constants';
+
 import PostDetailSection from './PostDetailSection';
 import PostItem from './PostItem';
 
-import type { Post } from '~/types';
-import type { PostTab } from '~/types';
+import type { Post, PostTab } from '~/types';
 
 import '@mantine/core/styles.css';
 
-import { Button, Tabs, Text, Title } from '@mantine/core';
+import { Button, Tabs, Text } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 
 const LIMIT = 20;
@@ -45,7 +48,9 @@ export default function PostList() {
   };
 
   return (
-    <div className={clsx('mx-auto h-screen max-w-screen-2xl', 'p-4', 'flex')}>
+    <Container
+      className={clsx('flex-1', 'p-4', 'flex')}
+      style={{ height: `calc(100vh - ${NAVBAR_HEIGHT}px)` }}>
       <div
         className={clsx(
           'flex flex-col gap-2',
@@ -53,9 +58,6 @@ export default function PostList() {
           'w-full lg:w-3/5',
           'lg:border-r',
         )}>
-        <Title mb="md" order={2}>
-          Posts from Reddit
-        </Title>
         <Tabs
           value={activeTab}
           onChange={(value) => setActiveTab(value as PostTab)}>
@@ -99,6 +101,6 @@ export default function PostList() {
         selectedPost={selectedPost}
         setSelectedPost={setSelectedPost}
       />
-    </div>
+    </Container>
   );
 }

@@ -125,6 +125,10 @@ module.exports = {
         3: '.046875em',
         4: '.0625em',
       },
+      zIndex: {
+        // Modified from: https://github.com/twbs/bootstrap/blob/main/scss/_variables.scss#L1133
+        fixed: 30,
+      },
     },
   },
   plugins: [

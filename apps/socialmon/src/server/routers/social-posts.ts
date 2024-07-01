@@ -2,7 +2,7 @@ import { z } from 'zod';
 
 import PlatformManager from '~/interfaces/implementations/PlatformManager';
 
-import { publicProcedure, router } from '../trpc';
+import { router, userProcedure } from '../trpc';
 import { type AIProvider } from '../../interfaces/AIProvider';
 import OpenAIProvider from '../../interfaces/implementations/OpenAIProvider';
 import { type Platform } from '../../interfaces/Platform';
@@ -51,7 +51,7 @@ const postSchema = z.object({
 });
 
 export const socialPostsRouter = router({
-  generateResponse: publicProcedure
+  generateResponse: userProcedure
     .input(
       z.object({
         post: postSchema,
@@ -87,7 +87,7 @@ export const socialPostsRouter = router({
       }
     }),
 
-  getPosts: publicProcedure
+  getPosts: userProcedure
     .input(
       z.object({
         cursor: z.string().nullish(),
@@ -109,7 +109,7 @@ export const socialPostsRouter = router({
       });
     }),
 
-  replyToPost: publicProcedure
+  replyToPost: userProcedure
     .input(
       z.object({
         postId: z.string(),

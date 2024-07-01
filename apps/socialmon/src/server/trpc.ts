@@ -9,9 +9,11 @@
  */
 import superjson from 'superjson';
 
-import { initTRPC } from '@trpc/server';
+import type { Context } from './context';
 
-const t = initTRPC.context().create({
+import { initTRPC, TRPCError } from '@trpc/server';
+
+const t = initTRPC.context<Context>().create({
   transformer: superjson,
 });
 
@@ -20,5 +22,24 @@ const t = initTRPC.context().create({
  **/
 export const publicProcedure = t.procedure;
 
-export const { router } = t;
-export const { middleware } = t;
+export const { router, middleware } = t;
+
+export const isUser = middleware(async (opts) => {
+  const { ctx } = opts;
+
+  if (ctx.session == null) {
+    throw new TRPCError({
+      code: 'UNAUTHORIZED',
+      message: 'User is not signed in. Sign in first.',
+    });
+  }
+
+  return opts.next({
+    ctx: {
+      ...ctx,
+      session: ctx.session,
+    },
+  });
+});
+
+export const userProcedure = publicProcedure.use(isUser);

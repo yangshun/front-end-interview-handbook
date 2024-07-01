@@ -26,14 +26,14 @@ function PostMetadata({ post, showViewPost, showRepliedBadge }: Props) {
         </div>
 
         {showViewPost && (
-          <Link className="h-[34px]" href={post.url} target="_blank">
-            <Button
-              component="div"
-              rightSection={<RiArrowRightUpLine />}
-              variant="subtle">
-              View Post
-            </Button>
-          </Link>
+          <Button
+            component={Link}
+            href={post.url}
+            rightSection={<RiArrowRightUpLine />}
+            target="_blank"
+            variant="subtle">
+            View Post
+          </Button>
         )}
       </div>
 

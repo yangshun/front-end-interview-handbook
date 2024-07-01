@@ -6,7 +6,7 @@ import type { Post } from '~/types';
 
 import '@mantine/core/styles.css';
 
-import { Title } from '@mantine/core';
+import { Box, Title } from '@mantine/core';
 
 type Props = Readonly<{
   onClick: () => void;
@@ -22,19 +22,22 @@ export default function PostItem({
   showRepliedBadge,
 }: Props) {
   return (
-    <div
+    <Box
       className={clsx(
+        'w-full',
         'p-2',
         'rounded',
         'hover:bg-slate-100',
         'transition-all duration-200',
         'cursor-pointer',
         'flex flex-col gap-2',
+        'text-left',
         selected && 'bg-slate-200',
       )}
+      component="button"
       onClick={onClick}>
       <Title order={5}>{post.title}</Title>
       <PostMetadata post={post} showRepliedBadge={showRepliedBadge} />
-    </div>
+    </Box>
   );
 }
