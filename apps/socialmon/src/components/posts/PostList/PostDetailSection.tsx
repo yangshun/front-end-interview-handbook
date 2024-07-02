@@ -32,7 +32,7 @@ export default function PostDetailSection({
         toast.error('Something went wrong. Try again later.');
       },
       onSuccess() {
-        utils.socialPosts.invalidate();
+        utils.socialPosts.getPosts.invalidate();
         toast.success('Response has been generated!');
       },
     });
@@ -41,7 +41,7 @@ export default function PostDetailSection({
       toast.error('Something went wrong. Try again later.');
     },
     onSuccess() {
-      utils.socialPosts.invalidate();
+      utils.socialPosts.getPosts.invalidate();
       setSelectedPost(null);
       toast.success('You have replied to the post successfully!');
     },

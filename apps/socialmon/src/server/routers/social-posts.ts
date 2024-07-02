@@ -98,6 +98,11 @@ export const socialPostsRouter = router({
       });
     }),
 
+  getPostsFromPlatform: userProcedure.query(async () => {
+    const platform = getPlatform();
+
+    return await platform.getRelevantPosts();
+  }),
   replyToPost: userProcedure
     .input(
       z.object({

@@ -9,6 +9,7 @@ import Container from '~/components/ui/Container';
 
 import { NAVBAR_HEIGHT } from '~/constants';
 
+import FetchPostButton from './FetchPostButton';
 import PostDetailSection from './PostDetailSection';
 import PostItem from './PostItem';
 
@@ -58,21 +59,29 @@ export default function PostList() {
           'w-full lg:w-3/5',
           'lg:border-r',
         )}>
-        <Tabs
-          value={activeTab}
-          onChange={(value) => setActiveTab(value as PostTab)}>
-          <Tabs.List>
-            <Tabs.Tab value="all">All</Tabs.Tab>
-            <Tabs.Tab value="unreplied">Unreplied</Tabs.Tab>
-            <Tabs.Tab value="replied">Replied</Tabs.Tab>
-          </Tabs.List>
-        </Tabs>
+        <div className="relative">
+          <Tabs
+            value={activeTab}
+            onChange={(value) => setActiveTab(value as PostTab)}>
+            <Tabs.List>
+              <Tabs.Tab value="all">All</Tabs.Tab>
+              <Tabs.Tab value="unreplied">Unreplied</Tabs.Tab>
+              <Tabs.Tab value="replied">Replied</Tabs.Tab>
+            </Tabs.List>
+          </Tabs>
+          <div className="absolute right-4 top-0.5">
+            <FetchPostButton />
+          </div>
+        </div>
+
         <Text hidden={!isLoading} size="md">
           Loading...
         </Text>
+
         {!isLoading && posts?.length === 0 && (
           <Text size="md">No post found</Text>
         )}
+
         <div className={clsx('flex-1', 'overflow-y-auto', 'divide-y')}>
           {posts?.map((post) => (
             <PostItem
@@ -95,6 +104,7 @@ export default function PostList() {
           )}
         </div>
       </div>
+
       <PostDetailSection
         closeModal={close}
         openedModal={opened}
