@@ -1,0 +1,18 @@
+{
+  "slug": "get-elements-by-tag-name-hierarchy",
+  "author": "yangshun",
+  "created": "2024-07-02T00:00:00.000Z",
+  "languages": ["html", "js", "ts"],
+  "companies": ["dropbox"],
+  "premium": true,
+  "duration": 30,
+  "published": true,
+  "importance": "low",
+  "difficulty": "hard",
+  "featured": false,
+  "similar_questions": [
+    "get-elements-by-class-name",
+    "get-elements-by-style",
+    "get-elements-by-tag-name"
+  ]
+}

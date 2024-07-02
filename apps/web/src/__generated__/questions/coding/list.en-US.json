@@ -2079,6 +2079,40 @@
   {
     "author": "yangshun",
     "companies": [
+      "dropbox"
+    ],
+    "created": 1719878400,
+    "difficulty": "hard",
+    "duration": 30,
+    "excerpt": "Implement a function to get all DOM elements that match a tag hierarchy",
+    "featured": false,
+    "format": "javascript",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/javascript/get-elements-by-tag-name-hierarchy",
+    "importance": "low",
+    "languages": [
+      "html",
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [],
+    "premium": true,
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [
+      "get-elements-by-class-name",
+      "get-elements-by-style",
+      "get-elements-by-tag-name"
+    ],
+    "slug": "get-elements-by-tag-name-hierarchy",
+    "subtitle": null,
+    "title": "getElementsByTagNameHierarchy",
+    "topics": []
+  },
+  {
+    "author": "yangshun",
+    "companies": [
       "uber"
     ],
     "created": 1671148800,

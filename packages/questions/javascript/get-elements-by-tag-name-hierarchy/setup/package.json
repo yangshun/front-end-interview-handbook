@@ -1,0 +1,9 @@
+{
+  "name": "@gfe-questions/get-elements-by-tag-name-hierarchy",
+  "version": "0.0.1",
+  "main": "/src/get-elements-by-tag-name-hierarchy.ts",
+  "devDependencies": {
+    "@types/jest": "29.5.0",
+    "typescript": "5.0.2"
+  }
+}

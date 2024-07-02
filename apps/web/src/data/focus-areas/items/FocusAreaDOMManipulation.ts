@@ -30,6 +30,7 @@ export function getFocusAreaDOMManipulation(intl: IntlShape): FocusArea {
         'get-elements-by-class-name',
         'get-elements-by-style',
         'get-elements-by-tag-name',
+        'get-elements-by-tag-name-hierarchy',
         'jquery-class-manipulation',
         'jquery-css',
         'html-serializer',

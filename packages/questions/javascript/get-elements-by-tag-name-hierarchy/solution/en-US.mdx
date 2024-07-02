@@ -1,0 +1,100 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import getElementsByTagNameHierarchyJs from '../setup/src/get-elements-by-tag-name-hierarchy.js';
+import getElementsByTagNameHierarchyTs from '../setup/src/get-elements-by-tag-name-hierarchy.ts';
+import getElementsByTagNameHierarchyBottomUpJs from '../setup/src/get-elements-by-tag-name-hierarchy-bottom-up.js';
+import getElementsByTagNameHierarchyBottomUpTs from '../setup/src/get-elements-by-tag-name-hierarchy-bottom-up.ts';
+
+This solution assumes you have completed the [getElementsByTagName](/questions/javascript/get-elements-by-tag-name) question and fully understand its solution.
+
+The [getElementsByTagName](/questions/javascript/get-elements-by-tag-name) question assesses you on basic DOM traversal APIs and recursion. This question is an advanced version where multiple tags can be specified.
+
+## Solution
+
+Firstly, we need to note the following points, similar to [getElementsByTagName](/questions/javascript/get-elements-by-tag-name):
+
+- `Element.tagName` returns an **uppercase** string of an element's tag name (e.g. `'DIV'`, `'SPAN'`), so the tag name arguments have to be converted to be the same case before comparison.
+- `Element.children` which returns a live `HTMLCollection` of the child elements. We use this over `Node.childNodes` which returns a live `NodeList` of child `Node`s because `childNodes` will include non-element nodes like text and comment nodes, which are not relevant in this question.
+  - However `HTMLCollection` does not have `.forEach`, so we have to iterate through it using traditional `for` loops.
+
+### Approach
+
+The solution approach can be broken down into two parts:
+
+1. Splitting `tagNames` into an array of tag name tokens.
+1. Traversing the `document` argument and finding elements that match the specified `tagNames` hierarchy.
+
+### 1. Splitting `tagNames` (tokenization)
+
+For this question, the `tagNames` argument is quite flexible. It can:
+
+1. Contain leading and trailing spaces.
+1. Contain tags that are of any case – lowercase, uppercase, mixed case. `document.querySelectorAll()` is case-insensitive.
+
+To tokenize the `tagNames` string (identify the list of tag names accurately), we can:
+
+1. Transform the string to uppercase via `.toUpperCase()` to handle any casing differences. Uppercase is chosen because `Element.tagName` returns an uppercase string.
+1. Trimming the string via `.trim()` to remove leading and trailing spaces.
+1. Splitting the string via `.split(/\s+/)` to split by whitespace, which can also split by consecutive whitespaces.
+
+### 2. Traversing the `document` to find matching elements
+
+The trickiest part of the problem is identifying the matching elements. The last tag in the list is the elements to be matched. All the tags before the last tag are for specifying the hierarchy.
+
+```js
+// E.g. tagNames = 'div SPAN sPaN'
+// After tokenizing, tagTokens:
+[
+  'div', // hierarchy tag
+  'span', // hierarchy tag
+  'span', // element tag (to be matched)
+];
+```
+
+Depth-first search (DFS) is used here because in DFS, for each node, the ancestors will be in its recursion stack. By making use of this fact, we can keep a pointer to the position within `tagTokens` and if the current element's tag matches `tagTokens[tagTokenIndex]`, increment the index for the next traversal. Incrementing the index means that among the elements descendants, we only need to match the remaining tokens. However, we should not increment past the last index as the last index is a special one – the last tag is the tag name to be matched.
+
+When `tagTokenIndex` is the last index of `tagTokens`, any elements that match that tag are considered a match, and can be added to `results`.
+
+The traversal can be kicked off by using the `<body>` element (via `document.body`) and a starting index of 0.
+
+<MDXCodeBlock
+  languages={{
+    jsx: getElementsByTagNameHierarchyJs,
+    tsx: getElementsByTagNameHierarchyTs,
+  }}
+/>
+
+## Bottom-up solution
+
+An alternative solution is to use the same approach as how browsers match selectors, by matching from the bottom-up. Browsers usually match selectors from right to left. This is more efficient because it allows the browser to quickly eliminate large sets of elements. For example, in the selector `div p`, the browser first finds all `<p>` elements, then checks if they have a parent or ancestor that's a `<div>`.
+
+The first step is to find all the matching tags (the last tag in the list). This is essentially the [getElementsByTagName](/questions/javascript/get-elements-by-tag-name) question. For each of these tags, traverse the parent chain of nodes with `element.parentNode` and check the ancestor hierarchy. This approach is clearer to understand but is longer to implement.
+
+<MDXCodeBlock
+  languages={{
+    jsx: getElementsByTagNameHierarchyBottomUpJs,
+    tsx: getElementsByTagNameHierarchyBottomUpTs,
+  }}
+/>
+
+## Edge cases
+
+- Leading/trailing spaces in tag names string.
+- Additional spaces between tag names.
+- Non-lowercase tag name items.
+
+## Techniques
+
+- Recursion
+- DOM APIs
+  - How to check an `Element`'s tag name
+  - How to traverse an `Element`'s children
+
+## Notes
+
+- `Element.tagName` is uppercase (e.g. `'DIV'`, `'SPAN'`), so be sure to use case-insensitive string comparisons.
+
+## Resources
+
+- [Document: querySelectorAll() method - Web APIs | MDN](https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelectorAll)
+- [Element: getElementsByTagName() method - Web APIs | MDN](https://developer.mozilla.org/en-US/docs/Web/API/Element/getElementsByTagName)

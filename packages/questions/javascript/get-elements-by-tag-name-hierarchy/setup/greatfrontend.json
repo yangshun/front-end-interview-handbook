@@ -1,0 +1,8 @@
+{
+  "run": "/src/get-elements-by-tag-name-hierarchy.run.test.ts",
+  "submit": "/src/get-elements-by-tag-name-hierarchy.submit.test.ts",
+  "skeleton": {
+    "js": "/src/get-elements-by-tag-name-hierarchy.skeleton.js",
+    "ts": "/src/get-elements-by-tag-name-hierarchy.skeleton.ts"
+  }
+}
