@@ -1,0 +1,545 @@
+---
+title: JavaScript Interview Questions for 5+ Years of Experience
+description: Explore advanced JavaScript interview questions and answers designed for engineers with 5+ years of experience, curated by big tech senior engineers.
+tags:
+  - javascript
+level: intermediate
+createdAt: 2024-06-27
+author: blog/author/nitesh-seram.json
+category: blog/category/front-end-interviews.json
+published: true
+---
+
+As a seasoned JavaScript developer with 5+ years of experience, you're likely no stranger to the intricacies of JavaScript. However, even the most experienced developers can benefit from a refresher on the most critical concepts and nuances of the language. In this article, we'll cover the top 20 JavaScript interview questions that can help you prepare effectively for your next interview.
+
+## 1. What's a typical use case for anonymous functions in JavaScript?
+
+Anonymous functions provide a concise way to define functions, especially useful for simple operations or callbacks. They are commonly used in:
+
+- **Immediate execution**: Encapsulate code within a local scope using Immediately Invoked Function Expressions (IIFEs).
+- **Callbacks**: Define handlers directly where they are called without having to search elsewhere.
+- **Higher-order functions**: Use as arguments to functions like **`map()`**, **`filter()`**, and **`reduce()`**.
+- **Event Handling**: Common in React for inline event handling.
+
+Checkout the below code example-
+
+```js
+// Encapsulating Code using IIFE
+(function () {
+  // Some code here.
+})();
+
+// Callbacks
+setTimeout(function () {
+  console.log('Hello world!');
+}, 1000);
+
+// Functional programming constructs
+const arr = [1, 2, 3];
+const double = arr.map(function (el) {
+  return el * 2;
+});
+console.log(double); // [2, 4, 6]
+```
+
+## 2. What is a closure in JavaScript, and why would you use one?
+
+A closure is a function that retains access to these variables even after the outer function has finished executing. This is like the function has a memory of its original environment.
+
+```js
+function outerFunction() {
+  const outerVar = 'I am outside of innerFunction';
+
+  function innerFunction() {
+    console.log(outerVar); // `innerFunction` can still access `outerVar`.
+  }
+
+  return innerFunction;
+}
+
+const inner = outerFunction(); // `inner` now holds a reference to `innerFunction`.
+
+inner(); // "I am outside of innerFunction"
+// Even though `outerFunction` has completed execution, `inner` still has access to variables defined inside `outerFunction`.
+```
+
+Closures are useful for:
+
+- **Data encapsulation**: Create private variables and functions that can't be accessed from outside the closure.
+- **Maintaining state**: Particularly in functional programming and React hooks.
+- **Event handlers and callbacks**: Retain access to variables when handlers are defined.
+
+## 3. What are the pros and cons of using Promises instead of callbacks in JavaScript?
+
+**Pros**:
+
+- **Avoid callback hell**: Promises simplify nested callbacks.
+
+  ```js
+  // Callback hell
+  getData1((data) => {
+    getData2(data, (data) => {
+      getData3(data, (result) => {
+        console.log(result);
+    });
+  });
+  ```
+
+- **Sequential code**: Easier to write and read using **`.then()`**.
+- **Parallel code**: Simplifies managing multiple promises with **`Promise.all()`**.
+
+  ```js
+  Promise.all([getData1(), getData2(), getData3()])
+    .then((results) => {
+      console.log(results);
+    })
+    .catch((error) => {
+      console.error('Error:', error);
+    });
+  ```
+
+**Cons**:
+
+- Can be slightly more complex to understand initially.
+
+## 4. How do you abort a web request using `AbortController` in JavaScript?
+
+**`AbortController`** allows you to cancel ongoing asynchronous operations like fetch requests. To use it:
+
+    1. **Create an instance**: **`const controller = new AbortController();`**
+    2.**Pass the signal**: Add the signal to the fetch request options.
+    3. **Abort the request**: Call **`controller.abort()`** to cancel the request.
+
+Here is an example of how to use **`AbortController`**s with the **`fetch()`** API:
+
+```js
+const controller = new AbortController();
+const signal = controller.signal;
+
+fetch('YOUR API', { signal })
+  .then((response) => {
+    // Handle response
+  })
+  .catch((error) => {
+    if (error.name === 'AbortError') {
+      console.log('Request aborted');
+    } else {
+      console.error('Error:', error);
+    }
+  });
+
+// Call abort() to abort the request
+controller.abort();
+```
+
+Some of its use cases can be:
+
+    - **Cancel a `fetch()` request on a user action**
+    - **Prioritize latest requests in a race condition**
+    - **Cancel requests that are no longer needed**
+
+## 5. Why is extending built-in JavaScript objects not a good idea?
+
+In JavaScript it's very easy to extend a built-in/native object. You can simply extend a built-in object by adding properties and functions to its **`prototype`**.
+
+```js
+String.prototype.reverseString = function () {
+  return this.split('').reverse().join('');
+};
+
+console.log('hello world'.reverseString()); // Outputs 'dlrow olleh'
+
+// Instead of extending the built-in object, write a pure utility function to do it.
+
+function reverseString(str) {
+  return str.split('').reverse().join('');
+}
+
+console.log(reverseString('hello world')); // Outputs 'dlrow olleh'
+```
+
+While this may seem like a good idea at first, it is dangerous in practice. Imagine your code uses a few libraries that both extend the **`Array.prototype`** by adding the same **`contains`** method, the implementations will overwrite each other and your code will have unpredictable behavior if these two methods do not work the same way.
+
+Extending built-in objects can lead to issues such as:
+
+- **Future-proofing**: Risk of conflicts with future implementations.
+- **Collisions**: Potential clashes with other libraries.
+- **Maintenance**: Difficult for other developers to understand.
+- **Performance**: Potential negative impact.
+- **Security**: Risk of introducing vulnerabilities.
+- **Compatibility**: Issues across different environments.
+
+## 6. Why is it, in general, a good idea to leave the global JavaScript scope of a website as-is and never touch it?
+
+In the browser, the global scope refers to the top-level context where variables, functions, and objects are accessible throughout the code. This scope is represented by the window object. Variables and functions declared outside of any function or block (excluding modules) are added to the window object, making them globally accessible.
+
+For example:
+
+```js
+// This runs in the global scope, not within a module.
+let globalVar = 'Hello, world!';
+function greet() {
+  console.log('Greetings from the global scope!');
+}
+
+console.log(window.globalVar); // 'Hello, world!'
+window.greet(); // 'Greetings from the global scope!'
+```
+
+In this example, globalVar and greet are attached to the window object and can be accessed from anywhere in the global scope.
+
+Generally, it's advisable to avoid polluting the global namespace unless necessary. Key reasons include:
+
+- **Naming conflicts**: Multiple scripts sharing the global scope can lead to conflicts and bugs when new global variables or changes are introduced.
+- **Cluttered global namespace**: Minimizing the global namespace helps keep the codebase manageable and maintainable.
+- **Scope leaks**: Accidental references to global variables in closures or event handlers can result in memory leaks and performance issues.
+- **Modularity and encapsulation**: Good design practices involve keeping variables and functions within specific scopes, improving organization, reusability, and maintainability.
+- **Security concerns**: Global variables are accessible by all scripts, including potentially malicious ones, posing security risks, especially if they contain sensitive data.
+- **Compatibility and portability**: Relying heavily on global variables reduces code portability and complicates integration with other libraries or frameworks.
+
+## 7. Explain the differences between CommonJS modules and ES modules in JavaScript?
+
+In JavaScript, modules are reusable pieces of code that encapsulate functionality, making it easier to manage, maintain, and structure your applications. Modules allow you to break down your code into smaller, manageable parts, each with its own scope.
+
+**CommonJS** is an older module system that was initially designed for server-side JavaScript development with Node.js. It uses the **`require()`** function to load modules and the **`module.exports`** or **`exports`** object to define the exports of a module.
+
+```js
+// my-module.js
+const value = 42;
+module.exports = { value };
+
+// main.js
+const myModule = require('./my-module.js');
+console.log(myModule.value); // 42
+```
+
+**ES Modules** (ECMAScript Modules) are the standardized module system introduced in ES6 (ECMAScript 2015). They use the **`import`** and **`export`** statements to handle module dependencies.
+
+```js
+// my-module.js
+export const value = 42;
+
+// main.js
+import { value } from './my-module.js';
+console.log(value); // 42
+```
+
+## 8. Explain the difference between mutable and immutable objects in JavaScript
+
+Immutability is a core principle in functional programming but it has lots to offer to object-oriented programs as well.
+
+#### Mutable objects
+
+Mutable objects in JavaScript allow for modifications to their properties and values after creation. This behavior is default for most objects.
+
+```js
+let mutableObject = {
+  name: 'John',
+  age: 30,
+};
+
+// Modify the object
+mutableObject.name = 'Jane';
+
+console.log(mutableObject); // Output: { name: 'Jane', age: 30 }
+```
+
+Mutable objects like `mutableObject` above can have their properties changed directly, making them flexible for dynamic updates.
+
+#### Immutable objects
+
+In contrast, immutable objects cannot be modified once created. Any attempt to change their content results in the creation of a new object with the updated values.
+
+```js
+const immutableObject = Object.freeze({
+  name: 'John',
+  age: 30,
+});
+
+// Attempting to modify the object
+immutableObject.name = 'Jane'; // This change won't affect the object
+
+console.log(immutableObject); // Output: { name: 'John', age: 30 }
+```
+
+Here, `immutableObject` remains unchanged after creation due to `Object.freeze()`, which prevents modifications to its properties.
+
+The primary difference lies in modifiability. Mutable objects allow changes to their properties directly, while immutable objects ensure the integrity of their initial state by disallowing direct modifications.
+
+#### **`const` vs immutable objects**
+
+A common confusion is that declaring a variable using **`const`** makes the value immutable, which is not true at all.
+
+Using `const` prevents the reassignment of variables but doesn't make non-primitive values immutable.
+
+```js
+// Using const
+const person = { name: 'John' };
+person = { name: 'Jane' }; // Error: Assignment to constant variable
+person.name = 'Jane'; // Allowed, person.name is now 'Jane'
+
+// Using Object.freeze() to create an immutable object
+const frozenPerson = Object.freeze({ name: 'John' });
+frozenPerson.name = 'Jane'; // Fails silently (no error, but no change)
+frozenPerson = { name: 'Jane' }; // Error: Assignment to constant variable
+```
+
+In the first example with **`const`**, reassigning a new object to **`person`** is not allowed, but modifying the **`name`** property is permitted. In the second example, **`Object.freeze()`** makes the **`frozenPerson`** object immutable, preventing any changes to its properties.
+
+## 9. Why might you want to create static class members in JavaScript?
+
+Static class members in JavaScript, denoted by the `static` keyword, are accessed directly on the class itself, not on instances. They serve multiple purposes:
+
+    1. **Namespace Organization**: They help organize constants or configuration values within the class, preventing naming conflicts.
+
+    ```js
+    class Config {
+      static API_KEY = 'your-api-key';
+      static FEATURE_FLAG = true;
+    }
+
+    console.log(Config.API_KEY); // Output: 'your-api-key'
+    console.log(Config.FEATURE_FLAG); // Output: true
+    ```
+
+    2. **Helper Functions**: Static methods act as utility functions for the class or its instances, improving code readability.
+
+    ```js
+    class Arithmetic {
+      static add(a, b) {
+        return a + b;
+      }
+      static subtract(a, b) {
+        return a - b;
+      }
+    }
+
+    console.log(Arithmetic.add(2, 3)); // Output: 5
+    console.log(Arithmetic.subtract(5, 2)); // Output: 3
+    ```
+
+    3. **Singleton Pattern**: They can facilitate the singleton pattern, ensuring only one instance of a class exists.
+
+    ```js
+    class Singleton {
+      static instance;
+
+      static getInstance() {
+        if (!this.instance) {
+          this.instance = new Singleton();
+        }
+        return this.instance;
+      }
+    }
+
+    const singleton1 = Singleton.getInstance();
+    const singleton2 = Singleton.getInstance();
+
+    console.log(singleton1 === singleton2); // Output: true
+    ```
+
+    4. **Performance Benefits**: Static members reduce memory usage by being shared across all instances.
+
+## 10. What are `Symbol`s used for in JavaScript?
+
+Symbols in JavaScript, introduced in ES6, are unique and immutable identifiers primarily used as object property keys to avoid name collisions. They can be created using the `Symbol()` function, ensuring each Symbol value is unique even if descriptions are identical. Symbol properties are non-enumerable, making them suitable for private object state.
+
+```js
+const sym1 = Symbol();
+const sym2 = Symbol('uniqueKey');
+
+console.log(typeof sym1); // "symbol"
+console.log(sym1 === sym2); // false, each symbol is unique
+
+const obj = {};
+const sym = Symbol('uniqueKey');
+
+obj[sym] = 'value';
+console.log(obj[sym]); // "value"
+```
+
+Key characteristics include:
+
+- **Uniqueness**: Each Symbol value is unique.
+- **Immutability**: Symbol values cannot be changed.
+- **Non-enumerability**: Symbol properties are not listed in `for...in` loops or `Object.keys()`.
+
+Global Symbols can be created using `Symbol.for('key')`, allowing reuse across different parts of codebases:
+
+```js
+const globalSym1 = Symbol.for('globalKey');
+const globalSym2 = Symbol.for('globalKey');
+
+console.log(globalSym1 === globalSym2); // true
+
+const key = Symbol.keyFor(globalSym1);
+console.log(key); // "globalKey"
+```
+
+There are some well known `Symbol` in JavaScript like:
+
+- **`Symbol.iterator`**: Defines the default **`iterator`** for an object.
+- **`Symbol.toStringTag`**: Used to create a string description for an object.
+- **`Symbol.hasInstance`**: Used to determine if an object is an instance of a constructor.
+
+## 11. What are JavaScript object getters and setters for?
+
+JavaScript object getters and setters are essential for controlling access to object properties, offering customization when getting or setting values.
+
+```js
+const user = {
+  _firstName: 'John',
+  _lastName: 'Doe',
+
+  get fullName() {
+    return `${this._firstName} ${this._lastName}`;
+  },
+
+  set fullName(value) {
+    const parts = value.split(' ');
+    this._firstName = parts[0];
+    this._lastName = parts[1];
+  },
+};
+
+console.log(user.fullName); // Output: 'John Doe'
+user.fullName = 'Jane Smith';
+console.log(user.fullName); // Output: 'Jane Smith'
+```
+
+Getters (`fullName`) compute values based on internal properties (`_firstName` and `_lastName`), while setters (`fullName`) update these properties based on assigned values (`'Jane Smith'`). These mechanisms enhance data encapsulation and allow for custom data handling in JavaScript objects.
+
+## 12. What tools and techniques do you use for debugging JavaScript code?
+
+Tools and techniques for debugging JavaScript code vary depending on the context:
+
+- JavaScript
+  - Chrome Devtools: Provides a comprehensive set of debugging tools including breakpoints, stepping through code, watching variables, profiling performance, etc. You can learn more about it [here](https://david-gilbertson.medium.com/twelve-fancy-chrome-devtools-tips-dc1e39d10d9d).
+  - **`debugger` statement:** Inserting `debugger;` in code triggers breakpoints when Devtools are open, pausing execution for inspection.
+  - **Traditional `console.log()` debugging:** Using `console.log()` statements to output variable values and debug messages.
+- React and Redux
+  - [React Devtools](https://github.com/facebook/react-devtools): Facilitates debugging React component hierarchies, state, and props.\*\*
+  - [Redux Devtools](https://github.com/gaearon/redux-devtools): Enhances debugging Redux state changes, actions, and dispatched events.
+- Vue
+  - [Vue Devtools](https://github.com/vuejs/vue-devtools): Extends Vue.js development experience with component inspection, state visualization, and event tracking.
+
+## 13. Can you give an example of a curry function and why this syntax offers an advantage?
+
+Currying in JavaScript is a functional programming technique where a function with multiple arguments is transformed into a sequence of nested functions, each taking a single argument. This allows for partial application of the function's arguments, meaning you can fix some arguments ahead of time and then apply the remaining arguments later.
+
+Here's a simple example of a curry function and why this syntax offers an advantage:
+
+```js
+// Example of a curry function
+function curry(fn) {
+  return function curried(...args) {
+    if (args.length >= fn.length) {
+      return fn(...args);
+    } else {
+      return function (...moreArgs) {
+        return curried(...args, ...moreArgs);
+      };
+    }
+  };
+}
+
+// Example function to be curried
+function multiply(a, b, c) {
+  return a * b * c;
+}
+
+// Currying the multiply function
+const curriedMultiply = curry(multiply);
+
+// Applying curried functions
+const step1 = curriedMultiply(2); // partially apply 2
+const step2 = step1(3); // partially apply 3
+const result = step2(4); // apply the final argument
+
+console.log(result); // Output: 24
+```
+
+**Advantages of Curry Syntax**:
+
+    - **Partial Application:** You can create specialized versions of functions by fixing some arguments, making it easier to reuse and compose functions.
+    - **Modularity and Reusability:** Encourages modular programming by breaking down functions into smaller, reusable parts.
+    - **Flexibility:** Allows for function chaining and incremental application of arguments, which can improve code readability and maintainability.
+
+Currying enhances the functional programming paradigm in JavaScript by enabling concise, composable, and reusable functions, promoting cleaner and more modular code.
+
+## 14. What is the difference between the document `load` event and the document `DOMContentLoaded` event?
+
+The **`DOMContentLoaded`** event is triggered once the initial HTML document has been fully loaded and parsed, without waiting for stylesheets, images, and subframes to finish loading.
+
+In contrast, the window's **`load`** event is fired only after the DOM and all dependent resources, such as stylesheets, images, and subframes, have completely loaded.
+
+## 15. Explain how JSONP works (and how it's not really Ajax).
+
+JSONP (JSON with Padding) is a technique used to circumvent cross-domain restrictions in web browsers, as standard Ajax requests to different domains are generally blocked.
+
+Instead of using Ajax, JSONP makes a request to a cross-origin domain by dynamically creating a `<script>` tag with a callback query parameter, such as: `https://example.com?callback=handleResponse`. The server wraps the data in a function named `handleResponse` and returns it.
+
+```html
+<script>
+  function handleResponse(data) {
+    console.log(`User: ${data.username}`);
+  }
+</script>
+
+<script src="<https://example.com?callback=handleResponse>"></script>
+```
+
+For this to work, the client must define the `handleResponse` function in the global scope, which will be invoked when the response is received.
+
+JSONP poses security risks because it executes JavaScript from external sources. Therefore, it's crucial to trust the JSONP provider.
+
+Nowadays, [CORS](http://en.wikipedia.org/wiki/Cross-origin_resource_sharing) is the preferred method, making JSONP largely obsolete.
+
+## 16. Explain the same-origin policy with regard to JavaScript.
+
+The same-origin policy restricts JavaScript from making requests to different domains. An origin is specified by the combination of the URI scheme, hostname, and port number. This policy is crucial for security, as it prevents a malicious script on one page from accessing sensitive data on another page's Document Object Model (DOM). This ensures that data remains secure within its designated origin, blocking unauthorized cross-origin interactions.
+
+## 17. Explain what a single page app is and how to make one SEO-friendly.
+
+Single Page Apps (SPAs) are highly interactive web applications that load a single HTML page and dynamically update content as the user interacts with the app. Unlike traditional server-side rendering, SPAs use client-side rendering, fetching new data via AJAX without full-page refreshes. This approach makes the app more responsive and reduces the number of HTTP requests.
+
+**Pros**:
+
+    - Improved responsiveness with no full-page refreshes.
+    - Fewer HTTP requests, as assets are reused.
+    - Clear separation between client and server, allowing independent updates.
+
+**Cons**:
+
+    - Heavier initial load due to loading all necessary assets upfront.
+    - Requires server configuration to route all requests to a single entry point.
+    - SEO challenges, as some search engines may not execute JavaScript, resulting in empty content.
+
+To enhance SEO for SPAs, consider:
+
+    - Server-side rendering to generate HTML on the server.
+    - Using services like Prerender to render JavaScript in a browser, save static HTML, and return it to search engine crawlers.
+
+## 18. How do you organize your code?
+
+In the past, developers often used Backbone for models, promoting an OOP approach by creating Backbone models and attaching methods to them.
+
+While the module pattern remains useful, modern development often favors React/Redux, which employs a single-directional data flow based on the Flux architecture. Here, app data models are typically represented using plain objects, with utility pure functions to manipulate these objects. State changes are handled using actions and reducers, following Redux principles.
+
+Avoid classical inheritance when possible. If you must use it, adhere to best practices and guidelines.
+
+## 19. What is the extent of your experience with Promises and/or their polyfills?
+
+Possess working knowledge of it. Promises can be fulfilled, rejected, or pending, and allow users to attach callbacks for handling outcomes.
+
+Common polyfills include **`$.deferred`**, Q, and Bluebird. However, with ES2015 providing native support, polyfills are typically unnecessary.
+
+## 20. What's the difference between an "attribute" and a "property"?
+
+**Attributes:** Defined in HTML tags, they provide initial info for the browser (like "Hello" in `<input type="text" value="Hello">`).
+
+**Properties:** Belong to the DOM (JavaScript's view of the page), allowing you to access and change element info after the page loads (like updating the text field value).
+
+## Conclusion
+
+You made it till the end! I hope you found these JavaScript questions helpful in preparing for your next interview. As an experienced developer, mastering both foundational and advanced concepts is key to showcasing your expertise and acing your next interview. But the most important thing to remember is that it's okay to not know everything - it's all about being willing to learn and improve.
