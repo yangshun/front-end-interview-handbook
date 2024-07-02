@@ -1,11 +1,12 @@
 import { generateObject } from 'ai';
-import { z } from 'zod';
 
 import resources from '~/data/resources.json' assert { type: 'json' };
 
+import { aiResponseSchema } from '~/schema';
+
 import type { AIProvider } from '../AIProvider';
 
-import type { Post } from '~/types';
+import type { AIResponse, Post } from '~/types';
 
 import { openai } from '@ai-sdk/openai';
 
@@ -23,7 +24,7 @@ class OpenAIProvider implements AIProvider {
       D. The comment should be informal and very casual. Feel free to be ungrammatical and have spelling errors.
       E. Summarize where possible. Get to the point directly.
       F. Do not include a concluding paragraph. Do not include greetings or sign-offs.
-      G. Analyze the given promotion resources to see if there are any relevance with the description of the resource and the title and content of the post. If any resources are relevant to the post, include a suggestion to check out the resource with its link.
+      G. Promote one resource from the promotion resources provided which description is relevant to either title or content of the post.
       H. The promotion should be VERY BRIEF if included. It should also be linked directly to the post and your response and should always be subtly place at the END of the response.
 
       Promotion resources: ${JSON.stringify(resources)};
@@ -36,7 +37,6 @@ class OpenAIProvider implements AIProvider {
 
       Note:
       1. You must only respond with the relevant comment, as if you were responding to the post directly.
-      2. The comment MUST respond to the post. If you are unable to subtly promote the resources, then do not mention the resources at all.
     `;
   }
 
@@ -47,9 +47,7 @@ class OpenAIProvider implements AIProvider {
     `;
   }
 
-  async generateResponseTo(
-    post: Post,
-  ): Promise<{ promotion: boolean; response: string }> {
+  async generateResponseTo(post: Post): Promise<AIResponse> {
     console.info('Generating response to post:', post.title);
 
     const systemPrompt = this.getSystemPrompt();
@@ -58,12 +56,7 @@ class OpenAIProvider implements AIProvider {
     const result = await generateObject({
       model: openai('gpt-4-turbo'),
       prompt: userPrompt,
-      schema: z.object({
-        promotion: z
-          .boolean()
-          .describe('Promotion are included in the response or not'),
-        response: z.string().describe('Response to title and content'),
-      }),
+      schema: aiResponseSchema,
       system: systemPrompt,
     });
 

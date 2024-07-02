@@ -1,6 +1,7 @@
 import { z } from 'zod';
 
 import PlatformManager from '~/interfaces/implementations/PlatformManager';
+import { postSchema } from '~/schema';
 
 import { router, userProcedure } from '../trpc';
 import { type AIProvider } from '../../interfaces/AIProvider';
@@ -37,18 +38,6 @@ function getPlatform(): Platform {
 function getAIProvider(): AIProvider {
   return new OpenAIProvider();
 }
-
-const postSchema = z.object({
-  content: z.string(),
-  foundAt: z.union([z.date(), z.string()]).nullable(),
-  id: z.string(),
-  postedAt: z.union([z.date(), z.string()]).nullable(),
-  replied: z.boolean(),
-  repliedAt: z.union([z.date(), z.string()]).nullable(),
-  response: z.string().nullable(),
-  title: z.string(),
-  url: z.string(),
-});
 
 export const socialPostsRouter = router({
   generateResponse: userProcedure
