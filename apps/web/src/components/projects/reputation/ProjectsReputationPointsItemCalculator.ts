@@ -67,12 +67,13 @@ export function projectsReputationSubmissionRoadmapSkillConfig(
   const challengeMetadata = readProjectsChallengeMetadata(challengeSlug);
   const { pointsForSkillGroups } = challengeMetadata;
   const parentSkill = projectsSkillDetermineParentSkill(skillKey)?.key;
-  const points =
+  const points: number =
     pointsForSkillGroups[parentSkill || ''] ??
     ProjectsReputationPointsConfig.SUBMISSION_SKILL_DEFAULT;
 
   return {
     key: `projects.submission.${challengeSlug}.skill.${skillKey}`,
+    parentSkillKey: parentSkill as string,
     points,
   };
 }

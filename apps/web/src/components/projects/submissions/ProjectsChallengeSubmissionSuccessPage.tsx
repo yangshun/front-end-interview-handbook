@@ -3,13 +3,15 @@ import { trpc } from '~/hooks/trpc';
 import Spinner from '~/components/ui/Spinner';
 
 import ProjectsChallengeSubmissionSuccessPageImpl from './ProjectsChallengeSubmissionSuccessPageImpl';
+import type { RoadmapSkillsRep } from '../skills/types';
 
 type Props = Readonly<{
+  gainedPoints: number;
   isLeveledUp: boolean;
   isViewerPremium: boolean;
   level: number;
   locale: string;
-  points: number;
+  roadmapSkillsRepRecords: ReadonlyArray<RoadmapSkillsRep>;
   submissionUrl: string;
 }>;
 
@@ -19,7 +21,8 @@ export default function ProjectsChallengeSubmissionSuccessPage({
   submissionUrl,
   level,
   isLeveledUp,
-  points,
+  gainedPoints,
+  roadmapSkillsRepRecords,
 }: Props) {
   const { data: progressData, isLoading } =
     trpc.projects.challenges.progress.useQuery({
@@ -47,11 +50,12 @@ export default function ProjectsChallengeSubmissionSuccessPage({
     <ProjectsChallengeSubmissionSuccessPageImpl
       challengeHistoricalStatuses={challengeHistoricalStatuses}
       completedChallenges={completedChallenges}
+      gainedPoints={gainedPoints}
       isLeveledUp={isLeveledUp}
       isViewerPremium={isViewerPremium}
       level={level}
-      points={points}
       projectTracks={projectTracks}
+      roadmapSkillsRepRecords={roadmapSkillsRepRecords}
       skillsRoadmap={skillsRoadmap}
       submissionUrl={submissionUrl}
     />

@@ -23,15 +23,19 @@ import ProjectsChallengeSubmissionForm from './ProjectsChallengeSubmissionForm';
 import ProjectsChallengeSubmissionSuccessPage from '../ProjectsChallengeSubmissionSuccessPage';
 import useProjectsChallengeSubmissionTakeScreenshotMutation from '../screenshots/useProjectsChallengeSubmissionTakeScreenshotMutation';
 import { projectsReputationLevel } from '../../reputation/projectsReputationLevelUtils';
+import type { RoadmapSkillsRep } from '../../skills/types';
 
 import type { ProjectsChallengeSession } from '@prisma/client';
+
 type SuccessPageInformationState = Readonly<{
   gainedPoints: number;
   isLeveledUp: boolean;
   level: number;
+  roadmapSkillsRepRecords: Array<RoadmapSkillsRep>;
   showSuccess: boolean;
   submissionUrl: string;
 }>;
+
 type Props = Readonly<{
   challenge: ProjectsChallengeItem;
   isViewerPremium: boolean;
@@ -57,12 +61,19 @@ export default function ProjectsChallengeSubmitPage({
       gainedPoints: 0,
       isLeveledUp: false,
       level: projectsReputationLevel(initialPoints).level,
+      roadmapSkillsRepRecords: [],
       showSuccess: false,
       submissionUrl: '',
     });
 
-  const { showSuccess, isLeveledUp, level, submissionUrl, gainedPoints } =
-    successPageInfo;
+  const {
+    showSuccess,
+    isLeveledUp,
+    level,
+    submissionUrl,
+    gainedPoints,
+    roadmapSkillsRepRecords,
+  } = successPageInfo;
 
   const takeScreenshotMutation =
     useProjectsChallengeSubmissionTakeScreenshotMutation('form');
@@ -77,7 +88,11 @@ export default function ProjectsChallengeSubmitPage({
         variant: 'danger',
       });
     },
-    onSuccess: ({ submission, points }) => {
+    onSuccess: ({
+      submission,
+      points,
+      roadmapSkillsRepRecords: skillRepRecord,
+    }) => {
       takeScreenshotMutation.mutate({ submissionId: submission.id });
       trpcUtils.projects.profile.invalidate();
       trpcUtils.projects.submissions.invalidate();
@@ -117,6 +132,7 @@ export default function ProjectsChallengeSubmitPage({
           gainedPoints: points,
           isLeveledUp: newLevel > oldLevel,
           level: newLevel,
+          roadmapSkillsRepRecords: skillRepRecord,
           showSuccess: true,
           submissionUrl: submission.hrefs.detail,
         }));
@@ -131,11 +147,12 @@ export default function ProjectsChallengeSubmitPage({
   if (showSuccess && SUBMISSION_SUCCESS_PAGE_AVAILABLE) {
     return (
       <ProjectsChallengeSubmissionSuccessPage
+        gainedPoints={gainedPoints}
         isLeveledUp={isLeveledUp}
         isViewerPremium={isViewerPremium}
         level={level}
         locale={locale}
-        points={gainedPoints}
+        roadmapSkillsRepRecords={roadmapSkillsRepRecords}
         submissionUrl={submissionUrl}
       />
     );

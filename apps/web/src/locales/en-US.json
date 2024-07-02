@@ -1,4 +1,8 @@
 {
+  "+1woLQ": {
+    "defaultMessage": "+{points} rep",
+    "description": "Rep gain for parent skill"
+  },
   "+59/34": {
     "defaultMessage": "Questions to Ask (End of Interview)",
     "description": "Best questions to ask at the end of a behavioral interviews"
@@ -2723,6 +2727,10 @@
     "defaultMessage": "Views on your submissions",
     "description": "Number of views on the project submissions"
   },
+  "KgN46v": {
+    "defaultMessage": "Leveling progress",
+    "description": "Label for leveling progress on project submission success page"
+  },
   "KhMTHf": {
     "defaultMessage": "We're largely free to use, but Premium gives you access to our best material and efforts.",
     "description": "Description of the pricing section in the Projects marketing page"
@@ -3715,6 +3723,10 @@
     "defaultMessage": "Gamified and socialized",
     "description": "Short title for \"Build together with other like-minded individuals\" feature marketing section on Projects home page"
   },
+  "RZedau": {
+    "defaultMessage": "See all",
+    "description": "Label for See all button on project submission success page"
+  },
   "Rbapby": {
     "defaultMessage": "What's new | Blog",
     "description": "Title of GreatFrontEnd blog what's new page"
@@ -4015,6 +4027,10 @@
     "defaultMessage": "Here are some highly-rated submissions you can reference while doing your project. We prioritize submissions by their ratings, the similarity of their tech stack to yours, and the seniority level of the commenter.",
     "description": "Description for Reference Submissions section on Projects project tips & resources page"
   },
+  "TgOWsI": {
+    "defaultMessage": "You've gained rep in these skills:",
+    "description": "Label for skills gained on project submission success page"
+  },
   "Tjz+5U": {
     "defaultMessage": "Giving away {discountPercentage}% off all plans!",
     "description": "Rewards discount message"
@@ -4258,6 +4274,10 @@
   "Vp6BGE": {
     "defaultMessage": "At least {minLength} character(s).",
     "description": "Error message"
+  },
+  "Vqbpp7": {
+    "defaultMessage": "Level up!",
+    "description": "label of Level bage"
   },
   "Vtp5JU": {
     "defaultMessage": "A long time ago",
@@ -7414,6 +7434,10 @@
   "uTqd3B": {
     "defaultMessage": "Add skills to grow in",
     "description": "Title for Add Skills To Grow In task on Projects dashboard page"
+  },
+  "uViVdm": {
+    "defaultMessage": "Details of rep gain across skills",
+    "description": "Details of rep gain across skills for submission"
   },
   "ub441I": {
     "defaultMessage": "Help others improve",

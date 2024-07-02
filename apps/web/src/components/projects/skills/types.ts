@@ -48,3 +48,9 @@ export type ProjectsSkillRoadmapSectionDifficulty = Readonly<{
 
 export type ProjectsSkillRoadmapSectionData =
   ReadonlyArray<ProjectsSkillRoadmapSectionDifficulty>;
+
+export type RoadmapSkillsRep = Readonly<{
+  key: string;
+  parentSkillKey: string;
+  points: number;
+}>;

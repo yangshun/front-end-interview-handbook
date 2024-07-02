@@ -3,8 +3,12 @@
 import type { ProjectsChallengeHistoricalStatuses } from '~/components/projects/challenges/types';
 
 import ProjectChallengeSubmissionSuccessHero from './hero/ProjectChallengeSubmissionSuccessHero';
+import ProjectChallengeSubmissionSuccessBody from './ProjectChallengeSubmissionSuccessBody';
 import { projectsChallengeCountCompletedIncludingHistorical } from '../challenges/utils/ProjectsChallengeUtils';
-import type { ProjectsSkillRoadmapSectionData } from '../skills/types';
+import type {
+  ProjectsSkillRoadmapSectionData,
+  RoadmapSkillsRep,
+} from '../skills/types';
 import type { ProjectsTrackItem } from '../tracks/data/ProjectsTracksData';
 
 const MAX_NO_OF_BADGES = 9;
@@ -14,10 +18,10 @@ export type BadgeData = {
   label: number | string;
 };
 
-export type BadgeItem = {
+export type BadgeItem = Readonly<{
   data: BadgeData;
   type: 'leveled-up' | 'reputation' | 'skill' | 'track';
-};
+}>;
 
 function getBadgeList(
   isLeveledUp: boolean,
@@ -135,11 +139,12 @@ function getCompletedTracks(
 type Props = Readonly<{
   challengeHistoricalStatuses: ProjectsChallengeHistoricalStatuses;
   completedChallenges: number;
+  gainedPoints: number;
   isLeveledUp: boolean;
   isViewerPremium: boolean;
   level: number;
-  points: number;
   projectTracks: ReadonlyArray<ProjectsTrackItem>;
+  roadmapSkillsRepRecords: ReadonlyArray<RoadmapSkillsRep>;
   skillsRoadmap: ProjectsSkillRoadmapSectionData;
   submissionUrl: string;
 }>;
@@ -148,26 +153,36 @@ export default function ProjectsChallengeSubmissionSuccessPageImpl({
   submissionUrl,
   isLeveledUp,
   level,
-  points,
+  gainedPoints,
   skillsRoadmap,
   projectTracks,
   challengeHistoricalStatuses,
   completedChallenges,
+  roadmapSkillsRepRecords,
 }: Props) {
   const badgeList: Array<BadgeItem> = getBadgeList(
     isLeveledUp,
     level,
-    points,
+    gainedPoints,
     skillsRoadmap,
     projectTracks,
     challengeHistoricalStatuses,
   );
 
   return (
-    <ProjectChallengeSubmissionSuccessHero
-      badgeList={badgeList}
-      challengeNumber={completedChallenges}
-      submissionUrl={submissionUrl}
-    />
+    <>
+      <ProjectChallengeSubmissionSuccessHero
+        badgeList={badgeList}
+        challengeNumber={completedChallenges}
+        submissionUrl={submissionUrl}
+      />
+      <ProjectChallengeSubmissionSuccessBody
+        gainedPoints={gainedPoints}
+        isLeveledUp={isLeveledUp}
+        level={level}
+        roadmapSkillsRepRecords={roadmapSkillsRepRecords}
+        skillsRoadmap={skillsRoadmap}
+      />
+    </>
   );
 }

@@ -6,12 +6,13 @@ import Text from '~/components/ui/Text';
 import { themeTextColor } from '~/components/ui/theme';
 import Tooltip from '~/components/ui/Tooltip';
 
+import { projectsReputationPointsToNextLevel } from '../reputation/projectsReputationLevelUtils';
+
 type Props = Readonly<{
   className?: string;
   currentLevel: number;
   currentRepCount: number;
   repIncrease: number;
-  repTotal: number;
 }>;
 
 export function ProjectsLevelingProgressBar({
@@ -19,9 +20,9 @@ export function ProjectsLevelingProgressBar({
   currentLevel,
   currentRepCount,
   repIncrease,
-  repTotal,
 }: Props) {
-  const repRemaining = repTotal - currentRepCount;
+  const repRemaining = projectsReputationPointsToNextLevel(currentRepCount);
+  const repTotal = repRemaining + currentRepCount;
 
   return (
     <div className={clsx('flex flex-col gap-3', className)}>

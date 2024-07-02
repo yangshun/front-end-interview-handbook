@@ -110,53 +110,54 @@ export const projectsChallengeSubmissionItemRouter = router({
 
         return await prisma.$transaction(
           async (tx) => {
-            const [submission, points] = await Promise.all([
-              tx.projectsChallengeSubmission.create({
-                data: {
-                  deploymentUrls: deploymentUrls as Prisma.JsonArray,
-                  implementation,
+            const [submission, { points, roadmapSkillsRepRecords }] =
+              await Promise.all([
+                tx.projectsChallengeSubmission.create({
+                  data: {
+                    deploymentUrls: deploymentUrls as Prisma.JsonArray,
+                    implementation,
+                    profileId: projectsProfileId,
+                    repositoryUrl,
+                    roadmapSkills,
+                    slug,
+                    summary,
+                    techStackSkills,
+                    title,
+                  },
+                }),
+                projectsReputationSubmissionAwardPoints(tx, {
                   profileId: projectsProfileId,
-                  repositoryUrl,
                   roadmapSkills,
                   slug,
-                  summary,
                   techStackSkills,
-                  title,
-                },
-              }),
-              projectsReputationSubmissionAwardPoints(tx, {
-                profileId: projectsProfileId,
-                roadmapSkills,
-                slug,
-                techStackSkills,
-              }),
-              (async () => {
-                if (existingSession == null) {
-                  await tx.projectsChallengeSession.create({
-                    data: {
-                      profileId: projectsProfileId,
-                      slug,
-                      status: 'COMPLETED',
-                      stoppedAt: new Date(),
-                    },
-                  });
-                } else {
-                  await tx.projectsChallengeSession.updateMany({
-                    data: {
-                      status: 'COMPLETED',
-                      stoppedAt: new Date(),
-                    },
-                    where: {
-                      profileId: projectsProfileId,
-                      slug,
-                      status: 'IN_PROGRESS',
-                    },
-                  });
-                }
-              })(),
-            ]);
+                }),
+                (async () => {
+                  if (existingSession == null) {
+                    await tx.projectsChallengeSession.create({
+                      data: {
+                        profileId: projectsProfileId,
+                        slug,
+                        status: 'COMPLETED',
+                        stoppedAt: new Date(),
+                      },
+                    });
+                  } else {
+                    await tx.projectsChallengeSession.updateMany({
+                      data: {
+                        status: 'COMPLETED',
+                        stoppedAt: new Date(),
+                      },
+                      where: {
+                        profileId: projectsProfileId,
+                        slug,
+                        status: 'IN_PROGRESS',
+                      },
+                    });
+                  }
+                })(),
+              ]);
 
-            return { points, submission };
+            return { points, roadmapSkillsRepRecords, submission };
           },
           {
             // Since there are 3 queries increase the timeout.
@@ -487,7 +488,7 @@ export const projectsChallengeSubmissionItemRouter = router({
             });
 
             // Have to do in sequence since the slug has to be fetched from the submission.
-            const points = await projectsReputationSubmissionAwardPoints(
+            const { points } = await projectsReputationSubmissionAwardPoints(
               tx,
               submission,
             );

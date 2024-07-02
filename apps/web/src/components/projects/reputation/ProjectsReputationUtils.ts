@@ -136,8 +136,11 @@ export async function projectsReputationSubmissionAwardPoints(
   // Sort by descending.
   roadmapSkillsRepRecords.sort((a, b) => b.points - a.points);
   // Take the first 4.
+
+  const top4roadmapSkillsRepRecords = roadmapSkillsRepRecords.slice(0, 4);
+
   connectOrCreateItems.push(
-    ...roadmapSkillsRepRecords.slice(0, 4).map((config) =>
+    ...top4roadmapSkillsRepRecords.map((config) =>
       projectsReputationConnectOrCreateShape({
         ...config,
         profileId: projectsProfileId,
@@ -167,7 +170,10 @@ export async function projectsReputationSubmissionAwardPoints(
     },
   });
 
-  return totalPoints;
+  return {
+    points: totalPoints,
+    roadmapSkillsRepRecords: top4roadmapSkillsRepRecords,
+  };
 }
 
 export async function projectsReputationSubmissionVoteAwardPoints(
