@@ -80,7 +80,9 @@ export default function ProjectsDiscussionsComment({
   );
 
   return (
-    <div className={clsx('flex grow flex-col', className)}>
+    // Id is to enable linking / auto scrolling to a specific comment
+    // TODO: rework this to integrate with comment pagination if comments list are paginated
+    <div className={clsx('flex grow flex-col', className)} id={comment.id}>
       <div className="flex items-start gap-4">
         <div className="relative flex flex-col items-center self-stretch">
           <ProjectsProfileAvatar

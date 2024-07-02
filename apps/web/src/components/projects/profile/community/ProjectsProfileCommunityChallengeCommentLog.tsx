@@ -1,4 +1,5 @@
 import { FormattedMessage } from 'react-intl';
+import url from 'url';
 
 import type { ProjectsProfileCommunityComment } from '~/components/projects/profile/community/ProjectsProfileCommunitySection';
 import Anchor from '~/components/ui/Anchor';
@@ -27,7 +28,12 @@ export default function ProjectsProfileCommunityChallengeCommentLog({
     </Text>
   );
   const linkValue = (chunks: Array<React.ReactNode>) => (
-    <Anchor className="relative" href={comment.entity?.href}>
+    <Anchor
+      className="relative"
+      href={url.format({
+        hash: comment.id,
+        pathname: comment.entity?.href,
+      })}>
       {chunks}
     </Anchor>
   );
