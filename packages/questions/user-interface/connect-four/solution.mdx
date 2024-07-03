@@ -1,0 +1,111 @@
+## Solution
+
+In the spirit of good software engineering, let's devise a solution that is as customizable as possible. We will build a Connect Four game that works with any numbers of rows, columns, and players. Let these be constants `ROWS`, `COLUMNS`, and `PLAYERS` respectively.
+
+![Connect Four example](/img/questions/connect-four/connect-four-example.png)
+
+### Setting up the playground
+
+From the example image, we see that we need at least three main sections:
+
+#### 1. The disc-drop area
+
+This is where a player will drop their disc. It is a single row of `COLUMNS` cells, each representing a column in the game grid. The color of the disc shown will be the current player's.
+
+#### 2. The game grid
+
+This is where all the discs will be placed. It is a `ROWS`-by-`COLUMNS` grid. More specifically, it is a `div` of `ROWS` number of `div`s. Each of these `div`s contains `COLUMNS` number of `div`s.
+
+Each cell has two states:
+
+- **empty**: which displays a transparent (or the app's background color) circle, and
+- **occupied**: which displays a circle colored with the player's disc color.
+
+> Tip: Use `border-radius: 100%;` to make a `div` a circle. This will apply a border radius of half of the width/height of the `div` in each corner.
+
+#### 3. The controls area
+
+This is where the reset button and game state (winning player, draw, errors, etc.) elements will be placed.
+
+### States
+
+As with any games, we need to keep track of some states throughout one game session.
+
+- `grid`, which is a `ROWS`-by-`COLUMNS` array that represents the current grid of discs.
+- `currentPlayer`, which is the current player's identifier, so we know whose disc to drop into the grid.
+- `winner`, which is the winning player's identifier, so we know who to congratulate! It is `null` at first. This state also doubles as a flag to indicate if the game has ended.
+
+Names may vary, and you may need other states to support your implementation. These are the minimum.
+
+### Binding the interactions
+
+At this point, you'd probably be thinking of the [actual Connect Four game](https://en.wikipedia.org/wiki/Connect_Four). To keep things simple, let's not worry about the animations of the discs dropping into the grid.
+
+#### Choosing a column to drop a disc
+
+In the disc-drop area, think of each cell as a button. When a button at index `i` is clicked, it triggers an event to drop a disc into column `i`.
+
+We will need to pass the current player's color to color these buttons.
+
+Notably, we want to only show a disc where the player is hovering; they are planning their move! There are many ways to detect if a button at index `i` is hovered.
+
+1. We can use the [`:hover` CSS pseudo-class](https://developer.mozilla.org/en-US/docs/Web/CSS/:hover) to detect if the button is currently hovered.
+
+2. We can use the [`mouseenter`](https://developer.mozilla.org/en-US/docs/Web/API/Element/mouseenter_event) or [`mousemove`](https://developer.mozilla.org/en-US/docs/Web/API/Element/mousemove_event) event listeners on the buttons to set a state (maybe some `currentColumn`) to `i`.
+
+Once we know if a button `i` is hovered, we can then modify [`background-color`](https://developer.mozilla.org/en-US/docs/Web/CSS/background-color), [`opacity`](https://developer.mozilla.org/en-US/docs/Web/CSS/opacity), or [`visibility`](https://developer.mozilla.org/en-US/docs/Web/CSS/visibility) to show or hide the button.
+
+#### Dropping a disc
+
+We trigger this interaction by binding a [`click`](https://developer.mozilla.org/en-US/docs/Web/API/Element/click_event) event listener to each button in the disc-drop area. This function will receive the column index `i` as an argument.
+
+The general algorithm for dropping a player `player`'s disc into column `i` is as follows.
+
+1. Find the cell `cell` such that it is the first empty row in column `i`.\
+   We do this by iterating through the elements (rows) of `grid` and finding the first element at index `i` (cell in each row) that is `null`.
+
+2. Set `cell` to `player`.
+
+After dropping a disc, we check if the game has ended.
+
+- If yes, we update `winner` to the winning player's identifier.
+- If not, we update `currentPlayer` to the next player in `PLAYERS`.
+
+Remember that if we cannot find an empty cell in column `i`, we should not allow any disc to drop there. We could either:
+
+- Show an error message with `alert` or some other UI element, or
+- Completely disable the button at index `i` and not allow interactions with unavailable columns.
+
+#### Checking for the winning condition
+
+The naive way is to go through every cell in `grid` and check that for every cell `cell`, if it is a part of any one of the valid winning segments.
+
+A more optimal approach is to only check the cell `cell` where the player dropped their disc. We can do this because the fact that we are able to drop a disc means there mustn't be a winner yet—so the game continues. This means if a player wins now, it is specifically caused by this one mutation: the placement at `cell`. So, it suffices to only check around `cell`.
+
+At `cell`, we check if it is a part of any one of the valid winning segments. We check the four directions: ─, │, ╲, and ╱ that crosses `cell`. Each direction is a 7 elements-long array of coordinates relative to `cell`.
+
+> It is length 7 because each winning segment is 4 elements-long. So, combining the north and south directions, for example, we get 7 elements.
+
+In the spirit of good software engineering, we will generalize this algorithm by extracting `4` out as a constant `COUNT_TO_WIN`. This way, we can easily change the winning condition in the future!
+
+For each direction, count the maximum number of consecutive discs of the current player's color. If there are at least `COUNT_TO_WIN` of them, the player has won.
+
+The naive algorithm will take `O(ROWS * COLUMNS)` time, while the optimal algorithm will take `O(COUNT_TO_WIN)` time, which is effectively `O(1)` constant time.
+
+> Tip: You can use the [optional chaining operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Optional_chaining) to safely grab a cell at a coordinate, even if it may be out of bounds. For example, `grid?.[r]?.[c]` will return `undefined` if `r` or `c` are out of bounds in `grid`.
+
+#### Checking for a draw
+
+There are many ways to achieve this. One way is to check if after a disc drop, there is no `winner`, and every cell in `grid` is occupied.
+
+A more optimal approach is to keep track of the number of discs dropped _as we drop them_. If it reaches `ROWS * COLUMNS`, then we know that the game has ended in a draw. Then we don't have to incur that extra `O(ROWS * COLUMNS)` time to check if every cell is occupied. Neat!
+
+However, keeping track of the number of discs is considered duplicated state since it can be derived from the `grid` state. Since the number of cells is considered small, it is optional to do such an optimization.
+
+#### Resetting the game
+
+This is as easy as setting the states back to their initial values, i.e.,
+
+- `grid` to a `ROWS`-by-`COLUMNS` array of `null`s,
+- `currentPlayer` to the first player in `PLAYERS`, and
+- `winner` to `null`.

@@ -1,7 +1,5 @@
 import { HeartIcon, SpinnerIcon } from './icons';
 
-import './styles.css';
-
 export default function App() {
   return (
     <div>

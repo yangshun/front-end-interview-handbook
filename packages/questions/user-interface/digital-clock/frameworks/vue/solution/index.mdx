@@ -1,0 +1,30 @@
+import TestCases from '../../../test-cases.mdx';
+import Notes from '../../../notes.mdx';
+
+## Solution
+
+We can separate out the solution into two parts, the update loop and the rendering.
+
+### Update loop
+
+We need a timer to refresh the page and display the current time every second. To create the timer, we can use a `setInterval`
+
+Do remember to register a callback to `onUnmounted` lifecycle hook to clear the timer to avoid memory leaks.
+
+Store the JavaScript `Date` object as state as it contains all the data we need.
+
+For better reusability, these logic can be abstracted into a custom `useCurrentDate` composable. We can use `onScopeDispose` as a replacement for `unmounted` lifecycle hook since this method can be used as a replacement for `onUnmounted` in reusable composition functions.
+
+This part is exactly the same as the [Analog Clock](/questions/user-interface/analog-clock) question.
+
+### Rendering
+
+Now that we have access to the most updated `Date` in the `Clock` component, we can render it. Firstly create two smaller components for the `Digit` and `Separator`.
+
+- `Digit`: renders numbers from 0-9 using the segment display. We make use of two square `<div>`s and CSS borders to achieve the effect. For each number, create a configuration of the borders that need to be shown and retrieve the configuration for that number.
+- `Separator`: renders the two circles that look like colons.
+
+To get the first digit of an hour/minute/second, we can divide by 10 and round it down. To get the second digit, we do modulo 10 to leave only the value in the ones-place.
+
+<TestCases />
+<Notes />

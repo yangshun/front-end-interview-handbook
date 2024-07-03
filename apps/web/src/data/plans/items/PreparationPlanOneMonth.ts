@@ -9,7 +9,7 @@ import {
   PreparationPlanQuizImportanceHighJavaScript,
   PreparationPlanQuizImportanceMidHTMLCSS,
   PreparationPlanQuizImportanceMidJavaScript,
-} from '../PreparationPlanQuizQuestions';
+} from './PreparationPlanQuizQuestions';
 import type { PreparationPlan } from '../PreparationPlans';
 
 export function getPreparationPlanOneMonth(intl: IntlShape): PreparationPlan {

@@ -1,11 +1,11 @@
 <script>
-  import './styles.css';
   import Cell from './Cell.svelte';
+  import './styles.css';
 
   export let n = 5;
   export let m = 4;
 
-  let board = Array(n * n).fill(undefined);
+  let board = Array(n * n).fill(null);
   let xIsPlaying = true;
   let winner = null;
 
@@ -115,7 +115,7 @@
   }
 
   function onReset() {
-    board = Array(n * n).fill(undefined);
+    board = Array(n * n).fill(null);
     xIsPlaying = true;
     winner = null;
   }
@@ -141,10 +141,9 @@
   <div
     class="board"
     style="grid-template-columns: repeat({n}, 1fr);">
-    {#each { length: n * n } as _, cellIndex}
+    {#each { length: n * n } as _, cellIndex (cellIndex)}
       {@const turn = xIsPlaying ? 'X' : 'O'}
       <Cell
-        key={cellIndex}
         disabled={board[cellIndex] != null ||
           winner != null}
         index={cellIndex}

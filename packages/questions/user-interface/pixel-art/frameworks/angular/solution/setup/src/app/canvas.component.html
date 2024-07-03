@@ -1,0 +1,34 @@
+<div
+  class="grid"
+  (mousedown)="isDragging = true"
+  (mouseup)="isDragging = false">
+  <div
+    *ngFor="
+      let row of grid;
+      let rowIndex = index;
+      trackBy: trackByFn
+    "
+    [ngClass]="{
+      grid__row: true,
+      'grid__row--even': rowIndex % 2 === 0,
+      'grid__row--odd': rowIndex % 2 !== 0
+    }">
+    <button
+      *ngFor="
+        let cell of row;
+        let cellIndex = index;
+        trackBy: trackByFn
+      "
+      (click)="onMark(rowIndex, cellIndex)"
+      (mousedown)="onMark(rowIndex, cellIndex)"
+      (mouseenter)="
+        isDragging ? onMark(rowIndex, cellIndex) : null
+      "
+      [ngStyle]="{
+        'background-color': cell.color
+          ? COLORS[cell.color]
+          : undefined
+      }"
+      class="grid__cell"></button>
+  </div>
+</div>

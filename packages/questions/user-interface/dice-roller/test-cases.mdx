@@ -1,3 +1,15 @@
 ## Test cases
 
-TODO(react)
+- Number of dice form
+  - Invalid values (empty, negative, decimals, bigger than 12) are not allowed.
+  - Pressing the "Roll" button calls the random generator function with the correct value.
+  - Form can be submitted by hitting <kbd>Enter</kbd> while in the `<input>` field.
+- Dice generation
+  - Generated values are between 1 to 6 inclusive. Ensure that it is not possible to generate 0.
+  - The correct number of values are generated.
+- Display
+  - Each row should contain up to 3 dice.
+  - If there are more than 3 dice, the other dice are wrapped to the next row(s).
+  - Dot positioning on each dice is correct for each side.
+- Accessibility
+  - Dice rolls results are announced to screen readers.

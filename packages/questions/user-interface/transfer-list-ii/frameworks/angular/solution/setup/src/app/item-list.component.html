@@ -1,0 +1,32 @@
+<form (ngSubmit)="onSubmit(newItemInput)" ngNativeValidate>
+  <label id="newItemLabel"></label>
+  <input
+    type="text"
+    #newItemInput
+    aria-labelledby="newItemLabel"
+    name="newItem" />
+</form>
+
+<hr />
+
+<app-bulk-selection-checkbox
+  [selectedCount]="countSelectedItems(items)"
+  [totalCount]="items.size"
+  [state]="listState"
+  [disabled]="items.size === 0"
+  (onChange)="onBulkSelectionChange()" />
+
+<hr />
+
+<ul class="transfer-list__section__items">
+  <li
+    *ngFor="
+      let entry of items.entries();
+      trackBy: trackByFn
+    ">
+    <app-checkbox-item
+      [label]="entry[0]"
+      [checked]="entry[1]"
+      (onChange)="onCheckboxChange(entry[0])" />
+  </li>
+</ul>

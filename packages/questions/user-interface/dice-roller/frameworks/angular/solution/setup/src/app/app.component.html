@@ -1,0 +1,35 @@
+<div class="wrapper">
+  <form
+    class="dice-form"
+    (submit)="onSubmit($event)"
+    ngNativeValidate>
+    <div>
+      <label for="dice-input">Number of dice</label>
+      <input
+        id="dice-input"
+        name="dice-count"
+        required
+        type="number"
+        min="{{ MIN_NUMBER_OF_DICE }}"
+        max="{{ MAX_NUMBER_OF_DICE }}" />
+    </div>
+    <button type="submit">Roll</button>
+  </form>
+  <div
+    class="dice-list"
+    role="status"
+    *ngIf="rolledDice.length > 0"
+    aria-live="polite">
+    <app-dice
+      *ngFor="
+        let value of rolledDice;
+        trackBy: trackByIndex
+      "
+      [value]="value">
+    </app-dice>
+    <!-- Announced by screen readers. -->
+    <div class="sr-only">
+      Roll results: {{ rolledDice.join(', ') }}
+    </div>
+  </div>
+</div>

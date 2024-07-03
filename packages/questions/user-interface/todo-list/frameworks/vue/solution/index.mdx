@@ -1,0 +1,25 @@
+import TestCases from '../../../test-cases.mdx';
+
+## Solution
+
+### Reactive states
+
+We will need two reactive state: `tasks` and `newTask`.
+
+`tasks`: Since there's a list of tasks that can be modified, we will need it to be part of the component's reactive state. When rendering a list of elements in Vue, we can use `v-for` and [it's recommended](https://vuejs.org/guide/essentials/list.html#maintaining-state-with-key) to provide a `key` for each item whenever possible. We cannot use the text of the task as the `key` because they are not guaranteed to be unique. For this question, we generate a unique index for each task locally using an auto incrementing counter. The most foolproof method is to generate a unique ID for each task. Libraries like [`uuid`](https://github.com/uuidjs/uuid) come to mind.
+
+`newTask`: a reactive state that binds to the new task input field. To read more, you can refer to the official document of [form input bindings](https://vuejs.org/guide/essentials/forms.html#text).
+
+### Adding tasks
+
+New tasks should be added to the end of the `tasks` array. We can construct a new task object with a new `id` and the `label` field, and push to the `tasks` reactive state.
+
+### Deleting tasks
+
+Having a unique `id` for each task object simplifies things here because we can filter the existing list and exclude the task corresponding to the `id` to be removed.
+
+## Notes
+
+Using Vue, the template will [automatically escape](https://vuejs.org/guide/best-practices/security.html#what-vue-does-to-protect-you) the content you try to render. So you don't need to worry about XSS yourself!
+
+<TestCases />

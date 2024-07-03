@@ -8,10 +8,10 @@
       "code": "<!doctype html>\n<html lang=\"en\">\n  <head>\n    <meta charset=\"UTF-8\" />\n    <meta\n      name=\"viewport\"\n      content=\"width=device-width, initial-scale=1.0\" />\n  </head>\n  <body>\n    <div id=\"root\"></div>\n  </body>\n</html>\n"
     },
     "/src/App.js": {
-      "code": "import ProgressBar from './ProgressBar';\n\nimport './styles.css';\n\nexport default function App() {\n  return (\n    <div className=\"wrapper\">\n      <ProgressBar value={0} />\n      <ProgressBar value={25} />\n      <ProgressBar value={50} />\n      <ProgressBar value={75} />\n      <ProgressBar value={100} />\n      <ProgressBar value={2} />\n      <ProgressBar value={-10} />\n      <ProgressBar value={120} />\n    </div>\n  );\n}\n"
+      "code": "import ProgressBar from './ProgressBar';\n\nexport default function App() {\n  return (\n    <div className=\"wrapper\">\n      <ProgressBar value={0} />\n      <ProgressBar value={25} />\n      <ProgressBar value={50} />\n      <ProgressBar value={75} />\n      <ProgressBar value={100} />\n      <ProgressBar value={2} />\n      <ProgressBar value={-10} />\n      <ProgressBar value={120} />\n    </div>\n  );\n}\n"
     },
     "/src/index.js": {
-      "code": "import React, { StrictMode } from 'react';\nimport { createRoot } from 'react-dom/client';\n\nimport App from './App';\n\nconst root = createRoot(document.getElementById('root'));\nroot.render(\n  <StrictMode>\n    <App />\n  </StrictMode>,\n);\n"
+      "code": "import React, { StrictMode } from 'react';\nimport { createRoot } from 'react-dom/client';\n\nimport App from './App';\n\nimport './styles.css';\n\nconst root = createRoot(document.getElementById('root'));\nroot.render(\n  <StrictMode>\n    <App />\n  </StrictMode>,\n);\n"
     },
     "/src/ProgressBar.js": {
       "code": "const MIN = 0;\nconst MAX = 100;\n\nexport default function ProgressBar({ value }) {\n  // Handle invalid values and convert them to be within [0, 100].\n  const clampedValue = Math.min(Math.max(value, MIN), MAX);\n\n  return (\n    <div className=\"progress\">\n      <div\n        className=\"progress-bar\"\n        style={{ width: `${clampedValue}%` }}\n        role=\"progressbar\"\n        aria-valuenow={clampedValue}\n        aria-valuemin={MIN}\n        aria-valuemax={MAX}>\n        {clampedValue}%\n      </div>\n    </div>\n  );\n}\n"

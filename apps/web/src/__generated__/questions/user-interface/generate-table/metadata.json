@@ -18,6 +18,18 @@
     {
       "framework": "vanilla",
       "href": "/questions/user-interface/generate-table/vanilla"
+    },
+    {
+      "framework": "angular",
+      "href": "/questions/user-interface/generate-table/angular"
+    },
+    {
+      "framework": "svelte",
+      "href": "/questions/user-interface/generate-table/svelte"
+    },
+    {
+      "framework": "vue",
+      "href": "/questions/user-interface/generate-table/vue"
     }
   ],
   "href": "/questions/user-interface/generate-table",

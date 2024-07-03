@@ -1,0 +1,12 @@
+<div class="transfer-list__section__items__item">
+  <input
+    #checkboxRef
+    [disabled]="disabled"
+    type="checkbox"
+    [id]="bulkSelectionId"
+    [checked]="checked"
+    (change)="onInputChange(checkboxRef)" />
+  <label [for]="bulkSelectionId">
+    {{ selectedCount }} / {{ totalCount }} Selected
+  </label>
+</div>

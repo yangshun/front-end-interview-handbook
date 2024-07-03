@@ -1,0 +1,9 @@
+{
+  "name": "@gfe-questions/pixel-art-svelte-solution",
+  "author": "willnguyen1312",
+  "version": "0.0.1",
+  "main": "src/index.js",
+  "dependencies": {
+    "svelte": "^3.58.0"
+  }
+}

@@ -1,0 +1,33 @@
+body {
+  font-family: sans-serif;
+}
+
+.wrapper {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  justify-content: center;
+}
+
+.grid {
+  --spacing: 20px;
+  display: grid;
+  max-width: 300px;
+  width: 100%;
+  padding: var(--spacing);
+  gap: var(--spacing);
+  border: 1px solid #000;
+}
+
+.cell {
+  background-color: transparent;
+  border: 1px solid #000;
+  height: 0;
+  /* Make height and width equal */
+  padding-bottom: 100%;
+}
+
+.cell--activated {
+  background-color: green;
+}

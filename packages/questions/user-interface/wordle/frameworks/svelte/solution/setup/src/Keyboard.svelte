@@ -21,11 +21,10 @@
 </script>
 
 <section class="keyboard-section">
-  {#each KEYBOARD_LAYOUT as row, rowIndex}
-    <div class="keyboard-row" key={rowIndex}>
-      {#each row as char}
+  {#each KEYBOARD_LAYOUT as row, rowIndex (rowIndex)}
+    <div class="keyboard-row">
+      {#each row as char (char)}
         <button
-          key={char}
           on:click={() => {
             dispatch('press-key', { char });
           }}

@@ -19,6 +19,14 @@
     {
       "framework": "vanilla",
       "href": "/questions/user-interface/todo-list/vanilla"
+    },
+    {
+      "framework": "angular",
+      "href": "/questions/user-interface/todo-list/angular"
+    },
+    {
+      "framework": "svelte",
+      "href": "/questions/user-interface/todo-list/svelte"
     }
   ],
   "href": "/questions/user-interface/todo-list",

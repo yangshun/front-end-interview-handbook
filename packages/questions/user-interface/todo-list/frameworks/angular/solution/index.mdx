@@ -3,12 +3,9 @@ import A11y from '../../../a11y.mdx';
 
 ## Solution
 
-To add a new task, we need to enter text into the input field and click the 'Submit' button. Subsequently,
-the `addTask()` method is invoked. If the provided string is not empty, it adds that element to `tasks`. Once the
-task is added, we clear the `newTask` variable.
+To add a new task, we need to enter text into the input field and click the 'Submit' button. Subsequently, the `addTask()` method is invoked. If the provided string is not empty, it adds that element to `tasks`. Once the task is added, we clear the `newTask` variable.
 
-While displaying the list of tasks in the template, we also assign a button to them to remove the task by calling
-`deleteTask(task.id)`, which simply filters out the given task with the specified ID.
+While displaying the list of tasks in the template, we also assign a button to them to remove the task by calling `deleteTask(task.id)`, which simply filters out the given task with the specified ID.
 
 ### State
 
@@ -27,18 +24,15 @@ export interface Task {
 
 ### Angular Insights
 
-- You can adopt a more advanced, reactive-like approach using RxJS (without using subscriptions as possible).
-However, if you opt for subscriptions, remember about destroying them to prevent memory leaks.
+- You can adopt a more advanced, reactive-like approach using RxJS (without using subscriptions as possible). However, if you opt for subscriptions, remember about destroying them to prevent memory leaks.
 
-- You might create service for maintaining the state. Inject the service in smart component and crete dumb components
-that only display and interact with the UI and all events from dumb components are passed to the smart one.
+- You might create service for maintaining the state. Inject the service in smart component and crete dumb components that only display and interact with the UI and all events from dumb components are passed to the smart one.
 
 - If you're confident with the latest Angular versions, consider using signals standalone API.
 
 - You can try to focus more on keywords such as `readonly`, `private`, `public` and `void`.
 
-- If you're creating a bigger application it would be good practice to use styles per component instead of putting all
-styles in one file.
+- If you're creating a bigger application it would be good practice to use styles per component instead of putting all styles in one file.
 
 <TestCases />
 <A11y />

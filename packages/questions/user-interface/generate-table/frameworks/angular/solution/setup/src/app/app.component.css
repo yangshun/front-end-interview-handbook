@@ -1,0 +1,8 @@
+.app {
+  align-items: center;
+  display: flex;
+  font-size: 12px;
+  flex-direction: column;
+  gap: 16px;
+  justify-content: center;
+}

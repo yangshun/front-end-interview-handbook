@@ -11,7 +11,7 @@
       "code": ""
     },
     "/src/app/app.component.html": {
-      "code": "<form\n  (ngSubmit)=\"submitForm($event)\"\n  method=\"post\"\n  action=\"https://www.greatfrontend.com/api/questions/contact-form\">\n  <div>\n    <label for=\"name-input\">Name</label>\n    <input id=\"name-input\" name=\"name\" type=\"text\" />\n  </div>\n  <div>\n    <label for=\"email-input\">Email</label>\n    <input id=\"email-input\" name=\"email\" type=\"email\" />\n  </div>\n  <div>\n    <label for=\"message-input\">Message</label>\n    <textarea id=\"message-input\" name=\"message\"></textarea>\n  </div>\n  <div>\n    <button>Send</button>\n  </div>\n</form>\n"
+      "code": "<!-- Ignore the (ngSubmit) binding, it's used by GFE \n  to intercept the form submit event to check your solution. -->\n<form\n  (ngSubmit)=\"submitForm($event)\"\n  method=\"post\"\n  action=\"https://www.greatfrontend.com/api/questions/contact-form\">\n  <div>\n    <label for=\"name-input\">Name</label>\n    <input id=\"name-input\" name=\"name\" type=\"text\" />\n  </div>\n  <div>\n    <label for=\"email-input\">Email</label>\n    <input id=\"email-input\" name=\"email\" type=\"email\" />\n  </div>\n  <div>\n    <label for=\"message-input\">Message</label>\n    <textarea id=\"message-input\" name=\"message\"></textarea>\n  </div>\n  <div>\n    <button>Send</button>\n  </div>\n</form>\n"
     },
     "/src/app/app.component.ts": {
       "code": "import { Component } from '@angular/core';\nimport submitForm from './submitForm';\n\n@Component({\n  selector: 'app-root',\n  templateUrl: './app.component.html',\n  styleUrls: ['./app.component.css'],\n})\nexport class AppComponent {\n  async submitForm(event: any) {\n    submitForm(event);\n  }\n}\n"

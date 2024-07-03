@@ -1,7 +1,5 @@
 import { useState } from 'react';
 
-import './styles.css';
-
 function Table({ rows, columns }) {
   return (
     <table>
@@ -34,7 +32,7 @@ export default function App() {
     <div className="app">
       <form
         onSubmit={(event) => {
-          // To prevent a page redirect.
+          // To prevent a page reload.
           event.preventDefault();
 
           // Obtain data from the form.

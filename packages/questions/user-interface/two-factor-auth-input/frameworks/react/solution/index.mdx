@@ -1,3 +1,65 @@
 import TestCases from '../../../test-cases.mdx';
 
+## Solution
+
+### State
+
+- `code`: This state variable stores the auth code entered by the user.
+- `focusedIndex`: This state variable stores the index of the currently focused input box.
+- `isSubmitting`: This state variable represents the current submitting status of the auth input.
+
+### Rendering
+
+The solution uses flexbox to render the auth input boxes.
+
+### `clampIndex`
+
+This is a utility function to always keep the focused input index in range from 0, ..., size-1.
+
+### `onChange`
+
+This function is called whenever the user types in a character.
+
+- Invalid character: The entered value is neglected.
+- Valid character: Fills currently focused input box and moves the focus to the next input box.
+
+### `onFocus`
+
+This function updates the `focusedIndex` whenever the user clicks on any input box other than the currently focused input box.
+
+### `onKeyDown`
+
+This function is called whenever a key is pressed and does some operation based on the pressed key.
+
+- Left Arrow: Moves the focus to the left of the currently focused input box.
+- Right Arrow: Moves the focus to the right of the currently focused input box.
+- Backspace:
+  - If the currently focused input box has character, delete it.
+  - Else move the focus to the previous input box and delete any character present from the previous input box.
+
+### `onPaste`
+
+This function is called whenever the user pastes a code into the input box. The function checks for a valid code and then fills the input boxes accordingly.
+
+### `onReset`
+
+This function is called whenever the Reset button is clicked and resets the entered code and focused index.
+
+### `onVerify`
+
+This function is called whenever Verify button is clicked and calls the `onSubmit` function passed to the `AuthCodeInput` component.
+
+### `onSubmit`
+
+This function is called when the auth code is submitted. This function calls the API and displays the response based on the validity of the entered auth code.
+
+## Accessibility
+
+Use of semantic HTML elements like form, input, button, etc. will automatically provide with some accessibility.
+
+- Tab will move the focus to the next field.
+- Shift + Tab will move the focus to the previous field.
+
+Note: Other key presses are handled via `onKeyDown` function.
+
 <TestCases />

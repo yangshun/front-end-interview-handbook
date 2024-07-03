@@ -1,0 +1,30 @@
+import TestCases from '../../../test-cases.mdx';
+import Notes from '../../../notes.mdx';
+
+## Solution
+
+We can separate out the solution into two parts, the update loop and the rendering.
+
+### Update loop
+
+We need a timer to refresh the page and display the current time every second. To create the timer, we can use a `setInterval` and kick off the update loop in an `onMount`.
+
+Do remember to clear the timer upon unmounting of the component to prevent memory leaks.
+
+Store the JavaScript `Date` object as state as it contains all the data we need.
+
+This part is exactly the same as the [Digital Clock](/questions/user-interface/digital-clock) question.
+
+### Rendering
+
+To make the clock more reusable and customizable, we can make the clock size as a property. The clock hands can then be a proportion of the clock's size.
+
+To render the clock hands in the right position, we use a combination of `position: absolute` and CSS transforms:
+
+1. `position: absolute` with `top` and `left` of half the clock size to make the hands start from the center of the clock. However, the hands will be pointing downwards.
+1. Use `transform: rotate(180deg)` on the clock to make the hands point upwards. This step is optional if we add an 180 degree offset to the rotation angle of the hands.
+1. Use `transform-origin: center top` to make the hands rotate around the center of the clock.
+1. Use `transform: rotate(Xdeg)` on the hands to rotate them into the final angle.
+
+<TestCases />
+<Notes />

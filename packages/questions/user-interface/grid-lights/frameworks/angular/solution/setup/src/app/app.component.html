@@ -1,0 +1,29 @@
+<div class="wrapper">
+  <div
+    class="grid"
+    [ngStyle]="{
+      gridTemplateColumns:
+        'repeat(' + config[0].length + ', 1fr)'
+    }">
+    <ng-container
+      *ngFor="
+        let value of flattenedConfig;
+        let index = index
+      ">
+      <button
+        *ngIf="value"
+        [attr.aria-label]="'Cell ' + index"
+        type="button"
+        class="cell"
+        [ngClass]="{
+          'cell--activated': order.includes(index)
+        }"
+        (click)="handleClick(index)"
+        [disabled]="
+          order.includes(index) || isDeactivating
+        "></button>
+      <span *ngIf="!value"></span>
+    </ng-container>
+  </div>
+  <pre>order array: {{ order.join(', ') }}</pre>
+</div>

@@ -1,0 +1,34 @@
+import TestCases from '../../../test-cases.mdx';
+
+## Solution
+
+The following explanation assumes you have a good understanding of [Tabs II's Vue solution](/questions/user-interface/tabs-ii/vue/solution).
+
+### Listening for Keyboard Events
+
+Firstly it's crucial to know the difference between the `keypress` vs the `keydown` event. The `keypress` event is only fired when a key that produces a character value is pressed down. This would exclude the <kbd>Left</kbd>, <kbd>Right</kbd>, <kbd>Home</kbd>, and <kbd>End</kbd> keys which are requirements of this question. The `keypress` event is also deprecated and shouldn't be used. For these reasons, we should be using the `keydown` event. We'll add the `@keydown` directive to `<div role="tablist">`.
+
+To know which key is being pressed, we can use `event.key` or `event.code` on the event passed to `@keydown`'s callback. There are some [differences between `event.key` vs `event.code`](https://javascript.info/keyboard-events) but for the purposes of this question it doesn't make a difference and can be ignored. We'll just use `event.code`.
+
+### Responding to Keyboard Events
+
+Next we read the `event.code` property and respond with custom code depending on its value. A `switch` case is suitable for such a situation:
+
+- `ArrowLeft`: Activate the previous tab or "wrap around" to the last one if the focus was on the first. We first find the index of the active tab item, decrease it by one, and use modulo arithmetic to elegantly handle the "wrap around".
+- `ArrowRight`: Activate the next tab or "wrap around" to the first one if the focus was on the last. We first find the index of the active tab item, increase it by one, and use modulo arithmetic to elegantly handle the "wrap around".
+- `Home`: Activate the first tab.
+- `End`: Activate the last tab.
+
+When a new tab is activated, it should come into focus. Since we know the `id` of each tab element, we can imperatively call `.focus()` on it by using `document.getElementById()` with the desired tab element id.
+
+#### <kbd>Tab</kbd>-ing Behavior
+
+In [Tabs II](/questions/user-interface/tabs-ii/vue/solution), all our tabs were focusable and you could jump to each tab via the <kbd>Tab</kbd> key. However, that behavior is non-standard according to the WAI-ARIA Tabs specification, which states that only the active tab should be focusable. We can achieve this by making the non-active tabs non-focusable by adding the `tabIndex={-1}` attribute to them. On a related note, we should also make the `<div role="tabpanel">` focusable by adding `tabIndex={0}`.
+
+<TestCases />
+
+## Resources
+
+- [Tabs | ARIA Authoring Practices Guide](https://www.w3.org/WAI/ARIA/apg/patterns/tabpanel/)
+- [Tabs | Radix Vue](https://radix-vue.com/components/tabs)
+- [Tabs - Headless UI](https://headlessui.com/vue/tabs)

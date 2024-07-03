@@ -1,6 +1,9 @@
 {
   "author": "dhillon",
-  "companies": [],
+  "companies": [
+    "microsoft",
+    "tiktok"
+  ],
   "created": 1683849600,
   "difficulty": "medium",
   "duration": 30,
@@ -24,6 +27,10 @@
     {
       "framework": "svelte",
       "href": "/questions/user-interface/job-board/svelte"
+    },
+    {
+      "framework": "vue",
+      "href": "/questions/user-interface/job-board/vue"
     }
   ],
   "href": "/questions/user-interface/job-board",

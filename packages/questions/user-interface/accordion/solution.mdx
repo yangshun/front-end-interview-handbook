@@ -1,0 +1,16 @@
+## Solution
+
+Implementing a basic (not fully accessible) Accordion component using UI frameworks is quite simple due to the fact that only one state value is needed, the expanded/collapsed states of each section. UI frameworks also help to keep the state and the UI in sync, which we'd have to implement on our own if we were to use in Vanilla JavaScript.
+
+### Props (API Design)
+
+Part of the complexity of building a component is designing the API for it. In the case of a component-based framework, this would be the properties of the component. At the bare minimum, we will need the following props/attributes:
+
+- `sections`: A list of item objects. Each item is an object with the fields:
+  - `value`: A unique identifier for the accordion item.
+  - `title`: The text label to show in the accordion title.
+  - `contents`: The contents to show when the section is expanded.
+
+### State
+
+We can use ES6 `Set` to keep track of the sections which are expanded. When the section title is clicked, check if the section's value is within the set. The value will be removed from the set if it's inside and added it into the set otherwise.

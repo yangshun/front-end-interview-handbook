@@ -1,5 +1,4 @@
 import { useEffect, useRef, useState } from 'react';
-import './styles.css';
 
 // Fisher-Yates shuffle.
 function shuffle(array) {

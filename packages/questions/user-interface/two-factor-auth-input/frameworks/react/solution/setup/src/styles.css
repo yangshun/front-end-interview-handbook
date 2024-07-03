@@ -1,3 +1,81 @@
-body {
-  font-family: sans-serif;
+:root {
+  --shade-high: #8f6af2;
+  --shade-mid: #baa4f6;
+  --shade-low: #e6dffa;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.flex-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.input-box {
+  height: 2.5rem;
+  width: 2.5rem;
+  border-radius: 0.25rem;
+  text-align: center;
+  border: none;
+  outline: none;
+  background: var(--shade-low);
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.input-box::selection {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.input-box:focus {
+  background: var(--shade-high);
+  color: white;
+}
+
+.input-box:disabled {
+  cursor: not-allowed;
+}
+
+.button {
+  border: none;
+  outline: none;
+  border-radius: 0.25rem;
+  padding: 0.5rem 1rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.button--primary {
+  background-color: var(--shade-mid);
+  border: 0.0625rem solid var(--shade-mid);
+  color: black;
+  transition: all 0.2s linear;
+}
+
+.button--primary:not(:disabled):hover {
+  background-color: var(--shade-high);
+  border: 0.0625rem solid var(--shade-high);
+  color: white;
+}
+
+.button--secondary {
+  background-color: transparent;
+  color: black;
+  border: 0.0625rem solid black;
 }

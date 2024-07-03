@@ -9,7 +9,6 @@
   <h2 class="post__title">
     {#if url}
       <a
-        class="post__title__link"
         href={url}
         target="_blank"
         rel="noopener">

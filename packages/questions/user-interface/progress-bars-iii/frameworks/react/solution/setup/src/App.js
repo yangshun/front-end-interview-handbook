@@ -1,7 +1,5 @@
 import { useEffect, useState } from 'react';
 
-import './styles.css';
-
 function ProgressBar({ isEmpty, onCompleted }) {
   const [startTransition, setStartTransition] =
     useState(false);

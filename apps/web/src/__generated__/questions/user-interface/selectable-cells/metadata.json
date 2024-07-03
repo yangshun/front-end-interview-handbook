@@ -1,0 +1,33 @@
+{
+  "author": null,
+  "companies": [],
+  "created": 1719964800,
+  "difficulty": "hard",
+  "duration": 40,
+  "excerpt": "Build an interface where users can drag to select multiple cells within a grid",
+  "featured": false,
+  "format": "user-interface",
+  "frameworkDefault": "react",
+  "frameworks": [
+    {
+      "framework": "react",
+      "href": "/questions/user-interface/selectable-cells/react"
+    }
+  ],
+  "href": "/questions/user-interface/selectable-cells",
+  "importance": "low",
+  "languages": [
+    "html",
+    "js",
+    "css"
+  ],
+  "nextQuestions": [],
+  "premium": true,
+  "published": true,
+  "ranking": 100,
+  "similarQuestions": [],
+  "slug": "selectable-cells",
+  "subtitle": null,
+  "title": "Selectable Cells",
+  "topics": []
+}

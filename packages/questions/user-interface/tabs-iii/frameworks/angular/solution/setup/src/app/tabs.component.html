@@ -1,0 +1,30 @@
+<div class="tabs">
+  <div class="tabs-list" role="tablist">
+    <button
+      *ngFor="let item of items"
+      [id]="getTabListItemId(item.value)"
+      type="button"
+      [class]="[
+        'tabs-list-item',
+        item.value === value ? 'tabs-list-item--active' : ''
+      ]"
+      (click)="setValue(item.value)"
+      role="tab"
+      [attr.tabIndex]="item.value === value ? 0 : -1"
+      [attr.aria-controls]="getTabPanelId(item.value)"
+      [attr.aria-selected]="item.value === value">
+      {{ item.label }}
+    </button>
+  </div>
+  <div>
+    <div
+      *ngFor="let item of items"
+      [id]="getTabPanelId(item.value)"
+      tabIndex="0"
+      [attr.aria-labelledby]="getTabListItemId(item.value)"
+      role="tabpanel"
+      [hidden]="item.value !== value">
+      {{ item.panel }}
+    </div>
+  </div>
+</div>

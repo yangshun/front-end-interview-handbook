@@ -1,7 +1,5 @@
 import { useCallback, useState, useEffect } from 'react';
 
-import './styles.css';
-
 export default function App() {
   return <TicTacToe n={5} m={4} />;
 }

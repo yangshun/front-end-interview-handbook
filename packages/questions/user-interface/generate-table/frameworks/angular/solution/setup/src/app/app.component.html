@@ -1,0 +1,4 @@
+<div class="app">
+  <app-form (onFormSubmit)="formSubmit($event)" />
+  <app-table *ngIf="formState" [data]="formState" />
+</div>

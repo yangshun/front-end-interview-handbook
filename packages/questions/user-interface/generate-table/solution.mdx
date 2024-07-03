@@ -2,15 +2,15 @@
 
 There are two parts to this question: (1) accepting user input and (2) generating the table.
 
-### Accepting User Input
+### Accepting user input
 
-Since the table should only be created when the "Submit" button is pressed, an uncontrolled form works better here. Otherwise we will need two different state values (one for the form, one for the rendered table) for rows/columns (four in total!).
+Since the table should be created only when the "Submit" button is pressed, the updates are one-way. A simple `<form>` where the input values are stored entirely within the DOM is sufficient. It's also possible to track the input values with state or data binding (depending on UI framework), but we will need more state values, which is unnecessary.
 
 By using `<input type="number" min={1}>`, we ensure only numbers can be entered and leverage HTML validation so that the minimum value of the fields is 1. That way we don't have to write our own validation.
 
-We can listen for the form [submit event](https://developer.mozilla.org/en-US/docs/Web/API/SubmitEvent), obtain the `FormData` from it and retrieve the rows and columns value from the form.
+We can listen for the form's [`SubmitEvent`](https://developer.mozilla.org/en-US/docs/Web/API/SubmitEvent), obtain the `FormData` from the `SubmitEvent`, and extract the rows and columns value from the `FormData`. Remember to do a `event.preventDefault()` within the submit callback otherwise the form submission will result in a page reload.
 
-### Generating the Table
+### Generating the table
 
 Generating the table is pretty straightforward. Note that `<tr>` should be within a `<tbody>` and not directly within the `<table>`. The trickier part of table generation is the numbers within each table cell, which involves using a mathematical formula. The number sequence for each column depends on whether the column is an even or odd one, and they be defined using the following formula:
 

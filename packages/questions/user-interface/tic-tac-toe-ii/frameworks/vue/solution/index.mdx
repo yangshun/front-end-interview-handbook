@@ -1,0 +1,38 @@
+import TestCases from '../../../test-cases.mdx';
+
+## Solution
+
+The following explanation assumes you have a good understanding of [Tic-tac-toe's Vue solution](/questions/user-interface/tic-tac-toe/vue/solution).
+
+The standard tic-tac-toe game uses N = 3 and M = 3. In general it is a good practice to parameterize the app/components you're building, however the general version of tic-tac-toe takes significantly longer to implement. If you are sure you don't need to build a general version, then it's recommended to stick with the [basic Tic-tac-toe implementation](/questions/user-interface/tic-tac-toe/vue/solution).
+
+### Rendering
+
+Since the dimensions of the board is not fixed and can only be determined at runtime, we have to use inline styles to generate the required `grid-template-columns` property value.
+
+### State
+
+The core state of the game in the Vue implementation consists of:
+
+1. `board`: A single-dimensional array of length `n * n` that represents the tic-tac-toe board.
+1. `xIsPlaying`: A boolean variable indicating if it's the X player's turn.
+1. `winner`: A variable to track the current winner, if any.
+
+Strictly speaking, the `winner` should be derived and determined by processing the `board`, which is the approach taken by the 3 x 3 version. However, for N x N boards where N and M can be very large, we determine the winner only after every turn based on the cell that the user has pressed, which is a more efficient approach as compared to determining by processing through the entire board.
+
+### `determineWinner`
+
+In the 3 x 3 version, we call this function for every render. But for an N x N board, we'll call this function after every turn as a winner can only emerge after a turn.
+
+The `determineWinner` function takes four parameters: `board` (the current state of the game board), `i` (the index of the last marked cell), `n` (the size of the board), and `m` (the number of consecutive marks required to win).
+
+It firstly generates four arrays representing the winning `lines`:
+
+- `rowLine`: Contains the indices of all the cells in the same row as the last marked cell.
+- `colLine`: Contains the indices of all the cells in the same column as the last marked cell.
+- `leftToRightDiagonalLine`: Contains the indices of all the cells in the left-to-right diagonal that includes the last marked cell.
+- `rightToLeftDiagonalLine`: Contains the indices of all the cells in the right-to-left diagonal that includes the last marked cell.
+
+For each line in `lines`, it then counts if there are `m` consecutive cells with the same mark and returns the mark if there is, otherwise it returns `null`, indicating there's no winner for the board yet.
+
+<TestCases />

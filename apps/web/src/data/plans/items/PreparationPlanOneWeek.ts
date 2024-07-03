@@ -7,7 +7,7 @@ import type { ThemeGradient } from '~/components/ui/theme';
 import {
   PreparationPlanQuizImportanceHighCSSHTML,
   PreparationPlanQuizImportanceHighJavaScript,
-} from '../PreparationPlanQuizQuestions';
+} from './PreparationPlanQuizQuestions';
 import type { PreparationPlan } from '../PreparationPlans';
 
 export function getPreparationPlanOneWeek(intl: IntlShape): PreparationPlan {

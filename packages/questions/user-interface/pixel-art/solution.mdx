@@ -1,0 +1,35 @@
+## Solution
+
+The solution consist of two parts: (1) Canvas and (2) Toolbar.
+
+### State
+
+We'll need the following states within the application:
+
+- Mode: Whether the app is in drawing or erasing mode.
+- Selected color: Active color for drawing.
+- Canvas colors: A 2-d array of color values, representing the pixel art canvas.
+- Dragging: Whether the cursor is in the dragging state.
+
+The current mode and selected color state can reside within the top-level component while the canvas colors and dragging state is only needed within the canvas.
+
+### Toolbar
+
+Rendering the toolbar component is pretty straightforward. The various buttons within the toolbar will update the mode and the selected color.
+
+The only thing to note is to use a non-transparent border for white-color cells and a non-black border when black color is selected.
+
+### Canvas
+
+There are many ways to render the canvas, and we have opted to use rows of flexboxes instead of CSS grid (which uses a linear array of cells) here because it's easier to render the alternating background for the empty cells.
+
+We'll add a `mousedown` listener to the top-level DOM element within the canvas and change the state to be dragging when that happens. When the `mouseup` even is fired, the dragging state is reset.
+
+The canvas contains many cells and each cell is a pixel that is either empty or filled with a color. The cell listens for two events:
+
+1. `mousedown`: Trigger the drawing/erasing of the cell. We want the selected action to be triggered immediately when the mouse is pressed, hence the `mousedown` event is used as opposed to `click`.
+1. `mouseenter`: Trigger the drawing/erasing of the cell. This event is only needed when the canvas is in the dragging state.
+
+Depending on the current mode, the cells grid will be updated with the new color, or the color is erased from the cell.
+
+Inline styles are used for the background color of the cells to allow for easy changing of the hex values without having to create CSS classes for each possible color.

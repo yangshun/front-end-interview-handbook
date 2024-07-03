@@ -1,0 +1,9 @@
+{
+  "visibleFiles": [
+    "/src/app/app.component.ts",
+    "/src/app/app.module.ts",
+    "/src/styles.css"
+  ],
+  "activeFile": "/src/app/app.component.ts",
+  "environment": "angular-cli"
+}

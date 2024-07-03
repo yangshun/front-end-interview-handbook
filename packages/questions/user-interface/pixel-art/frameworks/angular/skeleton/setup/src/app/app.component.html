@@ -1,0 +1,5 @@
+<ul>
+  <li *ngFor="let color of COLORS | keyvalue">
+    <span [style.color]="color.value">{{ color.key }}</span>
+  </li>
+</ul>

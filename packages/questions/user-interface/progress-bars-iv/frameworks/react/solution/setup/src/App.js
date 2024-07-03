@@ -1,7 +1,5 @@
 import { useState } from 'react';
 
-import './styles.css';
-
 function ProgressBar({ progress }) {
   return (
     <div className="bar">

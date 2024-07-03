@@ -1,0 +1,9 @@
+<div class="app">
+  <app-canvas [selectedColor]="color" [mode]="mode" />
+
+  <app-toolbar
+    [mode]="mode"
+    [selectedColor]="color"
+    (colorChange)="onColorChange($event)"
+    (modeChange)="onModeChange($event)" />
+</div>

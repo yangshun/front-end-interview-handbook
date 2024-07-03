@@ -1,7 +1,7 @@
 {
-  "author": null,
+  "author": "yangshun",
   "companies": [],
-  "created": 1680307200,
+  "created": 1719964800,
   "difficulty": "medium",
   "duration": 30,
   "excerpt": "Build a pixel art drawing tool where users can paint pixels with selected colors",
@@ -23,7 +23,7 @@
   ],
   "nextQuestions": [],
   "premium": true,
-  "published": false,
+  "published": true,
   "ranking": 100,
   "similarQuestions": [],
   "slug": "pixel-art",

@@ -1,7 +1,5 @@
 import { useState } from 'react';
 
-import './styles.css';
-
 let id = 0;
 
 const INITIAL_TASKS = [

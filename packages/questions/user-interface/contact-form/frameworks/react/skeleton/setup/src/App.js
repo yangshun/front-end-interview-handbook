@@ -1,4 +1,3 @@
-import './styles.css';
 import submitForm from './submitForm';
 
 export default function App() {

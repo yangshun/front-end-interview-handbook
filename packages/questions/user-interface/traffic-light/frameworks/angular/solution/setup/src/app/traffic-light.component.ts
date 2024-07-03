@@ -23,8 +23,9 @@ export type TrafficLightConfig<
   styleUrls: ['./traffic-light.component.css'],
 })
 export class TrafficLightComponent<
-  Colors extends DefaultColors,
-> implements OnInit, OnDestroy
+    Colors extends DefaultColors,
+  >
+  implements OnInit, OnDestroy
 {
   @Input({ required: true }) initialColor!: Colors;
   @Input({ required: true })

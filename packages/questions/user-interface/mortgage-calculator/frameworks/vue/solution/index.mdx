@@ -1,0 +1,23 @@
+import TestCases from '../../../test-cases.mdx';
+import A11y from '../../../a11y.mdx';
+
+This question evaluates whether you understand how to allow users to enter form inputs, validate them and perform calculations based on the inputs.
+
+## Form Markup
+
+To collect user data, we use a `<form>` element and `<input>` fields.
+
+To validate input, use the built-in input type validators (`<input type="number">`), or use the `Number()` constructor to convert user input to numbers and check for `NaN` values. You can use the `required` attribute in HTML to ensure that all input fields are filled out and the `min` attribute to ensure that input fields have a valid minimum value before the submit event callback is fired.
+
+There's no need to use controlled values for the form fields as we only have to calculate during submission..
+
+## Form Submission
+
+We can use JavaScript to attach on `click` event to the "Calculate" button that calculates the mortgage payment using the formula. But it'd be better to add a `submit` event handler to the `<form>` so that both clicking on the "Calculate" button and hitting "Enter" in any of the input fields will submit the form. It's also necessary to use `.prevent` event modifier to intercept the browser submit action which by default triggers a page reload and is not desired here.
+
+## Displaying Results
+
+After computing the 3 necessary amounts using the formula, use `Intl.NumberFormat()` to format the amounts to 2 d.p. with a dollar symbol. Feel free to customize the formatting to your own locale and currency.
+
+<TestCases />
+<A11y />

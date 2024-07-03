@@ -1,0 +1,19 @@
+import TestCases from '../../../test-cases.mdx';
+import Notes from '../../../notes.mdx';
+
+## Solution
+
+Implementing a basic (not fully accessible) Tabs component in Vue is quite simple due to the fact that only one state value is needed, the currently active tab item. Vue also helps to keep the state and the UI in sync, which is more troublesome to do so in Vanilla JavaScript.
+
+### Props (API Design)
+
+Part of the complexity of building a component is designing the API for it. In the case of Vue, it would be the props of the component. At the bare minimum, we will need the following props:
+
+- `items`: A list of item objects. Each item is an object with the fields:
+  - `value`: A unique identifier for the tab item.
+  - `label`: The text label to show in the tab item.
+  - `panel`: The contents to show in the tab panel when the item is active.
+- `defaultValue`: The default tab item/panel to show. In case the `defaultValue` is not provided, we'll use the first item as the value. This is assuming that `items` is non-empty.
+
+<TestCases />
+<Notes />

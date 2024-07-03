@@ -118,8 +118,8 @@
   </div>
   <div
     class="grid"
-    style:grid-template-columns={`repeat(${rows}, 1fr)`}
-    style:grid-template-rows={`repeat(${cols}, 1fr)`}>
+    style:grid-template-columns={`repeat(${cols}, 1fr)`}
+    style:grid-template-rows={`repeat(${rows}, 1fr)`}>
     {#each { length: totalCount } as _, index}
       <button
         class="grid__cell"

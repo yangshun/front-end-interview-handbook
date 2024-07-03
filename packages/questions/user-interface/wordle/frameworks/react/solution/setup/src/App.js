@@ -1,7 +1,5 @@
 import { useCallback, useEffect, useState } from 'react';
 
-import './styles.css';
-
 const LETTER_GUESS_STATE = Object.freeze({
   INDETERMINATE: 'INDETERMINATE',
   ABSENT: 'ABSENT',

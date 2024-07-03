@@ -1,7 +1,5 @@
 import { useState } from 'react';
 
-import './styles.css';
-
 // List of cell indices that are 3-in-a-row.
 const CELLS_IN_A_LINE = [
   [0, 1, 2],

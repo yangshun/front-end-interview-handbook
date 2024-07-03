@@ -1,0 +1,57 @@
+import TestCases from '../../../test-cases.mdx';
+import Notes from '../../../notes.mdx';
+
+## Solution
+
+### Props
+
+Our game retains its customizability, offering the following inputs:
+
+- `rows`: Number of rows.
+- `cols`: Number of columns.
+- `roundDuration`: The length of each game round.
+- `molesAtOnce`: The number of moles that can pop up simultaneously.
+- `molesAppearingInterval`: The duration for which a mole remains visible.
+
+### State Management
+
+To maintain the game state, Svelte relies on reactive declarations and simple variables:
+
+- `visible`: A set denoting which holes have moles currently.
+- `score`: Tracks the player's score.
+- `running`: A flag indicating if the game is ongoing.
+- `timeLeft`: Countdown for the current game round.
+
+### Game Logic
+
+#### Starting the Game
+
+`startGame` initializes the game. It sets up two main timers:
+
+1. `countdownTimerId`: Decreases `timeLeft` every second, and stops the game once it reaches zero.
+2. `moleTimerId`: Generates new mole positions at regular intervals using `generateMolePositions`.
+
+`stopGame` complements `startGame`, ensuring that the mole generation timer stops when the game ends.
+
+#### Cleaning Up
+
+With the `onUnmounted` lifecycle hook, we ensure that any lingering timers are cleared when the component is unmmounted, preventing unintended side effects.
+
+#### Whacking a Mole
+
+`whackMole` checks if the mole (cell) clicked by the player actually contains a mole. If so, the mole is "whacked", removed from the `visible` set, and the player's score is incremented.
+
+### Rendering
+
+Thanks to Vue's reactive nature, updating the game's visual state is straightforward:
+
+- The game grid remains designed using CSS grid, enabling a flexible 2D layout using a linear DOM element list.
+- With the help of Vue's `v-if` directive, we conditionally render the "Start Game" button or the score and "Play Again" button based on the game state.
+- The `v-for` direct dynamically creates the game grid buttons. It also conditionally applies the `mole-head--visible` class, which determines if a mole is displayed, based on whether the `visible` set contains a particular cell's index.
+
+### Generating Mole Positions
+
+Mole positions are determined randomly using the `generateMolePositions` function, which employs the Fisher-Yates shuffle algorithm. This function creates an array of potential positions, shuffles them, and picks the first `molesAtOnce` positions as the ones where moles will appear.
+
+<TestCases />
+<Notes />

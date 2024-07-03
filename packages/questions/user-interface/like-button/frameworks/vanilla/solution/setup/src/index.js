@@ -33,7 +33,7 @@ import './styles.css';
 
         if (!response.ok) {
           const res = await response.json();
-          errorMessage = res.error;
+          errorMessage = res.message;
           return;
         }
 

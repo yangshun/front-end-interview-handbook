@@ -1,0 +1,10 @@
+<table *ngIf="tableData">
+  <tbody>
+    <tr
+      *ngFor="let row of tableData; trackBy: trackByIndex">
+      <td *ngFor="let col of row; trackBy: trackByIndex">
+        {{ col }}
+      </td>
+    </tr>
+  </tbody>
+</table>

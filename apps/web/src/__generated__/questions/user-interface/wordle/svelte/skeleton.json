@@ -8,7 +8,7 @@
       "code": "<!doctype html>\n<html>\n  <head>\n    <meta charset=\"utf8\" />\n    <meta name=\"viewport\" content=\"width=device-width\" />\n    <title>Svelte</title>\n    <link rel=\"stylesheet\" href=\"public/bundle.css\" />\n  </head>\n\n  <body>\n    <script src=\"bundle.js\"></script>\n  </body>\n</html>\n"
     },
     "/src/App.svelte": {
-      "code": "<script>\n  import './styles.css';\n  const WORDS = Object.freeze([\n    'APPLE',\n    'BEAST',\n    'FAINT',\n    'FEAST',\n    'FRUIT',\n    'GAMES',\n    'PAINT',\n    'PASTE',\n    'TOWER',\n    'REACT',\n  ]);\n</script>\n\n<div>Hello World</div>\n"
+      "code": "<script>\n  import './styles.css';\n\n  const WORDS = Object.freeze([\n    'APPLE',\n    'BEAST',\n    'FAINT',\n    'FEAST',\n    'FRUIT',\n    'GAMES',\n    'PAINT',\n    'PASTE',\n    'TOWER',\n    'REACT',\n  ]);\n  let name = 'world';\n</script>\n\n<h1>Hello {name}</h1>\n\n<style>\n  h1 {\n    font-size: 1.5rem;\n  }\n</style>\n"
     },
     "/src/index.js": {
       "code": "import App from './App.svelte';\nimport './styles.css';\n\nconst app = new App({\n  target: document.body,\n});\n\nexport default app;\n"

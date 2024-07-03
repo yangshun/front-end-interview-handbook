@@ -1,35 +1,32 @@
 import { useState } from 'react';
-import Board from './Board';
-import ColorPicker from './ColorPicker';
 
-import './styles.css';
-
-const COLORS = [
-  'white',
-  'gray',
-  'red',
-  'orange',
-  'yellow',
-  'green',
-  'teal',
-  'blue',
-  'purple',
-  'beige',
-];
+const COLORS = {
+  white: '#fff',
+  gray: '#e9ecef',
+  black: '#000',
+  red: '#cc0001',
+  orange: '#fb940b',
+  yellow: '#ffff01',
+  green: '#01cc00',
+  teal: '#38d9a9',
+  blue: '#228be6',
+  purple: '#7950f2',
+  beige: '#ff8787',
+};
 
 export default function App() {
-  const [selectedColor, setColor] = useState(COLORS[0]);
-  const [isDrawing, setIsDrawing] = useState(true);
+  const [message, setMessage] = useState('Hello World!');
+
   return (
     <div>
-      <Board selectedColor={selectedColor} isDrawing={isDrawing} />
-      <ColorPicker
-        colors={COLORS}
-        selectedColor={selectedColor}
-        setColor={setColor}
-        isDrawing={isDrawing}
-        setIsDrawing={setIsDrawing}
-      />
+      {message}
+      <ul>
+        {Object.entries(COLORS).map(([color, hex]) => (
+          <li key={color}>
+            <span style={{ color: hex }}>{color}</span>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 }

@@ -1,0 +1,16 @@
+import Solution from '../../../solution.mdx';
+import TestCases from '../../../test-cases.mdx';
+
+<Solution />
+
+### React-specific notes
+
+#### `useState` and `grid` mutations
+
+Since we are using `useState` as the `grid` state, we should not mutate `grid` when we drop a disc. We need to make a deep copy the `grid` state, mutate the copy, and then set the state to the copy with `setGrid`. We can also use [Immer's `produce`](https://immerjs.github.io/immer/produce/) if third-party libraries are allowed.
+
+#### Using indices as `key`s
+
+When we `map` the rows and cells in `grid`, we use their indices as `key`s. If you are a student of React, you'd probably realize that [React warns against it](https://react.dev/learn/rendering-lists#why-does-react-need-keys). But in this case, it's perfectly fine to use indices as `key`s because _they are the correct identifiers of the rows and cells in `grid`_, do not contain state and the grid dimensions do not change while the game is in-progress. Therefore, it will not cause any "subtle and confusing bugs" as React warns.
+
+<TestCases />

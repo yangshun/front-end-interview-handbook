@@ -1,0 +1,26 @@
+<div class="wrapper">
+  <div class="accordion">
+    <div
+      *ngFor="let section of sections"
+      class="accordion-item">
+      <button
+        class="accordion-item-title"
+        type="button"
+        (click)="toggleSection(section.value)">
+        {{ section.title }}
+        <span
+          aria-hidden="true"
+          [ngClass]="{
+            'accordion-icon': true,
+            'accordion-icon--rotated': isOpen(section.value)
+          }">
+        </span>
+      </button>
+      <div
+        class="accordion-item-contents"
+        [hidden]="!isOpen(section.value)">
+        {{ section.contents }}
+      </div>
+    </div>
+  </div>
+</div>

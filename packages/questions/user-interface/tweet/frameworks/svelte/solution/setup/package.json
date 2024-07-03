@@ -1,0 +1,9 @@
+{
+  "name": "@gfe-questions/tweet-svelte-solution",
+  "author": "yangshun",
+  "version": "0.0.1",
+  "main": "src/index.js",
+  "dependencies": {
+    "svelte": "^3.58.0"
+  }
+}

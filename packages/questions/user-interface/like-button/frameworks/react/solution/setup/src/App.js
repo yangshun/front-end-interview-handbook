@@ -1,8 +1,6 @@
 import { useState } from 'react';
 import { HeartIcon, SpinnerIcon } from './icons';
 
-import './styles.css';
-
 function classNames(...args) {
   return args.filter(Boolean).join(' ');
 }
@@ -35,7 +33,7 @@ export default function App() {
 
       if (!response.ok) {
         const res = await response.json();
-        setErrorMessage(res.error);
+        setErrorMessage(res.message);
         return;
       }
 

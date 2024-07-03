@@ -34,7 +34,7 @@ The card creation is as follows:
 
 ### `onFlip`
 
-For the most part, `onFlip` adds cards to the `selected` array. If there aren't enough cards to make a decision whether there's a match yet, the function terminates. When enough cards are selected, check whether all the selected cards are similar. If so, we can add the selected emoji to the `matched` set and reset `selected` to be empty so that the player can continue with the game. If there isn't a match, we wait for `delay` duration to pass before flipping the selected cards back over. 
+For the most part, `onFlip` adds cards to the `selected` array. If there aren't enough cards to make a decision whether there's a match yet, the function terminates. When enough cards are selected, check whether all the selected cards are similar. If so, we can add the selected emoji to the `matched` set and reset `selected` to be empty so that the player can continue with the game. If there isn't a match, we wait for `delay` duration to pass before flipping the selected cards back over.
 
 If a player tries flipping more cards before the `delay` elapses, the already flipped cards (that aren't matched) need to be reset immediately. Using `clearTimeout` with the timer stored in `waitTimer` achieves this.
 

@@ -1,0 +1,19 @@
+## Test Cases
+
+Let the game be configured with `PLAYERS` players and the winning condition be `COUNT_TO_WIN` consecutive discs of the same color.
+
+For a given `ROWS`-by-`COLUMNS` grid `grid` and a given `player`,
+
+- For any given column `i`:
+  - If there is at least one empty cell `cell`, dropping a disc will result in `cell` being filled with `player`'s disc color.
+  - Dropping a disc in a column will fill spaces from the bottom.
+  - If there is no empty cell, a disc cannot be placed in the column. If you have other behaviors for this case, expect it to happen too.
+- When a disc is dropped into some cell `cell`, for each of the four directions: ─, │, ╲, and ╱ that crosses `cell`,
+  - If there are at least `COUNT_TO_WIN` consecutive cells filled with `player`'s disc color, there's an indicator for the winning player.
+  - Otherwise, the color of the disc to drop in the next turn is the next player in `PLAYERS`'s.
+- Game progress:
+  - Players can take turns to drop the discs until a player wins or a there's a draw.
+  - If all cells are filled and no player has won, a draw indicator appears.
+- Game conclusion
+  - When the winning or a draw indicator appears, no more discs can be dropped.
+- Clicking on the "Reset" button will turn all cells `grid` to its base color, and clear any winning or draw indicators.

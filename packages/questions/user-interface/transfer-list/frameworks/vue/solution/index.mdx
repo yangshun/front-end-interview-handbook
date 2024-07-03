@@ -1,0 +1,30 @@
+import TestCases from '../../../test-cases.mdx';
+import A11y from '../../../a11y.mdx';
+
+## Solution
+
+Overall, the trickiest part of this question is to select the right data structure to use considering the operations we need to do on the data.
+
+### State
+
+The intuitive thing to do would be to use an arrays for each list since arrays are the most natural data structure to represent a list of ordered items. However, marking items as checked/unchecked and removing items from the list will require O(N) time if an array is used.
+
+Since the items are unique, a `Map` data structure is feasible as it gives us O(1) access, insertion, and removal of items. Moreover, JavaScript `Map`s are ordered, so the items order can be preserved. The key will be the item name and value is a boolean indicating whether the item is selected/checked. We only need two JavaScript `Map`s in total, one for each list.
+
+### Rendering
+
+There's nothing particularly special about rendering the UI for the transfer lists. Flexboxes can help us render the three columns. Since the UI and the functionality of the columns are identical, we can define a component called `ItemList.vue` that binds to the list of items, displaying and manipulating the list itself.
+
+To determine if the buttons should be disabled:
+
+- Transfer all buttons: check if the source list is empty.
+- Transfer selected buttons: write a helper function `hasNoSelectedItems`, to count if the source list has any selected items, and disable the transfer buttons.
+
+### Transferring Items
+
+We can write a function per desired transfer functionality that accepts source/destination lists and their respective setters. These functions reduce code duplication and can be easily reused if there are more than two columns in future.
+
+- `transferAllItems`: combine the items from source and destination lists to create a new destination list.
+- `transferSelectedItems`: move the selected items from source to destination lists by removing them from the source list and adding them to the destination list.
+
+<TestCases />

@@ -1,0 +1,14 @@
+import TestCases from '../../../test-cases.mdx';
+import A11y from '../../../a11y.mdx';
+import Notes from '../../../notes.mdx';
+import Solution from '../../../solution.mdx';
+
+<Solution />
+
+Using a form that has input values bound to the component state is more convenient than native forms approach, as having state for the date values allows us to specify the current departure date as the `min` of the return date `<input>` field and leverage the browser's form validation during submission. Otherwise, we'll have to write custom validation logic in the submission handler.
+
+The `v-model` directive in Vue makes it straightforward to capture the current value of these `<input>` elements and sync it with the component state.
+
+<TestCases />
+<A11y />
+<Notes />

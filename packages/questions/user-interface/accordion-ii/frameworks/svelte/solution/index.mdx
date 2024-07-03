@@ -1,0 +1,16 @@
+import TestCases from '../../../test-cases.mdx';
+import Notes from '../../../notes.mdx';
+
+We'll build on top of [Accordion's solution](/questions/user-interface/accordion/svelte/solution).
+
+## Solution
+
+Other than adding the right ARIA roles and states, which is straightforward, we also need to link the accordion headers with the corresponding accordion contents/panels. Hence we defined to variables, `headerId` and `panelId` to do this.
+
+- `headerId` is a unique ID string to use as the value of the `id` attribute of the header element. This ID will be used as the value of the `aria-labelledby` attribute of the corresponding accordion panel.
+- `panelId` is a unique ID string to use as the value of the `id` attribute of accordion panel. This ID will be used as the value of the `aria-controls` attribute of the corresponding accordion header.
+
+Since there can be multiple `Accordion` component instances on the page and we cannot guarantee that the accordion section values will be globally unique, each `Accordion` instance needs to have a unique identifier. We defined a `globalAccordionId` in the `<script context="module">`, this code will only run once when the module first evaluates, rather than when a component is instantiated. For each new `Accordion` instance, we assign the `globalAccordionId` to the current `Accordion` instance's `accordionId` and increments it, allowing each `Accordion` instance having a unique ID. The final ID string will be a concatenation of the `Accordion` instance's `accordionId`, the item value, and whether it's a header or a panel.
+
+<TestCases />
+<Notes />

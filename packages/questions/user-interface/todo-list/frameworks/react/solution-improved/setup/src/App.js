@@ -1,7 +1,5 @@
 import { useState } from 'react';
 
-import './styles.css';
-
 // Encapsulate the ID generation so that it can only
 // be read and is protected from external modification.
 const newID = (() => {

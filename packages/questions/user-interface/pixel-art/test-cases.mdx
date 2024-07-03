@@ -1,12 +1,14 @@
 ## Test cases
 
-TODO(react)
-
-- The board should render a 15x15 grid.
-- Board should not have any colors applied on initial load.
-- There should be a ColorPicker that shows which color is currently selected.
-- Clicking once on a Cell while Drawing should color that cell.
-- Clicking and dragging over multiple cells while Drawing should color those cells.
-- Clicking once on a Cell while Erasing should erase that cell's color.
-- Clicking and dragging over multiple cells while Erasing should remove those cell's colors.
-- Drawing over an already colored cell with a different color should update that color.
+- Canvas should contain a 15 x 15 grid of cells.
+- Canvas should not have any colors applied on initial load.
+- Toolbar should render the mode picker and colorpicker.
+  - Mode picker allows selection of modes.
+  - Colorpicker allows selection of colors. Black and white are rendered fine.
+- Drawing mode
+  - Clicking once on a Cell while drawing should color that cell.
+  - Dragging over cells while drawing should color those cells with the selected color
+  - Drawing over an already-colored cell with a different color should update the cell with that color.
+- Erasing mode
+  - Clicking once on a cell while erasing should erase that cell's color.
+  - Clicking and dragging over multiple cells while erasing should remove those cell's colors.

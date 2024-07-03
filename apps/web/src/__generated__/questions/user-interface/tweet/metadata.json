@@ -16,6 +16,18 @@
     {
       "framework": "vanilla",
       "href": "/questions/user-interface/tweet/vanilla"
+    },
+    {
+      "framework": "angular",
+      "href": "/questions/user-interface/tweet/angular"
+    },
+    {
+      "framework": "svelte",
+      "href": "/questions/user-interface/tweet/svelte"
+    },
+    {
+      "framework": "vue",
+      "href": "/questions/user-interface/tweet/vue"
     }
   ],
   "href": "/questions/user-interface/tweet",

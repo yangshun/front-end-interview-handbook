@@ -128,6 +128,18 @@
       {
         "framework": "vanilla",
         "href": "/questions/user-interface/analog-clock/vanilla"
+      },
+      {
+        "framework": "angular",
+        "href": "/questions/user-interface/analog-clock/angular"
+      },
+      {
+        "framework": "svelte",
+        "href": "/questions/user-interface/analog-clock/svelte"
+      },
+      {
+        "framework": "vue",
+        "href": "/questions/user-interface/analog-clock/vue"
       }
     ],
     "href": "/questions/user-interface/analog-clock",
@@ -427,6 +439,34 @@
     "slug": "binary-search",
     "subtitle": null,
     "title": "Binary Search",
+    "topics": []
+  },
+  {
+    "author": null,
+    "companies": [],
+    "created": 1719964800,
+    "difficulty": "medium",
+    "duration": 30,
+    "excerpt": "Build a widget that fetches birth year data from an API and plot it on a histogram",
+    "featured": false,
+    "format": "user-interface",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/user-interface/birth-year-histogram",
+    "importance": "low",
+    "languages": [
+      "html",
+      "css",
+      "js"
+    ],
+    "nextQuestions": [],
+    "premium": true,
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [],
+    "slug": "birth-year-histogram",
+    "subtitle": null,
+    "title": "Birth Year Histogram",
     "topics": []
   },
   {
@@ -780,6 +820,39 @@
     "topics": []
   },
   {
+    "author": null,
+    "companies": [],
+    "created": 1719964800,
+    "difficulty": "medium",
+    "duration": 30,
+    "excerpt": "Build a game for two players who take turns to drop colored discs from the top into a vertically suspended board/grid",
+    "featured": false,
+    "format": "user-interface",
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/user-interface/connect-four/react"
+      }
+    ],
+    "href": "/questions/user-interface/connect-four",
+    "importance": "low",
+    "languages": [
+      "html",
+      "js",
+      "css"
+    ],
+    "nextQuestions": [],
+    "premium": true,
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [],
+    "slug": "connect-four",
+    "subtitle": null,
+    "title": "Connect Four",
+    "topics": []
+  },
+  {
     "author": "yangshun",
     "companies": [
       "lyft"
@@ -807,6 +880,10 @@
       {
         "framework": "svelte",
         "href": "/questions/user-interface/contact-form/svelte"
+      },
+      {
+        "framework": "vue",
+        "href": "/questions/user-interface/contact-form/vue"
       }
     ],
     "href": "/questions/user-interface/contact-form",
@@ -886,6 +963,10 @@
       {
         "framework": "svelte",
         "href": "/questions/user-interface/counter/svelte"
+      },
+      {
+        "framework": "vue",
+        "href": "/questions/user-interface/counter/vue"
       }
     ],
     "href": "/questions/user-interface/counter",
@@ -1390,6 +1471,34 @@
   {
     "author": null,
     "companies": [],
+    "created": 1719964800,
+    "difficulty": "medium",
+    "duration": 20,
+    "excerpt": "Build a dice roller app that simulates the results of rolling 6-sided dice",
+    "featured": false,
+    "format": "user-interface",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/user-interface/dice-roller",
+    "importance": "low",
+    "languages": [
+      "html",
+      "css",
+      "js"
+    ],
+    "nextQuestions": [],
+    "premium": true,
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [],
+    "slug": "dice-roller",
+    "subtitle": null,
+    "title": "Dice Roller",
+    "topics": []
+  },
+  {
+    "author": null,
+    "companies": [],
     "created": 1682553600,
     "difficulty": "easy",
     "duration": 10,
@@ -1446,6 +1555,10 @@
       {
         "framework": "svelte",
         "href": "/questions/user-interface/digital-clock/svelte"
+      },
+      {
+        "framework": "vue",
+        "href": "/questions/user-interface/digital-clock/vue"
       }
     ],
     "href": "/questions/user-interface/digital-clock",
@@ -1736,6 +1849,22 @@
       {
         "framework": "react",
         "href": "/questions/user-interface/flight-booker/react"
+      },
+      {
+        "framework": "vanilla",
+        "href": "/questions/user-interface/flight-booker/vanilla"
+      },
+      {
+        "framework": "angular",
+        "href": "/questions/user-interface/flight-booker/angular"
+      },
+      {
+        "framework": "svelte",
+        "href": "/questions/user-interface/flight-booker/svelte"
+      },
+      {
+        "framework": "vue",
+        "href": "/questions/user-interface/flight-booker/vue"
       }
     ],
     "href": "/questions/user-interface/flight-booker",
@@ -1927,6 +2056,18 @@
       {
         "framework": "vanilla",
         "href": "/questions/user-interface/generate-table/vanilla"
+      },
+      {
+        "framework": "angular",
+        "href": "/questions/user-interface/generate-table/angular"
+      },
+      {
+        "framework": "svelte",
+        "href": "/questions/user-interface/generate-table/svelte"
+      },
+      {
+        "framework": "vue",
+        "href": "/questions/user-interface/generate-table/vue"
       }
     ],
     "href": "/questions/user-interface/generate-table",
@@ -2223,6 +2364,18 @@
       {
         "framework": "vanilla",
         "href": "/questions/user-interface/holy-grail/vanilla"
+      },
+      {
+        "framework": "angular",
+        "href": "/questions/user-interface/holy-grail/angular"
+      },
+      {
+        "framework": "svelte",
+        "href": "/questions/user-interface/holy-grail/svelte"
+      },
+      {
+        "framework": "vue",
+        "href": "/questions/user-interface/holy-grail/vue"
       }
     ],
     "href": "/questions/user-interface/holy-grail",
@@ -2488,7 +2641,10 @@
   },
   {
     "author": "dhillon",
-    "companies": [],
+    "companies": [
+      "microsoft",
+      "tiktok"
+    ],
     "created": 1683849600,
     "difficulty": "medium",
     "duration": 30,
@@ -2512,6 +2668,10 @@
       {
         "framework": "svelte",
         "href": "/questions/user-interface/job-board/svelte"
+      },
+      {
+        "framework": "vue",
+        "href": "/questions/user-interface/job-board/vue"
       }
     ],
     "href": "/questions/user-interface/job-board",
@@ -3243,6 +3403,39 @@
   },
   {
     "author": "yangshun",
+    "companies": [],
+    "created": 1719964800,
+    "difficulty": "medium",
+    "duration": 30,
+    "excerpt": "Build a pixel art drawing tool where users can paint pixels with selected colors",
+    "featured": false,
+    "format": "user-interface",
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/user-interface/pixel-art/react"
+      }
+    ],
+    "href": "/questions/user-interface/pixel-art",
+    "importance": "low",
+    "languages": [
+      "html",
+      "css",
+      "js"
+    ],
+    "nextQuestions": [],
+    "premium": true,
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [],
+    "slug": "pixel-art",
+    "subtitle": null,
+    "title": "Pixel Art",
+    "topics": []
+  },
+  {
+    "author": "yangshun",
     "companies": [
       "uber"
     ],
@@ -3891,6 +4084,39 @@
   {
     "author": null,
     "companies": [],
+    "created": 1719964800,
+    "difficulty": "hard",
+    "duration": 40,
+    "excerpt": "Build an interface where users can drag to select multiple cells within a grid",
+    "featured": false,
+    "format": "user-interface",
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/user-interface/selectable-cells/react"
+      }
+    ],
+    "href": "/questions/user-interface/selectable-cells",
+    "importance": "low",
+    "languages": [
+      "html",
+      "js",
+      "css"
+    ],
+    "nextQuestions": [],
+    "premium": true,
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [],
+    "slug": "selectable-cells",
+    "subtitle": null,
+    "title": "Selectable Cells",
+    "topics": []
+  },
+  {
+    "author": null,
+    "companies": [],
     "created": 1671667200,
     "difficulty": "easy",
     "duration": 10,
@@ -4170,6 +4396,10 @@
       {
         "framework": "svelte",
         "href": "/questions/user-interface/stopwatch/svelte"
+      },
+      {
+        "framework": "vue",
+        "href": "/questions/user-interface/stopwatch/vue"
       }
     ],
     "href": "/questions/user-interface/stopwatch",
@@ -4256,7 +4486,8 @@
   {
     "author": "yangshun",
     "companies": [
-      "airbnb"
+      "airbnb",
+      "amazon"
     ],
     "created": 1670976000,
     "difficulty": "medium",
@@ -4297,7 +4528,8 @@
   {
     "author": "yangshun",
     "companies": [
-      "airbnb"
+      "airbnb",
+      "amazon"
     ],
     "created": 1670976000,
     "difficulty": "medium",
@@ -4338,7 +4570,8 @@
   {
     "author": "yangshun",
     "companies": [
-      "airbnb"
+      "airbnb",
+      "amazon"
     ],
     "created": 1671062400,
     "difficulty": "medium",
@@ -4395,6 +4628,10 @@
       {
         "framework": "svelte",
         "href": "/questions/user-interface/temperature-converter/svelte"
+      },
+      {
+        "framework": "vue",
+        "href": "/questions/user-interface/temperature-converter/vue"
       }
     ],
     "href": "/questions/user-interface/temperature-converter",
@@ -4626,6 +4863,14 @@
       {
         "framework": "vanilla",
         "href": "/questions/user-interface/todo-list/vanilla"
+      },
+      {
+        "framework": "angular",
+        "href": "/questions/user-interface/todo-list/angular"
+      },
+      {
+        "framework": "svelte",
+        "href": "/questions/user-interface/todo-list/svelte"
       }
     ],
     "href": "/questions/user-interface/todo-list",
@@ -4732,7 +4977,9 @@
   },
   {
     "author": "yangshun",
-    "companies": [],
+    "companies": [
+      "tiktok"
+    ],
     "created": 1682208000,
     "difficulty": "medium",
     "duration": 30,
@@ -4856,6 +5103,18 @@
       {
         "framework": "vanilla",
         "href": "/questions/user-interface/tweet/vanilla"
+      },
+      {
+        "framework": "angular",
+        "href": "/questions/user-interface/tweet/angular"
+      },
+      {
+        "framework": "svelte",
+        "href": "/questions/user-interface/tweet/svelte"
+      },
+      {
+        "framework": "vue",
+        "href": "/questions/user-interface/tweet/vue"
       }
     ],
     "href": "/questions/user-interface/tweet",
@@ -4874,6 +5133,34 @@
     "slug": "tweet",
     "subtitle": null,
     "title": "Tweet",
+    "topics": []
+  },
+  {
+    "author": null,
+    "companies": [],
+    "created": 1719964800,
+    "difficulty": "medium",
+    "duration": 25,
+    "excerpt": "Build a two-factor auth component that allows users to enter a 6-digit authorization code",
+    "featured": false,
+    "format": "user-interface",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/user-interface/two-factor-auth-input",
+    "importance": "low",
+    "languages": [
+      "html",
+      "css",
+      "js"
+    ],
+    "nextQuestions": [],
+    "premium": true,
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [],
+    "slug": "two-factor-auth-input",
+    "subtitle": null,
+    "title": "Two-factor Auth Input",
     "topics": []
   },
   {
@@ -5037,6 +5324,39 @@
     "slug": "unique-array",
     "subtitle": null,
     "title": "Unique Array",
+    "topics": []
+  },
+  {
+    "author": null,
+    "companies": [],
+    "created": 1719964800,
+    "difficulty": "medium",
+    "duration": 30,
+    "excerpt": "Build a UI to filter, create, update, and delete users",
+    "featured": false,
+    "format": "user-interface",
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/user-interface/users-database/react"
+      }
+    ],
+    "href": "/questions/user-interface/users-database",
+    "importance": "low",
+    "languages": [
+      "html",
+      "js",
+      "css"
+    ],
+    "nextQuestions": [],
+    "premium": true,
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [],
+    "slug": "users-database",
+    "subtitle": null,
+    "title": "Users Database",
     "topics": []
   },
   {

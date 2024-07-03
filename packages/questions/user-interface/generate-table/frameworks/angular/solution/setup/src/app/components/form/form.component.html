@@ -1,0 +1,24 @@
+<form
+  id="form"
+  (submit)="submitForm($event)"
+  ngNativeValidate>
+  <div>
+    <label for="rows">Rows</label>
+    <input
+      id="rows"
+      name="rows"
+      type="number"
+      min="1"
+      required />
+  </div>
+  <div>
+    <label for="columns">Columns</label>
+    <input
+      id="columns"
+      name="columns"
+      type="number"
+      min="1"
+      required />
+  </div>
+  <button type="submit">Submit</button>
+</form>

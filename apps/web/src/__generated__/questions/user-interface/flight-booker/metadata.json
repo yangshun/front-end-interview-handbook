@@ -12,6 +12,22 @@
     {
       "framework": "react",
       "href": "/questions/user-interface/flight-booker/react"
+    },
+    {
+      "framework": "vanilla",
+      "href": "/questions/user-interface/flight-booker/vanilla"
+    },
+    {
+      "framework": "angular",
+      "href": "/questions/user-interface/flight-booker/angular"
+    },
+    {
+      "framework": "svelte",
+      "href": "/questions/user-interface/flight-booker/svelte"
+    },
+    {
+      "framework": "vue",
+      "href": "/questions/user-interface/flight-booker/vue"
     }
   ],
   "href": "/questions/user-interface/flight-booker",

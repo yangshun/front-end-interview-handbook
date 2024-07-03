@@ -1,39 +1,7 @@
+import Solution from '../../../solution.mdx';
 import TestCases from '../../../test-cases.mdx';
 import A11y from '../../../a11y.mdx';
 
-## Solution
-
-TODO(react): Review solution.
-
-### State
-
-The parent App component stores the color selected (`selectedColor`) and Draw option (`isDrawing`) or Erase (`!isDrawing`) as state. We initialize the `selectedColor` as the first color in our array and isDrawing to true.
-
-We pass `setColor` function from App to the `ColorPicker` subcomponent. Whenever a color is clicked on in the `ColorPicker`, we call setColor with the selected color as the parameter to update App's `selectedColor` state.
-
-We also pass `setIsDrawing` to `ColorPicker` so that we update isDrawing with true or false depending on if 'Draw' or 'Erase' is selected.
-
-The Board Component is another child of App. Board will render 15x15 Cell components. Each Cell component can store a color as its state (initialized as null) and it receives isDrawing, isDragging, and `selectedColor` (color selected on the `ColorPicker`) as props from Board.
-
-On Board, when we start to mouseover (onMouseOver) and drag the mouse, we set isDragging to true, and when we let go of the mouse (onMouseUp) we set isDragging to false.
-
-If isDragging is true and we are drawing, any Cell that we mouse over (onMouseOver) gets its cellColor state set to `selectedColor`. (It's okay to set a repeated color). We also need to add a mouseDown function to set the color of a cell right after we click.
-
-### Rendering
-
-We use the COLORS array passed to `ColorPicker` to render the color options that can be selected. We also need to show tabs for selecting "Draw" or "Erase".
-
-In the Board component, to create a NxN board, we create a 2D Matrix Array by filling an array with N arrays that have N elements. (Array(n).fill(Array(n).fill(null)))
-
-We map through the 2D Matrix and for each row array, we map and return each Cell component. (To create the checkerboard pattern we use style every other odd or even row with CSS pseudo-classes- ie. `.grid__row--even .grid__cell:nth-child(odd)`)
-
-When we click or drag the mouseover with a color, we set that cell's classname to `grid__cell ${color}`. In the CSS submodule, the Cell color classname `.grid .grid__row .white` has a higher number of selectors (3) than the grid background-color (2), so the selected cell color will have a higher CSS specificity order of precedence. Some alternative ways to style the cell with a color are inline styles, using the !important CSS rule, or using a CSS Id rule (not recommended).
-
-### Explain some special functions
-
-We can set isDrawing to true whenever a color is selected on `ColorPicker` because it is assumed that we want to start drawing on the board.
-
-When the Erase option is selected (!isDrawing), we set the cellColor in Cell to null. If the cellColor is null, we don't name a color to the cell classname so it defaults to the grid background color.
-
+<Solution />
 <TestCases />
 <A11y />

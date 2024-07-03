@@ -1,0 +1,11 @@
+{
+  "visibleFiles": [
+    "/src/App.vue",
+    "/src/Clock.vue",
+    "/src/Digit.vue",
+    "/src/Separator.vue",
+    "/src/composables.js"
+  ],
+  "activeFile": "/src/Clock.vue",
+  "environment": "vue-cli"
+}

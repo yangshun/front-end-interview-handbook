@@ -1,0 +1,12 @@
+{
+  "visibleFiles": [
+    "/src/app/app.component.ts",
+    "/src/app/app.component.html",
+    "/src/app/tweet.component.ts",
+    "/src/app/tweet.component.html",
+    "/src/app/tweet.component.css",
+    "/src/styles.css"
+  ],
+  "activeFile": "/src/app/tweet.component.ts",
+  "environment": "angular-cli"
+}

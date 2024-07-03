@@ -1,4 +1,4 @@
-import './styles.css';
+import { useState } from 'react';
 
 const WORDS = Object.freeze([
   'APPLE',
@@ -14,5 +14,7 @@ const WORDS = Object.freeze([
 ]);
 
 export default function App() {
-  return <div>Hello World</div>;
+  const [message, setMessage] = useState('Hello World!');
+
+  return <div>{message}</div>;
 }

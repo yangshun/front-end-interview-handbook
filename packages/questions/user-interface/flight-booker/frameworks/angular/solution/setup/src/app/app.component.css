@@ -1,0 +1,7 @@
+.flight-booker {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: 0 auto;
+  max-width: 320px;
+}

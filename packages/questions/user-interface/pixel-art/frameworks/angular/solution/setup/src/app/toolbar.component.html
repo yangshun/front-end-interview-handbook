@@ -1,0 +1,37 @@
+<div class="toolbar">
+  <div>
+    <button
+      (click)="modeChange.emit('draw')"
+      [ngClass]="{
+        toolbar__mode: true,
+        'toolbar__mode--selected': mode === 'draw'
+      }">
+      Draw
+    </button>
+    <button
+      (click)="modeChange.emit('erase')"
+      [ngClass]="{
+        toolbar__mode: true,
+        'toolbar__mode--selected': mode === 'erase'
+      }">
+      Erase
+    </button>
+  </div>
+  <div class="toolbar__color-picker">
+    <ng-container *ngFor="let entry of COLORS | keyvalue">
+      <button
+        [attr.aria-label]="entry.key"
+        [ngClass]="{
+          toolbar__color: true,
+          'toolbar__color--selected':
+            entry.key === selectedColor
+        }"
+        [ngStyle]="{
+          'border-color':
+            entry.key | borderColor: selectedColor,
+          'background-color': entry.value
+        }"
+        (click)="onColorClick(entry.key)"></button>
+    </ng-container>
+  </div>
+</div>

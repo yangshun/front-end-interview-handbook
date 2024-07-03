@@ -13,7 +13,7 @@ There's no need to use controlled values for the form fields as we only have to 
 
 ## Form Submission
 
-We can use JavaScript to attach on `onClick` event to the "Calculate" button that calculates the mortgage payment using the formula. But it'd be better to add a an `onSubmit` event handler to the `<form>` so that both clicking on the "Calculate" button and hitting "Enter" in any of the input fields will submit the form. It's also necessary to use `event.preventDefault()` to intercept the browser submit action which by default triggers a page redirect and is not desired here.
+We can use JavaScript to attach on `onClick` event to the "Calculate" button that calculates the mortgage payment using the formula. But it'd be better to add a an `onSubmit` event handler to the `<form>` so that both clicking on the "Calculate" button and hitting "Enter" in any of the input fields will submit the form. It's also necessary to use `event.preventDefault()` to intercept the browser submit action which by default triggers a page reload and is not desired here.
 
 ## Displaying Results
 

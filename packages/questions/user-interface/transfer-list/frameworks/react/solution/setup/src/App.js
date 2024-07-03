@@ -1,5 +1,4 @@
 import { useId, useState } from 'react';
-import './styles.css';
 
 function CheckboxItem({ onChange, label, checked }) {
   // Let React generate a unique ID for each item so as to maximize

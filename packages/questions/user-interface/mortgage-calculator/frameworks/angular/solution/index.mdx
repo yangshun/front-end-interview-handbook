@@ -1,0 +1,55 @@
+import TestCases from '../../../test-cases.mdx';
+import A11y from '../../../a11y.mdx';
+
+## Solution
+
+This question evaluates whether you understand how to allow users to enter form inputs, validate them and perform calculations based on the inputs.
+
+We will divide our app into 2 components `AppComponent` and `FormComponent`.
+
+`FormComponent` will be responsible for accepting user input and passing it to `AppComponent`.
+
+### `FormComponent`
+
+To collect user data, we use a `<form>` element and `<input>` fields.
+
+To validate input, use the built-in input type validators (`<input type="number">`) and `NgForm` to mark calculation button disabled if the form is invalid. You can use the required attribute in HTML to ensure that all input fields are filled out and the min attribute to ensure that input fields have a valid minimum value before the submit event callback is fired.
+
+Use `ngModel` in your template you can set initial values to the input fields.
+
+### `AppComponent`
+
+After computing the 3 necessary amounts using the formula, use `Intl.NumberFormat()` to format the amounts to 2 d.p. with a dollar symbol. Feel free to customize the formatting to your own locale and currency.
+
+### State
+
+In `AppComponent` we will store the state of the mortgage, that is updated by events from `FormComponent`.
+
+### Models
+
+```typescript
+export interface FormState {
+  loanAmount: number;
+  interestRate: number;
+  loanTerm: number;
+}
+```
+
+```typescript
+export interface FormState {
+  loanAmount: number;
+  interestRate: number;
+  loanTerm: number;
+}
+```
+
+### Angular Insights
+
+- You can adopt a more advanced, reactive-like approach using reactive forms.
+
+- You might create service for maintaining the state. Inject the service in smart component and crete dumb components that only display and interact with the UI and all events from dumb components are passed to the smart one.
+
+- If you're confident with the latest Angular version, consider using signals standalone API.
+
+<TestCases />
+<A11y />

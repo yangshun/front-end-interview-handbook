@@ -14,7 +14,7 @@
       "code": "import App from './App.svelte';\nimport './styles.css';\n\nconst app = new App({\n  target: document.body,\n});\n\nexport default app;\n"
     },
     "/src/styles.css": {
-      "code": "body {\n  font-family: sans-serif;\n}"
+      "code": "body {\n  font-family: sans-serif;\n}\n"
     }
   },
   "workspace": {

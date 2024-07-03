@@ -1,0 +1,29 @@
+{
+  "author": "tanhauhau",
+  "files": {
+    "/package.json": {
+      "code": "{\n  \"name\": \"@gfe-questions/generate-table-svelte-skeleton\",\n  \"author\": \"tanhauhau\",\n  \"version\": \"0.0.1\",\n  \"main\": \"src/index.js\",\n  \"dependencies\": {\n    \"svelte\": \"^3.58.0\"\n  }\n}\n"
+    },
+    "/public/index.html": {
+      "code": "<!doctype html>\n<html>\n  <head>\n    <meta charset=\"utf8\" />\n    <meta name=\"viewport\" content=\"width=device-width\" />\n    <title>Svelte</title>\n    <link rel=\"stylesheet\" href=\"public/bundle.css\" />\n  </head>\n\n  <body>\n    <script src=\"bundle.js\"></script>\n  </body>\n</html>\n"
+    },
+    "/src/App.svelte": {
+      "code": "<script>\n  import './styles.css';\n\n  let name = 'world';\n</script>\n\n<h1>Hello {name}</h1>\n\n<style>\n  h1 {\n    font-size: 1.5rem;\n  }\n</style>\n"
+    },
+    "/src/index.js": {
+      "code": "import App from './App.svelte';\nimport './styles.css';\n\nconst app = new App({\n  target: document.body,\n});\n\nexport default app;\n"
+    },
+    "/src/styles.css": {
+      "code": "body {\n  font-family: sans-serif;\n}\n"
+    }
+  },
+  "workspace": {
+    "visibleFiles": [
+      "/src/App.svelte",
+      "/src/styles.css"
+    ],
+    "activeFile": "/src/App.svelte",
+    "environment": "svelte"
+  },
+  "writeup": "var Component=(()=>{var h=Object.create;var o=Object.defineProperty;var b=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var x=Object.getPrototypeOf,w=Object.prototype.hasOwnProperty;var j=(n,e)=>()=>(e||n((e={exports:{}}).exports,e),e.exports),_=(n,e)=>{for(var r in e)o(n,r,{get:e[r],enumerable:!0})},c=(n,e,r,i)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let a of p(e))!w.call(n,a)&&a!==r&&o(n,a,{get:()=>e[a],enumerable:!(i=b(e,a))||i.enumerable});return n};var m=(n,e,r)=>(r=n!=null?h(x(n)):{},c(e||!n||!n.__esModule?o(r,\"default\",{value:n,enumerable:!0}):r,n)),v=n=>c(o({},\"__esModule\",{value:!0}),n);var l=j((X,u)=>{u.exports=_jsx_runtime});var C={};_(C,{default:()=>M});var s=m(l());var t=m(l());function d(n){let e=Object.assign({p:\"p\",img:\"img\",ol:\"ol\",li:\"li\"},n.components);return(0,t.jsxs)(t.Fragment,{children:[(0,t.jsx)(e.p,{children:\"Generate a table of numbers given the rows and columns.\"}),`\n`,(0,t.jsx)(e.p,{children:(0,t.jsx)(e.img,{src:\"/img/questions/generate-table/generate-table-example.png\",alt:\"Generated table of 4 by 5 columns\"})}),`\n`,(0,t.jsxs)(e.ol,{children:[`\n`,(0,t.jsx)(e.li,{children:\"The user enters the number of rows and columns in a form.\"}),`\n`,(0,t.jsx)(e.li,{children:\"When the form is submitted, a table with the respective number of rows and columns will be generated.\"}),`\n`,(0,t.jsx)(e.li,{children:\"The table contains rows x columns cells, each containing a number sequence from 1 to (rows x columns).\"}),`\n`]})]})}function y(n={}){let{wrapper:e}=n.components||{};return e?(0,t.jsx)(e,Object.assign({},n,{children:(0,t.jsx)(d,n)})):d(n)}var g=y;function f(n){return(0,s.jsx)(g,{})}function D(n={}){let{wrapper:e}=n.components||{};return e?(0,s.jsx)(e,Object.assign({},n,{children:(0,s.jsx)(f,n)})):f(n)}var M=D;return v(C);})();\n;return Component;"
+}

@@ -1,39 +1,26 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
-import './styles.css';
-
-function JobPosting({ url, by, time, title }) {
-  return (
-    <div className="post" role="listitem">
-      <h2 className="post__title">
-        {url ? (
-          <a
-            className="post__title__link"
-            href={url}
-            target="_blank"
-            rel="noopener">
-            {title}
-          </a>
-        ) : (
-          title
-        )}
-      </h2>
-      <p className="post__metadata">
-        By {by} &middot;{' '}
-        {new Date(time * 1000).toLocaleString()}
-      </p>
-    </div>
-  );
-}
+import JobPosting from './JobPosting';
 
 const PAGE_SIZE = 6;
 
 export default function App() {
   const [fetchingJobDetails, setFetchingJobDetails] =
     useState(false);
+  const [page, setPage] = useState(0);
   const [jobIds, setJobIds] = useState(null);
   const [jobs, setJobs] = useState([]);
-  const [page, setPage] = useState(0);
+  const isUnmounted = useRef(false);
+
+  useEffect(() => {
+    // Indicate that the component is unmounted, so
+    // that requests that complete after the component
+    // is unmounted don't cause a "setState on an unmounted
+    // component error".
+    return () => {
+      isUnmounted.current = true;
+    };
+  }, []);
 
   useEffect(() => {
     fetchJobs(page);
@@ -46,6 +33,12 @@ export default function App() {
         'https://hacker-news.firebaseio.com/v0/jobstories.json',
       );
       jobs = await res.json();
+
+      // No-op if component is unmounted.
+      if (isUnmounted.current) {
+        return;
+      }
+
       setJobIds(jobs);
     }
 
@@ -65,9 +58,21 @@ export default function App() {
         ).then((res) => res.json()),
       ),
     );
-    setJobs([...jobs, ...jobsForPage]);
+
+    // No-op if component is unmounted.
+    if (isUnmounted.current) {
+      return;
+    }
 
     setFetchingJobDetails(false);
+    // useEffect (and hence `fetchJobs`) runs twice on component mount
+    // during development in Strict Mode.
+    //
+    // But since the value of `jobs` within the closure is the same,
+    // the resulting combined jobs will be the same, assuming the results
+    // for the API stays the same between requests.
+    const combinedJobs = [...jobs, ...jobsForPage];
+    setJobs(combinedJobs);
   }
 
   return (

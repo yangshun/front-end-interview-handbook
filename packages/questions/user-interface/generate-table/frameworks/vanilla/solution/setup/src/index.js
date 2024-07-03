@@ -35,7 +35,7 @@ import './styles.css';
   }
 
   $formEl.addEventListener('submit', (event) => {
-    // To prevent a page redirect.
+    // To prevent a page reload.
     event.preventDefault();
 
     // Obtain data from the form.

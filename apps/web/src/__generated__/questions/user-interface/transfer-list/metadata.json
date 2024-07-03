@@ -1,6 +1,8 @@
 {
   "author": "yangshun",
-  "companies": [],
+  "companies": [
+    "tiktok"
+  ],
   "created": 1682208000,
   "difficulty": "medium",
   "duration": 30,

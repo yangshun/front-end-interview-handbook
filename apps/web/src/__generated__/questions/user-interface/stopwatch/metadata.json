@@ -27,6 +27,10 @@
     {
       "framework": "svelte",
       "href": "/questions/user-interface/stopwatch/svelte"
+    },
+    {
+      "framework": "vue",
+      "href": "/questions/user-interface/stopwatch/vue"
     }
   ],
   "href": "/questions/user-interface/stopwatch",

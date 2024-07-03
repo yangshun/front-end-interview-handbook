@@ -1,0 +1,37 @@
+body {
+  font-family: sans-serif;
+  margin: 0;
+}
+
+.draggable-area {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.select-box {
+  border: 1px dashed #000;
+  display: none;
+  position: absolute;
+}
+
+.grid {
+  --size: 400px;
+
+  width: var(--size);
+  height: var(--size);
+  flex-shrink: 0;
+  display: grid;
+  border: 1px solid #000;
+}
+
+.grid__cell {
+  border: 1px solid #000;
+}
+
+.grid__cell--selected {
+  background: #d6d5fe;
+}

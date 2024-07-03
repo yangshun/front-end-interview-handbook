@@ -1,5 +1,10 @@
 {
-  "visibleFiles": ["/src/App.svelte", "/src/styles.css"],
+  "visibleFiles": [
+    "/src/App.svelte",
+    "/src/Keyboard.svelte",
+    "/src/LetterGrid.svelte",
+    "/src/styles.css"
+  ],
   "activeFile": "/src/App.svelte",
   "environment": "svelte"
 }

@@ -1,0 +1,42 @@
+<div class="wrapper">
+  <div class="accordion">
+    <div
+      *ngFor="let section of sections; let i = index"
+      class="accordion-item">
+      <button
+        [attr.aria-controls]="
+          getAccordionPanelId(accordionId, section.value)
+        "
+        [attr.aria-expanded]="
+          openSections.has(section.value)
+        "
+        [id]="
+          getAccordionHeaderId(accordionId, section.value)
+        "
+        class="accordion-item-title"
+        type="button"
+        (click)="toggleSection(section.value)">
+        {{ section.title }}
+        <span
+          [attr.aria-hidden]="true"
+          [ngClass]="{
+            'accordion-icon': true,
+            'accordion-icon--rotated': isOpen(section.value)
+          }">
+        </span>
+      </button>
+      <div
+        [attr.aria-labelledby]="
+          getAccordionHeaderId(accordionId, section.value)
+        "
+        [id]="
+          getAccordionPanelId(accordionId, section.value)
+        "
+        role="region"
+        class="accordion-item-contents"
+        [hidden]="!isOpen(section.value)">
+        {{ section.contents }}
+      </div>
+    </div>
+  </div>
+</div>

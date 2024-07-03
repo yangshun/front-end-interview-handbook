@@ -1,5 +1,3 @@
-import './styles.css';
-
 import { useState } from 'react';
 
 const TODAY = formatDate(new Date());
@@ -24,23 +22,23 @@ export default function App() {
   const [returnDate, setReturnDate] =
     useState(departureDate);
 
+  function submitForm(event) {
+    event.preventDefault();
+    if (flightOption === 'one-way') {
+      alert(
+        `You have booked a one-way flight on ${departureDate}`,
+      );
+      return;
+    }
+
+    alert(
+      `You have booked a return flight, departing on ${departureDate} and returning on ${returnDate}`,
+    );
+  }
+
   return (
     <div>
-      <form
-        className="flight-booker"
-        onSubmit={(event) => {
-          event.preventDefault();
-          if (flightOption === 'one-way') {
-            alert(
-              `You have booked a one-way flight on ${departureDate}`,
-            );
-            return;
-          }
-
-          alert(
-            `You have booked a return flight, departing on ${departureDate} and returning on ${returnDate}`,
-          );
-        }}>
+      <form className="flight-booker" onSubmit={submitForm}>
         <select
           value={flightOption}
           onChange={(event) => {

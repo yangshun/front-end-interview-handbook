@@ -1,0 +1,9 @@
+{
+  "visibleFiles": [
+    "/src/App.vue",
+    "/src/Board.vue",
+    "/src/Cell.vue"
+  ],
+  "activeFile": "/src/Board.vue",
+  "environment": "vue-cli"
+}

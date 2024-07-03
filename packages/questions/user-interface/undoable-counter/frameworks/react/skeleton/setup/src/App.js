@@ -1,5 +1,7 @@
-import './styles.css';
+import { useState } from 'react';
 
 export default function App() {
-  return <div>Hello World</div>;
+  const [message, setMessage] = useState('Hello World!');
+
+  return <div>{message}</div>;
 }

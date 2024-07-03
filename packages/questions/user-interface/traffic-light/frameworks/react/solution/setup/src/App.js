@@ -1,7 +1,5 @@
 import TrafficLight from './TrafficLight';
 
-import './styles.css';
-
 const config = {
   red: {
     backgroundColor: 'red',

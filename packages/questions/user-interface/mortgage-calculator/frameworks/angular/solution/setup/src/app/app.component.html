@@ -1,0 +1,24 @@
+<div class="mortgage-calculator">
+  <app-form (onFormSubmit)="formSubmit($event)" />
+
+  <div
+    aria-live="polite"
+    class="mortgage-calculator-results"
+    *ngIf="mortgage">
+    <div>
+      Monthly Payment Amount:<strong>{{
+        mortgage.monthlyPayment
+      }}</strong>
+    </div>
+    <div>
+      Total Payment Amount:<strong>{{
+        mortgage.totalPayment
+      }}</strong>
+    </div>
+    <div>
+      Total Interest Paid:<strong>{{
+        mortgage.totalInterest
+      }}</strong>
+    </div>
+  </div>
+</div>

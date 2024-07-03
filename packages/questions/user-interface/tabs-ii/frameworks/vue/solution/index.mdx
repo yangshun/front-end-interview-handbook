@@ -1,0 +1,22 @@
+import TestCases from '../../../test-cases.mdx';
+
+## Solution
+
+We'll build on top of [Tabs' solution](/questions/user-interface/tabs/vue/solution). Other than adding the right ARIA roles and states, which is straightforward, we also need to link the tab items with the corresponding tabpanels. Hence we create two functions, `getTabListItemId` and `getTabPanelId` to do this.
+
+- `getTabListItemId` generates a unique ID string to use as the value of the `id` attribute of tab items. This ID will be used as the value of the `aria-labelledby` attribute of the corresponding tabpanel.
+- `getTabPanelId` generates a unique ID string to use as the value of the `id` attribute of tabpanels. This ID will be used as the value of the `aria-controls` attribute of the corresponding tab item.
+
+Since there can be multiple `Tabs` component instances on the page and we cannot guarantee that the tab item values will be globally unique, each `Tabs` instance needs to have a unique identifier. We can use a simple technique `Math.random().toString(36).substring(2, 9)` to generate unique ID for each `Tabs` instance. The final ID string will be a concatenation of the `Tabs` instance's ID, the item value, and whether it's a tab item or a tabpanel.
+
+<TestCases />
+
+## Accessibility
+
+We're not totally done with accessibility yet, there's still keyboard support to add, which will be covered in [Tabs III](/questions/user-interface/tabs-iii).
+
+## Resources
+
+- [Tabs | ARIA Authoring Practices Guide](https://www.w3.org/WAI/ARIA/apg/patterns/tabpanel/)
+- [Tabs | Radix Vue](https://radix-vue.com/components/tabs)
+- [Tabs - Headless UI](https://headlessui.com/vue/tabs)

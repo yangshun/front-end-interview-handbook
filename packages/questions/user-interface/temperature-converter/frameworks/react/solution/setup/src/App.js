@@ -1,7 +1,5 @@
 import { useState } from 'react';
 
-import './styles.css';
-
 function format(number) {
   // Show 4 d.p. if number has more than 4 decimal places.
   return /\.\d{5}/.test(number)

@@ -1,11 +1,22 @@
-import { useState } from 'react';
-
 export default function App() {
-  const [count, setCount] = useState(0);
+  function onSubmit() {
+    fetch(
+      'https://www.greatfrontend.com/api/questions/two-factor-auth-input',
+      {
+        method: 'POST',
+        body: JSON.stringify({ otp: '123456' }),
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      },
+    ).then((res) => res.text());
+  }
 
   return (
-    <div>
-      <button onClick={() => setCount(count + 1)}>Clicks: {count}</button>
-    </div>
+    <form>
+      <input type="text" />
+      <button type="reset">Reset</button>
+      <button type="submit">Verify</button>
+    </form>
   );
 }

@@ -3,15 +3,11 @@ import Notes from '../../../notes.mdx';
 
 ## Solution
 
-Firstly, in `ngOnInit()` hook, we will utilize the `HttpClient` service to initially load all job ids, save them to a property
-named `allJobIds` and subsequently call the `fetchJobs()` function to retrieve the first job contents.
+Firstly, in `ngOnInit()` hook, we will utilize the `HttpClient` service to initially load all job ids, save them to a property named `allJobIds` and subsequently call the `fetchJobs()` function to retrieve the first job contents.
 
-Within the `fetchJobs()` function, we will determine the job ids to be loaded, using the `PAGE_SIZE` constant so
-every time we call `fetchJobs()` we will load the next job contents and if ids property will be empty it won't be
-executed in `forkJoin`.
+Within the `fetchJobs()` function, we will determine the job ids to be loaded, using the `PAGE_SIZE` constant so every time we call `fetchJobs()` we will load the next job contents and if ids property will be empty it won't be executed in `forkJoin`.
 
-We will initiate requests equivalent to the number indicated by `ids.length` and using `forkJoin`, an array of the
-loaded jobs will be returned. Subsequently, we will update the `jobs` with the newly loaded ones using the spread operator.
+We will initiate requests equivalent to the number indicated by `ids.length` and using `forkJoin`, an array of the loaded jobs will be returned. Subsequently, we will update the `jobs` with the newly loaded ones using the spread operator.
 
 ### State
 
@@ -21,7 +17,6 @@ The code utilizes several state variables to manage the application's behavior a
 - `jobIds`: This state variable stores an array of job IDs retrieved from the Hacker News API. It is initially set to `null` and later populated with data from the API. It allows for pagination and fetching job details based on the IDs.
 - `jobs`: This state variable maintains an array of job objects containing details like job title, author, time, and URL. It is initially `null` and is updated when fetching job details from the API.
 - `page`: This state variable keeps track of the current page number, determining which set of job IDs and details to fetch. It is incremented when the user clicks on the "Load more" button.
-
 
 ### Rendering
 
@@ -43,8 +38,7 @@ export interface Job {
 
 ### Angular Insights
 
-- You can adopt a more advanced, reactive-like approach using RxJS (without using subscriptions as possible).
-However, if you opt for subscriptions, remember about destroying them to prevent memory leaks.
+- You can adopt a more advanced, reactive-like approach using RxJS (without using subscriptions as possible). However, if you opt for subscriptions, remember about destroying them to prevent memory leaks.
 
 - You might create services for HTTP requests and another service for maintaining the state.
 
@@ -52,8 +46,7 @@ However, if you opt for subscriptions, remember about destroying them to prevent
 
 - You can try to focus more on keywords such as `readonly`, `private`, `public` and `void`.
 
-- If you're creating a bigger application it would be good practice to use styles per component instead of putting all
-styles in one file.
+- If you're creating a bigger application it would be good practice to use styles per component instead of putting all styles in one file.
 
 <TestCases />
 <Notes />

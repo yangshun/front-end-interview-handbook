@@ -1,0 +1,44 @@
+import TestCases from '../../../test-cases.mdx';
+
+## Solution
+
+### State
+
+The code uses several state variables to manage the game state and user interactions. Here's an explanation of each state variable and its purpose:
+
+- `wordOfTheDay`: This state variable stores the randomly selected word that the player needs to guess. It is initialized with a random word from the predefined list `WORDS`. It is used to compare the player's guesses and determine if they have guessed the word correctly.
+- `gameState`: This state variable represents the overall state of the game. It can have three possible values:
+  - `GAME_STATE.IN_PROGRESS`: The game is still in progress, and the player can continue making guesses.
+  - `GAME_STATE.GUESSED_CORRECTLY`: The player has guessed the word correctly within the allowed attempts.
+  - `GAME_STATE.NO_MORE_GUESSES`: The player has used all the attempts without guessing the word correctly.
+- `gridState`: This state variable is a 2D array that represents the state of the grid, where each cell represents a letter in the word. It stores an object with two properties: `char` (the letter) and `state` (the state of the letter guess). The `gridState` is initialized using the `getInitialGridState` function.
+- `position`: This state variable represents the current position of the cursor in the grid. It is a 2-element array with the row and column index. The initial position is set to `INITIAL_CURSOR_POSITION`, which is `[0, -1]` (before the first cell).
+- `letterGuessState`: This state variable is an object that tracks the state of each letter guess made by the player. The keys of the object are the guessed letters, and the values are the corresponding guess states (`LETTER_GUESS_STATE`). The `getInitialLetterGuessState` function initializes it. This value is used by the virtual keyboard to determine which color to render the keys.
+
+### Rendering
+
+The solution heavily uses CSS variables to render the letters in the guesses and the virtual keyboard using the relevant state colors. CSS variables are used since the color values are used in multiple parts of the UI.
+
+### `addLetter`
+
+This function is called when a letter key is pressed. It adds the pressed letter to the grid at the current cursor position if there is space available in the row.
+
+### `deleteLetter`
+
+This function is called when the backspace key is pressed. It deletes the letter at the current cursor position in the grid. If there are no letters in the current row, calling this function does nothing.
+
+### `checkWord`
+
+This function is the most complex function among all the functions. It is called when the enter key is pressed to check if the word in the current row is correct. There are a few main parts to this function:
+
+1. Firstly, check each letter for exact matches. The states of the grid and letter guesses are updated to be `'CORRECT'`. If all the letters match, we can terminate the function and end the game.
+1. Next, we update the states of the remaining characters. The remaining characters can be one of the following:
+   - Present: If a character is present in `letterFreq` and `letterFreq.get(char)` is 0, it means that it has already been marked as `'CORRECT'` in the previous step. A positive value means that the character is present but not in the correct position. We need to use a frequency instead of simply checking the existence of the character because a word can use the same character multiple times. These characters will be marked as `'PRESENT'`.
+   - Absent: The character is not present in `letterFreq` at all, or has a value of 0 (the same letter was used in another position correctly), we can mark it as `'ABSENT'`.
+1. Lastly, if all the guesses were used up without finding the correct word, the game ends and the correct word is shown. Otherwise, the cursor moves to the next row.
+
+### `resetGame`
+
+This function resets the game state to its initial values when called. It sets a new word of the day, resets the letter grid, the cursor position, the game state, and the letter guess state.
+
+<TestCases />

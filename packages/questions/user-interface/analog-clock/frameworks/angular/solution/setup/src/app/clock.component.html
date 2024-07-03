@@ -1,0 +1,16 @@
+<time
+  class="clock"
+  [attr.dateTime]="dateTimeDisplay"
+  [ngStyle]="{
+    '--size': size + 'px'
+  }">
+  <app-hand
+    [height]="0.5"
+    [angle]="hourAngle"
+    [width]="3" />
+  <app-hand
+    [height]="0.9"
+    [angle]="minutesAngle"
+    [width]="2" />
+  <app-hand [height]="0.8" [angle]="secondsAngle" />
+</time>

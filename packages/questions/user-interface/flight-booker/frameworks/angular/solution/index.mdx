@@ -1,0 +1,14 @@
+import TestCases from '../../../test-cases.mdx';
+import A11y from '../../../a11y.mdx';
+import Notes from '../../../notes.mdx';
+import Solution from '../../../solution.mdx';
+
+<Solution />
+
+Using a form that constantly tracks the input values is more convenient than the native forms approach, as having state/properties for the date values allows us to specify the current departure date as the `min` of the return date `<input>` field and leverage the browser's form validation during submission. Otherwise, we'll have to write custom validation logic in the submission handler.
+
+Using Angular's `ngModel` links the date `<input>` and `<select>` element with the component's state. This makes it straightforward to capture the current value of these elements directly as the component's properties, and any property changes are instantly updated in the UI.
+
+<TestCases />
+<A11y />
+<Notes />

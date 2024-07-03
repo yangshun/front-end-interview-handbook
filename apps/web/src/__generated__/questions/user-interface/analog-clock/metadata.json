@@ -18,6 +18,18 @@
     {
       "framework": "vanilla",
       "href": "/questions/user-interface/analog-clock/vanilla"
+    },
+    {
+      "framework": "angular",
+      "href": "/questions/user-interface/analog-clock/angular"
+    },
+    {
+      "framework": "svelte",
+      "href": "/questions/user-interface/analog-clock/svelte"
+    },
+    {
+      "framework": "vue",
+      "href": "/questions/user-interface/analog-clock/vue"
     }
   ],
   "href": "/questions/user-interface/analog-clock",

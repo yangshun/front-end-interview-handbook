@@ -1,0 +1,38 @@
+## Solution
+
+The solution can be broken down into a few parts:
+
+1. Collecting form data.
+1. Performing actions.
+1. Displaying the final result.
+
+### State
+
+We need several pieces of information to keep track of the state of the application:
+
+- `selected`: the state variable for the selected user's id
+- `search`: the state variable for the search term
+- `first`: the state variable for the first name
+- `last`: the state variable for the last name
+- `users`: the state variable for the list of users
+
+### Collecting form data
+
+We use several input fields for collecting the search term, the first and last names. The search term is used to filter the list of users. The first and last names are used to create / update users.
+
+By using `<input required />` on first and last names, we ensure that the fields are validated and cannot be empty.
+
+### Performing actions
+
+As user is selected, the first and last name fields are updated with the selected user's data. Theese fields are empty if there is no selected user.
+
+We use simple buttons for creating / updating / deleting / cancaling actions:
+
+- Create: if there is no selected user, and the first and last name are not empty, we create a new user and add it to the list of users. The button is disabled otherwise.
+- Update: if there is a selected user, and the new first and last names are not empty, we update the selected user's first and last name. The button is disabled otherwise.
+- Delete: if there is a selected user, we remove the selected user from the list of users. The button is disabled otherwise.
+- Cancel: we de-select the current selected user. The button is disabled if there is no selected user
+
+### Displaying the final result
+
+We use a simple select field for the list of users. The value of the select field is the `selected` state variable. The list of users are computed based on the search term.

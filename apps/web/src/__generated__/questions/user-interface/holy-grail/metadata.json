@@ -16,6 +16,18 @@
     {
       "framework": "vanilla",
       "href": "/questions/user-interface/holy-grail/vanilla"
+    },
+    {
+      "framework": "angular",
+      "href": "/questions/user-interface/holy-grail/angular"
+    },
+    {
+      "framework": "svelte",
+      "href": "/questions/user-interface/holy-grail/svelte"
+    },
+    {
+      "framework": "vue",
+      "href": "/questions/user-interface/holy-grail/vue"
     }
   ],
   "href": "/questions/user-interface/holy-grail",

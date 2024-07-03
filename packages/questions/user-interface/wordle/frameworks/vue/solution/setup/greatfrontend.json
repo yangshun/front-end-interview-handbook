@@ -1,0 +1,9 @@
+{
+  "visibleFiles": [
+    "/src/App.vue",
+    "/src/Keyboard.vue",
+    "/src/LetterGrid.vue"
+  ],
+  "activeFile": "/src/App.vue",
+  "environment": "vue-cli"
+}

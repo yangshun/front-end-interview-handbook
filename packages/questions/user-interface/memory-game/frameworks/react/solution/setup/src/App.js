@@ -5,8 +5,6 @@ import {
   useState,
 } from 'react';
 
-import './styles.css';
-
 const emojis = [
   '🐵',
   '🐶',
@@ -195,7 +193,7 @@ export default function App() {
     <MemoryGame
       rows={4}
       cols={4}
-      waitTime={3000}
+      delay={2000}
       matchCount={2}
     />
   );

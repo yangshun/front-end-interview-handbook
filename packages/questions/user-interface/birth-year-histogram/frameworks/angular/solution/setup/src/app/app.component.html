@@ -1,0 +1,37 @@
+<div class="wrapper">
+  <div
+    class="chart"
+    *ngIf="bucketFrequency$ | async as data">
+    <div class="chart__y-axis">
+      <div class="chart__y-axis__items">
+        <div
+          *ngFor="
+            let yValue of data.maxYAxisValue | yAxisValues
+          "
+          class="chart__y-axis__item">
+          {{ yValue }}
+        </div>
+      </div>
+      <div class="chart__y-axis__zero">0</div>
+    </div>
+    <div class="chart__main">
+      <div class="chart__main__bars">
+        <div
+          *ngFor="let bucket of bucketLabels"
+          class="chart__main__bars__item"
+          [style.height]="
+            (data.frequency[bucket]
+              | barHeight: data.maxYAxisValue) + '%'
+          "></div>
+      </div>
+      <div class="chart__x-axis">
+        <div
+          *ngFor="let bucket of bucketLabels"
+          class="chart__x-axis__item">
+          {{ bucket }}
+        </div>
+      </div>
+    </div>
+  </div>
+  <button (click)="refreshData()">Refresh</button>
+</div>

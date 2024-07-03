@@ -1,6 +1,6 @@
 <script>
-  import './styles.css';
   import Cell from './Cell.svelte';
+  import './styles.css';
 
   // List of cell indices that are 3-in-a-row.
   const CELLS_IN_A_LINE = [
@@ -32,12 +32,12 @@
     return null;
   }
 
-  let board = Array(9).fill(undefined);
+  let board = Array(9).fill(null);
   let xIsPlaying = true;
   $: winner = determineWinner(board);
 
   function onReset() {
-    board = Array(9).fill(undefined);
+    board = Array(9).fill(null);
     xIsPlaying = true;
   }
 
@@ -60,10 +60,9 @@
     {getStatusMessage(winner, board, xIsPlaying)}
   </div>
   <div class="board">
-    {#each { length: 9 } as _, cellIndex}
+    {#each { length: 9 } as _, cellIndex (cellIndex)}
       {@const turn = xIsPlaying ? 'X' : 'O'}
       <Cell
-        key={cellIndex}
         disabled={board[cellIndex] != null ||
           winner != null}
         index={cellIndex}

@@ -1,0 +1,43 @@
+<div class="app">
+  <div class="player-move-section">
+    <button
+      *ngFor="let column of columns; let i = index"
+      [disabled]="!availableColumns.has(i) || gameHasEnded"
+      (mouseenter)="onColumnHover(i)"
+      class="player-move-column"
+      (click)="onPlayerMove(i)"
+      [style.background-color]="
+        currentColumn === i && !gameHasEnded
+          ? playerTokens[players[currentPlayerIndex]]
+          : undefined
+      "></button>
+  </div>
+
+  <div
+    class="grid"
+    [style.grid-template-rows]="
+      'repeat(' + rows + ', var(--grid-item-size))'
+    "
+    [style.grid-template-columns]="
+      'repeat(' + cols + ', var(--grid-item-size))'
+    ">
+    <ng-container *ngFor="let row of grid">
+      <div
+        class="grid-item"
+        *ngFor="let cell of row"
+        [style.background-color]="
+          cell ? playerTokens[cell] : emptyCell
+        "></div>
+    </ng-container>
+  </div>
+  <button class="reset-button" (click)="onRestart()">
+    Reset
+  </button>
+  <div
+    *ngIf="winner"
+    class="winner-token"
+    [style.background-color]="playerTokens[winner]">
+    WON
+  </div>
+  <h2 *ngIf="isDraw">DRAW</h2>
+</div>

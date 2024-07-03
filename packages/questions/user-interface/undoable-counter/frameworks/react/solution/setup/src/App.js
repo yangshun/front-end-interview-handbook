@@ -1,7 +1,5 @@
 import { useState } from 'react';
 
-import './styles.css';
-
 const OPERATIONS = {
   '/2': { type: 'divide', number: 2 },
   '-1': { type: 'decrement', number: 1 },

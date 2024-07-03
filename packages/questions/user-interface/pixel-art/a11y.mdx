@@ -1,5 +1,5 @@
-## A11y
+## Accessibility
 
-Not implemented in solution, but for extra credit, you can add keyboard navigation events (up, down, left, right) to select cells and draw/erase with Enter.
-
-Consider using a button instead of a div for semantic HTML.
+- Use `<button>`s for interactive elements such as the "Draw"/"Erase" buttons, and colorpicker options.
+- Add `aria-label`s to the color options button since they have no visible labels.
+- Since each canvas cell is a `<button>`, you can <kbd>Tab</kbd> through them and use <kbd>Space</kbd> to trigger the currently selected action on them. For extra credit, you can add keyboard navigation (up, down, left, right) to easily navigate through the cells, draw with <kbd>Enter</kbd> and erase with <kbd>Backspace</kbd>.

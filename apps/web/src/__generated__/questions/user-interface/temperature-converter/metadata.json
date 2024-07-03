@@ -24,6 +24,10 @@
     {
       "framework": "svelte",
       "href": "/questions/user-interface/temperature-converter/svelte"
+    },
+    {
+      "framework": "vue",
+      "href": "/questions/user-interface/temperature-converter/vue"
     }
   ],
   "href": "/questions/user-interface/temperature-converter",

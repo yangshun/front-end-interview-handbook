@@ -11,7 +11,7 @@ To validate input, use the built-in input type validators (`<input type="number"
 
 ## Form Submission
 
-We can use JavaScript to attach a click event listener to the "Calculate" button that calculates the mortgage payment using the formula. But it'd be better to add a `'submit'` event listener to the `<form>` so that both clicking on the "Calculate" button and hitting "Enter" in any of the input fields will submit the form. It's also necessary to use `event.preventDefault()` to intercept the browser submit action which by default triggers a page redirect and is not desired here.
+We can use JavaScript to attach a click event listener to the "Calculate" button that calculates the mortgage payment using the formula. But it'd be better to add a `'submit'` event listener to the `<form>` so that both clicking on the "Calculate" button and hitting "Enter" in any of the input fields will submit the form. It's also necessary to use `event.preventDefault()` to intercept the browser submit action which by default triggers a page reload and is not desired here.
 
 ## Displaying Results
 

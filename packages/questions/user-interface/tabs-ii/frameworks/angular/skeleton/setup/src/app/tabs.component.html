@@ -1,0 +1,25 @@
+<div class="tabs">
+  <div class="tabs-list">
+    <button
+      *ngFor="let item of items"
+      type="button"
+      [class]="
+        [
+          'tabs-list-item',
+          item.value === value
+            ? 'tabs-list-item--active'
+            : ''
+        ].join(' ')
+      "
+      (click)="setValue(item.value)">
+      {{ item.label }}
+    </button>
+  </div>
+  <div>
+    <div
+      *ngFor="let item of items"
+      [hidden]="item.value !== value">
+      {{ item.panel }}
+    </div>
+  </div>
+</div>

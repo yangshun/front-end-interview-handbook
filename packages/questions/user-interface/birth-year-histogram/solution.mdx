@@ -1,0 +1,53 @@
+## Solution
+
+With most data fetching and display problems, the solution can be broken down into:
+
+1. Fetching data.
+1. Processing the data, if necessary.
+1. Displaying the data.
+
+### Fetching data
+
+The API end point returns a list of years in a text format:
+
+```
+1996
+1966
+1973
+1975
+1985
+2006
+2004
+...
+```
+
+It's returned as a single string, so we need to split the data up into an array and turn them into numbers.
+
+### Processing the data
+
+The requirement is to show a histogram of birth years grouped by decades. Now that we have a list of numbers, we need to do some processing with them to turn a year value into it's corresponding bucket. E.g. 1955 -> 1950, 1967 -> 1960.
+
+This can be done via:
+
+1. Dividing by 10, removing the decimal place with `Math.floor()`, and multiplying by 10 again.
+1. Modulo by 10 and remove the result.
+
+Both approaches will correctly calculate the decade for a year.
+
+This is done for every year value and we can use an object to tally the count for each decade bucket.
+
+### Displaying the data
+
+This is possibly the trickiest part of this problem as we have to draw bars that are proportionate to the value it's supposed to represent. The bucket with the biggest value will be the tallest bar.
+
+We can divide the histogram into three rectangles:
+
+- Y-axis: This renders the count for each bucket. Since there are 200 data points spread across 7 decades, there's an average of 30+ points for each bucket, and a scale of 10 points would give enough details to be useful. The maximum y-axis value is the maximum bucket count value rounded up to the nearest 10.
+- X-axis: This renders the decade labels, spaced apart.
+- Data series: This renders the vertical bars, spaced apart. We also need to draw the left and bottom borders for the lines on the y-axis and x-axis respectively. The vertical bars are sized using a percentage height of the maximum y-axis value.
+
+Note that the space between the x-axis and data series should be consistent so that the labels of the x-axis are directly aligned with the data bars.
+
+### Race conditions
+
+As with all data fetching questions, take care of handling race conditions and handle errors if the request fails.
