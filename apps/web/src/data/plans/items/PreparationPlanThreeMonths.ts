@@ -4,6 +4,12 @@ import type { IntlShape } from 'react-intl';
 import type { QuestionListTheme } from '~/components/interviews/questions/common/QuestionsTypes';
 import type { ThemeGradient } from '~/components/ui/theme';
 
+import {
+  PreparationPlanQuizImportanceHighCSSHTML,
+  PreparationPlanQuizImportanceHighJavaScript,
+  PreparationPlanQuizImportanceMidHTMLCSS,
+  PreparationPlanQuizImportanceMidJavaScript,
+} from '../PreparationPlanQuizQuestions';
 import type { PreparationPlan } from '../PreparationPlans';
 
 export function getPreparationPlanThreeMonths(
@@ -66,8 +72,12 @@ export function getPreparationPlanThreeMonths(
         'throttle',
         'unique-array',
       ],
-      // Use question importance for now.
-      quiz: [],
+      quiz: [
+        ...PreparationPlanQuizImportanceHighJavaScript,
+        ...PreparationPlanQuizImportanceHighCSSHTML,
+        ...PreparationPlanQuizImportanceMidJavaScript,
+        ...PreparationPlanQuizImportanceMidHTMLCSS,
+      ],
       'system-design': [
         'news-feed-facebook',
         'autocomplete',

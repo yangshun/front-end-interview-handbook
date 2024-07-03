@@ -4,6 +4,10 @@ import type { IntlShape } from 'react-intl';
 import type { QuestionListTheme } from '~/components/interviews/questions/common/QuestionsTypes';
 import type { ThemeGradient } from '~/components/ui/theme';
 
+import {
+  PreparationPlanQuizImportanceHighCSSHTML,
+  PreparationPlanQuizImportanceHighJavaScript,
+} from '../PreparationPlanQuizQuestions';
 import type { PreparationPlan } from '../PreparationPlans';
 
 export function getPreparationPlanOneWeek(intl: IntlShape): PreparationPlan {
@@ -38,8 +42,10 @@ export function getPreparationPlanOneWeek(intl: IntlShape): PreparationPlan {
         'classnames',
         'list-format',
       ],
-      // Use question importance for now.
-      quiz: [],
+      quiz: [
+        ...PreparationPlanQuizImportanceHighJavaScript,
+        ...PreparationPlanQuizImportanceHighCSSHTML,
+      ],
       'system-design': ['news-feed-facebook', 'autocomplete'],
       'user-interface': [
         'counter',
