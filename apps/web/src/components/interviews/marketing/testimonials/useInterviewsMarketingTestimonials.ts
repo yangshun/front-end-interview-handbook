@@ -20,6 +20,7 @@ export function useInterviewsMarketingTestimonials(
     : [
         testimonialsObjects.edWang,
         testimonialsObjects.deewee,
+        testimonialsObjects.locChuong,
         testimonialsObjects.lucaVaccarini,
         testimonialsObjects.chenweiZhang,
         testimonialsObjects.shoaibAhmed,
@@ -32,6 +33,7 @@ export function useInterviewsMarketingTestimonials(
         testimonialsObjects.ismail,
         testimonialsObjects.anand,
         testimonialsObjects.yuChienChan,
+        testimonialsObjects.shellyPaul,
         testimonialsObjects.jacky,
         testimonialsObjects.prashanth,
         testimonialsObjects.gouseBasha,

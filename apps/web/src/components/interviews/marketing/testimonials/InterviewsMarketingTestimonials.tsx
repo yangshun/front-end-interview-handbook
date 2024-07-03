@@ -1,15 +1,15 @@
 import type { InterviewsMarketingTestimonial } from './InterviewsMarketingTestimonialCard';
 
 export function useInterviewsMarketingTestimonialsDict() {
-  const luke: InterviewsMarketingTestimonial = {
+  const lukeFiji: InterviewsMarketingTestimonial = {
     anonymous: false,
     authorThumbnailUrl: '/img/testimonials/users/luke-fiji.webp',
     authorUrl: 'https://www.linkedin.com/in/lukefiji/',
-    createdAt: '2023-11-01',
+    createdAt: '2024-04-02',
     id: 'luke-fiji',
     location: 'Seattle, US',
     name: 'Luke Fiji',
-    newCompany: null,
+    newCompany: 'Codified',
     testimonial:
       "I'm always on the lookout for resources that can help me level up my skills as a frontend engineer, and I can confidently say that GreatFrontEnd delivers in that regard. It is by far the most comprehensive frontend-focused interview prep platform I have come across. They've helped strengthen my fundamentals and given me the confidence I need to succeed in my job search. Additionally, the people behind the platform have been incredibly approachable and responsive to feedback - and I can't thank them enough!",
     title: 'Frontend Engineer',
@@ -380,6 +380,7 @@ export function useInterviewsMarketingTestimonialsDict() {
     featured: true,
     id: 'zizib',
     location: 'Canada',
+    name: 'Zizib',
     newCompany: 'GitLab',
     testimonial:
       "Finally some good news on my side. I got a frontend engineer role at GitLab. It's been a pretty wild ride. I initially got to the final stage with one team and didn't get the job. But the recruiter matched me to another team and it worked 😱. I'm so glad to be focusing on front-end again, not fullstack. 34% rise in base salary. Total comp is about a 52% increase, mainly because I'm leaving a Canadian startup. GFE was so helpful in building my confidence in solving frontend problems. And the community has been amazing. You all are doing the lord's work.",
@@ -484,7 +485,53 @@ export function useInterviewsMarketingTestimonialsDict() {
     title: 'Frontend Engineer',
   };
 
-  // Const _template: Testimonial = {
+  const dustinLakin: InterviewsMarketingTestimonial = {
+    anonymous: false,
+    authorThumbnailUrl: null,
+    createdAt: '2024-06-02',
+    fromCompany: null,
+    id: 'dustin-lakin',
+    location: 'Los Angeles, US',
+    name: 'Dustin Lakin',
+    newCompany: null,
+    offers: ['Cloudflare'],
+    testimonial:
+      'GreatFrontEnd has been my main resource for front-end interviews and has helped re-sharpen algorithms, quiz, common components and best of all the system design. It has proven to be a great all-in-one place that is specifically in TypeScript. It has given me confidence and guidance to multiple offers. Thanks to the team for all the hard work.',
+    title: 'Software Engineer',
+  };
+
+  const shellyPaul: InterviewsMarketingTestimonial = {
+    anonymous: false,
+    authorThumbnailUrl: '/img/testimonials/users/shelly-paul.jpg',
+    authorUrl: 'https://www.linkedin.com/in/shellypaul93/',
+    createdAt: '2024-05-01',
+    id: 'shelly-paul',
+    location: 'Toronto, Canada',
+    name: 'Shelly Paul',
+    newCompany: 'Loblaw Digital',
+    offers: [],
+    testimonial:
+      "GreatFrontEnd is a game-changer for frontend interview prep! The platform's comprehensive resources, organized content, and realistic practice exercises helped me make it to Amazon's final interview rounds and land an amazing job at Loblaw Digital!  I've tried other resources, but GreatFrontEnd delivers results. It's worth every penny and more. If you're serious about leveling up your skills and landing your dream job, look no further. Highly recommended!",
+    title: 'Front End Engineer II',
+  };
+
+  const locChuong: InterviewsMarketingTestimonial = {
+    anonymous: false,
+    authorThumbnailUrl: '/img/testimonials/users/loc-chuong.jpg',
+    authorUrl: 'https://www.linkedin.com/in/loc-chuong/',
+    companyLogoUrl: '/img/testimonials/company/amazon.svg',
+    createdAt: '2024-7-01',
+    id: 'loc-chuong',
+    location: 'Arlington, VA, US',
+    name: 'Loc Chuong',
+    newCompany: 'Amazon',
+    offers: [],
+    testimonial:
+      "The material on this site is a literal gold mine. Before using GreatFrontEnd, I was failing phone screening rounds left and right. I never even came close to making it to the onsite round. After going through the material on GFE, I was able to land several onsites and passed my very first one! I was able to secure a job only after ~2.5 months of studying GFE at Amazon! The material on GFE is especially easy to understand and I have personally been asked questions from GFE NUMEROUS times. Additionally, GFE's Discord channel and community are so very helpful when it comes to sharing their previous interview experiences. It is very active and everyone is very open to helping!",
+    title: 'Frontend Engineer II (L5)',
+  };
+  // Const template: InterviewsMarketingTestimonial = {
+  //   anonymous: false,
   //   authorThumbnailUrl: 'TODO',
   //   authorUrl: 'TODO',
   //   createdAt: 'TODO',
@@ -507,6 +554,7 @@ export function useInterviewsMarketingTestimonialsDict() {
     curryspices,
     deewee,
     delhi,
+    dustinLakin,
     edWang,
     felipeSalazar,
     fernando,
@@ -515,8 +563,9 @@ export function useInterviewsMarketingTestimonialsDict() {
     ismail,
     jacky,
     larry,
+    locChuong,
     lucaVaccarini,
-    luke,
+    luke: lukeFiji,
     nafis,
     nikki,
     notrxx,
@@ -525,6 +574,7 @@ export function useInterviewsMarketingTestimonialsDict() {
     purplePaisley,
     ryan,
     saiSrinivas,
+    shellyPaul,
     shoaibAhmed,
     skarKing,
     skykillz,
