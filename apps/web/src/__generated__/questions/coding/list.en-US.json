@@ -833,6 +833,18 @@
       {
         "framework": "react",
         "href": "/questions/user-interface/connect-four/react"
+      },
+      {
+        "framework": "angular",
+        "href": "/questions/user-interface/connect-four/angular"
+      },
+      {
+        "framework": "svelte",
+        "href": "/questions/user-interface/connect-four/svelte"
+      },
+      {
+        "framework": "vue",
+        "href": "/questions/user-interface/connect-four/vue"
       }
     ],
     "href": "/questions/user-interface/connect-four",
