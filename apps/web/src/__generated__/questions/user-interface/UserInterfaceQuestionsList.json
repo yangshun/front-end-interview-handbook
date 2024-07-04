@@ -371,8 +371,25 @@
     "excerpt": "Build a dice roller app that simulates the results of rolling 6-sided dice",
     "featured": false,
     "format": "user-interface",
-    "frameworkDefault": null,
-    "frameworks": [],
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/user-interface/dice-roller/react"
+      },
+      {
+        "framework": "angular",
+        "href": "/questions/user-interface/dice-roller/angular"
+      },
+      {
+        "framework": "svelte",
+        "href": "/questions/user-interface/dice-roller/svelte"
+      },
+      {
+        "framework": "vue",
+        "href": "/questions/user-interface/dice-roller/vue"
+      }
+    ],
     "href": "/questions/user-interface/dice-roller",
     "importance": "low",
     "languages": [
