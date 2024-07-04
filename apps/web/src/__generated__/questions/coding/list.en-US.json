@@ -450,8 +450,25 @@
     "excerpt": "Build a widget that fetches birth year data from an API and plot it on a histogram",
     "featured": false,
     "format": "user-interface",
-    "frameworkDefault": null,
-    "frameworks": [],
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/user-interface/birth-year-histogram/react"
+      },
+      {
+        "framework": "angular",
+        "href": "/questions/user-interface/birth-year-histogram/angular"
+      },
+      {
+        "framework": "svelte",
+        "href": "/questions/user-interface/birth-year-histogram/svelte"
+      },
+      {
+        "framework": "vue",
+        "href": "/questions/user-interface/birth-year-histogram/vue"
+      }
+    ],
     "href": "/questions/user-interface/birth-year-histogram",
     "importance": "low",
     "languages": [
