@@ -29,7 +29,10 @@
     "premium": true,
     "published": true,
     "ranking": 100,
-    "similarQuestions": [],
+    "similarQuestions": [
+      "promise-resolve",
+      "promise-reject"
+    ],
     "slug": "promise-with-resolvers",
     "subtitle": null,
     "title": "Promise.withResolvers",

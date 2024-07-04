@@ -2,7 +2,7 @@
   "slug": "map-async",
   "created": "2023-11-08T00:00:00.000Z",
   "languages": ["js", "ts"],
-  "companies": ["lyft", "uber"],
+  "companies": ["google", "lyft", "uber"],
   "premium": true,
   "duration": 20,
   "published": true,

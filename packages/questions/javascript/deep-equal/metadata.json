@@ -3,7 +3,7 @@
   "author": "zhenghao",
   "created": "2022-08-08T00:00:00.000Z",
   "languages": ["js", "ts"],
-  "companies": [],
+  "companies": ["google"],
   "premium": true,
   "duration": 25,
   "published": true,

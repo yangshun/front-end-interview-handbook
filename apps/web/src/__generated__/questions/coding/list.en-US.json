@@ -1352,7 +1352,9 @@
   },
   {
     "author": "zhenghao",
-    "companies": [],
+    "companies": [
+      "google"
+    ],
     "created": 1659916800,
     "difficulty": "medium",
     "duration": 25,
@@ -2234,7 +2236,9 @@
   },
   {
     "author": "yangshun",
-    "companies": [],
+    "companies": [
+      "google"
+    ],
     "created": 1655251200,
     "difficulty": "medium",
     "duration": 20,
@@ -3048,6 +3052,7 @@
   {
     "author": null,
     "companies": [
+      "google",
       "lyft",
       "uber"
     ],
@@ -3082,6 +3087,7 @@
   {
     "author": null,
     "companies": [
+      "google",
       "lyft",
       "uber"
     ],
@@ -3775,6 +3781,7 @@
     "companies": [
       "amazon",
       "bytedance",
+      "google",
       "lyft",
       "tiktok"
     ],
@@ -3874,7 +3881,9 @@
   },
   {
     "author": "yangshun",
-    "companies": [],
+    "companies": [
+      "google"
+    ],
     "created": 1655596800,
     "difficulty": "easy",
     "duration": 15,
@@ -3905,7 +3914,9 @@
   },
   {
     "author": null,
-    "companies": [],
+    "companies": [
+      "google"
+    ],
     "created": 1690329600,
     "difficulty": "easy",
     "duration": 10,
@@ -3920,11 +3931,15 @@
       "js",
       "ts"
     ],
-    "nextQuestions": [],
+    "nextQuestions": [
+      "promise-with-resolvers"
+    ],
     "premium": true,
     "published": true,
     "ranking": 100,
-    "similarQuestions": [],
+    "similarQuestions": [
+      "promise-resolve"
+    ],
     "slug": "promise-reject",
     "subtitle": null,
     "title": "Promise.reject",
@@ -3932,7 +3947,9 @@
   },
   {
     "author": null,
-    "companies": [],
+    "companies": [
+      "google"
+    ],
     "created": 1690329600,
     "difficulty": "medium",
     "duration": 15,
@@ -3947,11 +3964,15 @@
       "js",
       "ts"
     ],
-    "nextQuestions": [],
+    "nextQuestions": [
+      "promise-with-resolvers"
+    ],
     "premium": true,
     "published": true,
     "ranking": 100,
-    "similarQuestions": [],
+    "similarQuestions": [
+      "promise-reject"
+    ],
     "slug": "promise-resolve",
     "subtitle": null,
     "title": "Promise.resolve",
@@ -3978,7 +3999,10 @@
     "premium": true,
     "published": true,
     "ranking": 100,
-    "similarQuestions": [],
+    "similarQuestions": [
+      "promise-resolve",
+      "promise-reject"
+    ],
     "slug": "promise-with-resolvers",
     "subtitle": null,
     "title": "Promise.withResolvers",

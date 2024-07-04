@@ -3,7 +3,7 @@
   "author": "yangshun",
   "created": "2022-06-19T00:00:00.000Z",
   "languages": ["js", "ts"],
-  "companies": [],
+  "companies": ["google"],
   "premium": true,
   "duration": 15,
   "published": true,

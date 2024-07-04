@@ -10,7 +10,9 @@
   "format": "javascript",
   "metadata": {
     "author": null,
-    "companies": [],
+    "companies": [
+      "google"
+    ],
     "created": 1690329600,
     "difficulty": "medium",
     "duration": 15,
@@ -25,11 +27,15 @@
       "js",
       "ts"
     ],
-    "nextQuestions": [],
+    "nextQuestions": [
+      "promise-with-resolvers"
+    ],
     "premium": true,
     "published": true,
     "ranking": 100,
-    "similarQuestions": [],
+    "similarQuestions": [
+      "promise-reject"
+    ],
     "slug": "promise-resolve",
     "subtitle": null,
     "title": "Promise.resolve",

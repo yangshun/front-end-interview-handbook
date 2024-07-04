@@ -2,7 +2,7 @@
   "slug": "promise-resolve",
   "created": "2023-07-26T00:00:00.000Z",
   "languages": ["js", "ts"],
-  "companies": [],
+  "companies": ["google"],
   "premium": true,
   "duration": 15,
   "published": true,
