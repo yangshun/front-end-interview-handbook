@@ -20,6 +20,14 @@
     {
       "framework": "vanilla",
       "href": "/questions/user-interface/star-rating/vanilla"
+    },
+    {
+      "framework": "angular",
+      "href": "/questions/user-interface/star-rating/angular"
+    },
+    {
+      "framework": "vue",
+      "href": "/questions/user-interface/star-rating/vue"
     }
   ],
   "href": "/questions/user-interface/star-rating",

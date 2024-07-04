@@ -20,6 +20,10 @@
     {
       "framework": "svelte",
       "href": "/questions/user-interface/wordle/svelte"
+    },
+    {
+      "framework": "vue",
+      "href": "/questions/user-interface/wordle/vue"
     }
   ],
   "href": "/questions/user-interface/wordle",

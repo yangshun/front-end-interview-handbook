@@ -25,6 +25,10 @@
     {
       "framework": "svelte",
       "href": "/questions/user-interface/tic-tac-toe-ii/svelte"
+    },
+    {
+      "framework": "vue",
+      "href": "/questions/user-interface/tic-tac-toe-ii/vue"
     }
   ],
   "href": "/questions/user-interface/tic-tac-toe-ii",

@@ -26,6 +26,10 @@
     {
       "framework": "svelte",
       "href": "/questions/user-interface/traffic-light/svelte"
+    },
+    {
+      "framework": "vue",
+      "href": "/questions/user-interface/traffic-light/vue"
     }
   ],
   "href": "/questions/user-interface/traffic-light",

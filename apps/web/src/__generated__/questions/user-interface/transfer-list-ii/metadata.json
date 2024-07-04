@@ -12,6 +12,18 @@
     {
       "framework": "react",
       "href": "/questions/user-interface/transfer-list-ii/react"
+    },
+    {
+      "framework": "angular",
+      "href": "/questions/user-interface/transfer-list-ii/angular"
+    },
+    {
+      "framework": "svelte",
+      "href": "/questions/user-interface/transfer-list-ii/svelte"
+    },
+    {
+      "framework": "vue",
+      "href": "/questions/user-interface/transfer-list-ii/vue"
     }
   ],
   "href": "/questions/user-interface/transfer-list-ii",

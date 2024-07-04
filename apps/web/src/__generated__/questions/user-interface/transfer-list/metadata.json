@@ -22,6 +22,10 @@
     {
       "framework": "svelte",
       "href": "/questions/user-interface/transfer-list/svelte"
+    },
+    {
+      "framework": "vue",
+      "href": "/questions/user-interface/transfer-list/vue"
     }
   ],
   "href": "/questions/user-interface/transfer-list",

@@ -14,6 +14,18 @@
     {
       "framework": "react",
       "href": "/questions/user-interface/grid-lights/react"
+    },
+    {
+      "framework": "angular",
+      "href": "/questions/user-interface/grid-lights/angular"
+    },
+    {
+      "framework": "svelte",
+      "href": "/questions/user-interface/grid-lights/svelte"
+    },
+    {
+      "framework": "vue",
+      "href": "/questions/user-interface/grid-lights/vue"
     }
   ],
   "href": "/questions/user-interface/grid-lights",

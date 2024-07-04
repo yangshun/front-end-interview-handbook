@@ -22,6 +22,10 @@
     {
       "framework": "svelte",
       "href": "/questions/user-interface/whack-a-mole/svelte"
+    },
+    {
+      "framework": "vue",
+      "href": "/questions/user-interface/whack-a-mole/vue"
     }
   ],
   "href": "/questions/user-interface/whack-a-mole",

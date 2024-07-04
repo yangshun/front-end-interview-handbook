@@ -572,6 +572,18 @@
       {
         "framework": "react",
         "href": "/questions/user-interface/grid-lights/react"
+      },
+      {
+        "framework": "angular",
+        "href": "/questions/user-interface/grid-lights/angular"
+      },
+      {
+        "framework": "svelte",
+        "href": "/questions/user-interface/grid-lights/svelte"
+      },
+      {
+        "framework": "vue",
+        "href": "/questions/user-interface/grid-lights/vue"
       }
     ],
     "href": "/questions/user-interface/grid-lights",
@@ -766,6 +778,10 @@
       {
         "framework": "svelte",
         "href": "/questions/user-interface/memory-game/svelte"
+      },
+      {
+        "framework": "vue",
+        "href": "/questions/user-interface/memory-game/vue"
       }
     ],
     "href": "/questions/user-interface/memory-game",
@@ -803,6 +819,18 @@
       {
         "framework": "vanilla",
         "href": "/questions/user-interface/mortgage-calculator/vanilla"
+      },
+      {
+        "framework": "angular",
+        "href": "/questions/user-interface/mortgage-calculator/angular"
+      },
+      {
+        "framework": "svelte",
+        "href": "/questions/user-interface/mortgage-calculator/svelte"
+      },
+      {
+        "framework": "vue",
+        "href": "/questions/user-interface/mortgage-calculator/vue"
       }
     ],
     "href": "/questions/user-interface/mortgage-calculator",
@@ -1149,6 +1177,14 @@
       {
         "framework": "vanilla",
         "href": "/questions/user-interface/star-rating/vanilla"
+      },
+      {
+        "framework": "angular",
+        "href": "/questions/user-interface/star-rating/angular"
+      },
+      {
+        "framework": "vue",
+        "href": "/questions/user-interface/star-rating/vue"
       }
     ],
     "href": "/questions/user-interface/star-rating",
@@ -1245,6 +1281,14 @@
       {
         "framework": "vanilla",
         "href": "/questions/user-interface/tabs/vanilla"
+      },
+      {
+        "framework": "angular",
+        "href": "/questions/user-interface/tabs/angular"
+      },
+      {
+        "framework": "vue",
+        "href": "/questions/user-interface/tabs/vue"
       }
     ],
     "href": "/questions/user-interface/tabs",
@@ -1287,6 +1331,14 @@
       {
         "framework": "vanilla",
         "href": "/questions/user-interface/tabs-ii/vanilla"
+      },
+      {
+        "framework": "angular",
+        "href": "/questions/user-interface/tabs-ii/angular"
+      },
+      {
+        "framework": "vue",
+        "href": "/questions/user-interface/tabs-ii/vue"
       }
     ],
     "href": "/questions/user-interface/tabs-ii",
@@ -1325,6 +1377,14 @@
       {
         "framework": "react",
         "href": "/questions/user-interface/tabs-iii/react"
+      },
+      {
+        "framework": "angular",
+        "href": "/questions/user-interface/tabs-iii/angular"
+      },
+      {
+        "framework": "vue",
+        "href": "/questions/user-interface/tabs-iii/vue"
       }
     ],
     "href": "/questions/user-interface/tabs-iii",
@@ -1420,6 +1480,10 @@
       {
         "framework": "svelte",
         "href": "/questions/user-interface/tic-tac-toe/svelte"
+      },
+      {
+        "framework": "vue",
+        "href": "/questions/user-interface/tic-tac-toe/vue"
       }
     ],
     "href": "/questions/user-interface/tic-tac-toe",
@@ -1466,6 +1530,10 @@
       {
         "framework": "svelte",
         "href": "/questions/user-interface/tic-tac-toe-ii/svelte"
+      },
+      {
+        "framework": "vue",
+        "href": "/questions/user-interface/tic-tac-toe-ii/vue"
       }
     ],
     "href": "/questions/user-interface/tic-tac-toe-ii",
@@ -1514,6 +1582,10 @@
       {
         "framework": "svelte",
         "href": "/questions/user-interface/todo-list/svelte"
+      },
+      {
+        "framework": "vue",
+        "href": "/questions/user-interface/todo-list/vue"
       }
     ],
     "href": "/questions/user-interface/todo-list",
@@ -1566,6 +1638,10 @@
       {
         "framework": "svelte",
         "href": "/questions/user-interface/traffic-light/svelte"
+      },
+      {
+        "framework": "vue",
+        "href": "/questions/user-interface/traffic-light/vue"
       }
     ],
     "href": "/questions/user-interface/traffic-light",
@@ -1611,6 +1687,10 @@
       {
         "framework": "svelte",
         "href": "/questions/user-interface/transfer-list/svelte"
+      },
+      {
+        "framework": "vue",
+        "href": "/questions/user-interface/transfer-list/vue"
       }
     ],
     "href": "/questions/user-interface/transfer-list",
@@ -1648,6 +1728,18 @@
       {
         "framework": "react",
         "href": "/questions/user-interface/transfer-list-ii/react"
+      },
+      {
+        "framework": "angular",
+        "href": "/questions/user-interface/transfer-list-ii/angular"
+      },
+      {
+        "framework": "svelte",
+        "href": "/questions/user-interface/transfer-list-ii/svelte"
+      },
+      {
+        "framework": "vue",
+        "href": "/questions/user-interface/transfer-list-ii/vue"
       }
     ],
     "href": "/questions/user-interface/transfer-list-ii",
@@ -1775,6 +1867,10 @@
       {
         "framework": "svelte",
         "href": "/questions/user-interface/undoable-counter/svelte"
+      },
+      {
+        "framework": "vue",
+        "href": "/questions/user-interface/undoable-counter/vue"
       }
     ],
     "href": "/questions/user-interface/undoable-counter",
@@ -1852,6 +1948,10 @@
       {
         "framework": "svelte",
         "href": "/questions/user-interface/whack-a-mole/svelte"
+      },
+      {
+        "framework": "vue",
+        "href": "/questions/user-interface/whack-a-mole/vue"
       }
     ],
     "href": "/questions/user-interface/whack-a-mole",
@@ -1895,6 +1995,10 @@
       {
         "framework": "svelte",
         "href": "/questions/user-interface/wordle/svelte"
+      },
+      {
+        "framework": "vue",
+        "href": "/questions/user-interface/wordle/vue"
       }
     ],
     "href": "/questions/user-interface/wordle",

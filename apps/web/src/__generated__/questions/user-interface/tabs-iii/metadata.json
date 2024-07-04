@@ -15,6 +15,14 @@
     {
       "framework": "react",
       "href": "/questions/user-interface/tabs-iii/react"
+    },
+    {
+      "framework": "angular",
+      "href": "/questions/user-interface/tabs-iii/angular"
+    },
+    {
+      "framework": "vue",
+      "href": "/questions/user-interface/tabs-iii/vue"
     }
   ],
   "href": "/questions/user-interface/tabs-iii",
