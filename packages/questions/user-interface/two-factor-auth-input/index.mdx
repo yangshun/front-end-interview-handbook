@@ -10,6 +10,7 @@ duration: 25
 published: true
 importance: low
 difficulty: medium
+frameworks: [react]
 ---
 
 Build a two-factor auth (2FA) component that allows users to enter a 6-digit authorization code and submit it.
@@ -38,19 +39,3 @@ These are just the common 2FA basic behaviors, there are more edge cases to cons
 ## Source
 
 This question is adapted from [FrontendEval's Two-factor Code Input question](https://frontendeval.com/questions/code-input).
-
-## Notes for Solution Author (delete after development)
-
-- Create a component similar to [`react-auth-code-input`](https://github.com/drac94/react-auth-code-input) with the following props:
-  - `length`
-  - `isDisabled`
-  - `onSubmit`
-- Might want to use a reducer pattern like in this [example](https://codesandbox.io/s/ltgjh?file=/src/App.js)
-- Fields and buttons should be disabled when there's a request in-flight.
-- a11y
-  - Add support for the following keys:
-    - Right/Tab: Move cursor to the next field.
-    - Left / Shift + Tab: Move cursor to the previous field.
-    - Del: Same as backspace.
-  - Refer to https://www.twilio.com/blog/html-attributes-two-factor-authentication-autocomplete for the best attributes to use.
-  - We should add some `aria-label` but I'm not sure which element to add it to.

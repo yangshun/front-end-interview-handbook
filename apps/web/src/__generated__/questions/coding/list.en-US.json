@@ -5185,8 +5185,13 @@
     "excerpt": "Build a two-factor auth component that allows users to enter a 6-digit authorization code",
     "featured": false,
     "format": "user-interface",
-    "frameworkDefault": null,
-    "frameworks": [],
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/user-interface/two-factor-auth-input/react"
+      }
+    ],
     "href": "/questions/user-interface/two-factor-auth-input",
     "importance": "low",
     "languages": [
