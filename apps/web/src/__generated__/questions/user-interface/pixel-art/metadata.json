@@ -12,6 +12,18 @@
     {
       "framework": "react",
       "href": "/questions/user-interface/pixel-art/react"
+    },
+    {
+      "framework": "angular",
+      "href": "/questions/user-interface/pixel-art/angular"
+    },
+    {
+      "framework": "svelte",
+      "href": "/questions/user-interface/pixel-art/svelte"
+    },
+    {
+      "framework": "vue",
+      "href": "/questions/user-interface/pixel-art/vue"
     }
   ],
   "href": "/questions/user-interface/pixel-art",
