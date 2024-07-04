@@ -4,7 +4,7 @@ import AngularLogo from '~/components/icons/AngularLogo';
 import HTML5Logo from '~/components/icons/HTML5Logo';
 import ReactLogo from '~/components/icons/ReactLogo';
 import SvelteLogo from '~/components/icons/SvelteLogo';
-import VueLogoMonochrome from '~/components/icons/VueLogoMonochrome';
+import VueLogo from '~/components/icons/VueLogo';
 
 import type { QuestionFramework } from '../common/QuestionsTypes';
 
@@ -19,7 +19,7 @@ const frameworkIcons: Record<
   react: { icon: ReactLogo, style: { fill: 'rgb(20, 158, 202)' } },
   svelte: { icon: SvelteLogo, style: { color: '#ff3e00' } },
   vanilla: { icon: HTML5Logo },
-  vue: { icon: VueLogoMonochrome },
+  vue: { icon: VueLogo },
 };
 
 type Props = Readonly<{
