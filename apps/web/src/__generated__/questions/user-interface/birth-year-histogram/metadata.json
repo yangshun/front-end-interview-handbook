@@ -18,12 +18,12 @@
       "href": "/questions/user-interface/birth-year-histogram/angular"
     },
     {
-      "framework": "svelte",
-      "href": "/questions/user-interface/birth-year-histogram/svelte"
-    },
-    {
       "framework": "vue",
       "href": "/questions/user-interface/birth-year-histogram/vue"
+    },
+    {
+      "framework": "svelte",
+      "href": "/questions/user-interface/birth-year-histogram/svelte"
     }
   ],
   "href": "/questions/user-interface/birth-year-histogram",

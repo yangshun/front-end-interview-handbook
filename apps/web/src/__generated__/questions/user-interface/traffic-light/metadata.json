@@ -24,12 +24,12 @@
       "href": "/questions/user-interface/traffic-light/angular"
     },
     {
-      "framework": "svelte",
-      "href": "/questions/user-interface/traffic-light/svelte"
-    },
-    {
       "framework": "vue",
       "href": "/questions/user-interface/traffic-light/vue"
+    },
+    {
+      "framework": "svelte",
+      "href": "/questions/user-interface/traffic-light/svelte"
     }
   ],
   "href": "/questions/user-interface/traffic-light",

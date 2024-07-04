@@ -20,12 +20,12 @@
       "href": "/questions/user-interface/grid-lights/angular"
     },
     {
-      "framework": "svelte",
-      "href": "/questions/user-interface/grid-lights/svelte"
-    },
-    {
       "framework": "vue",
       "href": "/questions/user-interface/grid-lights/vue"
+    },
+    {
+      "framework": "svelte",
+      "href": "/questions/user-interface/grid-lights/svelte"
     }
   ],
   "href": "/questions/user-interface/grid-lights",

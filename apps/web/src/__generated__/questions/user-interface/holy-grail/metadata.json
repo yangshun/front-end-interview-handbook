@@ -22,12 +22,12 @@
       "href": "/questions/user-interface/holy-grail/angular"
     },
     {
-      "framework": "svelte",
-      "href": "/questions/user-interface/holy-grail/svelte"
-    },
-    {
       "framework": "vue",
       "href": "/questions/user-interface/holy-grail/vue"
+    },
+    {
+      "framework": "svelte",
+      "href": "/questions/user-interface/holy-grail/svelte"
     }
   ],
   "href": "/questions/user-interface/holy-grail",

@@ -22,12 +22,12 @@
       "href": "/questions/user-interface/flight-booker/angular"
     },
     {
-      "framework": "svelte",
-      "href": "/questions/user-interface/flight-booker/svelte"
-    },
-    {
       "framework": "vue",
       "href": "/questions/user-interface/flight-booker/vue"
+    },
+    {
+      "framework": "svelte",
+      "href": "/questions/user-interface/flight-booker/svelte"
     }
   ],
   "href": "/questions/user-interface/flight-booker",

@@ -25,12 +25,12 @@
       "href": "/questions/user-interface/job-board/angular"
     },
     {
-      "framework": "svelte",
-      "href": "/questions/user-interface/job-board/svelte"
-    },
-    {
       "framework": "vue",
       "href": "/questions/user-interface/job-board/vue"
+    },
+    {
+      "framework": "svelte",
+      "href": "/questions/user-interface/job-board/svelte"
     }
   ],
   "href": "/questions/user-interface/job-board",

@@ -20,12 +20,12 @@
       "href": "/questions/user-interface/whack-a-mole/angular"
     },
     {
-      "framework": "svelte",
-      "href": "/questions/user-interface/whack-a-mole/svelte"
-    },
-    {
       "framework": "vue",
       "href": "/questions/user-interface/whack-a-mole/vue"
+    },
+    {
+      "framework": "svelte",
+      "href": "/questions/user-interface/whack-a-mole/svelte"
     }
   ],
   "href": "/questions/user-interface/whack-a-mole",

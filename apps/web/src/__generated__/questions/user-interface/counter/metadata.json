@@ -24,12 +24,12 @@
       "href": "/questions/user-interface/counter/angular"
     },
     {
-      "framework": "svelte",
-      "href": "/questions/user-interface/counter/svelte"
-    },
-    {
       "framework": "vue",
       "href": "/questions/user-interface/counter/vue"
+    },
+    {
+      "framework": "svelte",
+      "href": "/questions/user-interface/counter/svelte"
     }
   ],
   "href": "/questions/user-interface/counter",

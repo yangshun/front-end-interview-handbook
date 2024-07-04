@@ -23,12 +23,12 @@
       "href": "/questions/user-interface/tic-tac-toe/angular"
     },
     {
-      "framework": "svelte",
-      "href": "/questions/user-interface/tic-tac-toe/svelte"
-    },
-    {
       "framework": "vue",
       "href": "/questions/user-interface/tic-tac-toe/vue"
+    },
+    {
+      "framework": "svelte",
+      "href": "/questions/user-interface/tic-tac-toe/svelte"
     }
   ],
   "href": "/questions/user-interface/tic-tac-toe",

@@ -18,12 +18,12 @@
       "href": "/questions/user-interface/wordle/angular"
     },
     {
-      "framework": "svelte",
-      "href": "/questions/user-interface/wordle/svelte"
-    },
-    {
       "framework": "vue",
       "href": "/questions/user-interface/wordle/vue"
+    },
+    {
+      "framework": "svelte",
+      "href": "/questions/user-interface/wordle/svelte"
     }
   ],
   "href": "/questions/user-interface/wordle",

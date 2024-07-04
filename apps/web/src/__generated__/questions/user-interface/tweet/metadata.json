@@ -22,12 +22,12 @@
       "href": "/questions/user-interface/tweet/angular"
     },
     {
-      "framework": "svelte",
-      "href": "/questions/user-interface/tweet/svelte"
-    },
-    {
       "framework": "vue",
       "href": "/questions/user-interface/tweet/vue"
+    },
+    {
+      "framework": "svelte",
+      "href": "/questions/user-interface/tweet/svelte"
     }
   ],
   "href": "/questions/user-interface/tweet",

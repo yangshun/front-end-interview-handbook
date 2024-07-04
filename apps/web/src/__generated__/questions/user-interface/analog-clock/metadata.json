@@ -24,12 +24,12 @@
       "href": "/questions/user-interface/analog-clock/angular"
     },
     {
-      "framework": "svelte",
-      "href": "/questions/user-interface/analog-clock/svelte"
-    },
-    {
       "framework": "vue",
       "href": "/questions/user-interface/analog-clock/vue"
+    },
+    {
+      "framework": "svelte",
+      "href": "/questions/user-interface/analog-clock/svelte"
     }
   ],
   "href": "/questions/user-interface/analog-clock",

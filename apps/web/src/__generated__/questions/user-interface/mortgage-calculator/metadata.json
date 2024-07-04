@@ -22,12 +22,12 @@
       "href": "/questions/user-interface/mortgage-calculator/angular"
     },
     {
-      "framework": "svelte",
-      "href": "/questions/user-interface/mortgage-calculator/svelte"
-    },
-    {
       "framework": "vue",
       "href": "/questions/user-interface/mortgage-calculator/vue"
+    },
+    {
+      "framework": "svelte",
+      "href": "/questions/user-interface/mortgage-calculator/svelte"
     }
   ],
   "href": "/questions/user-interface/mortgage-calculator",

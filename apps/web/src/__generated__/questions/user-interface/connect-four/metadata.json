@@ -18,12 +18,12 @@
       "href": "/questions/user-interface/connect-four/angular"
     },
     {
-      "framework": "svelte",
-      "href": "/questions/user-interface/connect-four/svelte"
-    },
-    {
       "framework": "vue",
       "href": "/questions/user-interface/connect-four/vue"
+    },
+    {
+      "framework": "svelte",
+      "href": "/questions/user-interface/connect-four/svelte"
     }
   ],
   "href": "/questions/user-interface/connect-four",

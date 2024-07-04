@@ -18,12 +18,12 @@
       "href": "/questions/user-interface/memory-game/angular"
     },
     {
-      "framework": "svelte",
-      "href": "/questions/user-interface/memory-game/svelte"
-    },
-    {
       "framework": "vue",
       "href": "/questions/user-interface/memory-game/vue"
+    },
+    {
+      "framework": "svelte",
+      "href": "/questions/user-interface/memory-game/svelte"
     }
   ],
   "href": "/questions/user-interface/memory-game",

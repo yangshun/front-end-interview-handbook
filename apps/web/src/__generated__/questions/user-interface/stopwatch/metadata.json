@@ -25,12 +25,12 @@
       "href": "/questions/user-interface/stopwatch/angular"
     },
     {
-      "framework": "svelte",
-      "href": "/questions/user-interface/stopwatch/svelte"
-    },
-    {
       "framework": "vue",
       "href": "/questions/user-interface/stopwatch/vue"
+    },
+    {
+      "framework": "svelte",
+      "href": "/questions/user-interface/stopwatch/svelte"
     }
   ],
   "href": "/questions/user-interface/stopwatch",

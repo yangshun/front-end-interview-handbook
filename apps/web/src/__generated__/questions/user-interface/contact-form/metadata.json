@@ -24,12 +24,12 @@
       "href": "/questions/user-interface/contact-form/angular"
     },
     {
-      "framework": "svelte",
-      "href": "/questions/user-interface/contact-form/svelte"
-    },
-    {
       "framework": "vue",
       "href": "/questions/user-interface/contact-form/vue"
+    },
+    {
+      "framework": "svelte",
+      "href": "/questions/user-interface/contact-form/svelte"
     }
   ],
   "href": "/questions/user-interface/contact-form",

@@ -18,12 +18,12 @@
       "href": "/questions/user-interface/undoable-counter/angular"
     },
     {
-      "framework": "svelte",
-      "href": "/questions/user-interface/undoable-counter/svelte"
-    },
-    {
       "framework": "vue",
       "href": "/questions/user-interface/undoable-counter/vue"
+    },
+    {
+      "framework": "svelte",
+      "href": "/questions/user-interface/undoable-counter/svelte"
     }
   ],
   "href": "/questions/user-interface/undoable-counter",

@@ -25,12 +25,12 @@
       "href": "/questions/user-interface/todo-list/angular"
     },
     {
-      "framework": "svelte",
-      "href": "/questions/user-interface/todo-list/svelte"
-    },
-    {
       "framework": "vue",
       "href": "/questions/user-interface/todo-list/vue"
+    },
+    {
+      "framework": "svelte",
+      "href": "/questions/user-interface/todo-list/svelte"
     }
   ],
   "href": "/questions/user-interface/todo-list",

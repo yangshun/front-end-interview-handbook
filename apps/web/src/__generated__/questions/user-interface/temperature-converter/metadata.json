@@ -22,12 +22,12 @@
       "href": "/questions/user-interface/temperature-converter/angular"
     },
     {
-      "framework": "svelte",
-      "href": "/questions/user-interface/temperature-converter/svelte"
-    },
-    {
       "framework": "vue",
       "href": "/questions/user-interface/temperature-converter/vue"
+    },
+    {
+      "framework": "svelte",
+      "href": "/questions/user-interface/temperature-converter/svelte"
     }
   ],
   "href": "/questions/user-interface/temperature-converter",

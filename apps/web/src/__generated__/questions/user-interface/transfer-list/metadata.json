@@ -20,12 +20,12 @@
       "href": "/questions/user-interface/transfer-list/angular"
     },
     {
-      "framework": "svelte",
-      "href": "/questions/user-interface/transfer-list/svelte"
-    },
-    {
       "framework": "vue",
       "href": "/questions/user-interface/transfer-list/vue"
+    },
+    {
+      "framework": "svelte",
+      "href": "/questions/user-interface/transfer-list/svelte"
     }
   ],
   "href": "/questions/user-interface/transfer-list",
