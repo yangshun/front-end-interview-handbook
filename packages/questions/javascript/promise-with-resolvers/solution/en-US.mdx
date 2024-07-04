@@ -1,0 +1,28 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import promiseWithResolversJs from '../setup/src/promise-with-resolvers.js';
+import promiseWithResolversTs from '../setup/src/promise-with-resolvers.ts';
+
+## Solution
+
+For the most part, `Promise.withResolvers()` is syntactic sugar. The only way to get access to the `resolve` and `reject` function is the arguments to the `Promise` constructor. Hence we can create the `resolve` and `reject` functions before creating the `Promise`, then exposing it from within the constructor function.
+
+The `Promise` constructor function argument runs synchronously, so we can be sure that the `resolve` and `reject` variables are assigned the right values before the `return` statement.
+
+<MDXCodeBlock
+  languages={{ jsx: promiseWithResolversJs, tsx: promiseWithResolversTs }}
+/>
+
+In fact, MDN even mentions that `Promise.withResolvers()` is [exactly equivalent to the following code](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/withResolvers#description):
+
+```js
+let resolve, reject;
+const promise = new Promise((res, rej) => {
+  resolve = res;
+  reject = rej;
+});
+```
+
+## Resources
+
+- [Promise.withResolvers() - JavaScript | MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/withResolvers)

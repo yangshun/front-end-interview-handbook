@@ -8,6 +8,6 @@
   "published": true,
   "importance": "low",
   "difficulty": "easy",
-  "similar_questions": [],
-  "next_questions": []
+  "similar_questions": ["promise-resolve"],
+  "next_questions": ["promise-with-resolvers"]
 }

@@ -41,6 +41,7 @@ export function getFocusAreaAsyncOperations(intl: IntlShape): FocusArea {
         'promise-reject',
         'promise-resolve',
         'promise-timeout',
+        'promise-with-resolvers',
         'promisify',
         'promisify-ii',
         'resumable-timeout',

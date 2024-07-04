@@ -2873,6 +2873,33 @@
   },
   {
     "author": null,
+    "companies": [],
+    "created": 1720051200,
+    "difficulty": "medium",
+    "duration": 15,
+    "excerpt": "Implement a function that returns an object containing a new `Promise` object and two functions to resolve or reject it",
+    "featured": false,
+    "format": "javascript",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/javascript/promise-with-resolvers",
+    "importance": "low",
+    "languages": [
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [],
+    "premium": true,
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [],
+    "slug": "promise-with-resolvers",
+    "subtitle": null,
+    "title": "Promise.withResolvers",
+    "topics": []
+  },
+  {
+    "author": null,
     "companies": [
       "amazon"
     ],
