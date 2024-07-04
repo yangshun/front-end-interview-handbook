@@ -339,6 +339,19 @@ export default function useInterviewsNavItems(placement: 'nav' | 'sidebar') {
             type: 'popover-link',
           },
           {
+            icon: questionTechnologyLists.vue.icon,
+            itemKey: questionTechnologyLists.vue.key,
+            label: questionTechnologyLists.vue.name,
+            onClick: () => {
+              gtag.event({
+                action: `${placement}.practice.topic.vue.click`,
+                category: 'engagement',
+                label: 'Vue',
+              });
+            },
+            type: 'popover-link',
+          },
+          {
             href: questionTechnologyLists.svelte.href,
             icon: questionTechnologyLists.svelte.icon,
             itemKey: questionTechnologyLists.svelte.key,
@@ -348,31 +361,6 @@ export default function useInterviewsNavItems(placement: 'nav' | 'sidebar') {
                 action: `${placement}.practice.topic.svelte.click`,
                 category: 'engagement',
                 label: 'Svelte',
-              });
-            },
-            type: 'popover-link',
-          },
-          {
-            icon: questionTechnologyLists.vue.icon,
-            itemKey: questionTechnologyLists.vue.key,
-            label: questionTechnologyLists.vue.name,
-            labelAddon: (
-              <Badge
-                label={intl.formatMessage({
-                  defaultMessage: 'Coming Soon',
-                  description:
-                    'Coming soon label indicating that a feature will be launched soon',
-                  id: 'jIpXy+',
-                })}
-                size="sm"
-                variant="warning"
-              />
-            ),
-            onClick: () => {
-              gtag.event({
-                action: `${placement}.practice.topic.vue.click`,
-                category: 'engagement',
-                label: 'Vue',
               });
             },
             type: 'popover-link',

@@ -5,6 +5,7 @@ import {
   RiHtml5Line,
   RiJavascriptLine,
   RiReactjsLine,
+  RiVuejsLine,
 } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
 
@@ -68,6 +69,12 @@ const items: ReadonlyArray<{
     value: 'angular',
   },
   {
+    href: '/questions/vue',
+    icon: RiVuejsLine,
+    label: 'Vue',
+    value: 'vue',
+  },
+  {
     href: '/questions/svelte',
     icon: SvelteLogo,
     label: 'Svelte',
@@ -91,9 +98,9 @@ export default function QuestionCategoryTitleSection({
         <div className="flex items-center gap-x-4">
           <Heading level="heading5">
             <FormattedMessage
-              defaultMessage="Practice by framework"
+              defaultMessage="Practice by Framework"
               description="Questions list page title"
-              id="OHistx"
+              id="7npEXn"
             />
           </Heading>
           <Badge

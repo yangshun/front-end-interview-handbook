@@ -225,9 +225,9 @@ async function processParams(params: Props['params']) {
       logo: JavaScriptLogo,
       pageTitle: () =>
         intl.formatMessage({
-          defaultMessage: 'JavaScript questions',
+          defaultMessage: 'JavaScript Questions',
           description: 'JavaScript Questions list page title',
-          id: 'sr3vXR',
+          id: 'CsuGzS',
         }),
       seoTitle: () =>
         intl.formatMessage({

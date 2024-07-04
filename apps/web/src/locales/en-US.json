@@ -1155,6 +1155,10 @@
     "defaultMessage": "Blog",
     "description": "Link to blog page"
   },
+  "7npEXn": {
+    "defaultMessage": "Practice by Framework",
+    "description": "Questions list page title"
+  },
   "7o0DXO": {
     "defaultMessage": "All our challenges come with at least 1 official solution (coming soon) and step-by-step guide from senior big tech engineers. Learn best practices as early as possible.",
     "description": "Description of 'Practical foundation' feature in Projects marketing page"
@@ -1210,6 +1214,10 @@
   "8F7JlA": {
     "defaultMessage": "Access updates to the interviews platform for life.",
     "description": "Lifetime membership feature of accessing updates to interview platforms"
+  },
+  "8I4gwW": {
+    "defaultMessage": "Top Vue coding interview questions to build the most commonly-asked front end UI components and applications.",
+    "description": "Description for Vue questions page"
   },
   "8JoIUN": {
     "defaultMessage": "Coming soon",
@@ -1726,6 +1734,10 @@
   "CrNgUe": {
     "defaultMessage": "Questions List",
     "description": "Screenreader text for question list"
+  },
+  "CsuGzS": {
+    "defaultMessage": "JavaScript Questions",
+    "description": "JavaScript Questions list page title"
   },
   "Ctnuuc": {
     "defaultMessage": "+ {numberOfTags} more",
@@ -3235,10 +3247,6 @@
     "defaultMessage": "Search JavaScript questions",
     "description": "Placeholder for search input of JavaScript question list"
   },
-  "OHistx": {
-    "defaultMessage": "Practice by framework",
-    "description": "Questions list page title"
-  },
   "OKKVCO": {
     "defaultMessage": "Login successful",
     "description": "Title of login successful page"
@@ -4031,6 +4039,10 @@
     "defaultMessage": "You've gained rep in these skills:",
     "description": "Label for skills gained on project submission success page"
   },
+  "TiAC18": {
+    "defaultMessage": "Try these popular Vue questions",
+    "description": "Title for featured questions section"
+  },
   "Tjz+5U": {
     "defaultMessage": "Giving away {discountPercentage}% off all plans!",
     "description": "Rewards discount message"
@@ -4522,6 +4534,10 @@
   "XVPYZg": {
     "defaultMessage": "Forgot your password?",
     "description": "Label of forget password button on Email Sign In page"
+  },
+  "XWWsEp": {
+    "defaultMessage": "Vue Coding Questions",
+    "description": "Description for Vue questions title"
   },
   "Xcw/lL": {
     "defaultMessage": "Explore user submissions handpicked for your growth - based on your profile, skills you're keen to learn, and the projects you've completed.",
@@ -5715,6 +5731,10 @@
     "defaultMessage": "A confirmation email has been sent to both new and current email addresses. The email change will not take effect until the confirmation link in both new and current email addresses have been clicked.",
     "description": "Message shown after an email change request is successful."
   },
+  "gWoDz/": {
+    "defaultMessage": "Practice Vue Interview Questions with Solutions",
+    "description": "Title of Vue Interview Questions page"
+  },
   "gZL62Q": {
     "defaultMessage": "Change password for {userEmail}",
     "description": "Title of Change Password page"
@@ -5986,10 +6006,6 @@
   "jGQnYd": {
     "defaultMessage": "Search coding questions",
     "description": "Placeholder for search input of coding question list"
-  },
-  "jIpXy+": {
-    "defaultMessage": "Coming Soon",
-    "description": "Coming soon label indicating that a feature will be launched soon"
   },
   "jKk5c3": {
     "defaultMessage": "CSS Questions",
@@ -7191,10 +7207,6 @@
     "defaultMessage": "You upvoted this",
     "description": "Tooltip for upvoted submission button"
   },
-  "sr3vXR": {
-    "defaultMessage": "JavaScript questions",
-    "description": "JavaScript Questions list page title"
-  },
   "srrlrR": {
     "defaultMessage": "Practice Front End System Design Interview Questions with Solutions",
     "description": "Title of Interview Preparation System Design page"
@@ -8018,6 +8030,10 @@
   "zgj9Pd": {
     "defaultMessage": "Learn from others",
     "description": "Title for \"Learn from others\" feature on Projects home page"
+  },
+  "zkcMQT": {
+    "defaultMessage": "Top Vue front end interview coding questions to practice, with detailed solutions and explanations by ex-interviewers at FAANG.",
+    "description": "Description of Vue Interview Questions page"
   },
   "zn3iWx": {
     "defaultMessage": "Repeat Password",
