@@ -54,3 +54,8 @@ export type RoadmapSkillsRep = Readonly<{
   parentSkillKey: string;
   points: number;
 }>;
+
+export type  SubSkill = Readonly<{
+  key: ProjectsSkillKey;
+  points: number;
+}>;

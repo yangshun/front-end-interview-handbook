@@ -23,20 +23,35 @@ export type BadgeItem = Readonly<{
   type: 'leveled-up' | 'reputation' | 'skill' | 'track';
 }>;
 
-function getBadgeList(
-  isLeveledUp: boolean,
-  level: number,
-  points: number,
-  skillsRoadmap: ProjectsSkillRoadmapSectionData,
-  projectTracks: ReadonlyArray<ProjectsTrackItem>,
-  challengeHistoricalStatuses: ProjectsChallengeHistoricalStatuses,
-) {
+function getBadgeList({
+  isLeveledUp,
+  level,
+  gainedPoints,
+  skillsRoadmap,
+  projectTracks,
+  challengeHistoricalStatuses,
+  isViewerPremium,
+  trackSlug,
+}: {
+  challengeHistoricalStatuses: ProjectsChallengeHistoricalStatuses;
+  gainedPoints: number;
+  isLeveledUp: boolean;
+  isViewerPremium: boolean;
+  level: number;
+  projectTracks: ReadonlyArray<ProjectsTrackItem>;
+  skillsRoadmap: ProjectsSkillRoadmapSectionData;
+  trackSlug: string;
+}) {
   const badgeList: Array<BadgeItem> = [];
-  const [firstCompletedSkill, ...restCompletedSkills] =
-    getCompletedSkills(skillsRoadmap);
-  const [firstCompletedTrack, ...restCompletedTracks] = getCompletedTracks(
+  const [firstCompletedSkill, ...restCompletedSkills] = getCompletedSkills(
+    skillsRoadmap,
+    isViewerPremium,
+  );
+  const completedTrack = getCompletedTrack(
     projectTracks,
     challengeHistoricalStatuses,
+    isViewerPremium,
+    trackSlug,
   );
 
   if (isLeveledUp) {
@@ -49,11 +64,11 @@ function getBadgeList(
     });
   }
 
-  if (points > 0) {
+  if (gainedPoints > 0) {
     badgeList.push({
       data: {
-        key: points.toString(),
-        label: points,
+        key: gainedPoints.toString(),
+        label: gainedPoints,
       },
       type: 'reputation',
     });
@@ -66,9 +81,9 @@ function getBadgeList(
     });
   }
 
-  if (firstCompletedTrack) {
+  if (completedTrack && completedTrack.length > 0) {
     badgeList.push({
-      data: firstCompletedTrack,
+      data: completedTrack[0],
       type: 'track',
     });
   }
@@ -82,51 +97,62 @@ function getBadgeList(
     }
   }
 
-  if (restCompletedTracks.length) {
-    for (const track of restCompletedTracks) {
-      badgeList.push({
-        data: track,
-        type: 'track',
-      });
-    }
-  }
-
   // We only show max 9 badges
   return badgeList.slice(0, MAX_NO_OF_BADGES);
 }
 
 function getCompletedSkills(
   skillsRoadmap: ProjectsSkillRoadmapSectionData,
+  isViewerPremium: boolean,
 ): Array<BadgeData> {
   return skillsRoadmap
     .map((levelItem) => {
-      return levelItem.items.map((group) => {
-        return group.items
-          .filter(
-            ({ completedChallenges, totalChallenges }) =>
-              completedChallenges > 0 &&
-              completedChallenges === totalChallenges,
-          )
-          .map(({ key, label }) => ({
-            key,
-            label,
-          }));
-      });
+      return levelItem.items
+        .filter(({ premium }) => {
+          // Filter out premium skills for non-premium user
+          if (premium && !isViewerPremium) {
+            return false;
+          }
+
+          return true;
+        })
+        .map((group) => {
+          return group.items
+            .filter(
+              ({ completedChallenges, totalChallenges }) =>
+                completedChallenges > 0 &&
+                completedChallenges === totalChallenges,
+            )
+            .map(({ key, label }) => ({
+              key,
+              label,
+            }));
+        });
     })
     .flat(3);
 }
 
-function getCompletedTracks(
+function getCompletedTrack(
   projectTracks: ReadonlyArray<ProjectsTrackItem>,
   challengeHistoricalStatuses: ProjectsChallengeHistoricalStatuses,
+  isViewerPremium: boolean,
+  trackSlug: string,
 ): Array<BadgeData> {
   return projectTracks
     .filter((track) => {
-      const { challenges } = track;
+      const { challenges, metadata } = track;
       const completedCount = projectsChallengeCountCompletedIncludingHistorical(
         challengeHistoricalStatuses ?? {},
         challenges,
       );
+
+      // Filter out non-related track and premium track for non-premium user
+      if (
+        metadata.slug !== trackSlug ||
+        (metadata.premium && !isViewerPremium)
+      ) {
+        return false;
+      }
 
       return completedCount === challenges.length;
     })
@@ -147,6 +173,7 @@ type Props = Readonly<{
   roadmapSkillsRepRecords: ReadonlyArray<RoadmapSkillsRep>;
   skillsRoadmap: ProjectsSkillRoadmapSectionData;
   submissionUrl: string;
+  trackSlug: string;
 }>;
 
 export default function ProjectsChallengeSubmissionSuccessPageImpl({
@@ -159,15 +186,19 @@ export default function ProjectsChallengeSubmissionSuccessPageImpl({
   challengeHistoricalStatuses,
   completedChallenges,
   roadmapSkillsRepRecords,
+  isViewerPremium,
+  trackSlug,
 }: Props) {
-  const badgeList: Array<BadgeItem> = getBadgeList(
-    isLeveledUp,
-    level,
-    gainedPoints,
-    skillsRoadmap,
-    projectTracks,
+  const badgeList: Array<BadgeItem> = getBadgeList({
     challengeHistoricalStatuses,
-  );
+    gainedPoints,
+    isLeveledUp,
+    isViewerPremium,
+    level,
+    projectTracks,
+    skillsRoadmap,
+    trackSlug,
+  });
 
   return (
     <>

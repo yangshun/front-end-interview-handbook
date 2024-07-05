@@ -20,6 +20,11 @@ import type {
 import { ProjectsLevelingProgressBar } from '../stats/ProjectsLevelingProgressBar';
 
 const MAX_SKILLS_TO_SHOW = 3;
+const SKILLS_CARD_BORDER_COLOR = [
+  'border-green-500',
+  'border-yellow-500',
+  'border-red-500',
+];
 
 function getKey(skillRep: RoadmapSkillsRep) {
   return skillRep.key.split('.').at(-1);
@@ -61,7 +66,10 @@ function groupProjectRepSkill(
     >(),
   );
 
-  return Array.from(groupedData.values());
+  // Sort the skill groups based on totalPoints
+  return Array.from(groupedData.values()).sort(
+    (a, b) => b.totalPoints - a.totalPoints,
+  );
 }
 
 type Props = Readonly<{
@@ -135,17 +143,19 @@ function ProjectChallengeSubmissionSuccessBody({
                 id="TgOWsI"
               />
             </Text>
-            <Button
-              className="!text-brand -me-3"
-              label={intl.formatMessage({
-                defaultMessage: 'See all',
-                description:
-                  'Label for See all button on project submission success page',
-                id: 'RZedau',
-              })}
-              variant="tertiary"
-              onClick={() => setShowSkillGainedDialog(true)}
-            />
+            {groupedRoadmapSkillReps.length > MAX_SKILLS_TO_SHOW && (
+              <Button
+                className="!text-brand -me-3"
+                label={intl.formatMessage({
+                  defaultMessage: 'See all',
+                  description:
+                    'Label for See all button on project submission success page',
+                  id: 'RZedau',
+                })}
+                variant="tertiary"
+                onClick={() => setShowSkillGainedDialog(true)}
+              />
+            )}
             <ProjectsSkillRepGainDialog
               isShown={showSkillGainedDialog}
               skillReps={groupedRoadmapSkillReps}
@@ -155,10 +165,11 @@ function ProjectChallengeSubmissionSuccessBody({
           <div className="mt-6 flex flex-col flex-wrap gap-2.5 md:flex-row">
             {groupedRoadmapSkillReps
               .slice(0, MAX_SKILLS_TO_SHOW)
-              .map((parent) => {
+              .map((parent, index) => {
                 return (
                   <ProjectsSkillProgressBreakdownCard
                     key={parent.key}
+                    borderColor={SKILLS_CARD_BORDER_COLOR[index]}
                     skill={{
                       key: parent.key,
                       points: parent.totalPoints,

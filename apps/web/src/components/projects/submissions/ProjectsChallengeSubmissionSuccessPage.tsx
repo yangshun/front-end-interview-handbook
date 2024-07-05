@@ -13,6 +13,7 @@ type Props = Readonly<{
   locale: string;
   roadmapSkillsRepRecords: ReadonlyArray<RoadmapSkillsRep>;
   submissionUrl: string;
+  trackSlug: string;
 }>;
 
 export default function ProjectsChallengeSubmissionSuccessPage({
@@ -23,6 +24,7 @@ export default function ProjectsChallengeSubmissionSuccessPage({
   isLeveledUp,
   gainedPoints,
   roadmapSkillsRepRecords,
+  trackSlug,
 }: Props) {
   const { data: progressData, isLoading } =
     trpc.projects.challenges.progress.useQuery({
@@ -58,6 +60,7 @@ export default function ProjectsChallengeSubmissionSuccessPage({
       roadmapSkillsRepRecords={roadmapSkillsRepRecords}
       skillsRoadmap={skillsRoadmap}
       submissionUrl={submissionUrl}
+      trackSlug={trackSlug}
     />
   );
 }

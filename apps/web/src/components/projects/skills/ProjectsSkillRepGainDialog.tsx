@@ -1,38 +1,63 @@
 import clsx from 'clsx';
 import { RiFireLine } from 'react-icons/ri';
 import { useIntl } from 'react-intl';
+import { useMediaQuery } from 'usehooks-ts';
 
 import type { DialogWidth } from '~/components/ui/Dialog';
 import Dialog from '~/components/ui/Dialog';
 import Text from '~/components/ui/Text';
-import { themeBackgroundLineEmphasizedColor } from '~/components/ui/theme';
+import {
+  themeBackgroundLineEmphasizedColor,
+  themeDivideEmphasizeColor,
+} from '~/components/ui/theme';
 
 import { projectsSkillLabel } from './data/ProjectsSkillListData';
+import type { SubSkill } from './types';
 
 const MAX_COLS_LG = 3;
 const MAX_COLS_MD = 2;
 
+type SkillReps = ReadonlyArray<{
+  key: string;
+  subSkills: ReadonlyArray<SubSkill>;
+  totalPoints: number;
+}>;
+
 type Props = Readonly<{
   isShown: boolean;
   onClose: () => void;
-  skillReps: Array<{
-    key: string;
-    subSkills: Array<{
-      key: string;
-      points: number;
-    }>;
-    totalPoints: number;
-  }>;
+  skillReps: SkillReps;
 }>;
+
+function splitSkillReps({
+  skillReps,
+  size,
+}: Readonly<{ size: number; skillReps: SkillReps }>) {
+  const result = [];
+
+  for (let i = 0; i < skillReps.length; i += size) {
+    const chunk = skillReps.slice(i, i + size);
+
+    result.push(chunk);
+  }
+
+  return result;
+}
 
 function ProjectsSkillRepGainDialog({ isShown, onClose, skillReps }: Props) {
   const intl = useIntl();
+  const isTabletAndAbove = useMediaQuery('(min-width: 768px)');
+  const isLaptopAndAbove = useMediaQuery('(min-width: 1024px)');
 
   const mdCols =
     skillReps.length > MAX_COLS_MD ? MAX_COLS_MD : skillReps.length;
 
   const lgCols =
     skillReps.length > MAX_COLS_LG ? MAX_COLS_LG : skillReps.length;
+
+  const splitSize = isLaptopAndAbove ? lgCols : isTabletAndAbove ? mdCols : 1;
+
+  const splitedSkillReps = splitSkillReps({ size: splitSize, skillReps });
 
   let dialogWidth: DialogWidth = 'screen-sm';
 
@@ -57,44 +82,68 @@ function ProjectsSkillRepGainDialog({ isShown, onClose, skillReps }: Props) {
       onClose={() => onClose()}>
       <div
         className={clsx(
-          'grid gap-12 pt-6',
-          `grid-cols-1 sm:grid-cols-${mdCols} xl:grid-cols-${lgCols}`,
+          'mt-3.5',
+          'flex flex-col',
+          'divide-y',
+          themeDivideEmphasizeColor,
         )}>
-        {skillReps.map((parentSkill, i) => {
-          const isLast = skillReps.length === i + 1;
-
+        {splitedSkillReps.map((newSkillsReps) => {
           return (
             <div
-              key={parentSkill.key}
-              className={clsx('flex flex-col gap-y-4', 'relative')}>
-              <div
-                className={clsx(
-                  'absolute -bottom-6 h-0 w-full border-t border-neutral-700',
-                  isLast ? 'hidden' : 'block sm:hidden',
-                )}
-              />
-              <div className="flex items-center justify-between">
-                <Text size="body1" weight="bold">
-                  {projectsSkillLabel(parentSkill.key)}
-                </Text>
-                <div
-                  className={clsx(
-                    'flex items-center gap-1 rounded-full px-2.5 py-0.5',
-                    themeBackgroundLineEmphasizedColor,
-                  )}>
-                  <RiFireLine className={clsx('size-4 text-brand shrink-0')} />
-                  <Text size="body1">+{parentSkill.totalPoints}</Text>
-                </div>
-              </div>
-              {parentSkill.subSkills.map((childSkill) => {
+              key={`row${Math.random()}`}
+              className={clsx(
+                `grid md:grid-cols-${mdCols} lg:grid-cols-${lgCols} grid-cols-1`,
+                'w-full',
+                'py-6 first:pt-0 last:pb-0',
+                'divide-x',
+                themeDivideEmphasizeColor,
+              )}>
+              {newSkillsReps.map((parentSkill, i) => {
+                const isLast = skillReps.length === i + 1;
+                const isLastItemInRow = splitSize === i + 1;
+
                 return (
                   <div
-                    key={childSkill.key}
-                    className="flex items-center justify-between">
-                    <Text size="body2" weight="medium">
-                      {projectsSkillLabel(childSkill.key)}
-                    </Text>
-                    <Text size="body2">+{childSkill.points}</Text>
+                    key={parentSkill.key}
+                    className={clsx(
+                      'flex flex-col gap-y-4',
+                      'relative w-full',
+                      'px-6 first:pl-0',
+                      isLastItemInRow && 'last:pr-0',
+                    )}>
+                    <div
+                      className={clsx(
+                        'absolute -bottom-6 h-0 w-full border-t border-neutral-700',
+                        isLast ? 'hidden' : 'block sm:hidden',
+                      )}
+                    />
+                    <div className="flex items-center justify-between">
+                      <Text size="body1" weight="bold">
+                        {projectsSkillLabel(parentSkill.key)}
+                      </Text>
+                      <div
+                        className={clsx(
+                          'flex items-center gap-1 rounded-full px-2.5 py-0.5',
+                          themeBackgroundLineEmphasizedColor,
+                        )}>
+                        <RiFireLine
+                          className={clsx('size-4 text-brand shrink-0')}
+                        />
+                        <Text size="body1">+{parentSkill.totalPoints}</Text>
+                      </div>
+                    </div>
+                    {parentSkill.subSkills.map((childSkill) => {
+                      return (
+                        <div
+                          key={childSkill.key}
+                          className="flex items-center justify-between">
+                          <Text size="body2" weight="medium">
+                            {projectsSkillLabel(childSkill.key)}
+                          </Text>
+                          <Text size="body2">+{childSkill.points}</Text>
+                        </div>
+                      );
+                    })}
                   </div>
                 );
               })}

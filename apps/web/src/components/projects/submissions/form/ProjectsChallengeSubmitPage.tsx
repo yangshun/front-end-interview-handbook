@@ -142,7 +142,7 @@ export default function ProjectsChallengeSubmitPage({
     },
   });
 
-  const { href } = challenge.metadata;
+  const { href, track } = challenge.metadata;
 
   if (showSuccess && SUBMISSION_SUCCESS_PAGE_AVAILABLE) {
     return (
@@ -154,6 +154,7 @@ export default function ProjectsChallengeSubmitPage({
         locale={locale}
         roadmapSkillsRepRecords={roadmapSkillsRepRecords}
         submissionUrl={submissionUrl}
+        trackSlug={track}
       />
     );
   }
