@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 
+import getLanguageFromFilePath from './getLanguageFromFilePath';
 import type { SandpackBundlerFiles } from '../explorer/types';
 
 import type { Monaco } from '@monaco-editor/react';
@@ -15,6 +16,8 @@ export default function useMonacoEditorModels(
       return;
     }
 
+    // Need to initialize all the models first so that click-to-navigate
+    // also works for files that aren't open.
     Object.entries(files).forEach(([filePath, bundlerFile]) => {
       const uri = monaco.Uri.parse(filePath);
 
@@ -24,7 +27,9 @@ export default function useMonacoEditorModels(
         return;
       }
 
-      monaco.editor.createModel(bundlerFile.code, undefined, uri);
+      const language = getLanguageFromFilePath(filePath);
+
+      monaco.editor.createModel(bundlerFile.code, language, uri);
     });
   }, [monaco, files]);
 
@@ -39,6 +44,9 @@ export default function useMonacoEditorModels(
 
       const models = monaco.editor.getModels();
 
+      // Dispose models because some questions have the same
+      // files and going from one question to another should
+      // show the latest file.
       models.forEach((model) => {
         model.dispose();
       });
