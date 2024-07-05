@@ -10,8 +10,8 @@ import Button from '~/components/ui/Button';
 import Heading from '~/components/ui/Heading';
 import Text from '~/components/ui/Text';
 
-import ProjectChallengeSubmissionSuccessBadge from './ProjectChallengeSubmissionSuccessBadge';
-import type { BadgeItem } from '../ProjectsChallengeSubmissionSuccessPageImpl';
+import ProjectsChallengeSubmissionSuccessBadge from './ProjectsChallengeSubmissionSuccessBadge';
+import type { BadgeItem } from './ProjectsChallengeSubmissionSuccessPageImpl';
 import type { ProjectsSkillGroupType } from '../../skills/data/ProjectsSkillIcons';
 import { ProjectsSkillIcons } from '../../skills/data/ProjectsSkillIcons';
 
@@ -25,7 +25,7 @@ type Props = Readonly<{
   submissionUrl: string;
 }>;
 
-function ProjectChallengeSubmissionSuccessHero({
+export default function ProjectsChallengeSubmissionSuccessHero({
   submissionUrl,
   badgeList,
   challengeNumber,
@@ -52,7 +52,7 @@ function ProjectChallengeSubmissionSuccessHero({
           .map(({ type, data: { key, label } }) => {
             if (type === 'leveled-up') {
               return (
-                <ProjectChallengeSubmissionSuccessBadge
+                <ProjectsChallengeSubmissionSuccessBadge
                   key={key}
                   icon={RiArrowUpLine}
                   subTitle={intl.formatMessage({
@@ -76,7 +76,7 @@ function ProjectChallengeSubmissionSuccessHero({
 
             if (type === 'reputation') {
               return (
-                <ProjectChallengeSubmissionSuccessBadge
+                <ProjectsChallengeSubmissionSuccessBadge
                   key={key}
                   icon={RiFireLine}
                   subTitle={intl.formatMessage({
@@ -102,7 +102,7 @@ function ProjectChallengeSubmissionSuccessHero({
 
             if (type === 'skill') {
               return (
-                <ProjectChallengeSubmissionSuccessBadge
+                <ProjectsChallengeSubmissionSuccessBadge
                   key={key}
                   icon={ProjectsSkillIcons[key as ProjectsSkillGroupType]}
                   subTitle={intl.formatMessage({
@@ -117,7 +117,7 @@ function ProjectChallengeSubmissionSuccessHero({
 
             if (type === 'track') {
               return (
-                <ProjectChallengeSubmissionSuccessBadge
+                <ProjectsChallengeSubmissionSuccessBadge
                   key={key}
                   icon={RiCheckboxMultipleLine}
                   subTitle={intl.formatMessage({
@@ -166,5 +166,3 @@ function ProjectChallengeSubmissionSuccessHero({
     </div>
   );
 }
-
-export default ProjectChallengeSubmissionSuccessHero;

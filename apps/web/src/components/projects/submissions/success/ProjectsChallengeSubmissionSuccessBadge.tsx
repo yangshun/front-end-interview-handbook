@@ -55,7 +55,7 @@ type Props = Readonly<{
   title: string;
 }>;
 
-function ProjectChallengeSubmissionSuccessBadge({
+export default function ProjectsChallengeSubmissionSuccessBadge({
   icon: Icon,
   title,
   subTitle,
@@ -86,5 +86,3 @@ function ProjectChallengeSubmissionSuccessBadge({
     </div>
   );
 }
-
-export default ProjectChallengeSubmissionSuccessBadge;

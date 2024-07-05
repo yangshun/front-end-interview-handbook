@@ -2,7 +2,7 @@ import { trpc } from '~/hooks/trpc';
 
 import Spinner from '~/components/ui/Spinner';
 
-import ProjectsChallengeSubmissionSuccessPageImpl from './ProjectsChallengeSubmissionSuccessPageImpl';
+import ProjectsChallengeSubmissionSuccessPageImpl from './success/ProjectsChallengeSubmissionSuccessPageImpl';
 import type { RoadmapSkillsRep } from '../skills/types';
 
 type Props = Readonly<{

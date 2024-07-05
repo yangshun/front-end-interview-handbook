@@ -2,14 +2,14 @@
 
 import type { ProjectsChallengeHistoricalStatuses } from '~/components/projects/challenges/types';
 
-import ProjectChallengeSubmissionSuccessHero from './hero/ProjectChallengeSubmissionSuccessHero';
-import ProjectChallengeSubmissionSuccessBody from './ProjectChallengeSubmissionSuccessBody';
-import { projectsChallengeCountCompletedIncludingHistorical } from '../challenges/utils/ProjectsChallengeUtils';
+import ProjectsChallengeSubmissionSuccessBody from './ProjectsChallengeSubmissionSuccessBody';
+import ProjectsChallengeSubmissionSuccessHero from './ProjectsChallengeSubmissionSuccessHero';
+import { projectsChallengeCountCompletedIncludingHistorical } from '../../challenges/utils/ProjectsChallengeUtils';
 import type {
   ProjectsSkillRoadmapSectionData,
   RoadmapSkillsRep,
-} from '../skills/types';
-import type { ProjectsTrackItem } from '../tracks/data/ProjectsTracksData';
+} from '../../skills/types';
+import type { ProjectsTrackItem } from '../../tracks/data/ProjectsTracksData';
 
 const MAX_NO_OF_BADGES = 9;
 
@@ -28,30 +28,22 @@ function getBadgeList({
   level,
   gainedPoints,
   skillsRoadmap,
-  projectTracks,
+  currentTrack,
   challengeHistoricalStatuses,
   isViewerPremium,
-  trackSlug,
 }: {
   challengeHistoricalStatuses: ProjectsChallengeHistoricalStatuses;
+  currentTrack: ProjectsTrackItem | null;
   gainedPoints: number;
   isLeveledUp: boolean;
   isViewerPremium: boolean;
   level: number;
-  projectTracks: ReadonlyArray<ProjectsTrackItem>;
   skillsRoadmap: ProjectsSkillRoadmapSectionData;
-  trackSlug: string;
 }) {
   const badgeList: Array<BadgeItem> = [];
   const [firstCompletedSkill, ...restCompletedSkills] = getCompletedSkills(
     skillsRoadmap,
     isViewerPremium,
-  );
-  const completedTrack = getCompletedTrack(
-    projectTracks,
-    challengeHistoricalStatuses,
-    isViewerPremium,
-    trackSlug,
   );
 
   if (isLeveledUp) {
@@ -81,11 +73,22 @@ function getBadgeList({
     });
   }
 
-  if (completedTrack && completedTrack.length > 0) {
-    badgeList.push({
-      data: completedTrack[0],
-      type: 'track',
-    });
+  if (currentTrack) {
+    const completedChallengesCount =
+      projectsChallengeCountCompletedIncludingHistorical(
+        challengeHistoricalStatuses ?? {},
+        currentTrack.challenges,
+      );
+
+    if (currentTrack.challenges.length === completedChallengesCount) {
+      badgeList.push({
+        data: {
+          key: currentTrack.info.title,
+          label: currentTrack.info.title,
+        },
+        type: 'track',
+      });
+    }
   }
 
   if (restCompletedSkills.length) {
@@ -132,34 +135,23 @@ function getCompletedSkills(
     .flat(3);
 }
 
-function getCompletedTrack(
+function getTrack(
   projectTracks: ReadonlyArray<ProjectsTrackItem>,
-  challengeHistoricalStatuses: ProjectsChallengeHistoricalStatuses,
   isViewerPremium: boolean,
   trackSlug: string,
-): Array<BadgeData> {
-  return projectTracks
-    .filter((track) => {
-      const { challenges, metadata } = track;
-      const completedCount = projectsChallengeCountCompletedIncludingHistorical(
-        challengeHistoricalStatuses ?? {},
-        challenges,
-      );
+): ProjectsTrackItem | null {
+  const tracks = projectTracks.filter((track) => {
+    const { metadata } = track;
 
-      // Filter out non-related track and premium track for non-premium user
-      if (
-        metadata.slug !== trackSlug ||
-        (metadata.premium && !isViewerPremium)
-      ) {
-        return false;
-      }
+    // Filter out non-related track and premium track for non-premium user
+    if (metadata.slug !== trackSlug || (metadata.premium && !isViewerPremium)) {
+      return false;
+    }
 
-      return completedCount === challenges.length;
-    })
-    .map((track) => ({
-      key: track.info.title,
-      label: track.info.title,
-    }));
+    return true;
+  });
+
+  return tracks.length > 0 ? tracks[0] : null;
 }
 
 type Props = Readonly<{
@@ -189,28 +181,32 @@ export default function ProjectsChallengeSubmissionSuccessPageImpl({
   isViewerPremium,
   trackSlug,
 }: Props) {
+  const currentTrack = getTrack(projectTracks, isViewerPremium, trackSlug);
   const badgeList: Array<BadgeItem> = getBadgeList({
     challengeHistoricalStatuses,
+    currentTrack,
     gainedPoints,
     isLeveledUp,
     isViewerPremium,
     level,
-    projectTracks,
     skillsRoadmap,
-    trackSlug,
   });
 
   return (
     <>
-      <ProjectChallengeSubmissionSuccessHero
+      <ProjectsChallengeSubmissionSuccessHero
         badgeList={badgeList}
         challengeNumber={completedChallenges}
         submissionUrl={submissionUrl}
       />
-      <ProjectChallengeSubmissionSuccessBody
+      <ProjectsChallengeSubmissionSuccessBody
+        challengeHistoricalStatuses={challengeHistoricalStatuses}
+        currentTrack={currentTrack}
         gainedPoints={gainedPoints}
         isLeveledUp={isLeveledUp}
+        isViewerPremium={isViewerPremium}
         level={level}
+        projectTracks={projectTracks}
         roadmapSkillsRepRecords={roadmapSkillsRepRecords}
         skillsRoadmap={skillsRoadmap}
       />
