@@ -1,0 +1,595 @@
+---
+title: 20 Must-know Advanced JavaScript Interview Questions for Experienced Engineers
+description: Get ready for your senior front end engineer role with these top X advanced JavaScript interview questions and answers, curated by ex-interviewers for experienced developers.
+tags:
+  - javascript
+  - interviews
+level: advanced
+createdAt: 2024-07-04
+author: blog/author/nitesh-seram.json
+category: blog/category/front-end-interviews.json
+published: true
+---
+
+JavaScript interviews for experienced engineers demand more than just a basic understanding of syntax and concepts. They require a deep dive into advanced topics that demonstrate your ability to solve complex problems and architect robust solutions. Whether you're aiming to advance your career or secure a new role, mastering these 20 advanced JavaScript interview questions will not only enhance your technical prowess but also set you apart from others.
+
+## 1. Explain why the following doesn't work as an IIFE: `function foo(){ }();`. What needs to be changed to properly make it an IIFE?
+
+IIFE stands for Immediately Invoked Function Expressions. The JavaScript parser reads **`function foo(){ }();`** as **`function foo(){ }`** and **`();`**, where the former is a _function declaration_ and the latter is an attempt at calling a function without a name. This results in a **`SyntaxError`**.
+
+To fix this, wrap the function in parentheses: **`(function foo(){ })()`**. This turns it into a _function expression_, allowing it to be executed immediately.
+
+## 2. What are iterators and generators in JavaScript and what are they used for?
+
+In JavaScript, iterators and generators are powerful tools for managing sequences of data and controlling the flow of execution in a more flexible way.
+
+### Iterators
+
+Iterators are objects that define a sequence and provide a **`next()`** method to access the next value in the sequence. They are used to iterate over data structures like arrays, strings, and custom objects.
+
+**Creating a custom iterator for a range of numbers**
+
+In JavaScript, we can provide a default implementation for iterator by implementing **`[Symbol.iterator]()`** in any custom object.
+
+```js
+class Range {
+  constructor(start, end) {
+    this.start = start;
+    this.end = end;
+  }
+
+  [Symbol.iterator]() {
+    let current = this.start;
+    const end = this.end;
+    return {
+      next() {
+        if (current <= end) {
+          return { value: current++, done: false };
+        } else
+          return { value: undefined, done: true };
+        }
+      },
+    };
+  }
+}
+
+const range = new Range(1, 3);
+for (const number of range) {
+  console.log(number); // 1, 2, 3
+}
+```
+
+### Generators
+
+Generators are a special kind of function that can pause and resume their execution, allowing them to generate a sequence of values on-the-fly. They are commonly used to create iterators but have other applications as well.
+
+**Creating an iterator using a generator function**
+
+We can rewrite our **`Range`** example to use a generator function:
+
+```js
+class Range {
+  constructor(start, end) {
+    this.start = start;
+    this.end = end;
+  }
+
+  *[Symbol.iterator]() {
+    let current = this.start;
+    while (current <= this.end) {
+      yield current++;
+    }
+  }
+}
+
+const range = new Range(1, 3);
+for (const number of range) {
+  console.log(number); // 1, 2, 3
+}
+```
+
+**Iterating over data streams**
+
+Generators are well-suited for iterating over data streams, such as fetching data from an API or reading files.
+
+```js
+function* fetchDataInBatches(url, batchSize = 10) {
+  let startIndex = 0;
+  while (true) {
+    const response = await fetch(`${url}?start=${startIndex}&limit=${batchSize}`);
+    const data = await response.json();
+    if (data.length === 0) break;
+    yield data;
+    startIndex += batchSize;
+  }
+}
+
+const dataGenerator = fetchDataInBatches('https://api.example.com/data');
+for await (const batch of dataGenerator) {
+  console.log(batch);
+}
+```
+
+## 3. What are JavaScript object property flags and descriptors?
+
+Property flags and descriptors in JavaScript manage how object properties behave, allowing control over property access, modification, and inheritance.
+
+### Property Flags
+
+Property flags are defined using **`Object.defineProperty()`**. Key flags include:
+
+- **`writable`**: Can the property be written to? Default is **`true`**.
+- **`enumerable`**: Is the property enumerable? Default is **`true`**.
+- **`configurable`**: Can the property be deleted or reconfigured? Default is **`true`**.
+
+### Property Descriptors
+
+Property descriptors provide detailed information about a property, including its value and flags. Use **`Object.getOwnPropertyDescriptor()`** to retrieve and **`Object.defineProperty()`** to set them.
+
+Example:
+
+```js
+let user = { name: 'John Doe' };
+let descriptor = Object.getOwnPropertyDescriptor(user, 'name');
+console.log(descriptor); // {value: "John Doe", writable: true, enumerable: true, configurable: true}
+```
+
+### Manipulating Property Flags
+
+- **`writable`**: Controls if a property can be written to. If **`false`**, writing fails silently in non-strict mode and throws **`TypeError`** in strict mode.
+
+  ```js
+  const obj = {};
+  Object.defineProperty(obj, 'name', { writable: false, value: 'John Doe' });
+  console.log(obj.name); // John Doe
+  obj.name = 'Jane Doe'; // TypeError in strict mode
+  ```
+
+- **`enumerable`**: Controls if a property is visible in **`for...in`** loops.
+
+  ```js
+  const obj = {};
+  Object.defineProperty(obj, 'name', {
+    enumerable: false,
+    value: 'John Doe',
+  });
+  for (const prop in obj) console.log(prop); // No output
+  ```
+
+- **`configurable`**: Controls if a property can be deleted or reconfigured. If **`false`**, deleting or altering fails silently in non-strict mode and throws **`TypeError`** in strict mode.
+
+  ```js
+  const obj = {};
+  Object.defineProperty(obj, 'name', {
+    configurable: false,
+    value: 'John Doe',
+  });
+  delete obj.name; // TypeError in strict mode
+  ```
+
+## 4. What are JavaScript polyfills for?
+
+Polyfills are scripts that enable modern JavaScript features in older browsers that lack support, allowing developers to use the latest language features while maintaining compatibility.
+
+### How Polyfills Work
+
+Polyfills detect missing features and provide custom implementations using existing JavaScript. For example, **`Array.prototype.includes()`** is not supported in older browsers like Internet Explorer 11:
+
+```js
+if (!Array.prototype.includes) {
+  Array.prototype.includes = function (searchElement) {
+    for (var i = 0; i < this.length; i++) {
+      if (this[i] === searchElement) return true;
+    }
+    return false;
+  };
+}
+```
+
+### Implementing Polyfills
+
+1.  **Identify the Missing Feature**: Detect support using **`typeof`**, **`in`**, or **`window`**.
+2.  **Write the Fallback**: Create a custom implementation.
+3.  **Test the Polyfill**: Ensure it works across browsers.
+4.  **Apply the Polyfill**: Use feature detection to selectively apply the polyfill.
+
+### Considerations
+
+- **Selective Loading**: Load only for browsers that need them.
+- **Feature Detection**: Avoid unnecessary polyfills.
+- **Size and Performance**: Minimize bundle size.
+- **Use Libraries**: Leverage comprehensive polyfill libraries.
+
+### Libraries and Services
+
+- **`core-js`**: Provides polyfills for many ECMAScript features.
+
+  ```js
+  import 'core-js/actual/array/flat-map';
+  [1, 2].flatMap((it) => [it, it]); // => [1, 1, 2, 2]
+  ```
+
+- **Polyfill.io**: Serves polyfills based on requested features and user agents.
+
+  ```html
+  <script src="https://polyfill.io/v3/polyfill.min.js"></script>
+  ```
+
+Polyfills ensure modern JavaScript features work across all browsers, enhancing compatibility and functionality.
+
+## 5. What are server-sent events?
+
+Server-Sent Events (SSE) is a standard that allows servers to push updates to web clients over a single, long-lived HTTP connection. This enables real-time updates without the client constantly polling the server for new data.
+
+### How SSE Works:
+
+1.  **Client Setup:** The client creates an **`EventSource`** object, providing the URL of the server-side script that generates the event stream.
+2.  **Server Response:** The server sets headers to indicate an event stream and starts sending events to the client.
+3.  **Event Format:** Each event follows a specific format with fields like **`event`**, **`data`**, and **`id`**.
+4.  **Client Handling:** The **`EventSource`** object receives events and dispatches them as browser events, which can be handled using event listeners.
+5.  **Reconnection:** The **`EventSource`** automatically handles reconnection if the connection is lost, resuming the stream from the last received event ID.
+
+### Key Features:
+
+- **Unidirectional:** Only the server can send data to the client.
+- **Retry Mechanism:** The client retries the connection if it fails.
+- **Text-only Data:** SSE transmits text data only.
+- **Built-in Browser Support:** Supported by most modern browsers.
+- **Event Types:** SSE supports custom event types for message categorization.
+- **`Last-Event-Id`:** The client sends the **`Last-Event-Id`** header when reconnecting, allowing the server to resume the stream.
+
+### Implementing SSE:
+
+**Client:**
+
+```js
+const eventSource = new EventSource('/sse');
+eventSource.onmessage = (event) => console.log('New message:', event.data);
+```
+
+**Server (Node.js):**
+
+```js
+const http = require('http');
+
+http
+  .createServer((req, res) => {
+    if (req.url === '/sse') {
+      // Set headers for SSE
+      res.writeHead(200, {
+        'Content-Type': 'text/event-stream',
+        'Cache-Control': 'no-cache',
+        Connection: 'keep-alive',
+      });
+
+      // Function to send a message
+      const sendMessage = (message) => {
+        res.write(`data: ${message}\n\n`); // Messages are delimited with double line breaks.
+      };
+
+      // Send a message every 5 seconds
+      const intervalId = setInterval(() => {
+        sendMessage(`Current time: ${new Date().toLocaleTimeString()}`);
+      }, 5000);
+
+      // Handle client disconnect
+      req.on('close', () => {
+        clearInterval(intervalId);
+        res.end();
+      });
+    } else {
+      res.writeHead(404);
+      res.end();
+    }
+  })
+  .listen(8080, () => {
+    console.log('SSE server running on port 8080');
+  });
+```
+
+SSE provides an efficient and straightforward way to push updates from a server to a client in real-time. It is well-suited for applications requiring continuous data streams but not full bidirectional communication.
+
+## 6. What are workers in JavaScript used for?
+
+JavaScript workers run scripts in background threads, offloading intensive tasks to keep the user interface responsive. There are three main types of workers in JavaScript: Web Workers / Dedicated Workers, Service Workers and Shared Workers.
+
+### Web Workers / Dedicated Workers
+
+- **Purpose**: Handle CPU-intensive tasks (e.g., data processing, computations).
+- **Communication**: Use **`postMessage()`** and **`onmessage`**.
+- **Security**: No direct DOM access.
+- **Termination**: Ends when the main script unloads or explicitly terminated.
+
+#### Example: Creating a Web Worker
+
+**`main.js`**:
+
+```js
+// Check if the browser supports workers
+if (window.Worker) {
+  // Create a new Worker
+  const myWorker = new Worker('worker.js');
+
+  // Post a message to the worker
+  myWorker.postMessage('Hello, Worker!');
+
+  // Listen for messages from the worker
+  myWorker.onmessage = function (event) {
+    console.log('Message from Worker:', event.data);
+  };
+
+  // Error handling
+  myWorker.onerror = function (error) {
+    console.error('Error from Worker:', error);
+  };
+}
+```
+
+**`worker.js`**:
+
+```js
+// Listen for messages from the main script
+onmessage = function (event) {
+  console.log('Message from Main Script:', event.data);
+
+  // Perform a task (e.g., some computation)
+  const result = event.data + ' - Processed by Worker';
+
+  // Post the result back to the main script
+  postMessage(result);
+};
+```
+
+### Service Workers
+
+- **Purpose**: Act as a network proxy, handle requests, and cache resources.
+- **Capabilities**: Enable offline functionality and push notifications.
+- **Lifecycle**: Managed by the browser (install, activate, update).
+- **Security**: No direct DOM access.
+
+#### Example: Creating a Service Worker
+
+**`main.js`**:
+
+```js
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker
+    .register('/service-worker.js')
+    .then((registration) => {
+      console.log('Service Worker registered:', registration);
+    })
+    .catch((err) => {
+      console.log('Service Worker registration failed:', err);
+    });
+}
+```
+
+**`service-worker.js`**:
+
+```js
+self.addEventListener('fetch', (event) => {
+  event.respondWith(
+    caches.match(event.request).then((response) => {
+      return response || fetch(event.request);
+    }),
+  );
+});
+```
+
+### Shared Workers
+
+- **Purpose**: Shared across multiple scripts in different windows/tabs/iframes.
+- **Use Case**: State sharing across multiple browser contexts.
+
+### Considerations and Limitations
+
+- **Same-Origin Policy**: Workers must comply with the same-origin policy.
+- **No DOM Access**: Communicate with the main thread via messages.
+- **Performance**: Managing workers incurs overhead; use judiciously.
+- **Error Handling**: Implement proper error handling mechanisms.
+
+## 7. What is `"use strict";`?\*\* What are the advantages and disadvantages to using it?
+
+**`"use strict";`** is a directive from ECMAScript 5 (ES5) that enforces stricter parsing and error handling in JavaScript, making code more secure and less error-prone.
+
+### How to Use Strict Mode
+
+1.  **Global Scope**: Add at the beginning of a JavaScript file.
+
+    ```jsx
+    'use strict';
+    function add(a, b) {
+      return a + b;
+    }
+    ```
+
+2.  **Local Scope**: Add at the beginning of a function.
+
+    ```jsx
+    function myFunction() {
+      'use strict';
+      // Strict mode only within this function
+    }
+    ```
+
+### Key Features of Strict Mode
+
+1.  **Error Prevention**:
+    - Disallows undeclared variables.
+    - Prevents assignment to non-writable properties.
+    - Restricts use of reserved keywords as identifiers.
+2.  **Improved Security**:
+    - Disallows deprecated features like **`arguments.caller`**.
+    - Restricts **`eval()`** to prevent variable declarations in the calling scope.
+3.  **Compatibility**:
+    - Ensures future-proofing with JavaScript updates.
+
+### Example of preventing global variables:
+
+```js
+javascriptCopy code
+// Without strict mode
+function defineNumber() { count = 123; }
+defineNumber();
+console.log(count); // Logs: 123
+
+// With strict mode
+'use strict';
+function strictFunc() {
+  strictVar = 123; // ReferenceError
+}
+strictFunc();
+console.log(strictVar); // ReferenceError
+```
+
+### Is It Necessary?
+
+- **Modules**: ES6 and Node.js modules are automatically in strict mode.
+- **Classes**: Code within class definitions is also in strict mode.
+
+While **`"use strict";`** is not mandatory in these contexts, it is still recommended for older code and broader compatibility.
+
+## 8. How can you implement secure authentication and authorization in JavaScript applications?
+
+To secure authentication and authorization in JavaScript applications, use HTTPS to encrypt data in transit and store sensitive data like tokens securely with `localStorage` or `sessionStorage`. Employ token-based authentication using JWTs, validating tokens server-side. Utilize libraries like OAuth for third-party authentication and enforce role-based access control (RBAC) for proper authorization.
+
+## 9. How can you optimize DOM manipulation for better performance?
+
+Minimize direct DOM access by batching changes, using `documentFragment`, and leveraging virtual DOM libraries like React. Use `requestAnimationFrame` for animations and avoid layout thrashing by separating DOM reads and writes.
+
+## 10. How can you optimize network requests for better performance?
+
+Minimize the number of requests, use caching, compress data, and leverage HTTP/2 and service workers. Combine CSS files, use `Cache-Control` headers for static assets, and enable Gzip compression to reduce data size.
+
+## 11. How can you prevent clickjacking attacks?
+
+Prevent clickjacking by using the X-Frame-Options HTTP header set to DENY or SAMEORIGIN to control iframe embedding. Additionally, use the Content-Security-Policy header with the frame-ancestors directive to specify allowed origins.
+
+```js
+X-Frame-Options: DENY
+Content-Security-Policy: frame-ancestors 'self'
+```
+
+## 12. How do you validate form elements using the Constraint Validation API?
+
+Use the Constraint Validation API with properties like `validity` and `validationMessage`, and methods like `checkValidity()` and `setCustomValidity()`. For example:
+
+```js
+const input = document.querySelector('input');
+if (input.checkValidity()) {
+  console.log('Input is valid');
+} else {
+  console.log(input.validationMessage);
+}
+```
+
+## 13. How does hoisting affect function declarations and expressions?
+
+In JavaScript, hoisting moves function declarations to the top of their scope, making them callable before their definition. Function expressions are not hoisted similarly; the variable is hoisted, but its assignment is not.
+
+```js
+// Function declaration
+console.log(foo()); // Works fine
+function foo() {
+  return 'Hello';
+}
+
+// Function expression
+console.log(bar()); // Throws TypeError: bar is not a function
+var bar = function () {
+  return 'Hello';
+};
+```
+
+## 14. How does JavaScript garbage collection work?
+
+JavaScript uses automatic garbage collection to reclaim memory from objects and variables no longer in use. The two main algorithms are mark-and-sweep and generational garbage collection.
+
+**Mark-and-Sweep**
+
+- **Marking phase**: The garbage collector starts from root objects (global variables, currently executing functions) and marks all reachable objects as "in-use".
+- **Sweeping phase**: It then removes unmarked objects, freeing up memory.
+
+**Generational Garbage Collection** Modern engines divide objects into generations based on age and usage. Frequently accessed objects stay in younger generations, while less-used objects move to older generations, optimizing garbage collection by focusing on short-lived objects.
+
+Different JavaScript engines may use different garbage collection strategies.
+
+## 15. What are mocks and stubs and how are they used in testing?
+
+Mocks and stubs simulate real objects in testing. Stubs provide predefined responses to function calls, isolating the code being tested from external dependencies. Mocks are more complex, verifying interactions like whether a function was called and with what arguments. Stubs focus on isolating functionality, while mocks ensure correct interaction with dependencies.
+
+## 16. What are proxies in JavaScript used for?
+
+A proxy in JavaScript is an intermediary object that intercepts and customizes operations on another object, such as property access, assignment, and function invocation.
+
+**Example:**
+
+```js
+const myObject = {
+  name: 'John',
+  age: 42,
+};
+
+const handler = {
+  get: function (target, prop) {
+    console.log(`Accessed property "${prop}"`);
+    return target[prop];
+  },
+};
+
+const proxiedObject = new Proxy(myObject, handler);
+
+console.log(proxiedObject.name); // Logs: 'John'
+// Accessed property "name"
+
+console.log(proxiedObject.age); // Logs: 42
+// Accessed property "age"
+```
+
+**Use cases:**
+
+- **Property access interception**: Customize behavior when properties are accessed.
+- **Property assignment validation**: Validate values before setting properties.
+- **Logging and debugging**: Log interactions with objects for debugging.
+- **Creating reactive systems**: Trigger updates when properties change.
+- **Data transformation**: Modify data being set or retrieved.
+- **Mocking and stubbing in tests**: Create mock objects for testing.
+- **Function invocation interception**: Cache and optimize frequently called methods.
+- **Dynamic property creation**: Define properties on-the-fly with default values.
+
+## 17. What are some of the advantages/disadvantages of writing JavaScript code in a language that compiles to JavaScript?
+
+Using languages like TypeScript or CoffeeScript, which compile to JavaScript, has several pros and cons.
+
+Advantages:
+
+- Improved syntax and readability
+- Type safety and error checking
+- Better tooling and editor support
+
+Disadvantages:
+
+- Added build steps and complexity
+- Potential performance overhead
+- Learning curve for new syntax
+
+## 18. What are some techniques for reducing reflows and repaints?
+
+- Minimize DOM manipulations and batch changes.
+- Use CSS classes instead of direct style updates.
+- Simplify CSS selectors to optimize rendering.
+- Use `requestAnimationFrame` for synchronized animations.
+- Apply `will-change` to elements that change frequently.
+- Separate DOM reads and writes to avoid layout thrashing.
+
+## 19. What are some tools that can be used to measure and analyze JavaScript performance?
+
+Tools such as Chrome DevTools, Lighthouse, WebPageTest, and JSPerf are commonly used for this purpose. Chrome DevTools includes a Performance panel for profiling, Lighthouse provides performance audits, WebPageTest offers detailed performance testing, and JSPerf aids in comparing JavaScript snippet performance.
+
+## 20. What are Web Workers and how can they be used to improve performance?
+
+Web Workers enable running JavaScript in the background, independent of the main execution thread of a web application. This is beneficial for handling intensive computations without blocking the user interface. Web Workers are created using the `Worker` constructor and communication with them is facilitated through the `postMessage` and `onmessage` methods.
+
+### Conclusion
+
+Preparing yourself to answer these questions in an interview setting will certainly help you stand out from the crowd. It's not just about knowing the answers; it's about understanding the underlying concepts and applying them effectively in real-world scenarios. Mastering these advanced JavaScript topics will not only boost your confidence during technical interviews but also equip you to build scalable and efficient web applications.
