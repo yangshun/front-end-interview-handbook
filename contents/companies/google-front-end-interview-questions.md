@@ -41,7 +41,7 @@ Refer to Google's official interview preparation guides for:
 - Implement nested checkboxes (when the parent is checked, children are checked and vice versa. Use `<input type="checkbox">`). Similar to [Indeterminate checkboxes](https://css-tricks.com/indeterminate-checkboxes/).
 - Design a webpage which can auto load new posts when you reach the bottom of the page by using JavaScript. You may use AJAX and JavaScript event listeners.
 - Write a UI using HTML, CSS, JavaScript that allows uses to enter the number of rows and columns in text input fields within a form and renders a table.
-  - [Practice question](https://www.greatfrontend.com/questions/javascript/generate-table?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) (Paid)
+  - [Practice question](https://www.greatfrontend.com/questions/user-interface/generate-table?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) (Paid)
   - Example: Number of rows: 4, Number of columns: 5, "Submit" button. Clicking on the "Submit" button will show the following table (ignore the styling):
 
 | 1   | 8   | 9   | 16  | 17  |
