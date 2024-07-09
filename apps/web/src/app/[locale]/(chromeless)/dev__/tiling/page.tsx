@@ -1,7 +1,7 @@
 'use client';
 
 import clsx from 'clsx';
-import { Ri4kLine } from 'react-icons/ri';
+import { RiLayoutGridLine } from 'react-icons/ri';
 
 import Text from '~/components/ui/Text';
 
@@ -99,7 +99,7 @@ export default function Page() {
             ),
           })}
           getTabLabel={(tabId) => ({
-            icon: Ri4kLine,
+            icon: RiLayoutGridLine,
             label: `Tab ${tabId}`,
           })}
           renderTab={(tabId) => (
