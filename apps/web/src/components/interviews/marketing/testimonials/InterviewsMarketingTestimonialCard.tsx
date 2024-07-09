@@ -14,11 +14,11 @@ export type InterviewsMarketingTestimonial = Readonly<{
   companyLogoUrl?: string | null;
   createdAt: string;
   featured?: boolean;
+  featuredOffer?: string | null;
   fromCompany?: string | null;
   id: string;
   location?: string | null;
   name?: string | null;
-  newCompany?: string | null;
   offers?: ReadonlyArray<string>;
   testimonial: string;
   title?: string | null;
@@ -42,7 +42,7 @@ export default function InterviewsMarketingTestimonialCard({
   authorUrl,
   createdAt,
   testimonial,
-  newCompany,
+  featuredOffer,
   location,
   companyLogoUrl,
   name,
@@ -55,7 +55,7 @@ export default function InterviewsMarketingTestimonialCard({
       padding={false}
       pattern={false}>
       <div className={clsx('flex items-center justify-between', 'mb-2')}>
-        {newCompany ? (
+        {featuredOffer ? (
           <div className={clsx('flex items-center gap-3')}>
             {companyLogoUrl && (
               <div
@@ -64,16 +64,16 @@ export default function InterviewsMarketingTestimonialCard({
                   themeBackgroundEmphasized,
                 )}>
                 <img
-                  alt={newCompany}
+                  alt={featuredOffer}
                   className={clsx('size-4')}
                   src={companyLogoUrl}
                 />
               </div>
             )}
             <Text color="secondary" size="body3">
-              Joined{' '}
+              Offer from{' '}
               <Text color="subtitle" weight="medium">
-                {newCompany}
+                {featuredOffer}
               </Text>
             </Text>
           </div>
@@ -130,8 +130,8 @@ export default function InterviewsMarketingTestimonialCard({
             {[title, location].filter(Boolean).join(', ')}
           </Text>
           {offers != null && offers.length > 0 && (
-            <Text className="block" color="secondary" size="body3">
-              Offers from {offers.join(', ')}
+            <Text className="block italic" color="secondary" size="body3">
+              Other offers: {offers.join(', ')}
             </Text>
           )}
         </div>
