@@ -101,7 +101,7 @@ function GreatFrontEndSection() {
                 <div className="margin-vert--md">
                   <a
                     className="button button--secondary button--lg"
-                    href="https://www.greatfrontend.com/prepare?fpr=yangshun"
+                    href="https://www.greatfrontend.com/prepare?gnrs=frontendinterviewhandbook"
                     rel="noopener"
                     target="_blank"
                     onClick={() => {
@@ -129,21 +129,15 @@ function GreatFrontEndSection() {
             <div className="row">
               <div className={clsx('col col--4', styles.flexContainer)}>
                 <RiPresentationLine className={styles.promoIcon} />
-                <p className={styles.whiteText}>
-                  Well-explained solutions
-                </p>
+                <p className={styles.whiteText}>Well-explained solutions</p>
               </div>
               <div className={clsx('col col--4', styles.flexContainer)}>
                 <RiBookOpenLine className={styles.promoIcon} />
-                <p className={styles.whiteText}>
-                  Step-by-step study plans
-                </p>
+                <p className={styles.whiteText}>Step-by-step study plans</p>
               </div>
               <div className={clsx('col col--4', styles.flexContainer)}>
                 <RiStackLine className={styles.promoIcon} />
-                <p className={styles.whiteText}>
-                  Structured 4-stage process
-                </p>
+                <p className={styles.whiteText}>Structured 4-stage process</p>
               </div>
             </div>
           </div>
