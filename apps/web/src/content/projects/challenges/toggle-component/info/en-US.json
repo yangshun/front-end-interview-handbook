@@ -1,0 +1,7 @@
+{
+  "title": "Toggle Component",
+  "description": "Build a toggle switch component that can be used for binary options",
+  "specLabels": {
+    "main": "Toggle component"
+  }
+}
