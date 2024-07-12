@@ -1,0 +1,44 @@
+{
+  "createdAt": "2024-07-12",
+  "difficulty": "starter",
+  "track": "design-system",
+  "order": 999,
+  "guides": [],
+  "access": "standard",
+  "baseCredits": 1,
+  "pointsBase": 100,
+  "pointsForSkillGroups": {
+    "html": 5,
+    "css": 5,
+    "javascript": 5,
+    "react": 5,
+    "package-managers": 5,
+    "build-tools": 5,
+    "testing": 5,
+    "performance": 5
+  },
+  "skills": [],
+  "resources": [
+    "design-files",
+    "image-assets",
+    "readme",
+    "starter-code",
+    "style-guide"
+  ],
+  "coverImage": "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/render/image/public/projects-images/pagination-component/cover.jpg",
+  "galleryImages": [
+    "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/render/image/public/projects-images/pagination-component/gallery/Desktop.jpg"
+  ],
+  "specImages": {
+    "default": [
+      {
+        "label": "main",
+        "images": {
+          "desktop": "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/render/image/public/projects-images/pagination-component/specs/Desktop.jpg",
+          "tablet": "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/render/image/public/projects-images/pagination-component/specs/Tablet.jpg",
+          "mobile": "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/render/image/public/projects-images/pagination-component/specs/Mobile.jpg"
+        }
+      }
+    ]
+  }
+}
