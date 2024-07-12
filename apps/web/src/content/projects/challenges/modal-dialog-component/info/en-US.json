@@ -1,0 +1,7 @@
+{
+  "title": "Modal Dialog Component",
+  "description": "Build a modal dialog component for displaying content in a pop-up window",
+  "specLabels": {
+    "main": "Modal dialog component"
+  }
+}
