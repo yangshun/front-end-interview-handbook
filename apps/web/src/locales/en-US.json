@@ -2391,6 +2391,10 @@
     "defaultMessage": "Start coding!",
     "description": "Label for \"Start coding!\" button on Projects project page"
   },
+  "HrMm6A": {
+    "defaultMessage": "New!",
+    "description": "New label"
+  },
   "HtFDkf": {
     "defaultMessage": "Official guides",
     "description": "Title for \"Official guides\" feature on Projects home page"

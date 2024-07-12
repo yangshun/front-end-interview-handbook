@@ -98,7 +98,7 @@ export default function useInterviewsNavItems(placement: 'nav' | 'sidebar') {
                   description: 'Free-of-charge label',
                   id: 'S+6OOS',
                 })}
-                size="sm"
+                size="xs"
                 variant="success"
               />
             ),
@@ -339,9 +339,21 @@ export default function useInterviewsNavItems(placement: 'nav' | 'sidebar') {
             type: 'popover-link',
           },
           {
+            href: questionTechnologyLists.vue.href,
             icon: questionTechnologyLists.vue.icon,
             itemKey: questionTechnologyLists.vue.key,
             label: questionTechnologyLists.vue.name,
+            labelAddon: (
+              <Badge
+                label={intl.formatMessage({
+                  defaultMessage: 'New!',
+                  description: 'New label',
+                  id: 'HrMm6A',
+                })}
+                size="xs"
+                variant="success"
+              />
+            ),
             onClick: () => {
               gtag.event({
                 action: `${placement}.practice.topic.vue.click`,
