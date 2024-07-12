@@ -49,7 +49,7 @@ export default function ProjectsChallengeSubmissionSuccessHero({
           `grid-cols-1 sm:grid-cols-${smCols} md:grid-cols-${mdCols} lg:grid-cols-${lgCols}`,
         )}>
         {badgeList
-          .map(({ type, data: { key, label } }) => {
+          .map(({ type, data: { parentKey, key, label } }) => {
             if (type === 'leveled-up') {
               return (
                 <ProjectsChallengeSubmissionSuccessBadge
@@ -104,7 +104,7 @@ export default function ProjectsChallengeSubmissionSuccessHero({
               return (
                 <ProjectsChallengeSubmissionSuccessBadge
                   key={key}
-                  icon={ProjectsSkillIcons[key as ProjectsSkillGroupType]}
+                  icon={ProjectsSkillIcons[parentKey as ProjectsSkillGroupType]}
                   subTitle={intl.formatMessage({
                     defaultMessage: 'Skill plan completed',
                     description: 'Subtext for skill plan completed',

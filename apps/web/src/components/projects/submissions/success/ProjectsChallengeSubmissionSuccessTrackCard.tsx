@@ -19,7 +19,7 @@ type Props = Readonly<{
   track: ProjectsTrackItem;
 }>;
 
-export default function ProjectsTrackCard({
+export default function ProjectsChallengeSubmissionSuccessTrackCard({
   challengeStatuses,
   isViewerPremium,
   track,

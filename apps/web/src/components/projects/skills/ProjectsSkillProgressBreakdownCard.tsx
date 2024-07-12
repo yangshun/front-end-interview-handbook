@@ -5,8 +5,7 @@ import Text from '~/components/ui/Text';
 import { themeBackgroundChipColor } from '~/components/ui/theme';
 
 import { projectsSkillLabel } from './data/ProjectsSkillListData';
-import type { ProjectsSkillKey } from './types';
-import type { SubSkill } from './types';
+import type { ProjectsSkillKey, ProjectsSubSkill } from './types';
 
 const MAX_SUBSKILLS_TO_SHOW = 4;
 
@@ -17,11 +16,11 @@ type Props = Readonly<{
     key: ProjectsSkillKey;
     points: number;
   };
-  subSkills: ReadonlyArray<SubSkill>;
+  subSkills: ReadonlyArray<ProjectsSubSkill>;
 }>;
 
 type SubSkillProps = Readonly<{
-  subSkill: SubSkill;
+  subSkill: ProjectsSubSkill;
 }>;
 
 function SubSkillItem({ subSkill }: SubSkillProps) {

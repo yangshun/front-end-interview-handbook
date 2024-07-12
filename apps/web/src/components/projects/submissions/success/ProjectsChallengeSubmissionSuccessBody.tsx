@@ -3,10 +3,12 @@
 import Card from '~/components/ui/Card';
 
 import ProjectsChallengeSubmissionSuccessLevelingProgress from './ProjectsChallengeSubmissionSuccessLevelingProgress';
+import ProjectsChallengeSubmissionSuccessSkillPlanProgress from './ProjectsChallengeSubmissionSuccessSkillPlanProgress';
 import ProjectsChallengeSubmissionSuccessTrackProgress from './ProjectsChallengeSubmissionSuccessTrackProgress';
 import type { ProjectsChallengeHistoricalStatuses } from '../../challenges/types';
 import type {
   ProjectsSkillRoadmapSectionData,
+  ProjectsSkillSummaryItemForSubmission,
   RoadmapSkillsRep,
 } from '../../skills/types';
 import type { ProjectsTrackItem } from '../../tracks/data/ProjectsTracksData';
@@ -20,6 +22,10 @@ type Props = Readonly<{
   level: number;
   projectTracks: ReadonlyArray<ProjectsTrackItem>;
   roadmapSkillsRepRecords: ReadonlyArray<RoadmapSkillsRep>;
+  skills: Readonly<{
+    completedSkills: ReadonlyArray<ProjectsSkillSummaryItemForSubmission>;
+    incompleteSkills: ReadonlyArray<ProjectsSkillSummaryItemForSubmission>;
+  }>;
   skillsRoadmap: ProjectsSkillRoadmapSectionData;
 }>;
 
@@ -32,6 +38,7 @@ export default function ProjectsChallengeSubmissionSuccessBody({
   challengeHistoricalStatuses,
   projectTracks,
   isViewerPremium,
+  skills,
 }: Props) {
   return (
     <Card
@@ -52,6 +59,7 @@ export default function ProjectsChallengeSubmissionSuccessBody({
           isViewerPremium={isViewerPremium}
           projectTracks={projectTracks}
         />
+        <ProjectsChallengeSubmissionSuccessSkillPlanProgress skills={skills} />
       </div>
     </Card>
   );

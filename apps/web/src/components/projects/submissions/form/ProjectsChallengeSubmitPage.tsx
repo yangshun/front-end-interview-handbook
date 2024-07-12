@@ -142,19 +142,20 @@ export default function ProjectsChallengeSubmitPage({
     },
   });
 
-  const { href, track } = challenge.metadata;
+  const { href } = challenge.metadata;
 
   if (showSuccess && SUBMISSION_SUCCESS_PAGE_AVAILABLE) {
     return (
       <ProjectsChallengeSubmissionSuccessPage
+        challenge={challenge}
         gainedPoints={gainedPoints}
         isLeveledUp={isLeveledUp}
         isViewerPremium={isViewerPremium}
         level={level}
         locale={locale}
         roadmapSkillsRepRecords={roadmapSkillsRepRecords}
+        roadmapSkillsUsed={session.roadmapSkills}
         submissionUrl={submissionUrl}
-        trackSlug={track}
       />
     );
   }

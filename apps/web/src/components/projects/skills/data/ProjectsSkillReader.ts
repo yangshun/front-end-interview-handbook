@@ -82,6 +82,7 @@ export async function fetchProjectsSkillsRoadmapSectionData(
           key: skillKey,
           label: skillItem.info?.title || label,
           points: skillReputation,
+          skillRoadmapChallengeSlugs,
           totalChallenges: skillTotalChallenges,
         };
       });

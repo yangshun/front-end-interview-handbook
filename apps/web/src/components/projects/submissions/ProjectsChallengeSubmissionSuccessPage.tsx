@@ -3,17 +3,19 @@ import { trpc } from '~/hooks/trpc';
 import Spinner from '~/components/ui/Spinner';
 
 import ProjectsChallengeSubmissionSuccessPageImpl from './success/ProjectsChallengeSubmissionSuccessPageImpl';
+import type { ProjectsChallengeItem } from '../challenges/types';
 import type { RoadmapSkillsRep } from '../skills/types';
 
 type Props = Readonly<{
+  challenge: ProjectsChallengeItem;
   gainedPoints: number;
   isLeveledUp: boolean;
   isViewerPremium: boolean;
   level: number;
   locale: string;
   roadmapSkillsRepRecords: ReadonlyArray<RoadmapSkillsRep>;
+  roadmapSkillsUsed: ReadonlyArray<string>;
   submissionUrl: string;
-  trackSlug: string;
 }>;
 
 export default function ProjectsChallengeSubmissionSuccessPage({
@@ -24,7 +26,8 @@ export default function ProjectsChallengeSubmissionSuccessPage({
   isLeveledUp,
   gainedPoints,
   roadmapSkillsRepRecords,
-  trackSlug,
+  roadmapSkillsUsed,
+  challenge,
 }: Props) {
   const { data: progressData, isLoading } =
     trpc.projects.challenges.progress.useQuery({
@@ -50,6 +53,7 @@ export default function ProjectsChallengeSubmissionSuccessPage({
 
   return (
     <ProjectsChallengeSubmissionSuccessPageImpl
+      challenge={challenge}
       challengeHistoricalStatuses={challengeHistoricalStatuses}
       completedChallenges={completedChallenges}
       gainedPoints={gainedPoints}
@@ -58,9 +62,9 @@ export default function ProjectsChallengeSubmissionSuccessPage({
       level={level}
       projectTracks={projectTracks}
       roadmapSkillsRepRecords={roadmapSkillsRepRecords}
+      roadmapSkillsUsed={roadmapSkillsUsed}
       skillsRoadmap={skillsRoadmap}
       submissionUrl={submissionUrl}
-      trackSlug={trackSlug}
     />
   );
 }

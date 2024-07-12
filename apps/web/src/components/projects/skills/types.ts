@@ -27,8 +27,16 @@ export type ProjectsSkillSummaryItem = Readonly<{
   key: ProjectsSkillKey;
   label: string;
   points: number;
+  skillRoadmapChallengeSlugs: ReadonlyArray<string>;
   totalChallenges: number;
 }>;
+
+// Skills for submission page
+export type ProjectsSkillSummaryItemForSubmission = ProjectsSkillSummaryItem &
+  Readonly<{
+    parentKey: ProjectsSkillGroupType;
+    tagClassName: string;
+  }>;
 
 export type ProjectsSkillRoadmapSectionParent = Readonly<{
   completedChallenges: number;
@@ -55,7 +63,7 @@ export type RoadmapSkillsRep = Readonly<{
   points: number;
 }>;
 
-export type  SubSkill = Readonly<{
+export type ProjectsSubSkill = Readonly<{
   key: ProjectsSkillKey;
   points: number;
 }>;

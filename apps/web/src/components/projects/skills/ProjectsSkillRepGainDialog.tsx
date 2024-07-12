@@ -12,14 +12,14 @@ import {
 } from '~/components/ui/theme';
 
 import { projectsSkillLabel } from './data/ProjectsSkillListData';
-import type { SubSkill } from './types';
+import type { ProjectsSubSkill } from './types';
 
 const MAX_COLS_LG = 3;
 const MAX_COLS_MD = 2;
 
 type SkillReps = ReadonlyArray<{
   key: string;
-  subSkills: ReadonlyArray<SubSkill>;
+  subSkills: ReadonlyArray<ProjectsSubSkill>;
   totalPoints: number;
 }>;
 

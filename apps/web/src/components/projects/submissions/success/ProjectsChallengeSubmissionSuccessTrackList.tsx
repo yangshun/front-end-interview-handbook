@@ -1,7 +1,7 @@
 import type { ProjectsChallengeHistoricalStatuses } from '~/components/projects/challenges/types';
 import type { ProjectsTrackItem } from '~/components/projects/tracks/data/ProjectsTracksData';
 
-import ProjectsTrackCard from './ProjectsTrackCard';
+import ProjectsChallengeSubmissionSuccessTrackCard from './ProjectsChallengeSubmissionSuccessTrackCard';
 
 type Props = Readonly<{
   challengeStatuses?: ProjectsChallengeHistoricalStatuses;
@@ -17,7 +17,7 @@ export default function ProjectsChallengeSubmissionSuccessTrackList({
   return (
     <div className="flex flex-col gap-4">
       {tracks.map((track) => (
-        <ProjectsTrackCard
+        <ProjectsChallengeSubmissionSuccessTrackCard
           key={track.info._id}
           challengeStatuses={challengeStatuses}
           isViewerPremium={isViewerPremium}

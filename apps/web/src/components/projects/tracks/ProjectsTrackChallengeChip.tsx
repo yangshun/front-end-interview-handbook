@@ -16,7 +16,7 @@ type Props = Readonly<{
   userProfile: React.ComponentProps<
     typeof ProjectsProfileAvatarWithStatus
   >['userProfile'];
-  view?: 'submission' | 'tracks';
+  view?: 'skills' | 'submission' | 'tracks';
 }>;
 
 export default function ProjectsTrackChallengeChip({

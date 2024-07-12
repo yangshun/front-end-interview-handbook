@@ -43,6 +43,10 @@
     "defaultMessage": "Congratulations on completing the question! Sign into your account or sign up for free to save your progress!",
     "description": "Message shown when user completes a question"
   },
+  "+Jx8q7": {
+    "defaultMessage": "Try next skill plan",
+    "description": "Title for next skill plan dialog for submission success page"
+  },
   "+OVTKu": {
     "defaultMessage": "Billing | Profile",
     "description": "Title of Profile Billing page"
@@ -494,6 +498,10 @@
   "23zW1O": {
     "defaultMessage": "{totalCount, plural, one {<bold>{completedCount}</bold>/# challenge} other {<bold>{completedCount}</bold>/# challenges}}",
     "description": "Rep count label in Projects"
+  },
+  "24jiGp": {
+    "defaultMessage": "Next challenge:",
+    "description": "Label for next challenge for skill plan on project submission success page"
   },
   "2BOlBd": {
     "defaultMessage": "Your motivations",
@@ -2379,6 +2387,10 @@
     "defaultMessage": "Sign in / up",
     "description": "Link label to the sign in / up page"
   },
+  "HheXnK": {
+    "defaultMessage": "Next skill",
+    "description": "Label for next skill plan on project submission success page"
+  },
   "Hj6BTz": {
     "defaultMessage": "An error has occurred. Please try again later and contact support if the error persists.",
     "description": "Error message shown to user when they are trying to checkout but it fails"
@@ -4050,6 +4062,10 @@
   "TfBpeT": {
     "defaultMessage": "Here are some highly-rated submissions you can reference while doing your project. We prioritize submissions by their ratings, the similarity of their tech stack to yours, and the seniority level of the commenter.",
     "description": "Description for Reference Submissions section on Projects project tips & resources page"
+  },
+  "Tfuq+t": {
+    "defaultMessage": "{title} skill plan progress",
+    "description": "Label for skill plan progress on project submission success page"
   },
   "TgOWsI": {
     "defaultMessage": "You've gained rep in these skills:",
@@ -7230,6 +7246,10 @@
   "snxYFd": {
     "defaultMessage": "To build my <keywords>portfolio</keywords>",
     "description": "Onboarding motivation option"
+  },
+  "soEVEt": {
+    "defaultMessage": "Go to project",
+    "description": "Label for \"Go to project\" button in Skill accordion"
   },
   "soQjY2": {
     "defaultMessage": "You upvoted this",

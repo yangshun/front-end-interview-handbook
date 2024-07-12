@@ -2,119 +2,82 @@ import clsx from 'clsx';
 import { useState } from 'react';
 import { FormattedMessage, useIntl } from 'react-intl';
 
-import type {
-  ProjectsChallengeHistoricalStatuses,
-  ProjectsTrackType,
-} from '~/components/projects/challenges/types';
-import { projectsChallengeCountCompletedIncludingHistorical } from '~/components/projects/challenges/utils/ProjectsChallengeUtils';
-import {
-  getProjectsTrackTheme,
-  type ProjectsTrackItem,
-} from '~/components/projects/tracks/data/ProjectsTracksData';
+import { trpc } from '~/hooks/trpc';
+
+import type { ProjectsSkillGroupType } from '~/components/projects/skills/data/ProjectsSkillIcons';
+import { ProjectsSkillIcons } from '~/components/projects/skills/data/ProjectsSkillIcons';
+import type { ProjectsSkillSummaryItemForSubmission } from '~/components/projects/skills/types';
 import ProjectsTrackChallengesList from '~/components/projects/tracks/ProjectsTrackChallengesList';
 import Button from '~/components/ui/Button';
 import Text from '~/components/ui/Text';
 import { themeBorderElementColor } from '~/components/ui/theme';
 
 import ProjectsChallengeSubmissionSuccessProgressHeader from './ProjectsChallengeSubmissionSuccessProgressHeader';
-import ProjectChallengeSubmissionTrackDialog from './ProjectsChallengeSubmissionSuccessTrackDialog';
-import ProjectsChallengeSubmissionSuccessTrackList from './ProjectsChallengeSubmissionSuccessTrackList';
+import ProjectsChallengeSubmissionSuccessSkillPlanDialog from './ProjectsChallengeSubmissionSuccessSkillPlanDialog';
+import ProjectsSkillAccordion from '../../skills/ProjectsSkillAccordion';
+import ProjectsSkillAccordionItem from '../../skills/ProjectsSkillAccordionItem';
 
 type Props = Readonly<{
-  challengeHistoricalStatuses: ProjectsChallengeHistoricalStatuses;
-  currentTrack: ProjectsTrackItem | null;
-  isViewerPremium: boolean;
-  projectTracks: ReadonlyArray<ProjectsTrackItem>;
+  skills: Readonly<{
+    completedSkills: ReadonlyArray<ProjectsSkillSummaryItemForSubmission>;
+    incompleteSkills: ReadonlyArray<ProjectsSkillSummaryItemForSubmission>;
+  }>;
 }>;
 
 const MAX_ITEMS_TO_SHOW = 2;
 
-function getIncompleteTracks(
-  projectTracks: ReadonlyArray<ProjectsTrackItem>,
-  trackSlug: string,
-  challengeHistoricalStatuses: ProjectsChallengeHistoricalStatuses,
-): ReadonlyArray<ProjectsTrackItem> {
-  return projectTracks.filter((track) => {
-    const { metadata, challenges } = track;
-    const completedChallengesCount =
-      projectsChallengeCountCompletedIncludingHistorical(
-        challengeHistoricalStatuses ?? {},
-        challenges,
-      );
-
-    // Filter out current track
-    if (metadata.slug === trackSlug) {
-      return false;
-    }
-
-    return completedChallengesCount !== challenges.length;
-  });
-}
-
-export default function ProjectsChallengeSubmissionSuccessTrackProgress({
-  currentTrack,
-  challengeHistoricalStatuses,
-  projectTracks,
-  isViewerPremium,
+export default function ProjectsChallengeSubmissionSuccessSkillPlanProgress({
+  skills,
 }: Props) {
   const intl = useIntl();
-  const [showTrackDialog, setShowTrackDialog] = useState(false);
+  const [showSkillPlanDialog, setShowSkillPlanDialog] = useState(false);
+  const { completedSkills, incompleteSkills } = skills;
+  const completedSkill = completedSkills[0];
+  const nextSkill = incompleteSkills[0];
+  const skill = completedSkill || nextSkill;
 
-  if (!currentTrack) {
+  if (!skill) {
     return null;
   }
 
-  const theme = getProjectsTrackTheme(
-    currentTrack.metadata.slug as ProjectsTrackType,
-  );
-
-  const completedChallengesCount =
-    projectsChallengeCountCompletedIncludingHistorical(
-      challengeHistoricalStatuses ?? {},
-      currentTrack.challenges,
-    );
-  const { info, challenges } = currentTrack;
-
-  const notStartedChallenges = challenges.filter(
-    (challenge) => challenge.status == null,
-  );
-  const hasMoreThanShownChallenges =
-    notStartedChallenges.length > MAX_ITEMS_TO_SHOW;
-  const isCurrentTrackCompleted =
-    completedChallengesCount === challenges.length;
-
-  const incompleteTracks = getIncompleteTracks(
-    projectTracks,
-    currentTrack.metadata.slug,
-    challengeHistoricalStatuses,
-  );
-  const countToCheck = isCurrentTrackCompleted
-    ? incompleteTracks.length
-    : notStartedChallenges.length;
+  const challengesQuery = trpc.projects.challenges.listForSkills.useQuery({
+    locale: 'en-US',
+    skillSlug: nextSkill?.key ?? '',
+  });
 
   return (
     <>
       <ProjectsChallengeSubmissionSuccessProgressHeader
-        completedCount={completedChallengesCount}
-        entity="track"
-        icon={theme.icon}
-        iconWrapperClassName={theme.gradient.className}
+        completedCount={skill.completedChallenges}
+        entity="skill"
+        icon={ProjectsSkillIcons[skill.parentKey as ProjectsSkillGroupType]}
+        iconWrapperClassName={skill.tagClassName}
         title={intl.formatMessage(
           {
-            defaultMessage: '{title} Track progress',
+            defaultMessage: '{title} skill plan progress',
             description:
-              'Label for track progress on project submission success page',
-            id: 'IGK0c9',
+              'Label for skill plan progress on project submission success page',
+            id: 'Tfuq+t',
           },
           {
-            title: info.title,
+            title: skill.label,
           },
         )}
-        totalCount={currentTrack.challenges.length}
+        totalCount={skill.totalChallenges}
       />
       <div className="flex flex-col gap-6">
         {(() => {
-          if (countToCheck === 0) {
+          if (!nextSkill || !challengesQuery.data?.challenges) {
+            return null;
+          }
+
+          const notStartedChallenges = challengesQuery.data?.challenges.filter(
+            (challenge) => challenge.status == null,
+          );
+          const hasMoreThanShownChallenges =
+            notStartedChallenges.length > MAX_ITEMS_TO_SHOW;
+
+          if (notStartedChallenges.length === 0) {
             return null;
           }
 
@@ -122,25 +85,24 @@ export default function ProjectsChallengeSubmissionSuccessTrackProgress({
             <>
               <div className="flex items-center justify-between">
                 <Text color="secondary" size="body2">
-                  {isCurrentTrackCompleted ? (
+                  {completedSkill ? (
                     <FormattedMessage
-                      defaultMessage="Try another track"
-                      description="Label for next track on project submission success page"
-                      id="8FAzVY"
+                      defaultMessage="Next skill"
+                      description="Label for next skill plan on project submission success page"
+                      id="HheXnK"
                     />
                   ) : (
                     <FormattedMessage
                       defaultMessage="Next challenge:"
-                      description="Label for next challenges on project submission success page"
-                      id="BAIz4v"
+                      description="Label for next challenge for skill plan on project submission success page"
+                      id="24jiGp"
                     />
                   )}
                 </Text>
-
-                {isCurrentTrackCompleted ? (
+                {completedSkill ? (
                   <Button
                     className="!text-brand -me-3"
-                    href="/projects/tracks"
+                    href="/projects/skills"
                     label={intl.formatMessage({
                       defaultMessage: 'See all',
                       description:
@@ -159,16 +121,17 @@ export default function ProjectsChallengeSubmissionSuccessTrackProgress({
                       id: 'RZedau',
                     })}
                     variant="tertiary"
-                    onClick={() => setShowTrackDialog(true)}
+                    onClick={() => setShowSkillPlanDialog(true)}
                   />
                 )}
               </div>
-              {isCurrentTrackCompleted ? (
-                <ProjectsChallengeSubmissionSuccessTrackList
-                  challengeStatuses={challengeHistoricalStatuses}
-                  isViewerPremium={isViewerPremium}
-                  tracks={incompleteTracks}
-                />
+              {completedSkill ? (
+                <ProjectsSkillAccordion>
+                  <ProjectsSkillAccordionItem
+                    challenges={notStartedChallenges}
+                    skill={nextSkill}
+                  />
+                </ProjectsSkillAccordion>
               ) : (
                 <div
                   className={clsx(
@@ -197,7 +160,6 @@ export default function ProjectsChallengeSubmissionSuccessTrackProgress({
                       <div
                         className={clsx('absolute -bottom-12', 'ml-12 mt-4')}>
                         <Button
-                          className="pointer-events-none"
                           label={intl.formatMessage(
                             {
                               defaultMessage: '{count} more',
@@ -210,6 +172,7 @@ export default function ProjectsChallengeSubmissionSuccessTrackProgress({
                             },
                           )}
                           variant="secondary"
+                          onClick={() => setShowSkillPlanDialog(true)}
                         />
                       </div>
                     </>
@@ -219,14 +182,14 @@ export default function ProjectsChallengeSubmissionSuccessTrackProgress({
             </>
           );
         })()}
-      </div>
 
-      <ProjectChallengeSubmissionTrackDialog
-        completedChallengesCount={completedChallengesCount}
-        isShown={showTrackDialog}
-        track={currentTrack}
-        onClose={() => setShowTrackDialog(false)}
-      />
+        <ProjectsChallengeSubmissionSuccessSkillPlanDialog
+          challenges={challengesQuery.data?.challenges}
+          currentSkill={skill}
+          isShown={showSkillPlanDialog}
+          onClose={() => setShowSkillPlanDialog(false)}
+        />
+      </div>
     </>
   );
 }

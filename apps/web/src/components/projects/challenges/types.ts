@@ -56,8 +56,12 @@ export const projectTrackOptions = [
   'marketing',
   'portfolio',
 ];
+export type ProjectsTrackType =
+  | 'apps'
+  | 'design-system'
+  | 'e-commerce'
+  | 'marketing';
 export type ProjectsTrackEnum = (typeof projectTrackOptions)[number];
-
 export type ProjectsChallengeTrackPayload = Readonly<{
   href: string;
   slug: string;

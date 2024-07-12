@@ -2,14 +2,15 @@ import clsx from 'clsx';
 import { RiCheckboxCircleLine } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
 
+import ProjectsStatusBadgeCompleted from '~/components/projects/common/status/ProjectsStatusBadgeCompleted';
+import type { ProjectsStatusBadgeType } from '~/components/projects/common/status/types';
 import Text from '~/components/ui/Text';
 import { themeTextSubtleColor } from '~/components/ui/theme';
 import Tooltip from '~/components/ui/Tooltip';
 
-import ProjectsStatusBadgeCompleted from '../../common/status/ProjectsStatusBadgeCompleted';
-
 type Props = Readonly<{
   completedCount: number;
+  entity: ProjectsStatusBadgeType;
   icon: (props: React.ComponentProps<'svg'>) => JSX.Element;
   iconWrapperClassName?: string;
   title: string;
@@ -22,6 +23,7 @@ export default function ProjectsChallengeSubmissionSuccessProgressHeader({
   totalCount,
   icon: Icon,
   iconWrapperClassName,
+  entity,
 }: Props) {
   const intl = useIntl();
   const isCompleted = completedCount === totalCount;
@@ -33,7 +35,7 @@ export default function ProjectsChallengeSubmissionSuccessProgressHeader({
           {title}
         </Text>
         <div className="hidden md:block">
-          {isCompleted && <ProjectsStatusBadgeCompleted entity="track" />}
+          {isCompleted && <ProjectsStatusBadgeCompleted entity={entity} />}
         </div>
       </div>
       <div className={clsx('flex items-end gap-6', 'w-full')}>

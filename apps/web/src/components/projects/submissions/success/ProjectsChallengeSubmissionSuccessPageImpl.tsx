@@ -1,12 +1,19 @@
 'use client';
 
-import type { ProjectsChallengeHistoricalStatuses } from '~/components/projects/challenges/types';
+import { orderBy } from 'lodash-es';
+
+import type {
+  ProjectsChallengeHistoricalStatuses,
+  ProjectsChallengeItem,
+} from '~/components/projects/challenges/types';
 
 import ProjectsChallengeSubmissionSuccessBody from './ProjectsChallengeSubmissionSuccessBody';
 import ProjectsChallengeSubmissionSuccessHero from './ProjectsChallengeSubmissionSuccessHero';
 import { projectsChallengeCountCompletedIncludingHistorical } from '../../challenges/utils/ProjectsChallengeUtils';
 import type {
   ProjectsSkillRoadmapSectionData,
+  ProjectsSkillSummaryItem,
+  ProjectsSkillSummaryItemForSubmission,
   RoadmapSkillsRep,
 } from '../../skills/types';
 import type { ProjectsTrackItem } from '../../tracks/data/ProjectsTracksData';
@@ -16,6 +23,7 @@ const MAX_NO_OF_BADGES = 9;
 export type BadgeData = {
   key: string;
   label: number | string;
+  parentKey?: string;
 };
 
 export type BadgeItem = Readonly<{
@@ -27,24 +35,19 @@ function getBadgeList({
   isLeveledUp,
   level,
   gainedPoints,
-  skillsRoadmap,
+  completedSkills,
   currentTrack,
   challengeHistoricalStatuses,
-  isViewerPremium,
 }: {
   challengeHistoricalStatuses: ProjectsChallengeHistoricalStatuses;
+  completedSkills: ReadonlyArray<ProjectsSkillSummaryItem>;
   currentTrack: ProjectsTrackItem | null;
   gainedPoints: number;
   isLeveledUp: boolean;
-  isViewerPremium: boolean;
   level: number;
-  skillsRoadmap: ProjectsSkillRoadmapSectionData;
 }) {
   const badgeList: Array<BadgeItem> = [];
-  const [firstCompletedSkill, ...restCompletedSkills] = getCompletedSkills(
-    skillsRoadmap,
-    isViewerPremium,
-  );
+  const [firstCompletedSkill, ...restCompletedSkills] = completedSkills;
 
   if (isLeveledUp) {
     badgeList.push({
@@ -104,35 +107,69 @@ function getBadgeList({
   return badgeList.slice(0, MAX_NO_OF_BADGES);
 }
 
-function getCompletedSkills(
-  skillsRoadmap: ProjectsSkillRoadmapSectionData,
-  isViewerPremium: boolean,
-): Array<BadgeData> {
-  return skillsRoadmap
+function getSkillPlans({
+  skillsRoadmap,
+  isViewerPremium,
+}: {
+  isViewerPremium: boolean;
+  skillsRoadmap: ProjectsSkillRoadmapSectionData;
+}) {
+  const skills = skillsRoadmap
     .map((levelItem) => {
       return levelItem.items
-        .filter(({ premium }) => {
-          // Filter out premium skills for non-premium user
-          if (premium && !isViewerPremium) {
+        .filter((item) => {
+          // Filter out premium skill for non-premium user
+          if (item.premium && !isViewerPremium) {
             return false;
           }
 
           return true;
         })
-        .map((group) => {
-          return group.items
-            .filter(
-              ({ completedChallenges, totalChallenges }) =>
-                completedChallenges > 0 &&
-                completedChallenges === totalChallenges,
-            )
-            .map(({ key, label }) => ({
-              key,
-              label,
-            }));
+        .map((parentSkill) => {
+          // Add parent skill key which is needed for Badge
+          return parentSkill.items.map((subSkill) => ({
+            ...subSkill,
+            parentKey: parentSkill.key,
+            tagClassName: parentSkill.tagClassname,
+          }));
         });
     })
     .flat(3);
+
+  const calculateCompletionPercentage = (item: ProjectsSkillSummaryItem) => {
+    return item.totalChallenges === 0
+      ? 0
+      : (item.completedChallenges / item.totalChallenges) * 100;
+  };
+
+  return orderBy(skills, [calculateCompletionPercentage], ['desc']);
+}
+
+function getRelevantSkills({
+  skillPlans,
+  roadmapSkillsUsed,
+  slug,
+}: Readonly<{
+  roadmapSkillsUsed: ReadonlyArray<string>;
+  skillPlans: ReadonlyArray<ProjectsSkillSummaryItemForSubmission>;
+  slug: string;
+}>) {
+  const incompleteSkills = skillPlans.filter(
+    (item) => item.completedChallenges !== item.totalChallenges,
+  );
+
+  // Filter out completed skills based on the skills used in this submission and skill associated with the challenge
+  const completedSkills = skillPlans.filter(
+    (item) =>
+      item.completedChallenges === item.totalChallenges &&
+      roadmapSkillsUsed.includes(item.key) &&
+      item.skillRoadmapChallengeSlugs.includes(slug),
+  );
+
+  return {
+    completedSkills,
+    incompleteSkills,
+  };
 }
 
 function getTrack(
@@ -155,6 +192,7 @@ function getTrack(
 }
 
 type Props = Readonly<{
+  challenge: ProjectsChallengeItem;
   challengeHistoricalStatuses: ProjectsChallengeHistoricalStatuses;
   completedChallenges: number;
   gainedPoints: number;
@@ -163,9 +201,9 @@ type Props = Readonly<{
   level: number;
   projectTracks: ReadonlyArray<ProjectsTrackItem>;
   roadmapSkillsRepRecords: ReadonlyArray<RoadmapSkillsRep>;
+  roadmapSkillsUsed: ReadonlyArray<string>;
   skillsRoadmap: ProjectsSkillRoadmapSectionData;
   submissionUrl: string;
-  trackSlug: string;
 }>;
 
 export default function ProjectsChallengeSubmissionSuccessPageImpl({
@@ -179,17 +217,22 @@ export default function ProjectsChallengeSubmissionSuccessPageImpl({
   completedChallenges,
   roadmapSkillsRepRecords,
   isViewerPremium,
-  trackSlug,
+  challenge,
+  roadmapSkillsUsed,
 }: Props) {
-  const currentTrack = getTrack(projectTracks, isViewerPremium, trackSlug);
+  const { track, slug } = challenge.metadata;
+
+  const skillPlans = getSkillPlans({ isViewerPremium, skillsRoadmap });
+  const skills = getRelevantSkills({ roadmapSkillsUsed, skillPlans, slug });
+
+  const currentTrack = getTrack(projectTracks, isViewerPremium, track);
   const badgeList: Array<BadgeItem> = getBadgeList({
     challengeHistoricalStatuses,
+    completedSkills: skills.completedSkills,
     currentTrack,
     gainedPoints,
     isLeveledUp,
-    isViewerPremium,
     level,
-    skillsRoadmap,
   });
 
   return (
@@ -208,6 +251,7 @@ export default function ProjectsChallengeSubmissionSuccessPageImpl({
         level={level}
         projectTracks={projectTracks}
         roadmapSkillsRepRecords={roadmapSkillsRepRecords}
+        skills={skills}
         skillsRoadmap={skillsRoadmap}
       />
     </>
