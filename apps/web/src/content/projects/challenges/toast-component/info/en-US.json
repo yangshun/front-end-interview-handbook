@@ -1,0 +1,7 @@
+{
+  "title": "Toast Component",
+  "description": "Build a toast notification component for displaying transient messages",
+  "specLabels": {
+    "main": "Toast component"
+  }
+}
