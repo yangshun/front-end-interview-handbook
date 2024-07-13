@@ -13,6 +13,7 @@ import type { ProjectsChallengeSessionSkillsFormValues } from '../types';
 import { ProjectsReputationPointsConfig } from '../../reputation/ProjectsReputationPointsConfig';
 
 import type { ProjectsChallengeSession } from '@prisma/client';
+import { useQueryClient } from '@tanstack/react-query';
 
 type ProjectsChallengeSessionContextType = Readonly<{
   accessAllSteps: boolean;
@@ -80,11 +81,15 @@ export default function ProjectsChallengeSessionContextProvider({
   const startProjectMutation = trpc.projects.sessions.start.useMutation({
     onSuccess: () => {
       trpcUtils.projects.sessions.invalidate();
+      // So that the lock screen will be updated with latest state.
+      trpcUtils.projects.challenge.canAccessAllSteps.invalidate();
     },
   });
   const endSessionMutation = trpc.projects.sessions.end.useMutation({
     onSuccess: () => {
       trpcUtils.projects.sessions.invalidate();
+      // So that the lock screen will be updated with latest state.
+      trpcUtils.projects.challenge.canAccessAllSteps.invalidate();
     },
   });
 
