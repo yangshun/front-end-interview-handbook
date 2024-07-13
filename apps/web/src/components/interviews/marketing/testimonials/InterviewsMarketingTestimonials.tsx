@@ -563,6 +563,21 @@ export function useInterviewsMarketingTestimonialsDict() {
     title: 'Fullstack Engineer',
   };
 
+  const yuhuiWang: InterviewsMarketingTestimonial = {
+    anonymous: false,
+    authorUrl: 'https://www.linkedin.com/in/yuhuiwang/',
+    companyLogoUrl: '/img/testimonials/company/tiktok.svg',
+    createdAt: '2023-09-02',
+    featuredOffer: 'TikTok',
+    id: 'yuhui-wang',
+    location: 'San Jose, US',
+    name: 'Gary Wang',
+    offers: [],
+    testimonial:
+      'GreatFrontEnd helped me organize my System Design knowledge, providing not just practical examples but also a way of thinking. This structured approach allowed me to answer interview questions more confidently and clearly, ultimately helping me secure a job offer. Highly recommended!',
+    title: 'Front End Engineer',
+  };
+
   // Const template: InterviewsMarketingTestimonial = {
   //   anonymous: false,
   //   authorThumbnailUrl: 'TODO',
@@ -619,6 +634,7 @@ export function useInterviewsMarketingTestimonialsDict() {
     vali,
     vietnam,
     yuChienChan,
+    yuhuiWang,
     zhenchao,
     zizib2000,
   };
