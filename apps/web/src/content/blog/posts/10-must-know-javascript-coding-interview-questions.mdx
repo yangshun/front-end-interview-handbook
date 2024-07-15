@@ -1,0 +1,469 @@
+---
+title: 10 Must-Know JavaScript Coding Interview Questions
+description: 10 essential JavaScript coding interview questions and answers, curated by senior engineers and former interviewers from leading tech companies
+tags:
+  - javascript
+  - interviews
+level: starter
+createdAt: 2024-07-15
+author: blog/author/nitesh-seram.json
+category: blog/category/front-end-interviews.json
+published: true
+---
+
+As a JavaScript developer, it's essential to be prepared for common interview questions that test your skills and knowledge. Here are 10 must-know questions, along with detailed answers and code examples, to help you ace your next interview.
+
+## 1. Debounce
+
+Debouncing is a crucial technique used to manage repetitive or frequent events, particularly in the context of user input, such as keyboard typing or resizing a browser window. The primary goal of debouncing is to improve performance and efficiency by reducing the number of times a particular function or event handler is triggered; the handler is only triggered when the input has stopped changing.
+
+**Example Usage**:
+
+The debounce function from [Lodash](https://lodash.com/docs/4.17.15#debounce) can be used to create a debounced version of a function, as shown below:
+
+```js
+import { debounce } from 'lodash';
+
+const searchInput = document.getElementById('search-input');
+
+const debouncedSearch = debounce(() => {
+  // Perform the search operation here
+  console.log('Searching for:', searchInput.value);
+}, 300);
+
+searchInput.addEventListener('input', debouncedSearch);
+```
+
+### Key Aspects of Debouncing
+
+- Delays the execution of a function until a certain amount of time has passed since the last input event
+- Helps optimize performance by preventing unnecessary computations or network requests during rapid user input
+- Can be implemented in different versions, including:
+  - Leading version: Invokes the callback at the start of the timeout
+  - Trailing version: Invokes the callback at the end of the timeout
+  - Maximum delay: The maximum time the callback is allowed to be delayed before it is invoked
+
+### Relationship with Throttling
+
+Debouncing and Throttling are related techniques, but they serve different purposes. Throttling is a technique that limits the frequency of a function's execution, while debouncing delays the execution of a function until a certain amount of time has passed since the last input event.
+
+[Practice implementing a Debounce function on GreatFrontEnd](/questions/javascript/debounce)
+
+## 2. `Promise.all`
+
+`Promise.all()` is a key feature in JavaScript that simplifies handling multiple asynchronous operations concurrently, particularly when there are dependencies among them. It accepts an array of promises and returns a new promise that resolves to an array of results once all input promises have resolved, or rejects if any input promise rejects.
+
+Being proficient with Promise.all() demonstrates a front-end engineer's capability to manage complex asynchronous workflows efficiently and handle errors effectively, which is crucial for their daily tasks.
+
+```js
+const promise1 = fetch('https://api.example.com/data/1');
+const promise2 = fetch('https://api.example.com/data/2');
+const promise3 = fetch('https://api.example.com/data/3');
+
+Promise.all([promise1, promise2, promise3])
+  .then((responses) => {
+    // This callback runs only when all promises in the array have resolved.
+    console.log('All responses:', responses);
+  })
+  .catch((error) => {
+    // Handle any errors from any promise.
+    console.error('Error:', error);
+  });
+```
+
+In this example, `Promise.all()` is used to fetch data from three different URLs concurrently. The `.then()` block executes only when all three promises resolve. If any promise rejects, the `.catch()` block handles the error.
+
+This is a valuable topic for front-end interviews since candidates are often tested on their knowledge of asynchronous programming and their ability to implement polyfills. `Promise.all()` has related functions like `Promise.race()` and `Promise.any()`, which can also be covered in interviews, making it a versatile topic to master.
+
+[Practice implementing `Promise.all()` on GreatFrontEnd](/questions/javascript/promise-all)
+
+## 3. Deep Equal
+
+Deep Equal is an essential concept in JavaScript for comparing two objects or arrays to determine if they are structurally identical. Unlike shallow equality, which checks if the references of the objects are the same, deep equality checks if the values within the objects or arrays are equal, including nested structures.
+
+Here's a basic implementation of a deep equal function in JavaScript:
+
+```js
+function deepEqual(obj1, obj2) {
+  if (obj1 === obj2) return true;
+
+  if (
+    obj1 == null ||
+    typeof obj1 !== 'object' ||
+    obj2 == null ||
+    typeof obj2 !== 'object'
+  )
+    return false;
+
+  let keys1 = Object.keys(obj1);
+  let keys2 = Object.keys(obj2);
+
+  if (keys1.length !== keys2.length) return false;
+
+  for (let key of keys1) {
+    if (!keys2.includes(key) || !deepEqual(obj1[key], obj2[key])) return false;
+  }
+
+  return true;
+}
+
+// Example usage
+const object1 = {
+  name: 'John',
+  age: 30,
+  address: {
+    city: 'New York',
+    zip: '10001',
+  },
+};
+
+const object2 = {
+  name: 'John',
+  age: 30,
+  address: {
+    city: 'New York',
+    zip: '10001',
+  },
+};
+
+console.log(deepEqual(object1, object2)); // true
+```
+
+In this example, the `deepEqual` function recursively checks if two objects (or arrays) are equal. It first checks if the two objects are the same reference. If not, it verifies that both are objects and not null. Then, it compares the keys and values recursively to ensure all nested structures are equal.
+
+This topic is valuable for front-end interviews as it tests a candidate's understanding of deep vs. shallow comparisons, recursion, and handling complex data structures.
+
+[Practice implementing Deep Equal on GreatFrontEnd](/questions/javascript/deep-equal)
+
+## 4. Event Emitter
+
+An EventEmitter class in JavaScript is a mechanism that allows objects to subscribe to, listen for, and emit events when specific actions or conditions are met. This class supports the observer pattern, where an object (the event emitter) keeps a list of dependents (observers) and notifies them of any changes or events. The EventEmitter is also part of the [Node.js API](https://nodejs.org/en/learn/asynchronous-work/the-nodejs-event-emitter).
+
+```js
+// Example usage
+const eventEmitter = new EventEmitter();
+
+// Subscribe to an event
+eventEmitter.on('customEvent', (data) => {
+  console.log('Event emitted with data:', data);
+});
+
+// Emit the event
+eventEmitter.emit('customEvent', { message: 'Hello, world!' });
+```
+
+Creating an EventEmitter class requires an understanding of object-oriented programming, closures, the this keyword, and basic data structures and algorithms. Follow-up questions in interviews might include implementing an API for unsubscribing from events.
+
+[Practice implementing an Event Emitter on GreatFrontEnd](/questions/javascript/event-emitter)
+
+## 5. `Array.prototype.reduce()`
+
+`Array.prototype.reduce()` is a built-in method in JavaScript that allows you to apply a function against an accumulator and each element in the array (from left to right) to reduce it to a single value. This method is highly versatile and can be used for a variety of tasks such as summing numbers, flattening arrays, or grouping objects.
+
+```js
+// Example: Summing numbers in an array
+const numbers = [1, 2, 3, 4, 5];
+const sum = numbers.reduce(function (accumulator, currentValue) {
+  return accumulator + currentValue;
+}, 0);
+
+console.log(sum); // Output: 15
+```
+
+`Array.prototype.reduce()` is a frequently asked topic in front-end interviews, especially by major tech companies, alongside its sister methods, `Array.prototype.map()`, `Array.prototype.filter()`, and `Array.prototype.concat()`. Modern front-end development often utilizes functional programming style APIs like `Array.prototype.reduce()`, making it an excellent opportunity for candidates to demonstrate their knowledge of prototypes and polyfills. Although it seems straightforward, there are several deeper aspects to consider:
+
+- Do you know how to use both the initial and returned values of the accumulator?
+- How does the method handle sparse arrays?
+- Are you familiar with the four parameters accepted by the reduce callback function?
+- What happens if the array is mutated during the reduction process?
+- Can you implement a polyfill for Array.prototype.reduce()?
+
+[Practice implementing the `Array.prototype.reduce()` function on GreatFrontEnd](/questions/javascript/array-reduce)
+
+## 6. Flatten
+
+In JavaScript, "flattening" refers to the process of converting a nested array into a single-level array. This is useful for simplifying data structures and making them easier to work with. JavaScript provides several ways to flatten arrays, with the most modern and convenient method being the `Array.prototype.flat()` method introduced in ES2019.
+
+```js
+// Example: Flattening a nested array
+const nestedArray = [1, [2, [3, [4, [5]]]]];
+const flatArray = nestedArray.flat(Infinity);
+
+console.log(flatArray); // Output: [1, 2, 3, 4, 5]
+```
+
+In this example, the `flat()` method is used with a depth of Infinity to completely flatten the deeply nested array into a single-level array. The `flat() method` can take a depth argument to specify the level of flattening if the array is not deeply nested.
+
+Before ES2019, flattening arrays required custom implementations or the use of libraries like Lodash. Here’s a basic custom implementation using recursion:
+
+```js
+// Custom implementation of flattening an array
+function flattenArray(arr) {
+  return arr.reduce((acc, val) => {
+    return Array.isArray(val) ? acc.concat(flattenArray(val)) : acc.concat(val);
+  }, []);
+}
+
+const nestedArray = [1, [2, [3, [4, [5]]]]];
+const flatArray = flattenArray(nestedArray);
+
+console.log(flatArray); // Output: [1, 2, 3, 4, 5]
+```
+
+This custom `flattenArray` function uses the `reduce()` method to concatenate values into a single array, recursively flattening any nested arrays encountered.
+
+[Practice implementing Flatten function on GreatFrontEnd](/questions/javascript/flatten)
+
+## 7. Data Merging
+
+Data merging in JavaScript involves combining multiple objects or arrays into a single cohesive structure. This is often necessary when dealing with complex data sets or integrating data from different sources. JavaScript provides several methods to merge data, including the spread operator, Object.assign(), and various array methods.
+
+### Merging Objects
+
+#### Using the Spread Operator
+
+The spread operator (...) is a concise way to merge objects. It creates a new object by copying the properties from the source objects.
+
+```js
+const obj1 = { a: 1, b: 2 };
+const obj2 = { b: 3, c: 4 };
+
+const mergedObj = { ...obj1, ...obj2 };
+
+console.log(mergedObj); // Output: { a: 1, b: 3, c: 4 }
+```
+
+In this example, obj2's b property overwrites obj1's b property in the merged object.
+
+#### Using `Object.assign()`
+
+`Object.assign()` is another method to merge objects. It copies all enumerable properties from one or more source objects to a target object.
+
+```js
+const obj1 = { a: 1, b: 2 };
+const obj2 = { b: 3, c: 4 };
+
+const mergedObj = Object.assign({}, obj1, obj2);
+
+console.log(mergedObj); // Output: { a: 1, b: 3, c: 4 }
+```
+
+### Merging Arrays
+
+#### Using the Spread Operator
+
+The spread operator can also merge arrays by concatenating them.
+
+```js
+const array1 = [1, 2, 3];
+const array2 = [4, 5, 6];
+
+const mergedArray = [...array1, ...array2];
+
+console.log(mergedArray); // Output: [1, 2, 3, 4, 5, 6]
+```
+
+#### Using Array.concat()
+
+The concat() method merges two or more arrays into a new array.
+
+```js
+const array1 = [1, 2, 3];
+const array2 = [4, 5, 6];
+
+const mergedArray = array1.concat(array2);
+
+console.log(mergedArray); // Output: [1, 2, 3, 4, 5, 6]
+```
+
+### Deep Merging
+
+For deep merging, where nested objects and arrays need to be merged, a custom function or a library like **Lodash** can be used. Here's a simple custom implementation:
+
+```js
+function deepMerge(target, source) {
+  for (const key in source) {
+    if (source[key] instanceof Object && key in target) {
+      Object.assign(source[key], deepMerge(target[key], source[key]));
+    }
+  }
+  Object.assign(target || {}, source);
+  return target;
+}
+
+const obj1 = { a: 1, b: { x: 10, y: 20 } };
+const obj2 = { b: { y: 30, z: 40 }, c: 3 };
+
+const mergedObj = deepMerge(obj1, obj2);
+
+console.log(mergedObj); // Output: { a: 1, b: { x: 10, y: 30, z: 40 }, c: 3 }
+```
+
+### Using Lodash `merge`
+
+[Lodash](https://lodash.com/) is a popular utility library in JavaScript that provides many helpful functions, including `merge`. The `_.merge` function in Lodash recursively merges properties of the source objects into the destination object, which is particularly useful for deep merging of nested objects.
+
+```js
+const _ = require('lodash');
+
+const obj1 = { a: 1, b: { x: 10, y: 20 } };
+const obj2 = { b: { y: 30, z: 40 }, c: 3 };
+
+const mergedObj = _.merge({}, obj1, obj2);
+
+console.log(mergedObj); // Output: { a: 1, b: { x: 10, y: 30, z: 40 }, c: 3 }
+```
+
+In this example, `_.merge` deep merges `obj1` and `obj2`, ensuring that nested properties are combined correctly.
+
+[Practice implementing Data Merging function on GreatFrontEnd](/questions/javascript/data-merging)
+
+## 8. `getElementsByClassName`
+
+In JavaScript, `getElementsByClassName` is a method used to select elements from the DOM (Document Object Model) based on their CSS class names. It returns a live `HTMLCollection` of elements that match the specified class name(s).
+
+### Basic Usage
+
+You can use `getElementsByClassName` by calling it on the document object and passing one or more class names as arguments:
+
+```js
+// Select all elements with the class name "example"
+const elements = document.getElementsByClassName('example');
+
+// Loop through the selected elements
+for (let i = 0; i < elements.length; i++) {
+  console.log(elements[i].textContent);
+}
+```
+
+### Multiple Class Names
+
+You can specify multiple class names separated by spaces:
+
+```js
+const elements = document.getElementsByClassName('class1 class2');
+```
+
+This will select elements that have both class1 and class2.
+
+### Live `HTMLCollection`
+
+The `HTMLCollection` returned by `getElementsByClassName` is live, meaning it updates automatically when the DOM changes. If elements with the specified class name are added or removed, the collection is updated accordingly.
+
+### Alternative Methods
+
+#### `querySelectorAll`
+
+For more complex selections based on CSS selectors, including class names, IDs, attributes, etc., `querySelectorAll` provides more flexibility:
+
+```js
+const elements = document.querySelectorAll('.example');
+```
+
+[Practice implementing `getElementsByClassName` on GreatFrontEnd](/questions/javascript/get-elements-by-class-name)
+
+## 9. Memoize
+
+Memoization is a technique used in programming to optimize expensive function calls by caching their results. In JavaScript, memoization involves storing the results of expensive function calls and returning the cached result when the same inputs occur again.
+
+The basic idea behind memoization is to improve performance by avoiding redundant calculations. Here’s a simple example of memoization in JavaScript:
+
+```js
+function expensiveOperation(n) {
+  console.log('Calculating for', n);
+  return n * 2;
+}
+
+// Memoization function
+function memoize(func) {
+  const cache = {};
+
+  return function (n) {
+    if (cache[n] !== undefined) {
+      console.log('From cache for', n);
+      return cache[n];
+    } else {
+      const result = func(n);
+      cache[n] = result;
+      return result;
+    }
+  };
+}
+
+const memoizedExpensiveOperation = memoize(expensiveOperation);
+
+console.log(memoizedExpensiveOperation(5)); // Output: Calculating for 5, 10
+console.log(memoizedExpensiveOperation(5)); // Output: From cache for 5, 10
+console.log(memoizedExpensiveOperation(10)); // Output: Calculating for 10, 20
+console.log(memoizedExpensiveOperation(10)); // Output: From cache for 10, 20
+```
+
+### How Memoization Works
+
+- **Caching Results**: The memoize function wraps around expensiveOperation and maintains a cache object.
+
+- **Cache Check**: Before executing expensiveOperation, memoize checks if the result for a given input (n) is already stored in the cache.
+
+- **Returning Cached Result**: If the result is found in the cache, memoize returns it directly without re-executing expensiveOperation.
+
+- **Storing Result**: If the result is not in the cache, memoize computes it by calling expensiveOperation(n), stores the result in the cache, and then returns it.
+
+In modern JavaScript, libraries like [Lodash](https://lodash.com/docs/4.17.15#memoize) provide utilities for memoization, making it easier to apply this optimization technique across different functions and use cases.
+
+[Practice implementing Memoize function on GreatFrontEnd](/questions/javascript/memoize)
+
+## 10. Get
+
+Before the introduction of optional chaining (`?.`) in JavaScript, accessing nested properties in an object could lead to errors if any part of the path did not exist.
+
+For example:
+
+```js
+const user = {
+  name: 'John',
+  address: {
+    street: '123 Main St',
+  },
+};
+
+const city = user.address.city; // throws an error because address.city is undefined
+```
+
+### Using `get` from Lodash
+
+To avoid this, developers used workarounds like the `get` function from Lodash to access nested properties within objects with ease:
+
+```js
+const user = {
+  name: 'John',
+  address: {
+    city: 'New York',
+  },
+};
+
+console.log(_.get(user, 'address.city')); // 'New York'
+console.log(_.get(user, 'address.street')); // 'undefined'
+```
+
+Here, `_.get` retrieves the value located at `obj.user.address.city`, handling potential undefined values gracefully.
+
+However, with the introduction of optional chaining (`?.`) in JavaScript, we can now access nested properties in a safer way:
+
+```js
+const user = {
+  name: 'John',
+  address: {
+    street: '123 Main St',
+  },
+};
+
+const city = user.address?.city; // returns undefined instead of throwing an error
+```
+
+The `?.` operator allows us to access properties in a way that stops evaluating the expression if any part of the path is null or undefined, preventing errors and returning undefined instead.
+
+[Practice implementing `get` function on GreatFrontEnd](/questions/javascript/get)
+
+## Conclusion
+
+These questions cover essential concepts in JavaScript, and understanding them will help you tackle more complex problems in your interviews. Remember to practice and be ready to explain your thought process and code examples!
