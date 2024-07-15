@@ -1,0 +1,485 @@
+---
+title: JavaScript Interview Questions for 2 years of experience
+description: Explore a list of JavaScript interview questions and answers tailored for engineers with 2 years of experience, curated by big tech senior engineers.
+tags:
+  - javascript
+  - interviews
+level: intermediate
+createdAt: 2024-07-15
+author: blog/author/nitesh-seram.json
+category: blog/category/front-end-interviews.json
+published: true
+---
+
+As a JavaScript developer with 2 years of experience, you've already demonstrated your skills in building robust and scalable applications. However, the interview process can still be daunting, especially when faced with tricky technical questions. To help you prepare and showcase your expertise, we've curated a list of 30 JavaScript interview questions that are tailored to your level of experience. These questions cover advanced topics such as performance optimization, design patterns, and more, and are designed to help you demonstrate your skills and confidence in your next interviews.
+
+## 1. Explain the concept of caching and how it can be used to improve performance
+
+Caching involves storing copies of files or data temporarily to speed up access times. It enhances performance by minimizing the frequency of fetching data from its original source. In web development, caching techniques include utilizing browser caches, service workers, and HTTP headers such as `Cache-Control` to effectively implement this optimization.
+
+## 2. Explain the concept of lazy loading and how it can improve performance
+
+Lazy loading is a design approach that defers the loading of resources until they are required. This can notably enhance performance by decreasing initial load times and conserving bandwidth. For instance, in web development, images can be lazily loaded, ensuring they are fetched only when they enter the viewport. This is facilitated using techniques like the HTML `loading="lazy"` attribute or through JavaScript libraries designed for this purpose.
+
+```js
+<img src="image.jpg" loading="lazy" alt="Lazy loaded image" />
+```
+
+## 3. What are design patterns and why are they useful?
+
+Design patterns offer reusable solutions to typical software design challenges, serving as a blueprint for solving problems across various contexts. They are beneficial as they guide developers in sidestepping common issues, enhancing code clarity, and simplifying the maintenance and scalability of applications.
+
+## 4. Explain the concept of the Prototype pattern
+
+The Prototype pattern is a creational pattern used to create new objects by copying an existing object, known as the prototype. This pattern is advantageous when creating a new object is more resource-intensive than cloning an existing one. In JavaScript, you can implement this pattern using methods like `Object.create` or by utilizing the `prototype` property of a constructor functions.
+
+```js
+const prototypeObject = {
+  greet() {
+    console.log('Hello, world!');
+  },
+};
+
+const newObject = Object.create(prototypeObject);
+newObject.greet(); // Outputs: Hello, world!
+```
+
+This pattern allows objects to inherit properties and methods from a prototype, promoting code reuse and maintaining a clear structure in object-oriented programming.
+
+## 5. Explain the concept of the Singleton pattern
+
+The Singleton pattern ensures that a class has only one instance and provides a global access point to that instance. It is beneficial when you need precisely one object to manage tasks or resources system-wide. In JavaScript, you can implement the Singleton pattern using closures or ES6 classes to ensure there is only one instance of a class.
+
+```js
+class Singleton {
+  constructor() {
+    if (!Singleton.instance) {
+      Singleton.instance = this;
+    }
+    return Singleton.instance;
+  }
+}
+
+const instance1 = new Singleton();
+const instance2 = new Singleton();
+
+console.log(instance1 === instance2); // true
+```
+
+This pattern is useful in scenarios like managing configurations, logging, and resource sharing across an application, ensuring consistency and preventing multiple instances from being created unnecessarily.
+
+## 6. What is the Factory pattern and how is it used?
+
+The Factory pattern in software design enables object creation without specifying their exact class upfront. It encapsulates complex instantiation logic and is ideal for situations where object types are determined dynamically at runtime. In JavaScript, this pattern can be implemented using a factory function to create various objects based on conditions:
+
+```js
+function createAnimal(type) {
+  if (type === 'dog') {
+    return { sound: 'woof' };
+  } else if (type === 'cat') {
+    return { sound: 'meow' };
+  }
+}
+
+const dog = createAnimal('dog');
+const cat = createAnimal('cat');
+```
+
+This approach promotes code flexibility and modularity by centralizing object creation logic.
+
+## 7. Explain the Observer pattern and its use cases
+
+The Observer pattern is a design pattern where an object, called the subject, maintains a list of its dependents, known as observers, and notifies them of any state changes. This pattern facilitates loose coupling between objects, making it useful for implementing event-driven architectures, real-time updates in user interfaces, and data synchronization across different parts of an application. It enables components to react dynamically to changes without explicitly knowing each other, promoting flexibility and maintainability in software design.
+
+## 8. What is the Decorator pattern and how is it used?
+
+The Decorator pattern is a structural design pattern that allows behavior to be added to objects without affecting other instances of the same class. It wraps objects with additional functionality, extending their capabilities. For example:
+
+```js
+class Car {
+  drive() {
+    return 'Driving';
+  }
+}
+
+class CarDecorator {
+  constructor(car) {
+    this.car = car;
+  }
+
+  drive() {
+    return this.car.drive();
+  }
+}
+
+class GPSDecorator extends CarDecorator {
+  drive() {
+    return `${super.drive()} with GPS`;
+  }
+}
+
+const myCar = new Car();
+const myCarWithGPS = new GPSDecorator(myCar);
+console.log(myCarWithGPS.drive()); // Outputs: "Driving with GPS"
+```
+
+Here, `CarDecorator` and `GPSDecorator` dynamically add features like GPS to a basic `Car` object, demonstrating how decorators can extend object functionalities.
+
+## 9. Explain the concept of the Strategy pattern
+
+The Strategy pattern is a behavioral design pattern that allows you to encapsulate different algorithms into separate classes that are interchangeable. It enables the selection of algorithms at runtime without modifying client code. Here’s a concise example:
+
+```js
+class Context {
+  constructor(strategy) {
+    this.strategy = strategy;
+  }
+
+  execute(data) {
+    return this.strategy.algorithm(data);
+  }
+}
+
+class ConcreteStrategyA {
+  algorithm(data) {
+    // Implementation of algorithm A
+    return data.sort(); // Example: sorting algorithm
+  }
+}
+
+class ConcreteStrategyB {
+  algorithm(data) {
+    // Implementation of algorithm B
+    return data.reverse(); // Example: reverse algorithm
+  }
+}
+
+// Usage
+const context = new Context(new ConcreteStrategyA());
+const data = [3, 1, 2];
+console.log(context.execute(data)); // Outputs: [1, 2, 3]
+
+context.strategy = new ConcreteStrategyB();
+console.log(context.execute(data)); // Outputs: [3, 2, 1]
+```
+
+In this pattern, `Context` manages the selected `strategy` object, which performs its specific `algorithm` on `data`. This approach allows flexible algorithm switching and enhances code maintainability by separating algorithms from client code.
+
+## 10. What is the Command pattern and how is it used?
+
+    The Command pattern is a behavioral design pattern that turns a request into a stand-alone object containing all information about the request. This transformation allows for parameterization of methods with different requests, queuing of requests, and logging of the requests. It also supports undoable operations. In JavaScript, it can be implemented by creating command objects with `execute` and `undo` methods.
+
+    ```js
+    class Command {
+      execute() {}
+      undo() {}
+    }
+
+    class LightOnCommand extends Command {
+      constructor(light) {
+        super();
+        this.light = light;
+      }
+      execute() {
+        this.light.on();
+      }
+      undo() {
+        this.light.off();
+      }
+    }
+
+    class Light {
+      on() {
+        console.log('Light is on');
+      }
+      off() {
+        console.log('Light is off');
+      }
+    }
+
+    const light = new Light();
+    const lightOnCommand = new LightOnCommand(light);
+    lightOnCommand.execute(); // Light is on
+    lightOnCommand.undo(); // Light is off
+    ```
+
+## 11. What is the Module pattern and how does it help with encapsulation?
+
+    The Module pattern in JavaScript is a design pattern used to create self-contained modules of code. It helps with encapsulation by allowing you to define private and public members within a module. Private members are not accessible from outside the module, while public members are exposed through a returned object. This pattern helps in organizing code, avoiding global namespace pollution, and maintaining a clean separation of concerns.
+
+    ```js
+    var myModule = (function () {
+      var privateVar = 'I am private';
+
+      function privateMethod() {
+        console.log(privateVar);
+      }
+
+      return {
+        publicMethod: function () {
+          privateMethod();
+        },
+      };
+    })();
+
+    myModule.publicMethod(); // Logs: I am private
+    ```
+
+## 12. How can you avoid problems related to hoisting?
+
+    To avoid issues related to hoisting in JavaScript, use `let` or `const` to declare variables instead of `var`. Unlike `var`, `let` and `const` are block-scoped, meaning they are only accessible within the block they are defined in and are not hoisted to the top of the scope. Additionally, ensure functions are declared before they are called to prevent any unexpected behavior due to function hoisting.
+
+    ```js
+    // Use let or const
+    let x = 10;
+    const y = 20;
+
+    // Declare functions before calling them
+    function myFunction() {
+      console.log('Hello, world!');
+    }
+    myFunction();
+    ```
+
+## 13. How can you share code between JavaScript files?
+
+    To share code between JavaScript files, you can use modules. In modern JavaScript, ES6 modules with `export` and `import` statements are commonly used. Here's how you can export a function from one file and import it into another:
+
+    **Using ES6 Modules:**
+
+    ```js
+    // file1.js
+    export function greet() {
+      console.log('Hello, world!');
+    }
+
+    // file2.js
+    import { greet } from './file1.js';
+    greet();
+    ```
+
+    Alternatively, in Node.js, you can use `module.exports` and `require`:
+
+    **Using CommonJS Modules (Node.js):**
+
+    ```js
+    // file1.js
+    module.exports = function greet() {
+      console.log('Hello, world!');
+    };
+
+    // file2.js
+    const greet = require('./file1.js');
+    greet();
+    ```
+
+## 14. How do you get the query string values of the current page in JavaScript?
+
+    To retrieve query string values from the current page's URL in JavaScript using `URLSearchParams`, you can follow these steps:
+
+    ```js
+    // Assuming the URL is: http://example.com/page?key=value&foo=bar
+
+    // Create a URLSearchParams object from the current page's query string
+    const params = new URLSearchParams(window.location.search);
+
+    // Retrieve specific query parameter values
+    const keyValue = params.get('key'); // 'value'
+    const fooValue = params.get('foo'); // 'bar'
+
+    // Example usage
+    console.log(keyValue); // Outputs: 'value'
+    console.log(fooValue); // Outputs: 'bar'
+    ```
+
+    This approach allows you to easily access and manipulate query string parameters directly from the browser's URL.
+
+## 15. How do you handle errors in asynchronous operations?
+
+    Handling errors in asynchronous operations can be done effectively with both `async/await` and Promises:
+
+    ### Using `async/await` with `try...catch`:
+
+    ```js
+    javascriptCopy code
+    async function fetchData() {
+      try {
+        const response = await fetch('https://api.example.com/data');
+        if (!response.ok) throw new Error('Failed to fetch data');
+        const data = await response.json();
+        console.log(data);
+      } catch (error) {
+        console.error('Error fetching data:', error.message);
+      }
+    }
+
+    ```
+
+    ### Using Promises with `.catch()` method:
+
+    ```js
+    javascriptCopy code
+    fetch('https://api.example.com/data')
+      .then(response => {
+        if (!response.ok) throw new Error('Failed to fetch data');
+        return response.json();
+      })
+      .then(data => console.log(data))
+      .catch(error => console.error('Error fetching data:', error.message));
+
+    ```
+
+    These methods ensure that errors, such as network failures or failed requests, are caught and handled appropriately, maintaining robust error management in your JavaScript applications.
+
+## 16. How do you manipulate CSS styles using JavaScript?
+
+    You can manipulate CSS styles in JavaScript by directly accessing an element's `style` property for specific changes like background color or font size:
+
+    ```js
+    // Changing background color
+    document.getElementById('myDiv').style.backgroundColor = 'blue';
+    ```
+
+    You can also add, remove, or toggle CSS classes using the `classList` property:
+
+    ```js
+    document.getElementById('myDiv').classList.add('newClass');
+    document.getElementById('myDiv').classList.remove('oldClass');
+    document.getElementById('myDiv').classList.toggle('toggleClass');
+    ```
+
+## 17. What are the common pitfalls of using the `this` keyword?
+
+    Using the `this` keyword can be tricky because its value depends on the function's invocation context. Common pitfalls include losing `this` context when passing methods as callbacks, using `this` inside nested functions, and misunderstanding `this` in arrow functions. To address these issues, developers often use methods like `.bind()`, arrow functions, or store `this` context in a variable.
+
+## 18. What is the DOM and how is it structured?
+
+    The DOM, or Document Object Model, is a programming interface for web documents. It represents the page so that programs can change the document structure, style, and content. The DOM is structured as a tree of objects, where each node represents part of the document, such as elements, attributes, and text nodes.
+
+## 19. What do you think of AMD vs CommonJS?
+
+    AMD (Asynchronous Module Definition) and CommonJS are JavaScript module systems. AMD focuses on asynchronous loading, ideal for browsers, using `define()` and `require()`. CommonJS, geared towards server-side environments like Node.js, employs `module.exports` and `require()` for synchronous module loading.
+
+## 20. What are the different ways to make an API call in JavaScript?
+
+    In JavaScript, there are several methods to make API calls. The traditional way is using `XMLHttpRequest`, which is more verbose. `fetch` is a modern approach that returns promises, making it easier to handle responses. Alternatively, Axios is a widely-used third-party library that simplifies API calls and offers additional features.
+
+## 21. What are some tools that can be used for JavaScript testing?
+
+    For JavaScript testing, tools like Jest, Mocha, Jasmine, and Cypress are commonly used. Jest is praised for its simplicity and built-in functionalities. Mocha offers flexibility and can be integrated with various libraries. Jasmine is known for its straightforward setup and behavior-driven development (BDD) approach. Cypress excels in end-to-end testing, emphasizing real browser interactions.
+
+## 22. What is the difference between `event.preventDefault()` and `event.stopPropagation()`?
+
+    `event.preventDefault()` prevents the default action of an event, like stopping a form submission whereas `event.stopPropagation()` prevents the event from bubbling up to parent elements.
+
+## 23. What is the difference between `innerHTML` and `textContent`?
+
+    `innerHTML` returns or sets the HTML markup inside an element, allowing HTML tags to be parsed and rendered whereas `textContent` retrieves or sets the text content inside an element, rendering HTML tags as plain text.
+
+    ```js
+    // Example of innerHTML
+    element.innerHTML = '<strong>Bold Text</strong>'; // Renders as bold text
+
+    // Example of textContent
+    element.textContent = '<strong>Bold Text</strong>'; // Renders as plain text: <strong>Bold Text</strong>
+    ```
+
+## 24. What is the difference between the `window` object and the `document` object?
+
+    The `window` object represents the browser window, offering methods to control it (e.g., opening new windows, or accessing browser history). The `document` object represents the web page's content within the window, providing methods to manipulate the DOM (e.g., selecting elements, and modifying content).
+
+## 25. What is the difference between `setTimeout()`, `setImmediate()`, and `process.nextTick()`?
+
+    `setTimeout()` schedules a callback to run after a minimum delay. `setImmediate()` schedules a callback to run after the current event loop completes. `process.nextTick()` schedules a callback to run before the next event loop iteration begins.
+
+    ```js
+    setTimeout(() => console.log('setTimeout'), 0);
+    setImmediate(() => console.log('setImmediate'));
+    process.nextTick(() => console.log('nextTick'));
+    ```
+
+    In this example, `process.nextTick()` executes first, followed by either `setTimeout()` or `setImmediate()` depending on the environment.
+
+## 26. How do you use `window.history` API?
+
+    The `window.history` API allows you to manipulate the browser's session history. You can use `history.pushState()` to add a new entry to the history stack, `history.replaceState()` to modify the current entry, and `history.back()`, `history.forward()`, and `history.go()` to navigate through the history.
+
+    ```js
+    // Add a new entry to the history
+    history.pushState({ page: 1 }, 'title 1', '?page=1');
+
+    // Replace the current history entry
+    history.replaceState({ page: 2 }, 'title 2', '?page=2');
+
+    // Navigate back, forward, or to a specific point in history
+    history.back(); // Go back one step
+    history.forward(); // Go forward one step
+    history.go(-2); // Go back two steps
+    ```
+
+## 27. **What are the pros and cons of using Promises instead of callbacks in JavaScript?**
+
+    **Pros of Promises over Callbacks:**
+
+    - **Avoids Callback Hell:** Promises provide a more linear and readable structure compared to deeply nested callbacks.
+    - **Sequential Execution:** Easily write sequential asynchronous code using `.then()`, improving readability and maintainability.
+    - **Parallel Execution:** Use `Promise.all()` for parallel asynchronous operations, handling multiple promises concisely.
+
+    **Cons:**
+
+    - **Slightly More Complex:** Some developers find promises marginally more complex compared to straightforward callbacks.
+
+## 28. **What are the metadata fields of a module?**
+
+    Metadata fields of a module often include the module's name, version, description, author, license, and dependencies. These fields are commonly found in a package.json file in JavaScript projects.
+
+    Example:
+
+    ```json
+    {
+      "name": "my-module",
+      "version": "1.0.0",
+      "description": "A sample module",
+      "author": "John Doe",
+      "license": "MIT",
+      "dependencies": {
+        "express": "^4.17.1"
+      }
+    }
+    ```
+
+    These fields provide essential information about the module and its requirements.
+
+## 29. **What are the different types of errors in JavaScript?**
+
+    In JavaScript, there are three main types of errors:
+
+    1. **Syntax Errors**: Occur when the code violates the language's grammar rules, like missing a parenthesis.
+    2. **Runtime Errors**: Happen during code execution, such as trying to access a property of `undefined`.
+    3. **Logical Errors**: Mistakes in the code's logic that lead to incorrect results without throwing an error.
+
+## 30. **Explain the concept of error propagation in JavaScript**
+
+    Error propagation in JavaScript refers to the process of passing errors up the call stack. When an error occurs in a function, it can be caught and handled with try...catch blocks. If not caught, the error moves up the call stack until it is either caught or causes the program to terminate. For example:
+
+    ```js
+    function a() {
+      throw new Error('An error occurred');
+    }
+
+    function b() {
+      a();
+    }
+
+    try {
+      b();
+    } catch (e) {
+      console.error(e.message); // Outputs: An error occurred
+    }
+    ```
+
+    In this example, the error thrown in function `a` propagates to function `b` and is caught in the `try...catch` block.
+
+## Conclusion
+
+You've reached the end of our list of 30 JavaScript interview questions! We hope these questions have helped you identify areas for improvement and solidify your understanding of advanced JavaScript concepts. Remember, the key to acing an interview is not just about knowing the answers, but also about demonstrating your thought process, problem-solving skills, and ability to communicate complex ideas simply.
