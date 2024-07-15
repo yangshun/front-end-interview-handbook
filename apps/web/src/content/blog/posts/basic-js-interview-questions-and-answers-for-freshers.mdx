@@ -1,0 +1,2035 @@
+---
+title: Basic JavaScript Interview Questions and Answers For Freshers
+description: Brush up on fundamental JavaScript skills with these essential interview questions and answers. Perfect for freshers preparing for junior developer roles.
+tags:
+  - javascript
+  - interviews
+level: starter
+createdAt: 2024-07-15
+author: blog/author/nitesh-seram.json
+category: blog/category/front-end-interviews.json
+published: true
+---
+
+JavaScript is a fundamental skill for any aspiring web developer, and landing a job in this field can be a challenging task, especially for freshers. One of the most crucial steps in the interview process is the technical interview, where your JavaScript skills are put to the test. To help you prepare and boost your confidence, we've compiled a list of the top 50 basic JavaScript interview questions and answers that are commonly asked in interviews.
+
+## 1. Explain the concept of "hoisting" in JavaScript
+
+Hoisting describes the behavior of variable declarations in JavaScript. Declarations using `var` are "moved" to the top of their scope during compilation. Only the declaration is hoisted, not the initialization.
+
+**Example with `var`:**
+
+```js
+console.log(foo); // undefined
+var foo = 1;
+console.log(foo); // 1
+```
+
+Visualized as:
+
+```js
+var foo;
+console.log(foo); // undefined
+foo = 1;
+console.log(foo); // 1
+```
+
+**Variables with `let`, `const`, and `class`:**
+
+These are also hoisted but not initialized. Accessing them before declaration results in a `ReferenceError`.
+
+```js
+console.log(y); // ReferenceError: Cannot access 'y' before initialization
+let y = 'local';
+
+console.log(z); // ReferenceError: Cannot access 'z' before initialization
+const z = 'local';
+
+console.log(Foo); // ReferenceError: Cannot access 'Foo' before initialization
+class Foo {
+  constructor() {}
+}
+```
+
+**Function Expressions:**
+
+Only the declaration is hoisted.
+
+```js
+console.log(bar); // undefined
+bar(); // Uncaught TypeError: bar is not a function
+
+var bar = function () {
+  console.log('BARRRR');
+};
+```
+
+**Function Declarations:**
+
+Both declaration and definition are hoisted.
+
+```js
+console.log(foo); // [Function: foo]
+foo(); // 'FOOOOO'
+
+function foo() {
+  console.log('FOOOOO');
+}
+```
+
+**Import Statements:**
+
+Imports are hoisted, making them available throughout the module, with side effects occurring before other code runs.
+
+```js
+foo.doSomething(); // Works normally.
+import foo from './modules/foo';
+```
+
+## 2. What are the differences between JavaScript variables created using `let`, `var` or `const`?
+
+### Scope
+
+- **`var`**: Function-scoped or globally scoped.
+- **`let` and `const`**: Block-scoped (only accessible within the nearest set of curly braces).
+
+Example:
+
+```js
+function foo() {
+  var bar = 1;
+  let baz = 2;
+  const qux = 3;
+
+  console.log(bar); // 1
+  console.log(baz); // 2
+  console.log(qux); // 3
+}
+
+console.log(bar); // ReferenceError
+console.log(baz); // ReferenceError
+console.log(qux); // ReferenceError
+```
+
+```js
+if (true) {
+  var bar = 1;
+  let baz = 2;
+  const qux = 3;
+}
+
+console.log(bar); // 1
+console.log(baz); // ReferenceError
+console.log(qux); // ReferenceError
+```
+
+### Initialization
+
+- **`var` and `let`**: Can be declared without an initial value.
+- **`const`**: Must be initialized at the time of declaration.
+
+Example:
+
+```js
+var foo; // Ok
+let bar; // Ok
+const baz; // SyntaxError
+
+```
+
+### Redeclaration
+
+- **`var`**: Allows redeclaration.
+- **`let` and `const`**: Do not allow redeclaration.
+
+Example:
+
+```js
+var foo = 1;
+var foo = 2; // Ok
+
+let baz = 3;
+let baz = 4; // SyntaxError
+```
+
+### Reassignment
+
+- **`var` and `let`**: Allow reassignment.
+- **`const`**: Does not allow reassignment.
+
+Example:
+
+```js
+var foo = 1;
+foo = 2; // Ok
+
+let bar = 3;
+bar = 4; // Ok
+
+const baz = 5;
+baz = 6; // TypeError
+```
+
+### Accessing before declaration
+
+- **`var`**: Variables are hoisted and initialized to `undefined`.
+- **`let` and `const`**: Variables are hoisted but not initialized, causing a `ReferenceError` if accessed before declaration.
+
+Example:
+
+```js
+console.log(foo); // undefined
+var foo = 'foo';
+
+console.log(baz); // ReferenceError
+let baz = 'baz';
+
+console.log(bar); // ReferenceError
+const bar = 'bar';
+```
+
+## 3. What is the difference between `==` and `===` in JavaScript?
+
+### Equality Operator (`==`)
+
+- Performs type coercion, converting values to a common type before comparison.
+- Can yield unintuitive results due to type conversion.
+
+Examples:
+
+```js
+42 == '42'; // true
+0 == false; // true
+null == undefined; // true
+[] == false; // true
+'' == false; // true
+```
+
+###Strict Equality Operator (`===`)
+
+- Does not perform type coercion.
+- Both value and type must be the same for the comparison to return `true`.
+
+Examples:
+
+```js
+42 === '42'; // false
+0 === false; // false
+null === undefined; // false
+[] === false; // false
+'' === false; // false
+```
+
+### Best Practices
+
+- Use `==` only when comparing against `null` or `undefined` for convenience.
+
+  ```js
+  var a = null;
+  console.log(a == null); // true
+  console.log(a == undefined); // true
+  ```
+
+- Prefer `===` for all other comparisons to avoid pitfalls of type coercion and ensure both value and type are the same.
+
+## 4. What is the event loop in JavaScript?
+
+The event loop is crucial for handling asynchronous operations in JavaScript, allowing single-threaded execution without blocking.
+
+### Components
+
+**1. Call Stack:**
+
+- Tracks function execution in LIFO order.
+- Functions are added and removed as they are called and complete.
+
+**2. Web APIs/Node.js APIs:**
+
+- Handle asynchronous tasks (`setTimeout()`, HTTP requests) on separate threads.
+
+**3. Task Queue (Macrotask Queue):**
+
+- Holds tasks like `setTimeout()`, `setInterval()`, and UI events.
+
+**4. Microtask Queue:**
+
+- Contains high-priority tasks (e.g., `Promise` callbacks).
+- Executes after the current script but before the next macrotask.
+
+### Execution Order
+
+1.  **Script Execution:**
+    - Synchronous tasks are placed on the call stack.
+2.  **Asynchronous Operations:**
+    - Offloaded to Web APIs/Node.js APIs.
+3.  **Task Completion:**
+    - Completed tasks are queued in the appropriate task or microtask queue.
+4.  **Event Loop Monitoring:**
+    - Executes tasks from the call stack.
+    - When the stack is empty:
+      - Processes the microtask queue until empty.
+      - Processes one macrotask, then checks the microtask queue again.
+      - Repeats indefinitely.
+
+### Example
+
+```js
+console.log('Start');
+
+setTimeout(() => {
+  console.log('Timeout 1');
+}, 0);
+
+Promise.resolve().then(() => {
+  console.log('Promise 1');
+});
+
+setTimeout(() => {
+  console.log('Timeout 2');
+}, 0);
+
+console.log('End');
+```
+
+**Console Output:**
+
+```bash
+Start
+End
+Promise 1
+Timeout 1
+Timeout 2
+```
+
+**Explanation:**
+
+- `Start` and `End` are logged first (synchronous).
+- `Promise 1` is logged next (microtask).
+- `Timeout 1` and `Timeout 2` are logged last (macrotasks).
+
+Understanding the event loop helps write efficient, non-blocking JavaScript code.
+
+## 5. Explain event delegation in JavaScript
+
+Event delegation is an efficient way to handle events on multiple child elements by attaching a single event listener to a common parent element. This is useful for managing events on many similar elements, like list items.
+
+### How Event Delegation Works
+
+1.  **Attach Listener to Ancestor:**
+    - Attach one listener to a parent element instead of individual listeners on each child.
+2.  **Event Bubbling:**
+    - When an event occurs on a child, it bubbles up to the parent, where the listener can handle it.
+3.  **Determine the Target:**
+    - Use `event.target` to identify the actual element that triggered the event.
+4.  **Perform Action:**
+    - Execute actions based on the target element.
+
+### Benefits of Event Delegation
+
+- **Efficiency:** Fewer event listeners improve memory and performance.
+- **Dynamic Elements:** Automatically handles new or removed child elements.
+
+### Example
+
+```js
+// HTML:
+// <ul id="item-list">
+//   <li>Item 1</li>
+//   <li>Item 2</li>
+//   <li>Item 3</li>
+// </ul>
+
+const itemList = document.getElementById('item-list');
+
+itemList.addEventListener('click', (event) => {
+  if (event.target.tagName === 'LI') {
+    console.log(`Clicked on ${event.target.textContent}`);
+  }
+});
+```
+
+A single click listener on `<ul>` handles clicks on any `<li>` due to event bubbling.
+
+### Use Cases
+
+1.  **Dynamic Content:**
+
+    ```js
+    const buttonContainer = document.getElementById('button-container');
+    const addButton = document.getElementById('add-button');
+
+    buttonContainer.addEventListener('click', (event) => {
+      if (event.target.tagName === 'BUTTON') {
+        console.log(`Clicked on ${event.target.textContent}`);
+      }
+    });
+
+    addButton.addEventListener('click', () => {
+      const newButton = document.createElement('button');
+      newButton.textContent = `Button ${buttonContainer.children.length + 1}`;
+      buttonContainer.appendChild(newButton);
+    });
+    ```
+
+2.  **Simplifying Code:**
+
+    ```js
+    const userForm = document.getElementById('user-form');
+
+    userForm.addEventListener('input', (event) => {
+      const { name, value } = event.target;
+      console.log(`Changed ${name}: ${value}`);
+    });
+    ```
+
+## 6. Explain how `this` works in JavaScript
+
+The `this` keyword in JavaScript can be quite confusing as its value depends on how a function is called. Here are the main rules that determine the value of `this`:
+
+### 1. Using the `new` Keyword
+
+      Creates a new object and sets `this` to that object.
+
+      ```jsx
+      function Person(name) {
+        this.name = name;
+      }
+      const person = new Person('Alice');
+      console.log(person.name); // 'Alice
+      ```
+
+### 2. Using `apply`, `call`, or `bind`
+
+      Explicitly sets `this` to a specified object.
+
+      ```jsx
+      javascriptCopy code
+      function greet() {
+        console.log(this.name);
+      }
+      const person = { name: 'Alice' };
+      greet.call(person); // 'Alice'
+      ```
+
+### 3. Method Call
+
+      `this` is bound to the object the method is called on.
+
+      ```jsx
+      const obj = {
+        name: 'Alice',
+        greet: function () {
+          console.log(this.name);
+        },
+      };
+      obj.greet(); // 'Alice'
+      ```
+
+### 4. Free Function Invocation
+
+      In non-strict mode, defaults to the global object (`window` in browsers); in strict mode, defaults to `undefined`.
+
+      ```jsx
+      function greet() {
+        console.log(this); // global object or undefined
+      }
+      greet();
+      ```
+
+### 5. Arrow Functions (ES6):
+
+      Inherit `this` from their lexical enclosing scope.
+
+      ```js
+      const obj = {
+        name: 'Alice',
+        greet: () => {
+          console.log(this.name); // `this` refers to the enclosing scope
+        },
+      };
+      obj.greet(); // undefined
+      ```
+
+### ES2015 (ES6) and `this`
+
+ES2015 introduced arrow functions which capture `this` from their lexical scope. This can simplify code but requires caution when integrating with libraries expecting traditional function context.
+
+**Example:**
+
+```js
+function Timer() {
+  this.seconds = 0;
+  setInterval(() => {
+    this.seconds++; // `this` refers to the Timer instance
+    console.log(this.seconds);
+  }, 1000);
+}
+
+const timer = new Timer();
+```
+
+## 7. Describe the difference between a cookie, `sessionStorage` and `localStorage`.
+
+Cookies, localStorage, and sessionStorage are key client-side storage mechanisms in web applications, each serving distinct purposes:
+
+### Cookies
+
+- **Purpose**: Stores small data pieces sent to the server with HTTP requests.
+- **Capacity**: Limited to around 4KB per domain.
+- **Lifespan**: Can have expiration dates; session cookies are cleared when the browser closes.
+- **Access**: Domain-specific; accessible across pages and subdomains.
+- **Security**: Supports HttpOnly and Secure flags to restrict JavaScript access and ensure HTTPS transmission.
+- **Example Usage**:
+
+  ```js
+  // Set a cookie with an expiry
+  document.cookie =
+    'auth_token=abc123def; expires=Fri, 31 Dec 2024 23:59:59 GMT; path=/';
+
+  // Read all cookies (no direct method for specific cookies)
+  console.log(document.cookie);
+
+  // Delete a cookie
+  document.cookie =
+    'auth_token=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/';
+  ```
+
+### `localStorage`
+
+- **Purpose**: Stores data persistently on the client-side.
+- **Capacity**: Around 5MB per origin.
+- **Lifespan**: Data remains until explicitly cleared.
+- **Access**: Available across all tabs and windows within the same origin.
+- **Security**: All JavaScript on the page can access localStorage values.
+- **Example Usage**:
+
+  ```js
+  // Set an item in localStorage
+  localStorage.setItem('key', 'value');
+
+  // Get an item from localStorage
+  console.log(localStorage.getItem('key'));
+
+  // Remove an item from localStorage
+  localStorage.removeItem('key');
+
+  // Clear all data in localStorage
+  localStorage.clear();
+  ```
+
+### `sessionStorage`
+
+- **Purpose**: Stores session-specific data that persists until the browser or tab is closed.
+- **Capacity**: Similar to localStorage, around 5MB per origin.
+- **Lifespan**: Cleared when the tab or browser closes; reloading the page retains data.
+- **Access**: Limited to the current tab or window.
+- **Security**: All JavaScript on the page can access sessionStorage values.
+- **Example Usage**:
+
+  ```js
+  // Set an item in sessionStorage
+  sessionStorage.setItem('key', 'value');
+
+  // Get an item from sessionStorage
+  console.log(sessionStorage.getItem('key'));
+
+  // Remove an item from sessionStorage
+  sessionStorage.removeItem('key');
+
+  // Clear all data in sessionStorage
+  sessionStorage.clear();
+  ```
+
+## 8. Describe the difference between `<script>`, `<script async>` and `<script defer>`
+
+### `<script>` Tag
+
+The `<script>` tag is used to include JavaScript in a web page. When used without `async` or `defer` attributes:
+
+- **Behavior**: HTML parsing halts while the script is fetched and executed immediately.
+- **Usage**: Suitable for critical scripts required for initial page rendering.
+
+**Example:**
+
+```html
+<!doctype html>
+<html>
+  <head>
+    <title>Regular Script</title>
+  </head>
+  <body>
+    <h1>Regular Script Example</h1>
+    <p>This content appears before the script executes.</p>
+
+    <script src="regular.js"></script>
+
+    <p>This content appears after the script executes.</p>
+  </body>
+</html>
+```
+
+### `<script async>` Tag
+
+- **Behavior**: Downloads the script asynchronously while HTML parsing continues. Executes the script as soon as it's available, potentially before HTML parsing completes.
+- **Usage**: Suitable for independent scripts like analytics or ads.
+
+**Example:**
+
+```html
+<!doctype html>
+<html>
+  <head>
+    <title>Async Script</title>
+  </head>
+  <body>
+    <h1>Async Script Example</h1>
+    <p>This content appears before the async script executes.</p>
+
+    <script async src="async.js"></script>
+
+    <p>This content may appear before or after the async script executes.</p>
+  </body>
+</html>
+```
+
+**`<script defer>` Tag**:
+
+- **Behavior**: Downloads the script asynchronously while HTML parsing proceeds. Executes the script after the HTML document is fully parsed but before `DOMContentLoaded`.
+- **Usage**: Ideal for scripts dependent on a fully-parsed DOM structure.
+
+**Example:**
+
+```html
+<!doctype html>
+<html>
+  <head>
+    <title>Deferred Script</title>
+  </head>
+  <body>
+    <h1>Deferred Script Example</h1>
+    <p>This content appears before the deferred script executes.</p>
+
+    <script defer src="deferred.js"></script>
+
+    <p>This content appears before the deferred script executes.</p>
+  </body>
+</html>
+```
+
+## 9. What's the difference between a variable that is: `null`, `undefined` or undeclared?
+
+**Undeclared**: A variable that is not declared using **`var`**, **`let`**, or **`const`** will be created globally and can cause errors. Avoid them by using **`try/catch`** blocks to detect them.
+
+**`undefined`**: A declared variable without an assigned value is **`undefined`**. Use **`===`** or **`typeof`** to check for **`undefined`**. Note that **`==`** will also return **`true`** for **`null`**.
+
+**`null`**: A variable explicitly assigned **`null`** represents no value. Use **`===`** to check for **`null`**. Don't use **`==`** as it will also return **`true`** for **`undefined`**.
+
+**Best Practices**:
+
+- Always declare variables before using them.
+- Assign **`null`** to variables if you don't intend to use them yet.
+- Use static analysis tools like ESLint or TypeScript Compiler to detect undeclared variables.
+
+## 10. What's the difference between `.call` and `.apply` in JavaScript?
+
+    **`.call` and `.appl`** are used to invoke functions, setting **`this`** within the function. The difference lies in how they handle arguments:
+
+    - **.call:** Takes comma-separated arguments.
+    - **.apply:** Takes an array of arguments.
+
+    **Memory Aid:**
+
+    - **C** for **call** and **comma-separated**.
+    - **A** for **apply** and **array**.
+
+    Example:
+
+    ```js
+    javascriptCopy code
+    function add(a, b) {
+      return a + b;
+    }
+
+    console.log(add.call(null, 1, 2)); // 3
+    console.log(add.apply(null, [1, 2])); // 3
+
+    // ES6 with spread operator
+    console.log(add.call(null, ...[1, 2])); // 3
+    ```
+
+## 11. Explain `Function.prototype.bind`
+
+    **`Function.prototype.bind`** creates a new function with a specific **`this`** context and optionally preset arguments. It's useful for maintaining the correct **`this`** value in methods passed to other functions.
+
+    **Example:**
+
+    ```js
+    const john = {
+      age: 42,
+      getAge: function () {
+        return this.age;
+      },
+    };
+
+    console.log(john.getAge()); // 42
+
+    const unboundGetAge = john.getAge;
+    console.log(unboundGetAge()); // undefined
+
+    const boundGetAge = john.getAge.bind(john);
+    console.log(boundGetAge()); // 42
+
+    const mary = { age: 21 };
+    const boundGetAgeMary = john.getAge.bind(mary);
+    console.log(boundGetAgeMary()); // 21
+    ```
+
+    Its main purposes are:
+
+    1. **Binding `this` to preserve context:** The primary function of **`bind`** is to attach the **`this`** value of a function to a specific object. When you use **`func.bind(thisArg)`**, it generates a new function with the same code as **`func`**, but with **`this`** permanently set to **`thisArg`**.
+    2. **Partial application of arguments:** **`bind`** also enables you to pre-set arguments for the new function. Any arguments provided to **`bind`** after **`thisArg`** will be prepended to the argument list when the new function is invoked.
+    3. **Method borrowing:** **`bind`** allows you to borrow methods from one object and use them on another object, even if the methods were not initially designed for that object.
+
+## 12. What advantage is there for using the arrow syntax for a method in a constructor?
+
+    The advantage of using the arrow syntax for a method in a constructor is that it automatically binds the **`this`** value to the constructor's **`this`** context. This means that when the method is called, it will always refer to the constructor's **`this`** context, rather than the global scope or some other unexpected context.
+
+    In traditional function expressions, the **`this`** value is determined by how the function is called, which can lead to unexpected behavior if not properly bound. By using an arrow function, you can ensure that the **`this`** value is always bound to the constructor's **`this`** context, making your code more predictable and easier to maintain.
+
+    For example, in the code snippet:
+
+    ```js
+    const Person = function (name) {
+      this.name = name;
+      this.sayName1 = function () {
+        console.log(this.name);
+      };
+      this.sayName2 = () => {
+        console.log(this.name);
+      };
+    };
+    const john = new Person('John');
+    const dave = new Person('Dave');
+
+    john.sayName1(); // John
+    john.sayName2(); // John
+
+    // `this` can change for regular functions but not for arrow functions
+    john.sayName1.call(dave); // Dave
+    john.sayName2.call(dave); // John
+    ```
+
+    The **`sayName1`** method uses a traditional function expression, which means its **`this`** value is determined by how it's called. If you call **`john.sayName1.call(dave)`**, the **`this`** value will be **`dave`**, and the method will log **`Dave`** to the console.
+
+    On the other hand, the **`sayName2`** method uses an arrow function, which means its **`this`** value is automatically bound to the constructor's **`this`** context. If you call **`john.sayName2.call(dave)`**, the **`this`** value will still be **`john`**, and the method will log **`John`** to the console.
+
+    This can be particularly helpful in React class components, where you often need to pass methods as props to child components. By using arrow functions, you can ensure that the methods always refer to the correct **`this`** context, without having to manually bind **`this`** in the constructor.
+
+## 13. Explain how prototypal inheritance works
+
+    Prototypical inheritance allows objects to inherit properties and methods from other objects using a prototype-based model.
+
+    ### Key Concepts
+
+    #### 1. Prototypes
+
+       - Every object has a prototype, another object it inherits from.
+       - Access or modify prototypes using **`Object.getPrototypeOf()`** and **`Object.setPrototypeOf()`**.
+
+       ```js
+       function Person(name, age) {
+         this.name = name;
+         this.age = age;
+       }
+
+       Person.prototype.sayHello = function () {
+         console.log(
+           `Hello, my name is ${this.name} and I am ${this.age} years old.`,
+         );
+       };
+
+       let john = new Person('John', 30);
+       john.sayHello(); // "Hello, my name is John and I am 30 years old."
+       ```
+
+    #### 2. Prototype Chain
+
+       JavaScript looks for properties/methods on the object, then its prototype, and so on up the chain until **`null`**.
+
+    #### 3. Constructor Functions
+
+       Functions used with **`new`** to create objects, setting their prototype to the constructor's **`prototype`**.
+
+       ```js
+       function Animal(name) {
+         this.name = name;
+       }
+
+       Animal.prototype.sayName = function () {
+         console.log(`My name is ${this.name}`);
+       };
+
+       function Dog(name, breed) {
+         Animal.call(this, name);
+         this.breed = breed;
+       }
+
+       Dog.prototype = Object.create(Animal.prototype);
+       Dog.prototype.bark = function () {
+         console.log('Woof!');
+       };
+
+       let fido = new Dog('Fido', 'Labrador');
+       fido.bark(); // "Woof!"
+       fido.sayName(); // "My name is Fido"
+       ```
+
+    #### 4. `Object.create()`
+
+       Creates a new object with a specified prototype.
+
+       ```js
+       let proto = {
+         greet: function () {
+           console.log(`Hello, my name is ${this.name}`);
+         },
+       };
+
+       let person = Object.create(proto);
+       person.name = 'John';
+       person.greet(); // "Hello, my name is John"
+       ```
+
+## 14. Difference between: `function Person(){}`, `const person = Person()`, and `const person = new Person()`?
+
+    ### Function Declaration
+
+    **`function Person(){}`** is a standard function declaration in JavaScript. When written in PascalCase, it follows the convention for functions intended to be used as constructors.
+
+    ### Function Call
+
+    **`const person = Person()`** simply calls the function and executes its code. If no return value is specified, **`person`** will be **`undefined`**. This is not a constructor call and does not create a new object.
+
+    ### Constructor Call
+
+    **`const person = new Person()`** creates a new object using the **`Person`** constructor function. The **`new`** keyword creates a new object and sets its prototype to **`Person.prototype`**. The **`this`** keyword inside the constructor function refers to the new object being created.
+
+## 15. Explain the differences on the usage of `foo` between `function foo() {}` and `var foo = function() {}`
+
+    ### Function Declarations
+
+    - **Syntax:** **`function foo() {}`**
+    - **Description:** Defines a named function that can be called throughout the enclosing scope.
+    - **Example:**
+
+      ```jsx
+      function foo() {
+        console.log('FOOOOO');
+      }
+      ```
+
+    ### Function Expressions
+
+    - **Syntax:** **`var foo = function() {}`**
+    - **Description:** Defines a function and assigns it to a variable, often used in specific contexts.
+    - **Example:**
+
+      ```js
+      var foo = function () {
+        console.log('FOOOOO');
+      };
+      ```
+
+    ### Key Differences
+
+    **Hoisting:**
+
+    - **Function Declarations:** The entire function is hoisted; can be called before its definition.
+
+      ```js
+      foo(); // 'FOOOOO'
+      function foo() {
+        console.log('FOOOOO');
+      }
+      ```
+
+    - **Function Expressions:** Only the variable is hoisted, not the function body; calling it before definition results in an error.
+
+      ```js
+      foo(); // Uncaught TypeError: foo is not a function
+      var foo = function () {
+        console.log('FOOOOO');
+      };
+      ```
+
+    **Name Scope:**
+
+    - **Function Expressions:** These can be named internally, but the name is only accessible within the function.
+
+      ```js
+      const myFunc = function namedFunc() {
+        console.log(namedFunc); // Works
+      };
+      console.log(namedFunc); // undefined
+      ```
+
+    ### Usage Recommendations
+
+    **Function Declarations:**
+
+    - Use for reusable functions available throughout the scope.
+
+    **Function Expressions:**
+
+    - Use for functions needed only in specific contexts to limit the scope.
+
+## 16. What are the various ways to create objects in JavaScript?
+
+    Here are the various ways to create objects in JavaScript:
+
+    1. **Object Literals** (**`{}`**): Simplest way to create objects using key-value pairs within curly braces.
+
+       ```jsx
+       const person = {
+         firstName: 'John',
+         lastName: 'Doe',
+       };
+       ```
+
+    2. **Object() Constructor**: Using the **`new`** keyword with the built-in **`Object`** constructor to create an object.
+
+       ```jsx
+       const person = new Object();
+       person.firstName = 'John';
+       person.lastName = 'Doe';
+       ```
+
+    3. **Object.create() Method**: Creating a new object using an existing object as a prototype.
+
+       ```jsx
+       const personPrototype = {
+         greet() {
+           console.log(
+             `Hello, my name is ${this.name} and I'm ${this.age} years old.`,
+           );
+         },
+       };
+
+       const person = Object.create(personPrototype);
+       person.name = 'John';
+       person.age = 30;
+
+       person.greet(); // Output: Hello, my name is John and I'm 30 years old.
+       ```
+
+    4. **ES2015 Classes**: Defining a blueprint for objects using classes, similar to other programming languages.
+
+       ```jsx
+       class Person {
+         constructor(name, age) {
+           this.name = name;
+           this.age = age;
+         }
+         greet = function () {
+           console.log(
+             `Hello, my name is ${this.name} and I'm ${this.age} years old.`,
+           );
+         };
+       }
+
+       const person = new Person('John', 30);
+       person.greet(); // Output: Hello, my name is John and I'm 30 years old.
+       ```
+
+    5. **Constructor Functions**: Reusable blueprints for objects, using the **`new`** keyword to create instances.
+
+       ```js
+       // Constructor function
+       function Person(name, age) {
+         this.name = name;
+         this.age = age;
+         this.greet = function () {
+           console.log(
+             `Hello, my name is ${this.name} and I'm ${this.age} years old.`,
+           );
+         };
+       }
+
+       const person = new Person('John', 30);
+       person.greet(); // Output: Hello, my name is John and I'm 30 years old.
+       ```
+
+    Note: Constructor functions are less commonly used now that ES2015 classes are widely supported.
+
+## 17. What is the definition of a higher-order function?
+
+    A higher-order function is a function that:
+
+    1. **Takes another function as an argument**: A function that accepts another function as a parameter.
+
+       ```jsx
+       function greet(name) {
+         return `Hello, ${name}!`;
+       }
+
+       function greetName(greeter, name) {
+         console.log(greeter(name));
+       }
+
+       greetName(greet, 'Alice'); // Output: Hello, Alice!
+       ```
+
+    2. **Returns a function as its result**: A function that returns another function as its output.
+
+       ```js
+       function multiplier(factor) {
+         return function (num) {
+           return num * factor;
+         };
+       }
+
+       const double = multiplier(2);
+
+       console.log(double(5)); // Output: 10
+       ```
+
+    In other words, a higher-order function is a function that operates on other functions, either by taking them as input or by producing them as output.
+
+## 18. What are the differences between ES2015 classes and ES5 function constructors?
+
+    ### ES5 Function Constructors
+
+    Uses function constructors and prototypes.
+
+    - **Example:**
+
+      ```js
+      function Person(name, age) {
+        this.name = name;
+        this.age = age;
+      }
+
+      Person.prototype.greet = function () {
+        console.log(
+          'Hello, my name is ' +
+            this.name +
+            ' and I am ' +
+            this.age +
+            ' years old.',
+        );
+      };
+
+      var person1 = new Person('John', 30);
+      person1.greet(); // Hello, my name is John and I am 30 years old.
+      ```
+
+    ### ES2015 Classes
+
+    Uses the **`class`** syntax, making code more readable and adding features.
+
+    - **Example:**
+
+      ```js
+      class Person {
+        constructor(name, age) {
+          this.name = name;
+          this.age = age;
+        }
+
+        greet() {
+          console.log(
+            `Hello, my name is ${this.name} and I am ${this.age} years old.`,
+          );
+        }
+      }
+
+      const person1 = new Person('John', 30);
+      person1.greet(); // Hello, my name is John and I am 30 years old.
+      ```
+
+      ### Key differences
+
+      #### Syntax and Readability
+
+      - ES5: Function constructors and prototypes
+      - ES2015: **`class`** keyword, more concise and easier to understand
+
+      #### Static Methods
+
+      - ES5: Added directly to the constructor function
+      - ES2015: Defined within the class using **`static`** keyword
+
+      #### Inheritance
+
+      - ES5: Using **`Object.create()`** and manual prototype chain setting
+      - ES2015: Using **`extends`** keyword, simpler and more intuitive
+
+      ### Super Calls
+
+      - ES5: Manual parent constructor function call
+      - ES2015: Using **`super`** keyword to call parent class's constructor and methods
+
+## 19. Describe event bubbling
+
+    **Event bubbling** is a mechanism in the DOM (Document Object Model) where an event, such as a click, is first triggered on the target element and then propagates upward through the DOM tree to the root of the document.
+
+    **Bubbling Phase:**
+
+    - **Description:** During the bubbling phase, the event starts at the target element and bubbles up through its ancestors in the DOM hierarchy. Event handlers attached to the target element and its ancestors can all potentially receive and respond to the event.
+    - **Example:**
+
+      ```js
+      // HTML:
+      // <div id="parent">
+      //   <button id="child">Click me!</button>
+      // </div>
+      const parent = document.getElementById('parent');
+      const child = document.getElementById('child');
+
+      parent.addEventListener('click', () => {
+        console.log('Parent element clicked');
+      });
+
+      child.addEventListener('click', () => {
+        console.log('Child element clicked');
+      });
+      ```
+
+      When you click the `Click me!` button, both the child and parent event handlers will be triggered due to event bubbling.
+
+    **Stopping Event Bubbling:**
+
+    - **Method:** Use **`stopPropagation()`** to stop the event from bubbling up the DOM tree.
+    - **Example:**
+
+      ```js
+      child.addEventListener('click', (event) => {
+        console.log('Child element clicked');
+        event.stopPropagation();
+      });
+      ```
+
+## 20. Describe event capturing
+
+    **Event capturing** is a propagation mechanism in the DOM where an event, such as a click, is first triggered at the root of the document and then flows down through the DOM tree to the target element.
+
+    **Event Propagation Phases:**
+
+    1. **Capturing Phase:** The event moves down from the root to the target element.
+    2. **Target Phase:** The event reaches the target element.
+    3. **Bubbling Phase:** The event bubbles up from the target element back to the root.
+
+    **Enabling Event Capturing:**
+
+    - Event capturing is disabled by default.
+    - Enable it by passing **`{ capture: true }`** as the third argument to **`addEventListener()`**.
+
+    **Example:**
+
+    ```js
+    // HTML:
+    // <div id="parent">
+    //   <button id="child">Click me!</button>
+    // </div>
+    const parent = document.getElementById('parent');
+    const child = document.getElementById('child');
+
+    parent.addEventListener(
+      'click',
+      () => {
+        console.log('Parent element clicked (capturing)');
+      },
+      true, // Enable capturing phase
+    );
+
+    child.addEventListener('click', () => {
+      console.log('Child element clicked');
+    });
+    ```
+
+    When you click the `Click me!` button, the parent element's capturing handler will be triggered before the child element's handler.
+
+    **Stopping Propagation:**
+
+    - Use **`stopPropagation()`** to prevent the event from traveling further down the DOM tree during the capturing phase.
+    - Example:
+
+      ```js
+      parent.addEventListener(
+        'click',
+        (event) => {
+          console.log('Parent element clicked (capturing)');
+          event.stopPropagation(); // Stop event propagation
+        },
+        true,
+      );
+
+      child.addEventListener('click', () => {
+        console.log('Child element clicked');
+      });
+      ```
+
+    In this example, only the parent event listener will be called when you click the "Click me!" button, as the event propagation is stopped at the parent element.
+
+## 21. What is the difference between `mouseenter` and `mouseover` event in JavaScript and browsers?
+
+    ### `mouseenter`
+
+    - Does not bubble
+    - Triggered only when the mouse pointer enters the element itself, not its descendants
+    - Only triggered once upon entry of parent element, without regard for its contents
+
+    ### `mouseover`
+
+    - Bubbles up the DOM tree
+    - Triggered when the mouse pointer enters the element or one of its descendants
+    - Can result in multiple event callbacks fired if there are child elements
+
+## 22. Explain the difference between synchronous and asynchronous functions
+
+    ### Synchronous Functions
+
+    - Execute in a sequential order, one after the other
+    - Blocking, meaning the program execution halts until the current operation finishes
+    - Follow a strict sequence, executing instructions line by line
+    - Easier to understand and debug since the flow is predictable
+    - Examples: reading files synchronously, looping over large datasets
+
+    **Example:**
+
+    ```js
+    const fs = require('fs');
+    const data = fs.readFileSync('large-file.txt', 'utf8');
+    console.log(data); // Blocks until file is read
+    console.log('End of the program');
+    ```
+
+    ### Asynchronous Functions
+
+    - Do not block the execution of the program
+    - Allow other operations to continue while waiting for a response or completion of a time-consuming task
+    - Non-blocking, enabling concurrent execution and improving performance and responsiveness
+    - Commonly used for tasks like network requests, file I/O, and timers
+    - Examples: network requests, user input and events, timers, and animations
+
+    **Example:**
+
+    ```js
+    console.log('Start of the program');
+
+    fetch('https://api.example.com/data')
+      .then((response) => response.json())
+      .then((data) => console.log(data)) // Non-blocking
+      .catch((error) => console.error(error));
+
+    console.log('End of program');
+    ```
+
+## 23. Explain AJAX in as much detail as possible
+
+    **AJAX** is a set of web development techniques using various web technologies on the client side to create asynchronous web applications. Unlike traditional web applications where each user interaction triggers a full page reload, AJAX allows web applications to send data to and retrieve data from a server asynchronously without interfering with the display and behavior of the existing page. This enables dynamic updates to the web page without the need to reload it.
+
+    **Key Points:**
+
+    - **Asynchronous:** AJAX enables web applications to update parts of a web page without reloading the whole page.
+    - **Data Formats:** Initially used XML, but JSON is now more common due to its compatibility with JavaScript.
+    - **APIs:** Traditionally used **`XMLHttpRequest`**, but **`fetch()`** is now preferred for modern web applications.
+
+    ### `XMLHttpRequest` API
+
+    **Example:**
+
+    ```js
+    let xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function () {
+      if (xhr.readyState === XMLHttpRequest.DONE) {
+        if (xhr.status === 200) {
+          console.log(xhr.responseText);
+        } else {
+          console.error('Request failed: ' + xhr.status);
+        }
+      }
+    };
+    xhr.open('GET', 'https://jsonplaceholder.typicode.com/todos/1', true);
+    xhr.send();
+    ```
+
+    - **Flow:** Creates a new **`XMLHttpRequest`**, sets up a callback function to handle state changes, opens a request to a URL, and sends the request.
+
+    ### `fetch()` API
+
+    **Example:**
+
+    ```js
+    fetch('https://jsonplaceholder.typicode.com/todos/1')
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.json();
+      })
+      .then((data) => console.log(data))
+      .catch((error) => console.error('Fetch error:', error));
+    ```
+
+    - **Flow:** Initiates a fetch request, handles the response with **`.then()`** to parse JSON data, and manages errors with **`.catch()`**.
+
+    ### How AJAX Works with `fetch`
+
+    #### 1. Making a Request
+
+       - **`fetch()`** initiates an asynchronous request to fetch a resource from a URL.
+       - **Example:**
+
+         ```js
+         fetch('https://api.example.com/data', {
+           method: 'GET', // or 'POST', 'PUT', 'DELETE', etc.
+           headers: {
+             'Content-Type': 'application/json',
+           },
+         });
+         ```
+
+    #### 2. Return a Promise
+       - **`fetch()`** returns a Promise that resolves to a **`Response`** object representing the server's response.
+    #### 3. Handling the Response
+
+       - The **`Response`** object offers methods to handle the body content, such as **`.json()`**, **`.text()`**, **`.blob()`**.
+       - **Example:**
+
+         ```js
+         fetch('https://api.example.com/data')
+           .then((response) => response.json())
+           .then((data) => console.log(data))
+           .catch((error) => console.error('Error:', error));
+         ```
+
+    #### 4. Asynchronous Nature
+       - **`fetch()`** is asynchronous, allowing the browser to continue executing other tasks while waiting for the server response.
+       - Promises (**`.then()`**, **`.catch()`**) are handled in the microtask queue as part of the event loop.
+    #### 5. Request Options
+       - The optional second argument to **`fetch()`** configures various request aspects, such as HTTP method, headers, body, credentials, and caching.
+    #### 6. Error Handling
+       - Errors (e.g., network failures, invalid responses) are caught and propagated through the Promise chain using **`.catch()`** or **`try/catch`** with **`async/await`**.
+
+## 24. What are the advantages and disadvantages of using AJAX?
+
+    **AJAX (Asynchronous JavaScript and XML)** enables web pages to send and retrieve data asynchronously, allowing for dynamic updates without full page reloads.
+
+    ### Advantages
+
+    - AJAX provides a seamless user experience by updating content without full page reloads.
+    - It reduces server load and improves performance by only fetching necessary data.
+    - AJAX maintains user interactions and client states within the page.
+
+    ### Disadvantages
+
+    - AJAX relies on JavaScript, which can break functionality if disabled.
+    - Dynamic content makes bookmarking specific page states challenging.
+    - Search engines may struggle to index dynamic content, posing SEO challenges.
+    - Processing AJAX data on low-end devices can be slow, raising performance concerns.
+
+## 25. What are the differences between `XMLHttpRequest` and `fetch()`?
+
+    Both `XMLHttpRequest (XHR)` and `fetch()` enable asynchronous HTTP requests in JavaScript, but differ in syntax, handling, and features.
+
+    ### Syntax and Usage
+
+    - **XMLHttpRequest**: Event-driven, requiring event listeners to handle responses and errors.
+    - **fetch()**: Promise-based, offering simpler and more intuitive syntax.
+
+    ### Request Headers
+
+    - **XMLHttpRequest**: Set headers using the `setRequestHeader` method.
+    - **fetch()**: Pass headers as an object in the options parameter.
+
+    ### Request Body
+
+    - **XMLHttpRequest**: Send body with the `send` method.
+    - **fetch()**: Use the `body` property in the options parameter.
+
+    ### Response Handling
+
+    - **XMLHttpRequest**: Use `responseType` to handle different formats.
+    - **fetch()**: Provides a unified Response object with `.then` for accessing data.
+
+    ### Error Handling
+
+    - **XMLHttpRequest**: Handle errors with `onerror` event.
+    - **fetch()**: Handle errors using the `.catch` method.
+
+    ### Caching Control
+
+    - **XMLHttpRequest**: Difficult to manage, often requiring workaround methods.
+    - **fetch()**: Supports caching options directly.
+
+    ### Cancellation
+
+    - **XMLHttpRequest**: Use the `abort()` method.
+    - **fetch()**: Use `AbortController` for request cancellation.
+
+    ### Progress Support
+
+    - **XMLHttpRequest**: Supports tracking progress with the `onprogress` event.
+    - **fetch()**: Does not support native progress tracking.
+
+    **Choosing Between Them**: `fetch()` is generally preferred due to its cleaner syntax and promise-based handling, but `XMLHttpRequest` may still be useful for specific cases like progress tracking.
+
+## 26. What are the various data types in JavaScript?
+
+    JavaScript has various data types categorized into two groups: primitive and non-primitive (reference) types.
+
+    ### Primitive Data Types
+
+    - **Number**: Represents both integers and floating-point numbers.
+    - **String**: Represents sequences of characters, enclosed in single, double quotes, or backticks.
+    - **Boolean**: Logical entities with values `true` or `false`.
+    - **Undefined**: A declared variable without an assigned value.
+    - **Null**: Represents the intentional absence of value.
+    - **Symbol**: A unique, immutable value used as object property keys.
+    - **BigInt**: Represents integers with arbitrary precision, useful for very large numbers.
+
+    ### Non-Primitive Data Types
+
+    - **Object**: Used to store collections of data and more complex entities.
+    - **Array**: An ordered collection of data.
+    - **Function**: Functions are objects and can be defined using declarations or expressions.
+    - **Date**: Represents dates and times.
+    - **RegExp**: Represents regular expressions for pattern matching in strings.
+    - **Map**: A collection of keyed data items, allowing keys of any type.
+    - **Set**: A collection of unique values.
+
+    **Determining Data Types**: JavaScript is dynamically typed, meaning variables can hold different data types over time. Use the `typeof` operator to determine a variable's type.
+
+## 27. What language constructions do you use for iterating over object properties and array items?
+
+    Iterating over object properties and arrays is very common in JavaScript and we have various ways to achieve this. Here are some of the ways to do it:
+
+    ### Iterating over object
+
+    #### 1. `for...in` Statement
+    Loops over all enumerable properties of an object, including inherited ones.
+
+    ```js
+    for (const property in obj) {
+      if (Object.hasOwn(obj, property)) {
+        console.log(property);
+      }
+    }
+    ```
+
+    #### 2. `Object.keys()`
+    Returns an array of an object's own enumerable property names.
+
+    ```js
+    Object.keys(obj).forEach((property) => console.log(property));
+    ```
+
+    #### 3. `Object.entries()`
+    Returns an array of a given object's own enumerable string-keyed property [key, value] pairs.
+
+    ```js
+    Object.entries(obj).forEach(([key, value]) =>
+      console.log(`${key}: ${value}`),
+    );
+    ```
+
+    #### 4. `Object.getOwnPropertyNames()`
+    Returns an array of all properties (including non-enumerable ones) found directly upon a given object.
+
+    ```js
+    Object.getOwnPropertyNames(obj).forEach((property) =>
+      console.log(property),
+    );
+    ```
+
+    ### Iterating Over Arrays
+
+    #### 1. `for` Loop
+    Traditional loop over array elements.
+
+    ```js
+    for (let i = 0; i < arr.length; i++) {
+      console.log(arr[i]);
+    }
+    ```
+
+    #### 2. `Array.prototype.forEach()`
+    Executes a provided function once for each array element.
+
+    ```js
+    arr.forEach((element, index) => console.log(element, index));
+    ```
+
+    #### 3. `for...of` Statement
+    Loops over iterable objects like arrays.
+
+    ```js
+    for (let element of arr) {
+      console.log(element);
+    }
+    ```
+
+    #### 4. `Array.prototype.entries()`
+    Provides both the index and value of each array element in a `for...of` loop.
+
+    ```js
+    for (let [index, elem] of arr.entries()) {
+      console.log(index, ': ', elem);
+    }
+    ```
+
+## 28. What are the benefits of using spread syntax and how is it different from rest syntax?
+
+    ### Spread Syntax
+
+    Introduced in ES2015, the spread syntax (`...`) is useful for copying and merging arrays and objects without modifying the originals. It's commonly used in functional programming, Redux, and RxJS.
+
+    - **Copying Arrays/Objects**: Creates shallow copies.
+
+      ```js
+      const array = [1, 2, 3];
+      const newArray = [...array]; // [1, 2, 3]
+
+      const obj = { name: 'John', age: 30 };
+      const newObj = { ...obj, city: 'New York' }; // { name: 'John', age: 30, city: 'New York' }
+      ```
+
+    - **Merging Arrays/Objects**: Merges them into a new one.
+
+      ```js
+      const arr1 = [1, 2, 3];
+      const arr2 = [4, 5, 6];
+      const mergedArray = [...arr1, ...arr2]; // [1, 2, 3, 4, 5, 6]
+
+      const obj1 = { foo: 'bar' };
+      const obj2 = { qux: 'baz' };
+      const mergedObj = { ...obj1, ...obj2 }; // { foo: 'bar', qux: 'baz' }
+      ```
+
+    - **Function Arguments**: Passes array elements as individual arguments.
+
+      ```js
+      const numbers = [1, 2, 3];
+      Math.max(...numbers); // Same as Math.max(1, 2, 3)
+      ```
+
+    - **Array vs. Object Spreads**: Only iterables can be spread into arrays; arrays can be spread into objects.
+
+      ```js
+      const array = [1, 2, 3];
+      const obj = { ...array }; // { 0: 1, 1: 2, 2: 3 }
+      ```
+
+    ### Rest Syntax
+
+    The rest syntax (`...`) gathers multiple elements into an array or object, the inverse of the spread syntax.
+
+    - **Function Parameters**: Collects remaining arguments into an array.
+
+      ```js
+      function addFiveToNumbers(...numbers) {
+        return numbers.map((x) => x + 5);
+      }
+      const result = addFiveToNumbers(4, 5, 6, 7); // [9, 10, 11, 12]
+      ```
+
+    - **Array Destructuring**: Collects remaining elements into a new array.
+
+      ```js
+      const [first, second, ...remaining] = [1, 2, 3, 4, 5];
+      // first: 1, second: 2, remaining: [3, 4, 5]
+      ```
+
+    - **Object Destructuring**: Collects remaining properties into a new object.
+
+      ```js
+      const { e, f, ...others } = { e: 1, f: 2, g: 3, h: 4 };
+      // e: 1, f: 2, others: { g: 3, h: 4 }
+      ```
+
+    - **Rest Parameter Rules**: Must be the last parameter.
+
+      ```js
+      function addFiveToNumbers(arg1, ...numbers, arg2) {
+        // Error: Rest element must be last element.
+      }
+      ```
+
+## 29. What is the difference between a `Map` object and a plain object in JavaScript?
+
+    ### Map Object
+
+    - **Key Types**: Allows keys of any type (objects, functions, primitives).
+    - **Order**: Maintains the insertion order of keys.
+    - **Size**: Provides a `size` property to get the number of key-value pairs.
+    - **Iteration**: Directly iterable, using methods like `forEach`, `keys()`, `values()`, and `entries()`.
+    - **Performance**: Generally better for larger datasets and frequent additions/deletions.
+
+    ### Plain Object
+
+    - **Key Types**: Keys are typically strings or symbols. Non-string keys are converted to strings.
+    - **Order**: Insertion order is not guaranteed.
+    - **Size**: No built-in property to get the size. Must manually count the number of keys.
+    - **Iteration**: Not directly iterable. Use methods like `Object.keys()`, `Object.values()`, or `Object.entries()` for iteration.
+    - **Performance**: Faster for small datasets and simple operations.
+
+    ### Example
+
+    ```js
+    // Map
+    const map = new Map();
+    map.set('key1', 'value1');
+    map.set({ key: 'key2' }, 'value2');
+    console.log(map.size); // 2
+
+    // Plain Object
+    const obj = { key1: 'value1' };
+    obj[{ key: 'key2' }] = 'value2';
+    console.log(Object.keys(obj).length); // 1 (keys are strings)
+    ```
+
+## 30. What are the differences between `Map`/`Set` vs `WeakMap`/`WeakSet`?
+
+    The main distinctions between `Map`/`Set` and `WeakMap`/`WeakSet` in JavaScript are as follows:
+
+    - **Key types**: `Map` and `Set` accept keys of any type (objects, primitive values), whereas `WeakMap` and `WeakSet` exclusively use objects as keys, excluding primitive values like strings or numbers.
+    - **Memory management**: `Map` and `Set` retain strong references to their keys and values, preventing their disposal by garbage collection. In contrast, `WeakMap` and `WeakSet` employ weak references for keys (objects), allowing these objects to be collected by garbage collection if no other strong references persist.
+    - **Key enumeration**: Keys in `Map` and `Set` are enumerable and can be iterated over, while those in `WeakMap` and `WeakSet` are non-enumerable, precluding retrieval of key or value lists directly from them.
+    - **Size property**: `Map` and `Set` possess a `size` property that indicates the number of elements they contain. In contrast, `WeakMap` and `WeakSet` lack a `size` property because their size may vary as a result of garbage collection.
+    - **Use cases**: `Map` and `Set` serve well as general-purpose data structures and for caching purposes. Conversely, `WeakMap` and `WeakSet` are primarily suited for storing metadata or additional object-related data without impeding the object's potential garbage collection when no longer needed.
+
+## 31. Can you offer a use case for the new arrow => function syntax?
+
+    One practical use case for the arrow function syntax in JavaScript is simplifying callback functions, particularly in scenarios where you need concise, inline function definitions. Here's an example:
+
+    **Use Case: Mapping an Array**
+
+    Suppose you have an array of numbers and you want to double each number using the `map` function.
+
+    ```js
+    // Traditional function syntax
+    const numbers = [1, 2, 3, 4, 5];
+    const doubledNumbers = numbers.map(function (number) {
+      return number * 2;
+    });
+
+    console.log(doubledNumbers); // Output: [2, 4, 6, 8, 10]
+    ```
+
+    Using arrow function syntax, you can achieve the same result more succinctly:
+
+    ```js
+    // Arrow function syntax
+    const numbers = [1, 2, 3, 4, 5];
+    const doubledNumbers = numbers.map((number) => number * 2);
+
+    console.log(doubledNumbers); // Output: [2, 4, 6, 8, 10]
+    ```
+
+## 32. Explain the concept of a callback function in asynchronous operations
+
+    In asynchronous programming, a callback function is passed as an argument to another function and invoked when a task completes, such as fetching data or handling I/O operations. Here's a concise explanation:
+
+    ### Example
+
+    ```js
+    function fetchData(callback) {
+      setTimeout(() => {
+        const data = { name: 'John', age: 30 };
+        callback(data);
+      }, 1000);
+    }
+
+    fetchData((data) => {
+      console.log(data); // { name: 'John', age: 30 }
+    });
+    ```
+
+## 33. Explain the concept of debouncing and throttling
+
+    Debouncing delays function execution until a specified time has passed since its last call, useful for tasks like search input handling.
+
+    ```js
+    function debounce(func, delay) {
+      let timeoutId;
+      return (...args) => {
+        clearTimeout(timeoutId);
+        timeoutId = setTimeout(() => func.apply(this, args), delay);
+      };
+    }
+    ```
+
+    Throttling limits function execution to at most once within a specified interval, beneficial for tasks like handling frequent events such as window resizing or scrolling.
+
+    ```js
+    function throttle(func, limit) {
+      let inThrottle;
+      return (...args) => {
+        if (!inThrottle) {
+          func.apply(this, args);
+          inThrottle = true;
+          setTimeout(() => (inThrottle = false), limit);
+        }
+      };
+    }
+    ```
+
+    These techniques optimize performance and manage event-driven behaviors effectively in JavaScript applications.
+
+## 34. Explain the concept of destructuring assignment for objects and arrays
+
+    Destructuring assignment simplifies extracting values from arrays or properties from objects into separate variables:
+
+    ### Example
+
+    ```js
+    // Array destructuring
+    const [a, b] = [1, 2];
+
+    // Object destructurin
+    const { name, age } = { name: 'John', age: 30 };
+    ```
+
+    This syntax uses square brackets for arrays and curly braces for objects, enabling concise variable assignment directly from data structures.
+
+## 35. Explain the concept of hoisting with regards to functions
+
+    Hoisting moves function declarations to the top of their scope during compilation, allowing them to be called before their actual placement in the code. Function expressions and arrow functions, however, must be defined before they are called to avoid errors.
+
+    ### Example
+
+    ```js
+    // Function declaration
+    hoistedFunction(); // Works fine
+    function hoistedFunction() {
+      console.log('This function is hoisted');
+    }
+
+    // Function expression
+    nonHoistedFunction(); // Throws an error
+    var nonHoistedFunction = function () {
+      console.log('This function is not hoisted');
+    };
+    ```
+
+## 36. Explain the concept of inheritance in ES2015 classes
+
+    In ES2015, classes use `extends` to enable one class to inherit properties and methods from another. The `super` keyword accesses the parent class's constructor and methods.
+
+    ### Example
+
+    ```js
+    class Animal {
+      constructor(name) {
+        this.name = name;
+      }
+
+      speak() {
+        console.log(`${this.name} makes a noise.`);
+      }
+    }
+
+    class Dog extends Animal {
+      constructor(name, breed) {
+        super(name);
+        this.breed = breed;
+      }
+
+      speak() {
+        console.log(`${this.name} barks.`);
+      }
+    }
+
+    const dog = new Dog('Rex', 'German Shepherd');
+    dog.speak(); // Output: Rex barks.
+    ```
+
+    Here, `Dog` inherits from `Animal`, showcasing how classes streamline inheritance and method overriding in JavaScript.
+
+### 37. Explain the concept of lexical scoping
+
+    Lexical scoping in JavaScript determines variable access based on its position in the source code. Nested functions can access variables from their outer scope.
+
+    ### Example
+
+    ```js
+    function outerFunction() {
+      let outerVariable = 'I am outside!';
+
+      function innerFunction() {
+        console.log(outerVariable); // 'I am outside!'
+      }
+
+      innerFunction();
+    }
+
+    outerFunction();
+    ```
+
+    Here, `innerFunction` can access `outerVariable` due to lexical scoping rules.
+
+## 38. Explain the concept of scope in JavaScript
+
+    Scope in JavaScript determines the visibility of variables and functions within different parts of the code. There are three main types: global scope, function scope, and block scope.
+
+    ### Example
+
+    ```js
+    // Global scope
+    var globalVar = 'I am global';
+
+    function myFunction() {
+      // Function scope
+      var functionVar = 'I am in a function';
+
+      if (true) {
+        // Block scope
+        let blockVar = 'I am in a block';
+        console.log(blockVar); // Accessible here
+      }
+
+      // console.log(blockVar); // Throws an error
+    }
+
+    console.log(globalVar); // Accessible here
+    // console.log(functionVar); // Throws an error
+    ```
+
+    Global scope variables are accessible throughout the code, while function scope variables are limited to the function they are declared in. Block scope, introduced in ES6, confines variables to the block they are declared within (e.g., within curly braces {}).
+
+## 39. Explain the concept of the spread operator and its uses
+
+    The spread operator (...) in JavaScript expands elements of an iterable (like arrays or objects) into individual elements. It's used for copying arrays or objects, merging them, and passing array elements as function arguments.
+
+    ### Examples
+
+    ```js
+    // Copying an array
+    const arr1 = [1, 2, 3];
+    const arr2 = [...arr1];
+
+    // Merging arrays
+    const arr3 = [4, 5, 6];
+    const mergedArray = [...arr1, ...arr3];
+
+    // Copying an object
+    const obj1 = { a: 1, b: 2 };
+    const obj2 = { ...obj1 };
+
+    // Merging objects
+    const obj3 = { c: 3, d: 4 };
+    const mergedObject = { ...obj1, ...obj3 };
+
+    // Passing array elements as function arguments
+    const sum = (x, y, z) => x + y + z;
+    const numbers = [1, 2, 3];
+    console.log(sum(...numbers)); // Output: 6
+    ```
+
+    The spread operator simplifies tasks like copying, merging, and function argument handling by expanding iterable elements into individual components.
+
+## 40. Explain the concept of `this` binding in event handlers
+
+    In JavaScript, the `this` keyword refers to the object executing the current code. In event handlers, `this` usually points to the element that triggered the event. However, its value can vary based on how the handler is defined and invoked. To ensure `this` refers correctly, methods like `bind()`, arrow functions, or explicit context assignment are used.
+
+    These approaches help maintain the intended context for `this` within event handling functions, ensuring predictable behavior across different event-triggering scenarios in JavaScript applications.
+
+## 41. Explain the difference between classical inheritance and prototypal inheritance
+
+    **Classical Inheritance:** In languages like Java and C++, classes inherit from other classes through a hierarchical structure. Instances are created from classes using constructors.
+
+    **Prototypal Inheritance:** In JavaScript, objects inherit directly from other objects. Objects serve as prototypes, and new objects are created based on existing ones.
+
+    Classical inheritance uses classes for instantiation, while prototypal inheritance leverages object linkage for property and behavior inheritance, highlighting JavaScript's unique approach to object-oriented programming.
+
+## 42. Explain the difference between `document.querySelector()` and `document.getElementById()`
+
+    `document.querySelector()` selects elements using CSS selectors and returns the first match.
+
+    ```js
+    const element = document.querySelector('.my-class');
+    ```
+
+    `document.getElementById()` selects an element by its ID attribute and returns the element with that specific ID.
+
+    ```js
+    const elementById = document.getElementById('my-id');
+    ```
+
+    While `document.querySelector()` offers flexibility with CSS selectors, `document.getElementById()` is straightforward for selecting elements by their unique IDs in the DOM.
+
+## 43. Explain the difference between dot notation and bracket notation for accessing object properties
+
+    **Dot Notation:** Concise and straightforward, it accesses object properties using valid identifiers.
+
+    ```js
+    const obj = { name: 'Alice', age: 30 };
+
+    console.log(obj.name); // Alice
+    ```
+
+    **Bracket Notation:** Flexible, it accesses properties using strings, suitable for names with special characters or dynamic properties.
+
+    ```js
+    const obj = { name: 'Alice', 'favorite color': 'blue' };
+
+    console.log(obj['favorite color']); // blue
+    ```
+
+    Dot notation is clear for standard properties, while bracket notation handles special cases like dynamic or non-standard property names effectively.
+
+## 44. Explain the difference between global scope, function scope, and block scope
+
+    ### Global Scope
+
+    Accessible from anywhere in the code.
+
+    ```js
+    var globalVar = "I'm global"; // Global scope
+    ```
+
+    ### Function Scope
+
+    Limited to the function where it's declared.
+
+    ```js
+    function myFunction() {
+      var functionVar = "I'm in a function"; // Function scope
+    }
+    ```
+
+    ### Block Scope
+
+    Restricted to the block where `let` or `const` is used.
+
+    ```js
+    function myFunction() {
+      if (true) {
+        let blockVar = "I'm in a block"; // Block scope
+        console.log(blockVar); // Accessible here
+      }
+      // console.log(blockVar); // ReferenceError: blockVar is not defined
+    }
+    ```
+
+    These scopes define where variables can be accessed, from global access throughout the code to specific function or block-level access for better control and encapsulation of variables.
+
+## 45. Explain the difference between shallow copy and deep copy
+
+    ### Shallow Copy
+
+    Duplicates top-level properties; nested objects remain referenced.
+
+    ```js
+    let obj1 = { a: 1, b: { c: 2 } };
+    let shallowCopy = Object.assign({}, obj1);
+    shallowCopy.b.c = 3;
+    console.log(obj1.b.c); // 3
+    ```
+
+    ### Deep Copy
+
+    Duplicates all levels, creating independent nested objects.
+
+    ```js
+    let deepCopy = JSON.parse(JSON.stringify(obj1));
+    deepCopy.b.c = 4;
+    console.log(obj1.b.c); // 2
+    ```
+
+    Shallow copies share references to nested objects, while deep copies create entirely new instances, ensuring independent modifications.
+
+## 46. Explain the difference in hoisting between `var`, `let`, and `const`
+
+    **`var`:**
+
+    - Hoisted to the top of its scope.
+    - Initialized with undefined.
+    - Can be used before its declaration without throwing an error.
+
+    ```js
+    console.log(myVar); // undefined
+    var myVar = 'Hello';
+    ```
+
+    **`let` and `const`:**
+
+    - Hoisted to the top of their scope.
+    - Not initialized (temporal dead zone).
+    - Accessing them before declaration results in a ReferenceError.
+
+    ```js
+    console.log(myLet); // ReferenceError: Cannot access 'myLet' before initialization
+    let myLet = 'World';
+
+    console.log(myConst); // ReferenceError: Cannot access 'myConst' before initialization
+    const myConst = '!';
+    ```
+
+    **`const`:**
+
+    - Requires an initial value at declaration.
+    - Once assigned, its value cannot be changed (immutable).
+
+    ```js
+    const PI = 3.14;
+    PI = 3.14159; // TypeError: Assignment to constant variable.
+    ```
+
+## 47. How can closures be used to create private variables?
+
+    Closures in JavaScript provide a mechanism to create private variables by encapsulating them within a function scope. Here's how closures can be used to achieve this:
+
+    ```js
+    function createCounter() {
+      let count = 0;
+
+      return {
+        increment: () => ++count,
+        decrement: () => --count,
+        getCount: () => count,
+      };
+    }
+
+    const counter = createCounter();
+    console.log(counter.increment()); // 1
+    console.log(counter.getCount()); // 1
+    console.log(counter.count); // undefined
+    ```
+
+## 48. How do `Set`s and `Map`s handle equality checks for objects?
+
+    `Set`s and `Map`s in JavaScript determine the equality of objects based on reference equality, not by comparing their contents. This means objects are considered equal only if they point to the same memory location. For instance:
+
+    ```js
+    const set = new Set();
+    const obj1 = { a: 1 };
+    const obj2 = { a: 1 };
+
+    set.add(obj1);
+    set.add(obj2);
+
+    console.log(set.size); // Output: 2
+    ```
+
+    In this example, `obj1` and `obj2` are treated as separate entries in the Set because they are distinct objects, despite having identical properties. Therefore, Sets and Maps rely on object references to determine equality, not their internal values.
+
+## 49. How do you access the index of an element in an array during iteration?
+
+    To access the index of an element in an array during iteration, you can utilize methods like forEach, map, for...of with entries, or a traditional for loop. Here's an example using forEach:
+
+    ```js
+    const array = ['a', 'b', 'c'];
+    array.forEach((element, index) => {
+      console.log(index, element);
+    });
+    ```
+
+## 50. How do you check the data type of a variable?
+
+    To determine the type of a variable in JavaScript, you use `typeof` followed by the variable name. It returns a string indicating the variable's type: "string", "number", "boolean", "object", "function", "undefined", or "symbol". For arrays, use `Array.isArray(variableName)`, and for null, check `variableName === null`.
+
+## Conclusion
+
+You've made it to the end of our extensive list of JavaScript interview questions and answers! We hope this guide has helped you gain the confidence and skills you need to ace your next JavaScript interview. Remember, practice is key, so keep coding and reviewing the concepts until they become second nature.

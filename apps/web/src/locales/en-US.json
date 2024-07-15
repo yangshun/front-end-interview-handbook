@@ -43,10 +43,6 @@
     "defaultMessage": "Congratulations on completing the question! Sign into your account or sign up for free to save your progress!",
     "description": "Message shown when user completes a question"
   },
-  "+Jx8q7": {
-    "defaultMessage": "Try next skill plan",
-    "description": "Title for next skill plan dialog for submission success page"
-  },
   "+OVTKu": {
     "defaultMessage": "Billing | Profile",
     "description": "Title of Profile Billing page"
