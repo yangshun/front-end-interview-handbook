@@ -7,7 +7,7 @@ import promisifyTs from '../setup/src/promisify-ii.ts';
 
 ## Solution
 
-The only addition you need to make is to check if the `func` argument has the custom `Symbol('util.promisify.custom')` defined and return the corresponding value if so.
+The only addition you need to make is to check if the `func` argument has the custom `Symbol.for('util.promisify.custom')` defined and return the corresponding value if so.
 
 <MDXCodeBlock languages={{ jsx: promisifyJs, tsx: promisifyTs }} />
 
