@@ -215,6 +215,7 @@ model ProjectsProfile {
   commentVotes       ProjectsDiscussionCommentVote[]
   challengesUnlocked ProjectsChallengeAccess[]
   creditTransactions ProjectsChallengeCreditTransaction[]
+  notifications      ProjectsNotification[]
 }
 
 enum ProjectsChallengeSessionStatus {
@@ -312,6 +313,7 @@ model ProjectsChallengeSubmission {
   recommendationAll    ProjectsChallengeSubmissionRecommendationAll?
   recommendationLearn  ProjectsChallengeSubmissionRecommendationLearn?
   recommendationMentor ProjectsChallengeSubmissionRecommendationMentor?
+  notifications        ProjectsNotification[]
 }
 
 model ProjectsChallengeSubmissionPin {
@@ -393,6 +395,7 @@ model ProjectsDiscussionComment {
   parentComment ProjectsDiscussionComment?      @relation("DiscussionThread", fields: [parentCommentId], references: [id], onDelete: Cascade, onUpdate: NoAction)
   replies       ProjectsDiscussionComment[]     @relation("DiscussionThread")
   votes         ProjectsDiscussionCommentVote[]
+  notifications ProjectsNotification[]
 }
 
 model ProjectsDiscussionCommentVote {
@@ -430,4 +433,18 @@ model RoadmapItem {
   url         String?
   createdAt   DateTime @default(now()) @db.Timestamptz(6)
   updatedAt   DateTime @default(now()) @updatedAt
+}
+
+model ProjectsNotification {
+  id                  String          @id @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
+  profileId           String          @db.Uuid
+  createdAt           DateTime        @default(now()) @db.Timestamptz(6)
+  category            String
+  read                Boolean         @default(false)
+  data                Json?
+  submissionId        String?         @db.Uuid
+  submission          ProjectsChallengeSubmission? @relation(fields: [submissionId], references: [id], onDelete: Cascade, onUpdate: NoAction)
+  commentId           String?         @db.Uuid
+  comment             ProjectsDiscussionComment? @relation(fields: [commentId], references: [id], onDelete: Cascade, onUpdate: NoAction)
+  ProjectsProfile     ProjectsProfile @relation(fields: [profileId], references: [id], onDelete: Cascade, onUpdate: NoAction)
 }

@@ -25,6 +25,7 @@ export type ProjectsDiscussionsCommentItem = Readonly<{
   domain: ProjectsDiscussionCommentDomain;
   entityId: string;
   id: string;
+  profileId: string;
   replies?: ReadonlyArray<ProjectsDiscussionsCommentItem>;
   updatedAt: Date;
 }>;

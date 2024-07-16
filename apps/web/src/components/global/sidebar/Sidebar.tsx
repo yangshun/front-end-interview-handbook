@@ -33,8 +33,10 @@ export function SidebarCollapsed({
   onCollapseClick,
   showPremiumDiscord: isViewerPremium,
   product,
+  notificationItem,
 }: Readonly<{
   moreMenuItems: React.ReactElement | false | null | undefined;
+  notificationItem?: React.ReactElement | false | null | undefined;
   onCollapseClick: () => void;
   product: React.ComponentProps<typeof NavProductMenuSelector>['value'];
   showPremiumDiscord: boolean;
@@ -75,6 +77,7 @@ export function SidebarCollapsed({
       )}
       <Divider className="w-full" />
       <div className="flex flex-col items-center gap-6">
+        {notificationItem}
         <div className="flex flex-col items-center gap-4">
           <DropdownMenu
             align="end"
@@ -138,12 +141,14 @@ export function SidebarExpanded({
   sidebarItems,
   onCollapseClick,
   bottomBarItems,
+  notificationItem,
   product,
 }: Readonly<{
-  bottomBarItems: React.ReactElement | false | null | undefined;
+  bottomBarItems?: React.ReactElement | false | null | undefined;
   isLoading: boolean;
   isViewerPremium: boolean;
   moreMenuItems: React.ReactElement | false | null | undefined;
+  notificationItem?: React.ReactElement | false | null | undefined;
   onCollapseClick?: () => void;
   product: React.ComponentProps<typeof NavProductMenuSelector>['value'];
   renderBottomAddonElements?: (fadeInClassname: string) => React.ReactNode;
@@ -187,6 +192,7 @@ export function SidebarExpanded({
       </div>
       <div className="flex justify-between gap-4">
         <div className="flex gap-4">
+          {notificationItem}
           {isViewerPremium ? (
             <Button
               href={SocialLinks.discordPremium.href}

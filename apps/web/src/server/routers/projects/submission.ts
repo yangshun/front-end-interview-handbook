@@ -1,5 +1,6 @@
 import { z } from 'zod';
 
+import { projectsNotificationForSubmissionVote } from '~/components/projects/notifications/ProjectsNotificationUtils';
 import {
   projectsReputationSubmissionAwardPoints,
   projectsReputationSubmissionVoteAwardPoints,
@@ -529,6 +530,7 @@ export const projectsChallengeSubmissionItemRouter = router({
           });
 
           await projectsReputationSubmissionVoteAwardPoints(vote);
+          projectsNotificationForSubmissionVote(vote);
         } catch (error) {
           if (
             error instanceof Prisma.PrismaClientKnownRequestError &&

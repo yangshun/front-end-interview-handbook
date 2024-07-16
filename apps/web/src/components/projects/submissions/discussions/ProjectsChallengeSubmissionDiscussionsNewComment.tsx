@@ -73,6 +73,7 @@ export default function ProjectsChallengeSubmissionDiscussionsNewComment({
         category: data.category ?? undefined,
         domain: 'PROJECTS_SUBMISSION',
         entityId: submission.id,
+        entityOwnerId: submission.projectsProfile?.id,
       },
       {
         onSuccess: () => {

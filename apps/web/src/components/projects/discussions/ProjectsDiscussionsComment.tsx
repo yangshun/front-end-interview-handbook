@@ -9,6 +9,8 @@ import {
 } from 'react-icons/ri';
 import { useIntl } from 'react-intl';
 
+import useScrollToHash from '~/hooks/useScrollToHash';
+
 import RelativeTimestamp from '~/components/common/datetime/RelativeTimestamp';
 import Badge from '~/components/ui/Badge';
 import Button from '~/components/ui/Button';
@@ -59,6 +61,9 @@ export default function ProjectsDiscussionsComment({
     replies,
     updatedAt,
   } = comment;
+
+  useScrollToHash();
+
   const intl = useIntl();
   const replyCount = replies?.length ?? 0;
   const hasReplies = replyCount > 0;

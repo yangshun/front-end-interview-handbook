@@ -3,6 +3,10 @@ import { z } from 'zod';
 
 import { discussionsCommentBodySchemaServer } from '~/components/projects/discussions/ProjectsDiscussionsCommentBodySchema';
 import {
+  projectsNotificationForComment,
+  projectsNotificationForReply,
+} from '~/components/projects/notifications/ProjectsNotificationUtils';
+import {
   projectsReputationCommentAwardPoints,
   projectsReputationCommentRevokePoints,
   projectsReputationCommentVoteAwardPoints,
@@ -31,11 +35,12 @@ export const projectsCommentsRouter = router({
         category: z.string().optional(),
         domain: z.enum(domains),
         entityId: z.string(),
+        entityOwnerId: z.string().uuid().optional(),
       }),
     )
     .mutation(
       async ({
-        input: { entityId, domain, category, body },
+        input: { entityId, domain, category, body, entityOwnerId },
         ctx: { projectsProfileId },
       }) => {
         const comment = await prisma.projectsDiscussionComment.create({
@@ -48,6 +53,14 @@ export const projectsCommentsRouter = router({
           },
         });
 
+        // Commenting to others submission
+        if (
+          domain === ProjectsDiscussionCommentDomain.PROJECTS_SUBMISSION &&
+          entityOwnerId !== projectsProfileId &&
+          entityOwnerId
+        ) {
+          projectsNotificationForComment(comment.id, entityOwnerId, entityId);
+        }
         await projectsReputationCommentAwardPoints(comment, projectsProfileId);
 
         return comment;
@@ -366,6 +379,10 @@ export const projectsCommentsRouter = router({
             profileId: projectsProfileId,
           },
         });
+
+        if (domain === ProjectsDiscussionCommentDomain.PROJECTS_SUBMISSION) {
+          projectsNotificationForReply(comment.id, projectsProfileId, entityId);
+        }
 
         await projectsReputationCommentAwardPoints(comment, projectsProfileId);
 

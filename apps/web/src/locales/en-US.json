@@ -1215,6 +1215,10 @@
     "defaultMessage": "Created: Newest to oldest",
     "description": "Sorting option for discussions comment - sort by created"
   },
+  "8AI4/R": {
+    "defaultMessage": "<bold>{author}</bold> replied to your comment on <bold>{entityTitle}</bold> {timestamp}",
+    "description": "Notification for reply on your comment"
+  },
   "8F7JlA": {
     "defaultMessage": "Access updates to the interviews platform for life.",
     "description": "Lifetime membership feature of accessing updates to interview platforms"
@@ -2126,6 +2130,10 @@
   "FcKhvG": {
     "defaultMessage": "Hone your computer science fundamentals by implementing important data structures and algorithms from scratch and practice the questions where algorithmic efficiency is key.",
     "description": "Description for interview preparation focus area"
+  },
+  "FcgaoW": {
+    "defaultMessage": "<bold>{author}</bold> left a code review on <bold>{entityTitle}</bold> {timestamp}",
+    "description": "Notification for code review left on your submission"
   },
   "Fg3V0y": {
     "defaultMessage": "Manage subscription on Stripe",
@@ -3491,6 +3499,10 @@
     "defaultMessage": "Follow <link>this guide</link> on how to create a GitHub repository.",
     "description": "Description for GitHub repo step in project submission checklist"
   },
+  "PrexEG": {
+    "defaultMessage": "Notifications",
+    "description": "Label for notifications"
+  },
   "Ptmnjq": {
     "defaultMessage": "Free continuous updates",
     "description": "Title for free continuous updates feature"
@@ -4406,6 +4418,10 @@
   "WJ/3Qn": {
     "defaultMessage": "The complete preparation platform for front end interviews. {questionCount}+ practice questions (with answers) across system design, UI and more. By ex-FAANG interviewers.",
     "description": "Description of GreatFrontEnd standard page"
+  },
+  "WN99Zy": {
+    "defaultMessage": "<bold>{author}</bold> left a question on <bold>{entityTitle}</bold> {timestamp}",
+    "description": "Notification for question left on your submission"
   },
   "WNERnb": {
     "defaultMessage": "End session",
@@ -5455,6 +5471,10 @@
     "defaultMessage": "Filter user submissions by whether you have completed their corresponding challenges",
     "description": "Tooltip for Status filter for projects list"
   },
+  "eDD1zi": {
+    "defaultMessage": "{count, plural, one {Your project <bold>{title}</bold> has received its 1st upvote {timestamp}} other {Your project <bold>{title}</bold> has received # upvotes {timestamp}}}",
+    "description": "Number of comments for project submission"
+  },
   "eG2r74": {
     "defaultMessage": "Build an entire library of {trackName} components from scratch. Use it for your portfolio, or as a component toolkit for future projects",
     "description": "Description of Projects component track page"
@@ -5930,6 +5950,10 @@
   "hxKyEy": {
     "defaultMessage": "Search HTML questions",
     "description": "Placeholder for search input of HTML question list"
+  },
+  "hz5dJR": {
+    "defaultMessage": "No notification yet!",
+    "description": "Label for no notification"
   },
   "i0RFBu": {
     "defaultMessage": "Coupons | Settings",
@@ -6806,6 +6830,10 @@
   "p3mRa0": {
     "defaultMessage": "Job title is required.",
     "description": "Error message"
+  },
+  "p8VAwb": {
+    "defaultMessage": "<bold>{author}</bold> left a comment on <bold>{entityTitle}</bold> {timestamp}",
+    "description": "Notification for comment left on your submission"
   },
   "p8zMao": {
     "defaultMessage": "Insert inline code",

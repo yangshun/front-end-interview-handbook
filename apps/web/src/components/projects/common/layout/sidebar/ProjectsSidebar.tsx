@@ -12,6 +12,7 @@ import {
   SidebarCollapsed,
   SidebarExpanded,
 } from '~/components/global/sidebar/Sidebar';
+import ProjectsNotification from '~/components/projects/notifications/ProjectsNotification';
 import ProjectsProfileAvatar from '~/components/projects/users/ProjectsProfileAvatar';
 import Button from '~/components/ui/Button';
 import DropdownMenu from '~/components/ui/DropdownMenu';
@@ -67,19 +68,21 @@ export function ProjectsSidebarExpanded({
   return (
     <SidebarExpanded
       bottomBarItems={
-        <Button
-          href={SocialLinks.linkedin.href}
-          icon={RiLinkedinFill}
-          isLabelHidden={true}
-          label="LinkedIn"
-          size="sm"
-          tooltip={intl.formatMessage({
-            defaultMessage: 'Follow on LinkedIn',
-            description: 'Link to the LinkedIn page',
-            id: 'gAep7Q',
-          })}
-          variant="secondary"
-        />
+        !userProfile && (
+          <Button
+            href={SocialLinks.linkedin.href}
+            icon={RiLinkedinFill}
+            isLabelHidden={true}
+            label="LinkedIn"
+            size="sm"
+            tooltip={intl.formatMessage({
+              defaultMessage: 'Follow on LinkedIn',
+              description: 'Link to the LinkedIn page',
+              id: 'gAep7Q',
+            })}
+            variant="secondary"
+          />
+        )
       }
       isLoading={isLoading}
       isViewerPremium={userProfile?.projectsProfile?.premium ?? false}
@@ -89,6 +92,7 @@ export function ProjectsSidebarExpanded({
           <RoadmapMenuItem />
         </>
       }
+      notificationItem={userProfile && <ProjectsNotification />}
       product="projects"
       renderBottomAddonElements={() => <ProjectsSidebarCTACard />}
       renderTopAddonElements={(fadeInClass) => (
@@ -136,6 +140,7 @@ function ProjectsSidebarCollapsed({
   return (
     <SidebarCollapsed
       moreMenuItems={userProfile && <SettingsMenuItem />}
+      notificationItem={userProfile && <ProjectsNotification />}
       product="projects"
       // Projects users don't get to use the premium Discord server.
       showPremiumDiscord={false}
