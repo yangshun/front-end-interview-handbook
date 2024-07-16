@@ -6,7 +6,6 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Link from '@docusaurus/Link';
 import styles from './styles.module.css';
 import {
-  RiBookLine,
   RiBookOpenLine,
   RiPresentationLine,
   RiStackLine,
@@ -47,7 +46,7 @@ function HeroSection() {
               className={clsx(styles.heroBannerLogo, 'margin-vert--md')}
               src={useBaseUrl('img/logo.svg')}
             />
-            <h1 className="hero__title">{siteConfig.title}</h1>
+            <h1 className="hero__title">Front End Interview Handbook</h1>
             <p className="hero__subtitle">{siteConfig.tagline}</p>
             <div className={styles.buttons}>
               <Link
@@ -60,7 +59,7 @@ function HeroSection() {
               </Link>
             </div>
             <p className="margin-top--md">
-              <em>It's completely free!</em>
+              <em>It's completely free to read!</em>
             </p>
             <div className="margin-top--lg">
               <iframe
@@ -94,8 +93,8 @@ function GreatFrontEndSection() {
                   style={{ fontSize: 'var(--ifm-h1-font-size)' }}>
                   <strong>
                     Looking for front end interview practice? <br />
-                    GreatFrontEnd has 200+ practice questions and reference
-                    solutions from big tech ex-interviewers
+                    GreatFrontEnd has 300+ practice questions and reference
+                    solutions from ex-interviewers at FAANG
                   </strong>
                 </h2>
                 <div className="margin-vert--md">
@@ -291,11 +290,11 @@ function TweetsSection() {
       <div className="container">
         <h2
           className={clsx(
-            'margin-btm--lg',
+            'margin-bottom--lg',
             'text--center',
             styles.sectionTitle,
           )}>
-          Over 100,000 people have benefitted from this handbook!
+          Over 500,000 people have benefitted from this handbook
         </h2>
         <div className={clsx('row', styles.tweetsSection)}>
           <div className="col col--4">

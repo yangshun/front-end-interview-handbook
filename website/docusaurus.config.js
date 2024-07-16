@@ -1,9 +1,9 @@
 const { themes } = require('prism-react-renderer');
 
 module.exports = {
-  title: 'Front End Interview Handbook',
+  title: 'The Official Front End Interview Handbook 2024',
   tagline:
-    'Front end interview preparation materials for busy engineers - trivias, coding, algorithms, front end system design and more!',
+    'Front end interview preparation resources for busy engineers – quiz questions, JavaScript coding questions, algorithms questions, front end system design questions and more. Updated for 2024!',
   url: 'https://www.frontendinterviewhandbook.com',
   baseUrl: '/',
   trailingSlash: true,
@@ -92,7 +92,7 @@ module.exports = {
     },
     footer: {
       style: 'dark',
-      copyright: `Copyright © ${new Date().getFullYear()} Yangshun Tay. Built with Docusaurus.`,
+      copyright: `Copyright © ${new Date().getFullYear()} Yangshun Tay and GreatFrontEnd`,
       links: [
         {
           title: 'General',

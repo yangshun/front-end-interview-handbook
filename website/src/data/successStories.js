@@ -3,7 +3,7 @@ import React from 'react';
 export default [
   {
     name: 'Erin Teo',
-    title: 'Front End Engineer, Facebook',
+    title: 'Senior Front End Engineer, Facebook',
     thumbnail: 'https://github.com/airse.png',
     quote: (
       <>
@@ -25,7 +25,7 @@ export default [
   },
   {
     name: 'Zhenghao He',
-    title: 'Senior Software Engineer, Instacart, ex-Amazon',
+    title: 'Senior Software Engineer, DocuSign, ex-Adobe, ex-Amazon',
     thumbnail: 'https://github.com/zhenghaohe.png',
     quote: (
       <>
