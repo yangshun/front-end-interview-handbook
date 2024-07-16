@@ -8,6 +8,8 @@ import Text from '~/components/ui/Text';
 
 import ProjectsChallengeSubmissionsDialog from './ProjectsChallengeSubmissionsDialog';
 
+import { useUser } from '@supabase/auth-helpers-react';
+
 type Props = Readonly<{
   challengeSlug: string;
 }>;
@@ -15,11 +17,17 @@ type Props = Readonly<{
 export default function ProjectsChallengeCompletedCountButton({
   challengeSlug,
 }: Props) {
+  const user = useUser();
   const [showSubmissionsDialog, setShowSubmissionsDialog] = useState(false);
   const { data: userCompletedTimes } =
-    trpc.projects.submission.userCompletedTimes.useQuery({
-      slug: challengeSlug,
-    });
+    trpc.projects.submission.userCompletedTimes.useQuery(
+      {
+        slug: challengeSlug,
+      },
+      {
+        enabled: !!user,
+      },
+    );
 
   if (userCompletedTimes == null || userCompletedTimes === 0) {
     return null;
