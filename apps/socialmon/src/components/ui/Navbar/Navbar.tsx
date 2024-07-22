@@ -1,4 +1,6 @@
 import clsx from 'clsx';
+import Link from 'next/link';
+import type { ReactNode } from 'react';
 
 import Container from '~/components/ui/Container';
 
@@ -12,6 +14,14 @@ type Props = Readonly<{
   user?: User | null;
 }>;
 
+function NavItem({ children, href }: { children: ReactNode; href: string }) {
+  return (
+    <Link className={clsx('px-3 py-2', 'text-sm')} href={href}>
+      {children}
+    </Link>
+  );
+}
+
 export default function Navbar({ user }: Props) {
   return (
     <header
@@ -24,9 +34,17 @@ export default function Navbar({ user }: Props) {
       style={{ height: `${NAVBAR_HEIGHT}px` }}>
       <Container
         className={clsx('px-4', 'flex items-center justify-between gap-2')}>
-        <span className="text-xl font-bold tracking-tighter md:text-3xl">
-          SocialMon
-        </span>
+        <div className="flex items-center gap-6">
+          <Link href="/">
+            <span className="text-xl font-bold tracking-tighter md:text-3xl">
+              SocialMon
+            </span>
+          </Link>
+          <div className="hidden gap-2 md:flex">
+            <NavItem href="/">Dashboard</NavItem>
+            <NavItem href="/accounts">Accounts</NavItem>
+          </div>
+        </div>
 
         <NavbarUserAvatar user={user} />
       </Container>

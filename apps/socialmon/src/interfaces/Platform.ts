@@ -16,9 +16,10 @@ export type Platform = {
     postId,
     response,
   }: {
+    accountUsername: string;
     postId: string;
     response: string;
-  }): Promise<boolean>;
+  }): void;
   updateResponse({
     id,
     response,

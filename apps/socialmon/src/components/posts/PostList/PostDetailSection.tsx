@@ -36,6 +36,7 @@ export default function PostDetailSection({
         toast.success('Response has been generated!');
       },
     });
+  const { data: accounts } = trpc.socialAccounts.getAccounts.useQuery();
   const replyPostMutation = trpc.socialPosts.replyToPost.useMutation({
     onError() {
       toast.error('Something went wrong. Try again later.');
@@ -62,10 +63,15 @@ export default function PostDetailSection({
     setResponse(result.response);
   }
 
-  async function replyToPost(post: Post, response: string) {
+  async function replyToPost(
+    post: Post,
+    response: string,
+    accountUsername: string,
+  ) {
     console.info('Replying to post:', post.title);
 
     await replyPostMutation.mutateAsync({
+      accountUsername,
       postId: post.id,
       response,
     });
@@ -74,13 +80,16 @@ export default function PostDetailSection({
   const postDetail = selectedPost && (
     <PostDetail
       key={selectedPost.id}
+      accounts={accounts}
       generateResponse={(
         setResponse: (value: ChangeEvent | string | null | undefined) => void,
       ) => generateResponse(selectedPost, setResponse)}
       isGeneratingResponse={generateResponseMutation.isLoading}
       isReplying={replyPostMutation.isLoading}
       post={selectedPost}
-      replyToPost={(response: string) => replyToPost(selectedPost, response)}
+      replyToPost={(response: string, accountUsername: string) =>
+        replyToPost(selectedPost, response, accountUsername)
+      }
     />
   );
 

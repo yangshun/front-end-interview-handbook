@@ -2,11 +2,11 @@
 
 import clsx from 'clsx';
 import DOMPurify from 'dompurify';
-import { type ChangeEvent } from 'react';
+import { type ChangeEvent, useState } from 'react';
 
 import PostMetadata from './PostMetadata';
 
-import type { Post } from '~/types';
+import type { AccountType, Post } from '~/types';
 
 import '@mantine/core/styles.css';
 
@@ -15,6 +15,7 @@ import {
   Divider,
   Flex,
   Group,
+  Select,
   Text,
   Textarea,
   Title,
@@ -22,13 +23,14 @@ import {
 import { useInputState } from '@mantine/hooks';
 
 type Props = Readonly<{
+  accounts?: Array<AccountType>;
   generateResponse: (
     setter: (value: ChangeEvent | string | null | undefined) => void,
   ) => Promise<void>;
   isGeneratingResponse: boolean;
   isReplying: boolean;
   post: Post;
-  replyToPost: (response: string) => void;
+  replyToPost: (response: string, accountUsername: string) => void;
 }>;
 
 export default function PostDetail({
@@ -37,15 +39,19 @@ export default function PostDetail({
   replyToPost,
   isGeneratingResponse,
   isReplying,
+  accounts,
 }: Props) {
   const [response, setResponse] = useInputState<string | null>(post.response);
+  const [selectedAccountUsername, setSelectedAccountUsername] = useState<
+    string | null
+  >(null);
 
   const cleanHtml = DOMPurify.sanitize(post.content);
   const cleanResponse = DOMPurify.sanitize(post?.response ?? '');
 
   function handleReplyToPostButton() {
-    if (response) {
-      replyToPost(response);
+    if (response && selectedAccountUsername) {
+      replyToPost(response, selectedAccountUsername);
     }
   }
 
@@ -76,8 +82,20 @@ export default function PostDetail({
             />
           </div>
         </div>
+      ) : (accounts ?? [])?.length === 0 ? (
+        <Text>
+          No accounts added yet! Please add an account to comment on this post.
+        </Text>
       ) : (
-        <>
+        <div className="flex flex-col gap-4">
+          <Select
+            checkIconPosition="right"
+            data={accounts?.map((account) => account.username)}
+            label="Select an account"
+            placeholder="Select an account to add comment"
+            value={selectedAccountUsername}
+            onChange={(value) => setSelectedAccountUsername(value ?? null)}
+          />
           <Textarea
             autosize={true}
             label="Response"
@@ -93,13 +111,13 @@ export default function PostDetail({
               ✨ Generate Response
             </Button>
             <Button
-              disabled={isReplying || !response}
+              disabled={isReplying || !response || !selectedAccountUsername}
               loading={isReplying}
               onClick={handleReplyToPostButton}>
               Reply
             </Button>
           </Group>
-        </>
+        </div>
       )}
     </div>
   );

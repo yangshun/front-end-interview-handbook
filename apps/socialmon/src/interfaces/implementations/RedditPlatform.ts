@@ -18,7 +18,6 @@ class RedditPlatform implements Platform {
   constructor(
     clientId: string,
     clientSecret: string,
-    userAgent: string,
     username: string,
     password: string,
     subreddits: Array<string>,
@@ -29,7 +28,7 @@ class RedditPlatform implements Platform {
       clientId,
       clientSecret,
       password,
-      userAgent,
+      userAgent: process.env.REDDIT_USER_AGENT as string,
       username,
     });
     this.subreddits = subreddits;
@@ -198,57 +197,49 @@ class RedditPlatform implements Platform {
   }: {
     postId: string;
     response: string;
-  }): Promise<boolean> {
+  }) {
     // Check conditions for replying
     if (!response) {
       throw new Error('Response is mandatory to reply to a post');
     }
 
-    try {
-      // TODO(socialmon): Figure out how to add type here.
-      let finalResponse: any = null;
+    // TODO(socialmon): Figure out how to add type here.
+    let finalResponse: any = null;
 
-      const replySuccess = await this.snooWrap
-        .getSubmission(postId)
-        .reply(response)
-        .then(
-          (result) => {
-            console.info('Successfully replied to post');
+    const replySuccess = await this.snooWrap
+      .getSubmission(postId)
+      .reply(response)
+      .then(
+        (result) => {
+          console.info('Successfully replied to post');
 
-            finalResponse = result;
+          finalResponse = result;
 
-            return true;
-          },
-          (error) => {
-            console.error(error);
+          return true;
+        },
+        (error) => {
+          console.error(error);
 
-            return false;
-          },
-        );
+          return false;
+        },
+      );
 
-      if (!replySuccess) {
-        throw new Error('Failed to reply to post');
-      }
+    if (!replySuccess) {
+      throw new Error('Failed to reply to post');
+    }
 
-      // Update response and replied flag in DB
-      const updateSuccess = await this.updateResponse({
-        id: postId,
-        replied: true,
-        repliedAt: finalResponse?.created_utc
-          ? new Date(finalResponse.created_utc * 1000) // In milliseconds
-          : new Date(),
-        response: finalResponse?.body_html || response,
-      });
+    // Update response and replied flag in DB
+    const updateSuccess = await this.updateResponse({
+      id: postId,
+      replied: true,
+      repliedAt: finalResponse?.created_utc
+        ? new Date(finalResponse.created_utc * 1000) // In milliseconds
+        : new Date(),
+      response: finalResponse?.body_html || response,
+    });
 
-      if (!updateSuccess) {
-        throw new Error('Failed to update post in database');
-      }
-
-      return true;
-    } catch (error) {
-      console.error(error);
-
-      return false;
+    if (!updateSuccess) {
+      throw new Error('Failed to update post in database');
     }
   }
 

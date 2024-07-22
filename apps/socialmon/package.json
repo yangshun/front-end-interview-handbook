@@ -17,6 +17,7 @@
   "dependencies": {
     "@ai-sdk/openai": "^0.0.33",
     "@mantine/core": "^7.11.0",
+    "@mantine/form": "^7.11.2",
     "@mantine/hooks": "^7.11.0",
     "@prisma/client": "5.7.0",
     "@tanstack/react-query": "^4.28.0",

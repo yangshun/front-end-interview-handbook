@@ -84,6 +84,9 @@ importers:
       '@mantine/core':
         specifier: ^7.11.0
         version: 7.11.0(@mantine/hooks@7.11.0)(@types/react@18.0.28)(react-dom@18.2.0)(react@18.2.0)
+      '@mantine/form':
+        specifier: ^7.11.2
+        version: 7.11.2(react@18.2.0)
       '@mantine/hooks':
         specifier: ^7.11.0
         version: 7.11.0(react@18.2.0)
@@ -742,7 +745,7 @@ importers:
     dependencies:
       ts-jest:
         specifier: ^29.0.5
-        version: 29.1.1(@babel/core@7.24.7)(jest@29.7.0)(typescript@5.5.2)
+        version: 29.1.1(jest@29.7.0)(typescript@5.5.2)
 
   packages/questions:
     devDependencies:
@@ -4294,6 +4297,16 @@ packages:
       type-fest: 4.20.1
     transitivePeerDependencies:
       - '@types/react'
+    dev: false
+
+  /@mantine/form@7.11.2(react@18.2.0):
+    resolution: {integrity: sha512-NRY4HDgcArDEP+wUaHITnoVh0Ce3rM3Blo9fLNj2VYO8k7AfuSWp+fQdqrjDI0k9wGU3YEj4/dbwOjKbtXEhxw==}
+    peerDependencies:
+      react: ^18.2.0
+    dependencies:
+      fast-deep-equal: 3.1.3
+      klona: 2.0.6
+      react: 18.2.0
     dev: false
 
   /@mantine/hooks@7.11.0(react@18.2.0):
@@ -11787,6 +11800,11 @@ packages:
     resolution: {integrity: sha512-o+NO+8WrRiQEE4/7nwRJhN1HWpVmJm511pBHUxPLtp0BUISzlBplORYSmTclCnJvQq2tKu/sgl3xVpkc7ZWuQQ==}
     engines: {node: '>=6'}
 
+  /klona@2.0.6:
+    resolution: {integrity: sha512-dhG34DXATL5hSxJbIexCft8FChFXtmskoZYnoPWjXQuebWYCNkVeV3KkGegCK9CP1oswI/vQibS2GY7Em/sJJA==}
+    engines: {node: '>= 8'}
+    dev: false
+
   /language-subtag-registry@0.3.22:
     resolution: {integrity: sha512-tN0MCzyWnoz/4nHS6uxdlFWoUZT7ABptwKPQ52Ea7URk6vll88bWBVhodtnlfEuCcKWNGoc+uGbw1cwa9IKh/w==}
     dev: true
@@ -16001,7 +16019,7 @@ packages:
       yargs-parser: 21.1.1
     dev: true
 
-  /ts-jest@29.1.1(@babel/core@7.24.7)(jest@29.7.0)(typescript@5.5.2):
+  /ts-jest@29.1.1(jest@29.7.0)(typescript@5.5.2):
     resolution: {integrity: sha512-D6xjnnbP17cC85nliwGiL+tpoKN0StpgE0TeOjXQTU6MVCfsB4v7aW05CgQ/1OywGb0x/oy9hHFnN+sczTiRaA==}
     engines: {node: ^14.15.0 || ^16.10.0 || >=18.0.0}
     hasBin: true
@@ -16022,7 +16040,6 @@ packages:
       esbuild:
         optional: true
     dependencies:
-      '@babel/core': 7.24.7
       bs-logger: 0.2.6
       fast-json-stable-stringify: 2.1.0
       jest: 29.7.0(@types/node@18.19.2)(ts-node@10.9.2)

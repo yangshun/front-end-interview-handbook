@@ -3,13 +3,7 @@ import type { Platform } from '../Platform';
 import keyword from '../../data/keyword.json' assert { type: 'json' };
 import subreddit from '../../data/subreddit.json' assert { type: 'json' };
 
-type RedditParams = Readonly<{
-  clientId: string;
-  clientSecret: string;
-  password: string;
-  userAgent: string;
-  username: string;
-}>;
+import type { AccountType } from '~/types';
 
 type PlatformType = 'Reddit';
 
@@ -18,7 +12,7 @@ const platformMap = {
 };
 
 class PlatformManager {
-  private platformsToImplementation: Map<PlatformType, Platform>;
+  private platformsToImplementation: Map<string, Platform>;
   private static instance: PlatformManager;
 
   private constructor() {
@@ -34,18 +28,27 @@ class PlatformManager {
     return PlatformManager.instance;
   }
 
+  private getImplementationKey(platform: PlatformType, account: AccountType) {
+    return `${platform}-${account.username}-${account.password}-${account.clientId}-${account.clientSecret}`;
+  }
+
   public getPlatform(
     platform: PlatformType,
-    platformParams: RedditParams,
+    platformParams: AccountType,
   ): Platform {
     // Check if platform is a platform that is being managed
     if (!(platform in platformMap)) {
       throw new Error(`Platform ${platform} is not being managed`);
     }
 
+    const implementationKey = this.getImplementationKey(
+      platform,
+      platformParams,
+    );
+
     // Check if platform has already been initialized
-    if (this.platformsToImplementation.has(platform)) {
-      return this.platformsToImplementation.get(platform) as Platform;
+    if (this.platformsToImplementation.has(implementationKey)) {
+      return this.platformsToImplementation.get(implementationKey) as Platform;
     }
 
     // Initialize platform
@@ -54,19 +57,22 @@ class PlatformManager {
       platformParams,
     );
 
-    this.platformsToImplementation.set(platform, platformImplementation);
+    this.platformsToImplementation.set(
+      implementationKey,
+      platformImplementation,
+    );
 
     return platformImplementation;
   }
 
   private initializePlatform(
     platform: PlatformType,
-    platformParams: RedditParams,
+    platformParams: AccountType,
   ): Platform {
     // TODO: Later add switch case when there are more than 1 platform
     console.info(`${platform} is initializing...`);
 
-    const { clientId, clientSecret, userAgent, username, password } =
+    const { clientId, clientSecret, username, password } =
       platformParams;
     const subreddits = subreddit.items;
     const keywords = keyword.items;
@@ -77,7 +83,6 @@ class PlatformManager {
     const platformImplementation: Platform = new RedditPlatform(
       clientId,
       clientSecret,
-      userAgent,
       username,
       password,
       subreddits,

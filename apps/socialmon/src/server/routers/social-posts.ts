@@ -1,5 +1,7 @@
 import { z } from 'zod';
 
+import type { Account } from '~/interfaces/Account';
+import AccountManager from '~/interfaces/implementations/AccountManager';
 import PlatformManager from '~/interfaces/implementations/PlatformManager';
 import { postSchema } from '~/schema';
 
@@ -8,14 +10,15 @@ import { type AIProvider } from '../../interfaces/AIProvider';
 import OpenAIProvider from '../../interfaces/implementations/OpenAIProvider';
 import { type Platform } from '../../interfaces/Platform';
 
-import type { Post } from '~/types';
+import type { AccountType, Post } from '~/types';
 
-function getPlatform(): Platform {
-  const clientId = process.env.REDDIT_CLIENT_ID as string;
-  const clientSecret = process.env.REDDIT_CLIENT_SECRET as string;
-  const userAgent = process.env.REDDIT_USER_AGENT as string;
-  const username = process.env.REDDIT_USERNAME as string;
-  const password = process.env.REDDIT_PASSWORD as string;
+function getPlatform(account?: AccountType): Platform {
+  const clientId =
+    account?.clientId || (process.env.REDDIT_CLIENT_ID as string);
+  const clientSecret =
+    account?.clientSecret || (process.env.REDDIT_CLIENT_SECRET as string);
+  const username = account?.username || (process.env.REDDIT_USERNAME as string);
+  const password = account?.password || (process.env.REDDIT_PASSWORD as string);
 
   const platformManager = PlatformManager.getInstance();
 
@@ -23,7 +26,6 @@ function getPlatform(): Platform {
     clientId,
     clientSecret,
     password,
-    userAgent,
     username,
   };
 
@@ -33,6 +35,12 @@ function getPlatform(): Platform {
   );
 
   return redditPlatform;
+}
+
+function getAccountInstance(): Account {
+  const accountManager = AccountManager.getInstance();
+
+  return accountManager.getAccountInstance('Reddit');
 }
 
 function getAIProvider(): AIProvider {
@@ -104,22 +112,26 @@ export const socialPostsRouter = router({
   replyToPost: userProcedure
     .input(
       z.object({
+        accountUsername: z.string(),
         postId: z.string(),
         response: z.string(),
       }),
     )
     .mutation(async ({ input }) => {
-      const { postId, response } = input;
-      const platform = getPlatform();
+      const { postId, response, accountUsername } = input;
+      const accountInstance = getAccountInstance();
+      const account = await accountInstance.getAccount(accountUsername);
 
-      try {
-        const success = await platform.replyToPost({ postId, response });
-
-        return success;
-      } catch (error) {
-        console.error('Error replying to post:', error);
-
-        return false;
+      if (!account) {
+        throw new Error('Account is required to reply to a post.');
       }
+
+      const platform = getPlatform(account);
+
+      await platform.replyToPost({
+        accountUsername,
+        postId,
+        response,
+      });
     }),
 });

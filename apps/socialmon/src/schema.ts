@@ -2,8 +2,9 @@ import { z } from 'zod';
 
 export const postSchema = z.object({
   content: z.string(),
-  foundAt: z.union([z.date(), z.string()]).nullable(),
+  createdAt: z.union([z.date(), z.string()]).nullable(),
   id: z.string(),
+  keywords: z.string().array(),
   postedAt: z.union([z.date(), z.string()]).nullable(),
   replied: z.boolean(),
   repliedAt: z.union([z.date(), z.string()]).nullable(),
@@ -17,4 +18,11 @@ export const aiResponseSchema = z.object({
     .boolean()
     .describe('Promotion are included in the response or not'),
   response: z.string().describe('Response to title and content'),
+});
+
+export const accountSchema = z.object({
+  clientId: z.string(),
+  clientSecret: z.string(),
+  password: z.string(),
+  username: z.string(),
 });

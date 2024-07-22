@@ -1,7 +1,8 @@
 'use client';
 
+import Link from 'next/link';
 import { signOut } from 'next-auth/react';
-import { RiLogoutBoxLine } from 'react-icons/ri';
+import { RiAccountBoxLine, RiLogoutBoxLine } from 'react-icons/ri';
 
 import type { User } from '~/types';
 
@@ -34,6 +35,9 @@ export default function NavbarUserAvatar({ user }: Props) {
         <Menu.Label>{displayName}</Menu.Label>
 
         <Menu.Divider />
+        <Link href="/accounts">
+          <Menu.Item leftSection={<RiAccountBoxLine />}>Accounts</Menu.Item>
+        </Link>
         <Menu.Item leftSection={<RiLogoutBoxLine />} onClick={() => signOut()}>
           Sign out
         </Menu.Item>
