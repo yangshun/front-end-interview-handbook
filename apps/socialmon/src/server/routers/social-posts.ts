@@ -75,7 +75,6 @@ export const socialPostsRouter = router({
         return null;
       }
     }),
-
   getPosts: userProcedure
     .input(
       z.object({
@@ -97,7 +96,6 @@ export const socialPostsRouter = router({
         pagination: { cursor, ...pagination },
       });
     }),
-
   getPostsFromPlatform: userProcedure.query(async () => {
     const platform = getPlatform();
 
