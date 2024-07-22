@@ -54,6 +54,15 @@ export const projectsNotificationsRouter = router({
                 },
               },
             },
+            projectsProfile: {
+              include: {
+                userProfile: {
+                  select: {
+                    username: true,
+                  },
+                },
+              },
+            },
             submission: true,
           },
           orderBy: {

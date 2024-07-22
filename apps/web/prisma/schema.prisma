@@ -446,5 +446,5 @@ model ProjectsNotification {
   submission          ProjectsChallengeSubmission? @relation(fields: [submissionId], references: [id], onDelete: Cascade, onUpdate: NoAction)
   commentId           String?         @db.Uuid
   comment             ProjectsDiscussionComment? @relation(fields: [commentId], references: [id], onDelete: Cascade, onUpdate: NoAction)
-  ProjectsProfile     ProjectsProfile @relation(fields: [profileId], references: [id], onDelete: Cascade, onUpdate: NoAction)
+  projectsProfile     ProjectsProfile @relation(fields: [profileId], references: [id], onDelete: Cascade, onUpdate: NoAction)
 }

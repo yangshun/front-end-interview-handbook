@@ -8,3 +8,6 @@ export const PROJECTS_OFFICIAL_SOLUTIONS_IS_LIVE = true;
 export const PROJECT_ACTIVATION_AVAILABLE = false;
 export const SUBMISSION_SUCCESS_PAGE_AVAILABLE =
   process.env.NEXT_PUBLIC_VERCEL_ENV !== 'production';
+
+export const PROJECTS_NOTIFICATION_AVAILABLE =
+  process.env.NEXT_PUBLIC_VERCEL_ENV !== 'production';

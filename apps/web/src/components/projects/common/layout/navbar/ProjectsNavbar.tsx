@@ -8,6 +8,8 @@ import { useIntl } from 'react-intl';
 import gtag from '~/lib/gtag';
 import useIsSticky from '~/hooks/useIsSticky';
 
+import { PROJECTS_NOTIFICATION_AVAILABLE } from '~/data/FeatureFlags';
+
 import useCommonNavItems from '~/components/common/navigation/useCommonNavItems';
 import { useColorSchemePreferences } from '~/components/global/color-scheme/ColorSchemePreferencesProvider';
 import ColorSchemeSelect from '~/components/global/color-scheme/ColorSchemeSelect';
@@ -202,7 +204,9 @@ export default function ProjectsNavbar({ hideOnDesktop = false }: Props) {
               closeMobileNav={closeMobileNav}
               data={userNavigationLinks[0]}
             />
-            <ProjectsNotificationMobile closeMobileNav={closeMobileNav} />
+            {PROJECTS_NOTIFICATION_AVAILABLE && (
+              <ProjectsNotificationMobile closeMobileNav={closeMobileNav} />
+            )}
             {userNavigationLinks.slice(1).map((props) => (
               <UserNavigationLinkItem
                 key={props.itemKey}

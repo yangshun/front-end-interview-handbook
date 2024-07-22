@@ -1,3 +1,4 @@
+import type { ProjectsReputationTier } from '../reputation/projectsReputationLevelUtils';
 import type { ProjectsChallengeSubmissionExtended } from '../submissions/types';
 
 import type {
@@ -5,12 +6,7 @@ import type {
   ProjectsNotification,
 } from '@prisma/client';
 
-export type ProjectsNotificationCategory = 'DISCUSSION' | 'UPVOTE';
-
-export type ProjectsNotificationUpvoteDataType = Readonly<{
-  count: number;
-  entityId: string;
-}>;
+export type ProjectsNotificationCategory = 'DISCUSSION' | 'LEVEL_UP' | 'UPVOTE';
 
 type ProjectsNotificationCommentAuthor = Readonly<{
   points: number;
@@ -32,8 +28,18 @@ export type ProjectsNotificationDiscussionType = ProjectsDiscussionComment &
     author: ProjectsNotificationCommentAuthor;
   }>;
 
-export type ProjectsNotificationDiscussionItemType = Readonly<
+export type ProjectsNotificationExtended = Readonly<
   Omit<ProjectsNotification, 'data'> & {
+    projectsProfile: {
+      userProfile: {
+        username: string;
+      };
+    };
+  }
+>;
+
+export type ProjectsNotificationDiscussionItemType = Readonly<
+  ProjectsNotificationExtended & {
     category: 'DISCUSSION';
     comment: ProjectsNotificationDiscussionType;
     data?: null;
@@ -42,13 +48,26 @@ export type ProjectsNotificationDiscussionItemType = Readonly<
 >;
 
 export type ProjectsNotificationSubmissionUpvoteItemType = Readonly<
-  Omit<ProjectsNotification, 'data'> & {
+  ProjectsNotificationExtended & {
     category: 'UPVOTE';
-    data: ProjectsNotificationUpvoteDataType;
+    data: {
+      count: number;
+    };
+    submission: ProjectsChallengeSubmissionExtended;
+  }
+>;
+
+export type ProjectsNotificationSubmissionLevelUpItemType = Readonly<
+  ProjectsNotificationExtended & {
+    category: 'LEVEL_UP';
+    data:
+      | { level: null; tier: ProjectsReputationTier }
+      | { level: number; tier: null };
     submission: ProjectsChallengeSubmissionExtended;
   }
 >;
 
 export type ProjectsNotificationAugmentedType =
   | ProjectsNotificationDiscussionItemType
+  | ProjectsNotificationSubmissionLevelUpItemType
   | ProjectsNotificationSubmissionUpvoteItemType;

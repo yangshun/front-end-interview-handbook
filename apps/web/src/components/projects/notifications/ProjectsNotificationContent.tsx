@@ -8,7 +8,7 @@ import { trpc } from '~/hooks/trpc';
 
 import Spinner from '~/components/ui/Spinner';
 import Text from '~/components/ui/Text';
-import { themeDivideColor } from '~/components/ui/theme';
+import { themeDivideEmphasizeColor } from '~/components/ui/theme';
 
 import ProjectsNotificationItem from './ProjectsNotificationItem';
 
@@ -83,7 +83,7 @@ export default function ProjectsNotificationContent({
 
   return (
     <div>
-      <div className={clsx('divide-y', themeDivideColor)}>
+      <div className={clsx('divide-y', themeDivideEmphasizeColor)}>
         {isLoading ? (
           <div className="flex w-full justify-center">
             <Spinner size="sm" />

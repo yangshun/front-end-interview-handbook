@@ -5,6 +5,17 @@ export type ProjectsReputationTier =
   | 'master'
   | 'prestige';
 
+export const ProjectsReputationTierLabel: Record<
+  ProjectsReputationTier,
+  string
+> = {
+  architect: 'Architect',
+  crafter: 'Crafter',
+  initiate: 'Initiate',
+  master: 'Master',
+  prestige: 'Prestige'
+};
+
 type LevelInfo = {
   maxPoints: number;
   tier: ProjectsReputationTier;

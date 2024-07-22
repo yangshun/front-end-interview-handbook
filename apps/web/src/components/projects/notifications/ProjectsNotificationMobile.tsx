@@ -2,6 +2,7 @@ import clsx from 'clsx';
 import { useState } from 'react';
 import { FormattedMessage, useIntl } from 'react-intl';
 
+import Divider from '~/components/ui/Divider';
 import SlideOut from '~/components/ui/SlideOut';
 import Text, { textVariants } from '~/components/ui/Text';
 import {
@@ -60,7 +61,10 @@ export default function ProjectsNotificationMobile({ closeMobileNav }: Props) {
         </button>
       }
       onClose={() => setShowNotification(false)}>
-      <ProjectsNotificationContent closeNotification={closeNotification} />
+      <div className="flex flex-col gap-5">
+        <Divider color="emphasized" />
+        <ProjectsNotificationContent closeNotification={closeNotification} />
+      </div>
     </SlideOut>
   );
 }

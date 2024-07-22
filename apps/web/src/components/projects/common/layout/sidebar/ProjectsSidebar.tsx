@@ -5,6 +5,7 @@ import { PiPathBold } from 'react-icons/pi';
 import { RiLinkedinFill, RiSettings3Line } from 'react-icons/ri';
 import { useIntl } from 'react-intl';
 
+import { PROJECTS_NOTIFICATION_AVAILABLE } from '~/data/FeatureFlags';
 import { SocialLinks } from '~/data/SocialLinks';
 
 import type { SidebarItems } from '~/components/global/sidebar/Sidebar';
@@ -68,7 +69,7 @@ export function ProjectsSidebarExpanded({
   return (
     <SidebarExpanded
       bottomBarItems={
-        !userProfile && (
+        (!userProfile || !PROJECTS_NOTIFICATION_AVAILABLE) && (
           <Button
             href={SocialLinks.linkedin.href}
             icon={RiLinkedinFill}
@@ -92,7 +93,10 @@ export function ProjectsSidebarExpanded({
           <RoadmapMenuItem />
         </>
       }
-      notificationItem={userProfile && <ProjectsNotification />}
+      notificationItem={
+        userProfile &&
+        PROJECTS_NOTIFICATION_AVAILABLE && <ProjectsNotification />
+      }
       product="projects"
       renderBottomAddonElements={() => <ProjectsSidebarCTACard />}
       renderTopAddonElements={(fadeInClass) => (
@@ -140,7 +144,10 @@ function ProjectsSidebarCollapsed({
   return (
     <SidebarCollapsed
       moreMenuItems={userProfile && <SettingsMenuItem />}
-      notificationItem={userProfile && <ProjectsNotification />}
+      notificationItem={
+        userProfile &&
+        PROJECTS_NOTIFICATION_AVAILABLE && <ProjectsNotification />
+      }
       product="projects"
       // Projects users don't get to use the premium Discord server.
       showPremiumDiscord={false}

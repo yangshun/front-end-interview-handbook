@@ -1,4 +1,8 @@
+import { PROJECTS_NOTIFICATION_AVAILABLE } from '~/data/FeatureFlags';
+
 import prisma from '~/server/prisma';
+
+import { projectsReputationLevel } from '../reputation/projectsReputationLevelUtils';
 
 import type { ProjectsChallengeSubmissionVote } from '@prisma/client';
 
@@ -7,6 +11,10 @@ const UPVOTE_COUNT_BRACKET = [1, 5, 10, 15, 50, 100, 200, 500];
 export async function projectsNotificationForSubmissionVote(
   vote: ProjectsChallengeSubmissionVote,
 ) {
+  if (!PROJECTS_NOTIFICATION_AVAILABLE) {
+    return;
+  }
+
   const { submissionId } = vote;
   const submission = await prisma.projectsChallengeSubmission.findFirst({
     include: {
@@ -46,6 +54,10 @@ export async function projectsNotificationForComment(
   entityOwnerId: string,
   entityId: string,
 ) {
+  if (!PROJECTS_NOTIFICATION_AVAILABLE) {
+    return;
+  }
+
   await prisma.projectsNotification.create({
     data: {
       category: 'DISCUSSION',
@@ -61,6 +73,10 @@ export async function projectsNotificationForReply(
   projectsProfileId: string,
   entityId: string,
 ) {
+  if (!PROJECTS_NOTIFICATION_AVAILABLE) {
+    return;
+  }
+
   const comment = await prisma.projectsDiscussionComment.findFirst({
     include: {
       parentComment: true,
@@ -82,6 +98,49 @@ export async function projectsNotificationForReply(
         commentId,
         profileId: comment.parentComment.profileId,
         submissionId: entityId,
+      },
+    });
+  }
+}
+
+export async function projectsNotificationForLevelUp({
+  oldPoints,
+  currentPoints,
+  profileId,
+}: {
+  currentPoints: number;
+  oldPoints: number;
+  profileId: string;
+}) {
+  if (!PROJECTS_NOTIFICATION_AVAILABLE) {
+    return;
+  }
+
+  const newRep = projectsReputationLevel(currentPoints);
+  const oldRep = projectsReputationLevel(oldPoints);
+
+  if (newRep.level <= oldRep.level) {
+    return;
+  }
+
+  await prisma.projectsNotification.create({
+    data: {
+      category: 'LEVEL_UP',
+      data: {
+        level: newRep.level,
+      },
+      profileId,
+    },
+  });
+
+  if (oldRep.tier !== newRep.tier) {
+    await prisma.projectsNotification.create({
+      data: {
+        category: 'LEVEL_UP',
+        data: {
+          tier: newRep.tier,
+        },
+        profileId,
       },
     });
   }

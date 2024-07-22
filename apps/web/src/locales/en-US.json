@@ -1287,6 +1287,10 @@
     "defaultMessage": "Clarify doubts in forums",
     "description": "Title of 'Clarify doubts in forums' sub-feature in Projects marketing page"
   },
+  "8dzIfX": {
+    "defaultMessage": "You're now in the <bold>{tier}</bold> tier! 🛠️ {timestamp}",
+    "description": "Notification for tier up"
+  },
   "8gXpts": {
     "defaultMessage": "Tasks | Rewards",
     "description": "Title of Rewards tasks page"
@@ -5766,6 +5770,10 @@
   "gIvdNL": {
     "defaultMessage": "We help you learn through building - without tutorial hell",
     "description": "Heading of the 'We help you learn through building - without tutorial hell' marketing section on Projects home page"
+  },
+  "gLXbQL": {
+    "defaultMessage": "You've just attained <bold>level {level}</bold> ✨ Congratulations! {timestamp}",
+    "description": "Notification for level up"
   },
   "gNEj/r": {
     "defaultMessage": "Implement various Lodash functions and methods to manipulate and transform data efficiently, a common task given during front end interviews and improve your front end interview readiness.",
