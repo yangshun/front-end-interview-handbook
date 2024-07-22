@@ -20,6 +20,8 @@ import QuestionsFormatTabs from '../filters/QuestionsFormatsTabs';
 import { sortQuestionsMultiple } from '../filters/QuestionsProcessor';
 import QuestionsList from '../items/QuestionsList';
 
+import { useUser } from '@supabase/auth-helpers-react';
+
 export default function QuestionsLearningList({
   listKey,
   sessionProgress,
@@ -36,11 +38,17 @@ export default function QuestionsLearningList({
   systemDesignQuestions: ReadonlyArray<QuestionMetadata>;
 }>) {
   const intl = useIntl();
+  const user = useUser();
   const trpcUtils = trpc.useUtils();
   const { data: questionListSession, isLoading: isQuestionListSessionLoading } =
-    trpc.questionLists.getActiveSession.useQuery({
-      listKey,
-    });
+    trpc.questionLists.getActiveSession.useQuery(
+      {
+        listKey,
+      },
+      {
+        enabled: !!user,
+      },
+    );
 
   const { showToast } = useToast();
 

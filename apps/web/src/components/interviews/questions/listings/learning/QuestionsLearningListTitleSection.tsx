@@ -26,6 +26,8 @@ import Text from '~/components/ui/Text';
 import type { QuestionDifficulty } from '../../common/QuestionsTypes';
 import QuestionCountLabel from '../../metadata/QuestionCountLabel';
 
+import { useUser } from '@supabase/auth-helpers-react';
+
 type Props = Readonly<{
   description?: ReactNode;
   difficultySummary?: Record<QuestionDifficulty, number>;
@@ -54,11 +56,17 @@ export default function QuestionsLearningListTitleSection({
   const intl = useIntl();
   const trpcUtils = trpc.useUtils();
   const { userProfile } = useUserProfile();
+  const user = useUser();
 
   const { data: questionListSession, isLoading: isQuestionListSessionLoading } =
-    trpc.questionLists.getActiveSession.useQuery({
-      listKey: questionListKey,
-    });
+    trpc.questionLists.getActiveSession.useQuery(
+      {
+        listKey: questionListKey,
+      },
+      {
+        enabled: !!user,
+      },
+    );
 
   const startSessionMutation = trpc.questionLists.startSession.useMutation({
     onSuccess() {

@@ -19,6 +19,8 @@ import Section from '~/components/ui/Heading/HeadingContext';
 import Text from '~/components/ui/Text';
 import { themeGlassyBorder } from '~/components/ui/theme';
 
+import { useUser } from '@supabase/auth-helpers-react';
+
 function InterviewsCompanyGuideCard({
   companyGuide,
   isStarted = false,
@@ -139,8 +141,11 @@ export default function InterviewsCompanyGuideListPage({
   companyGuides,
 }: Props) {
   const intl = useIntl();
+  const user = useUser();
   const { data: questionListSessions } =
-    trpc.questionLists.getActiveSessions.useQuery();
+    trpc.questionLists.getActiveSessions.useQuery(undefined, {
+      enabled: !!user,
+    });
 
   const sessions = questionListSessions ?? [];
 

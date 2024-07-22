@@ -23,6 +23,8 @@ import { useI18nPathname } from '~/next-i18nostic/src';
 
 import DashboardContinueLearningWithFetching from './InterviewsDashboardContinueLearningWithFetching';
 
+import { useUser } from '@supabase/auth-helpers-react';
+
 type Props = Readonly<{
   children: ReactNode;
   questionTotalAvailableCount: QuestionTotalAvailableCount;
@@ -37,8 +39,12 @@ export default function InterviewsDashboardLayout({
   const routeSegment = useSelectedLayoutSegment();
   const resultSegment = routeSegment ?? 'coding';
   const { userProfile } = useUserProfile();
+  const user = useUser();
+
   const { data: questionListSessions } =
-    trpc.questionLists.getActiveSessions.useQuery();
+    trpc.questionLists.getActiveSessions.useQuery(undefined, {
+      enabled: !!user,
+    });
 
   const showContinueLearning =
     questionListSessions != null && questionListSessions.length > 0;

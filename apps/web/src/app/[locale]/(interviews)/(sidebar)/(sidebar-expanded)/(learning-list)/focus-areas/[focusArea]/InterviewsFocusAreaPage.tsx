@@ -23,6 +23,8 @@ import {
   filterQuestionsProgressByList,
 } from '~/db/QuestionsUtils';
 
+import { useUser } from '@supabase/auth-helpers-react';
+
 type Props = Readonly<{
   codingQuestions: ReadonlyArray<QuestionMetadata>;
   focusArea: FocusArea;
@@ -37,10 +39,20 @@ export default function InterviewsFocusAreaPage({
   focusArea,
 }: Props) {
   const intl = useIntl();
-  const { data: questionProgressParam } =
-    trpc.questionProgress.getAll.useQuery();
+  const user = useUser();
+  const { data: questionProgressParam } = trpc.questionProgress.getAll.useQuery(
+    undefined,
+    {
+      enabled: !!user,
+    },
+  );
   const { data: questionListsProgressParam } =
-    trpc.questionLists.getSessionProgress.useQuery({ listKey: focusArea.type });
+    trpc.questionLists.getSessionProgress.useQuery(
+      { listKey: focusArea.type },
+      {
+        enabled: !!user,
+      },
+    );
 
   const questionsProgressAll = categorizeQuestionsProgress(
     questionProgressParam,

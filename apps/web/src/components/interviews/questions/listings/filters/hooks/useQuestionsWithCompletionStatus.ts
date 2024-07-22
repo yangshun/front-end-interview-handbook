@@ -11,12 +11,21 @@ import type {
 
 import { hasCompletedQuestion, hashQuestion } from '~/db/QuestionsUtils';
 
+import { useUser } from '@supabase/auth-helpers-react';
+
 export default function useQuestionsWithCompletionStatus<
   Q extends QuestionMetadata,
 >(
   questions: ReadonlyArray<Q>,
 ): ReadonlyArray<Q & QuestionMetadataWithCompletedStatus> {
-  const { data: questionProgress } = trpc.questionProgress.getAll.useQuery();
+  const user = useUser();
+
+  const { data: questionProgress } = trpc.questionProgress.getAll.useQuery(
+    undefined,
+    {
+      enabled: !!user,
+    },
+  );
 
   const questionsWithCompletionStatus = useMemo(() => {
     const completedQuestions = new Set(

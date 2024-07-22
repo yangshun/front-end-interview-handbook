@@ -31,6 +31,8 @@ import { themeGlassyBorder } from '~/components/ui/theme';
 
 import { countNumberOfQuestionsInList } from '~/db/QuestionsUtils';
 
+import { useUser } from '@supabase/auth-helpers-react';
+
 function PreparationPlanCard({
   difficultySummary,
   plan: { type, name, description, questions, href, schedule },
@@ -134,9 +136,12 @@ export default function InterviewsStudyPlansPage({
   plansDifficultySummary,
 }: Props) {
   const intl = useIntl();
+  const user = useUser();
   const testimonials = useInterviewsMarketingTestimonialsDict();
   const { data: questionListSessions } =
-    trpc.questionLists.getActiveSessions.useQuery();
+    trpc.questionLists.getActiveSessions.useQuery(undefined, {
+      enabled: !!user,
+    });
 
   const sessions = questionListSessions ?? [];
 

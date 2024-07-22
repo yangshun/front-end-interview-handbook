@@ -10,6 +10,8 @@ import { themeBackgroundCardWhiteOnLightColor } from '~/components/ui/theme';
 import type { QuestionTotalAvailableCount } from '~/db/QuestionsListReader';
 import { categorizeQuestionsProgress } from '~/db/QuestionsUtils';
 
+import { useUser } from '@supabase/auth-helpers-react';
+
 type Props = Readonly<{
   questionTotalAvailableCount: QuestionTotalAvailableCount;
 }>;
@@ -17,8 +19,13 @@ type Props = Readonly<{
 export default function InterviewsDashboardOverallCompletionProgress({
   questionTotalAvailableCount,
 }: Props) {
-  const { data: questionProgressParam } =
-    trpc.questionProgress.getAll.useQuery();
+  const user = useUser();
+  const { data: questionProgressParam } = trpc.questionProgress.getAll.useQuery(
+    undefined,
+    {
+      enabled: !!user,
+    },
+  );
   const questionsProgressAll = categorizeQuestionsProgress(
     questionProgressParam,
   );

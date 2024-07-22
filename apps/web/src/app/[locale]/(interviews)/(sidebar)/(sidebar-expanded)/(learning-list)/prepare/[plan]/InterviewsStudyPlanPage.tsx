@@ -29,6 +29,8 @@ import {
   filterQuestionsProgressByList,
 } from '~/db/QuestionsUtils';
 
+import { useUser } from '@supabase/auth-helpers-react';
+
 type Props = Readonly<{
   codingQuestions: ReadonlyArray<QuestionMetadata>;
   difficultySummary: Record<QuestionDifficulty, number>;
@@ -46,12 +48,20 @@ export default function InterviewsStudyPlanPage({
 }: Props) {
   const intl = useIntl();
   const { userProfile } = useUserProfile();
+  const user = useUser();
   const canViewStudyPlans = userProfile?.isInterviewsPremium;
 
-  const { data: questionProgressParam } =
-    trpc.questionProgress.getAll.useQuery();
+  const { data: questionProgressParam } = trpc.questionProgress.getAll.useQuery(
+    undefined,
+    { enabled: !!user },
+  );
   const { data: questionListsProgressParam } =
-    trpc.questionLists.getSessionProgress.useQuery({ listKey: plan.type });
+    trpc.questionLists.getSessionProgress.useQuery(
+      { listKey: plan.type },
+      {
+        enabled: !!user,
+      },
+    );
 
   const questionsProgressAll = categorizeQuestionsProgress(
     questionProgressParam,
