@@ -5,7 +5,7 @@ import RelativeTimestamp from '~/components/common/datetime/RelativeTimestamp';
 
 import type { Post } from '~/types';
 
-import { Badge, Button, Text } from '@mantine/core';
+import { Badge, Button, Pill, Text } from '@mantine/core';
 
 type Props = Readonly<{
   post: Post;
@@ -36,6 +36,16 @@ function PostMetadata({ post, showViewPost, showRepliedBadge }: Props) {
           </Button>
         )}
       </div>
+
+      {post.keywords.length > 0 && (
+        <div className="flex gap-1">
+          {post.keywords.map((keyword) => (
+            <Pill key={keyword} size="sm">
+              {keyword}
+            </Pill>
+          ))}
+        </div>
+      )}
 
       {post.replied && showRepliedBadge && (
         <div className="flex items-center gap-2">

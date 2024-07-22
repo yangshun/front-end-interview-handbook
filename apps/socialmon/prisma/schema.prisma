@@ -14,9 +14,10 @@ model RedditPost {
   content   String    @db.VarChar
   postedAt  DateTime  @db.Timestamp(6)
   url       String    @db.VarChar
-  foundAt   DateTime  @default(now()) @db.Timestamp(6)
   response  String?   @db.VarChar
   replied   Boolean   @default(false)
   repliedAt DateTime? @db.Timestamp(6)
   subreddit String    @db.VarChar
+  createdAt DateTime  @default(now()) @db.Timestamptz(6)
+  keywords  String[]
 }

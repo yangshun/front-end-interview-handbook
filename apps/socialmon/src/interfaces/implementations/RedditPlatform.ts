@@ -74,12 +74,20 @@ class RedditPlatform implements Platform {
     return success;
   }
 
-  private createRedditPost(post: Submission): RedditPost {
+  private createRedditPost({
+    keywords,
+    post,
+  }: {
+    keywords: Array<string>;
+    post: Submission;
+  }): RedditPost {
     return {
       content: post.selftext_html ?? post.selftext,
-      foundAt: new Date(),
+      createdAt: new Date(),
       id: post.id,
-      postedAt: new Date(post.created_utc * 1000), // In milliseconds
+      keywords,
+      postedAt: new Date(post.created_utc * 1000),
+      // In milliseconds
       replied: false,
       repliedAt: null,
       response: null,
@@ -116,7 +124,10 @@ class RedditPlatform implements Platform {
     const currentTime = Date.now();
     const startTime = currentTime - this.timeframeInHours * 3600000;
 
-    const relevantSubmissions: Array<Submission> = [];
+    const relevantSubmissions: Array<{
+      keywords: Array<string>;
+      post: Submission;
+    }> = [];
 
     // Loop through each subreddit
     for (const subreddit of this.subreddits) {
@@ -131,21 +142,46 @@ class RedditPlatform implements Platform {
       const keywordRegex = new RegExp(this.keywords.join('|'), 'gi');
 
       // Filter posts based on keywords and timeframe
-      const filteredPosts = posts.filter((post) => {
-        const createdAtInMillisecond = post.created_utc * 1000;
+      const filteredPosts = posts
+        .filter((post) => {
+          const createdAtInMillisecond = post.created_utc * 1000;
 
-        return (
-          (keywordRegex.test(post.title) || keywordRegex.test(post.selftext)) &&
-          createdAtInMillisecond >= startTime
-        );
-      });
+          return (
+            (keywordRegex.test(post.title) ||
+              keywordRegex.test(post.selftext)) &&
+            createdAtInMillisecond >= startTime
+          );
+        })
+        .map((post) => {
+          const matchedKeywords = [];
+
+          // Check for matches in the title and selftext
+          if (keywordRegex.test(post.title)) {
+            const match = post.title.match(keywordRegex);
+
+            matchedKeywords.push(...(match ? match : []));
+          }
+          if (keywordRegex.test(post.selftext)) {
+            const match = post.selftext.match(keywordRegex);
+
+            matchedKeywords.push(...(match ? match : []));
+          }
+
+          // Remove duplicates
+          const uniqueMatchedKeywords = Array.from(new Set(matchedKeywords));
+
+          return {
+            keywords: uniqueMatchedKeywords,
+            post,
+          };
+        });
 
       relevantSubmissions.push(...filteredPosts);
     }
 
     // Save to db
-    const relevantPosts = relevantSubmissions.map((post) =>
-      this.createRedditPost(post),
+    const relevantPosts = relevantSubmissions.map((submission) =>
+      this.createRedditPost(submission),
     );
     const success = await this.insertPostsToDatabase(relevantPosts);
 
