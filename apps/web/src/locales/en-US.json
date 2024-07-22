@@ -3291,6 +3291,10 @@
     "defaultMessage": "Data structures and algorithms",
     "description": "Title of study plan"
   },
+  "OOyT6O": {
+    "defaultMessage": "An error occurred while formatting the code",
+    "description": "Error message shown when an error occurs while formatting code"
+  },
   "OSrT+C": {
     "defaultMessage": "Share",
     "description": "Blog share button label"
