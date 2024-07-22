@@ -1,28 +1,56 @@
-This challenge requires knowledge of basic responsive CSS and grid layouts and is probably one of your first exposures to a challenge that is using responsive layout grids.
+This challenge requires knowledge of basic responsive CSS and grid layouts. It's probably one of your first exposures to a challenge that is using responsive layout grids.
 
-### Relevant concepts
+If you've done the [Hero Section challenge](https://www.greatfrontend.com/projects/challenges/hero-section-simple), you'll feel right at home as you put your CSS layouts skill to the test again, especially if you used the grid layout system for it.
 
-- [Grid](https://css-tricks.com/snippets/css/complete-guide-grid/): The features are laid out in a grid-like fashion with gaps between each cell, making CSS grid the perfect option.
-- [Flex](https://css-tricks.com/snippets/css/a-guide-to-flexbox/): Flex layouts are useful for adding gaps between a stack of elements. While flex is not the only way to achieve the layout, it is the modern way of doing so.
-- [Media queries](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_media_queries/Using_media_queries): Media queries allow you to apply different CSS styles based on the characteristics of the device displaying the page, such as screen width, height, orientation, etc. They are crucial for making your features section responsive across various devices. You can define breakpoints where the layout or styles change to accommodate different screen sizes.
+## Relevant concepts
 
-### Recommended approach
+- [Grid layout](https://css-tricks.com/snippets/css/complete-guide-grid/): In the screenshots, the features are laid out in a grid with gaps between each feature (cell). This is textbook grid layout use case.
+- [Flex layout](https://css-tricks.com/snippets/css/a-guide-to-flexbox/): Flex layouts are useful for adding gaps between a stack of elements. While flex is not the only way to achieve the layout, it is the modern way of doing so.
+- [Media queries](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_media_queries/Using_media_queries): Media queries allow you to apply different CSS styles based on the characteristics of the device displaying the page, such as screen width, height, orientation, etc. They are crucial for making your component responsive across various devices. You can define breakpoints where the layout or styles change to accommodate different screen sizes.
 
-1. **Build the header section**: Use semantic HTML elements like `<header>`, `<div>`, `<section>`, and appropriate content elements such as `<h2>`, `<p>`. Ensure responsiveness – the heading element has a different `font-size` and `line-height` on mobile. If you've built the other marketing section challenges that include a similar header, you're highly advised to reuse the styles.
-2. **Implement a feature cell**: Icons are obtained from [Remix Icon](https://remixicon.com). Refer to our "Icons Guide" for more details on rendering the icons. Note that the icons are contained within a circle that has a subtle shadow.
-3. **Implement a responsive grid containing the features**: Turn on the layout grids in Figma and see that each feature spans 4 columns on desktop (33.33% of the container), 3 columns on tablet (50% of the container), and 4 columns on mobile (100% of the container). If you are using a templating system or a JavaScript framework, render each item using iteration helpers rather then repeating the feature markup.
+## Recommended approach
 
-### Grid columns
+### Build the headline section
 
-Grids provide a structural framework for your design, ensuring that elements align properly across different parts of the layout. With a grid, you can streamline the design process, as it eliminates guesswork – every page-level section should take up N number of columns and the spacing between the columns have already been pre-determined.
+Use [semantic HTML elements](https://developer.mozilla.org/en-US/docs/Glossary/Semantics#semantics_in_html) like `<header>`, `<div>`, `<section>`, and appropriate content elements such as `<h1>` and `<p>`. If you've built the other marketing section challenges that include a similar headline section, you're highly advised to reuse the styles and/or components.
 
-By turning on the "Layout grids" in Figma (<kbd>Shift</kbd> + <kbd>G</kbd>), you can see that on the "Desktop" breakpoint, each feature item spans 4 columns.
+You may choose the flex layout system for this section as it is relatively simple to lay out. Though you could choose to use the grid layout for practice. In this challenge, you'll learn what layout system is best for what use cases.
 
-Here's how the features grid can be implemented in HTML and CSS.
+### Implement responsive design
+
+#### Feature cells
+
+Enable [Layout grids](https://help.figma.com/hc/en-us/articles/360040450513-Create-layout-grids-with-grids-columns-and-rows) in Figma and see that each feature spans 4 columns on "desktop" (33.33% of the container), 3 columns on "tablet" (50% of the container), and 4 columns on "mobile" (100% of the container). If you are using a templating system or a JavaScript framework, render each feature cell iteratively rather then repeating the markups to prevent repeating yourself.
+
+Icons are obtained from [Remix Icon](https://remixicon.com/). Refer to our "Icons Guide" for more details on rendering the icons. Note that the icons are contained within a circle that has a subtle shadow.
+
+Use [media queries](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_media_queries/Using_media_queries) to conditionally apply style properties. If you're using Tailwind CSS, use the [responsive modifiers](https://tailwindcss.com/docs/responsive-design).
+
+Consider using semantic elements like `<ul>` and `<li>` for the feature cells. This helps web crawlers and screen readers understand your content, i.e., essentially bullet points of features, better.
+
+> If your browser brings in the (hideous) default list styles, you can remove them by using the [`list-style` property](https://developer.mozilla.org/en-US/docs/Web/CSS/list-style). You can use CSS resets like [Normalize.css](https://necolas.github.io/normalize.css/) to clear all default styles to make it easy to style your components across different browsers and operating systems. Major CSS libraries, like Tailwind CSS, already usually come with [preflights](https://tailwindcss.com/docs/preflight).
+
+#### Typography
+
+In the project brief, we see that in the narrowest screen, the overline, subtitle, and the descriptions in the feature cells get larger. Similar to how you'd condition the layout, you can condition typography based on screen sizes based on screen sizes with media queries.
+
+> In typography, [**overline**](https://en.wikipedia.org/wiki/Overline) is a typographical feature of a horizontal line above a text. However, in graphic design, it's informally used to refer to a small text above a larger text that provides context or pretext to the larger proceeding headline, as seen in [Google's Material Design documentation](https://m2.material.io/design/typography/the-type-system.html#applying-the-type-scale). In this challenge, "High quality images" and "Best-in-class support" are overlines.
+
+You can use media queries to conditionally apply _any_ CSS properties based on conditions like device type, screen resolution, orientation, and even user preferences, e.g., dark/light mode, reduced motion, data usage, etc.
+
+### Make and reuse components
+
+This challenge contains multiple grouped elements that are repeated with differing contents. Consider creating reusable components for common elements and reusing them across sections (and challenges, too!). Stay [DRY](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself), my friend.
+
+## Grid columns
+
+Grids provide a structural framework for your design, ensuring that elements align properly across different parts of the layout. With a grid, you can streamline the design process, as it eliminates guesswork—every page-level section should take up N number of columns and the spacing between the columns have already been pre-determined.
+
+By enabling [Layout grids](https://help.figma.com/hc/en-us/articles/360040450513-Create-layout-grids-with-grids-columns-and-rows) in Figma (<kbd>Shift</kbd> + <kbd>G</kbd>), you can see that on the "Desktop" breakpoint, each feature item spans 4 columns.
+
+Here's a sample implementation of the features grid. These are only for the "desktop" breakpoint. Changes have to made to also support "mobile" and "tablet".
 
 ```css
-/* These are only for desktop breakpoint.
-  Changes have to made to also support mobile and tablet. */
 .container {
   max-width: 1440px;
   padding: 0 32px;
@@ -52,13 +80,13 @@ Here's how the features grid can be implemented in HTML and CSS.
 
 Read up on [CSS Grid](https://css-tricks.com/snippets/css/complete-guide-grid/) if you aren't familiar with using CSS grid for layouts.
 
-### Responsive section behavior
+### Responsive section behaviour
 
-To make the sections stack on top of each other on mobile and tablet, we can specify a different `grid-column` value for each non-desktop breakpoints to take up the desired number of columns – 4 on mobile and 3 on tablet.
+To make the sections stack on top of each other on narrow screens, we can specify a different `grid-column` value for each breakpoint to take up the full number of columns, e.g., 4 for "mobile" and 3 for "tablet".
+
+This is just an example, and changes have to be made to the container as well. Refer to the "Layout grid" guide.
 
 ```css
-/* Changes have to be made to the container as well. Refer to the "Layout grid" guide. */
-
 .feature-item {
   grid-column: span 4 / span 4;
 }

@@ -1,25 +1,76 @@
-This challenge is a composite of multiple other challenges. Therefore you should refer to those challenges for guides on how to build each section.
+This challenge is a composite of multiple other challenges. Therefore you should refer to those challenges for detailed guides on how to build each section.
 
-### Refactor your classes
+- [Navbar Component](https://www.greatfrontend.com/projects/challenges/navbar-component/resources/guides)
+- [Pricing Section (Tiers)](https://www.greatfrontend.com/projects/challenges/pricing-section-tiers/resources/guides)
+- [FAQ Section](https://www.greatfrontend.com/projects/challenges/faq-section/resources/guides)
+- [Features Section (Grid)](https://www.greatfrontend.com/projects/challenges/features-section-grid/resources/guides)
+- [Testimonials Section](https://www.greatfrontend.com/projects/challenges/testimonials-section/resources/guides)
+- [Contact Section](https://www.greatfrontend.com/projects/challenges/contact-section/resources/guides)
+- [Footer Section (Simple)](https://www.greatfrontend.com/projects/challenges/footer-section-simple/resources/guides)
 
-Notice that certain components like buttons are used a few times on the page, with some variance:
+## Refactor your classes
 
-- Primary inline button
-- Secondary inline button
-- Primary block button
+Notice that certain components like buttons are used a few times on the page with different variants, e.g.,
 
-The button classes should be refactored so that they can be shared and reused across the sections. Repeat the same process for other shared components on the page such as headings, subtitles, inputs, etc.
+- primary inline button,
+- secondary inline button, or
+- primary block button.
 
-### CSS naming convention
+Consider refactoring these variants so that you need only have one `Button` component that can be reused across the sections. Repeat the same process for other shared components on the page such as headings, subtitles, inputs, etc.
 
-For large code bases and websites, CSS organization can get messy very quickly. Adopting a consistent CSS naming convention is crucial to maintain code organization, readability, and maintainability. By following a CSS naming convention, you get the following benefits:
+## Harmonise your styles
+
+If you're actually combining your work from the previous challenges, you may want to ensure that the styles of similar elements across sections are consistent. You may have set a different base font size, line height, or colour in the previous challenges. If you did, this is the time to harmonise them. This should happen naturally as you refactor them into their own components and reuse them.
+
+Different sections may have different breakpoints and responsive behaviours. This is normal! But make sure that the responsive behaviours of one section do not make the other sections look out of place.
+
+## CSS naming convention
+
+For large code bases and websites, CSS organization can get messy very quickly. Adopting a consistent CSS naming convention is crucial to maintain code organization, readability, and maintainability. By following a consistent CSS naming convention, you get the following benefits.
 
 1. **Improved code clarity and understandability**: A well-defined naming convention makes it easier for developers to understand the purpose and scope of each CSS class or ID, facilitating collaboration and code maintenance.
 2. **Reduced naming conflicts**: With a structured naming system, the likelihood of naming collisions or overriding styles unintentionally is minimized, preventing styling issues and bugs.
 3. **Enhanced scalability**: As a project grows, a consistent naming convention helps manage the increasing complexity of CSS files, making it easier to locate and modify styles when needed.
 
-A widely adopted CSS naming convention is the [BEM (Block, Element, Modifier) methodology](https://en.bem.info/methodology/naming-convention/#naming-rules), which provides a systematic way to name CSS classes based on their role and relationship to other components. This convention helps create modular, reusable, and scalable CSS code. You're highly recommended to adopt a CSS naming convention.
+Know that the more you reuse your CSS classes, the less CSS properties you'll need to redefine. This means an overall smaller CSS file size, which eventually leads to faster page loading times.
 
-### Spacing between sections
+A widely adopted CSS naming convention is the [BEM (Block, Element, Modifier) methodology](https://en.bem.info/methodology/naming-convention/#naming-rules), which provides a systematic way to name CSS classes based on their role and relationship to other components. This convention helps create modular, reusable, and scalable CSS code.
+
+If you're using [Tailwind CSS](https://tailwindcss.com), you don't really have to worry about naming conventions since you'll be writing [utility-first CSS](https://tailwindcss.com/docs/utility-first). Major CSS and UI libraries usually bring their own or recommend some CSS naming conventions.
+
+It doesn't really matter whether you choose BEM, [SMACSS](https://smacss.com), utility-first CSS, or any other CSS methodologies out there, or come up with your own. What really matters is you **have a convention**—a consistent way of structuring your CSS classes and properties—and that **you follow it**.
+
+## Spacing between sections
 
 Take note of the spacing between each section; the spacing value is responsive and varies according to the device width.
+
+Ideally, a component should **never** expose its own margins because a component is only responsible for contents _within its boundary_, not beyond. Since margins describe how a component spaces itself from other components in a higher-order layout, that higher-order layout should be the one responsible for orchestrating the margins between components it lays out.
+
+If you've been doing this, great! Combining sections from previous challenges will make it a breeze for you to complete this challenge. If not, it's time to refactor some of your sections' components.
+
+### Exposing styles
+
+The easiest way to allow for customisable margins in a custom component is to expose the `style` or `class` attributes.
+
+```jsx
+<body>
+  <Navbar />
+  <Hero style={{ marginTop: '1rem' }} />
+  <Features style={{ marginTop: '1rem' }} />
+  <Footer style={{ marginTop: '1rem' }} />
+</body>
+```
+
+Your components will have to merge the `style` and/or `class` attributes with their own _root element's_ `style` and/or `class` attributes. This pattern not only allows for customisable margins, but also customisable styles in general, e.g., for variants, themes, etc.
+
+### Spacers
+
+[This article describes briefly about spacer components](https://mxstbr.com/thoughts/margin), and [this one about margin collapse](https://www.joshwcomeau.com/css/rules-of-margin-collapse/). Both articles talk about how it's generally not a good idea to have components supply margins by default. They are of a really quality; you should check them out for further reading.
+
+If you're using Tailwind CSS, consider using the [Space Between](https://tailwindcss.com/docs/space) or [Gap](https://tailwindcss.com/docs/gap) utilities on the parent container to space out the children elements. If you're not, you can space your components apart with CSS' built-in [next-sibling combinator](https://developer.mozilla.org/en-US/docs/Web/CSS/Next-sibling_combinator).
+
+The beauty of using spacers is that you don't need to worry about trailing margins on the last element (if you set `margin-bottom`) and leading margins on the first element (if you set `margin-top`). The spacer will take care of that for you. No need for funky `:last-child` or `:first-child` pseudo-classes.
+
+## Integrating with a payment gateway
+
+You can go even further and implement an actual checkout function with a payment gateway like [Stripe](https://stripe.com/) or [PayPal](https://developer.paypal.com/home/). Integration is free because fees are charged per real transaction, so you can try to integrate them for your own learning. To test your integration, you can use the static test card numbers provided by the payment gateway, e.g., [Stripe's](https://docs.stripe.com/testing#cards) and [PayPal's](https://developer.paypal.com/tools/sandbox/card-testing/), which won't count as real transactions, but good enough for you to test your payment flow from start to finish.

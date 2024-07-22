@@ -1,18 +1,30 @@
-This is the last challenge of the [Marketing track](/projects/tracks/marketing), it is highly recommended to have completed all the challenges in the track before working on this challenge!
+As this is the last challenge of the [Marketing track](https://www.greatfrontend.com/projects/tracks/marketing), it is highly recommended that you complete all the challenges it before working on this challenge.
 
-To put together a website consisting of multiple pages, consider the following:
+In this challenge, we're finally putting all the pages you've built together to create a complete marketing website.
 
-### Templating engines
+- [Marketing Landing Page](https://www.greatfrontend.com/projects/challenges/marketing-landing-page/resources/guides)
+- [Features Page](https://www.greatfrontend.com/projects/challenges/features-page/resources/guides)
+- [About Us Page](https://www.greatfrontend.com/projects/challenges/about-us-page/resources/guides)
+- [Pricing Page](https://www.greatfrontend.com/projects/challenges/pricing-page/resources/guides)
+- [Contact Us Page](https://www.greatfrontend.com/projects/challenges/contact-us-page/resources/guides)
+- [404 Page](https://www.greatfrontend.com/projects/challenges/404-section/resources/guides)
+- [Cookie Consent](https://www.greatfrontend.com/projects/challenges/cookie-consent/resources/guides)
 
-If you are using vanilla HTML and CSS without any build process or frameworks, consider using templating engines.
+Since you're finally putting together a complete website, here are some things you might want to consider.
+
+## Templating engines
+
+If you are using vanilla HTML and CSS without any build process or frameworks so far, consider using templating engines.
 
 All pages include the navigation bar and the footer. While you can certainly copy and paste the necessary markup and styles on each of the pages, it would be better to use a templating engine that enables reusing HTML across pages. Popular templating engines include [Handlebars](https://handlebarsjs.com/), [EJS](https://ejs.co/) and [Pug](https://pugjs.org/api/getting-started.html).
 
-### URLs structure
+While working vanilla is great for learning, it's just not practical for developing real-world software. As you build more complex stuff, you'll find yourself solving problems that other people have already solved. For example, one vanilla way to "componentise" HTML elements without having to repeat them is to use [`<template>`s](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/template), [clone](https://developer.mozilla.org/en-US/docs/Web/API/Node/cloneNode), and [append](https://developer.mozilla.org/en-US/docs/Web/API/Node/appendChild) them to the DOM manually in JavaScript. This is a lot of work, more error-prone, and just not efficient when building software at scale. This is an example where a templating engine is useful.
+
+## URL structures
 
 Each page should be accessible via a different URL. To achieve this in vanilla HTML, create a folder for your website project, and within it, create separate HTML files for each page (e.g., `index.html` for the homepage, `features.html`, `pricing.html`, `about.html`, `contact.html`, `404.html`, etc.).
 
-The downside of this approach is that the URL will end with `.html`. Most hosting services supports URL rewrites and accessing a path will attempt serving a `index.html` at that directory so you can have directory structures like:
+The downside of this approach is that the URLs will end with `.html`s. Most hosting services supports [URL rewrites](https://en.wikipedia.org/wiki/Rewrite_engine) and accessing a path will serve an `index.html` at that directory, so you can have directory structures like this.
 
 ```
 ├── about
@@ -27,21 +39,19 @@ The downside of this approach is that the URL will end with `.html`. Most hostin
 └── index.html
 ```
 
-With this, your pages can be accessed with clean URLs that do not `index.html`. For example, accessing `https://yoursite.com/about` will serve `https://yoursite.com/about/index.html`.
+This way, your pages can be accessed with clean URLs that do not have `.html`s. For example, accessing `https://example.com/about` is equivalent to `https://example.com/about/index.html` as they both serve `/about/index.html`.
 
-1. **Link pages together**: In each HTML file, include navigation links (using the `<a>` tag with the `href` attribute) that point to the other pages. For example: `<a href="about.html">About us</a>`.
+## Search engine optimization (SEO)
 
-#### 404 page
+Your website is only worth its weight if people visit them. [SEO](https://en.wikipedia.org/wiki/Search_engine_optimization) is the practice of optimizing a website to increase its visibility and ranking on [search engine results pages (SERPs)](https://en.wikipedia.org/wiki/Search_engine_results_page) for relevant keywords and queries. The primary goal of SEO is to attract organic, i.e., non-paid, traffic from search engines like Google, Bing, and Yahoo.
 
-### Search engine optimization
+Let's have a look at two ways to improve the SEO of the page: defining crucial metadata used by search engines and including a sitemap.
 
-Let's have a look at two ways to improve the SEO of the page – defining crucial metadata used by search engines and including a sitemap.
+### Title and descriptions
 
-#### Title and descriptions
+The title of the page is visible in the browser tab while the description usually appears below the page title in SERPs. Search engines use these data to understand what the page is about, hence each page should define their titles and descriptions.
 
-The title of the page is visible in the browser tab while the description is not visible to the user. Search engines use these data to understand what the page is about, hence each page should define the title and description fields.
-
-To implement the page title, use the `<title>` tag:
+To implement the page title, use [`<title>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/title).
 
 ```html
 <head>
@@ -50,7 +60,7 @@ To implement the page title, use the `<title>` tag:
 </head>
 ```
 
-To implement the page description, use a `<meta>` tag:
+To implement the page description, use a [`<meta>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta).
 
 ```html
 <head>
@@ -59,13 +69,15 @@ To implement the page description, use a `<meta>` tag:
 </head>
 ```
 
-#### Sitemap
+Know that a `<meta>` tag essentially embeds a piece of information (name-value pair) on your HTML page. These metadata is used for many purposes other than SEO. For example, [`"robots"`](https://developers.google.com/search/docs/crawling-indexing/robots-meta-tag) control how search engines index a page, even excluding it from search results. [The Open Graph protocol](https://ogp.me/) uses `<meta>` tags to define how your content appears when shared on social media platforms like Facebook and Twitter. [Here are some examples of `<meta>` tags that Google supports](https://developers.google.com/search/docs/crawling-indexing/special-tags).
 
-A website sitemap is a file or page that provides a structured overview of all the pages and content on a website. For this challenge, we're looking for an XML sitemap that is designed specifically for search engines like Google. They list all the URLs on a website along with additional metadata like the last modification date, update frequency, and priority. This helps search engines understand the website's structure and content, leading to better crawling and indexing.
+### Sitemap
 
-XML sitemaps follow a standardized format that search engines can easily parse. They are typically submitted to search engines through webmaster tools or sitemaps protocols and are available on the root directory of your website as `sitemap.xml`, e.g. `https://example.com/sitemap.xml`.
+A website's [sitemap](https://developers.google.com/search/docs/crawling-indexing/sitemaps/overview) is a file or page that provides a structured overview of all the pages and content on a website. They list all the URLs on a website along with additional metadata like the last modification date, update frequency, and priority. This helps search engines understand the website's structure and content, leading to better crawling and indexing.
 
-Here's an example sitemap demonstrating the structure of a `sitemap.xml` file.
+[The sitemaps protocol](https://www.sitemaps.org/protocol.html) define the many formats of a sitemap, i.e., XML, RSS feed, and text file. [Here is Google's simplified comparison of the different sitemap formats](https://developers.google.com/search/docs/crawling-indexing/sitemaps/build-sitemap). For this challenge, we're looking for an XML sitemap that is designed specifically for search engines like Google.
+
+XML sitemaps follow a standardized format that search engines can easily parse. They are typically submitted to search engines through webmaster tools or sitemaps protocols and are available publicly on the root directory of your website as `sitemap.xml`, e.g. `https://example.com/sitemap.xml`. Here's an example sitemap demonstrating the structure of a `sitemap.xml` file.
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -96,11 +108,25 @@ For each URL, it provides additional metadata:
 - `<loc>`: The full URL of the page.
 - `<lastmod>`: The date the page was last modified.
 - `<changefreq>`: How frequently the page is expected to change (daily, weekly, monthly, etc.).
-- `<priority`: The priority of the URL relative to other pages (ranges from 0.0 to 1.0).
+- `<priority>`: The priority of the URL relative to other pages (ranges from 0.0 to 1.0).
 
-### Metaframeworks
+### So, what's next?
 
-In practice, developers commonly develop multi-page websites using metaframeworks. Metaframeworks are higher-level frameworks that combine or include other frameworks and libraries. They provide an overarching architecture and additional functionality on top of core frameworks like React, Vue, or Angular.
+SEO is a highly vast topic and there are many more things you can do to improve your website's. [Google has a great starter guide on SEO fundamentals](https://developers.google.com/search/docs/fundamentals/seo-starter-guide), such as organising your site and adding and optimising images (and yes, with proper `alt`s). More importantly, these optimisations are only useful if you can measure their effectiveness. **You need data**.
+
+Analytics platforms like [Google Analytics](https://marketingplatform.google.com/about/analytics/) and [Hotjar](https://www.hotjar.com/) can help you track where your visitors are coming from, what they are doing on your site, their [customer journeys](https://en.wikipedia.org/wiki/Customer_experience), and how you can improve their experiences. They all usually have generous free tiers, so there's no reason not to try them.
+
+To track where your users are coming from, you can also use [UTM parameters](https://en.wikipedia.org/wiki/UTM_parameters), i.e., `utm_source`.
+
+> Note that ad blockers and heavily-privacy-focused browsers may block these efforts in the name of protecting user privacy. At the end of the day, we take what we can get, and at all times, respect user privacy.
+
+You should also work with your search engines to get your website to perform well on their SERPs. Tools like [Google's Search Console](https://search.google.com/search-console/about) and [Microsoft's Bing Webmaster Tools](https://www.bing.com/webmasters/about) can help you monitor your website's performance on their search engines, show you how your website is indexed, the keywords that are driving traffic to your site, and any issues that might be affecting your website's visibility.
+
+SEO is an ongoing effort; following best practices will only get you so far. You'll need to continuously monitor your website's performance and make adjustments as you learn more about your customer's behaviours. At the end of the day, improving SEO means improving your understanding of your target audience.
+
+## Metaframeworks
+
+In practice, developers commonly develop multi-page websites using metaframeworks. Metaframeworks are higher-level frameworks that combine or include other frameworks and libraries. They provide an overarching architecture and additional functionality on top of core frameworks like [React](https://react.dev/), [Vue.js](https://vuejs.org/), or [Svelte](https://svelte.dev/).
 
 Metaframeworks are useful for:
 
@@ -108,20 +134,30 @@ Metaframeworks are useful for:
 2. Building full-stack applications by combining capabilities from different frameworks and libraries into a cohesive development experience.
 3. Improving performance through features like server-side rendering, static site generation, and optimized bundling/code splitting.
 
-Popular examples of metaframeworks include [Next.js](https://nextjs.org/) (React), [Nuxt](https://nuxt.com/) (Vue), [SvelteKit](https://kit.svelte.dev/) (Svelte), [Remix](https://remix.run/) (React), and [Gatsby](https://www.gatsbyjs.com/) (React).
+Popular examples of metaframeworks include [Next.js](https://nextjs.org/) (React), [Nuxt](https://nuxt.com/) (Vue.js), [SvelteKit](https://kit.svelte.dev/) (Svelte), [Remix](https://remix.run/) (React), and [Gatsby](https://www.gatsbyjs.com/) (React).
 
 Metaframeworks help you easily create a multi-page website and makes it easy to implement the SEO features, among other useful things. We highly recommend using a metaframework for this challenge.
 
-### Lighthouse audit
+### A tiny note about using metaframeworks
 
-Run a [Lighthouse audit](https://developer.chrome.com/docs/lighthouse) in Chrome DevTools, which provides comprehensive performance metrics for your website like First Contentful Paint (FCP), Largest Contentful Paint (LCP), Cumulative Layout Shift (CLS), Total Blocking Time (TBT), and Speed Index.
+Again, while working vanilla is great for learning, it's just not practical for developing real-world software. As you build more complex stuff, you'll find yourself solving problems that other people have already solved, e.g., routing, data fetching, caching, etc. However, it's important to **understand the core concepts** of the frameworks and/or libraries you're using before using them. You should understand what problem _they're_ solving, what problem _you're_ trying to solve, and only then should you use them.
 
-To run a Lighthouse audit, follow these steps:
+Frameworks and metaframeworks abstract away a lot of the complexity of building web applications; they're made to make your life easier! The good thing is that for advanced users, they can be super productive. The bad thing is that for novices, they can take away the learning experience and "lock them in a cage". You should learn CSS before using [Tailwind CSS](https://tailwindcss.com/). You should learn the fundamentals of web development, the JavaScript module system, transpilers, and bundlers before using React with [Create React App](https://create-react-app.dev/) or [Vite](https://vitejs.dev/guide/). Learning how to use a framework will only help you use that framework, but learning the fundamentals of web development will help you do anything in the future.
+
+## Lighthouse audit
+
+Similar to improving SEO, improving a website's performance also requires data, metrics. [Lighthouse](https://developer.chrome.com/docs/lighthouse/overview) is an automated tool for benchmarking the quality of websites. It is available in [Chrome DevTools](https://developer.chrome.com/docs/devtools), i.e., the web inspector or developer tools in Google Chrome. It provides comprehensive performance metrics for your website like [First Contentful Paint (FCP)](https://web.dev/articles/fcp), [Largest Contentful Paint (LCP)](https://web.dev/articles/lcp), [Cumulative Layout Shift (CLS)](https://web.dev/articles/cls), [Total Blocking Time (TBT)](https://web.dev/articles/tbt), [Speed Index](https://developer.chrome.com/docs/lighthouse/performance/speed-index), and more. It also provides actionable suggestions to help you improve your website’s performance, accessibility, best practices, and SEO.
+
+> You might have been overwhelmed by all these abbreviations. [Web Vitals](https://web.dev/articles/vitals) is an initiative by Google to provide unified guidance for quality signals that are essential to delivering a great user experience on the web. The three metrics that Google deems matter most are Largest Contentful Paint (LCP), [Interaction to Next Paint (INP)](https://web.dev/articles/inp), and Cumulative Layout Shift (CLS). They make up the [Core Web Vitals](https://web.dev/articles/vitals).
+
+To run a Lighthouse audit, follow these steps.
 
 1. Open the website or web page you want to audit in Google Chrome.
-2. Open the Chrome DevTools using <kbd>Cmd</kbd>/<kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>J</kbd>. Alternatively, right-click anywhere on the page and select "Inspect" or go to View > Developer > Developer Tools to open Chrome DevTools.
+2. Open the Chrome DevTools using <kbd>⌘</kbd>/<kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>J</kbd>. Alternatively, right-click anywhere on the page and select "Inspect" or go to View > Developer > Developer Tools to open Chrome DevTools.
 3. In the DevTools panel, click on the "Lighthouse" tab.
 4. In the Lighthouse panel, you can configure the audit settings. Select the categories you want to audit, such as Performance, Accessibility, Best Practices, SEO, or Progressive Web App.
 5. Optionally, you can click on the "Options" button to customize the audit settings further, such as simulating a specific device or network condition.
 6. Click the "Generate report" button to start the Lighthouse audit.
 7. Lighthouse will run a series of audits on the page and provide a report with scores for each category, as well as specific opportunities and diagnostics to improve the page's performance, accessibility, and other aspects.
+
+While high Lighthouse scores indicate a performant website, know that the goal isn't to hit 100 on every metric. The goal is to identify how contents on your website load and render under different scenarios and improve them.

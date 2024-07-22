@@ -1,0 +1,63 @@
+If you were part of the early internet boom around mid to late 1990s, you might be familiar with [the `<marquee>` element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/marquee) which allows one to scroll and bounce elements within a bounded box. It was really popular back then to make websites fun and interesting without complex scripting or animation techniques.
+
+However, it was never part of any HTML standards and different browser had different implementations. Today, the `<marquee>` element is deprecated and should not be used in modern web development. So, in this challenge you'll implement the same effect with pure CSS.
+
+## Relevant concepts
+
+- [CSS animations](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Animations): CSS animations allow you to animate elements on a webpage without using JavaScript. You can define [keyframes](https://developer.mozilla.org/en-US/docs/Web/CSS/@keyframes) that specify the style changes at different points throughout the animation, such as the starting and ending states.
+
+- [CSS `transform`](https://developer.mozilla.org/en-US/docs/Web/CSS/transform): This allows you to move, rotate, scale, and skew elements. You can use them to create various visual effects, such as flipping an element or moving it across the screen. In this challenge, you'll mainly be using the [`translateX` function](https://developer.mozilla.org/en-US/docs/Web/CSS/transform-function/translateX) to move the logos horizontally.
+
+- CSS [Grid](https://css-tricks.com/snippets/css/complete-guide-grid/) or [Flex](https://css-tricks.com/snippets/css/a-guide-to-flexbox/) layout systems: You'd probably use one of these and [media queries](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_media_queries/Using_media_queries) to lay the logos out in a row responsively.
+
+## Recommended approach
+
+The idea is simple. First, we lay the logos out as a strip and translate it horizontally out of view. Simultaneously, another copy of the same strip is also translating together with the previous strip. When a strip is completely out of view, it is reset to its original position and starts translating again. With both strips moving in sync, and the other strip "covering" the empty space left by an outgoing strip, we get the illusion that the logos are infinitely looping across the container!
+
+### Lay the logos out
+
+Lay all the logos out horizontally in a row and space them if needed. This strip of logos will be translating horizontally out of view, so be sure to contain this strip within a parent element with `overflow: hidden`.
+
+You may want to also set `user-select: none` to prevent the logos from being selectable by the user's beam cursor. If your logo is selected and has a selection rectangle over it _as its translating_, you can literally see the selection rectangle moving with the logo, and when the logo jumps back to its original position.
+
+### Duplicate the logo strip
+
+We'll need duplicates of the logo strip to cover the empty space left by an outgoing strip. Notably, consider creating a logo strip component that you can repeat without duplicating the codes for the logos.
+
+Since these duplicates are really used for visual effect and not semantically meaningful, consider adding [`aria-hidden="true"`](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-hidden) so that the duplicated strips are not picked up by screen readers.
+
+```jsx
+<Container>
+  <LogoStrip />
+  <LogoStrip aria-hidden="true" />
+  <LogoStrip aria-hidden="true" />
+</Container>
+```
+
+### Animate the logo strips
+
+Use CSS animations and keyframes to animate the logo strips. A logo strip should slowly translate out of view horizontally from its original position. You can decide the speed and direction of the animation. In fact, you can also decide the starting position of the strip!
+
+This animation should run infinitely and be applied to all copies of your logo strip.
+
+> If you're using Tailwind CSS, you should add these properties in [`extends`](https://tailwindcss.com/docs/theme).
+
+At this point, you should have a fully functional logo marquee. If see a jank when the strip resets, and that you used margins to space your logos and logo strips out, remember to take this margin into account when resetting the strip's position in your keyframe.
+
+To make your life easier when debugging CSS animations, Chrome DevTools has a [dedicated animation panel](https://developer.chrome.com/docs/devtools/css/animations) that allows you to inspect, control, and debug your animations real-time.
+
+> The secret technique to perfecting an animation is **to slow it down**.
+
+## Further considerations
+
+This guide is intentionally kept simple to allow you to explore and experiment with different ways to achieve marquee in CSS. Depending on how you lay your logos out, you may need to adjust your keyframes and animation properties to achieve a seamless marquee effects.
+
+Here are some (non-exhaustive) points to consider to bring your marquee to the next level.
+
+1. What happens if the **screen is extremely wide**? Will the empty spaces and the logo strips' reset's jumping effect be visible?
+
+2. **Use a steady, slow animation speed**. Fast animations can be distracting and nauseating, especially when this section appears in a vertically scrollable page. Animations can trigger discomfort for those with [vestibular motion disorders](https://www.a11yproject.com/posts/understanding-vestibular-disorders/) or motion sensitivity.
+
+3. Respect the user's **preference for reduced motion**. If the user has enabled the "reduce motion" setting in their operating system or browser, consider providing a static fallback for the marquee effect while still ensuring that enough logos are still visible to make the section useful. You can handle this with the [`prefers-reduced-motion` media query](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-reduced-motion).
+
+4. Provide a way for users to **pause the marquee**. Some may want to peruse the sponsors of your project to assess the credibility of your project. Some websites provide a pause button, or just stop the marquee when the user hovers over the container.

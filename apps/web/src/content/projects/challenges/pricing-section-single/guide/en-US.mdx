@@ -1,26 +1,44 @@
 This challenge requires knowledge of basic responsive CSS and grid layouts.
 
-### Relevant concepts
+## Relevant concepts
 
-- [Grid](https://css-tricks.com/snippets/css/complete-guide-grid/): The team members are laid out in a grid-like fashion with gaps between each cell, making CSS grid the perfect option.
-- [Flex](https://css-tricks.com/snippets/css/a-guide-to-flexbox/): Flex layouts are useful for adding gaps between a stack of elements. While flex is not the only way to achieve the layout, it is the modern way of doing so.
-- [Media queries](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_media_queries/Using_media_queries): Media queries allow you to apply different CSS styles based on the characteristics of the device displaying the page, such as screen width, height, orientation, etc. They are crucial for making your features section responsive across various devices. You can define breakpoints where the layout or styles change to accommodate different screen sizes.
+- CSS [Grid](https://css-tricks.com/snippets/css/complete-guide-grid/) or [Flex](https://css-tricks.com/snippets/css/a-guide-to-flexbox/) layout systems: They can be used to structure the feature points and pricing card and make them responsive to different screen sizes.
 
-### Recommended approach
+- [Media queries](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_media_queries/Using_media_queries): Media queries allow you to apply different CSS styles based on the characteristics of the device displaying the page, such as screen width, height, orientation, etc. They are crucial for making your component responsive across various devices. You can define breakpoints where the layout or styles change to accommodate different screen sizes.
 
-1. **Build the header section**: Use semantic HTML elements like `<header>`, `<div>`, `<section>`, and appropriate content elements such as `<h2>`, `<p>`. Ensure responsiveness – the heading element has a different `font-size` and `line-height` on mobile. If you've built the other marketing section challenges that include a similar header, you're highly advised to reuse the styles.
-2. **Implement the feature list**: Icons are obtained from [Remix Icon](https://remixicon.com). Refer to our "Icons Guide" for more details on rendering the icons.
-3. **Implement the pricing card**: Look into using `display: flex; row-gap: 32px` for adding the necessary spacing between elements of the card.
+## Recommended approach
 
-### Grid columns
+Due to the interactive nature of this section along with multiple repeated components, it is recommended that JavaScript frameworks like [React](https://react.dev/), [Vue.js](https://vuejs.org/), or [Svelte](https://svelte.dev/) be used to build this challenge.
 
-Grids provide a structural framework for your design, ensuring that elements align properly across different parts of the layout. With a grid, you can streamline the design process, as it eliminates guesswork – every page-level section should take up N number of columns and the spacing between the columns have already been pre-determined.
+### Build the headline
 
-By turning on the "Layout grids" in Figma (<kbd>Shift</kbd> + <kbd>G</kbd>), you can see that on the "Desktop" breakpoint, the left section spans 7 columns whereas the right section spans 5 columns. A sample approach on how to divide the sections into 7 and 5 columns respectively is:
+Use semantic HTML elements like `<header>`, `<div>`, `<section>`, and appropriate content elements such as `<h2>`, `<p>.` Ensure responsiveness; note that the overline and subtitle may have different `font-size` and `line-height` values on narrower screens. If you've built the other marketing section challenges that include a similar header, you're highly advised to reuse the styles.
+
+> In typography, [**overline**](https://en.wikipedia.org/wiki/Overline) is a typographical feature of a horizontal line above a text. However, in graphic design, it's informally used to refer to a small text above a larger text that provides context or pretext to the larger proceeding headline, as seen in [Google's Material Design documentation](https://m2.material.io/design/typography/the-type-system.html#applying-the-type-scale). In this challenge, "One time purchase" is an overline.
+
+### Implement the feature points
+
+Use semantic elements like `<ul>` and `<li>` to represent the feature points. This helps web crawlers and screen readers understand your content, i.e., literal bullet points of features, better.
+
+> If your browser brings in the (hideous) default list styles, you can remove them by using the [`list-style` property](https://developer.mozilla.org/en-US/docs/Web/CSS/list-style). You can use CSS resets like [Normalize.css](https://necolas.github.io/normalize.css/) to clear all default styles to make it easy to style your components across different browsers and operating systems. Major CSS libraries, like Tailwind CSS, already usually come with [preflights](https://tailwindcss.com/docs/preflight).
+
+Icons are obtained from [Remix Icon](https://remixicon.com/). Refer to our "Icons Guide" for more details on rendering the icons. Note that the icons are contained within a circle that has a subtle shadow.
+
+### Implement the pricing card
+
+Keep the responsiveness as we see that in the narrower screens, some subtitles and descriptions gets larger. Similar to how you'd condition the layout, you can condition typography based on screen sizes based on screen sizes with media queries.
+
+> Hint: Look into using `display: flex; row-gap: 32px` for adding the necessary spacing between elements of the card.
+
+## Grid columns
+
+> This section is useful if you decide to use the grid layout to complete this challenge.
+
+Grids provide a structural framework for your design, ensuring that elements align properly across different parts of the layout. With a grid, you can streamline the design process, as it eliminates guesswork—every page-level section should take up N number of columns and the spacing between the columns have already been pre-determined.
+
+By enabling [Layout grids](https://help.figma.com/hc/en-us/articles/360040450513-Create-layout-grids-with-grids-columns-and-rows) in Figma (<kbd>Shift</kbd> + <kbd>G</kbd>), you can see that on the "Desktop" breakpoint, the left section spans 7 columns whereas the right section spans 5 columns. A sample approach on how to divide the sections into 7 and 5 columns respectively is as follows. These are only for the "desktop" breakpoint. Changes have to made to also support "mobile" and "tablet".
 
 ```css
-/* These are only for desktop breakpoint.
-  Changes have to made to also support mobile and tablet. */
 .container {
   max-width: 1440px;
   padding: 0 32px;
@@ -46,11 +64,11 @@ Typically, all pages for a specific website will be using the same grid layout. 
 
 ### Responsive section behavior
 
-To make the sections stack on top of each other on mobile and tablet, we can specify a different `grid-column` value for each non-desktop breakpoints to take up the full number of columns – 4 on mobile and 6 on tablet.
+To make the sections stack on top of each other on narrow screens, we can specify a different `grid-column` value for each breakpoint to take up the full number of columns, e.g., 4 for "mobile" and 6 for "tablet".
+
+This is just an example, and changes have to be made to the container as well. Refer to the "Layout grid" guide.
 
 ```css
-/* Changes have to be made to the container as well. Refer to the "Layout grid" guide. */
-
 .left-section {
   background-color: red;
   grid-column: span 4 / span 4;

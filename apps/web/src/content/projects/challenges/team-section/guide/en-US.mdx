@@ -1,22 +1,43 @@
 This challenge requires knowledge of basic responsive CSS and grid layouts and is probably one of your first exposures to a challenge that is using responsive layout grids.
 
-### Relevant concepts
+## Relevant concepts
 
-- [Grid](https://css-tricks.com/snippets/css/complete-guide-grid/): The team members are laid out in a grid-like fashion with gaps between each cell, making CSS grid the perfect option.
-- [Flex](https://css-tricks.com/snippets/css/a-guide-to-flexbox/): Flex layouts are useful for adding gaps between a stack of elements. While flex is not the only way to achieve the layout, it is the modern way of doing so.
-- [Media queries](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_media_queries/Using_media_queries): Media queries allow you to apply different CSS styles based on the characteristics of the device displaying the page, such as screen width, height, orientation, etc. They are crucial for making your features section responsive across various devices. You can define breakpoints where the layout or styles change to accommodate different screen sizes.
+- [Flex layout](https://css-tricks.com/snippets/css/a-guide-to-flexbox/): Flex layouts are useful for adding gaps between a stack of elements. While flex is not the only way to achieve the layout, it is the modern way of doing so.
+- [Grid layout](https://css-tricks.com/snippets/css/complete-guide-grid/): Alternatively, you may choose to use CSS grids for this challenge. The grid layout is exactly what it sounds like: a two-dimensional grid-based layout system.
+- [Media queries](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_media_queries/Using_media_queries): Media queries allow you to apply different CSS styles based on the characteristics of the device displaying the page, such as screen width, height, orientation, etc. They are crucial for making your component responsive across various devices. You can define breakpoints where the layout or styles change to accommodate different screen sizes.
+- [Images](https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Images_in_HTML): How to render images where the original image doesn't necessarily fit within the allocated dimensions.
 
 ### Recommended approach
 
-1. **Build the header section**: Use semantic HTML elements like `<header>`, `<div>`, `<section>`, and appropriate content elements such as `<h2>`, `<p>`. Ensure responsiveness – the heading element has a different `font-size` and `line-height` on mobile. If you've built the other marketing section challenges that include a similar header, you're highly advised to reuse the styles.
-2. **Implement a team member item**: The elements within each team member item is vertically stacked and doesn't require complex styling. Do note that the images are of a fixed height but span the full item width.
-3. **Implement a responsive grid containing the team members**: Turn on the layout grids in Figma and see that each team member spans 3 columns on desktop (25% of the container), 3 columns on tablet (50% of the container), and 4 columns on mobile (100% of the container). If you are using a templating system or a JavaScript framework, render each item using iteration helpers rather then repeating the team member markup.
+### Build the headline
 
-### Grid columns
+Use semantic HTML elements like `<header>`, `<div>`, `<section>`, and appropriate content elements such as `<h2>`, `<p>.` Ensure responsiveness; note that the overline and subtitle may have different `font-size` and `line-height` values on narrower screens. If you've built the other marketing section challenges that include a similar header, you're highly advised to reuse the styles.
+
+> In typography, [**overline**](https://en.wikipedia.org/wiki/Overline) is a typographical feature of a horizontal line above a text. However, in graphic design, it's informally used to refer to a small text above a larger text that provides context or pretext to the larger proceeding headline, as seen in [Google's Material Design documentation](https://m2.material.io/design/typography/the-type-system.html#applying-the-type-scale). In this challenge, "One time purchase" is an overline.
+
+### Implement a team member item
+
+The elements within each team member item is vertically stacked and doesn't require complex styling. Note that the images are of a fixed height but span the full item width.
+
+There are different ways to fit an image in a container, e.g., cover, contain, stretch, tile, etc. If you've set an image as wallpaper on your desktop before, you might be familiar with these strategies as you try to make your wallpaper scaled and displayed nicely on your desktop. In CSS, these strategies are defined by the `object-fit` or `background-size` properties. [Learn more about these properties](https://www.smashingmagazine.com/2021/10/object-fit-background-size-css/) and determine which one to use for the profile pictures in this challenge.
+
+Since browser images load asynchronously, it's a good idea to "clamp" the dimensions of `<img>`s, either on the `<img>` itself or its parent container. This ensures that the contents around the image do not shift as images load or fail to load.
+
+### Implement a responsive grid containing the team members
+
+Turn on the Layout grids in Figma and see that each team member spans 3 columns on desktop (25% of the container), 3 columns on tablet (50% of the container), and 4 columns on mobile (100% of the container). If you are using a templating system or a JavaScript framework, render each item using iteration helpers, e.g., `map`, rather then repeating the team member markup.
+
+## Using alts sparingly
+
+Sometimes, there's no need for an `alt` if the contents around the image already provide enough context. `alt`s should be used to convey what the image meant to convey when the image itself fails to load or in screen readers.
+
+`<img>`s already appear as "image" on screen readers, so in this case, the profile picture is fine with `alt=""` since there's already the person's name beside it. If we happen to know some features of the image, we can have `alt`s like "headshot of John Doe" or "a man patting a golden retriever". In this case, since we can't possible know the nature of the image ahead of time, and having the user specify an `alt` for their profile picture is unreasonable, it's fine with `alt=""`.
+
+## Grid columns
 
 Grids provide a structural framework for your design, ensuring that elements align properly across different parts of the layout. With a grid, you can streamline the design process, as it eliminates guesswork – every page-level section should take up N number of columns and the spacing between the columns have already been pre-determined.
 
-By turning on the "Layout grids" in Figma (<kbd>Shift</kbd> + <kbd>G</kbd>), you can see that on the "Desktop" breakpoint, each team member item spans 3 columns.
+By enabling [Layout grids](https://help.figma.com/hc/en-us/articles/360040450513-Create-layout-grids-with-grids-columns-and-rows) in Figma (<kbd>Shift</kbd> + <kbd>G</kbd>), you can see that on the "Desktop" breakpoint, each team member item spans 3 columns.
 
 Here's how the team members grid can be implemented in HTML and CSS.
 
@@ -50,7 +71,7 @@ Here's how the team members grid can be implemented in HTML and CSS.
 
 Read up on [CSS Grid](https://css-tricks.com/snippets/css/complete-guide-grid/) if you aren't familiar with using CSS grid for layouts.
 
-### Responsive section behavior
+## Responsive section behavior
 
 To make the sections stack on top of each other on mobile and tablet, we can specify a different `grid-column` value for each non-desktop breakpoints to take up the desired number of columns – 4 on mobile and 3 on tablet.
 

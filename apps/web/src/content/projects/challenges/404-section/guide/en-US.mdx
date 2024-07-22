@@ -1,12 +1,59 @@
 This challenge requires knowledge of basic responsive CSS and grid layouts and is probably one of your first exposures to a challenge that is using responsive layout grids.
 
-### Relevant concepts
+## Relevant concepts
 
-- [Flex](https://css-tricks.com/snippets/css/a-guide-to-flexbox/): Flex layouts are useful for adding gaps between a stack of elements. While flex is not the only way to achieve the layout, it is the modern way of doing so.
-- [Media queries](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_media_queries/Using_media_queries): Media queries allow you to apply different CSS styles based on the characteristics of the device displaying the page, such as screen width, height, orientation, etc. They are crucial for making your features section responsive across various devices. You can define breakpoints where the layout or styles change to accommodate different screen sizes.
+- [Flex layout](https://css-tricks.com/snippets/css/a-guide-to-flexbox/): Flex layouts are useful for adding gaps between a stack of elements. While flex is not the only way to achieve the layout, it is the modern way of doing so.
+- [Media queries](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_media_queries/Using_media_queries): Media queries allow you to apply different CSS styles based on the characteristics of the device displaying the page, such as screen width, height, orientation, etc. They are crucial for making your component responsive across various devices. You can define breakpoints where the layout or styles change to accommodate different screen sizes.
+- [Images](https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Images_in_HTML): How to render images where the original image doesn't necessarily fit within the allocated dimensions.
 
-### Recommended approach
+> Know that you can also use the [grid layout system](https://css-tricks.com/snippets/css/complete-guide-grid/) for this challenge, but this challenge is simple enough that flex is sufficient. In fact, it's probably the kind of page that the flex layout system was designed for.
 
-1. **Render the background image**: Render the image background that fills almost the entire screen. The `background-image` CSS property is recommended here.
-2. **Define the section container**: Define a `<section>` that has a vertical padding of `64px` and is vertically-centered on the page.
-3. **Implement the text and buttons**: These should be straightforward elements to add especially if it's not your first challenge. Note that the heading is responsive and differ in size across device breakpoints.
+## Recommended approach
+
+### Render the background image
+
+Render the image background that fills almost the entire screen. There are different ways to fit an image in a container, e.g., cover, contain, stretch, tile, etc. If you've set an image as wallpaper on your desktop before, you might be familiar with these strategies as you try to make your wallpaper scaled and displayed nicely on your desktop. In CSS, these strategies are defined by the `object-fit` or `background-size` properties. [Learn more about these properties](https://www.smashingmagazine.com/2021/10/object-fit-background-size-css/) and determine which one to use for the background image in this challenge.
+
+### Implement the headline and button
+
+Define a `<section>` that has a vertical padding of `64px` and is vertically-centered on the page. Take care to also handle the responsiveness of,
+
+- the overline, headline, and description texts, and
+- the "Back to Home" button.
+
+Use [media queries](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_media_queries/Using_media_queries) to conditionally apply style properties. If you're using Tailwind CSS, use the [responsive modifiers](https://tailwindcss.com/docs/responsive-design).
+
+Implementing this should be straightforward elements to add especially if it's not your first challenge.
+
+## What to look for in an error page
+
+Put yourself in the shoes of a user who has landed on an error page.
+
+- What has happened?
+- What caused this to happen?
+- What to do from here?
+- How to prevent this from happening again?
+
+These are some internal questions that a user might have when they land on an unexpected error page. Hence, your error page should answer these questions in a clear and concise manner.
+
+Generally, an error page,
+
+- states what the error is (the headline),
+- briefly describes what could have caused it (the description), and
+- a way out, i.e., going back to home, contacting support, etc.
+
+Here are some things you may consider to make your 404 page even more helpful.
+
+- **Fully specify the URL in question**. Most of the time, users land on a 404 page because they've mistyped the URL, or the URL is no longer valid. Showing the full URL, including [query params (`?`)](https://developer.mozilla.org/en-US/docs/Web/API/URL/search) and [fragment identifiers (`#`)](https://developer.mozilla.org/en-US/docs/Web/API/URL/hash), can usually help the user reflect on their own attempt to access a resource. This is also helpful considering the fact that modern browsers are getting increasingly minimal to the point where address bars are either hidden, show only the domain name, or truncated form of the URL.
+
+- **Provide access to contact support**. Most 404 pages will have a way for users to contact support or file a bug report if they believe the error is on the platform's end. _"If the problem persists,"_ is a common phrase used in these cases.
+
+- **Suggest the correct destination**. Consider building an index of your URLs that you can use to suggest the correct URL to the user, just like Google Search's _"Did you mean?"_. This may seem overkill, but it can improve user retention rates and increase the overall user experience.
+
+- **Capture the analytics**. Consider capturing the event on your analytics platform so you yourself have a good idea of what kinds of URLs or pathnames of yours that often lead to a 404 page. Perhaps adding a permanent redirect (HTTP 301) to the correct destination to often misspelt URLs might be a good idea.
+
+- **No jargons**. Most users won't probably know what "404" means. Consider humanising the words you choose on this page. Opt for simple yet clear words like "problem" or "issue" instead of "error".
+
+- **Make it fun**. This is one of the few pages where you can get creative without much risk. This page is a dead end anyway. Making it fun, and maybe adding a few easter eggs, can make the user's experience a little less frustrating.
+
+- **Make it fast**. 404 pages should ideally just be a static, CDN-cached page that loads quickly. The user is already frustrated, have been waiting for a good result, and so having to wait for a 404 page to load is just adding salt to the wound. Ideally, they should know if something is wrong fast so they can quickly rectify it and get to their destination.

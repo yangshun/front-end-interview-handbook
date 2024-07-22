@@ -1,22 +1,49 @@
 This challenge requires knowledge of basic responsive CSS and flex layouts.
 
-### Relevant concepts
+## Relevant concepts
 
-- [Flex](https://css-tricks.com/snippets/css/a-guide-to-flexbox/): Flex layouts are useful for adding gaps between a stack of elements. While flex is not the only way to achieve the layout, it is the modern way of doing so.
-- Icon buttons/links: How to render icon-only links where there are the text isn't visible yet keeping them accessible.
+- [Flex layout](https://css-tricks.com/snippets/css/a-guide-to-flexbox/): Flex layouts are useful for adding gaps between a stack of elements. While flex is not the only way to achieve the layout, it is the modern way of doing so.
+- [Media queries](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_media_queries/Using_media_queries): Media queries allow you to apply different CSS styles based on the characteristics of the device displaying the page, such as screen width, height, orientation, etc. They are crucial for making your component responsive across various devices. You can define breakpoints where the layout or styles change to accommodate different screen sizes.
 
-### Recommended approach
+## Recommended approach
 
-1. **Define the footer container**: Define a `<footer>` that has a vertical padding of `96px`, center-aligned content, and is vertically-centered on the page.
-2. **Build the row of links**: Nothing too special here. Note that the gap between each link item is smaller on mobile.
-3. **Build the row of social media links**:
-   1. Icons are obtained from [Remix Icon](https://remixicon.com). Refer to our "Icons Guide" for more details on rendering the icons.
-   2. Since the icon button/links do not have visible text, `aria-label`s should be added to the button links in order for screen readers to announce the intentions of the links.
-4. **Add the copyright label**: While you can hardcode the year, it'd better to dynamically render it based on the current date by doing `new Date().getFullYear()`.
+### Define the footer container
 
-### Accessibility
+Define a [`<footer>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/footer) that has a vertical padding of `96px`, center-aligned content, and is vertically-centered on the page.
 
-Since the icon button/links do not have visible text, `aria-label`s should be added to the button links in order for screen readers to announce the intentions of the links.
+Consider what happens when the screen is narrower than the footer. You might need to collapse some of the links and icons into multiple rows. If you're using the flex layout, consider using [`flex-wrap`](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-wrap) to wrap the items into multiple rows as the container fills its parent container (the body).
+
+### Build the row of links
+
+Nothing too special here. Note that the gap between each link item is smaller on mobile screens. You may consider vertically stacking the links on narrower screens to ensure the rows still appear nicely as you add more links in the future.
+
+### Build the row of social media links
+
+Icons are obtained from [Remix Icon](https://remixicon.com/). Refer to our "Icons Guide" for more details on rendering the icons.
+
+Since the icon button/links do not have visible text, [`aria-label`s](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-label) should be added to the button links in order for screen readers to announce the intentions of the links.
+
+If you're loading the icons from an external source, consider clamping the dimensions of the element to prevent layout shifts as the icons load asynchronously.
+
+In general, icons should be used to complement text, not replace it. In this challenge, the icons are icons of popular social media platforms, so the risk of users not recognizing the icons is relatively low. You may consider adding a tooltip to the icons to provide additional information, but know that tooltips aren't foolproof since they don't appear on touchscreens. A cheap way to add tooltips is to use [the `title` attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/title).
+
+### Add the copyright notice
+
+A copyright notice protects the intellectual property of your website. It alerts all visitors to your website that your content is copyrighted and cannot be copied without your permission and/or authorisation.
+
+> Use `&copy;` to render the copyright symbol in HTML.
+
+Many people will just use the current year in the copyright notice, e.g., with `new Date().getFullYear()`. Technically, this use is not accurate since a copyright notice protects the _state_ of the content at the time of publication. If a page is updated in 2023 and accessed in 2024, the copyright notice should state "2023" since that notice protects the content as it was in 2023. Most long-lived websites will have a range of years in the copyright notice, e.g., "2019–2023", which protects the content as it was in those years, i.e., from the first to last year of publication.
+
+If you have a whole build pipeline, you can have the footer refer the year to the year of build, defined as a build-time variable. It is similar to how apps have a version number that is updated with each build, i.e., asset tagging.
+
+Major websites like Google and Facebook have a "&copy; 2024 Google LLC" or "&copy; 2024 Meta." notice because the company itself is the copyright holder, not the website. If you're a sole proprietor, you can use your name, e.g., "&copy; 2024 John Doe".
+
+> This is a disclaimer that this is NOT a legal advice. If you're serious about protecting your intellectual property, consult a intellectual property lawyer. For the purposes of this challenge, using `new Date().getFullYear()` is sufficient.
+
+## Accessibility
+
+Since the icon button/links do not have visible text, [`aria-label`s](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-label) should be added to the button links in order for screen readers to announce the intentions of the links.
 
 Example HTML for building accessible icon button links:
 

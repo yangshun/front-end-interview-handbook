@@ -1,0 +1,74 @@
+This challenge requires the basic knowledge of [modality](https://developer.apple.com/design/human-interface-guidelines/modality), cookies, and the [Web Storage API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API). The cookie consent interface is a modal that appears above the main website's content, and the user's decision will have to be persisted across sessions in the browser.
+
+## Relevant concepts
+
+- **Modality and modals**: Simply put, modals are layouts that present contents that overlay the main, parent layout. Modals can be dialogs, alerts, sheets, drawers, etc. depending on the use case. Modals require an explicit action to be dismissed to return to the parent layout.
+
+- [**Cookies**](https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies): A cookie is a (small) piece of data a server sends to a user's browser. In the browser, they are stored in the cookie jar (or cookie storage). Cookies are set with the [`Set-Cookie` header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie) that comes in an HTTP response. This header carries with it rules on how the cookie should be stored and handled by the browser. Cookies are sent back to the server with every request the browser makes to the server in the [`Cookie` header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cookie).
+
+- [**Web Storage API**](https://developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API): The Web Storage API provides mechanisms by which browsers can persist values locally within the user's browser. The two main mechanisms are [`localStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage) and [`sessionStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage). `localStorage` persists data across sessions, while `sessionStorage` persists data only within a page's session. These storage media are string key-value pairs and are keyed by a site's origin.
+
+## A little preface about cookies and cookie consent
+
+Cookies are a fundamental part of the web. They are used to store user data, session data, and other information that helps the server identify the user and provide a personalised experience. However, cookies can also be used to track users across the web.
+
+For example, say you are signed in to a website X. Website X stores a cookie in your browser that identifies you, e.g., a `session_id`. This is typically used to keep you signed in across pages. However, say you visit an online shopping website A that embeds an element from website X, e.g., with `<iframe>`s. Since the browser sends an origin's cookies with every request to said origin, this embedded element of X will get your `session_id` (from the `Cookie` header) and website A's URL (could be from the [`Referer` header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referer), or with just [plain JavaScript](https://developer.mozilla.org/en-US/docs/Web/API/Window/parent)). With this two pieces of information, website X now knows you visited website A. Fun fact, this is how YouTube knows you watched an embedded video on some other site; they appear in your Watch History in YouTube!
+
+> These cookies are called [**third-party cookies**](https://en.wikipedia.org/wiki/Third-party_cookies) (or more aptly, **cross-site cookies**) and are starting to be [phased out by major browsers in 2024](https://blog.google/products/chrome/privacy-sandbox-tracking-protection/).
+
+When used correctly, this usage of cookies can give a greatly personalised experience, e.g., personalised ads, recommendations, etc. On the other hand, this is literally tracking users across the web, which can be a privacy concern to some. Regulations like the [General Data Protection Regulation (GDPR)](https://gdpr.eu/what-is-gdpr/) and [ePrivacy Directive](https://en.wikipedia.org/wiki/EPrivacy_Directive) set out to protect users' privacy in the modern web, and contain some regulations on how to obtain user consent on how to handle _tracking_ cookies. You can [read more about cookies, the GDPR, and ePrivacy Directive here](https://gdpr.eu/cookies/).
+
+> Some cookies are essential for a website to function properly. These cookies are called **essential cookies** and require no consent to be stored. But users should still be explicitly informed about them.
+
+Note that different cookie consent designs can satisfy different regulations. The cookie consent design in this challenge satisfies both the ePrivacy Directive and GDPR. Know that there are many ways to implement a cookie consent, e.g., modals like this, banners, dismissible pop-ups, etc. The regulations don't necessarily prescribe how the cookie consent should look like, but they do prescribe what the UI should achieve: **unambiguous, informed consent**.
+
+## Recommended approach
+
+### Implement the modal
+
+As usual, use [semantic HTML elements](https://developer.mozilla.org/en-US/docs/Glossary/Semantics#semantics_in_html) for your page. Know that in 2022, there's a new [`<dialog>` HTML element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dialog) that's suited for modals and overlaying elements.
+
+You'll also need to create a backdrop element that covers the entire viewport, just behind the modal. This backdrop has some transparency and blurs the content behind it to indicate that the modal is a layer above the content. For the blur effect, you can use the [`blur()` CSS function](https://developer.mozilla.org/en-US/docs/Web/CSS/filter-function/blur) on the [`backdrop-filter` property](https://developer.mozilla.org/en-US/docs/Web/CSS/backdrop-filter).
+
+The cookie consent modal shouldn't be dismissable by clicking outside the modal or this backdrop since we require the user to give an explicit consent.
+
+If you're using a UI library, chances are it has built-in modal, dialog, or alert components. You can use them, but they may come with their own styles. You can override these styles to match the design in the project brief.
+
+> Semantically, dialogs and alerts serve different purposes.
+>
+> **Alerts** (sometimes called _prompts_) interrupts the user with some important content and expects an explicit response. This means an alert generally can't be dismissed by clicking the backdrop or outside it. Alerts are described by the [`alertdialog` role](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/alertdialog_role) in the [ARIA specification](https://w3c.github.io/aria/#alertdialog).
+>
+> **Dialogs** are just "windows" overlaid the parent content, and can be dismissed by clicking the backdrop or outside it. Dialogs are described by the [`dialog` role](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/dialog_role) in the [ARIA specification](https://w3c.github.io/aria/#dialog).
+>
+> Usually, dialogs complement an action, e.g., colour picker, date picker, etc., while alerts interrupt the user's flow, e.g., delete confirmation, success message, etc.
+
+Of course, watch out for the buttons' stacking as they become vertically stacked on narrow screens.
+
+Clicking "Accept all" and "Decline all" should save the user's consent respectively and close the modal. Clicking "Manage cookies" should replace the modal's content with the "Manage cookies" screen with toggles to allow the user to specifically enable or disable certain types of cookies.
+
+### Implement the "Manage cookies" screen
+
+The "Manage cookies" screen replaces the cookie consent modal's initial content when the user clicks on the "Manage cookies" link. This screen lays out three different types of cookies, i.e., essential, analytics, and marketing cookies. Each cookie type has an explanation and toggle switch to enable or disable it. Note that the essential cookies' toggle is disabled since they are essential for the website to function.
+
+In the the "Manage cookies" screen, clicking "Accept all" and "Decline all" immediately saves the respective settings and close the modal. There's no need to just toggle the toggles and requiring the user to click "Save". This way, it's easier for the users and you can reuse the buttons from the cookie consent modal's initial content.
+
+### Persist the user's consent
+
+Use [`localStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage) to store the user's consent settings. The next time the user visits the website, if the key you use to store the user's consent is not null, you can immediately show the main page's content without popping the cookie consent modal.
+
+You can also consider storing the user's consent in cookies or [IndexedDB](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API). If you're storing in cookies, since you won't have a server set up for this challenge, you can manipulate the cookie jar with [`document.cookie`](https://developer.mozilla.org/en-US/docs/Web/API/Document/cookie).
+
+You'll have to decide what is the shape of the data structure you'll use to store the user's consent. The easiest way is to store a string-boolean dictionary that indicates the user's consent for a given cookie type.
+
+```json
+{
+  "analytics": true,
+  "marketing": false
+}
+```
+
+If you really want to save space, you can store only the types of cookies the user has consented to.
+
+```json
+["analytics"]
+```

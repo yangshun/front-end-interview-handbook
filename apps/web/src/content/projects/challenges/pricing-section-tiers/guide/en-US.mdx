@@ -1,28 +1,42 @@
-This challenge requires knowledge of basic responsive CSS, grid layouts and DOM manipulation using JavaScript to toggle between pricing cards for monthly vs annual.
+This challenge requires knowledge of basic responsive CSS, grid layouts and DOM manipulation using JavaScript to toggle between pricing cards for monthly and annual pricing options.
 
-### Relevant concepts
+## Relevant concepts
 
-- DOM manipulation using JavaScript: JavaScript is essential for adding interactivity to the pricing section, such as implementing the toggle functionality between annual and monthly pricing options. You can use event listeners to detect user interactions with the toggle button and dynamically update the pricing displayed based on the selected option. JavaScript frameworks like React or Vue.js can also simplify state management and UI updates in more complex applications.
-- CSS grid/flex for Layout: CSS Grid or Flexbox layouts can be used to structure the pricing section's columns and ensuring they adapt responsively to different screen sizes. You can use these layout techniques to arrange the pricing cards or tables in a 3-column grid format and specify how they should stack or rearrange on smaller screens.
-- [Media queries](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_media_queries/Using_media_queries): Media queries allow you to apply different CSS styles based on the characteristics of the device displaying the page, such as screen width, height, orientation, etc. They are crucial for making your features section responsive across various devices. You can define breakpoints where the layout or styles change to accommodate different screen sizes.
+- DOM manipulation with JavaScript: JavaScript is essential for adding interactivity to the pricing section, such as implementing the toggle functionality between annual and monthly pricing options. You can use [event listeners](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener) to detect user interactions with the toggle button and dynamically update the pricing displayed based on the selected option. JavaScript frameworks like [React](https://react.dev/), [Vue.js](https://vuejs.org/), or [Svelte](https://svelte.dev/) can also simplify state management and UI updates in complex applications.
 
-### Recommended approach
+- CSS [Grid](https://css-tricks.com/snippets/css/complete-guide-grid/) or [Flex](https://css-tricks.com/snippets/css/a-guide-to-flexbox/) layout systems: They can be used to structure the pricing columns and make them responsive to different screen sizes. You can use them to arrange the pricing cards in a 3-column grid format and specify how they should stack on narrower screens.
 
-Due to the interactive nature of this section along with multiple repeated components, it is recommended that JavaScript frameworks like React, Vue, or Svelte be used to build this challenge.
+- [Media queries](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_media_queries/Using_media_queries): Media queries allow you to apply different CSS styles based on the characteristics of the device displaying the page, such as screen width, height, orientation, etc. They are crucial for making your component responsive across various devices. You can define breakpoints where the layout or styles change to accommodate different screen sizes.
 
-1. **Build the header section**: Use semantic HTML elements like `<header>`, `<div>`, `<section>`, and appropriate content elements such as `<h2>`, `<p>`. Ensure responsiveness – the heading element has a different `font-size` and `line-height` on mobile. If you've built the other marketing section challenges that include a similar header, you're highly advised to reuse the styles.
-2. **Implement the monthly/annual toggle**: Ensure that when one button is active, the other button is no longer active.
-3. **Implement the pricing card element components**:
-   1. **Plan information component**: A component that accepts the plan name and description as props. It does not have to be responsive.
-   2. **Feature list**: A component that accepts a list of features to be rendered in the list format with icon checkmarks.
-   3. **Price display**: A component that takes in a price and a frequency.
-4. **Implement the pricing card component**: Combine the elements above into a pricing card component. The pricing card component should allow for a "Most Popular" variant where there's a "Most Popular" label at the top, the price is rendered in the brand color, and using a primary button as CTA.
-5. **Design a data shape for the pricing plans**: Define the pricing plans data as a data structure of your choice. This data will be rendered by the pricing card component.
-6. **Integrate data with UI**: Render the pricing cards using the pricing plans data.
+## Recommended approach
 
-### Pricing plans data
+Due to the interactive nature of this section along with multiple repeated components, it is recommended that JavaScript frameworks like [React](https://react.dev/), [Vue.js](https://vuejs.org/), or [Svelte](https://svelte.dev/) be used to build this challenge.
 
-There are many ways to model the pricing plans data, here's one possible way:
+### Build the headline
+
+Use semantic HTML elements like `<header>`, `<div>`, `<section>`, and appropriate content elements such as `<h2>`, `<p>.` Ensure responsiveness; note that the overline and subtitle may have different `font-size` and `line-height` values on narrower screens. If you've built the other marketing section challenges that include a similar header, you're highly advised to reuse the styles.
+
+> In typography, [**overline**](https://en.wikipedia.org/wiki/Overline) is a typographical feature of a horizontal line above a text. However, in graphic design, it's informally used to refer to a small text above a larger text that provides context or pretext to the larger proceeding headline, as seen in [Google's Material Design documentation](https://m2.material.io/design/typography/the-type-system.html#applying-the-type-scale). In this challenge, "Pricing Tiers" is an overline.
+
+### Implement the billing frequency toggle
+
+Technically, the billing frequency toggle isn't really a toggle. In user interfaces, this element is known as a **segmented control** or **segmented button**. [Apple's _Human Interface Guidelines_ calls it segmented controls](https://developer.apple.com/design/human-interface-guidelines/segmented-controls) and [Google's _Material Design 3_ calls it segmented buttons](https://m3.material.io/components/segmented-buttons/guidelines). If you're using a UI library for this challenge, e.g., [Radix](https://www.radix-ui.com/themes/docs/components/segmented-control), look for this component or something that resembles a tab switcher. Alternatively, you can simply build your own with [radio buttons](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/radio) and style them as buttons.
+
+Ensure that this segmented control is single-choice only, i.e., it toggles between only one option. When it toggles between monthly and annual pricing, the pricing cards should also update accordingly.
+
+### Implement the pricing card component
+
+Look at each card and abstract similarities out. Remember, the more specific a component is, the less reusable it is. Ideally, this card component should have its title, subtitle, price, billing frequency, highlight text (the "Most Popular" label and primary colour visual effects), and features list.
+
+Use semantic elements like `<ul>` and `<li>` to represent the feature points. This helps web crawlers and screen readers understand your content, i.e., literal bullet points of features, better.
+
+Ensure that **the price adjusts to the selected billing frequency**. For example, if the user selects the annual billing frequency, the price should reflect the annual price, and vice versa for the monthly billing frequency. Remember to also ensure that the "Buy now" button also responds to the selected billing frequency.
+
+### Abstracting a pricing plan into a data structure
+
+After taking these constraints into account, you may wish to define an abstract data structure that holds all information for a pricing plan, i.e., plan name, monthly and annual prices, features list, etc. This object can be used by this component to render the pricing card.
+
+You are free to decide your own implementation. Here's one possible way.
 
 ```json
 {
@@ -39,7 +53,7 @@ There are many ways to model the pricing plans data, here's one possible way:
       "features": [...],
       "popular": true,
     },
-    {...}
+    ...
   ],
   "annually": [
     {
@@ -54,13 +68,24 @@ There are many ways to model the pricing plans data, here's one possible way:
       "features": [...],
       "popular": true,
     },
-    {...}
+    ...
   ],
 }
 ```
 
-This approach of decoupling data from presentation will allow changes to the UI to be updated easily. In practical website, the pricing plans are often dynamic and are fetched from servers rather than hardcoded in the HTML.
+This structure organises pricing plans by frequency first. Alternatively, you can also organise by pricing plans first, then by frequency.
 
-### Implementing the toggle
+This approach of decoupling data model from presentation will allow future changes to the UI to be updated easily as they do not depend on the underlying data model. In practical websites, pricing plans are often dynamic and are fetched from servers rather than hard-coded in HTML. This makes sense since they may differ across regions (learn about [purchasing power parity](https://en.wikipedia.org/wiki/Purchasing_power_parity)), be affected by promotions, vouchers, etc.
 
-There are many ways to implement the toggle – it can be built as a [Tabs](https://www.radix-ui.com/primitives/docs/components/tabs) component or a [Toggle Group](https://www.radix-ui.com/primitives/docs/components/toggle-group). Our recommendation is to use the Tabs pattern since there's a content section corresponding to each button and only one section can be shown at a time.
+### Handling different currencies
+
+Consider what happens if the currency is no longer dollars; maybe a currency known to have many zeroes. Would your component be able to display the price correctly, i.e., without breaking the nominal into multiple lines? You may want to refer to JavaScript's built-in [`Intl.NumberFormat`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat) to achieve truncated numbers, e.g., 20k.
+
+Some (non-exhaustive) considerations about currencies include,
+
+- thousands separators, e.g., 1,000 vs 1000,
+- comma as the decimal separator, e.g., 1,99 vs 1.99,
+- period as the thousands separator, e.g., 1.000 vs 1,000, and
+- currency symbol placement, e.g., some countries in the EU put the Euro sign after the nominal, e.g., 6,00 €.
+
+These considerations are important when dealing with pricing since they differ across regions and currencies.

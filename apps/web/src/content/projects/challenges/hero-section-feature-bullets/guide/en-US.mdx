@@ -1,31 +1,85 @@
-This challenge requires knowledge of basic responsive CSS and grid layouts and is probably one of your first exposures to a challenge that is using responsive layout grids.
+This challenge requires knowledge of basic responsive CSS and grid layouts. It's probably one of your first exposures to a challenge that is using responsive layout grids.
 
-### Relevant concepts
+## Relevant concepts
 
-- [Flex](https://css-tricks.com/snippets/css/a-guide-to-flexbox/): Flex layouts are useful for adding gaps between a stack of elements. While flex is not the only way to achieve the layout, it is the modern way of doing so.
+- [Flex layout](https://css-tricks.com/snippets/css/a-guide-to-flexbox/): Flex layouts are useful for adding gaps between a stack of elements. While flex is not the only way to achieve the layout, it is the modern way of doing so.
+- [Grid layout](https://css-tricks.com/snippets/css/complete-guide-grid/): Alternatively, you may choose to use CSS grids for this challenge. The grid layout is exactly what it sounds like: a two-dimensional grid-based layout system.
 - [Media queries](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_media_queries/Using_media_queries): Media queries allow you to apply different CSS styles based on the characteristics of the device displaying the page, such as screen width, height, orientation, etc. They are crucial for making your hero section responsive across various devices. You can define breakpoints where the layout or styles change to accommodate different screen sizes.
 - [Images](https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Images_in_HTML): How to render images where the original image doesn't necessarily fit within the allocated dimensions.
 
-### Recommended approach
+> Know that there are [many ways to lay elements out in CSS](https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout). Flex and grid are two of the most powerful and commonly used layout systems in modern web development. However, there are other ways like [floats](https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Floats), and [static, relative, absolute, fixed, and sticky positioning](https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Positioning).
+>
+> In this challenge, you can choose either flex or grid layout systems. If you're new to CSS, don't worry too much about the rabbit hole of layouts. You'll come across more challenges that'll help you understand these concepts better.
 
-1. **Define the layout**: Start by outlining the structure of your hero section using HTML. Use semantic HTML elements like `<header>`, `<div>`, `<section>`, and appropriate content elements such as `<h1>`, `<p>`, `<button>`, and `<img>`. Ensure that the HTML structure is clean, logical, and accessible.
-2. **Implement responsive design**:
-   1. **Layout**: Use CSS to style the hero section and make it responsive. Utilize CSS Flexbox and/or Grid to create flexible layouts that adapt to different screen sizes (side-by-side on desktop, stacked for tablet and below).
-   2. **Typography**: Implement different text sizes for the hero title for the various breakpoints.
-   3. **Button positioning**: Note that the primary button is on the left on mobile! Try using different `flex-direction` values for mobile vs non-mobile to achieve this.
-3. **Implement feature bullets**: Icons are obtained from [Remix Icon](https://remixicon.com). Refer to our "Icons Guide" for more details on rendering the icons.
-4. **Implement buttons with common styles**: The buttons share some common styling such as typography and dimensions. Implement the styles such that the common styles can be reused for the two buttons yet allowing for differences in background and text color. If you have completed the [Button Component](/projects/challenges/button-component) challenges you should reuse the component/styles here.
-5. **Add the image**: Render the image using its natural height for the permitted width, as specified by the design. This will allow the image to preserve its original aspect ratio.
+## Recommended approach
 
-### Grid columns
+### Define the layout
 
-Grids provide a structural framework for your design, ensuring that elements align properly across different parts of the layout. With a grid, you can streamline the design process, as it eliminates guesswork – every page-level section should take up N number of columns and the spacing between the columns have already been pre-determined.
+Start by outlining the structure of your hero section using HTML. Use [semantic HTML elements](https://developer.mozilla.org/en-US/docs/Glossary/Semantics#semantics_in_html) like `<header>`, `<div>`, `<section>`, and appropriate content elements such as `<h1>`, `<p>`, `<button>`, and `<img>`. Ensure that the HTML structure is clean, logical, and accessible.
 
-By turning on the "Layout grids" in Figma (<kbd>Shift</kbd> + <kbd>G</kbd>), you can see that on the "Desktop" breakpoint, the left section spans 5 columns whereas the right section spans 7 columns. A sample approach on how to divide the sections into 5 and 7 columns respectively is:
+In this challenge, the layout is relatively simple. The outermost sections, i.e., the headline and hero image, are stacked horizontally on wide screens and vertically on narrow screens. Elements in the headline section are stacked vertically.
+
+Before beginning to build a page, always start by clearly defining the layout. Think of the HTML elements as rectangles, and decide how they should be arranged on the page. This is called an **outline**, and you'll get better at it as you get more familiar with layout systems in CSS.
+
+### Implement responsive design
+
+#### Layout
+
+Notice that we didn't say "on mobile" or "on desktop" when we described the outermost layout; instead we said wide and narrow screens. When building responsive websites, don't assume anything about the _nature_ of the device on which your page will be loaded. If your layout is conditioned between container sizes, then condition the layout based on container sizes. Ideally, you should assume that your page will be loaded on screens of _any sizes_, so you should design your layout to look good on _any screen sizes_. Hence, **responsive design**.
+
+These different "stops" of screen or container sizes is what we call **breakpoints**.
+
+> Of course, there's a limit to how big or small a screen can _effectively_ be. For most websites, the minimum width is around 320px.
+
+Use [media queries](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_media_queries/Using_media_queries) to conditionally apply style properties. If you're using Tailwind CSS, use the [responsive modifiers](https://tailwindcss.com/docs/responsive-design).
+
+#### Typography
+
+In the project brief, we see that in the narrowest screen, the description gets larger. Similar to how you'd condition the layout, you can condition typography based on screen sizes based on screen sizes with media queries.
+
+You can use media queries to conditionally apply _any_ CSS properties based on conditions like device type, screen resolution, orientation, and even user preferences, e.g., dark/light mode, reduced motion, data usage, etc.
+
+### Button sizes and positioning
+
+Note that the "See pricing" button is on the left on the narrowest screen! Experiment with different [`flex-direction`](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-direction) values on different media queries to achieve this.
+
+Also notice that the buttons have different sizes on screens of different sizes. In particular, the buttons are more condensed on narrower screens. Note that "different sizes" here doesn't necessarily mean different `width`s and/or `height`s; appearance can be affected by `padding`, `font-size`, `line-height`, etc. Hence the word "condensed".
+
+### Implement the feature points
+
+Use semantic elements like `<ul>` and `<li>` to represent the feature points. This helps web crawlers and screen readers understand your content, i.e., literal bullet points of features, better.
+
+> If your browser brings in the (hideous) default list styles, you can remove them by using the [`list-style` property](https://developer.mozilla.org/en-US/docs/Web/CSS/list-style). You can use CSS resets like [Normalize.css](https://necolas.github.io/normalize.css/) to clear all default styles to make it easy to style your components across different browsers and operating systems. Major CSS libraries, like Tailwind CSS, already usually come with [preflights](https://tailwindcss.com/docs/preflight).
+
+Icons are obtained from [Remix Icon](https://remixicon.com/). Refer to our "Icons Guide" for more details on rendering the icons. Note that the icons are contained within a circle that has a subtle shadow.
+
+### Implement buttons with variants
+
+In this challenge, you'll notice that the "Learn more" and "See pricing" buttons have similar styles (i.e., dimensions and caption font size and family), but different appearances (i.e., background color, caption font color, etc.). These are called **variants**. The "See pricing" and "Learn more" buttons are typically called **primary** and **secondary** buttons, respectively.
+
+> Variant names aren't fixed in web development, but most common ones include primary, secondary, and destructive.
+
+You can define a common CSS class with all the common styles, then define separate classes for each variant. Remember to also decide what happens when the user interacts with the buttons, e.g., hover, focus, active, etc.; the screenshots don't show these, so you'll have to decide for something reasonable. Use [pseudo-classes](https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes) to target these states and apply the styles accordingly.
+
+Know that variants aren't just limited to colours (i.e., primary, secondary, etc.) or styles (i.e., outlined, filled, ghost, destructive, etc.), but also sizes (i.e., small, medium, large), or states (i.e., disabled, loading, etc.).
+
+If you have completed the [Button Component](https://www.greatfrontend.com/projects/challenges/button-component) challenges you should reuse the component/styles here.
+
+### Add the image
+
+Render the image using its natural height for the permitted width, as specified by the design. This will allow the image to preserve its original aspect ratio.
+
+There are different ways to fit an image in a container, e.g., cover, contain, stretch, tile, etc. If you've set an image as wallpaper on your desktop before, you might be familiar with these strategies as you try to make your wallpaper scaled and displayed nicely on your desktop. In CSS, these strategies are defined by the `object-fit` or `background-size` properties. [Learn more about these properties](https://www.smashingmagazine.com/2021/10/object-fit-background-size-css/) and determine which one to use for the hero image in this challenge.
+
+## Grid columns
+
+> This section is useful if you decide to use the grid layout to complete this challenge.
+
+Grids provide a structural framework for your design, ensuring that elements align properly across different parts of the layout. With a grid, you can streamline the design process, as it eliminates guesswork—every page-level section should take up N number of columns and the spacing between the columns have already been pre-determined.
+
+By enabling [Layout grids](https://help.figma.com/hc/en-us/articles/360040450513-Create-layout-grids-with-grids-columns-and-rows) in Figma (<kbd>Shift</kbd> + <kbd>G</kbd>), you can see that on the "Desktop" breakpoint, the left section spans 5 columns whereas the right section spans 7 columns. A sample approach on how to divide the sections into 5 and 7 columns respectively is as follows. These are only for the "desktop" breakpoint. Changes have to made to also support "mobile" and "tablet".
 
 ```css
-/* These are only for desktop breakpoint.
-  Changes have to made to also support mobile and tablet. */
 .container {
   max-width: 1440px;
   padding: 0 32px;
@@ -51,11 +105,11 @@ Typically, all pages for a specific website will be using the same grid layout. 
 
 ### Responsive section behavior
 
-To make the sections stack on top of each other on mobile and tablet, we can specify a different `grid-column` value for each non-desktop breakpoints to take up the full number of columns – 4 on mobile and 6 on tablet.
+To make the sections stack on top of each other on narrow screens, we can specify a different `grid-column` value for each breakpoint to take up the full number of columns, e.g., 4 for "mobile" and 6 for "tablet".
+
+This is just an example, and changes have to be made to the container as well. Refer to the "Layout grid" guide.
 
 ```css
-/* Changes have to be made to the container as well. Refer to the "Layout grid" guide. */
-
 .left-section {
   background-color: red;
   grid-column: span 4 / span 4;

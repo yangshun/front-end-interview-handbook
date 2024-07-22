@@ -1,23 +1,59 @@
 This challenge requires knowledge of basic responsive CSS and grid layouts and is probably one of your first exposures to a challenge that is using responsive layout grids.
 
-### Relevant concepts
+## Relevant concepts
 
-- [Flex](https://css-tricks.com/snippets/css/a-guide-to-flexbox/): Flex layouts are useful for adding gaps between a stack of elements. While flex is not the only way to achieve the layout, it is the modern way of doing so.
-- [Grid](https://css-tricks.com/snippets/css/complete-guide-grid/): The sections are built using a 12-column grid so CSS grids can help with implementing such layouts.
-- [Media queries](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_media_queries/Using_media_queries): Media queries allow you to apply different CSS styles based on the characteristics of the device displaying the page, such as screen width, height, orientation, etc. They are crucial for making your features section responsive across various devices. You can define breakpoints where the layout or styles change to accommodate different screen sizes.
+- [Flex layout](https://css-tricks.com/snippets/css/a-guide-to-flexbox/): Flex layouts are useful for adding gaps between a stack of elements. While flex is not the only way to achieve the layout, it is the modern way of doing so.
+- [Grid layout](https://css-tricks.com/snippets/css/complete-guide-grid/): Alternatively, you may choose to use CSS grids for this challenge. The grid layout is exactly what it sounds like: a two-dimensional grid-based layout system.
+- [Media queries](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_media_queries/Using_media_queries): Media queries allow you to apply different CSS styles based on the characteristics of the device displaying the page, such as screen width, height, orientation, etc. They are crucial for making your component responsive across various devices. You can define breakpoints where the layout or styles change to accommodate different screen sizes.
+- [Images](https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Images_in_HTML): How to render images where the original image doesn't necessarily fit within the allocated dimensions.
+- [Asynchronous JavaScript](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous): This is the concept of starting a (potentially long-running) task and still being able to do other tasks without having to wait until the former finishes, i.e., the former task is _non-blocking_.
+- [The Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch): This API provides an interface for making HTTP requests and processing the responses. You'll mainly work with the [`fetch` method](https://developer.mozilla.org/en-US/docs/Web/API/fetch) and [JavaScript promises](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise).
 
-### Recommended approach
+> Know that there are [many ways to lay elements out in CSS](https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout). Flex and grid are two of the most powerful and commonly used layout systems in modern web development. However, there are other ways like [floats](https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Floats), and [static, relative, absolute, fixed, and sticky positioning](https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Positioning).
+>
+> In this challenge, you can choose either flex or grid layout systems. If you're new to CSS, don't worry too much about the rabbit hole of layouts. You'll come across more challenges that'll help you understand these concepts better.
 
-1. **Build the header section**: Use semantic HTML elements like `<header>`, `<div>`, `<section>`, and appropriate content elements such as `<h2>`, `<p>`. Ensure responsiveness – the heading element has a different `font-size` and `line-height` on mobile. If you've built the other marketing section challenges that include a similar header, you're highly advised to reuse the styles.
-2. **Implement a responsive grid for the bottom section**: Turn on the layout grids in Figma and see that the left and right side each spans 6 columns half on desktop (50% of the container), 6 columns on tablet (100% of the container), and 4 columns on mobile (100% of the container).
-3. **Implement the metric list**: Fetch statistics from the API and render them. If you are using a templating system or a JavaScript framework, render each item using iteration helpers rather then repeating the metric markup.
-4. **Display the image**: Render the image while making sure it has the same height as the right column on desktop and fills the entire 6-column section width. For breakpoints below desktop, the image has a fixed height.
+## Recommended approach
 
-### Grid columns
+### Build the headline
+
+Use semantic HTML elements like `<header>`, `<div>`, `<section>`, and appropriate content elements such as `<h2>`, `<p>.` Ensure responsiveness; note that the overline and subtitle may have different `font-size` and `line-height` values on narrower screens. If you've built the other marketing section challenges that include a similar header, you're highly advised to reuse the styles.
+
+> In typography, [**overline**](https://en.wikipedia.org/wiki/Overline) is a typographical feature of a horizontal line above a text. However, in graphic design, it's informally used to refer to a small text above a larger text that provides context or pretext to the larger proceeding headline, as seen in [Google's Material Design documentation](https://m2.material.io/design/typography/the-type-system.html#applying-the-type-scale). In this challenge, "One time purchase" is an overline.
+
+### Implement a responsive grid for the bottom section
+
+Notice how the image and statistics stack are horizontally stacked on wide screens, but vertically stacked on narrow screens. The statistics stack also collapses into a vertical stack on narrow screens. The font sizes of the texts also change based on the screen size.
+
+Turn on the Layout grids in Figma and see that the left and right side each spans 6 columns half on desktop (50% of the container), 6 columns on tablet (100% of the container), and 4 columns on mobile (100% of the container).
+
+Use [media queries](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_media_queries/Using_media_queries) to conditionally apply style properties. If you're using Tailwind CSS, use the [responsive modifiers](https://tailwindcss.com/docs/responsive-design).
+
+### Implement the statistics stack
+
+Fetch the statistics from [the API](https://www.greatfrontend.com/projects/challenges/statistics-section/assets) and render them. You can use the built-in [`fetch` method](https://developer.mozilla.org/en-US/docs/Web/API/fetch) to make the request and process the response.
+
+`fetch` returns a `Promise` object that resolves into a `Response` object, from which you can use `await response.json()` to obtain the JSON data as described in the statistics API specifications. In this way, `fetch` works [_asynchronously_](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous). Asynchronous functions immediately returns and don't block the rest of the code execution. This is crucial for web applications to remain responsive and interactive, and is a fundamental concept in modern web development.
+
+> In other programming languages, promise constructs can also be called future, delay, or deferred. An easy way to think about promises is by its literal sense: "I (the computer) promise that I will complete this task and resolve the result to you when I'm done." And that is exactly in the future.
+
+Just like other synchronous codes, `fetch` will throw an error if request fails, that you can handle with a [`try...catch` block](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/try...catch). This throwing is known as a _Promise rejection_. However, know that `fetch` **doesn't reject** on HTTP error status codes. This means if something is wrong in the server (HTTP 5XX) or the client's request (HTTP 4XX), `fetch` will still resolve the promise and your `catch` block won't be executed. You can check [the `response.ok` property](https://developer.mozilla.org/en-US/docs/Web/API/Response/ok) to see if the request was successful (HTTP 2XX), and handle it otherwise. Handling request failures is crucial for a good user experience. It is rather inevitable since the internet is an unreliable place, and now you're relying on an external service to provide you with data, and hence their reliability.
+
+After you get the response data, you can validate them to ensure that it conforms to the shape that you expect. If the data doesn't match your expectations, you can throw an error or log a warning to the console. This is known as _data validation_ and is crucial for ensuring that your application behaves as expected. This is also inevitable since pedantically, **you can never guarantee** the shape of the data that comes from an external service. No amount of static type safety can prevent this, thus you must always validate your data during runtime.
+
+Once you are confident that the data is valid, you can render the statistics on the page. If you are using a templating system or a JavaScript framework, render each item using iteration helpers, i.e., `map`, rather then repeating the statistic markup.
+
+### Display the image
+
+Render the image while making sure it has the same height as the right column on desktop and fills the entire 6-column section width. For breakpoints below desktop, the image has a fixed height.
+
+There are different ways to fit an image in a container, e.g., cover, contain, stretch, tile, etc. If you've set an image as wallpaper on your desktop before, you might be familiar with these strategies as you try to make your wallpaper scaled and displayed nicely on your desktop. In CSS, these strategies are defined by the `object-fit` or `background-size` properties. [Learn more about these properties](https://www.smashingmagazine.com/2021/10/object-fit-background-size-css/) and determine which one to use for the image in this challenge.
+
+## Grid columns
 
 Grids provide a structural framework for your design, ensuring that elements align properly across different parts of the layout. With a grid, you can streamline the design process, as it eliminates guesswork – every page-level section should take up N number of columns and the spacing between the columns have already been pre-determined.
 
-By turning on the "Layout grids" in Figma (<kbd>Shift</kbd> + <kbd>G</kbd>), you can see that for the bottom section on the "Desktop" breakpoint, the left section and right section each span 6 columns. A sample approach on how to divide the sections is:
+By enabling [Layout grids](https://help.figma.com/hc/en-us/articles/360040450513-Create-layout-grids-with-grids-columns-and-rows) in Figma (<kbd>Shift</kbd> + <kbd>G</kbd>), you can see that for the bottom section on the "Desktop" breakpoint, the left section and right section each span 6 columns. A sample approach on how to divide the sections is:
 
 ```css
 /* These are only for desktop breakpoint.
@@ -45,7 +81,7 @@ Read up on [CSS Grid](https://css-tricks.com/snippets/css/complete-guide-grid/) 
 
 Typically, all pages for a specific website will be using the same grid layout. Most challenges on GreatFrontEnd Projects are designed using the same grid layout across all breakpoints.
 
-### Responsive section behavior
+## Responsive section behavior
 
 To make the sections stack on top of each other on mobile and tablet, we can specify a different `grid-column` value for each non-desktop breakpoints to take up the full number of columns – 4 on mobile and 6 on tablet.
 

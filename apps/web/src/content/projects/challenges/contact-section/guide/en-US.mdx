@@ -1,30 +1,79 @@
-This challenge requires knowledge of form submission, using `fetch` for serve communication, and positioning elements that are out of the normal page flow.
+This challenge requires knowledge of form submission, using `fetch` for client-to-server communication, and positioning elements that are out of the normal page flow. If you've done the [Newsletter Section](https://www.greatfrontend.com/projects/challenges/newsletter-section) challenge, you'll find this one a breeze as it is largely similar, except with more fields.
 
-### Relevant concepts
+## Relevant concepts
 
-1. **Form handling and client-side validation**: HTML forms are fundamental for collecting user input. Utilize HTML `<form>` elements to structure your contact subscription form. JavaScript can be used to handle form submission events (`submit`), prevent default behavior, and perform client-side validation to ensure that the user input meets the required criteria (e.g., valid email format). Techniques like regular expressions or built-in browser validation APIs (`checkValidity()`, `setCustomValidity()`) can help with this validation process.
-2. **Use the `fetch` API for server communication**: The `fetch` API enables asynchronous communication between the client and server without reloading the entire webpage. Use JavaScript's XMLHttpRequest (XHR) object or modern `fetch` API to send form data to the server in the background. Handle the server's response asynchronously, allowing you to update the UI based on the server's feedback without interrupting the user's interaction with the page.
-3. **Toast notifications for user feedback**: Toast notifications provide unobtrusive feedback to users about the outcome of their actions. Implement a toast notification system using HTML, CSS, and JavaScript to display messages (success, error, etc.) in response to the server's validation or submission response, informing the user whether the contact subscription was successful or encountered an error.
+1. **Form handling and client-side validation**: Use HTML [`<form>`s](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form) to structure your contact subscription form for collecting user input. JavaScript can be used to handle [the `submit` event](https://developer.mozilla.org/en-US/docs/Web/API/HTMLFormElement/submit_event), prevent default behavior, and perform client-side validation to ensure that the user input meets the required criteria (e.g., valid email format). Techniques like [regular expressions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_expressions) or built-in browser validation APIs ([`checkValidity()`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLSelectElement/checkValidity), [`setCustomValidity()`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLSelectElement/setCustomValidity), etc.) can help with validations.
+2. [**The Fetch API**](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch): This API provides an interface for making HTTP requests and processing the responses. Use JavaScript's [XMLHttpRequest (XHR) object](https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest) or modern the [`fetch` method](https://developer.mozilla.org/en-US/docs/Web/API/fetch) to send form data to the server in the background. Handle the server's response asynchronously, allowing you to update the UI based on the server's feedback without interrupting the user's interaction with the page.
+3. **Toast notifications for user feedback**: Toast notifications provide unobtrusive feedback to users about the outcome of their actions. Implement a toast notification system using HTML, CSS, and JavaScript to display messages (success, error, etc.) in response to the server's validation or submission response, informing the user whether the contact subscription subscription was successful or encountered an error.
 
-### Recommended approach
+## Recommended approach
 
-Due to the interactive nature of this section, it is recommended that JavaScript frameworks like React, Vue, or Svelte be used to build this challenge.
+Due to the interactive nature of this section along with multiple repeated components, it is recommended that JavaScript frameworks like [React](https://react.dev/), [Vue.js](https://vuejs.org/), or [Svelte](https://svelte.dev/) be used to build this challenge.
 
-1. **Build the page layout while ensuring responsiveness**: Start by structuring the contact section within the overall page layout using HTML and CSS. Utilize responsive design principles, such as CSS Flexbox or Grid, to create a layout that adapts gracefully to different screen sizes and devices. Test the responsiveness of the layout across various viewports to ensure a consistent user experience.
-2. **Implement client-side form validation**: Write JavaScript code to handle form validation on the client side. Attach event listeners to the form's submit event to intercept form submission. Validate user input using JavaScript functions to ensure that required fields are in the correct format. Provide visual feedback to users by highlighting invalid fields and displaying error messages below the `<input>`.
-3. **Submit to the server using `fetch`**: Upon successful client-side validation, use the `fetch` API to send the form data to the server asynchronously. Construct a `POST` request to the server endpoint responsible for processing contact subscriptions. Include the form data in the request body using JSON or FormData format. Handle the server's response using promises or `async`/`await` syntax to manage asynchronous operations. Parse the response to determine the outcome of the subscription attempt (success, error, etc.).
-4. **Implement the toast component**: Create a toast notification component to provide feedback to the user regarding the server's response. Have the toast component to appear at the top of the page and display messages with customizable styles (success, error, warning, etc.). Dynamically update the toast content based on the server's response. Implement functionality to show and hide the toast messages with smooth animations (optional) and a configurable duration.
-5. **Show success state**: Hide the form and show the success state upon successful form submission. Add the "Send another message" button to show the contact form again so that users can send another message.
+### Build the page responsive page layout
 
-### Building accessible forms
+Start by structuring the contact subscription section within the overall page layout using [semantic HTML elements](https://developer.mozilla.org/en-US/docs/Glossary/Semantics#semantics_in_html) and CSS. Utilise responsive design principles, such as CSS Flexbox or Grid, to create a layout that adapts gracefully to different screen sizes and devices. Test the responsiveness of the layout across various viewports to ensure a consistent user experience.
 
-If it is your first time building a form, do check out the "Building good HTML forms" guide on the left. Some key points to take note of:
+Use [media queries](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_media_queries/Using_media_queries) to conditionally apply style properties. If you're using Tailwind CSS, use the [responsive modifiers](https://tailwindcss.com/docs/responsive-design). At this stage, this should be a straightforward task, as you have done this many times in the previous challenges.
+
+The only exception is the subscription form, which you should implement with a [`<form>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form). Know that `<form>` is essentially similar to a `<div>`, so style away!
+
+### Making email and telephone number links
+
+You can make email addresses and telephone numbers clickable by using the `mailto:` and `tel:` protocols, respectively. This way, when the user clicks on the email address or telephone number, their email client or dialer app will open with the email address or telephone number pre-filled. `mailto:` and `tel:` are some of the many [protocols](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/protocol_handlers#protocol) defined in the web standards.
+
+```html
+<a href="mailto:hello@abstractly.com">hello@abstractly.com</a>
+<a href="tel:16505550198">+1 (650) 555-0198</a>
+```
+
+### Building the real-time character counter
+
+You can use [the `input` event](https://developer.mozilla.org/en-US/docs/Web/API/Element/input_event) to listen for changes in the `<textarea>` as the user types, and display the character count with `event.target.value.length`. You can change the indicator colour to red when the character count exceeds the maximum length.
+
+Remember to validate this before you make the POST request! While you can use [the `maxlength` attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/maxlength) to limit the message length, an adversay can easily bypass this by removing the attribute in their browser's web inspector.
+
+### Implement client-side form validation
+
+Before making the POST request to the [message API](https://www.greatfrontend.com/projects/challenges/contact-section/assets), you should validate the user's input, i.e., email address and message character count. You can do this in the method you define for handling the form submission, i.e., [the `submit` event](https://developer.mozilla.org/en-US/docs/Web/API/HTMLFormElement/submit_event) of the `<form>` element.
+
+> Know that in a real-world application, the most important validation is server-side validation. This is because the server listens to responses coming from anywhere, not just your JavaScript web app with correct validations. For example, someone could be making direct requests to the server with [`curl`](https://curl.se/) or [Postman](https://www.postman.com/) or their own web app with no validations. Remember, **never trust the client**.
+>
+> However, client-side validation is good for user experience (fast feedback in case of invalid input) and can save a round trip to the server that would eventually fail with HTTP 400 anyway.
+
+You can get a "free" email validation by setting the `<input>` to [`type="email"`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/email) and using the [`required` attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/required). This way, the browser will prevent the form from being submitted, i.e., the `submit` event won't be dispatched, if the email is not in a valid format. However, this is not foolproof since an adversary can always just remove these attributes from their browser's web inspector. You should still implement your own JavaScript validation to be safe, and also if you need some custom validation logic.
+
+Set the `<button>` to [`type="submit"`](https://developer.mozilla.org/en-US/docs/Glossary/Submit_button) and the browser will dispatch a `submit` event to the enclosing `<form>` with the [`FormData` object](https://developer.mozilla.org/en-US/docs/Web/API/FormData), containing the `<input>`s' values, keyed by their `name`s. You can obtain this `FormData` object in the `submit` event handler this way.
+
+```js
+const formData = new FormData(event.target);
+```
+
+> Tip: `<button>`s in `<form>`s will submit the form by default. You can set them to [`type="button"`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button#type) or call `event.preventDefault()` on its `click` event handler to prevent this behaviour.
+
+If the validation fails, provide some visual feedback to the user by highlighting the invalid fields and displaying error messages below the `<input>`. Note that sometimes, it's better to just help the user rather than failing validation. For example, if the user adds a space at the end of their email, you can just [`trim()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/trim) it for them before setting it as the POST request body.
+
+### Making the POST request
+
+Upon successful client-side validation, use [`fetch`](https://developer.mozilla.org/en-US/docs/Web/API/fetch) to send the form data to the server asynchronously. Construct an [HTTP POST request](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/POST) to the [message API endpoint](https://www.greatfrontend.com/projects/challenges/contact-section/assets), passing the user's email address as the request body as JSON or FormData. Handle the server's response, which may include a success message or an error message, and update the UI accordingly.
+
+`fetch` will throw an error if request fails, that you can handle with a [`try...catch` block](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/try...catch). This throwing is known as a _Promise rejection_. However, know that `fetch` **doesn't reject** on HTTP error status codes. This means if something is wrong in the server (HTTP 5XX) or the client's request (HTTP 4XX), `fetch` will still resolve the promise and your `catch` block won't be executed. You can check [the `response.ok` property](https://developer.mozilla.org/en-US/docs/Web/API/Response/ok) to see if the request was successful (HTTP 2XX), and handle it otherwise.
+
+### Implement the toast component
+
+A [toast](https://web.dev/articles/building/a-toast-component) is a small, unobtrusive notification that appears on the screen to provide feedback to the user. It's used to inform the user about the outcome of an action, such as a successful form submission or an error. It's called a toast because it pops up like a piece of toast from a toaster.
+
+Know that in 2022, there's a new [`<dialog>` HTML element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dialog) that's suited for modals and overlaying elements like toasts.
+
+You should have a toast component that supports different variants depending on the nature of the message, e.g., success, error, warning, etc. In this case, you should pop up a toast with a success message if the form submission was successful, and an error message if the submission failed, with an appropriate message. Since this is a reusable component, you can go one step further and allow for customisation of the toast's duration, position, entrance/exit animations, etc.
+
+While building the toasts from scratch is good practice of your JavaScript and CSS skills, you can also consider libraries like [Sonner](https://sonner.emilkowal.ski/), [React Hot Toast](https://react-hot-toast.com/), and [React Toastify](https://github.com/fkhadra/react-toastify) which takes care of accessibility and animations for you; all you have to do is customise the appearance.
+
+## Building accessible forms
+
+If it is your first time building a form, do check out the _"Building good HTML forms"_ guide on the left sidebar. Some key points to take note of:
 
 - Wrap the `<input>` within a `<form>` to enable the browser's enter-to-submit behavior.
 - `<label>` and `<input>` should be associated using `for` and `id` attributes.
 - Link the error message with the `<input>` using `aria-describedby`.
 - Since the client-side validation experience is custom, the default browser validation is not necessary.
-
-### Toasts
-
-While building the toasts from scratch is good practice of your JavaScript and CSS skills, you can also consider libraries like [Sonner](https://sonner.emilkowal.ski/), [React Hot Toast](https://react-hot-toast.com/), and [React Toastify](https://github.com/fkhadra/react-toastify) which takes care of accessibility and animations for you – all you have to do is customize the appearance.
