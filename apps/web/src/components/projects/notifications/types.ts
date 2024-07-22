@@ -1,4 +1,3 @@
-import type { ProjectsReputationTier } from '../reputation/projectsReputationLevelUtils';
 import type { ProjectsChallengeSubmissionExtended } from '../submissions/types';
 
 import type {
@@ -6,7 +5,7 @@ import type {
   ProjectsNotification,
 } from '@prisma/client';
 
-export type ProjectsNotificationCategory = 'DISCUSSION' | 'LEVEL_UP' | 'UPVOTE';
+export type ProjectsNotificationCategory = 'DISCUSSION' | 'UPVOTE';
 
 type ProjectsNotificationCommentAuthor = Readonly<{
   points: number;
@@ -57,17 +56,6 @@ export type ProjectsNotificationSubmissionUpvoteItemType = Readonly<
   }
 >;
 
-export type ProjectsNotificationSubmissionLevelUpItemType = Readonly<
-  ProjectsNotificationExtended & {
-    category: 'LEVEL_UP';
-    data:
-      | { level: null; tier: ProjectsReputationTier }
-      | { level: number; tier: null };
-    submission: ProjectsChallengeSubmissionExtended;
-  }
->;
-
 export type ProjectsNotificationAugmentedType =
   | ProjectsNotificationDiscussionItemType
-  | ProjectsNotificationSubmissionLevelUpItemType
   | ProjectsNotificationSubmissionUpvoteItemType;

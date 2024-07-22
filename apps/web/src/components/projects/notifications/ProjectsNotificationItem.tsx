@@ -6,7 +6,6 @@ import { trpc } from '~/hooks/trpc';
 import Anchor from '~/components/ui/Anchor';
 
 import ProjectsNotificationDiscussion from './category/ProjectsNotificationDiscussion';
-import ProjectsNotificationLevelUp from './category/ProjectsNotificationLevelup';
 import ProjectsNotificationSubmissionUpvote from './category/ProjectsNotificationSubmissionUpvote';
 import useVisibleDuration from './hooks/useVisibleDuration';
 import ProjectsNotificationUnreadIndicator from './ProjectsNotificationUnreadIndicator';
@@ -38,10 +37,6 @@ export default function ProjectsNotificationItem({
   const getUrl = () => {
     if (item.category === 'UPVOTE') {
       return item.submission?.hrefs.detail;
-    }
-
-    if (item.category === 'LEVEL_UP') {
-      return `/projects/u/${item.projectsProfile.userProfile.username}`;
     }
 
     if (item.comment.parentCommentId) {
@@ -77,10 +72,8 @@ export default function ProjectsNotificationItem({
     <div ref={elementRef} className="relative flex gap-4" onClick={onClick}>
       {item.category === 'UPVOTE' ? (
         <ProjectsNotificationSubmissionUpvote data={item} />
-      ) : item.category === 'DISCUSSION' ? (
-        <ProjectsNotificationDiscussion data={item} />
       ) : (
-        <ProjectsNotificationLevelUp data={item} />
+        <ProjectsNotificationDiscussion data={item} />
       )}
 
       <Anchor className="absolute inset-0" href={getUrl()} />

@@ -11,7 +11,6 @@ import {
   projectsReputationSubmissionTechStackConfig,
   projectsReputationSubmissionVoteConfig,
 } from './ProjectsReputationPointsItemCalculator';
-import { projectsNotificationForLevelUp } from '../notifications/ProjectsNotificationUtils';
 
 import type {
   ProjectsChallengeSubmissionVote,
@@ -81,24 +80,15 @@ export async function projectsReputationCommentVoteAwardPoints(
     return;
   }
 
-  const repConfig = projectsReputationDiscussionsCommentVoteConfig(vote.id);
-
-  const profile = await prisma.projectsProfile.update({
+  await prisma.projectsProfile.update({
     data: {
       reputation: {
-        create: repConfig,
+        create: projectsReputationDiscussionsCommentVoteConfig(vote.id),
       },
     },
     where: {
       id: comment.profileId,
     },
-  });
-
-  // Notification trigger for level up
-  projectsNotificationForLevelUp({
-    currentPoints: profile.points,
-    oldPoints: profile.points - repConfig.points,
-    profileId: comment.profileId,
   });
 }
 
@@ -203,24 +193,15 @@ export async function projectsReputationSubmissionVoteAwardPoints(
     return;
   }
 
-  const repConfig = projectsReputationSubmissionVoteConfig(vote.id);
-
-  const profile = await prisma.projectsProfile.update({
+  await prisma.projectsProfile.update({
     data: {
       reputation: {
-        create: repConfig,
+        create: projectsReputationSubmissionVoteConfig(vote.id),
       },
     },
     where: {
       id: submission.profileId,
     },
-  });
-
-  // Notification trigger for level up
-  projectsNotificationForLevelUp({
-    currentPoints: profile.points,
-    oldPoints: profile.points - repConfig.points,
-    profileId: submission.profileId,
   });
 }
 
