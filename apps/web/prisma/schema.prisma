@@ -216,6 +216,8 @@ model ProjectsProfile {
   challengesUnlocked ProjectsChallengeAccess[]
   creditTransactions ProjectsChallengeCreditTransaction[]
   notifications      ProjectsNotification[]
+
+  lastSeenNotification  DateTime @default(now()) @db.Timestamptz(6)
 }
 
 enum ProjectsChallengeSessionStatus {

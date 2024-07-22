@@ -34,6 +34,14 @@ export default function ProjectsNotificationContent({
     },
   });
 
+  const lastSeen = trpc.projects.notifications.lastSeenNotification.useMutation(
+    {
+      onSuccess: () => {
+        utils.projects.notifications.getUnreadCount.invalidate();
+      },
+    },
+  );
+
   const debounceMarkAsRead = useRef(
     debounce((ids: Array<string>) => {
       setUnreadVisibleNotificationIds(new Set());
@@ -64,6 +72,12 @@ export default function ProjectsNotificationContent({
       return newSet;
     });
   };
+
+  // Update last seen notification timestamp
+  useEffect(() => {
+    lastSeen.mutate();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   // Fetch next page
   useEffect(() => {

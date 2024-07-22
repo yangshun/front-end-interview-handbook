@@ -10,10 +10,31 @@ import { projectsUserProcedure } from './procedures';
 export const projectsNotificationsRouter = router({
   getUnreadCount: projectsUserProcedure.query(
     async ({ ctx: { projectsProfileId } }) => {
+      const profile = await prisma.projectsProfile.findUnique({
+        where: {
+          id: projectsProfileId,
+        },
+      });
+
       return await prisma.projectsNotification.count({
         where: {
+          createdAt: {
+            gt: profile?.lastSeenNotification,
+          },
           profileId: projectsProfileId,
           read: false,
+        },
+      });
+    },
+  ),
+  lastSeenNotification: projectsUserProcedure.mutation(
+    async ({ ctx: { projectsProfileId } }) => {
+      await prisma.projectsProfile.update({
+        data: {
+          lastSeenNotification: new Date(),
+        },
+        where: {
+          id: projectsProfileId,
         },
       });
     },
