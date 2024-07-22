@@ -1,51 +1,41 @@
 import clsx from 'clsx';
 import { useState } from 'react';
 import { RiNotification3Line } from 'react-icons/ri';
-import { useIntl } from 'react-intl';
 
 import Button from '~/components/ui/Button';
-import SlideOut from '~/components/ui/SlideOut';
-import { themeBackgroundBrandColor } from '~/components/ui/theme';
 
+import useProjectsNotificationUnreadCount from './hooks/useProjectsNotificationUnreadCount';
 import ProjectsNotificationContent from './ProjectsNotificationContent';
+import ProjectsNotificationPopover from './ProjectsNotificationPopover';
+import ProjectsNotificationUnreadIndicator from './ProjectsNotificationUnreadIndicator';
 
 export default function ProjectsNotification() {
-  const intl = useIntl();
+  const unreadCount = useProjectsNotificationUnreadCount();
   const [showNotification, setShowNotification] = useState(false);
 
   return (
-    <SlideOut
-      enterFrom="start"
+    <ProjectsNotificationPopover
+      className={clsx('max-h-[80vh] overflow-y-auto', 'w-[500px]')}
       isShown={showNotification}
-      size="md"
-      title={intl.formatMessage({
-        defaultMessage: 'Notifications',
-        description: 'Label for notifications',
-        id: 'PrexEG',
-      })}
       trigger={
         <div className="relative">
           <Button
             icon={RiNotification3Line}
             isLabelHidden={true}
-            label="Notification"
+            label="Notifications"
             size="sm"
             variant="secondary"
             onClick={() => setShowNotification(true)}
           />
-          <div
-            className={clsx(
-              'size-2 shrink-0 rounded-full',
-              'absolute right-0.5 top-0.5',
-              themeBackgroundBrandColor,
-            )}
-          />
+          {unreadCount > 0 && (
+            <ProjectsNotificationUnreadIndicator className="absolute right-0.5 top-0.5" />
+          )}
         </div>
       }
       onClose={() => setShowNotification(false)}>
       <ProjectsNotificationContent
         closeNotification={() => setShowNotification(false)}
       />
-    </SlideOut>
+    </ProjectsNotificationPopover>
   );
 }

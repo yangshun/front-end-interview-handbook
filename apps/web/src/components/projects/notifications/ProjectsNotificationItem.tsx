@@ -1,28 +1,35 @@
-import clsx from 'clsx';
+import { useEffect, useState } from 'react';
 import url from 'url';
 
 import { trpc } from '~/hooks/trpc';
 
 import Anchor from '~/components/ui/Anchor';
-import { themeBackgroundBrandColor } from '~/components/ui/theme';
 
 import ProjectsNotificationDiscussion from './category/ProjectsNotificationDiscussion';
 import ProjectsNotificationSubmissionUpvote from './category/ProjectsNotificationSubmissionUpvote';
+import useVisibleDuration from './hooks/useVisibleDuration';
+import ProjectsNotificationUnreadIndicator from './ProjectsNotificationUnreadIndicator';
 import type { ProjectsNotificationAugmentedType } from './types';
 
 type Props = Readonly<{
   closeNotification: () => void;
+  handleVisibleLongEnough: (id: string) => void;
   item: ProjectsNotificationAugmentedType;
 }>;
 
 export default function ProjectsNotificationItem({
   item,
   closeNotification,
+  handleVisibleLongEnough,
 }: Props) {
   const utils = trpc.useUtils();
+  const { elementRef, visibleDuration } = useVisibleDuration();
+  const [markAsSeen, setMarkAsSeen] = useState(false);
+
   const markAsRead = trpc.projects.notifications.markAsRead.useMutation({
     onSuccess: () => {
       utils.projects.notifications.list.invalidate();
+      utils.projects.notifications.getUnreadCount.invalidate();
     },
   });
   const { read } = item;
@@ -46,14 +53,23 @@ export default function ProjectsNotificationItem({
   };
 
   const onClick = async () => {
-    markAsRead.mutate({
-      ids: [item.id],
-    });
+    if (!read) {
+      markAsRead.mutate({
+        ids: [item.id],
+      });
+    }
     closeNotification();
   };
 
+  useEffect(() => {
+    if (visibleDuration >= 2 && !item.read && !markAsSeen) {
+      handleVisibleLongEnough(item.id);
+      setMarkAsSeen(true);
+    }
+  }, [visibleDuration, item, handleVisibleLongEnough, markAsSeen]);
+
   return (
-    <div className="relative flex gap-4" onClick={onClick}>
+    <div ref={elementRef} className="relative flex gap-4" onClick={onClick}>
       {item.category === 'UPVOTE' ? (
         <ProjectsNotificationSubmissionUpvote data={item} />
       ) : (
@@ -61,14 +77,7 @@ export default function ProjectsNotificationItem({
       )}
 
       <Anchor className="absolute inset-0" href={getUrl()} />
-      {!read && (
-        <div
-          className={clsx(
-            'size-2 shrink-0 rounded-full',
-            themeBackgroundBrandColor,
-          )}
-        />
-      )}
+      {!read && <ProjectsNotificationUnreadIndicator />}
     </div>
   );
 }

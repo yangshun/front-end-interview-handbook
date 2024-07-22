@@ -6,7 +6,10 @@ import { forwardRef, useState } from 'react';
 import { RiMenuFill } from 'react-icons/ri';
 
 import SlideOut from '~/components/ui/SlideOut';
-import { themeBorderColor } from '~/components/ui/theme';
+import {
+  themeBackgroundBrandColor,
+  themeBorderColor,
+} from '~/components/ui/theme';
 
 import NavbarItem from './NavbarItem';
 import NavbarSidebarItem from './NavbarSidebarItem';
@@ -27,6 +30,7 @@ type Props = Readonly<{
   }: Readonly<{ closeMobileNav: () => void }>) => React.ReactNode;
   style?: CSSProperties;
   transparent?: boolean;
+  unreadNotificationCount?: number;
 }>;
 
 function Navbar(
@@ -41,6 +45,7 @@ function Navbar(
     mobileSidebarBottomItems,
     transparent = false,
     hideOnDesktop = false,
+    unreadNotificationCount = 0,
   }: Props,
   ref: React.Ref<HTMLDivElement>,
 ) {
@@ -113,15 +118,26 @@ function Navbar(
               size="sm"
               title={<div className="flex shrink-0 items-center">{logo}</div>}
               trigger={
-                <Button
-                  icon={RiMenuFill}
-                  isLabelHidden={true}
-                  label="Open menu"
-                  variant="secondary"
-                  onClick={() => {
-                    setIsMobileNavOpen(true);
-                  }}
-                />
+                <div className="relative">
+                  <Button
+                    icon={RiMenuFill}
+                    isLabelHidden={true}
+                    label="Open menu"
+                    variant="secondary"
+                    onClick={() => {
+                      setIsMobileNavOpen(true);
+                    }}
+                  />
+                  {unreadNotificationCount > 0 && (
+                    <div
+                      className={clsx(
+                        'size-2 shrink-0 rounded-full',
+                        'absolute right-0.5 top-0.5',
+                        themeBackgroundBrandColor,
+                      )}
+                    />
+                  )}
+                </div>
               }
               onClose={() => {
                 setIsMobileNavOpen(false);

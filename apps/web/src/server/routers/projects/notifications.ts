@@ -8,6 +8,16 @@ import { router } from '~/server/trpc';
 import { projectsUserProcedure } from './procedures';
 
 export const projectsNotificationsRouter = router({
+  getUnreadCount: projectsUserProcedure.query(
+    async ({ ctx: { projectsProfileId } }) => {
+      return await prisma.projectsNotification.count({
+        where: {
+          profileId: projectsProfileId,
+          read: false,
+        },
+      });
+    },
+  ),
   list: projectsUserProcedure
     .input(
       z.object({

@@ -15,6 +15,8 @@ import LogoLink from '~/components/global/logos/LogoLink';
 import NavColorSchemeDropdown from '~/components/global/navbar/NavColorSchemeDropdown';
 import NavProductDropdownMenu from '~/components/global/navbar/NavProductDropdownMenu';
 import NavProfileIcon from '~/components/global/navbar/NavProfileIcon';
+import useProjectsNotificationUnreadCount from '~/components/projects/notifications/hooks/useProjectsNotificationUnreadCount';
+import ProjectsNotificationMobile from '~/components/projects/notifications/ProjectsNotificationMobile';
 import Anchor from '~/components/ui/Anchor';
 import Avatar from '~/components/ui/Avatar';
 import Button from '~/components/ui/Button';
@@ -96,6 +98,36 @@ function useUserNavigationLinks() {
   return userNavigation;
 }
 
+type UserNavigationLinkItemProps = Readonly<{
+  closeMobileNav: () => void;
+  data: NavLinkItem;
+}>;
+
+function UserNavigationLinkItem({
+  data,
+  closeMobileNav,
+}: UserNavigationLinkItemProps) {
+  return (
+    <Anchor
+      className={clsx(
+        'group flex items-center',
+        'px-2 py-2',
+        'rounded',
+        textVariants({ size: 'body3', weight: 'medium' }),
+        themeTextSecondaryColor,
+        themeBackgroundLayerEmphasized_Hover,
+      )}
+      href={data.href}
+      variant="unstyled"
+      onClick={(event) => {
+        data.onClick?.(event);
+        closeMobileNav();
+      }}>
+      {data.label}
+    </Anchor>
+  );
+}
+
 type Props = Readonly<{
   hideOnDesktop?: boolean;
 }>;
@@ -104,6 +136,7 @@ export default function ProjectsNavbar({ hideOnDesktop = false }: Props) {
   const { colorSchemePreference, setColorSchemePreference } =
     useColorSchemePreferences();
   const user = useUser();
+  const unreadNotificationCount = useProjectsNotificationUnreadCount();
   const { isLoading: isUserProfileLoading, userProfile } =
     useUserProfileWithProjectsProfile();
 
@@ -165,25 +198,17 @@ export default function ProjectsNavbar({ hideOnDesktop = false }: Props) {
         </div>
         {isLoggedIn && (
           <div className="grid gap-y-1 px-2">
-            {userNavigationLinks.map((props) => (
-              <Anchor
+            <UserNavigationLinkItem
+              closeMobileNav={closeMobileNav}
+              data={userNavigationLinks[0]}
+            />
+            <ProjectsNotificationMobile closeMobileNav={closeMobileNav} />
+            {userNavigationLinks.slice(1).map((props) => (
+              <UserNavigationLinkItem
                 key={props.itemKey}
-                className={clsx(
-                  'group flex items-center',
-                  'px-2 py-2',
-                  'rounded',
-                  textVariants({ size: 'body3', weight: 'medium' }),
-                  themeTextSecondaryColor,
-                  themeBackgroundLayerEmphasized_Hover,
-                )}
-                href={props.href}
-                variant="unstyled"
-                onClick={(event) => {
-                  props.onClick?.(event);
-                  closeMobileNav();
-                }}>
-                {props.label}
-              </Anchor>
+                closeMobileNav={closeMobileNav}
+                data={props}
+              />
             ))}
           </div>
         )}
@@ -236,6 +261,7 @@ export default function ProjectsNavbar({ hideOnDesktop = false }: Props) {
       productMenu={<NavProductDropdownMenu value="projects" />}
       renderMobileSidebarAddOnItems={renderMobileSidebarAddOnItems}
       transparent={!isSticky}
+      unreadNotificationCount={unreadNotificationCount}
     />
   );
 }

@@ -1,6 +1,7 @@
 import clsx from 'clsx';
 import { useInView } from 'framer-motion';
-import { useEffect, useRef } from 'react';
+import { debounce } from 'lodash-es';
+import { useEffect, useRef, useState } from 'react';
 import { FormattedMessage } from 'react-intl';
 
 import { trpc } from '~/hooks/trpc';
@@ -18,11 +19,30 @@ type Props = Readonly<{ closeNotification: () => void }>;
 export default function ProjectsNotificationContent({
   closeNotification,
 }: Props) {
+  const utils = trpc.useUtils();
   const lastItemRef = useRef(null);
-
   const isLastItemVisible = useInView(lastItemRef, {
     amount: 'some',
   });
+  const [unreadVisibleNotificationIds, setUnreadVisibleNotificationIds] =
+    useState<Set<string>>(new Set());
+
+  const markAsRead = trpc.projects.notifications.markAsRead.useMutation({
+    onSuccess: () => {
+      utils.projects.notifications.list.invalidate();
+      utils.projects.notifications.getUnreadCount.invalidate();
+    },
+  });
+
+  const debounceMarkAsRead = useRef(
+    debounce((ids: Array<string>) => {
+      setUnreadVisibleNotificationIds(new Set());
+      markAsRead.mutate({
+        ids,
+      });
+    }, 1000),
+  ).current;
+
   const { data, isLoading, hasNextPage, fetchNextPage, isFetchingNextPage } =
     trpc.projects.notifications.list.useInfiniteQuery(
       {
@@ -35,16 +55,34 @@ export default function ProjectsNotificationContent({
       },
     );
 
+  const handleVisibleLongEnough = (id: string) => {
+    setUnreadVisibleNotificationIds((prevSet) => {
+      const newSet = new Set(prevSet);
+
+      newSet.add(id);
+
+      return newSet;
+    });
+  };
+
+  // Fetch next page
   useEffect(() => {
     if (isLastItemVisible && hasNextPage && !isFetchingNextPage) {
       fetchNextPage();
     }
   }, [isLastItemVisible, hasNextPage, fetchNextPage, isFetchingNextPage]);
 
+  // Trigger markAsRead for visible unread notifications
+  useEffect(() => {
+    if (unreadVisibleNotificationIds.size > 0) {
+      debounceMarkAsRead(Array.from(unreadVisibleNotificationIds));
+    }
+  }, [unreadVisibleNotificationIds, debounceMarkAsRead]);
+
   const notifications = data?.pages.flatMap((page) => page.notifications);
 
   return (
-    <div className={clsx('flex flex-col gap-4')}>
+    <div>
       <div className={clsx('divide-y', themeDivideColor)}>
         {isLoading ? (
           <div className="flex w-full justify-center">
@@ -63,6 +101,7 @@ export default function ProjectsNotificationContent({
             <div key={item.id} className="py-6 first:pt-0 last:pb-0">
               <ProjectsNotificationItem
                 closeNotification={closeNotification}
+                handleVisibleLongEnough={handleVisibleLongEnough}
                 item={item}
               />
             </div>
@@ -70,7 +109,11 @@ export default function ProjectsNotificationContent({
         )}
       </div>
       <div ref={lastItemRef} className="flex w-full justify-center">
-        {isFetchingNextPage && <Spinner size="sm" />}
+        {isFetchingNextPage && (
+          <div className="my-4">
+            <Spinner size="sm" />
+          </div>
+        )}
       </div>
     </div>
   );
