@@ -7,7 +7,7 @@ import type { Platform } from '../Platform';
 
 import type { PostTab } from '~/types';
 
-import type { RedditPost } from '@prisma/client';
+import type { RedditPost } from '.prisma/client';
 
 class RedditPlatform implements Platform {
   private snooWrap: Snoowrap;

@@ -27,7 +27,7 @@ import { publicProcedure, router } from '../../trpc';
 import {
   Prisma,
   ProjectsChallengeSubmissionScreenshotStatus,
-} from '@prisma/client';
+} from '.prisma/client';
 import { TRPCError } from '@trpc/server';
 
 const projectsChallengeProcedure = projectsUserProcedure.input(

@@ -1,4 +1,4 @@
-import type { ProjectsDiscussionCommentDomain } from '@prisma/client';
+import type { ProjectsDiscussionCommentDomain } from '.prisma/client';
 
 export type ProjectsDiscussionsCommentAuthor = Readonly<{
   points: number;

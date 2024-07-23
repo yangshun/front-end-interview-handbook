@@ -12,7 +12,7 @@ import type {
   PurchasePricingPlanPaymentConfigLocalized,
 } from '~/components/purchase/PurchaseTypes';
 
-import type { ProjectsSubscriptionPlan } from '@prisma/client';
+import type { ProjectsSubscriptionPlan } from '.prisma/client';
 
 type BaseCheckoutQueryParams = Readonly<{
   // Optional cancel URL if user cancels checkout.

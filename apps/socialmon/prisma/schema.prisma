@@ -1,10 +1,11 @@
 generator client {
   provider = "prisma-client-js"
+  output   = "../node_modules/.prisma/client"
 }
 
 datasource db {
-  provider = "postgresql"
-  url      = env("DATABASE_URL")
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
   directUrl = env("DIRECT_URL")
 }
 
@@ -23,8 +24,8 @@ model RedditPost {
 }
 
 model RedditAccount {
-  username     String       @id @db.VarChar
-  password     String       @db.VarChar
-  clientId     String       @db.VarChar
-  clientSecret String       @db.VarChar
+  username     String @id @db.VarChar
+  password     String @db.VarChar
+  clientId     String @db.VarChar
+  clientSecret String @db.VarChar
 }

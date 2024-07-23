@@ -2,13 +2,14 @@ import { z } from 'zod';
 
 export const postSchema = z.object({
   content: z.string(),
-  createdAt: z.union([z.date(), z.string()]).nullable(),
+  createdAt: z.date(),
   id: z.string(),
   keywords: z.string().array(),
-  postedAt: z.union([z.date(), z.string()]).nullable(),
+  postedAt: z.date(),
   replied: z.boolean(),
-  repliedAt: z.union([z.date(), z.string()]).nullable(),
+  repliedAt: z.date().nullable(),
   response: z.string().nullable(),
+  subreddit: z.string(),
   title: z.string(),
   url: z.string(),
 });

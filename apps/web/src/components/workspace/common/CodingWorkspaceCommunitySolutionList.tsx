@@ -18,7 +18,7 @@ import { useCodingWorkspaceContext } from './CodingWorkspaceContext';
 import type {
   QuestionJavaScriptCommunitySolution,
   QuestionUserInterfaceCommunitySolution,
-} from '@prisma/client';
+} from '.prisma/client';
 
 type Props =
   | {

@@ -7,7 +7,7 @@ import { router, userProcedure } from '../trpc';
 import {
   QuestionSubmissionResult,
   QuestionWorkingLanguage,
-} from '@prisma/client';
+} from '.prisma/client';
 
 export const questionSubmissionRouter = router({
   javaScriptAdd: userProcedure

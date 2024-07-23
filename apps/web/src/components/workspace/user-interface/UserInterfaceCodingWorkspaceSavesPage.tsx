@@ -22,7 +22,7 @@ import { UserInterfaceCodingWorkspaceSavesContextProvider } from './UserInterfac
 import SandpackTimeoutLogger from '../common/sandpack/SandpackTimeoutLogger';
 
 import { SandpackProvider } from '@codesandbox/sandpack-react';
-import type { QuestionUserInterfaceSave } from '@prisma/client';
+import type { QuestionUserInterfaceSave } from '.prisma/client';
 
 type Props = Readonly<{
   canViewPremiumContent: boolean;

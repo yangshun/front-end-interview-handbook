@@ -17,7 +17,7 @@ import type {
   ProjectsDiscussionsCommentSortField,
 } from './types';
 
-import type { ProjectsDiscussionCommentDomain } from '@prisma/client';
+import type { ProjectsDiscussionCommentDomain } from '.prisma/client';
 
 type Props = Readonly<{
   domain: ProjectsDiscussionCommentDomain;

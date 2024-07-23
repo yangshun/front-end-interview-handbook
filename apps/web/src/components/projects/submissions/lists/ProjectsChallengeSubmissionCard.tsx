@@ -35,7 +35,7 @@ import ProjectsVoteCountTag from '../../stats/ProjectsVoteCountTag';
 import ProjectsProfileDisplayNameLink from '../../users/ProjectsProfileDisplayNameLink';
 import ProjectsProfilePremiumChip from '../../users/ProjectsProfilePremiumChip';
 
-import type { ProjectsChallengeSessionStatus } from '@prisma/client';
+import type { ProjectsChallengeSessionStatus } from '.prisma/client';
 
 type Props = Readonly<{
   challenge?: Readonly<{

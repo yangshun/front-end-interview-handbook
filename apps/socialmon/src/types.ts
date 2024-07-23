@@ -1,8 +1,7 @@
 import type { z } from 'zod';
 
 import type { aiResponseSchema } from './schema';
-
-import type { RedditAccount, RedditPost } from '@prisma/client';
+import type { RedditAccount, RedditPost } from '.prisma/client';
 
 export type Post = RedditPost;
 export type AccountType = RedditAccount;

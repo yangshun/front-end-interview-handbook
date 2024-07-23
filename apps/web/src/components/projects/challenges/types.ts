@@ -13,7 +13,7 @@ import type {
   SandboxEnvironment,
   SandpackFiles,
 } from '@codesandbox/sandpack-react';
-import type { ProjectsChallengeSessionStatus } from '@prisma/client';
+import type { ProjectsChallengeSessionStatus } from '.prisma/client';
 
 // Sorted in order of difficulty.
 export const projectDifficultyOptions = [

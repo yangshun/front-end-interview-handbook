@@ -10,7 +10,7 @@ import { type AIProvider } from '../../interfaces/AIProvider';
 import OpenAIProvider from '../../interfaces/implementations/OpenAIProvider';
 import { type Platform } from '../../interfaces/Platform';
 
-import type { AccountType, Post } from '~/types';
+import type { AccountType } from '~/types';
 
 function getPlatform(account?: AccountType): Platform {
   const clientId =
@@ -56,7 +56,7 @@ export const socialPostsRouter = router({
     )
     .mutation(async (opts) => {
       const { input } = opts;
-      const post = input.post as Post;
+      const { post } = input;
       const aiProvider = getAIProvider();
 
       try {

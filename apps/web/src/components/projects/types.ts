@@ -7,8 +7,7 @@ import type {
 
 import type { ProjectsImageBreakpointCategory } from './common/ProjectsImageBreakpoints';
 import type { ProjectsSkillKey } from './skills/types';
-
-import type { ProjectsSubscriptionPlan } from '@prisma/client';
+import type { ProjectsSubscriptionPlan } from '.prisma/client';
 
 export type ProjectsMotivationReasonValue = z.infer<
   typeof motivationReasonValue

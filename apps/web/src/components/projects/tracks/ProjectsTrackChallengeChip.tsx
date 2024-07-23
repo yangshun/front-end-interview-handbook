@@ -7,7 +7,7 @@ import ProjectsChallengeStatusChip from '../challenges/metadata/ProjectsChalleng
 import type { ProjectsChallengeItem } from '../challenges/types';
 import ProjectsProfileAvatarWithStatus from '../users/ProjectsProfileAvatarWithStatus';
 
-import type { ProjectsChallengeSessionStatus } from '@prisma/client';
+import type { ProjectsChallengeSessionStatus } from '.prisma/client';
 
 type Props = Readonly<{
   challenge?: ProjectsChallengeItem;

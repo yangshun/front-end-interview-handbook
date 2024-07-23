@@ -29,7 +29,7 @@ import ProjectsImageViewer from './ProjectsImageViewer';
 import type { ProjectsChallengeVariantImages } from '../challenges/types';
 import ProjectsChallengeSubmissionImageMatchScore from '../submissions/screenshots/ProjectsChallengeSubmissionImageMatchScore';
 
-import type { ProjectsChallengeSubmissionScreenshotStatus } from '@prisma/client';
+import type { ProjectsChallengeSubmissionScreenshotStatus } from '.prisma/client';
 
 type RetakeScreenshotStatus = 'error' | 'idle' | 'loading' | 'success';
 type Props = Readonly<{

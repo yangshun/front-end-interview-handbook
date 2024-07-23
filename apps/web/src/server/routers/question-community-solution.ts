@@ -7,7 +7,7 @@ import { publicProcedure, router, userProcedure } from '../trpc';
 import {
   QuestionUserInterfaceFramework,
   QuestionWorkingLanguage,
-} from '@prisma/client';
+} from '.prisma/client';
 
 export const questionCommunitySolutionRouter = router({
   javaScriptAdd: publicProcedure

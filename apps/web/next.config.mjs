@@ -1,5 +1,6 @@
 // @ts-check
 
+import { PrismaPlugin } from '@prisma/nextjs-monorepo-workaround-plugin';
 import { withContentlayer } from 'next-contentlayer';
 
 import remarkFrontmatter from 'remark-frontmatter';
@@ -115,7 +116,7 @@ const nextConfig = {
       },
     ];
   },
-  webpack: (config) => {
+  webpack: (config, { isServer }) => {
     config.externals.push({
       'utf-8-validate': 'commonjs utf-8-validate',
       bufferutil: 'commonjs bufferutil',
@@ -125,6 +126,10 @@ const nextConfig = {
     config.infrastructureLogging = {
       level: 'error',
     };
+
+    if (isServer) {
+      config.plugins = [...config.plugins, new PrismaPlugin()];
+    }
 
     return config;
   },

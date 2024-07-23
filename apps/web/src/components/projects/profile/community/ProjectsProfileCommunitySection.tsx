@@ -2,7 +2,7 @@
 
 import ProjectsProfileCommunityListWithFilters from './ProjectsProfileCommunityListWithFilters';
 
-import type { ProjectsDiscussionComment } from '@prisma/client';
+import type { ProjectsDiscussionComment } from '.prisma/client';
 
 type ProjectsProfileCommunityCommentAuthor = Readonly<{
   userId?: string;

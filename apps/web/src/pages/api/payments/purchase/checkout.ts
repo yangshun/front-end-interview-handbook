@@ -17,7 +17,7 @@ import type {
   CheckoutQueryParams,
 } from './checkout_session_internal_and_called_on_server_only__';
 
-import type { ProjectsSubscriptionPlan } from '@prisma/client';
+import type { ProjectsSubscriptionPlan } from '.prisma/client';
 
 export const config = {
   // We have to use edge runtime because we need the geo data.

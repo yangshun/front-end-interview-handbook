@@ -9,7 +9,7 @@ import { projectsSkillLabel } from '../../skills/data/ProjectsSkillListData';
 import { projectsSkillDetermineParentSkill } from '../../skills/data/ProjectsSkillUtils';
 import type { ProjectsSkillKey } from '../../skills/types';
 
-import type { ProjectsChallengeSession } from '@prisma/client';
+import type { ProjectsChallengeSession } from '.prisma/client';
 
 type Props = Readonly<{
   isShown: boolean;

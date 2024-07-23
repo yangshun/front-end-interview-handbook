@@ -25,7 +25,7 @@ import useProjectsChallengeSubmissionTakeScreenshotMutation from '../screenshots
 import { projectsReputationLevel } from '../../reputation/projectsReputationLevelUtils';
 import type { RoadmapSkillsRep } from '../../skills/types';
 
-import type { ProjectsChallengeSession } from '@prisma/client';
+import type { ProjectsChallengeSession } from '.prisma/client';
 
 type SuccessPageInformationState = Readonly<{
   gainedPoints: number;

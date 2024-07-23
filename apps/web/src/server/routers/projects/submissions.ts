@@ -15,7 +15,7 @@ import prisma from '~/server/prisma';
 import { projectsUserProcedure, publicProjectsProcedure } from './procedures';
 import { publicProcedure, router } from '../../trpc';
 
-import type { Prisma, ProjectsChallengeSessionStatus } from '@prisma/client';
+import type { Prisma, ProjectsChallengeSessionStatus } from '.prisma/client';
 
 const projectsChallengeProcedure = projectsUserProcedure.input(
   z.object({

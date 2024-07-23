@@ -9,7 +9,7 @@ import ProjectsChallengeCard from '~/components/projects/challenges/lists/Projec
 import Pagination from '~/components/ui/Pagination';
 import Spinner from '~/components/ui/Spinner';
 
-import type { ProjectsChallengeSessionStatus } from '@prisma/client';
+import type { ProjectsChallengeSessionStatus } from '.prisma/client';
 
 type Props = Readonly<{
   challengeStatus: ProjectsChallengeSessionStatus;

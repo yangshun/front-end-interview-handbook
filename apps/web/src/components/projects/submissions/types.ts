@@ -11,7 +11,7 @@ import type {
   Prisma,
   ProjectsChallengeSessionStatus,
   ProjectsProfile,
-} from '@prisma/client';
+} from '.prisma/client';
 
 export type ProjectsChallengeSubmissionExtended = Prisma.Result<
   PrismaClientGFE['projectsChallengeSubmission'],

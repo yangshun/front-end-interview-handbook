@@ -14,7 +14,7 @@ import ProjectsProfileSocialLinks from './info/ProjectsProfileSocialLinks';
 import ProjectsProfileUsernameBadge from './info/ProjectsProfileUsernameBadge';
 import ProjectsProfileDisplayNameLink from '../users/ProjectsProfileDisplayNameLink';
 
-import type { Profile, ProjectsProfile } from '@prisma/client';
+import type { Profile, ProjectsProfile } from '.prisma/client';
 
 type Props = Readonly<{
   isViewingOwnProfile: boolean;

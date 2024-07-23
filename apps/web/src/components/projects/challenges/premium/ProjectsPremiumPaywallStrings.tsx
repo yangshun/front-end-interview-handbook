@@ -6,7 +6,7 @@ import type { ProjectsPremiumAccessControlType } from './ProjectsPremiumAccessCo
 import { projectsPaidPlanFeatures } from '../../purchase/ProjectsPricingFeaturesConfig';
 import type { ProjectsViewerProjectsProfile } from '../../types';
 
-import type { ProjectsSubscriptionPlan } from '@prisma/client';
+import type { ProjectsSubscriptionPlan } from '.prisma/client';
 
 export function useProjectsChallengePaywallTitle(
   access: ProjectsPremiumAccessControlType,

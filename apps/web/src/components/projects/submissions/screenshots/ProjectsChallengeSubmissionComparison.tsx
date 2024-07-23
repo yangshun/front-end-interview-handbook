@@ -7,7 +7,7 @@ import Section from '~/components/ui/Heading/HeadingContext';
 import useProjectsChallengeSubmissionTakeScreenshotMutation from './useProjectsChallengeSubmissionTakeScreenshotMutation';
 import type { ProjectsChallengeVariantImages } from '../../challenges/types';
 
-import type { ProjectsChallengeSubmissionScreenshotStatus } from '@prisma/client';
+import type { ProjectsChallengeSubmissionScreenshotStatus } from '.prisma/client';
 
 type Props = Readonly<{
   allowRetakeScreenshot?: boolean;
