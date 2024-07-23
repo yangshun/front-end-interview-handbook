@@ -35,6 +35,7 @@ class RedditAccount implements Account {
   }
 
   async getAccounts(): Promise<Array<AccountType>> {
+    // TODO: Don't fetch sensitive fields.
     return await prisma.redditAccount.findMany();
   }
 }

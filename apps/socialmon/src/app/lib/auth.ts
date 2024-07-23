@@ -2,16 +2,17 @@ import type { GetServerSidePropsContext } from 'next';
 import { getServerSession, type NextAuthOptions } from 'next-auth';
 import GoogleProvider from 'next-auth/providers/google';
 
-export const AUTHORIZE_EMAILS = [
+export const AUTHORIZED_EMAILS = [
   'yangshun@greatfrontend.com',
   'gina@greatfrontend.com',
   'nitesh@greatfrontend.com',
+  'nikki@greatfrontend.com',
 ];
 
 export const authConfig: NextAuthOptions = {
   callbacks: {
     async signIn({ profile }) {
-      if (AUTHORIZE_EMAILS.includes(profile?.email ?? '')) {
+      if (AUTHORIZED_EMAILS.includes(profile?.email ?? '')) {
         return true;
       }
 

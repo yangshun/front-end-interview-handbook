@@ -61,9 +61,7 @@ export default function AccountCard({ account }: Props) {
         </Menu.Dropdown>
       </Menu>
       <AccountDataItem label="Username" value={account.username} />
-      <AccountDataItem label="Password" value={account.password} />
       <AccountDataItem label="Client ID" value={account.clientId} />
-      <AccountDataItem label="Client Secret" value={account.clientSecret} />
     </Card>
   );
 }
