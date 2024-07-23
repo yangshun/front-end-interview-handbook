@@ -3,7 +3,7 @@ import type { ProjectsChallengeSubmissionExtended } from '../submissions/types';
 import type {
   ProjectsDiscussionComment,
   ProjectsNotification,
-} from '.prisma/client';
+} from '@prisma/client';
 
 export type ProjectsNotificationCategory = 'DISCUSSION' | 'UPVOTE';
 

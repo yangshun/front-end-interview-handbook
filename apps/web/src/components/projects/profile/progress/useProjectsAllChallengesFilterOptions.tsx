@@ -1,7 +1,7 @@
 import { RiCodeSSlashFill, RiLoader2Line } from 'react-icons/ri';
 import { useIntl } from 'react-intl';
 
-import type { ProjectsChallengeSessionStatus } from '.prisma/client';
+import type { ProjectsChallengeSessionStatus } from '@prisma/client';
 
 export default function useProjectsAllChallengesFilterOptions() {
   const intl = useIntl();

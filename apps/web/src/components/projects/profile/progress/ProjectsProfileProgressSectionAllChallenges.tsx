@@ -13,7 +13,7 @@ import { themeTextColor } from '~/components/ui/theme';
 import ProjectsProfileProgressChallengeList from './ProjectsProfileProgressChallengeList';
 import ProjectsProfileProgressSubmissionList from './ProjectsProfileProgressSubmissionList';
 
-import type { ProjectsChallengeSessionStatus } from '.prisma/client';
+import type { ProjectsChallengeSessionStatus } from '@prisma/client';
 
 type Props = Readonly<{
   isViewerPremium: boolean;

@@ -34,7 +34,7 @@ import prisma from '~/server/prisma';
 
 import { getChallengeSolutionsOutPath } from './ProjectsChallengeSolutionConfig';
 
-import type { ProjectsChallengeSessionStatus } from '.prisma/client';
+import type { ProjectsChallengeSessionStatus } from '@prisma/client';
 
 export async function fetchSessionsForUserGroupedBySlug(
   userId?: string | null,

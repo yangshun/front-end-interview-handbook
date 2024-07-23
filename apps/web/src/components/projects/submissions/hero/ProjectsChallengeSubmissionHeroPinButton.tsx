@@ -11,7 +11,7 @@ import Button from '~/components/ui/Button';
 
 import ProjectsChallengeSubmissionPinned from './ProjectsChallengeSubmissionPinned';
 
-import type { ProjectsProfile } from '.prisma/client';
+import type { ProjectsProfile } from '@prisma/client';
 
 type Props = Readonly<{
   projectsProfile:

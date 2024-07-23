@@ -10,7 +10,7 @@ import {
   hasCurrentYear,
 } from '../RoadmapUtils';
 
-import type { RoadmapItem } from '.prisma/client';
+import type { RoadmapItem } from '@prisma/client';
 
 export type RoadmapProduct = 'interviews' | 'projects';
 

@@ -25,7 +25,7 @@ import ProjectsChallengeCurrentSessionSkillsForm from './ProjectsChallengeCurren
 import { useProjectsChallengeSessionContext } from './ProjectsChallengeSessionContext';
 import type { ProjectsChallengeItem } from '../types';
 
-import type { ProjectsChallengeSession } from '.prisma/client';
+import type { ProjectsChallengeSession } from '@prisma/client';
 
 type Props = Readonly<{
   challenge: ProjectsChallengeItem;

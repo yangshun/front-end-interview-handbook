@@ -7,7 +7,7 @@ import prisma from '~/server/prisma';
 import { publicProcedure, router, userProcedure } from '../trpc';
 
 import { Axiom } from '@axiomhq/js';
-import { Prisma } from '.prisma/client';
+import { Prisma } from '@prisma/client';
 
 const STUDENT_DISCOUNT_CAMPAIGN = 'STUDENT_DISCOUNT';
 const studentDiscountCouponId_TEST = 'r1nhvjSn';

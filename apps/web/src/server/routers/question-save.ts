@@ -4,7 +4,7 @@ import prisma from '~/server/prisma';
 
 import { router, userProcedure } from '../trpc';
 
-import { QuestionUserInterfaceFramework } from '.prisma/client';
+import { QuestionUserInterfaceFramework } from '@prisma/client';
 
 export const questionSaveRouter = router({
   userInterfaceAdd: userProcedure

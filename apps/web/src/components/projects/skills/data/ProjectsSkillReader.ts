@@ -23,7 +23,7 @@ import type {
 } from '../types';
 import type { ProjectsChallengeItem } from '../../challenges/types';
 
-import type { ProjectsChallengeSessionStatus } from '.prisma/client';
+import type { ProjectsChallengeSessionStatus } from '@prisma/client';
 
 export async function fetchProjectsSkillsRoadmapSectionData(
   targetUserId?: string,

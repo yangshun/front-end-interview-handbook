@@ -19,7 +19,7 @@ import prisma from '~/server/prisma';
 import { projectsUserProcedure } from './procedures';
 import { publicProcedure, router, userProcedure } from '../../trpc';
 
-import { Prisma, ProjectsDiscussionCommentDomain } from '.prisma/client';
+import { Prisma, ProjectsDiscussionCommentDomain } from '@prisma/client';
 
 // TODO(prisma): Read from Prisma directly.
 const domains = [

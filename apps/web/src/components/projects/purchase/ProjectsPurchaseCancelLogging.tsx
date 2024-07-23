@@ -5,7 +5,7 @@ import { purchaseCancelLogging } from '~/components/purchase/PurchaseLogging';
 
 import type { ProjectsPricingPlanPaymentConfigLocalizedRecord } from './ProjectsPricingPlans';
 
-import type { ProjectsSubscriptionPlan } from '.prisma/client';
+import type { ProjectsSubscriptionPlan } from '@prisma/client';
 
 export function useProjectsPurchaseCancelLogging(
   plansPaymentConfig: ProjectsPricingPlanPaymentConfigLocalizedRecord,

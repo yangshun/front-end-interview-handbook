@@ -15,8 +15,8 @@ import {
 import type {
   ProjectsChallengeSubmissionVote,
   ProjectsDiscussionCommentVote,
-} from '.prisma/client';
-import { type ProjectsDiscussionComment } from '.prisma/client';
+} from '@prisma/client';
+import { type ProjectsDiscussionComment } from '@prisma/client';
 
 export function projectsReputationConnectOrCreateShape({
   key: key,

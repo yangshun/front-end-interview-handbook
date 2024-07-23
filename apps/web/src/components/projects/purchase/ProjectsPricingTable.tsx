@@ -53,7 +53,7 @@ import useProjectsPricingPlanFeatures from './useProjectsPricingPlanFeatures';
 import useProjectsPricingPlansList from './useProjectsPricingPlansList';
 import useUserProfileWithProjectsProfile from '../common/useUserProfileWithProjectsProfile';
 
-import type { ProjectsSubscriptionPlan } from '.prisma/client';
+import type { ProjectsSubscriptionPlan } from '@prisma/client';
 import { useSessionContext } from '@supabase/auth-helpers-react';
 
 function PricingButton({

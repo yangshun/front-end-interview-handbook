@@ -10,7 +10,7 @@ import { useProjectsProfileCommunityFilterState } from './ProjectsProfileCommuni
 import ProjectsProfileCommunityFilterDropdown from './ProjectsProfileCommunityFilterDropdown';
 import ProjectProfileCommunityFilterSlideOut from './ProjectsProfileCommunityFilterSlideOut';
 
-import type { ProjectsDiscussionCommentDomain } from '.prisma/client';
+import type { ProjectsDiscussionCommentDomain } from '@prisma/client';
 
 function ProjectsProfileCommunityListWithFiltersImpl({
   isViewingOwnProfile,

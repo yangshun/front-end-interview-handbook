@@ -12,7 +12,7 @@ import Anchor from '~/components/ui/Anchor';
 import type { ProjectsChallengeSessionSkillsFormValues } from '../types';
 import { ProjectsReputationPointsConfig } from '../../reputation/ProjectsReputationPointsConfig';
 
-import type { ProjectsChallengeSession } from '.prisma/client';
+import type { ProjectsChallengeSession } from '@prisma/client';
 import { useQueryClient } from '@tanstack/react-query';
 
 type ProjectsChallengeSessionContextType = Readonly<{

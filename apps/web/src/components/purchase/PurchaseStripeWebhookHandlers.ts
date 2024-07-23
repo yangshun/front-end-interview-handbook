@@ -12,7 +12,7 @@ import {
   projectsDetermineSubscriptionPlan,
 } from '../projects/purchase/ProjectsStripeSyncUtils';
 
-import type { ProjectsSubscriptionPlan } from '.prisma/client';
+import type { ProjectsSubscriptionPlan } from '@prisma/client';
 
 export async function purchaseCustomerAddPlan(
   customerId: Stripe.Customer | Stripe.DeletedCustomer | string,

@@ -2,7 +2,7 @@ import { PROJECTS_NOTIFICATION_AVAILABLE } from '~/data/FeatureFlags';
 
 import prisma from '~/server/prisma';
 
-import type { ProjectsChallengeSubmissionVote } from '.prisma/client';
+import type { ProjectsChallengeSubmissionVote } from '@prisma/client';
 
 const UPVOTE_COUNT_BRACKET = [1, 5, 10, 15, 50, 100, 200, 500];
 

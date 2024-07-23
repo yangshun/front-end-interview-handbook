@@ -16,7 +16,7 @@ import { staticUpperCase } from '~/utils/typescript/stringTransform';
 import { useUserInterfaceCodingWorkspaceSavesContext } from './UserInterfaceCodingWorkspaceSaveContext';
 
 import { useSandpack } from '@codesandbox/sandpack-react';
-import type { QuestionUserInterfaceSave } from '.prisma/client';
+import type { QuestionUserInterfaceSave } from '@prisma/client';
 import { useUser } from '@supabase/auth-helpers-react';
 
 function UpdateSaveButton({

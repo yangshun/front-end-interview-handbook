@@ -1,4 +1,4 @@
-import type { ProjectsSubscriptionPlan } from '.prisma/client';
+import type { ProjectsSubscriptionPlan } from '@prisma/client';
 
 export type ProjectsSubscriptionPlanFeatures = Readonly<{
   apps: boolean;

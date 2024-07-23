@@ -38,7 +38,7 @@ import { useProjectsProfileGitHubSchema } from '../fields/ProjectsProfileGithubS
 import { useProjectsProfileLinkedInSchema } from '../fields/ProjectsProfileLinkedInSchema';
 
 import { zodResolver } from '@hookform/resolvers/zod';
-import type { Profile, ProjectsProfile } from '.prisma/client';
+import type { Profile, ProjectsProfile } from '@prisma/client';
 
 function useProjectsProfileEditSchema() {
   const motivationReasonSchema = useProjectsMotivationReasonSchema({
