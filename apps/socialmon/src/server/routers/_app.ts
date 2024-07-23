@@ -1,10 +1,10 @@
-import { socialAccountsRouter } from './social-accounts';
 import { socialPostsRouter } from './social-posts';
+import { socialUsersRouter } from './social-users';
 import { router } from '../trpc';
 
 export const appRouter = router({
-  socialAccounts: socialAccountsRouter,
   socialPosts: socialPostsRouter,
+  socialUsers: socialUsersRouter,
 });
 
 // Export type definition of API

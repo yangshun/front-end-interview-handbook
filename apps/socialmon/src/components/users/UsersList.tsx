@@ -6,17 +6,17 @@ import { trpc } from '~/hooks/trpc';
 
 import Container from '~/components/ui/Container';
 
-import AccountCard from './AccountCard';
-import CreateAccountModal from './CreateAccountModal';
+import AddUserModal from './AddUserModal';
+import UserCard from './UserCard';
 
-import type { AccountType } from '~/types';
+import type { SocialUser } from '~/types';
 
 import { Button, Text, Title } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 
-export default function AccountsList() {
+export default function UsersList() {
   const [opened, { open, close }] = useDisclosure(false);
-  const { isLoading, data } = trpc.socialAccounts.getAccounts.useQuery();
+  const { isLoading, data } = trpc.socialUsers.getPlatformUsers.useQuery();
 
   return (
     <Container className={clsx('flex-1', 'p-4')}>
@@ -36,11 +36,11 @@ export default function AccountsList() {
         <Text size="md">No accounts added yet!</Text>
       )}
 
-      {data?.map((account: AccountType) => (
-        <AccountCard key={account.username} account={account} />
+      {data?.map((user: SocialUser) => (
+        <UserCard key={user.username} user={user} />
       ))}
 
-      <CreateAccountModal opened={opened} onClose={close} />
+      <AddUserModal opened={opened} onClose={close} />
     </Container>
   );
 }

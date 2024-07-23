@@ -3,7 +3,7 @@ import type { Platform } from '../Platform';
 import keyword from '../../data/keyword.json' assert { type: 'json' };
 import subreddit from '../../data/subreddit.json' assert { type: 'json' };
 
-import type { AccountType } from '~/types';
+import type { SocialUser } from '~/types';
 
 type PlatformType = 'Reddit';
 
@@ -28,13 +28,13 @@ class PlatformManager {
     return PlatformManager.instance;
   }
 
-  private getImplementationKey(platform: PlatformType, account: AccountType) {
-    return `${platform}-${account.username}-${account.password}-${account.clientId}-${account.clientSecret}`;
+  private getImplementationKey(platform: PlatformType, account: SocialUser) {
+    return `${platform}-${account.username}-${account.password}`;
   }
 
   public getPlatform(
     platform: PlatformType,
-    platformParams: AccountType,
+    platformParams: SocialUser,
   ): Platform {
     // Check if platform is a platform that is being managed
     if (!(platform in platformMap)) {
@@ -67,13 +67,12 @@ class PlatformManager {
 
   private initializePlatform(
     platform: PlatformType,
-    platformParams: AccountType,
+    platformParams: SocialUser,
   ): Platform {
     // TODO: Later add switch case when there are more than 1 platform
     console.info(`${platform} is initializing...`);
 
-    const { clientId, clientSecret, username, password } =
-      platformParams;
+    const { username, password } = platformParams;
     const subreddits = subreddit.items;
     const keywords = keyword.items;
     // Const subreddits = ['frontend', 'reactjs'];
@@ -81,8 +80,6 @@ class PlatformManager {
     const timeframeInHours = 1;
 
     const platformImplementation: Platform = new RedditPlatform(
-      clientId,
-      clientSecret,
       username,
       password,
       subreddits,

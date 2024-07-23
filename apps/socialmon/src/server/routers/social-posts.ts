@@ -1,8 +1,8 @@
 import { z } from 'zod';
 
-import type { Account } from '~/interfaces/Account';
-import AccountManager from '~/interfaces/implementations/AccountManager';
 import PlatformManager from '~/interfaces/implementations/PlatformManager';
+import UserManager from '~/interfaces/implementations/UserManager';
+import type { PlatformUser } from '~/interfaces/PlatformUser';
 import { postSchema } from '~/schema';
 
 import { router, userProcedure } from '../trpc';
@@ -10,21 +10,15 @@ import { type AIProvider } from '../../interfaces/AIProvider';
 import OpenAIProvider from '../../interfaces/implementations/OpenAIProvider';
 import { type Platform } from '../../interfaces/Platform';
 
-import type { AccountType } from '~/types';
+import type { SocialUser } from '~/types';
 
-function getPlatform(account?: AccountType): Platform {
-  const clientId =
-    account?.clientId || (process.env.REDDIT_CLIENT_ID as string);
-  const clientSecret =
-    account?.clientSecret || (process.env.REDDIT_CLIENT_SECRET as string);
-  const username = account?.username || (process.env.REDDIT_USERNAME as string);
-  const password = account?.password || (process.env.REDDIT_PASSWORD as string);
+function getPlatform(user?: SocialUser): Platform {
+  const username = user?.username || (process.env.REDDIT_USERNAME as string);
+  const password = user?.password || (process.env.REDDIT_PASSWORD as string);
 
   const platformManager = PlatformManager.getInstance();
 
   const redditPlatformParams = {
-    clientId,
-    clientSecret,
     password,
     username,
   };
@@ -37,10 +31,10 @@ function getPlatform(account?: AccountType): Platform {
   return redditPlatform;
 }
 
-function getAccountInstance(): Account {
-  const accountManager = AccountManager.getInstance();
+function getPlatformUserInstance(): PlatformUser {
+  const userManager = UserManager.getInstance();
 
-  return accountManager.getAccountInstance('Reddit');
+  return userManager.getPlatformUserInstance('Reddit');
 }
 
 function getAIProvider(): AIProvider {
@@ -119,8 +113,8 @@ export const socialPostsRouter = router({
     )
     .mutation(async ({ input }) => {
       const { postId, response, accountUsername } = input;
-      const accountInstance = getAccountInstance();
-      const account = await accountInstance.getAccount(accountUsername);
+      const userInstance = getPlatformUserInstance();
+      const account = await userInstance.getPlatformUser(accountUsername);
 
       if (!account) {
         throw new Error('Account is required to reply to a post.');

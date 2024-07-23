@@ -21,9 +21,7 @@ export const aiResponseSchema = z.object({
   response: z.string().describe('Response to title and content'),
 });
 
-export const accountSchema = z.object({
-  clientId: z.string(),
-  clientSecret: z.string(),
+export const userSchema = z.object({
   password: z.string(),
   username: z.string(),
 });

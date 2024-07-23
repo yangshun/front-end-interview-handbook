@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 
-import AccountsList from '~/components/accounts/AccountsList';
 import { redirectToLoginPageIfNotLoggedIn } from '~/components/auth/redirectToLoginPageIfNotLoggedIn';
+import UsersList from '~/components/users/UsersList';
 
 export const metadata: Metadata = {
   description: 'Social moderator',
@@ -11,5 +11,5 @@ export const metadata: Metadata = {
 export default async function Page() {
   await redirectToLoginPageIfNotLoggedIn('/accounts');
 
-  return <AccountsList />;
+  return <UsersList />;
 }

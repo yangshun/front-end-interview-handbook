@@ -42,7 +42,7 @@ export default function Navbar({ user }: Props) {
           </Link>
           <div className="hidden gap-2 md:flex">
             <NavItem href="/">Dashboard</NavItem>
-            <NavItem href="/accounts">Accounts</NavItem>
+            <NavItem href="/users">Users</NavItem>
           </div>
         </div>
 

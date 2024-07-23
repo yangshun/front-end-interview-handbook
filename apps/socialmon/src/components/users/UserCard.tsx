@@ -3,15 +3,15 @@ import { RiDeleteBinLine, RiMoreLine } from 'react-icons/ri';
 
 import { trpc } from '~/hooks/trpc';
 
-import type { AccountType } from '~/types';
+import type { SocialUser } from '~/types';
 
 import { ActionIcon, Card, Menu, Text } from '@mantine/core';
 
 type Props = Readonly<{
-  account: AccountType;
+  user: SocialUser;
 }>;
 
-function AccountDataItem({ label, value }: { label: string; value: string }) {
+function UserDataItem({ label, value }: { label: string; value: string }) {
   return (
     <Text size="md">
       <span className="font-semibold">{label}: </span>
@@ -20,14 +20,14 @@ function AccountDataItem({ label, value }: { label: string; value: string }) {
   );
 }
 
-export default function AccountCard({ account }: Props) {
+export default function UserCard({ user }: Props) {
   const utils = trpc.useUtils();
-  const deleteAccountMutation = trpc.socialAccounts.deleteAccount.useMutation({
+  const deleteUserMutation = trpc.socialUsers.deletePlatformUser.useMutation({
     onError() {
       toast.error('Something went wrong. Try again later.');
     },
     onSuccess: () => {
-      utils.socialAccounts.getAccounts.invalidate();
+      utils.socialUsers.getPlatformUsers.invalidate();
       toast.success('Account deleted successfully!');
     },
   });
@@ -54,14 +54,14 @@ export default function AccountCard({ account }: Props) {
             color="red"
             leftSection={<RiDeleteBinLine />}
             onClick={() =>
-              deleteAccountMutation.mutate({ username: account.username })
+              deleteUserMutation.mutate({ username: user.username })
             }>
             Delete
           </Menu.Item>
         </Menu.Dropdown>
       </Menu>
-      <AccountDataItem label="Username" value={account.username} />
-      <AccountDataItem label="Client ID" value={account.clientId} />
+      <UserDataItem label="Username" value={user.username} />
+      <UserDataItem label="Password" value={user.password} />
     </Card>
   );
 }

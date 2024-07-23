@@ -10,39 +10,33 @@ type Props = Readonly<{
   opened: boolean;
 }>;
 
-export default function CreateAccountModal({ opened, onClose }: Props) {
+export default function AddUserModal({ opened, onClose }: Props) {
   const utils = trpc.useUtils();
   const addAccountForm = useForm({
     initialValues: {
-      clientId: '',
-      clientSecret: '',
       password: '',
       username: '',
     },
   });
 
-  const addAccountMutation = trpc.socialAccounts.addAccount.useMutation({
+  const addUserMutation = trpc.socialUsers.addPlatformUser.useMutation({
     onError() {
       toast.error('Something went wrong. Try again later.');
     },
     onSuccess: () => {
-      utils.socialAccounts.getAccounts.invalidate();
-      toast.success('Account added successfully!');
+      utils.socialUsers.getPlatformUsers.invalidate();
+      toast.success('User added successfully!');
       addAccountForm.reset();
       onClose();
     },
   });
 
   return (
-    <Modal
-      centered={true}
-      opened={opened}
-      title="Add account"
-      onClose={onClose}>
+    <Modal centered={true} opened={opened} title="Add user" onClose={onClose}>
       <form
         className="flex flex-col gap-y-2"
         onSubmit={addAccountForm.onSubmit(() =>
-          addAccountMutation.mutate({ account: addAccountForm.values }),
+          addUserMutation.mutate({ user: addAccountForm.values }),
         )}>
         <TextInput
           label="Username"
@@ -56,21 +50,9 @@ export default function CreateAccountModal({ opened, onClose }: Props) {
           required={true}
           {...addAccountForm.getInputProps('password')}
         />
-        <TextInput
-          label="Client ID"
-          placeholder="Client ID"
-          required={true}
-          {...addAccountForm.getInputProps('clientId')}
-        />
-        <TextInput
-          label="Client Secret"
-          placeholder="Client Secret"
-          required={true}
-          {...addAccountForm.getInputProps('clientSecret')}
-        />
         <div className="flex w-full justify-end">
-          <Button loading={addAccountMutation.isLoading} type="submit">
-            Add Account
+          <Button loading={addUserMutation.isLoading} type="submit">
+            Add
           </Button>
         </div>
       </form>

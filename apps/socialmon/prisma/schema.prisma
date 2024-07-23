@@ -23,9 +23,7 @@ model RedditPost {
   keywords  String[]
 }
 
-model RedditAccount {
-  username     String @id @db.VarChar
-  password     String @db.VarChar
-  clientId     String @db.VarChar
-  clientSecret String @db.VarChar
+model RedditUser {
+  username     String       @id @db.VarChar
+  password     String       @db.VarChar
 }

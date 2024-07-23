@@ -35,8 +35,8 @@ export default function NavbarUserAvatar({ user }: Props) {
         <Menu.Label>{displayName}</Menu.Label>
 
         <Menu.Divider />
-        <Link href="/accounts">
-          <Menu.Item leftSection={<RiAccountBoxLine />}>Accounts</Menu.Item>
+        <Link href="/users">
+          <Menu.Item leftSection={<RiAccountBoxLine />}>Users</Menu.Item>
         </Link>
         <Menu.Item leftSection={<RiLogoutBoxLine />} onClick={() => signOut()}>
           Sign out

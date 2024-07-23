@@ -36,7 +36,7 @@ export default function PostDetailSection({
         toast.success('Response has been generated!');
       },
     });
-  const { data: accounts } = trpc.socialAccounts.getAccounts.useQuery();
+  const { data: users } = trpc.socialUsers.getPlatformUsers.useQuery();
   const replyPostMutation = trpc.socialPosts.replyToPost.useMutation({
     onError() {
       toast.error('Something went wrong. Try again later.');
@@ -80,7 +80,6 @@ export default function PostDetailSection({
   const postDetail = selectedPost && (
     <PostDetail
       key={selectedPost.id}
-      accounts={accounts}
       generateResponse={(
         setResponse: (value: ChangeEvent | string | null | undefined) => void,
       ) => generateResponse(selectedPost, setResponse)}
@@ -90,6 +89,7 @@ export default function PostDetailSection({
       replyToPost={(response: string, accountUsername: string) =>
         replyToPost(selectedPost, response, accountUsername)
       }
+      users={users}
     />
   );
 

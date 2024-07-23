@@ -3,11 +3,10 @@ import Snoowrap from 'snoowrap';
 
 import prisma from '~/server/prisma';
 
+import type { RedditPost } from '.prisma/client';
 import type { Platform } from '../Platform';
 
 import type { PostTab } from '~/types';
-
-import type { RedditPost } from '.prisma/client';
 
 class RedditPlatform implements Platform {
   private snooWrap: Snoowrap;
@@ -16,8 +15,6 @@ class RedditPlatform implements Platform {
   private timeframeInHours: number;
 
   constructor(
-    clientId: string,
-    clientSecret: string,
     username: string,
     password: string,
     subreddits: Array<string>,
@@ -25,8 +22,8 @@ class RedditPlatform implements Platform {
     timeframeInHours: number,
   ) {
     this.snooWrap = new Snoowrap({
-      clientId,
-      clientSecret,
+      clientId: process.env.REDDIT_CLIENT_ID as string,
+      clientSecret: process.env.REDDIT_CLIENT_SECRET as string,
       password,
       userAgent: process.env.REDDIT_USER_AGENT as string,
       username,
