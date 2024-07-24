@@ -11,3 +11,5 @@ export const SUBMISSION_SUCCESS_PAGE_AVAILABLE =
 
 export const PROJECTS_NOTIFICATION_AVAILABLE =
   process.env.NEXT_PUBLIC_VERCEL_ENV !== 'production';
+export const INTERVIEWS_REVAMP_AVAILABLE =
+  process.env.NEXT_PUBLIC_VERCEL_ENV !== 'production';

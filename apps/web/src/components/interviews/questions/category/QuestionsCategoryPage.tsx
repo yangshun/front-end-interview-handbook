@@ -1,6 +1,7 @@
 'use client';
 
 import clsx from 'clsx';
+import type { InterviewsListingBottomContent } from 'contentlayer/generated';
 import type { ReactNode } from 'react';
 
 import QuestionCategoryTitleSection from '~/components/interviews/questions/category/QuestionCategoryTitleSection';
@@ -14,6 +15,7 @@ import QuestionsFormatTabs from '~/components/interviews/questions/listings/filt
 import QuestionsCodingListWithFiltersAndProgress from '~/components/interviews/questions/listings/items/QuestionsCodingListWithFiltersAndProgress';
 import QuestionsQuizListWithFiltersAndProgress from '~/components/interviews/questions/listings/items/QuestionsQuizListWithFiltersAndProgress';
 import type { QuestionListCategory } from '~/components/interviews/questions/listings/types';
+import MDXContent from '~/components/mdx/MDXContent';
 import Container from '~/components/ui/Container';
 import Section from '~/components/ui/Heading/HeadingContext';
 
@@ -57,6 +59,7 @@ const CategoryFilters: Record<
 
 type Props = QuestionListProps &
   Readonly<{
+    bottomContent?: InterviewsListingBottomContent;
     description: string;
     featuredQuestions: ReadonlyArray<QuestionMetadata>;
     featuredSectionTitle: string;
@@ -149,38 +152,47 @@ export default function QuestionsCategoryPage({
   quizQuestions,
   questionCompletionCount,
   titleAddOnText,
+  bottomContent,
 }: Props) {
   return (
     <Container
       className={clsx(
         'flex flex-col',
-        'gap-y-8 md:gap-y-10 2xl:gap-y-12',
+        'gap-y-20',
         'py-4 md:py-6 lg:py-8 xl:py-16',
       )}
       variant="normal">
-      <QuestionCategoryTitleSection
-        category={category}
-        count={codingQuestions.length + quizQuestions.length}
-        description={description}
-        logo={logo}
-        title={pageTitle}
-        titleAddOnText={titleAddOnText}
-      />
-      <Section>
-        <QuestionListingFeaturedQuestions
-          questions={featuredQuestions}
-          title={featuredSectionTitle}
-        />
-        <QuestionsList
-          key={category}
+      <div
+        className={clsx('flex flex-col', 'gap-y-8 md:gap-y-10 2xl:gap-y-12')}>
+        <QuestionCategoryTitleSection
           category={category}
-          codingFormat={codingFormat}
-          codingQuestions={codingQuestions}
-          format={format}
-          questionCompletionCount={questionCompletionCount}
-          quizQuestions={quizQuestions}
+          count={codingQuestions.length + quizQuestions.length}
+          description={description}
+          logo={logo}
+          title={pageTitle}
+          titleAddOnText={titleAddOnText}
         />
-      </Section>
+        <Section>
+          <QuestionListingFeaturedQuestions
+            questions={featuredQuestions}
+            title={featuredSectionTitle}
+          />
+          <QuestionsList
+            key={category}
+            category={category}
+            codingFormat={codingFormat}
+            codingQuestions={codingQuestions}
+            format={format}
+            questionCompletionCount={questionCompletionCount}
+            quizQuestions={quizQuestions}
+          />
+        </Section>
+      </div>
+      {bottomContent && (
+        <Section>
+          <MDXContent mdxCode={bottomContent.body.code} />
+        </Section>
+      )}
     </Container>
   );
 }

@@ -24,6 +24,7 @@ import { ProjectsSkillMetadataDocument } from './src/components/projects/content
 import { ProjectsSkillInfoDocument } from './src/components/projects/contentlayer/ProjectsSkillInfoDocument';
 import { JobsPostingDocument } from './src/components/hiring/contentlayer/JobsPostingDocument.ts';
 import { InterviewsCompanyGuideDocument } from './src/components/interviews/company/contentlayer/InterviewsCompanyGuideDocument.ts';
+import { InterviewsListingBottomContentDocument } from './src/components/interviews/company/contentlayer/InterviewsListingBottomContentDocument.ts';
 
 export default makeSource({
   contentDirPath: 'src/content',
@@ -34,6 +35,7 @@ export default makeSource({
     BlogSeriesDocument,
     BlogSubseriesDocument,
     InterviewsCompanyGuideDocument,
+    InterviewsListingBottomContentDocument,
     ProjectsCommonGuideDocument,
     ProjectsChallengeAppendixDocument,
     ProjectsChallengeBriefDocument,
