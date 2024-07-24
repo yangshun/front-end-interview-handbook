@@ -35,6 +35,8 @@ class RedditUser implements PlatformUser {
   async getPlatformUsers(): Promise<Array<SocialUser>> {
     return await prisma.redditUser.findMany({
       select: {
+        // TODO: Remove the poorly-designed interfaces so that we don't have to fetch this field
+        password: true,
         username: true,
       },
     });
