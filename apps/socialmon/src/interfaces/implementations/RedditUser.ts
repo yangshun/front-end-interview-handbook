@@ -33,7 +33,11 @@ class RedditUser implements PlatformUser {
   }
 
   async getPlatformUsers(): Promise<Array<SocialUser>> {
-    return await prisma.redditUser.findMany();
+    return await prisma.redditUser.findMany({
+      select: {
+        username: true,
+      },
+    });
   }
 }
 

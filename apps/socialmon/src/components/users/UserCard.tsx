@@ -61,7 +61,6 @@ export default function UserCard({ user }: Props) {
         </Menu.Dropdown>
       </Menu>
       <UserDataItem label="Username" value={user.username} />
-      <UserDataItem label="Password" value={user.password} />
     </Card>
   );
 }
