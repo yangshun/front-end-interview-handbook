@@ -5,8 +5,7 @@ import toast from 'react-hot-toast';
 import { trpc } from '~/hooks/trpc';
 
 import PostDetail from './PostDetail';
-
-import type { Post } from '~/types';
+import type { RedditPost } from '.prisma/client';
 
 import { Modal, Text, Title } from '@mantine/core';
 import { useMediaQuery } from '@mantine/hooks';
@@ -14,8 +13,8 @@ import { useMediaQuery } from '@mantine/hooks';
 type Props = Readonly<{
   closeModal: () => void;
   openedModal: boolean;
-  selectedPost: Post | null;
-  setSelectedPost: (post: Post | null) => void;
+  selectedPost: RedditPost | null;
+  setSelectedPost: (post: RedditPost | null) => void;
 }>;
 
 export default function PostDetailSection({
@@ -49,7 +48,7 @@ export default function PostDetailSection({
   });
 
   async function generateResponse(
-    post: Post,
+    post: RedditPost,
     setResponse: (value: ChangeEvent | string | null | undefined) => void,
   ) {
     const result = await generateResponseMutation.mutateAsync({
@@ -64,7 +63,7 @@ export default function PostDetailSection({
   }
 
   async function replyToPost(
-    post: Post,
+    post: RedditPost,
     response: string,
     accountUsername: string,
   ) {

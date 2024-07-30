@@ -5,8 +5,7 @@ import DOMPurify from 'dompurify';
 import { type ChangeEvent, useState } from 'react';
 
 import PostMetadata from './PostMetadata';
-
-import type { Post, SocialUser } from '~/types';
+import type { RedditPost } from '.prisma/client';
 
 import '@mantine/core/styles.css';
 
@@ -28,9 +27,9 @@ type Props = Readonly<{
   ) => Promise<void>;
   isGeneratingResponse: boolean;
   isReplying: boolean;
-  post: Post;
+  post: RedditPost;
   replyToPost: (response: string, accountUsername: string) => void;
-  users?: Array<SocialUser>;
+  users?: Array<{ username: string }>;
 }>;
 
 export default function PostDetail({

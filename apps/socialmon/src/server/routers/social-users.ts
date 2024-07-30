@@ -1,16 +1,9 @@
 import { z } from 'zod';
 
-import UserManager from '~/interfaces/implementations/UserManager';
-import type { PlatformUser } from '~/interfaces/PlatformUser';
 import { userSchema } from '~/schema';
 
+import prisma from '../prisma';
 import { router, userProcedure } from '../trpc';
-
-function getPLatformUserInstance(): PlatformUser {
-  const userManager = UserManager.getInstance();
-
-  return userManager.getPlatformUserInstance('Reddit');
-}
 
 export const socialUsersRouter = router({
   addPlatformUser: userProcedure
@@ -23,9 +16,12 @@ export const socialUsersRouter = router({
       const { input } = opts;
       const { user } = input;
 
-      const userInstance = getPLatformUserInstance();
-
-      await userInstance.addPlatformUser(user);
+      await prisma.redditUser.create({
+        data: {
+          password: user.password,
+          username: user.username,
+        },
+      });
     }),
   deletePlatformUser: userProcedure
     .input(
@@ -34,13 +30,17 @@ export const socialUsersRouter = router({
       }),
     )
     .mutation(async ({ input: { username } }) => {
-      const userInstance = getPLatformUserInstance();
-
-      await userInstance.deletePlatformUser(username);
+      await prisma.redditUser.delete({
+        where: {
+          username,
+        },
+      });
     }),
   getPlatformUsers: userProcedure.query(async () => {
-    const userInstance = getPLatformUserInstance();
-
-    return await userInstance.getPlatformUsers();
+    return await prisma.redditUser.findMany({
+      select: {
+        username: true,
+      },
+    });
   }),
 });

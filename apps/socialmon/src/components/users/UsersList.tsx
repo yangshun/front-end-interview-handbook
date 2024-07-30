@@ -9,8 +9,6 @@ import Container from '~/components/ui/Container';
 import AddUserModal from './AddUserModal';
 import UserCard from './UserCard';
 
-import type { SocialUser } from '~/types';
-
 import { Button, Text, Title } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 
@@ -36,8 +34,8 @@ export default function UsersList() {
         <Text size="md">No accounts added yet!</Text>
       )}
 
-      {data?.map((user: SocialUser) => (
-        <UserCard key={user.username} user={user} />
+      {data?.map((user) => (
+        <UserCard key={user.username} username={user.username} />
       ))}
 
       <AddUserModal opened={opened} onClose={close} />

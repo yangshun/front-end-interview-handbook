@@ -1,43 +1,13 @@
 import { z } from 'zod';
 
-import PlatformManager from '~/interfaces/implementations/PlatformManager';
-import UserManager from '~/interfaces/implementations/UserManager';
-import type { PlatformUser } from '~/interfaces/PlatformUser';
+import { getPostsFromReddit, replyToRedditPost } from '~/db/RedditUtils';
 import { postSchema } from '~/schema';
 
+import prisma from '../prisma';
 import { router, userProcedure } from '../trpc';
-import { type AIProvider } from '../../interfaces/AIProvider';
-import OpenAIProvider from '../../interfaces/implementations/OpenAIProvider';
-import { type Platform } from '../../interfaces/Platform';
+import OpenAIProvider from '../../providers/OpenAIProvider';
 
-import type { SocialUser } from '~/types';
-
-function getPlatform(user?: SocialUser): Platform {
-  const username = user?.username || (process.env.REDDIT_USERNAME as string);
-  const password = user?.password || (process.env.REDDIT_PASSWORD as string);
-
-  const platformManager = PlatformManager.getInstance();
-
-  const redditPlatformParams = {
-    password,
-    username,
-  };
-
-  const redditPlatform = platformManager.getPlatform(
-    'Reddit',
-    redditPlatformParams,
-  );
-
-  return redditPlatform;
-}
-
-function getPlatformUserInstance(): PlatformUser {
-  const userManager = UserManager.getInstance();
-
-  return userManager.getPlatformUserInstance('Reddit');
-}
-
-function getAIProvider(): AIProvider {
+function getAIProvider() {
   return new OpenAIProvider();
 }
 
@@ -52,30 +22,16 @@ export const socialPostsRouter = router({
       const { input } = opts;
       const { post } = input;
       const aiProvider = getAIProvider();
+      const result = await aiProvider.generateResponseTo(post);
 
-      try {
-        const result = await aiProvider.generateResponseTo(post);
-
-        const platform = getPlatform();
-        const success = await platform.updateResponse({
-          id: post.id,
-          replied: false,
-          repliedAt: null,
+      return await prisma.redditPost.update({
+        data: {
           response: result.response,
-        });
-
-        if (!success) {
-          console.error('Error updating post:', post.id);
-
-          return null;
-        }
-
-        return result;
-      } catch (error) {
-        console.error('Error generating response:', error);
-
-        return null;
-      }
+        },
+        where: {
+          id: post.id,
+        },
+      });
     }),
   getPosts: userProcedure
     .input(
@@ -91,17 +47,51 @@ export const socialPostsRouter = router({
     )
     .query(async ({ input }) => {
       const { pagination, filter, cursor } = input;
-      const platform = getPlatform();
+      const { limit } = pagination;
+      const { tab } = filter;
 
-      return await platform.getPosts({
-        filter,
-        pagination: { cursor, ...pagination },
+      const postFilter =
+        tab === 'all'
+          ? {}
+          : tab === 'unreplied'
+            ? { replied: false }
+            : { replied: true };
+
+      const posts = await prisma.redditPost.findMany({
+        cursor: cursor ? { id: cursor } : undefined,
+        orderBy: {
+          postedAt: 'desc',
+        },
+        take: limit + 1,
+        where: {
+          ...postFilter,
+        },
       });
+
+      let nextCursor: typeof cursor | undefined = undefined;
+
+      if (posts.length > limit) {
+        // Remove the last item and use it as next cursor
+
+        // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+        const nextItem = posts.pop()!;
+
+        nextCursor = nextItem.id;
+      }
+
+      return {
+        nextCursor,
+        posts,
+      };
     }),
   getPostsFromPlatform: userProcedure.query(async () => {
-    const platform = getPlatform();
+    const postsFromReddit = await getPostsFromReddit();
 
-    return await platform.getRelevantPosts();
+    // Add it to the db
+    return await prisma.redditPost.createMany({
+      data: postsFromReddit,
+      skipDuplicates: true,
+    });
   }),
   replyToPost: userProcedure
     .input(
@@ -113,19 +103,38 @@ export const socialPostsRouter = router({
     )
     .mutation(async ({ input }) => {
       const { postId, response, accountUsername } = input;
-      const userInstance = getPlatformUserInstance();
-      const account = await userInstance.getPlatformUser(accountUsername);
+      const user = await prisma.redditUser.findUnique({
+        where: {
+          username: accountUsername,
+        },
+      });
 
-      if (!account) {
+      if (!user) {
         throw new Error('Account is required to reply to a post.');
       }
 
-      const platform = getPlatform(account);
-
-      await platform.replyToPost({
-        accountUsername,
+      const { success, response: redditResponse } = await replyToRedditPost({
         postId,
         response,
+        user: { password: user.password, username: user.username },
+      });
+
+      if (!success) {
+        throw new Error('Something went wrong!');
+      }
+
+      // Update the db with the actual response from the reddit
+      return await prisma.redditPost.update({
+        data: {
+          replied: true,
+          repliedAt: redditResponse?.created_utc
+            ? new Date(redditResponse.created_utc * 1000) // In milliseconds
+            : new Date(),
+          response: redditResponse?.body_html || response,
+        },
+        where: {
+          id: postId,
+        },
       });
     }),
 });

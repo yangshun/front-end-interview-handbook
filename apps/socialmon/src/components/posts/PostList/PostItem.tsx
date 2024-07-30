@@ -1,8 +1,7 @@
 import clsx from 'clsx';
 
 import PostMetadata from './PostMetadata';
-
-import type { Post } from '~/types';
+import type { RedditPost } from '.prisma/client';
 
 import '@mantine/core/styles.css';
 
@@ -10,7 +9,7 @@ import { Box, Title } from '@mantine/core';
 
 type Props = Readonly<{
   onClick: () => void;
-  post: Post;
+  post: RedditPost;
   selected?: boolean;
   showRepliedBadge?: boolean;
 }>;

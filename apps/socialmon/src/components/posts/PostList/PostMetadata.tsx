@@ -3,12 +3,12 @@ import { RiArrowRightUpLine, RiCheckLine } from 'react-icons/ri';
 
 import RelativeTimestamp from '~/components/common/datetime/RelativeTimestamp';
 
-import type { Post } from '~/types';
+import type { RedditPost } from '.prisma/client';
 
 import { Badge, Button, Pill, Text } from '@mantine/core';
 
 type Props = Readonly<{
-  post: Post;
+  post: RedditPost;
   showRepliedBadge?: boolean;
   showViewPost?: boolean;
 }>;

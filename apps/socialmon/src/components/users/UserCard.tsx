@@ -3,12 +3,10 @@ import { RiDeleteBinLine, RiMoreLine } from 'react-icons/ri';
 
 import { trpc } from '~/hooks/trpc';
 
-import type { SocialUser } from '~/types';
-
 import { ActionIcon, Card, Menu, Text } from '@mantine/core';
 
 type Props = Readonly<{
-  user: SocialUser;
+  username: string;
 }>;
 
 function UserDataItem({ label, value }: { label: string; value: string }) {
@@ -20,7 +18,7 @@ function UserDataItem({ label, value }: { label: string; value: string }) {
   );
 }
 
-export default function UserCard({ user }: Props) {
+export default function UserCard({ username }: Props) {
   const utils = trpc.useUtils();
   const deleteUserMutation = trpc.socialUsers.deletePlatformUser.useMutation({
     onError() {
@@ -53,14 +51,12 @@ export default function UserCard({ user }: Props) {
           <Menu.Item
             color="red"
             leftSection={<RiDeleteBinLine />}
-            onClick={() =>
-              deleteUserMutation.mutate({ username: user.username })
-            }>
+            onClick={() => deleteUserMutation.mutate({ username })}>
             Delete
           </Menu.Item>
         </Menu.Dropdown>
       </Menu>
-      <UserDataItem label="Username" value={user.username} />
+      <UserDataItem label="Username" value={username} />
     </Card>
   );
 }

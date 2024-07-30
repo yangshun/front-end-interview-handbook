@@ -4,13 +4,13 @@ import resources from '~/data/resources.json' assert { type: 'json' };
 
 import { aiResponseSchema } from '~/schema';
 
-import type { AIProvider } from '../AIProvider';
+import type { RedditPost } from '.prisma/client';
 
-import type { AIResponse, Post } from '~/types';
+import type { AIResponse } from '~/types';
 
 import { openai } from '@ai-sdk/openai';
 
-class OpenAIProvider implements AIProvider {
+class OpenAIProvider {
   constructor() {}
 
   // Possibly give it assistant?
@@ -40,14 +40,14 @@ class OpenAIProvider implements AIProvider {
     `;
   }
 
-  private getUserPrompt(post: Post): string {
+  private getUserPrompt(post: RedditPost): string {
     return `
       The title of the post is: ${post.title}
       The content of the post is: ${post.content}
     `;
   }
 
-  async generateResponseTo(post: Post): Promise<AIResponse> {
+  async generateResponseTo(post: RedditPost): Promise<AIResponse> {
     console.info('Generating response to post:', post.title);
 
     const systemPrompt = this.getSystemPrompt();
