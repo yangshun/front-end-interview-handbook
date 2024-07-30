@@ -1,0 +1,117 @@
+This challenge requires you to create a responsive order success page with an order success message, order details, and summary.
+
+### Relevant concepts
+
+- **CSS layout techniques**: [CSS Grids](https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Grids) and [CSS Flexboxes](https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Flexbox) are essential for creating responsive and flexible layouts. This challenge has a dynamic layout that will need robust styling to ensure the spacing and positioning of the elements is appropriate.
+
+- **Media queries**: [Media queries](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_media_queries/Using_media_queries) are crucial for ensuring your design adapts to different screen sizes and orientations. They allow you to apply different CSS rules based on the device's characteristics, such as width, height, and resolution.
+
+- **Clipboard API**: The [Clipboard API](https://developer.mozilla.org/en-US/docs/Web/API/Clipboard_API) enables web applications to interact with the clipboard, allowing users to copy text to their clipboard with a click. This also lets you do more useful things at more advanced levels, such as intercepting cut/copy/paste actions or accessing the user's clipboard.
+
+## Recommended approach
+
+Start by outlining the structure of the order success page using semantic HTML. Use CSS Flexboxes and Grids to create a responsive layout that matches the design specifications. One way to tackle the large cover image on the side is to wrap the entire page in one big flexbox:
+
+```html
+<div class="order-success-container">
+  <div class="order-cover-image">
+    <!-- Large cover image for page goes here -->
+  </div>
+  <div class="order-details">
+    <!-- Detailed information about the order will be displayed here -->
+  </div>
+</div>
+```
+
+```css
+.order-success-container {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+}
+
+.order-cover-image,
+.order-details {
+  flex: 1;
+}
+```
+
+Then, use [media queries](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_media_queries/Using_media_queries) to conditionally stack the cover image on top instead of off to the side.
+
+```css
+@media (max-width: 768px) {
+  .order-success-container {
+    flex-direction: column;
+  }
+}
+```
+
+There are other ways to approach this layout as well, try and see if you can come up with a different one.
+
+#### Text styling
+
+Ensure the text styling adheres to the design specifications, including font sizes, weights, and colors. Pay attention to hover and focused states for interactive elements. For prices that are discounted, use [`text-decoration: line-through`](https://developer.mozilla.org/en-US/docs/Web/CSS/text-decoration) to create a strikethrough effect like so:
+
+```css
+.price-discounted {
+  text-decoration: line-through;
+}
+```
+
+### Clipboard functionality
+
+To enable users to copy the order number to their clipboard, use the native JavaScript [Clipboard API](https://developer.mozilla.org/en-US/docs/Web/API/Clipboard); the API provides both tools to read and write to the user's clipboard.
+
+```html
+<button class="order-number" onclick="copyTextToClipboard('1234')">
+  Order Number: 1234
+</button>
+```
+
+For example, you can implement the `copyTextToClipboard` function using the API's [`writeText()`](https://developer.mozilla.org/en-US/docs/Web/API/Clipboard/writeText) function.
+
+```js
+function copyTextToClipboard(text) {
+  navigator.clipboard
+    .writeText(text)
+    .then(() => {
+      alert('Order number copied to clipboard!');
+    })
+    .catch((err) => {
+      console.error('Failed to copy text: ', err);
+    });
+}
+```
+
+> Alternatively, you can use libraries like `clipboard.js` for a more simple implementation. If you're using framework libraries like [React](https://react.dev/), [Vue.js](https://vuejs.org/), or [Svelte](https://svelte.dev/), look up clipboard libraries specifically for that framework, as they may have tighter integrations or a more suited approach for the framework.
+
+## Further considerations
+
+### Currency display
+
+To future-proof the app to allow handling of different currencies apart from the dollar, try using the JavaScript [`Intl.NumberFormat`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat) API; this helps you render different currencies from different regions without having to manually customize the number format and symbols.
+
+```js
+const price = 1234.56;
+const formattedPrice = new Intl.NumberFormat('en-US', {
+  style: 'currency',
+  currency: 'USD',
+}).format(price);
+console.log(formattedPrice); // Output: $1,234.56
+```
+
+### Interaction feedback
+
+When you add micro-interactions to your site (such as our copy order ID to clipboard button), consider the user experience; if you were the user, what would you think if clicking the button provided no response at all. Normally, you would assume your action didn't work, and try again confusedly. Adding small interaction feedback, such as changing the copy icon to a checkmark after copying, can enhance the user experience.
+
+> Alternatively, notifications or "toasts" are another great way to quickly inform a user of an action that happened. Toasts are small notifications that pop up off to the side, and disappear on their own after a while. There are a plentitude of libraries that help you achieve this with varying APIs, so find one that suits your use best!
+
+### Accessibility and semantics
+
+Follow best practices for web accessibility by using semantic HTML and ARIA roles where necessary. Ensure that images have proper `alt` tags and interactive elements are keyboard accessible.
+
+```html
+<div role="alert" aria-live="assertive">Order placed successfully!</div>
+
+<img src="product.jpg" alt="Image of StepSoft Socks" />
+```

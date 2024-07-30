@@ -1,0 +1,55 @@
+## Relevant concepts
+
+- **Reusable Components**: Building reusable components is a fundamental principle of good web development. They allow you to efficiently display multiple collections with consistent styling and behavior, reducing code duplication and improving maintainability. This can be done with templating languages or UI frameworks.
+- **Responsive Grid Design**: By using [CSS Grids](https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Grids) or [CSS Flexboxes](https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Flexbox), you can ensure that your product grid looks great on desktops, tablets, and mobile devices. Media queries will play a vital role in adjusting the layout and styling based on the screen size.
+- **State management and isolation**: State management is crucial for interactive components like the product card. Each card needs to manage its own state, such as the selected color, without affecting other cards. This isolation ensures that changes in one card don't inadvertently impact others, leading to more predictable and maintainable code.
+
+## Recommended approach
+
+### Grid layout
+
+There are three main options for implementing the grid layout:
+
+- **CSS Flexbox**: [Flexboxes](https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Flexbox) are relatively easy to implement, but doesn't inherently handle responsive card widths. If you're not careful, the last row of your grid might end up with wider cards than the rest
+
+- **CSS Grid with breakpoint-determined columns**: [Grids](https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Grids) approach offers more control over the layout. You can use media queries to define the number of columns based on the screen size, ensuring a consistent look across devices.
+
+- **CSS Grid with `repeat(auto-fit, minmax(300px, 1fr))`**: This method provides the most responsive solution. It automatically adjusts the number of columns based on the available space and the minimum card width, resulting in a flexible and visually appealing grid.
+
+```css
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+```
+
+> A commonly overlooked point for using `auto-fit` is not checking the grid spacing at small screen sizes. For example, in the example above, the minimum width is defined to be 300px. However, that means that between 300–599px, the grid will still only fill in one column, resulting in an awkwardly wide card. You may mitigate this by using [media queries](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_media_queries/Using_media_queries) to give a smaller minimum width at smaller screen sizes.
+
+### Data
+
+Fetch the "Latest Arrivals" product data from the provided API, using tools like [the fetch API](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Client-side_web_APIs/Fetching_data) or [Axios](https://axios-http.com/). As a stretch goal for a smoother experience, implement loading states to provide feedback to the user while the data is being fetched and empty states to handle cases where no products match the applied filters.
+
+```js
+// Example using the native fetch API
+fetch(
+  'https://www.greatfrontend.com/api/projects/challenges/e-commerce/products?collection=latest',
+)
+  .then((response) => response.json())
+  .then((data) => {
+    // Handle the fetched product data
+  })
+  .catch((error) => {
+    // Handle any errors during the fetch
+  });
+```
+
+### Modularity
+
+If you're using a templating engine or a JavaScript framework, create the product grid as a reusable component. Clearly define the component's props or inputs, such as the number of products to display, the data source for the products, and the section title. This approach promotes code reusability and makes it easier to manage and update your product grid across your application.
+
+For this challenge, it is highly recommended to use a JavaScript framework such as [React](https://react.dev/), [Vue.js](https://vuejs.org/), or [Svelte](https://svelte.dev/) for managing the local state within each card component. This approach simplifies state updates and ensures that changes in one card don't affect others.
+
+### Product Card
+
+Build the product card as a reusable component and pass each product's data as a prop. For implementing the color options, see the [Product Details Section](/projects/challenges/product-details-section) for more information. You should be able to adapt the code over.

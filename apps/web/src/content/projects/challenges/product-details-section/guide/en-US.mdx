@@ -1,0 +1,152 @@
+This challenge requires you to develop a fully-featured products detail section, featuring an image carousel, a variant selector and form inputs, and an accordion for showing data related to the product.
+
+## Relevant concepts
+
+- **DOM manipulation using JavaScript & State handling**: JavaScript is essential for updating the product details dynamically based on user interactions. State management is crucial to keep track of the current selections and ensure consistency across the UI.
+- **Forms**: [Forms](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form) are fundamental in e-commerce sites for collecting user selections and inputs. Proper labeling, grouping related options, and providing clear feedback are essential practices. Additionally, Ensuring that form elements are accessible enhances usability for all users, including those using assistive technologies.
+- **Images**: This challenge requires understanding of image handling in HTML and CSS. Responsive design and optimization are also important to ensure fast loading times and a good user experience.
+
+## Recommended approach
+
+### DOM manipulation and state handling
+
+As this challenge requires many different parts that interact with each other, a proper established state management system is vital to making sure the page is always in sync. Using a declarative approach to state management is recommended. This approach involves maintaining a central state that represents the current selections and dynamically updating the UI based on this state. This is preferred over imperative DOM manipulation as it simplifies future updates and maintains consistency. ([What's the difference between imperative and declarative programming?](https://ui.dev/imperative-vs-declarative-programming))
+
+For a page as complex as this, it is recommended to use a UI framework like [React](https://react.dev/), [Vue.js](https://vuejs.org/), or [Svelte](https://svelte.dev/). These frameworks provide robust state management and keep UI elements in sync efficiently.
+
+> This guide will be assuming you are using a UI framework of some sort, but will include notes on a more imperative approach for those using vanilla JavaScript.
+
+#### State management
+
+Use a centralized state to keep track of the current selections for color, size, and quantity. This state will be the single source of truth for the entire component. Frameworks such as React come with tools to store [a state](https://react.dev/learn/state-a-components-memory) between components such as [`useState()`](https://react.dev/reference/react/useState). These allow you to declaratively use and update states, and leave everything else to the underlying framework.
+
+#### Event listeners
+
+If you're not using a component library, [event listeners](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener) are a great way to listen for user interactions, promptly called "events." Attach event listeners to the form inputs to update the state when the user selects a different color, size, or quantity. ([More on events](https://developer.mozilla.org/en-US/docs/Web/Events))
+
+```js
+document.querySelector('#color-options').addEventListener('change', (event) => {
+  updateState({ currentColor: event.target.value });
+});
+```
+
+With component libraries, attaching event listeners is as simple as adding props to the component. React, for example, lets you simply add the prop `onClick` to its base HTML elements. These functions that fire on events are called event handlers; [React has a good article on using them in React](https://react.dev/learn/responding-to-events), but they can be applied to other frameworks as well.
+
+### Form handling
+
+Using the `<form>` element to group related inputs and ensure accessibility is crucial. Each product option (color, size, quantity) should be part of the form to facilitate submission and validation.
+
+For color and size options, you can use radio buttons or styled `<div />`s. You can also go the extra mile by using [the appropriate ARIA roles](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/radio_role) for accessibility. Use classes or other props to visually display other statuses, such as out-of-stock colors or sizes.
+
+> If you're using a component library, see if they have components designated as radio input. For example, Radix has [Radio Cards](https://www.radix-ui.com/themes/docs/components/radio-cards), a great implementation of what we need.
+
+For the quantity input, use an input with `type="number"` to allow users to specify the quantity. You can opt for the default browser input styling with its own buttons, or implement custom buttons to increase or decrease the value.
+
+```html
+<input type="number" id="quantity-input" name="quantity" min="1" value="1" />
+```
+
+Implement validation to prevent users from selecting quantities beyond the available stock.
+
+```js
+// Example of functions for keeping state within stock levels
+// (Not framework-specific)
+function decrementQuantity() {
+  if (state.currentQuantity > 1) {
+    updateState({ currentQuantity: state.currentQuantity - 1 });
+  }
+}
+
+function incrementQuantity() {
+  if (state.currentQuantity < MAX_STOCK) {
+    updateState({ currentQuantity: state.currentQuantity + 1 });
+  }
+}
+```
+
+### Image carousel
+
+The image gallery should dynamically update based on the selected color. Use [CSS flexbox](https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Flexbox) and overflow properties to create a responsive and scrollable thumbnail gallery.
+
+To allow for updating which image is shown, create a state to store the image currently being shown, and update the state whenever a new photo is selected from the options.
+
+> This example stores the image's index instead, which can be good if your image data is more complicated than a simple link.
+
+```jsx
+// Example for dynamically rendering an image based on a state in React
+const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+return <img src={images[currentImageIndex].src} />;
+```
+
+> For a more imperative approach, simply use `getElementById` to modify the DOM directly. React [strongly discourages](https://react.dev/learn/manipulating-the-dom-with-refs#best-practices-for-dom-manipulation-with-refs) modifying the DOM directly, as it interferes with its internal systems for managing the DOM. If you're using React or any other framework, always try to use the proper way for modifying the DOM.
+
+```js
+function selectImage(imagePath) {
+  document.getElementById('main-image').src = imagePath;
+}
+```
+
+### Heading and details section
+
+Use semantic HTML to structure the heading and details section. Ensure decorative elements are marked with `aria-hidden` to avoid cluttering screen readers.
+
+### Accordion
+
+An accordion is a way of compacting long lists of data by hiding some unused options behind a toggle.
+
+HTML has recently introduced the `<details>` and `<summary>` components for this specific purpose. You may choose to adapt this to our specific use case, or Implement the toggle by yxourself via JavaScript.
+
+> As usual, a state is typically required to keep track of open-close states (if using a framework). If you have to keep track of multiple states for multiple accordions, consider creating one reusable accordion component that keeps its own local state, then base the full features list off of the individual components. This simplifies the state logic down to the local level, and abstracts it away so you can focus on filling in the features. ([How do I structure states in my (React) app?](https://react.dev/learn/choosing-the-state-structure))
+
+```html
+<details>
+  <summary>Features</summary>
+  <ul>
+    <li>Designed for comfort and durability.</li>
+    <li>Soft, breathable fabric ideal for travel and adventure.</li>
+  </ul>
+</details>
+```
+
+## Further considerations
+
+### Currency handling and rendering
+
+To allow for more flexible adaptation of the component, use [JavaScript's `Intl.NumberFormat`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat) for consistent formatting between different currencies.
+
+```js
+function formatPrice(price, currency = 'USD') {
+  return new Intl.NumberFormat('en-US', {
+    style: 'currency',
+    currency: currency,
+  }).format(price);
+}
+```
+
+### Image optimization
+
+Ensure images are optimized for fast loading times. Using the right format (JPEG, WebP) can mean a tenfold difference in the amount of data required, and minor compression can help minimize file size down a lot. Additionally, you can implement [lazy loading](https://developer.mozilla.org/en-US/docs/Web/Performance/Lazy_loading) for images to improve initial load times.
+
+```html
+<img src="path/to/image.jpg" loading="lazy" alt="Product image" />
+```
+
+### State isolation
+
+Consider how global or local your state should be. For this project, a centralized state works well, but in larger applications, you may want to isolate state to specific components. Frameworks such as React provides more advanced way of dealing with states, such as [contexts](https://react.dev/learn/passing-data-deeply-with-context). (Further reading: [How do I structure states in my (React) app?](https://react.dev/learn/choosing-the-state-structure))
+
+```js
+// Example of using Context API in React for state management
+const ProductContext = React.createContext();
+
+function ProductProvider({ children }) {
+  const [state, setState] = useState(initialState);
+
+  return (
+    <ProductContext.Provider value={{ state, setState }}>
+      {children}
+    </ProductContext.Provider>
+  );
+}
+```

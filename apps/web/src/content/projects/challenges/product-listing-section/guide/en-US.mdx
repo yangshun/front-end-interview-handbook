@@ -1,0 +1,91 @@
+This challenge involves creating a responsive product listing section that features a product grid, a sidebar for filtering, sorting functionality, and pagination.
+
+## Relevant concepts
+
+- **Filtering, Sorting, & Pagination**: These functionalities are crucial for enhancing user experience by allowing users to navigate through a large dataset efficiently. Filtering helps narrow down products based on specific criteria like color, size, or rating. Sorting organizes products in a preferred order, such as by price or popularity. Pagination divides the data into manageable chunks, improving performance and usability by not overwhelming users with too much information at once.
+- **State management and isolation**: State management is crucial for interactive components like the product card. Each card needs to manage its own state, such as the selected color, without affecting other cards. This isolation ensures that changes in one card don't inadvertently impact others, leading to more predictable and maintainable code.
+- **Responsive grid layout**: By using [CSS Grids](https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Grids) or [CSS Flexboxes](https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Flexbox), you can ensure that your product grid looks great on desktops, tablets, and mobile devices. Media queries will play a vital role in adjusting the layout and styling based on the screen size.
+
+## Recommended approach
+
+For a page as complex as this, it is recommended to use a UI framework like [React](https://react.dev/), [Vue.js](https://vuejs.org/), or [Svelte](https://svelte.dev/). These frameworks provide robust state management and keep UI elements in sync efficiently.
+
+### Build the layout
+
+Start by defining the structure of your section using semantic HTML elements such as `<div>`, `<section>`, and `<header>`. Ensure the HTML is clean and accessible.
+
+### Create the filtering UI
+
+The filtering UI should be interactive and easy to use. Implement filters using [accordion-style](/projects/challenges/product-details-section) collapsible sections for categories, colors, and ratings. Use checkbox groups for categories and ratings, and color swatches for colors. Ensure that the filters are responsive and accessible. Refer to [Product Details Section](/projects/challenges/product-details-section) or [Product Reviews](/projects/challenges/product-reviews) for a brush-up on filters.
+
+### Adapt the grid layout
+
+Use [CSS Grids](https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Grids) or [CSS Flexboxes](https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Flexbox) to create a responsive product grid that adapts to different screen sizes. The grid should display products in a multi-column layout on larger screens and stack them vertically on smaller screens. If you've already completed [Product Grid Section](/projects/challenges/product-grid-section), you can adapt it here.
+
+```css
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 16px;
+}
+
+@media (max-width: 768px) {
+  .product-grid {
+    grid-template-columns: 1fr;
+  }
+}
+```
+
+### Manage state with URL parameters
+
+Apart from simply using a state to handle filters, sorting, and pagination, [URL parameters](https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams) is another great option. This ensures that users can navigate between different queries and maintain state across browser sessions, and cuts out the issue of trying to sync between the framework's state and the URL parameters. You can use browser APIs or framework-specific tools like Next.js’s [`useRouter`](https://nextjs.org/docs/app/api-reference/functions/use-router) or Nuxt.js’s [`useRouter`](https://nuxt.com/docs/api/composables/use-router).
+
+```js
+// Example for storing filters in URL parameters in Next.js
+import { useRouter } from 'next/router';
+
+const router = useRouter();
+
+const handleFilterChange = (newFilters) => {
+  router.push({
+    pathname: '/products',
+    query: { ...router.query, ...newFilters },
+  });
+};
+```
+
+### Fetch and display data dynamically
+
+Fetch data from the API using the current filter, sort, and pagination parameters. Update the product grid whenever these parameters change. As an extra quality-of-life feature, try implementing a smooth scroll back to the top of the product grid after updating the listings.
+
+```js
+// Example of updating products using native fetch API and states in React.
+const fetchProducts = async (params) => {
+  const response = await fetch(`/api/products?${new URLSearchParams(params)}`);
+  const data = await response.json();
+  setProducts(data.products);
+};
+
+// this useEffect allows fetchProducts to be called every time the path updates
+useEffect(() => {
+  fetchProducts(router.query);
+}, [router.query]);
+```
+
+## Further considerations
+
+### List virtualization
+
+For performance optimization, especially when dealing with large datasets, consider using list virtualization techniques. List virtualization allows you to only compute and show the items that are visible on the user's screen, reducing the load of having to render every single element in the list. This can be done using external libraries, or manually coded in with [intersection observers](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API).
+
+### Image optimization
+
+Optimize images for faster load times and better performance. Use modern image formats like WebP, and consider lazy loading images as they come into view.
+
+```html
+<img src="product-image.jpg" loading="lazy" alt="Product Name" />
+```
+
+### Accessibility
+
+Ensure that your product listing section is accessible. Use semantic HTML and ARIA roles where necessary. Provide proper `alt` tags for images and ensure that interactive elements like buttons and links are keyboard accessible.

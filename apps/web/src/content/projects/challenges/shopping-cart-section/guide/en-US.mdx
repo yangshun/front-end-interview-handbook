@@ -1,0 +1,161 @@
+This challenge requires understanding of various fundamental web development concepts including data fetching from APIs, handling loading and error states, and implementing modals.
+
+## Relevant concepts
+
+- **Fetching data from external APIs**: Fetching data from APIs is a crucial aspect of modern web applications. It involves making HTTP requests to an external server to retrieve data which can then be displayed in the application. This is particularly relevant for dynamic content like a shopping cart, where product data and cart details need to be fetched and displayed to the user. Understanding how to handle these requests, managed fetched data, and appropriately handle caching, loading, and error states is integral to creating interactive experiences on the web.
+- **Loading and error states**: When fetching data from an API, there is always a possibility of delays or errors. Loading states provide feedback to the user that data is being fetched, preventing confusion or frustration. Error states handle scenarios where the data fetch fails, providing appropriate messages to guide the user.
+- **Modals and dialogs**: Modals and dialogs are common UI components used to display information or capture user input without navigating away from the current page. In the context of a shopping cart, modals can be used for confirming actions like removing items or informing the user about stock availability.
+
+## Recommended approach
+
+### Displaying products
+
+To display products in the shopping cart, you need to handle different item denominations separately. Simply mapping out the items in the cart array is insufficient because each product variant (e.g., different sizes or colors) should be displayed as separate items.
+
+1. **Generate a New Array for Item Denominations**: Create a function that iterates through the cart items and generates a new array where each product variant is treated as a separate item. This ensures that different denominations are displayed correctly in the cart.
+
+```js
+// Example function to generate new array with separate variants of a product separated into their own listing.
+function getCartItemsWithVariants(cartItems) {
+  let itemsWithVariants = [];
+  cartItems.forEach((item) => {
+    item.variants.forEach((variant) => {
+      itemsWithVariants.push({
+        item,
+        variant,
+      });
+    });
+  });
+  return itemsWithVariants;
+}
+```
+
+2. **Map Out the Items**: Use this new array to map out each item in the cart, ensuring that each variant is displayed as a separate row.
+
+```html
+<div id="cart-items">
+  {cartItemsWithVariants.map(({item, variant}) => (
+  <CartProduct item="{item}" variant="{variant}" />
+  ))}
+</div>
+```
+
+### Price calculations
+
+To ensure real-time price calculations, maintain a state or variable that updates automatically whenever there is a change in the cart, such as when a user changes the quantity of an item or adds a new product.
+
+1. **Update Price in Real-Time**: Calculate the total price using a function that sums up the prices of all items in the cart. This function should be called every time there is a change in the cart. Using patterns such as [`Array.prototype.reduce()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce) is a quick and simple way to quickly calculate values derived from an array.
+
+```js
+function calculateTotal(cartItems) {
+  return cartItems.reduce((total, item) => {
+    return total + item.price * item.quantity;
+  }, 0);
+}
+```
+
+2. **Implementing the Calculation**: Use a state management system (like React's [useState](https://react.dev/reference/react/useState) and [useEffect](https://react.dev/reference/react/useEffect)) to automatically update the price whenever the cart items change.
+
+```js
+const [total, setTotal] = useState(0);
+
+useEffect(() => {
+  setTotal(calculateTotal(cartItems));
+}, [cartItems]);
+```
+
+> For React: Alternatively, simply use a variable in the component as the calculation isn't particularly heavy and doesn't add on much extra computation load.
+
+```js
+const total = calculateTotal(cartItems);
+```
+
+### Coupon code handling
+
+Implementing coupon codes involves creating a handler function that validates the coupon code and applies the discount accordingly. The discount can be stored in a separate state.
+
+> Ideally, the discounts should be applied server-side, then sent back to the client with the updated price to prevent the user tampering with the discount values. However, in our situation, we simply apply the discount on the client side to simulate this process.
+
+For the coupon code handler, create a function to handle the validation and application of the coupon code. The function should handle loading, error, and success states. With this function, the function that calculates the cart total can be modified to factor in discounts.
+
+```js
+// Example using React to handle fetching coupon code information
+async function applyCoupon(code) {
+  setLoading(true);
+  try {
+    const response = await fetch(
+      `https://www.greatfrontend.com/api/projects/challenges/e-commerce/coupons/apply?coupon_code=${code}`,
+      {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      },
+    );
+    const data = await response.json();
+    if (data.error) {
+      // handle error...
+    } else {
+      setDiscount(data);
+    }
+  } catch (error) {
+    // handle error...
+  }
+}
+```
+
+### Stock handling
+
+Stock handling requires validating the stock every time there is an update to the cart, such as changing the quantity or variant of a product.
+
+1. **Validate stock**: Create a function to check the stock availability whenever there is a change in the cart. This handler should be called every time the quantity of any product in the cart gets updated.
+
+```js
+async function validateStock(cartItems) {
+  const response = await fetch(
+    `https://www.greatfrontend.com/api/projects/challenges/e-commerce/products/voyager-hoodie`,
+    {
+      method: 'POST',
+      body: JSON.stringify(cartItems),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    },
+  );
+  const { inventory } = await response.json();
+  // calculate stock for relevant variants...
+}
+```
+
+2. **Show modal for insufficient stock**: Display a modal to inform the user about insufficient stock and update the cart accordingly. This modal can be manually programmed in to become visible whenever needed through a state, or other external libraries / component libraries can be utilized to make this simpler.
+
+```jsx
+// Example React code for conditionally displaying a modal
+const [isModalOpen, setIsModalOpen] = useState(false);
+
+useEffect(() => {
+  // some code handling updates...
+  if (quantity > stockStillLeft) {
+    isModalOpen(true);
+    // code to revert the qty modification
+  }
+});
+return (
+  <div>
+    {isModalOpen && (
+      <div className="modal-backdrop">
+        <div className="modal">
+          <p>We don't have stock for this product!</p>
+          <button onClick={closeModal}>Got it</button>
+        </div>
+      </div>
+    )}
+  </div>
+);
+```
+
+## Further considerations
+
+### Debouncing
+
+When users rapidly update their cart, it can cause the API to fire multiple requests in quick succession. Implementing [debouncing](https://www.greatfrontend.com/questions/javascript/debounce) helps to limit the number of API requests by grouping multiple changes into a single request. There are several libraries designed to handle this, e.g. [useDebounce](https://usehooks.com/usedebounce) is a simple utility function for getting debounced values from another state.

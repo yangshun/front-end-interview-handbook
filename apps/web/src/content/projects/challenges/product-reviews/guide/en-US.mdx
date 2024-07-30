@@ -1,0 +1,102 @@
+In this challenge, you will develop a responsive product reviews component which includes a summary of the ratings, and allow users to filter reviews by rating. Additionally, pagination should be implemented for handling multiple reviews.
+
+## Relevant concepts
+
+- **State management**: Managing state effectively is crucial for this challenge, as you need to track the current page, selected filters, and the number of reviews displayed. Using local or global state management solutions helps keep the UI synchronized with the data, ensuring a smooth user experience.
+- **Pagination**: Implementing pagination allows for better performance and user experience by loading a limited number of reviews at a time. This involves fetching data from an API and updating the UI to show the correct number of reviews per page based on the device being used.
+- **List filtering and sorting**: Filtering and sorting are essential for providing users with the ability to view reviews based on specific criteria, such as rating. This requires handling user input, updating the displayed list of reviews, and maintaining the current state of the filters.
+- **Fallback states**: Fallback states are necessary to handle scenarios where no reviews are available for the current filters. Providing a clear and informative empty state improves the user experience by communicating the absence of reviews effectively.
+
+## Recommended approach
+
+### Data handling
+
+For this challenge, use the provided `reviews.json` file or fetch data from the API. Ensure that loading states are included to handle asynchronous data fetching. Pagination parameters can be handled with [template literals](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals) or utility npm packages such as [url](https://www.npmjs.com/package/url).
+
+```js
+// Example of fetching reviews data with loading state
+async function fetchReviews(productId, page = 1, perPage = 12) {
+  try {
+    setLoading(true);
+    const response = await fetch(
+      `https://www.greatfrontend.com/api/projects/challenges/e-commerce/products/${productId}/reviews?page=${page}&per_page=${perPage}`,
+    );
+    const data = await response.json();
+    setReviews(data);
+  } catch (error) {
+    console.error('Error fetching reviews:', error);
+  } finally {
+    setLoading(false);
+  }
+}
+```
+
+If you're using React, data fetching hooks like [swr](https://swr.vercel.app/) might be useful for handling loading or error states, especially when using APIs like the native [fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) or [Axios](https://axios-http.com/).
+
+### Review summary
+
+Implement the review summary section to display the overall rating and rating bands. To create accurate progress bars, either use pure CSS such as `width: 60%` on an inner child component to fill in 60% of the bar, or use [flexbox](https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Flexbox) properties if you want to challenge yourself.
+
+#### Individual reviews
+
+Use nested flex layouts or CSS grids to create the layout for each review. Ensure that profile pictures or initials are displayed correctly depending on the data. For parsing the date, built-in functions like [Intl.DateTimeFormat](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat) should suffice, but other libraries like [day.js](https://day.js.org/) can provide more granular control over the details as well.
+
+### Pagination
+
+Implement pagination to load and display reviews in a more gradual way, rather than showing all reviews at once. To start, use `matchMedia` to determine the number of reviews per page based on the device width.
+
+```js
+// Example of using matchMedia to determine reviews per page
+const mediaQueryList = window.matchMedia('(min-width: 768px)');
+let reviewsCountPerPage = mediaQueryList.matches ? 12 : 10;
+```
+
+To then process and fetch more reviews, use a central state to store the number of reviews already shown and update the "Show X more reviews" button dynamically.
+
+```js
+// Example using React useState to store
+const [shownReviewsCount, setShownReviewsCount] = useState(0);
+
+function showMoreReviews() {
+  const newShownReviewsCount = shownReviewsCount + reviewsCountPerPage;
+  setShownReviewsCount(newShownReviewsCount);
+  // Fetch and append the new reviews to the existing list
+}
+```
+
+```html
+<button onclick="showMoreReviews()">Show {x} more reviews</button>
+```
+
+The reviews can also be stored in their own state as an array of reviews, and progressively fetched to add more reviews as the user clicks to see more.
+
+> A more imperative approach can also be done by simply appending more reviews to the DOM directly if you're not using a UI framework.
+
+#### Filtering
+
+To implement filtering based on which star rating user wants to see, create a state to store the currently selected filter. Clear and fetch a new list of reviews whenever the rating filter changes. As an added bonus, use smooth scrolling to bring the user back to the top of the reviews list when settings are changed.
+
+```js
+// Example using React to handle filters.
+// These functions are purely illustrative, remember to adapt them to your own implementation
+const [filter, setFilter] = useState(null);
+
+function applyFilter(rating) {
+  setFilter(rating);
+  fetchReviews(productId, 1, reviewsPerPage, rating);
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function clearFilter() {
+  setFilter(null);
+  fetchReviews(productId, 1, reviewsPerPage);
+}
+```
+
+### Further considerations
+
+#### List virtualization
+
+For advanced performance optimization, consider implementing [list virtualization](https://www.greatfrontend.com/blog/front-end-performance-techniques) to avoid rendering items that are out of view. This technique can significantly improve performance when dealing with long lists of reviews.
+
+At the current scale this may be redundant, but when hundreds or thousands of rows of data are shown at once, virtualization is a great technique to help lessen the load on rendering the list, as only a handful of rows are displayed on the page at any time.

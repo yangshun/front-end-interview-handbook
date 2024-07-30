@@ -1,0 +1,142 @@
+In this challenge, you will be creating a simple grid to display a product collection.
+
+### Relevant concepts
+
+- **Grid layout**: Grid layouts are essential for creating the two-dimensional structure of the collections grid. They allow you to define columns and rows to arrange the collection cards neatly. Grid layouts with more dynamic arrangements are sometimes called **masonry layouts**. A great way to achieve either of these effects is through the use of [CSS Grids](https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Grids) or [CSS Flexboxes](https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Flexbox).
+- **Media queries**: Media queries are crucial for making the collections grid responsive to different screen sizes. By using media queries, you can adjust the layout, font sizes, and spacing of the grid and its elements to ensure an optimal viewing experience on desktops, tablets, and mobile devices.
+- **Reusable components**: Building reusable components is a fundamental principle of good web development. They allow you to efficiently display multiple collections with consistent styling and behavior, reducing code duplication and improving maintainability. This can be done with templating languages or UI frameworks.
+
+## Recommended approach
+
+### Data
+
+Data for the collections grid can be loaded either from the provided `collections.json` file or fetched from the API. If fetching from the API, you can use the browser's built-in `fetch` API or a library like Axios.
+
+```js
+// Using fetch
+fetch(
+  'https://www.greatfrontend.com/api/projects/challenges/e-commerce/collections',
+)
+  .then((response) => response.json())
+  .then((data) => {
+    // Process and display the collection data
+    console.log(data);
+  });
+
+// Using Axios
+axios
+  .get(
+    'https://www.greatfrontend.com/api/projects/challenges/e-commerce/collections',
+  )
+  .then((response) => {
+    // Process and display the collection data
+    console.log(response.data);
+  });
+```
+
+### Heading section
+
+Use a semantically appropriate heading tag (`<h2>` or `<h3>`) for the heading of the collections grid section. This not only structures the content logically but also improves accessibility for screen readers.
+
+### Grid layout
+
+There are two main options for implementing the grid layout:
+
+#### Nested flexboxes
+
+You can use nested flexbox containers, one for the left section and one for the right section. Flexbox will naturally wrap the collection cards on smaller screens when there is insufficient horizontal space.
+
+> If you're new to flexboxes, check out [Flexbox Froggy](https://flexboxfroggy.com/), an interactive game for exploring different flexbox features.
+
+#### CSS grid
+
+Define a grid container with two rows and two columns. Since the "Primary" collection card spans two rows vertically, use CSS grid properties to make it span across those rows.
+
+```css
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Two equal-width columns */
+  grid-template-rows: repeat(2, auto); /* Two rows with automatic height */
+  gap: 20px; /* Spacing between grid items */
+}
+
+.primary-card {
+  grid-row: span 2; /* Span across two rows */
+}
+```
+
+> Again, if you're also new to grids, check out [Grid Garden](https://cssgridgarden.com/), an interactive game that explains all the different grid properties.
+
+### Responsive design
+
+Use media queries to adjust the grid layout for different screen sizes. For example, on mobile devices, you might want the grid to collapse into a single column.
+
+```css
+@media (max-width: 768px) {
+  .grid-container {
+    grid-template-columns: 1fr; /* Single column on smaller screens */
+  }
+
+  .primary-card {
+    grid-column: span 1; /* Span across one column */
+  }
+}
+```
+
+### Card implementation
+
+For the gradient, use CSS [`linear-gradient()`](https://developer.mozilla.org/en-US/docs/Web/CSS/gradient/linear-gradient) for creating them. CSS colors can take on alpha/transparency, which is the key for this design.
+
+To overlay the backdrop on the collection card images, you can use several methods:
+
+- **Stacked backgrounds**: While this method is possible, it can become complex and is not recommended. This involves stacking multiple [CSS backgrounds](https://developer.mozilla.org/en-US/docs/Web/CSS/background) of different types on top of each other.
+
+- **Wrapper `<div>`**: Create a wrapper `<div>` with the background image set to the collection image. Inside this wrapper, place another `<div>` with the translucent black background and the card content.
+
+```html
+<div class="card">
+  <div class="card-image" style="background-image: url('path/to/image.jpg')">
+    <div class="card-overlay">
+      <h3>Collection Name</h3>
+      <p>Collection description</p>
+    </div>
+  </div>
+</div>
+```
+
+```css
+.card-image {
+  position: relative; /* Allow positioning children relative to this element */
+}
+
+.card-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: linear-gradient();
+}
+```
+
+- **Absolute pseudo-element**: Create an [absolutely positioned](https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Positioning#absolute_positioning) [pseudo-element](https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-elements) (`::before` or `::after`) within the card. This is similar to the above solution, but requires less elements to be manually defined in the DOM.
+
+> As a recap on `position: relative` or `absolute`, check out [this question on GreatFrontEnd Interviews](https://www.greatfrontend.com/questions/quiz/whats-the-difference-between-a-relative-fixed-absolute-and-statically-positioned-element).
+
+#### Images
+
+To scale and position the images, props like [`background-size: cover`](https://developer.mozilla.org/en-US/docs/Web/CSS/background-size#cover) can be useful to fill the image up to the entire `<div>` without stretching it. If you're using an `<img>` component, the equivalent prop is [`object-fit: cover`](https://developer.mozilla.org/en-US/docs/Web/CSS/object-fit#cover).
+
+### Hover-focus states
+
+Use [CSS pseudo-classes](https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes) like `:hover` and `:focus` to apply styling changes when the user hovers over or focuses on a collection card.
+
+```css
+.card {
+  /* default styles */
+}
+
+.card:hover {
+  /* styles for when user hovers over the card */
+}
+```

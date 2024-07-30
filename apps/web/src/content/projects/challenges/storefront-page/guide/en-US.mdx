@@ -1,0 +1,67 @@
+In this challenge, you'll create a storefront page for a fictional e-commerce platform by combining several components you've built in previous challenges. Refer to the following challenges for more detail on their individual implementations.
+
+- [Navbar Component (E-Commerce)](/projects/challenges/navbar-e-commerce)
+- [Hero Section (Simple)](/projects/challenges/hero-section-simple)
+- [Product Grid Section](/projects/challenges/product-grid-section)
+- [Collections Grid Section](/projects/challenges/collections-grid-section)
+- [Features Section (Grid)](/projects/challenges/feature-section-grid)
+- [Footer (Multi-column)](/projects/challenges/footer-multi-column)
+
+## Relevant concepts
+
+- **Dynamic routing & data fetching**: Dynamic routing involves creating routes that can change based on the data being passed to them, such as product IDs. Data fetching is the process of retrieving data from a server or an API to display it dynamically on your web page. This is crucial for loading up-to-date information dynamically as users navigate through different sections.
+- **Client-side Rendering (CSR) & Server-side Rendering (SSR)**: CSR and SSR are two methods of rendering web pages. CSR involves rendering pages directly in the browser using JavaScript, which can lead to faster initial load times and a more interactive experience. SSR, on the other hand, involves rendering pages on the server and sending the fully rendered HTML to the client, which can improve SEO and initial load times for content-heavy pages. Knowing when to use each method will help you build a more efficient and effective storefront.
+- **localStorage**: localStorage is a web storage mechanism that allows you to store data in the browser across sessions. This is useful for persisting user data, such as the contents of a shopping cart, even when the user navigates away from the page or closes the browser. This is particularly useful for e-commerce platforms where users may not complete a purchase in one session.
+
+## Recommended approach
+
+### Using a UI framework
+
+For a page as complex as this, it is recommended to use a UI framework like [React](https://react.dev/), [Vue.js](https://vuejs.org/), or [Svelte](https://svelte.dev/). These frameworks provide robust state management and keep UI elements in sync efficiently.
+
+### CSS management
+
+The page's CSS file is applied globally, which can lead to style clashes. To avoid this, use localized styling solutions like [Emotion](https://emotion.sh/docs/introduction), [CSS Modules](https://github.com/css-modules/css-modules), or [Tailwind CSS](https://tailwindcss.com). These tools help ensure that styles do not conflict across different components on the same page.
+
+### Web frameworks and data fetching
+
+To create a dynamic storefront page, it is recommended to explore web frameworks that support dynamic routing and server-rendered pages. Frameworks like [Next.js](https://nextjs.org/), [Nuxt.js](https://nuxt.com/), or https://kit.svelte.dev/ can simplify the process of building full-fledged web applications with built-in routing and data fetching capabilities.
+
+> If you need a quick refresher, [Product Details Page](/projects/challenges/product-details-page) is a page that requires a similar setup, albeit more simplier
+
+```js
+// Advanced example using Next.js getStaticProps for a server rendered page
+export async function getStaticProps() {
+  const res = await fetch(
+    'https://www.greatfrontend.com/api/projects/challenges/e-commerce/collections',
+  );
+  const collections = await res.json();
+
+  return {
+    props: {
+      collections,
+    },
+  };
+}
+```
+
+### Global states
+
+If you have implemented a shopping cart in the [Product Details Page](/projects/challenges/product-details-page), continue using it to maintain the user's shopping cart across the site. If not, implement one using `localStorage`. Update the cart state whenever items are added or removed.
+
+```js
+// Example shopping cart implementation
+const addToCart = (product) => {
+  let cart = JSON.parse(localStorage.getItem('cart')) || [];
+  cart.push(product);
+  localStorage.setItem('cart', JSON.stringify(cart));
+};
+
+const getCart = () => {
+  return JSON.parse(localStorage.getItem('cart')) || [];
+};
+```
+
+### Spacing
+
+Ensure consistent spacing between components as per the design specifications. If you're stacking components on top of each other, remember to factor in [collapsing margins](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_box_model/Mastering_margin_collapsing), as the results may differ from what you would intuitively expect.

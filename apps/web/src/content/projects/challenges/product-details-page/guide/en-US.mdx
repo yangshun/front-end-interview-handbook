@@ -1,0 +1,139 @@
+This challenge requires you to combine several components into a cohesive product details page for an e-commerce platform. Refer to the following challenges for more detail on their individual implementations.
+
+- [Navbar (E-Commerce)](/projects/challenges/navbar-e-commerce)
+- [Product Details Section](/projects/challenges/product-details-section)
+- [Product Specifications Section](/projects/challenges/product-specifications-section)
+- [Product Grid Section](/projects/challenges/product-grid-section)
+- [Footer (Multi-column)](/projects/challenges/footer-multi-column)
+
+## Relevant concepts
+
+- **Dynamic routing & data fetching**: Dynamic routing involves creating routes that can change based on the data being passed to them, such as product IDs. Data fetching is the process of retrieving data from a server or an API to display it dynamically on your web page. This is crucial for loading product details, specifications, and related products.
+- **CSR & SSR**: Client-Side Rendering (CSR) and Server-Side Rendering (SSR) are two different approaches to loading web pages. CSR renders pages directly in the browser using JavaScript, whereas SSR pre-renders pages on the server and sends the HTML to the client. Each method has its advantages; CSR allows for faster interactions after the initial load, while SSR improves performance and SEO by delivering fully rendered pages to the client.
+- **localStorage**: `localStorage` is a web storage mechanism that allows you to store data in the browser across sessions. This is useful for persisting user data, such as the contents of a shopping cart, even when the user navigates away from the page or closes the browser.
+
+## Recommended approach
+
+### Using a UI framework
+
+For a page as complex as this, it is recommended to use a UI framework like [React](https://react.dev/), [Vue.js](https://vuejs.org/), or [Svelte](https://svelte.dev/). These frameworks provide robust state management and keep UI elements in sync efficiently.
+
+### CSS management
+
+The page's CSS file is applied globally, which can lead to style clashes. To avoid this, use localized styling solutions like [Emotion](https://emotion.sh/docs/introduction), [CSS Modules](https://github.com/css-modules/css-modules), or [Tailwind CSS](https://tailwindcss.com). These tools help ensure that styles do not conflict across different components on the same page.
+
+### Routing & data fetching
+
+As the app would most likely feature different pages for each product, we need to start considering how to differentiate the product pages from each other. Fortunately for us, the API for the product's detail already includes a unique identifier in the `id` field, which can be used as a page's slug ([Wondering what this means?](https://developer.mozilla.org/en-US/docs/Glossary/Slug)).
+
+> As you have coded the data fetching inside the product detail component itself, you may have to move the data fetching code up a level to the page itself, to avoid duplicative fetching in different components. This saves up on server bandwidth and ensures a more consistent experience throughout the page! If you haven't written the data fetching code in a modular or flexible way, now might be a good time to start practicing that. Writing code as individual modules allows you to adapt and rework the code to fit any use case you might encounter in the future.
+
+Generally, each product should have a unique URL, such as `https://ecommerce.com/product/voyager-hoodie`. This allows dynamic data fetching based on the URL path or parameters. The data fetching can happen at two different points: the client or the server.
+
+#### Client-side solution
+
+After parsing the URL path or parameters, [fetch data with web APIs like the fetch API](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Client-side_web_APIs/Fetching_data). This method is easier to implement with frameworks like [React Router](https://reactrouter.com/en/main), but has downsides for SEO. Client-side fetching of data also means each page view will require multiple round trips between the client and the server, possibly slowing things down.
+
+```jsx
+// Example of dynamic routing with React Router
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import ProductPage from './ProductPage';
+
+const App = () => (
+  <Router>
+    <Switch>
+      <Route path="/product/:id" component={ProductPage} />
+    </Switch>
+  </Router>
+);
+```
+
+#### Server-side solution
+
+Render the page on the server and send the pre-rendered HTML to the client. This improves SEO and performance, as all the data fetching can happen quickly (or not at all with caching) on the server before being compiled and sent to the client. Note that hydration may be needed to ensure JavaScript functionalities like the shopping cart state are activated on the client side. Frameworks like [Next.js](https://nextjs.org) are great for handling server-side rendering.
+
+### Passing data between components
+
+As the data fetching now happens on a higher-level component, rewrite your children components to take on the fetched data as props passed on to them.
+
+```jsx
+import useDataFetching from './hooks/useDataFetching';
+import ProductDetails from './ProductDetails';
+import ProductReviews from './ProductReviews';
+
+const Page = () => {
+  const product = useDataFetching();
+  // replace with however you choose to fetch your data
+
+  return (
+    <>
+      <ProductDetails product={product} />
+      <ProductReviews product={product} />
+    </>
+  );
+};
+```
+
+### Global states
+
+Managing the shopping cart across different pages requires a global state management strategy, to ensure the user's cart remains wherever the user routes to.
+
+> Typically in production, this can also be stored in a managed database alongside all other user data, but this is not applicable for this challenge.
+
+#### Global layout
+
+Use a global layout to manage state. This is effective with nested route rendering systems like Next.js or [Remix](https://remix.run/). However, the state might be volatile if the user reloads the page or navigates away from the site, and is not recommended.
+
+#### localStorage
+
+Store cart information in [localStorage](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage) or cookies to ensure data persistence across different pages and sessions. Utility hooks like useHooks' [`useLocalStorage`](https://usehooks.com/uselocalstorage) in React can simplify this process. ([What's the difference between localStorage and Cookies?](https://www.greatfrontend.com/questions/quiz/describe-the-difference-between-a-cookie-sessionstorage-and-localstorage))
+
+To get cart items, simply parse back the locally stored data with [JSON.parse](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/parse):
+
+```js
+function getCartItems() {
+  return JSON.parse(localStorage.getItem('cart')) || [];
+}
+```
+
+Remember that the cart not only requires the product, but the quantity to be stored as well. This means for adding products to card, a more detailed function is needed to check if the product has already been added:
+
+```js
+function addToCart(productId, quantity = 1) {
+  let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+  // Find the index of the product in the cart
+  const productIndex = cart.findIndex((item) => item.id === productId);
+
+  if (productIndex !== -1) {
+    // If product already exists, update its quantity
+    cart[productIndex].quantity += quantity;
+  } else {
+    // If product doesn't exist, add it with the specified quantity
+    cart.push({ id: productId, quantity });
+  }
+
+  localStorage.setItem('cart', JSON.stringify(cart));
+}
+```
+
+And for removal, simply find and remove the product from the array. You can adapt this code to allow more granular removal with specified quantities as well.
+
+```js
+function removeFromCart(productId) {
+  let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+  // Find the index of the product in the cart
+  const productIndex = cart.findIndex((item) => item.id === productId);
+
+  if (productIndex !== -1) {
+    // Remove the product from the cart
+    cart.splice(productIndex, 1);
+    localStorage.setItem('cart', JSON.stringify(cart));
+  }
+}
+```
+
+### Spacing
+
+Ensure consistent spacing between components as per the design specifications. If you're stacking components on top of each other, remember to factor in [collapsing margins](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_box_model/Mastering_margin_collapsing), as the results may differ from what you would intuitively expect.

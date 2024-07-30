@@ -1,0 +1,129 @@
+As this is the last challenge of the [E-commerce track](https://www.greatfrontend.com/projects/tracks/e-commerce), it is highly recommended that you complete all the challenges in it before working on this challenge.
+
+In this challenge, we’re finally putting all the pages you’ve built together to create a complete e-commerce website.
+
+- [Navbar (E-Commerce)](/projects/challenges/navbar-e-commerce)
+- [Footer (Multi-column)](/projects/challenges/footer-multi-column)
+- [Storefront Page](/projects/challenges/storefront-page)
+- [Product Details Page](/projects/challenges/product-details-page)
+- [Shopping Cart Section](/projects/challenges/shopping-cart-section)
+- [Checkout Section](/projects/challenges/checkout-section)
+- [Order Success Section](/projects/challenges/order-success-section)
+
+## Relevant concepts
+
+- **Routing**: Effective routing is essential for navigation within a web application. It involves handling both static and dynamic paths: static paths are fixed URLs like `/home` or `/about`, whereas dynamic paths can include variables, such as `/product/:id`, where `:id` can change. An e-commerce website typically features both, so it's important to learn how to manage them.
+- **SEO & meta tags**: Search Engine Optimization (SEO) and the use of meta tags enhance the searchability and visibility of your website. Meta tags provide metadata about the HTML document, such as the title, description, and keywords. Proper SEO practices can improve your website’s ranking on search engines, making it easier for users to find your site.
+- **Auditing with Lighthouse**: Lighthouse is an open-source, automated tool for improving the quality of web pages. It audits performance, accessibility, SEO, and more. Using Lighthouse helps identify areas where your website can be optimized to provide a better user experience and meet best practices.
+
+## Routing
+
+Routing is the backbone of navigation in any web application. For this challenge, you should use a web framework like [Next.js](https://nextjs.org/) or [Astro](https://astro.build/), which simplifies routing, data fetching, and other tasks.
+
+Start by setting up basic routes for the main pages: Product Listing Page, Shopping Cart Page, Checkout Page, and Order Success Page. Ensure that dynamic paths are correctly handled, for instance, product pages should use dynamic routes to display different products based on their IDs.
+
+```js
+// Example in Next.js
+// file: app/product/[id]/page.tsx
+import { useRouter } from 'next/router';
+
+const ProductPage = () => {
+  const router = useRouter();
+
+  // this lets you fetch the id from the dynamic path
+  const { id } = router.query;
+
+  return (
+    <div>
+      <h1>Product {id}</h1>
+      {/* Product details here */}
+    </div>
+  );
+};
+
+export default ProductPage;
+```
+
+## Client-side rendering (CSR) and Server-side rendering (SSR)
+
+Client-Side Rendering (CSR) and Server-Side Rendering (SSR) both have their places in web development. For pages with static information, SSR is beneficial as it reduces the code size and results in a more performant website.
+
+For dynamic pages, consider using Static Site Generation (SSG) or Incremental Static Regeneration (ISR) if the data doesn't change frequently. This approach pre-renders the pages, enhancing load times.
+
+> If you're confused about server-side rendering and how it stacks up against client-side rendering, check out the guide for [Product Details Page](/projects/challenges/product-details-page). Additionally, the [Next.js docs](https://nextjs.org/docs/pages/building-your-application/rendering) has more details on the difference between rendering techniques (including SSG), albeit tailored specifically to implementation in Next.js.
+
+This example uses SSG, which fetches product information and pre-renders the site at build time. This technique is great if your data doesn't update too often, or you can rebuild the site every time the data gets updated.
+
+```js
+// Example in Next.js for SSG with dynamic routes
+export async function getStaticPaths() {
+  const paths = await fetchProductPaths(); // Fetch all product IDs
+  return {
+    paths,
+    fallback: false,
+  };
+}
+
+export async function getStaticProps({ params }) {
+  const productData = await fetchProductData(params.id);
+  return {
+    props: {
+      product: productData,
+    },
+  };
+}
+
+const ProductPage = ({ product }) => {
+  return (
+    <div>
+      <h1>{product.name}</h1>
+      {/* Product details here */}
+    </div>
+  );
+};
+
+export default ProductPage;
+```
+
+> One thing to take note of when using server-rendered pages is hydration. On frameworks like Astro, or with Next.js app directory, components are rendered on the server by default, which means any interactive JavaScript is removed before being sent to the client. This can be troublesome for components that _do_ require interactivity such as buttons or forms, so take note of how your framework deals with **hydration**.
+>
+> Hydration is the process of adding in JavaScript to a pre-rendered static page, and may need to be specified and activated manually depending on your setup. See [Client Components](https://nextjs.org/docs/app/building-your-application/rendering/client-components) if you're using Next.js, and [Astro Islands](https://docs.astro.build/en/concepts/islands/) if you're using Astro.
+
+Alternatively, if you would rather the pre-rendering happen every page load (which is more useful if your data is updated often), Incremental Static Generation (ISR) ([Next.js Docs](https://nextjs.org/docs/pages/building-your-application/data-fetching/incremental-static-regeneration)) is a technique that lets you render pages as requests come in. You can also specify cache times to ensure a page doesn't get re-rendered too often.
+
+## Search Engine Optimization (SEO) & Meta Tags
+
+Using appropriate [meta tags](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta) is crucial for SEO and for providing rich link previews. Make sure each page has a unique title, description, and relevant keywords.
+
+```html
+<head>
+  <title>Product Name - E-commerce</title>
+  <meta name="description" content="Detailed description of the product." />
+  <meta name="keywords" content="e-commerce, product, buy, online store" />
+</head>
+```
+
+## Lighthouse and browser testing
+
+Lighthouse is an open-source audit tool that helps with performance, accessibility, progressive web apps, SEO, and more. For this challenge, perform a [Lighthouse](https://developer.chrome.com/docs/lighthouse/overview) audit to identify and fix performance, accessibility, and SEO issues. Aim for a score of 90 or higher in all sections of the report. Additionally, ensure your website is cross-browser compatible by testing on major browsers like Chrome, Firefox, and Safari. Double check CSS rendering and how JavaScript functions, as browsers may implement APIs or CSS properties slightly differently.
+
+## Further considerations
+
+### Accessibility
+
+Ensure your website meets accessibility standards. Use the Lighthouse accessibility score to identify areas for improvement. Pay attention to elements like alt text for images, ARIA roles, and keyboard navigability.
+
+### Open graph
+
+[Open Graph](https://ogp.me/) is a protocol that allows web pages to become rich objects in a social graph. By using Open Graph tags, you can control how your content is displayed on social media platforms.
+
+```html
+<head>
+  <meta property="og:title" content="Product Name" />
+  <meta property="og:description" content="Description of the product." />
+  <meta property="og:image" content="URL to product image" />
+  <meta property="og:url" content="https://www.example.com/product" />
+</head>
+```
+
+For advanced use cases, consider generating dynamic images for previews using tools like [Puppeteer](https://pptr.dev/) or [Vercel's Satori](https://github.com/vercel/satori). Both of these are quite advanced tools but can deliver performant and engaging dynamic link preview images.

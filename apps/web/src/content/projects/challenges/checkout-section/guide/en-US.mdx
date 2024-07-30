@@ -1,0 +1,110 @@
+This challenge involves several key concepts, such as using external APIs (especially payment gateways), form validation, and connecting and syncing data with back-end servers or databases.
+
+## Relevant concepts
+
+- **Fetching data from external APIs**: Integrating external APIs allows you to fetch dynamic data, such as shopping cart details, from a remote server. This is crucial for displaying real-time data to users, ensuring they have the most up-to-date information. Understanding how to handle these requests, managed fetched data, and appropriately handle caching, loading, and error states is integral to creating interactive experiences on the web.
+- **Form validation and error handling**: Ensuring that user inputs are valid and handling errors gracefully is critical for a robust checkout process. This involves checking user inputs against predefined rules and providing feedback. External libraries like [React Hook Form](https://react-hook-form.com/) or [Zod](https://zod.dev/) can simplify this process by offering tools to define validation schemas and manage form state.
+- **Database transactions**: Handling database transactions involves reading from and writing to a database securely and efficiently. Although setting up a backend is outside the scope of this challenge, understanding how to structure functions for database interactions prepares you for integrating a real backend later.
+
+## Recommended approach
+
+### General page and form layout
+
+To create a user-friendly and responsive checkout page, start with a clean HTML structure and use CSS for styling. You can use [CSS Grids](https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Grids), [CSS Flexboxes](https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Flexbox), or a combination of both to achieve the desired layout.
+
+Remember to use semantic HTML elements like `<div>`, `<section>`, `<form>`, `<input>`, and `<button>`. Ensure that the form is accessible and the layout adapts to different screen sizes using media queries.
+
+### Cart information
+
+If you are using `localStorage` to store cart data, you can fetch it directly from there. This is useful in situations where a user may not necessarily be signed in, or a server environment may not have been set up for session storage. However, for a more realistic solution, fetching the user's cart from a server or account is preferred. For this challenge, we'll demonstrate fetching data from the provided API. As usual, libraries such as
+
+```js
+fetch(
+  'https://www.greatfrontend.com/api/projects/challenges/e-commerce/cart-sample',
+)
+  .then((response) => response.json())
+  .then((data) => {
+    // Handle the cart data
+  })
+  .catch((error) => console.error(error));
+```
+
+#### Form validation
+
+Form validation is the process of ensuring a form's input is correctly entered, minimizing errors down the process and allowing users to correct themselves for points they may have mistakenly input. As form validation can range from simple forms with a couple inputs to complex forms with multiple input types—such as those we're building today, there are several libraries to help us handle this. Here's an example using [React Hook Form](https://react-hook-form.com/) and [Yup](https://github.com/jquense/yup) for validation.
+
+```js
+import { useForm } from 'react-hook-form';
+import * as Yup from 'yup';
+
+const schema = Yup.object().shape({
+  name: Yup.string().required('Name is required'),
+  email: Yup.string().email('Invalid email').required('Email is required'),
+});
+
+function CheckoutForm() {
+  const { register, handleSubmit, errors } = useForm({
+    validationSchema: schema,
+  });
+
+  const onSubmit = (data) => {
+    console.log(data);
+  };
+
+  return (
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <input {...register('name')} placeholder="Name" />
+      {errors.name && <p>{errors.name.message}</p>}
+
+      <input {...register('email')} placeholder="Email" />
+      {errors.email && <p>{errors.email.message}</p>}
+
+      <button type="submit">Submit</button>
+    </form>
+  );
+}
+```
+
+> You can also see in the above example React Hook Form also handles error messages for us automatically. This is an often-missed part of form handling, but is quite important as to provide the user information with how they should go with correcting their form data. Be sure to implement this in a clear and concise manner.
+
+#### Data handling and transactions
+
+Typically, functions for handling payment or database operations are handled outside of the UI code, often in their own `lib` or `utils` directory. As we cannot implement a backend here, simply set up a function that returns some predefined responses, but make sure to isolate out the functionality, so you can hook it up to a real API endpoint in the future.
+
+For payments, it's useful to integrate a payment API like [Stripe](https://stripe.com). As Stripe is fully free for simply testing out simple payment processes, try take your time to integrate a simple payment flow into your website. You can start with using Stripe's own UI, but building your own UI and integrating it into the payment flow is also always a good practice.
+
+> Testing modals for stock changes and handling empty carts are also crucial to ensure a smooth checkout experience. They may not show up often, but having them there will keep the user's experience straightforward and transparent.
+
+## Further considerations
+
+### Atomic transactions and database handling
+
+Atomic transactions ensure that a series of operations are completed as a single unit. If any part of the transaction fails, the entire transaction is rolled back, maintaining data integrity. For example, in a checkout process, deducting stock and charging a payment should be atomic operations to prevent inconsistencies like overselling products.
+
+```js
+// sample code for handling multiple database operations at once
+async function processOrder(orderDetails) {
+  try {
+    // Start transaction
+    await startTransaction();
+
+    // Deduct stock
+    await deductStock(orderDetails.items);
+
+    // Charge payment
+    await chargePayment(orderDetails.paymentInfo);
+
+    // Commit transaction
+    await commitTransaction();
+
+    console.log('Order processed successfully');
+  } catch (error) {
+    // Rollback transaction
+    await rollbackTransaction();
+
+    console.error('Error processing order:', error);
+  }
+}
+```
+
+Database management and operations are completely outside of the scope of the challenge, but it is useful to know what they are and how to manage them well should you need to deal with them in the future.
