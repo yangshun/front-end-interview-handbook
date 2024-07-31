@@ -1,3 +1,3 @@
-export function stripLeadingPeriodAndSlash(path: string) {
-  return path.replace(/^\.\//, '').replace(/^\./, '');
+export function stripBoundaryPeriodAndSlash(path: string) {
+  return path.replace(/^\.\//, '').replace(/^\./, '').replace(/\/$/, '');
 }

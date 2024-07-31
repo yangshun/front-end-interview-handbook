@@ -7,6 +7,7 @@ import type {
   PackageName,
   PackageVersion,
 } from '~/dts-fetch/types';
+import { stripBoundaryPeriodAndSlash } from '~/dts-fetch/utils';
 
 import type { Monaco } from '@monaco-editor/react';
 
@@ -14,6 +15,7 @@ type TypeDeclarationContent = string;
 type Path = string;
 type PackageModuleTypeDeclarations = ReadonlyArray<{
   contents: TypeDeclarationContent;
+  moduleName: string;
   relativePath: Path;
 }>;
 type PackageTypeDefs = Record<
@@ -41,12 +43,13 @@ async function fetchPackageTypeDeclarations(
     }
 
     const typeDeclarations = await Promise.all(
-      dtsList.map(async ({ dtsCdnUrl, dtsRelativePath }) => {
+      dtsList.map(async ({ dtsCdnUrl, dtsRelativePath, moduleName }) => {
         const response = await fetch(dtsCdnUrl);
         const contents = await response.text();
 
         return {
           contents,
+          moduleName,
           relativePath: dtsRelativePath,
         };
       }),
@@ -113,8 +116,15 @@ export default function useMonacoLanguagesFetchTypeDeclarations(
 
         const disposables: Array<IDisposable> = [];
 
-        packageDeclarations?.forEach(({ relativePath, contents }) => {
-          const filePath = `file:///node_modules/${packageName}/${relativePath}`;
+        packageDeclarations?.forEach(({ moduleName, contents }) => {
+          const filePath = [
+            'file:///node_modules',
+            packageName,
+            stripBoundaryPeriodAndSlash(moduleName),
+            'index.d.ts',
+          ]
+            .filter(Boolean)
+            .join('/');
 
           disposables.push(
             monaco.languages.typescript.typescriptDefaults.addExtraLib(
