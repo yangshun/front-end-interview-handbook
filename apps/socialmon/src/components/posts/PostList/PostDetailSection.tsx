@@ -5,7 +5,8 @@ import toast from 'react-hot-toast';
 import { trpc } from '~/hooks/trpc';
 
 import PostDetail from './PostDetail';
-import type { RedditPost } from '.prisma/client';
+
+import type { PostExtended } from '~/types';
 
 import { Modal, Text, Title } from '@mantine/core';
 import { useMediaQuery } from '@mantine/hooks';
@@ -13,8 +14,8 @@ import { useMediaQuery } from '@mantine/hooks';
 type Props = Readonly<{
   closeModal: () => void;
   openedModal: boolean;
-  selectedPost: RedditPost | null;
-  setSelectedPost: (post: RedditPost | null) => void;
+  selectedPost: PostExtended | null;
+  setSelectedPost: (post: PostExtended | null) => void;
 }>;
 
 export default function PostDetailSection({
@@ -48,7 +49,7 @@ export default function PostDetailSection({
   });
 
   async function generateResponse(
-    post: RedditPost,
+    post: PostExtended,
     setResponse: (value: ChangeEvent | string | null | undefined) => void,
   ) {
     const result = await generateResponseMutation.mutateAsync({
@@ -63,15 +64,15 @@ export default function PostDetailSection({
   }
 
   async function replyToPost(
-    post: RedditPost,
+    post: PostExtended,
     response: string,
-    accountUsername: string,
+    redditUserId: string,
   ) {
     console.info('Replying to post:', post.title);
 
     await replyPostMutation.mutateAsync({
-      accountUsername,
       postId: post.id,
+      redditUserId,
       response,
     });
   }
@@ -85,8 +86,8 @@ export default function PostDetailSection({
       isGeneratingResponse={generateResponseMutation.isLoading}
       isReplying={replyPostMutation.isLoading}
       post={selectedPost}
-      replyToPost={(response: string, accountUsername: string) =>
-        replyToPost(selectedPost, response, accountUsername)
+      replyToPost={(response: string, redditUserId: string) =>
+        replyToPost(selectedPost, response, redditUserId)
       }
       users={users}
     />

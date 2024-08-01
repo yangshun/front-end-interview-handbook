@@ -26,19 +26,20 @@ export const socialUsersRouter = router({
   deletePlatformUser: userProcedure
     .input(
       z.object({
-        username: z.string(),
+        id: z.string().uuid(),
       }),
     )
-    .mutation(async ({ input: { username } }) => {
+    .mutation(async ({ input: { id } }) => {
       await prisma.redditUser.delete({
         where: {
-          username,
+          id,
         },
       });
     }),
   getPlatformUsers: userProcedure.query(async () => {
     return await prisma.redditUser.findMany({
       select: {
+        id: true,
         username: true,
       },
     });

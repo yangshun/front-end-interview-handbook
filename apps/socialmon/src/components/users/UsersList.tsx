@@ -34,9 +34,7 @@ export default function UsersList() {
         <Text size="md">No accounts added yet!</Text>
       )}
 
-      {data?.map((user) => (
-        <UserCard key={user.username} username={user.username} />
-      ))}
+      {data?.map((user) => <UserCard key={user.username} user={user} />)}
 
       <AddUserModal opened={opened} onClose={close} />
     </Container>

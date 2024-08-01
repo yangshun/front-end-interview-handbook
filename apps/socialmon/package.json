@@ -32,6 +32,7 @@
     "dompurify": "^3.1.5",
     "dotenv": "^16.3.1",
     "lodash-es": "^4.17.21",
+    "marked": "^13.0.3",
     "next": "14.2.3",
     "next-auth": "^4.24.7",
     "prisma": "5.7.0",

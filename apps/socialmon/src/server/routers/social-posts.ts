@@ -1,11 +1,19 @@
 import { z } from 'zod';
 
-import { getPostsFromReddit, replyToRedditPost } from '~/db/RedditUtils';
-import { postSchema } from '~/schema';
+import { redditPermalinkToAPIUrl } from '~/components/posts/utils';
+
+import {
+  createRedditPost,
+  getPostsFromReddit,
+  replyToRedditPost,
+} from '~/db/RedditUtils';
 
 import prisma from '../prisma';
 import { router, userProcedure } from '../trpc';
 import OpenAIProvider from '../../providers/OpenAIProvider';
+import type { Comments } from '../../types';
+
+import { TRPCError } from '@trpc/server';
 
 function getAIProvider() {
   return new OpenAIProvider();
@@ -15,7 +23,11 @@ export const socialPostsRouter = router({
   generateResponse: userProcedure
     .input(
       z.object({
-        post: postSchema,
+        post: z.object({
+          content: z.string(),
+          id: z.string(),
+          title: z.string(),
+        }),
       }),
     )
     .mutation(async (opts) => {
@@ -32,6 +44,31 @@ export const socialPostsRouter = router({
           id: post.id,
         },
       });
+    }),
+  getPostComments: userProcedure
+    .input(
+      z.object({
+        permalink: z.string(),
+      }),
+    )
+    .query(async ({ input: { permalink } }) => {
+      const apiUrl = redditPermalinkToAPIUrl(permalink);
+      // To convert post url from https://www.reddit.com/r/*/need_beta_users_for_my_frontend_microsaas_tool/ to https://www.reddit.com/r/*/need_beta_users_for_my_frontend_microsaas_tool.json
+      const postResponse = await fetch(`${apiUrl.replace(/\/$/, '')}.json`, {
+        method: 'GET',
+      });
+
+      const data = await postResponse.json();
+      const [post, comments] = data;
+
+      // Because the 2nd item in the response is always the comments
+      return {
+        comments: comments as Comments,
+        post: createRedditPost({
+          matchedKeywords: [],
+          post: post.data.children[0].data,
+        }),
+      };
     }),
   getPosts: userProcedure
     .input(
@@ -53,12 +90,30 @@ export const socialPostsRouter = router({
       const postFilter =
         tab === 'all'
           ? {}
-          : tab === 'unreplied'
-            ? { replied: false }
-            : { replied: true };
+          : {
+              reply:
+                tab === 'unreplied'
+                  ? {
+                      is: null,
+                    }
+                  : {
+                      isNot: null,
+                    },
+            };
 
       const posts = await prisma.redditPost.findMany({
         cursor: cursor ? { id: cursor } : undefined,
+        include: {
+          reply: {
+            include: {
+              redditUser: {
+                select: {
+                  username: true,
+                },
+              },
+            },
+          },
+        },
         orderBy: {
           postedAt: 'desc',
         },
@@ -96,16 +151,16 @@ export const socialPostsRouter = router({
   replyToPost: userProcedure
     .input(
       z.object({
-        accountUsername: z.string(),
         postId: z.string(),
+        redditUserId: z.string().uuid(),
         response: z.string(),
       }),
     )
     .mutation(async ({ input }) => {
-      const { postId, response, accountUsername } = input;
+      const { postId, response, redditUserId } = input;
       const user = await prisma.redditUser.findUnique({
         where: {
-          username: accountUsername,
+          id: redditUserId,
         },
       });
 
@@ -120,21 +175,57 @@ export const socialPostsRouter = router({
       });
 
       if (!success) {
-        throw new Error('Something went wrong!');
+        throw new TRPCError({
+          code: 'INTERNAL_SERVER_ERROR',
+          message: 'Something went wrong',
+        });
       }
 
-      // Update the db with the actual response from the reddit
-      return await prisma.redditPost.update({
+      return await prisma.redditPostReply.create({
         data: {
-          replied: true,
-          repliedAt: redditResponse?.created_utc
+          content: redditResponse?.body || response,
+          createdAt: redditResponse?.created_utc
             ? new Date(redditResponse.created_utc * 1000) // In milliseconds
             : new Date(),
-          response: redditResponse?.body_html || response,
-        },
-        where: {
-          id: postId,
+          permalink: redditResponse?.permalink ?? '',
+          postId,
+          redditUserId,
         },
       });
     }),
+  updatePost: userProcedure
+    .input(
+      z.object({
+        data: z.object({
+          commentsCount: z.number().optional(),
+          content: z.string(),
+          title: z.string(),
+          upvoteCount: z.number().optional(),
+        }),
+        postId: z.string(),
+      }),
+    )
+    .mutation(
+      async ({
+        input: {
+          data: { commentsCount, content, title, upvoteCount },
+          postId,
+        },
+      }) => {
+        await prisma.redditPost.update({
+          data: {
+            commentsCount,
+            content,
+            title,
+            upvoteCount,
+            ...((commentsCount || upvoteCount) && {
+              statsUpdatedAt: new Date(),
+            }),
+          },
+          where: {
+            id: postId,
+          },
+        });
+      },
+    ),
 });

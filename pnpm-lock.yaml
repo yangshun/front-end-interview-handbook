@@ -129,6 +129,9 @@ importers:
       lodash-es:
         specifier: ^4.17.21
         version: 4.17.21
+      marked:
+        specifier: ^13.0.3
+        version: 13.0.3
       next:
         specifier: 14.2.3
         version: 14.2.3(@babel/core@7.24.7)(@opentelemetry/api@1.7.0)(react-dom@18.2.0)(react@18.2.0)
@@ -12124,6 +12127,12 @@ packages:
 
   /markdown-table@3.0.3:
     resolution: {integrity: sha512-Z1NL3Tb1M9wH4XESsCDEksWoKTdlUafKc4pt0GRwjUyXaCFZ+dc3g2erqB6zm3szA2IUSi7VnPI+o/9jnxh9hw==}
+    dev: false
+
+  /marked@13.0.3:
+    resolution: {integrity: sha512-rqRix3/TWzE9rIoFGIn8JmsVfhiuC8VIQ8IdX5TfzmeBucdY05/0UlzKaw0eVtpcN/OdVFpBk7CjKGo9iHJ/zA==}
+    engines: {node: '>= 18'}
+    hasBin: true
     dev: false
 
   /marky@1.2.5:

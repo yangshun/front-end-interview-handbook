@@ -6,7 +6,10 @@ import { trpc } from '~/hooks/trpc';
 import { ActionIcon, Card, Menu, Text } from '@mantine/core';
 
 type Props = Readonly<{
-  username: string;
+  user: {
+    id: string;
+    username: string;
+  };
 }>;
 
 function UserDataItem({ label, value }: { label: string; value: string }) {
@@ -18,7 +21,7 @@ function UserDataItem({ label, value }: { label: string; value: string }) {
   );
 }
 
-export default function UserCard({ username }: Props) {
+export default function UserCard({ user }: Props) {
   const utils = trpc.useUtils();
   const deleteUserMutation = trpc.socialUsers.deletePlatformUser.useMutation({
     onError() {
@@ -51,12 +54,12 @@ export default function UserCard({ username }: Props) {
           <Menu.Item
             color="red"
             leftSection={<RiDeleteBinLine />}
-            onClick={() => deleteUserMutation.mutate({ username })}>
+            onClick={() => deleteUserMutation.mutate({ id: user.id })}>
             Delete
           </Menu.Item>
         </Menu.Dropdown>
       </Menu>
-      <UserDataItem label="Username" value={username} />
+      <UserDataItem label="Username" value={user.username} />
     </Card>
   );
 }

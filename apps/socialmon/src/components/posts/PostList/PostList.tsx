@@ -12,9 +12,8 @@ import { NAVBAR_HEIGHT } from '~/constants';
 import FetchPostButton from './FetchPostButton';
 import PostDetailSection from './PostDetailSection';
 import PostItem from './PostItem';
-import type { RedditPost } from '.prisma/client';
 
-import type { PostTab } from '~/types';
+import type { PostExtended, PostTab } from '~/types';
 
 import '@mantine/core/styles.css';
 
@@ -40,11 +39,11 @@ export default function PostList() {
       },
     );
   const [opened, { open, close }] = useDisclosure(false);
-  const [selectedPost, setSelectedPost] = useState<RedditPost | null>(null);
+  const [selectedPost, setSelectedPost] = useState<PostExtended | null>(null);
 
   const posts = data?.pages.flatMap((page) => page.posts);
 
-  const handleSelectPost = (post: RedditPost) => {
+  const handleSelectPost = (post: PostExtended) => {
     setSelectedPost(post);
     open();
   };

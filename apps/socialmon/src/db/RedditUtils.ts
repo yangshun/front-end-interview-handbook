@@ -18,25 +18,24 @@ export function initializeRedditClient(username?: string, password?: string) {
   });
 }
 
-function createRedditPost({
+export function createRedditPost({
   matchedKeywords,
   post,
 }: {
   matchedKeywords: Array<string>;
   post: Submission;
-}): RedditPost {
+}): Omit<RedditPost, 'createdAt' | 'response' | 'updatedAt'> {
   return {
-    content: post.selftext_html ?? post.selftext,
-    createdAt: new Date(),
+    commentsCount: post.num_comments,
+    content: post.selftext,
     id: post.id,
     keywords: matchedKeywords,
-    postedAt: new Date(post.created_utc * 1000), // In milliseconds
-    replied: false,
-    repliedAt: null,
-    response: null,
+    permalink: post.permalink,
+    postedAt: new Date(post.created_utc * 1000),
+    statsUpdatedAt: new Date(),
     subreddit: post.subreddit_name_prefixed,
     title: post.title,
-    url: post.url,
+    upvoteCount: post.ups,
   };
 }
 

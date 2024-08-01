@@ -4,8 +4,6 @@ import resources from '~/data/resources.json' assert { type: 'json' };
 
 import { aiResponseSchema } from '~/schema';
 
-import type { RedditPost } from '.prisma/client';
-
 import type { AIResponse } from '~/types';
 
 import { openai } from '@ai-sdk/openai';
@@ -40,14 +38,18 @@ class OpenAIProvider {
     `;
   }
 
-  private getUserPrompt(post: RedditPost): string {
+  private getUserPrompt(
+    post: Readonly<{ content: string; title: string }>,
+  ): string {
     return `
       The title of the post is: ${post.title}
       The content of the post is: ${post.content}
     `;
   }
 
-  async generateResponseTo(post: RedditPost): Promise<AIResponse> {
+  async generateResponseTo(
+    post: Readonly<{ content: string; title: string }>,
+  ): Promise<AIResponse> {
     console.info('Generating response to post:', post.title);
 
     const systemPrompt = this.getSystemPrompt();
