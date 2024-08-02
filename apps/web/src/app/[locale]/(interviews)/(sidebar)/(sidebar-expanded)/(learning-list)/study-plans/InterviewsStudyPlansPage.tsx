@@ -223,7 +223,7 @@ export default function InterviewsStudyPlansPage({
               <CardContainer>
                 <div className="flex flex-col gap-y-4">
                   <InterviewsMarketingTestimonialCard
-                    {...testimonials.lucaVaccarini}
+                    {...testimonials.locChuong}
                   />
                   <InterviewsMarketingTestimonialCard
                     {...testimonials.chenweiZhang}

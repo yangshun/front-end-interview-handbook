@@ -182,18 +182,16 @@ export function useInterviewsMarketingTestimonialsDict() {
       'I joined GreatFrontEnd at the beginning of this year when I was trying to prepare my interviews. There are many resources about system design out there on the Internet but they are more for distributed systems and not meant for front end engineers. The system design materials on GFE are definitely gems. It opens up my mind about how to approach a system design question by using the RADIO framework. More importantly, the team behind it is super responsive and supportive. They not only provide interview guidance in a timely manner but also give you advice about career growth whenever necessary. All in all, I really appreciate the help I get from GFE!',
     title: 'Front End Engineer',
   };
-  const lucaVaccarini: InterviewsMarketingTestimonial = {
-    anonymous: false,
-    authorThumbnailUrl: '/img/testimonials/users/luca-vaccarini.webp',
-    authorUrl: 'https://www.linkedin.com/in/gianluca-vaccarini/',
+  const luca: InterviewsMarketingTestimonial = {
+    anonymous: true,
     companyLogoUrl: '/img/testimonials/company/atlassian.svg',
     createdAt: '2024-05-06',
     featured: true,
     featuredOffer: 'Atlassian',
     fromCompany: 'Snap',
-    id: 'luca-vaccarini',
-    location: 'Seattle, US',
-    name: 'Luca Vaccarini',
+    id: 'luca',
+    location: 'US',
+    name: 'Luca',
     offers: ['Microsoft', 'Rippling', 'Discord'],
     testimonial:
       "In today's extremely competitive and challenging job market, GreatFrontEnd was key to my success in frontend interviews, which led to me landing 4 senior level job offers, all at large tech companies. The system design content on the site is in my opinion better than any other system design content available online for frontend. Prior to joining GFE, I had no structure to my frontend system design interviews, but after going through the material and following their recommended framework, I passed every single one of my system design rounds. GFE covers frontend knowledge as well as frontend coding very well, their questions appeared in several of my interview loops which helped me not only be fully prepared for all of my interviews, but helped me excel in them. For frontend developers looking to stand out in today's job market via interview performance, GreatFrontEnd is a must have.",
@@ -614,7 +612,7 @@ export function useInterviewsMarketingTestimonialsDict() {
     jacky,
     larry,
     locChuong,
-    lucaVaccarini,
+    luca,
     luke: lukeFiji,
     lunghaoLee,
     nafis,
