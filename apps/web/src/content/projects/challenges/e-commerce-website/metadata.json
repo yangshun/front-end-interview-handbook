@@ -26,6 +26,8 @@
     "performance": 15
   },
   "skills": [],
+  "solutionFrameworks": ["react"],
+  "solutionFrameworkDefault": "react",
   "resources": [
     "design-files",
     "image-assets",
