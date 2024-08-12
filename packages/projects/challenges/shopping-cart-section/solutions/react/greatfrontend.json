@@ -1,0 +1,10 @@
+{
+  "visibleFiles": [
+    "/src/App.js",
+    "/src/index.css",
+    "/src/pages/Cart/CartPage.jsx"
+  ],
+  "activeFile": "/src/App.js",
+  "environment": "create-react-app",
+  "externalResources": ["https://cdn.tailwindcss.com"]
+}

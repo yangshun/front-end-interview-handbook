@@ -1,0 +1,19 @@
+{
+  "name": "@gfe-challenges/shopping-cart-section-solution",
+  "version": "0.0.1",
+  "dependencies": {
+    "clsx": "^2.1.1",
+    "react-icons": "^5.2.1",
+    "react-router-dom": "^6.23.1",
+    "usehooks-ts": "^3.1.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-scripts": "5.0.1"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  }
+}
