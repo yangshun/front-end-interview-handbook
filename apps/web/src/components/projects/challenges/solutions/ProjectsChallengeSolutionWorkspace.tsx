@@ -45,8 +45,10 @@ const UserInterfaceCodingWorkspaceTilesPanelRoot =
 
 function ProjectsChallengeSolutionWorkspaceImpl({
   defaultFiles,
+  startRoute,
 }: Readonly<{
   defaultFiles: SandpackFiles;
+  startRoute?: string;
 }>) {
   const copyRef = useQuestionLogEventCopyContents<HTMLDivElement>();
   const { dispatch } = useUserInterfaceCodingWorkspaceTilesContext();
@@ -150,7 +152,11 @@ function ProjectsChallengeSolutionWorkspaceImpl({
       },
       preview: {
         contents: (
-          <SandpackPreview showNavigator={true} showOpenInCodeSandbox={false} />
+          <SandpackPreview
+            showNavigator={true}
+            showOpenInCodeSandbox={false}
+            startRoute={startRoute}
+          />
         ),
         icon: CodingWorkspaceTabIcons.browser.icon,
         label: 'Browser',
@@ -281,9 +287,11 @@ function ProjectsChallengeSolutionWorkspaceImpl({
 export default function ProjectsChallengeSolutionWorkspace({
   activeTabScrollIntoView = true,
   defaultFiles,
+  startRoute,
 }: Readonly<{
   activeTabScrollIntoView?: boolean;
   defaultFiles: SandpackFiles;
+  startRoute?: string;
 }>) {
   const { sandpack } = useSandpack();
   const { activeFile, visibleFiles } = sandpack;
@@ -335,7 +343,10 @@ export default function ProjectsChallengeSolutionWorkspace({
     <TilesProvider
       activeTabScrollIntoView={activeTabScrollIntoView}
       defaultValue={layout}>
-      <ProjectsChallengeSolutionWorkspaceImpl defaultFiles={defaultFiles} />
+      <ProjectsChallengeSolutionWorkspaceImpl
+        defaultFiles={defaultFiles}
+        startRoute={startRoute}
+      />
     </TilesProvider>
   );
 }

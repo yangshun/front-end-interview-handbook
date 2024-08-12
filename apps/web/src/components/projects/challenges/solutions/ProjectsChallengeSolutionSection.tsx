@@ -45,6 +45,7 @@ export default function ProjectsChallengeSolutionSection({ solution }: Props) {
         <ProjectsChallengeSolutionWorkspace
           activeTabScrollIntoView={true}
           defaultFiles={files}
+          startRoute={workspace?.startRoute}
         />
         <SandpackTimeoutLogger instance="projects.official_solutions" />
       </SandpackProvider>
