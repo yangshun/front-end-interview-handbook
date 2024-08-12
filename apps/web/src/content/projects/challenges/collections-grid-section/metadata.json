@@ -26,6 +26,8 @@
     "style-guide",
     "api"
   ],
+  "solutionFrameworks": ["react"],
+  "solutionFrameworkDefault": "react",
   "coverImage": "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/render/image/public/projects-images/collections-grid-section/cover.jpg",
   "galleryImages": [
     "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/render/image/public/projects-images/collections-grid-section/gallery/Desktop.jpg",
