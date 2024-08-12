@@ -22,7 +22,7 @@ const Badge = ({ label, size = 'md', variant = 'neutral', className }) => {
         commonClasses,
         sizeClasses[size],
         variantClasses[variant],
-        className
+        className,
       )}>
       {label}
     </div>

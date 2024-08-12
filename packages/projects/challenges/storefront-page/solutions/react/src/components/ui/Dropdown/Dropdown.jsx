@@ -33,7 +33,7 @@ const DropdownItem = ({ children, isSelected, onSelect }) => {
         'border-none outline-none',
         'focus:ring focus:ring-indigo-200',
         'p-2',
-        isSelected ? 'text-indigo-700 font-medium' : 'text-neutral-600'
+        isSelected ? 'font-medium text-indigo-700' : 'text-neutral-600',
       )}
       role="menuitem"
       tabIndex={isOpen ? 0 : -1}
@@ -49,7 +49,7 @@ const Dropdown = ({ children }) => {
   const dropdownRef = useRef(null);
 
   useEffect(() => {
-    const handleClickOutside = event => {
+    const handleClickOutside = (event) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
         setIsOpen(false);
       }
@@ -77,11 +77,11 @@ const Dropdown = ({ children }) => {
 
       <div
         className={clsx(
-          'absolute right-0 z-dropdown mt-2 w-56 origin-top-right max-h-50',
+          'z-dropdown max-h-50 absolute right-0 mt-2 w-56 origin-top-right',
           'border border-[#e6e6e6]',
           'rounded-lg bg-white shadow-lg',
-          'transition ease-in-out duration-300 transform origin-top',
-          isOpen ? 'scale-y-100 opacity-100' : 'scale-y-0 opacity-0'
+          'origin-top transform transition duration-300 ease-in-out',
+          isOpen ? 'scale-y-100 opacity-100' : 'scale-y-0 opacity-0',
         )}
         role="menu"
         aria-orientation="vertical"

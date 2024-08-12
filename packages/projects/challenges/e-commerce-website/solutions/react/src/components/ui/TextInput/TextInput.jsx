@@ -29,11 +29,11 @@ const TextInput = ({
   const hasBottomSection = !!errorMessage || !!hintMessage;
 
   return (
-    <div className={clsx('flex flex-col gap-1.5 w-full', 'relative')}>
+    <div className={clsx('flex w-full flex-col gap-1.5', 'relative')}>
       {label && (
         <label
           className={clsx(
-            isLabelHidden ? 'sr-only' : 'text-sm font-medium text-neutral-700'
+            isLabelHidden ? 'sr-only' : 'text-sm font-medium text-neutral-700',
           )}
           htmlFor={id}>
           {label}
@@ -56,25 +56,25 @@ const TextInput = ({
           type={type}
           placeholder={placeholder}
           value={value}
-          onChange={event => onChange?.(event.target.value, event)}
+          onChange={(event) => onChange?.(event.target.value, event)}
           required={required}
           disabled={isDisabled}
           {...props}
           className={clsx(
             'block w-full',
-            'py-[9px] px-[13px]',
+            'px-[13px] py-[9px]',
             'outline:none',
             'border border-neutral-200 disabled:border-neutral-100',
             'bg-neutral-50',
             'rounded',
             'text-sm text-neutral-900 placeholder:text-neutral-500 disabled:text-neutral-400 disabled:placeholder:text-neutral-400',
             'focus:outline-none',
-            'focus:ring-4 focus:ring-offset-0 focus:ring-indigo-600/[.12] focus:border-indigo-600',
-            hasError && 'focus:ring-red-600/[.12] focus:border-red-600',
+            'focus:border-indigo-600 focus:ring-4 focus:ring-indigo-600/[.12] focus:ring-offset-0',
+            hasError && 'focus:border-red-600 focus:ring-red-600/[.12]',
             'disabled:pointer-events-none',
             StartIcon && 'pl-[41px]',
             EndIcon && 'pr-[38px]',
-            className
+            className,
           )}
         />
 
@@ -93,7 +93,7 @@ const TextInput = ({
           id={messageId}
           className={clsx(
             'text-sm text-neutral-500',
-            hasError && 'text-red-600'
+            hasError && 'text-red-600',
           )}>
           {errorMessage || hintMessage}
         </div>

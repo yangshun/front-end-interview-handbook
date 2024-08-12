@@ -94,7 +94,6 @@ export type ProjectsChallengeSolutionWorkspace = Readonly<{
   activeFile?: string;
   environment: SandboxEnvironment;
   externalResources?: Array<string>;
-  startRoute?: string;
   visibleFiles?: Array<string>;
 }>;
 

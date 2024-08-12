@@ -46,18 +46,18 @@ const ProductListingContextProvider = ({ children }) => {
       ) {
         queryString = [
           ...Array.from(colors).map(
-            color => `${COLORS_OPTIONS.key}=${encodeURIComponent(color)}`
+            (color) => `${COLORS_OPTIONS.key}=${encodeURIComponent(color)}`,
           ),
           ...Array.from(collections).map(
-            collection =>
-              `${COLLECTIONS_OPTIONS.key}=${encodeURIComponent(collection)}`
+            (collection) =>
+              `${COLLECTIONS_OPTIONS.key}=${encodeURIComponent(collection)}`,
           ),
           ...Array.from(ratings).map(
-            rating => `${RATING_OPTIONS.key}=${encodeURIComponent(rating)}`
+            (rating) => `${RATING_OPTIONS.key}=${encodeURIComponent(rating)}`,
           ),
           ...Array.from(categories).map(
-            category =>
-              `${CATEGORY_OPTIONS.key}=${encodeURIComponent(category)}`
+            (category) =>
+              `${CATEGORY_OPTIONS.key}=${encodeURIComponent(category)}`,
           ),
         ].join('&');
       }
@@ -69,7 +69,7 @@ const ProductListingContextProvider = ({ children }) => {
       const data = await fetch(
         `https://www.greatfrontend.com/api/projects/challenges/e-commerce/products${
           queryString ? `?${queryString}` : ''
-        }`
+        }`,
       );
       const result = await data.json();
 
@@ -78,7 +78,7 @@ const ProductListingContextProvider = ({ children }) => {
       }
       setIsProductsLoading(false);
     },
-    []
+    [],
   );
 
   useEffect(() => {

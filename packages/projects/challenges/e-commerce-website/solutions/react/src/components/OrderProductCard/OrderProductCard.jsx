@@ -12,12 +12,12 @@ const OrderProductCard = ({ data, type = 'cart' }) => {
 
   return (
     <div className={clsx('flex gap-6', isCartView && 'flex-col md:flex-row')}>
-      <div className="flex gap-6 flex-1">
+      <div className="flex flex-1 gap-6">
         <img
           src={unit.image_url}
           className={clsx(
-            'rounded-lg object-cover shrink-0',
-            isCartView ? 'size-14 md:size-20' : 'size-20'
+            'shrink-0 rounded-lg object-cover',
+            isCartView ? 'size-14 md:size-20' : 'size-20',
           )}
           alt={`${SIZE[unit.size]?.long ?? unit.size} ${product.name} in ${
             unit.color
@@ -40,14 +40,14 @@ const OrderProductCard = ({ data, type = 'cart' }) => {
         </div>
       </div>
       <div className="flex flex-col items-end gap-2">
-        <span className="font-semibold text-lg">
+        <span className="text-lg font-semibold">
           $
           {hasDiscount
             ? formatPrice(total_sale_price)
             : formatPrice(total_list_price)}
         </span>
         {hasDiscount && (
-          <span className="text-lg line-through  text-neutral-600">
+          <span className="text-lg text-neutral-600  line-through">
             ${formatPrice(total_list_price)}
           </span>
         )}

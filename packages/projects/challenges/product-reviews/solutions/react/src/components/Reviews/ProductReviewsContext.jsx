@@ -38,12 +38,12 @@ const ProductReviewsContextProvider = ({ children }) => {
       const data = await fetch(
         `https://www.greatfrontend.com/api/projects/challenges/e-commerce/products/voyager-hoodie/reviews?page=${currentPage}&per_page=${limit}${
           selectedRating ? `&rating=${selectedRating}` : ''
-        }`
+        }`,
       );
       const result = await data.json();
       if (result) {
         setReviews(
-          currentPage === 1 ? result.data : prev => [...prev, ...result.data]
+          currentPage === 1 ? result.data : (prev) => [...prev, ...result.data],
         );
         setAggregateRating(result.aggregate);
         setPagination({
@@ -55,7 +55,7 @@ const ProductReviewsContextProvider = ({ children }) => {
       setIsInitialLoading(false);
       setIsFetchingMore(false);
     },
-    [currentPage, limit, selectedRating]
+    [currentPage, limit, selectedRating],
   );
 
   useEffect(() => {
@@ -65,11 +65,11 @@ const ProductReviewsContextProvider = ({ children }) => {
 
   const loadMoreReviews = useCallback(() => {
     if (pagination.hasMore) {
-      setCurrentPage(prev => prev + 1);
+      setCurrentPage((prev) => prev + 1);
     }
   }, [pagination.hasMore]);
 
-  const onRatingSelect = useCallback(value => {
+  const onRatingSelect = useCallback((value) => {
     setSelectedRating(value);
     setCurrentPage(1);
   }, []);

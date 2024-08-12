@@ -16,7 +16,7 @@ const ProductListingSection = () => {
       <div
         className={clsx(
           'col-span-4 md:col-span-6 lg:col-span-9',
-          'flex justify-center'
+          'flex justify-center',
         )}>
         Loading...
       </div>
@@ -27,17 +27,17 @@ const ProductListingSection = () => {
     return (
       <div
         className={clsx(
-          'w-full h-full',
+          'h-full w-full',
           'col-span-4 md:col-span-6 lg:col-span-9',
-          'flex items-center justify-center flex-col gap-5'
+          'flex flex-col items-center justify-center gap-5',
         )}>
         <IconWrapper icon={RiTShirt2Line} />
         <div
           className={clsx(
             'flex flex-col items-center gap-2',
-            'text-neutral-900 text-center'
+            'text-center text-neutral-900',
           )}>
-          <span className="font-medium text-xl">Nothing found just yet</span>
+          <span className="text-xl font-medium">Nothing found just yet</span>
           <span>
             Adjust your filters a bit, and let's see what we can find!
           </span>
@@ -47,7 +47,7 @@ const ProductListingSection = () => {
     );
   }
 
-  return products.map(product => (
+  return products.map((product) => (
     <div key={product.product_id} className={clsx('col-span-4 md:col-span-3')}>
       <ProductCard product={product} />
     </div>

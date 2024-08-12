@@ -16,7 +16,7 @@ const CheckoutOrderSummary = ({ className }) => {
   const subtotal = useMemo(() => getSubtotal(cartItems), [cartItems]);
   const finalAmount = useMemo(
     () => getFinalAmount(subtotal, discount),
-    [subtotal, discount]
+    [subtotal, discount],
   );
 
   return (
@@ -27,14 +27,14 @@ const CheckoutOrderSummary = ({ className }) => {
         'border border-neutral-200',
         'p-[15px] md:p-[31px]',
         'flex flex-col gap-8',
-        className
+        className,
       )}>
-      <h3 className="font-semibold text-xl">Order Summary</h3>
+      <h3 className="text-xl font-semibold">Order Summary</h3>
       <div
-        className={clsx('divide-y divide-neutral-300', 'flex flex-col flex-1')}>
+        className={clsx('divide-y divide-neutral-300', 'flex flex-1 flex-col')}>
         <ul
           className={clsx('divide-y divide-dashed divide-neutral-300', 'pb-8')}>
-          {cartItems.map(item => {
+          {cartItems.map((item) => {
             const {
               unit,
               quantity,
@@ -49,13 +49,13 @@ const CheckoutOrderSummary = ({ className }) => {
               <li
                 key={unit.sku}
                 className={clsx(
-                  'flex gap-6 flex-col md:flex-row',
-                  'py-8 first:pt-0 last:pb-0'
+                  'flex flex-col gap-6 md:flex-row',
+                  'py-8 first:pt-0 last:pb-0',
                 )}>
-                <div className="flex gap-6 flex-1">
+                <div className="flex flex-1 gap-6">
                   <img
                     src={unit.image_url}
-                    className="size-14 md:size-20 rounded-lg object-cover"
+                    className="size-14 rounded-lg object-cover md:size-20"
                     alt={`${SIZE[unit.size]?.long ?? unit.size} ${
                       product.name
                     } in ${unit.color}`}
@@ -77,14 +77,14 @@ const CheckoutOrderSummary = ({ className }) => {
                   </div>
                 </div>
                 <div className="flex flex-col items-end gap-2">
-                  <span className="font-semibold text-lg">
+                  <span className="text-lg font-semibold">
                     $
                     {hasDiscount
                       ? formatPrice(total_sale_price)
                       : formatPrice(total_list_price)}
                   </span>
                   {hasDiscount && (
-                    <span className="text-lg line-through  text-neutral-600">
+                    <span className="text-lg text-neutral-600  line-through">
                       ${formatPrice(total_list_price)}
                     </span>
                   )}
@@ -98,23 +98,23 @@ const CheckoutOrderSummary = ({ className }) => {
           className={clsx(
             'py-8',
             'flex flex-col gap-4 lg:flex-1',
-            'h-full md:h-[247px] lg:h-full'
+            'h-full md:h-[247px] lg:h-full',
           )}>
-          <div className="flex items-center gap-2 justify-between">
+          <div className="flex items-center justify-between gap-2">
             <span className="text-neutral-600">Subtotal</span>
-            <span className="font-semibold text-lg">${subtotal}</span>
+            <span className="text-lg font-semibold">${subtotal}</span>
           </div>
-          <div className="flex items-center gap-2 justify-between">
+          <div className="flex items-center justify-between gap-2">
             <span className="text-neutral-600">Shipping</span>
-            <span className="font-semibold text-lg">FREE</span>
+            <span className="text-lg font-semibold">FREE</span>
           </div>
           {discount && (
-            <div className="flex gap-2 justify-between md:items-center">
-              <div className="flex items-center flex-col md:flex-row gap-x-8 gap-y-2">
+            <div className="flex justify-between gap-2 md:items-center">
+              <div className="flex flex-col items-center gap-x-8 gap-y-2 md:flex-row">
                 <span className="text-neutral-600">Coupon discount</span>
                 <Badge label={discount.coupon_code} variant="brand" size="lg" />
               </div>
-              <span className="font-semibold text-lg">
+              <span className="text-lg font-semibold">
                 -
                 {discount.discount_amount
                   ? `$${discount.discount_amount.toFixed(2)}`
@@ -124,9 +124,9 @@ const CheckoutOrderSummary = ({ className }) => {
           )}
         </dl>
 
-        <div className={clsx('flex gap-4 justify-between', 'pt-8')}>
-          <span className="font-medium text-2xl">Total</span>
-          <span className="font-semibold text-4xl">${finalAmount}</span>
+        <div className={clsx('flex justify-between gap-4', 'pt-8')}>
+          <span className="text-2xl font-medium">Total</span>
+          <span className="text-4xl font-semibold">${finalAmount}</span>
         </div>
       </div>
 

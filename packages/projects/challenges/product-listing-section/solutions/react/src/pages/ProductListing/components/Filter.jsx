@@ -72,7 +72,7 @@ const Filter = () => {
         <AccordionItem id={COLORS_OPTIONS.key}>
           <AccordionTrigger>{COLORS_OPTIONS.title}</AccordionTrigger>
           <AccordionContent>
-            <div className="flex gap-2 flex-wrap">
+            <div className="flex flex-wrap gap-2">
               {COLORS_OPTIONS.items.map(({ color, value }) => (
                 <ColorSwatches
                   key={value}
@@ -90,14 +90,14 @@ const Filter = () => {
         <AccordionItem id={RATING_OPTIONS.key}>
           <AccordionTrigger>{RATING_OPTIONS.title}</AccordionTrigger>
           <AccordionContent>
-            <div className="flex flex-col gap-4 lg:gap-6 items-start">
+            <div className="flex flex-col items-start gap-4 lg:gap-6">
               {RATING_OPTIONS.items.map(({ value }) => (
                 <button
                   key={value}
                   type="button"
                   className={clsx(
                     'rounded',
-                    'focus:outline-none focus-visible:ring-2 focus:ring-offset-0 focus:ring-indigo-600/[.12]'
+                    'focus:outline-none focus:ring-indigo-600/[.12] focus:ring-offset-0 focus-visible:ring-2',
                   )}
                   onClick={() => onSelect(RATING_OPTIONS.key, value)}>
                   <Rating
@@ -127,7 +127,7 @@ const Filter = () => {
 
   return (
     <div>
-      <div className="hidden lg:block sticky top-10">{filterItems}</div>
+      <div className="sticky top-10 hidden lg:block">{filterItems}</div>
       <div className="block lg:hidden">
         <SlideOut
           isShown={isFilterOpen}

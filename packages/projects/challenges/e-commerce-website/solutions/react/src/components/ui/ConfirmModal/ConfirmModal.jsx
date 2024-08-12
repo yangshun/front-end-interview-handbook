@@ -33,29 +33,29 @@ const ConfirmModal = ({
   return createPortal(
     <div
       className={clsx(
-        'fixed inset-0  z-modal',
+        'z-modal fixed  inset-0',
         'bg-neutral-950 bg-opacity-70',
-        'flex items-center justify-center'
+        'flex items-center justify-center',
       )}
       role="dialog"
       aria-modal="true">
       <div
         className={clsx(
-          'bg-white rounded-lg',
+          'rounded-lg bg-white',
           'w-[343px]',
           'p-6',
           'flex flex-col gap-8',
-          className
+          className,
         )}>
         {children ? (
           children
         ) : (
           <div className="flex flex-col gap-1">
-            <div className={clsx('flex justify-between items-center gap-4')}>
-              <div className="font-semibold text-lg">{title}</div>
+            <div className={clsx('flex items-center justify-between gap-4')}>
+              <div className="text-lg font-semibold">{title}</div>
               <button
                 aria-label="Close modal"
-                className="text-black text-xl font-semibold"
+                className="text-xl font-semibold text-black"
                 onClick={onClose}>
                 <RiCloseLine className="size-6" />
               </button>
@@ -83,7 +83,7 @@ const ConfirmModal = ({
         </div>
       </div>
     </div>,
-    document.body
+    document.body,
   );
 };
 

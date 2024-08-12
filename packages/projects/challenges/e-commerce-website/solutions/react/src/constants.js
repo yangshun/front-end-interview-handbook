@@ -187,7 +187,6 @@ export const FIELD_NAME = {
   cardCvv: 'CVV',
 };
 
-
 export const COUNTRIES = [
   {
     id: 'US',

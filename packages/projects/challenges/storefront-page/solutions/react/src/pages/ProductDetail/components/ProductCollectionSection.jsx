@@ -14,13 +14,13 @@ const ProductCollectionSection = () => {
     setIsCollectionProductsLoading(true);
 
     const data = await fetch(
-      `https://www.greatfrontend.com/api/projects/challenges/e-commerce/products?collection=latest`
+      `https://www.greatfrontend.com/api/projects/challenges/e-commerce/products?collection=latest`,
     );
     const result = await data.json();
 
     if (!result.error) {
       setCollectionsProducts(
-        result.data.filter(item => item.product_id !== productId).slice(0, 4)
+        result.data.filter((item) => item.product_id !== productId).slice(0, 4),
       );
     }
     setIsCollectionProductsLoading(false);
@@ -33,7 +33,7 @@ const ProductCollectionSection = () => {
   return (
     <section
       className={clsx('px-4 py-12 md:py-16 lg:p-24', 'flex flex-col gap-8')}>
-      <span className="font-semibold text-2xl md:text-3xl">
+      <span className="text-2xl font-semibold md:text-3xl">
         In this collection
       </span>
       {isCollectionProductsLoading ? (

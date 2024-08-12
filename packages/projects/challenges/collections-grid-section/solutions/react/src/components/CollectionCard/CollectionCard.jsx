@@ -21,12 +21,12 @@ const CollectionCard = ({
   const redirectUrl = `/products?collectionId=${id}`;
 
   const handleKeyDown = useCallback(
-    event => {
+    (event) => {
       if (event.key === 'Enter') {
         navigate(redirectUrl);
       }
     },
-    [navigate, redirectUrl]
+    [navigate, redirectUrl],
   );
 
   return (
@@ -34,8 +34,8 @@ const CollectionCard = ({
       className={clsx(
         'relative',
         'group',
-        'rounded-lg overflow-hidden',
-        'focus:outline-none focus-visible:ring-4 focus-visible:ring-indigo-600/[.12]'
+        'overflow-hidden rounded-lg',
+        'focus:outline-none focus-visible:ring-4 focus-visible:ring-indigo-600/[.12]',
       )}
       onKeyDown={handleKeyDown}
       tabIndex={0}>
@@ -43,21 +43,21 @@ const CollectionCard = ({
         loading="lazy"
         src={imageUrl}
         alt={`${name}'s banner`}
-        className={clsx('object-cover w-full', variantClasses[variant])}
+        className={clsx('w-full object-cover', variantClasses[variant])}
       />
       <Link
         tabIndex={-1}
         to={redirectUrl}
         variant="unstyled"
-        className="absolute inset-0 bg-collection hover:bg-collection-hover transition-all duration-300">
+        className="bg-collection hover:bg-collection-hover absolute inset-0 transition-all duration-300">
         <div
           className={clsx(
             'absolute inset-x-4 bottom-4',
             'flex flex-col',
-            'text-white'
+            'text-white',
           )}>
           <span className="text-sm">{name}</span>
-          <span className="font-medium text-lg">{description}</span>
+          <span className="text-lg font-medium">{description}</span>
         </div>
       </Link>
     </div>

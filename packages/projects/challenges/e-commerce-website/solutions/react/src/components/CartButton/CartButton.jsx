@@ -13,23 +13,23 @@ const CartButton = ({ disabled }) => {
       to="/cart"
       aria-label="Cart button"
       className={clsx(
-        'text-neutral-600 rounded relative',
+        'relative rounded text-neutral-600',
         'focus:outline-none focus-visible:ring-4 focus-visible:ring-indigo-600/[.12]',
         {
           'pointer-events-none text-neutral-400': disabled,
-        }
+        },
       )}>
       <RiShoppingBag3Line className="size-6" aria-hidden="true" />
 
       {count > 0 && (
         <div
           className={clsx(
-            'absolute -top-1.5 -right-1.5 rounded-full text-xs text-center font-semibold h-[18px] w-[18px]',
+            'absolute -right-1.5 -top-1.5 h-[18px] w-[18px] rounded-full text-center text-xs font-semibold',
             'flex items-center justify-center',
             {
               'bg-indigo-700 text-white': !disabled,
               'bg-neutral-100 text-neutral-400': disabled,
-            }
+            },
           )}>
           {count}
         </div>

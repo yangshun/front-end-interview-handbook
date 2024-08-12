@@ -9,27 +9,27 @@ const CartControl = ({ quantity, decrement, increment, availableStock }) => {
   return (
     <div
       className={clsx(
-        'w-[125px] h-9',
-        'flex justify-center items-center gap-3',
-        'py-0.5 px-[5px]',
-        'bg-neutral-50 rounded-md border border-neutral-200'
+        'h-9 w-[125px]',
+        'flex items-center justify-center gap-3',
+        'px-[5px] py-0.5',
+        'rounded-md border border-neutral-200 bg-neutral-50',
       )}
       role="group"
       aria-label="Product Quantity control">
       <button
         type="button"
         className={clsx(
-          'flex justify-center items-center rounded',
+          'flex items-center justify-center rounded',
           'text-neutral-600 disabled:text-neutral-400',
-          'cursor-pointer disabled:pointer-events-none'
+          'cursor-pointer disabled:pointer-events-none',
         )}
         disabled={disabledDecrement}
         onClick={decrement}
         aria-label="Decrease quantity">
-        <RiSubtractFill className="size-5 p-0.5 shrink-0" />
+        <RiSubtractFill className="size-5 shrink-0 p-0.5" />
       </button>
       <span
-        className="flex-1 text-center font-medium text-sm text-neutral-600"
+        className="flex-1 text-center text-sm font-medium text-neutral-600"
         aria-live="polite">
         {quantity}
       </span>
@@ -37,14 +37,14 @@ const CartControl = ({ quantity, decrement, increment, availableStock }) => {
         <button
           type="button"
           className={clsx(
-            'flex justify-center items-center rounded',
+            'flex items-center justify-center rounded',
             'text-neutral-600 disabled:text-neutral-400',
-            'cursor-pointer disabled:pointer-events-none'
+            'cursor-pointer disabled:pointer-events-none',
           )}
           disabled={disabledIncrement}
           onClick={increment}
           aria-label="Increase quantity">
-          <RiAddFill className="size-5 p-0.5 shrink-0" />
+          <RiAddFill className="size-5 shrink-0 p-0.5" />
         </button>
       </Tooltip>
     </div>

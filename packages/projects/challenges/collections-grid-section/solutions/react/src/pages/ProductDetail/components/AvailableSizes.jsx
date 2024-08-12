@@ -22,15 +22,15 @@ const AvailableSizes = () => {
         product,
         color: selectedColor,
       }),
-    [product, selectedColor]
+    [product, selectedColor],
   );
 
   return (
     <fieldset aria-label="Choose a size">
       <legend className="text-sm text-neutral-500">Available Sizes</legend>
 
-      <div className={clsx('mt-4', 'flex gap-4 flex-wrap')}>
-        {sizes.map(size => {
+      <div className={clsx('mt-4', 'flex flex-wrap gap-4')}>
+        {sizes.map((size) => {
           const outOfStock = unavailableSizes.includes(size);
 
           return (
@@ -38,7 +38,7 @@ const AvailableSizes = () => {
               key={size}
               aria-label={size}
               className={clsx(
-                outOfStock ? 'pointer-events-none' : 'cursor-pointer'
+                outOfStock ? 'pointer-events-none' : 'cursor-pointer',
               )}>
               <input
                 type="radio"
@@ -54,10 +54,10 @@ const AvailableSizes = () => {
                 aria-hidden="true"
                 tabIndex={selectedSize === size || outOfStock ? -1 : 0}
                 className={clsx(
-                  'w-16 h-12',
-                  'flex justify-center items-center gap-1.5',
+                  'h-12 w-16',
+                  'flex items-center justify-center gap-1.5',
                   'px-5 py-3',
-                  'uppercase font-medium',
+                  'font-medium uppercase',
                   'rounded border',
                   'focus:outline-none',
                   outOfStock
@@ -69,14 +69,14 @@ const AvailableSizes = () => {
                     : [
                         'text-neutral-900',
                         'cursor-pointer',
-                        'bg-white focus:bg-neutral-50 hover:bg-neutral-50',
+                        'bg-white hover:bg-neutral-50 focus:bg-neutral-50',
                       ],
                   selectedSize === size
                     ? 'border-indigo-600'
                     : 'border-neutral-200',
-                  outOfStock && selectedSize !== size && 'border-none'
+                  outOfStock && selectedSize !== size && 'border-none',
                 )}
-                onKeyDown={e => {
+                onKeyDown={(e) => {
                   if (e.key === 'Enter' || e.key === ' ') {
                     setSelectedSize(size);
                   }

@@ -28,16 +28,15 @@ const CartContextProvider = ({ children }) => {
   const [isCartEmptyAfterStockChanged, setIsCartEmptyAfterStockChanged] =
     useState(false);
 
-  const updateCartItems = items => {
+  const updateCartItems = (items) => {
     setCartItems(items);
     localStorage.setItem('cart', JSON.stringify(items));
   };
 
-  const checkForStockChanged = useCallback(async cartItems => {
+  const checkForStockChanged = useCallback(async (cartItems) => {
     setCheckingStock(true);
-    const { products: data, isCartEmpty } = await getStockChangedData(
-      cartItems
-    );
+    const { products: data, isCartEmpty } =
+      await getStockChangedData(cartItems);
     setStockChangedItems(data);
     setShowStockChangedModal(data.length > 0);
     setCheckingStock(false);
@@ -49,7 +48,7 @@ const CartContextProvider = ({ children }) => {
     setIsFetching(true);
 
     const data = await fetch(
-      `https://www.greatfrontend.com/api/projects/challenges/e-commerce/cart-sample`
+      `https://www.greatfrontend.com/api/projects/challenges/e-commerce/cart-sample`,
     );
     const result = await data.json();
 
@@ -66,25 +65,25 @@ const CartContextProvider = ({ children }) => {
   }, [getCartItems]);
 
   const removeFromCart = useCallback(
-    item => {
+    (item) => {
       const updatedCart = cartItems.filter(
-        cartItem =>
+        (cartItem) =>
           !(
             cartItem.product.product_id === item.product.product_id &&
             cartItem.unit.color === item.unit.color &&
             cartItem.unit.size === item.unit.size
-          )
+          ),
       );
       updateCartItems(updatedCart);
     },
-    [cartItems]
+    [cartItems],
   );
 
   const changeQuantity = useCallback(
     (item, increment = true) => {
       let updatedCart;
 
-      updatedCart = cartItems.map(cartItem => {
+      updatedCart = cartItems.map((cartItem) => {
         if (
           cartItem.product.product_id === item.product.product_id &&
           cartItem.unit.color === item.unit.color &&
@@ -106,16 +105,16 @@ const CartContextProvider = ({ children }) => {
 
       updateCartItems(updatedCart);
     },
-    [cartItems]
+    [cartItems],
   );
 
   const acknowledgeStockChanged = useCallback(
     (cartItems, currentStockItems, isCartEmptyAfterStockChanged) => {
       const updatedCartItems = cartItems.reduce((acc, item) => {
         const product = currentStockItems.find(
-          cartItem =>
+          (cartItem) =>
             cartItem.product.product_id === item.product.product_id &&
-            cartItem.unit.sku === item.unit.sku
+            cartItem.unit.sku === item.unit.sku,
         );
 
         if (product) {
@@ -140,7 +139,7 @@ const CartContextProvider = ({ children }) => {
         navigate('/cart');
       }
     },
-    [navigate]
+    [navigate],
   );
 
   const value = useMemo(
@@ -157,8 +156,8 @@ const CartContextProvider = ({ children }) => {
       checkForStockChanged,
       setDiscount,
       removeFromCart,
-      incrementQuantity: item => changeQuantity(item, true),
-      decrementQuantity: item => changeQuantity(item, false),
+      incrementQuantity: (item) => changeQuantity(item, true),
+      decrementQuantity: (item) => changeQuantity(item, false),
     }),
     [
       cartItems,
@@ -174,7 +173,7 @@ const CartContextProvider = ({ children }) => {
       setDiscount,
       removeFromCart,
       changeQuantity,
-    ]
+    ],
   );
 
   return <CartContext.Provider value={value}>{children}</CartContext.Provider>;

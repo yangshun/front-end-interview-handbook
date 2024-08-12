@@ -16,7 +16,7 @@ const CheckoutOrderSummary = ({ className }) => {
   const subtotal = useMemo(() => getSubtotal(cartItems), [cartItems]);
   const finalAmount = useMemo(
     () => getFinalAmount(subtotal, discount),
-    [subtotal, discount]
+    [subtotal, discount],
   );
 
   return (
@@ -27,14 +27,14 @@ const CheckoutOrderSummary = ({ className }) => {
         'border border-neutral-200',
         'p-[15px] md:p-[31px]',
         'flex flex-col gap-8',
-        className
+        className,
       )}>
-      <h3 className="font-semibold text-xl">Order Summary</h3>
+      <h3 className="text-xl font-semibold">Order Summary</h3>
       <div
-        className={clsx('divide-y divide-neutral-300', 'flex flex-col flex-1')}>
+        className={clsx('divide-y divide-neutral-300', 'flex flex-1 flex-col')}>
         <ul
           className={clsx('divide-y divide-dashed divide-neutral-300', 'pb-8')}>
-          {cartItems.map(item => (
+          {cartItems.map((item) => (
             <li
               key={item.unit.sku}
               className={clsx('py-8 first:pt-0 last:pb-0')}>
@@ -51,9 +51,9 @@ const CheckoutOrderSummary = ({ className }) => {
           className={clsx('py-8', 'lg:flex-1', 'h-full md:h-[247px] lg:h-full')}
         />
 
-        <div className={clsx('flex gap-4 justify-between', 'pt-8')}>
-          <span className="font-medium text-2xl">Total</span>
-          <span className="font-semibold text-4xl">${finalAmount}</span>
+        <div className={clsx('flex justify-between gap-4', 'pt-8')}>
+          <span className="text-2xl font-medium">Total</span>
+          <span className="text-4xl font-semibold">${finalAmount}</span>
         </div>
       </div>
 

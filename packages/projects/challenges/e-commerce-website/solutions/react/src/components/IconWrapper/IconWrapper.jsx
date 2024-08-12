@@ -4,9 +4,9 @@ const IconWrapper = ({ icon: Icon }) => {
   return (
     <div
       className={clsx(
-        'size-12 bg-white rounded-full shadow-custom',
+        'shadow-custom size-12 rounded-full bg-white',
         'flex items-center justify-center',
-        'shrink-0'
+        'shrink-0',
       )}>
       <Icon className="size-6 text-indigo-700" />
     </div>

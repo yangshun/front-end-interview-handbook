@@ -4,12 +4,12 @@ import { Outlet } from 'react-router-dom';
 const Layout = () => {
   return (
     <>
-      <main className="min-h-screen p-4 max-w-[1440px] mx-auto">
+      <main className="mx-auto min-h-screen max-w-[1440px] p-4">
         <div
           className={clsx(
-            'rounded-md bg-white min-h-[calc(100vh_-_32px)]',
+            'min-h-[calc(100vh_-_32px)] rounded-md bg-white',
             'shadow-sm md:shadow-md lg:shadow-lg',
-            'text-neutral-900'
+            'text-neutral-900',
           )}>
           <Outlet />
         </div>

@@ -30,29 +30,29 @@ const SlideOut = ({
         createPortal(
           <div
             className={clsx(
-              'fixed inset-0  z-modal lg:hidden',
+              'z-modal fixed  inset-0 lg:hidden',
               'bg-neutral-950 bg-opacity-70',
-              'flex items-center justify-center'
+              'flex items-center justify-center',
             )}
             role="dialog"
             aria-modal="true">
             <div
               id="slideout"
               className={clsx(
-                'fixed inset-0 z-fixed bg-white max-w-[360px]',
+                'z-fixed fixed inset-0 max-w-[360px] bg-white',
                 'animate-slideout',
                 'overflow-auto',
-                className
+                className,
               )}>
               <div
                 className={clsx(
                   'z-sticky sticky top-0 bg-white p-6',
-                  'flex flex-col gap-6'
+                  'flex flex-col gap-6',
                 )}>
                 <div
                   className={clsx(
                     'flex items-center',
-                    !!title ? 'justify-between' : 'justify-end'
+                    !!title ? 'justify-between' : 'justify-end',
                   )}>
                   {title}
                   <button
@@ -60,18 +60,18 @@ const SlideOut = ({
                     aria-label="Close sideout"
                     type="button"
                     className={clsx(
-                      'text-neutral-600 rounded',
-                      'focus:outline-none focus-visible:ring-4 focus-visible:ring-indigo-600/[.12]'
+                      'rounded text-neutral-600',
+                      'focus:outline-none focus-visible:ring-4 focus-visible:ring-indigo-600/[.12]',
                     )}>
                     <RiCloseLine className="size-5" />
                   </button>
                 </div>
-                <div className="h-[1px] bg-neutral-200 w-full" />
+                <div className="h-[1px] w-full bg-neutral-200" />
               </div>
               <div className="px-6 pb-6">{children}</div>
             </div>
           </div>,
-          document.body
+          document.body,
         )}
     </>
   );

@@ -17,9 +17,9 @@ const Avatar = ({ src, name, className }) => {
     <div
       className={clsx(
         'bg-gray-200',
-        'font-medium text-xl text-center text-neutral-600',
+        'text-center text-xl font-medium text-neutral-600',
         'flex items-center justify-center',
-        commonClasses
+        commonClasses,
       )}>
       {nameInitials}
     </div>

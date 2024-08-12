@@ -6,7 +6,7 @@ const CheckboxInput = ({ value, defaultValue, disabled, label, onChange }) => {
 
   return (
     <div className="flex items-center gap-3">
-      <div className="size-6 flex items-center justify-center">
+      <div className="flex size-6 items-center justify-center">
         <input
           checked={value}
           className={clsx(

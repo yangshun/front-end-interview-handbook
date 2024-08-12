@@ -41,14 +41,14 @@ const ProductReviewsContextProvider = ({ children }) => {
       const response = await fetch(
         `https://www.greatfrontend.com/api/projects/challenges/e-commerce/products/${productId}/reviews?page=${currentPage}&per_page=${limit}${
           selectedRating ? `&rating=${selectedRating}` : ''
-        }`
+        }`,
       );
 
       const result = await response.json();
 
       if (result) {
         setReviews(
-          currentPage === 1 ? result.data : prev => [...prev, ...result.data]
+          currentPage === 1 ? result.data : (prev) => [...prev, ...result.data],
         );
         setAggregateRating(result.aggregate);
         setPagination({
@@ -60,7 +60,7 @@ const ProductReviewsContextProvider = ({ children }) => {
       setIsInitialLoading(false);
       setIsFetchingMore(false);
     },
-    [currentPage, limit, selectedRating, productId]
+    [currentPage, limit, selectedRating, productId],
   );
 
   useEffect(() => {
@@ -70,11 +70,11 @@ const ProductReviewsContextProvider = ({ children }) => {
 
   const loadMoreReviews = useCallback(() => {
     if (pagination.hasMore) {
-      setCurrentPage(prev => prev + 1);
+      setCurrentPage((prev) => prev + 1);
     }
   }, [pagination.hasMore]);
 
-  const onRatingSelect = useCallback(value => {
+  const onRatingSelect = useCallback((value) => {
     setSelectedRating(value);
     setCurrentPage(1);
   }, []);

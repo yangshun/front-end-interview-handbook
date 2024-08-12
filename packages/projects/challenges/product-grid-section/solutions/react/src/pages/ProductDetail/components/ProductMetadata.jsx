@@ -22,7 +22,7 @@ const ProductMetadata = () => {
   const inventoryData = useMemo(
     () =>
       getInventoryData({ product, color: selectedColor, size: selectedSize }),
-    [selectedColor, selectedSize, product]
+    [selectedColor, selectedSize, product],
   );
   const { discount_percentage, list_price, sale_price, stock } = inventoryData;
 
@@ -35,9 +35,9 @@ const ProductMetadata = () => {
         className={clsx('flex flex-col gap-8')}
         aria-labelledby="information-heading">
         <div className="flex flex-col items-start">
-          <h1 className="text-3xl md:text-5xl font-semibold">{name}</h1>
+          <h1 className="text-3xl font-semibold md:text-5xl">{name}</h1>
           <div className="mt-5">
-            <div className="inline-flex gap-2 items-end">
+            <div className="inline-flex items-end gap-2">
               <span className="text-3xl font-medium text-neutral-600">
                 ${hasDiscount ? sale_price : list_price}
               </span>
@@ -58,7 +58,7 @@ const ProductMetadata = () => {
             </div>
           )}
 
-          <div className={clsx('flex items-center gap-2 flex-wrap', 'mt-3')}>
+          <div className={clsx('flex flex-wrap items-center gap-2', 'mt-3')}>
             <div className="text-xl text-neutral-900">{roundedRating ?? 0}</div>
             <Rating value={roundedRating ?? 0} />
             {reviews > 0 ? (

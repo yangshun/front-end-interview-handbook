@@ -14,12 +14,12 @@ const InfoSection = () => {
   return (
     <section aria-labelledby="product-faq" className="mt-10">
       <Accordion>
-        {info.map(item => (
+        {info.map((item) => (
           <AccordionItem key={item.title} id={item.title}>
             <AccordionTrigger>{item.title}</AccordionTrigger>
             <AccordionContent>
-              <ul className="list-disc ml-4 pl-2">
-                {item.description.map(descItem => (
+              <ul className="ml-4 list-disc pl-2">
+                {item.description.map((descItem) => (
                   <li key={descItem} className="text-neutral-600">
                     {descItem}
                   </li>

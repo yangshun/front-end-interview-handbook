@@ -1,4 +1,4 @@
-export const getSubtotal = items => {
+export const getSubtotal = (items) => {
   const totalAmount = items.reduce((acc, item) => {
     const price = !!item.total_sale_price
       ? item.total_sale_price
@@ -22,7 +22,7 @@ export const getFinalAmount = (subtotal, discount) => {
 };
 
 // Fake stock change data
-export const getStockChangedData = items => {
+export const getStockChangedData = (items) => {
   const products = [
     {
       product: {
@@ -72,10 +72,10 @@ export const getStockChangedData = items => {
   let isCartEmpty = true;
   const filteredProducts = items.reduce((acc, item) => {
     const product = products.find(
-      product =>
+      (product) =>
         product.product.product_id === item.product.product_id &&
         product.unit.sku === item.unit.sku &&
-        item.quantity > product.stock
+        item.quantity > product.stock,
     );
     if (product) {
       acc.push({
@@ -90,23 +90,23 @@ export const getStockChangedData = items => {
     }
     return acc;
   }, []);
-  return new Promise(resolve => {
+  return new Promise((resolve) => {
     setTimeout(() => resolve({ products: filteredProducts, isCartEmpty }), 250);
   });
 };
 
-export const mergeSampleAndStorageCartItems = sampleCartItems => {
+export const mergeSampleAndStorageCartItems = (sampleCartItems) => {
   // Retrieve cart from localStorage
   const storedCartItems = JSON.parse(localStorage.getItem('cart')) || [];
   const mergedMap = new Map();
 
   // Add items from the sample cart items to the map
-  sampleCartItems.forEach(item => {
+  sampleCartItems.forEach((item) => {
     mergedMap.set(item.unit.sku, item);
   });
 
   // Add items from the local storage to the map (overwrites duplicates from sampleCartItems)
-  storedCartItems.forEach(item => {
+  storedCartItems.forEach((item) => {
     mergedMap.set(item.unit.sku, item);
   });
 
@@ -114,5 +114,5 @@ export const mergeSampleAndStorageCartItems = sampleCartItems => {
   return Array.from(mergedMap.values());
 };
 
-export const formatPrice = price =>
+export const formatPrice = (price) =>
   Number.isInteger(price) ? price : price.toFixed(2);

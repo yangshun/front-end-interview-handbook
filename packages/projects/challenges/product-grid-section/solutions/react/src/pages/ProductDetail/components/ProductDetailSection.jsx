@@ -13,7 +13,7 @@ const ProductDetail = () => {
       <div
         className={clsx(
           'col-span-4 md:col-span-6 lg:col-span-12',
-          'w-full h-full flex items-center justify-center'
+          'flex h-full w-full items-center justify-center',
         )}>
         Loading...
       </div>

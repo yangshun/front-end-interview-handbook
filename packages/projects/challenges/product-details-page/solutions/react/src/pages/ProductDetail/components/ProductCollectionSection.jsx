@@ -11,7 +11,7 @@ const ProductCollectionSection = () => {
     setIsCollectionProductsLoading(true);
 
     const data = await fetch(
-      `https://www.greatfrontend.com/api/projects/challenges/e-commerce/products?collection=latest&per_page=4`
+      `https://www.greatfrontend.com/api/projects/challenges/e-commerce/products?collection=latest&per_page=4`,
     );
     const result = await data.json();
 
@@ -28,7 +28,7 @@ const ProductCollectionSection = () => {
   return (
     <section
       className={clsx('px-4 py-12 md:py-16 lg:p-24', 'flex flex-col gap-8')}>
-      <span className="font-semibold text-2xl md:text-3xl">
+      <span className="text-2xl font-semibold md:text-3xl">
         In this collection
       </span>
       {isCollectionProductsLoading ? (

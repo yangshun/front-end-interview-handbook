@@ -7,7 +7,7 @@ const SortByFilter = () => {
   const { onSortChange, selectedSort } = useProductListingContext();
   return (
     <Dropdown>
-      {SORT_OPTIONS.map(option => (
+      {SORT_OPTIONS.map((option) => (
         <DropdownItem
           key={option.value + option.direction}
           isSelected={

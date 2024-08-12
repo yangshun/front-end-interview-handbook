@@ -38,7 +38,7 @@ const ColorSwatches = ({
         'flex items-center justify-center',
         'rounded-full',
         outerSizeClasses[size],
-        readOnly ? 'pointer-events-none' : 'cursor-pointer'
+        readOnly ? 'pointer-events-none' : 'cursor-pointer',
       )}>
       <input
         type={type}
@@ -64,15 +64,15 @@ const ColorSwatches = ({
           innerSizeClasses[size],
           color === '#fff' && 'border border-neutral-200',
           selected
-            ? 'outline outline-1 outline-indigo-600 border-2 border-white'
+            ? 'border-2 border-white outline outline-1 outline-indigo-600'
             : !readOnly && [
                 'hover:border-2 hover:border-indigo-200',
-                'focus:outline-none focus:border-none focus:ring-indigo-600/[.12]',
+                'focus:border-none focus:outline-none focus:ring-indigo-600/[.12]',
                 ringSizeClasses[size],
-              ]
+              ],
         )}
         style={{ backgroundColor: color }}
-        onKeyDown={e => {
+        onKeyDown={(e) => {
           if (e.key === 'Enter' || e.key === ' ') {
             onClick(color);
           }
@@ -92,8 +92,8 @@ const ColorSwatches = ({
         {outOfStock && (
           <div
             className={clsx(
-              'absolute bg-neutral-600 -rotate-45',
-              strokeLineClasses[size]
+              'absolute -rotate-45 bg-neutral-600',
+              strokeLineClasses[size],
             )}
           />
         )}

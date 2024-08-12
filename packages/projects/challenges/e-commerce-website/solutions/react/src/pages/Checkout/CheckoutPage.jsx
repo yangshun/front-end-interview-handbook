@@ -35,7 +35,7 @@ const CheckoutPage = () => {
     cardCvv: { value: '', error: '', required: true },
   });
 
-  const onSubmit = async e => {
+  const onSubmit = async (e) => {
     e.preventDefault();
     const hasStockedChanged = await checkForStockChanged(cartItems);
     if (hasStockedChanged) {
@@ -45,7 +45,7 @@ const CheckoutPage = () => {
     let hasErrors = false;
 
     // Check for empty fields
-    Object.keys(formData).forEach(key => {
+    Object.keys(formData).forEach((key) => {
       if (!formData[key].value && formData[key].required) {
         newFormData[key].error = `${FIELD_NAME[key]} is required`;
         hasErrors = true;
@@ -53,7 +53,7 @@ const CheckoutPage = () => {
     });
     if (hasErrors) {
       toast.error(
-        'We faced a problem processing your checkout. Please try again or contact us.'
+        'We faced a problem processing your checkout. Please try again or contact us.',
       );
     } else {
       navigate('/order-success');
@@ -64,7 +64,7 @@ const CheckoutPage = () => {
     <div
       className={clsx(
         'px-4 py-12 md:py-16 lg:p-24',
-        'flex flex-col justify-start gap-8'
+        'flex flex-col justify-start gap-8',
       )}>
       <Button
         label="Back to Shopping Cart"
@@ -74,7 +74,7 @@ const CheckoutPage = () => {
         className="w-fit"
       />
 
-      <h2 className="font-semibold text-2xl md:text-3xl lg:text-4xl">
+      <h2 className="text-2xl font-semibold md:text-3xl lg:text-4xl">
         Checkout
       </h2>
 
@@ -82,7 +82,7 @@ const CheckoutPage = () => {
         onSubmit={onSubmit}
         className={clsx(
           'grid grid-cols-4 md:grid-cols-6 lg:grid-cols-12',
-          'gap-x-4 md:gap-x-8 gap-y-8'
+          'gap-x-4 gap-y-8 md:gap-x-8',
         )}>
         <CheckoutFormSection
           className="col-span-4 md:col-span-6 lg:col-span-6"

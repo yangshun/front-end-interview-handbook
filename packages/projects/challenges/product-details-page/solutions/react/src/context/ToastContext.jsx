@@ -18,8 +18,8 @@ const ToastContext = createContext({
 export const useToast = () => {
   const { showToast } = useContext(ToastContext);
 
-  const error = message => showToast('error', message);
-  const success = message => showToast('success', message);
+  const error = (message) => showToast('error', message);
+  const success = (message) => showToast('success', message);
 
   return { error, success };
 };

@@ -68,7 +68,7 @@ const CheckoutFormSection = ({ className, formData, setFormData }) => {
       errorMessage = `${FIELD_NAME[name]} is required`;
     }
 
-    setFormData(prevState => ({
+    setFormData((prevState) => ({
       ...prevState,
       [name]: {
         value,
@@ -77,8 +77,8 @@ const CheckoutFormSection = ({ className, formData, setFormData }) => {
     }));
   };
 
-  const onSelectDeliveryMethod = value => {
-    setFormData(prevState => ({
+  const onSelectDeliveryMethod = (value) => {
+    setFormData((prevState) => ({
       ...prevState,
       deliveryMethod: { value },
     }));
@@ -113,7 +113,7 @@ const CheckoutFormSection = ({ className, formData, setFormData }) => {
           isDisabled={true}
           required={country.required}
         />
-        <div className="flex flex-col md:flex-row gap-6 md:gap-8">
+        <div className="flex flex-col gap-6 md:flex-row md:gap-8">
           <TextInput
             placeholder="john"
             label="First name"
@@ -154,7 +154,7 @@ const CheckoutFormSection = ({ className, formData, setFormData }) => {
             isLabelHidden
           />
         </div>
-        <div className="flex flex-col md:flex-row gap-6 md:gap-8">
+        <div className="flex flex-col gap-6 md:flex-row md:gap-8">
           <TextInput
             placeholder="City"
             label="City"
@@ -188,7 +188,7 @@ const CheckoutFormSection = ({ className, formData, setFormData }) => {
       </CheckoutFormContentSection>
 
       <CheckoutFormContentSection title="Delivery Method" className="py-10">
-        <div className="flex gap-4 flex-col md:flex-row" role="radiogroup">
+        <div className="flex flex-col gap-4 md:flex-row" role="radiogroup">
           <DeliveryMethodCard
             method="standard"
             isSelected={deliveryMethod.value === 'standard'}
@@ -213,7 +213,7 @@ const CheckoutFormSection = ({ className, formData, setFormData }) => {
           maxLength={12}
           startIcon={MasterCard}
           startIconClassName="!h-6 w-[34px]"
-          className="!pl-14 !py-[11px]"
+          className="!py-[11px] !pl-14"
           required={cardNumber.required}
         />
         <TextInput

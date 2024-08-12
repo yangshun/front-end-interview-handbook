@@ -4,17 +4,17 @@ const Tag = ({ label, onAction, actionIcon: Icon }) => {
   return (
     <div
       className={clsx(
-        'flex justify-center items-center gap-1',
-        'bg-gray-200 rounded',
+        'flex items-center justify-center gap-1',
+        'rounded bg-gray-200',
         'px-[7px] py-[3px]',
-        'border-[0.5px] border-[#e6e6e6]'
+        'border-[0.5px] border-[#e6e6e6]',
       )}>
-      <span className="font-medium text-sm px-0.5">{label}</span>
+      <span className="px-0.5 text-sm font-medium">{label}</span>
       {Icon && (
         <Icon
           className={clsx(
             'siz-5 text-black',
-            Icon ? 'cursor-pointer' : 'pointer-events-none'
+            Icon ? 'cursor-pointer' : 'pointer-events-none',
           )}
           onClick={onAction}
         />

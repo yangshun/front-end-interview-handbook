@@ -30,7 +30,7 @@ const CouponCode = () => {
     setIsChecking(true);
     const response = await fetch(
       'https://www.greatfrontend.com/api/projects/challenges/e-commerce/coupons/apply',
-      requestOptions
+      requestOptions,
     );
     const result = await response.json();
     if (result.error) {
@@ -46,9 +46,9 @@ const CouponCode = () => {
   return (
     <div className="flex flex-col gap-4">
       {discount && (
-        <div className="flex items-center gap-2 justify-between">
+        <div className="flex items-center justify-between gap-2">
           <Badge label={discount.coupon_code} variant="brand" size="lg" />
-          <span className="font-semibold text-lg text-right text-neutral-900">
+          <span className="text-right text-lg font-semibold text-neutral-900">
             -
             {discount.discount_amount
               ? `$${discount.discount_amount.toFixed(2)}`
@@ -57,19 +57,19 @@ const CouponCode = () => {
         </div>
       )}
       {showAddCoupon || discount ? (
-        <div className="flex flex-col gap-2 items-start py-1">
-          <div className="flex gap-2 w-full">
+        <div className="flex flex-col items-start gap-2 py-1">
+          <div className="flex w-full gap-2">
             <TextInput
               placeholder="Enter coupon code"
               label="Coupon Code"
               value={couponCode}
               errorMessage={errorMessage}
-              onChange={value => setCouponCode(value)}
+              onChange={(value) => setCouponCode(value)}
             />
             <Button
               label="Apply"
               variant="secondary"
-              className="w-20 shrink-0 mt-[26px]"
+              className="mt-[26px] w-20 shrink-0"
               onClick={checkCoupon}
               isDisabled={isChecking}
             />

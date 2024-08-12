@@ -16,10 +16,10 @@ export default function useProductFilters() {
   const categoryId = query.get('categoryId');
 
   const [selectedCollections, setSelectedCollections] = useState(
-    collectionId ? new Set().add(collectionId) : new Set()
+    collectionId ? new Set().add(collectionId) : new Set(),
   );
   const [selectedCategory, setSelectedCategory] = useState(
-    categoryId ? new Set().add(categoryId) : new Set()
+    categoryId ? new Set().add(categoryId) : new Set(),
   );
   const [selectedColors, setSelectedColors] = useState(new Set());
   const [selectedRating, setSelectedRating] = useState(new Set());

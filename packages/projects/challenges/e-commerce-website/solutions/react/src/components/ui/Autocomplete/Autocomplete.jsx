@@ -9,7 +9,7 @@ const Autocomplete = ({ value, onSelect, options, ...props }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
-    const handleClickOutside = event => {
+    const handleClickOutside = (event) => {
       if (
         autocompleteRef.current &&
         !autocompleteRef.current.contains(event.target)
@@ -23,7 +23,7 @@ const Autocomplete = ({ value, onSelect, options, ...props }) => {
     };
   }, []);
 
-  const handleOptionClick = item => {
+  const handleOptionClick = (item) => {
     setIsOpen(false);
     if (onSelect) {
       onSelect(item);
@@ -41,18 +41,18 @@ const Autocomplete = ({ value, onSelect, options, ...props }) => {
       {options.length > 0 && (
         <div
           className={clsx(
-            'absolute right-0 z-dropdown mt-2 w-full origin-top-right max-h-50 overflow-y-auto',
+            'z-dropdown max-h-50 absolute right-0 mt-2 w-full origin-top-right overflow-y-auto',
             'border border-[#e6e6e6]',
             'rounded-lg bg-white shadow-lg',
-            'transition ease-in-out duration-300 transform origin-top',
-            isOpen ? 'scale-y-100 opacity-100' : 'scale-y-0 opacity-0'
+            'origin-top transform transition duration-300 ease-in-out',
+            isOpen ? 'scale-y-100 opacity-100' : 'scale-y-0 opacity-0',
           )}
           role="menu"
           aria-orientation="vertical"
           aria-labelledby={id}
           tabIndex={-1}>
           <div className="flex flex-col gap-2 p-2" role="none">
-            {options.map(item => (
+            {options.map((item) => (
               <div
                 key={item.id}
                 onClick={() => handleOptionClick(item)}
@@ -65,8 +65,8 @@ const Autocomplete = ({ value, onSelect, options, ...props }) => {
                   'focus:ring focus:ring-indigo-200',
                   'p-2',
                   value === item.id || value === item.name
-                    ? 'text-indigo-700 font-medium'
-                    : 'text-neutral-600'
+                    ? 'font-medium text-indigo-700'
+                    : 'text-neutral-600',
                 )}
                 role="menuitem"
                 tabIndex={isOpen ? 0 : -1}

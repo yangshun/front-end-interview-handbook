@@ -11,7 +11,7 @@ const CollectionsGridSection = () => {
     setIsFetching(true);
 
     const data = await fetch(
-      `https://www.greatfrontend.com/api/projects/challenges/e-commerce/collections`
+      `https://www.greatfrontend.com/api/projects/challenges/e-commerce/collections`,
     );
     const result = await data.json();
 
@@ -29,11 +29,11 @@ const CollectionsGridSection = () => {
     <section
       aria-describedby="collections-section"
       className={clsx('px-4 py-12 md:py-16 lg:p-24', 'flex flex-col gap-8')}>
-      <div className="font-semibold text-3xl">Our Collections</div>
+      <div className="text-3xl font-semibold">Our Collections</div>
       {isFetching ? (
         <div>Loading...</div>
       ) : (
-        <div className={clsx('flex flex-col md:flex-row gap-7')}>
+        <div className={clsx('flex flex-col gap-7 md:flex-row')}>
           <div className={clsx('flex-1')}>
             <CollectionCard
               imageUrl={collections[0].image_url}

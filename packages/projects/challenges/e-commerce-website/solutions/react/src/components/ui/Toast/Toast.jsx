@@ -13,7 +13,7 @@ const Toast = ({ type, message }) => {
         'rounded-full',
         'text-sm',
         type === 'error' && 'text-red-800',
-        type === 'success' && 'text-green-700'
+        type === 'success' && 'text-green-700',
       )}>
       {type === 'error' ? 'Error' : 'Success'}
     </div>
@@ -29,7 +29,7 @@ const Toast = ({ type, message }) => {
           'rounded-full',
           'text-sm font-medium',
           type === 'success' && 'bg-green-50 text-green-700',
-          type === 'error' && 'bg-red-50 text-red-600'
+          type === 'error' && 'bg-red-50 text-red-600',
         )}>
         {badge}
         <span>{message}</span>

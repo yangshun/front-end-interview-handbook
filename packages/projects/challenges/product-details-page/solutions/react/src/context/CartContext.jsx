@@ -21,22 +21,22 @@ const CartContextProvider = ({ children }) => {
   }, []);
 
   const addToCart = useCallback(
-    item => {
+    (item) => {
       const existingItem = cartItems.find(
-        cartItem =>
+        (cartItem) =>
           cartItem.id === item.id &&
           cartItem.color === item.color &&
-          cartItem.size === item.size
+          cartItem.size === item.size,
       );
 
       let updatedCart;
       if (existingItem) {
-        updatedCart = cartItems.map(cartItem =>
+        updatedCart = cartItems.map((cartItem) =>
           cartItem.id === item.id &&
           cartItem.color === item.color &&
           cartItem.size === item.size
             ? { ...cartItem, quantity: item.quantity }
-            : cartItem
+            : cartItem,
         );
       } else {
         updatedCart = [...cartItems, item];
@@ -45,24 +45,24 @@ const CartContextProvider = ({ children }) => {
       setCartItems(updatedCart);
       localStorage.setItem('cart', JSON.stringify(updatedCart));
     },
-    [cartItems]
+    [cartItems],
   );
 
   const removeFromCart = useCallback(
     (itemId, color, size) => {
       const updatedCart = cartItems.filter(
-        item =>
-          !(item.id === itemId && item.color === color && item.size === size)
+        (item) =>
+          !(item.id === itemId && item.color === color && item.size === size),
       );
       setCartItems(updatedCart);
       localStorage.setItem('cart', JSON.stringify(updatedCart));
     },
-    [cartItems]
+    [cartItems],
   );
 
   const value = useMemo(
     () => ({ cartItems, addToCart, removeFromCart }),
-    [cartItems, addToCart, removeFromCart]
+    [cartItems, addToCart, removeFromCart],
   );
 
   return <CartContext.Provider value={value}>{children}</CartContext.Provider>;

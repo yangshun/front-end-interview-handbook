@@ -10,24 +10,26 @@ const CountriesStatesAutocomplete = ({
 }) => {
   const [options, setOptions] = useState(OPTIONS);
   const [selectedValue, setSelectedValue] = useState(
-    OPTIONS.find(option => option.id === value)?.name ?? value ?? ''
+    OPTIONS.find((option) => option.id === value)?.name ?? value ?? '',
   );
 
   useEffect(() => {
     if (selectedValue) {
       setOptions(
-        OPTIONS.filter(option =>
-          option.name.toLowerCase().includes(selectedValue.toLowerCase())
-        )
+        OPTIONS.filter((option) =>
+          option.name.toLowerCase().includes(selectedValue.toLowerCase()),
+        ),
       );
     } else {
       setOptions(OPTIONS);
     }
   }, [selectedValue, OPTIONS]);
 
-  const handleSelect = item => {
+  const handleSelect = (item) => {
     onSelect(item);
-    setSelectedValue(OPTIONS.find(option => option.id === item.id)?.name ?? '');
+    setSelectedValue(
+      OPTIONS.find((option) => option.id === item.id)?.name ?? '',
+    );
   };
 
   return (

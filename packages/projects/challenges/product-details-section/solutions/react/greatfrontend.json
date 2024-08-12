@@ -6,6 +6,5 @@
   ],
   "activeFile": "/src/App.js",
   "environment": "create-react-app",
-  "externalResources": ["https://cdn.tailwindcss.com"],
-  "startRoute": "/products/voyager-hoodie"
+  "externalResources": ["https://cdn.tailwindcss.com"]
 }

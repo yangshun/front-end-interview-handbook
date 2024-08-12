@@ -58,30 +58,30 @@ const variantClasses = {
     'bg-indigo-700',
     'shadow-custom',
     'text-white',
-    'hover:bg-indigo-800 focus:bg-indigo-800'
+    'hover:bg-indigo-800 focus:bg-indigo-800',
   ),
   secondary: clsx(
     'border border-neutral-200',
     'bg-white',
     'shadow-custom',
     'text-neutral-900',
-    'hover:bg-neutral-50 focus:bg-neutral-50'
+    'hover:bg-neutral-50 focus:bg-neutral-50',
   ),
   tertiary: clsx(
     'border-none',
     'text-indigo-700',
-    'hover:bg-neutral-50 focus:bg-neutral-50'
+    'hover:bg-neutral-50 focus:bg-neutral-50',
   ),
   danger: clsx(
     'border-none',
     'bg-red-600',
     'text-white',
-    'hover:bg-red-700 focus:bg-red-700 focus:outline-none focus-visible:ring-4 focus-visible:ring-red-600/[.12]'
+    'hover:bg-red-700 focus:bg-red-700 focus:outline-none focus-visible:ring-4 focus-visible:ring-red-600/[.12]',
   ),
   link: clsx(
     'text-indigo-700',
     'hover:text-indigo-800 focus:text-indigo-800',
-    'rounded focus:outline-none focus-visible:ring-4 focus-visible:ring-indigo-600/[.12]'
+    'rounded focus:outline-none focus-visible:ring-4 focus-visible:ring-indigo-600/[.12]',
   ),
 };
 
@@ -89,12 +89,12 @@ const variantDisabledClasses = {
   primary: clsx(
     'disabled:bg-neutral-100',
     'disabled:text-neutral-400',
-    'disabled:shadow-none'
+    'disabled:shadow-none',
   ),
   secondary: clsx(
     'disabled:bg-neutral-100',
     'disabled:text-neutral-400',
-    'disabled:shadow-none'
+    'disabled:shadow-none',
   ),
   tertiary: clsx('disabled:bg-none', 'disabled:text-neutral-400'),
   danger: clsx('disabled:bg-none', 'disabled:text-neutral-400'),
@@ -129,7 +129,7 @@ const Button = ({
     isLabelHidden && iconOnlySizeClasses[size],
     variantClasses[variant],
     variantDisabledClasses[variant],
-    isDisabled && 'pointer-events-none'
+    isDisabled && 'pointer-events-none',
   );
 
   if (href) {
@@ -142,14 +142,14 @@ const Button = ({
         {...props}>
         {StartIcon && (
           <StartIcon
-            className={clsx('size-5 p-0.5 shrink-0', iconClassName)}
+            className={clsx('size-5 shrink-0 p-0.5', iconClassName)}
             aria-hidden="true"
           />
         )}
         {label}
         {EndIcon && (
           <EndIcon
-            className={clsx('size-5 p-0.5 shrink-0', iconClassName)}
+            className={clsx('size-5 shrink-0 p-0.5', iconClassName)}
             aria-hidden="true"
           />
         )}
@@ -173,14 +173,14 @@ const Button = ({
     <>
       {StartIcon && (
         <StartIcon
-          className={clsx('size-5 p-0.5 shrink-0', iconClassName)}
+          className={clsx('size-5 shrink-0 p-0.5', iconClassName)}
           aria-hidden="true"
         />
       )}
       {label}
       {EndIcon && (
         <EndIcon
-          className={clsx('size-5 p-0.5 shrink-0', iconClassName)}
+          className={clsx('size-5 shrink-0 p-0.5', iconClassName)}
           aria-hidden="true"
         />
       )}

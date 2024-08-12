@@ -25,7 +25,7 @@ const ProductDetailsContextProvider = ({ children }) => {
   const getProduct = useCallback(async () => {
     setIsProductLoading(true);
     const data = await fetch(
-      `https://www.greatfrontend.com/api/projects/challenges/e-commerce/products/${productId}`
+      `https://www.greatfrontend.com/api/projects/challenges/e-commerce/products/${productId}`,
     );
     const result = await data.json();
 
@@ -39,11 +39,11 @@ const ProductDetailsContextProvider = ({ children }) => {
   }, [productId, navigate]);
 
   const decrementQuantity = useCallback(() => {
-    setItemQuantity(prev => (prev > 1 ? prev - 1 : 1));
+    setItemQuantity((prev) => (prev > 1 ? prev - 1 : 1));
   }, []);
 
   const incrementQuantity = useCallback(() => {
-    setItemQuantity(prev => prev + 1);
+    setItemQuantity((prev) => prev + 1);
   }, []);
 
   useEffect(() => {
@@ -61,7 +61,7 @@ const ProductDetailsContextProvider = ({ children }) => {
       color: selectedColor,
     });
     const availableSizes = [...product.sizes].filter(
-      size => !unavailableSizes.includes(size)
+      (size) => !unavailableSizes.includes(size),
     );
     if (availableSizes.length > 0) {
       setSelectedSize(availableSizes[0]);

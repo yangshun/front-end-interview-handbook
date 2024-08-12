@@ -12,7 +12,7 @@ const LatestArrivalsSection = ({ className }) => {
     setIsProductsLoading(true);
 
     const data = await fetch(
-      `https://www.greatfrontend.com/api/projects/challenges/e-commerce/products?collection=latest`
+      `https://www.greatfrontend.com/api/projects/challenges/e-commerce/products?collection=latest`,
     );
     const result = await data.json();
 
@@ -33,16 +33,16 @@ const LatestArrivalsSection = ({ className }) => {
         'px-4 py-12 md:py-16 lg:p-24',
         'flex flex-col gap-8',
         'h-full',
-        className
+        className,
       )}>
-      <div className="flex justify-between items-center md:items-start">
-        <div className="font-semibold text-2xl md:text-3xl">
+      <div className="flex items-center justify-between md:items-start">
+        <div className="text-2xl font-semibold md:text-3xl">
           Latest Arrivals
         </div>
         <Button label="View all" variant="secondary" href="/latest" size="lg" />
       </div>
       {isProductsLoading ? (
-        <div className="w-full h-full flex items-center justify-center">
+        <div className="flex h-full w-full items-center justify-center">
           Loading...
         </div>
       ) : (

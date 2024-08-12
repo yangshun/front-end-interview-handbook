@@ -7,7 +7,7 @@ const Star = ({ filled, halfFilled, className }) => {
       height="20"
       viewBox="0 0 20 20"
       fill="none"
-      className={clsx('stroke-current fill-current', className)}
+      className={clsx('fill-current stroke-current', className)}
       xmlns="http://www.w3.org/2000/svg">
       <path
         className="star-icon"
@@ -48,7 +48,7 @@ const Star = ({ filled, halfFilled, className }) => {
       height="20"
       viewBox="0 0 20 20"
       fill="none"
-      className={clsx('stroke-gray-200 fill-gray-200', className)}
+      className={clsx('fill-gray-200 stroke-gray-200', className)}
       xmlns="http://www.w3.org/2000/svg">
       <path d="M9 0.80198L11.0661 5.76946C11.2101 6.11569 11.5357 6.35226 11.9095 6.38223L17.2723 6.81216L13.1864 10.3122C12.9016 10.5561 12.7773 10.9389 12.8643 11.3037L14.1126 16.5368L9.52125 13.7325C9.20124 13.537 8.79876 13.537 8.47874 13.7325L3.88743 16.5368L5.13574 11.3037C5.22275 10.9389 5.09838 10.5561 4.81359 10.3122L0.727691 6.81216L6.0905 6.38223C6.46429 6.35226 6.7899 6.11569 6.93391 5.76946L9 0.80198Z" />
     </svg>

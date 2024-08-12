@@ -23,9 +23,9 @@ const AccordionTrigger = ({ children }) => {
     <button
       className={clsx(
         'w-full',
-        'flex gap-6 justify-between items-center',
+        'flex items-center justify-between gap-6',
         'focus:outline-none focus-visible:ring-4 focus-visible:ring-indigo-600/[.12]',
-        'text-left text-neutral-900 font-medium'
+        'text-left font-medium text-neutral-900',
       )}
       onClick={() => setIsOpen(!isOpen)}
       aria-expanded={isOpen}
@@ -50,8 +50,8 @@ const AccordionContent = ({ children }) => {
         'overflow-hidden',
         'pr-12',
         isOpen && 'mt-6',
-        'transition-max-height ease-in-out duration-300 transform origin-top',
-        isOpen ? 'scale-y-100 opacity-100' : 'scale-y-0 opacity-0'
+        'transition-max-height origin-top transform duration-300 ease-in-out',
+        isOpen ? 'scale-y-100 opacity-100' : 'scale-y-0 opacity-0',
       )}
       style={{
         maxHeight: isOpen ? `${contentRef.current?.scrollHeight}px` : '0',
@@ -71,7 +71,7 @@ const Accordion = ({ children }) => {
         : children.map((item, index) => (
             <div key={item.props.id}>
               {item}
-              <div className="h-[1px] bg-neutral-200 my-6" />
+              <div className="my-6 h-[1px] bg-neutral-200" />
             </div>
           ))}
     </div>

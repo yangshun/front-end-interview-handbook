@@ -17,7 +17,7 @@ const EmptyCart = () => {
         )}>
         <div
           className={clsx(
-            'size-12 shadow-custom rounded-full bg-white',
+            'shadow-custom size-12 rounded-full bg-white',
             'flex items-center justify-center',
           )}>
           <RiShoppingCart2Line className="size-6 text-indigo-700" />

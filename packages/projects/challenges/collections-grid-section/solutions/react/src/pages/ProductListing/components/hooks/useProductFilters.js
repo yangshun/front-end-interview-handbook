@@ -12,7 +12,9 @@ export default function useProductFilters() {
   const query = new URLSearchParams(search);
   const collectionId = query.get('collectionId');
 
-  const [selectedCollections, setSelectedCollections] = useState(collectionId ? new Set().add(collectionId) : new Set());
+  const [selectedCollections, setSelectedCollections] = useState(
+    collectionId ? new Set().add(collectionId) : new Set(),
+  );
   const [selectedCategory, setSelectedCategory] = useState(new Set());
   const [selectedColors, setSelectedColors] = useState(new Set());
   const [selectedRating, setSelectedRating] = useState(new Set());

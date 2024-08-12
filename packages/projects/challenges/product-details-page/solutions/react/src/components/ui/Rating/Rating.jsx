@@ -9,7 +9,7 @@ const Rating = ({ value, max = 5, onChange, selected, showHover }) => {
   const readOnlyMode = !onChange;
 
   return (
-    <div className="flex items-center gap-1 group star-rating">
+    <div className="star-rating group flex items-center gap-1">
       {Array.from({ length: max }).map((_, index) => (
         <span
           key={index}
@@ -18,7 +18,7 @@ const Rating = ({ value, max = 5, onChange, selected, showHover }) => {
           onMouseLeave={() => !readOnlyMode && setHoveredIndex(null)}
           className={clsx(
             !readOnlyMode && 'cursor-pointer',
-            selected ? 'text-yellow-500' : 'text-yellow-400'
+            selected ? 'text-yellow-500' : 'text-yellow-400',
           )}
           onClick={() => onChange?.(index + 1)}>
           <Star

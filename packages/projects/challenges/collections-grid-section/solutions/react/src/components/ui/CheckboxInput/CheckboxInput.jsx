@@ -16,13 +16,13 @@ const CheckboxInput = ({ value, defaultValue, disabled, label, onChange }) => {
             'border border-neutral-300',
             'bg-transparent',
             ['disabled:!bg-neutral-200', 'disabled:cursor-not-allowed'],
-            'focus:ring-4 focus:ring-offset-0 focus:ring-indigo-600/[.12] focus:outline-none focus:border-indigo-600'
+            'focus:border-indigo-600 focus:outline-none focus:ring-4 focus:ring-indigo-600/[.12] focus:ring-offset-0',
           )}
           defaultChecked={defaultValue}
           disabled={disabled}
           id={id}
           type="checkbox"
-          onChange={event => {
+          onChange={(event) => {
             if (!onChange) {
               return;
             }
@@ -35,7 +35,7 @@ const CheckboxInput = ({ value, defaultValue, disabled, label, onChange }) => {
         htmlFor={id}
         className={clsx(
           'block',
-          disabled ? 'text-neutral-400' : 'text-neutral-600'
+          disabled ? 'text-neutral-400' : 'text-neutral-600',
         )}>
         {label}
       </label>

@@ -28,14 +28,14 @@ const FeaturesGridSection = () => {
       aria-describedby="features-section"
       className={clsx(
         'px-4 py-12 md:py-16 lg:p-24',
-        'flex flex-col gap-12 md:gap-16'
+        'flex flex-col gap-12 md:gap-16',
       )}>
       <header className={clsx('flex flex-col gap-5 lg:px-40', 'text-center')}>
         <div className="flex flex-col justify-center gap-3 lg:px-10">
           <span className="font-semibold text-indigo-700">
             Elevate Your Experience
           </span>
-          <h2 className="font-semibold text-3xl md:text-5xl">
+          <h2 className="text-3xl font-semibold md:text-5xl">
             Our Commitment to Exceptional Service
           </h2>
         </div>
@@ -48,28 +48,28 @@ const FeaturesGridSection = () => {
       <ul
         className={clsx(
           'grid grid-cols-4 md:grid-cols-6 lg:grid-cols-12',
-          'gap-x-4 gap-y-8 md:gap-x-8'
+          'gap-x-4 gap-y-8 md:gap-x-8',
         )}>
         {FEATURES.map(({ title, description, icon: Icon }) => (
           <li
             key={title}
             className={clsx(
               'col-span-4 md:col-span-6 lg:col-span-4',
-              'flex flex-col justify-center items-center gap-5'
+              'flex flex-col items-center justify-center gap-5',
             )}>
             <div
               aria-hidden="true"
               className={clsx(
-                'w-12 h-12 bg-white rounded-full shadow-custom',
-                'flex items-center justify-center'
+                'shadow-custom h-12 w-12 rounded-full bg-white',
+                'flex items-center justify-center',
               )}>
               <Icon className="size-6 text-indigo-700" />
             </div>
             <div className="flex flex-col justify-center gap-2 self-stretch">
-              <span className="font-semibold text-xl text-center text-neutral-900">
+              <span className="text-center text-xl font-semibold text-neutral-900">
                 {title}
               </span>
-              <span className="font-normal text-base text-center text-neutral-600">
+              <span className="text-center text-base font-normal text-neutral-600">
                 {description}
               </span>
             </div>

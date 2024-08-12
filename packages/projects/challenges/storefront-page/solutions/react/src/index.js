@@ -12,5 +12,5 @@ root.render(
       <ScrollToTop />
       <App />
     </Router>
-  </React.StrictMode>
+  </React.StrictMode>,
 );

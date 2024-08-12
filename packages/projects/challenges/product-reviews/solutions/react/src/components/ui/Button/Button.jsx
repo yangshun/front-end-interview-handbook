@@ -56,25 +56,25 @@ const variantClasses = {
     'bg-indigo-700',
     'shadow-custom',
     'text-white',
-    'hover:bg-indigo-800 focus:bg-indigo-800'
+    'hover:bg-indigo-800 focus:bg-indigo-800',
   ),
   secondary: clsx(
     'border border-neutral-200',
     'bg-white',
     'shadow-custom',
     'text-neutral-900',
-    'hover:bg-neutral-50 focus:bg-neutral-50'
+    'hover:bg-neutral-50 focus:bg-neutral-50',
   ),
   tertiary: clsx(
     'border-none',
     'text-indigo-700',
-    'hover:bg-neutral-50 focus:bg-neutral-50'
+    'hover:bg-neutral-50 focus:bg-neutral-50',
   ),
   danger: clsx(
     'border-none',
     'bg-red-600',
     'text-white',
-    'hover:bg-red-700 focus:bg-red-700 focus:outline-none focus-visible:ring-4 focus-visible:ring-red-600/[.12]'
+    'hover:bg-red-700 focus:bg-red-700 focus:outline-none focus-visible:ring-4 focus-visible:ring-red-600/[.12]',
   ),
 };
 
@@ -82,12 +82,12 @@ const variantDisabledClasses = {
   primary: clsx(
     'disabled:bg-neutral-100',
     'disabled:text-neutral-400',
-    'disabled:shadow-none'
+    'disabled:shadow-none',
   ),
   secondary: clsx(
     'disabled:bg-neutral-100',
     'disabled:text-neutral-400',
-    'disabled:shadow-none'
+    'disabled:shadow-none',
   ),
   tertiary: clsx('disabled:bg-none', 'disabled:text-neutral-400'),
   danger: clsx('disabled:bg-none', 'disabled:text-neutral-400'),
@@ -110,7 +110,7 @@ const Button = ({
     'inline-flex items-center justify-center rounded font-medium outline-none cursor-pointer',
     'focus:outline-none focus-visible:ring-4 focus-visible:ring-indigo-600/[.12]',
     'transition-colors',
-    'text-nowrap'
+    'text-nowrap',
   );
 
   const children = isLabelHidden ? (
@@ -157,7 +157,7 @@ const Button = ({
         variantClasses[variant],
         variantDisabledClasses[variant],
         isDisabled && 'pointer-events-none',
-        className
+        className,
       )}
       disabled={isDisabled}
       {...props}>

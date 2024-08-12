@@ -26,7 +26,7 @@ const CartItemsSection = ({ className }) => {
     });
   };
 
-  const openRemovalConfirmation = item => {
+  const openRemovalConfirmation = (item) => {
     setRemovalConfirmation({
       show: true,
       onAction: () => {
@@ -42,9 +42,9 @@ const CartItemsSection = ({ className }) => {
       <ul
         className={clsx(
           'divide-y divide-dashed divide-neutral-300',
-          className
+          className,
         )}>
-        {cartItems.map(item => {
+        {cartItems.map((item) => {
           const productUrl = `/products/${item.product.product_id}`;
           const { unit, product, total_list_price, total_sale_price } = item;
           const hasDiscount =
@@ -54,8 +54,8 @@ const CartItemsSection = ({ className }) => {
             <li
               key={product.product_id + unit.size + unit.color}
               className={clsx(
-                'flex flex-col md:flex-row gap-4 md:gap-8',
-                'py-[31.5px] first:pt-0 last:pb-0'
+                'flex flex-col gap-4 md:flex-row md:gap-8',
+                'py-[31.5px] first:pt-0 last:pb-0',
               )}>
               <div className="relative">
                 <img
@@ -63,7 +63,7 @@ const CartItemsSection = ({ className }) => {
                   alt={`${SIZE[unit.size]?.long ?? unit.size} ${
                     product.name
                   } in ${unit.color}`}
-                  className="w-full md:min-w-[280px] h-[200px] object-cover rounded-lg"
+                  className="h-[200px] w-full rounded-lg object-cover md:min-w-[280px]"
                 />
                 <Link
                   to={productUrl}
@@ -75,7 +75,7 @@ const CartItemsSection = ({ className }) => {
               <div className="flex flex-col gap-4">
                 <Link
                   to={productUrl}
-                  className="font-medium text-2xl"
+                  className="text-2xl font-medium"
                   variant="unstyled">
                   {product.name}
                 </Link>
@@ -91,7 +91,7 @@ const CartItemsSection = ({ className }) => {
                 <span className="text-sm text-neutral-600">
                   {product.description}
                 </span>
-                <div className="flex items-center gap-4 justify-between">
+                <div className="flex items-center justify-between gap-4">
                   <div className="flex items-center gap-4">
                     <CartControl
                       quantity={item.quantity}
@@ -105,15 +105,15 @@ const CartItemsSection = ({ className }) => {
                       onClick={() => openRemovalConfirmation(item)}
                     />
                   </div>
-                  <div className="flex justify-end items-center gap-2">
-                    <span className="font-medium text-lg text-right text-neutral-900">
+                  <div className="flex items-center justify-end gap-2">
+                    <span className="text-right text-lg font-medium text-neutral-900">
                       $
                       {hasDiscount
                         ? formatPrice(total_sale_price)
                         : formatPrice(total_list_price)}
                     </span>
                     {hasDiscount && (
-                      <span className="text-xs line-through text-neutral-600">
+                      <span className="text-xs text-neutral-600 line-through">
                         ${formatPrice(total_list_price)}
                       </span>
                     )}

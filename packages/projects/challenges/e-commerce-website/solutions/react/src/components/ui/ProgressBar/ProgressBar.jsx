@@ -7,7 +7,7 @@ const ProgressBar = ({ value, color, className }) => {
       aria-valuenow={value}
       aria-valuemin="0"
       aria-valuemax={100}
-      className={clsx('bg-gray-200 h-2 rounded-lg grow', className)}>
+      className={clsx('h-2 grow rounded-lg bg-gray-200', className)}>
       <div
         className="h-full rounded-lg"
         style={{

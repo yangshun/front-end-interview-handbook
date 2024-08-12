@@ -12,7 +12,7 @@ const NewsletterForm = () => {
   const [submitting, setSubmitting] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
 
-  const onSubmit = async event => {
+  const onSubmit = async (event) => {
     event.preventDefault();
 
     if (!email.match(EMAIL_REGEX)) {
@@ -38,7 +38,7 @@ const NewsletterForm = () => {
     // Make the request
     const res = await fetch(
       'https://www.greatfrontend.com/api/projects/challenges/newsletter',
-      requestOptions
+      requestOptions,
     );
     const result = await res.json();
 
@@ -56,11 +56,11 @@ const NewsletterForm = () => {
   return (
     <form
       onSubmit={onSubmit}
-      className="flex flex-col md:flex-row gap-4 w-full">
+      className="flex w-full flex-col gap-4 md:flex-row">
       <TextInput
         placeholder="Enter your email"
         errorMessage={errorMessage}
-        onChange={value => setEmail(value)}
+        onChange={(value) => setEmail(value)}
         value={email}
         required
       />

@@ -10,7 +10,7 @@ const ProductImages = () => {
 
   const images = useMemo(
     () => getSelectedColorImages({ product, color: selectedColor }),
-    [product, selectedColor]
+    [product, selectedColor],
   );
 
   return (
@@ -19,7 +19,7 @@ const ProductImages = () => {
         src={product.images[selectedPreview].image_url}
         alt="Selected preview"
         loading="lazy"
-        className="h-[400px] md:h-[800px] w-full object-cover rounded-lg"
+        className="h-[400px] w-full rounded-lg object-cover md:h-[800px]"
       />
       <div className="flex gap-4 overflow-x-auto">
         {images.map((image, index) => (
@@ -30,10 +30,10 @@ const ProductImages = () => {
             loading="lazy"
             onClick={() => setSelectedPreview(index)}
             className={clsx(
-              'rounded-lg shrink-0 block',
-              'w-20 h-[120px] md:h-[190px] md:w-[188px] lg:w-40 object-cover',
+              'block shrink-0 rounded-lg',
+              'h-[120px] w-20 object-cover md:h-[190px] md:w-[188px] lg:w-40',
               'cursor-pointer',
-              index === selectedPreview && 'border-[3px] border-indigo-600'
+              index === selectedPreview && 'border-[3px] border-indigo-600',
             )}
           />
         ))}

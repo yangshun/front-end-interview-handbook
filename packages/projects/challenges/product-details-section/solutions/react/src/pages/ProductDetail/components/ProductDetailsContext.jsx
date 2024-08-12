@@ -6,7 +6,7 @@ import {
   useMemo,
   useState,
 } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { getUnavailableSizes } from '../utils';
 
 const ProductDetailsContext = createContext();
@@ -15,7 +15,6 @@ export const useProductDetailsContext = () => useContext(ProductDetailsContext);
 
 const ProductDetailsContextProvider = ({ children }) => {
   const navigate = useNavigate();
-  const { productId } = useParams();
   const [product, setProduct] = useState(null);
   const [isProductLoading, setIsProductLoading] = useState(false);
   const [selectedColor, setSelectedColor] = useState(null);
@@ -25,7 +24,7 @@ const ProductDetailsContextProvider = ({ children }) => {
   const getProduct = useCallback(async () => {
     setIsProductLoading(true);
     const data = await fetch(
-      `https://www.greatfrontend.com/api/projects/challenges/e-commerce/products/${productId}`,
+      `https://www.greatfrontend.com/api/projects/challenges/e-commerce/products/voyager-hoodie`,
     );
     const result = await data.json();
 
@@ -36,7 +35,7 @@ const ProductDetailsContextProvider = ({ children }) => {
       return navigate('/not-found');
     }
     setIsProductLoading(false);
-  }, [productId, navigate]);
+  }, [navigate]);
 
   const decrementQuantity = useCallback(() => {
     setItemQuantity((prev) => (prev > 1 ? prev - 1 : 1));

@@ -14,25 +14,25 @@ const OrderAmountSummary = ({
 
   return (
     <dl className={clsx('flex flex-col gap-4', className)}>
-      <div className="flex items-center gap-2 justify-between">
+      <div className="flex items-center justify-between gap-2">
         <span className="text-neutral-600">Subtotal</span>
-        <span className="font-semibold text-lg">${subtotal.toFixed(2)}</span>
+        <span className="text-lg font-semibold">${subtotal.toFixed(2)}</span>
       </div>
-      <div className="flex items-center gap-2 justify-between">
+      <div className="flex items-center justify-between gap-2">
         <span className="text-neutral-600">Shipping</span>
-        <span className="font-semibold text-lg">FREE</span>
+        <span className="text-lg font-semibold">FREE</span>
       </div>
       {discountCode && (
-        <div className="flex gap-2 justify-between md:items-center">
+        <div className="flex justify-between gap-2 md:items-center">
           <div
             className={clsx(
-              'flex items-center flex-col md:flex-row',
-              isCartView ? 'gap-x-8 gap-y-2' : 'gap-4'
+              'flex flex-col items-center md:flex-row',
+              isCartView ? 'gap-x-8 gap-y-2' : 'gap-4',
             )}>
             <span className="text-neutral-600">Coupon discount</span>
             <Badge label={discountCode} variant="brand" size="lg" />
           </div>
-          <span className="font-semibold text-lg">
+          <span className="text-lg font-semibold">
             -
             {discountAmount
               ? `$${discountAmount.toFixed(2)}`

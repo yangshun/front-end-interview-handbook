@@ -29,10 +29,10 @@ const Tooltip = ({ children, content, position = 'top', show = true }) => {
       {visible && (
         <div
           className={clsx(
-            'absolute py-2 px-3 rounded-lg shadow-lg min-w-max max-w-xs',
+            'absolute min-w-max max-w-xs rounded-lg px-3 py-2 shadow-lg',
             'bg-neutral-950',
-            'text-white text-xs font-medium',
-            positions[position]
+            'text-xs font-medium text-white',
+            positions[position],
           )}>
           {content}
           <div className={clsx('absolute', arrowPositions[position])} />

@@ -12,22 +12,22 @@ const Reviews = () => {
     <div
       className={clsx(
         'h-[calc(100vh_-_232px)]',
-        'flex flex-col lg:flex-row gap-10 lg:gap-8'
+        'flex flex-col gap-10 lg:flex-row lg:gap-8',
       )}>
       {isInitialLoading || !reviews ? (
-        <div className="w-full h-full flex items-center justify-center">
+        <div className="flex h-full w-full items-center justify-center">
           Loading...
         </div>
       ) : (
         <>
-          <div className={clsx('self-stretch w-full lg:w-96', 'px-6 md:px-8')}>
+          <div className={clsx('w-full self-stretch lg:w-96', 'px-6 md:px-8')}>
             <OverallRating />
           </div>
           <div
             className={clsx(
-              'flex-1 w-full',
+              'w-full flex-1',
               'px-4 md:px-8 lg:pl-0 lg:pr-8',
-              'lg:overflow-y-auto'
+              'lg:overflow-y-auto',
             )}>
             <ReviewsList />
           </div>

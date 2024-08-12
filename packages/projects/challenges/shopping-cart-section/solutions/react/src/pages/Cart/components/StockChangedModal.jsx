@@ -28,7 +28,7 @@ const StockChangedModal = () => {
       onAction={() => acknowledgeStockChanged(cartItems, stockChangedItems)}>
       <div className="flex flex-col gap-8">
         <div className={clsx('flex flex-col gap-2')}>
-          <h2 className="font-semibold text-xl">Change of stock</h2>
+          <h2 className="text-xl font-semibold">Change of stock</h2>
           <span className="text-sm text-neutral-600">
             While you were browsing, certain stocks have become unavailable:
           </span>
@@ -36,15 +36,15 @@ const StockChangedModal = () => {
         <ul
           className={clsx(
             'divide-y divide-dashed divide-neutral-300',
-            'max-h-[500px] overflow-y-auto'
+            'max-h-[500px] overflow-y-auto',
           )}>
-          {stockChangedItems.map(item => {
+          {stockChangedItems.map((item) => {
             const { unit, product, stock, cartQuantity } = item;
             return (
               <li
                 className={clsx(
                   'flex gap-6',
-                  'py-[31.5px] first:pt-0 last:pb-0'
+                  'py-[31.5px] first:pt-0 last:pb-0',
                 )}>
                 <img
                   src={unit.image_url}
@@ -67,7 +67,7 @@ const StockChangedModal = () => {
                   <div
                     className={clsx(
                       'flex items-center gap-2',
-                      'text-neutral-600'
+                      'text-neutral-600',
                     )}>
                     <span>Quantity: {cartQuantity}</span>
                     <RiArrowRightLine className="size-3" />
