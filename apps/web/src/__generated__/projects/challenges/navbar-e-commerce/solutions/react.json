@@ -1,0 +1,52 @@
+{
+  "files": {
+    "/package.json": {
+      "code": "{\n  \"name\": \"@gfe-challenges/profile-card-react-solution\",\n  \"version\": \"0.0.1\",\n  \"dependencies\": {\n    \"react-icons\": \"^5.2.1\",\n    \"clsx\": \"^2.1.1\",\n    \"react\": \"^18.3.1\",\n    \"react-dom\": \"^18.3.1\",\n    \"react-scripts\": \"5.0.1\",\n    \"react-router-dom\": \"^6.23.1\"\n  },\n  \"scripts\": {\n    \"start\": \"react-scripts start\",\n    \"build\": \"react-scripts build\",\n    \"test\": \"react-scripts test\",\n    \"eject\": \"react-scripts eject\"\n  }\n}\n"
+    },
+    "/public/index.html": {
+      "code": "<!doctype html>\n<html lang=\"en\">\n  <head>\n    <meta charset=\"utf-8\" />\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n    <meta name=\"theme-color\" content=\"#000000\" />\n    <meta\n      name=\"description\"\n      content=\"Web site created using create-react-app\" />\n    <title>StyleNest</title>\n  </head>\n  <body>\n    <noscript>You need to enable JavaScript to run this app.</noscript>\n    <div id=\"root\"></div>\n  </body>\n</html>\n"
+    },
+    "/src/App.js": {
+      "code": "import Navbar from './components/Navbar';\n\nfunction App() {\n  return (\n    <main className=\"min-h-screen pt-4\">\n      <Navbar />\n    </main>\n  );\n}\n\nexport default App;\n"
+    },
+    "/src/components/CartButton/CartButton.jsx": {
+      "code": "import clsx from 'clsx';\nimport { RiShoppingBag3Line } from 'react-icons/ri';\nimport { Link as RouterLink } from 'react-router-dom';\n\nconst CartButton = ({ disabled, count }) => {\n  return (\n    <RouterLink\n      aria-label=\"Cart button\"\n      className={clsx(\n        'relative rounded text-neutral-600',\n        'focus:outline-none focus-visible:ring-4 focus-visible:ring-indigo-600/[.12]',\n        {\n          'pointer-events-none text-neutral-400': disabled,\n        },\n      )}>\n      <RiShoppingBag3Line className=\"size-6\" aria-hidden=\"true\" />\n\n      {count > 0 && (\n        <div\n          className={clsx(\n            'absolute -right-1.5 -top-1.5 h-[18px] w-[18px] rounded-full text-center text-xs font-semibold',\n            'flex items-center justify-center',\n            {\n              'bg-indigo-700 text-white': !disabled,\n              'bg-neutral-100 text-neutral-400': disabled,\n            },\n          )}>\n          {count}\n        </div>\n      )}\n    </RouterLink>\n  );\n};\n\nexport default CartButton;\n"
+    },
+    "/src/components/CartButton/index.js": {
+      "code": "import CartButton from './CartButton';\n\nexport default CartButton;\n"
+    },
+    "/src/components/Link/index.js": {
+      "code": "import Link from './Link';\n\nexport default Link;\n"
+    },
+    "/src/components/Link/Link.jsx": {
+      "code": "import clsx from 'clsx';\nimport { Link as RouterLink } from 'react-router-dom';\n\nconst Link = ({ children, disabled, className, ...props }) => {\n  return (\n    <RouterLink\n      {...props}\n      className={clsx(\n        'rounded px-0.5 font-medium text-neutral-600',\n        'hover:text-neutral-900 focus:text-neutral-900 focus:outline-none focus-visible:ring-4 focus-visible:ring-indigo-600/[.12]',\n        {\n          'pointer-events-none text-neutral-400': disabled,\n        },\n        className,\n      )}>\n      {children}\n    </RouterLink>\n  );\n};\n\nexport default Link;\n"
+    },
+    "/src/components/Navbar/index.js": {
+      "code": "import Navbar from './Navbar';\n\nexport default Navbar;\n"
+    },
+    "/src/components/Navbar/MobileNavMenu.jsx": {
+      "code": "import { useState } from 'react';\nimport { createPortal } from 'react-dom';\nimport clsx from 'clsx';\nimport { RiCloseLine, RiMenuLine } from 'react-icons/ri';\n\nimport Link from '../Link';\n\nconst MobileNavMenu = ({ links }) => {\n  const [openMenu, setOpenMenu] = useState(false);\n\n  return (\n    <>\n      <button\n        onClick={() => setOpenMenu(!openMenu)}\n        aria-label=\"Open mobile menu\"\n        aria-expanded={openMenu ? 'true' : 'false'}\n        aria-controls=\"slideout-menu\"\n        type=\"button\"\n        className={clsx(\n          'block rounded text-neutral-600 lg:hidden',\n          'focus:outline-none focus-visible:ring-4 focus-visible:ring-indigo-600/[.12]',\n        )}>\n        <RiMenuLine className=\"size-5\" aria-hidden=\"true\" />\n      </button>\n\n      {/* Mobile nav menu */}\n      {openMenu &&\n        createPortal(\n          <nav\n            id=\"slideout-menu\"\n            className={clsx(\n              'z-fixed fixed inset-0 max-w-[400px] bg-white px-4 py-6 lg:hidden',\n              'flex flex-col gap-6',\n              'animate-navbar-menu',\n            )}>\n            <div className=\"flex items-center justify-between\">\n              <img\n                src=\"https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/object/public/e-commerce-track-images/logo.svg\"\n                alt=\"StyleNest's logo\"\n              />\n              <button\n                onClick={() => setOpenMenu(false)}\n                aria-label=\"Close mobile menu\"\n                type=\"button\"\n                className={clsx(\n                  'rounded text-neutral-600',\n                  'focus:outline-none focus-visible:ring-4 focus-visible:ring-indigo-600/[.12]',\n                )}>\n                <RiCloseLine className=\"size-5\" />\n              </button>\n            </div>\n            <div className=\"flex flex-col gap-2\">\n              {links.map((link) => (\n                <Link to={link.href} className=\"px-3 py-2 text-sm\">\n                  {link.name}\n                </Link>\n              ))}\n            </div>\n          </nav>,\n          document.body,\n        )}\n    </>\n  );\n};\n\nexport default MobileNavMenu;\n"
+    },
+    "/src/components/Navbar/Navbar.jsx": {
+      "code": "import clsx from 'clsx';\n\nimport Link from '../Link';\nimport CartButton from '../CartButton';\nimport MobileNavMenu from './MobileNavMenu';\n\nconst links = [\n  {\n    name: 'Shop all',\n    href: '#',\n  },\n  {\n    name: 'Latest arrivals',\n    href: '#',\n  },\n];\n\nconst Navbar = () => {\n  return (\n    <div\n      className={clsx(\n        'z-sticky sticky top-0 mx-auto h-[68px] max-w-[1216px] px-4 py-3 md:px-8 lg:h-auto xl:px-0',\n        'flex items-center justify-between gap-4 lg:gap-20',\n      )}>\n      <div className=\"w-[163px]\">\n        <img\n          src=\"https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/object/public/e-commerce-track-images/logo.svg\"\n          alt=\"StyleNest's logo\"\n        />\n      </div>\n      <nav className={clsx('hidden flex-1 gap-8', 'lg:flex')}>\n        {links.map((link) => (\n          <Link to={link.href}>{link.name}</Link>\n        ))}\n      </nav>\n      <div className=\"flex items-center gap-4\">\n        <CartButton />\n        <MobileNavMenu links={links} />\n      </div>\n    </div>\n  );\n};\n\nexport default Navbar;\n"
+    },
+    "/src/index.css": {
+      "code": "@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');\n\n@tailwind base;\n@tailwind components;\n@tailwind utilities;\n\nbody {\n  font-family:\n    'Noto Sans',\n    system-ui,\n    -apple-system,\n    BlinkMacSystemFont,\n    'Segoe UI',\n    Roboto,\n    Oxygen,\n    Ubuntu,\n    Cantarell,\n    'Open Sans',\n    'Helvetica Neue',\n    sans-serif;\n  -webkit-font-smoothing: antialiased;\n  -moz-osx-font-smoothing: grayscale;\n  text-rendering: optimizeLegibility;\n  background: linear-gradient(147.52deg, #f9fafb 8.89%, #d2d6db 100.48%);\n}\n\n/* Custom animations and keyframes */\n@keyframes navbar-menu {\n  from {\n    transform: translateX(-100%);\n  }\n  to {\n    transform: translateX(0%);\n  }\n}\n\n.animate-navbar-menu {\n  animation: navbar-menu 0.4s ease-out;\n}\n\n/* Custom z-index values */\n.z-sticky {\n  z-index: 1020;\n}\n\n.z-fixed {\n  z-index: 1030;\n}\n"
+    },
+    "/src/index.js": {
+      "code": "import React from 'react';\nimport ReactDOM from 'react-dom/client';\nimport { BrowserRouter as Router } from 'react-router-dom';\nimport './index.css';\nimport App from './App';\n\nconst root = ReactDOM.createRoot(document.getElementById('root'));\nroot.render(\n  <React.StrictMode>\n    <Router>\n      <App />\n    </Router>\n  </React.StrictMode>,\n);\n"
+    }
+  },
+  "workspace": {
+    "visibleFiles": [
+      "/src/App.js",
+      "/src/components/Navbar/Navbar.jsx",
+      "/src/components/Navbar/MobileNavMenu.jsx"
+    ],
+    "activeFile": "/src/App.js",
+    "environment": "create-react-app",
+    "externalResources": [
+      "https://cdn.tailwindcss.com"
+    ]
+  }
+}
