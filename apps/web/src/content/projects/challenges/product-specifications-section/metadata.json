@@ -25,6 +25,8 @@
     "starter-code",
     "style-guide"
   ],
+  "solutionFrameworks": ["react"],
+  "solutionFrameworkDefault": "react",
   "coverImage": "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/render/image/public/projects-images/product-specifications-section/cover.jpg",
   "galleryImages": [
     "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/render/image/public/projects-images/product-specifications-section/gallery/Desktop.jpg",
