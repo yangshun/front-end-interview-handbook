@@ -16,21 +16,49 @@ export const SCROLL_HASH_PROJECTS_PROFILE = {
   WEBSITE: 'projects-profile-website',
 };
 
+const DEFAULT_SCROLL_DELAY = 800;
+
+type Props = Readonly<{
+  delay?: number;
+  onScrolledToItem?: () => void;
+  topOffset?: number;
+}>;
+
 // Somehow the default browser behavior doesn't work, maybe due to Next.js messing w the page? :/
-export default function useScrollToHash() {
+export default function useScrollToHash(props?: Props) {
+  const {
+    onScrolledToItem,
+    topOffset = 0,
+    delay = DEFAULT_SCROLL_DELAY,
+  } = props || {};
   // Listening for `hashchange` event doesn't work too,
   // best alternative now is to listen for path changes. :/
   const pathname = usePathname();
 
   useEffect(() => {
+    let timer: ReturnType<typeof setTimeout> | undefined = undefined;
+
     if (!window.location.hash) {
       return;
     }
 
-    document
-      .getElementById(window.location.hash.replace('#', ''))
-      ?.scrollIntoView({
-        behavior: 'smooth',
-      });
-  }, [pathname]);
+    const element = document.getElementById(
+      window.location.hash.replace('#', ''),
+    );
+
+    if (element) {
+      timer = setTimeout(() => {
+        const elementPosition =
+          element.getBoundingClientRect().top + window.scrollY;
+        const offsetPosition = elementPosition - topOffset;
+
+        window.scrollTo({ behavior: 'smooth', top: offsetPosition });
+        onScrolledToItem?.();
+      }, delay);
+    }
+
+    return () => {
+      clearTimeout(timer);
+    };
+  }, [onScrolledToItem, pathname, topOffset, delay]);
 }

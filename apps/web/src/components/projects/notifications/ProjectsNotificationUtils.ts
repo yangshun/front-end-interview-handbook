@@ -3,6 +3,7 @@ import { PROJECTS_NOTIFICATION_AVAILABLE } from '~/data/FeatureFlags';
 import prisma from '~/server/prisma';
 
 import type { ProjectsChallengeSubmissionVote } from '@prisma/client';
+import { ProjectsDiscussionCommentDomain } from '@prisma/client';
 
 const UPVOTE_COUNT_BRACKET = [1, 5, 10, 15, 50, 100, 200, 500];
 
@@ -70,6 +71,7 @@ export async function projectsNotificationForReply(
   commentId: string,
   projectsProfileId: string,
   entityId: string,
+  domain: ProjectsDiscussionCommentDomain,
 ) {
   if (!PROJECTS_NOTIFICATION_AVAILABLE) {
     return;
@@ -84,12 +86,26 @@ export async function projectsNotificationForReply(
     },
   });
 
-  if (!comment?.parentComment) {
+  if (
+    !comment?.parentComment ||
+    comment.parentComment.profileId === projectsProfileId
+  ) {
     return;
   }
 
   // If not self replying
-  if (comment.parentComment.profileId !== projectsProfileId) {
+  if (domain === ProjectsDiscussionCommentDomain.PROJECTS_CHALLENGE) {
+    await prisma.projectsNotification.create({
+      data: {
+        category: 'DISCUSSION',
+        commentId,
+        data: {
+          challengeId: entityId,
+        },
+        profileId: comment.parentComment.profileId,
+      },
+    });
+  } else {
     await prisma.projectsNotification.create({
       data: {
         category: 'DISCUSSION',

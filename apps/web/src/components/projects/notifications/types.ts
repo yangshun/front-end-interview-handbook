@@ -25,6 +25,7 @@ type ProjectsNotificationCommentAuthor = Readonly<{
 export type ProjectsNotificationDiscussionType = ProjectsDiscussionComment &
   Readonly<{
     author: ProjectsNotificationCommentAuthor;
+    parentComment?: ProjectsDiscussionComment;
   }>;
 
 export type ProjectsNotificationExtended = Readonly<
@@ -37,12 +38,22 @@ export type ProjectsNotificationExtended = Readonly<
   }
 >;
 
-export type ProjectsNotificationDiscussionItemType = Readonly<
+export type ProjectsNotificationSubmissionDiscussionItemType = Readonly<
   ProjectsNotificationExtended & {
     category: 'DISCUSSION';
     comment: ProjectsNotificationDiscussionType;
-    data?: null;
     submission: ProjectsChallengeSubmissionExtended;
+  }
+>;
+
+export type ProjectsNotificationChallengeDiscussionItemType = Readonly<
+  ProjectsNotificationExtended & {
+    category: 'DISCUSSION';
+    challenge: {
+      href: string;
+      title: string;
+    };
+    comment: ProjectsNotificationDiscussionType;
   }
 >;
 
@@ -57,5 +68,6 @@ export type ProjectsNotificationSubmissionUpvoteItemType = Readonly<
 >;
 
 export type ProjectsNotificationAugmentedType =
-  | ProjectsNotificationDiscussionItemType
+  | ProjectsNotificationChallengeDiscussionItemType
+  | ProjectsNotificationSubmissionDiscussionItemType
   | ProjectsNotificationSubmissionUpvoteItemType;

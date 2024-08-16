@@ -1215,10 +1215,6 @@
     "defaultMessage": "Created: Newest to oldest",
     "description": "Sorting option for discussions comment - sort by created"
   },
-  "8AI4/R": {
-    "defaultMessage": "<bold>{author}</bold> replied to your comment on <bold>{entityTitle}</bold> {timestamp}",
-    "description": "Notification for reply on your comment"
-  },
   "8F7JlA": {
     "defaultMessage": "Access updates to the interviews platform for life.",
     "description": "Lifetime membership feature of accessing updates to interview platforms"
@@ -2131,10 +2127,6 @@
     "defaultMessage": "Hone your computer science fundamentals by implementing important data structures and algorithms from scratch and practice the questions where algorithmic efficiency is key.",
     "description": "Description for interview preparation focus area"
   },
-  "FcgaoW": {
-    "defaultMessage": "<bold>{author}</bold> left a code review on <bold>{entityTitle}</bold> {timestamp}",
-    "description": "Notification for code review left on your submission"
-  },
   "Fg3V0y": {
     "defaultMessage": "Manage subscription on Stripe",
     "description": "Label for button to manage subscription"
@@ -2247,6 +2239,10 @@
     "defaultMessage": "Premium Feature",
     "description": "Title on question paywall appearing on the question pages of premium questions"
   },
+  "GWzQrD": {
+    "defaultMessage": "<authorLink>{author}</authorLink> replied to your question on <submissionLink>{entityTitle}</submissionLink> {timestamp}",
+    "description": "Notification for someone replied to your question"
+  },
   "GX0ZcE": {
     "defaultMessage": "<authorProfileLink>{author}</authorProfileLink> contributed a code review for <recipientProfileLink>{recipient}</recipientProfileLink> on their submission <link>{submissionTitle}</link>: <comment>\"{description}\"</comment>",
     "description": "Log message for someone reviewing a submission"
@@ -2274,6 +2270,10 @@
   "Gjy+Iy": {
     "defaultMessage": "Preparation Guide",
     "description": "Front End interview preparation guide"
+  },
+  "GlSKMX": {
+    "defaultMessage": "<authorLink>{author}</authorLink> replied to your comment on project discussions <challengeLink>{entityTitle}</challengeLink> {timestamp}",
+    "description": "Notification for someone replied to your question"
   },
   "GohLa0": {
     "defaultMessage": "Skills you are proficient in",
@@ -2959,6 +2959,10 @@
     "defaultMessage": "Found a bug or have an improvement to suggest to a question? We would prefer if you could create an issue on <link>GitHub</link>.",
     "description": "Sentence to report bug on GitHub"
   },
+  "LgMYXR": {
+    "defaultMessage": "<authorLink>{author}</authorLink> left a code review on <submissionLink>{entityTitle}</submissionLink> {timestamp}",
+    "description": "Notification for code review left on your submission"
+  },
   "Lh00HQ": {
     "defaultMessage": "Create a free account to track your progress",
     "description": "CTA to create a free account for non-logged in users"
@@ -3454,6 +3458,10 @@
   "PXLoIh": {
     "defaultMessage": "Focus areas",
     "description": "Sidebar label for interview focus area category"
+  },
+  "PXcS/H": {
+    "defaultMessage": "<authorLink>{author}</authorLink> replied to your code review on <submissionLink>{entityTitle}</submissionLink> {timestamp}",
+    "description": "Notification for someone replied to your code review"
   },
   "PbcB1O": {
     "defaultMessage": "If you haven’t started a job in SWE or front end yet, select another status to display in place of your YOE",
@@ -3959,6 +3967,10 @@
     "defaultMessage": "Tip: Many users have reimbursed GreatFrontEnd Projects Premium as part of their company's flexible benefits or learning and training budget.",
     "description": "Tip at the bottom of the Pricing section to let users they can reimburse their purchase of GreatFrontEnd with their company's learning budgets"
   },
+  "SlNSS+": {
+    "defaultMessage": "<authorLink>{author}</authorLink> replied to your comment on <submissionLink>{entityTitle}</submissionLink> {timestamp}",
+    "description": "Notification for reply on your comment"
+  },
   "SlcOi4": {
     "defaultMessage": "Number of challenges completed in skill plan",
     "description": "Tooltip for skill plan challenges label"
@@ -4422,10 +4434,6 @@
   "WJ/3Qn": {
     "defaultMessage": "The complete preparation platform for front end interviews. {questionCount}+ practice questions (with answers) across system design, UI and more. By ex-FAANG interviewers.",
     "description": "Description of GreatFrontEnd standard page"
-  },
-  "WN99Zy": {
-    "defaultMessage": "<bold>{author}</bold> left a question on <bold>{entityTitle}</bold> {timestamp}",
-    "description": "Notification for question left on your submission"
   },
   "WNERnb": {
     "defaultMessage": "End session",
@@ -5475,10 +5483,6 @@
     "defaultMessage": "Filter user submissions by whether you have completed their corresponding challenges",
     "description": "Tooltip for Status filter for projects list"
   },
-  "eDD1zi": {
-    "defaultMessage": "{count, plural, one {Your project <bold>{title}</bold> has received its 1st upvote {timestamp}} other {Your project <bold>{title}</bold> has received # upvotes {timestamp}}}",
-    "description": "Number of comments for project submission"
-  },
   "eG2r74": {
     "defaultMessage": "Build an entire library of {trackName} components from scratch. Use it for your portfolio, or as a component toolkit for future projects",
     "description": "Description of Projects component track page"
@@ -5795,6 +5799,10 @@
     "defaultMessage": "Practice Vue Interview Questions with Solutions",
     "description": "Title of Vue Interview Questions page"
   },
+  "gXbjAw": {
+    "defaultMessage": "<authorLink>{author}</authorLink> left a question on <submissionLink>{entityTitle}</submissionLink> {timestamp}",
+    "description": "Notification for question left on your submission"
+  },
   "gZL62Q": {
     "defaultMessage": "Change password for {userEmail}",
     "description": "Title of Change Password page"
@@ -6023,6 +6031,10 @@
     "defaultMessage": "Signing Out",
     "description": "Title of Logout page"
   },
+  "iWvwoB": {
+    "defaultMessage": "It looks like you don’t have any notifications at the moment. Check back here for updates on your activities, messages, and more.",
+    "description": "Description for no notification"
+  },
   "iq1rXh": {
     "defaultMessage": "Settings",
     "description": "Title of settings page"
@@ -6139,6 +6151,10 @@
     "defaultMessage": "Title: Z to A",
     "description": "Sorting option for question list - sort titles from Z to A"
   },
+  "jdML6B": {
+    "defaultMessage": "<authorLink>{author}</authorLink> replied to your question on project discussions <challengeLink>{entityTitle}</challengeLink> {timestamp}",
+    "description": "Notification for someone replied to your question"
+  },
   "jgIdRC": {
     "defaultMessage": "Password",
     "description": "Label of password field on Sign In/Up page"
@@ -6234,6 +6250,10 @@
   "kCkca8": {
     "defaultMessage": "Errors",
     "description": "Select label for error log level in console filter"
+  },
+  "kEx00C": {
+    "defaultMessage": "{count, plural, one {Your submission <bold>{title}</bold> has received its 1st upvote {timestamp}} other {Your submission <bold>{title}</bold> has received # upvotes {timestamp}}}",
+    "description": "Number of comments for project submission"
   },
   "kF3Llo": {
     "defaultMessage": "Knowledge is power. Over {count} short questions with answers to build and solidify your front end fundamentals.",
@@ -6834,10 +6854,6 @@
   "p3mRa0": {
     "defaultMessage": "Job title is required.",
     "description": "Error message"
-  },
-  "p8VAwb": {
-    "defaultMessage": "<bold>{author}</bold> left a comment on <bold>{entityTitle}</bold> {timestamp}",
-    "description": "Notification for comment left on your submission"
   },
   "p8zMao": {
     "defaultMessage": "Insert inline code",
@@ -7866,6 +7882,10 @@
   "xYKCsE": {
     "defaultMessage": "Сoncise step by step practical guides",
     "description": "Short description for \"Official guides\" feature on Projects home page"
+  },
+  "xbSTzm": {
+    "defaultMessage": "<authorLink>{author}</authorLink> left a comment on <submissionLink>{entityTitle}</submissionLink> {timestamp}",
+    "description": "Notification for comment left on your submission"
   },
   "xbmWBx": {
     "defaultMessage": "Framework",

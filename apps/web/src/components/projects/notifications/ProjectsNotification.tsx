@@ -15,7 +15,7 @@ export default function ProjectsNotification() {
 
   return (
     <ProjectsNotificationPopover
-      className={clsx('max-h-[80vh] overflow-y-auto', 'w-[500px]')}
+      className={clsx('h-[80vh] overflow-y-auto', 'w-[500px]')}
       isShown={showNotification}
       trigger={
         <div className="relative">

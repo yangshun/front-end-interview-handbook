@@ -61,7 +61,7 @@ export default function ProjectsNotificationMobile({ closeMobileNav }: Props) {
         </button>
       }
       onClose={() => setShowNotification(false)}>
-      <div className="flex flex-col gap-5">
+      <div className="flex h-full flex-col gap-5">
         <Divider color="emphasized" />
         <ProjectsNotificationContent closeNotification={closeNotification} />
       </div>

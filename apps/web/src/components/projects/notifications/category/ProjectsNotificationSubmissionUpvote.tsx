@@ -20,23 +20,23 @@ export default function ProjectsNotificationSubmissionUpvote({ data }: Props) {
         src={submission?.imgSrc}
       />
       <div className="inline-flex">
-        <Text color="subtle" size="body3" weight="medium">
+        <Text color="secondary" size="body3" weight="medium">
           <FormattedMessage
-            defaultMessage="{count, plural, one {Your project <bold>{title}</bold> has received its 1st upvote {timestamp}} other {Your project <bold>{title}</bold> has received # upvotes {timestamp}}}"
+            defaultMessage="{count, plural, one {Your submission <bold>{title}</bold> has received its 1st upvote {timestamp}} other {Your submission <bold>{title}</bold> has received # upvotes {timestamp}}}"
             description="Number of comments for project submission"
-            id="eDD1zi"
+            id="kEx00C"
             values={{
               bold: (chunks) => (
-                <Text size="body3" weight="bold">
+                <Text color="subtitle" size="body3" weight="bold">
                   {chunks}
                 </Text>
               ),
               count: upvoteData.count,
               timestamp: (
-                <span>
+                <Text color="subtle" size="body2" weight="medium">
                   {`· `}
                   <RelativeTimestamp timestamp={new Date(createdAt)} />
-                </span>
+                </Text>
               ),
               title: submission?.title ?? '',
             }}

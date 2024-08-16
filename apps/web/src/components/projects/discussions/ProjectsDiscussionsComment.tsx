@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 import { startCase } from 'lodash-es';
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
 import {
   RiAddCircleLine,
   RiIndeterminateCircleLine,
@@ -52,6 +52,8 @@ export default function ProjectsDiscussionsComment({
   className,
   viewer,
 }: Props) {
+  const commentHashId = window.location.hash.replace('#', '');
+  const [highlightComment, setHighlightComment] = useState<boolean>(false);
   const {
     _count: { votes: votesCount },
     id: commentId,
@@ -62,7 +64,19 @@ export default function ProjectsDiscussionsComment({
     updatedAt,
   } = comment;
 
-  useScrollToHash();
+  const highlightOnScrolledToItem = useCallback(() => {
+    if (commentHashId === comment.id) {
+      setHighlightComment(true);
+    }
+    setTimeout(() => {
+      setHighlightComment(false);
+    }, 2000);
+  }, [comment.id, commentHashId]);
+
+  useScrollToHash({
+    onScrolledToItem: highlightOnScrolledToItem,
+    topOffset: 140, // Rough top offset height due to navbar
+  });
 
   const intl = useIntl();
   const replyCount = replies?.length ?? 0;
@@ -87,7 +101,14 @@ export default function ProjectsDiscussionsComment({
   return (
     // Id is to enable linking / auto scrolling to a specific comment
     // TODO: rework this to integrate with comment pagination if comments list are paginated
-    <div className={clsx('flex grow flex-col', className)} id={comment.id}>
+    <div
+      className={clsx(
+        'flex grow flex-col',
+        highlightComment &&
+          'bg-brand-dark/30 dark:bg-brand/30 rounded-md transition-colors',
+        className,
+      )}
+      id={comment.id}>
       <div className="flex items-start gap-4">
         <div className="relative flex flex-col items-center self-stretch">
           <ProjectsProfileAvatar

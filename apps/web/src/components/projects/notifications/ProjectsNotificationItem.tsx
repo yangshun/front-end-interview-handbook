@@ -39,10 +39,10 @@ export default function ProjectsNotificationItem({
       return item.submission?.hrefs.detail;
     }
 
-    if (item.comment.parentCommentId) {
+    if ('challenge' in item) {
       return url.format({
         hash: item.comment.id,
-        pathname: item.submission?.hrefs.detail,
+        pathname: item.challenge.href,
       });
     }
 
@@ -70,13 +70,13 @@ export default function ProjectsNotificationItem({
 
   return (
     <div ref={elementRef} className="relative flex gap-4" onClick={onClick}>
+      <Anchor className="absolute inset-0" href={getUrl()} />
       {item.category === 'UPVOTE' ? (
         <ProjectsNotificationSubmissionUpvote data={item} />
       ) : (
         <ProjectsNotificationDiscussion data={item} />
       )}
 
-      <Anchor className="absolute inset-0" href={getUrl()} />
       {!read && <ProjectsNotificationUnreadIndicator />}
     </div>
   );

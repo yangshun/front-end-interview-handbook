@@ -1,6 +1,5 @@
 import clsx from 'clsx';
 import React from 'react';
-import { createPortal } from 'react-dom';
 
 import {
   themeBackgroundLayerEmphasized,
@@ -68,24 +67,6 @@ export default function ProjectsNotificationPopover({
           </PopoverPrimitive.Content>
         </PopoverPrimitive.Portal>
       </PopoverPrimitive.Root>
-      {isShown &&
-        createPortal(
-          <div
-            className={clsx(
-              'fixed inset-0',
-              'bg-neutral-950/60',
-              'backdrop-blur-sm',
-              'z-dialog-overlay',
-              'overflow-y-auto',
-              [
-                'transition-opacity',
-                'data-[state=open]:animate-in data-[state=closed]:animate-out',
-                'data-[state=open]:fade-in-0 data-[state=closed]:fade-out-0',
-              ],
-            )}
-          />,
-          document.body,
-        )}
     </div>
   );
 }

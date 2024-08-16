@@ -7,9 +7,7 @@ import { RiShareCircleLine } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
 
 import { trpc } from '~/hooks/trpc';
-import useScrollToHash, {
-  SCROLL_HASH_PROJECTS_IMAGE_COMPARISON,
-} from '~/hooks/useScrollToHash';
+import { SCROLL_HASH_PROJECTS_IMAGE_COMPARISON } from '~/hooks/useScrollToHash';
 
 import type { ProjectsChallengeItem } from '~/components/projects/challenges/types';
 import ProjectsSkillList from '~/components/projects/skills/metadata/ProjectsSkillList';
@@ -65,8 +63,6 @@ export default function ProjectsChallengeSubmissionPage({
   submission,
   viewerProjectsProfile,
 }: Props) {
-  useScrollToHash();
-
   const intl = useIntl();
   const imageComparisonContainerRef: React.RefObject<HTMLDivElement> =
     useRef(null);

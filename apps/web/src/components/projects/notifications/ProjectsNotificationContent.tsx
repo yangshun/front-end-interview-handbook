@@ -2,13 +2,17 @@ import clsx from 'clsx';
 import { useInView } from 'framer-motion';
 import { debounce } from 'lodash-es';
 import { useEffect, useRef, useState } from 'react';
+import { RiNotification3Line } from 'react-icons/ri';
 import { FormattedMessage } from 'react-intl';
 
 import { trpc } from '~/hooks/trpc';
 
 import Spinner from '~/components/ui/Spinner';
 import Text from '~/components/ui/Text';
-import { themeDivideEmphasizeColor } from '~/components/ui/theme';
+import {
+  themeDivideEmphasizeColor,
+  themeTextSubtitleColor,
+} from '~/components/ui/theme';
 
 import ProjectsNotificationItem from './ProjectsNotificationItem';
 
@@ -96,23 +100,41 @@ export default function ProjectsNotificationContent({
   const notifications = data?.pages.flatMap((page) => page.notifications);
 
   return (
-    <div>
-      <div className={clsx('divide-y', themeDivideEmphasizeColor)}>
+    <div className="h-full">
+      <div className={clsx('divide-y', 'h-full', themeDivideEmphasizeColor)}>
         {isLoading ? (
-          <div className="flex w-full justify-center">
+          <div className="flex h-full w-full items-center justify-center">
             <Spinner size="sm" />
           </div>
         ) : notifications?.length === 0 ? (
-          <Text>
-            <FormattedMessage
-              defaultMessage="No notification yet!"
-              description="Label for no notification"
-              id="hz5dJR"
+          <div
+            className={clsx(
+              'h-full w-full',
+              'flex flex-col items-center justify-center gap-4',
+            )}>
+            <RiNotification3Line
+              className={clsx('size-10 shrink-0', themeTextSubtitleColor)}
             />
-          </Text>
+            <div className="flex flex-col gap-1 text-center">
+              <Text size="body1" weight="medium">
+                <FormattedMessage
+                  defaultMessage="No notification yet!"
+                  description="Label for no notification"
+                  id="hz5dJR"
+                />
+              </Text>
+              <Text color="subtle" size="body2">
+                <FormattedMessage
+                  defaultMessage="It looks like you don’t have any notifications at the moment. Check back here for updates on your activities, messages, and more."
+                  description="Description for no notification"
+                  id="iWvwoB"
+                />
+              </Text>
+            </div>
+          </div>
         ) : (
           notifications?.map((item) => (
-            <div key={item.id} className="py-6 first:pt-0 last:pb-0">
+            <div key={item.id} className="py-6 first:pt-0">
               <ProjectsNotificationItem
                 closeNotification={closeNotification}
                 handleVisibleLongEnough={handleVisibleLongEnough}

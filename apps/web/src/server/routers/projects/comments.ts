@@ -380,9 +380,12 @@ export const projectsCommentsRouter = router({
           },
         });
 
-        if (domain === ProjectsDiscussionCommentDomain.PROJECTS_SUBMISSION) {
-          projectsNotificationForReply(comment.id, projectsProfileId, entityId);
-        }
+        projectsNotificationForReply(
+          comment.id,
+          projectsProfileId,
+          entityId,
+          domain,
+        );
 
         await projectsReputationCommentAwardPoints(comment, projectsProfileId);
 

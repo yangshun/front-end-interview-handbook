@@ -1,11 +1,15 @@
+import { allProjectsChallengeMetadata } from 'contentlayer/generated';
 import { z } from 'zod';
 
 import type { ProjectsNotificationAugmentedType } from '~/components/projects/notifications/types';
 
+import { readProjectsChallengeInfo } from '~/db/projects/ProjectsReader';
 import prisma from '~/server/prisma';
 import { router } from '~/server/trpc';
 
 import { projectsUserProcedure } from './procedures';
+
+import { ProjectsDiscussionCommentDomain } from '@prisma/client';
 
 export const projectsNotificationsRouter = router({
   getUnreadCount: projectsUserProcedure.query(
@@ -73,6 +77,7 @@ export const projectsNotificationsRouter = router({
                     },
                   },
                 },
+                parentComment: true,
               },
             },
             projectsProfile: {
@@ -106,11 +111,40 @@ export const projectsNotificationsRouter = router({
           nextCursor = nextItem.id;
         }
 
+        const finalNotifications = notifications.flatMap((notification) => {
+          if (notification == null) {
+            return [];
+          }
+          if (
+            notification.comment?.domain ===
+            ProjectsDiscussionCommentDomain.PROJECTS_CHALLENGE
+          ) {
+            const data = notification.data as { challengeId: string };
+            const challengeMetadata = allProjectsChallengeMetadata.find(
+              (challenge) => challenge.slug === data?.challengeId,
+            );
+            const { challengeInfo } = readProjectsChallengeInfo(
+              data.challengeId,
+            );
+
+            return [
+              {
+                ...notification,
+                challenge: {
+                  href: challengeMetadata?.resourcesDiscussionsHref,
+                  title: challengeInfo.title,
+                },
+              },
+            ];
+          }
+
+          return [notification];
+        });
+
         return {
           nextCursor,
-          notifications: notifications.flatMap((notification) =>
-            notification != null ? [notification] : [],
-          ) as Array<ProjectsNotificationAugmentedType>,
+          notifications:
+            finalNotifications as Array<ProjectsNotificationAugmentedType>,
         };
       },
     ),
