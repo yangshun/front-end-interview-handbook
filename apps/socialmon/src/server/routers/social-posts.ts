@@ -223,6 +223,7 @@ export const socialPostsRouter = router({
 
       const postsFromReddit = await getPostsFromReddit({
         keywords: project.keywords,
+        postFilteringPrompt: project.postFilteringPrompt,
         subreddits: project.subreddits,
       });
 

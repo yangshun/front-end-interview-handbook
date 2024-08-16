@@ -32,8 +32,13 @@ export default async function Page({ params }: Props) {
     return notFound();
   }
 
-  const { name, keywords, subreddits, productsToAdvertise } =
-    project as ProjectTransformed;
+  const {
+    name,
+    keywords,
+    subreddits,
+    productsToAdvertise,
+    postFilteringPrompt,
+  } = project as ProjectTransformed;
 
   return (
     <div className="flex w-full flex-col gap-4 md:w-1/2">
@@ -58,6 +63,11 @@ export default async function Page({ params }: Props) {
             {subreddit}
           </Pill>
         ))}
+      </div>
+
+      <div>
+        <Title order={4}>Posts filter prompt</Title>
+        <Text>{postFilteringPrompt}</Text>
       </div>
 
       <div className="flex flex-col gap-2">

@@ -8,7 +8,7 @@ import ProjectsProductsToAdvertiseInput from './ProjectProductToAdvertiseInput';
 
 import type { ProjectFormValues, ProjectTransformed } from '~/types';
 
-import { Button, TagsInput, TextInput } from '@mantine/core';
+import { Button, TagsInput, Textarea, TextInput } from '@mantine/core';
 import { createFormContext, zodResolver } from '@mantine/form';
 
 type BaseProps = Readonly<{
@@ -47,6 +47,7 @@ export default function ProjectForm({
     initialValues: {
       keywords: data?.keywords ?? [],
       name: data?.name ?? '',
+      postFilteringPrompt: data?.postFilteringPrompt ?? '',
       productsToAdvertise:
         props.mode === 'edit'
           ? data?.productsToAdvertise ?? [
@@ -70,7 +71,7 @@ export default function ProjectForm({
   return (
     <FormProvider form={form}>
       <form
-        className="flex w-full flex-col gap-4 lg:w-1/2"
+        className="mb-6 flex w-full flex-col gap-4 lg:w-2/3"
         onSubmit={form.onSubmit((values) => onSubmit(values))}>
         <TextInput
           key={form.key('name')}
@@ -81,7 +82,7 @@ export default function ProjectForm({
         />
         <TagsInput
           key={form.key('keywords')}
-          description="Keywords to filter posts"
+          description="Keywords to filter posts in the first pass of posts filtering"
           label="Keywords"
           placeholder="Enter keyword"
           required={true}
@@ -94,6 +95,16 @@ export default function ProjectForm({
           placeholder="Enter subreddits"
           required={true}
           {...form.getInputProps('subreddits')}
+        />
+        <Textarea
+          autosize={true}
+          className="flex-1"
+          description="AI prompt to filter posts in the second pass of posts filtering"
+          label="Posts filter prompt"
+          minRows={1}
+          placeholder="Prompt"
+          required={true}
+          {...form.getInputProps('postFilteringPrompt')}
         />
         <ProjectsProductsToAdvertiseInput />
 

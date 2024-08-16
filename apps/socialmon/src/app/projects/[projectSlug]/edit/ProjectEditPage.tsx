@@ -28,6 +28,8 @@ export default function ProjectEditPage({ data }: Props) {
         onSuccess() {
           toast.success('Project edited successfully!');
           router.push('/');
+          // To get the latest project data
+          router.refresh();
         },
       },
     );

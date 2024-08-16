@@ -1,6 +1,10 @@
 import type { z } from 'zod';
 
-import type { aiResponseSchema, projectSchema } from './schema';
+import type {
+  aiFilterPostSchema,
+  aiResponseSchema,
+  projectSchema,
+} from './schema';
 import type {
   Activity,
   Project,
@@ -17,6 +21,7 @@ export type User = Readonly<{
 }>;
 
 export type AIResponse = z.infer<typeof aiResponseSchema>;
+export type AIFilterPost = z.infer<typeof aiFilterPostSchema>;
 
 export type Comment = Readonly<{
   author: string;

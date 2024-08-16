@@ -3,6 +3,8 @@
 import type { Submission } from 'snoowrap';
 import Snoowrap from 'snoowrap';
 
+import OpenAIProvider from '~/providers/OpenAIProvider';
+
 import type { RedditPost } from '.prisma/client';
 
 export function initializeRedditClient(username?: string, password?: string) {
@@ -42,20 +44,19 @@ export function createRedditPost({
 export async function getPostsFromReddit({
   keywords,
   subreddits,
+  postFilteringPrompt,
 }: {
   keywords: ReadonlyArray<string>;
+  postFilteringPrompt: string;
   subreddits: ReadonlyArray<string>;
 }) {
-  const timeFrameInHour = 1;
-  const currentTime = Date.now();
-  const startTime = currentTime - timeFrameInHour * 3600000;
-
   const relevantSubmissions: Array<{
     matchedKeywords: Array<string>;
     post: Submission;
   }> = [];
 
   const snoowrap = initializeRedditClient();
+  const aiProvider = new OpenAIProvider();
 
   // Loop through each subreddit
   for (const subreddit of subreddits) {
@@ -69,41 +70,52 @@ export async function getPostsFromReddit({
 
     const keywordRegex = new RegExp(keywords.join('|'), 'gi');
 
-    // Filter posts based on keywords and timeframe
-    const filteredPosts = posts
-      .filter((post) => {
-        const createdAtInMillisecond = post.created_utc * 1000;
+    const filteredPosts = [];
 
-        return (
-          (keywordRegex.test(post.title) || keywordRegex.test(post.selftext)) &&
-          createdAtInMillisecond >= startTime
-        );
-      })
-      .map((post) => {
-        const matchedKeywords = [];
+    for (const post of posts) {
+      // First pass filtering with keywords
+      const firstFilterPass =
+        keywordRegex.test(post.title) || keywordRegex.test(post.selftext);
 
-        // Check for matches in the title and selftext
-        if (keywordRegex.test(post.title)) {
-          const match = post.title.match(keywordRegex);
+      // Second pass filtering with LLM
+      if (firstFilterPass) {
+        const result = await aiProvider.filterPost({
+          post: {
+            content: post.selftext,
+            title: post.title,
+          },
+          systemPrompt: postFilteringPrompt,
+        });
 
-          matchedKeywords.push(...(match ? match : []));
+        if (result.relevant) {
+          filteredPosts.push(post);
         }
-        if (keywordRegex.test(post.selftext)) {
-          const match = post.selftext.match(keywordRegex);
+      }
+    }
 
-          matchedKeywords.push(...(match ? match : []));
-        }
+    filteredPosts.forEach((post) => {
+      const matchedKeywords = [];
 
-        // Remove duplicates
-        const uniqueMatchedKeywords = Array.from(new Set(matchedKeywords));
+      // Check for matches in the title and selftext
+      if (keywordRegex.test(post.title)) {
+        const match = post.title.match(keywordRegex);
 
-        return {
-          matchedKeywords: uniqueMatchedKeywords,
-          post,
-        };
+        matchedKeywords.push(...(match ? match : []));
+      }
+      if (keywordRegex.test(post.selftext)) {
+        const match = post.selftext.match(keywordRegex);
+
+        matchedKeywords.push(...(match ? match : []));
+      }
+
+      // Remove duplicates
+      const uniqueMatchedKeywords = Array.from(new Set(matchedKeywords));
+
+      relevantSubmissions.push({
+        matchedKeywords: uniqueMatchedKeywords,
+        post,
       });
-
-    relevantSubmissions.push(...filteredPosts);
+    });
   }
 
   return relevantSubmissions.map((submission) => createRedditPost(submission));

@@ -1,8 +1,8 @@
 import { generateObject } from 'ai';
 
-import { aiResponseSchema } from '~/schema';
+import { aiFilterPostSchema, aiResponseSchema } from '~/schema';
 
-import type { AIResponse } from '~/types';
+import type { AIFilterPost, AIResponse } from '~/types';
 
 import { openai } from '@ai-sdk/openai';
 
@@ -63,6 +63,25 @@ class OpenAIProvider {
       model: openai('gpt-4-turbo'),
       prompt: userPrompt,
       schema: aiResponseSchema,
+      system: systemPrompt,
+    });
+
+    return result.object;
+  }
+
+  async filterPost({
+    post,
+    systemPrompt,
+  }: Readonly<{
+    post: Readonly<{ content: string; title: string }>;
+    systemPrompt: string;
+  }>): Promise<AIFilterPost> {
+    const userPrompt = this.getUserPrompt(post);
+
+    const result = await generateObject({
+      model: openai('gpt-3.5-turbo'),
+      prompt: userPrompt,
+      schema: aiFilterPostSchema,
       system: systemPrompt,
     });
 

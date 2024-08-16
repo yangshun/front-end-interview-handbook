@@ -148,4 +148,5 @@ model Project {
   posts               RedditPost[]
   activities          Activity[]
   productsToAdvertise Json
+  postFilteringPrompt String
 }

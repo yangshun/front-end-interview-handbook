@@ -21,6 +21,12 @@ export const aiResponseSchema = z.object({
   response: z.string().describe('Response to title and content'),
 });
 
+export const aiFilterPostSchema = z.object({
+  relevant: z
+    .boolean()
+    .describe('Context of the title and content is relevant or not'),
+});
+
 export const userSchema = z.object({
   password: z.string(),
   username: z.string(),
@@ -90,9 +96,14 @@ const projectProductsToAdvertiseSchema = z
     message: 'There must be at least 1 product',
   });
 
+const projectPostFilteringPromptSchema = z.string().trim().min(10, {
+  message: `Prompt must contain at least 10 character(s).`,
+});
+
 export const projectSchema = z.object({
   keywords: projectKeywordsSchema,
   name: projectNameSchema,
+  postFilteringPrompt: projectPostFilteringPromptSchema,
   productsToAdvertise: projectProductsToAdvertiseSchema,
   subreddits: projectSubredditsSchema,
 });
