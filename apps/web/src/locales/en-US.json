@@ -3207,6 +3207,10 @@
     "defaultMessage": "Other",
     "description": "Label for other input for yoe replacement status on projects profile page"
   },
+  "Nb3mw/": {
+    "defaultMessage": "Help the community out by contributing to our repo!",
+    "description": "Description for github add question"
+  },
   "NdDD5W": {
     "defaultMessage": "Front End System Design Guidebook",
     "description": "Front end system design guidebook title"
@@ -4875,6 +4879,10 @@
     "defaultMessage": "Since {date}",
     "description": "Since date for current project session card"
   },
+  "ZayNDN": {
+    "defaultMessage": "💡 Got a question to add?",
+    "description": "Title for github add question"
+  },
   "Zdojj9": {
     "defaultMessage": "Other",
     "description": "Label for \"Other\" onboarding option in Projects"
@@ -4882,6 +4890,10 @@
   "ZfPNnW": {
     "defaultMessage": "Yes. Every challenge you start creates a \"session\" of the challenge, which you can end. You can start a new session anytime.",
     "description": "FAQ answer for projects platform"
+  },
+  "ZfXIPi": {
+    "defaultMessage": "Support us by starring our repo and consider contributing!",
+    "description": "Description for github star"
   },
   "ZhcmRF": {
     "defaultMessage": "The URL must not be localhost or an IP address. Provide a valid, publicly accessible URL.",
@@ -5934,6 +5946,10 @@
   "hfba4L": {
     "defaultMessage": "{completedCount}/{totalCount} completed",
     "description": "Label for completed count"
+  },
+  "hhJBt5": {
+    "defaultMessage": "Add your question",
+    "description": "Github action button label"
   },
   "hkKaPn": {
     "defaultMessage": "Numbered list",
@@ -7111,6 +7127,10 @@
     "defaultMessage": "Know where to find important info",
     "description": "Label for \"Know where to find important info\" step in dialog on Projects project page"
   },
+  "qrRiOi": {
+    "defaultMessage": "Star",
+    "description": "Label for github star"
+  },
   "qwP4CA": {
     "defaultMessage": "Huge question bank",
     "description": "Title for huge question bank feature"
@@ -7342,6 +7362,10 @@
   "t+sW3R": {
     "defaultMessage": "Filter by forum type",
     "description": "Tooltip for forum type filter for contribution list"
+  },
+  "t1Qxme": {
+    "defaultMessage": "⭐️ Star our JS GitHub repo",
+    "description": "Title for github star"
   },
   "t2Ll2e": {
     "defaultMessage": "Run your code with <button>custom test cases</button> before submitting.",
