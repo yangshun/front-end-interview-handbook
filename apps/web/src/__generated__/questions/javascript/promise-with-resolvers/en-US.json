@@ -9,9 +9,9 @@
   },
   "format": "javascript",
   "metadata": {
-    "author": null,
+    "author": "yangshun",
     "companies": [],
-    "created": 1720051200,
+    "created": 1723766400,
     "difficulty": "medium",
     "duration": 15,
     "excerpt": "Implement a function that returns an object containing a new `Promise` object and two functions to resolve or reject it",

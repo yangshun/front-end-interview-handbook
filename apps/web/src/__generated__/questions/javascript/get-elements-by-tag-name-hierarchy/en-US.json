@@ -13,7 +13,7 @@
     "companies": [
       "dropbox"
     ],
-    "created": 1719878400,
+    "created": 1723766400,
     "difficulty": "hard",
     "duration": 30,
     "excerpt": "Implement a function to get all DOM elements that match a tag hierarchy",

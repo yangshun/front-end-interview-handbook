@@ -13,7 +13,7 @@
     "companies": [
       "amazon"
     ],
-    "created": 1719705600,
+    "created": 1723766400,
     "difficulty": "medium",
     "duration": 20,
     "excerpt": "Implement a function to get all DOM elements that are rendered using the specified style",

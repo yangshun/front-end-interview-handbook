@@ -2497,7 +2497,7 @@
     "companies": [
       "amazon"
     ],
-    "created": 1719705600,
+    "created": 1723766400,
     "difficulty": "medium",
     "duration": 20,
     "excerpt": "Implement a function to get all DOM elements that are rendered using the specified style",
@@ -2564,7 +2564,7 @@
     "companies": [
       "dropbox"
     ],
-    "created": 1719878400,
+    "created": 1723766400,
     "difficulty": "hard",
     "duration": 30,
     "excerpt": "Implement a function to get all DOM elements that match a tag hierarchy",
@@ -4579,9 +4579,9 @@
     "topics": []
   },
   {
-    "author": null,
+    "author": "yangshun",
     "companies": [],
-    "created": 1720051200,
+    "created": 1723766400,
     "difficulty": "medium",
     "duration": 15,
     "excerpt": "Implement a function that returns an object containing a new `Promise` object and two functions to resolve or reject it",
