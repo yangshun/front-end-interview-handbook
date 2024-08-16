@@ -37,6 +37,7 @@ export type Comments = Readonly<{
 
 export type ActivityExtended = Activity &
   Readonly<{
+    post: RedditPost;
     user: {
       id: string;
       name: string | null;
@@ -55,7 +56,7 @@ export type PostReplyExtended = Readonly<{
   RedditPostReply;
 
 export type PostExtended = Readonly<{
-  activities?: ReadonlyArray<ActivityExtended>;
+  activities?: ReadonlyArray<Omit<ActivityExtended, 'post'>>;
   reply: PostReplyExtended | null;
 }> &
   RedditPost;

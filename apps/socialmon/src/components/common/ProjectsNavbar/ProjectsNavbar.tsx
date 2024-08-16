@@ -3,7 +3,12 @@
 import clsx from 'clsx';
 import Link from 'next/link';
 import type { ReactNode } from 'react';
-import { RiAccountBoxLine, RiHomeLine, RiSpaceShipLine } from 'react-icons/ri';
+import {
+  RiAccountBoxLine,
+  RiHistoryLine,
+  RiHomeLine,
+  RiSpaceShipLine,
+} from 'react-icons/ri';
 
 import useCurrentProjectSlug from '~/hooks/useCurrentProjectSlug';
 
@@ -43,6 +48,11 @@ export default function ProjectsNavbar({ user }: Props) {
       href: `/projects/${projectSlug}/users`,
       icon: <RiAccountBoxLine />,
       label: 'Users',
+    },
+    {
+      href: `/projects/${projectSlug}/activity`,
+      icon: <RiHistoryLine />,
+      label: 'Activity',
     },
   ];
 

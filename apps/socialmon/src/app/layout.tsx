@@ -1,7 +1,5 @@
 import type { Metadata } from 'next';
 
-import { redirectToLoginPageIfNotLoggedIn } from '~/components/auth/redirectToLoginPageIfNotLoggedIn';
-
 import RootLayout from './RootLayout';
 
 import '~/styles/globals.css';

@@ -3,7 +3,7 @@ import { notFound } from 'next/navigation';
 
 import { getUser } from '~/app/lib/auth';
 
-import ProjectCreatePage from './ProejctCreatePage';
+import ProjectCreatePage from './ProjectCreatePage';
 
 export const metadata: Metadata = {
   description: 'Social moderator',
