@@ -3395,6 +3395,10 @@
     "defaultMessage": "Go to Stripe",
     "description": "Label for CTA for stripe"
   },
+  "P0i492": {
+    "defaultMessage": "View less",
+    "description": "Label of expanded guide button"
+  },
   "P2baTC": {
     "defaultMessage": "Coding Format",
     "description": "Front end coding interview questions"
@@ -4002,6 +4006,10 @@
   "SuWvZa": {
     "defaultMessage": "Monthly plan",
     "description": "Title of monthly pricing plan"
+  },
+  "Sy6yo4": {
+    "defaultMessage": "Not completed",
+    "description": "Tooltip for incomplete guide label"
   },
   "T3JUSj": {
     "defaultMessage": "Master the art of building interactive and user-friendly forms by exploring various form components, validation techniques, and handling form submissions.",
@@ -5690,6 +5698,10 @@
   "fhTYwQ": {
     "defaultMessage": "The only end-to-end front end interview preparation platform.{br} Brought to you by big tech Senior / Staff Front End Engineers.",
     "description": "Subtitle for Hero section on Homepage. Explains in more detail what the product does in order to attract the user to read on."
+  },
+  "fhfS0P": {
+    "defaultMessage": "View more",
+    "description": "Label of collapsed guide button"
   },
   "fiHpIm": {
     "defaultMessage": "Here you'll find a curated collection of our most insightful and engaging blog content, neatly organized into series for your convenience. Each series focuses on a unique theme or topic providing a deep dive subject.",
@@ -7815,6 +7827,10 @@
     "defaultMessage": "Skills roadmap",
     "description": "Title for \"Skills roadmap\" feature on Projects home page"
   },
+  "wRHDTn": {
+    "defaultMessage": "<bold>{completedCount}</bold>/{totalCount} guides",
+    "description": "Label for completed guides"
+  },
   "wRV8PN": {
     "defaultMessage": "Settings",
     "description": "Settings page title"
@@ -8138,6 +8154,10 @@
   "zMpEuy": {
     "defaultMessage": "Popularity: Least to most completed",
     "description": "Sorting option for projects list - popularity"
+  },
+  "zStaaO": {
+    "defaultMessage": "Completed",
+    "description": "Tooltip for Completed guide label"
   },
   "zSySsj": {
     "defaultMessage": "Question Formats",
