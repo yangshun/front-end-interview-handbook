@@ -9,6 +9,17 @@ datasource db {
   directUrl = env("DIRECT_URL")
 }
 
+enum PostRelevancy {
+  RELEVANT
+  IRRELEVANT
+}
+
+enum ActivityAction {
+  MADE_IRRELEVANT
+  MADE_RELEVANT
+  REPLIED
+}
+
 model Account {
   id                 String  @id @default(cuid())
   userId             String  @map("user_id")
@@ -48,6 +59,7 @@ model User {
   accounts      Account[]
   sessions      Session[]
   replies       RedditPostReply[]
+  activities    Activity[]
 
   @@map("users")
 }
@@ -73,6 +85,8 @@ model RedditPost {
   createdAt       DateTime  @default(now()) @db.Timestamptz(6)
   updatedAt       DateTime  @default(now()) @updatedAt
   keywords        String[]
+  relevancy       PostRelevancy?
+  activities      Activity[]
   reply           RedditPostReply?
   projectId       String    @db.Uuid()
 
@@ -82,6 +96,19 @@ model RedditPost {
   project         Project @relation(fields: [projectId], references: [id], onDelete: Cascade, onUpdate: NoAction)
 
   @@unique([postId, projectId])
+}
+
+model Activity {
+  id        Int               @id @default(autoincrement())
+  action    ActivityAction
+  createdAt DateTime          @default(now()) @db.Timestamptz(6)
+  postId    String            @db.Uuid
+  projectId String            @db.Uuid()
+  userId    String            @map("user_id")
+
+  post      RedditPost        @relation(fields: [postId], references: [id])
+  user      User              @relation(fields: [userId], references: [id])
+  project   Project @relation(fields: [projectId], references: [id], onDelete: Cascade, onUpdate: NoAction)
 }
 
 model RedditUser {
@@ -119,5 +146,6 @@ model Project {
   subreddits          String[]
   redditUsers         RedditUser[]
   posts               RedditPost[]
+  activities          Activity[]
   productsToAdvertise Json
 }

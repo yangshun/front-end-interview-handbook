@@ -1,7 +1,12 @@
 import type { z } from 'zod';
 
 import type { aiResponseSchema, projectSchema } from './schema';
-import type { Project, RedditPost, RedditPostReply } from '.prisma/client';
+import type {
+  Activity,
+  Project,
+  RedditPost,
+  RedditPostReply,
+} from '.prisma/client';
 
 export type PostTab = 'all' | 'replied' | 'unreplied';
 
@@ -30,6 +35,14 @@ export type Comments = Readonly<{
   };
 }>;
 
+export type ActivityExtended = Activity &
+  Readonly<{
+    user: {
+      id: string;
+      name: string | null;
+    };
+  }>;
+
 export type PostReplyExtended = Readonly<{
   redditUser: {
     username: string;
@@ -42,6 +55,7 @@ export type PostReplyExtended = Readonly<{
   RedditPostReply;
 
 export type PostExtended = Readonly<{
+  activities?: ReadonlyArray<ActivityExtended>;
   reply: PostReplyExtended | null;
 }> &
   RedditPost;

@@ -1,5 +1,6 @@
 import clsx from 'clsx';
 
+import { redirectToLoginPageIfNotLoggedIn } from '~/components/auth/redirectToLoginPageIfNotLoggedIn';
 import Container from '~/components/ui/Container';
 import Navbar from '~/components/ui/Navbar';
 import NavbarUserAvatar from '~/components/ui/Navbar/NavbarUserAvatar';
@@ -13,6 +14,8 @@ type Props = Readonly<{
 }>;
 
 export default async function Layout({ children }: Props) {
+  await redirectToLoginPageIfNotLoggedIn('/');
+
   const user = await getUser();
 
   const navUser = <NavbarUserAvatar user={user} />;

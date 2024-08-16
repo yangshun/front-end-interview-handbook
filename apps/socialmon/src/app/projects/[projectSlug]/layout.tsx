@@ -1,6 +1,7 @@
 import clsx from 'clsx';
 import { notFound } from 'next/navigation';
 
+import { redirectToLoginPageIfNotLoggedIn } from '~/components/auth/redirectToLoginPageIfNotLoggedIn';
 import ProjectsNavbar from '~/components/common/ProjectsNavbar';
 import Container from '~/components/ui/Container';
 
@@ -16,6 +17,8 @@ type Props = Readonly<{
 }>;
 
 export default async function Layout({ children, params }: Props) {
+  await redirectToLoginPageIfNotLoggedIn('/');
+
   const user = await getUser();
 
   const { projectSlug } = params;

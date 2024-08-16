@@ -61,9 +61,10 @@ export default function PostList() {
             value={activeTab}
             onChange={(value) => setActiveTab(value as PostTab)}>
             <Tabs.List>
-              <Tabs.Tab value="all">All</Tabs.Tab>
               <Tabs.Tab value="unreplied">Unreplied</Tabs.Tab>
               <Tabs.Tab value="replied">Replied</Tabs.Tab>
+              <Tabs.Tab value="irrelevant">Irrelevant</Tabs.Tab>
+              <Tabs.Tab value="all">All</Tabs.Tab>
             </Tabs.List>
           </Tabs>
           <div className="absolute right-4 top-0.5">
@@ -85,6 +86,7 @@ export default function PostList() {
               key={post.id}
               post={post}
               selected={post.id === selectedPost?.id}
+              showMarkedAsIrrelevant={activeTab === 'all'}
               showRepliedBadge={activeTab === 'all'}
               onClick={() => handleSelectPost(post)}
             />

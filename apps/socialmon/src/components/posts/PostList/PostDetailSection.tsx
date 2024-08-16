@@ -77,6 +77,7 @@ export default function PostDetailSection({
 
     await replyPostMutation.mutateAsync({
       id: post.id,
+      projectSlug,
       redditUserId,
       response,
     });

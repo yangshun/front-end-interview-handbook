@@ -15,8 +15,6 @@ export const metadata: Metadata = {
   title: 'SocialMon',
 };
 
-export default async function Layout({ children }: Props) {
-  await redirectToLoginPageIfNotLoggedIn('/');
-
+export default function Layout({ children }: Props) {
   return <RootLayout>{children}</RootLayout>;
 }

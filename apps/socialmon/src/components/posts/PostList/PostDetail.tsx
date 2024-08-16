@@ -9,6 +9,7 @@ import { trpc } from '~/hooks/trpc';
 import PostMetadata from './PostMetadata';
 import PostResponse from './PostResponse';
 import PostCommentsList from '../comments/PostCommentsList';
+import PostRelevancyActionButton from '../PostRelevancyActionButton';
 import { parseMarkdown } from '../utils';
 
 import type { PostExtended } from '~/types';
@@ -52,6 +53,7 @@ export default function PostDetail({
   >(null);
 
   const hasReply = !!post.reply;
+  const activity = post.activities?.[0];
 
   const postBody = parseMarkdown(post.content);
   const updatePostMutation = trpc.socialPosts.updatePost.useMutation();
@@ -98,6 +100,28 @@ export default function PostDetail({
           className="prose"
         />
       </Text>
+
+      {!post.reply && (
+        <>
+          <Divider my="md" />
+          <div className="mt-5 flex items-center justify-between gap-2">
+            {activity && (
+              <Text size="sm">
+                {activity.action === 'MADE_IRRELEVANT'
+                  ? 'Marked as irrelevant'
+                  : 'Marked as relevant'}{' '}
+                by <span className="font-bold">{activity.user.name}</span>
+              </Text>
+            )}
+            <PostRelevancyActionButton
+              key={post.relevancy}
+              postId={post.id}
+              relevancy={post.relevancy}
+            />
+          </div>
+        </>
+      )}
+
       <Divider my="md" />
 
       {/* Response */}

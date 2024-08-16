@@ -9,6 +9,7 @@ import {
 } from '~/db/RedditUtils';
 import { decryptPassword } from '~/db/utils';
 
+import { ActivityAction, PostRelevancy } from '.prisma/client';
 import prisma from '../prisma';
 import { router, userProcedure } from '../trpc';
 import OpenAIProvider from '../../providers/OpenAIProvider';
@@ -87,7 +88,7 @@ export const socialPostsRouter = router({
       z.object({
         cursor: z.string().nullish(),
         filter: z.object({
-          tab: z.enum(['all', 'unreplied', 'replied']),
+          tab: z.enum(['all', 'unreplied', 'replied', 'irrelevant']),
         }),
         pagination: z.object({
           limit: z.number().min(1).max(100).default(10),
@@ -100,19 +101,28 @@ export const socialPostsRouter = router({
       const { limit } = pagination;
       const { tab } = filter;
 
-      const postFilter =
-        tab === 'all'
-          ? {}
-          : {
-              reply:
-                tab === 'unreplied'
-                  ? {
-                      is: null,
-                    }
-                  : {
-                      isNot: null,
-                    },
-            };
+      let postFilter = {};
+
+      if (tab === 'unreplied') {
+        postFilter = {
+          relevancy: {
+            not: 'RELEVANT',
+          },
+          reply: {
+            is: null,
+          },
+        };
+      } else if (tab === 'replied') {
+        postFilter = {
+          reply: {
+            isNot: null,
+          },
+        };
+      } else if (tab === 'irrelevant') {
+        postFilter = {
+          relevancy: PostRelevancy.IRRELEVANT,
+        };
+      }
 
       const project = await prisma.project.findUnique({
         where: {
@@ -130,6 +140,25 @@ export const socialPostsRouter = router({
       const posts = await prisma.redditPost.findMany({
         cursor: cursor ? { id: cursor } : undefined,
         include: {
+          activities: {
+            include: {
+              user: {
+                select: {
+                  id: true,
+                  name: true,
+                },
+              },
+            },
+            orderBy: {
+              createdAt: 'desc',
+            },
+            take: 1,
+            where: {
+              action: {
+                in: ['MADE_IRRELEVANT', 'MADE_RELEVANT'],
+              },
+            },
+          },
           reply: {
             include: {
               redditUser: {
@@ -208,17 +237,70 @@ export const socialPostsRouter = router({
         skipDuplicates: true,
       });
     }),
+  markPostRelevancy: userProcedure
+    .input(
+      z.object({
+        postId: z.string().uuid(),
+        projectSlug: z.string(),
+        relevancy: z.enum([PostRelevancy.IRRELEVANT, PostRelevancy.RELEVANT]),
+      }),
+    )
+    .mutation(
+      async ({
+        input: { relevancy, postId, projectSlug },
+        ctx: { session },
+      }) => {
+        const activityAction =
+          relevancy === 'RELEVANT'
+            ? ActivityAction.MADE_RELEVANT
+            : ActivityAction.MADE_IRRELEVANT;
+
+        const project = await prisma.project.findUnique({
+          where: {
+            slug: projectSlug,
+          },
+        });
+
+        if (!project) {
+          throw new TRPCError({
+            code: 'BAD_REQUEST',
+            message: "Associated project doesn't exist!",
+          });
+        }
+
+        await prisma.$transaction([
+          prisma.redditPost.update({
+            data: {
+              relevancy,
+            },
+            where: {
+              id: postId,
+            },
+          }),
+          // Create activity
+          prisma.activity.create({
+            data: {
+              action: activityAction,
+              postId,
+              projectId: project.id,
+              userId: session.user.id,
+            },
+          }),
+        ]);
+      },
+    ),
   replyToPost: userProcedure
     .input(
       z.object({
         id: z.string(),
+        projectSlug: z.string(),
         redditUserId: z.string().uuid(),
         response: z.string(),
       }),
     )
     .mutation(async ({ input, ctx: { session } }) => {
-      const { id, response, redditUserId } = input;
-      const [post, user] = await Promise.all([
+      const { id, response, redditUserId, projectSlug } = input;
+      const [post, user, project] = await Promise.all([
         prisma.redditPost.findUnique({
           where: {
             id,
@@ -227,6 +309,11 @@ export const socialPostsRouter = router({
         prisma.redditUser.findUnique({
           where: {
             id: redditUserId,
+          },
+        }),
+        prisma.project.findUnique({
+          where: {
+            slug: projectSlug,
           },
         }),
       ]);
@@ -241,6 +328,12 @@ export const socialPostsRouter = router({
         throw new TRPCError({
           code: 'BAD_REQUEST',
           message: 'Associated post is required to reply to the post.',
+        });
+      }
+      if (!project) {
+        throw new TRPCError({
+          code: 'BAD_REQUEST',
+          message: "Associated project doesn't exist!",
         });
       }
 
@@ -259,18 +352,46 @@ export const socialPostsRouter = router({
         });
       }
 
-      return await prisma.redditPostReply.create({
-        data: {
-          content: redditResponse?.body || response,
-          createdAt: redditResponse?.created_utc
-            ? new Date(redditResponse.created_utc * 1000) // In milliseconds
-            : new Date(),
-          permalink: redditResponse?.permalink ?? '',
-          postId: id,
-          redditUserId,
-          userId: session.user.id,
-        },
-      });
+      await prisma.$transaction([
+        prisma.redditPostReply.create({
+          data: {
+            content: redditResponse?.body || response,
+            createdAt: redditResponse?.created_utc
+              ? new Date(redditResponse.created_utc * 1000) // In milliseconds
+              : new Date(),
+            permalink: redditResponse?.permalink ?? '',
+            postId: id,
+            redditUserId,
+            userId: session.user.id,
+          },
+        }),
+        // Update post relevancy to relevant if a post has been replied
+        prisma.redditPost.update({
+          data: {
+            relevancy: PostRelevancy.RELEVANT,
+          },
+          where: {
+            id,
+          },
+        }),
+        // Create activity
+        prisma.activity.createMany({
+          data: [
+            {
+              action: ActivityAction.REPLIED,
+              postId: id,
+              projectId: project.id,
+              userId: session.user.id,
+            },
+            {
+              action: ActivityAction.MADE_RELEVANT,
+              postId: id,
+              projectId: project.id,
+              userId: session.user.id,
+            },
+          ],
+        }),
+      ]);
     }),
   updatePost: userProcedure
     .input(

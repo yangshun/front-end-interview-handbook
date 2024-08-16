@@ -12,6 +12,7 @@ type Props = Readonly<{
   onClick: () => void;
   post: PostExtended;
   selected?: boolean;
+  showMarkedAsIrrelevant?: boolean;
   showRepliedBadge?: boolean;
 }>;
 
@@ -20,6 +21,7 @@ export default function PostItem({
   onClick,
   selected,
   showRepliedBadge,
+  showMarkedAsIrrelevant,
 }: Props) {
   return (
     <Box
@@ -37,7 +39,11 @@ export default function PostItem({
       component="button"
       onClick={onClick}>
       <Title order={5}>{post.title}</Title>
-      <PostMetadata post={post} showRepliedBadge={showRepliedBadge} />
+      <PostMetadata
+        post={post}
+        showMarkedAsIrrelevant={showMarkedAsIrrelevant}
+        showRepliedBadge={showRepliedBadge}
+      />
     </Box>
   );
 }

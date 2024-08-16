@@ -12,11 +12,17 @@ import { Badge, Button, Pill, Text } from '@mantine/core';
 
 type Props = Readonly<{
   post: PostExtended;
+  showMarkedAsIrrelevant?: boolean;
   showRepliedBadge?: boolean;
   showViewPost?: boolean;
 }>;
 
-function PostMetadata({ post, showViewPost, showRepliedBadge }: Props) {
+function PostMetadata({
+  post,
+  showViewPost,
+  showRepliedBadge,
+  showMarkedAsIrrelevant,
+}: Props) {
   return (
     <div className="flex flex-col gap-2">
       <div className="flex flex-wrap items-center justify-between gap-2">
@@ -60,6 +66,13 @@ function PostMetadata({ post, showViewPost, showRepliedBadge }: Props) {
         <div className="flex items-center gap-2">
           <Badge color="violet" leftSection={<RiCheckLine />} size="xs">
             Replied
+          </Badge>
+        </div>
+      )}
+      {post.relevancy === 'IRRELEVANT' && showMarkedAsIrrelevant && (
+        <div className="flex items-center gap-2">
+          <Badge color="violet" leftSection={<RiCheckLine />} size="xs">
+            Marked as Irrelevant
           </Badge>
         </div>
       )}

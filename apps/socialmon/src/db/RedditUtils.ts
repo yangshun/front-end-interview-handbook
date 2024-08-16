@@ -23,7 +23,7 @@ export function createRedditPost({
   post: Submission;
 }): Omit<
   RedditPost,
-  'createdAt' | 'id' | 'projectId' | 'response' | 'updatedAt'
+  'createdAt' | 'id' | 'projectId' | 'relevancy' | 'response' | 'updatedAt'
 > {
   return {
     commentsCount: post.num_comments,
