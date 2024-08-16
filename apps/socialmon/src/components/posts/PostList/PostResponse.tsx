@@ -21,22 +21,25 @@ export default function PostResponse({
 }: Props) {
   return (
     <div className="flex flex-col gap-2">
-      <div className="flex justify-between gap-2">
-        <Text fw={600} size="md">
-          Your Response
-        </Text>
-        <Button
-          component={Link}
-          href={redditPermalinkToUrl(reply.permalink)}
-          rightSection={<RiArrowRightUpLine />}
-          target="_blank"
-          variant="subtle">
-          View Reply
-        </Button>
+      <div>
+        <Text size="sm">Replied by: {reply.user.name}</Text>
+        <div className="flex justify-between gap-2">
+          <Text fw={600} size="md">
+            Response
+          </Text>
+          <Button
+            component={Link}
+            href={redditPermalinkToUrl(reply.permalink)}
+            rightSection={<RiArrowRightUpLine />}
+            target="_blank"
+            variant="subtle">
+            View Reply
+          </Button>
+        </div>
       </div>
 
       {/* Fallback to showing the stored relied if fetching reply failed */}
-      {!isFetchingComments && !comments ? (
+      {!isFetchingComments && !comments?.data?.children?.length ? (
         <PostCommentsList
           comments={{
             data: {

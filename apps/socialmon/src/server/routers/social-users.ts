@@ -1,5 +1,6 @@
 import { z } from 'zod';
 
+import { encryptPassword } from '~/db/utils';
 import { userSchema } from '~/schema';
 
 import prisma from '../prisma';
@@ -16,9 +17,11 @@ export const socialUsersRouter = router({
       const { input } = opts;
       const { user } = input;
 
+      const encryptedPassword = encryptPassword(user.password, user.username);
+
       await prisma.redditUser.create({
         data: {
-          password: user.password,
+          password: encryptedPassword,
           username: user.username,
         },
       });

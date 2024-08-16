@@ -15,13 +15,13 @@ model Account {
   type               String
   provider           String
   providerAccountId  String  @map("provider_account_id")
-  refreshToken       String? @db.Text @map("refresh_token")
-  accessToken        String? @db.Text @map("access_token")
-  expiresAt          Int? @map("expires_at")
-  tokenType          String? @map("token_type")
+  refresh_token      String? @db.Text
+  access_token       String? @db.Text
+  expires_at         Int?
+  token_type         String?
   scope              String?
-  idToken            String? @db.Text @map("id_token")
-  sessionState       String? @map("session_state")
+  id_token           String? @db.Text
+  session_state      String?
 
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 
@@ -47,6 +47,7 @@ model User {
   image         String?
   accounts      Account[]
   sessions      Session[]
+  replies       RedditPostReply[]
 
   @@map("users")
 }
@@ -96,8 +97,9 @@ model RedditPostReply {
   permalink             String @db.VarChar
   postId                String @db.VarChar @unique
   redditUserId          String @db.Uuid
-
+  userId                String
 
   post                  RedditPost  @relation(fields: [postId], references: [id], onDelete: Cascade, onUpdate: NoAction)
   redditUser            RedditUser @relation(fields: [redditUserId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  user                  User     @relation(fields: [userId], references: [id], onDelete: Cascade)
 }

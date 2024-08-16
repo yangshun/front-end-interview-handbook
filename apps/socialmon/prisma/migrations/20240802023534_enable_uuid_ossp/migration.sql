@@ -9,6 +9,9 @@
   - Added the required column `permalink` to the `RedditPost` table without a default value. This is not possible if the table is not empty.
 
 */
+
+CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
+
 -- AlterTable
 ALTER TABLE "RedditPost" DROP COLUMN "replied",
 DROP COLUMN "repliedAt",

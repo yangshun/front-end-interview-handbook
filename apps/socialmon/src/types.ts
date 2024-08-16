@@ -34,6 +34,10 @@ export type PostReplyExtended = Readonly<{
   redditUser: {
     username: string;
   };
+  user: {
+    id: string;
+    name: string | null;
+  };
 }> &
   RedditPostReply;
 

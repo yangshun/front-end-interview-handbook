@@ -1,6 +1,8 @@
 'use client';
 
+import clsx from 'clsx';
 import { type ChangeEvent, useState } from 'react';
+import { RiChat4Line } from 'react-icons/ri';
 
 import { trpc } from '~/hooks/trpc';
 
@@ -147,7 +149,13 @@ export default function PostDetail({
       )}
 
       {!hasReply && (
-        <div className="mt-5">
+        <div className="mt-5 flex flex-col gap-3">
+          {!!data?.comments.data.children.length && (
+            <div className="flex items-center gap-1">
+              <RiChat4Line className={clsx('size-6', 'text-slate-500')} />
+              <Text size="md">{post.commentsCount} comments</Text>
+            </div>
+          )}
           <PostCommentsList
             comments={data?.comments}
             isFetchingComments={isFetchingComments}

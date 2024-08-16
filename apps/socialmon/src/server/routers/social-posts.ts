@@ -7,6 +7,7 @@ import {
   getPostsFromReddit,
   replyToRedditPost,
 } from '~/db/RedditUtils';
+import { decryptPassword } from '~/db/utils';
 
 import prisma from '../prisma';
 import { router, userProcedure } from '../trpc';
@@ -111,6 +112,12 @@ export const socialPostsRouter = router({
                   username: true,
                 },
               },
+              user: {
+                select: {
+                  id: true,
+                  name: true,
+                },
+              },
             },
           },
         },
@@ -156,7 +163,7 @@ export const socialPostsRouter = router({
         response: z.string(),
       }),
     )
-    .mutation(async ({ input }) => {
+    .mutation(async ({ input, ctx: { session } }) => {
       const { postId, response, redditUserId } = input;
       const user = await prisma.redditUser.findUnique({
         where: {
@@ -168,10 +175,12 @@ export const socialPostsRouter = router({
         throw new Error('Account is required to reply to a post.');
       }
 
+      const decryptedPassword = decryptPassword(user.password, user.username);
+
       const { success, response: redditResponse } = await replyToRedditPost({
         postId,
         response,
-        user: { password: user.password, username: user.username },
+        user: { password: decryptedPassword, username: user.username },
       });
 
       if (!success) {
@@ -190,6 +199,7 @@ export const socialPostsRouter = router({
           permalink: redditResponse?.permalink ?? '',
           postId,
           redditUserId,
+          userId: session.user.id,
         },
       });
     }),

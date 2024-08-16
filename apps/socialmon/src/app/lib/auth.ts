@@ -17,6 +17,13 @@ export const AUTHORIZED_EMAILS = [
 export const authConfig: NextAuthOptions = {
   adapter: PrismaAdapter(prisma as unknown as PrismaClient),
   callbacks: {
+    session: async ({ session, user }) => {
+      if (session?.user) {
+        session.user.id = user.id;
+      }
+
+      return session;
+    },
     async signIn({ profile }) {
       if (AUTHORIZED_EMAILS.includes(profile?.email ?? '')) {
         return true;
@@ -27,6 +34,7 @@ export const authConfig: NextAuthOptions = {
   },
   providers: [
     GoogleProvider({
+      allowDangerousEmailAccountLinking: true,
       clientId: process.env.AUTH_GOOGLE_ID as string,
       clientSecret: process.env.AUTH_GOOGLE_SECRET as string,
     }),

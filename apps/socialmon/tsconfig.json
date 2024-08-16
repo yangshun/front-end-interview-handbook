@@ -13,5 +13,5 @@
     },
     "strictNullChecks": true
   },
-  "include": ["next-env.d.ts", "src", ".next/types/**/*.ts"]
+  "include": ["next-env.d.ts", "src", ".next/types/**/*.ts", "types.d.ts"]
 }
