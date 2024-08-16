@@ -1,3 +1,4 @@
+import { useRouter } from 'next/navigation';
 import toast from 'react-hot-toast';
 
 import { trpc } from '~/hooks/trpc';
@@ -16,7 +17,7 @@ export default function PostRelevancyActionButton({
   relevancy,
 }: Props) {
   const projectSlug = useCurrentProjectSlug();
-  const utils = trpc.useUtils();
+  const router = useRouter();
   const markPostRelevancyMutation =
     trpc.socialPosts.markPostRelevancy.useMutation();
 
@@ -32,7 +33,7 @@ export default function PostRelevancyActionButton({
       },
       {
         onSuccess() {
-          utils.socialPosts.getPosts.invalidate();
+          router.refresh();
           toast.success(
             relevancy === PostRelevancy.IRRELEVANT
               ? 'Marked the post as relevant successfully!'

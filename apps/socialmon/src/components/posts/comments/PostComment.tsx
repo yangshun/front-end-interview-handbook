@@ -78,7 +78,7 @@ export default function PostComment({ className, comment, level }: Props) {
           )}>
           <div className="flex gap-3">
             <Text size="sm">
-              {author}
+              <span className="font-bold">{author}</span>
               {' · '}
               <RelativeTimestamp timestamp={new Date(created_utc * 1000)} />
             </Text>

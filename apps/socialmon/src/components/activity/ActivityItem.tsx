@@ -1,3 +1,7 @@
+import Link from 'next/link';
+
+import useCurrentProjectSlug from '~/hooks/useCurrentProjectSlug';
+
 import RelativeTimestamp from '../common/datetime/RelativeTimestamp';
 
 import type { ActivityExtended } from '~/types';
@@ -9,9 +13,17 @@ type Props = Readonly<{
 }>;
 
 export default function ActivityItem({ activity }: Props) {
+  const projectSlug = useCurrentProjectSlug();
   const { action, user, post, createdAt } = activity;
   const userLabel = <span className="font-bold">{user.name}</span>;
-  const postLabel = <span className="font-bold">{post.title}</span>;
+  const postLabel = (
+    <Text
+      c="blue"
+      component={Link}
+      href={`/projects/${projectSlug}/posts/${post.id}`}>
+      {post.title}
+    </Text>
+  );
 
   const timestampLabel = (
     <Text c="gray" size="sm">

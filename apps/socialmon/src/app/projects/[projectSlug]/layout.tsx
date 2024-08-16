@@ -6,7 +6,6 @@ import ProjectsNavbar from '~/components/common/ProjectsNavbar';
 import Container from '~/components/ui/Container';
 
 import { getUser } from '~/app/lib/auth';
-import { NAVBAR_HEIGHT } from '~/constants';
 import prisma from '~/server/prisma';
 
 type Props = Readonly<{
@@ -33,11 +32,9 @@ export default async function Layout({ children, params }: Props) {
   }
 
   return (
-    <div className="flex h-screen flex-col">
+    <div className="flex min-h-screen flex-col">
       <ProjectsNavbar user={user} />
-      <Container
-        className={clsx('flex-1', 'p-4', 'flex')}
-        style={{ height: `calc(100vh - ${NAVBAR_HEIGHT}px)` }}>
+      <Container className={clsx('flex-1', 'p-4', 'flex')}>
         {children}
       </Container>
     </div>
