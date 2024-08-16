@@ -27,6 +27,7 @@ export function getFocusAreaAsyncOperations(intl: IntlShape): FocusArea {
     }),
     questions: {
       javascript: [
+        'birth-year-histogram',
         'cancellable-interval',
         'cancellable-timeout',
         'debounce',

@@ -66,24 +66,26 @@ export default async function Page({ params }: Props) {
   const focusAreas = getFocusAreas(intl as IntlShape);
 
   const [
-    difficultySummaryDSA,
-    difficultySummaryAsync,
-    difficultySummaryDSC,
-    difficultySummaryLodash,
-    difficultySummaryDOM,
     difficultySummaryA11y,
-    difficultySummaryJavaScriptPolyfills,
+    difficultySummaryAsync,
+    difficultySummaryDSA,
+    difficultySummaryDSC,
+    difficultySummaryDOM,
     difficultySummaryForms,
+    difficultySummaryLodash,
+    difficultySummaryJavaScriptPolyfills,
+    difficultySummaryStateManagement,
   ] = await Promise.all(
     [
-      focusAreas['data-structures-algorithms'],
-      focusAreas['async-operations'],
-      focusAreas['design-system-components'],
-      focusAreas.lodash,
-      focusAreas['dom-manipulation'],
       focusAreas.accessibility,
-      focusAreas['javascript-polyfills'],
+      focusAreas['async-operations'],
+      focusAreas['data-structures-algorithms'],
+      focusAreas['design-system-components'],
+      focusAreas['dom-manipulation'],
       focusAreas.forms,
+      focusAreas.lodash,
+      focusAreas['javascript-polyfills'],
+      focusAreas['state-management'],
     ].map((area) => getDifficultySummaryForList(area, locale)),
   );
 
@@ -98,6 +100,7 @@ export default async function Page({ params }: Props) {
         forms: difficultySummaryForms,
         'javascript-polyfills': difficultySummaryJavaScriptPolyfills,
         lodash: difficultySummaryLodash,
+        'state-management': difficultySummaryStateManagement,
       }}
       focusAreas={focusAreas}
     />

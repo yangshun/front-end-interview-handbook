@@ -1187,6 +1187,10 @@
     "defaultMessage": "Implement important Data Structures & Algorithms",
     "description": "Description of data structures and algorithm questions"
   },
+  "7xPEg+": {
+    "defaultMessage": "State Management",
+    "description": "Name of focus area questions"
+  },
   "7xuDzw": {
     "defaultMessage": "We are also the only platform offering decent front end system design content.",
     "description": "FAQ answer"
@@ -5951,10 +5955,6 @@
     "defaultMessage": "Choose your pricing plan",
     "description": "Title of Pricing section"
   },
-  "huMizZ": {
-    "defaultMessage": "Practice selecting elements using CSS selectors, traverse the DOM hierarchy, and manipulate their properties, content, and styles.",
-    "description": "Description for interview preparation focus area"
-  },
   "huof8A": {
     "defaultMessage": "{questionTitle} in {questionFramework} | Front End Interview UI Coding Questions with Solutions",
     "description": "Title of Front End Interview UI Coding Questions practice page"
@@ -7219,6 +7219,10 @@
     "defaultMessage": "Behavioral Interview Study Guides",
     "description": "Behavioral interview study guides"
   },
+  "s8/47i": {
+    "defaultMessage": "Train your skills in designing complex state and implementing operations to manipulate state.",
+    "description": "Description for interview preparation focus area"
+  },
   "sCpKTY": {
     "defaultMessage": "Billing | Settings",
     "description": "Title of billing page"
@@ -7278,6 +7282,10 @@
   "sfJ1Oa": {
     "defaultMessage": "Purchase premium to get access to all component tracks as well as exclusive skills, official how-to guides and production-ready Figma files.",
     "description": "Subtitle for premium projects component track"
+  },
+  "sfxQ0Y": {
+    "defaultMessage": "Practice solving questions involving complex state",
+    "description": "Title for interview preparation focus area"
   },
   "sjLtW1": {
     "defaultMessage": "Manage subscription",
@@ -7962,6 +7970,10 @@
   "y9hdD1": {
     "defaultMessage": "Reading time",
     "description": "Reading time of the article"
+  },
+  "yAJsl0": {
+    "defaultMessage": "Familiarize with selecting elements using CSS selectors, traverse the DOM hierarchy, and manipulate their properties, content, and styles.",
+    "description": "Description for interview preparation focus area"
   },
   "yCyxT4": {
     "defaultMessage": "All tracks",

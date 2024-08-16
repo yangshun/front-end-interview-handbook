@@ -37,6 +37,10 @@ import {
   getFocusAreaLodash,
   getFocusAreaThemeLodash,
 } from './items/FocusAreaLodash';
+import {
+  getFocusAreaStateManagement,
+  getFocusAreaThemeStateManagement,
+} from './items/FocusAreaStateManagement';
 
 export type FocusAreaType =
   | 'accessibility'
@@ -46,7 +50,8 @@ export type FocusAreaType =
   | 'dom-manipulation'
   | 'forms'
   | 'javascript-polyfills'
-  | 'lodash';
+  | 'lodash'
+  | 'state-management';
 
 // Can only contain serializable values as it's passed between the server-client boundary.
 export type FocusArea = QuestionList &
@@ -69,6 +74,7 @@ export function getFocusAreas(intl: IntlShape): FocusAreas {
     forms: getFocusArea('forms', intl),
     'javascript-polyfills': getFocusArea('javascript-polyfills', intl),
     lodash: getFocusArea('lodash', intl),
+    'state-management': getFocusArea('state-management', intl),
   };
 
   return focusAreas;
@@ -95,6 +101,8 @@ export function getFocusArea(
       return getFocusAreaDOMManipulation(intl);
     case 'javascript-polyfills':
       return getFocusAreaJavaScriptPolyfills(intl);
+    case 'state-management':
+      return getFocusAreaStateManagement(intl);
   }
 }
 
@@ -110,6 +118,7 @@ export function getFocusAreaThemes(): Record<FocusAreaType, QuestionListTheme> {
     forms: getFocusAreaTheme('forms'),
     'javascript-polyfills': getFocusAreaTheme('javascript-polyfills'),
     lodash: getFocusAreaTheme('lodash'),
+    'state-management': getFocusAreaTheme('state-management'),
   };
 }
 
@@ -131,5 +140,7 @@ export function getFocusAreaTheme(focusArea: FocusAreaType): QuestionListTheme {
       return getFocusAreaThemeDOMManipulation();
     case 'javascript-polyfills':
       return getFocusAreaThemeJavaScriptPolyfills();
+    case 'state-management':
+      return getFocusAreaThemeStateManagement();
   }
 }

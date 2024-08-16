@@ -45,9 +45,9 @@ export function getFocusAreaDOMManipulation(intl: IntlShape): FocusArea {
     seo: {
       description: intl.formatMessage({
         defaultMessage:
-          'Practice selecting elements using CSS selectors, traverse the DOM hierarchy, and manipulate their properties, content, and styles.',
+          'Familiarize with selecting elements using CSS selectors, traverse the DOM hierarchy, and manipulate their properties, content, and styles.',
         description: 'Description for interview preparation focus area',
-        id: 'huMizZ',
+        id: 'yAJsl0',
       }),
       title: intl.formatMessage({
         defaultMessage: 'Master async programming for front end interviews',
@@ -57,9 +57,9 @@ export function getFocusAreaDOMManipulation(intl: IntlShape): FocusArea {
     },
     shortDescription: intl.formatMessage({
       defaultMessage:
-        'Practice selecting elements using CSS selectors, traverse the DOM hierarchy, and manipulate their properties, content, and styles.',
+        'Familiarize with selecting elements using CSS selectors, traverse the DOM hierarchy, and manipulate their properties, content, and styles.',
       description: 'Description for interview preparation focus area',
-      id: 'huMizZ',
+      id: 'yAJsl0',
     }),
     type: 'dom-manipulation',
   };
