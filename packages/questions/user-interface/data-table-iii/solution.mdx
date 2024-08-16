@@ -1,0 +1,50 @@
+## Solution
+
+We'll build on top of [Data Table II's solution](/questions/user-interface/data-table-ii/solution).
+
+While a refactoring question will probably not be asked verbatim during interviews, there is a lot of learning value from this exercise.
+
+You can also build your data tables in a similar fashion from the start so that it can be easily extended for the new requirements.
+
+## Decoupling the component
+
+Notice that the header columns have already been declared as an array. We can use that as a base. Let's look at which parts of the `DataTable` are still coupled to user data:
+
+1. `sortUsers` function
+2. `paginateUsers` function
+3. Rendering table cells
+
+An important concept to be aware of in order to refactor is first-class functions – the idea of writing functions as variables to be passed around and called from elsewhere. This enables data-specific logic to live outside of the `DataTable` component.
+
+### `sortUsers` function
+
+The `sortUsers` function is extremely coupled to the user data. However, upon a closer look, notice that the branches in the function correspond to each column and the only unique thing about each column is the comparator function.
+
+We can define a comparator function for each column and have the `sortData` function (renamed from `sortUsers`) call into the column's comparator function. The comparator function returns a number that is used to determine the relative position of two items in the data array. Each column can define custom sorting logic within it, be it comparing numbers or strings.
+
+### `paginateUsers` function
+
+This function is not coupled to user data at all. It does not care about the shape of the data, only the total size and the page size. Generalizing this function is straightforward.
+
+### Rendering table cells
+
+At the current stage, rendering each row's data is straightforward – just textual/numerical data that needs no special formatting. However, in future there could be other types of data like images, or special formatting requirements.
+
+Like the comparator function, a `renderCell()` first-class function can be defined for each column, that determines how to render the cell data for that column.
+
+### Extracting the data and columns and configuration
+
+Now that we have managed to generalize the necessary portions of `DataTable`, we can move the data and columns out of the component and pass them in as props.
+
+If the users data contains a new field, we simply have to add in a new item into the columns configuration to enable displaying within the table and sorting by that column.
+
+To demonstrate the flexibility of the `DataTable` component, we have also used it to render houses data.
+
+## Follow up
+
+Now that we have a generalized data table that supports paginating and sorting, take a moment to consider how the following features can be implemented:
+
+- Filtering on each column/field
+- Fetching sorted, paginated, and filtered data from a remote API
+
+Have a look at [TanStack Table](https://tanstack.com/table/) to get a sense of what features goes into production-ready data table libraries and how complex data tables can be.

@@ -1,0 +1,37 @@
+{
+  "author": "yangshun",
+  "companies": [
+    "amazon"
+  ],
+  "created": 1723766400,
+  "difficulty": "medium",
+  "duration": 20,
+  "excerpt": "Build a semi-accessible modal dialog component that has the right ARIA roles, states, and properties",
+  "featured": false,
+  "format": "user-interface",
+  "frameworkDefault": "react",
+  "frameworks": [
+    {
+      "framework": "react",
+      "href": "/questions/user-interface/modal-dialog-ii/react"
+    }
+  ],
+  "href": "/questions/user-interface/modal-dialog-ii",
+  "importance": "low",
+  "languages": [
+    "html",
+    "js",
+    "css"
+  ],
+  "nextQuestions": [
+    "modal-dialog-iii"
+  ],
+  "premium": true,
+  "published": true,
+  "ranking": 100,
+  "similarQuestions": [],
+  "slug": "modal-dialog-ii",
+  "subtitle": null,
+  "title": "Modal Dialog II",
+  "topics": []
+}

@@ -1,0 +1,34 @@
+## Solution
+
+Modal dialogs can be implemented as both controlled and non-controlled components (the dialog controls its own closed state), but it is more commonly used as controlled components.
+
+Since the modal dialog component does not contain that many elements, we can keep things simple and define a single `ModalDialog` component.
+
+### Props
+
+The `ModalDialog` component takes the following props:
+
+- `title`: String to be shown at the top of the modal dialog.
+- `children`: The content to be displayed in the modal. It can either be a custom prop or `children` prop, but the latter is a more common way to render contents.
+- `open`: A boolean to control the visibility of the modal (defaults to `false`). If it is `false`, nothing is rendered to the DOM.
+- `onClose`: Callback triggered when the modal dialog is meant to be closed.
+
+### State
+
+Since the modal dialog component is a controlled component, given the current basic requirements there's no need for any state within the modal. However, the modal dialog is controlled externally and state is required outside to toggle the visibility of the modal.
+
+### Rendering and layout
+
+The key elements for the modal dialog are the (1) overlay, (2) modal dialog, (3) modal title:
+
+1. **Overlay**: The overlay is meant to cover the whole screen. A combination of `position: fixed` and `inset: 0` will render the element to cover the entire screen. Set a semi-transparent color for the background, e.g. `rgba(0, 0, 0, 0.7)`.
+2. **Modal dialog**: The modal dialog can be placed within the overlay element. Centering the modal dialog on the screen is thus done by the overlay, which sets the contents to be centered within itself. There are multiple ways to achieve centering and the simplest modern way is to use `display: flex; align-items: center; justify-content: center` styles.
+3. **Modal title**: Modal dialogs represent a new context separate from the main page content. Using `<h1>` establishes the modal's content as its own document outline, which clearly indicates the primary heading of this new context to screen readers.
+
+### Breaking out of DOM hierarchy
+
+Rendering modal dialogs is tricky due to the fact that modals are being displayed over the page and does not follow the normal flow of page elements.
+
+Hence it is mandatory to render the modal outside of the DOM hierarchy of the parents. Otherwise, if the parents contain styling that clips its contents, the modal contents might not be fully visible. Here's an [example from the React docs demonstrating the issue](https://react.dev/reference/react-dom/createPortal#rendering-a-modal-dialog-with-a-portal).
+
+In React, rendering outside the DOM hierarchy of the parent component can be achieved using [React Portals](https://react.dev/reference/react-dom/createPortal). Other common use cases of portals include tooltips, dropdown menus, popovers.

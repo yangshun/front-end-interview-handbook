@@ -1,0 +1,9 @@
+{
+  "visibleFiles": [
+    "/src/App.tsx",
+    "/src/ModalDialog.tsx",
+    "/src/styles.css"
+  ],
+  "activeFile": "/src/ModalDialog.tsx",
+  "environment": "create-react-app"
+}

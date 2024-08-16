@@ -1,0 +1,11 @@
+## Solution
+
+We'll build on top of [File Explorer's solution](/questions/user-interface/file-explorer/react/solution).
+
+### Returning fragments
+
+The main change is to return fragments instead of `<ul>`. The root `<ul>` is rendered by the `FileExplorer` component and `FileObject` and `FileList` should return fragments and rendered as direct children of the `<ul>` in `FileExplorer`.
+
+### Rendering indentation
+
+The amount of left padding to use for each indentation level can be determined by the `level` prop – multiply the level (subtract one first) by the indentation width.

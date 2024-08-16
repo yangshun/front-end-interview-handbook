@@ -1,0 +1,9 @@
+{
+  "visibleFiles": [
+    "/src/App.tsx",
+    "/src/DataTable.tsx",
+    "/src/styles.css"
+  ],
+  "activeFile": "/src/DataTable.tsx",
+  "environment": "create-react-app"
+}

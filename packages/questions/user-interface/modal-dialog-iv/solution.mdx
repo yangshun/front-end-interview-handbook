@@ -1,0 +1,51 @@
+## Solution
+
+We'll build on top of [Modal Dialog III's solution](/questions/user-interface/modal-dialog-iii/solution). Like in Modal Dialog III, only interactions need to be added; the styling and structure can remain the same.
+
+The following behaviors need to be implemented:
+
+1. Upon dialog open, focus on the first tabbable element
+2. Focus trapping – the focus is trapped within the dialog and cannot escape the dialog
+3. Upon dialog close, focus returns to the element that invoked the dialog
+
+### 1. Upon dialog open, focus on the first tabbable element
+
+This functionality is quite straightforward to implement. Upon mounting of the component, query all the elements and focus on the first tabbable element. The tabbable elements within the dialog can be selected with the following selector:
+
+```js
+dialogEl.querySelectorAll(
+  'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])',
+);
+```
+
+This is implemented as the `useFocusOnFirstTabbableElement` hook.
+
+### 2. Focus trapping
+
+Focus trapping is a technique used to control and manage keyboard focus within a specific area or component of a webpage or application (e.g. modal dialogs, dropdown menus).
+
+Practically, the following behavior is implemented:
+
+- When focus reaches the last element, <kbd>Tab</kbd> moves focus to the first tabbable element
+- When focus is on the first element, <kbd>Shift</kbd> + <kbd>Tab</kbd> moves focus to the last tabbable element
+- All interactive elements within the trapped area remain focusable
+- Elements outside the trapped area are temporarily made unfocusable
+
+Tabbing between the non-boundary elements can remain as per normal. Only the first and last elements need special handling. We need to hijack the tabbing events on these boundary elements and programmatically focus on the required elements instead of allowing the browser to decide (which relies on DOM order).
+
+We can add a `keydown` event listener to the dialog and filter for <kbd>Tab</kbd> event presses. In the callback:
+
+1. If the currently focused element (via `document.activeElement`) is the last tabbable element and the <kbd>Tab</kbd> key is pressed, focus on the first tabbable element instead.
+2. If the currently focused element (via `document.activeElement`) is the first tabbable element and the <kbd>Shift</kbd> + <kbd>Tab</kbd> keys are pressed (by checking the `event.shiftKey` property), focus on the last tabbable element instead.
+
+To find all the tabbable elements, the same selector as per part 1 can be used. Note that it is advisable to find all the tabbable elements on-demand, during the <kbd>Tab</kbd> key event, rather than at the start when the dialog is mounted and retaining a reference to the list. This is because the contents of the dialog can be modified anytime; the list of tabbable elements on mount might not be the same as when the user actually tabs through them.
+
+Before changing the focus programmatically, remember to call `event.preventDefault()`, otherwise the browser will proceed with the default behavior – focus on the next element determined by the DOM order.
+
+This is implemented as the `useFocusTrap` hook.
+
+### 3. Upon dialog close, focus returns to the element that invoked the dialog
+
+The currently focused element on the page can be obtained using `document.activeElement`. When the dialog is mounted, save a reference to that element (if it exists). On unmounting, programmatically focus on that element.
+
+This is implemented as the `useReturnFocusToTrigger` hook. An important thing to note is that this hook has to be **called before `useFocusOnFirstTabbableElement`**, otherwise the focus would have been set on the first tabbable element, even before the hook gets a chance to save the reference to the focus trigger.

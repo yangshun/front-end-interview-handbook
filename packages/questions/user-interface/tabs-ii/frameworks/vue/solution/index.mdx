@@ -1,4 +1,5 @@
 import TestCases from '../../../test-cases.mdx';
+import Notes from '../../../notes.mdx';
 
 ## Solution
 
@@ -10,13 +11,4 @@ We'll build on top of [Tabs' solution](/questions/user-interface/tabs/vue/soluti
 Since there can be multiple `Tabs` component instances on the page and we cannot guarantee that the tab item values will be globally unique, each `Tabs` instance needs to have a unique identifier. We can use a simple technique `Math.random().toString(36).substring(2, 9)` to generate unique ID for each `Tabs` instance. The final ID string will be a concatenation of the `Tabs` instance's ID, the item value, and whether it's a tab item or a tabpanel.
 
 <TestCases />
-
-## Accessibility
-
-We're not totally done with accessibility yet, there's still keyboard support to add, which will be covered in [Tabs III](/questions/user-interface/tabs-iii).
-
-## Resources
-
-- [Tabs | ARIA Authoring Practices Guide](https://www.w3.org/WAI/ARIA/apg/patterns/tabpanel/)
-- [Tabs | Radix Vue](https://radix-vue.com/components/tabs)
-- [Tabs - Headless UI](https://headlessui.com/vue/tabs)
+<Notes />

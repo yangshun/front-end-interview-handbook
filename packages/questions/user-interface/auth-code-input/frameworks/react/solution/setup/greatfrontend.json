@@ -1,0 +1,10 @@
+{
+  "visibleFiles": [
+    "/src/App.tsx",
+    "/src/AuthCodeInput.tsx",
+    "/src/InputDigit.tsx",
+    "/src/styles.css"
+  ],
+  "activeFile": "/src/AuthCodeInput.tsx",
+  "environment": "create-react-app"
+}

@@ -1,0 +1,19 @@
+## Test cases
+
+1. Entering input
+   - Upon initial load, the first input is focused
+   - Entering a valid input should fill the input field and move the focus to the next input field
+   - Invalid input should not be allowed in input field
+   - No interaction should be allowed when a network request is in progress
+2. Deleting input
+   - Pressing <kbd>Backspace</kbd> should delete the current input (if filled) or move to previous input field and delete any input present from previous input field
+3. Navigating input fields
+   - Pressing <kbd>Tab</kbd> / <kbd>Shift</kbd> + <kbd>Tab</kbd> and left/right arrow buttons should move the focus to left/right based on the pressed key
+   - After navigation, the input fields should be able to be replaced with a new number without any additional keystrokes
+4. Pasting input
+   - Pasting a code should paste the code if the pasted code is valid input
+5. "Reset" button
+   - Should be disabled if no input is present
+   - Clicking on it should erase all input fields and focus on the first input
+6. "Submit" button
+   - Submit should be enabled only when all input field are filled with valid input

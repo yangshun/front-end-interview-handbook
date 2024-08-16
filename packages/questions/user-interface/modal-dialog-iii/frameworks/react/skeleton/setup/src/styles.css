@@ -1,0 +1,30 @@
+body {
+  font-family: sans-serif;
+}
+
+.modal-overlay {
+  background-color: rgba(0, 0, 0, 0.7);
+  inset: 0;
+  position: fixed;
+
+  align-items: center;
+  display: flex;
+  justify-content: center;
+
+  padding: 20px;
+}
+
+.modal {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+
+  background-color: white;
+  padding: 24px;
+}
+
+.modal-title {
+  margin: 0;
+}

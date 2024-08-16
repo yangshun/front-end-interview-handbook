@@ -1,0 +1,36 @@
+## Solution
+
+The solution can be broken down into two parts:
+
+1. **Rendering**: Layout and positioning of buttons
+1. **State management**: State design and state changes
+
+### Rendering
+
+The image carousel layout consists of 3 parts:
+
+#### 1. Image carousel container
+
+The root of the image carousel will be the element responsible for the overall dimensions and containing the displayed image and button elements. Since the height is fixed, we can set `height: 400px` on the root element. However, the width is fluid and on screens smaller than 600px, it should shrink to fit within the screen. For this behavior, we can use the CSS [`min`](https://developer.mozilla.org/en-US/docs/Web/CSS/min) function (e.g. `min(600px, 100vw)`).
+
+#### 2. Displayed image
+
+The image can be rendered using normal `<img>` tags and `object-fit: contain`, which resizes the image to fit the available space of 600px x 400px while maintaining the innate aspect ratio of the image.
+
+#### 3. Navigation buttons
+
+The various buttons are positioned at fixed locations within the image carousel. This is achieved through adding `position: relative` on the root element of the image carousel and `position: absolute` to the button elements.
+
+To vertically center the prev/next buttons, use a combination of `top: 50%; transform: translateY(-50%)`. `top: 50%` positions the element to have a vertical offset of 50% of the container element, and `translateY(-50%)` will shift the element up by half of the element's height. The pages buttons are horizontally-centered and can be done in a similar fashion.
+
+### State
+
+The minimal state needed for an image carousel is the current image index. Only one state value is needed.
+
+#### State changes
+
+- **Next button**: Increment the `currIndex` by one.
+- **Prev button**: Decrement the `currIndex` by one.
+- **Page button**: Directly set the `currIndex` to the page number.
+
+To enable the cycling behavior, we need to make sure that the `currIndex` is always between `0` and `images.length - 1`. We can achieve this by adding `images.length` to any value, and using the modulo operator (`%`).

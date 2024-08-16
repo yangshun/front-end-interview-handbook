@@ -1,0 +1,41 @@
+{
+  "author": "yangshun",
+  "companies": [
+    "amazon",
+    "google",
+    "doordash",
+    "dropbox",
+    "microsoft",
+    "snap",
+    "squarespace"
+  ],
+  "created": 1723766400,
+  "difficulty": "hard",
+  "duration": 40,
+  "excerpt": "Build an image carousel that smoothly transitions between images that has a minimal DOM footprint",
+  "featured": false,
+  "format": "user-interface",
+  "frameworkDefault": "react",
+  "frameworks": [
+    {
+      "framework": "react",
+      "href": "/questions/user-interface/image-carousel-iii/react"
+    }
+  ],
+  "href": "/questions/user-interface/image-carousel-iii",
+  "importance": "low",
+  "languages": [
+    "html",
+    "js",
+    "css"
+  ],
+  "nextQuestions": [],
+  "premium": true,
+  "published": true,
+  "ranking": 100,
+  "similarQuestions": [],
+  "slug": "image-carousel-iii",
+  "subtitle": null,
+  "title": "Image Carousel III",
+  "topics": []
+}

@@ -1,0 +1,39 @@
+{
+  "author": "yangshun",
+  "companies": [
+    "amazon",
+    "atlassian",
+    "snap",
+    "tiktok"
+  ],
+  "created": 1723766400,
+  "difficulty": "medium",
+  "duration": 20,
+  "excerpt": "Build a file explorer component using a flat DOM structure",
+  "featured": false,
+  "format": "user-interface",
+  "frameworkDefault": "react",
+  "frameworks": [
+    {
+      "framework": "react",
+      "href": "/questions/user-interface/file-explorer-iii/react"
+    }
+  ],
+  "href": "/questions/user-interface/file-explorer-iii",
+  "importance": "mid",
+  "languages": [
+    "html",
+    "js"
+  ],
+  "nextQuestions": [
+    "file-explorer-iii"
+  ],
+  "premium": true,
+  "published": true,
+  "ranking": 100,
+  "similarQuestions": [],
+  "slug": "file-explorer-iii",
+  "subtitle": null,
+  "title": "File Explorer III",
+  "topics": []
+}

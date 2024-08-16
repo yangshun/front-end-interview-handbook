@@ -1,0 +1,17 @@
+## Test Cases
+
+1. Dialog opening
+   - Verify that focus moves to the first focusable element in the dialog when it opens
+   - Ensure that focus is trapped within the dialog
+   - Check that elements outside the dialog are not focusable
+1. Focus order
+   - Confirm that <kbd>Tab</kbd> key moves focus through elements in a logical order
+   - Verify that <kbd>Shift</kbd> + <kbd>Tab</kbd> reverses the focus order
+   - Ensure that all interactive elements within the dialog are focusable
+1. Focus trapping
+   - Test that focus wraps from the last to the first element when tabbing
+   - Verify that focus wraps from the first to the last element when using <kbd>Shift</kbd> + <kbd>Tab</kbd>
+1. Dialog closing
+   - Confirm that pressing <kbd>Esc</kbd> key closes the dialog
+   - Verify that clicking outside the dialog closes it
+   - Ensure that focus returns to the element that opened the dialog

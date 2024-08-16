@@ -1,0 +1,28 @@
+body {
+  font-family: sans-serif;
+}
+
+.file-list {
+  list-style: none;
+  margin: 0;
+  padding-left: 16px;
+}
+
+.file-item {
+  padding: 0;
+}
+
+.file-item-button {
+  background-color: transparent;
+  border: none;
+  line-height: 1.5;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 0;
+}
+
+.file-item-button--directory {
+  display: flex;
+  gap: 4px;
+  font-weight: bold;
+}

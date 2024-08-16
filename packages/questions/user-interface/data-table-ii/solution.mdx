@@ -1,0 +1,43 @@
+## Solution
+
+We'll build on top of [Data Table's solution](/questions/user-interface/data-table/solution).
+
+A common follow up question to a paginated data table is to add sorting features, sort the data by the available columns.
+
+### State
+
+The new data needed for a data table that allows for sorting is the column to be sorted by and the direction to sort. There are two approaches to represent this configuration:
+
+- **Single value**: Encapsulated within one value (e.g. `name-asc`, `name-desc`, etc.).
+- **Two values**: Separate out the sort field (e.g. `name`, `age`, etc.) and sort direction (`asc` and `desc`).
+
+Both approaches are viable but it is probably clearer to have two separate fields.
+
+These state values are set/toggled by clicking on the table headers.
+
+### Sorting
+
+We implement a function `sortUsers` that takes in the the list of users, the current sort field, and sort direction. It will return the list of users sorted by the specified field in that order.
+
+A basic way to do the sorting is to use a switch-case statement for each possible field and implement the sorting logic within the case. Recall that there are two values types within the table – strings for `name` and `occupation`, and numbers of `id` and `age`. Sorting strings has to be done via `String.prototype.toLocaleCompare()` and should not be done using the `>` and `<` operators.
+
+Just like for pagination where the page number is set to 1 when the page size changes, the page size should also be reset when the sorting field or direction changes.
+
+### Integrating with pagination
+
+Sorting has to be done before pagination. Integration is simply sorting the users before passing the sorted user list to `paginateUsers()`.
+
+Both sorting and paginating functions will be called in the render path and the returned users `pageUsers` is the current page of users to be rendered after taking into account sorting. The rendering code doesn't need to be changed much.
+
+## Follow up
+
+Paginating and sorting are just the initial steps of a data table. Data tables can also support:
+
+- Filtering on each column/field
+- Fetching sorted, paginated, and filtered data from a remote API
+- Consider how easy it is to add new fields:
+  - How many places do you need to change if a new field is to be displayed?
+  - The current component is very coupled to the fields of a user, how can you modify the component to be data agnostic?
+  - What if there are non-textual fields to be displayed?
+
+If you have the time, have a look at [TanStack Table](https://tanstack.com/table/) to get a sense of what features goes into production-ready data table libraries and how complex data tables can be.

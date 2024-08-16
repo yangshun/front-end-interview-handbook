@@ -38,7 +38,9 @@
     "css",
     "js"
   ],
-  "nextQuestions": [],
+  "nextQuestions": [
+    "tic-tac-toe-ii"
+  ],
   "premium": true,
   "published": true,
   "ranking": 100,

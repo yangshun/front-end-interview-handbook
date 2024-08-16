@@ -1,0 +1,43 @@
+{
+  "author": "yangshun",
+  "companies": [
+    "amazon",
+    "google",
+    "doordash",
+    "dropbox",
+    "microsoft",
+    "snap",
+    "squarespace"
+  ],
+  "created": 1723766400,
+  "difficulty": "medium",
+  "duration": 30,
+  "excerpt": "Build an image carousel that smoothly transitions between images",
+  "featured": false,
+  "format": "user-interface",
+  "frameworkDefault": "react",
+  "frameworks": [
+    {
+      "framework": "react",
+      "href": "/questions/user-interface/image-carousel-ii/react"
+    }
+  ],
+  "href": "/questions/user-interface/image-carousel-ii",
+  "importance": "low",
+  "languages": [
+    "html",
+    "js",
+    "css"
+  ],
+  "nextQuestions": [
+    "image-carousel-iii"
+  ],
+  "premium": true,
+  "published": true,
+  "ranking": 100,
+  "similarQuestions": [],
+  "slug": "image-carousel-ii",
+  "subtitle": null,
+  "title": "Image Carousel II",
+  "topics": []
+}

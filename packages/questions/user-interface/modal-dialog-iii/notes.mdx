@@ -1,0 +1,7 @@
+## Follow up
+
+A possible problematic scenario is having multiple dialogs open at once / stacked because the open dialog's contents allow opening of another dialog.
+
+A limitation of our current implementation is surfaced – since most of the event listeners are added on the global level, all the open dialogs might respond to a <kbd>Escape</kbd> event and close at the same time, when the expected behavior is that only the topmost dialog closes.
+
+Fixing this will require code to track the stack of open dialogs and only close the topmost dialog. However, implementing this is non-trivial and usually beyond the scope of interviews. That said, mentioning this scenario to the interviewer will probably give you brownie points!

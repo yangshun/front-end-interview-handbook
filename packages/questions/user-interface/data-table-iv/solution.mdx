@@ -1,0 +1,57 @@
+## Solution
+
+We'll build on top of [Data Table III's solution](/questions/user-interface/data-table-iii/solution).
+
+In [Data Table III](/questions/user-interface/data-table-iii/solution), the `DataTable` implementation was generalized and no longer contains any code that is specific to users data. We need to preserve this generalization when extending the component with filtering functionality.
+
+There are a few things that need to be done:
+
+1. Add column-specific filter input UI in the header cell
+2. Store the filter input state
+3. Allow the `DataTable` component to read the filter inputs state and use it when filtering data. Filtering has to be done before sorting and pagination occurs.
+
+There are a few ways to design the new fields to be added to the column definitions to enable filtering:
+
+1. Simple configuration, but not as flexible
+2. More configuration needed, but more flexible
+3. Provide default configuration but also allow flexibility
+
+### 1. Simple configuration, but not as flexible
+
+This method involves adding a `filterType` string property to the column definitions that is either `string` or `range`. That is all that is needed from an external API perspective. The complexity will be within the `DataTable` component – it has to render the various filters inputs and use them when processing the data for presentation.
+
+1. The header cells are rendered by iterating over the column definitions. The addition here is to render the appropriate filter input depending on the `filterType` value.
+2. When the filter input value changes, store the filter values as state within the `DataTable` component in an object called `filters`. The key of the `filters` object is a unique identifier of the column (we can use the `key` field of the column) and the value is filter data associated with that column's filter input. Each filter type has its own format:
+   1. `string`: Stores a single value representing the string to filter: `{ type: 'string'; value: string | null; }`
+   2. `range`: Store two numeric values, the max and min value of the range: `{ type: 'range'; max?: number | null; min?: number | null; }`
+3. Create a `filterData` function that takes in the data and filters state. For each row of data, iterate through the `filters` object and only keep the rows that **pass all the filter checks**.
+
+This approach is very easy to use as the API surface is small, but notice that there's more code baked into `DataTable`:
+
+1. We're rendering the same filter input UI depending on `filterType`; the filter inputs cannot be customized. Customization is sometimes useful, e.g. if the placeholder has to be customized, or using your own input UI components.
+1. The filtering logic is also contained within `DataTable`, which is a case-insensitive substring match for strings, and a range match for numbers. The filtering logic cannot be customized.
+
+The solution uses this approach, and it is probably robust enough for interviews. Next, we can look at an alternative approach that is more flexible, but requires more configuration.
+
+### 2. More configuration needed, but more flexible
+
+This method involves adding a few function fields to the column definition that contains filtering logic. The `DataTable` component will call these function when rendering the filter inputs and filtering the matching rows. The filter value state can be the same as per approach 1 – `filters` object with keys as column `key`s and value as the column-specific filter data.
+
+1. `renderFilter(filterValue, setFilterValue)`: A function that renders the filter input. It takes in the current `filterValue` and a `setFilterValue` function. The function should return UI that displays the `filterValue` and responds to user inputs by calling `setFilterValue`, which will persist the filter state for that column within `DataTable`.
+1. `matchesFilter(value, filterValue)`: A function that determines if the value matches the filter. It takes in the column's value for the row and the `filterValue` and the developer is left to implement their own matching logic.
+
+With this approach, maximum flexibility is given – the developer is given full control over the rendering and the matching logic. However, there can be quite a bit of repetition if a similar matching logic is used for all string-based fields. This approach is similar to the `comparator` function used for sorting.
+
+### 3. Default configuration, with flexibility
+
+A hybrid solution is to allow for both simple and advanced configuration options. For each column, if the `renderFilter` and/or `matchesFilter` field is defined, invoke them for rendering/filtering, otherwise use the default as per the simple approach.
+
+If you're interested, modify the solution to use this hybrid approach.
+
+## Follow up
+
+Now that we have a generalized data table that supports paginating, sorting, and filtering. The next logical extension is to fetch the data from a remote API.
+
+When fetching data from a remote API, the server will be in-charge of doing the paginating, sorting, filtering, so the `DataTable` component does not need to include these processing logic anymore. The only thing the component needs to do is to collect user input (current page, page size, sorting field, sorting direction, filters state), call the API with these options, then present the results.
+
+Have a look at [TanStack Table](https://tanstack.com/table/) to get a sense of what features goes into production-ready data table libraries and how complex data tables can be.

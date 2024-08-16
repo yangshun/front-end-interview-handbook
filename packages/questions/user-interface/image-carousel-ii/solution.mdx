@@ -1,0 +1,68 @@
+## Solution
+
+### Structure
+
+One of the easiest way to implement an image carousel is rendering all the images in a horizontal fashion within a container (the images will overflow horizontally) and changing the horizontal offset.
+
+With this structure, navigating between images can be done in two ways: (1) changing the container's scroll position and (2) CSS transforms on the container.
+
+#### 1. Scroll position
+
+By placing the images in a row and restricting the container to be the same size as the image carousel dimensions, the images will take up a longer horizontal space than the container and to view the various images, the `scrollOffset` of the container can be modified. Combined with the [CSS scroll snap](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_scroll_snap) property, touchpad and touchscreen users can scroll/swipe through the images horizontally. This method doesn't involve JavaScript at all and is highly recommended if all you need is a basic horizontal image carousel.
+
+To support pagination button interactions, you can programmatically set the scroll position by using the [`Element.scroll()` method](https://developer.mozilla.org/en-US/docs/Web/API/Element/scroll).
+
+```js
+containerEl.scroll({
+  left: 100, // Calculate this offset value based on size of the image.
+  behavior: 'smooth', // Smooth transitions for free!
+});
+```
+
+#### 2. CSS transforms
+
+The other way to change the displayed image is to add `transform: translateX(100px)` on the container. The value to translate by depends on the size of the image. The solution implements this method since it is slightly more complex to implement and provides more learning value.
+
+#### Determining how much to scroll/translate by
+
+Using this offset technique, for the various images:
+
+| Image no. | Offset            |
+| --------- | ----------------- |
+| 1         | 0                 |
+| 2         | One image width   |
+| 3         | Two image width   |
+| 4         | Three image width |
+
+Observe that the offset can be determined with `(index - 1) * imageWidth`. However, because the images have a dynamic width (when the screen is narrower than 600px), the image width value is not available ahead of time and has to be calculated during runtime.
+
+We can obtain a reference to the image carousel's root element and use `el.getBoundingClientRect().width` to get an image's width.
+
+### Transitions
+
+With the CSS transform method, transitions can be easily enabled by the following CSS:
+
+```css
+transition: transform 0.5s linear;
+```
+
+Just by setting the `transform` property to a new `translateX()` value, the browser will transition the container smoothly to the new position, displaying the new image.
+
+### Resizing
+
+One issue with using an offset-based approach for transitions is that if the width of the image carousel changes, the current offset (which is based on the image dimensions) will no longer be accurate.
+
+Therefore we need to listen for window `resize` events and make the `imageWidth` as part of the component state, so that the component updates the offset if/when the `imageWidth` changes.
+
+If the `transition` styles are permanently on the image container, when the offset changes due to resizing, some transition will be seen and looks a little odd. Hence the `transition` styles should only be added when offset changes due to navigation events and not resizing.
+
+### Downsides of an offset-based approach
+
+The offset-based approach was relatively easy to implement. You should also be aware of the downsides of this approach:
+
+1. **Larger DOM footprint**: All the images are present in the DOM from the get-go. If there are many images, it could result in poor performance. This can be mitigated with list virtualization and/or lazy loading of images.
+2. **Transition distance can be huge**: Transitioning from the first image to the last image or vice-versa (more generally speaking, across multiple images) can be a jarring experience because the browser will scroll through all the intermediate images.
+
+## Follow up
+
+There are many ways to implement image carousels, each with its own advantages and limitations. [Image Carousel III](/questions/user-interface/image-carousel-iii) explores a different, more performant approach, where only the current image and next image is rendered into the DOM and addresses some of the downsides of the offset-based approach.

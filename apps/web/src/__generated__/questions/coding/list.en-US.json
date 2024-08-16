@@ -376,6 +376,39 @@
   },
   {
     "author": null,
+    "companies": [],
+    "created": 1723766400,
+    "difficulty": "hard",
+    "duration": 25,
+    "excerpt": "Build an auth code input component that allows users to enter a 6-digit authorization code",
+    "featured": false,
+    "format": "user-interface",
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/user-interface/auth-code-input/react"
+      }
+    ],
+    "href": "/questions/user-interface/auth-code-input",
+    "importance": "low",
+    "languages": [
+      "html",
+      "css",
+      "js"
+    ],
+    "nextQuestions": [],
+    "premium": true,
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [],
+    "slug": "auth-code-input",
+    "subtitle": null,
+    "title": "Auth Code Input",
+    "topics": []
+  },
+  {
+    "author": null,
     "companies": [
       "airbnb"
     ],
@@ -444,7 +477,7 @@
   {
     "author": null,
     "companies": [],
-    "created": 1719964800,
+    "created": 1723766400,
     "difficulty": "medium",
     "duration": 30,
     "excerpt": "Build a widget that fetches birth year data from an API and plot it on a histogram",
@@ -1211,6 +1244,144 @@
   {
     "author": "yangshun",
     "companies": [
+      "palantir"
+    ],
+    "created": 1723766400,
+    "difficulty": "medium",
+    "duration": 20,
+    "excerpt": "Build a users data table with pagination features",
+    "featured": false,
+    "format": "user-interface",
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/user-interface/data-table/react"
+      }
+    ],
+    "href": "/questions/user-interface/data-table",
+    "importance": "low",
+    "languages": [
+      "html",
+      "js"
+    ],
+    "nextQuestions": [
+      "data-table-ii"
+    ],
+    "premium": false,
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [],
+    "slug": "data-table",
+    "subtitle": null,
+    "title": "Data Table",
+    "topics": []
+  },
+  {
+    "author": "yangshun",
+    "companies": [
+      "palantir"
+    ],
+    "created": 1723766400,
+    "difficulty": "medium",
+    "duration": 20,
+    "excerpt": "Build a users data table with sorting features",
+    "featured": false,
+    "format": "user-interface",
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/user-interface/data-table-ii/react"
+      }
+    ],
+    "href": "/questions/user-interface/data-table-ii",
+    "importance": "low",
+    "languages": [
+      "html",
+      "js"
+    ],
+    "nextQuestions": [],
+    "premium": true,
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [],
+    "slug": "data-table-ii",
+    "subtitle": null,
+    "title": "Data Table II",
+    "topics": []
+  },
+  {
+    "author": "yangshun",
+    "companies": [
+      "palantir"
+    ],
+    "created": 1723766400,
+    "difficulty": "hard",
+    "duration": 30,
+    "excerpt": "Build a generalized data table with pagination and sorting features",
+    "featured": false,
+    "format": "user-interface",
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/user-interface/data-table-iii/react"
+      }
+    ],
+    "href": "/questions/user-interface/data-table-iii",
+    "importance": "low",
+    "languages": [
+      "html",
+      "js"
+    ],
+    "nextQuestions": [],
+    "premium": true,
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [],
+    "slug": "data-table-iii",
+    "subtitle": null,
+    "title": "Data Table III",
+    "topics": []
+  },
+  {
+    "author": "yangshun",
+    "companies": [
+      "palantir"
+    ],
+    "created": 1723766400,
+    "difficulty": "hard",
+    "duration": 40,
+    "excerpt": "Build a generalized data table with pagination, sorting and filtering features",
+    "featured": false,
+    "format": "user-interface",
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/user-interface/data-table-iv/react"
+      }
+    ],
+    "href": "/questions/user-interface/data-table-iv",
+    "importance": "low",
+    "languages": [
+      "html",
+      "js"
+    ],
+    "nextQuestions": [],
+    "premium": true,
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [],
+    "slug": "data-table-iv",
+    "subtitle": null,
+    "title": "Data Table IV",
+    "topics": []
+  },
+  {
+    "author": "yangshun",
+    "companies": [
       "flipkart",
       "google",
       "lyft",
@@ -1535,7 +1706,7 @@
       "js"
     ],
     "nextQuestions": [],
-    "premium": true,
+    "premium": false,
     "published": true,
     "ranking": 100,
     "similarQuestions": [],
@@ -1755,6 +1926,126 @@
     "slug": "event-emitter-ii",
     "subtitle": null,
     "title": "Event Emitter II",
+    "topics": []
+  },
+  {
+    "author": "yangshun",
+    "companies": [
+      "amazon",
+      "atlassian",
+      "snap",
+      "tiktok"
+    ],
+    "created": 1723766400,
+    "difficulty": "medium",
+    "duration": 20,
+    "excerpt": "Build a file explorer component to navigate files and directories in a tree-like hierarchical viewer",
+    "featured": false,
+    "format": "user-interface",
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/user-interface/file-explorer/react"
+      }
+    ],
+    "href": "/questions/user-interface/file-explorer",
+    "importance": "mid",
+    "languages": [
+      "html",
+      "js"
+    ],
+    "nextQuestions": [
+      "file-explorer-ii",
+      "file-explorer-iii"
+    ],
+    "premium": false,
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [
+      "nested-checkboxes"
+    ],
+    "slug": "file-explorer",
+    "subtitle": null,
+    "title": "File Explorer",
+    "topics": []
+  },
+  {
+    "author": "yangshun",
+    "companies": [
+      "amazon",
+      "atlassian",
+      "snap",
+      "tiktok"
+    ],
+    "created": 1723766400,
+    "difficulty": "medium",
+    "duration": 20,
+    "excerpt": "Build a semi-accessible file explorer component that has the right ARIA roles, states, and properties",
+    "featured": false,
+    "format": "user-interface",
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/user-interface/file-explorer-ii/react"
+      }
+    ],
+    "href": "/questions/user-interface/file-explorer-ii",
+    "importance": "mid",
+    "languages": [
+      "html",
+      "js"
+    ],
+    "nextQuestions": [
+      "file-explorer-iii"
+    ],
+    "premium": true,
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [],
+    "slug": "file-explorer-ii",
+    "subtitle": null,
+    "title": "File Explorer II",
+    "topics": []
+  },
+  {
+    "author": "yangshun",
+    "companies": [
+      "amazon",
+      "atlassian",
+      "snap",
+      "tiktok"
+    ],
+    "created": 1723766400,
+    "difficulty": "medium",
+    "duration": 20,
+    "excerpt": "Build a file explorer component using a flat DOM structure",
+    "featured": false,
+    "format": "user-interface",
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/user-interface/file-explorer-iii/react"
+      }
+    ],
+    "href": "/questions/user-interface/file-explorer-iii",
+    "importance": "mid",
+    "languages": [
+      "html",
+      "js"
+    ],
+    "nextQuestions": [
+      "file-explorer-iii"
+    ],
+    "premium": true,
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [],
+    "slug": "file-explorer-iii",
+    "subtitle": null,
+    "title": "File Explorer III",
     "topics": []
   },
   {
@@ -2523,6 +2814,134 @@
     "slug": "identical-dom-trees",
     "subtitle": null,
     "title": "Identical DOM Trees",
+    "topics": []
+  },
+  {
+    "author": "yangshun",
+    "companies": [
+      "amazon",
+      "google",
+      "doordash",
+      "dropbox",
+      "microsoft",
+      "snap",
+      "squarespace"
+    ],
+    "created": 1723766400,
+    "difficulty": "medium",
+    "duration": 30,
+    "excerpt": "Build an image carousel that displays a sequence of images",
+    "featured": false,
+    "format": "user-interface",
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/user-interface/image-carousel/react"
+      }
+    ],
+    "href": "/questions/user-interface/image-carousel",
+    "importance": "low",
+    "languages": [
+      "html",
+      "js",
+      "css"
+    ],
+    "nextQuestions": [
+      "image-carousel-ii",
+      "image-carousel-iii"
+    ],
+    "premium": false,
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [],
+    "slug": "image-carousel",
+    "subtitle": null,
+    "title": "Image Carousel",
+    "topics": []
+  },
+  {
+    "author": "yangshun",
+    "companies": [
+      "amazon",
+      "google",
+      "doordash",
+      "dropbox",
+      "microsoft",
+      "snap",
+      "squarespace"
+    ],
+    "created": 1723766400,
+    "difficulty": "medium",
+    "duration": 30,
+    "excerpt": "Build an image carousel that smoothly transitions between images",
+    "featured": false,
+    "format": "user-interface",
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/user-interface/image-carousel-ii/react"
+      }
+    ],
+    "href": "/questions/user-interface/image-carousel-ii",
+    "importance": "low",
+    "languages": [
+      "html",
+      "js",
+      "css"
+    ],
+    "nextQuestions": [
+      "image-carousel-iii"
+    ],
+    "premium": true,
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [],
+    "slug": "image-carousel-ii",
+    "subtitle": null,
+    "title": "Image Carousel II",
+    "topics": []
+  },
+  {
+    "author": "yangshun",
+    "companies": [
+      "amazon",
+      "google",
+      "doordash",
+      "dropbox",
+      "microsoft",
+      "snap",
+      "squarespace"
+    ],
+    "created": 1723766400,
+    "difficulty": "hard",
+    "duration": 40,
+    "excerpt": "Build an image carousel that smoothly transitions between images that has a minimal DOM footprint",
+    "featured": false,
+    "format": "user-interface",
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/user-interface/image-carousel-iii/react"
+      }
+    ],
+    "href": "/questions/user-interface/image-carousel-iii",
+    "importance": "low",
+    "languages": [
+      "html",
+      "js",
+      "css"
+    ],
+    "nextQuestions": [],
+    "premium": true,
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [],
+    "slug": "image-carousel-iii",
+    "subtitle": null,
+    "title": "Image Carousel III",
     "topics": []
   },
   {
@@ -3341,6 +3760,150 @@
     "topics": []
   },
   {
+    "author": "yangshun",
+    "companies": [
+      "amazon"
+    ],
+    "created": 1723766400,
+    "difficulty": "medium",
+    "duration": 20,
+    "excerpt": "Build a reusable modal dialog component that can be opened and closed",
+    "featured": false,
+    "format": "user-interface",
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/user-interface/modal-dialog/react"
+      }
+    ],
+    "href": "/questions/user-interface/modal-dialog",
+    "importance": "low",
+    "languages": [
+      "html",
+      "js",
+      "css"
+    ],
+    "nextQuestions": [
+      "modal-dialog-ii"
+    ],
+    "premium": false,
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [],
+    "slug": "modal-dialog",
+    "subtitle": null,
+    "title": "Modal Dialog",
+    "topics": []
+  },
+  {
+    "author": "yangshun",
+    "companies": [
+      "amazon"
+    ],
+    "created": 1723766400,
+    "difficulty": "medium",
+    "duration": 20,
+    "excerpt": "Build a semi-accessible modal dialog component that has the right ARIA roles, states, and properties",
+    "featured": false,
+    "format": "user-interface",
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/user-interface/modal-dialog-ii/react"
+      }
+    ],
+    "href": "/questions/user-interface/modal-dialog-ii",
+    "importance": "low",
+    "languages": [
+      "html",
+      "js",
+      "css"
+    ],
+    "nextQuestions": [
+      "modal-dialog-iii"
+    ],
+    "premium": true,
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [],
+    "slug": "modal-dialog-ii",
+    "subtitle": null,
+    "title": "Modal Dialog II",
+    "topics": []
+  },
+  {
+    "author": "yangshun",
+    "companies": [
+      "amazon"
+    ],
+    "created": 1723766400,
+    "difficulty": "medium",
+    "duration": 20,
+    "excerpt": "Build a moderately-accessible modal dialog component that supports common ways to close the dialog",
+    "featured": false,
+    "format": "user-interface",
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/user-interface/modal-dialog-iii/react"
+      }
+    ],
+    "href": "/questions/user-interface/modal-dialog-iii",
+    "importance": "low",
+    "languages": [
+      "html",
+      "js"
+    ],
+    "nextQuestions": [
+      "modal-dialog-iv"
+    ],
+    "premium": true,
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [],
+    "slug": "modal-dialog-iii",
+    "subtitle": null,
+    "title": "Modal Dialog III",
+    "topics": []
+  },
+  {
+    "author": "yangshun",
+    "companies": [
+      "amazon"
+    ],
+    "created": 1723766400,
+    "difficulty": "hard",
+    "duration": 30,
+    "excerpt": "Build a fully-accessible modal dialog component that supports all required keyboard interactions",
+    "featured": false,
+    "format": "user-interface",
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/user-interface/modal-dialog-iv/react"
+      }
+    ],
+    "href": "/questions/user-interface/modal-dialog-iv",
+    "importance": "low",
+    "languages": [
+      "html",
+      "js"
+    ],
+    "nextQuestions": [],
+    "premium": true,
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [],
+    "slug": "modal-dialog-iv",
+    "subtitle": null,
+    "title": "Modal Dialog IV",
+    "topics": []
+  },
+  {
     "author": "dhillon",
     "companies": [],
     "created": 1681430400,
@@ -3386,6 +3949,42 @@
     "slug": "mortgage-calculator",
     "subtitle": null,
     "title": "Mortgage Calculator",
+    "topics": []
+  },
+  {
+    "author": "yangshun",
+    "companies": [
+      "google"
+    ],
+    "created": 1723766400,
+    "difficulty": "hard",
+    "duration": 40,
+    "excerpt": "Build a nested checkboxes component with parent-child selection logic",
+    "featured": false,
+    "format": "user-interface",
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/user-interface/nested-checkboxes/react"
+      }
+    ],
+    "href": "/questions/user-interface/nested-checkboxes",
+    "importance": "low",
+    "languages": [
+      "html",
+      "js"
+    ],
+    "nextQuestions": [],
+    "premium": true,
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [
+      "file-explorer"
+    ],
+    "slug": "nested-checkboxes",
+    "subtitle": null,
+    "title": "Nested Checkboxes",
     "topics": []
   },
   {
@@ -3485,7 +4084,7 @@
   {
     "author": "yangshun",
     "companies": [],
-    "created": 1719964800,
+    "created": 1723766400,
     "difficulty": "medium",
     "duration": 30,
     "excerpt": "Build a pixel art drawing tool where users can paint pixels with selected colors",
@@ -4220,9 +4819,9 @@
     "topics": []
   },
   {
-    "author": null,
+    "author": "yangshun",
     "companies": [],
-    "created": 1719964800,
+    "created": 1723766400,
     "difficulty": "hard",
     "duration": 40,
     "excerpt": "Build an interface where users can drag to select multiple cells within a grid",
@@ -4960,7 +5559,9 @@
       "css",
       "js"
     ],
-    "nextQuestions": [],
+    "nextQuestions": [
+      "tic-tac-toe-ii"
+    ],
     "premium": true,
     "published": true,
     "ranking": 100,
@@ -5505,9 +6106,9 @@
     "topics": []
   },
   {
-    "author": null,
+    "author": "yangshun",
     "companies": [],
-    "created": 1719964800,
+    "created": 1723766400,
     "difficulty": "medium",
     "duration": 30,
     "excerpt": "Build a UI to filter, create, update, and delete users",

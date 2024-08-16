@@ -1,0 +1,25 @@
+## Solution
+
+We'll build on top of [Modal Dialog II's solution](/questions/user-interface/modal-dialog-ii/solution). Since we're adding new interactions to the modal dialog component, most of the styling and structure can be reused without much modifications.
+
+There are two new interactions to support for closing the dialog: (1) Hitting the <kbd>Escape</kbd> key, and (2) Clicking outside the dialog contents.
+
+To close the dialog, we simply have to call the `onClose` callback, so it's a matter of when to trigger that callback.
+
+### 1. Hitting the <kbd>Escape</kbd> key
+
+We can create a generic hook called `useOnKeyDown` that takes in a string key representing the keyboard key to respond to, and a callback to trigger when the key is pressed.
+
+The hook adds an event listener for the `keydown` event to `document`. Within the event listener callback, check if `event.key` corresponds to the `key` argument, and trigger the callback argument if so.
+
+To use the hook, call it with the following argument: `useOnKeyDown('Escape', onClose)`.
+
+### 2. Clicking outside the dialog contents
+
+The tricky part of implementing this logic is to determine whether the click happened inside or outside the dialog contents body. Thankfully, the [`Node.contains()` method](https://developer.mozilla.org/en-US/docs/Web/API/Node/contains) is a convenient method that can be used to determine if a node is a descendant of a given node, or the node itself. When a `mousedown` or `touchstart` event occurs, check if the `event.target` is a descendant of the modal dialog contents, e.g. `dialogEl.contains(event.target)`.
+
+We need to obtain a reference to the modal dialog body. In React this is achieved using the `useRef()` hook.
+
+This functionality can be encapsulated as a `useOnClickOutside` hook that takes in the element ref and the callback function. "On click outside" is in fact a common utility hook and a more robust implementation of the hook can be found on [`usehooks-ts`](https://usehooks-ts.com/react-hook/use-on-click-outside#hook).
+
+To use the hook, call it with the following arguments: `useOnClickOutside(dialogRef, onClose)`.

@@ -1,0 +1,9 @@
+{
+  "visibleFiles": [
+    "/src/FileExplorer.tsx",
+    "/src/FileList.tsx",
+    "/src/styles.css"
+  ],
+  "activeFile": "/src/FileExplorer.tsx",
+  "environment": "create-react-app"
+}

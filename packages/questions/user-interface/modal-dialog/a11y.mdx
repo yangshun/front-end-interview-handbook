@@ -1,0 +1,24 @@
+## Accessibility (A11y)
+
+There are a lot of a11y considerations for modal dialogs, possibly too many to implement during interviews.
+
+For your knowledge, here are some of the more important ones:
+
+- ARIA attributes:
+  - Use `role="dialog"` on the modal container.
+  - Add `aria-modal="true"` to indicate that the modal is blocking interaction with the page content.
+  - Use `aria-labelledby` to associate the modal's title with the dialog.
+  - Use `aria-describedby` if there's additional descriptive text.
+- Keyboard navigation:
+  - Ensure the modal can be opened and closed using keyboard controls.
+  - Provide a way to close the modal using the <kbd>Esc</kbd> key.
+- Focus management:
+  - Set focus to the first focusable element in the modal when it opens.
+  - Trap focus within the modal when it's open, preventing users from tabbing outside the modal.
+  - Return focus to the triggering element when the modal closes.
+
+The subsequent questions will involve implementing these a11y considerations:
+
+- [Modal Dialog II](/questions/user-interface/modal-dialog-ii): Adding ARIA attributes.
+- [Modal Dialog III](/questions/user-interface/modal-dialog-iii): Adding keyboard navigation.
+- [Modal Dialog IV](/questions/user-interface/modal-dialog-iv): Adding focus management.

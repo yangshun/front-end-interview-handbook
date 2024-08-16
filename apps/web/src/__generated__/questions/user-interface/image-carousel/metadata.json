@@ -1,0 +1,44 @@
+{
+  "author": "yangshun",
+  "companies": [
+    "amazon",
+    "google",
+    "doordash",
+    "dropbox",
+    "microsoft",
+    "snap",
+    "squarespace"
+  ],
+  "created": 1723766400,
+  "difficulty": "medium",
+  "duration": 30,
+  "excerpt": "Build an image carousel that displays a sequence of images",
+  "featured": false,
+  "format": "user-interface",
+  "frameworkDefault": "react",
+  "frameworks": [
+    {
+      "framework": "react",
+      "href": "/questions/user-interface/image-carousel/react"
+    }
+  ],
+  "href": "/questions/user-interface/image-carousel",
+  "importance": "low",
+  "languages": [
+    "html",
+    "js",
+    "css"
+  ],
+  "nextQuestions": [
+    "image-carousel-ii",
+    "image-carousel-iii"
+  ],
+  "premium": false,
+  "published": true,
+  "ranking": 100,
+  "similarQuestions": [],
+  "slug": "image-carousel",
+  "subtitle": null,
+  "title": "Image Carousel",
+  "topics": []
+}

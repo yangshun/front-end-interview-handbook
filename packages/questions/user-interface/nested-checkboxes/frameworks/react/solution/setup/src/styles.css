@@ -1,0 +1,20 @@
+body {
+  font-family: sans-serif;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding-left: 20px;
+}
+
+li {
+  padding: 0;
+}
+
+.checkbox {
+  display: inline-flex;
+  line-height: 1.5;
+  gap: 4px;
+  font-size: 16px;
+}

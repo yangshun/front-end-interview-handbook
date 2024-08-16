@@ -1,0 +1,34 @@
+{
+  "author": "yangshun",
+  "companies": [
+    "amazon"
+  ],
+  "created": 1723766400,
+  "difficulty": "hard",
+  "duration": 30,
+  "excerpt": "Build a fully-accessible modal dialog component that supports all required keyboard interactions",
+  "featured": false,
+  "format": "user-interface",
+  "frameworkDefault": "react",
+  "frameworks": [
+    {
+      "framework": "react",
+      "href": "/questions/user-interface/modal-dialog-iv/react"
+    }
+  ],
+  "href": "/questions/user-interface/modal-dialog-iv",
+  "importance": "low",
+  "languages": [
+    "html",
+    "js"
+  ],
+  "nextQuestions": [],
+  "premium": true,
+  "published": true,
+  "ranking": 100,
+  "similarQuestions": [],
+  "slug": "modal-dialog-iv",
+  "subtitle": null,
+  "title": "Modal Dialog IV",
+  "topics": []
+}

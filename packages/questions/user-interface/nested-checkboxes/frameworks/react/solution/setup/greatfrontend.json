@@ -1,0 +1,10 @@
+{
+  "visibleFiles": [
+    "/src/Checkboxes.tsx",
+    "/src/CheckboxInput.tsx",
+    "/src/CheckboxList.tsx",
+    "/src/styles.css"
+  ],
+  "activeFile": "/src/Checkboxes.tsx",
+  "environment": "create-react-app"
+}

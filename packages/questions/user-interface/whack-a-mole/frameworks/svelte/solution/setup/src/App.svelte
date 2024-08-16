@@ -209,7 +209,7 @@
     --height: 70%;
 
     transform: translate(-50%, 100%);
-    transition: transform 100ms ease-in;
+    transition: transform 0.1s ease-in;
     cursor: pointer;
   }
 

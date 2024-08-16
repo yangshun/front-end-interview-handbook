@@ -1,0 +1,31 @@
+## Test Cases
+
+1. Initial rendering:
+   - Test that all checkboxes are rendered correctly according to the provided data structure.
+   - Verify that the initial state of all checkboxes is unchecked.
+2. Leaf node behavior:
+   - Check a leaf node (e.g., "iPhone") and verify it becomes checked.
+   - Uncheck a leaf node and verify it becomes unchecked.
+3. Ancestor/descendant state changes:
+   1. Descendant change propagation:
+      - Check a parent (e.g., "Laptops") and verify all its descendants become checked.
+      - Uncheck a parent and verify all its descendants become unchecked.
+   2. Ancestor change propagation:
+      - Check all children of a parent (e.g., all under "Mobile phones") and verify the parent becomes checked.
+      - Uncheck one child and verify the parent becomes indeterminate.
+      - Uncheck all children and verify the parent becomes unchecked.
+4. Multi-level hierarchy:
+   - Check a leaf node (e.g., "iPhone") and verify its parent ("Mobile phones") becomes indeterminate and grandparent ("Electronics") becomes indeterminate.
+   - Check all leaf nodes under a mid-level parent (e.g., all under "Mobile phones") and verify the mid-level parent becomes checked and its parent ("Electronics") becomes indeterminate.
+5. Indeterminate state:
+   - Verify that when some but not all children are checked, the parent displays an indeterminate state.
+   - Check if the indeterminate state is visually distinct from checked and unchecked states.
+   - Check that indeterminate state can be propagated to the ancestors as well.
+6. Root-level behavior:
+   - Check all root-level items and verify they can be independently checked/unchecked.
+   - Verify that checking/unchecking a root-level item with children affects all its descendants.
+7. Edge cases:
+   - Test with an empty data set to ensure the component handles it gracefully.
+8. User interactions:
+   - Verify that checkboxes can be toggled using both mouse clicks and keyboard interactions (space bar when focused).
+   - Test tabbing through the checkboxes to ensure proper focus management.
