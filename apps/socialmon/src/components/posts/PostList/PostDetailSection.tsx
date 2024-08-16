@@ -3,6 +3,7 @@ import { type ChangeEvent } from 'react';
 import toast from 'react-hot-toast';
 
 import { trpc } from '~/hooks/trpc';
+import useCurrentProjectSlug from '~/hooks/useCurrentProjectSlug';
 
 import PostDetail from './PostDetail';
 
@@ -25,6 +26,7 @@ export default function PostDetailSection({
   closeModal,
 }: Props) {
   const utils = trpc.useUtils();
+  const projectSlug = useCurrentProjectSlug();
   const isBelowDesktop = useMediaQuery('(max-width: 1023px)');
   const generateResponseMutation =
     trpc.socialPosts.generateResponse.useMutation({
@@ -36,7 +38,9 @@ export default function PostDetailSection({
         toast.success('Response has been generated!');
       },
     });
-  const { data: users } = trpc.socialUsers.getPlatformUsers.useQuery();
+  const { data: users } = trpc.socialUsers.getPlatformUsers.useQuery({
+    projectSlug,
+  });
   const replyPostMutation = trpc.socialPosts.replyToPost.useMutation({
     onError() {
       toast.error('Something went wrong. Try again later.');
@@ -54,6 +58,7 @@ export default function PostDetailSection({
   ) {
     const result = await generateResponseMutation.mutateAsync({
       post,
+      projectSlug,
     });
 
     if (!result) {
@@ -71,7 +76,7 @@ export default function PostDetailSection({
     console.info('Replying to post:', post.title);
 
     await replyPostMutation.mutateAsync({
-      postId: post.id,
+      id: post.id,
       redditUserId,
       response,
     });

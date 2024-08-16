@@ -3,9 +3,6 @@
 import type { Submission } from 'snoowrap';
 import Snoowrap from 'snoowrap';
 
-import keywords from '~/data/keyword.json' assert { type: 'json' };
-import subreddits from '~/data/subreddit.json' assert { type: 'json' };
-
 import type { RedditPost } from '.prisma/client';
 
 export function initializeRedditClient(username?: string, password?: string) {
@@ -24,13 +21,16 @@ export function createRedditPost({
 }: {
   matchedKeywords: Array<string>;
   post: Submission;
-}): Omit<RedditPost, 'createdAt' | 'response' | 'updatedAt'> {
+}): Omit<
+  RedditPost,
+  'createdAt' | 'id' | 'projectId' | 'response' | 'updatedAt'
+> {
   return {
     commentsCount: post.num_comments,
     content: post.selftext,
-    id: post.id,
     keywords: matchedKeywords,
     permalink: post.permalink,
+    postId: post.id,
     postedAt: new Date(post.created_utc * 1000),
     statsUpdatedAt: new Date(),
     subreddit: post.subreddit_name_prefixed,
@@ -39,7 +39,13 @@ export function createRedditPost({
   };
 }
 
-export async function getPostsFromReddit() {
+export async function getPostsFromReddit({
+  keywords,
+  subreddits,
+}: {
+  keywords: ReadonlyArray<string>;
+  subreddits: ReadonlyArray<string>;
+}) {
   const timeFrameInHour = 1;
   const currentTime = Date.now();
   const startTime = currentTime - timeFrameInHour * 3600000;
@@ -52,7 +58,7 @@ export async function getPostsFromReddit() {
   const snoowrap = initializeRedditClient();
 
   // Loop through each subreddit
-  for (const subreddit of subreddits.items) {
+  for (const subreddit of subreddits) {
     const subredditInstance = snoowrap.getSubreddit(subreddit);
 
     // Fetch new posts, defaults to 25
@@ -61,7 +67,7 @@ export async function getPostsFromReddit() {
     // const posts = await subredditInstance.getNew({after: 't3_1iwx6i'});
     const posts = await subredditInstance.getNew();
 
-    const keywordRegex = new RegExp(keywords.items.join('|'), 'gi');
+    const keywordRegex = new RegExp(keywords.join('|'), 'gi');
 
     // Filter posts based on keywords and timeframe
     const filteredPosts = posts

@@ -1,6 +1,7 @@
 import toast from 'react-hot-toast';
 
 import { trpc } from '~/hooks/trpc';
+import useCurrentProjectSlug from '~/hooks/useCurrentProjectSlug';
 
 import { Button, Modal, TextInput } from '@mantine/core';
 import { useForm } from '@mantine/form';
@@ -12,6 +13,7 @@ type Props = Readonly<{
 
 export default function AddUserModal({ opened, onClose }: Props) {
   const utils = trpc.useUtils();
+  const projectSlug = useCurrentProjectSlug();
   const addAccountForm = useForm({
     initialValues: {
       password: '',
@@ -36,7 +38,7 @@ export default function AddUserModal({ opened, onClose }: Props) {
       <form
         className="flex flex-col gap-y-2"
         onSubmit={addAccountForm.onSubmit(() =>
-          addUserMutation.mutate({ user: addAccountForm.values }),
+          addUserMutation.mutate({ projectSlug, user: addAccountForm.values }),
         )}>
         <TextInput
           label="Username"

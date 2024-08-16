@@ -47,7 +47,7 @@ function PostMetadata({ post, showViewPost, showRepliedBadge }: Props) {
       </div>
 
       {post.keywords.length > 0 && (
-        <div className="flex gap-1">
+        <div className="flex flex-wrap gap-1">
           {post.keywords.map((keyword) => (
             <Pill key={keyword} size="sm">
               {keyword}

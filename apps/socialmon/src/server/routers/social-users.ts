@@ -6,22 +6,38 @@ import { userSchema } from '~/schema';
 import prisma from '../prisma';
 import { router, userProcedure } from '../trpc';
 
+import { TRPCError } from '@trpc/server';
+
 export const socialUsersRouter = router({
   addPlatformUser: userProcedure
     .input(
       z.object({
+        projectSlug: z.string(),
         user: userSchema,
       }),
     )
     .mutation(async (opts) => {
       const { input } = opts;
-      const { user } = input;
+      const { user, projectSlug } = input;
+      const project = await prisma.project.findUnique({
+        where: {
+          slug: projectSlug,
+        },
+      });
+
+      if (!project) {
+        throw new TRPCError({
+          code: 'BAD_REQUEST',
+          message: "Associated project doesn't exist!",
+        });
+      }
 
       const encryptedPassword = encryptPassword(user.password, user.username);
 
       await prisma.redditUser.create({
         data: {
           password: encryptedPassword,
+          projectId: project.id,
           username: user.username,
         },
       });
@@ -39,12 +55,31 @@ export const socialUsersRouter = router({
         },
       });
     }),
-  getPlatformUsers: userProcedure.query(async () => {
-    return await prisma.redditUser.findMany({
-      select: {
-        id: true,
-        username: true,
-      },
-    });
-  }),
+  getPlatformUsers: userProcedure
+    .input(
+      z.object({
+        projectSlug: z.string(),
+      }),
+    )
+    .query(async ({ input: { projectSlug } }) => {
+      const project = await prisma.project.findUnique({
+        where: {
+          slug: projectSlug,
+        },
+      });
+
+      if (!project) {
+        return [];
+      }
+
+      return await prisma.redditUser.findMany({
+        select: {
+          id: true,
+          username: true,
+        },
+        where: {
+          projectId: project.id,
+        },
+      });
+    }),
 });

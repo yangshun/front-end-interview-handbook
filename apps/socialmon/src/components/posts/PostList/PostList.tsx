@@ -4,10 +4,7 @@ import clsx from 'clsx';
 import { useState } from 'react';
 
 import { trpc } from '~/hooks/trpc';
-
-import Container from '~/components/ui/Container';
-
-import { NAVBAR_HEIGHT } from '~/constants';
+import useCurrentProjectSlug from '~/hooks/useCurrentProjectSlug';
 
 import FetchPostButton from './FetchPostButton';
 import PostDetailSection from './PostDetailSection';
@@ -23,6 +20,7 @@ import { useDisclosure } from '@mantine/hooks';
 const LIMIT = 20;
 
 export default function PostList() {
+  const projectSlug = useCurrentProjectSlug();
   const [activeTab, setActiveTab] = useState<PostTab>('all');
   const { isLoading, data, hasNextPage, fetchNextPage, isFetchingNextPage } =
     trpc.socialPosts.getPosts.useInfiniteQuery(
@@ -31,6 +29,7 @@ export default function PostList() {
           tab: activeTab,
         },
         pagination: { limit: LIMIT },
+        projectSlug,
       },
       {
         getNextPageParam(lastPage) {
@@ -49,9 +48,7 @@ export default function PostList() {
   };
 
   return (
-    <Container
-      className={clsx('flex-1', 'p-4', 'flex')}
-      style={{ height: `calc(100vh - ${NAVBAR_HEIGHT}px)` }}>
+    <>
       <div
         className={clsx(
           'flex flex-col gap-2',
@@ -111,6 +108,6 @@ export default function PostList() {
         selectedPost={selectedPost}
         setSelectedPost={setSelectedPost}
       />
-    </Container>
+    </>
   );
 }

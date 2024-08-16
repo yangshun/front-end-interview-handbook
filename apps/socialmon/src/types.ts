@@ -1,7 +1,7 @@
 import type { z } from 'zod';
 
-import type { aiResponseSchema } from './schema';
-import type { RedditPost, RedditPostReply } from '.prisma/client';
+import type { aiResponseSchema, projectSchema } from './schema';
+import type { Project, RedditPost, RedditPostReply } from '.prisma/client';
 
 export type PostTab = 'all' | 'replied' | 'unreplied';
 
@@ -45,3 +45,13 @@ export type PostExtended = Readonly<{
   reply: PostReplyExtended | null;
 }> &
   RedditPost;
+
+export type ProjectTransformed = Omit<Project, 'productsToAdvertise'> &
+  Readonly<{
+    productsToAdvertise: Array<{
+      description: string;
+      url: string;
+    }> | null;
+  }>;
+
+export type ProjectFormValues = z.infer<typeof projectSchema>;

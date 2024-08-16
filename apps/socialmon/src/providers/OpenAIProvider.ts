@@ -1,7 +1,5 @@
 import { generateObject } from 'ai';
 
-import resources from '~/data/resources.json' assert { type: 'json' };
-
 import { aiResponseSchema } from '~/schema';
 
 import type { AIResponse } from '~/types';
@@ -12,7 +10,9 @@ class OpenAIProvider {
   constructor() {}
 
   // Possibly give it assistant?
-  private getSystemPrompt(): string {
+  private getSystemPrompt(
+    resources: ReadonlyArray<{ description: string; url: string }>,
+  ): string {
     return `
       Act as a Reddit commenter.
       Task:
@@ -47,12 +47,16 @@ class OpenAIProvider {
     `;
   }
 
-  async generateResponseTo(
-    post: Readonly<{ content: string; title: string }>,
-  ): Promise<AIResponse> {
+  async generateResponseTo({
+    post,
+    resources,
+  }: {
+    post: Readonly<{ content: string; title: string }>;
+    resources: ReadonlyArray<{ description: string; url: string }>;
+  }): Promise<AIResponse> {
     console.info('Generating response to post:', post.title);
 
-    const systemPrompt = this.getSystemPrompt();
+    const systemPrompt = this.getSystemPrompt(resources);
     const userPrompt = this.getUserPrompt(post);
 
     const result = await generateObject({

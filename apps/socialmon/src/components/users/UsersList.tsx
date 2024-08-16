@@ -3,6 +3,7 @@
 import { clsx } from 'clsx';
 
 import { trpc } from '~/hooks/trpc';
+import useCurrentProjectSlug from '~/hooks/useCurrentProjectSlug';
 
 import Container from '~/components/ui/Container';
 
@@ -13,8 +14,12 @@ import { Button, Text, Title } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 
 export default function UsersList() {
+  const projectSlug = useCurrentProjectSlug();
+
   const [opened, { open, close }] = useDisclosure(false);
-  const { isLoading, data } = trpc.socialUsers.getPlatformUsers.useQuery();
+  const { isLoading, data } = trpc.socialUsers.getPlatformUsers.useQuery({
+    projectSlug: projectSlug ?? '',
+  });
 
   return (
     <Container className={clsx('flex-1', 'p-4')}>
@@ -30,8 +35,8 @@ export default function UsersList() {
         Loading...
       </Text>
 
-      {!isLoading && data?.length === 0 && (
-        <Text size="md">No accounts added yet!</Text>
+      {!isLoading && (data?.length === 0 || !data) && (
+        <Text size="md">No users added yet!</Text>
       )}
 
       {data?.map((user) => <UserCard key={user.username} user={user} />)}

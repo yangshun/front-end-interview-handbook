@@ -12,7 +12,8 @@
     "postinstall": "prisma generate",
     "prisma": "prisma",
     "prisma:migrate": "dotenv -e .env.development.local -- prisma migrate dev",
-    "prisma:deploy": "dotenv -e .env.production.local -- prisma migrate deploy"
+    "prisma:deploy": "dotenv -e .env.production.local -- prisma migrate deploy",
+    "db:seed": "ts-node --esm --experimentalSpecifierResolution node ./src/scripts/seedData.ts"
   },
   "dependencies": {
     "@ai-sdk/openai": "^0.0.33",

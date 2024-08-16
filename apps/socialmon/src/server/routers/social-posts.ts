@@ -12,7 +12,7 @@ import { decryptPassword } from '~/db/utils';
 import prisma from '../prisma';
 import { router, userProcedure } from '../trpc';
 import OpenAIProvider from '../../providers/OpenAIProvider';
-import type { Comments } from '../../types';
+import type { Comments, ProjectTransformed } from '../../types';
 
 import { TRPCError } from '@trpc/server';
 
@@ -29,13 +29,24 @@ export const socialPostsRouter = router({
           id: z.string(),
           title: z.string(),
         }),
+        projectSlug: z.string(),
       }),
     )
     .mutation(async (opts) => {
       const { input } = opts;
       const { post } = input;
+
+      const project = (await prisma.project.findUnique({
+        where: {
+          slug: input.projectSlug,
+        },
+      })) as ProjectTransformed;
+
       const aiProvider = getAIProvider();
-      const result = await aiProvider.generateResponseTo(post);
+      const result = await aiProvider.generateResponseTo({
+        post,
+        resources: project?.productsToAdvertise ?? [],
+      });
 
       return await prisma.redditPost.update({
         data: {
@@ -81,10 +92,11 @@ export const socialPostsRouter = router({
         pagination: z.object({
           limit: z.number().min(1).max(100).default(10),
         }),
+        projectSlug: z.string(),
       }),
     )
     .query(async ({ input }) => {
-      const { pagination, filter, cursor } = input;
+      const { pagination, filter, cursor, projectSlug } = input;
       const { limit } = pagination;
       const { tab } = filter;
 
@@ -101,6 +113,19 @@ export const socialPostsRouter = router({
                       isNot: null,
                     },
             };
+
+      const project = await prisma.project.findUnique({
+        where: {
+          slug: projectSlug,
+        },
+      });
+
+      if (!project) {
+        throw new TRPCError({
+          code: 'BAD_REQUEST',
+          message: "Associated project doesn't exist!",
+        });
+      }
 
       const posts = await prisma.redditPost.findMany({
         cursor: cursor ? { id: cursor } : undefined,
@@ -127,6 +152,7 @@ export const socialPostsRouter = router({
         take: limit + 1,
         where: {
           ...postFilter,
+          projectId: project.id,
         },
       });
 
@@ -146,39 +172,82 @@ export const socialPostsRouter = router({
         posts,
       };
     }),
-  getPostsFromPlatform: userProcedure.query(async () => {
-    const postsFromReddit = await getPostsFromReddit();
+  getPostsFromPlatform: userProcedure
+    .input(
+      z.object({
+        projectSlug: z.string(),
+      }),
+    )
+    .query(async ({ input: { projectSlug } }) => {
+      const project = await prisma.project.findUnique({
+        where: {
+          slug: projectSlug,
+        },
+      });
 
-    // Add it to the db
-    return await prisma.redditPost.createMany({
-      data: postsFromReddit,
-      skipDuplicates: true,
-    });
-  }),
+      if (!project) {
+        throw new TRPCError({
+          code: 'BAD_REQUEST',
+          message: "Associated project doesn't exist!",
+        });
+      }
+
+      const postsFromReddit = await getPostsFromReddit({
+        keywords: project.keywords,
+        subreddits: project.subreddits,
+      });
+
+      const postsFromRedditWithProjectId = postsFromReddit.map((post) => ({
+        ...post,
+        projectId: project.id,
+      }));
+
+      // Add it to the db
+      return await prisma.redditPost.createMany({
+        data: postsFromRedditWithProjectId,
+        skipDuplicates: true,
+      });
+    }),
   replyToPost: userProcedure
     .input(
       z.object({
-        postId: z.string(),
+        id: z.string(),
         redditUserId: z.string().uuid(),
         response: z.string(),
       }),
     )
     .mutation(async ({ input, ctx: { session } }) => {
-      const { postId, response, redditUserId } = input;
-      const user = await prisma.redditUser.findUnique({
-        where: {
-          id: redditUserId,
-        },
-      });
+      const { id, response, redditUserId } = input;
+      const [post, user] = await Promise.all([
+        prisma.redditPost.findUnique({
+          where: {
+            id,
+          },
+        }),
+        prisma.redditUser.findUnique({
+          where: {
+            id: redditUserId,
+          },
+        }),
+      ]);
 
       if (!user) {
-        throw new Error('Account is required to reply to a post.');
+        throw new TRPCError({
+          code: 'BAD_REQUEST',
+          message: 'Account is required to reply to a post.',
+        });
+      }
+      if (!post) {
+        throw new TRPCError({
+          code: 'BAD_REQUEST',
+          message: 'Associated post is required to reply to the post.',
+        });
       }
 
       const decryptedPassword = decryptPassword(user.password, user.username);
 
       const { success, response: redditResponse } = await replyToRedditPost({
-        postId,
+        postId: post.postId,
         response,
         user: { password: decryptedPassword, username: user.username },
       });
@@ -197,7 +266,7 @@ export const socialPostsRouter = router({
             ? new Date(redditResponse.created_utc * 1000) // In milliseconds
             : new Date(),
           permalink: redditResponse?.permalink ?? '',
-          postId,
+          postId: id,
           redditUserId,
           userId: session.user.id,
         },

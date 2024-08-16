@@ -2,22 +2,27 @@ import toast from 'react-hot-toast';
 import { RiRefreshLine } from 'react-icons/ri';
 
 import { trpc } from '~/hooks/trpc';
+import useCurrentProjectSlug from '~/hooks/useCurrentProjectSlug';
 
 import { ActionIcon, Tooltip } from '@mantine/core';
 
 export default function FetchPostButton() {
   const utils = trpc.useUtils();
+  const projectSlug = useCurrentProjectSlug();
   const { isFetching, refetch } =
-    trpc.socialPosts.getPostsFromPlatform.useQuery(undefined, {
-      enabled: false,
-      onError() {
-        toast.error('Something went wrong. Try again later.');
+    trpc.socialPosts.getPostsFromPlatform.useQuery(
+      { projectSlug },
+      {
+        enabled: false,
+        onError() {
+          toast.error('Something went wrong. Try again later.');
+        },
+        onSuccess() {
+          toast.success('Fetched posts from the platform successfully!');
+          utils.socialPosts.getPosts.invalidate();
+        },
       },
-      onSuccess() {
-        toast.success('Fetched posts from the platform successfully!');
-        utils.socialPosts.getPosts.invalidate();
-      },
-    });
+    );
 
   return (
     <Tooltip

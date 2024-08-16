@@ -14,12 +14,17 @@ export const AUTHORIZED_EMAILS = [
   'nikki@greatfrontend.com',
 ];
 
+const ADMIN_EMAILS = ['yangshun@greatfrontend.com', 'gina@greatfrontend.com'];
+
 export const authConfig: NextAuthOptions = {
   adapter: PrismaAdapter(prisma as unknown as PrismaClient),
   callbacks: {
     session: async ({ session, user }) => {
       if (session?.user) {
         session.user.id = user.id;
+      }
+      if (ADMIN_EMAILS.includes(user.email)) {
+        session.user.isAdmin = true;
       }
 
       return session;

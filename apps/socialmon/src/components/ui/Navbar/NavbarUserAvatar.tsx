@@ -2,17 +2,23 @@
 
 import Link from 'next/link';
 import { signOut } from 'next-auth/react';
-import { RiAccountBoxLine, RiLogoutBoxLine } from 'react-icons/ri';
+import type { ReactNode } from 'react';
+import { RiLogoutBoxLine } from 'react-icons/ri';
 
 import type { User } from '~/types';
 
 import { Avatar, Menu } from '@mantine/core';
 
 type Props = Readonly<{
+  menuItems?: Array<{
+    href: string;
+    icon: ReactNode;
+    label: string;
+  }>;
   user?: User | null;
 }>;
 
-export default function NavbarUserAvatar({ user }: Props) {
+export default function NavbarUserAvatar({ user, menuItems }: Props) {
   if (!user) {
     return null;
   }
@@ -35,9 +41,11 @@ export default function NavbarUserAvatar({ user }: Props) {
         <Menu.Label>{displayName}</Menu.Label>
 
         <Menu.Divider />
-        <Link href="/users">
-          <Menu.Item leftSection={<RiAccountBoxLine />}>Users</Menu.Item>
-        </Link>
+        {menuItems?.map(({ href, label, icon }) => (
+          <Link key={href} href={href}>
+            <Menu.Item leftSection={icon}>{label}</Menu.Item>
+          </Link>
+        ))}
         <Menu.Item leftSection={<RiLogoutBoxLine />} onClick={() => signOut()}>
           Sign out
         </Menu.Item>

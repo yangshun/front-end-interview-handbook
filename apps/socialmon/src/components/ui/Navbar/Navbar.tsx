@@ -6,23 +6,12 @@ import Container from '~/components/ui/Container';
 
 import { NAVBAR_HEIGHT } from '~/constants';
 
-import NavbarUserAvatar from './NavbarUserAvatar';
-
-import type { User } from '~/types';
-
 type Props = Readonly<{
-  user?: User | null;
+  navItems?: ReactNode;
+  navUser?: ReactNode;
 }>;
 
-function NavItem({ children, href }: { children: ReactNode; href: string }) {
-  return (
-    <Link className={clsx('px-3 py-2', 'text-sm')} href={href}>
-      {children}
-    </Link>
-  );
-}
-
-export default function Navbar({ user }: Props) {
+export default function Navbar({ navUser, navItems }: Props) {
   return (
     <header
       className={clsx(
@@ -40,13 +29,10 @@ export default function Navbar({ user }: Props) {
               SocialMon
             </span>
           </Link>
-          <div className="hidden gap-2 md:flex">
-            <NavItem href="/">Dashboard</NavItem>
-            <NavItem href="/users">Users</NavItem>
-          </div>
+          {navItems}
         </div>
 
-        <NavbarUserAvatar user={user} />
+        {navUser}
       </Container>
     </header>
   );
