@@ -1,6 +1,6 @@
 import { useIntl } from 'react-intl';
 
-import type { GuideNavigation } from './GuidesLayoutSidebar';
+import type { GuideNavigation } from './types';
 
 export const basePath = '/behavioral-interview-guidebook';
 

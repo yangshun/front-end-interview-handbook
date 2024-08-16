@@ -10,11 +10,12 @@ import Text from '~/components/ui/Text';
 import { useI18nPathname } from '~/next-i18nostic/src';
 
 import GuidesHeadingObserver from './GuidesHeadingObserver';
-import type { GuideNavigation } from './GuidesLayoutSidebar';
+import GuidesLayoutContent from './GuidesLayoutContent';
 import GuidesNavbar from './GuidesNavbar';
 import { GuidesSidebar } from './GuidesSidebar';
 import type { TableOfContents } from './GuidesTableOfContents';
 import GuidesTableOfContents from './GuidesTableOfContents';
+import type { GuideNavigation } from './types';
 import useFlattenedNavigationItems from './useFlattenedNavigationItems';
 
 type Props = Readonly<{
@@ -47,11 +48,7 @@ export default function GuidesMainLayout({
           navigation={navigation}
           tableOfContents={tableOfContents}
         />
-        <div
-          className={clsx(
-            'flex grow justify-center gap-x-12',
-            'px-4 pb-16 pt-6 md:px-6 lg:px-8',
-          )}>
+        <div className="mx-auto flex">
           <div
             className={clsx(
               'hidden lg:contents',
@@ -59,45 +56,47 @@ export default function GuidesMainLayout({
             )}>
             <GuidesSidebar navigation={navigation} sticky={true} />
           </div>
-          <div
-            className={clsx(
-              'flex flex-col gap-6 overflow-auto',
-              'w-full max-w-2xl',
-            )}>
-            <div className="flex flex-col gap-y-4">
-              {navigation.title && (
-                <Text
-                  className="block"
-                  color="secondary"
-                  size="body2"
-                  weight="medium">
-                  {navigation.title}
-                </Text>
-              )}
-              <div ref={articleContainerRef}>{children}</div>
+          <GuidesLayoutContent>
+            <div
+              className={clsx(
+                'flex flex-col gap-6 overflow-auto',
+                'w-full xl:max-w-[620px]',
+              )}>
+              <div className="flex flex-col gap-y-4">
+                {navigation.title && (
+                  <Text
+                    className="block"
+                    color="secondary"
+                    size="body2"
+                    weight="medium">
+                    {navigation.title}
+                  </Text>
+                )}
+                <div ref={articleContainerRef}>{children}</div>
+              </div>
+              <Section>
+                <div className="mt-8">
+                  <ArticlePagination
+                    activeItem={pathname ?? ''}
+                    items={flatNavigationItems}
+                  />
+                </div>
+              </Section>
             </div>
-            <Section>
-              <div className="mt-8">
-                <ArticlePagination
-                  activeItem={pathname ?? ''}
-                  items={flatNavigationItems}
-                />
-              </div>
-            </Section>
-          </div>
-          {tableOfContents && (
-            <Section>
-              <div
-                key={currentItem?.href}
-                className="hidden w-56 xl:sticky xl:block xl:flex-none xl:overflow-y-auto xl:overflow-x-hidden"
-                style={{
-                  height: 'calc(100vh - 24px - var(--global-sticky-height))',
-                  top: 'calc(24px + var(--global-sticky-height))',
-                }}>
-                <GuidesTableOfContents tableOfContents={tableOfContents} />
-              </div>
-            </Section>
-          )}
+            {tableOfContents && (
+              <Section>
+                <div
+                  key={currentItem?.href}
+                  className="hidden w-[252px] xl:sticky xl:block xl:flex-none xl:overflow-y-auto xl:overflow-x-hidden"
+                  style={{
+                    height: 'calc(100vh - 24px - var(--global-sticky-height))',
+                    top: 'calc(24px + var(--global-sticky-height))',
+                  }}>
+                  <GuidesTableOfContents tableOfContents={tableOfContents} />
+                </div>
+              </Section>
+            )}
+          </GuidesLayoutContent>
         </div>
       </div>
     </GuidesHeadingObserver>

@@ -8,12 +8,13 @@ import {
   RiErrorWarningLine,
   RiLockLine,
 } from 'react-icons/ri';
-import { useIntl } from 'react-intl';
+import { FormattedMessage, useIntl } from 'react-intl';
 
 import Anchor from '~/components/ui/Anchor';
 import Button from '~/components/ui/Button';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
+import Text from '~/components/ui/Text';
 import {
   themeBorderColor,
   themeTextBrandColor,
@@ -27,7 +28,7 @@ import type {
   BaseGuideNavigationLink,
   GuideNavigation,
   GuideNavigationLinks,
-} from './GuidesLayoutSidebar';
+} from './types';
 import { useUserProfile } from '../global/UserProfileProvider';
 import { ReadyQuestions } from '../interviews/questions/content/system-design/SystemDesignConfig';
 
@@ -136,6 +137,7 @@ function LinksList({
 }
 
 type GuidesSidebarProps = Readonly<{
+  mode?: 'navbar' | 'sidebar';
   navigation: GuideNavigation;
   sticky?: boolean;
 }>;
@@ -143,21 +145,44 @@ type GuidesSidebarProps = Readonly<{
 export function GuidesSidebar({
   sticky = false,
   navigation,
+  mode = 'sidebar',
 }: GuidesSidebarProps) {
+  const isSidebar = mode === 'sidebar';
+
   return (
     <nav
-      className={clsx('flex w-[280px] shrink-0 flex-col', sticky && 'sticky')}
+      className={clsx(
+        'flex shrink-0 flex-col',
+        'py-4',
+        isSidebar && ['border-e', themeBorderColor],
+        isSidebar ? ' w-[280px]' : 'w-full',
+        sticky && 'sticky',
+      )}
       style={{
         height: sticky
-          ? 'calc(100vh - 24px - var(--global-sticky-height))'
+          ? 'calc(100vh - var(--global-sticky-height))'
           : undefined,
-        top: 'calc(24px + var(--global-sticky-height))',
+        top: 'calc(var(--global-sticky-height))',
       }}>
-      <div className="flex w-full grow-0">
+      <div
+        className={clsx('flex grow-0 flex-col gap-1', 'w-full', 'px-4 pb-4', [
+          'border-b',
+          themeBorderColor,
+        ])}>
+        <Text className="px-2" color="secondary" size="body3" weight="medium">
+          <FormattedMessage
+            defaultMessage="Current guide"
+            description="Label for current guide title"
+            id="3wygra"
+          />
+        </Text>
         <GuidesDropdownMenu />
       </div>
       <ul
-        className="mt-6 flex grow flex-col gap-y-6 overflow-y-auto pb-6"
+        className={clsx(
+          'flex grow flex-col gap-y-6 overflow-y-auto px-4 py-2',
+          isSidebar && 'vignette-scroll',
+        )}
         role="list">
         {navigation.items.map((section) => (
           <li key={section.title}>

@@ -14,10 +14,10 @@ import { themeBorderColor } from '~/components/ui/theme';
 
 import { useI18nPathname } from '~/next-i18nostic/src';
 
-import type { GuideNavigation } from './GuidesLayoutSidebar';
 import { GuidesSidebar } from './GuidesSidebar';
 import type { TableOfContents } from './GuidesTableOfContents';
 import GuidesTableOfContents from './GuidesTableOfContents';
+import type { GuideNavigation } from './types';
 
 export default function GuidesNavbar({
   navigation,
@@ -66,6 +66,7 @@ export default function GuidesNavbar({
         <SlideOut
           enterFrom="start"
           isShown={isLeftSidebarOpen}
+          padding={false}
           size="sm"
           title={navigation.title}
           trigger={
@@ -85,7 +86,7 @@ export default function GuidesNavbar({
             />
           }
           onClose={() => setIsLeftSidebarOpen(false)}>
-          <GuidesSidebar navigation={navigation} />
+          <GuidesSidebar mode="navbar" navigation={navigation} />
         </SlideOut>
         {tableOfContents && (
           <SlideOut

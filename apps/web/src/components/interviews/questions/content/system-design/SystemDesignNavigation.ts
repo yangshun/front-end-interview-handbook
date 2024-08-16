@@ -3,7 +3,7 @@ import { useIntl } from 'react-intl';
 import type {
   BaseGuideNavigationLink,
   GuideNavigation,
-} from '~/components/guides/GuidesLayoutSidebar';
+} from '~/components/guides/types';
 
 import SystemDesignQuestionList from '~/__generated__/questions/system-design/list.en-US.json';
 

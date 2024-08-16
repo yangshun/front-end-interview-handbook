@@ -9,21 +9,11 @@ import {
   dropdownContentClassName,
   dropdownContentItemClassName,
 } from '~/components/ui/DropdownMenu/dropdownStyles';
+import Text from '~/components/ui/Text';
 import {
-  themeBorderElementColor,
-  themeOutlineElement_FocusVisible,
-  themeOutlineElementBrandColor_FocusVisible,
   themeTextBrandColor,
+  themeTextSubtleColor,
 } from '~/components/ui/theme';
-
-import Text from '../ui/Text';
-import {
-  themeBackgroundEmphasized,
-  themeBackgroundLayerEmphasized,
-  themeBackgroundLayerEmphasized_Hover,
-  themeGlassyBorder,
-  themeTextSecondaryColor,
-} from '../ui/theme';
 
 import * as DropdownMenuPrimitive from '@radix-ui/react-dropdown-menu';
 
@@ -49,37 +39,22 @@ export default function GuidesDropdownMenu() {
       <DropdownMenuPrimitive.Trigger
         className={clsx(
           'group inline-flex flex-1 items-center justify-between gap-2',
-          'rounded',
+          'px-2 py-1.5',
           'transition-colors',
-          ['border', themeBorderElementColor],
-          [
-            themeOutlineElement_FocusVisible,
-            themeOutlineElementBrandColor_FocusVisible,
-          ],
-          'px-3 py-1.5',
-          themeGlassyBorder,
-          themeBackgroundEmphasized,
-          themeBackgroundLayerEmphasized_Hover,
         )}>
         <div className="flex items-center gap-2">
-          <div
-            className={clsx(
-              'size-6 flex shrink-0 items-center justify-center rounded-full',
-              themeGlassyBorder,
-              themeBackgroundLayerEmphasized,
-            )}>
-            <Icon className="size-3" />
-          </div>
+          <Icon className="size-4 text-white" />
           <Text
             className="line-clamp-1 text-ellipsis text-left"
+            color="secondary"
             size="body2"
-            weight="bold">
+            weight="medium">
             {label}
           </Text>
         </div>
         <RiArrowDownSLine
           aria-hidden="true"
-          className={clsx('size-4 shrink-0', themeTextSecondaryColor)}
+          className={clsx('size-4 shrink-0', themeTextSubtleColor)}
         />
       </DropdownMenuPrimitive.Trigger>
       <DropdownMenuPrimitive.Portal>
@@ -89,7 +64,7 @@ export default function GuidesDropdownMenu() {
           sideOffset={8}>
           {Object.values(guides).map(
             ({ key, href, shortName, icon: ItemIcon }) => {
-              const isSelected = pathname ? href.startsWith(pathname) : false;
+              const isSelected = pathname ? pathname.startsWith(href) : false;
 
               return (
                 <DropdownMenuPrimitive.Item key={key} asChild={true}>
@@ -97,24 +72,16 @@ export default function GuidesDropdownMenu() {
                     className={clsx(dropdownContentItemClassName, 'gap-2')}
                     href={href}
                     variant="unstyled">
-                    <div
+                    <ItemIcon
                       className={clsx(
-                        'flex shrink-0 items-center justify-center',
-                        'rounded-full',
-                        'size-6',
-                        themeGlassyBorder,
-                        themeBackgroundLayerEmphasized,
-                        isSelected
-                          ? themeTextBrandColor
-                          : themeTextSecondaryColor,
-                      )}>
-                      <ItemIcon className="size-4" />
-                    </div>
+                        'size-4',
+                        isSelected ? themeTextBrandColor : themeTextSubtleColor,
+                      )}
+                    />
                     <Text
                       className="block"
                       color={isSelected ? 'active' : 'default'}
-                      size="body2"
-                      weight="bold">
+                      size="body2">
                       {shortName}
                     </Text>
                   </Anchor>

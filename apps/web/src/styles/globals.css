@@ -37,6 +37,23 @@ a {
   mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), transparent);
 }
 
+.vignette-scroll {
+  mask-image: linear-gradient(
+    to top,
+    transparent,
+    black 3%,
+    black 97%,
+    transparent
+  );
+  -webkit-mask-image: linear-gradient(
+    to top,
+    transparent,
+    black 3%,
+    black 97%,
+    transparent
+  );
+}
+
 @import './sticky.css';
 @import './fancy.css';
 @import './scrollbar.css';

@@ -695,6 +695,10 @@
     "defaultMessage": "Get started in minutes",
     "description": "Text on Button on Call to action banner found at the bottom of the 'Become an Affiliate' page"
   },
+  "3wygra": {
+    "defaultMessage": "Current guide",
+    "description": "Label for current guide title"
+  },
   "3y3F8i": {
     "defaultMessage": "An error occurred",
     "description": "Error message when there is error fetching question progress or list."

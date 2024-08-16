@@ -4,7 +4,7 @@ import type {
   BaseGuideNavigationLink,
   GuideNavigation,
   GuideNavigationLinks,
-} from './GuidesLayoutSidebar';
+} from './types';
 
 type GuideNavigationLinkFlat<T> = T & {
   breadcrumbs: Array<string>;
