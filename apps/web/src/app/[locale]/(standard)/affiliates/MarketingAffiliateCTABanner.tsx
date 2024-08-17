@@ -8,7 +8,7 @@ export default function MarketingAffiliateCTABanner() {
   const intl = useIntl();
 
   return (
-    <div className="bg-brand-dark relative mx-auto mt-24 flex justify-center px-4 py-24 transition-opacity duration-[1500ms] ease-in-out">
+    <div className="bg-brand-dark relative mx-auto mt-24 flex justify-center px-4 py-24 transition-opacity duration-1000 ease-in-out">
       <div>
         <Heading className="text-center" color="light" level="heading4">
           <FormattedMessage

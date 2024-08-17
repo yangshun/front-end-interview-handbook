@@ -25,7 +25,7 @@ export default function MarketingAffiliateHero() {
         <Container>
           <div
             className={clsx(
-              'relative mx-auto max-w-xl px-4 py-24 transition-opacity duration-[1500ms] ease-in-out sm:max-w-3xl sm:px-12 md:max-w-4xl lg:max-w-5xl lg:px-0 lg:pt-32',
+              'relative mx-auto max-w-xl px-4 py-24 transition-opacity duration-1000 ease-in-out sm:max-w-3xl sm:px-12 md:max-w-4xl lg:max-w-5xl lg:px-0 lg:pt-32',
               isInView ? 'opacity-100' : 'opacity-0',
             )}>
             <div className="mx-auto max-w-3xl">
