@@ -93,19 +93,19 @@ export default function useQuestionCodingFormatFilter({
       if (codingFormatFilters.size === 0) {
         return true;
       }
-      if (codingFormatFilters.has('data-structures-algorithms')) {
-        return DSAQuestions.has(question.slug);
-      }
-      if (codingFormatFilters.has('utilities')) {
-        return (
-          question.format === 'javascript' && !DSAQuestions.has(question.slug)
-        );
-      }
-      if (codingFormatFilters.has('user-interface')) {
-        return question.format === 'user-interface';
-      }
 
-      return false;
+      const isDSA =
+        codingFormatFilters.has('data-structures-algorithms') &&
+        DSAQuestions.has(question.slug);
+      const isUtility =
+        codingFormatFilters.has('utilities') &&
+        question.format === 'javascript' &&
+        !DSAQuestions.has(question.slug);
+      const isUI =
+        codingFormatFilters.has('user-interface') &&
+        question.format === 'user-interface';
+
+      return isDSA || isUtility || isUI;
     },
     name: intl.formatMessage({
       defaultMessage: 'Coding Format',
