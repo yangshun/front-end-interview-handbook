@@ -1435,6 +1435,10 @@
     "defaultMessage": "Others",
     "description": "Label for \"Others\" option in YOE replacement"
   },
+  "9pQEOH": {
+    "defaultMessage": "Prep by Question Type",
+    "description": "Preparing by front end interview question format"
+  },
   "9qO5Il": {
     "defaultMessage": "Pricing",
     "description": "Sidebar navigation label"
@@ -4826,10 +4830,6 @@
   "Z5P0Gp": {
     "defaultMessage": "What to expect in the coding round and tips to succeed",
     "description": "What to expect in front end coding interviews"
-  },
-  "ZB+f95": {
-    "defaultMessage": "Preparation by Question Type",
-    "description": "Preparing by front end interview question format"
   },
   "ZCmkG3": {
     "defaultMessage": "Can't find the answer you are looking for? <link>Reach out to us!</link>",

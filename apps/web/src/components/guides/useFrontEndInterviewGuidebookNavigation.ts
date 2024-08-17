@@ -1,3 +1,14 @@
+import {
+  RiBookOpenLine,
+  RiCodeSSlashLine,
+  RiFileList3Line,
+  RiFlowChart,
+  RiJavascriptLine,
+  RiPagesLine,
+  RiQuestionnaireLine,
+  RiStarLine,
+  RiSurveyLine,
+} from 'react-icons/ri';
 import { useIntl } from 'react-intl';
 
 import type { GuideNavigation, GuideNavigationLink } from './types';
@@ -45,6 +56,7 @@ export function useQuizSectionItem() {
       id: 'XdezZk',
     }),
     href: `${basePath}/quiz`,
+    icon: RiQuestionnaireLine,
     slug: 'quiz',
     title: intl.formatMessage({
       defaultMessage: 'Quiz Questions',
@@ -66,6 +78,7 @@ function useCodingSectionFormatItems() {
         id: '0BbsyI',
       }),
       href: `${basePath}/algorithms`,
+      icon: RiCodeSSlashLine,
       slug: 'algorithms',
       title: intl.formatMessage({
         defaultMessage: 'Algorithm Questions',
@@ -81,6 +94,7 @@ function useCodingSectionFormatItems() {
         id: 'iqz/fo',
       }),
       href: `${basePath}/javascript`,
+      icon: RiJavascriptLine,
       slug: 'javascript',
       title: intl.formatMessage({
         defaultMessage: 'JavaScript Questions',
@@ -96,6 +110,7 @@ function useCodingSectionFormatItems() {
         id: 'XwbyU0',
       }),
       href: `${basePath}/user-interface`,
+      icon: RiPagesLine,
       slug: 'user-interface',
       title: intl.formatMessage({
         defaultMessage: 'User Interface Questions',
@@ -105,6 +120,7 @@ function useCodingSectionFormatItems() {
     },
     {
       href: `${basePath}/user-interface-questions-cheatsheet`,
+      icon: RiFileList3Line,
       slug: 'user-interface-questions-cheatsheet',
       title: intl.formatMessage({
         defaultMessage: 'UI Questions Cheatsheet',
@@ -115,6 +131,7 @@ function useCodingSectionFormatItems() {
     },
     {
       href: `${basePath}/user-interface-components-api-design-principles`,
+      icon: RiStarLine,
       slug: 'user-interface-components-api-design-principles',
       title: intl.formatMessage({
         defaultMessage: 'UI Components API Design Principles',
@@ -149,6 +166,7 @@ export function useFrontEndInterviewGuidebookNavigation() {
         links: [
           {
             href: `${basePath}`,
+            icon: RiFlowChart,
             slug: 'introduction',
             title: intl.formatMessage({
               defaultMessage: 'Preparation Guide',
@@ -167,6 +185,7 @@ export function useFrontEndInterviewGuidebookNavigation() {
         links: [
           {
             href: `${basePath}/resume`,
+            icon: RiSurveyLine,
             slug: 'resume',
             title: intl.formatMessage({
               defaultMessage: 'Resume Preparation',
@@ -189,6 +208,7 @@ export function useFrontEndInterviewGuidebookNavigation() {
           },
           {
             href: `${basePath}/system-design`,
+            icon: RiBookOpenLine,
             slug: 'system-design',
             title: intl.formatMessage({
               defaultMessage: 'System Design Questions',
@@ -199,9 +219,9 @@ export function useFrontEndInterviewGuidebookNavigation() {
           quizSectionItem,
         ],
         title: intl.formatMessage({
-          defaultMessage: 'Preparation by Question Type',
+          defaultMessage: 'Prep by Question Type',
           description: 'Preparing by front end interview question format',
-          id: 'ZB+f95',
+          id: '9pQEOH',
         }),
       },
     ],

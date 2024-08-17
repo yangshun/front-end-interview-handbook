@@ -1,7 +1,7 @@
 import { allInterviewsListingBottomContents } from 'contentlayer/generated';
 import type { Metadata } from 'next/types';
 
-import { INTERVIEWS_REVAMP_AVAILABLE } from '~/data/FeatureFlags';
+import { INTERVIEWS_REVAMP_BOTTOM_CONTENT } from '~/data/FeatureFlags';
 
 import CSS3Logo from '~/components/icons/CSS3Logo';
 import HTML5Logo from '~/components/icons/HTML5Logo';
@@ -351,7 +351,9 @@ export default async function Page({ params }: Props) {
 
   return (
     <QuestionsCategoryPage
-      bottomContent={INTERVIEWS_REVAMP_AVAILABLE ? bottomContent : undefined}
+      bottomContent={
+        INTERVIEWS_REVAMP_BOTTOM_CONTENT ? bottomContent : undefined
+      }
       category={category}
       codingFormat={codingFormat}
       codingQuestions={codingQuestions}

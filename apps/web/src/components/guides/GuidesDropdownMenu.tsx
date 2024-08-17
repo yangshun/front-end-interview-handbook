@@ -42,12 +42,11 @@ export default function GuidesDropdownMenu() {
           'px-2 py-1.5',
           'transition-colors',
         )}>
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-2 text-[0.8125rem] leading-4">
           <Icon className="size-4 text-white" />
           <Text
             className="line-clamp-1 text-ellipsis text-left"
-            color="secondary"
-            size="body2"
+            size="inherit"
             weight="medium">
             {label}
           </Text>
