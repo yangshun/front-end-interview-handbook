@@ -17,15 +17,15 @@ export default function GuidesLayoutContent({ children }: Props) {
 
   return (
     <div
-      className="theme-bg-radial-glow grow before:opacity-30"
+      className="theme-bg-radial-glow grow justify-center overflow-auto before:opacity-30 lg:overflow-visible xl:flex"
       style={{
         marginTop: 'calc(var(--global-sticky-height) * -1)',
         paddingTop: 'var(--global-sticky-height)',
       }}>
       <div
         className={clsx(
-          'flex grow justify-center gap-x-28',
-          'px-4 py-12 md:px-6 lg:px-8 lg:pb-20',
+          'flex grow justify-center gap-x-28 xl:max-w-[1200px] xl:justify-end',
+          'px-4 py-12 md:px-6 lg:px-[60px] lg:pb-20',
         )}>
         {children}
       </div>

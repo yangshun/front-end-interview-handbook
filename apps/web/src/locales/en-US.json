@@ -1835,6 +1835,10 @@
     "defaultMessage": "Intro to Coding Round",
     "description": "Introduction to front end coding interview"
   },
+  "DEcbCY": {
+    "defaultMessage": "Toggle focus mode off",
+    "description": "Label for toggle focus mode off"
+  },
   "DEhOz5": {
     "defaultMessage": "Users completed",
     "description": "Number of users who completed the question"
@@ -7410,6 +7414,10 @@
   "tEZPfW": {
     "defaultMessage": "Track your personal milestones, view achievement stats, and see all your project and community activities in one place.",
     "description": "Description of Projects Dashboard page"
+  },
+  "tEaNEQ": {
+    "defaultMessage": "Focus mode",
+    "description": "Label for focus mode toggle button"
   },
   "tGFT2g": {
     "defaultMessage": "Premium challenge that is locked",

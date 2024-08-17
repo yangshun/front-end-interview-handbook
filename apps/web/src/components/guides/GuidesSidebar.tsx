@@ -34,6 +34,7 @@ import {
 import { useI18nPathname } from '~/next-i18nostic/src';
 
 import GuidesDropdownMenu from './GuidesDropdownMenu';
+import GuidesFocusModeToggle from './GuidesFocusModeToggle';
 import type {
   BaseGuideNavigationLink,
   GuideNavigation,
@@ -308,25 +309,28 @@ function SectionHeading({
 }
 
 type GuidesSidebarProps = Readonly<{
+  isFocusMode?: boolean;
   mode?: 'navbar' | 'sidebar';
   navigation: GuideNavigation;
   sticky?: boolean;
+  toggleFocusMode?: () => void;
 }>;
 
 export function GuidesSidebar({
   sticky = false,
   navigation,
   mode = 'sidebar',
+  isFocusMode = false,
+  toggleFocusMode,
 }: GuidesSidebarProps) {
   const isSidebar = mode === 'sidebar';
 
   return (
     <nav
       className={clsx(
-        'flex shrink-0 flex-col',
-        'py-4',
+        'flex shrink-0 flex-col justify-end',
         isSidebar && ['border-e', themeBorderColor],
-        isSidebar ? ' w-60' : 'w-full',
+        isSidebar ? (isFocusMode ? 'w-[78px]' : 'w-60') : 'w-full',
         sticky && 'sticky',
       )}
       style={{
@@ -335,51 +339,73 @@ export function GuidesSidebar({
           : undefined,
         top: 'calc(var(--global-sticky-height))',
       }}>
-      <div
-        className={clsx('flex grow-0 flex-col gap-1', 'w-full', 'px-4 pb-4', [
-          'border-b',
-          themeBorderColor,
-        ])}>
-        <Text className="px-2" color="secondary" size="body3" weight="medium">
-          <FormattedMessage
-            defaultMessage="Current guide"
-            description="Label for current guide title"
-            id="3wygra"
+      {!isFocusMode && (
+        <>
+          <div
+            className={clsx(
+              'flex grow-0 flex-col gap-1',
+              'w-full',
+              'px-4 py-4',
+              ['border-b', themeBorderColor],
+            )}>
+            <Text
+              className="px-2"
+              color="secondary"
+              size="body3"
+              weight="medium">
+              <FormattedMessage
+                defaultMessage="Current guide"
+                description="Label for current guide title"
+                id="3wygra"
+              />
+            </Text>
+            <GuidesDropdownMenu />
+          </div>
+          {INTERVIEWS_REVAMP_GUIDES ? (
+            <ul
+              className={clsx(
+                'flex grow flex-col gap-y-2 overflow-y-auto p-4',
+                isSidebar && 'vignette-scroll',
+              )}
+              role="list">
+              {navigation.items.map((section) => (
+                <SectionHeading key={section.title} section={section} />
+              ))}
+            </ul>
+          ) : (
+            <ul
+              className={clsx(
+                'flex grow flex-col gap-y-6 overflow-y-auto px-4 py-2',
+                // IsSidebar && 'vignette-scroll',
+              )}
+              role="list">
+              {navigation.items.map((section) => (
+                <li key={section.title}>
+                  <Heading
+                    className="mb-3 text-[0.8125rem] font-semibold leading-6"
+                    level="custom">
+                    {section.title}
+                  </Heading>
+                  <Section>
+                    <LinksList items={section.links} />
+                  </Section>
+                </li>
+              ))}
+            </ul>
+          )}
+        </>
+      )}
+      {isSidebar && INTERVIEWS_REVAMP_GUIDES && (
+        <div
+          className={clsx('w-full', 'px-6 py-2', [
+            'border-t',
+            themeBorderColor,
+          ])}>
+          <GuidesFocusModeToggle
+            isFocusMode={isFocusMode}
+            toggleFocusMode={toggleFocusMode}
           />
-        </Text>
-        <GuidesDropdownMenu />
-      </div>
-      {INTERVIEWS_REVAMP_GUIDES ? (
-        <ul
-          className={clsx(
-            'flex grow flex-col gap-y-2 overflow-y-auto p-4',
-            isSidebar && 'vignette-scroll',
-          )}
-          role="list">
-          {navigation.items.map((section) => (
-            <SectionHeading key={section.title} section={section} />
-          ))}
-        </ul>
-      ) : (
-        <ul
-          className={clsx(
-            'flex grow flex-col gap-y-6 overflow-y-auto px-4 py-2',
-            // IsSidebar && 'vignette-scroll',
-          )}
-          role="list">
-          {navigation.items.map((section) => (
-            <li key={section.title}>
-              <Heading
-                className="mb-3 text-[0.8125rem] font-semibold leading-6"
-                level="custom">
-                {section.title}
-              </Heading>
-              <Section>
-                <LinksList items={section.links} />
-              </Section>
-            </li>
-          ))}
-        </ul>
+        </div>
       )}
     </nav>
   );

@@ -2,6 +2,7 @@
 
 import clsx from 'clsx';
 import { useRef } from 'react';
+import { useToggle } from 'usehooks-ts';
 
 import ArticlePagination from '~/components/common/ArticlePagination';
 import Section from '~/components/ui/Heading/HeadingContext';
@@ -32,6 +33,7 @@ export default function GuidesMainLayout({
 }: Props) {
   const { pathname } = useI18nPathname();
   const articleContainerRef = useRef<HTMLDivElement>(null);
+  const [isFocusMode, toggleFocusMode] = useToggle();
 
   const flatNavigationItems = useFlattenedNavigationItems(navigation);
 
@@ -54,13 +56,18 @@ export default function GuidesMainLayout({
               'hidden lg:contents',
               'sticky top-[var(--global-sticky-height)]',
             )}>
-            <GuidesSidebar navigation={navigation} sticky={true} />
+            <GuidesSidebar
+              isFocusMode={isFocusMode}
+              navigation={navigation}
+              sticky={true}
+              toggleFocusMode={toggleFocusMode}
+            />
           </div>
           <GuidesLayoutContent>
             <div
               className={clsx(
                 'flex flex-col gap-6 overflow-auto',
-                'w-full xl:max-w-[620px]',
+                'w-full max-w-[620px]',
               )}>
               <div className="flex flex-col gap-y-4">
                 {navigation.title && (
@@ -92,7 +99,10 @@ export default function GuidesMainLayout({
                     height: 'calc(100vh - 24px - var(--global-sticky-height))',
                     top: 'calc(24px + var(--global-sticky-height))',
                   }}>
-                  <GuidesTableOfContents tableOfContents={tableOfContents} />
+                  <GuidesTableOfContents
+                    collapsed={isFocusMode}
+                    tableOfContents={tableOfContents}
+                  />
                 </div>
               </Section>
             )}

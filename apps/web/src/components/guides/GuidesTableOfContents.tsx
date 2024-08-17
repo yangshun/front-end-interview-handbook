@@ -1,7 +1,11 @@
 import clsx from 'clsx';
 import type { Ref } from 'react';
 import { useEffect, useId, useRef, useState } from 'react';
-import { RiArrowRightSLine, RiListCheck } from 'react-icons/ri';
+import {
+  RiArrowLeftSLine,
+  RiArrowRightSLine,
+  RiListCheck,
+} from 'react-icons/ri';
 import { FormattedMessage } from 'react-intl';
 
 import useScrollIntoView from '~/hooks/useScrollIntoView';
@@ -28,6 +32,7 @@ type TableOfContentsItem = Readonly<{
 export type TableOfContents = ReadonlyArray<TableOfContentsItem>;
 
 type Props = Readonly<{
+  collapsed?: boolean;
   tableOfContents: TableOfContents;
 }>;
 
@@ -109,7 +114,10 @@ function ListItems({
   );
 }
 
-export default function GuidesTableOfContents({ tableOfContents }: Props) {
+export default function GuidesTableOfContents({
+  tableOfContents,
+  collapsed,
+}: Props) {
   const titleId = useId();
   const activeId = useActiveHeadingId();
 
@@ -129,42 +137,60 @@ export default function GuidesTableOfContents({ tableOfContents }: Props) {
   }, [scrollIntoView, activeLink]);
 
   return (
-    <nav ref={navRef} aria-labelledby={titleId}>
-      {tableOfContents.length > 0 && (
-        <>
-          <div className="flex items-center gap-3">
-            <RiListCheck className={clsx('size-4', themeTextSecondaryColor)} />
-            <Heading
-              className={clsx(
-                'flex-1',
-                'text-[0.8125rem] leading-5',
-                textVariants({ color: 'secondary' }),
-              )}
-              color="custom"
-              id={titleId}
-              level="custom">
-              <FormattedMessage
-                defaultMessage="On this page"
-                description="Title of the table of contents for a guidebook page."
-                id="Cl4Ghp"
-              />
-            </Heading>
-            <RiArrowRightSLine
-              className={clsx('size-4', themeTextSecondaryColor)}
+    <nav ref={navRef} aria-labelledby={titleId} className="w-full">
+      {tableOfContents.length > 0 &&
+        (collapsed ? (
+          <div
+            aria-label="Collapsed table of contents"
+            className="float-end flex items-center gap-2">
+            <RiListCheck
+              aria-hidden={true}
+              className={clsx('size-4 shrink-0', themeTextSecondaryColor)}
+            />
+            <RiArrowLeftSLine
+              aria-hidden={true}
+              className={clsx('size-4 shrink-0', themeTextSecondaryColor)}
             />
           </div>
-          <Section>
-            <div className="flex py-4 pl-2">
-              <ListItems
-                activeId={activeId}
-                activeLinkRef={activeLinkRef}
-                items={tableOfContents}
-                level={0}
+        ) : (
+          <>
+            <div className="flex items-center gap-3">
+              <RiListCheck
+                aria-hidden={true}
+                className={clsx('size-4 shrink-0', themeTextSecondaryColor)}
+              />
+              <Heading
+                className={clsx(
+                  'flex-1',
+                  'text-[0.8125rem] leading-5',
+                  textVariants({ color: 'secondary' }),
+                )}
+                color="custom"
+                id={titleId}
+                level="custom">
+                <FormattedMessage
+                  defaultMessage="On this page"
+                  description="Title of the table of contents for a guidebook page."
+                  id="Cl4Ghp"
+                />
+              </Heading>
+              <RiArrowRightSLine
+                aria-hidden={true}
+                className={clsx('size-4 shrink-0', themeTextSecondaryColor)}
               />
             </div>
-          </Section>
-        </>
-      )}
+            <Section>
+              <div className="flex py-4 pl-2">
+                <ListItems
+                  activeId={activeId}
+                  activeLinkRef={activeLinkRef}
+                  items={tableOfContents}
+                  level={0}
+                />
+              </div>
+            </Section>
+          </>
+        ))}
     </nav>
   );
 }
