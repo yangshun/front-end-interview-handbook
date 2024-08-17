@@ -1,5 +1,8 @@
+import type { server } from 'typescript';
+
 import type { Monaco } from '@monaco-editor/react';
 
+export type TsConfigCompilerOptionsJSON = server.protocol.CompilerOptions;
 type TsConfigJSX =
   | 'preserve'
   | 'react-jsx'
@@ -7,7 +10,7 @@ type TsConfigJSX =
   | 'react-native'
   | 'react';
 
-function convertJsx(monaco: Monaco, value: TsConfigJSX) {
+function convertJsx(monaco: Monaco, value: string) {
   const { JsxEmit } = monaco.languages.typescript;
 
   type JsxEmitType = typeof JsxEmit;
@@ -22,7 +25,8 @@ function convertJsx(monaco: Monaco, value: TsConfigJSX) {
     'react-jsxdev': JsxEmit.ReactJSXDev,
     'react-native': JsxEmit.ReactNative,
   };
-  const newValue = configToMonacoOption[value];
+
+  const newValue = configToMonacoOption[value as TsConfigJSX];
 
   if (newValue == null) {
     throw `Unsupported tsconfig.jsx value: ${value}`;
@@ -41,7 +45,7 @@ type TsConfigModuleKind =
   | 'system'
   | 'umd';
 
-function convertModuleKind(monaco: Monaco, value: TsConfigModuleKind) {
+function convertModuleKind(monaco: Monaco, value: string) {
   const { ModuleKind } = monaco.languages.typescript;
 
   type ModuleKindType = typeof ModuleKind;
@@ -59,7 +63,7 @@ function convertModuleKind(monaco: Monaco, value: TsConfigModuleKind) {
     system: ModuleKind.System,
     umd: ModuleKind.UMD,
   };
-  const newValue = configToMonacoOption[value];
+  const newValue = configToMonacoOption[value as TsConfigModuleKind];
 
   if (newValue == null) {
     throw `Unsupported tsconfig.module value: ${value}`;
@@ -70,10 +74,7 @@ function convertModuleKind(monaco: Monaco, value: TsConfigModuleKind) {
 
 type TsConfigModuleResolutionKind = 'classic' | 'node' | 'node10';
 
-function convertModuleResolutionKind(
-  monaco: Monaco,
-  value: TsConfigModuleResolutionKind,
-) {
+function convertModuleResolutionKind(monaco: Monaco, value: string) {
   const { ModuleResolutionKind } = monaco.languages.typescript;
 
   type ModuleResolutionKindType = typeof ModuleResolutionKind;
@@ -86,7 +87,7 @@ function convertModuleResolutionKind(
     node: ModuleResolutionKind.NodeJs,
     node10: ModuleResolutionKind.NodeJs,
   };
-  const newValue = configToMonacoOption[value];
+  const newValue = configToMonacoOption[value as TsConfigModuleResolutionKind];
 
   if (newValue == null) {
     throw `Unsupported tsconfig.moduleResolution value: ${value}`;
@@ -97,7 +98,7 @@ function convertModuleResolutionKind(
 
 type TsConfigNewLineKind = 'crlf' | 'lf';
 
-function convertNewLineKind(monaco: Monaco, value: TsConfigNewLineKind) {
+function convertNewLineKind(monaco: Monaco, value: string) {
   const { NewLineKind } = monaco.languages.typescript;
 
   type NewLineKindType = typeof NewLineKind;
@@ -109,7 +110,7 @@ function convertNewLineKind(monaco: Monaco, value: TsConfigNewLineKind) {
     crlf: NewLineKind.CarriageReturnLineFeed,
     lf: NewLineKind.LineFeed,
   };
-  const newValue = configToMonacoOption[value];
+  const newValue = configToMonacoOption[value as TsConfigNewLineKind];
 
   if (newValue == null) {
     throw `Unsupported tsconfig.newLine value: ${value}`;
@@ -130,7 +131,7 @@ type TsConfigScriptTarget =
   | 'es2020'
   | 'esnext';
 
-function convertScriptTarget(monaco: Monaco, value: TsConfigScriptTarget) {
+function convertScriptTarget(monaco: Monaco, value: string) {
   const { ScriptTarget } = monaco.languages.typescript;
 
   type ScriptTargetType = typeof ScriptTarget;
@@ -150,7 +151,7 @@ function convertScriptTarget(monaco: Monaco, value: TsConfigScriptTarget) {
     es6: ScriptTarget.ES2015,
     esnext: ScriptTarget.ESNext,
   };
-  const newValue = configToMonacoOption[value];
+  const newValue = configToMonacoOption[value as TsConfigScriptTarget];
 
   if (newValue == null) {
     throw `Unsupported tsconfig.target value: ${value}`;
@@ -159,46 +160,52 @@ function convertScriptTarget(monaco: Monaco, value: TsConfigScriptTarget) {
   return newValue;
 }
 
-// TODO: Using `any` for return type because the `CompilerOptions` type is not exposed by Monaco.
 export function convertTsConfigToTsCompilerOptions(
   monaco: Monaco,
-  tsConfig: any,
-): any {
-  const newConfig = {
-    ...tsConfig,
+  tsConfigCompilerOptions: TsConfigCompilerOptionsJSON,
+) {
+  type MonacoTypescriptCompilerOptions = ReturnType<
+    typeof monaco.languages.typescript.typescriptDefaults.getCompilerOptions
+  >;
+
+  const newCompilerOptions = {
+    ...tsConfigCompilerOptions,
   };
 
-  if (Object.prototype.hasOwnProperty.call(newConfig, 'jsx')) {
-    newConfig.jsx = convertJsx(monaco, newConfig.jsx.toLowerCase());
-  }
-
-  if (Object.prototype.hasOwnProperty.call(newConfig, 'module')) {
-    newConfig.module = convertModuleKind(
+  if (typeof newCompilerOptions.jsx === 'string') {
+    newCompilerOptions.jsx = convertJsx(
       monaco,
-      newConfig.module.toLowerCase(),
+      newCompilerOptions.jsx.toLowerCase(),
     );
   }
 
-  if (Object.prototype.hasOwnProperty.call(newConfig, 'moduleResolution')) {
-    newConfig.moduleResolution = convertModuleResolutionKind(
+  if (typeof newCompilerOptions.module === 'string') {
+    newCompilerOptions.module = convertModuleKind(
       monaco,
-      newConfig.moduleResolution.toLowerCase(),
+      newCompilerOptions.module.toLowerCase(),
     );
   }
 
-  if (Object.prototype.hasOwnProperty.call(newConfig, 'newLine')) {
-    newConfig.newLine = convertNewLineKind(
+  if (typeof newCompilerOptions.moduleResolution === 'string') {
+    newCompilerOptions.moduleResolution = convertModuleResolutionKind(
       monaco,
-      newConfig.newLine.toLowerCase(),
+      newCompilerOptions.moduleResolution.toLowerCase(),
     );
   }
 
-  if (Object.prototype.hasOwnProperty.call(newConfig, 'target')) {
-    newConfig.target = convertScriptTarget(
+  if (typeof newCompilerOptions.newLine === 'string') {
+    newCompilerOptions.newLine = convertNewLineKind(
       monaco,
-      newConfig.target.toLowerCase(),
+      newCompilerOptions.newLine.toLowerCase(),
     );
   }
 
-  return newConfig;
+  if (typeof newCompilerOptions.target === 'string') {
+    newCompilerOptions.target = convertScriptTarget(
+      monaco,
+      newCompilerOptions.target.toLowerCase(),
+    );
+  }
+
+  return newCompilerOptions as MonacoTypescriptCompilerOptions;
 }

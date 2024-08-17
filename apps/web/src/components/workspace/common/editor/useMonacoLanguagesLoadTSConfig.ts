@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 
+import type { TsConfigCompilerOptionsJSON } from './convertTsConfigToTsCompilerOptions';
 import { convertTsConfigToTsCompilerOptions } from './convertTsConfigToTsCompilerOptions';
 
 import type { Monaco } from '@monaco-editor/react';
@@ -17,7 +18,9 @@ export default function useMonacoLanguagesLoadTSConfig(
       return;
     }
 
-    let tsConfig: Readonly<{ compilerOptions: any }> | null = null;
+    let tsConfig: Readonly<{
+      compilerOptions: TsConfigCompilerOptionsJSON;
+    }> | null = null;
 
     try {
       tsConfig = JSON.parse(tsConfigString);
