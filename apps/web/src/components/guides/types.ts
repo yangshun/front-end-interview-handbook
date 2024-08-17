@@ -32,3 +32,13 @@ export type GuideNavigation<
   items: GuideNavigationItems<Link>;
   title: string;
 }>;
+
+export type GuideCategory =
+  | 'behavioral-interview-guide'
+  | 'front-end-interview-guide'
+  | 'system-design-guide';
+
+export type GuideMetadata = Readonly<{
+  category: GuideCategory;
+  slug: string;
+}>;

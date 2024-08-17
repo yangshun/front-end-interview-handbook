@@ -1,11 +1,14 @@
 'use client';
 
+import { useQueryGuideProgress } from '~/db/guides/GuidesProgressClient';
 import { useI18nPathname } from '~/next-i18nostic/src';
 
 import GuidesArticle from './GuidesArticle';
 import GuidesArticleJsonLd from './GuidesArticleJsonLd';
 import GuidesMainLayout from './GuidesMainLayout';
 import type { TableOfContents } from './GuidesTableOfContents';
+import type { GuideMetadata } from './types';
+import useFlattenedNavigationItems from './useFlattenedNavigationItems';
 import { useFrontEndInterviewGuidebookNavigation } from './useFrontEndInterviewGuidebookNavigation';
 
 type Props = Readonly<{
@@ -24,6 +27,20 @@ export default function FrontEndInterviewGuidebookLayout({
   const navigation = useFrontEndInterviewGuidebookNavigation();
   const { pathname } = useI18nPathname();
 
+  const flatNavigationItems = useFlattenedNavigationItems(navigation);
+
+  const currentItem = flatNavigationItems.find(
+    (item) => item.href === pathname,
+  )!;
+
+  const guideMetadata: GuideMetadata = {
+    category: 'front-end-interview-guide',
+    slug: currentItem.slug,
+  };
+
+  const { data: guideProgress, isSuccess } =
+    useQueryGuideProgress(guideMetadata);
+
   return (
     <>
       <GuidesArticleJsonLd
@@ -33,7 +50,11 @@ export default function FrontEndInterviewGuidebookLayout({
         title={title}
       />
       <GuidesMainLayout
+        guideProgress={guideProgress}
+        isGuideProgressSuccess={isSuccess}
+        metadata={guideMetadata}
         navigation={navigation}
+        showMarkAsComplete={true}
         tableOfContents={tableOfContents}>
         <GuidesArticle description={description} title={title}>
           {children}

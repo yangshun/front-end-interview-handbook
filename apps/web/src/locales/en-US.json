@@ -759,6 +759,10 @@
     "defaultMessage": "Number of challenges completed using this skill, including challenges not in the recommended skill plan",
     "description": "Tooltip for completed challenges label"
   },
+  "4PeFV4": {
+    "defaultMessage": "Mark as complete",
+    "description": "Mark guide as complete"
+  },
   "4WUroS": {
     "defaultMessage": "Efficiently focus on the most important concepts",
     "description": "Short description for one week study plan"
@@ -1010,6 +1014,10 @@
   "6e8XrP": {
     "defaultMessage": "We'll provide all the assets that you need - starter code, professional design, API specs, etc.",
     "description": "Step 2 of the \"How it works\" section on the Projects home page"
+  },
+  "6eVVTu": {
+    "defaultMessage": "Failed to mark article as complete. Please try again",
+    "description": "Error message shown when a guide has failed to mark as complete"
   },
   "6fAxyB": {
     "defaultMessage": "Behavioral Interview Guidebook",
@@ -1562,6 +1570,10 @@
   "B8uTwW": {
     "defaultMessage": "No contributions in the community matching those filters",
     "description": "Subtitle for empty state when there are no contributions matching filters"
+  },
+  "B8wSft": {
+    "defaultMessage": "You will be redirected into {nextArticle} in 10 sec",
+    "description": "Success message shown when a guide was marked as complete"
   },
   "B9vupD": {
     "defaultMessage": "Submissions",
@@ -2199,6 +2211,10 @@
     "defaultMessage": "GreatFrontEnd Annual",
     "description": "GFE annual plan"
   },
+  "GEFMQ1": {
+    "defaultMessage": "Marked article as complete!",
+    "description": "Success message shown when a guide was marked as complete"
+  },
   "GHQ8sO": {
     "defaultMessage": "Cancel anytime.",
     "description": "Cancel the subscription anytime."
@@ -2414,6 +2430,10 @@
   "Hj6BTz": {
     "defaultMessage": "An error has occurred. Please try again later and contact support if the error persists.",
     "description": "Error message shown to user when they are trying to checkout but it fails"
+  },
+  "HjFPvq": {
+    "defaultMessage": "Mark as complete",
+    "description": "Mark the guide as complete"
   },
   "HlRbK4": {
     "defaultMessage": "High quality solutions",
@@ -3486,6 +3506,10 @@
   "PXcS/H": {
     "defaultMessage": "<authorLink>{author}</authorLink> replied to your code review on <submissionLink>{entityTitle}</submissionLink> {timestamp}",
     "description": "Notification for someone replied to your code review"
+  },
+  "PYCLry": {
+    "defaultMessage": "Completed",
+    "description": "The guide has been completed"
   },
   "PbcB1O": {
     "defaultMessage": "If you haven’t started a job in SWE or front end yet, select another status to display in place of your YOE",
@@ -4819,6 +4843,10 @@
     "defaultMessage": "Starter files and APIs",
     "description": "Title of 'Starter code and APIs' sub-feature in Projects marketing page"
   },
+  "Z1jeeR": {
+    "defaultMessage": "Congratulations on completing the guide! Sign into your account or sign up for free to save your progress!",
+    "description": "Message shown when user completes a guide"
+  },
   "Z3Z5Fp": {
     "defaultMessage": "Review other's project code and help them improve",
     "description": "Description for recommended action for new projects platform user"
@@ -5631,6 +5659,10 @@
     "defaultMessage": "Practice using {skillName} by completing relevant challenges",
     "description": "Description of Projects skill details page"
   },
+  "fFtuJe": {
+    "defaultMessage": "Mark as incomplete",
+    "description": "Mark the guide as incomplete"
+  },
   "fG/W54": {
     "defaultMessage": "Our projects are composable with different themes - choose the theme you want to personalize your project",
     "description": "Description for \"Design systems\" feature on Projects home page"
@@ -5686,6 +5718,10 @@
   "fcYNb3": {
     "defaultMessage": "{questionCount}+ JavaScript and TypeScript interview questions, from implementing common library APIs, utility functions, algorithms, to building UI components and more.",
     "description": "Subtitle for JavaScript questions list page"
+  },
+  "fdpvTK": {
+    "defaultMessage": "Marked article as incomplete!",
+    "description": "Success message shown when a guide is marked as complete"
   },
   "fevC5W": {
     "defaultMessage": "Free",
@@ -6567,6 +6603,10 @@
     "defaultMessage": "<count>{questionCount}</count> <questions>questions</questions>",
     "description": "Number of questions"
   },
+  "mE7rWx": {
+    "defaultMessage": "Failed to mark article as incomplete. Please try again",
+    "description": "Error message shown when the guide cannot be marked incomplete"
+  },
   "mGYl8O": {
     "defaultMessage": "Upvoted successfully!",
     "description": "Successful upvote toaster"
@@ -6594,6 +6634,10 @@
   "mU5c9N": {
     "defaultMessage": "After completion",
     "description": "Tab label for projects challenges"
+  },
+  "mUUWJi": {
+    "defaultMessage": "Sign in to save progress",
+    "description": "Message shown when user completes a guide without signing in"
   },
   "mb7erW": {
     "defaultMessage": "Importance",

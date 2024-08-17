@@ -1,11 +1,13 @@
 'use client';
 
+import { useQueryGuideProgress } from '~/db/guides/GuidesProgressClient';
 import { useI18nPathname } from '~/next-i18nostic/src';
 
 import GuidesArticle from './GuidesArticle';
 import GuidesArticleJsonLd from './GuidesArticleJsonLd';
 import GuidesMainLayout from './GuidesMainLayout';
 import type { TableOfContents } from './GuidesTableOfContents';
+import type { GuideMetadata } from './types';
 import useFlattenedNavigationItems from './useFlattenedNavigationItems';
 import { useSystemDesignNavigation } from '../interviews/questions/content/system-design/SystemDesignNavigation';
 import SystemDesignPaywall from '../interviews/questions/content/system-design/SystemDesignPaywall';
@@ -34,6 +36,14 @@ export default function SystemDesignGuidebookLayout({
     (item) => item.href === pathname,
   )!;
 
+  const guideMetadata: GuideMetadata = {
+    category: 'system-design-guide',
+    slug: currentItem.slug,
+  };
+
+  const { data: guideProgress, isSuccess } =
+    useQueryGuideProgress(guideMetadata);
+
   return (
     <>
       <GuidesArticleJsonLd
@@ -44,7 +54,11 @@ export default function SystemDesignGuidebookLayout({
         title={`Front End System Design: ${title}`}
       />
       <GuidesMainLayout
+        guideProgress={guideProgress}
+        isGuideProgressSuccess={isSuccess}
+        metadata={guideMetadata}
         navigation={navigation}
+        showMarkAsComplete={true}
         tableOfContents={tableOfContents}>
         <SystemDesignPaywall isPremium={currentItem.premium}>
           <GuidesArticle description={description} title={title}>

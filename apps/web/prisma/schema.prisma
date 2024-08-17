@@ -51,6 +51,7 @@ model Profile {
 
   learningSessions                        LearningSession[]
   questionProgress                        QuestionProgress[]
+  guideProgress                           GuideProgress[]
   questionDiscussionPosts                 QuestionDiscussionPost[]
   questionJavaScriptSubmissions           QuestionJavaScriptSubmission[]
   questionJavaScriptCommunitySolutions    QuestionJavaScriptCommunitySolution[]
@@ -68,6 +69,16 @@ model QuestionProgress {
   createdAt DateTime @default(now()) @db.Timestamptz(6)
   userId    String   @db.Uuid
   profile   Profile  @relation(fields: [userId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+}
+
+model GuideProgress {
+  id        String   @id @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
+  category  String
+  slug      String
+  status    String
+  createdAt DateTime @default(now()) @db.Timestamptz(6)
+  userId    String   @db.Uuid
+  profile   Profile  @relation(fields: [userId], references: [id], onDelete: Cascade, onUpdate: NoAction)
 }
 
 model QuestionDiscussionPost {

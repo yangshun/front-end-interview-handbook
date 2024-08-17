@@ -4,6 +4,8 @@ export const INTERVIEWS_UI_COMMUNITY_SOLUTIONS_IS_LIVE =
   process.env.NEXT_PUBLIC_VERCEL_ENV !== 'production';
 export const INTERVIEWS_REVAMP_GUIDES =
   process.env.NEXT_PUBLIC_VERCEL_ENV !== 'production';
+export const INTERVIEWS_REVAMP_DASHBOARD =
+  process.env.NEXT_PUBLIC_VERCEL_ENV !== 'production';
 export const INTERVIEWS_REVAMP_BOTTOM_CONTENT =
   process.env.NEXT_PUBLIC_VERCEL_ENV !== 'production';
 

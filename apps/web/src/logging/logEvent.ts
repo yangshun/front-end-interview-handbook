@@ -18,6 +18,7 @@ type LoggingAction =
   | 'click'
   | 'copy'
   | 'error'
+  | 'guide.mark_complete'
   | 'hydration.fail'
   | 'hydration.success'
   | 'pageview'

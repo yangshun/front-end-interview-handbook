@@ -1,6 +1,7 @@
 import { authRouter } from './auth';
 import { devRouter } from './dev';
 import { feedbackRouter } from './feedback';
+import { guideProgressRouter } from './guide-progress';
 import { marketingRouter } from './marketing';
 import { profileRouter } from './profile';
 import { projectsRouter } from './projects';
@@ -19,6 +20,7 @@ export const appRouter = router({
   auth: authRouter,
   dev: devRouter,
   feedback: feedbackRouter,
+  guideProgress: guideProgressRouter,
   marketing: marketingRouter,
   profile: profileRouter,
   projects: projectsRouter,

@@ -4,32 +4,55 @@ import clsx from 'clsx';
 import { useRef } from 'react';
 import { useToggle } from 'usehooks-ts';
 
+import { INTERVIEWS_REVAMP_DASHBOARD } from '~/data/FeatureFlags';
+
 import ArticlePagination from '~/components/common/ArticlePagination';
+import Divider from '~/components/ui/Divider';
 import Section from '~/components/ui/Heading/HeadingContext';
 import Text from '~/components/ui/Text';
 
+import type { GuideProgress } from '~/db/guides/GuideProgressTypes';
 import { useI18nPathname } from '~/next-i18nostic/src';
 
 import GuidesHeadingObserver from './GuidesHeadingObserver';
 import GuidesLayoutContent from './GuidesLayoutContent';
 import GuidesNavbar from './GuidesNavbar';
+import GuidesProgressAction from './GuidesProgressAction';
 import { GuidesSidebar } from './GuidesSidebar';
 import type { TableOfContents } from './GuidesTableOfContents';
 import GuidesTableOfContents from './GuidesTableOfContents';
-import type { GuideNavigation } from './types';
+import type { GuideMetadata, GuideNavigation } from './types';
 import useFlattenedNavigationItems from './useFlattenedNavigationItems';
 
-type Props = Readonly<{
-  children?: React.ReactNode;
-  isAccessibleForFree?: boolean;
-  navigation: GuideNavigation;
-  tableOfContents?: TableOfContents;
-}>;
+type MarkAsCompleteProps = Readonly<
+  | {
+      guideProgress?: GuideProgress | null;
+      isGuideProgressSuccess: boolean;
+      metadata: GuideMetadata;
+      showMarkAsComplete?: true;
+    }
+  | {
+      metadata?: GuideMetadata;
+      showMarkAsComplete?: false;
+    }
+>;
+
+type Props = Readonly<
+  MarkAsCompleteProps & {
+    children?: React.ReactNode;
+    isAccessibleForFree?: boolean;
+    navigation: GuideNavigation;
+    tableOfContents?: TableOfContents;
+  }
+>;
 
 export default function GuidesMainLayout({
   children,
   navigation,
   tableOfContents,
+  showMarkAsComplete = false,
+  metadata,
+  ...props
 }: Props) {
   const { pathname } = useI18nPathname();
   const articleContainerRef = useRef<HTMLDivElement>(null);
@@ -40,6 +63,24 @@ export default function GuidesMainLayout({
   const currentItem = flatNavigationItems.find(
     (item) => item.href === pathname,
   )!;
+
+  let nextArticle: Readonly<{
+    href?: string;
+    title: string;
+  }> | null = null;
+
+  for (let i = 0; i < flatNavigationItems.length; i++) {
+    if (
+      flatNavigationItems[i]?.href !== pathname &&
+      flatNavigationItems[i].slug !== pathname
+    ) {
+      continue;
+    }
+    if (i + 1 < flatNavigationItems.length) {
+      nextArticle = flatNavigationItems[i + 1];
+    }
+    break;
+  }
 
   return (
     <GuidesHeadingObserver
@@ -66,7 +107,7 @@ export default function GuidesMainLayout({
           <GuidesLayoutContent>
             <div
               className={clsx(
-                'flex flex-col gap-6 overflow-auto',
+                'flex flex-col gap-12 overflow-auto',
                 'w-full max-w-[620px]',
               )}>
               <div className="flex flex-col gap-y-4">
@@ -82,7 +123,32 @@ export default function GuidesMainLayout({
                 <div ref={articleContainerRef}>{children}</div>
               </div>
               <Section>
-                <div className="mt-8">
+                <div className="flex flex-col gap-12">
+                  {showMarkAsComplete &&
+                    metadata &&
+                    INTERVIEWS_REVAMP_DASHBOARD && (
+                      <>
+                        <div
+                          className={clsx(
+                            'transition-colors',
+                            'isGuideProgressSuccess' in props &&
+                              props.isGuideProgressSuccess
+                              ? 'opacity-100'
+                              : 'opacity-0',
+                          )}>
+                          <GuidesProgressAction
+                            guideProgress={
+                              'guideProgress' in props
+                                ? props.guideProgress
+                                : null
+                            }
+                            metadata={metadata}
+                            nextArticle={nextArticle}
+                          />
+                        </div>
+                        <Divider />
+                      </>
+                    )}
                   <ArticlePagination
                     activeItem={pathname ?? ''}
                     items={flatNavigationItems}
