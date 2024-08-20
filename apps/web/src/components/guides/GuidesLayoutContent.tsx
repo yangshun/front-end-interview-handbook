@@ -17,7 +17,7 @@ export default function GuidesLayoutContent({ children }: Props) {
 
   return (
     <div
-      className="theme-bg-radial-glow grow justify-center overflow-auto before:opacity-30 lg:overflow-visible xl:flex"
+      className="grow justify-center overflow-auto lg:overflow-visible xl:flex"
       style={{
         marginTop: 'calc(var(--global-sticky-height) * -1)',
         paddingTop: 'var(--global-sticky-height)',

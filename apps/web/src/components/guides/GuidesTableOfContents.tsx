@@ -1,4 +1,5 @@
 import clsx from 'clsx';
+import { flatMapDeep } from 'lodash-es';
 import type { Ref } from 'react';
 import { useEffect, useId, useRef, useState } from 'react';
 import {
@@ -57,12 +58,11 @@ function ListItem({
         <Anchor
           ref={isActive ? activeLinkRef : undefined}
           className={clsx(
-            '-ml-0.5 flex w-full items-center gap-x-2 border-l-2 pl-[19px]',
+            '-ml-0.5 flex w-full items-center gap-x-2 pl-[19px]',
             'motion-safe:transition-all',
             'text-[0.8125rem] leading-5',
             themeTextSecondaryColor,
             'hover:text-neutral-900 dark:hover:text-white',
-            isActive ? 'border-current' : 'border-transparent',
           )}
           href={`#${section.id}`}
           variant="unstyled">
@@ -111,6 +111,44 @@ function ListItems({
         />
       ))}
     </ul>
+  );
+}
+
+function ParentList({
+  activeId,
+  activeLinkRef,
+  items,
+}: Readonly<{
+  activeId: string | null;
+  activeLinkRef: Ref<HTMLAnchorElement>;
+  items: TableOfContents;
+}>) {
+  const flatItems = flatMapDeep(items, (item) => {
+    return item.children ? [item, ...item.children] : item;
+  });
+  const ITEM_HEIGHT_AND_GAP = 28;
+  const activeItemIndex = flatItems.findIndex((item) => item.id === activeId);
+  const activeIndicatorTopPosition = activeItemIndex * ITEM_HEIGHT_AND_GAP;
+
+  return (
+    <div className="relative">
+      <div
+        className={clsx(
+          'absolute h-5 w-0.5 rounded-full bg-current',
+          'transition-all duration-300 ease-in-out',
+          activeItemIndex < 0 && 'hidden',
+        )}
+        style={{
+          top: `${activeIndicatorTopPosition}px`,
+        }}
+      />
+      <ListItems
+        activeId={activeId}
+        activeLinkRef={activeLinkRef}
+        items={items}
+        level={0}
+      />
+    </div>
   );
 }
 
@@ -180,12 +218,11 @@ export default function GuidesTableOfContents({
               />
             </div>
             <Section>
-              <div className="flex py-4 pl-2">
-                <ListItems
+              <div className="py-4 pl-2">
+                <ParentList
                   activeId={activeId}
                   activeLinkRef={activeLinkRef}
                   items={tableOfContents}
-                  level={0}
                 />
               </div>
             </Section>
