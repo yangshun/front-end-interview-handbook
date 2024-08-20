@@ -1,4 +1,5 @@
 import {
+  RiAmazonFill,
   RiArticleFill,
   RiChatPollFill,
   RiDropdownList,
@@ -9,7 +10,7 @@ import {
   RiGalleryFill,
   RiHotelFill,
   RiImageFill,
-  RiInstagramFill,
+  RiInstagramLine,
   RiMailFill,
   RiMenuSearchFill,
   RiMessengerFill,
@@ -20,12 +21,12 @@ import {
   RiPlayFill,
   RiSettingsFill,
   RiShapesFill,
-  RiShoppingCartFill,
   RiSpotifyFill,
   RiTableFill,
   RiVideoChatFill,
   RiWindowFill,
 } from 'react-icons/ri';
+import { TbBrandAirbnb } from 'react-icons/tb';
 import { useIntl } from 'react-intl';
 
 import type {
@@ -66,18 +67,18 @@ const SystemDesignIcons: Record<
   'collaborative-spreadsheet-google-sheets': RiTableFill,
   'diagram-tool-lucidchart': RiPencilRulerFill,
   'dropdown-menu': RiDropdownList,
-  'e-commerce-amazon': RiShoppingCartFill,
+  'e-commerce-amazon': RiAmazonFill,
   'email-client-outlook': RiMailFill,
   'image-carousel': RiGalleryFill,
   'modal-dialog': RiWindowFill,
   'music-streaming-spotify': RiSpotifyFill,
   'news-feed-facebook': RiFacebookCircleFill,
   'photo-gallery-google-photos': RiImageFill,
-  'photo-sharing-instagram': RiInstagramFill,
+  'photo-sharing-instagram': RiInstagramLine,
   pinterest: RiPinterestFill,
   'poll-widget': RiChatPollFill,
   'rich-text-editor': RiFontSize,
-  'travel-booking-airbnb': RiHotelFill,
+  'travel-booking-airbnb': TbBrandAirbnb,
   'video-conferencing-zoom': RiVideoChatFill,
   'video-streaming-netflix': RiNetflixFill,
 };
