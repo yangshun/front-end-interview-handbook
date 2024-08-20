@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Tabs Component | GreatFrontEnd Projects</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="tabs-container">
+        <div class="tabs">
+          <div class="tabs__nav" aria-label="Tabs" role="tablist">
+            <button
+              class="tabs__button active"
+              aria-selected="true"
+              data-value="account"
+              aria-controls="account">
+              Account
+            </button>
+            <button
+              class="tabs__button"
+              aria-selected="false"
+              data-value="security"
+              aria-controls="security">
+              Security
+            </button>
+            <button
+              class="tabs__button"
+              aria-selected="false"
+              data-value="plan"
+              aria-controls="plan">
+              Plan
+            </button>
+          </div>
+          <div class="tabs__panels">
+            <div
+              class="tabs__panel"
+              data-value="account"
+              role="tabpanel"
+              id=""
+              account>
+              The Account Management section provides a comprehensive view of
+              your personal information and settings. Here, you can update your
+              profile details, manage contact information, and customize your
+              preferences to enhance your user experience.
+            </div>
+            <div
+              class="tabs__panel"
+              data-value="security"
+              hidden
+              role="tabpanel"
+              id="security">
+              The Security Settings section is dedicated to protecting your
+              account and personal data. Here, you can manage various security
+              features to ensure your information remains safe and secure.
+            </div>
+            <div
+              class="tabs__panel"
+              data-value="plan"
+              hidden
+              role="tabpanel"
+              id="plan">
+              The Subscription Plan section provides details about your current
+              plan and available upgrades. Here, you can review your plan’s
+              benefits, manage billing information, and explore other
+              subscription options to find the best fit for your needs.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="js/index.js"></script>
+  </body>
+</html>

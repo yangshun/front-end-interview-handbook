@@ -1,0 +1,166 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+body {
+  font-family:
+    'Noto Sans',
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    Roboto,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    'Open Sans',
+    'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 24px;
+  margin: 0 auto;
+  min-height: 100vh;
+  padding: 200px 0;
+}
+
+.tooltip-trigger {
+  position: relative;
+}
+
+.tooltip {
+  position: absolute;
+  background-color: #0a0a0a;
+  color: #ffffff;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 16px;
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s;
+  z-index: 1000;
+}
+
+.tooltip::before {
+  content: '';
+  position: absolute;
+  border-style: solid;
+  border-color: transparent;
+  border-left-width: 8px;
+  border-right-width: 8px;
+  border-top-width: 6px;
+  border-bottom-width: 6px;
+}
+
+.tooltip.visible {
+  opacity: 1;
+}
+
+/* Positions */
+/* Position for 'none' type */
+.tooltip.none {
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-bottom: 5px;
+}
+
+/* Hide arrow for 'none' type */
+.tooltip.none::before {
+  display: none;
+}
+.tooltip.top-start,
+.tooltip.top-center,
+.tooltip.top-end {
+  bottom: 100%;
+  margin-bottom: 5px;
+}
+.tooltip.bottom-start,
+.tooltip.bottom-center,
+.tooltip.bottom-end {
+  top: 100%;
+  margin-top: 5px;
+}
+.tooltip.left {
+  right: 100%;
+  margin-right: 5px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.tooltip.right {
+  left: 100%;
+  margin-left: 5px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* Alignments */
+.tooltip.top-start,
+.tooltip.bottom-start {
+  left: 0;
+}
+.tooltip.top-center,
+.tooltip.bottom-center {
+  left: 50%;
+  transform: translateX(-50%);
+}
+.tooltip.top-end,
+.tooltip.bottom-end {
+  right: 0;
+}
+
+/* Arrow positions */
+.tooltip.top-start::before,
+.tooltip.top-center::before,
+.tooltip.top-end::before {
+  top: 100%;
+  border-top-color: #0a0a0a;
+}
+.tooltip.bottom-start::before,
+.tooltip.bottom-center::before,
+.tooltip.bottom-end::before {
+  bottom: 100%;
+  border-bottom-color: #0a0a0a;
+}
+.tooltip.left::before {
+  left: 100%;
+  border-left-color: #0a0a0a;
+}
+.tooltip.right::before {
+  right: 100%;
+  border-right-color: #0a0a0a;
+}
+
+/* Arrow alignments */
+.tooltip.top-start::before,
+.tooltip.bottom-start::before {
+  left: 10px;
+}
+.tooltip.top-center::before,
+.tooltip.bottom-center::before {
+  left: 50%;
+  margin-left: -8px;
+}
+.tooltip.top-end::before,
+.tooltip.bottom-end::before {
+  right: 10px;
+}
+.tooltip.left::before,
+.tooltip.right::before {
+  top: 50%;
+  margin-top: -5px;
+}

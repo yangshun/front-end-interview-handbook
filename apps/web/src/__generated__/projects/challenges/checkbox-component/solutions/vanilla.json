@@ -1,0 +1,25 @@
+{
+  "files": {
+    "/css/style.css": {
+      "code": "@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');\n\n* {\n  box-sizing: border-box;\n  margin: 0;\n}\n\nbody {\n  font-family:\n    'Noto Sans',\n    system-ui,\n    -apple-system,\n    BlinkMacSystemFont,\n    'Segoe UI',\n    Roboto,\n    Oxygen,\n    Ubuntu,\n    Cantarell,\n    'Open Sans',\n    'Helvetica Neue',\n    sans-serif;\n  -webkit-font-smoothing: antialiased;\n  -moz-osx-font-smoothing: grayscale;\n  text-rendering: optimizeLegibility;\n}\n\n.container {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  flex-direction: column;\n  gap: 24px;\n  margin: 0 auto;\n  min-height: 100vh;\n  padding: 200px 0;\n}\n\n.checkbox-items {\n  width: 240px;\n  display: flex;\n  flex-direction: column;\n  gap: 24px;\n}\n\n.checkbox {\n  display: flex;\n  align-items: center;\n  gap: 12px;\n}\n\n.checkbox > label {\n  font-size: 16px;\n  line-height: 24px;\n  color: #525252;\n}\n\n.checkbox__input {\n  appearance: none;\n  width: 16px;\n  height: 16px;\n  border: 1px solid #d4d4d4;\n  border-radius: 4px;\n  margin: 0 10px;\n  cursor: pointer;\n  position: relative;\n\n  margin: 4px;\n}\n\n.checkbox__input:focus {\n  outline: none;\n  box-shadow:\n    0px 0px 0px 1px #444ce7,\n    0px 0px 0px 4px rgba(68, 76, 231, 0.12);\n}\n\n.checkbox__input:disabled {\n  border: 1px solid #e5e5e5;\n  background-color: #d4d4d4;\n  cursor: not-allowed;\n}\n\n.checkbox__input:checked,\n.checkbox__input:indeterminate {\n  background-color: #4f46e5;\n  border-color: #4f46e5;\n}\n\n.checkbox__input:checked::after {\n  content: '';\n  position: absolute;\n  left: 5px;\n  top: 0px;\n  width: 3px;\n  height: 8px;\n  border: solid #fff;\n  border-width: 0 2px 2px 0;\n  -webkit-transform: rotate(45deg);\n  -ms-transform: rotate(45deg);\n  transform: rotate(45deg);\n}\n\n.checkbox__input:indeterminate::after {\n  content: '';\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  transform: translate(-50%, -50%);\n  width: 10px;\n  height: 2px;\n  border-radius: 4px;\n  background-color: #fff;\n}\n"
+    },
+    "/index.html": {
+      "code": "<!doctype html>\n<html lang=\"en\">\n  <head>\n    <meta charset=\"utf-8\" />\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n    <title>Checkbox Component | GreatFrontEnd Projects</title>\n    <link rel=\"stylesheet\" href=\"css/style.css\" />\n  </head>\n\n  <body>\n    <div class=\"container\">\n      <div class=\"checkbox-items\">\n        <div class=\"checkbox\">\n          <input type=\"checkbox\" class=\"checkbox__input\" id=\"unchecked\" />\n          <label for=\"unchecked\">Unchecked</label>\n        </div>\n\n        <div class=\"checkbox\">\n          <input\n            type=\"checkbox\"\n            class=\"checkbox__input\"\n            checked=\"true\"\n            id=\"checked\" />\n          <label for=\"checked\">Checked</label>\n        </div>\n\n        <div class=\"checkbox\">\n          <input type=\"checkbox\" class=\"checkbox__input\" id=\"indeterminate\" />\n          <label for=\"indeterminate\">Indeterminate</label>\n        </div>\n      </div>\n    </div>\n\n    <script src=\"js/index.js\"></script>\n  </body>\n</html>\n"
+    },
+    "/js/index.js": {
+      "code": "// Checkbox cannot be set to indeterminate state by an HTML attribute - it must be set by a JavaScript.\ndocument.getElementById('indeterminate').indeterminate = true;\n"
+    },
+    "/package.json": {
+      "code": "{\n  \"name\": \"@gfe-challenges/checkbox-component-solution\",\n  \"version\": \"0.0.1\",\n  \"private\": true,\n  \"devDependencies\": {\n    \"parcel\": \"2.9.3\"\n  },\n  \"source\": \"index.html\",\n  \"scripts\": {\n    \"start\": \"parcel\",\n    \"build\": \"parcel build\"\n  }\n}\n"
+    }
+  },
+  "workspace": {
+    "visibleFiles": [
+      "/index.html",
+      "/css/style.css",
+      "/js/index.js"
+    ],
+    "activeFile": "/index.html",
+    "environment": "parcel"
+  }
+}

@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+body {
+  font-family:
+    'Noto Sans',
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    Roboto,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    'Open Sans',
+    'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  margin: 0 auto;
+  min-height: 100vh;
+  padding: 200px 0;
+}
+
+.tabs-container {
+  width: 300px;
+}
+
+.tabs {
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+.tabs__nav {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.tabs__button {
+  height: 44px;
+  border: 1px solid #fff;
+  padding: 9px 17px;
+  font-size: 1rem;
+  line-height: 24px;
+  font-weight: 500;
+  text-align: center;
+  font-family: inherit;
+  background: #fff;
+  border-radius: 4px;
+  cursor: pointer;
+  color: #525252;
+  outline: inherit;
+  transition: all 0.3s ease;
+}
+.tabs__button:focus {
+  box-shadow: 0px 0px 0px 4px rgba(68, 76, 231, 0.12);
+}
+.tabs__button:hover {
+  background-color: #fafafa;
+}
+.tabs__button:disabled {
+  box-shadow: none;
+  color: #a3a3a3;
+  cursor: not-allowed;
+}
+
+.tabs__button.active {
+  color: #171717;
+  border: 1px solid #e5e5e5;
+  box-shadow:
+    0px 1px 3px rgba(0, 0, 0, 0.1),
+    0px 1px 2px -1px rgba(0, 0, 0, 0.1);
+}
+
+.tabs__panels {
+  margin-top: 1.5rem;
+
+  font-weight: 500;
+  line-height: 24px;
+}

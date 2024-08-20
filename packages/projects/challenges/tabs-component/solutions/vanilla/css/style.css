@@ -1,0 +1,97 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+body {
+  font-family:
+    'Noto Sans',
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    Roboto,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    'Open Sans',
+    'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  margin: 0 auto;
+  min-height: 100vh;
+  padding: 200px 0;
+}
+
+.tabs-container {
+  width: 300px;
+}
+
+.tabs {
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+.tabs__nav {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  border-bottom: 1px solid #d1d5db;
+}
+
+.tabs__button {
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  padding-bottom: 11px;
+  font-size: 1rem;
+  line-height: 24px;
+  font-weight: 500;
+  text-align: center;
+  font-family: inherit;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #525252;
+  transition: all 0.3s ease;
+  position: relative;
+}
+.tabs__button:hover,
+tabs__button:focus {
+  color: #171717;
+}
+
+.tabs__button.active {
+  color: #4338ca;
+}
+.tabs__button.active:hover,
+.tabs__button.active:focus {
+  color: #3730a3;
+}
+
+.tabs__button.active::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #4f46e5;
+}
+
+.tabs__panels {
+  margin-top: 1.5rem;
+
+  font-weight: 500;
+  line-height: 24px;
+}

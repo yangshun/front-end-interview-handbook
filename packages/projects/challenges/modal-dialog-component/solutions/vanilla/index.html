@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Modal Dialog Component | GreatFrontEnd Projects</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+
+  <body>
+    <div class="container">
+      <div id="modal" class="modal" aria-hidden="true" role="dialog">
+        <div class="modal__overlay"></div>
+        <div class="modal__content" role="document">
+          <header class="modal__header">
+            <h2 class="modal__title" id="modalTitle">
+              Are you sure you want to leave the process?
+            </h2>
+            <button
+              id="closeModal"
+              class="button button--tertiary modal__close"
+              aria-label="Close modal">
+              <svg
+                width="21"
+                height="20"
+                viewBox="0 0 21 20"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M10.5006 8.82208L14.6253 4.69727L15.8038 5.87577L11.6791 10.0006L15.8038 14.1253L14.6253 15.3038L10.5006 11.1791L6.37577 15.3038L5.19727 14.1253L9.32208 10.0006L5.19727 5.87577L6.37577 4.69727L10.5006 8.82208Z"
+                  fill="#525252" />
+              </svg>
+            </button>
+          </header>
+          <div class="modal__body" id="modalBody">
+            Your upgrade plan process will be cancelled. You need to start again
+            if you leave the process.
+          </div>
+          <footer class="modal__footer">
+            <button
+              id="modalCancel"
+              class="button button--size-lg button--secondary">
+              No
+            </button>
+            <button
+              id="modalPrimaryAction"
+              class="button button--size-lg button--primary"
+              aria-hidden="true">
+              Yes
+            </button>
+          </footer>
+        </div>
+      </div>
+    </div>
+
+    <script src="js/index.js"></script>
+  </body>
+</html>

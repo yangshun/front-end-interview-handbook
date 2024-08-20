@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Radio Cards Component | GreatFrontEnd Projects</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+
+  <body>
+    <div class="container">
+      <fieldset class="radio-group">
+        <legend class="sr-only">Select an Option</legend>
+        <div>
+          <input type="radio" name="option" value="daily" id="daily" />
+          <label
+            class="radio radio-button radio-button--size-sm"
+            for="daily"
+            tabindex="0">
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 20 20"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true">
+              <path
+                d="M3.0556 4.44444C3.0556 4.06092 3.36652 3.75 3.75005 3.75H16.25C16.6336 3.75 16.9445 4.06092 16.9445 4.44444V15.5556C16.9445 15.9391 16.6336 16.25 16.25 16.25H3.75005C3.36652 16.25 3.0556 15.9391 3.0556 15.5556V4.44444ZM4.44449 14.8611H15.5556V7.91667H4.44449V14.8611ZM9.3056 10.6944H5.83338V13.4722H9.3056V10.6944Z"
+                fill="currentColor" />
+            </svg>
+            <span>Daily</span>
+          </label>
+        </div>
+
+        <div>
+          <input type="radio" name="option" value="weekly" id="weekly" />
+          <label
+            class="radio radio-button radio-button--size-md"
+            for="weekly"
+            tabindex="0"
+            >Weekly</label
+          >
+        </div>
+
+        <div>
+          <input type="radio" name="option" value="monthly" id="monthly" />
+          <label
+            class="radio radio-button radio-button--size-lg"
+            for="monthly"
+            tabindex="0">
+            <span></span>Monthly
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 20 20"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true">
+              <path
+                d="M7.91671 2.36111V3.75H12.0834V2.36111H13.4723V3.75H16.25C16.6336 3.75 16.9445 4.06091 16.9445 4.44444V15.5556C16.9445 15.9391 16.6336 16.25 16.25 16.25H3.75005C3.36652 16.25 3.0556 15.9391 3.0556 15.5556V4.44444C3.0556 4.06091 3.36652 3.75 3.75005 3.75H6.52783V2.36111H7.91671ZM15.5556 9.30555H4.44449V14.8611H15.5556V9.30555ZM7.22227 11.3889V12.7778H5.83338V11.3889H7.22227ZM14.1667 11.3889V12.7778H8.61116V11.3889H14.1667ZM6.52783 5.13888H4.44449V7.91666H15.5556V5.13888H13.4723V6.52777H12.0834V5.13888H7.91671V6.52777H6.52783V5.13888Z"
+                fill="currentColor" />
+            </svg>
+          </label>
+        </div>
+
+        <div>
+          <input
+            type="radio"
+            name="option"
+            value="annually"
+            id="annually"
+            disabled />
+          <label
+            class="radio radio-button radio-button--size-xl"
+            for="annually"
+            tabindex="0">
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 20 20"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true">
+              <path
+                d="M7.91665 2.36111V3.75H12.0833V2.36111H13.4722V3.75H16.25C16.6335 3.75 16.9444 4.06091 16.9444 4.44444V15.5556C16.9444 15.9391 16.6335 16.25 16.25 16.25H3.74999C3.36646 16.25 3.05554 15.9391 3.05554 15.5556V4.44444C3.05554 4.06091 3.36646 3.75 3.74999 3.75H6.52776V2.36111H7.91665ZM15.5555 9.30555H4.44443V14.8611H15.5555V9.30555ZM6.52776 5.13888H4.44443V7.91666H15.5555V5.13888H13.4722V6.52777H12.0833V5.13888H7.91665V6.52777H6.52776V5.13888Z"
+                fill="currentColor" />
+            </svg>
+            <span>Annually</span>
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 20 20"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true">
+              <path
+                d="M9.99974 10.8135L13.4371 7.37617L14.4192 8.35826L9.99974 12.7777L5.58032 8.35826L6.56242 7.37617L9.99974 10.8135Z"
+                fill="#A3A3A3" />
+            </svg>
+          </label>
+        </div>
+
+        <div>
+          <input type="radio" name="option" value="calender" id="calender" />
+          <label
+            class="radio radio-button radio-button--size-2xl"
+            for="calender"
+            tabindex="0">
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true">
+              <path
+                d="M3.66663 5.33333C3.66663 4.8731 4.03973 4.5 4.49996 4.5H19.5C19.9602 4.5 20.3333 4.8731 20.3333 5.33333V18.6667C20.3333 19.1269 19.9602 19.5 19.5 19.5H4.49996C4.03973 19.5 3.66663 19.1269 3.66663 18.6667V5.33333ZM5.33329 17.8333H18.6666V9.5H5.33329V17.8333ZM11.1666 12.8333H6.99996V16.1667H11.1666V12.8333Z"
+                fill="currentColor" />
+            </svg>
+          </label>
+        </div>
+      </fieldset>
+    </div>
+  </body>
+</html>

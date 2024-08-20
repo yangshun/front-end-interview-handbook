@@ -1,0 +1,117 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+body {
+  font-family:
+    'Noto Sans',
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    Roboto,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    'Open Sans',
+    'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  min-height: 100vh;
+  padding: 112px 0px;
+}
+
+.variants {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Uncomment when you want to try actual toast implementation with Javascript trigger and transition */
+/* .toast {
+  position: fixed;
+  top: -100px;
+  opacity: 0;
+  width: 100%;
+  transition: top 0.5s ease, opacity 0.5s ease;
+
+  display: flex;
+  justify-content: center;
+  padding: 0 16px;
+} */
+
+.toast.show {
+  top: 20px; /* Slide in */
+  opacity: 1;
+}
+
+.toast.hide {
+  top: -100px; /* Slide out */
+  opacity: 0;
+}
+
+.toast__content {
+  width: fit-content;
+  display: flex;
+  align-items: center;
+  padding: 4px 10px 4px 4px;
+  gap: 12px;
+
+  border-radius: 2000px;
+
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 500;
+}
+
+.toast__content__badge {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 2px 10px;
+
+  height: 24px;
+
+  background: #ffffff;
+  box-shadow:
+    0px 1px 3px rgba(0, 0, 0, 0.1),
+    0px 1px 2px rgba(0, 0, 0, 0.06);
+  border-radius: 9999px;
+}
+
+.toast__content--error {
+  color: #dc2626;
+  background: #fef2f2;
+}
+.toast__content__badge--error {
+  color: #991b1b;
+}
+
+.toast__content--success {
+  background: #f0fdf4;
+  color: #15803d;
+}
+
+.toast__content--warning {
+  color: #b45309;
+  background: #fffbeb;
+}
+
+.toast__content--info {
+  color: #525252;
+  background: #f9fafb;
+}

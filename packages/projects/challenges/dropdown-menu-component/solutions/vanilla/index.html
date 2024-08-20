@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Dropdown Menu Component | GreatFrontEnd Projects</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="dropdown" id="dropdown">
+        <button
+          class="button button--secondary button--size-sm dropdown__toggle"
+          aria-haspopup="menu"
+          aria-expanded="false">
+          Privacy options
+          <svg
+            width="20"
+            height="20"
+            viewBox="0 0 20 20"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M9.99977 10.8135L13.4371 7.37616L14.4192 8.35825L9.99977 12.7777L5.58035 8.35825L6.56245 7.37616L9.99977 10.8135Z"
+              fill="#171717" />
+          </svg>
+        </button>
+        <div class="dropdown__menu show" id="dropdownMenu" role="menu">
+          <div
+            class="dropdown__menu__item"
+            role="menuitem"
+            aria-selected="false"
+            tabindex="0"
+            data-value="public">
+            <svg
+              aria-hidden="true"
+              width="20"
+              height="20"
+              viewBox="0 0 20 20"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M10.8336 17.4999H15.0002V19.1665H5.00026V17.4999H9.16691V16.6254C6.42241 16.3529 4.06959 14.7489 2.76367 12.4684L4.21099 11.6414C5.36006 13.6479 7.52228 14.9999 10.0002 14.9999C13.6822 14.9999 16.6669 12.0151 16.6669 8.33321C16.6669 5.85523 15.315 3.69301 13.3084 2.54394L14.1355 1.09662C16.6437 2.53296 18.3336 5.23573 18.3336 8.33321C18.3336 12.6544 15.0447 16.2073 10.8336 16.6254V17.4999ZM10.0002 14.1665C6.77861 14.1665 4.16693 11.5549 4.16693 8.33321C4.16693 5.11155 6.77861 2.49988 10.0002 2.49988C13.2219 2.49988 15.8336 5.11155 15.8336 8.33321C15.8336 11.5549 13.2219 14.1665 10.0002 14.1665ZM10.0002 12.4999C12.3014 12.4999 14.1669 10.6344 14.1669 8.33321C14.1669 6.03203 12.3014 4.16654 10.0002 4.16654C7.69908 4.16654 5.8336 6.03203 5.8336 8.33321C5.8336 10.6344 7.69908 12.4999 10.0002 12.4999Z"
+                fill="currentColor" />
+            </svg>
+            <span class="dropdown__menu__item__label">Public</span>
+            <svg
+              class="dropdown__menu__item__selected-icon"
+              aria-hidden="true"
+              width="20"
+              height="20"
+              viewBox="0 0 20 20"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M9.99996 18.3333C5.39758 18.3333 1.66663 14.6023 1.66663 9.99996C1.66663 5.39758 5.39758 1.66663 9.99996 1.66663C14.6023 1.66663 18.3333 5.39758 18.3333 9.99996C18.3333 14.6023 14.6023 18.3333 9.99996 18.3333ZM9.16879 13.3333L15.0614 7.44073L13.8829 6.26223L9.16879 10.9763L6.8118 8.61921L5.63328 9.79779L9.16879 13.3333Z"
+                fill="currentColor" />
+            </svg>
+          </div>
+          <div
+            class="dropdown__menu__item"
+            role="menuitem"
+            aria-selected="false"
+            tabindex="0"
+            data-value="unlisted">
+            <svg
+              aria-hidden="true"
+              width="20"
+              height="20"
+              viewBox="0 0 20 20"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M3.33329 3.33331H6.66663V4.99998H3.33329V3.33331ZM13.3333 15.8333H16.6666V17.5H13.3333V15.8333ZM1.66663 7.49998H9.99996V9.16665H1.66663V7.49998ZM11.6666 7.49998H16.6666V9.16665H11.6666V7.49998ZM3.33329 11.6666H8.33329V13.3333H3.33329V11.6666ZM9.99996 11.6666H18.3333V13.3333H9.99996V11.6666ZM8.33329 3.33331H18.3333V4.99998H8.33329V3.33331ZM1.66663 15.8333H11.6666V17.5H1.66663V15.8333Z"
+                fill="currentColor" />
+            </svg>
+            <span class="dropdown__menu__item__label">Unlisted</span>
+            <svg
+              class="dropdown__menu__item__selected-icon"
+              aria-hidden="true"
+              width="20"
+              height="20"
+              viewBox="0 0 20 20"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M9.99996 18.3333C5.39758 18.3333 1.66663 14.6023 1.66663 9.99996C1.66663 5.39758 5.39758 1.66663 9.99996 1.66663C14.6023 1.66663 18.3333 5.39758 18.3333 9.99996C18.3333 14.6023 14.6023 18.3333 9.99996 18.3333ZM9.16879 13.3333L15.0614 7.44073L13.8829 6.26223L9.16879 10.9763L6.8118 8.61921L5.63328 9.79779L9.16879 13.3333Z"
+                fill="currentColor" />
+            </svg>
+          </div>
+          <div
+            class="dropdown__menu__item active"
+            role="menuitem"
+            aria-selected="true"
+            tabindex="0"
+            data-value="private">
+            <svg
+              aria-hidden="true"
+              width="20"
+              height="20"
+              viewBox="0 0 20 20"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M5 6.66665V5.83331C5 3.07189 7.23857 0.833313 10 0.833313C12.7614 0.833313 15 3.07189 15 5.83331V6.66665H16.6667C17.1269 6.66665 17.5 7.03975 17.5 7.49998V17.5C17.5 17.9602 17.1269 18.3333 16.6667 18.3333H3.33333C2.8731 18.3333 2.5 17.9602 2.5 17.5V7.49998C2.5 7.03975 2.8731 6.66665 3.33333 6.66665H5ZM15.8333 8.33331H4.16667V16.6666H15.8333V8.33331ZM9.16667 13.1103C8.6685 12.8221 8.33333 12.2836 8.33333 11.6666C8.33333 10.7461 9.0795 9.99998 10 9.99998C10.9205 9.99998 11.6667 10.7461 11.6667 11.6666C11.6667 12.2836 11.3315 12.8221 10.8333 13.1103V15H9.16667V13.1103ZM6.66667 6.66665H13.3333V5.83331C13.3333 3.99236 11.8409 2.49998 10 2.49998C8.15905 2.49998 6.66667 3.99236 6.66667 5.83331V6.66665Z"
+                fill="currentColor" />
+            </svg>
+            <span class="dropdown__menu__item__label">Private</span>
+            <svg
+              class="dropdown__menu__item__selected-icon"
+              aria-hidden="true"
+              width="20"
+              height="20"
+              viewBox="0 0 20 20"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M9.99996 18.3333C5.39758 18.3333 1.66663 14.6023 1.66663 9.99996C1.66663 5.39758 5.39758 1.66663 9.99996 1.66663C14.6023 1.66663 18.3333 5.39758 18.3333 9.99996C18.3333 14.6023 14.6023 18.3333 9.99996 18.3333ZM9.16879 13.3333L15.0614 7.44073L13.8829 6.26223L9.16879 10.9763L6.8118 8.61921L5.63328 9.79779L9.16879 13.3333Z"
+                fill="currentColor" />
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="js/index.js"></script>
+  </body>
+</html>

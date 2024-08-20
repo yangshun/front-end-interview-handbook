@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Toast Component | GreatFrontEnd Projects</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="variants">
+        <!-- Success toast -->
+        <div
+          class="toast"
+          id="toast"
+          role="alert"
+          aria-live="assertive"
+          aria-atomic="true">
+          <div class="toast__content toast__content--success">
+            <div class="toast__content__badge">Success</div>
+            <div>Your content successfully added!</div>
+          </div>
+        </div>
+
+        <!-- Error toast -->
+        <div
+          class="toast"
+          role="alert"
+          aria-live="assertive"
+          aria-atomic="true">
+          <div class="toast__content toast__content--error">
+            <div class="toast__content__badge toast__content__badge--error">
+              Error
+            </div>
+            <div>Your content successfully deleted!</div>
+          </div>
+        </div>
+
+        <!-- Warning toast -->
+        <div
+          class="toast"
+          role="alert"
+          aria-live="assertive"
+          aria-atomic="true">
+          <div class="toast__content toast__content--warning">
+            <div class="toast__content__badge">Warning</div>
+            <div>Your image is 5Mb, it may load longer!</div>
+          </div>
+        </div>
+
+        <!-- Info toast -->
+        <div
+          class="toast"
+          role="alert"
+          aria-live="assertive"
+          aria-atomic="true">
+          <div class="toast__content toast__content--info">
+            <div class="toast__content__badge">Info</div>
+            <div>Your content is publicly visible</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="js/index.js"></script>
+  </body>
+</html>
