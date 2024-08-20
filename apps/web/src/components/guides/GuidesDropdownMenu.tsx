@@ -43,7 +43,7 @@ export default function GuidesDropdownMenu() {
           'transition-colors',
         )}>
         <div className="flex items-center gap-2 text-[0.8125rem] leading-4">
-          <Icon className="size-4 text-white" />
+          <Icon className="size-4" />
           <Text
             className="line-clamp-1 text-ellipsis text-left"
             size="inherit"

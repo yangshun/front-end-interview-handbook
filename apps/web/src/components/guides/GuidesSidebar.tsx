@@ -11,8 +11,6 @@ import {
 } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
 
-import { INTERVIEWS_REVAMP_GUIDES } from '~/data/FeatureFlags';
-
 import Anchor from '~/components/ui/Anchor';
 import Button from '~/components/ui/Button';
 import Heading from '~/components/ui/Heading';
@@ -26,6 +24,7 @@ import {
   themeOutlineElementBrandColor_FocusVisible,
   themeTextBrandColor,
   themeTextColor,
+  themeTextFaintColor,
   themeTextSecondaryColor,
   themeTextSubtleColor,
 } from '~/components/ui/theme';
@@ -41,6 +40,8 @@ import type {
 } from './types';
 import { useUserProfile } from '../global/UserProfileProvider';
 import { ReadyQuestions } from '../interviews/questions/content/system-design/SystemDesignConfig';
+
+import * as ScrollArea from '@radix-ui/react-scroll-area';
 
 function LinksListItem({
   link,
@@ -188,7 +189,12 @@ function GuideLinksListItem({
           href={link.href}
           style={{ marginLeft: 12 * nestedLevel }}
           variant="unstyled">
-          <Icon className={clsx('size-4 shrink-0')} />
+          <Icon
+            className={clsx(
+              'size-4 shrink-0',
+              !isActive && themeTextFaintColor,
+            )}
+          />
           <div className="flex items-center gap-x-2">
             <span className="line-clamp-1">{link.title}</span>
             {(() => {
@@ -335,64 +341,77 @@ export function GuidesSidebar({
           : undefined,
         top: 'calc(var(--global-sticky-height))',
       }}>
-      {!isFocusMode && (
-        <>
-          <div
+      <div
+        className={clsx('flex grow-0 flex-col gap-1', 'w-full', 'px-4 py-4', [
+          'border-b',
+          themeBorderColor,
+        ])}>
+        <Text className="px-2" color="secondary" size="body3" weight="medium">
+          <FormattedMessage
+            defaultMessage="Current guide"
+            description="Label for current guide title"
+            id="3wygra"
+          />
+        </Text>
+        <GuidesDropdownMenu />
+      </div>
+      <div className="h-0 grow">
+        <ScrollArea.Root className="h-full">
+          <ScrollArea.Viewport className="size-full">
+            {!isFocusMode ? (
+              <ul
+                className={clsx(
+                  'flex grow flex-col',
+                  'overflow-y-auto p-4',
+                  isSidebar && 'vignette-scroll',
+                )}
+                role="list">
+                {navigation.items.map((section) => (
+                  <SectionHeading key={section.title} section={section} />
+                ))}
+              </ul>
+            ) : (
+              <ul
+                className={clsx(
+                  'flex grow flex-col gap-y-6 overflow-y-auto px-4 py-2',
+                  // IsSidebar && 'vignette-scroll',
+                )}
+                role="list">
+                {navigation.items.map((section) => (
+                  <li key={section.title}>
+                    <Heading
+                      className="mb-3 text-[0.8125rem] font-semibold leading-6"
+                      level="custom">
+                      {section.title}
+                    </Heading>
+                    <Section>
+                      <LinksList items={section.links} />
+                    </Section>
+                  </li>
+                ))}
+              </ul>
+            )}
+          </ScrollArea.Viewport>
+          <ScrollArea.Scrollbar
             className={clsx(
-              'flex grow-0 flex-col gap-1',
-              'w-full',
-              'px-4 py-4',
-              ['border-b', themeBorderColor],
-            )}>
-            <Text
-              className="px-2"
-              color="secondary"
-              size="body3"
-              weight="medium">
-              <FormattedMessage
-                defaultMessage="Current guide"
-                description="Label for current guide title"
-                id="3wygra"
-              />
-            </Text>
-            <GuidesDropdownMenu />
-          </div>
-          {INTERVIEWS_REVAMP_GUIDES ? (
-            <ul
+              'flex w-2.5 p-0.5',
+              'select-non touch-none',
+              'transparent',
+            )}
+            orientation="vertical">
+            <ScrollArea.Thumb
               className={clsx(
-                'flex grow flex-col',
-                'overflow-y-auto p-4',
-                isSidebar && 'vignette-scroll',
+                'relative flex-1 rounded-full',
+                'bg-neutral-300 dark:bg-neutral-500',
+                'before:absolute before:left-1/2 before:top-1/2',
+                'before:-translate-x-1/2 before:-translate-y-1/2',
+                "before:h-full before:min-h-[44px] before:w-full before:min-w-[44px] before:content-['']",
               )}
-              role="list">
-              {navigation.items.map((section) => (
-                <SectionHeading key={section.title} section={section} />
-              ))}
-            </ul>
-          ) : (
-            <ul
-              className={clsx(
-                'flex grow flex-col gap-y-6 overflow-y-auto px-4 py-2',
-                // IsSidebar && 'vignette-scroll',
-              )}
-              role="list">
-              {navigation.items.map((section) => (
-                <li key={section.title}>
-                  <Heading
-                    className="mb-3 text-[0.8125rem] font-semibold leading-6"
-                    level="custom">
-                    {section.title}
-                  </Heading>
-                  <Section>
-                    <LinksList items={section.links} />
-                  </Section>
-                </li>
-              ))}
-            </ul>
-          )}
-        </>
-      )}
-      {isSidebar && INTERVIEWS_REVAMP_GUIDES && (
+            />
+          </ScrollArea.Scrollbar>
+        </ScrollArea.Root>
+      </div>
+      {isSidebar && (
         <div
           className={clsx('w-full', 'px-6 py-2', [
             'border-t',
