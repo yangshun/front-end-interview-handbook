@@ -3859,10 +3859,6 @@
     "defaultMessage": "An account is required to purchase premium",
     "description": "Title of alert requesting user to create an account to purchase premium plans"
   },
-  "RnmVQU": {
-    "defaultMessage": "View less",
-    "description": "Label of expanded dropdown button"
-  },
   "RsPxKM": {
     "defaultMessage": "Superscript",
     "description": "Label for superscript"
@@ -4266,10 +4262,6 @@
   "Us7Uly": {
     "defaultMessage": "Ask us about it",
     "description": "Button that opens up mail for user to send us an email about their question about the Affiliate program"
-  },
-  "UtH4G7": {
-    "defaultMessage": "View more",
-    "description": "Label of collapsed dropdown button"
   },
   "UwT84H": {
     "defaultMessage": "Get the right foundation",
