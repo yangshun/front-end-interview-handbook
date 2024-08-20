@@ -7,7 +7,6 @@ import {
   RiArrowRightSLine,
   RiArrowUpSLine,
   RiErrorWarningLine,
-  RiGlobalLine,
   RiLockLine,
 } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
@@ -155,21 +154,19 @@ function GuideLinksListItem({
   nestedLevel: number;
 }>) {
   const { userProfile } = useUserProfile();
-
-  const isInterviewsPremium = userProfile?.isInterviewsPremium ?? false;
-
   const { pathname } = useI18nPathname();
 
+  const isInterviewsPremium = userProfile?.isInterviewsPremium ?? false;
   const isActive = pathname === link.href;
 
-  const Icon = link.icon || RiGlobalLine;
+  const Icon = link.icon;
 
   return (
     <li key={link.href} className="relative">
       <div className="flex">
         <Anchor
           className={clsx(
-            'flex items-center gap-x-3',
+            'flex items-center gap-x-2.5',
             'w-full p-2',
             'rounded-md',
             'text-[0.8125rem] font-medium leading-4',
@@ -191,7 +188,7 @@ function GuideLinksListItem({
           href={link.href}
           style={{ marginLeft: 12 * nestedLevel }}
           variant="unstyled">
-          <Icon className={clsx('size-3.5 shrink-0')} />
+          <Icon className={clsx('size-4 shrink-0')} />
           <div className="flex items-center gap-x-2">
             <span className="line-clamp-1">{link.title}</span>
             {(() => {
@@ -232,7 +229,10 @@ function GuideLinksList({
   nestedLevel?: number;
 }>) {
   return (
-    <ul className={clsx('flex flex-col')} id={id} role="list">
+    <ul
+      className={clsx('flex flex-col gap-y-px', 'py-1 pl-3')}
+      id={id}
+      role="list">
       {items.map((link) => (
         <GuideLinksListItem
           key={link.href}
@@ -273,6 +273,8 @@ function SectionHeading({
             themeOutlineElement_FocusVisible,
             themeOutlineElementBrandColor_FocusVisible,
           ],
+          'transition-colors',
+          themeBackgroundElementEmphasizedStateColor_Hover,
         )}
         type="button"
         onClick={() => setIsOpen(!isOpen)}>
@@ -293,7 +295,6 @@ function SectionHeading({
           )}
         />
       </button>
-
       {isOpen && (
         <Section>
           <GuideLinksList id={section.title} items={section.links} />
@@ -359,7 +360,8 @@ export function GuidesSidebar({
           {INTERVIEWS_REVAMP_GUIDES ? (
             <ul
               className={clsx(
-                'flex grow flex-col gap-y-2 overflow-y-auto p-4',
+                'flex grow flex-col',
+                'overflow-y-auto p-4',
                 isSidebar && 'vignette-scroll',
               )}
               role="list">
