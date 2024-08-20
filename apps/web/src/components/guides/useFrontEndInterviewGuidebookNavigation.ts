@@ -1,14 +1,15 @@
 import {
-  RiBookOpenLine,
   RiCodeSSlashLine,
+  RiDashboardLine,
   RiFileList3Line,
   RiFlowChart,
   RiJavascriptLine,
-  RiPagesLine,
+  RiPlayLine,
   RiQuestionnaireLine,
-  RiStarLine,
   RiSurveyLine,
+  RiTerminalWindowLine,
 } from 'react-icons/ri';
+import { TbBinaryTree } from 'react-icons/tb';
 import { useIntl } from 'react-intl';
 
 import type { GuideNavigation, GuideNavigationLink } from './types';
@@ -30,6 +31,7 @@ function useCodingSectionItem() {
       id: 'Z5P0Gp',
     }),
     href: `${basePath}/coding`,
+    icon: RiCodeSSlashLine,
     slug: 'coding',
     title: intl.formatMessage({
       defaultMessage: 'Coding Questions',
@@ -78,7 +80,7 @@ function useCodingSectionFormatItems() {
         id: '0BbsyI',
       }),
       href: `${basePath}/algorithms`,
-      icon: RiCodeSSlashLine,
+      icon: TbBinaryTree,
       slug: 'algorithms',
       title: intl.formatMessage({
         defaultMessage: 'Algorithm Questions',
@@ -110,7 +112,7 @@ function useCodingSectionFormatItems() {
         id: 'XwbyU0',
       }),
       href: `${basePath}/user-interface`,
-      icon: RiPagesLine,
+      icon: RiTerminalWindowLine,
       slug: 'user-interface',
       title: intl.formatMessage({
         defaultMessage: 'User Interface Questions',
@@ -131,7 +133,7 @@ function useCodingSectionFormatItems() {
     },
     {
       href: `${basePath}/user-interface-components-api-design-principles`,
-      icon: RiStarLine,
+      icon: RiDashboardLine,
       slug: 'user-interface-components-api-design-principles',
       title: intl.formatMessage({
         defaultMessage: 'UI Components API Design Principles',
@@ -166,7 +168,7 @@ export function useFrontEndInterviewGuidebookNavigation() {
         links: [
           {
             href: `${basePath}`,
-            icon: RiFlowChart,
+            icon: RiPlayLine,
             slug: 'introduction',
             title: intl.formatMessage({
               defaultMessage: 'Preparation Guide',
@@ -208,7 +210,7 @@ export function useFrontEndInterviewGuidebookNavigation() {
           },
           {
             href: `${basePath}/system-design`,
-            icon: RiBookOpenLine,
+            icon: RiFlowChart,
             slug: 'system-design',
             title: intl.formatMessage({
               defaultMessage: 'System Design Questions',

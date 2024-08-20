@@ -191,12 +191,7 @@ function GuideLinksListItem({
           href={link.href}
           style={{ marginLeft: 12 * nestedLevel }}
           variant="unstyled">
-          <Icon
-            className={clsx(
-              'size-3.5 shrink-0',
-              isActive ? themeTextSubtleColor : themeTextSecondaryColor,
-            )}
-          />
+          <Icon className={clsx('size-3.5 shrink-0')} />
           <div className="flex items-center gap-x-2">
             <span className="line-clamp-1">{link.title}</span>
             {(() => {

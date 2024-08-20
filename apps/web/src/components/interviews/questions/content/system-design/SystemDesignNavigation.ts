@@ -1,3 +1,31 @@
+import {
+  RiArticleLine,
+  RiChatPollLine,
+  RiDropdownList,
+  RiErrorWarningLine,
+  RiFacebookCircleFill,
+  RiFileList3Line,
+  RiFontSize,
+  RiGalleryLine,
+  RiHotelLine,
+  RiImageLine,
+  RiInstagramLine,
+  RiMailLine,
+  RiMenuSearchLine,
+  RiMessengerFill,
+  RiNetflixLine,
+  RiPencilRulerLine,
+  RiPieChart2Line,
+  RiPinterestFill,
+  RiPlayFill,
+  RiSettingsLine,
+  RiShapesLine,
+  RiShoppingCartLine,
+  RiSpotifyFill,
+  RiTableLine,
+  RiVideoChatLine,
+  RiWindowLine,
+} from 'react-icons/ri';
 import { useIntl } from 'react-intl';
 
 import type {
@@ -28,6 +56,32 @@ export const readySystemDesignQuestions = allSystemDesignQuestions.filter(
   (question) => ReadyQuestions.includes(question.slug),
 );
 
+const SystemDesignIcons: Record<
+  string,
+  (props: React.ComponentProps<'svg'>) => JSX.Element
+> = {
+  autocomplete: RiMenuSearchLine,
+  'chat-application-messenger': RiMessengerFill,
+  'collaborative-editor-google-docs': RiArticleLine,
+  'collaborative-spreadsheet-google-sheets': RiTableLine,
+  'diagram-tool-lucidchart': RiPencilRulerLine,
+  'dropdown-menu': RiDropdownList,
+  'e-commerce-amazon': RiShoppingCartLine,
+  'email-client-outlook': RiMailLine,
+  'image-carousel': RiGalleryLine,
+  'modal-dialog': RiWindowLine,
+  'music-streaming-spotify': RiSpotifyFill,
+  'news-feed-facebook': RiFacebookCircleFill,
+  'photo-gallery-google-photos': RiImageLine,
+  'photo-sharing-instagram': RiInstagramLine,
+  pinterest: RiPinterestFill,
+  'poll-widget': RiChatPollLine,
+  'rich-text-editor': RiFontSize,
+  'travel-booking-airbnb': RiHotelLine,
+  'video-conferencing-zoom': RiVideoChatLine,
+  'video-streaming-netflix': RiNetflixLine,
+};
+
 export function useSystemDesignGuides() {
   const intl = useIntl();
 
@@ -40,6 +94,7 @@ export function useSystemDesignGuides() {
         id: 'H39M2g',
       }),
       href: basePath,
+      icon: RiPlayFill,
       premium: false,
       slug: 'introduction',
       title: intl.formatMessage({
@@ -57,6 +112,7 @@ export function useSystemDesignGuides() {
         id: 'P99cBr',
       }),
       href: `${basePath}/types-of-questions`,
+      icon: RiShapesLine,
       premium: false,
       slug: 'types-of-questions',
       title: intl.formatMessage({
@@ -73,6 +129,7 @@ export function useSystemDesignGuides() {
         id: 'BhmpD2',
       }),
       href: `${basePath}/framework`,
+      icon: RiSettingsLine,
       premium: false,
       slug: 'framework',
       title: intl.formatMessage({
@@ -90,6 +147,7 @@ export function useSystemDesignGuides() {
         id: 'twAHPt',
       }),
       href: `${basePath}/evaluation-axes`,
+      icon: RiPieChart2Line,
       premium: false,
       slug: 'evaluation-axes',
       title: intl.formatMessage({
@@ -106,6 +164,7 @@ export function useSystemDesignGuides() {
         id: '6kLEK7',
       }),
       href: `${basePath}/common-mistakes`,
+      icon: RiErrorWarningLine,
       premium: false,
       slug: 'common-mistakes',
       title: intl.formatMessage({
@@ -124,6 +183,7 @@ export function useSystemDesignGuides() {
         id: 'KdzvRx',
       }),
       href: `${basePath}/cheatsheet`,
+      icon: RiFileList3Line,
       premium: false,
       slug: 'cheatsheet',
       title: intl.formatMessage({
@@ -155,6 +215,7 @@ export function useSystemDesignNavigation() {
       {
         links: readySystemDesignQuestions.map((question) => ({
           href: question.href,
+          icon: SystemDesignIcons[question.slug],
           premium: question.premium,
           slug: question.slug,
           title: question.title,
@@ -173,6 +234,7 @@ export function useSystemDesignNavigation() {
           .filter((question) => !ReadyQuestions.includes(question.slug))
           .map((question) => ({
             href: question.href,
+            icon: SystemDesignIcons[question.slug],
             premium: question.premium,
             slug: question.slug,
             title: question.title,

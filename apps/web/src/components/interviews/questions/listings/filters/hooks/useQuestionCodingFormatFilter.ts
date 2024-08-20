@@ -1,5 +1,5 @@
 import { RiJavascriptLine, RiTerminalWindowLine } from 'react-icons/ri';
-import { TbBinaryTree2 } from 'react-icons/tb';
+import { TbBinaryTree } from 'react-icons/tb';
 import { useIntl } from 'react-intl';
 
 import useSessionStorageForSets from '~/hooks/useSessionStorageForSets';
@@ -65,7 +65,7 @@ export default function useQuestionCodingFormatFilter({
       value: 'user-interface',
     },
     {
-      icon: TbBinaryTree2,
+      icon: TbBinaryTree,
       label: intl.formatMessage({
         defaultMessage: 'Data Structures & Algorithms',
         description: 'Data structures and algorithm questions',

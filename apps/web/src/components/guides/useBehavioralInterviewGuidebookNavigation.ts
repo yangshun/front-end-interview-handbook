@@ -1,3 +1,13 @@
+import {
+  RiBriefcase2Line,
+  RiLightbulbLine,
+  RiLineChartLine,
+  RiPlayFill,
+  RiQuestionAnswerLine,
+  RiQuestionnaireLine,
+  RiShakeHandsLine,
+  RiUserSmileLine,
+} from 'react-icons/ri';
 import { useIntl } from 'react-intl';
 
 import type { GuideNavigation } from './types';
@@ -18,6 +28,7 @@ export default function useBehavioralInterviewGuidebookNavigation() {
               id: 'hESyRg',
             }),
             href: basePath,
+            icon: RiPlayFill,
             slug: 'introduction',
             title: intl.formatMessage({
               defaultMessage: 'Intro to Behavioral Round',
@@ -34,6 +45,7 @@ export default function useBehavioralInterviewGuidebookNavigation() {
               id: 'RQRPBv',
             }),
             href: `${basePath}/questions`,
+            icon: RiQuestionAnswerLine,
             slug: 'common-interview-questions',
             title: intl.formatMessage({
               defaultMessage: 'Most Common Questions',
@@ -59,6 +71,7 @@ export default function useBehavioralInterviewGuidebookNavigation() {
               id: 'GZnl60',
             }),
             href: `${basePath}/self-introduction`,
+            icon: RiUserSmileLine,
             slug: 'self-introduction',
             title: intl.formatMessage({
               defaultMessage: 'Answering "Tell Me About Yourself"',
@@ -76,6 +89,7 @@ export default function useBehavioralInterviewGuidebookNavigation() {
               id: 'MWe9uf',
             }),
             href: `${basePath}/why-work-here`,
+            icon: RiBriefcase2Line,
             slug: 'why-work-here',
             title: intl.formatMessage({
               defaultMessage: 'Answering "Why Work Here"',
@@ -93,6 +107,7 @@ export default function useBehavioralInterviewGuidebookNavigation() {
               id: 'U9XHwD',
             }),
             href: `${basePath}/questions-to-ask`,
+            icon: RiQuestionnaireLine,
             slug: 'questions-to-ask',
             title: intl.formatMessage({
               defaultMessage: 'Questions to Ask (End of Interview)',
@@ -110,6 +125,7 @@ export default function useBehavioralInterviewGuidebookNavigation() {
               id: 'q0mkGb',
             }),
             href: `${basePath}/problem-solving`,
+            icon: RiLightbulbLine,
             slug: 'problem-solving',
             title: intl.formatMessage({
               defaultMessage: 'Problem Solving Questions',
@@ -127,6 +143,7 @@ export default function useBehavioralInterviewGuidebookNavigation() {
               id: 'HcBvYZ',
             }),
             href: `${basePath}/collaboration`,
+            icon: RiShakeHandsLine,
             slug: 'collaboration',
             title: intl.formatMessage({
               defaultMessage: 'Collaboration Questions',
@@ -144,6 +161,7 @@ export default function useBehavioralInterviewGuidebookNavigation() {
               id: 'Ldysd3',
             }),
             href: `${basePath}/growth-mindset`,
+            icon: RiLineChartLine,
             slug: 'growth-mindset',
             title: intl.formatMessage({
               defaultMessage: 'Growth Mindset Questions',
