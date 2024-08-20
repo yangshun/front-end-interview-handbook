@@ -1,5 +1,4 @@
 import clsx from 'clsx';
-import { flatMapDeep } from 'lodash-es';
 import type { Ref } from 'react';
 import { useEffect, useId, useRef, useState } from 'react';
 import {
@@ -22,6 +21,19 @@ import {
 } from '~/components/ui/theme';
 
 import { useActiveHeadingId } from './GuidesHeadingObserver';
+
+function flattenTOC(
+  items: ReadonlyArray<TableOfContentsItem>,
+): ReadonlyArray<TableOfContentsItem> {
+  return items.reduce<Array<TableOfContentsItem>>((acc, item) => {
+    acc.push(item);
+    if (item.children) {
+      acc = acc.concat(flattenTOC(item.children));
+    }
+
+    return acc;
+  }, []);
+}
 
 type TableOfContentsItem = Readonly<{
   children?: ReadonlyArray<TableOfContentsItem>;
@@ -53,7 +65,7 @@ function ListItem({
   const hasChildren = section.children && section.children.length > 0;
 
   return (
-    <li key={section.id} className="relative text-sm leading-6">
+    <li key={section.id} className="text-sm leading-6">
       <div className={clsx('flex', hasChildren && 'mb-2')}>
         <Anchor
           ref={isActive ? activeLinkRef : undefined}
@@ -123,15 +135,13 @@ function ParentList({
   activeLinkRef: Ref<HTMLAnchorElement>;
   items: TableOfContents;
 }>) {
-  const flatItems = flatMapDeep(items, (item) => {
-    return item.children ? [item, ...item.children] : item;
-  });
+  const flatItems = flattenTOC(items);
   const ITEM_HEIGHT_AND_GAP = 28;
   const activeItemIndex = flatItems.findIndex((item) => item.id === activeId);
   const activeIndicatorTopPosition = activeItemIndex * ITEM_HEIGHT_AND_GAP;
 
   return (
-    <div className="relative">
+    <>
       <div
         className={clsx(
           'absolute h-5 w-0.5 rounded-full bg-current',
@@ -139,7 +149,7 @@ function ParentList({
           activeItemIndex < 0 && 'hidden',
         )}
         style={{
-          top: `${activeIndicatorTopPosition}px`,
+          top: `${activeIndicatorTopPosition + 36}px`,
         }}
       />
       <ListItems
@@ -148,7 +158,7 @@ function ParentList({
         items={items}
         level={0}
       />
-    </div>
+    </>
   );
 }
 

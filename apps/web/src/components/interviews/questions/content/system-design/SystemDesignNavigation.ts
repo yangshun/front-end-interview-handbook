@@ -8,7 +8,6 @@ import {
   RiFileList3Fill,
   RiFontSize,
   RiGalleryFill,
-  RiHotelFill,
   RiImageFill,
   RiInstagramLine,
   RiMailFill,

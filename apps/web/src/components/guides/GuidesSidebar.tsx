@@ -1,18 +1,14 @@
 'use client';
 
 import clsx from 'clsx';
-import { useState } from 'react';
 import {
   RiArrowDownSLine,
-  RiArrowUpSLine,
   RiErrorWarningLine,
   RiLockLine,
 } from 'react-icons/ri';
-import { FormattedMessage, useIntl } from 'react-intl';
+import { FormattedMessage } from 'react-intl';
 
 import Anchor from '~/components/ui/Anchor';
-import Button from '~/components/ui/Button';
-import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 import Text from '~/components/ui/Text';
 import {
@@ -21,7 +17,6 @@ import {
   themeBorderColor,
   themeOutlineElement_FocusVisible,
   themeOutlineElementBrandColor_FocusVisible,
-  themeTextBrandColor,
   themeTextColor,
   themeTextFaintColor,
   themeTextSecondaryColor,
