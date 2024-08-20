@@ -519,7 +519,7 @@ export function useInterviewsMarketingTestimonialsDict() {
     authorThumbnailUrl: '/img/testimonials/users/loc-chuong.jpg',
     authorUrl: 'https://www.linkedin.com/in/loc-chuong/',
     companyLogoUrl: '/img/testimonials/company/amazon.svg',
-    createdAt: '2024-7-01',
+    createdAt: '2024-07-01',
     featuredOffer: 'Amazon',
     id: 'loc-chuong',
     location: 'Arlington, VA, US',
