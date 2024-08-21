@@ -67,6 +67,7 @@ export type Props = Readonly<{
   onMarkAsNotCompleted?: (question: QuestionMetadata) => void;
   questionCompletionCount?: QuestionCompletionCount;
   questions: ReadonlyArray<QuestionMetadataWithCompletedStatus>;
+  showSummarySection?: boolean;
   sideColumnAddOn?: ReactNode;
 }>;
 
@@ -85,6 +86,7 @@ export default function QuestionsCodingListWithFilters({
   codingFormatFiltersOrderComparator,
   onMarkAsCompleted,
   onMarkAsNotCompleted,
+  showSummarySection = true,
 }: Props) {
   // Save the last-rendered filters in session storage to be retrieved
   // on the coding workspace page for filtering all questions.
@@ -553,11 +555,13 @@ export default function QuestionsCodingListWithFilters({
           className={clsx(
             'hidden h-full flex-col gap-y-10 lg:col-span-3 lg:flex',
           )}>
-          <QuestionListingSummarySection
-            free={premiumCount.free}
-            premium={premiumCount.premium}
-            {...difficultyCount}
-          />
+          {showSummarySection && (
+            <QuestionListingSummarySection
+              free={premiumCount.free}
+              premium={premiumCount.premium}
+              {...difficultyCount}
+            />
+          )}
           <section
             className={clsx(
               'overflow-y-auto',

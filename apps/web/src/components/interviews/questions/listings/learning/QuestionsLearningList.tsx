@@ -29,12 +29,14 @@ export default function QuestionsLearningList({
   codingQuestions,
   systemDesignQuestions,
   overallProgress,
+  showSummarySection = true,
 }: Readonly<{
   codingQuestions: ReadonlyArray<QuestionMetadata>;
   listKey: string;
   overallProgress: QuestionsCategorizedProgress;
   quizQuestions: ReadonlyArray<QuestionMetadata>;
   sessionProgress: QuestionsCategorizedProgress;
+  showSummarySection?: boolean;
   systemDesignQuestions: ReadonlyArray<QuestionMetadata>;
 }>) {
   const intl = useIntl();
@@ -234,6 +236,7 @@ export default function QuestionsLearningList({
                 listMode="learning-list"
                 namespace={`${listKey}-coding`}
                 questions={sortedQuestions}
+                showSummarySection={showSummarySection}
                 onMarkAsCompleted={markQuestionAsCompleted}
                 onMarkAsNotCompleted={markQuestionAsNotCompleted}
               />

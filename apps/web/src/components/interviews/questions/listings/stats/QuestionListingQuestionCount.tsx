@@ -13,6 +13,7 @@ import type { QuestionPremiumStatus } from '../../common/QuestionsTypes';
 
 type Props = Readonly<{
   count: number;
+  totalCount?: number;
   variant: QuestionPremiumStatus;
 }>;
 
@@ -37,6 +38,7 @@ const icons: Record<
 export default function QuestionListingQuestionCount({
   variant,
   count,
+  totalCount,
 }: Props) {
   const intl = useIntl();
   const Icon = icons[variant];
@@ -65,24 +67,45 @@ export default function QuestionListingQuestionCount({
           </Text>
         </div>
         <div className="flex flex-col">
-          <FormattedMessage
-            defaultMessage="<count>{questionCount}</count> <questions>questions</questions>"
-            description="Number of questions"
-            id="mDcqlX"
-            values={{
-              count: (chunks) => (
-                <Text className="text-2xl" size="inherit" weight="bold">
-                  {chunks}
-                </Text>
-              ),
-              questionCount: count,
-              questions: (chunks) => (
-                <Text color="secondary" size="body3">
-                  {chunks}
-                </Text>
-              ),
-            }}
-          />
+          {count === totalCount ? (
+            <FormattedMessage
+              defaultMessage="<count>ALL</count> <questions>questions</questions>"
+              description="Number of questions"
+              id="LFGT5n"
+              values={{
+                count: (chunks) => (
+                  <Text className="text-2xl" size="inherit" weight="bold">
+                    {chunks}
+                  </Text>
+                ),
+                questionCount: count,
+                questions: (chunks) => (
+                  <Text color="secondary" size="body3">
+                    {chunks}
+                  </Text>
+                ),
+              }}
+            />
+          ) : (
+            <FormattedMessage
+              defaultMessage="<count>{questionCount}</count> <questions>questions</questions>"
+              description="Number of questions"
+              id="mDcqlX"
+              values={{
+                count: (chunks) => (
+                  <Text className="text-2xl" size="inherit" weight="bold">
+                    {chunks}
+                  </Text>
+                ),
+                questionCount: count,
+                questions: (chunks) => (
+                  <Text color="secondary" size="body3">
+                    {chunks}
+                  </Text>
+                ),
+              }}
+            />
+          )}
         </div>
       </div>
     </QuestionListingSideCard>

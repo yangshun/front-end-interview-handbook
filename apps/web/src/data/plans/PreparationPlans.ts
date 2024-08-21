@@ -6,6 +6,10 @@ import type {
 } from '~/components/interviews/questions/common/QuestionsTypes';
 
 import {
+  getPreparationPlanGFE75,
+  getPreparationPlanThemeGFE75,
+} from './items/PreparationPlanGFE75';
+import {
   getPreparationPlanOneMonth,
   getPreparationPlanThemeOneMonth,
 } from './items/PreparationPlanOneMonth';
@@ -18,7 +22,11 @@ import {
   getPreparationPlanThreeMonths,
 } from './items/PreparationPlanThreeMonths';
 
-export type PreparationPlanType = 'one-month' | 'one-week' | 'three-months';
+export type PreparationPlanType =
+  | 'greatfrontend75'
+  | 'one-month'
+  | 'one-week'
+  | 'three-months';
 export type PreparationPlanSchedule = Readonly<{
   frequency: 'daily' | 'weekly';
   hours: number;
@@ -35,6 +43,7 @@ export type PreparationPlans = Record<PreparationPlanType, PreparationPlan>;
 // Note that these plans are missing the quiz questions.
 export function getPreparationPlans(intl: IntlShape): PreparationPlans {
   const preparationPlans: PreparationPlans = {
+    greatfrontend75: getPreparationPlan('greatfrontend75', intl),
     'one-month': getPreparationPlan('one-month', intl),
     'one-week': getPreparationPlan('one-week', intl),
     'three-months': getPreparationPlan('three-months', intl),
@@ -55,6 +64,8 @@ export function getPreparationPlan(
       return getPreparationPlanOneMonth(intl);
     case 'three-months':
       return getPreparationPlanThreeMonths(intl);
+    case 'greatfrontend75':
+      return getPreparationPlanGFE75(intl);
   }
 }
 
@@ -63,6 +74,7 @@ export function getPreparationPlanThemes(): Record<
   QuestionListTheme
 > {
   return {
+    greatfrontend75: getPreparationPlanTheme('greatfrontend75'),
     'one-month': getPreparationPlanTheme('one-month'),
     'one-week': getPreparationPlanTheme('one-week'),
     'three-months': getPreparationPlanTheme('three-months'),
@@ -79,5 +91,7 @@ export function getPreparationPlanTheme(
       return getPreparationPlanThemeOneMonth();
     case 'three-months':
       return getPreparationPlanThemeThreeMonths();
+    case 'greatfrontend75':
+      return getPreparationPlanThemeGFE75();
   }
 }

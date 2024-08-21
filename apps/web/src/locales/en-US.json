@@ -507,6 +507,10 @@
     "defaultMessage": "Visit external link",
     "description": "Label for open external link button"
   },
+  "2Bggln": {
+    "defaultMessage": "Most important 75 questions for front end interviews.",
+    "description": "Short description for GFE75 plan"
+  },
   "2CZvP8": {
     "defaultMessage": "Title",
     "description": "Label for \"Job Title\" input on Projects profile onboarding page"
@@ -831,6 +835,10 @@
     "defaultMessage": "Language",
     "description": "Change site language button label"
   },
+  "59u5/i": {
+    "defaultMessage": "{count} other items",
+    "description": "Trigger label for other items"
+  },
   "5A3y/o": {
     "defaultMessage": "Leave more feedback",
     "description": "Feedback widget button label to leave more feedback before the session closes"
@@ -890,6 +898,10 @@
   "5hTR16": {
     "defaultMessage": "Profile",
     "description": "Title of Profile page"
+  },
+  "5jNSb2": {
+    "defaultMessage": "The smallest list of practice questions that gets you the most mileage in your preparation. Covers the most commonly asked front end interview topics.",
+    "description": "Description for GFE75 page"
   },
   "5ozhak": {
     "defaultMessage": "Start the project to access guides, discussions and reference code",
@@ -1742,6 +1754,10 @@
   "CXs8z4": {
     "defaultMessage": "Practice Front End Quiz Interview Questions With Solutions",
     "description": "Title of Interview Preparation Quiz page"
+  },
+  "CZJo2K": {
+    "defaultMessage": "Test cases",
+    "description": "Features for interviews questions"
   },
   "CfLpPw": {
     "defaultMessage": "<authorProfileLink>{author}</authorProfileLink> posted on the challenge forum for <link>{challengeTitle}</link>: <comment>\"{description}\"</comment>",
@@ -2655,6 +2671,10 @@
     "defaultMessage": "Can't find the answer you are looking for? <link>Reach out to us!</link>",
     "description": "Subtitle of Homepage's FAQ section, encouraging users to contact us if none of the FAQs resolve their problems"
   },
+  "JTc/MW": {
+    "defaultMessage": "Most important 75 questions for front end interviews.",
+    "description": "Description of GFE75 page"
+  },
   "JUhFP/": {
     "defaultMessage": "Minimum {minNumber} characters. Letters and digits required.",
     "description": "Password creation criteria"
@@ -2887,6 +2907,10 @@
     "defaultMessage": "{startedCount} started",
     "description": "Label for number of users who have started the challenge"
   },
+  "L2J7Pv": {
+    "defaultMessage": "Created with the expertise of senior to staff front end interviewers from some of the top companies in the world. <button>Have a suggestion?</button>",
+    "description": "Description for GFE75 page"
+  },
   "L33SIl": {
     "defaultMessage": "Popularity: Least to most upvotes",
     "description": "Sorting option for discussions comment - popularity"
@@ -2910,6 +2934,10 @@
   "LF10F3": {
     "defaultMessage": "Official solutions from senior engineers, possibly using different stacks.",
     "description": "FAQ answer for projects platform"
+  },
+  "LFGT5n": {
+    "defaultMessage": "<count>ALL</count> <questions>questions</questions>",
+    "description": "Number of questions"
   },
   "LFxhgC": {
     "defaultMessage": "Never waste your time building one-off projects again!",
@@ -4611,6 +4639,10 @@
     "defaultMessage": "More",
     "description": "Label for \"More\" button in pagination"
   },
+  "XFNi6J": {
+    "defaultMessage": "GFE 75",
+    "description": "Short label for GFE75 study plan"
+  },
   "XHzBpN": {
     "defaultMessage": "+{points} rep",
     "description": "Reputation points to be gained"
@@ -5199,6 +5231,10 @@
     "defaultMessage": "Provide at least 1 URL where you hosted your solution",
     "description": "Error message"
   },
+  "baItxW": {
+    "defaultMessage": "Recommended",
+    "description": "Label for Recommended tag"
+  },
   "baT4cM": {
     "defaultMessage": "Title is required.",
     "description": "Error message"
@@ -5266,6 +5302,10 @@
   "c2hcfm": {
     "defaultMessage": "Submit",
     "description": "Feedback widget submit button label"
+  },
+  "c3ZWbk": {
+    "defaultMessage": "GreatFrontend 75",
+    "description": "Long label for GFE75 study plan"
   },
   "c4N2O5": {
     "defaultMessage": "Not signed in",
@@ -5699,6 +5739,10 @@
     "defaultMessage": "Your Email",
     "description": "Feedback widget email input field label"
   },
+  "fXwTjj": {
+    "defaultMessage": "GreatFrontend 75",
+    "description": "Title of GFE75 page"
+  },
   "fXyTam": {
     "defaultMessage": "Nightmare",
     "description": "Nightmare blog"
@@ -5818,6 +5862,10 @@
   "gAep7Q": {
     "defaultMessage": "Follow on LinkedIn",
     "description": "Link to the LinkedIn page"
+  },
+  "gBdxyo": {
+    "defaultMessage": "Recommended prep strategy",
+    "description": "Label for other items dropdown"
   },
   "gDAVYm": {
     "defaultMessage": "Report an issue",
@@ -6030,6 +6078,10 @@
   "hz5dJR": {
     "defaultMessage": "No notification yet!",
     "description": "Label for no notification"
+  },
+  "i0GIaV": {
+    "defaultMessage": "Most important 75 questions for front end interviews.",
+    "description": "Long description for GFE75 plan"
   },
   "i0RFBu": {
     "defaultMessage": "Coupons | Settings",
@@ -6450,6 +6502,10 @@
   "kzxwOd": {
     "defaultMessage": "We appreciate any feedback or bug reports on the product. Feedback that the team finds useful will be rewarded with freebies and discounts or even cashbacks on your order!",
     "description": "Feedback widget description."
+  },
+  "l+NV6Y": {
+    "defaultMessage": "Official solutions",
+    "description": "Features for interviews questions"
   },
   "l/9/qK": {
     "defaultMessage": "Write or film a review of your experience with GreatFrontEnd for a {discountPercentage}% cashback on your first order amount. Success stories are welcome too!",
@@ -7146,6 +7202,10 @@
   "qZRTqi": {
     "defaultMessage": "Data Structures & Algorithms",
     "description": "Name of focus area questions"
+  },
+  "qZTabX": {
+    "defaultMessage": "Code in browser",
+    "description": "Features for interviews questions"
   },
   "qarlYe": {
     "defaultMessage": "First time preparing for front end interviews?",

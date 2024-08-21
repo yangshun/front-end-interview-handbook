@@ -102,6 +102,16 @@ export default function FeedbackDialog({
       setFeedbackState('success');
     },
   });
+  const bodyContent = preBodyContents || (
+    <Text color="secondary" size="body2">
+      <FormattedMessage
+        defaultMessage="We appreciate any feedback or bug reports on the product. Feedback that the team finds useful will be rewarded with freebies and
+            discounts or even cashbacks on your order!"
+        description="Feedback widget description."
+        id="kzxwOd"
+      />
+    </Text>
+  );
 
   const title =
     titleParam ??
@@ -114,7 +124,7 @@ export default function FeedbackDialog({
   return (
     <Dialog isShown={isShown} title={title} onClose={onClose}>
       <div className="grid gap-y-4 overflow-y-auto">
-        {preBodyContents}
+        {bodyContent}
         {feedbackState === 'message' && (
           <form
             className="flex flex-col gap-4"

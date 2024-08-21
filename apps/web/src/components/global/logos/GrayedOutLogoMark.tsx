@@ -1,10 +1,11 @@
 import React, { useId } from 'react';
 type Props = Readonly<{
+  className?: string;
   height?: number;
   width?: number;
 }>;
 
-function GrayedOutLogoMark({ height = 20, width = 26 }: Props) {
+function GrayedOutLogoMark({ height = 20, width = 26, className }: Props) {
   const linearGradientId1 = useId();
   const linearGradientId2 = useId();
   const linearGradientId3 = useId();
@@ -12,6 +13,7 @@ function GrayedOutLogoMark({ height = 20, width = 26 }: Props) {
   return (
     <svg
       aria-label="GreatFrontEnd"
+      className={className}
       fill="none"
       height={height}
       viewBox="0 0 314 240"

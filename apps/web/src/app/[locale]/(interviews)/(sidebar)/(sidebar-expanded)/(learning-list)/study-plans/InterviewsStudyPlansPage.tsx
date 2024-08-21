@@ -6,6 +6,7 @@ import { FormattedMessage, useIntl } from 'react-intl';
 
 import { trpc } from '~/hooks/trpc';
 
+import { INTERVIEWS_REVAMP_2024 } from '~/data/FeatureFlags';
 import type {
   PreparationPlan,
   PreparationPlans,
@@ -58,13 +59,17 @@ function PreparationPlanCard({
         'bg-white transition dark:bg-neutral-800/70 dark:hover:bg-neutral-800/80',
         themeGlassyBorder,
       )}>
-      <div
-        className={clsx(
-          'size-20 flex items-center justify-center rounded',
-          theme.gradient.className,
-        )}>
-        <theme.iconOutline className="size-10 text-white" />
-      </div>
+      {theme.customIcon ? (
+        <theme.customIcon size="lg" />
+      ) : (
+        <div
+          className={clsx(
+            'size-20 flex items-center justify-center rounded',
+            theme.gradient.className,
+          )}>
+          <theme.iconOutline className="size-10 text-white" />
+        </div>
+      )}
       <div className="flex flex-1 flex-col gap-4">
         <div className="flex flex-col gap-1">
           <div className="flex gap-x-4">
@@ -147,9 +152,16 @@ export default function InterviewsStudyPlansPage({
 
   const preparationPlanSections: Array<PreparationPlanSection> = [
     {
-      plans: (['one-week', 'one-month', 'three-months'] as const).map(
-        (key) => preparationPlans[key],
-      ),
+      plans: (
+        [
+          'one-week',
+          'one-month',
+          'three-months',
+          ...(INTERVIEWS_REVAMP_2024
+            ? (['greatfrontend75'] as const)
+            : ([] as const)),
+        ] as const
+      ).map((key) => preparationPlans[key]),
       title: intl.formatMessage({
         defaultMessage: 'Holistic study plans',
         description: 'Title of list of study plans',

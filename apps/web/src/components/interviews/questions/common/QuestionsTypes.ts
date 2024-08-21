@@ -184,6 +184,7 @@ export type QuestionList = Readonly<{
 }>;
 
 export type QuestionListTheme = Readonly<{
+  customIcon?: (props: { size?: 'lg' | 'md' | 'sm' }) => JSX.Element;
   gradient: ThemeGradient;
   iconOutline: (props: React.ComponentProps<'svg'>) => JSX.Element;
   iconSolid: (props: React.ComponentProps<'svg'>) => JSX.Element;

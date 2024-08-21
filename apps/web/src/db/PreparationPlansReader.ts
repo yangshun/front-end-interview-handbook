@@ -17,18 +17,21 @@ export async function fetchPreparationPlans(
   const oneWeekQuestions: Array<string> = [];
   const oneMonthQuestions: Array<string> = [];
   const threeMonthsQuestions: Array<string> = [];
+  const gfe75Questions: Array<string> = [];
 
   quizQuestions.forEach(({ slug, importance }) => {
     if (importance === 'high') {
       oneWeekQuestions.push(slug);
       oneMonthQuestions.push(slug);
       threeMonthsQuestions.push(slug);
+      gfe75Questions.push(slug);
 
       return;
     }
     if (importance === 'mid') {
       oneMonthQuestions.push(slug);
       threeMonthsQuestions.push(slug);
+      gfe75Questions.push(slug);
 
       return;
     }
@@ -40,6 +43,7 @@ export async function fetchPreparationPlans(
   preparationPlans['one-week'].questions.quiz = oneWeekQuestions;
   preparationPlans['one-month'].questions.quiz = oneMonthQuestions;
   preparationPlans['three-months'].questions.quiz = threeMonthsQuestions;
+  preparationPlans.greatfrontend75.questions.quiz = gfe75Questions;
 
   return preparationPlans;
 }

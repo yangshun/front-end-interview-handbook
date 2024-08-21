@@ -74,6 +74,7 @@ export default async function Page({ params }: Props) {
   return (
     <InterviewsStudyPlansPage
       plansDifficultySummary={{
+        greatfrontend75: difficultySummaryThreeMonths,
         'one-month': difficultySummaryOneMonth,
         'one-week': difficultySummaryOneWeek,
         'three-months': difficultySummaryThreeMonths,
