@@ -224,6 +224,7 @@ export function GuidesSidebar({
     <nav
       className={clsx(
         'flex shrink-0 flex-col justify-end',
+        'transition-all',
         isSidebar && ['border-e', themeBorderColor],
         isSidebar ? (isFocusMode ? 'w-[78px]' : 'w-60') : 'w-full',
         sticky && 'sticky',
@@ -256,40 +257,36 @@ export function GuidesSidebar({
             </Text>
             <GuidesDropdownMenu />
           </div>
-          <div className="h-0 grow">
-            <ScrollArea.Root className="h-full">
-              <ScrollArea.Viewport
-                className={clsx('size-full', isSidebar && 'vignette-scroll')}>
-                <AccordionPrimitive.Root
-                  className={clsx('flex flex-col', 'p-4')}
-                  defaultValue={navigation.items.map(
-                    (section) => section.title,
-                  )}
-                  type="multiple">
-                  {navigation.items.map((section) => (
-                    <SectionHeading key={section.title} section={section} />
-                  ))}
-                </AccordionPrimitive.Root>
-              </ScrollArea.Viewport>
-              <ScrollArea.Scrollbar
+          <ScrollArea.Root className="h-full grow overflow-hidden">
+            <ScrollArea.Viewport
+              className={clsx('size-full', isSidebar && 'vignette-scroll')}>
+              <AccordionPrimitive.Root
+                className={clsx('flex flex-col', 'p-4')}
+                defaultValue={navigation.items.map((section) => section.title)}
+                type="multiple">
+                {navigation.items.map((section) => (
+                  <SectionHeading key={section.title} section={section} />
+                ))}
+              </AccordionPrimitive.Root>
+            </ScrollArea.Viewport>
+            <ScrollArea.Scrollbar
+              className={clsx(
+                'flex w-2.5 p-0.5',
+                'select-non touch-none',
+                'transparent',
+              )}
+              orientation="vertical">
+              <ScrollArea.Thumb
                 className={clsx(
-                  'flex w-2.5 p-0.5',
-                  'select-non touch-none',
-                  'transparent',
+                  'relative flex-1 rounded-full',
+                  'bg-neutral-300 dark:bg-neutral-500',
+                  'before:absolute before:left-1/2 before:top-1/2',
+                  'before:-translate-x-1/2 before:-translate-y-1/2',
+                  "before:h-full before:min-h-[44px] before:w-full before:min-w-[44px] before:content-['']",
                 )}
-                orientation="vertical">
-                <ScrollArea.Thumb
-                  className={clsx(
-                    'relative flex-1 rounded-full',
-                    'bg-neutral-300 dark:bg-neutral-500',
-                    'before:absolute before:left-1/2 before:top-1/2',
-                    'before:-translate-x-1/2 before:-translate-y-1/2',
-                    "before:h-full before:min-h-[44px] before:w-full before:min-w-[44px] before:content-['']",
-                  )}
-                />
-              </ScrollArea.Scrollbar>
-            </ScrollArea.Root>
-          </div>
+              />
+            </ScrollArea.Scrollbar>
+          </ScrollArea.Root>
         </>
       )}
       {isSidebar && (

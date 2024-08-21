@@ -1691,6 +1691,10 @@
     "defaultMessage": "Pinned submissions",
     "description": "Pinned project submissions"
   },
+  "C/ODJo": {
+    "defaultMessage": "Toggle focus mode off",
+    "description": "Label for toggle focus mode off"
+  },
   "C/Z5Ui": {
     "defaultMessage": "Our <link>Component Tracks</link> allow you to build entire design systems or component libraries from scratch – including very practical ones like Marketing, E-Commerce and Web Applications.",
     "description": "Description of 'Build entire design systems or component libraries with our Component Tracks' feature in Projects marketing page"
@@ -1862,10 +1866,6 @@
   "DDJTQX": {
     "defaultMessage": "Intro to Coding Round",
     "description": "Introduction to front end coding interview"
-  },
-  "DEcbCY": {
-    "defaultMessage": "Toggle focus mode off",
-    "description": "Label for toggle focus mode off"
   },
   "DEhOz5": {
     "defaultMessage": "Users completed",
