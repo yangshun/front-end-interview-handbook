@@ -39,7 +39,8 @@ function NavigationButton({
         'flex items-center justify-center',
         'group absolute bottom-0 top-0 w-12',
         direction === 'left' ? 'left-0' : 'right-0',
-        'bg-neutral-800/20 opacity-0 transition-opacity duration-[1000ms] hover:opacity-100',
+        'bg-neutral-800/20',
+        'opacity-0 transition-opacity duration-1000 hover:opacity-100',
       )}
       type="button"
       onClick={onClick}>
