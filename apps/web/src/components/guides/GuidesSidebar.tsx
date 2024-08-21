@@ -10,7 +10,7 @@ import { FormattedMessage } from 'react-intl';
 
 import Anchor from '~/components/ui/Anchor';
 import Section from '~/components/ui/Heading/HeadingContext';
-import { ScrollArea } from '~/components/ui/ScrollArea';
+import ScrollArea from '~/components/ui/ScrollArea';
 import Text from '~/components/ui/Text';
 import {
   themeBackgroundCardColor,

@@ -15,7 +15,7 @@ import Anchor from '~/components/ui/Anchor';
 import Button from '~/components/ui/Button';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
-import { ScrollArea } from '~/components/ui/ScrollArea';
+import ScrollArea from '~/components/ui/ScrollArea';
 import { textVariants } from '~/components/ui/Text';
 import {
   themeBorderColor,
