@@ -10,7 +10,7 @@ export type BaseGuideNavigationLink<T = Record<string, unknown>> = Readonly<
 >;
 
 export type GuideNavigationLink = BaseGuideNavigationLink<{
-  cardTitle?: string;
+  cardTitle?: string; // Shown in card titles primarily on dashboard
 }>;
 
 export type GuideNavigationLinks<

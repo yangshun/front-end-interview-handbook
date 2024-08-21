@@ -8,6 +8,7 @@ import Heading from '~/components/ui/Heading';
 type Props = Readonly<{
   href: string;
   items: ReadonlyArray<{
+    cardTitle?: string;
     description?: string;
     href: string;
     slug: string;
@@ -46,12 +47,12 @@ export default function InterviewsDashboardStudyGuideList({
         />
       </div>
       <div className="flex w-full flex-col gap-2">
-        {items.map(({ href, slug, title }, index) => (
+        {items.map(({ cardTitle, href, slug, title }, index) => (
           <RankNavigationItem
             key={slug}
             href={href}
             rank={index + 1}
-            title={title}
+            title={cardTitle ?? title}
           />
         ))}
       </div>
