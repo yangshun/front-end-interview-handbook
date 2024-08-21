@@ -82,7 +82,7 @@ For simplicity, and since SPAs are covered commonly in other questions, the disc
 
 ## Data model
 
-| Entity | Source | Belongs To | Fields |
+| Entity | Source | Belongs to | Fields |
 | --- | --- | --- | --- |
 | Search Params | User input (Client) | Search/Listing Page | City/Geolocation/Radius Date Range, Number of People, Amenities, etc. |
 | `ListingResults` | Server | Search/Listing Page | `results` (list of `ListingItem`s), `pagination` (pagination metadata) |
@@ -270,7 +270,6 @@ Strictly speaking, if the accommodation details page is always opened in a new t
 | --- | --- | --- |
 | `accommodation_id` | number | ID of accommodation to be reserved |
 | `dates` | mixed<sup>\*</sup> | Dates to reserve the accommodation |
-| `address_details` | object | Object containing address fields |
 | `payment_details` | object | Object containing payment method fields (credit card) |
 
 <sup>\*</sup> The format of the `dates` field should be consistent with the selected
@@ -291,9 +290,9 @@ A reservation object is returned upon successful reservation.
   },
   "accommodation": {
     "id": 561602,
-    "address_details": {
+    "address": {
       "country": "US",
-      "address": "888 Brannan Street",
+      "street_address": "888 Brannan Street",
       "city": "San Francisco",
       "zip": "94103",
       "state": "CA",
@@ -471,7 +470,7 @@ The alternative is to open the listing details within a full-screen modal on the
 
 Form optimizations have been covered in detail in the [e-commerce websites question](/questions/system-design/e-commerce-amazon). To recap:
 
-- Country-specific Address/Payment Forms.
+- Country-specific address/payment Forms.
 - Optimize autofill experience.
 - Show error messages.
 - Clear focus states.
@@ -480,7 +479,7 @@ Form optimizations have been covered in detail in the [e-commerce websites quest
 ### Other topics
 
 - Map
-  - Markers which are in close proximity can be can be [clustered together](https://developers.google.com/maps/documentation/javascript/marker-clustering)
+  - Markers which are in close proximity can be [clustered together](https://developers.google.com/maps/documentation/javascript/marker-clustering)
 - Whitelabelling
   - [Building and scaling different travel websites with one codebase | Agoda Engineering & Design](https://medium.com/agoda-engineering/building-and-scaling-different-travel-websites-with-one-codebase-fc6f0202c2e1)
   - [Managing and scaling different white label development and testing environments | Agoda Engineering & Design](https://medium.com/agoda-engineering/managing-and-scaling-different-white-label-development-and-testing-environments-4e90748fcb3b)

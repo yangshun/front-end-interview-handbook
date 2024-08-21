@@ -333,7 +333,7 @@ Long text in the result items should be handled appropriately, usually via trunc
 #### Keyboard interaction
 
 - Users should be able to use the component and focus on the autocomplete suggestions just via their keyboard. Read more under the **Accessibility** section.
-- Add a global shortcut key to let the user easily focus on the autocomplete input. A common keyboard shortcut is the <kbd>/</kbd> (forward slash) key, which is used by Facebook, Twitter and YouTube.
+- Add a global shortcut key to let the user easily focus on the autocomplete input. A common keyboard shortcut is the <kbd>/</kbd> (forward slash) key, which is used by Facebook, X and YouTube.
 
 #### Typos in search
 
@@ -356,7 +356,7 @@ The list of autocomplete suggestions typically appear below the input. However, 
 - [`aria-expanded`](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-expanded) to indicate whether the popup element is currently displayed.
 - Mark the results region with [`aria-live`](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Live_Regions) so that when new results are shown, screen reader users are notified.
 - [`aria-autocomplete`](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-autocomplete) to describe the type of autocompletion interaction model the combobox will use when dynamically helping users complete text input, whether suggestions will be shown as a single value inline (`aria-autocomplete="inline"`) or in a collection of values (`aria-autocomplete="list"`)
-  - Google uses `aria-autocomplete="both"` while Facebook and Twitter use `aria-autocomplete="list"`.
+  - Google uses `aria-autocomplete="both"` while Facebook and X use `aria-autocomplete="list"`.
 
 #### Keyboard interaction
 
@@ -365,31 +365,33 @@ The list of autocomplete suggestions typically appear below the input. However, 
 - Escape to dismiss the results popup if it is visible.
 - ... and more. Follow the [WAI ARIA Combo Box](https://www.w3.org/WAI/ARIA/apg/patterns/combobox/) practices.
 
-## Comparing Google, Facebook, and Twitter search
+## Comparing Google, Facebook, and X search component
 
-Here's a comparison of Google, Facebook, and Twitter's search autocomplete component and the HTML attributes used.
+Here's a comparison of Google, Facebook, and X's search autocomplete component and the HTML attributes used.
 
-| HTML Attribute | Google | Facebook | Twitter |
+| HTML Attribute | Google | Facebook | X |
 | --- | --- | --- | --- |
-| Uses an `<input>` | Yes | Yes | Yes |
+| HTML Element | `<textarea>` | `<input>` | `<input>` |
 | Within `<form>` | Yes | No | Yes |
 | `type` | `"text"` | `"search"` | `"text"` |
 | `autocapitalize` | `"off"` | Absent | `"sentence"` |
 | `autocomplete` | `"off"` | `"off"` | `"off"` |
 | `autocorrect` | `"off"` | Absent | `"off"` |
 | `autofocus` | Present | Absent | Present |
-| `placeholder` | Absent | `"Search Facebook"` | `"Search Twitter"` |
+| `placeholder` | Absent | `"Search Facebook"` | `"Search"` |
 | `role` | `"combobox"` | Absent | `"combobox"` |
 | `spellcheck` | `"false"` | `"false"` | `"false"` |
-| `aria-activedescendant` | Absent | Absent | Present |
+| `aria-activedescendant` | Present | Absent | Present |
 | `aria-autocomplete` | `"both"` | `"list"` | `"list"` |
-| `aria-expanded` | Absent | Present | Present |
+| `aria-expanded` | Present | Present | Present |
 | `aria-haspopup` | `"false"` | Absent | Absent |
 | `aria-invalid` | Absent | `"false"` | Absent |
 | `aria-label` | `"Search"` | `"Search Facebook"` | `"Search query"` |
-| `aria-owns` | Absent | Absent | Present |
+| `aria-owns` | Present | Absent | Present |
 | `dir` | Absent | `"ltr"`/`"rtl"` | `"auto"` |
 | `enterkeyhint` | Absent | Absent | `"search"` |
+
+Note: This table is only accurate at the time of writing since companies update their search components from time to time. The point is to demonstrate is that there's no standardized practice on the ARIA properties to use.
 
 {/* TODO: Talk about Testing */} {/* TODO: Maybe mention about Tries? */}
 
@@ -400,5 +402,8 @@ Here's a comparison of Google, Facebook, and Twitter's search autocomplete compo
 
 ## Changelog
 
+- 2024/08/21
+  - Updated Google, Facebook, X's HTML attributes table.
+  - Changed Twitter to X.
 - 2023/01/14
   - Update normalized store format to be an object instead of array for quick lookup.

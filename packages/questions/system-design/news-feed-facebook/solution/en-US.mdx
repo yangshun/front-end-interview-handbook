@@ -294,7 +294,11 @@ The response format can be either just the single post, or a list of latest post
     "name": "John Doe"
   },
   "content": "Hello world",
-  "image": "https://www.example.com/feed-images.jpg",
+  "image": {
+    "src": "https://www.example.com/feed-images.jpg",
+    "alt": "An image alt" // Either user-provided, or generated on the server.
+    // Other useful properties can be included too, such as dimensions.
+  },
   "reactions": {
     "likes": 20,
     "haha": 15
@@ -481,7 +485,7 @@ Before rendering the message, the string can be parsed for hashtags and mentions
 
 ##### **Popular rich text editor format**
 
-[Draft.js](https://draftjs.org) is a popular rich text editor by Facebook for composing rich text. Draft.js allows users to extend the functionality and create their own rich text entities such as hashtags and mentions. It defines its a custom Draft.js editor state format which is being used by the Draft.js editor. In 2022, Facebook released [Lexical](https://lexical.dev/), a successor to Draft.js and is using Lexical for rich text editing and displaying rich text entities on facebook.com. The underlying formats are similar and we will discuss Draft.js' format.
+[Draft.js](https://draftjs.org) is a popular rich text editor by Facebook for composing rich text. Draft.js allows users to extend the functionality and create their own rich text entities such as hashtags and mentions. It defines a custom Draft.js editor state format which is being used by the Draft.js editor. In 2022, Facebook released [Lexical](https://lexical.dev/), a successor to Draft.js and is using Lexical for rich text editing and displaying rich text entities on facebook.com. The underlying formats are similar and we will discuss Draft.js' format.
 
 Draft.js is just one example of a rich text format, there are many out there to choose from. The editor state resembles an Abstract Syntax Tree and can be serialized into a JSON string to be stored. The benefits of using a popular rich text format is that you don't have to write custom parsing code and can easily extend to more types of rich text entities in future. However, these formats tend to be longer strings than a custom syntax version and will result in larger network payload size and require more disk space to store.
 
@@ -517,7 +521,9 @@ Since there can be images in a feed post, we can also briefly discuss some image
 
 - **Content Delivery Network (CDN)**: Use a (CDN) to host and serve images for faster loading performance.
 - **Modern image formats**: Use modern image formats such as [WebP](https://developers.google.com/speed/webp) which provides superior lossless and lossy image compression.
-- **`<img>`s should use proper `alt` text**: Facebook provides `alt` text for user-uploaded images by using Machine Learning and Computer Vision to process the images and generate a description.
+- **`<img>`s should use proper `alt` text**
+  - Facebook provides `alt` text for user-uploaded images by using Machine Learning and Computer Vision to process the images and generate a description.
+  - Generative AI models are also very good at doing that these days.
 - Image loading based on device screen properties
   - Send the browser dimensions in the feed list requests so that server can decide what image size to return.
   - Use `srcset` if there are image processing (resizing) capabilities to load the most suitable image file for the current viewport.
@@ -557,7 +563,7 @@ Globally popular sites like Facebook and Twitter have to ensure their UI works w
 
 1. **Server returns the raw timestamp**: Server returns the raw timestamp and the client renders in the user's language. This approach is flexible but requires the client to contain the grammar rules and translation strings for different languages, which can amount to significant JavaScript size depending on the number of supported languages,
 1. **Server returns the translated timestamp**: This requires processing on the server, but you don't have to ship timestamp formatting rules for various languages to the client. However, since translation is done on the server, clients cannot manipulate the timestamp on the client.
-1. **`Intl.DateTimeFormat` API**: Modern browsers can leverage the `Intl.DateTimeFormat()` API to transform a raw timestamp into a translated datetime string.
+1. **`Intl` API**: Modern browsers can leverage `Intl.DateTimeFormat()` and `Intl.RelativeTimeFormat()` to transform a raw timestamp into translated datetime strings in the desired format.
 
 ```js
 const date = new Date(Date.UTC(2021, 11, 20, 3, 23, 16, 738));
@@ -566,8 +572,14 @@ console.log(
     dateStyle: 'full',
     timeStyle: 'long',
   }).format(date),
-);
-// 2021年12月20日星期一 GMT+8 11:23:16
+); // 2021年12月20日星期一 GMT+8 11:23:16
+
+console.log(
+  new Intl.RelativeTimeFormat('zh-CN', {
+    dateStyle: 'full',
+    timeStyle: 'long',
+  }).format(-1, 'day'),
+); // 1天前
 ```
 
 ##### **Relative timestamps can turn stale**
@@ -622,7 +634,7 @@ The common ways to implement live updates on a client include:
 - **Long polling**: Long polling extends on the idea of short polling by keeping the connection open until new data is available. While simpler to implement, it may introduce latency and increased server load compared to other approaches.
 - **Server-Sent Events (SSE)**: SSE is a standard web technology that enables servers to push updates to web clients over a single HTTP connection. It's a simple and efficient mechanism for real-time updates, particularly well-suited for scenarios where updates are initiated by the server.
 - **WebSockets**: WebSockets provide a full-duplex communication channel over a single, long-lived connection. This bidirectional communication allows both the server and the client to send messages to each other at any time. WebSockets are suitable for applications that require low latency and high interactivity.
-- **HTTP/2 Server Push**: With HTTP/2, the server can push updates to the client without waiting for the client to request them. While HTTP/2 server push is not as widely used as other methods for live updates, it can be an efficient solution in certain scenarios.
+- **HTTP/2 server push**: With HTTP/2, the server can push updates to the client without waiting for the client to request them. While HTTP/2 server push is not as widely used as other methods for live updates, it can be an efficient solution in certain scenarios.
 
 Facebook uses WebSockets for live updates on the website.
 
@@ -698,5 +710,13 @@ Here are some accessibility considerations for a news feed.
 - [Making Instagram.com faster: Part 2](https://instagram-engineering.com/making-instagram-com-faster-part-2-f350c8fba0d4)
 - [Making Instagram.com faster: Part 3 — cache first](https://instagram-engineering.com/making-instagram-com-faster-part-3-cache-first-6f3f130b9669)
 - [Evolving API Pagination at Slack](https://slack.engineering/evolving-api-pagination-at-slack)
+
+## Changelog
+
+- 2024/08/21
+  - Added more properties to `image` field for payload response
+  - Mentioned `Intl.RelativeTimeFormat` API
+- 2023/12/04
+  - Added section on live comments
 
 {/* TODO: Talk about whether to use Progressive Web Apps */}

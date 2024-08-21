@@ -119,7 +119,7 @@ For this question, all we need is a single HTTP API for fetching the feed data:
 }
 ```
 
-In practice, Pinterest's feed API doesn't include a `size` parameter and always returns 24 pins. If you're interested to see the full feed payload for yourself:
+In practice, Pinterest's feed API doesn't include a `size` parameter and always returns 25 pins. If you're interested to see the full feed payload for yourself:
 
 1. Visit https://pinterest.com in your browser.
 1. Open the network tab.
@@ -450,7 +450,7 @@ However, this approach does not factor in the items height at all. As a result, 
 
 ##### **Height balancing**
 
-In round robin placement, the pins are placed within the shortest column, at the time of arrangement.
+In height balancing placement, the pins are placed within the shortest column, at the time of arrangement.
 
 For a three-column layout, we can use an array of size 3 (`columnHeights`) where the value at the index represents the running total height of items in that column. For each pin, by looping through the `columnHeights` array once, we can determine the shortest column. Next, we calculate the pin's position based on the left-most column with the shortest current height and update that column's height for the newly-added pin.
 

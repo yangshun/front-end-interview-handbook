@@ -230,9 +230,10 @@ For a more in-depth comparison between offset-based pagination and cursor-based 
 
 #### Parameters
 
-| Parameter   | Type   | Description               |
-| ----------- | ------ | ------------------------- |
-| `productId` | number | ID of product to be added |
+| Parameter   | Type   | Description                 |
+| ----------- | ------ | --------------------------- |
+| `productId` | number | ID of product to be added   |
+| `quantity`  | number | Number of items to be added |
 
 #### Sample response
 
@@ -618,8 +619,10 @@ _Source: [Security and privacy | web.dev](https://web.dev/learn/forms/security-p
 
 ## Changelog
 
-- 2023/02/27
-  - Revised API routes to be more REST-ful.
-- 2023/01/12
-  - Fix incorrect image for product details page.
-  - Update architecture and rendering choices for top e-commerce websites.
+- 2024/08/21
+  - Allow add product API to specify the `quantity` field
+- 2024/02/27
+  - Revised API routes to be more REST-ful
+- 2024/01/12
+  - Fix incorrect image for product details page
+  - Update architecture and rendering choices for top e-commerce websites
