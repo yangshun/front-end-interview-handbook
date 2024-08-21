@@ -13,7 +13,7 @@ Here's an example of how it can be used:
 
 ```js
 function delayedGreeting(name) {
-  const { promise, resolve, reject } = new Promise.withResolvers();
+  const { promise, resolve, reject } = Promise.withResolvers();
 
   setTimeout(() => {
     if (name) {
