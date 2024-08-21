@@ -71,10 +71,6 @@
     "defaultMessage": "Post",
     "description": "Label for post reply button on project discussions page"
   },
-  "+eHFYh": {
-    "defaultMessage": "Getting the Interview",
-    "description": "Getting the front end interview"
-  },
   "+gMPfE": {
     "defaultMessage": "Search by challenge name / brief",
     "description": "Search placeholder for challenge listing"
@@ -354,10 +350,6 @@
   "0mKzkX": {
     "defaultMessage": "Practice questions by framework or language",
     "description": "Title for question framework category links in navbar"
-  },
-  "0nGuf2": {
-    "defaultMessage": "UI Components API Design Principles",
-    "description": "User Interface components API design principles"
   },
   "0p6dRS": {
     "defaultMessage": "Practice makes perfect. With our collection of over {count} front end questions, you get all-rounded coverage for your preparation — HTML, CSS, JavaScript, algorithms, DOM APIs, accessibility, performance, front end fundamentals, and more.",
@@ -711,10 +703,6 @@
     "defaultMessage": "Practice",
     "description": "Section heading in footer for links to practice question pages"
   },
-  "3zMEIO": {
-    "defaultMessage": "Resume Preparation",
-    "description": "Preparing a resume for front end interviews"
-  },
   "4/GKns": {
     "defaultMessage": "Not Found",
     "description": "Title of 404 page"
@@ -923,6 +911,10 @@
     "defaultMessage": "React Questions",
     "description": "React questions category long title"
   },
+  "5xPfvT": {
+    "defaultMessage": "Overview",
+    "description": "Front End system design interview questions"
+  },
   "5y9YGh": {
     "defaultMessage": "Submission title must contain at most {maxLength} character(s).",
     "description": "Error message for submission title"
@@ -1074,6 +1066,10 @@
   "73vnK2": {
     "defaultMessage": "Mid",
     "description": "Label for medium question importance"
+  },
+  "73za88": {
+    "defaultMessage": "User interface interviews",
+    "description": "Preparing by front end interview question format"
   },
   "74BSpM": {
     "defaultMessage": "Link URL",
@@ -1383,6 +1379,10 @@
     "defaultMessage": "Key features",
     "description": "Key features of the product"
   },
+  "99Ewym": {
+    "defaultMessage": "Introduction",
+    "description": "Front End interview preparation guide"
+  },
   "99F7Mt": {
     "defaultMessage": "Tags",
     "description": "Blog Tags"
@@ -1454,10 +1454,6 @@
   "9nq03w": {
     "defaultMessage": "Others",
     "description": "Label for \"Others\" option in YOE replacement"
-  },
-  "9pQEOH": {
-    "defaultMessage": "Prep by Question Type",
-    "description": "Preparing by front end interview question format"
   },
   "9qO5Il": {
     "defaultMessage": "Pricing",
@@ -1538,6 +1534,10 @@
   "Ae22GD": {
     "defaultMessage": "Images just for illustration. Actual page(s) could be longer",
     "description": "Info for carousel images in project brief"
+  },
+  "AeHj3S": {
+    "defaultMessage": "Overview",
+    "description": "Front End User Interface interview questions"
   },
   "AeJ6Oz": {
     "defaultMessage": "Screenshot failure",
@@ -1714,10 +1714,6 @@
   "C8/0hU": {
     "defaultMessage": "Pagination",
     "description": "Screenreader text for the pagination component"
-  },
-  "CAMERn": {
-    "defaultMessage": "JavaScript Questions",
-    "description": "Front End JavaScript questions"
   },
   "CBU+k0": {
     "defaultMessage": "Company",
@@ -2047,6 +2043,10 @@
     "defaultMessage": "Edit submission",
     "description": "Title of Projects edit submission page"
   },
+  "EefJIj": {
+    "defaultMessage": "Overview",
+    "description": "Front end quiz interview questions"
+  },
   "EflBca": {
     "defaultMessage": "Started: {daysSinceStarted} days",
     "description": "Days since started for Continue projects section on Projects dashboard page"
@@ -2235,6 +2235,10 @@
     "defaultMessage": "Cancel anytime.",
     "description": "Cancel the subscription anytime."
   },
+  "GHbtp8": {
+    "defaultMessage": "Overview",
+    "description": "Coding interview questions"
+  },
   "GI36TV": {
     "defaultMessage": "Paragraph",
     "description": "Label for Normal"
@@ -2314,10 +2318,6 @@
   "GiSp0E": {
     "defaultMessage": "Medium",
     "description": "Medium difficulty question"
-  },
-  "Gjy+Iy": {
-    "defaultMessage": "Preparation Guide",
-    "description": "Front End interview preparation guide"
   },
   "GlSKMX": {
     "defaultMessage": "<authorLink>{author}</authorLink> replied to your comment on project discussions <challengeLink>{entityTitle}</challengeLink> {timestamp}",
@@ -2698,10 +2698,6 @@
   "JhZ/aF": {
     "defaultMessage": "Quiz Questions",
     "description": "Quiz questions long title"
-  },
-  "Ji3Y+i": {
-    "defaultMessage": "Quiz Questions",
-    "description": "Front end quiz interview questions"
   },
   "JinTBm": {
     "defaultMessage": "Upvotes received",
@@ -3135,6 +3131,10 @@
     "defaultMessage": "Select question category",
     "description": "Tab label to select another question category"
   },
+  "MUF+w+": {
+    "defaultMessage": "System design interviews",
+    "description": "Preparing by front end interview question format"
+  },
   "MV3NI4": {
     "defaultMessage": "You posted on the challenge forum for <link>{challengeTitle}</link>: <comment>\"{description}\"</comment>",
     "description": "Log message for you making a post on the challenge forum"
@@ -3158,10 +3158,6 @@
   "MZyEk9": {
     "defaultMessage": "Only foundational skills",
     "description": "Label for skill roadmap feature for month plan"
-  },
-  "MdGGzJ": {
-    "defaultMessage": "User Interface Questions",
-    "description": "Front End User Interface interview questions"
   },
   "MeV/ww": {
     "defaultMessage": "Microsoft",
@@ -3326,6 +3322,10 @@
   "O57nUH": {
     "defaultMessage": "Exclusive private Discord channel access for life.",
     "description": "Feature of annual pricing plan"
+  },
+  "O6pifk": {
+    "defaultMessage": "Coding interviews",
+    "description": "Preparing by front end interview question format"
   },
   "O7MAvX": {
     "defaultMessage": "Study plan to prepare for front end interviews in 1 month",
@@ -3771,6 +3771,10 @@
     "defaultMessage": "A platform to build high quality project challenges with beautiful & modular designs, guided by ex-FAANG senior engineers and an active community",
     "description": "Subtitle for Projects marketing hero section"
   },
+  "R4OrtB": {
+    "defaultMessage": "Algorithms",
+    "description": "Algorithm Coding Interview Questions"
+  },
   "R5FPug": {
     "defaultMessage": "Contact Us",
     "description": "Title of Contact Us page"
@@ -3942,6 +3946,10 @@
   "SAjGy/": {
     "defaultMessage": "Review must not be generated or written with the assistance of artificial intelligence.",
     "description": "Condition for promotion"
+  },
+  "SE9KKD": {
+    "defaultMessage": "Quiz interviews",
+    "description": "Preparing by front end interview question format"
   },
   "SEXvzM": {
     "defaultMessage": "Our <link>Skills Roadmap</link> tells you the exact projects to build to train the skill you need - whether you are a complete beginner or senior engineer filling a skill gap.",
@@ -4746,6 +4754,10 @@
   "Y2R80N": {
     "defaultMessage": "Unpin",
     "description": "Unpin button label"
+  },
+  "Y3gxjL": {
+    "defaultMessage": "JavaScript coding",
+    "description": "Front End JavaScript questions"
   },
   "Y4hby8": {
     "defaultMessage": "Easy: {numberOfEasy}, Medium: {numberOfMedium}, Hard: {numberOfHard}",
@@ -5607,10 +5619,6 @@
     "defaultMessage": "View the full solution and other System Design guides.",
     "description": "Button label within embed"
   },
-  "eVJIGT": {
-    "defaultMessage": "System Design Questions",
-    "description": "Front End system design interview questions"
-  },
   "eWwVqI": {
     "defaultMessage": "Premium is required to unlock this project",
     "description": "Unlock premium access for a project"
@@ -5670,10 +5678,6 @@
   "f5Z9tM": {
     "defaultMessage": "Purchase premium to get access to premium challenges, production-ready Figma design files, official guides, solutions, and exclusive component tracks and skill plans.",
     "description": "Subtitle for a premium project paywall"
-  },
-  "f89otf": {
-    "defaultMessage": "Algorithm Questions",
-    "description": "Algorithm Coding Interview Questions"
   },
   "f8ishg": {
     "defaultMessage": "Showing {startCount} to {endCount} out of {totalCount} submissions",
@@ -6279,6 +6283,10 @@
     "defaultMessage": "Please <link>leave us an email</link> if you have any other needs or wants. We would love to discuss them!",
     "description": "Question base section subtitle - third paragraph"
   },
+  "jmGaKF": {
+    "defaultMessage": "API design principles",
+    "description": "User Interface components API design principles"
+  },
   "jnV/ZP": {
     "defaultMessage": "System Design Questions",
     "description": "Title for an example list of System Design Questions on marketing pages"
@@ -6390,6 +6398,10 @@
   "kL0yEH": {
     "defaultMessage": "You can't find it elsewhere",
     "description": "Label for an example list of System Design Questions on marketing pages"
+  },
+  "kPBwBR": {
+    "defaultMessage": "Resume preparation",
+    "description": "Preparing a resume for front end interviews"
   },
   "kPJCx6": {
     "defaultMessage": "Limited",
@@ -6538,6 +6550,10 @@
   "l6Y1+i": {
     "defaultMessage": "Screenshots for your submission <bold>\"{title}\"</bold> have been generated.",
     "description": "Success message for screenshot generation"
+  },
+  "l6uDOh": {
+    "defaultMessage": "Cheatsheet",
+    "description": "Best practices for building UI during front end interviews"
   },
   "l9OWsu": {
     "defaultMessage": "Testing",
@@ -7211,10 +7227,6 @@
     "defaultMessage": "First time preparing for front end interviews?",
     "description": "Link to front end interview guidebook"
   },
-  "qcjD4a": {
-    "defaultMessage": "Coding Questions",
-    "description": "Coding interview questions"
-  },
   "qh0zg0": {
     "defaultMessage": "For your reference, these are the tests used when your code is submitted. They cannot be modified.",
     "description": "Text indicating to users that the below section are test cases that their code will be tested against"
@@ -7414,6 +7426,10 @@
   "saFHOR": {
     "defaultMessage": "Learn new skills, improve your techniques and stay updated on latest front end trends and developments.",
     "description": "Description of GreatFrontEnd blog homepage"
+  },
+  "sblybh": {
+    "defaultMessage": "Getting the interview",
+    "description": "Getting the front end interview"
   },
   "sfJ1Oa": {
     "defaultMessage": "Purchase premium to get access to all component tracks as well as exclusive skills, official how-to guides and production-ready Figma files.",
@@ -8142,10 +8158,6 @@
   "yXYc5a": {
     "defaultMessage": "Features",
     "description": "Title of the 'Features' marketing section on Homepage"
-  },
-  "yXzFuf": {
-    "defaultMessage": "UI Questions Cheatsheet",
-    "description": "Best practices for building UI during front end interviews"
   },
   "yZkY1S": {
     "defaultMessage": "Tell us about the skills you will be using",

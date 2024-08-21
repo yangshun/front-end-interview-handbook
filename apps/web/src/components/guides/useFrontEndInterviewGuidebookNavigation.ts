@@ -4,7 +4,7 @@ import {
   RiFileList3Line,
   RiFlowChart,
   RiJavascriptLine,
-  RiPlayLine,
+  RiPlayFill,
   RiQuestionnaireLine,
   RiSurveyLine,
   RiTerminalWindowLine,
@@ -34,9 +34,9 @@ function useCodingSectionItem() {
     icon: RiCodeSSlashLine,
     slug: 'coding',
     title: intl.formatMessage({
-      defaultMessage: 'Coding Questions',
+      defaultMessage: 'Overview',
       description: 'Coding interview questions',
-      id: 'qcjD4a',
+      id: 'GHbtp8',
     }),
   };
 
@@ -61,9 +61,9 @@ export function useQuizSectionItem() {
     icon: RiQuestionnaireLine,
     slug: 'quiz',
     title: intl.formatMessage({
-      defaultMessage: 'Quiz Questions',
+      defaultMessage: 'Overview',
       description: 'Front end quiz interview questions',
-      id: 'Ji3Y+i',
+      id: 'EefJIj',
     }),
   };
 
@@ -72,8 +72,8 @@ export function useQuizSectionItem() {
 
 function useCodingSectionFormatItems() {
   const intl = useIntl();
-  const codingSectionFormatItems: ReadonlyArray<GuideNavigationLink> = [
-    {
+  const codingSectionItems = {
+    algo: {
       description: intl.formatMessage({
         defaultMessage: 'Algo concepts to cover and tips to succeed',
         description: 'Algorithm concepts needed in front end coding interviews',
@@ -83,12 +83,12 @@ function useCodingSectionFormatItems() {
       icon: TbBinaryTree,
       slug: 'algorithms',
       title: intl.formatMessage({
-        defaultMessage: 'Algorithm Questions',
+        defaultMessage: 'Algorithms',
         description: 'Algorithm Coding Interview Questions',
-        id: 'f89otf',
+        id: 'R4OrtB',
       }),
     },
-    {
+    javascript: {
       description: intl.formatMessage({
         defaultMessage: 'Types of JS questions, concepts to cover and rubrics',
         description:
@@ -99,12 +99,12 @@ function useCodingSectionFormatItems() {
       icon: RiJavascriptLine,
       slug: 'javascript',
       title: intl.formatMessage({
-        defaultMessage: 'JavaScript Questions',
+        defaultMessage: 'JavaScript coding',
         description: 'Front End JavaScript questions',
-        id: 'CAMERn',
+        id: 'Y3gxjL',
       }),
     },
-    {
+    userInterface: {
       description: intl.formatMessage({
         defaultMessage: 'Types of UI questions, concepts to cover and rubrics',
         description:
@@ -115,35 +115,35 @@ function useCodingSectionFormatItems() {
       icon: RiTerminalWindowLine,
       slug: 'user-interface',
       title: intl.formatMessage({
-        defaultMessage: 'User Interface Questions',
+        defaultMessage: 'Overview',
         description: 'Front End User Interface interview questions',
-        id: 'MdGGzJ',
+        id: 'AeHj3S',
       }),
     },
-    {
-      href: `${basePath}/user-interface-questions-cheatsheet`,
-      icon: RiFileList3Line,
-      slug: 'user-interface-questions-cheatsheet',
-      title: intl.formatMessage({
-        defaultMessage: 'UI Questions Cheatsheet',
-        description:
-          'Best practices for building UI during front end interviews',
-        id: 'yXzFuf',
-      }),
-    },
-    {
+    userInterfaceAPI: {
       href: `${basePath}/user-interface-components-api-design-principles`,
       icon: RiDashboardLine,
       slug: 'user-interface-components-api-design-principles',
       title: intl.formatMessage({
-        defaultMessage: 'UI Components API Design Principles',
+        defaultMessage: 'API design principles',
         description: 'User Interface components API design principles',
-        id: '0nGuf2',
+        id: 'jmGaKF',
       }),
     },
-  ];
+    userInterfaceCheatsheet: {
+      href: `${basePath}/user-interface-questions-cheatsheet`,
+      icon: RiFileList3Line,
+      slug: 'user-interface-questions-cheatsheet',
+      title: intl.formatMessage({
+        defaultMessage: 'Cheatsheet',
+        description:
+          'Best practices for building UI during front end interviews',
+        id: 'l6uDOh',
+      }),
+    },
+  } as const;
 
-  return codingSectionFormatItems;
+  return codingSectionItems;
 }
 
 export function useCodingQuestionListGuideItems() {
@@ -151,7 +151,11 @@ export function useCodingQuestionListGuideItems() {
   const codingSectionFormatItems = useCodingSectionFormatItems();
   const combined: ReadonlyArray<GuideNavigationLink> = [
     codingSectionItem,
-    ...codingSectionFormatItems,
+    codingSectionFormatItems.javascript,
+    codingSectionFormatItems.algo,
+    codingSectionFormatItems.userInterface,
+    codingSectionFormatItems.userInterfaceCheatsheet,
+    codingSectionFormatItems.userInterfaceAPI,
   ];
 
   return combined;
@@ -168,12 +172,12 @@ export function useFrontEndInterviewGuidebookNavigation() {
         links: [
           {
             href: `${basePath}`,
-            icon: RiPlayLine,
+            icon: RiPlayFill,
             slug: 'introduction',
             title: intl.formatMessage({
-              defaultMessage: 'Preparation Guide',
+              defaultMessage: 'Introduction',
               description: 'Front End interview preparation guide',
-              id: 'Gjy+Iy',
+              id: '99Ewym',
             }),
           },
         ],
@@ -185,45 +189,72 @@ export function useFrontEndInterviewGuidebookNavigation() {
       },
       {
         links: [
-          {
-            href: `${basePath}/resume`,
-            icon: RiSurveyLine,
-            slug: 'resume',
-            title: intl.formatMessage({
-              defaultMessage: 'Resume Preparation',
-              description: 'Preparing a resume for front end interviews',
-              id: '3zMEIO',
-            }),
-          },
+          codingSectionItem,
+          codingSectionFormatItems.javascript,
+          codingSectionFormatItems.algo,
         ],
         title: intl.formatMessage({
-          defaultMessage: 'Getting the Interview',
-          description: 'Getting the front end interview',
-          id: '+eHFYh',
+          defaultMessage: 'Coding interviews',
+          description: 'Preparing by front end interview question format',
+          id: 'O6pifk',
+        }),
+      },
+      {
+        links: [
+          codingSectionFormatItems.userInterface,
+          codingSectionFormatItems.userInterfaceCheatsheet,
+          codingSectionFormatItems.userInterfaceAPI,
+        ],
+        title: intl.formatMessage({
+          defaultMessage: 'User interface interviews',
+          description: 'Preparing by front end interview question format',
+          id: '73za88',
         }),
       },
       {
         links: [
           {
-            ...codingSectionItem,
-            items: codingSectionFormatItems,
-          },
-          {
             href: `${basePath}/system-design`,
             icon: RiFlowChart,
             slug: 'system-design',
             title: intl.formatMessage({
-              defaultMessage: 'System Design Questions',
+              defaultMessage: 'Overview',
               description: 'Front End system design interview questions',
-              id: 'eVJIGT',
+              id: '5xPfvT',
             }),
           },
-          quizSectionItem,
         ],
         title: intl.formatMessage({
-          defaultMessage: 'Prep by Question Type',
+          defaultMessage: 'System design interviews',
           description: 'Preparing by front end interview question format',
-          id: '9pQEOH',
+          id: 'MUF+w+',
+        }),
+      },
+      {
+        links: [quizSectionItem],
+        title: intl.formatMessage({
+          defaultMessage: 'Quiz interviews',
+          description: 'Preparing by front end interview question format',
+          id: 'SE9KKD',
+        }),
+      },
+      {
+        links: [
+          {
+            href: `${basePath}/resume`,
+            icon: RiSurveyLine,
+            slug: 'resume',
+            title: intl.formatMessage({
+              defaultMessage: 'Resume preparation',
+              description: 'Preparing a resume for front end interviews',
+              id: 'kPBwBR',
+            }),
+          },
+        ],
+        title: intl.formatMessage({
+          defaultMessage: 'Getting the interview',
+          description: 'Getting the front end interview',
+          id: 'sblybh',
         }),
       },
     ],
