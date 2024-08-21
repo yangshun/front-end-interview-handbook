@@ -12,8 +12,10 @@ import useScrollIntoView from '~/hooks/useScrollIntoView';
 import useScrollParent from '~/hooks/useScrollParent';
 
 import Anchor from '~/components/ui/Anchor';
+import Button from '~/components/ui/Button';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
+import { ScrollArea } from '~/components/ui/ScrollArea';
 import { textVariants } from '~/components/ui/Text';
 import {
   themeBorderColor,
@@ -43,11 +45,6 @@ type TableOfContentsItem = Readonly<{
 }>;
 
 export type TableOfContents = ReadonlyArray<TableOfContentsItem>;
-
-type Props = Readonly<{
-  collapsed?: boolean;
-  tableOfContents: TableOfContents;
-}>;
 
 function ListItem({
   activeId,
@@ -137,6 +134,7 @@ function ParentList({
 }>) {
   const flatItems = flattenTOC(items);
   const ITEM_HEIGHT_AND_GAP = 28;
+  const TOC_HEADING_HEIGHT_AND_PADDING = 44;
   const activeItemIndex = flatItems.findIndex((item) => item.id === activeId);
   const activeIndicatorTopPosition = activeItemIndex * ITEM_HEIGHT_AND_GAP;
 
@@ -149,7 +147,7 @@ function ParentList({
           activeItemIndex < 0 && 'hidden',
         )}
         style={{
-          top: `${activeIndicatorTopPosition + 36}px`,
+          top: `${activeIndicatorTopPosition + TOC_HEADING_HEIGHT_AND_PADDING}px`,
         }}
       />
       <ListItems
@@ -162,13 +160,21 @@ function ParentList({
   );
 }
 
+type Props = Readonly<{
+  collapsed?: boolean;
+  isCollapsible?: boolean;
+  tableOfContents: TableOfContents;
+}>;
+
 export default function GuidesTableOfContents({
   tableOfContents,
   collapsed,
+  isCollapsible,
 }: Props) {
   const titleId = useId();
   const activeId = useActiveHeadingId();
 
+  const [collapsedToC, setCollapsedToC] = useState(collapsed);
   const [activeLink, setActiveLink] = useState<HTMLAnchorElement | null>(null);
   const activeLinkRef: Ref<HTMLAnchorElement> = setActiveLink;
 
@@ -184,60 +190,81 @@ export default function GuidesTableOfContents({
     scrollIntoView(activeLink);
   }, [scrollIntoView, activeLink]);
 
+  useEffect(() => {
+    setCollapsedToC(collapsed);
+  }, [collapsed]);
+
   return (
-    <nav ref={navRef} aria-labelledby={titleId} className="w-full">
-      {tableOfContents.length > 0 &&
-        (collapsed ? (
-          <div
-            aria-label="Collapsed table of contents"
-            className="float-end flex items-center gap-2">
-            <RiListCheck
-              aria-hidden={true}
-              className={clsx('size-4 shrink-0', themeTextSecondaryColor)}
+    <ScrollArea>
+      <nav
+        ref={navRef}
+        aria-labelledby={titleId}
+        className="relative -mr-3 w-full pr-3">
+        {tableOfContents.length > 0 &&
+          (isCollapsible && collapsedToC ? (
+            <Button
+              className="float-end"
+              icon={RiListCheck}
+              iconClassName={themeTextSecondaryColor}
+              iconSecondary_USE_SPARINGLY={RiArrowLeftSLine}
+              isLabelHidden={true}
+              label="Collapsed table of contents"
+              size="xs"
+              variant="tertiary"
+              onClick={() => setCollapsedToC(false)}
             />
-            <RiArrowLeftSLine
-              aria-hidden={true}
-              className={clsx('size-4 shrink-0', themeTextSecondaryColor)}
-            />
-          </div>
-        ) : (
-          <>
-            <div className="flex items-center gap-3">
-              <RiListCheck
-                aria-hidden={true}
-                className={clsx('size-4 shrink-0', themeTextSecondaryColor)}
-              />
-              <Heading
-                className={clsx(
-                  'flex-1',
-                  'text-[0.8125rem] leading-5',
-                  textVariants({ color: 'secondary' }),
+          ) : (
+            <>
+              <div className="flex items-center gap-3">
+                <RiListCheck
+                  aria-hidden={true}
+                  className={clsx('size-4 shrink-0', themeTextSecondaryColor)}
+                />
+                <Heading
+                  className={clsx(
+                    'flex-1',
+                    'text-[0.8125rem] leading-5',
+                    textVariants({ color: 'secondary' }),
+                  )}
+                  color="custom"
+                  id={titleId}
+                  level="custom">
+                  <FormattedMessage
+                    defaultMessage="On this page"
+                    description="Title of the table of contents for a guidebook page."
+                    id="Cl4Ghp"
+                  />
+                </Heading>
+                {isCollapsible ? (
+                  <Button
+                    className="z-[1]"
+                    icon={RiArrowRightSLine}
+                    iconClassName={themeTextSecondaryColor}
+                    isLabelHidden={true}
+                    label="Open table of contents"
+                    size="xs"
+                    variant="tertiary"
+                    onClick={() => setCollapsedToC(true)}
+                  />
+                ) : (
+                  <RiArrowRightSLine
+                    aria-hidden={true}
+                    className={clsx('size-4 shrink-0', themeTextSecondaryColor)}
+                  />
                 )}
-                color="custom"
-                id={titleId}
-                level="custom">
-                <FormattedMessage
-                  defaultMessage="On this page"
-                  description="Title of the table of contents for a guidebook page."
-                  id="Cl4Ghp"
-                />
-              </Heading>
-              <RiArrowRightSLine
-                aria-hidden={true}
-                className={clsx('size-4 shrink-0', themeTextSecondaryColor)}
-              />
-            </div>
-            <Section>
-              <div className="py-4 pl-2">
-                <ParentList
-                  activeId={activeId}
-                  activeLinkRef={activeLinkRef}
-                  items={tableOfContents}
-                />
               </div>
-            </Section>
-          </>
-        ))}
-    </nav>
+              <Section>
+                <div className="py-4 pl-2">
+                  <ParentList
+                    activeId={activeId}
+                    activeLinkRef={activeLinkRef}
+                    items={tableOfContents}
+                  />
+                </div>
+              </Section>
+            </>
+          ))}
+      </nav>
+    </ScrollArea>
   );
 }

@@ -24,7 +24,7 @@ export default function GuidesLayoutContent({ children }: Props) {
       }}>
       <div
         className={clsx(
-          'flex grow justify-center gap-x-28 xl:max-w-[1200px] xl:justify-end',
+          'flex grow justify-center gap-x-28 xl:max-w-[1200px]',
           'px-4 py-12 md:px-6 lg:px-[60px] lg:pb-20',
         )}>
         {children}

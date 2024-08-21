@@ -160,13 +160,14 @@ export default function GuidesMainLayout({
               <Section>
                 <div
                   key={currentItem?.href}
-                  className="hidden w-[252px] xl:sticky xl:block xl:flex-none xl:overflow-y-auto xl:overflow-x-hidden"
+                  className="hidden w-[252px] overflow-hidden xl:sticky xl:block xl:flex-none xl:overflow-x-hidden"
                   style={{
-                    height: 'calc(100vh - 24px - var(--global-sticky-height))',
-                    top: 'calc(24px + var(--global-sticky-height))',
+                    height: 'calc(100vh - 48px - var(--global-sticky-height))',
+                    top: 'calc(48px + var(--global-sticky-height))',
                   }}>
                   <GuidesTableOfContents
                     collapsed={isFocusMode}
+                    isCollapsible={true}
                     tableOfContents={tableOfContents}
                   />
                 </div>
