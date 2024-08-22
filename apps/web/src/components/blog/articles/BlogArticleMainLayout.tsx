@@ -5,9 +5,9 @@ import type { BlogPost } from 'contentlayer/generated';
 import BlogRelatedArticlesSection from '~/components/blog/BlogRelatedArticlesSection';
 import type { BlogMetadata } from '~/components/blog/BlogTypes';
 import { readBlogPostsForNavigation } from '~/components/blog/data/BlogReader';
-import BlogCopyLinkButton from '~/components/blog/metadata/BlogCopyLinkButton';
-import BlogShareButton from '~/components/blog/metadata/BlogShareButton';
 import ArticlePagination from '~/components/common/ArticlePagination';
+import CopyLinkButton from '~/components/common/CopyLinkButton';
+import ShareButton from '~/components/common/ShareButton';
 import Section from '~/components/ui/Heading/HeadingContext';
 
 import { useI18nPathname } from '~/next-i18nostic/src';
@@ -35,8 +35,8 @@ export default function BlogArticleMainLayout({ children, metadata }: Props) {
       {!metadata.isSeries && (
         <>
           <div className="flex items-center justify-end gap-x-4">
-            <BlogCopyLinkButton href={metadata.href} />
-            <BlogShareButton metadata={metadata} />
+            <CopyLinkButton href={metadata.href} />
+            <ShareButton metadata={metadata} />
           </div>
           <Section>
             <ArticlePagination

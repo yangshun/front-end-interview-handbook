@@ -158,7 +158,7 @@ export default function InterviewsStudyPlansPage({
           'one-month',
           'three-months',
           ...(INTERVIEWS_REVAMP_2024
-            ? (['greatfrontend75'] as const)
+            ? (['greatfrontend75', 'blind75'] as const)
             : ([] as const)),
         ] as const
       ).map((key) => preparationPlans[key]),

@@ -2,26 +2,21 @@
 
 import clsx from 'clsx';
 import type { InterviewsListingBottomContent } from 'contentlayer/generated';
-import { useState } from 'react';
 import { RiFlaskLine, RiVerifiedBadgeLine, RiWindowLine } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
 
 import { trpc } from '~/hooks/trpc';
 
-import PreparationGFE75Logo from '~/data/plans/logo/PreparationGFE75Logo';
 import type { PreparationPlan } from '~/data/plans/PreparationPlans';
 import { getPreparationPlanTheme } from '~/data/plans/PreparationPlans';
 
-import FeedbackDialog from '~/components/global/feedback/FeedbackDialog';
-import { useUserPreferences } from '~/components/global/UserPreferencesProvider';
 import type { QuestionMetadata } from '~/components/interviews/questions/common/QuestionsTypes';
 import QuestionsLearningList from '~/components/interviews/questions/listings/learning/QuestionsLearningList';
 import InterviewsRecommendedPrepStrategyPageTitleSection from '~/components/interviews/recommended/InterviewsRecommendedPrepStrategyPageTitleSection';
 import MDXContent from '~/components/mdx/MDXContent';
 import Container from '~/components/ui/Container';
 import Section from '~/components/ui/Heading/HeadingContext';
-import Text, { textVariants } from '~/components/ui/Text';
-import { themeOutlineElementBrandColor_FocusVisible } from '~/components/ui/theme';
+import Text from '~/components/ui/Text';
 
 import {
   categorizeQuestionListSessionProgress,
@@ -44,7 +39,7 @@ type Props = Readonly<{
   systemDesignQuestions: ReadonlyArray<QuestionMetadata>;
 }>;
 
-export default function InterviewsGFE75Page({
+export default function InterviewsBlind75Page({
   quizQuestions,
   codingQuestions,
   systemDesignQuestions,
@@ -54,9 +49,6 @@ export default function InterviewsGFE75Page({
 }: Props) {
   const intl = useIntl();
   const user = useUser();
-
-  const { setShowFeedbackWidget } = useUserPreferences();
-  const [isOpenFeedback, setIsOpenFeedback] = useState(false);
 
   const { data: questionProgressParam } = trpc.questionProgress.getAll.useQuery(
     undefined,
@@ -93,24 +85,24 @@ export default function InterviewsGFE75Page({
       icon: RiWindowLine,
       label: intl.formatMessage({
         defaultMessage: 'Code in browser',
-        description: 'Features for interviews questions',
-        id: 'qZTabX',
+        description: 'Features for blind75',
+        id: 'e/MXjM',
       }),
     },
     {
       icon: RiVerifiedBadgeLine,
       label: intl.formatMessage({
-        defaultMessage: 'Official solutions',
-        description: 'Features for interviews questions',
-        id: 'l+NV6Y',
+        defaultMessage: 'Official solutions in JS/TS',
+        description: 'Features for blind75',
+        id: 'RW0xSE',
       }),
     },
     {
       icon: RiFlaskLine,
       label: intl.formatMessage({
         defaultMessage: 'Test cases',
-        description: 'Features for interviews questions',
-        id: 'CZJo2K',
+        description: 'Features for blind75',
+        id: 'KE8wmG',
       }),
     },
   ];
@@ -126,40 +118,34 @@ export default function InterviewsGFE75Page({
         <InterviewsRecommendedPrepStrategyPageTitleSection
           description={plan.description}
           features={features}
-          logo={<PreparationGFE75Logo />}
+          icon={planTheme.iconOutline}
           longDescription={
             <div className="flex flex-col gap-4">
               <Text color="secondary" size="body1">
                 <FormattedMessage
-                  defaultMessage="The smallest list of practice questions that gets you the most mileage in your preparation. Covers the most commonly asked front end interview topics."
-                  description="Description for GFE75 page"
-                  id="5jNSb2"
+                  defaultMessage="Front end interviews are mostly practical in nature – till you're met with the traditional data structure and algorithms questions that are expected of traditional software engineering interviews."
+                  description="Description for Blind75 page"
+                  id="Eq+Sdc"
                 />
               </Text>
               <Text color="secondary" size="body1">
                 <FormattedMessage
-                  defaultMessage="Created with the expertise of senior to staff front end interviewers from some of the top companies in the world. <button>Have a suggestion?</button>"
-                  description="Description for GFE75 page"
-                  id="L2J7Pv"
-                  values={{
-                    button: (chunks) => (
-                      <button
-                        className={clsx(
-                          textVariants({ color: 'active', size: 'body1' }),
-                          themeOutlineElementBrandColor_FocusVisible,
-                        )}
-                        type="button"
-                        onClick={() => setIsOpenFeedback(true)}>
-                        {chunks}
-                      </button>
-                    ),
-                  }}
+                  defaultMessage="Our recommended approach is to work on the Blind75, which is the smallest list of data structures and algorithms (DSA) questions that prepares you well for such interviews. Many candidates use the Blind 75 list as a study guide, working through each problem and understanding the underlying concepts, patterns, and techniques."
+                  description="Description for Blind75 page"
+                  id="1Dvsx4"
+                />
+              </Text>
+              <Text color="secondary" size="body1">
+                <FormattedMessage
+                  defaultMessage="We've solved all of these questions in JavaScript / TypeScript, which would be friendly for the front end engineering community."
+                  description="Description for Blind75 page"
+                  id="Wc2sX9"
                 />
               </Text>
             </div>
           }
           metadata={metadata}
-          questionsSessionKey="greatfrontend75"
+          questionsSessionKey="blind75"
           themeBackgroundClass={planTheme.gradient.className}
           title={plan.name}
         />
@@ -183,14 +169,6 @@ export default function InterviewsGFE75Page({
           )}
         </Container>
       </Section>
-
-      <FeedbackDialog
-        isShown={isOpenFeedback}
-        onClose={() => setIsOpenFeedback(false)}
-        onHideWidgetForSession={() => {
-          setShowFeedbackWidget(false);
-        }}
-      />
     </div>
   );
 }

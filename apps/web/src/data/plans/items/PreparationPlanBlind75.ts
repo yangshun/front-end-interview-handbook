@@ -1,30 +1,30 @@
-import { RiStarFill, RiStarLine } from 'react-icons/ri';
+import { RiEye2Fill, RiEye2Line } from 'react-icons/ri';
 import type { IntlShape } from 'react-intl';
 
 import type { QuestionListTheme } from '~/components/interviews/questions/common/QuestionsTypes';
 import { type ThemeGradient } from '~/components/ui/theme';
 
 import { PreparationPlanQuizImportanceHighJavaScript } from './PreparationPlanQuizQuestions';
-import PreparationGFE75Logo from '../logo/PreparationGFE75Logo';
 import type { PreparationPlan } from '../PreparationPlans';
 
-export function getPreparationPlanGFE75(intl: IntlShape): PreparationPlan {
+export function getPreparationPlanBlind75(intl: IntlShape): PreparationPlan {
   return {
     description: intl.formatMessage({
-      defaultMessage: 'Most important 75 questions for front end interviews.',
-      description: 'Long description for GFE75 plan',
-      id: 'i0GIaV',
+      defaultMessage:
+        'Most important 75 questions for data structure and algorithm style interviews',
+      description: 'Long description for Blind75 plan',
+      id: 'piWUjn',
     }),
-    href: '/interviews/greatfrontend75',
+    href: '/interviews/blind75',
     longName: intl.formatMessage({
-      defaultMessage: 'GreatFrontend 75',
-      description: 'Long label for GFE75 study plan',
-      id: 'c3ZWbk',
+      defaultMessage: 'Blind75',
+      description: 'Long label for Blind75 study plan',
+      id: 'zAdlgk',
     }),
     name: intl.formatMessage({
-      defaultMessage: 'GFE 75',
-      description: 'Short label for GFE75 study plan',
-      id: 'XFNi6J',
+      defaultMessage: 'Blind75',
+      description: 'Short label for Blind75 study plan',
+      id: 'MARU+b',
     }),
     questions: {
       javascript: [
@@ -67,26 +67,28 @@ export function getPreparationPlanGFE75(intl: IntlShape): PreparationPlan {
       description: intl.formatMessage({
         defaultMessage:
           'The 75 most important practice questions to master for data structures and algorithms interviews, written in JavaScript / TypeScript for front end engineers',
-        description: 'Description of GFE75 page',
-        id: 'YryFDH',
+        description: 'Description of Blind75 page',
+        id: '2wBW3u',
       }),
       socialTitle: intl.formatMessage({
-        defaultMessage: 'GFE75 | GreatFrontEnd',
-        description: 'OG title of GFE75 page',
-        id: 'QJUTsK',
+        defaultMessage: 'Blind75 | GreatFrontEnd',
+        description: 'OG title of Blind75 page',
+        id: 'MObOIi',
       }),
       title: intl.formatMessage({
-        defaultMessage: 'GFE 75 - Practice In-browser with Detailed Solutions',
-        description: 'Title of GFE75 page',
-        id: 'QMfLyD',
+        defaultMessage:
+          'Blind75 - Practice In-Browser with Solutions in JavaScript',
+        description: 'Title of Blind75 page',
+        id: '3+kGwu',
       }),
     },
     shortDescription: intl.formatMessage({
-      defaultMessage: 'Most important 75 questions for front end interviews.',
-      description: 'Short description for GFE75 plan',
-      id: '2Bggln',
+      defaultMessage:
+        'Most important 75 questions for data structure and algorithm style interviews',
+      description: 'Short description for Blind75 plan',
+      id: 'ngnwcj',
     }),
-    type: 'greatfrontend75',
+    type: 'blind75',
   };
 }
 
@@ -96,11 +98,10 @@ const gradient: ThemeGradient<'#B7B1FF', '#4B468B'> = {
   startColor: '#B7B1FF',
 };
 
-export function getPreparationPlanThemeGFE75(): QuestionListTheme {
+export function getPreparationPlanThemeBlind75(): QuestionListTheme {
   return {
-    customIcon: PreparationGFE75Logo,
     gradient,
-    iconOutline: RiStarLine,
-    iconSolid: RiStarFill,
+    iconOutline: RiEye2Line,
+    iconSolid: RiEye2Fill,
   };
 }

@@ -178,6 +178,7 @@ export type QuestionList = Readonly<{
   questions: Record<QuestionFormat, ReadonlyArray<QuestionSlug>>;
   seo: {
     description: string;
+    socialTitle?: string;
     title: string;
   };
   shortDescription: string;

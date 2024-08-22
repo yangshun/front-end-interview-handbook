@@ -407,6 +407,10 @@
     "defaultMessage": "Gamify your learning and track your progress",
     "description": "Title of 'Gamify your learning' feature in Projects marketing page"
   },
+  "1Dvsx4": {
+    "defaultMessage": "Our recommended approach is to work on the Blind75, which is the smallest list of data structures and algorithms (DSA) questions that prepares you well for such interviews. Many candidates use the Blind 75 list as a study guide, working through each problem and understanding the underlying concepts, patterns, and techniques.",
+    "description": "Description for Blind75 page"
+  },
   "1Fl422": {
     "defaultMessage": "Browse content series that are tailored to your experience level.",
     "description": "Browse series section description in blog homepage"
@@ -575,6 +579,10 @@
     "defaultMessage": "Claim {discountPercentage}% off all plans by completing simple social tasks!",
     "description": "Title for rewards page"
   },
+  "2wBW3u": {
+    "defaultMessage": "The 75 most important practice questions to master for data structures and algorithms interviews, written in JavaScript / TypeScript for front end engineers",
+    "description": "Description of Blind75 page"
+  },
   "2y24a/": {
     "defaultMessage": "Save",
     "description": "Save button label"
@@ -590,6 +598,10 @@
   "3+YLNZ": {
     "defaultMessage": "You replied to <recipientProfileLink>{recipient}</recipientProfileLink> on the challenge forum for <link>{challengeTitle}</link>: <comment>\"{description}\"</comment>",
     "description": "Log message for you replying to someone on the challenge forum"
+  },
+  "3+kGwu": {
+    "defaultMessage": "Blind75 - Practice In-Browser with Solutions in JavaScript",
+    "description": "Title of Blind75 page"
   },
   "37Ttml": {
     "defaultMessage": "Security",
@@ -1106,6 +1118,10 @@
   "7Iapcq": {
     "defaultMessage": "Study plan to prepare for front end interviews in 3 months",
     "description": "Title of 3 Months Preparation Plan page"
+  },
+  "7J8+8B": {
+    "defaultMessage": "Share",
+    "description": "Share button label"
   },
   "7Korc4": {
     "defaultMessage": "Growth Mindset Questions",
@@ -2055,6 +2071,10 @@
     "defaultMessage": "Try changing the filters",
     "description": "Subtitle for empty state when no articles are returned from application of filters on blog list"
   },
+  "Eq+Sdc": {
+    "defaultMessage": "Front end interviews are mostly practical in nature – till you're met with the traditional data structure and algorithms questions that are expected of traditional software engineering interviews.",
+    "description": "Description for Blind75 page"
+  },
   "EqpH9/": {
     "defaultMessage": "Go to the live site for this submission",
     "description": "Tooltip for preview solution button"
@@ -2659,10 +2679,6 @@
     "defaultMessage": "Can't find the answer you are looking for? <link>Reach out to us!</link>",
     "description": "Subtitle of Homepage's FAQ section, encouraging users to contact us if none of the FAQs resolve their problems"
   },
-  "JTc/MW": {
-    "defaultMessage": "Most important 75 questions for front end interviews.",
-    "description": "Description of GFE75 page"
-  },
   "JUhFP/": {
     "defaultMessage": "Minimum {minNumber} characters. Letters and digits required.",
     "description": "Password creation criteria"
@@ -2754,6 +2770,10 @@
   "KDDzWX": {
     "defaultMessage": "{questionExcerpt} using {questionFramework}",
     "description": "Description of Front End Interview UI Coding Questions practice page"
+  },
+  "KE8wmG": {
+    "defaultMessage": "Test cases",
+    "description": "Features for blind75"
   },
   "KIP7Ey": {
     "defaultMessage": "Show in progress challenges",
@@ -3079,6 +3099,10 @@
     "defaultMessage": "Next.js, Nuxt, SvelteKit",
     "description": "Placeholder for tech stack field"
   },
+  "MARU+b": {
+    "defaultMessage": "Blind75",
+    "description": "Short label for Blind75 study plan"
+  },
   "MCqeck": {
     "defaultMessage": "Testimonials",
     "description": "Testimonial section title"
@@ -3114,6 +3138,10 @@
   "MNzCyG": {
     "defaultMessage": "Store your code in a public GitHub repository",
     "description": "Description for GitHub repo step in project submission checklist"
+  },
+  "MObOIi": {
+    "defaultMessage": "Blind75 | GreatFrontEnd",
+    "description": "OG title of Blind75 page"
   },
   "MOxuKN": {
     "defaultMessage": "Select question category",
@@ -3354,10 +3382,6 @@
   "OOyT6O": {
     "defaultMessage": "An error occurred while formatting the code",
     "description": "Error message shown when an error occurs while formatting code"
-  },
-  "OSrT+C": {
-    "defaultMessage": "Share",
-    "description": "Blog share button label"
   },
   "OTyn9U": {
     "defaultMessage": "Resubscribe to access",
@@ -3651,9 +3675,17 @@
     "defaultMessage": "Front end system design resources are virtually non-existent. This is the only place you'll find in-depth solutions for front end system design questions along with our proven answering framework.",
     "description": "Subtitle for an example list of User Interface Questions on marketing pages"
   },
+  "QJUTsK": {
+    "defaultMessage": "GFE75 | GreatFrontEnd",
+    "description": "OG title of GFE75 page"
+  },
   "QJaxVF": {
     "defaultMessage": "Our focus is currently on expanding our question base. New coding and system design questions are added to the platform on a weekly basis.",
     "description": "Question base section subtitle - first paragraph"
+  },
+  "QMfLyD": {
+    "defaultMessage": "GFE 75 - Practice In-browser with Detailed Solutions",
+    "description": "Title of GFE75 page"
   },
   "QNqh1P": {
     "defaultMessage": "Experience",
@@ -3842,6 +3874,10 @@
   "RUj4TG": {
     "defaultMessage": "Challenges | Progress | {name}",
     "description": "Title of user profile challenge page"
+  },
+  "RW0xSE": {
+    "defaultMessage": "Official solutions in JS/TS",
+    "description": "Features for blind75"
   },
   "RWWOGp": {
     "defaultMessage": "We provide a roadmap of all the core skills needed to be a great front end engineer, from beginner to advanced. For each skill, we suggest good resources for you to study and projects you can build on our platform to learn the skill. This roadmap is curated by senior engineers with extensive experience in the industry, ensuring the quality and trustworthiness of the content.",
@@ -4555,6 +4591,10 @@
     "defaultMessage": "Leveled Up!",
     "description": "Subtext for level Up"
   },
+  "Wc2sX9": {
+    "defaultMessage": "We've solved all of these questions in JavaScript / TypeScript, which would be friendly for the front end engineering community.",
+    "description": "Description for Blind75 page"
+  },
   "WctnWS": {
     "defaultMessage": "Generating screenshots",
     "description": "Title for project submission screenshot generation"
@@ -4862,6 +4902,10 @@
   "YrEBRj": {
     "defaultMessage": "System design interviews",
     "description": "Front End system design interview questions"
+  },
+  "YryFDH": {
+    "defaultMessage": "The 75 most important practice questions to master for data structures and algorithms interviews, written in JavaScript / TypeScript for front end engineers",
+    "description": "Description of GFE75 page"
   },
   "YwBuE7": {
     "defaultMessage": "The skills you are using in this project, which are in our skills roadmap. Helps us track your progress on skills development",
@@ -5551,6 +5595,10 @@
     "defaultMessage": "Challenges",
     "description": "Link to all projects challenges page"
   },
+  "e/MXjM": {
+    "defaultMessage": "Code in browser",
+    "description": "Features for blind75"
+  },
   "e/t5dH": {
     "defaultMessage": "Download starter files",
     "description": "Label for \"Download starter files\" step in dialog on Projects project page"
@@ -5746,10 +5794,6 @@
   "fXNw/d": {
     "defaultMessage": "Your Email",
     "description": "Feedback widget email input field label"
-  },
-  "fXwTjj": {
-    "defaultMessage": "GreatFrontend 75",
-    "description": "Title of GFE75 page"
   },
   "fXyTam": {
     "defaultMessage": "Nightmare",
@@ -6206,6 +6250,10 @@
   "j63zLB": {
     "defaultMessage": "You can add more skills e.g. UI frameworks used after starting the project",
     "description": "Additional information for skills section on Projects project page"
+  },
+  "j9eLks": {
+    "defaultMessage": "Contribute",
+    "description": "Button label for contribute"
   },
   "jGQnYd": {
     "defaultMessage": "Search coding questions",
@@ -6831,6 +6879,10 @@
     "defaultMessage": "Cancel",
     "description": "Label for cancel button for projects profile edit page"
   },
+  "ngnwcj": {
+    "defaultMessage": "Most important 75 questions for data structure and algorithm style interviews",
+    "description": "Short description for Blind75 plan"
+  },
   "nivf5h": {
     "defaultMessage": "General",
     "description": "Profile settings tab title"
@@ -7094,6 +7146,10 @@
   "pgK6Eb": {
     "defaultMessage": "Guidebook",
     "description": "How to prepare for front end system design interviews"
+  },
+  "piWUjn": {
+    "defaultMessage": "Most important 75 questions for data structure and algorithm style interviews",
+    "description": "Long description for Blind75 plan"
   },
   "piqimi": {
     "defaultMessage": "OFF",
@@ -8222,6 +8278,10 @@
   "zACRRV": {
     "defaultMessage": "Please enter your motivations",
     "description": "Error message for empty \"Other\" onboarding option in Projects"
+  },
+  "zAdlgk": {
+    "defaultMessage": "Blind75",
+    "description": "Long label for Blind75 study plan"
   },
   "zAl/H8": {
     "defaultMessage": "General account settings. Shared across all GreatFrontEnd products.",

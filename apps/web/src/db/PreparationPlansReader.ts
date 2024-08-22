@@ -18,6 +18,7 @@ export async function fetchPreparationPlans(
   const oneMonthQuestions: Array<string> = [];
   const threeMonthsQuestions: Array<string> = [];
   const gfe75Questions: Array<string> = [];
+  const blind75Questions: Array<string> = [];
 
   quizQuestions.forEach(({ slug, importance }) => {
     if (importance === 'high') {
@@ -25,6 +26,7 @@ export async function fetchPreparationPlans(
       oneMonthQuestions.push(slug);
       threeMonthsQuestions.push(slug);
       gfe75Questions.push(slug);
+      blind75Questions.push(slug);
 
       return;
     }
@@ -32,6 +34,7 @@ export async function fetchPreparationPlans(
       oneMonthQuestions.push(slug);
       threeMonthsQuestions.push(slug);
       gfe75Questions.push(slug);
+      blind75Questions.push(slug);
 
       return;
     }
@@ -44,6 +47,7 @@ export async function fetchPreparationPlans(
   preparationPlans['one-month'].questions.quiz = oneMonthQuestions;
   preparationPlans['three-months'].questions.quiz = threeMonthsQuestions;
   preparationPlans.greatfrontend75.questions.quiz = gfe75Questions;
+  preparationPlans.blind75.questions.quiz = gfe75Questions;
 
   return preparationPlans;
 }

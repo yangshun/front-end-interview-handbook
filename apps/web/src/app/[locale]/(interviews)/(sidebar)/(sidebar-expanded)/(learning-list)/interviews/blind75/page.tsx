@@ -17,7 +17,7 @@ import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
 import { getSiteOrigin } from '~/seo/siteUrl';
 
-import InterviewsGFE75Page from './InterviewsGFE75Page';
+import InterviewsGFE75Page from './InterviewsBlind75Page';
 
 async function getPreparationPlansSEO(
   planType: PreparationPlanType,
@@ -40,7 +40,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = params;
 
   const { title, description, href, socialTitle } =
-    await getPreparationPlansSEO('greatfrontend75', locale);
+    await getPreparationPlansSEO('blind75', locale);
 
   return defaultMetadata({
     description,
@@ -61,10 +61,10 @@ export default async function Page({ params }: Props) {
   const intl = await getIntlServerOnly(locale);
   // TODO: Remove this IntlShape typecast.
   const preparationPlans = await fetchPreparationPlans(intl as IntlShape);
-  const preparationPlan = preparationPlans.greatfrontend75;
+  const preparationPlan = preparationPlans.blind75;
 
   const { title, description, socialTitle, href } =
-    await getPreparationPlansSEO('greatfrontend75', locale);
+    await getPreparationPlansSEO('blind75', locale);
 
   const questions = await fetchQuestionsBySlug(
     preparationPlan.questions,
@@ -78,7 +78,7 @@ export default async function Page({ params }: Props) {
     questions.quiz as ReadonlyArray<QuestionMetadata>;
 
   const bottomContent = allInterviewsListingBottomContents.find(
-    (content) => content.slug === 'greatfrontend75',
+    (content) => content.slug === 'blind75',
   );
 
   return (

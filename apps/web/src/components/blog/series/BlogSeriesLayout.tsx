@@ -10,9 +10,9 @@ import type {
 } from '~/components/blog/BlogTypes';
 import BlogMainLayout from '~/components/blog/layout/BlogMainLayout';
 import BlogCategoryLabel from '~/components/blog/metadata/BlogCategoryLabel';
-import BlogCopyLinkButton from '~/components/blog/metadata/BlogCopyLinkButton';
 import BlogLevelLabel from '~/components/blog/metadata/BlogLevelLabel';
-import BlogShareButton from '~/components/blog/metadata/BlogShareButton';
+import CopyLinkButton from '~/components/common/CopyLinkButton';
+import ShareButton from '~/components/common/ShareButton';
 import { SidebarLinksList } from '~/components/common/SidebarLinksList';
 import Container from '~/components/ui/Container';
 import Divider from '~/components/ui/Divider';
@@ -96,8 +96,8 @@ export default function BlogSeriesLayout({
                     </section>
                     <section className="flex flex-wrap items-center justify-between gap-4">
                       <div className="flex items-center gap-x-4">
-                        <BlogCopyLinkButton href={metadata.href} />
-                        <BlogShareButton metadata={metadata} />
+                        <CopyLinkButton href={metadata.href} />
+                        <ShareButton metadata={metadata} />
                       </div>
                     </section>
                   </div>

@@ -1,22 +1,21 @@
 import clsx from 'clsx';
 import { usePathname } from 'next/navigation';
-import { type ReactNode, useState } from 'react';
+import { type ReactNode } from 'react';
 import {
   RiArrowDownSLine,
   RiArrowRightLine,
   RiCheckFill,
-  RiFlaskLine,
-  RiVerifiedBadgeLine,
-  RiWindowLine,
 } from 'react-icons/ri';
+import { RiQuestionnaireLine } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
 
-import PreparationGFE75Logo from '~/data/plans/logo/PreparationGFE75Logo';
+import { trpc } from '~/hooks/trpc';
 
-import FeedbackDialog from '~/components/global/feedback/FeedbackDialog';
-import { useUserPreferences } from '~/components/global/UserPreferencesProvider';
+import CopyLinkButton from '~/components/common/CopyLinkButton';
+import ShareButton from '~/components/common/ShareButton';
 import Anchor from '~/components/ui/Anchor';
 import Badge from '~/components/ui/Badge';
+import Button from '~/components/ui/Button';
 import Chip from '~/components/ui/Chip';
 import Divider from '~/components/ui/Divider';
 import {
@@ -24,30 +23,40 @@ import {
   dropdownContentItemClassName,
 } from '~/components/ui/DropdownMenu/dropdownStyles';
 import Heading from '~/components/ui/Heading';
-import Text, { textVariants } from '~/components/ui/Text';
+import Text from '~/components/ui/Text';
 import {
   themeBorderElementColor,
   themeOutlineElementBrandColor_FocusVisible,
   themeTextBrandColor_GroupHover,
   themeTextColor,
   themeTextFainterColor,
-  themeTextSubtitleColor,
   themeTextSubtleColor,
 } from '~/components/ui/theme';
 
-import QuestionsListSession from './QuestionsListSession';
-import QuestionListingQuestionCount from '../stats/QuestionListingQuestionCount';
+import InterviewsPageFeatures from '../common/InterviewsPageFeatures';
+import InterviewsPageHeaderLogo from '../common/InterviewsPageHeaderLogo';
+import QuestionsListSession from '../questions/listings/learning/QuestionsListSession';
+import QuestionListingQuestionCount from '../questions/listings/stats/QuestionListingQuestionCount';
 
 import * as DropdownMenuPrimitive from '@radix-ui/react-dropdown-menu';
+import { useUser } from '@supabase/auth-helpers-react';
 
-type Props = Readonly<{
-  description?: ReactNode;
-  icon: (props: React.ComponentProps<'svg'>) => JSX.Element;
-  themeBackgroundClass: string;
-  title: string;
-}>;
-
-function OtherItemsDropdown() {
+function OtherItemsDropdown({
+  sessions,
+}: {
+  sessions: ReadonlyArray<{
+    _count: {
+      progress: number;
+    };
+    key: string;
+  }>;
+}) {
+  const gfe75session = sessions.find(
+    (session_) => session_.key === 'greatfrontend75',
+  );
+  const blind75session = sessions.find(
+    (session_) => session_.key === 'blind75',
+  );
   // TODO(interviews-revamp): Recheck the data and need to add completed status to the chip
   const items = [
     {
@@ -57,12 +66,12 @@ function OtherItemsDropdown() {
     },
     {
       href: '/interviews/greatfrontend75',
-      isCompleted: false,
+      isCompleted: gfe75session?._count.progress === 75,
       label: 'GFE 75',
     },
     {
       href: '/interviews/blind75',
-      isCompleted: false,
+      isCompleted: blind75session?._count.progress === 75,
       label: 'Blind 75',
     },
     {
@@ -183,136 +192,127 @@ function OtherItemsDropdown() {
   );
 }
 
-export default function QuestionsGFE75TitleSection({
+type CommonProps = Readonly<{
+  description: ReactNode;
+  features: ReadonlyArray<{
+    icon: (props: React.ComponentProps<'svg'>) => JSX.Element;
+    label: string;
+  }>;
+  longDescription: ReactNode;
+  metadata: {
+    description: string;
+    href: string;
+    title: string;
+  };
+  questionsSessionKey?: string;
+  themeBackgroundClass: string;
+  title: string;
+}>;
+
+type WithIconProps = CommonProps &
+  Readonly<{
+    icon: (props: React.ComponentProps<'svg'>) => JSX.Element;
+  }>;
+
+type WithLogoProps = CommonProps &
+  Readonly<{
+    logo: React.ReactNode;
+  }>;
+
+type Props = WithIconProps | WithLogoProps;
+
+export default function InterviewsRecommendedPrepStrategyPageTitleSection({
   description,
   themeBackgroundClass,
   title,
+  features,
+  longDescription,
+  metadata,
+  ...props
 }: Props) {
   const intl = useIntl();
-  const { setShowFeedbackWidget } = useUserPreferences();
-  const [isOpenFeedback, setIsOpenFeedback] = useState(false);
+  const user = useUser();
+  const { data: questionListSessions } =
+    trpc.questionLists.getActiveSessions.useQuery(undefined, {
+      enabled: !!user,
+    });
 
-  const features = [
-    {
-      icon: RiWindowLine,
-      label: intl.formatMessage({
-        defaultMessage: 'Code in browser',
-        description: 'Features for interviews questions',
-        id: 'qZTabX',
-      }),
-    },
-    {
-      icon: RiVerifiedBadgeLine,
-      label: intl.formatMessage({
-        defaultMessage: 'Official solutions',
-        description: 'Features for interviews questions',
-        id: 'l+NV6Y',
-      }),
-    },
-    {
-      icon: RiFlaskLine,
-      label: intl.formatMessage({
-        defaultMessage: 'Test cases',
-        description: 'Features for interviews questions',
-        id: 'CZJo2K',
-      }),
-    },
-  ];
+  const sessions = questionListSessions ?? [];
 
   return (
     <div className="flex flex-col gap-8">
-      <div className="flex items-center gap-3">
-        <Badge
-          label={intl.formatMessage({
-            defaultMessage: 'Recommended',
-            description: 'Label for Recommended tag',
-            id: 'baItxW',
-          })}
-          size="xs"
-          variant="primary"
-        />
-        <OtherItemsDropdown />
+      <div className="flex flex-wrap items-center justify-between gap-x-2 gap-y-4">
+        <div className="flex items-center gap-3">
+          <Badge
+            label={intl.formatMessage({
+              defaultMessage: 'Recommended',
+              description: 'Label for Recommended tag',
+              id: 'baItxW',
+            })}
+            size="xs"
+            variant="primary"
+          />
+          <OtherItemsDropdown sessions={sessions} />
+        </div>
+
+        <div className="flex items-center gap-2">
+          <Button
+            addonPosition="start"
+            icon={RiQuestionnaireLine}
+            label={intl.formatMessage({
+              defaultMessage: 'Contribute',
+              description: 'Button label for contribute',
+              id: 'j9eLks',
+            })}
+            size="xs"
+            variant="tertiary"
+          />
+          <div
+            className={clsx('h-3 w-px', 'bg-neutral-400 dark:bg-neutral-600')}
+          />
+          <CopyLinkButton href={metadata.href} size="xs" variant="tertiary" />
+          <ShareButton metadata={metadata} size="xs" variant="tertiary" />
+        </div>
       </div>
 
-      <div className="flex flex-col justify-between gap-x-8 gap-y-4 md:flex-row">
-        <div className="flex flex-col gap-6">
+      <div className="flex flex-col gap-6">
+        <div className="flex flex-col justify-between gap-x-8 gap-y-4 md:flex-row md:items-center">
           <div className="flex items-center gap-6">
-            <PreparationGFE75Logo />
+            {'logo' in props ? (
+              props.logo
+            ) : (
+              <InterviewsPageHeaderLogo
+                icon={props.icon}
+                startColor="#EAE8FF"
+                stopColor="#787878"
+              />
+            )}
             <Heading className={themeTextColor} color="custom" level="heading4">
               {title}
             </Heading>
           </div>
-
-          <div className="flex flex-col gap-10">
-            <Text color="subtitle" size="body1" weight="medium">
-              {description}
-            </Text>
-
-            {/* Features */}
-            <div className={clsx('flex flex-wrap items-center gap-6')}>
-              {features.map(({ icon: FeatureIcon, label }, index) => (
-                <div key={label} className={clsx('flex items-center gap-6')}>
-                  <div className={clsx('flex items-center gap-2')}>
-                    <FeatureIcon
-                      className={clsx('size-5', themeTextSubtitleColor)}
-                    />
-                    <Text color="secondary" size="body2" weight="medium">
-                      {label}
-                    </Text>
-                  </div>
-                  {index + 1 !== features.length && (
-                    <div
-                      className={clsx(
-                        'h-3 w-px',
-                        'bg-neutral-400 dark:bg-neutral-600',
-                      )}
-                    />
-                  )}
-                </div>
-              ))}
-            </div>
-          </div>
+          {/* Start/End Session */}
+          {props.questionsSessionKey && (
+            <QuestionsListSession
+              progressTrackingAvailableToNonPremiumUsers={false}
+              questionCount={75}
+              questionListKey={props.questionsSessionKey}
+              themeBackgroundClass={themeBackgroundClass}
+            />
+          )}
         </div>
+        <div className="flex flex-col gap-10">
+          <Text color="subtitle" size="body1" weight="medium">
+            {description}
+          </Text>
 
-        {/* Start/End Session */}
-        <QuestionsListSession
-          progressTrackingAvailableToNonPremiumUsers={false}
-          questionCount={75}
-          questionListKey="greatfrontend75"
-          themeBackgroundClass={themeBackgroundClass}
-        />
+          {/* Features */}
+          <InterviewsPageFeatures features={features} />
+        </div>
       </div>
       <Divider className="my-2 lg:my-0" />
       <div className={clsx('grid items-center gap-6 lg:grid-cols-12')}>
-        <div className="flex flex-col gap-4 lg:col-span-9">
-          <Text color="secondary" size="body1">
-            <FormattedMessage
-              defaultMessage="The smallest list of practice questions that gets you the most mileage in your preparation. Covers the most commonly asked front end interview topics."
-              description="Description for GFE75 page"
-              id="5jNSb2"
-            />
-          </Text>
-          <Text color="secondary" size="body1">
-            <FormattedMessage
-              defaultMessage="Created with the expertise of senior to staff front end interviewers from some of the top companies in the world. <button>Have a suggestion?</button>"
-              description="Description for GFE75 page"
-              id="L2J7Pv"
-              values={{
-                button: (chunks) => (
-                  <button
-                    className={clsx(
-                      textVariants({ color: 'active', size: 'body1' }),
-                      themeOutlineElementBrandColor_FocusVisible,
-                    )}
-                    type="button"
-                    onClick={() => setIsOpenFeedback(true)}>
-                    {chunks}
-                  </button>
-                ),
-              }}
-            />
-          </Text>
-        </div>
+        <div className="lg:col-span-9">{longDescription}</div>
         <aside className="lg:col-span-3">
           <QuestionListingQuestionCount
             count={75}
@@ -321,14 +321,6 @@ export default function QuestionsGFE75TitleSection({
           />
         </aside>
       </div>
-
-      <FeedbackDialog
-        isShown={isOpenFeedback}
-        onClose={() => setIsOpenFeedback(false)}
-        onHideWidgetForSession={() => {
-          setShowFeedbackWidget(false);
-        }}
-      />
     </div>
   );
 }

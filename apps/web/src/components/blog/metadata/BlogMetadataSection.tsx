@@ -1,10 +1,10 @@
 import type { BlogMetadata } from '~/components/blog/BlogTypes';
 import BlogAuthor from '~/components/blog/metadata/BlogAuthor';
 import BlogCategoryLabel from '~/components/blog/metadata/BlogCategoryLabel';
-import BlogCopyLinkButton from '~/components/blog/metadata/BlogCopyLinkButton';
 import BlogLevelLabel from '~/components/blog/metadata/BlogLevelLabel';
-import BlogShareButton from '~/components/blog/metadata/BlogShareButton';
 import BlogTags from '~/components/blog/metadata/BlogTags';
+import CopyLinkButton from '~/components/common/CopyLinkButton';
+import ShareButton from '~/components/common/ShareButton';
 import Divider from '~/components/ui/Divider';
 import type { TextSize } from '~/components/ui/Text';
 
@@ -34,8 +34,8 @@ export default function BlogMetadataSection({
       <section className="flex flex-wrap items-center justify-between gap-4">
         {metadata.author && <BlogAuthor metadata={metadata} />}
         <div className="flex items-center gap-x-4">
-          <BlogCopyLinkButton href={metadata.href} />
-          <BlogShareButton metadata={metadata} />
+          <CopyLinkButton href={metadata.href} />
+          <ShareButton metadata={metadata} />
         </div>
       </section>
       <Divider />

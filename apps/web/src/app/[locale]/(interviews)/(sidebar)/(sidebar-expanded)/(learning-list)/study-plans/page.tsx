@@ -65,16 +65,21 @@ export default async function Page({ params }: Props) {
     difficultySummaryOneWeek,
     difficultySummaryOneMonth,
     difficultySummaryThreeMonths,
+    difficultySummaryGFE75,
+    difficultySummaryBlind75,
   ] = await Promise.all([
     getDifficultySummaryForPlan(preparationPlans['one-week'], locale),
     getDifficultySummaryForPlan(preparationPlans['one-month'], locale),
     getDifficultySummaryForPlan(preparationPlans['three-months'], locale),
+    getDifficultySummaryForPlan(preparationPlans.greatfrontend75, locale),
+    getDifficultySummaryForPlan(preparationPlans.blind75, locale),
   ]);
 
   return (
     <InterviewsStudyPlansPage
       plansDifficultySummary={{
-        greatfrontend75: difficultySummaryThreeMonths,
+        blind75: difficultySummaryBlind75,
+        greatfrontend75: difficultySummaryGFE75,
         'one-month': difficultySummaryOneMonth,
         'one-week': difficultySummaryOneWeek,
         'three-months': difficultySummaryThreeMonths,

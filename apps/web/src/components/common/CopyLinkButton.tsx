@@ -5,7 +5,16 @@ import useCopyToClipboardWithRevert from '~/hooks/useCopyToClipboardWithRevert';
 
 import Button from '~/components/ui/Button';
 
-export default function BlogCopyLinkButton({ href }: { href: string }) {
+export type CopyLinkTriggerVariant = 'secondary' | 'tertiary';
+export type CopyLinkTriggerSize = 'md' | 'sm' | 'xs';
+
+type Props = Readonly<{
+  href: string;
+  size?: CopyLinkTriggerSize;
+  variant?: CopyLinkTriggerVariant;
+}>;
+
+export default function CopyLinkButton({ href, size, variant }: Props) {
   const intl = useIntl();
 
   const [isCopied, onCopy] = useCopyToClipboardWithRevert(1000);
@@ -27,8 +36,8 @@ export default function BlogCopyLinkButton({ href }: { href: string }) {
               id: 'dFjMzR',
             })
       }
-      size="sm"
-      variant="secondary"
+      size={size ?? 'sm'}
+      variant={variant ?? 'secondary'}
       onClick={() => onCopy(new URL(href, window.location.href).toString())}
     />
   );
