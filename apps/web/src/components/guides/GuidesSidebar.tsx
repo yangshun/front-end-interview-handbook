@@ -65,12 +65,12 @@ function GuideLinksListItem({
             'text-[0.8125rem] font-medium leading-4',
             'select-none outline-none',
             'transition-colors',
-            themeBackgroundElementEmphasizedStateColor_Hover,
+            'hover:bg-neutral-200/40 dark:hover:bg-neutral-800/40',
             [
               themeOutlineElement_FocusVisible,
               themeOutlineElementBrandColor_FocusVisible,
             ],
-            isActive && themeBackgroundCardColor,
+            isActive && 'bg-neutral-200/40 dark:bg-neutral-800/40',
             isActive
               ? clsx(themeTextColor, 'font-semibold')
               : clsx(

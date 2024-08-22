@@ -96,18 +96,7 @@ export default function GuidesMainLayout({
               'flex flex-col gap-12 overflow-auto',
               'w-full max-w-[620px]',
             )}>
-            <div className="flex flex-col gap-y-4">
-              {navigation.title && (
-                <Text
-                  className="block"
-                  color="secondary"
-                  size="body2"
-                  weight="medium">
-                  {navigation.title}
-                </Text>
-              )}
-              <div ref={articleContainerRef}>{children}</div>
-            </div>
+            <div ref={articleContainerRef}>{children}</div>
             <Section>
               <div className="flex flex-col gap-12">
                 {showMarkAsComplete &&
