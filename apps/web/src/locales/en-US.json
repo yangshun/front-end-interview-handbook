@@ -1683,10 +1683,6 @@
     "defaultMessage": "Pinned submissions",
     "description": "Pinned project submissions"
   },
-  "C/ODJo": {
-    "defaultMessage": "Toggle focus mode off",
-    "description": "Label for toggle focus mode off"
-  },
   "C/Z5Ui": {
     "defaultMessage": "Our <link>Component Tracks</link> allow you to build entire design systems or component libraries from scratch – including very practical ones like Marketing, E-Commerce and Web Applications.",
     "description": "Description of 'Build entire design systems or component libraries with our Component Tracks' feature in Projects marketing page"
@@ -5587,6 +5583,10 @@
     "defaultMessage": "The URL where your solution is hosted. Click 'Deployment instructions' to get suggestions on recommended free hosting providers.",
     "description": "Form description"
   },
+  "eLGecl": {
+    "defaultMessage": "Turn on focus mode",
+    "description": "Label for turning focus mode on"
+  },
   "eNCfLw": {
     "defaultMessage": "When your site URL was submitted, we automatically take screenshots of your pages. You can manually trigger retake with this button if your site has been updated",
     "description": "Tooltip for retake screenshot button"
@@ -7070,6 +7070,10 @@
   "pcXH8p": {
     "defaultMessage": "JavaScript Utilities",
     "description": "Front end JavaScript utility functions"
+  },
+  "pdO/k1": {
+    "defaultMessage": "Turn off focus mode",
+    "description": "Label for turning focus mode off"
   },
   "pdqnN/": {
     "defaultMessage": "Verification email sent",

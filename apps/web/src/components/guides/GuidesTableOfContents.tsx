@@ -208,8 +208,9 @@ export default function GuidesTableOfContents({
               iconClassName={themeTextSecondaryColor}
               iconSecondary_USE_SPARINGLY={RiArrowLeftSLine}
               isLabelHidden={true}
-              label="Collapsed table of contents"
+              label="Show table of contents"
               size="xs"
+              tooltip="Show table of contents"
               variant="tertiary"
               onClick={() => setCollapsedToC(false)}
             />
@@ -241,8 +242,9 @@ export default function GuidesTableOfContents({
                     icon={RiArrowRightSLine}
                     iconClassName={themeTextSecondaryColor}
                     isLabelHidden={true}
-                    label="Open table of contents"
+                    label="Hide table of contents"
                     size="xs"
+                    tooltip="Hide table of contents"
                     variant="tertiary"
                     onClick={() => setCollapsedToC(true)}
                   />

@@ -19,7 +19,7 @@ export default function GuidesFocusModeToggle({
   const intl = useIntl();
 
   const toggleButton = (
-    <div className="flex items-center justify-between gap-2">
+    <div className="flex w-full items-center justify-between gap-2">
       {!isFocusMode && (
         <Text size="body2" weight="medium">
           {intl.formatMessage({
@@ -59,20 +59,22 @@ export default function GuidesFocusModeToggle({
   );
 
   return (
-    <div>
-      {isFocusMode ? (
-        <Tooltip
-          asChild={true}
-          label={intl.formatMessage({
-            defaultMessage: 'Toggle focus mode off',
-            description: 'Label for toggle focus mode off',
-            id: 'C/ODJo',
-          })}>
-          {toggleButton}
-        </Tooltip>
-      ) : (
-        toggleButton
-      )}
-    </div>
+    <Tooltip
+      asChild={true}
+      label={
+        isFocusMode
+          ? intl.formatMessage({
+              defaultMessage: 'Turn off focus mode',
+              description: 'Label for turning focus mode off',
+              id: 'pdO/k1',
+            })
+          : intl.formatMessage({
+              defaultMessage: 'Turn on focus mode',
+              description: 'Label for turning focus mode on',
+              id: 'eLGecl',
+            })
+      }>
+      {toggleButton}
+    </Tooltip>
   );
 }

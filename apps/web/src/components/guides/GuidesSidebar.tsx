@@ -223,7 +223,6 @@ export function GuidesSidebar({
       <nav
         className={clsx(
           'flex shrink-0 flex-col justify-end',
-          'transition-all',
           isSidebar && ['border-e', themeBorderColor],
           isFocusMode ? 'w-[78px]' : 'w-full',
           sticky && 'sticky',
@@ -281,10 +280,12 @@ export function GuidesSidebar({
         )}
         {isSidebar && (
           <div
-            className={clsx('w-full', 'px-6 py-2', [
-              'border-t',
-              themeBorderColor,
-            ])}>
+            className={clsx(
+              'flex items-center justify-stretch',
+              'w-full',
+              'h-12 px-6',
+              ['border-t', themeBorderColor],
+            )}>
             <GuidesFocusModeToggle
               isFocusMode={isFocusMode}
               toggleFocusMode={toggleFocusMode}
