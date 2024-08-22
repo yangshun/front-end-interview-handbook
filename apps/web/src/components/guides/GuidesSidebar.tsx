@@ -31,6 +31,7 @@ import GuidesFocusModeToggle from './GuidesFocusModeToggle';
 import type {
   BaseGuideNavigationLink,
   GuideNavigation,
+  GuideNavigationItems,
   GuideNavigationLinks,
 } from './types';
 import { useUserProfile } from '../global/UserProfileProvider';
@@ -80,12 +81,14 @@ function GuideLinksListItem({
           href={link.href}
           style={{ marginLeft: 12 * nestedLevel }}
           variant="unstyled">
-          <Icon
-            className={clsx(
-              'size-4 shrink-0',
-              !isActive && themeTextFaintColor,
-            )}
-          />
+          {Icon && (
+            <Icon
+              className={clsx(
+                'size-4 shrink-0',
+                !isActive && themeTextFaintColor,
+              )}
+            />
+          )}
           <div className="flex items-center gap-x-2">
             <span className="line-clamp-1">{link.title}</span>
             {(() => {
@@ -95,7 +98,7 @@ function GuideLinksListItem({
                 }
               }
               if (
-                link.type === 'question' &&
+                link.kind === 'question' &&
                 !ReadyQuestions.includes(link.slug)
               ) {
                 return <RiErrorWarningLine className="size-4 shrink-0" />;
@@ -106,9 +109,6 @@ function GuideLinksListItem({
           </div>
         </Anchor>
       </div>
-
-      {/* TODO: Need to remove this when we restructure guides because there will
-      be one 2 level of structure */}
       {link.items != null && (
         <GuideLinksList items={link.items} nestedLevel={nestedLevel + 1} />
       )}
@@ -142,19 +142,18 @@ function GuideLinksList({
 }
 
 function SectionHeading({
-  section,
-}: Readonly<{
-  section: {
-    links: GuideNavigationLinks;
-    title: string;
-  };
-}>) {
+  item,
+}: Readonly<{ item: GuideNavigationItems[number] }>) {
   const { pathname } = useI18nPathname();
 
-  const isActiveSection = section.links.find((link) => link.href === pathname);
+  if (item.type === 'link') {
+    return <GuideLinksListItem key={item.href} link={item} nestedLevel={0} />;
+  }
+
+  const isActiveSection = item.links.find((link) => link.href === pathname);
 
   return (
-    <AccordionPrimitive.Item value={section.title}>
+    <AccordionPrimitive.Item value={item.title}>
       <AccordionPrimitive.Header>
         <AccordionPrimitive.Trigger
           className={clsx(
@@ -177,7 +176,7 @@ function SectionHeading({
               'group-hover:text-neutral-700 dark:group-hover:text-neutral-300',
               'transition-colors',
             )}>
-            {section.title}
+            {item.title}
           </span>
           <RiArrowDownSLine
             aria-hidden={true}
@@ -188,7 +187,6 @@ function SectionHeading({
           />
         </AccordionPrimitive.Trigger>
       </AccordionPrimitive.Header>
-
       <AccordionPrimitive.Content
         className={clsx(
           'overflow-hidden transition-all',
@@ -196,7 +194,7 @@ function SectionHeading({
           'data-[state=closed]:animate-accordion-up overflow-hidden',
         )}>
         <Section>
-          <GuideLinksList id={section.title} items={section.links} />
+          <GuideLinksList id={item.title} items={item.links} />
         </Section>
       </AccordionPrimitive.Content>
     </AccordionPrimitive.Item>
@@ -265,14 +263,17 @@ export function GuidesSidebar({
               )}>
               <ScrollArea>
                 <AccordionPrimitive.Root
-                  className={clsx('flex flex-col', 'p-4')}
+                  asChild={true}
+                  className={clsx('flex flex-col gap-y-px', 'p-4')}
                   defaultValue={navigation.items.map(
                     (section) => section.title,
                   )}
                   type="multiple">
-                  {navigation.items.map((section) => (
-                    <SectionHeading key={section.title} section={section} />
-                  ))}
+                  <ul>
+                    {navigation.items.map((item) => (
+                      <SectionHeading key={item.title} item={item} />
+                    ))}
+                  </ul>
                 </AccordionPrimitive.Root>
               </ScrollArea>
             </div>

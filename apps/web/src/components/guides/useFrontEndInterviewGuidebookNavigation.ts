@@ -2,11 +2,7 @@ import {
   RiCodeSSlashLine,
   RiDashboardLine,
   RiFileList3Line,
-  RiFlowChart,
   RiJavascriptLine,
-  RiPlayFill,
-  RiQuestionnaireLine,
-  RiSurveyLine,
   RiTerminalWindowLine,
 } from 'react-icons/ri';
 import { TbBinaryTree } from 'react-icons/tb';
@@ -38,6 +34,7 @@ function useCodingSectionItem() {
       description: 'Coding interview questions',
       id: 'GHbtp8',
     }),
+    type: 'link',
   };
 
   return codingSectionItem;
@@ -47,9 +44,9 @@ export function useQuizSectionItem() {
   const intl = useIntl();
   const quizSectionItem: GuideNavigationLink = {
     cardTitle: intl.formatMessage({
-      defaultMessage: 'Intro to Quiz Questions',
+      defaultMessage: 'Intro to quiz questions',
       description: 'Introduction to front end quiz questions',
-      id: '8KFYWs',
+      id: 'Eru4eL',
     }),
     description: intl.formatMessage({
       defaultMessage:
@@ -58,13 +55,13 @@ export function useQuizSectionItem() {
       id: 'XdezZk',
     }),
     href: `${basePath}/quiz`,
-    icon: RiQuestionnaireLine,
     slug: 'quiz',
     title: intl.formatMessage({
-      defaultMessage: 'Overview',
+      defaultMessage: 'Quiz interviews',
       description: 'Front end quiz interview questions',
-      id: 'EefJIj',
+      id: 'P3l/Ce',
     }),
+    type: 'link',
   };
 
   return quizSectionItem;
@@ -87,6 +84,7 @@ function useCodingSectionFormatItems() {
         description: 'Algorithm Coding Interview Questions',
         id: 'R4OrtB',
       }),
+      type: 'link',
     },
     javascript: {
       description: intl.formatMessage({
@@ -103,6 +101,7 @@ function useCodingSectionFormatItems() {
         description: 'Front End JavaScript questions',
         id: 'Y3gxjL',
       }),
+      type: 'link',
     },
     userInterface: {
       description: intl.formatMessage({
@@ -119,6 +118,7 @@ function useCodingSectionFormatItems() {
         description: 'Front End User Interface interview questions',
         id: 'AeHj3S',
       }),
+      type: 'link',
     },
     userInterfaceAPI: {
       href: `${basePath}/user-interface-components-api-design-principles`,
@@ -129,6 +129,7 @@ function useCodingSectionFormatItems() {
         description: 'User Interface components API design principles',
         id: 'jmGaKF',
       }),
+      type: 'link',
     },
     userInterfaceCheatsheet: {
       href: `${basePath}/user-interface-questions-cheatsheet`,
@@ -140,6 +141,7 @@ function useCodingSectionFormatItems() {
           'Best practices for building UI during front end interviews',
         id: 'l6uDOh',
       }),
+      type: 'link',
     },
   } as const;
 
@@ -169,23 +171,14 @@ export function useFrontEndInterviewGuidebookNavigation() {
   const navigation: GuideNavigation = {
     items: [
       {
-        links: [
-          {
-            href: `${basePath}`,
-            icon: RiPlayFill,
-            slug: 'introduction',
-            title: intl.formatMessage({
-              defaultMessage: 'Introduction',
-              description: 'Front End interview preparation guide',
-              id: '99Ewym',
-            }),
-          },
-        ],
+        href: basePath,
+        slug: 'introduction',
         title: intl.formatMessage({
-          defaultMessage: 'Overview',
-          description: 'Front End User Interface interviews overview',
-          id: '03oqt6',
+          defaultMessage: 'Introduction',
+          description: 'Front End interview preparation guide',
+          id: '99Ewym',
         }),
+        type: 'link',
       },
       {
         links: [
@@ -198,6 +191,7 @@ export function useFrontEndInterviewGuidebookNavigation() {
           description: 'Preparing by front end interview question format',
           id: 'O6pifk',
         }),
+        type: 'list',
       },
       {
         links: [
@@ -210,52 +204,28 @@ export function useFrontEndInterviewGuidebookNavigation() {
           description: 'Preparing by front end interview question format',
           id: '73za88',
         }),
+        type: 'list',
       },
       {
-        links: [
-          {
-            href: `${basePath}/system-design`,
-            icon: RiFlowChart,
-            slug: 'system-design',
-            title: intl.formatMessage({
-              defaultMessage: 'Overview',
-              description: 'Front End system design interview questions',
-              id: '5xPfvT',
-            }),
-          },
-        ],
+        href: `${basePath}/system-design`,
+        slug: 'system-design',
         title: intl.formatMessage({
           defaultMessage: 'System design interviews',
-          description: 'Preparing by front end interview question format',
-          id: 'MUF+w+',
+          description: 'Front End system design interview questions',
+          id: 'YrEBRj',
         }),
+        type: 'link',
       },
+      quizSectionItem,
       {
-        links: [quizSectionItem],
+        href: `${basePath}/resume`,
+        slug: 'resume',
         title: intl.formatMessage({
-          defaultMessage: 'Quiz interviews',
-          description: 'Preparing by front end interview question format',
-          id: 'SE9KKD',
+          defaultMessage: 'Resume preparation',
+          description: 'Preparing a resume for front end interviews',
+          id: 'kPBwBR',
         }),
-      },
-      {
-        links: [
-          {
-            href: `${basePath}/resume`,
-            icon: RiSurveyLine,
-            slug: 'resume',
-            title: intl.formatMessage({
-              defaultMessage: 'Resume preparation',
-              description: 'Preparing a resume for front end interviews',
-              id: 'kPBwBR',
-            }),
-          },
-        ],
-        title: intl.formatMessage({
-          defaultMessage: 'Getting the interview',
-          description: 'Getting the front end interview',
-          id: 'sblybh',
-        }),
+        type: 'link',
       },
     ],
     title: intl.formatMessage({

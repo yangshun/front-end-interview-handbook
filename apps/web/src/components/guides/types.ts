@@ -2,10 +2,11 @@ export type BaseGuideNavigationLink<T = Record<string, unknown>> = Readonly<
   T & {
     description?: string;
     href: string;
-    icon: (props: React.ComponentProps<'svg'>) => JSX.Element;
+    icon?: (props: React.ComponentProps<'svg'>) => JSX.Element;
     items?: GuideNavigationLinks<BaseGuideNavigationLink<T>>;
     slug: string;
     title: string;
+    type: 'link';
   }
 >;
 
@@ -20,10 +21,12 @@ export type GuideNavigationLinks<
 export type GuideNavigationItems<
   Link extends BaseGuideNavigationLink = BaseGuideNavigationLink,
 > = ReadonlyArray<
-  Readonly<{
-    links: GuideNavigationLinks<Link>;
-    title: string;
-  }>
+  | Link
+  | Readonly<{
+      links: GuideNavigationLinks<Link>;
+      title: string;
+      type: 'list';
+    }>
 >;
 
 export type GuideNavigation<

@@ -35,7 +35,17 @@ function flattenNavigationItems<Link extends BaseGuideNavigationLink>({
       );
     });
   }
-  items.forEach((item) => flatten(item.links, [...crumbs, item.title]));
+
+  items.forEach((item) => {
+    if (item.type === 'list') {
+      flatten(item.links, [...crumbs, item.title]);
+    } else {
+      flatItems.push({
+        ...item,
+        breadcrumbs: [],
+      });
+    }
+  });
 
   return flatItems;
 }

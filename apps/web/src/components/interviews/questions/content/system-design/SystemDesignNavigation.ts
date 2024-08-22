@@ -41,8 +41,8 @@ import type { QuestionMetadata } from '../../common/QuestionsTypes';
 export const basePath = '/system-design';
 
 export type SystemDesignNavigationLink = BaseGuideNavigationLink<{
+  kind: 'guide' | 'question';
   premium: boolean;
-  type: 'guide' | 'question';
 }>;
 
 type NavigationLinks = ReadonlyArray<SystemDesignNavigationLink>;
@@ -95,6 +95,7 @@ export function useSystemDesignGuides() {
       }),
       href: basePath,
       icon: RiPlayFill,
+      kind: 'guide',
       premium: false,
       slug: 'introduction',
       title: intl.formatMessage({
@@ -102,7 +103,7 @@ export function useSystemDesignGuides() {
         description: 'Introduction to front end system design',
         id: '83GIBc',
       }),
-      type: 'guide',
+      type: 'link',
     },
     {
       description: intl.formatMessage({
@@ -113,6 +114,7 @@ export function useSystemDesignGuides() {
       }),
       href: `${basePath}/types-of-questions`,
       icon: RiShapesFill,
+      kind: 'guide',
       premium: false,
       slug: 'types-of-questions',
       title: intl.formatMessage({
@@ -120,7 +122,7 @@ export function useSystemDesignGuides() {
         description: 'Types of front end system design interview questions',
         id: 'sGF5oQ',
       }),
-      type: 'guide',
+      type: 'link',
     },
     {
       description: intl.formatMessage({
@@ -130,6 +132,7 @@ export function useSystemDesignGuides() {
       }),
       href: `${basePath}/framework`,
       icon: RiSettingsFill,
+      kind: 'guide',
       premium: false,
       slug: 'framework',
       title: intl.formatMessage({
@@ -138,7 +141,7 @@ export function useSystemDesignGuides() {
           "RADIO (acroynm) framework name for front end system design interviews. Don't translate RADIO",
         id: '434fyX',
       }),
-      type: 'guide',
+      type: 'link',
     },
     {
       description: intl.formatMessage({
@@ -148,6 +151,7 @@ export function useSystemDesignGuides() {
       }),
       href: `${basePath}/evaluation-axes`,
       icon: RiPieChart2Fill,
+      kind: 'guide',
       premium: false,
       slug: 'evaluation-axes',
       title: intl.formatMessage({
@@ -155,7 +159,7 @@ export function useSystemDesignGuides() {
         description: 'Evaluation axes in front end system design interviews',
         id: 'E6yHUQ',
       }),
-      type: 'guide',
+      type: 'link',
     },
     {
       description: intl.formatMessage({
@@ -165,6 +169,7 @@ export function useSystemDesignGuides() {
       }),
       href: `${basePath}/common-mistakes`,
       icon: RiErrorWarningFill,
+      kind: 'guide',
       premium: false,
       slug: 'common-mistakes',
       title: intl.formatMessage({
@@ -173,7 +178,7 @@ export function useSystemDesignGuides() {
           'Common mistakes made during front end system design interviews',
         id: 'VJf77h',
       }),
-      type: 'guide',
+      type: 'link',
     },
     {
       description: intl.formatMessage({
@@ -184,6 +189,7 @@ export function useSystemDesignGuides() {
       }),
       href: `${basePath}/cheatsheet`,
       icon: RiFileList3Fill,
+      kind: 'guide',
       premium: false,
       slug: 'cheatsheet',
       title: intl.formatMessage({
@@ -192,7 +198,7 @@ export function useSystemDesignGuides() {
           'One-page summary sheet for front end system design interviews',
         id: '3WHiQS',
       }),
-      type: 'guide',
+      type: 'link',
     },
   ];
 
@@ -211,21 +217,24 @@ export function useSystemDesignNavigation() {
           description: 'How to prepare for front end system design interviews',
           id: 'pgK6Eb',
         }),
+        type: 'list',
       },
       {
         links: readySystemDesignQuestions.map((question) => ({
           href: question.href,
           icon: SystemDesignIcons[question.slug],
+          kind: 'question',
           premium: question.premium,
           slug: question.slug,
           title: question.title,
-          type: 'question',
+          type: 'link',
         })),
         title: intl.formatMessage({
           defaultMessage: 'Questions',
           description: 'Front end system design interviews questions',
           id: 'WDJgWl',
         }),
+        type: 'list',
       },
       {
         links: allSystemDesignQuestions
@@ -235,16 +244,18 @@ export function useSystemDesignNavigation() {
           .map((question) => ({
             href: question.href,
             icon: SystemDesignIcons[question.slug],
+            kind: 'question',
             premium: question.premium,
             slug: question.slug,
             title: question.title,
-            type: 'question',
+            type: 'link',
           })),
         title: intl.formatMessage({
-          defaultMessage: 'Coming Soon',
+          defaultMessage: 'Coming soon',
           description: 'Front end system design questions that are coming soon',
-          id: 'p97ubP',
+          id: '0krNBp',
         }),
+        type: 'list',
       },
     ],
     title: intl.formatMessage({

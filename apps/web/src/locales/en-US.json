@@ -255,10 +255,6 @@
     "defaultMessage": "Filter by component track",
     "description": "Tooltip for Component track filter for projects list"
   },
-  "03oqt6": {
-    "defaultMessage": "Overview",
-    "description": "Front End User Interface interviews overview"
-  },
   "04Q6JH": {
     "defaultMessage": "TypeScript supported",
     "description": "JavaScript questions can be done in TypeScript"
@@ -346,6 +342,10 @@
   "0izE97": {
     "defaultMessage": "Premium challenge that is unlocked",
     "description": "Label for projects premium challenge"
+  },
+  "0krNBp": {
+    "defaultMessage": "Coming soon",
+    "description": "Front end system design questions that are coming soon"
   },
   "0mKzkX": {
     "defaultMessage": "Practice questions by framework or language",
@@ -911,10 +911,6 @@
     "defaultMessage": "React Questions",
     "description": "React questions category long title"
   },
-  "5xPfvT": {
-    "defaultMessage": "Overview",
-    "description": "Front End system design interview questions"
-  },
   "5y9YGh": {
     "defaultMessage": "Submission title must contain at most {maxLength} character(s).",
     "description": "Error message for submission title"
@@ -1254,10 +1250,6 @@
   "8JoIUN": {
     "defaultMessage": "Coming soon",
     "description": "Tooltip for Coming Soon questions label"
-  },
-  "8KFYWs": {
-    "defaultMessage": "Intro to Quiz Questions",
-    "description": "Introduction to front end quiz questions"
   },
   "8Nm9WZ": {
     "defaultMessage": "Walmart",
@@ -1995,10 +1987,6 @@
     "defaultMessage": "There were some issues with taking a screenshot for your site. Please try again.",
     "description": "Error message for screenshot generation"
   },
-  "EHPx/Z": {
-    "defaultMessage": "Solving Common Questions",
-    "description": "Title for solving common behavioral questions section"
-  },
   "EHngws": {
     "defaultMessage": "Copied!",
     "description": "Indication that text has been copied"
@@ -2043,10 +2031,6 @@
     "defaultMessage": "Edit submission",
     "description": "Title of Projects edit submission page"
   },
-  "EefJIj": {
-    "defaultMessage": "Overview",
-    "description": "Front end quiz interview questions"
-  },
   "EflBca": {
     "defaultMessage": "Started: {daysSinceStarted} days",
     "description": "Days since started for Continue projects section on Projects dashboard page"
@@ -2074,6 +2058,10 @@
   "EqpH9/": {
     "defaultMessage": "Go to the live site for this submission",
     "description": "Tooltip for preview solution button"
+  },
+  "Eru4eL": {
+    "defaultMessage": "Intro to quiz questions",
+    "description": "Introduction to front end quiz questions"
   },
   "Et6OSf": {
     "defaultMessage": "Could not load the file from the repository. Select a different file to view.",
@@ -3131,10 +3119,6 @@
     "defaultMessage": "Select question category",
     "description": "Tab label to select another question category"
   },
-  "MUF+w+": {
-    "defaultMessage": "System design interviews",
-    "description": "Preparing by front end interview question format"
-  },
   "MV3NI4": {
     "defaultMessage": "You posted on the challenge forum for <link>{challengeTitle}</link>: <comment>\"{description}\"</comment>",
     "description": "Log message for you making a post on the challenge forum"
@@ -3266,6 +3250,10 @@
   "NdDD5W": {
     "defaultMessage": "Front End System Design Guidebook",
     "description": "Front end system design guidebook title"
+  },
+  "NgG1HQ": {
+    "defaultMessage": "Solving common questions",
+    "description": "Title for solving common behavioral questions section"
   },
   "NgxUnY": {
     "defaultMessage": "Difficulty",
@@ -3458,6 +3446,10 @@
   "P2baTC": {
     "defaultMessage": "Coding Format",
     "description": "Front end coding interview questions"
+  },
+  "P3l/Ce": {
+    "defaultMessage": "Quiz interviews",
+    "description": "Front end quiz interview questions"
   },
   "P3mHDw": {
     "defaultMessage": "Hoping to grow in skills / tools / frameworks",
@@ -3946,10 +3938,6 @@
   "SAjGy/": {
     "defaultMessage": "Review must not be generated or written with the assistance of artificial intelligence.",
     "description": "Condition for promotion"
-  },
-  "SE9KKD": {
-    "defaultMessage": "Quiz interviews",
-    "description": "Preparing by front end interview question format"
   },
   "SEXvzM": {
     "defaultMessage": "Our <link>Skills Roadmap</link> tells you the exact projects to build to train the skill you need - whether you are a complete beginner or senior engineer filling a skill gap.",
@@ -4862,6 +4850,10 @@
   "YpJ3q8": {
     "defaultMessage": "Reply to comment",
     "description": "Label for discussion post reply input"
+  },
+  "YrEBRj": {
+    "defaultMessage": "System design interviews",
+    "description": "Front End system design interview questions"
   },
   "YwBuE7": {
     "defaultMessage": "The skills you are using in this project, which are in our skills roadmap. Helps us track your progress on skills development",
@@ -7003,10 +6995,6 @@
     "defaultMessage": "Insert inline code",
     "description": "Inline code tooltip for Richtext toolbar"
   },
-  "p97ubP": {
-    "defaultMessage": "Coming Soon",
-    "description": "Front end system design questions that are coming soon"
-  },
   "p9IQRJ": {
     "defaultMessage": "GitHub username",
     "description": "GitHub profile form label"
@@ -7426,10 +7414,6 @@
   "saFHOR": {
     "defaultMessage": "Learn new skills, improve your techniques and stay updated on latest front end trends and developments.",
     "description": "Description of GreatFrontEnd blog homepage"
-  },
-  "sblybh": {
-    "defaultMessage": "Getting the interview",
-    "description": "Getting the front end interview"
   },
   "sfJ1Oa": {
     "defaultMessage": "Purchase premium to get access to all component tracks as well as exclusive skills, official how-to guides and production-ready Figma files.",

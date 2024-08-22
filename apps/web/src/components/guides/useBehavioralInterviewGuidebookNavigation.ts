@@ -35,6 +35,7 @@ export default function useBehavioralInterviewGuidebookNavigation() {
               description: 'Introduction to behavioral interviews',
               id: 'jTXr+7',
             }),
+            type: 'link',
           },
           {
             description: intl.formatMessage({
@@ -52,6 +53,7 @@ export default function useBehavioralInterviewGuidebookNavigation() {
               description: 'Most common behavioral interview questions',
               id: '8yQk1V',
             }),
+            type: 'link',
           },
         ],
         title: intl.formatMessage({
@@ -59,6 +61,7 @@ export default function useBehavioralInterviewGuidebookNavigation() {
           description: 'Overview of behavioral interview',
           id: 'OWKf+S',
         }),
+        type: 'list',
       },
       {
         links: [
@@ -79,6 +82,7 @@ export default function useBehavioralInterviewGuidebookNavigation() {
                 'How to answer the self introduction question in behavioral interviews',
               id: 'oNbAS2',
             }),
+            type: 'link',
           },
           {
             description: intl.formatMessage({
@@ -97,6 +101,7 @@ export default function useBehavioralInterviewGuidebookNavigation() {
                 'How to answer the "why work here" question in behavioral interviews',
               id: 'iCRUOb',
             }),
+            type: 'link',
           },
           {
             description: intl.formatMessage({
@@ -115,6 +120,7 @@ export default function useBehavioralInterviewGuidebookNavigation() {
                 'Best questions to ask at the end of a behavioral interviews',
               id: '+59/34',
             }),
+            type: 'link',
           },
           {
             description: intl.formatMessage({
@@ -133,6 +139,7 @@ export default function useBehavioralInterviewGuidebookNavigation() {
                 'Title for sidebar on problem solving situation questions in behavioral interviews',
               id: 'D5IZKC',
             }),
+            type: 'link',
           },
           {
             description: intl.formatMessage({
@@ -151,6 +158,7 @@ export default function useBehavioralInterviewGuidebookNavigation() {
                 'Title for sidebar on collaboration situation questions in behavioral interviews',
               id: '0GjR/X',
             }),
+            type: 'link',
           },
           {
             description: intl.formatMessage({
@@ -168,13 +176,15 @@ export default function useBehavioralInterviewGuidebookNavigation() {
               description: 'Title for growth mindset collaboration questions',
               id: '7Korc4',
             }),
+            type: 'link',
           },
         ],
         title: intl.formatMessage({
-          defaultMessage: 'Solving Common Questions',
+          defaultMessage: 'Solving common questions',
           description: 'Title for solving common behavioral questions section',
-          id: 'EHPx/Z',
+          id: 'NgG1HQ',
         }),
+        type: 'list',
       },
     ],
     title: intl.formatMessage({
