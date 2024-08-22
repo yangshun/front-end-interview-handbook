@@ -1455,6 +1455,10 @@
     "defaultMessage": "Front End Interview",
     "description": "Short title for Front End Interview Guidebook"
   },
+  "9xFHNn": {
+    "defaultMessage": "{questionTitle} | Front End System Design Question",
+    "description": "Title of system design question page"
+  },
   "A+H3cR": {
     "defaultMessage": "Practice Vanilla JavaScript UI Interview Questions with Solutions",
     "description": "Title of Vanilla JavaScript UI Interview Questions page"
@@ -3431,6 +3435,10 @@
     "defaultMessage": "Filter by contribution type",
     "description": "Tooltip for contribution type filter for contribution list"
   },
+  "Ozg1OX": {
+    "defaultMessage": "{questionTitle} | Front End System Design",
+    "description": "Social title of system design question page"
+  },
   "P/M97j": {
     "defaultMessage": "Go to Stripe",
     "description": "Label for CTA for stripe"
@@ -4638,6 +4646,10 @@
   "XHzBpN": {
     "defaultMessage": "+{points} rep",
     "description": "Reputation points to be gained"
+  },
+  "XI5h+Z": {
+    "defaultMessage": "Learn how to solve the {questionTitle} question in front end system design interviews using the RADIO framework. Read our deep-dives on many other top front end system questions.",
+    "description": "Description of system design question page"
   },
   "XIMn32": {
     "defaultMessage": "Complete | Rewards",
@@ -7722,10 +7734,6 @@
   "ujBJq7": {
     "defaultMessage": "All submissions",
     "description": "Label for All submissions sidebar item in Projects sidebar"
-  },
-  "ujL9EM": {
-    "defaultMessage": "{questionTitle} | Front End System Design Interview Questions with Solutions",
-    "description": "Title of system design question page"
   },
   "ujRHIv": {
     "defaultMessage": "Including core maintainers at popular open source projects and creators of Blind 75 and Front End Interview Handbook.",

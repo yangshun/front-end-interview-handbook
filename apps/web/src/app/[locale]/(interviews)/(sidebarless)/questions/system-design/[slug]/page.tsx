@@ -26,15 +26,34 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { question } = readQuestionSystemDesignContents(slug, locale);
 
   return defaultMetadata({
-    description: question.metadata.excerpt ?? '',
-    locale,
-    pathname: question.metadata.href,
-    title: intl.formatMessage(
+    description: intl.formatMessage(
       {
         defaultMessage:
-          '{questionTitle} | Front End System Design Interview Questions with Solutions',
+          'Learn how to solve the {questionTitle} question in front end system design interviews using the RADIO framework. Read our deep-dives on many other top front end system questions.',
+        description: 'Description of system design question page',
+        id: 'XI5h+Z',
+      },
+      {
+        questionTitle: question.metadata.title,
+      },
+    ),
+    locale,
+    pathname: question.metadata.href,
+    socialTitle: intl.formatMessage(
+      {
+        defaultMessage: '{questionTitle} | Front End System Design',
+        description: 'Social title of system design question page',
+        id: 'Ozg1OX',
+      },
+      {
+        questionTitle: question.metadata.title,
+      },
+    ),
+    title: intl.formatMessage(
+      {
+        defaultMessage: '{questionTitle} | Front End System Design Question',
         description: 'Title of system design question page',
-        id: 'ujL9EM',
+        id: '9xFHNn',
       },
       {
         questionTitle: question.metadata.title,
