@@ -2,7 +2,6 @@
 
 import clsx from 'clsx';
 import { useRef } from 'react';
-import { useToggle } from 'usehooks-ts';
 
 import { INTERVIEWS_REVAMP_DASHBOARD } from '~/data/FeatureFlags';
 
@@ -15,10 +14,10 @@ import type { GuideProgress } from '~/db/guides/GuideProgressTypes';
 import { useI18nPathname } from '~/next-i18nostic/src';
 
 import GuidesHeadingObserver from './GuidesHeadingObserver';
+import { useGuidesContext } from './GuidesLayout';
 import GuidesLayoutContent from './GuidesLayoutContent';
 import GuidesNavbar from './GuidesNavbar';
 import GuidesProgressAction from './GuidesProgressAction';
-import { GuidesSidebar } from './GuidesSidebar';
 import type { TableOfContents } from './GuidesTableOfContents';
 import GuidesTableOfContents from './GuidesTableOfContents';
 import type { GuideMetadata, GuideNavigation } from './types';
@@ -55,8 +54,8 @@ export default function GuidesMainLayout({
   ...props
 }: Props) {
   const { pathname } = useI18nPathname();
+  const { collapsedToC, setCollapsedToC } = useGuidesContext();
   const articleContainerRef = useRef<HTMLDivElement>(null);
-  const [isFocusMode, toggleFocusMode] = useToggle();
 
   const flatNavigationItems = useFlattenedNavigationItems(navigation);
 
@@ -91,90 +90,77 @@ export default function GuidesMainLayout({
           navigation={navigation}
           tableOfContents={tableOfContents}
         />
-        <div className="mx-auto flex">
+        <GuidesLayoutContent>
           <div
             className={clsx(
-              'hidden lg:contents',
-              'sticky top-[var(--global-sticky-height)]',
+              'flex flex-col gap-12 overflow-auto',
+              'w-full max-w-[620px]',
             )}>
-            <GuidesSidebar
-              isFocusMode={isFocusMode}
-              navigation={navigation}
-              sticky={true}
-              toggleFocusMode={toggleFocusMode}
-            />
-          </div>
-          <GuidesLayoutContent>
-            <div
-              className={clsx(
-                'flex flex-col gap-12 overflow-auto',
-                'w-full max-w-[620px]',
-              )}>
-              <div className="flex flex-col gap-y-4">
-                {navigation.title && (
-                  <Text
-                    className="block"
-                    color="secondary"
-                    size="body2"
-                    weight="medium">
-                    {navigation.title}
-                  </Text>
-                )}
-                <div ref={articleContainerRef}>{children}</div>
-              </div>
-              <Section>
-                <div className="flex flex-col gap-12">
-                  {showMarkAsComplete &&
-                    metadata &&
-                    INTERVIEWS_REVAMP_DASHBOARD && (
-                      <>
-                        <div
-                          className={clsx(
-                            'transition-colors',
-                            'isGuideProgressSuccess' in props &&
-                              props.isGuideProgressSuccess
-                              ? 'opacity-100'
-                              : 'opacity-0',
-                          )}>
-                          <GuidesProgressAction
-                            guideProgress={
-                              'guideProgress' in props
-                                ? props.guideProgress
-                                : null
-                            }
-                            metadata={metadata}
-                            nextArticle={nextArticle}
-                          />
-                        </div>
-                        <Divider />
-                      </>
-                    )}
-                  <ArticlePagination
-                    activeItem={pathname ?? ''}
-                    items={flatNavigationItems}
-                  />
-                </div>
-              </Section>
+            <div className="flex flex-col gap-y-4">
+              {navigation.title && (
+                <Text
+                  className="block"
+                  color="secondary"
+                  size="body2"
+                  weight="medium">
+                  {navigation.title}
+                </Text>
+              )}
+              <div ref={articleContainerRef}>{children}</div>
             </div>
-            {tableOfContents && (
-              <Section>
-                <div
-                  key={currentItem?.href}
-                  className="hidden w-[252px] overflow-hidden xl:sticky xl:block xl:flex-none xl:overflow-x-hidden"
-                  style={{
-                    height: 'calc(100vh - 48px - var(--global-sticky-height))',
-                    top: 'calc(48px + var(--global-sticky-height))',
-                  }}>
-                  <GuidesTableOfContents
-                    collapsed={isFocusMode}
-                    isCollapsible={true}
-                    tableOfContents={tableOfContents}
-                  />
-                </div>
-              </Section>
-            )}
-          </GuidesLayoutContent>
-        </div>
+            <Section>
+              <div className="flex flex-col gap-12">
+                {showMarkAsComplete &&
+                  metadata &&
+                  INTERVIEWS_REVAMP_DASHBOARD && (
+                    <>
+                      <div
+                        className={clsx(
+                          'transition-colors',
+                          'isGuideProgressSuccess' in props &&
+                            props.isGuideProgressSuccess
+                            ? 'opacity-100'
+                            : 'opacity-0',
+                        )}>
+                        <GuidesProgressAction
+                          guideProgress={
+                            'guideProgress' in props
+                              ? props.guideProgress
+                              : null
+                          }
+                          metadata={metadata}
+                          nextArticle={nextArticle}
+                        />
+                      </div>
+                      <Divider />
+                    </>
+                  )}
+                <ArticlePagination
+                  activeItem={pathname ?? ''}
+                  items={flatNavigationItems}
+                />
+              </div>
+            </Section>
+          </div>
+          {tableOfContents && (
+            <Section>
+              <div
+                key={currentItem?.href}
+                className="hidden w-[252px] overflow-hidden xl:sticky xl:block xl:flex-none xl:overflow-x-hidden"
+                style={{
+                  height: 'calc(100vh - 48px - var(--global-sticky-height))',
+                  top: 'calc(48px + var(--global-sticky-height))',
+                }}>
+                <GuidesTableOfContents
+                  collapsed={collapsedToC}
+                  isCollapsible={true}
+                  setCollapsedToC={setCollapsedToC}
+                  tableOfContents={tableOfContents}
+                />
+              </div>
+            </Section>
+          )}
+        </GuidesLayoutContent>
       </div>
     </GuidesHeadingObserver>
   );

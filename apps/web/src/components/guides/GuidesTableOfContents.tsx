@@ -163,6 +163,7 @@ function ParentList({
 type Props = Readonly<{
   collapsed?: boolean;
   isCollapsible?: boolean;
+  setCollapsedToC?: (value: boolean) => void;
   tableOfContents: TableOfContents;
 }>;
 
@@ -170,11 +171,11 @@ export default function GuidesTableOfContents({
   tableOfContents,
   collapsed,
   isCollapsible,
+  setCollapsedToC,
 }: Props) {
   const titleId = useId();
   const activeId = useActiveHeadingId();
 
-  const [collapsedToC, setCollapsedToC] = useState(collapsed);
   const [activeLink, setActiveLink] = useState<HTMLAnchorElement | null>(null);
   const activeLinkRef: Ref<HTMLAnchorElement> = setActiveLink;
 
@@ -190,15 +191,11 @@ export default function GuidesTableOfContents({
     scrollIntoView(activeLink);
   }, [scrollIntoView, activeLink]);
 
-  useEffect(() => {
-    setCollapsedToC(collapsed);
-  }, [collapsed]);
-
   return (
     <ScrollArea>
       <nav ref={navRef} aria-labelledby={titleId} className="relative w-full">
         {tableOfContents.length > 0 &&
-          (isCollapsible && collapsedToC ? (
+          (isCollapsible && collapsed ? (
             <Button
               className="float-end"
               icon={RiListCheck}
@@ -209,7 +206,7 @@ export default function GuidesTableOfContents({
               size="xs"
               tooltip="Show table of contents"
               variant="tertiary"
-              onClick={() => setCollapsedToC(false)}
+              onClick={() => setCollapsedToC?.(false)}
             />
           ) : (
             <>
@@ -243,7 +240,7 @@ export default function GuidesTableOfContents({
                     size="xs"
                     tooltip="Hide table of contents"
                     variant="tertiary"
-                    onClick={() => setCollapsedToC(true)}
+                    onClick={() => setCollapsedToC?.(true)}
                   />
                 ) : (
                   <RiArrowRightSLine
