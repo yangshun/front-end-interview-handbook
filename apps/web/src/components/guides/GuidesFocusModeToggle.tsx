@@ -18,7 +18,7 @@ export default function GuidesFocusModeToggle({
 }: Props) {
   const intl = useIntl();
 
-  const toggleButton = (
+  return (
     <div className="flex w-full items-center justify-between gap-2">
       {!isFocusMode && (
         <Text size="body2" weight="medium">
@@ -29,52 +29,50 @@ export default function GuidesFocusModeToggle({
           })}
         </Text>
       )}
-      <Switch.Root
-        checked={isFocusMode}
-        className={clsx(
-          'h-4 w-8 shrink-0',
-          'rounded-full',
-          'transition-colors',
-          [
-            'border',
-            'border-neutral-700 dark:border-neutral-100',
-            'data-[state=checked]:border-brand-dark dark:data-[state=checked]:border-brand',
-          ],
-          'data-[state=checked]:bg-brand-dark dark:data-[state=checked]:bg-brand',
-          themeOutlineElementBrandColor_FocusVisible,
-        )}
-        onCheckedChange={toggleFocusMode}>
-        <Switch.Thumb
+      <Tooltip
+        asChild={true}
+        label={
+          isFocusMode
+            ? intl.formatMessage({
+                defaultMessage: 'Turn off focus mode',
+                description: 'Label for turning focus mode off',
+                id: 'pdO/k1',
+              })
+            : intl.formatMessage({
+                defaultMessage: 'Turn on focus mode',
+                description: 'Label for turning focus mode on',
+                id: 'eLGecl',
+              })
+        }>
+        <Switch.Root
+          checked={isFocusMode}
           className={clsx(
-            'block',
-            'size-2 rounded-full',
-            'bg-neutral-700 dark:bg-neutral-100',
-            'translate-x-1',
-            'data-[state=checked]:translate-x-[18px]',
-            'transition-transform duration-100 will-change-transform',
+            'h-4 w-8 shrink-0',
+            'rounded-full',
+            'transition-colors',
+            [
+              'border',
+              isFocusMode
+                ? 'border-brand-dark dark:border-brand'
+                : 'border-neutral-700 dark:border-neutral-100',
+            ],
+            isFocusMode && 'bg-brand-dark dark:bg-brand',
+            themeOutlineElementBrandColor_FocusVisible,
           )}
-        />
-      </Switch.Root>
+          onCheckedChange={toggleFocusMode}>
+          <Switch.Thumb
+            className={clsx(
+              'block',
+              'size-2 rounded-full',
+              isFocusMode
+                ? 'bg-neutral-100'
+                : 'bg-neutral-700 dark:bg-neutral-100',
+              'translate-x-1 data-[state=checked]:translate-x-[18px]',
+              'transition-transform duration-100 will-change-transform',
+            )}
+          />
+        </Switch.Root>
+      </Tooltip>
     </div>
-  );
-
-  return (
-    <Tooltip
-      asChild={true}
-      label={
-        isFocusMode
-          ? intl.formatMessage({
-              defaultMessage: 'Turn off focus mode',
-              description: 'Label for turning focus mode off',
-              id: 'pdO/k1',
-            })
-          : intl.formatMessage({
-              defaultMessage: 'Turn on focus mode',
-              description: 'Label for turning focus mode on',
-              id: 'eLGecl',
-            })
-      }>
-      {toggleButton}
-    </Tooltip>
   );
 }

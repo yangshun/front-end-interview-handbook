@@ -196,10 +196,7 @@ export default function GuidesTableOfContents({
 
   return (
     <ScrollArea>
-      <nav
-        ref={navRef}
-        aria-labelledby={titleId}
-        className="relative -mr-3 w-full pr-3">
+      <nav ref={navRef} aria-labelledby={titleId} className="relative w-full">
         {tableOfContents.length > 0 &&
           (isCollapsible && collapsedToC ? (
             <Button
