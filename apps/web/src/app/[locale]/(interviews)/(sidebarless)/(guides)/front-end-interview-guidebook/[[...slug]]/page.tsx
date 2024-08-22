@@ -69,13 +69,14 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
   const { directoryPath, pathname } = requestToPaths(props);
 
   const { data } = grayMatter(readGuidesContents(directoryPath, locale));
-  const { description, title } = data;
+  const { description, title, seo_title, seo_description, social_title } = data;
 
   return defaultMetadata({
-    description,
+    description: seo_description || description,
     locale,
     pathname,
-    title,
+    socialTitle: social_title,
+    title: seo_title || title,
   });
 }
 

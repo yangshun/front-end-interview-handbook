@@ -12,6 +12,7 @@ type PageMetadata = Readonly<{
   locale: string;
   pathname: string;
   siteName?: string;
+  socialTitle?: string;
   template?: string;
   title: string;
 }>;
@@ -23,6 +24,7 @@ export default function defaultMetadata({
   siteName,
   template,
   title,
+  socialTitle,
   imageUrl,
 }: PageMetadata): Metadata {
   return i18nMetadata(
@@ -37,7 +39,7 @@ export default function defaultMetadata({
         images: imageUrl || '/img/seo/og.jpg',
         locale,
         siteName: siteName || 'GreatFrontEnd',
-        title,
+        title: socialTitle || title,
         type: 'website',
         url: pathname,
       },
@@ -51,7 +53,7 @@ export default function defaultMetadata({
         description,
         images: imageUrl || '/img/seo/og.jpg',
         site: '@greatfrontend',
-        title,
+        title: socialTitle || title,
       },
     },
     locale,
