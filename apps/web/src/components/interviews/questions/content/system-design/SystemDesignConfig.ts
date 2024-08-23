@@ -12,4 +12,5 @@ export const ReadyQuestions: ReadonlyArray<string> = [
   'modal-dialog',
   'pinterest',
   'video-streaming-netflix',
+  'rich-text-editor',
 ];

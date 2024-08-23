@@ -1,12 +1,14 @@
 {
   "slug": "rich-text-editor",
+  "author": "yangshun",
+  "created": "2024-08-23T00:00:00.000Z",
   "languages": [],
-  "companies": [],
+  "companies": ["meta"],
   "premium": true,
   "duration": 40,
   "published": true,
   "featured": false,
   "importance": "high",
   "difficulty": "hard",
-  "ranking": 7
+  "ranking": 8
 }

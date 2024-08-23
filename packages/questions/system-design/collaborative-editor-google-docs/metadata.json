@@ -1,14 +1,12 @@
 {
   "slug": "collaborative-editor-google-docs",
   "languages": [],
-  "companies": [
-    "asana"
-  ],
+  "companies": ["asana"],
   "premium": true,
   "duration": 40,
   "published": true,
   "featured": false,
   "importance": "high",
   "difficulty": "hard",
-  "ranking": 7
+  "ranking": 8
 }
