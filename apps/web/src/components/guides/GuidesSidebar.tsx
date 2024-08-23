@@ -219,7 +219,7 @@ export function GuidesSidebar({
   const isSidebar = mode === 'sidebar';
 
   return (
-    <div className={clsx(isSidebar ? 'w-60' : 'w-full')}>
+    <div className={clsx('shrink-0', isSidebar ? 'w-60' : 'w-full')}>
       <nav
         className={clsx(
           'flex shrink-0 flex-col justify-end',
@@ -281,7 +281,7 @@ export function GuidesSidebar({
         {isSidebar && (
           <div
             className={clsx(
-              'flex items-center justify-stretch',
+              'flex shrink-0 items-center justify-stretch',
               'w-full',
               'h-12 px-6',
               ['border-t', themeBorderColor],
