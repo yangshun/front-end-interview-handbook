@@ -1,5 +1,6 @@
 import { FormattedMessage } from 'react-intl';
 
+import { QuestionCount } from '~/components/interviews/questions/listings/stats/QuestionCount';
 import Anchor from '~/components/ui/Anchor';
 
 import type { FAQItem } from './FAQs';
@@ -32,9 +33,9 @@ export const generalBuying: FAQItem = {
   answer: (
     <ul>
       <li>
-        <strong>Questions</strong>: There are over 200 questions across
-        JavaScript coding questions, User Interface coding questions, System
-        Design content and quiz questions. For coding questions, you can
+        <strong>Questions</strong>: There are over {QuestionCount} questions
+        across JavaScript coding questions, User Interface coding questions,
+        System Design content and quiz questions. For coding questions, you can
         practice within the browser without any installation needed, simulating
         real interview conditions.
       </li>
