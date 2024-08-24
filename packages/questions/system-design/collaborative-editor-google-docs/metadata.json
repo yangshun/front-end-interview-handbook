@@ -1,5 +1,7 @@
 {
   "slug": "collaborative-editor-google-docs",
+  "author": "yangshun",
+  "created": "2024-08-23T00:00:00.000Z",
   "languages": [],
   "companies": ["asana"],
   "premium": true,
@@ -8,5 +10,5 @@
   "featured": false,
   "importance": "high",
   "difficulty": "hard",
-  "ranking": 8
+  "ranking": 10
 }

@@ -13,4 +13,5 @@ export const ReadyQuestions: ReadonlyArray<string> = [
   'pinterest',
   'video-streaming-netflix',
   'rich-text-editor',
+  'collaborative-editor-google-docs',
 ];
