@@ -1,7 +1,11 @@
+import clsx from 'clsx';
+import { useState } from 'react';
+import { RiFileDamageLine } from 'react-icons/ri';
 import { FormattedMessage } from 'react-intl';
 
 import RelativeTimestamp from '~/components/common/datetime/RelativeTimestamp';
 import Text from '~/components/ui/Text';
+import { themeTextSubtleColor } from '~/components/ui/theme';
 
 import type { ProjectsNotificationSubmissionUpvoteItemType } from '../types';
 
@@ -11,14 +15,31 @@ type Props = Readonly<{
 
 export default function ProjectsNotificationSubmissionUpvote({ data }: Props) {
   const { data: upvoteData, submission, createdAt } = data;
+  const [showImageFallback, setShowImageFallback] = useState<boolean>(
+    !submission?.imgSrc,
+  );
 
   return (
     <div className="flex gap-4">
-      <img
-        alt={submission?.title}
-        className="h-11 w-12 rounded object-cover"
-        src={submission?.imgSrc}
-      />
+      <div
+        className={clsx(
+          'flex items-center justify-center',
+          'h-11 w-12 shrink-0 overflow-hidden rounded',
+          'bg-neutral-100 dark:bg-neutral-900/70',
+        )}>
+        {showImageFallback ? (
+          <RiFileDamageLine className={clsx('size-6', themeTextSubtleColor)} />
+        ) : (
+          <img
+            alt={submission?.title}
+            className="size-full object-cover"
+            src={submission?.imgSrc}
+            onError={() => {
+              setShowImageFallback(true);
+            }}
+          />
+        )}
+      </div>
       <div className="inline-flex">
         <Text color="secondary" size="body3" weight="medium">
           <FormattedMessage
@@ -33,7 +54,7 @@ export default function ProjectsNotificationSubmissionUpvote({ data }: Props) {
               ),
               count: upvoteData.count,
               timestamp: (
-                <Text color="subtle" size="body2" weight="medium">
+                <Text color="subtle" size="body3">
                   {`· `}
                   <RelativeTimestamp timestamp={new Date(createdAt)} />
                 </Text>

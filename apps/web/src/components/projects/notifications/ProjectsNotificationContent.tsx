@@ -100,57 +100,57 @@ export default function ProjectsNotificationContent({
   const notifications = data?.pages.flatMap((page) => page.notifications);
 
   return (
-    <div className="h-full">
-      <div className={clsx('divide-y', 'h-full', themeDivideEmphasizeColor)}>
-        {isLoading ? (
-          <div className="flex h-full w-full items-center justify-center">
-            <Spinner size="sm" />
+    <>
+      {isLoading ? (
+        <div className="flex h-full w-full items-center justify-center">
+          <Spinner size="sm" />
+        </div>
+      ) : notifications?.length === 0 ? (
+        <div
+          className={clsx(
+            'h-full w-full',
+            'flex flex-col items-center justify-center gap-4',
+          )}>
+          <RiNotification3Line
+            className={clsx('size-10 shrink-0', themeTextSubtitleColor)}
+          />
+          <div className="flex flex-col gap-1 text-center">
+            <Text size="body1" weight="medium">
+              <FormattedMessage
+                defaultMessage="No notification yet!"
+                description="Label for no notification"
+                id="hz5dJR"
+              />
+            </Text>
+            <Text color="subtle" size="body2">
+              <FormattedMessage
+                defaultMessage="It looks like you don’t have any notifications at the moment. Check back here for updates on your activities, messages, and more."
+                description="Description for no notification"
+                id="iWvwoB"
+              />
+            </Text>
           </div>
-        ) : notifications?.length === 0 ? (
-          <div
-            className={clsx(
-              'h-full w-full',
-              'flex flex-col items-center justify-center gap-4',
-            )}>
-            <RiNotification3Line
-              className={clsx('size-10 shrink-0', themeTextSubtitleColor)}
-            />
-            <div className="flex flex-col gap-1 text-center">
-              <Text size="body1" weight="medium">
-                <FormattedMessage
-                  defaultMessage="No notification yet!"
-                  description="Label for no notification"
-                  id="hz5dJR"
-                />
-              </Text>
-              <Text color="subtle" size="body2">
-                <FormattedMessage
-                  defaultMessage="It looks like you don’t have any notifications at the moment. Check back here for updates on your activities, messages, and more."
-                  description="Description for no notification"
-                  id="iWvwoB"
-                />
-              </Text>
-            </div>
-          </div>
-        ) : (
-          notifications?.map((item) => (
-            <div key={item.id} className="py-6 first:pt-0">
+        </div>
+      ) : (
+        <div className={clsx('divide-y', themeDivideEmphasizeColor)}>
+          {notifications?.map((item) => (
+            <div key={item.id} className={clsx('first:-mt-6 last:-mb-6')}>
               <ProjectsNotificationItem
                 closeNotification={closeNotification}
                 handleVisibleLongEnough={handleVisibleLongEnough}
                 item={item}
               />
             </div>
-          ))
-        )}
-      </div>
+          ))}
+        </div>
+      )}
       <div ref={lastItemRef} className="flex w-full justify-center">
         {isFetchingNextPage && (
-          <div className="my-4">
+          <div className="mt-8">
             <Spinner size="sm" />
           </div>
         )}
       </div>
-    </div>
+    </>
   );
 }

@@ -1,3 +1,4 @@
+import clsx from 'clsx';
 import { useEffect, useState } from 'react';
 import url from 'url';
 
@@ -69,7 +70,15 @@ export default function ProjectsNotificationItem({
   }, [visibleDuration, item, handleVisibleLongEnough, markAsSeen]);
 
   return (
-    <div ref={elementRef} className="relative flex gap-4" onClick={onClick}>
+    <div
+      ref={elementRef}
+      className={clsx(
+        'relative flex gap-4',
+        '-mx-3 rounded-lg px-3 py-6',
+        'transition-colors',
+        'hover:bg-neutral-100 dark:hover:bg-neutral-900',
+      )}
+      onClick={onClick}>
       <Anchor className="absolute inset-0" href={getUrl()} />
       {item.category === 'UPVOTE' ? (
         <ProjectsNotificationSubmissionUpvote data={item} />

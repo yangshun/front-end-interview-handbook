@@ -1,5 +1,6 @@
 import clsx from 'clsx';
 import { startCase } from 'lodash-es';
+import { useParams } from 'next/navigation';
 import { useCallback, useState } from 'react';
 import {
   RiAddCircleLine,
@@ -52,7 +53,7 @@ export default function ProjectsDiscussionsComment({
   className,
   viewer,
 }: Props) {
-  const commentHashId = window.location.hash.replace('#', '');
+  const params = useParams();
   const [highlightComment, setHighlightComment] = useState<boolean>(false);
   const {
     _count: { votes: votesCount },
@@ -65,13 +66,17 @@ export default function ProjectsDiscussionsComment({
   } = comment;
 
   const highlightOnScrolledToItem = useCallback(() => {
+    const commentHashId = window.location.hash.replace('#', '');
+
     if (commentHashId === comment.id) {
       setHighlightComment(true);
     }
     setTimeout(() => {
       setHighlightComment(false);
     }, 2000);
-  }, [comment.id, commentHashId]);
+    // Params dependency is to rerender when the hashId changes
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [comment.id, params]);
 
   useScrollToHash({
     onScrolledToItem: highlightOnScrolledToItem,

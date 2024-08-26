@@ -32,7 +32,7 @@ function ProjectsNotificationCommentMessage({ data }: Props) {
     </Anchor>
   );
   const timestamp = (
-    <Text color="subtle" size="body2" weight="medium">
+    <Text color="subtle" size="body3">
       {`· `}
       <RelativeTimestamp timestamp={new Date(createdAt)} />
     </Text>
@@ -61,9 +61,9 @@ function ProjectsNotificationCommentMessage({ data }: Props) {
     if (comment.parentComment?.category === 'QUESTION') {
       return (
         <FormattedMessage
-          defaultMessage="<authorLink>{author}</authorLink> replied to your question on project discussions <challengeLink>{entityTitle}</challengeLink> {timestamp}"
+          defaultMessage="<authorLink>{author}</authorLink> replied to your question on the project discussions for <challengeLink>{entityTitle}</challengeLink> {timestamp}"
           description="Notification for someone replied to your question"
-          id="jdML6B"
+          id="w85sKh"
           values={{
             author: comment.author.userProfile.name,
             authorLink,
@@ -77,9 +77,9 @@ function ProjectsNotificationCommentMessage({ data }: Props) {
 
     return (
       <FormattedMessage
-        defaultMessage="<authorLink>{author}</authorLink> replied to your comment on project discussions <challengeLink>{entityTitle}</challengeLink> {timestamp}"
+        defaultMessage="<authorLink>{author}</authorLink> replied to your comment on the project discussions for <challengeLink>{entityTitle}</challengeLink> {timestamp}"
         description="Notification for someone replied to your question"
-        id="GlSKMX"
+        id="1c9cCj"
         values={{
           author: comment.author.userProfile.name,
           authorLink,

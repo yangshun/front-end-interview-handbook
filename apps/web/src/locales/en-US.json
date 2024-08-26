@@ -431,6 +431,10 @@
     "defaultMessage": "Read more",
     "description": "Project marketing hero Read more section badge"
   },
+  "1c9cCj": {
+    "defaultMessage": "<authorLink>{author}</authorLink> replied to your comment on the project discussions for <challengeLink>{entityTitle}</challengeLink> {timestamp}",
+    "description": "Notification for someone replied to your question"
+  },
   "1gkgr4": {
     "defaultMessage": "Sign In",
     "description": "Label of Sign In button on Email Sign In page"
@@ -2326,10 +2330,6 @@
   "GiSp0E": {
     "defaultMessage": "Medium",
     "description": "Medium difficulty question"
-  },
-  "GlSKMX": {
-    "defaultMessage": "<authorLink>{author}</authorLink> replied to your comment on project discussions <challengeLink>{entityTitle}</challengeLink> {timestamp}",
-    "description": "Notification for someone replied to your question"
   },
   "GohLa0": {
     "defaultMessage": "Skills you are proficient in",
@@ -6323,10 +6323,6 @@
     "defaultMessage": "Title: Z to A",
     "description": "Sorting option for question list - sort titles from Z to A"
   },
-  "jdML6B": {
-    "defaultMessage": "<authorLink>{author}</authorLink> replied to your question on project discussions <challengeLink>{entityTitle}</challengeLink> {timestamp}",
-    "description": "Notification for someone replied to your question"
-  },
   "jgIdRC": {
     "defaultMessage": "Password",
     "description": "Label of password field on Sign In/Up page"
@@ -7966,6 +7962,10 @@
   "w3pn1B": {
     "defaultMessage": "Pick your framework",
     "description": "Label for an example list of User Interface Questions on marketing pages"
+  },
+  "w85sKh": {
+    "defaultMessage": "<authorLink>{author}</authorLink> replied to your question on the project discussions for <challengeLink>{entityTitle}</challengeLink> {timestamp}",
+    "description": "Notification for someone replied to your question"
   },
   "w9U/8b": {
     "defaultMessage": "Team",
