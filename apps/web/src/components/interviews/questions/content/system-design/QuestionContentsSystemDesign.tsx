@@ -81,13 +81,10 @@ export default function QuestionContentsSystemDesign({
           {!isQuestionLocked &&
             metadata.companies &&
             metadata.companies.length > 0 && (
-              <>
-                <Divider />
-                <QuestionCompanies
-                  canViewPremiumContent={canViewPremiumContent}
-                  companies={metadata.companies}
-                />
-              </>
+              <QuestionCompanies
+                canViewPremiumContent={canViewPremiumContent}
+                companies={metadata.companies}
+              />
             )}
           <Divider />
           <QuestionContentProse contents={description} textSize="md" />
