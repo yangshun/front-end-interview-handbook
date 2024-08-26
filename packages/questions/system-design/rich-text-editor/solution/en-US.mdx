@@ -140,7 +140,7 @@ Given the tradeoffs of features vs implementation effort, most rich text editor 
 
 We have decided on the rendering approach, let's discuss how we want to model the content state. Is content state even necessary? Can we just let the state be in the DOM and operate on the DOM nodes directly? Certainly possible, but there are some issues with that:
 
-- **No built-in state management features:** The DOM does not provide built-in features for state management, such as undo/redo or allow the use of complex data structures, which are sometimes necessary.
+- **No built-in state management features**: The DOM does not provide built-in features for state management, such as undo/redo or allow the use of complex data structures, which are sometimes necessary.
 - **No good way of storing extra related fields**: If extra fields could be required for certain elements (e.g. type of custom elements), they have to be stored as data attributes on the DOM nodes, which can clutter up the DOM and is overhead when they have to be read.
 - **DOM is bloated**: DOM elements are huge and have a ton of properties and methods. This can be bad for maintenance and it's better to keep the API surface small.
 - **Prone to tampering**: Browser extensions often mess with the DOM and have unwanted consequences. By using DOM as the underlying content model, third-party extensions can easily tamper with the source of truth.
@@ -196,7 +196,7 @@ Such an update flow is similar to how React maintains a virtual DOM and only mak
 
 ### Summary
 
-In summary, most rich text editors on the web use `contenteditable` and take the following high-level approach :
+In summary, most rich text editors on the web use `contenteditable` and take the following high-level approach:
 
 1. Design a editor-specific model of the document content
 2. Create a mapping between the model and DOM elements
@@ -791,7 +791,7 @@ They can be used as part of the reconciliation process.
 3. **Child reconciliation**: If one of the old or new nodes are `ElementNode`s, compare children of the nodes by using the node's keys to match old and new children.
    - **Insert**: Add new children that do not have a corresponding old child.
    - **Remove**: Remove old children that do not have a corresponding new child.
-   - **Same position:** Call the reconcile function on the old and new nodes.
+   - **Same position**: Call the reconcile function on the old and new nodes.
    - **Different positions**: If the order of children has changed, reorder them within the parent DOM element, then call the reconcile function on the old and new nodes.
 
 There are other nuances with regards to reconciliation but the general idea is captured above.
@@ -891,7 +891,7 @@ const theme = {
 
 When a `HeadingNode` (subclass of `ElementNode`) is rendered, the DOM element will include the `editor-heading` class.
 
-Further reading: https://lexical.dev/docs/getting-started/theming
+_Further reading: https://lexical.dev/docs/getting-started/theming_
 
 ### Custom nodes
 
@@ -940,7 +940,7 @@ export class ColoredNode extends TextNode {
 }
 ```
 
-Further reading: https://lexical.dev/docs/concepts/nodes#creating-custom-nodes
+_Further reading: https://lexical.dev/docs/concepts/nodes#creating-custom-nodes_
 
 ### Listeners and commands
 
@@ -988,7 +988,7 @@ export const COMMAND_PRIORITY_CRITICAL = 4;
 
 Listeners registered by Lexical core or its first-party plugins will use `COMMAND_PRIORITY_EDITOR` (the lowest priority) to give a chance for developers to intercept the events and customize the behavior, potentially even stopping the propagation.
 
-Further reading: [https://lexical.dev/docs/concepts/commands](https://lexical.dev/docs/concepts/commands)
+_Further reading: https://lexical.dev/docs/concepts/commands_
 
 ### Transforms
 
@@ -1010,7 +1010,7 @@ const congratsTransform = editor.registerNodeTransform(TextNode, (textNode) => {
 
 Transforms are also useful if you want to validate the content the user can put into the document or which formatting the user is allowed to use. For example, if you wanted to disallow bold text but you didn't want to go to the trouble of subclassing text node, then you could build a transform where you check to see if the dirty node is bold, and if it is, you just set it back to not bold.
 
-Further reading: [https://lexical.dev/docs/concepts/transforms](https://lexical.dev/docs/concepts/transforms)
+_Further reading: https://lexical.dev/docs/concepts/transforms_
 
 ### Plugins
 
@@ -1022,7 +1022,7 @@ What might be surprising is that Lexical core does not support rich text formatt
 
 Lexical's [rich text plugin code](https://github.com/facebook/lexical/blob/main/packages/lexical-rich-text/src/index.ts) contains definitions of custom nodes like `QuoteNode`, `HeadingNode`, and many `editor.registerCommand()` calls to add the above-mentioned editing behaviors. [Lexical Playground](https://playground.lexical.dev/) is built using this rich text plugin.
 
-Further reading: [https://lexical.dev/docs/react/plugins](https://lexical.dev/docs/react/plugins)
+_Further reading: https://lexical.dev/docs/react/plugins_
 
 ### Serialization & deserialization
 
@@ -1165,7 +1165,7 @@ Lexical calls this batching behavior "coalescing" and continuous typing actions 
 - **Deleting backwards**: Backspace gestures including backspace key presses.
 - **Forward deletion**: Forward delete gestures including <kbd>Delete</kbd> key presses.
 
-Further reading: https://lexical.dev/docs/concepts/history
+_Further reading: https://lexical.dev/docs/concepts/history_
 
 ### Real-time collaborative editing
 

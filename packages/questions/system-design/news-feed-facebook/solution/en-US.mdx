@@ -202,7 +202,7 @@ Offset-based pagination is common in web applications for displaying lists like 
 
 ### Cursor-based pagination
 
-Cursor-based pagination uses a pointer (the cursor) to a specific record in a dataset. Instead of saying "give me items 11 to 15," it says "give me 5 items starting after [specific item].".
+Cursor-based pagination uses a pointer (the cursor) to a specific record in a dataset. Instead of saying "give me items 11 to 15", it says "give me 5 items starting after [specific item].".
 
 The cursor is usually a unique identifier, which can be the item id, timestamp, or something else. Subsequent requests use the identifier of the last item as the cursor to fetch the next set of items. In SQL, an example is:
 

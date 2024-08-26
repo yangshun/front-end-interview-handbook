@@ -327,7 +327,7 @@ Using "vanilla" `<video>` elements also comes with some drawbacks.
 
 **Limited adaptive streaming support**: The `<video>` element doesn't natively support adaptive streaming protocols like DASH or HLS in all browsers. These protocols dynamically adjust video quality based on the user's internet speed, ensuring a smooth streaming experience. Without this, users may experience buffering or low-quality video. The `<video>` element might not be optimized for scenarios where low latency is crucial, such as live streaming events.
 
-**Restricted customization and control:** `<video>` elements also contain playback controls, but like most native elements, each browser renders them differently. If you want a consistent and branded user interface across browsers you will have to build your own playback controls. However, styling these controls isn't straightforward unlike other HTML elements like `<button>`s and `<input>`s. You will have to build your own components.
+**Restricted customization and control**: `<video>` elements also contain playback controls, but like most native elements, each browser renders them differently. If you want a consistent and branded user interface across browsers you will have to build your own playback controls. However, styling these controls isn't straightforward unlike other HTML elements like `<button>`s and `<input>`s. You will have to build your own components.
 
 Note that `<video>` elements also contain their own state as mentioned in the attributes/properties above. If you are using a JavaScript framework/library (e.g. React, Vue) and have built your own `Video` component that renders the `<video>` elements along with custom controls, you will need to do a two-way sync between your React component state and the `<video>`/`HTMLVideoElement` state as there can be native controls that directly affect the `HTMLVideoElement` like the play/pause/volume buttons (also known as media keys) on some keyboards.
 
@@ -714,7 +714,7 @@ Accessibility for subtitles have been covered in the ["Subtitles"](#subtitles--c
 - **Contrast and color choices**: Ensure that the video player's user interface, including controls and text, meets minimum contrast ratios to make it easier to read and interact with. Avoid relying solely on color to convey important information.
 - **Load progress indicator**: Display a loading progress bar or spinner to inform users that the video content is loading. This can help manage user expectations and reduce frustration.
 - **Buffering indicator**: Clearly indicate when the video is buffering to manage user expectations and provide feedback on the loading process.
-- **Description of site's capabilities:** Netflix describes the video's features to screen reader users.
+- **Description of site's capabilities**: Netflix describes the video's features to screen reader users.
 
 ![Netflix video capabilities description for screen readers](/img/questions/video-streaming-netflix/video-streaming-netflix-netflix-video-capabilities-a11y.png)
 
