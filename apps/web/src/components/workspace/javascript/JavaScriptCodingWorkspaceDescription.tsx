@@ -7,6 +7,7 @@ import QuestionContentProse from '~/components/interviews/questions/content/Ques
 import QuestionNextQuestions from '~/components/interviews/questions/content/QuestionNextQuestions';
 import QuestionSimilarQuestions from '~/components/interviews/questions/content/QuestionSimilarQuestions';
 import QuestionMetadataSection from '~/components/interviews/questions/metadata/QuestionMetadataSection';
+import QuestionPremiumLabel from '~/components/interviews/questions/metadata/QuestionPremiumLabel';
 import Badge from '~/components/ui/Badge';
 import Heading from '~/components/ui/Heading';
 
@@ -36,17 +37,7 @@ export default function JavaScriptCodingWorkspaceDescription({
         <div className="flex flex-col gap-y-6">
           <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
             <Heading level="heading5">{metadata.title}</Heading>
-            {metadata.premium && (
-              <Badge
-                label={intl.formatMessage({
-                  defaultMessage: 'Premium',
-                  description: 'Premium content',
-                  id: 'gIeLON',
-                })}
-                size="sm"
-                variant="special"
-              />
-            )}
+            {metadata.premium && <QuestionPremiumLabel />}
             {questionProgress?.status === 'complete' && (
               <Badge
                 label={intl.formatMessage({

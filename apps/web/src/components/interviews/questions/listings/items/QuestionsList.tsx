@@ -4,6 +4,7 @@ import {
   RiCheckboxCircleFill,
   RiLockLine,
 } from 'react-icons/ri';
+import { RiStarSmileFill } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
 
 import { useUserProfile } from '~/components/global/UserProfileProvider';
@@ -39,6 +40,7 @@ import QuestionImportanceLabel from '../../metadata/QuestionImportanceLabel';
 import QuestionLanguages from '../../metadata/QuestionLanguages';
 import QuestionTopics from '../../metadata/QuestionTopics';
 import QuestionUsersCompletedLabel from '../../metadata/QuestionUsersCompletedLabel';
+import QuestionPremiumLabel from '../../metadata/QuestionPremiumLabel';
 
 type Props<Q extends QuestionMetadata> = Readonly<{
   checkIfCompletedQuestion: (question: Q) => boolean;
@@ -323,6 +325,7 @@ export default function QuestionsList<Q extends QuestionMetadata>({
                     variant="warning"
                   />
                 )}
+                {question.premium && <QuestionPremiumLabel />}
                 {question.format === 'system-design' &&
                   !ReadyQuestions.includes(question.slug) && (
                     <Badge
