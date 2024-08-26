@@ -1407,6 +1407,10 @@
     "defaultMessage": "Tags",
     "description": "Blog Tags"
   },
+  "9B1Aqh": {
+    "defaultMessage": "Prepare the best you can within any timeline.",
+    "description": "Description for study plans section"
+  },
   "9CjNZn": {
     "defaultMessage": "You have ended this project session. Returning you to the project detail page.",
     "description": "Toast subtitle for project session ended"
@@ -2826,6 +2830,10 @@
   "KQfZUe": {
     "defaultMessage": "Undo",
     "description": "Undo tooltip for richtext toolbar"
+  },
+  "KRGHVm": {
+    "defaultMessage": "Study plans",
+    "description": "Title for study plans section"
   },
   "KU/uns": {
     "defaultMessage": "Previous",

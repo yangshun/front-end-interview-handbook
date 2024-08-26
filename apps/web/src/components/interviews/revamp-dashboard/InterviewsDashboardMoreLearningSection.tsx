@@ -4,6 +4,8 @@ import { FormattedMessage } from 'react-intl';
 
 import { trpc } from '~/hooks/trpc';
 
+import type { PreparationPlans } from '~/data/plans/PreparationPlans';
+
 import Divider from '~/components/ui/Divider';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
@@ -11,15 +13,18 @@ import Text from '~/components/ui/Text';
 import { themeTextColor } from '~/components/ui/theme';
 
 import InterviewsDashboardPrepareByCompanySection from './InterviewsDashboardPrepareByCompanySection';
+import InterviewsDashboardStudyPlansSection from './InterviewsDashboardStudyPlansSection';
 
 import { useUser } from '@supabase/auth-helpers-react';
 
 type Props = Readonly<{
   companyGuides: Array<InterviewsCompanyGuide>;
+  preparationPlans: PreparationPlans;
 }>;
 
 export default function InterviewsDashboardMoreLearningSection({
   companyGuides,
+  preparationPlans,
 }: Props) {
   const user = useUser();
   const { data: questionListSessions } =
@@ -60,6 +65,11 @@ export default function InterviewsDashboardMoreLearningSection({
           companyGuides={companyGuides}
           questionListSessions={sessions}
         />
+        <InterviewsDashboardStudyPlansSection
+          preparationPlans={preparationPlans}
+          questionListSessions={sessions}
+        />
+        <Divider />
       </div>
     </Section>
   );

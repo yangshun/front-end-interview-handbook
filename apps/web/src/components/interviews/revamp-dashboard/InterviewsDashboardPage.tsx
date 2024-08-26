@@ -2,12 +2,14 @@
 
 import clsx from 'clsx';
 import type { InterviewsCompanyGuide } from 'contentlayer/generated';
+import type { PreparationPlans } from '~/data/plans/PreparationPlans';
 
 import InterviewsDashboardMoreLearningSection from './InterviewsDashboardMoreLearningSection';
 import InterviewsDashboardPageHeader from './InterviewsDashboardPageHeader';
 
 type Props = Readonly<{
   companyGuides: Array<InterviewsCompanyGuide>;
+  preparationPlans: PreparationPlans;
 }>;
 
 export default function InterviewsDashboardPage({ companyGuides }: Props) {
@@ -18,6 +20,7 @@ export default function InterviewsDashboardPage({ companyGuides }: Props) {
       <InterviewsDashboardRecommendedPreparationStrategy />
       <InterviewsDashboardMoreLearningSection
         companyGuides={companyGuides}
+        preparationPlans={preparationPlans}
       />
     </div>
   );
