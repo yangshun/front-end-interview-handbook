@@ -99,6 +99,12 @@ export default function CheckboxInputExamples() {
           }}
         />
       </div>
+
+      <div className="flex gap-x-24">
+        <CheckboxInput label="Checked" value={true} />
+        <CheckboxInput label="Unchecked" value={false} />
+        <CheckboxInput label="Indeterminate" value="indeterminate" />
+      </div>
     </UIExamplesGroup>
   );
 }

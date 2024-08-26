@@ -5,7 +5,8 @@ import type {
   InputHTMLAttributes,
   ReactNode,
 } from 'react';
-import { forwardRef, useId } from 'react';
+import { forwardRef, useEffect, useId, useRef } from 'react';
+import { mergeRefs } from 'react-merge-refs';
 
 import {
   themeBorderElementColor,
@@ -16,6 +17,7 @@ import type { TextSize } from '../Text';
 import Text, { textVariants } from '../Text';
 
 type CheckboxSize = 'md' | 'sm';
+type CheckboxValue = boolean | 'indeterminate';
 
 type Attributes = Pick<
   InputHTMLAttributes<HTMLInputElement>,
@@ -32,7 +34,7 @@ type Props = Readonly<{
     event: ChangeEvent<HTMLInputElement>,
   ) => undefined | void;
   size?: CheckboxSize;
-  value?: boolean;
+  value?: CheckboxValue;
 }> &
   Readonly<Attributes>;
 
@@ -68,15 +70,24 @@ function CheckboxInput(
   const id = useId();
   const descriptionId = useId();
   const errorId = useId();
+  const selfRef = useRef<HTMLInputElement | null>();
+
+  const mergedRef = mergeRefs([ref, selfRef]);
+
+  useEffect(() => {
+    if (selfRef.current) {
+      selfRef.current.indeterminate = value === 'indeterminate';
+    }
+  }, [selfRef, value]);
 
   return (
     <div>
       <div className={clsx('relative flex')}>
         <div className="flex h-5 items-center">
           <input
-            ref={ref}
+            ref={mergedRef}
             aria-describedby={description != null ? descriptionId : undefined}
-            checked={value}
+            checked={value === true}
             className={clsx(
               'size-4',
               'rounded',
