@@ -1,3 +1,4 @@
+import { allInterviewsCompanyGuides } from 'contentlayer/generated';
 import { notFound } from 'next/navigation';
 
 import { INTERVIEWS_REVAMP_DASHBOARD } from '~/data/FeatureFlags';
@@ -9,5 +10,9 @@ export default function Page() {
     return notFound();
   }
 
-  return <InterviewsDashboardPage />;
+  const sortedGuides = allInterviewsCompanyGuides
+    .slice()
+    .sort((a, b) => a.ranking - b.ranking);
+
+  return <InterviewsDashboardPage companyGuides={sortedGuides} />;
 }

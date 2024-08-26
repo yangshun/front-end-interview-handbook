@@ -1907,6 +1907,10 @@
     "defaultMessage": "more challenges",
     "description": "Progress percentage label in Continue Learning section in preparation dashboard"
   },
+  "DK7QZb": {
+    "defaultMessage": "More time-savers",
+    "description": "Label for more time savers"
+  },
   "DLky7V": {
     "defaultMessage": "Practice UI and JavaScript/TypeScript Interview Questions with Solutions",
     "description": "Title of Interview Preparation Coding page"
@@ -2358,6 +2362,10 @@
   "GohLa0": {
     "defaultMessage": "Skills you are proficient in",
     "description": "Label for tech stack field"
+  },
+  "GqmPae": {
+    "defaultMessage": "Practice by company",
+    "description": "Title for prepare by company"
   },
   "Gqq8RF": {
     "defaultMessage": "Build front end real-world projects",
@@ -4247,6 +4255,10 @@
     "defaultMessage": "Giving away {discountPercentage}% off all plans!",
     "description": "Rewards discount message"
   },
+  "TkHQtk": {
+    "defaultMessage": "Some 'shortcuts' you might take if you're short on time.",
+    "description": "Description for time savers"
+  },
   "Tm6FbS": {
     "defaultMessage": "This URL is invalid. Check if you've typed it correctly.",
     "description": "Error message"
@@ -5999,9 +6011,17 @@
     "defaultMessage": "Top Angular front end interview coding questions to practice, with detailed solutions and explanations by ex-interviewers at FAANG.",
     "description": "Description of Angular Interview Questions page"
   },
+  "gTOYrn": {
+    "defaultMessage": "With extra time, continue working on the lists below depending on your needs!",
+    "description": "Label for more learning section"
+  },
   "gVQ1qU": {
     "defaultMessage": "A confirmation email has been sent to both new and current email addresses. The email change will not take effect until the confirmation link in both new and current email addresses have been clicked.",
     "description": "Message shown after an email change request is successful."
+  },
+  "gVVuq/": {
+    "defaultMessage": "Practice questions specific to the company you are interviewing for.",
+    "description": "Description for prepare by company"
   },
   "gWoDz/": {
     "defaultMessage": "Practice Vue Interview Questions with Solutions",
