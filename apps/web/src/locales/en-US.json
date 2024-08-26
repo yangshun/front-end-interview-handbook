@@ -1935,6 +1935,10 @@
     "defaultMessage": "Select submission list category",
     "description": "Tab label to select another submission page"
   },
+  "DgT+f8": {
+    "defaultMessage": "The one-stop page to prepare fully for your front end interviews.",
+    "description": "Description for get started in dashboard"
+  },
   "DiyRBB": {
     "defaultMessage": "Codeney Pte Ltd. All rights reserved.",
     "description": "Footer copyright text containing the company name"
@@ -4182,6 +4186,10 @@
   "TRWLN8": {
     "defaultMessage": "Front End System Design",
     "description": "Short title of front end system design guidebook"
+  },
+  "TW5R5d": {
+    "defaultMessage": "Dashboard",
+    "description": "Label for dashboard title for logged in user"
   },
   "TaIXVz": {
     "defaultMessage": "Purchase premium to unlock full access to exclusive System Design content including high quality solutions and companies which ask this question.",
@@ -6750,6 +6758,10 @@
   "mUUWJi": {
     "defaultMessage": "Sign in to save progress",
     "description": "Message shown when user completes a guide without signing in"
+  },
+  "mYn2DH": {
+    "defaultMessage": "Get started",
+    "description": "Label for dashboard title for guest"
   },
   "mb7erW": {
     "defaultMessage": "Importance",
