@@ -44,7 +44,7 @@ export default function ProjectChallengeSubmissionTrackDialog({
               id: '8FAzVY',
             })
       }
-      width="screen-xl"
+      width="screen-md"
       onClose={() => onClose()}>
       <div className={clsx('flex flex-col gap-8')}>
         <div className="flex flex-col gap-1.5">

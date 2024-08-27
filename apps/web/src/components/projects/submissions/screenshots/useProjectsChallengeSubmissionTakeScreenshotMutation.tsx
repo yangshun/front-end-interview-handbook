@@ -39,6 +39,7 @@ function ViewSubmissionButton({ href }: { href: string }) {
 
 export default function useProjectsChallengeSubmissionTakeScreenshotMutation(
   source: 'comparison' | 'form',
+  refetchOnError = true,
 ) {
   const trpcUtils = trpc.useUtils();
   const router = useI18nRouter();
@@ -69,7 +70,9 @@ export default function useProjectsChallengeSubmissionTakeScreenshotMutation(
       trpcUtils.projects.submissions.invalidate();
       // Refetch page data to fetch latest status of screenshot.
       // The user might not be on the submission page but that's ok since this case is quite rare.
-      router.refresh();
+      if (refetchOnError) {
+        router.refresh();
+      }
     },
     onMutate: () => {
       showToast({

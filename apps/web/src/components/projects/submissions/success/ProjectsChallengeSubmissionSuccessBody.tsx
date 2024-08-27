@@ -1,5 +1,7 @@
 'use client';
 
+import clsx from 'clsx';
+
 import Card from '~/components/ui/Card';
 
 import ProjectsChallengeSubmissionSuccessLevelingProgress from './ProjectsChallengeSubmissionSuccessLevelingProgress';
@@ -42,9 +44,10 @@ export default function ProjectsChallengeSubmissionSuccessBody({
 }: Props) {
   return (
     <Card
-      className="flex flex-col gap-16 xl:gap-8"
+      className={clsx('flex flex-col gap-16 xl:gap-8', 'p-6 md:p-8')}
       classNameOuter="mt-16"
       disableSpotlight={true}
+      padding={false}
       pattern={false}>
       <div className="grid gap-x-12 gap-y-8 xl:grid-cols-2">
         <ProjectsChallengeSubmissionSuccessLevelingProgress

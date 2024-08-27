@@ -18,15 +18,20 @@ export default function useProjectsLevelUpToaster() {
       const reputationLevel = projectsReputationLevel(Math.max(points, 0));
 
       showToast({
-        title: intl.formatMessage(
+        description: intl.formatMessage(
           {
             defaultMessage:
               "You've just attained level {level} ✨ Congratulations!",
-            description: 'Level up message',
-            id: 'b1hMr+',
+            description: 'Description for level up',
+            id: 'emlXOt',
           },
           reputationLevel,
         ),
+        title: intl.formatMessage({
+          defaultMessage: 'Level up!',
+          description: 'Title for level up',
+          id: 'V8Hyiq',
+        }),
         variant: 'success',
       });
     },

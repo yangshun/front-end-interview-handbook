@@ -54,7 +54,7 @@ export default function ProjectsTrackChallengesList({
             {(showEndProgressLine || index < challenges.length - 1) && (
               <div
                 className={clsx(
-                  'absolute top-1/2 -z-10 h-[90%] w-px translate-y-3 self-center border-l border-dashed',
+                  'absolute top-1/2 -z-10 h-full w-px translate-y-3 self-center border-l border-dashed',
                   themeBorderElementColor,
                 )}
               />

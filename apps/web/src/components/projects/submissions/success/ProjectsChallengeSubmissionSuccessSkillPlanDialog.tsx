@@ -22,7 +22,6 @@ export default function ProjectsChallengeSubmissionSuccessSkillPlanDialog({
   onClose,
   currentSkill,
 }: Props) {
-
   if (!challenges) {
     return null;
   }
@@ -33,7 +32,7 @@ export default function ProjectsChallengeSubmissionSuccessSkillPlanDialog({
       isShown={isShown}
       scrollable={true}
       title={currentSkill.label}
-      width="screen-xl"
+      width="screen-md"
       onClose={() => onClose()}>
       <div className={clsx('flex flex-col gap-8')}>
         <div className="flex flex-wrap gap-x-4 gap-y-2">

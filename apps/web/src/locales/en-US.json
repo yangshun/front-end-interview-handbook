@@ -915,10 +915,6 @@
     "defaultMessage": "Start the project to access guides, discussions and reference code",
     "description": "Title for project overlay on projects details page"
   },
-  "5qLBww": {
-    "defaultMessage": "Congratulations!",
-    "description": "Success message"
-  },
   "5rd3TN": {
     "defaultMessage": "Companies",
     "description": "Companies section label"
@@ -1938,6 +1934,10 @@
   "DTIb2e": {
     "defaultMessage": "Pagination",
     "description": "Pagination label"
+  },
+  "DTW1x3": {
+    "defaultMessage": "Level up",
+    "description": "Subtext for level Up"
   },
   "DXfMmT": {
     "defaultMessage": "Purchase premium to unlock full access to the company guides and all questions with high quality solutions",
@@ -4415,6 +4415,10 @@
     "defaultMessage": "Find user submissions suggested for your review, based on your completed challenges, skills, and experience.",
     "description": "Description of projects mentor page"
   },
+  "V8Hyiq": {
+    "defaultMessage": "Level up!",
+    "description": "Title for level up"
+  },
   "VA0CqT": {
     "defaultMessage": "1-2 lines on what the project is about, to be displayed on the Submission cards to attract the community to comment on your project",
     "description": "Form label tooltip"
@@ -4638,10 +4642,6 @@
   "WZy7m4": {
     "defaultMessage": "Table of Contents",
     "description": "Guides table of contents menu button label"
-  },
-  "WbLzwZ": {
-    "defaultMessage": "Leveled Up!",
-    "description": "Subtext for level Up"
   },
   "Wc2sX9": {
     "defaultMessage": "We've solved all of these questions in JavaScript / TypeScript, which would be friendly for the front end engineering community.",
@@ -5187,6 +5187,10 @@
     "defaultMessage": "Outdent line",
     "description": "Text describing outdent line command in the coding workspace shortcuts menu"
   },
+  "alG3Yi": {
+    "defaultMessage": "Reputation",
+    "description": "Subtext for Reputation Reputation"
+  },
   "all5El": {
     "defaultMessage": "You can download assets after starting the project",
     "description": "Title for project overlay on projects details page"
@@ -5258,10 +5262,6 @@
   "b0OofK": {
     "defaultMessage": "Front end coding interview questions come in many forms — practice writing JavaScript functions, data structures, and algorithms.",
     "description": "Subtitle for an example list of JavaScript Questions on marketing pages"
-  },
-  "b1hMr+": {
-    "defaultMessage": "You've just attained level {level} ✨ Congratulations!",
-    "description": "Level up message"
   },
   "b28Bb0": {
     "defaultMessage": "Designs",
@@ -5471,6 +5471,10 @@
     "defaultMessage": "You asked <recipientProfileLink>{recipient}</recipientProfileLink> a question on their submission <link>{submissionTitle}</link>: <comment>\"{description}\"</comment>",
     "description": "Log message for you asking question on others submission"
   },
+  "cWKGyh": {
+    "defaultMessage": "You have just gained {points} rep for completing the project! 🔥",
+    "description": "Success message after submitting a project"
+  },
   "cZVPou": {
     "defaultMessage": "HTML",
     "description": "Label for HTML language"
@@ -5586,10 +5590,6 @@
   "dRUyU9": {
     "defaultMessage": "Contact us",
     "description": "Link to contact page"
-  },
-  "dZR5Qu": {
-    "defaultMessage": "You have gained {points} rep for completing the project! ✨",
-    "description": "Success message after submitting a project"
   },
   "da4RLj": {
     "defaultMessage": "Google logo",
@@ -5751,6 +5751,10 @@
     "defaultMessage": "Flashcard format",
     "description": "Button label for flashcard display format of quiz questions"
   },
+  "emlXOt": {
+    "defaultMessage": "You've just attained level {level} ✨ Congratulations!",
+    "description": "Description for level up"
+  },
   "er6Ns7": {
     "defaultMessage": "{yoe} YOE",
     "description": "Years of experience"
@@ -5802,6 +5806,10 @@
   "fAZVc9": {
     "defaultMessage": "Live site URL",
     "description": "Form label"
+  },
+  "fC+Nbq": {
+    "defaultMessage": "Project completed!",
+    "description": "Success message"
   },
   "fEoTGW": {
     "defaultMessage": "Start a project",
@@ -6890,10 +6898,6 @@
   "myWGmV": {
     "defaultMessage": "Coupons | Profile",
     "description": "Title of Profile coupons page"
-  },
-  "n0RD9S": {
-    "defaultMessage": "Reputation points",
-    "description": "Subtext for Reputation Reputation"
   },
   "n0mDHU": {
     "defaultMessage": "Author",

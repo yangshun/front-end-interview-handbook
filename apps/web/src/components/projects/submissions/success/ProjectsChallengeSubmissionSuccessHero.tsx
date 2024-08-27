@@ -45,8 +45,8 @@ export default function ProjectsChallengeSubmissionSuccessHero({
     <div className="flex flex-col items-center gap-12">
       <div
         className={clsx(
-          'grid place-content-center gap-y-10',
-          `grid-cols-1 sm:grid-cols-${smCols} md:grid-cols-${mdCols} lg:grid-cols-${lgCols}`,
+          'grid w-full place-content-center gap-y-10 md:w-auto',
+          `grid-cols-${smCols} md:grid-cols-${mdCols} lg:grid-cols-${lgCols}`,
         )}>
         {badgeList
           .map(({ type, data: { parentKey, key, label } }) => {
@@ -56,9 +56,9 @@ export default function ProjectsChallengeSubmissionSuccessHero({
                   key={key}
                   icon={RiArrowUpLine}
                   subTitle={intl.formatMessage({
-                    defaultMessage: 'Leveled Up!',
+                    defaultMessage: 'Level up',
                     description: 'Subtext for level Up',
-                    id: 'WbLzwZ',
+                    id: 'DTW1x3',
                   })}
                   title={intl.formatMessage(
                     {
@@ -80,9 +80,9 @@ export default function ProjectsChallengeSubmissionSuccessHero({
                   key={key}
                   icon={RiFireLine}
                   subTitle={intl.formatMessage({
-                    defaultMessage: 'Reputation points',
+                    defaultMessage: 'Reputation',
                     description: 'Subtext for Reputation Reputation',
-                    id: 'n0RD9S',
+                    id: 'alG3Yi',
                   })}
                   title={intl.formatMessage(
                     {
@@ -144,7 +144,7 @@ export default function ProjectsChallengeSubmissionSuccessHero({
             }}
           />
         </Heading>
-        <Text className="text-center" color="secondary" size="body1">
+        <Text className="px-5 text-center" color="secondary" size="body1">
           <FormattedMessage
             defaultMessage="Your submission is successful and now available for community code reviews"
             description="Description for the project submission success page"

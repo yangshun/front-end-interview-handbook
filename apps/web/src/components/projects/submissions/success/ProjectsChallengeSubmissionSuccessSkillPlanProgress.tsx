@@ -160,6 +160,7 @@ export default function ProjectsChallengeSubmissionSuccessSkillPlanProgress({
                       <div
                         className={clsx('absolute -bottom-12', 'ml-12 mt-4')}>
                         <Button
+                          className="pointer-events-none"
                           label={intl.formatMessage(
                             {
                               defaultMessage: '{count} more',
@@ -172,7 +173,6 @@ export default function ProjectsChallengeSubmissionSuccessSkillPlanProgress({
                             },
                           )}
                           variant="secondary"
-                          onClick={() => setShowSkillPlanDialog(true)}
                         />
                       </div>
                     </>

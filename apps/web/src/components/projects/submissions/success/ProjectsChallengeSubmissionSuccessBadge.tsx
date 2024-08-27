@@ -61,13 +61,16 @@ export default function ProjectsChallengeSubmissionSuccessBadge({
   subTitle,
 }: Props) {
   return (
-    <div className={clsx('flex flex-col items-center gap-5 p-6')}>
+    <div
+      className={clsx(
+        'flex w-full flex-col items-center gap-5 px-3 pb-6 md:w-[244px]',
+      )}>
       <div
         className={clsx(
           'relative flex items-center justify-center gap-y-5',
           'size-[52px] rounded-full',
           'dark:bg-brand bg-brand-dark',
-          'shadow-brand/40 shadow-[0_0px_24px_8px]',
+          'shadow-brand/30 shadow-[0_0px_24px_8px]',
         )}>
         <div className={clsx('absolute -left-10 -translate-y-1/2')}>
           <StarLeft />

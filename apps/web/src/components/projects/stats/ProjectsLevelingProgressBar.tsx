@@ -70,7 +70,10 @@ export function ProjectsLevelingProgressBar({
         </div>
       </div>
       <div className="flex justify-between">
-        <Text color="success" size="body2">
+        <Text
+          className="text-green-500 dark:text-green-500"
+          size="body2"
+          weight="bold">
           <FormattedMessage
             defaultMessage="Level {currentLevel}"
             description="Current level"
@@ -87,7 +90,13 @@ export function ProjectsLevelingProgressBar({
               description="Rep remaining to next level"
               id="hEu8WR"
               values={{
-                emph: (chunks) => <Text size="body3">{chunks}</Text>,
+                emph: (chunks) => (
+                  <Text
+                    className="text-neutral-800 dark:text-neutral-200"
+                    size="body3">
+                    {chunks}
+                  </Text>
+                ),
                 nextLevel: currentLevel + 1,
                 repRemaining,
               }}

@@ -154,16 +154,20 @@ function getRelevantSkills({
   skillPlans: ReadonlyArray<ProjectsSkillSummaryItemForSubmission>;
   slug: string;
 }>) {
-  const incompleteSkills = skillPlans.filter(
+  // Filter out skills based on the skills used in this submission and skill associated with the challenge
+  const relevantSkills = skillPlans.filter(
+    (item) =>
+      roadmapSkillsUsed.includes(item.key) &&
+      item.skillRoadmapChallengeSlugs.includes(slug),
+  );
+  // Filter out incomplete skills
+  const incompleteSkills = relevantSkills.filter(
     (item) => item.completedChallenges !== item.totalChallenges,
   );
 
-  // Filter out completed skills based on the skills used in this submission and skill associated with the challenge
-  const completedSkills = skillPlans.filter(
-    (item) =>
-      item.completedChallenges === item.totalChallenges &&
-      roadmapSkillsUsed.includes(item.key) &&
-      item.skillRoadmapChallengeSlugs.includes(slug),
+  // Filter out completed skills
+  const completedSkills = relevantSkills.filter(
+    (item) => item.completedChallenges === item.totalChallenges,
   );
 
   return {

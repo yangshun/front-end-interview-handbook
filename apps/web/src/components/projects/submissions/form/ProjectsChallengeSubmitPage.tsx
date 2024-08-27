@@ -76,7 +76,7 @@ export default function ProjectsChallengeSubmitPage({
   } = successPageInfo;
 
   const takeScreenshotMutation =
-    useProjectsChallengeSubmissionTakeScreenshotMutation('form');
+    useProjectsChallengeSubmissionTakeScreenshotMutation('form', false);
   const createSubmissionMutation = trpc.projects.submission.create.useMutation({
     onError: () => {
       showToast({
@@ -105,18 +105,18 @@ export default function ProjectsChallengeSubmitPage({
         description: intl.formatMessage(
           {
             defaultMessage:
-              'You have gained {points} rep for completing the project! ✨',
+              'You have just gained {points} rep for completing the project! 🔥',
             description: 'Success message after submitting a project',
-            id: 'dZR5Qu',
+            id: 'cWKGyh',
           },
           {
             points: formattedPoints,
           },
         ),
         title: intl.formatMessage({
-          defaultMessage: 'Congratulations!',
+          defaultMessage: 'Project completed!',
           description: 'Success message',
-          id: '5qLBww',
+          id: 'fC+Nbq',
         }),
         variant: 'success',
       });
