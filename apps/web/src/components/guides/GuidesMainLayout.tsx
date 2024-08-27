@@ -8,7 +8,6 @@ import { INTERVIEWS_REVAMP_DASHBOARD } from '~/data/FeatureFlags';
 import ArticlePagination from '~/components/common/ArticlePagination';
 import Divider from '~/components/ui/Divider';
 import Section from '~/components/ui/Heading/HeadingContext';
-import Text from '~/components/ui/Text';
 
 import type { GuideProgress } from '~/db/guides/GuideProgressTypes';
 import { useI18nPathname } from '~/next-i18nostic/src';

@@ -2,10 +2,12 @@ import { allInterviewsCompanyGuides } from 'contentlayer/generated';
 import { notFound } from 'next/navigation';
 import type { IntlShape } from 'react-intl';
 
+import { INTERVIEWS_REVAMP_DASHBOARD } from '~/data/FeatureFlags';
+
+import InterviewsDashboardPage from '~/components/interviews/revamp-dashboard/InterviewsDashboardPage';
+
 import { fetchPreparationPlans } from '~/db/PreparationPlansReader';
 import { getIntlServerOnly } from '~/i18n';
-import { INTERVIEWS_REVAMP_DASHBOARD } from '~/data/FeatureFlags';
-import InterviewsDashboardPage from '~/components/interviews/revamp-dashboard/InterviewsDashboardPage';
 
 type Props = Readonly<{
   params: Readonly<{

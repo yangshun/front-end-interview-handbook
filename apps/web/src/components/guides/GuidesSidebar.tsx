@@ -13,7 +13,6 @@ import Section from '~/components/ui/Heading/HeadingContext';
 import ScrollArea from '~/components/ui/ScrollArea';
 import Text from '~/components/ui/Text';
 import {
-  themeBackgroundCardColor,
   themeBackgroundElementEmphasizedStateColor_Hover,
   themeBorderColor,
   themeOutlineElement_FocusVisible,

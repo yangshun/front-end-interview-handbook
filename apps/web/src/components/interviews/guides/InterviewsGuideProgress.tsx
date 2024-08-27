@@ -14,6 +14,7 @@ type Props = Readonly<{
   size?: 'md' | 'sm';
 }>;
 
+// TODO(interviews): combine with QuestionsListItemProgressChip
 export default function InterviewsGuideProgress({
   completed,
   size = 'md',
