@@ -1,10 +1,5 @@
 import clsx from 'clsx';
-import {
-  RiArrowRightLine,
-  RiCheckboxCircleFill,
-  RiLockLine,
-} from 'react-icons/ri';
-import { RiStarSmileFill } from 'react-icons/ri';
+import { RiArrowRightLine } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
 
 import { useUserProfile } from '~/components/global/UserProfileProvider';
@@ -16,18 +11,16 @@ import {
   themeBackgroundCardWhiteOnLightColor,
   themeBackgroundEmphasized_Hover,
   themeBorderColor,
-  themeBorderElementColor,
   themeDivideColor,
-  themeTextBrandColor,
   themeTextBrandColor_GroupHover,
   themeTextFaintColor,
   themeTextInvertColor,
 } from '~/components/ui/theme';
-import Tooltip from '~/components/ui/Tooltip';
 
 import type { QuestionCompletionCount } from '~/db/QuestionsCount';
 import { hashQuestion } from '~/db/QuestionsUtils';
 
+import QuestionsListItemProgressChip from './QuestionsListItemProgressChip';
 import { questionHrefWithList } from '../../common/questionHref';
 import type {
   QuestionFramework,
@@ -38,9 +31,9 @@ import QuestionDifficultyLabel from '../../metadata/QuestionDifficultyLabel';
 import QuestionFrameworks from '../../metadata/QuestionFrameworks';
 import QuestionImportanceLabel from '../../metadata/QuestionImportanceLabel';
 import QuestionLanguages from '../../metadata/QuestionLanguages';
+import QuestionPremiumLabel from '../../metadata/QuestionPremiumLabel';
 import QuestionTopics from '../../metadata/QuestionTopics';
 import QuestionUsersCompletedLabel from '../../metadata/QuestionUsersCompletedLabel';
-import QuestionPremiumLabel from '../../metadata/QuestionPremiumLabel';
 
 type Props<Q extends QuestionMetadata> = Readonly<{
   checkIfCompletedQuestion: (question: Q) => boolean;
@@ -148,148 +141,33 @@ export default function QuestionsList<Q extends QuestionMetadata>({
         const hasCompletedQuestionBefore = checkIfCompletedQuestionBefore
           ? checkIfCompletedQuestionBefore(question)
           : false;
-        const progressIndicatorDefaultClass = clsx(
-          'inline-flex items-center justify-center',
-          'size-8 rounded-full',
-          [themeTextBrandColor, 'font-semibold'],
-          'bg-brand-lightest dark:bg-neutral-800',
-        );
 
         return (
           <li
             key={hashQuestion(question.format, question.slug)}
             className={clsx(
+              'isolate',
               'group relative flex gap-x-4 px-6 py-4',
               'focus-within:ring-brand focus-within:ring-2 focus-within:ring-inset',
-              themeBackgroundCardWhiteOnLightColor,
               'transition-colors',
+              themeBackgroundCardWhiteOnLightColor,
               themeBackgroundEmphasized_Hover,
               index === 0 && 'rounded-t-lg',
               index === questions.length - 1 && 'rounded-b-lg',
             )}>
             <QuestionNewLabel created={question.created} />
             {showProgress && (
-              <div
-                className={clsx(
-                  'flex items-center justify-center',
-                  'z-10', // Needed for the icon to be above the link.
-                )}>
-                {question.premium && !userProfile?.isInterviewsPremium ? (
-                  <Tooltip
-                    asChild={true}
-                    label={intl.formatMessage({
-                      defaultMessage: 'Premium',
-                      description: 'Tooltip for Premium questions label',
-                      id: '55uCRp',
-                    })}>
-                    <button
-                      className={clsx(
-                        'flex items-center justify-center rounded-full',
-                        'size-8',
-                        'relative',
-                        'shiny',
-                        'bg-brand-dark dark:bg-brand/20',
-                      )}
-                      disabled={true}
-                      type="button">
-                      <RiLockLine
-                        aria-hidden={true}
-                        className="size-4 shrink-0 text-white"
-                      />
-                    </button>
-                  </Tooltip>
-                ) : hasCompletedQuestion ? (
-                  mode === 'default' ? (
-                    <Tooltip
-                      label={intl.formatMessage({
-                        defaultMessage: 'Completed',
-                        description: 'Tooltip for Completed questions label',
-                        id: 'aZqFm4',
-                      })}>
-                      <RiCheckboxCircleFill
-                        aria-hidden="true"
-                        className={clsx(
-                          'size-8 scale-110',
-                          'text-success dark:text-success-light',
-                        )}
-                      />
-                    </Tooltip>
-                  ) : (
-                    <Tooltip
-                      label={intl.formatMessage({
-                        defaultMessage: 'Mark as not completed',
-                        description: 'Tooltip to mark a button as incomplete',
-                        id: 'pmgCza',
-                      })}>
-                      <button
-                        aria-label={intl.formatMessage({
-                          defaultMessage: 'Mark as not completed',
-                          description: 'Tooltip to mark a button as incomplete',
-                          id: 'pmgCza',
-                        })}
-                        type="button"
-                        onClick={() => {
-                          onMarkAsNotCompleted?.(question);
-                        }}>
-                        <RiCheckboxCircleFill
-                          aria-hidden="true"
-                          className={clsx(
-                            'size-8 scale-110',
-                            'transition-colors',
-                            'text-success hover:text-success-dark',
-                            'dark:text-success-light dark:hover:text-success-lighter',
-                          )}
-                        />
-                      </button>
-                    </Tooltip>
-                  )
-                ) : hasCompletedQuestionBefore ? (
-                  <Tooltip
-                    label={intl.formatMessage({
-                      defaultMessage: 'Solved previously, mark as completed',
-                      description: 'Label for questions solved in the past',
-                      id: 'ghmPBf',
-                    })}>
-                    <button
-                      aria-label={intl.formatMessage({
-                        defaultMessage: 'Solved previously, mark as completed',
-                        description: 'Label for questions solved in the past',
-                        id: 'ghmPBf',
-                      })}
-                      className={clsx(
-                        progressIndicatorDefaultClass,
-                        'hover:opacity-60',
-                        'border-success border border-dashed',
-                      )}
-                      type="button"
-                      onClick={() => onMarkAsCompleted?.(question)}>
-                      {index + 1}
-                    </button>
-                  </Tooltip>
-                ) : (
-                  <Tooltip
-                    label={intl.formatMessage({
-                      defaultMessage: 'Not completed',
-                      description: 'Tooltip for questions Not Completed label',
-                      id: 'xAtvsP',
-                    })}>
-                    {mode === 'default' && (
-                      <span
-                        className={clsx(
-                          'size-8 flex items-center justify-center rounded-full',
-                          ['border', themeBorderElementColor],
-                          'bg-neutral-100 dark:bg-neutral-900',
-                        )}
-                      />
-                    )}
-                    {mode === 'learning-list' && (
-                      <span className={progressIndicatorDefaultClass}>
-                        {index + 1}
-                      </span>
-                    )}
-                  </Tooltip>
-                )}
-              </div>
+              <QuestionsListItemProgressChip
+                className="z-[1]" // Needed for the icon to be above the link.
+                hasCompletedQuestion={hasCompletedQuestion}
+                hasCompletedQuestionBefore={hasCompletedQuestionBefore}
+                index={index}
+                mode={mode}
+                premiumUser={userProfile?.isInterviewsPremium}
+                question={question}
+                onMarkAsCompleted={onMarkAsCompleted}
+                onMarkAsNotCompleted={onMarkAsNotCompleted}
+              />
             )}
             <div className="grow">
               <Text

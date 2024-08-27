@@ -40,6 +40,9 @@ export const themeTextLightColor = clsx('text-neutral-100');
 export const themeTextSuccessColor = clsx(
   'text-success dark:text-success-light',
 );
+export const themeTextSuccessColor_Hover = clsx(
+  'hover:text-success dark:hover:text-success-light',
+);
 export const themeTextWarningColor = clsx(
   'text-warning dark:text-warning-light',
 );
@@ -69,6 +72,12 @@ export const themeBackgroundLayerEmphasized = clsx(
   'bg-neutral-50 dark:bg-neutral-800',
 );
 export const themeBackgroundLayerEmphasized_Hover = clsx(
+  'hover:bg-neutral-50 dark:hover:bg-neutral-800',
+);
+export const themeBackgroundCardNoAlphaColor = clsx(
+  'bg-neutral-50 dark:bg-neutral-800',
+);
+export const themeBackgroundCardNoAlphaColor_Hover = clsx(
   'hover:bg-neutral-50 dark:hover:bg-neutral-800',
 );
 export const themeBackgroundCardColor = clsx(
@@ -121,6 +130,9 @@ export const themeDivideColor = clsx(
 export const themeBorderEmphasizeColor = clsx(
   'border-neutral-300 dark:border-neutral-700',
 );
+export const themeBorderEmphasizeColor_Hover = clsx(
+  'hover:border-neutral-300 dark:hover:border-neutral-700',
+);
 export const themeBorderSecondaryColor = clsx(
   'border-neutral-400 dark:border-neutral-600',
 );
@@ -131,6 +143,7 @@ export const themeDivideEmphasizeColor = clsx(
   'divide-neutral-300 dark:divide-neutral-700',
 );
 export const themeBorderElementColor = themeBorderEmphasizeColor;
+export const themeBorderElementColor_Hover = themeBorderEmphasizeColor_Hover;
 export const themeGlassyBorder = clsx(
   'glassbox border border-neutral-200 dark:border-transparent',
 );
