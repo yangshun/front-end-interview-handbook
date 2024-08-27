@@ -1,3 +1,11 @@
+/* Place allll the way at the top to let Tailwind typography plugin override it by appearing later.
+  Would welcome a better way to do this.
+*/
+.prose > * {
+  margin-top: 2.1333333333333333em;
+  margin-bottom: 2.1333333333333333em;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -22,10 +30,6 @@ a {
 
 [data-color-scheme='dark'] {
   color-scheme: dark; /* Makes some default elements (e.g. scrollbar) dark */
-}
-
-.prose h5 {
-  padding-top: 1rem;
 }
 
 .prose figcaption {

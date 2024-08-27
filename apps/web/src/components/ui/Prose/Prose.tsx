@@ -12,7 +12,7 @@ type Props = Readonly<{
 }>;
 
 const textSizes: Record<ProseTextSize, string> = {
-  md: '',
+  md: 'text-[15px]',
   sm: 'prose-sm',
 };
 

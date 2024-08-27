@@ -1,32 +1,60 @@
 // Source: https://github.com/tailwindlabs/tailwindcss.com/blob/master/tailwind.config.js
 
+const BASE_FONT_SIZE = 15;
+
 module.exports = ({ theme }) => ({
   DEFAULT: {
     css: {
       maxWidth: 'none',
       color: theme('colors.neutral.700'),
-      hr: {
-        borderColor: theme('colors.neutral.200'),
-        marginTop: '3em',
-        marginBottom: '3em',
-      },
-      'h1, h2, h3': {
-        letterSpacing: '-0.025em',
+      h1: {
+        fontSize: `${32 / BASE_FONT_SIZE}em`,
+        fontWeight: theme('fontWeight.semibold'),
+        lineHeight: 1.125,
+        marginBottom: 0,
       },
       h2: {
-        marginBottom: `${16 / 24}em`,
+        fontSize: `${24 / BASE_FONT_SIZE}em`,
+        fontWeight: theme('fontWeight.semibold'),
+        lineHeight: `${28 / 24}em`,
+        marginTop: `${72 / 24}em`,
+        marginBottom: 0,
+      },
+      'h2 + h3': {
+        marginTop: `${72 / 24}em`,
+      },
+      'h2 + *': {
+        marginTop: 'intentionally-invalid',
       },
       h3: {
-        marginTop: '2.4em',
-        lineHeight: '1.4',
+        fontSize: `${17 / BASE_FONT_SIZE}em`,
+        fontWeight: theme('fontWeight.semibold'),
+        lineHeight: `${24.5 / 17}em`,
+        marginTop: `${48 / 17}em`,
+        marginBottom: 0,
+      },
+      'h3 + *': {
+        marginTop: 'intentionally-invalid',
+      },
+      'h3 + h4': {
+        marginTop: `${48 / 17}em`,
       },
       h4: {
-        marginTop: '2em',
-        fontSize: '1.125em',
+        fontSize: `${15 / BASE_FONT_SIZE}em`,
+        fontWeight: theme('fontWeight.semibold'),
+        lineHeight: `${23 / 15}em`,
+        marginTop: `${32 / 15}em`,
+        marginBottom: 0,
+      },
+      'h4 + *': {
+        marginTop: 'intentionally-invalid',
+      },
+      'h2 + p, h3 + p, h4 + p': {
+        marginTop: `${16 / BASE_FONT_SIZE}em`,
       },
       'h2 small, h3 small, h4 small': {
-        fontFamily: theme('fontFamily.mono').join(', '),
         color: theme('colors.neutral.500'),
+        fontFamily: theme('fontFamily.mono').join(', '),
         fontWeight: 500,
       },
       'h2 small': {
@@ -41,12 +69,23 @@ module.exports = ({ theme }) => ({
         fontSize: theme('fontSize.sm')[0],
         ...theme('fontSize.sm')[1],
       },
-      'h5 small': {
-        fontSize: theme('fontSize.xs')[0],
-        ...theme('fontSize.xs')[1],
+      p: {
+        marginTop: `${32 / BASE_FONT_SIZE}em`,
+        marginBottom: `${32 / BASE_FONT_SIZE}em`,
       },
-      'h2 code, h3 code': {
-        font: 'inherit',
+      'p, li': {
+        lineHeight: `${26 / BASE_FONT_SIZE}em`,
+      },
+      'p + ul, p + ol': {
+        marginTop: `${-20 / BASE_FONT_SIZE}em`,
+      },
+      li: {
+        marginBottom: `${12 / BASE_FONT_SIZE}em`,
+      },
+      hr: {
+        borderColor: theme('colors.neutral.200'),
+        marginTop: '3em',
+        marginBottom: '3em',
       },
       a: {
         fontWeight: theme('fontWeight.medium'),
@@ -57,7 +96,6 @@ module.exports = ({ theme }) => ({
         fontWeight: 'inherit',
       },
       strong: {
-        color: theme('colors.neutral.900'),
         fontWeight: theme('fontWeight.medium'),
       },
       'a strong': {
@@ -77,8 +115,19 @@ module.exports = ({ theme }) => ({
         margin: '0 1px',
       },
       code: {
+        borderRadius: '0.375em',
+        background: '#eeedef',
+        color: theme('colors.neutral.700'),
         fontWeight: theme('fontWeight.medium'),
         fontVariantLigatures: 'none',
+        padding: '0.2em 0.4em',
+        fontSize: '0.9em',
+      },
+      'code::before': {
+        content: '',
+      },
+      'code::after': {
+        content: '',
       },
       pre: {
         color: theme('colors.neutral.50'),
@@ -98,19 +147,50 @@ module.exports = ({ theme }) => ({
         minWidth: '100%',
       },
       table: {
-        fontSize: theme('fontSize.sm')[0],
-        lineHeight: theme('fontSize.sm')[1].lineHeight,
+        borderCollapse: 'separate',
+        borderSpacing: 0,
+        fontSize: 'inherit',
+        lineHeight: 'inherit',
+        marginBottom: 0,
+        marginTop: 0,
       },
       thead: {
         color: theme('colors.neutral.700'),
-        borderBottomColor: theme('colors.neutral.200'),
       },
       'thead th': {
-        paddingTop: 0,
+        backgroundColor: theme('colors.neutral.100'),
+        '--border': `1px solid ${theme('colors.neutral.200')}`,
+        border: 'var(--border)',
+        borderLeft: 'none',
+        borderRight: 'none',
+        '--radius': '8px',
+        fontSize: `${13 / BASE_FONT_SIZE}em`,
         fontWeight: theme('fontWeight.medium'),
+        padding: `${8 / 13}em ${16 / 13}em`,
       },
-      'tbody tr': {
+      'thead th:first-child': {
+        borderLeft: 'var(--border)',
+        borderRadius: 'var(--radius) 0 0 var(--radius)',
+        paddingLeft: 'intentionally-invalid',
+      },
+      'thead th:last-child': {
+        borderRight: 'var(--border)',
+        borderRadius: '0 var(--radius) var(--radius) 0',
+        paddingRight: 'intentionally-invalid',
+      },
+      'tbody td': {
+        borderBottomWidth: 1,
+        borderBottomStyle: 'solid',
         borderBottomColor: theme('colors.neutral.100'),
+      },
+      'tbody td, tfoot td': {
+        padding: `${16 / BASE_FONT_SIZE}em`,
+      },
+      'tbody td:first-child, tfoot td:first-child': {
+        paddingLeft: 'intentionally-invalid',
+      },
+      'tbody td:last-child, tfoot td:last-child': {
+        paddingRight: 'intentionally-invalid',
       },
       'tbody tr:last-child': {
         borderBottomWidth: '1px',
@@ -127,11 +207,38 @@ module.exports = ({ theme }) => ({
       },
     },
   },
+  sm: {
+    css: {
+      'thead th': {
+        paddingRight: 'intentionally-invalid',
+        paddingBottom: 'intentionally-invalid',
+        paddingLeft: 'intentionally-invalid',
+      },
+      'thead th:first-child': {
+        paddingLeft: 'intentionally-invalid',
+      },
+      'thead th:last-child': {
+        paddingRight: 'intentionally-invalid',
+      },
+      'tbody td, tfoot td': {
+        paddingRight: 'intentionally-invalid',
+        paddingBottom: 'intentionally-invalid',
+        paddingLeft: 'intentionally-invalid',
+        paddingTop: 'intentionally-invalid',
+      },
+      'tbody td:first-child, tfoot td:first-child': {
+        paddingLeft: 'intentionally-invalid',
+      },
+      'tbody td:last-child, tfoot td:last-child': {
+        paddingRight: 'intentionally-invalid',
+      },
+    },
+  },
   invert: {
     css: {
-      color: theme('colors.neutral.400'),
+      color: theme('colors.neutral.300'),
       'h2, h3, h4, thead th': {
-        color: theme('colors.neutral.200'),
+        color: theme('colors.neutral.100'),
       },
       'h2 small, h3 small, h4 small': {
         color: theme('colors.neutral.400'),
@@ -142,20 +249,21 @@ module.exports = ({ theme }) => ({
         color: theme('colors.neutral.200'),
       },
       code: {
+        background: theme('colors.neutral.700'),
         color: theme('colors.neutral.200'),
       },
       hr: {
         borderColor: theme('colors.neutral.800'),
       },
-      strong: {
-        color: theme('colors.neutral.200'),
-      },
       thead: {
         color: theme('colors.neutral.300'),
-        borderBottomColor: 'rgb(148 163 184 / 0.2)',
       },
-      'tbody tr': {
-        borderBottomColor: 'rgb(148 163 184 / 0.1)',
+      'thead th': {
+        backgroundColor: theme('colors.neutral.800'),
+        '--border': `1px solid ${theme('colors.neutral.700')}`,
+      },
+      'tbody td': {
+        borderBottomColor: theme('colors.neutral.800'),
       },
       blockQuote: {
         color: theme('colors.white'),
