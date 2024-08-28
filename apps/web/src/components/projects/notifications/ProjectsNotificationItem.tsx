@@ -13,6 +13,7 @@ import ProjectsNotificationUnreadIndicator from './ProjectsNotificationUnreadInd
 import type { ProjectsNotificationAugmentedType } from './types';
 
 type Props = Readonly<{
+  className?: string;
   closeNotification: () => void;
   handleVisibleLongEnough: (id: string) => void;
   item: ProjectsNotificationAugmentedType;
@@ -22,6 +23,7 @@ export default function ProjectsNotificationItem({
   item,
   closeNotification,
   handleVisibleLongEnough,
+  className,
 }: Props) {
   const utils = trpc.useUtils();
   const { elementRef, visibleDuration } = useVisibleDuration();
@@ -77,6 +79,7 @@ export default function ProjectsNotificationItem({
         '-mx-3 rounded-lg px-3 py-6',
         'transition-colors',
         'hover:bg-neutral-100 dark:hover:bg-neutral-900',
+        className,
       )}
       onClick={onClick}>
       <Anchor className="absolute inset-0" href={getUrl()} />

@@ -24,7 +24,7 @@ type Props = Readonly<{
 }>;
 
 const popoverContentClassName = clsx(
-  'px-6 py-7',
+  'p-6',
   'rounded-lg',
   'shadow-lg',
   themeBackgroundLayerEmphasized,

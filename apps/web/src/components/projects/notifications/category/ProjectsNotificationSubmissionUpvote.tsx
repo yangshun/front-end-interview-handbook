@@ -5,7 +5,9 @@ import { FormattedMessage } from 'react-intl';
 
 import RelativeTimestamp from '~/components/common/datetime/RelativeTimestamp';
 import Text from '~/components/ui/Text';
-import { themeTextSubtleColor } from '~/components/ui/theme';
+import {
+  themeTextSecondaryColor,
+} from '~/components/ui/theme';
 
 import type { ProjectsNotificationSubmissionUpvoteItemType } from '../types';
 
@@ -25,10 +27,12 @@ export default function ProjectsNotificationSubmissionUpvote({ data }: Props) {
         className={clsx(
           'flex items-center justify-center',
           'h-11 w-12 shrink-0 overflow-hidden rounded',
-          'bg-neutral-100 dark:bg-neutral-900/70',
+          'bg-neutral-200 dark:bg-neutral-950',
         )}>
         {showImageFallback ? (
-          <RiFileDamageLine className={clsx('size-6', themeTextSubtleColor)} />
+          <RiFileDamageLine
+            className={clsx('size-5', themeTextSecondaryColor)}
+          />
         ) : (
           <img
             alt={submission?.title}

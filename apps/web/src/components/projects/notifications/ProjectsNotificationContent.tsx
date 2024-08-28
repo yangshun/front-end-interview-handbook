@@ -133,9 +133,16 @@ export default function ProjectsNotificationContent({
         </div>
       ) : (
         <div className={clsx('divide-y', themeDivideEmphasizeColor)}>
-          {notifications?.map((item) => (
-            <div key={item.id} className={clsx('first:-mt-6 last:-mb-6')}>
+          {notifications?.map((item, index) => (
+            <div key={item.id} className={clsx('first:-mt-2.5 last:-mb-2.5')}>
               <ProjectsNotificationItem
+                className={
+                  index === 0
+                    ? 'pt-3.5'
+                    : index === notifications.length - 1
+                      ? 'pb-3.5'
+                      : ''
+                }
                 closeNotification={closeNotification}
                 handleVisibleLongEnough={handleVisibleLongEnough}
                 item={item}
