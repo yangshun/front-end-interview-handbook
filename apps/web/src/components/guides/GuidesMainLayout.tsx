@@ -3,6 +3,8 @@
 import clsx from 'clsx';
 import { useRef } from 'react';
 
+import useScrollToTop from '~/hooks/useScrollToTop';
+
 import { INTERVIEWS_REVAMP_DASHBOARD } from '~/data/FeatureFlags';
 
 import ArticlePagination from '~/components/common/ArticlePagination';
@@ -14,7 +16,6 @@ import { useI18nPathname } from '~/next-i18nostic/src';
 
 import GuidesHeadingObserver from './GuidesHeadingObserver';
 import { useGuidesContext } from './GuidesLayout';
-import GuidesLayoutContent from './GuidesLayoutContent';
 import GuidesNavbar from './GuidesNavbar';
 import GuidesProgressAction from './GuidesProgressAction';
 import type { TableOfContents } from './GuidesTableOfContents';
@@ -56,6 +57,8 @@ export default function GuidesMainLayout({
   const { collapsedToC, setCollapsedToC } = useGuidesContext();
   const articleContainerRef = useRef<HTMLDivElement>(null);
 
+  useScrollToTop([pathname]);
+
   const flatNavigationItems = useFlattenedNavigationItems(navigation);
 
   const currentItem = flatNavigationItems.find(
@@ -89,50 +92,56 @@ export default function GuidesMainLayout({
           navigation={navigation}
           tableOfContents={tableOfContents}
         />
-        <GuidesLayoutContent>
+        <div
+          className={clsx(
+            'flex w-full grow gap-12',
+            'px-4 pb-20 pt-12 md:px-6 lg:px-8 xl:pl-12 xl:pr-6',
+          )}
+          style={
+            {
+              // MarginTop: 'calc(var(--global-sticky-height) * -1)',
+              // paddingTop: 'var(--global-sticky-height)',
+            }
+          }>
           <div
             className={clsx(
-              'flex flex-col gap-12 overflow-auto',
-              'w-full max-w-[620px]',
+              'flex flex-col gap-12',
+              'mx-auto w-full max-w-[640px]',
             )}>
             <div ref={articleContainerRef}>{children}</div>
             <Section>
-              <div className="flex flex-col gap-12">
-                {showMarkAsComplete &&
-                  metadata &&
-                  INTERVIEWS_REVAMP_DASHBOARD && (
-                    <>
-                      <div
-                        className={clsx(
-                          'transition-colors',
-                          'isGuideProgressSuccess' in props &&
-                            props.isGuideProgressSuccess
-                            ? 'opacity-100'
-                            : 'opacity-0',
-                        )}>
-                        <GuidesProgressAction
-                          guideProgress={
-                            'guideProgress' in props
-                              ? props.guideProgress
-                              : null
-                          }
-                          metadata={metadata}
-                          nextArticle={nextArticle}
-                        />
-                      </div>
-                      <Divider />
-                    </>
-                  )}
-                <ArticlePagination
-                  activeItem={pathname ?? ''}
-                  items={flatNavigationItems}
-                />
-              </div>
+              {showMarkAsComplete &&
+                metadata &&
+                INTERVIEWS_REVAMP_DASHBOARD && (
+                  <>
+                    <div
+                      className={clsx(
+                        'transition-colors',
+                        'isGuideProgressSuccess' in props &&
+                          props.isGuideProgressSuccess
+                          ? 'opacity-100'
+                          : 'opacity-0',
+                      )}>
+                      <GuidesProgressAction
+                        guideProgress={
+                          'guideProgress' in props ? props.guideProgress : null
+                        }
+                        metadata={metadata}
+                        nextArticle={nextArticle}
+                      />
+                    </div>
+                    <Divider />
+                  </>
+                )}
+              <ArticlePagination
+                activeItem={pathname ?? ''}
+                items={flatNavigationItems}
+              />
             </Section>
           </div>
           {tableOfContents && (
             <Section>
-              <div
+              <aside
                 key={currentItem?.href}
                 className="hidden w-[252px] overflow-hidden xl:sticky xl:block xl:flex-none xl:overflow-x-hidden"
                 style={{
@@ -145,10 +154,10 @@ export default function GuidesMainLayout({
                   setCollapsedToC={setCollapsedToC}
                   tableOfContents={tableOfContents}
                 />
-              </div>
+              </aside>
             </Section>
           )}
-        </GuidesLayoutContent>
+        </div>
       </div>
     </GuidesHeadingObserver>
   );

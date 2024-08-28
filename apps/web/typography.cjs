@@ -167,6 +167,7 @@ module.exports = ({ theme }) => ({
         fontSize: `${13 / BASE_FONT_SIZE}em`,
         fontWeight: theme('fontWeight.medium'),
         padding: `${8 / 13}em ${16 / 13}em`,
+        whiteSpace: 'nowrap',
       },
       'thead th:first-child': {
         borderLeft: 'var(--border)',

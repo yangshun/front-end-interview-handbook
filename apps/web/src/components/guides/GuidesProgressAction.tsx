@@ -207,10 +207,10 @@ export default function GuidesProgressAction({
                   ? intl.formatMessage(
                       {
                         defaultMessage:
-                          'You will be redirected into {nextArticle} in 10 sec',
+                          'You will be redirected to the next page "{nextArticle}" in 10s',
                         description:
                           'Success message shown when a guide was marked as complete',
-                        id: 'B8wSft',
+                        id: '8pBDb1',
                       },
                       {
                         nextArticle: nextArticle.title,

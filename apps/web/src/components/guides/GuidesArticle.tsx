@@ -17,16 +17,19 @@ type Props = PropsWithChildren<
 const GuidesArticle = forwardRef<HTMLDivElement, Props>(
   ({ title, description, children }: Props, ref) => {
     return (
-      <div className="flex flex-col gap-y-12">
+      <article className="flex flex-col gap-y-12">
         <div className="flex flex-col gap-y-2">
-          <Heading level="heading4" tag="h1">
+          <Heading
+            className="text-[32px] font-semibold leading-[1.125]"
+            level="custom"
+            tag="h1">
             {title}
           </Heading>
           <Abstract>{description}</Abstract>
         </div>
         <hr className={themeBorderColor} />
         <Prose ref={ref}>{children}</Prose>
-      </div>
+      </article>
     );
   },
 );
