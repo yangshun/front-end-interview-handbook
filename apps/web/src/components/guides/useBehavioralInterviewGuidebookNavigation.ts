@@ -31,9 +31,9 @@ export default function useBehavioralInterviewGuidebookNavigation() {
             icon: RiPlayFill,
             slug: 'introduction',
             title: intl.formatMessage({
-              defaultMessage: 'Intro to Behavioral Round',
+              defaultMessage: 'Intro to behavioral interviews',
               description: 'Introduction to behavioral interviews',
-              id: 'jTXr+7',
+              id: 'dKaQQ+',
             }),
             type: 'link',
           },
@@ -49,9 +49,9 @@ export default function useBehavioralInterviewGuidebookNavigation() {
             icon: RiQuestionAnswerLine,
             slug: 'common-interview-questions',
             title: intl.formatMessage({
-              defaultMessage: 'Most Common Questions',
+              defaultMessage: 'Most common questions',
               description: 'Most common behavioral interview questions',
-              id: '8yQk1V',
+              id: 'BPUOzL',
             }),
             type: 'link',
           },
@@ -77,10 +77,10 @@ export default function useBehavioralInterviewGuidebookNavigation() {
             icon: RiUserSmileLine,
             slug: 'self-introduction',
             title: intl.formatMessage({
-              defaultMessage: 'Answering "Tell Me About Yourself"',
+              defaultMessage: 'Answering "Tell me about yourself"',
               description:
                 'How to answer the self introduction question in behavioral interviews',
-              id: 'oNbAS2',
+              id: 'JGfGOf',
             }),
             type: 'link',
           },
@@ -96,10 +96,10 @@ export default function useBehavioralInterviewGuidebookNavigation() {
             icon: RiBriefcase2Line,
             slug: 'why-work-here',
             title: intl.formatMessage({
-              defaultMessage: 'Answering "Why Work Here"',
+              defaultMessage: 'Answering "Why work here"',
               description:
                 'How to answer the "why work here" question in behavioral interviews',
-              id: 'iCRUOb',
+              id: 'ypT9B0',
             }),
             type: 'link',
           },
@@ -115,10 +115,10 @@ export default function useBehavioralInterviewGuidebookNavigation() {
             icon: RiQuestionnaireLine,
             slug: 'questions-to-ask',
             title: intl.formatMessage({
-              defaultMessage: 'Questions to Ask (End of Interview)',
+              defaultMessage: 'Questions to ask (end of interview)',
               description:
                 'Best questions to ask at the end of a behavioral interviews',
-              id: '+59/34',
+              id: 'rg3DjU',
             }),
             type: 'link',
           },
@@ -134,10 +134,10 @@ export default function useBehavioralInterviewGuidebookNavigation() {
             icon: RiLightbulbLine,
             slug: 'problem-solving',
             title: intl.formatMessage({
-              defaultMessage: 'Problem Solving Questions',
+              defaultMessage: 'Problem solving questions',
               description:
                 'Title for sidebar on problem solving situation questions in behavioral interviews',
-              id: 'D5IZKC',
+              id: 'fBszEG',
             }),
             type: 'link',
           },
@@ -153,10 +153,10 @@ export default function useBehavioralInterviewGuidebookNavigation() {
             icon: RiShakeHandsLine,
             slug: 'collaboration',
             title: intl.formatMessage({
-              defaultMessage: 'Collaboration Questions',
+              defaultMessage: 'Collaboration questions',
               description:
                 'Title for sidebar on collaboration situation questions in behavioral interviews',
-              id: '0GjR/X',
+              id: 'JPr1gs',
             }),
             type: 'link',
           },
@@ -172,9 +172,9 @@ export default function useBehavioralInterviewGuidebookNavigation() {
             icon: RiLineChartLine,
             slug: 'growth-mindset',
             title: intl.formatMessage({
-              defaultMessage: 'Growth Mindset Questions',
+              defaultMessage: 'Growth mindset questions',
               description: 'Title for growth mindset collaboration questions',
-              id: '7Korc4',
+              id: '592QG3',
             }),
             type: 'link',
           },

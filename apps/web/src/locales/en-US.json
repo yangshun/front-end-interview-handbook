@@ -3,10 +3,6 @@
     "defaultMessage": "+{points} rep",
     "description": "Rep gain for parent skill"
   },
-  "+59/34": {
-    "defaultMessage": "Questions to Ask (End of Interview)",
-    "description": "Best questions to ask at the end of a behavioral interviews"
-  },
   "+5JohH": {
     "defaultMessage": "About",
     "description": "Link to company's about page"
@@ -278,10 +274,6 @@
   "0GT0SI": {
     "defaultMessage": "Cancel",
     "description": "Cancel button label"
-  },
-  "0GjR/X": {
-    "defaultMessage": "Collaboration Questions",
-    "description": "Title for sidebar on collaboration situation questions in behavioral interviews"
   },
   "0HOYxB": {
     "defaultMessage": "Lodash Functions",
@@ -727,10 +719,6 @@
     "defaultMessage": "Earlier",
     "description": "Title for earlier list of comments"
   },
-  "434fyX": {
-    "defaultMessage": "RADIO Framework",
-    "description": "RADIO (acroynm) framework name for front end system design interviews. Don't translate RADIO"
-  },
   "44kz/c": {
     "defaultMessage": "GreatFrontEnd uses Monaco Editor, the same code editor used in Visual Studio Code (VS Code). Most editor shortcuts in VS Code should work here as well. Here's a list of common shortcuts for your reference:",
     "description": "Description within code editor shortcuts"
@@ -831,10 +819,6 @@
     "defaultMessage": "Preserve logs",
     "description": "Checkbox label to preserve logs in the console in the coding workspace"
   },
-  "55uCRp": {
-    "defaultMessage": "Premium",
-    "description": "Tooltip for Premium questions label"
-  },
   "56Mzxg": {
     "defaultMessage": "Yes of course! You are encouraged to use your own customized stack to build the challenges and share your implementation and approach.",
     "description": "FAQ answer for projects platform"
@@ -842,6 +826,10 @@
   "58dfbv": {
     "defaultMessage": "Language",
     "description": "Change site language button label"
+  },
+  "592QG3": {
+    "defaultMessage": "Growth mindset questions",
+    "description": "Title for growth mindset collaboration questions"
   },
   "59u5/i": {
     "defaultMessage": "{count} other items",
@@ -942,6 +930,10 @@
   "6/Qdew": {
     "defaultMessage": "Start project",
     "description": "Label for \"Start project\" button on Projects project page"
+  },
+  "61X1bs": {
+    "defaultMessage": "Common mistakes",
+    "description": "Common mistakes made during front end system design interviews"
   },
   "680b8U": {
     "defaultMessage": "Vanilla JS Questions",
@@ -1051,6 +1043,10 @@
     "defaultMessage": "How it works",
     "description": "Heading of the 'How it works' marketing section on Projects home page"
   },
+  "6r6UcH": {
+    "defaultMessage": "Types of questions",
+    "description": "Types of front end system design interview questions"
+  },
   "6y6SUS": {
     "defaultMessage": "Mark as complete",
     "description": "Mark question as complete"
@@ -1127,10 +1123,6 @@
     "defaultMessage": "Share",
     "description": "Share button label"
   },
-  "7Korc4": {
-    "defaultMessage": "Growth Mindset Questions",
-    "description": "Title for growth mindset collaboration questions"
-  },
   "7N70T1": {
     "defaultMessage": "No ongoing learning session",
     "description": "No active study plan session started"
@@ -1162,6 +1154,10 @@
   "7SbsXo": {
     "defaultMessage": "All the assets you need to build a {challengeName}, including design assets, technical specs, starter code, and more",
     "description": "Description of Projects challenge assets page"
+  },
+  "7UE9o1": {
+    "defaultMessage": "Evaluation axes",
+    "description": "Evaluation axes in front end system design interviews"
   },
   "7VXf2Y": {
     "defaultMessage": "Roadmap",
@@ -1362,10 +1358,6 @@
   "8yHADh": {
     "defaultMessage": "Bold",
     "description": "Bold tooltip for Richtext toolbar"
-  },
-  "8yQk1V": {
-    "defaultMessage": "Most Common Questions",
-    "description": "Most common behavioral interview questions"
   },
   "9//mtm": {
     "defaultMessage": "You may be interested",
@@ -1675,9 +1667,17 @@
     "defaultMessage": "Best value for money with real-time support from the team and community.",
     "description": "Supporting statement for an annual pricing plan"
   },
+  "BPUOzL": {
+    "defaultMessage": "Most common questions",
+    "description": "Most common behavioral interview questions"
+  },
   "BVZEeY": {
     "defaultMessage": "<authorProfileLink>{author}</authorProfileLink> replied to <recipientProfileLink>{recipient}</recipientProfileLink> on the challenge forum for <link>{challengeTitle}</link>: <comment>\"{description}\"</comment>",
     "description": "Log message for someone replying to someone on the challenge forum"
+  },
+  "BWVaW8": {
+    "defaultMessage": "Mark as not complete",
+    "description": "Mark question as not complete"
   },
   "BWcVlu": {
     "defaultMessage": "{totalCount, plural, =0 {No challenges} one {1 challenge} other {# challenges}}",
@@ -1859,10 +1859,6 @@
     "defaultMessage": "Existing subscribers can upgrade to the lifetime plan at a discount, send an email to <link>contact@greatfrontend</link> to find out more.",
     "description": "Call to action text to upgrade plan."
   },
-  "D5IZKC": {
-    "defaultMessage": "Problem Solving Questions",
-    "description": "Title for sidebar on problem solving situation questions in behavioral interviews"
-  },
   "D7z/wQ": {
     "defaultMessage": "Keep your reason to under {characterLimit} characters",
     "description": "String validation message"
@@ -2006,10 +2002,6 @@
   "E63Iix": {
     "defaultMessage": "Step-by-step guides on how to approach the challenge.",
     "description": "FAQ answer for projects platform"
-  },
-  "E6yHUQ": {
-    "defaultMessage": "Evaluation Axes",
-    "description": "Evaluation axes in front end system design interviews"
   },
   "E9Yr6B": {
     "defaultMessage": "Billing",
@@ -2687,6 +2679,10 @@
     "defaultMessage": "Preparation Plans",
     "description": "Preparation plans section title"
   },
+  "JGfGOf": {
+    "defaultMessage": "Answering \"Tell me about yourself\"",
+    "description": "How to answer the self introduction question in behavioral interviews"
+  },
   "JIWdeN": {
     "defaultMessage": "Continue tracks and skills",
     "description": "Title for Continue tracks and skills section on Projects dashboard page"
@@ -2710,6 +2706,10 @@
   "JPbOCy": {
     "defaultMessage": "Vue",
     "description": "Vue questions category short title"
+  },
+  "JPr1gs": {
+    "defaultMessage": "Collaboration questions",
+    "description": "Title for sidebar on collaboration situation questions in behavioral interviews"
   },
   "JQ6swd": {
     "defaultMessage": "Progress",
@@ -3911,6 +3911,10 @@
     "defaultMessage": "We're still growing our question base",
     "description": "Question base section title"
   },
+  "RT2AQW": {
+    "defaultMessage": "Previously completed (before starting this list)",
+    "description": "Label for questions solved in the past"
+  },
   "RTBOas": {
     "defaultMessage": "JavaScript",
     "description": "Label for JavaScript language"
@@ -4430,10 +4434,6 @@
   "VJ8xZy": {
     "defaultMessage": "Prices will be increased as more content is being added to the website.",
     "description": "Tip at the bottom of the Pricing section to let users know that we would increase prices gradually as the content becomes more complete"
-  },
-  "VJf77h": {
-    "defaultMessage": "Common Mistakes",
-    "description": "Common mistakes made during front end system design interviews"
   },
   "VLFSw7": {
     "defaultMessage": "Top Vanilla JavaScript UI front end interview coding questions to practice, with detailed solutions and explanations by ex-interviewers at FAANG.",
@@ -5155,6 +5155,10 @@
     "defaultMessage": "Every project challenge was designed by senior UI/UX designers with perfect spacing units and design rules, so that your portfolio projects will always look professional.",
     "description": "Description of 'Beautiful designs made by high-end designers' feature in Projects marketing page"
   },
+  "aVhVoX": {
+    "defaultMessage": "RADIO framework",
+    "description": "RADIO (acroynm) framework name for front end system design interviews. Don't translate RADIO"
+  },
   "aYJLMU": {
     "defaultMessage": "Save",
     "description": "Save update button label"
@@ -5166,10 +5170,6 @@
   "aZ648A": {
     "defaultMessage": "Are you intending to use <bold>\"{childSkill}\"</bold> for this challenge? We will add it to the skills used so your progress for its skill plan will be tracked.",
     "description": "Message about adding a skill to a challenge session"
-  },
-  "aZqFm4": {
-    "defaultMessage": "Completed",
-    "description": "Tooltip for Completed questions label"
   },
   "aadNm4": {
     "defaultMessage": "Tablet ({width}px x {height}px)",
@@ -5575,6 +5575,10 @@
     "defaultMessage": "JavaScript Questions",
     "description": "Title for an example list of JavaScript Questions on marketing pages"
   },
+  "dKaQQ+": {
+    "defaultMessage": "Intro to behavioral interviews",
+    "description": "Introduction to behavioral interviews"
+  },
   "dKoCFD": {
     "defaultMessage": "Component tracks",
     "description": "Projects component tracks item label"
@@ -5763,6 +5767,10 @@
     "defaultMessage": "What kind of guidance will this platform provide me?",
     "description": "FAQ question for projects platform"
   },
+  "ew9tI2": {
+    "defaultMessage": "Mark as complete (previously completed)",
+    "description": "Label for questions solved in the past"
+  },
   "ex2n84": {
     "defaultMessage": "Work start date is required",
     "description": "Required Error message for work start date"
@@ -5806,6 +5814,10 @@
   "fAZVc9": {
     "defaultMessage": "Live site URL",
     "description": "Form label"
+  },
+  "fBszEG": {
+    "defaultMessage": "Problem solving questions",
+    "description": "Title for sidebar on problem solving situation questions in behavioral interviews"
   },
   "fC+Nbq": {
     "defaultMessage": "Project completed!",
@@ -6059,10 +6071,6 @@
     "defaultMessage": "Premium Question",
     "description": "Title on question paywall displayed on premium question's pages"
   },
-  "ghmPBf": {
-    "defaultMessage": "Solved previously, mark as completed",
-    "description": "Label for questions solved in the past"
-  },
   "ghssuE": {
     "defaultMessage": "Next",
     "description": "Label for Next button on Projects profile onboarding page"
@@ -6243,10 +6251,6 @@
     "defaultMessage": "All filters",
     "description": "Label for All Filters button for projects list"
   },
-  "iCRUOb": {
-    "defaultMessage": "Answering \"Why Work Here\"",
-    "description": "How to answer the \"why work here\" question in behavioral interviews"
-  },
   "iCm44V": {
     "defaultMessage": "Get started",
     "description": "Label for Get started button on Projects dashboard page"
@@ -6382,10 +6386,6 @@
   "jTKrPE": {
     "defaultMessage": "Invalid Github username or URL",
     "description": "Error message when github username or url is invalid"
-  },
-  "jTXr+7": {
-    "defaultMessage": "Intro to Behavioral Round",
-    "description": "Introduction to behavioral interviews"
   },
   "jV6cb9": {
     "defaultMessage": "Appendix",
@@ -6682,6 +6682,10 @@
   "l5t9Em": {
     "defaultMessage": "<bold>+{count}</bold> completed",
     "description": "Tooltip for completed segments in Projects segmented progress bar"
+  },
+  "l6JVmy": {
+    "defaultMessage": "Locked",
+    "description": "Label for Premium questions label"
   },
   "l6Y1+i": {
     "defaultMessage": "Screenshots for your submission <bold>\"{title}\"</bold> have been generated.",
@@ -7035,10 +7039,6 @@
     "defaultMessage": "Difficulty: Easy to Hard",
     "description": "Sorting option for question list - sort by difficulty from easy to hard"
   },
-  "oNbAS2": {
-    "defaultMessage": "Answering \"Tell Me About Yourself\"",
-    "description": "How to answer the self introduction question in behavioral interviews"
-  },
   "oPyUXk": {
     "defaultMessage": "Practice building all sorts of user interfaces: components, apps, games, etc, in the framework of your choice.",
     "description": "Subtitle for an example list of User Interface Questions on marketing pages"
@@ -7250,10 +7250,6 @@
   "pkWsMA": {
     "defaultMessage": "Masters CS",
     "description": "Label for \"Masters CS\" option in YOE replacement"
-  },
-  "pmgCza": {
-    "defaultMessage": "Mark as not completed",
-    "description": "Tooltip to mark a button as incomplete"
   },
   "pn9hGi": {
     "defaultMessage": "Uniquely identifies you. You may be given an option to set a different handle for certain products for anonymity.",
@@ -7483,6 +7479,10 @@
     "defaultMessage": "Cancel",
     "description": "Label for button to cancel action"
   },
+  "rg3DjU": {
+    "defaultMessage": "Questions to ask (end of interview)",
+    "description": "Best questions to ask at the end of a behavioral interviews"
+  },
   "rhLand": {
     "defaultMessage": "Navigate to preparation area",
     "description": "Tab label to navigate to another preparation page"
@@ -7522,10 +7522,6 @@
   "sCpKTY": {
     "defaultMessage": "Billing | Settings",
     "description": "Title of billing page"
-  },
-  "sGF5oQ": {
-    "defaultMessage": "Types of Questions",
-    "description": "Types of front end system design interview questions"
   },
   "sGSrxk": {
     "defaultMessage": "{numberOfHours} hours total",
@@ -8151,10 +8147,6 @@
     "defaultMessage": "Top {questionCount} front end interview coding questions to practice, with detailed solutions and explanations by ex-interviewers at FAANG.",
     "description": "Description of Interview Preparation Coding page"
   },
-  "xAtvsP": {
-    "defaultMessage": "Not completed",
-    "description": "Tooltip for questions Not Completed label"
-  },
   "xBj9I5": {
     "defaultMessage": "Prepare for tackling form questions in front end interviews",
     "description": "Title for interview preparation focus area"
@@ -8295,6 +8287,10 @@
     "defaultMessage": "Mentor others",
     "description": "Page title for mentoring others in their projects"
   },
+  "yVJzTk": {
+    "defaultMessage": "Completed",
+    "description": "Completed question"
+  },
   "yWnRZS": {
     "defaultMessage": "Can't find the answer you are looking for? View all <link>frequently-asked questions</link>.",
     "description": "Subtitle of Homepage's FAQ section, encouraging users to contact us if none of the FAQs resolve their problems"
@@ -8330,6 +8326,10 @@
   "ymmDf7": {
     "defaultMessage": "Premium",
     "description": "Label for premium"
+  },
+  "ypT9B0": {
+    "defaultMessage": "Answering \"Why work here\"",
+    "description": "How to answer the \"why work here\" question in behavioral interviews"
   },
   "yptiXw": {
     "defaultMessage": "Filter by difficulty",

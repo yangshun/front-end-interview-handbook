@@ -118,9 +118,9 @@ export function useSystemDesignGuides() {
       premium: false,
       slug: 'types-of-questions',
       title: intl.formatMessage({
-        defaultMessage: 'Types of Questions',
+        defaultMessage: 'Types of questions',
         description: 'Types of front end system design interview questions',
-        id: 'sGF5oQ',
+        id: '6r6UcH',
       }),
       type: 'link',
     },
@@ -136,10 +136,10 @@ export function useSystemDesignGuides() {
       premium: false,
       slug: 'framework',
       title: intl.formatMessage({
-        defaultMessage: 'RADIO Framework',
+        defaultMessage: 'RADIO framework',
         description:
           "RADIO (acroynm) framework name for front end system design interviews. Don't translate RADIO",
-        id: '434fyX',
+        id: 'aVhVoX',
       }),
       type: 'link',
     },
@@ -155,9 +155,9 @@ export function useSystemDesignGuides() {
       premium: false,
       slug: 'evaluation-axes',
       title: intl.formatMessage({
-        defaultMessage: 'Evaluation Axes',
+        defaultMessage: 'Evaluation axes',
         description: 'Evaluation axes in front end system design interviews',
-        id: 'E6yHUQ',
+        id: '7UE9o1',
       }),
       type: 'link',
     },
@@ -173,10 +173,10 @@ export function useSystemDesignGuides() {
       premium: false,
       slug: 'common-mistakes',
       title: intl.formatMessage({
-        defaultMessage: 'Common Mistakes',
+        defaultMessage: 'Common mistakes',
         description:
           'Common mistakes made during front end system design interviews',
-        id: 'VJf77h',
+        id: '61X1bs',
       }),
       type: 'link',
     },
