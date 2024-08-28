@@ -162,9 +162,7 @@ The layout above assumes that all the images are of the same size. However, it i
 
 Here are a few ways we can get around this:
 
-##### **CSS `background-size`**
-
-This requires a change in the HTML to render the image using CSS `background`/`background-image` instead of `<img src="...">`. The advantage of this is that we can use the `background-size` property that has these two modes:
+**CSS `background-size`**: This requires a change in the HTML to render the image using CSS `background`/`background-image` instead of `<img src="...">`. The advantage of this is that we can use the `background-size` property that has these two modes:
 
 - `contain`: Scales the image as large as possible within its container without cropping or stretching the image. If the container is larger than the image, this will result in image tiling, unless the `background-repeat` property is set to `no-repeat`.
 - `cover`: Scales the image (while preserving its ratio) to the smallest possible size to fill the container (that is: both its height and width completely cover the container), leaving no empty space. If the proportions of the background differ from the element, the image is cropped either vertically or horizontally.
@@ -173,9 +171,7 @@ _Source: [background-size - CSS: Cascading Style Sheets | MDN](https://developer
 
 Both advantages has its merits and which to use really depends on the provided images. One way is to allow the developer to customize whether to use `contain` or `cover` for all the images or even allowing customizing this setting for individual images.
 
-##### **CSS `object-fit`**
-
-CSS `object-fit` is a feature that is similar to how `background-size` works for `background-image`s, but for `<img>` and `<video>` HTML tags. It has `contain` and `cover` properties as well which work the same way as `background-size`'s version.
+**CSS `object-fit`**: CSS `object-fit` is a feature that is similar to how `background-size` works for `background-image`s, but for `<img>` and `<video>` HTML tags. It has `contain` and `cover` properties as well which work the same way as `background-size`'s version.
 
 This way is preferred since it's more semantic to use `<img>` tags than `<div>`s with `background-image`s.
 

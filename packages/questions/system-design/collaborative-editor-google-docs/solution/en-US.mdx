@@ -285,17 +285,15 @@ OT was originally developed for collaborative editing of text documents, allowin
 
 OT systems typically use a replicated document storage model, where each client maintains a local copy of the document. Users operate on their local copies, and changes are propagated to other clients. When a client receives changes from another client, it applies transformation functions to ensure that the local document remains consistent with the updates.
 
-##### **Key components of OT**
+The key components of OT include:
 
 1. **Operations**: These are the basic actions users perform, such as inserting, deleting, or modifying text. Each operation is associated with a position in the document.
 2. **Transformation functions**: These functions determine how to adjust operations when they conflict. For example, if two users insert text at the same position, the transformation function will resolve the conflict to maintain a consistent document state.
 3. **Control algorithms**: These algorithms manage the sequence and context of transformations. They decide which operations should be transformed against others based on their causal relationships, ensuring that the order of operations respects the intent of each user.
 
-##### **Example of OT**
+Let's revisit the Alice and Bob example and see how applying OT can solve the issue.
 
 ![Alice and Bob network diagram with operational transformations](/img/questions/collaborative-editor-google-docs/alice-bob-with-ot.png)
-
-Let's revisit the Alice and Bob example and see how applying OT can solve the issue.
 
 1. **Alice before Bob**: The server receives Alice's request before Bob's, resulting in the server deleting the fourth character then the second character "ABCDE" -> "ABCE" -> "ACE". In this scenario, the document on the server correctly deletes Alice's and Bob's intended characters. However, Bob's computer realizes that Alice's change was made before Bob's deletion, hence it transformed Alice's change from `DEL @3` -> `DEL @2` since Bob deleted an earlier character. Bob ends up with "ACE".
 2. **Bob before Alice**: The server receives Bob's request before Alice's, resulting in the server deleting the second character: "ABCDE" -> "ACDE". When the server receives Alice's request, it realizes that Alice's change was made before Bob's deletion, hence it transforms Alice's change from `DEL @3` -> `DEL @2` to account for Bob's deletion of an earlier character. The server correctly deletes "D" (the third character) and passes this transformed operation to Bob. Both the server and Bob end up with "ACE".
@@ -309,19 +307,13 @@ How does the server know whether Alice's and Bob's requests were made with or wi
 
 Requests and responses can include the document revision number so that both servers and clients know the document version the other party was seeing when the request was made and can correctly determine if operations require transformation.
 
-##### **Analysis of OT**
-
-Let's take a look at how OT fulfills the conflict resolution properties:
+**Analysis of OT**: Let's take a look at how OT fulfills the conflict resolution properties:
 
 - **Convergence**: OT uses transformation functions to modify operations so that they can be applied consistently across all replicas, even if they arrive in different orders. The core idea is that if two operations conflict, the transformation functions adjust one or both operations to ensure they can be applied in any order but still lead to the same final state.
 - **Causality preservation**: OT systems often use causal history tracking to ensure that operations are applied in an order that respects their causal dependencies. This is usually done by tagging operations with metadata, such as timestamps or revision numbers, which indicate their causal relationships.
 - **Intention preservation**: OT payloads commonly include the command intention and context (document revision number). The transformation functions consider the context in which an operation was originally applied. The command along with the contextual awareness helps in preserving the original intention even when the document has changed due to other concurrent operations.
 
-##### **Drawbacks of OT**
-
 OT works well for text-based documents but can be less effective for other types of data structures, such as hierarchical or non-linear data. Implementing OT for these types of data requires additional effort and customizations.
-
-##### **Further reading**
 
 There are many implementations of OT algorithms and various consistency models, which are beyond the scope of this article. If you're interested, check out the following links:
 
@@ -335,7 +327,7 @@ If you were wondering – why use offset indices for the updates when they are h
 
 CRDTs are advanced data structures designed for distributed systems, enabling multiple users or applications to update shared data concurrently without coordination which eventually converge to the same state (strong eventual consistency) when all updates have been received and applied. Instead of resolving conflicts using OT, CRDTs are built so that the operations performed on the data are inherently conflict-free or can be automatically resolved in a consistent manner.
 
-##### **Properties of CRDTs**
+CRDTs have the following properties:
 
 1. **Concurrent updates**: CRDTs enable independent updates across multiple replicas of data. Each replica can be modified without needing to coordinate with others, making them ideal for environments where network connectivity may be intermittent. Updates can be propagated using the gossip protocol without the need for a central authority.
 2. **Monotonic increasing updates**: Updates to a CRDT must be monotonic, ensuring that new values are always greater than or distinct from previous values. This allows for a clear progression of state changes.
@@ -345,34 +337,26 @@ CRDTs are advanced data structures designed for distributed systems, enabling mu
 
 The CRDT model is somewhat similar to Git – every developer in the organization possesses a copy of the repository and is allowed to make changes locally. At the end of the day, the developers can merge changes with every other developer however they like: pair-wise, round-robin, or through a central repository. Once all the merges are complete, every developer will have the same state. However unlike Git, a CRDT prescribes a way to merge conflicts automatically and can merge out-of-order changes.
 
-##### **Example of CRDT – Grow-only set**
-
-An example of a CRDT is a grow-only set. A grow-only set is an unordered set that only allows addition of unique elements. It is a CRDT because:
+**Example of CRDT – Grow-only set**: An example of a CRDT is a grow-only set. A grow-only set is an unordered set that only allows addition of unique elements. It is a CRDT because:
 
 - The set can be replicated.
 - Each replica can add any element it likes and the addition is a monotonically increasing update.
 - Each replica can be merged back together in any order.
 - Once all merges are complete, all replicas will have the same contents (the union of all individual sets).
 
-##### **Representing text in CRDTs**
-
-Collaborative text documents can be represented using sequence CRDTs like lists (e.g. [Linear Sequences and Replicated Growable Array](https://www.bartoszsypytkowski.com/operation-based-crdts-arrays-1/)) and trees. Unsurprisingly, text CRDTs are more complicated to implement than a grow-only set. [Cola](https://nomad.foo/blog/cola) is a text CRDT written in Rust, but the data structure can be implemented in any language.
+**Representing text in CRDTs**: Collaborative text documents can be represented using sequence CRDTs like lists (e.g. [Linear Sequences and Replicated Growable Array](https://www.bartoszsypytkowski.com/operation-based-crdts-arrays-1/)) and trees. Unsurprisingly, text CRDTs are more complicated to implement than a grow-only set. [Cola](https://nomad.foo/blog/cola) is a text CRDT written in Rust, but the data structure can be implemented in any language.
 
 {/* TODO: give structure of list CRDT as sample */}
 
 Text editing also involves deleting. How can we represent deletion in CRDTs? The trick is to track deletions as well by using two separate grow-only data structures, one to track insertion and another to track deletion (known as tombstone markers). The resulting value is the items in the insertion set minus the items in the deletion set. Complex CRDTs are often combined from smaller CRDTs which helps tremendously in preserving the CRDT properties.
 
-##### **Analysis of CRDTs**
-
-Let's take a look at how CRDTs fulfill the conflict resolution properties:
+**Analysis of CRDTs**: Let's take a look at how CRDTs fulfill the conflict resolution properties:
 
 - **Convergence**: CRDT operations are designed to be commutative and associative, meaning the order and grouping in which operations are applied does not affect the final state. This is a key reason why all replicas converge to the same state.
 - **Causality preservation**: Operations are applied to other replicas in a way that respects causality. For example, operations can be propagated in any order, but an operation might be buffered until all preceding causally related operations have been applied. E.g. a deletion only takes effect until the insertion has taken place. In a Last-Writer-Wins Register (LWW-Register), updates are tagged with timestamps, ensuring that the most recent update (according to causality) prevails.
 - **Intention preservation**: CRDTs incorporate predefined conflict resolution strategies that aim to preserve user intent. These strategies are typically application-specific and ensure that the merged state reflects the combined intentions of all concurrent operations. The specific semantics of CRDT operations are crafted to ensure that, when two operations conflict, the resolution preserves the most meaningful aspects of each operation. However, there's some amount of subjectivity and is highly implementation and use-case dependent.
 
-##### **Drawbacks of CRDTs**
-
-While CRDTs are more modern compared to OT, it does come with some drawbacks:
+**Drawbacks of CRDTs**: While CRDTs are more modern compared to OT, it does come with some drawbacks:
 
 - **Metadata overhead**: CRDTs often require additional metadata to track operations, revisions, or unique identifiers. This metadata can grow over time, leading to increased storage requirements, especially in large-scale systems or with complex data types.
 - **Ever-increasing size**: CRDTs have a monotonically increasing state, often having to track removals that do not appear in the final visual result. This means the data will only grow over time. Garbage collection or cleanup mechanisms can be used but they can be technically challenging to implement without causing inconsistencies in replicas.
@@ -458,9 +442,7 @@ When a user starts typing:
 4. If the local updates buffer is not empty, it only sends the next request after it receives a response for the current request from the server, even if the idle duration has passed
 5. This repeats until the local updates buffer is empty (when the user has stopped typing) and there are no more operations to send to the server
 
-##### **Fast vs slow connections**
-
-Since there can only be one pending update request, the frequency of requests is highly dependent on the client's connection speed.
+**Fast vs slow connections**: Since there can only be one pending update request, the frequency of requests is highly dependent on the client's connection speed.
 
 ![Fast vs slow connection for edit requests](/img/questions/collaborative-editor-google-docs/fast-slow-connection-requests.png)
 

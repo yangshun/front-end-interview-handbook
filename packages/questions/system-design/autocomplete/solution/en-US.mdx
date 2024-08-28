@@ -134,15 +134,13 @@ If we detect that the device has entirely lost network connection, there's not a
 
 What is the cache for? Caches are typically used to improve performance of queries and reducing processing costs by saving the results of previous queries in memory. If/when the user searches for the same term again, instead of hitting the server for the results, we can retrieve the results from memory and instantly show the results, effectively removing the need for any network request and latency.
 
-Google and Facebook search boxes cache their queries!
+To provide the best experience, Google and Facebook search inputs cache user queries.
 
 #### Cache structure
 
 The cache within the component is the most interesting aspect of the component as there are many ways to design the cache, each with its own pros and cons. Explaining the tradeoffs of each is essential to acing front end system design interviews.
 
-##### **1. Hash map with search query as key and results as value**
-
-This is the most obvious structure for a cache, mapping the string query to the results. Retrieving the results is super simple and can be obtained in O(1) time just by looking up whether the cache contains the search term as a key.
+**1. Hash map with search query as key and results as value.** This is the most obvious structure for a cache, mapping the string query to the results. Retrieving the results is super simple and can be obtained in O(1) time just by looking up whether the cache contains the search term as a key.
 
 ```js
 const cache = {
@@ -176,9 +174,7 @@ const cache = {
 
 However, see that there are lots of duplicate results especially if we don't do any debouncing as the user is typing and we fire one request per keystroke. This results in the page consuming lots of memory for the cache.
 
-##### **2. List of results**
-
-Alternatively, we could save the results as a flat list and do our own filtering on the front end. There will not be much (if any) duplication of results.
+**2. List of results.** Alternatively, we could save the results as a flat list and do our own filtering on the front end. There will not be much (if any) duplication of results.
 
 ```js
 const results = [
@@ -199,9 +195,7 @@ const results = [
 
 However, this is not ideal in practice because we have to do filtering on the client side. This is bad for performance and might end up blocking the UI thread and is especially evident on large data sets and slow devices. The ranking order per result might also be lost, which is not ideal.
 
-##### **3. Normalized map of results**
-
-We take inspiration from [normalizr](https://github.com/paularmstrong/normalizr/tree/master/docs) and structure the cache like a database, combining the best traits of the earlier approaches - fast lookup and non-duplicated data. Each result entry is one row in the "database" and is identified by a unique ID. The cache simply refers to each item's ID.
+**3. Normalized map of results.** We take inspiration from [normalizr](https://github.com/paularmstrong/normalizr/tree/master/docs) and structure the cache like a database, combining the best traits of the earlier approaches - fast lookup and non-duplicated data. Each result entry is one row in the "database" and is identified by a unique ID. The cache simply refers to each item's ID.
 
 ```js
 // Store results by ID to easily retrieve the data for a specific ID.
@@ -242,18 +236,18 @@ const cache = {
 
 There will be pre-processing that needs to be done before showing the results to the user, to map a list's result IDs to the actual result items but the processing cost is negligible if there are only a few items to be shown.
 
-##### **Which structure to use?**
+**Which structure to use?**
 
 Which to use depends on the type of application this component is being used in.
 
 - **Short-lived websites**: If the component is being used on a page which is short-lived (e.g. Google search), option 1 would be the best. Even though there is duplicated data, the user is unlikely to use search so often that memory usage becomes an issue. The cache is being cleared/reset when the user clicks on a search result anyway.
-- **Long-lived websites**: If this autocomplete component is used on page which is a long-lived single page application (e.g. Facebook website), then option 3 might be viable. However, do also note that caching results for too long might be a bad idea as the results will be stale and hog memory.
+- **Long-lived websites**: If this autocomplete component is used on page which is a long-lived single page application (e.g. Facebook website), then option 3 might be viable. However, do also note that caching results for too long might be a bad idea as stale results take up memory without being useful.
 
 #### Initial results
 
-Noticed how on Google search, when you first focus on the input, there is already a list of results even though you haven't typed anything yet? Showing an initial relevant list of results could be useful in saving users from typing and reducing server costs.
+Noticed how on Google search, when you first focus on the input, a list of results is displayed even though you haven't typed anything yet? Showing an initial relevant list of results could be useful in saving users from typing and reducing server costs.
 
-- **Google**: Popular search queries today (current affairs, trending celebrities, latest happenings) or historical searches
+- **Google**: Popular search queries today (current affairs, trending celebrities, latest happenings) and historical searches
 - **Facebook**: Historical searches.
 - **Stock/crypto/currency exchanges**: Historical searches or trending stocks
 

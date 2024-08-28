@@ -31,7 +31,7 @@ From the above, we can gather that the most important aspects of the website are
 - **Internationalization**: The users are from many different countries and from various age groups. To capture a larger market, the website should be translated and localized.
 - **Device support**: The site should work well for a variety of devices since the user demographics is very broad.
 
-The requirements and nature of a travel booking website are very similar to the [e-commerce website question](/questions/system-design/e-commerce-amazon), so there is a high degree of overlap between the solutions. In this solution we will cover the unique aspects of travel booking websites which aren't found on e-commerce websites.
+The requirements and nature of a travel booking website are very similar to [E-commerce website system design](/questions/system-design/e-commerce-amazon), so there is a high degree of overlap between the solutions. In this solution we will cover the unique aspects of travel booking websites which aren't found on e-commerce websites.
 
 ---
 
@@ -41,7 +41,7 @@ The requirements and nature of a travel booking website are very similar to the 
 
 ### Server-side rendering (SSR) or Client-side rendering?
 
-Like [e-commerce websites](/questions/system-design/e-commerce-amazon), performance and SEO are critical. Hence server-side rendering is a must because of the performance and SEO benefits.
+Like [E-commerce website system design](/questions/system-design/e-commerce-amazon), performance and SEO are critical. Hence server-side rendering is a must because of the performance and SEO benefits.
 
 ### Single-page application (SPA) or Multi-page application (MPA)?
 
@@ -88,7 +88,7 @@ For simplicity, and since SPAs are covered commonly in other questions, the disc
 | `ListingResults` | Server | Search/Listing Page | `results` (list of `ListingItem`s), `pagination` (pagination metadata) |
 | `ListingItem` | Server | Search/Listing Page, Details Page | `title`, `price`, `currency`, `image_urls`, `amenities` (flexible format) |
 
-We have omitted the entities related to payments and addresses since they are covered in the [e-commerce question](/questions/system-design/e-commerce-amazon). If the interviewer wants you to focus on the checkout flow as well, do mention those entities.
+We have omitted the entities related to payments and addresses since they are covered in [E-commerce website system design](/questions/system-design/e-commerce-amazon). If the interviewer wants you to focus on the checkout flow as well, do mention those entities.
 
 ---
 
@@ -120,23 +120,19 @@ We will need the following HTTP APIs:
 | Date Range | mixed (see below) | Date range to occupy the accommodation |
 | Amenities | mixed (see below) | Amenities criteria |
 
-##### **Location**
-
-The exact format of the `location` field depends on the business requirements. But in general, we need to tell the server the desired boundary so that results within the boundary will be shown. There are two common ways to represent boundaries: (1) Center position + radius, (2) Boundary coordinates.
+**Location**: The exact format of the `location` field depends on the business requirements. But in general, we need to tell the server the desired boundary so that results within the boundary will be shown. There are two common ways to represent boundaries: (1) Center position + radius, (2) Boundary coordinates.
 
 1. **Center position + radius**. The radius can be in miles/km and the center position can be either of:
    - **Free text search**: This is any string containing a location e.g. "San Francisco", "New York City". An external location service will be needed to convert the string into geographic coordinates (via geocoding). Geocoding is preferably done on the server to prevent API abuse.
    - **Geolocation/Coordinates**: This format is useful for map-based UIs where users can pan/zoom the map to search for listings within the area or when users allow the app to access current location to search around them.
-1. **Boundary coordinates**. For map-based UIs, we can use the coordinates of the 4 corners of the presented map as the boundary area.
+2. **Boundary coordinates**. For map-based UIs, we can use the coordinates of the 4 corners of the presented map as the boundary area.
 
 It's likely that the search API will have to support both formats if the website has different search UIs:
 
 - Landing pages for travel sites usually have a search bar with the compulsory parameters like date range and number of guests. Such UI will need the free text search location format.
 - Results pages with maps will use the geolocation/boundary coordinates format.
 
-##### **Date Range**
-
-There are a number of date range formats to choose from and neither are clear winners:
+**Date Range**: There are several date range formats to choose from and neither are clear winners:
 
 | Format | Example | Pros | Cons |
 | --- | --- | --- | --- |
@@ -146,9 +142,7 @@ There are a number of date range formats to choose from and neither are clear wi
 
 The array format is the least clear out of the three, and the object requires encoding to be used in `GET`, so separate query parameters would be the most recommended.
 
-##### **Amenities**
-
-Putting the query parameters for amenities has the same issues with date range.
+**Amenities**: Putting the query parameters for amenities has the same issues with date range.
 
 | Format | Example | Pros | Cons |
 | --- | --- | --- | --- |
@@ -203,7 +197,7 @@ We use offset-based pagination here as opposed to cursor-based pagination becaus
 1. Accommodations results do not suffer from the stale results issue that much because new listings are not added that quickly/frequently.
 1. It's useful to know how many total results there are.
 
-For a more in-depth comparison between offset-based pagination and cursor-based pagination, refer to the [News Feed question](/questions/system-design/news-feed-facebook).
+For a more in-depth comparison between offset-based pagination and cursor-based pagination, refer to the [News Feed system design article](/questions/system-design/news-feed-facebook).
 
 If infinite scroll is desired, then a cursor-based pagination approach might be required. Offset-based pagination can still be used, but the client will need to go through the trouble of filtering out duplicated results.
 
@@ -369,16 +363,16 @@ Performance is known to affect conversions, so for websites where the aim is to 
 
 #### Image optimizations
 
-- **Image carousel**: Photos are widely used on travel websites to showcase how attractive the destination/accommodation is. We have covered implementation of [Image Carousels](/questions/system-design/image-carousel) in a separate system design question.
+- **Image carousel**: Photos are widely used on travel websites to showcase how attractive the destination/accommodation is. We have covered implementation of image carousels in the [Image Carousel system design article](/questions/system-design/image-carousel).
 - **Image preloading/lazy loading**: One super useful technique is to use JavaScript to have fine-grain control when images load.
   - [Airbnb optimized the image carousel experience in their room listings with a combination of lazy loading and preloading](https://medium.com/airbnb-engineering/building-a-faster-web-experience-with-the-posttask-scheduler-276b83454e91) behavior:
     1. Initially, only the first image is loaded (the remaining images will be lazily loaded).
-    1. The second image is preloaded when the user shows possible intent of viewing more images:
+    2. The second image is preloaded when the user shows possible intent of viewing more images:
        - Cursor hovers over the image carousel.
        - Focuses on the "Next" button via tabbing.
        - Image carousel comes into view (on mobile devices).
-    1. If the user does view the second image (which signals high intent to browse even more images), the next three images (3rd to 5th) are preloaded.
-    1. As the user clicks "Next" again to browse more images, the (n + 3)<sup>th</sup> image is preloaded.
+    3. If the user does view the second image (which signals high intent to browse even more images), the next three images (3rd to 5th) are preloaded.
+    4. As the user clicks "Next" again to browse more images, the (n + 3)<sup>th</sup> image is preloaded.
   - Other resources: [Yes I'm Lazy | TripAdvisor Engineering and Product Blog](https://www.tripadvisor.com/engineering/yes-im-lazy/)
 
 <figure>
@@ -468,7 +462,7 @@ The alternative is to open the listing details within a full-screen modal on the
 
 ### Form optimizations
 
-Form optimizations have been covered in detail in the [e-commerce websites question](/questions/system-design/e-commerce-amazon). To recap:
+Form optimizations have been covered in detail in [E-commerce website system design](/questions/system-design/e-commerce-amazon). To recap:
 
 - Country-specific address/payment Forms.
 - Optimize autofill experience.
@@ -484,4 +478,4 @@ Form optimizations have been covered in detail in the [e-commerce websites quest
   - [Building and scaling different travel websites with one codebase | Agoda Engineering & Design](https://medium.com/agoda-engineering/building-and-scaling-different-travel-websites-with-one-codebase-fc6f0202c2e1)
   - [Managing and scaling different white label development and testing environments | Agoda Engineering & Design](https://medium.com/agoda-engineering/managing-and-scaling-different-white-label-development-and-testing-environments-4e90748fcb3b)
 - Testing
-  - [Lowering the Noise Floor | | TripAdvisor Engineering and Product Blog](https://www.tripadvisor.com/engineering/lowering-the-noise-floor/)
+  - [Lowering the Noise Floor | TripAdvisor Engineering and Product Blog](https://www.tripadvisor.com/engineering/lowering-the-noise-floor/)

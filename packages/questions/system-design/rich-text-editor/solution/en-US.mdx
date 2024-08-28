@@ -363,9 +363,7 @@ interface TextNode extends EditorNode {
 
 With a structure resembling the DOM, we are able to represent all sorts of possible rich text content and formatting.
 
-##### **Tree representation**
-
-How are these nodes represented within `EditorState`? An intuitive way is to mirror the resulting DOM in JavaScript – a 1:1 tree representation by using an `ElementNode` subclass as the root node.
+**Tree representation**: How are these nodes represented within `EditorState`? An intuitive way is to mirror the resulting DOM in JavaScript – a 1:1 tree representation by using an `ElementNode` subclass as the root node.
 
 ```ts
 {
@@ -390,9 +388,7 @@ How are these nodes represented within `EditorState`? An intuitive way is to mir
 
 Many rich text editors (e.g. Slate.js, Draft.js) use this tree-like structure. It works, but trees aren't the most efficient data structure for frequent updates. For one, trees do not provide efficient access to its nodes; accessing deep leaf nodes would require traversal of the tree starting from the root.
 
-##### **Map with child pointers**
-
-How about using a `Map` of `EditorNode`s that contains pointers to other nodes?
+**Map with child pointers**: How about using a `Map` of `EditorNode`s that contains pointers to other nodes?
 
 ```ts
 type NodeKey = string;
@@ -417,9 +413,7 @@ This `NodeMap` gives the same tree as before:
 
 Using this structure, obtaining a reference to the `EditorNode`s is a matter of doing `nodeMap.get(nodeKey)`.
 
-##### **Map with children as linked list**
-
-Lexical started with using a `Map` of `EditorNode`s with a `children` pointer array. Eventually it moved to doubly linked lists (instead of arrays) for its child node pointers as a performance optimization along with parent pointers. All `EditorNode`s can have siblings and parents. `ElementNode`s have additional references to their first and last child, if they exist.
+**Map with children as linked list**: Lexical started with using a `Map` of `EditorNode`s with a `children` pointer array. Eventually it moved to doubly linked lists (instead of arrays) for its child node pointers as a performance optimization along with parent pointers. All `EditorNode`s can have siblings and parents. `ElementNode`s have additional references to their first and last child, if they exist.
 
 ```ts
 type NodeKey = string;
@@ -475,9 +469,7 @@ One tricky issue with formatting text in the DOM is when characters have more th
 - "and" is both bolded and underlined
 - "Jane" is underlined
 
-##### **Nested tags**
-
-In HTML/DOM, there are multiple ways to achieve this formatting. Here are some possible ways:
+**Nested tags**: In HTML/DOM, there are multiple ways to achieve this formatting. Here are some possible ways:
 
 - `<strong>Tarzan </strong><u><strong>and</strong> Jane</u>`
 - `<strong>Tarzan <u>and</u></strong><u> Jane</u>`
@@ -489,9 +481,7 @@ The first two ways use nested tags for formatting and it can become a problem wh
 
 `contenteditable` is able to handle the formatting correctly, but the resulting HTML is messy and not optimized.
 
-##### **Format ranges**
-
-Another way is to use format ranges (not to be confused with selection range), where each format is labeled with start/end indices. **Tarzan <u>and</u>** <u>Jane</u> will be:
+**Format ranges**: Another way is to use format ranges (not to be confused with selection range), where each format is labeled with start/end indices. **Tarzan <u>and</u>** <u>Jane</u> will be:
 
 ```js
 [
@@ -502,9 +492,7 @@ Another way is to use format ranges (not to be confused with selection range), w
 
 This list-like format is definitely convenient and more readable. But ultimately, to be rendered to the DOM, the list has to first be converted into element and text nodes. Updates to text will require computation for updating indices correctly.
 
-##### **Lexical's formatting approach**
-
-Let's take a closer look at the last option in the HTML approach:
+**Lexical's formatting approach**: Let's take a closer look at the last option in the HTML approach:
 
 ```jsx
 <strong>Tarzan </strong><strong><u>and</u></strong><u> Jane</u>
@@ -1176,7 +1164,7 @@ Real-time collaborative editing is complicated because of the following complexi
 
 Real-time collaborative editing is beyond the scope of rich text editor system design, but Lexical's core model + commands architecture allows for real-time collaboration functionality; the collaboration layer can be built beneath the existing editor core and dispatch commands for the editor core to execute.
 
-For a deep dive on collaborative editing, we recommend reading our entire [system design article around collaborative editing](/questions/system-design/collaborative-editing-google-docs).
+For a deep dive on collaborative editing, we recommend reading our entire [Collaborative Editor system design article](/questions/system-design/collaborative-editing-google-docs).
 
 Operational Transformations (OT) and Conflict-free Replicated Data Types (CRDTs) are ways of handling simultaneous conflicts in documents. OT resolves conflicts by transforming user operations against peer operations by accounting for the state of the document when the operation was made. CRDTs avoid conflicts altogether with specially-designed data structures so that updates can be made in any order and clients will still eventually converge into a consistent state.
 
@@ -1213,7 +1201,7 @@ Here are some key accessibility considerations for rich text editors, including 
 - **Live regions**: Use ARIA live regions to announce dynamic changes, such as formatting changes or error messages.
 - **Labels and instructions**: Provide clear labels and instructions for all editor controls and ensure they are announced by screen readers. Icon-only buttons should use `aria-label`s.
 
-##### **Visible focus indicators**
+#### Visible focus indicators
 
 Ensure that all interactive elements, including the editor itself and toolbar buttons, have visible focus indicators. This helps users who rely on the keyboard to see where the focus is.
 

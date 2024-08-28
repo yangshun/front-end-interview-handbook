@@ -462,9 +462,7 @@ In Stephen Curry's post above, see that he used the "#AboutLastNight" hashtag an
 
 What format should the message be so that it can store data about mentions/hashtags? Let's discuss the possible formats and their pros and cons.
 
-##### **HTML format**
-
-The simplest format is HTML, you store the message the way you want it to be displayed.
+**HTML format**: The simplest format is HTML, you store the message the way you want it to be displayed.
 
 ```md
 <a href="...">#AboutLastNight</a> is here... and ready to change the meaning of date night...
@@ -474,18 +472,14 @@ Absolute comedy 🤣 Dropping 2/10 on <a href="...">HBO Max</a>!
 
 Storing as HTML is usually bad because there's a potential for causing a Cross-Site Scripting (XSS) vulnerability. Also, in most cases it's better to decouple the message's metadata from displaying, perhaps in future you want to decorate the mentions/hashtags before rendering and want to add classnames to the links. HTML format also makes the API less reusable on non-web clients (e.g. iOS/Android).
 
-##### **Custom syntax**
-
-A custom syntax can be used to capture metadata about hashtags and mentions.
+**Custom syntax**: A custom syntax can be used to capture metadata about hashtags and mentions.
 
 - **Hashtags**: Hashtags don't actually need a special syntax, words that start with a "#" can be considered a hashtag.
 - **Mentions**: A syntax like `[[#1234: HBO Max]]` is sufficient to capture the entity ID and the text to display. It's not sufficient to just store the entity ID because sites like Facebook allow users to customize the text within the mention.
 
 Before rendering the message, the string can be parsed for hashtags and mentions using regex and replaced with custom-styled links. Custom syntax is a lightweight solution which is robust enough if you don't anticipate new kinds of rich text entities to be supported in future.
 
-##### **Popular rich text editor format**
-
-[Draft.js](https://draftjs.org) is a popular rich text editor by Facebook for composing rich text. Draft.js allows users to extend the functionality and create their own rich text entities such as hashtags and mentions. It defines a custom Draft.js editor state format which is being used by the Draft.js editor. In 2022, Facebook released [Lexical](https://lexical.dev/), a successor to Draft.js and is using Lexical for rich text editing and displaying rich text entities on facebook.com. The underlying formats are similar and we will discuss Draft.js' format.
+**Rich text editor format**: [Draft.js](https://draftjs.org) is a popular rich text editor by Meta for composing rich text. Draft.js allows users to extend the functionality and create their own rich text entities such as hashtags and mentions. It defines a custom Draft.js editor state format which is being used by the Draft.js editor. In 2022, Meta released [Lexical](https://lexical.dev/), a successor to Draft.js and is using Lexical for rich text editing and displaying rich text entities on facebook.com. The underlying formats are similar and we will discuss Draft.js' format.
 
 Draft.js is just one example of a rich text format, there are many out there to choose from. The editor state resembles an Abstract Syntax Tree and can be serialized into a JSON string to be stored. The benefits of using a popular rich text format is that you don't have to write custom parsing code and can easily extend to more types of rich text entities in future. However, these formats tend to be longer strings than a custom syntax version and will result in larger network payload size and require more disk space to store.
 
@@ -557,13 +551,11 @@ Optimistic updates is a powerful feature built into modern query libraries like 
 
 Timestamp rendering is a topic worth discussing because of a few issues: multilingual timestamps and stale relative timestamps.
 
-##### **Multilingual timestamps**
-
-Globally popular sites like Facebook and Twitter have to ensure their UI works well for different languages. There are a few ways to support multilingual timestamps:
+**Multilingual timestamps**: Globally popular sites like Facebook and Twitter have to ensure their UI works well for different languages. There are a few ways to support multilingual timestamps:
 
 1. **Server returns the raw timestamp**: Server returns the raw timestamp and the client renders in the user's language. This approach is flexible but requires the client to contain the grammar rules and translation strings for different languages, which can amount to significant JavaScript size depending on the number of supported languages,
-1. **Server returns the translated timestamp**: This requires processing on the server, but you don't have to ship timestamp formatting rules for various languages to the client. However, since translation is done on the server, clients cannot manipulate the timestamp on the client.
-1. **`Intl` API**: Modern browsers can leverage `Intl.DateTimeFormat()` and `Intl.RelativeTimeFormat()` to transform a raw timestamp into translated datetime strings in the desired format.
+2. **Server returns the translated timestamp**: This requires processing on the server, but you don't have to ship timestamp formatting rules for various languages to the client. However, since translation is done on the server, clients cannot manipulate the timestamp on the client.
+3. **`Intl` API**: Modern browsers can leverage `Intl.DateTimeFormat()` and `Intl.RelativeTimeFormat()` to transform a raw timestamp into translated datetime strings in the desired format.
 
 ```js
 const date = new Date(Date.UTC(2021, 11, 20, 3, 23, 16, 738));
@@ -582,9 +574,7 @@ console.log(
 ); // 1天前
 ```
 
-##### **Relative timestamps can turn stale**
-
-If timestamps are displayed using a relative format (e.g. 3 minutes ago, 1 hour ago, 2 weeks ago, etc), recent timestamps can easily go stale especially for applications where users don't refresh the page. A timer can be used to constantly update the timestamps if they are recent (less than an hour old) such that any significant time that has passed will be reflected correctly.
+**Relative timestamps can turn stale**: If timestamps are displayed using a relative format (e.g. 3 minutes ago, 1 hour ago, 2 weeks ago, etc), recent timestamps can easily go stale especially for applications where users don't refresh the page. A timer can be used to constantly update the timestamps if they are recent (less than an hour old) such that any significant time that has passed will be reflected correctly.
 
 #### Icon rendering
 

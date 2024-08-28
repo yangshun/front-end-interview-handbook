@@ -90,7 +90,7 @@ Chat applications have the following characteristics:
 - Messages do not have to (and should not!) be indexed by search engines.
 - Fast initial loading speed is desired but not the most crucial.
 
-Considering the above, a pure client-side rendering and single-page application overall architecture will work well. We can use server-side rendering (SSR) with client-side hydration like for [News Feed](/questions/system-design/news-feed-facebook) and [Photo Sharing applications](/questions/system-design/photo-sharing-instagram) for a fast initial load but the benefits of SSR will only be limited to performance gains because chat applications don't need to be SEO-friendly. The additional engineering complexity of enabling SSR might not be worth it.
+Considering the above, a pure client-side rendering and single-page application overall architecture will work well. We can use server-side rendering (SSR) with client-side hydration like in [News Feed system design](/questions/system-design/news-feed-facebook) and [Photo Sharing application system design](/questions/system-design/photo-sharing-instagram) for a fast initial load but the benefits of SSR will only be limited to performance gains because chat applications don't need to be SEO-friendly. The additional engineering complexity of enabling SSR might not be worth it.
 
 ### Architecture diagram
 

@@ -1,4 +1,4 @@
-**Note**: This application shares many similarities with the [News Feed](/questions/system-design/news-feed-facebook) application and the image carousels within the feed post will benefit from the [Image Carousel solution](/questions/system-design/image-carousel). Please have a read of that question before starting on this. For this question, we will focus on things that haven't been covered, the discussion will be centered around the photos and images.
+**Note**: This application shares many similarities with the [News Feed system design](/questions/system-design/news-feed-facebook) application and the image carousels within the feed post will benefit from the [Image Carousel system design](/questions/system-design/image-carousel). Please have a read of that question before starting on this. For this question, we will focus on things that haven't been covered, the discussion will be centered around the photos and images.
 
 ## Requirements exploration
 
@@ -32,7 +32,7 @@ Photo sharing applications have the following characteristics:
 - Application is interaction heavy due to post composing and liking/commenting functionality on posts.
 - Fast initial loading speed is desired.
 
-These are also characteristics of a [News Feed](/questions/system-design/news-feed-facebook) where there's a good amount of static content which also require interaction. Hence a combination of server-side rendering with hydration and subsequent client-side rendering would be ideal. In reality, [instagram.com](https://instagram.com) is built using the same technology stack as facebook.com which uses React server-side rendering with hydration.
+These are also characteristics of a [News Feed system design](/questions/system-design/news-feed-facebook) where there's a good amount of static content which also require interaction. Hence a combination of server-side rendering with hydration and subsequent client-side rendering would be ideal. In reality, instagram.com is built using the same technology stack as facebook.com which uses React server-side rendering with hydration.
 
 ### Architecture diagram
 
@@ -59,7 +59,7 @@ A photo feed shows a list of image posts fetched from the server, hence most of 
 | `NewPost` | User input (Client) | Post composer UI | `caption`, `images` (`Image`) |
 | `Image` | Server/client | Multiple | `url`, `alt`, `width`, `height` |
 
-Just like in the [News Feed](/questions/system-design/news-feed-facebook), a normalized client-side store will also be useful for a Photo Sharing application.
+Just like in the [News Feed system design](/questions/system-design/news-feed-facebook), a normalized client-side store will also be useful for a Photo Sharing application.
 
 ---
 
@@ -119,7 +119,7 @@ Comparing the two approaches, approach #2 of separate APIs would be better. The 
 
 ### Feed optimizations
 
-These optimizations done for [News Feed](/questions/system-design/news-feed-facebook) also apply to the feed of photo sharing applications.
+These optimizations done in [News Feed system design](/questions/system-design/news-feed-facebook) also apply to the feed of photo sharing applications.
 
 - Rendering approach
 - Infinite scrolling implementation
@@ -134,7 +134,7 @@ These optimizations done for [News Feed](/questions/system-design/news-feed-face
 
 ### Image carousel optimizations
 
-The images within a post are shown as a carousel, so the [Image Carousel](/questions/system-design/image-carousel) implementation is also useful for this question and the same optimizations apply.
+The images within a post are shown as a carousel, so the [Image Carousel system design article](/questions/system-design/image-carousel) is also useful for this question and the same optimizations apply.
 
 ### Rendering images
 

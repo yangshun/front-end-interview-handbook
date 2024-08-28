@@ -63,7 +63,7 @@ The homepage feed shows a list of pins fetched from the server, hence most of th
 
 Although the `Feed` and `Pin` entities belong to the homepage, all server-originated data can be stored in the client store and queried by components which need them. E.g. for a pin details page, assuming no additional data is needed, it can read the pin details from the client store and display additional details such as the author, title, description.
 
-The shape of the client store is not particularly important here, as long as it is in a format that can be easily retrieved from the components. A normalized store like the one mentioned in [News Feed](/questions/system-design/news-feed-facebook#advanced-normalized-store) will allow efficient lookup via the pin ID. New pins fetched from the second page should be joined with the previous pins into a single list with the pagination parameters (`cursor`) updated.
+The shape of the client store is not particularly important here, as long as it is in a format that can be easily retrieved from the components. A normalized store like the one mentioned in [News Feed system design](/questions/system-design/news-feed-facebook#advanced-normalized-store) will allow efficient lookup via the pin ID. New pins fetched from the second page should be joined with the previous pins into a single list with the pagination parameters (`cursor`) updated.
 
 ### Pinterest-specific data
 
@@ -130,7 +130,7 @@ Alternatively, log in to Pinterest and visit "https://www.pinterest.com/resource
 
 #### Pagination approach
 
-For infinite scrolling feeds there isn't a need to jump to a specific page, hence cursor-based pagination can be used here for reasons similar to [News Feed](/questions/system-design/news-feed-facebook#cursor-based-pagination).
+For infinite scrolling feeds there isn't a need to jump to a specific page, hence cursor-based pagination can be used here for reasons similar to [News Feed system design](/questions/system-design/news-feed-facebook#cursor-based-pagination).
 
 ---
 
@@ -181,7 +181,7 @@ A plausible heuristic is to fetch around two to three screens worth of pins each
 
 #### Infinite scrolling
 
-The common ways to implement infinite scrolling has been covered in [News Feed](/questions/system-design/news-feed-facebook#infinite-scrolling).
+The common ways to implement infinite scrolling has been covered in [News Feed system design](/questions/system-design/news-feed-facebook#infinite-scrolling).
 
 ### Media loading
 
@@ -300,9 +300,7 @@ There are two popular ways to achieve a masonry layout on the web:
 1. Rows of columns
 2. Absolute positioning
 
-##### **Row of columns**
-
-This method involves rendering equal-width columns then placing items within each column. This approach heavily leverages the browser for positioning.
+**Row of columns**: This method involves rendering equal-width columns then placing items within each column. This approach heavily leverages the browser for positioning.
 
 The pros of this approach are that it is easy to implement as it leverages `display: flex` and the required CSS is not very complex. If the height of any item changes, the positions of the items within that column will be updated automatically.
 
@@ -354,9 +352,7 @@ The following example is implemented using the "row of columns" layout and the n
 
 ---
 
-##### **Absolute positioning**
-
-A better approach is to calculate exactly where the pins should be positioned within a `position: relative` parent container and place them exactly where they should be via `position: absolute; top: Y; left: X`.
+**Absolute positioning**: A better approach is to calculate exactly where the pins should be positioned within a `position: relative` parent container and place them exactly where they should be via `position: absolute; top: Y; left: X`.
 
 The following diagram demonstrates the `top` and `left` CSS style values of the items for a 3-column layout container.
 
@@ -418,9 +414,7 @@ There are two common ways to order the pins:
 1. Round robin
 2. Height balancing
 
-##### **Round robin placement**
-
-In round robin placement, we put the pins in order into each column, wrapping around to the first column after the last, until all pins have been placed. In a three-column layout, pins are placed in these respective columns:
+**Round robin placement**: In round robin placement, we put the pins in order into each column, wrapping around to the first column after the last, until all pins have been placed. In a three-column layout, pins are placed in these respective columns:
 
 | Column | Pins position (within feed) |
 | ------ | --------------------------- |
@@ -448,9 +442,7 @@ The benefit of this approach is that the algorithm runs in O(N) and is easy to i
 
 However, this approach does not factor in the items height at all. As a result, some columns might end up taller than others. Taking the above example, the first column contains a few tall items and ends up being substantially taller than the second column. The result might not be visually pleasing.
 
-##### **Height balancing**
-
-In height balancing placement, the pins are placed within the shortest column, at the time of arrangement.
+**Height balancing**: In height balancing placement, the pins are placed within the shortest column, at the time of arrangement.
 
 For a three-column layout, we can use an array of size 3 (`columnHeights`) where the value at the index represents the running total height of items in that column. For each pin, by looping through the `columnHeights` array once, we can determine the shortest column. Next, we calculate the pin's position based on the left-most column with the shortest current height and update that column's height for the newly-added pin.
 
@@ -515,9 +507,7 @@ The result is a layout that the columns have generally balanced heights, which i
 
 This `columnHeights` computation should be preserved within the Masonry component as state so that when the next page of pins is loaded and need to be arranged on the page, the column heights are immediately known, there's no need to tally the height of the columns again or arrange the pins that are already on-screen.
 
-##### **Server computations**
-
-Currently, the computations are done on the client. For Pinterest, although SSR is being used, the initial HTML for the pins does not contain positioning data and the positions are calculated on the client. This is probably because the server does not know the viewport dimensions of the client.
+**Server computations**: Currently, the computations are done on the client. For Pinterest, although SSR is being used, the initial HTML for the pins does not contain positioning data and the positions are calculated on the client. This is probably because the server does not know the viewport dimensions of the client.
 
 Pinterest grids have a few breakpoint widths for varying number of columns, so the total width of the container for each number of column is already known beforehand. It's technically possible to calculate the pins' positions on the server for all possible breakpoints and send them down to the client. The client just has to pick the pre-calculated values for the current breakpoint.
 
@@ -725,7 +715,7 @@ The focus of this question is on the feed masonry layout and we have intentional
 - **Pin creation**. Uploading images and filling in essential information like title and description.
 - **Extra actions only revealed upon interaction**. Lazy load the code for these non-essential actions only when they're being used or when the page is idle.
 
-These topics are covered in detail in [News Feed](/questions/system-design/news-feed-facebook).
+These topics are covered in detail in [News Feed system design](/questions/system-design/news-feed-facebook).
 
 ## References
 
