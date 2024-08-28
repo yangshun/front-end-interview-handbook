@@ -92,7 +92,7 @@ export default function GuidesMainLayout({
           <div
             className={clsx(
               'flex flex-col gap-12',
-              'mx-auto w-full max-w-[640px]',
+              'mx-auto w-full max-w-[620px]',
             )}>
             <div ref={articleContainerRef}>{children}</div>
             <Section>
@@ -129,7 +129,10 @@ export default function GuidesMainLayout({
             <Section>
               <aside
                 key={currentItem?.href}
-                className="hidden w-[252px] overflow-hidden xl:sticky xl:block xl:flex-none xl:overflow-x-hidden"
+                className={clsx(
+                  'hidden overflow-hidden xl:sticky xl:block xl:flex-none xl:overflow-x-hidden',
+                  !collapsedToC && 'w-[252px]',
+                )}
                 style={{
                   height: 'calc(100vh - 48px - var(--global-sticky-height))',
                   top: 'calc(48px + var(--global-sticky-height))',

@@ -19,10 +19,7 @@ const GuidesArticle = forwardRef<HTMLDivElement, Props>(
     return (
       <article className="flex flex-col gap-y-12">
         <div className="flex flex-col gap-y-2">
-          <Heading
-            className="text-[32px] font-semibold leading-[1.125]"
-            level="custom"
-            tag="h1">
+          <Heading className="text-3xl font-semibold" level="custom" tag="h1">
             {title}
           </Heading>
           <Abstract>{description}</Abstract>
