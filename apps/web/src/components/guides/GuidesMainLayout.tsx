@@ -65,20 +65,12 @@ export default function GuidesMainLayout({
     (item) => item.href === pathname,
   )!;
 
-  let nextArticle: Readonly<{
-    href?: string;
-    title: string;
-  }> | null = null;
-
   for (let i = 0; i < flatNavigationItems.length; i++) {
     if (
       flatNavigationItems[i]?.href !== pathname &&
       flatNavigationItems[i].slug !== pathname
     ) {
       continue;
-    }
-    if (i + 1 < flatNavigationItems.length) {
-      nextArticle = flatNavigationItems[i + 1];
     }
     break;
   }
@@ -96,13 +88,7 @@ export default function GuidesMainLayout({
           className={clsx(
             'flex w-full grow gap-12',
             'px-4 pb-20 pt-12 md:px-6 lg:px-8 xl:pl-12 xl:pr-6',
-          )}
-          style={
-            {
-              // MarginTop: 'calc(var(--global-sticky-height) * -1)',
-              // paddingTop: 'var(--global-sticky-height)',
-            }
-          }>
+          )}>
           <div
             className={clsx(
               'flex flex-col gap-12',
@@ -116,6 +102,7 @@ export default function GuidesMainLayout({
                   <>
                     <div
                       className={clsx(
+                        'flex justify-end',
                         'transition-colors',
                         'isGuideProgressSuccess' in props &&
                           props.isGuideProgressSuccess
@@ -127,7 +114,6 @@ export default function GuidesMainLayout({
                           'guideProgress' in props ? props.guideProgress : null
                         }
                         metadata={metadata}
-                        nextArticle={nextArticle}
                       />
                     </div>
                     <Divider />

@@ -1,4 +1,3 @@
-import { useRouter } from 'next/navigation';
 import React, { useState } from 'react';
 import { RiCheckLine } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
@@ -24,10 +23,6 @@ import { useUser } from '@supabase/auth-helpers-react';
 type Props = Readonly<{
   guideProgress?: GuideProgress | null;
   metadata: GuideMetadata;
-  nextArticle?: Readonly<{
-    href?: string;
-    title: string;
-  }> | null;
   signInModalContents?: React.ReactNode;
 }>;
 
@@ -35,24 +30,14 @@ export default function GuidesProgressAction({
   signInModalContents,
   guideProgress,
   metadata,
-  nextArticle,
 }: Props) {
-  const router = useRouter();
   const intl = useIntl();
   const user = useUser();
   const [isLoginDialogShown, setIsLoginDialogShown] = useState(false);
-  const addProgressMutation = useMutationGuideProgressAdd();
-  const deleteProgressMutation = useMutationGuideProgressDelete();
+  const addGuideProgressMutation = useMutationGuideProgressAdd();
+  const deleteGuideProgressMutation = useMutationGuideProgressDelete();
   const { showToast } = useToast();
   const { signInUpHref, signInUpLabel } = useAuthSignInUp();
-
-  const onMarkAsCompleted = () => {
-    setTimeout(() => {
-      if (nextArticle?.href) {
-        router.push(nextArticle.href);
-      }
-    }, 10000);
-  };
 
   if (user == null) {
     return (
@@ -114,8 +99,8 @@ export default function GuidesProgressAction({
     return (
       <Button
         icon={RiCheckLine}
-        isDisabled={deleteProgressMutation.isLoading}
-        isLoading={deleteProgressMutation.isLoading}
+        isDisabled={deleteGuideProgressMutation.isLoading}
+        isLoading={deleteGuideProgressMutation.isLoading}
         label={intl.formatMessage({
           defaultMessage: 'Completed',
           description: 'The guide has been completed',
@@ -130,7 +115,7 @@ export default function GuidesProgressAction({
         tooltipSide="top"
         variant="success"
         onClick={() => {
-          deleteProgressMutation.mutate(
+          deleteGuideProgressMutation.mutate(
             { category: metadata.category, slug: metadata.slug },
             {
               onError: () => {
@@ -167,8 +152,8 @@ export default function GuidesProgressAction({
     <Button
       addonPosition="start"
       icon={RiCheckLine}
-      isDisabled={addProgressMutation.isLoading}
-      isLoading={addProgressMutation.isLoading}
+      isDisabled={addGuideProgressMutation.isLoading}
+      isLoading={addGuideProgressMutation.isLoading}
       label={intl.formatMessage({
         defaultMessage: 'Mark as complete',
         description: 'Mark the guide as complete',
@@ -180,7 +165,7 @@ export default function GuidesProgressAction({
         const listKey =
           new URL(window.location.href).searchParams.get('list') ?? undefined;
 
-        addProgressMutation.mutate(
+        addGuideProgressMutation.mutate(
           {
             category: metadata.category,
             listKey,
@@ -200,32 +185,6 @@ export default function GuidesProgressAction({
                 }),
                 variant: 'danger',
               });
-            },
-            onSuccess: () => {
-              showToast({
-                description: nextArticle?.href
-                  ? intl.formatMessage(
-                      {
-                        defaultMessage:
-                          'You will be redirected to the next page "{nextArticle}" in 10s',
-                        description:
-                          'Success message shown when a guide was marked as complete',
-                        id: '8pBDb1',
-                      },
-                      {
-                        nextArticle: nextArticle.title,
-                      },
-                    )
-                  : undefined,
-                title: intl.formatMessage({
-                  defaultMessage: 'Marked article as complete!',
-                  description:
-                    'Success message shown when a guide was marked as complete',
-                  id: 'GEFMQ1',
-                }),
-                variant: 'success',
-              });
-              onMarkAsCompleted();
             },
           },
         );

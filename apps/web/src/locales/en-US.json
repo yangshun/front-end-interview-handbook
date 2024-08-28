@@ -1599,10 +1599,6 @@
     "defaultMessage": "No contributions in the community matching those filters",
     "description": "Subtitle for empty state when there are no contributions matching filters"
   },
-  "B8wSft": {
-    "defaultMessage": "You will be redirected into {nextArticle} in 10 sec",
-    "description": "Success message shown when a guide was marked as complete"
-  },
   "B9vupD": {
     "defaultMessage": "Submissions",
     "description": "Link to submissions page"
@@ -2258,10 +2254,6 @@
   "GDgFZ0": {
     "defaultMessage": "GreatFrontEnd Annual",
     "description": "GFE annual plan"
-  },
-  "GEFMQ1": {
-    "defaultMessage": "Marked article as complete!",
-    "description": "Success message shown when a guide was marked as complete"
   },
   "GHQ8sO": {
     "defaultMessage": "Cancel anytime.",
