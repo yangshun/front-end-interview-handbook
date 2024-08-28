@@ -1,9 +1,5 @@
 import { useState } from 'react';
-import {
-  RiArrowRightLine,
-  RiLoopLeftLine,
-  RiStopCircleFill,
-} from 'react-icons/ri';
+import { RiLoopLeftLine, RiStopCircleLine } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
 
 import { trpc } from '~/hooks/trpc';
@@ -11,9 +7,12 @@ import { trpc } from '~/hooks/trpc';
 import ConfirmationDialog from '~/components/common/ConfirmationDialog';
 import { useToast } from '~/components/global/toasts/useToast';
 import { useUserProfile } from '~/components/global/UserProfileProvider';
-import QuestionsProgressPanel from '~/components/interviews/questions/listings/stats/QuestionsProgressPanel';
 import Button from '~/components/ui/Button';
 import Card from '~/components/ui/Card';
+import ProgressBar from '~/components/ui/ProgressBar';
+import Text from '~/components/ui/Text';
+
+import QuestionsProgressFraction from '../../common/QuestionsProgressFraction';
 
 import { useUser } from '@supabase/auth-helpers-react';
 
@@ -89,94 +88,115 @@ export default function QuestionsListSession({
 
         if (questionListSession == null) {
           return (
-            <Button
-              icon={RiArrowRightLine}
-              isDisabled={startSessionMutation.isLoading}
-              isLoading={startSessionMutation.isLoading}
-              label={intl.formatMessage({
-                defaultMessage: 'Start learning',
-                description: 'Button label to start study plan / focus area',
-                id: 'rmYPMV',
-              })}
-              variant="primary"
-              onClick={() => {
-                startSessionMutation.mutate(
-                  {
-                    listKey: questionListKey,
-                  },
-                  {
-                    onSuccess: () => {
-                      showToast({
-                        title: intl.formatMessage({
-                          defaultMessage: 'Started tracking progress',
-                          description:
-                            'Success message for starting a study plan',
-                          id: 'm0cej4',
-                        }),
-                        variant: 'success',
-                      });
+            <div className="flex flex-col items-end gap-3">
+              <Button
+                isDisabled={startSessionMutation.isLoading}
+                isLoading={startSessionMutation.isLoading}
+                label={intl.formatMessage({
+                  defaultMessage: 'Start learning',
+                  description: 'Button label to start study plan / focus area',
+                  id: 'rmYPMV',
+                })}
+                size="md"
+                variant="primary"
+                onClick={() => {
+                  startSessionMutation.mutate(
+                    {
+                      listKey: questionListKey,
                     },
-                  },
-                );
-              }}
-            />
+                    {
+                      onSuccess: () => {
+                        showToast({
+                          title: intl.formatMessage({
+                            defaultMessage:
+                              "We've started tracking your progress",
+                            description:
+                              'Success message for starting a study plan',
+                            id: 'HJ+bJn',
+                          }),
+                          variant: 'success',
+                        });
+                      },
+                    },
+                  );
+                }}
+              />
+              <Text color="secondary" size="body3" weight="medium">
+                <FormattedMessage
+                  defaultMessage="Track your progress"
+                  description="Subtitle for start learning"
+                  id="iGkYh3"
+                />
+              </Text>
+            </div>
           );
         }
 
         return (
-          <div className="flex min-w-[350px] flex-col gap-y-2">
+          <div className="flex min-w-[363px] flex-col gap-y-2">
             <Card
-              className="px-4 py-3"
+              className="flex justify-between gap-10 px-4 py-3"
               disableSpotlight={true}
               padding={false}
               pattern={false}>
-              <QuestionsProgressPanel
-                completedQuestions={completedQuestions}
-                progressBarClassName={themeBackgroundClass}
-                title={intl.formatMessage({
-                  defaultMessage: 'Progress',
-                  description: 'Question progress',
-                  id: 'JQ6swd',
-                })}
-                totalQuestions={questionCount}
-                variant="compact"
-              />
-            </Card>
-            <div className="flex w-full flex-row-reverse justify-between gap-x-2">
-              <Button
-                addonPosition="start"
-                className="text-danger dark:text-danger hover:text-danger dark:hover:text-danger md:-mr-3"
-                icon={RiStopCircleFill}
-                isDisabled={stopSessionMutation.isLoading}
-                isLoading={stopSessionMutation.isLoading}
-                label={intl.formatMessage({
-                  defaultMessage: 'Stop session',
-                  description: 'Label to stop study plan',
-                  id: 'ECkWMR',
-                })}
-                size="sm"
-                variant="tertiary"
-                onClick={() => {
-                  if (questionListSession == null) {
-                    return;
-                  }
-
-                  setShowStopStudyPlanConfirmation(true);
-                }}
-              />
-              {completedQuestions > 0 && (
+              <div className="flex flex-1 flex-col gap-0.5">
+                <Text size="body3" weight="bold">
+                  <FormattedMessage
+                    defaultMessage="Progress"
+                    description="Title for learning progress card"
+                    id="q+ZK0L"
+                  />
+                </Text>
+                <div className="flex items-center gap-3">
+                  <div className="w-[112px]">
+                    <ProgressBar
+                      heightClass="h-1.5"
+                      label={intl.formatMessage({
+                        defaultMessage: 'Progress',
+                        description:
+                          'Label for progress bar for learning progress',
+                        id: 'zQFib0',
+                      })}
+                      progressClass={themeBackgroundClass}
+                      total={questionCount}
+                      value={completedQuestions}
+                    />
+                  </div>
+                  <QuestionsProgressFraction
+                    completed={completedQuestions}
+                    total={questionCount}
+                  />
+                </div>
+              </div>
+              <div className="flex items-center gap-3">
                 <Button
-                  addonPosition="start"
                   icon={RiLoopLeftLine}
-                  isDisabled={resetSessionProgressMutation.isLoading}
+                  isDisabled={
+                    resetSessionProgressMutation.isLoading ||
+                    completedQuestions === 0
+                  }
+                  isLabelHidden={true}
                   isLoading={resetSessionProgressMutation.isLoading}
                   label={intl.formatMessage({
                     defaultMessage: 'Reset progress',
                     description: 'Label to reset study plan progress',
                     id: '4FirvF',
                   })}
-                  size="sm"
-                  variant="tertiary"
+                  size="xs"
+                  tooltip={
+                    completedQuestions === 0
+                      ? intl.formatMessage({
+                          defaultMessage: 'No progress to reset',
+                          description: 'Label for no progress to reset',
+                          id: 'ZqUgX5',
+                        })
+                      : intl.formatMessage({
+                          defaultMessage: 'Reset progress',
+                          description: 'Label to reset study plan progress',
+                          id: '4FirvF',
+                        })
+                  }
+                  variant="secondary"
                   onClick={() => {
                     if (questionListSession == null) {
                       return;
@@ -185,8 +205,35 @@ export default function QuestionsListSession({
                     setShowResetProgressConfirmation(true);
                   }}
                 />
-              )}
-            </div>
+                <Button
+                  className="text-danger dark:text-danger hover:text-danger dark:hover:text-danger md:-mr-3"
+                  icon={RiStopCircleLine}
+                  isDisabled={stopSessionMutation.isLoading}
+                  isLabelHidden={true}
+                  isLoading={stopSessionMutation.isLoading}
+                  label={intl.formatMessage({
+                    defaultMessage: 'Stop session',
+                    description: 'Label to stop study plan',
+                    id: 'ECkWMR',
+                  })}
+                  size="xs"
+                  tooltip={intl.formatMessage({
+                    defaultMessage: 'Stop session',
+                    description: 'Label to stop study plan',
+                    id: 'ECkWMR',
+                  })}
+                  variant="secondary"
+                  onClick={() => {
+                    if (questionListSession == null) {
+                      return;
+                    }
+
+                    setShowStopStudyPlanConfirmation(true);
+                  }}
+                />
+              </div>
+            </Card>
+            <div className="flex w-full flex-row-reverse justify-between gap-x-2"></div>
             <ConfirmationDialog
               confirmButtonVariant="danger"
               isDisabled={stopSessionMutation.isLoading}
@@ -210,10 +257,10 @@ export default function QuestionsListSession({
                       setShowStopStudyPlanConfirmation(false);
                       showToast({
                         title: intl.formatMessage({
-                          defaultMessage: 'Study list session stopped',
+                          defaultMessage: 'Learning session stopped',
                           description:
                             'Success message for stopping a study plan',
-                          id: '0xSU4h',
+                          id: 'IcGeXF',
                         }),
                         variant: 'info',
                       });
@@ -222,9 +269,9 @@ export default function QuestionsListSession({
                 );
               }}>
               <FormattedMessage
-                defaultMessage="This is an irreversible action. You will not be able to resume the study list and all progress will be erased. Are you sure?"
-                description="Confirmation text for stopping a study plan"
-                id="NO9tAQ"
+                defaultMessage="This is an irreversible action. You will not be able to resume the list and all progress will be erased. Are you sure?"
+                description="Confirmation text for stopping a study list"
+                id="kJjxxA"
               />
             </ConfirmationDialog>
             <ConfirmationDialog

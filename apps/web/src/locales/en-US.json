@@ -363,10 +363,6 @@
     "defaultMessage": "You have {amountLeft, plural, =0 {no premium credits} one {<bold>1</bold> premium credit} other {<bold>#</bold> premium credits}} remaining. Resubscribe to premium to unlock this challenge and access all its premium features, including the Figma design files, official guides, and solutions.",
     "description": "Subtitle for project paywall"
   },
-  "0xSU4h": {
-    "defaultMessage": "Study list session stopped",
-    "description": "Success message for stopping a study plan"
-  },
   "0ySzlP": {
     "defaultMessage": "It is a <strong>one-time purchase, with no recurring subscription</strong>. You get access to all the content on the GreatFrontEnd Interviews platform forever, along with any future updates. This will be useful and relevant for all future job hunts.",
     "description": "Answer to 'What does lifetime access mean?' on Homepage's FAQ sections"
@@ -2427,6 +2423,10 @@
     "defaultMessage": "Mentor others",
     "description": "Label for Mentor others sidebar item in Projects sidebar"
   },
+  "HJ+bJn": {
+    "defaultMessage": "We've started tracking your progress",
+    "description": "Success message for starting a study plan"
+  },
   "HMJJLh": {
     "defaultMessage": "Hone your computer science fundamentals by implementing important data structures and algorithms from scratch.",
     "description": "Description for interview preparation focus area"
@@ -2607,6 +2607,10 @@
     "defaultMessage": "Submission summary must contain at most {maxLength} character(s).",
     "description": "Error message"
   },
+  "IcGeXF": {
+    "defaultMessage": "Learning session stopped",
+    "description": "Success message for stopping a study plan"
+  },
   "Id0zS8": {
     "defaultMessage": "Sign up",
     "description": "Button label for a newsletter subscription section"
@@ -2710,10 +2714,6 @@
   "JPr1gs": {
     "defaultMessage": "Collaboration questions",
     "description": "Title for sidebar on collaboration situation questions in behavioral interviews"
-  },
-  "JQ6swd": {
-    "defaultMessage": "Progress",
-    "description": "Question progress"
   },
   "JQa3Or": {
     "defaultMessage": "Can't find the answer you are looking for? <link>Reach out to us!</link>",
@@ -3290,10 +3290,6 @@
   "NMtINV": {
     "defaultMessage": "The <underline>great</underline> way to prepare for <span>front end</span> interviews",
     "description": "Title of Hero section on Homepage. To describe the product in 1 line so that users understand it immediately."
-  },
-  "NO9tAQ": {
-    "defaultMessage": "This is an irreversible action. You will not be able to resume the study list and all progress will be erased. Are you sure?",
-    "description": "Confirmation text for stopping a study plan"
   },
   "NPBHO+": {
     "defaultMessage": "{questionCount}+ HTML interview questions, including quiz-style knowledge questions and HTML coding questions.",
@@ -5091,6 +5087,10 @@
     "defaultMessage": "Subscript",
     "description": "Label for subscript"
   },
+  "ZqUgX5": {
+    "defaultMessage": "No progress to reset",
+    "description": "Label for no progress to reset"
+  },
   "ZrKGWV": {
     "defaultMessage": "At most {maxLength} character(s).",
     "description": "Error message"
@@ -6263,6 +6263,10 @@
     "defaultMessage": "What's new",
     "description": "Sidebar label for What's New"
   },
+  "iGkYh3": {
+    "defaultMessage": "Track your progress",
+    "description": "Subtitle for start learning"
+  },
   "iHLvVo": {
     "defaultMessage": "Find official guides, reference code from top submissions, and use our discussion forum to ask questions.",
     "description": "Description for Important Info Guide section on Before You Get Started dialog"
@@ -6526,6 +6530,10 @@
   "kJOJ4u": {
     "defaultMessage": "Is it really worth it to buy GreatFrontEnd Interviews?",
     "description": "Question on Homepage's FAQ section - on the worthiness of purchasing the product"
+  },
+  "kJjxxA": {
+    "defaultMessage": "This is an irreversible action. You will not be able to resume the list and all progress will be erased. Are you sure?",
+    "description": "Confirmation text for stopping a study list"
   },
   "kK7Cf2": {
     "defaultMessage": "Invalid inputs. Please check that you have filled in the username or profile URL correctly.",
@@ -6794,10 +6802,6 @@
   "lz6hfa": {
     "defaultMessage": "Easy",
     "description": "Easy difficulty label for question difficulty summary in question listing"
-  },
-  "m0cej4": {
-    "defaultMessage": "Started tracking progress",
-    "description": "Success message for starting a study plan"
   },
   "m2WYh/": {
     "defaultMessage": "Insert code block",
@@ -7270,6 +7274,10 @@
   "pz1v44": {
     "defaultMessage": "Next",
     "description": "Next button label"
+  },
+  "q+ZK0L": {
+    "defaultMessage": "Progress",
+    "description": "Title for learning progress card"
   },
   "q0+3Lk": {
     "defaultMessage": "Accessibility",
@@ -8418,6 +8426,10 @@
   "zMpEuy": {
     "defaultMessage": "Popularity: Least to most completed",
     "description": "Sorting option for projects list - popularity"
+  },
+  "zQFib0": {
+    "defaultMessage": "Progress",
+    "description": "Label for progress bar for learning progress"
   },
   "zStaaO": {
     "defaultMessage": "Completed",
