@@ -19,7 +19,7 @@ export type DialogWidth =
   | 'screen-xl'
   | 'sm';
 
-const widthClasses: Record<DialogWidth, string> = {
+export const widthClasses: Record<DialogWidth, string> = {
   'screen-lg':
     'md:mx-auto md:max-w-screen-sm lg:max-w-screen-md xl:max-w-screen-lg',
   'screen-md': 'md:mx-auto md:max-w-screen-sm lg:max-w-screen-md',

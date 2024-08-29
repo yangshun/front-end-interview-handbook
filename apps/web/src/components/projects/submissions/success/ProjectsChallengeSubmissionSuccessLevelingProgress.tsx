@@ -86,7 +86,7 @@ export default function ProjectsChallengeSubmissionSuccessLevelingProgress({
   const groupedRoadmapSkillReps = groupProjectRepSkill(roadmapSkillsRepRecords);
 
   return (
-    <>
+    <div className="grid gap-x-12 gap-y-8 xl:grid-cols-2">
       <div className="flex flex-col gap-6">
         <div className="flex items-center gap-4">
           <Text size="body1" weight="medium">
@@ -167,6 +167,6 @@ export default function ProjectsChallengeSubmissionSuccessLevelingProgress({
             })}
         </div>
       </div>
-    </>
+    </div>
   );
 }

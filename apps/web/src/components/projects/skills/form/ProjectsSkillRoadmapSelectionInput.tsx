@@ -19,6 +19,7 @@ type Props = Readonly<{
   description: React.ReactNode;
   descriptionStyle?: LabelDescriptionStyle;
   errorMessage?: React.ReactNode;
+  footerInfoContent?: React.ReactNode;
   isLabelHidden?: boolean;
   label: string;
   onBlur?: () => void;
@@ -51,6 +52,7 @@ function ProjectsSkillRoadmapSelectionInput(
     onBlur,
     onChange,
     placeholder,
+    footerInfoContent,
   }: Props,
   ref: ForwardedRef<HTMLDivElement>,
 ) {
@@ -151,6 +153,7 @@ function ProjectsSkillRoadmapSelectionInput(
         <ProjectsSkillRoadmapSelectionDialog
           challengeDefaultSkills={challengeDefaultSkills}
           defaultSkills={value}
+          footerInfoContent={footerInfoContent}
           isShown={showSkillsRoadmapDialog}
           onClose={() => setShowSkillsRoadmapDialog(false)}
           onComplete={(newSkills) => {

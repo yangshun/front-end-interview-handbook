@@ -93,7 +93,7 @@ export default function ProjectsChallengeSubmissionSuccessTrackProgress({
     : notStartedChallenges.length;
 
   return (
-    <>
+    <div className="grid gap-x-12 gap-y-8 xl:grid-cols-2">
       <ProjectsChallengeSubmissionSuccessProgressHeader
         completedCount={completedChallengesCount}
         entity="track"
@@ -227,6 +227,6 @@ export default function ProjectsChallengeSubmissionSuccessTrackProgress({
         track={currentTrack}
         onClose={() => setShowTrackDialog(false)}
       />
-    </>
+    </div>
   );
 }

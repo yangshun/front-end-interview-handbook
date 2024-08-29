@@ -49,7 +49,7 @@ export default function ProjectsChallengeSubmissionSuccessBody({
       disableSpotlight={true}
       padding={false}
       pattern={false}>
-      <div className="grid gap-x-12 gap-y-8 xl:grid-cols-2">
+      <div className="flex flex-col gap-16 md:gap-8">
         <ProjectsChallengeSubmissionSuccessLevelingProgress
           gainedPoints={gainedPoints}
           isLeveledUp={isLeveledUp}

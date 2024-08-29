@@ -63,7 +63,7 @@ export default function ProjectsChallengeSubmissionSuccessBadge({
   return (
     <div
       className={clsx(
-        'flex w-full flex-col items-center gap-5 px-3 pb-6 md:w-[244px]',
+        'flex w-full flex-col items-center gap-5 px-3 pb-6 pt-4 md:w-[244px]',
       )}>
       <div
         className={clsx(

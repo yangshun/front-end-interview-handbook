@@ -4,7 +4,6 @@ import { FormattedMessage } from 'react-intl';
 
 import Text from '~/components/ui/Text';
 import { themeTextColor } from '~/components/ui/theme';
-import Tooltip from '~/components/ui/Tooltip';
 
 import { projectsReputationPointsToNextLevel } from '../reputation/projectsReputationLevelUtils';
 
@@ -32,10 +31,25 @@ export function ProjectsLevelingProgressBar({
           style={{
             width: `${(currentRepCount / repTotal) * 100}%`,
           }}>
-          <Tooltip
-            asChild={true}
-            invert={true}
-            label={
+          <div
+            className={clsx(
+              'relative h-full touch-none select-none rounded-e-full',
+              'bg-success-dark dark:bg-success-light',
+              'flex items-center justify-center',
+            )}
+            style={{
+              width: `${(repIncrease / repTotal) * 100}%`,
+            }}>
+            <div
+              className={clsx(
+                'absolute',
+                'bottom-full',
+                'mb-2 w-max max-w-xs',
+                'rounded',
+                'px-3 py-2',
+                'shadow-[0px_4px_50px_0px_#00000000] dark:shadow-[0px_4px_50px_0px_#000000B2]',
+                'bg-neutral-200/40 dark:bg-neutral-800',
+              )}>
               <div className="flex gap-1">
                 <RiFireLine className={clsx('size-5', themeTextColor)} />
                 <Text size="body2">
@@ -54,19 +68,18 @@ export function ProjectsLevelingProgressBar({
                   />
                 </Text>
               </div>
-            }>
-            <button
-              className={clsx(
-                'h-full touch-none select-none rounded-e-full',
-                'bg-success-dark dark:bg-success-light',
-              )}
-              disabled={true}
-              style={{
-                width: `${(repIncrease / repTotal) * 100}%`,
-              }}
-              type="button"
-            />
-          </Tooltip>
+              <div
+                className={clsx(
+                  'absolute',
+                  'bottom-[5px] left-1/2',
+                  'h-2.5 w-2.5',
+                  '-translate-x-1/2 translate-y-full',
+                  'rotate-45',
+                  'bg-inherit',
+                )}
+              />
+            </div>
+          </div>
         </div>
       </div>
       <div className="flex justify-between">

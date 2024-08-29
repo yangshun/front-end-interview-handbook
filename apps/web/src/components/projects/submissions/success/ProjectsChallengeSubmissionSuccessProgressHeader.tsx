@@ -1,12 +1,11 @@
 import clsx from 'clsx';
 import { RiCheckboxCircleLine } from 'react-icons/ri';
-import { FormattedMessage, useIntl } from 'react-intl';
+import { FormattedMessage } from 'react-intl';
 
 import ProjectsStatusBadgeCompleted from '~/components/projects/common/status/ProjectsStatusBadgeCompleted';
 import type { ProjectsStatusBadgeType } from '~/components/projects/common/status/types';
 import Text from '~/components/ui/Text';
 import { themeTextSubtleColor } from '~/components/ui/theme';
-import Tooltip from '~/components/ui/Tooltip';
 
 type Props = Readonly<{
   completedCount: number;
@@ -25,7 +24,6 @@ export default function ProjectsChallengeSubmissionSuccessProgressHeader({
   iconWrapperClassName,
   entity,
 }: Props) {
-  const intl = useIntl();
   const isCompleted = completedCount === totalCount;
 
   return (
@@ -53,32 +51,65 @@ export default function ProjectsChallengeSubmissionSuccessProgressHeader({
           <div className="block md:hidden">
             {isCompleted && <ProjectsStatusBadgeCompleted entity="track" />}
           </div>
-          <div
-            className={clsx(
-              'overflow-hidden rounded-full',
-              'flex gap-1',
-              'h-2',
-            )}>
+          <div className={clsx('flex gap-1', 'relative h-2')}>
             {Array(totalCount)
               .fill(0)
               .map((_, index) => {
+                const borderClass = clsx(
+                  index === 0 && 'rounded-bl-full rounded-tl-full',
+                  index === totalCount - 1 && 'rounded-br-full rounded-tr-full',
+                );
+                const completedClass = 'bg-green-500';
+
                 if (
                   index + 1 === completedCount &&
                   completedCount !== totalCount
                 ) {
                   return (
-                    <Tooltip
+                    <div
                       key={Math.random()}
-                      asChild={true}
-                      label={intl.formatMessage({
-                        defaultMessage: '+1 completed',
-                        description: 'Completion progress bar',
-                        id: 'WtFGSP',
-                      })}>
+                      className={clsx(
+                        'relative h-full',
+                        'flex flex-1 items-center justify-center',
+                        completedClass,
+                        borderClass,
+                      )}>
                       <div
-                        className={clsx('h-full', 'flex-1', 'bg-[#22C55E]')}
-                      />
-                    </Tooltip>
+                        className={clsx(
+                          'absolute',
+                          'bottom-full',
+                          'mb-2 w-max max-w-xs',
+                          'rounded',
+                          'px-3 py-2',
+                          'shadow-[0px_4px_50px_0px_#00000000] dark:shadow-[0px_4px_50px_0px_#000000B2]',
+                          'bg-neutral-200/40 dark:bg-neutral-800',
+                        )}>
+                        <Text size="body2">
+                          <FormattedMessage
+                            defaultMessage="<bold>+1</bold> completed"
+                            description="Completion progress bar"
+                            id="hlhW4S"
+                            values={{
+                              bold: (chunks) => (
+                                <Text size="inherit" weight="bold">
+                                  {chunks}
+                                </Text>
+                              ),
+                            }}
+                          />
+                        </Text>
+                        <div
+                          className={clsx(
+                            'absolute',
+                            'bottom-[5px] left-1/2',
+                            'h-2.5 w-2.5',
+                            '-translate-x-1/2 translate-y-full',
+                            'rotate-45',
+                            'bg-inherit',
+                          )}
+                        />
+                      </div>
+                    </div>
                   );
                 }
 
@@ -88,8 +119,9 @@ export default function ProjectsChallengeSubmissionSuccessProgressHeader({
                     className={clsx(
                       'h-full',
                       'flex-1',
+                      borderClass,
                       completedCount === totalCount
-                        ? 'bg-[#22C55E]'
+                        ? completedClass
                         : index < completedCount
                           ? 'bg-success-dark'
                           : 'bg-neutral-700',

@@ -56,3 +56,4 @@ export function getFormattedNumber(num: number) {
 }
 
 export const URL_REGEX = /^(https?:\/\/)?[^\s/$.?#].[^\s]*$/;
+export const MAX_SKILLS_FOR_REP_GAINS_IN_SUBMISSION = 10;

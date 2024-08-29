@@ -46,7 +46,7 @@ export default function ProjectsChallengeSubmissionSuccessSkillPlanProgress({
   });
 
   return (
-    <>
+    <div className="grid gap-x-12 gap-y-8 xl:grid-cols-2">
       <ProjectsChallengeSubmissionSuccessProgressHeader
         completedCount={skill.completedChallenges}
         entity="skill"
@@ -190,6 +190,6 @@ export default function ProjectsChallengeSubmissionSuccessSkillPlanProgress({
           onClose={() => setShowSkillPlanDialog(false)}
         />
       </div>
-    </>
+    </div>
   );
 }

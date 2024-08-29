@@ -11,6 +11,7 @@ import {
   projectsReputationSubmissionTechStackConfig,
   projectsReputationSubmissionVoteConfig,
 } from './ProjectsReputationPointsItemCalculator';
+import { MAX_SKILLS_FOR_REP_GAINS_IN_SUBMISSION } from '../misc';
 
 import type {
   ProjectsChallengeSubmissionVote,
@@ -135,12 +136,15 @@ export async function projectsReputationSubmissionAwardPoints(
 
   // Sort by descending.
   roadmapSkillsRepRecords.sort((a, b) => b.points - a.points);
-  // Take the first 4.
+  // Take the first 10.
 
-  const top4roadmapSkillsRepRecords = roadmapSkillsRepRecords.slice(0, 4);
+  const top10roadmapSkillsRepRecords = roadmapSkillsRepRecords.slice(
+    0,
+    MAX_SKILLS_FOR_REP_GAINS_IN_SUBMISSION,
+  );
 
   connectOrCreateItems.push(
-    ...top4roadmapSkillsRepRecords.map((config) =>
+    ...top10roadmapSkillsRepRecords.map((config) =>
       projectsReputationConnectOrCreateShape({
         ...config,
         profileId: projectsProfileId,
@@ -172,7 +176,7 @@ export async function projectsReputationSubmissionAwardPoints(
 
   return {
     points: totalPoints,
-    roadmapSkillsRepRecords: top4roadmapSkillsRepRecords,
+    roadmapSkillsRepRecords: top10roadmapSkillsRepRecords,
   };
 }
 

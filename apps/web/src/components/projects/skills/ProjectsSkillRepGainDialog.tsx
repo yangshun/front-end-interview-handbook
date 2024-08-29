@@ -44,7 +44,11 @@ function splitSkillReps({
   return result;
 }
 
-function ProjectsSkillRepGainDialog({ isShown, onClose, skillReps }: Props) {
+export default function ProjectsSkillRepGainDialog({
+  isShown,
+  onClose,
+  skillReps,
+}: Props) {
   const intl = useIntl();
   const isTabletAndAbove = useMediaQuery('(min-width: 768px)');
   const isLaptopAndAbove = useMediaQuery('(min-width: 1024px)');
@@ -73,6 +77,7 @@ function ProjectsSkillRepGainDialog({ isShown, onClose, skillReps }: Props) {
     <Dialog
       className="pb-2"
       isShown={isShown}
+      scrollable={true}
       title={intl.formatMessage({
         defaultMessage: 'Details of rep gain across skills',
         description: 'Details of rep gain across skills for submission',
@@ -99,7 +104,6 @@ function ProjectsSkillRepGainDialog({ isShown, onClose, skillReps }: Props) {
                 themeDivideEmphasizeColor,
               )}>
               {newSkillsReps.map((parentSkill, i) => {
-                const isLast = skillReps.length === i + 1;
                 const isLastItemInRow = splitSize === i + 1;
 
                 return (
@@ -111,12 +115,6 @@ function ProjectsSkillRepGainDialog({ isShown, onClose, skillReps }: Props) {
                       'px-6 first:pl-0',
                       isLastItemInRow && 'last:pr-0',
                     )}>
-                    <div
-                      className={clsx(
-                        'absolute -bottom-6 h-0 w-full border-t border-neutral-700',
-                        isLast ? 'hidden' : 'block sm:hidden',
-                      )}
-                    />
                     <div className="flex items-center justify-between">
                       <Text size="body1" weight="bold">
                         {projectsSkillLabel(parentSkill.key)}
@@ -140,7 +138,9 @@ function ProjectsSkillRepGainDialog({ isShown, onClose, skillReps }: Props) {
                           <Text size="body2" weight="medium">
                             {projectsSkillLabel(childSkill.key)}
                           </Text>
-                          <Text size="body2">+{childSkill.points}</Text>
+                          <Text className="px-2.5" size="body2">
+                            +{childSkill.points}
+                          </Text>
                         </div>
                       );
                     })}
@@ -154,5 +154,3 @@ function ProjectsSkillRepGainDialog({ isShown, onClose, skillReps }: Props) {
     </Dialog>
   );
 }
-
-export default ProjectsSkillRepGainDialog;

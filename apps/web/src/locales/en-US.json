@@ -1327,6 +1327,10 @@
     "defaultMessage": "Study Plans",
     "description": "Section heading in footer for links to study plans (i.e. recommended order to study and practice based on specific timelines e.g. prepare in 1 week, 1 month or 3 months)"
   },
+  "8pBDb1": {
+    "defaultMessage": "You will be redirected to the next page \"{nextArticle}\" in 10s",
+    "description": "Success message shown when a guide was marked as complete"
+  },
   "8tTY7b": {
     "defaultMessage": "Loading submissions",
     "description": "Loading historical project submissions"
@@ -1979,6 +1983,10 @@
     "defaultMessage": "(Save {discountPercentage}% vs monthly)",
     "description": "Save more compared to monthly plan."
   },
+  "Dz2NRy": {
+    "defaultMessage": "You will receive rep for the top 10 skills used in the project.",
+    "description": "Label for rep gains from top 10 skills"
+  },
   "Dzv5LY": {
     "defaultMessage": "Explore skills roadmap",
     "description": "Recommended action for new projects platform user"
@@ -2382,6 +2390,10 @@
   "H1aK4/": {
     "defaultMessage": "Style guide",
     "description": "Project assets category label"
+  },
+  "H2F0aE": {
+    "defaultMessage": "Rep will be awarded for using skills in a project. Realistically, we expect up to 8 skills being used in a large project.",
+    "description": "Description for rep gains from top 10 skills"
   },
   "H39M2g": {
     "defaultMessage": "What to expect for Front End System Design interviews",
@@ -4675,10 +4687,6 @@
     "defaultMessage": "You have no premium credits left for this cycle.",
     "description": "Subtitle for project paywall"
   },
-  "WtFGSP": {
-    "defaultMessage": "+1 completed",
-    "description": "Completion progress bar"
-  },
   "Wtrj0o": {
     "defaultMessage": "Take the structured route to front end learning by building projects according to our skills roadmap. Learn any front end core skill you may need.",
     "description": "Description of Projects skills roadmap page"
@@ -6182,6 +6190,10 @@
   "hkKaPn": {
     "defaultMessage": "Numbered list",
     "description": "Numbered list tooltip for Richtext toolbar"
+  },
+  "hlhW4S": {
+    "defaultMessage": "<bold>+1</bold> completed",
+    "description": "Completion progress bar"
   },
   "hm0ODb": {
     "defaultMessage": "Delete comment?",
