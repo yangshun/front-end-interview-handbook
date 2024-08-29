@@ -1,8 +1,12 @@
-import { useState } from 'react';
+import { usePathname, useSearchParams } from 'next/navigation';
+import { useRouter } from 'next/navigation';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { RiLoopLeftLine, RiStopCircleLine } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
+import url from 'url';
 
 import { trpc } from '~/hooks/trpc';
+import { useAuthSignInUp } from '~/hooks/user/useAuthFns';
 
 import ConfirmationDialog from '~/components/common/ConfirmationDialog';
 import { useToast } from '~/components/global/toasts/useToast';
@@ -33,6 +37,12 @@ export default function QuestionsListSession({
   const trpcUtils = trpc.useUtils();
   const { userProfile } = useUserProfile();
   const user = useUser();
+  const { signInUpHref } = useAuthSignInUp();
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
+  // eslint-disable-next-line react/hook-use-state
+  const [actionParam] = useState(searchParams?.get('action'));
+  const { replace } = useRouter();
 
   const { data: questionListSession, isLoading: isQuestionListSessionLoading } =
     trpc.questionLists.getActiveSession.useQuery(
@@ -68,21 +78,83 @@ export default function QuestionsListSession({
     useState(false);
   const { showToast } = useToast();
 
+  const clearActionSearchParams = useCallback(() => {
+    if (!actionParam) {
+      return;
+    }
+
+    const params = new URLSearchParams(window.location.search);
+
+    params.delete('action');
+
+    replace(`${pathname}?${params.toString()}`);
+  }, [pathname, replace, actionParam]);
+
+  // Store the mutate function in a ref to avoid adding it as a dependency
+  const startSessionMutateRef = useRef(startSessionMutation.mutate);
+  const onStartLearning = useCallback(() => {
+    if (
+      !progressTrackingAvailableToNonPremiumUsers &&
+      !userProfile?.isInterviewsPremium
+    ) {
+      // TODO: trigger premium subscription modal
+    } else {
+      startSessionMutateRef.current(
+        {
+          listKey: questionListKey,
+        },
+        {
+          onSuccess: () => {
+            showToast({
+              title: intl.formatMessage({
+                defaultMessage: 'Started tracking progress',
+                description: 'Success message for starting a study plan',
+                id: 'm0cej4',
+              }),
+              variant: 'success',
+            });
+
+            // TODO: trigger import progress flow
+          },
+        },
+      );
+    }
+  }, [
+    userProfile?.isInterviewsPremium,
+    progressTrackingAvailableToNonPremiumUsers,
+    questionListKey,
+    showToast,
+    intl,
+  ]);
+
+  useEffect(() => {
+    if (
+      userProfile == null ||
+      isQuestionListSessionLoading ||
+      questionListSession != null
+    ) {
+      return;
+    }
+
+    if (actionParam === 'start_session') {
+      onStartLearning();
+    }
+    if (actionParam) {
+      clearActionSearchParams();
+    }
+  }, [
+    questionListSession,
+    isQuestionListSessionLoading,
+    userProfile,
+    onStartLearning,
+    actionParam,
+    clearActionSearchParams,
+  ]);
+
   return (
     <div>
       {(() => {
-        if (userProfile == null) {
-          return null;
-        }
-
-        if (isQuestionListSessionLoading) {
-          return null;
-        }
-
-        if (
-          !progressTrackingAvailableToNonPremiumUsers &&
-          !userProfile?.isInterviewsPremium
-        ) {
+        if (isQuestionListSessionLoading && !!user) {
           return null;
         }
 
@@ -90,6 +162,18 @@ export default function QuestionsListSession({
           return (
             <div className="flex flex-col items-end gap-3">
               <Button
+                href={
+                  userProfile == null
+                    ? signInUpHref({
+                        next: url.format({
+                          pathname,
+                          query: {
+                            action: 'start_session',
+                          },
+                        }),
+                      })
+                    : undefined
+                }
                 isDisabled={startSessionMutation.isLoading}
                 isLoading={startSessionMutation.isLoading}
                 label={intl.formatMessage({
@@ -100,25 +184,11 @@ export default function QuestionsListSession({
                 size="md"
                 variant="primary"
                 onClick={() => {
-                  startSessionMutation.mutate(
-                    {
-                      listKey: questionListKey,
-                    },
-                    {
-                      onSuccess: () => {
-                        showToast({
-                          title: intl.formatMessage({
-                            defaultMessage:
-                              "We've started tracking your progress",
-                            description:
-                              'Success message for starting a study plan',
-                            id: 'HJ+bJn',
-                          }),
-                          variant: 'success',
-                        });
-                      },
-                    },
-                  );
+                  if (userProfile == null) {
+                    return;
+                  }
+
+                  onStartLearning();
                 }}
               />
               <Text color="secondary" size="body3" weight="medium">
@@ -135,11 +205,11 @@ export default function QuestionsListSession({
         return (
           <div className="flex min-w-[363px] flex-col gap-y-2">
             <Card
-              className="flex justify-between gap-10 px-4 py-3"
+              className="flex justify-between gap-4 px-4 py-3"
               disableSpotlight={true}
               padding={false}
               pattern={false}>
-              <div className="flex flex-1 flex-col gap-0.5">
+              <div className="flex flex-col gap-0.5">
                 <Text size="body3" weight="bold">
                   <FormattedMessage
                     defaultMessage="Progress"
@@ -168,7 +238,7 @@ export default function QuestionsListSession({
                   />
                 </div>
               </div>
-              <div className="flex items-center gap-3">
+              <div className="flex w-[68px] shrink-0 items-center gap-3">
                 <Button
                   icon={RiLoopLeftLine}
                   isDisabled={

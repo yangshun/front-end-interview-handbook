@@ -2427,10 +2427,6 @@
     "defaultMessage": "Mentor others",
     "description": "Label for Mentor others sidebar item in Projects sidebar"
   },
-  "HJ+bJn": {
-    "defaultMessage": "We've started tracking your progress",
-    "description": "Success message for starting a study plan"
-  },
   "HMJJLh": {
     "defaultMessage": "Hone your computer science fundamentals by implementing important data structures and algorithms from scratch.",
     "description": "Description for interview preparation focus area"
@@ -6806,6 +6802,10 @@
   "lz6hfa": {
     "defaultMessage": "Easy",
     "description": "Easy difficulty label for question difficulty summary in question listing"
+  },
+  "m0cej4": {
+    "defaultMessage": "Started tracking progress",
+    "description": "Success message for starting a study plan"
   },
   "m2WYh/": {
     "defaultMessage": "Insert code block",
