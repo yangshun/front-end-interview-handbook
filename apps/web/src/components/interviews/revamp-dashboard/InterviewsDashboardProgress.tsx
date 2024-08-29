@@ -70,6 +70,7 @@ export default function InterviewsDashboardProgress({
             'overflow-hidden',
             themeBackgroundLineEmphasizedColor,
           )}
+          heightClass="h-1.5"
           label={title}
           progressClass={progressClassName}
           total={total}

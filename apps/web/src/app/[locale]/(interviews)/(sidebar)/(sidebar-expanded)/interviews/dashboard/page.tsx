@@ -7,6 +7,11 @@ import { INTERVIEWS_REVAMP_DASHBOARD } from '~/data/FeatureFlags';
 import InterviewsDashboardPage from '~/components/interviews/revamp-dashboard/InterviewsDashboardPage';
 
 import { fetchPreparationPlans } from '~/db/PreparationPlansReader';
+import {
+  fetchQuestionsListCoding,
+  fetchQuestionsListQuiz,
+  fetchQuestionsListSystemDesign,
+} from '~/db/QuestionsListReader';
 import { getIntlServerOnly } from '~/i18n';
 
 type Props = Readonly<{
@@ -27,12 +32,28 @@ export default async function Page({ params }: Props) {
   const { locale } = params;
 
   const intl = await getIntlServerOnly(locale);
-  const preparationPlans = await fetchPreparationPlans(intl as IntlShape);
+
+  const [
+    preparationPlans,
+    { questions: quizQuestions },
+    { questions: codingQuestions },
+    { questions: systemDesignQuestions },
+  ] = await Promise.all([
+    await fetchPreparationPlans(intl as IntlShape),
+    fetchQuestionsListQuiz(locale),
+    fetchQuestionsListCoding(locale),
+    fetchQuestionsListSystemDesign(locale),
+  ]);
 
   return (
     <InterviewsDashboardPage
       companyGuides={sortedGuides}
       preparationPlans={preparationPlans}
+      questions={{
+        codingQuestions,
+        quizQuestions,
+        systemDesignQuestions,
+      }}
     />
   );
 }

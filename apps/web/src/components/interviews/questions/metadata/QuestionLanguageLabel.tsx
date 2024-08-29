@@ -15,6 +15,7 @@ const LanguageLabelClasses: Record<QuestionLanguage, string> = {
 
 type Props = Readonly<{
   children?: ReactNode;
+  className?: string;
   size?: TextSize;
   value: QuestionLanguage;
 }>;
@@ -23,12 +24,14 @@ export default function QuestionLanguageLabel({
   children,
   value,
   size = 'body3',
+  className,
 }: Props) {
   return (
     <Text
       className={clsx(
         'inline-flex items-center rounded px-2 py-0.5',
         LanguageLabelClasses[value],
+        className,
       )}
       color="inherit"
       size={size}

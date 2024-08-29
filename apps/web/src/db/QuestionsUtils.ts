@@ -1,4 +1,6 @@
+import { DSAQuestions } from '~/components/interviews/questions/common/QuestionsCodingDataStructuresAlgorithms';
 import type {
+  QuestionCodingFormat,
   QuestionFormat,
   QuestionFramework,
   QuestionMetadata,
@@ -77,6 +79,10 @@ export function hasCompletedQuestion(
 }
 
 export type QuestionsCategorizedProgress = Record<QuestionFormat, Set<string>>;
+export type QuestionsCodingFormatCategorizedProgress = Record<
+  QuestionCodingFormat,
+  Set<string>
+>;
 
 export function categorizeQuestionListSessionProgress(
   sessionProgress?:
@@ -123,6 +129,34 @@ export function categorizeQuestionsProgress(
       (
         questionProgress?.filter(({ format }) => format === 'user-interface') ??
         []
+      ).map(({ slug }) => slug),
+    ),
+  };
+}
+
+export function categorizeQuestionsProgressByCodingFormat(
+  questionProgress?: ReadonlyArray<
+    Readonly<{ format: string; id: string; slug: QuestionSlug }>
+  > | null,
+): QuestionsCodingFormatCategorizedProgress {
+  return {
+    'data-structures-algorithms': new Set(
+      (
+        questionProgress?.filter(({ slug }) => DSAQuestions.has(slug)) ?? []
+      ).map(({ slug }) => slug),
+    ),
+    'user-interface': new Set(
+      (
+        questionProgress?.filter(({ format }) => format === 'user-interface') ??
+        []
+      ).map(({ slug }) => slug),
+    ),
+    utilities: new Set(
+      (
+        questionProgress?.filter(
+          ({ format, slug }) =>
+            format === 'javascript' && !DSAQuestions.has(slug),
+        ) ?? []
       ).map(({ slug }) => slug),
     ),
   };

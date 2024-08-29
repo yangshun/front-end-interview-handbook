@@ -6,6 +6,8 @@ import { trpc } from '~/hooks/trpc';
 
 import type { PreparationPlans } from '~/data/plans/PreparationPlans';
 
+import type { QuestionMetadata } from '~/components/interviews/questions/common/QuestionsTypes';
+
 import Divider from '~/components/ui/Divider';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
@@ -14,17 +16,24 @@ import { themeTextColor } from '~/components/ui/theme';
 
 import InterviewsDashboardPrepareByCompanySection from './InterviewsDashboardPrepareByCompanySection';
 import InterviewsDashboardStudyPlansSection from './InterviewsDashboardStudyPlansSection';
+import InterviewsDashboardPracticeQuestionsSection from './practice/InterviewsDashboardPracticeQuestionsSection';
 
 import { useUser } from '@supabase/auth-helpers-react';
 
 type Props = Readonly<{
   companyGuides: Array<InterviewsCompanyGuide>;
   preparationPlans: PreparationPlans;
+  questions: {
+    codingQuestions: ReadonlyArray<QuestionMetadata>;
+    quizQuestions: ReadonlyArray<QuestionMetadata>;
+    systemDesignQuestions: ReadonlyArray<QuestionMetadata>;
+  };
 }>;
 
 export default function InterviewsDashboardMoreLearningSection({
   companyGuides,
   preparationPlans,
+  questions,
 }: Props) {
   const user = useUser();
   const { data: questionListSessions } =
@@ -68,6 +77,10 @@ export default function InterviewsDashboardMoreLearningSection({
         <InterviewsDashboardStudyPlansSection
           preparationPlans={preparationPlans}
           questionListSessions={sessions}
+        />
+        <Divider />
+        <InterviewsDashboardPracticeQuestionsSection
+          questions={questions}
         />
         <Divider />
       </div>

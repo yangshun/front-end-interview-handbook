@@ -287,6 +287,10 @@
     "defaultMessage": "We offer a few guidance options",
     "description": "FAQ answer for projects platform"
   },
+  "0MOo70": {
+    "defaultMessage": "Questions to assess your soft skills, culture fit and personality. With sample answers for front end engineers.",
+    "description": "Description for behavioral questions"
+  },
   "0Nq65E": {
     "defaultMessage": "Billing",
     "description": "Screenreader text for subscription billing."
@@ -638,6 +642,10 @@
   "3WHiQS": {
     "defaultMessage": "Cheatsheet",
     "description": "One-page summary sheet for front end system design interviews"
+  },
+  "3Xl32/": {
+    "defaultMessage": "Quiz questions",
+    "description": "Title for quiz questions"
   },
   "3aT98+": {
     "defaultMessage": "Recommended actions for you",
@@ -1327,10 +1335,6 @@
     "defaultMessage": "Study Plans",
     "description": "Section heading in footer for links to study plans (i.e. recommended order to study and practice based on specific timelines e.g. prepare in 1 week, 1 month or 3 months)"
   },
-  "8pBDb1": {
-    "defaultMessage": "You will be redirected to the next page \"{nextArticle}\" in 10s",
-    "description": "Success message shown when a guide was marked as complete"
-  },
   "8tTY7b": {
     "defaultMessage": "Loading submissions",
     "description": "Loading historical project submissions"
@@ -1622,6 +1626,10 @@
   "BGn++d": {
     "defaultMessage": "Quiz Questions",
     "description": "Title for an example list of Quiz Questions on marketing pages"
+  },
+  "BHMys9": {
+    "defaultMessage": "Question languages",
+    "description": "Screenreader text to indicate the question languages"
   },
   "BHjWCo": {
     "defaultMessage": "API specifications and sample data",
@@ -1982,10 +1990,6 @@
   "Dynazi": {
     "defaultMessage": "(Save {discountPercentage}% vs monthly)",
     "description": "Save more compared to monthly plan."
-  },
-  "Dz2NRy": {
-    "defaultMessage": "You will receive rep for the top 10 skills used in the project.",
-    "description": "Label for rep gains from top 10 skills"
   },
   "Dzv5LY": {
     "defaultMessage": "Explore skills roadmap",
@@ -2494,6 +2498,10 @@
   "HloN+i": {
     "defaultMessage": "Start coding!",
     "description": "Label for \"Start coding!\" button on Projects project page"
+  },
+  "HmKMx6": {
+    "defaultMessage": "User interfaces",
+    "description": "Title for coding format user interface"
   },
   "HrMm6A": {
     "defaultMessage": "New!",
@@ -3651,6 +3659,10 @@
     "defaultMessage": "Notifications",
     "description": "Label for notifications"
   },
+  "PtAdqY": {
+    "defaultMessage": "Question topics",
+    "description": "Screenreader text to indicate the question topics"
+  },
   "Ptmnjq": {
     "defaultMessage": "Free continuous updates",
     "description": "Title for free continuous updates feature"
@@ -3726,6 +3738,10 @@
   "QMfLyD": {
     "defaultMessage": "GFE 75 - Practice In-browser with Detailed Solutions",
     "description": "Title of GFE75 page"
+  },
+  "QNiLn7": {
+    "defaultMessage": "Asked during technical interviews for Senior engineers. Evaluates decision-making abilities when it comes to technical architecture.",
+    "description": "Description for system design questions"
   },
   "QNqh1P": {
     "defaultMessage": "Experience",
@@ -4023,6 +4039,14 @@
     "defaultMessage": "Review must not be generated or written with the assistance of artificial intelligence.",
     "description": "Condition for promotion"
   },
+  "SBdIR/": {
+    "defaultMessage": "You will receive rep for the top {skillCount} skills used in the project.",
+    "description": "Label for rep gains from top 10 skills"
+  },
+  "SCEKXz": {
+    "defaultMessage": "Front End System Design questions",
+    "description": "Title for system design questions"
+  },
   "SEXvzM": {
     "defaultMessage": "Our <link>Skills Roadmap</link> tells you the exact projects to build to train the skill you need - whether you are a complete beginner or senior engineer filling a skill gap.",
     "description": "Description of 'Train any front end skill' feature in Projects marketing page"
@@ -4286,6 +4310,10 @@
   "U17xuY": {
     "defaultMessage": "Filter by the creator’s years of experience or their job status",
     "description": "Tooltip for experience filter for submissions list"
+  },
+  "U1S0XM": {
+    "defaultMessage": "More practice questions you can dive into with any excess time",
+    "description": "Description for practice questions section"
   },
   "U4YjHx": {
     "defaultMessage": "Real world specs",
@@ -4855,6 +4883,10 @@
     "defaultMessage": "As mentioned above, there are many ways to host your project for free. Our recommend hosts are:",
     "description": "Text for Deployment Info in Projects"
   },
+  "YBm903": {
+    "defaultMessage": "Coding questions",
+    "description": "Title for coding questions"
+  },
   "YGqz7y": {
     "defaultMessage": "Gain proficiency in front end fundamentals by implementing JavaScript and DOM APIs from scratch.",
     "description": "Description for interview preparation focus area"
@@ -5067,6 +5099,10 @@
     "defaultMessage": "The URL must not be localhost or an IP address. Provide a valid, publicly accessible URL.",
     "description": "Error message"
   },
+  "ZjVKE/": {
+    "defaultMessage": "Solutions & test from ex-interviewers",
+    "description": "Badge label for solutiosn & test"
+  },
   "Zk/GBk": {
     "defaultMessage": "The famed list of questions commonly used to prepare for standard data structures and algorithms style software engineering interviews. Solved in JavaScript / TypeScript for front end engineers.",
     "description": "Description for Blind75"
@@ -5102,6 +5138,10 @@
   "Zui1cu": {
     "defaultMessage": "Focus areas",
     "description": "Title of focus areas page"
+  },
+  "ZwQFwM": {
+    "defaultMessage": "Behavioral questions",
+    "description": "Title for behavioral questions"
   },
   "a0Osa7": {
     "defaultMessage": "Challenge: {challengeName} | Completion steps",
@@ -5739,6 +5779,10 @@
     "defaultMessage": "Premium is required to unlock this project",
     "description": "Unlock premium access for a project"
   },
+  "eWyygi": {
+    "defaultMessage": "There are typically four types of questions that can be asked in a front end interview:",
+    "description": "Description for practice by question type section"
+  },
   "ee862n": {
     "defaultMessage": "The definitive guide to front end / web developer interviews.",
     "description": "Front end interview guidebook description"
@@ -6018,6 +6062,10 @@
   "gIvdNL": {
     "defaultMessage": "We help you learn through building - without tutorial hell",
     "description": "Heading of the 'We help you learn through building - without tutorial hell' marketing section on Projects home page"
+  },
+  "gJo+AD": {
+    "defaultMessage": "The bread and butter of technical coding interviews. For front end interviews, coding questions can be broken down into 3 types.",
+    "description": "Description for coding questions"
   },
   "gNEj/r": {
     "defaultMessage": "Implement various Lodash functions and methods to manipulate and transform data efficiently, a common task given during front end interviews and improve your front end interview readiness.",
@@ -6566,6 +6614,10 @@
   "kTyRGU": {
     "defaultMessage": "Step 3",
     "description": "Step N of multiple steps when completing a project"
+  },
+  "kUR6aL": {
+    "defaultMessage": "Question frameworks",
+    "description": "Screenreader text to indicate the question frameworks"
   },
   "kaEcHw": {
     "defaultMessage": "You've gained reputation points for signing up",
@@ -7319,6 +7371,10 @@
     "defaultMessage": "GitHub Pages",
     "description": "Label for \"GitHub Pages\" option in Deployment Info"
   },
+  "qBLo3K": {
+    "defaultMessage": "Javascript utilities and APIs",
+    "description": "Title for coding format utilities"
+  },
   "qBPU/e": {
     "defaultMessage": "Other skills you are using which are not within the skills roadmap. Also helps community members understand more about the tech stack. If you don't see the tag you need, email us.",
     "description": "Description for tech stack input on project submit page"
@@ -7330,6 +7386,10 @@
   "qFJskj": {
     "defaultMessage": "Level {level}",
     "description": "Title for level Up"
+  },
+  "qHCndx": {
+    "defaultMessage": "Data structures & algorithms",
+    "description": "Title for coding format data structures & algo"
   },
   "qJhNva": {
     "defaultMessage": "Public roadmap",
@@ -7555,6 +7615,10 @@
     "defaultMessage": "+{count} more",
     "description": "Label for number of additional skills"
   },
+  "sSOyrU": {
+    "defaultMessage": "Practice by question type",
+    "description": "Title for practice by question type section"
+  },
   "sU6jXI": {
     "defaultMessage": "Reputation you have gained from completing challenges using this skill, including challenges not in the recommended skill plan",
     "description": "Tooltip for reputation label"
@@ -7590,6 +7654,10 @@
   "sfxQ0Y": {
     "defaultMessage": "Practice solving questions involving complex state",
     "description": "Title for interview preparation focus area"
+  },
+  "sg/5hy": {
+    "defaultMessage": "+{count} more",
+    "description": "Badge label for more topics"
   },
   "sjLtW1": {
     "defaultMessage": "Manage subscription",
@@ -7718,6 +7786,10 @@
   "tPpYwO": {
     "defaultMessage": "Starter",
     "description": "Starter blog"
+  },
+  "tQEmTt": {
+    "defaultMessage": "All practice questions",
+    "description": "Title for practice questions section"
   },
   "tZPTnS": {
     "defaultMessage": "Difficulty: Hard to Easy",
@@ -8139,6 +8211,10 @@
     "defaultMessage": "You will have to use your own IDE, just as any developer should for a real project. If you're a complete beginner and are not sure what an IDE is, we will have a basic guide within Step 3's tab teaching you how to download and set-up an IDE for the first time.",
     "description": "FAQ answer for projects platform"
   },
+  "wsvJvT": {
+    "defaultMessage": "Commonly asked during recruiter phone screens or companies which do not adopt heavy coding rounds",
+    "description": "Description for quiz questions"
+  },
   "wwf4o6": {
     "defaultMessage": "Dashboard",
     "description": "Title of Projects Dashboard page"
@@ -8178,6 +8254,10 @@
   "xP6aru": {
     "defaultMessage": "Please try retaking the screenshot",
     "description": "Retake error message for screenshot"
+  },
+  "xRWPeC": {
+    "defaultMessage": "200+ questions",
+    "description": "Badge label for questions count"
   },
   "xU32y0": {
     "defaultMessage": "3 subcategories of questions: JavaScript, User Interfaces & Data Structures and Algorithms",

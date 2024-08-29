@@ -1,3 +1,4 @@
+import clsx from 'clsx';
 import type { CSSProperties } from 'react';
 
 import AngularLogo from '~/components/icons/AngularLogo';
@@ -23,11 +24,12 @@ const frameworkIcons: Record<
 };
 
 type Props = Readonly<{
+  className?: string;
   framework: QuestionFramework;
 }>;
 
-export default function QuestionFrameworkIcon({ framework }: Props) {
+export default function QuestionFrameworkIcon({ framework, className }: Props) {
   const { icon: Icon, style: iconStyle } = frameworkIcons[framework];
 
-  return <Icon className="size-5" style={iconStyle} />;
+  return <Icon className={clsx('size-5', className)} style={iconStyle} />;
 }
