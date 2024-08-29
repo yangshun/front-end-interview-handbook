@@ -125,20 +125,20 @@ export default function QuestionsListSession({
   ]);
 
   useEffect(() => {
-    // Read the parameter on-demand to avoid using useSearchParams.
-    const params = new URLSearchParams(window.location.search);
-    const actionParam = params.get('action');
-
-    if (actionParam) {
-      clearActionSearchParams();
-    }
-
     if (
       userProfile == null ||
       isQuestionListSessionLoading ||
       questionListSession != null
     ) {
       return;
+    }
+
+    // Read the parameter on-demand to avoid using useSearchParams.
+    const params = new URLSearchParams(window.location.search);
+    const actionParam = params.get('action');
+
+    if (actionParam) {
+      clearActionSearchParams();
     }
 
     if (actionParam === 'start_session') {
