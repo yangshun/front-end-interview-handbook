@@ -1,6 +1,6 @@
 import { usePathname } from 'next/navigation';
 import { useRouter } from 'next/navigation';
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { RiLoopLeftLine, RiStopCircleLine } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
 import url from 'url';
@@ -36,6 +36,8 @@ export default function QuestionsListSession({
   const intl = useIntl();
   const pathname = usePathname();
   const { replace } = useRouter();
+  // This ref exists to prevent double firing of start mutation requests.
+  const actionWasProcessedRef = useRef(false);
 
   const trpcUtils = trpc.useUtils();
   const { userProfile } = useUserProfile();
@@ -128,8 +130,18 @@ export default function QuestionsListSession({
     if (
       userProfile == null ||
       isQuestionListSessionLoading ||
-      questionListSession != null
+      actionWasProcessedRef.current === true
     ) {
+      return;
+    }
+
+    // Don't process action if there's an ongoing session.
+    // Clear the search param and set the ref to false
+    // so that if a user stops the session, it isn't automatically restarted.
+    if (questionListSession != null) {
+      actionWasProcessedRef.current = true;
+      clearActionSearchParams();
+
       return;
     }
 
@@ -138,6 +150,7 @@ export default function QuestionsListSession({
     const actionParam = params.get('action');
 
     if (actionParam) {
+      actionWasProcessedRef.current = true;
       clearActionSearchParams();
     }
 
