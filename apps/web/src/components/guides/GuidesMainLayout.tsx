@@ -131,7 +131,7 @@ export default function GuidesMainLayout({
                 key={currentItem?.href}
                 className={clsx(
                   'hidden overflow-hidden xl:sticky xl:block xl:flex-none xl:overflow-x-hidden',
-                  !collapsedToC && 'w-[252px]',
+                  collapsedToC ? 'lg:w-[252px]' : 'w-[252px]',
                 )}
                 style={{
                   height: 'calc(100vh - 48px - var(--global-sticky-height))',

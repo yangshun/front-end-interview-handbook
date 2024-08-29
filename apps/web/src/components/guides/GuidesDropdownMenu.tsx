@@ -46,6 +46,7 @@ export default function GuidesDropdownMenu() {
           <Icon className="size-4" />
           <Text
             className="line-clamp-1 text-ellipsis text-left"
+            color="secondary"
             size="inherit"
             weight="medium">
             {label}

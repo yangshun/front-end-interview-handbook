@@ -218,76 +218,84 @@ export function GuidesSidebar({
   const isSidebar = mode === 'sidebar';
 
   return (
-    <nav
+    <div
       className={clsx(
-        'flex shrink-0 flex-col justify-end',
-        isSidebar && ['border-e', themeBorderColor],
-        isSidebar ? (isFocusMode ? 'w-[78px]' : 'w-60') : 'w-full',
-        sticky && 'sticky',
-      )}
-      style={{
-        height: sticky
-          ? 'calc(100vh - var(--global-sticky-height))'
-          : undefined,
-        top: 'calc(var(--global-sticky-height))',
-      }}>
-      {!isFocusMode && (
-        <>
+        'shrink-0',
+        isSidebar ? (isFocusMode ? 'xl:w-60' : 'w-60') : 'w-full',
+      )}>
+      <nav
+        className={clsx(
+          'flex shrink-0 flex-col justify-end',
+          isSidebar && ['border-e', themeBorderColor],
+          isFocusMode ? 'w-[78px]' : 'w-full',
+          sticky && 'sticky',
+        )}
+        style={{
+          height: sticky
+            ? 'calc(100vh - var(--global-sticky-height))'
+            : undefined,
+          top: 'calc(var(--global-sticky-height))',
+        }}>
+        {!isFocusMode && (
+          <>
+            <div
+              className={clsx(
+                'flex grow-0 flex-col gap-1',
+                'w-full',
+                'px-4 py-4',
+                ['border-b', themeBorderColor],
+              )}>
+              <Text
+                className="px-2"
+                color="secondary"
+                size="body3"
+                weight="medium">
+                <FormattedMessage
+                  defaultMessage="Current guide"
+                  description="Label for current guide title"
+                  id="3wygra"
+                />
+              </Text>
+              <GuidesDropdownMenu />
+            </div>
+            <div
+              className={clsx(
+                'flex grow overflow-hidden',
+                isSidebar && 'vignette-scroll',
+              )}>
+              <ScrollArea>
+                <AccordionPrimitive.Root
+                  asChild={true}
+                  className={clsx('flex flex-col gap-y-px', 'p-4')}
+                  defaultValue={navigation.items.map(
+                    (section) => section.title,
+                  )}
+                  type="multiple">
+                  <ul>
+                    {navigation.items.map((item) => (
+                      <SectionHeading key={item.title} item={item} />
+                    ))}
+                  </ul>
+                </AccordionPrimitive.Root>
+              </ScrollArea>
+            </div>
+          </>
+        )}
+        {isSidebar && (
           <div
             className={clsx(
-              'flex grow-0 flex-col gap-1',
+              'flex shrink-0 items-center justify-stretch',
               'w-full',
-              'px-4 py-4',
-              ['border-b', themeBorderColor],
+              'h-12 px-6',
+              ['border-t', themeBorderColor],
             )}>
-            <Text
-              className="px-2"
-              color="secondary"
-              size="body3"
-              weight="medium">
-              <FormattedMessage
-                defaultMessage="Current guide"
-                description="Label for current guide title"
-                id="3wygra"
-              />
-            </Text>
-            <GuidesDropdownMenu />
+            <GuidesFocusModeToggle
+              isFocusMode={isFocusMode}
+              toggleFocusMode={toggleFocusMode}
+            />
           </div>
-          <div
-            className={clsx(
-              'flex grow overflow-hidden',
-              isSidebar && 'vignette-scroll',
-            )}>
-            <ScrollArea>
-              <AccordionPrimitive.Root
-                asChild={true}
-                className={clsx('flex flex-col gap-y-px', 'p-4')}
-                defaultValue={navigation.items.map((section) => section.title)}
-                type="multiple">
-                <ul>
-                  {navigation.items.map((item) => (
-                    <SectionHeading key={item.title} item={item} />
-                  ))}
-                </ul>
-              </AccordionPrimitive.Root>
-            </ScrollArea>
-          </div>
-        </>
-      )}
-      {isSidebar && (
-        <div
-          className={clsx(
-            'flex shrink-0 items-center justify-stretch',
-            'w-full',
-            'h-12 px-6',
-            ['border-t', themeBorderColor],
-          )}>
-          <GuidesFocusModeToggle
-            isFocusMode={isFocusMode}
-            toggleFocusMode={toggleFocusMode}
-          />
-        </div>
-      )}
-    </nav>
+        )}
+      </nav>
+    </div>
   );
 }
