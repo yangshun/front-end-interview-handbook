@@ -1487,6 +1487,10 @@
     "defaultMessage": "Read more",
     "description": "Read more"
   },
+  "A5COe1": {
+    "defaultMessage": "Cancel",
+    "description": "Label for cancel button on import progress dialog"
+  },
   "A7IkHe": {
     "defaultMessage": "<bold>{completedArticles}</bold>/{totalArticles} articles",
     "description": "Line describing the number of articles completed by user over the total number of articles"
@@ -4895,6 +4899,10 @@
     "defaultMessage": "Review Cashback Terms and Conditions",
     "description": "Title of legal page"
   },
+  "YRXT3j": {
+    "defaultMessage": "Import({questionCount})",
+    "description": "Label for import button on import progress dialog"
+  },
   "YS1B1R": {
     "defaultMessage": "Find submissions suggested for your review, based on your completed challenges, tech skills, and experience.",
     "description": "Page subtitle"
@@ -6219,6 +6227,10 @@
     "defaultMessage": "No notification yet!",
     "description": "Label for no notification"
   },
+  "i/1i64": {
+    "defaultMessage": "You've previously completed {questionCount, plural, =0 {<bold>0</bold> questions} one {<bold>1</bold> question} other {<bold>#</bold> questions}} from this list.",
+    "description": "Description for import progress"
+  },
   "i0GIaV": {
     "defaultMessage": "Most important 75 questions for front end interviews.",
     "description": "Long description for GFE75 plan"
@@ -6947,6 +6959,10 @@
     "defaultMessage": "We offer bulk discounts at attractive rates for group trainings. Please send an email to <link>institutions@greatfrontend.com</link> with your company email and address, and we would be happy to assist.",
     "description": "Answer on projects pricing's FAQ section - institutions and organizations discounts"
   },
+  "nMbx46": {
+    "defaultMessage": "Select all ({questionCount})",
+    "description": "Label for select all in import progress dialog"
+  },
   "nNCpzS": {
     "defaultMessage": "Basic details",
     "description": "Section title for user onboarding form"
@@ -7462,6 +7478,10 @@
   "rLSGMd": {
     "defaultMessage": "<authorProfileLink>{author}</authorProfileLink> asked a question on the challenge forum for <link>{challengeTitle}</link>: <comment>\"{description}\"</comment>",
     "description": "Log message for someone asking a question on the challenge forum"
+  },
+  "rQpb6P": {
+    "defaultMessage": "Import that progress into this list?",
+    "description": "Description for import progress"
   },
   "rR79ua": {
     "defaultMessage": "Learn from others",
@@ -8394,6 +8414,10 @@
   "zAyLSU": {
     "defaultMessage": "Please enter a valid date in the format MM/YYYY",
     "description": "Error message for invalid \"Month and year you started work as a Front End Engineer\" input on Projects profile onboarding page"
+  },
+  "zBDuWv": {
+    "defaultMessage": "Import previous progress",
+    "description": "Title for import progress dialog"
   },
   "zBgQ/Y": {
     "defaultMessage": "Invalid LinkedIn username or URL",

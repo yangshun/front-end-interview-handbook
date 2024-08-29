@@ -3,23 +3,30 @@ import type { ReactNode } from 'react';
 
 import type { PreparationPlanSchedule } from '~/data/plans/PreparationPlans';
 
+import QuestionCountLabel from '~/components/interviews/questions/metadata/QuestionCountLabel';
 import QuestionDifficultySummary from '~/components/interviews/questions/metadata/QuestionDifficultySummary';
 import QuestionStudyAllocationLabel from '~/components/interviews/questions/metadata/QuestionStudyAllocationLabel';
 import Heading from '~/components/ui/Heading';
 import Text from '~/components/ui/Text';
 
+import type { QuestionProgress } from '~/db/QuestionsProgressTypes';
+
 import QuestionsListSession from './QuestionsListSession';
-import type { QuestionDifficulty } from '../../common/QuestionsTypes';
-import QuestionCountLabel from '../../metadata/QuestionCountLabel';
+import type {
+  QuestionDifficulty,
+  QuestionMetadata,
+} from '../../common/QuestionsTypes';
 
 type Props = Readonly<{
   description?: ReactNode;
   difficultySummary?: Record<QuestionDifficulty, number>;
   icon: (props: React.ComponentProps<'svg'>) => JSX.Element;
   logoImgSrc?: string;
+  overallProgress: ReadonlyArray<QuestionProgress>;
   progressTrackingAvailableToNonPremiumUsers?: boolean;
   questionCount: number;
   questionListKey: string;
+  questions: ReadonlyArray<QuestionMetadata>;
   schedule?: PreparationPlanSchedule;
   themeBackgroundClass: string;
   title: string;
@@ -36,6 +43,8 @@ export default function QuestionsLearningListTitleSection({
   schedule,
   themeBackgroundClass,
   title,
+  overallProgress,
+  questions,
 }: Props) {
   return (
     <div className="flex flex-col justify-between gap-x-8 gap-y-4 md:flex-row">
@@ -89,11 +98,13 @@ export default function QuestionsLearningListTitleSection({
         )}
       </div>
       <QuestionsListSession
+        overallProgress={overallProgress}
         progressTrackingAvailableToNonPremiumUsers={
           progressTrackingAvailableToNonPremiumUsers
         }
         questionCount={questionCount}
         questionListKey={questionListKey}
+        questions={questions}
         themeBackgroundClass={themeBackgroundClass}
       />
     </div>

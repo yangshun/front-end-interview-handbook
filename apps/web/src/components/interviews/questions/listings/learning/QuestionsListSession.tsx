@@ -11,19 +11,26 @@ import { useAuthSignInUp } from '~/hooks/user/useAuthFns';
 import ConfirmationDialog from '~/components/common/ConfirmationDialog';
 import { useToast } from '~/components/global/toasts/useToast';
 import { useUserProfile } from '~/components/global/UserProfileProvider';
+import type { QuestionMetadata } from '~/components/interviews/questions/common/QuestionsTypes';
 import Button from '~/components/ui/Button';
 import Card from '~/components/ui/Card';
 import ProgressBar from '~/components/ui/ProgressBar';
 import Text from '~/components/ui/Text';
 
+import type { QuestionProgress } from '~/db/QuestionsProgressTypes';
+import { questionsForImportProgress } from '~/db/QuestionsUtils';
+
+import QuestionsImportProgressModal from './QuestionsImportProgressModal';
 import QuestionsProgressFraction from '../../common/QuestionsProgressFraction';
 
 import { useUser } from '@supabase/auth-helpers-react';
 
 type Props = Readonly<{
+  overallProgress: ReadonlyArray<QuestionProgress>;
   progressTrackingAvailableToNonPremiumUsers?: boolean;
   questionCount: number;
   questionListKey: string;
+  questions: ReadonlyArray<QuestionMetadata>;
   themeBackgroundClass: string;
 }>;
 
@@ -32,6 +39,8 @@ export default function QuestionsListSession({
   progressTrackingAvailableToNonPremiumUsers,
   questionCount,
   themeBackgroundClass,
+  questions,
+  overallProgress,
 }: Props) {
   const intl = useIntl();
   const pathname = usePathname();
@@ -53,6 +62,11 @@ export default function QuestionsListSession({
         enabled: !!user,
       },
     );
+
+  const previousSessionQuestionProgress = questionsForImportProgress(
+    questions,
+    overallProgress,
+  );
 
   const startSessionMutation = trpc.questionLists.startSession.useMutation({
     onSuccess() {
@@ -76,6 +90,7 @@ export default function QuestionsListSession({
     useState(false);
   const [showResetProgressConfirmation, setShowResetProgressConfirmation] =
     useState(false);
+  const [showImportProgressModal, setShowImportProgressModal] = useState(false);
   const { showToast } = useToast();
 
   const clearActionSearchParams = useCallback(() => {
@@ -112,7 +127,9 @@ export default function QuestionsListSession({
               variant: 'success',
             });
 
-            // TODO: trigger import progress flow
+            if (previousSessionQuestionProgress.length > 0) {
+              setShowImportProgressModal(true);
+            }
           },
         },
       );
@@ -123,6 +140,7 @@ export default function QuestionsListSession({
     startSessionMutation,
     questionListKey,
     showToast,
+    previousSessionQuestionProgress,
     intl,
   ]);
 
@@ -400,6 +418,12 @@ export default function QuestionsListSession({
           </div>
         );
       })()}
+      <QuestionsImportProgressModal
+        isShown={showImportProgressModal}
+        questionListKey={questionListKey}
+        questions={previousSessionQuestionProgress}
+        onClose={() => setShowImportProgressModal(false)}
+      />
     </div>
   );
 }

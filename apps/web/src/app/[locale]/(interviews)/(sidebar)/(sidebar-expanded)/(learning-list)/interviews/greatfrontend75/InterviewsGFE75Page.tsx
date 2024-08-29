@@ -159,6 +159,12 @@ export default function InterviewsGFE75Page({
             </div>
           }
           metadata={metadata}
+          overallProgress={questionProgressParam ?? []}
+          questions={[
+            ...quizQuestions,
+            ...codingQuestions,
+            ...systemDesignQuestions,
+          ]}
           questionsSessionKey="greatfrontend75"
           themeBackgroundClass={planTheme.gradient.className}
           title={plan.name}

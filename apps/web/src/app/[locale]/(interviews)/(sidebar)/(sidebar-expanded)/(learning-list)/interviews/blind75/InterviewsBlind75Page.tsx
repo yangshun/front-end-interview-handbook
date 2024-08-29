@@ -145,6 +145,12 @@ export default function InterviewsBlind75Page({
             </div>
           }
           metadata={metadata}
+          overallProgress={questionProgressParam ?? []}
+          questions={[
+            ...quizQuestions,
+            ...codingQuestions,
+            ...systemDesignQuestions,
+          ]}
           questionsSessionKey="blind75"
           themeBackgroundClass={planTheme.gradient.className}
           title={plan.name}

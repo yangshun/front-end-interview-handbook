@@ -7,6 +7,8 @@ import type {
   QuestionSlug,
 } from '~/components/interviews/questions/common/QuestionsTypes';
 
+import type { QuestionProgress } from './QuestionsProgressTypes';
+
 function createQuestionHref(
   format: QuestionFormat,
   slug: string,
@@ -200,4 +202,18 @@ export function countNumberOfQuestionsInList(
   return Object.values(questions)
     .map((q) => q.length)
     .reduce((prev, curr) => prev + curr, 0);
+}
+
+export function questionsForImportProgress(
+  questions: ReadonlyArray<QuestionMetadata>,
+  overallProgress: ReadonlyArray<QuestionProgress>,
+) {
+  // Create a Set for fast lookups
+  const sessions = new Set(
+    overallProgress?.map((item) => hashQuestion(item.format, item.slug)),
+  );
+
+  return questions.filter((item) =>
+    sessions.has(hashQuestion(item.format, item.slug)),
+  );
 }

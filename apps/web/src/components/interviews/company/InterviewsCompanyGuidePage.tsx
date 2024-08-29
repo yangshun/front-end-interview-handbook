@@ -118,8 +118,14 @@ export default function InterviewsCompanyGuidePage({
               />
             )}
             logoImgSrc={companyGuide.logoUrl}
+            overallProgress={questionProgressParam ?? []}
             questionCount={questionCount}
             questionListKey={companyGuide.slug}
+            questions={[
+              ...quizQuestions,
+              ...codingQuestions,
+              ...systemDesignQuestions,
+            ]}
             themeBackgroundClass={clsx('bg-white', 'shadow-md')}
             title={`${companyGuide.name} Front End Engineer Interview Questions and Guides`}
           />

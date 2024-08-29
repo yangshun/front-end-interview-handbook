@@ -33,8 +33,11 @@ import {
   themeTextSubtleColor,
 } from '~/components/ui/theme';
 
+import type { QuestionProgress } from '~/db/QuestionsProgressTypes';
+
 import InterviewsPageFeatures from '../common/InterviewsPageFeatures';
 import InterviewsPageHeaderLogo from '../common/InterviewsPageHeaderLogo';
+import type { QuestionMetadata } from '../questions/common/QuestionsTypes';
 import QuestionsListSession from '../questions/listings/learning/QuestionsListSession';
 import QuestionListingQuestionCount from '../questions/listings/stats/QuestionListingQuestionCount';
 
@@ -204,6 +207,8 @@ type CommonProps = Readonly<{
     href: string;
     title: string;
   };
+  overallProgress: ReadonlyArray<QuestionProgress>;
+  questions: ReadonlyArray<QuestionMetadata>;
   questionsSessionKey?: string;
   themeBackgroundClass: string;
   title: string;
@@ -228,6 +233,8 @@ export default function InterviewsRecommendedPrepStrategyPageTitleSection({
   features,
   longDescription,
   metadata,
+  questions,
+  overallProgress,
   ...props
 }: Props) {
   const intl = useIntl();
@@ -294,9 +301,11 @@ export default function InterviewsRecommendedPrepStrategyPageTitleSection({
           {/* Start/End Session */}
           {props.questionsSessionKey && (
             <QuestionsListSession
+              overallProgress={overallProgress}
               progressTrackingAvailableToNonPremiumUsers={false}
               questionCount={75}
               questionListKey={props.questionsSessionKey}
+              questions={questions}
               themeBackgroundClass={themeBackgroundClass}
             />
           )}

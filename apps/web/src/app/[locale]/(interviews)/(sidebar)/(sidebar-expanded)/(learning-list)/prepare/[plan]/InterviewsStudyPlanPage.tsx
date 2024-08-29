@@ -109,8 +109,14 @@ export default function InterviewsStudyPlanPage({
           description={plan.description}
           difficultySummary={difficultySummary}
           icon={planTheme.iconOutline}
+          overallProgress={questionProgressParam ?? []}
           questionCount={questionCount}
           questionListKey={plan.type}
+          questions={[
+            ...quizQuestions,
+            ...codingQuestions,
+            ...systemDesignQuestions,
+          ]}
           schedule={plan.schedule}
           themeBackgroundClass={planTheme.gradient.className}
           title={plan.longName}

@@ -405,8 +405,10 @@ export default function ScrapbookPage() {
                   medium: 20,
                 }}
                 icon={TbBinaryTree}
+                overallProgress={[]}
                 questionCount={47}
                 questionListKey="one-month"
+                questions={[]}
                 themeBackgroundClass={themeGradientPurpleGreen.className}
                 title="Data structure and algorithms"
               />
