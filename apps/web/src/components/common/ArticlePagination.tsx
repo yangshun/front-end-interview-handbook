@@ -11,6 +11,8 @@ type PaginationItem = Readonly<{
 type Props = Readonly<{
   activeItem: string;
   items: ReadonlyArray<PaginationItem>;
+  onNext?: () => void;
+  onPrev?: () => void;
   onSelect?: (value: string) => void;
 }>;
 
@@ -18,6 +20,8 @@ export default function ArticlePagination({
   activeItem,
   items,
   onSelect,
+  onNext,
+  onPrev,
 }: Props) {
   let prevArticle: PaginationItem | null = null;
   let nextArticle: PaginationItem | null = null;
@@ -49,6 +53,7 @@ export default function ArticlePagination({
     ),
     className:
       'dark:bg-neutral-800/40 inline-flex justify-center gap-1 overflow-hidden rounded-full bg-neutral-100 px-3 py-1 text-sm font-medium text-neutral-900 transition hover:bg-neutral-200 dark:text-neutral-400 dark:ring-1 dark:ring-inset dark:ring-neutral-800 dark:hover:bg-neutral-800 dark:hover:text-neutral-300',
+    onClick: onPrev,
   };
 
   const nextButtonCommonProps = {
@@ -64,6 +69,7 @@ export default function ArticlePagination({
     ),
     className:
       'dark:bg-neutral-800/40 inline-flex justify-center gap-1 overflow-hidden rounded-full bg-neutral-100 px-3 py-1 text-sm font-medium text-neutral-900 transition hover:bg-neutral-200 dark:text-neutral-400 dark:ring-1 dark:ring-inset dark:ring-neutral-800 dark:hover:bg-neutral-800 dark:hover:text-neutral-300',
+    onClick: onNext,
   };
 
   const prevLabelProps = {
@@ -99,8 +105,11 @@ export default function ArticlePagination({
           ) : (
             <button
               type="button"
-              onClick={() => onSelect?.(prevArticle?.slug ?? '')}
               {...prevButtonCommonProps}
+              onClick={() => {
+                onSelect?.(prevArticle?.slug ?? '');
+                prevButtonCommonProps.onClick?.();
+              }}
             />
           )}
         </div>
@@ -125,7 +134,10 @@ export default function ArticlePagination({
             <button
               type="button"
               {...nextButtonCommonProps}
-              onClick={() => onSelect?.(nextArticle?.slug ?? '')}
+              onClick={() => {
+                onSelect?.(nextArticle?.slug ?? '');
+                nextButtonCommonProps.onClick?.();
+              }}
             />
           )}
         </div>

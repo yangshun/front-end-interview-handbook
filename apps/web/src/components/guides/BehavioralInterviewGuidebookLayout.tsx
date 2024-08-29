@@ -51,7 +51,7 @@ export default function BehavioralInterviewGuidebookLayout({
       />
       <GuidesMainLayout
         guideProgress={guideProgress}
-        isGuideProgressSuccess={isSuccess}
+        isGuideProgressLoaded={isSuccess}
         metadata={guideMetadata}
         navigation={navigation}
         showMarkAsComplete={true}

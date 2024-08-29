@@ -55,7 +55,7 @@ export default function SystemDesignGuidebookLayout({
       />
       <GuidesMainLayout
         guideProgress={guideProgress}
-        isGuideProgressSuccess={isSuccess}
+        isGuideProgressLoaded={isSuccess}
         metadata={guideMetadata}
         navigation={navigation}
         showMarkAsComplete={true}

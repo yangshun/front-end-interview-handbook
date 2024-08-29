@@ -36,6 +36,7 @@ export default function GuidesProgressAction({
   const [isLoginDialogShown, setIsLoginDialogShown] = useState(false);
   const addGuideProgressMutation = useMutationGuideProgressAdd();
   const deleteGuideProgressMutation = useMutationGuideProgressDelete();
+
   const { showToast } = useToast();
   const { signInUpHref, signInUpLabel } = useAuthSignInUp();
 

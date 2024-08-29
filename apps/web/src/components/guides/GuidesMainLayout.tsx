@@ -2,16 +2,19 @@
 
 import clsx from 'clsx';
 import { useRef } from 'react';
+import { useIntl } from 'react-intl';
 
 import useScrollToTop from '~/hooks/useScrollToTop';
 
 import { INTERVIEWS_REVAMP_DASHBOARD } from '~/data/FeatureFlags';
 
 import ArticlePagination from '~/components/common/ArticlePagination';
+import CheckboxInput from '~/components/ui/CheckboxInput';
 import Divider from '~/components/ui/Divider';
 import Section from '~/components/ui/Heading/HeadingContext';
 
 import type { GuideProgress } from '~/db/guides/GuideProgressTypes';
+import { useMutationGuideProgressAdd } from '~/db/guides/GuidesProgressClient';
 import { useI18nPathname } from '~/next-i18nostic/src';
 
 import GuidesHeadingObserver from './GuidesHeadingObserver';
@@ -22,11 +25,12 @@ import type { TableOfContents } from './GuidesTableOfContents';
 import GuidesTableOfContents from './GuidesTableOfContents';
 import type { GuideMetadata, GuideNavigation } from './types';
 import useFlattenedNavigationItems from './useFlattenedNavigationItems';
+import { useGuidesAutoMarkAsComplete } from './useGuidesAutoMarkAsComplete';
 
 type MarkAsCompleteProps = Readonly<
   | {
       guideProgress?: GuideProgress | null;
-      isGuideProgressSuccess: boolean;
+      isGuideProgressLoaded: boolean;
       metadata: GuideMetadata;
       showMarkAsComplete?: true;
     }
@@ -53,11 +57,16 @@ export default function GuidesMainLayout({
   metadata,
   ...props
 }: Props) {
+  const intl = useIntl();
   const { pathname } = useI18nPathname();
   const { collapsedToC, setCollapsedToC } = useGuidesContext();
   const articleContainerRef = useRef<HTMLDivElement>(null);
 
   useScrollToTop([pathname]);
+
+  const addGuideProgressMutation = useMutationGuideProgressAdd();
+  const [autoMarkAsComplete, setAutoMarkAsComplete] =
+    useGuidesAutoMarkAsComplete();
 
   const flatNavigationItems = useFlattenedNavigationItems(navigation);
 
@@ -104,17 +113,35 @@ export default function GuidesMainLayout({
                       className={clsx(
                         'flex justify-end',
                         'transition-colors',
-                        'isGuideProgressSuccess' in props &&
-                          props.isGuideProgressSuccess
+                        'isGuideProgressLoaded' in props &&
+                          props.isGuideProgressLoaded
                           ? 'opacity-100'
                           : 'opacity-0',
                       )}>
-                      <GuidesProgressAction
-                        guideProgress={
-                          'guideProgress' in props ? props.guideProgress : null
-                        }
-                        metadata={metadata}
-                      />
+                      <div className="max-w-64 flex flex-col items-end gap-2">
+                        <GuidesProgressAction
+                          guideProgress={
+                            'guideProgress' in props
+                              ? props.guideProgress
+                              : null
+                          }
+                          metadata={metadata}
+                        />
+                        <CheckboxInput
+                          label={intl.formatMessage({
+                            defaultMessage:
+                              'Automatically mark as complete when moving to the next article',
+                            description:
+                              'Mark article as complete automatically',
+                            id: 'tdR9Fm',
+                          })}
+                          size="sm"
+                          value={autoMarkAsComplete}
+                          onChange={(value) => {
+                            setAutoMarkAsComplete(value);
+                          }}
+                        />
+                      </div>
                     </div>
                     <Divider />
                   </>
@@ -122,6 +149,31 @@ export default function GuidesMainLayout({
               <ArticlePagination
                 activeItem={pathname ?? ''}
                 items={flatNavigationItems}
+                onNext={() => {
+                  if (
+                    !autoMarkAsComplete ||
+                    metadata == null ||
+                    ('guideProgress' in props &&
+                      props.guideProgress?.status === 'complete')
+                  ) {
+                    return;
+                  }
+
+                  const listKey =
+                    new URL(window.location.href).searchParams.get('list') ??
+                    undefined;
+
+                  addGuideProgressMutation.mutate({
+                    category: metadata.category,
+                    listKey,
+                    progressId:
+                      'guideProgress' in props
+                        ? props.guideProgress?.id
+                        : undefined,
+                    slug: metadata.slug,
+                    status: 'complete',
+                  });
+                }}
               />
             </Section>
           </div>
