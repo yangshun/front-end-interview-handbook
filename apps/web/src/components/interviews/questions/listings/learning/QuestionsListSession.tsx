@@ -1,6 +1,6 @@
-import { usePathname, useSearchParams } from 'next/navigation';
+import { usePathname } from 'next/navigation';
 import { useRouter } from 'next/navigation';
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { RiLoopLeftLine, RiStopCircleLine } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
 import url from 'url';
@@ -34,15 +34,13 @@ export default function QuestionsListSession({
   themeBackgroundClass,
 }: Props) {
   const intl = useIntl();
+  const pathname = usePathname();
+  const { replace } = useRouter();
+
   const trpcUtils = trpc.useUtils();
   const { userProfile } = useUserProfile();
   const user = useUser();
   const { signInUpHref } = useAuthSignInUp();
-  const pathname = usePathname();
-  const searchParams = useSearchParams();
-  // eslint-disable-next-line react/hook-use-state
-  const [actionParam] = useState(searchParams?.get('action'));
-  const { replace } = useRouter();
 
   const { data: questionListSession, isLoading: isQuestionListSessionLoading } =
     trpc.questionLists.getActiveSession.useQuery(
@@ -79,19 +77,17 @@ export default function QuestionsListSession({
   const { showToast } = useToast();
 
   const clearActionSearchParams = useCallback(() => {
-    if (!actionParam) {
-      return;
-    }
-
     const params = new URLSearchParams(window.location.search);
 
     params.delete('action');
+    replace(
+      url.format({
+        pathname,
+        query: Object.fromEntries(params),
+      }),
+    );
+  }, [pathname, replace]);
 
-    replace(`${pathname}?${params.toString()}`);
-  }, [pathname, replace, actionParam]);
-
-  // Store the mutate function in a ref to avoid adding it as a dependency
-  const startSessionMutateRef = useRef(startSessionMutation.mutate);
   const onStartLearning = useCallback(() => {
     if (
       !progressTrackingAvailableToNonPremiumUsers &&
@@ -99,7 +95,7 @@ export default function QuestionsListSession({
     ) {
       // TODO: trigger premium subscription modal
     } else {
-      startSessionMutateRef.current(
+      startSessionMutation.mutate(
         {
           listKey: questionListKey,
         },
@@ -120,14 +116,23 @@ export default function QuestionsListSession({
       );
     }
   }, [
-    userProfile?.isInterviewsPremium,
     progressTrackingAvailableToNonPremiumUsers,
+    userProfile?.isInterviewsPremium,
+    startSessionMutation,
     questionListKey,
     showToast,
     intl,
   ]);
 
   useEffect(() => {
+    // Read the parameter on-demand to avoid using useSearchParams.
+    const params = new URLSearchParams(window.location.search);
+    const actionParam = params.get('action');
+
+    if (actionParam) {
+      clearActionSearchParams();
+    }
+
     if (
       userProfile == null ||
       isQuestionListSessionLoading ||
@@ -139,15 +144,11 @@ export default function QuestionsListSession({
     if (actionParam === 'start_session') {
       onStartLearning();
     }
-    if (actionParam) {
-      clearActionSearchParams();
-    }
   }, [
     questionListSession,
     isQuestionListSessionLoading,
     userProfile,
     onStartLearning,
-    actionParam,
     clearActionSearchParams,
   ]);
 
