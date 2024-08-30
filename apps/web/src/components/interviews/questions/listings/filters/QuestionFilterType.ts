@@ -16,4 +16,5 @@ export type QuestionFilter<
     tooltip?: string;
     value: T;
   }>;
+  tooltip?: string;
 }>;

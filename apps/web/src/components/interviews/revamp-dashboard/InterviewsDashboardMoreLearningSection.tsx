@@ -7,7 +7,6 @@ import { trpc } from '~/hooks/trpc';
 import type { PreparationPlans } from '~/data/plans/PreparationPlans';
 
 import type { QuestionMetadata } from '~/components/interviews/questions/common/QuestionsTypes';
-
 import Divider from '~/components/ui/Divider';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
@@ -79,9 +78,7 @@ export default function InterviewsDashboardMoreLearningSection({
           questionListSessions={sessions}
         />
         <Divider />
-        <InterviewsDashboardPracticeQuestionsSection
-          questions={questions}
-        />
+        <InterviewsDashboardPracticeQuestionsSection questions={questions} />
         <Divider />
       </div>
     </Section>

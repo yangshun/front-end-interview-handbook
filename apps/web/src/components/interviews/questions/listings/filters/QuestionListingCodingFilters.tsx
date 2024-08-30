@@ -1,7 +1,5 @@
 import clsx from 'clsx';
-import { values } from 'lodash-es';
 
-import type { FilterItemGap } from '~/components/interviews/questions/listings/filters/QuestionListingFilterItem';
 import QuestionListingFilterItem from '~/components/interviews/questions/listings/filters/QuestionListingFilterItem';
 import {
   Accordion,
@@ -9,12 +7,14 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from '~/components/ui/Accordion';
-import CheckboxInput from '~/components/ui/CheckboxInput';
 import Divider from '~/components/ui/Divider';
 import Text from '~/components/ui/Text';
 import { themeBorderElementColor } from '~/components/ui/theme';
 
 import type { QuestionFilter } from './QuestionFilterType';
+import type { QuestionFilterItemGap } from './QuestionListingFilterItemCheckboxes';
+import QuestionListingFilterItemCheckboxes from './QuestionListingFilterItemCheckboxes';
+import QuestionListingFilterItemLabel from './QuestionListingFilterItemLabel';
 import type {
   QuestionCodingFormat,
   QuestionCompany,
@@ -43,16 +43,11 @@ type Props = Readonly<{
   difficultyFilters: Set<QuestionDifficulty>;
   frameworkFilterOptions: QuestionFilter<QuestionFramework, QuestionMetadata>;
   frameworkFilters: Set<QuestionFramework>;
-  itemGap: FilterItemGap;
+  itemGap: QuestionFilterItemGap;
   languageFilterOptions: QuestionFilter<QuestionLanguage, QuestionMetadata>;
   languageFilters: Set<QuestionLanguage>;
   mode?: 'default' | 'framework';
 }>;
-
-const itemGapClasses: Record<FilterItemGap, string> = {
-  compact: 'gap-x-4 gap-y-3',
-  spacious: 'gap-6',
-};
 
 export default function QuestionListingCodingFilters({
   codingFormatFilterOptions,
@@ -88,9 +83,19 @@ export default function QuestionListingCodingFilters({
         />
         <AccordionItem value="framework-language">
           <AccordionTrigger>
-            <Text size="body2" weight="medium">
-              Framework / Language
-            </Text>
+            <QuestionListingFilterItemLabel
+              label="Framework / Language"
+              tooltip={
+                <p className="flex flex-col gap-2">
+                  You may complete questions in any language or framework within
+                  our coding workspace.
+                  <br />
+                  <br />
+                  This filter helps you to find questions with official
+                  solutions in these Frameworks or Languages.
+                </p>
+              }
+            />
           </AccordionTrigger>
           <AccordionContent>
             <div className="flex flex-col gap-y-5">
@@ -100,23 +105,11 @@ export default function QuestionListingCodingFilters({
                     <Text className="block" size="body2">
                       {frameworkFilterOptions.name}
                     </Text>
-                    <div
-                      className={clsx(
-                        'flex flex-wrap',
-                        itemGapClasses[itemGap],
-                      )}>
-                      {frameworkFilterOptions.options.map((option) => (
-                        <div key={option.value} className="flex items-center">
-                          <CheckboxInput
-                            label={option.label}
-                            value={frameworkFilters.has(option.value)}
-                            onChange={() =>
-                              frameworkFilterOptions.onChange(option.value)
-                            }
-                          />
-                        </div>
-                      ))}
-                    </div>
+                    <QuestionListingFilterItemCheckboxes
+                      itemGap={itemGap}
+                      section={frameworkFilterOptions}
+                      values={frameworkFilters}
+                    />
                   </div>
                   <Divider />
                 </>
@@ -125,20 +118,11 @@ export default function QuestionListingCodingFilters({
                 <Text className="block" size="body2">
                   {languageFilterOptions.name}
                 </Text>
-                <div
-                  className={clsx('flex flex-wrap', itemGapClasses[itemGap])}>
-                  {languageFilterOptions.options.map((option) => (
-                    <div key={option.value} className="flex items-center">
-                      <CheckboxInput
-                        label={option.label}
-                        value={languageFilters.has(option.value)}
-                        onChange={() =>
-                          languageFilterOptions.onChange(option.value)
-                        }
-                      />
-                    </div>
-                  ))}
-                </div>
+                <QuestionListingFilterItemCheckboxes
+                  itemGap={itemGap}
+                  section={languageFilterOptions}
+                  values={languageFilters}
+                />
               </div>
             </div>
           </AccordionContent>

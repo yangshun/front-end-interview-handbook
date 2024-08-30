@@ -37,9 +37,9 @@ export default function useQuestionCodingFormatFilter({
     {
       icon: RiJavascriptLine,
       label: intl.formatMessage({
-        defaultMessage: 'JavaScript Utilities',
+        defaultMessage: 'JavaScript coding',
         description: 'Front end JavaScript utility functions',
-        id: 'pcXH8p',
+        id: 'EQXg+W',
       }),
       tooltip: intl.formatMessage({
         defaultMessage:
@@ -52,9 +52,9 @@ export default function useQuestionCodingFormatFilter({
     {
       icon: RiTerminalWindowLine,
       label: intl.formatMessage({
-        defaultMessage: 'User Interface',
+        defaultMessage: 'User interface coding',
         description: 'Front end user interface questions',
-        id: 'y3aYKb',
+        id: 'Iq5gAi',
       }),
       tooltip: intl.formatMessage({
         defaultMessage:
@@ -67,9 +67,9 @@ export default function useQuestionCodingFormatFilter({
     {
       icon: TbBinaryTree,
       label: intl.formatMessage({
-        defaultMessage: 'Data Structures & Algorithms',
+        defaultMessage: 'Algorithmic coding',
         description: 'Data structures and algorithm questions',
-        id: '0D9NcL',
+        id: 'RQzpcq',
       }),
       tooltip: intl.formatMessage({
         defaultMessage: 'Implement important Data Structures & Algorithms',
@@ -108,9 +108,9 @@ export default function useQuestionCodingFormatFilter({
       return isDSA || isUtility || isUI;
     },
     name: intl.formatMessage({
-      defaultMessage: 'Coding Format',
-      description: 'Front end coding interview questions',
-      id: 'P2baTC',
+      defaultMessage: 'Question format',
+      description: 'Front end interview questions format',
+      id: '0zc/ng',
     }),
     onChange: (value) => {
       const formats = new Set(codingFormatFilters);
@@ -119,6 +119,12 @@ export default function useQuestionCodingFormatFilter({
       setCodingFormatFilters(formats);
     },
     options,
+    tooltip: intl.formatMessage({
+      defaultMessage:
+        'Formats / types of questions you can expect in your interview',
+      description: 'Tooltip for question format label',
+      id: 'H9WHbl',
+    }),
   };
 
   return [codingFormatFilters, codingFormatFilterOptions];

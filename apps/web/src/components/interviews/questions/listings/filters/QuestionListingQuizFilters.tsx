@@ -1,10 +1,11 @@
 import clsx from 'clsx';
 
-import type { FilterItemGap } from '~/components/interviews/questions/listings/filters/QuestionListingFilterItem';
 import QuestionListingFilterItem from '~/components/interviews/questions/listings/filters/QuestionListingFilterItem';
-import { themeBorderColor, themeDivideColor } from '~/components/ui/theme';
+import { Accordion } from '~/components/ui/Accordion';
+import { themeBorderElementColor } from '~/components/ui/theme';
 
 import type { QuestionFilter } from './QuestionFilterType';
+import type { QuestionFilterItemGap } from './QuestionListingFilterItemCheckboxes';
 import type {
   QuestionCompletionStatus,
   QuestionMetadata,
@@ -18,7 +19,7 @@ type Props = Readonly<{
     QuestionMetadataWithCompletedStatus
   >;
   completionStatusFilters: Set<QuestionCompletionStatus>;
-  itemGap: FilterItemGap;
+  itemGap: QuestionFilterItemGap;
   quizTopicFilterOptions: QuestionFilter<QuestionTopic, QuestionMetadata>;
   quizTopicFilters: Set<QuestionTopic>;
 }>;
@@ -31,24 +32,22 @@ export default function QuestionListingQuizFilters({
   quizTopicFilters,
 }: Props) {
   return (
-    <form
-      className={clsx(
-        'flex flex-col divide-y border-y',
-        themeBorderColor,
-        themeDivideColor,
-      )}>
-      <QuestionListingFilterItem
-        defaultOpen={true}
-        itemGap={itemGap}
-        section={quizTopicFilterOptions}
-        values={quizTopicFilters}
-      />
-      <QuestionListingFilterItem
-        defaultOpen={true}
-        itemGap={itemGap}
-        section={completionStatusFilterOptions}
-        values={completionStatusFilters}
-      />
+    <form>
+      <Accordion
+        className={clsx('border-y', themeBorderElementColor)}
+        defaultValue={['topic', 'completion']}
+        type="multiple">
+        <QuestionListingFilterItem
+          itemGap={itemGap}
+          section={quizTopicFilterOptions}
+          values={quizTopicFilters}
+        />
+        <QuestionListingFilterItem
+          itemGap={itemGap}
+          section={completionStatusFilterOptions}
+          values={completionStatusFilters}
+        />
+      </Accordion>
     </form>
   );
 }

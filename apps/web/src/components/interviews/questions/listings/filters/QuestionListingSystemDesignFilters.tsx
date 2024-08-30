@@ -1,10 +1,11 @@
 import clsx from 'clsx';
 
-import type { FilterItemGap } from '~/components/interviews/questions/listings/filters/QuestionListingFilterItem';
 import QuestionListingFilterItem from '~/components/interviews/questions/listings/filters/QuestionListingFilterItem';
-import { themeBorderColor, themeDivideColor } from '~/components/ui/theme';
+import { Accordion } from '~/components/ui/Accordion';
+import { themeBorderElementColor } from '~/components/ui/theme';
 
 import type { QuestionFilter } from './QuestionFilterType';
+import type { QuestionFilterItemGap } from './QuestionListingFilterItemCheckboxes';
 import type {
   QuestionCompany,
   QuestionCompletionStatus,
@@ -23,7 +24,7 @@ type Props = Readonly<{
   completionStatusFilters: Set<QuestionCompletionStatus>;
   difficultyFilterOptions: QuestionFilter<QuestionDifficulty, QuestionMetadata>;
   difficultyFilters: Set<QuestionDifficulty>;
-  itemGap: FilterItemGap;
+  itemGap: QuestionFilterItemGap;
 }>;
 
 export default function QuestionListingSystemDesignFilters({
@@ -36,30 +37,27 @@ export default function QuestionListingSystemDesignFilters({
   itemGap,
 }: Props) {
   return (
-    <form
-      className={clsx(
-        'flex flex-col divide-y border-y',
-        themeBorderColor,
-        themeDivideColor,
-      )}>
-      <QuestionListingFilterItem
-        defaultOpen={true}
-        itemGap={itemGap}
-        section={companyFilterOptions}
-        values={companyFilters}
-      />
-      <QuestionListingFilterItem
-        defaultOpen={true}
-        itemGap={itemGap}
-        section={difficultyFilterOptions}
-        values={difficultyFilters}
-      />
-      <QuestionListingFilterItem
-        defaultOpen={true}
-        itemGap={itemGap}
-        section={completionStatusFilterOptions}
-        values={completionStatusFilters}
-      />
+    <form>
+      <Accordion
+        className={clsx('border-y', themeBorderElementColor)}
+        defaultValue={['company', 'difficulty', 'completion']}
+        type="multiple">
+        <QuestionListingFilterItem
+          itemGap={itemGap}
+          section={companyFilterOptions}
+          values={companyFilters}
+        />
+        <QuestionListingFilterItem
+          itemGap={itemGap}
+          section={difficultyFilterOptions}
+          values={difficultyFilters}
+        />
+        <QuestionListingFilterItem
+          itemGap={itemGap}
+          section={completionStatusFilterOptions}
+          values={completionStatusFilters}
+        />
+      </Accordion>
     </form>
   );
 }

@@ -267,10 +267,6 @@
     "defaultMessage": "Algo concepts to cover and tips to succeed",
     "description": "Algorithm concepts needed in front end coding interviews"
   },
-  "0D9NcL": {
-    "defaultMessage": "Data Structures & Algorithms",
-    "description": "Data structures and algorithm questions"
-  },
   "0GT0SI": {
     "defaultMessage": "Cancel",
     "description": "Cancel button label"
@@ -374,6 +370,10 @@
   "0z/V+d": {
     "defaultMessage": "Since annual users have unlimited credits, we will roll over credits for projects that remain locked at the end of their subscription cycle.",
     "description": "Answer on projects pricing's FAQ section - unused credits"
+  },
+  "0zc/ng": {
+    "defaultMessage": "Question format",
+    "description": "Front end interview questions format"
   },
   "1/mHuG": {
     "defaultMessage": "Tech stack",
@@ -2071,6 +2071,10 @@
     "defaultMessage": "Recommended preparation strategy",
     "description": "Title for recommended preparation strategy section"
   },
+  "EQXg+W": {
+    "defaultMessage": "JavaScript coding",
+    "description": "Front end JavaScript utility functions"
+  },
   "ES78kz": {
     "defaultMessage": "Every project is part of <link>reusable component libraries</link> for your future projects",
     "description": "Caption for Projects marketing hero section component libraries feature"
@@ -2423,6 +2427,10 @@
     "defaultMessage": "<strong>Note</strong>: We have some basic policies on affiliate conduct. Please read the agreement carefully in the sign up process.",
     "description": "Tip at the bottom of the 'How does it work' section on the 'Become an Affiliate' page to highlight the affiliate agreement"
   },
+  "H9WHbl": {
+    "defaultMessage": "Formats / types of questions you can expect in your interview",
+    "description": "Tooltip for question format label"
+  },
   "HBTTrj": {
     "defaultMessage": "{count} premium credits every month",
     "description": "Label for unlocks feature for month plan"
@@ -2666,6 +2674,10 @@
   "ImDbLo": {
     "defaultMessage": "Total time",
     "description": "Total time needed to complete the questions"
+  },
+  "Iq5gAi": {
+    "defaultMessage": "User interface coding",
+    "description": "Front end user interface questions"
   },
   "IuGYUN": {
     "defaultMessage": "Community | Dashboard",
@@ -3535,10 +3547,6 @@
     "defaultMessage": "View less",
     "description": "Label of expanded guide button"
   },
-  "P2baTC": {
-    "defaultMessage": "Coding Format",
-    "description": "Front end coding interview questions"
-  },
   "P3l/Ce": {
     "defaultMessage": "Quiz interviews",
     "description": "Front end quiz interview questions"
@@ -3938,6 +3946,10 @@
   "RQm9cE": {
     "defaultMessage": "We're still growing our question base",
     "description": "Question base section title"
+  },
+  "RQzpcq": {
+    "defaultMessage": "Algorithmic coding",
+    "description": "Data structures and algorithm questions"
   },
   "RT2AQW": {
     "defaultMessage": "Previously completed (before starting this list)",
@@ -7307,10 +7319,6 @@
     "defaultMessage": "Try a question",
     "description": "Label for Try a question button in Hero section of HomePage."
   },
-  "pcXH8p": {
-    "defaultMessage": "JavaScript Utilities",
-    "description": "Front end JavaScript utility functions"
-  },
   "pdO/k1": {
     "defaultMessage": "Turn off focus mode",
     "description": "Label for turning focus mode off"
@@ -8370,10 +8378,6 @@
   "y1y4Uh": {
     "defaultMessage": "Svelte",
     "description": "Svelte questions category short title"
-  },
-  "y3aYKb": {
-    "defaultMessage": "User Interface",
-    "description": "Front end user interface questions"
   },
   "y4l5Q0": {
     "defaultMessage": "Prep dashboard",
