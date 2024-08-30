@@ -67,6 +67,7 @@ export default function QuestionsImportProgressModal({
       },
       {
         onSuccess() {
+          utils.questionLists.getActiveSession.invalidate();
           utils.questionLists.getSessionProgress.invalidate();
           onClose();
         },

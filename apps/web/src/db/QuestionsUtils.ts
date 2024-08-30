@@ -207,13 +207,27 @@ export function countNumberOfQuestionsInList(
 export function questionsForImportProgress(
   questions: ReadonlyArray<QuestionMetadata>,
   overallProgress: ReadonlyArray<QuestionProgress>,
+  currentSessionProgress?:
+    | ReadonlyArray<Readonly<{ id: string; key: string }>>
+    | null
+    | undefined,
 ) {
   // Create a Set for fast lookups
-  const sessions = new Set(
+  const overallProgressSession = new Set(
     overallProgress?.map((item) => hashQuestion(item.format, item.slug)),
+  );
+  const currentSession = new Set(
+    currentSessionProgress?.map((item) => item.key),
+  );
+
+  // Filter out last session questions progress which are no present in the current session progress
+  const questionsProgressToImport = new Set(
+    Array.from(overallProgressSession).filter(
+      (item) => !currentSession.has(item),
+    ),
   );
 
   return questions.filter((item) =>
-    sessions.has(hashQuestion(item.format, item.slug)),
+    questionsProgressToImport.has(hashQuestion(item.format, item.slug)),
   );
 }

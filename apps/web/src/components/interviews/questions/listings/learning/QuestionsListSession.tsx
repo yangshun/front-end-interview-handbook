@@ -1,7 +1,11 @@
 import { usePathname } from 'next/navigation';
 import { useRouter } from 'next/navigation';
 import { useCallback, useEffect, useRef, useState } from 'react';
-import { RiLoopLeftLine, RiStopCircleLine } from 'react-icons/ri';
+import {
+  RiDownloadLine,
+  RiLoopLeftLine,
+  RiStopCircleLine,
+} from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
 import url from 'url';
 
@@ -11,10 +15,8 @@ import { useAuthSignInUp } from '~/hooks/user/useAuthFns';
 import ConfirmationDialog from '~/components/common/ConfirmationDialog';
 import { useToast } from '~/components/global/toasts/useToast';
 import { useUserProfile } from '~/components/global/UserProfileProvider';
-
 import InterviewsPricingTableDialog from '~/components/interviews/purchase/InterviewsPricingTableDialog';
 import type { QuestionMetadata } from '~/components/interviews/questions/common/QuestionsTypes';
-
 import Button from '~/components/ui/Button';
 import Card from '~/components/ui/Card';
 import ProgressBar from '~/components/ui/ProgressBar';
@@ -69,6 +71,7 @@ export default function QuestionsListSession({
   const previousSessionQuestionProgress = questionsForImportProgress(
     questions,
     overallProgress,
+    questionListSession?.progress ?? [],
   );
 
   const startSessionMutation = trpc.questionLists.startSession.useMutation({
@@ -237,7 +240,7 @@ export default function QuestionsListSession({
         }
 
         return (
-          <div className="flex min-w-[363px] flex-col gap-y-2">
+          <div className="flex min-w-[363px] flex-col items-end gap-y-2">
             <Card
               className="flex justify-between gap-4 px-4 py-3"
               disableSpotlight={true}
@@ -337,7 +340,29 @@ export default function QuestionsListSession({
                 />
               </div>
             </Card>
-            <div className="flex w-full flex-row-reverse justify-between gap-x-2"></div>
+
+            {questionListSession != null &&
+              previousSessionQuestionProgress.length > 0 && (
+                <div>
+                  <Button
+                    addonPosition="start"
+                    icon={RiDownloadLine}
+                    label={intl.formatMessage(
+                      {
+                        defaultMessage: 'Import progress ({questionCount})',
+                        description: 'Label for import progress button',
+                        id: 'CTQ5qO',
+                      },
+                      {
+                        questionCount: previousSessionQuestionProgress.length,
+                      },
+                    )}
+                    size="xs"
+                    variant="tertiary"
+                    onClick={() => setShowImportProgressModal(true)}
+                  />
+                </div>
+              )}
             <ConfirmationDialog
               confirmButtonVariant="danger"
               isDisabled={stopSessionMutation.isLoading}
@@ -420,15 +445,18 @@ export default function QuestionsListSession({
           </div>
         );
       })()}
+      {/* Conditional rendering to clear states of the modal when reopen */}
+      {showImportProgressModal && (
+        <QuestionsImportProgressModal
+          isShown={showImportProgressModal}
+          questionListKey={questionListKey}
+          questions={previousSessionQuestionProgress}
+          onClose={() => setShowImportProgressModal(false)}
+        />
+      )}
       <InterviewsPricingTableDialog
         isShown={showPricingDialog}
         onClose={() => setShowPricingDialog(false)}
-      />
-      <QuestionsImportProgressModal
-        isShown={showImportProgressModal}
-        questionListKey={questionListKey}
-        questions={previousSessionQuestionProgress}
-        onClose={() => setShowImportProgressModal(false)}
       />
     </div>
   );
