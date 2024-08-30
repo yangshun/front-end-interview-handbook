@@ -2091,6 +2091,10 @@
     "defaultMessage": "Access to continuously updating interview questions and content.",
     "description": "Feature of monthly pricing plan"
   },
+  "Eoiq1B": {
+    "defaultMessage": "Your dream job could be just a few months of prep away. Unlock premium at a fraction of your potential daily salary.",
+    "description": "Subtitle for a premium interviews content"
+  },
   "EpJ74A": {
     "defaultMessage": "Try changing the filters",
     "description": "Subtitle for empty state when no articles are returned from application of filters on blog list"
@@ -2910,6 +2914,10 @@
   "Kp+YJx": {
     "defaultMessage": "Start your first <link>project</link>.",
     "description": "Label to start a project"
+  },
+  "Kq19j1": {
+    "defaultMessage": "Premium is required to access study plans",
+    "description": "Title for interviews pricing plans"
   },
   "KsNZvV": {
     "defaultMessage": "Get premium",

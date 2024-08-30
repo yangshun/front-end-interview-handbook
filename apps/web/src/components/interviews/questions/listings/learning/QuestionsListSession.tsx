@@ -11,7 +11,10 @@ import { useAuthSignInUp } from '~/hooks/user/useAuthFns';
 import ConfirmationDialog from '~/components/common/ConfirmationDialog';
 import { useToast } from '~/components/global/toasts/useToast';
 import { useUserProfile } from '~/components/global/UserProfileProvider';
+
+import InterviewsPricingTableDialog from '~/components/interviews/purchase/InterviewsPricingTableDialog';
 import type { QuestionMetadata } from '~/components/interviews/questions/common/QuestionsTypes';
+
 import Button from '~/components/ui/Button';
 import Card from '~/components/ui/Card';
 import ProgressBar from '~/components/ui/ProgressBar';
@@ -90,6 +93,7 @@ export default function QuestionsListSession({
     useState(false);
   const [showResetProgressConfirmation, setShowResetProgressConfirmation] =
     useState(false);
+  const [showPricingDialog, setShowPricingDialog] = useState(false);
   const [showImportProgressModal, setShowImportProgressModal] = useState(false);
   const { showToast } = useToast();
 
@@ -110,7 +114,7 @@ export default function QuestionsListSession({
       !progressTrackingAvailableToNonPremiumUsers &&
       !userProfile?.isInterviewsPremium
     ) {
-      // TODO: trigger premium subscription modal
+      setShowPricingDialog(true);
     } else {
       startSessionMutation.mutate(
         {
@@ -194,18 +198,16 @@ export default function QuestionsListSession({
           return (
             <div className="flex flex-col items-end gap-3">
               <Button
-                href={
-                  userProfile == null
-                    ? signInUpHref({
-                        next: url.format({
-                          pathname,
-                          query: {
-                            action: 'start_session',
-                          },
-                        }),
-                      })
-                    : undefined
-                }
+                {...(userProfile == null && {
+                  href: signInUpHref({
+                    next: url.format({
+                      pathname,
+                      query: {
+                        action: 'start_session',
+                      },
+                    }),
+                  }),
+                })}
                 isDisabled={startSessionMutation.isLoading}
                 isLoading={startSessionMutation.isLoading}
                 label={intl.formatMessage({
@@ -418,6 +420,10 @@ export default function QuestionsListSession({
           </div>
         );
       })()}
+      <InterviewsPricingTableDialog
+        isShown={showPricingDialog}
+        onClose={() => setShowPricingDialog(false)}
+      />
       <QuestionsImportProgressModal
         isShown={showImportProgressModal}
         questionListKey={questionListKey}

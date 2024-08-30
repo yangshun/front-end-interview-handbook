@@ -15,6 +15,7 @@ import {
 } from '~/components/ui/theme';
 
 type Props = Readonly<{
+  className?: string;
   features: ReadonlyArray<React.ReactNode>;
   footer?: React.ReactNode;
   glow?: boolean;
@@ -30,6 +31,7 @@ export default function PurchaseBlockCard({
   features,
   rightSectionContents,
   glow = false,
+  className,
 }: Props) {
   const id = useId();
 
@@ -46,6 +48,7 @@ export default function PurchaseBlockCard({
             ? [themeBorderBrandColor, 'shadow-glow shadow-brand/40']
             : [themeGlassyBorder, themeBorderColor],
         ],
+        className,
       )}>
       <div
         className={clsx(
