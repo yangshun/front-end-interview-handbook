@@ -4,7 +4,8 @@ import type { BlogLevel, BlogMetadata } from '~/components/blog/BlogTypes';
 import type { BlogFilter } from '~/components/blog/filters/BlogFilterType';
 import type { FilterItemGap } from '~/components/blog/filters/items/BlogListingFilterItem';
 import BlogListingFilterItem from '~/components/blog/filters/items/BlogListingFilterItem';
-import { themeBorderColor, themeDivideColor } from '~/components/ui/theme';
+import { Accordion } from '~/components/ui/Accordion';
+import { themeBorderElementColor } from '~/components/ui/theme';
 
 type Props = Readonly<{
   itemGap: FilterItemGap;
@@ -23,22 +24,21 @@ export default function BlogListingFilters({
   itemGap,
 }: Props) {
   return (
-    <form
-      className={clsx(
-        'flex flex-col divide-y border-y',
-        themeBorderColor,
-        themeDivideColor,
-      )}>
-      <BlogListingFilterItem
-        itemGap={itemGap}
-        section={levelFilterOptions}
-        values={levelFilters}
-      />
-      <BlogListingFilterItem
-        itemGap={itemGap}
-        section={tagFilterOptions}
-        values={tagFilters}
-      />
+    <form>
+      <Accordion
+        className={clsx('border-y', themeBorderElementColor)}
+        type="multiple">
+        <BlogListingFilterItem
+          itemGap={itemGap}
+          section={levelFilterOptions}
+          values={levelFilters}
+        />
+        <BlogListingFilterItem
+          itemGap={itemGap}
+          section={tagFilterOptions}
+          values={tagFilters}
+        />
+      </Accordion>
     </form>
   );
 }

@@ -2,7 +2,8 @@ import clsx from 'clsx';
 
 import type { FilterItemGap } from '~/components/interviews/questions/listings/filters/QuestionListingFilterItem';
 import QuestionListingFilterItem from '~/components/interviews/questions/listings/filters/QuestionListingFilterItem';
-import { themeBorderColor, themeDivideColor } from '~/components/ui/theme';
+import { Accordion } from '~/components/ui/Accordion';
+import { themeBorderElementColor } from '~/components/ui/theme';
 
 import type { QuestionFilter } from './QuestionFilterType';
 import type {
@@ -56,44 +57,43 @@ export default function QuestionListingCodingFilters({
   itemGap,
 }: Props) {
   return (
-    <form
-      className={clsx(
-        'flex flex-col divide-y border-y',
-        themeBorderColor,
-        themeDivideColor,
-      )}>
-      <QuestionListingFilterItem
-        itemGap={itemGap}
-        section={companyFilterOptions}
-        values={companyFilters}
-      />
-      <QuestionListingFilterItem
-        itemGap={itemGap}
-        section={difficultyFilterOptions}
-        values={difficultyFilters}
-      />
-      {mode !== 'framework' && (
+    <form>
+      <Accordion
+        className={clsx('border-y', themeBorderElementColor)}
+        type="multiple">
         <QuestionListingFilterItem
           itemGap={itemGap}
-          section={frameworkFilterOptions}
-          values={frameworkFilters}
+          section={companyFilterOptions}
+          values={companyFilters}
         />
-      )}
-      <QuestionListingFilterItem
-        itemGap={itemGap}
-        section={languageFilterOptions}
-        values={languageFilters}
-      />
-      <QuestionListingFilterItem
-        itemGap={itemGap}
-        section={completionStatusFilterOptions}
-        values={completionStatusFilters}
-      />
-      <QuestionListingFilterItem
-        itemGap={itemGap}
-        section={codingFormatFilterOptions}
-        values={codingFormatFilters}
-      />
+        <QuestionListingFilterItem
+          itemGap={itemGap}
+          section={difficultyFilterOptions}
+          values={difficultyFilters}
+        />
+        {mode !== 'framework' && (
+          <QuestionListingFilterItem
+            itemGap={itemGap}
+            section={frameworkFilterOptions}
+            values={frameworkFilters}
+          />
+        )}
+        <QuestionListingFilterItem
+          itemGap={itemGap}
+          section={languageFilterOptions}
+          values={languageFilters}
+        />
+        <QuestionListingFilterItem
+          itemGap={itemGap}
+          section={completionStatusFilterOptions}
+          values={completionStatusFilters}
+        />
+        <QuestionListingFilterItem
+          itemGap={itemGap}
+          section={codingFormatFilterOptions}
+          values={codingFormatFilters}
+        />
+      </Accordion>
     </form>
   );
 }
