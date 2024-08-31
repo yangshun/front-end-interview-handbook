@@ -6,8 +6,6 @@ import { useIntl } from 'react-intl';
 
 import useScrollToTop from '~/hooks/useScrollToTop';
 
-import { INTERVIEWS_REVAMP_DASHBOARD } from '~/data/FeatureFlags';
-
 import ArticlePagination from '~/components/common/ArticlePagination';
 import CheckboxInput from '~/components/ui/CheckboxInput';
 import Divider from '~/components/ui/Divider';
@@ -105,47 +103,42 @@ export default function GuidesMainLayout({
             )}>
             <div ref={articleContainerRef}>{children}</div>
             <Section>
-              {showMarkAsComplete &&
-                metadata &&
-                INTERVIEWS_REVAMP_DASHBOARD && (
-                  <>
-                    <div
-                      className={clsx(
-                        'flex justify-end',
-                        'transition-colors',
-                        'isGuideProgressLoaded' in props &&
-                          props.isGuideProgressLoaded
-                          ? 'opacity-100'
-                          : 'opacity-0',
-                      )}>
-                      <div className="max-w-64 flex flex-col items-end gap-2">
-                        <GuidesProgressAction
-                          guideProgress={
-                            'guideProgress' in props
-                              ? props.guideProgress
-                              : null
-                          }
-                          metadata={metadata}
-                        />
-                        <CheckboxInput
-                          label={intl.formatMessage({
-                            defaultMessage:
-                              'Automatically mark as complete when moving to the next article',
-                            description:
-                              'Mark article as complete automatically',
-                            id: 'tdR9Fm',
-                          })}
-                          size="sm"
-                          value={autoMarkAsComplete}
-                          onChange={(value) => {
-                            setAutoMarkAsComplete(value);
-                          }}
-                        />
-                      </div>
+              {showMarkAsComplete && metadata && (
+                <>
+                  <div
+                    className={clsx(
+                      'flex justify-end',
+                      'transition-colors',
+                      'isGuideProgressLoaded' in props &&
+                        props.isGuideProgressLoaded
+                        ? 'opacity-100'
+                        : 'opacity-0',
+                    )}>
+                    <div className="max-w-64 flex flex-col items-end gap-2">
+                      <GuidesProgressAction
+                        guideProgress={
+                          'guideProgress' in props ? props.guideProgress : null
+                        }
+                        metadata={metadata}
+                      />
+                      <CheckboxInput
+                        label={intl.formatMessage({
+                          defaultMessage:
+                            'Automatically mark as complete when moving to the next article',
+                          description: 'Mark article as complete automatically',
+                          id: 'tdR9Fm',
+                        })}
+                        size="sm"
+                        value={autoMarkAsComplete}
+                        onChange={(value) => {
+                          setAutoMarkAsComplete(value);
+                        }}
+                      />
                     </div>
-                    <Divider />
-                  </>
-                )}
+                  </div>
+                  <Divider />
+                </>
+              )}
               <ArticlePagination
                 activeItem={pathname ?? ''}
                 items={flatNavigationItems}
