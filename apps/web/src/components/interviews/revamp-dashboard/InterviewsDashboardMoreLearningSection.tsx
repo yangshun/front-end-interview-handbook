@@ -2,6 +2,8 @@ import clsx from 'clsx';
 import type { InterviewsCompanyGuide } from 'contentlayer/generated';
 import { FormattedMessage } from 'react-intl';
 
+import type { PreparationPlans } from '~/data/plans/PreparationPlans';
+import type { QuestionMetadata } from '~/components/interviews/questions/common/QuestionsTypes';
 import type { FocusAreas } from '~/data/focus-areas/FocusAreas';
 import type { PreparationPlans } from '~/data/plans/PreparationPlans';
 import type {
@@ -47,6 +49,7 @@ type Props = Readonly<{
 export default function InterviewsDashboardMoreLearningSection({
   companyGuides,
   preparationPlans,
+  questionListSessions,
   questions,
   focusAreas,
   questionListSessions,

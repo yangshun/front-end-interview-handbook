@@ -6451,6 +6451,10 @@
     "defaultMessage": "Search coding questions",
     "description": "Placeholder for search input of coding question list"
   },
+  "jIpLwU": {
+    "defaultMessage": "Resume",
+    "description": "Button label for resume"
+  },
   "jKk5c3": {
     "defaultMessage": "CSS Questions",
     "description": "CSS questions category long title"
@@ -8274,6 +8278,10 @@
   "wsvJvT": {
     "defaultMessage": "Commonly asked during recruiter phone screens or companies which do not adopt heavy coding rounds",
     "description": "Description for quiz questions"
+  },
+  "wvGU2J": {
+    "defaultMessage": "Continue learning",
+    "description": "Title for continue learning section"
   },
   "wwf4o6": {
     "defaultMessage": "Dashboard",

@@ -14,6 +14,7 @@ import type {
   QuestionMetadata,
 } from '~/components/interviews/questions/common/QuestionsTypes';
 
+import InterviewsDashboardContinueLearningSection from './InterviewsDashboardContinueLearningSection';
 import InterviewsDashboardMoreLearningSection from './InterviewsDashboardMoreLearningSection';
 import InterviewsDashboardPageHeader from './InterviewsDashboardPageHeader';
 import InterviewsDashboardRecommendedPreparationStrategy from './InterviewsDashboardRecommendedPreparationStrategy';
@@ -52,10 +53,17 @@ export default function InterviewsDashboardPage({
     });
 
   const sessions = questionListSessions ?? [];
+  const showContinueLearning =
+    questionListSessions != null && questionListSessions.length > 0;
 
   return (
     <div className={clsx('flex flex-col gap-12')}>
       <InterviewsDashboardPageHeader />
+      {showContinueLearning && (
+        <InterviewsDashboardContinueLearningSection
+          questionListSessions={sessions}
+        />
+      )}
       <InterviewsDashboardRecommendedPreparationStrategy />
       <InterviewsDashboardMoreLearningSection
         companyGuides={companyGuides}
