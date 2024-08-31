@@ -4,12 +4,12 @@ import { FormattedMessage, useIntl } from 'react-intl';
 import { trpc } from '~/hooks/trpc';
 
 import type { FocusAreas } from '~/data/focus-areas/FocusAreas';
+
 import type {
   QuestionFramework,
   QuestionLanguage,
   QuestionMetadata,
 } from '~/components/interviews/questions/common/QuestionsTypes';
-
 import Badge from '~/components/ui/Badge';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';

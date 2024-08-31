@@ -2,16 +2,14 @@ import clsx from 'clsx';
 import type { InterviewsCompanyGuide } from 'contentlayer/generated';
 import { FormattedMessage } from 'react-intl';
 
-import type { PreparationPlans } from '~/data/plans/PreparationPlans';
-import type { QuestionMetadata } from '~/components/interviews/questions/common/QuestionsTypes';
 import type { FocusAreas } from '~/data/focus-areas/FocusAreas';
 import type { PreparationPlans } from '~/data/plans/PreparationPlans';
+
 import type {
   QuestionFramework,
   QuestionLanguage,
   QuestionMetadata,
 } from '~/components/interviews/questions/common/QuestionsTypes';
-
 import Divider from '~/components/ui/Divider';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
@@ -52,7 +50,6 @@ export default function InterviewsDashboardMoreLearningSection({
   questionListSessions,
   questions,
   focusAreas,
-  questionListSessions,
 }: Props) {
   return (
     <Section>
