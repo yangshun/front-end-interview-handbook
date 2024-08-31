@@ -10,8 +10,6 @@ import {
 } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
 
-import { PROJECTS_OFFICIAL_SOLUTIONS_IS_LIVE } from '~/data/FeatureFlags';
-
 import BlurOverlay from '~/components/common/BlurOverlay';
 import type { ProjectsPremiumAccessControlFields } from '~/components/projects/challenges/premium/ProjectsPremiumAccessControl';
 import { useProjectsChallengeSessionContext } from '~/components/projects/challenges/session/ProjectsChallengeSessionContext';
@@ -71,7 +69,7 @@ function useTipsResourcesDiscussionsTabs(challenge: ProjectsChallengeItem) {
     },
   ];
 
-  if (PROJECTS_OFFICIAL_SOLUTIONS_IS_LIVE && metadata.solutionFrameworks?.[0]) {
+  if (metadata.solutionFrameworks?.[0]) {
     tabs.push({
       href: metadata.resourcesSolutionsHref,
       icon: RiVerifiedBadgeFill,
@@ -109,8 +107,8 @@ export default function ProjectsChallengeResourcesHeaderLayout({
 
   const currentTabValue: ProjectsChallengeResourcesDiscussionsTabType =
     useMemo(() => {
-      const tab = tipsResourcesDiscussionsTabs.find(
-        (t) => pathname?.startsWith(t.href ?? ''),
+      const tab = tipsResourcesDiscussionsTabs.find((tabItem) =>
+        pathname?.startsWith(tabItem.href ?? ''),
       );
 
       return tab?.value ?? DEFAULT_TAB;

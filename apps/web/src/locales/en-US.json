@@ -1767,10 +1767,6 @@
     "defaultMessage": "'Max streak' is the number of continuous active days",
     "description": "Tooltip label for active day in completions"
   },
-  "CAMERn": {
-    "defaultMessage": "JavaScript Questions",
-    "description": "Front End JavaScript questions"
-  },
   "CBU+k0": {
     "defaultMessage": "Company",
     "description": "Section heading in footer for links to company-related pages like pricing, about, contact us, affiliate, etc."
@@ -2786,10 +2782,6 @@
   "JPr1gs": {
     "defaultMessage": "Collaboration questions",
     "description": "Title for sidebar on collaboration situation questions in behavioral interviews"
-  },
-  "JQK0y8": {
-    "defaultMessage": "Solved problems",
-    "description": "Title for solved problems card"
   },
   "JQK0y8": {
     "defaultMessage": "Solved problems",

@@ -14,7 +14,6 @@ export const INTERVIEWS_REVAMP_QUESTION_LISTING =
 
 export const PROJECTS_NOTIFICATION_AVAILABLE =
   process.env.NEXT_PUBLIC_VERCEL_ENV !== 'production';
-export const PROJECTS_OFFICIAL_SOLUTIONS_IS_LIVE = true;
 export const PROJECTS_ACTIVATION_AVAILABLE = false;
 export const PROJECTS_SUBMISSION_SUCCESS_PAGE_AVAILABLE =
   process.env.NEXT_PUBLIC_VERCEL_ENV !== 'production';
