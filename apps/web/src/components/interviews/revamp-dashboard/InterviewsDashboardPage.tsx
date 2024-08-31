@@ -1,7 +1,11 @@
 'use client';
 
 import clsx from 'clsx';
-import type { InterviewsCompanyGuide } from 'contentlayer/generated';
+import type {
+  InterviewsCompanyGuide,
+  InterviewsListingBottomContent,
+} from 'contentlayer/generated';
+import { FormattedMessage } from 'react-intl';
 
 import { trpc } from '~/hooks/trpc';
 
@@ -13,16 +17,20 @@ import type {
   QuestionLanguage,
   QuestionMetadata,
 } from '~/components/interviews/questions/common/QuestionsTypes';
+import MDXContent from '~/components/mdx/MDXContent';
+import Anchor from '~/components/ui/Anchor';
+import Section from '~/components/ui/Heading/HeadingContext';
 
-import InterviewsDashboardContinueLearningSection from './InterviewsDashboardContinueLearningSection';
 import InterviewsDashboardMoreLearningSection from './InterviewsDashboardMoreLearningSection';
 import InterviewsDashboardPageHeader from './InterviewsDashboardPageHeader';
+import InterviewsDashboardContinueLearningSection from './InterviewsDashboardContinueLearningSection';
 import InterviewsDashboardRecommendedPreparationStrategy from './InterviewsDashboardRecommendedPreparationStrategy';
 import InterviewsDashboardProgressAtGlanceSection from './progress-glance/InterviewsDashboardProgressAtGlanceSection';
 
 import { useUser } from '@supabase/auth-helpers-react';
 
 type Props = Readonly<{
+  bottomContent?: InterviewsListingBottomContent;
   companyGuides: Array<InterviewsCompanyGuide>;
   focusAreas: FocusAreas;
   preparationPlans: PreparationPlans;
@@ -46,6 +54,7 @@ export default function InterviewsDashboardPage({
   preparationPlans,
   questions,
   focusAreas,
+  bottomContent,
 }: Props) {
   const user = useUser();
   const isLoggedIn = !!user;
@@ -88,6 +97,31 @@ export default function InterviewsDashboardPage({
         questions={questions}
         questionsProgress={questionsProgress ?? []}
       />
+      {bottomContent && (
+        <Section>
+          <MDXContent
+            components={{
+              GuideLists: () => (
+                <ul>
+                  {companyGuides.map((guide) => (
+                    <li key={guide.href}>
+                      <Anchor href={guide.href}>
+                        <FormattedMessage
+                          defaultMessage="{name} front end interview questions"
+                          description="Label for company guides"
+                          id="pjH0jb"
+                          values={{ name: guide.name }}
+                        />
+                      </Anchor>
+                    </li>
+                  ))}
+                </ul>
+              ),
+            }}
+            mdxCode={bottomContent.body.code}
+          />
+        </Section>
+      )}
     </div>
   );
 }

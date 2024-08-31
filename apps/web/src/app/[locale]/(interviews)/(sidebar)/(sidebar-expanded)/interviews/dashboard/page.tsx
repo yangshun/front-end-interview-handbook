@@ -1,4 +1,7 @@
-import { allInterviewsCompanyGuides } from 'contentlayer/generated';
+import {
+  allInterviewsCompanyGuides,
+  allInterviewsListingBottomContents,
+} from 'contentlayer/generated';
 import { notFound } from 'next/navigation';
 import type { IntlShape } from 'react-intl';
 
@@ -50,8 +53,13 @@ export default async function Page({ params }: Props) {
   ]);
   const focusAreas = getFocusAreas(intl as IntlShape);
 
+  const bottomContent = allInterviewsListingBottomContents.find(
+    (content) => content.slug === 'dashboard',
+  );
+
   return (
     <InterviewsDashboardPage
+      bottomContent={bottomContent}
       companyGuides={sortedGuides}
       focusAreas={focusAreas}
       preparationPlans={preparationPlans}

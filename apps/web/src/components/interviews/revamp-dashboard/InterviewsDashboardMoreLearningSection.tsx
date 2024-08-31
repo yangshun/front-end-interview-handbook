@@ -51,9 +51,9 @@ type Props = Readonly<{
 export default function InterviewsDashboardMoreLearningSection({
   companyGuides,
   preparationPlans,
-  questionListSessions,
   questions,
   focusAreas,
+  questionListSessions,
   questionsProgress,
 }: Props) {
   return (
@@ -92,7 +92,6 @@ export default function InterviewsDashboardMoreLearningSection({
           questionListSessions={questionListSessions}
         />
         <Divider />
-
         <InterviewsDashboardPracticeQuestionsSection
           focusAreas={focusAreas}
           questionListSessions={questionListSessions}
