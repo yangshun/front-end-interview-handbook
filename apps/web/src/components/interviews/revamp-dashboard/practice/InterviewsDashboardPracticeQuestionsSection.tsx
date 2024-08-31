@@ -1,14 +1,13 @@
 import clsx from 'clsx';
 import { FormattedMessage, useIntl } from 'react-intl';
 
-import { trpc } from '~/hooks/trpc';
-
 import type { FocusAreas } from '~/data/focus-areas/FocusAreas';
 
 import type {
   QuestionFramework,
   QuestionLanguage,
   QuestionMetadata,
+  QuestionSlug,
 } from '~/components/interviews/questions/common/QuestionsTypes';
 import Badge from '~/components/ui/Badge';
 import Heading from '~/components/ui/Heading';
@@ -21,7 +20,6 @@ import InterviewsDashboardPracticeByFrameworkLanguageSection from './framework-l
 import InterviewsDashboardPracticeByQuestionType from './question-type/InterviewsDashboardPracticeByQuestionTypeSection';
 
 import type { LearningSession } from '@prisma/client';
-import { useUser } from '@supabase/auth-helpers-react';
 
 type Props = Readonly<{
   focusAreas: FocusAreas;
@@ -41,21 +39,18 @@ type Props = Readonly<{
     quizQuestions: ReadonlyArray<QuestionMetadata>;
     systemDesignQuestions: ReadonlyArray<QuestionMetadata>;
   };
+  questionsProgress: ReadonlyArray<
+    Readonly<{ format: string; id: string; slug: QuestionSlug }>
+  > | null;
 }>;
 
 export default function InterviewsDashboardPracticeQuestionsSection({
   questions,
   focusAreas,
   questionListSessions,
+  questionsProgress,
 }: Props) {
   const intl = useIntl();
-  const user = useUser();
-  const { data: questionsProgress } = trpc.questionProgress.getAll.useQuery(
-    undefined,
-    {
-      enabled: !!user,
-    },
-  );
 
   return (
     <Section>

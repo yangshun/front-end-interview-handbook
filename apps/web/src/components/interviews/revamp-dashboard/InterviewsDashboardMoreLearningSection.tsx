@@ -9,6 +9,7 @@ import type {
   QuestionFramework,
   QuestionLanguage,
   QuestionMetadata,
+  QuestionSlug,
 } from '~/components/interviews/questions/common/QuestionsTypes';
 import Divider from '~/components/ui/Divider';
 import Heading from '~/components/ui/Heading';
@@ -42,6 +43,9 @@ type Props = Readonly<{
     quizQuestions: ReadonlyArray<QuestionMetadata>;
     systemDesignQuestions: ReadonlyArray<QuestionMetadata>;
   };
+  questionsProgress: ReadonlyArray<
+    Readonly<{ format: string; id: string; slug: QuestionSlug }>
+  > | null;
 }>;
 
 export default function InterviewsDashboardMoreLearningSection({
@@ -50,6 +54,7 @@ export default function InterviewsDashboardMoreLearningSection({
   questionListSessions,
   questions,
   focusAreas,
+  questionsProgress,
 }: Props) {
   return (
     <Section>
@@ -87,10 +92,12 @@ export default function InterviewsDashboardMoreLearningSection({
           questionListSessions={questionListSessions}
         />
         <Divider />
+
         <InterviewsDashboardPracticeQuestionsSection
           focusAreas={focusAreas}
           questionListSessions={questionListSessions}
           questions={questions}
+          questionsProgress={questionsProgress}
         />
       </div>
     </Section>

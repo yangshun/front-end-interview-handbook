@@ -979,6 +979,10 @@
     "defaultMessage": "Challenge: {challengeName}",
     "description": "Title of Projects challenge page"
   },
+  "6QxW+/": {
+    "defaultMessage": "Medium",
+    "description": "Medium difficulty label for solved problems"
+  },
   "6Qxjzw": {
     "defaultMessage": "Build the project guided by us - refer to official guides, solutions, reference other user's submissions, and discuss with the community",
     "description": "Step 3 of the \"How it works\" section on the Projects home page"
@@ -2679,6 +2683,10 @@
     "defaultMessage": "Total time",
     "description": "Total time needed to complete the questions"
   },
+  "InbLxy": {
+    "defaultMessage": "Your progress at a glance",
+    "description": "Title for progress glance section"
+  },
   "Iq5gAi": {
     "defaultMessage": "User interface coding",
     "description": "Front end user interface questions"
@@ -2750,6 +2758,10 @@
   "JPr1gs": {
     "defaultMessage": "Collaboration questions",
     "description": "Title for sidebar on collaboration situation questions in behavioral interviews"
+  },
+  "JQK0y8": {
+    "defaultMessage": "Solved problems",
+    "description": "Title for solved problems card"
   },
   "JQa3Or": {
     "defaultMessage": "Can't find the answer you are looking for? <link>Reach out to us!</link>",
@@ -3847,6 +3859,10 @@
     "defaultMessage": "{skillsCount, plural, =0 {No skills used} one {1 skill used} other {# skills used}}",
     "description": "Number of skills used for a challenge"
   },
+  "Qp/rKd": {
+    "defaultMessage": "Hard",
+    "description": "Hard difficulty label for solved problems"
+  },
   "QrikGf": {
     "defaultMessage": "Copy to clipboard",
     "description": "Button label for copy button"
@@ -3926,6 +3942,10 @@
   "RGdxr7": {
     "defaultMessage": "Figma design file",
     "description": "Download Figma file button label"
+  },
+  "RHA+8L": {
+    "defaultMessage": "Solved",
+    "description": "Label for number of solved problems"
   },
   "RHPU56": {
     "defaultMessage": "Deployment",
@@ -7674,6 +7694,10 @@
   "sM1Ppu": {
     "defaultMessage": "{discountPercentage}% off all plans",
     "description": "Subtext for rewards complete page"
+  },
+  "sP54y8": {
+    "defaultMessage": "Easy",
+    "description": "Easy difficulty label for solved problems"
   },
   "sPnbze": {
     "defaultMessage": "+{count} more",

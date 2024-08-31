@@ -21,7 +21,6 @@ import Anchor from '~/components/ui/Anchor';
 import Badge from '~/components/ui/Badge';
 import Text from '~/components/ui/Text';
 import {
-  themeBackgroundCardColor,
   themeBackgroundLayerEmphasized,
   themeBorderElementColor,
   themeGradientGreenYellow,
@@ -59,7 +58,7 @@ function FrameworkCard({
       className={clsx(
         'group relative flex items-center gap-6',
         'rounded-lg p-6',
-        themeBackgroundCardColor,
+        'bg-neutral-200/40 dark:bg-neutral-800/40',
         ['border', themeBorderElementColor],
         'isolate',
       )}>

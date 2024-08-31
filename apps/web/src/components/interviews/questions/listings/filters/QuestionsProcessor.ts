@@ -1,10 +1,11 @@
-import { groupBy, sumBy } from 'lodash-es';
+import { find, groupBy, sumBy } from 'lodash-es';
 
 import type {
   QuestionDifficulty,
   QuestionImportance,
   QuestionMetadata,
   QuestionPremiumStatus,
+  QuestionSlug,
   QuestionSortField,
 } from '../../common/QuestionsTypes';
 
@@ -144,4 +145,42 @@ export function countQuestionsTotalDurationMins<T extends QuestionMetadata>(
   questions: ReadonlyArray<T>,
 ): number {
   return sumBy(questions, (metadata) => metadata.duration);
+}
+
+export function countQuestionsCompletionByDifficulty<
+  T extends QuestionMetadata,
+>(
+  questions: ReadonlyArray<T>,
+  questionsProgress: ReadonlyArray<
+    Readonly<{ format: string; id: string; slug: QuestionSlug }>
+  > | null,
+): Record<QuestionDifficulty, { completed: number; total: number }> {
+  const result: Record<
+    QuestionDifficulty,
+    { completed: number; total: number }
+  > = {
+    easy: { completed: 0, total: 0 },
+    hard: { completed: 0, total: 0 },
+    medium: { completed: 0, total: 0 },
+  };
+
+  // Categorize questions by difficulty
+  questions.forEach((question) => {
+    const { difficulty } = question;
+
+    result[difficulty].total += 1;
+  });
+
+  // Categorize progress by difficulty
+  questionsProgress?.forEach((progress) => {
+    const question = find(questions, (item) => item.slug === progress.slug);
+
+    if (question) {
+      const { difficulty } = question;
+
+      result[difficulty].completed += 1;
+    }
+  });
+
+  return result;
 }

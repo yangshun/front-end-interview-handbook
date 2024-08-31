@@ -28,6 +28,7 @@ export default function ProgressBar({
       className={clsx(
         'w-full rounded-full',
         'min-w-16',
+        'overflow-hidden',
         backgroundClass,
         heightClass,
       )}

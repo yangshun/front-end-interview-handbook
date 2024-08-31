@@ -18,6 +18,7 @@ import InterviewsDashboardContinueLearningSection from './InterviewsDashboardCon
 import InterviewsDashboardMoreLearningSection from './InterviewsDashboardMoreLearningSection';
 import InterviewsDashboardPageHeader from './InterviewsDashboardPageHeader';
 import InterviewsDashboardRecommendedPreparationStrategy from './InterviewsDashboardRecommendedPreparationStrategy';
+import InterviewsDashboardProgressAtGlanceSection from './progress-glance/InterviewsDashboardProgressAtGlanceSection';
 
 import { useUser } from '@supabase/auth-helpers-react';
 
@@ -47,6 +48,14 @@ export default function InterviewsDashboardPage({
   focusAreas,
 }: Props) {
   const user = useUser();
+  const isLoggedIn = !!user;
+  const { data: questionsProgress } = trpc.questionProgress.getAll.useQuery(
+    undefined,
+    {
+      enabled: !!user,
+    },
+  );
+
   const { data: questionListSessions } =
     trpc.questionLists.getActiveSessions.useQuery(undefined, {
       enabled: !!user,
@@ -59,6 +68,12 @@ export default function InterviewsDashboardPage({
   return (
     <div className={clsx('flex flex-col gap-12')}>
       <InterviewsDashboardPageHeader />
+      {isLoggedIn && (
+        <InterviewsDashboardProgressAtGlanceSection
+          questions={questions}
+          questionsProgress={questionsProgress ?? []}
+        />
+      )}
       {showContinueLearning && (
         <InterviewsDashboardContinueLearningSection
           questionListSessions={sessions}
@@ -71,6 +86,7 @@ export default function InterviewsDashboardPage({
         preparationPlans={preparationPlans}
         questionListSessions={sessions}
         questions={questions}
+        questionsProgress={questionsProgress ?? []}
       />
     </div>
   );
