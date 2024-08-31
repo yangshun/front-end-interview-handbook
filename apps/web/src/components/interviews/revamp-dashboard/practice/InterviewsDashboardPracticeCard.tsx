@@ -5,7 +5,6 @@ import { RiArrowRightLine } from 'react-icons/ri';
 import Anchor from '~/components/ui/Anchor';
 import Text from '~/components/ui/Text';
 import {
-  themeBackgroundCardColor,
   themeBackgroundLayerEmphasized,
   themeBorderElementColor,
   themeTextBrandColor_GroupHover,
@@ -44,7 +43,7 @@ export default function InterviewsDashboardPracticeCard({
         'flex-2 group relative flex flex-col gap-6 md:flex-row',
         'rounded-lg p-6',
         'transition',
-        themeBackgroundCardColor,
+        'bg-neutral-200/40 dark:bg-neutral-800/40',
         ['border', themeBorderElementColor],
         'isolate',
       )}>

@@ -4691,6 +4691,10 @@
     "defaultMessage": "Challenge: <hover>{title}</hover>",
     "description": "Link to project submission's original challenge"
   },
+  "WVS7Vj": {
+    "defaultMessage": "Practice by focus areas",
+    "description": "Title for practice by focus areas section"
+  },
   "WYR3gj": {
     "defaultMessage": "Terms of service",
     "description": "Link to terms of service page"
@@ -7030,6 +7034,10 @@
   "n3eIzi": {
     "defaultMessage": "See all",
     "description": "See all new posts"
+  },
+  "n44/YY": {
+    "defaultMessage": "Dive into 8 topical areas tested in front end interviews",
+    "description": "Description for practice by focus areas section"
   },
   "n4aKYo": {
     "defaultMessage": "Theme",

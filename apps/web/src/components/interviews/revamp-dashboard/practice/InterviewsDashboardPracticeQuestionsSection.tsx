@@ -3,23 +3,31 @@ import { FormattedMessage, useIntl } from 'react-intl';
 
 import { trpc } from '~/hooks/trpc';
 
+import type { FocusAreas } from '~/data/focus-areas/FocusAreas';
 import type {
   QuestionFramework,
   QuestionLanguage,
   QuestionMetadata,
 } from '~/components/interviews/questions/common/QuestionsTypes';
+
 import Badge from '~/components/ui/Badge';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 import Text from '~/components/ui/Text';
 import { themeTextColor } from '~/components/ui/theme';
 
+import InterviewsDashboardPracticeByFocusAreasSection from './focus-areas/InterviewsDashboardPracticeByFocusAreasSection';
 import InterviewsDashboardPracticeByFrameworkLanguageSection from './framework-language/InterviewsDashboardPracticeByFrameworkLanguageSection';
 import InterviewsDashboardPracticeByQuestionType from './question-type/InterviewsDashboardPracticeByQuestionTypeSection';
 
+import type { LearningSession } from '@prisma/client';
 import { useUser } from '@supabase/auth-helpers-react';
 
 type Props = Readonly<{
+  focusAreas: FocusAreas;
+  questionListSessions: Array<
+    LearningSession & { _count: { progress: number } }
+  >;
   questions: {
     codingQuestions: ReadonlyArray<QuestionMetadata>;
     frameworkQuestions: Record<
@@ -37,6 +45,8 @@ type Props = Readonly<{
 
 export default function InterviewsDashboardPracticeQuestionsSection({
   questions,
+  focusAreas,
+  questionListSessions,
 }: Props) {
   const intl = useIntl();
   const user = useUser();
@@ -96,6 +106,10 @@ export default function InterviewsDashboardPracticeQuestionsSection({
         <InterviewsDashboardPracticeByFrameworkLanguageSection
           questions={questions}
           questionsProgress={questionsProgress ?? []}
+        />
+        <InterviewsDashboardPracticeByFocusAreasSection
+          focusAreas={focusAreas}
+          questionListSessions={questionListSessions}
         />
       </div>
     </Section>

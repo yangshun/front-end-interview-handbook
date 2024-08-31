@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation';
 import type { IntlShape } from 'react-intl';
 
 import { INTERVIEWS_REVAMP_DASHBOARD } from '~/data/FeatureFlags';
+import { getFocusAreas } from '~/data/focus-areas/FocusAreas';
 
 import InterviewsDashboardPage from '~/components/interviews/revamp-dashboard/InterviewsDashboardPage';
 
@@ -47,10 +48,12 @@ export default async function Page({ params }: Props) {
     fetchQuestionsListSystemDesign(locale),
     categorizeQuestionsByFrameworkAndLanguage(locale),
   ]);
+  const focusAreas = getFocusAreas(intl as IntlShape);
 
   return (
     <InterviewsDashboardPage
       companyGuides={sortedGuides}
+      focusAreas={focusAreas}
       preparationPlans={preparationPlans}
       questions={{
         codingQuestions,

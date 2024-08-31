@@ -2,8 +2,7 @@ import clsx from 'clsx';
 import type { InterviewsCompanyGuide } from 'contentlayer/generated';
 import { FormattedMessage } from 'react-intl';
 
-import { trpc } from '~/hooks/trpc';
-
+import type { FocusAreas } from '~/data/focus-areas/FocusAreas';
 import type { PreparationPlans } from '~/data/plans/PreparationPlans';
 import type {
   QuestionFramework,
@@ -21,11 +20,15 @@ import InterviewsDashboardPrepareByCompanySection from './InterviewsDashboardPre
 import InterviewsDashboardStudyPlansSection from './InterviewsDashboardStudyPlansSection';
 import InterviewsDashboardPracticeQuestionsSection from './practice/InterviewsDashboardPracticeQuestionsSection';
 
-import { useUser } from '@supabase/auth-helpers-react';
+import type { LearningSession } from '@prisma/client';
 
 type Props = Readonly<{
   companyGuides: Array<InterviewsCompanyGuide>;
+  focusAreas: FocusAreas;
   preparationPlans: PreparationPlans;
+  questionListSessions: Array<
+    LearningSession & { _count: { progress: number } }
+  >;
   questions: {
     codingQuestions: ReadonlyArray<QuestionMetadata>;
     frameworkQuestions: Record<
@@ -45,15 +48,9 @@ export default function InterviewsDashboardMoreLearningSection({
   companyGuides,
   preparationPlans,
   questions,
+  focusAreas,
+  questionListSessions,
 }: Props) {
-  const user = useUser();
-  const { data: questionListSessions } =
-    trpc.questionLists.getActiveSessions.useQuery(undefined, {
-      enabled: !!user,
-    });
-
-  const sessions = questionListSessions ?? [];
-
   return (
     <Section>
       <div className={clsx('flex flex-col gap-12')}>
@@ -83,14 +80,18 @@ export default function InterviewsDashboardMoreLearningSection({
         </div>
         <InterviewsDashboardPrepareByCompanySection
           companyGuides={companyGuides}
-          questionListSessions={sessions}
+          questionListSessions={questionListSessions}
         />
         <InterviewsDashboardStudyPlansSection
           preparationPlans={preparationPlans}
-          questionListSessions={sessions}
+          questionListSessions={questionListSessions}
         />
-        <InterviewsDashboardPracticeQuestionsSection questions={questions} />
         <Divider />
+        <InterviewsDashboardPracticeQuestionsSection
+          focusAreas={focusAreas}
+          questionListSessions={questionListSessions}
+          questions={questions}
+        />
       </div>
     </Section>
   );

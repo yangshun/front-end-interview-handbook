@@ -12,7 +12,6 @@ import Anchor from '~/components/ui/Anchor';
 import Heading from '~/components/ui/Heading';
 import Text from '~/components/ui/Text';
 import {
-  themeBackgroundCardWhiteOnLightColor,
   themeBackgroundLayerEmphasized,
   themeBorderElementColor,
   themeTextBrandColor_GroupHover,
@@ -59,8 +58,8 @@ function DashboardPreparationPlanCard({
         'flex flex-1 flex-col gap-6 md:flex-row',
         'rounded-lg',
         'px-6 py-5',
-        themeBackgroundCardWhiteOnLightColor,
-        themeBorderElementColor,
+        'bg-neutral-200/40 dark:bg-neutral-800/40',
+        ['border', themeBorderElementColor],
       )}>
       <div
         className={clsx(
