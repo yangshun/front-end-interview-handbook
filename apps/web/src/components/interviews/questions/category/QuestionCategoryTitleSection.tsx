@@ -9,6 +9,8 @@ import {
 } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
 
+import { INTERVIEWS_REVAMP_QUESTION_LISTING } from '~/data/FeatureFlags';
+
 import TextPairing from '~/components/common/TextPairing';
 import SvelteLogo from '~/components/icons/SvelteLogo';
 import Badge from '~/components/ui/Badge';
@@ -91,6 +93,23 @@ export default function QuestionCategoryTitleSection({
   titleAddOnText,
 }: Props) {
   const intl = useIntl();
+
+  // TODO(interviews): this is not the updated category title implement
+  // it was just to remove the tabs and heading for working with category tabs
+  if (INTERVIEWS_REVAMP_QUESTION_LISTING) {
+    return (
+      <Section>
+        <div className="flex gap-6">
+          {logo}
+          <TextPairing
+            description={description}
+            title={title}
+            titleAddOnText={titleAddOnText}
+          />
+        </div>
+      </Section>
+    );
+  }
 
   return (
     <div className="flex flex-col gap-y-8">

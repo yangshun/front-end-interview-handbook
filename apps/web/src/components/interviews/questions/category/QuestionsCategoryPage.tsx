@@ -4,6 +4,8 @@ import clsx from 'clsx';
 import type { InterviewsListingBottomContent } from 'contentlayer/generated';
 import type { ReactNode } from 'react';
 
+import { INTERVIEWS_REVAMP_QUESTION_LISTING } from '~/data/FeatureFlags';
+
 import QuestionCategoryTitleSection from '~/components/interviews/questions/category/QuestionCategoryTitleSection';
 import type {
   QuestionCodingFormat,
@@ -21,6 +23,8 @@ import Section from '~/components/ui/Heading/HeadingContext';
 
 import type { QuestionCompletionCount } from '~/db/QuestionsCount';
 import { useI18nRouter } from '~/next-i18nostic/src';
+
+import QuestionsCategoryNavbar from './QuestionsCategoryNavbar';
 
 // The higher the more important.
 const codingFormatRankingForNonJavaScript: Record<
@@ -155,15 +159,19 @@ export default function QuestionsCategoryPage({
   bottomContent,
 }: Props) {
   return (
-    <Container
-      className={clsx(
-        'flex flex-col',
-        'gap-y-20',
-        'py-4 md:py-6 lg:py-8 xl:py-16',
+    <>
+      {INTERVIEWS_REVAMP_QUESTION_LISTING && (
+        <QuestionsCategoryNavbar category={category} />
       )}
-      variant="normal">
-      <div
-        className={clsx('flex flex-col', 'gap-y-8 md:gap-y-10 2xl:gap-y-12')}>
+      <Container
+        className={clsx(
+          'flex flex-col',
+          'gap-y-8 md:gap-y-10 2xl:gap-y-12',
+          INTERVIEWS_REVAMP_QUESTION_LISTING
+            ? 'py-12'
+            : 'py-4 md:py-6 lg:py-8 xl:py-16',
+        )}
+        variant="normal">
         <QuestionCategoryTitleSection
           category={category}
           count={codingQuestions.length + quizQuestions.length}
@@ -187,12 +195,12 @@ export default function QuestionsCategoryPage({
             quizQuestions={quizQuestions}
           />
         </Section>
-      </div>
-      {bottomContent && (
-        <Section>
-          <MDXContent mdxCode={bottomContent.body.code} />
-        </Section>
-      )}
-    </Container>
+        {bottomContent && (
+          <Section>
+            <MDXContent mdxCode={bottomContent.body.code} />
+          </Section>
+        )}
+      </Container>
+    </>
   );
 }

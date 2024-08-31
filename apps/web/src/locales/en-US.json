@@ -6343,6 +6343,10 @@
     "defaultMessage": "Mark as incomplete",
     "description": "Mark the question as incomplete"
   },
+  "i8776d": {
+    "defaultMessage": "Follow our front end interview roadmap",
+    "description": "Label for follow frontend interview roadmap"
+  },
   "i9ojv3": {
     "defaultMessage": "All filters",
     "description": "Label for All Filters button for projects list"
