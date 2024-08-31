@@ -21,9 +21,9 @@ import MDXContent from '~/components/mdx/MDXContent';
 import Anchor from '~/components/ui/Anchor';
 import Section from '~/components/ui/Heading/HeadingContext';
 
+import InterviewsDashboardContinueLearningSection from './InterviewsDashboardContinueLearningSection';
 import InterviewsDashboardMoreLearningSection from './InterviewsDashboardMoreLearningSection';
 import InterviewsDashboardPageHeader from './InterviewsDashboardPageHeader';
-import InterviewsDashboardContinueLearningSection from './InterviewsDashboardContinueLearningSection';
 import InterviewsDashboardRecommendedPreparationStrategy from './InterviewsDashboardRecommendedPreparationStrategy';
 import InterviewsDashboardProgressAtGlanceSection from './progress-glance/InterviewsDashboardProgressAtGlanceSection';
 
