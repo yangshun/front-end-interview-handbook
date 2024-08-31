@@ -967,6 +967,10 @@
     "defaultMessage": "Learning features",
     "description": "Learning features of the product in Projects marketing page"
   },
+  "6IcSN4": {
+    "defaultMessage": "{count, plural, =0 {0 Completions in the last year} one {<bold>{value}</bold> Completion in the last year} other {<bold>{value}</bold> Completions in the last year}}",
+    "description": "Label for completions count"
+  },
   "6J+fmT": {
     "defaultMessage": "As this is a composite challenge, you may choose to unlock the dependent challenges first.",
     "description": "Confirmation text for unlocking a premium challenge"
@@ -1755,6 +1759,10 @@
     "defaultMessage": "Pagination",
     "description": "Screenreader text for the pagination component"
   },
+  "C9XhYm": {
+    "defaultMessage": "'Max streak' is the number of continuous active days",
+    "description": "Tooltip label for active day in completions"
+  },
   "CBU+k0": {
     "defaultMessage": "Company",
     "description": "Section heading in footer for links to company-related pages like pricing, about, contact us, affiliate, etc."
@@ -2095,6 +2103,10 @@
     "defaultMessage": "Access to over {freeChallengeCount} free challenges. {unlocks, plural, =0 {No access to <tooltip>premium credits</tooltip>} one {<tooltip>1 premium credit</tooltip> unspent} other {<tooltip># premium credits</tooltip> unspent}}",
     "description": "Subtitle of Free Plan CTA card in Projects sidebar"
   },
+  "EaDXUz": {
+    "defaultMessage": "No contributions on {date}",
+    "description": "Tooltip label for no contribution count"
+  },
   "EaMmzf": {
     "defaultMessage": "Edit submission",
     "description": "Title of Projects edit submission page"
@@ -2118,6 +2130,10 @@
   "EnNFW9": {
     "defaultMessage": "Access to continuously updating interview questions and content.",
     "description": "Feature of monthly pricing plan"
+  },
+  "EnOEHg": {
+    "defaultMessage": "Completions include both questions and articles across the interviews platform.",
+    "description": "Label for completions tooltip"
   },
   "Eoiq1B": {
     "defaultMessage": "Your dream job could be just a few months of prep away. Unlock premium at a fraction of your potential daily salary.",
@@ -3398,6 +3414,10 @@
   "NlQpYx": {
     "defaultMessage": "Challenges",
     "description": "Title of Challenges page"
+  },
+  "Nmz10h": {
+    "defaultMessage": "How we count contributions",
+    "description": "Label for how we count contributions"
   },
   "NoFZV/": {
     "defaultMessage": "Strengthen your proficiency in JavaScript through writing Lodash functions from scratch.",
@@ -5727,6 +5747,10 @@
     "defaultMessage": "Enter",
     "description": "Richtext placeholder"
   },
+  "dpBKYx": {
+    "defaultMessage": "Total active days: <bold>{count}</bold>",
+    "description": "Label for active days"
+  },
   "dq3W2/": {
     "defaultMessage": "Premium user",
     "description": "Tooltip for premium icon"
@@ -5866,6 +5890,10 @@
   "er6Ns7": {
     "defaultMessage": "{yoe} YOE",
     "description": "Years of experience"
+  },
+  "etKgoR": {
+    "defaultMessage": "Less",
+    "description": "Label for less contribution"
   },
   "eucnNd": {
     "defaultMessage": "What kind of guidance will this platform provide me?",
@@ -6186,6 +6214,10 @@
   "glQWNv": {
     "defaultMessage": "Articles",
     "description": "Label for articles blog"
+  },
+  "glZsYe": {
+    "defaultMessage": "Max streak: <bold>{count}</bold>",
+    "description": "Label for max streak"
   },
   "goncmR": {
     "defaultMessage": "Submission title must contain at least {minLength} character(s).",
@@ -6862,6 +6894,10 @@
   "lKKC9U": {
     "defaultMessage": "Core System Design techniques and in-depth solutions to common questions like building a social media feed, autocomplete component, e-commerce website.",
     "description": "Description for frontend system design guide"
+  },
+  "lMWmct": {
+    "defaultMessage": "An 'active day' is a day you completed at least 1 question",
+    "description": "Tooltip label for active day in completions"
   },
   "lMXh4f": {
     "defaultMessage": "Theme",
@@ -8199,6 +8235,10 @@
     "defaultMessage": "Email",
     "description": "Label of email field on Password Reset page"
   },
+  "vyB72k": {
+    "defaultMessage": "More",
+    "description": "Label for more contribution"
+  },
   "w+HZnz": {
     "defaultMessage": "Our projects are never one-off - they always fit into some component library or design system with other projects. Any projects you build can be composed to build future projects, forming an ever-growing toolkit for your future.",
     "description": "Part 1 of subtitle of the 'Permanent toolkit' marketing section on Projects home page"
@@ -8466,6 +8506,10 @@
   "yM3vbW": {
     "defaultMessage": "Editor Shortcuts",
     "description": "Label for slideout for code editor shortcuts"
+  },
+  "yT/nav": {
+    "defaultMessage": "{count, plural, one {# contribution on {date}} other {# contributions on {date}}}",
+    "description": "Tooltip label for contribution count"
   },
   "yUfdpX": {
     "defaultMessage": "Mentor others",

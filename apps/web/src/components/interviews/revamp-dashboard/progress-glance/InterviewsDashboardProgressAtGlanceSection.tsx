@@ -8,7 +8,7 @@ import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 import { themeTextColor } from '~/components/ui/theme';
 
-import InterviewsDashboardSolvedProblemsCard from './InterviewsDashboardSolvedProblemsCard';
+import InterviewsDashboardContributionsHeatMapCard from './InterviewsDashboardContributionsHeatmapCard';
 
 type Props = Readonly<{
   questions: {
@@ -41,6 +41,7 @@ export default function InterviewsDashboardProgressAtGlanceSection({
             questionsProgress={questionsProgress}
           />
         </div>
+        <InterviewsDashboardContributionsHeatMapCard />
       </div>
     </Section>
   );

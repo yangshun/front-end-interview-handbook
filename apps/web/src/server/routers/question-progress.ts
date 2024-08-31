@@ -1,6 +1,7 @@
 import { z } from 'zod';
 
 import type { QuestionFormat } from '~/components/interviews/questions/common/QuestionsTypes';
+import { groupByDateFormatter } from '~/components/interviews/revamp-dashboard/progress-glance/utils';
 
 import type { QuestionProgressStatus } from '~/db/QuestionsProgressTypes';
 import { hashQuestion } from '~/db/QuestionsUtils';
@@ -169,6 +170,38 @@ export const questionProgressRouter = router({
       status: questionProgress.status as QuestionProgressStatus,
     }));
   }),
+  getContributionsCount: userProcedure
+    .input(
+      z.object({
+        endTime: z.date(),
+        startTime: z.date(),
+      }),
+    )
+    .query(async ({ ctx: { viewer }, input: { startTime, endTime } }) => {
+      const progress = await prisma.questionProgress.groupBy({
+        _count: {
+          id: true,
+        },
+        by: ['createdAt'],
+        where: {
+          createdAt: {
+            gte: startTime,
+            lte: endTime,
+          },
+          userId: viewer.id,
+        },
+      });
+      // Formatting the result
+      const formattedResults: Record<string, number> = {};
+
+      progress.forEach(({ createdAt, _count }) => {
+        const dateStr = groupByDateFormatter.format(new Date(createdAt));
+
+        formattedResults[dateStr] = _count.id;
+      });
+
+      return formattedResults;
+    }),
   globalCompleted: publicProcedure
     .input(
       z.object({
