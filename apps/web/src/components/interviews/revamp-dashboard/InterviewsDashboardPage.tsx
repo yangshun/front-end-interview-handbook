@@ -5,7 +5,11 @@ import type { InterviewsCompanyGuide } from 'contentlayer/generated';
 
 import type { PreparationPlans } from '~/data/plans/PreparationPlans';
 
-import type { QuestionMetadata } from '~/components/interviews/questions/common/QuestionsTypes';
+import type {
+  QuestionFramework,
+  QuestionLanguage,
+  QuestionMetadata,
+} from '~/components/interviews/questions/common/QuestionsTypes';
 
 import InterviewsDashboardMoreLearningSection from './InterviewsDashboardMoreLearningSection';
 import InterviewsDashboardPageHeader from './InterviewsDashboardPageHeader';
@@ -16,6 +20,14 @@ type Props = Readonly<{
   preparationPlans: PreparationPlans;
   questions: {
     codingQuestions: ReadonlyArray<QuestionMetadata>;
+    frameworkQuestions: Record<
+      QuestionFramework,
+      ReadonlyArray<QuestionMetadata>
+    >;
+    languageQuestions: Record<
+      QuestionLanguage,
+      ReadonlyArray<QuestionMetadata>
+    >;
     quizQuestions: ReadonlyArray<QuestionMetadata>;
     systemDesignQuestions: ReadonlyArray<QuestionMetadata>;
   };

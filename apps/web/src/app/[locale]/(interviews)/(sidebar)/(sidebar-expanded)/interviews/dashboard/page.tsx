@@ -8,6 +8,7 @@ import InterviewsDashboardPage from '~/components/interviews/revamp-dashboard/In
 
 import { fetchPreparationPlans } from '~/db/PreparationPlansReader';
 import {
+  categorizeQuestionsByFrameworkAndLanguage,
   fetchQuestionsListCoding,
   fetchQuestionsListQuiz,
   fetchQuestionsListSystemDesign,
@@ -38,11 +39,13 @@ export default async function Page({ params }: Props) {
     { questions: quizQuestions },
     { questions: codingQuestions },
     { questions: systemDesignQuestions },
+    { framework, language },
   ] = await Promise.all([
     await fetchPreparationPlans(intl as IntlShape),
     fetchQuestionsListQuiz(locale),
     fetchQuestionsListCoding(locale),
     fetchQuestionsListSystemDesign(locale),
+    categorizeQuestionsByFrameworkAndLanguage(locale),
   ]);
 
   return (
@@ -51,6 +54,8 @@ export default async function Page({ params }: Props) {
       preparationPlans={preparationPlans}
       questions={{
         codingQuestions,
+        frameworkQuestions: framework,
+        languageQuestions: language,
         quizQuestions,
         systemDesignQuestions,
       }}

@@ -1,8 +1,11 @@
+import { forEach, mapValues } from 'lodash-es';
+
 import { DSAQuestions } from '~/components/interviews/questions/common/QuestionsCodingDataStructuresAlgorithms';
 import type {
   QuestionCodingFormat,
   QuestionFormat,
   QuestionFramework,
+  QuestionLanguage,
   QuestionMetadata,
   QuestionSlug,
 } from '~/components/interviews/questions/common/QuestionsTypes';
@@ -85,6 +88,10 @@ export type QuestionsCodingFormatCategorizedProgress = Record<
   QuestionCodingFormat,
   Set<string>
 >;
+export type QuestionsFrameworkLanguageCategorizedProgress = Readonly<{
+  framework: Record<QuestionFramework, Set<string>>;
+  language: Record<QuestionLanguage, Set<string>>;
+}>;
 
 export function categorizeQuestionListSessionProgress(
   sessionProgress?:
@@ -162,6 +169,61 @@ export function categorizeQuestionsProgressByCodingFormat(
       ).map(({ slug }) => slug),
     ),
   };
+}
+
+export function categorizeQuestionsProgressByFrameworkAndLanguage(
+  questionProgress: ReadonlyArray<
+    Readonly<{ format: string; id: string; slug: QuestionSlug }>
+  > | null,
+  questions: Readonly<{
+    frameworkQuestions: Record<
+      QuestionFramework,
+      ReadonlyArray<QuestionMetadata>
+    >;
+    languageQuestions: Record<
+      QuestionLanguage,
+      ReadonlyArray<QuestionMetadata>
+    >;
+  }>,
+): QuestionsFrameworkLanguageCategorizedProgress {
+  const { frameworkQuestions, languageQuestions } = questions;
+
+  const frameworkSlugsMap = mapValues(
+    frameworkQuestions,
+    (questionList) => new Set(questionList.map((q) => q.slug)),
+  );
+  const languageSlugsMap = mapValues(
+    languageQuestions,
+    (questionList) => new Set(questionList.map((q) => q.slug)),
+  );
+
+  // Initialize categorized progress objects
+  const framework = mapValues(
+    frameworkQuestions,
+    () => new Set<QuestionSlug>(),
+  );
+  const language = mapValues(languageQuestions, () => new Set<QuestionSlug>());
+
+  if (!questionProgress) {
+    return { framework, language };
+  }
+
+  // Categorize questionProgress by framework and language
+  questionProgress.forEach(({ slug }) => {
+    forEach(frameworkSlugsMap, (slugs, key) => {
+      if (slugs.has(slug)) {
+        framework[key as QuestionFramework].add(slug);
+      }
+    });
+
+    forEach(languageSlugsMap, (slugs, key) => {
+      if (slugs.has(slug)) {
+        language[key as QuestionLanguage].add(slug);
+      }
+    });
+  });
+
+  return { framework, language };
 }
 
 export function filterQuestionsProgressByList(

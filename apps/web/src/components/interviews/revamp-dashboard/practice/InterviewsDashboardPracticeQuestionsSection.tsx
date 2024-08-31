@@ -3,13 +3,18 @@ import { FormattedMessage, useIntl } from 'react-intl';
 
 import { trpc } from '~/hooks/trpc';
 
-import type { QuestionMetadata } from '~/components/interviews/questions/common/QuestionsTypes';
+import type {
+  QuestionFramework,
+  QuestionLanguage,
+  QuestionMetadata,
+} from '~/components/interviews/questions/common/QuestionsTypes';
 import Badge from '~/components/ui/Badge';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 import Text from '~/components/ui/Text';
 import { themeTextColor } from '~/components/ui/theme';
 
+import InterviewsDashboardPracticeByFrameworkLanguageSection from './framework-language/InterviewsDashboardPracticeByFrameworkLanguageSection';
 import InterviewsDashboardPracticeByQuestionType from './question-type/InterviewsDashboardPracticeByQuestionTypeSection';
 
 import { useUser } from '@supabase/auth-helpers-react';
@@ -17,6 +22,14 @@ import { useUser } from '@supabase/auth-helpers-react';
 type Props = Readonly<{
   questions: {
     codingQuestions: ReadonlyArray<QuestionMetadata>;
+    frameworkQuestions: Record<
+      QuestionFramework,
+      ReadonlyArray<QuestionMetadata>
+    >;
+    languageQuestions: Record<
+      QuestionLanguage,
+      ReadonlyArray<QuestionMetadata>
+    >;
     quizQuestions: ReadonlyArray<QuestionMetadata>;
     systemDesignQuestions: ReadonlyArray<QuestionMetadata>;
   };
@@ -77,6 +90,10 @@ export default function InterviewsDashboardPracticeQuestionsSection({
         </div>
 
         <InterviewsDashboardPracticeByQuestionType
+          questions={questions}
+          questionsProgress={questionsProgress ?? []}
+        />
+        <InterviewsDashboardPracticeByFrameworkLanguageSection
           questions={questions}
           questionsProgress={questionsProgress ?? []}
         />

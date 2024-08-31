@@ -919,6 +919,10 @@
     "defaultMessage": "React Questions",
     "description": "React questions category long title"
   },
+  "5wMIcP": {
+    "defaultMessage": "Practice by framework or language",
+    "description": "Title for practice by framework or language section"
+  },
   "5y9YGh": {
     "defaultMessage": "Submission title must contain at most {maxLength} character(s).",
     "description": "Error message for submission title"
@@ -3170,6 +3174,10 @@
   "M8S0Dp": {
     "defaultMessage": "Star our \"Front End System Design\" repo",
     "description": "Title for task"
+  },
+  "M959Wh": {
+    "defaultMessage": "Practice quiz and coding questions for specific frameworks or languages.",
+    "description": "Description for practice by framework or language section"
   },
   "M9z02W": {
     "defaultMessage": "Airbnb",

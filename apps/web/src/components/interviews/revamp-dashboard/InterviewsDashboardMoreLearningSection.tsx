@@ -5,8 +5,12 @@ import { FormattedMessage } from 'react-intl';
 import { trpc } from '~/hooks/trpc';
 
 import type { PreparationPlans } from '~/data/plans/PreparationPlans';
+import type {
+  QuestionFramework,
+  QuestionLanguage,
+  QuestionMetadata,
+} from '~/components/interviews/questions/common/QuestionsTypes';
 
-import type { QuestionMetadata } from '~/components/interviews/questions/common/QuestionsTypes';
 import Divider from '~/components/ui/Divider';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
@@ -24,6 +28,14 @@ type Props = Readonly<{
   preparationPlans: PreparationPlans;
   questions: {
     codingQuestions: ReadonlyArray<QuestionMetadata>;
+    frameworkQuestions: Record<
+      QuestionFramework,
+      ReadonlyArray<QuestionMetadata>
+    >;
+    languageQuestions: Record<
+      QuestionLanguage,
+      ReadonlyArray<QuestionMetadata>
+    >;
     quizQuestions: ReadonlyArray<QuestionMetadata>;
     systemDesignQuestions: ReadonlyArray<QuestionMetadata>;
   };
@@ -77,7 +89,6 @@ export default function InterviewsDashboardMoreLearningSection({
           preparationPlans={preparationPlans}
           questionListSessions={sessions}
         />
-        <Divider />
         <InterviewsDashboardPracticeQuestionsSection questions={questions} />
         <Divider />
       </div>
