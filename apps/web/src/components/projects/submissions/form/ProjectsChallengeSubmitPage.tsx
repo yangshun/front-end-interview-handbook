@@ -6,7 +6,7 @@ import { FormattedMessage, useIntl } from 'react-intl';
 
 import { trpc } from '~/hooks/trpc';
 
-import { SUBMISSION_SUCCESS_PAGE_AVAILABLE } from '~/data/FeatureFlags';
+import { PROJECTS_SUBMISSION_SUCCESS_PAGE_AVAILABLE } from '~/data/FeatureFlags';
 
 import { useToast } from '~/components/global/toasts/useToast';
 import type {
@@ -121,7 +121,7 @@ export default function ProjectsChallengeSubmitPage({
         variant: 'success',
       });
 
-      if (SUBMISSION_SUCCESS_PAGE_AVAILABLE) {
+      if (PROJECTS_SUBMISSION_SUCCESS_PAGE_AVAILABLE) {
         const newPoints = initialPoints + points;
         const { level: newLevel } = projectsReputationLevel(newPoints);
 
@@ -144,7 +144,7 @@ export default function ProjectsChallengeSubmitPage({
 
   const { href } = challenge.metadata;
 
-  if (showSuccess && SUBMISSION_SUCCESS_PAGE_AVAILABLE) {
+  if (showSuccess && PROJECTS_SUBMISSION_SUCCESS_PAGE_AVAILABLE) {
     return (
       <ProjectsChallengeSubmissionSuccessPage
         challenge={challenge}

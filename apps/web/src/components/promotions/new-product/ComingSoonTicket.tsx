@@ -1,6 +1,6 @@
 import { RiArrowRightLine } from 'react-icons/ri';
 
-import { PROJECT_ACTIVATION_AVAILABLE } from '~/data/FeatureFlags';
+import { PROJECTS_ACTIVATION_AVAILABLE } from '~/data/FeatureFlags';
 
 import Timer from '~/components/countdown/Timer';
 import useCountdownTimer from '~/components/countdown/useCountdownTimer';
@@ -39,7 +39,7 @@ export default function ComingSoonTicket({ height, width }: Props) {
           <Badge label={label} size="sm" variant={badgeVariant} />
         </div>
         {finished ? (
-          PROJECT_ACTIVATION_AVAILABLE ? (
+          PROJECTS_ACTIVATION_AVAILABLE ? (
             // TODO(projects): Need to redirect to activation when click this button
             <Button
               icon={RiArrowRightLine}
