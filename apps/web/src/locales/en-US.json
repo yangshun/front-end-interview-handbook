@@ -943,6 +943,10 @@
     "defaultMessage": "Common mistakes",
     "description": "Common mistakes made during front end system design interviews"
   },
+  "62/edi": {
+    "defaultMessage": "System Design",
+    "description": "Tile for system design question type"
+  },
   "680b8U": {
     "defaultMessage": "Vanilla JS Questions",
     "description": "Vanilla JS questions category long title"
@@ -1970,6 +1974,10 @@
   "DbEF7d": {
     "defaultMessage": "Master the art of building interactive and user-friendly forms.",
     "description": "Description for interview preparation focus area"
+  },
+  "Dc5QrJ": {
+    "defaultMessage": "Coding",
+    "description": "Tile for coding question type"
   },
   "DdRaW3": {
     "defaultMessage": "Filters",
@@ -3119,6 +3127,10 @@
     "defaultMessage": "Preparation areas",
     "description": "Preparation tabs title"
   },
+  "LWEEN+": {
+    "defaultMessage": "Solved by question type",
+    "description": "Title for solved by question type"
+  },
   "LXcvcX": {
     "defaultMessage": "Ok",
     "description": "Ok label"
@@ -3882,6 +3894,10 @@
   "Qp/rKd": {
     "defaultMessage": "Hard",
     "description": "Hard difficulty label for solved problems"
+  },
+  "QqddKP": {
+    "defaultMessage": "Quizzes",
+    "description": "Tile for quiz question type"
   },
   "QrikGf": {
     "defaultMessage": "Copy to clipboard",

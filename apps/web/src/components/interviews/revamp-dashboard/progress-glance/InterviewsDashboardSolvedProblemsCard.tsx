@@ -149,6 +149,7 @@ export default function InterviewsDashboardSolvedProblemsCard({
               </div>
               <ProgressBar
                 backgroundClass={themeBackgroundLineEmphasizedColor}
+                heightClass="h-1.5"
                 label={label}
                 progressClass={gradient}
                 total={total}

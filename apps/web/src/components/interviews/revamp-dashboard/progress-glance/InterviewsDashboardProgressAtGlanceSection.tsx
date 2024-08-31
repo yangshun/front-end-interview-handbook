@@ -9,6 +9,8 @@ import Section from '~/components/ui/Heading/HeadingContext';
 import { themeTextColor } from '~/components/ui/theme';
 
 import InterviewsDashboardContributionsHeatMapCard from './InterviewsDashboardContributionsHeatmapCard';
+import InterviewsDashboardSolvedByTechnologyOrQuestionType from './InterviewsDashboardSolvedByQuestionType';
+import InterviewsDashboardSolvedProblemsCard from './InterviewsDashboardSolvedProblemsCard';
 
 type Props = Readonly<{
   questions: {
@@ -37,6 +39,10 @@ export default function InterviewsDashboardProgressAtGlanceSection({
         </Heading>
         <div className="grid gap-6 xl:grid-cols-2">
           <InterviewsDashboardSolvedProblemsCard
+            questions={questions}
+            questionsProgress={questionsProgress}
+          />
+          <InterviewsDashboardSolvedByTechnologyOrQuestionType
             questions={questions}
             questionsProgress={questionsProgress}
           />
