@@ -2511,6 +2511,10 @@
     "defaultMessage": "Light",
     "description": "Select label for light console theme in console settings"
   },
+  "HaM5w5": {
+    "defaultMessage": "Not completed",
+    "description": "Not completed question"
+  },
   "Hav9UT": {
     "defaultMessage": "Marked \"{questionTitle}\" as not completed",
     "description": "Success message for marking a question as not completed"

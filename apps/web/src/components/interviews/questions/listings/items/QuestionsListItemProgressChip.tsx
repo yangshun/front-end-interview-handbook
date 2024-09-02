@@ -157,9 +157,9 @@ function NotCompleted({
     id: '6y6SUS',
   });
   const statusLabel = intl.formatMessage({
-    defaultMessage: 'Completed',
-    description: 'Completed question',
-    id: 'yVJzTk',
+    defaultMessage: 'Not completed',
+    description: 'Not completed question',
+    id: 'HaM5w5',
   });
   const label = onClick ? actionLabel : statusLabel;
 
