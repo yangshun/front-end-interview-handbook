@@ -30,6 +30,7 @@ export function getPreparationPlanOneWeek(intl: IntlShape): PreparationPlan {
       id: 'vfVwh2',
     }),
     questions: {
+      algo: [],
       javascript: [
         'array-filter',
         'promise-all',

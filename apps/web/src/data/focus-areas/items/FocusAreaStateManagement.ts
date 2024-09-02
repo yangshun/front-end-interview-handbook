@@ -26,6 +26,7 @@ export function getFocusAreaStateManagement(intl: IntlShape): FocusArea {
       id: '7xPEg+',
     }),
     questions: {
+      algo: [],
       javascript: [],
       quiz: [],
       'system-design': [],

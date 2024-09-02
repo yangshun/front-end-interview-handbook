@@ -33,6 +33,12 @@ export const InterviewsCompanyGuideDocument = defineDocumentType(() => ({
       required: true,
       type: 'string',
     },
+    questionsAlgo: {
+      description: 'List of algo questions',
+      of: { type: 'string' },
+      required: false,
+      type: 'list',
+    },
     questionsJavaScript: {
       description: 'List of JavaScript questions',
       of: { type: 'string' },

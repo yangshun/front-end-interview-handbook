@@ -118,6 +118,11 @@ export function categorizeQuestionsProgress(
   > | null,
 ): QuestionsCategorizedProgress {
   return {
+    algo: new Set(
+      (questionProgress?.filter(({ format }) => format === 'algo') ?? []).map(
+        ({ slug }) => slug,
+      ),
+    ),
     javascript: new Set(
       (
         questionProgress?.filter(({ format }) => format === 'javascript') ?? []
@@ -231,6 +236,11 @@ export function filterQuestionsProgressByList(
   questions: Record<QuestionFormat, ReadonlyArray<QuestionSlug>>,
 ): QuestionsCategorizedProgress {
   return {
+    algo: new Set(
+      Array.from(questionProgress.algo).filter(
+        (slug) => questions.algo.includes(slug) ?? true,
+      ),
+    ),
     javascript: new Set(
       Array.from(questionProgress.javascript).filter(
         (slug) => questions.javascript.includes(slug) ?? true,

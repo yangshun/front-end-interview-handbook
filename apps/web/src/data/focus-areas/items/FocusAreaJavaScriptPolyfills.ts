@@ -26,6 +26,7 @@ export function getFocusAreaJavaScriptPolyfills(intl: IntlShape): FocusArea {
       id: '9Q8e4/',
     }),
     questions: {
+      algo: [],
       javascript: [
         'array-at',
         'array-concat',

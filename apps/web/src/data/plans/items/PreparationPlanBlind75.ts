@@ -27,6 +27,7 @@ export function getPreparationPlanBlind75(intl: IntlShape): PreparationPlan {
       id: 'MARU+b',
     }),
     questions: {
+      algo: [],
       javascript: [
         'array-filter',
         'array-map',

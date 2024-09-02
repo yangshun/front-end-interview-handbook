@@ -34,7 +34,7 @@ export function getFocusAreaDataStructuresAlgorithms(
       id: 'qZRTqi',
     }),
     questions: {
-      javascript: [
+      algo: [
         'stack',
         'queue',
         'merge-sort',
@@ -46,6 +46,8 @@ export function getFocusAreaDataStructuresAlgorithms(
         'binary-search',
         'depth-first-search',
         'breadth-first-search',
+      ],
+      javascript: [
         'data-merging',
         'data-selection',
         'event-emitter',

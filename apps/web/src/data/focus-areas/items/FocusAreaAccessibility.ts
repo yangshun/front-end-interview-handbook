@@ -26,6 +26,7 @@ export function getFocusAreaAccessibility(intl: IntlShape): FocusArea {
       id: '1kiNiW',
     }),
     questions: {
+      algo: [],
       javascript: [],
       quiz: [],
       'system-design': [],

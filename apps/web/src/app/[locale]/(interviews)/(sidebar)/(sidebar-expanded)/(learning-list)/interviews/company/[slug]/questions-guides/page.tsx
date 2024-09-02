@@ -51,6 +51,7 @@ export default async function Page({ params }: Props) {
   }
 
   const companyQuestions = {
+    algo: companyGuide.questionsAlgo ?? [],
     javascript: companyGuide.questionsJavaScript ?? [],
     quiz: companyGuide.questionsQuiz ?? [],
     'system-design': companyGuide.questionsSystemDesign ?? [],

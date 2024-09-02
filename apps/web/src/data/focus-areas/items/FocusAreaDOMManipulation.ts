@@ -26,6 +26,7 @@ export function getFocusAreaDOMManipulation(intl: IntlShape): FocusArea {
       id: 'RvPm3x',
     }),
     questions: {
+      algo: [],
       javascript: [
         'get-elements-by-class-name',
         'get-elements-by-style',

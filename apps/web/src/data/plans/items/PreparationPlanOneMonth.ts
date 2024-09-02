@@ -32,6 +32,7 @@ export function getPreparationPlanOneMonth(intl: IntlShape): PreparationPlan {
       id: 'EJRNjL',
     }),
     questions: {
+      algo: [],
       javascript: [
         'array-filter',
         'array-reduce',

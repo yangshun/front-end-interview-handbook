@@ -39,6 +39,10 @@
     "defaultMessage": "Congratulations on completing the question! Sign into your account or sign up for free to save your progress!",
     "description": "Message shown when user completes a question"
   },
+  "+NJDpT": {
+    "defaultMessage": "{questionTitle} | Algorithms Front End Interview Questions with Solutions",
+    "description": "Title of Algorithms Front End interview questions page"
+  },
   "+OVTKu": {
     "defaultMessage": "Billing | Profile",
     "description": "Title of Profile Billing page"

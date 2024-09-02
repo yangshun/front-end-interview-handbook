@@ -20,6 +20,7 @@ type Props = Readonly<{
 
 // https://github.com/greatfrontend/greatfrontend/labels
 const QuestionFormatToGitHubIssueLabel: Record<QuestionFormat, string> = {
+  algo: 'question-algo',
   javascript: 'question-javascript',
   quiz: 'question-quiz',
   'system-design': 'question-system-design',

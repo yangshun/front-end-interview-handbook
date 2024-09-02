@@ -1,6 +1,9 @@
 import fs from 'fs';
 import path from 'path';
 
+import { readQuestionListMetadataAlgo } from '~/db/questions-bundlers/QuestionsBundlerAlgo';
+import { getQuestionsListOutFilenameAlgo } from '~/db/questions-bundlers/QuestionsBundlerAlgoConfig';
+
 import type { QuestionMetadata } from '../components/interviews/questions/common/QuestionsTypes';
 import { getQuestionsListOutFilenameCoding } from '../db/questions-bundlers/QuestionsBundlerCodingConfig';
 import { readQuestionListMetadataJavaScript } from '../db/questions-bundlers/QuestionsBundlerJavaScript';
@@ -25,12 +28,15 @@ async function generateQuestionsMetadata(
 }
 
 async function codingQuestionsMetadata(outPath: string, locale = 'en-US') {
-  const [javaScriptQuestions, userInterfaceQuestions] = await Promise.all([
-    readQuestionListMetadataJavaScript(locale),
-    readQuestionListMetadataUserInterface(locale),
-  ]);
+  const [algoQuestions, javaScriptQuestions, userInterfaceQuestions] =
+    await Promise.all([
+      readQuestionListMetadataAlgo(locale),
+      readQuestionListMetadataJavaScript(locale),
+      readQuestionListMetadataUserInterface(locale),
+    ]);
 
   const combinedQuestions = [
+    ...algoQuestions,
     ...javaScriptQuestions,
     ...userInterfaceQuestions,
   ].sort((a, b) => a.title.localeCompare(b.title));
@@ -68,6 +74,11 @@ export async function generateAllMetadata() {
     generateQuestionsMetadata(
       readQuestionListMetadataSystemDesign,
       getQuestionsListOutFilenameSystemDesign(locale),
+      locale,
+    ),
+    generateQuestionsMetadata(
+      readQuestionListMetadataAlgo,
+      getQuestionsListOutFilenameAlgo(locale),
       locale,
     ),
     generateQuestionsMetadata(

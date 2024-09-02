@@ -39,6 +39,7 @@ export function getPreparationPlanThreeMonths(
       id: 'ojtNa2',
     }),
     questions: {
+      algo: [],
       javascript: [
         'array-filter',
         'array-map',

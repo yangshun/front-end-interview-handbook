@@ -27,6 +27,7 @@ export function getPreparationPlanGFE75(intl: IntlShape): PreparationPlan {
       id: 'XFNi6J',
     }),
     questions: {
+      algo: [],
       javascript: [
         'array-filter',
         'array-map',

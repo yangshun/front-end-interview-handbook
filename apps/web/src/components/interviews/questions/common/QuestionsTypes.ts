@@ -47,6 +47,7 @@ export type QuestionSortField =
   | 'ranking'
   | 'title';
 export type QuestionFormat =
+  | 'algo'
   | 'javascript'
   | 'quiz'
   | 'system-design'

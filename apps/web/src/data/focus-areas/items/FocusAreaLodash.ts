@@ -26,6 +26,7 @@ export function getFocusAreaLodash(intl: IntlShape): FocusArea {
       id: '0HOYxB',
     }),
     questions: {
+      algo: [],
       javascript: [
         'chunk',
         'clamp',

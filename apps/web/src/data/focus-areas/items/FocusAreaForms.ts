@@ -26,6 +26,7 @@ export function getFocusAreaForms(intl: IntlShape): FocusArea {
       id: 'YKZzqP',
     }),
     questions: {
+      algo: [],
       javascript: [],
       quiz: [],
       'system-design': ['e-commerce-amazon'],

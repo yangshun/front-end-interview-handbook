@@ -247,68 +247,6 @@
     "topics": []
   },
   {
-    "author": null,
-    "companies": [],
-    "created": 1671667200,
-    "difficulty": "medium",
-    "duration": 15,
-    "excerpt": "Implement a function that performs binary search on an array of numbers",
-    "featured": false,
-    "format": "javascript",
-    "frameworkDefault": null,
-    "frameworks": [],
-    "href": "/questions/javascript/binary-search",
-    "importance": "low",
-    "languages": [
-      "js",
-      "ts"
-    ],
-    "nextQuestions": [
-      "selection-sort",
-      "quick-sort",
-      "merge-sort",
-      "depth-first-search",
-      "breadth-first-search"
-    ],
-    "premium": false,
-    "published": true,
-    "ranking": 100,
-    "similarQuestions": [],
-    "slug": "binary-search",
-    "subtitle": null,
-    "title": "Binary Search",
-    "topics": []
-  },
-  {
-    "author": null,
-    "companies": [],
-    "created": 1679788800,
-    "difficulty": "medium",
-    "duration": 15,
-    "excerpt": "Implement a breadth-first search algorithm that traverses a directed graph in a breadth-first manner",
-    "featured": false,
-    "format": "javascript",
-    "frameworkDefault": null,
-    "frameworks": [],
-    "href": "/questions/javascript/breadth-first-search",
-    "importance": "low",
-    "languages": [
-      "js",
-      "ts"
-    ],
-    "nextQuestions": [],
-    "premium": false,
-    "published": true,
-    "ranking": 100,
-    "similarQuestions": [
-      "depth-first-search"
-    ],
-    "slug": "breadth-first-search",
-    "subtitle": null,
-    "title": "Breadth-first Search",
-    "topics": []
-  },
-  {
     "author": "zhenghao",
     "companies": [],
     "created": 1656460800,
@@ -1110,35 +1048,6 @@
   {
     "author": null,
     "companies": [],
-    "created": 1671667200,
-    "difficulty": "medium",
-    "duration": 15,
-    "excerpt": "Implement a depth-first search algorithm that traverses a directed graph in a depth-first manner",
-    "featured": false,
-    "format": "javascript",
-    "frameworkDefault": null,
-    "frameworks": [],
-    "href": "/questions/javascript/depth-first-search",
-    "importance": "low",
-    "languages": [
-      "js",
-      "ts"
-    ],
-    "nextQuestions": [],
-    "premium": false,
-    "published": true,
-    "ranking": 100,
-    "similarQuestions": [
-      "breadth-first-search"
-    ],
-    "slug": "depth-first-search",
-    "subtitle": null,
-    "title": "Depth-first Search",
-    "topics": []
-  },
-  {
-    "author": null,
-    "companies": [],
     "created": 1682553600,
     "difficulty": "easy",
     "duration": 10,
@@ -1775,37 +1684,6 @@
     "topics": []
   },
   {
-    "author": null,
-    "companies": [],
-    "created": 1673395200,
-    "difficulty": "medium",
-    "duration": 15,
-    "excerpt": "Implement a function that performs a heap sort",
-    "featured": false,
-    "format": "javascript",
-    "frameworkDefault": null,
-    "frameworks": [],
-    "href": "/questions/javascript/heap-sort",
-    "importance": "low",
-    "languages": [
-      "js",
-      "ts"
-    ],
-    "nextQuestions": [
-      "quick-sort"
-    ],
-    "premium": false,
-    "published": true,
-    "ranking": 100,
-    "similarQuestions": [
-      "selection-sort"
-    ],
-    "slug": "heap-sort",
-    "subtitle": null,
-    "title": "Heap Sort",
-    "topics": []
-  },
-  {
     "author": "zhenghao",
     "companies": [
       "tiktok"
@@ -1894,37 +1772,6 @@
     "slug": "in-range",
     "subtitle": null,
     "title": "In Range",
-    "topics": []
-  },
-  {
-    "author": null,
-    "companies": [],
-    "created": 1671667200,
-    "difficulty": "easy",
-    "duration": 15,
-    "excerpt": "Implement a function that performs an insertion sort",
-    "featured": false,
-    "format": "javascript",
-    "frameworkDefault": null,
-    "frameworks": [],
-    "href": "/questions/javascript/insertion-sort",
-    "importance": "low",
-    "languages": [
-      "js",
-      "ts"
-    ],
-    "nextQuestions": [
-      "quick-sort"
-    ],
-    "premium": false,
-    "published": true,
-    "ranking": 100,
-    "similarQuestions": [
-      "selection-sort"
-    ],
-    "slug": "insertion-sort",
-    "subtitle": null,
-    "title": "Insertion Sort",
     "topics": []
   },
   {
@@ -2482,35 +2329,6 @@
   {
     "author": null,
     "companies": [],
-    "created": 1671667200,
-    "difficulty": "medium",
-    "duration": 20,
-    "excerpt": "Implement a function that performs a recursive merge sort",
-    "featured": false,
-    "format": "javascript",
-    "frameworkDefault": null,
-    "frameworks": [],
-    "href": "/questions/javascript/merge-sort",
-    "importance": "low",
-    "languages": [
-      "js",
-      "ts"
-    ],
-    "nextQuestions": [],
-    "premium": false,
-    "published": true,
-    "ranking": 100,
-    "similarQuestions": [
-      "quick-sort"
-    ],
-    "slug": "merge-sort",
-    "subtitle": null,
-    "title": "Merge Sort",
-    "topics": []
-  },
-  {
-    "author": null,
-    "companies": [],
     "created": 1710720000,
     "difficulty": "easy",
     "duration": 10,
@@ -2982,64 +2800,6 @@
     "topics": []
   },
   {
-    "author": "yangshun",
-    "companies": [],
-    "created": 1670457600,
-    "difficulty": "medium",
-    "duration": 15,
-    "excerpt": "Implement a queue data structure containing the common queue methods",
-    "featured": false,
-    "format": "javascript",
-    "frameworkDefault": null,
-    "frameworks": [],
-    "href": "/questions/javascript/queue",
-    "importance": "low",
-    "languages": [
-      "js",
-      "ts"
-    ],
-    "nextQuestions": [],
-    "premium": false,
-    "published": true,
-    "ranking": 100,
-    "similarQuestions": [
-      "stack"
-    ],
-    "slug": "queue",
-    "subtitle": null,
-    "title": "Queue",
-    "topics": []
-  },
-  {
-    "author": null,
-    "companies": [],
-    "created": 1671667200,
-    "difficulty": "medium",
-    "duration": 20,
-    "excerpt": "Implement a function that performs a recursive quick sort",
-    "featured": false,
-    "format": "javascript",
-    "frameworkDefault": null,
-    "frameworks": [],
-    "href": "/questions/javascript/quick-sort",
-    "importance": "low",
-    "languages": [
-      "js",
-      "ts"
-    ],
-    "nextQuestions": [],
-    "premium": false,
-    "published": true,
-    "ranking": 100,
-    "similarQuestions": [
-      "merge-sort"
-    ],
-    "slug": "quick-sort",
-    "subtitle": null,
-    "title": "Quick Sort",
-    "topics": []
-  },
-  {
     "author": null,
     "companies": [],
     "created": 1710633600,
@@ -3130,37 +2890,6 @@
     "slug": "resumable-interval",
     "subtitle": null,
     "title": "Resumable Interval",
-    "topics": []
-  },
-  {
-    "author": null,
-    "companies": [],
-    "created": 1671667200,
-    "difficulty": "easy",
-    "duration": 10,
-    "excerpt": "Implement a function that performs a selection sort",
-    "featured": false,
-    "format": "javascript",
-    "frameworkDefault": null,
-    "frameworks": [],
-    "href": "/questions/javascript/selection-sort",
-    "importance": "low",
-    "languages": [
-      "js",
-      "ts"
-    ],
-    "nextQuestions": [
-      "quick-sort"
-    ],
-    "premium": true,
-    "published": true,
-    "ranking": 100,
-    "similarQuestions": [
-      "insertion-sort"
-    ],
-    "slug": "selection-sort",
-    "subtitle": null,
-    "title": "Selection Sort",
     "topics": []
   },
   {
@@ -3272,37 +3001,6 @@
     "slug": "squash-object",
     "subtitle": null,
     "title": "Squash Object",
-    "topics": []
-  },
-  {
-    "author": "yangshun",
-    "companies": [],
-    "created": 1670025600,
-    "difficulty": "easy",
-    "duration": 10,
-    "excerpt": "Implement a stack data structure containing the common stack methods",
-    "featured": false,
-    "format": "javascript",
-    "frameworkDefault": null,
-    "frameworks": [],
-    "href": "/questions/javascript/stack",
-    "importance": "low",
-    "languages": [
-      "js",
-      "ts"
-    ],
-    "nextQuestions": [
-      "queue"
-    ],
-    "premium": false,
-    "published": true,
-    "ranking": 100,
-    "similarQuestions": [
-      "queue"
-    ],
-    "slug": "stack",
-    "subtitle": null,
-    "title": "Stack",
     "topics": []
   },
   {
@@ -3463,37 +3161,6 @@
     "slug": "throttle",
     "subtitle": null,
     "title": "Throttle",
-    "topics": []
-  },
-  {
-    "author": null,
-    "companies": [],
-    "created": 1673395200,
-    "difficulty": "medium",
-    "duration": 20,
-    "excerpt": "Implement a function that performs a topological sort",
-    "featured": false,
-    "format": "javascript",
-    "frameworkDefault": null,
-    "frameworks": [],
-    "href": "/questions/javascript/topological-sort",
-    "importance": "low",
-    "languages": [
-      "js",
-      "ts"
-    ],
-    "nextQuestions": [
-      "quick-sort"
-    ],
-    "premium": false,
-    "published": true,
-    "ranking": 100,
-    "similarQuestions": [
-      "selection-sort"
-    ],
-    "slug": "topological-sort",
-    "subtitle": null,
-    "title": "Topological Sort",
     "topics": []
   },
   {

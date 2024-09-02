@@ -13,12 +13,42 @@ import type {
   QuestionUserInterfaceBundle,
 } from '~/components/interviews/questions/common/QuestionsTypes';
 
+import { getQuestionOutPathAlgo } from './questions-bundlers/QuestionsBundlerAlgoConfig';
 import { getQuestionOutPathJavaScript } from './questions-bundlers/QuestionsBundlerJavaScriptConfig';
 import { getQuestionOutPathQuiz } from './questions-bundlers/QuestionsBundlerQuizConfig';
 import { getQuestionOutPathSystemDesign } from './questions-bundlers/QuestionsBundlerSystemDesignConfig';
 import { getQuestionOutPathUserInterface } from './questions-bundlers/QuestionsBundlerUserInterfaceConfig';
 
 // Add functions which read from the generated content files.
+
+export function readQuestionAlgoContents(
+  slug: string,
+  requestedLocale = 'en-US',
+): Readonly<{
+  loadedLocale: string;
+  question: QuestionJavaScript;
+}> {
+  let loadedLocale = requestedLocale;
+  const response = (() => {
+    try {
+      return fs.readFileSync(
+        path.join(getQuestionOutPathAlgo(slug), `${requestedLocale}.json`),
+      );
+    } catch {
+      loadedLocale = 'en-US';
+
+      // Fallback to English.
+      return fs.readFileSync(
+        path.join(getQuestionOutPathAlgo(slug), `${loadedLocale}.json`),
+      );
+    }
+  })();
+
+  return {
+    loadedLocale,
+    question: JSON.parse(String(response)) as QuestionJavaScript,
+  };
+}
 
 export function readQuestionJavaScriptContents(
   slug: string,

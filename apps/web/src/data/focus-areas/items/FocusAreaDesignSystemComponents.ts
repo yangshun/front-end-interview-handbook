@@ -26,6 +26,7 @@ export function getFocusAreaDesignSystemComponents(intl: IntlShape): FocusArea {
       id: 'onNjnt',
     }),
     questions: {
+      algo: [],
       javascript: [],
       quiz: [],
       'system-design': ['image-carousel', 'dropdown-menu', 'modal-dialog'],

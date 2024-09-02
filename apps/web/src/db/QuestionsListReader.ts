@@ -15,6 +15,7 @@ import type {
 import { ReadyQuestions } from '~/components/interviews/questions/content/system-design/SystemDesignConfig';
 import { filterQuestions } from '~/components/interviews/questions/listings/filters/QuestionsProcessor';
 
+import { getQuestionsListOutFilenameAlgo } from './questions-bundlers/QuestionsBundlerAlgoConfig';
 import { getQuestionsListOutFilenameCoding } from './questions-bundlers/QuestionsBundlerCodingConfig';
 import { getQuestionsListOutFilenameJavaScript } from './questions-bundlers/QuestionsBundlerJavaScriptConfig';
 import { getQuestionsListOutFilenameQuiz } from './questions-bundlers/QuestionsBundlerQuizConfig';
@@ -24,7 +25,8 @@ import { getQuestionsListOutFilenameUserInterface } from './questions-bundlers/Q
 export type QuestionTotalAvailableCount = Record<QuestionFormat, number>;
 
 export async function fetchQuestionsListCount(): Promise<QuestionTotalAvailableCount> {
-  const [js, ui, quiz, sd] = await Promise.all([
+  const [algo, js, ui, quiz, sd] = await Promise.all([
+    fetchQuestionsListAlgo(),
     fetchQuestionsListJavaScript(),
     fetchQuestionsListUserInterface(),
     fetchQuestionsListQuiz(),
@@ -36,6 +38,7 @@ export async function fetchQuestionsListCount(): Promise<QuestionTotalAvailableC
   ).length;
 
   return {
+    algo: algo.questions.length,
     javascript: js.questions.length,
     quiz: quiz.questions.length,
     'system-design': sdCount,
@@ -60,6 +63,32 @@ export async function fetchQuestionsListQuiz(
 
       // Fallback to English.
       return fs.readFileSync(getQuestionsListOutFilenameQuiz(loadedLocale));
+    }
+  })();
+
+  return {
+    loadedLocale,
+    questions: JSON.parse(String(response)) as ReadonlyArray<QuestionMetadata>,
+  };
+}
+
+export async function fetchQuestionsListAlgo(
+  requestedLocale = 'en-US',
+): Promise<
+  Readonly<{
+    loadedLocale: string;
+    questions: ReadonlyArray<QuestionMetadata>;
+  }>
+> {
+  let loadedLocale = requestedLocale;
+  const response = (() => {
+    try {
+      return fs.readFileSync(getQuestionsListOutFilenameAlgo(requestedLocale));
+    } catch {
+      loadedLocale = 'en-US';
+
+      // Fallback to English.
+      return fs.readFileSync(getQuestionsListOutFilenameAlgo(loadedLocale));
     }
   })();
 
@@ -206,17 +235,22 @@ export async function fetchQuestionsBySlug(
 ): Promise<Record<QuestionFormat, ReadonlyArray<QuestionMetadata>>> {
   const [
     { questions: quizQuestions },
+    { questions: algoQuestions },
     { questions: jsQuestions },
     { questions: uiQuestions },
     { questions: systemDesignQuestions },
   ] = await Promise.all([
     fetchQuestionsListQuiz(locale),
+    fetchQuestionsListAlgo(locale),
     fetchQuestionsListJavaScript(locale),
     fetchQuestionsListUserInterface(locale),
     fetchQuestionsListSystemDesign(locale),
   ]);
 
   // TODO: Improve the lookup.
+  const algoQuestionsFiltered = algoQuestions.filter((question) =>
+    slugs.algo.includes(question.slug),
+  );
   const jsQuestionsFiltered = jsQuestions.filter((question) =>
     slugs.javascript.includes(question.slug),
   );
@@ -231,6 +265,7 @@ export async function fetchQuestionsBySlug(
   );
 
   return {
+    algo: algoQuestionsFiltered,
     javascript: jsQuestionsFiltered,
     quiz: quizQuestionsFiltered,
     'system-design': systemDesignQuestionsFiltered,
