@@ -52,11 +52,8 @@ export type QuestionFormat =
   | 'quiz'
   | 'system-design'
   | 'user-interface';
+export type QuestionCodingFormat = 'algo' | 'javascript' | 'user-interface';
 export type QuestionUserFacingFormat = 'coding' | 'quiz' | 'system-design';
-export type QuestionCodingFormat =
-  | 'data-structures-algorithms'
-  | 'user-interface'
-  | 'utilities';
 export type QuestionFramework =
   | 'angular'
   | 'react'

@@ -31,9 +31,9 @@ const codingFormatRankingForNonJavaScript: Record<
   QuestionCodingFormat,
   number
 > = {
-  'data-structures-algorithms': 0,
+  algo: 0,
+  javascript: 1,
   'user-interface': 2,
-  utilities: 1,
 };
 
 const CategoryFilters: Record<
@@ -47,13 +47,13 @@ const CategoryFilters: Record<
   }>
 > = {
   css: {
-    filterPredicate: (format) => format !== 'data-structures-algorithms',
+    filterPredicate: (format) => format !== 'algo',
     orderComparator: (a, b) =>
       codingFormatRankingForNonJavaScript[b] -
       codingFormatRankingForNonJavaScript[a],
   },
   html: {
-    filterPredicate: (format) => format !== 'data-structures-algorithms',
+    filterPredicate: (format) => format !== 'algo',
     orderComparator: (a, b) =>
       codingFormatRankingForNonJavaScript[b] -
       codingFormatRankingForNonJavaScript[a],

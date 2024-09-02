@@ -1,6 +1,5 @@
 import { forEach, mapValues } from 'lodash-es';
 
-import { DSAQuestions } from '~/components/interviews/questions/common/QuestionsCodingDataStructuresAlgorithms';
 import type {
   QuestionCodingFormat,
   QuestionFormat,
@@ -154,23 +153,20 @@ export function categorizeQuestionsProgressByCodingFormat(
   > | null,
 ): QuestionsCodingFormatCategorizedProgress {
   return {
-    'data-structures-algorithms': new Set(
+    algo: new Set(
+      (questionProgress?.filter(({ format }) => format === 'algo') ?? []).map(
+        ({ slug }) => slug,
+      ),
+    ),
+    javascript: new Set(
       (
-        questionProgress?.filter(({ slug }) => DSAQuestions.has(slug)) ?? []
+        questionProgress?.filter(({ format }) => format === 'javascript') ?? []
       ).map(({ slug }) => slug),
     ),
     'user-interface': new Set(
       (
         questionProgress?.filter(({ format }) => format === 'user-interface') ??
         []
-      ).map(({ slug }) => slug),
-    ),
-    utilities: new Set(
-      (
-        questionProgress?.filter(
-          ({ format, slug }) =>
-            format === 'javascript' && !DSAQuestions.has(slug),
-        ) ?? []
       ).map(({ slug }) => slug),
     ),
   };

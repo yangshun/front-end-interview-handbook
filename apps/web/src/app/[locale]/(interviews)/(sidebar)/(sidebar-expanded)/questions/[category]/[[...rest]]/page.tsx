@@ -56,12 +56,12 @@ export async function generateStaticParams() {
     },
     {
       category: 'js',
-      codingFormat: 'data-structures-algorithms',
+      codingFormat: 'algo',
       format: 'coding',
     },
     {
       category: 'js',
-      codingFormat: 'utilities',
+      codingFormat: 'javascript',
       format: 'coding',
     },
     {
@@ -82,7 +82,7 @@ export async function generateStaticParams() {
     },
     {
       category: 'html',
-      codingFormat: 'utilities',
+      codingFormat: 'javascript',
       format: 'coding',
     },
     {
@@ -103,7 +103,7 @@ export async function generateStaticParams() {
     },
     {
       category: 'css',
-      codingFormat: 'utilities',
+      codingFormat: 'javascript',
       format: 'coding',
     },
     {

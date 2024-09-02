@@ -4,7 +4,6 @@ import { FormattedMessage, useIntl } from 'react-intl';
 
 import { useQuestionFormatLists } from '~/data/QuestionFormats';
 
-import { DSAQuestions } from '~/components/interviews/questions/common/QuestionsCodingDataStructuresAlgorithms';
 import type {
   QuestionCodingFormat,
   QuestionFramework,
@@ -43,14 +42,12 @@ export default function InterviewsDashboardPracticeCodingQuestionsCard({
   const questionsFormat = useQuestionFormatLists();
   const codingQuestionsProgressAll =
     categorizeQuestionsProgressByCodingFormat(questionsProgress);
-  const dsQuestions = questions.filter((question) =>
-    DSAQuestions.has(question.slug),
+  const algoQuestions = questions.filter(
+    (question) => question.format === 'algo',
   );
-  const utilitiesQuestions = questions.filter(
-    (question) =>
-      question.format === 'javascript' && !DSAQuestions.has(question.slug),
+  const jsQuestions = questions.filter(
+    (question) => question.format === 'javascript',
   );
-
   const uiQuestions = questions.filter(
     (question) => question.format === 'user-interface',
   );
@@ -66,9 +63,8 @@ export default function InterviewsDashboardPracticeCodingQuestionsCard({
       totalQuestions: number;
     }
   > = {
-    'data-structures-algorithms': {
-      completedQuestions:
-        codingQuestionsProgressAll['data-structures-algorithms'].size,
+    algo: {
+      completedQuestions: codingQuestionsProgressAll.algo.size,
       languages: ['js', 'ts'],
       themeGradient: themeGradientGreenYellow.className,
       title: intl.formatMessage({
@@ -76,7 +72,18 @@ export default function InterviewsDashboardPracticeCodingQuestionsCard({
         description: 'Title for coding format data structures & algo',
         id: 'qHCndx',
       }),
-      totalQuestions: dsQuestions.length,
+      totalQuestions: algoQuestions.length,
+    },
+    javascript: {
+      completedQuestions: codingQuestionsProgressAll.javascript.size,
+      languages: ['js', 'ts', 'html', 'css'],
+      themeGradient: themeGradientPurpleGreen.className,
+      title: intl.formatMessage({
+        defaultMessage: 'Javascript utilities and APIs',
+        description: 'Title for coding format utilities',
+        id: 'qBLo3K',
+      }),
+      totalQuestions: jsQuestions.length,
     },
     'user-interface': {
       completedQuestions: codingQuestionsProgressAll['user-interface'].size,
@@ -89,22 +96,11 @@ export default function InterviewsDashboardPracticeCodingQuestionsCard({
       }),
       totalQuestions: uiQuestions.length,
     },
-    utilities: {
-      completedQuestions: codingQuestionsProgressAll.utilities.size,
-      languages: ['js', 'ts', 'html', 'css'],
-      themeGradient: themeGradientPurpleGreen.className,
-      title: intl.formatMessage({
-        defaultMessage: 'Javascript utilities and APIs',
-        description: 'Title for coding format utilities',
-        id: 'qBLo3K',
-      }),
-      totalQuestions: utilitiesQuestions.length,
-    },
   };
 
   const questionsFormats = [
-    questionsFormatsData['data-structures-algorithms'],
-    questionsFormatsData.utilities,
+    questionsFormatsData.algo,
+    questionsFormatsData.javascript,
     questionsFormatsData['user-interface'],
   ];
 

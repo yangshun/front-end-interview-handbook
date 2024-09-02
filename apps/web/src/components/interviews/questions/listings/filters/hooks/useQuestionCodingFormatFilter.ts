@@ -4,7 +4,6 @@ import { useIntl } from 'react-intl';
 
 import useSessionStorageForSets from '~/hooks/useSessionStorageForSets';
 
-import { DSAQuestions } from '~/components/interviews/questions/common/QuestionsCodingDataStructuresAlgorithms';
 import type { QuestionCodingFormat } from '~/components/interviews/questions/common/QuestionsTypes';
 
 import type { QuestionFilter } from '../QuestionFilterType';
@@ -47,7 +46,7 @@ export default function useQuestionCodingFormatFilter({
         description: 'Description of JavaScript utility function questions',
         id: 'HOCjPY',
       }),
-      value: 'utilities',
+      value: 'javascript',
     },
     {
       icon: RiTerminalWindowLine,
@@ -76,7 +75,7 @@ export default function useQuestionCodingFormatFilter({
         description: 'Description of data structures and algorithm questions',
         id: '7xAtDI',
       }),
-      value: 'data-structures-algorithms',
+      value: 'algo',
     },
   ];
 
@@ -94,18 +93,7 @@ export default function useQuestionCodingFormatFilter({
         return true;
       }
 
-      const isDSA =
-        codingFormatFilters.has('data-structures-algorithms') &&
-        DSAQuestions.has(question.slug);
-      const isUtility =
-        codingFormatFilters.has('utilities') &&
-        question.format === 'javascript' &&
-        !DSAQuestions.has(question.slug);
-      const isUI =
-        codingFormatFilters.has('user-interface') &&
-        question.format === 'user-interface';
-
-      return isDSA || isUtility || isUI;
+      return codingFormatFilters.has(question.format as QuestionCodingFormat);
     },
     name: intl.formatMessage({
       defaultMessage: 'Question format',
