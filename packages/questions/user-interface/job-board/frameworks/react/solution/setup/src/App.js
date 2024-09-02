@@ -10,15 +10,16 @@ export default function App() {
   const [page, setPage] = useState(0);
   const [jobIds, setJobIds] = useState(null);
   const [jobs, setJobs] = useState([]);
-  const isUnmounted = useRef(false);
+  const isMounted = useRef(true);
 
   useEffect(() => {
+    isMounted.current = true;
     // Indicate that the component is unmounted, so
     // that requests that complete after the component
     // is unmounted don't cause a "setState on an unmounted
     // component error".
     return () => {
-      isUnmounted.current = true;
+      isMounted.current = false;
     };
   }, []);
 
@@ -35,7 +36,7 @@ export default function App() {
       jobs = await res.json();
 
       // No-op if component is unmounted.
-      if (isUnmounted.current) {
+      if (!isMounted.current) {
         return;
       }
 
@@ -60,7 +61,7 @@ export default function App() {
     );
 
     // No-op if component is unmounted.
-    if (isUnmounted.current) {
+    if (!isMounted.current) {
       return;
     }
 
