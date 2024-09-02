@@ -14,6 +14,7 @@ import {
   DialogTitle,
   widthClasses,
 } from '~/components/ui/Dialog';
+import Divider from '~/components/ui/Divider';
 
 import ProjectsSkillRoadmapSelection from './ProjectsSkillRoadmapSelection';
 import type { ProjectsSkillKey } from '../types';
@@ -62,14 +63,21 @@ export default function ProjectsSkillRoadmapSelectionDialog({
                 </DialogTitle>
               </DialogHeader>
               <DialogBody scrollable={true}>
-                <ProjectsSkillRoadmapSelection
-                  value={skills}
-                  onChange={setSkills}
-                />
+                <div className="pb-6">
+                  <ProjectsSkillRoadmapSelection
+                    value={skills}
+                    onChange={setSkills}
+                  />
+                </div>
               </DialogBody>
-              <DialogFooter className="!flex-row items-center">
+              <Divider className="-mx-6" color="emphasized" />
+              <DialogFooter className="flex-col md:flex-row md:items-center">
                 {footerInfoContent}
-                <div className="flex flex-1 justify-end gap-2">
+                <div
+                  className={clsx(
+                    'flex flex-1 gap-2 ',
+                    footerInfoContent ? 'md:justify-end' : 'justify-end',
+                  )}>
                   {challengeDefaultSkills != null && (
                     <Button
                       label={intl.formatMessage({
