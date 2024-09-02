@@ -46,6 +46,11 @@ describe('isValidStudentEmail', () => {
       expect(isValidStudentEmail('nishtha.kumari@nift.ac.in')).toEqual({
         valid: true,
       });
+      expect(
+        isValidStudentEmail('fitri.anjaini3279@student.unri.ac.id'),
+      ).toEqual({
+        valid: true,
+      });
     });
 
     test('.ac suffixes', () => {
@@ -66,6 +71,9 @@ describe('isValidStudentEmail', () => {
       valid: true,
     });
     expect(isValidStudentEmail('chen@utoronto.ca')).toEqual({
+      valid: true,
+    });
+    expect(isValidStudentEmail('ksaraf@student.ubc.ca')).toEqual({
       valid: true,
     });
   });

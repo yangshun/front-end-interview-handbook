@@ -1,5 +1,15 @@
 const validDomains = Object.freeze({
-  allowlisted: ['humbermail.ca', 'utoronto.ca'],
+  allowlisted: [
+    // .ca
+    'humbermail.ca',
+    'ubc.ca',
+    'uqac.ca',
+    'utoronto.ca',
+    // .in
+    'cuchd.in',
+    // .ru
+    'mephi.ru',
+  ],
   prefixes: ['edu.'],
   substring: ['.edu.', '.ac.'],
   suffixes: ['.edu', '.ac'],
@@ -34,8 +44,8 @@ export function isValidStudentEmail(
   const containsSuffix = validDomains.suffixes.some((suffix) =>
     domain.toLowerCase().endsWith(suffix),
   );
-  const allowedDomain = validDomains.allowlisted.some(
-    (validDomain) => domain.toLowerCase() === validDomain,
+  const allowedDomain = validDomains.allowlisted.some((validDomain) =>
+    domain.toLowerCase().includes(validDomain),
   );
 
   if (
