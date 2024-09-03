@@ -28,6 +28,7 @@ import type {
 } from '../../common/QuestionsTypes';
 import { ReadyQuestions } from '../../content/system-design/SystemDesignConfig';
 import QuestionDifficultyLabel from '../../metadata/QuestionDifficultyLabel';
+import QuestionFormatLabel from '../../metadata/QuestionFormatLabel';
 import QuestionFrameworks from '../../metadata/QuestionFrameworks';
 import QuestionImportanceLabel from '../../metadata/QuestionImportanceLabel';
 import QuestionLanguages from '../../metadata/QuestionLanguages';
@@ -136,18 +137,18 @@ export default function QuestionsList<Q extends QuestionMetadata>({
         ['divide-y', themeDivideColor],
         ['border', themeBorderColor],
       )}>
-      {questions.map((question, index) => {
-        const hasCompletedQuestion = checkIfCompletedQuestion(question);
+      {questions.map((questionMetadata, index) => {
+        const hasCompletedQuestion = checkIfCompletedQuestion(questionMetadata);
         const hasCompletedQuestionBefore = checkIfCompletedQuestionBefore
-          ? checkIfCompletedQuestionBefore(question)
+          ? checkIfCompletedQuestionBefore(questionMetadata)
           : false;
 
         return (
           <li
-            key={hashQuestion(question.format, question.slug)}
+            key={hashQuestion(questionMetadata.format, questionMetadata.slug)}
             className={clsx(
               'isolate',
-              'group relative flex gap-x-4 px-6 py-4',
+              'group relative flex gap-x-6 px-6 py-5',
               'focus-within:ring-brand focus-within:ring-2 focus-within:ring-inset',
               'transition-colors',
               themeBackgroundCardWhiteOnLightColor,
@@ -155,7 +156,7 @@ export default function QuestionsList<Q extends QuestionMetadata>({
               index === 0 && 'rounded-t-lg',
               index === questions.length - 1 && 'rounded-b-lg',
             )}>
-            <QuestionNewLabel created={question.created} />
+            <QuestionNewLabel created={questionMetadata.created} />
             {showProgress && (
               <QuestionsListItemProgressChip
                 className="z-[1]" // Needed for the icon to be above the link.
@@ -164,7 +165,7 @@ export default function QuestionsList<Q extends QuestionMetadata>({
                 index={index}
                 mode={mode}
                 premiumUser={userProfile?.isInterviewsPremium}
-                question={question}
+                question={questionMetadata}
                 onMarkAsCompleted={onMarkAsCompleted}
                 onMarkAsNotCompleted={onMarkAsNotCompleted}
               />
@@ -179,20 +180,20 @@ export default function QuestionsList<Q extends QuestionMetadata>({
                   href={
                     // Redirect to framework-specific page if framework prop is provided.
                     questionHrefWithList(
-                      question.frameworks.find(
+                      questionMetadata.frameworks.find(
                         ({ framework: frameworkType }) =>
                           frameworkType === framework,
-                      )?.href ?? question.href,
+                      )?.href ?? questionMetadata.href,
                       listKey,
                     )
                   }
                   variant="unstyled">
                   {/* Extend touch target to entire panel */}
                   <span aria-hidden="true" className="absolute inset-0" />
-                  {question.title}
+                  {questionMetadata.title}
                 </Anchor>
                 {/* TODO: remove hardcoding of "counter" and shift it into metadata */}
-                {question.slug === 'counter' && (
+                {questionMetadata.slug === 'counter' && (
                   <Badge
                     label={intl.formatMessage({
                       defaultMessage: 'Warm up question',
@@ -203,9 +204,9 @@ export default function QuestionsList<Q extends QuestionMetadata>({
                     variant="warning"
                   />
                 )}
-                {question.premium && <QuestionPremiumLabel />}
-                {question.format === 'system-design' &&
-                  !ReadyQuestions.includes(question.slug) && (
+                {questionMetadata.premium && <QuestionPremiumLabel />}
+                {questionMetadata.format === 'system-design' &&
+                  !ReadyQuestions.includes(questionMetadata.slug) && (
                     <Badge
                       label={intl.formatMessage({
                         defaultMessage: 'Coming soon',
@@ -217,40 +218,50 @@ export default function QuestionsList<Q extends QuestionMetadata>({
                     />
                   )}
               </Text>
-              {question.excerpt && (
-                <Text className="mt-1 block" color="secondary" size="body2">
-                  {question.excerpt}
+              {questionMetadata.excerpt && (
+                <Text className="mt-2 block" color="secondary" size="body2">
+                  {questionMetadata.excerpt}
                 </Text>
               )}
               <div
                 className={clsx(
-                  'mt-2 flex flex-wrap items-center gap-x-8 gap-y-2',
+                  'mt-5 flex flex-wrap items-center gap-x-8 gap-y-2',
                   'relative z-10',
                 )}>
+                <span className="inline-flex">
+                  <QuestionFormatLabel
+                    showIcon={true}
+                    value={questionMetadata.format}
+                  />
+                </span>
                 <span className="inline-flex">
                   {primaryLabel === 'difficulty' && (
                     <QuestionDifficultyLabel
                       showIcon={true}
-                      value={question.difficulty}
+                      value={questionMetadata.difficulty}
                     />
                   )}
                   {primaryLabel === 'importance' && (
                     <QuestionImportanceLabel
                       showIcon={true}
-                      value={question.importance}
+                      value={questionMetadata.importance}
                     />
                   )}
                 </span>
-                {question.topics.length > 0 ? (
-                  <QuestionTopics topics={question.topics} />
-                ) : question.frameworks.length > 0 ? (
-                  <QuestionFrameworks frameworks={question.frameworks} />
+                {questionMetadata.topics.length > 0 ? (
+                  <QuestionTopics topics={questionMetadata.topics} />
+                ) : questionMetadata.frameworks.length > 0 ? (
+                  <QuestionFrameworks
+                    frameworks={questionMetadata.frameworks}
+                  />
                 ) : (
-                  <QuestionLanguages languages={question.languages} />
+                  <QuestionLanguages languages={questionMetadata.languages} />
                 )}
                 {(() => {
                   const count =
-                    questionCompletionCount?.[question.format]?.[question.slug];
+                    questionCompletionCount?.[questionMetadata.format]?.[
+                      questionMetadata.slug
+                    ];
 
                   if (count == null) {
                     return null;

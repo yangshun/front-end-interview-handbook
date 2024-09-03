@@ -875,6 +875,10 @@
     "defaultMessage": "Payment success",
     "description": "Title of Payment Success page"
   },
+  "5W8dPJ": {
+    "defaultMessage": "JS coding",
+    "description": "Front end JavaScript utility functions"
+  },
   "5XwjUN": {
     "defaultMessage": "Facing trouble? <link>Email us</link>",
     "description": "Section label for seasonal promotion details"
@@ -5295,6 +5299,10 @@
     "defaultMessage": "Apply",
     "description": "Label for apply button"
   },
+  "aK5rZ5": {
+    "defaultMessage": "Short answer questions aimed at quickly assessing a candidate's knowledge of specific front-end topics. These can cover a wide range of areas, including HTML/CSS best practices, JavaScript nuances, browser APIs, web performance, and security. Frequently asked in recruiter screens or companies without technical coding rounds",
+    "description": "Description of data structures and algorithm questions"
+  },
   "aPfuzs": {
     "defaultMessage": "Reset password",
     "description": "Title of Password Reset page"
@@ -5531,6 +5539,10 @@
     "defaultMessage": "Post",
     "description": "Label for post button on project discussions page"
   },
+  "bo7Qat": {
+    "defaultMessage": "UI coding",
+    "description": "Front end user interface questions"
+  },
   "bofA5f": {
     "defaultMessage": "Browse all user submissions",
     "description": "Learn from other user submissions"
@@ -5750,10 +5762,6 @@
   "da4RLj": {
     "defaultMessage": "Google logo",
     "description": "Google company logo"
-  },
-  "dcgLwn": {
-    "defaultMessage": "Short answer questions imed at quickly assessing a candidate’s knowledge of specific front-end topics. These can cover a wide range of areas, including HTML/CSS best practices, JavaScript nuances, browser APIs, web performance, and security. Frequently asked in recruiter screens or companies without technical coding rounds",
-    "description": "Description of data structures and algorithm questions"
   },
   "dfAvc7": {
     "defaultMessage": "Footer",
@@ -7626,6 +7634,10 @@
   "qrRiOi": {
     "defaultMessage": "Star",
     "description": "Label for github star"
+  },
+  "qvT5Mx": {
+    "defaultMessage": "Algo coding",
+    "description": "Data structures and algorithm questions"
   },
   "qwP4CA": {
     "defaultMessage": "Huge question bank",
