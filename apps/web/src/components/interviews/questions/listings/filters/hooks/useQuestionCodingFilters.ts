@@ -1,34 +1,32 @@
 import type {
-  QuestionCodingFormat,
+  QuestionFormat,
   QuestionMetadataWithCompletedStatus,
 } from '~/components/interviews/questions/common/QuestionsTypes';
 
-import useQuestionCodingFormatFilter from './useQuestionCodingFormatFilter';
 import useQuestionCompanyFilter from './useQuestionCompanyFilter';
 import useQuestionCompletionStatusFilter from './useQuestionCompletionStatusFilter';
 import useQuestionDifficultyFilter from './useQuestionDifficultyFilter';
+import useQuestionFormatFilter from './useQuestionFormatFilter';
 import useQuestionFrameworkFilter from './useQuestionFrameworkFilter';
 import useQuestionLanguageFilter from './useQuestionLanguageFilter';
 import useQuestionSearchFilter from './useQuestionSearchFilter';
 import questionMatchesTextQuery from '../questionMatchesTextQuery';
 
 type Props = Readonly<{
-  codingFormatFiltersFilterPredicate?: (
-    format: QuestionCodingFormat,
-  ) => boolean;
-  codingFormatFiltersOrderComparator?: (
-    a: QuestionCodingFormat,
-    b: QuestionCodingFormat,
+  formatFiltersFilterPredicate?: (format: QuestionFormat) => boolean;
+  formatFiltersOrderComparator?: (
+    a: QuestionFormat,
+    b: QuestionFormat,
   ) => number;
-  initialCodingFormat?: QuestionCodingFormat | null;
+  initialFormat?: QuestionFormat | null;
   namespace: string;
 }>;
 
 export default function useQuestionCodingFilters({
-  codingFormatFiltersFilterPredicate,
-  codingFormatFiltersOrderComparator,
+  formatFiltersFilterPredicate,
+  formatFiltersOrderComparator,
   namespace,
-  initialCodingFormat,
+  initialFormat,
 }: Props) {
   // Filtering.
   const [query, setQuery] = useQuestionSearchFilter({ namespace });
@@ -45,13 +43,12 @@ export default function useQuestionCodingFilters({
   );
   const [completionStatusFilters, completionStatusFilterOptions] =
     useQuestionCompletionStatusFilter({ namespace });
-  const [codingFormatFilters, codingFormatFilterOptions] =
-    useQuestionCodingFormatFilter({
-      filter: codingFormatFiltersFilterPredicate,
-      initialValue: initialCodingFormat == null ? [] : [initialCodingFormat],
-      namespace,
-      order: codingFormatFiltersOrderComparator,
-    });
+  const [formatFilters, formatFilterOptions] = useQuestionFormatFilter({
+    filter: formatFiltersFilterPredicate,
+    initialValue: initialFormat == null ? [] : [initialFormat],
+    namespace,
+    order: formatFiltersOrderComparator,
+  });
 
   const filters: ReadonlyArray<
     [number, (question: QuestionMetadataWithCompletedStatus) => boolean]
@@ -64,8 +61,8 @@ export default function useQuestionCodingFilters({
     [companyFilters.size, companyFilterOptions.matches],
     // Language.
     [languageFilters.size, languageFilterOptions.matches],
-    // Coding Format.
-    [codingFormatFilters.size, codingFormatFilterOptions.matches],
+    // Format.
+    [formatFilters.size, formatFilterOptions.matches],
     // Framework.
     [frameworkFilters.size, frameworkFilterOptions.matches],
     // Completion Status.
@@ -73,8 +70,6 @@ export default function useQuestionCodingFilters({
   ];
 
   return {
-    codingFormatFilterOptions,
-    codingFormatFilters,
     companyFilterOptions,
     companyFilters,
     completionStatusFilterOptions,
@@ -82,6 +77,8 @@ export default function useQuestionCodingFilters({
     difficultyFilterOptions,
     difficultyFilters,
     filters,
+    formatFilterOptions,
+    formatFilters,
     frameworkFilterOptions,
     frameworkFilters,
     languageFilterOptions,

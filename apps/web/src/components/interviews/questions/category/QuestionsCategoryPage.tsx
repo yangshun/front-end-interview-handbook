@@ -8,7 +8,7 @@ import { INTERVIEWS_REVAMP_QUESTION_LISTING } from '~/data/FeatureFlags';
 
 import QuestionCategoryTitleSection from '~/components/interviews/questions/category/QuestionCategoryTitleSection';
 import type {
-  QuestionCodingFormat,
+  QuestionFormat,
   QuestionMetadata,
   QuestionUserFacingFormat,
 } from '~/components/interviews/questions/common/QuestionsTypes';
@@ -27,23 +27,19 @@ import { useI18nRouter } from '~/next-i18nostic/src';
 import QuestionsCategoryNavbar from './QuestionsCategoryNavbar';
 
 // The higher the more important.
-const codingFormatRankingForNonJavaScript: Record<
-  QuestionCodingFormat,
-  number
-> = {
+const codingFormatRankingForNonJavaScript: Record<QuestionFormat, number> = {
   algo: 0,
   javascript: 1,
+  quiz: 4,
+  'system-design': 3,
   'user-interface': 2,
 };
 
 const CategoryFilters: Record<
   QuestionListCategory,
   Readonly<{
-    filterPredicate?: (format: QuestionCodingFormat) => boolean;
-    orderComparator?: (
-      a: QuestionCodingFormat,
-      b: QuestionCodingFormat,
-    ) => number;
+    filterPredicate?: (format: QuestionFormat) => boolean;
+    orderComparator?: (a: QuestionFormat, b: QuestionFormat) => number;
   }>
 > = {
   css: {
@@ -74,7 +70,7 @@ type Props = QuestionListProps &
 
 type QuestionListProps = Readonly<{
   category: QuestionListCategory;
-  codingFormat: QuestionCodingFormat | null;
+  codingFormat: QuestionFormat | null;
   codingQuestions: ReadonlyArray<QuestionMetadata>;
   format: QuestionUserFacingFormat | null;
   questionCompletionCount?: QuestionCompletionCount;
@@ -127,13 +123,13 @@ function QuestionsList({
       )}
       {format === 'coding' && (
         <QuestionsCodingListWithFiltersAndProgress
-          codingFormatFiltersFilterPredicate={
+          formatFiltersFilterPredicate={
             CategoryFilters[category].filterPredicate
           }
-          codingFormatFiltersOrderComparator={
+          formatFiltersOrderComparator={
             CategoryFilters[category].orderComparator
           }
-          initialCodingFormat={codingFormat}
+          initialFormat={codingFormat}
           namespace={`${category}-coding`}
           questionCompletionCount={questionCompletionCount}
           questions={codingQuestions}

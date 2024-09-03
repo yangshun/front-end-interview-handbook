@@ -907,6 +907,10 @@
     "defaultMessage": "The smallest list of practice questions that gets you the most mileage in your preparation. Covers the most commonly asked front end interview topics.",
     "description": "Description for GFE75 page"
   },
+  "5n/TXe": {
+    "defaultMessage": "System design",
+    "description": "Front end system design questions"
+  },
   "5ozhak": {
     "defaultMessage": "Start the project to access guides, discussions and reference code",
     "description": "Title for project overlay on projects details page"
@@ -1238,10 +1242,6 @@
   "7wqhjF": {
     "defaultMessage": "Practice Top HTML Front End Interview Questions with Solutions",
     "description": "SEO title for HTML questions list page"
-  },
-  "7xAtDI": {
-    "defaultMessage": "Implement important Data Structures & Algorithms",
-    "description": "Description of data structures and algorithm questions"
   },
   "7xPEg+": {
     "defaultMessage": "State Management",
@@ -1610,6 +1610,10 @@
   "AmBMf9": {
     "defaultMessage": "No questions",
     "description": "Title for empty state when application of filters return no results"
+  },
+  "Aqyo8Q": {
+    "defaultMessage": "Coding questions focused on testing your understanding of JavaScript, including concepts like closures, event handling, asynchronous programming, and manipulating the DOM",
+    "description": "Description of JavaScript function questions"
   },
   "AzJz7v": {
     "defaultMessage": "Menu",
@@ -2335,10 +2339,6 @@
     "defaultMessage": "User onboarding",
     "description": "Title for Projects onboarding page"
   },
-  "GJt7KQ": {
-    "defaultMessage": "Build user interface apps and components in JavaScript frameworks",
-    "description": "Description of front end user interface questions"
-  },
   "GKha2+": {
     "defaultMessage": "As mentioned, there are many ways to host your site. Our recommended hosts are:",
     "description": "Description for Deployment step in project submission checklist"
@@ -2490,10 +2490,6 @@
   "HMJJLh": {
     "defaultMessage": "Hone your computer science fundamentals by implementing important data structures and algorithms from scratch.",
     "description": "Description for interview preparation focus area"
-  },
-  "HOCjPY": {
-    "defaultMessage": "Implement popular JavaScript library and utility functions",
-    "description": "Description of JavaScript utility function questions"
   },
   "HP/djb": {
     "defaultMessage": "Experience | Settings",
@@ -3042,6 +3038,10 @@
   "L2J7Pv": {
     "defaultMessage": "Created with the expertise of senior to staff front end interviewers from some of the top companies in the world. <button>Have a suggestion?</button>",
     "description": "Description for GFE75 page"
+  },
+  "L2l9WA": {
+    "defaultMessage": "Quiz",
+    "description": "Front end quiz questions"
   },
   "L33SIl": {
     "defaultMessage": "Popularity: Least to most upvotes",
@@ -4103,6 +4103,10 @@
     "defaultMessage": "Purchase premium to unlock filtering questions by companies.",
     "description": "Subtitle on paywall over company tags on question list pages"
   },
+  "Rz6MDM": {
+    "defaultMessage": "System design questions in front-end interviews evaluate a candidate's ability to architect large-scale, maintainable, and scalable web applications. Unlike backend system design, these questions focus more on designing the client-side architecture, managing state, ensuring performance, and integrating with APIs or backend services. Candidates may be asked to design complex UI systems, plan for accessibility, or discuss strategies for handling large volumes of user interactions or data. Asked in mid-level to senior level interviews",
+    "description": "Description of data structures and algorithm questions"
+  },
   "S+6OOS": {
     "defaultMessage": "Free",
     "description": "Free-of-charge label"
@@ -4614,6 +4618,10 @@
   "Vh9mwM": {
     "defaultMessage": "Years",
     "description": "Title of years accordion in Roadmap Slide out filter"
+  },
+  "VjJtDL": {
+    "defaultMessage": "Coding questions focused on testing your understanding of data structures and algorithms. May be asked in larger companies even for front end engineers. Examples include solving problems related to array manipulation, string processing, or implementing common algorithms like sorting or searching",
+    "description": "Description of data structures and algorithm questions"
   },
   "VlLGKt": {
     "defaultMessage": "Payment Success",
@@ -5742,6 +5750,10 @@
   "da4RLj": {
     "defaultMessage": "Google logo",
     "description": "Google company logo"
+  },
+  "dcgLwn": {
+    "defaultMessage": "Short answer questions imed at quickly assessing a candidate’s knowledge of specific front-end topics. These can cover a wide range of areas, including HTML/CSS best practices, JavaScript nuances, browser APIs, web performance, and security. Frequently asked in recruiter screens or companies without technical coding rounds",
+    "description": "Description of data structures and algorithm questions"
   },
   "dfAvc7": {
     "defaultMessage": "Footer",
@@ -8702,6 +8714,10 @@
   "zUz27Y": {
     "defaultMessage": "Custom page",
     "description": "Project submission page"
+  },
+  "zVBgBc": {
+    "defaultMessage": "Coding questions focused on building user interfaces. Candidates are expected to build components, style elements, and ensure the UI behaves correctly across different devices and screen sizes",
+    "description": "Description of front end user interface questions"
   },
   "zYh2Tl": {
     "defaultMessage": "80% of challenges are <bold>free to do</bold>",

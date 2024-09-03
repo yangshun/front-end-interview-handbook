@@ -16,10 +16,10 @@ import type { QuestionFilterItemGap } from './QuestionListingFilterItemCheckboxe
 import QuestionListingFilterItemCheckboxes from './QuestionListingFilterItemCheckboxes';
 import QuestionListingFilterItemLabel from './QuestionListingFilterItemLabel';
 import type {
-  QuestionCodingFormat,
   QuestionCompany,
   QuestionCompletionStatus,
   QuestionDifficulty,
+  QuestionFormat,
   QuestionFramework,
   QuestionLanguage,
   QuestionMetadata,
@@ -27,11 +27,6 @@ import type {
 } from '../../common/QuestionsTypes';
 
 type Props = Readonly<{
-  codingFormatFilterOptions: QuestionFilter<
-    QuestionCodingFormat,
-    QuestionMetadata
-  >;
-  codingFormatFilters: Set<QuestionCodingFormat>;
   companyFilterOptions: QuestionFilter<QuestionCompany, QuestionMetadata>;
   companyFilters: Set<QuestionCompany>;
   completionStatusFilterOptions: QuestionFilter<
@@ -41,6 +36,8 @@ type Props = Readonly<{
   completionStatusFilters: Set<QuestionCompletionStatus>;
   difficultyFilterOptions: QuestionFilter<QuestionDifficulty, QuestionMetadata>;
   difficultyFilters: Set<QuestionDifficulty>;
+  formatFilterOptions: QuestionFilter<QuestionFormat, QuestionMetadata>;
+  formatFilters: Set<QuestionFormat>;
   frameworkFilterOptions: QuestionFilter<QuestionFramework, QuestionMetadata>;
   frameworkFilters: Set<QuestionFramework>;
   itemGap: QuestionFilterItemGap;
@@ -50,8 +47,8 @@ type Props = Readonly<{
 }>;
 
 export default function QuestionListingCodingFilters({
-  codingFormatFilterOptions,
-  codingFormatFilters,
+  formatFilterOptions,
+  formatFilters,
   companyFilterOptions,
   companyFilters,
   completionStatusFilterOptions,
@@ -134,8 +131,8 @@ export default function QuestionListingCodingFilters({
         />
         <QuestionListingFilterItem
           itemGap={itemGap}
-          section={codingFormatFilterOptions}
-          values={codingFormatFilters}
+          section={formatFilterOptions}
+          values={formatFilters}
         />
       </Accordion>
     </form>

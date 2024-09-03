@@ -85,8 +85,8 @@ function Contents({
     frameworkFilterOptions,
     completionStatusFilters,
     completionStatusFilterOptions,
-    codingFormatFilters,
-    codingFormatFilterOptions,
+    formatFilters,
+    formatFilterOptions,
     filters,
   } = useQuestionCodingFilters({
     namespace,
@@ -121,8 +121,8 @@ function Contents({
             filters={difficultyFilters}
           />
           <FilterSection
-            filterOptions={codingFormatFilterOptions}
-            filters={codingFormatFilters}
+            filterOptions={formatFilterOptions}
+            filters={formatFilters}
           />
           <FilterSection
             filterOptions={frameworkFilterOptions}

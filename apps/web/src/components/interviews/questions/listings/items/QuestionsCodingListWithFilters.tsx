@@ -12,7 +12,7 @@ import FilterButton from '~/components/common/FilterButton';
 import { useUserProfile } from '~/components/global/UserProfileProvider';
 import QuestionPaywall from '~/components/interviews/questions/common/QuestionPaywall';
 import type {
-  QuestionCodingFormat,
+  QuestionFormat,
   QuestionMetadata,
   QuestionMetadataWithCompletedStatus,
   QuestionSortField,
@@ -48,15 +48,13 @@ import QuestionTotalTimeLabel from '../../metadata/QuestionTotalTimeLabel';
 
 export type Props = Readonly<{
   checkIfCompletedQuestionBefore?: (question: QuestionMetadata) => boolean;
-  codingFormatFiltersFilterPredicate?: (
-    format: QuestionCodingFormat,
-  ) => boolean;
-  codingFormatFiltersOrderComparator?: (
-    a: QuestionCodingFormat,
-    b: QuestionCodingFormat,
+  formatFiltersFilterPredicate?: (format: QuestionFormat) => boolean;
+  formatFiltersOrderComparator?: (
+    a: QuestionFormat,
+    b: QuestionFormat,
   ) => number;
   framework?: QuestionFramework;
-  initialCodingFormat?: QuestionCodingFormat | null;
+  initialFormat?: QuestionFormat | null;
   layout?: 'embedded' | 'full';
   listKey?: string;
   listMode?: 'default' | 'learning-list';
@@ -72,7 +70,7 @@ export type Props = Readonly<{
 
 export default function QuestionsCodingListWithFilters({
   checkIfCompletedQuestionBefore,
-  initialCodingFormat = null,
+  initialFormat = null,
   framework,
   layout = 'full',
   listKey,
@@ -81,8 +79,8 @@ export default function QuestionsCodingListWithFilters({
   namespace,
   questions,
   questionCompletionCount,
-  codingFormatFiltersFilterPredicate,
-  codingFormatFiltersOrderComparator,
+  formatFiltersFilterPredicate,
+  formatFiltersOrderComparator,
   onMarkAsCompleted,
   onMarkAsNotCompleted,
   showSummarySection = true,
@@ -108,13 +106,13 @@ export default function QuestionsCodingListWithFilters({
     frameworkFilterOptions,
     completionStatusFilters,
     completionStatusFilterOptions,
-    codingFormatFilters,
-    codingFormatFilterOptions,
+    formatFilters,
+    formatFilterOptions,
     filters,
   } = useQuestionCodingFilters({
-    codingFormatFiltersFilterPredicate,
-    codingFormatFiltersOrderComparator,
-    initialCodingFormat,
+    formatFiltersFilterPredicate,
+    formatFiltersOrderComparator,
+    initialFormat,
     namespace,
   });
 
@@ -190,14 +188,14 @@ export default function QuestionsCodingListWithFilters({
             />
           }>
           <QuestionListingCodingFilters
-            codingFormatFilterOptions={codingFormatFilterOptions}
-            codingFormatFilters={codingFormatFilters}
             companyFilterOptions={companyFilterOptions}
             companyFilters={companyFilters}
             completionStatusFilterOptions={completionStatusFilterOptions}
             completionStatusFilters={completionStatusFilters}
             difficultyFilterOptions={difficultyFilterOptions}
             difficultyFilters={difficultyFilters}
+            formatFilterOptions={formatFilterOptions}
+            formatFilters={formatFilters}
             frameworkFilterOptions={frameworkFilterOptions}
             frameworkFilters={frameworkFilters}
             itemGap="spacious"
@@ -566,14 +564,14 @@ export default function QuestionsCodingListWithFilters({
             </Heading>
             <Section>
               <QuestionListingCodingFilters
-                codingFormatFilterOptions={codingFormatFilterOptions}
-                codingFormatFilters={codingFormatFilters}
                 companyFilterOptions={companyFilterOptions}
                 companyFilters={companyFilters}
                 completionStatusFilterOptions={completionStatusFilterOptions}
                 completionStatusFilters={completionStatusFilters}
                 difficultyFilterOptions={difficultyFilterOptions}
                 difficultyFilters={difficultyFilters}
+                formatFilterOptions={formatFilterOptions}
+                formatFilters={formatFilters}
                 frameworkFilterOptions={frameworkFilterOptions}
                 frameworkFilters={frameworkFilters}
                 itemGap="compact"
