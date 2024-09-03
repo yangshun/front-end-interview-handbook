@@ -17,7 +17,6 @@ import type {
   QuestionMetadataWithCompletedStatus,
   QuestionSortField,
 } from '~/components/interviews/questions/common/QuestionsTypes';
-import QuestionListingTopicFilters from '~/components/interviews/questions/listings/filters/QuestionListingTopicFilters';
 import {
   countQuestionsByDifficulty,
   countQuestionsByPremium,
@@ -304,12 +303,6 @@ export default function QuestionsCodingListWithFilters({
       </DropdownMenu>
     </div>
   );
-  const topicFilters = (
-    <QuestionListingTopicFilters
-      section={codingFormatFilterOptions}
-      values={codingFormatFilters}
-    />
-  );
   const searchFilterRow = (
     <div className={clsx('flex justify-end gap-2')}>
       <div className="flex-1">
@@ -499,10 +492,7 @@ export default function QuestionsCodingListWithFilters({
       )}>
       {/* Left Column */}
       <section className="flex flex-col gap-8 lg:col-span-9">
-        <div className="flex flex-col gap-4">
-          {topicFilters}
-          {searchFilterRow}
-        </div>
+        <div className="flex flex-col gap-4">{searchFilterRow}</div>
         <div className="flex flex-col gap-4">
           {listMetadata}
           {showPaywall ? (

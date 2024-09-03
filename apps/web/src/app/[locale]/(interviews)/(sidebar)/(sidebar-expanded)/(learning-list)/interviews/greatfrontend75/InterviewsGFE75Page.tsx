@@ -24,7 +24,6 @@ import Text, { textVariants } from '~/components/ui/Text';
 import { themeOutlineElementBrandColor_FocusVisible } from '~/components/ui/theme';
 
 import {
-  categorizeQuestionListSessionProgress,
   categorizeQuestionsProgress,
   filterQuestionsProgressByList,
 } from '~/db/QuestionsUtils';
@@ -62,27 +61,13 @@ export default function InterviewsGFE75Page({
     undefined,
     { enabled: !!user },
   );
-  const { data: questionListsProgressParam } =
-    trpc.questionLists.getSessionProgress.useQuery(
-      { listKey: plan.type },
-      {
-        enabled: !!user,
-      },
-    );
 
   const questionsProgressAll = categorizeQuestionsProgress(
     questionProgressParam,
   );
-  const questionsListsProgressAll = categorizeQuestionListSessionProgress(
-    questionListsProgressParam,
-  );
 
   const questionsOverallProgress = filterQuestionsProgressByList(
     questionsProgressAll,
-    plan.questions,
-  );
-  const questionsSessionProgress = filterQuestionsProgressByList(
-    questionsListsProgressAll,
     plan.questions,
   );
 
@@ -177,7 +162,6 @@ export default function InterviewsGFE75Page({
             listKey={plan.type}
             overallProgress={questionsOverallProgress}
             quizQuestions={quizQuestions}
-            sessionProgress={questionsSessionProgress}
             showSummarySection={false}
             systemDesignQuestions={systemDesignQuestions}
           />

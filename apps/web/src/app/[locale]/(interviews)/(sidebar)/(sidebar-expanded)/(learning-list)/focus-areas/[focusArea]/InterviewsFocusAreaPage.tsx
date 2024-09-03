@@ -17,7 +17,6 @@ import Container from '~/components/ui/Container';
 import Section from '~/components/ui/Heading/HeadingContext';
 
 import {
-  categorizeQuestionListSessionProgress,
   categorizeQuestionsProgress,
   countNumberOfQuestionsInList,
   filterQuestionsProgressByList,
@@ -46,30 +45,14 @@ export default function InterviewsFocusAreaPage({
       enabled: !!user,
     },
   );
-  const { data: questionListsProgressParam } =
-    trpc.questionLists.getSessionProgress.useQuery(
-      { listKey: focusArea.type },
-      {
-        enabled: !!user,
-      },
-    );
-
   const questionsProgressAll = categorizeQuestionsProgress(
     questionProgressParam,
-  );
-  const questionsListsProgressAll = categorizeQuestionListSessionProgress(
-    questionListsProgressParam,
   );
 
   const questionsOverallProgress = filterQuestionsProgressByList(
     questionsProgressAll,
     focusArea.questions,
   );
-  const questionsSessionProgress = filterQuestionsProgressByList(
-    questionsListsProgressAll,
-    focusArea.questions,
-  );
-
   const focusAreaTheme = getFocusAreaTheme(focusArea.type);
   const questionCount = countNumberOfQuestionsInList(focusArea.questions);
 
@@ -119,7 +102,6 @@ export default function InterviewsFocusAreaPage({
             listKey={focusArea.type}
             overallProgress={questionsOverallProgress}
             quizQuestions={quizQuestions}
-            sessionProgress={questionsSessionProgress}
             systemDesignQuestions={systemDesignQuestions}
           />
         </Container>

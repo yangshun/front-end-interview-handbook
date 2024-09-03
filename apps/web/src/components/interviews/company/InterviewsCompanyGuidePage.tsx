@@ -23,7 +23,6 @@ import Container from '~/components/ui/Container';
 import Section from '~/components/ui/Heading/HeadingContext';
 
 import {
-  categorizeQuestionListSessionProgress,
   categorizeQuestionsProgress,
   countNumberOfQuestionsInList,
   filterQuestionsProgressByList,
@@ -57,29 +56,12 @@ export default function InterviewsCompanyGuidePage({
       enabled: !!user,
     },
   );
-  const { data: questionListsProgressParam } =
-    trpc.questionLists.getSessionProgress.useQuery(
-      {
-        listKey: companyGuide.slug,
-      },
-      {
-        enabled: !!user,
-      },
-    );
 
   const questionsProgressAll = categorizeQuestionsProgress(
     questionProgressParam,
   );
-  const questionsListsProgressAll = categorizeQuestionListSessionProgress(
-    questionListsProgressParam,
-  );
-
   const questionsOverallProgress = filterQuestionsProgressByList(
     questionsProgressAll,
-    companyQuestions,
-  );
-  const questionsSessionProgress = filterQuestionsProgressByList(
-    questionsListsProgressAll,
     companyQuestions,
   );
 
@@ -163,7 +145,6 @@ export default function InterviewsCompanyGuidePage({
               listKey={companyGuide.slug}
               overallProgress={questionsOverallProgress}
               quizQuestions={quizQuestions}
-              sessionProgress={questionsSessionProgress}
               systemDesignQuestions={systemDesignQuestions}
             />
           ) : (
