@@ -1,6 +1,17 @@
+'use client';
+
+import clsx from 'clsx';
 import type { ComponentProps } from 'react';
+import { RiLink } from 'react-icons/ri';
+import { useIntl } from 'react-intl';
+import url from 'url';
+
+import useCopyToClipboardWithRevert from '~/hooks/useCopyToClipboardWithRevert';
 
 import Anchor from '~/components/ui/Anchor';
+
+import { useToast } from '../global/toasts/useToast';
+import { themeTextSubtleColor } from '../ui/theme';
 
 type Props = ComponentProps<'h1'> &
   Readonly<{
@@ -8,28 +19,57 @@ type Props = ComponentProps<'h1'> &
   }>;
 
 export default function MDXHeading({ as: Tag, id, children, ...props }: Props) {
-  return (
-    <Tag className="group scroll-mt-28" id={id} {...props}>
-      {children}
-      {id &&
-        (() => {
-          const anchorTitle = `Direct link to ${
-            typeof children === 'string' ? children : id
-          }`;
+  const intl = useIntl();
+  const [isCopied, onCopy] = useCopyToClipboardWithRevert(1000);
+  const { showToast } = useToast();
 
-          return (
-            <Anchor
+  return (
+    <Tag {...props}>
+      {(() => {
+        if (id == null) {
+          return children;
+        }
+
+        return (
+          <Anchor
+            className="group cursor-pointer scroll-mt-28"
+            href={`#${id}`}
+            id={id}
+            variant="unstyled"
+            onClick={async () => {
+              const fullUrl = new URL(
+                url.format({ hash: id, pathname: window.location.pathname }),
+                window.location.href,
+              ).toString();
+
+              await onCopy(fullUrl);
+              showToast({
+                duration: 3000,
+                title: intl.formatMessage({
+                  defaultMessage: 'URL copied to clipboard',
+                  description: 'Copied heading URL',
+                  id: 'MoV/nU',
+                }),
+                variant: 'success',
+              });
+            }}>
+            {children}
+            <RiLink
               aria-hidden={true}
-              aria-label={anchorTitle}
-              className="ml-2 select-none !no-underline opacity-0 before:content-['#'] hover:!underline focus:opacity-100 group-hover:opacity-100"
-              href={`#${id}`}
-              title={anchorTitle}
-              underline={false}>
-              {/* Hide from crawlers and use pseudo element content instead */}
-              &#8203;
-            </Anchor>
-          );
-        })()}
+              className={clsx(
+                'shrink-0',
+                'size-5 ml-2 inline-block',
+                'transition-all duration-300',
+                isCopied ? 'opacity-100' : 'opacity-0 group-hover:opacity-100',
+                isCopied
+                  ? 'translate-x-0'
+                  : '-translate-x-1/2 group-hover:translate-x-0',
+                themeTextSubtleColor,
+              )}
+            />
+          </Anchor>
+        );
+      })()}
     </Tag>
   );
 }

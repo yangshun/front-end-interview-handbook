@@ -3331,6 +3331,10 @@
     "defaultMessage": "Top React front end interview coding questions to practice, with detailed solutions and explanations by ex-interviewers at FAANG.",
     "description": "Description of React Interview Questions page"
   },
+  "MoV/nU": {
+    "defaultMessage": "URL copied to clipboard",
+    "description": "Copied heading URL"
+  },
   "MwvhTF": {
     "defaultMessage": "See whole component track",
     "description": "Label for \"See whole component track\" button in Component track accordion"
