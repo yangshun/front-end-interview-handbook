@@ -1,4 +1,3 @@
-import { allProjectsChallengeMetadata } from 'contentlayer/generated';
 import { sumBy } from 'lodash-es';
 import { z } from 'zod';
 
@@ -6,6 +5,7 @@ import { projectsReputationFirstSessionConfig } from '~/components/projects/repu
 import { projectsSkillListInputOptionalSchemaServer } from '~/components/projects/skills/form/ProjectsSkillListInputSchema';
 import { readProjectsTrackList } from '~/components/projects/tracks/data/ProjectsTrackReader';
 
+import { fetchProjectsChallengeMetadata } from '~/db/contentlayer/projects/ProjectsChallengeMetadataReader';
 import {
   readProjectsChallengeInfoDict,
   readProjectsChallengeList,
@@ -111,22 +111,25 @@ export const projectsSessionsRouter = router({
         },
       });
 
-      const { challengeInfoDict } = readProjectsChallengeInfoDict();
+      const { challengeInfoDict } = await readProjectsChallengeInfoDict();
 
-      return sessions.map((session) => {
-        const challengeMetadata = allProjectsChallengeMetadata.find(
-          (challengeMetadataItem) =>
-            challengeMetadataItem.slug === session.slug,
-        )!;
+      const finalSessions = await Promise.all(
+        sessions.map(async (session) => {
+          const challengeMetadata = await fetchProjectsChallengeMetadata(
+            session.slug,
+          );
 
-        return {
-          ...session,
-          challenge: {
-            info: challengeInfoDict[session.slug],
-            metadata: challengeMetadata,
-          },
-        };
-      });
+          return {
+            ...session,
+            challenge: {
+              info: challengeInfoDict[session.slug],
+              metadata: challengeMetadata!,
+            },
+          };
+        }),
+      );
+
+      return finalSessions;
     }),
   skillsUpdate: projectsSessionProcedure
     .input(

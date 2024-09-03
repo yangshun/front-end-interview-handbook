@@ -1,16 +1,19 @@
 import type { BlogPost, BlogSeries } from 'contentlayer/generated';
-import {
-  allBlogCategories,
-  allBlogPosts,
-  allBlogSeries,
-  allBlogSubseries,
-} from 'contentlayer/generated';
 
 import type { BlogLevel, BlogMetadata } from '~/components/blog/BlogTypes';
 import { sortBlogPostsMultiple } from '~/components/blog/data/BlogPostsProcessor';
 
+import { getAllBlogCategories } from '~/db/contentlayer/blog/BlogCategoryReader';
+import { getAllBlogPost } from '~/db/contentlayer/blog/BlogPostReader';
+import {
+  getAllBlogSeries,
+  getBlogSeries,
+} from '~/db/contentlayer/blog/BlogSeriesReader';
+import { getAllBlogSubseries } from '~/db/contentlayer/blog/BlogSubseriesReader';
+
 export function readBlogPost(slug: string) {
-  const post = allBlogPosts
+  const allPosts = getAllBlogPost();
+  const post = allPosts
     .filter((postItem) =>
       // Only show published posts on production.
       process.env.NEXT_PUBLIC_VERCEL_ENV === 'production'
@@ -24,7 +27,8 @@ export function readBlogPost(slug: string) {
 
 export function readBlogPostsAll(options: BlogPostQueryOptions = {}) {
   const { ascending = false } = options;
-  const posts = allBlogPosts
+  const allPosts = getAllBlogPost();
+  const posts = allPosts
     .filter((postItem) =>
       // Only show published posts on production.
       process.env.NEXT_PUBLIC_VERCEL_ENV === 'production'
@@ -62,10 +66,12 @@ export function readBlogSeriesPostNavigation(
   post: BlogPost,
   options: BlogPostQueryOptions = {},
 ) {
-  const series = allBlogSeries.find(
+  const allSeries = getAllBlogSeries();
+  const allSubseries = getAllBlogSubseries();
+  const series = allSeries.find(
     (seriesItem) => seriesItem.source === post.series,
   );
-  const subseries = allBlogSubseries.find(
+  const subseries = allSubseries.find(
     (subseriesItem) => subseriesItem.source === post.subseries,
   );
 
@@ -89,17 +95,17 @@ export function readBlogSeriesPostNavigation(
 }
 
 export function readBlogSeries(slug: string) {
-  const series = allBlogSeries.find((seriesItem) => seriesItem.slug === slug);
+  const series = getBlogSeries(slug);
 
   return series ? getBlogTypeCastedMetadata(series) : null;
 }
 
 export function buildBlogNavigationTree() {
-  const sortedCategories = allBlogCategories.sort(
-    (a, b) => a.ranking - b.ranking,
-  );
+  const allCategories = getAllBlogCategories();
+  const allSeries = getAllBlogSeries();
+  const sortedCategories = allCategories.sort((a, b) => a.ranking - b.ranking);
   const navigation = sortedCategories.map((category) => {
-    const series = allBlogSeries
+    const series = allSeries
       .filter((seriesItem) => seriesItem.category?.source === category.source)
       .map(({ href, slug, title }) => ({ href, slug, title }));
 
@@ -124,7 +130,8 @@ export function readBlogSubseriesAndPosts(
   series: BlogSeries,
   options: BlogPostQueryOptions = {},
 ) {
-  const result = allBlogSubseries
+  const allSubseries = getAllBlogSubseries();
+  const result = allSubseries
     .filter((subseries) => subseries.series === series.source)
     .map((subseries) => {
       let totalReadingTime = 0;
@@ -146,15 +153,15 @@ export function readBlogSubseriesAndPosts(
 }
 
 export function readBlogSeriesAll(filterByCategory = '') {
+  const allSeries = getAllBlogSeries();
   const filteredSeries = filterByCategory
-    ? allBlogSeries.filter(
-        (series) => series.category?.source === filterByCategory,
-      )
-    : allBlogSeries;
+    ? allSeries.filter((series) => series.category?.source === filterByCategory)
+    : allSeries;
 
   return filteredSeries.map((series) => {
     const seriesMetadata = getBlogTypeCastedMetadata(series);
-    const articlesCount = allBlogPosts.filter(
+    const allPosts = getAllBlogPost();
+    const articlesCount = allPosts.filter(
       (postItem) => postItem.series === series.source,
     ).length;
 
@@ -186,8 +193,10 @@ export function readBlogPostsForNavigation(options: PostNavigationOptions) {
 
   sortedPosts = [...sortedPosts, ...nonSubseriesPosts];
 
+  const allSubseries = getAllBlogSubseries();
+
   // Group pagination by subseries if subseries is present
-  allBlogSubseries
+  allSubseries
     .filter((subseries) => subseries.series === seriesSource)
     .forEach((subseries) => {
       const subseriesPosts = readBlogPostsAll({ ascending: true }).filter(

@@ -1,5 +1,4 @@
 import clsx from 'clsx';
-import { allJobsPostings } from 'contentlayer/generated';
 import { cookies } from 'next/headers';
 import type { Metadata } from 'next/types';
 import { RiArrowRightLine, RiMapPinLine } from 'react-icons/ri';
@@ -16,6 +15,7 @@ import {
   themeIconColor,
 } from '~/components/ui/theme';
 
+import { fetchJobPostings } from '~/db/contentlayer/JobPostingReader';
 import defaultMetadata from '~/seo/defaultMetadata';
 
 type Props = Readonly<{
@@ -90,7 +90,7 @@ function JobPostingItem({
   );
 }
 
-export default function Page({ searchParams }: Props) {
+export default async function Page({ searchParams }: Props) {
   const cookieStore = cookies();
   // 1. Read from query param (for overrides, useful for testing).
   // 2. Read from cookie set during middleware.
@@ -98,7 +98,9 @@ export default function Page({ searchParams }: Props) {
   const countryCode: string =
     searchParams?.cty ?? cookieStore.get('country')?.value ?? 'US';
 
-  const jobPostings = allJobsPostings.filter((jobPosting) => {
+  const jobPostings = await fetchJobPostings();
+
+  const filteredJobPostings = jobPostings.filter((jobPosting) => {
     // If there's a location requirement,
     // check if the current country meets the req.
     if (jobPosting.locationRequirements) {
@@ -125,7 +127,7 @@ export default function Page({ searchParams }: Props) {
       </div>
       <Section>
         <div className="grid gap-6 lg:grid-cols-2">
-          {jobPostings.map((jobPosting) => (
+          {filteredJobPostings.map((jobPosting) => (
             <JobPostingItem
               key={jobPosting.slug}
               department={jobPosting.department}

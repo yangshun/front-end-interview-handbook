@@ -2,13 +2,11 @@ import type {
   ProjectsSkillInfo,
   ProjectsSkillMetadata,
 } from 'contentlayer/generated';
-import {
-  allProjectsChallengeMetadata,
-  allProjectsSkillInfos,
-  allProjectsSkillMetadata,
-} from 'contentlayer/generated';
 import { sumBy } from 'lodash-es';
 
+import { fetchAllProjectsChallengeMetadata } from '~/db/contentlayer/projects/ProjectsChallengeMetadataReader';
+import { fetchProjectsSkillInfo } from '~/db/contentlayer/projects/ProjectsSkillInfoReader';
+import { fetchProjectsSkillMetadata } from '~/db/contentlayer/projects/ProjectsSkillMetadataReder';
 import {
   challengeItemAddTrackMetadata,
   fetchChallengeAccessForUserGroupedBySlug,
@@ -28,8 +26,10 @@ import type { ProjectsChallengeSessionStatus } from '@prisma/client';
 export async function fetchProjectsSkillsRoadmapSectionData(
   targetUserId?: string,
 ): Promise<ProjectsSkillRoadmapSectionData> {
-  const skillsChallengeStatus =
-    await fetchChallengeStatusForUserGroupedBySkills(targetUserId);
+  const [skillsChallengeStatus, allChallengesMetadata] = await Promise.all([
+    fetchChallengeStatusForUserGroupedBySkills(targetUserId),
+    fetchAllProjectsChallengeMetadata(),
+  ]);
 
   return skillsRoadmapConfig.map((difficulty) => ({
     ...difficulty,
@@ -41,7 +41,7 @@ export async function fetchProjectsSkillsRoadmapSectionData(
 
         const skillRoadmapChallenges = skillRoadmapChallengeSlugs
           .map((challengeSlug) =>
-            allProjectsChallengeMetadata.find(
+            allChallengesMetadata.find(
               (challengeItem) => challengeItem.slug === challengeSlug,
             ),
           )
@@ -113,10 +113,9 @@ export function readProjectsSkillMetadata(
 ): ProjectsSkillMetadata {
   // So that we handle typos like extra characters.
   const slug = decodeURIComponent(slugParam).replaceAll(/[^\da-zA-Z-]/g, '');
+  const skillMetadata = fetchProjectsSkillMetadata(slug);
 
-  return allProjectsSkillMetadata.find(
-    (skillMetadataItem) => skillMetadataItem.slug === slug,
-  )!;
+  return skillMetadata!;
 }
 
 export function readProjectsSkillInfo(
@@ -129,13 +128,11 @@ export function readProjectsSkillInfo(
   // So that we handle typos like extra characters.
   const slug = decodeURIComponent(slugParam).replaceAll(/[^\da-zA-Z-]/g, '');
 
-  const skillInfo = allProjectsSkillInfos.find(
-    (infoItem) => infoItem.slug === slug && infoItem.locale === requestedLocale,
-  )!;
+  const skillInfo = fetchProjectsSkillInfo(slug, requestedLocale);
 
   return {
     loadedLocale: requestedLocale,
-    skillInfo,
+    skillInfo: skillInfo!,
   };
 }
 
@@ -176,33 +173,43 @@ export async function readProjectsChallengeItemsForSkill(
   // So that we handle typos like extra characters.
   const slug = decodeURIComponent(slugParam).replaceAll(/[^\da-zA-Z-]/g, '');
 
-  const [challengeStatuses, challengeAccessSet] = await Promise.all([
+  const [
+    challengeStatuses,
+    challengeAccessSet,
+    { challengeInfoDict },
+    allChallengesMetadata,
+  ] = await Promise.all([
     fetchChallengeStatusForUserFilteredBySkillsGroupedBySlug(slugParam, userId),
     fetchChallengeAccessForUserGroupedBySlug(userId),
+    readProjectsChallengeInfoDict(requestedLocale),
+    fetchAllProjectsChallengeMetadata(),
   ]);
 
-  const { challengeInfoDict } = readProjectsChallengeInfoDict(requestedLocale);
   const { skillItem } = readProjectsSkillItem(slug);
   const skillRoadmapChallengeSlugs =
     skillItem.metadata != null ? skillItem.metadata.challenges : [];
 
-  const skillRoadmapChallenges = skillRoadmapChallengeSlugs
-    .map((challengeSlug) =>
-      allProjectsChallengeMetadata.find(
-        (challengeItem) => challengeItem.slug === challengeSlug,
+  const skillRoadmapChallenges = await Promise.all(
+    skillRoadmapChallengeSlugs
+      .map((challengeSlug) =>
+        allChallengesMetadata.find(
+          (challengeItem) => challengeItem.slug === challengeSlug,
+        ),
+      )
+      .flatMap((challenge) => (challenge != null ? [challenge] : []))
+      .map(
+        async (challengeMetadata) =>
+          await challengeItemAddTrackMetadata({
+            info: challengeInfoDict[challengeMetadata.slug],
+            metadata: challengeMetadata,
+            startedCount: null,
+            startedProfiles: [],
+            status: challengeStatuses?.[challengeMetadata.slug] ?? null,
+            userUnlocked:
+              challengeAccessSet?.has(challengeMetadata.slug) ?? null,
+          }),
       ),
-    )
-    .flatMap((challenge) => (challenge != null ? [challenge] : []))
-    .map((challengeMetadata) =>
-      challengeItemAddTrackMetadata({
-        info: challengeInfoDict[challengeMetadata.slug],
-        metadata: challengeMetadata,
-        startedCount: null,
-        startedProfiles: [],
-        status: challengeStatuses?.[challengeMetadata.slug] ?? null,
-        userUnlocked: challengeAccessSet?.has(challengeMetadata.slug) ?? null,
-      }),
-    );
+  );
 
   return {
     challenges: skillRoadmapChallenges,

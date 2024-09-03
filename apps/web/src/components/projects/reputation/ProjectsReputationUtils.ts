@@ -129,8 +129,9 @@ export async function projectsReputationSubmissionAwardPoints(
   ];
 
   const roadmapSkillsRepRecords = await Promise.all(
-    roadmapSkills.map((skill) =>
-      projectsReputationSubmissionRoadmapSkillConfig(slug, skill),
+    roadmapSkills.map(
+      async (skill) =>
+        await projectsReputationSubmissionRoadmapSkillConfig(slug, skill),
     ),
   );
 

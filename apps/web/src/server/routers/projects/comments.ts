@@ -1,4 +1,3 @@
-import { allProjectsChallengeMetadata } from 'contentlayer/generated';
 import { z } from 'zod';
 
 import { discussionsCommentBodySchemaServer } from '~/components/projects/discussions/ProjectsDiscussionsCommentBodySchema';
@@ -13,6 +12,7 @@ import {
   projectsReputationCommentVoteRevokePoints,
 } from '~/components/projects/reputation/ProjectsReputationUtils';
 
+import { fetchProjectsChallengeMetadata } from '~/db/contentlayer/projects/ProjectsChallengeMetadataReader';
 import { readProjectsChallengeInfo } from '~/db/projects/ProjectsReader';
 import prisma from '~/server/prisma';
 
@@ -278,12 +278,10 @@ export const projectsCommentsRouter = router({
               comment.domain ===
               ProjectsDiscussionCommentDomain.PROJECTS_CHALLENGE
             ) {
-              const challengeMetadata = allProjectsChallengeMetadata.find(
-                (challenge) => challenge.slug === comment.entityId,
-              );
-              const { challengeInfo } = readProjectsChallengeInfo(
-                comment.entityId,
-              );
+              const [challengeMetadata, { challengeInfo }] = await Promise.all([
+                fetchProjectsChallengeMetadata(comment.entityId),
+                readProjectsChallengeInfo(comment.entityId),
+              ]);
 
               // Non-existent challenge, ignore comment.
               if (challengeMetadata == null || challengeInfo == null) {

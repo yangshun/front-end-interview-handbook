@@ -1,4 +1,3 @@
-import { allInterviewsListingBottomContents } from 'contentlayer/generated';
 import type { Metadata } from 'next/types';
 
 import { INTERVIEWS_REVAMP_BOTTOM_CONTENT } from '~/data/FeatureFlags';
@@ -19,6 +18,7 @@ import {
 } from '~/components/interviews/questions/listings/filters/QuestionsProcessor';
 import type { QuestionListCategory } from '~/components/interviews/questions/listings/types';
 
+import { fetchInterviewListingBottomContent } from '~/db/contentlayer/InterviewsListingBottomContentReader';
 import { fetchQuestionCompletionCount } from '~/db/QuestionsCount';
 import {
   fetchQuestionsListCoding,
@@ -320,9 +320,10 @@ type Props = Readonly<{
 }>;
 
 export default async function Page({ params }: Props) {
-  const bottomContent = allInterviewsListingBottomContents.find(
-    (content) => content.slug === 'javascript-interview-questions',
+  const bottomContent = await fetchInterviewListingBottomContent(
+    'javascript-interview-questions',
   );
+
   const {
     category,
     format,

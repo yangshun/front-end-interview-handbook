@@ -1,6 +1,7 @@
 'use client';
 
 import clsx from 'clsx';
+import type { BlogSeries } from 'contentlayer/generated';
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
 
@@ -12,7 +13,11 @@ import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 import Text from '~/components/ui/Text';
 
-export default function BlogHomePage() {
+type Props = Readonly<{
+  allSeries: ReadonlyArray<BlogSeries>;
+}>;
+
+export default function BlogHomePage({ allSeries }: Props) {
   return (
     <BlogMainLayout>
       <Container
@@ -44,7 +49,7 @@ export default function BlogHomePage() {
           <BlogWhatsNewSection />
         </Section>
         <Section>
-          <BlogListingSection />
+          <BlogListingSection allSeries={allSeries} />
         </Section>
       </Container>
     </BlogMainLayout>

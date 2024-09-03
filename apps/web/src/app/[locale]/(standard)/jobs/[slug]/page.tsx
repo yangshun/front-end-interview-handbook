@@ -1,10 +1,13 @@
-import { allJobsPostings } from 'contentlayer/generated';
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next/types';
 import { JobPostingJsonLd } from 'next-seo';
 
 import JobPostingPage from '~/components/hiring/JobPostingPage';
 
+import {
+  fetchJobPosting,
+  fetchJobPostings,
+} from '~/db/contentlayer/JobPostingReader';
 import { generateStaticParamsWithLocale } from '~/next-i18nostic/src';
 import defaultMetadata from '~/seo/defaultMetadata';
 
@@ -13,8 +16,10 @@ type Props = Readonly<{
 }>;
 
 export async function generateStaticParams() {
+  const jobPostings = await fetchJobPostings();
+
   return generateStaticParamsWithLocale(
-    allJobsPostings.map((jobPosting) => ({
+    jobPostings.map((jobPosting) => ({
       slug: jobPosting.slug,
     })),
   );
@@ -22,8 +27,7 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug, locale } = params;
-
-  const job = allJobsPostings.find((jobPosting) => jobPosting.slug === slug);
+  const job = await fetchJobPosting(slug);
 
   if (!job) {
     return notFound();
@@ -39,7 +43,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function Page({ params }: Props) {
   const { slug } = params;
 
-  const job = allJobsPostings.find((jobPosting) => jobPosting.slug === slug);
+  const job = await fetchJobPosting(slug);
 
   if (!job) {
     notFound();

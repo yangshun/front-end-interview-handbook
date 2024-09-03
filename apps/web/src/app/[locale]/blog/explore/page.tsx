@@ -33,6 +33,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   });
 }
 
-export default function Page() {
+export default async function Page() {
   return <BlogExplorePage />;
 }

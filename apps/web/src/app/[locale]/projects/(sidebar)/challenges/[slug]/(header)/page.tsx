@@ -1,4 +1,3 @@
-import { allProjectsChallengeBriefs } from 'contentlayer/generated';
 import type { Metadata } from 'next/types';
 
 import ProjectsChallengeBriefPage from '~/components/projects/challenges/brief/ProjectsChallengeBriefPage';
@@ -6,6 +5,7 @@ import ProjectsPremiumAccessControl from '~/components/projects/challenges/premi
 import fetchViewerProjectsChallengeAccess from '~/components/projects/utils/fetchViewerProjectsChallengeAccess';
 import fetchViewerProjectsProfile from '~/components/projects/utils/fetchViewerProjectsProfile';
 
+import { fetchProjectsChallengeBrief } from '~/db/contentlayer/projects/ProjectsChallengeBriefReader';
 import {
   readProjectsChallengeInfo,
   readProjectsChallengeItem,
@@ -19,8 +19,10 @@ type Props = Readonly<{
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale, slug } = params;
-  const [intl] = await Promise.all([getIntlServerOnly(locale)]);
-  const { challengeInfo } = readProjectsChallengeInfo(slug, locale);
+  const [intl, { challengeInfo }] = await Promise.all([
+    getIntlServerOnly(locale),
+    readProjectsChallengeInfo(slug, locale),
+  ]);
 
   return defaultProjectsMetadata(intl, {
     description: challengeInfo.description,
@@ -48,16 +50,14 @@ export default async function Page({ params }: Props) {
       readProjectsChallengeItem(slug, locale),
     ]);
 
+  const challengeBrief = await fetchProjectsChallengeBrief(
+    challenge.metadata.slug,
+  );
+
   const viewerAccess = ProjectsPremiumAccessControl(
     challenge.metadata.access,
     viewerProjectsProfile,
     viewerUnlockedAccess,
-  );
-
-  const challengeBrief = allProjectsChallengeBriefs.find(
-    (challengeBriefItem) => {
-      return challengeBriefItem.slug === challenge.metadata.slug;
-    },
   );
 
   return (

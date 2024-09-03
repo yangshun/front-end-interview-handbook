@@ -1,4 +1,3 @@
-import { allInterviewsCompanyGuides } from 'contentlayer/generated';
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next/types';
 
@@ -6,6 +5,7 @@ import InterviewsCompanyGuidePage from '~/components/interviews/company/Intervie
 import type { QuestionMetadata } from '~/components/interviews/questions/common/QuestionsTypes';
 import { sortQuestions } from '~/components/interviews/questions/listings/filters/QuestionsProcessor';
 
+import { fetchInterviewsCompanyGuide } from '~/db/contentlayer/InterviewsCompanyGuideReader';
 import { fetchQuestionsBySlug } from '~/db/QuestionsListReader';
 import defaultMetadata from '~/seo/defaultMetadata';
 
@@ -23,9 +23,7 @@ type Props = Readonly<{
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale, slug } = params;
-  const companyGuide = allInterviewsCompanyGuides.find(
-    (company) => company.slug === slug,
-  );
+  const companyGuide = await fetchInterviewsCompanyGuide(slug);
 
   if (companyGuide == null) {
     return notFound();
@@ -42,9 +40,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function Page({ params }: Props) {
   const { locale, slug } = params;
 
-  const companyGuide = allInterviewsCompanyGuides.find(
-    (company) => company.slug === slug,
-  );
+  const companyGuide = await fetchInterviewsCompanyGuide(slug);
 
   if (companyGuide == null) {
     return notFound();

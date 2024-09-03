@@ -1,6 +1,5 @@
 import clsx from 'clsx';
 import type { ProjectsChallengeInfo } from 'contentlayer/generated';
-import { allProjectsChallengeMetadata } from 'contentlayer/generated';
 import { RiCodeSSlashLine } from 'react-icons/ri';
 import { FormattedMessage } from 'react-intl';
 
@@ -25,6 +24,8 @@ import {
   themeBackgroundGlimmerColor,
   themeIconColor,
 } from '~/components/ui/theme';
+
+import { getAllProjectsChallengeMetadata } from '~/db/contentlayer/projects/ProjectsChallengeMetadataReader';
 
 const ITEMS_PER_PAGE = 30;
 
@@ -54,9 +55,10 @@ export default function ProjectsChallengeSubmissionListWithFilters({
   const { isAscendingOrder, setIsAscendingOrder, sortField, setSortField } =
     useProjectsChallengesSorting();
 
+  const allChallengesMetadata = getAllProjectsChallengeMetadata();
   // Processing.
   const processedChallenges = filterProjectsChallengeSubmission(
-    allProjectsChallengeMetadata,
+    allChallengesMetadata,
     challengeInfoDict,
     filtersChallengesOpts.map((filterFn) => filterFn),
   );

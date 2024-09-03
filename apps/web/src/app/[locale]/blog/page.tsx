@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 
 import BlogHomePage from '~/components/blog/listing/BlogHomePage';
 
+import { getAllBlogSeries } from '~/db/contentlayer/blog/BlogSeriesReader';
 import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
 
@@ -33,6 +34,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   });
 }
 
-export default function Page() {
-  return <BlogHomePage />;
+export default async function Page() {
+  const allSeries = getAllBlogSeries();
+
+  return <BlogHomePage allSeries={allSeries} />;
 }

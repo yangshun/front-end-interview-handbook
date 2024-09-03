@@ -1,4 +1,3 @@
-import { allInterviewsListingBottomContents } from 'contentlayer/generated';
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next/types';
 import { CourseJsonLd } from 'next-seo';
@@ -11,6 +10,7 @@ import { getPreparationPlan } from '~/data/plans/PreparationPlans';
 import type { QuestionMetadata } from '~/components/interviews/questions/common/QuestionsTypes';
 import { sortQuestions } from '~/components/interviews/questions/listings/filters/QuestionsProcessor';
 
+import { fetchInterviewListingBottomContent } from '~/db/contentlayer/InterviewsListingBottomContentReader';
 import { fetchPreparationPlans } from '~/db/PreparationPlansReader';
 import { fetchQuestionsBySlug } from '~/db/QuestionsListReader';
 import { getIntlServerOnly } from '~/i18n';
@@ -59,13 +59,18 @@ export default async function Page({ params }: Props) {
   const { locale } = params;
 
   const intl = await getIntlServerOnly(locale);
-  // TODO: Remove this IntlShape typecast.
-  const preparationPlans = await fetchPreparationPlans(intl as IntlShape);
+  const [
+    preparationPlans,
+    { title, description, socialTitle, href },
+    bottomContent,
+  ] = await Promise.all([
+    // TODO: Remove this IntlShape typecast.
+    fetchPreparationPlans(intl as IntlShape),
+    getPreparationPlansSEO('greatfrontend75', locale),
+    fetchInterviewListingBottomContent('greatfrontend75'),
+  ]);
+
   const preparationPlan = preparationPlans.greatfrontend75;
-
-  const { title, description, socialTitle, href } =
-    await getPreparationPlansSEO('greatfrontend75', locale);
-
   const questions = await fetchQuestionsBySlug(
     preparationPlan.questions,
     locale,
@@ -76,10 +81,6 @@ export default async function Page({ params }: Props) {
   const systemDesignQuestionsForPlan = questions['system-design'];
   const quizQuestionsForPlan =
     questions.quiz as ReadonlyArray<QuestionMetadata>;
-
-  const bottomContent = allInterviewsListingBottomContents.find(
-    (content) => content.slug === 'greatfrontend75',
-  );
 
   return (
     <>

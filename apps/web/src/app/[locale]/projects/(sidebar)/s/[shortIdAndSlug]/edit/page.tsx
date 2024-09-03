@@ -31,7 +31,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     }),
   ]);
 
-  const { challengeInfo } = readProjectsChallengeInfo(
+  const { challengeInfo } = await readProjectsChallengeInfo(
     submission?.slug ?? '',
     locale,
   );

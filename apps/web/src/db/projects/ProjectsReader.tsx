@@ -7,15 +7,6 @@ import type {
   ProjectsChallengeStyleGuide,
   ProjectsCommonGuide,
 } from 'contentlayer/generated';
-import {
-  allProjectsChallengeAPIWriteups,
-  allProjectsChallengeAppendixes,
-  allProjectsChallengeGuides,
-  allProjectsChallengeInfos,
-  allProjectsChallengeMetadata,
-  allProjectsChallengeStyleGuides,
-  allProjectsCommonGuides,
-} from 'contentlayer/generated';
 import fs from 'fs';
 import path from 'path';
 
@@ -30,6 +21,19 @@ import {
 } from '~/components/projects/tracks/data/ProjectsTrackReader';
 import type { ProjectsProfileAvatarDataSlim } from '~/components/projects/types';
 
+import { fetchProjectsChallengeAPIWriteup } from '~/db/contentlayer/projects/ProjectsChallengeAPIWriteupReader';
+import { fetchProjectsChallengeAppendixes } from '~/db/contentlayer/projects/ProjectsChallengeAppendixesReader';
+import { fetchProjectsChallengeGuide } from '~/db/contentlayer/projects/ProjectsChallengeGuideReader';
+import {
+  fetchAllProjectsChallengeInfo,
+  fetchProjectsChallengeInfo,
+} from '~/db/contentlayer/projects/ProjectsChallengeInfoReader';
+import {
+  fetchAllProjectsChallengeMetadata,
+  fetchProjectsChallengeMetadata,
+} from '~/db/contentlayer/projects/ProjectsChallengeMetadataReader';
+import { fetchProjectsChallengeStyleGuide } from '~/db/contentlayer/projects/ProjectsChallengeStyleGuideReader';
+import { fetchAllProjectsCommonGuides } from '~/db/contentlayer/projects/ProjectsCommonGuideReader';
 import prisma from '~/server/prisma';
 
 import { getChallengeSolutionsOutPath } from './ProjectsChallengeSolutionConfig';
@@ -203,21 +207,29 @@ export async function readProjectsChallengeList(
     })(),
   ]);
 
-  const { challengeInfoDict } = readProjectsChallengeInfoDict(requestedLocale);
+  const [{ challengeInfoDict }, allChallengeMetadata] = await Promise.all([
+    readProjectsChallengeInfoDict(requestedLocale),
+    fetchAllProjectsChallengeMetadata(),
+  ]);
 
-  const challenges = allProjectsChallengeMetadata.map((challengeMetadata) =>
-    challengeItemAddTrackMetadata(
-      {
-        info: challengeInfoDict[challengeMetadata.slug],
-        metadata: challengeMetadata,
-        startedCount:
-          startedCountsGroupedBySlug?.[challengeMetadata.slug] ?? null,
-        startedProfiles:
-          startedProfileIdsGroupedBySlug?.[challengeMetadata.slug] ?? [],
-        status: sessionsForUserGroupedBySlug?.[challengeMetadata.slug] ?? null,
-        userUnlocked: challengeAccessSet?.has(challengeMetadata.slug) ?? null,
-      },
-      requestedLocale,
+  const challenges = await Promise.all(
+    allChallengeMetadata.map(
+      async (challengeMetadata) =>
+        await challengeItemAddTrackMetadata(
+          {
+            info: challengeInfoDict[challengeMetadata.slug],
+            metadata: challengeMetadata,
+            startedCount:
+              startedCountsGroupedBySlug?.[challengeMetadata.slug] ?? null,
+            startedProfiles:
+              startedProfileIdsGroupedBySlug?.[challengeMetadata.slug] ?? [],
+            status:
+              sessionsForUserGroupedBySlug?.[challengeMetadata.slug] ?? null,
+            userUnlocked:
+              challengeAccessSet?.has(challengeMetadata.slug) ?? null,
+          },
+          requestedLocale,
+        ),
     ),
   );
 
@@ -240,8 +252,10 @@ export async function readProjectsChallengeItem(
   // So that we handle typos like extra characters.
   const slug = decodeURIComponent(slugParam).replaceAll(/[^\da-zA-Z-]/g, '');
 
-  const challengeMetadata = readProjectsChallengeMetadata(slug);
-  const { challengeInfo } = readProjectsChallengeInfo(slug, requestedLocale);
+  const [challengeMetadata, { challengeInfo }] = await Promise.all([
+    readProjectsChallengeMetadata(slug),
+    readProjectsChallengeInfo(slug, requestedLocale),
+  ]);
 
   const [startedCount, startedUsers, viewerUnlocked, viewerSessionStatus] =
     await Promise.all([
@@ -345,35 +359,32 @@ export async function readProjectsChallengeItem(
         return latestSession?.status ?? null;
       })(),
     ]);
+  const challenge = await challengeItemAddTrackMetadata(
+    {
+      info: challengeInfo,
+      metadata: challengeMetadata,
+      startedCount,
+      startedProfiles: startedUsers,
+      status: viewerSessionStatus,
+      userUnlocked: viewerUnlocked,
+    },
+    requestedLocale,
+  );
 
   return {
-    challenge: challengeItemAddTrackMetadata(
-      {
-        info: challengeInfo,
-        metadata: challengeMetadata,
-        startedCount,
-        startedProfiles: startedUsers,
-        status: viewerSessionStatus,
-        userUnlocked: viewerUnlocked,
-      },
-      requestedLocale,
-    ),
+    challenge,
     loadedLocale: requestedLocale,
   };
 }
 
-export function challengeItemAddTrackMetadata(
+export async function challengeItemAddTrackMetadata(
   challengeItem: Omit<ProjectsChallengeItem, 'track'>,
   requestedLocale = 'en-US',
-): ProjectsChallengeItem {
-  const { trackMetadata } = readProjectsTrackMetadata(
-    challengeItem.metadata.track,
-    requestedLocale,
-  );
-  const { trackInfo } = readProjectsTrackInfo(
-    challengeItem.metadata.track,
-    requestedLocale,
-  );
+): Promise<ProjectsChallengeItem> {
+  const [{ trackMetadata }, { trackInfo }] = await Promise.all([
+    readProjectsTrackMetadata(challengeItem.metadata.track, requestedLocale),
+    readProjectsTrackInfo(challengeItem.metadata.track, requestedLocale),
+  ]);
 
   return {
     ...challengeItem,
@@ -386,45 +397,45 @@ export function challengeItemAddTrackMetadata(
 }
 
 // TODO(projects): memoize the results to improve performance.
-export function readProjectsChallengeMetadata(
+export async function readProjectsChallengeMetadata(
   slugParam: string,
-): ProjectsChallengeMetadata {
+): Promise<ProjectsChallengeMetadata> {
   // So that we handle typos like extra characters.
   const slug = decodeURIComponent(slugParam).replaceAll(/[^\da-zA-Z-]/g, '');
-  const challengeMetadata = allProjectsChallengeMetadata.find(
-    (challengeItem) => challengeItem.slug === slug,
-  )!;
+  const challengeMetadata = await fetchProjectsChallengeMetadata(slug);
 
-  return challengeMetadata;
+  return challengeMetadata!;
 }
 
-export function readProjectsChallengeInfo(
+export async function readProjectsChallengeInfo(
   slugParam: string,
   requestedLocale = 'en-US',
-): Readonly<{
-  challengeInfo: ProjectsChallengeInfo;
-  loadedLocale: string;
-}> {
+): Promise<
+  Readonly<{
+    challengeInfo: ProjectsChallengeInfo;
+    loadedLocale: string;
+  }>
+> {
   // So that we handle typos like extra characters.
   const slug = decodeURIComponent(slugParam).replaceAll(/[^\da-zA-Z-]/g, '');
-  const challengeInfo = allProjectsChallengeInfos.find(
-    (challengeItem) =>
-      challengeItem.slug === slug && challengeItem.locale === requestedLocale,
-  )!;
+  const challengeInfo = await fetchProjectsChallengeInfo(slug, requestedLocale);
 
   return {
-    challengeInfo,
+    challengeInfo: challengeInfo!,
     loadedLocale: requestedLocale,
   };
 }
 
-export function readProjectsChallengeInfoList(
+export async function readProjectsChallengeInfoList(
   requestedLocale = 'en-US',
-): Readonly<{
-  challengeInfoList: ReadonlyArray<ProjectsChallengeInfo>;
-  loadedLocale: string;
-}> {
-  const challengeInfoList = allProjectsChallengeInfos.filter(
+): Promise<
+  Readonly<{
+    challengeInfoList: ReadonlyArray<ProjectsChallengeInfo>;
+    loadedLocale: string;
+  }>
+> {
+  const allChallengeInfo = await fetchAllProjectsChallengeInfo();
+  const challengeInfoList = allChallengeInfo.filter(
     (challengeInfoItem) => challengeInfoItem.locale === requestedLocale,
   );
 
@@ -434,11 +445,12 @@ export function readProjectsChallengeInfoList(
   };
 }
 
-export function readProjectsChallengeMetadataDict(): Record<
-  string,
-  ProjectsChallengeMetadata
+export async function readProjectsChallengeMetadataDict(): Promise<
+  Record<string, ProjectsChallengeMetadata>
 > {
-  return allProjectsChallengeMetadata.reduce(
+  const allChallengeMetadata = await fetchAllProjectsChallengeMetadata();
+
+  return allChallengeMetadata.reduce(
     (prev, metadata) => ({
       ...prev,
       [metadata.slug]: metadata,
@@ -447,13 +459,15 @@ export function readProjectsChallengeMetadataDict(): Record<
   );
 }
 
-export function readProjectsChallengeInfoDict(
+export async function readProjectsChallengeInfoDict(
   requestedLocale = 'en-US',
-): Readonly<{
-  challengeInfoDict: Record<string, ProjectsChallengeInfo>;
-  loadedLocale: string;
-}> {
-  const { challengeInfoList } = readProjectsChallengeInfoList();
+): Promise<
+  Readonly<{
+    challengeInfoDict: Record<string, ProjectsChallengeInfo>;
+    loadedLocale: string;
+  }>
+> {
+  const { challengeInfoList } = await readProjectsChallengeInfoList();
   const challengeInfoDict: Record<string, ProjectsChallengeInfo> =
     challengeInfoList.reduce(
       (prev, infoItem) => ({
@@ -481,16 +495,14 @@ export async function readProjectsChallengeStyleGuide(
   // So that we handle typos like extra characters.
   const slug = decodeURIComponent(slugParam).replaceAll(/[^\da-zA-Z-]/g, '');
 
-  const styleGuide =
-    allProjectsChallengeStyleGuides.find(
-      (styleGuideItem) =>
-        styleGuideItem.challenge === slug &&
-        styleGuideItem.locale === requestedLocale,
-    ) ?? null;
+  const styleGuide = await fetchProjectsChallengeStyleGuide(
+    slug,
+    requestedLocale,
+  );
 
   return {
     loadedLocale: requestedLocale,
-    styleGuide,
+    styleGuide: styleGuide ?? null,
   };
 }
 
@@ -506,15 +518,13 @@ export async function readProjectsChallengeAppendix(
   // So that we handle typos like extra characters.
   const slug = decodeURIComponent(slugParam).replaceAll(/[^\da-zA-Z-]/g, '');
 
-  const appendix =
-    allProjectsChallengeAppendixes.find(
-      (appendixItem) =>
-        appendixItem.challenge === slug &&
-        appendixItem.locale === requestedLocale,
-    ) ?? null;
+  const appendix = await fetchProjectsChallengeAppendixes(
+    slug,
+    requestedLocale,
+  );
 
   return {
-    appendix,
+    appendix: appendix ?? null,
     loadedLocale: requestedLocale,
   };
 }
@@ -531,15 +541,13 @@ export async function readProjectsChallengeAPIWriteup(
   // So that we handle typos like extra characters.
   const slug = decodeURIComponent(slugParam).replaceAll(/[^\da-zA-Z-]/g, '');
 
-  const apiWriteup =
-    allProjectsChallengeAPIWriteups.find(
-      (apiWriteupItem) =>
-        apiWriteupItem.challenge === slug &&
-        apiWriteupItem.locale === requestedLocale,
-    ) ?? null;
+  const apiWriteup = await fetchProjectsChallengeAPIWriteup(
+    slug,
+    requestedLocale,
+  );
 
   return {
-    apiWriteup,
+    apiWriteup: apiWriteup ?? null,
     loadedLocale: requestedLocale,
   };
 }
@@ -556,14 +564,13 @@ export async function readProjectsChallengeGuide(
   // So that we handle typos like extra characters.
   const slug = decodeURIComponent(slugParam).replaceAll(/[^\da-zA-Z-]/g, '');
 
-  const challengeGuide =
-    allProjectsChallengeGuides.find(
-      (guideItem) =>
-        guideItem.challenge === slug && guideItem.locale === requestedLocale,
-    ) ?? null;
+  const challengeGuide = await fetchProjectsChallengeGuide(
+    slug,
+    requestedLocale,
+  );
 
   return {
-    challengeGuide,
+    challengeGuide: challengeGuide ?? null,
     loadedLocale: requestedLocale,
   };
 }
@@ -576,12 +583,13 @@ export async function readProjectsCommonGuideList(
     loadedLocale: string;
   }>
 > {
-  const commonGuides = allProjectsCommonGuides.filter((commonGuideItem) =>
+  const commonGuides = await fetchAllProjectsCommonGuides();
+  const filteredCommonGuides = commonGuides.filter((commonGuideItem) =>
     commonGuideItem._raw.flattenedPath.endsWith(requestedLocale),
   );
 
   return {
-    commonGuides,
+    commonGuides: filteredCommonGuides,
     loadedLocale: requestedLocale,
   };
 }

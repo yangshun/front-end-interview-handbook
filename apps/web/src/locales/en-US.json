@@ -7443,6 +7443,10 @@
     "defaultMessage": "OFF",
     "description": "Amount cashback/discount"
   },
+  "pjH0jb": {
+    "defaultMessage": "{name} front end interview questions",
+    "description": "Label for company guides"
+  },
   "pjndkX": {
     "defaultMessage": "Unvote",
     "description": "Vote button label"

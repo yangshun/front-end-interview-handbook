@@ -50,7 +50,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     return notFound();
   }
 
-  const { challengeInfo } = readProjectsChallengeInfo(
+  const { challengeInfo } = await readProjectsChallengeInfo(
     submission?.slug ?? '',
     locale,
   );

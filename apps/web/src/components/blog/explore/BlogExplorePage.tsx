@@ -1,6 +1,5 @@
 'use client';
 
-import { allBlogCategories } from 'contentlayer/generated';
 import { useState } from 'react';
 import { RiArrowLeftLine } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
@@ -13,9 +12,12 @@ import Button from '~/components/ui/Button';
 import Heading from '~/components/ui/Heading';
 import Text from '~/components/ui/Text';
 
+import { getAllBlogCategories } from '~/db/contentlayer/blog/BlogCategoryReader';
+
 export default function BlogExplorePage() {
   const intl = useIntl();
-  const [activeItem, setActiveItem] = useState(allBlogCategories[0].source);
+  const categories = getAllBlogCategories();
+  const [activeItem, setActiveItem] = useState(categories[0].source);
 
   const allSeries = readBlogSeriesAll(activeItem);
 
@@ -56,14 +58,14 @@ export default function BlogExplorePage() {
         <div className="hidden lg:contents">
           <BlogExploreSeriesSidebar
             activeItem={activeItem}
-            navigation={allBlogCategories}
+            navigation={categories}
             onChange={setActiveItem}
           />
         </div>
         <div className="block w-full lg:hidden">
           <BlogExploreSeriesDropdown
             activeItem={activeItem}
-            navigation={allBlogCategories}
+            navigation={categories}
             onChange={setActiveItem}
           />
         </div>

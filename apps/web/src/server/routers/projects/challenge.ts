@@ -46,7 +46,7 @@ export const projectsChallengeRouter = router({
       }),
     )
     .mutation(async ({ input: { slug }, ctx: { viewer } }) => {
-      const challengeMetadata = readProjectsChallengeMetadata(slug);
+      const challengeMetadata = await readProjectsChallengeMetadata(slug);
       const [{ viewerProjectsProfile }, viewerUnlockedAccess] =
         await Promise.all([
           fetchViewerProjectsProfile(viewer),
@@ -111,7 +111,7 @@ export const projectsChallengeRouter = router({
       }),
     )
     .mutation(async ({ input: { slug }, ctx: { viewer } }) => {
-      const challengeMetadata = readProjectsChallengeMetadata(slug);
+      const challengeMetadata = await readProjectsChallengeMetadata(slug);
       const [{ viewerProjectsProfile }, viewerUnlockedAccess] =
         await Promise.all([
           fetchViewerProjectsProfile(viewer),
@@ -199,13 +199,14 @@ export const projectsChallengeRouter = router({
           });
         }
 
-        const challengeMetadataDict = readProjectsChallengeMetadataDict();
-
-        const { creditsRequired, challengesToUnlock } =
-          await projectsChallengeCalculateTotalCreditsNeededForChallenge(
-            slug,
-            viewer,
-          );
+        const [challengeMetadataDict, { creditsRequired, challengesToUnlock }] =
+          await Promise.all([
+            readProjectsChallengeMetadataDict(),
+            projectsChallengeCalculateTotalCreditsNeededForChallenge(
+              slug,
+              viewer,
+            ),
+          ]);
 
         if (projectsProfile.credits - creditsRequired < 0) {
           throw new TRPCError({
@@ -246,8 +247,10 @@ export const projectsChallengeRouter = router({
           viewer,
         );
 
-      const challengeMetadataDict = readProjectsChallengeMetadataDict();
-      const { challengeInfoDict } = readProjectsChallengeInfoDict();
+      const [challengeMetadataDict, { challengeInfoDict }] = await Promise.all([
+        readProjectsChallengeMetadataDict(),
+        readProjectsChallengeInfoDict(),
+      ]);
 
       return {
         ...data,

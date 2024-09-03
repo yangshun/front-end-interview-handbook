@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import { allBlogSeries } from 'contentlayer/generated';
+import type { BlogSeries } from 'contentlayer/generated';
 import { FormattedMessage } from 'react-intl';
 
 import { readBlogPostsAll } from '~/components/blog/data/BlogReader';
@@ -7,11 +7,13 @@ import BlogListWithFilters from '~/components/blog/listing/BlogListingWithFilter
 import BlogBrowseSeries from '~/components/blog/series/BlogBrowseSeries';
 import Heading from '~/components/ui/Heading';
 
-export default function BlogListingSection() {
+type Props = Readonly<{
+  allSeries: ReadonlyArray<BlogSeries>;
+}>;
+
+export default function BlogListingSection({ allSeries }: Props) {
   const posts = readBlogPostsAll();
-  const sortedSeries = allBlogSeries
-    .slice()
-    .sort((a, b) => a.ranking - b.ranking);
+  const sortedSeries = allSeries.slice().sort((a, b) => a.ranking - b.ranking);
 
   return (
     <div className="flex flex-col gap-y-4">

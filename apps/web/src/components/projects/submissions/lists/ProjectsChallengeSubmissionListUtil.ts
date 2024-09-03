@@ -1,5 +1,4 @@
-import { allProjectsChallengeMetadata } from 'contentlayer/generated';
-
+import { fetchProjectsChallengeMetadata } from '~/db/contentlayer/projects/ProjectsChallengeMetadataReader';
 import {
   fetchSessionsForUserGroupedBySlug,
   fetchSubmissionCommentCountsGroupedById,
@@ -8,38 +7,44 @@ import {
 
 import type { ProjectsChallengeSubmissionAugmented as ProjectsChallengeSubmissionAugmented } from '../types';
 
-export function projectsChallengeSubmissionListAugmentChallenge<
+export async function projectsChallengeSubmissionListAugmentChallenge<
   T extends ProjectsChallengeSubmissionAugmented,
 >(submissions: ReadonlyArray<T>) {
-  const { challengeInfoDict } = readProjectsChallengeInfoDict();
+  const { challengeInfoDict } = await readProjectsChallengeInfoDict();
 
-  return submissions.map((submission) => {
-    const challengeMetadata = allProjectsChallengeMetadata.find(
-      (challenge) => challenge.slug === submission.slug,
-    )!;
+  const finalSubmissions = await Promise.all(
+    submissions.map(async (submission) => {
+      const challengeMetadata = await fetchProjectsChallengeMetadata(
+        submission.slug,
+      );
 
-    return {
-      ...submission,
-      challenge: {
-        info: challengeInfoDict[submission.slug],
-        metadata: challengeMetadata,
-        status: null,
-      },
-    };
-  });
+      return {
+        ...submission,
+        challenge: {
+          info: challengeInfoDict[submission.slug],
+          metadata: challengeMetadata!,
+          status: null,
+        },
+      };
+    }),
+  );
+
+  return finalSubmissions;
 }
 
 export async function projectsChallengeSubmissionListAugmentChallengeWithCompletionStatus<
   T extends ProjectsChallengeSubmissionAugmented,
 >(userId: string | null, submissions: ReadonlyArray<T>) {
-  const submissionsWithChallenge =
-    projectsChallengeSubmissionListAugmentChallenge(submissions);
   const submissionIds = submissions.map(({ id }) => id);
-  const [sessionsForUserGroupedBySlug, commentCountsGroupedBySubmissionId] =
-    await Promise.all([
-      fetchSessionsForUserGroupedBySlug(userId),
-      fetchSubmissionCommentCountsGroupedById(submissionIds),
-    ]);
+  const [
+    submissionsWithChallenge,
+    sessionsForUserGroupedBySlug,
+    commentCountsGroupedBySubmissionId,
+  ] = await Promise.all([
+    projectsChallengeSubmissionListAugmentChallenge(submissions),
+    fetchSessionsForUserGroupedBySlug(userId),
+    fetchSubmissionCommentCountsGroupedById(submissionIds),
+  ]);
 
   return submissionsWithChallenge.map((submission) => {
     return {

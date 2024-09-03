@@ -1,8 +1,8 @@
-import { allProjectsChallengeMetadata } from 'contentlayer/generated';
 import { z } from 'zod';
 
 import type { ProjectsNotificationAugmentedType } from '~/components/projects/notifications/types';
 
+import { fetchProjectsChallengeMetadata } from '~/db/contentlayer/projects/ProjectsChallengeMetadataReader';
 import { readProjectsChallengeInfo } from '~/db/projects/ProjectsReader';
 import prisma from '~/server/prisma';
 import { router } from '~/server/trpc';
@@ -111,40 +111,36 @@ export const projectsNotificationsRouter = router({
           nextCursor = nextItem.id;
         }
 
-        const finalNotifications = notifications.flatMap((notification) => {
-          if (notification == null) {
-            return [];
-          }
-          if (
-            notification.comment?.domain ===
-            ProjectsDiscussionCommentDomain.PROJECTS_CHALLENGE
-          ) {
-            const data = notification.data as { challengeId: string };
-            const challengeMetadata = allProjectsChallengeMetadata.find(
-              (challenge) => challenge.slug === data?.challengeId,
-            );
-            const { challengeInfo } = readProjectsChallengeInfo(
-              data.challengeId,
-            );
+        const finalNotifications = await Promise.all(
+          notifications.map(async (notification) => {
+            if (
+              notification.comment?.domain ===
+              ProjectsDiscussionCommentDomain.PROJECTS_CHALLENGE
+            ) {
+              const data = notification.data as { challengeId: string };
+              const [challengeMetadata, { challengeInfo }] = await Promise.all([
+                fetchProjectsChallengeMetadata(data?.challengeId),
+                readProjectsChallengeInfo(data.challengeId),
+              ]);
 
-            return [
-              {
+              return {
                 ...notification,
                 challenge: {
                   href: challengeMetadata?.resourcesDiscussionsHref,
                   title: challengeInfo.title,
                 },
-              },
-            ];
-          }
+              };
+            }
 
-          return [notification];
-        });
+            return notification;
+          }),
+        );
 
         return {
           nextCursor,
-          notifications:
-            finalNotifications as Array<ProjectsNotificationAugmentedType>,
+          notifications: finalNotifications.flatMap((notification) =>
+            notification != null ? [notification] : [],
+          ) as Array<ProjectsNotificationAugmentedType>,
         };
       },
     ),

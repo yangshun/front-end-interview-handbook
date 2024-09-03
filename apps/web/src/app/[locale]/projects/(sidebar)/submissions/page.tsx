@@ -38,11 +38,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function Page({ params }: Props) {
   const { locale } = params;
-  const [{ viewerProjectsProfile }, { tracks }] = await Promise.all([
-    fetchViewerProjectsProfile(),
-    readProjectsTrackList(locale),
-  ]);
-  const { challengeInfoDict } = readProjectsChallengeInfoDict(locale);
+  const [{ viewerProjectsProfile }, { tracks }, { challengeInfoDict }] =
+    await Promise.all([
+      fetchViewerProjectsProfile(),
+      readProjectsTrackList(locale),
+      readProjectsChallengeInfoDict(locale),
+    ]);
 
   return (
     <ProjectsChallengeSubmissionListAllPage

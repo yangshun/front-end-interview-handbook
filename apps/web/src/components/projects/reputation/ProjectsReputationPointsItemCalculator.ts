@@ -49,10 +49,10 @@ export const projectsReputationDiscussionsCommentVoteConfig = (
 });
 
 // Submissions.
-export function projectsReputationSubmissionDifficultyConfig(
+export async function projectsReputationSubmissionDifficultyConfig(
   challengeSlug: string,
 ) {
-  const challengeMetadata = readProjectsChallengeMetadata(challengeSlug);
+  const challengeMetadata = await readProjectsChallengeMetadata(challengeSlug);
 
   return {
     key: `projects.submission.${challengeSlug}`,
@@ -60,11 +60,11 @@ export function projectsReputationSubmissionDifficultyConfig(
   };
 }
 
-export function projectsReputationSubmissionRoadmapSkillConfig(
+export async function projectsReputationSubmissionRoadmapSkillConfig(
   challengeSlug: string,
   skillKey: ProjectsSkillKey,
 ) {
-  const challengeMetadata = readProjectsChallengeMetadata(challengeSlug);
+  const challengeMetadata = await readProjectsChallengeMetadata(challengeSlug);
   const { pointsForSkillGroups } = challengeMetadata;
   const parentSkill = projectsSkillDetermineParentSkill(skillKey)?.key;
   const points: number =

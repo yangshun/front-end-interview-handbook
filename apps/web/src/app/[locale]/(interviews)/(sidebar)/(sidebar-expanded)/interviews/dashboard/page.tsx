@@ -1,4 +1,3 @@
-import { allInterviewsCompanyGuides } from 'contentlayer/generated';
 import { notFound } from 'next/navigation';
 import type { IntlShape } from 'react-intl';
 
@@ -7,6 +6,8 @@ import { getFocusAreas } from '~/data/focus-areas/FocusAreas';
 
 import InterviewsDashboardPage from '~/components/interviews/revamp-dashboard/InterviewsDashboardPage';
 
+import { fetchInterviewsCompanyGuides } from '~/db/contentlayer/InterviewsCompanyGuideReader';
+import { fetchInterviewListingBottomContent } from '~/db/contentlayer/InterviewsListingBottomContentReader';
 import { fetchPreparationPlans } from '~/db/PreparationPlansReader';
 import {
   categorizeQuestionsByFrameworkAndLanguage,
@@ -27,10 +28,6 @@ export default async function Page({ params }: Props) {
     return notFound();
   }
 
-  const sortedGuides = allInterviewsCompanyGuides
-    .slice()
-    .sort((a, b) => a.ranking - b.ranking);
-
   const { locale } = params;
 
   const intl = await getIntlServerOnly(locale);
@@ -41,17 +38,26 @@ export default async function Page({ params }: Props) {
     { questions: codingQuestions },
     { questions: systemDesignQuestions },
     { framework, language },
+    bottomContent,
+    companyGuides,
   ] = await Promise.all([
     await fetchPreparationPlans(intl as IntlShape),
     fetchQuestionsListQuiz(locale),
     fetchQuestionsListCoding(locale),
     fetchQuestionsListSystemDesign(locale),
     categorizeQuestionsByFrameworkAndLanguage(locale),
+    fetchInterviewListingBottomContent('dashboard'),
+    fetchInterviewsCompanyGuides(),
   ]);
+
+  const sortedGuides = companyGuides
+    .slice()
+    .sort((a, b) => a.ranking - b.ranking);
   const focusAreas = getFocusAreas(intl as IntlShape);
 
   return (
     <InterviewsDashboardPage
+      bottomContent={bottomContent}
       companyGuides={sortedGuides}
       focusAreas={focusAreas}
       preparationPlans={preparationPlans}

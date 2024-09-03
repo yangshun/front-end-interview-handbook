@@ -2,12 +2,13 @@ import type {
   ProjectsTrackInfo,
   ProjectsTrackMetadata,
 } from 'contentlayer/generated';
-import {
-  allProjectsTrackInfos,
-  allProjectsTrackMetadata,
-} from 'contentlayer/generated';
 import { sumBy } from 'lodash-es';
 
+import { fetchAllProjectsTrackInfo } from '~/db/contentlayer/projects/ProjectsTrackInfoReader';
+import {
+  fetchAllProjectsTrackMetadata,
+  fetchProjectsTrackMetadata,
+} from '~/db/contentlayer/projects/ProjectsTrackMetadataReader';
 import { readProjectsChallengeList } from '~/db/projects/ProjectsReader';
 import prisma from '~/server/prisma';
 
@@ -84,12 +85,14 @@ export async function readProjectsTrackList(
   loadedLocale: string;
   tracks: ReadonlyArray<ProjectsTrackItem>;
 }> {
-  const [{ challenges }] = await Promise.all([
-    readProjectsChallengeList(requestedLocale, userId),
-  ]);
+  const [{ challenges }, allTrackMetadata, { trackInfoDict }] =
+    await Promise.all([
+      readProjectsChallengeList(requestedLocale, userId),
+      fetchAllProjectsTrackMetadata(),
+      readProjectsTrackInfoDict(requestedLocale),
+    ]);
 
-  const { trackInfoDict } = readProjectsTrackInfoDict(requestedLocale);
-  const tracks = allProjectsTrackMetadata
+  const tracks = allTrackMetadata
     .map((trackMetadata) => {
       const trackChallenges = challenges
         .filter((challenge) => challenge.metadata.track === trackMetadata.slug)
@@ -130,12 +133,11 @@ export async function readProjectsTrackItem(
   // So that we handle typos like extra characters.
   const slug = decodeURIComponent(slugParam).replaceAll(/[^\da-zA-Z-]/g, '');
 
-  const [{ trackMetadata }, { challenges }] = await Promise.all([
+  const [{ trackMetadata }, { challenges }, { trackInfo }] = await Promise.all([
     readProjectsTrackMetadata(slug, requestedLocale),
     readProjectsChallengeList(requestedLocale, userId),
+    readProjectsTrackInfo(slug, requestedLocale),
   ]);
-
-  const { trackInfo } = readProjectsTrackInfo(slug, requestedLocale);
 
   const trackChallenges = challenges
     .filter((challenge) => challenge.metadata.track === trackMetadata.slug)
@@ -159,46 +161,54 @@ export async function readProjectsTrackItem(
   };
 }
 
-export function readProjectsTrackMetadata(
+export async function readProjectsTrackMetadata(
   slugParam: string,
   requestedLocale = 'en-US',
-): Readonly<{
-  loadedLocale: string;
-  trackMetadata: ProjectsTrackMetadata;
-}> {
+): Promise<
+  Readonly<{
+    loadedLocale: string;
+    trackMetadata: ProjectsTrackMetadata;
+  }>
+> {
   // So that we handle typos like extra characters.
   const slug = decodeURIComponent(slugParam).replaceAll(/[^\da-zA-Z-]/g, '');
+  const trackMetadata = await fetchProjectsTrackMetadata(slug);
 
   return {
     loadedLocale: requestedLocale,
-    trackMetadata: allProjectsTrackMetadata.find(
-      (trackMetadataItem) => trackMetadataItem.slug === slug,
-    )!,
+    trackMetadata: trackMetadata!,
   };
 }
 
-export function readProjectsTrackInfoList(requestedLocale = 'en-US'): Readonly<{
-  loadedLocale: string;
-  trackInfoList: ReadonlyArray<ProjectsTrackInfo>;
-}> {
-  const trackInfoList = allProjectsTrackInfos.filter(
+export async function readProjectsTrackInfoList(
+  requestedLocale = 'en-US',
+): Promise<
+  Readonly<{
+    loadedLocale: string;
+    trackInfoList: ReadonlyArray<ProjectsTrackInfo>;
+  }>
+> {
+  const trackInfoList = await fetchAllProjectsTrackInfo();
+  const filteredTrackInfoList = trackInfoList.filter(
     (trackInfoItem) => trackInfoItem.locale === requestedLocale,
   );
 
   return {
     loadedLocale: requestedLocale,
-    trackInfoList,
+    trackInfoList: filteredTrackInfoList,
   };
 }
 
-export function readProjectsTrackInfo(
+export async function readProjectsTrackInfo(
   slugParam: string,
   requestedLocale = 'en-US',
-): Readonly<{
-  loadedLocale: string;
-  trackInfo: ProjectsTrackInfo;
-}> {
-  const { trackInfoDict } = readProjectsTrackInfoDict(requestedLocale);
+): Promise<
+  Readonly<{
+    loadedLocale: string;
+    trackInfo: ProjectsTrackInfo;
+  }>
+> {
+  const { trackInfoDict } = await readProjectsTrackInfoDict(requestedLocale);
 
   return {
     loadedLocale: requestedLocale,
@@ -206,11 +216,15 @@ export function readProjectsTrackInfo(
   };
 }
 
-export function readProjectsTrackInfoDict(requestedLocale = 'en-US'): Readonly<{
-  loadedLocale: string;
-  trackInfoDict: Record<string, ProjectsTrackInfo>;
-}> {
-  const { trackInfoList } = readProjectsTrackInfoList(requestedLocale);
+export async function readProjectsTrackInfoDict(
+  requestedLocale = 'en-US',
+): Promise<
+  Readonly<{
+    loadedLocale: string;
+    trackInfoDict: Record<string, ProjectsTrackInfo>;
+  }>
+> {
+  const { trackInfoList } = await readProjectsTrackInfoList(requestedLocale);
   const trackInfoDict: Record<string, ProjectsTrackInfo> = trackInfoList.reduce(
     (prev, infoItem) => ({
       ...prev,

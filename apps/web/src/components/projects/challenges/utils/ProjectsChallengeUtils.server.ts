@@ -31,9 +31,11 @@ export async function projectsChallengeCalculateTotalCreditsNeededForChallenge(
   ).map((accessItem) => accessItem.slug);
   const challengeUnlockedSet = new Set(challengesUnlocked);
 
-  const challengesInvolved = projectsChallengeDeterminePreReqsRecursively(slug);
+  const [challengesInvolved, challengeMetadataDict] = await Promise.all([
+    projectsChallengeDeterminePreReqsRecursively(slug),
+    readProjectsChallengeMetadataDict(),
+  ]);
 
-  const challengeMetadataDict = readProjectsChallengeMetadataDict();
   // Credits required if no challenges were unlocked.
   const creditsRequiredRaw = sumBy(
     challengesInvolved,
@@ -63,10 +65,10 @@ export async function projectsChallengeCalculateTotalCreditsNeededForChallenge(
 }
 
 // Recursively find the challenges needed.
-function projectsChallengeDeterminePreReqsRecursively(
+async function projectsChallengeDeterminePreReqsRecursively(
   slug: string,
-): ReadonlyArray<string> {
-  const challengeMetadataDict = readProjectsChallengeMetadataDict();
+): Promise<ReadonlyArray<string>> {
+  const challengeMetadataDict = await readProjectsChallengeMetadataDict();
 
   const challengesNeeded = new Set<string>();
   const dfsQueue: Array<string> = [slug];
