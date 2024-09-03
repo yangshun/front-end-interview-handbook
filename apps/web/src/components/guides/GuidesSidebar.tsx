@@ -22,6 +22,7 @@ import {
   themeTextSecondaryColor,
   themeTextSubtleColor,
 } from '~/components/ui/theme';
+import Tooltip from '~/components/ui/Tooltip';
 
 import { useI18nPathname } from '~/next-i18nostic/src';
 
@@ -56,57 +57,59 @@ function GuideLinksListItem({
   return (
     <li key={link.href} className="relative">
       <div className="flex">
-        <Anchor
-          className={clsx(
-            'flex items-center gap-x-2.5',
-            'w-full p-2',
-            'rounded-md',
-            'text-[0.8125rem] font-medium leading-4',
-            'select-none outline-none',
-            'transition-colors',
-            'hover:bg-neutral-200/40 dark:hover:bg-neutral-800/40',
-            [
-              themeOutlineElement_FocusVisible,
-              themeOutlineElementBrandColor_FocusVisible,
-            ],
-            isActive && 'bg-neutral-200/40 dark:bg-neutral-800/40',
-            isActive
-              ? clsx(themeTextColor, 'font-semibold')
-              : clsx(
-                  themeTextSecondaryColor,
-                  'hover:text-neutral-700 dark:hover:text-neutral-300',
-                ),
-          )}
-          href={link.href}
-          style={{ marginLeft: 12 * nestedLevel }}
-          variant="unstyled">
-          {Icon && (
-            <Icon
-              className={clsx(
-                'size-4 shrink-0',
-                !isActive && themeTextFaintColor,
-              )}
-            />
-          )}
-          <div className="flex items-center gap-x-2">
-            <span className="line-clamp-1">{link.title}</span>
-            {(() => {
-              if (!isInterviewsPremium) {
-                if (link.premium) {
-                  return <RiLockLine className="size-4 shrink-0" />;
+        <Tooltip asChild={true} label={link.title}>
+          <Anchor
+            className={clsx(
+              'flex items-center gap-x-2.5',
+              'w-full p-2',
+              'rounded-md',
+              'text-[0.8125rem] font-medium leading-4',
+              'select-none outline-none',
+              'transition-colors',
+              'hover:bg-neutral-200/40 dark:hover:bg-neutral-800/40',
+              [
+                themeOutlineElement_FocusVisible,
+                themeOutlineElementBrandColor_FocusVisible,
+              ],
+              isActive && 'bg-neutral-200/40 dark:bg-neutral-800/40',
+              isActive
+                ? clsx(themeTextColor, 'font-semibold')
+                : clsx(
+                    themeTextSecondaryColor,
+                    'hover:text-neutral-700 dark:hover:text-neutral-300',
+                  ),
+            )}
+            href={link.href}
+            style={{ marginLeft: 12 * nestedLevel }}
+            variant="unstyled">
+            {Icon && (
+              <Icon
+                className={clsx(
+                  'size-4 shrink-0',
+                  !isActive && themeTextFaintColor,
+                )}
+              />
+            )}
+            <div className="flex items-center gap-x-2">
+              <span className="line-clamp-1">{link.title}</span>
+              {(() => {
+                if (!isInterviewsPremium) {
+                  if (link.premium) {
+                    return <RiLockLine className="size-4 shrink-0" />;
+                  }
                 }
-              }
-              if (
-                link.kind === 'question' &&
-                !ReadyQuestions.includes(link.slug)
-              ) {
-                return <RiErrorWarningLine className="size-4 shrink-0" />;
-              }
+                if (
+                  link.kind === 'question' &&
+                  !ReadyQuestions.includes(link.slug)
+                ) {
+                  return <RiErrorWarningLine className="size-4 shrink-0" />;
+                }
 
-              return null;
-            })()}
-          </div>
-        </Anchor>
+                return null;
+              })()}
+            </div>
+          </Anchor>
+        </Tooltip>
       </div>
       {link.items != null && (
         <GuideLinksList items={link.items} nestedLevel={nestedLevel + 1} />
