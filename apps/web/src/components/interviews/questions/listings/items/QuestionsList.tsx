@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 import { RiArrowRightLine } from 'react-icons/ri';
-import { FormattedMessage, useIntl } from 'react-intl';
+import { useIntl } from 'react-intl';
 
 import { useUserProfile } from '~/components/global/UserProfileProvider';
 import Anchor from '~/components/ui/Anchor';
@@ -14,7 +14,6 @@ import {
   themeDivideColor,
   themeTextBrandColor_GroupHover,
   themeTextFaintColor,
-  themeTextInvertColor,
 } from '~/components/ui/theme';
 
 import type { QuestionCompletionCount } from '~/db/QuestionsCount';
@@ -32,6 +31,7 @@ import QuestionFormatLabel from '../../metadata/QuestionFormatLabel';
 import QuestionFrameworks from '../../metadata/QuestionFrameworks';
 import QuestionImportanceLabel from '../../metadata/QuestionImportanceLabel';
 import QuestionLanguages from '../../metadata/QuestionLanguages';
+import QuestionNewLabel from '../../metadata/QuestionNewLabel';
 import QuestionPremiumLabel from '../../metadata/QuestionPremiumLabel';
 import QuestionTopics from '../../metadata/QuestionTopics';
 import QuestionUsersCompletedLabel from '../../metadata/QuestionUsersCompletedLabel';
@@ -49,48 +49,6 @@ type Props<Q extends QuestionMetadata> = Readonly<{
   questions: ReadonlyArray<Q>;
   showProgress?: boolean;
 }>;
-
-function QuestionNewLabel({
-  created,
-}: Readonly<{
-  created: number;
-}>) {
-  const currentDate = new Date();
-  // One month ago.
-  const cutoffDate = new Date(currentDate.setMonth(currentDate.getMonth() - 1));
-
-  // Don't show "NEW" label if question was created before cutoff time.
-  if (created < cutoffDate.getTime() / 1000) {
-    return null;
-  }
-
-  return (
-    <span
-      className="size-12 absolute -right-0.5 -top-0.5 overflow-hidden"
-      style={{
-        clipPath: 'polygon(50% 0, 100% 50%, 100% 100%, 0 100%, 0 0)',
-      }}>
-      <span
-        className={clsx('absolute block', [
-          'border-info',
-          'border-[9999px] !border-b-transparent !border-l-transparent',
-        ])}
-      />
-      <span
-        className={clsx(
-          'absolute right-[3px] top-[10px] rotate-45',
-          'text-xs font-medium uppercase',
-          themeTextInvertColor,
-        )}>
-        <FormattedMessage
-          defaultMessage="New"
-          description="Label for new questions ribbon"
-          id="3lEE1N"
-        />
-      </span>
-    </span>
-  );
-}
 
 export default function QuestionsList<Q extends QuestionMetadata>({
   checkIfCompletedQuestion,
