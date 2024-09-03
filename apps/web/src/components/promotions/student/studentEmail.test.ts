@@ -66,7 +66,7 @@ describe('isValidStudentEmail', () => {
     });
   });
 
-  test('allowlisted domains', () => {
+  test('.ca suffixes', () => {
     expect(isValidStudentEmail('greg@humbermail.ca')).toEqual({
       valid: true,
     });
