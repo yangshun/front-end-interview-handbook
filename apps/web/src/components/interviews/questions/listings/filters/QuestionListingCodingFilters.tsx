@@ -10,6 +10,7 @@ import {
 import Divider from '~/components/ui/Divider';
 import Text from '~/components/ui/Text';
 import { themeBorderElementColor } from '~/components/ui/theme';
+import Tooltip from '~/components/ui/Tooltip';
 
 import type { QuestionFilter } from './QuestionFilterType';
 import type { QuestionFilterItemGap } from './QuestionListingFilterItemCheckboxes';
@@ -79,21 +80,25 @@ export default function QuestionListingCodingFilters({
           values={difficultyFilters}
         />
         <AccordionItem value="framework-language">
-          <AccordionTrigger>
-            <QuestionListingFilterItemLabel
-              label="Framework / Language"
-              tooltip={
-                <p className="flex flex-col gap-2">
-                  You may complete questions in any language or framework within
-                  our coding workspace.
-                  <br />
-                  <br />
-                  This filter helps you to find questions with official
-                  solutions in these Frameworks or Languages.
-                </p>
-              }
-            />
-          </AccordionTrigger>
+          <Tooltip
+            asChild={true}
+            label={
+              <p className="flex flex-col gap-2">
+                You may complete questions in any language or framework within
+                our coding workspace.
+                <br />
+                <br />
+                This filter helps you to find questions with official solutions
+                in these Frameworks or Languages.
+              </p>
+            }>
+            <AccordionTrigger>
+              <QuestionListingFilterItemLabel
+                label="Framework / Language"
+                showInfoIcon={true}
+              />
+            </AccordionTrigger>
+          </Tooltip>
           <AccordionContent>
             <div className="flex flex-col gap-y-5">
               {mode !== 'framework' && (

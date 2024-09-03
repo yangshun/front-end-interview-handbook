@@ -1,9 +1,9 @@
 import { BiUniversalAccess } from 'react-icons/bi';
 import {
-  RiCss3Line,
+  RiCss3Fill,
   RiDashboard2Line,
-  RiHtml5Line,
-  RiJavascriptLine,
+  RiHtml5Fill,
+  RiJavascriptFill,
   RiLock2Line,
   RiTestTubeLine,
   RiTranslate2,
@@ -32,7 +32,7 @@ export default function useQuestionTopicLabels() {
       }),
     },
     css: {
-      icon: RiCss3Line,
+      icon: RiCss3Fill,
       label: intl.formatMessage({
         defaultMessage: 'CSS',
         description: 'CSS topic for quiz questions',
@@ -40,7 +40,7 @@ export default function useQuestionTopicLabels() {
       }),
     },
     html: {
-      icon: RiHtml5Line,
+      icon: RiHtml5Fill,
       label: intl.formatMessage({
         defaultMessage: 'HTML',
         description: 'HTML topic for quiz questions',
@@ -56,7 +56,7 @@ export default function useQuestionTopicLabels() {
       }),
     },
     javascript: {
-      icon: RiJavascriptLine,
+      icon: RiJavascriptFill,
       label: intl.formatMessage({
         defaultMessage: 'JavaScript',
         description: 'JavaScript topic for quiz questions',

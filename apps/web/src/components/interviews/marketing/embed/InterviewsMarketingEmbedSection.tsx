@@ -2,7 +2,7 @@ import clsx from 'clsx';
 import { useInView } from 'framer-motion';
 import dynamic from 'next/dynamic';
 import { useRef, useState } from 'react';
-import { RiArrowRightLine, RiJavascriptLine } from 'react-icons/ri';
+import { RiArrowRightLine, RiJavascriptFill } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
 
 import gtag from '~/lib/gtag';
@@ -58,7 +58,7 @@ function useTabs() {
       value: 'user-interface',
     },
     {
-      icon: RiJavascriptLine,
+      icon: RiJavascriptFill,
       label: 'JavaScript',
       value: 'javascript',
     },

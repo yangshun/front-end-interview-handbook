@@ -1,9 +1,9 @@
 import type { ReactNode } from 'react';
 import {
-  RiAngularjsLine,
-  RiCss3Line,
-  RiHtml5Line,
-  RiJavascriptLine,
+  RiAngularjsFill,
+  RiCss3Fill,
+  RiHtml5Fill,
+  RiJavascriptFill,
   RiReactjsLine,
   RiVuejsLine,
 } from 'react-icons/ri';
@@ -42,19 +42,19 @@ const items: ReadonlyArray<{
 }> = [
   {
     href: '/questions/js',
-    icon: RiJavascriptLine,
+    icon: RiJavascriptFill,
     label: 'JavaScript',
     value: 'js',
   },
   {
     href: '/questions/html',
-    icon: RiHtml5Line,
+    icon: RiHtml5Fill,
     label: 'HTML',
     value: 'html',
   },
   {
     href: '/questions/css',
-    icon: RiCss3Line,
+    icon: RiCss3Fill,
     label: 'CSS',
     value: 'css',
   },
@@ -66,7 +66,7 @@ const items: ReadonlyArray<{
   },
   {
     href: '/questions/angular',
-    icon: RiAngularjsLine,
+    icon: RiAngularjsFill,
     label: 'Angular',
     value: 'angular',
   },

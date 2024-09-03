@@ -12,7 +12,7 @@ import {
   RiFoldersLine,
   RiGroupLine,
   RiGuideLine,
-  RiHtml5Line,
+  RiHtml5Fill,
   RiListCheck3,
   RiNodeTree,
   RiPencilRuler2Line,
@@ -122,7 +122,7 @@ function useLearningFeatures(): Array<LearningFeature> {
             }),
           },
           {
-            icon: RiHtml5Line,
+            icon: RiHtml5Fill,
             key: 'html-pre-written-content',
             label: intl.formatMessage({
               defaultMessage: 'HTML pre-written content',

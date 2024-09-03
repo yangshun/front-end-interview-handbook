@@ -2,7 +2,7 @@ import {
   RiCodeSSlashLine,
   RiDashboardLine,
   RiFileList3Line,
-  RiJavascriptLine,
+  RiJavascriptFill,
   RiTerminalWindowLine,
 } from 'react-icons/ri';
 import { TbBinaryTree } from 'react-icons/tb';
@@ -94,7 +94,7 @@ function useCodingSectionFormatItems() {
         id: 'iqz/fo',
       }),
       href: `${basePath}/javascript`,
-      icon: RiJavascriptLine,
+      icon: RiJavascriptFill,
       slug: 'javascript',
       title: intl.formatMessage({
         defaultMessage: 'JavaScript coding',

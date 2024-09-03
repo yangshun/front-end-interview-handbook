@@ -3,6 +3,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from '~/components/ui/Accordion';
+import Tooltip from '~/components/ui/Tooltip';
 
 import type { QuestionFilter } from './QuestionFilterType';
 import type { QuestionFilterItemGap } from './QuestionListingFilterItemCheckboxes';
@@ -22,14 +23,24 @@ export default function QuestionListingFilterItem<
   section: QuestionFilter<T, Q>;
   values: Set<T>;
 }>) {
+  const trigger = (
+    <AccordionTrigger>
+      <QuestionListingFilterItemLabel
+        label={section.name}
+        showInfoIcon={section.tooltip != null}
+      />
+    </AccordionTrigger>
+  );
+
   return (
     <AccordionItem value={section.id}>
-      <AccordionTrigger>
-        <QuestionListingFilterItemLabel
-          label={section.name}
-          tooltip={section.tooltip}
-        />
-      </AccordionTrigger>
+      {section.tooltip ? (
+        <Tooltip asChild={true} label={section.tooltip}>
+          {trigger}
+        </Tooltip>
+      ) : (
+        trigger
+      )}
       <AccordionContent>
         <QuestionListingFilterItemCheckboxes
           itemGap={itemGap}

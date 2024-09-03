@@ -1,7 +1,7 @@
 import {
   RiCodeBoxFill,
   RiFlowChart,
-  RiJavascriptLine,
+  RiJavascriptFill,
   RiQuestionnaireFill,
   RiTerminalWindowLine,
 } from 'react-icons/ri';
@@ -73,7 +73,7 @@ export function useQuestionFormatsData(): QuestionFormatData {
       value: 'algo',
     },
     javascript: {
-      icon: RiJavascriptLine,
+      icon: RiJavascriptFill,
       label: intl.formatMessage({
         defaultMessage: 'JavaScript coding',
         description: 'Front end JavaScript utility functions',
