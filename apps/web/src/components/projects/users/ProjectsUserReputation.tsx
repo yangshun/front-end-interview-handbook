@@ -4,11 +4,10 @@ import clsx from 'clsx';
 import { RiFireLine } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
 
+import { formatBigNumber } from '~/components/common/formatBigNumber';
 import Text from '~/components/ui/Text';
 import { themeTextSecondaryColor } from '~/components/ui/theme';
 import Tooltip from '~/components/ui/Tooltip';
-
-import { getFormattedNumber } from '../misc';
 
 type Size = 'body2' | 'body3';
 
@@ -43,7 +42,7 @@ export default function ProjectsUserReputation({
         defaultMessage="{points} Reputation"
         description="Label showing reputation count in profile header of Projects sidebar"
         id="xyPOJe"
-        values={{ points: getFormattedNumber(points) }}
+        values={{ points: formatBigNumber(points) }}
       />
     </Text>
   );

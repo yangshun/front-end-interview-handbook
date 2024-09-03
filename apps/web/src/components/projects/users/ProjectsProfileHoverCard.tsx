@@ -3,6 +3,7 @@ import { useMediaQuery } from 'usehooks-ts';
 
 import { trpc } from '~/hooks/trpc';
 
+import { formatBigNumber } from '~/components/common/formatBigNumber';
 import UserProfileInformationRow from '~/components/profile/info/UserProfileInformationRow';
 import ProjectsProfileAvatar from '~/components/projects/users/ProjectsProfileAvatar';
 import Anchor from '~/components/ui/Anchor';
@@ -13,7 +14,6 @@ import ProjectsProfileDisplayNameLink from './ProjectsProfileDisplayNameLink';
 import ProjectsProfilePremiumChip from './ProjectsProfilePremiumChip';
 import ProjectsUserReputation from './ProjectsUserReputation';
 import useProjectsProfileStats from '../hooks/useProjectsProfileStats';
-import { getFormattedNumber } from '../misc';
 import ProjectsProfileSocialLinks from '../profile/info/ProjectsProfileSocialLinks';
 
 import { useUser } from '@supabase/auth-helpers-react';
@@ -84,7 +84,7 @@ export default function ProjectsProfileHoverCard({ userId }: Props) {
             {statsItems.map((item) => (
               <div key={item.title} className="flex h-full flex-1 flex-col">
                 <Text size="body0" weight="bold">
-                  {item.count ? getFormattedNumber(item.count) : '-'}
+                  {item.count ? formatBigNumber(item.count) : '-'}
                 </Text>
                 <div className="flex h-full">
                   <Text className="text-2xs" color="secondary" size="inherit">

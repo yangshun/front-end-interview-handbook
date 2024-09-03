@@ -2,7 +2,7 @@ import clsx from 'clsx';
 
 import Card from '~/components/ui/Card';
 
-import { getFormattedNumber } from '../projects/misc';
+import { formatBigNumber } from './formatBigNumber';
 import Text from '../ui/Text';
 import { themeBackgroundChipColor, themeTextSecondaryColor } from '../ui/theme';
 
@@ -42,7 +42,7 @@ export default function MetricCard({ icon: Icon, label, count }: Props) {
         className="text-4xl font-bold md:text-5xl"
         size="inherit"
         weight="inherit">
-        {count ? getFormattedNumber(count) : '-'}
+        {count ? formatBigNumber(count) : '-'}
       </Text>
     </Card>
   );

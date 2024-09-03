@@ -4,12 +4,11 @@ import clsx from 'clsx';
 import { RiFireLine } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
 
+import { formatBigNumber } from '~/components/common/formatBigNumber';
 import Text from '~/components/ui/Text';
 import { themeBorderSubtleColor } from '~/components/ui/theme';
 import { themeTextSubtleColor } from '~/components/ui/theme';
 import Tooltip from '~/components/ui/Tooltip';
-
-import { getFormattedNumber } from '../../misc';
 
 type TagVariant = 'flat' | 'underline';
 
@@ -65,7 +64,7 @@ export default function ProjectsChallengeReputationTag({
             description="Reputation points to be gained"
             id="XHzBpN"
             values={{
-              points: getFormattedNumber(points),
+              points: formatBigNumber(points),
             }}
           />
         )}
@@ -80,7 +79,7 @@ export default function ProjectsChallengeReputationTag({
                   {chunks}
                 </Text>
               ),
-              points: getFormattedNumber(points),
+              points: formatBigNumber(points),
             }}
           />
         )}
@@ -90,7 +89,7 @@ export default function ProjectsChallengeReputationTag({
             description="Reputation points to be gained"
             id="OrjlW6"
             values={{
-              points: getFormattedNumber(points),
+              points: formatBigNumber(points),
             }}
           />
         )}

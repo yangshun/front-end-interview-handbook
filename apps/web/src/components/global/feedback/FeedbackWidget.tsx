@@ -8,8 +8,8 @@ import { FormattedMessage, useIntl } from 'react-intl';
 import { fbqGFE } from '~/lib/fbq';
 import { trpc } from '~/hooks/trpc';
 
+import { formatBigNumber } from '~/components/common/formatBigNumber';
 import { useUserPreferences } from '~/components/global/UserPreferencesProvider';
-import { getFormattedNumber } from '~/components/projects/misc';
 import Button from '~/components/ui/Button';
 import {
   themeBackgroundElementPressedStateColor_Active,
@@ -46,7 +46,7 @@ function OnlineUsers({ count }: Readonly<{ count: number }>) {
             description="Text describing online users"
             id="6VId29"
             values={{
-              noOfOnlineUsers: getFormattedNumber(count),
+              noOfOnlineUsers: formatBigNumber(count),
             }}
           />
         </Text>
