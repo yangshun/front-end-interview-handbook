@@ -3,6 +3,7 @@ import { useId } from 'react';
 import { RiCheckboxCircleLine } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
 
+import { formatBigNumber } from '~/components/common/formatBigNumber';
 import Text from '~/components/ui/Text';
 import {
   themeBackgroundGlimmerColor,
@@ -28,6 +29,10 @@ export default function QuestionUsersCompletedLabel({
     description: 'Number of users who completed the question',
     id: 'DEhOz5',
   });
+
+  if (count == null) {
+    return null;
+  }
 
   return (
     <Tooltip label={label}>
@@ -59,7 +64,7 @@ export default function QuestionUsersCompletedLabel({
               description="Number of users who completed the question"
               id="xVsq55"
               values={{
-                numUsers: count,
+                numUsers: formatBigNumber(count),
               }}
             />
           )}
