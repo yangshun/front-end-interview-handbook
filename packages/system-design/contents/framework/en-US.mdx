@@ -12,17 +12,17 @@ In the context of front end system design interviews, the systems you are asked 
 
 ## What is RADIO about?
 
-1. **Requirements Exploration**: Understand the problem thoroughly and determine the scope by asking a number of clarifying questions.
-1. **Architecture/High-level Design**: Identify the key components of the product and how they are related to each other.
-1. **Data Model**: Describe the various data entities, the fields they contain and which component(s) they belong to.
-1. **Interface Definition (API)**: Define the interface (API) between components in the product, functionality of each API, their parameters and responses.
-1. **Optimizations and Deep Dive**: Discuss about possible optimization opportunities and specific areas of interest when building the product.
+1. **Requirements exploration**: Understand the problem thoroughly and determine the scope by asking a number of clarifying questions.
+1. **Architecture / High-level design**: Identify the key components of the product and how they are related to each other.
+1. **Data model**: Describe the various data entities, the fields they contain and which component(s) they belong to.
+1. **Interface definition (API)**: Define the interface (API) between components in the product, functionality of each API, their parameters and responses.
+1. **Optimizations and deep dive**: Discuss about possible optimization opportunities and specific areas of interest when building the product.
 
-## Requirements Exploration
+## Requirements exploration
 
 **Objective**: Understand the problem thoroughly and determine the scope by asking a number of clarifying questions.
 
-**Recommended Duration**: Not more than 15% of the session.
+**Recommended duration**: Not more than 15% of the session.
 
 System design interview questions are open-ended in nature and are usually vague and under-specified on purpose. **You are required to dig deeper and clarify ambiguities in the problem by asking useful questions.** Treat your interviewer as a product manager you are working with on a new project, ask enough questions so that you know what problems you are trying to solve and what you need to build. In reality, some problems can be solved without any engineering at all!
 
@@ -71,11 +71,11 @@ You are recommended to write down the agreed requirements somewhere so that you 
 
 ---
 
-## Architecture/High-level Design
+## Architecture / High-level design
 
 **Objective**: Identify the key components of the product and how they are related to each other.
 
-**Recommended Duration**: Roughly 20% of the session.
+**Recommended duration**: Roughly 20% of the session.
 
 With the requirements in mind, we can move on to the architecture design proper. Your next task is to come up with a product/system architecture by identifying the key components of the product, how the components interact with each other, and how they are related. Remember to focus on the **client-side architecture**, not the back end.
 
@@ -86,7 +86,7 @@ Examples of components/modules which are commonly found in a high-level front en
 - **Server**: In front end system design interviews, we can treat the server as a black box and assume it exposes some APIs you can call via HTTP/WebSockets.
 - **View**: This represents what the user sees, and it usually contains smaller subviews within it. Can contain client-side only state.
 - **Controller**: The module which responds to user interactions and processes the data from the store/model in a format the view expects. This module is not always needed if the application is small and there's not much passing of data between modules.
-- **Model/Client Store**: Where the data lives. Stores contain data which will be presented to the user via views and stores tend to be app-wide for an interview context. In reality, you can have multiple stores within an application and stores can contain other stores.
+- **Model/Client store**: Where the data lives. Stores contain data which will be presented to the user via views and stores tend to be app-wide for an interview context. In reality, you can have multiple stores within an application and stores can contain other stores.
 
 Other things to consider when defining the responsibilities of components:
 
@@ -97,38 +97,38 @@ It is important to realize that not every common component mentioned above will 
 
 After drawing out the architecture diagram, verbally describe the responsibilities of each component (box in the diagram).
 
-### Architecture Example
+### Architecture example
 
 Here's an example architecture diagram for the [News Feed](/questions/system-design/news-feed-facebook) question drawn using Excalidraw.
 
 ![Example architecture diagram](/img/questions/news-feed-facebook/news-feed-architecture.png)
 
-#### Component Responsibilities
+#### Component responsibilities
 
 - **Server**: Serves feed data and provides a HTTP API for new feed posts to be created.
 - **Controller**: Controls the flow of data within the application and makes network requests to the server.
-- **Client Store**: Stores data needed across the whole application. In the context of a news feed, most of the data in the store will be server-originated data needed by the feed UI.
+- **Client store**: Stores data needed across the whole application. In the context of a news feed, most of the data in the store will be server-originated data needed by the feed UI.
 - **Feed UI**: Contains a list of feed posts and the UI for composing new posts.
-  - **Feed Post**: Presents the data for a feed post and contains buttons to interact with the post (like/react/share/comment).
-  - **Post Composer**: UI for users to create new feed posts.
+  - **Feed post**: Presents the data for a feed post and contains buttons to interact with the post (like/react/share/comment).
+  - **Post composer**: UI for users to create new feed posts.
 
 Common free drawing tools that you might be asked to use include [diagrams.net](https://app.diagrams.net/) and [Excalidraw](https://excalidraw.com/). It'd be a good idea to familiarize yourself with these tools beforehand.
 
 ---
 
-## Data Model
+## Data model
 
 **Objective**: Describe the various data entities, the fields they contain and which component(s) they belong to.
 
-**Recommended Duration**: Roughly 10% of the session.
+**Recommended duration**: Roughly 10% of the session.
 
 We now have to think about what data fields are present in the client. There are two kinds of data on client applications:
 
-### Server-originated Data
+### Server-originated data
 
 Data that originates from the server, usually from a database and meant to be seen by multiple people or accessed from multiple different devices. Common examples include user data (name, profile picture) and user-generated data (feed posts, comments).
 
-### Client-only Data
+### Client-only data
 
 Client-only data, also commonly known as state, is data that only needs to live on the client and does not have to be sent to the server for writing into the database. Client data can be further broken down into two:
 
@@ -137,11 +137,11 @@ Client-only data, also commonly known as state, is data that only needs to live 
 
 When listing the data fields, it'd be useful to identify what kind of data that field is, whether it's server-originated data or client-only data.
 
-### Data Model Example
+### Data model example
 
 Here's a basic example of data model for the various entities using the [News Feed](/questions/system-design/news-feed-facebook) question.
 
-| Source | Entity | Belongs To | Fields |
+| Source | Entity | Belongs to | Fields |
 | --- | --- | --- | --- |
 | Server | `Post` | Feed Post | `id`, `created_time`, `content`, `image`, `author` (a `User`), `reactions` |
 | Server | `Feed` | Feed UI | `posts` (list of `Post`s), `pagination` (pagination metadata) |
@@ -154,23 +154,23 @@ You might want to write these fields near the components which owns them in your
 
 ---
 
-## Interface Definition (API)
+## Interface definition (API)
 
 **Objective**: Define the interface between components in the product, functionality of the various APIs, their parameters and responses.
 
-**Recommended Duration**: Roughly 15% of the session.
+**Recommended duration**: Roughly 15% of the session.
 
 With the components and data within each components, we can move on to discuss the interface (APIs) between the components. API is an overloaded term and generally refer to the protocol which software components communicate and request/send data between components. Client and server communicate via network layer APIs (HTTP/WebSockets). Client components generally communicate via functions in the browser runtime. All APIs have three things in common whether they are between the server and the client or between client components:
 
-| Parts of an API | Server-Client | Client-Client |
+| Parts of an API | Server-client | Client-client |
 | --- | --- | --- |
 | Name and functionality | HTTP path | JavaScript function |
 | Parameters | HTTP GET query and POST parameters | Function parameters |
 | Return Value | HTTP response, typically JSON format | Function return value |
 
-### Server-Client API Example
+### Server-client API example
 
-Using the [News Feed](/questions/system-design/news-feed-facebook) example yet again, we have a server API that allows the client to fetch the latest feed posts.
+Using the [News Feed system design](/questions/system-design/news-feed-facebook) example yet again, we have a server API that allows the client to fetch the latest feed posts.
 
 | Field       | Value                                |
 | ----------- | ------------------------------------ |
@@ -217,28 +217,28 @@ A feed response is a paginated list so the API expects pagination parameters.
 }
 ```
 
-### Client-Client API Example
+### Client-elient API example
 
 The client-client API can be written in a similar fashion as the server-client API, main difference being they are JavaScript functions, or events that are being listened to. The most important parts to describe are the functionality of the API, the parameters and the return/response value.
 
-### API for UI Component System Design
+### API for UI component system design
 
 If you're asked to design a UI component, for the "Interface" section, discuss about the customization options for the component, similar to the props for React components.
 
 ---
 
-## Optimizations and Deep Dive
+## Optimizations and deep dive
 
 **Objective**: Discuss about possible optimization opportunities and specific areas of interest when building the product.
 
-**Recommended Duration**: Roughly 40% of the session.
+**Recommended duration**: Roughly 40% of the session.
 
 There's no fixed way to go about the optimization and deep dive section and you are free to focus on different areas of the product. There will not be sufficient time to cover every area, so select how you want to spend your time carefully according to these guidelines:
 
 - **Focus on the important areas of the product.** For e-commerce websites, performance is crucial and you'd want to spend the bulk of your time diving into the various performance optimizations that can be done. For collaborative editors, the complexity is in how to handle race conditions and concurrent modifications, so you'd want to focus on explaining that.
 - **Focus on your strengths.** Showcase your domain knowledge. If you are well-versed in accessibility, talk about the various accessibility pitfalls that can occur in the product and how to address them. Impress the interviewer with your knowledge. If you are a performance guru, explain the various performance optimization opportunities that can provide a buttery smooth user experience.
 
-### General Optimization/Deep Dive Areas
+### General optimization / Deep dive areas
 
 Here's a list of topics you can talk about for this section. Bear in mind that the importance of a topic depends on the question and some topics are entirely irrelevant to certain questions (possible but unlikely).
 
@@ -256,10 +256,10 @@ Refer to our [Best Practices for Building User Interfaces Guide](/front-end-inte
 
 ## Summary
 
-| Step | Objective | Recommended Duration |
+| Step | Objective | Recommended duration |
 | --- | --- | --- |
-| Requirements Exploration | Understand the problem thoroughly and determine the scope by asking a number of clarifying questions. | &lt;15% |
-| Architecture/High-level Design | Identify the key components of the product and how they are related to each other. | ~20% |
-| Data Model | Describe the various data entities, the fields they contain and which component(s) they belong to. | ~10% |
-| Interface Definition | Define the interface (API) between components in the product, functionality of each APIs, their parameters and responses. | ~15% |
-| Optimizations and Deep Dive | Discuss about possible optimization opportunities and specific areas of interest when building the product. | ~40% |
+| Requirements exploration | Understand the problem thoroughly and determine the scope by asking a number of clarifying questions. | &lt;15% |
+| Architecture / High-level design | Identify the key components of the product and how they are related to each other. | ~20% |
+| Data model | Describe the various data entities, the fields they contain and which component(s) they belong to. | ~10% |
+| Interface definition (API) | Define the interface (API) between components in the product, functionality of each APIs, their parameters and responses. | ~15% |
+| Optimizations and deep dive | Discuss about possible optimization opportunities and specific areas of interest when building the product. | ~40% |
