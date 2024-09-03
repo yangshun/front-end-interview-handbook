@@ -60,9 +60,9 @@ export default function QuestionUsersCompletedLabel({
             />
           ) : (
             <FormattedMessage
-              defaultMessage="{numUsers} completed"
+              defaultMessage="{numUsers} done"
               description="Number of users who completed the question"
-              id="xVsq55"
+              id="Pr2Uly"
               values={{
                 numUsers: formatBigNumber(count),
               }}

@@ -607,6 +607,10 @@
     "defaultMessage": "Security",
     "description": "Title for Security section on profile page"
   },
+  "3FeosO": {
+    "defaultMessage": "NEW",
+    "description": "Label for new questions ribbon"
+  },
   "3IiqOd": {
     "defaultMessage": "Copy promo code",
     "description": "Copy button label"
@@ -690,10 +694,6 @@
   "3l9u0k": {
     "defaultMessage": "View roadmap",
     "description": "Entrypoint for view roadmap on hero section of Interviews"
-  },
-  "3lEE1N": {
-    "defaultMessage": "New",
-    "description": "Label for new questions ribbon"
   },
   "3n0B1m": {
     "defaultMessage": "You currently have {count, plural, =0 {no premium credits} one {<bold>1 premium credit</bold>} other {<bold># premium credits</bold>}}. Proceed to unlock?",
@@ -3742,6 +3742,10 @@
   "PoylyF": {
     "defaultMessage": "Follow <link>this guide</link> on how to create a GitHub repository.",
     "description": "Description for GitHub repo step in project submission checklist"
+  },
+  "Pr2Uly": {
+    "defaultMessage": "{numUsers} done",
+    "description": "Number of users who completed the question"
   },
   "PrexEG": {
     "defaultMessage": "Notifications",
@@ -8450,10 +8454,6 @@
   "xU32y0": {
     "defaultMessage": "3 subcategories of questions: JavaScript, User Interfaces & Data Structures and Algorithms",
     "description": "Description of coding interview preparation"
-  },
-  "xVsq55": {
-    "defaultMessage": "{numUsers} completed",
-    "description": "Number of users who completed the question"
   },
   "xWAt8Q": {
     "defaultMessage": "The ultimate Front End Interview preparation platform.",
