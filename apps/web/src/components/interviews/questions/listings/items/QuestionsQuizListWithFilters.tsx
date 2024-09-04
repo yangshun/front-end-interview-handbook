@@ -152,6 +152,7 @@ export default function QuestionsQuizListWithFilters({
           description: 'Label for sorting button',
           id: 'vegaR1',
         })}
+        showChevron={true}
         size="sm">
         {[
           makeDropdownItemProps(

@@ -217,6 +217,7 @@ export default function QuestionsCodingListWithFilters({
           description: 'Label for sorting button',
           id: 'vegaR1',
         })}
+        showChevron={true}
         size="sm">
         {[
           makeDropdownItemProps(
@@ -258,6 +259,26 @@ export default function QuestionsCodingListWithFilters({
             }),
             'difficulty',
             false,
+          ),
+          makeDropdownItemProps(
+            intl.formatMessage({
+              defaultMessage: 'Importance: High to Low',
+              description:
+                'Sorting option for question list - sort by importance from high to low',
+              id: 'Tt86gs',
+            }),
+            'importance',
+            false,
+          ),
+          makeDropdownItemProps(
+            intl.formatMessage({
+              defaultMessage: 'Importance: Low to High',
+              description:
+                'Sorting option for question list - sort by importance from low to high',
+              id: 'MYNtBs',
+            }),
+            'importance',
+            true,
           ),
           makeDropdownItemProps(
             intl.formatMessage({
