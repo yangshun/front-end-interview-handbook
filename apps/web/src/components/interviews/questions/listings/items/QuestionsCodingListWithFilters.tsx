@@ -104,6 +104,8 @@ export default function QuestionsCodingListWithFilters({
     languageFilterOptions,
     frameworkFilters,
     frameworkFilterOptions,
+    importanceFilters,
+    importanceFilterOptions,
     completionStatusFilters,
     completionStatusFilterOptions,
     formatFilters,
@@ -198,6 +200,8 @@ export default function QuestionsCodingListWithFilters({
             formatFilters={formatFilters}
             frameworkFilterOptions={frameworkFilterOptions}
             frameworkFilters={frameworkFilters}
+            importanceFilterOptions={importanceFilterOptions}
+            importanceFilters={importanceFilters}
             itemGap="spacious"
             languageFilterOptions={languageFilterOptions}
             languageFilters={languageFilters}
@@ -574,6 +578,8 @@ export default function QuestionsCodingListWithFilters({
                 formatFilters={formatFilters}
                 frameworkFilterOptions={frameworkFilterOptions}
                 frameworkFilters={frameworkFilters}
+                importanceFilterOptions={importanceFilterOptions}
+                importanceFilters={importanceFilters}
                 itemGap="compact"
                 languageFilterOptions={languageFilterOptions}
                 languageFilters={languageFilters}

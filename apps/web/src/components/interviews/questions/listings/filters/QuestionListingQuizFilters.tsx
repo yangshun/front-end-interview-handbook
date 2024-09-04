@@ -8,6 +8,7 @@ import type { QuestionFilter } from './QuestionFilterType';
 import type { QuestionFilterItemGap } from './QuestionListingFilterItemCheckboxes';
 import type {
   QuestionCompletionStatus,
+  QuestionImportance,
   QuestionMetadata,
   QuestionMetadataWithCompletedStatus,
   QuestionTopic,
@@ -19,6 +20,8 @@ type Props = Readonly<{
     QuestionMetadataWithCompletedStatus
   >;
   completionStatusFilters: Set<QuestionCompletionStatus>;
+  importanceFilterOptions: QuestionFilter<QuestionImportance, QuestionMetadata>;
+  importanceFilters: Set<QuestionImportance>;
   itemGap: QuestionFilterItemGap;
   quizTopicFilterOptions: QuestionFilter<QuestionTopic, QuestionMetadata>;
   quizTopicFilters: Set<QuestionTopic>;
@@ -30,17 +33,24 @@ export default function QuestionListingQuizFilters({
   itemGap,
   quizTopicFilterOptions,
   quizTopicFilters,
+  importanceFilterOptions,
+  importanceFilters,
 }: Props) {
   return (
     <form>
       <Accordion
         className={clsx('border-y', themeBorderElementColor)}
-        defaultValue={['topic', 'completion']}
+        defaultValue={['topic', 'importance', 'completion']}
         type="multiple">
         <QuestionListingFilterItem
           itemGap={itemGap}
           section={quizTopicFilterOptions}
           values={quizTopicFilters}
+        />
+        <QuestionListingFilterItem
+          itemGap={itemGap}
+          section={importanceFilterOptions}
+          values={importanceFilters}
         />
         <QuestionListingFilterItem
           itemGap={itemGap}

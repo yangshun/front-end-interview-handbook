@@ -25,6 +25,7 @@ import Section from '~/components/ui/Heading/HeadingContext';
 import SlideOut from '~/components/ui/SlideOut';
 import TextInput from '~/components/ui/TextInput';
 
+import useQuestionImportanceFilter from '../filters/hooks/useQuestionImportanceFilter';
 import useQuestionsWithCompletionStatus from '../filters/hooks/useQuestionsWithCompletionStatus';
 import QuestionListingSystemDesignFilters from '../filters/QuestionListingSystemDesignFilters';
 import questionMatchesTextQuery from '../filters/questionMatchesTextQuery';
@@ -48,6 +49,8 @@ export default function QuestionsSystemDesignListWithFilters({
   const [sortField, setSortField] = useState<QuestionSortField>('difficulty');
   const [difficultyFilters, difficultyFilterOptions] =
     useQuestionDifficultyFilter({ namespace });
+  const [importanceFilters, importanceFilterOptions] =
+    useQuestionImportanceFilter({ namespace });
   const [companyFilters, companyFilterOptions] = useQuestionCompanyFilter({
     namespace,
   });
@@ -104,6 +107,8 @@ export default function QuestionsSystemDesignListWithFilters({
     [0, (question) => questionMatchesTextQuery(question, query)],
     // Difficulty.
     [difficultyFilters.size, difficultyFilterOptions.matches],
+    // Importance.
+    [importanceFilters.size, importanceFilterOptions.matches],
     // Company.
     [companyFilters.size, companyFilterOptions.matches],
     // Completion Status.
@@ -149,6 +154,8 @@ export default function QuestionsSystemDesignListWithFilters({
             completionStatusFilters={completionStatusFilters}
             difficultyFilterOptions={difficultyFilterOptions}
             difficultyFilters={difficultyFilters}
+            importanceFilterOptions={importanceFilterOptions}
+            importanceFilters={importanceFilters}
             itemGap="spacious"
           />
         </SlideOut>
@@ -312,6 +319,8 @@ export default function QuestionsSystemDesignListWithFilters({
                 completionStatusFilters={completionStatusFilters}
                 difficultyFilterOptions={difficultyFilterOptions}
                 difficultyFilters={difficultyFilters}
+                importanceFilterOptions={importanceFilterOptions}
+                importanceFilters={importanceFilters}
                 itemGap="compact"
               />
             </Section>

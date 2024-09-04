@@ -8,6 +8,7 @@ import useQuestionCompletionStatusFilter from './useQuestionCompletionStatusFilt
 import useQuestionDifficultyFilter from './useQuestionDifficultyFilter';
 import useQuestionFormatFilter from './useQuestionFormatFilter';
 import useQuestionFrameworkFilter from './useQuestionFrameworkFilter';
+import useQuestionImportanceFilter from './useQuestionImportanceFilter';
 import useQuestionLanguageFilter from './useQuestionLanguageFilter';
 import useQuestionSearchFilter from './useQuestionSearchFilter';
 import questionMatchesTextQuery from '../questionMatchesTextQuery';
@@ -32,6 +33,8 @@ export default function useQuestionCodingFilters({
   const [query, setQuery] = useQuestionSearchFilter({ namespace });
   const [difficultyFilters, difficultyFilterOptions] =
     useQuestionDifficultyFilter({ namespace });
+  const [importanceFilters, importanceFilterOptions] =
+    useQuestionImportanceFilter({ namespace });
   const [companyFilters, companyFilterOptions] = useQuestionCompanyFilter({
     namespace,
   });
@@ -57,6 +60,8 @@ export default function useQuestionCodingFilters({
     [0, (question) => questionMatchesTextQuery(question, query)],
     // Difficulty.
     [difficultyFilters.size, difficultyFilterOptions.matches],
+    // Importance.
+    [importanceFilters.size, importanceFilterOptions.matches],
     // Company.
     [companyFilters.size, companyFilterOptions.matches],
     // Language.
@@ -81,6 +86,8 @@ export default function useQuestionCodingFilters({
     formatFilters,
     frameworkFilterOptions,
     frameworkFilters,
+    importanceFilterOptions,
+    importanceFilters,
     languageFilterOptions,
     languageFilters,
     query,

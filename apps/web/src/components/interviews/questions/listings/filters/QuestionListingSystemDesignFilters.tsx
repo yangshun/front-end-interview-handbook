@@ -10,6 +10,7 @@ import type {
   QuestionCompany,
   QuestionCompletionStatus,
   QuestionDifficulty,
+  QuestionImportance,
   QuestionMetadata,
   QuestionMetadataWithCompletedStatus,
 } from '../../common/QuestionsTypes';
@@ -24,6 +25,8 @@ type Props = Readonly<{
   completionStatusFilters: Set<QuestionCompletionStatus>;
   difficultyFilterOptions: QuestionFilter<QuestionDifficulty, QuestionMetadata>;
   difficultyFilters: Set<QuestionDifficulty>;
+  importanceFilterOptions: QuestionFilter<QuestionImportance, QuestionMetadata>;
+  importanceFilters: Set<QuestionImportance>;
   itemGap: QuestionFilterItemGap;
 }>;
 
@@ -34,13 +37,15 @@ export default function QuestionListingSystemDesignFilters({
   completionStatusFilters,
   difficultyFilterOptions,
   difficultyFilters,
+  importanceFilterOptions,
+  importanceFilters,
   itemGap,
 }: Props) {
   return (
     <form>
       <Accordion
         className={clsx('border-y', themeBorderElementColor)}
-        defaultValue={['company', 'difficulty', 'completion']}
+        defaultValue={['company', 'difficulty', 'importance', 'completion']}
         type="multiple">
         <QuestionListingFilterItem
           itemGap={itemGap}
@@ -51,6 +56,11 @@ export default function QuestionListingSystemDesignFilters({
           itemGap={itemGap}
           section={difficultyFilterOptions}
           values={difficultyFilters}
+        />
+        <QuestionListingFilterItem
+          itemGap={itemGap}
+          section={importanceFilterOptions}
+          values={importanceFilters}
         />
         <QuestionListingFilterItem
           itemGap={itemGap}

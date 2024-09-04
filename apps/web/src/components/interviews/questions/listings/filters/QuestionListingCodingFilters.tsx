@@ -22,6 +22,7 @@ import type {
   QuestionDifficulty,
   QuestionFormat,
   QuestionFramework,
+  QuestionImportance,
   QuestionLanguage,
   QuestionMetadata,
   QuestionMetadataWithCompletedStatus,
@@ -41,6 +42,8 @@ type Props = Readonly<{
   formatFilters: Set<QuestionFormat>;
   frameworkFilterOptions: QuestionFilter<QuestionFramework, QuestionMetadata>;
   frameworkFilters: Set<QuestionFramework>;
+  importanceFilterOptions: QuestionFilter<QuestionImportance, QuestionMetadata>;
+  importanceFilters: Set<QuestionImportance>;
   itemGap: QuestionFilterItemGap;
   languageFilterOptions: QuestionFilter<QuestionLanguage, QuestionMetadata>;
   languageFilters: Set<QuestionLanguage>;
@@ -56,6 +59,8 @@ export default function QuestionListingCodingFilters({
   completionStatusFilters,
   difficultyFilterOptions,
   difficultyFilters,
+  importanceFilterOptions,
+  importanceFilters,
   frameworkFilterOptions,
   frameworkFilters,
   languageFilterOptions,
@@ -78,6 +83,11 @@ export default function QuestionListingCodingFilters({
           itemGap={itemGap}
           section={difficultyFilterOptions}
           values={difficultyFilters}
+        />
+        <QuestionListingFilterItem
+          itemGap={itemGap}
+          section={importanceFilterOptions}
+          values={importanceFilters}
         />
         <AccordionItem value="framework-language">
           <Tooltip

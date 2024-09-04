@@ -27,6 +27,7 @@ import TextInput from '~/components/ui/TextInput';
 
 import type { QuestionCompletionCount } from '~/db/QuestionsCount';
 
+import useQuestionImportanceFilter from '../filters/hooks/useQuestionImportanceFilter';
 import QuestionListingQuizFilters from '../filters/QuestionListingQuizFilters';
 import questionMatchesTextQuery from '../filters/questionMatchesTextQuery';
 import QuestionTotalTimeLabel from '../../metadata/QuestionTotalTimeLabel';
@@ -63,6 +64,8 @@ export default function QuestionsQuizListWithFilters({
   });
   const [completionStatusFilters, completionStatusFilterOptions] =
     useQuestionCompletionStatusFilter({ namespace });
+  const [importanceFilters, importanceFilterOptions] =
+    useQuestionImportanceFilter({ namespace });
 
   function makeDropdownItemProps(
     label: string,
@@ -133,6 +136,8 @@ export default function QuestionsQuizListWithFilters({
           <QuestionListingQuizFilters
             completionStatusFilterOptions={completionStatusFilterOptions}
             completionStatusFilters={completionStatusFilters}
+            importanceFilterOptions={importanceFilterOptions}
+            importanceFilters={importanceFilters}
             itemGap="spacious"
             quizTopicFilterOptions={quizTopicFilterOptions}
             quizTopicFilters={quizTopicFilters}
@@ -289,6 +294,8 @@ export default function QuestionsQuizListWithFilters({
             <QuestionListingQuizFilters
               completionStatusFilterOptions={completionStatusFilterOptions}
               completionStatusFilters={completionStatusFilters}
+              importanceFilterOptions={importanceFilterOptions}
+              importanceFilters={importanceFilters}
               itemGap="compact"
               quizTopicFilterOptions={quizTopicFilterOptions}
               quizTopicFilters={quizTopicFilters}
