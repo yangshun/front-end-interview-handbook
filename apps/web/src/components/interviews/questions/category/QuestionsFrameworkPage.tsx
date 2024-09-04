@@ -11,7 +11,7 @@ import type {
   QuestionMetadata,
 } from '~/components/interviews/questions/common/QuestionsTypes';
 import QuestionListingFeaturedQuestions from '~/components/interviews/questions/listings/auxilliary/QuestionListingFeaturedQuestions';
-import QuestionsCodingListWithFiltersAndProgress from '~/components/interviews/questions/listings/items/QuestionsCodingListWithFiltersAndProgress';
+import QuestionsUnifiedListWithFiltersAndProgress from '~/components/interviews/questions/listings/items/QuestionsUnifiedListWithFiltersAndProgress';
 import Container from '~/components/ui/Container';
 import Section from '~/components/ui/Heading/HeadingContext';
 
@@ -67,7 +67,7 @@ export default function QuestionsFrameworkPage({
             questions={featuredQuestions}
             title={featuredSectionTitle}
           />
-          <QuestionsCodingListWithFiltersAndProgress
+          <QuestionsUnifiedListWithFiltersAndProgress
             framework={framework}
             mode="framework"
             namespace={`${framework}-quiz`}

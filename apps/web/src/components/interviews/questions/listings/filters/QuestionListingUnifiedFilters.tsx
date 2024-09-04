@@ -50,7 +50,7 @@ type Props = Readonly<{
   mode?: 'default' | 'framework';
 }>;
 
-export default function QuestionListingCodingFilters({
+export default function QuestionListingUnifiedFilters({
   attributesUnion,
   formatFilterOptions,
   formatFilters,

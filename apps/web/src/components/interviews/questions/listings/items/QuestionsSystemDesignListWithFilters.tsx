@@ -6,14 +6,8 @@ import { FormattedMessage, useIntl } from 'react-intl';
 import FilterButton from '~/components/common/FilterButton';
 import { useUserProfile } from '~/components/global/UserProfileProvider';
 import QuestionPaywall from '~/components/interviews/questions/common/QuestionPaywall';
-import type {
-  QuestionMetadata,
-  QuestionMetadataWithCompletedStatus,
-  QuestionSortField,
-} from '~/components/interviews/questions/common/QuestionsTypes';
-import useQuestionCompanyFilter from '~/components/interviews/questions/listings/filters/hooks/useQuestionCompanyFilter';
-import useQuestionCompletionStatusFilter from '~/components/interviews/questions/listings/filters/hooks/useQuestionCompletionStatusFilter';
-import useQuestionDifficultyFilter from '~/components/interviews/questions/listings/filters/hooks/useQuestionDifficultyFilter';
+import type { QuestionSortField } from '~/components/interviews/questions/common/QuestionsTypes';
+import useQuestionUnifiedFilters from '~/components/interviews/questions/listings/filters/hooks/useQuestionUnifiedFilters';
 import {
   filterQuestions,
   sortQuestionsMultiple,
@@ -26,10 +20,8 @@ import Section from '~/components/ui/Heading/HeadingContext';
 import SlideOut from '~/components/ui/SlideOut';
 import TextInput from '~/components/ui/TextInput';
 
-import useQuestionImportanceFilter from '../filters/hooks/useQuestionImportanceFilter';
 import useQuestionsWithCompletionStatus from '../filters/hooks/useQuestionsWithCompletionStatus';
-import QuestionListingSystemDesignFilters from '../filters/QuestionListingSystemDesignFilters';
-import questionMatchesTextQuery from '../filters/questionMatchesTextQuery';
+import QuestionListingUnifiedFilters from '../filters/QuestionListingUnifiedFilters';
 import { allSystemDesignQuestions } from '../../content/system-design/SystemDesignNavigation';
 
 type Props = Readonly<{
@@ -46,17 +38,7 @@ export default function QuestionsSystemDesignListWithFilters({
   const intl = useIntl();
   const { userProfile } = useUserProfile();
   const [isAscendingOrder, setIsAscendingOrder] = useState(true);
-  const [query, setQuery] = useState('');
   const [sortField, setSortField] = useState<QuestionSortField>('difficulty');
-  const [difficultyFilters, difficultyFilterOptions] =
-    useQuestionDifficultyFilter({ namespace });
-  const [importanceFilters, importanceFilterOptions] =
-    useQuestionImportanceFilter({ namespace });
-  const [companyFilters, companyFilterOptions] = useQuestionCompanyFilter({
-    namespace,
-  });
-  const [completionStatusFilters, completionStatusFilterOptions] =
-    useQuestionCompletionStatusFilter({ namespace });
 
   function makeDropdownItemProps(
     label: string,
@@ -88,10 +70,37 @@ export default function QuestionsSystemDesignListWithFilters({
   const questionsWithCompletionStatus = useQuestionsWithCompletionStatus(
     allSystemDesignQuestions,
   );
+
+  // Tabulating.
   const questionAttributesUnion = tabulateQuestionsAttributesUnion(
     allSystemDesignQuestions,
   );
 
+  // Filtering.
+  const {
+    query,
+    setQuery,
+    difficultyFilters,
+    difficultyFilterOptions,
+    companyFilters,
+    companyFilterOptions,
+    languageFilters,
+    languageFilterOptions,
+    frameworkFilters,
+    frameworkFilterOptions,
+    importanceFilters,
+    importanceFilterOptions,
+    completionStatusFilters,
+    completionStatusFilterOptions,
+    formatFilters,
+    formatFilterOptions,
+    filters,
+  } = useQuestionUnifiedFilters({
+    initialFormat: null,
+    namespace,
+  });
+
+  // Processing.
   const sortedQuestions = sortQuestionsMultiple(
     questionsWithCompletionStatus,
     userProfile?.isInterviewsPremium
@@ -99,32 +108,16 @@ export default function QuestionsSystemDesignListWithFilters({
       : // Show free questions first if user is not a premium user.
         defaultSortFields.concat(premiumSortFields),
   );
-  const filters: ReadonlyArray<
-    [
-      number,
-      (
-        question: QuestionMetadata & QuestionMetadataWithCompletedStatus,
-      ) => boolean,
-    ]
-  > = [
-    // Query.
-    [0, (question) => questionMatchesTextQuery(question, query)],
-    // Difficulty.
-    [difficultyFilters.size, difficultyFilterOptions.matches],
-    // Importance.
-    [importanceFilters.size, importanceFilterOptions.matches],
-    // Company.
-    [companyFilters.size, companyFilterOptions.matches],
-    // Completion Status.
-    [completionStatusFilters.size, completionStatusFilterOptions.matches],
-  ];
-  const numberOfFilters = filters.filter(([size]) => size > 0).length;
+
   const processedQuestions = filterQuestions(
     sortedQuestions,
     filters.map(([_, filterFn]) => filterFn),
   );
+
+  const numberOfFilters = filters.filter(([size]) => size > 0).length;
   const showPaywall =
     !userProfile?.isInterviewsPremium && companyFilters.size > 0;
+
   const sortAndFilters = (
     <div className="flex shrink-0 justify-end gap-2 sm:pt-0">
       <div className={clsx(layout === 'full' && 'lg:hidden')}>
@@ -151,7 +144,7 @@ export default function QuestionsSystemDesignListWithFilters({
               size="sm"
             />
           }>
-          <QuestionListingSystemDesignFilters
+          <QuestionListingUnifiedFilters
             attributesUnion={questionAttributesUnion}
             companyFilterOptions={companyFilterOptions}
             companyFilters={companyFilters}
@@ -159,8 +152,15 @@ export default function QuestionsSystemDesignListWithFilters({
             completionStatusFilters={completionStatusFilters}
             difficultyFilterOptions={difficultyFilterOptions}
             difficultyFilters={difficultyFilters}
+            formatFilterOptions={formatFilterOptions}
+            formatFilters={formatFilters}
+            frameworkFilterOptions={frameworkFilterOptions}
+            frameworkFilters={frameworkFilters}
             importanceFilterOptions={importanceFilterOptions}
             importanceFilters={importanceFilters}
+            languageFilterOptions={languageFilterOptions}
+            languageFilters={languageFilters}
+            mode="default"
           />
         </SlideOut>
       </div>
@@ -337,7 +337,7 @@ export default function QuestionsSystemDesignListWithFilters({
               />
             </Heading>
             <Section>
-              <QuestionListingSystemDesignFilters
+              <QuestionListingUnifiedFilters
                 attributesUnion={questionAttributesUnion}
                 companyFilterOptions={companyFilterOptions}
                 companyFilters={companyFilters}
@@ -345,8 +345,15 @@ export default function QuestionsSystemDesignListWithFilters({
                 completionStatusFilters={completionStatusFilters}
                 difficultyFilterOptions={difficultyFilterOptions}
                 difficultyFilters={difficultyFilters}
+                formatFilterOptions={formatFilterOptions}
+                formatFilters={formatFilters}
+                frameworkFilterOptions={frameworkFilterOptions}
+                frameworkFilters={frameworkFilters}
                 importanceFilterOptions={importanceFilterOptions}
                 importanceFilters={importanceFilters}
+                languageFilterOptions={languageFilterOptions}
+                languageFilters={languageFilters}
+                mode="default"
               />
             </Section>
           </div>

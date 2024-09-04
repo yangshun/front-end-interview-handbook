@@ -23,7 +23,7 @@ type Props = Readonly<{
   namespace: string;
 }>;
 
-export default function useQuestionCodingFilters({
+export default function useQuestionUnifiedFilters({
   formatFiltersFilterPredicate,
   formatFiltersOrderComparator,
   namespace,

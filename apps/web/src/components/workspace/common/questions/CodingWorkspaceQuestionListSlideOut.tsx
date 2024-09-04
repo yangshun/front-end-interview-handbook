@@ -9,13 +9,14 @@ import type {
   QuestionMetadata,
   QuestionMetadataWithCompletedStatus,
 } from '~/components/interviews/questions/common/QuestionsTypes';
-import useQuestionCodingFilters from '~/components/interviews/questions/listings/filters/hooks/useQuestionCodingFilters';
 import useQuestionCodingSorting from '~/components/interviews/questions/listings/filters/hooks/useQuestionCodingSorting';
 import { QuestionsCodingFiltersNamespaceKey } from '~/components/interviews/questions/listings/filters/hooks/useQuestionsCodingFiltersNamespace';
+import useQuestionUnifiedFilters from '~/components/interviews/questions/listings/filters/hooks/useQuestionUnifiedFilters';
 import type { QuestionFilter } from '~/components/interviews/questions/listings/filters/QuestionFilterType';
 import {
   filterQuestions,
   sortQuestionsMultiple,
+  tabulateQuestionsAttributesUnion,
 } from '~/components/interviews/questions/listings/filters/QuestionsProcessor';
 import QuestionsCodingListBrief from '~/components/interviews/questions/listings/items/QuestionsCodingListBrief';
 import Button from '~/components/ui/Button';
@@ -25,13 +26,20 @@ import Text from '~/components/ui/Text';
 import TextInput from '~/components/ui/TextInput';
 
 function FilterSection<T extends string, Q extends QuestionMetadata>({
+  coveredValues,
   filters,
   filterOptions,
 }: Readonly<{
+  coveredValues?: Set<T>;
   filterOptions: QuestionFilter<T, Q>;
   filters: Set<T>;
 }>) {
   const sectionId = useId();
+
+  // No need filter if there's only a single option.
+  if (coveredValues != null && coveredValues.size <= 1) {
+    return null;
+  }
 
   return (
     <div className="flex flex-col gap-y-1">
@@ -43,17 +51,21 @@ function FilterSection<T extends string, Q extends QuestionMetadata>({
       <div
         aria-labelledby={sectionId}
         className="flex flex-wrap gap-x-4 gap-y-1 text-xs">
-        {filterOptions.options.map((option) => (
-          <CheckboxInput
-            key={option.value}
-            label={option.label as string}
-            size="sm"
-            value={filters.has(option.value)}
-            onChange={() => {
-              filterOptions.onChange(option.value);
-            }}
-          />
-        ))}
+        {filterOptions.options
+          .filter((option) =>
+            coveredValues == null ? true : coveredValues?.has(option.value),
+          )
+          .map((option) => (
+            <CheckboxInput
+              key={option.value}
+              label={option.label as string}
+              size="sm"
+              value={filters.has(option.value)}
+              onChange={() => {
+                filterOptions.onChange(option.value);
+              }}
+            />
+          ))}
       </div>
     </div>
   );
@@ -73,6 +85,9 @@ function Contents({
   const questionFormatLists = useQuestionUserFacingFormatData();
   const { searchPlaceholder } = questionFormatLists.coding;
 
+  // Tabulating.
+  const attributesUnion = tabulateQuestionsAttributesUnion(questions);
+
   // Filtering.
   const {
     query,
@@ -88,7 +103,7 @@ function Contents({
     formatFilters,
     formatFilterOptions,
     filters,
-  } = useQuestionCodingFilters({
+  } = useQuestionUnifiedFilters({
     namespace,
   });
 
@@ -117,14 +132,17 @@ function Contents({
         }}>
         <div className="grid grid-cols-2 gap-x-4 gap-y-6">
           <FilterSection
+            coveredValues={attributesUnion.difficulty}
             filterOptions={difficultyFilterOptions}
             filters={difficultyFilters}
           />
           <FilterSection
+            coveredValues={attributesUnion.formats}
             filterOptions={formatFilterOptions}
             filters={formatFilters}
           />
           <FilterSection
+            coveredValues={attributesUnion.frameworks}
             filterOptions={frameworkFilterOptions}
             filters={frameworkFilters}
           />

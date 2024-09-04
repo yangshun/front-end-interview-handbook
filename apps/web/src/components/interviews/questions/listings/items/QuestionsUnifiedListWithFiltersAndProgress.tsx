@@ -1,5 +1,5 @@
-import type { Props as BaseProps } from './QuestionsCodingListWithFilters';
-import QuestionsCodingListWithFilters from './QuestionsCodingListWithFilters';
+import type { Props as BaseProps } from './QuestionsUnifiedListWithFilters';
+import QuestionsUnifiedListWithFilters from './QuestionsUnifiedListWithFilters';
 import useQuestionsWithCompletionStatus from '../filters/hooks/useQuestionsWithCompletionStatus';
 import type { QuestionMetadata } from '../../common/QuestionsTypes';
 
@@ -8,7 +8,7 @@ type Props = Omit<BaseProps, 'questions'> &
     questions: ReadonlyArray<QuestionMetadata>;
   }>;
 
-export default function QuestionsCodingListWithFiltersAndProgress({
+export default function QuestionsUnifiedListWithFiltersAndProgress({
   questions,
   ...props
 }: Props) {
@@ -16,7 +16,7 @@ export default function QuestionsCodingListWithFiltersAndProgress({
     useQuestionsWithCompletionStatus(questions);
 
   return (
-    <QuestionsCodingListWithFilters
+    <QuestionsUnifiedListWithFilters
       questions={questionsWithCompletionStatus}
       {...props}
     />

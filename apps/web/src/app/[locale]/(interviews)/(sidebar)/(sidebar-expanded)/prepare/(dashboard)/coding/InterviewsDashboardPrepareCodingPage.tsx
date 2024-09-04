@@ -6,7 +6,7 @@ import { useCodingQuestionListGuideItems } from '~/components/guides/useFrontEnd
 import InterviewsDashboardStudyGuideList from '~/components/interviews/dashboard/InterviewsDashboardStudyGuideList';
 import InterviewsDashboardStudyPlansCTA from '~/components/interviews/dashboard/InterviewsDashboardStudyPlansCTA';
 import type { QuestionMetadata } from '~/components/interviews/questions/common/QuestionsTypes';
-import QuestionsCodingListWithFiltersAndProgress from '~/components/interviews/questions/listings/items/QuestionsCodingListWithFiltersAndProgress';
+import QuestionsUnifiedListWithFiltersAndProgress from '~/components/interviews/questions/listings/items/QuestionsUnifiedListWithFiltersAndProgress';
 
 import type { QuestionCompletionCount } from '~/db/QuestionsCount';
 import type { QuestionTotalAvailableCount } from '~/db/QuestionsListReader';
@@ -26,7 +26,7 @@ export default function InterviewsDashboardPrepareCodingQuestionsPage({
   return (
     <div className="xl:grid xl:grid-cols-12 xl:gap-x-6">
       <div className="xl:col-span-9">
-        <QuestionsCodingListWithFiltersAndProgress
+        <QuestionsUnifiedListWithFiltersAndProgress
           layout="embedded"
           namespace="prepare-coding"
           questionCompletionCount={questionCompletionCount}

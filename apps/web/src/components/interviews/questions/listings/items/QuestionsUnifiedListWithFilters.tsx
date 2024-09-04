@@ -38,10 +38,10 @@ import TextInput from '~/components/ui/TextInput';
 
 import type { QuestionCompletionCount } from '~/db/QuestionsCount';
 
-import useQuestionCodingFilters from '../filters/hooks/useQuestionCodingFilters';
 import useQuestionCodingSorting from '../filters/hooks/useQuestionCodingSorting';
 import useQuestionsCodingFiltersNamespace from '../filters/hooks/useQuestionsCodingFiltersNamespace';
-import QuestionListingCodingFilters from '../filters/QuestionListingCodingFilters';
+import useQuestionUnifiedFilters from '../filters/hooks/useQuestionUnifiedFilters';
+import QuestionListingUnifiedFilters from '../filters/QuestionListingUnifiedFilters';
 import QuestionListingSummarySection from '../stats/QuestionListingSummarySection';
 import type { QuestionFramework } from '../../common/QuestionsTypes';
 import QuestionCountLabel from '../../metadata/QuestionCountLabel';
@@ -69,7 +69,7 @@ export type Props = Readonly<{
   sideColumnAddOn?: ReactNode;
 }>;
 
-export default function QuestionsCodingListWithFilters({
+export default function QuestionsUnifiedListWithFilters({
   checkIfCompletedQuestionBefore,
   initialFormat = null,
   framework,
@@ -115,7 +115,7 @@ export default function QuestionsCodingListWithFilters({
     formatFilters,
     formatFilterOptions,
     filters,
-  } = useQuestionCodingFilters({
+  } = useQuestionUnifiedFilters({
     formatFiltersFilterPredicate,
     formatFiltersOrderComparator,
     initialFormat,
@@ -193,7 +193,7 @@ export default function QuestionsCodingListWithFilters({
               size="sm"
             />
           }>
-          <QuestionListingCodingFilters
+          <QuestionListingUnifiedFilters
             attributesUnion={questionAttributesUnion}
             companyFilterOptions={companyFilterOptions}
             companyFilters={companyFilters}
@@ -592,7 +592,7 @@ export default function QuestionsCodingListWithFilters({
               />
             </Heading>
             <Section>
-              <QuestionListingCodingFilters
+              <QuestionListingUnifiedFilters
                 attributesUnion={questionAttributesUnion}
                 companyFilterOptions={companyFilterOptions}
                 companyFilters={companyFilters}

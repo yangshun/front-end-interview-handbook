@@ -14,8 +14,8 @@ import type {
 } from '~/components/interviews/questions/common/QuestionsTypes';
 import QuestionListingFeaturedQuestions from '~/components/interviews/questions/listings/auxilliary/QuestionListingFeaturedQuestions';
 import QuestionsUserFacingFormatTabs from '~/components/interviews/questions/listings/filters/QuestionsUserFacingFormatsTabs';
-import QuestionsCodingListWithFiltersAndProgress from '~/components/interviews/questions/listings/items/QuestionsCodingListWithFiltersAndProgress';
 import QuestionsQuizListWithFiltersAndProgress from '~/components/interviews/questions/listings/items/QuestionsQuizListWithFiltersAndProgress';
+import QuestionsUnifiedListWithFiltersAndProgress from '~/components/interviews/questions/listings/items/QuestionsUnifiedListWithFiltersAndProgress';
 import type { QuestionListCategory } from '~/components/interviews/questions/listings/types';
 import MDXContent from '~/components/mdx/MDXContent';
 import Container from '~/components/ui/Container';
@@ -122,7 +122,7 @@ function QuestionsList({
         />
       )}
       {format === 'coding' && (
-        <QuestionsCodingListWithFiltersAndProgress
+        <QuestionsUnifiedListWithFiltersAndProgress
           formatFiltersFilterPredicate={
             CategoryFilters[category].filterPredicate
           }

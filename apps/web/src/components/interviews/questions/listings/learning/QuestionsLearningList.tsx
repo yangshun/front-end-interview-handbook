@@ -4,7 +4,7 @@ import { trpc } from '~/hooks/trpc';
 
 import { useToast } from '~/components/global/toasts/useToast';
 import type { QuestionMetadata } from '~/components/interviews/questions/common/QuestionsTypes';
-import QuestionsCodingListWithFilters from '~/components/interviews/questions/listings/items/QuestionsCodingListWithFilters';
+import QuestionsUnifiedListWithFilters from '~/components/interviews/questions/listings/items/QuestionsUnifiedListWithFilters';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 
@@ -170,7 +170,7 @@ export default function QuestionsLearningList({
           ]);
 
           return (
-            <QuestionsCodingListWithFilters
+            <QuestionsUnifiedListWithFilters
               checkIfCompletedQuestionBefore={(question) =>
                 overallProgress[question.format].has(question.slug)
               }

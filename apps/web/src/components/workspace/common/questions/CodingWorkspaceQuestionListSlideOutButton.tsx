@@ -6,10 +6,10 @@ import { trpc } from '~/hooks/trpc';
 
 import { useUserProfile } from '~/components/global/UserProfileProvider';
 import type { QuestionMetadata } from '~/components/interviews/questions/common/QuestionsTypes';
-import useQuestionCodingFilters from '~/components/interviews/questions/listings/filters/hooks/useQuestionCodingFilters';
 import useQuestionCodingSorting from '~/components/interviews/questions/listings/filters/hooks/useQuestionCodingSorting';
 import { QuestionsCodingFiltersNamespaceKey } from '~/components/interviews/questions/listings/filters/hooks/useQuestionsCodingFiltersNamespace';
 import useQuestionsWithCompletionStatus from '~/components/interviews/questions/listings/filters/hooks/useQuestionsWithCompletionStatus';
+import useQuestionUnifiedFilters from '~/components/interviews/questions/listings/filters/hooks/useQuestionUnifiedFilters';
 import {
   filterQuestions,
   sortQuestionsMultiple,
@@ -35,7 +35,7 @@ export default function CodingWorkspaceQuestionListSlideOutButton({
     'prepare-coding',
   );
   // Filtering.
-  const { filters } = useQuestionCodingFilters({
+  const { filters } = useQuestionUnifiedFilters({
     namespace,
   });
   // Sorting.
