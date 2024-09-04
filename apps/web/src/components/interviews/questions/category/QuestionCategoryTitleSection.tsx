@@ -9,7 +9,7 @@ import {
 } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
 
-import { INTERVIEWS_REVAMP_QUESTION_LISTING } from '~/data/FeatureFlags';
+import { INTERVIEWS_REVAMP_2024 } from '~/data/FeatureFlags';
 
 import TextPairing from '~/components/common/TextPairing';
 import SvelteLogo from '~/components/icons/SvelteLogo';
@@ -96,7 +96,7 @@ export default function QuestionCategoryTitleSection({
 
   // TODO(interviews): this is not the updated category title implement
   // it was just to remove the tabs and heading for working with category tabs
-  if (INTERVIEWS_REVAMP_QUESTION_LISTING) {
+  if (INTERVIEWS_REVAMP_2024) {
     return (
       <Section>
         <div className="flex gap-6">

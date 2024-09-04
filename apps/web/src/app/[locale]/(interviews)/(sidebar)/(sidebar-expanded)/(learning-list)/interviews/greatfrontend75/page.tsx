@@ -3,7 +3,10 @@ import type { Metadata } from 'next/types';
 import { CourseJsonLd } from 'next-seo';
 import type { IntlShape } from 'react-intl';
 
-import { INTERVIEWS_REVAMP_2024 } from '~/data/FeatureFlags';
+import {
+  INTERVIEWS_REVAMP_2024,
+  INTERVIEWS_REVAMP_BOTTOM_CONTENT,
+} from '~/data/FeatureFlags';
 import type { PreparationPlanType } from '~/data/plans/PreparationPlans';
 import { getPreparationPlan } from '~/data/plans/PreparationPlans';
 
@@ -94,7 +97,9 @@ export default async function Page({ params }: Props) {
         useAppDir={true}
       />
       <InterviewsGFE75Page
-        bottomContent={bottomContent}
+        bottomContent={
+          INTERVIEWS_REVAMP_BOTTOM_CONTENT ? bottomContent : undefined
+        }
         codingQuestions={codingQuestionsForPlan}
         metadata={{
           description,

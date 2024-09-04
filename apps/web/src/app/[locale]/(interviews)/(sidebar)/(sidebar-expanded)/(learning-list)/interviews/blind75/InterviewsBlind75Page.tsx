@@ -151,7 +151,6 @@ export default function InterviewsBlind75Page({
             showSummarySection={false}
             systemDesignQuestions={systemDesignQuestions}
           />
-
           {bottomContent && (
             <Section>
               <MDXContent mdxCode={bottomContent.body.code} />

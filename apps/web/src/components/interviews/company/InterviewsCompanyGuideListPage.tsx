@@ -114,8 +114,7 @@ export default function InterviewsCompanyGuideListPage({
         </div>
       )}
       <InterviewsCompanyGuideListWithFilters companyGuides={companyGuides} />
-
-      {bottomContent && INTERVIEWS_REVAMP_2024 && (
+      {bottomContent && (
         <>
           <Divider className="my-8" />
           <Section>

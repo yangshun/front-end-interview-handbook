@@ -165,7 +165,6 @@ export default function InterviewsGFE75Page({
             showSummarySection={false}
             systemDesignQuestions={systemDesignQuestions}
           />
-
           {bottomContent && (
             <Section>
               <MDXContent mdxCode={bottomContent.body.code} />

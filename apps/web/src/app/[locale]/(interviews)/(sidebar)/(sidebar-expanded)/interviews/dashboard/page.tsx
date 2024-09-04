@@ -1,7 +1,10 @@
 import { notFound } from 'next/navigation';
 import type { IntlShape } from 'react-intl';
 
-import { INTERVIEWS_REVAMP_DASHBOARD } from '~/data/FeatureFlags';
+import {
+  INTERVIEWS_REVAMP_2024,
+  INTERVIEWS_REVAMP_BOTTOM_CONTENT,
+} from '~/data/FeatureFlags';
 import { getFocusAreas } from '~/data/focus-areas/FocusAreas';
 
 import InterviewsDashboardPage from '~/components/interviews/revamp-dashboard/InterviewsDashboardPage';
@@ -24,7 +27,7 @@ type Props = Readonly<{
 }>;
 
 export default async function Page({ params }: Props) {
-  if (!INTERVIEWS_REVAMP_DASHBOARD) {
+  if (!INTERVIEWS_REVAMP_2024) {
     return notFound();
   }
 
@@ -57,7 +60,9 @@ export default async function Page({ params }: Props) {
 
   return (
     <InterviewsDashboardPage
-      bottomContent={bottomContent}
+      bottomContent={
+        INTERVIEWS_REVAMP_BOTTOM_CONTENT ? bottomContent : undefined
+      }
       companyGuides={sortedGuides}
       focusAreas={focusAreas}
       preparationPlans={preparationPlans}

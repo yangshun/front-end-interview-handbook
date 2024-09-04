@@ -97,7 +97,6 @@ export default function InterviewsDashboardPage({
         questions={questions}
         questionsProgress={questionsProgress ?? []}
       />
-
       {bottomContent && (
         <Section>
           <MDXContent
