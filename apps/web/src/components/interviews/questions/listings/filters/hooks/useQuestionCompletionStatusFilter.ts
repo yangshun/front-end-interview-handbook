@@ -34,9 +34,9 @@ export default function useQuestionCompletionStatusFilter({
     },
     {
       label: intl.formatMessage({
-        defaultMessage: 'Not Completed',
+        defaultMessage: 'Not completed',
         description: 'Incomplete status for a question',
-        id: 'BNUAPJ',
+        id: 'I872jM',
       }),
       value: 'incomplete',
     },

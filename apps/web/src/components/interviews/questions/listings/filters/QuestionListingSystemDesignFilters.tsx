@@ -6,6 +6,7 @@ import { themeBorderElementColor } from '~/components/ui/theme';
 
 import type { QuestionFilter } from './QuestionFilterType';
 import type { QuestionFilterItemGap } from './QuestionListingFilterItemCheckboxes';
+import type { QuestionsListAttributesUnion } from './QuestionsProcessor';
 import type {
   QuestionCompany,
   QuestionCompletionStatus,
@@ -16,6 +17,7 @@ import type {
 } from '../../common/QuestionsTypes';
 
 type Props = Readonly<{
+  attributesUnion: QuestionsListAttributesUnion;
   companyFilterOptions: QuestionFilter<QuestionCompany, QuestionMetadata>;
   companyFilters: Set<QuestionCompany>;
   completionStatusFilterOptions: QuestionFilter<
@@ -31,6 +33,7 @@ type Props = Readonly<{
 }>;
 
 export default function QuestionListingSystemDesignFilters({
+  attributesUnion,
   companyFilterOptions,
   companyFilters,
   completionStatusFilterOptions,
@@ -58,11 +61,13 @@ export default function QuestionListingSystemDesignFilters({
           values={companyFilters}
         />
         <QuestionListingFilterItem
+          coveredValues={attributesUnion.difficulty}
           itemGap={itemGap}
           section={difficultyFilterOptions}
           values={difficultyFilters}
         />
         <QuestionListingFilterItem
+          coveredValues={attributesUnion.importance}
           itemGap={itemGap}
           section={importanceFilterOptions}
           values={importanceFilters}

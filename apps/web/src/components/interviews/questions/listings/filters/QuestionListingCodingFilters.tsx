@@ -16,6 +16,7 @@ import type { QuestionFilter } from './QuestionFilterType';
 import type { QuestionFilterItemGap } from './QuestionListingFilterItemCheckboxes';
 import QuestionListingFilterItemCheckboxes from './QuestionListingFilterItemCheckboxes';
 import QuestionListingFilterItemLabel from './QuestionListingFilterItemLabel';
+import type { QuestionsListAttributesUnion } from './QuestionsProcessor';
 import type {
   QuestionCompany,
   QuestionCompletionStatus,
@@ -29,6 +30,7 @@ import type {
 } from '../../common/QuestionsTypes';
 
 type Props = Readonly<{
+  attributesUnion: QuestionsListAttributesUnion;
   companyFilterOptions: QuestionFilter<QuestionCompany, QuestionMetadata>;
   companyFilters: Set<QuestionCompany>;
   completionStatusFilterOptions: QuestionFilter<
@@ -51,6 +53,7 @@ type Props = Readonly<{
 }>;
 
 export default function QuestionListingCodingFilters({
+  attributesUnion,
   formatFilterOptions,
   formatFilters,
   companyFilterOptions,
@@ -91,71 +94,82 @@ export default function QuestionListingCodingFilters({
           values={companyFilters}
         />
         <QuestionListingFilterItem
+          coveredValues={attributesUnion.difficulty}
           itemGap={itemGap}
           section={difficultyFilterOptions}
           values={difficultyFilters}
         />
         <QuestionListingFilterItem
+          coveredValues={attributesUnion.importance}
           itemGap={itemGap}
           section={importanceFilterOptions}
           values={importanceFilters}
         />
-        <AccordionItem value="framework-language">
-          <Tooltip
-            asChild={true}
-            label={
-              <p className="flex flex-col gap-2">
-                You may complete questions in any language or framework within
-                our coding workspace.
-                <br />
-                <br />
-                This filter helps you to find questions with official solutions
-                in these Frameworks or Languages.
-              </p>
-            }>
-            <AccordionTrigger>
-              <QuestionListingFilterItemLabel
-                label="Framework / Language"
-                showInfoIcon={true}
-              />
-            </AccordionTrigger>
-          </Tooltip>
-          <AccordionContent>
-            <div className="flex flex-col gap-y-5">
-              {mode !== 'framework' && (
-                <>
+        {(attributesUnion.frameworks.size > 1 ||
+          attributesUnion.languages.size > 1) && (
+          <AccordionItem value="framework-language">
+            <Tooltip
+              asChild={true}
+              label={
+                <p className="flex flex-col gap-2">
+                  You may complete questions in any language or framework within
+                  our coding workspace.
+                  <br />
+                  <br />
+                  This filter helps you to find questions with official
+                  solutions in these Frameworks or Languages.
+                </p>
+              }>
+              <AccordionTrigger>
+                <QuestionListingFilterItemLabel
+                  label="Framework / Language"
+                  showInfoIcon={true}
+                />
+              </AccordionTrigger>
+            </Tooltip>
+            <AccordionContent>
+              <div className="flex flex-col gap-y-5">
+                {mode !== 'framework' &&
+                  attributesUnion.frameworks.size > 1 && (
+                    <>
+                      <div className="flex flex-col gap-y-3">
+                        <Text className="block" size="body2">
+                          {frameworkFilterOptions.name}
+                        </Text>
+                        <QuestionListingFilterItemCheckboxes
+                          coveredValues={attributesUnion.frameworks}
+                          itemGap={itemGap}
+                          section={frameworkFilterOptions}
+                          values={frameworkFilters}
+                        />
+                      </div>
+                      <Divider />
+                    </>
+                  )}
+                {attributesUnion.languages.size > 1 && (
                   <div className="flex flex-col gap-y-3">
                     <Text className="block" size="body2">
-                      {frameworkFilterOptions.name}
+                      {languageFilterOptions.name}
                     </Text>
                     <QuestionListingFilterItemCheckboxes
+                      coveredValues={attributesUnion.languages}
                       itemGap={itemGap}
-                      section={frameworkFilterOptions}
-                      values={frameworkFilters}
+                      section={languageFilterOptions}
+                      values={languageFilters}
                     />
                   </div>
-                  <Divider />
-                </>
-              )}
-              <div className="flex flex-col gap-y-3">
-                <Text className="block" size="body2">
-                  {languageFilterOptions.name}
-                </Text>
-                <QuestionListingFilterItemCheckboxes
-                  itemGap={itemGap}
-                  section={languageFilterOptions}
-                  values={languageFilters}
-                />
+                )}
               </div>
-            </div>
-          </AccordionContent>
-        </AccordionItem>
+            </AccordionContent>
+          </AccordionItem>
+        )}
         <QuestionListingFilterItem
           itemGap={itemGap}
           section={completionStatusFilterOptions}
           values={completionStatusFilters}
         />
         <QuestionListingFilterItem
+          coveredValues={attributesUnion.formats}
           itemGap={itemGap}
           section={formatFilterOptions}
           values={formatFilters}

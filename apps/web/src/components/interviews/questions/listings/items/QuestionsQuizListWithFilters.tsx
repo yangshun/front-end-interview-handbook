@@ -16,6 +16,7 @@ import {
   countQuestionsTotalDurationMins,
   filterQuestions,
   sortQuestionsMultiple,
+  tabulateQuestionsAttributesUnion,
 } from '~/components/interviews/questions/listings/filters/QuestionsProcessor';
 import QuestionsList from '~/components/interviews/questions/listings/items/QuestionsList';
 import QuestionCountLabel from '~/components/interviews/questions/metadata/QuestionCountLabel';
@@ -82,6 +83,10 @@ export default function QuestionsQuizListWithFilters({
     };
   }
 
+  // Tabulating.
+  const questionAttributesUnion = tabulateQuestionsAttributesUnion(questions);
+
+  // Processing.
   const sortedQuestions = sortQuestionsMultiple(questions, [
     { field: 'ranking', isAscendingOrder: true },
     { field: sortField, isAscendingOrder },
@@ -134,6 +139,7 @@ export default function QuestionsQuizListWithFilters({
             />
           }>
           <QuestionListingQuizFilters
+            attributesUnion={questionAttributesUnion}
             completionStatusFilterOptions={completionStatusFilterOptions}
             completionStatusFilters={completionStatusFilters}
             importanceFilterOptions={importanceFilterOptions}
@@ -293,6 +299,7 @@ export default function QuestionsQuizListWithFilters({
           </Heading>
           <Section>
             <QuestionListingQuizFilters
+              attributesUnion={questionAttributesUnion}
               completionStatusFilterOptions={completionStatusFilterOptions}
               completionStatusFilters={completionStatusFilters}
               importanceFilterOptions={importanceFilterOptions}

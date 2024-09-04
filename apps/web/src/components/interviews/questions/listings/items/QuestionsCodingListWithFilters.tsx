@@ -23,6 +23,7 @@ import {
   countQuestionsTotalDurationMins,
   filterQuestions,
   sortQuestionsMultiple,
+  tabulateQuestionsAttributesUnion,
 } from '~/components/interviews/questions/listings/filters/QuestionsProcessor';
 import QuestionsList from '~/components/interviews/questions/listings/items/QuestionsList';
 import CheckboxInput from '~/components/ui/CheckboxInput';
@@ -91,6 +92,9 @@ export default function QuestionsCodingListWithFilters({
 
   const intl = useIntl();
   const { userProfile } = useUserProfile();
+
+  // Tabulating.
+  const questionAttributesUnion = tabulateQuestionsAttributesUnion(questions);
 
   // Filtering.
   const {
@@ -190,6 +194,7 @@ export default function QuestionsCodingListWithFilters({
             />
           }>
           <QuestionListingCodingFilters
+            attributesUnion={questionAttributesUnion}
             companyFilterOptions={companyFilterOptions}
             companyFilters={companyFilters}
             completionStatusFilterOptions={completionStatusFilterOptions}
@@ -589,6 +594,7 @@ export default function QuestionsCodingListWithFilters({
             </Heading>
             <Section>
               <QuestionListingCodingFilters
+                attributesUnion={questionAttributesUnion}
                 companyFilterOptions={companyFilterOptions}
                 companyFilters={companyFilters}
                 completionStatusFilterOptions={completionStatusFilterOptions}

@@ -19,32 +19,38 @@ export default function QuestionListingFilterItemCheckboxes<
   T extends string,
   Q extends QuestionMetadata,
 >({
+  coveredValues,
   itemGap,
   section,
   values,
 }: Readonly<{
+  coveredValues?: Set<T>;
   itemGap: QuestionFilterItemGap;
   section: QuestionFilter<T, Q>;
   values: Set<T>;
 }>) {
   return (
     <div className={clsx('flex flex-wrap', itemGapClasses[itemGap])}>
-      {section.options.map((option) => (
-        <div key={option.value} className="flex items-center gap-2">
-          <CheckboxInput
-            label={option.label}
-            value={values.has(option.value)}
-            onChange={() => section.onChange(option.value)}
-          />
-          {option.tooltip && (
-            <Tooltip label={option.tooltip}>
-              <RiInformationLine
-                className={clsx('size-4 shrink-0', themeTextSubtleColor)}
-              />
-            </Tooltip>
-          )}
-        </div>
-      ))}
+      {section.options
+        .filter((option) =>
+          coveredValues == null ? true : coveredValues?.has(option.value),
+        )
+        .map((option) => (
+          <div key={option.value} className="flex items-center gap-2">
+            <CheckboxInput
+              label={option.label}
+              value={values.has(option.value)}
+              onChange={() => section.onChange(option.value)}
+            />
+            {option.tooltip && (
+              <Tooltip label={option.tooltip}>
+                <RiInformationLine
+                  className={clsx('size-4 shrink-0', themeTextSubtleColor)}
+                />
+              </Tooltip>
+            )}
+          </div>
+        ))}
     </div>
   );
 }

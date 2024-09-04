@@ -18,11 +18,18 @@ export default function QuestionListingFilterItem<
   itemGap,
   section,
   values,
+  coveredValues,
 }: Readonly<{
+  coveredValues?: Set<T>;
   itemGap: QuestionFilterItemGap;
   section: QuestionFilter<T, Q>;
   values: Set<T>;
 }>) {
+  // No need filter if there's only a single option.
+  if (coveredValues != null && coveredValues.size <= 1) {
+    return null;
+  }
+
   const trigger = (
     <AccordionTrigger>
       <QuestionListingFilterItemLabel
@@ -43,6 +50,7 @@ export default function QuestionListingFilterItem<
       )}
       <AccordionContent>
         <QuestionListingFilterItemCheckboxes
+          coveredValues={coveredValues}
           itemGap={itemGap}
           section={section}
           values={values}

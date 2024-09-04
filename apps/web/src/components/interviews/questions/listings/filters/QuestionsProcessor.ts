@@ -2,11 +2,15 @@ import { find, groupBy, sumBy } from 'lodash-es';
 
 import type {
   QuestionDifficulty,
+  QuestionFormat,
+  QuestionFramework,
   QuestionImportance,
+  QuestionLanguage,
   QuestionMetadata,
   QuestionPremiumStatus,
   QuestionSlug,
   QuestionSortField,
+  QuestionTopic,
 } from '../../common/QuestionsTypes';
 
 export const QuestionSortFields: ReadonlyArray<
@@ -183,4 +187,46 @@ export function countQuestionsCompletionByDifficulty<
   });
 
   return result;
+}
+
+// Union of metadata attributes for a list of questions,
+// useful for showing only the relevant options
+// for the current list of questions.
+export type QuestionsListAttributesUnion = Readonly<{
+  difficulty: Set<QuestionDifficulty>;
+  formats: Set<QuestionFormat>;
+  frameworks: Set<QuestionFramework>;
+  importance: Set<QuestionImportance>;
+  languages: Set<QuestionLanguage>;
+  topics: Set<QuestionTopic>;
+}>;
+
+export function tabulateQuestionsAttributesUnion<T extends QuestionMetadata>(
+  questions: ReadonlyArray<T>,
+): QuestionsListAttributesUnion {
+  const values = {
+    difficulty: new Set<QuestionDifficulty>(),
+    formats: new Set<QuestionFormat>(),
+    frameworks: new Set<QuestionFramework>(),
+    importance: new Set<QuestionImportance>(),
+    languages: new Set<QuestionLanguage>(),
+    topics: new Set<QuestionTopic>(),
+  };
+
+  questions.forEach((question) => {
+    values.difficulty.add(question.difficulty);
+    values.formats.add(question.format);
+    question.frameworks.forEach(({ framework }) => {
+      values.frameworks.add(framework);
+    });
+    values.importance.add(question.importance);
+    question.languages.forEach((language) => {
+      values.languages.add(language);
+    });
+    question.topics.forEach((topic) => {
+      values.topics.add(topic);
+    });
+  });
+
+  return values;
 }

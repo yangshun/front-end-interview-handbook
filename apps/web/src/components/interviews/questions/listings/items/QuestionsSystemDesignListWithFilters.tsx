@@ -17,6 +17,7 @@ import useQuestionDifficultyFilter from '~/components/interviews/questions/listi
 import {
   filterQuestions,
   sortQuestionsMultiple,
+  tabulateQuestionsAttributesUnion,
 } from '~/components/interviews/questions/listings/filters/QuestionsProcessor';
 import QuestionsList from '~/components/interviews/questions/listings/items/QuestionsList';
 import DropdownMenu from '~/components/ui/DropdownMenu';
@@ -87,6 +88,9 @@ export default function QuestionsSystemDesignListWithFilters({
   const questionsWithCompletionStatus = useQuestionsWithCompletionStatus(
     allSystemDesignQuestions,
   );
+  const questionAttributesUnion = tabulateQuestionsAttributesUnion(
+    allSystemDesignQuestions,
+  );
 
   const sortedQuestions = sortQuestionsMultiple(
     questionsWithCompletionStatus,
@@ -148,6 +152,7 @@ export default function QuestionsSystemDesignListWithFilters({
             />
           }>
           <QuestionListingSystemDesignFilters
+            attributesUnion={questionAttributesUnion}
             companyFilterOptions={companyFilterOptions}
             companyFilters={companyFilters}
             completionStatusFilterOptions={completionStatusFilterOptions}
@@ -334,6 +339,7 @@ export default function QuestionsSystemDesignListWithFilters({
             </Heading>
             <Section>
               <QuestionListingSystemDesignFilters
+                attributesUnion={questionAttributesUnion}
                 companyFilterOptions={companyFilterOptions}
                 companyFilters={companyFilters}
                 completionStatusFilterOptions={completionStatusFilterOptions}

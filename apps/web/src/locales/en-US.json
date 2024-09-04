@@ -423,6 +423,10 @@
     "defaultMessage": "Most complete all-in-one front end interview preparation.",
     "description": "Short description for 3 months study plan"
   },
+  "1XjF3L": {
+    "defaultMessage": "Medium",
+    "description": "Label for medium question importance"
+  },
   "1b+8YV": {
     "defaultMessage": "Read more",
     "description": "Project marketing hero Read more section badge"
@@ -1103,10 +1107,6 @@
     "defaultMessage": "Netlify",
     "description": "Label for \"Netlify\" option in Deployment Info"
   },
-  "73vnK2": {
-    "defaultMessage": "Mid",
-    "description": "Label for medium question importance"
-  },
   "73za88": {
     "defaultMessage": "User interface interviews",
     "description": "Preparing by front end interview question format"
@@ -1403,10 +1403,6 @@
     "defaultMessage": "URL is required",
     "description": "Error message"
   },
-  "94CGBX": {
-    "defaultMessage": "Coding",
-    "description": "Label for coding questions"
-  },
   "95Is5V": {
     "defaultMessage": "Quickly convert challenge designs into HTML, CSS, and Tailwind code by using our <link>Figma to Code plugin</link>.",
     "description": "Use the Figma to code plugin"
@@ -1547,6 +1543,10 @@
     "defaultMessage": "Name must contain at least {minLength} character(s).",
     "description": "Error message when display name is too short"
   },
+  "ANSxyW": {
+    "defaultMessage": "Low",
+    "description": "Low importance question"
+  },
   "ATjflV": {
     "defaultMessage": "Choose up to 2 reasons so that we can improve your experience",
     "description": "Subtitle of motivation for joining section of projects profile edit page"
@@ -1606,6 +1606,10 @@
   "AjKgye": {
     "defaultMessage": "Start the project to access submission and deployment steps",
     "description": "Title for project overlay on projects details page"
+  },
+  "AkAu0m": {
+    "defaultMessage": "High",
+    "description": "High importance question"
   },
   "Alqb51": {
     "defaultMessage": "Blog Type",
@@ -1682,10 +1686,6 @@
   "BMBc9O": {
     "defaultMessage": "paid once",
     "description": "Pay the price once"
-  },
-  "BNUAPJ": {
-    "defaultMessage": "Not Completed",
-    "description": "Incomplete status for a question"
   },
   "BOh0kv": {
     "defaultMessage": "See {username}'s approach to building the {challengeName} on GreatFrontEnd. Engage with their work, share feedback, and gain new perspectives for your projects",
@@ -1798,6 +1798,10 @@
   "CNjnh0": {
     "defaultMessage": "Not written for this question.",
     "description": "Text that apppears if a solution has not been written for the question"
+  },
+  "CQ3Vef": {
+    "defaultMessage": "Importance",
+    "description": "Question importance"
   },
   "CQOAJS": {
     "defaultMessage": "Practice with study plans and timelines",
@@ -2603,6 +2607,10 @@
     "defaultMessage": "Solution for {questionTitle} in {questionFramework} | Front End Interview UI Coding Questions with Solutions",
     "description": "Title of Front End Interview UI Coding Questions solution page"
   },
+  "I872jM": {
+    "defaultMessage": "Not completed",
+    "description": "Incomplete status for a question"
+  },
   "I8aJD5": {
     "defaultMessage": "Community | {name}",
     "description": "Title of Projects Dashboard page"
@@ -3315,6 +3323,10 @@
     "defaultMessage": "Tips for answering questions on your motivation to join the role",
     "description": "How to answer motivation questions in behavioral interviews"
   },
+  "MYNtBs": {
+    "defaultMessage": "Importance: Low to High",
+    "description": "Sorting option for question list - sort by importance from low to high"
+  },
   "MYi0uz": {
     "defaultMessage": "Previous",
     "description": "Button to go back to the previous page"
@@ -3418,6 +3430,10 @@
   "NVGZEe": {
     "defaultMessage": "Close menu",
     "description": "Button to close menu"
+  },
+  "NVrKll": {
+    "defaultMessage": "Question formats",
+    "description": "Label for tabs for question formats"
   },
   "NX+p0K": {
     "defaultMessage": "Are you intending to use <bold>\"{parentSkill} - {childSkill}\"</bold> for this challenge? We will add it to the skills used so your progress for its skill plan will be tracked.",
@@ -4431,6 +4447,10 @@
     "defaultMessage": "This URL is invalid. Check if you've typed it correctly.",
     "description": "Error message"
   },
+  "Tt86gs": {
+    "defaultMessage": "Importance: High to Low",
+    "description": "Sorting option for question list - sort by importance from high to low"
+  },
   "TyQdcx": {
     "defaultMessage": "Sort by",
     "description": "Label for sort button"
@@ -5439,6 +5459,10 @@
     "defaultMessage": "All GreatFrontEnd plans",
     "description": "All pricing plans"
   },
+  "ayZIpd": {
+    "defaultMessage": "Medium",
+    "description": "Medium importance question"
+  },
   "b/4l5Z": {
     "defaultMessage": "Subscriptions are automatically renewed and you will be charged again then. You may cancel your subscription anytime via the Stripe billing portal.",
     "description": "Call to action text to uppgrade plan."
@@ -6058,10 +6082,6 @@
   "fHpn67": {
     "defaultMessage": "Google",
     "description": "Company name for Google"
-  },
-  "fJYFo8": {
-    "defaultMessage": "Quiz",
-    "description": "Label for quiz questions"
   },
   "fMAedf": {
     "defaultMessage": "You replied to <bold>yourself</bold> on the challenge forum for <link>{challengeTitle}</link>: <comment>\"{description}\"</comment>",
@@ -7190,10 +7210,6 @@
   "n4aKYo": {
     "defaultMessage": "Theme",
     "description": "Change site theme button label"
-  },
-  "n9Ii7+": {
-    "defaultMessage": "System Design",
-    "description": "Label for system design questions"
   },
   "nAvA8M": {
     "defaultMessage": "Progress | {name}",
@@ -8754,10 +8770,6 @@
   "zStaaO": {
     "defaultMessage": "Completed",
     "description": "Tooltip for Completed guide label"
-  },
-  "zSySsj": {
-    "defaultMessage": "Question Formats",
-    "description": "Label for tabs for question formats"
   },
   "zUB9Jv": {
     "defaultMessage": "Upcoming content or features to be launched. Not all features will be publicized on the roadmap.",
