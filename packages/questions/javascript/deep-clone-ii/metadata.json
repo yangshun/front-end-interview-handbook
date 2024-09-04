@@ -7,7 +7,7 @@
   "premium": true,
   "duration": 45,
   "published": true,
-  "importance": "mid",
+  "importance": "medium",
   "difficulty": "hard",
   "similar_questions": ["deep-clone"]
 }

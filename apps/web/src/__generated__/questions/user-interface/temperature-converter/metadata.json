@@ -31,7 +31,7 @@
     }
   ],
   "href": "/questions/user-interface/temperature-converter",
-  "importance": "mid",
+  "importance": "medium",
   "languages": [
     "html",
     "js"

@@ -25,7 +25,7 @@
     "frameworkDefault": null,
     "frameworks": [],
     "href": "/questions/javascript/array-reduce",
-    "importance": "mid",
+    "importance": "medium",
     "languages": [
       "js",
       "ts"

@@ -20,7 +20,7 @@
     "frameworkDefault": null,
     "frameworks": [],
     "href": "/questions/javascript/function-call",
-    "importance": "mid",
+    "importance": "medium",
     "languages": [
       "js",
       "ts"

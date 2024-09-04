@@ -22,7 +22,7 @@
     "frameworkDefault": null,
     "frameworks": [],
     "href": "/questions/javascript/array-concat",
-    "importance": "mid",
+    "importance": "medium",
     "languages": [
       "js",
       "ts"

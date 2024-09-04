@@ -30,7 +30,7 @@ export async function fetchPreparationPlans(
 
       return;
     }
-    if (importance === 'mid') {
+    if (importance === 'medium') {
       oneMonthQuestions.push(slug);
       threeMonthsQuestions.push(slug);
       gfe75Questions.push(slug);

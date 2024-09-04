@@ -173,7 +173,7 @@
     "frameworkDefault": null,
     "frameworks": [],
     "href": "/questions/javascript/array-at",
-    "importance": "mid",
+    "importance": "medium",
     "languages": [
       "js",
       "ts"
@@ -202,7 +202,7 @@
     "frameworkDefault": null,
     "frameworks": [],
     "href": "/questions/javascript/array-concat",
-    "importance": "mid",
+    "importance": "medium",
     "languages": [
       "js",
       "ts"
@@ -240,7 +240,7 @@
     "frameworkDefault": null,
     "frameworks": [],
     "href": "/questions/javascript/array-filter",
-    "importance": "mid",
+    "importance": "medium",
     "languages": [
       "js",
       "ts"
@@ -277,7 +277,7 @@
     "frameworkDefault": null,
     "frameworks": [],
     "href": "/questions/javascript/array-map",
-    "importance": "mid",
+    "importance": "medium",
     "languages": [
       "js",
       "ts"
@@ -318,7 +318,7 @@
     "frameworkDefault": null,
     "frameworks": [],
     "href": "/questions/javascript/array-reduce",
-    "importance": "mid",
+    "importance": "medium",
     "languages": [
       "js",
       "ts"
@@ -421,7 +421,7 @@
     "frameworkDefault": null,
     "frameworks": [],
     "href": "/questions/javascript/backbone-model",
-    "importance": "mid",
+    "importance": "medium",
     "languages": [
       "js",
       "ts"
@@ -560,7 +560,7 @@
     "frameworkDefault": null,
     "frameworks": [],
     "href": "/questions/javascript/camel-case-keys",
-    "importance": "mid",
+    "importance": "medium",
     "languages": [
       "js",
       "ts"
@@ -708,7 +708,7 @@
     "frameworkDefault": null,
     "frameworks": [],
     "href": "/questions/javascript/classnames",
-    "importance": "mid",
+    "importance": "medium",
     "languages": [
       "css",
       "js",
@@ -736,7 +736,7 @@
     "frameworkDefault": null,
     "frameworks": [],
     "href": "/questions/javascript/classnames-ii",
-    "importance": "mid",
+    "importance": "medium",
     "languages": [
       "css",
       "js",
@@ -1068,7 +1068,7 @@
     "frameworkDefault": null,
     "frameworks": [],
     "href": "/questions/javascript/curry",
-    "importance": "mid",
+    "importance": "medium",
     "languages": [
       "js",
       "ts"
@@ -1504,7 +1504,7 @@
     "frameworkDefault": null,
     "frameworks": [],
     "href": "/questions/javascript/deep-clone-ii",
-    "importance": "mid",
+    "importance": "medium",
     "languages": [
       "js",
       "ts"
@@ -1535,7 +1535,7 @@
     "frameworkDefault": null,
     "frameworks": [],
     "href": "/questions/javascript/deep-equal",
-    "importance": "mid",
+    "importance": "medium",
     "languages": [
       "js",
       "ts"
@@ -1781,7 +1781,7 @@
       }
     ],
     "href": "/questions/user-interface/digital-clock",
-    "importance": "mid",
+    "importance": "medium",
     "languages": [
       "html",
       "css",
@@ -1872,7 +1872,7 @@
     "frameworkDefault": null,
     "frameworks": [],
     "href": "/questions/javascript/event-emitter",
-    "importance": "mid",
+    "importance": "medium",
     "languages": [
       "js",
       "ts"
@@ -1907,7 +1907,7 @@
     "frameworkDefault": null,
     "frameworks": [],
     "href": "/questions/javascript/event-emitter-ii",
-    "importance": "mid",
+    "importance": "medium",
     "languages": [
       "js",
       "ts"
@@ -1950,7 +1950,7 @@
       }
     ],
     "href": "/questions/user-interface/file-explorer",
-    "importance": "mid",
+    "importance": "medium",
     "languages": [
       "html",
       "js"
@@ -1992,7 +1992,7 @@
       }
     ],
     "href": "/questions/user-interface/file-explorer-ii",
-    "importance": "mid",
+    "importance": "medium",
     "languages": [
       "html",
       "js"
@@ -2031,7 +2031,7 @@
       }
     ],
     "href": "/questions/user-interface/file-explorer-iii",
-    "importance": "mid",
+    "importance": "medium",
     "languages": [
       "html",
       "js"
@@ -2288,7 +2288,7 @@
     "frameworkDefault": null,
     "frameworks": [],
     "href": "/questions/javascript/function-apply",
-    "importance": "mid",
+    "importance": "medium",
     "languages": [
       "js",
       "ts"
@@ -2321,7 +2321,7 @@
     "frameworkDefault": null,
     "frameworks": [],
     "href": "/questions/javascript/function-bind",
-    "importance": "mid",
+    "importance": "medium",
     "languages": [
       "js",
       "ts"
@@ -2353,7 +2353,7 @@
     "frameworkDefault": null,
     "frameworks": [],
     "href": "/questions/javascript/function-call",
-    "importance": "mid",
+    "importance": "medium",
     "languages": [
       "js",
       "ts"
@@ -2468,7 +2468,7 @@
     "frameworkDefault": null,
     "frameworks": [],
     "href": "/questions/javascript/get-elements-by-class-name",
-    "importance": "mid",
+    "importance": "medium",
     "languages": [
       "html",
       "css",
@@ -2502,7 +2502,7 @@
     "frameworkDefault": null,
     "frameworks": [],
     "href": "/questions/javascript/get-elements-by-style",
-    "importance": "mid",
+    "importance": "medium",
     "languages": [
       "html",
       "css",
@@ -3212,7 +3212,7 @@
     "frameworkDefault": null,
     "frameworks": [],
     "href": "/questions/javascript/jquery-css",
-    "importance": "mid",
+    "importance": "medium",
     "languages": [
       "html",
       "css",
@@ -3385,7 +3385,7 @@
     "frameworkDefault": null,
     "frameworks": [],
     "href": "/questions/javascript/list-format",
-    "importance": "mid",
+    "importance": "medium",
     "languages": [
       "js",
       "ts"
@@ -4145,7 +4145,7 @@
       }
     ],
     "href": "/questions/user-interface/progress-bar",
-    "importance": "mid",
+    "importance": "medium",
     "languages": [
       "html",
       "css",
@@ -4425,7 +4425,7 @@
     "frameworkDefault": null,
     "frameworks": [],
     "href": "/questions/javascript/promise-all-settled",
-    "importance": "mid",
+    "importance": "medium",
     "languages": [
       "js",
       "ts"
@@ -4489,7 +4489,7 @@
     "frameworkDefault": null,
     "frameworks": [],
     "href": "/questions/javascript/promise-race",
-    "importance": "mid",
+    "importance": "medium",
     "languages": [
       "js",
       "ts"
@@ -5207,7 +5207,7 @@
     "frameworkDefault": null,
     "frameworks": [],
     "href": "/questions/javascript/table-of-contents",
-    "importance": "mid",
+    "importance": "medium",
     "languages": [
       "html",
       "js",
@@ -5399,7 +5399,7 @@
       }
     ],
     "href": "/questions/user-interface/temperature-converter",
-    "importance": "mid",
+    "importance": "medium",
     "languages": [
       "html",
       "js"
@@ -5428,7 +5428,7 @@
     "frameworkDefault": null,
     "frameworks": [],
     "href": "/questions/javascript/text-search",
-    "importance": "mid",
+    "importance": "medium",
     "languages": [
       "html",
       "js",
@@ -5916,7 +5916,7 @@
       }
     ],
     "href": "/questions/user-interface/tweet",
-    "importance": "mid",
+    "importance": "medium",
     "languages": [
       "html",
       "css"

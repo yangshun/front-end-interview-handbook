@@ -20,7 +20,7 @@
     "frameworkDefault": null,
     "frameworks": [],
     "href": "/questions/javascript/array-at",
-    "importance": "mid",
+    "importance": "medium",
     "languages": [
       "js",
       "ts"

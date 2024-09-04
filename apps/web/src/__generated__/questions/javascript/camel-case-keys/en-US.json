@@ -20,7 +20,7 @@
     "frameworkDefault": null,
     "frameworks": [],
     "href": "/questions/javascript/camel-case-keys",
-    "importance": "mid",
+    "importance": "medium",
     "languages": [
       "js",
       "ts"

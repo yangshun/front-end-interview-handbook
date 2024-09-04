@@ -6,7 +6,7 @@
   "premium": true,
   "duration": 10,
   "published": true,
-  "importance": "mid",
+  "importance": "medium",
   "difficulty": "easy",
   "similar_questions": ["function-bind", "function-call"]
 }

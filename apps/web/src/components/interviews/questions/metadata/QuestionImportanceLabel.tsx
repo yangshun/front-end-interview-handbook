@@ -19,7 +19,7 @@ type Props = Readonly<{
 const ImportanceLabelClasses: Record<QuestionImportance, string> = {
   high: 'text-red',
   low: 'text-yellow-500',
-  mid: 'text-orange-500',
+  medium: 'text-orange-500',
 };
 
 export default function QuestionImportanceLabel({
@@ -42,10 +42,10 @@ export default function QuestionImportanceLabel({
       description: 'Label for low question importance',
       id: '0hdhAz',
     }),
-    mid: intl.formatMessage({
-      defaultMessage: 'Mid',
+    medium: intl.formatMessage({
+      defaultMessage: 'Medium',
       description: 'Label for medium question importance',
-      id: '73vnK2',
+      id: '1XjF3L',
     }),
   };
 

@@ -7,7 +7,7 @@
   "premium": true,
   "duration": 15,
   "published": true,
-  "importance": "mid",
+  "importance": "medium",
   "difficulty": "easy",
   "similar_questions": ["promise-all", "promise-all-settled", "promise-any"]
 }

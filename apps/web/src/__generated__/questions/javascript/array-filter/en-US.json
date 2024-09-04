@@ -23,7 +23,7 @@
     "frameworkDefault": null,
     "frameworks": [],
     "href": "/questions/javascript/array-filter",
-    "importance": "mid",
+    "importance": "medium",
     "languages": [
       "js",
       "ts"

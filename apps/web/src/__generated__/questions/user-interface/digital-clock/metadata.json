@@ -33,7 +33,7 @@
     }
   ],
   "href": "/questions/user-interface/digital-clock",
-  "importance": "mid",
+  "importance": "medium",
   "languages": [
     "html",
     "css",

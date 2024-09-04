@@ -22,7 +22,7 @@
     "frameworkDefault": null,
     "frameworks": [],
     "href": "/questions/javascript/list-format",
-    "importance": "mid",
+    "importance": "medium",
     "languages": [
       "js",
       "ts"

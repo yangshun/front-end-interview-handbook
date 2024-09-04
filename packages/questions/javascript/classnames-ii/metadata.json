@@ -6,7 +6,7 @@
   "premium": true,
   "duration": 25,
   "published": true,
-  "importance": "mid",
+  "importance": "medium",
   "difficulty": "hard",
   "similar_questions": ["classnames"]
 }

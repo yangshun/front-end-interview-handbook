@@ -20,7 +20,7 @@
     "frameworkDefault": null,
     "frameworks": [],
     "href": "/questions/javascript/promise-all-settled",
-    "importance": "mid",
+    "importance": "medium",
     "languages": [
       "js",
       "ts"

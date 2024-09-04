@@ -24,7 +24,7 @@
     "frameworkDefault": null,
     "frameworks": [],
     "href": "/questions/javascript/get-elements-by-class-name",
-    "importance": "mid",
+    "importance": "medium",
     "languages": [
       "html",
       "css",

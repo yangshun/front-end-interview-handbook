@@ -20,7 +20,7 @@
     "frameworkDefault": null,
     "frameworks": [],
     "href": "/questions/javascript/jquery-css",
-    "importance": "mid",
+    "importance": "medium",
     "languages": [
       "html",
       "css",

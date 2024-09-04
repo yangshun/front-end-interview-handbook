@@ -23,7 +23,7 @@
     "frameworkDefault": null,
     "frameworks": [],
     "href": "/questions/javascript/array-map",
-    "importance": "mid",
+    "importance": "medium",
     "languages": [
       "js",
       "ts"

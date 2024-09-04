@@ -22,7 +22,7 @@
     "frameworkDefault": null,
     "frameworks": [],
     "href": "/questions/javascript/get-elements-by-style",
-    "importance": "mid",
+    "importance": "medium",
     "languages": [
       "html",
       "css",

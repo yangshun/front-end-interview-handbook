@@ -613,7 +613,7 @@
       }
     ],
     "href": "/questions/user-interface/digital-clock",
-    "importance": "mid",
+    "importance": "medium",
     "languages": [
       "html",
       "css",
@@ -651,7 +651,7 @@
       }
     ],
     "href": "/questions/user-interface/file-explorer",
-    "importance": "mid",
+    "importance": "medium",
     "languages": [
       "html",
       "js"
@@ -693,7 +693,7 @@
       }
     ],
     "href": "/questions/user-interface/file-explorer-ii",
-    "importance": "mid",
+    "importance": "medium",
     "languages": [
       "html",
       "js"
@@ -732,7 +732,7 @@
       }
     ],
     "href": "/questions/user-interface/file-explorer-iii",
-    "importance": "mid",
+    "importance": "medium",
     "languages": [
       "html",
       "js"
@@ -1512,7 +1512,7 @@
       }
     ],
     "href": "/questions/user-interface/progress-bar",
-    "importance": "mid",
+    "importance": "medium",
     "languages": [
       "html",
       "css",
@@ -2031,7 +2031,7 @@
       }
     ],
     "href": "/questions/user-interface/temperature-converter",
-    "importance": "mid",
+    "importance": "medium",
     "languages": [
       "html",
       "js"
@@ -2392,7 +2392,7 @@
       }
     ],
     "href": "/questions/user-interface/tweet",
-    "importance": "mid",
+    "importance": "medium",
     "languages": [
       "html",
       "css"

@@ -25,7 +25,7 @@
     "frameworkDefault": null,
     "frameworks": [],
     "href": "/questions/javascript/event-emitter",
-    "importance": "mid",
+    "importance": "medium",
     "languages": [
       "js",
       "ts"

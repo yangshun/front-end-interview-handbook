@@ -6,7 +6,7 @@
   "premium": true,
   "duration": 30,
   "published": true,
-  "importance": "mid",
+  "importance": "medium",
   "difficulty": "hard",
   "similar_questions": ["event-emitter", "event-emitter-ii"],
   "next_questions": [""]

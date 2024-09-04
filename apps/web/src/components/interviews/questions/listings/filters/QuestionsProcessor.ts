@@ -38,7 +38,7 @@ const DIFFICULTY_MAPPING: Record<QuestionDifficulty, number> = {
 const IMPORTANCE_MAPPING: Record<QuestionImportance, number> = {
   high: 3,
   low: 1,
-  mid: 2,
+  medium: 2,
 };
 
 export function sortQuestions<T extends QuestionMetadata>(

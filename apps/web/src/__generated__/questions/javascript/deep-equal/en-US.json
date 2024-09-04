@@ -22,7 +22,7 @@
     "frameworkDefault": null,
     "frameworks": [],
     "href": "/questions/javascript/deep-equal",
-    "importance": "mid",
+    "importance": "medium",
     "languages": [
       "js",
       "ts"

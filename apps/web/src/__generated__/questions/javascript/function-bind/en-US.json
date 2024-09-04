@@ -23,7 +23,7 @@
     "frameworkDefault": null,
     "frameworks": [],
     "href": "/questions/javascript/function-bind",
-    "importance": "mid",
+    "importance": "medium",
     "languages": [
       "js",
       "ts"

@@ -6,7 +6,7 @@
   "premium": false,
   "duration": 20,
   "published": true,
-  "importance": "mid",
+  "importance": "medium",
   "difficulty": "medium",
   "similar_questions": []
 }

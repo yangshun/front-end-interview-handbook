@@ -6,7 +6,7 @@
   "premium": true,
   "duration": 15,
   "published": true,
-  "importance": "mid",
+  "importance": "medium",
   "difficulty": "easy",
   "featured": true,
   "similar_questions": ["array-square", "array-map", "array-reduce"],
