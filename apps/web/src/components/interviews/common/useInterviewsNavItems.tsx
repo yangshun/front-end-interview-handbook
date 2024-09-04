@@ -18,8 +18,8 @@ import { useGuidesData } from '~/data/Guides';
 import { getPreparationPlanTheme } from '~/data/plans/PreparationPlans';
 import { usePreparationPlans } from '~/data/plans/PreparationPlansHooks';
 import {
-  useQuestionFormatLists,
   useQuestionTechnologyLists,
+  useQuestionUserFacingFormatData,
 } from '~/data/QuestionFormats';
 
 import Badge from '~/components/ui/Badge';
@@ -29,7 +29,7 @@ export default function useInterviewsNavItems(placement: 'nav' | 'sidebar') {
   const intl = useIntl();
 
   const questionTechnologyLists = useQuestionTechnologyLists();
-  const questionFormatLists = useQuestionFormatLists();
+  const questionFormatLists = useQuestionUserFacingFormatData();
   const preparationPlans = usePreparationPlans();
   const focusAreas = useFocusAreas();
   const guidesData = useGuidesData();

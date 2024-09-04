@@ -13,7 +13,7 @@ import type {
   QuestionUserFacingFormat,
 } from '~/components/interviews/questions/common/QuestionsTypes';
 import QuestionListingFeaturedQuestions from '~/components/interviews/questions/listings/auxilliary/QuestionListingFeaturedQuestions';
-import QuestionsFormatTabs from '~/components/interviews/questions/listings/filters/QuestionsFormatsTabs';
+import QuestionsUserFacingFormatTabs from '~/components/interviews/questions/listings/filters/QuestionsUserFacingFormatsTabs';
 import QuestionsCodingListWithFiltersAndProgress from '~/components/interviews/questions/listings/items/QuestionsCodingListWithFiltersAndProgress';
 import QuestionsQuizListWithFiltersAndProgress from '~/components/interviews/questions/listings/items/QuestionsQuizListWithFiltersAndProgress';
 import type { QuestionListCategory } from '~/components/interviews/questions/listings/types';
@@ -103,7 +103,7 @@ function QuestionsList({
   return (
     <div className="flex flex-col gap-y-4">
       <div className="w-full overflow-x-auto">
-        <QuestionsFormatTabs
+        <QuestionsUserFacingFormatTabs
           formats={['coding', 'quiz']}
           value={format}
           onSelect={(formatValue) => {

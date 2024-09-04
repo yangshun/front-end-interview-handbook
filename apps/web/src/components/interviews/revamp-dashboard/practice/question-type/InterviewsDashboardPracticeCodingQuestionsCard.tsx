@@ -2,7 +2,7 @@ import clsx from 'clsx';
 import { RiQuestionnaireLine } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
 
-import { useQuestionFormatLists } from '~/data/QuestionFormats';
+import { useQuestionUserFacingFormatData } from '~/data/QuestionFormats';
 
 import type {
   QuestionCodingFormat,
@@ -39,7 +39,7 @@ export default function InterviewsDashboardPracticeCodingQuestionsCard({
   questionsProgress,
 }: Props) {
   const intl = useIntl();
-  const questionsFormat = useQuestionFormatLists();
+  const questionsFormat = useQuestionUserFacingFormatData();
   const codingQuestionsProgressAll =
     categorizeQuestionsProgressByCodingFormat(questionsProgress);
   const algoQuestions = questions.filter(

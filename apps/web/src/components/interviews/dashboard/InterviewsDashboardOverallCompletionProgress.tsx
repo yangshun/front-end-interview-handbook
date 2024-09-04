@@ -2,7 +2,7 @@ import clsx from 'clsx';
 
 import { trpc } from '~/hooks/trpc';
 
-import { useQuestionFormatLists } from '~/data/QuestionFormats';
+import { useQuestionUserFacingFormatData } from '~/data/QuestionFormats';
 
 import QuestionsProgressPanel from '~/components/interviews/questions/listings/stats/QuestionsProgressPanel';
 import { themeBackgroundCardWhiteOnLightColor } from '~/components/ui/theme';
@@ -29,7 +29,7 @@ export default function InterviewsDashboardOverallCompletionProgress({
   const questionsProgressAll = categorizeQuestionsProgress(
     questionProgressParam,
   );
-  const questionFormats = useQuestionFormatLists();
+  const questionFormats = useQuestionUserFacingFormatData();
 
   return (
     <div

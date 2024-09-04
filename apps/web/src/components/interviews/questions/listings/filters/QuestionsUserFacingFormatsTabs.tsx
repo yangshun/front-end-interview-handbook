@@ -1,5 +1,7 @@
 import { useIntl } from 'react-intl';
 
+import { useQuestionUserFacingFormatData } from '~/data/QuestionFormats';
+
 import Tabs from '~/components/ui/Tabs';
 
 import type { QuestionUserFacingFormat } from '../../common/QuestionsTypes';
@@ -23,22 +25,19 @@ const DEFAULT_FORMATS: ReadonlyArray<QuestionUserFacingFormat> = [
   'system-design',
 ];
 
-export default function QuestionsFormatTabs({
+export default function QuestionsUserFacingFormatTabs({
   formats = DEFAULT_FORMATS,
   progressSummary,
   value,
   onSelect,
 }: Props) {
   const intl = useIntl();
+  const userFacingFormats = useQuestionUserFacingFormatData();
 
   function getLabelForFormat(format: QuestionUserFacingFormat) {
     switch (format) {
       case 'coding': {
-        const label = intl.formatMessage({
-          defaultMessage: 'Coding',
-          description: 'Label for coding questions',
-          id: '94CGBX',
-        });
+        const label = userFacingFormats.coding.name;
 
         return progressSummary != null
           ? label +
@@ -46,11 +45,7 @@ export default function QuestionsFormatTabs({
           : label;
       }
       case 'quiz': {
-        const label = intl.formatMessage({
-          defaultMessage: 'Quiz',
-          description: 'Label for quiz questions',
-          id: 'fJYFo8',
-        });
+        const label = userFacingFormats.quiz.name;
 
         return progressSummary != null
           ? label +
@@ -58,11 +53,7 @@ export default function QuestionsFormatTabs({
           : label;
       }
       case 'system-design': {
-        const label = intl.formatMessage({
-          defaultMessage: `System Design`,
-          description: 'Label for system design questions',
-          id: 'n9Ii7+',
-        });
+        const label = userFacingFormats['system-design'].name;
 
         return progressSummary != null
           ? label +
@@ -88,9 +79,9 @@ export default function QuestionsFormatTabs({
   return (
     <Tabs
       label={intl.formatMessage({
-        defaultMessage: 'Question Formats',
+        defaultMessage: 'Question formats',
         description: 'Label for tabs for question formats',
-        id: 'zSySsj',
+        id: 'NVrKll',
       })}
       size="sm"
       tabs={tabItems}

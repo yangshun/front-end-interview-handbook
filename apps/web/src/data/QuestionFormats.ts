@@ -155,92 +155,93 @@ export function useQuestionFormatsData(): QuestionFormatData {
   };
 }
 
-export function useQuestionFormatLists() {
+export function useQuestionUserFacingFormatData() {
   const intl = useIntl();
-  const questionFormatLists: QuestionFormatLists<QuestionUserFacingFormat> = {
-    coding: {
-      description: intl.formatMessage({
-        defaultMessage: 'JS functions, algorithms, building components, etc.',
-        description: 'Description of coding questions',
-        id: 'uDUEmN',
-      }),
-      href: '/prepare/coding',
-      icon: RiCodeBoxFill,
-      key: 'coding',
-      longName: intl.formatMessage({
-        defaultMessage: 'Coding Questions',
-        description: 'Coding questions long title',
-        id: 'UCt/lF',
-      }),
-      name: intl.formatMessage({
-        defaultMessage: 'Coding',
-        description: 'Coding questions short title',
-        id: 'VQfbK1',
-      }),
-      searchPlaceholder: intl.formatMessage({
-        defaultMessage: 'Search coding questions',
-        description: 'Placeholder for search input of coding question list',
-        id: 'jGQnYd',
-      }),
-      themeGradient: themeGradientPurpleGreen.className,
-    },
-    quiz: {
-      description: intl.formatMessage({
-        defaultMessage:
-          'Trivia-style questions on essential front end know-how',
-        description: 'Description of quiz questions',
-        id: 'HDsjyG',
-      }),
-      href: '/prepare/quiz',
-      icon: RiQuestionnaireFill,
-      key: 'quiz',
-      longName: intl.formatMessage({
-        defaultMessage: 'Quiz Questions',
-        description: 'Quiz questions long title',
-        id: 'JhZ/aF',
-      }),
-      name: intl.formatMessage({
-        defaultMessage: 'Quiz',
-        description: 'Quiz questions short title',
-        id: '7Wsapt',
-      }),
-      searchPlaceholder: intl.formatMessage({
-        defaultMessage: 'Search quiz questions',
-        description: 'Placeholder for search input of quiz question list',
-        id: 'YbRLG7',
-      }),
-      themeGradient: themeGradientGreenYellow.className,
-    },
-    'system-design': {
-      description: intl.formatMessage({
-        defaultMessage: 'Design patterns and architecture of front end apps',
-        description: 'Description of system design questions',
-        id: 'vqKJ0D',
-      }),
-      href: '/prepare/system-design',
-      icon: RiFlowChart,
-      key: 'system-design',
-      longName: intl.formatMessage({
-        defaultMessage: 'System Design Questions',
-        description: 'System design questions long title',
-        id: 'sa8B3r',
-      }),
-      name: intl.formatMessage({
-        defaultMessage: 'System Design',
-        description: 'System design questions short title',
-        id: 'MF21p5',
-      }),
-      searchPlaceholder: intl.formatMessage({
-        defaultMessage: 'Search system design questions',
-        description:
-          'Placeholder for search input of system design question list',
-        id: 'BgJTSk',
-      }),
-      themeGradient: themeGradientPinkPurple.className,
-    },
-  };
+  const questionUserFacingFormatData: QuestionFormatLists<QuestionUserFacingFormat> =
+    {
+      coding: {
+        description: intl.formatMessage({
+          defaultMessage: 'JS functions, algorithms, building components, etc.',
+          description: 'Description of coding questions',
+          id: 'uDUEmN',
+        }),
+        href: '/prepare/coding',
+        icon: RiCodeBoxFill,
+        key: 'coding',
+        longName: intl.formatMessage({
+          defaultMessage: 'Coding Questions',
+          description: 'Coding questions long title',
+          id: 'UCt/lF',
+        }),
+        name: intl.formatMessage({
+          defaultMessage: 'Coding',
+          description: 'Coding questions short title',
+          id: 'VQfbK1',
+        }),
+        searchPlaceholder: intl.formatMessage({
+          defaultMessage: 'Search coding questions',
+          description: 'Placeholder for search input of coding question list',
+          id: 'jGQnYd',
+        }),
+        themeGradient: themeGradientPurpleGreen.className,
+      },
+      quiz: {
+        description: intl.formatMessage({
+          defaultMessage:
+            'Trivia-style questions on essential front end know-how',
+          description: 'Description of quiz questions',
+          id: 'HDsjyG',
+        }),
+        href: '/prepare/quiz',
+        icon: RiQuestionnaireFill,
+        key: 'quiz',
+        longName: intl.formatMessage({
+          defaultMessage: 'Quiz Questions',
+          description: 'Quiz questions long title',
+          id: 'JhZ/aF',
+        }),
+        name: intl.formatMessage({
+          defaultMessage: 'Quiz',
+          description: 'Quiz questions short title',
+          id: '7Wsapt',
+        }),
+        searchPlaceholder: intl.formatMessage({
+          defaultMessage: 'Search quiz questions',
+          description: 'Placeholder for search input of quiz question list',
+          id: 'YbRLG7',
+        }),
+        themeGradient: themeGradientGreenYellow.className,
+      },
+      'system-design': {
+        description: intl.formatMessage({
+          defaultMessage: 'Design patterns and architecture of front end apps',
+          description: 'Description of system design questions',
+          id: 'vqKJ0D',
+        }),
+        href: '/prepare/system-design',
+        icon: RiFlowChart,
+        key: 'system-design',
+        longName: intl.formatMessage({
+          defaultMessage: 'System Design Questions',
+          description: 'System design questions long title',
+          id: 'sa8B3r',
+        }),
+        name: intl.formatMessage({
+          defaultMessage: 'System Design',
+          description: 'System design questions short title',
+          id: 'MF21p5',
+        }),
+        searchPlaceholder: intl.formatMessage({
+          defaultMessage: 'Search system design questions',
+          description:
+            'Placeholder for search input of system design question list',
+          id: 'BgJTSk',
+        }),
+        themeGradient: themeGradientPinkPurple.className,
+      },
+    };
 
-  return questionFormatLists;
+  return questionUserFacingFormatData;
 }
 
 export function useQuestionTechnologyLists() {

@@ -2,7 +2,7 @@ import { useId, useState } from 'react';
 import { RiListUnordered, RiSearchLine } from 'react-icons/ri';
 import { useSessionStorage } from 'usehooks-ts';
 
-import { useQuestionFormatLists } from '~/data/QuestionFormats';
+import { useQuestionUserFacingFormatData } from '~/data/QuestionFormats';
 
 import { useUserProfile } from '~/components/global/UserProfileProvider';
 import type {
@@ -70,7 +70,7 @@ function Contents({
     'prepare-coding',
   );
 
-  const questionFormatLists = useQuestionFormatLists();
+  const questionFormatLists = useQuestionUserFacingFormatData();
   const { searchPlaceholder } = questionFormatLists.coding;
 
   // Filtering.
@@ -175,7 +175,7 @@ export default function CodingWorkspaceQuestionListSlideOut({
   // Have to be controlled because we don't want to
   // render the contents for nothing because it does a fetch.
   const [isShown, setIsShown] = useState(false);
-  const questionFormatLists = useQuestionFormatLists();
+  const questionFormatLists = useQuestionUserFacingFormatData();
 
   return (
     <SlideOut

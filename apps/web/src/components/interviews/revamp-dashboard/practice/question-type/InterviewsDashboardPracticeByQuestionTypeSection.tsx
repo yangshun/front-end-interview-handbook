@@ -5,7 +5,7 @@ import {
 } from 'react-icons/ri';
 import { useIntl } from 'react-intl';
 
-import { useQuestionFormatLists } from '~/data/QuestionFormats';
+import { useQuestionUserFacingFormatData } from '~/data/QuestionFormats';
 
 import useBehavioralInterviewGuidebookNavigation from '~/components/guides/useBehavioralInterviewGuidebookNavigation';
 import type {
@@ -36,7 +36,7 @@ export default function InterviewsDashboardPracticeByQuestionType({
   questionsProgress,
 }: Props) {
   const intl = useIntl();
-  const questionsFormat = useQuestionFormatLists();
+  const questionsFormat = useQuestionUserFacingFormatData();
   const behavioralInterviewGuidebook =
     useBehavioralInterviewGuidebookNavigation();
   const questionsProgressAll = categorizeQuestionsProgress(questionsProgress);

@@ -7,7 +7,7 @@ import { FormattedMessage, useIntl } from 'react-intl';
 
 import gtag from '~/lib/gtag';
 
-import { useQuestionFormatLists } from '~/data/QuestionFormats';
+import { useQuestionUserFacingFormatData } from '~/data/QuestionFormats';
 
 import Button from '~/components/ui/Button';
 import Container from '~/components/ui/Container';
@@ -45,7 +45,7 @@ const MarketingEmbedQuizQuestion = dynamic(
 
 function useTabs() {
   const intl = useIntl();
-  const questionFormat = useQuestionFormatLists();
+  const questionFormat = useQuestionUserFacingFormatData();
 
   const tabs = [
     {

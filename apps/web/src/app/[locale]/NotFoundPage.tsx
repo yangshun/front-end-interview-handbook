@@ -11,7 +11,7 @@ import {
 
 import gtag from '~/lib/gtag';
 
-import { useQuestionFormatLists } from '~/data/QuestionFormats';
+import { useQuestionUserFacingFormatData } from '~/data/QuestionFormats';
 
 import Anchor from '~/components/ui/Anchor';
 import Heading from '~/components/ui/Heading';
@@ -26,7 +26,7 @@ import {
 export default function NotFoundPage() {
   // Useful to log the full pathname for a 404.
   const pathname = usePathname();
-  const questionFormatLists = useQuestionFormatLists();
+  const questionFormatLists = useQuestionUserFacingFormatData();
 
   useEffect(() => {
     gtag.event({

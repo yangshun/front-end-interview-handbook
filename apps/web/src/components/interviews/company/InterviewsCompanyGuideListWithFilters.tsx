@@ -11,7 +11,7 @@ import { useIntl } from 'react-intl';
 import { trpc } from '~/hooks/trpc';
 
 import { INTERVIEWS_REVAMP_2024 } from '~/data/FeatureFlags';
-import { useQuestionFormatLists } from '~/data/QuestionFormats';
+import { useQuestionUserFacingFormatData } from '~/data/QuestionFormats';
 
 import CompletionCountSummary from '~/components/interviews/questions/listings/stats/CompletionCountSummary';
 import QuestionCountLabel from '~/components/interviews/questions/metadata/QuestionCountLabel';
@@ -41,7 +41,7 @@ function InterviewsCompanyGuideCard({
   isStarted?: boolean;
 }) {
   const intl = useIntl();
-  const questionFormatLists = useQuestionFormatLists();
+  const questionFormatLists = useQuestionUserFacingFormatData();
   const {
     name,
     href,

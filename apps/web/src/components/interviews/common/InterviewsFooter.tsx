@@ -3,14 +3,14 @@
 import { useIntl } from 'react-intl';
 
 import { useGuidesData } from '~/data/Guides';
-import { useQuestionFormatLists } from '~/data/QuestionFormats';
+import { useQuestionUserFacingFormatData } from '~/data/QuestionFormats';
 
 import type { FooterNavigation } from '../../global/footers/Footer';
 import Footer from '../../global/footers/Footer';
 
 function useFooterNavigation() {
   const intl = useIntl();
-  const questionFormatLists = useQuestionFormatLists();
+  const questionFormatLists = useQuestionUserFacingFormatData();
   const guides = useGuidesData();
 
   const navigation: FooterNavigation = [

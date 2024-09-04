@@ -1,7 +1,7 @@
 import { RiQuestionAnswerFill } from 'react-icons/ri';
 import { useIntl } from 'react-intl';
 
-import { useQuestionFormatLists } from '~/data/QuestionFormats';
+import { useQuestionUserFacingFormatData } from '~/data/QuestionFormats';
 
 import type { QuestionUserFacingFormat } from '~/components/interviews/questions/common/QuestionsTypes';
 
@@ -19,7 +19,7 @@ type PreparationAreaData = Record<
 
 export function usePreparationAreas(): PreparationAreaData {
   const intl = useIntl();
-  const questionFormats = useQuestionFormatLists();
+  const questionFormats = useQuestionUserFacingFormatData();
 
   return {
     behavioral: {
