@@ -72,7 +72,18 @@ export default function QuestionListingCodingFilters({
     <form>
       <Accordion
         className={clsx('border-y', themeBorderElementColor)}
-        defaultValue={['company', 'difficulty']}
+        defaultValue={[
+          companyFilterOptions.id,
+          difficultyFilterOptions.id,
+          importanceFilters.size > 0 ? importanceFilterOptions.id : null,
+          frameworkFilters.size > 0 || languageFilters.size > 0
+            ? 'framework-language'
+            : null,
+          completionStatusFilters.size > 0
+            ? completionStatusFilterOptions.id
+            : null,
+          formatFilters.size > 0 ? formatFilterOptions.id : null,
+        ].flatMap((val) => (val != null ? [val] : []))}
         type="multiple">
         <QuestionListingFilterItem
           itemGap={itemGap}

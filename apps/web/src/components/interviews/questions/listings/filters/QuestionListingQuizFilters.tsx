@@ -40,7 +40,11 @@ export default function QuestionListingQuizFilters({
     <form>
       <Accordion
         className={clsx('border-y', themeBorderElementColor)}
-        defaultValue={['topic', 'importance', 'completion']}
+        defaultValue={[
+          quizTopicFilterOptions.id,
+          importanceFilterOptions.id,
+          completionStatusFilterOptions.id,
+        ]}
         type="multiple">
         <QuestionListingFilterItem
           itemGap={itemGap}
