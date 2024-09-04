@@ -12,6 +12,7 @@ const FRAMEWORK_OPTIONS: ReadonlyArray<QuestionFramework> = [
   'vanilla',
   'angular',
   'svelte',
+  'vue',
 ];
 
 type Props = Readonly<{
