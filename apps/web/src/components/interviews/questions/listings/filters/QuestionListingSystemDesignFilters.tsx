@@ -5,7 +5,6 @@ import { Accordion } from '~/components/ui/Accordion';
 import { themeBorderElementColor } from '~/components/ui/theme';
 
 import type { QuestionFilter } from './QuestionFilterType';
-import type { QuestionFilterItemGap } from './QuestionListingFilterItemCheckboxes';
 import type { QuestionsListAttributesUnion } from './QuestionsProcessor';
 import type {
   QuestionCompany,
@@ -29,7 +28,6 @@ type Props = Readonly<{
   difficultyFilters: Set<QuestionDifficulty>;
   importanceFilterOptions: QuestionFilter<QuestionImportance, QuestionMetadata>;
   importanceFilters: Set<QuestionImportance>;
-  itemGap: QuestionFilterItemGap;
 }>;
 
 export default function QuestionListingSystemDesignFilters({
@@ -42,7 +40,6 @@ export default function QuestionListingSystemDesignFilters({
   difficultyFilters,
   importanceFilterOptions,
   importanceFilters,
-  itemGap,
 }: Props) {
   return (
     <form>
@@ -56,24 +53,20 @@ export default function QuestionListingSystemDesignFilters({
         ]}
         type="multiple">
         <QuestionListingFilterItem
-          itemGap={itemGap}
           section={companyFilterOptions}
           values={companyFilters}
         />
         <QuestionListingFilterItem
           coveredValues={attributesUnion.difficulty}
-          itemGap={itemGap}
           section={difficultyFilterOptions}
           values={difficultyFilters}
         />
         <QuestionListingFilterItem
           coveredValues={attributesUnion.importance}
-          itemGap={itemGap}
           section={importanceFilterOptions}
           values={importanceFilters}
         />
         <QuestionListingFilterItem
-          itemGap={itemGap}
           section={completionStatusFilterOptions}
           values={completionStatusFilters}
         />

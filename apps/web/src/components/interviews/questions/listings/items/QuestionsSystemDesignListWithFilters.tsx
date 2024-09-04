@@ -161,7 +161,6 @@ export default function QuestionsSystemDesignListWithFilters({
             difficultyFilters={difficultyFilters}
             importanceFilterOptions={importanceFilterOptions}
             importanceFilters={importanceFilters}
-            itemGap="spacious"
           />
         </SlideOut>
       </div>
@@ -348,7 +347,6 @@ export default function QuestionsSystemDesignListWithFilters({
                 difficultyFilters={difficultyFilters}
                 importanceFilterOptions={importanceFilterOptions}
                 importanceFilters={importanceFilters}
-                itemGap="compact"
               />
             </Section>
           </div>

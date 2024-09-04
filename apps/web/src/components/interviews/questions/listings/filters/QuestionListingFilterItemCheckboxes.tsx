@@ -8,29 +8,20 @@ import Tooltip from '~/components/ui/Tooltip';
 import type { QuestionFilter } from './QuestionFilterType';
 import type { QuestionMetadata } from '../../common/QuestionsTypes';
 
-export type QuestionFilterItemGap = 'compact' | 'spacious';
-
-const itemGapClasses: Record<QuestionFilterItemGap, string> = {
-  compact: 'gap-x-4 gap-y-3',
-  spacious: 'gap-6',
-};
-
 export default function QuestionListingFilterItemCheckboxes<
   T extends string,
   Q extends QuestionMetadata,
 >({
   coveredValues,
-  itemGap,
   section,
   values,
 }: Readonly<{
   coveredValues?: Set<T>;
-  itemGap: QuestionFilterItemGap;
   section: QuestionFilter<T, Q>;
   values: Set<T>;
 }>) {
   return (
-    <div className={clsx('flex flex-wrap', itemGapClasses[itemGap])}>
+    <div className={clsx('flex flex-wrap', 'gap-x-8 gap-y-4')}>
       {section.options
         .filter((option) =>
           coveredValues == null ? true : coveredValues?.has(option.value),

@@ -2,7 +2,7 @@ import {
   RiCodeBoxFill,
   RiFlowChart,
   RiJavascriptFill,
-  RiQuestionnaireFill,
+  RiQuestionnaireLine,
   RiTerminalWindowLine,
 } from 'react-icons/ri';
 import { TbBinaryTree } from 'react-icons/tb';
@@ -93,7 +93,7 @@ export function useQuestionFormatsData(): QuestionFormatData {
       value: 'javascript',
     },
     quiz: {
-      icon: RiQuestionnaireFill,
+      icon: RiQuestionnaireLine,
       label: intl.formatMessage({
         defaultMessage: 'Quiz',
         description: 'Front end quiz questions',
@@ -193,7 +193,7 @@ export function useQuestionUserFacingFormatData() {
           id: 'HDsjyG',
         }),
         href: '/prepare/quiz',
-        icon: RiQuestionnaireFill,
+        icon: RiQuestionnaireLine,
         key: 'quiz',
         longName: intl.formatMessage({
           defaultMessage: 'Quiz Questions',

@@ -207,7 +207,6 @@ export default function QuestionsCodingListWithFilters({
             frameworkFilters={frameworkFilters}
             importanceFilterOptions={importanceFilterOptions}
             importanceFilters={importanceFilters}
-            itemGap="spacious"
             languageFilterOptions={languageFilterOptions}
             languageFilters={languageFilters}
             mode={mode}
@@ -607,7 +606,6 @@ export default function QuestionsCodingListWithFilters({
                 frameworkFilters={frameworkFilters}
                 importanceFilterOptions={importanceFilterOptions}
                 importanceFilters={importanceFilters}
-                itemGap="compact"
                 languageFilterOptions={languageFilterOptions}
                 languageFilters={languageFilters}
                 mode={mode}

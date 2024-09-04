@@ -13,7 +13,6 @@ import { themeBorderElementColor } from '~/components/ui/theme';
 import Tooltip from '~/components/ui/Tooltip';
 
 import type { QuestionFilter } from './QuestionFilterType';
-import type { QuestionFilterItemGap } from './QuestionListingFilterItemCheckboxes';
 import QuestionListingFilterItemCheckboxes from './QuestionListingFilterItemCheckboxes';
 import QuestionListingFilterItemLabel from './QuestionListingFilterItemLabel';
 import type { QuestionsListAttributesUnion } from './QuestionsProcessor';
@@ -46,7 +45,6 @@ type Props = Readonly<{
   frameworkFilters: Set<QuestionFramework>;
   importanceFilterOptions: QuestionFilter<QuestionImportance, QuestionMetadata>;
   importanceFilters: Set<QuestionImportance>;
-  itemGap: QuestionFilterItemGap;
   languageFilterOptions: QuestionFilter<QuestionLanguage, QuestionMetadata>;
   languageFilters: Set<QuestionLanguage>;
   mode?: 'default' | 'framework';
@@ -69,7 +67,6 @@ export default function QuestionListingCodingFilters({
   languageFilterOptions,
   languageFilters,
   mode,
-  itemGap,
 }: Props) {
   return (
     <form>
@@ -89,19 +86,16 @@ export default function QuestionListingCodingFilters({
         ].flatMap((val) => (val != null ? [val] : []))}
         type="multiple">
         <QuestionListingFilterItem
-          itemGap={itemGap}
           section={companyFilterOptions}
           values={companyFilters}
         />
         <QuestionListingFilterItem
           coveredValues={attributesUnion.difficulty}
-          itemGap={itemGap}
           section={difficultyFilterOptions}
           values={difficultyFilters}
         />
         <QuestionListingFilterItem
           coveredValues={attributesUnion.importance}
-          itemGap={itemGap}
           section={importanceFilterOptions}
           values={importanceFilters}
         />
@@ -138,7 +132,6 @@ export default function QuestionListingCodingFilters({
                         </Text>
                         <QuestionListingFilterItemCheckboxes
                           coveredValues={attributesUnion.frameworks}
-                          itemGap={itemGap}
                           section={frameworkFilterOptions}
                           values={frameworkFilters}
                         />
@@ -153,7 +146,6 @@ export default function QuestionListingCodingFilters({
                     </Text>
                     <QuestionListingFilterItemCheckboxes
                       coveredValues={attributesUnion.languages}
-                      itemGap={itemGap}
                       section={languageFilterOptions}
                       values={languageFilters}
                     />
@@ -164,13 +156,11 @@ export default function QuestionListingCodingFilters({
           </AccordionItem>
         )}
         <QuestionListingFilterItem
-          itemGap={itemGap}
           section={completionStatusFilterOptions}
           values={completionStatusFilters}
         />
         <QuestionListingFilterItem
           coveredValues={attributesUnion.formats}
-          itemGap={itemGap}
           section={formatFilterOptions}
           values={formatFilters}
         />

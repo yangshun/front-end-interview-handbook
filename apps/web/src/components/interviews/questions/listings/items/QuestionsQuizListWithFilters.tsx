@@ -144,7 +144,6 @@ export default function QuestionsQuizListWithFilters({
             completionStatusFilters={completionStatusFilters}
             importanceFilterOptions={importanceFilterOptions}
             importanceFilters={importanceFilters}
-            itemGap="spacious"
             quizTopicFilterOptions={quizTopicFilterOptions}
             quizTopicFilters={quizTopicFilters}
           />
@@ -304,7 +303,6 @@ export default function QuestionsQuizListWithFilters({
               completionStatusFilters={completionStatusFilters}
               importanceFilterOptions={importanceFilterOptions}
               importanceFilters={importanceFilters}
-              itemGap="compact"
               quizTopicFilterOptions={quizTopicFilterOptions}
               quizTopicFilters={quizTopicFilters}
             />

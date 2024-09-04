@@ -6,7 +6,6 @@ import {
 import Tooltip from '~/components/ui/Tooltip';
 
 import type { QuestionFilter } from './QuestionFilterType';
-import type { QuestionFilterItemGap } from './QuestionListingFilterItemCheckboxes';
 import QuestionListingFilterItemCheckboxes from './QuestionListingFilterItemCheckboxes';
 import QuestionListingFilterItemLabel from './QuestionListingFilterItemLabel';
 import type { QuestionMetadata } from '../../common/QuestionsTypes';
@@ -15,13 +14,11 @@ export default function QuestionListingFilterItem<
   T extends string,
   Q extends QuestionMetadata,
 >({
-  itemGap,
   section,
   values,
   coveredValues,
 }: Readonly<{
   coveredValues?: Set<T>;
-  itemGap: QuestionFilterItemGap;
   section: QuestionFilter<T, Q>;
   values: Set<T>;
 }>) {
@@ -51,7 +48,6 @@ export default function QuestionListingFilterItem<
       <AccordionContent>
         <QuestionListingFilterItemCheckboxes
           coveredValues={coveredValues}
-          itemGap={itemGap}
           section={section}
           values={values}
         />
