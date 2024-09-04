@@ -1839,6 +1839,10 @@
     "defaultMessage": "Click here to try out the actual workspace instead of this embed.",
     "description": "Button label within embed"
   },
+  "Ckm7RZ": {
+    "defaultMessage": "No companies",
+    "description": "Title for empty state when application of filters return no results"
+  },
   "Cl4Ghp": {
     "defaultMessage": "On this page",
     "description": "Title of the table of contents for a guidebook page."
@@ -2755,6 +2759,10 @@
     "defaultMessage": "Legal",
     "description": "Link to legal page"
   },
+  "J7bWrf": {
+    "defaultMessage": "Search for your target company",
+    "description": "Placeholder for search input of company guides"
+  },
   "J90fcx": {
     "defaultMessage": "Preparation Plans",
     "description": "Preparation plans section title"
@@ -2875,6 +2883,10 @@
     "defaultMessage": "Intermediate",
     "description": "Intermediate blog"
   },
+  "K7D+wG": {
+    "defaultMessage": "Recommended resources",
+    "description": "Features for company guides"
+  },
   "KBBRmA": {
     "defaultMessage": "While working on project",
     "description": "Hint for \"Tips, Resources and Discussions\" tab on Projects project page"
@@ -2934,6 +2946,10 @@
   "KZWEcx": {
     "defaultMessage": "Please enter a different email address.",
     "description": "Email validation error message"
+  },
+  "Kajzf7": {
+    "defaultMessage": "Try changing your search terms",
+    "description": "Subtitle for empty state for company guides list"
   },
   "KbLzJO": {
     "defaultMessage": "Bullet list",
@@ -4319,6 +4335,10 @@
     "defaultMessage": "Dive into the world of element selection and modification in the DOM. Practice selecting elements using CSS selectors, traverse the DOM hierarchy, and manipulate their properties, content, and styles.",
     "description": "Description for interview preparation focus area"
   },
+  "T9J/PN": {
+    "defaultMessage": "Actual interview questions",
+    "description": "Features for company guides"
+  },
   "T9XIQX": {
     "defaultMessage": "Challenges you have started before or completed will appear here.",
     "description": "Subtitle for challenge activity page"
@@ -5423,6 +5443,10 @@
     "defaultMessage": "Subscriptions are automatically renewed and you will be charged again then. You may cancel your subscription anytime via the Stripe billing portal.",
     "description": "Call to action text to uppgrade plan."
   },
+  "b/AtxG": {
+    "defaultMessage": "Question count",
+    "description": "Label for question count"
+  },
   "b/dKUR": {
     "defaultMessage": "This subset of test cases are used when \"Run\"-ning your code.",
     "description": "Message to explain the custom tests cases"
@@ -6279,6 +6303,10 @@
     "defaultMessage": "Reset this file",
     "description": "Tooltip for button that allows users to reset their coding workspace to the initial code"
   },
+  "gpdfNp": {
+    "defaultMessage": "Solutions by ex-interviewers",
+    "description": "Features for company guides"
+  },
   "grLe+N": {
     "defaultMessage": "Number of series",
     "description": "Total number of series in a list"
@@ -6690,6 +6718,10 @@
   "k2Oi+j": {
     "defaultMessage": "Filters",
     "description": "Label for filters button"
+  },
+  "k2qYCS": {
+    "defaultMessage": "Company guides",
+    "description": "Title of company guides page"
   },
   "k64L83": {
     "defaultMessage": "{discountPercentage}% off GreatFrontEnd Annual plan.",
@@ -7326,6 +7358,10 @@
   "okx37l": {
     "defaultMessage": "johndoe",
     "description": "GitHub profile form placeholder"
+  },
+  "olxZ5i": {
+    "defaultMessage": "Optimized preparation for target companies, leveraging insider tips and expertise.",
+    "description": "Description for company guides page"
   },
   "onNjnt": {
     "defaultMessage": "Design System Components",
@@ -8626,6 +8662,10 @@
   "yrC3kR": {
     "defaultMessage": "Editor shortcuts",
     "description": "Label for button to open code editor shortcuts"
+  },
+  "ysth0B": {
+    "defaultMessage": "Search company guides",
+    "description": "Placeholder for search input of company guides"
   },
   "yv1wII": {
     "defaultMessage": "Implementation must contain at most {maxLength} character(s).",
