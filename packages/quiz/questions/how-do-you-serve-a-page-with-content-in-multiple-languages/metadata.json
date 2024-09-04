@@ -6,6 +6,6 @@
   "duration": 5,
   "published": true,
   "topics": ["html", "i18n"],
-  "importance": "mid",
+  "importance": "medium",
   "difficulty": "hard"
 }

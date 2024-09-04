@@ -6,6 +6,6 @@
   "duration": 5,
   "published": true,
   "topics": ["javascript"],
-  "importance": "mid",
+  "importance": "medium",
   "difficulty": "medium"
 }

@@ -6,6 +6,6 @@
   "duration": 5,
   "published": true,
   "topics": ["css", "a11y"],
-  "importance": "mid",
+  "importance": "medium",
   "difficulty": "medium"
 }
