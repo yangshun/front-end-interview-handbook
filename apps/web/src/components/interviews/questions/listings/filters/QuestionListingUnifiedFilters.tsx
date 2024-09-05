@@ -26,6 +26,7 @@ import type {
   QuestionLanguage,
   QuestionMetadata,
   QuestionMetadataWithCompletedStatus,
+  QuestionTopic,
 } from '../../common/QuestionsTypes';
 
 type Props = Readonly<{
@@ -45,9 +46,12 @@ type Props = Readonly<{
   frameworkFilters: Set<QuestionFramework>;
   importanceFilterOptions: QuestionFilter<QuestionImportance, QuestionMetadata>;
   importanceFilters: Set<QuestionImportance>;
+  initialOpenItems?: ReadonlyArray<string>;
   languageFilterOptions: QuestionFilter<QuestionLanguage, QuestionMetadata>;
   languageFilters: Set<QuestionLanguage>;
   mode?: 'default' | 'framework';
+  topicFilterOptions: QuestionFilter<QuestionTopic, QuestionMetadata>;
+  topicFilters: Set<QuestionTopic>;
 }>;
 
 export default function QuestionListingUnifiedFilters({
@@ -62,10 +66,13 @@ export default function QuestionListingUnifiedFilters({
   difficultyFilters,
   importanceFilterOptions,
   importanceFilters,
+  initialOpenItems,
   frameworkFilterOptions,
   frameworkFilters,
   languageFilterOptions,
   languageFilters,
+  topicFilterOptions,
+  topicFilters,
   mode,
 }: Props) {
   return (
@@ -75,16 +82,32 @@ export default function QuestionListingUnifiedFilters({
         defaultValue={[
           companyFilterOptions.id,
           difficultyFilterOptions.id,
-          importanceFilters.size > 0 ? importanceFilterOptions.id : null,
-          frameworkFilters.size > 0 || languageFilters.size > 0
+          initialOpenItems?.includes('topic') || topicFilters.size > 0
+            ? topicFilterOptions.id
+            : null,
+          initialOpenItems?.includes('importance') || importanceFilters.size > 0
+            ? importanceFilterOptions.id
+            : null,
+          initialOpenItems?.includes('framework') ||
+          initialOpenItems?.includes('language') ||
+          frameworkFilters.size > 0 ||
+          languageFilters.size > 0
             ? 'framework-language'
             : null,
+          initialOpenItems?.includes('completion') ||
           completionStatusFilters.size > 0
             ? completionStatusFilterOptions.id
             : null,
-          formatFilters.size > 0 ? formatFilterOptions.id : null,
+          initialOpenItems?.includes('format') || formatFilters.size > 0
+            ? formatFilterOptions.id
+            : null,
         ].flatMap((val) => (val != null ? [val] : []))}
         type="multiple">
+        <QuestionListingFilterItem
+          coveredValues={attributesUnion.topics}
+          section={topicFilterOptions}
+          values={topicFilters}
+        />
         <QuestionListingFilterItem
           section={companyFilterOptions}
           values={companyFilters}

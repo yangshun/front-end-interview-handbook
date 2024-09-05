@@ -9,8 +9,7 @@ import type {
   QuestionMetadataWithCompletedStatus,
   QuestionSortField,
 } from '~/components/interviews/questions/common/QuestionsTypes';
-import useQuestionCompletionStatusFilter from '~/components/interviews/questions/listings/filters/hooks/useQuestionCompletionStatusFilter';
-import useQuestionTopicFilter from '~/components/interviews/questions/listings/filters/hooks/useQuestionTopicFilter';
+import useQuestionUnifiedFilters from '~/components/interviews/questions/listings/filters/hooks/useQuestionUnifiedFilters';
 import QuestionListingTopicFilters from '~/components/interviews/questions/listings/filters/QuestionListingTopicFilters';
 import {
   countQuestionsTotalDurationMins,
@@ -28,9 +27,7 @@ import TextInput from '~/components/ui/TextInput';
 
 import type { QuestionCompletionCount } from '~/db/QuestionsCount';
 
-import useQuestionImportanceFilter from '../filters/hooks/useQuestionImportanceFilter';
-import QuestionListingQuizFilters from '../filters/QuestionListingQuizFilters';
-import questionMatchesTextQuery from '../filters/questionMatchesTextQuery';
+import QuestionListingUnifiedFilters from '../filters/QuestionListingUnifiedFilters';
 import QuestionTotalTimeLabel from '../../metadata/QuestionTotalTimeLabel';
 
 export type Props = Readonly<{
@@ -58,15 +55,7 @@ export default function QuestionsQuizListWithFilters({
 }: Props) {
   const intl = useIntl();
   const [isAscendingOrder, setIsAscendingOrder] = useState(false);
-  const [query, setQuery] = useState('');
   const [sortField, setSortField] = useState<QuestionSortField>('importance');
-  const [quizTopicFilters, quizTopicFilterOptions] = useQuestionTopicFilter({
-    namespace,
-  });
-  const [completionStatusFilters, completionStatusFilterOptions] =
-    useQuestionCompletionStatusFilter({ namespace });
-  const [importanceFilters, importanceFilterOptions] =
-    useQuestionImportanceFilter({ namespace });
 
   function makeDropdownItemProps(
     label: string,
@@ -86,32 +75,45 @@ export default function QuestionsQuizListWithFilters({
   // Tabulating.
   const questionAttributesUnion = tabulateQuestionsAttributesUnion(questions);
 
+  // Filtering.
+  const {
+    query,
+    setQuery,
+    difficultyFilters,
+    difficultyFilterOptions,
+    companyFilters,
+    companyFilterOptions,
+    languageFilters,
+    languageFilterOptions,
+    frameworkFilters,
+    frameworkFilterOptions,
+    importanceFilters,
+    importanceFilterOptions,
+    completionStatusFilters,
+    completionStatusFilterOptions,
+    formatFilters,
+    formatFilterOptions,
+    topicFilters,
+    topicFilterOptions,
+    filters,
+  } = useQuestionUnifiedFilters({
+    initialFormat: null,
+    namespace,
+  });
+
   // Processing.
   const sortedQuestions = sortQuestionsMultiple(questions, [
     { field: 'ranking', isAscendingOrder: true },
     { field: sortField, isAscendingOrder },
   ]);
-  const filters: ReadonlyArray<
-    [
-      number,
-      (
-        question: QuestionMetadata & QuestionMetadataWithCompletedStatus,
-      ) => boolean,
-    ]
-  > = [
-    // Query.
-    [0, (question) => questionMatchesTextQuery(question, query)],
-    // Topics.
-    [quizTopicFilters.size, quizTopicFilterOptions.matches],
-    // Completion Status.
-    [completionStatusFilters.size, completionStatusFilterOptions.matches],
-  ];
+
   const numberOfFilters = filters.filter(([size]) => size > 0).length;
   const processedQuestions = filterQuestions(
     sortedQuestions,
     filters.map(([_, filterFn]) => filterFn),
   );
   const totalDurationMins = countQuestionsTotalDurationMins(processedQuestions);
+
   const sortAndFilters = (
     <div className="flex shrink-0 justify-end gap-2 sm:pt-0">
       <div className={clsx(layout === 'full' && 'lg:hidden')}>
@@ -138,14 +140,26 @@ export default function QuestionsQuizListWithFilters({
               size="sm"
             />
           }>
-          <QuestionListingQuizFilters
+          <QuestionListingUnifiedFilters
             attributesUnion={questionAttributesUnion}
+            companyFilterOptions={companyFilterOptions}
+            companyFilters={companyFilters}
             completionStatusFilterOptions={completionStatusFilterOptions}
             completionStatusFilters={completionStatusFilters}
+            difficultyFilterOptions={difficultyFilterOptions}
+            difficultyFilters={difficultyFilters}
+            formatFilterOptions={formatFilterOptions}
+            formatFilters={formatFilters}
+            frameworkFilterOptions={frameworkFilterOptions}
+            frameworkFilters={frameworkFilters}
             importanceFilterOptions={importanceFilterOptions}
             importanceFilters={importanceFilters}
-            quizTopicFilterOptions={quizTopicFilterOptions}
-            quizTopicFilters={quizTopicFilters}
+            initialOpenItems={['topic']}
+            languageFilterOptions={languageFilterOptions}
+            languageFilters={languageFilters}
+            mode="default"
+            topicFilterOptions={topicFilterOptions}
+            topicFilters={topicFilters}
           />
         </SlideOut>
       </div>
@@ -206,10 +220,10 @@ export default function QuestionsQuizListWithFilters({
       </DropdownMenu>
     </div>
   );
-  const topicFilters = (
+  const topicFiltersEl = (
     <QuestionListingTopicFilters
-      section={quizTopicFilterOptions}
-      values={quizTopicFilters}
+      section={topicFilterOptions}
+      values={topicFilters}
     />
   );
   const searchFilterRow = (
@@ -254,7 +268,7 @@ export default function QuestionsQuizListWithFilters({
       {/* Left Column */}
       <section className="flex flex-col gap-6 lg:col-span-7">
         <div className="flex flex-col gap-4">
-          {topicFilters}
+          {topicFiltersEl}
           {searchFilterRow}
         </div>
         <div className="flex flex-col gap-4">
@@ -297,14 +311,26 @@ export default function QuestionsQuizListWithFilters({
             />
           </Heading>
           <Section>
-            <QuestionListingQuizFilters
+            <QuestionListingUnifiedFilters
               attributesUnion={questionAttributesUnion}
+              companyFilterOptions={companyFilterOptions}
+              companyFilters={companyFilters}
               completionStatusFilterOptions={completionStatusFilterOptions}
               completionStatusFilters={completionStatusFilters}
+              difficultyFilterOptions={difficultyFilterOptions}
+              difficultyFilters={difficultyFilters}
+              formatFilterOptions={formatFilterOptions}
+              formatFilters={formatFilters}
+              frameworkFilterOptions={frameworkFilterOptions}
+              frameworkFilters={frameworkFilters}
               importanceFilterOptions={importanceFilterOptions}
               importanceFilters={importanceFilters}
-              quizTopicFilterOptions={quizTopicFilterOptions}
-              quizTopicFilters={quizTopicFilters}
+              initialOpenItems={['topic']}
+              languageFilterOptions={languageFilterOptions}
+              languageFilters={languageFilters}
+              mode="default"
+              topicFilterOptions={topicFilterOptions}
+              topicFilters={topicFilters}
             />
           </Section>
         </aside>

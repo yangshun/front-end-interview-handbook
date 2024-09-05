@@ -11,6 +11,7 @@ import useQuestionFrameworkFilter from './useQuestionFrameworkFilter';
 import useQuestionImportanceFilter from './useQuestionImportanceFilter';
 import useQuestionLanguageFilter from './useQuestionLanguageFilter';
 import useQuestionSearchFilter from './useQuestionSearchFilter';
+import useQuestionTopicFilter from './useQuestionTopicFilter';
 import questionMatchesTextQuery from '../questionMatchesTextQuery';
 
 type Props = Readonly<{
@@ -44,6 +45,9 @@ export default function useQuestionUnifiedFilters({
   const [frameworkFilters, frameworkFilterOptions] = useQuestionFrameworkFilter(
     { namespace },
   );
+  const [topicFilters, topicFilterOptions] = useQuestionTopicFilter({
+    namespace,
+  });
   const [completionStatusFilters, completionStatusFilterOptions] =
     useQuestionCompletionStatusFilter({ namespace });
   const [formatFilters, formatFilterOptions] = useQuestionFormatFilter({
@@ -70,6 +74,8 @@ export default function useQuestionUnifiedFilters({
     [formatFilters.size, formatFilterOptions.matches],
     // Framework.
     [frameworkFilters.size, frameworkFilterOptions.matches],
+    // Topics.
+    [topicFilters.size, topicFilterOptions.matches],
     // Completion Status.
     [completionStatusFilters.size, completionStatusFilterOptions.matches],
   ];
@@ -92,5 +98,7 @@ export default function useQuestionUnifiedFilters({
     languageFilters,
     query,
     setQuery,
+    topicFilterOptions,
+    topicFilters,
   };
 }

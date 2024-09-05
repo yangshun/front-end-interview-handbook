@@ -114,6 +114,8 @@ export default function QuestionsUnifiedListWithFilters({
     completionStatusFilterOptions,
     formatFilters,
     formatFilterOptions,
+    topicFilters,
+    topicFilterOptions,
     filters,
   } = useQuestionUnifiedFilters({
     formatFiltersFilterPredicate,
@@ -210,6 +212,8 @@ export default function QuestionsUnifiedListWithFilters({
             languageFilterOptions={languageFilterOptions}
             languageFilters={languageFilters}
             mode={mode}
+            topicFilterOptions={topicFilterOptions}
+            topicFilters={topicFilters}
           />
         </SlideOut>
       </div>
@@ -609,6 +613,8 @@ export default function QuestionsUnifiedListWithFilters({
                 languageFilterOptions={languageFilterOptions}
                 languageFilters={languageFilters}
                 mode={mode}
+                topicFilterOptions={topicFilterOptions}
+                topicFilters={topicFilters}
               />
             </Section>
           </section>

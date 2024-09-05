@@ -35,7 +35,7 @@ const CATEGORY_TO_LANGUAGE: Record<QuestionListCategory, QuestionLanguage> = {
   js: 'js',
 };
 
-const CATEGORY_TO_QUIZ_TOPIC: Record<QuestionListCategory, QuestionTopic> = {
+const CATEGORY_TO_TOPIC: Record<QuestionListCategory, QuestionTopic> = {
   css: 'css',
   html: 'html',
   js: 'javascript',
@@ -254,7 +254,7 @@ async function processParams(params: Props['params']) {
     format === 'coding' ? (rest?.[1] as QuestionCodingFormat) ?? null : null;
 
   const language = CATEGORY_TO_LANGUAGE[category];
-  const quizTopic = CATEGORY_TO_QUIZ_TOPIC[category];
+  const topic = CATEGORY_TO_TOPIC[category];
 
   const [
     { questions: quizQuestionsAll },
@@ -267,7 +267,7 @@ async function processParams(params: Props['params']) {
   ]);
 
   const quizQuestions = filterQuestions(quizQuestionsAll, [
-    (question) => question.topics.includes(quizTopic),
+    (question) => question.topics.includes(topic),
   ]);
   const codingQuestions = filterQuestions(codingQuestionsAll, [
     (question) =>

@@ -94,6 +94,8 @@ export default function QuestionsSystemDesignListWithFilters({
     completionStatusFilterOptions,
     formatFilters,
     formatFilterOptions,
+    topicFilters,
+    topicFilterOptions,
     filters,
   } = useQuestionUnifiedFilters({
     initialFormat: null,
@@ -161,6 +163,8 @@ export default function QuestionsSystemDesignListWithFilters({
             languageFilterOptions={languageFilterOptions}
             languageFilters={languageFilters}
             mode="default"
+            topicFilterOptions={topicFilterOptions}
+            topicFilters={topicFilters}
           />
         </SlideOut>
       </div>
@@ -354,6 +358,8 @@ export default function QuestionsSystemDesignListWithFilters({
                 languageFilterOptions={languageFilterOptions}
                 languageFilters={languageFilters}
                 mode="default"
+                topicFilterOptions={topicFilterOptions}
+                topicFilters={topicFilters}
               />
             </Section>
           </div>
