@@ -382,9 +382,6 @@ importers:
       '@use-gesture/react':
         specifier: ^10.3.1
         version: 10.3.1(react@18.2.0)
-      '@vercel/analytics':
-        specifier: ^1.1.1
-        version: 1.1.1
       chrome-launcher:
         specifier: ^1.1.1
         version: 1.1.1
@@ -763,7 +760,7 @@ importers:
     dependencies:
       ts-jest:
         specifier: ^29.0.5
-        version: 29.1.1(@babel/core@7.24.7)(jest@29.7.0)(typescript@5.5.2)
+        version: 29.1.1(jest@29.7.0)(typescript@5.5.2)
 
   packages/questions:
     devDependencies:
@@ -7425,12 +7422,6 @@ packages:
     dependencies:
       '@use-gesture/core': 10.3.1
       react: 18.2.0
-    dev: false
-
-  /@vercel/analytics@1.1.1:
-    resolution: {integrity: sha512-+NqgNmSabg3IFfxYhrWCfB/H+RCUOCR5ExRudNG2+pcRehq628DJB5e1u1xqwpLtn4pAYii4D98w7kofORAGQA==}
-    dependencies:
-      server-only: 0.0.1
     dev: false
 
   /@vue/compiler-core@3.4.31:
@@ -16280,7 +16271,7 @@ packages:
       yargs-parser: 21.1.1
     dev: true
 
-  /ts-jest@29.1.1(@babel/core@7.24.7)(jest@29.7.0)(typescript@5.5.2):
+  /ts-jest@29.1.1(jest@29.7.0)(typescript@5.5.2):
     resolution: {integrity: sha512-D6xjnnbP17cC85nliwGiL+tpoKN0StpgE0TeOjXQTU6MVCfsB4v7aW05CgQ/1OywGb0x/oy9hHFnN+sczTiRaA==}
     engines: {node: ^14.15.0 || ^16.10.0 || >=18.0.0}
     hasBin: true
@@ -16301,7 +16292,6 @@ packages:
       esbuild:
         optional: true
     dependencies:
-      '@babel/core': 7.24.7
       bs-logger: 0.2.6
       fast-json-stable-stringify: 2.1.0
       jest: 29.7.0(@types/node@18.19.2)(ts-node@10.9.2)

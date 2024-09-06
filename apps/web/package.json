@@ -75,7 +75,6 @@
     "@trpc/react-query": "^10.18.0",
     "@trpc/server": "^10.18.0",
     "@use-gesture/react": "^10.3.1",
-    "@vercel/analytics": "^1.1.1",
     "chrome-launcher": "^1.1.1",
     "class-variance-authority": "^0.7.0",
     "clean-set": "^1.1.2",
