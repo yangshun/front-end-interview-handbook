@@ -19,6 +19,7 @@ import type {
 } from '~/components/interviews/questions/common/QuestionsTypes';
 import MDXContent from '~/components/mdx/MDXContent';
 import Anchor from '~/components/ui/Anchor';
+import Divider from '~/components/ui/Divider';
 import Section from '~/components/ui/Heading/HeadingContext';
 
 import InterviewsDashboardContinueLearningSection from './InterviewsDashboardContinueLearningSection';
@@ -99,6 +100,7 @@ export default function InterviewsDashboardPage({
       />
       {bottomContent && (
         <Section>
+          <Divider className="my-8" />
           <MDXContent
             components={{
               GuideLists: () => (

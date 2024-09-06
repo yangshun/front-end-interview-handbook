@@ -1,11 +1,14 @@
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next/types';
 
+import { INTERVIEWS_REVAMP_BOTTOM_CONTENT } from '~/data/FeatureFlags';
+
 import InterviewsCompanyGuidePage from '~/components/interviews/company/InterviewsCompanyGuidePage';
 import type { QuestionMetadata } from '~/components/interviews/questions/common/QuestionsTypes';
 import { sortQuestions } from '~/components/interviews/questions/listings/filters/QuestionsProcessor';
 
 import { fetchInterviewsCompanyGuide } from '~/db/contentlayer/InterviewsCompanyGuideReader';
+import { fetchInterviewListingBottomContent } from '~/db/contentlayer/InterviewsListingBottomContentReader';
 import { fetchQuestionsBySlug } from '~/db/QuestionsListReader';
 import defaultMetadata from '~/seo/defaultMetadata';
 
@@ -54,7 +57,10 @@ export default async function Page({ params }: Props) {
     'user-interface': companyGuide.questionsUserInterface ?? [],
   };
 
-  const questions = await fetchQuestionsBySlug(companyQuestions, locale);
+  const [questions, bottomContent] = await Promise.all([
+    fetchQuestionsBySlug(companyQuestions, locale),
+    fetchInterviewListingBottomContent('company-detail'),
+  ]);
   const codingQuestions = questions.javascript.concat(
     questions['user-interface'],
   );
@@ -63,6 +69,9 @@ export default async function Page({ params }: Props) {
 
   return (
     <InterviewsCompanyGuidePage
+      bottomContent={
+        INTERVIEWS_REVAMP_BOTTOM_CONTENT ? bottomContent : undefined
+      }
       codingQuestions={codingQuestions}
       companyGuide={companyGuide}
       companyQuestions={companyQuestions}

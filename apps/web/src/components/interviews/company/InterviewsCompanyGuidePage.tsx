@@ -1,7 +1,11 @@
 'use client';
 
 import clsx from 'clsx';
-import type { InterviewsCompanyGuide } from 'contentlayer/generated';
+import type {
+  InterviewsCompanyGuide,
+  InterviewsListingBottomContent,
+} from 'contentlayer/generated';
+import { useMemo } from 'react';
 import { RiArrowLeftLine, RiGoogleFill } from 'react-icons/ri';
 import { useIntl } from 'react-intl';
 
@@ -13,6 +17,7 @@ import type {
   QuestionFormat,
   QuestionMetadata,
   QuestionSlug,
+  QuestionTopic,
 } from '~/components/interviews/questions/common/QuestionsTypes';
 import QuestionsList from '~/components/interviews/questions/listings/items/QuestionsList';
 import QuestionsLearningList from '~/components/interviews/questions/listings/learning/QuestionsLearningList';
@@ -20,6 +25,7 @@ import QuestionsLearningListTitleSection from '~/components/interviews/questions
 import MDXContent from '~/components/mdx/MDXContent';
 import Button from '~/components/ui/Button';
 import Container from '~/components/ui/Container';
+import Divider from '~/components/ui/Divider';
 import Section from '~/components/ui/Heading/HeadingContext';
 
 import {
@@ -28,9 +34,12 @@ import {
   filterQuestionsProgressByList,
 } from '~/db/QuestionsUtils';
 
+import useQuestionTopicLabels from '../questions/listings/filters/useQuestionTopicLabels';
+
 import { useUser } from '@supabase/auth-helpers-react';
 
 type Props = Readonly<{
+  bottomContent?: InterviewsListingBottomContent;
   codingQuestions: ReadonlyArray<QuestionMetadata>;
   companyGuide: InterviewsCompanyGuide;
   companyQuestions: Record<QuestionFormat, ReadonlyArray<QuestionSlug>>;
@@ -44,10 +53,12 @@ export default function InterviewsCompanyGuidePage({
   companyQuestions,
   codingQuestions,
   systemDesignQuestions,
+  bottomContent,
 }: Props) {
   const intl = useIntl();
   const { userProfile } = useUserProfile();
   const user = useUser();
+  const topicLabels = useQuestionTopicLabels();
   const canViewStudyPlans = userProfile?.isInterviewsPremium;
 
   const { data: questionProgressParam } = trpc.questionProgress.getAll.useQuery(
@@ -66,6 +77,22 @@ export default function InterviewsCompanyGuidePage({
   );
 
   const questionCount = countNumberOfQuestionsInList(companyQuestions);
+  const questions = useMemo(
+    () => [...quizQuestions, ...codingQuestions, ...systemDesignQuestions],
+    [quizQuestions, codingQuestions, systemDesignQuestions],
+  );
+
+  const topics = useMemo(() => {
+    const topicsSet = new Set<QuestionTopic>();
+
+    questions.forEach((question) => {
+      question.topics.forEach((topic) => {
+        topicsSet.add(topic);
+      });
+    });
+
+    return Array.from(topicsSet).map((topic) => topicLabels[topic].label);
+  }, [questions, topicLabels]);
 
   return (
     <div
@@ -103,18 +130,14 @@ export default function InterviewsCompanyGuidePage({
             overallProgress={questionProgressParam ?? []}
             questionCount={questionCount}
             questionListKey={companyGuide.slug}
-            questions={[
-              ...quizQuestions,
-              ...codingQuestions,
-              ...systemDesignQuestions,
-            ]}
+            questions={questions}
             themeBackgroundClass={clsx('bg-white', 'shadow-md')}
             title={`${companyGuide.name} Front End Engineer Interview Questions and Guides`}
           />
         </div>
       </Container>
       <Section>
-        <Container className="@container flex flex-col gap-12 pb-12">
+        <Container className="@container flex flex-col gap-20">
           {/* <CardContainer className="@4xl:grid-cols-4 @md:grid-cols-2 grid grid-cols-1 grid-rows-1 gap-3 md:gap-4 lg:gap-6">
             <InterviewsCompanyRoundCard
               description={<>2 questions on data structures and algorithms</>}
@@ -190,6 +213,20 @@ export default function InterviewsCompanyGuidePage({
                 </div>
               </div>
             </div>
+          )}
+
+          {bottomContent && (
+            <Section>
+              <Divider />
+              <MDXContent
+                components={{
+                  CompanyName: () => <span>{companyGuide.name}</span>,
+                  QuestionCount: () => <span>{questionCount}</span>,
+                  Topics: () => <span>{Array.from(topics).join(', ')}</span>,
+                }}
+                mdxCode={bottomContent.body.code}
+              />
+            </Section>
           )}
         </Container>
       </Section>

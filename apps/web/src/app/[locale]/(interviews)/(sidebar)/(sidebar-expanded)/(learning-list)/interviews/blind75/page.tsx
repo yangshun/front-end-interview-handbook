@@ -20,7 +20,7 @@ import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
 import { getSiteOrigin } from '~/seo/siteUrl';
 
-import InterviewsGFE75Page from './InterviewsBlind75Page';
+import InterviewsBlind75Page from './InterviewsBlind75Page';
 
 async function getPreparationPlansSEO(
   planType: PreparationPlanType,
@@ -96,7 +96,7 @@ export default async function Page({ params }: Props) {
         }}
         useAppDir={true}
       />
-      <InterviewsGFE75Page
+      <InterviewsBlind75Page
         bottomContent={
           INTERVIEWS_REVAMP_BOTTOM_CONTENT ? bottomContent : undefined
         }

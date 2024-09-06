@@ -15,6 +15,7 @@ import QuestionsLearningList from '~/components/interviews/questions/listings/le
 import InterviewsRecommendedPrepStrategyPageTitleSection from '~/components/interviews/recommended/InterviewsRecommendedPrepStrategyPageTitleSection';
 import MDXContent from '~/components/mdx/MDXContent';
 import Container from '~/components/ui/Container';
+import Divider from '~/components/ui/Divider';
 import Section from '~/components/ui/Heading/HeadingContext';
 import Text from '~/components/ui/Text';
 
@@ -153,6 +154,7 @@ export default function InterviewsBlind75Page({
           />
           {bottomContent && (
             <Section>
+              <Divider />
               <MDXContent mdxCode={bottomContent.body.code} />
             </Section>
           )}
