@@ -10,7 +10,8 @@ import defaultMetadata from '~/seo/defaultMetadata';
 
 const framework = 'angular';
 
-export const dynamic = 'force-static';
+// TODO(interviews): disable to do A/B test.
+// export const dynamic = 'force-static';
 
 type Props = Readonly<{
   params: Readonly<{

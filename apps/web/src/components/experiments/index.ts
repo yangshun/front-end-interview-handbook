@@ -15,9 +15,9 @@ export const currentExperiment: ABExperiment = {
   getValue_USE_ON_CLIENT_ONLY() {
     return jsCookie.get(currentExperiment.name) ?? currentExperiment.variants.a;
   },
-  isRunning: false,
+  isRunning: true,
   loggingPrefix: '',
-  name: 'gfe:dec_2022_qns',
+  name: 'gfe:sep_2024_interviews_sidebar',
   variants: {
     a: 'old',
     b: 'new',

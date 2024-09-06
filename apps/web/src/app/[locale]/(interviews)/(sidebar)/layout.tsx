@@ -1,3 +1,6 @@
+import { cookies } from 'next/headers';
+
+import { currentExperiment } from '~/components/experiments';
 import { GlobalBannerInterviews } from '~/components/global/banners/GlobalBannerInterviews';
 import InterviewsFooter from '~/components/interviews/common/InterviewsFooter';
 import InterviewsNavbar from '~/components/interviews/common/InterviewsNavbar';
@@ -12,7 +15,12 @@ export default function InterviewsSidebarLayout({ children }: Props) {
     <>
       <GlobalBannerInterviews />
       <div className="flex min-h-screen flex-col">
-        <InterviewsNavbar />
+        <InterviewsNavbar
+          hideOnDesktop={
+            cookies().get(currentExperiment.name)?.value ===
+            currentExperiment.variants.b
+          }
+        />
         <div className="grow">{children}</div>
         <Section>
           <InterviewsFooter />

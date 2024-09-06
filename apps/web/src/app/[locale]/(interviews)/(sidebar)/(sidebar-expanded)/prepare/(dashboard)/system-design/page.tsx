@@ -5,7 +5,8 @@ import defaultMetadata from '~/seo/defaultMetadata';
 
 import InterviewsDashboardPrepareSystemDesignPage from './InterviewsDashboardPrepareSystemDesignPage';
 
-export const dynamic = 'force-static';
+// TODO(interviews): disable to do A/B test.
+// export const dynamic = 'force-static';
 
 type Props = Readonly<{
   params: Readonly<{

@@ -5,6 +5,8 @@ import { RiArrowRightLine } from 'react-icons/ri';
 import { trpc } from '~/hooks/trpc';
 import useUserProfile from '~/hooks/user/useUserProfile';
 
+import { currentExperiment } from '~/components/experiments';
+import Anchor from '~/components/ui/Anchor';
 import Button from '~/components/ui/Button';
 import Text from '~/components/ui/Text';
 import {
@@ -46,7 +48,11 @@ function SocialDiscountSpecialTicket({
   );
 }
 
-function SocialDiscountSidebarMentionImpl() {
+function SocialDiscountSidebarMentionImpl({
+  showTicket,
+}: Readonly<{
+  showTicket: boolean;
+}>) {
   const socialDiscountLabels = useSocialDiscountLabels();
   const { data: promoCodes } = trpc.marketing.userPromoCodes.useQuery();
 
@@ -96,25 +102,37 @@ function SocialDiscountSidebarMentionImpl() {
               <Text className="block" size="body3" weight="medium">
                 {socialDiscountLabels.title}
               </Text>
-              <div className="flex flex-col items-center gap-4 pt-2">
-                <SocialDiscountSpecialTicket
-                  subtitle={socialDiscountLabels.ticketSubtitle}
-                  title={socialDiscountLabels.ticketTitle}
-                  width={182}
-                />
-                <Text className="block" color="secondary" size="body3">
-                  {socialDiscountLabels.subtitle}
-                </Text>
-                <div className="w-full">
-                  <Button
-                    addonPosition="end"
-                    href="/rewards/social"
-                    icon={RiArrowRightLine}
-                    label={socialDiscountLabels.ctaLabel}
-                    variant="secondary"
+              {showTicket ? (
+                <div className="flex flex-col items-center gap-4 pt-2">
+                  <SocialDiscountSpecialTicket
+                    subtitle={socialDiscountLabels.ticketSubtitle}
+                    title={socialDiscountLabels.ticketTitle}
+                    width={182}
                   />
+                  <Text className="block" color="secondary" size="body3">
+                    {socialDiscountLabels.subtitle}
+                  </Text>
+                  <div className="w-full">
+                    <Button
+                      addonPosition="end"
+                      href="/rewards/social"
+                      icon={RiArrowRightLine}
+                      label={socialDiscountLabels.ctaLabel}
+                      variant="secondary"
+                    />
+                  </div>
                 </div>
-              </div>
+              ) : (
+                <Anchor href="/rewards/social" variant="flat">
+                  <Text className="block" color="secondary" size="body3">
+                    {socialDiscountLabels.subtitle}{' '}
+                    <RiArrowRightLine
+                      aria-hidden={true}
+                      className="size-3 inline-flex shrink-0"
+                    />
+                  </Text>
+                </Anchor>
+              )}
             </div>
           );
         })()}
@@ -130,5 +148,12 @@ export function SocialDiscountSidebarMention() {
     return null;
   }
 
-  return <SocialDiscountSidebarMentionImpl />;
+  return (
+    <SocialDiscountSidebarMentionImpl
+      showTicket={
+        currentExperiment.getValue_USE_ON_CLIENT_ONLY() ===
+        currentExperiment.variants.a
+      }
+    />
+  );
 }
