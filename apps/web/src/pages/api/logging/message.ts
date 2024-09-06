@@ -1,6 +1,8 @@
 import Cors from 'cors';
 import type { NextApiRequest, NextApiResponse } from 'next';
 
+import { currentExperiment } from '~/components/experiments';
+
 import { gfeFingerprintName } from '~/logging/fingerprint';
 import type { MessageLevel } from '~/logging/logMessage';
 import { createSupabaseClientGFE_SERVER_ONLY } from '~/supabase/SupabaseServerGFE';
@@ -74,9 +76,9 @@ export default async function handler(
             : req.headers.referer,
         }
       : null,
-    userIdentifier && { key: 'User Identifier', value: userIdentifier },
-    user?.email && { key: 'Email', value: user?.email },
-    user?.id && { key: 'User ID', value: user?.id },
+    userIdentifier ? { key: 'User Identifier', value: userIdentifier } : null,
+    user?.email ? { key: 'Email', value: user?.email } : null,
+    user?.id ? { key: 'User ID', value: user?.id } : null,
     {
       key: 'SHA',
       value: `${sha} (C) ${
@@ -85,11 +87,19 @@ export default async function handler(
           : '<nil>'
       } (S)`,
     },
-    req.cookies[gfeFingerprintName] && {
-      key: 'GFP',
-      value: req.cookies[gfeFingerprintName],
-    },
-    req.cookies.country && { key: 'Country', value: req.cookies.country },
+    req.cookies[gfeFingerprintName]
+      ? {
+          key: 'GFP',
+          value: req.cookies[gfeFingerprintName],
+        }
+      : null,
+    req.cookies.country ? { key: 'Country', value: req.cookies.country } : null,
+    currentExperiment.isRunning
+      ? {
+          key: 'Experiment',
+          value: req.cookies[currentExperiment.name],
+        }
+      : null,
   ].flatMap((item) => (item != null ? [item] : []));
 
   const finalMessage = messageRows

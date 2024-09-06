@@ -52,7 +52,7 @@ function event({
   if (currentExperiment.isRunning) {
     const actionWithExperimentPrefix = `${
       currentExperiment.loggingPrefix
-    }:${currentExperiment.getValue()}:${action}`;
+    }:${currentExperiment.getValue_USE_ON_CLIENT_ONLY()}:${action}`;
 
     window.gtag('event', actionWithExperimentPrefix, payload);
   }

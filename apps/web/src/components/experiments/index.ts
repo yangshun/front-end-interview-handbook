@@ -1,7 +1,7 @@
 import jsCookie from 'js-cookie';
 
-export type ABExperiment = {
-  getValue: () => string;
+export type ABExperiment = Readonly<{
+  getValue_USE_ON_CLIENT_ONLY: () => string;
   isRunning: boolean;
   loggingPrefix: string;
   name: string;
@@ -9,10 +9,10 @@ export type ABExperiment = {
     a: string;
     b: string;
   };
-};
+}>;
 
 export const currentExperiment: ABExperiment = {
-  getValue() {
+  getValue_USE_ON_CLIENT_ONLY() {
     return jsCookie.get(currentExperiment.name) ?? currentExperiment.variants.a;
   },
   isRunning: false,

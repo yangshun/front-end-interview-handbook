@@ -1,6 +1,7 @@
 import Cors from 'cors';
 import type { NextApiRequest, NextApiResponse } from 'next';
 
+import { currentExperiment } from '~/components/experiments';
 import { shouldPersistQueryParam } from '~/components/global/analytics/useWriteSearchParamsToCookie';
 
 import { gfeFingerprintName } from '~/logging/fingerprint';
@@ -91,6 +92,12 @@ export default async function handler(
       payload,
       value,
     },
+    experiment: currentExperiment.isRunning
+      ? {
+          name: currentExperiment.name,
+          value: req.cookies[currentExperiment.name],
+        }
+      : undefined,
     git: {
       client: (clientSHA || '').slice(0, 7) || undefined,
       server:
