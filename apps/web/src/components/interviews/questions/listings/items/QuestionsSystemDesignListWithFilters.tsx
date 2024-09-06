@@ -22,7 +22,7 @@ import TextInput from '~/components/ui/TextInput';
 
 import useQuestionsWithCompletionStatus from '../filters/hooks/useQuestionsWithCompletionStatus';
 import QuestionListingUnifiedFilters from '../filters/QuestionListingUnifiedFilters';
-import { allSystemDesignQuestions } from '../../content/system-design/SystemDesignNavigation';
+import { allSystemDesignQuestions } from '../../content/system-design/InterviewsSystemDesignQuestions';
 
 type Props = Readonly<{
   layout?: 'embedded' | 'full';
