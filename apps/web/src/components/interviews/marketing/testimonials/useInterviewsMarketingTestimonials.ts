@@ -26,6 +26,7 @@ export function useInterviewsMarketingTestimonials(
         testimonialsObjects.shoaibAhmed,
         testimonialsObjects.pratikMehta,
         testimonialsObjects.lunghaoLee,
+        testimonialsObjects.nam,
         testimonialsObjects.alan,
         testimonialsObjects.luke,
         testimonialsObjects.larry,

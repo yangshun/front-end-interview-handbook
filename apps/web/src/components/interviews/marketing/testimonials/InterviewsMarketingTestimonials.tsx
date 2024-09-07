@@ -28,6 +28,21 @@ export function useInterviewsMarketingTestimonialsDict() {
       "Just want to say THANK YOU! I was laid off from Google and my interviews were really different from previous interview cycles in that they tested heavy frontend knowledge as opposed to typical LeetCode like I was used to. This platform provided a comprehensive way for me to study all the basics and really solidify my frontend fundamentals. I found the system design questions especially helpful, as I wasn't able to find any other front end system design resources anywhere near the quality provided on this platform. I was able to land a front end engineering role at TikTok thanks in huge part to this platform. I am really glad I decided to pay for this platform.",
     title: 'Software Engineer, TikTok',
   };
+  const nam: InterviewsMarketingTestimonial = {
+    anonymous: false,
+    authorThumbnailUrl: '/img/testimonials/users/nam-nguyen.jpg',
+    authorUrl: 'https://www.linkedin.com/in/wadejohnson131292/',
+    companyLogoUrl: '/img/testimonials/company/shopify.svg',
+    createdAt: '2024-01-01',
+    featured: true,
+    featuredOffer: 'Shopify',
+    id: 'nam',
+    location: 'Canada',
+    name: 'Nam Nguyen',
+    testimonial:
+      'GreatFrontEnd is my top pick among platforms for frontend resources because it covers essential web development aspects like DOM manipulation, design systems, async operations, data structures, and accessibility. It stands out for its focus on developing UI patterns, making it a valuable tool for enhancing UI engineering skills. I highly recommend it to anyone looking to improve in this area.',
+    title: 'Sr. Software Engineer, Shopify',
+  };
   const larry: InterviewsMarketingTestimonial = {
     anonymous: false,
     authorThumbnailUrl: '/img/testimonials/users/larry-almeida.webp',
@@ -40,7 +55,7 @@ export function useInterviewsMarketingTestimonialsDict() {
     name: 'Larry Almeida',
     testimonial:
       'I could have spent my time scouring the internet for resources. Instead I choose to invest my money wisely. GreatFrontEnd turned out to be a fantastic resource with its curated Study Plans, interactive Practice Questions and Guides that cover all your typical big tech interview needs. Their quiz questions helped me to recap my knowledge on the days before my interview. I especially appreciated the System Design Guide with solutions that cover a range of front end design problems along with frameworks that are easy to remember and apply to any problem type. I got the job and a great ROI!',
-    title: 'Senior Software Engineer — Front End',
+    title: 'Senior Fullstack Engineer',
   };
   const nafis: InterviewsMarketingTestimonial = {
     anonymous: false,
@@ -616,6 +631,7 @@ export function useInterviewsMarketingTestimonialsDict() {
     luke: lukeFiji,
     lunghaoLee,
     nafis,
+    nam,
     nikki,
     notrxx,
     prashanth,

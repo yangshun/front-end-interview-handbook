@@ -54,12 +54,16 @@ export default function InterviewsMarketingTestimonialsSection({
         />
       </div>
       <Section>
-        <div className="mx-auto mt-16 hidden sm:mt-20 sm:flow-root md:mx-0">
+        <div
+          className={clsx(
+            'mx-auto mt-16 md:mx-0',
+            'hidden sm:mt-20 sm:flow-root',
+          )}>
           <CardContainer
             className={clsx(
-              '-mt-8 sm:-mx-4 sm:columns-2 sm:text-[0]',
+              '-mt-8 sm:-mx-4 sm:text-[0] md:columns-2',
               columns === 3 && 'lg:columns-3',
-              columns === 4 && 'md:columns-3 xl:columns-4',
+              columns === 4 && 'lg:columns-3 xl:columns-4',
             )}>
             {testimonials.map((testimonial) => (
               <div
@@ -70,9 +74,9 @@ export default function InterviewsMarketingTestimonialsSection({
             ))}
           </CardContainer>
         </div>
-        <div className="mt-12 lg:hidden">
+        <div className="mt-12 sm:hidden">
           <CardContainer className="relative h-[500px]">
-            <Marquee periodSeconds={100} startEndGap={24}>
+            <Marquee periodSeconds={300} startEndGap={24}>
               <div className="grid w-max grid-flow-col grid-rows-1 gap-6">
                 {testimonials.map((testimonial) => (
                   <div key={testimonial.id} className="w-auto max-w-[75vw]">
