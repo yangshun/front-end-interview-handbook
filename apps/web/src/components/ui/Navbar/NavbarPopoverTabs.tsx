@@ -16,7 +16,7 @@ import {
 import NavbarFeatureIcon from './NavbarFeatureIcon';
 import type { NavPopoverGroupItem, NavPopoverLinkItem } from './NavTypes';
 import Button from '../Button';
-import Text from '../Text';
+import Text, { textVariants } from '../Text';
 
 import * as TabsPrimitive from '@radix-ui/react-tabs';
 
@@ -115,7 +115,7 @@ export default function NavbarPopoverTabs({
         onValueChange={setValue}>
         <TabsPrimitive.List
           className={clsx(
-            'min-w-60 flex w-1/4 shrink-0 flex-col gap-y-2 p-4',
+            'flex w-64 shrink-0 flex-col gap-y-2 p-4',
             themeBackgroundCardAltColor,
           )}>
           {items.map(({ itemKey, label }) => (
@@ -129,14 +129,18 @@ export default function NavbarPopoverTabs({
                 themeOutlineElement_FocusVisible,
                 themeOutlineElementBrandColor_FocusVisible,
                 value === itemKey && themeBackgroundElementEmphasizedStateColor,
+                'text-pretty',
+                textVariants({
+                  color: value === itemKey ? 'active' : 'default',
+                  size: 'body2',
+                  weight: 'medium',
+                }),
               )}
-              value={itemKey}>
-              <Text
-                color={value === itemKey ? 'active' : 'default'}
-                size="body2"
-                weight="medium">
-                {label}
-              </Text>
+              value={itemKey}
+              onMouseEnter={() => {
+                setValue(itemKey);
+              }}>
+              {label}
             </TabsPrimitive.Trigger>
           ))}
         </TabsPrimitive.List>
