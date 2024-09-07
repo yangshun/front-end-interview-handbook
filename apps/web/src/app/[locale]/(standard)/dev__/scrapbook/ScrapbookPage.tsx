@@ -264,7 +264,7 @@ export default function ScrapbookPage() {
               <div className="grid items-start gap-y-6">
                 <QuestionListingTopicFilters
                   section={{
-                    id: '',
+                    id: 'foo',
                     matches: () => true,
                     name: '',
                     onChange: (value) => {
@@ -279,6 +279,9 @@ export default function ScrapbookPage() {
 
                         return newFilters;
                       });
+                    },
+                    onClear: () => {
+                      setSelectedFilters(new Set());
                     },
                     options: [
                       {

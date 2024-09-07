@@ -66,6 +66,9 @@ export default function useQuestionDifficultyFilter({
         : newDifficulties.add(value);
       setDifficultyFilters(newDifficulties);
     },
+    onClear: () => {
+      setDifficultyFilters(new Set());
+    },
     options: DIFFICULTY_OPTIONS,
   };
 

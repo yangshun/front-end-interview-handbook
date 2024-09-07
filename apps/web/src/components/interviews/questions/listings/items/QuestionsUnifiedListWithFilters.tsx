@@ -26,6 +26,7 @@ import {
   tabulateQuestionsAttributesUnion,
 } from '~/components/interviews/questions/listings/filters/QuestionsProcessor';
 import QuestionsList from '~/components/interviews/questions/listings/items/QuestionsList';
+import Button from '~/components/ui/Button';
 import CheckboxInput from '~/components/ui/CheckboxInput';
 import Divider from '~/components/ui/Divider';
 import DropdownMenu from '~/components/ui/DropdownMenu';
@@ -117,6 +118,7 @@ export default function QuestionsUnifiedListWithFilters({
     topicFilters,
     topicFilterOptions,
     filters,
+    clearAllFilters,
   } = useQuestionUnifiedFilters({
     formatFiltersFilterPredicate,
     formatFiltersOrderComparator,
@@ -173,6 +175,18 @@ export default function QuestionsUnifiedListWithFilters({
     <div className="flex shrink-0 justify-end gap-2 sm:pt-0">
       <div className={clsx(layout === 'full' && 'lg:hidden')}>
         <SlideOut
+          secondaryButton={
+            <Button
+              label={intl.formatMessage({
+                defaultMessage: 'Clear all',
+                description: 'Label for clear all button',
+                id: 'LEh5WZ',
+              })}
+              size="md"
+              variant="secondary"
+              onClick={clearAllFilters}
+            />
+          }
           size="sm"
           title={intl.formatMessage({
             defaultMessage: 'Filters',

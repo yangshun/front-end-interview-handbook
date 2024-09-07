@@ -66,6 +66,9 @@ export default function useQuestionImportanceFilter({
         : newImportance.add(value);
       setImportanceFilters(newImportance);
     },
+    onClear: () => {
+      setImportanceFilters(new Set());
+    },
     options: IMPORTANCE_OPTIONS,
   };
 

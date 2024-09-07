@@ -10,6 +10,7 @@ export type QuestionFilter<
   matches: (question: Q) => boolean;
   name: string;
   onChange: (value: T) => void;
+  onClear: () => void;
   options: ReadonlyArray<{
     icon?: (props: React.ComponentProps<'svg'>) => JSX.Element;
     label: ReactNode;

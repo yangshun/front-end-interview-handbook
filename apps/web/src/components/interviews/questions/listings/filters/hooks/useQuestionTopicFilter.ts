@@ -56,6 +56,9 @@ export default function useQuestionTopicFilter({
       newTopics.has(value) ? newTopics.delete(value) : newTopics.add(value);
       setTopicFilters(newTopics);
     },
+    onClear: () => {
+      setTopicFilters(new Set());
+    },
     options: Object.keys(topicLabels)
       .sort(
         (a, b) =>

@@ -68,6 +68,9 @@ export default function useQuestionFormatFilter({
       formats.has(value) ? formats.delete(value) : formats.add(value);
       setCodingFormatFilters(formats);
     },
+    onClear: () => {
+      setCodingFormatFilters(new Set());
+    },
     options,
     tooltip: intl.formatMessage({
       defaultMessage:

@@ -47,6 +47,9 @@ export default function useQuestionLanguageFilter({
         : newLanguages.add(value);
       setLanguageFilters(newLanguages);
     },
+    onClear: () => {
+      setLanguageFilters(new Set());
+    },
     options: LANGUAGE_OPTIONS,
   };
 

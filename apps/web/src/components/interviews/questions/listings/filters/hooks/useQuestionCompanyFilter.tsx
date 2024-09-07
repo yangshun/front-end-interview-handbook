@@ -57,6 +57,9 @@ export default function useQuestionCompanyFilter({
         : newCompanies.add(value);
       setCompanyFilters(newCompanies);
     },
+    onClear: () => {
+      setCompanyFilters(new Set());
+    },
     options: COMPANY_OPTIONS.map((company) => {
       const Icon = companyNames[company].logo;
 

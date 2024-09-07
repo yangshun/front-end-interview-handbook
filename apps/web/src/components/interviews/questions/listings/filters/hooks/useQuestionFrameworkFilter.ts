@@ -30,7 +30,7 @@ export default function useQuestionFrameworkFilter({
     );
 
   const frameworkFilterOptions: QuestionFilter<QuestionFramework> = {
-    id: 'Framework',
+    id: 'framework',
     matches: (question) =>
       frameworkFilters.size === 0 ||
       question.frameworks.some((frameworkItem) =>
@@ -48,6 +48,9 @@ export default function useQuestionFrameworkFilter({
         ? newFrameworks.delete(value)
         : newFrameworks.add(value);
       setFrameworkFilters(newFrameworks);
+    },
+    onClear: () => {
+      setFrameworkFilters(new Set());
     },
     options: FRAMEWORK_OPTIONS.map((value) => ({
       label: QuestionFrameworkLabels[value],

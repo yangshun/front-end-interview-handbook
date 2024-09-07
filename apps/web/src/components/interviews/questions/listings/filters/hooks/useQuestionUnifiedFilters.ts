@@ -57,6 +57,18 @@ export default function useQuestionUnifiedFilters({
     order: formatFiltersOrderComparator,
   });
 
+  function clearAllFilters() {
+    setQuery('');
+    difficultyFilterOptions.onClear();
+    importanceFilterOptions.onClear();
+    companyFilterOptions.onClear();
+    languageFilterOptions.onClear();
+    frameworkFilterOptions.onClear();
+    topicFilterOptions.onClear();
+    completionStatusFilterOptions.onClear();
+    formatFilterOptions.onClear();
+  }
+
   const filters: ReadonlyArray<
     [number, (question: QuestionMetadataWithCompletedStatus) => boolean]
   > = [
@@ -81,6 +93,7 @@ export default function useQuestionUnifiedFilters({
   ];
 
   return {
+    clearAllFilters,
     companyFilterOptions,
     companyFilters,
     completionStatusFilterOptions,

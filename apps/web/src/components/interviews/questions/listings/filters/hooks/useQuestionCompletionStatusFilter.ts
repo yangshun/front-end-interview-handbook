@@ -70,6 +70,9 @@ export default function useQuestionCompletionStatusFilter({
         : newCompletion.add(value);
       setCompletionStatusFilters(newCompletion);
     },
+    onClear: () => {
+      setCompletionStatusFilters(new Set());
+    },
     options: COMPLETION_STATUS_OPTIONS,
   };
 
