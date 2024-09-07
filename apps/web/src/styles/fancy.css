@@ -36,6 +36,10 @@
   /* -webkit-mask-composite: xor; */
 }
 
+.shiny {
+  position: relative;
+}
+
 .shiny::before {
   background: linear-gradient(
     var(--brand-gradient-radial-dark) 0%,

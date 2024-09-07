@@ -31,7 +31,7 @@ export function SidebarCollapsed({
   topAddonElements,
   sidebarItems,
   onCollapseClick,
-  showPremiumDiscord: isViewerPremium,
+  showPremiumDiscord,
   product,
   notificationItem,
 }: Readonly<{
@@ -95,7 +95,7 @@ export function SidebarCollapsed({
               icon={RiLinkedinFill}
               label="LinkedIn"
             />
-            {isViewerPremium ? (
+            {showPremiumDiscord ? (
               <DropdownMenu.Item
                 color="active"
                 href={SocialLinks.discordPremium.href}
