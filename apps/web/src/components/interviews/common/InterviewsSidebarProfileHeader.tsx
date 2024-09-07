@@ -9,10 +9,13 @@ import UserProfileDisplayName from '~/components/profile/info/UserProfileDisplay
 import Anchor from '~/components/ui/Anchor';
 import Avatar from '~/components/ui/Avatar';
 import UserAvatar from '~/components/ui/Avatar/UserAvatar';
-import Text from '~/components/ui/Text';
+import Text, { textVariants } from '~/components/ui/Text';
 import { themeBackgroundGlimmerColor } from '~/components/ui/theme';
 
+import { useUser } from '@supabase/auth-helpers-react';
+
 export function InterviewsSidebarProfileHeader() {
+  const user = useUser();
   const { isLoading, userProfile } = useUserProfile();
   const { signInUpLabel, signInUpHref } = useAuthSignInUp();
 
@@ -71,15 +74,23 @@ export function InterviewsSidebarProfileHeader() {
       ) : (
         <>
           <Anchor
-            aria-label={userProfile.name ?? userProfile.username}
+            aria-label={userProfile.name ?? user?.email}
             href="/profile"
             variant="unstyled">
             <UserAvatar size="lg" userProfile={userProfile} />
           </Anchor>
           <div className="flex flex-col gap-1">
-            <Text className="line-clamp-2" size="body2" weight="medium">
+            <Anchor
+              aria-label={userProfile.name ?? user?.email}
+              className={textVariants({
+                className: 'line-clamp-2',
+                size: 'body2',
+                weight: 'medium',
+              })}
+              href="/profile"
+              variant="flat">
               <UserProfileDisplayName userProfile={userProfile} />
-            </Text>
+            </Anchor>
           </div>
         </>
       )}
