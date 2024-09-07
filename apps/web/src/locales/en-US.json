@@ -2135,6 +2135,10 @@
     "defaultMessage": "No contributions on {date}",
     "description": "Tooltip label for no contribution count"
   },
+  "EaGsco": {
+    "defaultMessage": "View company guides",
+    "description": "Link label to view all company guides"
+  },
   "EaMmzf": {
     "defaultMessage": "Edit submission",
     "description": "Title of Projects edit submission page"
@@ -6306,6 +6310,10 @@
   "ghssuE": {
     "defaultMessage": "Next",
     "description": "Label for Next button on Projects profile onboarding page"
+  },
+  "gisBlD": {
+    "defaultMessage": "Practice questions by companies",
+    "description": "Section title"
   },
   "glQWNv": {
     "defaultMessage": "Articles",

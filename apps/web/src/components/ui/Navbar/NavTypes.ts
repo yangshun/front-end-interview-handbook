@@ -71,11 +71,14 @@ export type NavPopoverLinkItem = Readonly<
   NavBaseItem &
     Readonly<{
       href?: string;
-      icon: (props: React.ComponentProps<'svg'>) => JSX.Element;
       labelAddon?: React.ReactNode;
       sublabel?: string;
       type: 'popover-link';
-    }>
+    }> &
+    (
+      | Readonly<{ icon: (props: React.ComponentProps<'svg'>) => JSX.Element }>
+      | Readonly<{ imageUrl: string }>
+    )
 >;
 
 export type NavbarPrimaryItem =

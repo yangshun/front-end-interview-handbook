@@ -39,20 +39,20 @@ function NavbarAccordionSubsection({
   ...props
 }: NavbarSidebarInnerProps) {
   if (props.type === 'popover-link') {
-    const Icon = props.icon;
-    const roundedIcon = (
-      <div
-        className={clsx(
-          'rounded-full p-2 dark:bg-neutral-800/70',
-          themeGlassyBorder,
-          themeTextSubtitleColor,
-        )}>
-        <Icon
-          aria-hidden="true"
-          className="group-hover:text-brand-dark dark:group-hover:text-brand size-4"
-        />
-      </div>
-    );
+    const roundedIcon =
+      'icon' in props ? (
+        <div
+          className={clsx(
+            'rounded-full p-2 dark:bg-neutral-800/70',
+            themeGlassyBorder,
+            themeTextSubtitleColor,
+          )}>
+          <props.icon
+            aria-hidden="true"
+            className="group-hover:text-brand-dark dark:group-hover:text-brand size-4"
+          />
+        </div>
+      ) : null;
 
     if (props.href == null) {
       return (

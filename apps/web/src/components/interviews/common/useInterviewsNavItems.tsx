@@ -25,6 +25,8 @@ import {
 import Badge from '~/components/ui/Badge';
 import type { NavbarPrimaryItem } from '~/components/ui/Navbar/NavTypes';
 
+import { allInterviewsCompanyGuides } from '../../../../.contentlayer/generated/InterviewsCompanyGuide/_index.mjs';
+
 export default function useInterviewsNavItems(placement: 'nav' | 'sidebar') {
   const intl = useIntl();
 
@@ -493,6 +495,35 @@ export default function useInterviewsNavItems(placement: 'nav' | 'sidebar') {
             defaultMessage: 'View focus areas',
             description: 'Link label to view all focus areas',
             id: 'PvVu6g',
+          }),
+          type: 'link',
+        },
+        type: 'popover-list',
+      },
+      {
+        itemKey: 'company-guides',
+        items: allInterviewsCompanyGuides.map((companyGuide) => ({
+          href: companyGuide.href,
+          imageUrl: companyGuide.logoUrl,
+          itemKey: companyGuide._id,
+          key: companyGuide._id,
+          label: companyGuide.name,
+          onClick: () => {},
+          type: 'popover-link',
+        })),
+        label: intl.formatMessage({
+          defaultMessage: 'Practice questions by companies',
+          description: 'Section title',
+          id: 'gisBlD',
+        }),
+        supplementaryItem: {
+          href: '/interviews/company',
+          icon: RiPlayLine,
+          itemKey: 'company-guides',
+          label: intl.formatMessage({
+            defaultMessage: 'View company guides',
+            description: 'Link label to view all company guides',
+            id: 'EaGsco',
           }),
           type: 'link',
         },

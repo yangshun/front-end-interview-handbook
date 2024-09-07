@@ -22,16 +22,16 @@ import * as TabsPrimitive from '@radix-ui/react-tabs';
 
 function NavbarPopoverLink({
   label,
-  icon: Icon,
   href,
   onClick,
   sublabel,
   labelAddon,
+  ...props
 }: NavPopoverLinkItem) {
   const el =
     sublabel != null ? (
       <div className="group flex items-start gap-4 xl:flex-col">
-        <NavbarFeatureIcon icon={Icon} />
+        <NavbarFeatureIcon {...props} />
         <div className="flex flex-col gap-y-0.5 xl:gap-y-1">
           <Text
             className="flex items-center gap-2"
@@ -48,7 +48,7 @@ function NavbarPopoverLink({
       </div>
     ) : (
       <div className="group flex items-center gap-x-4">
-        <NavbarFeatureIcon icon={Icon} />
+        <NavbarFeatureIcon {...props} />
         <Text
           className="flex flex-wrap items-center gap-2"
           size="body2"
