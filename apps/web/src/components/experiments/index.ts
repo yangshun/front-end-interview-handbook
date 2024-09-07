@@ -17,7 +17,7 @@ export const currentExperiment: ABExperiment = {
   },
   isRunning: true,
   loggingPrefix: '',
-  name: 'gfe:sep_2024_interviews_sidebar',
+  name: 'gfe:2024_sep_interviews_sidebar',
   variants: {
     a: 'old',
     b: 'new',
