@@ -21,12 +21,14 @@ import type { GuideMetadata } from './types';
 import { useUser } from '@supabase/auth-helpers-react';
 
 type Props = Readonly<{
+  guideName: string;
   guideProgress?: GuideProgress | null;
   metadata: GuideMetadata;
   signInModalContents?: React.ReactNode;
 }>;
 
 export default function GuidesProgressAction({
+  guideName,
   signInModalContents,
   guideProgress,
   metadata,
@@ -123,23 +125,28 @@ export default function GuidesProgressAction({
                 showToast({
                   title: intl.formatMessage({
                     defaultMessage:
-                      'Failed to mark article as incomplete. Please try again',
+                      'Failed to mark article as not completed. Please try again',
                     description:
                       'Error message shown when the guide cannot be marked incomplete',
-                    id: 'mE7rWx',
+                    id: 'OD4lkU',
                   }),
                   variant: 'danger',
                 });
               },
               onSuccess: () => {
                 showToast({
-                  title: intl.formatMessage({
-                    defaultMessage: 'Marked article as incomplete!',
-                    description:
-                      'Success message shown when a guide is marked as complete',
-                    id: 'fdpvTK',
-                  }),
-                  variant: 'info',
+                  title: intl.formatMessage(
+                    {
+                      defaultMessage: 'Marked "{articleName}" as not completed',
+                      description:
+                        'Success message shown when an article was marked as not completed',
+                      id: 'HL6v38',
+                    },
+                    {
+                      articleName: guideName,
+                    },
+                  ),
+                  variant: 'success',
                 });
               },
             },
@@ -185,6 +192,22 @@ export default function GuidesProgressAction({
                   id: '6eVVTu',
                 }),
                 variant: 'danger',
+              });
+            },
+            onSuccess: () => {
+              showToast({
+                title: intl.formatMessage(
+                  {
+                    defaultMessage: 'Marked "{articleName}" as complete',
+                    description:
+                      'Success message shown when an article was marked as complete',
+                    id: 'piDflv',
+                  },
+                  {
+                    articleName: guideName,
+                  },
+                ),
+                variant: 'success',
               });
             },
           },

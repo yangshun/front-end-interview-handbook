@@ -24,6 +24,7 @@ import GuidesTableOfContents from './GuidesTableOfContents';
 import type { GuideMetadata, GuideNavigation } from './types';
 import useFlattenedNavigationItems from './useFlattenedNavigationItems';
 import { useGuidesAutoMarkAsComplete } from './useGuidesAutoMarkAsComplete';
+import { useToast } from '../global/toasts/useToast';
 
 type MarkAsCompleteProps = Readonly<
   | {
@@ -59,6 +60,7 @@ export default function GuidesMainLayout({
   const { pathname } = useI18nPathname();
   const { collapsedToC, setCollapsedToC } = useGuidesContext();
   const articleContainerRef = useRef<HTMLDivElement>(null);
+  const { showToast } = useToast();
 
   useScrollToTop([pathname]);
 
@@ -116,6 +118,7 @@ export default function GuidesMainLayout({
                     )}>
                     <div className="max-w-64 flex flex-col items-end gap-2">
                       <GuidesProgressAction
+                        guideName={currentItem.title}
                         guideProgress={
                           'guideProgress' in props ? props.guideProgress : null
                         }
@@ -156,16 +159,49 @@ export default function GuidesMainLayout({
                     new URL(window.location.href).searchParams.get('list') ??
                     undefined;
 
-                  addGuideProgressMutation.mutate({
-                    category: metadata.category,
-                    listKey,
-                    progressId:
-                      'guideProgress' in props
-                        ? props.guideProgress?.id
-                        : undefined,
-                    slug: metadata.slug,
-                    status: 'complete',
-                  });
+                  addGuideProgressMutation.mutate(
+                    {
+                      category: metadata.category,
+                      listKey,
+                      progressId:
+                        'guideProgress' in props
+                          ? props.guideProgress?.id
+                          : undefined,
+                      slug: metadata.slug,
+                      status: 'complete',
+                    },
+                    {
+                      onError: () => {
+                        showToast({
+                          title: intl.formatMessage({
+                            defaultMessage:
+                              'Failed to mark article as complete. Please try again',
+                            description:
+                              'Error message shown when a guide has failed to mark as complete',
+                            id: '6eVVTu',
+                          }),
+                          variant: 'danger',
+                        });
+                      },
+                      onSuccess: () => {
+                        showToast({
+                          title: intl.formatMessage(
+                            {
+                              defaultMessage:
+                                'Marked "{articleName}" as complete',
+                              description:
+                                'Success message shown when an article was marked as complete',
+                              id: 'piDflv',
+                            },
+                            {
+                              articleName: currentItem.title,
+                            },
+                          ),
+                          variant: 'success',
+                        });
+                      },
+                    },
+                  );
                 }}
               />
             </Section>

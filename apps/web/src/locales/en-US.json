@@ -2503,6 +2503,10 @@
     "defaultMessage": "Mentor others",
     "description": "Label for Mentor others sidebar item in Projects sidebar"
   },
+  "HL6v38": {
+    "defaultMessage": "Marked \"{articleName}\" as not completed",
+    "description": "Success message shown when an article was marked as not completed"
+  },
   "HMJJLh": {
     "defaultMessage": "Hone your computer science fundamentals by implementing important data structures and algorithms from scratch.",
     "description": "Description for interview preparation focus area"
@@ -3534,6 +3538,10 @@
   "OCk0lu": {
     "defaultMessage": "Filter by stack used by the creator",
     "description": "Label for tech stack filter"
+  },
+  "OD4lkU": {
+    "defaultMessage": "Failed to mark article as not completed. Please try again",
+    "description": "Error message shown when the guide cannot be marked incomplete"
   },
   "ODRVQi": {
     "defaultMessage": "Learn by building real world projects for professionals",
@@ -6123,10 +6131,6 @@
     "defaultMessage": "{questionCount}+ JavaScript and TypeScript interview questions, from implementing common library APIs, utility functions, algorithms, to building UI components and more.",
     "description": "Subtitle for JavaScript questions list page"
   },
-  "fdpvTK": {
-    "defaultMessage": "Marked article as incomplete!",
-    "description": "Success message shown when a guide is marked as complete"
-  },
   "fevC5W": {
     "defaultMessage": "Free",
     "description": "Label indicating that quiz questions are free"
@@ -7095,10 +7099,6 @@
     "defaultMessage": "<count>{questionCount}</count> <questions>questions</questions>",
     "description": "Number of questions"
   },
-  "mE7rWx": {
-    "defaultMessage": "Failed to mark article as incomplete. Please try again",
-    "description": "Error message shown when the guide cannot be marked incomplete"
-  },
   "mGYl8O": {
     "defaultMessage": "Upvoted successfully!",
     "description": "Successful upvote toaster"
@@ -7523,6 +7523,10 @@
     "defaultMessage": "Guidebook",
     "description": "How to prepare for front end system design interviews"
   },
+  "piDflv": {
+    "defaultMessage": "Marked \"{articleName}\" as complete",
+    "description": "Success message shown when an article was marked as complete"
+  },
   "piWUjn": {
     "defaultMessage": "Most important 75 questions for data structure and algorithm style interviews",
     "description": "Long description for Blind75 plan"
@@ -7786,6 +7790,10 @@
   "rZaG+f": {
     "defaultMessage": "Unpin one or more existing submissions to pin a new one.",
     "description": "Dialog subtitle for pinned submission"
+  },
+  "rf0xcZ": {
+    "defaultMessage": "Premium",
+    "description": "Premium user or content"
   },
   "rfI2w+": {
     "defaultMessage": "Cancel",

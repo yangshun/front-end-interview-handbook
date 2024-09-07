@@ -32,9 +32,9 @@ import QuestionFrameworks from '../../metadata/QuestionFrameworks';
 import QuestionImportanceLabel from '../../metadata/QuestionImportanceLabel';
 import QuestionLanguages from '../../metadata/QuestionLanguages';
 import QuestionNewLabel from '../../metadata/QuestionNewLabel';
-import InterviewsPremiumBadge from '../../../common/InterviewsPremiumBadge';
 import QuestionTopics from '../../metadata/QuestionTopics';
 import QuestionUsersCompletedLabel from '../../metadata/QuestionUsersCompletedLabel';
+import InterviewsPremiumBadge from '../../../common/InterviewsPremiumBadge';
 
 type Props<Q extends QuestionMetadata> = Readonly<{
   checkIfCompletedQuestion: (question: Q) => boolean;
