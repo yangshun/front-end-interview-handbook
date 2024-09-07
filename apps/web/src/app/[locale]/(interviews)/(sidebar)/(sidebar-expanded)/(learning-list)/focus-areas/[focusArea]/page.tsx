@@ -26,19 +26,20 @@ async function getFocusAreaSEO(focusAreaType: FocusAreaType, locale: string) {
 }
 
 export async function generateStaticParams() {
-  const focusAreas: ReadonlyArray<FocusAreaType> = [
-    'async-operations',
-    'data-structures-algorithms',
-    'design-system-components',
-    'javascript-polyfills',
-    'lodash',
-    'accessibility',
-    'forms',
-    'dom-manipulation',
-  ];
+  const focusAreas: Record<FocusAreaType, null> = {
+    accessibility: null,
+    'async-operations': null,
+    'data-structures-algorithms': null,
+    'design-system-components': null,
+    'dom-manipulation': null,
+    forms: null,
+    'javascript-polyfills': null,
+    lodash: null,
+    'state-management': null,
+  };
 
   return generateStaticParamsWithLocale(
-    focusAreas.map((focusArea) => ({ focusArea })),
+    Object.keys(focusAreas).map((focusArea) => ({ focusArea })),
   );
 }
 
@@ -77,9 +78,11 @@ export default async function Page({ params }: Props) {
   const { title, description } = await getFocusAreaSEO(focusAreaType, locale);
 
   const questions = await fetchQuestionsBySlug(focusArea.questions, locale);
-  const codingQuestionsForPlan = questions.javascript.concat(
-    questions['user-interface'],
-  );
+  const codingQuestionsForPlan = [
+    ...questions.javascript,
+    ...questions['user-interface'],
+    ...questions.algo,
+  ];
   const systemDesignQuestionsForPlan = questions['system-design'];
   const quizQuestionsForPlan = questions.quiz;
 

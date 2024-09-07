@@ -78,9 +78,11 @@ export default async function Page({ params }: Props) {
     preparationPlan.questions,
     locale,
   );
-  const codingQuestionsForPlan = questions.javascript.concat(
-    questions['user-interface'],
-  );
+  const codingQuestionsForPlan = [
+    ...questions.javascript,
+    ...questions['user-interface'],
+    ...questions.algo,
+  ];
   const systemDesignQuestionsForPlan = questions['system-design'];
   const quizQuestionsForPlan =
     questions.quiz as ReadonlyArray<QuestionMetadata>;

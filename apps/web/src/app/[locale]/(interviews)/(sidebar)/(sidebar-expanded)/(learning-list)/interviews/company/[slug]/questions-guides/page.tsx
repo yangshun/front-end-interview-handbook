@@ -61,9 +61,11 @@ export default async function Page({ params }: Props) {
     fetchQuestionsBySlug(companyQuestions, locale),
     fetchInterviewListingBottomContent('company-detail'),
   ]);
-  const codingQuestions = questions.javascript.concat(
-    questions['user-interface'],
-  );
+  const codingQuestions = [
+    ...questions.javascript,
+    ...questions['user-interface'],
+    ...questions.algo,
+  ];
   const systemDesignQuestions = questions['system-design'];
   const quizQuestions = questions.quiz;
 
