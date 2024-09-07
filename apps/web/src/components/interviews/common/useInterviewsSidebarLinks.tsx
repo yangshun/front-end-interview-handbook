@@ -11,7 +11,7 @@ export default function useInterviewsSidebarLinks(
     navItems.dashboard,
     {
       ...navItems.practice,
-      align: 'start',
+      align: 'center',
     },
     navItems.guides,
     navItems.features,

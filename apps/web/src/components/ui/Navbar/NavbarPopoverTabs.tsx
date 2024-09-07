@@ -157,8 +157,12 @@ export default function NavbarPopoverTabs({
               <div
                 className={clsx(
                   'relative',
-                  'grid grow gap-x-6 gap-y-6',
                   'p-6 xl:px-8 xl:py-10',
+                  'grid grow gap-x-6 gap-y-6',
+                  item.items.length > 3 &&
+                    item.items.length <= 8 &&
+                    'grid-cols-2',
+                  item.items.length > 8 && 'grid-cols-3',
                   (item.items.length === 2 || item.items.length === 4) &&
                     'xl:grid-cols-2',
                   (item.items.length === 3 || item.items.length > 4) &&
