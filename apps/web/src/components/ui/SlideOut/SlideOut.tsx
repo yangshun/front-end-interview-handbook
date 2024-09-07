@@ -224,7 +224,7 @@ export default function SlideOut({
           {title && <SlideOutTitle>{title}</SlideOutTitle>}
         </SlideOutHeader>
         <SlideOutBody padding={padding}>{children}</SlideOutBody>
-        {primaryButton && (
+        {(primaryButton || secondaryButton) && (
           <SlideOutFooter>
             {primaryButton}
             {secondaryButton}
