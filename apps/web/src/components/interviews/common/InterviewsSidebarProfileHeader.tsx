@@ -12,6 +12,8 @@ import UserAvatar from '~/components/ui/Avatar/UserAvatar';
 import Text, { textVariants } from '~/components/ui/Text';
 import { themeBackgroundGlimmerColor } from '~/components/ui/theme';
 
+import InterviewsPremiumBadge from './InterviewsPremiumBadge';
+
 import { useUser } from '@supabase/auth-helpers-react';
 
 export function InterviewsSidebarProfileHeader() {
@@ -91,6 +93,11 @@ export function InterviewsSidebarProfileHeader() {
               variant="flat">
               <UserProfileDisplayName userProfile={userProfile} />
             </Anchor>
+            {userProfile.premium && (
+              <span>
+                <InterviewsPremiumBadge />
+              </span>
+            )}
           </div>
         </>
       )}

@@ -3,7 +3,7 @@ import { useIntl } from 'react-intl';
 
 import Badge from '~/components/ui/Badge';
 
-export default function QuestionPremiumLabel() {
+export default function InterviewsPremiumBadge() {
   const intl = useIntl();
 
   return (
@@ -11,8 +11,8 @@ export default function QuestionPremiumLabel() {
       icon={RiStarSmileFill}
       label={intl.formatMessage({
         defaultMessage: 'Premium',
-        description: 'Premium content',
-        id: 'gIeLON',
+        description: 'Premium user or content',
+        id: 'rf0xcZ',
       })}
       size="sm"
       variant="special"

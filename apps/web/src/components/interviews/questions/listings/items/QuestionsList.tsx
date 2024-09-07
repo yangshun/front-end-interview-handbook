@@ -32,7 +32,7 @@ import QuestionFrameworks from '../../metadata/QuestionFrameworks';
 import QuestionImportanceLabel from '../../metadata/QuestionImportanceLabel';
 import QuestionLanguages from '../../metadata/QuestionLanguages';
 import QuestionNewLabel from '../../metadata/QuestionNewLabel';
-import QuestionPremiumLabel from '../../metadata/QuestionPremiumLabel';
+import InterviewsPremiumBadge from '../../../common/InterviewsPremiumBadge';
 import QuestionTopics from '../../metadata/QuestionTopics';
 import QuestionUsersCompletedLabel from '../../metadata/QuestionUsersCompletedLabel';
 
@@ -162,7 +162,7 @@ export default function QuestionsList<Q extends QuestionMetadata>({
                     variant="warning"
                   />
                 )}
-                {questionMetadata.premium && <QuestionPremiumLabel />}
+                {questionMetadata.premium && <InterviewsPremiumBadge />}
                 {questionMetadata.format === 'system-design' &&
                   !ReadyQuestions.includes(questionMetadata.slug) && (
                     <Badge

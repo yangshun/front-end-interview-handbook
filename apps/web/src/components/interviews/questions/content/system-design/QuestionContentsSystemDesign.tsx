@@ -15,7 +15,7 @@ import QuestionProgressAction from '../../common/QuestionProgressAction';
 import type { QuestionBase } from '../../common/QuestionsTypes';
 import useQuestionLogEventCopyContents from '../../common/useQuestionLogEventCopyContents';
 import QuestionMetadataSection from '../../metadata/QuestionMetadataSection';
-import QuestionPremiumLabel from '../../metadata/QuestionPremiumLabel';
+import InterviewsPremiumBadge from '../../../common/InterviewsPremiumBadge';
 
 type Props = Readonly<{
   canViewPremiumContent: boolean;
@@ -43,7 +43,7 @@ export default function QuestionContentsSystemDesign({
             {metadata.title}
           </Heading>
           <div className="flex gap-2">
-            {metadata.premium && <QuestionPremiumLabel />}
+            {metadata.premium && <InterviewsPremiumBadge />}
             {questionProgress?.status === 'complete' && (
               <Badge
                 label={intl.formatMessage({
