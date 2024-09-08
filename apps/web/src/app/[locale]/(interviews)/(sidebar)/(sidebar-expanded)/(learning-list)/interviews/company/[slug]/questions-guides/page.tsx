@@ -12,10 +12,11 @@ import { fetchInterviewListingBottomContent } from '~/db/contentlayer/Interviews
 import { fetchQuestionsBySlug } from '~/db/QuestionsListReader';
 import defaultMetadata from '~/seo/defaultMetadata';
 
-export async function generateStaticParams() {
-  // TODO(companies)
-  return [];
-}
+// TODO(interviews): disable to do A/B test.
+// export async function generateStaticParams() {
+//   // TODO(companies)
+//   return [];
+// }
 
 type Props = Readonly<{
   params: {
