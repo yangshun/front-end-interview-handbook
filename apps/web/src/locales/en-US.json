@@ -5739,6 +5739,10 @@
     "defaultMessage": "{questionTitle} | Front End Quiz Interview Questions with Solutions",
     "description": "Title of quiz question page"
   },
+  "ctK5lb": {
+    "defaultMessage": "Marked \"{articleName}\" as completed",
+    "description": "Success message shown when an article was marked as complete"
+  },
   "ctKiBc": {
     "defaultMessage": "User submissions",
     "description": "Projects submissions page title"
@@ -7275,6 +7279,10 @@
     "defaultMessage": "Go to this submission's GitHub repository",
     "description": "Tooltip for view code button"
   },
+  "npXLPp": {
+    "defaultMessage": "Marked question as not completed",
+    "description": "Success message shown when a question is marked as complete"
+  },
   "npvgQq": {
     "defaultMessage": "Prepare for your front end interviews in one week. Efficiently focus on the most important concepts through a good mix of coding and quiz questions.",
     "description": "Description for one week study plan"
@@ -7338,10 +7346,6 @@
   "oQzWOu": {
     "defaultMessage": "For a limited time, we are offering lifetime plan for the interviews platform at {symbol}{unitCostLocalizedInCurrency}. The reward for acing your interviews could be <strong>hundreds of thousands</strong> in total compensation.",
     "description": "Subtitle of Pricing section on Homepage or Pricing page"
-  },
-  "oR0ECI": {
-    "defaultMessage": "Marked question as incomplete",
-    "description": "Success message shown when a question is marked as complete"
   },
   "oS10TF": {
     "defaultMessage": "Follow us on GitHub",

@@ -133,10 +133,10 @@ export default function QuestionProgressAction({
               onSuccess: () => {
                 showToast({
                   title: intl.formatMessage({
-                    defaultMessage: 'Marked question as incomplete',
+                    defaultMessage: 'Marked question as not completed',
                     description:
                       'Success message shown when a question is marked as complete',
-                    id: 'oR0ECI',
+                    id: 'npXLPp',
                   }),
                   variant: 'info',
                 });

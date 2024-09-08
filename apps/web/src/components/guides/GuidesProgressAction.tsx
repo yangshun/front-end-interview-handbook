@@ -146,7 +146,7 @@ export default function GuidesProgressAction({
                       articleName: guideName,
                     },
                   ),
-                  variant: 'success',
+                  variant: 'info',
                 });
               },
             },
@@ -198,10 +198,10 @@ export default function GuidesProgressAction({
               showToast({
                 title: intl.formatMessage(
                   {
-                    defaultMessage: 'Marked "{articleName}" as complete',
+                    defaultMessage: 'Marked "{articleName}" as completed',
                     description:
                       'Success message shown when an article was marked as complete',
-                    id: 'piDflv',
+                    id: 'ctK5lb',
                   },
                   {
                     articleName: guideName,
