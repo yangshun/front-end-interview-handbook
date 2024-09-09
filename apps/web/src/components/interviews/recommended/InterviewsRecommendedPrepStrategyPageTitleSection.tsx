@@ -6,16 +6,12 @@ import {
   RiArrowRightLine,
   RiCheckFill,
 } from 'react-icons/ri';
-import { RiQuestionnaireLine } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
 
 import { trpc } from '~/hooks/trpc';
 
-import CopyLinkButton from '~/components/common/CopyLinkButton';
-import ShareButton from '~/components/common/ShareButton';
 import Anchor from '~/components/ui/Anchor';
 import Badge from '~/components/ui/Badge';
-import Button from '~/components/ui/Button';
 import Chip from '~/components/ui/Chip';
 import Divider from '~/components/ui/Divider';
 import {
@@ -33,6 +29,7 @@ import {
 
 import type { QuestionProgress } from '~/db/QuestionsProgressTypes';
 
+import InterviewsPageHeaderActions from '../common/InterviewsPageHeaderActions';
 import type { QuestionMetadata } from '../questions/common/QuestionsTypes';
 import QuestionsLearningListPageTitleSection from '../questions/listings/learning/QuestionsLearningListPageTitleSection';
 import QuestionListingQuestionCount from '../questions/listings/stats/QuestionListingQuestionCount';
@@ -258,24 +255,7 @@ export default function InterviewsRecommendedPrepStrategyPageTitleSection({
           <OtherItemsDropdown sessions={sessions} />
         </div>
 
-        <div className="flex items-center gap-2">
-          <Button
-            addonPosition="start"
-            icon={RiQuestionnaireLine}
-            label={intl.formatMessage({
-              defaultMessage: 'Contribute',
-              description: 'Button label for contribute',
-              id: 'j9eLks',
-            })}
-            size="xs"
-            variant="tertiary"
-          />
-          <div
-            className={clsx('h-3 w-px', 'bg-neutral-400 dark:bg-neutral-600')}
-          />
-          <CopyLinkButton href={metadata.href} size="xs" variant="tertiary" />
-          <ShareButton metadata={metadata} size="xs" variant="tertiary" />
-        </div>
+        <InterviewsPageHeaderActions metadata={metadata} />
       </div>
 
       <QuestionsLearningListPageTitleSection

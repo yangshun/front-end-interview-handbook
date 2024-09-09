@@ -12,6 +12,7 @@ import { useIntl } from 'react-intl';
 import { trpc } from '~/hooks/trpc';
 
 import InterviewsPageFeatures from '~/components/interviews/common/InterviewsPageFeatures';
+import InterviewsPageHeaderActions from '~/components/interviews/common/InterviewsPageHeaderActions';
 import type {
   QuestionFramework,
   QuestionLanguage,
@@ -30,6 +31,11 @@ import { useUser } from '@supabase/auth-helpers-react';
 
 type Props = Readonly<{
   bottomContent?: InterviewsListingBottomContent;
+  metadata: {
+    description: string;
+    href: string;
+    title: string;
+  };
   questions: {
     codingQuestions: ReadonlyArray<QuestionMetadata>;
     frameworkQuestions: Record<
@@ -48,6 +54,7 @@ type Props = Readonly<{
 export default function InterviewsAllPracticeQuestionsPage({
   questions,
   bottomContent,
+  metadata,
 }: Props) {
   const intl = useIntl();
 
@@ -95,6 +102,10 @@ export default function InterviewsAllPracticeQuestionsPage({
   return (
     <Container className={clsx('flex flex-col', 'py-10', 'gap-y-12')}>
       <div>
+        <InterviewsPageHeaderActions
+          className="mb-8 flex w-full justify-end"
+          metadata={metadata}
+        />
         <div className="flex flex-col gap-4">
           <Heading level="heading4">
             {intl.formatMessage({

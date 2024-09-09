@@ -90,16 +90,22 @@ export default async function Page({ params }: Props) {
     difficultySummaryOneMonth,
     difficultySummaryThreeMonths,
     bottomContent,
+    seoMetadata,
   ] = await Promise.all([
     getDifficultySummaryForPlan(preparationPlans['one-week'], locale),
     getDifficultySummaryForPlan(preparationPlans['one-month'], locale),
     getDifficultySummaryForPlan(preparationPlans['three-months'], locale),
     fetchInterviewListingBottomContent('study-plans'),
+    getPageSEOMetadata({ params }),
   ]);
 
   return INTERVIEWS_REVAMP_2024 ? (
     <InterviewsRevampStudyPlansPage
       bottomContent={bottomContent}
+      metadata={{
+        ...seoMetadata,
+        title: seoMetadata.socialTitle,
+      }}
       preparationPlans={preparationPlans}
     />
   ) : (

@@ -13,6 +13,7 @@ import {
 } from '~/data/plans/PreparationPlans';
 
 import InterviewsPageFeatures from '~/components/interviews/common/InterviewsPageFeatures';
+import InterviewsPageHeaderActions from '~/components/interviews/common/InterviewsPageHeaderActions';
 import InterviewsStudyPlanCard from '~/components/interviews/questions/listings/learning/study-plan/InterviewsStudyPlanCard';
 import InterviewsStudyPlanTestimonialsSection from '~/components/interviews/questions/listings/learning/study-plan/InterviewsStudyPlanTestimonialsSection';
 import MDXContent from '~/components/mdx/MDXContent';
@@ -31,12 +32,18 @@ type PreparationPlanSection = Readonly<{
 
 type Props = Readonly<{
   bottomContent?: InterviewsListingBottomContent;
+  metadata: {
+    description: string;
+    href: string;
+    title: string;
+  };
   preparationPlans: PreparationPlans;
 }>;
 
 export default function InterviewsRevampStudyPlansPage({
   preparationPlans,
   bottomContent,
+  metadata,
 }: Props) {
   const intl = useIntl();
   const user = useUser();
@@ -90,6 +97,10 @@ export default function InterviewsRevampStudyPlansPage({
   return (
     <Container className={clsx('flex flex-col', 'py-10', 'gap-y-12')}>
       <div>
+        <InterviewsPageHeaderActions
+          className="mb-8 flex w-full justify-end"
+          metadata={metadata}
+        />
         <div className="flex flex-col gap-4">
           <Heading level="heading4">
             {intl.formatMessage({

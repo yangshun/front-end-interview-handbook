@@ -9,12 +9,18 @@ export type CopyLinkTriggerVariant = 'secondary' | 'tertiary';
 export type CopyLinkTriggerSize = 'md' | 'sm' | 'xs';
 
 type Props = Readonly<{
-  href: string;
+  href?: string;
+  iconOnly?: boolean;
   size?: CopyLinkTriggerSize;
   variant?: CopyLinkTriggerVariant;
 }>;
 
-export default function CopyLinkButton({ href, size, variant }: Props) {
+export default function CopyLinkButton({
+  href,
+  size,
+  variant,
+  iconOnly,
+}: Props) {
   const intl = useIntl();
 
   const [isCopied, onCopy] = useCopyToClipboardWithRevert(1000);
@@ -23,6 +29,7 @@ export default function CopyLinkButton({ href, size, variant }: Props) {
     <Button
       addonPosition="start"
       icon={isCopied ? RiCheckLine : RiLinksLine}
+      isLabelHidden={iconOnly}
       label={
         isCopied
           ? intl.formatMessage({
@@ -38,7 +45,13 @@ export default function CopyLinkButton({ href, size, variant }: Props) {
       }
       size={size ?? 'sm'}
       variant={variant ?? 'secondary'}
-      onClick={() => onCopy(new URL(href, window.location.href).toString())}
+      onClick={() =>
+        onCopy(
+          href
+            ? new URL(href, window.location.href).toString()
+            : new URL(window.location.href).toString(),
+        )
+      }
     />
   );
 }

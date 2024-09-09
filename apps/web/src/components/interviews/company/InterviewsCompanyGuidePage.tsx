@@ -11,6 +11,8 @@ import { useIntl } from 'react-intl';
 
 import { trpc } from '~/hooks/trpc';
 
+import { INTERVIEWS_REVAMP_2024 } from '~/data/FeatureFlags';
+
 import { useUserProfile } from '~/components/global/UserProfileProvider';
 import QuestionPaywall from '~/components/interviews/questions/common/QuestionPaywall';
 import type {
@@ -34,6 +36,7 @@ import {
   filterQuestionsProgressByList,
 } from '~/db/QuestionsUtils';
 
+import InterviewsPageHeaderActions from '../common/InterviewsPageHeaderActions';
 import useQuestionTopicLabels from '../questions/listings/filters/useQuestionTopicLabels';
 
 import { useUser } from '@supabase/auth-helpers-react';
@@ -43,6 +46,11 @@ type Props = Readonly<{
   codingQuestions: ReadonlyArray<QuestionMetadata>;
   companyGuide: InterviewsCompanyGuide;
   companyQuestions: Record<QuestionFormat, ReadonlyArray<QuestionSlug>>;
+  metadata: {
+    description: string;
+    href: string;
+    title: string;
+  };
   quizQuestions: ReadonlyArray<QuestionMetadata>;
   systemDesignQuestions: ReadonlyArray<QuestionMetadata>;
 }>;
@@ -54,6 +62,7 @@ export default function InterviewsCompanyGuidePage({
   codingQuestions,
   systemDesignQuestions,
   bottomContent,
+  metadata,
 }: Props) {
   const intl = useIntl();
   const { userProfile } = useUserProfile();
@@ -102,7 +111,7 @@ export default function InterviewsCompanyGuidePage({
         'relative',
       )}>
       <Container className="relative flex flex-col gap-y-5">
-        <div>
+        <div className="flex items-center justify-between gap-2">
           <Button
             addonPosition="start"
             className="-mb-2 -ml-5"
@@ -116,6 +125,9 @@ export default function InterviewsCompanyGuidePage({
             size="md"
             variant="tertiary"
           />
+          {INTERVIEWS_REVAMP_2024 && (
+            <InterviewsPageHeaderActions metadata={metadata} />
+          )}
         </div>
         <div className="md:col-span-2">
           <QuestionsLearningListTitleSection

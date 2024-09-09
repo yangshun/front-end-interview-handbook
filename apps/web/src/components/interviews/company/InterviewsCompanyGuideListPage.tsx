@@ -23,15 +23,22 @@ import Text from '~/components/ui/Text';
 
 import InterviewsCompanyGuideListWithFilters from './InterviewsCompanyGuideListWithFilters';
 import InterviewsPageFeatures from '../common/InterviewsPageFeatures';
+import InterviewsPageHeaderActions from '../common/InterviewsPageHeaderActions';
 
 type Props = Readonly<{
   bottomContent?: InterviewsListingBottomContent;
   companyGuides: Array<InterviewsCompanyGuide>;
+  metadata: {
+    description: string;
+    href: string;
+    title: string;
+  };
 }>;
 
 export default function InterviewsCompanyGuideListPage({
   companyGuides,
   bottomContent,
+  metadata,
 }: Props) {
   const intl = useIntl();
 
@@ -66,6 +73,10 @@ export default function InterviewsCompanyGuideListPage({
     <Container className={clsx('flex flex-col', 'py-10', 'gap-y-12')}>
       {INTERVIEWS_REVAMP_2024 ? (
         <div>
+          <InterviewsPageHeaderActions
+            className="mb-8 flex w-full justify-end"
+            metadata={metadata}
+          />
           <div className="flex flex-col gap-4">
             <Heading level="heading4">
               {intl.formatMessage({

@@ -34,6 +34,7 @@ async function getPageSEOMetadata({ params }: Props) {
       description: 'Page description for focus areas listing',
       id: 'cNg7I1',
     }),
+    href: '/interviews/questions',
     socialTitle: intl.formatMessage({
       defaultMessage: 'Front End Interview Practice Questions | GreatFrontEnd',
       description: 'Social title for focus areas listing',
@@ -56,14 +57,14 @@ async function getPageSEOMetadata({ params }: Props) {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = params;
 
-  const { title, description, socialTitle } = await getPageSEOMetadata({
+  const { title, description, socialTitle, href } = await getPageSEOMetadata({
     params,
   });
 
   return defaultMetadata({
     description,
     locale,
-    pathname: '/interviews/questions',
+    pathname: href,
     socialTitle,
     title,
   });
@@ -82,17 +83,23 @@ export default async function Page({ params }: Props) {
     { questions: systemDesignQuestions },
     { framework, language },
     bottomContent,
+    seoMetadata,
   ] = await Promise.all([
     fetchQuestionsListQuiz(locale),
     fetchQuestionsListCoding(locale),
     fetchQuestionsListSystemDesign(locale),
     categorizeQuestionsByFrameworkAndLanguage(locale),
     fetchInterviewListingBottomContent('all-questions'),
+    getPageSEOMetadata({ params }),
   ]);
 
   return (
     <InterviewsAllPracticeQuestionsPage
       bottomContent={bottomContent}
+      metadata={{
+        ...seoMetadata,
+        title: seoMetadata.socialTitle,
+      }}
       questions={{
         codingQuestions,
         frameworkQuestions: framework,

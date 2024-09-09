@@ -6815,10 +6815,6 @@
     "defaultMessage": "You can add more skills e.g. UI frameworks used after starting the project",
     "description": "Additional information for skills section on Projects project page"
   },
-  "j9eLks": {
-    "defaultMessage": "Contribute",
-    "description": "Button label for contribute"
-  },
   "jGQnYd": {
     "defaultMessage": "Search coding questions",
     "description": "Placeholder for search input of coding question list"

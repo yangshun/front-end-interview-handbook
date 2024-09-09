@@ -16,6 +16,7 @@ import { INTERVIEWS_REVAMP_2024 } from '~/data/FeatureFlags';
 import type { FocusArea } from '~/data/focus-areas/FocusAreas';
 import { getFocusAreaTheme } from '~/data/focus-areas/FocusAreas';
 
+import InterviewsPageHeaderActions from '~/components/interviews/common/InterviewsPageHeaderActions';
 import type { QuestionMetadata } from '~/components/interviews/questions/common/QuestionsTypes';
 import QuestionsLearningList from '~/components/interviews/questions/listings/learning/QuestionsLearningList';
 import QuestionsLearningListPageTitleSection from '~/components/interviews/questions/listings/learning/QuestionsLearningListPageTitleSection';
@@ -38,6 +39,11 @@ type Props = Readonly<{
   bottomContent?: InterviewsListingBottomContent;
   codingQuestions: ReadonlyArray<QuestionMetadata>;
   focusArea: FocusArea;
+  metadata: {
+    description: string;
+    href: string;
+    title: string;
+  };
   quizQuestions: ReadonlyArray<QuestionMetadata>;
   systemDesignQuestions: ReadonlyArray<QuestionMetadata>;
 }>;
@@ -48,6 +54,7 @@ export default function InterviewsFocusAreaPage({
   systemDesignQuestions,
   focusArea,
   bottomContent,
+  metadata,
 }: Props) {
   const intl = useIntl();
   const user = useUser();
@@ -102,7 +109,7 @@ export default function InterviewsFocusAreaPage({
   return (
     <Container className={clsx('flex flex-col gap-y-12', 'py-12', 'relative')}>
       <div className="relative flex flex-col gap-y-8">
-        <div>
+        <div className="flex items-center justify-between gap-2">
           <Button
             addonPosition="start"
             className="-mb-2 -ml-5"
@@ -116,6 +123,9 @@ export default function InterviewsFocusAreaPage({
             size="md"
             variant="tertiary"
           />
+          {INTERVIEWS_REVAMP_2024 && (
+            <InterviewsPageHeaderActions metadata={metadata} />
+          )}
         </div>
         {INTERVIEWS_REVAMP_2024 ? (
           <>

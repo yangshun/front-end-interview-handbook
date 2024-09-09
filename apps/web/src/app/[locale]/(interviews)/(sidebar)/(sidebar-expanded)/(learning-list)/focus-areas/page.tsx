@@ -91,7 +91,10 @@ async function getDifficultySummaryForList(
 export default async function Page({ params }: Props) {
   const { locale } = params;
 
-  const intl = await getIntlServerOnly(locale);
+  const [intl, seoMetadata] = await Promise.all([
+    getIntlServerOnly(locale),
+    getPageSEOMetadata({ params }),
+  ]);
   // TODO: Remove this IntlShape typecast.
   const focusAreas = getFocusAreas(intl as IntlShape);
 
@@ -124,6 +127,10 @@ export default async function Page({ params }: Props) {
     <InterviewsRevampFocusAreaListPage
       bottomContent={bottomContent}
       focusAreas={focusAreas}
+      metadata={{
+        ...seoMetadata,
+        title: seoMetadata.socialTitle,
+      }}
     />
   ) : (
     <InterviewsFocusAreaListPage

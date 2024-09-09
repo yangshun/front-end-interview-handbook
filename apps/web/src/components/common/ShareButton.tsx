@@ -17,6 +17,7 @@ import DropdownMenu from '~/components/ui/DropdownMenu';
 import { getSiteOrigin } from '~/seo/siteUrl';
 
 type Props = Readonly<{
+  iconOnly?: boolean;
   metadata: {
     description: string;
     href: string;
@@ -26,7 +27,12 @@ type Props = Readonly<{
   variant?: DropdownMenuTriggerVariant;
 }>;
 
-export default function ShareButton({ metadata, size = 'sm', variant }: Props) {
+export default function ShareButton({
+  metadata,
+  size = 'sm',
+  variant,
+  iconOnly,
+}: Props) {
   const intl = useIntl();
   const shareOptions: ReadonlyArray<{
     href: string;
@@ -90,6 +96,7 @@ export default function ShareButton({ metadata, size = 'sm', variant }: Props) {
         <Button
           addonPosition="start"
           icon={RiShareLine}
+          isLabelHidden={iconOnly}
           label={intl.formatMessage({
             defaultMessage: 'Share',
             description: 'Share button label',
