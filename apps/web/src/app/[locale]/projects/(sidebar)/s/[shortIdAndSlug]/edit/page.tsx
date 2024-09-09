@@ -31,6 +31,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     }),
   ]);
 
+  if (submission == null) {
+    return notFound();
+  }
+
   const { challengeInfo } = await readProjectsChallengeInfo(
     submission?.slug ?? '',
     locale,
@@ -49,7 +53,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       },
     ),
     locale,
-    pathname: `/projects/s/${shortId}/edit`,
+    pathname: submission.hrefs.edit,
     title: intl.formatMessage({
       defaultMessage: 'Edit submission',
       description: 'Title of Projects edit submission page',

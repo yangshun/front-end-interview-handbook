@@ -1,4 +1,3 @@
-import { kebabCase, lowerCase } from 'lodash-es';
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 
@@ -72,9 +71,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return defaultProjectsMetadata(intl, {
     description: description.length < 50 ? fallbackDescription : description,
     locale,
-    pathname: `/projects/s/${shortId}/${kebabCase(
-      lowerCase(submission.title),
-    )}`,
+    pathname: submission.hrefs.detail,
     template: '%s',
     title: intl.formatMessage(
       {
