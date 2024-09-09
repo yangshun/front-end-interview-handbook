@@ -188,3 +188,10 @@ export type QuestionListTheme = Readonly<{
   iconOutline: (props: React.ComponentProps<'svg'>) => JSX.Element;
   iconSolid: (props: React.ComponentProps<'svg'>) => JSX.Element;
 }>;
+
+export type QuestionFeatureType =
+  | 'company-guides'
+  | 'company-tags'
+  | 'official-solutions'
+  | 'premium-questions'
+  | 'study-plans';

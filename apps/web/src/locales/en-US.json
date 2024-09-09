@@ -319,6 +319,10 @@
     "defaultMessage": "Intermediate",
     "description": "Intermediate level blog"
   },
+  "0XJ7cT": {
+    "defaultMessage": "Premium is required to access study plans",
+    "description": "Title for study plans feature"
+  },
   "0Z5awQ": {
     "defaultMessage": "Feel free to include any custom pages you have added for this challenge. They will be featured on the submission page.",
     "description": "Button tooltip for adding another URL to a project submission"
@@ -1287,6 +1291,10 @@
     "defaultMessage": "{price} billed yearly",
     "description": "Description of billing frequency for annual plan"
   },
+  "7wfbGH": {
+    "defaultMessage": "Premium is required to access premium questions",
+    "description": "Title for premium questions feature"
+  },
   "7wqhjF": {
     "defaultMessage": "Practice Top HTML Front End Interview Questions with Solutions",
     "description": "SEO title for HTML questions list page"
@@ -2003,10 +2011,6 @@
     "defaultMessage": "or",
     "description": "Alternative contact way"
   },
-  "DAqJ87": {
-    "defaultMessage": "Purchase premium to unlock full access to the question including high quality solutions and companies which ask this question.",
-    "description": "Subtitle on question paywall displayed on premium question's pages"
-  },
   "DBkNOt": {
     "defaultMessage": "When did you start work?",
     "description": "Label for \"When did you start work\" input on Projects profile onboarding page"
@@ -2071,9 +2075,9 @@
     "defaultMessage": "Practice Questions by Focus Area | GreatFrontEnd",
     "description": "Social title for focus areas listing"
   },
-  "DXfMmT": {
-    "defaultMessage": "Purchase premium to unlock full access to the company guides and all questions with high quality solutions",
-    "description": "Study plans paywall description"
+  "DV+l42": {
+    "defaultMessage": "Premium question",
+    "description": "Paywall title for premium questions feature"
   },
   "DbEF7d": {
     "defaultMessage": "Master the art of building interactive and user-friendly forms.",
@@ -2111,6 +2115,10 @@
     "defaultMessage": "Insert an object",
     "description": "Rich text editor button label"
   },
+  "Dpfbeq": {
+    "defaultMessage": "Purchase premium to unlock company guides and all the best materials we have to offer.",
+    "description": "Paywall subtitle for company guides feature"
+  },
   "Dq9yul": {
     "defaultMessage": "Back",
     "description": "Button label for back button"
@@ -2130,6 +2138,10 @@
   "DthPOl": {
     "defaultMessage": "{questionCount} solved practice questions",
     "description": "Features for focus areas question listing"
+  },
+  "DxjQLP": {
+    "defaultMessage": "Front end system design guides",
+    "description": "Paywall tags"
   },
   "Dynazi": {
     "defaultMessage": "(Save {discountPercentage}% vs monthly)",
@@ -2883,6 +2895,10 @@
     "defaultMessage": "From beginner to advanced",
     "description": "Label for skill roadmap feature for annual plan"
   },
+  "J2nKZE": {
+    "defaultMessage": "Purchase premium to unlock company tags and all the best materials we have to offer.",
+    "description": "Paywall subtitle for company tags feature"
+  },
   "J7VxuG": {
     "defaultMessage": "Social Rewards Discount",
     "description": "Promotion title"
@@ -3143,17 +3159,9 @@
     "defaultMessage": "Start your first <link>project</link>.",
     "description": "Label to start a project"
   },
-  "Kq19j1": {
-    "defaultMessage": "Premium is required to access study plans",
-    "description": "Title for interviews pricing plans"
-  },
   "KsNZvV": {
     "defaultMessage": "Get premium",
     "description": "Description of the pricing section in the Projects marketing page"
-  },
-  "KsoiBa": {
-    "defaultMessage": "Purchase premium to unlock full access to the study plans and all questions with high quality solutions",
-    "description": "Study plans paywall description"
   },
   "KtYnhS": {
     "defaultMessage": "Create a new account",
@@ -3250,10 +3258,6 @@
   "LNBK2M": {
     "defaultMessage": "Our services are unavailable at your location.",
     "description": "Message explaining that the website does not transact with the user's location."
-  },
-  "LNK1eb": {
-    "defaultMessage": "Premium Feature",
-    "description": "Header on paywall over company tags on question list pages"
   },
   "LNxxS2": {
     "defaultMessage": "Select tip type",
@@ -3595,6 +3599,10 @@
     "defaultMessage": "Difficulty",
     "description": "Question difficulty label"
   },
+  "NgyZKR": {
+    "defaultMessage": "Purchase premium to unlock study plans and all the best materials we have to offer.",
+    "description": "Paywall subtitle for study plans feature"
+  },
   "Nh3PP/": {
     "defaultMessage": "Practice Questions",
     "description": "Title of question examples section on getting started page"
@@ -3847,10 +3855,6 @@
     "defaultMessage": "You are on the <bold>Lifetime</bold> plan.",
     "description": "Text describing user's subscription plan."
   },
-  "PWyAGW": {
-    "defaultMessage": "Purchase premium to unlock filtering questions by companies.",
-    "description": "Subtitle for paywall over company tagging"
-  },
   "PXLoIh": {
     "defaultMessage": "Focus areas",
     "description": "Sidebar label for interview focus area category"
@@ -3967,9 +3971,17 @@
     "defaultMessage": "An email containing the password reset instructions will be sent if an associated account exists",
     "description": "Message indicating a successful password reset request"
   },
+  "Q0yp+r": {
+    "defaultMessage": "Premium company guide",
+    "description": "Paywall title for company guides feature"
+  },
   "Q1/LnD": {
     "defaultMessage": "GitHub repository",
     "description": "Title for GitHub repo step in project submission checklist"
+  },
+  "Q2Z3oz": {
+    "defaultMessage": "All premium questions",
+    "description": "Paywall tags"
   },
   "Q7EpE5": {
     "defaultMessage": "HTML Questions",
@@ -4271,10 +4283,6 @@
     "defaultMessage": "Privacy policy",
     "description": "Link to privacy policy page"
   },
-  "RxZwQ9": {
-    "defaultMessage": "Purchase premium to unlock filtering questions by companies.",
-    "description": "Subtitle on paywall over company tags on question list pages"
-  },
   "Rz6MDM": {
     "defaultMessage": "System design questions in front-end interviews evaluate a candidate's ability to architect large-scale, maintainable, and scalable web applications. Unlike backend system design, these questions focus more on designing the client-side architecture, managing state, ensuring performance, and integrating with APIs or backend services. Candidates may be asked to design complex UI systems, plan for accessibility, or discuss strategies for handling large volumes of user interactions or data. Asked in mid-level to senior level interviews",
     "description": "Description of data structures and algorithm questions"
@@ -4559,6 +4567,10 @@
     "defaultMessage": "You've gained rep in these skills:",
     "description": "Label for skills gained on project submission success page"
   },
+  "Ti1Gle": {
+    "defaultMessage": "Premium is required to access company tags",
+    "description": "Title for company tags feature"
+  },
   "TiAC18": {
     "defaultMessage": "Try these popular Vue questions",
     "description": "Title for featured questions section"
@@ -4835,6 +4847,10 @@
     "defaultMessage": "At least {minLength} character(s).",
     "description": "Error message"
   },
+  "Vq8WAa": {
+    "defaultMessage": "Premium is required to access official solutions",
+    "description": "Title for official solutions feature"
+  },
   "Vqbpp7": {
     "defaultMessage": "Level up!",
     "description": "label of Level bage"
@@ -5042,10 +5058,6 @@
   "X1UVMv": {
     "defaultMessage": "We add more questions and guides from time to time, available for free to premium subscribers.",
     "description": "Subtitle for free continuous updates feature"
-  },
-  "X55xMA": {
-    "defaultMessage": "Premium Feature",
-    "description": "Header for paywall over company tagging"
   },
   "X6kis4": {
     "defaultMessage": "Explore series",
@@ -5738,6 +5750,10 @@
   "baT4cM": {
     "defaultMessage": "Title is required.",
     "description": "Error message"
+  },
+  "bdt+FN": {
+    "defaultMessage": "Purchase premium to unlock premium questions and all the best materials we have to offer.",
+    "description": "Paywall subtitle for premium questions feature"
   },
   "belvJ0": {
     "defaultMessage": "Svelte Coding Questions",
@@ -6495,10 +6511,6 @@
     "defaultMessage": "<authorProfileLink>{author}</authorProfileLink> left a question on their submission <link>{submissionTitle}</link>: <comment>\"{description}\"</comment>",
     "description": "Log message for someone asking question on their submission"
   },
-  "gdGavv": {
-    "defaultMessage": "Premium Question",
-    "description": "Title on question paywall displayed on premium question's pages"
-  },
   "geKY+2": {
     "defaultMessage": "Practice design system components interview questions, including Tabs, Modals, Accordions, and Progress Bars. Code in-browser with solutions from ex-interviewers.",
     "description": "Description for interview preparation focus area"
@@ -6618,10 +6630,6 @@
   "hQa+4K": {
     "defaultMessage": "Why be a GreatFrontEnd Affiliate?",
     "description": "Title for the 'Why become an affiliate' section on the 'Become an Affiliate' page"
-  },
-  "hRQS6E": {
-    "defaultMessage": "Premium company guides",
-    "description": "Company guides paywall title"
   },
   "hYp7sF": {
     "defaultMessage": "Normal",
@@ -7118,6 +7126,10 @@
   "kpdNBu": {
     "defaultMessage": "No starter files and design files required because it is an integration of other challenges.",
     "description": "Information for challenges that do not have any provided files."
+  },
+  "kqHSpd": {
+    "defaultMessage": "Time-savers like focus areas",
+    "description": "Paywall tags"
   },
   "ks4qo1": {
     "defaultMessage": "Resubscribe to access",
@@ -7655,6 +7667,10 @@
     "defaultMessage": "Coupons",
     "description": "Screenreader text for account settings."
   },
+  "oyk4XO": {
+    "defaultMessage": "Premium company tag",
+    "description": "Paywall title for company tags feature"
+  },
   "ozQHOy": {
     "defaultMessage": "Hide widget for this session",
     "description": "Feedback widget button label to hide the feedback widget for their current session"
@@ -7754,6 +7770,10 @@
   "pdqnN/": {
     "defaultMessage": "Verification email sent",
     "description": "Title of verify email page"
+  },
+  "pfFpYc": {
+    "defaultMessage": "Premium solution",
+    "description": "Paywall title for official solutions feature"
   },
   "pgK6Eb": {
     "defaultMessage": "Guidebook",
@@ -8227,6 +8247,10 @@
     "defaultMessage": "Run your code with <button>custom test cases</button> before submitting.",
     "description": "Text that appears in the DevTool under the Tests tab before the user has submitted their code"
   },
+  "t44/MF": {
+    "defaultMessage": "Purchase premium to unlock official solutions and all the best materials we have to offer.",
+    "description": "Paywall subtitle for official solutions feature"
+  },
   "t4Ma6G": {
     "defaultMessage": "Link Title",
     "description": "Label for link title"
@@ -8334,10 +8358,6 @@
   "termd9": {
     "defaultMessage": "We will keep track of when you start the project, for your personal reference on the time you take building it.",
     "description": "FAQ answer for projects platform"
-  },
-  "tfonOP": {
-    "defaultMessage": "Premium Study Plans",
-    "description": "Study plans paywall title"
   },
   "thlYdk": {
     "defaultMessage": "Blog Menu",
@@ -8807,6 +8827,10 @@
     "defaultMessage": "Skills",
     "description": "Label for Skills filter for projects list"
   },
+  "wzeI1v": {
+    "defaultMessage": "High quality solutions",
+    "description": "Paywall tags"
+  },
   "x6+x/5": {
     "defaultMessage": "Edit profile",
     "description": "Title of Projects edit profile page"
@@ -8958,6 +8982,10 @@
   "yCyxT4": {
     "defaultMessage": "All tracks",
     "description": "Label for component tracks feature for pricing plan"
+  },
+  "yCznFA": {
+    "defaultMessage": "Premium study plan",
+    "description": "Paywall title for study plans feature"
   },
   "yM3vbW": {
     "defaultMessage": "Editor Shortcuts",
@@ -9134,6 +9162,10 @@
   "zVBgBc": {
     "defaultMessage": "Coding questions focused on building user interfaces. Candidates are expected to build components, style elements, and ensure the UI behaves correctly across different devices and screen sizes",
     "description": "Description of front end user interface questions"
+  },
+  "zVLo8m": {
+    "defaultMessage": "Premium is required to access company guides",
+    "description": "Title for company guides feature"
   },
   "zYh2Tl": {
     "defaultMessage": "80% of challenges are <bold>free to do</bold>",

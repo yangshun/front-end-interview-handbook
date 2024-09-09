@@ -14,12 +14,14 @@ import type { QuestionProgress } from '~/db/QuestionsProgressTypes';
 import QuestionsListSession from './QuestionsListSession';
 import type {
   QuestionDifficulty,
+  QuestionFeatureType,
   QuestionMetadata,
 } from '../../common/QuestionsTypes';
 
 type Props = Readonly<{
   description?: ReactNode;
   difficultySummary?: Record<QuestionDifficulty, number>;
+  feature?: QuestionFeatureType;
   icon: (props: React.ComponentProps<'svg'>) => JSX.Element;
   logoImgSrc?: string;
   overallProgress: ReadonlyArray<QuestionProgress>;
@@ -45,6 +47,7 @@ export default function QuestionsLearningListTitleSection({
   title,
   overallProgress,
   questions,
+  feature = 'premium-questions',
 }: Props) {
   return (
     <div className="flex flex-col justify-between gap-x-8 gap-y-4 md:flex-row">
@@ -98,6 +101,7 @@ export default function QuestionsLearningListTitleSection({
         )}
       </div>
       <QuestionsListSession
+        feature={feature}
         overallProgress={overallProgress}
         progressTrackingAvailableToNonPremiumUsers={
           progressTrackingAvailableToNonPremiumUsers

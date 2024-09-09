@@ -141,6 +141,7 @@ export default function InterviewsStudyPlanPage({
           <>
             <QuestionsLearningListPageTitleSection
               description={plan.description}
+              feature="study-plans"
               features={features}
               icon={planTheme.iconOutline}
               overallProgress={questionProgressParam ?? []}
@@ -159,6 +160,7 @@ export default function InterviewsStudyPlanPage({
           <QuestionsLearningListTitleSection
             description={plan.description}
             difficultySummary={difficultySummary}
+            feature="study-plans"
             icon={planTheme.iconOutline}
             overallProgress={questionProgressParam ?? []}
             questionCount={questionCount}
@@ -204,20 +206,7 @@ export default function InterviewsStudyPlanPage({
                   )}
                 />
                 <div className={clsx('absolute bottom-0 w-full px-8')}>
-                  <QuestionPaywall
-                    background={false}
-                    subtitle={intl.formatMessage({
-                      defaultMessage:
-                        'Purchase premium to unlock full access to the study plans and all questions with high quality solutions',
-                      description: 'Study plans paywall description',
-                      id: 'KsoiBa',
-                    })}
-                    title={intl.formatMessage({
-                      defaultMessage: 'Premium Study Plans',
-                      description: 'Study plans paywall title',
-                      id: 'tfonOP',
-                    })}
-                  />
+                  <QuestionPaywall background={false} feature="study-plans" />
                 </div>
               </div>
             </div>

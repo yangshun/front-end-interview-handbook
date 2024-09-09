@@ -298,19 +298,35 @@ export default function QuestionsSystemDesignListWithFilters({
           {sortAndFilters}
         </div>
         {showPaywall ? (
-          <QuestionPaywall
-            subtitle={intl.formatMessage({
-              defaultMessage:
-                'Purchase premium to unlock filtering questions by companies.',
-              description: 'Subtitle for paywall over company tagging',
-              id: 'PWyAGW',
-            })}
-            title={intl.formatMessage({
-              defaultMessage: 'Premium Feature',
-              description: 'Header for paywall over company tagging',
-              id: 'X55xMA',
-            })}
-          />
+          <div className="relative">
+            <div
+              className={clsx(
+                'min-h-[500px]',
+                'pointer-events-none touch-none select-none',
+              )}
+              // So that focus cannot go into the card, which is not meant to be used.
+              {...{ inert: '' }}>
+              <QuestionsList
+                checkIfCompletedQuestion={() => false}
+                questions={sortedQuestions.slice(0, 4)}
+              />
+            </div>
+            <div
+              className={clsx(
+                'absolute bottom-0 top-0',
+                'w-full overflow-hidden rounded-b-lg',
+              )}>
+              <div
+                className={clsx(
+                  'absolute bottom-0 top-0 w-full',
+                  'bg-gradient-to-t from-white via-white dark:from-neutral-950 dark:via-neutral-950',
+                )}
+              />
+              <div className={clsx('absolute bottom-0 w-full px-8')}>
+                <QuestionPaywall background={false} feature="company-tags" />
+              </div>
+            </div>
+          </div>
         ) : (
           <div>
             <Heading className="sr-only" level="custom">

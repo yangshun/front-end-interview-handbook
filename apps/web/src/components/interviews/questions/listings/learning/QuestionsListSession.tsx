@@ -16,7 +16,10 @@ import ConfirmationDialog from '~/components/common/ConfirmationDialog';
 import { useToast } from '~/components/global/toasts/useToast';
 import { useUserProfile } from '~/components/global/UserProfileProvider';
 import InterviewsPricingTableDialog from '~/components/interviews/purchase/InterviewsPricingTableDialog';
-import type { QuestionMetadata } from '~/components/interviews/questions/common/QuestionsTypes';
+import type {
+  QuestionFeatureType,
+  QuestionMetadata,
+} from '~/components/interviews/questions/common/QuestionsTypes';
 import Button from '~/components/ui/Button';
 import Card from '~/components/ui/Card';
 import ProgressBar from '~/components/ui/ProgressBar';
@@ -31,6 +34,7 @@ import QuestionsProgressFraction from '../../common/QuestionsProgressFraction';
 import { useUser } from '@supabase/auth-helpers-react';
 
 type Props = Readonly<{
+  feature?: QuestionFeatureType;
   overallProgress: ReadonlyArray<QuestionProgress>;
   progressTrackingAvailableToNonPremiumUsers?: boolean;
   questionCount: number;
@@ -46,6 +50,7 @@ export default function QuestionsListSession({
   themeBackgroundClass,
   questions,
   overallProgress,
+  feature,
 }: Props) {
   const intl = useIntl();
   const pathname = usePathname();
@@ -456,6 +461,7 @@ export default function QuestionsListSession({
         />
       )}
       <InterviewsPricingTableDialog
+        feature={feature}
         isShown={showPricingDialog}
         onClose={() => setShowPricingDialog(false)}
       />

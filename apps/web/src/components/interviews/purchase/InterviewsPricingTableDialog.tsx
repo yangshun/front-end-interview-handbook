@@ -7,6 +7,7 @@ import Spinner from '~/components/ui/Spinner';
 import Text from '~/components/ui/Text';
 
 import InterviewsPricingTableSection from './InterviewsPricingTableSection';
+import type { QuestionFeatureType } from '../questions/common/QuestionsTypes';
 
 function InterviewsPricingTableDialogTableSectionContainer() {
   const { data: pricingPlans, isLoading } =
@@ -34,6 +35,7 @@ function InterviewsPricingTableDialogTableSectionContainer() {
 }
 
 type Props = Readonly<{
+  feature?: QuestionFeatureType;
   isShown?: boolean;
   onClose?: () => void;
   trigger?: React.ReactNode;
@@ -43,14 +45,52 @@ export default function InterviewsPricingTableDialog({
   isShown,
   onClose,
   trigger,
+  feature = 'premium-questions',
 }: Props) {
   const intl = useIntl();
 
-  const title = intl.formatMessage({
-    defaultMessage: 'Premium is required to access study plans',
-    description: 'Title for interviews pricing plans',
-    id: 'Kq19j1',
-  });
+  const featuresHeading: Record<
+    QuestionFeatureType,
+    Readonly<{ title: string }>
+  > = {
+    'company-guides': {
+      title: intl.formatMessage({
+        defaultMessage: 'Premium is required to access company guides',
+        description: 'Title for company guides feature',
+        id: 'zVLo8m',
+      }),
+    },
+    'company-tags': {
+      title: intl.formatMessage({
+        defaultMessage: 'Premium is required to access company tags',
+        description: 'Title for company tags feature',
+        id: 'Ti1Gle',
+      }),
+    },
+    'official-solutions': {
+      title: intl.formatMessage({
+        defaultMessage: 'Premium is required to access official solutions',
+        description: 'Title for official solutions feature',
+        id: 'Vq8WAa',
+      }),
+    },
+    'premium-questions': {
+      title: intl.formatMessage({
+        defaultMessage: 'Premium is required to access premium questions',
+        description: 'Title for premium questions feature',
+        id: '7wfbGH',
+      }),
+    },
+    'study-plans': {
+      title: intl.formatMessage({
+        defaultMessage: 'Premium is required to access study plans',
+        description: 'Title for study plans feature',
+        id: '0XJ7cT',
+      }),
+    },
+  };
+
+  const { title } = featuresHeading[feature];
 
   const subtitle = intl.formatMessage({
     defaultMessage:

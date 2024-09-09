@@ -132,6 +132,7 @@ export default function InterviewsCompanyGuidePage({
         <div className="md:col-span-2">
           <QuestionsLearningListTitleSection
             description={<MDXContent mdxCode={companyGuide.body.code} />}
+            feature="company-guides"
             icon={({ className, ...props }) => (
               <RiGoogleFill
                 className={clsx('text-neutral-900', className)}
@@ -210,17 +211,7 @@ export default function InterviewsCompanyGuidePage({
                 <div className={clsx('absolute bottom-0 w-full px-8')}>
                   <QuestionPaywall
                     background={false}
-                    subtitle={intl.formatMessage({
-                      defaultMessage:
-                        'Purchase premium to unlock full access to the company guides and all questions with high quality solutions',
-                      description: 'Study plans paywall description',
-                      id: 'DXfMmT',
-                    })}
-                    title={intl.formatMessage({
-                      defaultMessage: 'Premium company guides',
-                      description: 'Company guides paywall title',
-                      id: 'hRQS6E',
-                    })}
+                    feature="company-guides"
                   />
                 </div>
               </div>

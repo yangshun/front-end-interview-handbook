@@ -3,7 +3,10 @@ import type { ReactNode } from 'react';
 
 import InterviewsPageFeatures from '~/components/interviews/common/InterviewsPageFeatures';
 import InterviewsPageHeaderLogo from '~/components/interviews/common/InterviewsPageHeaderLogo';
-import type { QuestionMetadata } from '~/components/interviews/questions/common/QuestionsTypes';
+import type {
+  QuestionFeatureType,
+  QuestionMetadata,
+} from '~/components/interviews/questions/common/QuestionsTypes';
 import Heading from '~/components/ui/Heading';
 import Text from '~/components/ui/Text';
 import { themeTextColor } from '~/components/ui/theme';
@@ -14,6 +17,7 @@ import QuestionsListSession from './QuestionsListSession';
 
 type CommonProps = Readonly<{
   description: ReactNode;
+  feature?: QuestionFeatureType;
   features: ReadonlyArray<{
     icon: (props: React.ComponentProps<'svg'>) => JSX.Element;
     label: string;
@@ -50,6 +54,7 @@ export default function QuestionsLearningListPageTitleSection({
   questions,
   progressTrackingAvailableToNonPremiumUsers = false,
   logoImgSrc,
+  feature,
   ...props
 }: Props) {
   return (
@@ -96,6 +101,7 @@ export default function QuestionsLearningListPageTitleSection({
       {/* Start/End Session */}
       {props.questionsSessionKey && (
         <QuestionsListSession
+          feature={feature}
           overallProgress={overallProgress}
           progressTrackingAvailableToNonPremiumUsers={
             progressTrackingAvailableToNonPremiumUsers
