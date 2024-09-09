@@ -243,6 +243,10 @@
     "defaultMessage": "This is the name that will be shown on your profile. Use a maximum of {maxLength} character(s).",
     "description": "Name field description"
   },
+  "0/Rv7O": {
+    "defaultMessage": "Curated by ex-interviewers",
+    "description": "Features for focus areas question listing"
+  },
   "01jNoZ": {
     "defaultMessage": "Get started",
     "description": "Hint for \"Project Brief\" and \"Assets\" tab on Projects project page"
@@ -2110,6 +2114,10 @@
   "Dt7sc8": {
     "defaultMessage": "Tackle real-world front end projects designed by ex-FAANG engineers. Elevate your skills, build your portfolio, and connect with an active community.",
     "description": "Description of Projects page"
+  },
+  "DthPOl": {
+    "defaultMessage": "{questionCount} solved practice questions",
+    "description": "Features for focus areas question listing"
   },
   "Dynazi": {
     "defaultMessage": "(Save {discountPercentage}% vs monthly)",
@@ -7462,6 +7470,10 @@
   "nxJioH": {
     "defaultMessage": "Warnings",
     "description": "Select label for warning log level in console filter"
+  },
+  "nyYJ7j": {
+    "defaultMessage": "Time efficient",
+    "description": "Features for focus areas question listing"
   },
   "o+1cag": {
     "defaultMessage": "Clear Console",

@@ -1,19 +1,29 @@
 'use client';
 
 import clsx from 'clsx';
-import { RiArrowLeftLine } from 'react-icons/ri';
+import type { InterviewsListingBottomContent } from 'contentlayer/generated';
+import {
+  RiArrowLeftLine,
+  RiQuestionnaireLine,
+  RiTimerLine,
+  RiVerifiedBadgeLine,
+} from 'react-icons/ri';
 import { useIntl } from 'react-intl';
 
 import { trpc } from '~/hooks/trpc';
 
+import { INTERVIEWS_REVAMP_2024 } from '~/data/FeatureFlags';
 import type { FocusArea } from '~/data/focus-areas/FocusAreas';
 import { getFocusAreaTheme } from '~/data/focus-areas/FocusAreas';
 
 import type { QuestionMetadata } from '~/components/interviews/questions/common/QuestionsTypes';
 import QuestionsLearningList from '~/components/interviews/questions/listings/learning/QuestionsLearningList';
+import QuestionsLearningListPageTitleSection from '~/components/interviews/questions/listings/learning/QuestionsLearningListPageTitleSection';
 import QuestionsLearningListTitleSection from '~/components/interviews/questions/listings/learning/QuestionsLearningListTitleSection';
+import MDXContent from '~/components/mdx/MDXContent';
 import Button from '~/components/ui/Button';
 import Container from '~/components/ui/Container';
+import Divider from '~/components/ui/Divider';
 import Section from '~/components/ui/Heading/HeadingContext';
 
 import {
@@ -25,6 +35,7 @@ import {
 import { useUser } from '@supabase/auth-helpers-react';
 
 type Props = Readonly<{
+  bottomContent?: InterviewsListingBottomContent;
   codingQuestions: ReadonlyArray<QuestionMetadata>;
   focusArea: FocusArea;
   quizQuestions: ReadonlyArray<QuestionMetadata>;
@@ -36,6 +47,7 @@ export default function InterviewsFocusAreaPage({
   codingQuestions,
   systemDesignQuestions,
   focusArea,
+  bottomContent,
 }: Props) {
   const intl = useIntl();
   const user = useUser();
@@ -56,14 +68,40 @@ export default function InterviewsFocusAreaPage({
   const focusAreaTheme = getFocusAreaTheme(focusArea.type);
   const questionCount = countNumberOfQuestionsInList(focusArea.questions);
 
+  const features = [
+    {
+      icon: RiQuestionnaireLine,
+      label: intl.formatMessage(
+        {
+          defaultMessage: '{questionCount} solved practice questions',
+          description: 'Features for focus areas question listing',
+          id: 'DthPOl',
+        },
+        { questionCount },
+      ),
+    },
+    {
+      icon: RiVerifiedBadgeLine,
+      label: intl.formatMessage({
+        defaultMessage: 'Curated by ex-interviewers',
+        description: 'Features for focus areas question listing',
+        id: '0/Rv7O',
+      }),
+    },
+
+    {
+      icon: RiTimerLine,
+      label: intl.formatMessage({
+        defaultMessage: 'Time efficient',
+        description: 'Features for focus areas question listing',
+        id: 'nyYJ7j',
+      }),
+    },
+  ];
+
   return (
-    <div
-      className={clsx(
-        'flex flex-col gap-y-12',
-        'py-4 md:py-6 lg:py-8 xl:py-16',
-        'relative',
-      )}>
-      <Container className="relative flex flex-col gap-y-5">
+    <Container className={clsx('flex flex-col gap-y-12', 'py-12', 'relative')}>
+      <div className="relative flex flex-col gap-y-8">
         <div>
           <Button
             addonPosition="start"
@@ -79,33 +117,60 @@ export default function InterviewsFocusAreaPage({
             variant="tertiary"
           />
         </div>
-        <QuestionsLearningListTitleSection
-          description={focusArea.description}
-          icon={focusAreaTheme.iconOutline}
-          overallProgress={questionProgressParam ?? []}
-          progressTrackingAvailableToNonPremiumUsers={true}
-          questionCount={questionCount}
-          questionListKey={focusArea.type}
-          questions={[
-            ...codingQuestions,
-            ...quizQuestions,
-            ...systemDesignQuestions,
-          ]}
-          themeBackgroundClass={focusAreaTheme.gradient.className}
-          title={focusArea.longName}
-        />
-      </Container>
-      <Section>
-        <Container className="pb-12">
-          <QuestionsLearningList
-            codingQuestions={codingQuestions}
-            listKey={focusArea.type}
-            overallProgress={questionsOverallProgress}
-            quizQuestions={quizQuestions}
-            systemDesignQuestions={systemDesignQuestions}
+        {INTERVIEWS_REVAMP_2024 ? (
+          <>
+            <QuestionsLearningListPageTitleSection
+              description={focusArea.description}
+              features={features}
+              icon={focusAreaTheme.iconOutline}
+              overallProgress={questionProgressParam ?? []}
+              questions={[
+                ...quizQuestions,
+                ...codingQuestions,
+                ...systemDesignQuestions,
+              ]}
+              questionsSessionKey={focusArea.type}
+              themeBackgroundClass={focusAreaTheme.gradient.className}
+              title={focusArea.longName}
+            />
+            <Divider />
+          </>
+        ) : (
+          <QuestionsLearningListTitleSection
+            description={focusArea.description}
+            icon={focusAreaTheme.iconOutline}
+            overallProgress={questionProgressParam ?? []}
+            progressTrackingAvailableToNonPremiumUsers={true}
+            questionCount={questionCount}
+            questionListKey={focusArea.type}
+            questions={[
+              ...codingQuestions,
+              ...quizQuestions,
+              ...systemDesignQuestions,
+            ]}
+            themeBackgroundClass={focusAreaTheme.gradient.className}
+            title={focusArea.longName}
           />
-        </Container>
+        )}
+      </div>
+      <Section>
+        <QuestionsLearningList
+          codingQuestions={codingQuestions}
+          listKey={focusArea.type}
+          overallProgress={questionsOverallProgress}
+          quizQuestions={quizQuestions}
+          systemDesignQuestions={systemDesignQuestions}
+        />
       </Section>
-    </div>
+
+      {bottomContent && (
+        <>
+          <Divider className="my-8" />
+          <Section>
+            <MDXContent mdxCode={bottomContent.body.code} />
+          </Section>
+        </>
+      )}
+    </Container>
   );
 }

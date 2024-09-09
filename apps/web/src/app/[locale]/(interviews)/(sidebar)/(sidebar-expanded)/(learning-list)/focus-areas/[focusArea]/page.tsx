@@ -8,6 +8,7 @@ import { getFocusAreas } from '~/data/focus-areas/FocusAreas';
 import type { QuestionMetadata } from '~/components/interviews/questions/common/QuestionsTypes';
 import { sortQuestions } from '~/components/interviews/questions/listings/filters/QuestionsProcessor';
 
+import { fetchInterviewListingBottomContent } from '~/db/contentlayer/InterviewsListingBottomContentReader';
 import { fetchQuestionsBySlug } from '~/db/QuestionsListReader';
 import { getIntlServerOnly } from '~/i18n';
 import { generateStaticParamsWithLocale } from '~/next-i18nostic/src';
@@ -15,6 +16,7 @@ import defaultMetadata from '~/seo/defaultMetadata';
 import { getSiteOrigin } from '~/seo/siteUrl';
 
 import InterviewsFocusAreaPage from './InterviewsFocusAreaPage';
+import { INTERVIEWS_REVAMP_BOTTOM_CONTENT } from '../../../../../../../../data/FeatureFlags';
 
 async function getFocusAreaSEO(focusAreaType: FocusAreaType, locale: string) {
   const intl = await getIntlServerOnly(locale);
@@ -76,9 +78,12 @@ export default async function Page({ params }: Props) {
   const focusAreas = getFocusAreas(intl as IntlShape);
   const focusArea = focusAreas[focusAreaType];
 
-  const { title, description } = await getFocusAreaSEO(focusAreaType, locale);
+  const [{ title, description }, questions, bottomContent] = await Promise.all([
+    getFocusAreaSEO(focusAreaType, locale),
+    fetchQuestionsBySlug(focusArea.questions, locale),
+    fetchInterviewListingBottomContent(`${focusAreaType}-focus-area`),
+  ]);
 
-  const questions = await fetchQuestionsBySlug(focusArea.questions, locale);
   const codingQuestionsForPlan = [
     ...questions.javascript,
     ...questions['user-interface'],
@@ -99,6 +104,9 @@ export default async function Page({ params }: Props) {
         useAppDir={true}
       />
       <InterviewsFocusAreaPage
+        bottomContent={
+          INTERVIEWS_REVAMP_BOTTOM_CONTENT ? bottomContent : undefined
+        }
         codingQuestions={codingQuestionsForPlan}
         focusArea={focusArea}
         quizQuestions={sortQuestions(
