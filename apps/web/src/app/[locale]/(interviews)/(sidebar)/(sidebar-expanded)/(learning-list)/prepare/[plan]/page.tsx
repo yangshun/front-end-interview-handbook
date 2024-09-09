@@ -11,6 +11,7 @@ import {
   sortQuestions,
 } from '~/components/interviews/questions/listings/filters/QuestionsProcessor';
 
+import { fetchInterviewListingBottomContent } from '~/db/contentlayer/InterviewsListingBottomContentReader';
 import { fetchPreparationPlans } from '~/db/PreparationPlansReader';
 import { fetchQuestionsBySlug } from '~/db/QuestionsListReader';
 import { getIntlServerOnly } from '~/i18n';
@@ -19,6 +20,7 @@ import defaultMetadata from '~/seo/defaultMetadata';
 import { getSiteOrigin } from '~/seo/siteUrl';
 
 import InterviewsStudyPlanPage from './InterviewsStudyPlanPage';
+import { INTERVIEWS_REVAMP_BOTTOM_CONTENT } from '../../../../../../../../data/FeatureFlags';
 
 async function getPreparationPlansSEO(
   planType: PreparationPlanType,
@@ -67,11 +69,14 @@ export default async function Page({ params }: Props) {
   const { locale, plan: planType } = params;
 
   const intl = await getIntlServerOnly(locale);
-  // TODO: Remove this IntlShape typecast.
-  const preparationPlans = await fetchPreparationPlans(intl as IntlShape);
+  const [preparationPlans, { title, description }, bottomContent] =
+    await Promise.all([
+      // TODO: Remove this IntlShape typecast.
+      fetchPreparationPlans(intl as IntlShape),
+      getPreparationPlansSEO(planType, locale),
+      fetchInterviewListingBottomContent(`${planType}-study-plan`),
+    ]);
   const preparationPlan = preparationPlans[planType];
-
-  const { title, description } = await getPreparationPlansSEO(planType, locale);
 
   const questions = await fetchQuestionsBySlug(
     preparationPlan.questions,
@@ -102,6 +107,9 @@ export default async function Page({ params }: Props) {
         useAppDir={true}
       />
       <InterviewsStudyPlanPage
+        bottomContent={
+          INTERVIEWS_REVAMP_BOTTOM_CONTENT ? bottomContent : undefined
+        }
         codingQuestions={codingQuestionsForPlan}
         difficultySummary={difficultySummary}
         plan={preparationPlan}

@@ -1,11 +1,18 @@
 'use client';
 
 import clsx from 'clsx';
-import { RiArrowLeftLine } from 'react-icons/ri';
+import type { InterviewsListingBottomContent } from 'contentlayer/generated';
+import {
+  RiArrowLeftLine,
+  RiQuestionnaireLine,
+  RiTimerLine,
+  RiVerifiedBadgeLine,
+} from 'react-icons/ri';
 import { useIntl } from 'react-intl';
 
 import { trpc } from '~/hooks/trpc';
 
+import { INTERVIEWS_REVAMP_2024 } from '~/data/FeatureFlags';
 import type { PreparationPlan } from '~/data/plans/PreparationPlans';
 import { getPreparationPlanTheme } from '~/data/plans/PreparationPlans';
 
@@ -17,9 +24,12 @@ import type {
 } from '~/components/interviews/questions/common/QuestionsTypes';
 import QuestionsList from '~/components/interviews/questions/listings/items/QuestionsList';
 import QuestionsLearningList from '~/components/interviews/questions/listings/learning/QuestionsLearningList';
+import QuestionsLearningListPageTitleSection from '~/components/interviews/questions/listings/learning/QuestionsLearningListPageTitleSection';
 import QuestionsLearningListTitleSection from '~/components/interviews/questions/listings/learning/QuestionsLearningListTitleSection';
+import MDXContent from '~/components/mdx/MDXContent';
 import Button from '~/components/ui/Button';
 import Container from '~/components/ui/Container';
+import Divider from '~/components/ui/Divider';
 import Section from '~/components/ui/Heading/HeadingContext';
 
 import {
@@ -31,6 +41,7 @@ import {
 import { useUser } from '@supabase/auth-helpers-react';
 
 type Props = Readonly<{
+  bottomContent?: InterviewsListingBottomContent;
   codingQuestions: ReadonlyArray<QuestionMetadata>;
   difficultySummary: Record<QuestionDifficulty, number>;
   plan: PreparationPlan;
@@ -44,6 +55,7 @@ export default function InterviewsStudyPlanPage({
   codingQuestions,
   systemDesignQuestions,
   plan,
+  bottomContent,
 }: Props) {
   const intl = useIntl();
   const { userProfile } = useUserProfile();
@@ -67,14 +79,39 @@ export default function InterviewsStudyPlanPage({
   const planTheme = getPreparationPlanTheme(plan.type);
   const questionCount = countNumberOfQuestionsInList(plan.questions);
 
+  const features = [
+    {
+      icon: RiVerifiedBadgeLine,
+      label: intl.formatMessage({
+        defaultMessage: 'Curated by ex-interviewers',
+        description: 'Features for study plans question listing',
+        id: 'rJK/mv',
+      }),
+    },
+    {
+      icon: RiQuestionnaireLine,
+      label: intl.formatMessage(
+        {
+          defaultMessage: '{questionCount} solved practice questions',
+          description: 'Features for study plans question listing',
+          id: 'wVk78R',
+        },
+        { questionCount },
+      ),
+    },
+    {
+      icon: RiTimerLine,
+      label: intl.formatMessage({
+        defaultMessage: 'Time efficient',
+        description: 'Features for study plans question listing',
+        id: 'a3MONw',
+      }),
+    },
+  ];
+
   return (
-    <div
-      className={clsx(
-        'flex flex-col gap-y-12',
-        'py-4 md:py-6 lg:py-8 xl:py-16',
-        'relative',
-      )}>
-      <Container className="relative flex flex-col gap-y-5">
+    <Container className={clsx('flex flex-col gap-y-12', 'py-12', 'relative')}>
+      <div className="relative flex flex-col gap-y-8">
         <div>
           <Button
             addonPosition="start"
@@ -90,25 +127,45 @@ export default function InterviewsStudyPlanPage({
             variant="tertiary"
           />
         </div>
-        <QuestionsLearningListTitleSection
-          description={plan.description}
-          difficultySummary={difficultySummary}
-          icon={planTheme.iconOutline}
-          overallProgress={questionProgressParam ?? []}
-          questionCount={questionCount}
-          questionListKey={plan.type}
-          questions={[
-            ...quizQuestions,
-            ...codingQuestions,
-            ...systemDesignQuestions,
-          ]}
-          schedule={plan.schedule}
-          themeBackgroundClass={planTheme.gradient.className}
-          title={plan.longName}
-        />
-      </Container>
+        {INTERVIEWS_REVAMP_2024 ? (
+          <>
+            <QuestionsLearningListPageTitleSection
+              description={plan.description}
+              features={features}
+              icon={planTheme.iconOutline}
+              overallProgress={questionProgressParam ?? []}
+              questions={[
+                ...quizQuestions,
+                ...codingQuestions,
+                ...systemDesignQuestions,
+              ]}
+              questionsSessionKey={plan.type}
+              themeBackgroundClass={planTheme.gradient.className}
+              title={plan.longName}
+            />
+            <Divider />
+          </>
+        ) : (
+          <QuestionsLearningListTitleSection
+            description={plan.description}
+            difficultySummary={difficultySummary}
+            icon={planTheme.iconOutline}
+            overallProgress={questionProgressParam ?? []}
+            questionCount={questionCount}
+            questionListKey={plan.type}
+            questions={[
+              ...quizQuestions,
+              ...codingQuestions,
+              ...systemDesignQuestions,
+            ]}
+            schedule={plan.schedule}
+            themeBackgroundClass={planTheme.gradient.className}
+            title={plan.longName}
+          />
+        )}
+      </div>
       <Section>
-        <Container className="pb-12">
+        <div>
           {canViewStudyPlans ? (
             <QuestionsLearningList
               codingQuestions={codingQuestions}
@@ -155,8 +212,16 @@ export default function InterviewsStudyPlanPage({
               </div>
             </div>
           )}
-        </Container>
+        </div>
       </Section>
-    </div>
+      {bottomContent && (
+        <>
+          <Divider className="my-8" />
+          <Section>
+            <MDXContent mdxCode={bottomContent.body.code} />
+          </Section>
+        </>
+      )}
+    </Container>
   );
 }

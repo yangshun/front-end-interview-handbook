@@ -199,7 +199,7 @@ export default function QuestionsListSession({
 
         if (questionListSession == null) {
           return (
-            <div className="flex flex-col items-end gap-3">
+            <div className="flex w-fit flex-col items-end gap-3">
               <Button
                 {...(userProfile == null && {
                   href: signInUpHref({
@@ -243,6 +243,7 @@ export default function QuestionsListSession({
           <div className="flex min-w-[363px] flex-col items-end gap-y-2">
             <Card
               className="flex justify-between gap-4 px-4 py-3"
+              classNameOuter="w-full"
               disableSpotlight={true}
               padding={false}
               pattern={false}>

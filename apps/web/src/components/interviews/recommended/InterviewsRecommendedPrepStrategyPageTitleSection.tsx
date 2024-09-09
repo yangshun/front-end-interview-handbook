@@ -22,23 +22,19 @@ import {
   dropdownContentClassName,
   dropdownContentItemClassName,
 } from '~/components/ui/DropdownMenu/dropdownStyles';
-import Heading from '~/components/ui/Heading';
 import Text from '~/components/ui/Text';
 import {
   themeBorderElementColor,
   themeOutlineElementBrandColor_FocusVisible,
   themeTextBrandColor_GroupHover,
-  themeTextColor,
   themeTextFainterColor,
   themeTextSubtleColor,
 } from '~/components/ui/theme';
 
 import type { QuestionProgress } from '~/db/QuestionsProgressTypes';
 
-import InterviewsPageFeatures from '../common/InterviewsPageFeatures';
-import InterviewsPageHeaderLogo from '../common/InterviewsPageHeaderLogo';
 import type { QuestionMetadata } from '../questions/common/QuestionsTypes';
-import QuestionsListSession from '../questions/listings/learning/QuestionsListSession';
+import QuestionsLearningListPageTitleSection from '../questions/listings/learning/QuestionsLearningListPageTitleSection';
 import QuestionListingQuestionCount from '../questions/listings/stats/QuestionListingQuestionCount';
 
 import * as DropdownMenuPrimitive from '@radix-ui/react-dropdown-menu';
@@ -282,43 +278,17 @@ export default function InterviewsRecommendedPrepStrategyPageTitleSection({
         </div>
       </div>
 
-      <div className="flex flex-col gap-6">
-        <div className="flex flex-col justify-between gap-x-8 gap-y-4 md:flex-row md:items-center">
-          <div className="flex items-center gap-6">
-            {'logo' in props ? (
-              props.logo
-            ) : (
-              <InterviewsPageHeaderLogo
-                icon={props.icon}
-                startColor="#EAE8FF"
-                stopColor="#787878"
-              />
-            )}
-            <Heading className={themeTextColor} color="custom" level="heading4">
-              {title}
-            </Heading>
-          </div>
-          {/* Start/End Session */}
-          {props.questionsSessionKey && (
-            <QuestionsListSession
-              overallProgress={overallProgress}
-              progressTrackingAvailableToNonPremiumUsers={false}
-              questionCount={75}
-              questionListKey={props.questionsSessionKey}
-              questions={questions}
-              themeBackgroundClass={themeBackgroundClass}
-            />
-          )}
-        </div>
-        <div className="flex flex-col gap-10">
-          <Text color="subtitle" size="body1" weight="medium">
-            {description}
-          </Text>
+      <QuestionsLearningListPageTitleSection
+        description={description}
+        features={features}
+        overallProgress={overallProgress}
+        progressTrackingAvailableToNonPremiumUsers={true}
+        questions={questions}
+        themeBackgroundClass={themeBackgroundClass}
+        title={title}
+        {...props}
+      />
 
-          {/* Features */}
-          <InterviewsPageFeatures features={features} />
-        </div>
-      </div>
       <Divider className="my-2 lg:my-0" />
       <div className={clsx('grid items-center gap-6 lg:grid-cols-12')}>
         <div className="lg:col-span-9">{longDescription}</div>

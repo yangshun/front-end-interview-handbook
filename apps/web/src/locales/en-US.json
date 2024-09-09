@@ -5407,6 +5407,10 @@
     "defaultMessage": "Challenge: {challengeName} | Completion steps",
     "description": "Title of Projects challenge completion page"
   },
+  "a3MONw": {
+    "defaultMessage": "Time efficient",
+    "description": "Features for study plans question listing"
+  },
   "a3gDom": {
     "defaultMessage": "Social links",
     "description": "Title of social links section of projects profile edit page"
@@ -7899,6 +7903,10 @@
     "defaultMessage": "This challenge can be unlocked without spending any credits because you have unlocked all pre-requisite challenges. Proceed to unlock challenge?",
     "description": "Message about unlocking challenges"
   },
+  "rJK/mv": {
+    "defaultMessage": "Curated by ex-interviewers",
+    "description": "Features for study plans question listing"
+  },
   "rLSGMd": {
     "defaultMessage": "<authorProfileLink>{author}</authorProfileLink> asked a question on the challenge forum for <link>{challengeTitle}</link>: <comment>\"{description}\"</comment>",
     "description": "Log message for someone asking a question on the challenge forum"
@@ -8606,6 +8614,10 @@
   "wUCEFX": {
     "defaultMessage": "Motivations for joining",
     "description": "Projects profile motivation for joining section title"
+  },
+  "wVk78R": {
+    "defaultMessage": "{questionCount} solved practice questions",
+    "description": "Features for study plans question listing"
   },
   "wW8IAK": {
     "defaultMessage": "No file selected from the repository. Select a file to view.",
