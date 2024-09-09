@@ -16,7 +16,8 @@ import Button from '~/components/ui/Button';
 import Divider from '~/components/ui/Divider';
 import {
   themeBackgroundColor,
-  themeBackgroundEmphasized_Hover,
+  themeBackgroundElementEmphasizedStateColor_Hover,
+  themeBackgroundElementPressedStateColor_Active,
   themeBorderColor,
   themeDivideColor,
   themeTextSubtleColor,
@@ -201,8 +202,20 @@ export default function TilesPanelItem<TabType extends string>({
           {showCollapsedTitle ? (
             <button
               className={clsx(
-                'size-full flex items-center gap-2 px-3 text-left text-xs font-medium transition-colors',
-                themeBackgroundEmphasized_Hover,
+                'size-full px-3',
+                'flex items-center gap-2',
+                'text-left text-xs font-medium',
+                'transition-colors',
+                'bg-transparent',
+                'text-neutral-600 dark:text-neutral-200',
+                [
+                  themeBackgroundElementEmphasizedStateColor_Hover,
+                  'hover:text-brand-darker dark:hover:text-brand',
+                ],
+                [
+                  themeBackgroundElementPressedStateColor_Active,
+                  'active:text-brand-dark dark:active:text-brand-light',
+                ],
               )}
               type="button"
               onClick={() => {

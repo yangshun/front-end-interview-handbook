@@ -3,7 +3,11 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 import { useDrag, useDrop } from 'react-dnd';
 import { RiCloseLine } from 'react-icons/ri';
 
-import { themeTextSubtleColor } from '~/components/ui/theme';
+import {
+  themeBackgroundElementEmphasizedStateColor_Hover,
+  themeBackgroundElementPressedStateColor_Active,
+  themeTextSubtleColor,
+} from '~/components/ui/theme';
 
 import { I18nLink } from '~/next-i18nostic/src';
 
@@ -222,7 +226,10 @@ export default function TilesPanelTab<TabType extends string>({
           : 'hover:bg-neutral-100 dark:hover:bg-neutral-900',
         isActive
           ? 'text-brand-dark dark:text-neutral-100'
-          : themeTextSubtleColor,
+          : [
+              themeTextSubtleColor,
+              'hover:text-brand-darker dark:hover:text-brand',
+            ],
         closeable ? 'pl-2 pr-1' : 'px-2',
       )}>
       {href ? (
