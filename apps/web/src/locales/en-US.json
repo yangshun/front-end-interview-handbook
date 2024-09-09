@@ -115,6 +115,10 @@
     "defaultMessage": "Previous image",
     "description": "Label for previous image"
   },
+  "+wAHkD": {
+    "defaultMessage": "Prepare well for your front end interviews regardless of time left.",
+    "description": "Description for study plans page"
+  },
   "+wR7CJ": {
     "defaultMessage": "Legal",
     "description": "Section heading in footer for links to legal pages like privacy policy and terms of service"
@@ -1514,6 +1518,10 @@
   "9nq03w": {
     "defaultMessage": "Others",
     "description": "Label for \"Others\" option in YOE replacement"
+  },
+  "9qNteR": {
+    "defaultMessage": "Received after using GreatFrontEnd",
+    "description": "Testimonials overview"
   },
   "9qO5Il": {
     "defaultMessage": "Pricing",
@@ -4467,6 +4475,10 @@
     "defaultMessage": "Front End System Design",
     "description": "Short title of front end system design guidebook"
   },
+  "TUW8Tm": {
+    "defaultMessage": "{offerCount} offers",
+    "description": "Testimonials overview"
+  },
   "TW5R5d": {
     "defaultMessage": "Dashboard",
     "description": "Label for dashboard title for logged in user"
@@ -4674,6 +4686,10 @@
   "VA0CqT": {
     "defaultMessage": "1-2 lines on what the project is about, to be displayed on the Submission cards to attract the community to comment on your project",
     "description": "Form label tooltip"
+  },
+  "VBLk5q": {
+    "defaultMessage": "With our study plans, many users have secured multiple offers at leading companies with substantial TC gains. You could be next.",
+    "description": "Testimonials section description of study plans page"
   },
   "VBOVcb": {
     "defaultMessage": "Try these popular React questions",
@@ -6175,6 +6191,10 @@
     "defaultMessage": "{submissionTitle} | {username} | {challengeName}",
     "description": "Title of Projects submission page"
   },
+  "fNJWwT": {
+    "defaultMessage": "Curated by ex-interviewers",
+    "description": "Features for study plans"
+  },
   "fO4Txx": {
     "defaultMessage": "Pin this submission",
     "description": "Tooltip for pin submission button"
@@ -6422,6 +6442,10 @@
   "gvLQbK": {
     "defaultMessage": "Premium Discord",
     "description": "Link to the premium Discord server"
+  },
+  "gvncuz": {
+    "defaultMessage": "Prioritized lists",
+    "description": "Features for study plans"
   },
   "h37Wmk": {
     "defaultMessage": "Discover roadmap for upcoming features in Great Frontend Projects.",
@@ -6743,6 +6767,10 @@
     "defaultMessage": "Component libraries for your portfolio",
     "description": "Title for recommended action for new projects platform user"
   },
+  "jZFgzW": {
+    "defaultMessage": "Hear it from our users",
+    "description": "Testimonials section heading of study plans page"
+  },
   "jZfj55": {
     "defaultMessage": "Remove photo",
     "description": "Label for remove photo"
@@ -6882,6 +6910,10 @@
   "kJjxxA": {
     "defaultMessage": "This is an irreversible action. You will not be able to resume the list and all progress will be erased. Are you sure?",
     "description": "Confirmation text for stopping a study list"
+  },
+  "kJoI6P": {
+    "defaultMessage": "{growthFactor}x",
+    "description": "Testimonials overview"
   },
   "kK7Cf2": {
     "defaultMessage": "Invalid inputs. Please check that you have filled in the username or profile URL correctly.",
@@ -7238,6 +7270,10 @@
   "mcOOtE": {
     "defaultMessage": "Host the project for free on our recommended hosts and submit your project URL for reviews",
     "description": "Instruction for projects"
+  },
+  "meAtoW": {
+    "defaultMessage": "Increase in total compensation",
+    "description": "Testimonials overview"
   },
   "mflEX7": {
     "defaultMessage": "You made a post on <recipientProfileLink>{recipient}</recipientProfileLink>'s submission <link>{submissionTitle}</link>: <comment>\"{description}\"</comment>",
@@ -8706,6 +8742,10 @@
   "xmK6tB": {
     "defaultMessage": "Build the foundation from ground up for reuse",
     "description": "Short description for \"Design systems\" feature on Projects home page"
+  },
+  "xoXirC": {
+    "defaultMessage": "Time-efficient",
+    "description": "Features for study plans"
   },
   "xsLz0P": {
     "defaultMessage": "Security",

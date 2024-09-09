@@ -1,16 +1,19 @@
 import type { Metadata } from 'next/types';
 import type { IntlShape } from 'react-intl';
 
+import { INTERVIEWS_REVAMP_2024 } from '~/data/FeatureFlags';
 import type { PreparationPlan } from '~/data/plans/PreparationPlans';
 
 import type { QuestionDifficulty } from '~/components/interviews/questions/common/QuestionsTypes';
 import { countQuestionsByDifficulty } from '~/components/interviews/questions/listings/filters/QuestionsProcessor';
 
+import { fetchInterviewListingBottomContent } from '~/db/contentlayer/InterviewsListingBottomContentReader';
 import { fetchPreparationPlans } from '~/db/PreparationPlansReader';
 import { fetchQuestionsBySlug } from '~/db/QuestionsListReader';
 import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
 
+import InterviewsRevampStudyPlansPage from './InteriewsRevampStudyPlansPage';
 import InterviewsStudyPlansPage from './InterviewsStudyPlansPage';
 
 // TODO(interviews): disable to do A/B test.
@@ -81,25 +84,29 @@ export default async function Page({ params }: Props) {
 
   const intl = await getIntlServerOnly(locale);
   const preparationPlans = await fetchPreparationPlans(intl as IntlShape);
+
   const [
     difficultySummaryOneWeek,
     difficultySummaryOneMonth,
     difficultySummaryThreeMonths,
-    difficultySummaryGFE75,
-    difficultySummaryBlind75,
+    bottomContent,
   ] = await Promise.all([
     getDifficultySummaryForPlan(preparationPlans['one-week'], locale),
     getDifficultySummaryForPlan(preparationPlans['one-month'], locale),
     getDifficultySummaryForPlan(preparationPlans['three-months'], locale),
-    getDifficultySummaryForPlan(preparationPlans.greatfrontend75, locale),
-    getDifficultySummaryForPlan(preparationPlans.blind75, locale),
+    fetchInterviewListingBottomContent('study-plans'),
   ]);
 
-  return (
+  return INTERVIEWS_REVAMP_2024 ? (
+    <InterviewsRevampStudyPlansPage
+      bottomContent={bottomContent}
+      preparationPlans={preparationPlans}
+    />
+  ) : (
     <InterviewsStudyPlansPage
       plansDifficultySummary={{
-        blind75: difficultySummaryBlind75,
-        greatfrontend75: difficultySummaryGFE75,
+        blind75: difficultySummaryOneMonth,
+        greatfrontend75: difficultySummaryOneMonth,
         'one-month': difficultySummaryOneMonth,
         'one-week': difficultySummaryOneWeek,
         'three-months': difficultySummaryThreeMonths,

@@ -6,13 +6,12 @@ import { FormattedMessage, useIntl } from 'react-intl';
 
 import { trpc } from '~/hooks/trpc';
 
-import { INTERVIEWS_REVAMP_2024 } from '~/data/FeatureFlags';
-import type {
-  PreparationPlan,
-  PreparationPlans,
-  PreparationPlanType,
+import {
+  getPreparationPlanTheme,
+  type PreparationPlan,
+  type PreparationPlans,
+  type PreparationPlanType,
 } from '~/data/plans/PreparationPlans';
-import { getPreparationPlanTheme } from '~/data/plans/PreparationPlans';
 
 import InterviewsMarketingTestimonialCard from '~/components/interviews/marketing/testimonials/InterviewsMarketingTestimonialCard';
 import { useInterviewsMarketingTestimonialsDict } from '~/components/interviews/marketing/testimonials/InterviewsMarketingTestimonials';
@@ -152,16 +151,9 @@ export default function InterviewsStudyPlansPage({
 
   const preparationPlanSections: Array<PreparationPlanSection> = [
     {
-      plans: (
-        [
-          'one-week',
-          'one-month',
-          'three-months',
-          ...(INTERVIEWS_REVAMP_2024
-            ? (['greatfrontend75', 'blind75'] as const)
-            : ([] as const)),
-        ] as const
-      ).map((key) => preparationPlans[key]),
+      plans: (['one-week', 'one-month', 'three-months'] as const).map(
+        (key) => preparationPlans[key],
+      ),
       title: intl.formatMessage({
         defaultMessage: 'Holistic study plans',
         description: 'Title of list of study plans',
