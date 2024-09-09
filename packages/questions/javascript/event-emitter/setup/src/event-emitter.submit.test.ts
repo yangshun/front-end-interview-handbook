@@ -68,16 +68,16 @@ describe('EventEmitter', () => {
       const emitter = new EventEmitter();
 
       let num = 1;
-      function square() {
+      function double() {
         num *= 2;
       }
 
-      emitter.on('square', square);
-      emitter.emit('square');
+      emitter.on('double', double);
+      emitter.emit('double');
       expect(num).toBe(2);
 
-      emitter.on('square', square);
-      emitter.emit('square');
+      emitter.on('double', double);
+      emitter.emit('double');
       expect(num).toBe(8);
     });
   });
@@ -226,24 +226,24 @@ describe('EventEmitter', () => {
       const emitter = new EventEmitter();
 
       let num = 1;
-      function square() {
+      function double() {
         num *= 2;
       }
 
-      emitter.on('square', square);
-      emitter.emit('square');
+      emitter.on('double', double);
+      emitter.emit('double');
       expect(num).toBe(2);
 
-      emitter.on('square', square);
-      emitter.emit('square');
+      emitter.on('double', double);
+      emitter.emit('double');
       expect(num).toBe(8);
 
-      emitter.off('square', square);
-      emitter.emit('square');
+      emitter.off('double', double);
+      emitter.emit('double');
       expect(num).toBe(16);
 
-      emitter.off('square', square);
-      emitter.emit('square');
+      emitter.off('double', double);
+      emitter.emit('double');
       expect(num).toBe(16);
     });
   });
