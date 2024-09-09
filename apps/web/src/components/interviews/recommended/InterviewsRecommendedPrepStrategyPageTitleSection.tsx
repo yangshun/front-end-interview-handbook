@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 import { usePathname } from 'next/navigation';
-import { type ReactNode } from 'react';
+import type { ReactNode } from 'react';
 import {
   RiArrowDownSLine,
   RiArrowRightLine,
@@ -14,16 +14,12 @@ import Anchor from '~/components/ui/Anchor';
 import Badge from '~/components/ui/Badge';
 import Chip from '~/components/ui/Chip';
 import Divider from '~/components/ui/Divider';
-import {
-  dropdownContentClassName,
-  dropdownContentItemClassName,
-} from '~/components/ui/DropdownMenu/dropdownStyles';
+import Popover from '~/components/ui/Popover';
 import Text from '~/components/ui/Text';
 import {
   themeBorderElementColor,
   themeOutlineElementBrandColor_FocusVisible,
   themeTextBrandColor_GroupHover,
-  themeTextFainterColor,
   themeTextSubtleColor,
 } from '~/components/ui/theme';
 
@@ -34,10 +30,9 @@ import type { QuestionMetadata } from '../questions/common/QuestionsTypes';
 import QuestionsLearningListPageTitleSection from '../questions/listings/learning/QuestionsLearningListPageTitleSection';
 import QuestionListingQuestionCount from '../questions/listings/stats/QuestionListingQuestionCount';
 
-import * as DropdownMenuPrimitive from '@radix-ui/react-dropdown-menu';
 import { useUser } from '@supabase/auth-helpers-react';
 
-function OtherItemsDropdown({
+function RecommendedItemsDropdown({
   sessions,
 }: {
   sessions: ReadonlyArray<{
@@ -53,7 +48,7 @@ function OtherItemsDropdown({
   const blind75session = sessions.find(
     (session_) => session_.key === 'blind75',
   );
-  // TODO(interviews-revamp): Recheck the data and need to add completed status to the chip
+
   const items = [
     {
       href: '/front-end-interview-guidebook',
@@ -62,11 +57,13 @@ function OtherItemsDropdown({
     },
     {
       href: '/interviews/greatfrontend75',
+      // TODO(interviews): better way to count completion.
       isCompleted: gfe75session?._count.progress === 75,
       label: 'GFE 75',
     },
     {
       href: '/interviews/blind75',
+      // TODO(interviews): better way to count completion.
       isCompleted: blind75session?._count.progress === 75,
       label: 'Blind 75',
     },
@@ -80,111 +77,106 @@ function OtherItemsDropdown({
   const pathname = usePathname();
 
   return (
-    <DropdownMenuPrimitive.Root>
-      <DropdownMenuPrimitive.Trigger
-        className={clsx(
-          'flex items-center gap-1',
-          themeOutlineElementBrandColor_FocusVisible,
-        )}>
-        <Text
-          className="line-clamp-1 text-ellipsis text-left"
-          size="body3"
-          weight="medium">
-          <FormattedMessage
-            defaultMessage="{count} other items"
-            description="Trigger label for other items"
-            id="59u5/i"
-            values={{
-              count: items.length,
-            }}
-          />
-        </Text>
-        <RiArrowDownSLine
-          aria-hidden={true}
-          className={clsx('size-4 shrink-0', themeTextSubtleColor)}
-        />
-      </DropdownMenuPrimitive.Trigger>
-      <DropdownMenuPrimitive.Portal>
-        <DropdownMenuPrimitive.Content
-          align="start"
-          className={clsx(dropdownContentClassName, 'gap-6 p-6')}
-          sideOffset={8}>
-          <Text color="secondary" size="body3" weight="medium">
+    <Popover
+      className="flex flex-col gap-6 !p-6"
+      side="bottom"
+      trigger={
+        <button
+          className={clsx(
+            'flex items-center gap-1',
+            themeOutlineElementBrandColor_FocusVisible,
+          )}
+          type="button">
+          <Text
+            className="line-clamp-1 text-ellipsis text-left"
+            size="body3"
+            weight="medium">
             <FormattedMessage
-              defaultMessage="Recommended prep strategy"
-              description="Label for other items dropdown"
-              id="gBdxyo"
+              defaultMessage="{count} other items"
+              description="Trigger label for other items"
+              id="59u5/i"
+              values={{
+                count: items.length - 1,
+              }}
             />
           </Text>
-          <div className={clsx('relative flex flex-col gap-6')}>
-            {items.map(({ label, href, isCompleted }, index) => {
-              const isSelected = pathname ? href.startsWith(pathname) : false;
+          <RiArrowDownSLine
+            aria-hidden={true}
+            className={clsx('size-4 shrink-0', themeTextSubtleColor)}
+          />
+        </button>
+      }>
+      <Text className="block" color="secondary" size="body3" weight="medium">
+        <FormattedMessage
+          defaultMessage="Recommended prep strategy"
+          description="Label for other items dropdown"
+          id="gBdxyo"
+        />
+      </Text>
+      <div className="flex flex-col gap-6">
+        {items.map(({ label, href, isCompleted }, index) => {
+          const isSelected = pathname ? href.startsWith(pathname) : false;
 
-              return (
-                <div key={label} className="flex w-full gap-4">
+          return (
+            <div key={label} className="flex w-full gap-4">
+              <div
+                className={clsx(
+                  'relative flex flex-col justify-center self-stretch',
+                )}>
+                {isCompleted ? (
+                  <Chip
+                    icon={RiCheckFill}
+                    isLabelHidden={true}
+                    label="Completed"
+                    size="sm"
+                    variant="success"
+                  />
+                ) : (
+                  <Chip
+                    label={(index + 1).toString()}
+                    size="sm"
+                    variant={isSelected ? 'active' : 'neutral'}
+                  />
+                )}
+                {index < items.length - 1 && (
                   <div
                     className={clsx(
-                      'relative flex flex-col justify-center self-stretch',
-                    )}>
-                    {isCompleted ? (
-                      <Chip
-                        icon={RiCheckFill}
-                        isLabelHidden={true}
-                        label="Completed"
-                        size="sm"
-                        variant="success"
-                      />
-                    ) : (
-                      <Chip
-                        label={(index + 1).toString()}
-                        size="sm"
-                        variant={isSelected ? 'active' : 'neutral'}
-                      />
+                      'absolute top-full h-4 w-px translate-y-1 self-center border-l',
+                      themeBorderElementColor,
                     )}
-                    {index < items.length - 1 && (
-                      <div
-                        className={clsx(
-                          'absolute top-1/2 h-[90%] w-px translate-y-3 self-center border-l',
-                          themeBorderElementColor,
-                        )}
-                      />
+                  />
+                )}
+              </div>
+              <Anchor
+                className={clsx(
+                  'flex grow items-center justify-between gap-4',
+                  'group',
+                  'transition-colors',
+                )}
+                href={href}
+                variant="unstyled">
+                <Text
+                  className="block group-hover:text-neutral-900 dark:group-hover:text-neutral-100"
+                  color={isSelected ? 'default' : 'secondary'}
+                  size="body2"
+                  weight={isSelected ? 'bold' : 'normal'}>
+                  {label}
+                </Text>
+                {!isSelected && (
+                  <RiArrowRightLine
+                    className={clsx(
+                      'size-4 shrink-0',
+                      themeTextSubtleColor,
+                      themeTextBrandColor_GroupHover,
                     )}
-                  </div>
-                  <DropdownMenuPrimitive.Item key={label} asChild={true}>
-                    <Anchor
-                      className={clsx(
-                        dropdownContentItemClassName,
-                        'justify-between gap-4',
-                        'group',
-                        'transition-colors',
-                      )}
-                      href={href}
-                      variant="unstyled">
-                      <Text
-                        className="block group-hover:text-neutral-900 dark:group-hover:text-neutral-100"
-                        color={isSelected ? 'default' : 'secondary'}
-                        size="body2"
-                        weight={isSelected ? 'bold' : 'normal'}>
-                        {label}
-                      </Text>
-                      <RiArrowRightLine
-                        className={clsx(
-                          'size-4 shrink-0',
-                          isSelected
-                            ? themeTextFainterColor
-                            : themeTextSubtleColor,
-                          themeTextBrandColor_GroupHover,
-                        )}
-                      />
-                    </Anchor>
-                  </DropdownMenuPrimitive.Item>
-                </div>
-              );
-            })}
-          </div>
-        </DropdownMenuPrimitive.Content>
-      </DropdownMenuPrimitive.Portal>
-    </DropdownMenuPrimitive.Root>
+                  />
+                )}
+              </Anchor>
+            </div>
+          );
+        })}
+      </div>
+    </Popover>
   );
 }
 
@@ -252,12 +244,10 @@ export default function InterviewsRecommendedPrepStrategyPageTitleSection({
             size="xs"
             variant="primary"
           />
-          <OtherItemsDropdown sessions={sessions} />
+          <RecommendedItemsDropdown sessions={sessions} />
         </div>
-
         <InterviewsPageHeaderActions metadata={metadata} />
       </div>
-
       <QuestionsLearningListPageTitleSection
         description={description}
         features={features}
@@ -268,7 +258,6 @@ export default function InterviewsRecommendedPrepStrategyPageTitleSection({
         title={title}
         {...props}
       />
-
       <Divider className="my-2 lg:my-0" />
       <div className={clsx('grid items-center gap-6 lg:grid-cols-12')}>
         <div className="lg:col-span-9">{longDescription}</div>
