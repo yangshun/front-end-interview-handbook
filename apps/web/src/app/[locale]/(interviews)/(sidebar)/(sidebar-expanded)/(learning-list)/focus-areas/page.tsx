@@ -1,6 +1,7 @@
 import type { Metadata } from 'next/types';
 import type { IntlShape } from 'react-intl';
 
+import { INTERVIEWS_REVAMP_2024 } from '~/data/FeatureFlags';
 import { getFocusAreas } from '~/data/focus-areas/FocusAreas';
 
 import type {
@@ -9,11 +10,13 @@ import type {
 } from '~/components/interviews/questions/common/QuestionsTypes';
 import { countQuestionsByDifficulty } from '~/components/interviews/questions/listings/filters/QuestionsProcessor';
 
+import { fetchInterviewListingBottomContent } from '~/db/contentlayer/InterviewsListingBottomContentReader';
 import { fetchQuestionsBySlug } from '~/db/QuestionsListReader';
 import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
 
 import InterviewsFocusAreaListPage from './InterviewsFocusAreaListPage';
+import InterviewsRevampFocusAreaListPage from './InterviewsRevampFocusAreaListPage';
 
 // TODO(interviews): disable to do A/B test.
 // export const dynamic = 'force-static';
@@ -115,8 +118,14 @@ export default async function Page({ params }: Props) {
       focusAreas['state-management'],
     ].map((area) => getDifficultySummaryForList(area, locale)),
   );
+  const bottomContent = await fetchInterviewListingBottomContent('focus-areas');
 
-  return (
+  return INTERVIEWS_REVAMP_2024 ? (
+    <InterviewsRevampFocusAreaListPage
+      bottomContent={bottomContent}
+      focusAreas={focusAreas}
+    />
+  ) : (
     <InterviewsFocusAreaListPage
       difficultySummary={{
         accessibility: difficultySummaryA11y,

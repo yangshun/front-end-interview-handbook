@@ -11,6 +11,7 @@ import { FormattedMessage, useIntl } from 'react-intl';
 
 import PreparationGFE75Logo from '~/data/plans/logo/PreparationGFE75Logo';
 
+import InterviewsEntityProgress from '~/components/interviews/common/InterviewsEntityProgress';
 import Anchor from '~/components/ui/Anchor';
 import Badge from '~/components/ui/Badge';
 import Chip from '~/components/ui/Chip';
@@ -26,8 +27,6 @@ import {
   themeTextColor,
   themeTextSubtleColor,
 } from '~/components/ui/theme';
-
-import InterviewsDashboardProgress from './InterviewsDashboardProgress';
 
 type PreparationStrategyItem = Readonly<{
   article?: {
@@ -113,7 +112,7 @@ function PreparationStrategyCard({ data }: { data: PreparationStrategyItem }) {
         {/* Progress */}
         <div className="gapy-y-2 flex flex-col gap-x-8 md:flex-row">
           {article && (
-            <InterviewsDashboardProgress
+            <InterviewsEntityProgress
               completed={article.completed}
               progressClassName={themeGradientGreenYellow.className}
               title={title}
@@ -122,7 +121,7 @@ function PreparationStrategyCard({ data }: { data: PreparationStrategyItem }) {
             />
           )}
           {question && (
-            <InterviewsDashboardProgress
+            <InterviewsEntityProgress
               completed={question.completed}
               progressClassName={themeGradientGreenYellow.className}
               title={title}

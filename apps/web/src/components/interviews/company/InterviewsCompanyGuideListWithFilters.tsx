@@ -1,11 +1,7 @@
 import clsx from 'clsx';
 import type { InterviewsCompanyGuide } from 'contentlayer/generated';
 import { useState } from 'react';
-import {
-  RiArrowRightLine,
-  RiQuestionnaireLine,
-  RiSearchLine,
-} from 'react-icons/ri';
+import { RiArrowRightLine, RiSearchLine } from 'react-icons/ri';
 import { useIntl } from 'react-intl';
 
 import { trpc } from '~/hooks/trpc';
@@ -13,6 +9,7 @@ import { trpc } from '~/hooks/trpc';
 import { INTERVIEWS_REVAMP_2024 } from '~/data/FeatureFlags';
 import { useQuestionUserFacingFormatData } from '~/data/QuestionFormats';
 
+import InterviewsEntityProgress from '~/components/interviews/common/InterviewsEntityProgress';
 import CompletionCountSummary from '~/components/interviews/questions/listings/stats/CompletionCountSummary';
 import QuestionCountLabel from '~/components/interviews/questions/metadata/QuestionCountLabel';
 import Anchor from '~/components/ui/Anchor';
@@ -25,6 +22,7 @@ import {
   themeBackgroundCardColor,
   themeBackgroundCardWhiteOnLightColor,
   themeBorderElementColor,
+  themeGradientGreenYellow,
   themeTextBrandColor_GroupHover,
   themeTextSubtleColor,
 } from '~/components/ui/theme';
@@ -93,7 +91,7 @@ function InterviewsCompanyGuideCard({
                 {name}
               </Text>
             </Anchor>
-            {isStarted && (
+            {isStarted && !INTERVIEWS_REVAMP_2024 && (
               <span>
                 <Badge
                   label={intl.formatMessage({
@@ -109,15 +107,13 @@ function InterviewsCompanyGuideCard({
           </div>
           <div className="z-[1] flex flex-wrap items-center gap-x-4 gap-y-2">
             {INTERVIEWS_REVAMP_2024 ? (
-              <QuestionCountLabel
-                count={questionCount}
-                icon={RiQuestionnaireLine}
-                label={intl.formatMessage({
-                  defaultMessage: 'Question count',
-                  description: 'Label for question count',
-                  id: 'b/AtxG',
-                })}
-                showIcon={true}
+              <InterviewsEntityProgress
+                completed={completionCount}
+                progressClassName={themeGradientGreenYellow.className}
+                showProgress={isStarted ?? false}
+                title={name}
+                total={questionCount}
+                type="question"
               />
             ) : (
               <>
@@ -145,13 +141,13 @@ function InterviewsCompanyGuideCard({
                     showIcon={true}
                   />
                 )}
+                {isStarted && (
+                  <CompletionCountSummary
+                    completed={completionCount}
+                    total={questionCount}
+                  />
+                )}
               </>
-            )}
-            {isStarted && (
-              <CompletionCountSummary
-                completed={completionCount}
-                total={questionCount}
-              />
             )}
           </div>
         </div>
@@ -229,10 +225,10 @@ export default function InterviewsCompanyGuideListWithFilters({
                 id: 'Kajzf7',
               })}
               title={intl.formatMessage({
-                defaultMessage: 'No companies',
+                defaultMessage: 'No result',
                 description:
                   'Title for empty state when application of filters return no results',
-                id: 'Ckm7RZ',
+                id: 'Up/FZA',
               })}
               variant="empty"
             />

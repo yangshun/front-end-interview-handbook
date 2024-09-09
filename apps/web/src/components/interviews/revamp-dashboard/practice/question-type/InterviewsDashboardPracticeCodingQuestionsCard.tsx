@@ -4,6 +4,7 @@ import { FormattedMessage, useIntl } from 'react-intl';
 
 import { useQuestionUserFacingFormatData } from '~/data/QuestionFormats';
 
+import InterviewsEntityProgress from '~/components/interviews/common/InterviewsEntityProgress';
 import type {
   QuestionCodingFormat,
   QuestionFramework,
@@ -25,7 +26,6 @@ import {
 import { categorizeQuestionsProgressByCodingFormat } from '~/db/QuestionsUtils';
 
 import InterviewsDashboardPracticeCard from '../InterviewsDashboardPracticeCard';
-import InterviewsDashboardProgress from '../../InterviewsDashboardProgress';
 
 type Props = Readonly<{
   questions: ReadonlyArray<QuestionMetadata>;
@@ -182,7 +182,7 @@ export default function InterviewsDashboardPracticeCodingQuestionsCard({
                 </>
               )}
 
-              <InterviewsDashboardProgress
+              <InterviewsEntityProgress
                 completed={format.completedQuestions}
                 progressClassName={format.themeGradient}
                 title={format.title}

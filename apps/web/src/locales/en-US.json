@@ -431,6 +431,10 @@
     "defaultMessage": "Most complete all-in-one front end interview preparation.",
     "description": "Short description for 3 months study plan"
   },
+  "1VQd95": {
+    "defaultMessage": "Official solutions and tests",
+    "description": "Features for focus areas"
+  },
   "1XjF3L": {
     "defaultMessage": "Medium",
     "description": "Label for medium question importance"
@@ -539,6 +543,10 @@
     "defaultMessage": "Holistic study plans",
     "description": "Title of list of study plans"
   },
+  "2M6LN4": {
+    "defaultMessage": "User Interface Development",
+    "description": "Title for focus area type"
+  },
   "2MMkM0": {
     "defaultMessage": "Cancel",
     "description": "Label for cancel end session button on end project session dialog"
@@ -574,6 +582,10 @@
   "2eIa8j": {
     "defaultMessage": "Basic general development guides, such as how to download and use an IDE, how to use tools like GitHub and Figma.",
     "description": "FAQ answer for projects platform"
+  },
+  "2fVNQZ": {
+    "defaultMessage": "{count} topical deep-dives",
+    "description": "Features for focus areas"
   },
   "2gImEH": {
     "defaultMessage": "Online assets",
@@ -1535,6 +1547,10 @@
     "defaultMessage": "{questionTitle} | Front End System Design Question",
     "description": "Title of system design question page"
   },
+  "9yHSXW": {
+    "defaultMessage": "Accessibility and Performance",
+    "description": "Title for focus area type"
+  },
   "A+H3cR": {
     "defaultMessage": "Practice Vanilla JavaScript UI Interview Questions with Solutions",
     "description": "Title of Vanilla JavaScript UI Interview Questions page"
@@ -1855,6 +1871,10 @@
     "defaultMessage": "Not written for this question.",
     "description": "Text that apppears if a solution has not been written for the question"
   },
+  "CPBDLd": {
+    "defaultMessage": "Deep-dive into topical focus areas critical for front end interviews.",
+    "description": "Description for focus areas page"
+  },
   "CQ3Vef": {
     "defaultMessage": "Importance",
     "description": "Question importance"
@@ -1898,10 +1918,6 @@
   "Cjz59k": {
     "defaultMessage": "Click here to try out the actual workspace instead of this embed.",
     "description": "Button label within embed"
-  },
-  "Ckm7RZ": {
-    "defaultMessage": "No companies",
-    "description": "Title for empty state when application of filters return no results"
   },
   "Cl4Ghp": {
     "defaultMessage": "On this page",
@@ -3162,6 +3178,10 @@
   "L4W5rT": {
     "defaultMessage": "You can choose to end a project session if you choose not to work on it anymore. We will stop prompting you to continue the project in the dashboard",
     "description": "Tooltip for \"End session\" button on current project session card"
+  },
+  "L7w0Ka": {
+    "defaultMessage": "Computer Science Foundations",
+    "description": "Title for focus area type"
   },
   "LBnblQ": {
     "defaultMessage": "Is GreatFrontEnd Interviews targeted at engineers of specific seniority?",
@@ -4635,6 +4655,10 @@
     "defaultMessage": "Logging you in...",
     "description": "Subtitle of AuthPage when logged in"
   },
+  "Up/FZA": {
+    "defaultMessage": "No result",
+    "description": "Title for empty state when application of filters return no results"
+  },
   "UrnJdy": {
     "defaultMessage": "Sharpen your skills in asynchronous programming by practicing the use of async/await, Promises, and callback functions.",
     "description": "Description for interview preparation focus area"
@@ -5479,6 +5503,10 @@
     "defaultMessage": "Tablet ({width}px x {height}px)",
     "description": "Responsive breakpoint category"
   },
+  "aatVPw": {
+    "defaultMessage": "To simplify your preparation, we've carefully organized the entire front end domain into 8 critical focus areas, each covering the most frequently tested topics in interviews.",
+    "description": "Long description for focus areas page"
+  },
   "abJ+kd": {
     "defaultMessage": "Development guides written & curated by Sr engineers at Big tech, such as:",
     "description": "Description for \"Official guides & resources\" item in Expected Support section on Projects project page"
@@ -5562,10 +5590,6 @@
   "b/4l5Z": {
     "defaultMessage": "Subscriptions are automatically renewed and you will be charged again then. You may cancel your subscription anytime via the Stripe billing portal.",
     "description": "Call to action text to uppgrade plan."
-  },
-  "b/AtxG": {
-    "defaultMessage": "Question count",
-    "description": "Label for question count"
   },
   "b/dKUR": {
     "defaultMessage": "This subset of test cases are used when \"Run\"-ning your code.",
@@ -5855,6 +5879,10 @@
     "defaultMessage": "Sign up for a free GreatFrontEnd account to track your progress and access premium",
     "description": "Description of Sign Up page"
   },
+  "d/hzjd": {
+    "defaultMessage": "The vast breadth of topics that could come up during a front end interview can be daunting.",
+    "description": "Long description for focus areas page"
+  },
   "d3GL1v": {
     "defaultMessage": "Copy line down",
     "description": "Text describing command to copy lines down in the coding workspace shortcuts menu"
@@ -6086,6 +6114,10 @@
   "emlXOt": {
     "defaultMessage": "You've just attained level {level} ✨ Congratulations!",
     "description": "Description for level up"
+  },
+  "er249T": {
+    "defaultMessage": "JavaScript Engineering",
+    "description": "Title for focus area type"
   },
   "er6Ns7": {
     "defaultMessage": "{yoe} YOE",
@@ -6654,6 +6686,10 @@
   "iLx/BQ": {
     "defaultMessage": "Amazon",
     "description": "Company name for Amazon"
+  },
+  "iRkjCv": {
+    "defaultMessage": "Code in browser",
+    "description": "Features for focus areas"
   },
   "iSDQh3": {
     "defaultMessage": "Companies",
@@ -7338,10 +7374,6 @@
   "n3eIzi": {
     "defaultMessage": "See all",
     "description": "See all new posts"
-  },
-  "n44/YY": {
-    "defaultMessage": "Dive into 8 topical areas tested in front end interviews",
-    "description": "Description for practice by focus areas section"
   },
   "n4aKYo": {
     "defaultMessage": "Theme",
@@ -8458,6 +8490,10 @@
   "vNvx2g": {
     "defaultMessage": "Purchase premium to get access to all skill plans as well as exclusive component tracks, official how-to guides and production-ready Figma files.",
     "description": "Subtitle for premium projects skill roadmap"
+  },
+  "vSV9/q": {
+    "defaultMessage": "Deep-dive into topical focus areas critical for front end interviews",
+    "description": "Description for practice by focus areas section"
   },
   "vSWYET": {
     "defaultMessage": "Save changes",

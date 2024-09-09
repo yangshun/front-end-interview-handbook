@@ -10,6 +10,7 @@ import JavaScriptLogo from '~/components/icons/JavaScriptLogo';
 import ReactLogo from '~/components/icons/ReactLogo';
 import SvelteLogo from '~/components/icons/SvelteLogo';
 import VueLogo from '~/components/icons/VueLogo';
+import InterviewsEntityProgress from '~/components/interviews/common/InterviewsEntityProgress';
 import type {
   QuestionFramework,
   QuestionLanguage,
@@ -31,8 +32,6 @@ import {
 } from '~/components/ui/theme';
 
 import { categorizeQuestionsProgressByFrameworkAndLanguage } from '~/db/QuestionsUtils';
-
-import InterviewsDashboardProgress from '../../InterviewsDashboardProgress';
 
 type FrameworkCardProps = Readonly<{
   completedQuestions: number;
@@ -83,7 +82,7 @@ function FrameworkCard({
             <Badge label={titleAddOnText} size="sm" variant="neutral-active" />
           )}
         </div>
-        <InterviewsDashboardProgress
+        <InterviewsEntityProgress
           completed={completedQuestions}
           progressClassName={gradient}
           title={title}
