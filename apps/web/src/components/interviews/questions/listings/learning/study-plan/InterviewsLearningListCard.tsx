@@ -1,44 +1,51 @@
 import clsx from 'clsx';
 import { RiArrowRightLine } from 'react-icons/ri';
 
-import {
-  getPreparationPlanTheme,
-  type PreparationPlan,
-} from '~/data/plans/PreparationPlans';
+import type { PreparationPlanSchedule } from '~/data/plans/PreparationPlans';
 
 import InterviewsEntityProgress from '~/components/interviews/common/InterviewsEntityProgress';
 import QuestionStudyAllocationLabel from '~/components/interviews/questions/metadata/QuestionStudyAllocationLabel';
 import Anchor from '~/components/ui/Anchor';
-import Heading from '~/components/ui/Heading';
-import Text from '~/components/ui/Text';
+import Text, { textVariants } from '~/components/ui/Text';
 import {
   themeBackgroundLayerEmphasized,
   themeBorderElementColor,
   themeGlassyBorder,
   themeTextBrandColor_GroupHover,
-  themeTextColor,
   themeTextSubtitleColor,
   themeTextSubtleColor,
 } from '~/components/ui/theme';
 
 import { countNumberOfQuestionsInList } from '~/db/QuestionsUtils';
 
-export default function InterviewsStudyPlanCard({
-  plan: { type, name, description, questions, href, schedule },
-  isStarted = false,
-  completionCount = 0,
-}: {
+import type {
+  QuestionList,
+  QuestionListTheme,
+} from '../../../common/QuestionsTypes';
+
+type Props = Readonly<{
   completionCount?: number;
   isStarted?: boolean;
-  plan: PreparationPlan;
-}) {
+  metadata: QuestionList;
+  schedule?: PreparationPlanSchedule;
+  theme: QuestionListTheme;
+}>;
+
+export default function InterviewsLearningListCard({
+  completionCount = 0,
+  isStarted = false,
+  metadata,
+  schedule,
+  theme,
+}: Props) {
+  const { name, shortDescription, questions, href } = metadata;
   const questionCount = countNumberOfQuestionsInList(questions);
-  const theme = getPreparationPlanTheme(type);
 
   return (
     <div
       className={clsx(
-        'group relative',
+        'group',
+        'relative isolate',
         'flex flex-grow items-center gap-2 md:gap-6',
         'rounded-lg',
         'px-6 py-5',
@@ -59,18 +66,19 @@ export default function InterviewsStudyPlanCard({
           />
         </div>
         <div className="flex flex-1 flex-col gap-4">
-          <div className="flex flex-col gap-1">
-            <Anchor href={href} variant="unstyled">
-              <span aria-hidden={true} className="absolute inset-0" />
-              <Heading
-                className={themeTextColor}
-                color="custom"
-                level="heading6">
-                {name}
-              </Heading>
+          <div className="flex flex-col items-start gap-1">
+            <Anchor
+              className={textVariants({
+                className: 'z-[1]',
+                size: 'body0',
+                weight: 'bold',
+              })}
+              href={href}
+              variant="flat">
+              {name}
             </Anchor>
             <Text color="secondary" size="body2">
-              {description}
+              {shortDescription}
             </Text>
           </div>
           <div className="flex flex-wrap items-center gap-x-8 gap-y-2 md:gap-x-10">
@@ -82,11 +90,13 @@ export default function InterviewsStudyPlanCard({
               total={questionCount}
               type="question"
             />
-            <QuestionStudyAllocationLabel
-              frequency={schedule.frequency}
-              hours={schedule.hours}
-              showIcon={true}
-            />
+            {schedule && (
+              <QuestionStudyAllocationLabel
+                frequency={schedule.frequency}
+                hours={schedule.hours}
+                showIcon={true}
+              />
+            )}
           </div>
         </div>
       </div>
@@ -97,6 +107,7 @@ export default function InterviewsStudyPlanCard({
           themeTextBrandColor_GroupHover,
         )}
       />
+      <Anchor aria-label={name} className="absolute inset-0" href={href} />
     </div>
   );
 }

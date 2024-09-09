@@ -28,7 +28,6 @@ export function getFocusAreaAsyncOperations(intl: IntlShape): FocusArea {
     questions: {
       algo: [],
       javascript: [
-        'birth-year-histogram',
         'cancellable-interval',
         'cancellable-timeout',
         'debounce',
@@ -46,7 +45,7 @@ export function getFocusAreaAsyncOperations(intl: IntlShape): FocusArea {
         'promise-with-resolvers',
         'promisify',
         'promisify-ii',
-        'resumable-timeout',
+        'resumable-interval',
         'sleep',
         'throttle',
       ],
@@ -54,6 +53,7 @@ export function getFocusAreaAsyncOperations(intl: IntlShape): FocusArea {
       'system-design': [],
       'user-interface': [
         'analog-clock',
+        'birth-year-histogram',
         'digital-clock',
         'grid-lights',
         'progress-bars',

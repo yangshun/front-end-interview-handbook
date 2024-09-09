@@ -1,8 +1,11 @@
 import { useIntl } from 'react-intl';
 
-import { type FocusAreas } from '~/data/focus-areas/FocusAreas';
+import {
+  type FocusAreas,
+  getFocusAreaTheme,
+} from '~/data/focus-areas/FocusAreas';
 
-import InterviewsFocusAreasCard from '~/components/interviews/questions/listings/learning/focus-areas/InterviewsFocusAreaCard';
+import InterviewsLearningListCard from '~/components/interviews/questions/listings/learning/study-plan/InterviewsLearningListCard';
 import InterviewsDashboardLearningSection from '~/components/interviews/revamp-dashboard/InterviewsDashboardLearningSection';
 import Text from '~/components/ui/Text';
 
@@ -21,6 +24,7 @@ export default function InterviewsDashboardPracticeByFocusAreasSection({
 }: Props) {
   const intl = useIntl();
 
+  // TODO(interviews): Consolidate with focus area list page.
   const focusAreasCategories = [
     {
       items: [
@@ -85,18 +89,20 @@ export default function InterviewsDashboardPracticeByFocusAreasSection({
               {title}
             </Text>
             <div className="flex flex-col gap-4">
-              {items.map((area) => {
+              {items.map((focusArea) => {
                 const session = questionListSessions.find(
-                  (session_) => session_.key === area.type,
+                  (session_) => session_.key === focusArea.type,
                 );
                 const completionCount = session?._count.progress;
+                const theme = getFocusAreaTheme(focusArea.type);
 
                 return (
-                  <InterviewsFocusAreasCard
-                    key={area.type}
-                    area={area}
+                  <InterviewsLearningListCard
+                    key={focusArea.type}
                     completionCount={completionCount}
                     isStarted={session != null}
+                    metadata={focusArea}
+                    theme={theme}
                   />
                 );
               })}

@@ -11,11 +11,14 @@ import { useIntl } from 'react-intl';
 
 import { trpc } from '~/hooks/trpc';
 
-import type { FocusAreas } from '~/data/focus-areas/FocusAreas';
+import {
+  type FocusAreas,
+  getFocusAreaTheme,
+} from '~/data/focus-areas/FocusAreas';
 
 import InterviewsPageFeatures from '~/components/interviews/common/InterviewsPageFeatures';
 import InterviewsPageHeaderActions from '~/components/interviews/common/InterviewsPageHeaderActions';
-import InterviewsFocusAreasCard from '~/components/interviews/questions/listings/learning/focus-areas/InterviewsFocusAreaCard';
+import InterviewsLearningListCard from '~/components/interviews/questions/listings/learning/study-plan/InterviewsLearningListCard';
 import MDXContent from '~/components/mdx/MDXContent';
 import Container from '~/components/ui/Container';
 import Divider from '~/components/ui/Divider';
@@ -48,6 +51,8 @@ export default function InterviewsRevampFocusAreaListPage({
     });
 
   const sessions = questionListSessions ?? [];
+
+  // TODO(interviews): Consolidate with dashboard focus area section.
   const focusAreasCategories = [
     {
       items: [
@@ -66,19 +71,13 @@ export default function InterviewsRevampFocusAreaListPage({
         focusAreas['dom-manipulation'],
         focusAreas.forms,
         focusAreas['design-system-components'],
+        focusAreas.accessibility,
+        focusAreas['state-management'],
       ],
       title: intl.formatMessage({
         defaultMessage: 'User Interface Development',
         description: 'Title for focus area type',
         id: '2M6LN4',
-      }),
-    },
-    {
-      items: [focusAreas.accessibility, focusAreas['state-management']],
-      title: intl.formatMessage({
-        defaultMessage: 'Accessibility and Performance',
-        description: 'Title for focus area type',
-        id: '9yHSXW',
       }),
     },
     {
@@ -151,9 +150,7 @@ export default function InterviewsRevampFocusAreaListPage({
         <div className="mt-10">
           <InterviewsPageFeatures features={features} />
         </div>
-
         <Divider className="my-8" />
-
         <div className="flex max-w-3xl flex-col gap-4">
           <Text color="secondary" size="body1">
             {intl.formatMessage({
@@ -179,18 +176,20 @@ export default function InterviewsRevampFocusAreaListPage({
             <div key={title} className="flex flex-col gap-6">
               <Heading level="heading6">{title}</Heading>
               <div className="flex flex-col gap-4">
-                {items.map((area) => {
+                {items.map((focusArea) => {
                   const session = sessions.find(
-                    (session_) => session_.key === area.type,
+                    (session_) => session_.key === focusArea.type,
                   );
                   const completionCount = session?._count.progress;
+                  const theme = getFocusAreaTheme(focusArea.type);
 
                   return (
-                    <InterviewsFocusAreasCard
-                      key={area.type}
-                      area={area}
+                    <InterviewsLearningListCard
+                      key={focusArea.type}
                       completionCount={completionCount}
                       isStarted={session != null}
+                      metadata={focusArea}
+                      theme={theme}
                     />
                   );
                 })}
@@ -199,7 +198,6 @@ export default function InterviewsRevampFocusAreaListPage({
           ))}
         </div>
       </Section>
-
       {bottomContent && (
         <>
           <Divider className="my-8" />

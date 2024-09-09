@@ -8,13 +8,14 @@ import { useIntl } from 'react-intl';
 import { trpc } from '~/hooks/trpc';
 
 import {
+  getPreparationPlanTheme,
   type PreparationPlan,
   type PreparationPlans,
 } from '~/data/plans/PreparationPlans';
 
 import InterviewsPageFeatures from '~/components/interviews/common/InterviewsPageFeatures';
 import InterviewsPageHeaderActions from '~/components/interviews/common/InterviewsPageHeaderActions';
-import InterviewsStudyPlanCard from '~/components/interviews/questions/listings/learning/study-plan/InterviewsStudyPlanCard';
+import InterviewsLearningListCard from '~/components/interviews/questions/listings/learning/study-plan/InterviewsLearningListCard';
 import InterviewsStudyPlanTestimonialsSection from '~/components/interviews/questions/listings/learning/study-plan/InterviewsStudyPlanTestimonialsSection';
 import MDXContent from '~/components/mdx/MDXContent';
 import Container from '~/components/ui/Container';
@@ -131,18 +132,21 @@ export default function InterviewsRevampStudyPlansPage({
               <Heading level="heading6">{title}</Heading>
               <Section>
                 <div className="flex flex-col gap-4">
-                  {plans.map((plan) => {
+                  {plans.map((studyPlan) => {
                     const session = sessions.find(
-                      (session_) => session_.key === plan.type,
+                      (session_) => session_.key === studyPlan.type,
                     );
                     const completionCount = session?._count.progress;
+                    const theme = getPreparationPlanTheme(studyPlan.type);
 
                     return (
-                      <InterviewsStudyPlanCard
-                        key={plan.type}
+                      <InterviewsLearningListCard
+                        key={studyPlan.type}
                         completionCount={completionCount}
                         isStarted={session != null}
-                        plan={plan}
+                        metadata={studyPlan}
+                        schedule={studyPlan.schedule}
+                        theme={theme}
                       />
                     );
                   })}
@@ -155,7 +159,6 @@ export default function InterviewsRevampStudyPlansPage({
       <div className="hidden md:block">
         <InterviewsStudyPlanTestimonialsSection />
       </div>
-
       {bottomContent && (
         <>
           <Divider className="my-8" />

@@ -1,8 +1,11 @@
 import { useIntl } from 'react-intl';
 
-import { type PreparationPlans } from '~/data/plans/PreparationPlans';
+import {
+  getPreparationPlanTheme,
+  type PreparationPlans,
+} from '~/data/plans/PreparationPlans';
 
-import InterviewsStudyPlanCard from '~/components/interviews/questions/listings/learning/study-plan/InterviewsStudyPlanCard';
+import InterviewsLearningListCard from '~/components/interviews/questions/listings/learning/study-plan/InterviewsLearningListCard';
 
 import InterviewsDashboardLearningSection from './InterviewsDashboardLearningSection';
 
@@ -38,18 +41,21 @@ export default function InterviewsDashboardStudyPlansSection({
         id: 'KRGHVm',
       })}>
       <div className="flex flex-col gap-4">
-        {plans.map((plan) => {
+        {plans.map((studyPlan) => {
           const session = questionListSessions.find(
-            (session_) => session_.key === plan.type,
+            (session_) => session_.key === studyPlan.type,
           );
           const completionCount = session?._count.progress;
+          const theme = getPreparationPlanTheme(studyPlan.type);
 
           return (
-            <InterviewsStudyPlanCard
-              key={plan.type}
+            <InterviewsLearningListCard
+              key={studyPlan.type}
               completionCount={completionCount}
               isStarted={session != null}
-              plan={plan}
+              metadata={studyPlan}
+              schedule={studyPlan.schedule}
+              theme={theme}
             />
           );
         })}
