@@ -10,9 +10,9 @@ export function getFocusAreaStateManagement(intl: IntlShape): FocusArea {
   return {
     description: intl.formatMessage({
       defaultMessage:
-        'Train your skills in designing complex state and implementing operations to manipulate state.',
+        'Targeted practice on State Management interview questions',
       description: 'Description for interview preparation focus area',
-      id: 's8/47i',
+      id: 'yztOsj',
     }),
     href: '/focus-areas/state-management',
     longName: intl.formatMessage({
@@ -53,14 +53,20 @@ export function getFocusAreaStateManagement(intl: IntlShape): FocusArea {
     seo: {
       description: intl.formatMessage({
         defaultMessage:
-          'Train your skills in designing complex state and implementing operations to manipulate state.',
+          'Practice State Management interview questions that train your skills in complex state design and state manipulation. Code in-browser with solutions from ex-interviewers.',
         description: 'Description for interview preparation focus area',
-        id: 's8/47i',
+        id: '4GPc8y',
+      }),
+      socialTitle: intl.formatMessage({
+        defaultMessage: 'State Management Interview Questions | GreatFrontEnd',
+        description: 'Social title for interview preparation focus area',
+        id: '9Ct+/8',
       }),
       title: intl.formatMessage({
-        defaultMessage: 'Practice solving questions involving complex state',
+        defaultMessage:
+          'Practice State Management Interview Questions with Solutions',
         description: 'Title for interview preparation focus area',
-        id: 'sfxQ0Y',
+        id: 'hLuz6h',
       }),
     },
     shortDescription: intl.formatMessage({

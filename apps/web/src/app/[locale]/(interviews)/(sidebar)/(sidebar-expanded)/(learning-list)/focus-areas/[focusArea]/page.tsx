@@ -53,7 +53,7 @@ type Props = Readonly<{
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale, focusArea: focusAreaType } = params;
 
-  const { title, description, href } = await getFocusAreaSEO(
+  const { title, description, href, socialTitle } = await getFocusAreaSEO(
     focusAreaType,
     locale,
   );
@@ -62,6 +62,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     description,
     locale,
     pathname: href,
+    socialTitle,
     title,
   });
 }

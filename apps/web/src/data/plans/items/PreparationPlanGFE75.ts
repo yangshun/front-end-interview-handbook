@@ -67,9 +67,9 @@ export function getPreparationPlanGFE75(intl: IntlShape): PreparationPlan {
     seo: {
       description: intl.formatMessage({
         defaultMessage:
-          'The 75 most important practice questions to master for data structures and algorithms interviews, written in JavaScript / TypeScript for front end engineers',
+          'The 75 critical questions to master for Front End interviews, covering all essential topics. Code in-browser with solutions and tests from ex-interviewers.',
         description: 'Description of GFE75 page',
-        id: 'YryFDH',
+        id: 'wXON/G',
       }),
       socialTitle: intl.formatMessage({
         defaultMessage: 'GFE75 | GreatFrontEnd',
@@ -77,9 +77,10 @@ export function getPreparationPlanGFE75(intl: IntlShape): PreparationPlan {
         id: 'QJUTsK',
       }),
       title: intl.formatMessage({
-        defaultMessage: 'GFE 75 - Practice In-browser with Detailed Solutions',
+        defaultMessage:
+          'GFE 75 - 75 Most Important Front End Interview Questions',
         description: 'Title of GFE75 page',
-        id: 'QMfLyD',
+        id: 'PahqMO',
       }),
     },
     shortDescription: intl.formatMessage({

@@ -15,16 +15,15 @@ import type { PreparationPlan } from '../PreparationPlans';
 export function getPreparationPlanOneMonth(intl: IntlShape): PreparationPlan {
   return {
     description: intl.formatMessage({
-      defaultMessage:
-        'Prepare for your front end interviews in one month. All rounded coverage that is sure to bring your front end interview skills to the next level.',
+      defaultMessage: 'Prepare for your front end interviews in 1 month',
       description: 'Description for one month study plan',
-      id: 'CyhMLj',
+      id: 'lL2bPL',
     }),
     href: '/prepare/one-month',
     longName: intl.formatMessage({
-      defaultMessage: '1 Month Plan',
+      defaultMessage: '1 Month Study Plan',
       description: 'Long label for one month study plan',
-      id: 'lyjVwD',
+      id: 'GeKBII',
     }),
     name: intl.formatMessage({
       defaultMessage: '1 Month',
@@ -86,15 +85,19 @@ export function getPreparationPlanOneMonth(intl: IntlShape): PreparationPlan {
     seo: {
       description: intl.formatMessage({
         defaultMessage:
-          'Structured study plan developed by ex-interviewers at FAANG. Prepare holistically for front end interviews within a month',
+          'Prepare well for your front end interviews in one month with practice questions spanning a perfect mix of topics. Solutions and tests by ex-interviewers from big tech.',
         description: 'Description of 1 Month Preparation Plan page',
-        id: 'N4F6al',
+        id: 'BEEepg',
+      }),
+      socialTitle: intl.formatMessage({
+        defaultMessage: '1 Month Study Plan | GreatFrontEnd',
+        description: 'Title of 1 Month Preparation Plan page',
+        id: 'kTIFRY',
       }),
       title: intl.formatMessage({
-        defaultMessage:
-          'Study plan to prepare for front end interviews in 1 month',
+        defaultMessage: 'One Month Study Plan for Front End Interviews',
         description: 'Title of 1 Month Preparation Plan page',
-        id: 'O7MAvX',
+        id: 'Lhn9Pe',
       }),
     },
     shortDescription: intl.formatMessage({

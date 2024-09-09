@@ -10,9 +10,9 @@ export function getFocusAreaDOMManipulation(intl: IntlShape): FocusArea {
   return {
     description: intl.formatMessage({
       defaultMessage:
-        'Dive into the world of element selection and modification in the DOM. Practice selecting elements using CSS selectors, traverse the DOM hierarchy, and manipulate their properties, content, and styles.',
+        'Targeted practice on DOM Manipulation interview questions',
       description: 'Description for interview preparation focus area',
-      id: 'T9GECe',
+      id: '8Luumm',
     }),
     href: '/focus-areas/dom-manipulation',
     longName: intl.formatMessage({
@@ -46,14 +46,20 @@ export function getFocusAreaDOMManipulation(intl: IntlShape): FocusArea {
     seo: {
       description: intl.formatMessage({
         defaultMessage:
-          'Familiarize with selecting elements using CSS selectors, traverse the DOM hierarchy, and manipulate their properties, content, and styles.',
+          'Practice DOM manipulation interview questions on CSS selectors, DOM traversal, and element manipulation. Code in-browser with solutions from ex-interviewers.',
         description: 'Description for interview preparation focus area',
-        id: 'yAJsl0',
+        id: 'kWg+JN',
+      }),
+      socialTitle: intl.formatMessage({
+        defaultMessage: 'DOM Manipulation Interview Questions | GreatFrontEnd',
+        description: 'Social title for interview preparation focus area',
+        id: 'l1pp5/',
       }),
       title: intl.formatMessage({
-        defaultMessage: 'Master async programming for front end interviews',
+        defaultMessage:
+          'Practice DOM Manipulation Interview Questions with Solutions',
         description: 'Title for interview preparation focus area',
-        id: 'EmirPr',
+        id: 'o4CKFi',
       }),
     },
     shortDescription: intl.formatMessage({

@@ -231,6 +231,10 @@
     "defaultMessage": "Create your developer profile on GreatFrontEnd. Showcase your skills, experiences and connect with the community.",
     "description": "Description of projects onboarding profile page"
   },
+  "/pkoGQ": {
+    "defaultMessage": "Prepare for your front end interviews in 1 week",
+    "description": "Description for one week study plan"
+  },
   "/pokLY": {
     "defaultMessage": "This is the name that will be shown on your profile. Use a maximum of {maxLength} character(s).",
     "description": "Name field description"
@@ -455,6 +459,10 @@
     "defaultMessage": "YOE / Job status",
     "description": "Label for experience filter for submissions list"
   },
+  "1nme1Z": {
+    "defaultMessage": "Dashboard - Track your interview preparation progress",
+    "description": "Title of Get Started page"
+  },
   "1pqvM+": {
     "defaultMessage": "You have no premium credits left for this cycle. Please wait for new premium credits to be added when the next cycle starts.",
     "description": "Subtitle for project paywall"
@@ -575,17 +583,9 @@
     "defaultMessage": "Popularity: Most to least upvotes",
     "description": "Sorting option for submissions list - popularity"
   },
-  "2vDjTb": {
-    "defaultMessage": "Discover study plans tailored to your needs to help your prepare for your upcoming technical interviews.",
-    "description": "Description for study plans page"
-  },
   "2w8GaX": {
     "defaultMessage": "Claim {discountPercentage}% off all plans by completing simple social tasks!",
     "description": "Title for rewards page"
-  },
-  "2wBW3u": {
-    "defaultMessage": "The 75 most important practice questions to master for data structures and algorithms interviews, written in JavaScript / TypeScript for front end engineers",
-    "description": "Description of Blind75 page"
   },
   "2y24a/": {
     "defaultMessage": "Save",
@@ -603,9 +603,9 @@
     "defaultMessage": "You replied to <recipientProfileLink>{recipient}</recipientProfileLink> on the challenge forum for <link>{challengeTitle}</link>: <comment>\"{description}\"</comment>",
     "description": "Log message for you replying to someone on the challenge forum"
   },
-  "3+kGwu": {
-    "defaultMessage": "Blind75 - Practice In-Browser with Solutions in JavaScript",
-    "description": "Title of Blind75 page"
+  "30sSdR": {
+    "defaultMessage": "JavaScript Polyfills Interview Questions | GreatFrontEnd",
+    "description": "Social title for interview preparation focus area"
   },
   "37Ttml": {
     "defaultMessage": "Security",
@@ -763,6 +763,10 @@
     "defaultMessage": "Reset progress",
     "description": "Label to reset study plan progress"
   },
+  "4GPc8y": {
+    "defaultMessage": "Practice State Management interview questions that train your skills in complex state design and state manipulation. Code in-browser with solutions from ex-interviewers.",
+    "description": "Description for interview preparation focus area"
+  },
   "4KjsB6": {
     "defaultMessage": "Number of challenges completed using this skill, including challenges not in the recommended skill plan",
     "description": "Tooltip for completed challenges label"
@@ -891,6 +895,10 @@
     "defaultMessage": "Browse all submissions",
     "description": "Browser all submissions"
   },
+  "5awWqG": {
+    "defaultMessage": "1 Week Study Plan",
+    "description": "Long label for one week study plan"
+  },
   "5bW/ye": {
     "defaultMessage": "Created: Oldest to newest",
     "description": "Sorting option for projects list - sort by created"
@@ -963,6 +971,10 @@
     "defaultMessage": "System Design",
     "description": "Tile for system design question type"
   },
+  "65GCar": {
+    "defaultMessage": "Practice Forms Interview Questions with Solutions",
+    "description": "Title for interview preparation focus area"
+  },
   "680b8U": {
     "defaultMessage": "Vanilla JS Questions",
     "description": "Vanilla JS questions category long title"
@@ -974,10 +986,6 @@
   "68EuCT": {
     "defaultMessage": "Project challenges",
     "description": "Title of Projects challenges page"
-  },
-  "6A9LIb": {
-    "defaultMessage": "Study plans for Front End Interviews",
-    "description": "Title of study plans page"
   },
   "6CQPs9": {
     "defaultMessage": "Months",
@@ -1083,6 +1091,10 @@
     "defaultMessage": "Types of questions",
     "description": "Types of front end system design interview questions"
   },
+  "6xnZGh": {
+    "defaultMessage": "GreatFrontEnd: The Great Way to Prepare for Front End Interviews",
+    "description": "Title of GreatFrontEnd standard page"
+  },
   "6y6SUS": {
     "defaultMessage": "Mark as complete",
     "description": "Mark question as complete"
@@ -1094,6 +1106,14 @@
   "6zZ5vj": {
     "defaultMessage": "{commentsCount, plural, =0 {No comments} one {# comment} other {# comments}}",
     "description": "Number of comments for project submission"
+  },
+  "7+uXHt": {
+    "defaultMessage": "Targeted practice on JavaScript Polyfills interview questions",
+    "description": "Description for interview preparation focus area"
+  },
+  "719/YQ": {
+    "defaultMessage": "GreatFrontEnd Interviews",
+    "description": "Social title of GreatFrontEnd standard page"
   },
   "72GwzV": {
     "defaultMessage": "Available in {frameworkLabel}",
@@ -1147,10 +1167,6 @@
     "defaultMessage": "Already have an account? <link>Sign in</link>",
     "description": "Prompt for sign in on Email Sign Up page"
   },
-  "7Iapcq": {
-    "defaultMessage": "Study plan to prepare for front end interviews in 3 months",
-    "description": "Title of 3 Months Preparation Plan page"
-  },
   "7J8+8B": {
     "defaultMessage": "Share",
     "description": "Share button label"
@@ -1202,6 +1218,10 @@
   "7ZjmR2": {
     "defaultMessage": "Implementation must contain at least {minLength} character(s).",
     "description": "Error message"
+  },
+  "7aqW08": {
+    "defaultMessage": "Practice JavaScript Polyfills Interview Questions with Solutions",
+    "description": "Title for interview preparation focus area"
   },
   "7fCoNs": {
     "defaultMessage": "Will I have to code within the platform, or use my own IDE?",
@@ -1295,6 +1315,10 @@
     "defaultMessage": "Coming soon",
     "description": "Tooltip for Coming Soon questions label"
   },
+  "8Luumm": {
+    "defaultMessage": "Targeted practice on DOM Manipulation interview questions",
+    "description": "Description for interview preparation focus area"
+  },
   "8Nm9WZ": {
     "defaultMessage": "Walmart",
     "description": "Company name for Walmart"
@@ -1310,10 +1334,6 @@
   "8Ti6rm": {
     "defaultMessage": "Your password has been updated",
     "description": "Message indicating a successful password update"
-  },
-  "8UEoLG": {
-    "defaultMessage": "Everything you need to study and practice for front end interviews for a complete preparation.",
-    "description": "Description of 3 Months Preparation Plan page"
   },
   "8UZ9q3": {
     "defaultMessage": "See plan",
@@ -1379,10 +1399,6 @@
     "defaultMessage": "Select current line",
     "description": "Text describing command to select current line in the coding workspace shortcuts menu"
   },
-  "8wt3/b": {
-    "defaultMessage": "Focus areas for Front End Interviews",
-    "description": "Title of focus areas page"
-  },
   "8yHADh": {
     "defaultMessage": "Bold",
     "description": "Bold tooltip for Richtext toolbar"
@@ -1411,6 +1427,10 @@
     "defaultMessage": "Key features",
     "description": "Key features of the product"
   },
+  "97VOmx": {
+    "defaultMessage": "Practice Lodash Interview Questions with Solutions",
+    "description": "Title for interview preparation focus area"
+  },
   "99Ewym": {
     "defaultMessage": "Introduction",
     "description": "Front End interview preparation guide"
@@ -1426,6 +1446,10 @@
   "9CjNZn": {
     "defaultMessage": "You have ended this project session. Returning you to the project detail page.",
     "description": "Toast subtitle for project session ended"
+  },
+  "9Ct+/8": {
+    "defaultMessage": "State Management Interview Questions | GreatFrontEnd",
+    "description": "Social title for interview preparation focus area"
   },
   "9D27sg": {
     "defaultMessage": "Discussions",
@@ -1475,13 +1499,13 @@
     "defaultMessage": "Set new profile photo",
     "description": "Label for new profile photo button"
   },
-  "9fclPT": {
-    "defaultMessage": "Practice writing JavaScript and DOM API Polyfills",
-    "description": "Title for interview preparation focus area"
-  },
   "9gs1LO": {
     "defaultMessage": "Buy now",
     "description": "Purchase button label"
+  },
+  "9kGiQx": {
+    "defaultMessage": "Practice form-related interview questions on form components, validation, and submission handling. Code in-browser with solutions from ex-interviewers.",
+    "description": "Description for interview preparation focus area"
   },
   "9nK/kc": {
     "defaultMessage": "Annual plan",
@@ -1527,6 +1551,10 @@
     "defaultMessage": "Skills | Progress | {name}",
     "description": "Title of user profile skills page"
   },
+  "A8Qo2Q": {
+    "defaultMessage": "{company} Front End Interview Playbook - Prep Strategies and Practice Questions",
+    "description": "Page title for company guides detail"
+  },
   "ABJ7ip": {
     "defaultMessage": "<bold>{completedQuestions}</bold>/{totalQuestions} completed",
     "description": "Line describing the number of questions completed by user over the total number of questions"
@@ -1543,9 +1571,17 @@
     "defaultMessage": "Name must contain at least {minLength} character(s).",
     "description": "Error message when display name is too short"
   },
+  "AMHPad": {
+    "defaultMessage": "Most important 75 questions for data structure and algorithm style interviews.",
+    "description": "Long description for Blind75 plan"
+  },
   "ANSxyW": {
     "defaultMessage": "Low",
     "description": "Low importance question"
+  },
+  "ANgYyn": {
+    "defaultMessage": "Practice Lodash interview questions, implementing functions to manipulate and transform data efficiently. Code in-browser with solutions from ex-interviewers.",
+    "description": "Description for interview preparation focus area"
   },
   "ATjflV": {
     "defaultMessage": "Choose up to 2 reasons so that we can improve your experience",
@@ -1582,6 +1618,10 @@
   "Ad94JV": {
     "defaultMessage": "Use code at checkout",
     "description": "Instruction to apply discount"
+  },
+  "Adsxn4": {
+    "defaultMessage": "Async Operations Interview Questions | GreatFrontEnd",
+    "description": "Social title for interview preparation focus area"
   },
   "Ae22GD": {
     "defaultMessage": "Images just for illustration. Actual page(s) could be longer",
@@ -1659,6 +1699,10 @@
     "defaultMessage": "Sign out",
     "description": "Link label to the sign out page"
   },
+  "BEEepg": {
+    "defaultMessage": "Prepare well for your front end interviews in one month with practice questions spanning a perfect mix of topics. Solutions and tests by ex-interviewers from big tech.",
+    "description": "Description of 1 Month Preparation Plan page"
+  },
   "BGn++d": {
     "defaultMessage": "Quiz Questions",
     "description": "Title for an example list of Quiz Questions on marketing pages"
@@ -1706,6 +1750,10 @@
   "BPUOzL": {
     "defaultMessage": "Most common questions",
     "description": "Most common behavioral interview questions"
+  },
+  "BQSR58": {
+    "defaultMessage": "The complete prep platform for Front End interviews. Practice {questionCount}+ questions with solutions, code in-browser, and use prep plans devised by ex-interviewers.",
+    "description": "Description of GreatFrontEnd standard page"
   },
   "BVZEeY": {
     "defaultMessage": "<authorProfileLink>{author}</authorProfileLink> replied to <recipientProfileLink>{recipient}</recipientProfileLink> on the challenge forum for <link>{challengeTitle}</link>: <comment>\"{description}\"</comment>",
@@ -1887,10 +1935,6 @@
     "defaultMessage": "Build together with other like-minded individuals",
     "description": "Title for \"Build together with other like-minded individuals\" feature marketing section on Projects home page"
   },
-  "CyhMLj": {
-    "defaultMessage": "Prepare for your front end interviews in one month. All rounded coverage that is sure to bring your front end interview skills to the next level.",
-    "description": "Description for one month study plan"
-  },
   "D/cRh1": {
     "defaultMessage": "Practice everything here",
     "description": "Title of the 'Practice Everything Here' marketing section on Homepage"
@@ -1902,10 +1946,6 @@
   "D2YUXz": {
     "defaultMessage": "Topics",
     "description": "Screenreader text indicating component for question topics"
-  },
-  "D3YhsE": {
-    "defaultMessage": "Study and practice the exact questions and concepts you need to prepare for front end interviews within a week",
-    "description": "Description of 1 Week Preparation Plan page"
   },
   "D5644P": {
     "defaultMessage": "Existing subscribers can upgrade to the lifetime plan at a discount, send an email to <link>contact@greatfrontend</link> to find out more.",
@@ -1987,6 +2027,10 @@
     "defaultMessage": "Level up",
     "description": "Subtext for level Up"
   },
+  "DUKB3u": {
+    "defaultMessage": "Practice Questions by Focus Area | GreatFrontEnd",
+    "description": "Social title for focus areas listing"
+  },
   "DXfMmT": {
     "defaultMessage": "Purchase premium to unlock full access to the company guides and all questions with high quality solutions",
     "description": "Study plans paywall description"
@@ -2030,6 +2074,10 @@
   "Dq9yul": {
     "defaultMessage": "Back",
     "description": "Button label for back button"
+  },
+  "DsJgFx": {
+    "defaultMessage": "Prepare for your Front End Interviews | Get Started",
+    "description": "Social title of Get Started page"
   },
   "Dt0MpD": {
     "defaultMessage": "This user has not started any projects matching those filters.",
@@ -2078,6 +2126,10 @@
   "ECojDz": {
     "defaultMessage": "There were some issues with taking a screenshot for your site. Please try again.",
     "description": "Error message for screenshot generation"
+  },
+  "EDmnjv": {
+    "defaultMessage": "Targeted practice on Lodash Functions interview questions",
+    "description": "Description for interview preparation focus area"
   },
   "EHngws": {
     "defaultMessage": "Copied!",
@@ -2155,10 +2207,6 @@
     "defaultMessage": "Open navigation profile menu",
     "description": "Screenreader text to open the profile menu"
   },
-  "EmirPr": {
-    "defaultMessage": "Master async programming for front end interviews",
-    "description": "Title for interview preparation focus area"
-  },
   "EnNFW9": {
     "defaultMessage": "Access to continuously updating interview questions and content.",
     "description": "Feature of monthly pricing plan"
@@ -2194,6 +2242,10 @@
   "Et7nC7": {
     "defaultMessage": "Project started! Leverage the provided resources and submit a link to your site once ready!",
     "description": "Toast subtitle for project session started"
+  },
+  "EteZq/": {
+    "defaultMessage": "Practice Data Structures and Algorithms Interview Questions",
+    "description": "Title for interview preparation focus area"
   },
   "Euaee/": {
     "defaultMessage": "Resubscribe to unlock",
@@ -2279,10 +2331,6 @@
     "defaultMessage": "Pin",
     "description": "Pin button label"
   },
-  "FcKhvG": {
-    "defaultMessage": "Hone your computer science fundamentals by implementing important data structures and algorithms from scratch and practice the questions where algorithmic efficiency is key.",
-    "description": "Description for interview preparation focus area"
-  },
   "Fg3V0y": {
     "defaultMessage": "Manage subscription on Stripe",
     "description": "Label for button to manage subscription"
@@ -2306,6 +2354,14 @@
   "Ftjz7y": {
     "defaultMessage": "Manage your subscription status and payment methods on the Stripe billing portal.",
     "description": "Call to action text to uppgrade plan."
+  },
+  "FwKG3p": {
+    "defaultMessage": "Practice front end Accessibility interview questions on semantic HTML, ARIA, and screen readers. Code in-browser with curated solutions from ex-interviewers.",
+    "description": "Description for interview preparation focus area"
+  },
+  "G+xlW/": {
+    "defaultMessage": "3 Months Study Plan",
+    "description": "Short label for 3 months study plan"
   },
   "G11qgw": {
     "defaultMessage": "High resolution image assets",
@@ -2383,6 +2439,10 @@
     "defaultMessage": "Welcome to GreatFrontEnd Projects!",
     "description": "Title for Projects onboarding page"
   },
+  "GQfy69": {
+    "defaultMessage": "Practice Accessibility Interview Questions with Solutions",
+    "description": "Title for interview preparation focus area"
+  },
   "GR83Ca": {
     "defaultMessage": "System",
     "description": "System color scheme option label"
@@ -2411,6 +2471,10 @@
     "defaultMessage": "Select project category",
     "description": "Tab label to select another project category"
   },
+  "GeKBII": {
+    "defaultMessage": "1 Month Study Plan",
+    "description": "Long label for one month study plan"
+  },
   "Geiogi": {
     "defaultMessage": "View your submission",
     "description": "Label for View your submission button on project submit page"
@@ -2434,6 +2498,10 @@
   "Gqq8RF": {
     "defaultMessage": "Build front end real-world projects",
     "description": "Title of Projects page"
+  },
+  "Gtlwzt": {
+    "defaultMessage": "Prepare well for your front end interviews in one week with a hyper-optimized list of practice questions. Solutions and tests by ex-interviewers from big tech.",
+    "description": "Description of 1 Week Preparation Plan page"
   },
   "Gttxsq": {
     "defaultMessage": "Try these popular Svelte questions",
@@ -2863,10 +2931,6 @@
     "defaultMessage": "All the resources to help you build a {challengeName}, including how-to-guides, official solutions, references and user discussions",
     "description": "Description of Projects challenge resources page"
   },
-  "JrmA6j": {
-    "defaultMessage": "With over {numberOfQuestions} questions, this is the most complete all-in-one front end interview preparation you can ever dream of.",
-    "description": "Long description for three months study plan"
-  },
   "Js4axe": {
     "defaultMessage": "Vanilla JS",
     "description": "Vanilla JS questions category short title"
@@ -3051,6 +3115,10 @@
     "defaultMessage": "Uber",
     "description": "Company name for Uber"
   },
+  "KyrxLW": {
+    "defaultMessage": "Practice Design System Components Interview Questions",
+    "description": "Title for interview preparation focus area"
+  },
   "L+jocg": {
     "defaultMessage": "View plans",
     "description": "View pricing plans"
@@ -3203,17 +3271,21 @@
     "defaultMessage": "Create a free account to track your progress",
     "description": "CTA to create a free account for non-logged in users"
   },
+  "Lhn9Pe": {
+    "defaultMessage": "One Month Study Plan for Front End Interviews",
+    "description": "Title of 1 Month Preparation Plan page"
+  },
   "LiRxEy": {
     "defaultMessage": "URL to the root or a subdirectory of your GitHub repository. We will use it to pull files onto the platform for code reviews.",
     "description": "Form description"
   },
-  "Ll7iob": {
-    "defaultMessage": "Get Started",
-    "description": "Title of Get Started page"
-  },
   "LlhHTu": {
     "defaultMessage": "Unlock challenge",
     "description": "Unlock premium access for a project"
+  },
+  "LmjB8K": {
+    "defaultMessage": "Practice JavaScript Polyfills interview questions by implementing JS and DOM APIs from scratch. Code in-browser with solutions by ex-interviewers.",
+    "description": "Description for interview preparation focus area"
   },
   "Lnj3bs": {
     "defaultMessage": "One-time use; only applicable to GreatFrontEnd Annual plan.",
@@ -3271,10 +3343,6 @@
     "defaultMessage": "Next.js, Nuxt, SvelteKit",
     "description": "Placeholder for tech stack field"
   },
-  "MARU+b": {
-    "defaultMessage": "Blind75",
-    "description": "Short label for Blind75 study plan"
-  },
   "MCqeck": {
     "defaultMessage": "Testimonials",
     "description": "Testimonial section title"
@@ -3298,6 +3366,14 @@
   "MJyQhr": {
     "defaultMessage": "See all",
     "description": "Link to all focus areas page"
+  },
+  "MLzMFp": {
+    "defaultMessage": "One Week Study Plan for Front End Interviews",
+    "description": "Title of 1 Week Preparation Plan page"
+  },
+  "MN8mVk": {
+    "defaultMessage": "Three Months Study Plan for Front End Interviews",
+    "description": "Social title of 3 Months Preparation Plan page"
   },
   "MNAkQc": {
     "defaultMessage": "To build <keywords>side projects</keywords>",
@@ -3378,10 +3454,6 @@
   "MyaXLl": {
     "defaultMessage": "Practice Top CSS Front End Interview Questions with Solutions",
     "description": "SEO title for CSS questions list page"
-  },
-  "N4F6al": {
-    "defaultMessage": "Structured study plan developed by ex-interviewers at FAANG. Prepare holistically for front end interviews within a month",
-    "description": "Description of 1 Month Preparation Plan page"
   },
   "N5Cp1r": {
     "defaultMessage": "While offer lasts",
@@ -3527,10 +3599,6 @@
     "defaultMessage": "Coding interviews",
     "description": "Preparing by front end interview question format"
   },
-  "O7MAvX": {
-    "defaultMessage": "Study plan to prepare for front end interviews in 1 month",
-    "description": "Title of 1 Month Preparation Plan page"
-  },
   "O9szXK": {
     "defaultMessage": "We help you get ready within 1 week, 1 month or 3 months",
     "description": "Study plans description"
@@ -3635,10 +3703,6 @@
     "defaultMessage": "Marked question as completed",
     "description": "Success message shown when a question was marked as complete"
   },
-  "OumyBP": {
-    "defaultMessage": "Showcase your knowledge of web accessibility in front end interviews",
-    "description": "Title for interview preparation focus area"
-  },
   "Oxj7x1": {
     "defaultMessage": "Company (optional)",
     "description": "Label for \"Company\" input on Projects profile onboarding page"
@@ -3742,6 +3806,10 @@
   "PYCLry": {
     "defaultMessage": "Completed",
     "description": "The guide has been completed"
+  },
+  "PahqMO": {
+    "defaultMessage": "GFE 75 - 75 Most Important Front End Interview Questions",
+    "description": "Title of GFE75 page"
   },
   "PbcB1O": {
     "defaultMessage": "If you haven’t started a job in SWE or front end yet, select another status to display in place of your YOE",
@@ -3875,10 +3943,6 @@
     "defaultMessage": "Our focus is currently on expanding our question base. New coding and system design questions are added to the platform on a weekly basis.",
     "description": "Question base section subtitle - first paragraph"
   },
-  "QMfLyD": {
-    "defaultMessage": "GFE 75 - Practice In-browser with Detailed Solutions",
-    "description": "Title of GFE75 page"
-  },
   "QNiLn7": {
     "defaultMessage": "Asked during technical interviews for Senior engineers. Evaluates decision-making abilities when it comes to technical architecture.",
     "description": "Description for system design questions"
@@ -3974,10 +4038,6 @@
   "QruCxn": {
     "defaultMessage": "Monthly plan",
     "description": "Subscription plan type"
-  },
-  "QsAiLH": {
-    "defaultMessage": "Practice creating design system components",
-    "description": "Title for interview preparation focus area"
   },
   "Qw+A0/": {
     "defaultMessage": "Add skills",
@@ -4331,9 +4391,9 @@
     "defaultMessage": "Not completed",
     "description": "Tooltip for incomplete guide label"
   },
-  "T3JUSj": {
-    "defaultMessage": "Master the art of building interactive and user-friendly forms by exploring various form components, validation techniques, and handling form submissions.",
-    "description": "Description for interview preparation focus area"
+  "SyOeb2": {
+    "defaultMessage": "Company Interview Guides | GreatFrontEnd",
+    "description": "Social title for company guides listing"
   },
   "T4ajXP": {
     "defaultMessage": "{discountPercentage}% off",
@@ -4351,17 +4411,9 @@
     "defaultMessage": "Code",
     "description": "Section title for code viewer"
   },
-  "T8HWQC": {
-    "defaultMessage": "Practice developing inclusive and accessible web experiences, a skill which differentiates senior from junior front end engineers.",
-    "description": "Description for interview preparation focus area"
-  },
   "T8giXw": {
     "defaultMessage": "Popularity: Least to most upvotes",
     "description": "Sorting option for submissions list - popularity"
-  },
-  "T9GECe": {
-    "defaultMessage": "Dive into the world of element selection and modification in the DOM. Practice selecting elements using CSS selectors, traverse the DOM hierarchy, and manipulate their properties, content, and styles.",
-    "description": "Description for interview preparation focus area"
   },
   "T9J/PN": {
     "defaultMessage": "Actual interview questions",
@@ -4511,6 +4563,14 @@
     "defaultMessage": "Coding Questions",
     "description": "Coding questions long title"
   },
+  "UET3FT": {
+    "defaultMessage": "Front End Interview Focus Areas—Accessibility, Forms and more",
+    "description": "Page title for focus areas listing"
+  },
+  "UISwUX": {
+    "defaultMessage": "Explore {topicsCount} critical topics for front end interviews. Master them with targeted practice questions—each with detailed solutions and tests to learn from.",
+    "description": "Page description for focus areas listing"
+  },
   "ULuy8I": {
     "defaultMessage": "Difficulty",
     "description": "Question difficulty"
@@ -4554,10 +4614,6 @@
   "Ui0v53": {
     "defaultMessage": "Our projects are designed to make for an <em>impressive</em> portfolio, even for seniors",
     "description": "Heading of the 'Portfolio features' marketing section on Projects home page"
-  },
-  "UiHdWK": {
-    "defaultMessage": "Study plan to prepare for front end interviews in 1 week",
-    "description": "Title of 1 Week Preparation Plan page"
   },
   "UltF1J": {
     "defaultMessage": "Already an affiliate? <link>Access dashboard</link>",
@@ -4791,10 +4847,6 @@
     "defaultMessage": "Quarterly plan",
     "description": "Title of quarterly pricing plan"
   },
-  "WJ/3Qn": {
-    "defaultMessage": "The complete preparation platform for front end interviews. {questionCount}+ practice questions (with answers) across system design, UI and more. By ex-FAANG interviewers.",
-    "description": "Description of GreatFrontEnd standard page"
-  },
   "WNERnb": {
     "defaultMessage": "End session",
     "description": "Label for \"End session\" button on current project session card"
@@ -4971,6 +5023,10 @@
     "defaultMessage": "Vue Coding Questions",
     "description": "Description for Vue questions title"
   },
+  "XauDQh": {
+    "defaultMessage": "Targeted practice on Accessibility interview questions",
+    "description": "Description for interview preparation focus area"
+  },
   "Xcw/lL": {
     "defaultMessage": "Explore user submissions handpicked for your growth - based on your profile, skills you're keen to learn, and the projects you've completed.",
     "description": "Page subtitle"
@@ -5011,6 +5067,10 @@
     "defaultMessage": "Suggests best projects for skill",
     "description": "Title of 'Recommended projects to build' sub-feature in Projects marketing page"
   },
+  "Xs7UBt": {
+    "defaultMessage": "Targeted practice on Async Operations interview questions",
+    "description": "Description for interview preparation focus area"
+  },
   "XuVGsX": {
     "defaultMessage": "Account",
     "description": "Profile account tab title"
@@ -5050,10 +5110,6 @@
   "Y6CFPM": {
     "defaultMessage": "By proceeding, you agree to GreatFrontEnd's <tos>Terms of Service</tos> and <pp>Privacy Policy</pp>.",
     "description": "Disclaimer of agreement to terms of service and privacy policy on Email Sign Up page"
-  },
-  "YAoXTu": {
-    "defaultMessage": "Discover focus areas tailored to your needs to help your prepare for your upcoming technical interviews.",
-    "description": "Description for focus areas page"
   },
   "YBlo/J": {
     "defaultMessage": "As mentioned above, there are many ways to host your project for free. Our recommend hosts are:",
@@ -5163,10 +5219,6 @@
     "defaultMessage": "System design interviews",
     "description": "Front End system design interview questions"
   },
-  "YryFDH": {
-    "defaultMessage": "The 75 most important practice questions to master for data structures and algorithms interviews, written in JavaScript / TypeScript for front end engineers",
-    "description": "Description of GFE75 page"
-  },
   "YwBuE7": {
     "defaultMessage": "The skills you are using in this project, which are in our skills roadmap. Helps us track your progress on skills development",
     "description": "Description for skills roadmap input on project submit page"
@@ -5231,9 +5283,17 @@
     "defaultMessage": "Completed",
     "description": "Completed status for a question"
   },
+  "ZOdYqa": {
+    "defaultMessage": "Study Plans | GreatFrontEnd",
+    "description": "Social title for study plans listing"
+  },
   "ZRUNG5": {
     "defaultMessage": "Promotions",
     "description": "Title of Promotions page"
+  },
+  "ZV1bn5": {
+    "defaultMessage": "Blind 75",
+    "description": "Long label for Blind75 study plan"
   },
   "ZWMfa0": {
     "defaultMessage": "Pricing plans",
@@ -5262,6 +5322,10 @@
   "ZayNDN": {
     "defaultMessage": "💡 Got a question to add?",
     "description": "Title for github add question"
+  },
+  "ZcKmXM": {
+    "defaultMessage": "Accessibility Interview Questions | GreatFrontEnd",
+    "description": "Social title for interview preparation focus area"
   },
   "Zdojj9": {
     "defaultMessage": "Other",
@@ -5375,6 +5439,10 @@
     "defaultMessage": "Every project challenge was designed by senior UI/UX designers with perfect spacing units and design rules, so that your portfolio projects will always look professional.",
     "description": "Description of 'Beautiful designs made by high-end designers' feature in Projects marketing page"
   },
+  "aUDq4G": {
+    "defaultMessage": "Prepare well for your front end interviews in three months with the complete all-in-one prep—over 140 questions and quality solutions from ex-interviewers at big tech",
+    "description": "Description of 3 Months Preparation Plan page"
+  },
   "aVhVoX": {
     "defaultMessage": "RADIO framework",
     "description": "RADIO (acroynm) framework name for front end system design interviews. Don't translate RADIO"
@@ -5382,10 +5450,6 @@
   "aYJLMU": {
     "defaultMessage": "Save",
     "description": "Save update button label"
-  },
-  "aYUexA": {
-    "defaultMessage": "The great way to prepare for Front End Interviews",
-    "description": "Title of GreatFrontEnd standard page"
   },
   "aZ648A": {
     "defaultMessage": "Are you intending to use <bold>\"{childSkill}\"</bold> for this challenge? We will add it to the skills used so your progress for its skill plan will be tracked.",
@@ -5658,10 +5722,6 @@
   "c4N2O5": {
     "defaultMessage": "Not signed in",
     "description": "Label indicating user is not signed in"
-  },
-  "c5f6aC": {
-    "defaultMessage": "Sharpen your skills in asynchronous programming by practicing the use of async/await, Promises, and callback functions. Dive into scenarios that require asynchronous operations, such as making API requests and delayed code execution.",
-    "description": "Description for interview preparation focus area"
   },
   "c7eREh": {
     "defaultMessage": "Status",
@@ -5947,6 +6007,10 @@
     "defaultMessage": "Build an entire library of {trackName} components from scratch. Use it for your portfolio, or as a component toolkit for future projects",
     "description": "Description of Projects component track page"
   },
+  "eGdxs5": {
+    "defaultMessage": "{company} Front End Interview Playbook | GreatFrontEnd",
+    "description": "Social title for company guides detail"
+  },
   "eHjHnz": {
     "defaultMessage": "The URL where your solution is hosted. Click 'Deployment instructions' to get suggestions on recommended free hosting providers.",
     "description": "Form description"
@@ -6071,6 +6135,10 @@
     "defaultMessage": "Project completed!",
     "description": "Success message"
   },
+  "fDWt7h": {
+    "defaultMessage": "Data Structures and Algorithms Interview Questions | GreatFrontEnd",
+    "description": "Social title for interview preparation focus area"
+  },
   "fEoTGW": {
     "defaultMessage": "Start a project",
     "description": "Label for Start a project button on Projects dashboard page"
@@ -6114,6 +6182,10 @@
   "fO8U+i": {
     "defaultMessage": "Will this be a timed challenge?",
     "description": "FAQ question for projects platform"
+  },
+  "fR8Vkh": {
+    "defaultMessage": "Blind 75",
+    "description": "Short label for Blind75 study plan"
   },
   "fRGOI+": {
     "defaultMessage": "Number of questions",
@@ -6223,10 +6295,6 @@
     "defaultMessage": "LinkedIn",
     "description": "Company name for LinkedIn"
   },
-  "g65B9h": {
-    "defaultMessage": "3 Months Plan",
-    "description": "Short label for 3 months study plan"
-  },
   "g9Db2B": {
     "defaultMessage": "GreatFrontEnd Projects is now in BETA! For a limited time, get {percentage}% off with the promo code {promoCode}. <link>Check it out</link>! 🚀",
     "description": "Text on Promo Banner"
@@ -6266,10 +6334,6 @@
   "gJo+AD": {
     "defaultMessage": "The bread and butter of technical coding interviews. For front end interviews, coding questions can be broken down into 3 types.",
     "description": "Description for coding questions"
-  },
-  "gNEj/r": {
-    "defaultMessage": "Implement various Lodash functions and methods to manipulate and transform data efficiently, a common task given during front end interviews and improve your front end interview readiness.",
-    "description": "Description for interview preparation focus area"
   },
   "gRN6GJ": {
     "defaultMessage": "Assets provided",
@@ -6314,6 +6378,10 @@
   "gdGavv": {
     "defaultMessage": "Premium Question",
     "description": "Title on question paywall displayed on premium question's pages"
+  },
+  "geKY+2": {
+    "defaultMessage": "Practice design system components interview questions, including Tabs, Modals, Accordions, and Progress Bars. Code in-browser with solutions from ex-interviewers.",
+    "description": "Description for interview preparation focus area"
   },
   "ghssuE": {
     "defaultMessage": "Next",
@@ -6403,6 +6471,10 @@
     "defaultMessage": "This date is too long ago to be possible. Please recheck your selections",
     "description": "Error message for invalid \"Month and year you started work as a Front End Engineer\" input on Projects profile onboarding page"
   },
+  "hLuz6h": {
+    "defaultMessage": "Practice State Management Interview Questions with Solutions",
+    "description": "Title for interview preparation focus area"
+  },
   "hMx0CX": {
     "defaultMessage": "Everything from the blog",
     "description": "Blog listing title for blog home page"
@@ -6410,6 +6482,10 @@
   "hNQSH/": {
     "defaultMessage": "Apple",
     "description": "Company name for Apple"
+  },
+  "hOA7E4": {
+    "defaultMessage": "Kickstart your front end interview prep by exploring top resources—recommended prep plans, company guides, and a vast bank of practice questions with solutions.",
+    "description": "Description of Get Started page"
   },
   "hOEGb+": {
     "defaultMessage": "Scroll to Bottom",
@@ -6587,10 +6663,6 @@
     "defaultMessage": "Submission summary",
     "description": "Form label"
   },
-  "j+FaML": {
-    "defaultMessage": "Implement various Lodash functions and methods to manipulate and transform data efficiently and improve your front end interview readiness.",
-    "description": "Description for interview preparation focus area"
-  },
   "j+MqYO": {
     "defaultMessage": "Premium Content Coming Soon",
     "description": "System design questions paywall"
@@ -6642,10 +6714,6 @@
   "jMTHcm": {
     "defaultMessage": "Manage subscription",
     "description": "Manage billing subscription"
-  },
-  "jN6xqZ": {
-    "defaultMessage": "1 Week Plan",
-    "description": "Long label for one week study plan"
   },
   "jNLP4m": {
     "defaultMessage": "Other tech stack used (outside of skills roadmap)",
@@ -6718,6 +6786,10 @@
   "jvi6yy": {
     "defaultMessage": "Tech stack",
     "description": "Placeholder for \"Other tech stack used\" text input"
+  },
+  "jvoxVL": {
+    "defaultMessage": "Prepare for your front end interviews in 3 months",
+    "description": "Long description for three months study plan"
   },
   "jwZwsD": {
     "defaultMessage": "Mobile ({width}px x {height}px)",
@@ -6839,6 +6911,10 @@
     "defaultMessage": "Settings",
     "description": "Link label to the settings page"
   },
+  "kTIFRY": {
+    "defaultMessage": "1 Month Study Plan | GreatFrontEnd",
+    "description": "Title of 1 Month Preparation Plan page"
+  },
   "kTyRGU": {
     "defaultMessage": "Step 3",
     "description": "Step N of multiple steps when completing a project"
@@ -6846,6 +6922,10 @@
   "kUR6aL": {
     "defaultMessage": "Question frameworks",
     "description": "Screenreader text to indicate the question frameworks"
+  },
+  "kWg+JN": {
+    "defaultMessage": "Practice DOM manipulation interview questions on CSS selectors, DOM traversal, and element manipulation. Code in-browser with solutions from ex-interviewers.",
+    "description": "Description for interview preparation focus area"
   },
   "kaEcHw": {
     "defaultMessage": "You've gained reputation points for signing up",
@@ -6959,6 +7039,10 @@
     "defaultMessage": "Join Discord",
     "description": "Join Discord channel"
   },
+  "l1pp5/": {
+    "defaultMessage": "DOM Manipulation Interview Questions | GreatFrontEnd",
+    "description": "Social title for interview preparation focus area"
+  },
   "l27vTV": {
     "defaultMessage": "Back to all challenges",
     "description": "Back button label"
@@ -7015,6 +7099,10 @@
     "defaultMessage": "Core System Design techniques and in-depth solutions to common questions like building a social media feed, autocomplete component, e-commerce website.",
     "description": "Description for frontend system design guide"
   },
+  "lL2bPL": {
+    "defaultMessage": "Prepare for your front end interviews in 1 month",
+    "description": "Description for one month study plan"
+  },
   "lMWmct": {
     "defaultMessage": "An 'active day' is a day you completed at least 1 question",
     "description": "Tooltip label for active day in completions"
@@ -7027,9 +7115,9 @@
     "defaultMessage": "Project completion",
     "description": "Subtitle for \"Project Deployment & Completion\" tab on Projects project page"
   },
-  "lNxRzi": {
-    "defaultMessage": "Practice developing inclusive and accessible web experiences. Explore the principles and techniques of web accessibility, including semantic HTML, ARIA roles, keyboard navigation, and screen reader compatibility, a skill which differentiates senior from junior front end engineers.",
-    "description": "Description for interview preparation focus area"
+  "lSt1q5": {
+    "defaultMessage": "1 Week Study Plan | GreatFrontEnd",
+    "description": "Social title of 1 Week Preparation Plan page"
   },
   "lWQA1A": {
     "defaultMessage": "Challenges completed",
@@ -7042,6 +7130,10 @@
   "ldxi7D": {
     "defaultMessage": "Cancel",
     "description": "Cancel button label in confirmation dialog"
+  },
+  "lf+GYY": {
+    "defaultMessage": "Targeted practice on Data Structures & Algorithms interview questions",
+    "description": "Description for interview preparation focus area"
   },
   "lfKH/E": {
     "defaultMessage": "Mark as complete",
@@ -7074,10 +7166,6 @@
   "lu1/V5": {
     "defaultMessage": "Close menu",
     "description": "Close menu"
-  },
-  "lyjVwD": {
-    "defaultMessage": "1 Month Plan",
-    "description": "Long label for one month study plan"
   },
   "lyxOq4": {
     "defaultMessage": "Check out the latest promotions and discounts that GreatFrontEnd offers.",
@@ -7167,10 +7255,6 @@
     "defaultMessage": "Step 2",
     "description": "Title for \"Step 2\" tab on Projects project page"
   },
-  "mnJ9uY": {
-    "defaultMessage": "Practice building Lodash utility functions",
-    "description": "Title for interview preparation focus area"
-  },
   "msvqkR": {
     "defaultMessage": "Every project belongs to 1 of 7 reusable components libraries",
     "description": "Short description for \"Component libraries\" feature on Projects home page"
@@ -7239,6 +7323,10 @@
     "defaultMessage": "Basic details",
     "description": "Section title for user onboarding form"
   },
+  "nQoQzP": {
+    "defaultMessage": "Practice Async Operations Interview Questions with Solutions",
+    "description": "Title for interview preparation focus area"
+  },
   "nRFkBV": {
     "defaultMessage": "Create a free account to track your progress",
     "description": "Title for overlay on Projects dashboard page"
@@ -7283,10 +7371,6 @@
     "defaultMessage": "Marked question as not completed",
     "description": "Success message shown when a question is marked as complete"
   },
-  "npvgQq": {
-    "defaultMessage": "Prepare for your front end interviews in one week. Efficiently focus on the most important concepts through a good mix of coding and quiz questions.",
-    "description": "Description for one week study plan"
-  },
   "nsk8M8": {
     "defaultMessage": "In progress",
     "description": "Project in progress label"
@@ -7315,6 +7399,10 @@
     "defaultMessage": "Session status",
     "description": "Completed and in progress challenges"
   },
+  "o4CKFi": {
+    "defaultMessage": "Practice DOM Manipulation Interview Questions with Solutions",
+    "description": "Title for interview preparation focus area"
+  },
   "oAUXEp": {
     "defaultMessage": "Beautiful designs made by high-end designers",
     "description": "Title of 'Beautiful designs made by high-end designers' feature in Projects marketing page"
@@ -7334,6 +7422,10 @@
   "oNMAi3": {
     "defaultMessage": "Difficulty: Easy to Hard",
     "description": "Sorting option for question list - sort by difficulty from easy to hard"
+  },
+  "oOrYqo": {
+    "defaultMessage": "3 Months Study Plan | GreatFrontEnd",
+    "description": "Title of 3 Months Preparation Plan page"
   },
   "oPyUXk": {
     "defaultMessage": "Practice building all sorts of user interfaces: components, apps, games, etc, in the framework of your choice.",
@@ -7531,10 +7623,6 @@
     "defaultMessage": "Marked \"{articleName}\" as complete",
     "description": "Success message shown when an article was marked as complete"
   },
-  "piWUjn": {
-    "defaultMessage": "Most important 75 questions for data structure and algorithm style interviews",
-    "description": "Long description for Blind75 plan"
-  },
   "piqimi": {
     "defaultMessage": "OFF",
     "description": "Amount cashback/discount"
@@ -7566,6 +7654,10 @@
   "puirr6": {
     "defaultMessage": "Top Svelte coding interview questions to build the most commonly-asked front end UI components and applications.",
     "description": "Description for Svelte questions page"
+  },
+  "pyOncc": {
+    "defaultMessage": "Forms Interview Questions | GreatFrontEnd",
+    "description": "Social title for interview preparation focus area"
   },
   "pz1v44": {
     "defaultMessage": "Next",
@@ -7683,6 +7775,10 @@
     "defaultMessage": "First time preparing for front end interviews?",
     "description": "Link to front end interview guidebook"
   },
+  "qbj/DA": {
+    "defaultMessage": "Lodash Functions Interview Questions | GreatFrontEnd",
+    "description": "Title for interview preparation focus area"
+  },
   "qh0zg0": {
     "defaultMessage": "For your reference, these are the tests used when your code is submitted. They cannot be modified.",
     "description": "Text indicating to users that the below section are test cases that their code will be tested against"
@@ -7739,10 +7835,6 @@
     "defaultMessage": "Go to project",
     "description": "Label for \"Go to project\" button in Project card"
   },
-  "r1cPM9": {
-    "defaultMessage": "Prepare for tackling data structures and algorithms questions in front end interviews",
-    "description": "Title for interview preparation focus area"
-  },
   "r6RLjU": {
     "defaultMessage": "<authorProfileLink>{author}</authorProfileLink> made a post on <recipientProfileLink>{recipient}</recipientProfileLink>'s submission <link>{submissionTitle}</link>: <comment>\"{description}\"</comment>",
     "description": "Log message for someone making a post on others submission"
@@ -7763,6 +7855,10 @@
     "defaultMessage": "Ask any questions in community",
     "description": "Label for \"Ask any questions in community\" item in Expected Support section on Projects project page"
   },
+  "rIMevx": {
+    "defaultMessage": "The one-stop to prepare well for your {company} front end interviews. Discover insider tips, optimal prep strategies, and practice questions known to be tested.",
+    "description": "Page description for company guides detail"
+  },
   "rIxZsj": {
     "defaultMessage": "This challenge can be unlocked without spending any credits because you have unlocked all pre-requisite challenges. Proceed to unlock challenge?",
     "description": "Message about unlocking challenges"
@@ -7770,6 +7866,10 @@
   "rLSGMd": {
     "defaultMessage": "<authorProfileLink>{author}</authorProfileLink> asked a question on the challenge forum for <link>{challengeTitle}</link>: <comment>\"{description}\"</comment>",
     "description": "Log message for someone asking a question on the challenge forum"
+  },
+  "rQneUp": {
+    "defaultMessage": "Blind75 - Top 75 Data Structures and Algorithms Questions",
+    "description": "Title of Blind75 page"
   },
   "rQpb6P": {
     "defaultMessage": "Import that progress into this list?",
@@ -7839,6 +7939,10 @@
     "defaultMessage": "Behavioral Interview Study Guides",
     "description": "Behavioral interview study guides"
   },
+  "s7lhuQ": {
+    "defaultMessage": "Explore study plans that help you prepare for your front end interviews regardless of time left. Efficiently focus on topics that give you the most mileage for time.",
+    "description": "Page description for study plans listing"
+  },
   "s8/47i": {
     "defaultMessage": "Train your skills in designing complex state and implementing operations to manipulate state.",
     "description": "Description for interview preparation focus area"
@@ -7870,6 +7974,10 @@
   "sPnbze": {
     "defaultMessage": "+{count} more",
     "description": "Label for number of additional skills"
+  },
+  "sRPvHx": {
+    "defaultMessage": "Targeted practice on Forms interview questions",
+    "description": "Description for interview preparation focus area"
   },
   "sSOyrU": {
     "defaultMessage": "Practice by question type",
@@ -7906,10 +8014,6 @@
   "sfJ1Oa": {
     "defaultMessage": "Purchase premium to get access to all component tracks as well as exclusive skills, official how-to guides and production-ready Figma files.",
     "description": "Subtitle for premium projects component track"
-  },
-  "sfxQ0Y": {
-    "defaultMessage": "Practice solving questions involving complex state",
-    "description": "Title for interview preparation focus area"
   },
   "sg/5hy": {
     "defaultMessage": "+{count} more",
@@ -7978,6 +8082,10 @@
   "t4Ma6G": {
     "defaultMessage": "Link Title",
     "description": "Label for link title"
+  },
+  "t55S7k": {
+    "defaultMessage": "Targeted practice on Design System Components interview questions",
+    "description": "Description for interview preparation focus area"
   },
   "t5L0yE": {
     "defaultMessage": "Pricing",
@@ -8235,6 +8343,10 @@
     "defaultMessage": "Sign in to your account",
     "description": "Subtitle of Sign In page"
   },
+  "urxhTe": {
+    "defaultMessage": "Practice data structures and algorithms interview questions in-browser with JavaScript / TypeScript solutions from ex-interviewers",
+    "description": "Description for interview preparation focus area"
+  },
   "ut9h+K": {
     "defaultMessage": "You have <bold>{amountLeft}</bold>/{totalAmount} premium credits remaining. Unlock this challenge to learn from user submissions for premium challenges.",
     "description": "Subtitle for project paywall"
@@ -8275,10 +8387,6 @@
     "defaultMessage": "Edit Profile",
     "description": "Title of projects profile edit page"
   },
-  "v4ChUi": {
-    "defaultMessage": "Get started with GreatFrontEnd's study plans or practice over {questionCount} questions across all front end interview formats",
-    "description": "Description of Get Started page"
-  },
   "v7xpbV": {
     "defaultMessage": "Stripe",
     "description": "Company name for Stripe"
@@ -8298,6 +8406,10 @@
   "vMy9f3": {
     "defaultMessage": "Months",
     "description": "Title of months accordion in Roadmap Slide out filter"
+  },
+  "vNdh9I": {
+    "defaultMessage": "Study Plans for Front End Interviews",
+    "description": "Page title for study plans listing"
   },
   "vNvx2g": {
     "defaultMessage": "Purchase premium to get access to all skill plans as well as exclusive component tracks, official how-to guides and production-ready Figma files.",
@@ -8319,6 +8431,10 @@
     "defaultMessage": "Clarify any doubts on a project in project-specific forums",
     "description": "Description for \"Learn from others\" feature on Projects home page"
   },
+  "vccqVg": {
+    "defaultMessage": "Practice async operations interview questions on async / await, Promises, and callbacks. Code in-browser with quality solutions and tests from ex-interviewers.",
+    "description": "Description for interview preparation focus area"
+  },
   "vegaR1": {
     "defaultMessage": "Sort by",
     "description": "Label for sorting button"
@@ -8334,6 +8450,10 @@
   "vi10y1": {
     "defaultMessage": "Dashboard",
     "description": "Link to dashboard page"
+  },
+  "vp+axD": {
+    "defaultMessage": "The 75 most important questions to master for data structures and algorithms interviews, with solutions in JavaScript / TypeScript for front end engineers",
+    "description": "Description of Blind75 page"
   },
   "vp4zbB": {
     "defaultMessage": "Purchase premium to see companies which ask this question.",
@@ -8407,6 +8527,10 @@
     "defaultMessage": "Team",
     "description": "Link to company's team page"
   },
+  "wA6yn6": {
+    "defaultMessage": "Get Started - One-Stop to Prepare for your Front End Interviews",
+    "description": "Title of Get Started page"
+  },
   "wAOHw9": {
     "defaultMessage": "Similar Questions",
     "description": "Header for similar questions to the current question"
@@ -8450,6 +8574,10 @@
   "wW8IAK": {
     "defaultMessage": "No file selected from the repository. Select a file to view.",
     "description": "Empty state message when the default file from the repository could not be loaded"
+  },
+  "wXON/G": {
+    "defaultMessage": "The 75 critical questions to master for Front End interviews, covering all essential topics. Code in-browser with solutions and tests from ex-interviewers.",
+    "description": "Description of GFE75 page"
   },
   "wdjeYA": {
     "defaultMessage": "View",
@@ -8503,10 +8631,6 @@
     "defaultMessage": "Top {questionCount} front end interview coding questions to practice, with detailed solutions and explanations by ex-interviewers at FAANG.",
     "description": "Description of Interview Preparation Coding page"
   },
-  "xBj9I5": {
-    "defaultMessage": "Prepare for tackling form questions in front end interviews",
-    "description": "Title for interview preparation focus area"
-  },
   "xEvm93": {
     "defaultMessage": "Features",
     "description": "Link to features page"
@@ -8523,6 +8647,10 @@
     "defaultMessage": "Please try retaking the screenshot",
     "description": "Retake error message for screenshot"
   },
+  "xR2GQR": {
+    "defaultMessage": "Front End Interview Playbooks for Target Companies",
+    "description": "Page title for company guides listing"
+  },
   "xRWPeC": {
     "defaultMessage": "200+ questions",
     "description": "Badge label for questions count"
@@ -8530,6 +8658,10 @@
   "xU32y0": {
     "defaultMessage": "3 subcategories of questions: JavaScript, User Interfaces & Data Structures and Algorithms",
     "description": "Description of coding interview preparation"
+  },
+  "xW6w5q": {
+    "defaultMessage": "Design System Components Interview Questions | GreatFrontEnd",
+    "description": "Social title for interview preparation focus area"
   },
   "xWAt8Q": {
     "defaultMessage": "The ultimate Front End Interview preparation platform.",
@@ -8582,6 +8714,10 @@
   "xsaQ0d": {
     "defaultMessage": "Student Discount",
     "description": "Promotion title"
+  },
+  "xtUjHr": {
+    "defaultMessage": "Discover front end interview questions and preparation resources for top tech companies like Google, Facebook, Amazon, Apple, Microsoft, TikTok and more.",
+    "description": "Page description for company guides listing"
   },
   "xtxnjG": {
     "defaultMessage": "{numberOfQuestions, plural, =0 {no questions} one {1 question} other {# questions}}",
@@ -8711,6 +8847,10 @@
     "defaultMessage": "Unlike other challenge platforms, all our projects are modular with one other as they are constructed with the same design system. Easily mix and match any component or project you build to craft a unique app.",
     "description": "Description of 'Personalized projects' feature in Projects marketing page"
   },
+  "yztOsj": {
+    "defaultMessage": "Targeted practice on State Management interview questions",
+    "description": "Description for interview preparation focus area"
+  },
   "z+5YJV": {
     "defaultMessage": "View All Questions",
     "description": "Link label to the list of all User Interface coding questions"
@@ -8730,10 +8870,6 @@
   "zACRRV": {
     "defaultMessage": "Please enter your motivations",
     "description": "Error message for empty \"Other\" onboarding option in Projects"
-  },
-  "zAdlgk": {
-    "defaultMessage": "Blind75",
-    "description": "Long label for Blind75 study plan"
   },
   "zAl/H8": {
     "defaultMessage": "General account settings. Shared across all GreatFrontEnd products.",

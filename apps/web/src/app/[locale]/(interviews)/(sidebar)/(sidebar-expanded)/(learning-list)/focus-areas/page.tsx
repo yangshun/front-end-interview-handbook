@@ -24,25 +24,51 @@ type Props = Readonly<{
   }>;
 }>;
 
+async function getPageSEOMetadata({ params }: Props) {
+  const { locale } = params;
+  const intl = await getIntlServerOnly(locale);
+  const focusAreas = getFocusAreas(intl as IntlShape);
+
+  return {
+    description: intl.formatMessage(
+      {
+        defaultMessage:
+          'Explore {topicsCount} critical topics for front end interviews. Master them with targeted practice questions—each with detailed solutions and tests to learn from.',
+        description: 'Page description for focus areas listing',
+        id: 'UISwUX',
+      },
+      {
+        topicsCount: Object.keys(focusAreas).length,
+      },
+    ),
+    href: '/focus-areas',
+    socialTitle: intl.formatMessage({
+      defaultMessage: 'Practice Questions by Focus Area | GreatFrontEnd',
+      description: 'Social title for focus areas listing',
+      id: 'DUKB3u',
+    }),
+    title: intl.formatMessage({
+      defaultMessage:
+        'Front End Interview Focus Areas—Accessibility, Forms and more',
+      description: 'Page title for focus areas listing',
+      id: 'UET3FT',
+    }),
+  };
+}
+
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = params;
 
-  const intl = await getIntlServerOnly(locale);
+  const { title, description, socialTitle, href } = await getPageSEOMetadata({
+    params,
+  });
 
   return defaultMetadata({
-    description: intl.formatMessage({
-      defaultMessage:
-        'Discover focus areas tailored to your needs to help your prepare for your upcoming technical interviews.',
-      description: 'Description for focus areas page',
-      id: 'YAoXTu',
-    }),
+    description,
     locale,
-    pathname: '/focus-areas',
-    title: intl.formatMessage({
-      defaultMessage: 'Focus areas for Front End Interviews',
-      description: 'Title of focus areas page',
-      id: '8wt3/b',
-    }),
+    pathname: href,
+    socialTitle,
+    title,
   });
 }
 

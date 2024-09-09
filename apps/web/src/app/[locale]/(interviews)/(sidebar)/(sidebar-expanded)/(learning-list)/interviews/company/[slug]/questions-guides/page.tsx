@@ -10,6 +10,7 @@ import { sortQuestions } from '~/components/interviews/questions/listings/filter
 import { fetchInterviewsCompanyGuide } from '~/db/contentlayer/InterviewsCompanyGuideReader';
 import { fetchInterviewListingBottomContent } from '~/db/contentlayer/InterviewsListingBottomContentReader';
 import { fetchQuestionsBySlug } from '~/db/QuestionsListReader';
+import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
 
 // TODO(interviews): disable to do A/B test.
@@ -25,19 +26,67 @@ type Props = Readonly<{
   };
 }>;
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
+async function getPageSEOMetadata({ params }: Props) {
   const { locale, slug } = params;
-  const companyGuide = await fetchInterviewsCompanyGuide(slug);
+  const [intl, companyGuide] = await Promise.all([
+    getIntlServerOnly(locale),
+    fetchInterviewsCompanyGuide(slug),
+  ]);
 
   if (companyGuide == null) {
     return notFound();
   }
 
+  return {
+    description: intl.formatMessage(
+      {
+        defaultMessage:
+          'The one-stop to prepare well for your {company} front end interviews. Discover insider tips, optimal prep strategies, and practice questions known to be tested.',
+        description: 'Page description for company guides detail',
+        id: 'rIMevx',
+      },
+      {
+        company: companyGuide.name,
+      },
+    ),
+    href: `/interviews/company/${slug}`,
+    socialTitle: intl.formatMessage(
+      {
+        defaultMessage:
+          '{company} Front End Interview Playbook | GreatFrontEnd',
+        description: 'Social title for company guides detail',
+        id: 'eGdxs5',
+      },
+      {
+        company: companyGuide.name,
+      },
+    ),
+    title: intl.formatMessage(
+      {
+        defaultMessage:
+          '{company} Front End Interview Playbook - Prep Strategies and Practice Questions',
+        description: 'Page title for company guides detail',
+        id: 'A8Qo2Q',
+      },
+      {
+        company: companyGuide.name,
+      },
+    ),
+  };
+}
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale } = params;
+  const { title, description, socialTitle, href } = await getPageSEOMetadata({
+    params,
+  });
+
   return defaultMetadata({
-    description: `Ace your ${companyGuide.name} front end interview with these curated questions`,
+    description,
     locale,
-    pathname: `/interviews/company/${slug}`,
-    title: `${companyGuide.name} Front End Engineer Interview Questions and Guide`,
+    pathname: href,
+    socialTitle,
+    title,
   });
 }
 

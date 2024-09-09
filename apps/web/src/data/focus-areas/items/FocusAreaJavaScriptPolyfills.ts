@@ -10,9 +10,9 @@ export function getFocusAreaJavaScriptPolyfills(intl: IntlShape): FocusArea {
   return {
     description: intl.formatMessage({
       defaultMessage:
-        'Gain proficiency in front end fundamentals by implementing JavaScript and DOM APIs from scratch.',
+        'Targeted practice on JavaScript Polyfills interview questions',
       description: 'Description for interview preparation focus area',
-      id: 'YGqz7y',
+      id: '7+uXHt',
     }),
     href: '/focus-areas/javascript-polyfills',
     longName: intl.formatMessage({
@@ -62,14 +62,21 @@ export function getFocusAreaJavaScriptPolyfills(intl: IntlShape): FocusArea {
     seo: {
       description: intl.formatMessage({
         defaultMessage:
-          'Gain proficiency in front end fundamentals by implementing JavaScript and DOM APIs from scratch.',
+          'Practice JavaScript Polyfills interview questions by implementing JS and DOM APIs from scratch. Code in-browser with solutions by ex-interviewers.',
         description: 'Description for interview preparation focus area',
-        id: 'YGqz7y',
+        id: 'LmjB8K',
+      }),
+      socialTitle: intl.formatMessage({
+        defaultMessage:
+          'JavaScript Polyfills Interview Questions | GreatFrontEnd',
+        description: 'Social title for interview preparation focus area',
+        id: '30sSdR',
       }),
       title: intl.formatMessage({
-        defaultMessage: 'Practice writing JavaScript and DOM API Polyfills',
+        defaultMessage:
+          'Practice JavaScript Polyfills Interview Questions with Solutions',
         description: 'Title for interview preparation focus area',
-        id: '9fclPT',
+        id: '7aqW08',
       }),
     },
     shortDescription: intl.formatMessage({

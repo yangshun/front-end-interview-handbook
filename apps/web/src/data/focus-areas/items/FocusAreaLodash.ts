@@ -10,9 +10,9 @@ export function getFocusAreaLodash(intl: IntlShape): FocusArea {
   return {
     description: intl.formatMessage({
       defaultMessage:
-        'Implement various Lodash functions and methods to manipulate and transform data efficiently, a common task given during front end interviews and improve your front end interview readiness.',
+        'Targeted practice on Lodash Functions interview questions',
       description: 'Description for interview preparation focus area',
-      id: 'gNEj/r',
+      id: 'EDmnjv',
     }),
     href: '/focus-areas/lodash',
     longName: intl.formatMessage({
@@ -65,14 +65,19 @@ export function getFocusAreaLodash(intl: IntlShape): FocusArea {
     seo: {
       description: intl.formatMessage({
         defaultMessage:
-          'Implement various Lodash functions and methods to manipulate and transform data efficiently and improve your front end interview readiness.',
+          'Practice Lodash interview questions, implementing functions to manipulate and transform data efficiently. Code in-browser with solutions from ex-interviewers.',
         description: 'Description for interview preparation focus area',
-        id: 'j+FaML',
+        id: 'ANgYyn',
+      }),
+      socialTitle: intl.formatMessage({
+        defaultMessage: 'Lodash Functions Interview Questions | GreatFrontEnd',
+        description: 'Title for interview preparation focus area',
+        id: 'qbj/DA',
       }),
       title: intl.formatMessage({
-        defaultMessage: 'Practice building Lodash utility functions',
+        defaultMessage: 'Practice Lodash Interview Questions with Solutions',
         description: 'Title for interview preparation focus area',
-        id: 'mnJ9uY',
+        id: '97VOmx',
       }),
     },
     shortDescription: intl.formatMessage({

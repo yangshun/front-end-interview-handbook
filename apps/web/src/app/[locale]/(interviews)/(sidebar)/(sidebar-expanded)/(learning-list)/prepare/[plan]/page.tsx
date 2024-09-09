@@ -51,15 +51,14 @@ type Props = Readonly<{
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale, plan: planType } = params;
 
-  const { title, description, href } = await getPreparationPlansSEO(
-    planType,
-    locale,
-  );
+  const { title, description, href, socialTitle } =
+    await getPreparationPlansSEO(planType, locale);
 
   return defaultMetadata({
     description,
     locale,
     pathname: href,
+    socialTitle,
     title,
   });
 }

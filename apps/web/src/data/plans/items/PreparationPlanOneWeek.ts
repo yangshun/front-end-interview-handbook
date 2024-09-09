@@ -13,16 +13,15 @@ import type { PreparationPlan } from '../PreparationPlans';
 export function getPreparationPlanOneWeek(intl: IntlShape): PreparationPlan {
   return {
     description: intl.formatMessage({
-      defaultMessage:
-        'Prepare for your front end interviews in one week. Efficiently focus on the most important concepts through a good mix of coding and quiz questions.',
+      defaultMessage: 'Prepare for your front end interviews in 1 week',
       description: 'Description for one week study plan',
-      id: 'npvgQq',
+      id: '/pkoGQ',
     }),
     href: '/prepare/one-week',
     longName: intl.formatMessage({
-      defaultMessage: '1 Week Plan',
+      defaultMessage: '1 Week Study Plan',
       description: 'Long label for one week study plan',
-      id: 'jN6xqZ',
+      id: '5awWqG',
     }),
     name: intl.formatMessage({
       defaultMessage: '1 Week',
@@ -63,15 +62,19 @@ export function getPreparationPlanOneWeek(intl: IntlShape): PreparationPlan {
     seo: {
       description: intl.formatMessage({
         defaultMessage:
-          'Study and practice the exact questions and concepts you need to prepare for front end interviews within a week',
+          'Prepare well for your front end interviews in one week with a hyper-optimized list of practice questions. Solutions and tests by ex-interviewers from big tech.',
         description: 'Description of 1 Week Preparation Plan page',
-        id: 'D3YhsE',
+        id: 'Gtlwzt',
+      }),
+      socialTitle: intl.formatMessage({
+        defaultMessage: '1 Week Study Plan | GreatFrontEnd',
+        description: 'Social title of 1 Week Preparation Plan page',
+        id: 'lSt1q5',
       }),
       title: intl.formatMessage({
-        defaultMessage:
-          'Study plan to prepare for front end interviews in 1 week',
+        defaultMessage: 'One Week Study Plan for Front End Interviews',
         description: 'Title of 1 Week Preparation Plan page',
-        id: 'UiHdWK',
+        id: 'MLzMFp',
       }),
     },
     shortDescription: intl.formatMessage({

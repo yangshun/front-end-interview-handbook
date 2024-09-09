@@ -11,20 +11,20 @@ export function getPreparationPlanBlind75(intl: IntlShape): PreparationPlan {
   return {
     description: intl.formatMessage({
       defaultMessage:
-        'Most important 75 questions for data structure and algorithm style interviews',
+        'Most important 75 questions for data structure and algorithm style interviews.',
       description: 'Long description for Blind75 plan',
-      id: 'piWUjn',
+      id: 'AMHPad',
     }),
     href: '/interviews/blind75',
     longName: intl.formatMessage({
-      defaultMessage: 'Blind75',
+      defaultMessage: 'Blind 75',
       description: 'Long label for Blind75 study plan',
-      id: 'zAdlgk',
+      id: 'ZV1bn5',
     }),
     name: intl.formatMessage({
-      defaultMessage: 'Blind75',
+      defaultMessage: 'Blind 75',
       description: 'Short label for Blind75 study plan',
-      id: 'MARU+b',
+      id: 'fR8Vkh',
     }),
     questions: {
       algo: [],
@@ -67,9 +67,9 @@ export function getPreparationPlanBlind75(intl: IntlShape): PreparationPlan {
     seo: {
       description: intl.formatMessage({
         defaultMessage:
-          'The 75 most important practice questions to master for data structures and algorithms interviews, written in JavaScript / TypeScript for front end engineers',
+          'The 75 most important questions to master for data structures and algorithms interviews, with solutions in JavaScript / TypeScript for front end engineers',
         description: 'Description of Blind75 page',
-        id: '2wBW3u',
+        id: 'vp+axD',
       }),
       socialTitle: intl.formatMessage({
         defaultMessage: 'Blind75 | GreatFrontEnd',
@@ -78,9 +78,9 @@ export function getPreparationPlanBlind75(intl: IntlShape): PreparationPlan {
       }),
       title: intl.formatMessage({
         defaultMessage:
-          'Blind75 - Practice In-Browser with Solutions in JavaScript',
+          'Blind75 - Top 75 Data Structures and Algorithms Questions',
         description: 'Title of Blind75 page',
-        id: '3+kGwu',
+        id: 'rQneUp',
       }),
     },
     shortDescription: intl.formatMessage({

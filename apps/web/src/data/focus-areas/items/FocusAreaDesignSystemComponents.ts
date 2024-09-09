@@ -10,9 +10,9 @@ export function getFocusAreaDesignSystemComponents(intl: IntlShape): FocusArea {
   return {
     description: intl.formatMessage({
       defaultMessage:
-        'Elevate your front-end skills by practicing the creation of front end design system components.',
+        'Targeted practice on Design System Components interview questions',
       description: 'Description for interview preparation focus area',
-      id: 'PGq6U8',
+      id: 't55S7k',
     }),
     href: '/focus-areas/design-system-components',
     longName: intl.formatMessage({
@@ -48,14 +48,20 @@ export function getFocusAreaDesignSystemComponents(intl: IntlShape): FocusArea {
     seo: {
       description: intl.formatMessage({
         defaultMessage:
-          'Elevate your front-end skills by practicing the creation of front end design system components.',
+          'Practice design system components interview questions, including Tabs, Modals, Accordions, and Progress Bars. Code in-browser with solutions from ex-interviewers.',
         description: 'Description for interview preparation focus area',
-        id: 'PGq6U8',
+        id: 'geKY+2',
+      }),
+      socialTitle: intl.formatMessage({
+        defaultMessage:
+          'Design System Components Interview Questions | GreatFrontEnd',
+        description: 'Social title for interview preparation focus area',
+        id: 'xW6w5q',
       }),
       title: intl.formatMessage({
-        defaultMessage: 'Practice creating design system components',
+        defaultMessage: 'Practice Design System Components Interview Questions',
         description: 'Title for interview preparation focus area',
-        id: 'QsAiLH',
+        id: 'KyrxLW',
       }),
     },
     shortDescription: intl.formatMessage({

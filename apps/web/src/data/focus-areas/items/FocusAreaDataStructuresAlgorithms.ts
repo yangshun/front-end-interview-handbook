@@ -14,9 +14,9 @@ export function getFocusAreaDataStructuresAlgorithms(
     description: intl.formatMessage(
       {
         defaultMessage:
-          'Hone your computer science fundamentals by implementing important data structures and algorithms from scratch and practice the questions where algorithmic efficiency is key.',
+          'Targeted practice on Data Structures & Algorithms interview questions',
         description: 'Description for interview preparation focus area',
-        id: 'FcKhvG',
+        id: 'lf+GYY',
       },
       {
         numberOfQuestions: QuestionCount,
@@ -68,15 +68,21 @@ export function getFocusAreaDataStructuresAlgorithms(
     seo: {
       description: intl.formatMessage({
         defaultMessage:
-          'Hone your computer science fundamentals by implementing important data structures and algorithms from scratch and practice the questions where algorithmic efficiency is key.',
+          'Practice data structures and algorithms interview questions in-browser with JavaScript / TypeScript solutions from ex-interviewers',
         description: 'Description for interview preparation focus area',
-        id: 'FcKhvG',
+        id: 'urxhTe',
+      }),
+      socialTitle: intl.formatMessage({
+        defaultMessage:
+          'Data Structures and Algorithms Interview Questions | GreatFrontEnd',
+        description: 'Social title for interview preparation focus area',
+        id: 'fDWt7h',
       }),
       title: intl.formatMessage({
         defaultMessage:
-          'Prepare for tackling data structures and algorithms questions in front end interviews',
+          'Practice Data Structures and Algorithms Interview Questions',
         description: 'Title for interview preparation focus area',
-        id: 'r1cPM9',
+        id: 'EteZq/',
       }),
     },
     shortDescription: intl.formatMessage({

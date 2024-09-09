@@ -18,10 +18,9 @@ export function getPreparationPlanThreeMonths(
   return {
     description: intl.formatMessage(
       {
-        defaultMessage:
-          'With over {numberOfQuestions} questions, this is the most complete all-in-one front end interview preparation you can ever dream of.',
+        defaultMessage: 'Prepare for your front end interviews in 3 months',
         description: 'Long description for three months study plan',
-        id: 'JrmA6j',
+        id: 'jvoxVL',
       },
       {
         numberOfQuestions: 140,
@@ -29,9 +28,9 @@ export function getPreparationPlanThreeMonths(
     ),
     href: '/prepare/three-months',
     longName: intl.formatMessage({
-      defaultMessage: '3 Months Plan',
+      defaultMessage: '3 Months Study Plan',
       description: 'Short label for 3 months study plan',
-      id: 'g65B9h',
+      id: 'G+xlW/',
     }),
     name: intl.formatMessage({
       defaultMessage: '3 Months',
@@ -108,15 +107,19 @@ export function getPreparationPlanThreeMonths(
     seo: {
       description: intl.formatMessage({
         defaultMessage:
-          'Everything you need to study and practice for front end interviews for a complete preparation.',
+          'Prepare well for your front end interviews in three months with the complete all-in-one prep—over 140 questions and quality solutions from ex-interviewers at big tech',
         description: 'Description of 3 Months Preparation Plan page',
-        id: '8UEoLG',
+        id: 'aUDq4G',
+      }),
+      socialTitle: intl.formatMessage({
+        defaultMessage: '3 Months Study Plan | GreatFrontEnd',
+        description: 'Title of 3 Months Preparation Plan page',
+        id: 'oOrYqo',
       }),
       title: intl.formatMessage({
-        defaultMessage:
-          'Study plan to prepare for front end interviews in 3 months',
-        description: 'Title of 3 Months Preparation Plan page',
-        id: '7Iapcq',
+        defaultMessage: 'Three Months Study Plan for Front End Interviews',
+        description: 'Social title of 3 Months Preparation Plan page',
+        id: 'MN8mVk',
       }),
     },
     shortDescription: intl.formatMessage({

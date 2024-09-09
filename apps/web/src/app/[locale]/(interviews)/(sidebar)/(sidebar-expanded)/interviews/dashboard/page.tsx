@@ -1,3 +1,4 @@
+import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import type { IntlShape } from 'react-intl';
 
@@ -19,12 +20,29 @@ import {
   fetchQuestionsListSystemDesign,
 } from '~/db/QuestionsListReader';
 import { getIntlServerOnly } from '~/i18n';
+import defaultMetadata from '~/seo/defaultMetadata';
 
 type Props = Readonly<{
   params: Readonly<{
     locale: string;
   }>;
 }>;
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale } = params;
+
+  const intl = await getIntlServerOnly(locale);
+
+  return defaultMetadata({
+    locale,
+    pathname: '/interviews/dashboard',
+    title: intl.formatMessage({
+      defaultMessage: 'Dashboard - Track your interview preparation progress',
+      description: 'Title of Get Started page',
+      id: '1nme1Z',
+    }),
+  });
+}
 
 export default async function Page({ params }: Props) {
   if (!INTERVIEWS_REVAMP_2024) {

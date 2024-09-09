@@ -9,10 +9,9 @@ import type { FocusArea } from '../FocusAreas';
 export function getFocusAreaForms(intl: IntlShape): FocusArea {
   return {
     description: intl.formatMessage({
-      defaultMessage:
-        'Master the art of building interactive and user-friendly forms by exploring various form components, validation techniques, and handling form submissions.',
+      defaultMessage: 'Targeted practice on Forms interview questions',
       description: 'Description for interview preparation focus area',
-      id: 'T3JUSj',
+      id: 'sRPvHx',
     }),
     href: '/focus-areas/forms',
     longName: intl.formatMessage({
@@ -45,15 +44,19 @@ export function getFocusAreaForms(intl: IntlShape): FocusArea {
     seo: {
       description: intl.formatMessage({
         defaultMessage:
-          'Master the art of building interactive and user-friendly forms by exploring various form components, validation techniques, and handling form submissions.',
+          'Practice form-related interview questions on form components, validation, and submission handling. Code in-browser with solutions from ex-interviewers.',
         description: 'Description for interview preparation focus area',
-        id: 'T3JUSj',
+        id: '9kGiQx',
+      }),
+      socialTitle: intl.formatMessage({
+        defaultMessage: 'Forms Interview Questions | GreatFrontEnd',
+        description: 'Social title for interview preparation focus area',
+        id: 'pyOncc',
       }),
       title: intl.formatMessage({
-        defaultMessage:
-          'Prepare for tackling form questions in front end interviews',
+        defaultMessage: 'Practice Forms Interview Questions with Solutions',
         description: 'Title for interview preparation focus area',
-        id: 'xBj9I5',
+        id: '65GCar',
       }),
     },
     shortDescription: intl.formatMessage({

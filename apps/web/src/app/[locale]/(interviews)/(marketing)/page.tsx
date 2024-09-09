@@ -29,9 +29,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return defaultMetadata({
     description: intl.formatMessage(
       {
-        defaultMessage: `The complete preparation platform for front end interviews. {questionCount}+ practice questions (with answers) across system design, UI and more. By ex-FAANG interviewers.`,
+        defaultMessage: `The complete prep platform for Front End interviews. Practice {questionCount}+ questions with solutions, code in-browser, and use prep plans devised by ex-interviewers.`,
         description: 'Description of GreatFrontEnd standard page',
-        id: 'WJ/3Qn',
+        id: 'BQSR58',
       },
       {
         questionCount: QuestionCount,
@@ -39,10 +39,16 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     ),
     locale,
     pathname: '/',
+    socialTitle: intl.formatMessage({
+      defaultMessage: 'GreatFrontEnd Interviews',
+      description: 'Social title of GreatFrontEnd standard page',
+      id: '719/YQ',
+    }),
     title: intl.formatMessage({
-      defaultMessage: 'The great way to prepare for Front End Interviews',
+      defaultMessage:
+        'GreatFrontEnd: The Great Way to Prepare for Front End Interviews',
       description: 'Title of GreatFrontEnd standard page',
-      id: 'aYUexA',
+      id: '6xnZGh',
     }),
   });
 }

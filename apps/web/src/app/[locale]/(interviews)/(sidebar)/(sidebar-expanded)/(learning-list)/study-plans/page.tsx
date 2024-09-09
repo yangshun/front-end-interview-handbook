@@ -22,25 +22,44 @@ type Props = Readonly<{
   }>;
 }>;
 
+async function getPageSEOMetadata({ params }: Props) {
+  const { locale } = params;
+  const intl = await getIntlServerOnly(locale);
+
+  return {
+    description: intl.formatMessage({
+      defaultMessage:
+        'Explore study plans that help you prepare for your front end interviews regardless of time left. Efficiently focus on topics that give you the most mileage for time.',
+      description: 'Page description for study plans listing',
+      id: 's7lhuQ',
+    }),
+    href: '/study-plans',
+    socialTitle: intl.formatMessage({
+      defaultMessage: 'Study Plans | GreatFrontEnd',
+      description: 'Social title for study plans listing',
+      id: 'ZOdYqa',
+    }),
+    title: intl.formatMessage({
+      defaultMessage: 'Study Plans for Front End Interviews',
+      description: 'Page title for study plans listing',
+      id: 'vNdh9I',
+    }),
+  };
+}
+
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = params;
 
-  const intl = await getIntlServerOnly(locale);
+  const { title, description, socialTitle, href } = await getPageSEOMetadata({
+    params,
+  });
 
   return defaultMetadata({
-    description: intl.formatMessage({
-      defaultMessage:
-        'Discover study plans tailored to your needs to help your prepare for your upcoming technical interviews.',
-      description: 'Description for study plans page',
-      id: '2vDjTb',
-    }),
+    description,
     locale,
-    pathname: '/study-plans',
-    title: intl.formatMessage({
-      defaultMessage: 'Study plans for Front End Interviews',
-      description: 'Title of study plans page',
-      id: '6A9LIb',
-    }),
+    pathname: href,
+    socialTitle,
+    title,
   });
 }
 

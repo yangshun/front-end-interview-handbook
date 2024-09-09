@@ -1,7 +1,6 @@
 import type { Metadata } from 'next/types';
 
 import { sortQuestions } from '~/components/interviews/questions/listings/filters/QuestionsProcessor';
-import { QuestionCount } from '~/components/interviews/questions/listings/stats/QuestionCount';
 
 import {
   fetchQuestionsListJavaScript,
@@ -29,22 +28,23 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const intl = await getIntlServerOnly(locale);
 
   return defaultMetadata({
-    description: intl.formatMessage(
-      {
-        defaultMessage: `Get started with GreatFrontEnd's study plans or practice over {questionCount} questions across all front end interview formats`,
-        description: 'Description of Get Started page',
-        id: 'v4ChUi',
-      },
-      {
-        questionCount: QuestionCount,
-      },
-    ),
+    description: intl.formatMessage({
+      defaultMessage: `Kickstart your front end interview prep by exploring top resources—recommended prep plans, company guides, and a vast bank of practice questions with solutions.`,
+      description: 'Description of Get Started page',
+      id: 'hOA7E4',
+    }),
     locale,
     pathname: '/get-started',
+    socialTitle: intl.formatMessage({
+      defaultMessage: 'Prepare for your Front End Interviews | Get Started',
+      description: 'Social title of Get Started page',
+      id: 'DsJgFx',
+    }),
     title: intl.formatMessage({
-      defaultMessage: 'Get Started',
+      defaultMessage:
+        'Get Started - One-Stop to Prepare for your Front End Interviews',
       description: 'Title of Get Started page',
-      id: 'Ll7iob',
+      id: 'wA6yn6',
     }),
   });
 }

@@ -9,10 +9,9 @@ import type { FocusArea } from '../FocusAreas';
 export function getFocusAreaAccessibility(intl: IntlShape): FocusArea {
   return {
     description: intl.formatMessage({
-      defaultMessage:
-        'Practice developing inclusive and accessible web experiences. Explore the principles and techniques of web accessibility, including semantic HTML, ARIA roles, keyboard navigation, and screen reader compatibility, a skill which differentiates senior from junior front end engineers.',
+      defaultMessage: 'Targeted practice on Accessibility interview questions',
       description: 'Description for interview preparation focus area',
-      id: 'lNxRzi',
+      id: 'XauDQh',
     }),
     href: '/focus-areas/accessibility',
     longName: intl.formatMessage({
@@ -48,15 +47,20 @@ export function getFocusAreaAccessibility(intl: IntlShape): FocusArea {
     seo: {
       description: intl.formatMessage({
         defaultMessage:
-          'Practice developing inclusive and accessible web experiences, a skill which differentiates senior from junior front end engineers.',
+          'Practice front end Accessibility interview questions on semantic HTML, ARIA, and screen readers. Code in-browser with curated solutions from ex-interviewers.',
         description: 'Description for interview preparation focus area',
-        id: 'T8HWQC',
+        id: 'FwKG3p',
+      }),
+      socialTitle: intl.formatMessage({
+        defaultMessage: 'Accessibility Interview Questions | GreatFrontEnd',
+        description: 'Social title for interview preparation focus area',
+        id: 'ZcKmXM',
       }),
       title: intl.formatMessage({
         defaultMessage:
-          'Showcase your knowledge of web accessibility in front end interviews',
+          'Practice Accessibility Interview Questions with Solutions',
         description: 'Title for interview preparation focus area',
-        id: 'OumyBP',
+        id: 'GQfy69',
       }),
     },
     shortDescription: intl.formatMessage({

@@ -10,9 +10,9 @@ export function getFocusAreaAsyncOperations(intl: IntlShape): FocusArea {
   return {
     description: intl.formatMessage({
       defaultMessage:
-        'Sharpen your skills in asynchronous programming by practicing the use of async/await, Promises, and callback functions. Dive into scenarios that require asynchronous operations, such as making API requests and delayed code execution.',
+        'Targeted practice on Async Operations interview questions',
       description: 'Description for interview preparation focus area',
-      id: 'c5f6aC',
+      id: 'Xs7UBt',
     }),
     href: '/focus-areas/async-operations',
     longName: intl.formatMessage({
@@ -70,14 +70,20 @@ export function getFocusAreaAsyncOperations(intl: IntlShape): FocusArea {
     seo: {
       description: intl.formatMessage({
         defaultMessage:
-          'Sharpen your skills in asynchronous programming by practicing the use of async/await, Promises, and callback functions.',
+          'Practice async operations interview questions on async / await, Promises, and callbacks. Code in-browser with quality solutions and tests from ex-interviewers.',
         description: 'Description for interview preparation focus area',
-        id: 'UrnJdy',
+        id: 'vccqVg',
+      }),
+      socialTitle: intl.formatMessage({
+        defaultMessage: 'Async Operations Interview Questions | GreatFrontEnd',
+        description: 'Social title for interview preparation focus area',
+        id: 'Adsxn4',
       }),
       title: intl.formatMessage({
-        defaultMessage: 'Master async programming for front end interviews',
+        defaultMessage:
+          'Practice Async Operations Interview Questions with Solutions',
         description: 'Title for interview preparation focus area',
-        id: 'EmirPr',
+        id: 'nQoQzP',
       }),
     },
     shortDescription: intl.formatMessage({
