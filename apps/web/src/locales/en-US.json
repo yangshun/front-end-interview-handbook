@@ -407,6 +407,10 @@
     "defaultMessage": "Try these popular CSS questions",
     "description": "Title for featured questions section"
   },
+  "17Ty2c": {
+    "defaultMessage": "Front End Interview Practice Questions | GreatFrontEnd",
+    "description": "Social title for focus areas listing"
+  },
   "19uyd3": {
     "defaultMessage": "<bold>+{points}</bold> rep",
     "description": "Tooltip for rep count increase in Projects level progress bar"
@@ -1299,6 +1303,10 @@
     "defaultMessage": "Profile",
     "description": "Profile page title"
   },
+  "83BIY0": {
+    "defaultMessage": "Front End System Design",
+    "description": "Title for system design questions"
+  },
   "83GIBc": {
     "defaultMessage": "Introduction",
     "description": "Introduction to front end system design"
@@ -1478,6 +1486,10 @@
   "9DlLF1": {
     "defaultMessage": "GreatFrontEnd",
     "description": "Title of GreatFrontEnd page"
+  },
+  "9EIdsB": {
+    "defaultMessage": "Behavioral",
+    "description": "Title for behavioral questions"
   },
   "9FUDxZ": {
     "defaultMessage": "Know the recommended projects to do to progress from beginner to advanced with the skills roadmap",
@@ -2679,6 +2691,10 @@
     "defaultMessage": "User interfaces",
     "description": "Title for coding format user interface"
   },
+  "Hph7Vz": {
+    "defaultMessage": "LeetCode-style algorithmic coding questions which evaluate your core data structures and algorithms skills.",
+    "description": "Description for ui coding questions"
+  },
   "HrMm6A": {
     "defaultMessage": "New!",
     "description": "New label"
@@ -3038,6 +3054,10 @@
   "KRGHVm": {
     "defaultMessage": "Study plans",
     "description": "Title for study plans section"
+  },
+  "KS2MMz": {
+    "defaultMessage": "Technical architecture design questions that assess your ability to design scalable and maintainable front end systems. Typically asked for mid to senior level positions.",
+    "description": "Description for system design questions"
   },
   "KU/uns": {
     "defaultMessage": "Previous",
@@ -4267,6 +4287,10 @@
     "defaultMessage": "Hard",
     "description": "Hard difficulty label for question difficulty summary in question listing"
   },
+  "S/DgGm": {
+    "defaultMessage": "Coding questions that require you to implement functions in JavaScript, which can be utility functions found in Lodash/Underscore. a polyfill for the JavaScript language, or DOM APIs.",
+    "description": "Description for js coding questions"
+  },
   "S21xBI": {
     "defaultMessage": "Login to track your progress and access premium",
     "description": "Description of Login page"
@@ -4847,6 +4871,10 @@
     "defaultMessage": "Once a submission has been deleted, it cannot be recovered. All upvotes, reputation, skills and component track progression due to the submission will be reversed",
     "description": "Delete challenge submission confirmation subtitle"
   },
+  "W45B/T": {
+    "defaultMessage": "Practice questions for specific frameworks, languages or question formats.",
+    "description": "Description for all practice questions page"
+  },
   "W4Akuo": {
     "defaultMessage": "Unlock premium",
     "description": "Purchase button label"
@@ -5339,6 +5367,10 @@
     "defaultMessage": "Promotions",
     "description": "Title of Promotions page"
   },
+  "ZS/d9t": {
+    "defaultMessage": "User Interfaces Coding",
+    "description": "Title for ui coding questions"
+  },
   "ZV1bn5": {
     "defaultMessage": "Blind 75",
     "description": "Long label for Blind75 study plan"
@@ -5378,6 +5410,10 @@
   "Zdojj9": {
     "defaultMessage": "Other",
     "description": "Label for \"Other\" onboarding option in Projects"
+  },
+  "ZeUMGU": {
+    "defaultMessage": "JavaScript Coding",
+    "description": "Title for js coding questions"
   },
   "ZfPNnW": {
     "defaultMessage": "Yes. Every challenge you start creates a \"session\" of the challenge, which you can end. You can start a new session anytime.",
@@ -5647,6 +5683,10 @@
     "defaultMessage": "You will be able to modify the skills and tech stack used once you start the project.",
     "description": "FAQ answer for projects platform"
   },
+  "bJYnS1": {
+    "defaultMessage": "Coding questions that require you to build user interfaces, whether it is a UI component, an app, or a game. Requires HTML, CSS, JavaScript, or UI frameworks.",
+    "description": "Description for ui coding questions"
+  },
   "bNW00Y": {
     "defaultMessage": "Available frameworks",
     "description": "Screenreader text to indicate the presence of available frameworks, displayed on question cards in question lists"
@@ -5775,6 +5815,10 @@
     "defaultMessage": "Not signed in",
     "description": "Label indicating user is not signed in"
   },
+  "c4TqOR": {
+    "defaultMessage": "Code in browser",
+    "description": "Features for all practice questions page"
+  },
   "c7eREh": {
     "defaultMessage": "Status",
     "description": "Label for Status filter for projects list"
@@ -5810,6 +5854,10 @@
   "cKn3cK": {
     "defaultMessage": "Started",
     "description": "Started on study plan label"
+  },
+  "cNg7I1": {
+    "defaultMessage": "Prepare for front end interviews with a vast question bank covering every format and popular frameworks/languages. Includes solutions and tests from ex-interviewers.",
+    "description": "Page description for focus areas listing"
   },
   "cPeTVK": {
     "defaultMessage": "You asked <recipientProfileLink>{recipient}</recipientProfileLink> a question on their submission <link>{submissionTitle}</link>: <comment>\"{description}\"</comment>",
@@ -6135,6 +6183,10 @@
     "defaultMessage": "Less",
     "description": "Label for less contribution"
   },
+  "etjCNj": {
+    "defaultMessage": "Non-technical interview questions designed to assess your past behavior in professional settings, including your communication, teamwork, leadership and problem solving skills.",
+    "description": "Description for behavioral questions"
+  },
   "eucnNd": {
     "defaultMessage": "What kind of guidance will this platform provide me?",
     "description": "FAQ question for projects platform"
@@ -6370,6 +6422,10 @@
   "gAep7Q": {
     "defaultMessage": "Follow on LinkedIn",
     "description": "Link to the LinkedIn page"
+  },
+  "gAvT0O": {
+    "defaultMessage": "Quiz",
+    "description": "Title for quiz questions"
   },
   "gBdxyo": {
     "defaultMessage": "Recommended prep strategy",
@@ -7487,6 +7543,10 @@
     "defaultMessage": "Practice DOM Manipulation Interview Questions with Solutions",
     "description": "Title for interview preparation focus area"
   },
+  "o8bpfE": {
+    "defaultMessage": "Front end interview questions",
+    "description": "Title of all practice questions page"
+  },
   "oAUXEp": {
     "defaultMessage": "Beautiful designs made by high-end designers",
     "description": "Title of 'Beautiful designs made by high-end designers' feature in Projects marketing page"
@@ -7843,6 +7903,10 @@
     "defaultMessage": "More on <link>Rewards Terms and Conditions</link>",
     "description": "Link for discount terms and conditions"
   },
+  "qTr5bi": {
+    "defaultMessage": "Question formats",
+    "description": "Title for question formats section"
+  },
   "qVn8Yq": {
     "defaultMessage": "Trending user submissions",
     "description": "Title for Trending submissions section on Projects dashboard page"
@@ -8195,6 +8259,10 @@
     "defaultMessage": "Difficulty: Hard to Easy",
     "description": "Sorting option for question list - sort by difficulty from hard to easy"
   },
+  "tDwpNT": {
+    "defaultMessage": "Short questions which test your knowledge and have clear, non-subjective answers. Commonly asked during recruiter screens or by companies which do not adopt coding rounds.",
+    "description": "Description for quiz questions"
+  },
   "tEZPfW": {
     "defaultMessage": "Track your personal milestones, view achievement stats, and see all your project and community activities in one place.",
     "description": "Description of Projects Dashboard page"
@@ -8242,6 +8310,10 @@
   "tQEmTt": {
     "defaultMessage": "All practice questions",
     "description": "Title for practice questions section"
+  },
+  "tV+VAr": {
+    "defaultMessage": "{questionCount}+ Front End Interview Practice Questions",
+    "description": "Page title for all practice questions page"
   },
   "tZPTnS": {
     "defaultMessage": "Difficulty: Hard to Easy",
@@ -8383,6 +8455,10 @@
     "defaultMessage": "GreatFrontEnd Blog",
     "description": "Blog home page title"
   },
+  "uSGeKw": {
+    "defaultMessage": "Frameworks and languages",
+    "description": "Title for framework and language section"
+  },
   "uTqd3B": {
     "defaultMessage": "Add skills to grow in",
     "description": "Title for Add Skills To Grow In task on Projects dashboard page"
@@ -8479,6 +8555,10 @@
     "defaultMessage": "Stripe",
     "description": "Company name for Stripe"
   },
+  "v9//lW": {
+    "defaultMessage": "Targeted practice in specific front end frameworks and languages.",
+    "description": "Description for framework and language section"
+  },
   "vHNURr": {
     "defaultMessage": "View all filters",
     "description": "Tooltip for All Filters button for projects list"
@@ -8542,6 +8622,18 @@
   "vi10y1": {
     "defaultMessage": "Dashboard",
     "description": "Link to dashboard page"
+  },
+  "vlMgF6": {
+    "defaultMessage": "Official solutions",
+    "description": "Features for all practice questions page"
+  },
+  "vmqlMW": {
+    "defaultMessage": "Gain expertise in handling commonly asked question formats in front end interviews",
+    "description": "Description for question formats section"
+  },
+  "vncIYl": {
+    "defaultMessage": "Test cases",
+    "description": "Features for all practice questions page"
   },
   "vp+axD": {
     "defaultMessage": "The 75 most important questions to master for data structures and algorithms interviews, with solutions in JavaScript / TypeScript for front end engineers",
@@ -8762,6 +8854,10 @@
   "xWAt8Q": {
     "defaultMessage": "The ultimate Front End Interview preparation platform.",
     "description": "Description of GreatFrontEnd page"
+  },
+  "xWBL/9": {
+    "defaultMessage": "Data Structures and Algorithms Coding",
+    "description": "Title for ui coding questions"
   },
   "xXWABp": {
     "defaultMessage": "Receive feedback from a vibrant community",
