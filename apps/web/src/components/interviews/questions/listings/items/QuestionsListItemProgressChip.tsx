@@ -23,12 +23,6 @@ const progressChipSizeClass = clsx(
   'transition-colors',
 );
 
-const progressChipInactiveClass = clsx(
-  progressChipSizeClass,
-  [themeTextSubtleColor, 'font-semibold'],
-  themeBackgroundCardNoAlphaColor,
-);
-
 function LockedChip() {
   const intl = useIntl();
 
@@ -120,7 +114,9 @@ function CompletedBeforeChip({
       <button
         aria-label={label}
         className={clsx(
-          progressChipInactiveClass,
+          progressChipSizeClass,
+          [themeTextSubtleColor, 'font-semibold'],
+          themeBackgroundCardNoAlphaColor,
           'border-success border border-dashed',
           showHoverState && [
             'hover:border-solid',
@@ -169,7 +165,8 @@ function NotCompleted({
         ref={hoverRef}
         aria-label={label}
         className={clsx(
-          progressChipInactiveClass,
+          progressChipSizeClass,
+          themeBackgroundCardNoAlphaColor,
           ['border', themeBorderElementColor],
           showAsNumber ? themeTextSubtleColor : themeTextFainterColor,
           showHoverState && themeTextSuccessColor_Hover,
