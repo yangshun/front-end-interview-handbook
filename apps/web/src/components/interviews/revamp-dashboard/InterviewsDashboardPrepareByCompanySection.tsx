@@ -7,7 +7,6 @@ import Anchor from '~/components/ui/Anchor';
 import Badge from '~/components/ui/Badge';
 import Text from '~/components/ui/Text';
 import {
-  themeBackgroundCardColor,
   themeBorderElementColor,
   themeTextBrandColor_GroupHover,
   themeTextSubtleColor,
@@ -47,9 +46,9 @@ function InterviewsCompanyGuideCard({
     <div
       className={clsx(
         'flex-2 group relative flex items-center gap-6',
-        'rounded-lg p-6',
+        'rounded-lg px-6 py-5',
         'transition',
-        themeBackgroundCardColor,
+        'bg-neutral-200/40 dark:bg-neutral-800/40',
         ['border', themeBorderElementColor],
         'isolate',
       )}>
@@ -91,7 +90,7 @@ function InterviewsCompanyGuideCard({
       </div>
       <RiArrowRightLine
         className={clsx(
-          'size-6 transition-colors',
+          'size-6 shrink-0 transition-colors',
           themeTextSubtleColor,
           themeTextBrandColor_GroupHover,
         )}
@@ -117,16 +116,16 @@ export default function InterviewsDashboardPrepareByCompanySection({
     <InterviewsDashboardLearningSection
       description={intl.formatMessage({
         defaultMessage:
-          'Practice questions specific to the company you are interviewing for.',
+          'Prepare for specific companies by learning insider tips and practicing known questions.',
         description: 'Description for prepare by company',
-        id: 'gVVuq/',
+        id: 'uA9EBK',
       })}
       title={intl.formatMessage({
-        defaultMessage: 'Practice by company',
+        defaultMessage: 'Company Guides',
         description: 'Title for prepare by company',
-        id: 'GqmPae',
+        id: 'kju3R1',
       })}>
-      <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+      <div className="grid gap-4 lg:grid-cols-2 xl:grid-cols-3">
         {companyGuides.map((companyGuide) => {
           const session = questionListSessions.find(
             (session_) => session_.key === companyGuide.slug,

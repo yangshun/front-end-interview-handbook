@@ -4,6 +4,7 @@ import GrayedOutLogoMark from '~/components/global/logos/GrayedOutLogoMark';
 import {
   themeBackgroundCardColor,
   themeGlassyBorder,
+  themeTextSubtitleColor,
 } from '~/components/ui/theme';
 
 export type GFE75LogoSize = 'lg' | 'md' | 'sm';
@@ -13,26 +14,22 @@ const classes: Record<
   Readonly<{
     logoClass: string;
     outerClass: string;
-    radialClass: string;
     textClass: string;
   }>
 > = {
   lg: {
     logoClass: 'w-12 h-10 top-[8%]',
     outerClass: 'size-20',
-    radialClass: 'before:h-20',
     textClass: 'text-4xl',
   },
   md: {
     logoClass: 'w-[41px] h-8 top-[8%]',
     outerClass: 'size-16',
-    radialClass: 'before:h-16',
     textClass: 'text-[2.125rem] leading-8',
   },
   sm: {
     logoClass: 'h-5 w-[26px] top-[3px]',
-    outerClass: 'size-10',
-    radialClass: 'before:h-10',
+    outerClass: 'size-12',
     textClass: 'text-[1.328rem] leading-5',
   },
 };
@@ -42,7 +39,7 @@ type Props = Readonly<{
 }>;
 
 export default function PreparationGFE75Logo({ size = 'md' }: Props) {
-  const { logoClass, outerClass, radialClass, textClass } = classes[size];
+  const { logoClass, outerClass, textClass } = classes[size];
 
   return (
     <div
@@ -60,7 +57,7 @@ export default function PreparationGFE75Logo({ size = 'md' }: Props) {
         className={clsx(
           'font-extrabold tracking-tight',
           'absolute top-[30%]',
-          'from-brand-light to-brand  bg-gradient-to-b bg-clip-text text-transparent',
+          themeTextSubtitleColor,
           textClass,
         )}>
         75
@@ -68,8 +65,9 @@ export default function PreparationGFE75Logo({ size = 'md' }: Props) {
       <div className="absolute inset-0">
         <div
           className={clsx(
-            'theme-bg-radial-glow before:opacity-30',
-            radialClass,
+            'absolute -top-[27px] left-1/2 -translate-x-1/2',
+            'size-8',
+            'bg-neutral-900 opacity-40 mix-blend-normal blur-[20.25px] dark:bg-neutral-100',
           )}
         />
       </div>

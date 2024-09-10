@@ -2,9 +2,9 @@ import clsx from 'clsx';
 import type { InterviewsCompanyGuide } from 'contentlayer/generated';
 import { FormattedMessage } from 'react-intl';
 
-import type { FocusAreas } from '~/data/focus-areas/FocusAreas';
 import type { PreparationPlans } from '~/data/plans/PreparationPlans';
 
+import type { GuideCategory } from '~/components/guides/types';
 import type {
   QuestionFramework,
   QuestionLanguage,
@@ -19,13 +19,16 @@ import { themeTextColor } from '~/components/ui/theme';
 
 import InterviewsDashboardPrepareByCompanySection from './InterviewsDashboardPrepareByCompanySection';
 import InterviewsDashboardStudyPlansSection from './InterviewsDashboardStudyPlansSection';
+import InterviewsDashboardPracticeByFocusAreasSection from './practice/focus-areas/InterviewsDashboardPracticeByFocusAreasSection';
 import InterviewsDashboardPracticeQuestionsSection from './practice/InterviewsDashboardPracticeQuestionsSection';
 
 import type { LearningSession } from '@prisma/client';
 
 type Props = Readonly<{
   companyGuides: Array<InterviewsCompanyGuide>;
-  focusAreas: FocusAreas;
+  guidesProgress: ReadonlyArray<
+    Readonly<{ id: string; slug: string; type: GuideCategory }>
+  >;
   preparationPlans: PreparationPlans;
   questionListSessions: Array<
     LearningSession & { _count: { progress: number } }
@@ -53,8 +56,8 @@ export default function InterviewsDashboardMoreLearningSection({
   preparationPlans,
   questionListSessions,
   questions,
-  focusAreas,
   questionsProgress,
+  guidesProgress,
 }: Props) {
   return (
     <Section>
@@ -77,25 +80,29 @@ export default function InterviewsDashboardMoreLearningSection({
           </Heading>
           <Text color="secondary" size="body2">
             <FormattedMessage
-              defaultMessage="Some 'shortcuts' you might take if you're short on time."
+              defaultMessage="Efficient ways to prepare when you're short on time."
               description="Description for time savers"
-              id="TkHQtk"
+              id="agUqSZ"
             />
           </Text>
         </div>
-        <InterviewsDashboardPrepareByCompanySection
-          companyGuides={companyGuides}
-          questionListSessions={questionListSessions}
-        />
         <InterviewsDashboardStudyPlansSection
           preparationPlans={preparationPlans}
           questionListSessions={questionListSessions}
         />
+        <InterviewsDashboardPrepareByCompanySection
+          companyGuides={companyGuides}
+          questionListSessions={questionListSessions}
+        />
+
+        <InterviewsDashboardPracticeByFocusAreasSection
+          questionListSessions={questionListSessions}
+        />
+
         <Divider />
 
         <InterviewsDashboardPracticeQuestionsSection
-          focusAreas={focusAreas}
-          questionListSessions={questionListSessions}
+          guidesProgress={guidesProgress}
           questions={questions}
           questionsProgress={questionsProgress}
         />

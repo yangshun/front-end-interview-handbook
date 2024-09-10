@@ -299,10 +299,6 @@
     "defaultMessage": "We offer a few guidance options",
     "description": "FAQ answer for projects platform"
   },
-  "0MOo70": {
-    "defaultMessage": "Questions to assess your soft skills, culture fit and personality. With sample answers for front end engineers.",
-    "description": "Description for behavioral questions"
-  },
   "0Nq65E": {
     "defaultMessage": "Billing",
     "description": "Screenreader text for subscription billing."
@@ -683,10 +679,6 @@
     "defaultMessage": "Cheatsheet",
     "description": "One-page summary sheet for front end system design interviews"
   },
-  "3Xl32/": {
-    "defaultMessage": "Quiz questions",
-    "description": "Title for quiz questions"
-  },
   "3aT98+": {
     "defaultMessage": "Recommended actions for you",
     "description": "Title for Recommended actions section on Projects dashboard page"
@@ -851,10 +843,6 @@
     "defaultMessage": "Guides & solutions from Sr. Engineers and code reviews from <link>community</link>",
     "description": "Caption for Projects marketing hero section community feature"
   },
-  "5+dRvd": {
-    "defaultMessage": "Learn the best way to prepare for front end interviews.",
-    "description": "Description for front end interview guide"
-  },
   "50kzzq": {
     "defaultMessage": "Select question format",
     "description": "Label for tabs to select sample interview question format"
@@ -971,10 +959,6 @@
     "defaultMessage": "React Questions",
     "description": "React questions category long title"
   },
-  "5wMIcP": {
-    "defaultMessage": "Practice by framework or language",
-    "description": "Title for practice by framework or language section"
-  },
   "5y9YGh": {
     "defaultMessage": "Submission title must contain at most {maxLength} character(s).",
     "description": "Error message for submission title"
@@ -1050,6 +1034,10 @@
   "6RhqF3": {
     "defaultMessage": "Number of articles",
     "description": "Total number of articles in a list"
+  },
+  "6S+H0W": {
+    "defaultMessage": "{count}+ questions",
+    "description": "Features for focus areas"
   },
   "6SEbWz": {
     "defaultMessage": "Annual plan",
@@ -1571,10 +1559,6 @@
     "defaultMessage": "{questionTitle} | Front End System Design Question",
     "description": "Title of system design question page"
   },
-  "9yHSXW": {
-    "defaultMessage": "Accessibility and Performance",
-    "description": "Title for focus area type"
-  },
   "A+H3cR": {
     "defaultMessage": "Practice Vanilla JavaScript UI Interview Questions with Solutions",
     "description": "Title of Vanilla JavaScript UI Interview Questions page"
@@ -1755,10 +1739,6 @@
     "defaultMessage": "Quiz Questions",
     "description": "Title for an example list of Quiz Questions on marketing pages"
   },
-  "BHMys9": {
-    "defaultMessage": "Question languages",
-    "description": "Screenreader text to indicate the question languages"
-  },
   "BHjWCo": {
     "defaultMessage": "API specifications and sample data",
     "description": "Provided resource for project"
@@ -1874,6 +1854,10 @@
   "C9XhYm": {
     "defaultMessage": "'Max streak' is the number of continuous active days",
     "description": "Tooltip label for active day in completions"
+  },
+  "C9uKzE": {
+    "defaultMessage": "GFE 75",
+    "description": "Title for gfe75"
   },
   "CBU+k0": {
     "defaultMessage": "Company",
@@ -2207,10 +2191,6 @@
     "defaultMessage": "By creators of",
     "description": "Text above logos on Hero section of HomePage. To let users know that the authors of this platform have also created the stated products."
   },
-  "ENKd5S": {
-    "defaultMessage": "Complete GFE75",
-    "description": "Title for gfe75"
-  },
   "ENNKyg": {
     "defaultMessage": "View subscription plans",
     "description": "Button displayed on paywall on premium question pages, leading to our pricing plans"
@@ -2218,10 +2198,6 @@
   "EO+aoa": {
     "defaultMessage": "Describe your project approach and take the opportunity to document challenges and how they were overcome. To help others in the community, also describe your general tech stack and how they were used together, as well as any guides or resources you used.",
     "description": "Project submission tooltip"
-  },
-  "EQ25bl": {
-    "defaultMessage": "Recommended preparation strategy",
-    "description": "Title for recommended preparation strategy section"
   },
   "EQXg+W": {
     "defaultMessage": "JavaScript coding",
@@ -2547,10 +2523,6 @@
     "defaultMessage": "Skills you are proficient in",
     "description": "Label for tech stack field"
   },
-  "GqmPae": {
-    "defaultMessage": "Practice by company",
-    "description": "Title for prepare by company"
-  },
   "Gqq8RF": {
     "defaultMessage": "Build front end real-world projects",
     "description": "Title of Projects page"
@@ -2699,10 +2671,6 @@
     "defaultMessage": "Start coding!",
     "description": "Label for \"Start coding!\" button on Projects project page"
   },
-  "HmKMx6": {
-    "defaultMessage": "User interfaces",
-    "description": "Title for coding format user interface"
-  },
   "Hph7Vz": {
     "defaultMessage": "LeetCode-style algorithmic coding questions which evaluate your core data structures and algorithms skills.",
     "description": "Description for ui coding questions"
@@ -2722,10 +2690,6 @@
   "I1R2rY": {
     "defaultMessage": "Something went wrong. Please try again later.",
     "description": "Title for error state for roadmap"
-  },
-  "I2EyMO": {
-    "defaultMessage": "If you‘re a senior engineer",
-    "description": "Label for frontend system design tag"
   },
   "I4lo5m": {
     "defaultMessage": "Practice Svelte Interview Questions with Solutions",
@@ -3391,10 +3355,6 @@
     "defaultMessage": "Star our \"Front End System Design\" repo",
     "description": "Title for task"
   },
-  "M959Wh": {
-    "defaultMessage": "Practice quiz and coding questions for specific frameworks or languages.",
-    "description": "Description for practice by framework or language section"
-  },
   "M9z02W": {
     "defaultMessage": "Airbnb",
     "description": "Company name for Airbnb"
@@ -3767,6 +3727,10 @@
     "defaultMessage": "Marked question as completed",
     "description": "Success message shown when a question was marked as complete"
   },
+  "Ow7Mov": {
+    "defaultMessage": "Solutions & test from ex-interviewers",
+    "description": "Features for dashboard"
+  },
   "Oxj7x1": {
     "defaultMessage": "Company (optional)",
     "description": "Label for \"Company\" input on Projects profile onboarding page"
@@ -4010,10 +3974,6 @@
   "QJaxVF": {
     "defaultMessage": "Our focus is currently on expanding our question base. New coding and system design questions are added to the platform on a weekly basis.",
     "description": "Question base section subtitle - first paragraph"
-  },
-  "QNiLn7": {
-    "defaultMessage": "Asked during technical interviews for Senior engineers. Evaluates decision-making abilities when it comes to technical architecture.",
-    "description": "Description for system design questions"
   },
   "QNqh1P": {
     "defaultMessage": "Experience",
@@ -4331,10 +4291,6 @@
     "defaultMessage": "You will receive rep for the top {skillCount} skills used in the project.",
     "description": "Label for rep gains from top 10 skills"
   },
-  "SCEKXz": {
-    "defaultMessage": "Front End System Design questions",
-    "description": "Title for system design questions"
-  },
   "SEXvzM": {
     "defaultMessage": "Our <link>Skills Roadmap</link> tells you the exact projects to build to train the skill you need - whether you are a complete beginner or senior engineer filling a skill gap.",
     "description": "Description of 'Train any front end skill' feature in Projects marketing page"
@@ -4579,10 +4535,6 @@
     "defaultMessage": "Giving away {discountPercentage}% off all plans!",
     "description": "Rewards discount message"
   },
-  "TkHQtk": {
-    "defaultMessage": "Some 'shortcuts' you might take if you're short on time.",
-    "description": "Description for time savers"
-  },
   "Tm6FbS": {
     "defaultMessage": "This URL is invalid. Check if you've typed it correctly.",
     "description": "Error message"
@@ -4690,6 +4642,10 @@
   "Ui0v53": {
     "defaultMessage": "Our projects are designed to make for an <em>impressive</em> portfolio, even for seniors",
     "description": "Heading of the 'Portfolio features' marketing section on Projects home page"
+  },
+  "Ul08Jw": {
+    "defaultMessage": "Front End System Design Playbook",
+    "description": "Title for frontend system design guide"
   },
   "UltF1J": {
     "defaultMessage": "Already an affiliate? <link>Access dashboard</link>",
@@ -4971,10 +4927,6 @@
     "defaultMessage": "Challenge: <hover>{title}</hover>",
     "description": "Link to project submission's original challenge"
   },
-  "WVS7Vj": {
-    "defaultMessage": "Practice by focus areas",
-    "description": "Title for practice by focus areas section"
-  },
   "WYR3gj": {
     "defaultMessage": "Terms of service",
     "description": "Link to terms of service page"
@@ -5203,10 +5155,6 @@
     "defaultMessage": "As mentioned above, there are many ways to host your project for free. Our recommend hosts are:",
     "description": "Text for Deployment Info in Projects"
   },
-  "YBm903": {
-    "defaultMessage": "Coding questions",
-    "description": "Title for coding questions"
-  },
   "YGqz7y": {
     "defaultMessage": "Gain proficiency in front end fundamentals by implementing JavaScript and DOM APIs from scratch.",
     "description": "Description for interview preparation focus area"
@@ -5294,10 +5242,6 @@
   "Yezbh0": {
     "defaultMessage": "Level up in your skills or complete component track",
     "description": "Description for \"Level up in your skills or complete component track\" feature on Projects home page"
-  },
-  "Yijkp6": {
-    "defaultMessage": "Complete Blind75",
-    "description": "Title for Blind75"
   },
   "YpJ3q8": {
     "defaultMessage": "Reply to comment",
@@ -5439,10 +5383,6 @@
     "defaultMessage": "The URL must not be localhost or an IP address. Provide a valid, publicly accessible URL.",
     "description": "Error message"
   },
-  "ZjVKE/": {
-    "defaultMessage": "Solutions & test from ex-interviewers",
-    "description": "Badge label for solutiosn & test"
-  },
   "Zk/GBk": {
     "defaultMessage": "The famed list of questions commonly used to prepare for standard data structures and algorithms style software engineering interviews. Solved in JavaScript / TypeScript for front end engineers.",
     "description": "Description for Blind75"
@@ -5478,10 +5418,6 @@
   "Zui1cu": {
     "defaultMessage": "Focus areas",
     "description": "Title of focus areas page"
-  },
-  "ZwQFwM": {
-    "defaultMessage": "Behavioral questions",
-    "description": "Title for behavioral questions"
   },
   "a0Osa7": {
     "defaultMessage": "Challenge: {challengeName} | Completion steps",
@@ -5570,6 +5506,10 @@
   "aeeTOy": {
     "defaultMessage": "Font size",
     "description": "Select label to choose console font size"
+  },
+  "agUqSZ": {
+    "defaultMessage": "Efficient ways to prepare when you're short on time.",
+    "description": "Description for time savers"
   },
   "akHBWv": {
     "defaultMessage": "Outdent line",
@@ -5702,6 +5642,10 @@
   "bNW00Y": {
     "defaultMessage": "Available frameworks",
     "description": "Screenreader text to indicate the presence of available frameworks, displayed on question cards in question lists"
+  },
+  "bNgObx": {
+    "defaultMessage": "The 75 most important front end interview questions. Covers a wide range of interview patterns and formats.",
+    "description": "Description for gfe75"
   },
   "bO2ju9": {
     "defaultMessage": "Failed to mark question as incomplete. Please try again",
@@ -5975,6 +5919,10 @@
     "defaultMessage": "Theme",
     "description": "Label for select that changes the theme of the editor"
   },
+  "dCV3vl": {
+    "defaultMessage": "Blind 75",
+    "description": "Title for Blind75"
+  },
   "dFjMzR": {
     "defaultMessage": "Copy link",
     "description": "Copy button label"
@@ -6107,10 +6055,6 @@
     "defaultMessage": "Roadmap",
     "description": "Label for roadmap in sidebar"
   },
-  "e6zEt6": {
-    "defaultMessage": "Study our Front End System Design Guide",
-    "description": "Title for frontend system design guide"
-  },
   "eBp6vh": {
     "defaultMessage": "Reset Progress",
     "description": "Title for reset progress confirmation dialog"
@@ -6166,10 +6110,6 @@
   "eWwVqI": {
     "defaultMessage": "Premium is required to unlock this project",
     "description": "Unlock premium access for a project"
-  },
-  "eWyygi": {
-    "defaultMessage": "There are typically four types of questions that can be asked in a front end interview:",
-    "description": "Description for practice by question type section"
   },
   "ee862n": {
     "defaultMessage": "The definitive guide to front end / web developer interviews.",
@@ -6467,10 +6407,6 @@
     "defaultMessage": "We help you learn through building - without tutorial hell",
     "description": "Heading of the 'We help you learn through building - without tutorial hell' marketing section on Projects home page"
   },
-  "gJo+AD": {
-    "defaultMessage": "The bread and butter of technical coding interviews. For front end interviews, coding questions can be broken down into 3 types.",
-    "description": "Description for coding questions"
-  },
   "gRN6GJ": {
     "defaultMessage": "Assets provided",
     "description": "Label for Assets Provided card on start project overlay on Projects project assets page"
@@ -6490,10 +6426,6 @@
   "gVQ1qU": {
     "defaultMessage": "A confirmation email has been sent to both new and current email addresses. The email change will not take effect until the confirmation link in both new and current email addresses have been clicked.",
     "description": "Message shown after an email change request is successful."
-  },
-  "gVVuq/": {
-    "defaultMessage": "Practice questions specific to the company you are interviewing for.",
-    "description": "Description for prepare by company"
   },
   "gWoDz/": {
     "defaultMessage": "Practice Vue Interview Questions with Solutions",
@@ -6887,6 +6819,10 @@
     "defaultMessage": "Community contributions",
     "description": "Community contributions item label"
   },
+  "jb5IjS": {
+    "defaultMessage": "If you're a senior engineer",
+    "description": "Label for frontend system design tag"
+  },
   "jblvez": {
     "defaultMessage": "Title: Z to A",
     "description": "Sorting option for question list - sort titles from Z to A"
@@ -7059,10 +6995,6 @@
     "defaultMessage": "Step 3",
     "description": "Step N of multiple steps when completing a project"
   },
-  "kUR6aL": {
-    "defaultMessage": "Question frameworks",
-    "description": "Screenreader text to indicate the question frameworks"
-  },
   "kWg+JN": {
     "defaultMessage": "Practice DOM manipulation interview questions on CSS selectors, DOM traversal, and element manipulation. Code in-browser with solutions from ex-interviewers.",
     "description": "Description for interview preparation focus area"
@@ -7094,6 +7026,10 @@
   "kj9QHG": {
     "defaultMessage": "Build a whole component library or design system for your portfolio",
     "description": "Description for recommended action for new projects platform user"
+  },
+  "kju3R1": {
+    "defaultMessage": "Company Guides",
+    "description": "Title for prepare by company"
   },
   "kmemRr": {
     "defaultMessage": "Submission title",
@@ -7382,6 +7318,10 @@
   "mcOOtE": {
     "defaultMessage": "Host the project for free on our recommended hosts and submit your project URL for reviews",
     "description": "Instruction for projects"
+  },
+  "mcrQEE": {
+    "defaultMessage": "Focus Areas",
+    "description": "Title for practice by focus areas section"
   },
   "meAtoW": {
     "defaultMessage": "Increase in total compensation",
@@ -7863,10 +7803,6 @@
     "defaultMessage": "GitHub Pages",
     "description": "Label for \"GitHub Pages\" option in Deployment Info"
   },
-  "qBLo3K": {
-    "defaultMessage": "Javascript utilities and APIs",
-    "description": "Title for coding format utilities"
-  },
   "qBPU/e": {
     "defaultMessage": "Other skills you are using which are not within the skills roadmap. Also helps community members understand more about the tech stack. If you don't see the tag you need, email us.",
     "description": "Description for tech stack input on project submit page"
@@ -7878,10 +7814,6 @@
   "qFJskj": {
     "defaultMessage": "Level {level}",
     "description": "Title for level Up"
-  },
-  "qHCndx": {
-    "defaultMessage": "Data structures & algorithms",
-    "description": "Title for coding format data structures & algo"
   },
   "qJhNva": {
     "defaultMessage": "Public roadmap",
@@ -8147,10 +8079,6 @@
     "defaultMessage": "Targeted practice on Forms interview questions",
     "description": "Description for interview preparation focus area"
   },
-  "sSOyrU": {
-    "defaultMessage": "Practice by question type",
-    "description": "Title for practice by question type section"
-  },
   "sU6jXI": {
     "defaultMessage": "Reputation you have gained from completing challenges using this skill, including challenges not in the recommended skill plan",
     "description": "Tooltip for reputation label"
@@ -8206,6 +8134,10 @@
   "soQjY2": {
     "defaultMessage": "You upvoted this",
     "description": "Tooltip for upvoted submission button"
+  },
+  "srI99v": {
+    "defaultMessage": "A starter guide to preparing for front end interviews",
+    "description": "Front End Interview Playbook"
   },
   "srrlrR": {
     "defaultMessage": "Practice Front End System Design Interview Questions with Solutions",
@@ -8434,6 +8366,10 @@
   "u59kYU": {
     "defaultMessage": "Challenge: {challengeName} | Submit your work",
     "description": "Title of Projects challenge submission page"
+  },
+  "uA9EBK": {
+    "defaultMessage": "Prepare for specific companies by learning insider tips and practicing known questions.",
+    "description": "Description for prepare by company"
   },
   "uAAJxp": {
     "defaultMessage": "Upon purchasing premium, you will be given a number of premium credits. A premium credit gives you access to all premium features in a free project (Figma files, official solutions & guides from senior engineers), or can unlock a premium challenge.",
@@ -8807,10 +8743,6 @@
     "defaultMessage": "You will have to use your own IDE, just as any developer should for a real project. If you're a complete beginner and are not sure what an IDE is, we will have a basic guide within Step 3's tab teaching you how to download and set-up an IDE for the first time.",
     "description": "FAQ answer for projects platform"
   },
-  "wsvJvT": {
-    "defaultMessage": "Commonly asked during recruiter phone screens or companies which do not adopt heavy coding rounds",
-    "description": "Description for quiz questions"
-  },
   "wvGU2J": {
     "defaultMessage": "Continue learning",
     "description": "Title for continue learning section"
@@ -8858,10 +8790,6 @@
   "xR2GQR": {
     "defaultMessage": "Front End Interview Playbooks for Target Companies",
     "description": "Page title for company guides listing"
-  },
-  "xRWPeC": {
-    "defaultMessage": "200+ questions",
-    "description": "Badge label for questions count"
   },
   "xU32y0": {
     "defaultMessage": "3 subcategories of questions: JavaScript, User Interfaces & Data Structures and Algorithms",
@@ -9135,6 +9063,10 @@
     "defaultMessage": "See all",
     "description": "See all articles"
   },
+  "zKboNH": {
+    "defaultMessage": "Recommended preparation",
+    "description": "Title for recommended preparation strategy section"
+  },
   "zMpEuy": {
     "defaultMessage": "Popularity: Least to most completed",
     "description": "Sorting option for projects list - popularity"
@@ -9174,10 +9106,6 @@
   "zeK111": {
     "defaultMessage": "E.g. \"Responsive solution with React and Tailwind CSS\"",
     "description": "Placeholder for submission name input on project submit page"
-  },
-  "zeqI5d": {
-    "defaultMessage": "The most essential list of front end interview questions that gets you prepared for 75% of interview, with a wide range of question patterns and formats.",
-    "description": "Description for gfe75"
   },
   "zgj9Pd": {
     "defaultMessage": "Learn from others",

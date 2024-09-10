@@ -5,7 +5,7 @@ import {
   type PreparationPlans,
 } from '~/data/plans/PreparationPlans';
 
-import InterviewsLearningListCard from '~/components/interviews/questions/listings/learning/study-plan/InterviewsLearningListCard';
+import InterviewsLearningListCard from '~/components/interviews/questions/listings/learning/InterviewsLearningListCard';
 
 import InterviewsDashboardLearningSection from './InterviewsDashboardLearningSection';
 

@@ -1,30 +1,23 @@
 import clsx from 'clsx';
-import { FormattedMessage, useIntl } from 'react-intl';
+import { FormattedMessage } from 'react-intl';
 
-import type { FocusAreas } from '~/data/focus-areas/FocusAreas';
-
+import type { GuideCategory } from '~/components/guides/types';
 import type {
   QuestionFramework,
   QuestionLanguage,
   QuestionMetadata,
   QuestionSlug,
 } from '~/components/interviews/questions/common/QuestionsTypes';
-import Badge from '~/components/ui/Badge';
+import InterviewsFrameworkAndLanguageSection from '~/components/interviews/questions/listings/practice-questions/InterviewsFrameworkAndLanguageSection';
+import InterviewsQuestionFormatsSection from '~/components/interviews/questions/listings/practice-questions/InterviewsQuestionFormatsSection';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 import Text from '~/components/ui/Text';
 import { themeTextColor } from '~/components/ui/theme';
 
-import InterviewsDashboardPracticeByFocusAreasSection from './focus-areas/InterviewsDashboardPracticeByFocusAreasSection';
-import InterviewsDashboardPracticeByFrameworkLanguageSection from './framework-language/InterviewsDashboardPracticeByFrameworkLanguageSection';
-import InterviewsDashboardPracticeByQuestionType from './question-type/InterviewsDashboardPracticeByQuestionTypeSection';
-
-import type { LearningSession } from '@prisma/client';
-
 type Props = Readonly<{
-  focusAreas: FocusAreas;
-  questionListSessions: Array<
-    LearningSession & { _count: { progress: number } }
+  guidesProgress: ReadonlyArray<
+    Readonly<{ id: string; slug: string; type: GuideCategory }>
   >;
   questions: {
     codingQuestions: ReadonlyArray<QuestionMetadata>;
@@ -46,45 +39,20 @@ type Props = Readonly<{
 
 export default function InterviewsDashboardPracticeQuestionsSection({
   questions,
-  focusAreas,
-  questionListSessions,
   questionsProgress,
+  guidesProgress,
 }: Props) {
-  const intl = useIntl();
-
   return (
     <Section>
       <div className={clsx('flex flex-col gap-12')}>
         <div className="flex flex-col gap-3">
-          <div className="flex flex-wrap items-center gap-3">
-            <Heading className={themeTextColor} color="custom" level="heading5">
-              <FormattedMessage
-                defaultMessage="All practice questions"
-                description="Title for practice questions section"
-                id="tQEmTt"
-              />
-            </Heading>
-            <div className="flex gap-2">
-              <Badge
-                label={intl.formatMessage({
-                  defaultMessage: '200+ questions',
-                  description: 'Badge label for questions count',
-                  id: 'xRWPeC',
-                })}
-                size="sm"
-                variant="neutral-active"
-              />
-              <Badge
-                label={intl.formatMessage({
-                  defaultMessage: 'Solutions & test from ex-interviewers',
-                  description: 'Badge label for solutiosn & test',
-                  id: 'ZjVKE/',
-                })}
-                size="sm"
-                variant="neutral-active"
-              />
-            </div>
-          </div>
+          <Heading className={themeTextColor} color="custom" level="heading5">
+            <FormattedMessage
+              defaultMessage="All practice questions"
+              description="Title for practice questions section"
+              id="tQEmTt"
+            />
+          </Heading>
           <Text color="secondary" size="body2">
             <FormattedMessage
               defaultMessage="More practice questions you can dive into with any excess time"
@@ -94,17 +62,14 @@ export default function InterviewsDashboardPracticeQuestionsSection({
           </Text>
         </div>
 
-        <InterviewsDashboardPracticeByQuestionType
+        <InterviewsQuestionFormatsSection
+          guidesProgress={guidesProgress}
           questions={questions}
           questionsProgress={questionsProgress ?? []}
         />
-        <InterviewsDashboardPracticeByFrameworkLanguageSection
+        <InterviewsFrameworkAndLanguageSection
           questions={questions}
           questionsProgress={questionsProgress ?? []}
-        />
-        <InterviewsDashboardPracticeByFocusAreasSection
-          focusAreas={focusAreas}
-          questionListSessions={questionListSessions}
         />
       </div>
     </Section>

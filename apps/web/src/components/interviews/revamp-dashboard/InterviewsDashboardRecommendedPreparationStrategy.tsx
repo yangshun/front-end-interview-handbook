@@ -2,9 +2,9 @@ import clsx from 'clsx';
 import type { ReactNode } from 'react';
 import {
   RiArrowRightLine,
-  RiArticleLine,
   RiBookOpenLine,
   RiCheckFill,
+  RiEye2Line,
   RiTimelineView,
 } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
@@ -17,7 +17,7 @@ import Badge from '~/components/ui/Badge';
 import Chip from '~/components/ui/Chip';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
-import Text from '~/components/ui/Text';
+import Text, { textVariants } from '~/components/ui/Text';
 import {
   themeBackgroundCardColor,
   themeBorderElementColor,
@@ -25,6 +25,7 @@ import {
   themeGradientGreenYellow,
   themeTextBrandColor_GroupHover,
   themeTextColor,
+  themeTextSubtitleColor,
   themeTextSubtleColor,
 } from '~/components/ui/theme';
 
@@ -54,7 +55,6 @@ function PreparationStrategyCard({ data }: { data: PreparationStrategyItem }) {
     customIcon,
     question,
     article,
-    variant,
     href,
   } = data;
 
@@ -62,77 +62,79 @@ function PreparationStrategyCard({ data }: { data: PreparationStrategyItem }) {
     <div
       className={clsx(
         'group relative w-full',
-        'flex flex-col gap-6 md:flex-row',
-        'p-6',
+        'flex items-center gap-2 md:gap-6',
+        'px-6 py-5',
         'rounded-lg',
         'bg-neutral-200/40 dark:bg-neutral-800/40',
         ['border', themeBorderElementColor],
       )}>
-      {customIcon
-        ? customIcon
-        : Icon && (
-            <div
-              className={clsx(
-                'flex items-center justify-center',
-                'size-10 shrink-0',
-                'rounded-lg',
-                themeGlassyBorder,
-                themeBackgroundCardColor,
-              )}>
-              <Icon
+      <div className="flex flex-1 flex-col gap-6 md:flex-row md:items-center">
+        {customIcon
+          ? customIcon
+          : Icon && (
+              <div
                 className={clsx(
-                  'size-6 shrink-0',
-                  variant === 'warning' && 'text-warning',
-                  variant === 'info' && 'text-info',
-                  variant === 'neutral' && themeTextColor,
-                )}
-              />
-            </div>
-          )}
+                  'flex items-center justify-center',
+                  'size-12 shrink-0',
+                  'rounded-lg',
+                  themeGlassyBorder,
+                  themeBackgroundCardColor,
+                )}>
+                <Icon
+                  className={clsx('size-6 shrink-0', themeTextSubtitleColor)}
+                />
+              </div>
+            )}
 
-      <div className="flex flex-1 flex-col gap-4">
-        <div className="flex flex-col gap-1">
-          <div className="flex justify-between gap-1">
-            <Text size="body1" weight="medium">
+        <div className="flex flex-1 flex-col gap-4">
+          <div className="flex flex-col gap-1">
+            <Anchor
+              className={textVariants({
+                className: 'z-[1]',
+                size: 'body0',
+                weight: 'bold',
+              })}
+              href={href}
+              variant="flat">
               {title}
+            </Anchor>
+            <Text color="secondary" size="body2">
+              {description}
             </Text>
-            <RiArrowRightLine
-              className={clsx(
-                'size-5 shrink-0',
-                themeTextSubtleColor,
-                themeTextBrandColor_GroupHover,
-              )}
-            />
           </div>
-          <Text color="secondary" size="body2">
-            {description}
-          </Text>
-        </div>
 
-        {/* Progress */}
-        <div className="gapy-y-2 flex flex-col gap-x-8 md:flex-row">
-          {article && (
-            <InterviewsEntityProgress
-              completed={article.completed}
-              progressClassName={themeGradientGreenYellow.className}
-              title={title}
-              total={article.total}
-              type="article"
-            />
-          )}
-          {question && (
-            <InterviewsEntityProgress
-              completed={question.completed}
-              progressClassName={themeGradientGreenYellow.className}
-              title={title}
-              total={question.total}
-              type="question"
-            />
-          )}
+          {/* Progress */}
+          <div className="flex flex-col gap-x-8 gap-y-2 md:flex-row">
+            {article && (
+              <InterviewsEntityProgress
+                completed={article.completed}
+                progressClassName={themeGradientGreenYellow.className}
+                title={title}
+                total={article.total}
+                type="article"
+              />
+            )}
+            {question && (
+              <InterviewsEntityProgress
+                completed={question.completed}
+                progressClassName={themeGradientGreenYellow.className}
+                title={title}
+                total={question.total}
+                type="question"
+              />
+            )}
+          </div>
         </div>
       </div>
 
-      <Anchor className="absolute inset-0" href={href} />
+      <RiArrowRightLine
+        className={clsx(
+          'size-5 shrink-0',
+          themeTextSubtleColor,
+          themeTextBrandColor_GroupHover,
+        )}
+      />
+      <Anchor aria-label={title} className="absolute inset-0" href={href} />
     </div>
   );
 }
@@ -148,10 +150,9 @@ export default function InterviewsDashboardRecommendedPreparationStrategy() {
         total: 10,
       },
       description: intl.formatMessage({
-        defaultMessage:
-          'Learn the best way to prepare for front end interviews.',
-        description: 'Description for front end interview guide',
-        id: '5+dRvd',
+        defaultMessage: 'A starter guide to preparing for front end interviews',
+        description: 'Front End Interview Playbook',
+        id: 'srI99v',
       }),
       href: '/front-end-interview-guidebook',
       icon: RiTimelineView,
@@ -166,9 +167,9 @@ export default function InterviewsDashboardRecommendedPreparationStrategy() {
       customIcon: <PreparationGFE75Logo size="sm" />,
       description: intl.formatMessage({
         defaultMessage:
-          'The most essential list of front end interview questions that gets you prepared for 75% of interview, with a wide range of question patterns and formats.',
+          'The 75 most important front end interview questions. Covers a wide range of interview patterns and formats.',
         description: 'Description for gfe75',
-        id: 'zeqI5d',
+        id: 'bNgObx',
       }),
       href: '/interviews/greatfrontend75',
       question: {
@@ -176,9 +177,9 @@ export default function InterviewsDashboardRecommendedPreparationStrategy() {
         total: 90,
       },
       title: intl.formatMessage({
-        defaultMessage: 'Complete GFE75',
+        defaultMessage: 'GFE 75',
         description: 'Title for gfe75',
-        id: 'ENKd5S',
+        id: 'C9uKzE',
       }),
       variant: 'neutral',
     },
@@ -190,7 +191,7 @@ export default function InterviewsDashboardRecommendedPreparationStrategy() {
         id: 'Zk/GBk',
       }),
       href: '/interviews/blind75',
-      icon: RiArticleLine,
+      icon: RiEye2Line,
       question: {
         completed: 30,
         total: 90,
@@ -201,9 +202,9 @@ export default function InterviewsDashboardRecommendedPreparationStrategy() {
         id: 'ifwPMU',
       }),
       title: intl.formatMessage({
-        defaultMessage: 'Complete Blind75',
+        defaultMessage: 'Blind 75',
         description: 'Title for Blind75',
-        id: 'Yijkp6',
+        id: 'dCV3vl',
       }),
       variant: 'warning',
     },
@@ -225,14 +226,14 @@ export default function InterviewsDashboardRecommendedPreparationStrategy() {
         total: 90,
       },
       tagLabel: intl.formatMessage({
-        defaultMessage: 'If you‘re a senior engineer',
+        defaultMessage: "If you're a senior engineer",
         description: 'Label for frontend system design tag',
-        id: 'I2EyMO',
+        id: 'jb5IjS',
       }),
       title: intl.formatMessage({
-        defaultMessage: 'Study our Front End System Design Guide',
+        defaultMessage: 'Front End System Design Playbook',
         description: 'Title for frontend system design guide',
-        id: 'e6zEt6',
+        id: 'Ul08Jw',
       }),
       variant: 'info',
     },
@@ -240,16 +241,16 @@ export default function InterviewsDashboardRecommendedPreparationStrategy() {
 
   return (
     <Section>
-      <div className="flex flex-col gap-[18px] md:gap-8">
-        <Heading className={themeTextColor} color="custom" level="heading6">
+      <div className="mb-12 flex flex-col gap-[30px]">
+        <Heading className={themeTextColor} color="custom" level="heading5">
           <FormattedMessage
-            defaultMessage="Recommended preparation strategy"
+            defaultMessage="Recommended preparation"
             description="Title for recommended preparation strategy section"
-            id="EQ25bl"
+            id="zKboNH"
           />
         </Heading>
         <div
-          className={clsx('relative flex flex-col gap-4', 'overflow-hidden')}>
+          className={clsx('relative flex flex-col gap-8', 'overflow-hidden')}>
           {preparationStrategies.map((strategy, index) => {
             const { article, question } = strategy;
             const isCompleted =
@@ -275,7 +276,7 @@ export default function InterviewsDashboardRecommendedPreparationStrategy() {
                   {index < preparationStrategies.length - 1 && (
                     <div
                       className={clsx(
-                        'absolute top-[55%] -z-10 h-[90%] w-px translate-y-3 self-center border-l-2',
+                        'absolute top-[55%] -z-10 h-full w-px translate-y-3 self-center border-l-2',
                         themeBorderElementColor,
                       )}
                     />

@@ -12,13 +12,14 @@ import { useIntl } from 'react-intl';
 import { trpc } from '~/hooks/trpc';
 
 import {
+  categorizeFocusAreas,
   type FocusAreas,
   getFocusAreaTheme,
 } from '~/data/focus-areas/FocusAreas';
 
 import InterviewsPageFeatures from '~/components/interviews/common/InterviewsPageFeatures';
 import InterviewsPageHeaderActions from '~/components/interviews/common/InterviewsPageHeaderActions';
-import InterviewsLearningListCard from '~/components/interviews/questions/listings/learning/study-plan/InterviewsLearningListCard';
+import InterviewsLearningListCard from '~/components/interviews/questions/listings/learning/InterviewsLearningListCard';
 import MDXContent from '~/components/mdx/MDXContent';
 import Container from '~/components/ui/Container';
 import Divider from '~/components/ui/Divider';
@@ -51,44 +52,7 @@ export default function InterviewsRevampFocusAreaListPage({
     });
 
   const sessions = questionListSessions ?? [];
-
-  // TODO(interviews): Consolidate with dashboard focus area section.
-  const focusAreasCategories = [
-    {
-      items: [
-        focusAreas['javascript-polyfills'],
-        focusAreas['async-operations'],
-        focusAreas.lodash,
-      ],
-      title: intl.formatMessage({
-        defaultMessage: 'JavaScript Engineering',
-        description: 'Title for focus area type',
-        id: 'er249T',
-      }),
-    },
-    {
-      items: [
-        focusAreas['dom-manipulation'],
-        focusAreas.forms,
-        focusAreas['design-system-components'],
-        focusAreas.accessibility,
-        focusAreas['state-management'],
-      ],
-      title: intl.formatMessage({
-        defaultMessage: 'User Interface Development',
-        description: 'Title for focus area type',
-        id: '2M6LN4',
-      }),
-    },
-    {
-      items: [focusAreas['data-structures-algorithms']],
-      title: intl.formatMessage({
-        defaultMessage: 'Computer Science Foundations',
-        description: 'Title for focus area type',
-        id: 'L7w0Ka',
-      }),
-    },
-  ];
+  const focusAreasCategories = categorizeFocusAreas(intl);
 
   const features = [
     {

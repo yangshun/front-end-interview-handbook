@@ -6,7 +6,6 @@ import {
   INTERVIEWS_REVAMP_2024,
   INTERVIEWS_REVAMP_BOTTOM_CONTENT,
 } from '~/data/FeatureFlags';
-import { getFocusAreas } from '~/data/focus-areas/FocusAreas';
 
 import InterviewsDashboardPage from '~/components/interviews/revamp-dashboard/InterviewsDashboardPage';
 
@@ -74,7 +73,6 @@ export default async function Page({ params }: Props) {
   const sortedGuides = companyGuides
     .slice()
     .sort((a, b) => a.ranking - b.ranking);
-  const focusAreas = getFocusAreas(intl as IntlShape);
 
   return (
     <InterviewsDashboardPage
@@ -82,7 +80,6 @@ export default async function Page({ params }: Props) {
         INTERVIEWS_REVAMP_BOTTOM_CONTENT ? bottomContent : undefined
       }
       companyGuides={sortedGuides}
-      focusAreas={focusAreas}
       preparationPlans={preparationPlans}
       questions={{
         codingQuestions,

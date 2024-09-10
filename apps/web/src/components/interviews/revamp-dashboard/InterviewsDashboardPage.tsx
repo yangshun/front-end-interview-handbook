@@ -9,7 +9,6 @@ import { FormattedMessage } from 'react-intl';
 
 import { trpc } from '~/hooks/trpc';
 
-import type { FocusAreas } from '~/data/focus-areas/FocusAreas';
 import type { PreparationPlans } from '~/data/plans/PreparationPlans';
 
 import type {
@@ -33,7 +32,6 @@ import { useUser } from '@supabase/auth-helpers-react';
 type Props = Readonly<{
   bottomContent?: InterviewsListingBottomContent;
   companyGuides: Array<InterviewsCompanyGuide>;
-  focusAreas: FocusAreas;
   preparationPlans: PreparationPlans;
   questions: {
     codingQuestions: ReadonlyArray<QuestionMetadata>;
@@ -54,7 +52,6 @@ export default function InterviewsDashboardPage({
   companyGuides,
   preparationPlans,
   questions,
-  focusAreas,
   bottomContent,
 }: Props) {
   const user = useUser();
@@ -70,6 +67,13 @@ export default function InterviewsDashboardPage({
     trpc.questionLists.getActiveSessions.useQuery(undefined, {
       enabled: !!user,
     });
+
+  const { data: guidesProgress } = trpc.guideProgress.getAll.useQuery(
+    undefined,
+    {
+      enabled: !!user,
+    },
+  );
 
   const sessions = questionListSessions ?? [];
   const showContinueLearning =
@@ -92,7 +96,7 @@ export default function InterviewsDashboardPage({
       <InterviewsDashboardRecommendedPreparationStrategy />
       <InterviewsDashboardMoreLearningSection
         companyGuides={companyGuides}
-        focusAreas={focusAreas}
+        guidesProgress={guidesProgress ?? []}
         preparationPlans={preparationPlans}
         questionListSessions={sessions}
         questions={questions}

@@ -4,6 +4,10 @@ import { RiArrowRightLine } from 'react-icons/ri';
 import type { PreparationPlanSchedule } from '~/data/plans/PreparationPlans';
 
 import InterviewsEntityProgress from '~/components/interviews/common/InterviewsEntityProgress';
+import type {
+  QuestionList,
+  QuestionListTheme,
+} from '~/components/interviews/questions/common/QuestionsTypes';
 import QuestionStudyAllocationLabel from '~/components/interviews/questions/metadata/QuestionStudyAllocationLabel';
 import Anchor from '~/components/ui/Anchor';
 import Text, { textVariants } from '~/components/ui/Text';
@@ -17,11 +21,6 @@ import {
 } from '~/components/ui/theme';
 
 import { countNumberOfQuestionsInList } from '~/db/QuestionsUtils';
-
-import type {
-  QuestionList,
-  QuestionListTheme,
-} from '../../../common/QuestionsTypes';
 
 type Props = Readonly<{
   completionCount?: number;

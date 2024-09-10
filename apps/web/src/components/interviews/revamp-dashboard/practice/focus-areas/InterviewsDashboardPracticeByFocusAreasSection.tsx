@@ -1,72 +1,27 @@
 import { useIntl } from 'react-intl';
 
 import {
-  type FocusAreas,
+  categorizeFocusAreas,
   getFocusAreaTheme,
 } from '~/data/focus-areas/FocusAreas';
 
-import InterviewsLearningListCard from '~/components/interviews/questions/listings/learning/study-plan/InterviewsLearningListCard';
+import InterviewsLearningListCard from '~/components/interviews/questions/listings/learning/InterviewsLearningListCard';
 import InterviewsDashboardLearningSection from '~/components/interviews/revamp-dashboard/InterviewsDashboardLearningSection';
 import Text from '~/components/ui/Text';
 
 import type { LearningSession } from '@prisma/client';
 
 type Props = Readonly<{
-  focusAreas: FocusAreas;
   questionListSessions: Array<
     LearningSession & { _count: { progress: number } }
   >;
 }>;
 
 export default function InterviewsDashboardPracticeByFocusAreasSection({
-  focusAreas,
   questionListSessions,
 }: Props) {
   const intl = useIntl();
-
-  // TODO(interviews): Consolidate with focus area list page.
-  const focusAreasCategories = [
-    {
-      items: [
-        focusAreas['javascript-polyfills'],
-        focusAreas['async-operations'],
-        focusAreas.lodash,
-      ],
-      title: intl.formatMessage({
-        defaultMessage: 'JavaScript Engineering',
-        description: 'Title for focus area type',
-        id: 'er249T',
-      }),
-    },
-    {
-      items: [
-        focusAreas['dom-manipulation'],
-        focusAreas.forms,
-        focusAreas['design-system-components'],
-      ],
-      title: intl.formatMessage({
-        defaultMessage: 'User Interface Development',
-        description: 'Title for focus area type',
-        id: '2M6LN4',
-      }),
-    },
-    {
-      items: [focusAreas.accessibility, focusAreas['state-management']],
-      title: intl.formatMessage({
-        defaultMessage: 'Accessibility and Performance',
-        description: 'Title for focus area type',
-        id: '9yHSXW',
-      }),
-    },
-    {
-      items: [focusAreas['data-structures-algorithms']],
-      title: intl.formatMessage({
-        defaultMessage: 'Computer Science Foundations',
-        description: 'Title for focus area type',
-        id: 'L7w0Ka',
-      }),
-    },
-  ];
+  const focusAreasCategories = categorizeFocusAreas(intl);
 
   return (
     <InterviewsDashboardLearningSection
@@ -78,9 +33,9 @@ export default function InterviewsDashboardPracticeByFocusAreasSection({
         id: 'vSV9/q',
       })}
       title={intl.formatMessage({
-        defaultMessage: 'Practice by focus areas',
+        defaultMessage: 'Focus Areas',
         description: 'Title for practice by focus areas section',
-        id: 'WVS7Vj',
+        id: 'mcrQEE',
       })}>
       <div className="flex flex-col gap-10">
         {focusAreasCategories.map(({ title, items }) => (

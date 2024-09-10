@@ -144,3 +144,44 @@ export function getFocusAreaTheme(focusArea: FocusAreaType): QuestionListTheme {
       return getFocusAreaThemeStateManagement();
   }
 }
+
+export function categorizeFocusAreas(intl: IntlShape) {
+  const focusAreas = getFocusAreas(intl);
+
+  return [
+    {
+      items: [
+        focusAreas['javascript-polyfills'],
+        focusAreas['async-operations'],
+        focusAreas.lodash,
+      ],
+      title: intl.formatMessage({
+        defaultMessage: 'JavaScript Engineering',
+        description: 'Title for focus area type',
+        id: 'er249T',
+      }),
+    },
+    {
+      items: [
+        focusAreas['dom-manipulation'],
+        focusAreas.forms,
+        focusAreas['design-system-components'],
+        focusAreas.accessibility,
+        focusAreas['state-management'],
+      ],
+      title: intl.formatMessage({
+        defaultMessage: 'User Interface Development',
+        description: 'Title for focus area type',
+        id: '2M6LN4',
+      }),
+    },
+    {
+      items: [focusAreas['data-structures-algorithms']],
+      title: intl.formatMessage({
+        defaultMessage: 'Computer Science Foundations',
+        description: 'Title for focus area type',
+        id: 'L7w0Ka',
+      }),
+    },
+  ];
+}
