@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { useIntl } from 'react-intl';
 
 import useSessionStorageForSets from '~/hooks/useSessionStorageForSets';
@@ -7,7 +8,7 @@ import type { QuestionDifficulty } from '~/components/interviews/questions/commo
 import type { QuestionFilter } from '../QuestionFilterType';
 
 type Props = Readonly<{
-  namespace: string;
+  namespace?: string;
 }>;
 
 export default function useQuestionDifficultyFilter({
@@ -43,11 +44,23 @@ export default function useQuestionDifficultyFilter({
       value: 'hard',
     },
   ];
-  const [difficultyFilters, setDifficultyFilters] =
+  const [difficultyState, setDifficultyState] = useState(
+    new Set<QuestionDifficulty>(),
+  );
+  const [difficultySessionStorage, setDifficultySessionStorage] =
     useSessionStorageForSets<QuestionDifficulty>(
       `gfe:${namespace}:difficulty-filter`,
       new Set(),
     );
+
+  // Conditionally select which hook's state to use
+  const difficultyFilters = namespace
+    ? difficultySessionStorage
+    : difficultyState;
+  const setDifficultyFilters = namespace
+    ? setDifficultySessionStorage
+    : setDifficultyState;
+
   const difficultyFilterOptions: QuestionFilter<QuestionDifficulty> = {
     id: 'difficulty',
     matches: (question) =>
@@ -70,6 +83,7 @@ export default function useQuestionDifficultyFilter({
       setDifficultyFilters(new Set());
     },
     options: DIFFICULTY_OPTIONS,
+    setValues: setDifficultyFilters,
   };
 
   return [difficultyFilters, difficultyFilterOptions];

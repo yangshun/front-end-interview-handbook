@@ -1,4 +1,5 @@
 import clsx from 'clsx';
+import { useState } from 'react';
 import { useIntl } from 'react-intl';
 
 import useCompanyNames from '~/hooks/useCompanyNames';
@@ -24,7 +25,7 @@ const COMPANY_OPTIONS: ReadonlyArray<QuestionCompany> = [
 ];
 
 type Props = Readonly<{
-  namespace: string;
+  namespace?: string;
 }>;
 
 export default function useQuestionCompanyFilter({
@@ -33,11 +34,24 @@ export default function useQuestionCompanyFilter({
   const intl = useIntl();
   const { userProfile } = useUserProfile();
   const companyNames = useCompanyNames();
-  const [companyFilters, setCompanyFilters] =
+
+  const [companyFiltersState, setCompanyFiltersState] = useState<
+    Set<QuestionCompany>
+  >(new Set());
+  const [companyFiltersSessionStorage, setCompanyFiltersSessionStorage] =
     useSessionStorageForSets<QuestionCompany>(
       `gfe:${namespace}:company-filter`,
       new Set(),
     );
+
+  // Conditionally select which hook's state to use
+  const companyFilters = namespace
+    ? companyFiltersSessionStorage
+    : companyFiltersState;
+  const setCompanyFilters = namespace
+    ? setCompanyFiltersSessionStorage
+    : setCompanyFiltersState;
+
   const CompanyFilterOptions: QuestionFilter<QuestionCompany> = {
     id: 'company',
     matches: (question) =>
@@ -73,6 +87,7 @@ export default function useQuestionCompanyFilter({
         value: company,
       };
     }),
+    setValues: setCompanyFilters,
   };
 
   return [companyFilters, CompanyFilterOptions];

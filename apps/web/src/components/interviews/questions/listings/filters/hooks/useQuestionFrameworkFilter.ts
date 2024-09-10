@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { useIntl } from 'react-intl';
 
 import useSessionStorageForSets from '~/hooks/useSessionStorageForSets';
@@ -16,18 +17,27 @@ const FRAMEWORK_OPTIONS: ReadonlyArray<QuestionFramework> = [
 ];
 
 type Props = Readonly<{
-  namespace: string;
+  namespace?: string;
 }>;
 
 export default function useQuestionFrameworkFilter({
   namespace,
 }: Props): [Set<QuestionFramework>, QuestionFilter<QuestionFramework>] {
   const intl = useIntl();
-  const [frameworkFilters, setFrameworkFilters] =
+  const [frameworkState, setFrameworkState] = useState(
+    new Set<QuestionFramework>(),
+  );
+  const [frameworkSessionStorage, setFrameworkSessionStorage] =
     useSessionStorageForSets<QuestionFramework>(
       `gfe:${namespace}:framework-filter`,
       new Set(),
     );
+
+  // Conditionally select which hook's state to use
+  const frameworkFilters = namespace ? frameworkSessionStorage : frameworkState;
+  const setFrameworkFilters = namespace
+    ? setFrameworkSessionStorage
+    : setFrameworkState;
 
   const frameworkFilterOptions: QuestionFilter<QuestionFramework> = {
     id: 'framework',
@@ -56,6 +66,7 @@ export default function useQuestionFrameworkFilter({
       label: QuestionFrameworkLabels[value],
       value,
     })),
+    setValues: setFrameworkFilters,
   };
 
   return [frameworkFilters, frameworkFilterOptions];

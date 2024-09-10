@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { useIntl } from 'react-intl';
 
 import useSessionStorageForSets from '~/hooks/useSessionStorageForSets';
@@ -24,7 +25,7 @@ const topicRanks: Record<QuestionTopic, number> = {
 };
 
 type Props = Readonly<{
-  namespace: string;
+  namespace?: string;
 }>;
 
 export default function useQuestionTopicFilter({
@@ -35,11 +36,23 @@ export default function useQuestionTopicFilter({
 ] {
   const intl = useIntl();
   const topicLabels = useQuestionTopicLabels();
-  const [topicFilters, setTopicFilters] =
+  const [topicFiltersState, setTopicFiltersState] = useState<
+    Set<QuestionTopic>
+  >(new Set());
+  const [topicFiltersSessionStorage, setTopicFiltersSessionStorage] =
     useSessionStorageForSets<QuestionTopic>(
       `gfe:${namespace}:topic-filter`,
       new Set(),
     );
+
+  // Conditionally select which hook's state to use
+  const topicFilters = namespace
+    ? topicFiltersSessionStorage
+    : topicFiltersState;
+  const setTopicFilters = namespace
+    ? setTopicFiltersSessionStorage
+    : setTopicFiltersState;
+
   const topicFilterOptions: QuestionFilter<QuestionTopic, QuestionMetadata> = {
     id: 'topic',
     matches: (question) =>
@@ -69,6 +82,7 @@ export default function useQuestionTopicFilter({
         label: topicLabels[topic as QuestionTopic].label,
         value: topic as QuestionTopic,
       })),
+    setValues: setTopicFilters,
   };
 
   return [topicFilters, topicFilterOptions];

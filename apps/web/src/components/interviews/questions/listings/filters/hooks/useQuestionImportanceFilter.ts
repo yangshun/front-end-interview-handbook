@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { useIntl } from 'react-intl';
 
 import useSessionStorageForSets from '~/hooks/useSessionStorageForSets';
@@ -7,7 +8,7 @@ import type { QuestionImportance } from '~/components/interviews/questions/commo
 import type { QuestionFilter } from '../QuestionFilterType';
 
 type Props = Readonly<{
-  namespace: string;
+  namespace?: string;
 }>;
 
 export default function useQuestionImportanceFilter({
@@ -43,11 +44,23 @@ export default function useQuestionImportanceFilter({
       value: 'high',
     },
   ];
-  const [importanceFilters, setImportanceFilters] =
+  const [importanceState, setImportanceState] = useState(
+    new Set<QuestionImportance>(),
+  );
+  const [importanceSessionStorage, setImportanceSessionStorage] =
     useSessionStorageForSets<QuestionImportance>(
       `gfe:${namespace}:importance-filter`,
       new Set(),
     );
+
+  // Conditionally select which hook's state to use
+  const importanceFilters = namespace
+    ? importanceSessionStorage
+    : importanceState;
+  const setImportanceFilters = namespace
+    ? setImportanceSessionStorage
+    : setImportanceState;
+
   const importanceFilterOptions: QuestionFilter<QuestionImportance> = {
     id: 'importance',
     matches: (question) =>
@@ -70,6 +83,7 @@ export default function useQuestionImportanceFilter({
       setImportanceFilters(new Set());
     },
     options: IMPORTANCE_OPTIONS,
+    setValues: setImportanceFilters,
   };
 
   return [importanceFilters, importanceFilterOptions];

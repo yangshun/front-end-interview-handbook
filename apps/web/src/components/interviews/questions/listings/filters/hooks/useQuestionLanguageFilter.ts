@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { useIntl } from 'react-intl';
 
 import useSessionStorageForSets from '~/hooks/useSessionStorageForSets';
@@ -16,18 +17,27 @@ const LANGUAGE_OPTIONS: ReadonlyArray<{
 ];
 
 type Props = Readonly<{
-  namespace: string;
+  namespace?: string;
 }>;
 
 export default function useQuestionLanguageFilter({
   namespace,
 }: Props): [Set<QuestionLanguage>, QuestionFilter<QuestionLanguage>] {
   const intl = useIntl();
-  const [languageFilters, setLanguageFilters] =
+  const [languageState, setLanguageState] = useState(
+    new Set<QuestionLanguage>(),
+  );
+  const [languageFSessionStorage, setLanguageSessionStorage] =
     useSessionStorageForSets<QuestionLanguage>(
       `gfe:${namespace}:language-filter`,
       new Set(),
     );
+
+  // Conditionally select which hook's state to use
+  const languageFilters = namespace ? languageFSessionStorage : languageState;
+  const setLanguageFilters = namespace
+    ? setLanguageSessionStorage
+    : setLanguageState;
 
   const LanguageFilterOptions: QuestionFilter<QuestionLanguage> = {
     id: 'language',
@@ -51,6 +61,7 @@ export default function useQuestionLanguageFilter({
       setLanguageFilters(new Set());
     },
     options: LANGUAGE_OPTIONS,
+    setValues: setLanguageFilters,
   };
 
   return [languageFilters, LanguageFilterOptions];

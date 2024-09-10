@@ -21,7 +21,7 @@ type Props = Readonly<{
     b: QuestionFormat,
   ) => number;
   initialFormat?: QuestionFormat | null;
-  namespace: string;
+  namespace?: string;
 }>;
 
 export default function useQuestionUnifiedFilters({

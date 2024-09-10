@@ -1,4 +1,4 @@
-import type { ReactNode } from 'react';
+import type { Dispatch, ReactNode, SetStateAction } from 'react';
 
 import type { QuestionMetadata } from '../../common/QuestionsTypes';
 
@@ -17,5 +17,6 @@ export type QuestionFilter<
     tooltip?: string;
     value: T;
   }>;
+  setValues: Dispatch<SetStateAction<Set<T>>>;
   tooltip?: string;
 }>;

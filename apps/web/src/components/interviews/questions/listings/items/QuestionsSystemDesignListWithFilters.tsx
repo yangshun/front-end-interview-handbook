@@ -1,9 +1,8 @@
 import clsx from 'clsx';
 import { useState } from 'react';
-import { RiFilterLine, RiSearchLine, RiSortDesc } from 'react-icons/ri';
+import { RiSearchLine, RiSortDesc } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
 
-import FilterButton from '~/components/common/FilterButton';
 import { useUserProfile } from '~/components/global/UserProfileProvider';
 import QuestionPaywall from '~/components/interviews/questions/common/QuestionPaywall';
 import type { QuestionSortField } from '~/components/interviews/questions/common/QuestionsTypes';
@@ -17,11 +16,11 @@ import QuestionsList from '~/components/interviews/questions/listings/items/Ques
 import DropdownMenu from '~/components/ui/DropdownMenu';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
-import SlideOut from '~/components/ui/SlideOut';
 import TextInput from '~/components/ui/TextInput';
 
 import useQuestionsWithCompletionStatus from '../filters/hooks/useQuestionsWithCompletionStatus';
 import QuestionListingUnifiedFilters from '../filters/QuestionListingUnifiedFilters';
+import QuestionsListingFilterSlideOut from '../filters/QuestionsListingFilterSlideout';
 import { allSystemDesignQuestions } from '../../content/system-design/InterviewsSystemDesignQuestions';
 
 type Props = Readonly<{
@@ -116,57 +115,17 @@ export default function QuestionsSystemDesignListWithFilters({
     filters.map(([_, filterFn]) => filterFn),
   );
 
-  const numberOfFilters = filters.filter(([size]) => size > 0).length;
   const showPaywall =
     !userProfile?.isInterviewsPremium && companyFilters.size > 0;
 
   const sortAndFilters = (
     <div className="flex shrink-0 justify-end gap-2 sm:pt-0">
       <div className={clsx(layout === 'full' && 'lg:hidden')}>
-        <SlideOut
-          size="sm"
-          title={intl.formatMessage({
-            defaultMessage: 'Filters',
-            description: 'Label for filters button',
-            id: 'k2Oi+j',
-          })}
-          trigger={
-            <FilterButton
-              icon={RiFilterLine}
-              isLabelHidden={true}
-              label={
-                intl.formatMessage({
-                  defaultMessage: 'Filters',
-                  description: 'Label for filters button',
-                  id: 'k2Oi+j',
-                }) + (numberOfFilters > 0 ? ` (${numberOfFilters})` : '')
-              }
-              purpose="button"
-              selected={numberOfFilters > 0}
-              size="sm"
-            />
-          }>
-          <QuestionListingUnifiedFilters
-            attributesUnion={questionAttributesUnion}
-            companyFilterOptions={companyFilterOptions}
-            companyFilters={companyFilters}
-            completionStatusFilterOptions={completionStatusFilterOptions}
-            completionStatusFilters={completionStatusFilters}
-            difficultyFilterOptions={difficultyFilterOptions}
-            difficultyFilters={difficultyFilters}
-            formatFilterOptions={formatFilterOptions}
-            formatFilters={formatFilters}
-            frameworkFilterOptions={frameworkFilterOptions}
-            frameworkFilters={frameworkFilters}
-            importanceFilterOptions={importanceFilterOptions}
-            importanceFilters={importanceFilters}
-            languageFilterOptions={languageFilterOptions}
-            languageFilters={languageFilters}
-            mode="default"
-            topicFilterOptions={topicFilterOptions}
-            topicFilters={topicFilters}
-          />
-        </SlideOut>
+        <QuestionsListingFilterSlideOut
+          attributesUnion={questionAttributesUnion}
+          mode="default"
+          namespace={namespace}
+        />
       </div>
       <DropdownMenu
         align="end"

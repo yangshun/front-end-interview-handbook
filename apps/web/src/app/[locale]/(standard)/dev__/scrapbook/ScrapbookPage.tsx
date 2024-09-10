@@ -325,6 +325,7 @@ export default function ScrapbookPage() {
                         value: 'system-design',
                       },
                     ],
+                    setValues: setSelectedFilters,
                   }}
                   values={selectedFilters}
                 />

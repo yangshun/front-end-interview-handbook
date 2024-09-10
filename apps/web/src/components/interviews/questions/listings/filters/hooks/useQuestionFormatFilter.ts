@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { useIntl } from 'react-intl';
 
 import useSessionStorageForSets from '~/hooks/useSessionStorageForSets';
@@ -11,7 +12,7 @@ import type { QuestionFilter } from '../QuestionFilterType';
 type Props = Readonly<{
   filter?: (format: QuestionFormat) => boolean;
   initialValue?: ReadonlyArray<QuestionFormat>;
-  namespace: string;
+  namespace?: string;
   order?: (a: QuestionFormat, b: QuestionFormat) => number;
 }>;
 
@@ -23,11 +24,23 @@ export default function useQuestionFormatFilter({
 }: Props): [Set<QuestionFormat>, QuestionFilter<QuestionFormat>] {
   const intl = useIntl();
   const questionFormatsData = useQuestionFormatsData();
-  const [codingFormatFilters, setCodingFormatFilters] =
+  const [codingFormatState, setCodingFormatState] = useState(
+    new Set<QuestionFormat>(initialValue),
+  );
+  const [codingFormatSessionStorage, setCodingFormatSessionStorage] =
     useSessionStorageForSets<QuestionFormat>(
       `gfe:${namespace}:coding-format-filter`,
       new Set(initialValue),
     );
+
+  // Conditionally select which hook's state to use
+  const codingFormatFilters = namespace
+    ? codingFormatSessionStorage
+    : codingFormatState;
+  const setCodingFormatFilters = namespace
+    ? setCodingFormatSessionStorage
+    : setCodingFormatState;
+
   let options: ReadonlyArray<{
     icon: (props: React.ComponentProps<'svg'>) => JSX.Element;
     label: string;
@@ -72,6 +85,7 @@ export default function useQuestionFormatFilter({
       setCodingFormatFilters(new Set());
     },
     options,
+    setValues: setCodingFormatFilters,
     tooltip: intl.formatMessage({
       defaultMessage:
         'Formats / types of questions you can expect in your interview',

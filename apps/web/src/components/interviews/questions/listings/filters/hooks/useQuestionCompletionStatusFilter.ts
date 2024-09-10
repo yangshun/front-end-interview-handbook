@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { useIntl } from 'react-intl';
 
 import useSessionStorageForSets from '~/hooks/useSessionStorageForSets';
@@ -10,7 +11,7 @@ import type {
 import type { QuestionFilter } from '../QuestionFilterType';
 
 type Props = Readonly<{
-  namespace: string;
+  namespace?: string;
 }>;
 
 export default function useQuestionCompletionStatusFilter({
@@ -42,11 +43,23 @@ export default function useQuestionCompletionStatusFilter({
     },
   ];
 
-  const [completionStatusFilters, setCompletionStatusFilters] =
+  const [completionStatusState, setCompletionStatusState] = useState(
+    new Set<QuestionCompletionStatus>(),
+  );
+
+  const [completionStatusSessionStorage, setCompletionStatusSessionStorage] =
     useSessionStorageForSets<QuestionCompletionStatus>(
       `gfe:${namespace}:completion-status-filter`,
       new Set(),
     );
+
+  // Conditionally select which hook's state to use
+  const completionStatusFilters = namespace
+    ? completionStatusSessionStorage
+    : completionStatusState;
+  const setCompletionStatusFilters = namespace
+    ? setCompletionStatusSessionStorage
+    : setCompletionStatusState;
 
   const completionStatusFilterOptions: QuestionFilter<
     QuestionCompletionStatus,
@@ -74,6 +87,7 @@ export default function useQuestionCompletionStatusFilter({
       setCompletionStatusFilters(new Set());
     },
     options: COMPLETION_STATUS_OPTIONS,
+    setValues: setCompletionStatusFilters,
   };
 
   return [completionStatusFilters, completionStatusFilterOptions];
