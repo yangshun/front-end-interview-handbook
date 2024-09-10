@@ -7,7 +7,10 @@ import ErrorMessageBlock from '~/components/global/error/ErrorMessageBlock';
 import logEvent from '~/logging/logEvent';
 import logMessage from '~/logging/logMessage';
 
-type Props = Readonly<{ error: Error; reset: () => void }>;
+type Props = Readonly<{
+  error: Error & { digest?: string };
+  reset: () => void;
+}>;
 
 export default function Error({ error }: Props) {
   useEffect(() => {
@@ -19,11 +22,12 @@ export default function Error({ error }: Props) {
       title: 'Question page error',
     });
     logEvent('error', {
+      digest: error.digest,
       message: error.message,
       namespace: 'interviews',
       title: 'Question page error',
     });
   }, [error]);
 
-  return <ErrorMessageBlock />;
+  return <ErrorMessageBlock returnHref="/prepare" />;
 }

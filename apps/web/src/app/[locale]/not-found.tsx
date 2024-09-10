@@ -1,11 +1,12 @@
 import type { Metadata } from 'next/types';
 import nextI18nosticConfig from 'next-i18nostic/config';
 
+import NotFoundPage from '~/components/global/error/NotFoundPage';
+
 import { getIntlServerOnly, getLocaleMessages } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
 
 import StandardLayout from './(standard)/layout';
-import NotFoundPage from './NotFoundPage';
 import RootLayout from './RootLayout';
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {

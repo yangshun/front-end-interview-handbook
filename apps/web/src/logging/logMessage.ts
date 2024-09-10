@@ -3,7 +3,7 @@ export type MessageLevel = 'error' | 'info' | 'success' | 'warning';
 export type Props = Readonly<{
   level: MessageLevel;
   message: string;
-  namespace: 'auth' | 'general' | 'interviews' | 'projects';
+  namespace: 'auth' | 'blog' | 'general' | 'interviews' | 'projects';
   title: string;
   userIdentifier?: string;
 }>;

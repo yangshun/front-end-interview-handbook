@@ -18,7 +18,8 @@ import {
 
 const links = [
   {
-    description: "Please check if there's a typo in the URL.",
+    description:
+      "Please check if there's a typo in the URL, such as extra or missing characters.",
     icon: RiErrorWarningLine,
     name: 'Invalid URL',
   },
@@ -41,7 +42,11 @@ const links = [
   },
 ];
 
-export default function ErrorMessageBlock() {
+type Props = Readonly<{
+  returnHref: string;
+}>;
+
+export default function ErrorMessageBlock({ returnHref }: Props) {
   return (
     <Container className="flex flex-col gap-y-8 py-12">
       <div className="mx-auto flex max-w-prose flex-col gap-y-4 md:gap-y-8">
@@ -84,10 +89,13 @@ export default function ErrorMessageBlock() {
           </ul>
         </div>
       </div>
-      <div className="text-center">
+      <div className="flex flex-col items-center gap-6">
+        <Text size="body2">
+          The error has been logged and we will be looking into it.
+        </Text>
         <Button
-          href="/prepare"
-          label="Return to dashboard"
+          href={returnHref}
+          label="Return"
           size="lg"
           type="button"
           variant="primary"

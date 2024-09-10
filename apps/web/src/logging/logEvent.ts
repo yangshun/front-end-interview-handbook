@@ -33,6 +33,7 @@ type LoggingAction =
 type LoggingPayload = Readonly<{
   namespace:
     | 'auth'
+    | 'blog'
     | 'general'
     | 'interviews'
     | 'marketing'

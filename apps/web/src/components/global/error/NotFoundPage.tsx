@@ -69,7 +69,7 @@ export default function NotFoundPage() {
     },
     {
       description:
-        'Join the premium club and get access to all questions and solutions',
+        'Join the premium Interviews club and get access to all questions and solutions',
       href: '/interviews/pricing',
       icon: RiShoppingCart2Line,
       title: 'Products',
