@@ -943,6 +943,10 @@
     "defaultMessage": "Profile",
     "description": "Title of Profile page"
   },
+  "5jFQfq": {
+    "defaultMessage": "Known {company} front end interview questions",
+    "description": "Heading for questions listing for company guides"
+  },
   "5jNSb2": {
     "defaultMessage": "The smallest list of practice questions that gets you the most mileage in your preparation. Covers the most commonly asked front end interview topics.",
     "description": "Description for GFE75 page"
@@ -1050,6 +1054,10 @@
   "6SEbWz": {
     "defaultMessage": "Annual plan",
     "description": "Title of annual pricing plan"
+  },
+  "6TG+jF": {
+    "defaultMessage": "The one-stop to prepare well for your {company} front end interviews.",
+    "description": "Description for company guides detail page"
   },
   "6U52IB": {
     "defaultMessage": "FAQ",
@@ -1795,6 +1803,10 @@
     "defaultMessage": "The complete prep platform for Front End interviews. Practice {questionCount}+ questions with solutions, code in-browser, and use prep plans devised by ex-interviewers.",
     "description": "Description of GreatFrontEnd standard page"
   },
+  "BQSRxW": {
+    "defaultMessage": "Recommended resources",
+    "description": "Features for focus areas question listing"
+  },
   "BVZEeY": {
     "defaultMessage": "<authorProfileLink>{author}</authorProfileLink> replied to <recipientProfileLink>{recipient}</recipientProfileLink> on the challenge forum for <link>{challengeTitle}</link>: <comment>\"{description}\"</comment>",
     "description": "Log message for someone replying to someone on the challenge forum"
@@ -2322,6 +2334,10 @@
   "F8wNUD": {
     "defaultMessage": "Starter code with content copy",
     "description": "Provided resource for project"
+  },
+  "F9KpiA": {
+    "defaultMessage": "Insider tips",
+    "description": "Features for company guides question listing"
   },
   "F9Zh+J": {
     "defaultMessage": "{number} bite-sized focus areas that collectively cover the key topics required for front end interviews. If you prefer the topical approach, use these lists to systematically approach your preparation.",
@@ -3359,6 +3375,10 @@
     "defaultMessage": "Confirm",
     "description": "Confirm action button label"
   },
+  "M6LdL8": {
+    "defaultMessage": "{questionCount} known questions with solutions",
+    "description": "Features for company guides question listing"
+  },
   "M7RwUF": {
     "defaultMessage": "You left a question on your submission <link>{submissionTitle}</link>: <comment>\"{description}\"</comment>",
     "description": "Log message for you asking question on your submission"
@@ -4367,6 +4387,10 @@
     "defaultMessage": "Search",
     "description": "Placeholder for search input of blog list"
   },
+  "SaUyXa": {
+    "defaultMessage": "{company} Front End Interview Guide",
+    "description": "Title for company guides detail page"
+  },
   "SaptIB": {
     "defaultMessage": "{points} Reputation",
     "description": "Tooltip for User reputation in project"
@@ -5134,6 +5158,10 @@
   "XuVGsX": {
     "defaultMessage": "Account",
     "description": "Profile account tab title"
+  },
+  "XwYAwS": {
+    "defaultMessage": "Interviewers",
+    "description": "Label for interviewers"
   },
   "XwbyU0": {
     "defaultMessage": "Types of UI questions, concepts to cover and rubrics",
@@ -6602,6 +6630,10 @@
   "hm0ODb": {
     "defaultMessage": "Delete comment?",
     "description": "Delete comment confirmation dialog title"
+  },
+  "hnbgcq": {
+    "defaultMessage": "Insider tips",
+    "description": "Title for inside tips"
   },
   "hoQUfU": {
     "defaultMessage": "Importance: High to Low",

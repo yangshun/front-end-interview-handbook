@@ -6,7 +6,13 @@ import type {
   InterviewsListingBottomContent,
 } from 'contentlayer/generated';
 import { useMemo } from 'react';
-import { RiArrowLeftLine, RiGoogleFill } from 'react-icons/ri';
+import {
+  RiArrowLeftLine,
+  RiGoogleFill,
+  RiQuestionnaireLine,
+  RiThumbUpLine,
+  RiVerifiedBadgeLine,
+} from 'react-icons/ri';
 import { useIntl } from 'react-intl';
 
 import { trpc } from '~/hooks/trpc';
@@ -23,12 +29,15 @@ import type {
 } from '~/components/interviews/questions/common/QuestionsTypes';
 import QuestionsList from '~/components/interviews/questions/listings/items/QuestionsList';
 import QuestionsLearningList from '~/components/interviews/questions/listings/learning/QuestionsLearningList';
+import QuestionsLearningListPageTitleSection from '~/components/interviews/questions/listings/learning/QuestionsLearningListPageTitleSection';
 import QuestionsLearningListTitleSection from '~/components/interviews/questions/listings/learning/QuestionsLearningListTitleSection';
 import MDXContent from '~/components/mdx/MDXContent';
 import Button from '~/components/ui/Button';
 import Container from '~/components/ui/Container';
 import Divider from '~/components/ui/Divider';
+import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
+import { themeGradientGreenYellow } from '~/components/ui/theme';
 
 import {
   categorizeQuestionsProgress,
@@ -36,6 +45,7 @@ import {
   filterQuestionsProgressByList,
 } from '~/db/QuestionsUtils';
 
+import InterviewsCompanyInsiderTipsSlider from './InterviewsCompanyInsiderTipsSlider';
 import InterviewsPageHeaderActions from '../common/InterviewsPageHeaderActions';
 import useQuestionTopicLabels from '../questions/listings/filters/useQuestionTopicLabels';
 
@@ -103,14 +113,54 @@ export default function InterviewsCompanyGuidePage({
     return Array.from(topicsSet).map((topic) => topicLabels[topic].label);
   }, [questions, topicLabels]);
 
+  const features = [
+    {
+      icon: RiQuestionnaireLine,
+      label: intl.formatMessage(
+        {
+          defaultMessage: '{questionCount} known questions with solutions',
+          description: 'Features for company guides question listing',
+          id: 'M6LdL8',
+        },
+        { questionCount },
+      ),
+    },
+    {
+      icon: RiVerifiedBadgeLine,
+      label: intl.formatMessage({
+        defaultMessage: 'Insider tips',
+        description: 'Features for company guides question listing',
+        id: 'F9KpiA',
+      }),
+    },
+
+    {
+      icon: RiThumbUpLine,
+      label: intl.formatMessage({
+        defaultMessage: 'Recommended resources',
+        description: 'Features for focus areas question listing',
+        id: 'BQSRxW',
+      }),
+    },
+  ];
+
+  // TODO(interviews): add real insider tips data
+  const insiderTipsData = [
+    {
+      content:
+        'Amazon is known to focus a lot on behavioral questions and their Leadership Principles. Hence be well-prepared in the non-technical aspects too.',
+      id: 'tip1',
+    },
+    {
+      content:
+        'Google is known to focus a lot on behavioral questions and their Leadership Principles. Hence be well-prepared in the non-technical aspects too.',
+      id: 'tip2',
+    },
+  ];
+
   return (
-    <div
-      className={clsx(
-        'flex flex-col gap-y-12',
-        'py-4 md:py-6 lg:py-8 xl:py-12',
-        'relative',
-      )}>
-      <Container className="relative flex flex-col gap-y-5">
+    <div className={clsx('flex flex-col gap-y-12', 'py-12', 'relative')}>
+      <Container className="relative flex flex-col gap-y-8">
         <div className="flex items-center justify-between gap-2">
           <Button
             addonPosition="start"
@@ -129,7 +179,47 @@ export default function InterviewsCompanyGuidePage({
             <InterviewsPageHeaderActions metadata={metadata} />
           )}
         </div>
-        <div className="md:col-span-2">
+        {INTERVIEWS_REVAMP_2024 ? (
+          <>
+            <QuestionsLearningListPageTitleSection
+              description={intl.formatMessage(
+                {
+                  defaultMessage:
+                    'The one-stop to prepare well for your {company} front end interviews.',
+                  description: 'Description for company guides detail page',
+                  id: '6TG+jF',
+                },
+                {
+                  company: companyGuide.name,
+                },
+              )}
+              feature="company-guides"
+              features={features}
+              logoImgSrc={companyGuide.logoUrl}
+              overallProgress={questionProgressParam ?? []}
+              questions={questions}
+              questionsSessionKey={companyGuide.slug}
+              themeBackgroundClass={themeGradientGreenYellow.className}
+              title={intl.formatMessage(
+                {
+                  defaultMessage: '{company} Front End Interview Guide',
+                  description: 'Title for company guides detail page',
+                  id: 'SaUyXa',
+                },
+                {
+                  company: companyGuide.name,
+                },
+              )}
+            />
+            <Divider />
+            {/* Insider tips */}
+            {insiderTipsData.length > 0 && (
+              <div className="max-w-2xl">
+                <InterviewsCompanyInsiderTipsSlider data={insiderTipsData} />
+              </div>
+            )}
+          </>
+        ) : (
           <QuestionsLearningListTitleSection
             description={<MDXContent mdxCode={companyGuide.body.code} />}
             feature="company-guides"
@@ -147,10 +237,10 @@ export default function InterviewsCompanyGuidePage({
             themeBackgroundClass={clsx('bg-white', 'shadow-md')}
             title={`${companyGuide.name} Front End Engineer Interview Questions and Guides`}
           />
-        </div>
+        )}
       </Container>
       <Section>
-        <Container className="@container flex flex-col gap-20">
+        <Container className="@container flex flex-col gap-8">
           {/* <CardContainer className="@4xl:grid-cols-4 @md:grid-cols-2 grid grid-cols-1 grid-rows-1 gap-3 md:gap-4 lg:gap-6">
             <InterviewsCompanyRoundCard
               description={<>2 questions on data structures and algorithms</>}
@@ -175,6 +265,22 @@ export default function InterviewsCompanyGuidePage({
               title="Final round"
             />
           </CardContainer> */}
+          {INTERVIEWS_REVAMP_2024 && (
+            <Heading level="heading6">
+              {intl.formatMessage(
+                {
+                  defaultMessage:
+                    'Known {company} front end interview questions',
+                  description:
+                    'Heading for questions listing for company guides',
+                  id: '5jFQfq',
+                },
+                {
+                  company: companyGuide.name,
+                },
+              )}
+            </Heading>
+          )}
           {canViewStudyPlans ? (
             <QuestionsLearningList
               codingQuestions={codingQuestions}

@@ -15,7 +15,7 @@ import type { QuestionProgress } from '~/db/QuestionsProgressTypes';
 
 import QuestionsListSession from './QuestionsListSession';
 
-type CommonProps = Readonly<{
+type Props = Readonly<{
   description: ReactNode;
   feature?: QuestionFeatureType;
   features: ReadonlyArray<{
@@ -33,18 +33,6 @@ type CommonProps = Readonly<{
   title: string;
 }>;
 
-type WithIconProps = CommonProps &
-  Readonly<{
-    icon: (props: React.ComponentProps<'svg'>) => JSX.Element;
-  }>;
-
-type WithLogoProps = CommonProps &
-  Readonly<{
-    logo: React.ReactNode;
-  }>;
-
-type Props = WithIconProps | WithLogoProps;
-
 export default function QuestionsLearningListPageTitleSection({
   description,
   themeBackgroundClass,
@@ -58,7 +46,7 @@ export default function QuestionsLearningListPageTitleSection({
   ...props
 }: Props) {
   return (
-    <div className="flex flex-col justify-between gap-x-4 gap-y-8 md:flex-row">
+    <div className="flex flex-col justify-between gap-x-4 gap-y-8 lg:flex-row">
       <div className="flex w-full flex-col gap-6">
         <div className="flex items-center gap-6">
           {'logo' in props ? (
@@ -79,17 +67,19 @@ export default function QuestionsLearningListPageTitleSection({
               />
             </div>
           ) : (
-            <InterviewsPageHeaderLogo
-              icon={props.icon}
-              startColor="#EAE8FF"
-              stopColor="#787878"
-            />
+            props.icon && (
+              <InterviewsPageHeaderLogo
+                icon={props.icon}
+                startColor="#EAE8FF"
+                stopColor="#787878"
+              />
+            )
           )}
           <Heading className={themeTextColor} color="custom" level="heading4">
             {title}
           </Heading>
         </div>
-        <div className="flex max-w-3xl flex-col gap-10">
+        <div className="flex max-w-3xl flex-col gap-8">
           <Text color="subtitle" size="body1" weight="medium">
             {description}
           </Text>
