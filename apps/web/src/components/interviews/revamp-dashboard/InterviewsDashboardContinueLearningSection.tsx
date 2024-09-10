@@ -33,7 +33,8 @@ export default function InterviewsDashboardContinueLearningSection({
   const themes = getQuestionListThemes();
 
   const items = questionListSessions
-    // TODO: filter out company lists for now because company list rendering is not yet supported on the dashboard.
+    // TODO(interviews): filter out company lists for now because company list
+    // rendering is not yet supported on the dashboard.
     .filter(({ key }) => questionLists[key] != null)
     .map(({ key, _count }) => ({
       completedCount: _count.progress,

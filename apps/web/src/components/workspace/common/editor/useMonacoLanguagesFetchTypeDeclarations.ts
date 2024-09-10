@@ -23,7 +23,7 @@ type PackageTypeDefs = Record<
   Record<PackageVersion, PackageModuleTypeDeclarations>
 >;
 
-// TODO: Cache fetched contents across sessions since they are immutable.
+// TODO(workspace): Cache fetched contents across sessions since they are immutable.
 const packageTypeDefs: PackageTypeDefs = {};
 const excludedPackages = new Set(['typescript', 'react-scripts']);
 
@@ -99,7 +99,7 @@ export default function useMonacoLanguagesFetchTypeDeclarations(
     Object.entries(allDependencies)
       .filter(([packageName]) => !excludedPackages.has(String(packageName)))
       .forEach(async ([packageName, specifiedPackageVersion]) => {
-        // TODO: Extract the version properly and support more formats. Even better if the correct version can be resolved.
+        // TODO(workspace): Extract the version properly and support more formats. Even better if the correct version can be resolved.
         const packageVersion = specifiedPackageVersion.replace(/^\^|~/, '');
         const packageDeclarations = await fetchPackageTypeDeclarations(
           String(packageName),

@@ -85,7 +85,7 @@ function NewSaveButton({
           title: `Saved as "${saveName}"`,
           variant: 'success',
         });
-        // TODO(submission): Add study list parameter if exists.
+        // TODO(workspace): Add study list parameter if exists.
         router.push(
           `/questions/user-interface/${question.metadata.slug}/v/${data?.id}`,
         );

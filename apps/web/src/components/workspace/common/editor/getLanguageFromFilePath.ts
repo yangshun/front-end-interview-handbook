@@ -4,7 +4,7 @@ const languageMapping: Record<string, string> = {
   svelte: 'html',
   ts: 'typescript',
   tsx: 'typescript',
-  // TODO: Not ideal but works for now.
+  // TODO(workspace): Not ideal but works for now.
   vue: 'html',
 };
 

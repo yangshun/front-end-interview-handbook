@@ -21,7 +21,7 @@ export function useMutationQuestionProgressAdd() {
 
   return trpc.questionProgress.add.useMutation({
     onSuccess: () => {
-      // TODO:  find out why setData is not working
+      // TODO(interviews): find out why setData is not working
       // trpcUtils.questionProgress.get.setData({ question: variables }, data);
       trpcUtils.questionProgress.invalidate();
     },
@@ -53,7 +53,7 @@ export function getQuestionMetadata(
   format: QuestionFormat,
   slug: string,
 ): QuestionMetadata | null {
-  // TODO: This is a really inefficient O(n) lookup and doesn't scale when
+  // TODO(interviews): This is a really inefficient O(n) lookup and doesn't scale when
   // the number of questions increase.
   // Combine on server when we hit scaling limits.
   const question = questions.find(

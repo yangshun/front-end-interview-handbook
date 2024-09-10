@@ -5,8 +5,7 @@ import defaultMetadata from '~/seo/defaultMetadata';
 
 import InterviewsDashboardPrepareBehavioralPage from './InterviewsDashboardPrepareBehavioralPage';
 
-// TODO(interviews): disable to do A/B test.
-// export const dynamic = 'force-static';
+export const dynamic = 'force-static';
 
 type Props = Readonly<{
   params: { locale: string };

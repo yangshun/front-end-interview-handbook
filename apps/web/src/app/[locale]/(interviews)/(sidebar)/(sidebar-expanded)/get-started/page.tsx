@@ -13,8 +13,7 @@ import defaultMetadata from '~/seo/defaultMetadata';
 
 import InterviewsMarketingGetStartedPage from './InterviewsMarketingGetStartedPage';
 
-// TODO(interviews): disable to do A/B test.
-// export const dynamic = 'force-static';
+export const dynamic = 'force-static';
 
 type Props = Readonly<{
   params: Readonly<{

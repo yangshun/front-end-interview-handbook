@@ -142,7 +142,7 @@ function PreparationStrategyCard({ data }: { data: PreparationStrategyItem }) {
 export default function InterviewsDashboardRecommendedPreparationStrategy() {
   const intl = useIntl();
 
-  // TODO(interview-revamp): Re-look into these data and values
+  // TODO(interviews): Re-look into these data and values
   const preparationStrategies: Array<PreparationStrategyItem> = [
     {
       article: {

@@ -185,7 +185,7 @@ type Props = Readonly<{
   onCollapseClick: () => void;
 }>;
 
-// TODO: delete this and use InterviewsSidebar after ensuring
+// TODO(interviews): delete this and use InterviewsSidebar after ensuring
 // that the new sidebar does not cause any regressions.
 export default function InterviewsSidebar_DEPRECATED({
   isCollapsed = false,

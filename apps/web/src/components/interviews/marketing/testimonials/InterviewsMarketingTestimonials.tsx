@@ -593,18 +593,18 @@ export function useInterviewsMarketingTestimonialsDict() {
 
   // Const template: InterviewsMarketingTestimonial = {
   //   anonymous: false,
-  //   authorThumbnailUrl: 'TODO',
-  //   authorUrl: 'TODO',
-  //   companyLogoUrl: 'TODO',
-  //   createdAt: 'TODO',
-  //   featuredOffer:'TODO',
-  //   fromCompany: 'TODO',
-  //   id: 'todo',
-  //   location: 'TODO',
-  //   name: 'TODO',
+  //   authorThumbnailUrl: 'TO_BE_FILLED',
+  //   authorUrl: 'TO_BE_FILLED',
+  //   companyLogoUrl: 'TO_BE_FILLED',
+  //   createdAt: 'TO_BE_FILLED',
+  //   featuredOffer:'TO_BE_FILLED',
+  //   fromCompany: 'TO_BE_FILLED',
+  //   id: 'TO_BE_FILLED',
+  //   location: 'TO_BE_FILLED',
+  //   name: 'TO_BE_FILLED',
   //   offers: [],
-  //   testimonial: 'TODO',
-  //   title: 'TODO',
+  //   testimonial: 'TO_BE_FILLED',
+  //   title: 'TO_BE_FILLED',
   // };
 
   return {

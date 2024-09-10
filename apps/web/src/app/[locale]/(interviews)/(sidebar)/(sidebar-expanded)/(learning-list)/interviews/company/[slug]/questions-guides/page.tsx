@@ -13,9 +13,8 @@ import { fetchQuestionsBySlug } from '~/db/QuestionsListReader';
 import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
 
-// TODO(interviews): disable to do A/B test.
+// TODO(companies)
 // export async function generateStaticParams() {
-//   // TODO(companies)
 //   return [];
 // }
 

@@ -23,7 +23,7 @@ export default function InterviewsDashboardContinueLearningContainer({
   return (
     <InterviewsDashboardContinueLearning
       items={items
-        // TODO: filter out company lists for now because company list rendering is not yet supported on the dashboard.
+        // TODO(interviews): filter out company lists for now because company list rendering is not yet supported on the dashboard.
         .filter(({ listKey }) => questionLists[listKey] != null)
         .map(({ listKey, completedCount }) => ({
           completedCount,

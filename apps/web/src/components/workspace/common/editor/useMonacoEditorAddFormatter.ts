@@ -24,7 +24,7 @@ export default function useMonacoEditorAddFormatter(
         id: 'OOyT6O',
       }),
       variant: 'danger',
-      // TODO: actually show the error message
+      // TODO(workspace): actually show the error message
       // (right now its way too long to be shown in a toast,
       // maybe log it in the workspace console?)
     });
@@ -116,7 +116,7 @@ export default function useMonacoEditorAddFormatter(
         ),
       ];
 
-      // TODO: make it also work for svelte files
+      // TODO(workspace): make it also work for svelte files
       if (fileExtension !== 'svelte') {
         let lineNumber = 1;
         let column = 1;
