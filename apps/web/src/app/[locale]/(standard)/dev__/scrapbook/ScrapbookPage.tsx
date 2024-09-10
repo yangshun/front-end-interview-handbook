@@ -11,8 +11,10 @@ import {
 } from 'react-icons/ri';
 import { TbBinaryTree } from 'react-icons/tb';
 
+import InterviewsGitHubSlider from '~/components/interviews/common/github/InterviewsGitHubSlider';
 import InterviewsDashboardContinueLearning from '~/components/interviews/dashboard/InterviewsDashboardContinueLearning';
 import InterviewsDashboardStudyGuideList from '~/components/interviews/dashboard/InterviewsDashboardStudyGuideList';
+import InterviewsGuideCard from '~/components/interviews/guides/InterviewsGuideCard';
 import InterviewsMarketingCompaniesMarquee from '~/components/interviews/marketing/InterviewsMarketingCompaniesMarquee';
 import InterviewsMarketingHomepageFeaturesRow from '~/components/interviews/marketing/InterviewsMarketingHomepageFeaturesRow';
 import InterviewsMarketingQuestionCardMarquee from '~/components/interviews/marketing/InterviewsMarketingQuestionCardMarquee';
@@ -86,67 +88,6 @@ export default function ScrapbookPage() {
         <Divider />
       </Container>
       <Section>
-        <Container>
-          <Heading level="heading3">Tickets</Heading>
-        </Container>
-        <Section>
-          <UIExamplesGroup darkMode="horizontal">
-            <ExclusiveTicket
-              addOnElement={<Badge label="Coming soon" variant="warning" />}
-              ratio="wide"
-              subtitle="2 months free"
-              title="Exclusive beta access to our new mystery product"
-            />
-            <ExclusiveTicket
-              padding="md"
-              subtitle="2 months free"
-              title={
-                <Text size="body2">
-                  Exclusive beta access to our new mystery product
-                </Text>
-              }
-              width={300}
-            />
-            <ExclusiveTicket
-              height={150}
-              padding="md"
-              subtitle={
-                <Text className="text-2xs block" color="inherit" size="inherit">
-                  2 months free
-                </Text>
-              }
-              title={
-                <Text className="text-2xs block" size="inherit">
-                  Exclusive beta access to our new mystery product
-                </Text>
-              }
-            />
-            <ExclusiveTicket
-              padding="md"
-              subtitle={
-                <Text className="text-2xs block" color="inherit" size="inherit">
-                  2 months free
-                </Text>
-              }
-              title={
-                <Text className="text-2xs block" size="inherit">
-                  Exclusive beta access to our new mystery product
-                </Text>
-              }
-              width={200}
-            />
-            <Ticket padding="md" width={200}>
-              <div className="flex h-full flex-col items-center justify-center">
-                <Text className="text-2xl" size="inherit" weight="bold">
-                  20% off
-                </Text>
-                <Text color="secondary" size="body3">
-                  All plans, including lifetime
-                </Text>
-              </div>
-            </Ticket>
-          </UIExamplesGroup>
-        </Section>
         <Container>
           <Heading level="heading3">Questions</Heading>
         </Container>
@@ -241,10 +182,10 @@ export default function ScrapbookPage() {
               />
             </UIExamplesGroup>
             <UIExamplesGroup darkMode="horizontal">
-              <div className="inline-grid grid-cols-2 gap-x-2">
-                <QuestionListingQuestionCount count={78} variant="free" />
-                <QuestionListingQuestionCount count={181} variant="premium" />
-              </div>
+              <InterviewsGitHubSlider />
+            </UIExamplesGroup>
+            <UIExamplesGroup darkMode="horizontal">
+              <InterviewsGuideCard />
             </UIExamplesGroup>
             <UIExamplesGroup darkMode="horizontal">
               <div className="inline-flex flex-col items-start gap-y-6">
@@ -452,6 +393,67 @@ export default function ScrapbookPage() {
             </UIExamplesGroup>
           </div>
         </Section>
+      </Section>
+      <Container>
+        <Heading level="heading3">Tickets</Heading>
+      </Container>
+      <Section>
+        <UIExamplesGroup darkMode="horizontal">
+          <ExclusiveTicket
+            addOnElement={<Badge label="Coming soon" variant="warning" />}
+            ratio="wide"
+            subtitle="2 months free"
+            title="Exclusive beta access to our new mystery product"
+          />
+          <ExclusiveTicket
+            padding="md"
+            subtitle="2 months free"
+            title={
+              <Text size="body2">
+                Exclusive beta access to our new mystery product
+              </Text>
+            }
+            width={300}
+          />
+          <ExclusiveTicket
+            height={150}
+            padding="md"
+            subtitle={
+              <Text className="text-2xs block" color="inherit" size="inherit">
+                2 months free
+              </Text>
+            }
+            title={
+              <Text className="text-2xs block" size="inherit">
+                Exclusive beta access to our new mystery product
+              </Text>
+            }
+          />
+          <ExclusiveTicket
+            padding="md"
+            subtitle={
+              <Text className="text-2xs block" color="inherit" size="inherit">
+                2 months free
+              </Text>
+            }
+            title={
+              <Text className="text-2xs block" size="inherit">
+                Exclusive beta access to our new mystery product
+              </Text>
+            }
+            width={200}
+          />
+          <Ticket padding="md" width={200}>
+            <div className="flex h-full flex-col items-center justify-center">
+              <Text className="text-2xl" size="inherit" weight="bold">
+                20% off
+              </Text>
+              <Text color="secondary" size="body3">
+                All plans, including lifetime
+              </Text>
+            </div>
+          </Ticket>
+        </UIExamplesGroup>
       </Section>
     </CardContainer>
   );

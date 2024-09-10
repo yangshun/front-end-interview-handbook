@@ -19,6 +19,10 @@
     "defaultMessage": "{questionCount}+ interview questions across <clink>coding</clink> and <qlink>quiz</qlink> formats and new questions constantly being added.",
     "description": "Subtitle for huge question bank feature"
   },
+  "+9bAd9": {
+    "defaultMessage": "⭐️ Star our Front End System Design repo",
+    "description": "Title for github star CTA"
+  },
   "+9bM81": {
     "defaultMessage": "Official solutions",
     "description": "Reference code for projects"
@@ -186,6 +190,10 @@
   "/FyqAR": {
     "defaultMessage": "Translations for {locale} are in beta and may not be accurate. Do give feedback or <link>contact us</link> if you are interested in helping to translate!",
     "description": "Banner about beta locale version"
+  },
+  "/KVfm1": {
+    "defaultMessage": "Star",
+    "description": "Label for github star button"
   },
   "/TtmMj": {
     "defaultMessage": "Official solutions",
@@ -1058,6 +1066,10 @@
   "6VId29": {
     "defaultMessage": "{noOfOnlineUsers} online",
     "description": "Text describing online users"
+  },
+  "6WCFJb": {
+    "defaultMessage": "Follow the GreatFrontEnd GitHub organization for updates",
+    "description": "Description for github Card"
   },
   "6WpcdM": {
     "defaultMessage": "CS student at MIT",
@@ -3391,6 +3403,10 @@
     "defaultMessage": "One Week Study Plan for Front End Interviews",
     "description": "Title of 1 Week Preparation Plan page"
   },
+  "MMflpy": {
+    "defaultMessage": "Follow",
+    "description": "Label for github follow button"
+  },
   "MN8mVk": {
     "defaultMessage": "Three Months Study Plan for Front End Interviews",
     "description": "Social title of 3 Months Preparation Plan page"
@@ -3542,10 +3558,6 @@
   "NXw886": {
     "defaultMessage": "Other",
     "description": "Label for other input for yoe replacement status on projects profile page"
-  },
-  "Nb3mw/": {
-    "defaultMessage": "Help the community out by contributing to our repo!",
-    "description": "Description for github add question"
   },
   "NdDD5W": {
     "defaultMessage": "Front End System Design Guidebook",
@@ -3762,6 +3774,10 @@
   "P4Or/u": {
     "defaultMessage": "CSS",
     "description": "CSS topic for quiz questions"
+  },
+  "P4vm6j": {
+    "defaultMessage": "Support us by starring our GitHub repo and consider contributing!",
+    "description": "Description for github star"
   },
   "P99cBr": {
     "defaultMessage": "Overview of various question formats",
@@ -4502,6 +4518,10 @@
   "TaIXVz": {
     "defaultMessage": "Purchase premium to unlock full access to exclusive System Design content including high quality solutions and companies which ask this question.",
     "description": "System design questions paywall"
+  },
+  "Tc9jZ0": {
+    "defaultMessage": "⭐️ Star our top JavaScript questions repo",
+    "description": "Title for github star CTA"
   },
   "Tdn+OY": {
     "defaultMessage": "Starting is as easy as clicking a Start project button, and we will take you through every step of the way.",
@@ -5355,10 +5375,6 @@
     "defaultMessage": "Since {date}",
     "description": "Since date for current project session card"
   },
-  "ZayNDN": {
-    "defaultMessage": "💡 Got a question to add?",
-    "description": "Title for github add question"
-  },
   "ZcKmXM": {
     "defaultMessage": "Accessibility Interview Questions | GreatFrontEnd",
     "description": "Social title for interview preparation focus area"
@@ -5374,10 +5390,6 @@
   "ZfPNnW": {
     "defaultMessage": "Yes. Every challenge you start creates a \"session\" of the challenge, which you can end. You can start a new session anytime.",
     "description": "FAQ answer for projects platform"
-  },
-  "ZfXIPi": {
-    "defaultMessage": "Support us by starring our repo and consider contributing!",
-    "description": "Description for github star"
   },
   "ZhcmRF": {
     "defaultMessage": "The URL must not be localhost or an IP address. Provide a valid, publicly accessible URL.",
@@ -6578,10 +6590,6 @@
   "hfba4L": {
     "defaultMessage": "{completedCount}/{totalCount} completed",
     "description": "Label for completed count"
-  },
-  "hhJBt5": {
-    "defaultMessage": "Add your question",
-    "description": "Github action button label"
   },
   "hkKaPn": {
     "defaultMessage": "Numbered list",
@@ -7899,10 +7907,6 @@
     "defaultMessage": "Know where to find important info",
     "description": "Label for \"Know where to find important info\" step in dialog on Projects project page"
   },
-  "qrRiOi": {
-    "defaultMessage": "Star",
-    "description": "Label for github star"
-  },
   "qvT5Mx": {
     "defaultMessage": "Algo coding",
     "description": "Data structures and algorithm questions"
@@ -8119,6 +8123,10 @@
     "defaultMessage": "Manage subscription",
     "description": "Manage user membership subscription button label"
   },
+  "skF8Vm": {
+    "defaultMessage": "👍️️️️️️ Follow us on GitHub",
+    "description": "Title for github card"
+  },
   "sn/P86": {
     "defaultMessage": "Guides",
     "description": "Section heading in footer for links to interview guides"
@@ -8170,10 +8178,6 @@
   "t+sW3R": {
     "defaultMessage": "Filter by forum type",
     "description": "Tooltip for forum type filter for contribution list"
-  },
-  "t1Qxme": {
-    "defaultMessage": "⭐️ Star our JS GitHub repo",
-    "description": "Title for github star"
   },
   "t2Ll2e": {
     "defaultMessage": "Run your code with <button>custom test cases</button> before submitting.",
@@ -8466,6 +8470,10 @@
   "ut9h+K": {
     "defaultMessage": "You have <bold>{amountLeft}</bold>/{totalAmount} premium credits remaining. Unlock this challenge to learn from user submissions for premium challenges.",
     "description": "Subtitle for project paywall"
+  },
+  "uw/XXy": {
+    "defaultMessage": "Star our repo containing awesome front end system design resources",
+    "description": "Description for github star"
   },
   "uxNShP": {
     "defaultMessage": "Activity | Settings",

@@ -37,10 +37,10 @@ export default function InterviewsDashboardSolvedByQuestionType({
   const intl = useIntl();
 
   const questionsProgressAll = categorizeQuestionsProgress(questionsProgress);
-
   const questionsData = [
     {
       completedQuestions:
+        questionsProgressAll.algo.size +
         questionsProgressAll.javascript.size +
         questionsProgressAll['user-interface'].size,
       gradient: themeGradientPurpleGreen.className,
@@ -91,7 +91,6 @@ export default function InterviewsDashboardSolvedByQuestionType({
           />
         </Text>
       </div>
-
       <div className="flex flex-col gap-4">
         {questionsData.map((item) => {
           return (

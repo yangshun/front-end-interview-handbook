@@ -2,7 +2,7 @@ import clsx from 'clsx';
 import { useEffect, useRef, useState } from 'react';
 import { useIntl } from 'react-intl';
 
-import { useGitHubStars } from '~/hooks/useGithubStars';
+import { useGitHubFollowers, useGitHubStars } from '~/hooks/useGitHubData';
 
 import {
   themeBackgroundBrandColor,
@@ -10,61 +10,80 @@ import {
   themeOutlineElementBrandColor_FocusVisible,
 } from '~/components/ui/theme';
 
-import InterviewsGithubRepoCard from './InterviewsGithubRepoCard';
+import InterviewsGitHubCard from './InterviewsGitHubCard';
 
 import * as TabsPrimitive from '@radix-ui/react-tabs';
 
-export default function InterviewsGithubRepoSlider() {
+export default function InterviewsGitHubSlider() {
   const intl = useIntl();
   const [index, setIndex] = useState(0);
   const timer = useRef<NodeJS.Timeout>();
-  const { data: starCount } = useGitHubStars(
+  const { data: starCountJS } = useGitHubStars(
     'yangshun/top-javascript-interview-questions',
   );
+  const { data: starCountSD } = useGitHubStars(
+    'greatfrontend/awesome-front-end-system-design',
+  );
+  const { data: followCount } = useGitHubFollowers('greatfrontend');
 
-  // TODO(interviews): need to check for correctness of the url
   const data = [
     {
-      count: starCount ?? 0,
+      count: starCountJS ?? null,
       description: intl.formatMessage({
         defaultMessage:
-          'Support us by starring our repo and consider contributing!',
+          'Support us by starring our GitHub repo and consider contributing!',
         description: 'Description for github star',
-        id: 'ZfXIPi',
+        id: 'P4vm6j',
       }),
       href: 'https://github.com/yangshun/top-javascript-interview-questions',
       title: intl.formatMessage({
-        defaultMessage: '⭐️ Star our JS GitHub repo',
-        description: 'Title for github star',
-        id: 't1Qxme',
+        defaultMessage: '⭐️ Star our top JavaScript questions repo',
+        description: 'Title for github star CTA',
+        id: 'Tc9jZ0',
       }),
-      value: 'star',
+      type: 'star',
+      value: 'js-repo',
     },
     {
-      actionLabel: intl.formatMessage({
-        defaultMessage: 'Add your question',
-        description: 'Github action button label',
-        id: 'hhJBt5',
-      }),
+      count: followCount ?? null,
       description: intl.formatMessage({
-        defaultMessage: 'Help the community out by contributing to our repo!',
-        description: 'Description for github add question',
-        id: 'Nb3mw/',
+        defaultMessage:
+          'Follow the GreatFrontEnd GitHub organization for updates',
+        description: 'Description for github Card',
+        id: '6WCFJb',
       }),
-      href: 'https://github.com/yangshun/top-javascript-interview-questions',
+      href: 'https://github.com/greatfrontend',
       title: intl.formatMessage({
-        defaultMessage: '💡 Got a question to add?',
-        description: 'Title for github add question',
-        id: 'ZayNDN',
+        defaultMessage: '👍️️️️️️ Follow us on GitHub',
+        description: 'Title for github card',
+        id: 'skF8Vm',
       }),
-      value: 'action',
+      type: 'follow',
+      value: 'gh-org',
     },
-  ];
+    {
+      count: starCountSD ?? null,
+      description: intl.formatMessage({
+        defaultMessage:
+          'Star our repo containing awesome front end system design resources',
+        description: 'Description for github star',
+        id: 'uw/XXy',
+      }),
+      href: 'https://github.com/greatfrontend/awesome-front-end-system-design',
+      title: intl.formatMessage({
+        defaultMessage: '⭐️ Star our Front End System Design repo',
+        description: 'Title for github star CTA',
+        id: '+9bAd9',
+      }),
+      type: 'star',
+      value: 'sd-repo',
+    },
+  ] as const;
 
   useEffect(() => {
     timer.current = setInterval(() => {
       setIndex((preIndex) => (preIndex + 1) % data.length);
-    }, 6000);
+    }, 15000);
 
     return () => {
       window.clearInterval(timer.current);
@@ -74,9 +93,9 @@ export default function InterviewsGithubRepoSlider() {
   const dataValue = data[index].value;
 
   return (
-    <div className="w-[344px]">
+    <div>
       <TabsPrimitive.Root
-        className="flex flex-col gap-8"
+        className="flex flex-col gap-4"
         value={dataValue}
         onValueChange={(newValue) => {
           // Stop auto-advancing if user interacts with steppers.
@@ -86,23 +105,13 @@ export default function InterviewsGithubRepoSlider() {
         <div>
           {data.map((item) => (
             <TabsPrimitive.Content key={item.value} value={item.value}>
-              {item.value === 'star' ? (
-                <InterviewsGithubRepoCard
-                  description={item.description}
-                  href={item.href}
-                  starCount={item.count}
-                  title={item.title}
-                  type="star"
-                />
-              ) : (
-                <InterviewsGithubRepoCard
-                  actionLabel={item.actionLabel ?? ''}
-                  description={item.description}
-                  href={item.href}
-                  title={item.title}
-                  type="action"
-                />
-              )}
+              <InterviewsGitHubCard
+                count={item.count}
+                description={item.description}
+                href={item.href}
+                title={item.title}
+                type={item.type}
+              />
             </TabsPrimitive.Content>
           ))}
         </div>
@@ -115,8 +124,7 @@ export default function InterviewsGithubRepoSlider() {
               <button
                 aria-label={item.title}
                 className={clsx(
-                  'h-[5px] w-10 rounded',
-                  alert,
+                  'h-2 w-10 rounded',
                   item.value === dataValue
                     ? themeBackgroundBrandColor
                     : 'bg-neutral-200/70 dark:bg-neutral-700',
