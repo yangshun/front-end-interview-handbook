@@ -1,5 +1,6 @@
 import Cors from 'cors';
 import type { NextApiRequest, NextApiResponse } from 'next';
+import UAParser from 'ua-parser-js';
 
 import { currentExperiment } from '~/components/experiments';
 import { shouldPersistQueryParam } from '~/components/global/analytics/useWriteSearchParamsToCookie';
@@ -63,9 +64,12 @@ export default async function handler(
       userId = id || null;
       userEmail = email || null;
     }
-  } catch (error) {
-    // TODO: Log error.
+  } catch (_) {
+    //
   }
+
+  const ua = req.headers['user-agent'];
+  const parser = new UAParser(ua);
 
   const { clientSHA, name, pathname, payload, query, referer, value } =
     req.body;
@@ -115,6 +119,7 @@ export default async function handler(
       firstVisit: req.cookies[gfeFirstVisitName],
       id: userId,
     },
+    userAgent: parser.getResult(),
   };
 
   await axiom.ingest('events', [eventPayload]);
