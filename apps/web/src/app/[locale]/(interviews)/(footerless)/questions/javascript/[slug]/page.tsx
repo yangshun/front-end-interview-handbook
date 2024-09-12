@@ -1,3 +1,4 @@
+import { notFound } from 'next/navigation';
 import type { Metadata } from 'next/types';
 import { ArticleJsonLd } from 'next-seo';
 
@@ -18,36 +19,46 @@ type Props = Readonly<{
 }>;
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { slug: rawSlug, locale } = params;
+  const { locale, slug: rawSlug } = params;
   // So that we handle typos like extra characters.
-  const slug = decodeURIComponent(rawSlug).replaceAll(/[^\da-zA-Z-]/g, '');
+  const slug = decodeURIComponent(rawSlug)
+    .replaceAll(/[^\da-zA-Z-]/g, '')
+    .toLowerCase();
 
   const intl = await getIntlServerOnly(locale);
-  const { question } = readQuestionJavaScriptContents(slug, locale);
 
-  return defaultMetadata({
-    description: question.metadata.excerpt!,
-    locale,
-    pathname: question.metadata.href,
-    title: intl.formatMessage(
-      {
-        defaultMessage:
-          '{questionTitle} | JavaScript Front End Interview Questions with Solutions',
-        description: 'Title of Javascript Front End interview questions page',
-        id: 'wqIwvv',
-      },
-      { questionTitle: question.metadata.title },
-    ),
-  });
+  try {
+    const { question } = readQuestionJavaScriptContents(slug, locale);
+
+    return defaultMetadata({
+      description: question.metadata.excerpt!,
+      locale,
+      pathname: question.metadata.href,
+      title: intl.formatMessage(
+        {
+          defaultMessage:
+            '{questionTitle} | JavaScript Front End Interview Questions with Solutions',
+          description: 'Title of Javascript Front End interview questions page',
+          id: 'wqIwvv',
+        },
+        { questionTitle: question.metadata.title },
+      ),
+    });
+  } catch {
+    notFound();
+  }
 }
 
 export default async function Page({ params }: Props) {
-  const { slug: rawSlug, locale } = params;
+  const { locale, slug: rawSlug } = params;
   // So that we handle typos like extra characters.
-  const slug = decodeURIComponent(rawSlug).replaceAll(/[^\da-zA-Z-]/g, '');
+  const slug = decodeURIComponent(rawSlug)
+    .replaceAll(/[^\da-zA-Z-]/g, '')
+    .toLowerCase();
   const supabaseAdmin = createSupabaseAdminClientGFE_SERVER_ONLY();
 
   const viewer = await readViewerFromToken();
+
   const { question } = readQuestionJavaScriptContents(slug, locale);
 
   let canViewPremiumContent = false;

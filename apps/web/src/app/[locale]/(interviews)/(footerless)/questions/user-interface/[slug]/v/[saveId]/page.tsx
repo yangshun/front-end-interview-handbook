@@ -1,3 +1,4 @@
+import { notFound } from 'next/navigation';
 import type { Metadata } from 'next/types';
 
 import { sortQuestionsMultiple } from '~/components/interviews/questions/listings/filters/QuestionsProcessor';
@@ -25,23 +26,31 @@ type Props = Readonly<{
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale, slug, saveId } = params;
 
-  const [question, save] = await Promise.all([
-    readQuestionUserInterface(slug),
-    prisma.questionUserInterfaceSave.findFirst({
-      where: {
-        id: saveId,
-      },
-    }),
-  ]);
+  try {
+    const [question, save] = await Promise.all([
+      readQuestionUserInterface(slug),
+      prisma.questionUserInterfaceSave.findFirst({
+        where: {
+          id: saveId,
+        },
+      }),
+    ]);
 
-  return defaultMetadata({
-    locale,
-    pathname: question.metadata.href + `/v/${saveId}`,
-    title:
-      save == null
-        ? question.metadata.title
-        : `${save?.name} | ${question.metadata.title}`,
-  });
+    if (save == null) {
+      throw 'Save should not be null';
+    }
+
+    return defaultMetadata({
+      locale,
+      pathname: question.metadata.href + `/v/${saveId}`,
+      title:
+        save == null
+          ? question.metadata.title
+          : `${save?.name} | ${question.metadata.title}`,
+    });
+  } catch {
+    notFound();
+  }
 }
 
 export default async function Page({ params }: Props) {

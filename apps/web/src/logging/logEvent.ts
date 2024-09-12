@@ -21,6 +21,7 @@ type LoggingAction =
   | 'guide.mark_complete'
   | 'hydration.fail'
   | 'hydration.success'
+  | 'not_found'
   | 'pageview'
   | 'question.mark_complete'
   | 'question.run'

@@ -53,7 +53,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function Page({ params }: Props) {
-  const { slug: rawSlug, locale } = params;
+  const { locale, slug: rawSlug } = params;
 
   const viewer = await readViewerFromToken();
   // So that we handle typos like extra characters.

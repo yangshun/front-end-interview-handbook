@@ -1,3 +1,4 @@
+import { notFound } from 'next/navigation';
 import type { Metadata } from 'next/types';
 import { ArticleJsonLd } from 'next-seo';
 
@@ -48,7 +49,9 @@ function frameworkAgnosticLinks(
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale, slug: rawSlug, rest } = params;
   // So that we handle typos like extra characters.
-  const slug = decodeURIComponent(rawSlug).replaceAll(/[^\da-zA-Z-]/g, '');
+  const slug = decodeURIComponent(rawSlug)
+    .replaceAll(/[^\da-zA-Z-]/g, '')
+    .toLowerCase();
 
   const intl = await getIntlServerOnly(locale);
   const {
@@ -56,79 +59,86 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     mode,
     codeId,
   } = determineFrameworkAndMode(rest);
-  const question = await readQuestionUserInterface(
-    slug,
-    parsedFramework,
-    codeId,
-  );
 
-  const { pathname } = frameworkAgnosticLinks(question, mode);
+  try {
+    const question = await readQuestionUserInterface(
+      slug,
+      parsedFramework,
+      codeId,
+    );
 
-  return defaultMetadata({
-    description:
-      mode === 'solution'
-        ? intl.formatMessage(
-            {
-              defaultMessage:
-                'Read how to solve {questionTitle} using {questionFramework}',
-              description:
-                'Description of Front End Interview UI Coding Questions solution page',
-              id: 'cjgzTz',
-            },
-            {
-              questionFramework: QuestionFrameworkLabels[question.framework],
-              questionTitle: question.metadata.title,
-            },
-          )
-        : intl.formatMessage(
-            {
-              defaultMessage: '{questionExcerpt} using {questionFramework}',
-              description:
-                'Description of Front End Interview UI Coding Questions practice page',
-              id: 'KDDzWX',
-            },
-            {
-              questionExcerpt: question.metadata.excerpt,
-              questionFramework: QuestionFrameworkLabels[question.framework],
-            },
-          ),
-    locale,
-    pathname,
-    title:
-      mode === 'solution'
-        ? intl.formatMessage(
-            {
-              defaultMessage:
-                'Solution for {questionTitle} in {questionFramework} | Front End Interview UI Coding Questions with Solutions',
-              description:
-                'Title of Front End Interview UI Coding Questions solution page',
-              id: 'I5iXtu',
-            },
-            {
-              questionFramework: QuestionFrameworkLabels[question.framework],
-              questionTitle: question.metadata.title,
-            },
-          )
-        : intl.formatMessage(
-            {
-              defaultMessage:
-                '{questionTitle} in {questionFramework} | Front End Interview UI Coding Questions with Solutions',
-              description:
-                'Title of Front End Interview UI Coding Questions practice page',
-              id: 'huof8A',
-            },
-            {
-              questionFramework: QuestionFrameworkLabels[question.framework],
-              questionTitle: question.metadata.title,
-            },
-          ),
-  });
+    const { pathname } = frameworkAgnosticLinks(question, mode);
+
+    return defaultMetadata({
+      description:
+        mode === 'solution'
+          ? intl.formatMessage(
+              {
+                defaultMessage:
+                  'Read how to solve {questionTitle} using {questionFramework}',
+                description:
+                  'Description of Front End Interview UI Coding Questions solution page',
+                id: 'cjgzTz',
+              },
+              {
+                questionFramework: QuestionFrameworkLabels[question.framework],
+                questionTitle: question.metadata.title,
+              },
+            )
+          : intl.formatMessage(
+              {
+                defaultMessage: '{questionExcerpt} using {questionFramework}',
+                description:
+                  'Description of Front End Interview UI Coding Questions practice page',
+                id: 'KDDzWX',
+              },
+              {
+                questionExcerpt: question.metadata.excerpt,
+                questionFramework: QuestionFrameworkLabels[question.framework],
+              },
+            ),
+      locale,
+      pathname,
+      title:
+        mode === 'solution'
+          ? intl.formatMessage(
+              {
+                defaultMessage:
+                  'Solution for {questionTitle} in {questionFramework} | Front End Interview UI Coding Questions with Solutions',
+                description:
+                  'Title of Front End Interview UI Coding Questions solution page',
+                id: 'I5iXtu',
+              },
+              {
+                questionFramework: QuestionFrameworkLabels[question.framework],
+                questionTitle: question.metadata.title,
+              },
+            )
+          : intl.formatMessage(
+              {
+                defaultMessage:
+                  '{questionTitle} in {questionFramework} | Front End Interview UI Coding Questions with Solutions',
+                description:
+                  'Title of Front End Interview UI Coding Questions practice page',
+                id: 'huof8A',
+              },
+              {
+                questionFramework: QuestionFrameworkLabels[question.framework],
+                questionTitle: question.metadata.title,
+              },
+            ),
+    });
+  } catch {
+    notFound();
+  }
 }
 
 export default async function Page({ params }: Props) {
   const { slug: rawSlug, rest, locale } = params;
   // So that we handle typos like extra characters.
-  const slug = decodeURIComponent(rawSlug).replaceAll(/[^\da-zA-Z-]/g, '');
+  const slug = decodeURIComponent(rawSlug)
+    .replaceAll(/[^\da-zA-Z-]/g, '')
+    .toLowerCase();
   const {
     mode,
     framework: parsedFramework,

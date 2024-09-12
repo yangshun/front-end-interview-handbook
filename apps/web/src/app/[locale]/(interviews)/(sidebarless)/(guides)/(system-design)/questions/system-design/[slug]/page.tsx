@@ -1,3 +1,4 @@
+import { notFound } from 'next/navigation';
 import type { Metadata } from 'next/types';
 
 import GuidesArticleJsonLd from '~/components/guides/GuidesArticleJsonLd';
@@ -20,46 +21,55 @@ type Props = Readonly<{
 }>;
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { locale, slug } = params;
+  const { locale, slug: rawSlug } = params;
+  // So that we handle typos like extra characters.
+  const slug = decodeURIComponent(rawSlug)
+    .replaceAll(/[^\da-zA-Z-]/g, '')
+    .toLowerCase();
 
   const intl = await getIntlServerOnly(locale);
-  const { question } = readQuestionSystemDesignContents(slug, locale);
 
-  return defaultMetadata({
-    description: intl.formatMessage(
-      {
-        defaultMessage:
-          'Learn how to solve the {questionTitle} question in front end system design interviews using the RADIO framework. Read our deep-dives on many other top front end system questions.',
-        description: 'Description of system design question page',
-        id: 'XI5h+Z',
-      },
-      {
-        questionTitle: question.metadata.title,
-      },
-    ),
-    locale,
-    pathname: question.metadata.href,
-    socialTitle: intl.formatMessage(
-      {
-        defaultMessage: '{questionTitle} | Front End System Design',
-        description: 'Social title of system design question page',
-        id: 'Ozg1OX',
-      },
-      {
-        questionTitle: question.metadata.title,
-      },
-    ),
-    title: intl.formatMessage(
-      {
-        defaultMessage: '{questionTitle} | Front End System Design Question',
-        description: 'Title of system design question page',
-        id: '9xFHNn',
-      },
-      {
-        questionTitle: question.metadata.title,
-      },
-    ),
-  });
+  try {
+    const { question } = readQuestionSystemDesignContents(slug, locale);
+
+    return defaultMetadata({
+      description: intl.formatMessage(
+        {
+          defaultMessage:
+            'Learn how to solve the {questionTitle} question in front end system design interviews using the RADIO framework. Read our deep-dives on many other top front end system questions.',
+          description: 'Description of system design question page',
+          id: 'XI5h+Z',
+        },
+        {
+          questionTitle: question.metadata.title,
+        },
+      ),
+      locale,
+      pathname: question.metadata.href,
+      socialTitle: intl.formatMessage(
+        {
+          defaultMessage: '{questionTitle} | Front End System Design',
+          description: 'Social title of system design question page',
+          id: 'Ozg1OX',
+        },
+        {
+          questionTitle: question.metadata.title,
+        },
+      ),
+      title: intl.formatMessage(
+        {
+          defaultMessage: '{questionTitle} | Front End System Design Question',
+          description: 'Title of system design question page',
+          id: '9xFHNn',
+        },
+        {
+          questionTitle: question.metadata.title,
+        },
+      ),
+    });
+  } catch {
+    notFound();
+  }
 }
 
 export default async function Page({ params }: Props) {
