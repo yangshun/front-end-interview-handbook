@@ -4,10 +4,12 @@ import type { Metadata } from 'next/types';
 import path from 'path';
 
 import FrontEndInterviewGuidebookLayout from '~/components/guides/FrontEndInterviewGuidebookLayout';
+import type { FrontEndInterviewRouteType } from '~/components/guides/types';
 import MDXCodeBlock from '~/components/mdx/MDXCodeBlock';
 import MDXComponents from '~/components/mdx/MDXComponents';
 
 import { readGuidesContents } from '~/db/guides/GuidesReader';
+import { frontEndInterviewsRouteToFile } from '~/db/guides/GuidesUtils';
 import { readMDXFileWithLocaleFallback } from '~/db/questions-bundlers/QuestionsBundler';
 import { generateStaticParamsWithLocale } from '~/next-i18nostic/src';
 import defaultMetadata from '~/seo/defaultMetadata';
@@ -19,23 +21,9 @@ type Props = Readonly<{
   };
 }>;
 
-const routeToFile: Record<string, string> = {
-  '': 'overview',
-  algorithms: 'algorithms',
-  coding: 'coding',
-  javascript: 'javascript',
-  quiz: 'quiz',
-  resume: 'resume',
-  'system-design': 'system-design',
-  'user-interface': 'user-interface',
-  'user-interface-components-api-design-principles':
-    'user-interface-components-api-design-principles',
-  'user-interface-questions-cheatsheet': 'user-interface-questions-cheatsheet',
-};
-
 export async function generateStaticParams() {
   return generateStaticParamsWithLocale(
-    Object.keys(routeToFile).map((slug) => ({
+    Object.keys(frontEndInterviewsRouteToFile).map((slug) => ({
       slug: slug ? slug.split('/') : [],
     })),
   );
@@ -46,7 +34,9 @@ function requestToPaths({ params }: Props): Readonly<{
   pathname: string;
 }> {
   const { slug } = params;
-  const mdxPath = (slug ?? []).join('/').replace(/\/$/g, '');
+  const mdxPath = (slug ?? [''])
+    .join('/')
+    .replace(/\/$/g, '') as FrontEndInterviewRouteType;
 
   const directoryPath = path.join(
     process.cwd(),
@@ -57,7 +47,7 @@ function requestToPaths({ params }: Props): Readonly<{
     'packages',
     'front-end-interview-guidebook',
     'contents',
-    routeToFile[mdxPath],
+    frontEndInterviewsRouteToFile[mdxPath],
   );
   const pathname = `/front-end-interview-guidebook/${mdxPath}`;
 

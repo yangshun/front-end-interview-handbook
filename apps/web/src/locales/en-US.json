@@ -507,6 +507,10 @@
     "defaultMessage": "Edit on GitHub",
     "description": "Edit on GitHub button"
   },
+  "1zLRKA": {
+    "defaultMessage": "Introduction",
+    "description": "Title for introduction category of frontend interview playbook cover page"
+  },
   "2+sEvv": {
     "defaultMessage": "Challenge: {challengeName} | Assets",
     "description": "Title of Projects challenge assets page"
@@ -570,6 +574,10 @@
   "2MMkM0": {
     "defaultMessage": "Cancel",
     "description": "Label for cancel end session button on end project session dialog"
+  },
+  "2NpESj": {
+    "defaultMessage": "{questionCount}+ practice questions",
+    "description": "Features for frontend interviews playbook page"
   },
   "2OmfN2": {
     "defaultMessage": "React",
@@ -650,6 +658,10 @@
   "3FeosO": {
     "defaultMessage": "NEW",
     "description": "Label for new questions ribbon"
+  },
+  "3GRLIt": {
+    "defaultMessage": "User Interface Interviews",
+    "description": "Title for User Interface Interviews category of frontend interview playbook cover page"
   },
   "3IiqOd": {
     "defaultMessage": "Copy promo code",
@@ -786,6 +798,10 @@
   "4Bt00L": {
     "defaultMessage": "Don't have an account? <link>Sign up for free</link>",
     "description": "Prompt for account creation on Email Sign In page"
+  },
+  "4De8x6": {
+    "defaultMessage": "Front End Interview Playbook | GreatFrontEnd",
+    "description": "Social title for frontend interview playbook cover page"
   },
   "4FirvF": {
     "defaultMessage": "Reset progress",
@@ -930,6 +946,10 @@
   "5c7RMQ": {
     "defaultMessage": "Practice by framework",
     "description": "Sidebar label for Questions list page"
+  },
+  "5db7o8": {
+    "defaultMessage": "Coding Interviews",
+    "description": "Title for Coding Interviews category of frontend interview playbook cover page"
   },
   "5gYLMr": {
     "defaultMessage": "Once you're done, host your project with <tooltip>our recommended hosts</tooltip> and submit your project URL for code reviews.",
@@ -1967,6 +1987,10 @@
     "defaultMessage": "On this page",
     "description": "Title of the table of contents for a guidebook page."
   },
+  "CmOrKy": {
+    "defaultMessage": "Tips for all questions types",
+    "description": "Features for frontend interviews playbook page"
+  },
   "CqG3Op": {
     "defaultMessage": "Completed Questions",
     "description": "Heading for list of completed questions."
@@ -2463,6 +2487,10 @@
     "defaultMessage": "Coding questions supported in Vanilla JavaScript and React, with support for more libraries coming soon!",
     "description": "Subtitle for bringing your own framework feature"
   },
+  "GAqip7": {
+    "defaultMessage": "Quiz Interviews",
+    "description": "Title for Quiz Interviews category of frontend interview playbook cover page"
+  },
   "GDAahk": {
     "defaultMessage": "Select from skill roadmap",
     "description": "Placeholder for skills roadmap input on project submit page"
@@ -2562,6 +2590,10 @@
   "GiSp0E": {
     "defaultMessage": "Medium",
     "description": "Medium difficulty question"
+  },
+  "GoDdwh": {
+    "defaultMessage": "Marked \"{articleTitle}\" as complete",
+    "description": "Success message for marking a question as complete"
   },
   "GohLa0": {
     "defaultMessage": "Skills you are proficient in",
@@ -3399,6 +3431,10 @@
     "defaultMessage": "Hoping to grow in",
     "description": "Projects profile tech stack I am hoping to grow section title"
   },
+  "M1ncAS": {
+    "defaultMessage": "The definitive guide to front end interviews.",
+    "description": "Description of frontend interview playbook page"
+  },
   "M33LzY": {
     "defaultMessage": "Confirm",
     "description": "Confirm action button label"
@@ -4131,6 +4167,10 @@
     "defaultMessage": "Quizzes",
     "description": "Tile for quiz question type"
   },
+  "Qr0tcR": {
+    "defaultMessage": "Front end interviews are notoriously unpredictable, with no universal standard across companies. Each interview can vary greatly in focus, from coding challenges to quizzes about the inner workings of React. Recognizing this, we've organized a preparation guide that reflects the most common practices in front end interviews today.",
+    "description": "Long description of frontend interview playbook page"
+  },
   "QrikGf": {
     "defaultMessage": "Copy to clipboard",
     "description": "Button label for copy button"
@@ -4610,6 +4650,10 @@
   "TgOWsI": {
     "defaultMessage": "You've gained rep in these skills:",
     "description": "Label for skills gained on project submission success page"
+  },
+  "Tgcop6": {
+    "defaultMessage": "{itemCount, plural, one {# article} other {# articles}}",
+    "description": "Number of articles in a list"
   },
   "Ti1Gle": {
     "defaultMessage": "Premium is required to access company tags",
@@ -6519,6 +6563,10 @@
     "defaultMessage": "Assets provided",
     "description": "Label for Assets Provided card on start project overlay on Projects project assets page"
   },
+  "gRSa2L": {
+    "defaultMessage": "Written by the author of Front End Interview Handbook, our guide offers valuable insights into what you should be ready for, covering key areas most likely to come up during your interview. From understanding the types of questions you might face to strategic tips on how to prepare for them, we distill the best advice and preparation strategies so you can confidently approach your next interview.",
+    "description": "Long description of frontend interview playbook page"
+  },
   "gSoK2P": {
     "defaultMessage": "Revert to default",
     "description": "Revert skills section to default"
@@ -6619,6 +6667,10 @@
     "defaultMessage": "Discounted rate for a typical job hunt duration.",
     "description": "Supporting statement for a quarterly pricing plan"
   },
+  "hALSD8": {
+    "defaultMessage": "Front End Interview Playbook: Everything you need to excel",
+    "description": "Page title for frontend interview playbook cover page"
+  },
   "hAdl7d": {
     "defaultMessage": "Number of views on this submission",
     "description": "Tooltip for Number of views on this submission"
@@ -6687,6 +6739,10 @@
     "defaultMessage": "Deployment and submission checklist and guide.",
     "description": "FAQ answer for projects platform"
   },
+  "hclu+0": {
+    "defaultMessage": "Front End Interview Playbook",
+    "description": "Title of frontend interview playbook page"
+  },
   "hf8Jl7": {
     "defaultMessage": "Explore front end engineering interview questions and preparation resources tailored to popular companies and ace your interviews.",
     "description": "Description for company guides page"
@@ -6738,6 +6794,10 @@
   "hz5dJR": {
     "defaultMessage": "No notification yet!",
     "description": "Label for no notification"
+  },
+  "i+5/Aq": {
+    "defaultMessage": "Failed to mark article as not complete. Please try again",
+    "description": "Error message shown when a guide has failed to mark as not complete"
   },
   "i/1i64": {
     "defaultMessage": "You've previously completed {questionCount, plural, =0 {<bold>0</bold> questions} one {<bold>1</bold> question} other {<bold>#</bold> questions}} from this list.",
@@ -7559,6 +7619,10 @@
     "defaultMessage": "Amazon logo",
     "description": "Amazon company logo"
   },
+  "nd58SQ": {
+    "defaultMessage": "{readingTime, plural, one {# minute total} other {# minutes total}}",
+    "description": "Reading time of the article"
+  },
   "nepkqj": {
     "defaultMessage": "Cancel",
     "description": "Label for cancel button for projects profile edit page"
@@ -7566,6 +7630,10 @@
   "ngnwcj": {
     "defaultMessage": "Most important 75 questions for data structure and algorithm style interviews",
     "description": "Short description for Blind75 plan"
+  },
+  "nhMxxN": {
+    "defaultMessage": "End-to-end guide",
+    "description": "Features for frontend interviews playbook page"
   },
   "nivf5h": {
     "defaultMessage": "General",
@@ -7666,6 +7734,10 @@
   "oS10TF": {
     "defaultMessage": "Follow us on GitHub",
     "description": "Title for task"
+  },
+  "oTMcbU": {
+    "defaultMessage": "System Design Interviews",
+    "description": "Title for System Design Interviews category of frontend interview playbook cover page"
   },
   "oWznNz": {
     "defaultMessage": "Status must contain at most {maxLength} character(s).",
@@ -7950,6 +8022,10 @@
   "qFJskj": {
     "defaultMessage": "Level {level}",
     "description": "Title for level Up"
+  },
+  "qI3Dry": {
+    "defaultMessage": "The definitive guide to front end interviews written by Ex-FAANG interviewers. Find out what to expect, the different types of questions and how to prepare.",
+    "description": "Page description for frontend interview playbook cover page"
   },
   "qJhNva": {
     "defaultMessage": "Public roadmap",
@@ -9111,6 +9187,10 @@
     "defaultMessage": "Images, style guides, design files",
     "description": "Title of 'Images, style guides, design files' sub-feature in Projects marketing page"
   },
+  "yjjdMB": {
+    "defaultMessage": "Marked \"{articleTitle}\" as not completed",
+    "description": "Success message for marking a question as not completed"
+  },
   "ykwubP": {
     "defaultMessage": "You are on the <bold>Quarterly</bold> plan.",
     "description": "Text describing user's subscription plan."
@@ -9162,6 +9242,10 @@
   "z1Offf": {
     "defaultMessage": "Sign up with school email",
     "description": "Button label"
+  },
+  "z3B/G3": {
+    "defaultMessage": "Resume Preparation",
+    "description": "Title for Resume Preparation category of frontend interview playbook cover page"
   },
   "z7U2cl": {
     "defaultMessage": "Name must contain at most {maxLength} character(s).",

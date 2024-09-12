@@ -47,7 +47,7 @@ function LockedChip() {
   );
 }
 
-function CompletedChip({
+export function CompletedChip({
   showHoverState,
   onClick,
 }: Readonly<{
@@ -133,7 +133,7 @@ function CompletedBeforeChip({
   );
 }
 
-function NotCompleted({
+export function NotCompleted({
   number,
   showAsNumber,
   showHoverState,

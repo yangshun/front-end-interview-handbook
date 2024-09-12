@@ -18,6 +18,7 @@ import Popover from '~/components/ui/Popover';
 import Text from '~/components/ui/Text';
 import {
   themeBorderElementColor,
+  themeGradientGreenYellow,
   themeOutlineElementBrandColor_FocusVisible,
   themeTextBrandColor_GroupHover,
   themeTextSubtleColor,
@@ -51,9 +52,9 @@ function RecommendedItemsDropdown({
 
   const items = [
     {
-      href: '/front-end-interview-guidebook',
+      href: '/front-end-interview-playbook',
       isCompleted: false,
-      label: 'Front End Interview Guide',
+      label: 'Front End Interview Playbook',
     },
     {
       href: '/interviews/greatfrontend75',
@@ -192,10 +193,11 @@ type CommonProps = Readonly<{
     href: string;
     title: string;
   };
-  overallProgress: ReadonlyArray<QuestionProgress>;
-  questions: ReadonlyArray<QuestionMetadata>;
+  overallProgress?: ReadonlyArray<QuestionProgress>;
+  questions?: ReadonlyArray<QuestionMetadata>;
   questionsSessionKey?: string;
-  themeBackgroundClass: string;
+  showQuestionCountCard?: boolean;
+  themeBackgroundClass?: string;
   title: string;
 }>;
 
@@ -220,6 +222,7 @@ export default function InterviewsRecommendedPrepStrategyPageTitleSection({
   metadata,
   questions,
   overallProgress,
+  showQuestionCountCard = true,
   ...props
 }: Props) {
   const intl = useIntl();
@@ -251,24 +254,30 @@ export default function InterviewsRecommendedPrepStrategyPageTitleSection({
       <QuestionsLearningListPageTitleSection
         description={description}
         features={features}
-        overallProgress={overallProgress}
+        overallProgress={overallProgress ?? []}
         progressTrackingAvailableToNonPremiumUsers={true}
-        questions={questions}
-        themeBackgroundClass={themeBackgroundClass}
+        questions={questions ?? []}
+        themeBackgroundClass={
+          themeBackgroundClass ?? themeGradientGreenYellow.className
+        }
         title={title}
         {...props}
       />
-      <Divider className="my-2 lg:my-0" />
-      <div className={clsx('grid items-center gap-6 lg:grid-cols-12')}>
-        <div className="lg:col-span-9">{longDescription}</div>
-        <aside className="lg:col-span-3">
-          <QuestionListingQuestionCount
-            count={75}
-            totalCount={75}
-            variant="free"
-          />
-        </aside>
-      </div>
+      <Divider />
+      {showQuestionCountCard ? (
+        <div className={clsx('grid items-center gap-6 lg:grid-cols-12')}>
+          <div className="lg:col-span-9">{longDescription}</div>
+          <aside className="lg:col-span-3">
+            <QuestionListingQuestionCount
+              count={75}
+              totalCount={75}
+              variant="free"
+            />
+          </aside>
+        </div>
+      ) : (
+        longDescription
+      )}
     </div>
   );
 }

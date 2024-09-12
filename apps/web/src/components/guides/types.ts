@@ -1,3 +1,5 @@
+import type { frontendInterviewSlugs } from '~/db/guides/GuidesUtils';
+
 export type BaseGuideNavigationLink<T = Record<string, unknown>> = Readonly<
   T & {
     description?: string;
@@ -45,3 +47,22 @@ export type GuideMetadata = Readonly<{
   category: GuideCategory;
   slug: string;
 }>;
+
+export type FrontEndInterviewSlugType = (typeof frontendInterviewSlugs)[number];
+
+// For the introduction article, the slug is introduction, but the route is ''
+export type FrontEndInterviewRouteType =
+  | Exclude<FrontEndInterviewSlugType, 'introduction'>
+  | '';
+
+export type GuideCardMetadata = GuideMetadata &
+  Readonly<{
+    description: string;
+    href: string;
+    readingTime: number;
+    title: string;
+  }>;
+
+export type GuideCardMetadataWithCompletedStatus = GuideCardMetadata & {
+  readonly isCompleted: boolean;
+};
