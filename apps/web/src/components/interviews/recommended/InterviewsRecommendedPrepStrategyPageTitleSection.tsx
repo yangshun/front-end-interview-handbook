@@ -69,7 +69,7 @@ function RecommendedItemsDropdown({
       label: 'Blind 75',
     },
     {
-      href: '/prepare/system-design',
+      href: '/front-end-system-design-playbook',
       isCompleted: false,
       label: 'Front End System Design',
     },

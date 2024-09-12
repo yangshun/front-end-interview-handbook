@@ -70,8 +70,6 @@ export default function QuestionsLearningListPageTitleSection({
             props.icon && (
               <InterviewsPageHeaderLogo
                 icon={props.icon}
-                startColor="#EAE8FF"
-                stopColor="#787878"
               />
             )
           )}

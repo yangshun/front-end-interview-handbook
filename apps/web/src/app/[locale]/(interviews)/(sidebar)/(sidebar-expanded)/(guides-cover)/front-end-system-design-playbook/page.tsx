@@ -7,19 +7,20 @@ import readingTime from 'reading-time';
 import { INTERVIEWS_REVAMP_2024 } from '~/data/FeatureFlags';
 
 import type {
-  FrontEndInterviewRouteType,
+  FrontEndSystemDesignRouteType,
   GuideCardMetadata,
 } from '~/components/guides/types';
 
 import { readGuidesContents } from '~/db/guides/GuidesReader';
 import {
-  frontendInterviewSlugs,
-  frontEndInterviewsRouteToFile,
+  frontendSystemDesignRouteToFile,
+  frontendSystemDesignSlugs,
 } from '~/db/guides/GuidesUtils';
+import { fetchQuestionsListSystemDesign } from '~/db/QuestionsListReader';
 import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
 
-import FrontEndInterviewPlaybookPage from './FrontEndInterviewPlaybookPage';
+import FrontEndSystemDesignPlaybookPage from './FrontEndSystemDesignPlaybookPage';
 
 export const dynamic = 'force-static';
 
@@ -36,22 +37,22 @@ async function getPageSEOMetadata({ params }: Props) {
   return {
     description: intl.formatMessage({
       defaultMessage:
-        'The definitive guide to front end interviews written by Ex-FAANG interviewers. Find out what to expect, the different types of questions and how to prepare.',
+        'The definitive guide to Front End System Design interviews. Learn useful techniques and how to approach the most common questions. Written by Ex-FAANG interviewers.',
       description:
-        'Page description for frontend interview playbook cover page',
-      id: 'qI3Dry',
+        'Page description for frontend system design playbook cover page',
+      id: 'O237FB',
     }),
-    href: '/front-end-interview-playbook',
+    href: '/front-end-system-design-playbook',
     socialTitle: intl.formatMessage({
-      defaultMessage: 'Front End Interview Playbook | GreatFrontEnd',
-      description: 'Social title for frontend interview playbook cover page',
-      id: '4De8x6',
+      defaultMessage: 'Front End System Design Playbook | GreatFrontEnd',
+      description:
+        'Social title for frontend system design playbook cover page',
+      id: 'E9XW96',
     }),
     title: intl.formatMessage({
-      defaultMessage:
-        'Front End Interview Playbook: Everything you need to excel',
-      description: 'Page title for frontend interview playbook cover page',
-      id: 'hALSD8',
+      defaultMessage: 'Front End System Design Playbook: All-in-one Deep Dive',
+      description: 'Page title for frontend system design playbook cover page',
+      id: '6hhGip',
     }),
   };
 }
@@ -75,7 +76,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 function requestToPaths({
   route,
 }: {
-  route: FrontEndInterviewRouteType;
+  route: FrontEndSystemDesignRouteType;
 }): Readonly<{
   directoryPath: string;
 }> {
@@ -86,9 +87,9 @@ function requestToPaths({
     'submodules',
     'front-end-interview-handbook',
     'packages',
-    'front-end-interview-guidebook',
+    'system-design',
     'contents',
-    frontEndInterviewsRouteToFile[route],
+    frontendSystemDesignRouteToFile[route],
   );
 
   return { directoryPath };
@@ -96,11 +97,10 @@ function requestToPaths({
 
 async function readAllGuides({ params }: Props) {
   const { locale } = params;
-
   const guidesData: Array<GuideCardMetadata> = [];
-  const basePath = '/front-end-interview-guidebook';
+  const basePath = '/system-design';
 
-  frontendInterviewSlugs.forEach((slug) => {
+  frontendSystemDesignSlugs.forEach((slug) => {
     // For the introduction article, the slug is introduction, but the content href is the basePath itself
     const route = slug === 'introduction' ? '' : slug;
     const { directoryPath } = requestToPaths({
@@ -114,8 +114,9 @@ async function readAllGuides({ params }: Props) {
     const time = Math.ceil(readingTime(mdxSource ?? '').minutes);
 
     guidesData.push({
-      category: 'front-end-interview-guide',
+      category: 'system-design-guide',
       description,
+      // For the introduction article, the slug is introduction, but the content href is the basePath itself
       href: `${basePath}/${route}`,
       readingTime: time,
       slug,
@@ -131,18 +132,22 @@ export default async function Page({ params }: Props) {
     return notFound();
   }
 
-  const [seoMetadata, allGuides] = await Promise.all([
+  const { locale } = params;
+
+  const [seoMetadata, allGuides, { questions }] = await Promise.all([
     getPageSEOMetadata({ params }),
     readAllGuides({ params }),
+    fetchQuestionsListSystemDesign(locale),
   ]);
 
   return (
-    <FrontEndInterviewPlaybookPage
+    <FrontEndSystemDesignPlaybookPage
       allGuides={allGuides}
       metadata={{
         ...seoMetadata,
         title: seoMetadata.socialTitle,
       }}
+      questionCount={questions.length}
     />
   );
 }

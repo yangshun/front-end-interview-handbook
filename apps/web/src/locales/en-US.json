@@ -899,6 +899,10 @@
     "defaultMessage": "You can find your promos codes on the <link>profile page</link>.",
     "description": "Subtext for rewards complete page"
   },
+  "5CaZLv": {
+    "defaultMessage": "Techniques and guides",
+    "description": "Title for introduction category of frontend system design playbook cover page"
+  },
   "5DKztB": {
     "defaultMessage": "<authorProfileLink>{author}</authorProfileLink> posted on their submission <link>{submissionTitle}</link>: <comment>\"{description}\"</comment>",
     "description": "Log message for user making a post on their submission"
@@ -1134,6 +1138,10 @@
   "6fcExT": {
     "defaultMessage": "You are currently working on this track",
     "description": "Description for projects track in progress status"
+  },
+  "6hhGip": {
+    "defaultMessage": "Front End System Design Playbook: All-in-one Deep Dive",
+    "description": "Page title for frontend system design playbook cover page"
   },
   "6kLEK7": {
     "defaultMessage": "Common mistakes you should avoid.",
@@ -1622,6 +1630,10 @@
   "A0i9qA": {
     "defaultMessage": "Read more",
     "description": "Read more"
+  },
+  "A0t3x6": {
+    "defaultMessage": "Front End System Design Playbook",
+    "description": "Title of frontend system design playbook page"
   },
   "A5COe1": {
     "defaultMessage": "Cancel",
@@ -2159,6 +2171,10 @@
     "defaultMessage": "Insert an object",
     "description": "Rich text editor button label"
   },
+  "DmLCt5": {
+    "defaultMessage": "{questionCount}+ solved questions",
+    "description": "Features for frontend system design playbook page"
+  },
   "Dpfbeq": {
     "defaultMessage": "Purchase premium to unlock company guides and all the best materials we have to offer.",
     "description": "Paywall subtitle for company guides feature"
@@ -2206,6 +2222,10 @@
   "E63Iix": {
     "defaultMessage": "Step-by-step guides on how to approach the challenge.",
     "description": "FAQ answer for projects platform"
+  },
+  "E9XW96": {
+    "defaultMessage": "Front End System Design Playbook | GreatFrontEnd",
+    "description": "Social title for frontend system design playbook cover page"
   },
   "E9Yr6B": {
     "defaultMessage": "Billing",
@@ -3071,6 +3091,10 @@
     "defaultMessage": "Download",
     "description": "Download file label"
   },
+  "K4JOjo": {
+    "defaultMessage": "Deep-dives into real-world applications",
+    "description": "Features for frontend system design playbook page"
+  },
   "K6BzpD": {
     "defaultMessage": "Intermediate",
     "description": "Intermediate blog"
@@ -3263,6 +3287,10 @@
     "defaultMessage": "You can choose to end a project session if you choose not to work on it anymore. We will stop prompting you to continue the project in the dashboard",
     "description": "Tooltip for \"End session\" button on current project session card"
   },
+  "L6yVhS": {
+    "defaultMessage": "This guide is structured into two parts. First, you will gain a deeper understanding of what to expect in these interviews. Then, you will learn a robust framework that you can reliably use to solve most problems, and you'll apply it to real case studies.",
+    "description": "Long description of frontend system design playbook page"
+  },
   "L7w0Ka": {
     "defaultMessage": "Computer Science Foundations",
     "description": "Title for focus area type"
@@ -3406,6 +3434,10 @@
   "LnzTdG": {
     "defaultMessage": "CSS",
     "description": "CSS questions category short title"
+  },
+  "LpW2AE": {
+    "defaultMessage": "Robust framework",
+    "description": "Features for frontend system design playbook page"
   },
   "Ludb5F": {
     "defaultMessage": "Our platform was built to support community-driven development. From project discussion to code reviews and approach sharing, you will never feel alone in your learning.",
@@ -3711,6 +3743,10 @@
     "defaultMessage": "Article view",
     "description": "View option for blog list"
   },
+  "O237FB": {
+    "defaultMessage": "The definitive guide to Front End System Design interviews. Learn useful techniques and how to approach the most common questions. Written by Ex-FAANG interviewers.",
+    "description": "Page description for frontend system design playbook cover page"
+  },
   "O2h4/M": {
     "defaultMessage": "Project brief",
     "description": "Tab title for projects challenges"
@@ -3730,6 +3766,10 @@
   "O9szXK": {
     "defaultMessage": "We help you get ready within 1 week, 1 month or 3 months",
     "description": "Study plans description"
+  },
+  "OCgyrM": {
+    "defaultMessage": "There are currently very few resources available for front-end system design. To address this issue, we've invested significant effort into creating the most comprehensive guide on the market - the Front-End System Design Guide.",
+    "description": "Long description of frontend system design playbook page"
   },
   "OCk0lu": {
     "defaultMessage": "Filter by stack used by the creator",
@@ -6963,6 +7003,10 @@
     "defaultMessage": "Algorithmic Coding Interview Questions | GreatFrontEnd",
     "description": "Social title for algo coding question format page"
   },
+  "jQ6uOU": {
+    "defaultMessage": "Practice questions",
+    "description": "Title for questions section for frontend system design playbook page"
+  },
   "jROOlG": {
     "defaultMessage": "Our users now work in these companies",
     "description": "Title of company logos section"
@@ -8387,6 +8431,10 @@
     "defaultMessage": "Filter by forum type",
     "description": "Tooltip for forum type filter for contribution list"
   },
+  "t+sX0U": {
+    "defaultMessage": "The only guide you need for Front End System Design interviews",
+    "description": "Description for frontend system design playbook page"
+  },
   "t2Ll2e": {
     "defaultMessage": "Run your code with <button>custom test cases</button> before submitting.",
     "description": "Text that appears in the DevTool under the Tests tab before the user has submitted their code"
@@ -8630,6 +8678,10 @@
   "uViVdm": {
     "defaultMessage": "Details of rep gain across skills",
     "description": "Details of rep gain across skills for submission"
+  },
+  "uZk0CY": {
+    "defaultMessage": "System design interviews are typically conducted for mid-level to senior positions. These interviews assess a candidate's ability to design complex, scalable, and maintainable systems.",
+    "description": "Long description of frontend system design playbook page"
   },
   "ub441I": {
     "defaultMessage": "Help others improve",

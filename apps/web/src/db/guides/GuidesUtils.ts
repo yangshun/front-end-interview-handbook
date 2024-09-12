@@ -2,6 +2,7 @@ import { keyBy, mapValues, sumBy } from 'lodash-es';
 
 import type {
   FrontEndInterviewRouteType,
+  FrontEndSystemDesignRouteType,
   GuideCardMetadata,
   GuideMetadata,
 } from '~/components/guides/types';
@@ -45,6 +46,27 @@ export const frontEndInterviewsRouteToFile: Record<
   'user-interface-components-api-design-principles':
     'user-interface-components-api-design-principles',
   'user-interface-questions-cheatsheet': 'user-interface-questions-cheatsheet',
+};
+
+export const frontendSystemDesignSlugs = [
+  'introduction',
+  'types-of-questions',
+  'framework',
+  'evaluation-axes',
+  'common-mistakes',
+  'cheatsheet',
+] as const;
+
+export const frontendSystemDesignRouteToFile: Record<
+  FrontEndSystemDesignRouteType,
+  string
+> = {
+  '': 'introduction',
+  cheatsheet: 'cheatsheet',
+  'common-mistakes': 'common-mistakes',
+  'evaluation-axes': 'evaluation-axes',
+  framework: 'framework',
+  'types-of-questions': 'types-of-questions',
 };
 
 export function categorizeGuides<

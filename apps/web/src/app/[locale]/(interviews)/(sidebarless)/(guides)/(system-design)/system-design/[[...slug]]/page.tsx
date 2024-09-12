@@ -4,10 +4,12 @@ import type { Metadata } from 'next/types';
 import path from 'path';
 
 import SystemDesignGuidebookLayout from '~/components/guides/SystemDesignGuidebookLayout';
+import type { FrontEndSystemDesignRouteType } from '~/components/guides/types';
 import MDXCodeBlock from '~/components/mdx/MDXCodeBlock';
 import MDXComponents from '~/components/mdx/MDXComponents';
 
 import { readGuidesContents } from '~/db/guides/GuidesReader';
+import { frontendSystemDesignRouteToFile } from '~/db/guides/GuidesUtils';
 import { readMDXFileWithLocaleFallback } from '~/db/questions-bundlers/QuestionsBundler';
 import { generateStaticParamsWithLocale } from '~/next-i18nostic/src';
 import defaultMetadata from '~/seo/defaultMetadata';
@@ -19,18 +21,9 @@ type Props = Readonly<{
   };
 }>;
 
-const routeToFile: Record<string, string> = {
-  '': 'introduction',
-  cheatsheet: 'cheatsheet',
-  'common-mistakes': 'common-mistakes',
-  'evaluation-axes': 'evaluation-axes',
-  framework: 'framework',
-  'types-of-questions': 'types-of-questions',
-};
-
 export async function generateStaticParams() {
   return generateStaticParamsWithLocale(
-    Object.keys(routeToFile).map((slug) => ({
+    Object.keys(frontendSystemDesignRouteToFile).map((slug) => ({
       slug: slug ? slug.split('/') : [],
     })),
   );
@@ -40,7 +33,9 @@ function requestToPaths({ params }: Props): Readonly<{
   directoryPath: string;
   pathname: string;
 }> {
-  const mdxPath = (params.slug ?? []).join('/').replace(/\/$/g, '');
+  const mdxPath = (params.slug ?? [])
+    .join('/')
+    .replace(/\/$/g, '') as FrontEndSystemDesignRouteType;
 
   const directoryPath = path.join(
     process.cwd(),
@@ -51,7 +46,7 @@ function requestToPaths({ params }: Props): Readonly<{
     'packages',
     'system-design',
     'contents',
-    routeToFile[mdxPath],
+    frontendSystemDesignRouteToFile[mdxPath],
   );
   const pathname = `/system-design/${mdxPath}`;
 
