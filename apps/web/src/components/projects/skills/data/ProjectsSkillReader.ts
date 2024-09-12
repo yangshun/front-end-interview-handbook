@@ -110,12 +110,13 @@ export async function fetchProjectsSkillsRoadmapSectionData(
 
 export function readProjectsSkillMetadata(
   slugParam: string,
-): ProjectsSkillMetadata {
+): ProjectsSkillMetadata | undefined {
   // So that we handle typos like extra characters.
-  const slug = decodeURIComponent(slugParam).replaceAll(/[^\da-zA-Z-]/g, '');
-  const skillMetadata = fetchProjectsSkillMetadata(slug);
+  const slug = decodeURIComponent(slugParam)
+    .replaceAll(/[^\da-zA-Z-]/g, '')
+    .toLowerCase();
 
-  return skillMetadata!;
+  return fetchProjectsSkillMetadata(slug);
 }
 
 export function readProjectsSkillInfo(
@@ -126,7 +127,9 @@ export function readProjectsSkillInfo(
   skillInfo: ProjectsSkillInfo;
 }> {
   // So that we handle typos like extra characters.
-  const slug = decodeURIComponent(slugParam).replaceAll(/[^\da-zA-Z-]/g, '');
+  const slug = decodeURIComponent(slugParam)
+    .replaceAll(/[^\da-zA-Z-]/g, '')
+    .toLowerCase();
 
   const skillInfo = fetchProjectsSkillInfo(slug, requestedLocale);
 
@@ -143,11 +146,13 @@ export function readProjectsSkillItem(
   loadedLocale: string;
   skillItem: {
     info: ProjectsSkillInfo;
-    metadata: ProjectsSkillMetadata;
+    metadata: ProjectsSkillMetadata | null;
   };
 }> {
   // So that we handle typos like extra characters.
-  const slug = decodeURIComponent(slugParam).replaceAll(/[^\da-zA-Z-]/g, '');
+  const slug = decodeURIComponent(slugParam)
+    .replaceAll(/[^\da-zA-Z-]/g, '')
+    .toLowerCase();
   const metadata = readProjectsSkillMetadata(slug);
   const { skillInfo } = readProjectsSkillInfo(slug, requestedLocale);
 
@@ -155,7 +160,7 @@ export function readProjectsSkillItem(
     loadedLocale: requestedLocale,
     skillItem: {
       info: skillInfo,
-      metadata,
+      metadata: metadata ?? null,
     },
   };
 }
@@ -171,7 +176,9 @@ export async function readProjectsChallengeItemsForSkill(
   }>
 > {
   // So that we handle typos like extra characters.
-  const slug = decodeURIComponent(slugParam).replaceAll(/[^\da-zA-Z-]/g, '');
+  const slug = decodeURIComponent(slugParam)
+    .replaceAll(/[^\da-zA-Z-]/g, '')
+    .toLowerCase();
 
   const [
     challengeStatuses,

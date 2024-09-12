@@ -131,7 +131,9 @@ export async function readProjectsTrackItem(
   }>
 > {
   // So that we handle typos like extra characters.
-  const slug = decodeURIComponent(slugParam).replaceAll(/[^\da-zA-Z-]/g, '');
+  const slug = decodeURIComponent(slugParam)
+    .replaceAll(/[^\da-zA-Z-]/g, '')
+    .toLowerCase();
 
   const [{ trackMetadata }, { challenges }, { trackInfo }] = await Promise.all([
     readProjectsTrackMetadata(slug, requestedLocale),
@@ -171,7 +173,9 @@ export async function readProjectsTrackMetadata(
   }>
 > {
   // So that we handle typos like extra characters.
-  const slug = decodeURIComponent(slugParam).replaceAll(/[^\da-zA-Z-]/g, '');
+  const slug = decodeURIComponent(slugParam)
+    .replaceAll(/[^\da-zA-Z-]/g, '')
+    .toLowerCase();
   const trackMetadata = await fetchProjectsTrackMetadata(slug);
 
   return {

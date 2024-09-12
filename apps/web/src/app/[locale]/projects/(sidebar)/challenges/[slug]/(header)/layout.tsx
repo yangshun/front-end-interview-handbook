@@ -1,3 +1,5 @@
+import { notFound } from 'next/navigation';
+
 import ProjectsChallengeHeaderLayout from '~/components/projects/challenges/header/ProjectsChallengeHeaderLayout';
 import ProjectsPremiumAccessControl from '~/components/projects/challenges/premium/ProjectsPremiumAccessControl';
 import fetchViewerProjectsChallengeAccess from '~/components/projects/utils/fetchViewerProjectsChallengeAccess';
@@ -13,25 +15,29 @@ type Props = Readonly<{
 export default async function Layout({ children, params }: Props) {
   const { locale, slug } = params;
 
-  const [{ viewerProjectsProfile }, viewerUnlockedAccess, { challenge }] =
-    await Promise.all([
-      fetchViewerProjectsProfile(),
-      fetchViewerProjectsChallengeAccess(slug),
-      readProjectsChallengeItem(slug, locale),
-    ]);
+  try {
+    const [{ viewerProjectsProfile }, viewerUnlockedAccess, { challenge }] =
+      await Promise.all([
+        fetchViewerProjectsProfile(),
+        fetchViewerProjectsChallengeAccess(slug),
+        readProjectsChallengeItem(slug, locale),
+      ]);
 
-  const viewerAccess = ProjectsPremiumAccessControl(
-    challenge.metadata.access,
-    viewerProjectsProfile,
-    viewerUnlockedAccess,
-  );
+    const viewerAccess = ProjectsPremiumAccessControl(
+      challenge.metadata.access,
+      viewerProjectsProfile,
+      viewerUnlockedAccess,
+    );
 
-  return (
-    <ProjectsChallengeHeaderLayout
-      challenge={challenge}
-      viewerAccess={viewerAccess}
-      viewerProjectsProfile={viewerProjectsProfile}>
-      {children}
-    </ProjectsChallengeHeaderLayout>
-  );
+    return (
+      <ProjectsChallengeHeaderLayout
+        challenge={challenge}
+        viewerAccess={viewerAccess}
+        viewerProjectsProfile={viewerProjectsProfile}>
+        {children}
+      </ProjectsChallengeHeaderLayout>
+    );
+  } catch {
+    notFound();
+  }
 }

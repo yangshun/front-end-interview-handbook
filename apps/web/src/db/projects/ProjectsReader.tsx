@@ -250,7 +250,9 @@ export async function readProjectsChallengeItem(
   }>
 > {
   // So that we handle typos like extra characters.
-  const slug = decodeURIComponent(slugParam).replaceAll(/[^\da-zA-Z-]/g, '');
+  const slug = decodeURIComponent(slugParam)
+    .replaceAll(/[^\da-zA-Z-]/g, '')
+    .toLowerCase();
 
   const [challengeMetadata, { challengeInfo }] = await Promise.all([
     readProjectsChallengeMetadata(slug),
@@ -401,7 +403,9 @@ export async function readProjectsChallengeMetadata(
   slugParam: string,
 ): Promise<ProjectsChallengeMetadata> {
   // So that we handle typos like extra characters.
-  const slug = decodeURIComponent(slugParam).replaceAll(/[^\da-zA-Z-]/g, '');
+  const slug = decodeURIComponent(slugParam)
+    .replaceAll(/[^\da-zA-Z-]/g, '')
+    .toLowerCase();
   const challengeMetadata = await fetchProjectsChallengeMetadata(slug);
 
   return challengeMetadata!;
@@ -417,7 +421,9 @@ export async function readProjectsChallengeInfo(
   }>
 > {
   // So that we handle typos like extra characters.
-  const slug = decodeURIComponent(slugParam).replaceAll(/[^\da-zA-Z-]/g, '');
+  const slug = decodeURIComponent(slugParam)
+    .replaceAll(/[^\da-zA-Z-]/g, '')
+    .toLowerCase();
   const challengeInfo = await fetchProjectsChallengeInfo(slug, requestedLocale);
 
   return {
@@ -493,7 +499,9 @@ export async function readProjectsChallengeStyleGuide(
   }>
 > {
   // So that we handle typos like extra characters.
-  const slug = decodeURIComponent(slugParam).replaceAll(/[^\da-zA-Z-]/g, '');
+  const slug = decodeURIComponent(slugParam)
+    .replaceAll(/[^\da-zA-Z-]/g, '')
+    .toLowerCase();
 
   const styleGuide = await fetchProjectsChallengeStyleGuide(
     slug,
@@ -516,7 +524,9 @@ export async function readProjectsChallengeAppendix(
   }>
 > {
   // So that we handle typos like extra characters.
-  const slug = decodeURIComponent(slugParam).replaceAll(/[^\da-zA-Z-]/g, '');
+  const slug = decodeURIComponent(slugParam)
+    .replaceAll(/[^\da-zA-Z-]/g, '')
+    .toLowerCase();
 
   const appendix = await fetchProjectsChallengeAppendixes(
     slug,
@@ -539,7 +549,9 @@ export async function readProjectsChallengeAPIWriteup(
   }>
 > {
   // So that we handle typos like extra characters.
-  const slug = decodeURIComponent(slugParam).replaceAll(/[^\da-zA-Z-]/g, '');
+  const slug = decodeURIComponent(slugParam)
+    .replaceAll(/[^\da-zA-Z-]/g, '')
+    .toLowerCase();
 
   const apiWriteup = await fetchProjectsChallengeAPIWriteup(
     slug,
@@ -562,7 +574,9 @@ export async function readProjectsChallengeGuide(
   }>
 > {
   // So that we handle typos like extra characters.
-  const slug = decodeURIComponent(slugParam).replaceAll(/[^\da-zA-Z-]/g, '');
+  const slug = decodeURIComponent(slugParam)
+    .replaceAll(/[^\da-zA-Z-]/g, '')
+    .toLowerCase();
 
   const challengeGuide = await fetchProjectsChallengeGuide(
     slug,

@@ -63,7 +63,6 @@ export default async function Page({ params }: Props) {
     ]);
 
   if (skillMetadata == null) {
-    // TODO(projects): add custom not found page for projects.
     notFound();
   }
 

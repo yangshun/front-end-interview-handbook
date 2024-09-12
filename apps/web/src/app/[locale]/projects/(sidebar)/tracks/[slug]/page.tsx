@@ -20,36 +20,41 @@ type Props = Readonly<{
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale, slug } = params;
-  const [intl, { trackInfo }] = await Promise.all([
-    getIntlServerOnly(locale),
-    readProjectsTrackInfo(slug, locale),
-  ]);
 
-  return defaultProjectsMetadata(intl, {
-    description: intl.formatMessage(
-      {
-        defaultMessage:
-          'Build an entire library of {trackName} components from scratch. Use it for your portfolio, or as a component toolkit for future projects',
-        description: 'Description of Projects component track page',
-        id: 'eG2r74',
-      },
-      {
-        trackName: trackInfo.title,
-      },
-    ),
-    locale,
-    pathname: `/projects/tracks/${slug}`,
-    title: intl.formatMessage(
-      {
-        defaultMessage: '{trackName} track',
-        description: 'Title of Projects component track page',
-        id: 'Potyfh',
-      },
-      {
-        trackName: trackInfo.title,
-      },
-    ),
-  });
+  try {
+    const [intl, { trackInfo }] = await Promise.all([
+      getIntlServerOnly(locale),
+      readProjectsTrackInfo(slug, locale),
+    ]);
+
+    return defaultProjectsMetadata(intl, {
+      description: intl.formatMessage(
+        {
+          defaultMessage:
+            'Build an entire library of {trackName} components from scratch. Use it for your portfolio, or as a component toolkit for future projects',
+          description: 'Description of Projects component track page',
+          id: 'eG2r74',
+        },
+        {
+          trackName: trackInfo.title,
+        },
+      ),
+      locale,
+      pathname: `/projects/tracks/${slug}`,
+      title: intl.formatMessage(
+        {
+          defaultMessage: '{trackName} track',
+          description: 'Title of Projects component track page',
+          id: 'Potyfh',
+        },
+        {
+          trackName: trackInfo.title,
+        },
+      ),
+    });
+  } catch {
+    notFound();
+  }
 }
 
 export default async function Page({ params }: Props) {
@@ -57,15 +62,16 @@ export default async function Page({ params }: Props) {
 
   const viewer = await readViewerFromToken();
   // So that we handle typos like extra characters.
-  const slug = decodeURIComponent(rawSlug).replaceAll(/[^\da-zA-Z-]/g, '');
+  const slug = decodeURIComponent(rawSlug)
+    .replaceAll(/[^\da-zA-Z-]/g, '')
+    .toLowerCase();
   const [{ viewerProjectsProfile }, { track }] = await Promise.all([
     fetchViewerProjectsProfile(viewer),
     readProjectsTrackItem(slug, locale, viewer?.id),
   ]);
 
   if (track == null) {
-    // TODO(projects): add custom not found page for projects.
-    notFound();
+    return notFound();
   }
 
   if (track.metadata.premium && !viewerProjectsProfile?.premium) {
