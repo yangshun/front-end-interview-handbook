@@ -3,10 +3,11 @@ import type { QuestionUserInterfaceBundle } from '~/components/interviews/questi
 import Anchor from '~/components/ui/Anchor';
 import Banner from '~/components/ui/Banner';
 
+import UserInterfaceCodingWorkspacePreview from './UserInterfaceCodingWorkspacePreview';
 import useUserInterfaceCodingWorkspaceTilesContext from './useUserInterfaceCodingWorkspaceTilesContext';
 import sandpackProviderOptions from '../common/sandpack/sandpackProviderOptions';
 
-import { SandpackPreview, SandpackProvider } from '@codesandbox/sandpack-react';
+import { SandpackProvider } from '@codesandbox/sandpack-react';
 
 type Props = Readonly<{
   bundle: QuestionUserInterfaceBundle;
@@ -55,7 +56,7 @@ export default function UserInterfaceCodingWorkspaceSolutionPreviewTab({
             },
           }}
           theme={colorScheme === 'dark' ? 'dark' : undefined}>
-          <SandpackPreview showNavigator={true} showOpenInCodeSandbox={false} />
+          <UserInterfaceCodingWorkspacePreview />
         </SandpackProvider>
       </div>
     </div>

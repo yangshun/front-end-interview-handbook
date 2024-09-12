@@ -29,6 +29,7 @@ import UserInterfaceCodingWorkspaceExplorer from './UserInterfaceCodingWorkspace
 import { getUserInterfaceCodingWorkspaceLayout } from './UserInterfaceCodingWorkspaceLayouts';
 import UserInterfaceCodingWorkspaceMobile from './UserInterfaceCodingWorkspaceMobile';
 import UserInterfaceCodingWorkspaceNewTab from './UserInterfaceCodingWorkspaceNewTab';
+import UserInterfaceCodingWorkspacePreview from './UserInterfaceCodingWorkspacePreview';
 import UserInterfaceCodingWorkspaceSavesList from './UserInterfaceCodingWorkspaceSavesList';
 import UserInterfaceCodingWorkspaceSolutionPreviewTab from './UserInterfaceCodingWorkspaceSolutionPreviewTab';
 import type {
@@ -57,7 +58,7 @@ import {
 } from '../common/tabs/codingWorkspaceTabId';
 
 import type { SandpackFiles } from '@codesandbox/sandpack-react';
-import { SandpackPreview, useSandpack } from '@codesandbox/sandpack-react';
+import { useSandpack } from '@codesandbox/sandpack-react';
 import { useMonaco } from '@monaco-editor/react';
 
 const UserInterfaceCodingWorkspaceTilesPanelRoot =
@@ -245,17 +246,7 @@ function UserInterfaceCodingWorkspaceImpl({
       label: 'File explorer',
     },
     preview: {
-      contents: (
-        <SandpackPreview
-          className={
-            embed
-              ? 'dark:[&>.sp-preview-container]:hue-rotate-180 dark:[&>.sp-preview-container]:invert'
-              : undefined
-          }
-          showNavigator={true}
-          showOpenInCodeSandbox={false}
-        />
-      ),
+      contents: <UserInterfaceCodingWorkspacePreview embed={embed} />,
       icon: CodingWorkspaceTabIcons.browser.icon,
       label: 'Browser',
     },

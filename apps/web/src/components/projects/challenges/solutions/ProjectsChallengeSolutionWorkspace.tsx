@@ -24,6 +24,7 @@ import {
   codingWorkspaceTabFilePattern,
 } from '~/components/workspace/common/tabs/codingWorkspaceTabId';
 import UserInterfaceCodingWorkspaceCodeEditor from '~/components/workspace/user-interface/UserInterfaceCodingWorkspaceCodeEditor';
+import UserInterfaceCodingWorkspacePreview from '~/components/workspace/user-interface/UserInterfaceCodingWorkspacePreview';
 import useUserInterfaceCodingWorkspaceTilesContext from '~/components/workspace/user-interface/useUserInterfaceCodingWorkspaceTilesContext';
 
 import { TilesPanelRoot } from '~/react-tiling/components/TilesPanelRoot';
@@ -37,7 +38,7 @@ import type {
 } from './ProjectsChallengeSolutionWorkspaceTypes';
 
 import type { SandpackFiles } from '@codesandbox/sandpack-react';
-import { SandpackPreview, useSandpack } from '@codesandbox/sandpack-react';
+import { useSandpack } from '@codesandbox/sandpack-react';
 import { useMonaco } from '@monaco-editor/react';
 
 const UserInterfaceCodingWorkspaceTilesPanelRoot =
@@ -149,9 +150,7 @@ function ProjectsChallengeSolutionWorkspaceImpl({
         label: 'File explorer',
       },
       preview: {
-        contents: (
-          <SandpackPreview showNavigator={true} showOpenInCodeSandbox={false} />
-        ),
+        contents: <UserInterfaceCodingWorkspacePreview />,
         icon: CodingWorkspaceTabIcons.browser.icon,
         label: 'Browser',
       },

@@ -13,6 +13,7 @@ import FirstPromoter from '~/components/global/FirstPromoter';
 import GlobalProviders from '~/components/global/GlobalProviders';
 import { Toaster } from '~/components/global/toasts/Toaster';
 import { themeBackgroundColor } from '~/components/ui/theme';
+import SandpackCSS from '~/components/workspace/common/sandpack/SandpackCSS';
 
 import type { IntlMessages } from '~/i18n';
 
@@ -36,6 +37,7 @@ export default function RootLayout({ children, intlMessages, locale }: Props) {
         {/* Important to inject in head to get it to run as early as possible. */}
         <ColorSchemeScript />
         <GlobalBannerDisplayScript />
+        <SandpackCSS />
       </head>
       <body className={clsx('antialiased', themeBackgroundColor)}>
         <HydrationFailureLogging />
