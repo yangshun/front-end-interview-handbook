@@ -471,6 +471,10 @@
     "defaultMessage": "{QuestionCount}+ of the most important questions — from building user interfaces in popular front end frameworks to system design.",
     "description": "Description of 'Practice everything in popular frameworks' feature in marketing page"
   },
+  "1hQIJA": {
+    "defaultMessage": "Back to All practice questions",
+    "description": "Link text to navigate to all practice questions page"
+  },
   "1i1F/f": {
     "defaultMessage": "Project progress",
     "description": "Project progress item label"
@@ -1435,6 +1439,10 @@
     "defaultMessage": "All questions come with solutions written by ex-FAANG Senior Front End Engineers.",
     "description": "Subtitle for high quality solutions feature"
   },
+  "8viqEG": {
+    "defaultMessage": "JavaScript Coding",
+    "description": "Page title for Javascript coding question format"
+  },
   "8vjTks": {
     "defaultMessage": "Select current line",
     "description": "Text describing command to select current line in the coding workspace shortcuts menu"
@@ -1551,6 +1559,10 @@
     "defaultMessage": "Practice form-related interview questions on form components, validation, and submission handling. Code in-browser with solutions from ex-interviewers.",
     "description": "Description for interview preparation focus area"
   },
+  "9n2L5+": {
+    "defaultMessage": "Front End Quiz Interview Questions | GreatFrontEnd",
+    "description": "Social title for quiz question format page"
+  },
   "9nK/kc": {
     "defaultMessage": "Annual plan",
     "description": "Subscription plan type"
@@ -1566,6 +1578,10 @@
   "9qO5Il": {
     "defaultMessage": "Pricing",
     "description": "Sidebar navigation label"
+  },
+  "9uTTIS": {
+    "defaultMessage": "Practice front end interview questions requiring you to build UI with HTML, CSS, JavaScript/TypeScript, or React, Angular, and Vue. Solutions and tests from ex-interviewers.",
+    "description": "SEO description for UI question format page"
   },
   "9wRhlQ": {
     "defaultMessage": "Front End Interview",
@@ -2407,6 +2423,10 @@
     "defaultMessage": "All question progress has been reset.",
     "description": "Message shown when question reset progress action succeeds."
   },
+  "FsGLoP": {
+    "defaultMessage": "Front End Quiz Questions",
+    "description": "Page title for quiz question format page"
+  },
   "Ftjz7y": {
     "defaultMessage": "Manage your subscription status and payment methods on the Stripe billing portal.",
     "description": "Call to action text to uppgrade plan."
@@ -2610,6 +2630,10 @@
   "HCrCHg": {
     "defaultMessage": "Challenge status",
     "description": "Label for Status filter for projects list"
+  },
+  "HDAMDM": {
+    "defaultMessage": "Practice front end system design interview questions by describing how you'd architect UI components, apps, or games. Get detailed solutions from ex-interviewers.",
+    "description": "SEO description for System design question format page"
   },
   "HDsjyG": {
     "defaultMessage": "Trivia-style questions on essential front end know-how",
@@ -2902,6 +2926,10 @@
   "J90fcx": {
     "defaultMessage": "Preparation Plans",
     "description": "Preparation plans section title"
+  },
+  "JCAJF/": {
+    "defaultMessage": "Practice Front End Algorithmic Coding Interview Questions",
+    "description": "SEO title for algo coding question format page"
   },
   "JGfGOf": {
     "defaultMessage": "Answering \"Tell me about yourself\"",
@@ -3335,6 +3363,10 @@
     "defaultMessage": "Practice JavaScript Polyfills interview questions by implementing JS and DOM APIs from scratch. Code in-browser with solutions by ex-interviewers.",
     "description": "Description for interview preparation focus area"
   },
+  "LmwfmQ": {
+    "defaultMessage": "Front End System Design",
+    "description": "Page title for System design question format page"
+  },
   "Lnj3bs": {
     "defaultMessage": "One-time use; only applicable to GreatFrontEnd Annual plan.",
     "description": "Condition for promotion"
@@ -3447,6 +3479,10 @@
     "defaultMessage": "Select question category",
     "description": "Tab label to select another question category"
   },
+  "MU0N83": {
+    "defaultMessage": "User Interface Coding",
+    "description": "Page title for UI question format page"
+  },
   "MV3NI4": {
     "defaultMessage": "You posted on the challenge forum for <link>{challengeTitle}</link>: <comment>\"{description}\"</comment>",
     "description": "Log message for you making a post on the challenge forum"
@@ -3510,6 +3546,10 @@
   "N5Cp1r": {
     "defaultMessage": "While offer lasts",
     "description": "Label to indicate offer is a limited time deal"
+  },
+  "N7Nseb": {
+    "defaultMessage": "User Interfaces Coding Interview Questions | GreatFrontEnd",
+    "description": "Social title for UI question format page"
   },
   "N9hGOq": {
     "defaultMessage": "Search Vue questions",
@@ -3842,6 +3882,10 @@
   "PMvcx6": {
     "defaultMessage": "Advanced",
     "description": "Advanced level blog"
+  },
+  "PPjL+V": {
+    "defaultMessage": "Solve coding challenges involving performance-optimized data structures and algorithms.",
+    "description": "Description for algo coding question format page"
   },
   "PQPdnk": {
     "defaultMessage": "Designs by UI/UX designers",
@@ -4259,6 +4303,10 @@
     "defaultMessage": "An account is required to purchase premium",
     "description": "Title of alert requesting user to create an account to purchase premium plans"
   },
+  "Rrs+sq": {
+    "defaultMessage": "Practice JavaScript Coding Interview Questions with Solutions",
+    "description": "SEO title for Javascript coding question format page"
+  },
   "RsPxKM": {
     "defaultMessage": "Superscript",
     "description": "Label for superscript"
@@ -4643,6 +4691,10 @@
     "defaultMessage": "Difficulty",
     "description": "Question difficulty"
   },
+  "UQMNWX": {
+    "defaultMessage": "Practice User Interface Interview Questions with Solutions",
+    "description": "SEO title for UI question format page"
+  },
   "UQh7Xv": {
     "defaultMessage": "Filter by log level",
     "description": "Select label to filter console log by level"
@@ -4706,6 +4758,10 @@
   "Us7Uly": {
     "defaultMessage": "Ask us about it",
     "description": "Button that opens up mail for user to send us an email about their question about the Affiliate program"
+  },
+  "UsEDlN": {
+    "defaultMessage": "Practice front end interview questions in the format of quizzes on topics like JavaScript, CSS, Accessibility, Performance, and more. Solutions by ex-interviewers.",
+    "description": "SEO description for quiz question format page"
   },
   "UwT84H": {
     "defaultMessage": "Get the right foundation",
@@ -4870,6 +4926,10 @@
   "W+ConA": {
     "defaultMessage": "Guided by well-known senior engineers",
     "description": "Title of 'Guided by well-known senior engineers' feature in marketing page"
+  },
+  "W+UJZA": {
+    "defaultMessage": "Algorithmic Coding",
+    "description": "Page title for algo coding question format page"
   },
   "W/I1wt": {
     "defaultMessage": "View subscription plans",
@@ -5038,6 +5098,10 @@
   "WyXV2L": {
     "defaultMessage": "E.g. React, Next.js, Tailwind CSS, etc.",
     "description": "Placeholder for tech stack input on project submit page"
+  },
+  "X/O+1P": {
+    "defaultMessage": "Code in browser",
+    "description": "Features for question format page"
   },
   "X/axGA": {
     "defaultMessage": "Affiliate Program",
@@ -6215,6 +6279,10 @@
     "defaultMessage": "Project session ended!",
     "description": "Toast title for project session ended"
   },
+  "f2JA9U": {
+    "defaultMessage": "Test your knowledge on front end theory with trivia-style questions on critical front end topics.",
+    "description": "Description for quiz question format page"
+  },
   "f5UO3s": {
     "defaultMessage": "Review Cashback",
     "description": "Promotion title"
@@ -6359,6 +6427,10 @@
     "defaultMessage": "on your first order amount",
     "description": "GFE discount"
   },
+  "fnBudE": {
+    "defaultMessage": "Front End System Design Interview Questions | GreatFrontEnd",
+    "description": "Social title for System design question format page"
+  },
   "frl+Af": {
     "defaultMessage": "Prev",
     "description": "Label for button leading to the previous page"
@@ -6491,6 +6563,10 @@
     "defaultMessage": "Practice questions by companies",
     "description": "Section title"
   },
+  "gl9tj6": {
+    "defaultMessage": "Solved by ex-interviewers",
+    "description": "Features for question format page"
+  },
   "glQWNv": {
     "defaultMessage": "Articles",
     "description": "Label for articles blog"
@@ -6526,6 +6602,10 @@
   "gvncuz": {
     "defaultMessage": "Prioritized lists",
     "description": "Features for study plans"
+  },
+  "h2eWtB": {
+    "defaultMessage": "Build dynamic user interfaces using HTML, CSS, JavaScript, or popular UI frameworks like React, Angular, or Vue.",
+    "description": "Description for UI question format page"
   },
   "h37Wmk": {
     "defaultMessage": "Discover roadmap for upcoming features in Great Frontend Projects.",
@@ -6818,6 +6898,10 @@
   "jNLP4m": {
     "defaultMessage": "Other tech stack used (outside of skills roadmap)",
     "description": "Label for tech stack input on project submit page"
+  },
+  "jPrd8a": {
+    "defaultMessage": "Algorithmic Coding Interview Questions | GreatFrontEnd",
+    "description": "Social title for algo coding question format page"
   },
   "jROOlG": {
     "defaultMessage": "Our users now work in these companies",
@@ -7391,6 +7475,10 @@
     "defaultMessage": "Unlocking this challenge requires {countRequired, plural, =0 {no premium credits} one {<bold>1</bold> premium credit} other {<bold>#</bold> premium credits}} but you only have {countAvailable, plural, =0 {no premium credits} one {<bold>1</bold> premium credit} other {<bold>#</bold> premium credits}} available.",
     "description": "Confirmation text for unlocking a premium challenge"
   },
+  "mtdzmn": {
+    "defaultMessage": "Front End System Design Interview Questions with Solutions",
+    "description": "SEO title for System design question format page"
+  },
   "mukCc2": {
     "defaultMessage": "Add",
     "description": "Add a URL to a form"
@@ -7430,6 +7518,10 @@
   "nAvA8M": {
     "defaultMessage": "Progress | {name}",
     "description": "Title of user profile progress page"
+  },
+  "nI4Alg": {
+    "defaultMessage": "Test cases",
+    "description": "Features for question format page"
   },
   "nL4iPh": {
     "defaultMessage": "We offer bulk discounts at attractive rates for group trainings. Please send an email to <link>institutions@greatfrontend.com</link> with your company email and address, and we would be happy to assist.",
@@ -7514,6 +7606,10 @@
   "nyYJ7j": {
     "defaultMessage": "Time efficient",
     "description": "Features for focus areas question listing"
+  },
+  "nyzAxQ": {
+    "defaultMessage": "Design scalable and maintainable front-end systems. Deep-dive into real-world scenarios like video streaming or e-commerce.",
+    "description": "Description for System design question format page"
   },
   "o+1cag": {
     "defaultMessage": "Clear Console",
@@ -7662,6 +7758,10 @@
   "p3mRa0": {
     "defaultMessage": "Job title is required.",
     "description": "Error message"
+  },
+  "p53i2S": {
+    "defaultMessage": "JavaScript Coding Interview Questions | GreatFrontEnd",
+    "description": "Social title for Javascript coding question format page"
   },
   "p8zMao": {
     "defaultMessage": "Insert inline code",
@@ -7982,6 +8082,10 @@
   "rH3Vfz": {
     "defaultMessage": "Ask any questions in community",
     "description": "Label for \"Ask any questions in community\" item in Expected Support section on Projects project page"
+  },
+  "rHrbfF": {
+    "defaultMessage": "Implement JavaScript functions like utility methods, polyfills, or DOM APIs.",
+    "description": "Javascript coding question format page description"
   },
   "rIMevx": {
     "defaultMessage": "The one-stop to prepare well for your {company} front end interviews. Discover insider tips, optimal prep strategies, and practice questions known to be tested.",
@@ -8607,6 +8711,10 @@
     "defaultMessage": "Follow us on LinkedIn",
     "description": "Title for task"
   },
+  "vhvbP/": {
+    "defaultMessage": "Practice {questionCount}+ Front End Quiz Interview Questions with Answers",
+    "description": "SEO title for quiz question format page"
+  },
   "vi10y1": {
     "defaultMessage": "Dashboard",
     "description": "Link to dashboard page"
@@ -8726,6 +8834,10 @@
   "wIGIux": {
     "defaultMessage": "Build personalized projects, instead of the same as everyone else",
     "description": "Title of 'Personalized projects' feature in Projects marketing page"
+  },
+  "wJYG50": {
+    "defaultMessage": "Practice data structures and algorithms interview questions, solved in JavaScript/TypeScript. Code in-browser with curated solutions from ex-interviewers.",
+    "description": "SEO description for algo coding question format page"
   },
   "wO0zga": {
     "defaultMessage": "Skills roadmap",
@@ -8942,6 +9054,10 @@
   "yAJsl0": {
     "defaultMessage": "Familiarize with selecting elements using CSS selectors, traverse the DOM hierarchy, and manipulate their properties, content, and styles.",
     "description": "Description for interview preparation focus area"
+  },
+  "yC3EoK": {
+    "defaultMessage": "Practice JavaScript coding interview questions by implementing utility functions like throttle or polyfills. Code in-browser with solutions from ex-interviewers.",
+    "description": "SEO description for Javascript coding question format page"
   },
   "yCyxT4": {
     "defaultMessage": "All tracks",

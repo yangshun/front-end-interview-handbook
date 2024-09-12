@@ -39,6 +39,7 @@ export type Props = Readonly<{
   onMarkAsNotCompleted?: (question: QuestionMetadata) => void;
   questionCompletionCount?: QuestionCompletionCount;
   questions: ReadonlyArray<QuestionMetadataWithCompletedStatus>;
+  showTopicFilterTags?: boolean;
 }>;
 
 export default function QuestionsQuizListWithFilters({
@@ -51,6 +52,7 @@ export default function QuestionsQuizListWithFilters({
   namespace,
   questions,
   questionCompletionCount,
+  showTopicFilterTags = true,
 }: Props) {
   const intl = useIntl();
   const [isAscendingOrder, setIsAscendingOrder] = useState(false);
@@ -227,7 +229,7 @@ export default function QuestionsQuizListWithFilters({
       {/* Left Column */}
       <section className="flex flex-col gap-6 lg:col-span-7">
         <div className="flex flex-col gap-4">
-          {topicFiltersEl}
+          {showTopicFilterTags && topicFiltersEl}
           {searchFilterRow}
         </div>
         <div className="flex flex-col gap-4">

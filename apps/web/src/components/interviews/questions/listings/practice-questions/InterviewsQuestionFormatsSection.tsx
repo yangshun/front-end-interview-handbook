@@ -221,7 +221,7 @@ export default function InterviewsQuestionFormatsSection({
       id: 'tDwpNT',
     }),
     gradientClassName: questionsFormat.quiz.themeGradient,
-    href: questionsFormat.quiz.href,
+    href: '/interviews/questions/quiz',
     icon: RiQuestionnaireLine,
     question: {
       completed: questionsProgressAll.quiz.size,
@@ -253,7 +253,7 @@ export default function InterviewsQuestionFormatsSection({
       id: 'S/DgGm',
     }),
     gradientClassName: questionsFormat.coding.themeGradient,
-    href: '/questions/js/coding/javascript',
+    href: '/interviews/questions/javascript',
     icon: RiJavascriptLine,
     question: {
       completed: codingQuestionsProgressAll.javascript.size,
@@ -274,7 +274,7 @@ export default function InterviewsQuestionFormatsSection({
       id: 'bJYnS1',
     }),
     gradientClassName: questionsFormat.coding.themeGradient,
-    href: '/questions/js/coding/user-interface',
+    href: '/interviews/questions/user-interface',
     icon: RiPagesLine,
     question: {
       completed: codingQuestionsProgressAll['user-interface'].size,
@@ -295,7 +295,7 @@ export default function InterviewsQuestionFormatsSection({
       id: 'Hph7Vz',
     }),
     gradientClassName: questionsFormat.coding.themeGradient,
-    href: '/questions/js/coding/algo',
+    href: '/interviews/questions/algo',
     icon: RiPagesLine,
     question: {
       completed: codingQuestionsProgressAll.algo.size,
@@ -316,7 +316,7 @@ export default function InterviewsQuestionFormatsSection({
       id: 'KS2MMz',
     }),
     gradientClassName: questionsFormat['system-design'].themeGradient,
-    href: questionsFormat['system-design'].href,
+    href: '/interviews/questions/system-design',
     icon: RiTimelineView,
     question: {
       completed: questionsProgressAll['system-design'].size,
