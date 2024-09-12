@@ -251,11 +251,11 @@ importers:
         specifier: ^1.0.0
         version: 1.0.0
       '@codesandbox/sandpack-client':
-        specifier: 2.13.8
-        version: 2.13.8
+        specifier: 2.19.7
+        version: 2.19.7
       '@codesandbox/sandpack-react':
-        specifier: 2.13.8
-        version: 2.13.8(@lezer/common@1.2.1)(react-dom@18.2.0)(react@18.2.0)
+        specifier: 2.19.7
+        version: 2.19.7(@lezer/common@1.2.1)(react-dom@18.2.0)(react@18.2.0)
       '@formatjs/intl':
         specifier: ^2.9.9
         version: 2.9.9(typescript@5.3.3)
@@ -2399,18 +2399,19 @@ packages:
       strict-event-emitter: 0.4.6
     dev: false
 
-  /@codesandbox/sandpack-client@2.13.8:
-    resolution: {integrity: sha512-IjVlqfVK0fascNyUVH9hs5UZBx4KhKtyZyDrxdiDyQBtLmgESNaFWelAf4a/PX4gJp+H+WW6/iC6KzR7XtK//w==}
+  /@codesandbox/sandpack-client@2.19.7:
+    resolution: {integrity: sha512-KD870wxiQCoq1lNW9QWF6wCcA/9a9wVHTZod5mCPJecS0RDl+RqrSPKKT/0gx7vBIfv1jzqRVRyvGHXkE7T9bw==}
     dependencies:
       '@codesandbox/nodebox': 0.1.8
       buffer: 6.0.3
       dequal: 2.0.3
+      mime-db: 1.52.0
       outvariant: 1.4.0
       static-browser-server: 1.0.3
     dev: false
 
-  /@codesandbox/sandpack-react@2.13.8(@lezer/common@1.2.1)(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-+/OnUyrNidSzDDiek7drf8UUTJJl4Cd05dCG3BK51OBKoBCieRmsaUlIM3CU2nFDVAgvcSp9Cmu2CXQmwuJ58w==}
+  /@codesandbox/sandpack-react@2.19.7(@lezer/common@1.2.1)(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-MFB+sN2vA93x92AeuXdTcs6fdovWR17oILLo/i6OyA6VdZP7BepOQDs39C+8Rk9jbqOlgBpMIwrJbhCRptdBrw==}
     peerDependencies:
       react: ^16.8.0 || ^17 || ^18
       react-dom: ^16.8.0 || ^17 || ^18
@@ -2423,7 +2424,7 @@ packages:
       '@codemirror/language': 6.9.3
       '@codemirror/state': 6.3.3
       '@codemirror/view': 6.22.1
-      '@codesandbox/sandpack-client': 2.13.8
+      '@codesandbox/sandpack-client': 2.19.7
       '@lezer/highlight': 1.2.0
       '@react-hook/intersection-observer': 3.1.1(react@18.2.0)
       '@stitches/core': 1.2.8
