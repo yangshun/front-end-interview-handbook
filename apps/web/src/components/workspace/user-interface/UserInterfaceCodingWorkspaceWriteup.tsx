@@ -209,8 +209,38 @@ function SolutionPreviewButton() {
       return;
     }
 
+    const solutionPreviewTab = getTabById('solution_preview');
     const descriptionTab = getTabById('description');
+    const fileExplorerTab = getTabById('file_explorer');
 
+    // Focus if already open.
+    if (solutionPreviewTab != null) {
+      dispatch({
+        payload: {
+          tabId: solutionPreviewTab.tabId,
+        },
+        type: 'tab-set-active',
+      });
+
+      return;
+    }
+
+    // Open in same panel as file explorer tab.
+    if (fileExplorerTab != null) {
+      dispatch({
+        payload: {
+          newTabCloseable: true,
+          newTabId: 'solution_preview',
+          panelId: fileExplorerTab.panelId,
+          tabId: fileExplorerTab.tabId,
+        },
+        type: 'tab-open',
+      });
+
+      return;
+    }
+
+    // Open in same panel as description tab.
     dispatch({
       payload: {
         newTabCloseable: true,
@@ -225,7 +255,7 @@ function SolutionPreviewButton() {
   return (
     <Button
       icon={RiArrowRightUpLine}
-      label="See what you're building"
+      label="Preview what you need to build"
       size="sm"
       variant="secondary"
       onClick={onClick}

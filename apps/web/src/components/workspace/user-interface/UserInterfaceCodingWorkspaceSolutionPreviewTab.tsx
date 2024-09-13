@@ -1,3 +1,5 @@
+import clsx from 'clsx';
+
 import { useColorSchemePreferences } from '~/components/global/color-scheme/ColorSchemePreferencesProvider';
 import type { QuestionUserInterfaceBundle } from '~/components/interviews/questions/common/QuestionsTypes';
 import Anchor from '~/components/ui/Anchor';
@@ -18,12 +20,13 @@ export default function UserInterfaceCodingWorkspaceSolutionPreviewTab({
 }: Props) {
   const { colorScheme } = useColorSchemePreferences();
   const { workspace, files } = bundle;
-  const { dispatch } = useUserInterfaceCodingWorkspaceTilesContext();
+  const { dispatch, getTabById } =
+    useUserInterfaceCodingWorkspaceTilesContext();
 
   return (
     <div className="size-full flex flex-col">
       <Banner size="xs" variant="primary">
-        You're viewing a preview of the solution.{' '}
+        This is a preview of the solution.{' '}
         <Anchor
           className="underline"
           href="#"
@@ -36,8 +39,14 @@ export default function UserInterfaceCodingWorkspaceSolutionPreviewTab({
               },
               type: 'tab-close',
             });
+            dispatch({
+              payload: {
+                tabId: getTabById('description')!.tabId,
+              },
+              type: 'tab-set-active',
+            });
           }}>
-          Close and return to description.
+          Close and return to description
         </Anchor>
       </Banner>
       <div className="flex h-0 grow">
@@ -52,7 +61,11 @@ export default function UserInterfaceCodingWorkspaceSolutionPreviewTab({
               'sp-input': 'touch-none select-none pointer-events-none',
               'sp-layout': 'h-full',
               'sp-stack': 'h-full',
-              'sp-wrapper': '!w-full !h-full !text-sm flex-1',
+              'sp-wrapper': clsx(
+                '!w-full !h-full !text-sm flex-1',
+                // Needed to disable iframe from interfering with resizing.
+                'pointer-events-inherit',
+              ),
             },
           }}
           theme={colorScheme === 'dark' ? 'dark' : undefined}>

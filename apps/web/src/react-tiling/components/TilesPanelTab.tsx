@@ -3,11 +3,7 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 import { useDrag, useDrop } from 'react-dnd';
 import { RiCloseLine } from 'react-icons/ri';
 
-import {
-  themeBackgroundElementEmphasizedStateColor_Hover,
-  themeBackgroundElementPressedStateColor_Active,
-  themeTextSubtleColor,
-} from '~/components/ui/theme';
+import { themeTextSubtleColor } from '~/components/ui/theme';
 
 import { I18nLink } from '~/next-i18nostic/src';
 

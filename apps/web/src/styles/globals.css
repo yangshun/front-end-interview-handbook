@@ -58,6 +58,10 @@ a {
   );
 }
 
+.pointer-events-inherit {
+  pointer-events: inherit !important;
+}
+
 @import './sticky.css';
 @import './fancy.css';
 @import './scrollbar.css';

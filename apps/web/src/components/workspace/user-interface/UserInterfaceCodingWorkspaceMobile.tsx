@@ -5,9 +5,9 @@ import { useMediaQuery } from 'usehooks-ts';
 
 import { themeBorderColor } from '~/components/ui/theme';
 
-// Bug in Sandpack, cannot lazy load the preview otherwise
+// Cannot lazy load the preview otherwise
 // the bundling isn't triggered and no preview is shown.
-import { SandpackPreview } from '@codesandbox/sandpack-react';
+import UserInterfaceCodingWorkspacePreview from './UserInterfaceCodingWorkspacePreview';
 
 const SandpackLayout = dynamic(
   async () => {
@@ -71,7 +71,7 @@ export default function UserInterfaceCodingWorkspaceMobile({
         <SandpackCodeEditor />
       </SandpackLayout>
       <div className={clsx('flex h-[500px] rounded border', themeBorderColor)}>
-        <SandpackPreview showNavigator={true} showOpenInCodeSandbox={false} />
+        <UserInterfaceCodingWorkspacePreview />
       </div>
     </div>
   );
