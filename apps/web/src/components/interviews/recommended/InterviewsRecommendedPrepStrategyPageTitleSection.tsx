@@ -197,6 +197,7 @@ type CommonProps = Readonly<{
   questions?: ReadonlyArray<QuestionMetadata>;
   questionsSessionKey?: string;
   showQuestionCountCard?: boolean;
+  showRecommendedItemsDropdown?: boolean;
   themeBackgroundClass?: string;
   title: string;
 }>;
@@ -223,13 +224,14 @@ export default function InterviewsRecommendedPrepStrategyPageTitleSection({
   questions,
   overallProgress,
   showQuestionCountCard = true,
+  showRecommendedItemsDropdown = true,
   ...props
 }: Props) {
   const intl = useIntl();
   const user = useUser();
   const { data: questionListSessions } =
     trpc.questionLists.getActiveSessions.useQuery(undefined, {
-      enabled: !!user,
+      enabled: !!user && showRecommendedItemsDropdown,
     });
 
   const sessions = questionListSessions ?? [];
@@ -237,19 +239,23 @@ export default function InterviewsRecommendedPrepStrategyPageTitleSection({
   return (
     <div className="flex flex-col gap-8">
       <div className="flex flex-wrap items-center justify-between gap-x-2 gap-y-4">
-        <div className="flex items-center gap-3">
-          <Badge
-            label={intl.formatMessage({
-              defaultMessage: 'Recommended',
-              description: 'Label for Recommended tag',
-              id: 'baItxW',
-            })}
-            size="xs"
-            variant="primary"
-          />
-          <RecommendedItemsDropdown sessions={sessions} />
+        {showRecommendedItemsDropdown && (
+          <div className="flex items-center gap-3">
+            <Badge
+              label={intl.formatMessage({
+                defaultMessage: 'Recommended',
+                description: 'Label for Recommended tag',
+                id: 'baItxW',
+              })}
+              size="xs"
+              variant="primary"
+            />
+            <RecommendedItemsDropdown sessions={sessions} />
+          </div>
+        )}
+        <div className="flex flex-1 justify-end">
+          <InterviewsPageHeaderActions metadata={metadata} />
         </div>
-        <InterviewsPageHeaderActions metadata={metadata} />
       </div>
       <QuestionsLearningListPageTitleSection
         description={description}

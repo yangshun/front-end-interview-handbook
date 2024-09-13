@@ -1,4 +1,5 @@
 import type {
+  behavioralSlugs,
   frontendInterviewSlugs,
   frontendSystemDesignSlugs,
 } from '~/db/guides/GuidesUtils';
@@ -64,6 +65,13 @@ export type FrontEndSystemDesignSlugType =
 // For the introduction article, the slug is introduction, but the route is ''
 export type FrontEndSystemDesignRouteType =
   | Exclude<FrontEndSystemDesignSlugType, 'introduction'>
+  | '';
+
+export type BehavioralSlugType = (typeof behavioralSlugs)[number];
+
+// For the introduction article, the slug is introduction, but the route is ''
+export type BehavioralRouteType =
+  | Exclude<BehavioralSlugType, 'introduction'>
   | '';
 
 export type GuideCardMetadata = GuideMetadata &

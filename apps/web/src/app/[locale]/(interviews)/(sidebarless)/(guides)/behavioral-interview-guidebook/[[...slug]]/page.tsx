@@ -4,10 +4,12 @@ import type { Metadata } from 'next/types';
 import path from 'path';
 
 import BehavioralInterviewGuidebookLayout from '~/components/guides/BehavioralInterviewGuidebookLayout';
+import type { BehavioralRouteType } from '~/components/guides/types';
 import MDXCodeBlock from '~/components/mdx/MDXCodeBlock';
 import MDXComponents from '~/components/mdx/MDXComponents';
 
 import { readGuidesContents } from '~/db/guides/GuidesReader';
+import { behavioralRouteToFile } from '~/db/guides/GuidesUtils';
 import { readMDXFileWithLocaleFallback } from '~/db/questions-bundlers/QuestionsBundler';
 import { generateStaticParamsWithLocale } from '~/next-i18nostic/src';
 import defaultMetadata from '~/seo/defaultMetadata';
@@ -19,20 +21,9 @@ type Props = Readonly<{
   };
 }>;
 
-const routeToFile: Record<string, string> = {
-  '': 'overview',
-  collaboration: 'collaboration',
-  'growth-mindset': 'growth-mindset',
-  'problem-solving': 'problem-solving',
-  questions: 'questions',
-  'questions-to-ask': 'questions-to-ask',
-  'self-introduction': 'self-introduction',
-  'why-work-here': 'why-work-here',
-};
-
 export async function generateStaticParams() {
   return generateStaticParamsWithLocale(
-    Object.keys(routeToFile).map((slug) => ({
+    Object.keys(behavioralRouteToFile).map((slug) => ({
       slug: slug ? slug.split('/') : [],
     })),
   );
@@ -42,7 +33,9 @@ function requestToPaths({ params }: Props): Readonly<{
   directoryPath: string;
   pathname: string;
 }> {
-  const mdxPath = (params.slug ?? []).join('/').replace(/\/$/g, '');
+  const mdxPath = (params.slug ?? [])
+    .join('/')
+    .replace(/\/$/g, '') as BehavioralRouteType;
 
   const directoryPath = path.join(
     process.cwd(),
@@ -53,7 +46,7 @@ function requestToPaths({ params }: Props): Readonly<{
     'packages',
     'behavioral-interview-guidebook',
     'contents',
-    routeToFile[mdxPath],
+    behavioralRouteToFile[mdxPath],
   );
   const pathname = `/behavioral-interview-guidebook/${mdxPath}`;
 

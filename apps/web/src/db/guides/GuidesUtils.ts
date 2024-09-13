@@ -1,6 +1,7 @@
 import { keyBy, mapValues, sumBy } from 'lodash-es';
 
 import type {
+  BehavioralRouteType,
   FrontEndInterviewRouteType,
   FrontEndSystemDesignRouteType,
   GuideCardMetadata,
@@ -67,6 +68,28 @@ export const frontendSystemDesignRouteToFile: Record<
   'evaluation-axes': 'evaluation-axes',
   framework: 'framework',
   'types-of-questions': 'types-of-questions',
+};
+
+export const behavioralSlugs = [
+  'introduction',
+  'questions',
+  'self-introduction',
+  'why-work-here',
+  'questions-to-ask',
+  'problem-solving',
+  'collaboration',
+  'growth-mindset',
+] as const;
+
+export const behavioralRouteToFile: Record<BehavioralRouteType, string> = {
+  '': 'overview',
+  collaboration: 'collaboration',
+  'growth-mindset': 'growth-mindset',
+  'problem-solving': 'problem-solving',
+  questions: 'questions',
+  'questions-to-ask': 'questions-to-ask',
+  'self-introduction': 'self-introduction',
+  'why-work-here': 'why-work-here',
 };
 
 export function categorizeGuides<

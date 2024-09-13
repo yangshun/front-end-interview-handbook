@@ -18,6 +18,7 @@ type Props = Readonly<{
     href: string;
     title: string;
   };
+  showRecommendedItemsDropdown?: boolean;
   title: string;
 }>;
 
@@ -29,6 +30,7 @@ export default function GuidesCoverLayout({
   longDescription,
   children,
   metadata,
+  showRecommendedItemsDropdown,
 }: Props) {
   return (
     <Container className={clsx('flex flex-col gap-y-12', 'py-12', 'relative')}>
@@ -39,6 +41,7 @@ export default function GuidesCoverLayout({
         longDescription={longDescription}
         metadata={metadata}
         showQuestionCountCard={false}
+        showRecommendedItemsDropdown={showRecommendedItemsDropdown}
         title={title}
       />
       {children}
