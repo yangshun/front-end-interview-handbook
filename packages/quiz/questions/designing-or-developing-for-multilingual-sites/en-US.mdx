@@ -36,7 +36,7 @@ Languages like English and French are written from left-to-right, top-to-bottom.
 
 ## Do not concatenate translated strings
 
-Do not do anything like `"The date today is " + date`. It will break in languages with different word order. Use a template string with parameters substitution for each language instead. For example, look at the following two sentences in English and Chinese respectively: `I will travel on {% date %}` and `{% date %} 我会出发`. Note that the position of the variable is different due to grammar rules of the language.
+Do not do anything like `"The date today is " + date`. It will break in languages with different word order. Use a template string with parameters substitution for each language instead. For example, look at the following two sentences in English and Chinese respectively: `I will travel on {% date %}` and `我会在{% date %}出发`. Note that the position of the variable is different due to grammar rules of the language.
 
 ## Formatting dates and currencies
 
