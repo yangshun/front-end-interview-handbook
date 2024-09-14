@@ -29,7 +29,10 @@ export default function GuidesDropdownMenu() {
 
   const selectedGuide =
     Object.values(guides).find(({ href }) => pathname?.startsWith(href)) ??
-    guides[0];
+    // System design questions are part of the FESD guidebook.
+    (pathname?.includes('/questions/system-design')
+      ? guidesData['front-end-system-design-guidebook']
+      : guides[0]);
 
   const Icon = selectedGuide.icon;
   const label = selectedGuide.shortName;
