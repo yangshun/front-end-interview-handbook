@@ -12,12 +12,12 @@ import useMonacoEditorTheme from './useMonacoEditorTheme';
 import MonacoEditor, { loader, useMonaco } from '@monaco-editor/react';
 
 loader.config({
-  // Keep version synced with `monaco-editor` in package.json.
   paths: {
-    vs: '/monaco-editor/min/vs',
-    // Process.env.NODE_ENV === 'development'
-    //   ? '/monaco-editor/dev/vs'
-    //   : '/monaco-editor/min/vs',
+    vs:
+      process.env.NODE_ENV === 'development'
+        ? // Keep version synced with `monaco-editor` in package.json.
+          'https://cdn.gfe.zone/npm/monaco-editor@0.40.0/dev/vs'
+        : 'https://cdn.gfe.zone/npm/monaco-editor@0.40.0/min/vs',
   },
 });
 
