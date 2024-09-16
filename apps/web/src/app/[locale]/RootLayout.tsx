@@ -1,7 +1,6 @@
 import clsx from 'clsx';
 import nextI18nConfig from 'next-i18nostic/config';
 
-import GlobalLogging from '~/components/global/analytics/GlobalLogging';
 import GoogleAnalytics from '~/components/global/analytics/GoogleAnalytics';
 import HydrationFailureLogging from '~/components/global/analytics/HydrationFailureLogging';
 import MetaPixel from '~/components/global/analytics/MetaPixel';
@@ -44,7 +43,6 @@ export default function RootLayout({ children, intlMessages, locale }: Props) {
           <GoogleAnalytics />
           <MetaPixel />
           {children}
-          <GlobalLogging />
           <FirstPromoter />
           <I18nBetaBanner />
           <Toaster />
