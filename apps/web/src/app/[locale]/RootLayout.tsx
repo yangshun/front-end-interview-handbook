@@ -5,7 +5,6 @@ import GlobalLogging from '~/components/global/analytics/GlobalLogging';
 import GoogleAnalytics from '~/components/global/analytics/GoogleAnalytics';
 import HydrationFailureLogging from '~/components/global/analytics/HydrationFailureLogging';
 import MetaPixel from '~/components/global/analytics/MetaPixel';
-import WebVitals from '~/components/global/analytics/WebVitals';
 import GlobalBannerDisplayScript from '~/components/global/banners/GlobalBannerDisplayScript';
 import I18nBetaBanner from '~/components/global/banners/I18nBetaBanner';
 import ColorSchemeScript from '~/components/global/color-scheme/ColorSchemeScript';
@@ -47,7 +46,6 @@ export default function RootLayout({ children, intlMessages, locale }: Props) {
           {children}
           <GlobalLogging />
           <FirstPromoter />
-          <WebVitals />
           <I18nBetaBanner />
           <Toaster />
         </GlobalProviders>

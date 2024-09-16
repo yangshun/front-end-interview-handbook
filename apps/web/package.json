@@ -135,7 +135,6 @@
     "ua-parser-js": "^1.0.38",
     "usehooks-ts": "^2.9.1",
     "uuid": "^9.0.0",
-    "web-vitals": "^3.3.0",
     "zod": "^3.21.4"
   },
   "devDependencies": {
