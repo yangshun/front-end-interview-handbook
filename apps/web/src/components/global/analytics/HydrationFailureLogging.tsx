@@ -1,6 +1,5 @@
 'use client';
 
-import jsCookie from 'js-cookie';
 import { useEffect } from 'react';
 
 import logEvent from '~/logging/logEvent';
@@ -11,7 +10,6 @@ export default function HydrationFailureLogging() {
     // @ts-ignore
     window.__hydrated = true;
     logEvent('hydration.success', {
-      clientCountry: jsCookie.get('country'),
       namespace: 'general',
       url: window.location.href,
     });
@@ -35,7 +33,6 @@ export default function HydrationFailureLogging() {
               payload: {
                 url: window.location.href,
               },
-              query: Object.fromEntries(new URLSearchParams(window.location.search)),
             }),
             headers: { 'Content-Type': 'application/json' },
             method: 'POST',
