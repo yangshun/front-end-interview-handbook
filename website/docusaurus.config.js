@@ -6,7 +6,7 @@ module.exports = {
     'Front end interview preparation resources for busy engineers – quiz questions, JavaScript coding questions, algorithms questions, front end system design questions and more. Updated for 2024!',
   url: 'https://www.frontendinterviewhandbook.com',
   baseUrl: '/',
-  trailingSlash: true,
+  trailingSlash: false,
   favicon: 'img/favicon.png',
   organizationName: 'yangshun',
   projectName: 'front-end-interview-handbook',
