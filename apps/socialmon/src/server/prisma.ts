@@ -1,7 +1,7 @@
 /**
  * @link https://prisma.io/docs/support/help-articles/nextjs-prisma-client-dev-practices
  */
-import { PrismaClient } from '.prisma/client';
+import { PrismaClient } from '../../prisma/generated/client';
 
 const prismaClientSingleton = () => {
   return new PrismaClient();
