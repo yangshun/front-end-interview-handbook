@@ -16,8 +16,8 @@ loader.config({
     vs:
       process.env.NODE_ENV === 'development'
         ? // Keep version synced with `monaco-editor` in package.json.
-          'https://cdn.gfe.zone/npm/monaco-editor@0.40.0/dev/vs'
-        : 'https://cdn.gfe.zone/npm/monaco-editor@0.40.0/min/vs',
+          'https://gfecdn.net/npm/monaco-editor@0.40.0/dev/vs'
+        : 'https://gfecdn.net/npm/monaco-editor@0.40.0/min/vs',
   },
 });
 
