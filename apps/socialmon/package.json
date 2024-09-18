@@ -25,7 +25,6 @@
     "@prisma/nextjs-monorepo-workaround-plugin": "^5.19.1",
     "@tanstack/react-query": "^4.28.0",
     "@trpc/client": "^10.18.0",
-    "@trpc/next": "^10.18.0",
     "@trpc/react-query": "^10.18.0",
     "@trpc/server": "^10.18.0",
     "ai": "^3.2.8",
