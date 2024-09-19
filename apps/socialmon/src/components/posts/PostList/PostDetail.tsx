@@ -2,6 +2,7 @@
 
 import clsx from 'clsx';
 import { type ChangeEvent, useEffect, useState } from 'react';
+import toast from 'react-hot-toast';
 import { RiChat4Line } from 'react-icons/ri';
 
 import { trpc } from '~/hooks/trpc';
@@ -61,6 +62,11 @@ export default function PostDetail({
         permalink: hasReply ? post.reply.permalink : post.permalink, // If has reply, instead fetch the reply and its replies
       },
       {
+        onError: (error) => {
+          toast.error(
+            error.message || 'Something went wrong. Try again later.',
+          );
+        },
         onSuccess: (result) => {
           // To update the post with latest data
           const { post: latestPost } = result;

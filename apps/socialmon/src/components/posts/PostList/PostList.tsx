@@ -6,6 +6,8 @@ import { useState } from 'react';
 import { trpc } from '~/hooks/trpc';
 import useCurrentProjectSlug from '~/hooks/useCurrentProjectSlug';
 
+import RelativeTimestamp from '~/components/common/datetime/RelativeTimestamp';
+
 import { NAVBAR_HEIGHT } from '~/constants';
 
 import FetchPostButton from './FetchPostButton';
@@ -13,9 +15,19 @@ import PostItem from './PostItem';
 
 import type { PostTab } from '~/types';
 
-import { Button, Tabs, Text } from '@mantine/core';
+import { Button, Tabs, Text, Tooltip } from '@mantine/core';
 
 const LIMIT = 20;
+
+const timestampFormatter = new Intl.DateTimeFormat('en-US', {
+  day: 'numeric',
+  hour: 'numeric',
+  hour12: true,
+  minute: '2-digit',
+  month: 'long',
+  weekday: 'long',
+  year: 'numeric',
+});
 
 export default function PostList() {
   const projectSlug = useCurrentProjectSlug();
@@ -35,6 +47,9 @@ export default function PostList() {
         },
       },
     );
+  const { data: projectData } = trpc.project.get.useQuery({
+    projectSlug,
+  });
 
   const posts = data?.pages.flatMap((page) => page.posts);
 
@@ -53,7 +68,22 @@ export default function PostList() {
             <Tabs.Tab value="all">All</Tabs.Tab>
           </Tabs.List>
         </Tabs>
-        <div className="absolute right-1 top-0.5 md:right-4">
+        <div className="absolute right-1 top-0.5 flex items-center gap-2 md:right-4">
+          {projectData?.postsLastFetchedAt && (
+            <div className="hidden md:block">
+              <Tooltip
+                label={timestampFormatter.format(
+                  new Date(projectData.postsLastFetchedAt),
+                )}>
+                <Text size="sm">
+                  Fetched{' '}
+                  <RelativeTimestamp
+                    timestamp={new Date(projectData.postsLastFetchedAt)}
+                  />
+                </Text>
+              </Tooltip>
+            </div>
+          )}
           <FetchPostButton />
         </div>
       </div>

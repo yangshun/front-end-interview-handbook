@@ -246,11 +246,22 @@ export const socialPostsRouter = router({
         projectId: project.id,
       }));
 
-      // Add it to the db
-      return await prisma.redditPost.createMany({
-        data: postsFromRedditWithProjectId,
-        skipDuplicates: true,
-      });
+      return await prisma.$transaction([
+        // Add it to the db
+        prisma.redditPost.createMany({
+          data: postsFromRedditWithProjectId,
+          skipDuplicates: true,
+        }),
+        // Update last posts fetch time
+        prisma.project.update({
+          data: {
+            postsLastFetchedAt: new Date(),
+          },
+          where: {
+            id: project.id,
+          },
+        }),
+      ]);
     }),
   markPostRelevancy: userProcedure
     .input(

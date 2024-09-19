@@ -71,13 +71,13 @@ export const projectRouter = router({
   get: userProcedure
     .input(
       z.object({
-        projectId: z.string().uuid(),
+        projectSlug: z.string(),
       }),
     )
-    .query(async ({ input: { projectId } }) => {
+    .query(async ({ input: { projectSlug } }) => {
       return await prisma.project.findUnique({
         where: {
-          id: projectId,
+          slug: projectSlug,
         },
       });
     }),

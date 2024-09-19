@@ -19,6 +19,7 @@ export default function FetchPostButton() {
         },
         onSuccess() {
           toast.success('Fetched posts from the platform successfully!');
+          utils.project.get.invalidate();
           utils.socialPosts.getPosts.invalidate();
         },
       },
@@ -26,7 +27,7 @@ export default function FetchPostButton() {
 
   return (
     <Tooltip
-      label="Fetch posts from the platform"
+      label="Fetch posts from reddit"
       position="top-end"
       withArrow={true}>
       <ActionIcon

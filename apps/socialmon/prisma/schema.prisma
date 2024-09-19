@@ -151,11 +151,13 @@ model Project {
   slug                String    @unique @default(dbgenerated("SUBSTRING((gen_random_uuid())::text FROM 1 FOR 8)")) @db.Citext
   keywords            String[]
   subreddits          String[]
-  redditUsers               RedditUser[]
+  redditUsers         RedditUser[]
   posts               RedditPost[]
   activities          Activity[]
   productsToAdvertise Json
   postFilteringPrompt String
+
+  postsLastFetchedAt  DateTime?  @db.Timestamptz(6)
 
   @@index([slug])
 }

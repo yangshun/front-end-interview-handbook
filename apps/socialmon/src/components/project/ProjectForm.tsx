@@ -3,6 +3,7 @@
 import { debounce } from 'lodash-es';
 import { useRouter } from 'next/navigation';
 import { useRef, useState } from 'react';
+import toast from 'react-hot-toast';
 
 import { trpc } from '~/hooks/trpc';
 
@@ -87,6 +88,11 @@ export default function ProjectForm({
       },
       {
         enabled: !!subredditSuggestion,
+        onError: (error) => {
+          toast.error(
+            error.message || 'Something went wrong. Try again later.',
+          );
+        },
       },
     );
 
