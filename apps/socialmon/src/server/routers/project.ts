@@ -101,13 +101,13 @@ export const projectRouter = router({
       if (response.status === 429) {
         throw new TRPCError({
           code: 'INTERNAL_SERVER_ERROR',
-          message: `Reddit API rate limit exceeded! Please try again some time.`,
+          message: `Failed to fetch subreddits. Reddit API rate limit exceeded! Please try again some time.`,
         });
       }
       if (!response.ok) {
         throw new TRPCError({
           code: 'INTERNAL_SERVER_ERROR',
-          message: `Reddit API responded with status ${response.status}`,
+          message: `Failed to fetch subreddits. Reddit API responded with status ${response.status}`,
         });
       }
 
