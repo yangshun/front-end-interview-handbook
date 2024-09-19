@@ -32,7 +32,7 @@ function PostMetadata({
           <div className="h-1 w-1 rounded-full bg-slate-600" />
 
           <Text size="sm">
-            <RelativeTimestamp timestamp={new Date(post.postedAt)} />
+            <RelativeTimestamp timestamp={new Date(post.createdAt)} />
           </Text>
 
           <div className="h-1 w-1 rounded-full bg-slate-600" />

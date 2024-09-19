@@ -4,7 +4,7 @@ import toast from 'react-hot-toast';
 import { trpc } from '~/hooks/trpc';
 import useCurrentProjectSlug from '~/hooks/useCurrentProjectSlug';
 
-import { PostRelevancy } from '.prisma/client';
+import { PostRelevancy } from '~/prisma/client';
 
 import { Button } from '@mantine/core';
 type Props = Readonly<{

@@ -20,6 +20,7 @@ export const socialUsersRouter = router({
       const { input } = opts;
       const { user, projectSlug } = input;
       const project = await prisma.project.findUnique({
+        select: { id: true },
         where: {
           slug: projectSlug,
         },
@@ -28,7 +29,7 @@ export const socialUsersRouter = router({
       if (!project) {
         throw new TRPCError({
           code: 'BAD_REQUEST',
-          message: "Associated project doesn't exist!",
+          message: 'Project not found!',
         });
       }
 
@@ -63,6 +64,7 @@ export const socialUsersRouter = router({
     )
     .query(async ({ input: { projectSlug } }) => {
       const project = await prisma.project.findUnique({
+        select: { id: true },
         where: {
           slug: projectSlug,
         },

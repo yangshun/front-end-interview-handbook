@@ -14,8 +14,6 @@ import { parseMarkdown } from '../utils';
 
 import type { PostExtended } from '~/types';
 
-import '@mantine/core/styles.css';
-
 import {
   Button,
   Divider,
@@ -63,7 +61,7 @@ export default function PostDetail({
         permalink: hasReply ? post.reply.permalink : post.permalink, // If has reply, instead fetch the reply and its replies
       },
       {
-        onSuccess(result) {
+        onSuccess: (result) => {
           // To update the post with latest data
           const { post: latestPost } = result;
 

@@ -18,6 +18,7 @@ export const activityRouter = router({
     )
     .query(async ({ input: { projectSlug, cursor, pagination } }) => {
       const project = await prisma.project.findUnique({
+        select: { id: true },
         where: {
           slug: projectSlug,
         },
@@ -26,7 +27,7 @@ export const activityRouter = router({
       if (!project) {
         throw new TRPCError({
           code: 'BAD_REQUEST',
-          message: "Associated project doesn't exist!",
+          message: 'Project not found!',
         });
       }
 

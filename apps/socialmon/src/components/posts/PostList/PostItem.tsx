@@ -7,12 +7,18 @@ import PostMetadata from './PostMetadata';
 
 import type { PostExtended } from '~/types';
 
-import '@mantine/core/styles.css';
-
 import { Box, Title } from '@mantine/core';
 
 type Props = Readonly<{
-  post: PostExtended;
+  post: Readonly<{
+    commentsCount: number;
+    createdAt: Date;
+    id: string;
+    keywords: ReadonlyArray<string>;
+    subreddit?: string;
+    title: string;
+    upvoteCount: number;
+  }>;
   showMarkedAsIrrelevant?: boolean;
   showRepliedBadge?: boolean;
 }>;
@@ -40,7 +46,7 @@ export default function PostItem({
       href={`/projects/${projectSlug}/posts/${post.id}`}>
       <Title order={5}>{post.title}</Title>
       <PostMetadata
-        post={post}
+        post={post as PostExtended}
         showMarkedAsIrrelevant={showMarkedAsIrrelevant}
         showRepliedBadge={showRepliedBadge}
       />

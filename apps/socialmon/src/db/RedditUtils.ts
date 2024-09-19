@@ -3,9 +3,8 @@
 import type { Submission } from 'snoowrap';
 import Snoowrap from 'snoowrap';
 
+import type { RedditPost } from '~/prisma/client';
 import OpenAIProvider from '~/providers/OpenAIProvider';
-
-import type { RedditPost } from '.prisma/client';
 
 export function initializeRedditClient(username?: string, password?: string) {
   return new Snoowrap({

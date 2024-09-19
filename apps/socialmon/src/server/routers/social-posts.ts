@@ -8,12 +8,12 @@ import {
   replyToRedditPost,
 } from '~/db/RedditUtils';
 import { decryptPassword } from '~/db/utils';
+import { ActivityAction, PostRelevancy } from '~/prisma/client';
 
-import { ActivityAction, PostRelevancy } from '.prisma/client';
 import prisma from '../prisma';
 import { router, userProcedure } from '../trpc';
 import OpenAIProvider from '../../providers/OpenAIProvider';
-import type { Comments, ProjectTransformed } from '../../types';
+import type { Comments } from '../../types';
 
 import { TRPCError } from '@trpc/server';
 
@@ -35,13 +35,24 @@ export const socialPostsRouter = router({
     )
     .mutation(async (opts) => {
       const { input } = opts;
-      const { post } = input;
+      const { post, projectSlug } = input;
 
       const project = (await prisma.project.findUnique({
-        where: {
-          slug: input.projectSlug,
-        },
-      })) as ProjectTransformed;
+        select: { productsToAdvertise: true },
+        where: { slug: projectSlug },
+      })) as Readonly<{
+        productsToAdvertise: ReadonlyArray<{
+          description: string;
+          url: string;
+        }> | null;
+      }>;
+
+      if (!project) {
+        throw new TRPCError({
+          code: 'BAD_REQUEST',
+          message: 'Project not found!',
+        });
+      }
 
       const aiProvider = getAIProvider();
       const result = await aiProvider.generateResponseTo({
@@ -105,9 +116,6 @@ export const socialPostsRouter = router({
 
       if (tab === 'unreplied') {
         postFilter = {
-          relevancy: {
-            not: 'RELEVANT',
-          },
           reply: {
             is: null,
           },
@@ -125,6 +133,7 @@ export const socialPostsRouter = router({
       }
 
       const project = await prisma.project.findUnique({
+        select: { id: true },
         where: {
           slug: projectSlug,
         },
@@ -133,50 +142,24 @@ export const socialPostsRouter = router({
       if (!project) {
         throw new TRPCError({
           code: 'BAD_REQUEST',
-          message: "Associated project doesn't exist!",
+          message: 'Project not found!',
         });
       }
 
       const posts = await prisma.redditPost.findMany({
         cursor: cursor ? { id: cursor } : undefined,
-        include: {
-          activities: {
-            include: {
-              user: {
-                select: {
-                  id: true,
-                  name: true,
-                },
-              },
-            },
-            orderBy: {
-              createdAt: 'desc',
-            },
-            take: 1,
-            where: {
-              action: {
-                in: ['MADE_IRRELEVANT', 'MADE_RELEVANT'],
-              },
-            },
-          },
-          reply: {
-            include: {
-              redditUser: {
-                select: {
-                  username: true,
-                },
-              },
-              user: {
-                select: {
-                  id: true,
-                  name: true,
-                },
-              },
-            },
-          },
-        },
         orderBy: {
-          postedAt: 'desc',
+          createdAt: 'desc',
+        },
+        select: {
+          commentsCount: true,
+          createdAt: true,
+          id: true,
+          keywords: true,
+          reply: true,
+          subreddit: true,
+          title: true,
+          upvoteCount: true,
         },
         take: limit + 1,
         where: {
@@ -209,6 +192,12 @@ export const socialPostsRouter = router({
     )
     .query(async ({ input: { projectSlug } }) => {
       const project = await prisma.project.findUnique({
+        select: {
+          id: true,
+          keywords: true,
+          postFilteringPrompt: true,
+          subreddits: true,
+        },
         where: {
           slug: projectSlug,
         },
@@ -217,7 +206,7 @@ export const socialPostsRouter = router({
       if (!project) {
         throw new TRPCError({
           code: 'BAD_REQUEST',
-          message: "Associated project doesn't exist!",
+          message: 'Project not found!',
         });
       }
 
@@ -257,6 +246,7 @@ export const socialPostsRouter = router({
             : ActivityAction.MADE_IRRELEVANT;
 
         const project = await prisma.project.findUnique({
+          select: { id: true },
           where: {
             slug: projectSlug,
           },
@@ -265,7 +255,7 @@ export const socialPostsRouter = router({
         if (!project) {
           throw new TRPCError({
             code: 'BAD_REQUEST',
-            message: "Associated project doesn't exist!",
+            message: 'Project not found!',
           });
         }
 
@@ -301,40 +291,16 @@ export const socialPostsRouter = router({
     )
     .mutation(async ({ input, ctx: { session } }) => {
       const { id, response, redditUserId, projectSlug } = input;
-      const [post, user, project] = await Promise.all([
-        prisma.redditPost.findUnique({
-          where: {
-            id,
-          },
-        }),
-        prisma.redditUser.findUnique({
-          where: {
-            id: redditUserId,
-          },
-        }),
-        prisma.project.findUnique({
-          where: {
-            slug: projectSlug,
-          },
-        }),
+      const [post, user, project] = await prisma.$transaction([
+        prisma.redditPost.findUnique({ where: { id } }),
+        prisma.redditUser.findUnique({ where: { id: redditUserId } }),
+        prisma.project.findUnique({ where: { slug: projectSlug } }),
       ]);
 
-      if (!user) {
+      if (!user || !post || !project) {
         throw new TRPCError({
           code: 'BAD_REQUEST',
-          message: 'Account is required to reply to a post.',
-        });
-      }
-      if (!post) {
-        throw new TRPCError({
-          code: 'BAD_REQUEST',
-          message: 'Associated post is required to reply to the post.',
-        });
-      }
-      if (!project) {
-        throw new TRPCError({
-          code: 'BAD_REQUEST',
-          message: "Associated project doesn't exist!",
+          message: 'Invalid data provided',
         });
       }
 
