@@ -1,3 +1,5 @@
+import fetch from 'node-fetch';
+import type { Submission } from 'snoowrap';
 import { z } from 'zod';
 
 import { redditPermalinkToAPIUrl } from '~/components/posts/utils';
@@ -78,12 +80,34 @@ export const socialPostsRouter = router({
     .query(async ({ input: { permalink } }) => {
       const apiUrl = redditPermalinkToAPIUrl(permalink);
       // To convert post url from https://www.reddit.com/r/*/need_beta_users_for_my_frontend_microsaas_tool/ to https://www.reddit.com/r/*/need_beta_users_for_my_frontend_microsaas_tool.json
-      const postResponse = await fetch(`${apiUrl.replace(/\/$/, '')}.json`, {
+      const response = await fetch(`${apiUrl.replace(/\/$/, '')}.json`, {
         method: 'GET',
       });
 
-      const data = await postResponse.json();
-      const [post, comments] = data;
+      if (response.status === 429) {
+        throw new TRPCError({
+          code: 'INTERNAL_SERVER_ERROR',
+          message: `Reddit API rate limit exceeded! Please try again some time.`,
+        });
+      }
+      if (!response.ok) {
+        throw new TRPCError({
+          code: 'INTERNAL_SERVER_ERROR',
+          message: `Reddit API responded with status ${response.status}`,
+        });
+      }
+
+      const data = await response.json();
+      const [post, comments] = data as [
+        Readonly<{
+          data: {
+            children: ReadonlyArray<{
+              data: Submission;
+            }>;
+          };
+        }>,
+        Comments,
+      ];
 
       // Because the 2nd item in the response is always the comments
       return {
@@ -157,6 +181,7 @@ export const socialPostsRouter = router({
           id: true,
           keywords: true,
           reply: true,
+          statsUpdatedAt: true,
           subreddit: true,
           title: true,
           upvoteCount: true,

@@ -1,6 +1,10 @@
 'use client';
 
+import { debounce } from 'lodash-es';
 import { useRouter } from 'next/navigation';
+import { useRef, useState } from 'react';
+
+import { trpc } from '~/hooks/trpc';
 
 import { projectSchema } from '~/schema';
 
@@ -8,7 +12,14 @@ import ProjectsProductsToAdvertiseInput from './ProjectProductToAdvertiseInput';
 
 import type { ProjectFormValues, ProjectTransformed } from '~/types';
 
-import { Button, TagsInput, Textarea, TextInput } from '@mantine/core';
+import {
+  Button,
+  Loader,
+  MultiSelect,
+  TagsInput,
+  Textarea,
+  TextInput,
+} from '@mantine/core';
 import { createFormContext, zodResolver } from '@mantine/form';
 
 type BaseProps = Readonly<{
@@ -43,6 +54,7 @@ export default function ProjectForm({
   ...props
 }: Props) {
   const router = useRouter();
+  const [subredditSuggestion, setSubredditSuggestion] = useState('');
   const form = useForm({
     initialValues: {
       keywords: data?.keywords ?? [],
@@ -68,6 +80,20 @@ export default function ProjectForm({
     validate: zodResolver(projectSchema),
   });
 
+  const { data: subreddits, isFetching: isFetchingSubreddits } =
+    trpc.project.searchSubreddits.useQuery(
+      {
+        q: subredditSuggestion,
+      },
+      {
+        enabled: !!subredditSuggestion,
+      },
+    );
+
+  const onSubredditSearch = useRef(
+    debounce((q) => setSubredditSuggestion(q), 500),
+  ).current;
+
   return (
     <FormProvider form={form}>
       <form
@@ -88,13 +114,17 @@ export default function ProjectForm({
           required={true}
           {...form.getInputProps('keywords')}
         />
-        <TagsInput
+        <MultiSelect
           key={form.key('subreddits')}
           description="Subreddits to fetched post from"
           label="Subreddits"
           placeholder="Enter subreddits"
           required={true}
           {...form.getInputProps('subreddits')}
+          data={subreddits ?? []}
+          rightSection={isFetchingSubreddits ? <Loader size={16} /> : null}
+          searchable={true}
+          onSearchChange={onSubredditSearch}
         />
         <Textarea
           autosize={true}

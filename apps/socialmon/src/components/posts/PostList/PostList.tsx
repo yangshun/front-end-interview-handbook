@@ -15,7 +15,7 @@ import type { PostTab } from '~/types';
 
 import { Button, Tabs, Text } from '@mantine/core';
 
-const LIMIT = 10;
+const LIMIT = 20;
 
 export default function PostList() {
   const projectSlug = useCurrentProjectSlug();

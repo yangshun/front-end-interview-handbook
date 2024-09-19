@@ -35,6 +35,7 @@
     "marked": "^13.0.3",
     "next": "14.2.3",
     "next-auth": "^4.24.7",
+    "node-fetch": "^3.3.2",
     "prisma": "5.7.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
