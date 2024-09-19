@@ -10,7 +10,8 @@ import RelativeTimestamp from '~/components/common/datetime/RelativeTimestamp';
 
 import CommentRepliesThreadLines from './CommentRepliesThreadLines';
 import PostCommentReplies from './PostCommentReplies';
-import { isRedditComments, parseMarkdown } from '../utils';
+import { parseMarkdown } from '../markdownParser';
+import { isRedditComments } from '../utils';
 
 import type { Comment } from '~/types';
 

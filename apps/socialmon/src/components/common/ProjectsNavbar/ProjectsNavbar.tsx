@@ -42,7 +42,7 @@ export default function ProjectsNavbar({ user }: Props) {
     {
       href: `/projects/${projectSlug}`,
       icon: <RiHomeLine />,
-      label: 'Dashboard',
+      label: 'Posts',
     },
     {
       href: `/projects/${projectSlug}/users`,

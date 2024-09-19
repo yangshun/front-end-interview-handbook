@@ -1,7 +1,7 @@
 'use client';
 
 import clsx from 'clsx';
-import { type ChangeEvent, useState } from 'react';
+import { type ChangeEvent, useEffect, useState } from 'react';
 import { RiChat4Line } from 'react-icons/ri';
 
 import { trpc } from '~/hooks/trpc';
@@ -9,8 +9,8 @@ import { trpc } from '~/hooks/trpc';
 import PostMetadata from './PostMetadata';
 import PostResponse from './PostResponse';
 import PostCommentsList from '../comments/PostCommentsList';
+import { parseMarkdown } from '../markdownParser';
 import PostRelevancyActionButton from '../PostRelevancyActionButton';
-import { parseMarkdown } from '../utils';
 
 import type { PostExtended } from '~/types';
 
@@ -49,11 +49,11 @@ export default function PostDetail({
   const [selectedRedditUserId, setSelectedRedditUserId] = useState<
     string | null
   >(null);
+  const [postBody, setPostBody] = useState<string>('');
 
   const hasReply = !!post.reply;
   const activity = post.activities?.[0];
 
-  const postBody = parseMarkdown(post.content);
   const updatePostMutation = trpc.socialPosts.updatePost.useMutation();
   const { data, isLoading: isFetchingComments } =
     trpc.socialPosts.getPostComments.useQuery(
@@ -75,6 +75,7 @@ export default function PostDetail({
             postId: post.id,
           });
         },
+        refetchOnMount: false,
       },
     );
 
@@ -83,6 +84,10 @@ export default function PostDetail({
       replyToPost(response, selectedRedditUserId);
     }
   }
+
+  useEffect(() => {
+    setPostBody(parseMarkdown(post.content)); // Set the sanitized content to state
+  }, [post.content]);
 
   return (
     <div>

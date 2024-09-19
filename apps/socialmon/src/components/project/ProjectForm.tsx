@@ -82,7 +82,7 @@ export default function ProjectForm({
         />
         <TagsInput
           key={form.key('keywords')}
-          description="Keywords to filter posts in the first pass of posts filtering"
+          description="Filters posts by keywords in a case-insensitive and substring match manner. Posts are included if they contain any of the keywords."
           label="Keywords"
           placeholder="Enter keyword"
           required={true}
