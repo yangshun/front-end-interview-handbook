@@ -15,6 +15,7 @@ type Props = Readonly<{
     createdAt: Date;
     id: string;
     keywords: ReadonlyArray<string>;
+    statsUpdatedAt: Date;
     subreddit?: string;
     title: string;
     upvoteCount: number;
