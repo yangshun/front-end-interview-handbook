@@ -21,6 +21,8 @@ type LoggingAction =
   | 'guide.mark_complete'
   | 'hydration.fail'
   | 'hydration.success'
+  | 'monaco.reachable'
+  | 'monaco.unreachable'
   | 'not_found'
   | 'pageview'
   | 'question.mark_complete'

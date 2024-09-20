@@ -1,7 +1,10 @@
 import type { editor } from 'monaco-editor';
-import React, { useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 
 import EmptyState from '~/components/ui/EmptyState';
+
+import logEvent from '~/logging/logEvent';
+import { getErrorMessage } from '~/utils/getErrorMessage';
 
 import getLanguageFromFilePath from './getLanguageFromFilePath';
 import useMonacoEditorAddActions from './useMonacoEditorAddActions';
@@ -11,13 +14,16 @@ import useMonacoEditorTheme from './useMonacoEditorTheme';
 
 import MonacoEditor, { loader, useMonaco } from '@monaco-editor/react';
 
+function monacoUrl() {
+  return process.env.NODE_ENV === 'development'
+    ? // Keep version synced with `monaco-editor` in package.json.
+      'https://gfecdn.net/npm/monaco-editor@0.40.0/dev/vs'
+    : 'https://gfecdn.net/npm/monaco-editor@0.40.0/min/vs';
+}
+
 loader.config({
   paths: {
-    vs:
-      process.env.NODE_ENV === 'development'
-        ? // Keep version synced with `monaco-editor` in package.json.
-          'https://gfecdn.net/npm/monaco-editor@0.40.0/dev/vs'
-        : 'https://gfecdn.net/npm/monaco-editor@0.40.0/min/vs',
+    vs: monacoUrl(),
   },
 });
 
@@ -41,6 +47,31 @@ type Props = Readonly<
   )
 >;
 
+const monacoPingURL = monacoUrl() + '/loader.js';
+
+async function pingMonacoEditorLoader() {
+  try {
+    const response = await fetch(monacoPingURL);
+    const text = await response.text();
+
+    logEvent('monaco.reachable', {
+      namespace: 'workspace',
+      url: monacoPingURL,
+      version: /Version: (.*)\n/.exec(text)?.[1],
+    });
+  } catch (error) {
+    logEvent('monaco.unreachable', {
+      error: getErrorMessage(error),
+      namespace: 'workspace',
+      url: monacoPingURL,
+    });
+    console.error(getErrorMessage(error));
+  }
+}
+
+// Module-level, just need to load once per user.
+let pingSent = false;
+
 export default function MonacoCodeEditor({
   filePath,
   value,
@@ -55,6 +86,15 @@ export default function MonacoCodeEditor({
   const editorRef = useRef<editor.IStandaloneCodeEditor | null>(null);
   const editorContainerRef = useRef<HTMLDivElement | null>(null);
   const themeKey = useMonacoEditorTheme();
+
+  useEffect(() => {
+    if (pingSent) {
+      return;
+    }
+
+    pingSent = true;
+    pingMonacoEditorLoader();
+  }, []);
 
   useMonacoEditorAddActions(monaco, editorRef.current);
   useMonacoEditorAddFormatter(monaco, editorRef.current, filePath);
