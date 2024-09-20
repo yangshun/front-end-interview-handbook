@@ -11,7 +11,7 @@ import sandpackProviderOptions from '~/components/workspace/common/sandpack/sand
 import JavaScriptCodingWorkspace from '~/components/workspace/javascript/JavaScriptCodingWorkspace';
 import { loadLocalJavaScriptQuestionCode } from '~/components/workspace/javascript/JavaScriptCodingWorkspaceCodeStorage';
 
-import SandpackTimeoutLogger from '../common/sandpack/SandpackTimeoutLogger';
+import SandpackErrorReporting from '../common/sandpack/SandpackErrorReporting';
 
 import { SandpackProvider } from '@codesandbox/sandpack-react';
 
@@ -93,7 +93,7 @@ export default function JavaScriptCodingWorkspaceSection({
           workspace={workspace}
           onLanguageChange={onLanguageChange}
         />
-        <SandpackTimeoutLogger instance={timeoutLoggerInstance} />
+        <SandpackErrorReporting instance={timeoutLoggerInstance} />
       </SandpackProvider>
     </CodingPreferencesProvider>
   );

@@ -6,7 +6,7 @@ import CodingPreferencesProvider from '~/components/global/CodingPreferencesProv
 import { useColorSchemePreferences } from '~/components/global/color-scheme/ColorSchemePreferencesProvider';
 import type { ProjectsChallengeSolutionBundle } from '~/components/projects/challenges/types';
 import sandpackProviderOptions from '~/components/workspace/common/sandpack/sandpackProviderOptions';
-import SandpackTimeoutLogger from '~/components/workspace/common/sandpack/SandpackTimeoutLogger';
+import SandpackErrorReporting from '~/components/workspace/common/sandpack/SandpackErrorReporting';
 
 import ProjectsChallengeSolutionWorkspace from './ProjectsChallengeSolutionWorkspace';
 
@@ -46,7 +46,7 @@ export default function ProjectsChallengeSolutionSection({ solution }: Props) {
           activeTabScrollIntoView={true}
           defaultFiles={files}
         />
-        <SandpackTimeoutLogger instance="projects.official_solutions" />
+        <SandpackErrorReporting instance="projects.official_solutions" />
       </SandpackProvider>
     </CodingPreferencesProvider>
   );

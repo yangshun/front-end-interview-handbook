@@ -12,7 +12,7 @@ import sandpackProviderOptions from '~/components/workspace/common/sandpack/sand
 import UserInterfaceCodingWorkspace from '~/components/workspace/user-interface/UserInterfaceCodingWorkspace';
 import { loadLocalUserInterfaceQuestionCode } from '~/components/workspace/user-interface/UserInterfaceCodingWorkspaceCodeStorage';
 
-import SandpackTimeoutLogger from '../common/sandpack/SandpackTimeoutLogger';
+import SandpackErrorReporting from '../common/sandpack/SandpackErrorReporting';
 
 import { SandpackProvider } from '@codesandbox/sandpack-react';
 
@@ -100,7 +100,7 @@ export default function UserInterfaceCodingWorkspaceSection({
           similarQuestions={similarQuestions}
           onFrameworkChange={onFrameworkChange}
         />
-        <SandpackTimeoutLogger instance={timeoutLoggerInstance} />
+        <SandpackErrorReporting instance={timeoutLoggerInstance} />
       </SandpackProvider>
     </CodingPreferencesProvider>
   );

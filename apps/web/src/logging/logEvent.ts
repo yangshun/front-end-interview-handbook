@@ -26,7 +26,9 @@ type LoggingAction =
   | 'question.mark_complete'
   | 'question.run'
   | 'question.submit'
+  | 'sandpack.reachable'
   | 'sandpack.timeout'
+  | 'sandpack.unreachable'
   | 'web_vitals'
   | 'window.blur'
   | 'window.focus';
@@ -39,7 +41,8 @@ type LoggingPayload = Readonly<{
     | 'interviews'
     | 'marketing'
     | 'performance'
-    | 'projects';
+    | 'projects'
+    | 'workspace';
 }> &
   Record<string, unknown>;
 

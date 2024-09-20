@@ -19,7 +19,7 @@ import { useI18nRouter } from '~/next-i18nostic/src';
 
 import UserInterfaceCodingWorkspace from './UserInterfaceCodingWorkspace';
 import { UserInterfaceCodingWorkspaceSavesContextProvider } from './UserInterfaceCodingWorkspaceSaveContext';
-import SandpackTimeoutLogger from '../common/sandpack/SandpackTimeoutLogger';
+import SandpackErrorReporting from '../common/sandpack/SandpackErrorReporting';
 
 import { SandpackProvider } from '@codesandbox/sandpack-react';
 import type { QuestionUserInterfaceSave } from '@prisma/client';
@@ -102,7 +102,7 @@ export default function UserInterfaceCodingWorkspaceSavesPage({
               );
             }}
           />
-          <SandpackTimeoutLogger instance="workspace.ui.saves" />
+          <SandpackErrorReporting instance="workspace.ui.saves" />
         </SandpackProvider>
       </UserInterfaceCodingWorkspaceSavesContextProvider>
     </CodingPreferencesProvider>
