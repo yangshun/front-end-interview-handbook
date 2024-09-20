@@ -74,7 +74,8 @@ export default function PostList() {
               <Tooltip
                 label={timestampFormatter.format(
                   new Date(projectData.postsLastFetchedAt),
-                )}>
+                )}
+                withArrow={true}>
                 <Text size="sm">
                   Fetched{' '}
                   <RelativeTimestamp

@@ -8,7 +8,7 @@ import { redditPermalinkToUrl } from '../utils';
 
 import type { PostExtended } from '~/types';
 
-import { Badge, Button, Pill, Text } from '@mantine/core';
+import { Badge, Button, Pill, Text, Tooltip } from '@mantine/core';
 
 type Props = Readonly<{
   post: PostExtended;
@@ -31,9 +31,11 @@ function PostMetadata({
 
           <div className="h-1 w-1 rounded-full bg-slate-600" />
 
-          <Text size="sm">
-            <RelativeTimestamp timestamp={new Date(post.createdAt)} />
-          </Text>
+          <Tooltip label="Post fetched at" withArrow={true}>
+            <Text size="sm">
+              <RelativeTimestamp timestamp={new Date(post.createdAt)} />
+            </Text>
+          </Tooltip>
 
           <div className="h-1 w-1 rounded-full bg-slate-600" />
 
