@@ -1,6 +1,7 @@
 import fetch from 'node-fetch';
 import { z } from 'zod';
 
+import { getAccessToken } from '~/db/RedditUtils';
 import { projectSchema } from '~/schema';
 
 import prisma from '../prisma';
@@ -89,12 +90,17 @@ export const projectRouter = router({
   searchSubreddits: userProcedure
     .input(z.object({ q: z.string().min(1) }))
     .query(async ({ input: { q } }) => {
-      const url = new URL(`https://api.reddit.com/subreddits/search.json`);
+      const accessToken = await getAccessToken();
+      const url = new URL(`https://oauth.reddit.com/subreddits/search.json`);
 
       url.searchParams.append('q', q);
       url.searchParams.append('limit', '20');
 
       const response = await fetch(url, {
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+          'User-Agent': process.env.REDDIT_USER_AGENT ?? 'socialmon-gfe/0.1.0',
+        },
         method: 'GET',
       });
 

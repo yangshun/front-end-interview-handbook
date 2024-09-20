@@ -6,6 +6,7 @@ import { redditPermalinkToAPIUrl } from '~/components/posts/utils';
 
 import {
   createRedditPost,
+  getAccessToken,
   getPostsFromReddit,
   replyToRedditPost,
 } from '~/db/RedditUtils';
@@ -79,8 +80,13 @@ export const socialPostsRouter = router({
     )
     .query(async ({ input: { permalink } }) => {
       const apiUrl = redditPermalinkToAPIUrl(permalink);
+      const accessToken = await getAccessToken();
       // To convert post url from https://www.reddit.com/r/*/need_beta_users_for_my_frontend_microsaas_tool/ to https://www.reddit.com/r/*/need_beta_users_for_my_frontend_microsaas_tool.json
       const response = await fetch(`${apiUrl.replace(/\/$/, '')}.json`, {
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+          'User-Agent': process.env.REDDIT_USER_AGENT ?? 'socialmon-gfe/0.1.0',
+        },
         method: 'GET',
       });
 

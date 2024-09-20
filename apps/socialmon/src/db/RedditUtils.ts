@@ -1,5 +1,6 @@
 'use server';
 
+import fetch from 'node-fetch';
 import type { Submission } from 'snoowrap';
 import Snoowrap from 'snoowrap';
 
@@ -152,4 +153,40 @@ export async function replyToRedditPost({
     );
 
   return { response: finalResponse, success: replySuccess };
+}
+
+// Function to get Reddit access token
+export async function getAccessToken() {
+  const clientId = process.env.REDDIT_CLIENT_ID;
+  const clientSecret = process.env.REDDIT_CLIENT_SECRET;
+
+  if (!clientId || !clientSecret) {
+    throw new Error('Client ID or Secret is missing');
+  }
+
+  const auth = Buffer.from(`${clientId}:${clientSecret}`).toString('base64');
+
+  const response = await fetch('https://www.reddit.com/api/v1/access_token', {
+    body: 'grant_type=client_credentials',
+    headers: {
+      Authorization: `Basic ${auth}`,
+      'Content-Type': 'application/x-www-form-urlencoded',
+    },
+    method: 'POST',
+  });
+
+  if (!response.ok) {
+    const errorBody = await response.text();
+
+    console.error('Access Token Error Response:', errorBody);
+    throw new Error(
+      `Failed to get access token: ${response.status} - ${errorBody}`,
+    );
+  }
+
+  const data = (await response.json()) as Readonly<{
+    access_token: string;
+  }>;
+
+  return data.access_token;
 }

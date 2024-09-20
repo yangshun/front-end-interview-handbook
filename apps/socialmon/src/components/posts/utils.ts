@@ -14,5 +14,5 @@ export function redditPermalinkToUrl(permalink: string) {
 }
 
 export function redditPermalinkToAPIUrl(permalink: string) {
-  return new URL(permalink, 'https://api.reddit.com').href;
+  return new URL(permalink, 'https://oauth.reddit.com').href;
 }
