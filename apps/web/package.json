@@ -31,8 +31,8 @@
   },
   "dependencies": {
     "@axiomhq/js": "^1.0.0",
-    "@codesandbox/sandpack-client": "2.19.7",
-    "@codesandbox/sandpack-react": "2.19.7",
+    "@codesandbox/sandpack-client": "2.13.8",
+    "@codesandbox/sandpack-react": "2.13.8",
     "@formatjs/intl": "^2.9.9",
     "@formatjs/intl-localematcher": "^0.2.32",
     "@hookform/resolvers": "^3.3.2",
