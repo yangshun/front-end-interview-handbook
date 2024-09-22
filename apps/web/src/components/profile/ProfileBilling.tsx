@@ -71,7 +71,9 @@ function InterviewsPlanLabel({
               description="Text describing user's subscription plan."
               id="OtaEwl"
               values={{
-                link: (chunks) => <Anchor href="/interviews/pricing">{chunks}</Anchor>,
+                link: (chunks) => (
+                  <Anchor href="/interviews/pricing">{chunks}</Anchor>
+                ),
               }}
             />
           </Alert>
@@ -355,6 +357,10 @@ function InterviewsSubscriptionSection() {
 
 function ProjectsSubscriptionSection() {
   const { userProfile } = useUserProfileWithProjectsProfile();
+
+  if (userProfile?.projectsProfile == null) {
+    return null;
+  }
 
   return (
     <div
