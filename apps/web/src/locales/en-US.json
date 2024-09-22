@@ -2071,6 +2071,10 @@
     "defaultMessage": "Keep your reason to under {characterLimit} characters",
     "description": "String validation message"
   },
+  "D9oArH": {
+    "defaultMessage": "A confirmation email has been sent to the new email address. The email change will not take effect until the confirmation link in the new email address has been clicked and signing out",
+    "description": "Message shown after an email change request is successful."
+  },
   "DAQ8QM": {
     "defaultMessage": "Difficulty: Easy to Hard",
     "description": "Sorting option for projects list - sort by difficulty from easy to hard"
@@ -6642,10 +6646,6 @@
   "gTOYrn": {
     "defaultMessage": "With extra time, continue working on the lists below depending on your needs!",
     "description": "Label for more learning section"
-  },
-  "gVQ1qU": {
-    "defaultMessage": "A confirmation email has been sent to both new and current email addresses. The email change will not take effect until the confirmation link in both new and current email addresses have been clicked.",
-    "description": "Message shown after an email change request is successful."
   },
   "gWoDz/": {
     "defaultMessage": "Practice Vue Interview Questions with Solutions",

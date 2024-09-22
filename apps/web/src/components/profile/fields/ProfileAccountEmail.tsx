@@ -84,10 +84,10 @@ export default function ProfileAccountEmail({ user }: Props) {
             setMessage(
               intl.formatMessage({
                 defaultMessage:
-                  'A confirmation email has been sent to both new and current email addresses. The email change will not take effect until the confirmation link in both new and current email addresses have been clicked.',
+                  'A confirmation email has been sent to the new email address. The email change will not take effect until the confirmation link in the new email address has been clicked and signing out',
                 description:
                   'Message shown after an email change request is successful.',
-                id: 'gVQ1qU',
+                id: 'D9oArH',
               }),
             );
           }
