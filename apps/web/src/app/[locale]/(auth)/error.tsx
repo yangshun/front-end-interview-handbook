@@ -18,14 +18,16 @@ export default function AuthError({ error }: Props) {
     console.error(error);
     logMessage({
       level: 'error',
-      message: `${error.message}`,
+      message: error.message,
       namespace: 'auth',
       title: 'Auth namespace error',
     });
     logEvent('error', {
       digest: error.digest,
-      message: `${error.message}`,
+      message: error.message,
+      name: error.name,
       namespace: 'auth',
+      stack: error.stack,
       title: 'Auth namespace error',
     });
   }, [error]);

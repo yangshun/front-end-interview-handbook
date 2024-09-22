@@ -24,7 +24,9 @@ export default function Error({ error }: Props) {
     logEvent('error', {
       digest: error.digest,
       message: error.message,
+      name: error.name,
       namespace: 'interviews',
+      stack: error.stack,
       title: 'Question page error',
     });
   }, [error]);

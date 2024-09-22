@@ -18,14 +18,16 @@ export default function BlogError({ error }: Props) {
     console.error(error);
     logMessage({
       level: 'error',
-      message: `${error.message}`,
+      message: error.message,
       namespace: 'blog',
       title: 'Blog namespace error',
     });
     logEvent('error', {
       digest: error.digest,
-      message: `${error.message}`,
+      message: error.message,
+      name: error.name,
       namespace: 'blog',
+      stack: error.stack,
       title: 'Blog namespace error',
     });
   }, [error]);

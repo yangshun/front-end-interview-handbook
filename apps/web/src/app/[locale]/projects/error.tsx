@@ -18,14 +18,16 @@ export default function ProjectsError({ error }: Props) {
     console.error(error);
     logMessage({
       level: 'error',
-      message: `${error.message}`,
+      message: error.message,
       namespace: 'projects',
       title: 'Projects namespace error',
     });
     logEvent('error', {
       digest: error.digest,
-      message: `${error.message}`,
+      message: error.message,
+      name: error.name,
       namespace: 'projects',
+      stack: error.stack,
       title: 'Projects namespace error',
     });
   }, [error]);

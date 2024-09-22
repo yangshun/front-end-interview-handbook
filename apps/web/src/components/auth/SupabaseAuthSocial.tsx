@@ -78,7 +78,9 @@ export default function SupabaseAuthSocial({
       setErrorMessage(error.message);
       logEvent('auth.sign_in.fail', {
         message: error.message,
+        name: error.name,
         namespace: 'auth',
+        stack: error.stack,
         type: provider,
       });
     }

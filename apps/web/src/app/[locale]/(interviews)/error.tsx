@@ -18,14 +18,16 @@ export default function InterviewsError({ error }: Props) {
     console.error(error);
     logMessage({
       level: 'error',
-      message: `${error.message}`,
+      message: error.message,
       namespace: 'interviews',
       title: 'Interviews namespace error',
     });
     logEvent('error', {
       digest: error.digest,
-      message: `${error.message}`,
+      message: error.message,
+      name: error.name,
       namespace: 'interviews',
+      stack: error.stack,
       title: 'Interviews namespace error',
     });
   }, [error]);

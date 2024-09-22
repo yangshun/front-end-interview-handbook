@@ -18,14 +18,16 @@ export default function GeneralError({ error }: Props) {
     console.error(error);
     logMessage({
       level: 'error',
-      message: `${error.message}`,
+      message: error.message,
       namespace: 'general',
       title: 'General error',
     });
     logEvent('error', {
       digest: error.digest,
-      message: `${error.message}`,
+      message: error.message,
+      name: error.name,
       namespace: 'general',
+      stack: error.stack,
       title: 'General error',
     });
   }, [error]);
