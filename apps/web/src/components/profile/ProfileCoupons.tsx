@@ -73,7 +73,8 @@ export default function ProfileCoupons() {
         />
       </Heading>
       <Section>
-        {profilePromoCodes.data?.data.length === 0 ? (
+        {profilePromoCodes.data == null ||
+        profilePromoCodes.data?.data.length === 0 ? (
           <EmptyState
             icon={RiPercentLine}
             subtitle={
