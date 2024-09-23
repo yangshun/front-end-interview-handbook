@@ -154,9 +154,9 @@ export default function RewardsTaskItem({
         <div className="flex justify-end pb-3">
           <Text color="error" size="body3">
             <FormattedMessage
-              defaultMessage="Task has not been completed! Please try again."
+              defaultMessage="Task has not been completed! Please try again. Ensure that your profile activity is accessible to public"
               description="Error task label"
-              id="7hlP1A"
+              id="pA6Utl"
             />
           </Text>
         </div>

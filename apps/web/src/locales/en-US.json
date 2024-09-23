@@ -1303,10 +1303,6 @@
     "defaultMessage": "Everything you need",
     "description": "Label for an example list of JavaScript Questions on marketing pages"
   },
-  "7hlP1A": {
-    "defaultMessage": "Task has not been completed! Please try again.",
-    "description": "Error task label"
-  },
   "7kN2mI": {
     "defaultMessage": "Progress",
     "description": "Completion status"
@@ -7918,6 +7914,10 @@
   "p9IQRJ": {
     "defaultMessage": "GitHub username",
     "description": "GitHub profile form label"
+  },
+  "pA6Utl": {
+    "defaultMessage": "Task has not been completed! Please try again. Ensure that your profile activity is accessible to public",
+    "description": "Error task label"
   },
   "pBR3LI": {
     "defaultMessage": "Blog",
