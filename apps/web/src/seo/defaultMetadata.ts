@@ -43,6 +43,14 @@ export default function defaultMetadata({
         type: 'website',
         url: pathname,
       },
+      // Disable crawling for non-prod.
+      robots:
+        process.env.NODE_ENV === 'production'
+          ? null
+          : {
+              follow: false,
+              index: false,
+            },
       title: {
         default: title,
         template: template || '%s | GreatFrontEnd',
