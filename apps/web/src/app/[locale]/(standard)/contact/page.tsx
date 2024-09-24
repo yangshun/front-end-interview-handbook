@@ -33,4 +33,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   });
 }
 
-export default ContactPage;
+export default function Page() {
+  return <ContactPage />;
+}

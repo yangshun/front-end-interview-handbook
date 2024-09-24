@@ -48,7 +48,7 @@ async function getPageSEOMetadata({ params }: Props) {
         company: companyGuide.name,
       },
     ),
-    href: `/interviews/company/${slug}`,
+    href: `/interviews/company/${slug}/questions-guides`,
     socialTitle: intl.formatMessage(
       {
         defaultMessage:
