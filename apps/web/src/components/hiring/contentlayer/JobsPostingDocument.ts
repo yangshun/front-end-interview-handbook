@@ -2,7 +2,7 @@ import { defineDocumentType } from 'contentlayer/source-files';
 import path from 'node:path';
 
 function parseJobSlug(sourceFilePath: string) {
-  return sourceFilePath.split(path.sep)[2].replace(/\.mdx$/, '');
+  return sourceFilePath.split(path.posix.sep)[2].replace(/\.mdx$/, '');
 }
 
 export const JobsPostingDocument = defineDocumentType(() => ({

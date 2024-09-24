@@ -2,7 +2,7 @@ import { defineDocumentType } from 'contentlayer/source-files';
 import path from 'node:path';
 
 function parseChallengeSlug(sourceFilePath: string) {
-  return sourceFilePath.split(path.sep)[2];
+  return sourceFilePath.split(path.posix.sep)[2];
 }
 
 export const ProjectsChallengeStyleGuideDocument = defineDocumentType(() => ({

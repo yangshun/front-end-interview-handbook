@@ -12,7 +12,7 @@ import {
 import { projectsSkillDetermineParentSkill } from '../skills/data/ProjectsSkillUtils';
 
 function parseProjectSlug(sourceFilePath: string) {
-  return sourceFilePath.split(path.sep)[2];
+  return sourceFilePath.split(path.posix.sep)[2];
 }
 
 export const ProjectsChallengeMetadataDocument = defineDocumentType(() => ({
