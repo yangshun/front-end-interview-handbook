@@ -4,14 +4,10 @@ slug: front-end-vs-back-end-system-design-interviews
 author: Zhenghao He
 author_title: Senior Software Engineer at Instacart, ex-Amazon
 author_url: https://twitter.com/he_zhenghao
-author_image_url: https://pbs.twimg.com/profile_images/1489749168767660032/M_us3Mu2_400x400.jpg
+author_image_url: /img/authors/zhenghao.jpg
 tags: [front end, back end, system design, interview]
 hide_table_of_contents: true
 ---
-
-<head>
-  <link rel="canonical" href="https://www.zhenghao.io/posts/system-design-interviews" />
-</head>
 
 Walkthrough of similarities and differences between front end vs. back end system design interviews and my thoughts on a front end career ceiling.
 
@@ -19,7 +15,7 @@ Walkthrough of similarities and differences between front end vs. back end syste
 
 ## Context
 
-As I mentioned in my post on [coding interviews frameworks](https://www.zhenghao.io/posts/framework-for-coding-interview), I have been interviewing a lot for the past year - not conducting interviews, I was the candidate being interviewed. Most of the interview processes I had with big tech companies consisted of 1-2 system design rounds depending on the level of the role. Unlike traditional back end-focused system design questions, for which you can find lots of prep resources online such as the famous Grokking System Design Interview or System Design Primer, I didn't know what to expect for a front end-focused system design interview as there are very few resources out there talking about this type of interviews.
+I have been interviewing a lot for the past year - not conducting interviews, I was the candidate being interviewed. Most of the interview processes I had with big tech companies consisted of 1-2 system design rounds depending on the level of the role. Unlike traditional back end-focused system design questions, for which you can find lots of prep resources online such as the famous Grokking System Design Interview or System Design Primer, I didn't know what to expect for a front end-focused system design interview as there are very few resources out there talking about this type of interviews.
 
 Now that I have done a fair amount of system design interviews of both types, I want to give you a summary of what to expect, especially for the front end ones since I have been mostly working on the front end side.
 

@@ -657,7 +657,7 @@ Promise는 어느 시점에 resolve된 값 또는 resolve되지 않은 이유(�
 
 ###### 참고자료
 
-- https://github.com/getify/You-Dont-Know-JS/blob/master/async%20%26%20performance/ch3.md
+- https://github.com/getify/You-Dont-Know-JS/blob/1st-ed/async%20%26%20performance/ch3.md
 
 ### JavaScript로 컴파일되는 언어로 JavaScript 코드를 작성하는 경우의 장단점은 무엇인가요?
 

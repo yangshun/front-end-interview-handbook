@@ -757,7 +757,7 @@ Niektóre wspólne polyfills są `$.deferred`, Q oraz Bluebird ale nie wszystkie
 
 ###### Bibliografia
 
-- https://github.com/getify/You-Dont-Know-JS/blob/master/async%20%26%20performance/ch3.md
+- https://github.com/getify/You-Dont-Know-JS/blob/1st-ed/async%20%26%20performance/ch3.md
 
 ### Jakie są zalety/wady pisania kodu JavaScript w języku kompilującym się w JavaScript?
 
@@ -919,7 +919,7 @@ Zamrożenie obiektu nie pozwala na dodanie nowych właściwości do obiektu i un
 
 #### Jak osiągnąć niezmienność we własnym kodzie?
 
-Jednym ze sposobów osiągnięcia niezmienności jest użycie bibliotek takich jak [immutable.js](http://facebook.github.io/immutable-js/), [mori](https://github.com/swannodette/mori) lub [immer](https://github.com/immerjs/immer).
+Jednym ze sposobów osiągnięcia niezmienności jest użycie bibliotek takich jak [immutable.js](https://immutable-js.com/), [mori](https://github.com/swannodette/mori) lub [immer](https://github.com/immerjs/immer).
 
 Alternatywą jest użycie deklaracji `const` w połączeniu ze wspomnianymi wyżej technikami tworzenia. Aby "mutować" obiekty, użyj operatora rozkładania, `Object.assign`, `Array.concat()` itp., Aby utworzyć nowe obiekty zamiast mutować obiekt oryginalny.
 

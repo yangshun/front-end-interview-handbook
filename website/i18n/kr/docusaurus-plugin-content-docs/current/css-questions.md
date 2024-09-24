@@ -277,7 +277,7 @@ CSS Pseudo-element는 선택자에 추가되는 키워드로, 선택한 요소�
 
 ###### 참고자료
 
-- https://css-tricks.com/almanac/selectors/a/after-and-before/
+- https://css-tricks.com/almanac/pseudo-selectors/b/after-and-before/
 
 ### 박스 모델에 대한 당신의 이해와 CSS에서 브라우저에 다른 박스 모델로 레이아웃을 렌더링하는 방법을 설명하세요.
 
@@ -414,7 +414,6 @@ Grid는 그리드 기반의 레이아웃을 생성하기 위한 가장 직관적
 
 ###### 참고자료
 
-- https://developer.mozilla.org/en-US/docs/Archive/Apps/Design/UI_layout_basics/Responsive_design_versus_adaptive_design
 - http://mediumwell.com/responsive-adaptive-mobile/
 - https://css-tricks.com/the-difference-between-responsive-and-adaptive-design/
 

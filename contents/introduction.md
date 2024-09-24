@@ -61,7 +61,7 @@ This is the front end version of LeetCode-style algorithm questions. Implement a
 - `debounce`/`throttle`.
 - Implement Promise/Promise-related APIs: `Promise`, `Promise.all`, `Promise.any`.
 
-[**Read more about JavaScript coding questions →**](./javascript-questions.md)
+[**Read more about JavaScript coding questions →**](./javascript-utility-function.md)
 
 [**Practice JavaScript coding questions**](https://www.greatfrontend.com/questions/js?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook)
 

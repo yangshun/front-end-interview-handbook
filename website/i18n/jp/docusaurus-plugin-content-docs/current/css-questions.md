@@ -256,7 +256,7 @@ CSS 疑似要素はセレクタに追加されたキーワードで、選択し�
 
 ###### 参考
 
-- https://css-tricks.com/almanac/selectors/a/after-and-before/
+- https://css-tricks.com/almanac/pseudo-selectors/b/after-and-before/
 
 ### ボックスモデルがなんであるかのあなたの理解と、異なるボックスモデルでレイアウトをレンダリングするために CSS でブラウザに指示する方法を説明してください。
 
@@ -354,7 +354,8 @@ TODO
 
 ###### 参考
 
-- https://developer.mozilla.org/en-US/docs/Archive/Apps/Design/UI_layout_basics/Responsive_design_versus_adaptive_design (英語)
+(英語)
+
 - https://developer.mozilla.org/ja/docs/Archive/Apps/Design/UI_layout_basics/Responsive_design_versus_adaptive_design (日本語)
 - http://mediumwell.com/responsive-adaptive-mobile/
 - https://css-tricks.com/the-difference-between-responsive-and-adaptive-design/

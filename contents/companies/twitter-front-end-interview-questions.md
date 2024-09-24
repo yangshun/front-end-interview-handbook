@@ -5,7 +5,7 @@ sidebar_label: Twitter interview questions
 
 :::info Page migrated to GreatFrontEnd
 
-Find the latest version of this page on [GreatFrontEnd](https://www.greatfrontend.com/interviews/company/twitter/questions-guides?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook).
+Find more company guides on [GreatFrontEnd](https://www.greatfrontend.com/interviews/company?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook).
 
 :::
 

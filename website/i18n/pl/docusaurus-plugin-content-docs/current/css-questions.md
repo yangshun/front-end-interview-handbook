@@ -287,7 +287,7 @@ Pseudoelement CSS jest słowem kluczowym dodawanym do selektora, który pozwala 
 
 ###### Bibliografia
 
-- https://css-tricks.com/almanac/selectors/a/after-and-before/
+- https://css-tricks.com/almanac/pseudo-selectors/b/after-and-before/
 
 ### Wyjaśnij swoje zrozumienie box model i sposób, w jaki chcesz, aby przeglądarka w CSS renderowała układ w różnych modelach pudełkowych.
 
@@ -438,7 +438,6 @@ Obie z tych metod mają pewne problemy, które warto ocenić:
 
 ###### Bibliografia
 
-- https://developer.mozilla.org/en-US/docs/Archive/Apps/Design/UI_layout_basics/Responsive_design_versus_adaptive_design
 - http://mediumwell.com/responsive-adaptive-mobile/
 - https://css-tricks.com/the-difference-between-responsive-and-adaptive-design/
 

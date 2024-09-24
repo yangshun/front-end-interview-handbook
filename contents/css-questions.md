@@ -295,7 +295,7 @@ A CSS pseudo-element is a keyword added to a selector that lets you style a spec
 
 ###### References
 
-- https://css-tricks.com/almanac/selectors/a/after-and-before/
+- https://css-tricks.com/almanac/pseudo-selectors/b/after-and-before/
 
 ### Explain your understanding of the box model and how you would tell the browser in CSS to render your layout in different box models.
 
@@ -446,7 +446,6 @@ Both have these methods have some issues that need to be weighed:
 
 ###### References
 
-- https://developer.mozilla.org/en-US/docs/Archive/Apps/Design/UI_layout_basics/Responsive_design_versus_adaptive_design
 - http://mediumwell.com/responsive-adaptive-mobile/
 - https://css-tricks.com/the-difference-between-responsive-and-adaptive-design/
 

@@ -264,7 +264,7 @@ CSS 伪元素是添加到选择器的关键字，去选择元素的特定部分�
 
 ###### 参考
 
-- https://css-tricks.com/almanac/selectors/a/after-and-before/
+- https://css-tricks.com/almanac/pseudo-selectors/b/after-and-before/
 
 ### 说说你对盒模型的理解，以及如何告知浏览器使用不同的盒模型渲染布局。
 
@@ -396,7 +396,6 @@ Grid 创建基于栅格的布局，是迄今为止最直观的方法（最好是
 
 ###### 参考
 
-- https://developer.mozilla.org/en-US/docs/Archive/Apps/Design/UI_layout_basics/Responsive_design_versus_adaptive_design
 - http://mediumwell.com/responsive-adaptive-mobile/
 - https://css-tricks.com/the-difference-between-responsive-and-adaptive-design/
 

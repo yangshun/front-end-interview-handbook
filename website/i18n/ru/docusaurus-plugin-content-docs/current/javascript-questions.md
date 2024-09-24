@@ -655,7 +655,7 @@ for (let i = 1; i <= 100; i++) {
 
 ###### Ссылки
 
-- https://github.com/getify/You-Dont-Know-JS/blob/master/async%20%26%20performance/ch3.md
+- https://github.com/getify/You-Dont-Know-JS/blob/1st-ed/async%20%26%20performance/ch3.md
 
 ### Каковы преимущества и недостатки написания JavaScript-кода на языке, который компилируется в JavaScript?
 

@@ -727,7 +727,7 @@ Some common polyfills are `$.deferred`, Q and Bluebird but not all of them compl
 
 ###### References
 
-- https://github.com/getify/You-Dont-Know-JS/blob/master/async%20%26%20performance/ch3.md
+- https://github.com/getify/You-Dont-Know-JS/blob/1st-ed/async%20%26%20performance/ch3.md
 
 ### What are some of the advantages/disadvantages of writing JavaScript code in a language that compiles to JavaScript?
 
@@ -889,7 +889,7 @@ Freezing an object does not allow new properties to be added to an object and pr
 
 #### How can you achieve immutability in your own code?
 
-One way to achieve immutability is to use libraries like [immutable.js](http://facebook.github.io/immutable-js/), [mori](https://github.com/swannodette/mori) or [immer](https://github.com/immerjs/immer).
+One way to achieve immutability is to use libraries like [immutable.js](https://immutable-js.com/), [mori](https://github.com/swannodette/mori) or [immer](https://github.com/immerjs/immer).
 
 The alternative is to use `const` declarations combined with the techniques mentioned above for creation. For "mutating" objects, use the spread operator, `Object.assign`, `Array.concat()`, etc., to create new objects instead of mutate the original object.
 

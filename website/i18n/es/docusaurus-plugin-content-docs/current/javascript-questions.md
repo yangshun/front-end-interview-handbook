@@ -16,7 +16,6 @@ La delegación de eventos es una técnica en la cual los escuchas de eventos se 
 ##### Referecias
 
 - https://medium.com/@osmancea/delegaci%C3%B3n-de-eventos-del-dom-con-javascript-d28131d43686
-- https://developer.mozilla.org/es/docs/Learn/JavaScript/Building_blocks/Eventos
 
 ### Explique como funciona this
 

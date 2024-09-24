@@ -256,7 +256,7 @@ Ang CSS pseudo-element ay isang keyword na dinadagdag sa tagapili na nagbibigay-
 
   ###### RMga Reperensiya
 
-- https://css-tricks.com/almanac/selectors/a/after-and-before/
+- https://css-tricks.com/almanac/pseudo-selectors/b/after-and-before/
 
 ### Ipaliwanag ang iyong pagkakaintindi sa modelong kahon at papaano mo pagsasabihan ang browser sa CSS na mag-render ng iyong layout sa iba't ibang modelo ng kahon.
 
@@ -353,7 +353,6 @@ Ang bumabagay na disenyo ay mas katulad ng modernong kahulugan ng progresibong p
 
 ###### Mga Reperensiya
 
-- https://developer.mozilla.org/en-US/docs/Archive/Apps/Design/UI_layout_basics/Responsive_design_versus_adaptive_design
 - http://mediumwell.com/responsive-adaptive-mobile/
 - https://css-tricks.com/the-difference-between-responsive-and-adaptive-design/
 

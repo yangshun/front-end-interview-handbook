@@ -71,8 +71,7 @@ JavaScript フレームワークが普及する前に、フロントエンドの
 
 ###### 参考
 
-- https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5 (英語)
-- https://developer.mozilla.org/ja/docs/Web/HTML/HTML5 (日本語)
+- https://developer.mozilla.org/en-US/docs/Glossary/HTML5 (英語)
 
 ### `cookie`、`sessionStorage`、`localStorage` の違いを教えてください。
 
