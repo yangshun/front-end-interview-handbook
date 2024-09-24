@@ -42,10 +42,9 @@ export default async function handler(
 ) {
   await runMiddleware(req, res, cors);
 
-  if (process.env.NODE_ENV !== 'production') {
-    return res
-      .status(403)
-      .json({ message: `Only send in ${process.env.NODE_ENV}` });
+  // Only log analytics in production.
+  if (process.env.NEXT_PUBLIC_VERCEL_ENV !== 'production') {
+    return res.status(403).json({ message: `Only send in production` });
   }
 
   if (req.method !== 'POST') {

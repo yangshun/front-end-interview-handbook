@@ -37,7 +37,7 @@ export const marketingRouter = router({
       });
 
       const coupon =
-        process.env.NODE_ENV === 'production'
+        process.env.NEXT_PUBLIC_VERCEL_ENV === 'production'
           ? studentDiscountCouponId_PROD
           : studentDiscountCouponId_TEST;
       const customer = profile.stripeCustomer;
@@ -109,7 +109,7 @@ export const marketingRouter = router({
 
       const customer = profile.stripeCustomer;
       const coupon =
-        process.env.NODE_ENV === 'production'
+        process.env.NEXT_PUBLIC_VERCEL_ENV === 'production'
           ? studentDiscountCouponId_PROD
           : studentDiscountCouponId_TEST;
 

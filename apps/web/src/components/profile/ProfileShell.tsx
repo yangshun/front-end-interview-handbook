@@ -215,7 +215,8 @@ export default function ProfileShell({ user, children }: Props) {
                               </Text>
                             </div>
                           )}
-                          {process.env.NODE_ENV === 'development' && (
+                          {process.env.NEXT_PUBLIC_VERCEL_ENV !==
+                            'production' && (
                             <div className="flex items-center gap-x-2">
                               <RiShieldUserLine
                                 aria-hidden="true"

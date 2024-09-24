@@ -1,6 +1,10 @@
 import Script from 'next/script';
 
 export default function MicrosoftClarity() {
+  if (process.env.NEXT_PUBLIC_VERCEL_ENV !== 'production') {
+    return null;
+  }
+
   return (
     <Script
       dangerouslySetInnerHTML={{

@@ -45,7 +45,7 @@ export default function defaultMetadata({
       },
       // Disable crawling for non-prod.
       robots:
-        process.env.NODE_ENV === 'production'
+        process.env.NEXT_PUBLIC_VERCEL_ENV === 'production'
           ? null
           : {
               follow: false,

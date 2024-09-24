@@ -16,8 +16,8 @@ export default async function logMessage({
   userIdentifier,
 }: Props) {
   console.info('[message]', level, message);
-  // Don't log messages during development.
-  if (process.env.NODE_ENV === 'development') {
+  // Only log analytics in production.
+  if (process.env.NEXT_PUBLIC_VERCEL_ENV !== 'production') {
     return;
   }
 

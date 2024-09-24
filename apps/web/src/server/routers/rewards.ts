@@ -331,7 +331,7 @@ export const rewardsRouter = router({
       }
 
       const coupon =
-        process.env.NODE_ENV === 'production'
+        process.env.NEXT_PUBLIC_VERCEL_ENV === 'production'
           ? socialTasksDiscountCouponId_PROD
           : socialTasksDiscountCouponId_TEST;
 
@@ -381,7 +381,7 @@ export const rewardsRouter = router({
 
     const customer = profile.stripeCustomer;
     const coupon =
-      process.env.NODE_ENV === 'production'
+      process.env.NEXT_PUBLIC_VERCEL_ENV === 'production'
         ? socialTasksDiscountCouponId_PROD
         : socialTasksDiscountCouponId_TEST;
 

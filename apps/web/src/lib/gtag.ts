@@ -4,8 +4,8 @@ const GA_TRACKING_ID = 'G-4PM3M4LWEM';
 
 // https://developers.google.com/analytics/devguides/collection/gtagjs/pages
 function pageview(url: string) {
-  // Don't log analytics during development.
-  if (process.env.NODE_ENV === 'development') {
+  // Only log analytics in production.
+  if (process.env.NEXT_PUBLIC_VERCEL_ENV !== 'production') {
     return;
   }
 
@@ -37,8 +37,8 @@ function event({
     ...extra,
   };
 
-  // Don't log analytics during development.
-  if (process.env.NODE_ENV === 'development') {
+  // Only log analytics in production.
+  if (process.env.NEXT_PUBLIC_VERCEL_ENV !== 'production') {
     console.info('[gtag]', action, payload);
 
     return;
@@ -59,8 +59,8 @@ function event({
 }
 
 function config(tagId: string, extra?: Record<string, unknown>) {
-  // Don't log analytics during development.
-  if (process.env.NODE_ENV === 'development') {
+  // Only log analytics in production.
+  if (process.env.NEXT_PUBLIC_VERCEL_ENV !== 'production') {
     console.info('[gtag]', tagId, extra);
 
     return;
