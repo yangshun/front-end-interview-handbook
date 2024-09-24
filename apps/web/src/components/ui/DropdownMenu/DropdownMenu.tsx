@@ -30,6 +30,7 @@ type CommonProps = Readonly<{
   align?: DropdownMenuContentAlignment;
   asChild?: boolean;
   children: ChildItem | ReadonlyArray<ChildItem>;
+  modal?: boolean;
   onClose?: () => void;
   onCloseAutoFocus?: (event: Event) => void;
   side?: DropdownMenuContentSide;
@@ -65,12 +66,14 @@ export default function DropdownMenu({
   asChild = true,
   children,
   side = 'bottom',
+  modal = false,
   onClose,
   onCloseAutoFocus,
   ...props
 }: Props) {
   return (
     <DropdownMenuPrimitive.Root
+      modal={modal}
       onOpenChange={(open) => {
         if (!open) {
           onClose?.();
