@@ -241,9 +241,21 @@ module.exports = {
   scripts: [],
   i18n: {
     defaultLocale: 'en',
-    locales: ['en', 'zh', 'es', 'jp', 'kr', 'pl', 'pr', 'ru', 'tl', 'bn'],
+    locales: [
+      'en',
+      'zh-CN',
+      'es',
+      'ja-JP',
+      'kr',
+      'pl',
+      'pt-BR',
+      'ru',
+      'tl',
+      'bn',
+    ],
     localeConfigs: {
-      zh: {
+      'zh-CN': {
+        htmlLang: 'zh-CN',
         label: '简体中文',
         direction: 'ltr',
       },
@@ -251,7 +263,7 @@ module.exports = {
         label: 'Español',
         direction: 'ltr',
       },
-      jp: {
+      'ja-JP': {
         label: '日本語',
         direction: 'ltr',
       },
@@ -263,7 +275,8 @@ module.exports = {
         label: 'Polski',
         direction: 'ltr',
       },
-      pr: {
+      'pt-BR': {
+        htmlLang: 'pt-BR',
         label: 'Português',
         direction: 'ltr',
       },
