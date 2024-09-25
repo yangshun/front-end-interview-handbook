@@ -168,13 +168,13 @@ export default function GuidesHeadingObserver({
   const firstVisibleHeadingId = useFirstVisibleHeadingId(headings);
 
   const updateHeadings = useCallback(() => {
-    const containerHeadings =
+    const containerAnchors =
       articleContainerRef.current?.querySelectorAll<HTMLElement>(
-        headingSelectors.join(','),
+        headingSelectors.map((selector) => `${selector} > a`).join(','),
       );
 
-    if (containerHeadings) {
-      setHeadings(Array.from(containerHeadings));
+    if (containerAnchors) {
+      setHeadings(Array.from(containerAnchors));
     }
   }, [articleContainerRef, headingSelectors]);
 
