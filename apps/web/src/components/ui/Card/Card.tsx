@@ -1,7 +1,14 @@
 'use client';
 
 import clsx from 'clsx';
-import { type ReactNode, useContext, useEffect, useId, useRef } from 'react';
+import {
+  type ReactNode,
+  useContext,
+  useEffect,
+  useId,
+  useRef,
+  useState,
+} from 'react';
 
 import {
   themeBackgroundCardColor,
@@ -64,12 +71,13 @@ export default function Card({
   const cardRef = useRef<HTMLDivElement | null>(null);
 
   const { addCard, removeCard } = useContext(MousePositionContext);
+  const [isBrowserAllowed, setIsBrowserAllowed] = useState(false);
 
   useEffect(() => {
     const { current } = cardRef;
 
     // TODO: disable hover glow on Safari until we figure out how to fix it.
-    if (!isAllowedBrowser()) {
+    if (!isBrowserAllowed) {
       return;
     }
 
@@ -82,7 +90,11 @@ export default function Card({
         removeCard(current);
       }
     };
-  }, [addCard, removeCard, disableSpotlight]);
+  }, [addCard, removeCard, disableSpotlight, isBrowserAllowed]);
+
+  useEffect(() => {
+    setIsBrowserAllowed(isAllowedBrowser());
+  }, []);
 
   return (
     <div
@@ -93,13 +105,13 @@ export default function Card({
         !disableBackground && themeBackgroundColor,
         classNameOuter,
         !disableSpotlight &&
-          isAllowedBrowser() &&
+          isBrowserAllowed &&
           cardOuterContainerSpotlightClassNames,
       )}>
       <div
         className={clsx(
           // TODO(z-index)
-          '!absolute top-0 z-10 size-full rounded-[inherit] before:m-[-1px]',
+          'size-full !absolute top-0 z-10 rounded-[inherit] before:m-[-1px]',
           border && themeGlassyBorder,
         )}
       />
