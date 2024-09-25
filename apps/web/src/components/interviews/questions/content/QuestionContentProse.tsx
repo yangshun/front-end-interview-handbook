@@ -51,7 +51,7 @@ export default function QuestionContentProse({
   }
 
   return (
-    <Prose textSize={textSize}>
+    <Prose className="break-words" textSize={textSize}>
       <Contents components={MDXComponents} />
     </Prose>
   );
