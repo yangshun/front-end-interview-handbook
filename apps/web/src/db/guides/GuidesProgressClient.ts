@@ -3,14 +3,22 @@
 import { trpc } from '~/hooks/trpc';
 
 import type { GuideMetadata } from '~/components/guides/types';
+import { useUser } from '@supabase/auth-helpers-react';
 
 export function useQueryGuideProgress(metadata: GuideMetadata) {
-  return trpc.guideProgress.get.useQuery({
-    guide: {
-      category: metadata.category,
-      slug: metadata.slug,
+  const user = useUser();
+
+  return trpc.guideProgress.get.useQuery(
+    {
+      guide: {
+        category: metadata.category,
+        slug: metadata.slug,
+      },
     },
-  });
+    {
+      enabled: !!user, // Only enable the query if the user is logged in
+    },
+  );
 }
 
 export function useMutationGuideProgressAdd() {

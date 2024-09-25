@@ -6,14 +6,22 @@ import type {
   QuestionFormat,
   QuestionMetadata,
 } from '~/components/interviews/questions/common/QuestionsTypes';
+import { useUser } from '@supabase/auth-helpers-react';
 
 export function useQueryQuestionProgress(metadata: QuestionMetadata) {
-  return trpc.questionProgress.get.useQuery({
-    question: {
-      format: metadata.format,
-      slug: metadata.slug,
+  const user = useUser();
+
+  return trpc.questionProgress.get.useQuery(
+    {
+      question: {
+        format: metadata.format,
+        slug: metadata.slug,
+      },
     },
-  });
+    {
+      enabled: !!user, // Only enable the query if the user is logged in
+    }
+  );
 }
 
 export function useMutationQuestionProgressAdd() {
