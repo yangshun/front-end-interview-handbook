@@ -17,6 +17,7 @@ import type { QuestionProgress } from '~/db/QuestionsProgressTypes';
 import logEvent from '~/logging/logEvent';
 
 import type { QuestionMetadata } from './QuestionsTypes';
+import CodingWorkspaceBottomBarEmitter from "../../../workspace/common/CodingWorkspaceBottomBarEmitter"
 
 import { useUser } from '@supabase/auth-helpers-react';
 
@@ -196,6 +197,7 @@ export default function QuestionProgressAction({
                 }),
                 variant: 'success',
               });
+              CodingWorkspaceBottomBarEmitter.emit('stop_timer');
             },
           },
         );

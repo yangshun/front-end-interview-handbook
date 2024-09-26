@@ -1,6 +1,8 @@
 import type { ReactNode } from 'react';
 import { createContext, useCallback, useContext, useState } from 'react';
 
+import CodingWorkspaceBottomBarEmitter from './CodingWorkspaceBottomBarEmitter';
+
 import type { SandpackFiles } from '@codesandbox/sandpack-react/types';
 
 export type CodingWorkspaceTabContents<TabType extends string> = Readonly<
@@ -74,6 +76,7 @@ export function CodingWorkspaceProvider({
   }, []);
 
   const submit = useCallback(() => {
+    CodingWorkspaceBottomBarEmitter.emit('stop_timer');
     setStatus('submitting');
   }, []);
 

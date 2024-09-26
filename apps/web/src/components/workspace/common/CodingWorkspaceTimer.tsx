@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import { useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { RiArrowGoBackLine } from 'react-icons/ri';
 import { RxPause, RxPlay, RxStopwatch } from 'react-icons/rx';
 
@@ -10,6 +10,8 @@ import {
   themeBorderElementColor,
   themeTextColor,
 } from '~/components/ui/theme';
+
+import CodingWorkspaceBottomBarEmitter from './CodingWorkspaceBottomBarEmitter';
 
 export default function CodingWorkspaceTimer() {
   const [timePassedInSeconds, setTimePassedInSeconds] = useState(0);
@@ -26,10 +28,18 @@ export default function CodingWorkspaceTimer() {
     setTimer(timerId);
   }
 
-  function clearTimer() {
+  const clearTimer = useCallback(() => {
     clearInterval(timer);
     setTimer(undefined);
-  }
+  }, [timer]);
+
+  useEffect(() => {
+    CodingWorkspaceBottomBarEmitter.on('stop_timer', clearTimer);
+
+    return () => {
+      CodingWorkspaceBottomBarEmitter.off('stop_timer', clearTimer);
+    };
+  }, [timer, clearTimer]);
 
   if (timer == null && timePassedInSeconds === 0) {
     return (
