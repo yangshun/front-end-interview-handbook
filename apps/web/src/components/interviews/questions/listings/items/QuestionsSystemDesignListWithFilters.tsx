@@ -58,8 +58,8 @@ export default function QuestionsSystemDesignListWithFilters({
     field: QuestionSortField;
     isAscendingOrder: boolean;
   }> = [
-    { field: sortField, isAscendingOrder },
     { field: 'ranking', isAscendingOrder: true },
+    { field: sortField, isAscendingOrder },
   ];
   const premiumSortFields: ReadonlyArray<{
     field: QuestionSortField;
