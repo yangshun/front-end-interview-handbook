@@ -63,7 +63,7 @@ export default function ShareButton({
           pathname: '/intent/tweet',
           query: {
             text: metadata.title,
-            u: new URL(metadata.href, getSiteOrigin()).toString(),
+            url: new URL(metadata.href, getSiteOrigin()).toString(),
             via: 'greatfrontend',
           },
         }),
