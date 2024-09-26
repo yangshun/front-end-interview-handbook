@@ -823,6 +823,10 @@
     "defaultMessage": "Number of challenges completed using this skill, including challenges not in the recommended skill plan",
     "description": "Tooltip for completed challenges label"
   },
+  "4PQzx7": {
+    "defaultMessage": "A starter guide to preparing for front end interviews",
+    "description": "Description for front end interview guide"
+  },
   "4PeFV4": {
     "defaultMessage": "Mark as complete",
     "description": "Mark guide as complete"
@@ -6739,10 +6743,6 @@
     "defaultMessage": "Theme preferences",
     "description": "Title for Theme preferences in projects settings page"
   },
-  "hCCpOf": {
-    "defaultMessage": "Read our Front End Interview Guide",
-    "description": "Title for front end interview guide"
-  },
   "hESyRg": {
     "defaultMessage": "What to expect and how to prepare most efficiently",
     "description": "What to expect in behavioral interviews"
@@ -8323,6 +8323,10 @@
     "defaultMessage": "Nothing at all! Just click \"Start project\", and we will take care of everything else and guide you along the way.",
     "description": "FAQ answer for projects platform"
   },
+  "s/8W4z": {
+    "defaultMessage": "Front End Interview Playbook",
+    "description": "Title for front end interview guide"
+  },
   "s0MeXj": {
     "defaultMessage": "Check it out",
     "description": "Button label for check it out"
@@ -8430,10 +8434,6 @@
   "soQjY2": {
     "defaultMessage": "You upvoted this",
     "description": "Tooltip for upvoted submission button"
-  },
-  "srI99v": {
-    "defaultMessage": "A starter guide to preparing for front end interviews",
-    "description": "Front End Interview Playbook"
   },
   "srrlrR": {
     "defaultMessage": "Practice Front End System Design Interview Questions with Solutions",

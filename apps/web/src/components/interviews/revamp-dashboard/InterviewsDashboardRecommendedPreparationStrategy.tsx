@@ -17,7 +17,7 @@ import Badge from '~/components/ui/Badge';
 import Chip from '~/components/ui/Chip';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
-import Text, { textVariants } from '~/components/ui/Text';
+import Text from '~/components/ui/Text';
 import {
   themeBackgroundCardColor,
   themeBorderElementColor,
@@ -88,16 +88,9 @@ function PreparationStrategyCard({ data }: { data: PreparationStrategyItem }) {
 
         <div className="flex flex-1 flex-col gap-4">
           <div className="flex flex-col gap-1">
-            <Anchor
-              className={textVariants({
-                className: 'z-[1]',
-                size: 'body0',
-                weight: 'bold',
-              })}
-              href={href}
-              variant="flat">
+            <Text size="body0" weight="bold">
               {title}
-            </Anchor>
+            </Text>
             <Text color="secondary" size="body2">
               {description}
             </Text>
@@ -151,15 +144,15 @@ export default function InterviewsDashboardRecommendedPreparationStrategy() {
       },
       description: intl.formatMessage({
         defaultMessage: 'A starter guide to preparing for front end interviews',
-        description: 'Front End Interview Playbook',
-        id: 'srI99v',
+        description: 'Description for front end interview guide',
+        id: '4PQzx7',
       }),
-      href: '/front-end-interview-guidebook',
+      href: '/front-end-interview-playbook',
       icon: RiTimelineView,
       title: intl.formatMessage({
-        defaultMessage: 'Read our Front End Interview Guide',
+        defaultMessage: 'Front End Interview Playbook',
         description: 'Title for front end interview guide',
-        id: 'hCCpOf',
+        id: 's/8W4z',
       }),
       variant: 'neutral',
     },
@@ -219,7 +212,7 @@ export default function InterviewsDashboardRecommendedPreparationStrategy() {
         description: 'Description for frontend system design guide',
         id: 'lKKC9U',
       }),
-      href: '/prepare/system-design',
+      href: '/front-end-system-design-playbook',
       icon: RiBookOpenLine,
       question: {
         completed: 5,

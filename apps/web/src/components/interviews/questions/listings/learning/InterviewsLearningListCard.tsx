@@ -10,7 +10,7 @@ import type {
 } from '~/components/interviews/questions/common/QuestionsTypes';
 import QuestionStudyAllocationLabel from '~/components/interviews/questions/metadata/QuestionStudyAllocationLabel';
 import Anchor from '~/components/ui/Anchor';
-import Text, { textVariants } from '~/components/ui/Text';
+import Text from '~/components/ui/Text';
 import {
   themeBackgroundLayerEmphasized,
   themeBorderElementColor,
@@ -66,16 +66,9 @@ export default function InterviewsLearningListCard({
         </div>
         <div className="flex flex-1 flex-col gap-4">
           <div className="flex flex-col items-start gap-1">
-            <Anchor
-              className={textVariants({
-                className: 'z-[1]',
-                size: 'body0',
-                weight: 'bold',
-              })}
-              href={href}
-              variant="flat">
+            <Text size="body0" weight="bold">
               {name}
-            </Anchor>
+            </Text>
             <Text color="secondary" size="body2">
               {shortDescription}
             </Text>

@@ -8,6 +8,7 @@ import {
   RiQuestionnaireLine,
   RiTimelineView,
 } from 'react-icons/ri';
+import { TbBinaryTree } from 'react-icons/tb';
 import { FormattedMessage, useIntl } from 'react-intl';
 
 import { useQuestionUserFacingFormatData } from '~/data/QuestionFormats';
@@ -94,12 +95,9 @@ function InterviewsQuestionFormatCard({
         </div>
         <div className="flex flex-1 flex-col gap-5">
           <div className="flex flex-1 flex-col gap-1">
-            <Anchor className="flex-1" href={href} variant="unstyled">
-              <span aria-hidden={true} className="absolute inset-0" />
-              <Text size="body1" weight="medium">
-                {title}
-              </Text>
-            </Anchor>
+            <Text size="body1" weight="medium">
+              {title}
+            </Text>
 
             <Text color="secondary" size="body2">
               {description}
@@ -166,6 +164,7 @@ function InterviewsQuestionFormatCard({
           themeTextBrandColor_GroupHover,
         )}
       />
+      <Anchor aria-label={title} className="absolute inset-0" href={href} />
     </div>
   );
 }
@@ -296,7 +295,7 @@ export default function InterviewsQuestionFormatsSection({
     }),
     gradientClassName: questionsFormat.coding.themeGradient,
     href: '/interviews/questions/algo',
-    icon: RiPagesLine,
+    icon: TbBinaryTree,
     question: {
       completed: codingQuestionsProgressAll.algo.size,
       total: algoQuestions.length,

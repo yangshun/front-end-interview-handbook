@@ -67,11 +67,7 @@ export default function QuestionsLearningListPageTitleSection({
               />
             </div>
           ) : (
-            props.icon && (
-              <InterviewsPageHeaderLogo
-                icon={props.icon}
-              />
-            )
+            props.icon && <InterviewsPageHeaderLogo icon={props.icon} />
           )}
           <Heading className={themeTextColor} color="custom" level="heading4">
             {title}

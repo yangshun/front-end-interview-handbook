@@ -74,13 +74,10 @@ function FrameworkCard({
         {icon}
       </div>
       <div className="flex flex-1 flex-col gap-2">
-        <div className="flex gap-2.5">
-          <Anchor href={href} variant="unstyled">
-            <span className="absolute inset-0" />
-            <Text size="body1" weight="medium">
-              {title}
-            </Text>
-          </Anchor>
+        <div className="flex flex-wrap gap-x-2.5 gap-y-1">
+          <Text size="body1" weight="medium">
+            {title}
+          </Text>
           {titleAddOnText && (
             <Badge label={titleAddOnText} size="sm" variant="neutral-active" />
           )}
@@ -100,6 +97,7 @@ function FrameworkCard({
           themeTextBrandColor_GroupHover,
         )}
       />
+      <Anchor aria-label={title} className="absolute inset-0" href={href} />
     </div>
   );
 }

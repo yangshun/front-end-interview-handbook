@@ -78,7 +78,7 @@ export default function QuestionListingUnifiedFilters({
   return (
     <form>
       <Accordion
-        className={clsx('border-y', themeBorderElementColor)}
+        className={clsx('border-b', themeBorderElementColor)}
         defaultValue={[
           companyFilterOptions.id,
           difficultyFilterOptions.id,

@@ -18,7 +18,7 @@ export default function InterviewsPageHeaderLogo({ icon: Icon }: Props) {
         'rounded-lg',
         'overflow-hidden',
         'flex items-center justify-center',
-        'size-16',
+        'size-16 shrink-0',
         themeBackgroundCardColor,
         themeGlassyBorder,
       )}>

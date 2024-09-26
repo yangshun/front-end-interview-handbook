@@ -130,7 +130,7 @@ export default function QuestionsList<Q extends QuestionMetadata>({
             )}
             <div className="grow">
               <Text
-                className="flex items-center gap-x-2"
+                className="inline-flex flex-wrap items-center gap-x-2 gap-y-1.5"
                 size="body2"
                 weight="medium">
                 <Anchor

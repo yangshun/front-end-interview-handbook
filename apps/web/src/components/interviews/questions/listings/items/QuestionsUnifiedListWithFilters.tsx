@@ -29,6 +29,7 @@ import Section from '~/components/ui/Heading/HeadingContext';
 import Popover from '~/components/ui/Popover';
 import Text from '~/components/ui/Text';
 import TextInput from '~/components/ui/TextInput';
+import { themeDivideEmphasizeColor } from '~/components/ui/theme';
 
 import type { QuestionCompletionCount } from '~/db/QuestionsCount';
 
@@ -544,6 +545,7 @@ export default function QuestionsUnifiedListWithFilters({
         <aside
           className={clsx(
             'hidden h-full flex-col gap-y-10 lg:col-span-3 lg:flex',
+            ['divide-y', themeDivideEmphasizeColor],
           )}>
           {showSummarySection && (
             <QuestionListingSummarySection
