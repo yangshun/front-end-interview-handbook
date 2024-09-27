@@ -2,8 +2,8 @@
 title: Front End vs. Back End System Design Interviews
 slug: front-end-vs-back-end-system-design-interviews
 author: Zhenghao He
-author_title: Senior Software Engineer at Instacart, ex-Amazon
-author_url: https://twitter.com/he_zhenghao
+author_title: Engineering Manager at Robinhood, ex-Amazon
+author_url: https://x.com/he_zhenghao
 author_image_url: /img/authors/zhenghao.jpg
 tags: [front end, back end, system design, interview]
 hide_table_of_contents: true

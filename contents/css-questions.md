@@ -446,6 +446,7 @@ Both have these methods have some issues that need to be weighed:
 
 ###### References
 
+- https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Responsive_Design
 - http://mediumwell.com/responsive-adaptive-mobile/
 - https://css-tricks.com/the-difference-between-responsive-and-adaptive-design/
 

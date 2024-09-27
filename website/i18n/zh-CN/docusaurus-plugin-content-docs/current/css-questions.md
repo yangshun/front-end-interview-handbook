@@ -396,6 +396,7 @@ Grid 创建基于栅格的布局，是迄今为止最直观的方法（最好是
 
 ###### 参考
 
+- https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Responsive_Design
 - http://mediumwell.com/responsive-adaptive-mobile/
 - https://css-tricks.com/the-difference-between-responsive-and-adaptive-design/
 

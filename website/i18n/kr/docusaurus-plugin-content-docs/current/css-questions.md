@@ -414,6 +414,7 @@ Grid는 그리드 기반의 레이아웃을 생성하기 위한 가장 직관적
 
 ###### 참고자료
 
+- https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Responsive_Design
 - http://mediumwell.com/responsive-adaptive-mobile/
 - https://css-tricks.com/the-difference-between-responsive-and-adaptive-design/
 

@@ -438,6 +438,7 @@ Obie z tych metod mają pewne problemy, które warto ocenić:
 
 ###### Bibliografia
 
+- https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Responsive_Design
 - http://mediumwell.com/responsive-adaptive-mobile/
 - https://css-tricks.com/the-difference-between-responsive-and-adaptive-design/
 

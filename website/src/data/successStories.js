@@ -25,8 +25,8 @@ export default [
   },
   {
     name: 'Zhenghao He',
-    title: 'Senior Software Engineer, DocuSign, ex-Adobe, ex-Amazon',
-    thumbnail: 'https://github.com/zhenghaohe.png',
+    title: 'Engineering Manager at Robinhood, ex-Amazon',
+    thumbnail: '/img/authors/zhenghao.jpg',
     quote: (
       <>
         There aren't a lot of high quality front end interview prep materials

@@ -353,6 +353,7 @@ Ang bumabagay na disenyo ay mas katulad ng modernong kahulugan ng progresibong p
 
 ###### Mga Reperensiya
 
+- https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Responsive_Design
 - http://mediumwell.com/responsive-adaptive-mobile/
 - https://css-tricks.com/the-difference-between-responsive-and-adaptive-design/
 

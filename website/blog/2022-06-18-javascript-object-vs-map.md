@@ -2,9 +2,9 @@
 title: When You Should Prefer Map Over Object In JavaScript
 slug: javascript-object-vs-map
 author: Zhenghao He
-author_title: Senior Software Engineer at Instacart, ex-Amazon
-author_url: https://twitter.com/he_zhenghao
-author_image_url: https://pbs.twimg.com/profile_images/1489749168767660032/M_us3Mu2_400x400.jpg
+author_title: Engineering Manager at Robinhood, ex-Amazon
+author_url: https://x.com/he_zhenghao
+author_image_url: /img/authors/zhenghao.jpg
 tags: [front end, javascript, interview, object, map]
 hide_table_of_contents: true
 ---
