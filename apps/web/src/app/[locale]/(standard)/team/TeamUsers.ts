@@ -23,7 +23,10 @@ export const teamUsers: ReadonlyArray<TeamUser> = [
   },
   {
     category: 'team',
-    companyLogos: ['/img/company-logos/svelte-logomark.svg'],
+    companyLogos: [
+      '/img/company-logos/svelte-logomark.svg',
+      '/img/company-logos/shopee-logo.svg',
+    ],
     description:
       'Li Hau is a Svelte Core Maintainer and shipped many features for Svelte 3. At Shopee, he leads the web frontend platform team. He also loves sharing and making educational content on his YouTube channel.',
     href: 'https://www.youtube.com/c/lihautan',
@@ -54,15 +57,15 @@ export const teamUsers: ReadonlyArray<TeamUser> = [
   {
     category: 'team',
     companyLogos: [
-      '/img/company-logos/docusign-logomark.svg',
-      '/img/company-logos/amazon-logomark.png',
+      '/img/company-logos/robinhood-logomark.svg',
+      '/img/company-logos/amazon-logomark.svg',
     ],
     description:
-      'Zhenghao is a Senior Software Engineer at DocuSign who was previously from Instacart and Amazon. He has developed multiple modern large-scale web apps and writes about software development and web technologies on zhenghao.io',
-    href: 'https://www.linkedin.com/in/zhenghao-he/',
+      'Zhenghao is an Engineering Manager at Robinhood who was previously from Docusign, Instacart, and Amazon. He has developed multiple modern large-scale web apps and writes about software development and web technologies on zhenghao.io',
+    href: 'https://www.zhenghao.io/',
     image: '/img/team/zhenghao.jpg',
     name: 'Zhenghao He',
-    title: 'Sr Software Engineer @ DocuSign. Ex-Amazon',
+    title: 'Engineering Manager @ Robinhood. Ex-Amazon',
   },
   {
     category: 'team',

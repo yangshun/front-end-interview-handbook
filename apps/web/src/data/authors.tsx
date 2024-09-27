@@ -114,22 +114,22 @@ const authors: Record<string, Author> = {
   zhenghao: {
     bio: (
       <>
-        Zhenghao is a Senior Software Engineer at DocuSign and was previously
-        from Instacart and Amazon. He has developed multiple modern large-scale
-        web apps and writes about software development and web technologies on{' '}
+        Zhenghao is an Engineering Manager at Robinhood and was previously from
+        Instacart and Amazon. He has developed multiple modern large-scale web
+        apps and writes about software development and web technologies on{' '}
         <Anchor href="https://www.zhenghao.io/">zhenghao.io</Anchor>.
       </>
     ),
     companyIconUrl: '/img/marketing/amazon-icon.svg',
     imageUrl: '/img/team/zhenghao.jpg',
     links: {
-      linkedin: 'https://www.linkedin.com/in/zhenghao-he/',
+      linkedin: 'https://www.zhenghao.io/',
       website: 'https://www.zhenghao.io',
       x: 'https://twitter.com/he_zhenghao',
     },
     name: 'Zhenghao He',
-    role: 'Senior Software Engineer, ex-Amazon, ex-Instacart',
-    subtitle: 'Senior Engineer, Ex-Amazon',
+    role: 'Engineering Manager, Robinhood, ex-Amazon',
+    subtitle: 'Engineering Manager, Robinhood',
   },
 } as const;
 
