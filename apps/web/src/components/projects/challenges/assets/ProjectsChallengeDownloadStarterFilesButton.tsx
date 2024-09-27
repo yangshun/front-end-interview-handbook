@@ -6,6 +6,8 @@ import { trpc } from '~/hooks/trpc';
 import { useToast } from '~/components/global/toasts/useToast';
 import Button from '~/components/ui/Button';
 
+import logEvent from '~/logging/logEvent';
+
 type Props = Readonly<{
   size: React.ComponentProps<typeof Button>['size'];
   slug: string;
@@ -18,7 +20,15 @@ export default function ProjectsChallengeDownloadStarterFilesButton({
   const { showToast } = useToast();
   const intl = useIntl();
   const downloadStarterFilesMutation =
-    trpc.projects.challenge.downloadStarterFiles.useMutation();
+    trpc.projects.challenge.downloadStarterFiles.useMutation({
+      onMutate: () => {
+        logEvent('projects.challenge.assets.download', {
+          element: 'Project Challenge download assets Button',
+          label: 'Starter files',
+          namespace: 'projects',
+        });
+      },
+    });
 
   return (
     <Button

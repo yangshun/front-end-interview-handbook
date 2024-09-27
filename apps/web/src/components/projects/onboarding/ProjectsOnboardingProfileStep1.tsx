@@ -19,6 +19,8 @@ import Button from '~/components/ui/Button';
 import Heading from '~/components/ui/Heading';
 import TextInput from '~/components/ui/TextInput';
 
+import logEvent from '~/logging/logEvent';
+
 import { zodResolver } from '@hookform/resolvers/zod';
 
 export type ProjectsProfileOnboardingStep1FormValues = {
@@ -76,6 +78,11 @@ export default function ProjectsOnboardingProfileStep1({ onFinish }: Props) {
   const { data: initialValues } = trpc.projects.profile.viewer.useQuery();
   const onboardingStep1UpdateMutation =
     trpc.projects.profile.onboardingStep1Update.useMutation({
+      onMutate: () => {
+        logEvent('projects.onboarding.submit', {
+          namespace: 'projects',
+        });
+      },
       onSuccess: (data) => {
         trpcUtils.projects.profile.viewer.setData(undefined, data);
       },

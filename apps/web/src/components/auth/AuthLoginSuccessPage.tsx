@@ -1,6 +1,7 @@
 'use client';
 
 import clsx from 'clsx';
+import { useEffect } from 'react';
 import { useIntl } from 'react-intl';
 
 import useAuthFullPageRedirectAfterLogin from '~/hooks/user/useAuthFullPageRedirectAfterLogIn';
@@ -8,6 +9,8 @@ import useAuthFullPageRedirectAfterLogin from '~/hooks/user/useAuthFullPageRedir
 import Container from '~/components/ui/Container';
 import Heading from '~/components/ui/Heading';
 import Text from '~/components/ui/Text';
+
+import logEvent from '~/logging/logEvent';
 
 type Props = Readonly<{
   next: string | null;
@@ -17,6 +20,12 @@ export default function AuthLoginSuccessPage({ next }: Props) {
   const intl = useIntl();
 
   useAuthFullPageRedirectAfterLogin(next);
+
+  useEffect(() => {
+    logEvent('auth.login_success', {
+      namespace: 'auth',
+    });
+  }, []);
 
   return (
     <Container

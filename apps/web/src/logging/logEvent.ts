@@ -1,4 +1,5 @@
 type LoggingAction =
+  | 'auth.login_success'
   | 'auth.password.change'
   | 'auth.password.reset.fail'
   | 'auth.password.reset.success'
@@ -25,6 +26,10 @@ type LoggingAction =
   | 'monaco.unreachable'
   | 'not_found'
   | 'pageview'
+  | 'projects.challenge.assets.download'
+  | 'projects.challenge.start'
+  | 'projects.challenge.submit'
+  | 'projects.onboarding.submit'
   | 'question.mark_complete'
   | 'question.run'
   | 'question.submit'

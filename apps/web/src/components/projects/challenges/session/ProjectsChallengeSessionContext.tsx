@@ -9,6 +9,8 @@ import useUserProfile from '~/hooks/user/useUserProfile';
 import { useToast } from '~/components/global/toasts/useToast';
 import Anchor from '~/components/ui/Anchor';
 
+import logEvent from '~/logging/logEvent';
+
 import type { ProjectsChallengeSessionSkillsFormValues } from '../types';
 import { ProjectsReputationPointsConfig } from '../../reputation/ProjectsReputationPointsConfig';
 
@@ -78,6 +80,13 @@ export default function ProjectsChallengeSessionContextProvider({
     );
 
   const startProjectMutation = trpc.projects.sessions.start.useMutation({
+    onMutate: () => {
+      logEvent('projects.challenge.start', {
+        element: 'Project Challenge start Button',
+        label: 'Start Challenge',
+        namespace: 'projects',
+      });
+    },
     onSuccess: () => {
       trpcUtils.projects.sessions.invalidate();
       // So that the lock screen will be updated with latest state.

@@ -17,6 +17,7 @@ import Button from '~/components/ui/Button';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 
+import logEvent from '~/logging/logEvent';
 import { useI18nRouter } from '~/next-i18nostic/src';
 
 import ProjectsChallengeSubmissionForm from './ProjectsChallengeSubmissionForm';
@@ -86,6 +87,11 @@ export default function ProjectsChallengeSubmitPage({
           id: 'Nz7W/0',
         }),
         variant: 'danger',
+      });
+    },
+    onMutate: () => {
+      logEvent('projects.challenge.submit', {
+        namespace: 'projects',
       });
     },
     onSuccess: ({
