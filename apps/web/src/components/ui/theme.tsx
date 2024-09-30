@@ -203,9 +203,19 @@ export const themeGradientPinkPurple: ThemeGradient<'#EC4899', '#818CF8'> = {
   startColor: '#EC4899',
 };
 
+export const themeGradientHeading = clsx(
+  'bg-clip-text !text-transparent',
+  'bg-gradient-to-r from-[#18181B] to-[#808080] dark:from-[#F4F4F5] dark:to-[#B9B9B9]',
+);
+
 export const themeRadialGlowBackground = clsx(
   'relative before:rounded-[inherit] before:opacity-50 before:-z-10 before:top-0 before:left-0 before:right-0 before:absolute before:bg-top before:bg-cover before:w-full before:h-[500px]',
   'before:bg-[radial-gradient(78.57%_78.57%_at_50.65%_0.84%,_var(--brand-gradient-radial-light)_0%,_var(--brand-gradient-radial-dark)_0%,_rgba(15,_23,_42,_0.0001)_100%)]',
+);
+
+export const themeWhiteGlowCardBackground = clsx(
+  'relative before:absolute before:-z-[1] before:h-[130px] before:w-[210px] before:rounded-full',
+  'before:bg-[radial-gradient(32.11%_32.11%_at_50%_50%,_#FFFFFF_0%,_#D8D8E1_100%)] before:opacity-10 before:blur-[42.0942px]',
 );
 
 // Shadow

@@ -9,6 +9,7 @@ import {
   themeBorderElementColor,
   themeOutlineElement_FocusVisible,
   themeOutlineElementBrandColor_FocusVisible,
+  themeWhiteGlowCardBackground,
 } from '~/components/ui/theme';
 
 import { useInterviewsMarketingTestimonialsDict } from '../../../../marketing/testimonials/InterviewsMarketingTestimonials';
@@ -34,9 +35,6 @@ function TestimonialCard({
   title,
   location,
 }: TestimonialCardProps) {
-  const cardGlow =
-    'relative before:absolute before:-left-10 before:-top-10 before:-z-[1] before:h-[130px] before:w-[210px] before:rounded-full before:bg-[radial-gradient(32.11%_32.11%_at_50%_50%,_#FFFFFF_0%,_#D8D8E1_100%)] before:opacity-10 before:blur-[42.0942px]';
-
   return (
     <div
       className={clsx(
@@ -46,7 +44,7 @@ function TestimonialCard({
         'rounded-lg',
         'bg-neutral-200/40 dark:bg-neutral-800/40',
         ['border', themeBorderElementColor],
-        cardGlow,
+        [themeWhiteGlowCardBackground, 'before:-left-10 before:-top-10'],
       )}>
       <blockquote className={textVariants({ size: 'body2', weight: 'medium' })}>
         {testimonial}

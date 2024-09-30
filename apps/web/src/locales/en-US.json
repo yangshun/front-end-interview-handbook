@@ -231,6 +231,10 @@
     "defaultMessage": "Undo",
     "description": "Text describing undo command in the coding workspace shortcuts menu"
   },
+  "/g/6lA": {
+    "defaultMessage": "We're crafting GreatFrontEnd with passion, precision and quality.",
+    "description": "Heading title for Yangshun foreword section"
+  },
   "/huwbF": {
     "defaultMessage": "Progress tracking dashboard",
     "description": "Title of 'Progress tracking dashboard' sub-feature in Projects marketing page"
@@ -1298,6 +1302,10 @@
   "7Wsapt": {
     "defaultMessage": "Quiz",
     "description": "Quiz questions short title"
+  },
+  "7YjBUE": {
+    "defaultMessage": "Founder, CEO of GreatFrontEnd",
+    "description": "Position of Yangshun"
   },
   "7ZjmR2": {
     "defaultMessage": "Implementation must contain at least {minLength} character(s).",
@@ -5442,6 +5450,10 @@
   "YUzNZk": {
     "defaultMessage": "User submissions you can reference",
     "description": "Title for user project submissions section"
+  },
+  "YWxe3k": {
+    "defaultMessage": "\"There is nothing fun in this world except helping people, and see more than 500k front end engineers achieve their dream careers come true. We are aiming to help 1 million front end engineers to achieve with GreatFrontEnd\"",
+    "description": "Yangshun foreword message"
   },
   "YWz2ko": {
     "defaultMessage": "Proven preparation plans",
