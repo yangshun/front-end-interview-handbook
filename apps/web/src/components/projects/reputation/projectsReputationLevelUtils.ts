@@ -13,7 +13,7 @@ export const ProjectsReputationTierLabel: Record<
   crafter: 'Crafter',
   initiate: 'Initiate',
   master: 'Master',
-  prestige: 'Prestige'
+  prestige: 'Prestige',
 };
 
 type LevelInfo = {
@@ -134,6 +134,16 @@ for (let i = 0; i < pointsToNextLevel.length; i++) {
   }
 }
 
+function findLastTierInfo(level: number): ProjectsReputationTier {
+  for (let i = tierInfo.length - 1; i >= 0; i--) {
+    if (level >= tierInfo[i].minLevel) {
+      return tierInfo[i].tier;
+    }
+  }
+
+  return 'initiate'; // Default if none found
+}
+
 const maxPointsOfALevelAndTier: Array<LevelInfo> = Array(
   numPrecomputedLevels + 1,
 ).fill({ maxPoints: 0, tier: 'initiate' });
@@ -141,7 +151,7 @@ const maxPointsOfALevelAndTier: Array<LevelInfo> = Array(
 for (let i = 1; i < maxPointsOfALevelAndTier.length; i++) {
   maxPointsOfALevelAndTier[i] = {
     maxPoints: maxPointsOfALevelAndTier[i - 1].maxPoints + pointsToNextLevel[i],
-    tier: tierInfo.findLast((info) => i >= info.minLevel)!.tier, // Safe because i is minimally 1
+    tier: findLastTierInfo(i),
   };
 }
 
