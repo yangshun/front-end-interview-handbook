@@ -22,7 +22,6 @@ import type { QuestionMetadata } from '~/components/interviews/questions/common/
 import QuestionListingTopicFilters from '~/components/interviews/questions/listings/filters/QuestionListingTopicFilters';
 import QuestionsLearningListTitleSection from '~/components/interviews/questions/listings/learning/QuestionsLearningListTitleSection';
 import QuestionListingDifficultySummary from '~/components/interviews/questions/listings/stats/QuestionListingDifficultySummary';
-import QuestionListingQuestionCount from '~/components/interviews/questions/listings/stats/QuestionListingQuestionCount';
 import QuestionsProgressPanel from '~/components/interviews/questions/listings/stats/QuestionsProgressPanel';
 import QuestionCountLabel from '~/components/interviews/questions/metadata/QuestionCountLabel';
 import QuestionDifficultyLabel from '~/components/interviews/questions/metadata/QuestionDifficultyLabel';

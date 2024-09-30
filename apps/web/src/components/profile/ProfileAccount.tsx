@@ -2,6 +2,8 @@
 
 import { FormattedMessage } from 'react-intl';
 
+import { INTERVIEWS_AUTH_CHANGES_AVAILABLE } from '~/data/FeatureFlags';
+
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 
@@ -11,7 +13,6 @@ import ProfileAccountIdentities from './fields/ProfileAccountIdentities';
 import ProfileAccountUsername from './fields/ProfileAccountUsername';
 
 import type { User } from '@supabase/supabase-js';
-import { INTERVIEWS_AUTH_CHANGES_AVAILABLE } from '~/data/FeatureFlags';
 
 type Props = Readonly<{
   user: User;

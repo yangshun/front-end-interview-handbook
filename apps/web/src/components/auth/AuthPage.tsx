@@ -6,6 +6,8 @@ import { FormattedMessage, useIntl } from 'react-intl';
 
 import useAuthFullPageRedirectAfterLogin from '~/hooks/user/useAuthFullPageRedirectAfterLogIn';
 
+import { INTERVIEWS_AUTH_CHANGES_AVAILABLE } from '~/data/FeatureFlags';
+
 import SupabaseAuth from '~/components/auth/SupabaseAuth';
 import Alert from '~/components/ui/Alert';
 import EmptyState from '~/components/ui/EmptyState';
@@ -17,7 +19,6 @@ import Container from '../ui/Container';
 import Text from '../ui/Text';
 
 import { useSessionContext, useUser } from '@supabase/auth-helpers-react';
-import { INTERVIEWS_AUTH_CHANGES_AVAILABLE } from '~/data/FeatureFlags';
 
 type Props = Readonly<{
   view: AuthViewType;

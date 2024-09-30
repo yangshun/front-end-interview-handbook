@@ -3,6 +3,7 @@
 import { trpc } from '~/hooks/trpc';
 
 import type { GuideMetadata } from '~/components/guides/types';
+
 import { useUser } from '@supabase/auth-helpers-react';
 
 export function useQueryGuideProgress(metadata: GuideMetadata) {

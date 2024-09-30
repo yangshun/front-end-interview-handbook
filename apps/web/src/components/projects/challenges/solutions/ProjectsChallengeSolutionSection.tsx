@@ -5,8 +5,8 @@ import clsx from 'clsx';
 import CodingPreferencesProvider from '~/components/global/CodingPreferencesProvider';
 import { useColorSchemePreferences } from '~/components/global/color-scheme/ColorSchemePreferencesProvider';
 import type { ProjectsChallengeSolutionBundle } from '~/components/projects/challenges/types';
-import sandpackProviderOptions from '~/components/workspace/common/sandpack/sandpackProviderOptions';
 import SandpackErrorReporting from '~/components/workspace/common/sandpack/SandpackErrorReporting';
+import sandpackProviderOptions from '~/components/workspace/common/sandpack/sandpackProviderOptions';
 
 import ProjectsChallengeSolutionWorkspace from './ProjectsChallengeSolutionWorkspace';
 

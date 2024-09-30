@@ -6,6 +6,7 @@ import type {
   QuestionFormat,
   QuestionMetadata,
 } from '~/components/interviews/questions/common/QuestionsTypes';
+
 import { useUser } from '@supabase/auth-helpers-react';
 
 export function useQueryQuestionProgress(metadata: QuestionMetadata) {
@@ -20,7 +21,7 @@ export function useQueryQuestionProgress(metadata: QuestionMetadata) {
     },
     {
       enabled: !!user, // Only enable the query if the user is logged in
-    }
+    },
   );
 }
 
