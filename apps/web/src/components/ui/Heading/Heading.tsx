@@ -4,7 +4,11 @@ import type { ForwardedRef, HTMLAttributes } from 'react';
 import { forwardRef } from 'react';
 
 import { useHeadingLevel } from './HeadingContext';
-import type { HeadingColor, HeadingLevel } from './HeadingStyles';
+import type {
+  HeadingColor,
+  HeadingLevel,
+  HeadingWeight,
+} from './HeadingStyles';
 import { headingCVA } from './HeadingStyles';
 
 type Props = HTMLAttributes<HTMLHeadingElement> &
@@ -13,10 +17,11 @@ type Props = HTMLAttributes<HTMLHeadingElement> &
     color?: HeadingColor;
     level: HeadingLevel;
     tag?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
+    weight?: HeadingWeight;
   }>;
 
 function Heading(
-  { level: visualLevel, color, className, tag, ...props }: Props,
+  { level: visualLevel, color, className, tag, weight, ...props }: Props,
   ref: ForwardedRef<HTMLHeadingElement>,
 ) {
   const { level } = useHeadingLevel();
@@ -26,7 +31,7 @@ function Heading(
     // @ts-expect-error TS doesn't know the tags are h1/h2/etc.
     <HeadingTag
       ref={ref}
-      className={headingCVA({ className, color, level: visualLevel })}
+      className={headingCVA({ className, color, level: visualLevel, weight })}
       {...props}
     />
   );

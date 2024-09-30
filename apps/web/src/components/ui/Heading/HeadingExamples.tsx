@@ -16,11 +16,17 @@ const levels = [
 export default function HeadingExamples() {
   return (
     <UIExamplesGroup darkMode="horizontal" title="Heading">
-      {levels.map((level) => (
-        <Heading key={level} level={level}>
-          {capitalize(level)}
-        </Heading>
-      ))}
+      <div className="flex gap-12">
+        {(['default', 'medium'] as const).map((weight) => (
+          <div key={weight} className="flex flex-col gap-4">
+            {levels.map((level) => (
+              <Heading key={level} level={level} weight={weight}>
+                {capitalize(level)}
+              </Heading>
+            ))}
+          </div>
+        ))}
+      </div>
     </UIExamplesGroup>
   );
 }
