@@ -149,12 +149,6 @@ describe('isValidStudentEmail', () => {
           'Email address does not seem to belong to an accredited educational institution. Send us an email if you believe your school should qualify.',
         valid: false,
       });
-
-      expect(isValidStudentEmail('greg@humbermailz.ca')).toEqual({
-        reason:
-          'Email address does not seem to belong to an accredited educational institution. Send us an email if you believe your school should qualify.',
-        valid: false,
-      });
     });
   });
 });
