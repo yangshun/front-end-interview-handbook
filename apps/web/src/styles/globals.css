@@ -1,3 +1,10 @@
+@import './font.css';
+@import './themes.css';
+
+@import './sticky.css';
+@import './fancy.css';
+@import './scrollbar.css';
+
 /* Place allll the way at the top to let Tailwind typography plugin override it by appearing later.
   Would welcome a better way to do this.
 */
@@ -9,9 +16,6 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-@import './font.css';
-@import './themes.css';
 
 * {
   box-sizing: border-box;
@@ -61,10 +65,6 @@ a {
 .pointer-events-inherit {
   pointer-events: inherit !important;
 }
-
-@import './sticky.css';
-@import './fancy.css';
-@import './scrollbar.css';
 
 /* There's also themeRadialGlowBackground */
 @layer utilities {

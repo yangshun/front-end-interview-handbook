@@ -4,7 +4,7 @@
   "type": "module",
   "scripts": {
     "check": "npm run tsc && next lint",
-    "dev": "next dev",
+    "dev": "next dev --turbo",
     "dev:gen": "concurrently -n gfe,next -c green,blue -k \"npm run gen:watch\" \"next dev\"",
     "build": "npm run gen:all && next build && npm run sitemap",
     "sitemap": "next-sitemap",
