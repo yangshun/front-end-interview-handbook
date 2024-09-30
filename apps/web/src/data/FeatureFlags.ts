@@ -7,6 +7,8 @@ export const INTERVIEWS_REVAMP_2024 =
   process.env.NEXT_PUBLIC_VERCEL_ENV !== 'production';
 export const INTERVIEWS_REVAMP_BOTTOM_CONTENT =
   process.env.NEXT_PUBLIC_VERCEL_ENV !== 'production';
+export const INTERVIEWS_AUTH_CHANGES_AVAILABLE =
+  process.env.NEXT_PUBLIC_VERCEL_ENV !== 'production';
 
 export const PROJECTS_NOTIFICATION_AVAILABLE =
   process.env.NEXT_PUBLIC_VERCEL_ENV !== 'production';

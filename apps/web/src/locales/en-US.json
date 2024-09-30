@@ -71,6 +71,10 @@
     "defaultMessage": "Self-Learning",
     "description": "Label for \"Self-Learning\" option in YOE replacement"
   },
+  "+bR6HK": {
+    "defaultMessage": "Disconnect",
+    "description": "Label for unlink social identity button"
+  },
   "+dUPPi": {
     "defaultMessage": "Post",
     "description": "Label for post reply button on project discussions page"
@@ -382,6 +386,10 @@
   "0rR1Bo": {
     "defaultMessage": "Impress recruiters with component libraries and designs systems",
     "description": "Title of 'Build entire design systems or component libraries with our Component Tracks' feature in Projects marketing page"
+  },
+  "0sbQ2I": {
+    "defaultMessage": "Manage your social account connections to GreatFrontEnd",
+    "description": "Description social identities in account section"
   },
   "0tjrX1": {
     "defaultMessage": "Desktop ({width}px x {height}px)",
@@ -3167,6 +3175,10 @@
     "defaultMessage": "Technical architecture design questions that assess your ability to design scalable and maintainable front end systems. Typically asked for mid to senior level positions.",
     "description": "Description for system design questions"
   },
+  "KSS6U5": {
+    "defaultMessage": "Social Providers",
+    "description": "Title social identities in account section"
+  },
   "KU/uns": {
     "defaultMessage": "Previous",
     "description": "Previous step button label"
@@ -4490,6 +4502,10 @@
   "SK7Xn6": {
     "defaultMessage": "Write your status here",
     "description": "Placeholder for status others field on project profile edit page"
+  },
+  "SKZHmt": {
+    "defaultMessage": "Connect",
+    "description": "Label for link social identity button"
   },
   "SKfw++": {
     "defaultMessage": "Are you currently working as a Software Engineer?",
@@ -8403,6 +8419,10 @@
     "defaultMessage": "Learn new skills, improve your techniques and stay updated on latest front end trends and developments.",
     "description": "Description of GreatFrontEnd blog homepage"
   },
+  "sbXDK4": {
+    "defaultMessage": "Something went wrong",
+    "description": "Error message"
+  },
   "sfJ1Oa": {
     "defaultMessage": "Purchase premium to get access to all component tracks as well as exclusive skills, official how-to guides and production-ready Figma files.",
     "description": "Subtitle for premium projects component track"
@@ -8987,6 +9007,10 @@
     "defaultMessage": "Enter 1-2 lines summary of your submission",
     "description": "Placeholder label for submission summary in submission form"
   },
+  "wBgo1q": {
+    "defaultMessage": "You will disconnect this social. Are you sure?",
+    "description": "Confirmation text for disconnecting social"
+  },
   "wDKscz": {
     "defaultMessage": "Completed",
     "description": "Projects challenge completed"
@@ -9294,6 +9318,10 @@
   "ypT9B0": {
     "defaultMessage": "Answering \"Why work here\"",
     "description": "How to answer the \"why work here\" question in behavioral interviews"
+  },
+  "ypn/En": {
+    "defaultMessage": "Disconnect social",
+    "description": "Label to disconnect social"
   },
   "yptiXw": {
     "defaultMessage": "Filter by difficulty",

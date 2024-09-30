@@ -357,13 +357,13 @@ importers:
         version: 2.2.0
       '@supabase/auth-helpers-nextjs':
         specifier: ^0.6.1
-        version: 0.6.1(@supabase/supabase-js@2.39.0)
+        version: 0.6.1(@supabase/supabase-js@2.45.4)
       '@supabase/auth-helpers-react':
         specifier: ^0.3.1
-        version: 0.3.1(@supabase/supabase-js@2.39.0)
+        version: 0.3.1(@supabase/supabase-js@2.45.4)
       '@supabase/supabase-js':
-        specifier: ^2.39.0
-        version: 2.39.0
+        specifier: ^2.45.4
+        version: 2.45.4
       '@tanstack/react-query':
         specifier: ^4.28.0
         version: 4.36.1(react-dom@18.2.0)(react@18.2.0)
@@ -679,7 +679,7 @@ importers:
         version: 29.7.0(@types/node@18.19.2)(ts-node@10.9.2)
       next-sitemap:
         specifier: ^3.1.52
-        version: 3.1.55(@next/env@14.2.4)(next@14.2.13)
+        version: 3.1.55(@next/env@14.2.13)(next@14.2.13)
       postcss:
         specifier: ^8.4.21
         version: 8.4.32
@@ -3685,7 +3685,7 @@ packages:
     engines: {node: ^8.13.0 || >=10.10.0}
     dependencies:
       '@grpc/proto-loader': 0.7.10
-      '@types/node': 18.19.2
+      '@types/node': 18.19.39
     dev: false
 
   /@grpc/proto-loader@0.7.10:
@@ -4422,10 +4422,6 @@ packages:
 
   /@next/env@14.2.13:
     resolution: {integrity: sha512-s3lh6K8cbW1h5Nga7NNeXrbe0+2jIIYK9YaA9T7IufDWnZpozdFUp6Hf0d5rNWUKu4fEuSX2rCKlGjCrtylfDw==}
-
-  /@next/env@14.2.4:
-    resolution: {integrity: sha512-3EtkY5VDkuV2+lNmKlbkibIJxcO4oIHEhBWne6PaAp+76J9KoSsGvNikp6ivzAT8dhhBMYrm6op2pS1ApG0Hzg==}
-    dev: true
 
   /@next/eslint-plugin-next@14.2.13:
     resolution: {integrity: sha512-z8Mk0VljxhIzsSiZUSdt3wp+t2lKd+jk5a9Jsvh3zDGkItgDMfjv/ZbET6HsxEl/fSihVoHGsXV6VLyDH0lfTQ==}
@@ -6537,40 +6533,40 @@ packages:
     resolution: {integrity: sha512-Gfkvwk9o9kE9r9XNBmJRfV8zONvXThnm1tcuojL04Uy5uRyqg93DC83lDebl0rocZCfKSjUv+fWYtMQmEDJldg==}
     dev: false
 
-  /@supabase/auth-helpers-nextjs@0.6.1(@supabase/supabase-js@2.39.0):
+  /@supabase/auth-helpers-nextjs@0.6.1(@supabase/supabase-js@2.45.4):
     resolution: {integrity: sha512-ffDAR4pW2Cosj/CuuGRAhzOFfHtqzdgax7zqRGGyq334gxxPplsmJFGaLPRJ3Z/4mTSIJHyFd6LYdHMN0a+5Bw==}
     peerDependencies:
       '@supabase/supabase-js': ^2.0.4
     dependencies:
-      '@supabase/auth-helpers-shared': 0.3.4(@supabase/supabase-js@2.39.0)
-      '@supabase/supabase-js': 2.39.0
+      '@supabase/auth-helpers-shared': 0.3.4(@supabase/supabase-js@2.45.4)
+      '@supabase/supabase-js': 2.45.4
     dev: false
 
-  /@supabase/auth-helpers-react@0.3.1(@supabase/supabase-js@2.39.0):
+  /@supabase/auth-helpers-react@0.3.1(@supabase/supabase-js@2.45.4):
     resolution: {integrity: sha512-g3SFv08Dz9FapNif/ZY1b7qKGlMJDyTLSayHBz3kb3FuYxg7aLWgQtydDhm5AGbc0XtvpIBuhGTIOVevwpdosA==}
     peerDependencies:
       '@supabase/supabase-js': ^2.0.4
     dependencies:
-      '@supabase/supabase-js': 2.39.0
+      '@supabase/supabase-js': 2.45.4
     dev: false
 
-  /@supabase/auth-helpers-shared@0.3.4(@supabase/supabase-js@2.39.0):
+  /@supabase/auth-helpers-shared@0.3.4(@supabase/supabase-js@2.45.4):
     resolution: {integrity: sha512-8I3D0SPHHexkFTSfPg0nZgJSVazWoB3tZDpT6IjRv6w89vDMUzO99Lit4H9anVLF4teW8c/nJJxawDNbDlgbgg==}
     peerDependencies:
       '@supabase/supabase-js': ^2.0.4
     dependencies:
-      '@supabase/supabase-js': 2.39.0
+      '@supabase/supabase-js': 2.45.4
       jose: 4.15.4
     dev: false
 
-  /@supabase/functions-js@2.1.5:
-    resolution: {integrity: sha512-BNzC5XhCzzCaggJ8s53DP+WeHHGT/NfTsx2wUSSGKR2/ikLFQTBCDzMvGz/PxYMqRko/LwncQtKXGOYp1PkPaw==}
+  /@supabase/auth-js@2.65.0:
+    resolution: {integrity: sha512-+wboHfZufAE2Y612OsKeVP4rVOeGZzzMLD/Ac3HrTQkkY4qXNjI6Af9gtmxwccE5nFvTiF114FEbIQ1hRq5uUw==}
     dependencies:
       '@supabase/node-fetch': 2.6.15
     dev: false
 
-  /@supabase/gotrue-js@2.58.0:
-    resolution: {integrity: sha512-cDslIiiPUzS8DQQqYxK9kT+Ngbrbx0a68e+AsU3H4+eLyAfq+m9aAqKXHHr3H5jqeFvIprSe87r4SeyOYyMnrQ==}
+  /@supabase/functions-js@2.4.1:
+    resolution: {integrity: sha512-8sZ2ibwHlf+WkHDUZJUXqqmPvWQ3UHN0W30behOJngVh/qHHekhJLCFbh0AjkE9/FqqXtf9eoVvmYgfCLk5tNA==}
     dependencies:
       '@supabase/node-fetch': 2.6.15
     dev: false
@@ -6582,39 +6578,39 @@ packages:
       whatwg-url: 5.0.0
     dev: false
 
-  /@supabase/postgrest-js@1.9.0:
-    resolution: {integrity: sha512-axP6cU69jDrLbfihJKQ6vU27tklD0gzb9idkMN363MtTXeJVt5DQNT3JnJ58JVNBdL74hgm26rAsFNvHk+tnSw==}
+  /@supabase/postgrest-js@1.16.1:
+    resolution: {integrity: sha512-EOSEZFm5pPuCPGCmLF1VOCS78DfkSz600PBuvBND/IZmMciJ1pmsS3ss6TkB6UkuvTybYiBh7gKOYyxoEO3USA==}
     dependencies:
       '@supabase/node-fetch': 2.6.15
     dev: false
 
-  /@supabase/realtime-js@2.9.0:
-    resolution: {integrity: sha512-e/SI+/eqFJorAKAgVAwKQ9hSDQSBp86Yh7XbQmfJJ90LEfpM52HlTfJt/03lcepRu6BmH5h1uYn1b4zta7ghdw==}
+  /@supabase/realtime-js@2.10.2:
+    resolution: {integrity: sha512-qyCQaNg90HmJstsvr2aJNxK2zgoKh9ZZA8oqb7UT2LCh3mj9zpa3Iwu167AuyNxsxrUE8eEJ2yH6wLCij4EApA==}
     dependencies:
       '@supabase/node-fetch': 2.6.15
       '@types/phoenix': 1.6.4
-      '@types/websocket': 1.0.10
-      ws: 8.16.0
+      '@types/ws': 8.5.12
+      ws: 8.17.0
     transitivePeerDependencies:
       - bufferutil
       - utf-8-validate
     dev: false
 
-  /@supabase/storage-js@2.5.5:
-    resolution: {integrity: sha512-OpLoDRjFwClwc2cjTJZG8XviTiQH4Ik8sCiMK5v7et0MDu2QlXjCAW3ljxJB5+z/KazdMOTnySi+hysxWUPu3w==}
+  /@supabase/storage-js@2.7.0:
+    resolution: {integrity: sha512-iZenEdO6Mx9iTR6T7wC7sk6KKsoDPLq8rdu5VRy7+JiT1i8fnqfcOr6mfF2Eaqky9VQzhP8zZKQYjzozB65Rig==}
     dependencies:
       '@supabase/node-fetch': 2.6.15
     dev: false
 
-  /@supabase/supabase-js@2.39.0:
-    resolution: {integrity: sha512-cYfnwWRW5rYBbPT/BNIejtRT9ULdD9PnIExQV28PZpqcqm3PLwS4f3pY7WGB01Da63VYdvktZPKuYvreqsj/Zg==}
+  /@supabase/supabase-js@2.45.4:
+    resolution: {integrity: sha512-E5p8/zOLaQ3a462MZnmnz03CrduA5ySH9hZyL03Y+QZLIOO4/Gs8Rdy4ZCKDHsN7x0xdanVEWWFN3pJFQr9/hg==}
     dependencies:
-      '@supabase/functions-js': 2.1.5
-      '@supabase/gotrue-js': 2.58.0
+      '@supabase/auth-js': 2.65.0
+      '@supabase/functions-js': 2.4.1
       '@supabase/node-fetch': 2.6.15
-      '@supabase/postgrest-js': 1.9.0
-      '@supabase/realtime-js': 2.9.0
-      '@supabase/storage-js': 2.5.5
+      '@supabase/postgrest-js': 1.16.1
+      '@supabase/realtime-js': 2.10.2
+      '@supabase/storage-js': 2.7.0
     transitivePeerDependencies:
       - bufferutil
       - utf-8-validate
@@ -7061,10 +7057,10 @@ packages:
     resolution: {integrity: sha512-I6e+9+HtWADAWeeJWDFQtdk4EVSAbj6Rtz4q8fJ7mSr1M0jzlFcs8/HZ+Xb5SHzVm1dxH7aUiI+A8kA8Gcrm0A==}
     dev: true
 
-  /@types/websocket@1.0.10:
-    resolution: {integrity: sha512-svjGZvPB7EzuYS94cI7a+qhwgGU1y89wUgjT6E2wVUfmAGIvRfT7obBvRtnhXCSsoMdlG4gBFGE7MfkIXZLoww==}
+  /@types/ws@8.5.12:
+    resolution: {integrity: sha512-3tPRkv1EtkDpzlgyKyI8pGsGZAGPEaXeu0DOj5DI25Ja91bdAYddYHbADRYVrZMRbfW+1l5YwXVDKohDJNQxkQ==}
     dependencies:
-      '@types/node': 18.19.2
+      '@types/node': 18.19.39
     dev: false
 
   /@types/yargs-parser@21.0.3:
@@ -7079,7 +7075,7 @@ packages:
     resolution: {integrity: sha512-oJoftv0LSuaDZE3Le4DbKX+KS9G36NzOeSap90UIK0yMA/NhKJhqlSGtNDORNRaIbQfzjXDrQa0ytJ6mNRGz/Q==}
     requiresBuild: true
     dependencies:
-      '@types/node': 18.19.14
+      '@types/node': 18.19.39
     dev: false
     optional: true
 
@@ -13104,7 +13100,7 @@ packages:
       react-dom: 18.2.0(react@18.2.0)
     dev: false
 
-  /next-sitemap@3.1.55(@next/env@14.2.4)(next@14.2.13):
+  /next-sitemap@3.1.55(@next/env@14.2.13)(next@14.2.13):
     resolution: {integrity: sha512-ZjkRfkqoSLbU+e8W9TWWe0zfOGNA47lpvm35kNcUCmj73gpLX2PIn51gwHT/B6bgGVAFYY0OXixJDrxIIwcEHw==}
     engines: {node: '>=14.18'}
     hasBin: true
@@ -13113,7 +13109,7 @@ packages:
       next: '*'
     dependencies:
       '@corex/deepmerge': 4.0.43
-      '@next/env': 14.2.4
+      '@next/env': 14.2.13
       minimist: 1.2.8
       next: 14.2.13(@babel/core@7.24.7)(@opentelemetry/api@1.7.0)(react-dom@18.2.0)(react@18.2.0)
     dev: true
@@ -14394,7 +14390,7 @@ packages:
       '@protobufjs/path': 1.1.2
       '@protobufjs/pool': 1.1.0
       '@protobufjs/utf8': 1.1.0
-      '@types/node': 18.19.14
+      '@types/node': 18.19.39
       long: 5.2.3
     dev: false
 

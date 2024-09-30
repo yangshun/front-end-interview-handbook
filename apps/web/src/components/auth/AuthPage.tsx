@@ -17,6 +17,7 @@ import Container from '../ui/Container';
 import Text from '../ui/Text';
 
 import { useSessionContext, useUser } from '@supabase/auth-helpers-react';
+import { INTERVIEWS_AUTH_CHANGES_AVAILABLE } from '~/data/FeatureFlags';
 
 type Props = Readonly<{
   view: AuthViewType;
@@ -84,8 +85,12 @@ export default function AuthPage({ view }: Props) {
                 </Alert>
               ) : undefined
             }
-            providers={['github']}
-            socialLayout="horizontal"
+            providers={
+              INTERVIEWS_AUTH_CHANGES_AVAILABLE
+                ? ['github', 'google']
+                : ['github']
+            }
+            socialLayout="vertical"
             supabaseClient={supabaseClient}
           />
         </>
