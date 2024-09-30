@@ -4,7 +4,7 @@ import allProjectsChallengeMetadata from './.contentlayer/generated/ProjectsChal
 import allProjectsSkillMetadata from './.contentlayer/generated/ProjectsSkillMetadata/_index.json' assert { type: 'json' };
 import allProjectsTrackMetadata from './.contentlayer/generated/ProjectsTrackMetadata/_index.json' assert { type: 'json' };
 import codingQuestionsList from './src/__generated__/questions/coding/list.en-US.json' assert { type: 'json' };
-import i18nConfig from './next-i18nostic.config.cjs';
+import i18nConfig from './src/next-i18nostic/config.json' assert { type: 'json' };
 
 const priority = 0.7;
 const changefreq = 'daily';

@@ -18,7 +18,6 @@
     "next-env.d.ts",
     "src",
     ".next/types/**/*.ts",
-    "next-i18nostic-env.d.ts",
     ".contentlayer/generated"
   ]
 }

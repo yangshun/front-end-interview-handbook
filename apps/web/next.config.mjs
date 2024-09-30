@@ -11,8 +11,6 @@ import remarkExtractToc from '@stefanprobst/remark-extract-toc';
 import remarkExtractTocExport from '@stefanprobst/remark-extract-toc/mdx';
 import nextMDX from '@next/mdx';
 
-import nextI18nostic from './nextI18nostic.mjs';
-
 const withMDX = nextMDX({
   extension: /\.mdx?$/,
   options: {
@@ -27,8 +25,6 @@ const withMDX = nextMDX({
     ],
   },
 });
-
-const withNextI18nostic = nextI18nostic();
 
 /**
  * @type {import('next').NextConfig}
@@ -136,4 +132,4 @@ const nextConfig = {
   },
 };
 
-export default withNextI18nostic(withContentlayer(withMDX(nextConfig)));
+export default withContentlayer(withMDX(nextConfig));

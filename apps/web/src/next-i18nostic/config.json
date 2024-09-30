@@ -1,0 +1,10 @@
+{
+  "defaultLocale": "en-US",
+  "localeHrefLangs": {
+    "en-US": "en-US",
+    "pt-BR": "pt-BR",
+    "zh-CN": "zh-CN"
+  },
+  "locales": ["en-US", "zh-CN", "pt-BR"],
+  "trailingSlash": false
+}
