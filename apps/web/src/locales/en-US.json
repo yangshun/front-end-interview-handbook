@@ -39,6 +39,10 @@
     "defaultMessage": "View full questions list",
     "description": "Link to questions page"
   },
+  "+IgJAp": {
+    "defaultMessage": "Seniors to Principals at the world's best companies",
+    "description": "Prep resources companies"
+  },
   "+JhlMu": {
     "defaultMessage": "Congratulations on completing the question! Sign into your account or sign up for free to save your progress!",
     "description": "Message shown when user completes a question"
@@ -978,6 +982,10 @@
   "5db7o8": {
     "defaultMessage": "Coding Interviews",
     "description": "Title for Coding Interviews category of frontend interview playbook cover page"
+  },
+  "5fJI7m": {
+    "defaultMessage": "Core maintainers of well-known open source projects",
+    "description": "Prep resources open source projects"
   },
   "5gYLMr": {
     "defaultMessage": "Once you're done, host your project with <tooltip>our recommended hosts</tooltip> and submit your project URL for code reviews.",
@@ -4586,6 +4594,10 @@
   "SgTflO": {
     "defaultMessage": "+{reputation}",
     "description": "Title for level Up"
+  },
+  "SgdFJp": {
+    "defaultMessage": "Having interviewed hundreds of candidates, we know what to look out for. Learn best practices and techniques gleaned from years of experience.",
+    "description": "Subtitle for the prep resources section"
   },
   "SiWL+G": {
     "defaultMessage": "Once you're done developing, follow this step-by-step guide to host your solution and submit the challenge.",
@@ -8871,6 +8883,10 @@
     "defaultMessage": "Purchase premium to get access to all skill plans as well as exclusive component tracks, official how-to guides and production-ready Figma files.",
     "description": "Subtitle for premium projects skill roadmap"
   },
+  "vSCWmc": {
+    "defaultMessage": "Let big tech senior/staff engineers write your prep resources",
+    "description": "Title for the prep resources section"
+  },
   "vSV9/q": {
     "defaultMessage": "Deep-dive into topical focus areas critical for front end interviews",
     "description": "Description for practice by focus areas section"
@@ -9382,6 +9398,10 @@
   "z3B/G3": {
     "defaultMessage": "Resume Preparation",
     "description": "Title for Resume Preparation category of frontend interview playbook cover page"
+  },
+  "z4Pc05": {
+    "defaultMessage": "Creators of widely used interview materials",
+    "description": "Prep resources interview materials"
   },
   "z7U2cl": {
     "defaultMessage": "Name must contain at most {maxLength} character(s).",
