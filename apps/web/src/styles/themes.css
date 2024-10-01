@@ -1,13 +1,13 @@
 :root,
 [data-theme='interviews'] {
   /* We use HSL values so that transparency can be tweaked dynamically by Tailwind modifiers. */
-  --brand-darkest: 251 55% 35%; /* #3a2888; */
-  --brand-darker: 252 62% 51%; /* #5133cf; */
-  --brand-dark: 245 86% 67%; /* #7063f3; */
-  --brand-default: 244 90% 76%; /* #948cf9; */
-  --brand-light: 244 95% 85%; /* #bab5fd; */
-  --brand-lighter: 241 95% 92%; /* #d6d5fe; */
-  --brand-lightest: 252 100% 97%; /* #f3f0ff; */
+  --brand-darkest: 71 49% 11%; /* #262b0f; */
+  --brand-darker: 71 86% 69%; /* #dbf46e; */
+  --brand-dark: 71 99% 72%; /* #e3fe6f; */
+  --brand-default: 69 98% 74%; /* #ebfe7d; */
+  --brand-light: 69 100% 79%; /* #efff94; */
+  --brand-lighter: 69 100% 88%; /* #f6ffc0; */
+  --brand-lightest: 69 98% 94%; /* #faffdf; */
 
   --brand-gradient-radial-light: #e9d5ff;
   --brand-gradient-radial-dark: #8383fd;

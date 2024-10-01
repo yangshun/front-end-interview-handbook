@@ -31,7 +31,7 @@ const variantClasses: Record<
   primary: {
     backgroundColorClass: 'bg-brand-dark',
     buttonClass: 'hover:bg-brand',
-    textColorClass: 'text-white',
+    textColorClass: 'text-neutral-900',
   },
   special: {
     backgroundColorClass: 'bg-neutral-800',

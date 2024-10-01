@@ -91,6 +91,7 @@ function CheckboxInput(
             className={clsx(
               'size-4',
               'rounded',
+              'fill-neutral-950',
               themeTextBrandColor,
               'bg-transparent',
               themeBorderElementColor,

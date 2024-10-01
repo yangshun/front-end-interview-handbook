@@ -141,10 +141,10 @@ const variantClasses: Record<ButtonVariant, string> = {
   ),
   primary: clsx(
     'border-transparent',
-    'text-white dark:text-neutral-950',
+    'text-neutral-950',
     'bg-brand-dark dark:bg-brand',
-    'hover:bg-brand-darker dark:hover:bg-brand-light',
-    'active:bg-brand-darkest dark:active:bg-brand-lighter',
+    'hover:bg-brand-light dark:hover:bg-brand-light',
+    'active:bg-brand-lighter dark:active:bg-brand-lighter',
     themeOutlineElementBrandColor_FocusVisible,
   ),
   secondary: clsx(
@@ -198,8 +198,8 @@ const variantDisabledClasses: Record<ButtonVariant, string> = {
   ),
   primary: clsx(
     'disabled:border-transparent',
-    'disabled:text-white dark:disabled:text-neutral-700',
-    'disabled:bg-brand-lighter dark:disabled:bg-neutral-900',
+    'disabled:text-neutral-400 dark:disabled:text-neutral-600',
+    'disabled:bg-neutral-50 dark:disabled:bg-neutral-800',
   ),
   secondary: clsx(
     'disabled:border-neutral-300 dark:disabled:border-neutral-700',

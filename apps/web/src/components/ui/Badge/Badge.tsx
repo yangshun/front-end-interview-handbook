@@ -71,11 +71,11 @@ const variantClasses: Record<
     textClass: themeTextColor,
   },
   primary: {
-    backgroundClass: 'bg-brand-lightest dark:bg-neutral-800',
+    backgroundClass: 'bg-brand-dark dark:bg-brand',
     borderClass: 'border border-brand-dark dark:border-brand',
-    iconClass: themeTextBrandColor,
+    iconClass: 'text-neutral-900',
     paddingClass: 'py-px',
-    textClass: themeTextBrandColor,
+    textClass: 'text-neutral-900',
   },
   special: {
     backgroundClass: 'shiny bg-brand-lightest dark:bg-neutral-800',

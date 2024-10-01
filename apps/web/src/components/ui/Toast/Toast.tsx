@@ -75,11 +75,11 @@ const classes: Record<
     textColor: 'invert',
   },
   special: {
-    addOnClass: 'bg-white text-brand-dark',
+    addOnClass: 'bg-neutral-900 text-brand-dark',
     backgroundClass: 'bg-brand-dark',
     icon: RiStarFill,
-    iconClass: 'text-white focus:ring-white-500',
-    textColor: 'light',
+    iconClass: 'text-neutral-900 focus:ring-neutral-900',
+    textColor: 'dark',
   },
   success: {
     addOnClass: 'bg-white text-success',
