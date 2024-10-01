@@ -770,7 +770,7 @@ Practically, ES2015 has vastly improved JavaScript and made it much nicer to wri
 ###### References
 
 - https://hackernoon.com/twelve-fancy-chrome-devtools-tips-dc1e39d10d9d
-- https://raygun.com/blog/javascript-debugging/
+- https://raygun.com/learn/javascript-debugging-tips
 
 ### What language constructions do you use for iterating over object properties and array items?
 
