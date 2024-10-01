@@ -3,7 +3,6 @@
 import clsx from 'clsx';
 import { useRef } from 'react';
 import { RiSettings3Line, RiUserLine, RiWallet3Line } from 'react-icons/ri';
-import { useIntl } from 'react-intl';
 
 import gtag from '~/lib/gtag';
 import useIsSticky from '~/hooks/useIsSticky';
@@ -17,6 +16,7 @@ import LogoLink from '~/components/global/logos/LogoLink';
 import NavColorSchemeDropdown from '~/components/global/navbar/NavColorSchemeDropdown';
 import NavProductDropdownMenu from '~/components/global/navbar/NavProductDropdownMenu';
 import NavProfileIcon from '~/components/global/navbar/NavProfileIcon';
+import { useIntl } from '~/components/intl';
 import useProjectsNotificationUnreadCount from '~/components/projects/notifications/hooks/useProjectsNotificationUnreadCount';
 import ProjectsNotificationMobile from '~/components/projects/notifications/ProjectsNotificationMobile';
 import Anchor from '~/components/ui/Anchor';

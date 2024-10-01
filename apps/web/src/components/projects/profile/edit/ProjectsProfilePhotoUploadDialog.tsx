@@ -2,10 +2,10 @@ import clsx from 'clsx';
 import { useEffect, useRef, useState } from 'react';
 import type { CropperRef } from 'react-advanced-cropper';
 import { CircleStencil, Cropper } from 'react-advanced-cropper';
-import { useIntl } from 'react-intl';
 
 import { trpc } from '~/hooks/trpc';
 
+import { useIntl } from '~/components/intl';
 import { blobToBase64 } from '~/components/projects/utils/profilePhotoUtils';
 import Button from '~/components/ui/Button';
 import Dialog from '~/components/ui/Dialog';

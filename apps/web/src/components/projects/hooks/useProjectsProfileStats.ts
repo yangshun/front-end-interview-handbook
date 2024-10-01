@@ -4,7 +4,8 @@ import {
   RiTerminalBoxFill,
   RiThumbUpFill,
 } from 'react-icons/ri';
-import { useIntl } from 'react-intl';
+
+import { useIntl } from '~/components/intl';
 
 type Props = Readonly<{
   codeReviews?: number;

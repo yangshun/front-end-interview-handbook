@@ -2,7 +2,6 @@
 
 import clsx from 'clsx';
 import { RiArrowRightLine } from 'react-icons/ri';
-import { useIntl } from 'react-intl';
 
 import { trpc } from '~/hooks/trpc';
 
@@ -17,6 +16,7 @@ import type { QuestionDifficulty } from '~/components/interviews/questions/commo
 import CompletionCountSummary from '~/components/interviews/questions/listings/stats/CompletionCountSummary';
 import QuestionCountLabel from '~/components/interviews/questions/metadata/QuestionCountLabel';
 import QuestionDifficultySummary from '~/components/interviews/questions/metadata/QuestionDifficultySummary';
+import { useIntl } from '~/components/intl';
 import Anchor from '~/components/ui/Anchor';
 import Badge from '~/components/ui/Badge';
 import Container from '~/components/ui/Container';

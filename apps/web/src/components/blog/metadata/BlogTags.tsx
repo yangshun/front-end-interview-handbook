@@ -1,9 +1,9 @@
 import clsx from 'clsx';
 import { useId } from 'react';
-import { FormattedMessage } from 'react-intl';
 
 import BlogMoreTagLabel from '~/components/blog/metadata/BlogMoreTagLabel';
 import BlogTagLabel from '~/components/blog/metadata/BlogTagLabel';
+import { FormattedMessage } from '~/components/intl';
 
 type Props = Readonly<{
   showAll?: boolean;

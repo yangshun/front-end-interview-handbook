@@ -7,7 +7,8 @@ import {
   RiPaletteLine,
 } from 'react-icons/ri';
 import { RxFigmaLogo } from 'react-icons/rx';
-import { useIntl } from 'react-intl';
+
+import { useIntl } from '~/components/intl';
 
 import type { ProjectsChallengeResource } from '../types';
 

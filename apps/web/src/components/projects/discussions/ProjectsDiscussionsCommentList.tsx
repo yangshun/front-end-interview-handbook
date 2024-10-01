@@ -1,10 +1,10 @@
 import clsx from 'clsx';
 import { useState } from 'react';
 import { RiQuestionnaireLine } from 'react-icons/ri';
-import { FormattedMessage } from 'react-intl';
 
 import { trpc } from '~/hooks/trpc';
 
+import { FormattedMessage } from '~/components/intl';
 import EmptyState from '~/components/ui/EmptyState';
 import Spinner from '~/components/ui/Spinner';
 import Text from '~/components/ui/Text';

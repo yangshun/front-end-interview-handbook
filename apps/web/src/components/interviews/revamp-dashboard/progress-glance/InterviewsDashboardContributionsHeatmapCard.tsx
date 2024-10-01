@@ -2,10 +2,10 @@ import clsx from 'clsx';
 import { sum, values } from 'lodash-es';
 import { useMemo } from 'react';
 import { RiInformationLine } from 'react-icons/ri';
-import { FormattedMessage } from 'react-intl';
 
 import { trpc } from '~/hooks/trpc';
 
+import { FormattedMessage } from '~/components/intl';
 import Text from '~/components/ui/Text';
 import {
   themeBorderElementColor,

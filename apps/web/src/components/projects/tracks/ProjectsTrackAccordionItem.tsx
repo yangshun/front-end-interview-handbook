@@ -2,8 +2,8 @@
 
 import clsx from 'clsx';
 import { RiArrowDownSLine, RiArrowRightLine } from 'react-icons/ri';
-import { useIntl } from 'react-intl';
 
+import { useIntl } from '~/components/intl';
 import Anchor from '~/components/ui/Anchor';
 import Card from '~/components/ui/Card';
 import Text from '~/components/ui/Text';

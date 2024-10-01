@@ -1,5 +1,4 @@
-import { useIntl } from 'react-intl';
-
+import { useIntl } from '~/components/intl';
 import type { SelectDisplay } from '~/components/ui/Select';
 import Select from '~/components/ui/Select';
 

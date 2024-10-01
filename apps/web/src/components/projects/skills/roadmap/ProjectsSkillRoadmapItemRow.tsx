@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import { RiArrowRightLine, RiLockLine, RiLockUnlockLine } from 'react-icons/ri';
-import { useIntl } from 'react-intl';
 
+import { useIntl } from '~/components/intl';
 import ProjectsChallengeFractionalCompletedTag from '~/components/projects/challenges/metadata/ProjectsChallengeFractionalCompletedTag';
 import ProjectsChallengeProgressbar from '~/components/projects/challenges/metadata/ProjectsChallengeProgressbar';
 import ProjectsChallengeReputationTag from '~/components/projects/challenges/metadata/ProjectsChallengeReputationTag';

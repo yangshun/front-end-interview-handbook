@@ -1,9 +1,9 @@
 'use client';
 
 import type { ProjectsChallengeBrief } from 'contentlayer/generated';
-import { FormattedMessage } from 'react-intl';
 
 import BlurOverlay from '~/components/common/BlurOverlay';
+import { FormattedMessage } from '~/components/intl';
 import type { ProjectsChallengeItem } from '~/components/projects/challenges/types';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';

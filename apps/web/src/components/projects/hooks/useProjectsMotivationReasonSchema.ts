@@ -1,6 +1,6 @@
-import { useIntl } from 'react-intl';
 import { z } from 'zod';
 
+import { useIntl } from '~/components/intl';
 import { motivationReasonValue } from '~/components/projects/misc';
 
 import type {

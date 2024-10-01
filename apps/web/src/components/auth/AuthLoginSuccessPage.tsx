@@ -2,10 +2,10 @@
 
 import clsx from 'clsx';
 import { useEffect } from 'react';
-import { useIntl } from 'react-intl';
 
 import useAuthFullPageRedirectAfterLogin from '~/hooks/user/useAuthFullPageRedirectAfterLogIn';
 
+import { useIntl } from '~/components/intl';
 import Container from '~/components/ui/Container';
 import Heading from '~/components/ui/Heading';
 import Text from '~/components/ui/Text';

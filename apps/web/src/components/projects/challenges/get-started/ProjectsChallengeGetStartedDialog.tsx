@@ -2,8 +2,8 @@ import clsx from 'clsx';
 import { useSearchParams } from 'next/navigation';
 import { useState } from 'react';
 import { RiArrowLeftLine, RiArrowRightLine, RiCheckLine } from 'react-icons/ri';
-import { useIntl } from 'react-intl';
 
+import { useIntl } from '~/components/intl';
 import Button from '~/components/ui/Button';
 import Chip from '~/components/ui/Chip';
 import Dialog from '~/components/ui/Dialog';

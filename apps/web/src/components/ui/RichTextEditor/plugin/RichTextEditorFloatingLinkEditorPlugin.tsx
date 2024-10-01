@@ -22,9 +22,9 @@ import {
   RiDeleteBin6Line,
   RiPencilLine,
 } from 'react-icons/ri';
-import { useIntl } from 'react-intl';
 import { useOnClickOutside } from 'usehooks-ts';
 
+import { useIntl } from '~/components/intl';
 import Button from '~/components/ui/Button';
 import TextInput from '~/components/ui/TextInput';
 import { themeBackgroundLayerEmphasized } from '~/components/ui/theme';

@@ -8,11 +8,11 @@ import {
   RiArrowUpSLine,
   RiExternalLinkFill,
 } from 'react-icons/ri';
-import { useIntl } from 'react-intl';
 
 import BlogArticle from '~/components/blog/articles/BlogArticle';
 import BlogMdx from '~/components/blog/articles/BlogMdx';
 import type { BlogMetadata } from '~/components/blog/BlogTypes';
+import { useIntl } from '~/components/intl';
 import Button from '~/components/ui/Button';
 import {
   themeBackgroundCardWhiteOnLightColor,

@@ -1,12 +1,12 @@
 import { createContext, useCallback, useContext, useState } from 'react';
 import { RiFireFill } from 'react-icons/ri';
-import { FormattedMessage } from 'react-intl';
 
 import { trpc } from '~/hooks/trpc';
 import { useAuthSignInUp } from '~/hooks/user/useAuthFns';
 import useUserProfile from '~/hooks/user/useUserProfile';
 
 import { useToast } from '~/components/global/toasts/useToast';
+import { FormattedMessage } from '~/components/intl';
 import Anchor from '~/components/ui/Anchor';
 
 import logEvent from '~/logging/logEvent';

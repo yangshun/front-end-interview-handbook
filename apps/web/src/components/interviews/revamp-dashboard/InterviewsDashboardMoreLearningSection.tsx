@@ -1,6 +1,5 @@
 import clsx from 'clsx';
 import type { InterviewsCompanyGuide } from 'contentlayer/generated';
-import { FormattedMessage } from 'react-intl';
 
 import type { PreparationPlans } from '~/data/plans/PreparationPlans';
 
@@ -11,6 +10,7 @@ import type {
   QuestionMetadata,
   QuestionSlug,
 } from '~/components/interviews/questions/common/QuestionsTypes';
+import { FormattedMessage } from '~/components/intl';
 import Divider from '~/components/ui/Divider';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';

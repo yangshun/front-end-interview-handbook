@@ -1,5 +1,4 @@
 import clsx from 'clsx';
-import { FormattedMessage, useIntl } from 'react-intl';
 
 import type { FAQItems } from '~/data/faqs/FAQs';
 import {
@@ -12,6 +11,7 @@ import {
   generalWorthIt,
 } from '~/data/faqs/InterviewsGeneralFAQs';
 
+import { FormattedMessage, useIntl } from '~/components/intl';
 import Anchor from '~/components/ui/Anchor';
 import Container from '~/components/ui/Container';
 import Section from '~/components/ui/Heading/HeadingContext';

@@ -10,11 +10,11 @@ import {
   RiHome3Line,
   RiWindowLine,
 } from 'react-icons/ri';
-import { useIntl } from 'react-intl';
 
 import { useGuidesData } from '~/data/Guides';
 import { SocialLinks } from '~/data/SocialLinks';
 
+import { useIntl } from '~/components/intl';
 import { SocialDiscountSidebarMention } from '~/components/promotions/social/SocialDiscountSidebarMention';
 import Anchor from '~/components/ui/Anchor';
 import Badge from '~/components/ui/Badge';

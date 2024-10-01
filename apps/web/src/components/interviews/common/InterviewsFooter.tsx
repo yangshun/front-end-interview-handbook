@@ -1,9 +1,9 @@
 'use client';
 
-import { useIntl } from 'react-intl';
-
 import { useGuidesData } from '~/data/Guides';
 import { useQuestionUserFacingFormatData } from '~/data/QuestionFormats';
+
+import { useIntl } from '~/components/intl';
 
 import type { FooterNavigation } from '../../global/footers/Footer';
 import Footer from '../../global/footers/Footer';

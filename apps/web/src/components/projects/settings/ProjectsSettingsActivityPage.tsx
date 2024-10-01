@@ -2,11 +2,11 @@
 
 import clsx from 'clsx';
 import { RiRocketLine } from 'react-icons/ri';
-import { FormattedMessage, useIntl } from 'react-intl';
 
 import { trpc } from '~/hooks/trpc';
 
 import Timestamp from '~/components/common/datetime/Timestamp';
+import { FormattedMessage, useIntl } from '~/components/intl';
 import Anchor from '~/components/ui/Anchor';
 import EmptyState from '~/components/ui/EmptyState';
 import Heading from '~/components/ui/Heading';

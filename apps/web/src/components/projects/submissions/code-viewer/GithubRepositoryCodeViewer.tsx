@@ -1,10 +1,10 @@
 import clsx from 'clsx';
 import { useState } from 'react';
-import { useIntl } from 'react-intl';
 
 import { trpc } from '~/hooks/trpc';
 
 import ReadonlyDirectoryExplorer from '~/components/common/directory-explorer/ReadonlyDirectoryExplorer';
+import { useIntl } from '~/components/intl';
 import EmptyState from '~/components/ui/EmptyState';
 import Spinner from '~/components/ui/Spinner';
 import { themeBorderColor } from '~/components/ui/theme';

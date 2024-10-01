@@ -3,7 +3,8 @@
 import clsx from 'clsx';
 import * as React from 'react';
 import { RiCloseLine } from 'react-icons/ri';
-import { FormattedMessage } from 'react-intl';
+
+import { FormattedMessage } from '~/components/intl';
 
 import DialogBaseOverlay from '../Dialog/DialogBaseOverlay';
 import Heading from '../Heading';

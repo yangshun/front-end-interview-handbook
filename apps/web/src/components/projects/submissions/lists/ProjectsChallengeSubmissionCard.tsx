@@ -5,9 +5,9 @@ import type {
 } from 'contentlayer/generated';
 import { useState } from 'react';
 import { RiFileDamageLine } from 'react-icons/ri';
-import { FormattedMessage, useIntl } from 'react-intl';
 
 import RelativeTimestamp from '~/components/common/datetime/RelativeTimestamp';
+import { FormattedMessage, useIntl } from '~/components/intl';
 import UserProfileInformationRow from '~/components/profile/info/UserProfileInformationRow';
 import ProjectsProfileAvatar from '~/components/projects/users/ProjectsProfileAvatar';
 import Anchor from '~/components/ui/Anchor';

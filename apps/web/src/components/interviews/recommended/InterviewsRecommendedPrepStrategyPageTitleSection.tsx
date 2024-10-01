@@ -6,10 +6,10 @@ import {
   RiArrowRightLine,
   RiCheckFill,
 } from 'react-icons/ri';
-import { FormattedMessage, useIntl } from 'react-intl';
 
 import { trpc } from '~/hooks/trpc';
 
+import { FormattedMessage, useIntl } from '~/components/intl';
 import Anchor from '~/components/ui/Anchor';
 import Badge from '~/components/ui/Badge';
 import Chip from '~/components/ui/Chip';

@@ -3,9 +3,9 @@
 import React, { Fragment, useState } from 'react';
 import { RiCalendar2Line } from 'react-icons/ri';
 import type { IntlShape } from 'react-intl';
-import { useIntl } from 'react-intl';
 
 import FilterButton from '~/components/common/FilterButton';
+import { useIntl } from '~/components/intl';
 import {
   Accordion,
   AccordionContent,

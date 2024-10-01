@@ -8,8 +8,8 @@ import {
 } from 'lexical';
 import { useCallback, useEffect } from 'react';
 import { RiCodeSSlashLine } from 'react-icons/ri';
-import { useIntl } from 'react-intl';
 
+import { useIntl } from '~/components/intl';
 import RichTextEditorToolbarActionNode from '~/components/ui/RichTextEditor/components/RichTextEditorToolbarActionNode';
 import Select from '~/components/ui/Select';
 

@@ -1,8 +1,8 @@
 import clsx from 'clsx';
 import Image from 'next/image';
 import React, { useState } from 'react';
-import { FormattedMessage, useIntl } from 'react-intl';
 
+import { FormattedMessage, useIntl } from '~/components/intl';
 import MarketingSectionHeader from '~/components/marketing/MarketingSectionHeader';
 import Chip from '~/components/ui/Chip';
 import Container from '~/components/ui/Container';

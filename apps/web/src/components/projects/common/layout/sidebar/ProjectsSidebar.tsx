@@ -3,7 +3,6 @@
 import clsx from 'clsx';
 import { PiPathBold } from 'react-icons/pi';
 import { RiLinkedinFill, RiSettings3Line } from 'react-icons/ri';
-import { useIntl } from 'react-intl';
 
 import { PROJECTS_NOTIFICATION_AVAILABLE } from '~/data/FeatureFlags';
 import { SocialLinks } from '~/data/SocialLinks';
@@ -13,6 +12,7 @@ import {
   SidebarCollapsed,
   SidebarExpanded,
 } from '~/components/global/sidebar/Sidebar';
+import { useIntl } from '~/components/intl';
 import ProjectsNotification from '~/components/projects/notifications/ProjectsNotification';
 import ProjectsProfileAvatar from '~/components/projects/users/ProjectsProfileAvatar';
 import Button from '~/components/ui/Button';

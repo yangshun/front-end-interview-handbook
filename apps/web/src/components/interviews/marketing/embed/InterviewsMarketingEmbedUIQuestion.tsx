@@ -2,7 +2,6 @@
 
 import dynamic from 'next/dynamic';
 import { useState } from 'react';
-import { useIntl } from 'react-intl';
 import { useMediaQuery } from 'usehooks-ts';
 
 import gtag from '~/lib/gtag';
@@ -11,6 +10,7 @@ import type {
   QuestionMetadata,
   QuestionUserInterface,
 } from '~/components/interviews/questions/common/QuestionsTypes';
+import { useIntl } from '~/components/intl';
 import Anchor from '~/components/ui/Anchor';
 import Banner from '~/components/ui/Banner';
 import UserInterfaceCodingWorkspaceWriteup from '~/components/workspace/user-interface/UserInterfaceCodingWorkspaceWriteup';

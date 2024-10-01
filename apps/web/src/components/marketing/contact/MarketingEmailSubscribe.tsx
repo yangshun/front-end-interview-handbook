@@ -1,9 +1,9 @@
 import { useId } from 'react';
-import { FormattedMessage, useIntl } from 'react-intl';
 
 import { fbqGFE } from '~/lib/fbq';
 import { trpc } from '~/hooks/trpc';
 
+import { FormattedMessage, useIntl } from '~/components/intl';
 import Button from '~/components/ui/Button';
 import Card from '~/components/ui/Card';
 import Container from '~/components/ui/Container';

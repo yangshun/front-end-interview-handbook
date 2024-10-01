@@ -1,5 +1,4 @@
 import clsx from 'clsx';
-import { useIntl } from 'react-intl';
 
 import InterviewsPremiumBadge from '~/components/interviews/common/InterviewsPremiumBadge';
 import type { QuestionMetadata } from '~/components/interviews/questions/common/QuestionsTypes';
@@ -8,6 +7,7 @@ import QuestionContentProse from '~/components/interviews/questions/content/Ques
 import QuestionNextQuestions from '~/components/interviews/questions/content/QuestionNextQuestions';
 import QuestionSimilarQuestions from '~/components/interviews/questions/content/QuestionSimilarQuestions';
 import QuestionMetadataSection from '~/components/interviews/questions/metadata/QuestionMetadataSection';
+import { useIntl } from '~/components/intl';
 import Badge from '~/components/ui/Badge';
 import Heading from '~/components/ui/Heading';
 

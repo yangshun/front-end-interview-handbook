@@ -1,8 +1,8 @@
 import clsx from 'clsx';
 import { useId } from 'react';
 import { RiBookOpenLine } from 'react-icons/ri';
-import { FormattedMessage } from 'react-intl';
 
+import { FormattedMessage } from '~/components/intl';
 import { themeIconColor } from '~/components/ui/theme';
 
 import QuestionTopicLabel from './QuestionTopicLabel';

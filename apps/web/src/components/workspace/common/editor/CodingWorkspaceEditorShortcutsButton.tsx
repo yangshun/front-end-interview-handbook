@@ -1,8 +1,8 @@
 'use client';
 
 import { RiKeyboardBoxLine } from 'react-icons/ri';
-import { FormattedMessage, useIntl } from 'react-intl';
 
+import { FormattedMessage, useIntl } from '~/components/intl';
 import Anchor from '~/components/ui/Anchor';
 import Button from '~/components/ui/Button';
 import Divider from '~/components/ui/Divider';

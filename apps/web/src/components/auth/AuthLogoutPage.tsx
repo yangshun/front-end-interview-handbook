@@ -3,8 +3,8 @@
 import jsCookie from 'js-cookie';
 import { useSearchParams } from 'next/navigation';
 import { useEffect } from 'react';
-import { useIntl } from 'react-intl';
 
+import { useIntl } from '~/components/intl';
 import Container from '~/components/ui/Container';
 import EmptyState from '~/components/ui/EmptyState';
 

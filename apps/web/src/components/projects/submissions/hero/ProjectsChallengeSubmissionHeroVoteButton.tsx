@@ -1,11 +1,11 @@
 import clsx from 'clsx';
 import { RiThumbUpFill } from 'react-icons/ri';
-import { useIntl } from 'react-intl';
 
 import { trpc } from '~/hooks/trpc';
 
 import FilterButton from '~/components/common/FilterButton';
 import { useToast } from '~/components/global/toasts/useToast';
+import { useIntl } from '~/components/intl';
 
 import { useI18nRouter } from '~/next-i18nostic/src';
 

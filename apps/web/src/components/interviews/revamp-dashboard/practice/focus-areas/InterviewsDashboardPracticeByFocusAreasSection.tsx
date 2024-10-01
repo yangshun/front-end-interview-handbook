@@ -1,5 +1,3 @@
-import { useIntl } from 'react-intl';
-
 import {
   categorizeFocusAreas,
   getFocusAreaTheme,
@@ -7,6 +5,7 @@ import {
 
 import InterviewsLearningListCard from '~/components/interviews/questions/listings/learning/InterviewsLearningListCard';
 import InterviewsDashboardLearningSection from '~/components/interviews/revamp-dashboard/InterviewsDashboardLearningSection';
+import { useIntl } from '~/components/intl';
 import Text from '~/components/ui/Text';
 
 import type { LearningSession } from '@prisma/client';

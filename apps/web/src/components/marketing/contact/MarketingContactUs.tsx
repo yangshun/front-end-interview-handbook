@@ -2,10 +2,10 @@
 
 import clsx from 'clsx';
 import React from 'react';
-import { FormattedMessage } from 'react-intl';
 
 import gtag from '~/lib/gtag';
 
+import { FormattedMessage } from '~/components/intl';
 import Anchor from '~/components/ui/Anchor';
 import Container from '~/components/ui/Container';
 import Divider from '~/components/ui/Divider';

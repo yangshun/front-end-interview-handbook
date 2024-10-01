@@ -1,6 +1,5 @@
 import clsx from 'clsx';
 import { RiFileCopyLine } from 'react-icons/ri';
-import { FormattedMessage, useIntl } from 'react-intl';
 
 import useCopyToClipboardWithRevert from '~/hooks/useCopyToClipboardWithRevert';
 
@@ -9,6 +8,7 @@ import {
   PERPETUAL_PROMO_CODE_DISCOUNT_PERCENTAGE,
 } from '~/data/PromotionConfig';
 
+import { FormattedMessage, useIntl } from '~/components/intl';
 import PurchaseBlockCard from '~/components/purchase/PurchaseBlockCard';
 import Badge from '~/components/ui/Badge';
 import Button from '~/components/ui/Button';

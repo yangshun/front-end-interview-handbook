@@ -2,13 +2,13 @@
 
 import clsx from 'clsx';
 import { RiArrowRightLine } from 'react-icons/ri';
-import { FormattedMessage, useIntl } from 'react-intl';
 
 import { trpc } from '~/hooks/trpc';
 import { useAuthSignInUp } from '~/hooks/user/useAuthFns';
 import { SCROLL_HASH_PROJECTS_DASHBOARD } from '~/hooks/useScrollToHash';
 
 import BlurOverlay from '~/components/common/BlurOverlay';
+import { FormattedMessage, useIntl } from '~/components/intl';
 import ProjectsProfileCategoryTabs from '~/components/projects/profile/ProjectsProfileCategoryTabs';
 import ProjectsProfileStats from '~/components/projects/profile/ProjectsProfileStats';
 import Button from '~/components/ui/Button';

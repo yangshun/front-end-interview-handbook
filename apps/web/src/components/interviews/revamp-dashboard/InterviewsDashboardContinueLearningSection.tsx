@@ -1,11 +1,11 @@
 import clsx from 'clsx';
-import { FormattedMessage, useIntl } from 'react-intl';
 
 import {
   getQuestionListThemes,
   useQuestionLists,
 } from '~/data/question-lists/QuestionListsHooks';
 
+import { FormattedMessage, useIntl } from '~/components/intl';
 import Button from '~/components/ui/Button';
 import GradientProgressBar from '~/components/ui/GradientProgressBar/GradientProgressBar';
 import Heading from '~/components/ui/Heading';

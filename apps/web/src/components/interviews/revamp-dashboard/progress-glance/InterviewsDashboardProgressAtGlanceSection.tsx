@@ -1,9 +1,8 @@
-import { FormattedMessage } from 'react-intl';
-
 import type {
   QuestionMetadata,
   QuestionSlug,
 } from '~/components/interviews/questions/common/QuestionsTypes';
+import { FormattedMessage } from '~/components/intl';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 import { themeTextColor } from '~/components/ui/theme';

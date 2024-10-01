@@ -1,12 +1,12 @@
 'use client';
 
 import clsx from 'clsx';
-import { FormattedMessage, useIntl } from 'react-intl';
 
 import gtag from '~/lib/gtag';
 
 import { SocialLinks } from '~/data/SocialLinks';
 
+import { FormattedMessage, useIntl } from '~/components/intl';
 import Anchor from '~/components/ui/Anchor';
 import Container from '~/components/ui/Container';
 import Heading from '~/components/ui/Heading';

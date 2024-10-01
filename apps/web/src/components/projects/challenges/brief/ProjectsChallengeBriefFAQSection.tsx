@@ -1,5 +1,4 @@
-import { FormattedMessage, useIntl } from 'react-intl';
-
+import { FormattedMessage, useIntl } from '~/components/intl';
 import MarketingFAQSection from '~/components/marketing/faqs/MarketingFAQSection';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';

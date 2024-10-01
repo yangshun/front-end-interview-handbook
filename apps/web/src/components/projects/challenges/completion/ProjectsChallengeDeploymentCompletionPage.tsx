@@ -7,10 +7,10 @@ import {
   RiGithubFill,
   RiShareCircleLine,
 } from 'react-icons/ri';
-import { FormattedMessage } from 'react-intl';
-import { useIntl } from 'react-intl';
 
 import BlurOverlay from '~/components/common/BlurOverlay';
+import { FormattedMessage } from '~/components/intl';
+import { useIntl } from '~/components/intl';
 import type { ProjectsChallengeItem } from '~/components/projects/challenges/types';
 import Anchor from '~/components/ui/Anchor';
 import Badge from '~/components/ui/Badge';

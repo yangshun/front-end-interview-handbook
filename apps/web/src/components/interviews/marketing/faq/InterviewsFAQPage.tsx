@@ -1,7 +1,5 @@
 'use client';
 
-import { useIntl } from 'react-intl';
-
 import type { FAQItems } from '~/data/faqs/FAQs';
 import {
   generalBuying,
@@ -26,6 +24,7 @@ import {
 } from '~/data/faqs/InterviewsPurchaseFAQs';
 import { supportHow, supportTechnical } from '~/data/faqs/SupportFAQs';
 
+import { useIntl } from '~/components/intl';
 import MarketingFAQSection from '~/components/marketing/faqs/MarketingFAQSection';
 import Container from '~/components/ui/Container';
 import Divider from '~/components/ui/Divider';

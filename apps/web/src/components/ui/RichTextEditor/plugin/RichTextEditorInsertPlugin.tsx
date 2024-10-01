@@ -8,8 +8,8 @@ import {
 } from 'lexical';
 import { useCallback, useEffect, useState } from 'react';
 import { RiAddLine, RiLink, RiRulerLine } from 'react-icons/ri';
-import { useIntl } from 'react-intl';
 
+import { useIntl } from '~/components/intl';
 import DropdownMenu from '~/components/ui/DropdownMenu';
 
 import RichTextEditorFloatingLinkEditorPlugin from './RichTextEditorFloatingLinkEditorPlugin';

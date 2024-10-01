@@ -4,9 +4,9 @@ import clsx from 'clsx';
 import { getMDXComponent } from 'mdx-bundler/client';
 import { useMemo } from 'react';
 import { RiEditBoxLine } from 'react-icons/ri';
-import { FormattedMessage, useIntl } from 'react-intl';
 
 import ArticlePagination from '~/components/common/ArticlePagination';
+import { FormattedMessage, useIntl } from '~/components/intl';
 import MDXCodeBlock from '~/components/mdx/MDXCodeBlock';
 import MDXComponents from '~/components/mdx/MDXComponents';
 import Button from '~/components/ui/Button';

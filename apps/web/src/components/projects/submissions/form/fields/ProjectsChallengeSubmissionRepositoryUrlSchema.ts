@@ -1,6 +1,7 @@
 import type { IntlShape } from 'react-intl';
-import { useIntl } from 'react-intl';
 import { z } from 'zod';
+
+import { useIntl } from '~/components/intl';
 
 /**
  * https://www.github.com/username/repository-name/subfolderName

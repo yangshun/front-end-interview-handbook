@@ -1,10 +1,10 @@
 import clsx from 'clsx';
 import { RiCloseLine } from 'react-icons/ri';
-import { FormattedMessage, useIntl } from 'react-intl';
 import { useLocalStorage } from 'usehooks-ts';
 
 import { usePreparationAreas } from '~/data/PreparationAreas';
 
+import { FormattedMessage, useIntl } from '~/components/intl';
 import Button from '~/components/ui/Button';
 import Card from '~/components/ui/Card';
 import CardContainer from '~/components/ui/Card/CardContainer';

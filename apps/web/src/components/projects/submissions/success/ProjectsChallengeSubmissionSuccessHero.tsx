@@ -4,8 +4,8 @@ import {
   RiCheckboxMultipleLine,
   RiFireLine,
 } from 'react-icons/ri';
-import { FormattedMessage, useIntl } from 'react-intl';
 
+import { FormattedMessage, useIntl } from '~/components/intl';
 import Button from '~/components/ui/Button';
 import Heading from '~/components/ui/Heading';
 import Text from '~/components/ui/Text';

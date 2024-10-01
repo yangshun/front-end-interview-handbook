@@ -4,7 +4,6 @@ import { useEffect } from 'react';
 import { useId } from 'react';
 import { useState } from 'react';
 import { RiArrowRightLine, RiCheckLine } from 'react-icons/ri';
-import { FormattedMessage, useIntl } from 'react-intl';
 import url from 'url';
 
 import gtag from '~/lib/gtag';
@@ -17,6 +16,7 @@ import type {
   InterviewsPricingPlanPaymentConfigLocalizedRecord,
   InterviewsPricingPlanType,
 } from '~/components/interviews/purchase/InterviewsPricingPlans';
+import { FormattedMessage, useIntl } from '~/components/intl';
 import BrandGlowBackground from '~/components/marketing/BrandGlowBackground';
 import { SocialDiscountAlert } from '~/components/promotions/social/SocialDiscountAlert';
 import { SOCIAL_DISCOUNT_PERCENTAGE } from '~/components/promotions/social/SocialDiscountConfig';

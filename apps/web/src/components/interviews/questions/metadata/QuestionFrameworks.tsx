@@ -1,8 +1,8 @@
 import { useId } from 'react';
-import { FormattedMessage, useIntl } from 'react-intl';
 
 import { useQuestionTechnologyLists } from '~/data/QuestionFormats';
 
+import { FormattedMessage, useIntl } from '~/components/intl';
 import Anchor from '~/components/ui/Anchor';
 import Tooltip from '~/components/ui/Tooltip';
 

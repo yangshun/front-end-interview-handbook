@@ -1,7 +1,7 @@
 import clsx from 'clsx';
-import { useIntl } from 'react-intl';
 
 import QuestionReportIssueButton from '~/components/interviews/questions/common/QuestionReportIssueButton';
+import { useIntl } from '~/components/intl';
 import Badge from '~/components/ui/Badge';
 import Divider from '~/components/ui/Divider';
 import Heading from '~/components/ui/Heading';

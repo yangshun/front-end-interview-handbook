@@ -2,10 +2,10 @@
 
 import clsx from 'clsx';
 import { RiArrowRightLine } from 'react-icons/ri';
-import { FormattedMessage, useIntl } from 'react-intl';
 
 import { trpc } from '~/hooks/trpc';
 
+import { FormattedMessage, useIntl } from '~/components/intl';
 import Anchor from '~/components/ui/Anchor';
 import GradientProgressBar from '~/components/ui/GradientProgressBar/GradientProgressBar';
 import Heading from '~/components/ui/Heading';

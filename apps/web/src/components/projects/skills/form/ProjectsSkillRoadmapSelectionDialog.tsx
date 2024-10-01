@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import { useState } from 'react';
-import { useIntl } from 'react-intl';
 
+import { useIntl } from '~/components/intl';
 import Button from '~/components/ui/Button';
 import {
   DialogBody,

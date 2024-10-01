@@ -1,5 +1,4 @@
-import { useIntl } from 'react-intl';
-
+import { useIntl } from '~/components/intl';
 import TabsUnderline from '~/components/ui/Tabs/TabsUnderline';
 
 export type BlogFilterTab = 'articles' | 'series';

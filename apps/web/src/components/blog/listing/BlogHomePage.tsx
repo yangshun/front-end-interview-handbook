@@ -3,11 +3,11 @@
 import clsx from 'clsx';
 import type { BlogSeries } from 'contentlayer/generated';
 import React from 'react';
-import { FormattedMessage } from 'react-intl';
 
 import BlogWhatsNewSection from '~/components/blog/BlogWhatsNewSection';
 import BlogMainLayout from '~/components/blog/layout/BlogMainLayout';
 import BlogListingSection from '~/components/blog/listing/BlogListingSection';
+import { FormattedMessage } from '~/components/intl';
 import Container from '~/components/ui/Container';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';

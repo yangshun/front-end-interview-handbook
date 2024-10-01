@@ -3,7 +3,6 @@
 import clsx from 'clsx';
 import type { InterviewsListingBottomContent } from 'contentlayer/generated';
 import { RiListCheck3, RiTimerLine, RiVerifiedBadgeLine } from 'react-icons/ri';
-import { useIntl } from 'react-intl';
 
 import { trpc } from '~/hooks/trpc';
 
@@ -17,6 +16,7 @@ import InterviewsPageFeatures from '~/components/interviews/common/InterviewsPag
 import InterviewsPageHeaderActions from '~/components/interviews/common/InterviewsPageHeaderActions';
 import InterviewsLearningListCard from '~/components/interviews/questions/listings/learning/InterviewsLearningListCard';
 import InterviewsStudyPlanTestimonialsSection from '~/components/interviews/questions/listings/learning/study-plan/InterviewsStudyPlanTestimonialsSection';
+import { useIntl } from '~/components/intl';
 import MDXContent from '~/components/mdx/MDXContent';
 import Container from '~/components/ui/Container';
 import Divider from '~/components/ui/Divider';

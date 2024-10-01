@@ -7,12 +7,12 @@ import {
   RiReactjsLine,
   RiVuejsLine,
 } from 'react-icons/ri';
-import { FormattedMessage, useIntl } from 'react-intl';
 
 import { INTERVIEWS_REVAMP_2024 } from '~/data/FeatureFlags';
 
 import TextPairing from '~/components/common/TextPairing';
 import SvelteLogo from '~/components/icons/SvelteLogo';
+import { FormattedMessage, useIntl } from '~/components/intl';
 import Badge from '~/components/ui/Badge';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';

@@ -1,6 +1,6 @@
 import clsx from 'clsx';
-import { FormattedMessage } from 'react-intl';
 
+import { FormattedMessage } from '~/components/intl';
 import MarketingSectionHeader from '~/components/marketing/MarketingSectionHeader';
 import Container from '~/components/ui/Container';
 import { themeRadialGlowBackground } from '~/components/ui/theme';

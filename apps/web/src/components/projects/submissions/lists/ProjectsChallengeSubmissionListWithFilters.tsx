@@ -1,12 +1,12 @@
 import clsx from 'clsx';
 import type { ProjectsChallengeInfo } from 'contentlayer/generated';
 import { RiCodeSSlashLine } from 'react-icons/ri';
-import { FormattedMessage } from 'react-intl';
 
 import { trpc } from '~/hooks/trpc';
 import usePagination from '~/hooks/usePagination';
 import useScrollToTop from '~/hooks/useScrollToTop';
 
+import { FormattedMessage } from '~/components/intl';
 import useProjectsChallengeSubmissionFilters from '~/components/projects/submissions/lists/filters/hooks/useProjectsChallengeSubmissionFilters';
 import useProjectsChallengesSorting from '~/components/projects/submissions/lists/filters/hooks/useProjectsChallengeSubmissionSorting';
 import { useProjectsChallengeSubmissionFilterContext } from '~/components/projects/submissions/lists/filters/ProjectsChallengeSubmissionFilterContext';

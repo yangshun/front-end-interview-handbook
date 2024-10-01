@@ -3,12 +3,12 @@ import type {
   ProjectsChallengeInfo,
   ProjectsChallengeMetadata,
 } from 'contentlayer/generated';
-import { FormattedMessage, useIntl } from 'react-intl';
 
 import { trpc } from '~/hooks/trpc';
 
 import ConfirmationDialog from '~/components/common/ConfirmationDialog';
 import { useToast } from '~/components/global/toasts/useToast';
+import { FormattedMessage, useIntl } from '~/components/intl';
 import Anchor from '~/components/ui/Anchor';
 import EmptyState from '~/components/ui/EmptyState';
 import Spinner from '~/components/ui/Spinner';

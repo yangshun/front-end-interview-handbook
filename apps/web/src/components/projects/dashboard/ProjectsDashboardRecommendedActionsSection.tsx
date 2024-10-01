@@ -2,10 +2,10 @@
 
 import clsx from 'clsx';
 import { RiArrowRightLine } from 'react-icons/ri';
-import { FormattedMessage, useIntl } from 'react-intl';
 
 import { trpc } from '~/hooks/trpc';
 
+import { FormattedMessage, useIntl } from '~/components/intl';
 import useProjectsDashboardRecommendedActions from '~/components/projects/dashboard/useProjectsDashboardRecommendedActions';
 import { motivationReasonValue } from '~/components/projects/misc';
 import type {

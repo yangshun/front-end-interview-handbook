@@ -1,6 +1,6 @@
 import clsx from 'clsx';
-import { useIntl } from 'react-intl';
 
+import { useIntl } from '~/components/intl';
 import UserAvatar from '~/components/ui/Avatar/UserAvatar';
 import Badge from '~/components/ui/Badge';
 import Text from '~/components/ui/Text';

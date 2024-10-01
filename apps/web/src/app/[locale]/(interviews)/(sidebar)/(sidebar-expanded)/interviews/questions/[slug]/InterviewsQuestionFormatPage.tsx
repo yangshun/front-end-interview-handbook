@@ -8,7 +8,6 @@ import {
   RiVerifiedBadgeLine,
   RiWindow2Line,
 } from 'react-icons/ri';
-import { useIntl } from 'react-intl';
 
 import InterviewsPageFeatures from '~/components/interviews/common/InterviewsPageFeatures';
 import InterviewsPageHeaderActions from '~/components/interviews/common/InterviewsPageHeaderActions';
@@ -19,6 +18,7 @@ import type {
 import QuestionsQuizListWithFiltersAndProgress from '~/components/interviews/questions/listings/items/QuestionsQuizListWithFiltersAndProgress';
 import QuestionsSystemDesignListWithFilters from '~/components/interviews/questions/listings/items/QuestionsSystemDesignListWithFilters';
 import QuestionsUnifiedListWithFiltersAndProgress from '~/components/interviews/questions/listings/items/QuestionsUnifiedListWithFiltersAndProgress';
+import { useIntl } from '~/components/intl';
 import MDXContent from '~/components/mdx/MDXContent';
 import Button from '~/components/ui/Button';
 import Container from '~/components/ui/Container';

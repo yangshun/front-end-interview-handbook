@@ -4,7 +4,8 @@ import {
   RiStarFill,
   RiTwitterXFill,
 } from 'react-icons/ri';
-import { useIntl } from 'react-intl';
+
+import { useIntl } from '~/components/intl';
 
 export function useRewardsTasks() {
   const intl = useIntl();

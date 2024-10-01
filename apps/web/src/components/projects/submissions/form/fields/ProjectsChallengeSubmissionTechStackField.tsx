@@ -1,7 +1,7 @@
 import type { Control } from 'react-hook-form';
 import { useController } from 'react-hook-form';
-import { useIntl } from 'react-intl';
 
+import { useIntl } from '~/components/intl';
 import { getProjectsTechStackInputAttributes } from '~/components/projects/skills/form/ProjectsSkillListInputSchema';
 import ProjectsSkillTechStackInput from '~/components/projects/skills/form/ProjectsSkillTechStackInput';
 

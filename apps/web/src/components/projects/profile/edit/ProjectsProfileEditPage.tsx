@@ -2,13 +2,13 @@
 
 import { useState } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
-import { FormattedMessage, useIntl } from 'react-intl';
 import { z } from 'zod';
 
 import { trpc } from '~/hooks/trpc';
 import useScrollToHash from '~/hooks/useScrollToHash';
 
 import { useToast } from '~/components/global/toasts/useToast';
+import { FormattedMessage, useIntl } from '~/components/intl';
 import { useProfileNameSchema } from '~/components/profile/fields/ProfileNameSchema';
 import { useProfileUsernameSchema } from '~/components/profile/fields/ProfileUsernameSchema';
 import useProjectsMotivationReasonSchema, {

@@ -1,8 +1,8 @@
 import clsx from 'clsx';
 import { RiArrowLeftSLine, RiArrowRightSLine } from 'react-icons/ri';
-import { useIntl } from 'react-intl';
 
 import { useUserPreferences } from '~/components/global/UserPreferencesProvider';
+import { useIntl } from '~/components/intl';
 import {
   themeBackgroundElementColor,
   themeBackgroundElementEmphasizedStateColor_Hover,

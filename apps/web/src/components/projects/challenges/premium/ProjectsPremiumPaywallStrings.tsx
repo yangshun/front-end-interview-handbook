@@ -1,5 +1,4 @@
-import { FormattedMessage, useIntl } from 'react-intl';
-
+import { FormattedMessage, useIntl } from '~/components/intl';
 import Text from '~/components/ui/Text';
 
 import type { ProjectsPremiumAccessControlType } from './ProjectsPremiumAccessControl';

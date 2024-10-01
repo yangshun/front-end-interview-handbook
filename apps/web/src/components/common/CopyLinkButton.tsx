@@ -1,8 +1,8 @@
 import { RiCheckLine, RiLinksLine } from 'react-icons/ri';
-import { useIntl } from 'react-intl';
 
 import useCopyToClipboardWithRevert from '~/hooks/useCopyToClipboardWithRevert';
 
+import { useIntl } from '~/components/intl';
 import Button from '~/components/ui/Button';
 
 export type CopyLinkTriggerVariant = 'secondary' | 'tertiary';

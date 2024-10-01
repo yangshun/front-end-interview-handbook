@@ -1,5 +1,4 @@
-import { useIntl } from 'react-intl';
-
+import { useIntl } from '~/components/intl';
 import ProjectsImageComparison from '~/components/projects/common/ProjectsImageComparison';
 import type { ProjectsChallengeSubmissionDeploymentUrls } from '~/components/projects/submissions/types';
 import Section from '~/components/ui/Heading/HeadingContext';

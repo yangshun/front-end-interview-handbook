@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import { useIntl } from 'react-intl';
 
+import { useIntl } from '~/components/intl';
 import Anchor from '~/components/ui/Anchor';
 import Button from '~/components/ui/Button';
 import Dialog from '~/components/ui/Dialog';

@@ -1,8 +1,8 @@
 'use client';
 
 import type { ProjectsChallengeInfo } from 'contentlayer/generated';
-import { FormattedMessage } from 'react-intl';
 
+import { FormattedMessage } from '~/components/intl';
 import ProjectsChallengeSubmissionFilterContextProvider from '~/components/projects/submissions/lists/filters/ProjectsChallengeSubmissionFilterContext';
 import ProjectsChallengeSubmissionListWithFilters from '~/components/projects/submissions/lists/ProjectsChallengeSubmissionListWithFilters';
 import Heading from '~/components/ui/Heading';

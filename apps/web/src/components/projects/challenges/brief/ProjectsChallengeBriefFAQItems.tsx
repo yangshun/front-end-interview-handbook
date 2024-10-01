@@ -1,7 +1,6 @@
-import { FormattedMessage } from 'react-intl';
-
 import type { FAQItem, FAQItems } from '~/data/faqs/FAQs';
 
+import { FormattedMessage } from '~/components/intl';
 import Anchor from '~/components/ui/Anchor';
 import Prose from '~/components/ui/Prose';
 import Text from '~/components/ui/Text';

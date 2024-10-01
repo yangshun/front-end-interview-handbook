@@ -3,10 +3,10 @@
 import clsx from 'clsx';
 import { useEffect, useRef, useState } from 'react';
 import { RiListUnordered, RiMenu2Line } from 'react-icons/ri';
-import { useIntl } from 'react-intl';
 
 import useIsSticky from '~/hooks/useIsSticky';
 
+import { useIntl } from '~/components/intl';
 import Button from '~/components/ui/Button';
 import Container from '~/components/ui/Container';
 import SlideOut from '~/components/ui/SlideOut';

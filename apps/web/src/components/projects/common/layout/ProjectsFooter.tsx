@@ -1,12 +1,12 @@
 'use client';
 
-import { useIntl } from 'react-intl';
 import url from 'url';
 
 import { SCROLL_HASH_PROJECTS_FEATURES } from '~/hooks/useScrollToHash';
 
 import type { FooterNavigation } from '~/components/global/footers/Footer';
 import Footer from '~/components/global/footers/Footer';
+import { useIntl } from '~/components/intl';
 
 function useFooterNavigation() {
   const intl = useIntl();

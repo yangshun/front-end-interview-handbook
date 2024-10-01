@@ -8,11 +8,11 @@ import {
   RiPencilFill,
   RiReplyFill,
 } from 'react-icons/ri';
-import { useIntl } from 'react-intl';
 
 import useScrollToHash from '~/hooks/useScrollToHash';
 
 import RelativeTimestamp from '~/components/common/datetime/RelativeTimestamp';
+import { useIntl } from '~/components/intl';
 import Badge from '~/components/ui/Badge';
 import Button from '~/components/ui/Button';
 import RichText from '~/components/ui/RichTextEditor/RichText';

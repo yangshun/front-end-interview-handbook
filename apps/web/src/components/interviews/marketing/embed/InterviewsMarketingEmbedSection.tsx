@@ -3,12 +3,12 @@ import { useInView } from 'framer-motion';
 import dynamic from 'next/dynamic';
 import { useRef, useState } from 'react';
 import { RiArrowRightLine, RiJavascriptFill } from 'react-icons/ri';
-import { FormattedMessage, useIntl } from 'react-intl';
 
 import gtag from '~/lib/gtag';
 
 import { useQuestionUserFacingFormatData } from '~/data/QuestionFormats';
 
+import { FormattedMessage, useIntl } from '~/components/intl';
 import Button from '~/components/ui/Button';
 import Container from '~/components/ui/Container';
 import Heading from '~/components/ui/Heading';

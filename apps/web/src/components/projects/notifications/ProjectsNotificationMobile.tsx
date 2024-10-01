@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import { useState } from 'react';
-import { FormattedMessage, useIntl } from 'react-intl';
 
+import { FormattedMessage, useIntl } from '~/components/intl';
 import Divider from '~/components/ui/Divider';
 import SlideOut from '~/components/ui/SlideOut';
 import Text, { textVariants } from '~/components/ui/Text';

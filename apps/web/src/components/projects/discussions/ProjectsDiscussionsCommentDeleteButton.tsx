@@ -1,8 +1,8 @@
 import { RiDeleteBinFill } from 'react-icons/ri';
-import { FormattedMessage, useIntl } from 'react-intl';
 
 import { trpc } from '~/hooks/trpc';
 
+import { FormattedMessage, useIntl } from '~/components/intl';
 import Button from '~/components/ui/Button';
 import { themeTextSubtleColor } from '~/components/ui/theme';
 

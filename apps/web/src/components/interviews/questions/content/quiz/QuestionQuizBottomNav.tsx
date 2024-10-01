@@ -1,7 +1,7 @@
 import clsx from 'clsx';
-import { FormattedMessage } from 'react-intl';
 
 import QuestionProgressAction from '~/components/interviews/questions/common/QuestionProgressAction';
+import { FormattedMessage } from '~/components/intl';
 import { themeBackgroundColor, themeBorderColor } from '~/components/ui/theme';
 
 import { useQueryQuestionProgress } from '~/db/QuestionsProgressClient';

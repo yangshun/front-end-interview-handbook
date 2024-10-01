@@ -1,8 +1,8 @@
 import type { PropsWithChildren } from 'react';
 import { Fragment } from 'react';
-import { useIntl } from 'react-intl';
 
 import { useUserProfile } from '~/components/global/UserProfileProvider';
+import { useIntl } from '~/components/intl';
 
 import QuestionPaywall from '../../common/QuestionPaywall';
 

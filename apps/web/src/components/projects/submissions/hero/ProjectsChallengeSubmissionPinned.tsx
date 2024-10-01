@@ -1,9 +1,9 @@
 import { useState } from 'react';
-import { FormattedMessage, useIntl } from 'react-intl';
 
 import { trpc } from '~/hooks/trpc';
 
 import { useToast } from '~/components/global/toasts/useToast';
+import { FormattedMessage, useIntl } from '~/components/intl';
 import ProjectsChallengeSubmissionCard from '~/components/projects/submissions/lists/ProjectsChallengeSubmissionCard';
 import type { ProjectsChallengeSubmissionAugmented } from '~/components/projects/submissions/types';
 import Anchor from '~/components/ui/Anchor';

@@ -1,7 +1,6 @@
-import { useIntl } from 'react-intl';
-
 import { useQuestionUserFacingFormatData } from '~/data/QuestionFormats';
 
+import { useIntl } from '~/components/intl';
 import Tabs from '~/components/ui/Tabs';
 
 import type { QuestionUserFacingFormat } from '../../common/QuestionsTypes';

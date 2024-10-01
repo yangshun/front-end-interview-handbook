@@ -1,6 +1,6 @@
 import clsx from 'clsx';
-import { FormattedMessage } from 'react-intl';
 
+import { FormattedMessage } from '~/components/intl';
 import Button from '~/components/ui/Button';
 import GradientProgressBar from '~/components/ui/GradientProgressBar/GradientProgressBar';
 import Heading from '~/components/ui/Heading';

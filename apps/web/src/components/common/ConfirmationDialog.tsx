@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react';
-import { useIntl } from 'react-intl';
 
+import { useIntl } from '~/components/intl';
 import type { ButtonVariant } from '~/components/ui/Button';
 import Button from '~/components/ui/Button';
 import Dialog from '~/components/ui/Dialog';

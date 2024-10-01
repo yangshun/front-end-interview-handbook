@@ -1,6 +1,6 @@
 import clsx from 'clsx';
-import { FormattedMessage } from 'react-intl';
 
+import { FormattedMessage } from '~/components/intl';
 import Tooltip from '~/components/ui/Tooltip';
 
 type LabelSize = 'md' | 'sm';

@@ -2,9 +2,9 @@ import clsx from 'clsx';
 import { startCase } from 'lodash-es';
 import { RiArrowDownSLine } from 'react-icons/ri';
 import type { IntlShape } from 'react-intl';
-import { useIntl } from 'react-intl';
 
 import FilterButton from '~/components/common/FilterButton';
+import { useIntl } from '~/components/intl';
 import Popover from '~/components/ui/Popover';
 
 import { MONTHS } from './constants';

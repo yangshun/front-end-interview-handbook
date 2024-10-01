@@ -1,6 +1,6 @@
-import { useIntl } from 'react-intl';
-
 import { useFocusAreas } from '~/data/focus-areas/FocusAreasHooks';
+
+import { useIntl } from '~/components/intl';
 
 import DashboardFocusAreasSection from './InterviewsDashboardFocusAreasSection';
 

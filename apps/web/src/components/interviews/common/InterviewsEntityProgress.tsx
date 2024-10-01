@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import { RiBookOpenLine, RiQuestionnaireLine } from 'react-icons/ri';
-import { FormattedMessage } from 'react-intl';
 
+import { FormattedMessage } from '~/components/intl';
 import ProgressBar from '~/components/ui/ProgressBar';
 import Text from '~/components/ui/Text';
 import {

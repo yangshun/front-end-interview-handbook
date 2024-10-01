@@ -6,8 +6,8 @@ import {
   RiDiscussLine,
   RiNodeTree,
 } from 'react-icons/ri';
-import { FormattedMessage } from 'react-intl';
 
+import { FormattedMessage } from '~/components/intl';
 import Anchor from '~/components/ui/Anchor';
 import Container from '~/components/ui/Container';
 import Heading from '~/components/ui/Heading';

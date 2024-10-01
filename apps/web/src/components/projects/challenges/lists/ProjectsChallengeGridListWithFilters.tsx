@@ -7,10 +7,10 @@ import {
   RiSearchLine,
   RiSortDesc,
 } from 'react-icons/ri';
-import { FormattedMessage, useIntl } from 'react-intl';
 
 import usePagination from '~/hooks/usePagination';
 
+import { FormattedMessage, useIntl } from '~/components/intl';
 import useProjectsChallengesFilters from '~/components/projects/challenges/lists/filters/hooks/useProjectsChallengesFilters';
 import useProjectsChallengesSorting from '~/components/projects/challenges/lists/filters/hooks/useProjectsChallengesSorting';
 import {

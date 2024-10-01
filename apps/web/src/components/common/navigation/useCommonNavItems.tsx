@@ -1,9 +1,9 @@
 import { RiLogoutBoxLine, RiPagesLine } from 'react-icons/ri';
-import { useIntl } from 'react-intl';
 
 import gtag from '~/lib/gtag';
 import { useAuthLogout, useAuthSignInUp } from '~/hooks/user/useAuthFns';
 
+import { useIntl } from '~/components/intl';
 import type { NavbarPrimaryItem } from '~/components/ui/Navbar/NavTypes';
 
 export default function useCommonNavItems() {

@@ -1,6 +1,6 @@
 import { RiArrowGoBackLine } from 'react-icons/ri';
-import { useIntl } from 'react-intl';
 
+import { useIntl } from '~/components/intl';
 import Button from '~/components/ui/Button';
 type Props = Readonly<{
   onClick?: React.MouseEventHandler<HTMLElement>;

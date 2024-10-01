@@ -1,5 +1,4 @@
-import { useIntl } from 'react-intl';
-
+import { useIntl } from '~/components/intl';
 import type { ProjectsYoeReplacement } from '~/components/projects/types';
 import type { RadioGroupItemProps } from '~/components/ui/RadioGroup/RadioGroupItem';
 

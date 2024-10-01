@@ -8,7 +8,6 @@ import {
   RiTimerLine,
   RiVerifiedBadgeLine,
 } from 'react-icons/ri';
-import { useIntl } from 'react-intl';
 
 import { trpc } from '~/hooks/trpc';
 
@@ -27,6 +26,7 @@ import QuestionsList from '~/components/interviews/questions/listings/items/Ques
 import QuestionsLearningList from '~/components/interviews/questions/listings/learning/QuestionsLearningList';
 import QuestionsLearningListPageTitleSection from '~/components/interviews/questions/listings/learning/QuestionsLearningListPageTitleSection';
 import QuestionsLearningListTitleSection from '~/components/interviews/questions/listings/learning/QuestionsLearningListTitleSection';
+import { useIntl } from '~/components/intl';
 import MDXContent from '~/components/mdx/MDXContent';
 import Button from '~/components/ui/Button';
 import Container from '~/components/ui/Container';

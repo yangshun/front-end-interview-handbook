@@ -6,7 +6,6 @@ import {
   RiLoopLeftLine,
   RiStopCircleLine,
 } from 'react-icons/ri';
-import { FormattedMessage, useIntl } from 'react-intl';
 import url from 'url';
 
 import { trpc } from '~/hooks/trpc';
@@ -20,6 +19,7 @@ import type {
   QuestionFeatureType,
   QuestionMetadata,
 } from '~/components/interviews/questions/common/QuestionsTypes';
+import { FormattedMessage, useIntl } from '~/components/intl';
 import Button from '~/components/ui/Button';
 import Card from '~/components/ui/Card';
 import ProgressBar from '~/components/ui/ProgressBar';

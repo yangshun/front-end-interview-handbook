@@ -1,9 +1,9 @@
 import { useId } from 'react';
 import { RiLinkedinBoxFill } from 'react-icons/ri';
-import { useIntl } from 'react-intl';
 
 import authors from '~/data/authors';
 
+import { useIntl } from '~/components/intl';
 import Anchor from '~/components/ui/Anchor';
 import Avatar from '~/components/ui/Avatar';
 import type { TextSize } from '~/components/ui/Text';

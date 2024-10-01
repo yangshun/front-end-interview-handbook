@@ -1,8 +1,8 @@
 import clsx from 'clsx';
 import type { ComponentProps } from 'react';
 import { RiArrowRightSLine } from 'react-icons/ri';
-import { FormattedMessage } from 'react-intl';
 
+import { FormattedMessage } from '~/components/intl';
 import MarketingSectionHeader from '~/components/marketing/MarketingSectionHeader';
 import Button from '~/components/ui/Button';
 import CardContainer from '~/components/ui/Card/CardContainer';

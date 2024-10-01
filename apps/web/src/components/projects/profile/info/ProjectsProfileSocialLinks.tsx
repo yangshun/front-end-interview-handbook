@@ -1,6 +1,6 @@
 import { RiGithubFill, RiGlobalLine, RiLinkedinBoxFill } from 'react-icons/ri';
-import { useIntl } from 'react-intl';
 
+import { useIntl } from '~/components/intl';
 import Anchor from '~/components/ui/Anchor';
 import Tooltip from '~/components/ui/Tooltip';
 

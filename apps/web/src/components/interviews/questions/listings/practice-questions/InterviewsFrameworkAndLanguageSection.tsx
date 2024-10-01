@@ -1,7 +1,6 @@
 import clsx from 'clsx';
 import { type ReactNode, useMemo } from 'react';
 import { RiArrowRightLine } from 'react-icons/ri';
-import { FormattedMessage, useIntl } from 'react-intl';
 
 import AngularLogo from '~/components/icons/AngularLogo';
 import CSS3Logo from '~/components/icons/CSS3Logo';
@@ -18,6 +17,7 @@ import type {
   QuestionMetadata,
   QuestionSlug,
 } from '~/components/interviews/questions/common/QuestionsTypes';
+import { FormattedMessage, useIntl } from '~/components/intl';
 import Anchor from '~/components/ui/Anchor';
 import Badge from '~/components/ui/Badge';
 import Heading from '~/components/ui/Heading';

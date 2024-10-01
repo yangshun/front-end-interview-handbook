@@ -5,11 +5,11 @@ import {
   RiGithubLine,
   RiGoogleLine,
 } from 'react-icons/ri';
-import { FormattedMessage, useIntl } from 'react-intl';
 
 import type { SupabaseProviderGFE } from '~/components/auth/SupabaseAuthSocial';
 import ConfirmationDialog from '~/components/common/ConfirmationDialog';
 import { useToast } from '~/components/global/toasts/useToast';
+import { FormattedMessage, useIntl } from '~/components/intl';
 import Button from '~/components/ui/Button';
 import Label from '~/components/ui/Label';
 import Text from '~/components/ui/Text';

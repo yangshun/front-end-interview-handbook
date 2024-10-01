@@ -1,8 +1,8 @@
 import clsx from 'clsx';
-import { FormattedMessage, useIntl } from 'react-intl';
 
 import { REVIEW_CASHBACK_DISCOUNT_PERCENTAGE } from '~/data/PromotionConfig';
 
+import { FormattedMessage, useIntl } from '~/components/intl';
 import PurchaseBlockCard from '~/components/purchase/PurchaseBlockCard';
 import Anchor from '~/components/ui/Anchor';
 import Button from '~/components/ui/Button';

@@ -1,7 +1,6 @@
 'use client';
 
 import clsx from 'clsx';
-import { useIntl } from 'react-intl';
 
 import gtag from '~/lib/gtag';
 
@@ -13,6 +12,7 @@ import InterviewsMarketingQuizQuestionsExamples from '~/components/interviews/ma
 import InterviewsMarketingSystemDesignQuestionsExamples from '~/components/interviews/marketing/examples/InterviewsMarketingSystemDesignQuestionsExamples';
 import InterviewsMarketingUserInterfaceQuestionsExamples from '~/components/interviews/marketing/examples/InterviewsMarketingUserInterfaceQuestionsExamples';
 import type { QuestionMetadata } from '~/components/interviews/questions/common/QuestionsTypes';
+import { useIntl } from '~/components/intl';
 import Anchor from '~/components/ui/Anchor';
 import Container from '~/components/ui/Container';
 import Divider from '~/components/ui/Divider';

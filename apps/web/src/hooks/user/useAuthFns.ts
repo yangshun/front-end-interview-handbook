@@ -1,9 +1,9 @@
 import { usePathname } from 'next/navigation';
 import type { ParsedUrlQueryInput } from 'querystring';
-import { useIntl } from 'react-intl';
 import url from 'url';
 
 import { useAuthSignedInBefore } from '~/components/auth/useAuthSignedInBefore';
+import { useIntl } from '~/components/intl';
 
 import { useI18nRouter } from '~/next-i18nostic/src';
 

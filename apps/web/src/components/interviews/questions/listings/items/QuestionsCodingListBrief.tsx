@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import { RiCheckLine } from 'react-icons/ri';
-import { useIntl } from 'react-intl';
 
+import { useIntl } from '~/components/intl';
 import Anchor from '~/components/ui/Anchor';
 import EmptyState from '~/components/ui/EmptyState';
 import Text from '~/components/ui/Text';

@@ -1,7 +1,6 @@
-import { useIntl } from 'react-intl';
-
 import { trpc } from '~/hooks/trpc';
 
+import { useIntl } from '~/components/intl';
 import ProjectsChallengeSubmissionList from '~/components/projects/submissions/lists/ProjectsChallengeSubmissionList';
 import Dialog from '~/components/ui/Dialog';
 import Spinner from '~/components/ui/Spinner';

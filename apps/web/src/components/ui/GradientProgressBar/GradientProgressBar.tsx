@@ -1,8 +1,8 @@
 import clsx from 'clsx';
 import { useId } from 'react';
 import { CircularProgressbarWithChildren } from 'react-circular-progressbar';
-import { FormattedMessage, useIntl } from 'react-intl';
 
+import { FormattedMessage, useIntl } from '~/components/intl';
 import Text from '~/components/ui/Text';
 import type { ThemeGradient } from '~/components/ui/theme';
 

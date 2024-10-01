@@ -1,7 +1,6 @@
 'use client';
 
-import { FormattedMessage } from 'react-intl';
-
+import { FormattedMessage } from '~/components/intl';
 import RewardsFooter from '~/components/rewards/RewardsFooter';
 import RewardsHeader from '~/components/rewards/RewardsHeader';
 import RewardsTaskList from '~/components/rewards/tasks/RewardsTaskList';

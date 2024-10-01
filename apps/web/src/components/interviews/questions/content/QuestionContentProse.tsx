@@ -1,7 +1,7 @@
 import { getMDXComponent } from 'mdx-bundler/client';
 import { useMemo } from 'react';
-import { FormattedMessage } from 'react-intl';
 
+import { FormattedMessage } from '~/components/intl';
 import MDXCodeBlock from '~/components/mdx/MDXCodeBlock';
 import MDXComponents from '~/components/mdx/MDXComponents';
 import EmptyState from '~/components/ui/EmptyState';

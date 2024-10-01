@@ -1,11 +1,11 @@
 import { useState } from 'react';
 import { Controller, FormProvider, useForm } from 'react-hook-form';
 import { RiArrowRightLine } from 'react-icons/ri';
-import { FormattedMessage, useIntl } from 'react-intl';
 import { z } from 'zod';
 
 import { trpc } from '~/hooks/trpc';
 
+import { FormattedMessage, useIntl } from '~/components/intl';
 import { useProfileUsernameSchema } from '~/components/profile/fields/ProfileUsernameSchema';
 import useProjectsProfileExperienceValueInitializer from '~/components/projects/hooks/useProjectsProfileExperienceValueInitializer';
 import ProjectsProfileEditAvatar from '~/components/projects/profile/edit/ProjectsProfileEditAvatar';

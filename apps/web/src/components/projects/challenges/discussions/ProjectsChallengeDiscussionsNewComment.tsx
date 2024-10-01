@@ -2,12 +2,12 @@ import { useState } from 'react';
 import type { SubmitHandler } from 'react-hook-form';
 import { useForm } from 'react-hook-form';
 import { RiFireFill } from 'react-icons/ri';
-import { useIntl } from 'react-intl';
 import { z } from 'zod';
 
 import { trpc } from '~/hooks/trpc';
 
 import { useToast } from '~/components/global/toasts/useToast';
+import { useIntl } from '~/components/intl';
 import UserProfileInformationRow from '~/components/profile/info/UserProfileInformationRow';
 import {
   getDiscussionsCommentBodyAttributes,

@@ -1,10 +1,10 @@
 'use client';
 
 import clsx from 'clsx';
-import { useIntl } from 'react-intl';
 
 import { useAuthSignInUp } from '~/hooks/user/useAuthFns';
 
+import { useIntl } from '~/components/intl';
 import Container from '~/components/ui/Container';
 import Heading from '~/components/ui/Heading';
 

@@ -1,8 +1,7 @@
-import { FormattedMessage, useIntl } from 'react-intl';
-
 import { trpc } from '~/hooks/trpc';
 
 import ConfirmationDialog from '~/components/common/ConfirmationDialog';
+import { FormattedMessage, useIntl } from '~/components/intl';
 import Text from '~/components/ui/Text';
 
 import { projectsSkillLabel } from '../../skills/data/ProjectsSkillListData';

@@ -1,5 +1,4 @@
-import { FormattedMessage } from 'react-intl';
-
+import { FormattedMessage } from '~/components/intl';
 import type { TextSize } from '~/components/ui/Text';
 import Text from '~/components/ui/Text';
 

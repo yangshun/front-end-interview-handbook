@@ -9,9 +9,9 @@ import {
   RiReactjsLine,
   RiShieldCheckLine,
 } from 'react-icons/ri';
-import { FormattedMessage, useIntl } from 'react-intl';
 
 import { QuestionCount } from '~/components/interviews/questions/listings/stats/QuestionCount';
+import { FormattedMessage, useIntl } from '~/components/intl';
 import Anchor from '~/components/ui/Anchor';
 import Container from '~/components/ui/Container';
 import Heading from '~/components/ui/Heading';

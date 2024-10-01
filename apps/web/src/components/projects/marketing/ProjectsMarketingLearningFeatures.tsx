@@ -20,11 +20,11 @@ import {
   RiTrophyLine,
   RiVerifiedBadgeLine,
 } from 'react-icons/ri';
-import { FormattedMessage, useIntl } from 'react-intl';
 
 import { SCROLL_HASH_PROJECTS_FEATURES } from '~/hooks/useScrollToHash';
 
 import { useColorSchemePreferences } from '~/components/global/color-scheme/ColorSchemePreferencesProvider';
+import { FormattedMessage, useIntl } from '~/components/intl';
 import MarketingSectionHeader from '~/components/marketing/MarketingSectionHeader';
 import Anchor from '~/components/ui/Anchor';
 import Container from '~/components/ui/Container';

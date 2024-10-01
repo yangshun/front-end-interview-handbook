@@ -1,7 +1,7 @@
 import { useMemo } from 'react';
 import { RiMoreLine } from 'react-icons/ri';
-import { useIntl } from 'react-intl';
 
+import { useIntl } from '~/components/intl';
 import Button from '~/components/ui/Button';
 
 function getVisiblePageNumbers({

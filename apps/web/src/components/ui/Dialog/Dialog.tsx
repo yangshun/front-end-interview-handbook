@@ -1,7 +1,8 @@
 import clsx from 'clsx';
 import * as React from 'react';
 import { RiCloseLine } from 'react-icons/ri';
-import { useIntl } from 'react-intl';
+
+import { useIntl } from '~/components/intl';
 
 import DialogBaseOverlay from './DialogBaseOverlay';
 import Button from '../Button';

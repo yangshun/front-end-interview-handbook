@@ -3,8 +3,8 @@
 import { useSelectedLayoutSegment } from 'next/navigation';
 import type { ReactNode } from 'react';
 import { RiArrowRightSLine } from 'react-icons/ri';
-import { FormattedMessage } from 'react-intl';
 
+import { FormattedMessage } from '~/components/intl';
 import ProjectsSkillRoadmapSection from '~/components/projects/skills/roadmap/ProjectsSkillRoadmapSection';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';

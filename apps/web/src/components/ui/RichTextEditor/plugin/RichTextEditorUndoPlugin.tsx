@@ -5,8 +5,8 @@ import {
 } from 'lexical';
 import { useEffect, useState } from 'react';
 import { RiArrowGoBackLine } from 'react-icons/ri';
-import { useIntl } from 'react-intl';
 
+import { useIntl } from '~/components/intl';
 import RichTextEditorToolbarActionNode from '~/components/ui/RichTextEditor/components/RichTextEditorToolbarActionNode';
 
 import { useLexicalComposerContext } from '@lexical/react/LexicalComposerContext';

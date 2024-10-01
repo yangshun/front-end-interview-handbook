@@ -1,6 +1,6 @@
-import { useIntl } from 'react-intl';
-
 import { REVIEW_CASHBACK_DISCOUNT_PERCENTAGE } from '~/data/PromotionConfig';
+
+import { useIntl } from '~/components/intl';
 
 export default function usePromotionsReviewCashbackLabels() {
   const intl = useIntl();

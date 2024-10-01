@@ -2,9 +2,9 @@
 
 import clsx from 'clsx';
 import { RiLockLine, RiShiningFill, RiToolsLine } from 'react-icons/ri';
-import { useIntl } from 'react-intl';
 
 import InterviewsPricingTableDialog from '~/components/interviews/purchase/InterviewsPricingTableDialog';
+import { useIntl } from '~/components/intl';
 import Button from '~/components/ui/Button';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';

@@ -2,12 +2,12 @@ import clsx from 'clsx';
 import type { SubmitHandler } from 'react-hook-form';
 import { useForm } from 'react-hook-form';
 import { RiFireFill } from 'react-icons/ri';
-import { FormattedMessage, useIntl } from 'react-intl';
 import { z } from 'zod';
 
 import { trpc } from '~/hooks/trpc';
 
 import { useToast } from '~/components/global/toasts/useToast';
+import { FormattedMessage, useIntl } from '~/components/intl';
 import ProjectsProfileAvatar from '~/components/projects/users/ProjectsProfileAvatar';
 import Button from '~/components/ui/Button';
 import Text from '~/components/ui/Text';

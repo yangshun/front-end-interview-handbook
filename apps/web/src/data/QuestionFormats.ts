@@ -6,7 +6,6 @@ import {
   RiTerminalWindowLine,
 } from 'react-icons/ri';
 import { TbBinaryTree } from 'react-icons/tb';
-import { useIntl } from 'react-intl';
 
 import AngularLogoMonochrome from '~/components/icons/AngularLogoMonochrome';
 import CSS3LogoMonochrome from '~/components/icons/CSS3LogoMonochrome';
@@ -19,6 +18,7 @@ import type {
   QuestionFormat,
   QuestionUserFacingFormat,
 } from '~/components/interviews/questions/common/QuestionsTypes';
+import { useIntl } from '~/components/intl';
 import {
   themeGradientGreenYellow,
   themeGradientPinkPurple,

@@ -1,7 +1,8 @@
 'use client';
 
 import { RiFolderOpenLine } from 'react-icons/ri';
-import { FormattedMessage, useIntl } from 'react-intl';
+
+import { FormattedMessage, useIntl } from '~/components/intl';
 
 import { useRoadmap } from './hooks/useRoadmap';
 import RoadmapFilterSlideOut from './RoadmapFilterSlideOut';

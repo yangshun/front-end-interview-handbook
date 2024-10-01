@@ -1,7 +1,6 @@
-import { useIntl } from 'react-intl';
-
 import { trpc } from '~/hooks/trpc';
 
+import { useIntl } from '~/components/intl';
 import ProjectsPricingTable from '~/components/projects/purchase/ProjectsPricingTable';
 import PurchasePPPDiscountAlert from '~/components/purchase/PurchasePPPDiscountAlert';
 import { MAXIMUM_PPP_CONVERSION_FACTOR_TO_DISPLAY_BEFORE_PRICE } from '~/components/purchase/PurchasePricingConfig';

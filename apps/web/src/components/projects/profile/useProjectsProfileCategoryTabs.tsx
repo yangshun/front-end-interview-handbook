@@ -1,5 +1,6 @@
 import { RiDiscussLine, RiRocketLine } from 'react-icons/ri';
-import { useIntl } from 'react-intl';
+
+import { useIntl } from '~/components/intl';
 
 export type ProjectsProfileTabCategory = 'community' | 'progress';
 

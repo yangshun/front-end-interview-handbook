@@ -1,7 +1,6 @@
 import clsx from 'clsx';
 import type { ReactNode } from 'react';
 import { RiArrowDownSLine, RiSearchLine, RiSortDesc } from 'react-icons/ri';
-import { FormattedMessage, useIntl } from 'react-intl';
 
 import FilterButton from '~/components/common/FilterButton';
 import { useUserProfile } from '~/components/global/UserProfileProvider';
@@ -21,6 +20,7 @@ import {
   tabulateQuestionsAttributesUnion,
 } from '~/components/interviews/questions/listings/filters/QuestionsProcessor';
 import QuestionsList from '~/components/interviews/questions/listings/items/QuestionsList';
+import { FormattedMessage, useIntl } from '~/components/intl';
 import CheckboxInput from '~/components/ui/CheckboxInput';
 import Divider from '~/components/ui/Divider';
 import DropdownMenu from '~/components/ui/DropdownMenu';

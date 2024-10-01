@@ -6,7 +6,6 @@ import {
   RiShiningLine,
   RiTerminalWindowLine,
 } from 'react-icons/ri';
-import { useIntl } from 'react-intl';
 import url from 'url';
 
 import gtag from '~/lib/gtag';
@@ -22,6 +21,7 @@ import {
   useQuestionUserFacingFormatData,
 } from '~/data/QuestionFormats';
 
+import { useIntl } from '~/components/intl';
 import Badge from '~/components/ui/Badge';
 import type { NavbarPrimaryItem } from '~/components/ui/Navbar/NavTypes';
 

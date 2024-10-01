@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import { RiPushpinLine, RiUnpinLine } from 'react-icons/ri';
-import { useIntl } from 'react-intl';
 
+import { useIntl } from '~/components/intl';
 import Button from '~/components/ui/Button';
 
 export default function ProjectsChallengeSubmissionCardPinButton({

@@ -1,10 +1,10 @@
 import { debounce } from 'lodash-es';
 import { useEffect, useRef } from 'react';
 import type { ControllerRenderProps } from 'react-hook-form';
-import { useIntl } from 'react-intl';
 
 import { trpc } from '~/hooks/trpc';
 
+import { useIntl } from '~/components/intl';
 import { getProfileUsernameAttrs } from '~/components/profile/fields/ProfileUsernameSchema';
 import type { ProjectsProfileOnboardingStep1FormValues } from '~/components/projects/onboarding/ProjectsOnboardingProfileStep1';
 import type { ProjectsProfileEditFormValues } from '~/components/projects/types';

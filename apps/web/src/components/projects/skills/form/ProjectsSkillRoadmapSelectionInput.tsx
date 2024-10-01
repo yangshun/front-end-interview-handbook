@@ -2,8 +2,8 @@ import clsx from 'clsx';
 import type { ForwardedRef } from 'react';
 import { forwardRef, useId, useState } from 'react';
 import { RiAddLine } from 'react-icons/ri';
-import { useIntl } from 'react-intl';
 
+import { useIntl } from '~/components/intl';
 import Button from '~/components/ui/Button';
 import type { LabelDescriptionStyle } from '~/components/ui/Label';
 import Label from '~/components/ui/Label';

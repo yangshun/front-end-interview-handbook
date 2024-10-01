@@ -1,8 +1,8 @@
 import { useState } from 'react';
-import { FormattedMessage } from 'react-intl';
 
 import { trpc } from '~/hooks/trpc';
 
+import { FormattedMessage } from '~/components/intl';
 import Anchor from '~/components/ui/Anchor';
 import Text from '~/components/ui/Text';
 

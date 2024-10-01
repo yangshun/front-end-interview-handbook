@@ -1,7 +1,6 @@
 import clsx from 'clsx';
 import { useState } from 'react';
 import { RiFileCopyLine } from 'react-icons/ri';
-import { FormattedMessage, useIntl } from 'react-intl';
 import type Stripe from 'stripe';
 
 import { trpc } from '~/hooks/trpc';
@@ -11,6 +10,7 @@ import { useAuthSignInUp } from '~/hooks/user/useAuthFns';
 import { STUDENT_DISCOUNT_PERCENTAGE } from '~/data/PromotionConfig';
 
 import { useUserProfile } from '~/components/global/UserProfileProvider';
+import { FormattedMessage, useIntl } from '~/components/intl';
 import PurchaseBlockCard from '~/components/purchase/PurchaseBlockCard';
 import Anchor from '~/components/ui/Anchor';
 import Button from '~/components/ui/Button';

@@ -1,9 +1,9 @@
 import { type editor as Editor } from 'monaco-editor';
 import type { Plugin } from 'prettier';
 import { useCallback, useEffect } from 'react';
-import { useIntl } from 'react-intl';
 
 import { useToast } from '~/components/global/toasts/useToast';
+import { useIntl } from '~/components/intl';
 
 import type { Monaco } from '@monaco-editor/react';
 

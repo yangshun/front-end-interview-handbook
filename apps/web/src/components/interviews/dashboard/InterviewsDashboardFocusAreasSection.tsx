@@ -1,10 +1,10 @@
 import clsx from 'clsx';
 import { RiArrowRightLine, RiQuestionFill } from 'react-icons/ri';
-import { useIntl } from 'react-intl';
 
 import type { FocusArea } from '~/data/focus-areas/FocusAreas';
 import { getFocusAreaTheme } from '~/data/focus-areas/FocusAreas';
 
+import { useIntl } from '~/components/intl';
 import Anchor from '~/components/ui/Anchor';
 import Button from '~/components/ui/Button';
 import Card from '~/components/ui/Card';

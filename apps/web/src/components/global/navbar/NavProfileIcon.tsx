@@ -1,6 +1,6 @@
 import clsx from 'clsx';
-import { FormattedMessage } from 'react-intl';
 
+import { FormattedMessage } from '~/components/intl';
 import Avatar from '~/components/ui/Avatar';
 import Divider from '~/components/ui/Divider';
 import DropdownMenu from '~/components/ui/DropdownMenu';

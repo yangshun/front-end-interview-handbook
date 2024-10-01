@@ -1,10 +1,10 @@
 import clsx from 'clsx';
 import type { BlogSeries } from 'contentlayer/generated';
-import { FormattedMessage } from 'react-intl';
 
 import { readBlogPostsAll } from '~/components/blog/data/BlogReader';
 import BlogListWithFilters from '~/components/blog/listing/BlogListingWithFilters';
 import BlogBrowseSeries from '~/components/blog/series/BlogBrowseSeries';
+import { FormattedMessage } from '~/components/intl';
 import Heading from '~/components/ui/Heading';
 
 type Props = Readonly<{

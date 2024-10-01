@@ -1,6 +1,6 @@
 import { RiStarSmileFill } from 'react-icons/ri';
-import { useIntl } from 'react-intl';
 
+import { useIntl } from '~/components/intl';
 import Chip from '~/components/ui/Chip';
 import Tooltip from '~/components/ui/Tooltip';
 

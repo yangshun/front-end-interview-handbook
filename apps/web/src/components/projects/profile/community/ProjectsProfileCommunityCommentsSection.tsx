@@ -1,6 +1,6 @@
 import { RiDiscussLine } from 'react-icons/ri';
-import { useIntl } from 'react-intl';
 
+import { useIntl } from '~/components/intl';
 import EmptyState from '~/components/ui/EmptyState';
 
 import ProjectsProfileCommunityCommentList from './ProjectsProfileCommunityCommentList';

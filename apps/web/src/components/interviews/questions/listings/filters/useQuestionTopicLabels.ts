@@ -9,7 +9,8 @@ import {
   RiTranslate2,
   RiWifiLine,
 } from 'react-icons/ri';
-import { useIntl } from 'react-intl';
+
+import { useIntl } from '~/components/intl';
 
 import type { QuestionTopic } from '../../common/QuestionsTypes';
 

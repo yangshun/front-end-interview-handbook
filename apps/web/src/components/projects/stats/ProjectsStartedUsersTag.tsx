@@ -1,6 +1,6 @@
 import clsx from 'clsx';
-import { FormattedMessage, useIntl } from 'react-intl';
 
+import { FormattedMessage, useIntl } from '~/components/intl';
 import UserAvatar from '~/components/ui/Avatar/UserAvatar';
 import Text from '~/components/ui/Text';
 import Tooltip from '~/components/ui/Tooltip';

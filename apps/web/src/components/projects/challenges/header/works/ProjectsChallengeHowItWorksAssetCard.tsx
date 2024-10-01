@@ -1,6 +1,6 @@
 import clsx from 'clsx';
-import { useIntl } from 'react-intl';
 
+import { useIntl } from '~/components/intl';
 import ProjectsChallengeGetStartedDownloadStarterFiles from '~/components/projects/challenges/get-started/ProjectsChallengeGetStartedDownloadStarterFiles';
 import ProjectsChallengeHowItWorksCard from '~/components/projects/challenges/header/works/ProjectsChallengeHowItWorksCard';
 import Chip from '~/components/ui/Chip';

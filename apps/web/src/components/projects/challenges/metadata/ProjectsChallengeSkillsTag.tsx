@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import { RiInformationLine, RiNodeTree } from 'react-icons/ri';
-import { FormattedMessage, useIntl } from 'react-intl';
 
+import { FormattedMessage, useIntl } from '~/components/intl';
 import ProjectsSkillRoadmapChips from '~/components/projects/skills/metadata/ProjectsSkillRoadmapChips';
 import {
   Hovercard,

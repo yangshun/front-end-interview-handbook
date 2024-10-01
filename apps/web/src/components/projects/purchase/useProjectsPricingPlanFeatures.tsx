@@ -1,4 +1,4 @@
-import { FormattedMessage, useIntl } from 'react-intl';
+import { FormattedMessage, useIntl } from '~/components/intl';
 
 import type {
   ProjectsSubscriptionPlanFeatureName,

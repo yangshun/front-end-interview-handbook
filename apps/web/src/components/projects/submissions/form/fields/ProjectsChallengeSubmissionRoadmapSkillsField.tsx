@@ -2,8 +2,8 @@ import clsx from 'clsx';
 import type { Control } from 'react-hook-form';
 import { useController } from 'react-hook-form';
 import { RiInformationLine } from 'react-icons/ri';
-import { FormattedMessage, useIntl } from 'react-intl';
 
+import { FormattedMessage, useIntl } from '~/components/intl';
 import { MAX_SKILLS_FOR_REP_GAINS_IN_SUBMISSION } from '~/components/projects/misc';
 import { getProjectsRoadmapSkillsInputAttributes } from '~/components/projects/skills/form/ProjectsSkillListInputSchema';
 import ProjectsSkillRoadmapSelectionInput from '~/components/projects/skills/form/ProjectsSkillRoadmapSelectionInput';

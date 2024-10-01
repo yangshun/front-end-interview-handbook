@@ -1,8 +1,8 @@
 import clsx from 'clsx';
-import { FormattedMessage } from 'react-intl';
 
 import InterviewsMarketingMarqueeQuestionListSection from '~/components/interviews/marketing/InterviewsMarketingMarqueeQuestionListSection';
 import type { QuestionMetadata } from '~/components/interviews/questions/common/QuestionsTypes';
+import { FormattedMessage } from '~/components/intl';
 import Container from '~/components/ui/Container';
 import Section from '~/components/ui/Heading/HeadingContext';
 import Text from '~/components/ui/Text';

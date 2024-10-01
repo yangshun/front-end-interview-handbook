@@ -2,9 +2,9 @@
 
 import { useSearchParams } from 'next/navigation';
 import { RiFireFill } from 'react-icons/ri';
-import { FormattedMessage, useIntl } from 'react-intl';
 
 import { useToast } from '~/components/global/toasts/useToast';
+import { FormattedMessage, useIntl } from '~/components/intl';
 import Container from '~/components/ui/Container';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';

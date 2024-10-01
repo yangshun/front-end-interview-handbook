@@ -1,7 +1,6 @@
-import { FormattedMessage } from 'react-intl';
-
 import { isProhibitedCountry } from '~/lib/stripeUtils';
 
+import { FormattedMessage } from '~/components/intl';
 import Alert from '~/components/ui/Alert';
 
 type Props = Readonly<{

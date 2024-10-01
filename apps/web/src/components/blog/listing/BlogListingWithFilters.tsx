@@ -6,7 +6,6 @@ import {
   RiSearchLine,
   RiSortDesc,
 } from 'react-icons/ri';
-import { FormattedMessage, useIntl } from 'react-intl';
 
 import type {
   BlogMetadata,
@@ -24,6 +23,7 @@ import useBlogPostFilters from '~/components/blog/filters/hooks/useBlogPostFilte
 import BlogList from '~/components/blog/filters/items/BlogList';
 import BlogCountLabel from '~/components/blog/metadata/BlogCountLabel';
 import FilterButton from '~/components/common/FilterButton';
+import { FormattedMessage, useIntl } from '~/components/intl';
 import CheckboxInput from '~/components/ui/CheckboxInput';
 import DropdownMenu from '~/components/ui/DropdownMenu';
 import Heading from '~/components/ui/Heading';

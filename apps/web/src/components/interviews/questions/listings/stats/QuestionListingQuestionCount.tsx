@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import { RiLockFill, RiUserSmileLine } from 'react-icons/ri';
-import { FormattedMessage, useIntl } from 'react-intl';
 
+import { FormattedMessage, useIntl } from '~/components/intl';
 import Text from '~/components/ui/Text';
 import {
   themeTextBrandColor,

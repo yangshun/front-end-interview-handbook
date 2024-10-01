@@ -3,8 +3,8 @@
 import clsx from 'clsx';
 import { useState } from 'react';
 import { RiAddCircleLine, RiIndeterminateCircleLine } from 'react-icons/ri';
-import { useIntl } from 'react-intl';
 
+import { useIntl } from '~/components/intl';
 import ProjectsSkillRoadmapItemRow from '~/components/projects/skills/roadmap/ProjectsSkillRoadmapItemRow';
 import ProjectsSkillRoadmapParentHeading from '~/components/projects/skills/roadmap/ProjectsSkillRoadmapParentHeading';
 import Button from '~/components/ui/Button';

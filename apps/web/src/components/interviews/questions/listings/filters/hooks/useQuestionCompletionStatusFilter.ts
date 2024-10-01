@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { useIntl } from 'react-intl';
 
 import useSessionStorageForSets from '~/hooks/useSessionStorageForSets';
 
@@ -7,6 +6,7 @@ import type {
   QuestionCompletionStatus,
   QuestionMetadataWithCompletedStatus,
 } from '~/components/interviews/questions/common/QuestionsTypes';
+import { useIntl } from '~/components/intl';
 
 import type { QuestionFilter } from '../QuestionFilterType';
 

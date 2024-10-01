@@ -1,7 +1,6 @@
-import { useIntl } from 'react-intl';
-
 import { trpc } from '~/hooks/trpc';
 
+import { useIntl } from '~/components/intl';
 import Dialog from '~/components/ui/Dialog';
 import Spinner from '~/components/ui/Spinner';
 import Text from '~/components/ui/Text';

@@ -3,10 +3,10 @@ import { useInView } from 'framer-motion';
 import { debounce } from 'lodash-es';
 import { useEffect, useRef, useState } from 'react';
 import { RiNotification3Line } from 'react-icons/ri';
-import { FormattedMessage } from 'react-intl';
 
 import { trpc } from '~/hooks/trpc';
 
+import { FormattedMessage } from '~/components/intl';
 import Spinner from '~/components/ui/Spinner';
 import Text from '~/components/ui/Text';
 import {

@@ -1,6 +1,5 @@
-import { FormattedMessage, useIntl } from 'react-intl';
-
 import InterviewsMarketingContinuousUpdates from '~/components/interviews/marketing/InterviewsMarketingContinuousUpdates';
+import { FormattedMessage, useIntl } from '~/components/intl';
 import ProjectsMarketingContactUs from '~/components/projects/marketing/ProjectsMarketingContactUs';
 import ProjectsPricingPromotions from '~/components/projects/purchase/ProjectsPricingPromotions';
 import ProjectsPricingSectionLocalizedContainer from '~/components/projects/purchase/ProjectsPricingSectionLocalizedContainer';

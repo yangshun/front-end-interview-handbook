@@ -4,8 +4,8 @@ import clsx from 'clsx';
 import { notFound, useSearchParams } from 'next/navigation';
 import { useEffect } from 'react';
 import { RiLink } from 'react-icons/ri';
-import { FormattedMessage, useIntl } from 'react-intl';
 
+import { FormattedMessage, useIntl } from '~/components/intl';
 import Button from '~/components/ui/Button';
 import Container from '~/components/ui/Container';
 import Heading from '~/components/ui/Heading';

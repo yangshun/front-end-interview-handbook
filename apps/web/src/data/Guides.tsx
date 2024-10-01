@@ -3,10 +3,10 @@ import {
   RiFlowChart,
   RiQuestionAnswerLine,
 } from 'react-icons/ri';
-import { useIntl } from 'react-intl';
 
 import { basePath as behavioralInterviewGuidebookBasePath } from '~/components/guides/useBehavioralInterviewGuidebookNavigation';
 import { basePath as frontEndInterviewGuidebookBasePath } from '~/components/guides/useFrontEndInterviewGuidebookNavigation';
+import { useIntl } from '~/components/intl';
 
 type GuideType =
   | 'behavioral-interview-guidebook'

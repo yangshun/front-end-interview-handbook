@@ -8,7 +8,8 @@ import {
   RiInformationFill,
   RiStarFill,
 } from 'react-icons/ri';
-import { FormattedMessage } from 'react-intl';
+
+import { FormattedMessage } from '~/components/intl';
 
 import type { TextColor } from '../Text';
 import Text from '../Text';

@@ -4,7 +4,6 @@ import clsx from 'clsx';
 import type { InterviewsListingBottomContent } from 'contentlayer/generated';
 import { useState } from 'react';
 import { RiFlaskLine, RiVerifiedBadgeLine, RiWindowLine } from 'react-icons/ri';
-import { FormattedMessage, useIntl } from 'react-intl';
 
 import { trpc } from '~/hooks/trpc';
 
@@ -17,6 +16,7 @@ import { useUserPreferences } from '~/components/global/UserPreferencesProvider'
 import type { QuestionMetadata } from '~/components/interviews/questions/common/QuestionsTypes';
 import QuestionsLearningList from '~/components/interviews/questions/listings/learning/QuestionsLearningList';
 import InterviewsRecommendedPrepStrategyPageTitleSection from '~/components/interviews/recommended/InterviewsRecommendedPrepStrategyPageTitleSection';
+import { FormattedMessage, useIntl } from '~/components/intl';
 import MDXContent from '~/components/mdx/MDXContent';
 import Container from '~/components/ui/Container';
 import Divider from '~/components/ui/Divider';

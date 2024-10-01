@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import { RiFireLine } from 'react-icons/ri';
-import { FormattedMessage } from 'react-intl';
 
+import { FormattedMessage } from '~/components/intl';
 import Text from '~/components/ui/Text';
 import { themeTextColor } from '~/components/ui/theme';
 

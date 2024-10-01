@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { RiFlashlightFill } from 'react-icons/ri';
-import { FormattedMessage, useIntl } from 'react-intl';
 
+import { FormattedMessage, useIntl } from '~/components/intl';
 import UserAvatar from '~/components/ui/Avatar/UserAvatar';
 import Badge from '~/components/ui/Badge';
 import Button from '~/components/ui/Button';

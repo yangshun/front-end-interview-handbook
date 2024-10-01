@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react';
-import { FormattedMessage, useIntl } from 'react-intl';
 
+import { FormattedMessage, useIntl } from '~/components/intl';
 import MDXCodeBlock from '~/components/mdx/MDXCodeBlock';
 import Alert from '~/components/ui/Alert';
 import EmptyState from '~/components/ui/EmptyState';

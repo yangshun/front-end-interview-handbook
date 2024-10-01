@@ -1,7 +1,7 @@
-import { FormattedMessage } from 'react-intl';
 import url from 'url';
 
 import RelativeTimestamp from '~/components/common/datetime/RelativeTimestamp';
+import { FormattedMessage } from '~/components/intl';
 import UserProfileInformationRow from '~/components/profile/info/UserProfileInformationRow';
 import Anchor from '~/components/ui/Anchor';
 import RichText from '~/components/ui/RichTextEditor/RichText';

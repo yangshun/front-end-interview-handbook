@@ -1,8 +1,8 @@
 'use client';
 
-import { FormattedMessage } from 'react-intl';
 import { useIsClient, useLocalStorage } from 'usehooks-ts';
 
+import { FormattedMessage } from '~/components/intl';
 import Anchor from '~/components/ui/Anchor';
 import Banner from '~/components/ui/Banner';
 

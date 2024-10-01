@@ -1,9 +1,9 @@
 import clsx from 'clsx';
 import { RiArrowRightLine } from 'react-icons/ri';
-import { FormattedMessage } from 'react-intl';
 
 import { useAuthSignInUp } from '~/hooks/user/useAuthFns';
 
+import { FormattedMessage } from '~/components/intl';
 import ProjectsProfileAvatar from '~/components/projects/users/ProjectsProfileAvatar';
 import ProjectsProfilePremiumChip from '~/components/projects/users/ProjectsProfilePremiumChip';
 import ProjectsUserReputation from '~/components/projects/users/ProjectsUserReputation';

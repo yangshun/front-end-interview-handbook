@@ -6,7 +6,8 @@ import {
   RiTerminalWindowLine,
 } from 'react-icons/ri';
 import { TbBinaryTree } from 'react-icons/tb';
-import { useIntl } from 'react-intl';
+
+import { useIntl } from '~/components/intl';
 
 import type { GuideNavigation, GuideNavigationLink } from './types';
 

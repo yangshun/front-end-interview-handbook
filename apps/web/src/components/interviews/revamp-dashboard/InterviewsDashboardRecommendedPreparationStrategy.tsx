@@ -7,11 +7,11 @@ import {
   RiEye2Line,
   RiTimelineView,
 } from 'react-icons/ri';
-import { FormattedMessage, useIntl } from 'react-intl';
 
 import PreparationGFE75Logo from '~/data/plans/logo/PreparationGFE75Logo';
 
 import InterviewsEntityProgress from '~/components/interviews/common/InterviewsEntityProgress';
+import { FormattedMessage, useIntl } from '~/components/intl';
 import Anchor from '~/components/ui/Anchor';
 import Badge from '~/components/ui/Badge';
 import Chip from '~/components/ui/Chip';

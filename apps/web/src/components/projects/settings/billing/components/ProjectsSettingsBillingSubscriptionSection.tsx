@@ -1,5 +1,4 @@
-import { FormattedMessage } from 'react-intl';
-
+import { FormattedMessage } from '~/components/intl';
 import type { ProjectsPricingPlanPaymentConfigLocalizedRecord } from '~/components/projects/purchase/ProjectsPricingPlans';
 import ProjectsPricingTable from '~/components/projects/purchase/ProjectsPricingTable';
 import { MAXIMUM_PPP_CONVERSION_FACTOR_TO_DISPLAY_BEFORE_PRICE } from '~/components/purchase/PurchasePricingConfig';

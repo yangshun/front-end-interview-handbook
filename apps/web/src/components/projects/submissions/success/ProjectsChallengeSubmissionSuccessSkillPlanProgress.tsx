@@ -1,9 +1,9 @@
 import clsx from 'clsx';
 import { useState } from 'react';
-import { FormattedMessage, useIntl } from 'react-intl';
 
 import { trpc } from '~/hooks/trpc';
 
+import { FormattedMessage, useIntl } from '~/components/intl';
 import type { ProjectsSkillGroupType } from '~/components/projects/skills/data/ProjectsSkillIcons';
 import { ProjectsSkillIcons } from '~/components/projects/skills/data/ProjectsSkillIcons';
 import type { ProjectsSkillSummaryItemForSubmission } from '~/components/projects/skills/types';

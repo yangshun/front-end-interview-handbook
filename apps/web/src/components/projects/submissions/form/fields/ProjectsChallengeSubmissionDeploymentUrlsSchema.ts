@@ -1,7 +1,7 @@
 import type { IntlShape } from 'react-intl';
-import { useIntl } from 'react-intl';
 import { z } from 'zod';
 
+import { useIntl } from '~/components/intl';
 import { URL_REGEX } from '~/components/projects/misc';
 
 const MIN_LENGTH = 2;

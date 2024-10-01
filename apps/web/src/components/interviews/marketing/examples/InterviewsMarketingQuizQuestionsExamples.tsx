@@ -1,10 +1,10 @@
 import clsx from 'clsx';
-import { FormattedMessage, useIntl } from 'react-intl';
 
 import gtag from '~/lib/gtag';
 
 import type { QuestionMetadata } from '~/components/interviews/questions/common/QuestionsTypes';
 import QuestionsList from '~/components/interviews/questions/listings/items/QuestionsList';
+import { FormattedMessage, useIntl } from '~/components/intl';
 import Badge from '~/components/ui/Badge';
 import Button from '~/components/ui/Button';
 import Heading from '~/components/ui/Heading';

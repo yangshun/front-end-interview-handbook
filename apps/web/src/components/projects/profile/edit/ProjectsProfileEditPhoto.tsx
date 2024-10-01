@@ -1,7 +1,7 @@
 import type { ChangeEvent } from 'react';
 import { useRef, useState } from 'react';
-import { useIntl } from 'react-intl';
 
+import { useIntl } from '~/components/intl';
 import Button from '~/components/ui/Button';
 import DropdownMenu from '~/components/ui/DropdownMenu';
 

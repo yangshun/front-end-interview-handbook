@@ -2,10 +2,10 @@ import clsx from 'clsx';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { RiArrowLeftLine, RiMessage2Fill, RiPencilLine } from 'react-icons/ri';
-import { useIntl } from 'react-intl';
 import { useMediaQuery } from 'usehooks-ts';
 
 import FilterButton from '~/components/common/FilterButton';
+import { useIntl } from '~/components/intl';
 import MarketingHeroBackground from '~/components/marketing/MarketingHeroBackground';
 import type { ProjectsChallengeItem } from '~/components/projects/challenges/types';
 import ProjectsChallengeSubmissionHeroCard from '~/components/projects/submissions/hero/ProjectsChallengeSubmissionHeroCard';

@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import { FormattedMessage, useIntl } from 'react-intl';
 
 import { useToast } from '~/components/global/toasts/useToast';
+import { FormattedMessage, useIntl } from '~/components/intl';
 import Button from '~/components/ui/Button';
 import Dialog from '~/components/ui/Dialog';
 import Text from '~/components/ui/Text';

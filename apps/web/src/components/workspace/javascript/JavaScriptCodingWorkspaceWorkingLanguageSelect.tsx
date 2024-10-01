@@ -1,7 +1,7 @@
 import type { ForwardedRef } from 'react';
 import { forwardRef } from 'react';
-import { useIntl } from 'react-intl';
 
+import { useIntl } from '~/components/intl';
 import Select from '~/components/ui/Select';
 
 import type { QuestionCodingWorkingLanguage } from '../../interviews/questions/common/QuestionsTypes';

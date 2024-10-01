@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import { RiLockLine } from 'react-icons/ri';
-import { useIntl } from 'react-intl';
 
+import { useIntl } from '~/components/intl';
 import Button from '~/components/ui/Button';
 import Text from '~/components/ui/Text';
 import { themeBorderColor } from '~/components/ui/theme';

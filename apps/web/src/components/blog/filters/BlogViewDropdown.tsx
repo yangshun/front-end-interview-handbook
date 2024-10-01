@@ -1,7 +1,7 @@
 import { RiListUnordered, RiMacbookLine } from 'react-icons/ri';
-import { useIntl } from 'react-intl';
 
 import type { BlogViewField } from '~/components/blog/BlogTypes';
+import { useIntl } from '~/components/intl';
 import DropdownMenu from '~/components/ui/DropdownMenu';
 
 type Props = Readonly<{

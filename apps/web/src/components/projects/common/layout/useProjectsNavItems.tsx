@@ -5,7 +5,6 @@ import {
   RiRocketLine,
   RiShiningLine,
 } from 'react-icons/ri';
-import { useIntl } from 'react-intl';
 import url from 'url';
 
 import gtag from '~/lib/gtag';
@@ -14,6 +13,7 @@ import {
   SCROLL_HASH_PROJECTS_FEATURES,
 } from '~/hooks/useScrollToHash';
 
+import { useIntl } from '~/components/intl';
 import type { NavbarPrimaryItem } from '~/components/ui/Navbar/NavTypes';
 
 export default function useProjectsNavItems(placement: 'nav' | 'sidebar') {

@@ -1,9 +1,9 @@
 import clsx from 'clsx';
 import { useId } from 'react';
 import { RiFireLine } from 'react-icons/ri';
-import { useIntl } from 'react-intl';
 
 import type { QuestionDifficulty } from '~/components/interviews/questions/common/QuestionsTypes';
+import { useIntl } from '~/components/intl';
 import type { TextSize } from '~/components/ui/Text';
 import Text from '~/components/ui/Text';
 import { themeIconColor } from '~/components/ui/theme';

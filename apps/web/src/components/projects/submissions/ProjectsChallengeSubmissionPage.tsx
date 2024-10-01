@@ -4,11 +4,11 @@ import clsx from 'clsx';
 import { useInView } from 'framer-motion';
 import { useEffect, useMemo, useRef } from 'react';
 import { RiShareCircleLine } from 'react-icons/ri';
-import { FormattedMessage, useIntl } from 'react-intl';
 
 import { trpc } from '~/hooks/trpc';
 import { SCROLL_HASH_PROJECTS_IMAGE_COMPARISON } from '~/hooks/useScrollToHash';
 
+import { FormattedMessage, useIntl } from '~/components/intl';
 import type { ProjectsChallengeItem } from '~/components/projects/challenges/types';
 import ProjectsSkillList from '~/components/projects/skills/metadata/ProjectsSkillList';
 import ProjectsSkillRoadmapChips from '~/components/projects/skills/metadata/ProjectsSkillRoadmapChips';

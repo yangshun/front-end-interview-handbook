@@ -14,9 +14,9 @@ import {
   RiPaletteLine,
   RiPencilRuler2Line,
 } from 'react-icons/ri';
-import { FormattedMessage, useIntl } from 'react-intl';
 
 import BlurOverlay from '~/components/common/BlurOverlay';
+import { FormattedMessage, useIntl } from '~/components/intl';
 import MDXContent from '~/components/mdx/MDXContent';
 import { useProjectsChallengeSessionContext } from '~/components/projects/challenges/session/ProjectsChallengeSessionContext';
 import type { ProjectsChallengeItem } from '~/components/projects/challenges/types';

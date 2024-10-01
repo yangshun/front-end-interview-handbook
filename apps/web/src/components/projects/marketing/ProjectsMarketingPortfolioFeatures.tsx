@@ -1,9 +1,9 @@
 import clsx from 'clsx';
 import Image from 'next/image';
 import { useId, useMemo } from 'react';
-import { FormattedMessage, useIntl } from 'react-intl';
 
 import { useColorSchemePreferences } from '~/components/global/color-scheme/ColorSchemePreferencesProvider';
+import { FormattedMessage, useIntl } from '~/components/intl';
 import MarketingSectionHeader from '~/components/marketing/MarketingSectionHeader';
 import Anchor from '~/components/ui/Anchor';
 import Container from '~/components/ui/Container';

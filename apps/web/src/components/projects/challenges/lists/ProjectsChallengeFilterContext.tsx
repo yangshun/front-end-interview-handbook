@@ -6,10 +6,10 @@ import {
   useMemo,
   useState,
 } from 'react';
-import { useIntl } from 'react-intl';
 
 import useFilterSearchParams from '~/hooks/useFilterSearchParams';
 
+import { useIntl } from '~/components/intl';
 import type { PopoverContentWidth } from '~/components/ui/Popover';
 
 import type { ProjectsTrackItem } from '../../tracks/data/ProjectsTracksData';

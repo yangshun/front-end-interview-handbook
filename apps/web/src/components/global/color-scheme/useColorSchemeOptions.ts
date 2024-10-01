@@ -1,7 +1,7 @@
 import { RiComputerLine, RiMoonLine, RiSunLine } from 'react-icons/ri';
-import { useIntl } from 'react-intl';
 
 import type { ColorSchemePreference } from '~/components/global/color-scheme/ColorSchemePreferencesProvider';
+import { useIntl } from '~/components/intl';
 
 export default function useColorSchemeOptions(): Array<{
   icon: (props: React.ComponentProps<'svg'>) => JSX.Element;

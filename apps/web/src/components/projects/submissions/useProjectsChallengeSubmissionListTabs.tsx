@@ -3,7 +3,8 @@ import {
   RiCodeSSlashLine,
   RiGraduationCapLine,
 } from 'react-icons/ri';
-import { useIntl } from 'react-intl';
+
+import { useIntl } from '~/components/intl';
 
 export type ProjectsChallengeSubmissionListTabCategory =
   | 'all-submissions'

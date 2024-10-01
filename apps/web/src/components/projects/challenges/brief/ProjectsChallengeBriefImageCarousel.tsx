@@ -1,8 +1,8 @@
 import clsx from 'clsx';
 import React, { useEffect, useRef, useState } from 'react';
 import { RiArrowLeftSLine, RiArrowRightSLine } from 'react-icons/ri';
-import { FormattedMessage, useIntl } from 'react-intl';
 
+import { FormattedMessage, useIntl } from '~/components/intl';
 import Text from '~/components/ui/Text';
 import {
   themeBackgroundBrandColor,

@@ -2,7 +2,6 @@
 
 import clsx from 'clsx';
 import { RiUserLine } from 'react-icons/ri';
-import { useIntl } from 'react-intl';
 
 import useUserProfile from '~/hooks/user/useUserProfile';
 
@@ -11,6 +10,7 @@ import {
   SidebarExpanded,
 } from '~/components/global/sidebar/Sidebar';
 import SidebarI18nSubMenu from '~/components/global/sidebar/SidebarI18nSubMenu';
+import { useIntl } from '~/components/intl';
 import { SocialDiscountSidebarMention } from '~/components/promotions/social/SocialDiscountSidebarMention';
 import Anchor from '~/components/ui/Anchor';
 import UserAvatar from '~/components/ui/Avatar/UserAvatar';

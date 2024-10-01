@@ -1,7 +1,8 @@
 'use client';
 
 import { RiBook3Line, RiTeamLine, RiTerminalBoxLine } from 'react-icons/ri';
-import { useIntl } from 'react-intl';
+
+import { useIntl } from '~/components/intl';
 
 import type { Feature } from './InterviewsMarketingFeaturesRow';
 import InterviewsMarketingFeaturesRow from './InterviewsMarketingFeaturesRow';

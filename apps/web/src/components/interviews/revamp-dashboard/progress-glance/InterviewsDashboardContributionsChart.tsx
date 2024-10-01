@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import { useMemo } from 'react';
-import { FormattedMessage, useIntl } from 'react-intl';
 
+import { FormattedMessage, useIntl } from '~/components/intl';
 import Text from '~/components/ui/Text';
 import { themeBackgroundLineEmphasizedColor } from '~/components/ui/theme';
 import Tooltip from '~/components/ui/Tooltip';

@@ -1,13 +1,13 @@
 import clsx from 'clsx';
 import { useId } from 'react';
 import { RiArrowRightLine, RiDiscordLine } from 'react-icons/ri';
-import { FormattedMessage, useIntl } from 'react-intl';
 
 import { fbqGFE } from '~/lib/fbq';
 import { trpc } from '~/hooks/trpc';
 
 import { SocialLinks } from '~/data/SocialLinks';
 
+import { FormattedMessage, useIntl } from '~/components/intl';
 import Button from '~/components/ui/Button';
 import Heading from '~/components/ui/Heading';
 import Text from '~/components/ui/Text';

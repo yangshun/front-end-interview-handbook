@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import { useIntl } from 'react-intl';
 
+import { useIntl } from '~/components/intl';
 import Avatar from '~/components/ui/Avatar';
 import Text from '~/components/ui/Text';
 

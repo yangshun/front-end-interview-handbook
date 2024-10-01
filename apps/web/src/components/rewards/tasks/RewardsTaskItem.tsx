@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import { RiArrowRightLine, RiCheckFill } from 'react-icons/ri';
-import { FormattedMessage, useIntl } from 'react-intl';
 
+import { FormattedMessage, useIntl } from '~/components/intl';
 import Button from '~/components/ui/Button';
 import Text from '~/components/ui/Text';
 import { themeIconColor } from '~/components/ui/theme';

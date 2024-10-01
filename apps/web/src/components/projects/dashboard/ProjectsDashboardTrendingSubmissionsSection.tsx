@@ -2,10 +2,10 @@
 
 import clsx from 'clsx';
 import { RiArrowRightLine, RiQuestionFill } from 'react-icons/ri';
-import { FormattedMessage, useIntl } from 'react-intl';
 
 import { trpc } from '~/hooks/trpc';
 
+import { FormattedMessage, useIntl } from '~/components/intl';
 import ProjectsProfilePremiumChip from '~/components/projects/users/ProjectsProfilePremiumChip';
 import Anchor from '~/components/ui/Anchor';
 import UserAvatar from '~/components/ui/Avatar/UserAvatar';

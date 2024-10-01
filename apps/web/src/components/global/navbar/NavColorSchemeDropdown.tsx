@@ -1,7 +1,7 @@
 import { RiMoonLine } from 'react-icons/ri';
-import { useIntl } from 'react-intl';
 
 import useColorSchemeOptions from '~/components/global/color-scheme/useColorSchemeOptions';
+import { useIntl } from '~/components/intl';
 import DropdownMenu from '~/components/ui/DropdownMenu';
 
 import { useColorSchemePreferences } from '../color-scheme/ColorSchemePreferencesProvider';

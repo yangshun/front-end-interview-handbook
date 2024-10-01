@@ -7,8 +7,8 @@ import {
   RiPencilLine,
   RiPlayLine,
 } from 'react-icons/ri';
-import { FormattedMessage } from 'react-intl';
 
+import { FormattedMessage } from '~/components/intl';
 import Anchor from '~/components/ui/Anchor';
 import Button from '~/components/ui/Button';
 import EmptyState from '~/components/ui/EmptyState';
@@ -407,7 +407,7 @@ export default function TestsSection({
   const testResults = getAllTestResults(specs);
 
   return (
-    <div className="relative flex size-full">
+    <div className="size-full relative flex">
       <iframe ref={iframe} style={{ display: 'none' }} title="Sandpack Tests" />
       <div className="flex w-full flex-col">
         <div className="flex grow overflow-y-auto">

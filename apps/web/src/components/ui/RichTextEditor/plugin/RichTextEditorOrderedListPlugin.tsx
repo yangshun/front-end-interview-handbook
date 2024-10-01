@@ -7,8 +7,8 @@ import {
 } from 'lexical';
 import { useCallback, useEffect, useState } from 'react';
 import { RiListOrdered2 } from 'react-icons/ri';
-import { useIntl } from 'react-intl';
 
+import { useIntl } from '~/components/intl';
 import RichTextEditorToolbarActionNode from '~/components/ui/RichTextEditor/components/RichTextEditorToolbarActionNode';
 
 import {

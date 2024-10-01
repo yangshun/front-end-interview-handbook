@@ -1,6 +1,6 @@
 import { RiPencilFill } from 'react-icons/ri';
-import { useIntl } from 'react-intl';
 
+import { useIntl } from '~/components/intl';
 import UserProfileInformationRow from '~/components/profile/info/UserProfileInformationRow';
 import ProjectsProfileBio from '~/components/projects/profile/info/ProjectsProfileBio';
 import ProjectsProfileMotivation from '~/components/projects/profile/info/ProjectsProfileMotivation';

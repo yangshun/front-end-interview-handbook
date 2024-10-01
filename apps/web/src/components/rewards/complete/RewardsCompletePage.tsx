@@ -6,11 +6,11 @@ import {
   RiCheckLine,
   RiFileCopyLine,
 } from 'react-icons/ri';
-import { FormattedMessage, useIntl } from 'react-intl';
 
 import { trpc } from '~/hooks/trpc';
 import useCopyToClipboardWithRevert from '~/hooks/useCopyToClipboardWithRevert';
 
+import { FormattedMessage, useIntl } from '~/components/intl';
 import RewardsTicket from '~/components/rewards/complete/RewardsTicket';
 import Anchor from '~/components/ui/Anchor';
 import Button from '~/components/ui/Button';

@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import { RiArrowRightSLine, RiCalendar2Line } from 'react-icons/ri';
-import { FormattedMessage } from 'react-intl';
 
+import { FormattedMessage } from '~/components/intl';
 import Anchor from '~/components/ui/Anchor';
 import Heading from '~/components/ui/Heading';
 import Text from '~/components/ui/Text';

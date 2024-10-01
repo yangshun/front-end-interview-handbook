@@ -1,8 +1,7 @@
-import { useIntl } from 'react-intl';
-
 import useSessionStorageForSets from '~/hooks/useSessionStorageForSets';
 
 import type { BlogFilter } from '~/components/blog/filters/BlogFilterType';
+import { useIntl } from '~/components/intl';
 
 // TODO(blog): Read all available tags from ContentLayer.
 const TAG_OPTIONS: ReadonlyArray<{

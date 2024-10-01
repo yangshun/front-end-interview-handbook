@@ -1,9 +1,9 @@
 import { RiUserLine, RiWallet3Line } from 'react-icons/ri';
-import { useIntl } from 'react-intl';
 
 import gtag from '~/lib/gtag';
 
 import useCommonNavItems from '~/components/common/navigation/useCommonNavItems';
+import { useIntl } from '~/components/intl';
 import type { NavLinkItem } from '~/components/ui/Navbar/NavTypes';
 
 export default function useInterviewsLoggedInLinks() {

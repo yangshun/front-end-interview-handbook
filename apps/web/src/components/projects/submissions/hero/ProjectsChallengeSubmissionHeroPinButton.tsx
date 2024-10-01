@@ -1,10 +1,10 @@
 import { useState } from 'react';
 import { RiPushpinLine, RiUnpinLine } from 'react-icons/ri';
-import { FormattedMessage, useIntl } from 'react-intl';
 
 import { trpc } from '~/hooks/trpc';
 
 import { useToast } from '~/components/global/toasts/useToast';
+import { FormattedMessage, useIntl } from '~/components/intl';
 import type { ProjectsChallengeSubmissionAuthor } from '~/components/projects/submissions/types';
 import Anchor from '~/components/ui/Anchor';
 import Button from '~/components/ui/Button';

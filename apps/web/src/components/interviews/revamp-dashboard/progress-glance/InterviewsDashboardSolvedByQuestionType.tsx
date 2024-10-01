@@ -1,10 +1,10 @@
 import clsx from 'clsx';
-import { FormattedMessage, useIntl } from 'react-intl';
 
 import type {
   QuestionMetadata,
   QuestionSlug,
 } from '~/components/interviews/questions/common/QuestionsTypes';
+import { FormattedMessage, useIntl } from '~/components/intl';
 import ProgressBar from '~/components/ui/ProgressBar';
 import Text from '~/components/ui/Text';
 import {

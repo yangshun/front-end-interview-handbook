@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import { RiCheckboxCircleLine } from 'react-icons/ri';
-import { FormattedMessage } from 'react-intl';
 
+import { FormattedMessage } from '~/components/intl';
 import ProjectsStatusBadgeCompleted from '~/components/projects/common/status/ProjectsStatusBadgeCompleted';
 import type { ProjectsStatusBadgeType } from '~/components/projects/common/status/types';
 import Text from '~/components/ui/Text';

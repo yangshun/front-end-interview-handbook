@@ -1,9 +1,9 @@
 import { RiQuestionAnswerFill } from 'react-icons/ri';
-import { useIntl } from 'react-intl';
 
 import { useQuestionUserFacingFormatData } from '~/data/QuestionFormats';
 
 import type { QuestionUserFacingFormat } from '~/components/interviews/questions/common/QuestionsTypes';
+import { useIntl } from '~/components/intl';
 
 export type PreparationArea = QuestionUserFacingFormat | 'behavioral';
 type PreparationAreaData = Record<

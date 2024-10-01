@@ -1,6 +1,6 @@
 import { RiTranslate2 } from 'react-icons/ri';
-import { useIntl } from 'react-intl';
 
+import { useIntl } from '~/components/intl';
 import DropdownMenu from '~/components/ui/DropdownMenu';
 
 import i18nLabelOptions from '~/i18n/i18nLabelOptions';

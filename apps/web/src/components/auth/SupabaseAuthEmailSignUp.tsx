@@ -1,11 +1,11 @@
 import { useState } from 'react';
-import { useIntl } from 'react-intl';
 import url from 'url';
 import { useIsMounted } from 'usehooks-ts';
 
 import { fbqGFE } from '~/lib/fbq';
 import { trpc } from '~/hooks/trpc';
 
+import { useIntl } from '~/components/intl';
 import Alert from '~/components/ui/Alert';
 import Button from '~/components/ui/Button';
 import CheckboxInput from '~/components/ui/CheckboxInput';

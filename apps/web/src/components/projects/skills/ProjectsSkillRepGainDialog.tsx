@@ -1,8 +1,8 @@
 import clsx from 'clsx';
 import { RiFireLine } from 'react-icons/ri';
-import { useIntl } from 'react-intl';
 import { useMediaQuery } from 'usehooks-ts';
 
+import { useIntl } from '~/components/intl';
 import type { DialogWidth } from '~/components/ui/Dialog';
 import Dialog from '~/components/ui/Dialog';
 import Text from '~/components/ui/Text';

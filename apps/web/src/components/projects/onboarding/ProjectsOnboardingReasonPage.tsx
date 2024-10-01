@@ -3,12 +3,12 @@
 import { useSearchParams } from 'next/navigation';
 import { FormProvider, useForm } from 'react-hook-form';
 import { RiArrowRightLine, RiFireFill } from 'react-icons/ri';
-import { FormattedMessage, useIntl } from 'react-intl';
 import { z } from 'zod';
 
 import { trpc } from '~/hooks/trpc';
 
 import { useToast } from '~/components/global/toasts/useToast';
+import { FormattedMessage, useIntl } from '~/components/intl';
 import useProjectsMotivationReasonSchema from '~/components/projects/hooks/useProjectsMotivationReasonSchema';
 import type { ProjectsMotivationReasonFormValues } from '~/components/projects/types';
 import Button from '~/components/ui/Button';

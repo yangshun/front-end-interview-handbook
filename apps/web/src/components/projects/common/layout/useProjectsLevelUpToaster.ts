@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useState } from 'react';
-import { useIntl } from 'react-intl';
 
 import { useToast } from '~/components/global/toasts/useToast';
+import { useIntl } from '~/components/intl';
 
 import useUserProfileWithProjectsProfile from '../useUserProfileWithProjectsProfile';
 import { projectsReputationLevel } from '../../reputation/projectsReputationLevelUtils';

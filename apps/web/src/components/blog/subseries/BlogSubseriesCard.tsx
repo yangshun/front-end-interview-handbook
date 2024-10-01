@@ -3,12 +3,12 @@
 import clsx from 'clsx';
 import { useState } from 'react';
 import { RiArrowDownSLine, RiArrowUpSLine } from 'react-icons/ri';
-import { useIntl } from 'react-intl';
 
 import type { BlogSubseries } from '~/components/blog/BlogTypes';
 import BlogCountLabel from '~/components/blog/metadata/BlogCountLabel';
 import BlogReadingTimeLabel from '~/components/blog/metadata/BlogReadingTimeLabel';
 import BlogSubseriesItemCard from '~/components/blog/subseries/BlogSubseriesItemCard';
+import { useIntl } from '~/components/intl';
 import Button from '~/components/ui/Button';
 import Heading from '~/components/ui/Heading';
 import Text from '~/components/ui/Text';

@@ -26,12 +26,12 @@ import {
   RiWindowFill,
 } from 'react-icons/ri';
 import { TbBrandAirbnb } from 'react-icons/tb';
-import { useIntl } from 'react-intl';
 
 import type {
   BaseGuideNavigationLink,
   GuideNavigation,
 } from '~/components/guides/types';
+import { useIntl } from '~/components/intl';
 
 import {
   allSystemDesignQuestions,

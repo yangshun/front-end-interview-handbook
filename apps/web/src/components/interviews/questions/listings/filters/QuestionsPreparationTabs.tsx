@@ -1,8 +1,7 @@
-import { FormattedMessage, useIntl } from 'react-intl';
-
 import type { PreparationArea } from '~/data/PreparationAreas';
 import { usePreparationAreas } from '~/data/PreparationAreas';
 
+import { FormattedMessage, useIntl } from '~/components/intl';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 import Tabs from '~/components/ui/Tabs';

@@ -2,9 +2,9 @@
 
 import clsx from 'clsx';
 import { RiFireLine } from 'react-icons/ri';
-import { FormattedMessage, useIntl } from 'react-intl';
 
 import { formatBigNumber } from '~/components/common/formatBigNumber';
+import { FormattedMessage, useIntl } from '~/components/intl';
 import Text from '~/components/ui/Text';
 import { themeBorderSubtleColor } from '~/components/ui/theme';
 import { themeTextSubtleColor } from '~/components/ui/theme';

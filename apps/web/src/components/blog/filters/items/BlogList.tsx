@@ -2,12 +2,12 @@
 
 import clsx from 'clsx';
 import type { BlogPost } from 'contentlayer/generated';
-import { useIntl } from 'react-intl';
 
 import type { BlogMetadata, BlogViewField } from '~/components/blog/BlogTypes';
 import type { BlogFilterTab } from '~/components/blog/filters/BlogTypeTabs';
 import BlogArticleViewCard from '~/components/blog/listing/BlogArticleViewCard';
 import BlogPostCard from '~/components/blog/listing/BlogPostCard';
+import { useIntl } from '~/components/intl';
 import EmptyState from '~/components/ui/EmptyState';
 
 type Props = Readonly<{

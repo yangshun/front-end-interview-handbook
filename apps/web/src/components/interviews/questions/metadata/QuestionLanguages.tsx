@@ -1,8 +1,8 @@
 import clsx from 'clsx';
 import { useId } from 'react';
 import { RiCodeSSlashLine } from 'react-icons/ri';
-import { FormattedMessage } from 'react-intl';
 
+import { FormattedMessage } from '~/components/intl';
 import type { TextSize } from '~/components/ui/Text';
 import { themeIconColor } from '~/components/ui/theme';
 

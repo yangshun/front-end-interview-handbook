@@ -1,9 +1,9 @@
 import clsx from 'clsx';
 import { Fragment, useEffect, useMemo, useState } from 'react';
 import { RiFilterLine, RiInformationLine } from 'react-icons/ri';
-import { useIntl } from 'react-intl';
 
 import FilterButton from '~/components/common/FilterButton';
+import { useIntl } from '~/components/intl';
 import {
   getProjectsRoadmapSkillsInputAttributes,
   getProjectsTechStackInputAttributes,

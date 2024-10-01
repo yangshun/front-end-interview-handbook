@@ -1,9 +1,9 @@
 import clsx from 'clsx';
-import { FormattedMessage } from 'react-intl';
 
 import type { ColorSchemePreference } from '~/components/global/color-scheme/ColorSchemePreferencesProvider';
 import { useColorSchemePreferences } from '~/components/global/color-scheme/ColorSchemePreferencesProvider';
 import useColorSchemeOptions from '~/components/global/color-scheme/useColorSchemeOptions';
+import { FormattedMessage } from '~/components/intl';
 import ProjectsSettingsExperienceThemeItemSkeleton from '~/components/projects/settings/experience/components/PrjectsSettingsExperienceThemeItemSkeleton';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';

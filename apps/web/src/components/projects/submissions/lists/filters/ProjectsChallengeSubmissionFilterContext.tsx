@@ -6,10 +6,10 @@ import {
   useMemo,
   useState,
 } from 'react';
-import { useIntl } from 'react-intl';
 
 import useFilterSearchParams from '~/hooks/useFilterSearchParams';
 
+import { useIntl } from '~/components/intl';
 import useProjectsYOEReplacementOptions from '~/components/projects/hooks/useProjectsYOEReplacementOptions';
 import type { ProjectsTrackItem } from '~/components/projects/tracks/data/ProjectsTracksData';
 

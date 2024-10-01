@@ -2,12 +2,12 @@
 
 import { useState } from 'react';
 import { RiArrowLeftLine } from 'react-icons/ri';
-import { FormattedMessage, useIntl } from 'react-intl';
 
 import { readBlogSeriesAll } from '~/components/blog/data/BlogReader';
 import BlogList from '~/components/blog/filters/items/BlogList';
 import BlogExploreSeriesDropdown from '~/components/blog/series/BlogExploreSeriesDropdown';
 import { BlogExploreSeriesSidebar } from '~/components/blog/series/BlogExploreSeriesSidebar';
+import { FormattedMessage, useIntl } from '~/components/intl';
 import Button from '~/components/ui/Button';
 import Heading from '~/components/ui/Heading';
 import Text from '~/components/ui/Text';

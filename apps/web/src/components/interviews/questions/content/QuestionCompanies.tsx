@@ -1,11 +1,11 @@
 import clsx from 'clsx';
 import { Fragment } from 'react';
-import { FormattedMessage, useIntl } from 'react-intl';
 
 import useCompanyNames from '~/hooks/useCompanyNames';
 
 import QuestionPaywallSmall from '~/components/interviews/questions/common/QuestionPaywallSmall';
 import type { QuestionCompany } from '~/components/interviews/questions/common/QuestionsTypes';
+import { FormattedMessage, useIntl } from '~/components/intl';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 import Text from '~/components/ui/Text';

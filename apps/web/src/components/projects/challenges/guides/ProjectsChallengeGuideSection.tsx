@@ -7,10 +7,10 @@ import type {
 } from 'contentlayer/generated';
 import { useRef, useState } from 'react';
 import { RiLockLine, RiLockUnlockLine, RiMenu2Line } from 'react-icons/ri';
-import { useIntl } from 'react-intl';
 
 import ArticlePagination from '~/components/common/ArticlePagination';
 import { SidebarLinksList } from '~/components/common/SidebarLinksList';
+import { useIntl } from '~/components/intl';
 import MDXContent from '~/components/mdx/MDXContent';
 import Alert from '~/components/ui/Alert';
 import Button from '~/components/ui/Button';

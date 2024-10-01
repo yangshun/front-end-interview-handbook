@@ -9,11 +9,11 @@ import {
   RiReactjsLine,
   RiVuejsLine,
 } from 'react-icons/ri';
-import { FormattedMessage, useIntl } from 'react-intl';
 
 import useIsSticky from '~/hooks/useIsSticky';
 
 import SvelteLogo from '~/components/icons/SvelteLogo';
+import { FormattedMessage, useIntl } from '~/components/intl';
 import Anchor from '~/components/ui/Anchor';
 import Container from '~/components/ui/Container';
 import Text from '~/components/ui/Text';

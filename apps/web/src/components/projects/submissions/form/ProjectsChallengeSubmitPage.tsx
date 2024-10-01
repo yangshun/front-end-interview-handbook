@@ -2,13 +2,13 @@
 
 import { useState } from 'react';
 import { RiArrowLeftLine, RiFireFill } from 'react-icons/ri';
-import { FormattedMessage, useIntl } from 'react-intl';
 
 import { trpc } from '~/hooks/trpc';
 
 import { PROJECTS_SUBMISSION_SUCCESS_PAGE_AVAILABLE } from '~/data/FeatureFlags';
 
 import { useToast } from '~/components/global/toasts/useToast';
+import { FormattedMessage, useIntl } from '~/components/intl';
 import type {
   ProjectsChallengeItem,
   ProjectsChallengeVariantImages,

@@ -1,5 +1,4 @@
-import { FormattedMessage } from 'react-intl';
-
+import { FormattedMessage } from '~/components/intl';
 import Anchor from '~/components/ui/Anchor';
 import Text from '~/components/ui/Text';
 

@@ -3,8 +3,8 @@
 import clsx from 'clsx';
 import type { ReactNode } from 'react';
 import { useState } from 'react';
-import { useIntl } from 'react-intl';
 
+import { useIntl } from '~/components/intl';
 import Button from '~/components/ui/Button';
 import EmptyState from '~/components/ui/EmptyState';
 

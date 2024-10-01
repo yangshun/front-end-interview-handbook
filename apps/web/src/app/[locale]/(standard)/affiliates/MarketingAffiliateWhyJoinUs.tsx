@@ -1,8 +1,8 @@
 import clsx from 'clsx';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
-import { FormattedMessage } from 'react-intl';
 
+import { FormattedMessage } from '~/components/intl';
 import MarketingSectionTitleLabel from '~/components/marketing/MarketingSectionTitleLabel';
 import Container from '~/components/ui/Container';
 import Heading from '~/components/ui/Heading';

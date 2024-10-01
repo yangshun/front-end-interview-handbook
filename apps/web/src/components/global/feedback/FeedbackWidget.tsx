@@ -3,13 +3,13 @@
 import clsx from 'clsx';
 import { useState } from 'react';
 import { RiCloseLine, RiFeedbackLine } from 'react-icons/ri';
-import { FormattedMessage, useIntl } from 'react-intl';
 
 import { fbqGFE } from '~/lib/fbq';
 import { trpc } from '~/hooks/trpc';
 
 import { formatBigNumber } from '~/components/common/formatBigNumber';
 import { useUserPreferences } from '~/components/global/UserPreferencesProvider';
+import { FormattedMessage, useIntl } from '~/components/intl';
 import Button from '~/components/ui/Button';
 import {
   themeBackgroundElementPressedStateColor_Active,

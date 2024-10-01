@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import { RiArrowRightLine, RiStarSmileFill } from 'react-icons/ri';
-import { useIntl } from 'react-intl';
 
+import { useIntl } from '~/components/intl';
 import Anchor from '~/components/ui/Anchor';
 import Button from '~/components/ui/Button';
 import Chip from '~/components/ui/Chip';

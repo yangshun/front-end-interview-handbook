@@ -1,6 +1,6 @@
 import React from 'react';
-import { FormattedMessage, useIntl } from 'react-intl';
 
+import { FormattedMessage, useIntl } from '~/components/intl';
 import ProjectsChallengeBriefGuidesResourcesSupportCard from '~/components/projects/challenges/brief/support/ProjectsChallengeBriefGuidesResourcesSupportCard';
 import ProjectsChallengeBriefQuestionSupportCard from '~/components/projects/challenges/brief/support/ProjectsChallengeBriefQuestionSupportCard';
 import ProjectsChallengeBriefSubmissionSupportCard from '~/components/projects/challenges/brief/support/ProjectsChallengeBriefSubmissionSupportCard';

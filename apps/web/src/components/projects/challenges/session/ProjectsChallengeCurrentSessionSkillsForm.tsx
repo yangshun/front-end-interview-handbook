@@ -1,7 +1,7 @@
 import { Controller, useForm } from 'react-hook-form';
-import { useIntl } from 'react-intl';
 import { z } from 'zod';
 
+import { useIntl } from '~/components/intl';
 import ProjectsSkillRoadmapSelectionInput from '~/components/projects/skills/form/ProjectsSkillRoadmapSelectionInput';
 import Divider from '~/components/ui/Divider';
 

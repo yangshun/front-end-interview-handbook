@@ -1,6 +1,6 @@
 import { RiSortDesc } from 'react-icons/ri';
-import { useIntl } from 'react-intl';
 
+import { useIntl } from '~/components/intl';
 import type { ProjectsDiscussionsCommentSortField } from '~/components/projects/discussions/types';
 import DropdownMenu from '~/components/ui/DropdownMenu';
 

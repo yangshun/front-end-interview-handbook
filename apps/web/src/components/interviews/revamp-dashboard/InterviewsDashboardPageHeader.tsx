@@ -1,9 +1,9 @@
 import clsx from 'clsx';
 import { RiQuestionnaireLine, RiVerifiedBadgeLine } from 'react-icons/ri';
-import { FormattedMessage, useIntl } from 'react-intl';
 
 import InterviewsPageFeatures from '~/components/interviews/common/InterviewsPageFeatures';
 import { QuestionCount } from '~/components/interviews/questions/listings/stats/QuestionCount';
+import { FormattedMessage, useIntl } from '~/components/intl';
 import Divider from '~/components/ui/Divider';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';

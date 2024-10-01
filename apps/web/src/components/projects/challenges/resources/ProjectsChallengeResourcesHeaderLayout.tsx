@@ -8,9 +8,9 @@ import {
   RiQuestionAnswerFill,
   RiVerifiedBadgeFill,
 } from 'react-icons/ri';
-import { FormattedMessage, useIntl } from 'react-intl';
 
 import BlurOverlay from '~/components/common/BlurOverlay';
+import { FormattedMessage, useIntl } from '~/components/intl';
 import type { ProjectsPremiumAccessControlFields } from '~/components/projects/challenges/premium/ProjectsPremiumAccessControl';
 import { useProjectsChallengeSessionContext } from '~/components/projects/challenges/session/ProjectsChallengeSessionContext';
 import type { ProjectsChallengeItem } from '~/components/projects/challenges/types';

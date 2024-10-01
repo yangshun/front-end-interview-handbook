@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import Image from 'next/image';
-import { FormattedMessage } from 'react-intl';
 
+import { FormattedMessage } from '~/components/intl';
 import MarketingSectionHeader from '~/components/marketing/MarketingSectionHeader';
 import Container from '~/components/ui/Container';
 import Marquee from '~/components/ui/Marquee';

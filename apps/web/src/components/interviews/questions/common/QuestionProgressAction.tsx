@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { RiCheckLine } from 'react-icons/ri';
-import { FormattedMessage, useIntl } from 'react-intl';
 
 import { useAuthSignInUp } from '~/hooks/user/useAuthFns';
 
 import { useToast } from '~/components/global/toasts/useToast';
+import { FormattedMessage, useIntl } from '~/components/intl';
 import Button from '~/components/ui/Button';
 import Dialog from '~/components/ui/Dialog';
 import Text from '~/components/ui/Text';
@@ -17,7 +17,7 @@ import type { QuestionProgress } from '~/db/QuestionsProgressTypes';
 import logEvent from '~/logging/logEvent';
 
 import type { QuestionMetadata } from './QuestionsTypes';
-import CodingWorkspaceBottomBarEmitter from "../../../workspace/common/CodingWorkspaceBottomBarEmitter"
+import CodingWorkspaceBottomBarEmitter from '../../../workspace/common/CodingWorkspaceBottomBarEmitter';
 
 import { useUser } from '@supabase/auth-helpers-react';
 

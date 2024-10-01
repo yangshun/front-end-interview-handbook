@@ -2,9 +2,9 @@
 
 import clsx from 'clsx';
 import { useEffect, useRef, useState } from 'react';
-import { useIntl } from 'react-intl';
 
 import type { InterviewsMarketingTestimonial } from '~/components/interviews/marketing/testimonials/InterviewsMarketingTestimonialCard';
+import { useIntl } from '~/components/intl';
 import Anchor from '~/components/ui/Anchor';
 import Avatar from '~/components/ui/Avatar';
 import Heading from '~/components/ui/Heading';

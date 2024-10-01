@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import { RiCheckboxCircleFill, RiCheckLine } from 'react-icons/ri';
-import { useIntl } from 'react-intl';
 
+import { useIntl } from '~/components/intl';
 import {
   themeBorderElementColor,
   themeTextFainterColor,

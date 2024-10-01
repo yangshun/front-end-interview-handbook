@@ -1,5 +1,4 @@
 import clsx from 'clsx';
-import { FormattedMessage } from 'react-intl';
 
 import type { GuideCategory } from '~/components/guides/types';
 import type {
@@ -10,6 +9,7 @@ import type {
 } from '~/components/interviews/questions/common/QuestionsTypes';
 import InterviewsFrameworkAndLanguageSection from '~/components/interviews/questions/listings/practice-questions/InterviewsFrameworkAndLanguageSection';
 import InterviewsQuestionFormatsSection from '~/components/interviews/questions/listings/practice-questions/InterviewsQuestionFormatsSection';
+import { FormattedMessage } from '~/components/intl';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 import Text from '~/components/ui/Text';

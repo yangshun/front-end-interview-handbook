@@ -1,7 +1,6 @@
 import clsx from 'clsx';
 import { useState } from 'react';
 import { RiSearchLine, RiSortDesc } from 'react-icons/ri';
-import { FormattedMessage, useIntl } from 'react-intl';
 
 import type {
   QuestionMetadata,
@@ -18,6 +17,7 @@ import {
 } from '~/components/interviews/questions/listings/filters/QuestionsProcessor';
 import QuestionsList from '~/components/interviews/questions/listings/items/QuestionsList';
 import QuestionCountLabel from '~/components/interviews/questions/metadata/QuestionCountLabel';
+import { FormattedMessage, useIntl } from '~/components/intl';
 import DropdownMenu from '~/components/ui/DropdownMenu';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';

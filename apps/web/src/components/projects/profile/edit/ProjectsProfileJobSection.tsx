@@ -1,6 +1,6 @@
 import { Controller, useFormContext } from 'react-hook-form';
-import { FormattedMessage, useIntl } from 'react-intl';
 
+import { FormattedMessage, useIntl } from '~/components/intl';
 import ProjectsChallengeReputationBadge from '~/components/projects/challenges/metadata/ProjectsChallengeReputationBadge';
 import type { ProjectsProfileOnboardingStep1FormValues } from '~/components/projects/onboarding/ProjectsOnboardingProfileStep1';
 import type { ProjectsProfileEditFormValues } from '~/components/projects/types';

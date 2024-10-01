@@ -1,11 +1,11 @@
 import clsx from 'clsx';
 import type { InterviewsCompanyGuide } from 'contentlayer/generated';
 import { RiArrowRightLine } from 'react-icons/ri';
-import { useIntl } from 'react-intl';
 
 import { INTERVIEWS_REVAMP_2024 } from '~/data/FeatureFlags';
 import { useQuestionUserFacingFormatData } from '~/data/QuestionFormats';
 
+import { useIntl } from '~/components/intl';
 import Anchor from '~/components/ui/Anchor';
 import Badge from '~/components/ui/Badge';
 import Text from '~/components/ui/Text';

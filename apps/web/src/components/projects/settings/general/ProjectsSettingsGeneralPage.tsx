@@ -1,12 +1,12 @@
 'use client';
 
 import clsx from 'clsx';
-import { FormattedMessage } from 'react-intl';
 
 import useUserProfile from '~/hooks/user/useUserProfile';
 
 import SupabaseAuthUpdatePassword from '~/components/auth/SupabaseAuthUpdatePassword';
 import Timestamp from '~/components/common/datetime/Timestamp';
+import { FormattedMessage } from '~/components/intl';
 import ProfileAccountEmail from '~/components/profile/fields/ProfileAccountEmail';
 import Heading from '~/components/ui/Heading';
 import Spinner from '~/components/ui/Spinner';

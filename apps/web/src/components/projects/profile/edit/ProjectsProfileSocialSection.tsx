@@ -1,8 +1,8 @@
 import clsx from 'clsx';
 import { useFormContext } from 'react-hook-form';
 import { RiInformationLine } from 'react-icons/ri';
-import { FormattedMessage, useIntl } from 'react-intl';
 
+import { FormattedMessage, useIntl } from '~/components/intl';
 import ProjectsProfileSocialInput from '~/components/projects/profile/edit/ProjectsProfileSocialInput';
 import type { ProjectsProfileEditFormValues } from '~/components/projects/types';
 import Heading from '~/components/ui/Heading';

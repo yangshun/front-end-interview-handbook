@@ -1,6 +1,6 @@
 import clsx from 'clsx';
-import { useIntl } from 'react-intl';
 
+import { useIntl } from '~/components/intl';
 import Text from '~/components/ui/Text';
 
 import ProjectsSkillChipDeleteButton from './ProjectsSkillChipDeleteButton';

@@ -1,8 +1,8 @@
 import clsx from 'clsx';
 import { useId } from 'react';
 import { RiCheckboxCircleLine } from 'react-icons/ri';
-import { useIntl } from 'react-intl';
 
+import { useIntl } from '~/components/intl';
 import ProgressBar from '~/components/ui/ProgressBar';
 import { themeIconColor } from '~/components/ui/theme';
 import Tooltip from '~/components/ui/Tooltip';

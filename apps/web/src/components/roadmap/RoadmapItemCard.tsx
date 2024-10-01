@@ -3,8 +3,8 @@
 import clsx from 'clsx';
 import { kebabCase } from 'lodash-es';
 import { RiArrowRightLine, RiCheckboxCircleFill } from 'react-icons/ri';
-import { useIntl } from 'react-intl';
 
+import { useIntl } from '~/components/intl';
 import Badge from '~/components/ui/Badge';
 import Button from '~/components/ui/Button';
 import Card from '~/components/ui/Card';

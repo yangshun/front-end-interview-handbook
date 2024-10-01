@@ -2,9 +2,9 @@
 
 import { useState } from 'react';
 import { RiRocketLine } from 'react-icons/ri';
-import { useIntl } from 'react-intl';
 
 import FilterButton from '~/components/common/FilterButton';
+import { useIntl } from '~/components/intl';
 import useProjectsAllChallengesFilterOptions from '~/components/projects/profile/progress/useProjectsAllChallengesFilterOptions';
 import CheckboxInput from '~/components/ui/CheckboxInput';
 import EmptyState from '~/components/ui/EmptyState';

@@ -1,10 +1,10 @@
 import type { Control } from 'react-hook-form';
 import { Controller } from 'react-hook-form';
 import { RiGithubFill } from 'react-icons/ri';
-import { useIntl } from 'react-intl';
 
 import { SCROLL_HASH_PROJECTS_PROFILE } from '~/hooks/useScrollToHash';
 
+import { useIntl } from '~/components/intl';
 import ProjectsChallengeReputationBadge from '~/components/projects/challenges/metadata/ProjectsChallengeReputationBadge';
 import { getProjectsProfileGitHubAttrs } from '~/components/projects/profile/fields/ProjectsProfileGithubSchema';
 import type { ProjectsProfileEditFormValues } from '~/components/projects/types';

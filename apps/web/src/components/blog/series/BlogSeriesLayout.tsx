@@ -1,7 +1,6 @@
 'use client';
 
 import clsx from 'clsx';
-import { FormattedMessage } from 'react-intl';
 
 import BlogArticleJsonLd from '~/components/blog/articles/BlogArticleJsonLd';
 import type {
@@ -14,6 +13,7 @@ import BlogLevelLabel from '~/components/blog/metadata/BlogLevelLabel';
 import CopyLinkButton from '~/components/common/CopyLinkButton';
 import ShareButton from '~/components/common/ShareButton';
 import { SidebarLinksList } from '~/components/common/SidebarLinksList';
+import { FormattedMessage } from '~/components/intl';
 import Container from '~/components/ui/Container';
 import Divider from '~/components/ui/Divider';
 import Heading from '~/components/ui/Heading';

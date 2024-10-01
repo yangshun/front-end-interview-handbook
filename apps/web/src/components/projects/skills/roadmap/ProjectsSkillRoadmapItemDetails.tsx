@@ -6,10 +6,10 @@ import type {
 } from 'contentlayer/generated';
 import { sumBy } from 'lodash-es';
 import type { ReactNode } from 'react';
-import { FormattedMessage, useIntl } from 'react-intl';
 
 import { trpc } from '~/hooks/trpc';
 
+import { FormattedMessage, useIntl } from '~/components/intl';
 import MDXContent from '~/components/mdx/MDXContent';
 import Alert from '~/components/ui/Alert';
 import Divider from '~/components/ui/Divider';

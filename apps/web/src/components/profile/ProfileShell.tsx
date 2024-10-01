@@ -9,13 +9,13 @@ import {
   RiShieldUserLine,
   RiUserLine,
 } from 'react-icons/ri';
-import { FormattedMessage, useIntl } from 'react-intl';
 
 import { trpc } from '~/hooks/trpc';
 
 import { hasProjectsBetaAccess } from '~/data/PromotionConfig';
 import { SocialLinks } from '~/data/SocialLinks';
 
+import { FormattedMessage, useIntl } from '~/components/intl';
 import Anchor from '~/components/ui/Anchor';
 import Avatar from '~/components/ui/Avatar';
 import Button from '~/components/ui/Button';

@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import { RiInformationLine } from 'react-icons/ri';
-import { FormattedMessage, useIntl } from 'react-intl';
 
+import { FormattedMessage, useIntl } from '~/components/intl';
 import type { FieldView } from '~/components/projects/types';
 import Heading from '~/components/ui/Heading';
 import Text from '~/components/ui/Text';

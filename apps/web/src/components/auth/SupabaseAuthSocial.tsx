@@ -1,9 +1,9 @@
 import clsx from 'clsx';
 import { useState } from 'react';
 import { RiGithubFill, RiGoogleFill } from 'react-icons/ri';
-import { useIntl } from 'react-intl';
 import url from 'url';
 
+import { useIntl } from '~/components/intl';
 import Button from '~/components/ui/Button';
 
 import logEvent from '~/logging/logEvent';

@@ -1,6 +1,6 @@
-import { FormattedMessage } from 'react-intl';
 import url from 'url';
 
+import { FormattedMessage } from '~/components/intl';
 import type { ProjectsProfileCommunityComment } from '~/components/projects/profile/community/ProjectsProfileCommunitySection';
 import Anchor from '~/components/ui/Anchor';
 import plainText from '~/components/ui/RichTextEditor/plainText';

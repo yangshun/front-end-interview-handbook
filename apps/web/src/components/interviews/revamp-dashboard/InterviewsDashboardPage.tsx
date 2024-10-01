@@ -5,7 +5,6 @@ import type {
   InterviewsCompanyGuide,
   InterviewsListingBottomContent,
 } from 'contentlayer/generated';
-import { FormattedMessage } from 'react-intl';
 
 import { trpc } from '~/hooks/trpc';
 
@@ -16,6 +15,7 @@ import type {
   QuestionLanguage,
   QuestionMetadata,
 } from '~/components/interviews/questions/common/QuestionsTypes';
+import { FormattedMessage } from '~/components/intl';
 import MDXContent from '~/components/mdx/MDXContent';
 import Anchor from '~/components/ui/Anchor';
 import Divider from '~/components/ui/Divider';

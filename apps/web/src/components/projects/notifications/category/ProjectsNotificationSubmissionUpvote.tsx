@@ -1,13 +1,11 @@
 import clsx from 'clsx';
 import { useState } from 'react';
 import { RiFileDamageLine } from 'react-icons/ri';
-import { FormattedMessage } from 'react-intl';
 
 import RelativeTimestamp from '~/components/common/datetime/RelativeTimestamp';
+import { FormattedMessage } from '~/components/intl';
 import Text from '~/components/ui/Text';
-import {
-  themeTextSecondaryColor,
-} from '~/components/ui/theme';
+import { themeTextSecondaryColor } from '~/components/ui/theme';
 
 import type { ProjectsNotificationSubmissionUpvoteItemType } from '../types';
 

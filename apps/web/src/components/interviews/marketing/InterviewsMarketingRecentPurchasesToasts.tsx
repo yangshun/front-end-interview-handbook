@@ -2,12 +2,12 @@
 
 import { useEffect, useRef } from 'react';
 import { RiStarSmileLine } from 'react-icons/ri';
-import { FormattedMessage } from 'react-intl';
 import { useLocalStorage, useMediaQuery } from 'usehooks-ts';
 
 import { trpc } from '~/hooks/trpc';
 
 import { useToast } from '~/components/global/toasts/useToast';
+import { FormattedMessage } from '~/components/intl';
 import Anchor from '~/components/ui/Anchor';
 
 import { useUserProfile } from '../../global/UserProfileProvider';

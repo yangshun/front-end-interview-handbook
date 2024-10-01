@@ -2,12 +2,12 @@ import clsx from 'clsx';
 import type { InterviewsCompanyGuide } from 'contentlayer/generated';
 import { useState } from 'react';
 import { RiSearchLine } from 'react-icons/ri';
-import { useIntl } from 'react-intl';
 
 import { trpc } from '~/hooks/trpc';
 
 import { INTERVIEWS_REVAMP_2024 } from '~/data/FeatureFlags';
 
+import { useIntl } from '~/components/intl';
 import EmptyState from '~/components/ui/EmptyState';
 import Section from '~/components/ui/Heading/HeadingContext';
 import TextInput from '~/components/ui/TextInput';

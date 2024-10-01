@@ -3,10 +3,10 @@ import clsx from 'clsx';
 import Image from 'next/image';
 import type { ReactNode } from 'react';
 import { RiCheckLine } from 'react-icons/ri';
-import { FormattedMessage } from 'react-intl';
 
 import { SCROLL_HASH_INTERVIEWS_FEATURES } from '~/hooks/useScrollToHash';
 
+import { FormattedMessage } from '~/components/intl';
 import Container from '~/components/ui/Container';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';

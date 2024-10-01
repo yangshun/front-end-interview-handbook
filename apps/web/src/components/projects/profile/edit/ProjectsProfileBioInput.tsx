@@ -1,9 +1,9 @@
 import type { Control } from 'react-hook-form';
 import { Controller } from 'react-hook-form';
-import { useIntl } from 'react-intl';
 
 import { SCROLL_HASH_PROJECTS_PROFILE } from '~/hooks/useScrollToHash';
 
+import { useIntl } from '~/components/intl';
 import ProjectsChallengeReputationBadge from '~/components/projects/challenges/metadata/ProjectsChallengeReputationBadge';
 import type { ProjectsProfileEditFormValues } from '~/components/projects/types';
 import TextArea from '~/components/ui/TextArea';

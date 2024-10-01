@@ -1,6 +1,6 @@
 import clsx from 'clsx';
-import { useIntl } from 'react-intl';
 
+import { useIntl } from '~/components/intl';
 import Dialog from '~/components/ui/Dialog';
 import Text from '~/components/ui/Text';
 import { themeBackgroundEmphasized } from '~/components/ui/theme';

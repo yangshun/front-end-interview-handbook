@@ -1,6 +1,6 @@
 import clsx from 'clsx';
-import { FormattedMessage } from 'react-intl';
 
+import { FormattedMessage } from '~/components/intl';
 import BrandGlowBackground from '~/components/marketing/BrandGlowBackground';
 import MarketingSectionHeader from '~/components/marketing/MarketingSectionHeader';
 import PurchasePPPDiscountAlert from '~/components/purchase/PurchasePPPDiscountAlert';

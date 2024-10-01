@@ -1,5 +1,3 @@
-import { FormattedMessage, useIntl } from 'react-intl';
-
 import type { FAQItems } from '~/data/faqs/FAQs';
 import {
   projectsAccess,
@@ -14,6 +12,7 @@ import {
   purchaseSubscriptionRenew,
 } from '~/data/faqs/InterviewsPurchaseFAQs';
 
+import { FormattedMessage, useIntl } from '~/components/intl';
 import MarketingSectionHeader from '~/components/marketing/MarketingSectionHeader';
 import Anchor from '~/components/ui/Anchor';
 import Container from '~/components/ui/Container';

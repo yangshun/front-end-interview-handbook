@@ -2,13 +2,13 @@
 
 import clsx from 'clsx';
 import { useSearchParams } from 'next/navigation';
-import { FormattedMessage, useIntl } from 'react-intl';
 
 import useAuthFullPageRedirectAfterLogin from '~/hooks/user/useAuthFullPageRedirectAfterLogIn';
 
 import { INTERVIEWS_AUTH_CHANGES_AVAILABLE } from '~/data/FeatureFlags';
 
 import SupabaseAuth from '~/components/auth/SupabaseAuth';
+import { FormattedMessage, useIntl } from '~/components/intl';
 import Alert from '~/components/ui/Alert';
 import EmptyState from '~/components/ui/EmptyState';
 

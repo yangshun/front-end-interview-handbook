@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react';
-import { useIntl } from 'react-intl';
 
+import { useIntl } from '~/components/intl';
 import ProjectsChallengeHowItWorksAssetCard from '~/components/projects/challenges/header/works/ProjectsChallengeHowItWorksAssetCard';
 import ProjectsChallengeHowItWorksBriefCard from '~/components/projects/challenges/header/works/ProjectsChallengeHowItWorksBriefCard';
 import ProjectsChallengeHowItWorksDeployCard from '~/components/projects/challenges/header/works/ProjectsChallengeHowItWorksDeployCard';

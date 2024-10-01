@@ -1,6 +1,6 @@
-import { FormattedMessage } from 'react-intl';
-
 import { trpc } from '~/hooks/trpc';
+
+import { FormattedMessage } from '~/components/intl';
 
 import ProjectsPricingSection from './ProjectsPricingSection';
 

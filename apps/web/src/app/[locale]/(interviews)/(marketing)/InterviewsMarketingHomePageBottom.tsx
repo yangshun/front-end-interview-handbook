@@ -1,11 +1,10 @@
-import { FormattedMessage, useIntl } from 'react-intl';
-
 import { useUserProfile } from '~/components/global/UserProfileProvider';
 import InterviewsMarketingContinuousUpdates from '~/components/interviews/marketing/InterviewsMarketingContinuousUpdates';
 import InterviewsMarketingGeneralFAQSection from '~/components/interviews/marketing/InterviewsMarketingGeneralFAQSection';
 import InterviewsMarketingTestimonialsSection from '~/components/interviews/marketing/testimonials/InterviewsMarketingTestimonialsSection';
 import { useInterviewsMarketingTestimonials } from '~/components/interviews/marketing/testimonials/useInterviewsMarketingTestimonials';
 import InterviewsPricingSectionLocalizedContainer from '~/components/interviews/purchase/InterviewsPricingSectionLocalizedContainer';
+import { FormattedMessage, useIntl } from '~/components/intl';
 import MarketingCommunitySection from '~/components/marketing/contact/MarketingCommunitySection';
 import MarketingContactUs from '~/components/marketing/contact/MarketingContactUs';
 import MarketingEmailSubscribe from '~/components/marketing/contact/MarketingEmailSubscribe';

@@ -7,8 +7,8 @@ import {
 } from 'lexical';
 import { useCallback, useEffect, useState } from 'react';
 import { RiFontSize2, RiHeading } from 'react-icons/ri';
-import { useIntl } from 'react-intl';
 
+import { useIntl } from '~/components/intl';
 import DropdownMenu from '~/components/ui/DropdownMenu';
 
 import RichTextEditorDropdownMenu from '../components/RichTextEditorDropdownMenu';

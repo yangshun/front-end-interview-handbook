@@ -1,11 +1,10 @@
-import { useIntl } from 'react-intl';
-
 import {
   getPreparationPlanTheme,
   type PreparationPlans,
 } from '~/data/plans/PreparationPlans';
 
 import InterviewsLearningListCard from '~/components/interviews/questions/listings/learning/InterviewsLearningListCard';
+import { useIntl } from '~/components/intl';
 
 import InterviewsDashboardLearningSection from './InterviewsDashboardLearningSection';
 

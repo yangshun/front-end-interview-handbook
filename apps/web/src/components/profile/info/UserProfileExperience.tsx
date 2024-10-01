@@ -1,8 +1,8 @@
 import clsx from 'clsx';
 import { useCallback } from 'react';
 import { RiGraduationCapLine } from 'react-icons/ri';
-import { FormattedMessage } from 'react-intl';
 
+import { FormattedMessage } from '~/components/intl';
 import useProjectsYOEReplacementOptions from '~/components/projects/hooks/useProjectsYOEReplacementOptions';
 import type { ProjectsYoeReplacement } from '~/components/projects/types';
 import Text from '~/components/ui/Text';

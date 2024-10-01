@@ -1,11 +1,11 @@
 import { useSearchParams } from 'next/navigation';
 import { useEffect } from 'react';
-import { useIntl } from 'react-intl';
 
 import { trpc } from '~/hooks/trpc';
 
 import { useToast } from '~/components/global/toasts/useToast';
 import type { QuestionMetadata } from '~/components/interviews/questions/common/QuestionsTypes';
+import { useIntl } from '~/components/intl';
 import JavaScriptTestCodesEmitter from '~/components/workspace/javascript/JavaScriptTestCodesEmitter';
 
 import {

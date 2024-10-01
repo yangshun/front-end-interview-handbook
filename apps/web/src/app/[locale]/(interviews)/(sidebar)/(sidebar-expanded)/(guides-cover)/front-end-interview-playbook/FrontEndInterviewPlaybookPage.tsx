@@ -6,7 +6,6 @@ import {
   RiQuestionnaireLine,
   RiShiningLine,
 } from 'react-icons/ri';
-import { useIntl } from 'react-intl';
 
 import GuidesCoverLayout from '~/components/guides/cover/GuidesCoverLayout';
 import GuidesListWithCategory from '~/components/guides/cover/GuidesListWithCategory';
@@ -15,6 +14,7 @@ import type {
   GuideCardMetadata,
 } from '~/components/guides/types';
 import useGuidesWithCompletionStatus from '~/components/guides/useGuidesWithCompletionStatus';
+import { useIntl } from '~/components/intl';
 import Section from '~/components/ui/Heading/HeadingContext';
 import Text from '~/components/ui/Text';
 

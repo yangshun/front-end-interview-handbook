@@ -1,6 +1,6 @@
 import clsx from 'clsx';
-import { useIntl } from 'react-intl';
 
+import { useIntl } from '~/components/intl';
 import useProjectsMotivationReasonOptions from '~/components/projects/hooks/useProjectsMotivationReasonOptions';
 import ProjectsProfileInfoSectionLayout from '~/components/projects/profile/info/ProjectsProfileInfoSectionLayout';
 import Text from '~/components/ui/Text';

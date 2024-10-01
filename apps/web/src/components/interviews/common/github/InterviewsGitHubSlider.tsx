@@ -1,9 +1,9 @@
 import clsx from 'clsx';
 import { useEffect, useRef, useState } from 'react';
-import { useIntl } from 'react-intl';
 
 import { useGitHubFollowers, useGitHubStars } from '~/hooks/useGitHubData';
 
+import { useIntl } from '~/components/intl';
 import {
   themeBackgroundBrandColor,
   themeOutlineElement_FocusVisible,

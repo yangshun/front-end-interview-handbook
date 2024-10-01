@@ -3,11 +3,11 @@
 import clsx from 'clsx';
 import type { ReactNode } from 'react';
 import { RiBriefcaseLine, RiRocketLine } from 'react-icons/ri';
-import { FormattedMessage, useIntl } from 'react-intl';
 
 import { trpc } from '~/hooks/trpc';
 
 import type { InterviewsProfileSubscriptionPlan } from '~/components/global/UserProfileProvider';
+import { FormattedMessage, useIntl } from '~/components/intl';
 import Alert from '~/components/ui/Alert';
 import Anchor from '~/components/ui/Anchor';
 import Button from '~/components/ui/Button';

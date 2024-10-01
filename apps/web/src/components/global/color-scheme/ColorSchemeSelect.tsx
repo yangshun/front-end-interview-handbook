@@ -1,6 +1,5 @@
-import { useIntl } from 'react-intl';
-
 import useColorSchemeOptions from '~/components/global/color-scheme/useColorSchemeOptions';
+import { useIntl } from '~/components/intl';
 import type { SelectDisplay } from '~/components/ui/Select';
 import Select from '~/components/ui/Select';
 

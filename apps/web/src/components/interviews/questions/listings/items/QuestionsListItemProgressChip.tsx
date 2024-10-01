@@ -1,9 +1,9 @@
 import clsx from 'clsx';
 import { useRef, useState } from 'react';
 import { RiCheckFill, RiLockLine } from 'react-icons/ri';
-import { useIntl } from 'react-intl';
 import { useHover } from 'usehooks-ts';
 
+import { useIntl } from '~/components/intl';
 import {
   themeBackgroundCardNoAlphaColor,
   themeBackgroundCardNoAlphaColor_Hover,

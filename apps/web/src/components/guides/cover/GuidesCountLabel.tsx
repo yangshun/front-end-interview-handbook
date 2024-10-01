@@ -3,8 +3,8 @@
 import clsx from 'clsx';
 import { useId } from 'react';
 import { RiBookOpenLine } from 'react-icons/ri';
-import { FormattedMessage, useIntl } from 'react-intl';
 
+import { FormattedMessage, useIntl } from '~/components/intl';
 import type { TextSize } from '~/components/ui/Text';
 import Text from '~/components/ui/Text';
 import { themeIconColor } from '~/components/ui/theme';
@@ -15,10 +15,7 @@ type Props = Readonly<{
   size?: TextSize;
 }>;
 
-export default function GuidesCountLabel({
-  count,
-  size = 'body3',
-}: Props) {
+export default function GuidesCountLabel({ count, size = 'body3' }: Props) {
   const id = useId();
   const intl = useIntl();
   const label = intl.formatMessage({

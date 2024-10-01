@@ -1,5 +1,4 @@
-import { useIntl } from 'react-intl';
-
+import { useIntl } from '~/components/intl';
 import Typeahead from '~/components/ui/Typeahead';
 
 import {

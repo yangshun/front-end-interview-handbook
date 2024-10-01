@@ -2,8 +2,8 @@
 
 import { useEffect, useMemo, useRef } from 'react';
 import { RiArrowRightLine } from 'react-icons/ri';
-import { useIntl } from 'react-intl';
 
+import { useIntl } from '~/components/intl';
 import Button from '~/components/ui/Button';
 import Tabs from '~/components/ui/Tabs';
 

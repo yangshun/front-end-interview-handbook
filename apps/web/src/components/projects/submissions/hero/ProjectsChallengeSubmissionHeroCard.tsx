@@ -1,8 +1,8 @@
 import clsx from 'clsx';
 import { RiArrowRightLine } from 'react-icons/ri';
-import { useIntl } from 'react-intl';
 import { useMediaQuery } from 'usehooks-ts';
 
+import { useIntl } from '~/components/intl';
 import ProjectsChallengeDifficultyTag from '~/components/projects/challenges/metadata/ProjectsChallengeDifficultyTag';
 import ProjectsComponentTrackTag from '~/components/projects/challenges/metadata/ProjectsChallengeTrackTag';
 import type { ProjectsChallengeItem } from '~/components/projects/challenges/types';

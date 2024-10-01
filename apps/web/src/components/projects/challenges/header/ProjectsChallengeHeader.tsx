@@ -2,9 +2,9 @@ import clsx from 'clsx';
 import { useSearchParams } from 'next/navigation';
 import { Suspense, useEffect, useState } from 'react';
 import { RiArrowLeftLine } from 'react-icons/ri';
-import { FormattedMessage, useIntl } from 'react-intl';
 import { useIsMounted } from 'usehooks-ts';
 
+import { FormattedMessage, useIntl } from '~/components/intl';
 import ProjectsChallengeDifficultyTag from '~/components/projects/challenges/metadata/ProjectsChallengeDifficultyTag';
 import ProjectsChallengeReputationTag from '~/components/projects/challenges/metadata/ProjectsChallengeReputationTag';
 import ProjectsChallengeTrackTag from '~/components/projects/challenges/metadata/ProjectsChallengeTrackTag';

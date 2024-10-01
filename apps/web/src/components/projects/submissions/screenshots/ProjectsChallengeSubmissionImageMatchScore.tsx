@@ -2,11 +2,11 @@
 
 import clsx from 'clsx';
 import { useEffect, useState } from 'react';
-import { useIntl } from 'react-intl';
 import type * as ResembleTypes from 'resemblejs';
 
 import resemble from '~/lib/resemble';
 
+import { useIntl } from '~/components/intl';
 import ProgressBar from '~/components/ui/ProgressBar';
 import Text, { textVariants } from '~/components/ui/Text';
 import {

@@ -10,10 +10,10 @@ import {
   RiVerifiedBadgeLine,
   RiWindowLine,
 } from 'react-icons/ri';
-import { useIntl } from 'react-intl';
 
 import { INTERVIEWS_REVAMP_2024 } from '~/data/FeatureFlags';
 
+import { useIntl } from '~/components/intl';
 import MDXContent from '~/components/mdx/MDXContent';
 import Container from '~/components/ui/Container';
 import Divider from '~/components/ui/Divider';

@@ -6,11 +6,11 @@ import {
   RiArrowRightSLine,
   RiListCheck,
 } from 'react-icons/ri';
-import { FormattedMessage } from 'react-intl';
 
 import useScrollIntoView from '~/hooks/useScrollIntoView';
 import useScrollParent from '~/hooks/useScrollParent';
 
+import { FormattedMessage } from '~/components/intl';
 import Anchor from '~/components/ui/Anchor';
 import Button from '~/components/ui/Button';
 import Heading from '~/components/ui/Heading';

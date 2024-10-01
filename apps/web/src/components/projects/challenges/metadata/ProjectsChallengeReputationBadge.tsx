@@ -2,8 +2,8 @@
 
 import clsx from 'clsx';
 import { RiCheckboxCircleFill, RiFireLine } from 'react-icons/ri';
-import { useIntl } from 'react-intl';
 
+import { useIntl } from '~/components/intl';
 import Badge from '~/components/ui/Badge';
 import {
   themeTextBrandColor,

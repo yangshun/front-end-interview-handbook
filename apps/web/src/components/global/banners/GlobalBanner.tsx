@@ -3,10 +3,10 @@
 import clsx from 'clsx';
 import type { ReactNode } from 'react';
 import { useEffect, useState } from 'react';
-import { FormattedMessage } from 'react-intl';
 
 import gtag from '~/lib/gtag';
 
+import { FormattedMessage } from '~/components/intl';
 import { SOCIAL_DISCOUNT_PERCENTAGE } from '~/components/promotions/social/SocialDiscountConfig';
 import Anchor from '~/components/ui/Anchor';
 import Banner from '~/components/ui/Banner';

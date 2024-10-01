@@ -1,9 +1,8 @@
-import { useIntl } from 'react-intl';
-
 import useSessionStorageForSets from '~/hooks/useSessionStorageForSets';
 
 import type { BlogLevel } from '~/components/blog/BlogTypes';
 import type { BlogFilter } from '~/components/blog/filters/BlogFilterType';
+import { useIntl } from '~/components/intl';
 
 type Props = Readonly<{
   namespace: string;

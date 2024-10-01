@@ -1,6 +1,5 @@
-import { useIntl } from 'react-intl';
-
 import FilterButton from '~/components/common/FilterButton';
+import { useIntl } from '~/components/intl';
 import {
   type ProjectsImageBreakpointCategory,
   ProjectsImageBreakpointDimensions,

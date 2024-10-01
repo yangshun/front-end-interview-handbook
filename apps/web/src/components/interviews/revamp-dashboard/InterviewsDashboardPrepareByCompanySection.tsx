@@ -1,5 +1,6 @@
 import type { InterviewsCompanyGuide } from 'contentlayer/generated';
-import { useIntl } from 'react-intl';
+
+import { useIntl } from '~/components/intl';
 
 import InterviewsDashboardLearningSection from './InterviewsDashboardLearningSection';
 import { InterviewsCompanyGuideCard } from '../company/InterviewsCompanyGuideCard';

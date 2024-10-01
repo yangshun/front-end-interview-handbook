@@ -1,6 +1,6 @@
 import clsx from 'clsx';
-import { FormattedMessage } from 'react-intl';
 
+import { FormattedMessage } from '~/components/intl';
 import { textVariants } from '~/components/ui/Text';
 import { themeBackgroundColor } from '~/components/ui/theme';
 

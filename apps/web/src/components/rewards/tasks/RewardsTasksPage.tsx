@@ -10,12 +10,12 @@ import {
   RiLinkedinFill,
   RiTwitterXFill,
 } from 'react-icons/ri';
-import { FormattedMessage, useIntl } from 'react-intl';
 import { useSessionStorage } from 'usehooks-ts';
 
 import { trpc } from '~/hooks/trpc';
 
 import { useToast } from '~/components/global/toasts/useToast';
+import { FormattedMessage, useIntl } from '~/components/intl';
 import RewardsHeader from '~/components/rewards/RewardsHeader';
 import RewardsTaskList from '~/components/rewards/tasks/RewardsTaskList';
 import Button from '~/components/ui/Button';

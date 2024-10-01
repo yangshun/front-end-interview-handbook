@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import { RiCheckLine, RiLoader2Line } from 'react-icons/ri';
-import { useIntl } from 'react-intl';
 
+import { useIntl } from '~/components/intl';
 import { avatarVariants } from '~/components/ui/Avatar/AvatarStyles';
 import UserAvatar from '~/components/ui/Avatar/UserAvatar';
 import Tooltip from '~/components/ui/Tooltip';

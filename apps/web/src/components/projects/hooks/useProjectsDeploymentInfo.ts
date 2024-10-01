@@ -1,4 +1,4 @@
-import { useIntl } from 'react-intl';
+import { useIntl } from '~/components/intl';
 
 export default function useProjectsDeploymentInfo() {
   const intl = useIntl();

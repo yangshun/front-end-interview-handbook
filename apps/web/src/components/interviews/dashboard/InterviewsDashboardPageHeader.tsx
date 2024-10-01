@@ -1,8 +1,8 @@
 import clsx from 'clsx';
 import { RiArrowRightSLine, RiBookOpenLine } from 'react-icons/ri';
-import { FormattedMessage } from 'react-intl';
 
 import { useUserProfile } from '~/components/global/UserProfileProvider';
+import { FormattedMessage } from '~/components/intl';
 import Anchor from '~/components/ui/Anchor';
 import Heading from '~/components/ui/Heading';
 import Text from '~/components/ui/Text';

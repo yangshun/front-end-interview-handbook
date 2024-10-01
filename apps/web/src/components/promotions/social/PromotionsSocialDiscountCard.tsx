@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import { RiArrowRightLine } from 'react-icons/ri';
-import { FormattedMessage, useIntl } from 'react-intl';
 
+import { FormattedMessage, useIntl } from '~/components/intl';
 import PurchaseBlockCard from '~/components/purchase/PurchaseBlockCard';
 import Anchor from '~/components/ui/Anchor';
 import Badge from '~/components/ui/Badge';

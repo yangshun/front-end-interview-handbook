@@ -1,7 +1,7 @@
 import type { Control } from 'react-hook-form';
 import { Controller, useFormContext } from 'react-hook-form';
-import { useIntl } from 'react-intl';
 
+import { useIntl } from '~/components/intl';
 import { getProfileNameAttrs } from '~/components/profile/fields/ProfileNameSchema';
 import type { ProjectsProfileEditFormValues } from '~/components/projects/types';
 import TextInput from '~/components/ui/TextInput';

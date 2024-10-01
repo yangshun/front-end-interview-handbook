@@ -1,9 +1,9 @@
 import clsx from 'clsx';
 import { RiThumbUpFill } from 'react-icons/ri';
-import { useIntl } from 'react-intl';
 
 import { trpc } from '~/hooks/trpc';
 
+import { useIntl } from '~/components/intl';
 import Button from '~/components/ui/Button';
 import {
   themeTextBrandColor,

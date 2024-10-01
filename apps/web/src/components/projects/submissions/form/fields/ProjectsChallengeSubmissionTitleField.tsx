@@ -1,6 +1,6 @@
 import { type Control, useController } from 'react-hook-form';
-import { useIntl } from 'react-intl';
 
+import { useIntl } from '~/components/intl';
 import TextInput from '~/components/ui/TextInput';
 
 import { getProjectsChallengeSubmissionTitleAttributes } from './ProjectsChallengeSubmissionTitleSchema';

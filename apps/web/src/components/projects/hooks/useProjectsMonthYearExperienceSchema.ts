@@ -1,5 +1,6 @@
-import { useIntl } from 'react-intl';
 import { z } from 'zod';
+
+import { useIntl } from '~/components/intl';
 
 type Props =
   | Readonly<{

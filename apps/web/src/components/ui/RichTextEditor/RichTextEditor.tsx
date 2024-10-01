@@ -5,8 +5,8 @@ import { $getRoot, type EditorState, type LexicalEditor } from 'lexical';
 import type { FormEventHandler, ForwardedRef } from 'react';
 import type { MutableRefObject } from 'react';
 import { forwardRef, useEffect, useId, useRef, useState } from 'react';
-import { FormattedMessage } from 'react-intl';
 
+import { FormattedMessage } from '~/components/intl';
 import type { LabelDescriptionStyle } from '~/components/ui/Label';
 import Label from '~/components/ui/Label';
 import RichTextEditorToolbar from '~/components/ui/RichTextEditor/components/RichTextEditorToolbar';

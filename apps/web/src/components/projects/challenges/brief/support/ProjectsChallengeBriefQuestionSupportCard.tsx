@@ -5,9 +5,9 @@ import {
   RiReplyFill,
   RiThumbUpFill,
 } from 'react-icons/ri';
-import { useIntl } from 'react-intl';
 
 import RelativeTimestamp from '~/components/common/datetime/RelativeTimestamp';
+import { useIntl } from '~/components/intl';
 import UserProfileInformationRow from '~/components/profile/info/UserProfileInformationRow';
 import ProjectsChallengeBriefSupportCard from '~/components/projects/challenges/brief/support/ProjectsChallengeBriefSupportCard';
 import DiscussionsCommentRepliesThreadLines from '~/components/projects/discussions/ProjectsDiscussionsCommentRepliesThreadLines';

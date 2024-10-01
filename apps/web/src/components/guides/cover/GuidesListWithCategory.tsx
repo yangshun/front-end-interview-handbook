@@ -1,10 +1,9 @@
-import { useIntl } from 'react-intl';
-
 import { useToast } from '~/components/global/toasts/useToast';
 import type {
   GuideCardMetadata,
   GuideCardMetadataWithCompletedStatus,
 } from '~/components/guides/types';
+import { useIntl } from '~/components/intl';
 import Heading from '~/components/ui/Heading';
 
 import {

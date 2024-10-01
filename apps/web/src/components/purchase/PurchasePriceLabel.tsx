@@ -1,4 +1,4 @@
-import { FormattedNumberParts } from 'react-intl';
+import { FormattedNumberParts } from '~/components/intl';
 
 export default function PurchasePriceLabel({
   amount,

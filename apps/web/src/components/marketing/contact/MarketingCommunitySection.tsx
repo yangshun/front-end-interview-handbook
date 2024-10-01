@@ -1,12 +1,11 @@
 'use client';
 
-import { useIntl } from 'react-intl';
-
 import gtag from '~/lib/gtag';
 
 import { SocialLinks } from '~/data/SocialLinks';
 
 import MetricCard from '~/components/common/MetricCard';
+import { useIntl } from '~/components/intl';
 import MarketingSectionHeader from '~/components/marketing/MarketingSectionHeader';
 import Anchor from '~/components/ui/Anchor';
 import CardContainer from '~/components/ui/Card/CardContainer';

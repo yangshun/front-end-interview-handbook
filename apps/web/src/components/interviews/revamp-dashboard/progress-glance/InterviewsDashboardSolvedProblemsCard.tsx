@@ -1,6 +1,5 @@
 import clsx from 'clsx';
 import { useMemo } from 'react';
-import { FormattedMessage, useIntl } from 'react-intl';
 
 import type {
   QuestionDifficulty,
@@ -8,6 +7,7 @@ import type {
   QuestionSlug,
 } from '~/components/interviews/questions/common/QuestionsTypes';
 import { countQuestionsCompletionByDifficulty } from '~/components/interviews/questions/listings/filters/QuestionsProcessor';
+import { FormattedMessage, useIntl } from '~/components/intl';
 import GradientProgressBar from '~/components/ui/GradientProgressBar/GradientProgressBar';
 import Heading from '~/components/ui/Heading';
 import ProgressBar from '~/components/ui/ProgressBar';

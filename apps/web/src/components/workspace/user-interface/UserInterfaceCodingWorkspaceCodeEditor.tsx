@@ -1,9 +1,9 @@
 import clsx from 'clsx';
 import { useCallback } from 'react';
 import { RiFolder3Line } from 'react-icons/ri';
-import { useIntl } from 'react-intl';
 import { useIsMounted } from 'usehooks-ts';
 
+import { useIntl } from '~/components/intl';
 import Banner from '~/components/ui/Banner';
 import Button from '~/components/ui/Button';
 import Text from '~/components/ui/Text';

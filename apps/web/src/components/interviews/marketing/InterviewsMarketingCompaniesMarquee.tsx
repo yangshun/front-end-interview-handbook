@@ -1,6 +1,6 @@
 import clsx from 'clsx';
-import { FormattedMessage } from 'react-intl';
 
+import { FormattedMessage } from '~/components/intl';
 import Container from '~/components/ui/Container';
 import Marquee from '~/components/ui/Marquee';
 import Text from '~/components/ui/Text';

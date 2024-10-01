@@ -1,9 +1,9 @@
 'use client';
 
 import themeList from 'monaco-themes/themes/themelist.json';
-import { useIntl } from 'react-intl';
 
 import { useCodingPreferences } from '~/components/global/CodingPreferencesProvider';
+import { useIntl } from '~/components/intl';
 import Select from '~/components/ui/Select';
 
 export default function CodingWorkspaceThemeSelect() {

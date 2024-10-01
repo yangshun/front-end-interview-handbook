@@ -1,8 +1,8 @@
 'use client';
 
 import { useSelectedLayoutSegment } from 'next/navigation';
-import { useIntl } from 'react-intl';
 
+import { useIntl } from '~/components/intl';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 import Tabs from '~/components/ui/Tabs';

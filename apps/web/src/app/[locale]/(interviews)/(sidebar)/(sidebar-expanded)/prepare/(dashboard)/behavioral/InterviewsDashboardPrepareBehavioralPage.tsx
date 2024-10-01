@@ -1,9 +1,8 @@
 'use client';
 
-import { useIntl } from 'react-intl';
-
 import useBehavioralInterviewGuidebookNavigation from '~/components/guides/useBehavioralInterviewGuidebookNavigation';
 import InterviewsDashboardGuidesGrid from '~/components/interviews/dashboard/InterviewsDashboardGuidesGrid';
+import { useIntl } from '~/components/intl';
 
 export default function InterviewsDashboardPrepareBehavioralInterviewPage() {
   const intl = useIntl();

@@ -6,12 +6,12 @@ import {
   RiArrowUpSLine,
   RiCheckFill,
 } from 'react-icons/ri';
-import { FormattedMessage, useIntl } from 'react-intl';
 import url from 'url';
 
 import { trpc } from '~/hooks/trpc';
 import { SCROLL_HASH_PROJECTS_PROFILE } from '~/hooks/useScrollToHash';
 
+import { FormattedMessage, useIntl } from '~/components/intl';
 import Anchor from '~/components/ui/Anchor';
 import Chip from '~/components/ui/Chip';
 import ProgressBar from '~/components/ui/ProgressBar';

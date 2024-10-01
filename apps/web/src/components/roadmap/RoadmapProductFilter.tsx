@@ -1,6 +1,6 @@
 'use client';
 
-import { useIntl } from 'react-intl';
+import { useIntl } from '~/components/intl';
 
 import type { Product } from './RoadmapPage';
 import RoadmapProductFilterButton from './RoadmapProductFilterButton';

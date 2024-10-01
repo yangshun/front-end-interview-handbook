@@ -1,10 +1,10 @@
 import clsx from 'clsx';
 import type { BlogPost } from 'contentlayer/generated';
 import { useId } from 'react';
-import { FormattedMessage, useIntl } from 'react-intl';
 
 import type { BlogMetadata } from '~/components/blog/BlogTypes';
 import BlogTimestamp from '~/components/blog/metadata/BlogTimestamp';
+import { FormattedMessage, useIntl } from '~/components/intl';
 import Avatar from '~/components/ui/Avatar';
 import Text from '~/components/ui/Text';
 

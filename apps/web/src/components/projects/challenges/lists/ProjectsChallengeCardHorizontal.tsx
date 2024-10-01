@@ -1,8 +1,8 @@
 import clsx from 'clsx';
 import { RiArrowRightLine } from 'react-icons/ri';
-import { useIntl } from 'react-intl';
 import url from 'url';
 
+import { useIntl } from '~/components/intl';
 import ProjectsChallengeDifficultyTag from '~/components/projects/challenges/metadata/ProjectsChallengeDifficultyTag';
 import Anchor from '~/components/ui/Anchor';
 import Button from '~/components/ui/Button';

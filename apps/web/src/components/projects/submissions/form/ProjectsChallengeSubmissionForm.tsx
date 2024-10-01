@@ -1,8 +1,8 @@
 import { FormProvider, useForm } from 'react-hook-form';
 import { RiDeleteBinLine } from 'react-icons/ri';
-import { useIntl } from 'react-intl';
 import { z } from 'zod';
 
+import { useIntl } from '~/components/intl';
 import Button from '~/components/ui/Button';
 import Divider from '~/components/ui/Divider';
 

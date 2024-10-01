@@ -1,10 +1,10 @@
 import clsx from 'clsx';
 import { RiArrowRightLine } from 'react-icons/ri';
-import { FormattedMessage } from 'react-intl';
 
 import { useAuthSignInUp } from '~/hooks/user/useAuthFns';
 import useUserProfile from '~/hooks/user/useUserProfile';
 
+import { FormattedMessage } from '~/components/intl';
 import UserProfileDisplayName from '~/components/profile/info/UserProfileDisplayName';
 import Anchor from '~/components/ui/Anchor';
 import Avatar from '~/components/ui/Avatar';

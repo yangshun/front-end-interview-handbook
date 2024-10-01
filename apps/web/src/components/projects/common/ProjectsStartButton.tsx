@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { RiLock2Line, RiLockUnlockLine } from 'react-icons/ri';
-import { useIntl } from 'react-intl';
 
+import { useIntl } from '~/components/intl';
 import type { ProjectsPremiumAccessControlType } from '~/components/projects/challenges/premium/ProjectsPremiumAccessControl';
 import { useProjectsChallengeSessionContext } from '~/components/projects/challenges/session/ProjectsChallengeSessionContext';
 import Button from '~/components/ui/Button';

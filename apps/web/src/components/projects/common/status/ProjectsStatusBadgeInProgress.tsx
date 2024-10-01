@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import { RiLoader2Line } from 'react-icons/ri';
-import { useIntl } from 'react-intl';
 
+import { useIntl } from '~/components/intl';
 import Badge from '~/components/ui/Badge';
 import Chip from '~/components/ui/Chip';
 import { themeTextWarningColor } from '~/components/ui/theme';

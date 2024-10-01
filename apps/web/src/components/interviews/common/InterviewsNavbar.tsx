@@ -2,7 +2,6 @@
 
 import clsx from 'clsx';
 import { useRef } from 'react';
-import { useIntl } from 'react-intl';
 
 import gtag from '~/lib/gtag';
 import useIsSticky from '~/hooks/useIsSticky';
@@ -16,6 +15,7 @@ import NavColorSchemeDropdown from '~/components/global/navbar/NavColorSchemeDro
 import NavI18nDropdown from '~/components/global/navbar/NavI18nDropdown';
 import NavProductDropdownMenu from '~/components/global/navbar/NavProductDropdownMenu';
 import NavProfileIcon from '~/components/global/navbar/NavProfileIcon';
+import { useIntl } from '~/components/intl';
 import Anchor from '~/components/ui/Anchor';
 import Avatar from '~/components/ui/Avatar';
 import Button from '~/components/ui/Button';

@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
 import { RiFilterLine } from 'react-icons/ri';
-import { useIntl } from 'react-intl';
 
 import FilterButton from '~/components/common/FilterButton';
 import type { QuestionFormat } from '~/components/interviews/questions/common/QuestionsTypes';
+import { useIntl } from '~/components/intl';
 import Button from '~/components/ui/Button';
 import SlideOut from '~/components/ui/SlideOut';
 

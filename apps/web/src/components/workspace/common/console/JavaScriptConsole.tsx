@@ -12,9 +12,9 @@ import {
   RiSettings3Line,
   RiTerminalBoxLine,
 } from 'react-icons/ri';
-import { FormattedMessage, useIntl } from 'react-intl';
 
 import { useCodingPreferences } from '~/components/global/CodingPreferencesProvider';
+import { FormattedMessage, useIntl } from '~/components/intl';
 import Button from '~/components/ui/Button';
 import CheckboxInput from '~/components/ui/CheckboxInput';
 import Dialog from '~/components/ui/Dialog';
@@ -328,7 +328,7 @@ export default function JavaScriptConsole({
   const hasLogs = logs.length > 0;
 
   return (
-    <div className="relative isolate flex size-full flex-col overflow-x-auto">
+    <div className="size-full relative isolate flex flex-col overflow-x-auto">
       {!isScrollPositionAtBottom && (
         <div className="absolute bottom-2 right-2 z-10">
           <Button

@@ -1,6 +1,5 @@
 import clsx from 'clsx';
 import { useState } from 'react';
-import { useIntl } from 'react-intl';
 import { Panel, PanelGroup, PanelResizeHandle } from 'react-resizable-panels';
 
 import gtag from '~/lib/gtag';
@@ -8,6 +7,7 @@ import gtag from '~/lib/gtag';
 import QuestionPaywallSmall from '~/components/interviews/questions/common/QuestionPaywallSmall';
 import type { QuestionMetadata } from '~/components/interviews/questions/common/QuestionsTypes';
 import QuestionMetadataSection from '~/components/interviews/questions/metadata/QuestionMetadataSection';
+import { useIntl } from '~/components/intl';
 import Anchor from '~/components/ui/Anchor';
 import Banner from '~/components/ui/Banner';
 import Divider from '~/components/ui/Divider';

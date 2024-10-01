@@ -7,7 +7,6 @@ import {
   RiQuestionFill,
 } from 'react-icons/ri';
 import { RiExternalLinkFill } from 'react-icons/ri';
-import { FormattedMessage, useIntl } from 'react-intl';
 import url from 'url';
 
 import gtag from '~/lib/gtag';
@@ -15,6 +14,7 @@ import { isProhibitedCountry } from '~/lib/stripeUtils';
 import { trpc } from '~/hooks/trpc';
 import { useAuthSignInUp } from '~/hooks/user/useAuthFns';
 
+import { FormattedMessage, useIntl } from '~/components/intl';
 import PurchasePriceAnnualComparison from '~/components/purchase/comparison/PurchasePriceAnnualComparison';
 import PurchaseActivePlanLabel from '~/components/purchase/PurchaseActivePlanLabel';
 import {

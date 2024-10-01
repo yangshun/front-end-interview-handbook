@@ -9,7 +9,6 @@ import {
   RiTimelineView,
 } from 'react-icons/ri';
 import { TbBinaryTree } from 'react-icons/tb';
-import { FormattedMessage, useIntl } from 'react-intl';
 
 import { useQuestionUserFacingFormatData } from '~/data/QuestionFormats';
 
@@ -22,6 +21,7 @@ import type {
   QuestionTopic,
 } from '~/components/interviews/questions/common/QuestionsTypes';
 import useQuestionTopicLabels from '~/components/interviews/questions/listings/filters/useQuestionTopicLabels';
+import { FormattedMessage, useIntl } from '~/components/intl';
 import Anchor from '~/components/ui/Anchor';
 import Badge from '~/components/ui/Badge';
 import Heading from '~/components/ui/Heading';

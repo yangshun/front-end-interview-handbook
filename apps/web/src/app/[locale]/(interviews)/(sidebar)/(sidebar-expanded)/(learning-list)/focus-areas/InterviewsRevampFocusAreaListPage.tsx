@@ -7,7 +7,6 @@ import {
   RiVerifiedBadgeLine,
   RiWindow2Line,
 } from 'react-icons/ri';
-import { useIntl } from 'react-intl';
 
 import { trpc } from '~/hooks/trpc';
 
@@ -20,6 +19,7 @@ import {
 import InterviewsPageFeatures from '~/components/interviews/common/InterviewsPageFeatures';
 import InterviewsPageHeaderActions from '~/components/interviews/common/InterviewsPageHeaderActions';
 import InterviewsLearningListCard from '~/components/interviews/questions/listings/learning/InterviewsLearningListCard';
+import { useIntl } from '~/components/intl';
 import MDXContent from '~/components/mdx/MDXContent';
 import Container from '~/components/ui/Container';
 import Divider from '~/components/ui/Divider';

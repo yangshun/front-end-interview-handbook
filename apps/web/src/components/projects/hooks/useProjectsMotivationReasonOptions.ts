@@ -7,8 +7,8 @@ import {
   RiSparklingLine,
   RiStarLine,
 } from 'react-icons/ri';
-import { useIntl } from 'react-intl';
 
+import { useIntl } from '~/components/intl';
 import type { ProjectsMotivationReasonOption } from '~/components/projects/types';
 
 export default function useProjectsMotivationReasonOptions(

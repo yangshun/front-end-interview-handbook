@@ -1,12 +1,12 @@
 import clsx from 'clsx';
 import { useMemo } from 'react';
 import { Controller, useForm } from 'react-hook-form';
-import { useIntl } from 'react-intl';
 import { z } from 'zod';
 
 import { trpc } from '~/hooks/trpc';
 
 import { useToast } from '~/components/global/toasts/useToast';
+import { useIntl } from '~/components/intl';
 import {
   getProfileNameAttrs,
   useProfileNameSchema,

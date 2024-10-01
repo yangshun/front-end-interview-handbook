@@ -1,5 +1,3 @@
-import { FormattedMessage, useIntl } from 'react-intl';
-
 import type { FAQItems } from '~/data/faqs/FAQs';
 import {
   institutionsOrgDiscounts,
@@ -11,6 +9,7 @@ import {
   unspentCredits,
 } from '~/data/faqs/ProjectsPurchaseFAQs';
 
+import { FormattedMessage, useIntl } from '~/components/intl';
 import MarketingFAQSection from '~/components/marketing/faqs/MarketingFAQSection';
 import MarketingSectionHeader from '~/components/marketing/MarketingSectionHeader';
 import Anchor from '~/components/ui/Anchor';

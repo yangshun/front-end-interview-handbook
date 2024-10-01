@@ -1,6 +1,6 @@
 import clsx from 'clsx';
-import { FormattedMessage } from 'react-intl';
 
+import { FormattedMessage } from '~/components/intl';
 import DiscussionsCommentList from '~/components/projects/discussions/ProjectsDiscussionsCommentList';
 import Section from '~/components/ui/Heading/HeadingContext';
 import Text from '~/components/ui/Text';

@@ -1,8 +1,8 @@
 import clsx from 'clsx';
 import type { editor } from 'monaco-editor';
-import { useIntl } from 'react-intl';
 import { useIsMounted } from 'usehooks-ts';
 
+import { useIntl } from '~/components/intl';
 import Button from '~/components/ui/Button';
 import { themeBorderColor } from '~/components/ui/theme';
 import CodingWorkspaceEditorShortcutsButton from '~/components/workspace/common/editor/CodingWorkspaceEditorShortcutsButton';

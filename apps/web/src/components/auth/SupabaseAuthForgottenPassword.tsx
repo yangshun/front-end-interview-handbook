@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import { FormattedMessage, useIntl } from 'react-intl';
 import url from 'url';
 
+import { FormattedMessage, useIntl } from '~/components/intl';
 import Anchor from '~/components/ui/Anchor';
 import Button from '~/components/ui/Button';
 import Heading from '~/components/ui/Heading';

@@ -1,8 +1,8 @@
 import { debounce } from 'lodash-es';
 import { useRef, useState } from 'react';
 import { RiSearchLine, RiSortDesc } from 'react-icons/ri';
-import { useIntl } from 'react-intl';
 
+import { useIntl } from '~/components/intl';
 import type { ProjectsChallengeSubmissionFilterOption } from '~/components/projects/submissions/lists/filters/ProjectsChallengeSubmissionFilterContext';
 import ProjectsChallengeSubmissionFilterDropdown from '~/components/projects/submissions/lists/filters/ProjectsChallengeSubmissionFilterDropdown';
 import ProjectsChallengeSubmissionFilterSlideOut from '~/components/projects/submissions/lists/filters/ProjectsChallengeSubmissionFilterSlideOut';

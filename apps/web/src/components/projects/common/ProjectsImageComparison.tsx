@@ -1,9 +1,9 @@
 import clsx from 'clsx';
 import { useEffect, useState } from 'react';
 import { RiImageLine, RiInformationLine } from 'react-icons/ri';
-import { FormattedMessage, useIntl } from 'react-intl';
 import url from 'url';
 
+import { FormattedMessage, useIntl } from '~/components/intl';
 import ProjectsImageBreakpointButtonGroup from '~/components/projects/common/ProjectsImageBreakpointButtonGroup';
 import {
   type ProjectsImageBreakpointCategory,

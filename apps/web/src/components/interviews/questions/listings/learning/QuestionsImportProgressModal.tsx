@@ -1,10 +1,10 @@
 import clsx from 'clsx';
 import { useState } from 'react';
-import { FormattedMessage, useIntl } from 'react-intl';
 
 import { trpc } from '~/hooks/trpc';
 
 import type { QuestionMetadata } from '~/components/interviews/questions/common/QuestionsTypes';
+import { FormattedMessage, useIntl } from '~/components/intl';
 import Button from '~/components/ui/Button';
 import CheckboxInput from '~/components/ui/CheckboxInput';
 import Dialog from '~/components/ui/Dialog';

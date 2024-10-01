@@ -1,10 +1,10 @@
 import clsx from 'clsx';
 import type { ReactNode } from 'react';
 import { RiInformationLine } from 'react-icons/ri';
-import { FormattedMessage, useIntl } from 'react-intl';
 
 import { trpc } from '~/hooks/trpc';
 
+import { FormattedMessage, useIntl } from '~/components/intl';
 import Button from '~/components/ui/Button';
 import Card from '~/components/ui/Card';
 import ProgressBar from '~/components/ui/ProgressBar';

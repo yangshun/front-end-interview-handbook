@@ -1,6 +1,5 @@
-import { FormattedMessage } from 'react-intl';
-
 import { QuestionCount } from '~/components/interviews/questions/listings/stats/QuestionCount';
+import { FormattedMessage } from '~/components/intl';
 import Anchor from '~/components/ui/Anchor';
 
 import type { FAQItem } from './FAQs';

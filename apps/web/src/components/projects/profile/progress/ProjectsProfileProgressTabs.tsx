@@ -1,8 +1,8 @@
 'use client';
 
 import { useEffect, useMemo, useRef } from 'react';
-import { useIntl } from 'react-intl';
 
+import { useIntl } from '~/components/intl';
 import type { TabItem } from '~/components/ui/Tabs';
 import Tabs from '~/components/ui/Tabs';
 

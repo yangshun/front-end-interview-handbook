@@ -1,9 +1,9 @@
 import clsx from 'clsx';
 import { useMemo, useState } from 'react';
 import { Controller, useForm } from 'react-hook-form';
-import { useIntl } from 'react-intl';
 import { z } from 'zod';
 
+import { useIntl } from '~/components/intl';
 import Button from '~/components/ui/Button';
 import Text from '~/components/ui/Text';
 import TextInput from '~/components/ui/TextInput';

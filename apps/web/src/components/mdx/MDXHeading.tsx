@@ -3,11 +3,11 @@
 import clsx from 'clsx';
 import type { ComponentProps } from 'react';
 import { RiLink } from 'react-icons/ri';
-import { useIntl } from 'react-intl';
 import url from 'url';
 
 import useCopyToClipboardWithRevert from '~/hooks/useCopyToClipboardWithRevert';
 
+import { useIntl } from '~/components/intl';
 import Anchor from '~/components/ui/Anchor';
 
 import { useToast } from '../global/toasts/useToast';

@@ -1,6 +1,6 @@
 import clsx from 'clsx';
-import { FormattedMessage, useIntl } from 'react-intl';
 
+import { FormattedMessage, useIntl } from '~/components/intl';
 import MarketingSectionHeader from '~/components/marketing/MarketingSectionHeader';
 import Card from '~/components/ui/Card';
 import Container from '~/components/ui/Container';

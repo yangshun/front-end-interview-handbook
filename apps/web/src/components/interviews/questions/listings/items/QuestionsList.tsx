@@ -1,8 +1,8 @@
 import clsx from 'clsx';
 import { RiArrowRightLine } from 'react-icons/ri';
-import { useIntl } from 'react-intl';
 
 import { useUserProfile } from '~/components/global/UserProfileProvider';
+import { useIntl } from '~/components/intl';
 import Anchor from '~/components/ui/Anchor';
 import Badge from '~/components/ui/Badge';
 import EmptyState from '~/components/ui/EmptyState';

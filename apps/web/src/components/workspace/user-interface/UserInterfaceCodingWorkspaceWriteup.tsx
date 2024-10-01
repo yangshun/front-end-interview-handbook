@@ -1,6 +1,5 @@
 import clsx from 'clsx';
 import { RiArrowRightUpLine } from 'react-icons/ri';
-import { useIntl } from 'react-intl';
 
 import { useQuestionTechnologyLists } from '~/data/QuestionFormats';
 
@@ -15,6 +14,7 @@ import QuestionNextQuestions from '~/components/interviews/questions/content/Que
 import QuestionSimilarQuestions from '~/components/interviews/questions/content/QuestionSimilarQuestions';
 import { questionUserInterfaceDescriptionPath } from '~/components/interviews/questions/content/user-interface/QuestionUserInterfaceRoutes';
 import QuestionMetadataSection from '~/components/interviews/questions/metadata/QuestionMetadataSection';
+import { useIntl } from '~/components/intl';
 import Alert from '~/components/ui/Alert';
 import Anchor from '~/components/ui/Anchor';
 import Badge from '~/components/ui/Badge';

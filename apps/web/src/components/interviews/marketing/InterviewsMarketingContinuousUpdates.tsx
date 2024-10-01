@@ -1,9 +1,9 @@
 import clsx from 'clsx';
 import { motion, useInView, useMotionValue } from 'framer-motion';
 import { useId, useRef, useState } from 'react';
-import { FormattedMessage } from 'react-intl';
 
 import LogoMark from '~/components/global/logos/LogoMark';
+import { FormattedMessage } from '~/components/intl';
 import Anchor from '~/components/ui/Anchor';
 import Container from '~/components/ui/Container';
 import {

@@ -1,10 +1,10 @@
 import type { SubmitHandler } from 'react-hook-form';
 import { useForm } from 'react-hook-form';
-import { useIntl } from 'react-intl';
 import { z } from 'zod';
 
 import { trpc } from '~/hooks/trpc';
 
+import { useIntl } from '~/components/intl';
 import Button from '~/components/ui/Button';
 
 import {

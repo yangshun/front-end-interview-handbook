@@ -2,11 +2,11 @@
 
 import clsx from 'clsx';
 import { useRef } from 'react';
-import { useIntl } from 'react-intl';
 
 import useScrollToTop from '~/hooks/useScrollToTop';
 
 import ArticlePagination from '~/components/common/ArticlePagination';
+import { useIntl } from '~/components/intl';
 import CheckboxInput from '~/components/ui/CheckboxInput';
 import Divider from '~/components/ui/Divider';
 import Section from '~/components/ui/Heading/HeadingContext';

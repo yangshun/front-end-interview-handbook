@@ -1,12 +1,12 @@
 import clsx from 'clsx';
 import { useState } from 'react';
-import { useIntl } from 'react-intl';
 
 import useCompanyNames from '~/hooks/useCompanyNames';
 import useSessionStorageForSets from '~/hooks/useSessionStorageForSets';
 
 import { useUserProfile } from '~/components/global/UserProfileProvider';
 import type { QuestionCompany } from '~/components/interviews/questions/common/QuestionsTypes';
+import { useIntl } from '~/components/intl';
 import { themeIconColor } from '~/components/ui/theme';
 
 import type { QuestionFilter } from '../QuestionFilterType';

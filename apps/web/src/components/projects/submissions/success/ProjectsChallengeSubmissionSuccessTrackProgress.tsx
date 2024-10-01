@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import { useState } from 'react';
-import { FormattedMessage, useIntl } from 'react-intl';
 
+import { FormattedMessage, useIntl } from '~/components/intl';
 import type {
   ProjectsChallengeHistoricalStatuses,
   ProjectsTrackType,

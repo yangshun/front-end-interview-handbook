@@ -1,9 +1,9 @@
 import clsx from 'clsx';
 import { useId } from 'react';
 import { RiFireLine } from 'react-icons/ri';
-import { useIntl } from 'react-intl';
 
 import type { QuestionDifficulty } from '~/components/interviews/questions/common/QuestionsTypes';
+import { useIntl } from '~/components/intl';
 import { themeIconColor } from '~/components/ui/theme';
 import Tooltip from '~/components/ui/Tooltip';
 
@@ -53,13 +53,13 @@ export default function QuestionDifficultySummary({
         {showIcon && (
           <RiFireLine
             aria-hidden="true"
-            className={clsx('mr-1.5 size-5 shrink-0', themeIconColor)}
+            className={clsx('size-5 mr-1.5 shrink-0', themeIconColor)}
           />
         )}
         <div
           className="relative h-2 overflow-clip rounded-full"
           style={{ width: fullWidth }}>
-          <div className="bg-danger absolute left-0 size-full rounded-full" />
+          <div className="bg-danger size-full absolute left-0 rounded-full" />
           <div
             className="bg-warning absolute h-full rounded-full"
             style={{ width: mediumWidth }}

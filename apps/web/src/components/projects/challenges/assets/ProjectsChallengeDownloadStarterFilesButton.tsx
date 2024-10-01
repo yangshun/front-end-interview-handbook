@@ -1,9 +1,9 @@
 import { RiFolderDownloadLine } from 'react-icons/ri';
-import { useIntl } from 'react-intl';
 
 import { trpc } from '~/hooks/trpc';
 
 import { useToast } from '~/components/global/toasts/useToast';
+import { useIntl } from '~/components/intl';
 import Button from '~/components/ui/Button';
 
 import logEvent from '~/logging/logEvent';
