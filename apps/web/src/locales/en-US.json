@@ -515,6 +515,10 @@
     "defaultMessage": "Dashboard - Track your interview preparation progress",
     "description": "Title of Get Started page"
   },
+  "1obIS0": {
+    "defaultMessage": "Practice in an environment that simulates real interviews",
+    "description": "Title for the simulate real interviews section"
+  },
   "1pqvM+": {
     "defaultMessage": "You have no premium credits left for this cycle. Please wait for new premium credits to be added when the next cycle starts.",
     "description": "Subtitle for project paywall"
@@ -834,6 +838,10 @@
   "4GPc8y": {
     "defaultMessage": "Practice State Management interview questions that train your skills in complex state design and state manipulation. Code in-browser with solutions from ex-interviewers.",
     "description": "Description for interview preparation focus area"
+  },
+  "4KKeKQ": {
+    "defaultMessage": "Syntax highlighting, theming and shortcuts",
+    "description": "Label for item 3 for simulate real interviews section"
   },
   "4KjsB6": {
     "defaultMessage": "Number of challenges completed using this skill, including challenges not in the recommended skill plan",
@@ -1334,6 +1342,10 @@
   "7gb9hK": {
     "defaultMessage": "Everything you need",
     "description": "Label for an example list of JavaScript Questions on marketing pages"
+  },
+  "7jRY6z": {
+    "defaultMessage": "Run your code against tests and instantly preview your output",
+    "description": "Label for item 1 for simulate real interviews section"
   },
   "7kN2mI": {
     "defaultMessage": "Progress",
@@ -3667,6 +3679,10 @@
     "defaultMessage": "Practice Top CSS Front End Interview Questions with Solutions",
     "description": "SEO title for CSS questions list page"
   },
+  "N+FW6k": {
+    "defaultMessage": "Resize and customize the workspace as you like",
+    "description": "Label for item 2 for simulate real interviews section"
+  },
   "N5Cp1r": {
     "defaultMessage": "While offer lasts",
     "description": "Label to indicate offer is a limited time deal"
@@ -4970,6 +4986,10 @@
   "VLFSw7": {
     "defaultMessage": "Top Vanilla JavaScript UI front end interview coding questions to practice, with detailed solutions and explanations by ex-interviewers at FAANG.",
     "description": "Description of Vanilla JavaScript UI Interview Questions page"
+  },
+  "VMcSLx": {
+    "defaultMessage": "Our in-browser coding workspace allows you to simulate a real interview environment with no set up required.",
+    "description": "Subtitle for the simulate real interviews section"
   },
   "VNrtSz": {
     "defaultMessage": "Provide at least 1 motivation for joining",

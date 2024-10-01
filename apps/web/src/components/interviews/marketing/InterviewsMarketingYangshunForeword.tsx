@@ -26,7 +26,7 @@ function CardBorder({ children }: Readonly<{ children: ReactNode }>) {
         <path
           d="M728 1L0 1"
           stroke="url(#paint0_linear_1027_20046)"
-          stroke-dasharray="2 2"
+          strokeDasharray="2 2"
         />
         <defs>
           <linearGradient
@@ -36,9 +36,9 @@ function CardBorder({ children }: Readonly<{ children: ReactNode }>) {
             x2="718.586"
             y1="1"
             y2="0.99997">
-            <stop stop-color="currentColor" stop-opacity="0.3" />
-            <stop offset="0.50131" stop-color="currentColor" />
-            <stop offset="1" stop-color="currentColor" stop-opacity="0.3" />
+            <stop stopColor="currentColor" stopOpacity="0.3" />
+            <stop offset="0.50131" stopColor="currentColor" />
+            <stop offset="1" stopColor="currentColor" stopOpacity="0.3" />
           </linearGradient>
         </defs>
       </svg>
@@ -52,7 +52,7 @@ function CardBorder({ children }: Readonly<{ children: ReactNode }>) {
         <path
           d="M728 1L0 1"
           stroke="url(#paint0_linear_1027_20047)"
-          stroke-dasharray="2 2"
+          strokeDasharray="2 2"
         />
         <defs>
           <linearGradient
@@ -62,9 +62,9 @@ function CardBorder({ children }: Readonly<{ children: ReactNode }>) {
             x2="718.586"
             y1="1"
             y2="0.99997">
-            <stop stop-color="currentColor" stop-opacity="0.3" />
-            <stop offset="0.50131" stop-color="currentColor" />
-            <stop offset="1" stop-color="currentColor" stop-opacity="0.3" />
+            <stop stopColor="currentColor" stopOpacity="0.3" />
+            <stop offset="0.50131" stopColor="currentColor" />
+            <stop offset="1" stopColor="currentColor" stopOpacity="0.3" />
           </linearGradient>
         </defs>
       </svg>
@@ -76,7 +76,7 @@ function CardBorder({ children }: Readonly<{ children: ReactNode }>) {
         xmlns="http://www.w3.org/2000/svg">
         <line
           stroke="url(#paint0_linear_1027_20045)"
-          stroke-dasharray="2 2"
+          strokeDasharray="2 2"
           x1="0.5"
           x2="0.499987"
           y1="2.16407e-08"
@@ -90,8 +90,8 @@ function CardBorder({ children }: Readonly<{ children: ReactNode }>) {
             x2="-0.500012"
             y1="-2.16407e-08"
             y2="284">
-            <stop stop-color="currentColor" />
-            <stop offset="1" stop-color="currentColor" stop-opacity="0.2" />
+            <stop stopColor="currentColor" />
+            <stop offset="1" stopColor="currentColor" stopOpacity="0.2" />
           </linearGradient>
         </defs>
       </svg>
@@ -104,7 +104,7 @@ function CardBorder({ children }: Readonly<{ children: ReactNode }>) {
         xmlns="http://www.w3.org/2000/svg">
         <line
           stroke="url(#paint0_linear_1027_20048)"
-          stroke-dasharray="2 2"
+          strokeDasharray="2 2"
           x1="0.5"
           x2="0.499987"
           y1="2.16407e-08"
@@ -118,8 +118,8 @@ function CardBorder({ children }: Readonly<{ children: ReactNode }>) {
             x2="-0.500012"
             y1="-2.16407e-08"
             y2="284">
-            <stop stop-color="currentColor" />
-            <stop offset="1" stop-color="currentColor" stop-opacity="0.2" />
+            <stop stopColor="currentColor" />
+            <stop offset="1" stopColor="currentColor" stopOpacity="0.2" />
           </linearGradient>
         </defs>
       </svg>
