@@ -1,3 +1,5 @@
+'use client';
+
 import clsx from 'clsx';
 import { useEffect, useRef, useState } from 'react';
 import { useIntl } from 'react-intl';

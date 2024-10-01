@@ -1,10 +1,10 @@
 import clsx from 'clsx';
 import { RiAmazonLine, RiGoogleLine, RiMetaLine } from 'react-icons/ri';
-import { FormattedMessage, useIntl } from 'react-intl';
 
 import DocusaurusLogo from '~/components/icons/DocusaurusLogo';
 import FrontEndInterviewHandbookLogo from '~/components/icons/FrontEndInterviewHandbookLogo';
 import SvelteLogo from '~/components/icons/SvelteLogo';
+import { FormattedMessage } from '~/components/intl';
 import Container from '~/components/ui/Container';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
@@ -22,15 +22,16 @@ type LogoProps = Readonly<{
 }>;
 
 export default function InterviewsMarketingPrepResourcesByBigTechEngineers() {
-  const intl = useIntl();
-
   const data = [
     {
-      label: intl.formatMessage({
-        defaultMessage: "Seniors to Principals at the world's best companies",
-        description: 'Prep resources companies',
-        id: '+IgJAp',
-      }),
+      key: 'companies',
+      label: (
+        <FormattedMessage
+          defaultMessage="Seniors to Principals at the world's best companies"
+          description="Prep resources companies"
+          id="+IgJAp"
+        />
+      ),
       logos: [
         {
           logo: ({ className }: LogoProps) => (
@@ -53,11 +54,14 @@ export default function InterviewsMarketingPrepResourcesByBigTechEngineers() {
       ],
     },
     {
-      label: intl.formatMessage({
-        defaultMessage: 'Creators of widely used interview materials',
-        description: 'Prep resources interview materials',
-        id: 'z4Pc05',
-      }),
+      key: 'widely-used',
+      label: (
+        <FormattedMessage
+          defaultMessage="Creators of widely-used interview materials"
+          description="Prep resources interview materials"
+          id="z5iOkW"
+        />
+      ),
       logos: [
         {
           logo: ({ className }: LogoProps) => (
@@ -74,11 +78,14 @@ export default function InterviewsMarketingPrepResourcesByBigTechEngineers() {
       ],
     },
     {
-      label: intl.formatMessage({
-        defaultMessage: 'Core maintainers of well-known open source projects',
-        description: 'Prep resources open source projects',
-        id: '5fJI7m',
-      }),
+      key: 'feih',
+      label: (
+        <FormattedMessage
+          defaultMessage="Core maintainers of well-known open source projects"
+          description="Prep resources open source projects"
+          id="5fJI7m"
+        />
+      ),
       logos: [
         {
           logo: ({ className }: LogoProps) => (
@@ -133,7 +140,7 @@ export default function InterviewsMarketingPrepResourcesByBigTechEngineers() {
           <div className="flex flex-col justify-between gap-x-4 gap-y-6 md:flex-row lg:gap-x-6 ">
             {data.map((item) => (
               <div
-                key={item.label}
+                key={item.key}
                 className={clsx(
                   'isolate overflow-hidden',
                   'flex-1 md:min-w-[260px] lg:min-w-[293px]',
