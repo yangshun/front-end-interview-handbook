@@ -156,9 +156,7 @@ export default function InterviewsRevampStudyPlansPage({
           ))}
         </div>
       </Section>
-      <div className="hidden md:block">
-        <InterviewsStudyPlanTestimonialsSection />
-      </div>
+      <InterviewsStudyPlanTestimonialsSection />
       {bottomContent && (
         <>
           <Divider className="my-8" />

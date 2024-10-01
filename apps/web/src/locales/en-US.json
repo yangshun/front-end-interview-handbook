@@ -2607,6 +2607,10 @@
     "defaultMessage": "Label for \"Completed projects\" progress bar of a Projects component track",
     "description": "{completedCount} out of {totalCount} challenges"
   },
+  "GUGImr": {
+    "defaultMessage": "{offerCount, plural,=1 {1 offer} other {# offers}}",
+    "description": "Testimonials overview"
+  },
   "GVHds/": {
     "defaultMessage": "Premium Feature",
     "description": "Title on question paywall appearing on the question pages of premium questions"
@@ -4702,10 +4706,6 @@
   "TRWLN8": {
     "defaultMessage": "Front End System Design",
     "description": "Short title of front end system design guidebook"
-  },
-  "TUW8Tm": {
-    "defaultMessage": "{offerCount} offers",
-    "description": "Testimonials overview"
   },
   "TW5R5d": {
     "defaultMessage": "Dashboard",
@@ -7227,10 +7227,6 @@
     "defaultMessage": "This is an irreversible action. You will not be able to resume the list and all progress will be erased. Are you sure?",
     "description": "Confirmation text for stopping a study list"
   },
-  "kJoI6P": {
-    "defaultMessage": "{growthFactor}x",
-    "description": "Testimonials overview"
-  },
   "kK7Cf2": {
     "defaultMessage": "Invalid inputs. Please check that you have filled in the username or profile URL correctly.",
     "description": "Form error text"
@@ -7746,6 +7742,10 @@
   "npXLPp": {
     "defaultMessage": "Marked question as not completed",
     "description": "Success message shown when a question is marked as complete"
+  },
+  "nqRMgW": {
+    "defaultMessage": "The offers don't lie",
+    "description": "Title for the offers don't lie section"
   },
   "nsk8M8": {
     "defaultMessage": "In progress",
@@ -9018,6 +9018,10 @@
   "wAv4o0": {
     "defaultMessage": "Enter 1-2 lines summary of your submission",
     "description": "Placeholder label for submission summary in submission form"
+  },
+  "wBeFIk": {
+    "defaultMessage": "Scores of our users have landed multiple offers at the world's top companies with substantial TC gains. Be the next.",
+    "description": "Subtitle for the offers don't lie section"
   },
   "wBgo1q": {
     "defaultMessage": "You will disconnect this social. Are you sure?",

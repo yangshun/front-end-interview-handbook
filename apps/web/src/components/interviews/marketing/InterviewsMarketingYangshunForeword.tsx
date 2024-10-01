@@ -161,6 +161,7 @@ export default function InterviewsMarketingYangshunForeword() {
               'max-w-[540px]',
               'p-8',
               'rounded-md',
+              'bg-neutral-200/20 dark:bg-neutral-800/20',
               ['border', themeBorderColor],
               [
                 themeWhiteGlowCardBackground,
