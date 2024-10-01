@@ -38,7 +38,7 @@ export type TextSize = 'body0' | 'body1' | 'body2' | 'body3' | 'inherit';
 export type TextWeight = 'bold' | 'inherit' | 'medium' | 'normal';
 
 const sizeClasses: Record<TextSize, string> = {
-  body0: 'text-xl',
+  body0: 'text-lg',
   body1: 'text-base',
   body2: 'text-sm',
   body3: 'text-xs',
