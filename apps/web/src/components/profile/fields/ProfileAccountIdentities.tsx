@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import {
   RiCheckboxCircleFill,
   RiGithubLine,
@@ -30,6 +30,7 @@ export default function ProfileAccountIdentities({ userIdentities }: Props) {
   const { showToast } = useToast();
   const supabaseClient = useSupabaseClientGFE();
 
+  const [isMounted, setIsMounted] = useState(false);
   const [loading, setLoading] = useState<Record<SupabaseProviderGFE, boolean>>({
     github: false,
     google: false,
@@ -105,6 +106,7 @@ export default function ProfileAccountIdentities({ userIdentities }: Props) {
         variant: 'danger',
       });
     }
+    setShowConfirmation((prev) => ({ ...prev, shown: false }));
   }
 
   async function onLinkUserIdentity(provider: SupabaseProviderGFE) {
@@ -124,7 +126,6 @@ export default function ProfileAccountIdentities({ userIdentities }: Props) {
 
     setLoading((prev) => ({ ...prev, provider: false }));
 
-    // TODO: handle if the user social is already linked to some other account
     if (!error) {
       router.refresh();
     } else {
@@ -140,6 +141,39 @@ export default function ProfileAccountIdentities({ userIdentities }: Props) {
       });
     }
   }
+
+  // TODO(interviews): find a better way to handle this error scenario
+  useEffect(() => {
+    // Get error parameters from search params
+    const searchParams = new URLSearchParams(window.location.search);
+    const error = searchParams?.get('error');
+    let errorDescription = searchParams?.get('error_description');
+
+    if (error && isMounted) {
+      // Replace specific error with custom message
+      if (
+        errorDescription?.includes('Identity is already linked to another user')
+      ) {
+        errorDescription = intl.formatMessage({
+          defaultMessage:
+            'The social account is already associated with another user. Please try with different one.',
+          description: 'Error message for existing social account',
+          id: '6GBUHZ',
+        });
+      }
+      showToast({
+        title:
+          errorDescription ||
+          intl.formatMessage({
+            defaultMessage: 'Something went wrong',
+            description: 'Error message',
+            id: 'sbXDK4',
+          }),
+        variant: 'danger',
+      });
+    }
+    setIsMounted(true);
+  }, [showToast, intl, isMounted]);
 
   return (
     <div

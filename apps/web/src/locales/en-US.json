@@ -1071,6 +1071,10 @@
     "defaultMessage": "Months",
     "description": "Label for  Months filter button"
   },
+  "6GBUHZ": {
+    "defaultMessage": "The social account is already associated with another user. Please try with different one.",
+    "description": "Error message for existing social account"
+  },
   "6H0D7u": {
     "defaultMessage": "Learning features",
     "description": "Learning features of the product in Projects marketing page"
