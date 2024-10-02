@@ -2363,6 +2363,10 @@
     "defaultMessage": "Edit submission",
     "description": "Title of Projects edit submission page"
   },
+  "Eel+ez": {
+    "defaultMessage": "Meet the <strong>front end interview prep platform</strong> built to make your interviews much easier. By Big Tech ex-interviewers at",
+    "description": "Subtitle for hero"
+  },
   "EflBca": {
     "defaultMessage": "Started: {daysSinceStarted} days",
     "description": "Days since started for Continue projects section on Projects dashboard page"
@@ -4807,6 +4811,10 @@
     "defaultMessage": "Palantir",
     "description": "Company name for Palantir"
   },
+  "U0KCty": {
+    "defaultMessage": "Get started now",
+    "description": "Label for Get Started button in Hero section of HomePage."
+  },
   "U17xuY": {
     "defaultMessage": "Filter by the creator’s years of experience or their job status",
     "description": "Tooltip for experience filter for submissions list"
@@ -6347,6 +6355,10 @@
     "defaultMessage": "Build an entire library of {trackName} components from scratch. Use it for your portfolio, or as a component toolkit for future projects",
     "description": "Description of Projects component track page"
   },
+  "eGc1/r": {
+    "defaultMessage": "{number} engineers have used GreatFrontEnd",
+    "description": "Number of engineers using"
+  },
   "eGdxs5": {
     "defaultMessage": "{company} Front End Interview Playbook | GreatFrontEnd",
     "description": "Social title for company guides detail"
@@ -7266,6 +7278,10 @@
   "kK7Cf2": {
     "defaultMessage": "Invalid inputs. Please check that you have filled in the username or profile URL correctly.",
     "description": "Form error text"
+  },
+  "kKZhDV": {
+    "defaultMessage": "Don't let front end interviews hold you back",
+    "description": "Homepage title"
   },
   "kL0yEH": {
     "defaultMessage": "You can't find it elsewhere",
@@ -8370,6 +8386,10 @@
   "riPEvL": {
     "defaultMessage": "Lifetime plan",
     "description": "Title of LifeTime Access Pricing Plan found on Homepage or Pricing page"
+  },
+  "rm432p": {
+    "defaultMessage": "{count}+ questions are free to do",
+    "description": "Free questions"
   },
   "rmYPMV": {
     "defaultMessage": "Start learning",

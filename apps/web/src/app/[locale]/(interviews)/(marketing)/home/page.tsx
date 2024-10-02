@@ -8,7 +8,7 @@ import { QuestionCount } from '~/components/interviews/questions/listings/stats/
 import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
 
-import InterviewsMarketingHomePage from './InterviewsMarketingHomePage';
+import InterviewsMarketingHomePageNew from './InterviewsMarketingHomePageNew';
 
 export const dynamic = 'force-static';
 
@@ -53,5 +53,5 @@ export default async function Page() {
     return notFound();
   }
 
-  return <InterviewsMarketingHomePage />;
+  return <InterviewsMarketingHomePageNew />;
 }
