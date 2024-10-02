@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 
 // Text colors.
-export const themeTextBrandColor = clsx('text-brand-dark dark:text-brand');
+export const themeTextBrandColor = clsx('text-neutral-900 dark:text-brand');
 export const themeTextBrandColor_Hover = clsx(
   'hover:text-brand-dark dark:hover:text-brand',
 );
@@ -102,6 +102,7 @@ export const themeBackgroundLineColor = clsx(
 export const themeBackgroundLineEmphasizedColor = clsx(
   'bg-neutral-300 dark:bg-neutral-700',
 );
+export const themeBackgroundSuccessColor = clsx('bg-green');
 
 export const themeBackgroundElementColor = clsx('bg-white dark:bg-neutral-900');
 export const themeBackgroundElementEmphasizedStateColor = clsx(
