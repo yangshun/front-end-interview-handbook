@@ -30,11 +30,7 @@ export default function InterviewsMarketingTestimonialsSection({
 }: Props) {
   return (
     <Container
-      className={clsx(
-        'px-6 py-20 lg:px-[168px]',
-        'flex flex-col gap-16',
-        'isolate',
-      )}
+      className={clsx('flex flex-col gap-16', 'py-20', 'isolate')}
       variant={containerVariant}>
       <div className="max-w-xl">
         <Heading

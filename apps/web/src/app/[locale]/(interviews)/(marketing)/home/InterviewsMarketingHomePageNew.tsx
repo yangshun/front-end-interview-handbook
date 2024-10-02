@@ -9,6 +9,7 @@ import type {
   QuestionJavaScript,
   QuestionMetadata,
 } from '~/components/interviews/questions/common/QuestionsTypes';
+import Section from '~/components/ui/Heading/HeadingContext';
 
 import InterviewsMarketingHomePageBottomContainer from './InterviewsMarketingHomePageBottomContainer';
 
@@ -30,16 +31,21 @@ export default function InterviewsMarketingHomePageNew({
   return (
     <main>
       <InterviewsMarketingHeroNew />
-      <InterviewsMarketingEmbedSection
-        featuredQuestions={[...javaScriptQuestions, ...userInterfaceQuestions]}
-        javaScriptEmbedExample={javaScriptEmbedExample}
-        uiEmbedExample={uiCodingQuestion}
-      />
-      <InterviewsMarketingYangshunForeword />
-      <InterviewsMarketingOffersDontLieSection />
-      <InterviewsMarketingPrepResourcesByBigTechEngineers />
-      <InterviewsMarketingSimulateRealInterviews />
-      <InterviewsMarketingHomePageBottomContainer />
+      <Section>
+        <InterviewsMarketingEmbedSection
+          featuredQuestions={[
+            ...javaScriptQuestions,
+            ...userInterfaceQuestions,
+          ]}
+          javaScriptEmbedExample={javaScriptEmbedExample}
+          uiEmbedExample={uiCodingQuestion}
+        />
+        <InterviewsMarketingYangshunForeword />
+        <InterviewsMarketingOffersDontLieSection />
+        <InterviewsMarketingPrepResourcesByBigTechEngineers />
+        <InterviewsMarketingSimulateRealInterviews />
+        <InterviewsMarketingHomePageBottomContainer />
+      </Section>
     </main>
   );
 }

@@ -1701,8 +1701,7 @@ export default function InterviewsMarketingSimulateRealInterviews() {
 
   return (
     <Section>
-      <Container
-        className={clsx('px-6 py-20 lg:px-[168px]', 'flex flex-col gap-12')}>
+      <Container className={clsx('flex flex-col gap-12', 'py-20')}>
         <div className={clsx('flex flex-col gap-6', 'lg:max-w-[634px]')}>
           <Heading
             className={clsx(themeGradientHeading)}

@@ -20,8 +20,7 @@ export default function InterviewsMarketingHeroNew() {
   const intl = useIntl();
 
   return (
-    <Container
-      className={clsx('px-6 py-20 lg:px-[168px]', 'flex flex-col gap-12')}>
+    <Container className={clsx('px-6 py-20', 'flex flex-col gap-12')}>
       <div className={clsx('flex flex-col gap-8', 'lg:max-w-[634px]')}>
         <Heading
           className={clsx(themeGradientHeading, 'pb-1')}

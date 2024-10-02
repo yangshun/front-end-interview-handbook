@@ -53,40 +53,36 @@ export default function InterviewsMarketingOffersDontLieSection() {
   ];
 
   return (
-    <Section>
-      <Container
-        className={clsx(
-          'px-6 py-20 lg:px-[168px]',
-          'flex flex-col gap-6 md:gap-12',
-        )}>
-        <div className="flex flex-col gap-6">
-          <Heading
-            className={themeGradientHeading}
-            level="heading2"
-            weight="medium">
-            <FormattedMessage
-              defaultMessage="The offers don't lie"
-              description="Title for the offers don't lie section"
-              id="nqRMgW"
-            />
-          </Heading>
-          <Text
-            className="text-base lg:max-w-xl lg:text-lg"
-            color="secondary"
-            size="inherit"
-            weight="medium">
-            <FormattedMessage
-              defaultMessage="Scores of our users have landed multiple offers at the world's top companies with substantial TC gains. Be the next."
-              description="Subtitle for the offers don't lie section"
-              id="wBeFIk"
-            />
-          </Text>
-        </div>
+    <Container className={clsx('flex flex-col gap-6 md:gap-12', 'py-20')}>
+      <div className="flex flex-col gap-6">
+        <Heading
+          className={themeGradientHeading}
+          level="heading2"
+          weight="medium">
+          <FormattedMessage
+            defaultMessage="The offers don't lie"
+            description="Title for the offers don't lie section"
+            id="nqRMgW"
+          />
+        </Heading>
+        <Text
+          className="text-base lg:max-w-xl lg:text-lg"
+          color="secondary"
+          size="inherit"
+          weight="medium">
+          <FormattedMessage
+            defaultMessage="Scores of our users have landed multiple offers at the world's top companies with substantial TC gains. Be the next."
+            description="Subtitle for the offers don't lie section"
+            id="wBeFIk"
+          />
+        </Text>
+      </div>
+      <Section>
         <InterviewsTestimonialsSlider
           brandSlider={false}
           data={testimonialsData}
         />
-      </Container>
-    </Section>
+      </Section>
+    </Container>
   );
 }

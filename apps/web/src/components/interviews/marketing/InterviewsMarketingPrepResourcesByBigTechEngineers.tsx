@@ -109,33 +109,31 @@ export default function InterviewsMarketingPrepResourcesByBigTechEngineers() {
   ];
 
   return (
-    <Section>
-      <Container
-        className={clsx('px-6 py-20 lg:px-[168px]', 'flex flex-col gap-12')}>
-        <div className="flex flex-col gap-6">
-          <Heading
-            className={clsx('max-w-xl lg:max-w-3xl', themeGradientHeading)}
-            level="heading2"
-            weight="medium">
-            <FormattedMessage
-              defaultMessage="Let big tech senior/staff engineers write your prep resources"
-              description="Title for the prep resources section"
-              id="vSCWmc"
-            />
-          </Heading>
-          <Text
-            className="text-base lg:max-w-[634px] lg:text-lg"
-            color="secondary"
-            size="inherit"
-            weight="medium">
-            <FormattedMessage
-              defaultMessage="Having interviewed hundreds of candidates, we know what to look out for. Learn best practices and techniques gleaned from years of experience."
-              description="Subtitle for the prep resources section"
-              id="SgdFJp"
-            />
-          </Text>
-        </div>
-
+    <Container className={clsx('flex flex-col gap-12', 'py-20')}>
+      <div className="flex flex-col gap-6">
+        <Heading
+          className={clsx('max-w-xl lg:max-w-3xl', themeGradientHeading)}
+          level="heading2"
+          weight="medium">
+          <FormattedMessage
+            defaultMessage="Let big tech senior/staff engineers write your prep resources"
+            description="Title for the prep resources section"
+            id="vSCWmc"
+          />
+        </Heading>
+        <Text
+          className="text-base lg:max-w-[634px] lg:text-lg"
+          color="secondary"
+          size="inherit"
+          weight="medium">
+          <FormattedMessage
+            defaultMessage="Having interviewed hundreds of candidates, we know what to look out for. Learn best practices and techniques gleaned from years of experience."
+            description="Subtitle for the prep resources section"
+            id="SgdFJp"
+          />
+        </Text>
+      </div>
+      <Section>
         <ScrollArea scrollbars="horizontal">
           <div className="flex flex-col justify-between gap-x-4 gap-y-6 md:flex-row lg:gap-x-6 ">
             {data.map((item) => (
@@ -190,7 +188,7 @@ export default function InterviewsMarketingPrepResourcesByBigTechEngineers() {
             ))}
           </div>
         </ScrollArea>
-      </Container>
-    </Section>
+      </Section>
+    </Container>
   );
 }
