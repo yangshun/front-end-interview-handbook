@@ -5,10 +5,9 @@ import { RiArrowRightLine } from 'react-icons/ri';
 import { trpc } from '~/hooks/trpc';
 import useUserProfile from '~/hooks/user/useUserProfile';
 
-import Ticket from '~/components/promotions/tickets/Ticket';
-import Button from '~/components/ui/Button';
+import Anchor from '~/components/ui/Anchor';
 import Text from '~/components/ui/Text';
-import { themeBorderColor } from '~/components/ui/theme';
+import { themeGlassyBorder } from '~/components/ui/theme';
 
 import { useSocialDiscountLabels } from './useSocialDiscountLabels';
 
@@ -18,13 +17,17 @@ function SocialDiscountTicketSmall({
   title: ReactNode;
 }>) {
   return (
-    <Ticket height={60} padding="none">
-      <div className="flex h-full flex-col items-center justify-center">
-        <Text size="body2" weight="bold">
-          {title}
-        </Text>
-      </div>
-    </Ticket>
+    <div
+      className={clsx(
+        'relative',
+        ['border', themeGlassyBorder],
+        'px-3 py-1',
+        'rounded',
+      )}>
+      <Text size="body3" weight="bold">
+        {title}
+      </Text>
+    </div>
   );
 }
 
@@ -33,13 +36,7 @@ function SocialDiscountAlertImpl() {
   const { data: promoCodes } = trpc.marketing.userPromoCodes.useQuery();
 
   return (
-    <div
-      className={clsx(
-        'flex flex-col items-center gap-4 md:flex-row',
-        'rounded-md p-3',
-        ['border', themeBorderColor],
-        'bg-neutral-50 dark:bg-neutral-900',
-      )}>
+    <div className={clsx('flex flex-col items-center gap-4 md:flex-row')}>
       {(() => {
         if (promoCodes != null && promoCodes.data.length > 0) {
           const promoCode = promoCodes?.data[0];
@@ -48,10 +45,7 @@ function SocialDiscountAlertImpl() {
             <>
               <SocialDiscountTicketSmall title={promoCode?.code} />
               <div className="grow">
-                <Text className="block" size="body1" weight="bold">
-                  {socialDiscountLabels.existingPromoTitle}
-                </Text>
-                <Text className="block" color="secondary" size="body1">
+                <Text className="block" color="secondary" size="body3">
                   {socialDiscountLabels.existingPromoSubtitle(
                     promoCode.expires_at!,
                     promoCode.coupon.percent_off,
@@ -70,22 +64,12 @@ function SocialDiscountAlertImpl() {
               />
             </div>
             <div className="grow">
-              <Text className="block" size="body1" weight="bold">
-                {socialDiscountLabels.title}
-              </Text>
-              <Text className="block" color="secondary" size="body1">
-                {socialDiscountLabels.subtitle}
-              </Text>
-            </div>
-            <div className="w-full md:w-auto md:items-center">
-              <Button
-                addonPosition="end"
-                display="block"
-                href="/rewards/social"
-                icon={RiArrowRightLine}
-                label={socialDiscountLabels.ctaLabel}
-                variant="secondary"
-              />
+              <Anchor href="/rewards/social">
+                <Text className="block" color="secondary" size="body3">
+                  {socialDiscountLabels.subtitle}{' '}
+                  <RiArrowRightLine className="size-4 ml-0.5 inline-flex shrink-0" />
+                </Text>
+              </Anchor>
             </div>
           </>
         );

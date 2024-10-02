@@ -5,20 +5,17 @@ import { RiCheckLine } from 'react-icons/ri';
 import Divider from '~/components/ui/Divider';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
-import Text from '~/components/ui/Text';
+import Text, { textVariants } from '~/components/ui/Text';
 import {
-  themeBackgroundColor,
-  themeBorderBrandColor,
   themeBorderColor,
   themeGlassyBorder,
-  themeTextSubtitleColor,
+  themeTextSuccessColor,
 } from '~/components/ui/theme';
 
 type Props = Readonly<{
   className?: string;
   features: ReadonlyArray<React.ReactNode>;
   footer?: React.ReactNode;
-  glow?: boolean;
   rightSectionContents: React.ReactNode;
   subtitle: React.ReactNode;
   title: React.ReactNode;
@@ -30,7 +27,6 @@ export default function PurchaseBlockCard({
   subtitle,
   features,
   rightSectionContents,
-  glow = false,
   className,
 }: Props) {
   const id = useId();
@@ -38,42 +34,44 @@ export default function PurchaseBlockCard({
   return (
     <div
       className={clsx(
-        'lg:grid lg:grid-cols-3',
+        'flex flex-col gap-10 lg:flex-row lg:items-stretch',
         'max-w-lg lg:max-w-none',
-        'mx-auto overflow-hidden',
-        'rounded-2xl sm:rounded-3xl',
-        [
-          'border',
-          glow
-            ? [themeBorderBrandColor, 'shadow-glow shadow-brand/40']
-            : [themeGlassyBorder, themeBorderColor],
-        ],
+        'overflow-hidden',
+        'rounded-xl',
+        ['border', themeGlassyBorder, themeBorderColor],
+        'p-6',
         className,
       )}>
       <div
         className={clsx(
-          'col-span-2',
-          'flex flex-col gap-y-6',
-          'p-8',
-          themeBackgroundColor,
+          'flex flex-1 flex-col gap-y-6',
+          'min-w-[300px] xl:max-w-[350px]',
         )}>
         <div className="flex flex-col gap-y-2">
           <Heading
-            className={themeTextSubtitleColor}
-            color="custom"
+            className={textVariants({ size: 'body2', weight: 'medium' })}
             id={id}
-            level="heading5">
+            level="custom">
             {title}
           </Heading>
-          <Section>
-            <Text className="block" color="secondary" size="body1">
-              {subtitle}
-            </Text>
-          </Section>
         </div>
         <Section>
-          <Divider />
-          <ul className="grid gap-y-5 lg:grid-cols-2 lg:gap-x-8" role="list">
+          <div
+            className={clsx(
+              'lg:flex lg:shrink-0 lg:flex-col lg:justify-center',
+            )}>
+            {rightSectionContents}
+          </div>
+        </Section>
+      </div>
+      <Divider className="lg:hidden" direction="horizontal" />
+      <Divider className="hidden lg:block" direction="vertical" />
+      <Section>
+        <div className="flex flex-1 grow flex-col justify-center gap-4">
+          <Text className="block" size="body1" weight="bold">
+            {subtitle}
+          </Text>
+          <ul className="flex flex-col gap-y-4" role="list">
             {features.map((feature, idx) => (
               <li
                 // eslint-disable-next-line react/no-array-index-key
@@ -82,7 +80,7 @@ export default function PurchaseBlockCard({
                 <div className="shrink-0">
                   <RiCheckLine
                     aria-hidden="true"
-                    className="text-brand size-5"
+                    className={clsx('size-5 shrink-0', themeTextSuccessColor)}
                   />
                 </div>
                 <Text className="ml-3 block" color="secondary" size="body2">
@@ -92,16 +90,6 @@ export default function PurchaseBlockCard({
             ))}
           </ul>
           {footer && <div className="pt-8">{footer}</div>}
-        </Section>
-      </div>
-      <Section>
-        <div
-          className={clsx(
-            'min-w-[300px] lg:flex lg:shrink-0 lg:flex-col lg:justify-center',
-            'p-8',
-            'bg-neutral-100 dark:bg-[#21223d]',
-          )}>
-          {rightSectionContents}
         </div>
       </Section>
     </div>

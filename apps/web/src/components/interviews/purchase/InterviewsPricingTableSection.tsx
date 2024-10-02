@@ -1,12 +1,16 @@
 import clsx from 'clsx';
+import type { ComponentProps } from 'react';
 import { useRef } from 'react';
 import { useEffect } from 'react';
 import { useId } from 'react';
 import { useState } from 'react';
-import { RiArrowRightLine, RiCheckLine } from 'react-icons/ri';
+import {
+  RiArrowRightLine,
+  RiCheckLine,
+  RiDiscountPercentFill,
+} from 'react-icons/ri';
 import url from 'url';
 
-import gtag from '~/lib/gtag';
 import { isProhibitedCountry } from '~/lib/stripeUtils';
 import { useAuthSignInUp } from '~/hooks/user/useAuthFns';
 
@@ -17,9 +21,7 @@ import type {
   InterviewsPricingPlanType,
 } from '~/components/interviews/purchase/InterviewsPricingPlans';
 import { FormattedMessage, useIntl } from '~/components/intl';
-import BrandGlowBackground from '~/components/marketing/BrandGlowBackground';
 import { SocialDiscountAlert } from '~/components/promotions/social/SocialDiscountAlert';
-import { SOCIAL_DISCOUNT_PERCENTAGE } from '~/components/promotions/social/SocialDiscountConfig';
 import PurchasePriceAnnualComparison from '~/components/purchase/comparison/PurchasePriceAnnualComparison';
 import PurchasePriceMonthlyComparison from '~/components/purchase/comparison/PurchasePriceMonthlyComparison';
 import PurchasePriceQuarterlyComparison from '~/components/purchase/comparison/PurchasePriceQuarterlyComparison';
@@ -28,25 +30,22 @@ import {
   purchaseInitiateLogging,
   purchaseInitiateLoggingNonSignedIn,
 } from '~/components/purchase/PurchaseLogging';
-import PurchasePPPDiscountAlert from '~/components/purchase/PurchasePPPDiscountAlert';
 import PurchasePriceLabel from '~/components/purchase/PurchasePriceLabel';
 import PurchaseProhibitedCountryAlert from '~/components/purchase/PurchaseProhibitedCountryAlert';
 import type { Props as AnchorProps } from '~/components/ui/Anchor';
-import Anchor from '~/components/ui/Anchor';
 import Badge from '~/components/ui/Badge';
 import Button from '~/components/ui/Button';
-import Heading from '~/components/ui/Heading';
+import Divider from '~/components/ui/Divider';
+import Heading, { headingCVA } from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
-import Text from '~/components/ui/Text';
+import Text, { textVariants } from '~/components/ui/Text';
 import {
-  themeBackgroundColor,
+  themeBackgroundSuccessColor,
   themeBorderColor,
-  themeDivideColor,
+  themeGlassyBorder,
   themeTextBrandColor,
-  themeTextSubtitleColor,
+  themeTextSuccessColor,
 } from '~/components/ui/theme';
-
-import logEvent from '~/logging/logEvent';
 
 import PurchaseBlockCard from '../../purchase/PurchaseBlockCard';
 import { MAXIMUM_PPP_CONVERSION_FACTOR_TO_DISPLAY_BEFORE_PRICE } from '../../purchase/PurchasePricingConfig';
@@ -57,7 +56,6 @@ import { useSessionContext } from '@supabase/auth-helpers-react';
 type Props = Readonly<{
   countryCode: string;
   countryName: string;
-  glow?: boolean;
   plans: InterviewsPricingPlanPaymentConfigLocalizedRecord;
   useCurrentPageAsCancelUrl?: boolean;
   view?: 'default' | 'dialog';
@@ -69,6 +67,7 @@ function PricingButton({
   icon,
   isDisabled,
   isLoading,
+  variant,
   label,
   onClick,
 }: Readonly<{
@@ -79,6 +78,7 @@ function PricingButton({
   isLoading?: boolean;
   label: string;
   onClick?: (event: React.MouseEvent<HTMLElement>) => void;
+  variant: ComponentProps<typeof Button>['variant'];
 }>) {
   return (
     <Button
@@ -92,7 +92,7 @@ function PricingButton({
       size="lg"
       target="_self"
       type="button"
-      variant="primary"
+      variant={variant}
       onClick={onClick}
     />
   );
@@ -102,10 +102,12 @@ function PricingButtonNonLoggedIn({
   'aria-describedby': ariaDescribedBy,
   isDisabled,
   paymentConfig,
+  variant,
 }: Readonly<{
   'aria-describedby': string;
   isDisabled: boolean;
   paymentConfig: InterviewsPricingPlanPaymentConfigLocalized;
+  variant: ComponentProps<typeof Button>['variant'];
 }>) {
   const intl = useIntl();
   const { signInUpHref } = useAuthSignInUp();
@@ -125,6 +127,7 @@ function PricingButtonNonLoggedIn({
         description: 'Purchase button label',
         id: '9gs1LO',
       })}
+      variant={variant}
       onClick={() => {
         purchaseInitiateLoggingNonSignedIn({
           plan: paymentConfig.planType,
@@ -140,10 +143,12 @@ function PricingButtonNonPremium({
   'aria-describedby': ariaDescribedBy,
   paymentConfig,
   useCurrentPageAsCancelUrl,
+  variant,
 }: Readonly<{
   'aria-describedby': string;
   paymentConfig: InterviewsPricingPlanPaymentConfigLocalized;
   useCurrentPageAsCancelUrl: boolean;
+  variant: ComponentProps<typeof Button>['variant'];
 }>) {
   const intl = useIntl();
   const { userProfile, isUserProfileLoading } = useUserProfile();
@@ -243,6 +248,7 @@ function PricingButtonNonPremium({
           description: 'Purchase button label',
           id: '9gs1LO',
         })}
+        variant={variant}
         onClick={() => {
           setHasClicked(true);
           hasClickedRef.current = true;
@@ -274,11 +280,13 @@ function PricingButtonSection({
   countryCode,
   paymentConfig,
   useCurrentPageAsCancelUrl,
+  variant,
 }: Readonly<{
   'aria-describedby': string;
   countryCode: string;
   paymentConfig: InterviewsPricingPlanPaymentConfigLocalized;
   useCurrentPageAsCancelUrl: boolean;
+  variant: ComponentProps<typeof Button>['variant'];
 }>) {
   const intl = useIntl();
   const { isLoading: isUserLoading } = useSessionContext();
@@ -298,6 +306,7 @@ function PricingButtonSection({
           aria-describedby={ariaDescribedBy}
           paymentConfig={paymentConfig}
           useCurrentPageAsCancelUrl={useCurrentPageAsCancelUrl}
+          variant={variant}
         />
       );
     }
@@ -314,6 +323,7 @@ function PricingButtonSection({
           description: 'Manage user membership subscription button label',
           id: 'sjLtW1',
         })}
+        variant={variant}
       />
     );
   }
@@ -324,6 +334,7 @@ function PricingButtonSection({
       aria-describedby={ariaDescribedBy}
       isDisabled={isPending}
       paymentConfig={paymentConfig}
+      variant={variant}
     />
   );
 }
@@ -394,7 +405,6 @@ export default function InterviewsPricingTableSection({
   countryCode,
   countryName,
   plans,
-  glow,
   view = 'default',
   useCurrentPageAsCancelUrl = false,
 }: Props) {
@@ -531,343 +541,245 @@ export default function InterviewsPricingTableSection({
     featuredPlan.paymentConfig.conversionFactor <
     MAXIMUM_PPP_CONVERSION_FACTOR_TO_DISPLAY_BEFORE_PRICE;
 
-  const promoMessage = (
-    <FormattedMessage
-      defaultMessage="Enjoy {discountPercentage}% off all plans by <follow>following us on social media</follow>. Check out other <promotion>promotions</promotion>!"
-      description="Text on Promo Banner appearing almost on all application pages to inform user of a discount"
-      id="47LloU"
-      values={{
-        discountPercentage: SOCIAL_DISCOUNT_PERCENTAGE,
-        follow: (chunks) => (
-          <Anchor
-            className="whitespace-nowrap font-medium"
-            href="/rewards/social"
-            underline={true}
-            variant="flat"
-            onClick={() => {
-              gtag.event({
-                action: `global.banner.rewards.click`,
-                category: 'engagement',
-                label: 'following us on social media',
-              });
-              logEvent('click', {
-                element: 'Promo banner rewards',
-                label: 'following us on social media',
-                namespace: 'interviews',
-              });
-            }}>
-            {chunks}
-          </Anchor>
-        ),
-        promotion: (chunks) => (
-          <Anchor
-            className="whitespace-nowrap font-medium"
-            href="/promotions"
-            underline={true}
-            variant="flat"
-            onClick={() => {
-              gtag.event({
-                action: `global.banner.promotions.click`,
-                category: 'engagement',
-                label: 'promotions',
-              });
-              logEvent('click', {
-                element: 'Promo banner',
-                label: 'Promotions',
-                namespace: 'interviews',
-              });
-            }}>
-            {chunks}
-          </Anchor>
-        ),
-      }}
-    />
-  );
-
   return (
     <Section>
-      <div>
+      <div className="flex flex-col gap-y-8">
         {/* Banners */}
         <div className="flex flex-col gap-y-5">
           <PurchaseProhibitedCountryAlert countryCode={countryCode} />
-          <SocialDiscountAlert />
-          {showPPPMessage && (
-            <PurchasePPPDiscountAlert
-              countryName={countryName}
-              discount={Math.ceil(
-                100 - featuredPlan.paymentConfig.conversionFactor * 100,
-              )}
-            />
-          )}
-        </div>
-        {/* Lifetime plan callout */}
-        <div className="mt-12">
-          <PurchaseBlockCard
-            className={
-              isDialogView ? 'lg:!block xl:!grid xl:grid-cols-3' : undefined
-            }
-            features={featuredPlan.includedFeatures}
-            glow={glow}
-            rightSectionContents={
-              <>
-                <div className="flex flex-col">
-                  {showPPPMessage && (
-                    <Text
-                      className={clsx(
-                        'inline-flex flex-wrap items-end text-lg line-through',
-                        featuredPlan.paymentConfig.unitCostCurrency.withPPP
-                          .after < 1000 && 'sm:text-lg',
-                      )}
-                      color="subtle"
-                      size="inherit"
-                      weight="medium">
-                      <PurchasePriceLabel
-                        amount={priceRoundToNearestNiceNumber(
-                          featuredPlan.paymentConfig.unitCostCurrency.base
-                            .after / (featuredPlan.numberOfMonths ?? 1),
-                        )}
-                        currency={featuredPlan.paymentConfig.currency.toUpperCase()}
-                        symbol={featuredPlan.paymentConfig.symbol}
-                      />{' '}
-                      {featuredPlan.numberOfMonths != null ? (
-                        <FormattedMessage
-                          defaultMessage="/month"
-                          description="Per month"
-                          id="aE1FCD"
-                        />
-                      ) : (
-                        <FormattedMessage
-                          defaultMessage="paid once"
-                          description="Pay the price once"
-                          id="BMBc9O"
-                        />
-                      )}
-                    </Text>
-                  )}
-                  <Text
-                    className={clsx('inline-flex items-end gap-x-2', [
-                      'text-xl',
-                      featuredPlan.paymentConfig.unitCostCurrency.withPPP
-                        .after < 1000 && 'sm:text-xl',
-                    ])}
-                    color="subtitle"
-                    size="inherit"
-                    weight="medium">
-                    <span>
-                      <PurchasePriceLabel
-                        amount={priceRoundToNearestNiceNumber(
-                          featuredPlan.paymentConfig.unitCostCurrency.withPPP
-                            .after / (featuredPlan.numberOfMonths ?? 1),
-                        )}
-                        currency={featuredPlan.paymentConfig.currency.toUpperCase()}
-                        symbol={featuredPlan.paymentConfig.symbol}>
-                        {(parts) => (
-                          <>
-                            {parts[0].value}
-                            <Text
-                              className="text-5xl font-bold tracking-tight"
-                              color="default"
-                              size="inherit"
-                              weight="inherit">
-                              <>
-                                {parts
-                                  .slice(1)
-                                  .map((part) => part.value)
-                                  .join('')}
-                              </>
-                            </Text>
-                          </>
-                        )}
-                      </PurchasePriceLabel>
-                    </span>
-                    <span>
-                      {featuredPlan.numberOfMonths != null ? (
-                        <FormattedMessage
-                          defaultMessage="/month"
-                          description="Per month"
-                          id="aE1FCD"
-                        />
-                      ) : (
-                        <FormattedMessage
-                          defaultMessage="paid once"
-                          description="Pay the price once"
-                          id="BMBc9O"
-                        />
-                      )}
-                    </span>
-                  </Text>
-                </div>
-                <Text className="mt-2 block" size="body2" weight="medium">
-                  <PricingPlanComparisonDiscount
-                    paymentConfig={featuredPlan.paymentConfig}
-                    showPPPMessage={showPPPMessage}
-                  />
-                </Text>
-                <div className="mt-6">
-                  <PricingButtonSection
-                    aria-describedby={featuredPlanId}
-                    countryCode={countryCode}
-                    paymentConfig={featuredPlan.paymentConfig}
-                    useCurrentPageAsCancelUrl={useCurrentPageAsCancelUrl}
+          <div className="flex flex-col items-start justify-between gap-4 xl:flex-row xl:items-center">
+            {showPPPMessage && (
+              <div
+                className={clsx(
+                  'flex items-center gap-2',
+                  'rounded-full',
+                  'px-2 py-1.5',
+                  'whitespace-nowrap',
+                  textVariants({ size: 'body3', weight: 'medium' }),
+                  themeGlassyBorder,
+                )}>
+                <div
+                  className={clsx(
+                    'flex items-center justify-center',
+                    'size-5',
+                    'rounded-full',
+                    themeBackgroundSuccessColor,
+                  )}>
+                  <RiDiscountPercentFill
+                    aria-hidden={true}
+                    className="size-3 text-white"
                   />
                 </div>
-                {featuredPlan.paymentConfig.allowPromoCode && (
-                  <Text className="mt-3 block" color="subtitle" size="body3">
-                    {promoMessage}
-                  </Text>
-                )}
-              </>
-            }
-            subtitle={featuredPlan.description}
-            title={
-              <div className="flex items-center gap-x-4">
-                <span id={featuredPlanId}>{featuredPlan.name}</span>
-                <Badge
-                  label={intl.formatMessage({
-                    defaultMessage: 'While offer lasts',
-                    description:
-                      'Label to indicate offer is a limited time deal',
-                    id: 'N5Cp1r',
-                  })}
-                  variant="special"
+                <FormattedMessage
+                  defaultMessage="Purchasing power party for {countryName} – {discountPercentage}% discount applied!"
+                  description="Purchasing power parity message"
+                  id="lnbicx"
+                  values={{
+                    countryName,
+                    discountPercentage: Math.ceil(
+                      100 - featuredPlan.paymentConfig.conversionFactor * 100,
+                    ),
+                  }}
                 />
               </div>
-            }
-          />
+            )}
+            <SocialDiscountAlert />
+          </div>
         </div>
-        {/* Pricing table */}
-        <div className="relative mt-10 sm:mt-20">
-          {glow && (
-            <div aria-hidden="true" className="absolute right-0 top-0 -z-10">
-              <BrandGlowBackground />
+        {/* Lifetime plan callout */}
+        <PurchaseBlockCard
+          className={
+            isDialogView ? 'lg:!block xl:!grid xl:grid-cols-3' : undefined
+          }
+          features={featuredPlan.includedFeatures}
+          rightSectionContents={
+            <>
+              <div className="flex flex-col">
+                {showPPPMessage && (
+                  <Text
+                    className={clsx(
+                      'inline-flex flex-wrap items-end text-lg line-through',
+                      featuredPlan.paymentConfig.unitCostCurrency.withPPP
+                        .after < 1000 && 'sm:text-lg',
+                    )}
+                    color="subtle"
+                    size="inherit">
+                    <PurchasePriceLabel
+                      amount={priceRoundToNearestNiceNumber(
+                        featuredPlan.paymentConfig.unitCostCurrency.base.after /
+                          (featuredPlan.numberOfMonths ?? 1),
+                      )}
+                      currency={featuredPlan.paymentConfig.currency.toUpperCase()}
+                      symbol={featuredPlan.paymentConfig.symbol}
+                    />{' '}
+                    {featuredPlan.numberOfMonths != null ? (
+                      <FormattedMessage
+                        defaultMessage="/month"
+                        description="Per month"
+                        id="aE1FCD"
+                      />
+                    ) : (
+                      <FormattedMessage
+                        defaultMessage="paid once"
+                        description="Pay the price once"
+                        id="BMBc9O"
+                      />
+                    )}
+                  </Text>
+                )}
+                <Text
+                  className={clsx('inline-flex items-end gap-x-2', [
+                    'text-md',
+                    featuredPlan.paymentConfig.unitCostCurrency.withPPP.after <
+                      1000 && 'sm:text-md',
+                  ])}
+                  color="secondary"
+                  size="inherit">
+                  <span>
+                    <PurchasePriceLabel
+                      amount={priceRoundToNearestNiceNumber(
+                        featuredPlan.paymentConfig.unitCostCurrency.withPPP
+                          .after / (featuredPlan.numberOfMonths ?? 1),
+                      )}
+                      currency={featuredPlan.paymentConfig.currency.toUpperCase()}
+                      symbol={featuredPlan.paymentConfig.symbol}>
+                      {(parts) => (
+                        <Text
+                          className={headingCVA({
+                            level: 'heading2',
+                            weight: 'medium',
+                          })}
+                          color="default"
+                          size="inherit"
+                          weight="inherit">
+                          {parts[0].value}
+                          {parts
+                            .slice(1)
+                            .map((part) => part.value)
+                            .join('')}
+                        </Text>
+                      )}
+                    </PurchasePriceLabel>
+                  </span>
+                  <span>
+                    {featuredPlan.numberOfMonths != null ? (
+                      <FormattedMessage
+                        defaultMessage="/month"
+                        description="Per month"
+                        id="aE1FCD"
+                      />
+                    ) : (
+                      <FormattedMessage
+                        defaultMessage="paid once"
+                        description="Pay the price once"
+                        id="BMBc9O"
+                      />
+                    )}
+                  </span>
+                </Text>
+              </div>
+              <Text className="mt-2 block" size="body2" weight="medium">
+                <PricingPlanComparisonDiscount
+                  paymentConfig={featuredPlan.paymentConfig}
+                  showPPPMessage={showPPPMessage}
+                />
+              </Text>
+              <div className="mt-6">
+                <PricingButtonSection
+                  aria-describedby={featuredPlanId}
+                  countryCode={countryCode}
+                  paymentConfig={featuredPlan.paymentConfig}
+                  useCurrentPageAsCancelUrl={useCurrentPageAsCancelUrl}
+                  variant="primary"
+                />
+              </div>
+            </>
+          }
+          subtitle={featuredPlan.description}
+          title={
+            <div className="flex items-center justify-between gap-x-4">
+              <span id={featuredPlanId}>{featuredPlan.name}</span>
+              <Badge
+                label={intl.formatMessage({
+                  defaultMessage: 'While offer lasts',
+                  description: 'Label to indicate offer is a limited time deal',
+                  id: 'N5Cp1r',
+                })}
+                variant="neutral-active"
+              />
             </div>
-          )}
-          <Heading className="sr-only" level="custom">
-            <FormattedMessage
-              defaultMessage="Pricing Plans"
-              description="Screen reader text referring to the Pricing Plan cards"
-              id="iElBQT"
-            />
-          </Heading>
-          <Section>
-            <div
-              className={clsx(
-                'grid grid-cols-1',
-                isDialogView ? 'xl:grid-cols-3' : 'md:grid-cols-3',
-                'mx-auto max-w-lg md:max-w-none',
-                isDialogView ? themeBackgroundColor : 'dark:bg-neutral-800/20',
-                'rounded-3xl',
-                ['divide-y md:divide-x md:divide-y-0', themeDivideColor],
-                ['border', themeBorderColor],
-              )}>
-              {planList.map(
-                ({
-                  description,
-                  numberOfMonths,
-                  paymentConfig,
-                  includedFeatures,
-                  name,
-                }) => {
-                  const id = `tier-${paymentConfig.planType}`;
+          }
+        />
+        {/* Pricing table */}
+        <Heading className="sr-only" level="custom">
+          <FormattedMessage
+            defaultMessage="Pricing Plans"
+            description="Screen reader text referring to the Pricing Plan cards"
+            id="iElBQT"
+          />
+        </Heading>
+        <Section>
+          <div
+            className={clsx(
+              'grid grid-cols-1 gap-8',
+              isDialogView ? 'xl:grid-cols-3' : 'md:grid-cols-3',
+              'mx-auto max-w-lg md:max-w-none',
+            )}>
+            {planList.map(
+              ({ numberOfMonths, paymentConfig, includedFeatures, name }) => {
+                const id = `tier-${paymentConfig.planType}`;
 
-                  return (
-                    <div
-                      key={paymentConfig.planType}
-                      className="flex flex-col gap-y-8 px-8 py-6 shadow-sm md:gap-y-16">
-                      <div className="grow md:grow-0">
-                        <div className="flex flex-wrap gap-x-3">
-                          <Heading
-                            className={clsx(
-                              'font-medium',
-                              themeTextSubtitleColor,
-                            )}
-                            id={id}
-                            level="custom">
-                            {name}
-                          </Heading>
-                          {paymentConfig.planType === 'lifetime' && (
-                            <Badge
-                              label={intl.formatMessage({
-                                defaultMessage: 'While offer lasts',
-                                description:
-                                  'Label to indicate offer is a limited time deal',
-                                id: 'N5Cp1r',
-                              })}
-                              size="sm"
-                              variant="special"
-                            />
+                return (
+                  <div
+                    key={paymentConfig.planType}
+                    className={clsx(
+                      'flex flex-col gap-y-6 px-4 py-6 shadow-sm',
+                      'rounded-xl',
+                      ['border', themeBorderColor],
+                    )}>
+                    <div className="grow md:grow-0">
+                      <div className="flex flex-wrap gap-x-3">
+                        <Heading
+                          className={clsx(
+                            textVariants({
+                              size: 'body2',
+                              weight: 'medium',
+                            }),
                           )}
-                        </div>
-                        <Section>
-                          <Text
-                            className="md:min-h-10 mt-1 block"
-                            color="secondary"
-                            size="body2">
-                            {description}
-                          </Text>
-                          <div className="mt-8">
-                            {showPPPMessage && (
-                              <Text
-                                className={clsx(
-                                  'flex items-baseline line-through',
-                                )}
-                                color="subtle"
-                                size="body1">
-                                <PurchasePriceLabel
-                                  amount={priceRoundToNearestNiceNumber(
-                                    paymentConfig.unitCostCurrency.base.after /
-                                      (numberOfMonths ?? 1),
-                                  )}
-                                  currency={paymentConfig.currency.toUpperCase()}
-                                  symbol={paymentConfig.symbol}
-                                />{' '}
-                                {numberOfMonths != null ? (
-                                  <FormattedMessage
-                                    defaultMessage="/month"
-                                    description="Per month"
-                                    id="aE1FCD"
-                                  />
-                                ) : (
-                                  <FormattedMessage
-                                    defaultMessage="paid once"
-                                    description="Pay the price once"
-                                    id="BMBc9O"
-                                  />
-                                )}
-                              </Text>
-                            )}
+                          id={id}
+                          level="custom">
+                          {name}
+                        </Heading>
+                        {paymentConfig.planType === 'lifetime' && (
+                          <Badge
+                            label={intl.formatMessage({
+                              defaultMessage: 'While offer lasts',
+                              description:
+                                'Label to indicate offer is a limited time deal',
+                              id: 'N5Cp1r',
+                            })}
+                            size="sm"
+                            variant="special"
+                          />
+                        )}
+                      </div>
+                      <Section>
+                        <div className="mt-6">
+                          {showPPPMessage && (
                             <Text
-                              className="flex items-baseline gap-x-2"
-                              color="subtitle"
-                              size="body1"
-                              weight="medium">
-                              <span>
-                                <PurchasePriceLabel
-                                  amount={priceRoundToNearestNiceNumber(
-                                    paymentConfig.unitCostCurrency.withPPP
-                                      .after / (numberOfMonths ?? 1),
-                                  )}
-                                  currency={paymentConfig.currency.toUpperCase()}
-                                  symbol={paymentConfig.symbol}>
-                                  {(parts) => (
-                                    <>
-                                      {parts[0].value}
-                                      <Text
-                                        className="text-3xl font-bold tracking-tight"
-                                        color="default"
-                                        size="inherit"
-                                        weight="inherit">
-                                        <>
-                                          {parts
-                                            .slice(1)
-                                            .map((part) => part.value)
-                                            .join('')}
-                                        </>
-                                      </Text>
-                                    </>
-                                  )}
-                                </PurchasePriceLabel>
-                              </span>
+                              className={clsx(
+                                'flex items-baseline line-through',
+                              )}
+                              color="subtle"
+                              size="body1">
+                              <PurchasePriceLabel
+                                amount={priceRoundToNearestNiceNumber(
+                                  paymentConfig.unitCostCurrency.base.after /
+                                    (numberOfMonths ?? 1),
+                                )}
+                                currency={paymentConfig.currency.toUpperCase()}
+                                symbol={paymentConfig.symbol}
+                              />{' '}
                               {numberOfMonths != null ? (
                                 <FormattedMessage
                                   defaultMessage="/month"
@@ -882,128 +794,163 @@ export default function InterviewsPricingTableSection({
                                 />
                               )}
                             </Text>
-                          </div>
+                          )}
                           <Text
-                            className={clsx(
-                              'md:min-h-8 block pt-1',
-                              paymentConfig.conversionFactor <
-                                MAXIMUM_PPP_CONVERSION_FACTOR_TO_DISPLAY_BEFORE_PRICE &&
-                                paymentConfig.planType === 'lifetime' &&
-                                'invisible',
-                            )}
-                            size="body3">
-                            <PricingPlanComparisonDiscount
-                              paymentConfig={paymentConfig}
-                              showPPPMessage={showPPPMessage}
-                            />
-                          </Text>
-                          <div className="mt-8">
-                            <PricingButtonSection
-                              aria-describedby={id}
-                              countryCode={countryCode}
-                              paymentConfig={paymentConfig}
-                              useCurrentPageAsCancelUrl={
-                                useCurrentPageAsCancelUrl
-                              }
-                            />
-                          </div>
-                          <Text
-                            className={clsx(
-                              'mt-3 block',
-                              !paymentConfig.allowPromoCode && 'invisible',
-                            )}
+                            className="flex items-baseline gap-x-2"
                             color="subtitle"
-                            size="body3">
-                            {promoMessage}
-                          </Text>
-                        </Section>
-                      </div>
-                      <Section>
-                        <Heading className="sr-only" level="custom">
-                          <FormattedMessage
-                            defaultMessage="What's Included"
-                            description="Section label for features included in a pricing plan"
-                            id="IhJAk8"
-                          />
-                        </Heading>
-                        <Section>
-                          <ul
-                            className={clsx(
-                              ['border-y', themeBorderColor],
-                              ['divide-y', themeDivideColor],
+                            size="body1"
+                            weight="medium">
+                            <span>
+                              <PurchasePriceLabel
+                                amount={priceRoundToNearestNiceNumber(
+                                  paymentConfig.unitCostCurrency.withPPP.after /
+                                    (numberOfMonths ?? 1),
+                                )}
+                                currency={paymentConfig.currency.toUpperCase()}
+                                symbol={paymentConfig.symbol}>
+                                {(parts) => (
+                                  <Text
+                                    className={headingCVA({
+                                      level: 'heading2',
+                                      weight: 'medium',
+                                    })}
+                                    color="default"
+                                    size="inherit"
+                                    weight="inherit">
+                                    <>
+                                      {parts[0].value}
+                                      {parts
+                                        .slice(1)
+                                        .map((part) => part.value)
+                                        .join('')}
+                                    </>
+                                  </Text>
+                                )}
+                              </PurchasePriceLabel>
+                            </span>
+                            {numberOfMonths != null ? (
+                              <FormattedMessage
+                                defaultMessage="/month"
+                                description="Per month"
+                                id="aE1FCD"
+                              />
+                            ) : (
+                              <FormattedMessage
+                                defaultMessage="paid once"
+                                description="Pay the price once"
+                                id="BMBc9O"
+                              />
                             )}
-                            role="list">
-                            {includedFeatures.map((feature, idx) => (
-                              <li
-                                // eslint-disable-next-line react/no-array-index-key
-                                key={idx}
-                                className="flex gap-x-3 py-3">
-                                <RiCheckLine
-                                  aria-hidden="true"
-                                  className={clsx(
-                                    'size-5 shrink-0',
-                                    themeTextBrandColor,
-                                  )}
-                                />
-                                <Text color="secondary" size="body3">
-                                  {feature}
-                                </Text>
-                              </li>
-                            ))}
-                          </ul>
-                        </Section>
+                          </Text>
+                        </div>
+                        <Text
+                          className={clsx(
+                            'md:min-h-9 block pt-1',
+                            paymentConfig.conversionFactor <
+                              MAXIMUM_PPP_CONVERSION_FACTOR_TO_DISPLAY_BEFORE_PRICE &&
+                              paymentConfig.planType === 'lifetime' &&
+                              'invisible',
+                          )}
+                          size="body3">
+                          <PricingPlanComparisonDiscount
+                            paymentConfig={paymentConfig}
+                            showPPPMessage={showPPPMessage}
+                          />
+                        </Text>
+                        <div className="mt-6">
+                          <PricingButtonSection
+                            aria-describedby={id}
+                            countryCode={countryCode}
+                            paymentConfig={paymentConfig}
+                            useCurrentPageAsCancelUrl={
+                              useCurrentPageAsCancelUrl
+                            }
+                            variant="secondary"
+                          />
+                        </div>
                       </Section>
                     </div>
-                  );
-                },
-              )}
-            </div>
-          </Section>
-          {/* Footnotes */}
-          <div className="mt-5 px-8">
-            <Text className="block" color="secondary" size="body3">
-              *{' '}
-              <FormattedMessage
-                defaultMessage="Tip: Many users have reimbursed GreatFrontEnd Interviews Premium as part of their company's flexible benefits or learning and training budget."
-                description="Tip at the bottom of the Pricing section to let users they can reimburse their purchase of GreatFrontEnd with their company's learning budgets"
-                id="FixyP6"
-              />
-            </Text>
-            <Text className="block" color="secondary" size="body3">
-              *{' '}
-              <FormattedMessage
-                defaultMessage="Prices will be increased as more content is being added to the website."
-                description="Tip at the bottom of the Pricing section to let users know that we would increase prices gradually as the content becomes more complete"
-                id="VJ8xZy"
-              />{' '}
-              <FormattedMessage
-                defaultMessage="Subscribe early to lock in this earlybird price."
-                description="Tip at the bottom of the Pricing section"
-                id="PhPw02"
-              />
-            </Text>
-            <Text className="block" color="secondary" size="body3">
-              *{' '}
-              <FormattedMessage
-                defaultMessage="Lifetime plan is a limited time offering and will be removed in future."
-                description="Tip at the bottom of the Pricing section"
-                id="bAEOVz"
-              />
-            </Text>
-            {lifetimePlan.symbol === '$' && (
-              <Text className="block" color="secondary" size="body3">
-                *{' '}
-                <FormattedMessage
-                  defaultMessage="Prices shown are in {currency}."
-                  description="Tip at the bottom of the Pricing section to clarify the currency of prices on the cards"
-                  id="jxXMtj"
-                  values={{
-                    currency: lifetimePlan.currency.toLocaleUpperCase(),
-                  }}
-                />
-              </Text>
+                    <Divider />
+                    <Section>
+                      <Heading className="sr-only" level="custom">
+                        <FormattedMessage
+                          defaultMessage="What's Included"
+                          description="Section label for features included in a pricing plan"
+                          id="IhJAk8"
+                        />
+                      </Heading>
+                      <Section>
+                        <ul className="flex flex-col gap-4" role="list">
+                          {includedFeatures.map((feature, idx) => (
+                            <li
+                              // eslint-disable-next-line react/no-array-index-key
+                              key={idx}
+                              className="flex gap-x-3">
+                              <RiCheckLine
+                                aria-hidden="true"
+                                className={clsx(
+                                  'size-5 shrink-0',
+                                  themeTextSuccessColor,
+                                )}
+                              />
+                              <Text color="secondary" size="body3">
+                                {feature}
+                              </Text>
+                            </li>
+                          ))}
+                        </ul>
+                      </Section>
+                    </Section>
+                  </div>
+                );
+              },
             )}
           </div>
+        </Section>
+        {/* Footnotes */}
+        <div className="px-8">
+          <Text className="block" color="secondary" size="body3">
+            *{' '}
+            <FormattedMessage
+              defaultMessage="Tip: Many users have reimbursed GreatFrontEnd Interviews Premium as part of their company's flexible benefits or learning and training budget."
+              description="Tip at the bottom of the Pricing section to let users they can reimburse their purchase of GreatFrontEnd with their company's learning budgets"
+              id="FixyP6"
+            />
+          </Text>
+          <Text className="block" color="secondary" size="body3">
+            *{' '}
+            <FormattedMessage
+              defaultMessage="Prices will be increased as more content is being added to the website."
+              description="Tip at the bottom of the Pricing section to let users know that we would increase prices gradually as the content becomes more complete"
+              id="VJ8xZy"
+            />{' '}
+            <FormattedMessage
+              defaultMessage="Subscribe early to lock in this earlybird price."
+              description="Tip at the bottom of the Pricing section"
+              id="PhPw02"
+            />
+          </Text>
+          <Text className="block" color="secondary" size="body3">
+            *{' '}
+            <FormattedMessage
+              defaultMessage="Lifetime plan is a limited time offering and will be removed in future."
+              description="Tip at the bottom of the Pricing section"
+              id="bAEOVz"
+            />
+          </Text>
+          {lifetimePlan.symbol === '$' && (
+            <Text className="block" color="secondary" size="body3">
+              *{' '}
+              <FormattedMessage
+                defaultMessage="Prices shown are in {currency}."
+                description="Tip at the bottom of the Pricing section to clarify the currency of prices on the cards"
+                id="jxXMtj"
+                values={{
+                  currency: lifetimePlan.currency.toLocaleUpperCase(),
+                }}
+              />
+            </Text>
+          )}
         </div>
       </div>
     </Section>

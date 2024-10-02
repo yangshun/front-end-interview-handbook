@@ -631,10 +631,6 @@
     "defaultMessage": "Your code was restored from client storage. <link>Reset to default</link>",
     "description": "Message that appears under the coding workspace when user has previously worked on this problem and we restored their code"
   },
-  "2bqhXu": {
-    "defaultMessage": "We have helped tens of thousands of Software Engineers",
-    "description": "Testimonial section heading"
-  },
   "2eIa8j": {
     "defaultMessage": "Basic general development guides, such as how to download and use an IDE, how to use tools like GitHub and Figma.",
     "description": "FAQ answer for projects platform"
@@ -3563,10 +3559,6 @@
     "defaultMessage": "Next.js, Nuxt, SvelteKit",
     "description": "Placeholder for tech stack field"
   },
-  "MCqeck": {
-    "defaultMessage": "Testimonials",
-    "description": "Testimonial section title"
-  },
   "MF21p5": {
     "defaultMessage": "System Design",
     "description": "System design questions short title"
@@ -4159,6 +4151,10 @@
     "defaultMessage": "Reference submissions",
     "description": "Reference code for projects"
   },
+  "Q/Tw/6": {
+    "defaultMessage": "Save time, ace interviews, and secure high-paying roles",
+    "description": "Title for pricing section"
+  },
   "Q0gWLB": {
     "defaultMessage": "Resubscribe",
     "description": "Button CTA to encourage upgrading"
@@ -4182,6 +4178,10 @@
   "Q7EpE5": {
     "defaultMessage": "HTML Questions",
     "description": "HTML questions category long title"
+  },
+  "Q8aXJk": {
+    "defaultMessage": "Get another <bold>{discountPercentage}% discount</bold> off by following our social accounts",
+    "description": "Rewards discount message"
   },
   "QAFkOT": {
     "defaultMessage": "No coupons available",
@@ -5414,10 +5414,6 @@
   "XysLlX": {
     "defaultMessage": "Settings",
     "description": "App settings label"
-  },
-  "Y+aWAQ": {
-    "defaultMessage": "Complete simple tasks like following our social accounts to get <bold>{discountPercentage}% discount</bold> off!",
-    "description": "Rewards discount message"
   },
   "Y2R80N": {
     "defaultMessage": "Unpin",
@@ -7551,6 +7547,10 @@
     "defaultMessage": "Quiz Questions",
     "description": "Header for quiz questions"
   },
+  "lnbicx": {
+    "defaultMessage": "Purchasing power party for {countryName} – {discountPercentage}% discount applied!",
+    "description": "Purchasing power parity message"
+  },
   "lt1xn6": {
     "defaultMessage": "Student Discount Terms and Conditions",
     "description": "Title of legal page"
@@ -7874,10 +7874,6 @@
   "oQYa8+": {
     "defaultMessage": "You have unlocked this Figma file",
     "description": "Tooltip for premium Figma file download button"
-  },
-  "oQzWOu": {
-    "defaultMessage": "For a limited time, we are offering lifetime plan for the interviews platform at {symbol}{unitCostLocalizedInCurrency}. The reward for acing your interviews could be <strong>hundreds of thousands</strong> in total compensation.",
-    "description": "Subtitle of Pricing section on Homepage or Pricing page"
   },
   "oS10TF": {
     "defaultMessage": "Follow us on GitHub",
@@ -8883,10 +8879,6 @@
     "defaultMessage": "Salesforce",
     "description": "Company name for Salesforce"
   },
-  "uzBcpK": {
-    "defaultMessage": "Invest in fuss-free, quality interview preparation",
-    "description": "Title of Pricing section of Homepage or Pricing page"
-  },
   "v2TGFl": {
     "defaultMessage": "High",
     "description": "Label for high question importance"
@@ -9142,6 +9134,10 @@
   "wkkRGq": {
     "defaultMessage": "GitHub repository or subdirectory URL",
     "description": "Form label"
+  },
+  "wm6L7K": {
+    "defaultMessage": "{count} engineers trust us with their job interviews",
+    "description": "Testimonial section title"
   },
   "wnW+2J": {
     "defaultMessage": "You have completed this track",

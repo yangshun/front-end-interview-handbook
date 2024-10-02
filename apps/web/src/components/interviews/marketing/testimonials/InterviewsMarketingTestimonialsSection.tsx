@@ -3,7 +3,6 @@ import type { ComponentProps } from 'react';
 import { RiArrowRightSLine } from 'react-icons/ri';
 
 import { FormattedMessage } from '~/components/intl';
-import MarketingSectionHeader from '~/components/marketing/MarketingSectionHeader';
 import Button from '~/components/ui/Button';
 import CardContainer from '~/components/ui/Card/CardContainer';
 import Container from '~/components/ui/Container';

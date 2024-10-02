@@ -26,13 +26,7 @@ export default function InterviewsPricingPage({
   const testimonials = useInterviewsMarketingTestimonials();
 
   return (
-    <div
-      className={clsx(
-        'flex flex-col gap-y-16 sm:gap-y-20',
-        'lg:pt-8',
-        'bg-[#070708]',
-      )}
-      data-color-scheme="dark">
+    <div className={clsx('flex flex-col gap-y-16 sm:gap-y-20')}>
       <InterviewsPurchaseCancelLogging plansPaymentConfig={plans} />
       <InterviewsPricingSection
         countryCode={countryCode}
