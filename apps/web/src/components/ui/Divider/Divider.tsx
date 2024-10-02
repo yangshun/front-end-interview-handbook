@@ -1,22 +1,36 @@
 import clsx from 'clsx';
 
-import {
-  themeBorderColor,
-  themeBorderEmphasizeColor,
-} from '~/components/ui/theme';
-
 type DividerColor = 'default' | 'emphasized';
+type DividerDirection = 'horizontal' | 'vertical';
 
 type Props = Readonly<{
   className?: string;
   color?: DividerColor;
+  direction?: DividerDirection;
 }>;
 
 const dividerColorClass: Record<DividerColor, string> = {
-  default: themeBorderColor,
-  emphasized: themeBorderEmphasizeColor,
+  default: 'bg-neutral-200 dark:bg-neutral-800',
+  emphasized: 'bg-neutral-300 dark:bg-neutral-700',
 };
 
-export default function Divider({ color = 'default', className }: Props) {
-  return <hr className={clsx(dividerColorClass[color], className)} />;
+const dividerDirectionClass: Record<DividerDirection, string> = {
+  horizontal: 'h-px w-full',
+  vertical: 'w-px',
+};
+
+export default function Divider({
+  color = 'default',
+  className,
+  direction = 'horizontal',
+}: Props) {
+  return (
+    <div
+      className={clsx(
+        dividerDirectionClass[direction],
+        dividerColorClass[color],
+        className,
+      )}
+    />
+  );
 }
