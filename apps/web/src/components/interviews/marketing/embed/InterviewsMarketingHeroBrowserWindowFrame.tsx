@@ -3,10 +3,12 @@ import type { ReactNode } from 'react';
 
 type Props = Readonly<{
   children: ReactNode;
+  className?: string;
 }>;
 
 export default function InterviewsMarketingHeroBrowserWindowFrame({
   children,
+  className,
 }: Props) {
   return (
     <div
@@ -18,6 +20,7 @@ export default function InterviewsMarketingHeroBrowserWindowFrame({
         'border-brand border',
         'shadow-glow shadow-brand/40',
         'backdrop-blur',
+        className,
       )}>
       <div
         className={clsx(

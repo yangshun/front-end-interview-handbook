@@ -1,3 +1,5 @@
+'use client';
+
 import clsx from 'clsx';
 import { useInView } from 'framer-motion';
 import dynamic from 'next/dynamic';
@@ -91,7 +93,7 @@ export default function InterviewsMarketingEmbedSection({
   const [selectedTab, setSelectedTab] = useState(tabs[0].value);
   const containerRef = useRef(null);
   const showEmbed = useInView(containerRef, {
-    amount: 'some',
+    amount: 0.5,
     once: true,
   });
 
@@ -130,7 +132,10 @@ export default function InterviewsMarketingEmbedSection({
             />
           </div>
         </div>
-        <InterviewsMarketingHeroBrowserWindowFrame>
+        <InterviewsMarketingHeroBrowserWindowFrame
+          className={clsx(
+            showEmbed ? 'animate__animated animate__flipUp' : 'flipUp--initial',
+          )}>
           <div className="lg:h-[600px]">
             {showEmbed && (
               <>
