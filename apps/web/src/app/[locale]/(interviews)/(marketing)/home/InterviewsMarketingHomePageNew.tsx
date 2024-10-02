@@ -10,6 +10,8 @@ import type {
   QuestionMetadata,
 } from '~/components/interviews/questions/common/QuestionsTypes';
 
+import InterviewsMarketingHomePageBottomContainer from './InterviewsMarketingHomePageBottomContainer';
+
 type Props = Readonly<{
   javaScriptEmbedExample: QuestionJavaScript;
   javaScriptQuestions: ReadonlyArray<QuestionMetadata>;
@@ -37,6 +39,7 @@ export default function InterviewsMarketingHomePageNew({
       <InterviewsMarketingOffersDontLieSection />
       <InterviewsMarketingPrepResourcesByBigTechEngineers />
       <InterviewsMarketingSimulateRealInterviews />
+      <InterviewsMarketingHomePageBottomContainer />
     </main>
   );
 }

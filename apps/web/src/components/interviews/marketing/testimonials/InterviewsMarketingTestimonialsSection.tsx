@@ -7,8 +7,10 @@ import MarketingSectionHeader from '~/components/marketing/MarketingSectionHeade
 import Button from '~/components/ui/Button';
 import CardContainer from '~/components/ui/Card/CardContainer';
 import Container from '~/components/ui/Container';
+import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 import Marquee from '~/components/ui/Marquee';
+import { themeGradientHeading } from '~/components/ui/theme';
 
 import type { InterviewsMarketingTestimonial } from './InterviewsMarketingTestimonialCard';
 import TestimonialCard from './InterviewsMarketingTestimonialCard';
@@ -29,41 +31,33 @@ export default function InterviewsMarketingTestimonialsSection({
   return (
     <Container
       className={clsx(
-        'max-lg:theme-bg-radial-glow',
-        'max-lg:rounded-t-3xl',
+        'px-6 py-20 lg:px-[168px]',
+        'flex flex-col gap-16',
         'isolate',
-        'py-16 sm:py-24',
       )}
       variant={containerVariant}>
-      <div className="mx-auto max-w-3xl">
-        <MarketingSectionHeader
-          heading={
-            <FormattedMessage
-              defaultMessage="We have helped tens of thousands of Software Engineers"
-              description="Testimonial section heading"
-              id="2bqhXu"
-            />
-          }
-          title={
-            <FormattedMessage
-              defaultMessage="Testimonials"
-              description="Testimonial section title"
-              id="MCqeck"
-            />
-          }
-        />
+      <div className="max-w-xl">
+        <Heading
+          className={clsx(themeGradientHeading, 'pb-1')}
+          level="heading2"
+          weight="medium">
+          <FormattedMessage
+            defaultMessage="{count} engineers trust us with their job interviews"
+            description="Testimonial section title"
+            id="wm6L7K"
+            values={{
+              count: '100k+',
+            }}
+          />
+        </Heading>
       </div>
       <Section>
-        <div
-          className={clsx(
-            'mx-auto mt-16 md:mx-0',
-            'hidden sm:mt-20 sm:flow-root',
-          )}>
+        <div className={clsx('mx-auto md:mx-0', 'hidden sm:flow-root')}>
           <CardContainer
             className={clsx(
-              '-mt-8 sm:-mx-4 sm:text-[0] md:columns-2',
-              columns === 3 && 'lg:columns-3',
-              columns === 4 && 'lg:columns-3 xl:columns-4',
+              '-mt-8 sm:-mx-3 sm:text-[0] lg:columns-2',
+              columns === 3 && 'xl:columns-3',
+              columns === 4 && 'xl:columns-3 2xl:columns-4',
             )}>
             {testimonials.map((testimonial) => (
               <div
@@ -74,7 +68,7 @@ export default function InterviewsMarketingTestimonialsSection({
             ))}
           </CardContainer>
         </div>
-        <div className="mt-12 sm:hidden">
+        <div className="sm:hidden">
           <CardContainer className="relative h-[500px]">
             <Marquee periodSeconds={300} startEndGap={24}>
               <div className="grid w-max grid-flow-col grid-rows-1 gap-6">
@@ -90,7 +84,7 @@ export default function InterviewsMarketingTestimonialsSection({
           </CardContainer>
         </div>
         {showSeeAllLink && (
-          <div className="mt-8 text-center">
+          <div className="text-center">
             <Button
               href="/interviews/testimonials"
               icon={RiArrowRightSLine}

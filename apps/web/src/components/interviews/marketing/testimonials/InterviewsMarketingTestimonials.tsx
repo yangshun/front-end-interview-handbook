@@ -246,7 +246,6 @@ export function useInterviewsMarketingTestimonialsDict() {
 
   const vali: InterviewsMarketingTestimonial = {
     anonymous: true,
-    authorThumbnailUrl: '/img/testimonials/users/vali.webp',
     authorUrl: null,
     companyLogoUrl: '/img/testimonials/company/bytedance.svg',
     createdAt: '2023-09-21',
