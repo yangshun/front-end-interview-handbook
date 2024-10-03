@@ -112,7 +112,11 @@ export default function InterviewsMarketingPrepResourcesByBigTechEngineers() {
     <Container className={clsx('flex flex-col gap-12', 'py-20')}>
       <div className="flex flex-col gap-6">
         <Heading
-          className={clsx('max-w-xl lg:max-w-3xl', themeGradientHeading)}
+          className={clsx(
+            themeGradientHeading,
+            'max-w-xl lg:max-w-3xl',
+            'pb-1',
+          )}
           level="heading2"
           weight="medium">
           <FormattedMessage
@@ -122,7 +126,7 @@ export default function InterviewsMarketingPrepResourcesByBigTechEngineers() {
           />
         </Heading>
         <Text
-          className="text-base lg:max-w-[634px] lg:text-lg"
+          className="max-w-2xl text-base lg:text-lg"
           color="secondary"
           size="inherit"
           weight="medium">

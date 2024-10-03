@@ -129,7 +129,7 @@ function CardBorder({ children }: Readonly<{ children: ReactNode }>) {
   );
 }
 
-export default function InterviewsMarketingYangshunForeword() {
+export default function InterviewsMarketingForeword() {
   return (
     <Section>
       <Container
