@@ -1,5 +1,6 @@
 'use client';
 
+import clsx from 'clsx';
 import type { Language } from 'prism-react-renderer';
 import Highlight, { defaultProps } from 'prism-react-renderer';
 import codeTheme from 'prism-react-renderer/themes/dracula';
@@ -81,6 +82,7 @@ function convertContentToCode(
 export default function MDXCodeBlock({
   children,
   showCopyButton = true,
+  showLineNumbers = true,
   renderExtraButtons,
   language = 'jsx',
   languages = {},
@@ -147,15 +149,27 @@ export default function MDXCodeBlock({
           language={selectedLanguage}
           theme={codeTheme}>
           {({ className, style, tokens, getLineProps, getTokenProps }) => (
-            <pre className={className} style={style}>
+            <pre
+              className={clsx('code-block__counter', className)}
+              style={style}>
               {tokens.map((line, index) => {
-                const { key: lineKey, ...lineProps } = getLineProps({
+                const {
+                  key: lineKey,
+                  className: lineClassName,
+                  ...lineProps
+                } = getLineProps({
                   key: index,
                   line,
                 });
 
                 return (
-                  <div key={lineKey} {...lineProps}>
+                  <div
+                    key={lineKey}
+                    className={clsx(
+                      showLineNumbers && 'code-line__counter',
+                      lineClassName,
+                    )}
+                    {...lineProps}>
                     {line.map((token, index_) => {
                       const { key: tokenKey, ...tokenProps } = getTokenProps({
                         key: index_,

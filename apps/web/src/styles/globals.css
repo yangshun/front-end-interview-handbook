@@ -135,3 +135,22 @@ a {
   backface-visibility: visible !important;
   animation-name: flipUp;
 }
+
+.code-block__counter {
+  counter-reset: line;
+}
+
+.code-line__counter::before {
+  counter-increment: line;
+  content: counter(line);
+  display: inline-block;
+  width: 16px;
+  text-align: right;
+  color: #a1a1aa;
+  margin-right: 20px;
+
+  -moz-user-select: none;
+  user-select: none;
+  -webkit-user-select: none;
+  flex-shrink: 0;
+}
