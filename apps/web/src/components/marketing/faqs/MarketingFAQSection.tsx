@@ -15,6 +15,7 @@ import Section from '~/components/ui/Heading/HeadingContext';
 import Prose from '~/components/ui/Prose';
 
 type Props = Readonly<{
+  accordionTriggerClassName?: string;
   faqs: FAQItems;
   hideTitle?: boolean;
   title: string;
@@ -24,6 +25,7 @@ export default function MarketingFAQSection({
   faqs,
   title,
   hideTitle = false,
+  accordionTriggerClassName,
 }: Props) {
   return (
     <div className="flex flex-col gap-y-2">
@@ -34,7 +36,9 @@ export default function MarketingFAQSection({
         <Accordion type="multiple">
           {faqs.map((faq) => (
             <AccordionItem key={faq.key} value={faq.key}>
-              <AccordionTrigger>{faq.question}</AccordionTrigger>
+              <AccordionTrigger className={accordionTriggerClassName}>
+                {faq.question}
+              </AccordionTrigger>
               <AccordionContent>
                 <Prose className="prose-sm sm:prose-base">{faq.answer}</Prose>
               </AccordionContent>

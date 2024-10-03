@@ -1,6 +1,19 @@
 import clsx from 'clsx';
+import { RiArrowRightLine } from 'react-icons/ri';
 
-import { FormattedMessage } from '~/components/intl';
+import type { FAQItems } from '~/data/faqs/FAQs';
+import {
+  generalBuying,
+  generalFreeUpdates,
+  generalSeniority,
+  generalTarget,
+  generalUnique,
+  generalWhatsIncluded,
+  generalWorthIt,
+} from '~/data/faqs/InterviewsGeneralFAQs';
+
+import { FormattedMessage, useIntl } from '~/components/intl';
+import MarketingFAQSection from '~/components/marketing/faqs/MarketingFAQSection';
 import Anchor from '~/components/ui/Anchor';
 import Container from '~/components/ui/Container';
 import Heading from '~/components/ui/Heading';
@@ -8,7 +21,19 @@ import Section from '~/components/ui/Heading/HeadingContext';
 import Text from '~/components/ui/Text';
 import { themeGradientHeading } from '~/components/ui/theme';
 
+const generalFaqs: FAQItems = [
+  generalTarget,
+  generalBuying,
+  generalUnique,
+  generalWhatsIncluded,
+  generalFreeUpdates,
+  generalWorthIt,
+  generalSeniority,
+];
+
 export default function InterviewsMarketingFAQSection() {
+  const intl = useIntl();
+
   return (
     <Container className={clsx('py-20')}>
       <Heading
@@ -44,11 +69,28 @@ export default function InterviewsMarketingFAQSection() {
             id="yiXkEL"
             values={{
               link: (chunks) => (
-                <Anchor href="/interviews/faq">{chunks}</Anchor>
+                <Anchor
+                  className="inline-flex items-center gap-1"
+                  href="/interviews/faq">
+                  {chunks} <RiArrowRightLine className="size-4.5 shrink-0" />
+                </Anchor>
               ),
             }}
           />
         </Text>
+
+        <div className="mt-16">
+          <MarketingFAQSection
+            accordionTriggerClassName="py-8"
+            faqs={generalFaqs}
+            hideTitle={true}
+            title={intl.formatMessage({
+              defaultMessage: 'General',
+              description: 'Title for FAQ section',
+              id: 'FRg+qa',
+            })}
+          />
+        </div>
       </Section>
     </Container>
   );
