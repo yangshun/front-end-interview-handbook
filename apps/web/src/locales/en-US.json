@@ -651,6 +651,10 @@
     "defaultMessage": "Popularity: Most to least upvotes",
     "description": "Sorting option for submissions list - popularity"
   },
+  "2vJhW9": {
+    "defaultMessage": "We have questions in every critical topic, interview format and framework / language. Every question comes with solutions and test cases.",
+    "description": "Subtitle for marketing page section"
+  },
   "2w8GaX": {
     "defaultMessage": "Claim {discountPercentage}% off all plans by completing simple social tasks!",
     "description": "Title for rewards page"
@@ -1311,6 +1315,10 @@
     "defaultMessage": "Evaluation axes",
     "description": "Evaluation axes in front end system design interviews"
   },
+  "7UW/T/": {
+    "defaultMessage": "Leverage insider tips from leading companies",
+    "description": "Title for marketing page section"
+  },
   "7VXf2Y": {
     "defaultMessage": "Roadmap",
     "description": "Link to roadmap page"
@@ -1635,6 +1643,10 @@
     "defaultMessage": "Practice form-related interview questions on form components, validation, and submission handling. Code in-browser with solutions from ex-interviewers.",
     "description": "Description for interview preparation focus area"
   },
+  "9kkbE6": {
+    "defaultMessage": "A simple yet comprehensive plan to follow",
+    "description": "Title for marketing page study plans section"
+  },
   "9n2L5+": {
     "defaultMessage": "Front End Quiz Interview Questions | GreatFrontEnd",
     "description": "Social title for quiz question format page"
@@ -1810,6 +1822,10 @@
   "AzJz7v": {
     "defaultMessage": "Menu",
     "description": "Project guide navigation menu button label"
+  },
+  "B1eds8": {
+    "defaultMessage": "Front end interviews are even broader in scope than traditional software engineering interviews. On top of the wide range of front-end topics that could be asked, some companies still include standard DSA questions for front-end roles.",
+    "description": "Subtitle for marketing page study plans section"
   },
   "B2171J": {
     "defaultMessage": "Download design assets",
@@ -3091,6 +3107,10 @@
     "defaultMessage": "You have <bold>unlimited premium credits</bold>. Unlock this challenge to learn from user submissions for premium challenges.",
     "description": "Subtitle for project paywall"
   },
+  "JV1NXV": {
+    "defaultMessage": "Test your code automatically with a single click",
+    "description": "Title for marketing page section"
+  },
   "JWwqmr": {
     "defaultMessage": "{tagName} | Blog",
     "description": "Title of GreatFrontEnd blog tag page"
@@ -3398,6 +3418,10 @@
   "LKILl5": {
     "defaultMessage": "Submission successfully unpinned!",
     "description": "Submission unpin toaster"
+  },
+  "LMI4bA": {
+    "defaultMessage": "Every question answered by ex-interviewers",
+    "description": "Title for marketing page section"
   },
   "LNBK2M": {
     "defaultMessage": "Our services are unavailable at your location.",
@@ -4199,6 +4223,10 @@
     "defaultMessage": "Front end system design resources are virtually non-existent. This is the only place you'll find in-depth solutions for front end system design questions along with our proven answering framework.",
     "description": "Subtitle for an example list of User Interface Questions on marketing pages"
   },
+  "QJTIr/": {
+    "defaultMessage": "Can't find the answer you are looking for?",
+    "description": "Marketing page section subtitle"
+  },
   "QJUTsK": {
     "defaultMessage": "GFE75 | GreatFrontEnd",
     "description": "OG title of GFE75 page"
@@ -4438,6 +4466,10 @@
   "Rbapby": {
     "defaultMessage": "What's new | Blog",
     "description": "Title of GreatFrontEnd blog what's new page"
+  },
+  "RdVD3x": {
+    "defaultMessage": "Don't hesitate to reach out. We're always here to help.",
+    "description": "Title for marketing page section"
   },
   "Rdi3ic": {
     "defaultMessage": "Activity",
@@ -4795,6 +4827,10 @@
     "defaultMessage": "This URL is invalid. Check if you've typed it correctly.",
     "description": "Error message"
   },
+  "TpWg4H": {
+    "defaultMessage": "Have questions, feedback or anything to say? Contact us. We usually get back within a day or two.",
+    "description": "Marketing page section subtitle"
+  },
   "Tt86gs": {
     "defaultMessage": "Importance: High to Low",
     "description": "Sorting option for question list - sort by importance from high to low"
@@ -5146,6 +5182,10 @@
   "WDJgWl": {
     "defaultMessage": "Questions",
     "description": "Front end system design interviews questions"
+  },
+  "WEDD1f": {
+    "defaultMessage": "View full list",
+    "description": "Label for view companies button in homepage"
   },
   "WEMJz4": {
     "defaultMessage": "Subscribe to premium to learn from user submissions for premium challenges.",
@@ -6095,6 +6135,10 @@
     "defaultMessage": "Prepare for front end interviews with a vast question bank covering every format and popular frameworks/languages. Includes solutions and tests from ex-interviewers.",
     "description": "Page description for focus areas listing"
   },
+  "cOyhbp": {
+    "defaultMessage": "Your commonly asked questions, answered",
+    "description": "Title for marketing page section"
+  },
   "cPeTVK": {
     "defaultMessage": "You asked <recipientProfileLink>{recipient}</recipientProfileLink> a question on their submission <link>{submissionTitle}</link>: <comment>\"{description}\"</comment>",
     "description": "Log message for you asking question on others submission"
@@ -6615,6 +6659,10 @@
     "defaultMessage": "Front End System Design Interview Questions | GreatFrontEnd",
     "description": "Social title for System design question format page"
   },
+  "fr4Vl4": {
+    "defaultMessage": "Polish your answers with a comprehensive test suite that covers all the important edge cases that interviewers will look out for.",
+    "description": "Marketing page section subtitle"
+  },
   "frl+Af": {
     "defaultMessage": "Prev",
     "description": "Label for button leading to the previous page"
@@ -6718,6 +6766,10 @@
   "gTOYrn": {
     "defaultMessage": "With extra time, continue working on the lists below depending on your needs!",
     "description": "Label for more learning section"
+  },
+  "gU6oac": {
+    "defaultMessage": "See all testimonials",
+    "description": "Label for view all testimonials button in homepage"
   },
   "gWoDz/": {
     "defaultMessage": "Practice Vue Interview Questions with Solutions",
@@ -7066,6 +7118,10 @@
   "jGQnYd": {
     "defaultMessage": "Search coding questions",
     "description": "Placeholder for search input of coding question list"
+  },
+  "jGbCXt": {
+    "defaultMessage": "Referencing good solutions is crucial to learning effectively. We've written our solutions with special care to include practical considerations and multiple approaches.",
+    "description": "Marketing page section subtitle"
   },
   "jIpLwU": {
     "defaultMessage": "Resume",
@@ -7843,6 +7899,10 @@
     "defaultMessage": "Front end interview questions",
     "description": "Title of all practice questions page"
   },
+  "oAPvOw": {
+    "defaultMessage": "We’ve condensed everything info a simple strategy you can use to conquer essential interview patterns.",
+    "description": "Subtitle for marketing page study plans section"
+  },
   "oAUXEp": {
     "defaultMessage": "Beautiful designs made by high-end designers",
     "description": "Title of 'Beautiful designs made by high-end designers' feature in Projects marketing page"
@@ -8486,6 +8546,10 @@
   "sbXDK4": {
     "defaultMessage": "Something went wrong",
     "description": "Error message"
+  },
+  "scZfxP": {
+    "defaultMessage": "A practice question bank with everything you'd ever need",
+    "description": "Title for marketing page section"
   },
   "sfJ1Oa": {
     "defaultMessage": "Purchase premium to get access to all component tracks as well as exclusive skills, official how-to guides and production-ready Figma files.",
@@ -9375,6 +9439,10 @@
     "defaultMessage": "Images, style guides, design files",
     "description": "Title of 'Images, style guides, design files' sub-feature in Projects marketing page"
   },
+  "yiXkEL": {
+    "defaultMessage": "View all <link>frequently asked questions</link>",
+    "description": "Marketing page section subtitle"
+  },
   "yjjdMB": {
     "defaultMessage": "Marked \"{articleTitle}\" as not completed",
     "description": "Success message for marking a question as not completed"
@@ -9446,6 +9514,10 @@
   "z7U2cl": {
     "defaultMessage": "Name must contain at most {maxLength} character(s).",
     "description": "Error message when display name is too long"
+  },
+  "z9lq1x": {
+    "defaultMessage": "Practicing company-specific questions is the quickest way to ace specific interviews. We regularly survey and update lists for known questions tested in top companies around the world.",
+    "description": "Marketing page section subtitle"
   },
   "zACRRV": {
     "defaultMessage": "Please enter your motivations",

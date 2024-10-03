@@ -1,3 +1,5 @@
+import type { InterviewsCompanyGuide } from 'contentlayer/generated';
+
 import InterviewsMarketingEmbedSection from '~/components/interviews/marketing/embed/InterviewsMarketingEmbedSection';
 import type { EmbedUIQuestion } from '~/components/interviews/marketing/embed/InterviewsMarketingEmbedUIQuestion';
 import InterviewsMarketingForeword from '~/components/interviews/marketing/InterviewsMarketingForeword';
@@ -15,6 +17,7 @@ import Section from '~/components/ui/Heading/HeadingContext';
 import InterviewsMarketingHomePageBottomContainer from './InterviewsMarketingHomePageBottomContainer';
 
 type Props = Readonly<{
+  companyGuides: ReadonlyArray<InterviewsCompanyGuide>;
   javaScriptEmbedExample: QuestionJavaScript;
   javaScriptQuestions: ReadonlyArray<QuestionMetadata>;
   quizQuestions: ReadonlyArray<QuestionMetadata>;
@@ -28,6 +31,7 @@ export default function InterviewsMarketingHomePageNew({
   javaScriptEmbedExample,
   javaScriptQuestions,
   userInterfaceQuestions,
+  companyGuides,
 }: Props) {
   return (
     <main>
@@ -46,7 +50,9 @@ export default function InterviewsMarketingHomePageNew({
         <InterviewsMarketingPrepResourcesByBigTechEngineers />
         <InterviewsMarketingPlansSection />
         <InterviewsMarketingSimulateRealInterviews />
-        <InterviewsMarketingHomePageBottomContainer />
+        <InterviewsMarketingHomePageBottomContainer
+          companyGuides={companyGuides}
+        />
       </Section>
     </main>
   );

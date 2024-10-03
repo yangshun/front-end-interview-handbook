@@ -1,3 +1,5 @@
+import type { InterviewsCompanyGuide } from 'contentlayer/generated';
+
 import { useUserProfile } from '~/components/global/UserProfileProvider';
 import InterviewsMarketingCompaniesSection from '~/components/interviews/marketing/InterviewsMarketingCompaniesSection';
 import InterviewsMarketingContactSection from '~/components/interviews/marketing/InterviewsMarketingContactSection';
@@ -9,7 +11,13 @@ import InterviewsMarketingTestimonialsSection from '~/components/interviews/mark
 import { useInterviewsMarketingTestimonials } from '~/components/interviews/marketing/testimonials/useInterviewsMarketingTestimonials';
 import InterviewsPricingSectionLocalizedContainer from '~/components/interviews/purchase/InterviewsPricingSectionLocalizedContainer';
 
-export default function InterviewsMarketingHomePageBottomNew() {
+type Props = Readonly<{
+  companyGuides: ReadonlyArray<InterviewsCompanyGuide>;
+}>;
+
+export default function InterviewsMarketingHomePageBottomNew({
+  companyGuides,
+}: Props) {
   const { userProfile } = useUserProfile();
   const testimonials = useInterviewsMarketingTestimonials();
 
@@ -18,7 +26,7 @@ export default function InterviewsMarketingHomePageBottomNew() {
       <InterviewsMarketingPracticeQuestionBankSection />
       <InterviewsMarketingSolutionsByExInterviewersSection />
       <InterviewsMarketingTestCodeSection />
-      <InterviewsMarketingCompaniesSection />
+      <InterviewsMarketingCompaniesSection companyGuides={companyGuides} />
       {!(
         userProfile?.isInterviewsPremium && userProfile?.plan === 'lifetime'
       ) && <InterviewsPricingSectionLocalizedContainer />}

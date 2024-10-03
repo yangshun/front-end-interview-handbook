@@ -1,13 +1,28 @@
 import clsx from 'clsx';
+import type { InterviewsCompanyGuide } from 'contentlayer/generated';
+import { RiArrowRightLine } from 'react-icons/ri';
 
-import { FormattedMessage } from '~/components/intl';
+import { InterviewsCompanyGuideCard } from '~/components/interviews/company/InterviewsCompanyGuideCard';
+import { FormattedMessage, useIntl } from '~/components/intl';
+import Button from '~/components/ui/Button';
 import Container from '~/components/ui/Container';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 import Text from '~/components/ui/Text';
-import { themeGradientHeading } from '~/components/ui/theme';
+import {
+  themeBackgroundCardColor,
+  themeGradientHeading,
+} from '~/components/ui/theme';
 
-export default function InterviewsMarketingCompaniesSection() {
+type Props = Readonly<{
+  companyGuides: ReadonlyArray<InterviewsCompanyGuide>;
+}>;
+
+export default function InterviewsMarketingCompaniesSection({
+  companyGuides,
+}: Props) {
+  const intl = useIntl();
+
   return (
     <Container className={clsx('py-20')}>
       <Heading
@@ -32,6 +47,37 @@ export default function InterviewsMarketingCompaniesSection() {
             id="z9lq1x"
           />
         </Text>
+
+        <div className={clsx('mt-16', 'flex flex-col items-center gap-8')}>
+          <div
+            className={clsx(
+              'grid w-full gap-x-5 gap-y-4 md:grid-cols-2 lg:grid-cols-3',
+            )}>
+            {companyGuides.slice(0, 9).map((companyGuide) => {
+              return (
+                <InterviewsCompanyGuideCard
+                  key={companyGuide.slug}
+                  bgClassName={themeBackgroundCardColor}
+                  companyGuide={companyGuide}
+                  completionCount={0}
+                  isStarted={false}
+                />
+              );
+            })}
+          </div>
+
+          <Button
+            href="/interviews/company"
+            icon={RiArrowRightLine}
+            label={intl.formatMessage({
+              defaultMessage: 'View full list',
+              description: 'Label for view companies button in homepage',
+              id: 'WEDD1f',
+            })}
+            size="md"
+            variant="secondary"
+          />
+        </div>
       </Section>
     </Container>
   );

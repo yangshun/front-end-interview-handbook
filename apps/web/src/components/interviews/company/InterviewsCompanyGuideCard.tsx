@@ -22,6 +22,7 @@ import CompletionCountSummary from '../questions/listings/stats/CompletionCountS
 import QuestionCountLabel from '../questions/metadata/QuestionCountLabel';
 
 type Props = Readonly<{
+  bgClassName?: string;
   companyGuide: InterviewsCompanyGuide;
   completionCount?: number;
   isStarted?: boolean;
@@ -31,6 +32,7 @@ export function InterviewsCompanyGuideCard({
   companyGuide,
   isStarted = false,
   completionCount = 0,
+  bgClassName = themeBackgroundCardWhiteOnLightColor,
 }: Props) {
   const intl = useIntl();
   const questionFormatLists = useQuestionUserFacingFormatData();
@@ -53,13 +55,12 @@ export function InterviewsCompanyGuideCard({
   return (
     <div
       className={clsx(
-        'flex-2 group relative flex items-center gap-6',
-        'rounded-lg px-6 py-5',
-        themeBackgroundCardWhiteOnLightColor,
-        'hover:bg-neutral-50 dark:hover:bg-neutral-800/80',
+        'group relative flex items-center gap-6',
+        'rounded-lg px-6 py-4',
         'transition',
         ['border', themeBorderElementColor],
         'isolate',
+        bgClassName,
       )}>
       <div className="flex flex-grow items-center gap-4 self-stretch">
         <div

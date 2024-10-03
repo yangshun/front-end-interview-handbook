@@ -7,6 +7,7 @@ import type { EmbedUIQuestion } from '~/components/interviews/marketing/embed/In
 import { sortQuestions } from '~/components/interviews/questions/listings/filters/QuestionsProcessor';
 import { QuestionCount } from '~/components/interviews/questions/listings/stats/QuestionCount';
 
+import { fetchInterviewsCompanyGuides } from '~/db/contentlayer/InterviewsCompanyGuideReader';
 import {
   readQuestionJavaScriptContents,
   readQuestionUserInterface,
@@ -116,15 +117,22 @@ export default async function Page({ params }: Props) {
     { questions: javaScriptQuestions },
     { questions: userInterfaceQuestions },
     { questions: systemDesignQuestions },
+    companyGuides,
   ] = await Promise.all([
     fetchQuestionsListQuiz(locale),
     fetchQuestionsListJavaScript(locale),
     fetchQuestionsListUserInterface(locale),
     fetchQuestionsListSystemDesign(locale),
+    fetchInterviewsCompanyGuides(),
   ]);
+
+  const sortedGuides = companyGuides
+    .slice()
+    .sort((a, b) => a.ranking - b.ranking);
 
   return (
     <InterviewsMarketingHomePageNew
+      companyGuides={sortedGuides}
       javaScriptEmbedExample={{
         ...javaScriptEmbedExample,
         skeleton: {

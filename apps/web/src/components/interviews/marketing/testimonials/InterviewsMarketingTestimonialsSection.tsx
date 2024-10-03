@@ -1,8 +1,8 @@
 import clsx from 'clsx';
 import type { ComponentProps } from 'react';
-import { RiArrowRightSLine } from 'react-icons/ri';
+import { RiArrowRightLine } from 'react-icons/ri';
 
-import { FormattedMessage } from '~/components/intl';
+import { FormattedMessage, useIntl } from '~/components/intl';
 import Button from '~/components/ui/Button';
 import CardContainer from '~/components/ui/Card/CardContainer';
 import Container from '~/components/ui/Container';
@@ -27,6 +27,8 @@ export default function InterviewsMarketingTestimonialsSection({
   showSeeAllLink = true,
   testimonials,
 }: Props) {
+  const intl = useIntl();
+
   return (
     <Container
       className={clsx('flex flex-col gap-16', 'py-20', 'isolate')}
@@ -82,8 +84,13 @@ export default function InterviewsMarketingTestimonialsSection({
           <div className="text-center">
             <Button
               href="/interviews/testimonials"
-              icon={RiArrowRightSLine}
-              label="See all testimonials"
+              icon={RiArrowRightLine}
+              label={intl.formatMessage({
+                defaultMessage: 'See all testimonials',
+                description:
+                  'Label for view all testimonials button in homepage',
+                id: 'gU6oac',
+              })}
               size="md"
               variant="secondary"
             />
