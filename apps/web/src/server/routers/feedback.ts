@@ -7,12 +7,13 @@ export const feedbackRouter = router({
   submitFeedback: publicProcedure
     .input(
       z.object({
+        email: z.string().email('Email is invalid').optional(),
         message: z
           .string()
           .min(10, 'Message must contain at least 10 characters.'),
       }),
     )
-    .mutation(async ({ input: { message }, ctx: { viewer, req } }) => {
+    .mutation(async ({ input: { message, email }, ctx: { viewer, req } }) => {
       const feedbackMessage = await prisma.feedbackMessage.create({
         data: {
           message,
@@ -20,7 +21,7 @@ export const feedbackRouter = router({
             country: req.cookies.country,
             referer: req.headers.referer ?? null,
           },
-          userEmail: viewer?.email,
+          userEmail: email ?? viewer?.email,
         },
       });
 

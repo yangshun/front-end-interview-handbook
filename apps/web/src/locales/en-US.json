@@ -763,6 +763,10 @@
     "defaultMessage": "Page name must contain at least {minLength} character(s).",
     "description": "Error message"
   },
+  "3gL2Vm": {
+    "defaultMessage": "Join Reddit community",
+    "description": "Label for join reddit"
+  },
   "3i5xK8": {
     "defaultMessage": "Large question bank",
     "description": "Title of the 'Practice Everything Here' marketing section on Homepage"
@@ -1026,6 +1030,10 @@
   "5rd3TN": {
     "defaultMessage": "Companies",
     "description": "Companies section label"
+  },
+  "5sqnTc": {
+    "defaultMessage": "Follow us on GitHub",
+    "description": "Label for join github"
   },
   "5t66sB": {
     "defaultMessage": "User submission for premium challenge",
@@ -2743,6 +2751,10 @@
     "defaultMessage": "Are you sure you want to terminate this session? You will be able to restart the project anytime.",
     "description": "Content for end project session dialog"
   },
+  "H6ueSi": {
+    "defaultMessage": "Please contact support at <link>support@greatfrontend.com</link>. Including logs and screenshots will help us resolve the issue.",
+    "description": "Error toast description for message sent"
+  },
   "H94EnK": {
     "defaultMessage": "<strong>Note</strong>: We have some basic policies on affiliate conduct. Please read the agreement carefully in the sign up process.",
     "description": "Tip at the bottom of the 'How does it work' section on the 'Become an Affiliate' page to highlight the affiliate agreement"
@@ -3058,6 +3070,10 @@
   "JCAJF/": {
     "defaultMessage": "Practice Front End Algorithmic Coding Interview Questions",
     "description": "SEO title for algo coding question format page"
+  },
+  "JEQ/x0": {
+    "defaultMessage": "Send message",
+    "description": "Label for contact form send message button"
   },
   "JGfGOf": {
     "defaultMessage": "Answering \"Tell me about yourself\"",
@@ -3947,6 +3963,10 @@
     "defaultMessage": "Coupons",
     "description": "Profile settings tab title"
   },
+  "OqWIj+": {
+    "defaultMessage": "Message",
+    "description": "Label for message field for contact form"
+  },
   "OrN/z/": {
     "defaultMessage": "Share your questions or thoughts",
     "description": "Placeholder for discussion post input text area"
@@ -3962,6 +3982,10 @@
   "Ou1LIp": {
     "defaultMessage": "Marked question as completed",
     "description": "Success message shown when a question was marked as complete"
+  },
+  "Ov/A49": {
+    "defaultMessage": "If you'd like a reply, please provide your email address.",
+    "description": "Description for email field for contact form"
   },
   "Ow7Mov": {
     "defaultMessage": "Solutions & test from ex-interviewers",
@@ -6151,6 +6175,10 @@
     "defaultMessage": "You asked <recipientProfileLink>{recipient}</recipientProfileLink> a question on their submission <link>{submissionTitle}</link>: <comment>\"{description}\"</comment>",
     "description": "Log message for you asking question on others submission"
   },
+  "cT2Qw6": {
+    "defaultMessage": "This is our public Discord channel for community discussions. We also have a more active private Discord (available to premium members only) for real-time support and for serious job seekers to connect.",
+    "description": "Description for join discord"
+  },
   "cWKGyh": {
     "defaultMessage": "You have just gained {points} rep for completing the project! 🔥",
     "description": "Success message after submitting a project"
@@ -6611,6 +6639,10 @@
     "defaultMessage": "Nightmare",
     "description": "Nightmare blog"
   },
+  "faBBCJ": {
+    "defaultMessage": "We aim to get back to you in 3-5 days",
+    "description": "Success toast description for message sent"
+  },
   "fcKx8Z": {
     "defaultMessage": "Advanced",
     "description": "Advanced blog"
@@ -7058,6 +7090,10 @@
   "iIQL6V": {
     "defaultMessage": "Completed",
     "description": "Label indicating that the question has been completed"
+  },
+  "iK49R5": {
+    "defaultMessage": "Email (optional)",
+    "description": "Label for email field for contact form"
   },
   "iLx/BQ": {
     "defaultMessage": "Amazon",
@@ -8343,6 +8379,10 @@
     "defaultMessage": "Know where to find important info",
     "description": "Label for \"Know where to find important info\" step in dialog on Projects project page"
   },
+  "qv5NJ8": {
+    "defaultMessage": "Feedback submitted successfully",
+    "description": "Success toast title for message sent"
+  },
   "qvT5Mx": {
     "defaultMessage": "Algo coding",
     "description": "Data structures and algorithm questions"
@@ -8558,6 +8598,10 @@
   "saFHOR": {
     "defaultMessage": "Learn new skills, improve your techniques and stay updated on latest front end trends and developments.",
     "description": "Description of GreatFrontEnd blog homepage"
+  },
+  "saKoIy": {
+    "defaultMessage": "Join Discord (public)",
+    "description": "Label for join discord"
   },
   "sbXDK4": {
     "defaultMessage": "Something went wrong",
