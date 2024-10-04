@@ -1,5 +1,6 @@
 'use client';
 
+import { INTERVIEWS_REVAMP_2024 } from '~/data/FeatureFlags';
 import { useGuidesData } from '~/data/Guides';
 import { useQuestionUserFacingFormatData } from '~/data/QuestionFormats';
 
@@ -7,6 +8,7 @@ import { useIntl } from '~/components/intl';
 
 import type { FooterNavigation } from '../../global/footers/Footer';
 import Footer from '../../global/footers/Footer';
+import FooterNew from '../../global/footers/FooterNew';
 
 function useFooterNavigation() {
   const intl = useIntl();
@@ -203,5 +205,9 @@ function useFooterNavigation() {
 export default function InterviewsFooter() {
   const navigation = useFooterNavigation();
 
-  return <Footer navigation={navigation} />;
+  return INTERVIEWS_REVAMP_2024 ? (
+    <FooterNew navigation={navigation} />
+  ) : (
+    <Footer navigation={navigation} />
+  );
 }

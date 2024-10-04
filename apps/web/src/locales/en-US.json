@@ -5371,6 +5371,10 @@
     "defaultMessage": "Become an Affiliate",
     "description": "Link to affiliate marketing program page"
   },
+  "XTQvzh": {
+    "defaultMessage": "Subscribe to our newsletter",
+    "description": "Title for subscribe newsletter"
+  },
   "XVCsHH": {
     "defaultMessage": "Download this Figma file (<code>.fig</code>) and open it using the <link>Figma desktop app</link> or the <link2>Figma website</link2>.",
     "description": "Download a premium Figma file"
@@ -5766,6 +5770,10 @@
   "aHGdFm": {
     "defaultMessage": "{current}/{total} completed",
     "description": "Label for Projects segmented progress bar"
+  },
+  "aI9TsY": {
+    "defaultMessage": "Enter your email",
+    "description": "Placeholder for email field for subscribe newsletter"
   },
   "aICrh0": {
     "defaultMessage": "Challenge walkthrough",
@@ -6730,6 +6738,10 @@
   "gDAVYm": {
     "defaultMessage": "Report an issue",
     "description": "Tooltip for button to report an issue"
+  },
+  "gFyu0d": {
+    "defaultMessage": "Email",
+    "description": "Label for email field for subscribe newsletter"
   },
   "gHIBZl": {
     "defaultMessage": "Our platform is built to support community-driven development",
@@ -7834,6 +7846,10 @@
   "nhMxxN": {
     "defaultMessage": "End-to-end guide",
     "description": "Features for frontend interviews playbook page"
+  },
+  "nhNfxq": {
+    "defaultMessage": "Notify me",
+    "description": "Label for notify me button for subscribe newsletter"
   },
   "nivf5h": {
     "defaultMessage": "General",
