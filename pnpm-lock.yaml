@@ -473,8 +473,8 @@ importers:
         specifier: ^3.2.5
         version: 3.2.5(prettier@3.3.2)(svelte@4.2.18)
       prism-react-renderer:
-        specifier: ^1.3.5
-        version: 1.3.5(react@18.2.0)
+        specifier: ^2.4.0
+        version: 2.4.0(react@18.2.0)
       prisma:
         specifier: 5.7.0
         version: 5.7.0
@@ -6991,6 +6991,10 @@ packages:
 
   /@types/picomatch@2.3.3:
     resolution: {integrity: sha512-Yll76ZHikRFCyz/pffKGjrCwe/le2CDwOP5F210KQo27kpRE46U2rDnzikNlVn6/ezH3Mhn46bJMTfeVTtcYMg==}
+    dev: false
+
+  /@types/prismjs@1.26.4:
+    resolution: {integrity: sha512-rlAnzkW2sZOjbqZ743IHUhFcvzaGbqijwOu8QZnZCjfQzBqFE3s4lOTJEsxikImav9uzz/42I+O7YUs1mWgMlg==}
     dev: false
 
   /@types/prop-types@15.7.11:
@@ -14321,11 +14325,13 @@ packages:
       js-beautify: 1.14.11
     dev: false
 
-  /prism-react-renderer@1.3.5(react@18.2.0):
-    resolution: {integrity: sha512-IJ+MSwBWKG+SM3b2SUfdrhC+gu01QkV2KmRQgREThBfSQRoufqRfxfHUxpG1WcaFjP+kojcFyO9Qqtpgt3qLCg==}
+  /prism-react-renderer@2.4.0(react@18.2.0):
+    resolution: {integrity: sha512-327BsVCD/unU4CNLZTWVHyUHKnsqcvj2qbPlQ8MiBE2eq2rgctjigPA1Gp9HLF83kZ20zNN6jgizHJeEsyFYOw==}
     peerDependencies:
-      react: '>=0.14.9'
+      react: '>=16.0.0'
     dependencies:
+      '@types/prismjs': 1.26.4
+      clsx: 2.1.1
       react: 18.2.0
     dev: false
 

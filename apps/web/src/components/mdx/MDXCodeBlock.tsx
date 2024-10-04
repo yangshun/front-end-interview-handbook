@@ -2,8 +2,7 @@
 
 import clsx from 'clsx';
 import type { Language } from 'prism-react-renderer';
-import Highlight, { defaultProps } from 'prism-react-renderer';
-import codeTheme from 'prism-react-renderer/themes/dracula';
+import { Highlight, themes } from 'prism-react-renderer';
 import type { ComponentProps, ReactElement, ReactNode } from 'react';
 import { useState } from 'react';
 import { RiCheckLine, RiFileCopyLine } from 'react-icons/ri';
@@ -12,8 +11,7 @@ import useCopyToClipboardWithRevert from '~/hooks/useCopyToClipboardWithRevert';
 import useHoverState from '~/hooks/useHoverState';
 
 import Button from '~/components/ui/Button';
-
-import TabsUnderline from '../ui/Tabs/TabsUnderline';
+import TabsUnderline from '~/components/ui/Tabs/TabsUnderline';
 
 type LanguagesCode = Partial<Record<Language, React.ReactNode>>;
 type LanguagesLabels = Partial<Record<Language, string>>;
@@ -145,10 +143,9 @@ export default function MDXCodeBlock({
           </div>
         )}
         <Highlight
-          {...defaultProps}
           code={selectedCode.trim()}
           language={selectedLanguage}
-          theme={codeTheme}>
+          theme={themes.dracula}>
           {({ className, style, tokens, getLineProps, getTokenProps }) => (
             <pre
               className={clsx(
@@ -163,30 +160,33 @@ export default function MDXCodeBlock({
                 '--code-color': style.color,
               }}>
               {tokens.map((line, index) => {
-                const {
-                  key: lineKey,
-                  className: lineClassName,
-                  ...lineProps
-                } = getLineProps({
-                  key: index,
-                  line,
-                });
+                const lineKey = index;
+                const { className: lineClassName, ...lineProps } = getLineProps(
+                  {
+                    key: lineKey,
+                    line,
+                  },
+                );
 
                 return (
                   <div
-                    key={lineKey}
                     className={clsx(
                       showLineNumbers && 'code-line__counter',
                       lineClassName,
                     )}
-                    {...lineProps}>
+                    {...lineProps}
+                    key={lineKey}>
                     {line.map((token, index_) => {
-                      const { key: tokenKey, ...tokenProps } = getTokenProps({
-                        key: index_,
-                        token,
-                      });
+                      const tokenKey = index_;
 
-                      return <span key={tokenKey} {...tokenProps} />;
+                      return (
+                        <span
+                          {...getTokenProps({
+                            token,
+                          })}
+                          key={tokenKey}
+                        />
+                      );
                     })}
                   </div>
                 );
