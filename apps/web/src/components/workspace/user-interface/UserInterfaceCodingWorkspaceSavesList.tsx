@@ -87,13 +87,13 @@ function UserInterfaceCodingWorkspaceSavesListImpl({ metadata }: Props) {
                   />
                 </div>
                 <div className="grow">
-                  <div className="flex gap-x-2 gap-y-1">
+                  <div className="flex items-center gap-x-2 gap-y-1">
                     <Anchor
                       // TODO(workspace): Add study list parameter if exists.
                       href={`/questions/user-interface/${metadata.slug}/v/${savedItem.id}`}
                       variant="unstyled">
                       <Text
-                        className="whitespace-nowrap"
+                        className="line-clamp-2"
                         size="body2"
                         weight="medium">
                         {savedItem.name}{' '}

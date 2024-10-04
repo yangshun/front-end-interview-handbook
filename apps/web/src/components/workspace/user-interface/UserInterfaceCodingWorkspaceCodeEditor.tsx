@@ -90,17 +90,14 @@ export default function UserInterfaceCodingWorkspaceCodeEditor({
             />
           </div>
         ) : (
-          <Text
-            className="flex gap-x-1 whitespace-nowrap"
-            color="subtle"
-            size="body3">
+          <Text className="flex gap-x-1" color="subtle" size="body3">
             <span className="flex items-center gap-x-1">
               <CodingWorkspaceTabIcons.versions.icon className="size-4" />{' '}
               Version:{' '}
             </span>
             <Text color="active" size="body3" weight="medium">
               <button
-                className="hover:underline"
+                className="line-clamp-1 hover:underline"
                 type="button"
                 onClick={() => {
                   dispatch({
