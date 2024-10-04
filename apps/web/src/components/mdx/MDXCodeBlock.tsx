@@ -31,6 +31,7 @@ export type Props = ComponentProps<'pre'> &
     languages?: LanguagesCode;
     renderExtraButtons?: (code: string) => ReactNode;
     showCopyButton?: boolean;
+    showLineNumbers?: boolean;
   }>;
 
 function CopyButton({ contents }: Readonly<{ contents: string }>) {
@@ -150,8 +151,17 @@ export default function MDXCodeBlock({
           theme={codeTheme}>
           {({ className, style, tokens, getLineProps, getTokenProps }) => (
             <pre
-              className={clsx('code-block__counter', className)}
-              style={style}>
+              className={clsx(
+                'code-block__counter',
+                className,
+                showLineNumbers && 'pl-0',
+              )}
+              style={{
+                ...style,
+                // @ts-expect-error: CSS variable
+                '--code-bg-color': style.backgroundColor,
+                '--code-color': style.color,
+              }}>
               {tokens.map((line, index) => {
                 const {
                   key: lineKey,

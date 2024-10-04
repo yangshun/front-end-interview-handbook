@@ -144,13 +144,19 @@ a {
   counter-increment: line;
   content: counter(line);
   display: inline-block;
-  width: 16px;
+  width: 40px;
   text-align: right;
-  color: #a1a1aa;
   margin-right: 20px;
-
-  -moz-user-select: none;
-  user-select: none;
-  -webkit-user-select: none;
+  position: sticky;
+  left: 0;
   flex-shrink: 0;
+  padding-left: 16px;
+  padding-right: 8px;
+
+  background-color: var(--code-bg-color);
+  color: var(--code-color);
+
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
 }
