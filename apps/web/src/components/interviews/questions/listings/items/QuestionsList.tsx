@@ -47,6 +47,7 @@ type Props<Q extends QuestionMetadata> = Readonly<{
   primaryLabel?: 'difficulty' | 'importance';
   questionCompletionCount?: QuestionCompletionCount;
   questions: ReadonlyArray<Q>;
+  showOverlayAtLastItem?: boolean;
   showProgress?: boolean;
 }>;
 
@@ -61,6 +62,7 @@ export default function QuestionsList<Q extends QuestionMetadata>({
   showProgress = true,
   onMarkAsCompleted,
   onMarkAsNotCompleted,
+  showOverlayAtLastItem,
   mode = 'default',
 }: Props<Q>) {
   const { userProfile } = useUserProfile();
@@ -105,8 +107,7 @@ export default function QuestionsList<Q extends QuestionMetadata>({
           <li
             key={hashQuestion(questionMetadata.format, questionMetadata.slug)}
             className={clsx(
-              'isolate',
-              'group relative flex gap-x-6 px-6 py-5',
+              'group relative',
               'focus-within:ring-brand focus-within:ring-2 focus-within:ring-inset',
               'transition-colors',
               themeBackgroundCardWhiteOnLightColor,
@@ -114,137 +115,149 @@ export default function QuestionsList<Q extends QuestionMetadata>({
               index === 0 && 'rounded-t-lg',
               index === questions.length - 1 && 'rounded-b-lg',
             )}>
-            <QuestionNewLabel created={questionMetadata.created} />
-            {showProgress && (
-              <QuestionsListItemProgressChip
-                className="z-[1]" // Needed for the icon to be above the link.
-                hasCompletedQuestion={hasCompletedQuestion}
-                hasCompletedQuestionBefore={hasCompletedQuestionBefore}
-                index={index}
-                mode={mode}
-                premiumUser={userProfile?.isInterviewsPremium}
-                question={questionMetadata}
-                onMarkAsCompleted={onMarkAsCompleted}
-                onMarkAsNotCompleted={onMarkAsNotCompleted}
-              />
-            )}
-            <div className="grow">
-              <Text
-                className="inline-flex flex-wrap items-center gap-x-2 gap-y-1.5"
-                size="body2"
-                weight="medium">
-                <Anchor
-                  className="focus:outline-none"
-                  href={
-                    // Redirect to framework-specific page if framework prop is provided.
-                    questionHrefWithList(
-                      questionMetadata.frameworks.find(
-                        ({ framework: frameworkType }) =>
-                          frameworkType === framework,
-                      )?.href ?? questionMetadata.href,
-                      listKey,
-                    )
-                  }
-                  variant="unstyled">
-                  {/* Extend touch target to entire panel */}
-                  <span aria-hidden="true" className="absolute inset-0" />
-                  {questionMetadata.title}
-                </Anchor>
-                {/* TODO: remove hardcoding of "counter" and shift it into metadata */}
-                {questionMetadata.slug === 'counter' && (
-                  <Badge
-                    label={intl.formatMessage({
-                      defaultMessage: 'Warm up question',
-                      description: 'Label for warm up questions',
-                      id: '/mJXTQ',
-                    })}
-                    size="sm"
-                    variant="warning"
-                  />
-                )}
-                {questionMetadata.premium && <InterviewsPremiumBadge />}
-                {questionMetadata.format === 'system-design' &&
-                  !ReadyQuestions.includes(questionMetadata.slug) && (
+            <div className={clsx('flex gap-x-6 px-6 py-5', 'isolate')}>
+              <QuestionNewLabel created={questionMetadata.created} />
+              {showProgress && (
+                <QuestionsListItemProgressChip
+                  className="z-[1]" // Needed for the icon to be above the link.
+                  hasCompletedQuestion={hasCompletedQuestion}
+                  hasCompletedQuestionBefore={hasCompletedQuestionBefore}
+                  index={index}
+                  mode={mode}
+                  premiumUser={userProfile?.isInterviewsPremium}
+                  question={questionMetadata}
+                  onMarkAsCompleted={onMarkAsCompleted}
+                  onMarkAsNotCompleted={onMarkAsNotCompleted}
+                />
+              )}
+              <div className="grow">
+                <Text
+                  className="inline-flex flex-wrap items-center gap-x-2 gap-y-1.5"
+                  size="body2"
+                  weight="medium">
+                  <Anchor
+                    className="focus:outline-none"
+                    href={
+                      // Redirect to framework-specific page if framework prop is provided.
+                      questionHrefWithList(
+                        questionMetadata.frameworks.find(
+                          ({ framework: frameworkType }) =>
+                            frameworkType === framework,
+                        )?.href ?? questionMetadata.href,
+                        listKey,
+                      )
+                    }
+                    variant="unstyled">
+                    {/* Extend touch target to entire panel */}
+                    <span aria-hidden="true" className="absolute inset-0" />
+                    {questionMetadata.title}
+                  </Anchor>
+                  {/* TODO: remove hardcoding of "counter" and shift it into metadata */}
+                  {questionMetadata.slug === 'counter' && (
                     <Badge
                       label={intl.formatMessage({
-                        defaultMessage: 'Coming soon',
-                        description: 'Tooltip for Coming Soon questions label',
-                        id: '8JoIUN',
+                        defaultMessage: 'Warm up question',
+                        description: 'Label for warm up questions',
+                        id: '/mJXTQ',
                       })}
                       size="sm"
                       variant="warning"
                     />
                   )}
-              </Text>
-              {questionMetadata.excerpt && (
-                <Text className="mt-2 block" color="secondary" size="body2">
-                  {questionMetadata.excerpt}
+                  {questionMetadata.premium && <InterviewsPremiumBadge />}
+                  {questionMetadata.format === 'system-design' &&
+                    !ReadyQuestions.includes(questionMetadata.slug) && (
+                      <Badge
+                        label={intl.formatMessage({
+                          defaultMessage: 'Coming soon',
+                          description:
+                            'Tooltip for Coming Soon questions label',
+                          id: '8JoIUN',
+                        })}
+                        size="sm"
+                        variant="warning"
+                      />
+                    )}
                 </Text>
-              )}
-              <div
-                className={clsx(
-                  'mt-5 flex flex-wrap items-center gap-x-8 gap-y-2',
-                  'relative z-10',
-                )}>
-                <span className="inline-flex">
-                  <QuestionFormatLabel
-                    showIcon={true}
-                    value={questionMetadata.format}
-                  />
-                </span>
-                <span className="inline-flex">
-                  {primaryLabel === 'difficulty' && (
-                    <QuestionDifficultyLabel
-                      showIcon={true}
-                      value={questionMetadata.difficulty}
-                    />
-                  )}
-                  {primaryLabel === 'importance' && (
-                    <QuestionImportanceLabel
-                      showIcon={true}
-                      value={questionMetadata.importance}
-                    />
-                  )}
-                </span>
-                {questionMetadata.topics.length > 0 ? (
-                  <QuestionTopics topics={questionMetadata.topics} />
-                ) : questionMetadata.frameworks.length > 0 ? (
-                  <QuestionFrameworks
-                    frameworks={questionMetadata.frameworks}
-                  />
-                ) : (
-                  <QuestionLanguages languages={questionMetadata.languages} />
+                {questionMetadata.excerpt && (
+                  <Text className="mt-2 block" color="secondary" size="body2">
+                    {questionMetadata.excerpt}
+                  </Text>
                 )}
-                {(() => {
-                  const count =
-                    questionCompletionCount?.[questionMetadata.format]?.[
-                      questionMetadata.slug
-                    ];
-
-                  if (count == null) {
-                    return null;
-                  }
-
-                  return (
-                    <QuestionUsersCompletedLabel
-                      count={count}
-                      isLoading={false}
+                <div
+                  className={clsx(
+                    'mt-5 flex flex-wrap items-center gap-x-8 gap-y-2',
+                    'relative z-10',
+                  )}>
+                  <span className="inline-flex">
+                    <QuestionFormatLabel
                       showIcon={true}
+                      value={questionMetadata.format}
                     />
-                  );
-                })()}
+                  </span>
+                  <span className="inline-flex">
+                    {primaryLabel === 'difficulty' && (
+                      <QuestionDifficultyLabel
+                        showIcon={true}
+                        value={questionMetadata.difficulty}
+                      />
+                    )}
+                    {primaryLabel === 'importance' && (
+                      <QuestionImportanceLabel
+                        showIcon={true}
+                        value={questionMetadata.importance}
+                      />
+                    )}
+                  </span>
+                  {questionMetadata.topics.length > 0 ? (
+                    <QuestionTopics topics={questionMetadata.topics} />
+                  ) : questionMetadata.frameworks.length > 0 ? (
+                    <QuestionFrameworks
+                      frameworks={questionMetadata.frameworks}
+                    />
+                  ) : (
+                    <QuestionLanguages languages={questionMetadata.languages} />
+                  )}
+                  {(() => {
+                    const count =
+                      questionCompletionCount?.[questionMetadata.format]?.[
+                        questionMetadata.slug
+                      ];
+
+                    if (count == null) {
+                      return null;
+                    }
+
+                    return (
+                      <QuestionUsersCompletedLabel
+                        count={count}
+                        isLoading={false}
+                        showIcon={true}
+                      />
+                    );
+                  })()}
+                </div>
+              </div>
+              <div className="flex items-center justify-center">
+                <RiArrowRightLine
+                  aria-hidden="true"
+                  className={clsx(
+                    'size-6 shrink-0',
+                    themeTextFaintColor,
+                    themeTextBrandColor_GroupHover,
+                  )}
+                />
               </div>
             </div>
-            <div className="flex items-center justify-center">
-              <RiArrowRightLine
-                aria-hidden="true"
+            {index === questions.length - 1 && showOverlayAtLastItem && (
+              <div
                 className={clsx(
-                  'size-6 shrink-0',
-                  themeTextFaintColor,
-                  themeTextBrandColor_GroupHover,
+                  'size-full absolute inset-0',
+                  'rounded-[inherit]',
+                  'bg-gradient-to-b from-transparent to-white backdrop-blur-[4px] dark:to-neutral-900',
                 )}
               />
-            </div>
+            )}
           </li>
         );
       })}

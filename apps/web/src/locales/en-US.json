@@ -2115,6 +2115,10 @@
     "defaultMessage": "Practice everything here",
     "description": "Title of the 'Practice Everything Here' marketing section on Homepage"
   },
+  "D0xOX8": {
+    "defaultMessage": "Framework / language",
+    "description": "Label for framework/language filter"
+  },
   "D1kkKk": {
     "defaultMessage": "The skills / tools / frameworks you are already familiar in. Cannot find the tag you need? Email us at {supportEmail}",
     "description": "Description for tech stack field"
@@ -3838,6 +3842,10 @@
   "NtN98C": {
     "defaultMessage": "Welcome!",
     "description": "Welcome message"
+  },
+  "Ntem6r": {
+    "defaultMessage": "See all questions",
+    "description": "Label for see all questions button"
   },
   "Nz7W/0": {
     "defaultMessage": "Oops something went wrong",
@@ -6947,6 +6955,10 @@
     "defaultMessage": "Apple",
     "description": "Company name for Apple"
   },
+  "hNYptD": {
+    "defaultMessage": "Topics",
+    "description": "Label for topics filter"
+  },
   "hOA7E4": {
     "defaultMessage": "Kickstart your front end interview prep by exploring top resources—recommended prep plans, company guides, and a vast bank of practice questions with solutions.",
     "description": "Description of Get Started page"
@@ -9058,6 +9070,10 @@
   "vTWKAG": {
     "defaultMessage": "Explore user submissions handpicked for your growth - based on your profile, skills you're keen to learn, and the projects you've completed.",
     "description": "Description of projects learn from others page"
+  },
+  "vTb+8H": {
+    "defaultMessage": "Format",
+    "description": "Label for format filter"
   },
   "vWzLH8": {
     "defaultMessage": "Full access to tracks & skills. Unlimited <tooltip>premium credits</tooltip>",
