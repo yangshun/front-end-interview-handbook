@@ -12,7 +12,7 @@ export default function TestStatusIcon({
   status: TestStatus;
 }>) {
   return (
-    <span className="flex size-3 shrink-0 items-center text-lg">
+    <span className="size-3 flex shrink-0 items-center text-lg">
       {(() => {
         switch (status) {
           case 'pass':

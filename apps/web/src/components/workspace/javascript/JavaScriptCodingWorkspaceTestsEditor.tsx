@@ -34,7 +34,9 @@ export default function JavaScriptCodingWorkspaceTestsEditor({
       }
 
       const part = specParts.slice(0, index + 1);
-      const parentParts = part.slice(0, part.length - 1).map((item) => (`['"]${item}['"]`));
+      const parentParts = part
+        .slice(0, part.length - 1)
+        .map((item) => `['"]${item}['"]`);
       const testName = part[part.length - 1];
       const escapedTestName = testName.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
       const sep = '[\\s\\S\\n\\r]*?';

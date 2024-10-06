@@ -3,9 +3,7 @@ import ProjectsChallengeResourcesHeaderLayout from '~/components/projects/challe
 import fetchViewerProjectsChallengeAccess from '~/components/projects/utils/fetchViewerProjectsChallengeAccess';
 import fetchViewerProjectsProfile from '~/components/projects/utils/fetchViewerProjectsProfile';
 
-import {
-  readProjectsChallengeItem,
-} from '~/db/projects/ProjectsReader';
+import { readProjectsChallengeItem } from '~/db/projects/ProjectsReader';
 
 type Props = Readonly<{
   children: React.ReactNode;
@@ -15,15 +13,12 @@ type Props = Readonly<{
 export default async function Layout({ params, children }: Props) {
   const { slug, locale } = params;
 
-  const [
-    { viewerProjectsProfile },
-    viewerUnlockedAccess,
-    { challenge },
-  ] = await Promise.all([
-    fetchViewerProjectsProfile(),
-    fetchViewerProjectsChallengeAccess(slug),
-    readProjectsChallengeItem(slug, locale),
-  ]);
+  const [{ viewerProjectsProfile }, viewerUnlockedAccess, { challenge }] =
+    await Promise.all([
+      fetchViewerProjectsProfile(),
+      fetchViewerProjectsChallengeAccess(slug),
+      readProjectsChallengeItem(slug, locale),
+    ]);
 
   const viewerAccess = ProjectsPremiumAccessControl(
     challenge.metadata.access,

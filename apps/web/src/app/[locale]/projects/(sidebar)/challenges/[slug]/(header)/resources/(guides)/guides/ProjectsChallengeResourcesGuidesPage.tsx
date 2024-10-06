@@ -13,7 +13,9 @@ type Props = Readonly<{
   params: Readonly<{ locale: string; slug: string }>;
 }>;
 
-export default async function ProjectsChallengeResourcesGuidesPage({ params }: Props) {
+export default async function ProjectsChallengeResourcesGuidesPage({
+  params,
+}: Props) {
   const { slug, locale } = params;
 
   const [

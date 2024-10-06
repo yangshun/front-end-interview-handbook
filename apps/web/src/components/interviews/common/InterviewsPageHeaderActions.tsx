@@ -12,14 +12,17 @@ type Props = Readonly<{
   };
 }>;
 
-export default function InterviewsPageHeaderActions({ metadata , className}: Props) {
+export default function InterviewsPageHeaderActions({
+  metadata,
+  className,
+}: Props) {
   return (
     <>
       <div className={clsx('hidden items-center gap-3 md:flex', className)}>
         <CopyLinkButton size="xs" variant="tertiary" />
         <ShareButton metadata={metadata} size="xs" variant="tertiary" />
       </div>
-      <div className={clsx("flex items-center gap-3 md:hidden", className)}>
+      <div className={clsx('flex items-center gap-3 md:hidden', className)}>
         <CopyLinkButton iconOnly={true} size="xs" variant="tertiary" />
         <ShareButton
           iconOnly={true}

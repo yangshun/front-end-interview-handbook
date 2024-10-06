@@ -1,4 +1,4 @@
-'use client'
+'use client';
 
 import DiscussionsCommentList from '~/components/projects/discussions/ProjectsDiscussionsCommentList';
 

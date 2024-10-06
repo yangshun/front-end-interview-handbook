@@ -6,7 +6,10 @@ import { trpc } from '~/hooks/trpc';
 
 import { hasCompletedGuide, hashGuide } from '~/db/guides/GuidesUtils';
 
-import type { GuideCardMetadata, GuideCardMetadataWithCompletedStatus } from './types';
+import type {
+  GuideCardMetadata,
+  GuideCardMetadataWithCompletedStatus,
+} from './types';
 
 import { useUser } from '@supabase/auth-helpers-react';
 

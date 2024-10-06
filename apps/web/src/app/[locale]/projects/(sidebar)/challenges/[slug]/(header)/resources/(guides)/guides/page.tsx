@@ -1,8 +1,6 @@
 import type { Metadata } from 'next';
 
-import {
-  readProjectsChallengeInfo,
-} from '~/db/projects/ProjectsReader';
+import { readProjectsChallengeInfo } from '~/db/projects/ProjectsReader';
 import { getIntlServerOnly } from '~/i18n';
 import defaultProjectsMetadata from '~/seo/defaultProjectsMetadata';
 
