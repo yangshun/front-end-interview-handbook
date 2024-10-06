@@ -318,7 +318,9 @@ export default function JavaScriptConsole({
         /* eslint-disable-next-line @typescript-eslint/ban-ts-comment */
         /* @ts-ignore */
         logs={logs}
-        searchKeywords={query}
+        /* Escapes special regex characters `- / \ ^ $ * + ? . ( ) | [ ] { }` in the query string to
+        treat them as literals, preventing unintended regex behavior when using the query in a regular expression. */
+        searchKeywords={query.replace(/[-/\\^$*+?.()|[\]{}]/g, '\\$&')}
         styles={consoleStyles}
         variant={consoleTheme}
       />
