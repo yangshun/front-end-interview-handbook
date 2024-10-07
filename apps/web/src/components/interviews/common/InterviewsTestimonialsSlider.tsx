@@ -8,6 +8,7 @@ import { useIntl } from '~/components/intl';
 import Anchor from '~/components/ui/Anchor';
 import Avatar from '~/components/ui/Avatar';
 import Heading from '~/components/ui/Heading';
+import ScrollArea from '~/components/ui/ScrollArea';
 import Text, { textVariants } from '~/components/ui/Text';
 import {
   themeBackgroundBrandColor,
@@ -44,15 +45,25 @@ function TestimonialCard({
     <div
       className={clsx(
         'isolate overflow-hidden',
-        'flex flex-col gap-8',
+        'flex flex-col gap-3',
         'p-6',
         'rounded-lg',
         themeBackgroundCardColor,
         ['border', themeBorderElementColor],
         [themeWhiteGlowCardBackground, 'before:-left-10 before:-top-10'],
       )}>
-      <blockquote className={clsx('text-base font-semibold md:text-lg')}>
-        "{testimonial}"
+      <blockquote
+        className={clsx(
+          'relative',
+          'before:absolute before:inset-x-0 before:bottom-0',
+          'before:z-[1] before:h-8',
+          'before:bg-gradient-to-b before:from-[rgba(0,0,0,0)] before:to-neutral-50 before:dark:to-[#1E1E21]',
+        )}>
+        <ScrollArea heightClass="h-[168px] md:h-[124px]">
+          <div className={clsx('pb-5 text-base font-semibold md:text-lg')}>
+            "{testimonial}"
+          </div>
+        </ScrollArea>
       </blockquote>
       <figcaption className="flex flex-col gap-4 md:flex-row md:items-center">
         {authorThumbnailUrl && (
@@ -203,7 +214,8 @@ export default function InterviewsTestimonialsSlider({
         </div>
         <div className="hidden lg:block">{sliderNavigation}</div>
       </div>
-      <div className={clsx('w-full lg:max-w-[352px]', 'flex items-center')}>
+      <div
+        className={clsx('w-full shrink-0 lg:w-[352px]', 'flex items-center')}>
         <div
           className={clsx(
             'flex w-full flex-col gap-y-12 md:flex-row lg:flex-col',
