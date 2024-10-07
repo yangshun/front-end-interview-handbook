@@ -14,7 +14,9 @@ export default function CodingWorkspaceConsole() {
 
   return (
     <JavaScriptConsole
-      logs={logs}
+      // In some cases, logs returns non-log values as well, filter out only the logs
+      // log values contains method property in it
+      logs={logs.filter((log) => !!log.method)}
       shouldPreserveLogs={consoleShouldPreserveLogs}
       onClear={reset}
       onShouldPreserveLogsChange={setConsoleShouldPreserveLogs}
