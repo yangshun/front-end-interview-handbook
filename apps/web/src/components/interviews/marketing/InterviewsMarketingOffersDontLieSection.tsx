@@ -20,19 +20,19 @@ export default function InterviewsMarketingOffersDontLieSection() {
       offers: [
         {
           logoUrl: '/img/company-logos/dropbox-logomark.svg',
-          name: 'Dropbox logo',
+          name: 'Dropbox',
         },
         {
           logoUrl: '/img/company-logos/lyft-logomark.svg',
-          name: 'Lyft logo',
+          name: 'Lyft',
         },
         {
           logoUrl: '/img/company-logos/google-logomark.svg',
-          name: 'Google logo',
+          name: 'Google',
         },
         {
           logoUrl: '/img/company-logos/airbnb-logomark.svg',
-          name: 'Airbnb logo',
+          name: 'Airbnb',
         },
       ],
     },
@@ -42,11 +42,11 @@ export default function InterviewsMarketingOffersDontLieSection() {
       offers: [
         {
           logoUrl: '/img/company-logos/airbnb-logomark.svg',
-          name: 'Airbnb logo',
+          name: 'Airbnb',
         },
         {
           logoUrl: '/img/company-logos/lyft-logomark.svg',
-          name: 'Lyft logo',
+          name: 'Lyft',
         },
       ],
     },

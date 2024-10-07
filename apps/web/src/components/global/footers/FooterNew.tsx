@@ -322,11 +322,17 @@ export default function Footer({ navigation }: Props) {
               </div>
             </div>
 
-            <div className={clsx('col-span-8', 'flex items-center gap-6')}>
+            <div
+              className={clsx(
+                'col-span-8',
+                'flex flex-wrap items-center gap-6',
+              )}>
               {copyrightStatement}
               {dividerDot}
               {commonLinks.legal.map((item, index) => (
-                <div key={item.key} className="flex items-center gap-6">
+                <div
+                  key={item.key}
+                  className="flex items-center gap-x-6 gap-y-4">
                   <Text className="block" size="body2">
                     <Anchor
                       href={item.href}

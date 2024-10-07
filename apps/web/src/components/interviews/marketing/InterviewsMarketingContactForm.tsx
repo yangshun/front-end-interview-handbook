@@ -26,7 +26,7 @@ export default function InterviewsMarketingContactForm() {
   } = trpc.feedback.submitFeedback.useMutation({
     onError: () => {
       showToast({
-        title: (
+        description: (
           <FormattedMessage
             defaultMessage="Please contact support at <link>support@greatfrontend.com</link>. Including logs and screenshots will help us resolve the issue."
             description="Error toast description for message sent"
@@ -36,6 +36,13 @@ export default function InterviewsMarketingContactForm() {
                 <Anchor href="mailto:support@greatfrontend.com">{chunk}</Anchor>
               ),
             }}
+          />
+        ),
+        title: (
+          <FormattedMessage
+            defaultMessage="Something went wrong"
+            description="Error toast title for message sent"
+            id="btKr6n"
           />
         ),
         variant: 'danger',

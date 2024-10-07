@@ -6095,6 +6095,10 @@
     "defaultMessage": "Email Us",
     "description": "Button label to send to a support email"
   },
+  "btKr6n": {
+    "defaultMessage": "Something went wrong",
+    "description": "Error toast title for message sent"
+  },
   "buBLGx": {
     "defaultMessage": "Start new project",
     "description": "Link to start new project"

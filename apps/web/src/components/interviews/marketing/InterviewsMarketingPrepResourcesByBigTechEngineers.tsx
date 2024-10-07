@@ -139,13 +139,13 @@ export default function InterviewsMarketingPrepResourcesByBigTechEngineers() {
       </div>
       <Section>
         <ScrollArea scrollbars="horizontal">
-          <div className="flex flex-col justify-between gap-x-4 gap-y-6 md:flex-row lg:gap-x-6 ">
+          <div className="flex flex-col justify-between gap-x-3.5 gap-y-6 md:flex-row lg:gap-x-6 ">
             {data.map((item) => (
               <div
                 key={item.key}
                 className={clsx(
                   'isolate overflow-hidden',
-                  'flex-1 md:min-w-[260px] lg:min-w-[293px]',
+                  'flex-1',
                   'flex flex-col gap-6',
                   'py-6',
                   'rounded-2xl',
@@ -166,7 +166,7 @@ export default function InterviewsMarketingPrepResourcesByBigTechEngineers() {
                     'relative z-[1]',
                     'h-[180px]',
                     'flex items-center justify-center gap-4 xl:gap-6',
-                    'px-6 md:px-4 lg:px-2.5',
+                    'px-6 md:px-2.5 lg:px-3',
                   )}>
                   {item.logos.map((logoItem) => (
                     <div
