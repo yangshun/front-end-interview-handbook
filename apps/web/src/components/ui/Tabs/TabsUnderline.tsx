@@ -7,6 +7,7 @@ import {
   themeBorderBrandColor,
   themeBorderElementColor,
   themeTextBrandColor_Hover,
+  themeTextColor_Hover,
 } from '~/components/ui/theme';
 
 import type { TextSize } from '../Text';
@@ -108,7 +109,7 @@ function TabsUnderline<T>(
             children: (
               <Text
                 className={clsx('group flex items-center', tabInternalGapSize)}
-                color={isSelected ? 'active' : 'inherit'}
+                color={isSelected ? 'default' : 'inherit'}
                 size={textSize}
                 weight="medium">
                 {Icon && (
@@ -129,11 +130,11 @@ function TabsUnderline<T>(
             className: clsx(
               'group whitespace-nowrap border-b-2',
               isSelected
-                ? themeBorderBrandColor
+                ? 'border-neutral-900 dark:border-neutral-100'
                 : clsx(
                     'border-transparent',
                     themeTextSecondaryColor,
-                    themeTextBrandColor_Hover,
+                    themeTextColor_Hover,
                   ),
               tabItemSize,
               alignment === 'stretch' && 'flex-1',

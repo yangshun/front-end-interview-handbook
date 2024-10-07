@@ -33,7 +33,7 @@ export default function RadioGroupItem<T extends string>({
           className={clsx(
             'flex items-center justify-center',
             'size-full',
-            'after:bg-brand-dark dark:after:bg-brand',
+            'after:bg-neutral-900 dark:after:bg-neutral-100',
             'after:size-3 after:rounded-full',
           )}
         />

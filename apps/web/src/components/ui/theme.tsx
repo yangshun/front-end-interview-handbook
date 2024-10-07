@@ -9,6 +9,9 @@ export const themeTextBrandColor_GroupHover = clsx(
   'group-hover:text-brand-dark dark:group-hover:text-brand',
 );
 export const themeTextColor = clsx('text-neutral-900 dark:text-neutral-100');
+export const themeTextColor_Hover = clsx(
+  'hover:text-neutral-900 dark:hover:text-neutral-100',
+);
 export const themeTextTitleColor = clsx(
   'text-neutral-900 dark:text-neutral-100',
 );
@@ -162,7 +165,7 @@ export const themeOutlineElement_FocusVisible = clsx(
   'focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2',
 );
 export const themeOutlineElementBrandColor_FocusVisible = clsx(
-  'focus-visible:outline-brand-dark dark:focus-visible:outline-brand',
+  'focus-visible:outline-neutral-700 dark:focus-visible:outline-neutral-300',
 );
 
 export type ThemeGradient<

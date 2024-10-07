@@ -31,7 +31,7 @@ export default function Label({
       <label
         className={clsx(isLabelHidden ? 'sr-only' : 'flex items-center gap-1')}
         htmlFor={htmlFor}>
-        <Text size="body2" weight="medium">
+        <Text color="subtitle" size="body2" weight="medium">
           {required && (
             <span aria-hidden="true" className="mr-1">
               *

@@ -112,7 +112,7 @@ function Tabs<T>(
                     'flex items-center transition-all',
                     tabInternalGapSize,
                   )}
-                  color={isSelected ? 'active' : 'secondary'}
+                  color={isSelected ? 'default' : 'secondary'}
                   size={textSize}
                   weight={isSelected ? 'medium' : 'normal'}>
                   {Icon && (

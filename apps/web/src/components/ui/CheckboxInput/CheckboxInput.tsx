@@ -8,10 +8,7 @@ import type {
 import { forwardRef, useEffect, useId, useRef } from 'react';
 import { mergeRefs } from 'react-merge-refs';
 
-import {
-  themeBorderElementColor,
-  themeTextBrandColor,
-} from '~/components/ui/theme';
+import { themeBorderElementColor } from '~/components/ui/theme';
 
 import type { TextSize } from '../Text';
 import Text, { textVariants } from '../Text';
@@ -91,8 +88,8 @@ function CheckboxInput(
             className={clsx(
               'size-4',
               'rounded',
-              'fill-neutral-950',
-              themeTextBrandColor,
+              'fill-neutral-300 dark:fill-neutral-700',
+              'text-neutral-900 dark:text-neutral-100',
               'bg-transparent',
               themeBorderElementColor,
               // Important! needed to override hover styles.
@@ -102,7 +99,7 @@ function CheckboxInput(
               ],
               [
                 'focus:ring-transparent focus:ring-offset-transparent',
-                'focus:outline-brand-dark dark:focus:outline-brand',
+                'focus:outline-neutral-700 dark:focus:outline-neutral-300',
               ],
             )}
             defaultChecked={defaultValue}

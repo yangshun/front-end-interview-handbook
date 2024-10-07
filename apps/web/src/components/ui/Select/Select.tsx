@@ -95,15 +95,15 @@ function Select<T>(
           [
             'border',
             themeBorderElementColor,
-            'focus-visible:border-neutral-300 dark:focus-visible:border-neutral-700',
+            'focus:border-neutral-300 dark:focus:border-neutral-700',
           ],
           themeTextSubtitleColor,
           themeBackgroundElementColor,
           themeBackgroundElementEmphasizedStateColor_Hover,
           themeBackgroundElementPressedStateColor_Active,
           [
-            themeOutlineElement_FocusVisible,
-            themeOutlineElementBrandColor_FocusVisible,
+            'focus:ring-2 focus:ring-offset-2',
+            'focus:ring-neutral-700 dark:focus:ring-neutral-300',
           ],
           heightClasses[size],
           textSizeClasses[size].option,

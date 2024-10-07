@@ -22,7 +22,6 @@ import RichTextEditorRefPlugin from './plugin/RichTextEditorRefPlugin';
 import { RichTextEditorConfig } from './RichTextEditorConfig';
 import { proseStyle } from '../Prose';
 import TextMaxLengthLabel from '../Text/TextMaxLengthLabel';
-import { themeBackgroundElementColor } from '../theme';
 
 import { createHeadlessEditor } from '@lexical/headless';
 import { AutoFocusPlugin } from '@lexical/react/LexicalAutoFocusPlugin';
@@ -62,7 +61,7 @@ const stateClasses: Record<State, string> = {
   error: clsx('ring-danger', 'focus:ring-danger'),
   normal: clsx(
     'ring-neutral-300 dark:ring-neutral-700',
-    'focus-within:ring-brand-dark dark:focus-within:ring-brand',
+    'focus-within:ring-neutral-700 dark:focus-within:ring-neutral-300',
   ),
 };
 
@@ -152,7 +151,7 @@ function RichTextEditor(
         <div
           className={clsx(
             'relative',
-            themeBackgroundElementColor,
+            'bg-white dark:bg-neutral-950',
             'rounded',
             'border-0',
             'ring-1 ring-inset',

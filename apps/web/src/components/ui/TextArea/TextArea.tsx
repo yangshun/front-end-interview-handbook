@@ -7,7 +7,6 @@ import type { LabelDescriptionStyle } from '../Label';
 import Label from '../Label';
 import Text from '../Text/Text';
 import TextMaxLengthLabel from '../Text/TextMaxLengthLabel';
-import { themeBackgroundElementColor } from '../theme';
 
 type Attributes = Pick<
   TextareaHTMLAttributes<HTMLTextAreaElement>,
@@ -59,7 +58,7 @@ const stateClasses: Record<State, string> = {
     'text-neutral-700 dark:text-neutral-300',
     'ring-neutral-300 dark:ring-neutral-700',
     'placeholder:text-neutral-400 dark:placeholder:text-neutral-600',
-    'focus:ring-brand-dark dark:focus:ring-brand',
+    'focus:ring-neutral-700 dark:focus:ring-neutral-300',
   ),
 };
 
@@ -167,7 +166,7 @@ function TextArea(
         aria-invalid={hasError ? true : undefined}
         className={clsx(
           'block w-full',
-          themeBackgroundElementColor,
+          'bg-white dark:bg-neutral-950',
           [
             'disabled:bg-neutral-200 dark:disabled:bg-neutral-800',
             'disabled:text-neutral-300 dark:disabled:text-neutral-700',

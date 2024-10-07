@@ -72,7 +72,7 @@ const stateClasses: Record<State, string> = {
     'text-neutral-700 dark:text-neutral-300',
     'ring-neutral-300 dark:ring-neutral-700',
     'placeholder:text-neutral-400 dark:placeholder:text-neutral-600',
-    'focus-within:ring-brand-dark dark:focus-within:ring-brand',
+    'focus-within:ring-neutral-700 dark:focus-within:ring-neutral-300',
   ),
 };
 
@@ -196,10 +196,6 @@ export default function Typeahead<T>({
           autoFocus={autoFocus}
           className={clsx(
             'block w-full',
-            'text-sm',
-            'rounded',
-            'ring-1 ring-inset',
-            'focus-within:ring-2 focus-within:ring-inset',
             isDisabled
               ? [
                   'bg-neutral-200 dark:bg-neutral-800',
@@ -207,7 +203,11 @@ export default function Typeahead<T>({
                   'ring-neutral-300 dark:ring-neutral-700',
                   'cursor-not-allowed',
                 ]
-              : clsx(themeBackgroundElementColor, stateClasses[state]),
+              : clsx('bg-white dark:bg-neutral-950', stateClasses[state]),
+            'text-sm',
+            'rounded',
+            'ring-1 ring-inset',
+            'focus-within:ring-2 focus-within:ring-inset',
             className,
           )}
           closeMenuOnSelect={false}
