@@ -1,6 +1,7 @@
 import clsx from 'clsx';
 import { RiBookOpenLine, RiQuestionnaireLine } from 'react-icons/ri';
 
+import getProgressBarGradient from '~/components/interviews/common/utils';
 import { FormattedMessage } from '~/components/intl';
 import ProgressBar from '~/components/ui/ProgressBar';
 import Text from '~/components/ui/Text';
@@ -11,7 +12,6 @@ import {
 
 type Props = Readonly<{
   completed: number;
-  progressClassName: string;
   showProgress?: boolean;
   title: string;
   total: number;
@@ -23,7 +23,6 @@ export default function InterviewsEntityProgress({
   completed,
   type,
   title,
-  progressClassName,
   showProgress = true,
 }: Props) {
   const Icon = type === 'question' ? RiQuestionnaireLine : RiBookOpenLine;
@@ -75,7 +74,12 @@ export default function InterviewsEntityProgress({
             )}
             heightClass="h-1.5"
             label={title}
-            progressClass={progressClassName}
+            progressClass={
+              getProgressBarGradient({
+                total,
+                value: completed,
+              }).className
+            }
             total={total}
             value={completed}
           />

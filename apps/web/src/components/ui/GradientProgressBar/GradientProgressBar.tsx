@@ -4,18 +4,27 @@ import { CircularProgressbarWithChildren } from 'react-circular-progressbar';
 
 import { FormattedMessage, useIntl } from '~/components/intl';
 import Text from '~/components/ui/Text';
-import type { ThemeGradient } from '~/components/ui/theme';
+import type {
+  ThemeGradient,
+  ThemeGradient2Colors,
+  ThemeGradient3Colors,
+  ThemeGradient4Colors,
+} from '~/components/ui/theme';
 
 type GradientSVGProps = Readonly<{
   endColor: string;
   idCSS: string;
   rotation: number;
+  secondColor?: string;
   startColor: string;
+  thirdColor?: string;
 }>;
 
 function GradientSVG({
   startColor,
   endColor,
+  secondColor,
+  thirdColor,
   idCSS,
   rotation,
 }: GradientSVGProps) {
@@ -26,6 +35,10 @@ function GradientSVG({
       <defs>
         <linearGradient gradientTransform={gradientTransform} id={idCSS}>
           <stop offset="0%" stopColor={startColor} />
+          {secondColor && (
+            <stop offset={thirdColor ? '30%' : '50%'} stopColor={secondColor} />
+          )}
+          {thirdColor && <stop offset="70%" stopColor={thirdColor} />}
           <stop offset="100%" stopColor={endColor} />
         </linearGradient>
       </defs>
@@ -36,7 +49,12 @@ function GradientSVG({
 type GradientProgressBarProps = Readonly<{
   children?: React.ReactNode;
   className?: string;
-  gradient: ThemeGradient;
+  gradient:
+    | ThemeGradient
+    | ThemeGradient2Colors
+    | ThemeGradient3Colors
+    | ThemeGradient4Colors;
+  gradientText?: boolean;
   progressPercentage: number;
   reverseGradient?: boolean;
 }>;
@@ -45,6 +63,7 @@ export default function GradientProgressBar({
   className,
   gradient,
   progressPercentage,
+  gradientText = true,
   reverseGradient,
   children,
 }: GradientProgressBarProps) {
@@ -66,7 +85,9 @@ export default function GradientProgressBar({
         endColor={endColor}
         idCSS={gradientId}
         rotation={90}
+        secondColor={'secondColor' in gradient ? gradient.secondColor : ''}
         startColor={startColor}
+        thirdColor={'thirdColor' in gradient ? gradient.thirdColor : ''}
       />
       <CircularProgressbarWithChildren
         classes={{
@@ -87,8 +108,10 @@ export default function GradientProgressBar({
         {children ?? (
           <Text
             className={clsx(
-              'bg-clip-text text-transparent',
-              gradient.className,
+              gradientText && [
+                'bg-clip-text text-transparent',
+                gradient.className,
+              ],
             )}
             color="inherit"
             id={progressBarLabelId}

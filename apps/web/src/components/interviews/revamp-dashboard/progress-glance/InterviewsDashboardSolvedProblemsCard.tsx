@@ -1,6 +1,7 @@
 import clsx from 'clsx';
 import { useMemo } from 'react';
 
+import getProgressBarGradient from '~/components/interviews/common/utils';
 import type {
   QuestionDifficulty,
   QuestionMetadata,
@@ -15,9 +16,6 @@ import Text from '~/components/ui/Text';
 import {
   themeBackgroundLineEmphasizedColor,
   themeBorderElementColor,
-  themeGradientGreenYellow,
-  themeGradientPinkPurple,
-  themeGradientPurpleGreen,
   themeTextColor,
 } from '~/components/ui/theme';
 
@@ -59,11 +57,10 @@ export default function InterviewsDashboardSolvedProblemsCard({
 
   const difficultyItems: Record<
     QuestionDifficulty,
-    { completed: number; gradient: string; label: string; total: number }
+    { completed: number; label: string; total: number }
   > = {
     easy: {
       completed: easy.completed,
-      gradient: themeGradientGreenYellow.className,
       label: intl.formatMessage({
         defaultMessage: 'Easy',
         description: 'Easy difficulty label for solved problems',
@@ -73,7 +70,6 @@ export default function InterviewsDashboardSolvedProblemsCard({
     },
     hard: {
       completed: hard.completed,
-      gradient: themeGradientPinkPurple.className,
       label: intl.formatMessage({
         defaultMessage: 'Hard',
         description: 'Hard difficulty label for solved problems',
@@ -83,7 +79,6 @@ export default function InterviewsDashboardSolvedProblemsCard({
     },
     medium: {
       completed: medium.completed,
-      gradient: themeGradientPurpleGreen.className,
       label: intl.formatMessage({
         defaultMessage: 'Medium',
         description: 'Medium difficulty label for solved problems',
@@ -112,7 +107,10 @@ export default function InterviewsDashboardSolvedProblemsCard({
       <div className="flex flex-col gap-8 md:flex-row md:items-center">
         <GradientProgressBar
           className="size-28"
-          gradient={themeGradientGreenYellow}
+          gradient={getProgressBarGradient({
+            total: totalCount,
+            value: completedCount,
+          })}
           progressPercentage={progressPercentage}
           reverseGradient={true}>
           <>
@@ -134,7 +132,7 @@ export default function InterviewsDashboardSolvedProblemsCard({
             difficultyItems.easy,
             difficultyItems.medium,
             difficultyItems.hard,
-          ].map(({ label, gradient, total, completed }) => (
+          ].map(({ label, total, completed }) => (
             <div key={label} className="flex flex-col gap-1.5">
               <div className="flex items-center gap-2">
                 <Text size="body3" weight="medium">
@@ -151,7 +149,12 @@ export default function InterviewsDashboardSolvedProblemsCard({
                 backgroundClass={themeBackgroundLineEmphasizedColor}
                 heightClass="h-1.5"
                 label={label}
-                progressClass={gradient}
+                progressClass={
+                  getProgressBarGradient({
+                    total,
+                    value: completed,
+                  }).className
+                }
                 total={total}
                 value={completed}
               />

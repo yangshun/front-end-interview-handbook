@@ -11,9 +11,12 @@ import url from 'url';
 import { trpc } from '~/hooks/trpc';
 import { useAuthSignInUp } from '~/hooks/user/useAuthFns';
 
+import { INTERVIEWS_REVAMP_2024 } from '~/data/FeatureFlags';
+
 import ConfirmationDialog from '~/components/common/ConfirmationDialog';
 import { useToast } from '~/components/global/toasts/useToast';
 import { useUserProfile } from '~/components/global/UserProfileProvider';
+import getProgressBarGradient from '~/components/interviews/common/utils';
 import InterviewsPricingTableDialog from '~/components/interviews/purchase/InterviewsPricingTableDialog';
 import type {
   QuestionFeatureType,
@@ -270,7 +273,14 @@ export default function QuestionsListSession({
                           'Label for progress bar for learning progress',
                         id: 'zQFib0',
                       })}
-                      progressClass={themeBackgroundClass}
+                      progressClass={
+                        INTERVIEWS_REVAMP_2024
+                          ? getProgressBarGradient({
+                              total: completedQuestions,
+                              value: questionCount,
+                            }).className
+                          : themeBackgroundClass
+                      }
                       total={questionCount}
                       value={completedQuestions}
                     />

@@ -22,7 +22,6 @@ import {
   themeBackgroundCardColor,
   themeBorderElementColor,
   themeGlassyBorder,
-  themeGradientGreenYellow,
   themeTextBrandColor_GroupHover,
   themeTextColor,
   themeTextSubtitleColor,
@@ -101,7 +100,6 @@ function PreparationStrategyCard({ data }: { data: PreparationStrategyItem }) {
             {article && (
               <InterviewsEntityProgress
                 completed={article.completed}
-                progressClassName={themeGradientGreenYellow.className}
                 title={title}
                 total={article.total}
                 type="article"
@@ -110,7 +108,6 @@ function PreparationStrategyCard({ data }: { data: PreparationStrategyItem }) {
             {question && (
               <InterviewsEntityProgress
                 completed={question.completed}
-                progressClassName={themeGradientGreenYellow.className}
                 title={title}
                 total={question.total}
                 type="question"

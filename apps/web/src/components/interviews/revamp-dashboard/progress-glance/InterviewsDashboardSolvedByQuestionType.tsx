@@ -1,5 +1,6 @@
 import clsx from 'clsx';
 
+import getProgressBarGradient from '~/components/interviews/common/utils';
 import type {
   QuestionMetadata,
   QuestionSlug,
@@ -119,6 +120,12 @@ export default function InterviewsDashboardSolvedByQuestionType({
                 backgroundClass={themeBackgroundLineEmphasizedColor}
                 heightClass="h-1.5"
                 label={item.title}
+                progressClass={
+                  getProgressBarGradient({
+                    total: item.totalQuestions,
+                    value: item.completedQuestions,
+                  }).className
+                }
                 total={item.totalQuestions}
                 value={item.completedQuestions}
               />

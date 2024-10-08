@@ -176,6 +176,38 @@ export type ThemeGradient<
   endColor: EndColor;
   startColor: StartColor;
 };
+export type ThemeGradient2Colors<
+  StartColor extends string = string,
+  EndColor extends string = string,
+> = {
+  className: `bg-[linear-gradient(90deg,_${StartColor}_0%,_${EndColor}_100%)]`;
+  endColor: EndColor;
+  startColor: StartColor;
+};
+
+export type ThemeGradient3Colors<
+  StartColor extends string = string,
+  SecondColor extends string = string,
+  EndColor extends string = string,
+> = {
+  className: `bg-[linear-gradient(90deg,_${StartColor}_0%,_${SecondColor}_50%,_${EndColor}_100%)]`;
+  endColor: EndColor;
+  secondColor: SecondColor;
+  startColor: StartColor;
+};
+
+export type ThemeGradient4Colors<
+  StartColor extends string = string,
+  SecondColor extends string = string,
+  ThirdColor extends string = string,
+  EndColor extends string = string,
+> = {
+  className: `bg-[linear-gradient(90deg,_${StartColor}_0%,_${SecondColor}_30%,_${ThirdColor}_70%,_${EndColor}_100%)]`;
+  endColor: EndColor;
+  secondColor: SecondColor;
+  startColor: StartColor;
+  thirdColor: ThirdColor;
+};
 
 // Gradient colors.
 export const themeGradientPurpleGreen: ThemeGradient<'#6366F1', '#10B981'> = {

@@ -5,6 +5,7 @@ import {
   useQuestionLists,
 } from '~/data/question-lists/QuestionListsHooks';
 
+import getProgressBarGradient from '~/components/interviews/common/utils';
 import { FormattedMessage, useIntl } from '~/components/intl';
 import Button from '~/components/ui/Button';
 import GradientProgressBar from '~/components/ui/GradientProgressBar/GradientProgressBar';
@@ -58,52 +59,53 @@ export default function InterviewsDashboardContinueLearningSection({
         </Heading>
 
         <div className={clsx('grid gap-4 lg:grid-cols-2')}>
-          {items.map(
-            ({ completedCount, gradient, href, title, questionsCount }) => {
-              const progressPercentage =
-                (completedCount / questionsCount) * 100;
+          {items.map(({ completedCount, href, title, questionsCount }) => {
+            const progressPercentage = (completedCount / questionsCount) * 100;
 
-              return (
-                <div
-                  key={href}
-                  className={clsx(
-                    'flex items-center justify-between gap-4 p-6',
-                    'rounded-lg',
-                    'bg-neutral-200/40 dark:bg-neutral-800/40',
-                    ['border', themeBorderElementColor],
-                  )}>
-                  <div className="flex items-center gap-4">
-                    <GradientProgressBar
-                      className="size-12"
-                      gradient={gradient}
-                      progressPercentage={progressPercentage}
-                      reverseGradient={false}
-                    />
-                    <div className="flex flex-col gap-1.5">
-                      <Text size="body1" weight="medium">
-                        {title}
-                      </Text>
-                      {questionsCount && (
-                        <QuestionCountLabel
-                          count={questionsCount}
-                          showIcon={true}
-                        />
-                      )}
-                    </div>
-                  </div>
-                  <Button
-                    href={href}
-                    label={intl.formatMessage({
-                      defaultMessage: 'Resume',
-                      description: 'Button label for resume',
-                      id: 'jIpLwU',
+            return (
+              <div
+                key={href}
+                className={clsx(
+                  'flex items-center justify-between gap-4 p-6',
+                  'rounded-lg',
+                  'bg-neutral-200/40 dark:bg-neutral-800/40',
+                  ['border', themeBorderElementColor],
+                )}>
+                <div className="flex items-center gap-4">
+                  <GradientProgressBar
+                    className="size-12"
+                    gradient={getProgressBarGradient({
+                      total: questionsCount,
+                      value: completedCount,
                     })}
-                    variant="primary"
+                    gradientText={false}
+                    progressPercentage={progressPercentage}
+                    reverseGradient={false}
                   />
+                  <div className="flex flex-col gap-1.5">
+                    <Text size="body1" weight="medium">
+                      {title}
+                    </Text>
+                    {questionsCount && (
+                      <QuestionCountLabel
+                        count={questionsCount}
+                        showIcon={true}
+                      />
+                    )}
+                  </div>
                 </div>
-              );
-            },
-          )}
+                <Button
+                  href={href}
+                  label={intl.formatMessage({
+                    defaultMessage: 'Resume',
+                    description: 'Button label for resume',
+                    id: 'jIpLwU',
+                  })}
+                  variant="primary"
+                />
+              </div>
+            );
+          })}
         </div>
       </div>
     </Section>

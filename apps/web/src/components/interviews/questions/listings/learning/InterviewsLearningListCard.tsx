@@ -32,7 +32,6 @@ type Props = Readonly<{
 
 export default function InterviewsLearningListCard({
   completionCount = 0,
-  isStarted = false,
   metadata,
   schedule,
   theme,
@@ -76,8 +75,6 @@ export default function InterviewsLearningListCard({
           <div className="flex flex-wrap items-center gap-x-8 gap-y-2 md:gap-x-10">
             <InterviewsEntityProgress
               completed={completionCount}
-              progressClassName={theme.gradient.className}
-              showProgress={isStarted ?? false}
               title={name}
               total={questionCount}
               type="question"

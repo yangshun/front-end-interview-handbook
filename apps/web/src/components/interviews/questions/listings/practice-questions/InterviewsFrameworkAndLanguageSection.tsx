@@ -26,9 +26,6 @@ import {
   themeBackgroundLayerEmphasized,
   themeBorderElementColor,
   themeGlassyBorder,
-  themeGradientGreenYellow,
-  themeGradientPinkPurple,
-  themeGradientPurpleGreen,
   themeTextBrandColor_GroupHover,
   themeTextSubtleColor,
 } from '~/components/ui/theme';
@@ -37,7 +34,6 @@ import { categorizeQuestionsProgressByFrameworkAndLanguage } from '~/db/Question
 
 type FrameworkCardProps = Readonly<{
   completedQuestions: number;
-  gradient: string;
   href: string;
   icon: ReactNode;
   title: string;
@@ -52,7 +48,6 @@ function FrameworkCard({
   titleAddOnText,
   totalQuestions,
   href,
-  gradient,
 }: FrameworkCardProps) {
   return (
     <div
@@ -84,7 +79,6 @@ function FrameworkCard({
         </div>
         <InterviewsEntityProgress
           completed={completedQuestions}
-          progressClassName={gradient}
           title={title}
           total={totalQuestions}
           type="question"
@@ -137,7 +131,6 @@ export default function InterviewsFrameworkAndLanguageSection({
   const frameworks: ReadonlyArray<FrameworkCardProps> = [
     {
       completedQuestions: languageProgress.js.size,
-      gradient: themeGradientGreenYellow.className,
       href: '/questions/js',
       icon: <JavaScriptLogo className="size-6" />,
       title: 'JavaScript',
@@ -150,7 +143,6 @@ export default function InterviewsFrameworkAndLanguageSection({
     },
     {
       completedQuestions: frameworkProgress.react.size,
-      gradient: themeGradientGreenYellow.className,
       href: '/questions/react',
       icon: (
         <ReactLogo className="size-6" style={{ fill: 'rgb(20, 158, 202)' }} />
@@ -160,7 +152,6 @@ export default function InterviewsFrameworkAndLanguageSection({
     },
     {
       completedQuestions: frameworkProgress.angular.size,
-      gradient: themeGradientGreenYellow.className,
       href: '/questions/angular',
       icon: <AngularLogo className="size-6" />,
       title: 'Angular',
@@ -168,7 +159,6 @@ export default function InterviewsFrameworkAndLanguageSection({
     },
     {
       completedQuestions: frameworkProgress.vue.size,
-      gradient: themeGradientPurpleGreen.className,
       href: '/questions/vue',
       icon: <VueLogo className="size-6" />,
       title: 'Vue',
@@ -176,7 +166,6 @@ export default function InterviewsFrameworkAndLanguageSection({
     },
     {
       completedQuestions: frameworkProgress.svelte.size,
-      gradient: themeGradientGreenYellow.className,
       href: '/questions/svelte',
       icon: <SvelteLogo className="size-6" />,
       title: 'Svelte',
@@ -184,7 +173,6 @@ export default function InterviewsFrameworkAndLanguageSection({
     },
     {
       completedQuestions: languageProgress.html.size,
-      gradient: themeGradientGreenYellow.className,
       href: '/questions/html',
       icon: <HTML5Logo className="size-6" />,
       title: 'HTML',
@@ -192,7 +180,6 @@ export default function InterviewsFrameworkAndLanguageSection({
     },
     {
       completedQuestions: languageProgress.css.size,
-      gradient: themeGradientPinkPurple.className,
       href: '/questions/css',
       icon: <CSS3Logo className="size-6" />,
       title: 'CSS',
@@ -200,7 +187,6 @@ export default function InterviewsFrameworkAndLanguageSection({
     },
     {
       completedQuestions: languageProgress.ts.size,
-      gradient: themeGradientPinkPurple.className,
       href: '/questions/js',
       icon: <TypeScriptLogo className="size-6" />,
       title: 'TypeScript',

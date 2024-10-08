@@ -61,6 +61,7 @@ export default function InterviewsMarketingCompaniesSection({
                   companyGuide={companyGuide}
                   completionCount={0}
                   isStarted={false}
+                  showProgressBar={false}
                 />
               );
             })}

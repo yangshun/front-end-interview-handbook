@@ -45,7 +45,6 @@ export default function InterviewsDashboardPrepareByCompanySection({
               key={companyGuide.slug}
               companyGuide={companyGuide}
               completionCount={completionCount}
-              isStarted={session != null}
             />
           );
         })}

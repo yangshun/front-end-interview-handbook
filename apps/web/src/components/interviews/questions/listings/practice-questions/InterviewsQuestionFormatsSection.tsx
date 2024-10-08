@@ -10,8 +10,6 @@ import {
 } from 'react-icons/ri';
 import { TbBinaryTree } from 'react-icons/tb';
 
-import { useQuestionUserFacingFormatData } from '~/data/QuestionFormats';
-
 import type { GuideCategory } from '~/components/guides/types';
 import useBehavioralInterviewGuidebookNavigation from '~/components/guides/useBehavioralInterviewGuidebookNavigation';
 import InterviewsEntityProgress from '~/components/interviews/common/InterviewsEntityProgress';
@@ -30,8 +28,6 @@ import {
   themeBackgroundLayerEmphasized,
   themeBorderElementColor,
   themeGlassyBorder,
-  themeGradientGreenYellow,
-  themeGradientPinkPurple,
   themeTextBrandColor_GroupHover,
   themeTextSubtitleColor,
   themeTextSubtleColor,
@@ -44,7 +40,6 @@ import {
 
 type InterviewsQuestionFormatType = Readonly<{
   description: string;
-  gradientClassName?: string;
   href: string;
   icon: (props: React.ComponentProps<'svg'>) => JSX.Element;
   question: {
@@ -59,7 +54,6 @@ const MAX_TOPIC = 4;
 
 function InterviewsQuestionFormatCard({
   description,
-  gradientClassName,
   href,
   icon: Icon,
   question,
@@ -107,9 +101,6 @@ function InterviewsQuestionFormatCard({
           <div className="flex flex-wrap items-center gap-x-8 gap-y-3">
             <InterviewsEntityProgress
               completed={completed}
-              progressClassName={
-                gradientClassName || themeGradientGreenYellow.className
-              }
               title={title}
               total={total}
               type="question"
@@ -189,7 +180,6 @@ export default function InterviewsQuestionFormatsSection({
   guidesProgress,
 }: Props) {
   const intl = useIntl();
-  const questionsFormat = useQuestionUserFacingFormatData();
   const behavioralInterviewGuidebook =
     useBehavioralInterviewGuidebookNavigation();
   const questionsProgressAll = categorizeQuestionsProgress(questionsProgress);
@@ -219,7 +209,6 @@ export default function InterviewsQuestionFormatsSection({
       description: 'Description for quiz questions',
       id: 'tDwpNT',
     }),
-    gradientClassName: questionsFormat.quiz.themeGradient,
     href: '/interviews/questions/quiz',
     icon: RiQuestionnaireLine,
     question: {
@@ -251,7 +240,6 @@ export default function InterviewsQuestionFormatsSection({
       description: 'Description for js coding questions',
       id: 'S/DgGm',
     }),
-    gradientClassName: questionsFormat.coding.themeGradient,
     href: '/interviews/questions/javascript',
     icon: RiJavascriptLine,
     question: {
@@ -272,7 +260,6 @@ export default function InterviewsQuestionFormatsSection({
       description: 'Description for ui coding questions',
       id: 'bJYnS1',
     }),
-    gradientClassName: questionsFormat.coding.themeGradient,
     href: '/interviews/questions/user-interface',
     icon: RiPagesLine,
     question: {
@@ -293,7 +280,6 @@ export default function InterviewsQuestionFormatsSection({
       description: 'Description for ui coding questions',
       id: 'Hph7Vz',
     }),
-    gradientClassName: questionsFormat.coding.themeGradient,
     href: '/interviews/questions/algo',
     icon: TbBinaryTree,
     question: {
@@ -314,7 +300,6 @@ export default function InterviewsQuestionFormatsSection({
       description: 'Description for system design questions',
       id: 'KS2MMz',
     }),
-    gradientClassName: questionsFormat['system-design'].themeGradient,
     href: '/interviews/questions/system-design',
     icon: RiTimelineView,
     question: {
@@ -335,7 +320,6 @@ export default function InterviewsQuestionFormatsSection({
       description: 'Description for behavioral questions',
       id: 'etjCNj',
     }),
-    gradientClassName: themeGradientPinkPurple.className,
     href: '/prepare/behavioral',
     icon: RiChat4Line,
     question: {

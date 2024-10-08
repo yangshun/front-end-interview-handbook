@@ -12,7 +12,6 @@ import Text from '~/components/ui/Text';
 import {
   themeBackgroundCardWhiteOnLightColor,
   themeBorderElementColor,
-  themeGradientGreenYellow,
   themeTextBrandColor_GroupHover,
   themeTextSubtleColor,
 } from '~/components/ui/theme';
@@ -26,6 +25,7 @@ type Props = Readonly<{
   companyGuide: InterviewsCompanyGuide;
   completionCount?: number;
   isStarted?: boolean;
+  showProgressBar?: boolean;
 }>;
 
 export function InterviewsCompanyGuideCard({
@@ -33,6 +33,7 @@ export function InterviewsCompanyGuideCard({
   isStarted = false,
   completionCount = 0,
   bgClassName = themeBackgroundCardWhiteOnLightColor,
+  showProgressBar = true,
 }: Props) {
   const intl = useIntl();
   const questionFormatLists = useQuestionUserFacingFormatData();
@@ -101,8 +102,7 @@ export function InterviewsCompanyGuideCard({
             {INTERVIEWS_REVAMP_2024 ? (
               <InterviewsEntityProgress
                 completed={completionCount}
-                progressClassName={themeGradientGreenYellow.className}
-                showProgress={isStarted ?? false}
+                showProgress={showProgressBar}
                 title={name}
                 total={questionCount}
                 type="question"
