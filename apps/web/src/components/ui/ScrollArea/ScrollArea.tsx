@@ -38,7 +38,7 @@ const ScrollArea = React.forwardRef<
       asChild={asChild}
       className={clsx('overflow-hidden', widthClass, heightClass, className)}
       {...props}>
-      <ScrollAreaPrimitive.Viewport className="size-full">
+      <ScrollAreaPrimitive.Viewport className={clsx("size-full", className)}>
         {children}
       </ScrollAreaPrimitive.Viewport>
       <ScrollBar radius={radius} scrollbars={scrollbars} size={size} />

@@ -20,6 +20,7 @@ import Anchor from '~/components/ui/Anchor';
 import Badge from '~/components/ui/Badge';
 import Button from '~/components/ui/Button';
 import Heading from '~/components/ui/Heading';
+import ScrollArea from '~/components/ui/ScrollArea';
 import Select from '~/components/ui/Select';
 import Text from '~/components/ui/Text';
 
@@ -64,129 +65,131 @@ export default function UserInterfaceCodingWorkspaceWriteup({
 
   return (
     <div className="w-full">
-      <div className="mx-auto flex max-w-3xl flex-col gap-y-6 p-4">
-        {contentType === 'description' && mode === 'solution' && (
-          <Alert variant="info">
-            <div className="flex flex-col items-start gap-2">
-              <Text className="block" size="body2">
-                You are viewing the description from the solution page. To
-                practice this question,{' '}
-                <Anchor
-                  href={questionUserInterfaceDescriptionPath(
-                    metadata,
-                    framework,
-                  )}>
-                  go back
-                </Anchor>{' '}
-                to the workspace page or{' '}
-                <Anchor
-                  onClick={() => {
-                    dispatch({
-                      payload: {
-                        tabId: 'versions',
-                      },
-                      type: 'tab-set-active',
-                    });
-                  }}>
-                  load a saved version
-                </Anchor>
-                .
-              </Text>
-            </div>
-          </Alert>
-        )}
-        {contentType === 'description' && save != null && (
-          <Alert variant="info">
-            <div className="flex flex-col items-start gap-2">
-              <Text className="block" size="body2">
-                You are currently editing code from the saved version:{' '}
-                <strong>"{save.name}"</strong>.
-              </Text>
-              <Button
-                href={questionUserInterfaceDescriptionPath(metadata, framework)}
-                label="Start a new version"
-                size="sm"
-                variant="secondary"
-              />
-            </div>
-          </Alert>
-        )}
-        <div className="flex items-center justify-between gap-x-4">
-          <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
-            <Heading level="heading5">
-              <span>
-                {metadata.title} {contentType === 'solution' && ' Solution'}
-              </span>
-            </Heading>
-            {metadata.premium && (
-              <Badge
-                label={intl.formatMessage({
-                  defaultMessage: 'Premium',
-                  description: 'Premium content',
-                  id: 'gIeLON',
-                })}
-                size="sm"
-                variant="special"
-              />
-            )}
-            <div>
-              {questionProgress?.status === 'complete' && (
+      <ScrollArea>
+        <div className="mx-auto flex max-w-3xl flex-col gap-y-6 p-4">
+          {contentType === 'description' && mode === 'solution' && (
+            <Alert variant="info">
+              <div className="flex flex-col items-start gap-2">
+                <Text className="block" size="body2">
+                  You are viewing the description from the solution page. To
+                  practice this question,{' '}
+                  <Anchor
+                    href={questionUserInterfaceDescriptionPath(
+                      metadata,
+                      framework,
+                    )}>
+                    go back
+                  </Anchor>{' '}
+                  to the workspace page or{' '}
+                  <Anchor
+                    onClick={() => {
+                      dispatch({
+                        payload: {
+                          tabId: 'versions',
+                        },
+                        type: 'tab-set-active',
+                      });
+                    }}>
+                    load a saved version
+                  </Anchor>
+                  .
+                </Text>
+              </div>
+            </Alert>
+          )}
+          {contentType === 'description' && save != null && (
+            <Alert variant="info">
+              <div className="flex flex-col items-start gap-2">
+                <Text className="block" size="body2">
+                  You are currently editing code from the saved version:{' '}
+                  <strong>"{save.name}"</strong>.
+                </Text>
+                <Button
+                  href={questionUserInterfaceDescriptionPath(metadata, framework)}
+                  label="Start a new version"
+                  size="sm"
+                  variant="secondary"
+                />
+              </div>
+            </Alert>
+          )}
+          <div className="flex items-center justify-between gap-x-4">
+            <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
+              <Heading level="heading5">
+                <span>
+                  {metadata.title} {contentType === 'solution' && ' Solution'}
+                </span>
+              </Heading>
+              {metadata.premium && (
                 <Badge
                   label={intl.formatMessage({
-                    defaultMessage: 'Completed',
-                    description:
-                      'Label indicating that the question has been completed',
-                    id: 'iIQL6V',
+                    defaultMessage: 'Premium',
+                    description: 'Premium content',
+                    id: 'gIeLON',
                   })}
                   size="sm"
-                  variant="success"
+                  variant="special"
                 />
               )}
+              <div>
+                {questionProgress?.status === 'complete' && (
+                  <Badge
+                    label={intl.formatMessage({
+                      defaultMessage: 'Completed',
+                      description:
+                        'Label indicating that the question has been completed',
+                      id: 'iIQL6V',
+                    })}
+                    size="sm"
+                    variant="success"
+                  />
+                )}
+              </div>
             </div>
-          </div>
-          <Select
-            isLabelHidden={true}
-            label={intl.formatMessage({
-              defaultMessage: 'Framework',
-              description:
-                'Label for the selection dropdown used to select the framework to use for the question',
-              id: 'eeWLAW',
-            })}
-            options={metadata.frameworks.map((frameworkItem) => ({
-              label: questionTechnologyLists[frameworkItem.framework].name,
-              value: frameworkItem.framework,
-            }))}
-            size="sm"
-            value={framework}
-            onChange={(value) => {
-              onFrameworkChange(value, contentType);
-            }}
-          />
-        </div>
-        <QuestionMetadataSection metadata={metadata} />
-        <div className="flex flex-col gap-y-8">
-          <QuestionContentProse contents={writeup} />
-          {contentType === 'description' && environment === 'workspace' && (
-            <div
-              className={clsx(
-                'hidden lg:block',
-                'rounded-md p-4 text-center',
-                'border-brand-light dark:border-brand-darkest border',
-                'bg-brand-darker/10',
-              )}>
-              <SolutionPreviewButton />
-            </div>
-          )}
-          {contentType === 'description' && (
-            <QuestionCompanies
-              canViewPremiumContent={canViewPremiumContent}
-              companies={metadata.companies}
+            <Select
+              isLabelHidden={true}
+              label={intl.formatMessage({
+                defaultMessage: 'Framework',
+                description:
+                  'Label for the selection dropdown used to select the framework to use for the question',
+                id: 'eeWLAW',
+              })}
+              options={metadata.frameworks.map((frameworkItem) => ({
+                label: questionTechnologyLists[frameworkItem.framework].name,
+                value: frameworkItem.framework,
+              }))}
+              size="sm"
+              value={framework}
+              onChange={(value) => {
+                onFrameworkChange(value, contentType);
+              }}
             />
-          )}
-          <QuestionNextQuestions questions={nextQuestions} />
-          <QuestionSimilarQuestions questions={similarQuestions} />
+          </div>
+          <QuestionMetadataSection metadata={metadata} />
+          <div className="flex flex-col gap-y-8">
+            <QuestionContentProse contents={writeup} />
+            {contentType === 'description' && environment === 'workspace' && (
+              <div
+                className={clsx(
+                  'hidden lg:block',
+                  'rounded-md p-4 text-center',
+                  'border-brand-light dark:border-brand-darkest border',
+                  'bg-brand-darker/10',
+                )}>
+                <SolutionPreviewButton />
+              </div>
+            )}
+            {contentType === 'description' && (
+              <QuestionCompanies
+                canViewPremiumContent={canViewPremiumContent}
+                companies={metadata.companies}
+              />
+            )}
+            <QuestionNextQuestions questions={nextQuestions} />
+            <QuestionSimilarQuestions questions={similarQuestions} />
+          </div>
         </div>
-      </div>
+      </ScrollArea>
     </div>
   );
 }
