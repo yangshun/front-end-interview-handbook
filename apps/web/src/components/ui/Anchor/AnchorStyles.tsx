@@ -8,7 +8,7 @@ import {
 } from '~/components/ui/theme';
 
 export type AnchorVariant =
-  | 'blend' // Same color as text, brand color on hover.
+  // | 'blend' // Same color as text, brand color on hover.
   | 'default' // Brand color, underline on hover.
   | 'flat' // Same color as text, underline on hover.
   | 'secondary' // Secondary color, brand color on hover.
@@ -16,8 +16,12 @@ export type AnchorVariant =
 export type AnchorWeight = 'bold' | 'medium' | 'normal';
 
 const anchorVariantClasses: Record<AnchorVariant, string> = {
-  blend: themeTextBrandColor_Hover,
-  default: clsx(themeTextBrandColor, 'hover:underline'),
+  // Blend: themeTextBrandColor_Hover,
+  default: clsx(
+    themeTextBrandColor,
+    'hover:text-neutral-800 dark:hover:text-brand-dark',
+    'underline dark:no-underline',
+  ),
   flat: 'hover:underline',
   secondary: clsx(themeTextSecondaryColor, themeTextBrandColor_Hover),
   unstyled: '',
@@ -29,13 +33,16 @@ const anchorWeightClasses: Record<AnchorWeight, string> = {
   normal: '',
 };
 
-export const anchorVariants = cva('transition-colors', {
-  defaultVariants: {
-    variant: 'default',
-    weight: 'normal',
+export const anchorVariants = cva(
+  'transition-colors underline-offset-[3.5px]',
+  {
+    defaultVariants: {
+      variant: 'default',
+      weight: 'medium',
+    },
+    variants: {
+      variant: anchorVariantClasses,
+      weight: anchorWeightClasses,
+    },
   },
-  variants: {
-    variant: anchorVariantClasses,
-    weight: anchorWeightClasses,
-  },
-});
+);

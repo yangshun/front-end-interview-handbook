@@ -57,7 +57,7 @@ function Anchor(
   const rel = relProp ?? (isExternalURL ? 'noreferrer noopener' : undefined);
   const className = anchorVariants({
     className: clsx(
-      underline && 'underline',
+      underline && '!underline',
       variant !== 'unstyled' && [
         themeOutlineElement_FocusVisible,
         themeOutlineElementBrandColor_FocusVisible,

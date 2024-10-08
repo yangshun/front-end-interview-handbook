@@ -3,10 +3,10 @@ import clsx from 'clsx';
 // Text colors.
 export const themeTextBrandColor = clsx('text-neutral-900 dark:text-brand');
 export const themeTextBrandColor_Hover = clsx(
-  'hover:text-brand-dark dark:hover:text-brand',
+  'hover:text-neutral-900 dark:hover:text-brand',
 );
 export const themeTextBrandColor_GroupHover = clsx(
-  'group-hover:text-brand-dark dark:group-hover:text-brand',
+  'group-hover:text-neutral-900 dark:group-hover:text-brand',
 );
 export const themeTextColor = clsx('text-neutral-900 dark:text-neutral-100');
 export const themeTextColor_Hover = clsx(

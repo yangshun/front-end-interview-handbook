@@ -9,21 +9,18 @@ import Text from '../Text';
 export default function AnchorExamples() {
   return (
     <UIExamplesGroup title="Anchor">
-      <div className="flex flex-col gap-2">
-        <div className="grid grid-cols-3 gap-4">
+      <div className="flex flex-col gap-4">
+        <div className="grid grid-cols-4 gap-4">
           {(
             [
               {
-                description: 'Brand color, underline on hover.',
+                description:
+                  'Brand color on dark theme, dark + underline on light theme.',
                 variant: 'default',
               },
               {
-                description: 'Secondary color, brand color on hover.',
+                description: 'Secondary color, emphasized color on hover.',
                 variant: 'secondary',
-              },
-              {
-                description: 'Same color as text, brand color on hover.',
-                variant: 'blend',
               },
               {
                 description: 'Same color as text, underline on hover.',

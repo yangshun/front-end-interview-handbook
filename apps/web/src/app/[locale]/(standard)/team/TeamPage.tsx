@@ -75,15 +75,17 @@ export default function TeamPage({
                     <div className="flex flex-col gap-y-1">
                       <div className="flex flex-wrap items-start justify-between gap-2">
                         <Anchor
-                          className="inline-flex items-center gap-x-1"
+                          className="inline-flex items-center gap-x-0.5"
                           href={user.href}
                           target="_blank"
-                          variant="blend">
+                          variant="flat">
                           <Text className="block" size="body1" weight="bold">
                             {user.name}
                           </Text>
-                          <span className="absolute inset-0" />
-                          <RiArrowRightUpLine className="size-5 shrink-0" />
+                          <RiArrowRightUpLine
+                            aria-hidden={true}
+                            className="size-5 shrink-0"
+                          />
                         </Anchor>
                         <div>
                           <Badge

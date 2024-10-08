@@ -66,7 +66,7 @@ export function InterviewsSidebarProfileHeader() {
               <Anchor
                 href={signInUpHref()}
                 suppressHydrationWarning={true}
-                variant="blend">
+                variant="flat">
                 {signInUpLabel}
                 <RiArrowRightLine className="size-4 ms-1 inline-flex shrink-0" />
               </Anchor>

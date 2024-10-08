@@ -148,7 +148,7 @@ export default function ProfileActivity() {
               <div className="flex items-center justify-between gap-x-4">
                 <div className="flex w-3/4 flex-col gap-y-1 sm:flex-row sm:items-center sm:gap-x-3">
                   <Text className="text-md w-1/2" size="body2" weight="medium">
-                    <Anchor href={metadata?.href} variant="blend">
+                    <Anchor href={metadata?.href} variant="unstyled">
                       <span aria-hidden="true" className="absolute inset-0" />
                       {metadata!.title}
                     </Anchor>

@@ -93,7 +93,7 @@ export default function PurchasePaymentSuccessSection({
                     <Heading
                       className="inline-flex flex-wrap gap-1 text-base font-medium md:gap-4"
                       level="custom">
-                      <Anchor href={action.href} variant="blend">
+                      <Anchor href={action.href} variant="unstyled">
                         <span aria-hidden="true" className="absolute inset-0" />
                         {action.title}
                       </Anchor>
