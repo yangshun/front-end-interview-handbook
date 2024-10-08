@@ -224,7 +224,7 @@ export default function QuestionsListSession({
                   id: 'rmYPMV',
                 })}
                 size="md"
-                variant="primary"
+                variant={userProfile?.isInterviewsPremium ? "primary": "secondary"}
                 onClick={() => {
                   if (userProfile == null) {
                     return;
