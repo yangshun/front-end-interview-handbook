@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 import { useRef, useState } from 'react';
-import { RiCheckFill, RiLockLine } from 'react-icons/ri';
+import { RiCheckFill, RiLockFill } from 'react-icons/ri';
 import { useHover } from 'usehooks-ts';
 
 import { useIntl } from '~/components/intl';
@@ -9,6 +9,7 @@ import {
   themeBackgroundCardNoAlphaColor_Hover,
   themeBorderElementColor,
   themeBorderElementColor_Hover,
+  themeTextColor,
   themeTextFainterColor,
   themeTextSubtleColor,
   themeTextSuccessColor_Hover,
@@ -21,6 +22,7 @@ const progressChipSizeClass = clsx(
   'inline-flex items-center justify-center',
   'size-8 rounded-full',
   'transition-colors',
+  ['border', themeBorderElementColor],
 );
 
 function LockedChip() {
@@ -34,14 +36,11 @@ function LockedChip() {
         description: 'Label for Premium questions label',
         id: 'l6JVmy',
       })}>
-      <span
-        className={clsx(
-          progressChipSizeClass,
-          'relative',
-          'shiny',
-          'bg-brand-dark dark:bg-brand/20',
-        )}>
-        <RiLockLine aria-hidden={true} className="size-4 shrink-0 text-white" />
+      <span className={clsx(progressChipSizeClass)}>
+        <RiLockFill
+          aria-hidden={true}
+          className={clsx('size-4 shrink-0', themeTextColor)}
+        />
       </span>
     </Tooltip>
   );

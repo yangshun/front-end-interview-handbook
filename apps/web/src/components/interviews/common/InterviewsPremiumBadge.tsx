@@ -14,8 +14,9 @@ export default function InterviewsPremiumBadge() {
         description: 'Premium user or content',
         id: 'rf0xcZ',
       })}
+      labelClassName="font-semibold"
       size="sm"
-      variant="special"
+      variant="primary"
     />
   );
 }

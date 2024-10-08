@@ -1,7 +1,12 @@
 'use client';
 
 import clsx from 'clsx';
-import { RiLockLine, RiShiningFill, RiToolsLine } from 'react-icons/ri';
+import {
+  RiArrowRightLine,
+  RiLockLine,
+  RiShiningFill,
+  RiToolsLine,
+} from 'react-icons/ri';
 
 import InterviewsPricingTableDialog from '~/components/interviews/purchase/InterviewsPricingTableDialog';
 import { useIntl } from '~/components/intl';
@@ -212,6 +217,7 @@ export default function QuestionPaywall({
               feature={feature}
               trigger={
                 <Button
+                  icon={RiArrowRightLine}
                   label={intl.formatMessage({
                     defaultMessage: 'View subscription plans',
                     description:

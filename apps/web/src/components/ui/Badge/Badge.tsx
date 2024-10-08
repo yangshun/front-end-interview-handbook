@@ -28,6 +28,7 @@ type Props = HTMLAttributes<HTMLSpanElement> &
     icon?: (props: React.ComponentProps<'svg'>) => JSX.Element;
     iconClassName?: string;
     label: string;
+    labelClassName?: string;
     size?: BadgeSize;
     variant: BadgeVariant;
   }>;
@@ -120,6 +121,7 @@ function Badge(
     size = 'md',
     variant,
     iconClassName,
+    labelClassName,
     ...props
   }: Props,
   ref: ForwardedRef<HTMLSpanElement>,
@@ -152,7 +154,12 @@ function Badge(
           )}
         />
       )}
-      <span className={clsx('whitespace-nowrap font-medium', textClass)}>
+      <span
+        className={clsx(
+          'whitespace-nowrap font-medium',
+          textClass,
+          labelClassName,
+        )}>
         {label}
       </span>
     </span>
