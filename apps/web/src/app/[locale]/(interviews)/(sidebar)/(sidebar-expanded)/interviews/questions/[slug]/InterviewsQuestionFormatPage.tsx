@@ -10,7 +10,6 @@ import {
 } from 'react-icons/ri';
 
 import InterviewsPageFeatures from '~/components/interviews/common/InterviewsPageFeatures';
-import InterviewsPageHeaderActions from '~/components/interviews/common/InterviewsPageHeaderActions';
 import type {
   QuestionFormat,
   QuestionMetadata,
@@ -33,11 +32,6 @@ type Props = Readonly<{
   bottomContent?: InterviewsListingBottomContent;
   description: string;
   format: QuestionFormat;
-  metadata: {
-    description: string;
-    href: string;
-    title: string;
-  };
   questionCompletionCount?: QuestionCompletionCount;
   questions: ReadonlyArray<QuestionMetadata>;
   title: string;
@@ -49,7 +43,6 @@ export default function InterviewsQuestionFormatPage({
   format,
   questions,
   questionCompletionCount,
-  metadata,
   bottomContent,
 }: Props) {
   const intl = useIntl();
@@ -98,7 +91,6 @@ export default function InterviewsQuestionFormatPage({
             size="md"
             variant="tertiary"
           />
-          <InterviewsPageHeaderActions metadata={metadata} />
         </div>
         <div className="flex flex-col gap-4">
           <Heading level="heading4">{title}</Heading>

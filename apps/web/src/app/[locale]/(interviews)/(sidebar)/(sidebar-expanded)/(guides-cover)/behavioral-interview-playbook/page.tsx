@@ -127,18 +127,7 @@ export default async function Page({ params }: Props) {
     return notFound();
   }
 
-  const [seoMetadata, allGuides] = await Promise.all([
-    getPageSEOMetadata({ params }),
-    readAllGuides({ params }),
-  ]);
+  const allGuides = await readAllGuides({ params });
 
-  return (
-    <BehavioralInterviewPlaybookPage
-      allGuides={allGuides}
-      metadata={{
-        ...seoMetadata,
-        title: seoMetadata.socialTitle,
-      }}
-    />
-  );
+  return <BehavioralInterviewPlaybookPage allGuides={allGuides} />;
 }

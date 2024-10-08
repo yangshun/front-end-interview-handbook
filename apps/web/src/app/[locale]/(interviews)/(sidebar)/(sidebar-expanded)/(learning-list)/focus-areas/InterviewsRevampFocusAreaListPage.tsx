@@ -16,8 +16,7 @@ import {
   getFocusAreaTheme,
 } from '~/data/focus-areas/FocusAreas';
 
-import InterviewsPageFeatures from '~/components/interviews/common/InterviewsPageFeatures';
-import InterviewsPageHeaderActions from '~/components/interviews/common/InterviewsPageHeaderActions';
+import InterviewsListPageHeader from '~/components/interviews/common/InterviewsListPageHeader';
 import InterviewsLearningListCard from '~/components/interviews/questions/listings/learning/InterviewsLearningListCard';
 import { useIntl } from '~/components/intl';
 import MDXContent from '~/components/mdx/MDXContent';
@@ -32,17 +31,11 @@ import { useUser } from '@supabase/auth-helpers-react';
 type Props = Readonly<{
   bottomContent?: InterviewsListingBottomContent;
   focusAreas: FocusAreas;
-  metadata: {
-    description: string;
-    href: string;
-    title: string;
-  };
 }>;
 
 export default function InterviewsRevampFocusAreaListPage({
   focusAreas,
   bottomContent,
-  metadata,
 }: Props) {
   const intl = useIntl();
   const user = useUser();
@@ -88,33 +81,19 @@ export default function InterviewsRevampFocusAreaListPage({
 
   return (
     <Container className={clsx('flex flex-col', 'py-10', 'gap-y-12')}>
-      <div>
-        <InterviewsPageHeaderActions
-          className="mb-8 flex w-full justify-end"
-          metadata={metadata}
-        />
-        <div className="flex flex-col gap-4">
-          <Heading level="heading4">
-            {intl.formatMessage({
-              defaultMessage: 'Focus areas',
-              description: 'Title of focus areas page',
-              id: 'Zui1cu',
-            })}
-          </Heading>
-          <Text className="block" color="subtitle" size="body1" weight="medium">
-            {intl.formatMessage({
-              defaultMessage:
-                'Deep-dive into topical focus areas critical for front end interviews.',
-              description: 'Description for focus areas page',
-              id: 'CPBDLd',
-            })}
-          </Text>
-        </div>
-        {/* Features */}
-        <div className="mt-10">
-          <InterviewsPageFeatures features={features} />
-        </div>
-        <Divider className="my-8" />
+      <InterviewsListPageHeader
+        description={intl.formatMessage({
+          defaultMessage:
+            'Deep-dive into topical focus areas critical for front end interviews.',
+          description: 'Description for focus areas page',
+          id: 'CPBDLd',
+        })}
+        features={features}
+        title={intl.formatMessage({
+          defaultMessage: 'Focus areas',
+          description: 'Title of focus areas page',
+          id: 'Zui1cu',
+        })}>
         <div className="flex max-w-3xl flex-col gap-4">
           <Text color="secondary" size="body1">
             {intl.formatMessage({
@@ -133,7 +112,7 @@ export default function InterviewsRevampFocusAreaListPage({
             })}
           </Text>
         </div>
-      </div>
+      </InterviewsListPageHeader>
       <Section>
         <div className="flex flex-col gap-12">
           {focusAreasCategories.map(({ title, items }) => (

@@ -55,11 +55,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   });
 }
 
-export default async function Page({ params }: Props) {
-  const [companyGuides, bottomContent, seoMetadata] = await Promise.all([
+export default async function Page() {
+  const [companyGuides, bottomContent] = await Promise.all([
     fetchInterviewsCompanyGuides(),
     fetchInterviewListingBottomContent('company'),
-    getPageSEOMetadata({ params }),
   ]);
   const sortedGuides = companyGuides
     .slice()
@@ -71,10 +70,6 @@ export default async function Page({ params }: Props) {
         INTERVIEWS_REVAMP_BOTTOM_CONTENT ? bottomContent : undefined
       }
       companyGuides={sortedGuides}
-      metadata={{
-        ...seoMetadata,
-        title: seoMetadata.socialTitle,
-      }}
     />
   );
 }

@@ -188,7 +188,7 @@ type CommonProps = Readonly<{
     label: string;
   }>;
   longDescription: ReactNode;
-  metadata: {
+  metadata?: {
     description: string;
     href: string;
     title: string;
@@ -253,9 +253,11 @@ export default function InterviewsRecommendedPrepStrategyPageTitleSection({
             <RecommendedItemsDropdown sessions={sessions} />
           </div>
         )}
-        <div className="flex flex-1 justify-end">
-          <InterviewsPageHeaderActions metadata={metadata} />
-        </div>
+        {metadata && (
+          <div className="flex flex-1 justify-end">
+            <InterviewsPageHeaderActions metadata={metadata} />
+          </div>
+        )}
       </div>
       <QuestionsLearningListPageTitleSection
         description={description}

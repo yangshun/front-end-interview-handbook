@@ -293,7 +293,7 @@ export default async function Page({ params }: Props) {
   const questionFormat = slug.replace(/\/$/g, '') as QuestionFormat;
 
   const [
-    { pageTitle, description, questions, socialTitle, seoDescription },
+    { pageTitle, description, questions },
     questionCompletionCount,
     bottomContent,
   ] = await Promise.all([
@@ -307,11 +307,6 @@ export default async function Page({ params }: Props) {
       bottomContent={bottomContent}
       description={description}
       format={questionFormat}
-      metadata={{
-        description: seoDescription,
-        href: `/questions/interviews/${slug}`,
-        title: socialTitle,
-      }}
       questionCompletionCount={questionCompletionCount}
       questions={questions}
       title={pageTitle}

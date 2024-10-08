@@ -12,8 +12,7 @@ import {
   type PreparationPlans,
 } from '~/data/plans/PreparationPlans';
 
-import InterviewsPageFeatures from '~/components/interviews/common/InterviewsPageFeatures';
-import InterviewsPageHeaderActions from '~/components/interviews/common/InterviewsPageHeaderActions';
+import InterviewsListPageHeader from '~/components/interviews/common/InterviewsListPageHeader';
 import InterviewsLearningListCard from '~/components/interviews/questions/listings/learning/InterviewsLearningListCard';
 import InterviewsStudyPlanTestimonialsSection from '~/components/interviews/questions/listings/learning/study-plan/InterviewsStudyPlanTestimonialsSection';
 import { useIntl } from '~/components/intl';
@@ -22,7 +21,6 @@ import Container from '~/components/ui/Container';
 import Divider from '~/components/ui/Divider';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
-import Text from '~/components/ui/Text';
 
 import { useUser } from '@supabase/auth-helpers-react';
 
@@ -33,18 +31,12 @@ type PreparationPlanSection = Readonly<{
 
 type Props = Readonly<{
   bottomContent?: InterviewsListingBottomContent;
-  metadata: {
-    description: string;
-    href: string;
-    title: string;
-  };
   preparationPlans: PreparationPlans;
 }>;
 
 export default function InterviewsRevampStudyPlansPage({
   preparationPlans,
   bottomContent,
-  metadata,
 }: Props) {
   const intl = useIntl();
   const user = useUser();
@@ -97,34 +89,20 @@ export default function InterviewsRevampStudyPlansPage({
 
   return (
     <Container className={clsx('flex flex-col', 'py-10', 'gap-y-12')}>
-      <div>
-        <InterviewsPageHeaderActions
-          className="mb-8 flex w-full justify-end"
-          metadata={metadata}
-        />
-        <div className="flex flex-col gap-4">
-          <Heading level="heading4">
-            {intl.formatMessage({
-              defaultMessage: 'Study plans',
-              description: 'Title of study plans page',
-              id: 'swjkuF',
-            })}
-          </Heading>
-          <Text className="block" color="subtitle" size="body1" weight="medium">
-            {intl.formatMessage({
-              defaultMessage:
-                'Prepare well for your front end interviews regardless of time left.',
-              description: 'Description for study plans page',
-              id: '+wAHkD',
-            })}
-          </Text>
-        </div>
-        {/* Features */}
-        <div className="mt-10">
-          <InterviewsPageFeatures features={features} />
-        </div>
-        <Divider className="mt-8" />
-      </div>
+      <InterviewsListPageHeader
+        description={intl.formatMessage({
+          defaultMessage:
+            'Prepare well for your front end interviews regardless of time left.',
+          description: 'Description for study plans page',
+          id: '+wAHkD',
+        })}
+        features={features}
+        title={intl.formatMessage({
+          defaultMessage: 'Study plans',
+          description: 'Title of study plans page',
+          id: 'swjkuF',
+        })}
+      />
       <Section>
         <div className="flex flex-col gap-4">
           {preparationPlanSections.map(({ plans, title }) => (

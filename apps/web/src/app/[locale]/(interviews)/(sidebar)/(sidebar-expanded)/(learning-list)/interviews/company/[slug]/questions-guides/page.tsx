@@ -106,10 +106,9 @@ export default async function Page({ params }: Props) {
     'user-interface': companyGuide.questionsUserInterface ?? [],
   };
 
-  const [questions, bottomContent, seoMetadata] = await Promise.all([
+  const [questions, bottomContent] = await Promise.all([
     fetchQuestionsBySlug(companyQuestions, locale),
     fetchInterviewListingBottomContent('company-detail'),
-    getPageSEOMetadata({ params }),
   ]);
   const codingQuestions = [
     ...questions.javascript,
@@ -127,10 +126,6 @@ export default async function Page({ params }: Props) {
       codingQuestions={codingQuestions}
       companyGuide={companyGuide}
       companyQuestions={companyQuestions}
-      metadata={{
-        ...seoMetadata,
-        title: seoMetadata.socialTitle,
-      }}
       quizQuestions={sortQuestions(
         quizQuestions as ReadonlyArray<QuestionMetadata>,
         'importance',

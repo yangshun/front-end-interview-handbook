@@ -21,17 +21,9 @@ import { categorizeGuides } from '~/db/guides/GuidesUtils';
 
 type Props = Readonly<{
   allGuides: ReadonlyArray<GuideCardMetadata>;
-  metadata: {
-    description: string;
-    href: string;
-    title: string;
-  };
 }>;
 
-export default function BehavioralInterviewPlaybookPage({
-  metadata,
-  allGuides,
-}: Props) {
+export default function BehavioralInterviewPlaybookPage({ allGuides }: Props) {
   const intl = useIntl();
 
   const categorizedGuideSlugs: Record<
@@ -135,7 +127,6 @@ export default function BehavioralInterviewPlaybookPage({
           </Text>
         </div>
       }
-      metadata={metadata}
       showRecommendedItemsDropdown={false}
       title={intl.formatMessage({
         defaultMessage: 'Behavioral Interview Playbook',

@@ -83,23 +83,17 @@ export default async function Page({ params }: Props) {
     { questions: systemDesignQuestions },
     { framework, language },
     bottomContent,
-    seoMetadata,
   ] = await Promise.all([
     fetchQuestionsListQuiz(locale),
     fetchQuestionsListCoding(locale),
     fetchQuestionsListSystemDesign(locale),
     categorizeQuestionsByFrameworkAndLanguage(locale),
     fetchInterviewListingBottomContent('all-questions'),
-    getPageSEOMetadata({ params }),
   ]);
 
   return (
     <InterviewsAllPracticeQuestionsPage
       bottomContent={bottomContent}
-      metadata={{
-        ...seoMetadata,
-        title: seoMetadata.socialTitle,
-      }}
       questions={{
         codingQuestions,
         frameworkQuestions: framework,

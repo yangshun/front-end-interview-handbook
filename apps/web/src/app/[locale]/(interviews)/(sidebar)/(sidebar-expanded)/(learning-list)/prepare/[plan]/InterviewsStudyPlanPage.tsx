@@ -16,7 +16,6 @@ import type { PreparationPlan } from '~/data/plans/PreparationPlans';
 import { getPreparationPlanTheme } from '~/data/plans/PreparationPlans';
 
 import { useUserProfile } from '~/components/global/UserProfileProvider';
-import InterviewsPageHeaderActions from '~/components/interviews/common/InterviewsPageHeaderActions';
 import QuestionPaywall from '~/components/interviews/questions/common/QuestionPaywall';
 import type {
   QuestionDifficulty,
@@ -45,11 +44,6 @@ type Props = Readonly<{
   bottomContent?: InterviewsListingBottomContent;
   codingQuestions: ReadonlyArray<QuestionMetadata>;
   difficultySummary: Record<QuestionDifficulty, number>;
-  metadata: {
-    description: string;
-    href: string;
-    title: string;
-  };
   plan: PreparationPlan;
   quizQuestions: ReadonlyArray<QuestionMetadata>;
   systemDesignQuestions: ReadonlyArray<QuestionMetadata>;
@@ -62,7 +56,6 @@ export default function InterviewsStudyPlanPage({
   systemDesignQuestions,
   plan,
   bottomContent,
-  metadata,
 }: Props) {
   const intl = useIntl();
   const { userProfile } = useUserProfile();
@@ -133,9 +126,6 @@ export default function InterviewsStudyPlanPage({
             size="md"
             variant="tertiary"
           />
-          {INTERVIEWS_REVAMP_2024 && (
-            <InterviewsPageHeaderActions metadata={metadata} />
-          )}
         </div>
         {INTERVIEWS_REVAMP_2024 ? (
           <>

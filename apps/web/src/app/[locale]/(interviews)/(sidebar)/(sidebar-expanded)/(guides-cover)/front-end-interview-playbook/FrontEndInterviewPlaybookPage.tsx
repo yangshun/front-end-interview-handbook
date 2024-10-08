@@ -22,15 +22,9 @@ import { categorizeGuides } from '~/db/guides/GuidesUtils';
 
 type Props = Readonly<{
   allGuides: ReadonlyArray<GuideCardMetadata>;
-  metadata: {
-    description: string;
-    href: string;
-    title: string;
-  };
 }>;
 
 export default function FrontEndInterviewPlaybookPage({
-  metadata,
   allGuides,
 }: Props) {
   const intl = useIntl();
@@ -184,7 +178,6 @@ export default function FrontEndInterviewPlaybookPage({
           </Text>
         </div>
       }
-      metadata={metadata}
       title={intl.formatMessage({
         defaultMessage: 'Front End Interview Playbook',
         description: 'Title of frontend interview playbook page',

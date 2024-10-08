@@ -77,12 +77,11 @@ export default async function Page({ params }: Props) {
   // TODO: Remove this IntlShape typecast.
   const focusAreas = getFocusAreas(intl as IntlShape);
   const focusArea = focusAreas[focusAreaType];
-  const [{ title, description, socialTitle, href }, questions, bottomContent] =
-    await Promise.all([
-      getFocusAreaSEO(focusAreaType, locale),
-      fetchQuestionsBySlug(focusArea.questions, locale),
-      fetchInterviewListingBottomContent(`${focusAreaType}-focus-area`),
-    ]);
+  const [{ title, description }, questions, bottomContent] = await Promise.all([
+    getFocusAreaSEO(focusAreaType, locale),
+    fetchQuestionsBySlug(focusArea.questions, locale),
+    fetchInterviewListingBottomContent(`${focusAreaType}-focus-area`),
+  ]);
   const codingQuestionsForPlan = [
     ...questions.javascript,
     ...questions['user-interface'],
@@ -108,11 +107,6 @@ export default async function Page({ params }: Props) {
         }
         codingQuestions={codingQuestionsForPlan}
         focusArea={focusArea}
-        metadata={{
-          description,
-          href,
-          title: socialTitle || title,
-        }}
         quizQuestions={sortQuestions(
           quizQuestionsForPlan as ReadonlyArray<QuestionMetadata>,
           'importance',

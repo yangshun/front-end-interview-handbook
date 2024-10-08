@@ -46,7 +46,6 @@ import {
 } from '~/db/QuestionsUtils';
 
 import InterviewsCompanyInsiderTipsSlider from './InterviewsCompanyInsiderTipsSlider';
-import InterviewsPageHeaderActions from '../common/InterviewsPageHeaderActions';
 import useQuestionTopicLabels from '../questions/listings/filters/useQuestionTopicLabels';
 
 import { useUser } from '@supabase/auth-helpers-react';
@@ -56,11 +55,6 @@ type Props = Readonly<{
   codingQuestions: ReadonlyArray<QuestionMetadata>;
   companyGuide: InterviewsCompanyGuide;
   companyQuestions: Record<QuestionFormat, ReadonlyArray<QuestionSlug>>;
-  metadata: {
-    description: string;
-    href: string;
-    title: string;
-  };
   quizQuestions: ReadonlyArray<QuestionMetadata>;
   systemDesignQuestions: ReadonlyArray<QuestionMetadata>;
 }>;
@@ -72,7 +66,6 @@ export default function InterviewsCompanyGuidePage({
   codingQuestions,
   systemDesignQuestions,
   bottomContent,
-  metadata,
 }: Props) {
   const intl = useIntl();
   const { userProfile } = useUserProfile();
@@ -175,9 +168,6 @@ export default function InterviewsCompanyGuidePage({
             size="md"
             variant="tertiary"
           />
-          {INTERVIEWS_REVAMP_2024 && (
-            <InterviewsPageHeaderActions metadata={metadata} />
-          )}
         </div>
         {INTERVIEWS_REVAMP_2024 ? (
           <>

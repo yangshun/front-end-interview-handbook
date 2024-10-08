@@ -134,8 +134,7 @@ export default async function Page({ params }: Props) {
 
   const { locale } = params;
 
-  const [seoMetadata, allGuides, { questions }] = await Promise.all([
-    getPageSEOMetadata({ params }),
+  const [allGuides, { questions }] = await Promise.all([
     readAllGuides({ params }),
     fetchQuestionsListSystemDesign(locale),
   ]);
@@ -143,10 +142,6 @@ export default async function Page({ params }: Props) {
   return (
     <FrontEndSystemDesignPlaybookPage
       allGuides={allGuides}
-      metadata={{
-        ...seoMetadata,
-        title: seoMetadata.socialTitle,
-      }}
       questionCount={questions.length}
     />
   );

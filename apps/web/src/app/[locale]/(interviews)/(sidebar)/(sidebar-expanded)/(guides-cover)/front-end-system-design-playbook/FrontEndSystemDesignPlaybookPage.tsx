@@ -23,16 +23,10 @@ import { roundQuestionCountToNearestTen } from '~/db/QuestionsUtils';
 
 type Props = Readonly<{
   allGuides: ReadonlyArray<GuideCardMetadata>;
-  metadata: {
-    description: string;
-    href: string;
-    title: string;
-  };
   questionCount: number;
 }>;
 
 export default function FrontEndSystemDesignPlaybookPage({
-  metadata,
   allGuides,
   questionCount,
 }: Props) {
@@ -126,7 +120,6 @@ export default function FrontEndSystemDesignPlaybookPage({
           </Text>
         </div>
       }
-      metadata={metadata}
       title={intl.formatMessage({
         defaultMessage: 'Front End System Design Playbook',
         description: 'Title of frontend system design playbook page',

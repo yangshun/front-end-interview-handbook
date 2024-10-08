@@ -69,16 +69,13 @@ export default async function Page({ params }: Props) {
   const { locale, plan: planType } = params;
 
   const intl = await getIntlServerOnly(locale);
-  const [
-    preparationPlans,
-    { title, description, href, socialTitle },
-    bottomContent,
-  ] = await Promise.all([
-    // TODO: Remove this IntlShape typecast.
-    fetchPreparationPlans(intl as IntlShape),
-    getPreparationPlansSEO(planType, locale),
-    fetchInterviewListingBottomContent(`${planType}-study-plan`),
-  ]);
+  const [preparationPlans, { title, description }, bottomContent] =
+    await Promise.all([
+      // TODO: Remove this IntlShape typecast.
+      fetchPreparationPlans(intl as IntlShape),
+      getPreparationPlansSEO(planType, locale),
+      fetchInterviewListingBottomContent(`${planType}-study-plan`),
+    ]);
   const preparationPlan = preparationPlans[planType];
 
   const questions = await fetchQuestionsBySlug(
@@ -115,11 +112,6 @@ export default async function Page({ params }: Props) {
         }
         codingQuestions={codingQuestionsForPlan}
         difficultySummary={difficultySummary}
-        metadata={{
-          description,
-          href,
-          title: socialTitle || title,
-        }}
         plan={preparationPlan}
         quizQuestions={sortQuestions(quizQuestionsForPlan, 'importance', false)}
         systemDesignQuestions={systemDesignQuestionsForPlan}

@@ -90,7 +90,7 @@ async function getDifficultySummaryForList(
 export default async function Page({ params }: Props) {
   const { locale } = params;
 
-  const [intl, seoMetadata] = await Promise.all([
+  const [intl] = await Promise.all([
     getIntlServerOnly(locale),
     getPageSEOMetadata({ params }),
   ]);
@@ -126,10 +126,6 @@ export default async function Page({ params }: Props) {
     <InterviewsRevampFocusAreaListPage
       bottomContent={bottomContent}
       focusAreas={focusAreas}
-      metadata={{
-        ...seoMetadata,
-        title: seoMetadata.socialTitle,
-      }}
     />
   ) : (
     <InterviewsFocusAreaListPage

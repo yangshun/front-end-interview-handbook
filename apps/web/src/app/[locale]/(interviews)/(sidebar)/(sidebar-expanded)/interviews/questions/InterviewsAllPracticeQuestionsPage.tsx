@@ -10,8 +10,7 @@ import {
 
 import { trpc } from '~/hooks/trpc';
 
-import InterviewsPageFeatures from '~/components/interviews/common/InterviewsPageFeatures';
-import InterviewsPageHeaderActions from '~/components/interviews/common/InterviewsPageHeaderActions';
+import InterviewsListPageHeader from '~/components/interviews/common/InterviewsListPageHeader';
 import type {
   QuestionFramework,
   QuestionLanguage,
@@ -23,19 +22,12 @@ import { useIntl } from '~/components/intl';
 import MDXContent from '~/components/mdx/MDXContent';
 import Container from '~/components/ui/Container';
 import Divider from '~/components/ui/Divider';
-import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
-import Text from '~/components/ui/Text';
 
 import { useUser } from '@supabase/auth-helpers-react';
 
 type Props = Readonly<{
   bottomContent?: InterviewsListingBottomContent;
-  metadata: {
-    description: string;
-    href: string;
-    title: string;
-  };
   questions: {
     codingQuestions: ReadonlyArray<QuestionMetadata>;
     frameworkQuestions: Record<
@@ -54,7 +46,6 @@ type Props = Readonly<{
 export default function InterviewsAllPracticeQuestionsPage({
   questions,
   bottomContent,
-  metadata,
 }: Props) {
   const intl = useIntl();
 
@@ -101,35 +92,20 @@ export default function InterviewsAllPracticeQuestionsPage({
 
   return (
     <Container className={clsx('flex flex-col', 'py-10', 'gap-y-12')}>
-      <div>
-        <InterviewsPageHeaderActions
-          className="mb-8 flex w-full justify-end"
-          metadata={metadata}
-        />
-        <div className="flex flex-col gap-4">
-          <Heading level="heading4">
-            {intl.formatMessage({
-              defaultMessage: 'Front end interview questions',
-              description: 'Title of all practice questions page',
-              id: 'o8bpfE',
-            })}
-          </Heading>
-          <Text className="block" color="subtitle" size="body1" weight="medium">
-            {intl.formatMessage({
-              defaultMessage:
-                'Practice questions for specific frameworks, languages or question formats.',
-              description: 'Description for all practice questions page',
-              id: 'W45B/T',
-            })}
-          </Text>
-        </div>
-        {/* Features */}
-        <div className="mt-10">
-          <InterviewsPageFeatures features={features} />
-        </div>
-
-        <Divider className="mt-8" />
-      </div>
+      <InterviewsListPageHeader
+        description={intl.formatMessage({
+          defaultMessage:
+            'Practice questions for specific frameworks, languages or question formats.',
+          description: 'Description for all practice questions page',
+          id: 'W45B/T',
+        })}
+        features={features}
+        title={intl.formatMessage({
+          defaultMessage: 'Front end interview questions',
+          description: 'Title of all practice questions page',
+          id: 'o8bpfE',
+        })}
+      />
 
       <Section>
         <InterviewsQuestionFormatsSection

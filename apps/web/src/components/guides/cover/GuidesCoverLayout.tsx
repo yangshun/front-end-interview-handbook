@@ -13,11 +13,6 @@ type Props = Readonly<{
   }>;
   icon: (props: React.ComponentProps<'svg'>) => JSX.Element;
   longDescription: ReactNode;
-  metadata: {
-    description: string;
-    href: string;
-    title: string;
-  };
   showRecommendedItemsDropdown?: boolean;
   title: string;
 }>;
@@ -29,7 +24,6 @@ export default function GuidesCoverLayout({
   icon,
   longDescription,
   children,
-  metadata,
   showRecommendedItemsDropdown,
 }: Props) {
   return (
@@ -39,7 +33,6 @@ export default function GuidesCoverLayout({
         features={features}
         icon={icon}
         longDescription={longDescription}
-        metadata={metadata}
         showQuestionCountCard={false}
         showRecommendedItemsDropdown={showRecommendedItemsDropdown}
         title={title}
