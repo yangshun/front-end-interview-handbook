@@ -19,7 +19,6 @@ type ColorSchemePreferencesContextType = {
 
 const DEFAULT_COLOR_SCHEME_PREFERENCE: ColorSchemePreference = 'dark';
 const DEFAULT_COLOR_SCHEME: ColorScheme = 'dark';
-const colorSchemePreferences: ReadonlyArray<ColorSchemePreference> = ['dark', 'light', 'system'];
 
 const ColorSchemePreferencesContext =
   createContext<ColorSchemePreferencesContextType>({
@@ -73,11 +72,15 @@ export default function ColorSchemePreferencesProvider({ children }: Props) {
   }, []);
 
   const colorScheme = useMemo(() => {
-    if (colorSchemePreference === 'system') {
-      return resolvedSystemColorScheme;
+    switch (colorSchemePreference) {
+      case 'system':
+        return resolvedSystemColorScheme;
+      case 'light':
+      case 'dark':
+        return colorSchemePreference;
+      default:
+        return DEFAULT_COLOR_SCHEME;
     }
-
-    return colorSchemePreferences.includes(colorSchemePreference) ? colorSchemePreference : DEFAULT_COLOR_SCHEME_PREFERENCE
   }, [colorSchemePreference, resolvedSystemColorScheme]);
 
   useEffect(() => {
