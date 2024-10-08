@@ -4,9 +4,7 @@ import { forwardRef } from 'react';
 
 import Anchor from '~/components/ui/Anchor';
 import {
-  themeBorderBrandColor,
   themeBorderElementColor,
-  themeTextBrandColor_Hover,
   themeTextColor_Hover,
 } from '~/components/ui/theme';
 

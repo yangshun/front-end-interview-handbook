@@ -7,8 +7,6 @@ import {
   themeBackgroundElementEmphasizedStateColor_Hover,
   themeBackgroundElementPressedStateColor_Active,
   themeBorderElementColor,
-  themeOutlineElement_FocusVisible,
-  themeOutlineElementBrandColor_FocusVisible,
   themeTextSubtitleColor,
 } from '~/components/ui/theme';
 

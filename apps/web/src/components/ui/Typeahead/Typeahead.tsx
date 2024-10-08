@@ -17,7 +17,6 @@ import Select, { components } from 'react-select';
 import {
   themeBackgroundChipColor,
   themeBackgroundColor,
-  themeBackgroundElementColor,
   themeBackgroundElementEmphasizedStateColor,
   themeBorderElementColor,
   themeTextFaintColor,
