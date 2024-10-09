@@ -68,7 +68,7 @@ export default function JavaScriptCodingWorkspaceTestsEditor({
           options: {
             inlineClassName: clsx(
               '!bg-brand',
-              '!text-white',
+              '!text-neutral-900',
               'transition-colors',
             ),
           },

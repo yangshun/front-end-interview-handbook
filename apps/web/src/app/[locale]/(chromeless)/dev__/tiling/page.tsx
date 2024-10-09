@@ -4,6 +4,9 @@ import clsx from 'clsx';
 import { RiLayoutGridLine } from 'react-icons/ri';
 
 import Text from '~/components/ui/Text';
+import CodingWorkspaceDivider, {
+  CodingWorkspaceDividerWrapperClassname,
+} from '~/components/workspace/common/CodingWorkspaceDivider';
 
 import { TilesPanelRoot } from '~/react-tiling/components/TilesPanelRoot';
 import { TilesProvider } from '~/react-tiling/state/TilesProvider';
@@ -83,20 +86,8 @@ export default function Page() {
         <TilesPanelRoot
           disablePointerEventsDuringResize={true}
           getResizeHandlerProps={(direction) => ({
-            children: (
-              <div
-                className={clsx(
-                  'transition-color group-hover:bg-brand absolute rounded-full ease-in-out',
-                  direction === 'horizontal' && 'inset-x-0 inset-y-1',
-                  direction === 'vertical' && 'inset-x-1 inset-y-0',
-                )}
-              />
-            ),
-            className: clsx(
-              'relative bg-transparent group',
-              direction === 'horizontal' && 'h-3',
-              direction === 'vertical' && 'w-3',
-            ),
+            children: <CodingWorkspaceDivider direction={direction} />,
+            className: CodingWorkspaceDividerWrapperClassname(direction),
           })}
           getTabLabel={(tabId) => ({
             icon: RiLayoutGridLine,

@@ -3,7 +3,11 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 import { useDrag, useDrop } from 'react-dnd';
 import { RiCloseLine } from 'react-icons/ri';
 
-import { themeTextSubtleColor } from '~/components/ui/theme';
+import {
+  themeTextBrandColor_Hover,
+  themeTextColor,
+  themeTextSubtleColor,
+} from '~/components/ui/theme';
 
 import { I18nLink } from '~/next-i18nostic/src';
 
@@ -218,14 +222,11 @@ export default function TilesPanelTab<TabType extends string>({
       className={clsx(
         'group relative isolate flex grow items-center gap-x-0.5 rounded font-medium',
         isOver
-          ? 'bg-brand-lightest dark:bg-neutral-900'
+          ? 'bg-neutral-100 dark:bg-neutral-900'
           : 'hover:bg-neutral-100 dark:hover:bg-neutral-900',
         isActive
-          ? 'text-brand-dark dark:text-neutral-100'
-          : [
-              themeTextSubtleColor,
-              'hover:text-brand-darker dark:hover:text-brand',
-            ],
+          ? themeTextColor
+          : [themeTextSubtleColor, themeTextBrandColor_Hover],
         closeable ? 'pl-2 pr-1' : 'px-2',
       )}>
       {href ? (

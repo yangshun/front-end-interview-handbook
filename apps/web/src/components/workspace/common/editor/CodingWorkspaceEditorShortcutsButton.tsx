@@ -1,5 +1,6 @@
 'use client';
 
+import clsx from 'clsx';
 import { RiKeyboardBoxLine } from 'react-icons/ri';
 
 import { FormattedMessage, useIntl } from '~/components/intl';
@@ -255,7 +256,11 @@ export default function CodingWorkspaceEditorShortcutsButton() {
                     {keys.map((keyParam) => (
                       <span
                         key={keyParam}
-                        className="bg-brand-lightest text-brand-darker dark:text-brand-light rounded-md px-1 py-0.5 dark:bg-neutral-700">
+                        className={clsx(
+                          'rounded-md px-1 py-0.5',
+                          'text-brand-darker dark:text-brand-light',
+                          'bg-brand-lightest dark:bg-neutral-700',
+                        )}>
                         {renderPlatformSpecificKey(keyParam)}
                       </span>
                     ))}

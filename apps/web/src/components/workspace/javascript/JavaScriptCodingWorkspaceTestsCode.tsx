@@ -53,7 +53,7 @@ function highlightElement(
 
   const highlightClassTokens = [
     '!bg-brand',
-    '!text-white',
+    '!text-neutral-900',
     'transition-colors',
   ];
 

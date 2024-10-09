@@ -3,8 +3,6 @@ import type { CSSProperties, ReactNode } from 'react';
 import { useEffect, useState } from 'react';
 import type { PanelGroupProps } from 'react-resizable-panels';
 
-import { themeBorderBrandColor } from '~/components/ui/theme';
-
 import TilesPanel from './TilesPanel';
 import { useDragHighlightContext } from '../state/useDragHighlightContext';
 import { useTilesContext } from '../state/useTilesContext';
@@ -59,8 +57,8 @@ export function TilesPanelRoot<TabType extends string>({
           key={prevDraggedItemId}
           className={clsx(
             'absolute z-10',
-            ['border', themeBorderBrandColor],
-            'bg-brand-darker/20',
+            ['border', 'dark:border-brand border-neutral-300'],
+            'dark:bg-brand-darker/20 bg-neutral-200/20',
             draggedItemId === null && 'opacity-0',
             'rounded-md',
             'pointer-events-none',

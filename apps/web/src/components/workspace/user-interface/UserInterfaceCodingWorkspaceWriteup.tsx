@@ -105,7 +105,10 @@ export default function UserInterfaceCodingWorkspaceWriteup({
                   <strong>"{save.name}"</strong>.
                 </Text>
                 <Button
-                  href={questionUserInterfaceDescriptionPath(metadata, framework)}
+                  href={questionUserInterfaceDescriptionPath(
+                    metadata,
+                    framework,
+                  )}
                   label="Start a new version"
                   size="sm"
                   variant="secondary"
@@ -173,8 +176,7 @@ export default function UserInterfaceCodingWorkspaceWriteup({
                 className={clsx(
                   'hidden lg:block',
                   'rounded-md p-4 text-center',
-                  'border-brand-light dark:border-brand-darkest border',
-                  'bg-brand-darker/10',
+                  'bg-brand',
                 )}>
                 <SolutionPreviewButton />
               </div>

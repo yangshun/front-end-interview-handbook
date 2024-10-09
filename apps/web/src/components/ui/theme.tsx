@@ -122,7 +122,7 @@ export const themeBackgroundElementPressedStateColor_Active = clsx(
 );
 
 // Fills
-export const themeFillBrandColor = clsx('fill-brand-dark dark:fill-brand');
+export const themeFillBrandColor = clsx('fill-neutral-900 dark:fill-brand');
 
 // Lines.
 export const themeBorderColor = clsx(
@@ -152,13 +152,13 @@ export const themeGlassyBorder = clsx(
   'glassbox border border-neutral-200 dark:border-transparent',
 );
 export const themeBorderBrandColor = clsx(
-  'border-brand-dark dark:border-brand',
+  'border-neutral-900 dark:border-brand',
 );
 export const themeBorderBrandColor_Hover = clsx(
-  'hover:border-brand-dark dark:hover:border-brand',
+  'hover:border-neutral-900 dark:hover:border-brand',
 );
 export const themeBorderBrandColor_GroupHover = clsx(
-  'group-hover:border-brand-dark dark:group-hover:border-brand',
+  'group-hover:border-neutral-900 dark:group-hover:border-brand',
 );
 
 export const themeOutlineElement_FocusVisible = clsx(

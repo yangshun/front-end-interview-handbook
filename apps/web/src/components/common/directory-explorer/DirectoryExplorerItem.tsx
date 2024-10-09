@@ -11,6 +11,7 @@ import {
 } from 'react-icons/ri';
 
 import {
+  themeBackgroundElementEmphasizedStateColor,
   themeTextBrandColor,
   themeTextBrandColor_Hover,
   themeTextSubtleColor,
@@ -61,7 +62,7 @@ function ExplorerItem({
         'py-1 pr-4',
         'shrink-0',
         isActive
-          ? [themeTextBrandColor, 'bg-brand-lightest dark:bg-neutral-900']
+          ? [themeTextBrandColor, themeBackgroundElementEmphasizedStateColor]
           : [themeTextSubtleColor, themeTextBrandColor_Hover],
         className,
       )}

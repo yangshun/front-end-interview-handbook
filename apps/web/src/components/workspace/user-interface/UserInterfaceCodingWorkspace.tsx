@@ -41,6 +41,9 @@ import useUserInterfaceCodingWorkspaceTilesContext from './useUserInterfaceCodin
 import { codingFilesShouldUseTypeScript } from '../common/codingFilesShouldUseTypeScript';
 import type { CodingWorkspaceTabContents } from '../common/CodingWorkspaceContext';
 import { CodingWorkspaceProvider } from '../common/CodingWorkspaceContext';
+import CodingWorkspaceDivider, {
+  CodingWorkspaceDividerWrapperClassname,
+} from '../common/CodingWorkspaceDivider';
 import { codingWorkspaceExtractFileNameFromPath } from '../common/codingWorkspaceExtractFileNameFromPath';
 import { CodingWorkspaceTabIcons } from '../common/CodingWorkspaceTabIcons';
 import CodingWorkspaceConsole from '../common/console/CodingWorkspaceConsole';
@@ -403,20 +406,8 @@ function UserInterfaceCodingWorkspaceImpl({
             <UserInterfaceCodingWorkspaceTilesPanelRoot
               disablePointerEventsDuringResize={true}
               getResizeHandlerProps={(direction) => ({
-                children: (
-                  <div
-                    className={clsx(
-                      'transition-color group-hover:bg-brand absolute rounded-full ease-in-out',
-                      direction === 'horizontal' && 'inset-x-0 inset-y-1',
-                      direction === 'vertical' && 'inset-x-1 inset-y-0',
-                    )}
-                  />
-                ),
-                className: clsx(
-                  'relative bg-transparent group',
-                  direction === 'horizontal' && 'h-3',
-                  direction === 'vertical' && 'w-3',
-                ),
+                children: <CodingWorkspaceDivider direction={direction} />,
+                className: CodingWorkspaceDividerWrapperClassname(direction),
               })}
               getTabLabel={(tabId) => ({
                 icon: tabContents[tabId]?.icon,

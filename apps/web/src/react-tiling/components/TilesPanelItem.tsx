@@ -16,10 +16,13 @@ import Button from '~/components/ui/Button';
 import Divider from '~/components/ui/Divider';
 import {
   themeBackgroundColor,
+  themeBackgroundElementColor,
   themeBackgroundElementEmphasizedStateColor_Hover,
   themeBackgroundElementPressedStateColor_Active,
   themeBorderColor,
   themeDivideColor,
+  themeOutlineElementBrandColor_FocusVisible,
+  themeTextBrandColor_Hover,
   themeTextSubtleColor,
 } from '~/components/ui/theme';
 
@@ -153,13 +156,20 @@ export default function TilesPanelItem<TabType extends string>({
             return (
               <Button
                 key={tabItem.id}
-                className={themeTextSubtleColor}
+                className={clsx(
+                  'border-transparent',
+                  themeTextSubtleColor,
+                  themeBackgroundElementColor,
+                  themeBackgroundElementEmphasizedStateColor_Hover,
+                  themeBackgroundElementPressedStateColor_Active,
+                  themeOutlineElementBrandColor_FocusVisible,
+                )}
                 href={tabItem.href}
                 icon={icon}
                 isLabelHidden={true}
                 label={label}
                 size="lg"
-                variant="tertiary"
+                variant="unstyled"
                 onClick={() => {
                   dispatch({
                     payload: {
@@ -209,13 +219,10 @@ export default function TilesPanelItem<TabType extends string>({
                 'bg-transparent',
                 'text-neutral-600 dark:text-neutral-200',
                 [
+                  themeTextBrandColor_Hover,
                   themeBackgroundElementEmphasizedStateColor_Hover,
-                  'hover:text-brand-darker dark:hover:text-brand',
                 ],
-                [
-                  themeBackgroundElementPressedStateColor_Active,
-                  'active:text-brand-dark dark:active:text-brand-light',
-                ],
+                [themeBackgroundElementPressedStateColor_Active],
               )}
               type="button"
               onClick={() => {
