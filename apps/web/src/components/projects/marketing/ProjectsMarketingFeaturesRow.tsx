@@ -33,7 +33,9 @@ export default function ProjectsMarketingFeaturesRow() {
             id="rUKlWg"
             values={{
               link: (chunks) => (
-                <Anchor href="/projects/skills">{chunks}</Anchor>
+                <Anchor href="/projects/skills" prefetch={null}>
+                  {chunks}
+                </Anchor>
               ),
             }}
           />
@@ -49,7 +51,9 @@ export default function ProjectsMarketingFeaturesRow() {
             id="ES78kz"
             values={{
               link: (chunks) => (
-                <Anchor href="/projects/tracks">{chunks}</Anchor>
+                <Anchor href="/projects/tracks" prefetch={null}>
+                  {chunks}
+                </Anchor>
               ),
             }}
           />
@@ -65,7 +69,9 @@ export default function ProjectsMarketingFeaturesRow() {
             id="4uyrtd"
             values={{
               link: (chunks) => (
-                <Anchor href="/projects/submissions">{chunks}</Anchor>
+                <Anchor href="/projects/submissions" prefetch={null}>
+                  {chunks}
+                </Anchor>
               ),
             }}
           />

@@ -91,6 +91,7 @@ export default function InterviewsMarketingTestimonialsSection({
                   'Label for view all testimonials button in homepage',
                 id: 'gU6oac',
               })}
+              prefetch={null}
               size="md"
               variant="secondary"
             />

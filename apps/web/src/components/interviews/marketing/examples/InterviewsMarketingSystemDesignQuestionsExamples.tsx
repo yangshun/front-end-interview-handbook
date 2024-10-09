@@ -56,6 +56,7 @@ export default function InterviewsMarketingSystemDesignQuestionsExamples({
                   'Link label to the list of all System Design questions',
                 id: '68EGSg',
               })}
+              prefetch={null}
               size="lg"
               variant="primary"
               onClick={() => {

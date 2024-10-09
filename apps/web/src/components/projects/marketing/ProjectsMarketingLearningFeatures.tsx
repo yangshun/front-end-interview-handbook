@@ -207,7 +207,9 @@ function useLearningFeatures(): Array<LearningFeature> {
             id="SEXvzM"
             values={{
               link: (chunks) => (
-                <Anchor href="/projects/skills">{chunks}</Anchor>
+                <Anchor href="/projects/skills" prefetch={null}>
+                  {chunks}
+                </Anchor>
               ),
             }}
           />

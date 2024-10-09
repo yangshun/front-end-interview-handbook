@@ -56,6 +56,7 @@ export default function InterviewsMarketingJavaScriptQuestionsExamples({
                   'Link label to the list of all JavaScript coding questions',
                 id: 'lJupPX',
               })}
+              prefetch={null}
               size="lg"
               variant="primary"
               onClick={() => {

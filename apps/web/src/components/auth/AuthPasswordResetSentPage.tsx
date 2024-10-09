@@ -36,7 +36,8 @@ export default function AuthPasswordResetSentPage({ next }: Props) {
           <Anchor
             href={signInUpHref({
               next,
-            })}>
+            })}
+            prefetch={null}>
             Go back to sign in
           </Anchor>
         </Text>

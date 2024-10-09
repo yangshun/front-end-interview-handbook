@@ -38,6 +38,7 @@ export default function ProjectsMarketingHero() {
                   'transition-colors',
                 )}
                 href="/blog/a-real-world-projects-platform-for-front-end-engineers"
+                prefetch={null}
                 variant="unstyled">
                 <RiBardLine className={themeTextColor} />
                 <Text size="body2" weight="medium">
@@ -87,6 +88,7 @@ export default function ProjectsMarketingHero() {
                     'Label for Explore projects button in Projects marketing hero section',
                   id: '731FKz',
                 })}
+                prefetch={null}
                 size="lg"
                 variant="primary"
               />

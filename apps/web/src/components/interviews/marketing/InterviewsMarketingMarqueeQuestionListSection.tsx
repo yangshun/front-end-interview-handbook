@@ -42,6 +42,7 @@ export default function InterviewsMarketingMarqueeQuestionListSection({
           href={href}
           icon={RiArrowRightLine}
           label="View full questions list"
+          prefetch={null}
           size="md"
           variant="secondary"
         />

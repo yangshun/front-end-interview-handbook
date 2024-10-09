@@ -56,6 +56,7 @@ export default function InterviewsMarketingUserInterfaceQuestionsExamples({
                   'Link label to the list of all User Interface coding questions',
                 id: 'z+5YJV',
               })}
+              prefetch={null}
               size="lg"
               variant="primary"
               onClick={() => {

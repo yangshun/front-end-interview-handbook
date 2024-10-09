@@ -66,7 +66,9 @@ function MarketingRecentPurchasesImpl({
           values={{
             country: currentPurchase.country,
             link: (chunks) => (
-              <Anchor href="/interviews/pricing">{chunks}</Anchor>
+              <Anchor href="/interviews/pricing" prefetch={null}>
+                {chunks}
+              </Anchor>
             ),
           }}
         />

@@ -72,6 +72,7 @@ export default function InterviewsMarketingQuizQuestionsExamples({
                   'Link label to the list of all Quiz coding questions',
                 id: 'u0dndi',
               })}
+              prefetch={null}
               size="lg"
               variant="primary"
               onClick={() => {

@@ -53,6 +53,7 @@ function NavProductDropdownMenuItem({
         data-theme={theme}
         href={href}
         locale="en-US"
+        prefetch={null}
         variant="unstyled">
         <div className="flex justify-between">
           <div className="relative">

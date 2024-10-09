@@ -82,6 +82,7 @@ export default function InterviewsMarketingHeroNew() {
                 'Label for Get Started button in Hero section of HomePage.',
               id: 'U0KCty',
             })}
+            prefetch={null}
             size="lg"
             variant="primary"
           />

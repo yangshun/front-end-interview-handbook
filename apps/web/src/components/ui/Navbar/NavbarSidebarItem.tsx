@@ -75,6 +75,7 @@ function NavbarAccordionSubsection({
           !isCurrent && linkClass,
         )}
         href={props.href}
+        prefetch={null}
         variant="unstyled"
         onClick={onClick}>
         {roundedIcon}
@@ -142,6 +143,7 @@ function NavbarSidebarAccordion({
     <div className="flex flex-col">
       <Anchor
         className={clsx(linkClass, 'flex items-center justify-between p-4')}
+        prefetch={null}
         variant="unstyled"
         onClick={() => {
           setIsOpen(!isOpen);
@@ -196,6 +198,7 @@ export default function NavbarSidebarItem({
           textVariants({ size: 'body1' }),
         )}
         href={props.href}
+        prefetch={null}
         variant="unstyled"
         onClick={onClick}>
         {label}

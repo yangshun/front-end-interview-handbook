@@ -78,7 +78,9 @@ function usePortfolioFeatures(): Array<PortfolioFeature> {
             id="C/Z5Ui"
             values={{
               link: (chunks) => (
-                <Anchor href="/projects/tracks">{chunks}</Anchor>
+                <Anchor href="/projects/tracks" prefetch={null}>
+                  {chunks}
+                </Anchor>
               ),
             }}
           />

@@ -315,6 +315,7 @@ export default function InterviewsMarketingPracticeQuestionBankSection() {
                       description: 'Label for see all questions button',
                       id: 'Ntem6r',
                     })}
+                    prefetch={null}
                     size="md"
                     variant="secondary"
                   />

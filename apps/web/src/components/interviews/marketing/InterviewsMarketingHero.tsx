@@ -112,6 +112,7 @@ export default function InterviewsMarketingHero() {
                     'shiny shadow-sm',
                   )}
                   href="/interviews/roadmap"
+                  prefetch={null}
                   variant="unstyled">
                   <PiPathBold
                     className={clsx(
@@ -243,6 +244,7 @@ export default function InterviewsMarketingHero() {
                       'Label for Get Started button in Hero section of HomePage.',
                     id: 'RhEhnv',
                   })}
+                  prefetch={null}
                   size="lg"
                   variant="primary"
                 />
@@ -263,6 +265,7 @@ export default function InterviewsMarketingHero() {
                     'Label for Try a question button in Hero section of HomePage.',
                   id: 'pcKndh',
                 })}
+                prefetch={null}
                 size="lg"
                 variant="tertiary"
               />

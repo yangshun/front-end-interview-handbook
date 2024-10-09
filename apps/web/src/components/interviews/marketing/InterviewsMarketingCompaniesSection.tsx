@@ -75,6 +75,7 @@ export default function InterviewsMarketingCompaniesSection({
               description: 'Label for view companies button in homepage',
               id: 'WEDD1f',
             })}
+            prefetch={null}
             size="md"
             variant="secondary"
           />

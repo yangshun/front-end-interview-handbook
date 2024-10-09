@@ -32,8 +32,16 @@ function useFeatures() {
           description="Subtitle for huge question bank feature"
           id="+99sZT"
           values={{
-            clink: (chunks) => <Anchor href="/prepare/coding">{chunks}</Anchor>,
-            qlink: (chunks) => <Anchor href="/prepare/quiz">{chunks}</Anchor>,
+            clink: (chunks) => (
+              <Anchor href="/prepare/coding" prefetch={null}>
+                {chunks}
+              </Anchor>
+            ),
+            qlink: (chunks) => (
+              <Anchor href="/prepare/quiz" prefetch={null}>
+                {chunks}
+              </Anchor>
+            ),
             questionCount: QuestionCount,
           }}
         />
@@ -68,13 +76,19 @@ function useFeatures() {
           id="YdQTiq"
           values={{
             omlink: (chunks) => (
-              <Anchor href="/prepare/one-month">{chunks}</Anchor>
+              <Anchor href="/prepare/one-month" prefetch={null}>
+                {chunks}
+              </Anchor>
             ),
             owlink: (chunks) => (
-              <Anchor href="/prepare/one-week">{chunks}</Anchor>
+              <Anchor href="/prepare/one-week" prefetch={null}>
+                {chunks}
+              </Anchor>
             ),
             tmlink: (chunks) => (
-              <Anchor href="/prepare/three-months">{chunks}</Anchor>
+              <Anchor href="/prepare/three-months" prefetch={null}>
+                {chunks}
+              </Anchor>
             ),
           }}
         />

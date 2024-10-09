@@ -48,6 +48,7 @@ export default function NavbarItem({
           themeTextBrandColor_Hover,
         )}
         href={props.href}
+        prefetch={null}
         suppressHydrationWarning={true}
         variant="unstyled"
         onClick={onClick}>

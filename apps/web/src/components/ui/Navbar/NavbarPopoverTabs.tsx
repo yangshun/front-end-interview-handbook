@@ -72,6 +72,7 @@ function NavbarPopoverLink({
     <Anchor
       className={className}
       href={href}
+      prefetch={null}
       suppressHydrationWarning={true}
       variant="unstyled"
       onClick={onClick}>

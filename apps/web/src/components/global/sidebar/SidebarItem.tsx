@@ -86,6 +86,7 @@ export default function SidebarLinkItem({
           isLinkSelected ? activeClassName : defaultClassName,
         )}
         href={props.href}
+        prefetch={null}
         scroll={props.scroll}
         variant="unstyled"
         onClick={onClick}>
