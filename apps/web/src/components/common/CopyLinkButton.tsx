@@ -1,9 +1,14 @@
+import type { ReactNode } from 'react';
 import { RiCheckLine, RiLinksLine } from 'react-icons/ri';
 
 import useCopyToClipboardWithRevert from '~/hooks/useCopyToClipboardWithRevert';
 
 import { useIntl } from '~/components/intl';
 import Button from '~/components/ui/Button';
+import type {
+  TooltipContentAlignment,
+  TooltipContentSide,
+} from '~/components/ui/Tooltip';
 
 export type CopyLinkTriggerVariant = 'secondary' | 'tertiary';
 export type CopyLinkTriggerSize = 'md' | 'sm' | 'xs';
@@ -12,6 +17,9 @@ type Props = Readonly<{
   href?: string;
   iconOnly?: boolean;
   size?: CopyLinkTriggerSize;
+  tooltip?: ReactNode;
+  tooltipAlign?: TooltipContentAlignment;
+  tooltipSide?: TooltipContentSide;
   variant?: CopyLinkTriggerVariant;
 }>;
 
@@ -20,6 +28,7 @@ export default function CopyLinkButton({
   size,
   variant,
   iconOnly,
+  ...props
 }: Props) {
   const intl = useIntl();
 
@@ -52,6 +61,7 @@ export default function CopyLinkButton({
             : new URL(window.location.href).toString(),
         )
       }
+      {...props}
     />
   );
 }

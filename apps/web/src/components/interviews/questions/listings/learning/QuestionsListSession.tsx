@@ -227,7 +227,16 @@ export default function QuestionsListSession({
                   id: 'rmYPMV',
                 })}
                 size="md"
-                variant={userProfile?.isInterviewsPremium ? "primary": "secondary"}
+                tooltip={intl.formatMessage({
+                  defaultMessage:
+                    'We will begin tracking your progress on this study list.',
+                  description: 'Tooltip for start learning session button',
+                  id: 'Lc/pH5',
+                })}
+                tooltipSide="bottom"
+                variant={
+                  userProfile?.isInterviewsPremium ? 'primary' : 'secondary'
+                }
                 onClick={() => {
                   if (userProfile == null) {
                     return;

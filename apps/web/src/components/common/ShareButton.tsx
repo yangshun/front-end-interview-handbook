@@ -1,3 +1,4 @@
+import type { ReactNode } from 'react';
 import {
   RiFacebookFill,
   RiLinkedinBoxFill,
@@ -13,6 +14,10 @@ import type {
   DropdownMenuTriggerVariant,
 } from '~/components/ui/DropdownMenu';
 import DropdownMenu from '~/components/ui/DropdownMenu';
+import type {
+  TooltipContentAlignment,
+  TooltipContentSide,
+} from '~/components/ui/Tooltip';
 
 import { getSiteOrigin } from '~/seo/siteUrl';
 
@@ -24,6 +29,9 @@ type Props = Readonly<{
     title: string;
   };
   size?: DropdownMenuTriggerSize;
+  tooltip?: ReactNode;
+  tooltipAlign?: TooltipContentAlignment;
+  tooltipSide?: TooltipContentSide;
   variant?: DropdownMenuTriggerVariant;
 }>;
 
@@ -32,11 +40,12 @@ export default function ShareButton({
   size = 'sm',
   variant,
   iconOnly,
+  ...props
 }: Props) {
   const intl = useIntl();
   const shareOptions: ReadonlyArray<{
     href: string;
-    icon: (props: React.ComponentProps<'svg'>) => JSX.Element;
+    icon: (iconProps: React.ComponentProps<'svg'>) => JSX.Element;
     label: string;
     value: string;
   }> = [
@@ -104,6 +113,7 @@ export default function ShareButton({
           })}
           size={size ?? 'sm'}
           variant={variant ?? 'secondary'}
+          {...props}
         />
       }>
       {shareOptions.map(({ label, value, icon: Icon, href }) => (

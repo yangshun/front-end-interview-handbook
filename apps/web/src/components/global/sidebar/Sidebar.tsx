@@ -122,7 +122,11 @@ export function SidebarCollapsed({
           isLabelHidden={true}
           label="Expand sidebar"
           size="sm"
-          tooltip="Expand sidebar"
+          tooltip={intl.formatMessage({
+            defaultMessage: 'Expand sidebar',
+            description: 'Tooltip for expand sidebar',
+            id: 'HGXwui',
+          })}
           tooltipSide="right"
           variant="secondary"
           onClick={onCollapseClick}
@@ -205,9 +209,9 @@ export function SidebarExpanded({
               })}
               size="sm"
               tooltip={intl.formatMessage({
-                defaultMessage: 'Join Premium Discord',
-                description: 'Link to the Discord server',
-                id: 'KdVEiX',
+                defaultMessage: 'Join Discord (premium)',
+                description: 'Tooltip for join premium discord',
+                id: 'XG1Wfg',
               })}
               variant="special"
             />
@@ -219,9 +223,9 @@ export function SidebarExpanded({
               label="Discord"
               size="sm"
               tooltip={intl.formatMessage({
-                defaultMessage: 'Join Discord',
+                defaultMessage: 'Join Discord channel (public)',
                 description: 'Link to the Discord server',
-                id: 'kdO5C4',
+                id: 'OchGBW',
               })}
               variant="secondary"
             />
@@ -278,6 +282,11 @@ export function SidebarExpanded({
             isLabelHidden={true}
             label="Collapse"
             size="sm"
+            tooltip={intl.formatMessage({
+              defaultMessage: 'Collapse sidebar',
+              description: 'Tooltip for collapse sidebar',
+              id: '/vo5j8',
+            })}
             variant="secondary"
             onClick={onCollapseClick}
           />

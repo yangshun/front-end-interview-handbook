@@ -39,9 +39,10 @@ export default function GuidesFocusModeToggle({
                 id: 'pdO/k1',
               })
             : intl.formatMessage({
-                defaultMessage: 'Turn on focus mode',
+                defaultMessage:
+                  'Switching on focus mode collapses all sidebars to provide a better reading experience."',
                 description: 'Label for turning focus mode on',
-                id: 'eLGecl',
+                id: 'LTsqRi',
               })
         }>
         <Switch.Root

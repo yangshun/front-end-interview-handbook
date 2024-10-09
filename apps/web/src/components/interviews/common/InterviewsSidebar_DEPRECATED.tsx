@@ -11,6 +11,8 @@ import {
   RiWindowLine,
 } from 'react-icons/ri';
 
+import useUserProfile from '~/hooks/user/useUserProfile';
+
 import { useGuidesData } from '~/data/Guides';
 import { SocialLinks } from '~/data/SocialLinks';
 
@@ -191,22 +193,55 @@ export default function InterviewsSidebar_DEPRECATED({
   isCollapsed = false,
   onCollapseClick,
 }: Props) {
+  const { userProfile } = useUserProfile();
+  const isPremium = userProfile?.premium ?? false;
   const intl = useIntl();
   const { pathname } = useI18nPathname();
   const navigation = useSidebarNavigation();
   const collapseButtonLabel = isCollapsed
     ? intl.formatMessage({
-        defaultMessage: 'Show side menu',
-        description:
-          'Screenreader text for the button that expands the side menu',
-        id: 'KlEAfS',
+        defaultMessage: 'Expand sidebar',
+        description: 'Tooltip for expand sidebar',
+        id: 'HGXwui',
       })
     : intl.formatMessage({
-        defaultMessage: 'Collapse side menu',
-        description:
-          'Screenreader text for the button that collapses the side menu',
-        id: 'TB8vuT',
+        defaultMessage: 'Collapse sidebar',
+        description: 'Tooltip for collapse sidebar',
+        id: '/vo5j8',
       });
+
+  const socials = [
+    {
+      ...(isPremium ? SocialLinks.discordPremium : SocialLinks.discord),
+      tooltip: isPremium
+        ? intl.formatMessage({
+            defaultMessage: 'Join Discord (premium)',
+            description: 'Tooltip for join premium discord',
+            id: 'XG1Wfg',
+          })
+        : intl.formatMessage({
+            defaultMessage: 'Join Discord channel (public)',
+            description: 'Tooltip for join discord',
+            id: 'sGyUQa',
+          }),
+    },
+    {
+      ...SocialLinks.github,
+      tooltip: intl.formatMessage({
+        defaultMessage: 'Visit our GitHub page',
+        description: 'Tooltip for  github button',
+        id: 'vKebLa',
+      }),
+    },
+    {
+      ...SocialLinks.linkedin,
+      tooltip: intl.formatMessage({
+        defaultMessage: 'Visit our LinkedIn page',
+        description: 'Tooltip for linkedin button',
+        id: 'S8TA2O',
+      }),
+    },
+  ];
 
   return (
     <div className="size-full flex flex-1 grow flex-col justify-between p-4">
@@ -314,17 +349,14 @@ export default function InterviewsSidebar_DEPRECATED({
               isCollapsed && 'flex-col',
             )}>
             <div className={clsx('flex gap-3', isCollapsed && 'flex-col')}>
-              {[
-                SocialLinks.discord,
-                SocialLinks.github,
-                SocialLinks.linkedin,
-              ].map(({ href, icon, name, key }) => (
+              {socials.map(({ href, icon, name, key, tooltip }) => (
                 <Button
                   key={key}
                   href={href}
                   icon={icon}
                   isLabelHidden={true}
                   label={name}
+                  tooltip={tooltip}
                   variant="secondary"
                 />
               ))}
@@ -333,7 +365,7 @@ export default function InterviewsSidebar_DEPRECATED({
               icon={isCollapsed ? RiContractRightLine : RiContractLeftLine}
               isLabelHidden={true}
               label={collapseButtonLabel}
-              tooltip={isCollapsed ? collapseButtonLabel : undefined}
+              tooltip={collapseButtonLabel}
               tooltipSide="right"
               variant="secondary"
               onClick={() => onCollapseClick()}

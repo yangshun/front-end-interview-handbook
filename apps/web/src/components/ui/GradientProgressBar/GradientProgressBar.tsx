@@ -54,7 +54,6 @@ type GradientProgressBarProps = Readonly<{
     | ThemeGradient2Colors
     | ThemeGradient3Colors
     | ThemeGradient4Colors;
-  gradientText?: boolean;
   progressPercentage: number;
   reverseGradient?: boolean;
 }>;
@@ -63,7 +62,6 @@ export default function GradientProgressBar({
   className,
   gradient,
   progressPercentage,
-  gradientText = true,
   reverseGradient,
   children,
 }: GradientProgressBarProps) {
@@ -108,10 +106,8 @@ export default function GradientProgressBar({
         {children ?? (
           <Text
             className={clsx(
-              gradientText && [
-                'bg-clip-text text-transparent',
-                gradient.className,
-              ],
+              'bg-clip-text text-transparent',
+              gradient.className,
             )}
             color="inherit"
             id={progressBarLabelId}

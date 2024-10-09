@@ -21,7 +21,12 @@ export default function NavI18nDropdown() {
         id: '58dfbv',
       })}
       showChevron={false}
-      size="sm">
+      size="sm"
+      tooltip={intl.formatMessage({
+        defaultMessage: 'Language',
+        description: 'Tooltip for language selector',
+        id: 'G+S25i',
+      })}>
       {i18nLabelOptions.map(({ label, locale: localeItem }) => (
         <DropdownMenu.Item
           key={localeItem}

@@ -7,6 +7,7 @@ import {
 } from 'react-icons/ri';
 
 import NavProductDropdownMenuContent from '~/components/global/navbar/NavProductDropdownMenuContent';
+import { FormattedMessage } from '~/components/intl';
 import Button from '~/components/ui/Button';
 import { textVariants } from '~/components/ui/Text';
 import {
@@ -73,6 +74,13 @@ export default function NavProductDropdownMenu({ value }: Props) {
             />
           )}
           label={label}
+          tooltip={
+            <FormattedMessage
+              defaultMessage="View all products"
+              description="Tooltip for view product dropdown menu"
+              id="Ugr9/X"
+            />
+          }
           variant="unstyled">
           <span className="relative">
             {label}

@@ -1,4 +1,5 @@
 import clsx from 'clsx';
+import type { ReactNode } from 'react';
 import { useMemo } from 'react';
 
 import getProgressBarGradient from '~/components/interviews/common/utils';
@@ -18,6 +19,7 @@ import {
   themeBorderElementColor,
   themeTextColor,
 } from '~/components/ui/theme';
+import Tooltip from '~/components/ui/Tooltip';
 
 type Props = Readonly<{
   questions: {
@@ -57,7 +59,7 @@ export default function InterviewsDashboardSolvedProblemsCard({
 
   const difficultyItems: Record<
     QuestionDifficulty,
-    { completed: number; label: string; total: number }
+    { completed: number; label: string; tooltip: ReactNode; total: number }
   > = {
     easy: {
       completed: easy.completed,
@@ -66,6 +68,34 @@ export default function InterviewsDashboardSolvedProblemsCard({
         description: 'Easy difficulty label for solved problems',
         id: 'sP54y8',
       }),
+      tooltip: (
+        <div className="flex flex-col gap-6">
+          <div>
+            <FormattedMessage
+              defaultMessage="Out of {total} easy-level problems, you have solved or marked as complete {completed} across Coding, Quiz, and System Design."
+              description="Tooltip for solved problems progress"
+              id="dFtRG9"
+              values={{
+                completed: easy.completed.toLocaleString(),
+                total: easy.total.toLocaleString(),
+              }}
+            />
+          </div>
+
+          {/* TODO(interviews): add tooltip for beats when the beats progress work is done */}
+          {/* <div>
+            <FormattedMessage
+              defaultMessage="Your progress surpasses 98.4% of our user base."
+              description="Tooltip for solved problems progress"
+              id="9IGv9K"
+              values={{
+                completed: easy.completed.toLocaleString(),
+                total: easy.total.toLocaleString(),
+              }}
+            />
+          </div> */}
+        </div>
+      ),
       total: easy.total,
     },
     hard: {
@@ -75,6 +105,33 @@ export default function InterviewsDashboardSolvedProblemsCard({
         description: 'Hard difficulty label for solved problems',
         id: 'Qp/rKd',
       }),
+      tooltip: (
+        <div className="flex flex-col gap-6">
+          <div>
+            <FormattedMessage
+              defaultMessage="Out of {total} hard-level problems, you have solved or marked as complete {completed} across Coding, Quiz, and System Design."
+              description="Tooltip for solved problems progress"
+              id="ycp+Vk"
+              values={{
+                completed: hard.completed.toLocaleString(),
+                total: hard.total.toLocaleString(),
+              }}
+            />
+          </div>
+          {/* TODO(interviews): add tooltip for beats when the beats progress work is done */}
+          {/* <div>
+            <FormattedMessage
+              defaultMessage="Your progress surpasses 98.4% of our user base."
+              description="Tooltip for solved problems progress"
+              id="9IGv9K"
+              values={{
+                completed: easy.completed.toLocaleString(),
+                total: easy.total.toLocaleString(),
+              }}
+            />
+          </div> */}
+        </div>
+      ),
       total: hard.total,
     },
     medium: {
@@ -84,6 +141,33 @@ export default function InterviewsDashboardSolvedProblemsCard({
         description: 'Medium difficulty label for solved problems',
         id: '6QxW+/',
       }),
+      tooltip: (
+        <div className="flex flex-col gap-6">
+          <div>
+            <FormattedMessage
+              defaultMessage="Out of {total} medium-level problems, you have solved or marked as complete {completed} across Coding, Quiz, and System Design."
+              description="Tooltip for solved problems progress"
+              id="gvhz5x"
+              values={{
+                completed: medium.completed.toLocaleString(),
+                total: medium.total.toLocaleString(),
+              }}
+            />
+          </div>
+          {/* TODO(interviews): add tooltip for beats when the beats progress work is done */}
+          {/* <div>
+            <FormattedMessage
+              defaultMessage="Your progress surpasses 98.4% of our user base."
+              description="Tooltip for solved problems progress"
+              id="9IGv9K"
+              values={{
+                completed: easy.completed.toLocaleString(),
+                total: easy.total.toLocaleString(),
+              }}
+            />
+          </div> */}
+        </div>
+      ),
       total: medium.total,
     },
   };
@@ -114,9 +198,25 @@ export default function InterviewsDashboardSolvedProblemsCard({
           progressPercentage={progressPercentage}
           reverseGradient={true}>
           <>
-            <Heading className={themeTextColor} color="custom" level="heading5">
-              {completedCount}
-            </Heading>
+            <Tooltip
+              label={
+                <FormattedMessage
+                  defaultMessage="You have solved or marked as complete {completed} out of {total} problems across Coding, Quiz, and System Design."
+                  description="Tooltip for solved problems progress"
+                  id="uvoNYz"
+                  values={{
+                    completed: completedCount.toLocaleString(),
+                    total: totalCount.toLocaleString(),
+                  }}
+                />
+              }>
+              <Heading
+                className={themeTextColor}
+                color="custom"
+                level="heading5">
+                {completedCount}
+              </Heading>
+            </Tooltip>
             <Text color="subtitle" size="body3" weight="medium">
               <FormattedMessage
                 defaultMessage="Solved"
@@ -132,18 +232,20 @@ export default function InterviewsDashboardSolvedProblemsCard({
             difficultyItems.easy,
             difficultyItems.medium,
             difficultyItems.hard,
-          ].map(({ label, total, completed }) => (
+          ].map(({ label, total, completed, tooltip }) => (
             <div key={label} className="flex flex-col gap-1.5">
               <div className="flex items-center gap-2">
                 <Text size="body3" weight="medium">
                   {label}
                 </Text>
-                <Text size="body2" weight="bold">
-                  {completed}
-                  <Text color="secondary" size="body3">
-                    /{total}
+                <Tooltip asChild={true} label={tooltip}>
+                  <Text size="body2" weight="bold">
+                    {completed}
+                    <Text color="secondary" size="body3">
+                      /{total}
+                    </Text>
                   </Text>
-                </Text>
+                </Tooltip>
               </div>
               <ProgressBar
                 backgroundClass={themeBackgroundLineEmphasizedColor}

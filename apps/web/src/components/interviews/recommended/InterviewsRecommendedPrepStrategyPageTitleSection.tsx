@@ -23,6 +23,7 @@ import {
   themeTextBrandColor_GroupHover,
   themeTextSubtleColor,
 } from '~/components/ui/theme';
+import Tooltip from '~/components/ui/Tooltip';
 
 import type { QuestionProgress } from '~/db/QuestionsProgressTypes';
 
@@ -83,28 +84,37 @@ function RecommendedItemsDropdown({
       side="bottom"
       trigger={
         <button
-          className={clsx(
-            'flex items-center gap-1',
-            themeOutlineElementBrandColor_FocusVisible,
-          )}
+          className={clsx(themeOutlineElementBrandColor_FocusVisible)}
           type="button">
-          <Text
-            className="line-clamp-1 text-ellipsis text-left"
-            size="body3"
-            weight="medium">
-            <FormattedMessage
-              defaultMessage="{count} other items"
-              description="Trigger label for other items"
-              id="59u5/i"
-              values={{
-                count: items.length - 1,
-              }}
-            />
-          </Text>
-          <RiArrowDownSLine
-            aria-hidden={true}
-            className={clsx('size-4 shrink-0', themeTextSubtleColor)}
-          />
+          <Tooltip
+            asChild={true}
+            label={
+              <FormattedMessage
+                defaultMessage="Explore three other items from our recommended preparation strategy."
+                description="Tooltip for other recommended preparation strategy"
+                id="OfXxAy"
+              />
+            }>
+            <div className="flex items-center gap-1">
+              <Text
+                className="line-clamp-1 text-ellipsis text-left"
+                size="body3"
+                weight="medium">
+                <FormattedMessage
+                  defaultMessage="{count} other items"
+                  description="Trigger label for other items"
+                  id="59u5/i"
+                  values={{
+                    count: items.length - 1,
+                  }}
+                />
+              </Text>
+              <RiArrowDownSLine
+                aria-hidden={true}
+                className={clsx('size-4 shrink-0', themeTextSubtleColor)}
+              />
+            </div>
+          </Tooltip>
         </button>
       }>
       <Text className="block" color="secondary" size="body3" weight="medium">
@@ -241,15 +251,24 @@ export default function InterviewsRecommendedPrepStrategyPageTitleSection({
       <div className="flex flex-wrap items-center justify-between gap-x-2 gap-y-4">
         {showRecommendedItemsDropdown && (
           <div className="flex items-center gap-3">
-            <Badge
-              label={intl.formatMessage({
-                defaultMessage: 'Recommended',
-                description: 'Label for Recommended tag',
-                id: 'baItxW',
-              })}
-              size="xs"
-              variant="primary"
-            />
+            <Tooltip
+              label={
+                <FormattedMessage
+                  defaultMessage="This study list is part of our recommended preparation strategy."
+                  description="Tooltip for recommended preparation strategy badge"
+                  id="G+XbLQ"
+                />
+              }>
+              <Badge
+                label={intl.formatMessage({
+                  defaultMessage: 'Recommended',
+                  description: 'Label for Recommended tag',
+                  id: 'baItxW',
+                })}
+                size="xs"
+                variant="primary"
+              />
+            </Tooltip>
             <RecommendedItemsDropdown sessions={sessions} />
           </div>
         )}

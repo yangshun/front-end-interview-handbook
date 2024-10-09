@@ -7,6 +7,7 @@ import {
   themeTextBrandColor,
   themeTextSecondaryColor,
 } from '~/components/ui/theme';
+import Tooltip from '~/components/ui/Tooltip';
 
 import QuestionListingSideCard from './QuestionListingSideCard';
 import type { QuestionPremiumStatus } from '../../common/QuestionsTypes';
@@ -74,9 +75,21 @@ export default function QuestionListingQuestionCount({
               id="LFGT5n"
               values={{
                 count: (chunks) => (
-                  <Text className="text-2xl" size="inherit" weight="bold">
-                    {chunks}
-                  </Text>
+                  <Tooltip
+                    asChild={true}
+                    label={intl.formatMessage({
+                      defaultMessage:
+                        'All the questions on this list are free to attempt.',
+                      description: 'Tooltip for free questions card',
+                      id: 'WUvwrX',
+                    })}>
+                    <Text
+                      className="w-fit text-2xl"
+                      size="inherit"
+                      weight="bold">
+                      {chunks}
+                    </Text>
+                  </Tooltip>
                 ),
                 questionCount: count,
                 questions: (chunks) => (

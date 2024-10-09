@@ -204,7 +204,7 @@ export default function GuidesTableOfContents({
               isLabelHidden={true}
               label="Show table of contents"
               size="xs"
-              tooltip="Show table of contents"
+              tooltip="Expand"
               variant="tertiary"
               onClick={() => setCollapsedToC?.(false)}
             />
@@ -236,7 +236,7 @@ export default function GuidesTableOfContents({
                     icon={RiArrowRightSLine}
                     iconClassName={themeTextSecondaryColor}
                     isLabelHidden={true}
-                    label="Hide table of contents"
+                    label="Collapse"
                     size="xs"
                     tooltip="Hide table of contents"
                     variant="tertiary"

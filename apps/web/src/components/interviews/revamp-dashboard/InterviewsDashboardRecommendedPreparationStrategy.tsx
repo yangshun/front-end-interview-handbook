@@ -27,6 +27,7 @@ import {
   themeTextSubtitleColor,
   themeTextSubtleColor,
 } from '~/components/ui/theme';
+import Tooltip from '~/components/ui/Tooltip';
 
 type PreparationStrategyItem = Readonly<{
   article?: {
@@ -42,6 +43,7 @@ type PreparationStrategyItem = Readonly<{
     total: number;
   };
   tagLabel?: string;
+  tagTooltip?: string;
   title: string;
   variant: 'info' | 'neutral' | 'warning';
 }>;
@@ -191,6 +193,12 @@ export default function InterviewsDashboardRecommendedPreparationStrategy() {
         description: 'Label for Blind75 tag',
         id: 'ifwPMU',
       }),
+      tagTooltip: intl.formatMessage({
+        defaultMessage:
+          'Some companies still test data structures and algorithms questions for their front end engineers. Practice the following if you expect these types of questions.',
+        description: 'Tooltip for the tag',
+        id: '6w7Ge4',
+      }),
       title: intl.formatMessage({
         defaultMessage: 'Blind 75',
         description: 'Title for Blind75',
@@ -274,12 +282,20 @@ export default function InterviewsDashboardRecommendedPreparationStrategy() {
                 </div>
                 <div
                   className={clsx('w-full', 'flex flex-col items-start gap-3')}>
-                  {strategy.tagLabel && (
-                    <Badge
-                      label={strategy.tagLabel}
-                      variant={strategy.variant}
-                    />
-                  )}
+                  {strategy.tagLabel &&
+                    (strategy.tagTooltip ? (
+                      <Tooltip label={strategy.tagTooltip}>
+                        <Badge
+                          label={strategy.tagLabel}
+                          variant={strategy.variant}
+                        />
+                      </Tooltip>
+                    ) : (
+                      <Badge
+                        label={strategy.tagLabel}
+                        variant={strategy.variant}
+                      />
+                    ))}
                   <PreparationStrategyCard data={strategy} />
                 </div>
               </div>

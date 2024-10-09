@@ -10,6 +10,7 @@ import Container from '~/components/ui/Container';
 import Heading from '~/components/ui/Heading';
 import Text from '~/components/ui/Text';
 import { themeGradientHeading } from '~/components/ui/theme';
+import Tooltip from '~/components/ui/Tooltip';
 
 import { QuestionCountFree } from '../questions/listings/stats/QuestionCount';
 import AmazonLogo from '../../icons/AmazonLogo';
@@ -153,14 +154,26 @@ export default function InterviewsMarketingHeroNew() {
                 className="size-4 shrink-0 text-[#dfce36]"
               />
             </div>
-            <Text color="secondary" size="body3" weight="medium">
-              <FormattedMessage
-                defaultMessage="{number} engineers have used GreatFrontEnd"
-                description="Number of engineers using"
-                id="eGc1/r"
-                values={{ number: '500k+' }}
-              />
-            </Text>
+            <Tooltip
+              label={
+                <FormattedMessage
+                  defaultMessage="We've had {count} unique active users on our site. Verifiable by Google Analytics."
+                  description="Tooltip for number of engineers using"
+                  id="qy+Z5r"
+                  values={{
+                    count: '500k+', // TODO(interviews): add actual count value
+                  }}
+                />
+              }>
+              <Text color="secondary" size="body3" weight="medium">
+                <FormattedMessage
+                  defaultMessage="{number} engineers have used GreatFrontEnd"
+                  description="Number of engineers using"
+                  id="eGc1/r"
+                  values={{ number: '500k+' }}
+                />
+              </Text>
+            </Tooltip>
           </div>
         </div>
       </div>

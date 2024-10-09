@@ -27,7 +27,12 @@ export default function NavColorSchemeDropdown() {
         id: 'n4aKYo',
       })}
       showChevron={false}
-      size="sm">
+      size="sm"
+      tooltip={intl.formatMessage({
+        defaultMessage: 'Theme',
+        description: 'Tooltip for theme selector',
+        id: '41uq3N',
+      })}>
       {colorSchemeOptions.map(({ label, value, icon }) => (
         <DropdownMenu.Item
           key={value}
