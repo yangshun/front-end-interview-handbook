@@ -7,9 +7,11 @@ import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 import Text, { textVariants } from '~/components/ui/Text';
 import {
+  themeBackgroundColor,
   themeBorderColor,
   themeGlassyBorder,
   themeTextSuccessColor,
+  themeWhiteGlowCardBackground,
 } from '~/components/ui/theme';
 
 type Props = Readonly<{
@@ -34,14 +36,25 @@ export default function PurchaseBlockCard({
   return (
     <div
       className={clsx(
+        'overflow-hidden',
         'flex flex-col gap-10 lg:flex-row lg:items-stretch',
         'max-w-lg lg:max-w-none',
         'overflow-hidden',
         'rounded-xl',
-        ['border', themeGlassyBorder, themeBorderColor],
         'p-6',
+        themeBackgroundColor,
+        [
+          themeWhiteGlowCardBackground,
+          'before:-top-40 before:left-1/2 before:z-[1] before:h-60 before:w-[680px] before:-translate-x-1/2',
+        ],
         className,
       )}>
+      <div
+        className={clsx(
+          '!absolute inset-0 z-[1] rounded-[inherit] before:m-[-1px]',
+          ['border', themeGlassyBorder, themeBorderColor],
+        )}
+      />
       <div
         className={clsx(
           'flex flex-1 flex-col gap-y-6',

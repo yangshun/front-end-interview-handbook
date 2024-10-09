@@ -15,6 +15,7 @@ import { isProhibitedCountry } from '~/lib/stripeUtils';
 import { useAuthSignInUp } from '~/hooks/user/useAuthFns';
 
 import { useUserProfile } from '~/components/global/UserProfileProvider';
+import InterviewsRibbonBadge from '~/components/interviews/common/InterviewsRibbonBadge';
 import type {
   InterviewsPricingPlanPaymentConfigLocalized,
   InterviewsPricingPlanPaymentConfigLocalizedRecord,
@@ -40,11 +41,13 @@ import Heading, { headingCVA } from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 import Text, { textVariants } from '~/components/ui/Text';
 import {
+  themeBackgroundColor,
   themeBackgroundSuccessColor,
   themeBorderColor,
   themeGlassyBorder,
   themeTextBrandColor,
   themeTextSuccessColor,
+  themeWhiteGlowCardBackground,
 } from '~/components/ui/theme';
 
 import PurchaseBlockCard from '../../purchase/PurchaseBlockCard';
@@ -588,9 +591,7 @@ export default function InterviewsPricingTableSection({
         </div>
         {/* Lifetime plan callout */}
         <PurchaseBlockCard
-          className={
-            isDialogView ? 'lg:!block xl:!grid xl:grid-cols-3' : undefined
-          }
+          className={isDialogView ? '!max-w-none' : undefined}
           features={featuredPlan.includedFeatures}
           rightSectionContents={
             <>
@@ -723,63 +724,124 @@ export default function InterviewsPricingTableSection({
             className={clsx(
               'grid grid-cols-1 gap-8',
               isDialogView ? 'xl:grid-cols-3' : 'md:grid-cols-3',
-              'mx-auto max-w-lg md:max-w-none',
+              !isDialogView && 'mx-auto max-w-lg md:max-w-none',
             )}>
             {planList.map(
               ({ numberOfMonths, paymentConfig, includedFeatures, name }) => {
                 const id = `tier-${paymentConfig.planType}`;
+                const recommendedPlan = paymentConfig.planType === 'annual';
 
                 return (
                   <div
                     key={paymentConfig.planType}
                     className={clsx(
-                      'flex flex-col gap-y-6 px-4 py-6 shadow-sm',
+                      'relative',
+                      'shadow-sm',
                       'rounded-xl',
+                      themeBackgroundColor,
                       ['border', themeBorderColor],
                     )}>
-                    <div className="grow md:grow-0">
-                      <div className="flex flex-wrap gap-x-3">
-                        <Heading
-                          className={clsx(
-                            textVariants({
-                              size: 'body2',
-                              weight: 'medium',
-                            }),
+                    <div
+                      className={clsx(
+                        'relative overflow-hidden',
+                        'flex flex-col gap-y-6 rounded-[inherit] px-4 py-6',
+                        themeBackgroundColor,
+                        recommendedPlan && [
+                          themeWhiteGlowCardBackground,
+                          'before:-top-[120px] before:left-1/2 before:z-[1] before:h-[240px] before:w-[240px] before:-translate-x-1/2',
+                        ],
+                      )}>
+                      <div className="grow md:grow-0">
+                        <div className="flex flex-wrap gap-x-3">
+                          <Heading
+                            className={clsx(
+                              textVariants({
+                                size: 'body2',
+                                weight: 'medium',
+                              }),
+                            )}
+                            id={id}
+                            level="custom">
+                            {name}
+                          </Heading>
+                          {paymentConfig.planType === 'lifetime' && (
+                            <Badge
+                              label={intl.formatMessage({
+                                defaultMessage: 'While offer lasts',
+                                description:
+                                  'Label to indicate offer is a limited time deal',
+                                id: 'N5Cp1r',
+                              })}
+                              size="sm"
+                              variant="special"
+                            />
                           )}
-                          id={id}
-                          level="custom">
-                          {name}
-                        </Heading>
-                        {paymentConfig.planType === 'lifetime' && (
-                          <Badge
-                            label={intl.formatMessage({
-                              defaultMessage: 'While offer lasts',
-                              description:
-                                'Label to indicate offer is a limited time deal',
-                              id: 'N5Cp1r',
-                            })}
-                            size="sm"
-                            variant="special"
-                          />
-                        )}
-                      </div>
-                      <Section>
-                        <div className="mt-6">
-                          {showPPPMessage && (
-                            <Text
-                              className={clsx(
-                                'flex items-baseline line-through',
-                              )}
-                              color="subtle"
-                              size="body1">
-                              <PurchasePriceLabel
-                                amount={priceRoundToNearestNiceNumber(
-                                  paymentConfig.unitCostCurrency.base.after /
-                                    (numberOfMonths ?? 1),
+                        </div>
+                        <Section>
+                          <div className="mt-6">
+                            {showPPPMessage && (
+                              <Text
+                                className={clsx(
+                                  'flex items-baseline line-through',
                                 )}
-                                currency={paymentConfig.currency.toUpperCase()}
-                                symbol={paymentConfig.symbol}
-                              />{' '}
+                                color="subtle"
+                                size="body1">
+                                <PurchasePriceLabel
+                                  amount={priceRoundToNearestNiceNumber(
+                                    paymentConfig.unitCostCurrency.base.after /
+                                      (numberOfMonths ?? 1),
+                                  )}
+                                  currency={paymentConfig.currency.toUpperCase()}
+                                  symbol={paymentConfig.symbol}
+                                />{' '}
+                                {numberOfMonths != null ? (
+                                  <FormattedMessage
+                                    defaultMessage="/month"
+                                    description="Per month"
+                                    id="aE1FCD"
+                                  />
+                                ) : (
+                                  <FormattedMessage
+                                    defaultMessage="paid once"
+                                    description="Pay the price once"
+                                    id="BMBc9O"
+                                  />
+                                )}
+                              </Text>
+                            )}
+                            <Text
+                              className="flex items-baseline gap-x-2"
+                              color="subtitle"
+                              size="body1"
+                              weight="medium">
+                              <span>
+                                <PurchasePriceLabel
+                                  amount={priceRoundToNearestNiceNumber(
+                                    paymentConfig.unitCostCurrency.withPPP
+                                      .after / (numberOfMonths ?? 1),
+                                  )}
+                                  currency={paymentConfig.currency.toUpperCase()}
+                                  symbol={paymentConfig.symbol}>
+                                  {(parts) => (
+                                    <Text
+                                      className={headingCVA({
+                                        level: 'heading2',
+                                        weight: 'medium',
+                                      })}
+                                      color="default"
+                                      size="inherit"
+                                      weight="inherit">
+                                      <>
+                                        {parts[0].value}
+                                        {parts
+                                          .slice(1)
+                                          .map((part) => part.value)
+                                          .join('')}
+                                      </>
+                                    </Text>
+                                  )}
+                                </PurchasePriceLabel>
+                              </span>
                               {numberOfMonths != null ? (
                                 <FormattedMessage
                                   defaultMessage="/month"
@@ -794,113 +856,78 @@ export default function InterviewsPricingTableSection({
                                 />
                               )}
                             </Text>
-                          )}
+                          </div>
                           <Text
-                            className="flex items-baseline gap-x-2"
-                            color="subtitle"
-                            size="body1"
-                            weight="medium">
-                            <span>
-                              <PurchasePriceLabel
-                                amount={priceRoundToNearestNiceNumber(
-                                  paymentConfig.unitCostCurrency.withPPP.after /
-                                    (numberOfMonths ?? 1),
-                                )}
-                                currency={paymentConfig.currency.toUpperCase()}
-                                symbol={paymentConfig.symbol}>
-                                {(parts) => (
-                                  <Text
-                                    className={headingCVA({
-                                      level: 'heading2',
-                                      weight: 'medium',
-                                    })}
-                                    color="default"
-                                    size="inherit"
-                                    weight="inherit">
-                                    <>
-                                      {parts[0].value}
-                                      {parts
-                                        .slice(1)
-                                        .map((part) => part.value)
-                                        .join('')}
-                                    </>
-                                  </Text>
-                                )}
-                              </PurchasePriceLabel>
-                            </span>
-                            {numberOfMonths != null ? (
-                              <FormattedMessage
-                                defaultMessage="/month"
-                                description="Per month"
-                                id="aE1FCD"
-                              />
-                            ) : (
-                              <FormattedMessage
-                                defaultMessage="paid once"
-                                description="Pay the price once"
-                                id="BMBc9O"
-                              />
+                            className={clsx(
+                              'md:min-h-9 block pt-1',
+                              paymentConfig.conversionFactor <
+                                MAXIMUM_PPP_CONVERSION_FACTOR_TO_DISPLAY_BEFORE_PRICE &&
+                                paymentConfig.planType === 'lifetime' &&
+                                'invisible',
                             )}
+                            size="body3">
+                            <PricingPlanComparisonDiscount
+                              paymentConfig={paymentConfig}
+                              showPPPMessage={showPPPMessage}
+                            />
                           </Text>
-                        </div>
-                        <Text
-                          className={clsx(
-                            'md:min-h-9 block pt-1',
-                            paymentConfig.conversionFactor <
-                              MAXIMUM_PPP_CONVERSION_FACTOR_TO_DISPLAY_BEFORE_PRICE &&
-                              paymentConfig.planType === 'lifetime' &&
-                              'invisible',
-                          )}
-                          size="body3">
-                          <PricingPlanComparisonDiscount
-                            paymentConfig={paymentConfig}
-                            showPPPMessage={showPPPMessage}
+                          <div className="mt-6">
+                            <PricingButtonSection
+                              aria-describedby={id}
+                              countryCode={countryCode}
+                              paymentConfig={paymentConfig}
+                              useCurrentPageAsCancelUrl={
+                                useCurrentPageAsCancelUrl
+                              }
+                              variant="secondary"
+                            />
+                          </div>
+                        </Section>
+                      </div>
+                      <Divider />
+                      <Section>
+                        <Heading className="sr-only" level="custom">
+                          <FormattedMessage
+                            defaultMessage="What's Included"
+                            description="Section label for features included in a pricing plan"
+                            id="IhJAk8"
                           />
-                        </Text>
-                        <div className="mt-6">
-                          <PricingButtonSection
-                            aria-describedby={id}
-                            countryCode={countryCode}
-                            paymentConfig={paymentConfig}
-                            useCurrentPageAsCancelUrl={
-                              useCurrentPageAsCancelUrl
-                            }
-                            variant="secondary"
-                          />
-                        </div>
+                        </Heading>
+                        <Section>
+                          <ul className="flex flex-col gap-4" role="list">
+                            {includedFeatures.map((feature, idx) => (
+                              <li
+                                // eslint-disable-next-line react/no-array-index-key
+                                key={idx}
+                                className="flex gap-x-3">
+                                <RiCheckLine
+                                  aria-hidden="true"
+                                  className={clsx(
+                                    'size-5 shrink-0',
+                                    themeTextSuccessColor,
+                                  )}
+                                />
+                                <Text color="secondary" size="body3">
+                                  {feature}
+                                </Text>
+                              </li>
+                            ))}
+                          </ul>
+                        </Section>
                       </Section>
                     </div>
-                    <Divider />
-                    <Section>
-                      <Heading className="sr-only" level="custom">
-                        <FormattedMessage
-                          defaultMessage="What's Included"
-                          description="Section label for features included in a pricing plan"
-                          id="IhJAk8"
-                        />
-                      </Heading>
-                      <Section>
-                        <ul className="flex flex-col gap-4" role="list">
-                          {includedFeatures.map((feature, idx) => (
-                            <li
-                              // eslint-disable-next-line react/no-array-index-key
-                              key={idx}
-                              className="flex gap-x-3">
-                              <RiCheckLine
-                                aria-hidden="true"
-                                className={clsx(
-                                  'size-5 shrink-0',
-                                  themeTextSuccessColor,
-                                )}
-                              />
-                              <Text color="secondary" size="body3">
-                                {feature}
-                              </Text>
-                            </li>
-                          ))}
-                        </ul>
-                      </Section>
-                    </Section>
+                    {recommendedPlan && (
+                      <InterviewsRibbonBadge
+                        className="top-4"
+                        label={intl.formatMessage({
+                          defaultMessage: 'RECOMMENDED',
+                          description:
+                            'Label to recommended badge for pricing plan',
+                          id: '23RvBU',
+                        })}
+                        variant="primary"
+                      />
+                    )}
                   </div>
                 );
               },

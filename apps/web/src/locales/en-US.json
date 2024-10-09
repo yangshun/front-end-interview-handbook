@@ -559,6 +559,10 @@
     "defaultMessage": "We will pull code from your repository and display it on your submission for code reviews.",
     "description": "Description for GitHub repo step in project submission checklist"
   },
+  "23RvBU": {
+    "defaultMessage": "RECOMMENDED",
+    "description": "Label to recommended badge for pricing plan"
+  },
   "23bxK1": {
     "defaultMessage": "Blogs List",
     "description": "Screen reader text indicating the blog list component on blog homepage"
