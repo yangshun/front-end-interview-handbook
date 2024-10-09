@@ -90,6 +90,7 @@ module.exports = {
         marquee: 'marquee linear infinite',
         marquee2: 'marquee2 linear infinite',
         'pulse-slow': 'pulse 5s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+        wiggle: 'wiggle 1s ease-in-out',
       },
       keyframes: {
         'accordion-down': {
@@ -107,6 +108,11 @@ module.exports = {
         marquee2: {
           '0%': { transform: 'translateX(100%)' },
           '100%': { transform: 'translateX(0%)' },
+        },
+        wiggle: {
+          '0%, 100%': { transform: 'rotate(0deg)' },
+          '25%': { transform: 'rotate(-15deg)' },
+          '75%': { transform: 'rotate(15deg)' },
         },
       },
       fontSize: {

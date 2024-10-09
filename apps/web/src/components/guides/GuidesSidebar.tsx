@@ -60,6 +60,7 @@ function GuideLinksListItem({
         <Tooltip asChild={true} label={link.title}>
           <Anchor
             className={clsx(
+              'group',
               'flex items-center gap-x-2.5',
               'w-full p-2',
               'rounded-md',
@@ -85,7 +86,7 @@ function GuideLinksListItem({
             {Icon && (
               <Icon
                 className={clsx(
-                  'size-4 shrink-0',
+                  'size-4 group-hover:animate-wiggle shrink-0',
                   !isActive && themeTextFaintColor,
                 )}
               />
