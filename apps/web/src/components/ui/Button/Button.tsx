@@ -14,6 +14,7 @@ import {
   themeBorderElementColor,
   themeOutlineElement_FocusVisible,
   themeOutlineElementBrandColor_FocusVisible,
+  themeTextColor,
 } from '~/components/ui/theme';
 
 import type { Props as AnchorProps } from '../Anchor';
@@ -141,7 +142,7 @@ const variantClasses: Record<ButtonVariant, string> = {
   ),
   primary: clsx(
     'border-transparent',
-    'text-neutral-950',
+    'text-neutral-900',
     'bg-brand-dark dark:bg-brand',
     'hover:bg-brand-light dark:hover:bg-brand-light',
     'active:bg-brand-lighter dark:active:bg-brand-lighter',
@@ -149,7 +150,7 @@ const variantClasses: Record<ButtonVariant, string> = {
   ),
   secondary: clsx(
     themeBorderElementColor,
-    'text-neutral-600 dark:text-neutral-200',
+    themeTextColor,
     themeBackgroundElementColor,
     themeBackgroundElementEmphasizedStateColor_Hover,
     themeBackgroundElementPressedStateColor_Active,
@@ -175,16 +176,10 @@ const variantClasses: Record<ButtonVariant, string> = {
   ),
   tertiary: clsx(
     'border-transparent',
-    'text-neutral-600 dark:text-neutral-200',
-    'bg-transparent',
-    [
-      themeBackgroundElementEmphasizedStateColor_Hover,
-      'hover:text-brand-darker dark:hover:text-brand',
-    ],
-    [
-      themeBackgroundElementPressedStateColor_Active,
-      'active:text-brand-dark dark:active:text-brand-light',
-    ],
+    themeTextColor,
+    themeBackgroundElementColor,
+    themeBackgroundElementEmphasizedStateColor_Hover,
+    themeBackgroundElementPressedStateColor_Active,
     themeOutlineElementBrandColor_FocusVisible,
   ),
   unstyled: '',
