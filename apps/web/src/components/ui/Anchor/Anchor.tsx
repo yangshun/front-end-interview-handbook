@@ -122,6 +122,7 @@ function Anchor(
       ref={ref}
       className={className}
       href={finalHref}
+      prefetch={false}
       rel={rel}
       target={target}
       onClick={onClick}

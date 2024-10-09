@@ -64,6 +64,7 @@ export type Props =
   | (BaseProps &
       Readonly<{
         href: AnchorProps['href'];
+        prefetch?: AnchorProps['prefetch'];
         target?: HTMLAttributeAnchorTarget;
         warnAboutExternalLink?: boolean;
       }>)
