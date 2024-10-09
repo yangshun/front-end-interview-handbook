@@ -3,8 +3,6 @@ import { sum, values } from 'lodash-es';
 import { useMemo } from 'react';
 import { RiInformationLine } from 'react-icons/ri';
 
-import { trpc } from '~/hooks/trpc';
-
 import { FormattedMessage } from '~/components/intl';
 import Text from '~/components/ui/Text';
 import {
@@ -16,13 +14,14 @@ import Tooltip from '~/components/ui/Tooltip';
 import InterviewsDashboardContributionsChart from './InterviewsDashboardContributionsChart';
 import { findMaxConsecutiveDays, getDateRangeFromToday } from './utils';
 
-export default function InterviewsDashboardContributionsHeatMapCard() {
+type Props = Readonly<{
+  contributions?: Record<string, number>;
+}>;
+
+export default function InterviewsDashboardContributionsHeatMapCard({
+  contributions,
+}: Props) {
   const { startTime, endTime } = useMemo(() => getDateRangeFromToday(), []);
-  const { data: contributions } =
-    trpc.questionProgress.getContributionsCount.useQuery({
-      endTime,
-      startTime,
-    });
   const maxConsecutiveDays = findMaxConsecutiveDays(contributions);
   const totalActiveDays = Object.keys(contributions ?? {}).length;
   const totalContributions = sum(values(contributions));

@@ -1,5 +1,9 @@
 import clsx from 'clsx';
-import { RiQuestionnaireLine, RiVerifiedBadgeLine } from 'react-icons/ri';
+import {
+  RiFlashlightFill,
+  RiQuestionnaireLine,
+  RiVerifiedBadgeLine,
+} from 'react-icons/ri';
 
 import InterviewsPageFeatures from '~/components/interviews/common/InterviewsPageFeatures';
 import { QuestionCount } from '~/components/interviews/questions/listings/stats/QuestionCount';
@@ -8,15 +12,26 @@ import Divider from '~/components/ui/Divider';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 import Text from '~/components/ui/Text';
+import { themeGlassyBorder, themeTextColor } from '~/components/ui/theme';
+import Tooltip from '~/components/ui/Tooltip';
 
+import { findMaxConsecutiveDays } from './progress-glance/utils';
 import InterviewsDashboardCreateAccountCard from '../dashboard/InterviewsDashboardCreateAccountCard';
 
 import { useUser } from '@supabase/auth-helpers-react';
 
-export default function InterviewsDashboardPageHeader() {
+type Props = Readonly<{
+  contributions?: Record<string, number>;
+}>;
+
+export default function InterviewsDashboardPageHeader({
+  contributions,
+}: Props) {
   const intl = useIntl();
   const user = useUser();
   const isLoggedIn = user != null;
+
+  const maxConsecutiveDays = findMaxConsecutiveDays(contributions);
 
   const features = [
     {
@@ -45,13 +60,54 @@ export default function InterviewsDashboardPageHeader() {
   return (
     <Section>
       {isLoggedIn ? (
-        <Heading level="heading5">
-          <FormattedMessage
-            defaultMessage="Dashboard"
-            description="Label for dashboard title for logged in user"
-            id="TW5R5d"
-          />
-        </Heading>
+        <div className="flex items-center gap-4">
+          <Heading level="heading5">
+            <FormattedMessage
+              defaultMessage="Dashboard"
+              description="Label for dashboard title for logged in user"
+              id="TW5R5d"
+            />
+          </Heading>
+          <div className="flex items-center gap-2">
+            <Tooltip
+              label={
+                <FormattedMessage
+                  defaultMessage="You're on a roll! You've kept your streak going for {days, plural, =0 {0 consecutive days} =1 {1 consecutive day} other {# consecutive days}}, completing at least one question every day."
+                  description="Tooltip for max consecutive days of contributions"
+                  id="p1MoBS"
+                  values={{
+                    days: maxConsecutiveDays,
+                  }}
+                />
+              }>
+              <div
+                className={clsx(
+                  'flex items-center justify-center',
+                  'size-5 rounded-full',
+                  themeGlassyBorder,
+                )}>
+                <RiFlashlightFill
+                  className={clsx('size-3 shrink-0', themeTextColor)}
+                />
+              </div>
+            </Tooltip>
+            <Text color="secondary" size="body3">
+              <FormattedMessage
+                defaultMessage="{days, plural, =0 {<bold>0 days</bold>} =1 {<bold>1 day</bold>} other {<bold># days</bold>}} current streak"
+                description="Label for max consecutive days"
+                id="BzDeUP"
+                values={{
+                  bold: (chunk) => (
+                    <Text size="body2" weight="medium">
+                      {chunk}
+                    </Text>
+                  ),
+                  days: maxConsecutiveDays,
+                }}
+              />
+            </Text>
+          </div>
+        </div>
       ) : (
         <div>
           <div

@@ -5,6 +5,7 @@ import type {
   InterviewsCompanyGuide,
   InterviewsListingBottomContent,
 } from 'contentlayer/generated';
+import { useMemo } from 'react';
 
 import { trpc } from '~/hooks/trpc';
 
@@ -26,6 +27,7 @@ import InterviewsDashboardMoreLearningSection from './InterviewsDashboardMoreLea
 import InterviewsDashboardPageHeader from './InterviewsDashboardPageHeader';
 import InterviewsDashboardRecommendedPreparationStrategy from './InterviewsDashboardRecommendedPreparationStrategy';
 import InterviewsDashboardProgressAtGlanceSection from './progress-glance/InterviewsDashboardProgressAtGlanceSection';
+import { getDateRangeFromToday } from './progress-glance/utils';
 
 import { useUser } from '@supabase/auth-helpers-react';
 
@@ -74,6 +76,17 @@ export default function InterviewsDashboardPage({
       enabled: !!user,
     },
   );
+  const { startTime, endTime } = useMemo(() => getDateRangeFromToday(), []);
+  const { data: contributions } =
+    trpc.questionProgress.getContributionsCount.useQuery(
+      {
+        endTime,
+        startTime,
+      },
+      {
+        enabled: !!user,
+      },
+    );
 
   const sessions = questionListSessions ?? [];
   const showContinueLearning =
@@ -81,9 +94,10 @@ export default function InterviewsDashboardPage({
 
   return (
     <div className={clsx('flex flex-col gap-12')}>
-      <InterviewsDashboardPageHeader />
+      <InterviewsDashboardPageHeader contributions={contributions} />
       {isLoggedIn && (
         <InterviewsDashboardProgressAtGlanceSection
+          contributions={contributions}
           questions={questions}
           questionsProgress={questionsProgress ?? []}
         />

@@ -1975,6 +1975,10 @@
     "defaultMessage": "Profile",
     "description": "Link label to the profile page"
   },
+  "BzDeUP": {
+    "defaultMessage": "{days, plural, =0 {<bold>0 days</bold>} =1 {<bold>1 day</bold>} other {<bold># days</bold>}} current streak",
+    "description": "Label for max consecutive days"
+  },
   "C+WlY+": {
     "defaultMessage": "Please create a free account in order to purchase the premium plans.",
     "description": "Content of alert requesting user to create an account to purchase premium plans"
@@ -8178,6 +8182,10 @@
   "p17SP8": {
     "defaultMessage": "Useful into the future",
     "description": "Title of the 'Permanent toolkit' marketing section on Projects home page"
+  },
+  "p1MoBS": {
+    "defaultMessage": "You're on a roll! You've kept your streak going for {days, plural, =0 {0 consecutive days} =1 {1 consecutive day} other {# consecutive days}}, completing at least one question every day.",
+    "description": "Tooltip for max consecutive days of contributions"
   },
   "p3mRa0": {
     "defaultMessage": "Job title is required.",

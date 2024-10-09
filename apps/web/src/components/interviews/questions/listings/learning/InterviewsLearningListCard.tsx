@@ -9,7 +9,9 @@ import type {
   QuestionListTheme,
 } from '~/components/interviews/questions/common/QuestionsTypes';
 import QuestionStudyAllocationLabel from '~/components/interviews/questions/metadata/QuestionStudyAllocationLabel';
+import { useIntl } from '~/components/intl';
 import Anchor from '~/components/ui/Anchor';
+import Badge from '~/components/ui/Badge';
 import Text from '~/components/ui/Text';
 import {
   themeBackgroundLayerEmphasized,
@@ -35,7 +37,10 @@ export default function InterviewsLearningListCard({
   metadata,
   schedule,
   theme,
+  isStarted,
 }: Props) {
+  const intl = useIntl();
+
   const { name, shortDescription, questions, href } = metadata;
   const questionCount = countNumberOfQuestionsInList(questions);
 
@@ -65,9 +70,25 @@ export default function InterviewsLearningListCard({
         </div>
         <div className="flex flex-1 flex-col gap-4">
           <div className="flex flex-col items-start gap-1">
-            <Text size="body0" weight="bold">
-              {name}
-            </Text>
+            <div className="flex items-center gap-3">
+              <Text size="body0" weight="bold">
+                {name}
+              </Text>
+
+              {isStarted && (
+                <span>
+                  <Badge
+                    label={intl.formatMessage({
+                      defaultMessage: 'Started',
+                      description: 'Started on study plan label',
+                      id: 'cKn3cK',
+                    })}
+                    size="sm"
+                    variant="neutral"
+                  />
+                </span>
+              )}
+            </div>
             <Text color="secondary" size="body2">
               {shortDescription}
             </Text>

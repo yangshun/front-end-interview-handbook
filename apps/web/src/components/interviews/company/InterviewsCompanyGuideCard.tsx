@@ -84,19 +84,32 @@ export function InterviewsCompanyGuideCard({
             <Text size="body0" weight="bold">
               {name}
             </Text>
-            {isStarted && !INTERVIEWS_REVAMP_2024 && (
-              <span>
-                <Badge
-                  label={intl.formatMessage({
-                    defaultMessage: 'Started',
-                    description: 'Started on study plan label',
-                    id: 'cKn3cK',
-                  })}
-                  size="sm"
-                  variant="info"
-                />
-              </span>
-            )}
+            {isStarted &&
+              (INTERVIEWS_REVAMP_2024 ? (
+                <span>
+                  <Badge
+                    label={intl.formatMessage({
+                      defaultMessage: 'Started',
+                      description: 'Started on study plan label',
+                      id: 'cKn3cK',
+                    })}
+                    size="sm"
+                    variant="neutral"
+                  />
+                </span>
+              ) : (
+                <span>
+                  <Badge
+                    label={intl.formatMessage({
+                      defaultMessage: 'Started',
+                      description: 'Started on study plan label',
+                      id: 'cKn3cK',
+                    })}
+                    size="sm"
+                    variant="info"
+                  />
+                </span>
+              ))}
           </div>
           <div className="z-[1] flex flex-wrap items-center gap-x-4 gap-y-2">
             {INTERVIEWS_REVAMP_2024 ? (

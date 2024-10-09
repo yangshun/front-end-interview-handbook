@@ -12,6 +12,7 @@ import InterviewsDashboardSolvedByTechnologyOrQuestionType from './InterviewsDas
 import InterviewsDashboardSolvedProblemsCard from './InterviewsDashboardSolvedProblemsCard';
 
 type Props = Readonly<{
+  contributions?: Record<string, number>;
   questions: {
     codingQuestions: ReadonlyArray<QuestionMetadata>;
     quizQuestions: ReadonlyArray<QuestionMetadata>;
@@ -25,6 +26,7 @@ type Props = Readonly<{
 export default function InterviewsDashboardProgressAtGlanceSection({
   questionsProgress,
   questions,
+  contributions,
 }: Props) {
   return (
     <Section>
@@ -46,7 +48,9 @@ export default function InterviewsDashboardProgressAtGlanceSection({
             questionsProgress={questionsProgress}
           />
         </div>
-        <InterviewsDashboardContributionsHeatMapCard />
+        <InterviewsDashboardContributionsHeatMapCard
+          contributions={contributions}
+        />
       </div>
     </Section>
   );

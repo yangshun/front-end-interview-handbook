@@ -2,6 +2,7 @@ import clsx from 'clsx';
 import { useMemo } from 'react';
 
 import { FormattedMessage, useIntl } from '~/components/intl';
+import ScrollArea from '~/components/ui/ScrollArea';
 import Text from '~/components/ui/Text';
 import { themeBackgroundLineEmphasizedColor } from '~/components/ui/theme';
 import Tooltip from '~/components/ui/Tooltip';
@@ -37,94 +38,101 @@ export default function InterviewsDashboardContributionsChart({
 
   return (
     <div className="flex flex-col gap-6">
-      <div className="grid w-full grid-cols-3 flex-wrap gap-2 md:flex xl:gap-x-3.5">
-        {months.map((item) => {
-          const { month, days } = item;
-          const iteratingDate = new Date(days[0].date);
-          const iteratingYear = iteratingDate.getFullYear();
-          const iteratingMonth = iteratingDate.getMonth();
-          const numberOfDays = daysInMonth(iteratingYear, iteratingMonth);
+      <ScrollArea scrollbars="horizontal">
+        <div
+          className={clsx(
+            'grid auto-cols-max grid-flow-col grid-rows-4 gap-2 sm:grid-rows-2 lg:grid-rows-1',
+          )}>
+          {months.map((item) => {
+            const { month, days } = item;
+            const iteratingDate = new Date(days[0].date);
+            const iteratingYear = iteratingDate.getFullYear();
+            const iteratingMonth = iteratingDate.getMonth();
+            const numberOfDays = daysInMonth(iteratingYear, iteratingMonth);
 
-          // Skip the incomplete months from UI but not from the current month of the year
-          // E.g if 26 july 2023 to 26 july 2024, show only 1st Aug 2023 to 26 July 2024
-          if (iteratingYear !== currentYear && numberOfDays !== days.length) {
-            return null;
-          }
+            // Skip the incomplete months from UI but not from the current month of the year
+            // E.g if 26 july 2023 to 26 july 2024, show only 1st Aug 2023 to 26 July 2024
+            if (iteratingYear !== currentYear && numberOfDays !== days.length) {
+              return null;
+            }
 
-          return (
-            <div key={month} className="flex flex-col items-center gap-2.5">
-              <div
-                key={month}
-                className="grid-rows-7 grid auto-cols-max grid-flow-col items-start gap-0.5">
-                {days.map((day, index) => {
-                  const { date, dayOfWeek } = day;
-                  const formattedDate = groupByDateFormatter.format(
-                    new Date(date),
-                  );
-                  const contributionCount = contributions?.[formattedDate] ?? 0;
-                  const formatter = new Intl.DateTimeFormat('en-US', {
-                    day: 'numeric',
-                    month: 'long',
-                  });
+            return (
+              <div key={month} className="flex flex-col items-center gap-2.5">
+                <div
+                  key={month}
+                  className="grid-rows-7 grid shrink-0 auto-cols-max grid-flow-col items-start gap-0.5">
+                  {days.map((day, index) => {
+                    const { date, dayOfWeek } = day;
+                    const formattedDate = groupByDateFormatter.format(
+                      new Date(date),
+                    );
+                    const contributionCount =
+                      contributions?.[formattedDate] ?? 0;
+                    const formatter = new Intl.DateTimeFormat('en-US', {
+                      day: 'numeric',
+                      month: 'long',
+                    });
 
-                  const tooltipLabel =
-                    contributionCount === 0
-                      ? intl.formatMessage(
-                          {
-                            defaultMessage: 'No contributions on {date}',
-                            description:
-                              'Tooltip label for no contribution count',
-                            id: 'EaDXUz',
-                          },
-                          {
-                            date: formatter.format(new Date(date)),
-                          },
-                        )
-                      : intl.formatMessage(
-                          {
-                            defaultMessage:
-                              '{count, plural, one {# contribution on {date}} other {# contributions on {date}}}',
-                            description: 'Tooltip label for contribution count',
-                            id: 'yT/nav',
-                          },
-                          {
-                            count: contributionCount,
-                            date: formatter.format(new Date(date)),
-                          },
-                        );
+                    const tooltipLabel =
+                      contributionCount === 0
+                        ? intl.formatMessage(
+                            {
+                              defaultMessage: 'No contributions on {date}',
+                              description:
+                                'Tooltip label for no contribution count',
+                              id: 'EaDXUz',
+                            },
+                            {
+                              date: formatter.format(new Date(date)),
+                            },
+                          )
+                        : intl.formatMessage(
+                            {
+                              defaultMessage:
+                                '{count, plural, one {# contribution on {date}} other {# contributions on {date}}}',
+                              description:
+                                'Tooltip label for contribution count',
+                              id: 'yT/nav',
+                            },
+                            {
+                              count: contributionCount,
+                              date: formatter.format(new Date(date)),
+                            },
+                          );
 
-                  return (
-                    <Tooltip key={date} asChild={true} label={tooltipLabel}>
-                      <div
-                        className={clsx(
-                          'size-4 md:size-[19px] lg:size-[13.4px] rounded-sm',
-                          index === 0 && [
-                            dayOfWeek === 'Sunday' && 'row-start-1',
-                            dayOfWeek === 'Monday' && 'row-start-2',
-                            dayOfWeek === 'Tuesday' && 'row-start-3',
-                            dayOfWeek === 'Wednesday' && 'row-start-4',
-                            dayOfWeek === 'Thursday' && 'row-start-5',
-                            dayOfWeek === 'Friday' && 'row-start-6',
-                            dayOfWeek === 'Saturday' && 'row-start-7',
-                          ],
-                          [
-                            contributionCount >= 4
-                              ? contributionColorMap[4]
-                              : contributionColorMap[contributionCount],
-                          ],
-                        )}
-                      />
-                    </Tooltip>
-                  );
-                })}
+                    return (
+                      <Tooltip key={date} asChild={true} label={tooltipLabel}>
+                        <div
+                          className={clsx(
+                            'size-4 md:size-[19px] lg:size-[13.4px] rounded-sm',
+                            index === 0 && [
+                              dayOfWeek === 'Sunday' && 'row-start-1',
+                              dayOfWeek === 'Monday' && 'row-start-2',
+                              dayOfWeek === 'Tuesday' && 'row-start-3',
+                              dayOfWeek === 'Wednesday' && 'row-start-4',
+                              dayOfWeek === 'Thursday' && 'row-start-5',
+                              dayOfWeek === 'Friday' && 'row-start-6',
+                              dayOfWeek === 'Saturday' && 'row-start-7',
+                            ],
+                            [
+                              contributionCount >= 4
+                                ? contributionColorMap[4]
+                                : contributionColorMap[contributionCount],
+                            ],
+                          )}
+                        />
+                      </Tooltip>
+                    );
+                  })}
+                </div>
+                <Text color="subtitle" size="body3" weight="medium">
+                  {month}
+                </Text>
               </div>
-              <Text color="subtitle" size="body3" weight="medium">
-                {month}
-              </Text>
-            </div>
-          );
-        })}
-      </div>
+            );
+          })}
+        </div>
+      </ScrollArea>
 
       {/* How we count contributions */}
       <div className="flex flex-col justify-between gap-4 md:flex-row md:items-center">
