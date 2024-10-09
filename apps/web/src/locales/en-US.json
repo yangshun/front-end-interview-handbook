@@ -7003,6 +7003,10 @@
     "defaultMessage": "Confirm",
     "description": "Label for confirm button on end project session dialog"
   },
+  "hH5/cP": {
+    "defaultMessage": "GUIDES",
+    "description": "Label for guides card ribbon"
+  },
   "hIOUCl": {
     "defaultMessage": "Profile completion progress bar",
     "description": "Label for Profile completion progress bar on Projects dashboard page"

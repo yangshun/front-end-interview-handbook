@@ -2,110 +2,84 @@ import clsx from 'clsx';
 import { useState } from 'react';
 import {
   RiArrowDownSLine,
+  RiArrowRightLine,
   RiArrowUpSLine,
   RiBookOpenLine,
 } from 'react-icons/ri';
 
+import InterviewsRibbonBadge from '~/components/interviews/common/InterviewsRibbonBadge';
 import { FormattedMessage, useIntl } from '~/components/intl';
-import Badge from '~/components/ui/Badge';
+import Anchor from '~/components/ui/Anchor';
 import Button from '~/components/ui/Button';
-import Card from '~/components/ui/Card';
 import Text from '~/components/ui/Text';
 import {
   themeBackgroundColor,
-  themeBorderBrandColor,
+  themeBackgroundEmphasized_Hover,
+  themeBorderEmphasizeColor,
   themeGlassyBorder,
-  themeTextInvertColor,
+  themeTextBrandColor_GroupHover,
   themeTextSubtleColor,
 } from '~/components/ui/theme';
 
-import InterviewGuideList from './InterviewsGuideList';
 import InterviewsGuideProgress from './InterviewsGuideProgress';
 
-function CardStackCard({
-  className,
-  children,
-  shadow,
-}: {
-  children?: React.ReactNode;
-  className?: string;
-  shadow?: boolean;
-}) {
-  return (
-    <div className={clsx('size-full absolute top-0', className)}>
-      <div
-        className={clsx(
-          'size-full relative overflow-clip rounded-lg border',
-          'group-hover:bg-white dark:group-hover:bg-neutral-950',
-          'transition-[background-color]',
-          themeGlassyBorder,
-          themeBackgroundColor,
-        )}
-        style={
-          shadow
-            ? {
-                boxShadow: '0px 9px 8px -7px rgba(0, 0, 0, 0.3)',
-              }
-            : undefined
-        }>
-        {children}
-      </div>
-    </div>
-  );
-}
+type GuidesListProps = Readonly<{
+  className: string;
+  data: ReadonlyArray<{
+    completed: boolean;
+    excerpt: string;
+    href: string;
+    title: string;
+  }>;
+}>;
 
-function CardStack({
-  children,
-  showStackCard,
-}: {
-  children: React.ReactNode;
-  showStackCard: boolean;
-}) {
+function InterviewGuideList({ className, data }: GuidesListProps) {
   return (
-    <div className={clsx('relative', showStackCard && 'group mb-8')}>
-      {showStackCard && (
-        <>
-          <CardStackCard className={clsx('translate-y-8', 'px-4')} />
-          <CardStackCard className={clsx('translate-y-4', 'px-2')} />
-        </>
-      )}
-      {/* Front card */}
-      <div
-        style={
-          showStackCard
-            ? {
-                boxShadow: '0px 9px 8px -7px rgba(0, 0, 0, 0.3)',
-              }
-            : undefined
-        }>
-        {children}
-      </div>
-    </div>
-  );
-}
+    <ul className={clsx('flex flex-col gap-2', className)}>
+      {data.map(({ title, excerpt, completed, href }) => (
+        <li
+          key={title}
+          className={clsx(
+            'group relative isolate',
+            'flex items-center gap-4',
+            'p-4',
+            'rounded-lg',
+            ['border', themeBorderEmphasizeColor],
+            themeBackgroundEmphasized_Hover,
+          )}>
+          <InterviewsGuideProgress
+            className="z-[1]"
+            completed={completed}
+            size="sm"
+          />
 
-function GuidesRibbon() {
-  return (
-    <span
-      className="size-14 absolute -right-0.5 -top-0.5 overflow-hidden"
-      style={{
-        clipPath: 'polygon(50% 0, 100% 50%, 100% 100%, 0 100%, 0 0)',
-      }}>
-      <span
-        className={clsx('absolute block', [
-          themeBorderBrandColor,
-          'border-[9999px] !border-b-transparent !border-l-transparent',
-        ])}
-      />
-      <span
-        className={clsx(
-          'absolute left-1/2 top-1/2 -translate-x-[calc(50%-6px)] -translate-y-full rotate-45',
-          'text-2xs font-medium uppercase',
-          themeTextInvertColor,
-        )}>
-        Guides
-      </span>
-    </span>
+          <div className="flex flex-1 flex-col gap-1.5">
+            <Anchor
+              className="focus:outline-none"
+              href={href}
+              variant="unstyled">
+              {/* Extend touch target to entire panel */}
+              <span aria-hidden="true" className="absolute inset-0" />
+              <Text size="body2" weight="medium">
+                {title}
+              </Text>
+            </Anchor>
+            <Text color="secondary" size="body3">
+              {excerpt}
+            </Text>
+          </div>
+
+          <RiArrowRightLine
+            aria-hidden="true"
+            className={clsx(
+              'size-5 shrink-0',
+              themeTextSubtleColor,
+              themeTextBrandColor_GroupHover,
+            )}
+          />
+        </li>
+      ))}
+    </ul>
   );
 }
 
@@ -114,7 +88,32 @@ const data = {
   completedCount: 0,
   description:
     'The highest quality JavaScript interview questions and solutions you can find, curated by ex-FAANG interviewers.',
-  tags: ['lodash', 'data structure'],
+  guides: [
+    {
+      completed: false,
+      excerpt: 'Answering fundamental of JavaScript and related.',
+      href: '/',
+      title: 'Foundation of JS',
+    },
+    {
+      completed: false,
+      excerpt: 'Answering fundamental of JavaScript and related.',
+      href: '/',
+      title: 'Object Oriented Programming',
+    },
+    {
+      completed: false,
+      excerpt: 'Answering fundamental of JavaScript and related.',
+      href: '/',
+      title: 'Array and Loop',
+    },
+    {
+      completed: false,
+      excerpt: 'Answering fundamental of JavaScript and related.',
+      href: '/',
+      title: 'Data Structure',
+    },
+  ],
   title: 'JavaScript Interview Questions Guide',
   totalCount: 4,
 };
@@ -125,31 +124,32 @@ export default function InterviewsGuideCard() {
 
   const DropdownIcon = isOpen ? RiArrowUpSLine : RiArrowDownSLine;
 
-  const { title, description, totalCount, completedCount, tags } = data;
+  const { title, description, totalCount, completedCount } = data;
   const isGuideCompleted = totalCount === completedCount;
 
   return (
-    <CardStack showStackCard={!isOpen}>
-      <Card
+    <div className="relative">
+      <div
         className={clsx(
+          'relative isolate overflow-hidden rounded-lg',
+          themeBackgroundColor,
+          themeGlassyBorder,
           !isOpen && [
             'hover:bg-white dark:hover:bg-neutral-950',
             'group-hover:bg-white dark:group-hover:bg-neutral-950',
             'transition-[background-color]',
           ],
-        )}
-        disableSpotlight={true}
-        padding={false}>
+        )}>
         {/* Radial glow */}
-        <div className="theme-bg-radial-glow absolute inset-0 -top-72 before:opacity-30" />
+        <div className="theme-bg-radial-glow absolute inset-0 before:h-[136px] before:opacity-20 dark:-top-10" />
 
-        <div className={clsx('flex flex-col gap-6', 'px-6 py-5')}>
+        <div className={clsx('flex flex-col gap-6', 'px-6 py-4')}>
           <div className={clsx('flex items-center gap-x-6')}>
             <InterviewsGuideProgress completed={isGuideCompleted} />
 
             <div className="flex flex-1 flex-col gap-5">
               <div className="flex flex-col gap-2">
-                <Text size="body1" weight="bold">
+                <Text size="body2" weight="bold">
                   {title}
                 </Text>
                 <Text color="secondary" size="body2">
@@ -158,41 +158,26 @@ export default function InterviewsGuideCard() {
               </div>
 
               {/* Guides metadata */}
-              <div className="flex flex-wrap gap-x-8 gap-y-2">
-                <div className="flex items-center gap-1.5">
-                  <RiBookOpenLine
-                    className={clsx('size-5 shrink-0', themeTextSubtleColor)}
+              <div className="flex items-center gap-1.5">
+                <RiBookOpenLine
+                  className={clsx('size-5 shrink-0', themeTextSubtleColor)}
+                />
+                <Text color="secondary" size="body3">
+                  <FormattedMessage
+                    defaultMessage="<bold>{completedCount}</bold>/{totalCount} guides"
+                    description="Label for completed guides"
+                    id="wRHDTn"
+                    values={{
+                      bold: (chunks) => (
+                        <Text size="body2" weight="bold">
+                          {chunks}
+                        </Text>
+                      ),
+                      completedCount,
+                      totalCount,
+                    }}
                   />
-                  <Text color="secondary" size="body3">
-                    <FormattedMessage
-                      defaultMessage="<bold>{completedCount}</bold>/{totalCount} guides"
-                      description="Label for completed guides"
-                      id="wRHDTn"
-                      values={{
-                        bold: (chunks) => (
-                          <Text size="body2" weight="bold">
-                            {chunks}
-                          </Text>
-                        ),
-                        completedCount,
-                        totalCount,
-                      }}
-                    />
-                  </Text>
-                </div>
-
-                {tags.length > 0 && (
-                  <div className="flex gap-2">
-                    {tags.map((tag) => (
-                      <Badge
-                        key={tag}
-                        label={`#${tag}`}
-                        size="sm"
-                        variant="neutral"
-                      />
-                    ))}
-                  </div>
-                )}
+                </Text>
               </div>
             </div>
 
@@ -221,11 +206,19 @@ export default function InterviewsGuideCard() {
             />
           </div>
 
-          {isOpen && <InterviewGuideList className="pl-14" />}
+          {isOpen && (
+            <InterviewGuideList className="pl-14" data={data.guides} />
+          )}
         </div>
-
-        <GuidesRibbon />
-      </Card>
-    </CardStack>
+      </div>
+      <InterviewsRibbonBadge
+        label={intl.formatMessage({
+          defaultMessage: 'GUIDES',
+          description: 'Label for guides card ribbon',
+          id: 'hH5/cP',
+        })}
+        variant="primary"
+      />
+    </div>
   );
 }

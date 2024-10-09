@@ -9,8 +9,8 @@
   --brand-lighter: 69 100% 88%; /* #f6ffc0; */
   --brand-lightest: 69 98% 94%; /* #faffdf; */
 
-  --brand-gradient-radial-light: #e9d5ff;
-  --brand-gradient-radial-dark: #8383fd;
+  --brand-gradient-radial-light: #faffdf;
+  --brand-gradient-radial-dark: #d3eb6a;
   --brand-gradient-radial-stop-color: #0f172a;
 
   --brand-gradient-hero-triangle-start: #8383fd;
