@@ -184,7 +184,35 @@ export default function ScrapbookPage() {
               <InterviewsGitHubSlider />
             </UIExamplesGroup>
             <UIExamplesGroup darkMode="horizontal">
-              <InterviewsGuideCard />
+              <InterviewsGuideCard
+                data={{
+                  description:
+                    'Explore our starter guides to get a solid grasp of JavaScript interview prep before jumping into practice.',
+                  items: [
+                    {
+                      category: 'front-end-interview-guide',
+                      description:
+                        'Answering fundamental of JavaScript and related.',
+                      href: '#',
+                      isCompleted: false,
+                      readingTime: 3,
+                      slug: 'intro',
+                      title: 'Foundation of JS',
+                    },
+                    {
+                      category: 'front-end-interview-guide',
+                      description:
+                        'Answering fundamental of JavaScript and related.',
+                      href: '#',
+                      isCompleted: false,
+                      readingTime: 4,
+                      slug: 'foundation',
+                      title: 'Object Oriented Programming',
+                    },
+                  ],
+                  title: 'Javascript Interview guides',
+                }}
+              />
             </UIExamplesGroup>
             <UIExamplesGroup darkMode="horizontal">
               <div className="inline-flex flex-col items-start gap-y-6">

@@ -4,6 +4,8 @@ import { RiArrowDownSLine, RiSearchLine, RiSortDesc } from 'react-icons/ri';
 
 import FilterButton from '~/components/common/FilterButton';
 import { useUserProfile } from '~/components/global/UserProfileProvider';
+import type { GuideCardMetadataWithCompletedStatus } from '~/components/guides/types';
+import InterviewsGuideCard from '~/components/interviews/guides/InterviewsGuideCard';
 import QuestionPaywall from '~/components/interviews/questions/common/QuestionPaywall';
 import type {
   QuestionFormat,
@@ -51,6 +53,11 @@ export type Props = Readonly<{
     b: QuestionFormat,
   ) => number;
   framework?: QuestionFramework;
+  guides?: {
+    description: string;
+    items: ReadonlyArray<GuideCardMetadataWithCompletedStatus>;
+    title: string;
+  };
   initialFormat?: QuestionFormat | null;
   layout?: 'embedded' | 'full';
   listKey?: string;
@@ -81,6 +88,7 @@ export default function QuestionsUnifiedListWithFilters({
   onMarkAsCompleted,
   onMarkAsNotCompleted,
   showSummarySection = true,
+  guides,
 }: Props) {
   // Save the last-rendered filters in session storage to be retrieved
   // on the coding workspace page for filtering all questions.
@@ -522,19 +530,24 @@ export default function QuestionsUnifiedListWithFilters({
                 />
               </Heading>
               <Section>
-                <QuestionsList
-                  checkIfCompletedQuestion={(question) => question.isCompleted}
-                  checkIfCompletedQuestionBefore={
-                    checkIfCompletedQuestionBefore
-                  }
-                  framework={framework}
-                  listKey={listKey}
-                  mode={listMode}
-                  questionCompletionCount={questionCompletionCount}
-                  questions={processedQuestions}
-                  onMarkAsCompleted={onMarkAsCompleted}
-                  onMarkAsNotCompleted={onMarkAsNotCompleted}
-                />
+                <div className="flex flex-col gap-4">
+                  {guides && <InterviewsGuideCard data={guides} />}
+                  <QuestionsList
+                    checkIfCompletedQuestion={(question) =>
+                      question.isCompleted
+                    }
+                    checkIfCompletedQuestionBefore={
+                      checkIfCompletedQuestionBefore
+                    }
+                    framework={framework}
+                    listKey={listKey}
+                    mode={listMode}
+                    questionCompletionCount={questionCompletionCount}
+                    questions={processedQuestions}
+                    onMarkAsCompleted={onMarkAsCompleted}
+                    onMarkAsNotCompleted={onMarkAsNotCompleted}
+                  />
+                </div>
               </Section>
             </div>
           )}

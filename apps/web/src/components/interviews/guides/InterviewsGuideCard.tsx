@@ -7,6 +7,7 @@ import {
   RiBookOpenLine,
 } from 'react-icons/ri';
 
+import type { GuideCardMetadataWithCompletedStatus } from '~/components/guides/types';
 import InterviewsRibbonBadge from '~/components/interviews/common/InterviewsRibbonBadge';
 import { FormattedMessage, useIntl } from '~/components/intl';
 import Anchor from '~/components/ui/Anchor';
@@ -25,18 +26,13 @@ import InterviewsGuideProgress from './InterviewsGuideProgress';
 
 type GuidesListProps = Readonly<{
   className: string;
-  data: ReadonlyArray<{
-    completed: boolean;
-    excerpt: string;
-    href: string;
-    title: string;
-  }>;
+  data: ReadonlyArray<GuideCardMetadataWithCompletedStatus>;
 }>;
 
 function InterviewGuideList({ className, data }: GuidesListProps) {
   return (
-    <ul className={clsx('flex flex-col gap-2', className)}>
-      {data.map(({ title, excerpt, completed, href }) => (
+    <ul className={clsx('isolate flex flex-col gap-2', className)}>
+      {data.map(({ title, description, isCompleted, href }) => (
         <li
           key={title}
           className={clsx(
@@ -44,12 +40,13 @@ function InterviewGuideList({ className, data }: GuidesListProps) {
             'flex items-center gap-4',
             'p-4',
             'rounded-lg',
+            'focus-within:ring-brand focus-within:ring-2 focus-within:ring-inset',
             ['border', themeBorderEmphasizeColor],
             themeBackgroundEmphasized_Hover,
           )}>
           <InterviewsGuideProgress
             className="z-[1]"
-            completed={completed}
+            completed={isCompleted}
             size="sm"
           />
 
@@ -65,7 +62,7 @@ function InterviewGuideList({ className, data }: GuidesListProps) {
               </Text>
             </Anchor>
             <Text color="secondary" size="body3">
-              {excerpt}
+              {description}
             </Text>
           </div>
 
@@ -83,60 +80,49 @@ function InterviewGuideList({ className, data }: GuidesListProps) {
   );
 }
 
-// TODO(interviews): Remove hard coded data
-const data = {
-  completedCount: 0,
-  description:
-    'The highest quality JavaScript interview questions and solutions you can find, curated by ex-FAANG interviewers.',
-  guides: [
-    {
-      completed: false,
-      excerpt: 'Answering fundamental of JavaScript and related.',
-      href: '/',
-      title: 'Foundation of JS',
-    },
-    {
-      completed: false,
-      excerpt: 'Answering fundamental of JavaScript and related.',
-      href: '/',
-      title: 'Object Oriented Programming',
-    },
-    {
-      completed: false,
-      excerpt: 'Answering fundamental of JavaScript and related.',
-      href: '/',
-      title: 'Array and Loop',
-    },
-    {
-      completed: false,
-      excerpt: 'Answering fundamental of JavaScript and related.',
-      href: '/',
-      title: 'Data Structure',
-    },
-  ],
-  title: 'JavaScript Interview Questions Guide',
-  totalCount: 4,
-};
+type Props = Readonly<{
+  data: {
+    description: string;
+    items: ReadonlyArray<GuideCardMetadataWithCompletedStatus>;
+    title: string;
+  };
+}>;
 
-export default function InterviewsGuideCard() {
+export default function InterviewsGuideCard({ data }: Props) {
   const intl = useIntl();
   const [isOpen, setIsOpen] = useState(false);
 
   const DropdownIcon = isOpen ? RiArrowUpSLine : RiArrowDownSLine;
 
-  const { title, description, totalCount, completedCount } = data;
-  const isGuideCompleted = totalCount === completedCount;
+  const { title, description, items } = data;
+  const completionCount = items.filter((guide) => guide.isCompleted).length;
+  const totalCount = items.length;
+  const isGuideCompleted = totalCount === completionCount;
+
+  const hasMultipleGuides = items.length > 1;
+
+  const cardTitle = hasMultipleGuides ? title : items[0].title;
+  const cardDescription = hasMultipleGuides
+    ? description
+    : items[0].description;
+
+  if (items.length === 0) {
+    return null;
+  }
 
   return (
     <div className="relative">
       <div
         className={clsx(
           'relative isolate overflow-hidden rounded-lg',
+          !hasMultipleGuides && [
+            'group',
+            'focus-within:ring-brand focus-within:ring-2 focus-within:ring-inset',
+          ],
           themeBackgroundColor,
           themeGlassyBorder,
           !isOpen && [
             'hover:bg-white dark:hover:bg-neutral-950',
-            'group-hover:bg-white dark:group-hover:bg-neutral-950',
             'transition-[background-color]',
           ],
         )}>
@@ -150,10 +136,10 @@ export default function InterviewsGuideCard() {
             <div className="flex flex-1 flex-col gap-5">
               <div className="flex flex-col gap-2">
                 <Text size="body2" weight="bold">
-                  {title}
+                  {cardTitle}
                 </Text>
                 <Text color="secondary" size="body2">
-                  {description}
+                  {cardDescription}
                 </Text>
               </div>
 
@@ -164,16 +150,16 @@ export default function InterviewsGuideCard() {
                 />
                 <Text color="secondary" size="body3">
                   <FormattedMessage
-                    defaultMessage="<bold>{completedCount}</bold>/{totalCount} guides"
+                    defaultMessage="<bold>{completionCount}</bold>/{totalCount} guides"
                     description="Label for completed guides"
-                    id="wRHDTn"
+                    id="TeK1xE"
                     values={{
                       bold: (chunks) => (
                         <Text size="body2" weight="bold">
                           {chunks}
                         </Text>
                       ),
-                      completedCount,
+                      completionCount,
                       totalCount,
                     }}
                   />
@@ -181,33 +167,53 @@ export default function InterviewsGuideCard() {
               </div>
             </div>
 
-            <Button
-              className={themeTextSubtleColor}
-              icon={DropdownIcon}
-              isLabelHidden={true}
-              label={
-                isOpen
-                  ? intl.formatMessage({
-                      defaultMessage: 'View less',
-                      description: 'Label of expanded guide button',
-                      id: 'P0i492',
-                    })
-                  : intl.formatMessage({
-                      defaultMessage: 'View more',
-                      description: 'Label of collapsed guide button',
-                      id: 'fhfS0P',
-                    })
-              }
-              size="sm"
-              variant="tertiary"
-              onClick={() => {
-                setIsOpen(!isOpen);
-              }}
-            />
+            {hasMultipleGuides ? (
+              <Button
+                className={themeTextSubtleColor}
+                icon={DropdownIcon}
+                isLabelHidden={true}
+                label={
+                  isOpen
+                    ? intl.formatMessage({
+                        defaultMessage: 'View less',
+                        description: 'Label of expanded guide button',
+                        id: 'P0i492',
+                      })
+                    : intl.formatMessage({
+                        defaultMessage: 'View more',
+                        description: 'Label of collapsed guide button',
+                        id: 'fhfS0P',
+                      })
+                }
+                size="sm"
+                tooltip={
+                  isOpen
+                    ? undefined
+                    : intl.formatMessage({
+                        defaultMessage: 'Expand to view all guides',
+                        description: 'Tooltip for expanded guide button',
+                        id: 'EDnI5H',
+                      })
+                }
+                variant="tertiary"
+                onClick={() => {
+                  setIsOpen(!isOpen);
+                }}
+              />
+            ) : (
+              <RiArrowRightLine
+                className={clsx(
+                  'size-6 transition-colors',
+                  themeTextSubtleColor,
+                  themeTextBrandColor_GroupHover,
+                )}
+              />
+            )}
           </div>
 
-          {isOpen && (
-            <InterviewGuideList className="pl-14" data={data.guides} />
+          {isOpen && <InterviewGuideList className="pl-14" data={data.items} />}
+          {!hasMultipleGuides && (
+            <Anchor className="absolute inset-0" href={items[0].href} />
           )}
         </div>
       </div>

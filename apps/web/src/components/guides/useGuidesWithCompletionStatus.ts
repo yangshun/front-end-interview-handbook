@@ -23,7 +23,7 @@ export default function useGuidesWithCompletionStatus<
   const { data: guideProgress } = trpc.guideProgress.getAll.useQuery(
     undefined,
     {
-      enabled: !!user,
+      enabled: !!user && guides.length > 0,
     },
   );
 

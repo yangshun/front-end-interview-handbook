@@ -3,12 +3,14 @@ import { notFound } from 'next/navigation';
 
 import { INTERVIEWS_REVAMP_2024 } from '~/data/FeatureFlags';
 
+import type { GuideCardMetadata } from '~/components/guides/types';
 import type {
   QuestionFormat,
   QuestionMetadata,
 } from '~/components/interviews/questions/common/QuestionsTypes';
 
 import { fetchInterviewListingBottomContent } from '~/db/contentlayer/InterviewsListingBottomContentReader';
+import { readAllFrontEndInterviewGuides } from '~/db/guides/GuidesReader';
 import { fetchQuestionCompletionCount } from '~/db/QuestionsCount';
 import {
   fetchQuestionsListCoding,
@@ -301,12 +303,19 @@ export default async function Page({ params }: Props) {
     fetchQuestionCompletionCount(['user-interface', 'javascript', 'quiz']),
     fetchInterviewListingBottomContent(`${slug}-question-format`),
   ]);
+  let guides: ReadonlyArray<GuideCardMetadata> = [];
+
+  // Need to show guides card only for javascript and algo format question
+  if (questionFormat === 'javascript' || questionFormat === 'algo') {
+    guides = await readAllFrontEndInterviewGuides(params.locale);
+  }
 
   return (
     <InterviewsQuestionFormatPage
       bottomContent={bottomContent}
       description={description}
       format={questionFormat}
+      guides={guides}
       questionCompletionCount={questionCompletionCount}
       questions={questions}
       title={pageTitle}

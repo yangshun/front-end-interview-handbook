@@ -1,21 +1,9 @@
-import grayMatter from 'gray-matter';
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next/types';
-import path from 'path';
-import readingTime from 'reading-time';
 
 import { INTERVIEWS_REVAMP_2024 } from '~/data/FeatureFlags';
 
-import type {
-  FrontEndInterviewRouteType,
-  GuideCardMetadata,
-} from '~/components/guides/types';
-
-import { readGuidesContents } from '~/db/guides/GuidesReader';
-import {
-  frontendInterviewSlugs,
-  frontEndInterviewsRouteToFile,
-} from '~/db/guides/GuidesUtils';
+import { readAllFrontEndInterviewGuides } from '~/db/guides/GuidesReader';
 import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
 
@@ -72,70 +60,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   });
 }
 
-function requestToPaths({
-  route,
-}: {
-  route: FrontEndInterviewRouteType;
-}): Readonly<{
-  directoryPath: string;
-}> {
-  const directoryPath = path.join(
-    process.cwd(),
-    '..',
-    '..',
-    'submodules',
-    'front-end-interview-handbook',
-    'packages',
-    'front-end-interview-guidebook',
-    'contents',
-    frontEndInterviewsRouteToFile[route],
-  );
-
-  return { directoryPath };
-}
-
-async function readAllGuides({ params }: Props) {
-  const { locale } = params;
-
-  const guidesData: Array<GuideCardMetadata> = [];
-  const basePath = '/front-end-interview-guidebook';
-
-  frontendInterviewSlugs.forEach((slug) => {
-    // For the introduction article, the slug is introduction, but the content href is the basePath itself
-    const route = slug === 'introduction' ? '' : slug;
-    const { directoryPath } = requestToPaths({
-      route,
-    });
-
-    const mdxSource = readGuidesContents(directoryPath, locale);
-
-    const { data } = grayMatter(mdxSource);
-    const { description, title } = data;
-    const time = Math.ceil(readingTime(mdxSource ?? '').minutes);
-
-    guidesData.push({
-      category: 'front-end-interview-guide',
-      description,
-      href: `${basePath}/${route}`,
-      readingTime: time,
-      slug,
-      title,
-    });
-  });
-
-  return guidesData;
-}
-
 export default async function Page({ params }: Props) {
   if (!INTERVIEWS_REVAMP_2024) {
     return notFound();
   }
 
-  const allGuides = await readAllGuides({ params });
+  const allGuides = await readAllFrontEndInterviewGuides(params.locale);
 
-  return (
-    <FrontEndInterviewPlaybookPage
-      allGuides={allGuides}
-    />
-  );
+  return <FrontEndInterviewPlaybookPage allGuides={allGuides} />;
 }

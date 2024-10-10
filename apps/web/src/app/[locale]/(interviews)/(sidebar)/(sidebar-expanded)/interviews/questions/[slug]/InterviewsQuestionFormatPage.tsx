@@ -9,6 +9,11 @@ import {
   RiWindow2Line,
 } from 'react-icons/ri';
 
+import type {
+  FrontEndInterviewSlugType,
+  GuideCardMetadata,
+} from '~/components/guides/types';
+import useGuidesWithCompletionStatus from '~/components/guides/useGuidesWithCompletionStatus';
 import InterviewsPageFeatures from '~/components/interviews/common/InterviewsPageFeatures';
 import type {
   QuestionFormat,
@@ -32,6 +37,7 @@ type Props = Readonly<{
   bottomContent?: InterviewsListingBottomContent;
   description: string;
   format: QuestionFormat;
+  guides: ReadonlyArray<GuideCardMetadata>;
   questionCompletionCount?: QuestionCompletionCount;
   questions: ReadonlyArray<QuestionMetadata>;
   title: string;
@@ -44,6 +50,7 @@ export default function InterviewsQuestionFormatPage({
   questions,
   questionCompletionCount,
   bottomContent,
+  guides,
 }: Props) {
   const intl = useIntl();
   const features = [
@@ -72,6 +79,54 @@ export default function InterviewsQuestionFormatPage({
       }),
     },
   ];
+
+  const slugs: ReadonlyArray<FrontEndInterviewSlugType> =
+    format === 'javascript'
+      ? [
+          'javascript',
+          'algorithms',
+          'user-interface',
+          'user-interface-questions-cheatsheet',
+          'user-interface-components-api-design-principles',
+        ]
+      : ['algorithms'];
+
+  const filteredGuides = guides.filter((guide) =>
+    slugs.includes(guide.slug as FrontEndInterviewSlugType),
+  );
+
+  const guidesWithCompletionStatus =
+    useGuidesWithCompletionStatus(filteredGuides);
+
+  const guidesData = {
+    description:
+      format === 'javascript'
+        ? intl.formatMessage({
+            defaultMessage:
+              'Explore our starter guides to get a solid grasp of Javascript interview prep before jumping into practice.',
+            description: 'Description for guide card',
+            id: 'Mx+po8',
+          })
+        : intl.formatMessage({
+            defaultMessage:
+              'Explore our starter guides to get a solid grasp of Algorithms interview prep before jumping into practice.',
+            description: 'Description for guide card',
+            id: '7Qdtf9',
+          }),
+    items: guidesWithCompletionStatus,
+    title:
+      format === 'javascript'
+        ? intl.formatMessage({
+            defaultMessage: 'Javascript Interview Guides',
+            description: 'Title for guide card',
+            id: 'Kxs/q8',
+          })
+        : intl.formatMessage({
+            defaultMessage: 'Algorithms Interview Guides',
+            description: 'Title for guide card',
+            id: 'y4Aai3',
+          }),
+  };
 
   return (
     <Container className={clsx('flex flex-col', 'py-10', 'gap-y-12')}>
@@ -119,6 +174,9 @@ export default function InterviewsQuestionFormatPage({
           format === 'algo' ||
           format === 'user-interface') && (
           <QuestionsUnifiedListWithFiltersAndProgress
+            guides={
+              guidesWithCompletionStatus.length > 0 ? guidesData : undefined
+            }
             namespace={`${format}-format`}
             questionCompletionCount={questionCompletionCount}
             questions={questions}

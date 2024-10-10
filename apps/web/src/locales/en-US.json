@@ -1331,6 +1331,10 @@
     "defaultMessage": "Know your fundamentals",
     "description": "Label for an example list of Quiz Questions on marketing pages"
   },
+  "7Qdtf9": {
+    "defaultMessage": "Explore our starter guides to get a solid grasp of Algorithms interview prep before jumping into practice.",
+    "description": "Description for guide card"
+  },
   "7Rr7Yf": {
     "defaultMessage": "{minutes} min read",
     "description": "Blog read duration label"
@@ -2371,6 +2375,10 @@
     "defaultMessage": "Targeted practice on Lodash Functions interview questions",
     "description": "Description for interview preparation focus area"
   },
+  "EDnI5H": {
+    "defaultMessage": "Expand to view all guides",
+    "description": "Tooltip for expanded guide button"
+  },
   "EHngws": {
     "defaultMessage": "Copied!",
     "description": "Indication that text has been copied"
@@ -3403,6 +3411,10 @@
     "defaultMessage": "Uber",
     "description": "Company name for Uber"
   },
+  "Kxs/q8": {
+    "defaultMessage": "Javascript Interview Guides",
+    "description": "Title for guide card"
+  },
   "KyrxLW": {
     "defaultMessage": "Practice Design System Components Interview Questions",
     "description": "Title for interview preparation focus area"
@@ -3774,6 +3786,10 @@
   "MwvhTF": {
     "defaultMessage": "See whole component track",
     "description": "Label for \"See whole component track\" button in Component track accordion"
+  },
+  "Mx+po8": {
+    "defaultMessage": "Explore our starter guides to get a solid grasp of Javascript interview prep before jumping into practice.",
+    "description": "Description for guide card"
   },
   "MyaXLl": {
     "defaultMessage": "Practice Top CSS Front End Interview Questions with Solutions",
@@ -4902,6 +4918,10 @@
   "Tdn+OY": {
     "defaultMessage": "Starting is as easy as clicking a Start project button, and we will take you through every step of the way.",
     "description": "Ready to start section subtitle"
+  },
+  "TeK1xE": {
+    "defaultMessage": "<bold>{completionCount}</bold>/{totalCount} guides",
+    "description": "Label for completed guides"
   },
   "TebaLD": {
     "defaultMessage": "Continue learning",
@@ -9399,10 +9419,6 @@
     "defaultMessage": "Skills roadmap",
     "description": "Title for \"Skills roadmap\" feature on Projects home page"
   },
-  "wRHDTn": {
-    "defaultMessage": "<bold>{completedCount}</bold>/{totalCount} guides",
-    "description": "Label for completed guides"
-  },
   "wRV8PN": {
     "defaultMessage": "Settings",
     "description": "Settings page title"
@@ -9586,6 +9602,10 @@
   "y1y4Uh": {
     "defaultMessage": "Svelte",
     "description": "Svelte questions category short title"
+  },
+  "y4Aai3": {
+    "defaultMessage": "Algorithms Interview Guides",
+    "description": "Title for guide card"
   },
   "y4l5Q0": {
     "defaultMessage": "Prep dashboard",
