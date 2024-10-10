@@ -3,6 +3,7 @@ import { useCallback, useState } from 'react';
 import { RiCodeLine } from 'react-icons/ri';
 import { mergeRefs } from 'react-merge-refs';
 
+import ErrorBoundary from '~/components/global/error/ErrorBoundary';
 import type {
   QuestionCodingWorkingLanguage,
   QuestionJavaScript,
@@ -351,23 +352,25 @@ function JavaScriptCodingWorkspaceImpl({
                   icon: tabContents[tabId]?.icon,
                   label: tabContents[tabId]?.label ?? `New tab`,
                 })}
-                renderTab={(tabId) =>
-                  tabContents[tabId] != null ? (
-                    <div className="size-full flex">
-                      {tabContents[tabId]!.contents}
-                    </div>
-                  ) : (
-                    <JavaScriptCodingWorkspaceNewTab
-                      predefinedTabs={predefinedTabs}
-                      onSelectTabType={(tabType) => {
-                        setTabContents({
-                          ...tabContents,
-                          [tabId]: { ...tabContents[tabType] },
-                        });
-                      }}
-                    />
-                  )
-                }
+                renderTab={(tabId) => (
+                  <ErrorBoundary>
+                    {tabContents[tabId] != null ? (
+                      <div className="size-full flex">
+                        {tabContents[tabId]!.contents}
+                      </div>
+                    ) : (
+                      <JavaScriptCodingWorkspaceNewTab
+                        predefinedTabs={predefinedTabs}
+                        onSelectTabType={(tabType) => {
+                          setTabContents({
+                            ...tabContents,
+                            [tabId]: { ...tabContents[tabType] },
+                          });
+                        }}
+                      />
+                    )}
+                  </ErrorBoundary>
+                )}
               />
             </div>
           </div>

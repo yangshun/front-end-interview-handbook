@@ -3,6 +3,7 @@ import { useCallback, useEffect, useState } from 'react';
 import { RiCodeLine } from 'react-icons/ri';
 import { mergeRefs } from 'react-merge-refs';
 
+import ErrorBoundary from '~/components/global/error/ErrorBoundary';
 import type {
   QuestionFramework,
   QuestionMetadata,
@@ -413,57 +414,59 @@ function UserInterfaceCodingWorkspaceImpl({
                 icon: tabContents[tabId]?.icon,
                 label: tabContents[tabId]?.label ?? `New tab`,
               })}
-              renderTab={(tabId) =>
-                tabContents[tabId] != null ? (
-                  <div className="size-full flex">
-                    {tabContents[tabId]!.contents}
-                  </div>
-                ) : (
-                  <UserInterfaceCodingWorkspaceNewTab
-                    predefinedTabs={predefinedTabs}
-                    onSelectTabType={(data) => {
-                      if (data.type === 'code') {
-                        const newTabId = codingWorkspaceTabFileId(
-                          data.payload.file,
-                        );
+              renderTab={(tabId) => (
+                <ErrorBoundary>
+                  {tabContents[tabId] != null ? (
+                    <div className="size-full flex">
+                      {tabContents[tabId]!.contents}
+                    </div>
+                  ) : (
+                    <UserInterfaceCodingWorkspaceNewTab
+                      predefinedTabs={predefinedTabs}
+                      onSelectTabType={(data) => {
+                        if (data.type === 'code') {
+                          const newTabId = codingWorkspaceTabFileId(
+                            data.payload.file,
+                          );
 
-                        dispatch({
-                          payload: {
-                            newTabId,
-                            oldTabId: tabId,
-                          },
-                          type: 'tab-change-id',
-                        });
+                          dispatch({
+                            payload: {
+                              newTabId,
+                              oldTabId: tabId,
+                            },
+                            type: 'tab-change-id',
+                          });
+                          setTabContents({
+                            ...tabContents,
+                            [newTabId]: {
+                              contents: (
+                                <UserInterfaceCodingWorkspaceCodeEditor
+                                  filePath={data.payload.file}
+                                  showNotSavedBanner={mode === 'solution'}
+                                />
+                              ),
+                              icon:
+                                codingWorkspaceExplorerFilePathToIcon(
+                                  data.payload.file,
+                                )?.icon ?? RiCodeLine,
+                              label: codingWorkspaceExtractFileNameFromPath(
+                                data.payload.file,
+                              ),
+                            },
+                          });
+
+                          return;
+                        }
+
                         setTabContents({
                           ...tabContents,
-                          [newTabId]: {
-                            contents: (
-                              <UserInterfaceCodingWorkspaceCodeEditor
-                                filePath={data.payload.file}
-                                showNotSavedBanner={mode === 'solution'}
-                              />
-                            ),
-                            icon:
-                              codingWorkspaceExplorerFilePathToIcon(
-                                data.payload.file,
-                              )?.icon ?? RiCodeLine,
-                            label: codingWorkspaceExtractFileNameFromPath(
-                              data.payload.file,
-                            ),
-                          },
+                          [tabId]: { ...tabContents[data.type] },
                         });
-
-                        return;
-                      }
-
-                      setTabContents({
-                        ...tabContents,
-                        [tabId]: { ...tabContents[data.type] },
-                      });
-                    }}
-                  />
-                )
-              }
+                      }}
+                    />
+                  )}
+                </ErrorBoundary>
+              )}
             />
           </div>
         </div>
