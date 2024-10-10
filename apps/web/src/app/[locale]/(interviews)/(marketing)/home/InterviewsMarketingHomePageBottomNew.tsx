@@ -3,6 +3,7 @@ import type { InterviewsCompanyGuide } from 'contentlayer/generated';
 import { useUserProfile } from '~/components/global/UserProfileProvider';
 import InterviewsMarketingCompaniesSection from '~/components/interviews/marketing/InterviewsMarketingCompaniesSection';
 import InterviewsMarketingContactSection from '~/components/interviews/marketing/InterviewsMarketingContactSection';
+import InterviewsMarketingDreamJobSection from '~/components/interviews/marketing/InterviewsMarketingDreamJobSection';
 import InterviewsMarketingFAQSection from '~/components/interviews/marketing/InterviewsMarketingFAQSection';
 import InterviewsMarketingPracticeQuestionBankSection from '~/components/interviews/marketing/InterviewsMarketingPracticeQuestionBankSection';
 import InterviewsMarketingSolutionsByExInterviewersSection from '~/components/interviews/marketing/InterviewsMarketingSolutionsByExInterviewersSection';
@@ -33,6 +34,7 @@ export default function InterviewsMarketingHomePageBottomNew({
       <InterviewsMarketingTestimonialsSection testimonials={testimonials} />
       <InterviewsMarketingFAQSection />
       <InterviewsMarketingContactSection />
+      <InterviewsMarketingDreamJobSection />
     </>
   );
 }

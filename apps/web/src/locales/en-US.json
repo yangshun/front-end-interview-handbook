@@ -1243,6 +1243,10 @@
     "defaultMessage": "Targeted practice on JavaScript Polyfills interview questions",
     "description": "Description for interview preparation focus area"
   },
+  "7/se2x": {
+    "defaultMessage": "{count}+ questions are free to do",
+    "description": "Marketing page section subtitle"
+  },
   "719/YQ": {
     "defaultMessage": "GreatFrontEnd Interviews",
     "description": "Social title of GreatFrontEnd standard page"
@@ -1562,6 +1566,10 @@
   "9//mtm": {
     "defaultMessage": "You may be interested",
     "description": "Title for you may be interested section on Projects challenge submission page"
+  },
+  "90EGb3": {
+    "defaultMessage": "Your dream job is absolutely worth it",
+    "description": "Title for marketing page section"
   },
   "9115HX": {
     "defaultMessage": "<bold>{completedQuestions}</bold>/{totalQuestions} questions",
@@ -8614,6 +8622,10 @@
   "rmYPMV": {
     "defaultMessage": "Start learning",
     "description": "Button label to start study plan / focus area"
+  },
+  "rrE1PA": {
+    "defaultMessage": "Get started now",
+    "description": "Label for Get Started button in dream job section."
   },
   "ryCcOP": {
     "defaultMessage": "Notify Me",
