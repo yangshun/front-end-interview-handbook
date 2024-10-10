@@ -16,10 +16,17 @@ export default function InterviewsMarketingDreamJobSection() {
   return (
     <Container
       className={clsx(
-        'flex flex-col items-start justify-end gap-6 self-stretch py-20 md:flex-row md:items-end md:justify-between md:gap-0 lg:items-end',
+        'flex flex-col items-start justify-end gap-6 self-stretch',
+        'sm:flex-row sm:items-end sm:justify-between sm:gap-0',
+        'lg:items-end',
+        'py-20',
       )}>
       <Heading
-        className={clsx(themeGradientHeading, 'max-w-3xl pb-1')}
+        className={clsx(
+          themeGradientHeading,
+          'max-w-lg pb-1 xl:max-w-3xl',
+          '!text-balance',
+        )}
         level="heading2"
         weight="medium">
         <FormattedMessage

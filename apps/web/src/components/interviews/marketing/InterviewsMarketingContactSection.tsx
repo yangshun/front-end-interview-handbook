@@ -101,9 +101,9 @@ export default function InterviewsMarketingContactSection() {
         <div
           className={clsx(
             'mt-16',
-            'grid gap-x-6 gap-y-12 md:gap-x-6 lg:grid-cols-2',
+            'grid gap-x-6 gap-y-12 md:gap-x-6 lg:grid-cols-12',
           )}>
-          <div className="flex flex-col gap-10">
+          <div className="flex flex-col gap-10 lg:col-span-5">
             <Text
               className={clsx(
                 'block',
@@ -183,7 +183,10 @@ export default function InterviewsMarketingContactSection() {
               ))}
             </div>
           </div>
-          <InterviewsMarketingContactForm />
+          <div className="hidden lg:col-span-1 lg:block" />
+          <div className="lg:col-span-6">
+            <InterviewsMarketingContactForm />
+          </div>
         </div>
       </Section>
     </Container>
