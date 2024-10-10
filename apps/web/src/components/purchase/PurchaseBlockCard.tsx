@@ -37,6 +37,7 @@ export default function PurchaseBlockCard({
       className={clsx(
         'relative isolate overflow-hidden',
         'rounded-xl',
+        'mx-auto w-full max-w-lg md:max-w-none',
         themeBackgroundColor,
         ['border', themeBorderColor],
         [
@@ -48,7 +49,7 @@ export default function PurchaseBlockCard({
         className={clsx(
           'relative z-10',
           'flex flex-col gap-10 lg:flex-row lg:items-stretch',
-          'max-w-lg lg:max-w-none',
+          'w-full',
           'rounded-[inherit]',
           'p-6',
           className,
