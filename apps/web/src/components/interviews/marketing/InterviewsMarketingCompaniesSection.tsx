@@ -37,17 +37,21 @@ export default function InterviewsMarketingCompaniesSection({
       </Heading>
       <Section>
         <Text
-          className="mt-6 block max-w-xl text-base lg:text-lg"
+          className={clsx(
+            'mt-6 block',
+            'text-base lg:text-lg',
+            'lg:font-medium',
+            'max-w-md lg:max-w-2xl',
+          )}
           color="secondary"
           size="inherit"
-          weight="medium">
+          weight="inherit">
           <FormattedMessage
             defaultMessage="Practicing company-specific questions is the quickest way to ace specific interviews. We regularly survey and update lists for known questions tested in top companies around the world."
             description="Marketing page section subtitle"
             id="z9lq1x"
           />
         </Text>
-
         <div className={clsx('mt-16', 'flex flex-col items-center gap-8')}>
           <div
             className={clsx(
@@ -66,7 +70,6 @@ export default function InterviewsMarketingCompaniesSection({
               );
             })}
           </div>
-
           <Button
             href="/interviews/company"
             icon={RiArrowRightLine}

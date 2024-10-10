@@ -22,10 +22,15 @@ export default function InterviewsMarketingSolutionsByExInterviewersSection() {
       </Heading>
       <Section>
         <Text
-          className="mt-6 block max-w-2xl text-base lg:text-lg"
+          className={clsx(
+            'mt-6 block',
+            'text-base lg:text-lg',
+            'lg:font-medium',
+            'max-w-md lg:max-w-2xl',
+          )}
           color="secondary"
           size="inherit"
-          weight="medium">
+          weight="inherit">
           <FormattedMessage
             defaultMessage="Referencing good solutions is crucial to learning effectively. We've written our solutions with special care to include practical considerations and multiple approaches."
             description="Marketing page section subtitle"

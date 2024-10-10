@@ -22,10 +22,15 @@ export default function InterviewsMarketingTestCodeSection() {
       </Heading>
       <Section>
         <Text
-          className="mt-6 block max-w-2xl text-base lg:text-lg"
+          className={clsx(
+            'mt-6 block',
+            'text-base lg:text-lg',
+            'lg:font-medium',
+            'max-w-md lg:max-w-2xl',
+          )}
           color="secondary"
           size="inherit"
-          weight="medium">
+          weight="inherit">
           <FormattedMessage
             defaultMessage="Polish your answers with a comprehensive test suite that covers all the important edge cases that interviewers will look out for."
             description="Marketing page section subtitle"

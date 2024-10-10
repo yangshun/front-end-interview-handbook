@@ -48,10 +48,15 @@ export default function InterviewsMarketingFAQSection() {
       </Heading>
       <Section>
         <Text
-          className="mt-6 block max-w-xl text-base lg:text-lg"
+          className={clsx(
+            'mt-6 block',
+            'text-base lg:text-lg',
+            'lg:font-medium',
+            'max-w-md lg:max-w-2xl',
+          )}
           color="secondary"
           size="inherit"
-          weight="medium">
+          weight="inherit">
           <FormattedMessage
             defaultMessage="Can't find the answer you are looking for?"
             description="Marketing page section subtitle"

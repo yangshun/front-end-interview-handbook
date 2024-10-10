@@ -54,7 +54,7 @@ export default function InterviewsMarketingSimulateRealInterviews() {
   return (
     <Section>
       <Container className={clsx('flex flex-col gap-12', 'py-20')}>
-        <div className={clsx('flex flex-col gap-6', 'lg:max-w-[634px]')}>
+        <div className={clsx('lg:max-w-[634px]')}>
           <Heading
             className={clsx(themeGradientHeading)}
             level="heading2"
@@ -66,10 +66,15 @@ export default function InterviewsMarketingSimulateRealInterviews() {
             />
           </Heading>
           <Text
-            className="text-base lg:text-lg"
+            className={clsx(
+              'mt-6 block',
+              'text-base lg:text-lg',
+              'lg:font-medium',
+              'max-w-md lg:max-w-2xl',
+            )}
             color="secondary"
             size="inherit"
-            weight="medium">
+            weight="inherit">
             <FormattedMessage
               defaultMessage="Our in-browser coding workspace allows you to simulate a real interview environment with no set up required."
               description="Subtitle for the simulate real interviews section"
@@ -77,7 +82,6 @@ export default function InterviewsMarketingSimulateRealInterviews() {
             />
           </Text>
         </div>
-
         <ScrollArea scrollbars="horizontal">
           <div className="flex flex-col justify-between gap-x-4 gap-y-6 md:flex-row lg:gap-x-6 ">
             {data.map(({ key, label, image: ImageSVG }) => (

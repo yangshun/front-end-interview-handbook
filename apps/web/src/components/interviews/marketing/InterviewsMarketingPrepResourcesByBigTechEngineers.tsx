@@ -110,7 +110,7 @@ export default function InterviewsMarketingPrepResourcesByBigTechEngineers() {
 
   return (
     <Container className={clsx('flex flex-col gap-12', 'py-20')}>
-      <div className="flex flex-col gap-6">
+      <div>
         <Heading
           className={clsx(
             themeGradientHeading,
@@ -126,10 +126,15 @@ export default function InterviewsMarketingPrepResourcesByBigTechEngineers() {
           />
         </Heading>
         <Text
-          className="max-w-2xl text-base lg:text-lg"
+          className={clsx(
+            'mt-6 block',
+            'text-base lg:text-lg',
+            'lg:font-medium',
+            'max-w-md lg:max-w-2xl',
+          )}
           color="secondary"
           size="inherit"
-          weight="medium">
+          weight="inherit">
           <FormattedMessage
             defaultMessage="Having interviewed hundreds of candidates, we know what to look out for. Learn best practices and techniques gleaned from years of experience."
             description="Subtitle for the prep resources section"

@@ -105,17 +105,21 @@ export default function InterviewsMarketingContactSection() {
           )}>
           <div className="flex flex-col gap-10">
             <Text
-              className="block max-w-md text-base lg:max-w-2xl lg:text-lg"
+              className={clsx(
+                'block',
+                'text-base lg:text-lg',
+                'lg:font-medium',
+                'max-w-md lg:max-w-2xl',
+              )}
               color="secondary"
               size="inherit"
-              weight="medium">
+              weight="inherit">
               <FormattedMessage
                 defaultMessage="Have questions, feedback or anything to say? Contact us. We usually get back within a day or two."
                 description="Marketing page section subtitle"
                 id="TpWg4H"
               />
             </Text>
-
             <div
               className={clsx(
                 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1',

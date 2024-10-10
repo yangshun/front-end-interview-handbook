@@ -22,10 +22,15 @@ export default function InterviewsMarketingPlansSection() {
       </Heading>
       <Section>
         <Text
-          className="mt-6 block max-w-2xl text-base lg:text-lg"
+          className={clsx(
+            'mt-6 block',
+            'text-base lg:text-lg',
+            'lg:font-medium',
+            'max-w-md lg:max-w-2xl',
+          )}
           color="secondary"
           size="inherit"
-          weight="medium">
+          weight="inherit">
           <FormattedMessage
             defaultMessage="Front end interviews are even broader in scope than traditional software engineering interviews. On top of the wide range of front-end topics that could be asked, some companies still include standard DSA questions for front-end roles."
             description="Subtitle for marketing page study plans section"

@@ -19,7 +19,7 @@ export default function InterviewsMarketingDreamJobSection() {
         'flex flex-col items-start justify-end gap-6 self-stretch py-20 md:flex-row md:items-end md:justify-between md:gap-0 lg:items-end',
       )}>
       <Heading
-        className={clsx(themeGradientHeading, 'max-w-2xl pb-1')}
+        className={clsx(themeGradientHeading, 'max-w-3xl pb-1')}
         level="heading2"
         weight="medium">
         <FormattedMessage
@@ -43,9 +43,9 @@ export default function InterviewsMarketingDreamJobSection() {
             variant="primary"
           />
           <Text
-            className="block max-w-xl text-xs lg:text-lg"
+            className="block max-w-xl"
             color="secondary"
-            size="inherit"
+            size="body3"
             weight="medium">
             <FormattedMessage
               defaultMessage="{count}+ questions are free to do"

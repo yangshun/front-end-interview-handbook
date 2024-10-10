@@ -191,17 +191,21 @@ export default function InterviewsMarketingPracticeQuestionBankSection() {
       </Heading>
       <Section>
         <Text
-          className="mt-6 block max-w-2xl text-base lg:text-lg"
+          className={clsx(
+            'mt-6 block',
+            'text-base lg:text-lg',
+            'lg:font-medium',
+            'max-w-md lg:max-w-2xl',
+          )}
           color="secondary"
           size="inherit"
-          weight="medium">
+          weight="inherit">
           <FormattedMessage
             defaultMessage="We have questions in every critical topic, interview format and framework / language. Every question comes with solutions and test cases."
             description="Subtitle for marketing page section"
             id="2vJhW9"
           />
         </Text>
-
         <div className={clsx('mt-16', 'flex flex-col gap-8')}>
           <div
             className="xl:grid xl:grid-cols-12"

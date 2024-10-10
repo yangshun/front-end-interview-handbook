@@ -54,7 +54,7 @@ export default function InterviewsMarketingOffersDontLieSection() {
 
   return (
     <Container className={clsx('flex flex-col gap-6 md:gap-12', 'py-20')}>
-      <div className="flex flex-col gap-6">
+      <div>
         <Heading
           className={themeGradientHeading}
           level="heading2"
@@ -66,10 +66,15 @@ export default function InterviewsMarketingOffersDontLieSection() {
           />
         </Heading>
         <Text
-          className="text-base lg:max-w-xl lg:text-lg"
+          className={clsx(
+            'mt-6 block',
+            'text-base lg:text-lg',
+            'lg:font-medium',
+            'max-w-md lg:max-w-2xl',
+          )}
           color="secondary"
           size="inherit"
-          weight="medium">
+          weight="inherit">
           <FormattedMessage
             defaultMessage="Scores of our users have landed multiple offers at the world's top companies with substantial TC gains. Be the next."
             description="Subtitle for the offers don't lie section"
