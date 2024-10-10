@@ -56,7 +56,7 @@ import useMonacoLanguagesLoadTSConfig from '../common/editor/useMonacoLanguagesL
 import useMonacoLanguagesTypeScriptRunDiagnostics from '../common/editor/useMonacoLanguagesTypeScriptRunDiagnostics';
 import { codingWorkspaceExplorerFilePathToIcon } from '../common/explorer/codingWorkspaceExplorerFilePathToIcon';
 import useRestartSandpack from '../common/sandpack/useRestartSandpack';
-import useSandpackModuleErrorReloadBrowser from '../common/sandpack/useSandpackModuleErrorReloadBrowser';
+import useSandpackModuleErrorRefreshBrowser from '../common/sandpack/useSandpackModuleErrorRefreshBrowser';
 import {
   codingWorkspaceTabFileId,
   codingWorkspaceTabFilePattern,
@@ -109,7 +109,7 @@ function UserInterfaceCodingWorkspaceImpl({
   const { activeFile, visibleFiles, files } = sandpack;
 
   useRestartSandpack();
-  useSandpackModuleErrorReloadBrowser();
+  useSandpackModuleErrorRefreshBrowser();
 
   useEffect(() => {
     if (mode === 'practice') {
