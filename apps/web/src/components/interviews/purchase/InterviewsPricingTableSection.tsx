@@ -735,7 +735,7 @@ export default function InterviewsPricingTableSection({
                   <div
                     key={paymentConfig.planType}
                     className={clsx(
-                      'relative',
+                      'relative isolate',
                       'shadow-sm',
                       'rounded-xl',
                       themeBackgroundColor,
@@ -743,13 +743,17 @@ export default function InterviewsPricingTableSection({
                     )}>
                     <div
                       className={clsx(
-                        'relative overflow-hidden',
-                        'flex flex-col gap-y-6 rounded-[inherit] px-4 py-6',
-                        themeBackgroundColor,
+                        '!absolute inset-0 overflow-hidden',
                         recommendedPlan && [
                           themeWhiteGlowCardBackground,
-                          'before:-top-[120px] before:left-1/2 before:z-[1] before:h-[240px] before:w-[240px] before:-translate-x-1/2',
+                          'before:-top-[120px] before:left-1/2 before:h-[240px] before:w-[240px] before:-translate-x-1/2',
                         ],
+                      )}
+                    />
+                    <div
+                      className={clsx(
+                        'relative z-[1]',
+                        'flex flex-col gap-y-6 rounded-[inherit] px-4 py-6',
                       )}>
                       <div className="grow md:grow-0">
                         <div className="flex flex-wrap gap-x-3">

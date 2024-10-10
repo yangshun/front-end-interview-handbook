@@ -9,7 +9,6 @@ import Text, { textVariants } from '~/components/ui/Text';
 import {
   themeBackgroundColor,
   themeBorderColor,
-  themeGlassyBorder,
   themeTextSuccessColor,
   themeWhiteGlowCardBackground,
 } from '~/components/ui/theme';
@@ -36,75 +35,75 @@ export default function PurchaseBlockCard({
   return (
     <div
       className={clsx(
-        'overflow-hidden',
-        'flex flex-col gap-10 lg:flex-row lg:items-stretch',
-        'max-w-lg lg:max-w-none',
-        'overflow-hidden',
+        'relative isolate overflow-hidden',
         'rounded-xl',
-        'p-6',
         themeBackgroundColor,
+        ['border', themeBorderColor],
         [
           themeWhiteGlowCardBackground,
-          'before:-top-40 before:left-1/2 before:z-[1] before:h-60 before:w-[680px] before:-translate-x-1/2',
+          'before:-top-[150px] before:left-1/2 before:h-[180px] before:w-[680px] before:-translate-x-1/2',
         ],
-        className,
       )}>
       <div
         className={clsx(
-          '!absolute inset-0 z-[1] rounded-[inherit] before:m-[-1px]',
-          ['border', themeGlassyBorder, themeBorderColor],
-        )}
-      />
-      <div
-        className={clsx(
-          'flex flex-1 flex-col gap-y-6',
-          'min-w-[300px] xl:max-w-[350px]',
+          'relative z-10',
+          'flex flex-col gap-10 lg:flex-row lg:items-stretch',
+          'max-w-lg lg:max-w-none',
+          'rounded-[inherit]',
+          'p-6',
+          className,
         )}>
-        <div className="flex flex-col gap-y-2">
-          <Heading
-            className={textVariants({ size: 'body2', weight: 'medium' })}
-            id={id}
-            level="custom">
-            {title}
-          </Heading>
+        <div
+          className={clsx(
+            'flex flex-1 flex-col gap-y-6',
+            'min-w-[300px] xl:max-w-[350px]',
+          )}>
+          <div className="flex flex-col gap-y-2">
+            <Heading
+              className={textVariants({ size: 'body2', weight: 'medium' })}
+              id={id}
+              level="custom">
+              {title}
+            </Heading>
+          </div>
+          <Section>
+            <div
+              className={clsx(
+                'lg:flex lg:shrink-0 lg:flex-col lg:justify-center',
+              )}>
+              {rightSectionContents}
+            </div>
+          </Section>
         </div>
+        <Divider className="lg:hidden" direction="horizontal" />
+        <Divider className="hidden lg:block" direction="vertical" />
         <Section>
-          <div
-            className={clsx(
-              'lg:flex lg:shrink-0 lg:flex-col lg:justify-center',
-            )}>
-            {rightSectionContents}
+          <div className="flex flex-1 grow flex-col justify-center gap-4">
+            <Text className="block" size="body1" weight="bold">
+              {subtitle}
+            </Text>
+            <ul className="flex flex-col gap-y-4" role="list">
+              {features.map((feature, idx) => (
+                <li
+                  // eslint-disable-next-line react/no-array-index-key
+                  key={idx}
+                  className="flex items-start lg:col-span-1">
+                  <div className="shrink-0">
+                    <RiCheckLine
+                      aria-hidden="true"
+                      className={clsx('size-5 shrink-0', themeTextSuccessColor)}
+                    />
+                  </div>
+                  <Text className="ml-3 block" color="secondary" size="body2">
+                    {feature}
+                  </Text>
+                </li>
+              ))}
+            </ul>
+            {footer && <div className="pt-8">{footer}</div>}
           </div>
         </Section>
       </div>
-      <Divider className="lg:hidden" direction="horizontal" />
-      <Divider className="hidden lg:block" direction="vertical" />
-      <Section>
-        <div className="flex flex-1 grow flex-col justify-center gap-4">
-          <Text className="block" size="body1" weight="bold">
-            {subtitle}
-          </Text>
-          <ul className="flex flex-col gap-y-4" role="list">
-            {features.map((feature, idx) => (
-              <li
-                // eslint-disable-next-line react/no-array-index-key
-                key={idx}
-                className="flex items-start lg:col-span-1">
-                <div className="shrink-0">
-                  <RiCheckLine
-                    aria-hidden="true"
-                    className={clsx('size-5 shrink-0', themeTextSuccessColor)}
-                  />
-                </div>
-                <Text className="ml-3 block" color="secondary" size="body2">
-                  {feature}
-                </Text>
-              </li>
-            ))}
-          </ul>
-          {footer && <div className="pt-8">{footer}</div>}
-        </div>
-      </Section>
     </div>
   );
 }
