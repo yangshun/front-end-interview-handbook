@@ -7,6 +7,7 @@ import Text from '~/components/ui/Text';
 import CodingWorkspaceDivider, {
   CodingWorkspaceDividerWrapperClassname,
 } from '~/components/workspace/common/CodingWorkspaceDivider';
+import CodingWorkspaceErrorBoundary from '~/components/workspace/common/CodingWorkspaceErrorBoundary';
 
 import { TilesPanelRoot } from '~/react-tiling/components/TilesPanelRoot';
 import { TilesProvider } from '~/react-tiling/state/TilesProvider';
@@ -94,11 +95,13 @@ export default function Page() {
             label: `Tab ${tabId}`,
           })}
           renderTab={(tabId) => (
-            <div className="size-full flex items-center justify-center">
-              <Text className="text-6xl" weight="bold">
-                {tabId}
-              </Text>
-            </div>
+            <CodingWorkspaceErrorBoundary>
+              <div className="size-full flex items-center justify-center">
+                <Text className="text-6xl" weight="bold">
+                  {tabId}
+                </Text>
+              </div>
+            </CodingWorkspaceErrorBoundary>
           )}
         />
       </TilesProvider>

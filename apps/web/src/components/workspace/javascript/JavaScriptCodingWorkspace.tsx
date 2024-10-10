@@ -3,7 +3,6 @@ import { useCallback, useState } from 'react';
 import { RiCodeLine } from 'react-icons/ri';
 import { mergeRefs } from 'react-merge-refs';
 
-import ErrorBoundary from '~/components/global/error/ErrorBoundary';
 import type {
   QuestionCodingWorkingLanguage,
   QuestionJavaScript,
@@ -45,6 +44,7 @@ import { CodingWorkspaceProvider } from '../common/CodingWorkspaceContext';
 import CodingWorkspaceDivider, {
   CodingWorkspaceDividerWrapperClassname,
 } from '../common/CodingWorkspaceDivider';
+import CodingWorkspaceErrorBoundary from '../common/CodingWorkspaceErrorBoundary';
 import { CodingWorkspaceTabIcons } from '../common/CodingWorkspaceTabIcons';
 import CodingWorkspaceConsole from '../common/console/CodingWorkspaceConsole';
 import useMonacoEditorModels from '../common/editor/useMonacoEditorModels';
@@ -353,7 +353,7 @@ function JavaScriptCodingWorkspaceImpl({
                   label: tabContents[tabId]?.label ?? `New tab`,
                 })}
                 renderTab={(tabId) => (
-                  <ErrorBoundary>
+                  <CodingWorkspaceErrorBoundary>
                     {tabContents[tabId] != null ? (
                       <div className="size-full flex">
                         {tabContents[tabId]!.contents}
@@ -369,7 +369,7 @@ function JavaScriptCodingWorkspaceImpl({
                         }}
                       />
                     )}
-                  </ErrorBoundary>
+                  </CodingWorkspaceErrorBoundary>
                 )}
               />
             </div>

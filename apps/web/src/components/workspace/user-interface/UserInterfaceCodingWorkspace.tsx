@@ -3,7 +3,6 @@ import { useCallback, useEffect, useState } from 'react';
 import { RiCodeLine } from 'react-icons/ri';
 import { mergeRefs } from 'react-merge-refs';
 
-import ErrorBoundary from '~/components/global/error/ErrorBoundary';
 import type {
   QuestionFramework,
   QuestionMetadata,
@@ -45,6 +44,7 @@ import { CodingWorkspaceProvider } from '../common/CodingWorkspaceContext';
 import CodingWorkspaceDivider, {
   CodingWorkspaceDividerWrapperClassname,
 } from '../common/CodingWorkspaceDivider';
+import CodingWorkspaceErrorBoundary from '../common/CodingWorkspaceErrorBoundary';
 import { codingWorkspaceExtractFileNameFromPath } from '../common/codingWorkspaceExtractFileNameFromPath';
 import { CodingWorkspaceTabIcons } from '../common/CodingWorkspaceTabIcons';
 import CodingWorkspaceConsole from '../common/console/CodingWorkspaceConsole';
@@ -415,7 +415,7 @@ function UserInterfaceCodingWorkspaceImpl({
                 label: tabContents[tabId]?.label ?? `New tab`,
               })}
               renderTab={(tabId) => (
-                <ErrorBoundary>
+                <CodingWorkspaceErrorBoundary>
                   {tabContents[tabId] != null ? (
                     <div className="size-full flex">
                       {tabContents[tabId]!.contents}
@@ -465,7 +465,7 @@ function UserInterfaceCodingWorkspaceImpl({
                       }}
                     />
                   )}
-                </ErrorBoundary>
+                </CodingWorkspaceErrorBoundary>
               )}
             />
           </div>

@@ -10,6 +10,7 @@ import { CodingWorkspaceProvider } from '~/components/workspace/common/CodingWor
 import CodingWorkspaceDivider, {
   CodingWorkspaceDividerWrapperClassname,
 } from '~/components/workspace/common/CodingWorkspaceDivider';
+import CodingWorkspaceErrorBoundary from '~/components/workspace/common/CodingWorkspaceErrorBoundary';
 import { codingWorkspaceExtractFileNameFromPath } from '~/components/workspace/common/codingWorkspaceExtractFileNameFromPath';
 import { CodingWorkspaceTabIcons } from '~/components/workspace/common/CodingWorkspaceTabIcons';
 import CodingWorkspaceConsole from '~/components/workspace/common/console/CodingWorkspaceConsole';
@@ -209,57 +210,59 @@ function ProjectsChallengeSolutionWorkspaceImpl({
                 icon: tabContents[tabId]?.icon,
                 label: tabContents[tabId]?.label ?? `New tab`,
               })}
-              renderTab={(tabId) =>
-                tabContents[tabId] != null ? (
-                  <div className="size-full flex">
-                    {tabContents[tabId]!.contents}
-                  </div>
-                ) : (
-                  <ProjectsChallengeSolutionWorkspaceNewTab
-                    predefinedTabs={predefinedTabs}
-                    onSelectTabType={(data) => {
-                      if (data.type === 'code') {
-                        const newTabId = codingWorkspaceTabFileId(
-                          data.payload.file,
-                        );
+              renderTab={(tabId) => (
+                <CodingWorkspaceErrorBoundary>
+                  {tabContents[tabId] != null ? (
+                    <div className="size-full flex">
+                      {tabContents[tabId]!.contents}
+                    </div>
+                  ) : (
+                    <ProjectsChallengeSolutionWorkspaceNewTab
+                      predefinedTabs={predefinedTabs}
+                      onSelectTabType={(data) => {
+                        if (data.type === 'code') {
+                          const newTabId = codingWorkspaceTabFileId(
+                            data.payload.file,
+                          );
 
-                        dispatch({
-                          payload: {
-                            newTabId,
-                            oldTabId: tabId,
-                          },
-                          type: 'tab-change-id',
-                        });
+                          dispatch({
+                            payload: {
+                              newTabId,
+                              oldTabId: tabId,
+                            },
+                            type: 'tab-change-id',
+                          });
+                          setTabContents({
+                            ...tabContents,
+                            [newTabId]: {
+                              contents: (
+                                <UserInterfaceCodingWorkspaceCodeEditor
+                                  filePath={data.payload.file}
+                                  showNotSavedBanner={true}
+                                />
+                              ),
+                              icon:
+                                codingWorkspaceExplorerFilePathToIcon(
+                                  data.payload.file,
+                                )?.icon ?? RiCodeLine,
+                              label: codingWorkspaceExtractFileNameFromPath(
+                                data.payload.file,
+                              ),
+                            },
+                          });
+
+                          return;
+                        }
+
                         setTabContents({
                           ...tabContents,
-                          [newTabId]: {
-                            contents: (
-                              <UserInterfaceCodingWorkspaceCodeEditor
-                                filePath={data.payload.file}
-                                showNotSavedBanner={true}
-                              />
-                            ),
-                            icon:
-                              codingWorkspaceExplorerFilePathToIcon(
-                                data.payload.file,
-                              )?.icon ?? RiCodeLine,
-                            label: codingWorkspaceExtractFileNameFromPath(
-                              data.payload.file,
-                            ),
-                          },
+                          [tabId]: { ...tabContents[data.type] },
                         });
-
-                        return;
-                      }
-
-                      setTabContents({
-                        ...tabContents,
-                        [tabId]: { ...tabContents[data.type] },
-                      });
-                    }}
-                  />
-                )
-              }
+                      }}
+                    />
+                  )}
+                </CodingWorkspaceErrorBoundary>
+              )}
             />
           </div>
         </div>
