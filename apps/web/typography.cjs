@@ -124,10 +124,10 @@ module.exports = ({ theme }) => ({
         fontSize: '0.9em',
       },
       'code::before': {
-        content: '',
+        content: '', // Unset default Tailwind backticks
       },
       'code::after': {
-        content: '',
+        content: '', // Unset default Tailwind backticks
       },
       pre: {
         color: theme('colors.neutral.50'),
@@ -136,13 +136,18 @@ module.exports = ({ theme }) => ({
         marginTop: `${20 / 14}em`,
         marginBottom: `${32 / 14}em`,
       },
+      'pre code': {
+        backgroundColor: 'transparent',
+      },
       'p + pre': {
         marginTop: `${-4 / 14}em`,
       },
       'pre + pre': {
         marginTop: `${-16 / 14}em`,
       },
+      // Let pre render the color. Let pre render the color.
       'pre code': {
+        backgroundColor: 'transparent',
         flex: 'none',
         minWidth: '100%',
       },
@@ -251,6 +256,11 @@ module.exports = ({ theme }) => ({
       },
       code: {
         background: theme('colors.neutral.700'),
+        color: theme('colors.neutral.200'),
+      },
+      // Let pre render the color.
+      'pre code': {
+        backgroundColor: 'transparent',
         color: theme('colors.neutral.200'),
       },
       hr: {
