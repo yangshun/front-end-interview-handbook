@@ -1,15 +1,16 @@
 import clsx from 'clsx';
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import {
   RiCheckboxCircleFill,
   RiGithubLine,
   RiGoogleLine,
 } from 'react-icons/ri';
+import url from 'url';
 
 import type { SupabaseProviderGFE } from '~/components/auth/SupabaseAuthSocial';
 import ConfirmationDialog from '~/components/common/ConfirmationDialog';
 import { useToast } from '~/components/global/toasts/useToast';
-import { FormattedMessage, useIntl } from '~/components/intl';
+import { useIntl } from '~/components/intl';
 import Button from '~/components/ui/Button';
 import Label from '~/components/ui/Label';
 import Text from '~/components/ui/Text';
@@ -26,6 +27,7 @@ type Props = Readonly<{
 
 export default function ProfileAccountIdentities({ userIdentities }: Props) {
   const intl = useIntl();
+  const sectionRef = useRef<HTMLDivElement>(null);
   const router = useI18nRouter();
   const { showToast } = useToast();
   const supabaseClient = useSupabaseClientGFE();
@@ -42,6 +44,81 @@ export default function ProfileAccountIdentities({ userIdentities }: Props) {
     provider: 'google',
     shown: false,
   });
+
+  const confirmationMessage: Record<
+    SupabaseProviderGFE,
+    {
+      description: string;
+      title: string;
+    }
+  > = {
+    github: {
+      description: intl.formatMessage({
+        defaultMessage:
+          'Are you sure you want to disconnect your GitHub Auth account? This action can be reversed at any time.',
+        description: 'Label to disconnect social',
+        id: 'Xy4fEm',
+      }),
+      title: intl.formatMessage({
+        defaultMessage: 'Disconnect your GitHub Auth account',
+        description: 'Label to disconnect social',
+        id: '17hELe',
+      }),
+    },
+    google: {
+      description: intl.formatMessage({
+        defaultMessage:
+          'Are you sure you want to disconnect your Google Auth account? This action can be reversed at any time.',
+        description: 'Label to disconnect social',
+        id: 'B6YW6R',
+      }),
+      title: intl.formatMessage({
+        defaultMessage: 'Disconnect your Google Auth account',
+        description: 'Label to disconnect social',
+        id: 'TBD8mM',
+      }),
+    },
+  };
+
+  const successToastMessage: Record<
+    SupabaseProviderGFE,
+    {
+      connect: string;
+      disconnect: string;
+    }
+  > = useMemo(
+    () => ({
+      github: {
+        connect: intl.formatMessage({
+          defaultMessage:
+            'Your GitHub Auth account has been successfully connected.',
+          description: 'Success toast message for connected successfully',
+          id: 'pQdokj',
+        }),
+        disconnect: intl.formatMessage({
+          defaultMessage:
+            'Your GitHub Auth account has been successfully disconnected.',
+          description: 'Success toast message for connected successfully',
+          id: 'hPruDA',
+        }),
+      },
+      google: {
+        connect: intl.formatMessage({
+          defaultMessage:
+            'Your Google Auth account has been successfully connected.',
+          description: 'Success toast message for connected successfully',
+          id: '8+aHha',
+        }),
+        disconnect: intl.formatMessage({
+          defaultMessage:
+            'Your Google Auth account has been successfully disconnected.',
+          description: 'Success toast message for connected successfully',
+          id: 'rk4UGh',
+        }),
+      },
+    }),
+    [intl],
+  );
 
   const googleIdentity = userIdentities.find(
     (identity) => identity.provider === 'google',
@@ -94,6 +171,15 @@ export default function ProfileAccountIdentities({ userIdentities }: Props) {
 
     if (!error) {
       router.refresh();
+      showToast({
+        description: successToastMessage[provider].disconnect,
+        title: intl.formatMessage({
+          defaultMessage: 'Success!',
+          description: 'Success toast message title for disconnect social',
+          id: 'dWy8fS',
+        }),
+        variant: 'success',
+      });
     } else {
       showToast({
         title:
@@ -119,7 +205,12 @@ export default function ProfileAccountIdentities({ userIdentities }: Props) {
 
     const { error } = await supabaseClient.auth.linkIdentity({
       options: {
-        redirectTo: redirectTo.href,
+        redirectTo: url.format({
+          pathname: redirectTo.href,
+          query: {
+            oauth: provider,
+          },
+        }),
       },
       provider,
     });
@@ -142,41 +233,74 @@ export default function ProfileAccountIdentities({ userIdentities }: Props) {
     }
   }
 
-  // TODO(interviews): find a better way to handle this error scenario
+  // TODO(interviews): find a better way to handle this error and success scenario
   useEffect(() => {
     // Get error parameters from search params
     const searchParams = new URLSearchParams(window.location.search);
     const error = searchParams?.get('error');
+    const oauthProvider = searchParams?.get('oauth') as SupabaseProviderGFE;
     let errorDescription = searchParams?.get('error_description');
 
-    if (error && isMounted) {
-      // Replace specific error with custom message
-      if (
-        errorDescription?.includes('Identity is already linked to another user')
-      ) {
-        errorDescription = intl.formatMessage({
-          defaultMessage:
-            'The social account is already associated with another user. Please try with different one.',
-          description: 'Error message for existing social account',
-          id: '6GBUHZ',
+    if (isMounted) {
+      if (error) {
+        // Replace specific error with custom message
+        if (
+          errorDescription?.includes(
+            'Identity is already linked to another user',
+          )
+        ) {
+          errorDescription = intl.formatMessage({
+            defaultMessage:
+              'The social account is already associated with another user. Please try with different one.',
+            description: 'Error message for existing social account',
+            id: '6GBUHZ',
+          });
+        }
+        showToast({
+          title:
+            errorDescription ||
+            intl.formatMessage({
+              defaultMessage: 'Something went wrong',
+              description: 'Error message',
+              id: 'sbXDK4',
+            }),
+          variant: 'danger',
+        });
+      } else if (oauthProvider === 'google' || oauthProvider === 'github') {
+        showToast({
+          description: successToastMessage[oauthProvider].connect,
+          title: intl.formatMessage({
+            defaultMessage: 'Success!',
+            description: 'Success toast message title for disconnect social',
+            id: 'dWy8fS',
+          }),
+          variant: 'success',
         });
       }
-      showToast({
-        title:
-          errorDescription ||
-          intl.formatMessage({
-            defaultMessage: 'Something went wrong',
-            description: 'Error message',
-            id: 'sbXDK4',
-          }),
-        variant: 'danger',
-      });
+      if (error || oauthProvider) {
+        window.scrollTo({
+          behavior: 'smooth',
+          left: 0,
+          top: sectionRef?.current?.offsetTop,
+        });
+
+        const updatedURL = new URL(
+          window.location.pathname,
+          window.location.origin,
+        );
+
+        // Need to clean the search params, otherwise the toast are shown every time the page is refreshed
+        // since we are relying on search params to show the toast
+        // Used history.replaceState instead of router.replace because using it reset the scroll position
+        window.history.replaceState({}, '', updatedURL.toString());
+      }
     }
     setIsMounted(true);
-  }, [showToast, intl, isMounted]);
+  }, [showToast, intl, isMounted, successToastMessage]);
 
   return (
     <div
+      ref={sectionRef}
       className={clsx(
         'flex flex-col gap-4',
         'p-4',
@@ -247,23 +371,20 @@ export default function ProfileAccountIdentities({ userIdentities }: Props) {
       </div>
 
       <ConfirmationDialog
+        confirmButtonLabel={intl.formatMessage({
+          defaultMessage: 'Disconnect',
+          description: 'Label for disconnect button',
+          id: 'iFjPS9',
+        })}
         isDisabled={loading[showConfirmation.provider]}
         isLoading={loading[showConfirmation.provider]}
         isShown={showConfirmation.shown}
-        title={intl.formatMessage({
-          defaultMessage: 'Disconnect social',
-          description: 'Label to disconnect social',
-          id: 'ypn/En',
-        })}
+        title={confirmationMessage[showConfirmation.provider].title}
         onCancel={() => {
           setShowConfirmation((prev) => ({ ...prev, shown: false }));
         }}
         onConfirm={() => onUnlinkUserIdentity(showConfirmation.provider)}>
-        <FormattedMessage
-          defaultMessage="You will disconnect this social. Are you sure?"
-          description="Confirmation text for disconnecting social"
-          id="wBgo1q"
-        />
+        {confirmationMessage[showConfirmation.provider].description}
       </ConfirmationDialog>
     </div>
   );

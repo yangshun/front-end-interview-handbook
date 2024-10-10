@@ -447,6 +447,10 @@
     "defaultMessage": "Front End Interview Practice Questions | GreatFrontEnd",
     "description": "Social title for focus areas listing"
   },
+  "17hELe": {
+    "defaultMessage": "Disconnect your GitHub Auth account",
+    "description": "Label to disconnect social"
+  },
   "19uyd3": {
     "defaultMessage": "<bold>+{points}</bold> rep",
     "description": "Tooltip for rep count increase in Projects level progress bar"
@@ -1423,6 +1427,10 @@
     "defaultMessage": "We are also the only platform offering decent front end system design content.",
     "description": "FAQ answer"
   },
+  "8+aHha": {
+    "defaultMessage": "Your Google Auth account has been successfully connected.",
+    "description": "Success toast message for connected successfully"
+  },
   "81i+95": {
     "defaultMessage": "Profile",
     "description": "Profile page title"
@@ -1866,6 +1874,10 @@
   "B4AISh": {
     "defaultMessage": "Submit your solution for {challengeName}. Get feedback and code reviews from the community.",
     "description": "Description of Projects challenge submission page"
+  },
+  "B6YW6R": {
+    "defaultMessage": "Are you sure you want to disconnect your Google Auth account? This action can be reversed at any time.",
+    "description": "Label to disconnect social"
   },
   "B82jFj": {
     "defaultMessage": "Guidebooks",
@@ -4835,6 +4847,10 @@
     "defaultMessage": "Collapse side menu",
     "description": "Screenreader text for the button that collapses the side menu"
   },
+  "TBD8mM": {
+    "defaultMessage": "Disconnect your Google Auth account",
+    "description": "Label to disconnect social"
+  },
   "TDZuZW": {
     "defaultMessage": "Use now",
     "description": "Button label"
@@ -5554,6 +5570,10 @@
   "XwbyU0": {
     "defaultMessage": "Types of UI questions, concepts to cover and rubrics",
     "description": "Front End User Interface interview questions, concepts and rubrics"
+  },
+  "Xy4fEm": {
+    "defaultMessage": "Are you sure you want to disconnect your GitHub Auth account? This action can be reversed at any time.",
+    "description": "Label to disconnect social"
   },
   "XyQeEv": {
     "defaultMessage": "Challenge: <link>{challengeTitle}</link>",
@@ -6411,6 +6431,10 @@
     "defaultMessage": "Contact us",
     "description": "Link to contact page"
   },
+  "dWy8fS": {
+    "defaultMessage": "Success!",
+    "description": "Success toast message title for disconnect social"
+  },
   "da4RLj": {
     "defaultMessage": "Google logo",
     "description": "Google company logo"
@@ -7055,6 +7079,10 @@
     "defaultMessage": "Scroll to Bottom",
     "description": "Button label to scroll to bottom of the console logs"
   },
+  "hPruDA": {
+    "defaultMessage": "Your GitHub Auth account has been successfully disconnected.",
+    "description": "Success toast message for connected successfully"
+  },
   "hQa+4K": {
     "defaultMessage": "Why be a GreatFrontEnd Affiliate?",
     "description": "Title for the 'Why become an affiliate' section on the 'Become an Affiliate' page"
@@ -7174,6 +7202,10 @@
   "iFFbCA": {
     "defaultMessage": "What's new",
     "description": "Sidebar label for What's New"
+  },
+  "iFjPS9": {
+    "defaultMessage": "Disconnect",
+    "description": "Label for disconnect button"
   },
   "iGkYh3": {
     "defaultMessage": "Track your progress",
@@ -8255,6 +8287,10 @@
     "defaultMessage": "Invalid GitHub repository URL",
     "description": "Error message"
   },
+  "pQdokj": {
+    "defaultMessage": "Your GitHub Auth account has been successfully connected.",
+    "description": "Success toast message for connected successfully"
+  },
   "pRCMpc": {
     "defaultMessage": "View plans",
     "description": "Button displayed on paywall on premium question pages, leading to our pricing plans"
@@ -8614,6 +8650,10 @@
   "riPEvL": {
     "defaultMessage": "Lifetime plan",
     "description": "Title of LifeTime Access Pricing Plan found on Homepage or Pricing page"
+  },
+  "rk4UGh": {
+    "defaultMessage": "Your Google Auth account has been successfully disconnected.",
+    "description": "Success toast message for connected successfully"
   },
   "rm432p": {
     "defaultMessage": "{count}+ questions are free to do",
@@ -9339,10 +9379,6 @@
     "defaultMessage": "Scores of our users have landed multiple offers at the world's top companies with substantial TC gains. Be the next.",
     "description": "Subtitle for the offers don't lie section"
   },
-  "wBgo1q": {
-    "defaultMessage": "You will disconnect this social. Are you sure?",
-    "description": "Confirmation text for disconnecting social"
-  },
   "wDKscz": {
     "defaultMessage": "Completed",
     "description": "Projects challenge completed"
@@ -9662,10 +9698,6 @@
   "ypT9B0": {
     "defaultMessage": "Answering \"Why work here\"",
     "description": "How to answer the \"why work here\" question in behavioral interviews"
-  },
-  "ypn/En": {
-    "defaultMessage": "Disconnect social",
-    "description": "Label to disconnect social"
   },
   "yptiXw": {
     "defaultMessage": "Filter by difficulty",
