@@ -2,7 +2,7 @@
 
 import clsx from 'clsx';
 import { useState } from 'react';
-import { RiCloseLine, RiFeedbackLine } from 'react-icons/ri';
+import { RiCloseLine } from 'react-icons/ri';
 
 import { fbqGFE } from '~/lib/fbq';
 import { trpc } from '~/hooks/trpc';
@@ -63,12 +63,7 @@ export default function FeedbackWidget({
   bottomClassname = 'bottom-6',
 }: Props) {
   const intl = useIntl();
-  const {
-    showFeedbackWidget,
-    setShowFeedbackWidget,
-    isFeedbackWidgetExpanded,
-    setIsFeedbackWidgetExpanded,
-  } = useUserPreferences();
+  const { showFeedbackWidget, setShowFeedbackWidget } = useUserPreferences();
   const [isOpen, setIsOpen] = useState(false);
   const { data: count, isLoading } = trpc.marketing.getOnlineUsers.useQuery();
 
@@ -92,88 +87,61 @@ export default function FeedbackWidget({
           'shadow-glow-sm shadow-brand/10',
           'overflow-hidden',
         )}>
-        {isFeedbackWidgetExpanded ? (
-          <>
-            {showOnlineUsers && (
-              <div className="pr-2">
-                <OnlineUsers count={count} />
-              </div>
-            )}
-            <Button
-              addonPosition="start"
-              className={clsx(
-                themeTextSubtitleColor,
-                themeTextBrandColor_Hover,
-                'border-transparent',
-                // This is needed so that the button is visible
-                // in contrast to the page background because
-                // this variant doesn't have a border.
-                'bg-neutral-100 dark:bg-neutral-800',
-                themeBackgroundElementPressedStateColor_Active,
-                themeOutlineElementBrandColor_FocusVisible,
-              )}
-              label={intl.formatMessage({
-                defaultMessage: 'Feedback',
-                description: 'Label for feedback button',
-                id: 'FDiHN7',
-              })}
-              size="xs"
-              variant="unstyled"
-              onClick={() => {
-                const newOpenState = !isOpen;
-
-                setIsOpen(newOpenState);
-                fbqGFE('track', 'Contact');
-              }}
-            />
-            <span
-              className={clsx(
-                'inline-block transition-all',
-                'w-0 group-hover:w-10',
-                'opacity-0 group-hover:opacity-100',
-              )}>
-              <Button
-                addonPosition="start"
-                className={clsx('ml-2 hidden group-hover:flex')}
-                icon={RiCloseLine}
-                iconClassName="!size-4 !shrink-0"
-                isLabelHidden={true}
-                label="Close feedback"
-                size="xs"
-                variant="tertiary"
-                onClick={() => setIsFeedbackWidgetExpanded(false)}
-              />
-            </span>
-          </>
-        ) : (
-          <Button
-            className={clsx(
-              themeTextSubtitleColor,
-              themeTextBrandColor_Hover,
-              'border-transparent',
-              themeBackgroundElementPressedStateColor_Active,
-              themeOutlineElementBrandColor_FocusVisible,
-            )}
-            icon={RiFeedbackLine}
-            isLabelHidden={true}
-            label={intl.formatMessage({
-              defaultMessage: 'Feedback',
-              description: 'Label for feedback button',
-              id: 'FDiHN7',
-            })}
-            size="xs"
-            tooltip={intl.formatMessage({
-              defaultMessage: 'Feedback',
-              description: 'Label for feedback button',
-              id: 'FDiHN7',
-            })}
-            variant="unstyled"
-            onClick={() => setIsFeedbackWidgetExpanded(true)}
-          />
+        {showOnlineUsers && (
+          <div className="pr-2">
+            <OnlineUsers count={count} />
+          </div>
         )}
+        <Button
+          addonPosition="start"
+          className={clsx(
+            themeTextSubtitleColor,
+            themeTextBrandColor_Hover,
+            'border-transparent',
+            // This is needed so that the button is visible
+            // in contrast to the page background because
+            // this variant doesn't have a border.
+            'bg-neutral-100 dark:bg-neutral-800',
+            themeBackgroundElementPressedStateColor_Active,
+            themeOutlineElementBrandColor_FocusVisible,
+          )}
+          label={intl.formatMessage({
+            defaultMessage: 'Feedback',
+            description: 'Label for feedback button',
+            id: 'FDiHN7',
+          })}
+          size="xs"
+          variant="unstyled"
+          onClick={() => {
+            const newOpenState = !isOpen;
+
+            setIsOpen(newOpenState);
+            fbqGFE('track', 'Contact');
+          }}
+        />
+        <span
+          className={clsx(
+            'inline-block transition-all',
+            'w-0 group-hover:w-10',
+            'opacity-0 group-hover:opacity-100',
+          )}>
+          <Button
+            addonPosition="start"
+            className={clsx('ml-2 hidden group-hover:flex')}
+            icon={RiCloseLine}
+            iconClassName="!size-4 !shrink-0"
+            isLabelHidden={true}
+            label="Hide feedback widget"
+            size="xs"
+            tooltip="Hide feedback widget"
+            variant="tertiary"
+            onClick={() => setShowFeedbackWidget(false)}
+          />
+        </span>
       </div>
       <FeedbackDialog
         isShown={isOpen}
+        showHideWidgetForSessionButton={true}
         onClose={() => setIsOpen(false)}
         onHideWidgetForSession={() => {
           setShowFeedbackWidget(false);
