@@ -34,8 +34,8 @@ export default function InterviewsMarketingHomePageBottomNew({
       ) && <InterviewsPricingSectionLocalizedContainer />}
       <InterviewsMarketingTestimonialsSection testimonials={testimonials} />
       <InterviewsMarketingFAQSection />
-      <InterviewsMarketingContactSection />
       <MarketingCommunitySection />
+      <InterviewsMarketingContactSection />
       <InterviewsMarketingDreamJobSection />
     </>
   );

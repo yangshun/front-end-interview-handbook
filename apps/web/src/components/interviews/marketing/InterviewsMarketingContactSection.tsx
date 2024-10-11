@@ -15,11 +15,10 @@ import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 import Text from '~/components/ui/Text';
 import {
-  themeBackgroundCardWhiteOnLightColor,
+  themeBorderBrandColor_GroupHover,
   themeBorderColor,
   themeGradientHeading,
   themeTextBrandColor_GroupHover,
-  themeTextSubtitleColor,
   themeTextSubtleColor,
 } from '~/components/ui/theme';
 import Tooltip from '~/components/ui/Tooltip';
@@ -28,26 +27,19 @@ import InterviewsMarketingContactForm from './InterviewsMarketingContactForm';
 
 export default function InterviewsMarketingContactSection() {
   const data: ReadonlyArray<{
-    description?: ReactNode;
     href: string;
     icon: (props: React.ComponentProps<'svg'>) => JSX.Element;
     key: string;
     label: ReactNode;
+    tooltip?: ReactNode;
   }> = [
     {
       href: 'mailto:contact@greatfrontend.com',
       icon: RiMailLine,
       key: 'mail',
-      label: 'contact@greatfrontend.com',
+      label: 'Email',
     },
     {
-      description: (
-        <FormattedMessage
-          defaultMessage="This is our public Discord channel for community discussions. We also have a more active private Discord (available to premium members only) for real-time support and for serious job seekers to connect."
-          description="Description for join discord"
-          id="cT2Qw6"
-        />
-      ),
       href: SocialLinks.discord.href,
       icon: SocialLinks.discord.icon,
       key: 'discord',
@@ -58,16 +50,35 @@ export default function InterviewsMarketingContactSection() {
           id="saKoIy"
         />
       ),
+      tooltip: (
+        <FormattedMessage
+          defaultMessage="This is our public Discord channel for community discussions. We also have a more active private Discord (available to premium members only) for real-time support and for serious job seekers to connect."
+          description="Description for join discord"
+          id="cT2Qw6"
+        />
+      ),
     },
     {
-      href: SocialLinks.reddit.href,
-      icon: SocialLinks.reddit.icon,
-      key: 'reddit',
+      href: SocialLinks.linkedin.href,
+      icon: SocialLinks.linkedin.icon,
+      key: 'linkedin',
       label: (
         <FormattedMessage
-          defaultMessage="Join Reddit community"
-          description="Label for join reddit"
-          id="3gL2Vm"
+          defaultMessage="Follow our LinkedIn page"
+          description="Label for join LinkedIn"
+          id="fc1KZ/"
+        />
+      ),
+    },
+    {
+      href: SocialLinks.x.href,
+      icon: SocialLinks.x.icon,
+      key: 'x',
+      label: (
+        <FormattedMessage
+          defaultMessage="Follow us on X"
+          description="Label for join X"
+          id="W+3cZW"
         />
       ),
     },
@@ -80,6 +91,18 @@ export default function InterviewsMarketingContactSection() {
           defaultMessage="Follow us on GitHub"
           description="Label for join github"
           id="5sqnTc"
+        />
+      ),
+    },
+    {
+      href: SocialLinks.reddit.href,
+      icon: SocialLinks.reddit.icon,
+      key: 'reddit',
+      label: (
+        <FormattedMessage
+          defaultMessage="Join Reddit community"
+          description="Label for join reddit"
+          id="3gL2Vm"
         />
       ),
     },
@@ -126,7 +149,7 @@ export default function InterviewsMarketingContactSection() {
                 'gap-x-6',
                 '-py-5',
               )}>
-              {data.map(({ key, label, icon: Icon, href, description }) => (
+              {data.map(({ key, label, icon: Icon, href, tooltip }) => (
                 <div
                   key={key}
                   className={clsx(
@@ -142,13 +165,16 @@ export default function InterviewsMarketingContactSection() {
                       'rounded',
                       'size-8',
                       ['border', themeBorderColor],
-                      themeBackgroundCardWhiteOnLightColor,
+                      themeBorderBrandColor_GroupHover,
+                      'transition-colors',
                     )}>
                     <Icon
                       aria-hidden={true}
                       className={clsx(
-                        'size-4 shrink-0',
-                        themeTextSubtitleColor,
+                        'size-5 shrink-0',
+                        themeTextSubtleColor,
+                        themeTextBrandColor_GroupHover,
+                        'transition-colors',
                       )}
                     />
                   </div>
@@ -156,8 +182,8 @@ export default function InterviewsMarketingContactSection() {
                     <Text color="subtitle" size="body2" weight="medium">
                       {label}
                     </Text>
-                    {description && (
-                      <Tooltip label={description}>
+                    {tooltip && (
+                      <Tooltip label={tooltip}>
                         <RiInformationLine
                           className={clsx(
                             'size-4 relative z-[1] shrink-0',

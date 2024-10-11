@@ -7,7 +7,6 @@ import { useToast } from '~/components/global/toasts/useToast';
 import { FormattedMessage, useIntl } from '~/components/intl';
 import Anchor from '~/components/ui/Anchor';
 import Button from '~/components/ui/Button';
-import Text from '~/components/ui/Text';
 import TextArea from '~/components/ui/TextArea';
 import TextInput from '~/components/ui/TextInput';
 import { themeGlassyBorder } from '~/components/ui/theme';
@@ -117,6 +116,13 @@ export default function InterviewsMarketingContactForm() {
           <TextInput
             autoComplete="email"
             className="bg-white dark:bg-neutral-950"
+            description={
+              <FormattedMessage
+                defaultMessage="If you'd like a reply, please provide your email address."
+                description="Description for email field for contact form"
+                id="Ov/A49"
+              />
+            }
             label={intl.formatMessage({
               defaultMessage: 'Email (optional)',
               description: 'Label for email field for contact form',
@@ -126,13 +132,6 @@ export default function InterviewsMarketingContactForm() {
             placeholder="john@example.com"
             type="email"
           />
-          <Text className="mt-2" color="secondary" size="body3" weight="medium">
-            <FormattedMessage
-              defaultMessage="If you'd like a reply, please provide your email address."
-              description="Description for email field for contact form"
-              id="Ov/A49"
-            />
-          </Text>
         </div>
       </div>
       <Button

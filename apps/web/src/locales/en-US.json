@@ -5279,6 +5279,10 @@
     "defaultMessage": "Read the project details",
     "description": "Instruction for projects"
   },
+  "W+3cZW": {
+    "defaultMessage": "Follow us on X",
+    "description": "Label for join X"
+  },
   "W+ConA": {
     "defaultMessage": "Guided by well-known senior engineers",
     "description": "Title of 'Guided by well-known senior engineers' feature in marketing page"
@@ -6782,6 +6786,10 @@
   "faBBCJ": {
     "defaultMessage": "We aim to get back to you in 3-5 days",
     "description": "Success toast description for message sent"
+  },
+  "fc1KZ/": {
+    "defaultMessage": "Follow our LinkedIn page",
+    "description": "Label for join LinkedIn"
   },
   "fcKx8Z": {
     "defaultMessage": "Advanced",
