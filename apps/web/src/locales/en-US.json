@@ -2995,6 +2995,10 @@
     "defaultMessage": "To challenge",
     "description": "Link label to go back to the challenge details page"
   },
+  "IHwyWr": {
+    "defaultMessage": "Join the community",
+    "description": "Title for marketing page section"
+  },
   "IIctLn": {
     "defaultMessage": "Reputation that can be gained from completing all challenges in the recommended skill plan of this skill",
     "description": "Tooltip for reputation label"
@@ -3014,6 +3018,10 @@
   "ITq0p4": {
     "defaultMessage": "Privacy Policy",
     "description": "Link to privacy policy page"
+  },
+  "IWhajc": {
+    "defaultMessage": "Be part of our large community of passionate Front End Engineers across the world.",
+    "description": "Marketing page section subtitle"
   },
   "IWsI3H": {
     "defaultMessage": "%s | GreatFrontEnd Projects - Real-world project challenges",

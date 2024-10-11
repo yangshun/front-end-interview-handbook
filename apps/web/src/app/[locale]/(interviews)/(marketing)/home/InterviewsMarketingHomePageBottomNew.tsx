@@ -11,6 +11,7 @@ import InterviewsMarketingTestCodeSection from '~/components/interviews/marketin
 import InterviewsMarketingTestimonialsSection from '~/components/interviews/marketing/testimonials/InterviewsMarketingTestimonialsSection';
 import { useInterviewsMarketingTestimonials } from '~/components/interviews/marketing/testimonials/useInterviewsMarketingTestimonials';
 import InterviewsPricingSectionLocalizedContainer from '~/components/interviews/purchase/InterviewsPricingSectionLocalizedContainer';
+import MarketingCommunitySection from '~/components/marketing/contact/MarketingCommunitySection';
 
 type Props = Readonly<{
   companyGuides: ReadonlyArray<InterviewsCompanyGuide>;
@@ -34,6 +35,7 @@ export default function InterviewsMarketingHomePageBottomNew({
       <InterviewsMarketingTestimonialsSection testimonials={testimonials} />
       <InterviewsMarketingFAQSection />
       <InterviewsMarketingContactSection />
+      <MarketingCommunitySection />
       <InterviewsMarketingDreamJobSection />
     </>
   );

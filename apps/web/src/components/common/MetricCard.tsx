@@ -1,10 +1,11 @@
 import clsx from 'clsx';
+import { RiArrowRightLine } from 'react-icons/ri';
 
 import Card from '~/components/ui/Card';
 
 import { formatBigNumber } from './formatBigNumber';
 import Text from '../ui/Text';
-import { themeBackgroundChipColor, themeTextSecondaryColor } from '../ui/theme';
+import { themeGradientHeading, themeTextColor } from '../ui/theme';
 
 type Props = Readonly<{
   count: number;
@@ -12,38 +13,30 @@ type Props = Readonly<{
   label: string;
 }>;
 
-export default function MetricCard({ icon: Icon, label, count }: Props) {
+export default function MetricCard({ label, count }: Props) {
   return (
     <Card
       className={clsx(
         'group/card',
         'relative isolate',
-        'flex flex-col items-start justify-between gap-3',
-        'px-4 py-4 md:px-6',
+        'flex flex-col items-center justify-between gap-3',
+        'px-6 py-6 md:px-6',
       )}
-      padding={false}>
-      <div className="flex items-center gap-2">
-        <span
-          className={clsx(
-            'size-9 hidden items-center justify-center rounded-md md:inline-flex',
-            themeBackgroundChipColor,
-            themeTextSecondaryColor,
-            'border border-transparent transition',
-            'group-hover/card:border-brand-dark group-hover/card:text-brand-dark',
-            'dark:group-hover/card:border-brand dark:group-hover/card:text-brand',
-          )}>
-          <Icon aria-hidden={true} className="size-5" />
-        </span>
-        <Text color="secondary" size="body2" weight="medium">
-          {label}
-        </Text>
-      </div>
+      disableBackground={true}
+      padding={false}
+      pattern={false}>
       <Text
-        className="text-4xl font-bold md:text-5xl"
+        className={clsx(themeGradientHeading, 'text-4xl font-bold md:text-5xl')}
         size="inherit"
         weight="inherit">
         {count ? formatBigNumber(count) : '-'}
       </Text>
+      <div className="flex items-center gap-2">
+        <Text className={clsx(themeTextColor)} size="body3" weight="medium">
+          {label}
+        </Text>
+        <RiArrowRightLine className={clsx(themeTextColor, 'size-5')} />
+      </div>
     </Card>
   );
 }

@@ -1,46 +1,67 @@
 'use client';
 
+import clsx from 'clsx';
+
 import gtag from '~/lib/gtag';
 
 import { SocialLinks } from '~/data/SocialLinks';
 
 import MetricCard from '~/components/common/MetricCard';
-import { useIntl } from '~/components/intl';
-import MarketingSectionHeader from '~/components/marketing/MarketingSectionHeader';
+import { FormattedMessage } from '~/components/intl';
 import Anchor from '~/components/ui/Anchor';
 import CardContainer from '~/components/ui/Card/CardContainer';
 import Container from '~/components/ui/Container';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
+import Text from '~/components/ui/Text';
+import { themeGradientHeading } from '~/components/ui/theme';
 
 import logEvent from '~/logging/logEvent';
 
 export default function MarketingCommunitySection() {
-  const intl = useIntl();
-
   return (
-    <Container variant="5xl">
-      <Heading className="sr-only" level="custom">
-        {/* TODO: i18n */}
-        Community
-      </Heading>
+    <Container
+      className={clsx(
+        'flex flex-col items-center justify-center gap-[64px] self-stretch py-20 md:items-start',
+      )}>
+      <div>
+        <Heading
+          className={clsx(
+            themeGradientHeading,
+            'max-w-lg pb-1 xl:max-w-3xl',
+            '!text-balance',
+          )}
+          level="heading2"
+          weight="medium">
+          <FormattedMessage
+            defaultMessage="Join the community"
+            description="Title for marketing page section"
+            id="IHwyWr"
+          />
+        </Heading>
+        <Text
+          className={clsx(
+            'w-full',
+            'mt-6',
+            'block',
+            'text-base lg:text-lg',
+            'lg:font-medium',
+            'w-full',
+          )}
+          color="secondary"
+          size="inherit"
+          weight="inherit">
+          <FormattedMessage
+            defaultMessage="Be part of our large community of passionate Front End Engineers across the world."
+            description="Marketing page section subtitle"
+            id="IWhajc"
+          />
+        </Text>
+      </div>
+
       <Section>
-        <MarketingSectionHeader
-          description={intl.formatMessage({
-            defaultMessage:
-              'Be part of our large community of passionate Front End Engineers across the world',
-            description: 'Description of community page',
-            id: 'CUTtb7',
-          })}
-          heading={intl.formatMessage({
-            defaultMessage: 'Join the community',
-            description: 'Title of community page',
-            id: 'TO74hd',
-          })}
-          title="Community"
-        />
-        <div className="mt-12">
-          <CardContainer className="grid grid-cols-2 gap-4 lg:gap-6 xl:grid-cols-4">
+        <div className="w-full">
+          <CardContainer className="grid w-full grid-cols-2 gap-4 md:grid-cols-4  lg:gap-6">
             {[
               SocialLinks.linkedin,
               SocialLinks.discord,
