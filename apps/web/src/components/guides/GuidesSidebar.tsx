@@ -86,7 +86,7 @@ function GuideLinksListItem({
             {Icon && (
               <Icon
                 className={clsx(
-                  'size-4 group-hover:animate-wiggle shrink-0',
+                  'size-4 group-hover:animate-wiggle shrink-0 origin-bottom',
                   !isActive && themeTextFaintColor,
                 )}
               />
