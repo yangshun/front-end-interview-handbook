@@ -1,7 +1,6 @@
 import clsx from 'clsx';
 import { useCallback, useEffect, useState } from 'react';
 import { RiCodeLine } from 'react-icons/ri';
-import { mergeRefs } from 'react-merge-refs';
 
 import type {
   QuestionFramework,
@@ -331,8 +330,6 @@ function UserInterfaceCodingWorkspaceImpl({
     ),
   });
 
-  const mergedRef = mergeRefs([copyRef, sandpack.lazyAnchorRef]);
-
   return (
     <CodingWorkspaceProvider
       loadedFilesFromLocalStorage={loadedFilesFromLocalStorage}
@@ -342,6 +339,7 @@ function UserInterfaceCodingWorkspaceImpl({
         openFile,
         resetToDefaultCode,
       }}>
+      {/* Mobile version */}
       {!embed && (
         <div className="flex flex-col gap-y-4 lg:hidden">
           {mode === 'practice' && (
@@ -393,7 +391,7 @@ function UserInterfaceCodingWorkspaceImpl({
         </div>
       )}
       <div
-        ref={mergedRef}
+        ref={copyRef}
         className={clsx(
           'size-full flex-col text-sm',
           !embed ? 'hidden lg:flex' : 'flex',

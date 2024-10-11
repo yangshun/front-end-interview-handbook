@@ -1,7 +1,6 @@
 import clsx from 'clsx';
 import { useEffect, useState } from 'react';
 import { RiCodeLine } from 'react-icons/ri';
-import { mergeRefs } from 'react-merge-refs';
 
 import useQuestionLogEventCopyContents from '~/components/interviews/questions/common/useQuestionLogEventCopyContents';
 import { codingFilesShouldUseTypeScript } from '~/components/workspace/common/codingFilesShouldUseTypeScript';
@@ -185,8 +184,6 @@ function ProjectsChallengeSolutionWorkspaceImpl({
     ),
   });
 
-  const mergedRef = mergeRefs([copyRef, sandpack.lazyAnchorRef]);
-
   return (
     <CodingWorkspaceProvider
       value={{
@@ -195,9 +192,7 @@ function ProjectsChallengeSolutionWorkspaceImpl({
         openFile,
         resetToDefaultCode,
       }}>
-      <div
-        ref={mergedRef}
-        className={clsx('size-full flex-col text-sm', 'flex')}>
+      <div ref={copyRef} className={clsx('size-full flex-col text-sm', 'flex')}>
         <div className="flex grow overflow-x-auto">
           <div className={clsx('flex w-full grow', 'min-w-[1024px]')}>
             <UserInterfaceCodingWorkspaceTilesPanelRoot

@@ -52,6 +52,7 @@ const SandpackCodeEditor = dynamic(
   },
 );
 
+// TODO: Loading this component crashes when using Turbopack.
 export default function UserInterfaceCodingWorkspaceMobile({
   topAddOn,
 }: Readonly<{
