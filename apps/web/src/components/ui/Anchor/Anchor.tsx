@@ -1,8 +1,9 @@
 'use client';
 
 import clsx from 'clsx';
+import { useRouter } from 'next/navigation';
 import type { ForwardedRef } from 'react';
-import { forwardRef } from 'react';
+import { forwardRef, useRef } from 'react';
 import React from 'react';
 import url from 'url';
 
@@ -21,10 +22,11 @@ import {
   themeOutlineElementBrandColor_FocusVisible,
 } from '../theme';
 
-export type Props = Omit<I18nLinkProps, 'href'> &
+export type Props = Omit<I18nLinkProps, 'href' | 'prefetch'> &
   Readonly<{
     href?: string;
     locale?: string;
+    prefetch?: I18nLinkProps['prefetch'] | 'hover'; // Add custom prefetch-on-hover behavior
     suppressHydrationWarning?: boolean;
     underline?: boolean;
     variant?: AnchorVariant;
@@ -37,6 +39,7 @@ function Anchor(
     children,
     className: classNameProp,
     href = '#',
+    prefetch = 'hover',
     rel: relProp,
     target: targetProp,
     underline = false,
@@ -50,6 +53,9 @@ function Anchor(
 ) {
   const { locale } = useI18n();
   const { serverMismatch } = useAppContext();
+  const hasPrefetched = useRef(false);
+  const router = useRouter();
+
   const isExternalURL =
     typeof href === 'string' ? /^(http|mailto)/.test(href ?? '') : false;
 
@@ -122,10 +128,22 @@ function Anchor(
       ref={ref}
       className={className}
       href={finalHref}
-      prefetch={false}
+      prefetch={prefetch === 'hover' ? false : prefetch}
       rel={rel}
       target={target}
       onClick={onClick}
+      onMouseEnter={
+        prefetch === 'hover'
+          ? () => {
+              if (hasPrefetched.current) {
+                return;
+              }
+
+              hasPrefetched.current = true;
+              router.prefetch(href);
+            }
+          : undefined
+      }
       {...props}>
       {children}
     </I18nLink>

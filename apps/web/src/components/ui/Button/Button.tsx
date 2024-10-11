@@ -308,6 +308,7 @@ function Button(
         ref={ref as React.Ref<HTMLAnchorElement>}
         href={props.href}
         {...commonProps}
+        prefetch={props.prefetch}
         target={props.target}
         variant="unstyled"
         warnAboutExternalLink={props.warnAboutExternalLink}
