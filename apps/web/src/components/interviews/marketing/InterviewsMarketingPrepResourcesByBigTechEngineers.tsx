@@ -65,15 +65,20 @@ export default function InterviewsMarketingPrepResourcesByBigTechEngineers() {
       logos: [
         {
           logo: ({ className }: LogoProps) => (
-            <SvelteLogo className={clsx('text-[#585860]', className)} />
+            <FrontEndInterviewHandbookLogo className={className} />
           ),
-          name: 'Svelte',
+          name: 'Front End Interview Handbook',
         },
         {
-          logo: ({ className }: LogoProps) => (
-            <DocusaurusLogo className={clsx('text-[#585860]', className)} />
+          logo: () => (
+            <Text
+              className="text-base md:text-sm lg:text-base"
+              size="inherit"
+              weight="bold">
+              Blind75
+            </Text>
           ),
-          name: 'Docusaurus',
+          name: 'Blind75',
         },
       ],
     },
@@ -89,20 +94,15 @@ export default function InterviewsMarketingPrepResourcesByBigTechEngineers() {
       logos: [
         {
           logo: ({ className }: LogoProps) => (
-            <FrontEndInterviewHandbookLogo className={className} />
+            <SvelteLogo className={clsx('text-[#585860]', className)} />
           ),
-          name: 'Front End Interview Handbook',
+          name: 'Svelte',
         },
         {
-          logo: () => (
-            <Text
-              className="text-base md:text-sm lg:text-base"
-              size="inherit"
-              weight="bold">
-              Blind75
-            </Text>
+          logo: ({ className }: LogoProps) => (
+            <DocusaurusLogo className={clsx('text-[#585860]', className)} />
           ),
-          name: 'Blind75',
+          name: 'Docusaurus',
         },
       ],
     },
