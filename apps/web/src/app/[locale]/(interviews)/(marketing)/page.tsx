@@ -1,6 +1,5 @@
 import type { Metadata } from 'next/types';
 
-import type { EmbedUIQuestion } from '~/components/interviews/marketing/embed/InterviewsMarketingEmbedUIQuestion';
 import { sortQuestions } from '~/components/interviews/questions/listings/filters/QuestionsProcessor';
 import { QuestionCount } from '~/components/interviews/questions/listings/stats/QuestionCount';
 
@@ -97,10 +96,16 @@ export default async function Page({ params }: Props) {
     { question: javaScriptEmbedExample },
     todoListReactSolutionBundle,
     todoListVanillaSolutionBundle,
+    todoListAngularSolutionBundle,
+    todoListVueSolutionBundle,
+    todoListSvelteSolutionBundle,
   ] = await Promise.all([
     readQuestionJavaScriptContents('flatten', locale),
     readQuestionUserInterface('todo-list', 'react', 'solution-improved'),
     readQuestionUserInterface('todo-list', 'vanilla', 'solution-template'),
+    readQuestionUserInterface('todo-list', 'angular', 'solution'),
+    readQuestionUserInterface('todo-list', 'vue', 'solution'),
+    readQuestionUserInterface('todo-list', 'svelte', 'solution'),
   ]);
 
   const [
@@ -139,16 +144,16 @@ export default async function Page({ params }: Props) {
         'ranking',
         true,
       ).slice(0, QUESTIONS_TO_SHOW)}
-      uiCodingQuestion={
-        {
-          frameworks: {
-            // TODO(workspace): Add other supported frameworks
-            react: todoListReactSolutionBundle,
-            vanilla: todoListVanillaSolutionBundle,
-          },
-          metadata: todoListReactSolutionBundle.metadata,
-        } as EmbedUIQuestion
-      }
+      uiCodingQuestion={{
+        frameworks: {
+          angular: todoListAngularSolutionBundle,
+          react: todoListReactSolutionBundle,
+          svelte: todoListSvelteSolutionBundle,
+          vanilla: todoListVanillaSolutionBundle,
+          vue: todoListVueSolutionBundle,
+        },
+        metadata: todoListReactSolutionBundle.metadata,
+      }}
       userInterfaceQuestions={sortQuestions(
         userInterfaceQuestions.filter((question) => question.featured),
         'importance',

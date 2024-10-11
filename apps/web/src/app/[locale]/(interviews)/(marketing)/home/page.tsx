@@ -3,7 +3,6 @@ import type { Metadata } from 'next/types';
 
 import { INTERVIEWS_REVAMP_2024 } from '~/data/FeatureFlags';
 
-import type { EmbedUIQuestion } from '~/components/interviews/marketing/embed/InterviewsMarketingEmbedUIQuestion';
 import { sortQuestions } from '~/components/interviews/questions/listings/filters/QuestionsProcessor';
 import { QuestionCount } from '~/components/interviews/questions/listings/stats/QuestionCount';
 
@@ -150,18 +149,16 @@ export default async function Page({ params }: Props) {
         'ranking',
         true,
       ).slice(0, QUESTIONS_TO_SHOW)}
-      uiCodingQuestion={
-        {
-          frameworks: {
-            angular: todoListAngularSolutionBundle,
-            react: todoListReactSolutionBundle,
-            svelte: todoListSvelteSolutionBundle,
-            vanilla: todoListVanillaSolutionBundle,
-            vue: todoListVueSolutionBundle,
-          },
-          metadata: todoListReactSolutionBundle.metadata,
-        } as EmbedUIQuestion
-      }
+      uiCodingQuestion={{
+        frameworks: {
+          angular: todoListAngularSolutionBundle,
+          react: todoListReactSolutionBundle,
+          svelte: todoListSvelteSolutionBundle,
+          vanilla: todoListVanillaSolutionBundle,
+          vue: todoListVueSolutionBundle,
+        },
+        metadata: todoListReactSolutionBundle.metadata,
+      }}
     />
   );
 }
