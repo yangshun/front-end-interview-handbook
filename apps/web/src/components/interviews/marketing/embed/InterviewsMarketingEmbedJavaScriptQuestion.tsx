@@ -1,3 +1,4 @@
+import clsx from 'clsx';
 import dynamic from 'next/dynamic';
 import { useState } from 'react';
 import { useMediaQuery } from 'usehooks-ts';
@@ -38,54 +39,60 @@ export default function InterviewsMarketingEmbedJavaScriptQuestion({
   const laptopAndAbove = useMediaQuery('(min-width: 1024px)');
 
   return (
-    <div className="size-full relative flex flex-col">
-      {laptopAndAbove ? (
-        <JavaScriptCodingWorkspaceSection
-          canViewPremiumContent={false}
-          embed={true}
-          language={language}
-          nextQuestions={[]}
-          question={javaScriptEmbedExample}
-          similarQuestions={[]}
-          timeoutLoggerInstance="marketing.embed.js"
-          onLanguageChange={setLanguage}
-        />
-      ) : (
-        <JavaScriptCodingWorkspaceDescription
-          canViewPremiumContent={false}
-          description={javaScriptEmbedExample.description}
-          metadata={javaScriptEmbedExample.metadata}
-          nextQuestions={[]}
-          similarQuestions={[]}
-        />
-      )}
-      <Anchor
-        href={javaScriptEmbedExample.metadata.href}
-        target="_blank"
-        variant="unstyled"
-        onClick={() => {
-          gtag.event({
-            action: `homepage.hero.embed.javascript.try_out.click`,
-            category: 'engagement',
-            label:
-              'Click here to try out the actual workspace instead of this embed',
-          });
-          logEvent('click', {
-            element: 'Homepage JavaScript embed',
-            label:
-              'Click here to try out the actual workspace instead of this embed',
-            namespace: 'interviews',
-          });
-        }}>
-        <Banner size="xs">
-          {intl.formatMessage({
-            defaultMessage:
-              'Click here to try out the actual workspace instead of this embed.',
-            description: 'Button label within embed',
-            id: 'Cjz59k',
-          })}
-        </Banner>
-      </Anchor>
+    <div
+      className={clsx(
+        'size-full flex flex-col',
+        'bg-neutral-50 dark:bg-neutral-950',
+      )}>
+      <div className="relative flex grow flex-col lg:h-0 lg:pt-3">
+        {laptopAndAbove ? (
+          <JavaScriptCodingWorkspaceSection
+            canViewPremiumContent={false}
+            embed={true}
+            language={language}
+            nextQuestions={[]}
+            question={javaScriptEmbedExample}
+            similarQuestions={[]}
+            timeoutLoggerInstance="marketing.embed.js"
+            onLanguageChange={setLanguage}
+          />
+        ) : (
+          <JavaScriptCodingWorkspaceDescription
+            canViewPremiumContent={false}
+            description={javaScriptEmbedExample.description}
+            metadata={javaScriptEmbedExample.metadata}
+            nextQuestions={[]}
+            similarQuestions={[]}
+          />
+        )}
+        <Anchor
+          href={javaScriptEmbedExample.metadata.href}
+          target="_blank"
+          variant="unstyled"
+          onClick={() => {
+            gtag.event({
+              action: `homepage.hero.embed.javascript.try_out.click`,
+              category: 'engagement',
+              label:
+                'Click here to try out the actual workspace instead of this embed',
+            });
+            logEvent('click', {
+              element: 'Homepage JavaScript embed',
+              label:
+                'Click here to try out the actual workspace instead of this embed',
+              namespace: 'interviews',
+            });
+          }}>
+          <Banner size="xs">
+            {intl.formatMessage({
+              defaultMessage:
+                'Click here to try out the actual workspace instead of this embed.',
+              description: 'Button label within embed',
+              id: 'Cjz59k',
+            })}
+          </Banner>
+        </Anchor>
+      </div>
     </div>
   );
 }

@@ -19,18 +19,14 @@ import InterviewsMarketingHomePageBottomContainer from './InterviewsMarketingHom
 type Props = Readonly<{
   companyGuides: ReadonlyArray<InterviewsCompanyGuide>;
   javaScriptEmbedExample: QuestionJavaScript;
-  javaScriptQuestions: ReadonlyArray<QuestionMetadata>;
   quizQuestions: ReadonlyArray<QuestionMetadata>;
   systemDesignQuestions: ReadonlyArray<QuestionMetadata>;
   uiCodingQuestion: EmbedUIQuestion;
-  userInterfaceQuestions: ReadonlyArray<QuestionMetadata>;
 }>;
 
 export default function InterviewsMarketingHomePageNew({
   uiCodingQuestion,
   javaScriptEmbedExample,
-  javaScriptQuestions,
-  userInterfaceQuestions,
   companyGuides,
 }: Props) {
   return (
@@ -38,10 +34,6 @@ export default function InterviewsMarketingHomePageNew({
       <InterviewsMarketingHeroNew />
       <Section>
         <InterviewsMarketingEmbedSection
-          featuredQuestions={[
-            ...javaScriptQuestions,
-            ...userInterfaceQuestions,
-          ]}
           javaScriptEmbedExample={javaScriptEmbedExample}
           uiEmbedExample={uiCodingQuestion}
         />

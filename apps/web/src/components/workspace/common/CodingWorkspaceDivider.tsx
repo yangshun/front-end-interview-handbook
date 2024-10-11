@@ -19,7 +19,9 @@ export default function CodingWorkspaceDivider({ direction }: Props) {
   return (
     <div
       className={clsx(
-        'transition-color dark:group-hover:bg-brand absolute rounded-full ease-in-out group-hover:bg-neutral-300',
+        'absolute rounded-full',
+        'dark:group-hover:bg-brand group-hover:bg-neutral-500',
+        'transition-color ease-in-out',
         direction === 'horizontal' && 'inset-x-0 inset-y-1',
         direction === 'vertical' && 'inset-x-1 inset-y-0',
       )}

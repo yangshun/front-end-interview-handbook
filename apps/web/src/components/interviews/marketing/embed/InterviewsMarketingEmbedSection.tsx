@@ -4,14 +4,13 @@ import clsx from 'clsx';
 import { useInView } from 'framer-motion';
 import dynamic from 'next/dynamic';
 import { useRef, useState } from 'react';
-import { RiArrowRightLine, RiJavascriptFill } from 'react-icons/ri';
+import { RiJavascriptFill } from 'react-icons/ri';
 
 import gtag from '~/lib/gtag';
 
 import { useQuestionUserFacingFormatData } from '~/data/QuestionFormats';
 
 import { FormattedMessage, useIntl } from '~/components/intl';
-import Button from '~/components/ui/Button';
 import Container from '~/components/ui/Container';
 import Heading from '~/components/ui/Heading';
 import TabsUnderline from '~/components/ui/Tabs/TabsUnderline';
@@ -20,11 +19,7 @@ import InterviewsMarketingEmbedJavaScriptQuestion from './InterviewsMarketingEmb
 import type { EmbedUIQuestion } from './InterviewsMarketingEmbedUIQuestion';
 import InterviewsMarketingEmbedUIQuestion from './InterviewsMarketingEmbedUIQuestion';
 import InterviewsMarketingHeroBrowserWindowFrame from './InterviewsMarketingHeroBrowserWindowFrame';
-import InterviewsMarketingQuestionCardMarquee from '../InterviewsMarketingQuestionCardMarquee';
-import type {
-  QuestionJavaScript,
-  QuestionMetadata,
-} from '../../questions/common/QuestionsTypes';
+import type { QuestionJavaScript } from '../../questions/common/QuestionsTypes';
 
 const MarketingEmbedSystemDesignQuestion = dynamic(
   () => import('./InterviewsMarketingEmbedSystemDesignQuestion'),
@@ -80,11 +75,9 @@ function useTabs() {
 }
 
 export default function InterviewsMarketingEmbedSection({
-  featuredQuestions,
   javaScriptEmbedExample,
   uiEmbedExample,
 }: Readonly<{
-  featuredQuestions: ReadonlyArray<QuestionMetadata>;
   javaScriptEmbedExample: QuestionJavaScript;
   uiEmbedExample: EmbedUIQuestion;
 }>) {
@@ -157,26 +150,6 @@ export default function InterviewsMarketingEmbedSection({
             )}
           </div>
         </InterviewsMarketingHeroBrowserWindowFrame>
-        {featuredQuestions.length > 0 && (
-          <InterviewsMarketingQuestionCardMarquee
-            periodSeconds={120}
-            questions={featuredQuestions}
-            rows={1}
-          />
-        )}
-        <div className="mx-auto">
-          <Button
-            href="/questions"
-            icon={RiArrowRightLine}
-            label={intl.formatMessage({
-              defaultMessage: 'View full questions list',
-              description: 'Link to questions page',
-              id: '+Eg6gK',
-            })}
-            size="md"
-            variant="secondary"
-          />
-        </div>
       </Container>
     </div>
   );

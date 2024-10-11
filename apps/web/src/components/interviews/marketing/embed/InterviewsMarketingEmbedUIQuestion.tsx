@@ -1,5 +1,6 @@
 'use client';
 
+import clsx from 'clsx';
 import dynamic from 'next/dynamic';
 import { useState } from 'react';
 import { useMediaQuery } from 'usehooks-ts';
@@ -55,34 +56,40 @@ export default function InterviewsMarketingEmbedUIQuestion({
   const laptopAndAbove = useMediaQuery('(min-width: 1024px)');
 
   return (
-    <div className="size-full relative flex flex-col gap-3">
-      {laptopAndAbove ? (
-        <UserInterfaceCodingWorkspaceSection
-          key={framework}
-          activeTabScrollIntoView={false}
-          canViewPremiumContent={false}
-          embed={true}
-          mode="practice"
-          nextQuestions={[]}
-          question={question.frameworks[framework]}
-          similarQuestions={[]}
-          timeoutLoggerInstance="marketing.embed.ui"
-          onFrameworkChange={setFramework}
-        />
-      ) : (
-        <UserInterfaceCodingWorkspaceWriteup
-          canViewPremiumContent={false}
-          contentType="description"
-          environment="embed"
-          framework={framework}
-          metadata={question.metadata}
-          mode="practice"
-          nextQuestions={[]}
-          similarQuestions={[]}
-          writeup={question.frameworks[framework].description}
-          onFrameworkChange={setFramework}
-        />
-      )}
+    <div
+      className={clsx(
+        'size-full flex flex-col',
+        'bg-neutral-50 dark:bg-neutral-950',
+      )}>
+      <div className="relative flex grow flex-col lg:h-0 lg:py-3">
+        {laptopAndAbove ? (
+          <UserInterfaceCodingWorkspaceSection
+            key={framework}
+            activeTabScrollIntoView={false}
+            canViewPremiumContent={false}
+            embed={true}
+            mode="practice"
+            nextQuestions={[]}
+            question={question.frameworks[framework]}
+            similarQuestions={[]}
+            timeoutLoggerInstance="marketing.embed.ui"
+            onFrameworkChange={setFramework}
+          />
+        ) : (
+          <UserInterfaceCodingWorkspaceWriteup
+            canViewPremiumContent={false}
+            contentType="description"
+            environment="embed"
+            framework={framework}
+            metadata={question.metadata}
+            mode="practice"
+            nextQuestions={[]}
+            similarQuestions={[]}
+            writeup={question.frameworks[framework].description}
+            onFrameworkChange={setFramework}
+          />
+        )}
+      </div>
       <Anchor
         href={question.metadata.href}
         target="_blank"

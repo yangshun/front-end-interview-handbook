@@ -53,10 +53,6 @@ export default function InterviewsMarketingHomePage({
         <InterviewsMarketingHomepageFeaturesRow />
         <InterviewsMarketingCompaniesMarquee />
         <InterviewsMarketingEmbedSection
-          featuredQuestions={[
-            ...javaScriptQuestions,
-            ...userInterfaceQuestions,
-          ]}
           javaScriptEmbedExample={javaScriptEmbedExample}
           uiEmbedExample={uiCodingQuestion}
         />

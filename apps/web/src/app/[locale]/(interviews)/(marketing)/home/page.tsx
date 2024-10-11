@@ -13,10 +13,8 @@ import {
   readQuestionUserInterface,
 } from '~/db/QuestionsContentsReader';
 import {
-  fetchQuestionsListJavaScript,
   fetchQuestionsListQuiz,
   fetchQuestionsListSystemDesign,
-  fetchQuestionsListUserInterface,
 } from '~/db/QuestionsListReader';
 import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
@@ -120,14 +118,10 @@ export default async function Page({ params }: Props) {
 
   const [
     { questions: quizQuestions },
-    { questions: javaScriptQuestions },
-    { questions: userInterfaceQuestions },
     { questions: systemDesignQuestions },
     companyGuides,
   ] = await Promise.all([
     fetchQuestionsListQuiz(locale),
-    fetchQuestionsListJavaScript(locale),
-    fetchQuestionsListUserInterface(locale),
     fetchQuestionsListSystemDesign(locale),
     fetchInterviewsCompanyGuides(),
   ]);
@@ -146,11 +140,6 @@ export default async function Page({ params }: Props) {
           ts: FLATTEN_SKELETON_TS,
         },
       }}
-      javaScriptQuestions={sortQuestions(
-        javaScriptQuestions.filter((question) => question.featured),
-        'importance',
-        false,
-      ).slice(0, QUESTIONS_TO_SHOW)}
       quizQuestions={sortQuestions(
         quizQuestions.filter((question) => question.featured),
         'importance',
@@ -173,11 +162,6 @@ export default async function Page({ params }: Props) {
           metadata: todoListReactSolutionBundle.metadata,
         } as EmbedUIQuestion
       }
-      userInterfaceQuestions={sortQuestions(
-        userInterfaceQuestions.filter((question) => question.featured),
-        'importance',
-        false,
-      ).slice(0, QUESTIONS_TO_SHOW)}
     />
   );
 }
