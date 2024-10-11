@@ -3,6 +3,7 @@
 import clsx from 'clsx';
 import { RiArrowRightLine, RiStarFill } from 'react-icons/ri';
 
+import GoogleAnalyticsLogo from '~/components/icons/GoogleAnalyticsLogo';
 import { FormattedMessage, useIntl } from '~/components/intl';
 import Avatar from '~/components/ui/Avatar';
 import Button from '~/components/ui/Button';
@@ -132,48 +133,33 @@ export default function InterviewsMarketingHeroNew() {
             />
           </div>
           <div className="flex flex-col gap-1">
-            <div className="flex items-center gap-1.5">
-              <RiStarFill
-                aria-hidden={true}
-                className="size-4 shrink-0 text-[#dfce36]"
+            <Text
+              className="block"
+              color="subtitle"
+              size="body3"
+              weight="medium">
+              <FormattedMessage
+                defaultMessage="Used by {number} engineers"
+                description="Number of engineers using"
+                id="zw3lia"
+                values={{ number: '500k+' }}
               />
-              <RiStarFill
+            </Text>
+            <Text
+              className="flex gap-1.5"
+              color="secondary"
+              size="body3"
+              weight="medium">
+              <GoogleAnalyticsLogo
                 aria-hidden={true}
-                className="size-4 shrink-0 text-[#dfce36]"
+                className="size-4 shrink-0"
               />
-              <RiStarFill
-                aria-hidden={true}
-                className="size-4 shrink-0 text-[#dfce36]"
+              <FormattedMessage
+                defaultMessage="Verifiable by Google Analytics"
+                description="Number of engineers using can be verified by Google Analytics"
+                id="3tY8mQ"
               />
-              <RiStarFill
-                aria-hidden={true}
-                className="size-4 shrink-0 text-[#dfce36]"
-              />
-              <RiStarFill
-                aria-hidden={true}
-                className="size-4 shrink-0 text-[#dfce36]"
-              />
-            </div>
-            <Tooltip
-              label={
-                <FormattedMessage
-                  defaultMessage="We've had {count} unique active users on our site. Verifiable by Google Analytics."
-                  description="Tooltip for number of engineers using"
-                  id="qy+Z5r"
-                  values={{
-                    count: '500k+', // TODO(interviews): add actual count value
-                  }}
-                />
-              }>
-              <Text color="secondary" size="body3" weight="medium">
-                <FormattedMessage
-                  defaultMessage="{number} engineers have used GreatFrontEnd"
-                  description="Number of engineers using"
-                  id="eGc1/r"
-                  values={{ number: '500k+' }}
-                />
-              </Text>
-            </Tooltip>
+            </Text>
           </div>
         </div>
       </div>
