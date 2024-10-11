@@ -1,6 +1,6 @@
 import { useId, useState } from 'react';
 import { RiListUnordered, RiSearchLine } from 'react-icons/ri';
-import { useSessionStorage } from 'usehooks-ts';
+import { useMediaQuery, useSessionStorage } from 'usehooks-ts';
 
 import { useQuestionUserFacingFormatData } from '~/data/QuestionFormats';
 
@@ -194,6 +194,7 @@ export default function CodingWorkspaceQuestionListSlideOut({
   // render the contents for nothing because it does a fetch.
   const [isShown, setIsShown] = useState(false);
   const questionFormatLists = useQuestionUserFacingFormatData();
+  const isMobile = useMediaQuery('(max-width: 500px)');
 
   return (
     <SlideOut
@@ -206,6 +207,7 @@ export default function CodingWorkspaceQuestionListSlideOut({
           addonPosition="start"
           icon={RiListUnordered}
           isDisabled={isDisabled}
+          isLabelHidden={isMobile}
           label="Question list"
           size="xs"
           variant="secondary"
