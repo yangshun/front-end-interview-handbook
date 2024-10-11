@@ -106,10 +106,16 @@ export default async function Page({ params }: Props) {
     { question: javaScriptEmbedExample },
     todoListReactSolutionBundle,
     todoListVanillaSolutionBundle,
+    todoListAngularSolutionBundle,
+    todoListVueSolutionBundle,
+    todoListSvelteSolutionBundle,
   ] = await Promise.all([
     readQuestionJavaScriptContents('flatten', locale),
     readQuestionUserInterface('todo-list', 'react', 'solution-improved'),
     readQuestionUserInterface('todo-list', 'vanilla', 'solution-template'),
+    readQuestionUserInterface('todo-list', 'angular', 'solution'),
+    readQuestionUserInterface('todo-list', 'vue', 'solution'),
+    readQuestionUserInterface('todo-list', 'svelte', 'solution'),
   ]);
 
   const [
@@ -158,9 +164,11 @@ export default async function Page({ params }: Props) {
       uiCodingQuestion={
         {
           frameworks: {
-            // TODO(workspace): Add other supported frameworks
+            angular: todoListAngularSolutionBundle,
             react: todoListReactSolutionBundle,
+            svelte: todoListSvelteSolutionBundle,
             vanilla: todoListVanillaSolutionBundle,
+            vue: todoListVueSolutionBundle,
           },
           metadata: todoListReactSolutionBundle.metadata,
         } as EmbedUIQuestion
