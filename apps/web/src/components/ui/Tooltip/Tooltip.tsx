@@ -3,6 +3,7 @@
 import clsx from 'clsx';
 import type { ReactNode } from 'react';
 
+import { tooltipContentClassName } from './tooltipStyles';
 import type { TextSize } from '../Text';
 import { textVariants } from '../Text';
 
@@ -67,12 +68,8 @@ export default function Tooltip({
           <TooltipPrimitive.Content
             align={align}
             className={clsx(
-              'select-none',
-              'rounded',
-              'z-tooltip',
-              'max-w-64',
+              tooltipContentClassName,
               tooltipBackgroundColor,
-              'hyphens-auto',
               sizeClasses[size],
               textVariants({
                 className,
