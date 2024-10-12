@@ -1,6 +1,8 @@
 'use client';
 
 import clsx from 'clsx';
+import type { ForwardedRef } from 'react';
+import { forwardRef } from 'react';
 import { FaCircleUser } from 'react-icons/fa6';
 
 import type { AvatarVariantProps } from './AvatarStyles';
@@ -16,7 +18,10 @@ type Props = React.ComponentPropsWithoutRef<typeof AvatarPrimitive.Image> &
     src?: string | null;
   }>;
 
-export default function Avatar({ src, alt, className, size, ...props }: Props) {
+function Avatar(
+  { src, alt, className, size, ...props }: Props,
+  ref: ForwardedRef<HTMLImageElement>,
+) {
   const emptyAvatar = (
     <div
       className={clsx(
@@ -39,6 +44,7 @@ export default function Avatar({ src, alt, className, size, ...props }: Props) {
         className,
       )}>
       <AvatarPrimitive.Image
+        ref={ref}
         alt={alt}
         className="size-full object-cover"
         src={src ?? undefined}
@@ -55,3 +61,5 @@ export default function Avatar({ src, alt, className, size, ...props }: Props) {
     </AvatarPrimitive.Root>
   );
 }
+
+export default forwardRef(Avatar);
