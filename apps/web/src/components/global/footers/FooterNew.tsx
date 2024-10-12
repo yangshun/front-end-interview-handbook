@@ -21,6 +21,7 @@ import TextInput from '~/components/ui/TextInput';
 import {
   themeBackgroundColor,
   themeBorderColor,
+  themeTextBrandColor_Hover,
   themeTextSubtleColor,
 } from '~/components/ui/theme';
 
@@ -302,7 +303,12 @@ export default function Footer({ navigation }: Props) {
                     {Icon && (
                       <Icon
                         aria-hidden="true"
-                        className={clsx('size-6', themeTextSubtleColor)}
+                        className={clsx(
+                          'size-6 shrink-0',
+                          'transition-colors',
+                          themeTextSubtleColor,
+                          themeTextBrandColor_Hover,
+                        )}
                       />
                     )}
                   </Anchor>

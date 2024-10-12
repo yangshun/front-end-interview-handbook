@@ -165,7 +165,7 @@ export const themeOutlineElement_FocusVisible = clsx(
   'focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2',
 );
 export const themeOutlineElementBrandColor_FocusVisible = clsx(
-  'focus-visible:outline-neutral-700 dark:focus-visible:outline-neutral-300',
+  'focus-visible:outline-neutral-700 dark:focus-visible:outline-brand',
 );
 
 export type ThemeGradient<

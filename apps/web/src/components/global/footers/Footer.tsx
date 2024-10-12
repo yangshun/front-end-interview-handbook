@@ -12,7 +12,10 @@ import Container from '~/components/ui/Container';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 import Text from '~/components/ui/Text';
-import { themeBorderColor } from '~/components/ui/theme';
+import {
+  themeBorderColor,
+  themeTextBrandColor_Hover,
+} from '~/components/ui/theme';
 
 import { useI18nPathname, useI18nRouter } from '~/next-i18nostic/src';
 
@@ -175,7 +178,15 @@ export default function Footer({ navigation }: Props) {
                   {commonLinks.social.map(({ key, href, name, icon: Icon }) => (
                     <Anchor key={key} href={href} variant="secondary">
                       <span className="sr-only">{name}</span>
-                      {Icon && <Icon aria-hidden="true" className="size-6" />}
+                      {Icon && (
+                        <Icon
+                          aria-hidden="true"
+                          className={clsx(
+                            'size-6 shrink-0',
+                            themeTextBrandColor_Hover,
+                          )}
+                        />
+                      )}
                     </Anchor>
                   ))}
                 </div>
