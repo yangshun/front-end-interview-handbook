@@ -1,12 +1,12 @@
 import InterviewsTestimonialsSlider from '~/components/interviews/common/InterviewsTestimonialsSlider';
-import { useInterviewsMarketingTestimonialsDict } from '~/components/interviews/marketing/testimonials/InterviewsMarketingTestimonials';
+import { InterviewsMarketingTestimonialsDict } from '~/components/interviews/marketing/testimonials/InterviewsMarketingTestimonials';
 import { FormattedMessage } from '~/components/intl';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 import Text from '~/components/ui/Text';
 
 export default function InterviewsStudyPlanTestimonialsSection() {
-  const testimonials = useInterviewsMarketingTestimonialsDict();
+  const testimonials = InterviewsMarketingTestimonialsDict();
 
   // TODO(interviews): remove hardcoded data
   const testimonialsData = [

@@ -3,6 +3,7 @@ import type { Metadata } from 'next/types';
 
 import { INTERVIEWS_REVAMP_2024 } from '~/data/FeatureFlags';
 
+import { InterviewsMarketingTestimonialsDict } from '~/components/interviews/marketing/testimonials/InterviewsMarketingTestimonials';
 import { sortQuestions } from '~/components/interviews/questions/listings/filters/QuestionsProcessor';
 import { QuestionCount } from '~/components/interviews/questions/listings/stats/QuestionCount';
 
@@ -115,6 +116,8 @@ export default async function Page({ params }: Props) {
     readQuestionUserInterface('todo-list', 'svelte', 'solution'),
   ]);
 
+  const testimonials = InterviewsMarketingTestimonialsDict();
+
   const [
     { questions: quizQuestions },
     { questions: systemDesignQuestions },
@@ -149,6 +152,13 @@ export default async function Page({ params }: Props) {
         'ranking',
         true,
       ).slice(0, QUESTIONS_TO_SHOW)}
+      testimonials={[
+        testimonials.shoaibAhmed,
+        testimonials.locChuong,
+        testimonials.lunghaoLee,
+        testimonials.luke,
+        testimonials.ryan,
+      ]}
       uiCodingQuestion={{
         frameworks: {
           angular: todoListAngularSolutionBundle,

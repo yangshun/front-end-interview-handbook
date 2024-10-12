@@ -8,6 +8,7 @@ import InterviewsMarketingOffersDontLieSection from '~/components/interviews/mar
 import InterviewsMarketingPlansSection from '~/components/interviews/marketing/InterviewsMarketingPlansSection';
 import InterviewsMarketingPrepResourcesByBigTechEngineers from '~/components/interviews/marketing/InterviewsMarketingPrepResourcesByBigTechEngineers';
 import InterviewsMarketingSimulateRealInterviews from '~/components/interviews/marketing/InterviewsMarketingSimulateRealInterviews';
+import type { InterviewsMarketingTestimonial } from '~/components/interviews/marketing/testimonials/InterviewsMarketingTestimonialCard';
 import type {
   QuestionJavaScript,
   QuestionMetadata,
@@ -21,6 +22,7 @@ type Props = Readonly<{
   javaScriptEmbedExample: QuestionJavaScript;
   quizQuestions: ReadonlyArray<QuestionMetadata>;
   systemDesignQuestions: ReadonlyArray<QuestionMetadata>;
+  testimonials: ReadonlyArray<InterviewsMarketingTestimonial>;
   uiCodingQuestion: EmbedUIQuestion;
 }>;
 
@@ -28,10 +30,11 @@ export default function InterviewsMarketingHomePageNew({
   uiCodingQuestion,
   javaScriptEmbedExample,
   companyGuides,
+  testimonials,
 }: Props) {
   return (
     <main>
-      <InterviewsMarketingHeroNew />
+      <InterviewsMarketingHeroNew testimonials={testimonials} />
       <Section>
         <InterviewsMarketingEmbedSection
           javaScriptEmbedExample={javaScriptEmbedExample}

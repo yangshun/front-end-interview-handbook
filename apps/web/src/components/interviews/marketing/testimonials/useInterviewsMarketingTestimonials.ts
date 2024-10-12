@@ -1,11 +1,11 @@
 import type { InterviewsMarketingTestimonial } from './InterviewsMarketingTestimonialCard';
-import { useInterviewsMarketingTestimonialsDict } from './InterviewsMarketingTestimonials';
+import { InterviewsMarketingTestimonialsDict } from './InterviewsMarketingTestimonials';
 
 export function useInterviewsMarketingTestimonials(
   showAll = false,
   columns = 3,
 ) {
-  const testimonialsObjects = useInterviewsMarketingTestimonialsDict();
+  const testimonialsObjects = InterviewsMarketingTestimonialsDict();
 
   const testimonials: ReadonlyArray<InterviewsMarketingTestimonial> = showAll
     ? (() => {

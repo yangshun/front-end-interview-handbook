@@ -1,6 +1,6 @@
 import type { InterviewsMarketingTestimonial } from './InterviewsMarketingTestimonialCard';
 
-export function useInterviewsMarketingTestimonialsDict() {
+export function InterviewsMarketingTestimonialsDict() {
   const lukeFiji: InterviewsMarketingTestimonial = {
     anonymous: false,
     authorThumbnailUrl: '/img/testimonials/users/luke-fiji.webp',

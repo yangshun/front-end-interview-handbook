@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 
 import InterviewsTestimonialsSlider from '~/components/interviews/common/InterviewsTestimonialsSlider';
-import { useInterviewsMarketingTestimonialsDict } from '~/components/interviews/marketing/testimonials/InterviewsMarketingTestimonials';
+import { InterviewsMarketingTestimonialsDict } from '~/components/interviews/marketing/testimonials/InterviewsMarketingTestimonials';
 import { FormattedMessage } from '~/components/intl';
 import Container from '~/components/ui/Container';
 import Heading from '~/components/ui/Heading';
@@ -10,7 +10,7 @@ import Text from '~/components/ui/Text';
 import { themeGradientHeading } from '~/components/ui/theme';
 
 export default function InterviewsMarketingOffersDontLieSection() {
-  const testimonials = useInterviewsMarketingTestimonialsDict();
+  const testimonials = InterviewsMarketingTestimonialsDict();
 
   // TODO(interviews): remove hardcoded data
   const testimonialsData = [

@@ -1,24 +1,35 @@
 'use client';
 
 import clsx from 'clsx';
-import { RiArrowRightLine, RiStarFill } from 'react-icons/ri';
+import { RiArrowRightLine } from 'react-icons/ri';
 
 import GoogleAnalyticsLogo from '~/components/icons/GoogleAnalyticsLogo';
+import InterviewsMarketingTestimonialCard from '~/components/interviews/marketing/testimonials/InterviewsMarketingTestimonialCard';
 import { FormattedMessage, useIntl } from '~/components/intl';
 import Avatar from '~/components/ui/Avatar';
 import Button from '~/components/ui/Button';
 import Container from '~/components/ui/Container';
 import Heading from '~/components/ui/Heading';
+import {
+  Hovercard,
+  HovercardContent,
+  HovercardPortal,
+  HovercardTrigger,
+} from '~/components/ui/Hovercard/Hovercard';
 import Text from '~/components/ui/Text';
 import { themeGradientHeading } from '~/components/ui/theme';
-import Tooltip from '~/components/ui/Tooltip';
 
+import type { InterviewsMarketingTestimonial } from './testimonials/InterviewsMarketingTestimonialCard';
 import { QuestionCountFree } from '../questions/listings/stats/QuestionCount';
 import AmazonLogo from '../../icons/AmazonLogo';
 import GoogleLogo from '../../icons/GoogleLogo';
 import MetaLogo from '../../icons/MetaLogo';
 
-export default function InterviewsMarketingHeroNew() {
+type Props = Readonly<{
+  testimonials: ReadonlyArray<InterviewsMarketingTestimonial>;
+}>;
+
+export default function InterviewsMarketingHeroNew({ testimonials }: Props) {
   const intl = useIntl();
 
   return (
@@ -100,37 +111,30 @@ export default function InterviewsMarketingHeroNew() {
           </Text>
         </div>
         <div className="flex gap-5 py-0.5">
-          <div>
-            <Avatar
-              alt="Shoaib Ahmed"
-              className="size-9 border-2 border-white dark:border-neutral-900"
-              size="custom"
-              src="/img/testimonials/users/shoaib-ahmed.jpg"
-            />
-            <Avatar
-              alt="Loc Chuong"
-              className="size-9 -ml-2 border-2 border-white dark:border-neutral-900"
-              size="custom"
-              src="/img/testimonials/users/loc-chuong.jpg"
-            />
-            <Avatar
-              alt="Lunghao Lee"
-              className="size-9 -ml-2 border-2 border-white dark:border-neutral-900"
-              size="custom"
-              src="/img/testimonials/users/lunghao-lee.jpg"
-            />
-            <Avatar
-              alt="Luke Fiji"
-              className="size-9 -ml-2 border-2 border-white dark:border-neutral-900"
-              size="custom"
-              src="/img/testimonials/users/luke-fiji.webp"
-            />
-            <Avatar
-              alt="Ryan Van Valkenburg"
-              className="size-9 -ml-2 border-2 border-white dark:border-neutral-900"
-              size="custom"
-              src="/img/testimonials/users/ryanlvv.jpg"
-            />
+          <div className="isolate">
+            {testimonials.map((testimonial, index) => (
+              <Hovercard key={testimonial.id} closeDelay={100} openDelay={0}>
+                <HovercardTrigger asChild={true}>
+                  <Avatar
+                    alt={testimonial.name ?? ''}
+                    className={clsx(
+                      'size-9',
+                      'border-2 border-white dark:border-neutral-900',
+                      'relative',
+                      'hover:z-[1]',
+                      index > 0 && '-ml-2',
+                    )}
+                    size="custom"
+                    src={testimonial.authorThumbnailUrl ?? ''}
+                  />
+                </HovercardTrigger>
+                <HovercardPortal>
+                  <HovercardContent className="max-w-md !p-0">
+                    <InterviewsMarketingTestimonialCard {...testimonial} />
+                  </HovercardContent>
+                </HovercardPortal>
+              </Hovercard>
+            ))}
           </div>
           <div className="flex flex-col gap-1">
             <Text

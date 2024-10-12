@@ -13,7 +13,7 @@ import {
 } from '~/data/plans/PreparationPlans';
 
 import InterviewsMarketingTestimonialCard from '~/components/interviews/marketing/testimonials/InterviewsMarketingTestimonialCard';
-import { useInterviewsMarketingTestimonialsDict } from '~/components/interviews/marketing/testimonials/InterviewsMarketingTestimonials';
+import { InterviewsMarketingTestimonialsDict } from '~/components/interviews/marketing/testimonials/InterviewsMarketingTestimonials';
 import type { QuestionDifficulty } from '~/components/interviews/questions/common/QuestionsTypes';
 import CompletionCountSummary from '~/components/interviews/questions/listings/stats/CompletionCountSummary';
 import QuestionCountLabel from '~/components/interviews/questions/metadata/QuestionCountLabel';
@@ -141,7 +141,7 @@ export default function InterviewsStudyPlansPage({
 }: Props) {
   const intl = useIntl();
   const user = useUser();
-  const testimonials = useInterviewsMarketingTestimonialsDict();
+  const testimonials = InterviewsMarketingTestimonialsDict();
   const { data: questionListSessions } =
     trpc.questionLists.getActiveSessions.useQuery(undefined, {
       enabled: !!user,
