@@ -17,20 +17,22 @@ const LANGUAGE_OPTIONS: ReadonlyArray<{
 ];
 
 type Props = Readonly<{
+  initialValue?: ReadonlyArray<QuestionLanguage>;
   namespace?: string;
 }>;
 
-export default function useQuestionLanguageFilter({
-  namespace,
-}: Props): [Set<QuestionLanguage>, QuestionFilter<QuestionLanguage>] {
+export default function useQuestionLanguageFilter(
+  props?: Props,
+): [Set<QuestionLanguage>, QuestionFilter<QuestionLanguage>] {
+  const { initialValue, namespace } = props || {};
   const intl = useIntl();
   const [languageState, setLanguageState] = useState(
-    new Set<QuestionLanguage>(),
+    new Set<QuestionLanguage>(initialValue),
   );
   const [languageFSessionStorage, setLanguageSessionStorage] =
     useSessionStorageForSets<QuestionLanguage>(
       `gfe:${namespace}:language-filter`,
-      new Set(),
+      new Set(initialValue),
     );
 
   // Conditionally select which hook's state to use

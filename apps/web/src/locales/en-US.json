@@ -815,6 +815,10 @@
     "defaultMessage": "Earlier",
     "description": "Title for earlier list of comments"
   },
+  "40aZC1": {
+    "defaultMessage": "System Design",
+    "description": "Label for system design format"
+  },
   "41uq3N": {
     "defaultMessage": "Theme",
     "description": "Tooltip for theme selector"
@@ -5635,6 +5639,10 @@
     "defaultMessage": "By proceeding, you agree to GreatFrontEnd's <tos>Terms of Service</tos> and <pp>Privacy Policy</pp>.",
     "description": "Disclaimer of agreement to terms of service and privacy policy on Email Sign Up page"
   },
+  "Y9v6Lw": {
+    "defaultMessage": "Coding",
+    "description": "Label for coding format"
+  },
   "YBlo/J": {
     "defaultMessage": "As mentioned above, there are many ways to host your project for free. Our recommend hosts are:",
     "description": "Text for Deployment Info in Projects"
@@ -7118,6 +7126,10 @@
   "hQa+4K": {
     "defaultMessage": "Why be a GreatFrontEnd Affiliate?",
     "description": "Title for the 'Why become an affiliate' section on the 'Become an Affiliate' page"
+  },
+  "hS+erO": {
+    "defaultMessage": "Quiz",
+    "description": "Label for quiz format"
   },
   "hYp7sF": {
     "defaultMessage": "Normal",

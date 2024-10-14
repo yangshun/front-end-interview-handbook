@@ -11,21 +11,30 @@ import InterviewsMarketingTestCodeSection from '~/components/interviews/marketin
 import InterviewsMarketingTestimonialsSection from '~/components/interviews/marketing/testimonials/InterviewsMarketingTestimonialsSection';
 import { useInterviewsMarketingTestimonials } from '~/components/interviews/marketing/testimonials/useInterviewsMarketingTestimonials';
 import InterviewsPricingSectionLocalizedContainer from '~/components/interviews/purchase/InterviewsPricingSectionLocalizedContainer';
+import type { QuestionMetadata } from '~/components/interviews/questions/common/QuestionsTypes';
 import MarketingCommunitySection from '~/components/marketing/contact/MarketingCommunitySection';
 
 type Props = Readonly<{
   companyGuides: ReadonlyArray<InterviewsCompanyGuide>;
+  questions: {
+    algo: ReadonlyArray<QuestionMetadata>;
+    js: ReadonlyArray<QuestionMetadata>;
+    quiz: ReadonlyArray<QuestionMetadata>;
+    'system-design': ReadonlyArray<QuestionMetadata>;
+    ui: ReadonlyArray<QuestionMetadata>;
+  };
 }>;
 
 export default function InterviewsMarketingHomePageBottomNew({
   companyGuides,
+  questions,
 }: Props) {
   const { userProfile } = useUserProfile();
   const testimonials = useInterviewsMarketingTestimonials();
 
   return (
     <>
-      <InterviewsMarketingPracticeQuestionBankSection />
+      <InterviewsMarketingPracticeQuestionBankSection questions={questions} />
       <InterviewsMarketingSolutionsByExInterviewersSection />
       <InterviewsMarketingTestCodeSection />
       <InterviewsMarketingCompaniesSection companyGuides={companyGuides} />

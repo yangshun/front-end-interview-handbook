@@ -20,6 +20,14 @@ import InterviewsMarketingHomePageBottomContainer from './InterviewsMarketingHom
 type Props = Readonly<{
   companyGuides: ReadonlyArray<InterviewsCompanyGuide>;
   javaScriptEmbedExample: QuestionJavaScript;
+  javaScriptQuestions: ReadonlyArray<QuestionMetadata>;
+  questions: {
+    algo: ReadonlyArray<QuestionMetadata>;
+    js: ReadonlyArray<QuestionMetadata>;
+    quiz: ReadonlyArray<QuestionMetadata>;
+    'system-design': ReadonlyArray<QuestionMetadata>;
+    ui: ReadonlyArray<QuestionMetadata>;
+  };
   quizQuestions: ReadonlyArray<QuestionMetadata>;
   systemDesignQuestions: ReadonlyArray<QuestionMetadata>;
   testimonials: ReadonlyArray<InterviewsMarketingTestimonial>;
@@ -29,6 +37,9 @@ type Props = Readonly<{
 export default function InterviewsMarketingHomePageNew({
   uiCodingQuestion,
   javaScriptEmbedExample,
+  javaScriptQuestions,
+  userInterfaceQuestions,
+  questions,
   companyGuides,
   testimonials,
 }: Props) {
@@ -47,6 +58,7 @@ export default function InterviewsMarketingHomePageNew({
         <InterviewsMarketingSimulateRealInterviews />
         <InterviewsMarketingHomePageBottomContainer
           companyGuides={companyGuides}
+          questions={questions}
         />
       </Section>
     </main>

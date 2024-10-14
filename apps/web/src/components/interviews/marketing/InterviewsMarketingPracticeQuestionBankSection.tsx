@@ -1,9 +1,27 @@
 import clsx from 'clsx';
+import { useState } from 'react';
 import { RiArrowRightLine } from 'react-icons/ri';
 
 import FilterButton from '~/components/common/FilterButton';
-import type { QuestionMetadataWithCompletedStatus } from '~/components/interviews/questions/common/QuestionsTypes';
+import type {
+  QuestionLanguage,
+  QuestionMetadata,
+  QuestionTopic,
+  QuestionUserFacingFormat,
+} from '~/components/interviews/questions/common/QuestionsTypes';
+import type { QuestionFramework } from '~/components/interviews/questions/common/QuestionsTypes';
+import useQuestionFrameworkFilter, {
+  FRAMEWORK_OPTIONS,
+} from '~/components/interviews/questions/listings/filters/hooks/useQuestionFrameworkFilter';
+import useQuestionLanguageFilter from '~/components/interviews/questions/listings/filters/hooks/useQuestionLanguageFilter';
+import useQuestionTopicFilter from '~/components/interviews/questions/listings/filters/hooks/useQuestionTopicFilter';
+import {
+  countQuestionsTotalDurationMins,
+  filterQuestions,
+  sortQuestions,
+} from '~/components/interviews/questions/listings/filters/QuestionsProcessor';
 import QuestionsList from '~/components/interviews/questions/listings/items/QuestionsList';
+import type { QuestionListCategory } from '~/components/interviews/questions/listings/types';
 import QuestionCountLabel from '~/components/interviews/questions/metadata/QuestionCountLabel';
 import QuestionTotalTimeLabel from '~/components/interviews/questions/metadata/QuestionTotalTimeLabel';
 import { FormattedMessage, useIntl } from '~/components/intl';
@@ -20,160 +38,263 @@ import {
   themeTextSecondaryColor,
 } from '~/components/ui/theme';
 
-import type { QuestionCompletionCount } from '~/db/QuestionsCount';
+type FilterType = 'format' | 'framework' | 'topics';
 
-export default function InterviewsMarketingPracticeQuestionBankSection() {
+type Props = Readonly<{
+  questions: {
+    algo: ReadonlyArray<QuestionMetadata>;
+    js: ReadonlyArray<QuestionMetadata>;
+    quiz: ReadonlyArray<QuestionMetadata>;
+    'system-design': ReadonlyArray<QuestionMetadata>;
+    ui: ReadonlyArray<QuestionMetadata>;
+  };
+}>;
+
+const TOPIC_TO_CATEGORY: Record<string, QuestionListCategory> = {
+  css: 'css',
+  html: 'html',
+  javascript: 'js',
+};
+
+const formatRoute: Record<QuestionUserFacingFormat, string> = {
+  coding: '/interviews/questions/javascript',
+  quiz: '/interviews/questions/quiz',
+  'system-design': '/interviews/questions/system-design',
+};
+const frameworkRoute: Record<QuestionFramework, string> = {
+  angular: '/questions/angular',
+  react: '/questions/react',
+  svelte: '/questions/svelte',
+  vanilla: '/questions/vanilla',
+  vue: '/questions/vue',
+};
+const languageRoute: Record<QuestionLanguage, string> = {
+  css: '/questions/css',
+  html: '/questions/html',
+  js: '/questions/js',
+  ts: '/questions/js',
+};
+
+const topicRoute: Record<QuestionTopic, string> = {
+  a11y: '/interviews/questions/quiz',
+  css: '/questions/css',
+  html: '/questions/html',
+  i18n: '/interviews/questions/quiz',
+  javascript: '/questions/js',
+  network: '/interviews/questions/quiz',
+  performance: '/interviews/questions/quiz',
+  security: '/interviews/questions/quiz',
+  testing: '/interviews/questions/quiz',
+};
+
+const MAX_TO_SHOW = 4;
+
+export default function InterviewsMarketingPracticeQuestionBankSection({
+  questions,
+}: Props) {
   const intl = useIntl();
-  const questions: ReadonlyArray<QuestionMetadataWithCompletedStatus> = [
+
+  const [selectedFilter, setSelectedFilter] = useState<FilterType>('topics');
+  const [selectedFormat, setSelectedFormat] =
+    useState<QuestionUserFacingFormat>('coding');
+  const [topicFilters, topicFilterOptions] = useQuestionTopicFilter({
+    initialValue: ['javascript'],
+  });
+  const [languageFilters, languageFilterOptions] = useQuestionLanguageFilter({
+    initialValue: ['html'],
+  });
+  const [frameworkFilters, frameworkFilterOptions] =
+    useQuestionFrameworkFilter();
+  const selectedTopic = Array.from(topicFilters)[0];
+  const selectedLanguage = Array.from(languageFilters)[0];
+  const selectedFramework = Array.from(frameworkFilters)[0];
+
+  const filterTabs: ReadonlyArray<{
+    label: string;
+    value: FilterType;
+  }> = [
     {
-      author: 'yangshun',
-      companies: ['amazon'],
-      created: 1656028800,
-      difficulty: 'easy',
-      duration: 5,
-      excerpt:
-        'Build a simple counter that increments whenever a button is clicked',
-      featured: false,
-      format: 'user-interface',
-      frameworkDefault: 'react',
-      frameworks: [
+      label: intl.formatMessage({
+        defaultMessage: 'Topics',
+        description: 'Label for topics filter',
+        id: 'hNYptD',
+      }),
+      value: 'topics',
+    },
+    {
+      label: intl.formatMessage({
+        defaultMessage: 'Framework / language',
+        description: 'Label for framework/language filter',
+        id: 'D0xOX8',
+      }),
+      value: 'framework',
+    },
+    {
+      label: intl.formatMessage({
+        defaultMessage: 'Format',
+        description: 'Label for format filter',
+        id: 'vTb+8H',
+      }),
+      value: 'format',
+    },
+  ];
+
+  const navigation = {
+    format: {
+      items: [
         {
-          framework: 'react',
-          href: '/questions/user-interface/counter/react',
+          label: intl.formatMessage({
+            defaultMessage: 'Coding',
+            description: 'Label for coding format',
+            id: 'Y9v6Lw',
+          }),
+          value: 'coding',
         },
         {
-          framework: 'vanilla',
-          href: '/questions/user-interface/counter/vanilla',
+          label: intl.formatMessage({
+            defaultMessage: 'Quiz',
+            description: 'Label for quiz format',
+            id: 'hS+erO',
+          }),
+          value: 'quiz',
         },
         {
-          framework: 'angular',
-          href: '/questions/user-interface/counter/angular',
-        },
-        {
-          framework: 'vue',
-          href: '/questions/user-interface/counter/vue',
-        },
-        {
-          framework: 'svelte',
-          href: '/questions/user-interface/counter/svelte',
+          label: intl.formatMessage({
+            defaultMessage: 'System Design',
+            description: 'Label for system design format',
+            id: '40aZC1',
+          }),
+          value: 'system-design',
         },
       ],
-      href: '/questions/user-interface/counter',
-      importance: 'low',
-      isCompleted: false,
-      languages: ['html', 'js'],
-      nextQuestions: [],
-      premium: false,
-      published: true,
-      ranking: 100,
-      similarQuestions: [],
-      slug: 'counter',
-      subtitle: null,
-      title: 'Counter',
-      topics: [],
+      onClick: (value: string) =>
+        setSelectedFormat(value as QuestionUserFacingFormat),
+      value: selectedFormat,
     },
-    {
-      author: 'yangshun',
-      companies: [],
-      created: 1670025600,
-      difficulty: 'easy',
-      duration: 10,
-      excerpt:
-        'Implement a stack data structure containing the common stack methods',
-      featured: false,
-      format: 'algo',
-      frameworkDefault: null,
-      frameworks: [],
-      href: '/questions/algo/stack',
-      importance: 'low',
-      isCompleted: false,
-      languages: ['js', 'ts'],
-      nextQuestions: [],
-      premium: false,
-      published: true,
-      ranking: 100,
-      similarQuestions: [],
-      slug: 'stack',
-      subtitle: null,
-      title: 'Stack',
-      topics: [],
+    framework: {
+      items: [
+        ...languageFilterOptions.options,
+        ...frameworkFilterOptions.options,
+      ],
+      onClick: (value: string) => {
+        if (FRAMEWORK_OPTIONS.includes(value as QuestionFramework)) {
+          languageFilterOptions.onClear();
+          frameworkFilterOptions.setValues(
+            new Set([value]) as Set<QuestionFramework>,
+          );
+        } else {
+          frameworkFilterOptions.onClear();
+          languageFilterOptions.setValues(
+            new Set([value]) as Set<QuestionLanguage>,
+          );
+        }
+      },
+      value: selectedFramework || selectedLanguage,
     },
-    {
-      author: 'yangshun',
-      companies: [],
-      created: 1649894400,
-      difficulty: 'easy',
-      duration: 10,
-      excerpt:
-        'Implement utilities to determine primitive variable types in JavaScript',
-      featured: false,
-      format: 'javascript',
-      frameworkDefault: null,
-      frameworks: [],
-      href: '/questions/javascript/type-utilities',
-      importance: 'low',
-      isCompleted: false,
-      languages: ['js', 'ts'],
-      nextQuestions: [],
-      premium: false,
-      published: true,
-      ranking: 100,
-      similarQuestions: [],
-      slug: 'type-utilities',
-      subtitle: null,
-      title: 'Type Utilities',
-      topics: [],
-    },
-    {
-      author: null,
-      companies: [],
-      created: 1710633600,
-      difficulty: 'easy',
-      duration: 5,
-      excerpt:
-        'Implement a function that finds the mean of the values inside an array',
-      featured: false,
-      format: 'javascript',
-      frameworkDefault: null,
-      frameworks: [],
-      href: '/questions/javascript/mean',
-      importance: 'low',
-      isCompleted: false,
-      languages: ['js', 'ts'],
-      nextQuestions: [],
-      premium: false,
-      published: true,
-      ranking: 100,
-      similarQuestions: [],
-      slug: 'mean',
-      subtitle: null,
-      title: 'Mean',
-      topics: [],
-    },
-  ];
-  const questionCompletionCount: QuestionCompletionCount = {
-    algo: {
-      stack: 10000,
-    },
-    javascript: {
-      mean: 10000,
-      'type-utilities': 10000,
-    },
-    'user-interface': {
-      counter: 10000,
+    topics: {
+      items: topicFilterOptions.options,
+      onClick: (value: string) =>
+        topicFilterOptions.setValues(new Set([value]) as Set<QuestionTopic>),
+      value: selectedTopic,
     },
   };
-  const questionType = [
-    { label: 'Coding', value: 'coding' },
-    { label: 'Quiz', value: 'quiz' },
-    { label: 'System Design', value: 'system-design' },
-  ];
-  const activeQuestionType = 'coding';
+
+  const filterNavigation = navigation[selectedFilter];
+
+  const frameworkAndLanguageQuestions = sortQuestions(
+    [...questions.ui, ...questions.js],
+    'importance',
+    false,
+  );
+  const codingQuestions = sortQuestions(
+    [...questions.js, ...questions.algo, ...questions.ui],
+    'importance',
+    false,
+  );
+  const quizQuestions = sortQuestions(questions.quiz, 'importance', false);
+  const systemDesignQuestions = sortQuestions(
+    questions['system-design'],
+    'importance',
+    false,
+  );
+
+  const selectedRoute = (() => {
+    switch (selectedFilter) {
+      case 'topics': {
+        return topicRoute[selectedTopic];
+      }
+      case 'framework': {
+        return (
+          frameworkRoute[selectedFramework] || languageRoute[selectedLanguage]
+        );
+      }
+      case 'format': {
+        return formatRoute[selectedFormat];
+      }
+    }
+  })();
+
+  function processQuestions() {
+    switch (selectedFilter) {
+      case 'format': {
+        if (selectedFormat === 'coding') {
+          return codingQuestions;
+        }
+        if (selectedFormat === 'quiz') {
+          return quizQuestions;
+        }
+
+        return systemDesignQuestions;
+      }
+      case 'framework': {
+        const filters: ReadonlyArray<(question: QuestionMetadata) => boolean> =
+          [
+            // Language.
+            languageFilterOptions.matches,
+            // Framework.
+            frameworkFilterOptions.matches,
+          ];
+
+        return filterQuestions(
+          frameworkAndLanguageQuestions,
+          filters.map((filterFn) => filterFn),
+        );
+      }
+      case 'topics': {
+        const filteredCodingQuestions = filterQuestions(codingQuestions, [
+          (question) =>
+            question.languages.some(
+              (languageItem) =>
+                languageItem === TOPIC_TO_CATEGORY[selectedTopic],
+            ),
+        ]);
+
+        const filteredQuizQuestions = filterQuestions(quizQuestions, [
+          (question) => topicFilterOptions.matches(question),
+        ]);
+
+        return [...filteredCodingQuestions, ...filteredQuizQuestions];
+      }
+    }
+  }
+
+  const processedQuestions = processQuestions();
+
+  const questionsWithCompletionStatus = processedQuestions.map((question) => ({
+    ...question,
+    isCompleted: false,
+  }));
+  const totalDurationMins = countQuestionsTotalDurationMins(
+    questionsWithCompletionStatus,
+  );
 
   const listMetadata = (
     <div className="flex gap-x-10">
-      <QuestionCountLabel count={148} showIcon={true} />
-      <QuestionTotalTimeLabel mins={2700} showIcon={true} />
+      <QuestionCountLabel
+        count={questionsWithCompletionStatus.length}
+        showIcon={true}
+      />
+      <QuestionTotalTimeLabel mins={totalDurationMins} showIcon={true} />
     </div>
   );
 
@@ -207,56 +328,38 @@ export default function InterviewsMarketingPracticeQuestionBankSection() {
           />
         </Text>
         <div className={clsx('mt-16', 'flex flex-col gap-8')}>
-          <div
-            className="xl:grid xl:grid-cols-12"
-            // So that focus cannot go into the card, which is not meant to be used.
-            {...{ inert: '' }}>
+          <div className="xl:grid xl:grid-cols-12">
             <div
               className={clsx(
                 'xl:col-span-11',
                 'flex flex-col justify-between gap-8 lg:flex-row lg:items-center',
               )}>
               <div className="flex gap-x-2">
-                <FilterButton
-                  label={intl.formatMessage({
-                    defaultMessage: 'Topics',
-                    description: 'Label for topics filter',
-                    id: 'hNYptD',
-                  })}
-                  purpose="button"
-                />
-                <FilterButton
-                  label={intl.formatMessage({
-                    defaultMessage: 'Framework / language',
-                    description: 'Label for framework/language filter',
-                    id: 'D0xOX8',
-                  })}
-                  purpose="tab"
-                />
-                <FilterButton
-                  label={intl.formatMessage({
-                    defaultMessage: 'Format',
-                    description: 'Label for format filter',
-                    id: 'vTb+8H',
-                  })}
-                  purpose="tab"
-                />
+                {filterTabs.map(({ value, label }) => (
+                  <FilterButton
+                    key={value}
+                    label={label}
+                    purpose="button"
+                    selected={selectedFilter === value}
+                    onClick={() => setSelectedFilter(value)}
+                  />
+                ))}
               </div>
               <div className="hidden md:block">{listMetadata}</div>
             </div>
           </div>
           <div
             className={clsx(
-              'grid gap-x-6 gap-y-8 md:grid-cols-8 lg:grid-cols-12',
+              'flex flex-col gap-x-6 gap-y-8 md:grid md:grid-cols-8 lg:grid-cols-12',
             )}>
             <div className="md:col-span-2 lg:col-span-3">
               <div className="md:hidden">
                 <TabsUnderline
                   label="Select navigation item"
                   size="sm"
-                  tabs={questionType}
-                  value={activeQuestionType}
-                  onSelect={() => {}}
+                  tabs={filterNavigation.items}
+                  value={filterNavigation.value}
+                  onSelect={filterNavigation.onClick}
                 />
               </div>
               <ul
@@ -265,19 +368,22 @@ export default function InterviewsMarketingPracticeQuestionBankSection() {
                   themeBorderColor,
                 ])}
                 role="list">
-                {questionType.map((item) => (
-                  <div
+                {filterNavigation.items.map((item) => (
+                  <button
                     key={item.value}
                     className={clsx(
                       '-ml-0.5 pl-5',
-                      item.value === activeQuestionType && [
-                        'border-l-2',
-                        'border-neutral-900 dark:border-neutral-100',
-                      ],
-                    )}>
+                      'block w-fit outline-none',
+                      'border-l-2',
+                      item.value === filterNavigation.value
+                        ? 'border-neutral-900 dark:border-neutral-100'
+                        : themeBorderColor,
+                    )}
+                    type="button"
+                    onClick={() => filterNavigation.onClick(item.value)}>
                     <Text
                       className={clsx(
-                        item.value === activeQuestionType
+                        item.value === filterNavigation.value
                           ? ['font-medium', themeTextColor]
                           : themeTextSecondaryColor,
                       )}
@@ -285,7 +391,7 @@ export default function InterviewsMarketingPracticeQuestionBankSection() {
                       size="body2">
                       {item.label}
                     </Text>
-                  </div>
+                  </button>
                 ))}
               </ul>
             </div>
@@ -301,29 +407,37 @@ export default function InterviewsMarketingPracticeQuestionBankSection() {
                   // So that focus cannot go into the card, which is not meant to be used.
                   {...{ inert: '' }}>
                   <QuestionsList
+                    key={selectedFilter}
                     checkIfCompletedQuestion={() => false}
-                    questionCompletionCount={questionCompletionCount}
-                    questions={questions}
-                    showOverlayAtLastItem={true}
+                    questionCompletionCount={{}}
+                    questions={questionsWithCompletionStatus.slice(
+                      0,
+                      MAX_TO_SHOW,
+                    )}
+                    showOverlayAtLastItem={
+                      questionsWithCompletionStatus.length >= MAX_TO_SHOW
+                    }
                   />
                 </div>
-                <div
-                  className={clsx(
-                    'absolute bottom-10 left-1/2 -translate-x-1/2',
-                  )}>
-                  <Button
-                    href="/prepare"
-                    icon={RiArrowRightLine}
-                    label={intl.formatMessage({
-                      defaultMessage: 'See all questions',
-                      description: 'Label for see all questions button',
-                      id: 'Ntem6r',
-                    })}
-                    prefetch={null}
-                    size="md"
-                    variant="secondary"
-                  />
-                </div>
+                {questionsWithCompletionStatus.length >= MAX_TO_SHOW && (
+                  <div
+                    className={clsx(
+                      'absolute bottom-10 left-1/2 -translate-x-1/2',
+                    )}>
+                    <Button
+                      href={selectedRoute}
+                      icon={RiArrowRightLine}
+                      label={intl.formatMessage({
+                        defaultMessage: 'See all questions',
+                        description: 'Label for see all questions button',
+                        id: 'Ntem6r',
+                      })}
+                      prefetch={null}
+                      size="md"
+                      variant="secondary"
+                    />
+                  </div>
+                )}
               </div>
             </div>
           </div>

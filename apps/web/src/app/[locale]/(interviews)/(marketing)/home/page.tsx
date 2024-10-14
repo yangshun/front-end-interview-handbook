@@ -13,6 +13,8 @@ import {
   readQuestionUserInterface,
 } from '~/db/QuestionsContentsReader';
 import {
+  fetchQuestionsListAlgo,
+  fetchQuestionsListJavaScript,
   fetchQuestionsListQuiz,
   fetchQuestionsListSystemDesign,
 } from '~/db/QuestionsListReader';
@@ -120,10 +122,16 @@ export default async function Page({ params }: Props) {
 
   const [
     { questions: quizQuestions },
+    { questions: javaScriptQuestions },
+    { questions: algoQuestions },
+    { questions: userInterfaceQuestions },
     { questions: systemDesignQuestions },
     companyGuides,
   ] = await Promise.all([
     fetchQuestionsListQuiz(locale),
+    fetchQuestionsListJavaScript(locale),
+    fetchQuestionsListAlgo(locale),
+    fetchQuestionsListUserInterface(locale),
     fetchQuestionsListSystemDesign(locale),
     fetchInterviewsCompanyGuides(),
   ]);
@@ -141,6 +149,18 @@ export default async function Page({ params }: Props) {
           js: FLATTEN_SKELETON_JS,
           ts: FLATTEN_SKELETON_TS,
         },
+      }}
+      javaScriptQuestions={sortQuestions(
+        javaScriptQuestions.filter((question) => question.featured),
+        'importance',
+        false,
+      ).slice(0, QUESTIONS_TO_SHOW)}
+      questions={{
+        algo: algoQuestions,
+        js: javaScriptQuestions,
+        quiz: quizQuestions,
+        'system-design': systemDesignQuestions,
+        ui: userInterfaceQuestions,
       }}
       quizQuestions={sortQuestions(
         quizQuestions.filter((question) => question.featured),

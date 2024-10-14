@@ -25,24 +25,23 @@ const topicRanks: Record<QuestionTopic, number> = {
 };
 
 type Props = Readonly<{
+  initialValue?: ReadonlyArray<QuestionTopic>;
   namespace?: string;
 }>;
 
-export default function useQuestionTopicFilter({
-  namespace,
-}: Props): [
-  Set<QuestionTopic>,
-  QuestionFilter<QuestionTopic, QuestionMetadata>,
-] {
+export default function useQuestionTopicFilter(
+  props?: Props,
+): [Set<QuestionTopic>, QuestionFilter<QuestionTopic, QuestionMetadata>] {
+  const { initialValue, namespace } = props || {};
   const intl = useIntl();
   const topicLabels = useQuestionTopicLabels();
   const [topicFiltersState, setTopicFiltersState] = useState<
     Set<QuestionTopic>
-  >(new Set());
+  >(new Set(initialValue));
   const [topicFiltersSessionStorage, setTopicFiltersSessionStorage] =
     useSessionStorageForSets<QuestionTopic>(
       `gfe:${namespace}:topic-filter`,
-      new Set(),
+      new Set(initialValue),
     );
 
   // Conditionally select which hook's state to use

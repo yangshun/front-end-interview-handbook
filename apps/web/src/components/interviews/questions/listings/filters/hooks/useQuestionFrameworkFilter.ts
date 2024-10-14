@@ -8,7 +8,7 @@ import { useIntl } from '~/components/intl';
 
 import type { QuestionFilter } from '../QuestionFilterType';
 
-const FRAMEWORK_OPTIONS: ReadonlyArray<QuestionFramework> = [
+export const FRAMEWORK_OPTIONS: ReadonlyArray<QuestionFramework> = [
   'react',
   'vanilla',
   'angular',
@@ -17,20 +17,22 @@ const FRAMEWORK_OPTIONS: ReadonlyArray<QuestionFramework> = [
 ];
 
 type Props = Readonly<{
+  initialValue?: ReadonlyArray<QuestionFramework>;
   namespace?: string;
 }>;
 
-export default function useQuestionFrameworkFilter({
-  namespace,
-}: Props): [Set<QuestionFramework>, QuestionFilter<QuestionFramework>] {
+export default function useQuestionFrameworkFilter(
+  props?: Props,
+): [Set<QuestionFramework>, QuestionFilter<QuestionFramework>] {
+  const { initialValue, namespace } = props || {};
   const intl = useIntl();
   const [frameworkState, setFrameworkState] = useState(
-    new Set<QuestionFramework>(),
+    new Set<QuestionFramework>(initialValue),
   );
   const [frameworkSessionStorage, setFrameworkSessionStorage] =
     useSessionStorageForSets<QuestionFramework>(
       `gfe:${namespace}:framework-filter`,
-      new Set(),
+      new Set(initialValue),
     );
 
   // Conditionally select which hook's state to use
