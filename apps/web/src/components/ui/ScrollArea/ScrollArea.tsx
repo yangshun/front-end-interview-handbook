@@ -16,6 +16,7 @@ type ScrollAreaProps = React.ComponentPropsWithoutRef<
     radius?: ScrollRadius;
     scrollbars?: Scrollbars;
     size?: ScrollSize;
+    viewportClass?: string;
     widthClass?: string;
   }>;
 
@@ -30,15 +31,17 @@ const ScrollArea = React.forwardRef<
     scrollbars = 'vertical',
     heightClass = 'h-full',
     widthClass = 'w-full',
+    viewportClass,
   } = props;
 
   return (
     <ScrollAreaPrimitive.Root
-      ref={ref}
       asChild={asChild}
       className={clsx('overflow-hidden', widthClass, heightClass, className)}
       {...props}>
-      <ScrollAreaPrimitive.Viewport className={clsx("size-full", className)}>
+      <ScrollAreaPrimitive.Viewport
+        ref={ref}
+        className={clsx('size-full', viewportClass)}>
         {children}
       </ScrollAreaPrimitive.Viewport>
       <ScrollBar radius={radius} scrollbars={scrollbars} size={size} />
@@ -119,7 +122,7 @@ function ScrollThumb({ className }: { className?: string }) {
         'bg-neutral-300 dark:bg-neutral-500',
         'before:absolute before:left-1/2 before:top-1/2',
         'before:-translate-x-1/2 before:-translate-y-1/2',
-        "before:h-full before:min-h-[44px] before:w-full before:min-w-[44px] before:content-['']",
+        "before:h-full before:w-full before:content-['']",
         className,
       )}
     />

@@ -35,10 +35,6 @@
     "defaultMessage": "Svelte Questions",
     "description": "Svelte questions category long title"
   },
-  "+Eg6gK": {
-    "defaultMessage": "View full questions list",
-    "description": "Link to questions page"
-  },
   "+IgJAp": {
     "defaultMessage": "Seniors to Principals at the world's best companies",
     "description": "Prep resources companies"
@@ -794,6 +790,10 @@
   "3nYNbd": {
     "defaultMessage": "Learn together with like-minded others",
     "description": "Title of 'Learn together' feature in Projects marketing page"
+  },
+  "3tY8mQ": {
+    "defaultMessage": "Verifiable by Google Analytics",
+    "description": "Number of engineers using can be verified by Google Analytics"
   },
   "3v5v1K": {
     "defaultMessage": "Get started in minutes",
@@ -6579,10 +6579,6 @@
     "defaultMessage": "Build an entire library of {trackName} components from scratch. Use it for your portfolio, or as a component toolkit for future projects",
     "description": "Description of Projects component track page"
   },
-  "eGc1/r": {
-    "defaultMessage": "{number} engineers have used GreatFrontEnd",
-    "description": "Number of engineers using"
-  },
   "eGdxs5": {
     "defaultMessage": "{company} Front End Interview Playbook | GreatFrontEnd",
     "description": "Social title for company guides detail"
@@ -8575,10 +8571,6 @@
     "defaultMessage": "Huge question bank",
     "description": "Title for huge question bank feature"
   },
-  "qy+Z5r": {
-    "defaultMessage": "We've had {count} unique active users on our site. Verifiable by Google Analytics.",
-    "description": "Tooltip for number of engineers using"
-  },
   "qzlnBr": {
     "defaultMessage": "Accessibility",
     "description": "Title of study plan"
@@ -9918,6 +9910,10 @@
   "zw0Ov8": {
     "defaultMessage": "Hard",
     "description": "Hard question difficulty"
+  },
+  "zw3lia": {
+    "defaultMessage": "Used by {number} engineers",
+    "description": "Number of engineers using"
   },
   "zyPeie": {
     "defaultMessage": "Email address",
