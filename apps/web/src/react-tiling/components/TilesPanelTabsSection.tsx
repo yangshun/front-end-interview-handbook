@@ -189,7 +189,7 @@ export default function TilesPanelTabsSection<TabType extends string>({
             const { icon, label } = getTabLabel(tabItem.id);
 
             return (
-              <div key={key} className={clsx('flex h-full flex-col')}>
+              <div key={key} className={clsx('flex h-8 flex-col')}>
                 <TilesPanelTab
                   closeable={tabItem.closeable}
                   href={tabItem.href}
