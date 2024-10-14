@@ -1,7 +1,12 @@
 'use client';
 
 import clsx from 'clsx';
-import type { Language } from 'prism-react-renderer';
+import type {
+  Language,
+  Token,
+  TokenInputProps,
+  TokenOutputProps,
+} from 'prism-react-renderer';
 import { Highlight, themes } from 'prism-react-renderer';
 import type { ComponentProps, ReactElement, ReactNode } from 'react';
 import { useState } from 'react';
@@ -23,11 +28,17 @@ const languagesLabel: LanguagesLabels = {
   typescript: 'TypeScript',
 };
 
+type GetTokenProps = (input: TokenInputProps) => TokenOutputProps;
+
 export type Props = ComponentProps<'pre'> &
   Readonly<{
     language?: Language;
     languages?: LanguagesCode;
     renderExtraButtons?: (code: string) => ReactNode;
+    renderLineContents?: (params: {
+      getTokenProps: GetTokenProps;
+      line: Array<Token>;
+    }) => Array<ReactNode>;
     showCopyButton?: boolean;
     showLineNumbers?: boolean;
   }>;
@@ -85,6 +96,7 @@ export default function MDXCodeBlock({
   renderExtraButtons,
   language = 'jsx',
   languages = {},
+  renderLineContents,
 }: Props): JSX.Element {
   const allLanguages: Partial<Record<Language, string>> = {};
 
@@ -168,6 +180,19 @@ export default function MDXCodeBlock({
                   },
                 );
 
+                const lineContents =
+                  renderLineContents != null
+                    ? renderLineContents({ getTokenProps, line })
+                    : line.map((token, tokenKey) => (
+                        <span
+                          {...getTokenProps({
+                            token,
+                          })}
+                          // eslint-disable-next-line react/no-array-index-key
+                          key={tokenKey}
+                        />
+                      ));
+
                 return (
                   <div
                     className={clsx(
@@ -176,18 +201,7 @@ export default function MDXCodeBlock({
                     )}
                     {...lineProps}
                     key={lineKey}>
-                    {line.map((token, index_) => {
-                      const tokenKey = index_;
-
-                      return (
-                        <span
-                          {...getTokenProps({
-                            token,
-                          })}
-                          key={tokenKey}
-                        />
-                      );
-                    })}
+                    {lineContents}
                   </div>
                 );
               })}
