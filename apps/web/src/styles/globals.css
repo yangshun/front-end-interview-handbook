@@ -111,14 +111,14 @@ a {
 
 /* Sync with flipUp first keyframe */
 .flipUp--initial {
-  transform: perspective(1000px) rotateX(30deg);
+  transform: perspective(1000px) rotateX(15deg);
   transform-origin: bottom;
   opacity: 0.5;
 }
 
 @keyframes flipUp {
   from {
-    transform: perspective(1000px) rotateX(30deg);
+    transform: perspective(1000px) rotateX(15deg);
     transform-origin: bottom;
     opacity: 0.5;
   }

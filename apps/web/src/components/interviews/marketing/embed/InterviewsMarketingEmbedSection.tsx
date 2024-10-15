@@ -10,9 +10,8 @@ import gtag from '~/lib/gtag';
 
 import { useQuestionUserFacingFormatData } from '~/data/QuestionFormats';
 
-import { FormattedMessage, useIntl } from '~/components/intl';
+import { useIntl } from '~/components/intl';
 import Container from '~/components/ui/Container';
-import Heading from '~/components/ui/Heading';
 import TabsUnderline from '~/components/ui/Tabs/TabsUnderline';
 
 import InterviewsMarketingEmbedJavaScriptQuestion from './InterviewsMarketingEmbedJavaScriptQuestion';
@@ -85,52 +84,36 @@ export default function InterviewsMarketingEmbedSection({
   const tabs = useTabs();
   const [selectedTab, setSelectedTab] = useState(tabs[0].value);
   const containerRef = useRef(null);
-  const showEmbed = useInView(containerRef, {
+  const isVisible = useInView(containerRef, {
+    amount: 'some',
+    once: true,
+  });
+  const showContents = useInView(containerRef, {
     amount: 0.5,
     once: true,
   });
 
   return (
-    <div ref={containerRef} className="relative pb-24 pt-16 lg:pb-32">
+    <div
+      ref={containerRef}
+      className={clsx(
+        'relative scale-95 pb-24 lg:pb-32',
+        'transition-opacity',
+        'duration-1000',
+        'delay-1000',
+        isVisible ? 'opacity-100' : 'opacity-0',
+      )}>
       <Container
         className={clsx('relative flex flex-col gap-y-8')}
         variant="screen-2xl">
-        <div className="flex flex-col gap-y-4 lg:gap-y-6">
-          <Heading className="mx-auto" level="heading6">
-            <FormattedMessage
-              defaultMessage="Try our questions here"
-              description="Text appearing next to the tabs of the embed on the Hero section of the Homepage. Only appears on very wide screens. Explains to the user that they can try out our interview practice questions directly right here."
-              id="qhHM6u"
-            />
-          </Heading>
-          <div className="flex justify-center">
-            <TabsUnderline
-              display="inline"
-              label={intl.formatMessage({
-                defaultMessage: 'Select question format',
-                description:
-                  'Label for tabs to select sample interview question format',
-                id: '50kzzq',
-              })}
-              tabs={tabs}
-              value={selectedTab}
-              onSelect={(newTab: string) => {
-                gtag.event({
-                  action: `homepage.hero.embed.${newTab}.click`,
-                  category: 'engagement',
-                  label: newTab,
-                });
-                setSelectedTab(newTab);
-              }}
-            />
-          </div>
-        </div>
         <InterviewsMarketingHeroBrowserWindowFrame
           className={clsx(
-            showEmbed ? 'animate__animated animate__flipUp' : 'flipUp--initial',
+            showContents
+              ? 'animate__animated animate__flipUp'
+              : 'flipUp--initial',
           )}>
           <div className="lg:h-[600px]">
-            {showEmbed && (
+            {showContents && (
               <>
                 {selectedTab === 'user-interface' && (
                   <InterviewsMarketingEmbedUIQuestion
@@ -150,6 +133,27 @@ export default function InterviewsMarketingEmbedSection({
             )}
           </div>
         </InterviewsMarketingHeroBrowserWindowFrame>
+        <div className="flex justify-center">
+          <TabsUnderline
+            display="inline"
+            label={intl.formatMessage({
+              defaultMessage: 'Select question format',
+              description:
+                'Label for tabs to select sample interview question format',
+              id: '50kzzq',
+            })}
+            tabs={tabs}
+            value={selectedTab}
+            onSelect={(newTab: string) => {
+              gtag.event({
+                action: `homepage.hero.embed.${newTab}.click`,
+                category: 'engagement',
+                label: newTab,
+              });
+              setSelectedTab(newTab);
+            }}
+          />
+        </div>
       </Container>
     </div>
   );
