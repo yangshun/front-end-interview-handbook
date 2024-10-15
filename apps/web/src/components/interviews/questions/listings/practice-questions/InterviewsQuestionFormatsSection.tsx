@@ -25,6 +25,7 @@ import Badge from '~/components/ui/Badge';
 import Heading from '~/components/ui/Heading';
 import Text from '~/components/ui/Text';
 import {
+  themeBackgroundCardWhiteOnLightColor,
   themeBackgroundLayerEmphasized,
   themeBorderElementColor,
   themeGlassyBorder,
@@ -72,7 +73,7 @@ function InterviewsQuestionFormatCard({
         'group relative flex flex-1 items-center gap-x-8 md:gap-x-6 ',
         'rounded-lg px-6 py-5',
         'transition',
-        'bg-neutral-200/40 dark:bg-neutral-800/40',
+        themeBackgroundCardWhiteOnLightColor,
         ['border', themeBorderElementColor],
         'isolate',
       )}>

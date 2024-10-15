@@ -12,7 +12,11 @@ import GradientProgressBar from '~/components/ui/GradientProgressBar/GradientPro
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 import Text from '~/components/ui/Text';
-import { themeBorderElementColor, themeTextColor } from '~/components/ui/theme';
+import {
+  themeBackgroundCardWhiteOnLightColor,
+  themeBorderElementColor,
+  themeTextColor,
+} from '~/components/ui/theme';
 import Tooltip from '~/components/ui/Tooltip';
 
 import { countNumberOfQuestionsInList } from '~/db/QuestionsUtils';
@@ -69,7 +73,7 @@ export default function InterviewsDashboardContinueLearningSection({
                 className={clsx(
                   'flex items-center justify-between gap-4 p-6',
                   'rounded-lg',
-                  'bg-neutral-200/40 dark:bg-neutral-800/40',
+                  themeBackgroundCardWhiteOnLightColor,
                   ['border', themeBorderElementColor],
                 )}>
                 <div className="flex items-center gap-4">

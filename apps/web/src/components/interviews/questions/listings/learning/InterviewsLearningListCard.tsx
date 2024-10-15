@@ -14,6 +14,7 @@ import Anchor from '~/components/ui/Anchor';
 import Badge from '~/components/ui/Badge';
 import Text from '~/components/ui/Text';
 import {
+  themeBackgroundCardWhiteOnLightColor,
   themeBackgroundLayerEmphasized,
   themeBorderElementColor,
   themeGlassyBorder,
@@ -52,7 +53,7 @@ export default function InterviewsLearningListCard({
         'flex flex-grow items-center gap-2 md:gap-6',
         'rounded-lg',
         'px-6 py-5',
-        'bg-neutral-200/40 dark:bg-neutral-800/40',
+        themeBackgroundCardWhiteOnLightColor,
         ['border', themeBorderElementColor],
       )}>
       <div className="flex flex-1 flex-col gap-6 md:flex-row md:items-center">

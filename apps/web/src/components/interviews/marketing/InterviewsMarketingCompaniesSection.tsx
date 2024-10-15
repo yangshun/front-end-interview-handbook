@@ -1,6 +1,7 @@
 import clsx from 'clsx';
 import type { InterviewsCompanyGuide } from 'contentlayer/generated';
 import { RiArrowRightLine } from 'react-icons/ri';
+import { useMediaQuery } from 'usehooks-ts';
 
 import { InterviewsCompanyGuideCard } from '~/components/interviews/company/InterviewsCompanyGuideCard';
 import { FormattedMessage, useIntl } from '~/components/intl';
@@ -22,6 +23,7 @@ export default function InterviewsMarketingCompaniesSection({
   companyGuides,
 }: Props) {
   const intl = useIntl();
+  const isTablet = useMediaQuery('(min-width: 768px) and (max-width: 1024px)');
 
   return (
     <Container className={clsx('py-20')}>
@@ -57,11 +59,10 @@ export default function InterviewsMarketingCompaniesSection({
             className={clsx(
               'grid w-full gap-x-5 gap-y-4 md:grid-cols-2 lg:grid-cols-3',
             )}>
-            {companyGuides.slice(0, 9).map((companyGuide) => {
+            {companyGuides.slice(0, isTablet ? 8 : 9).map((companyGuide) => {
               return (
                 <InterviewsCompanyGuideCard
                   key={companyGuide.slug}
-                  bgClassName={themeBackgroundCardColor}
                   companyGuide={companyGuide}
                   completionCount={0}
                   isStarted={false}

@@ -20,6 +20,7 @@ import {
   HovercardTrigger,
 } from '~/components/ui/Hovercard/Hovercard';
 import Text from '~/components/ui/Text';
+import Tooltip from '~/components/ui/Tooltip';
 
 import type { InterviewsMarketingTestimonial } from './testimonials/InterviewsMarketingTestimonialCard';
 import { QuestionCountFree } from '../questions/listings/stats/QuestionCount';
@@ -173,18 +174,30 @@ export default function InterviewsMarketingHeroNew({ testimonials }: Props) {
             ))}
           </div>
           <div className="flex flex-col gap-1">
-            <Text
-              className="block"
-              color="subtitle"
-              size="body3"
-              weight="medium">
-              <FormattedMessage
-                defaultMessage="Used by {number} engineers"
-                description="Number of engineers using"
-                id="zw3lia"
-                values={{ number: '500k+' }}
-              />
-            </Text>
+            <Tooltip
+              label={
+                <FormattedMessage
+                  defaultMessage="We've had {number} unique active users on our site. Verifiable by Google Analytics."
+                  description="Tooltip for used by engineers"
+                  id="5kWNqG"
+                  values={{
+                    number: '500k+', // TODO(interviews): Used exact real numbers instead of approx value
+                  }}
+                />
+              }>
+              <Text
+                className="block"
+                color="subtitle"
+                size="body3"
+                weight="medium">
+                <FormattedMessage
+                  defaultMessage="Used by {number} engineers"
+                  description="Number of engineers using"
+                  id="zw3lia"
+                  values={{ number: '500k+' }}
+                />
+              </Text>
+            </Tooltip>
             <Text
               className="flex gap-1.5"
               color="secondary"

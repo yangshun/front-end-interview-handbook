@@ -1039,6 +1039,10 @@
     "defaultMessage": "The smallest list of practice questions that gets you the most mileage in your preparation. Covers the most commonly asked front end interview topics.",
     "description": "Description for GFE75 page"
   },
+  "5kWNqG": {
+    "defaultMessage": "We've had {number} unique active users on our site. Verifiable by Google Analytics.",
+    "description": "Tooltip for used by engineers"
+  },
   "5n/TXe": {
     "defaultMessage": "System design",
     "description": "Front end system design questions"
@@ -8550,10 +8554,6 @@
   "qh0zg0": {
     "defaultMessage": "For your reference, these are the tests used when your code is submitted. They cannot be modified.",
     "description": "Text indicating to users that the below section are test cases that their code will be tested against"
-  },
-  "qhHM6u": {
-    "defaultMessage": "Try our questions here",
-    "description": "Text appearing next to the tabs of the embed on the Hero section of the Homepage. Only appears on very wide screens. Explains to the user that they can try out our interview practice questions directly right here."
   },
   "qjKLfH": {
     "defaultMessage": "Email us at <email>contact@greatfrontend.com</email> or use one of the options below. We usually get back within a day or two.",

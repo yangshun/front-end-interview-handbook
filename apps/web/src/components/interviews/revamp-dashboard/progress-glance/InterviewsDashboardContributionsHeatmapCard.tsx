@@ -6,6 +6,7 @@ import { RiInformationLine } from 'react-icons/ri';
 import { FormattedMessage } from '~/components/intl';
 import Text from '~/components/ui/Text';
 import {
+  themeBackgroundCardWhiteOnLightColor,
   themeBorderElementColor,
   themeTextSubtleColor,
 } from '~/components/ui/theme';
@@ -32,7 +33,7 @@ export default function InterviewsDashboardContributionsHeatMapCard({
         'flex flex-col gap-6',
         'rounded-lg',
         'px-6 py-5',
-        'bg-neutral-200/40 dark:bg-neutral-800/40',
+        themeBackgroundCardWhiteOnLightColor,
         ['border', themeBorderElementColor],
       )}>
       <div className="flex flex-col justify-between gap-4 md:flex-row md:items-center">

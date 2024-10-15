@@ -12,6 +12,7 @@ import ScrollArea from '~/components/ui/ScrollArea';
 import Text from '~/components/ui/Text';
 import {
   themeBackgroundCardColor,
+  themeBackgroundCardWhiteOnLightColor,
   themeGlassyBorder,
   themeGradientHeading,
   themeWhiteGlowCardBackground,
@@ -178,7 +179,7 @@ export default function InterviewsMarketingPrepResourcesByBigTechEngineers() {
                       key={logoItem.name}
                       className={clsx(
                         'rounded-full',
-                        'bg-neutral-200/40 dark:bg-neutral-800/40',
+                        themeBackgroundCardWhiteOnLightColor,
                         'size-20 md:size-16 lg:size-20 shrink-0',
                         'flex items-center justify-center',
                         themeGlassyBorder,

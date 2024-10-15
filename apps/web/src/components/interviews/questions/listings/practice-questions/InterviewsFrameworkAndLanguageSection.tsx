@@ -23,6 +23,7 @@ import Badge from '~/components/ui/Badge';
 import Heading from '~/components/ui/Heading';
 import Text from '~/components/ui/Text';
 import {
+  themeBackgroundCardWhiteOnLightColor,
   themeBackgroundLayerEmphasized,
   themeBorderElementColor,
   themeGlassyBorder,
@@ -54,7 +55,7 @@ function FrameworkCard({
       className={clsx(
         'group relative flex items-center gap-6',
         'rounded-lg px-6 py-5',
-        'bg-neutral-200/40 dark:bg-neutral-800/40',
+        themeBackgroundCardWhiteOnLightColor,
         ['border', themeBorderElementColor],
         'isolate',
       )}>

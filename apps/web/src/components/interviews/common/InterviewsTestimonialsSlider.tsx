@@ -19,6 +19,7 @@ import {
   themeOutlineElementBrandColor_FocusVisible,
   themeWhiteGlowCardBackground,
 } from '~/components/ui/theme';
+import Tooltip from '~/components/ui/Tooltip';
 
 import * as TabsPrimitive from '@radix-ui/react-tabs';
 
@@ -234,27 +235,32 @@ export default function InterviewsTestimonialsSlider({
                   <Heading level="heading5">{label}</Heading>
 
                   {logos && (
-                    <div className="flex">
+                    <div className="isolate flex">
                       {logos.map((logo, index) => (
-                        <div
+                        <Tooltip
                           key={logo.name}
-                          className={clsx(
-                            'flex items-center justify-center',
-                            'size-6 shrink-0',
-                            'rounded-full',
-                            'overflow-hidden',
-                            'bg-neutral-900 dark:bg-white',
-                            'border border-white dark:border-neutral-900',
-                            index !== 0 && '-ml-2',
-                          )}>
-                          <img
-                            alt={logo.name}
-                            className={clsx('size-3')}
-                            decoding="async"
-                            loading="lazy"
-                            src={logo.logoUrl}
-                          />
-                        </div>
+                          asChild={true}
+                          label={logo.name}>
+                          <div
+                            className={clsx(
+                              'flex items-center justify-center',
+                              'size-6 shrink-0',
+                              'rounded-full',
+                              'overflow-hidden',
+                              'bg-neutral-900 dark:bg-white',
+                              'hover:z-[1]',
+                              'border border-white dark:border-neutral-900',
+                              index > 0 && '-ml-2',
+                            )}>
+                            <img
+                              alt={logo.name}
+                              className={clsx('size-3')}
+                              decoding="async"
+                              loading="lazy"
+                              src={logo.logoUrl}
+                            />
+                          </div>
+                        </Tooltip>
                       ))}
                     </div>
                   )}

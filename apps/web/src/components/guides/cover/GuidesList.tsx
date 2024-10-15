@@ -5,6 +5,7 @@ import type { GuideCardMetadata } from '~/components/guides/types';
 import Anchor from '~/components/ui/Anchor';
 import Text from '~/components/ui/Text';
 import {
+  themeBackgroundCardWhiteOnLightColor,
   themeBorderElementColor,
   themeTextBrandColor_GroupHover,
   themeTextSubtleColor,
@@ -41,7 +42,7 @@ export default function GuidesList<Q extends GuideCardMetadata>({
               'flex flex-grow items-center gap-6',
               'rounded-lg',
               'px-6 py-5',
-              'bg-neutral-200/40 dark:bg-neutral-800/40',
+              themeBackgroundCardWhiteOnLightColor,
               ['border', themeBorderElementColor],
             )}>
             <GuidesListItemProgressChip

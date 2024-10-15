@@ -20,6 +20,7 @@ import Section from '~/components/ui/Heading/HeadingContext';
 import Text from '~/components/ui/Text';
 import {
   themeBackgroundCardColor,
+  themeBackgroundCardWhiteOnLightColor,
   themeBorderElementColor,
   themeGlassyBorder,
   themeTextBrandColor_GroupHover,
@@ -66,7 +67,7 @@ function PreparationStrategyCard({ data }: { data: PreparationStrategyItem }) {
         'flex items-center gap-2 md:gap-6',
         'px-6 py-5',
         'rounded-lg',
-        'bg-neutral-200/40 dark:bg-neutral-800/40',
+        themeBackgroundCardWhiteOnLightColor,
         ['border', themeBorderElementColor],
       )}>
       <div className="flex flex-1 flex-col gap-6 md:flex-row md:items-center">

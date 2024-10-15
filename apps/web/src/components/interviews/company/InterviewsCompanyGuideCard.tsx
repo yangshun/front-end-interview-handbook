@@ -21,7 +21,6 @@ import CompletionCountSummary from '../questions/listings/stats/CompletionCountS
 import QuestionCountLabel from '../questions/metadata/QuestionCountLabel';
 
 type Props = Readonly<{
-  bgClassName?: string;
   companyGuide: InterviewsCompanyGuide;
   completionCount?: number;
   isStarted?: boolean;
@@ -32,7 +31,6 @@ export function InterviewsCompanyGuideCard({
   companyGuide,
   isStarted = false,
   completionCount = 0,
-  bgClassName = themeBackgroundCardWhiteOnLightColor,
   showProgressBar = true,
 }: Props) {
   const intl = useIntl();
@@ -61,7 +59,7 @@ export function InterviewsCompanyGuideCard({
         'transition',
         ['border', themeBorderElementColor],
         'isolate',
-        bgClassName,
+        themeBackgroundCardWhiteOnLightColor,
       )}>
       <div className="flex flex-grow items-center gap-4 self-stretch">
         <div

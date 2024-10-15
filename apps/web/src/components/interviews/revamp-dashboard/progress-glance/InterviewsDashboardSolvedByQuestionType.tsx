@@ -9,6 +9,7 @@ import { FormattedMessage, useIntl } from '~/components/intl';
 import ProgressBar from '~/components/ui/ProgressBar';
 import Text from '~/components/ui/Text';
 import {
+  themeBackgroundCardWhiteOnLightColor,
   themeBackgroundLineEmphasizedColor,
   themeBorderElementColor,
   themeGradientPinkPurple,
@@ -80,7 +81,7 @@ export default function InterviewsDashboardSolvedByQuestionType({
         'flex flex-col gap-6',
         'rounded-lg',
         'px-6 py-5',
-        'bg-neutral-200/40 dark:bg-neutral-800/40',
+        themeBackgroundCardWhiteOnLightColor,
         ['border', themeBorderElementColor],
       )}>
       <div className="flex items-center justify-between gap-2">

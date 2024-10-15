@@ -15,6 +15,7 @@ import Heading from '~/components/ui/Heading';
 import ProgressBar from '~/components/ui/ProgressBar';
 import Text from '~/components/ui/Text';
 import {
+  themeBackgroundCardWhiteOnLightColor,
   themeBackgroundLineEmphasizedColor,
   themeBorderElementColor,
   themeTextColor,
@@ -178,7 +179,7 @@ export default function InterviewsDashboardSolvedProblemsCard({
         'flex flex-col gap-6',
         'rounded-lg',
         'px-6 py-5',
-        'bg-neutral-200/40 dark:bg-neutral-800/40',
+        themeBackgroundCardWhiteOnLightColor,
         ['border', themeBorderElementColor],
       )}>
       <Text size="body1" weight="medium">
