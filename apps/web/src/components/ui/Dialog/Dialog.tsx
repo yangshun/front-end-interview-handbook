@@ -67,8 +67,9 @@ export const DialogContent = React.forwardRef<
   const contents = (
     <div
       className={clsx(
-        'flex max-h-full w-full flex-col p-6',
-        scrollable && 'overflow-hidden',
+        'flex flex-col',
+        'max-h-full w-full p-6',
+        'overflow-hidden',
       )}>
       {children}
     </div>
@@ -89,6 +90,7 @@ export const DialogContent = React.forwardRef<
         'data-[state=open]:animate-in data-[state=closed]:animate-out',
         'data-[state=open]:fade-in-0 data-[state=closed]:fade-out-0',
         'data-[state=open]:zoom-in-95 data-[state=closed]:zoom-out-95',
+        'overflow-hidden',
         className,
       )}
       {...props}>
@@ -193,6 +195,7 @@ DialogFooter.displayName = 'DialogFooter';
 
 type Props = Readonly<{
   asChild?: boolean;
+  bottomContents?: React.ReactNode;
   centered?: boolean;
   children: React.ReactNode;
   className?: string;
@@ -211,6 +214,7 @@ type Props = Readonly<{
 
 export default function Dialog({
   asChild = true,
+  bottomContents,
   centered = true,
   className,
   children,
@@ -260,6 +264,16 @@ export default function Dialog({
                   </div>
                   {previousButton}
                 </DialogFooter>
+              )}
+              {bottomContents && (
+                <div
+                  className={clsx(
+                    '-mx-6 -mb-6 mt-6',
+                    'px-6 py-2',
+                    'bg-white dark:bg-neutral-900',
+                  )}>
+                  {bottomContents}
+                </div>
               )}
             </DialogContent>
           </div>

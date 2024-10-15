@@ -4,6 +4,7 @@ import type { DialogWidth } from './Dialog';
 import Dialog from './Dialog';
 import Button from '../Button';
 import UIExamplesGroup from '../misc/UIExamplesGroup';
+import Text from '../Text';
 
 function DialogSizeExample({ width }: Readonly<{ width: DialogWidth }>) {
   const [isShown, setIsShown] = useState(false);
@@ -156,7 +157,46 @@ function DialogNonCenteredExample() {
       title="Modal title"
       trigger={
         <Button
-          label="Non-centered"
+          label="Top-positioned"
+          variant="primary"
+          onClick={() => setIsShown(true)}
+        />
+      }
+      width="screen-md"
+      onClose={() => setIsShown(false)}>
+      <div className="flex flex-col gap-4">
+        One morning, when Gregor Samsa woke from troubled dreams, he found
+        himself transformed in his bed into a horrible vermin. He lay on his
+        armour-like back, and if he lifted his head a little he could see his
+        brown belly, slightly domed and divided by arches into stiff sections.
+      </div>
+    </Dialog>
+  );
+}
+
+function DialogBottomContentsExample() {
+  const [isShown, setIsShown] = useState(false);
+
+  return (
+    <Dialog
+      bottomContents={
+        <Text color="secondary" size="body3">
+          Put any bottom content here but remember to add padding
+        </Text>
+      }
+      isShown={isShown}
+      primaryButton={
+        <Button
+          label="Primary action"
+          size="md"
+          variant="primary"
+          onClick={() => setIsShown(false)}
+        />
+      }
+      title="Modal title"
+      trigger={
+        <Button
+          label="Bottom contents"
           variant="primary"
           onClick={() => setIsShown(true)}
         />
@@ -274,6 +314,7 @@ export default function DialogExamples() {
       <div className="flex gap-x-24">
         <DialogNonCenteredExample />
         <DialogPreviousExample />
+        <DialogBottomContentsExample />
       </div>
     </UIExamplesGroup>
   );
