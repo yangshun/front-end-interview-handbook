@@ -17,6 +17,7 @@ import {
   fetchQuestionsListJavaScript,
   fetchQuestionsListQuiz,
   fetchQuestionsListSystemDesign,
+  fetchQuestionsListUserInterface,
 } from '~/db/QuestionsListReader';
 import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';

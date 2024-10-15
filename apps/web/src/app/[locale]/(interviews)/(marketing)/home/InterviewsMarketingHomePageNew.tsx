@@ -37,8 +37,6 @@ type Props = Readonly<{
 export default function InterviewsMarketingHomePageNew({
   uiCodingQuestion,
   javaScriptEmbedExample,
-  javaScriptQuestions,
-  userInterfaceQuestions,
   questions,
   companyGuides,
   testimonials,

@@ -48,10 +48,12 @@ export default function InterviewsMarketingTestimonialCard({
   name,
   offers,
   title,
-}: InterviewsMarketingTestimonial) {
+  disableSpotlight = false,
+}: InterviewsMarketingTestimonial & Readonly<{ disableSpotlight?: boolean }>) {
   return (
     <Card
       className="rounded-2xl p-4 text-sm leading-6"
+      disableSpotlight={disableSpotlight}
       padding={false}
       pattern={false}>
       <div className={clsx('flex items-center justify-between', 'mb-2')}>

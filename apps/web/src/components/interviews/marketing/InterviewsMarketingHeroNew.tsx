@@ -130,7 +130,10 @@ export default function InterviewsMarketingHeroNew({ testimonials }: Props) {
                 </HovercardTrigger>
                 <HovercardPortal>
                   <HovercardContent className="max-w-md !p-0">
-                    <InterviewsMarketingTestimonialCard {...testimonial} />
+                    <InterviewsMarketingTestimonialCard
+                      disableSpotlight={true}
+                      {...testimonial}
+                    />
                   </HovercardContent>
                 </HovercardPortal>
               </Hovercard>
