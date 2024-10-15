@@ -335,6 +335,10 @@
     "defaultMessage": "Recommended schedule",
     "description": "Recommended schedule tooltip displayed on question cards found on question lists"
   },
+  "0SrfG9": {
+    "defaultMessage": "Run",
+    "description": "Label for run button"
+  },
   "0U+s+4": {
     "defaultMessage": "A user can complete a project multiple times – each instance is tracked as separate sessions.",
     "description": "Tooltip for current project session"
@@ -3271,6 +3275,10 @@
     "defaultMessage": "Behavioral Interview Playbook | Made For Front End Engineers",
     "description": "Page title for behavioral interview playbook cover page"
   },
+  "K3opjL": {
+    "defaultMessage": "Submit",
+    "description": "Label for submit button"
+  },
   "K4JOjo": {
     "defaultMessage": "Deep-dives into real-world applications",
     "description": "Features for frontend system design playbook page"
@@ -4346,6 +4354,10 @@
   "QB8XoS": {
     "defaultMessage": "View",
     "description": "Link to a submission page"
+  },
+  "QENy25": {
+    "defaultMessage": "Fully public and customizable",
+    "description": "Features for test code section of homepage"
   },
   "QHtJPS": {
     "defaultMessage": "Practice end-to-end",
@@ -6882,6 +6894,10 @@
   "fxfae3": {
     "defaultMessage": "If you're stuck, clarify any doubts within the discussion forums in Step 3's. If you need answers urgently for a critical issue, email as at <link>support@greatfrontend.com</link>.",
     "description": "FAQ answer for projects platform"
+  },
+  "fy7XZW": {
+    "defaultMessage": "Detailed test scenarios for UI questions",
+    "description": "Features for test code section of homepage"
   },
   "fzfMZ2": {
     "defaultMessage": "Explore series | Blog",

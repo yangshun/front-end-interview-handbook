@@ -172,3 +172,8 @@ a {
   -moz-user-select: none;
   -webkit-user-select: none;
 }
+
+.code-block__marketing .prism-code {
+  margin: 0;
+  border-radius: unset;
+}
