@@ -183,7 +183,7 @@
     "slugify": "^1.6.5",
     "strip-comments": "^2.0.1",
     "supabase": "^1.115.5",
-    "tailwindcss": "^3.4.1",
+    "tailwindcss": "^3.4.13",
     "ts-jest": "^29.1.1",
     "ts-node": "^10.9.2",
     "tsx": "^4.7.1",
