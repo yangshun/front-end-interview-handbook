@@ -1,8 +1,11 @@
 'use client';
 
 import clsx from 'clsx';
+import { useInView } from 'framer-motion';
+import { useRef } from 'react';
 import { RiArrowRightLine } from 'react-icons/ri';
 
+import FadeInSentence from '~/components/common/FadeInSentence';
 import GoogleAnalyticsLogo from '~/components/icons/GoogleAnalyticsLogo';
 import InterviewsMarketingTestimonialCard from '~/components/interviews/marketing/testimonials/InterviewsMarketingTestimonialCard';
 import { FormattedMessage, useIntl } from '~/components/intl';
@@ -17,7 +20,6 @@ import {
   HovercardTrigger,
 } from '~/components/ui/Hovercard/Hovercard';
 import Text from '~/components/ui/Text';
-import { themeGradientHeading } from '~/components/ui/theme';
 
 import type { InterviewsMarketingTestimonial } from './testimonials/InterviewsMarketingTestimonialCard';
 import { QuestionCountFree } from '../questions/listings/stats/QuestionCount';
@@ -29,24 +31,41 @@ type Props = Readonly<{
   testimonials: ReadonlyArray<InterviewsMarketingTestimonial>;
 }>;
 
+const DELAY_SECOND = 'delay-700';
+const DELAY_THIRD = 'delay-1000';
+
 export default function InterviewsMarketingHeroNew({ testimonials }: Props) {
   const intl = useIntl();
+  const titleRef = useRef(null);
+  const isTitleVisible = useInView(titleRef, {
+    amount: 'some',
+    once: true,
+  });
 
   return (
     <Container className={clsx('px-6 py-20', 'flex flex-col gap-12')}>
-      <div className={clsx('flex flex-col gap-8', 'lg:max-w-[634px]')}>
-        <Heading
-          className={clsx(themeGradientHeading, 'pb-1')}
-          level="heading1"
-          weight="medium">
-          <FormattedMessage
-            defaultMessage="Don't let front end interviews hold you back"
-            description="Homepage title"
-            id="kKZhDV"
+      <div
+        ref={titleRef}
+        className={clsx('flex flex-col gap-8', 'lg:max-w-[634px]')}>
+        {/* Cannot use gradient for heading because it messes with the entrance transitions */}
+        <Heading level="heading1" weight="medium">
+          <FadeInSentence
+            isVisible={isTitleVisible}
+            sentence={intl.formatMessage({
+              defaultMessage: "Don't let front end interviews hold you back",
+              description: 'Homepage title',
+              id: 'kKZhDV',
+            })}
           />
         </Heading>
         <Text
-          className="max-w-[483px] text-base lg:text-xl"
+          className={clsx(
+            'max-w-[483px] text-base lg:text-xl',
+            'transition-opacity',
+            'duration-1000',
+            DELAY_SECOND,
+            isTitleVisible ? 'opacity-100' : 'opacity-0',
+          )}
           color="secondary"
           size="inherit"
           weight="medium">
@@ -85,7 +104,14 @@ export default function InterviewsMarketingHeroNew({ testimonials }: Props) {
         </Text>
       </div>
       <div className="flex flex-col gap-x-16 gap-y-6 md:flex-row">
-        <div className="flex flex-col items-start gap-4">
+        <div
+          className={clsx(
+            'flex flex-col items-start gap-4',
+            'transition-opacity',
+            'duration-1000',
+            DELAY_THIRD,
+            isTitleVisible ? 'opacity-100' : 'opacity-0',
+          )}>
           <Button
             href="/prepare"
             icon={RiArrowRightLine}
@@ -110,7 +136,14 @@ export default function InterviewsMarketingHeroNew({ testimonials }: Props) {
             />
           </Text>
         </div>
-        <div className="flex gap-5 py-0.5">
+        <div
+          className={clsx(
+            'flex gap-5 py-0.5',
+            'transition-opacity',
+            'duration-1000',
+            DELAY_THIRD,
+            isTitleVisible ? 'opacity-100' : 'opacity-0',
+          )}>
           <div className="isolate">
             {testimonials.map((testimonial, index) => (
               <Hovercard key={testimonial.id} closeDelay={100} openDelay={0}>
