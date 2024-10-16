@@ -6920,7 +6920,7 @@
     "description": "Company name for LinkedIn"
   },
   "g9Db2B": {
-    "defaultMessage": "GreatFrontEnd Projects is now in BETA! For a limited time, get {percentage}% off with the promo code {promoCode}. <link>Check it out</link>! 🚀",
+    "defaultMessage": "GreatFrontEnd Projects is now in BETA! Get {percentage}% off with code {promoCode}. <link>Check it out</link>! 🚀",
     "description": "Text on Promo Banner"
   },
   "g9OX0J": {

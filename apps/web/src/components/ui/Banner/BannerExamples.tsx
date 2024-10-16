@@ -31,10 +31,7 @@ export default function BannerExamples() {
           </Banner>
         )}
         {isShown4 && (
-          <Banner
-            endAddOn={<Button label="Action" size="xs" variant="secondary" />}
-            variant="neutral"
-            onHide={() => setIsShown4(false)}>
+          <Banner variant="neutral" onHide={() => setIsShown4(false)}>
             This notice is going to change your life.
           </Banner>
         )}

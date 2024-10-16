@@ -3,26 +3,22 @@
 import clsx from 'clsx';
 import type { ReactNode } from 'react';
 import { useEffect, useState } from 'react';
+import { RiArrowRightLine } from 'react-icons/ri';
 
-import gtag from '~/lib/gtag';
-
-import { FormattedMessage } from '~/components/intl';
+import { FormattedMessage, useIntl } from '~/components/intl';
 import { SOCIAL_DISCOUNT_PERCENTAGE } from '~/components/promotions/social/SocialDiscountConfig';
 import Anchor from '~/components/ui/Anchor';
 import Banner from '~/components/ui/Banner';
+import Button from '~/components/ui/Button';
 import { textVariants } from '~/components/ui/Text';
-import {
-  themeGradientGreenYellow,
-  themeGradientPurple,
-} from '~/components/ui/theme';
 
-import logEvent from '~/logging/logEvent';
 import { useI18nPathname } from '~/next-i18nostic/src';
 
 import { useUserPreferences } from '../UserPreferencesProvider';
 import { useUserProfile } from '../UserProfileProvider';
 
 function MarketingMessage({ rotateMessages }: Props) {
+  const intl = useIntl();
   const { userProfile } = useUserProfile();
   const { pathname } = useI18nPathname();
   const [isShowingSocialMediaMessage, setIsShowingSocialMediaMessage] =
@@ -41,108 +37,91 @@ function MarketingMessage({ rotateMessages }: Props) {
   const isInterviewsPremium = userProfile?.isInterviewsPremium ?? false;
 
   const socialMediaSaleMessage = (
-    <FormattedMessage
-      defaultMessage="Enjoy {discountPercentage}% off all plans by <follow>following us on social media</follow>. Check out other <promotion>promotions</promotion>!"
-      description="Text on Promo Banner appearing almost on all application pages to inform user of a discount"
-      id="47LloU"
-      values={{
-        discountPercentage: SOCIAL_DISCOUNT_PERCENTAGE,
-        follow: (chunks) => (
-          <Anchor
-            className="whitespace-nowrap font-medium"
-            href="/rewards/social"
-            underline={true}
-            variant="flat"
-            onClick={() => {
-              gtag.event({
-                action: `global.banner.rewards.click`,
-                category: 'engagement',
-                label: 'following us on social media',
-              });
-              logEvent('click', {
-                element: 'Promo banner rewards',
-                label: 'following us on social media',
-                namespace: 'general',
-              });
-            }}>
-            {chunks}
-          </Anchor>
-        ),
-        promotion: (chunks) => (
-          <Anchor
-            className="whitespace-nowrap font-medium"
-            href="/promotions"
-            underline={true}
-            variant="flat"
-            onClick={() => {
-              gtag.event({
-                action: `global.banner.promotions.click`,
-                category: 'engagement',
-                label: 'promotions',
-              });
-              logEvent('click', {
-                element: 'Promo banner',
-                label: 'Promotions',
-                namespace: 'general',
-              });
-            }}>
-            {chunks}
-          </Anchor>
-        ),
-      }}
-    />
+    <Anchor href="/rewards/social" target="_blank" variant="flat">
+      <FormattedMessage
+        defaultMessage="Enjoy {discountPercentage}% off all plans by following our social accounts"
+        description="Text on Promo Banner appearing almost on all application pages to inform user of a discount"
+        id="f7fKvu"
+        values={{
+          discountPercentage: SOCIAL_DISCOUNT_PERCENTAGE,
+        }}
+      />
+    </Anchor>
   );
 
   const projectsLaunchMessage = (
-    <FormattedMessage
-      defaultMessage="GreatFrontEnd Projects is now in BETA! For a limited time, get {percentage}% off with the promo code {promoCode}. <link>Check it out</link>! 🚀"
-      description="Text on Promo Banner"
-      id="g9Db2B"
-      values={{
-        link: (chunks) => (
-          <Anchor
-            className="whitespace-nowrap font-medium"
-            href="/projects"
-            locale="en-US"
-            target="_blank"
-            underline={true}
-            variant="flat"
-            onClick={() => {
-              gtag.event({
-                action: `global.banner.hiring.click`,
-                category: 'engagement',
-                label: "We're hiring contributors",
-              });
-              logEvent('click', {
-                element: 'Promo banner',
-                label: "We're hiring contributors",
-                namespace: 'general',
-              });
-            }}>
-            {chunks}
-          </Anchor>
-        ),
-        percentage: 30,
-        promoCode: 'BETA30',
-      }}
+    <Anchor href="/projects" locale="en-US" target="_blank" variant="flat">
+      <FormattedMessage
+        defaultMessage="GreatFrontEnd Projects is now in BETA! Get {percentage}% off with code {promoCode}"
+        description="Text on Promo Banner"
+        id="VR6dnk"
+        values={{
+          percentage: 30,
+          promoCode: 'BETA30',
+        }}
+      />
+    </Anchor>
+  );
+
+  const projectsCheckItOut = (
+    <Button
+      className="!h-[22px] max-md:hidden sm:ml-2"
+      href="/projects"
+      icon={RiArrowRightLine}
+      label={intl.formatMessage({
+        defaultMessage: 'Check it out',
+        description: 'Marketing promotions',
+        id: 'H1kMHf',
+      })}
+      locale="en-US"
+      size="xs"
+      target="_blank"
+      variant="secondary"
     />
   );
 
   if (pathname?.startsWith('/projects') || isInterviewsPremium) {
     return (
-      <BannerShell className={themeGradientGreenYellow.className}>
-        {projectsLaunchMessage}
+      <BannerShell theme="projects">
+        {projectsLaunchMessage} {projectsCheckItOut}
       </BannerShell>
     );
   }
 
+  const otherPromotionsButton = (
+    <Anchor
+      className="max-md:hidden sm:ml-2"
+      href="/promotions"
+      target="_blank"
+      variant="flat">
+      {intl.formatMessage({
+        defaultMessage: 'Other promotions',
+        description: 'Marketing promotions',
+        id: 'coAsEN',
+      })}
+    </Anchor>
+  );
+
   return isShowingSocialMediaMessage ? (
-    <BannerShell className={themeGradientPurple.className}>
+    <BannerShell theme="interviews">
       {socialMediaSaleMessage}
+      <Button
+        className="!h-[22px] max-md:hidden sm:ml-2"
+        href="/rewards/social"
+        icon={RiArrowRightLine}
+        label={intl.formatMessage({
+          defaultMessage: 'Check it out',
+          description: 'Marketing promotions',
+          id: 'H1kMHf',
+        })}
+        size="xs"
+        variant="secondary"
+      />
+      {otherPromotionsButton}
     </BannerShell>
   ) : (
-    <BannerShell className={themeGradientGreenYellow.className}>
-      {projectsLaunchMessage}
+    <BannerShell theme="projects">
+      {projectsLaunchMessage} {projectsCheckItOut}
     </BannerShell>
   );
 }
@@ -152,11 +131,11 @@ type Props = Readonly<{
 }>;
 
 function BannerShell({
-  className,
   children,
+  theme,
 }: Readonly<{
   children: ReactNode;
-  className: string;
+  theme: 'interviews' | 'projects';
 }>) {
   const { isUserProfileLoading } = useUserProfile();
   const { setShowGlobalBanner } = useUserPreferences();
@@ -166,10 +145,10 @@ function BannerShell({
       className={clsx(
         'h-11 lg:h-8', // Sync with sticky.css.
         textVariants({ color: 'light' }),
-        className,
       )}
+      data-theme={theme}
       size="sm"
-      variant="custom"
+      variant="primary"
       onHide={() => {
         setShowGlobalBanner(false);
       }}>
