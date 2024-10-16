@@ -64,6 +64,7 @@ export type Props =
   | (BaseProps &
       Readonly<{
         href: AnchorProps['href'];
+        locale?: AnchorProps['locale'];
         prefetch?: AnchorProps['prefetch'];
         target?: HTMLAttributeAnchorTarget;
         warnAboutExternalLink?: boolean;
@@ -178,7 +179,7 @@ const variantClasses: Record<ButtonVariant, string> = {
   tertiary: clsx(
     'border-transparent',
     themeTextColor,
-    themeBackgroundElementColor,
+    'bg-transparent',
     themeBackgroundElementEmphasizedStateColor_Hover,
     themeBackgroundElementPressedStateColor_Active,
     themeOutlineElementBrandColor_FocusVisible,
