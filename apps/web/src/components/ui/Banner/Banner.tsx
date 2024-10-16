@@ -2,41 +2,40 @@ import clsx from 'clsx';
 import React from 'react';
 import { RiCloseLine } from 'react-icons/ri';
 
+import Button from '~/components/ui/Button';
+
 import Text from '../Text';
 
-type BannerVariant = 'custom' | 'primary' | 'special';
+type BannerVariant = 'custom' | 'neutral' | 'primary';
 
-type Props = Readonly<{
-  children: React.ReactNode;
-  className?: string;
-  onHide?: () => void;
-  size?: 'md' | 'sm' | 'xs';
-  truncate?: boolean;
-  variant?: BannerVariant;
-}>;
+type Props = React.HTMLAttributes<HTMLDivElement> &
+  Readonly<{
+    children: React.ReactNode;
+    className?: string;
+    onHide?: () => void;
+    size?: 'md' | 'sm' | 'xs';
+    truncate?: boolean;
+    variant?: BannerVariant;
+  }>;
 
 const variantClasses: Record<
   BannerVariant,
   Readonly<{
     backgroundColorClass: string;
-    buttonClass: string;
     textColorClass: string;
   }>
 > = {
   custom: {
     backgroundColorClass: '',
-    buttonClass: '',
     textColorClass: '',
+  },
+  neutral: {
+    backgroundColorClass: 'bg-neutral-800',
+    textColorClass: 'text-white',
   },
   primary: {
     backgroundColorClass: 'bg-brand-dark',
-    buttonClass: 'hover:bg-brand',
     textColorClass: 'text-neutral-900',
-  },
-  special: {
-    backgroundColorClass: 'bg-neutral-800',
-    buttonClass: 'hover:bg-neutral-700',
-    textColorClass: 'text-white',
   },
 };
 
@@ -47,9 +46,9 @@ export default function Banner({
   variant = 'primary',
   truncate,
   onHide,
+  ...props
 }: Props) {
-  const { backgroundColorClass, buttonClass, textColorClass } =
-    variantClasses[variant];
+  const { backgroundColorClass, textColorClass } = variantClasses[variant];
 
   return (
     <div
@@ -58,19 +57,16 @@ export default function Banner({
         backgroundColorClass,
         textColorClass,
         className,
-      )}>
-      <div
-        className={clsx(
-          'mx-auto w-full max-w-7xl',
-          'px-4 sm:px-6 lg:px-8',
-          size === 'md' && 'py-3',
-          size === 'sm' && 'py-2',
-          size === 'xs' && 'py-2',
-        )}>
-        <div className="pr-8 sm:px-8 sm:text-center">
+        size === 'md' && 'min-h-11',
+        size === 'sm' && 'min-h-[30px]',
+        size === 'xs' && 'min-h-[30px]',
+      )}
+      {...props}>
+      <div className={clsx('mx-auto w-full', 'px-4 sm:px-6')}>
+        <div className={clsx('flex items-center justify-center gap-4', 'pr-8')}>
           <Text
             className={clsx(
-              'block',
+              'flex gap-4',
               size === 'md' && 'text-xs sm:text-sm md:text-base',
               size === 'sm' && 'text-xs md:text-sm',
               size === 'xs' && 'text-xs',
@@ -87,22 +83,21 @@ export default function Banner({
             className={clsx(
               'absolute inset-y-0 right-0 flex h-full items-center pr-2 sm:pt-0',
             )}>
-            <button
+            <Button
               className={clsx(
-                'flex rounded-md focus:outline-none focus:ring-2 focus:ring-white',
-                variant === 'primary' && 'hover:bg-brand',
-                variant === 'special' && 'hover:bg-neutral-700',
-                buttonClass,
-                textColorClass,
-                size === 'md' && 'p-1',
-                size === 'sm' && 'p-0.5',
-                size === 'xs' && 'p-0.5',
+                'border-transparent',
+                'hover:bg-neutral-700/50',
+                'active:bg-neutral-700/25',
+                // Force black text when primary.
+                variant === 'primary' ? '!text-neutral-900' : undefined,
               )}
-              type="button"
-              onClick={onHide}>
-              <span className="sr-only">Dismiss</span>
-              <RiCloseLine aria-hidden="true" className={clsx('size-5')} />
-            </button>
+              icon={RiCloseLine}
+              isLabelHidden={true}
+              label="Close"
+              size="xs"
+              variant="unstyled"
+              onClick={onHide}
+            />
           </div>
         )}
       </div>

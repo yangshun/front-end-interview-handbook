@@ -1,6 +1,7 @@
 import { useState } from 'react';
 
 import Banner from './Banner';
+import Button from '../Button';
 import UIExamplesGroup from '../misc/UIExamplesGroup';
 
 export default function BannerExamples() {
@@ -13,12 +14,14 @@ export default function BannerExamples() {
     <UIExamplesGroup darkMode="horizontal" title="Banner">
       <div className="space-y-4">
         {isShown && (
-          <Banner onHide={() => setIsShown(false)}>
+          <Banner
+            endAddOn={<Button label="Action" size="xs" variant="secondary" />}
+            onHide={() => setIsShown(false)}>
             This notice is going to change your life.
           </Banner>
         )}
         {isShown2 && (
-          <Banner size="xs" onHide={() => setIsShown2(false)}>
+          <Banner size="sm" onHide={() => setIsShown2(false)}>
             This smaller notice is going to change your life.
           </Banner>
         )}
@@ -28,7 +31,10 @@ export default function BannerExamples() {
           </Banner>
         )}
         {isShown4 && (
-          <Banner variant="special" onHide={() => setIsShown4(false)}>
+          <Banner
+            endAddOn={<Button label="Action" size="xs" variant="secondary" />}
+            variant="neutral"
+            onHide={() => setIsShown4(false)}>
             This notice is going to change your life.
           </Banner>
         )}
