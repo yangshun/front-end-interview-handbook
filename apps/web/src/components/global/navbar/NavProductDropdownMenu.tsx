@@ -1,13 +1,8 @@
 import clsx from 'clsx';
 import React from 'react';
-import {
-  RiArrowDownSLine,
-  RiBriefcaseLine,
-  RiRocketLine,
-} from 'react-icons/ri';
+import { RiArrowDownSLine } from 'react-icons/ri';
 
 import NavProductDropdownMenuContent from '~/components/global/navbar/NavProductDropdownMenuContent';
-import { FormattedMessage } from '~/components/intl';
 import Button from '~/components/ui/Button';
 import { textVariants } from '~/components/ui/Text';
 import {
@@ -31,26 +26,18 @@ export default function NavProductDropdownMenu({ value }: Props) {
   const labels: Record<
     ProductValue,
     Readonly<{
-      icon: (props: React.ComponentProps<'svg'>) => JSX.Element;
       label: string;
     }>
   > = {
     interviews: {
-      icon: RiBriefcaseLine,
       label: 'Interviews',
     },
     projects: {
-      icon: ({ className, ...props }) => (
-        <RiRocketLine
-          className={clsx('-translate-y-0.5 rotate-45', className)}
-          {...props}
-        />
-      ),
       label: 'Projects',
     },
   };
 
-  const { icon: Icon, label } = labels[value];
+  const { label } = labels[value];
   const [showUnseenIndicator] = useProductMenuUnseenIndicator();
 
   return (
@@ -60,13 +47,14 @@ export default function NavProductDropdownMenu({ value }: Props) {
           addonPosition="start"
           className={clsx(
             'border-transparent',
-            'bg-neutral-100 dark:bg-neutral-800',
-            textVariants({ color: 'subtitle' }),
+            textVariants({
+              size: 'body2',
+              weight: 'bold',
+            }),
             themeBackgroundElementEmphasizedStateColor_Hover,
             themeBackgroundElementPressedStateColor_Active,
             themeOutlineElementBrandColor_FocusVisible,
           )}
-          icon={Icon}
           iconSecondary_USE_SPARINGLY={({ className, ...props }) => (
             <RiArrowDownSLine
               className={clsx(className, themeTextSubtleColor)}
@@ -74,13 +62,6 @@ export default function NavProductDropdownMenu({ value }: Props) {
             />
           )}
           label={label}
-          tooltip={
-            <FormattedMessage
-              defaultMessage="View all products"
-              description="Tooltip for view product dropdown menu"
-              id="Ugr9/X"
-            />
-          }
           variant="unstyled">
           <span className="relative">
             {label}

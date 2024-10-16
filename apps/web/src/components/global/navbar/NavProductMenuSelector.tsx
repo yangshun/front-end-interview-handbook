@@ -1,9 +1,8 @@
 import clsx from 'clsx';
 import { RiArrowDownSLine } from 'react-icons/ri';
 
-import InterviewsLogo from '~/components/global/logos/InterviewsLogo';
+import LogoLink from '~/components/global/logos/LogoLink';
 import LogoMark from '~/components/global/logos/LogoMark';
-import ProjectsLogo from '~/components/global/logos/ProjectsLogo';
 import NavProductDropdownMenuContent from '~/components/global/navbar/NavProductDropdownMenuContent';
 import {
   themeBackgroundElementEmphasizedStateColor_Hover,
@@ -53,11 +52,7 @@ export default function NavProductMenuSelector({ variant, value }: Props) {
             )}
             type="button">
             <div className="flex gap-1">
-              {value === 'interviews' ? (
-                <InterviewsLogo height={32} />
-              ) : (
-                <ProjectsLogo height={32} />
-              )}
+              <LogoLink height={17} />
               {showUnseenIndicator && (
                 <span
                   aria-hidden={true}

@@ -5,6 +5,7 @@ import type { CSSProperties } from 'react';
 import { forwardRef, useState } from 'react';
 import { RiMenuFill } from 'react-icons/ri';
 
+import Divider from '~/components/ui/Divider';
 import SlideOut from '~/components/ui/SlideOut';
 import {
   themeBackgroundBrandColor,
@@ -88,8 +89,13 @@ function Navbar(
             'h-[var(--navbar-height)]',
           )}>
           <div className="flex items-center justify-start lg:w-0 lg:grow">
-            <div className="flex items-center gap-4">
+            <div className="flex items-center">
               {logo}
+              <Divider
+                className="ml-4 h-3"
+                color="emphasized"
+                direction="vertical"
+              />
               {productMenu}
             </div>
             <nav className="hidden items-center space-x-4 lg:ml-10 lg:flex lg:w-0 lg:flex-1">

@@ -66,7 +66,7 @@ export default function NavProfileIcon({
             weight="bold">
             {userIdentifierString}
           </Text>
-          <Divider className="-mx-2 my-1" />
+          <Divider className="my-1" />
           <div>
             {navItems.map((navItem) => (
               <DropdownMenu.Item key={navItem.itemKey} {...navItem} />

@@ -139,7 +139,8 @@ export default function InterviewsMarketingHeroNew({ testimonials }: Props) {
         </div>
         <div
           className={clsx(
-            'flex gap-5 py-0.5',
+            'flex gap-5',
+            'py-0.5',
             'transition-opacity',
             'duration-1000',
             DELAY_THIRD,
@@ -173,18 +174,19 @@ export default function InterviewsMarketingHeroNew({ testimonials }: Props) {
               </Hovercard>
             ))}
           </div>
-          <div className="flex flex-col gap-1">
-            <Tooltip
-              label={
-                <FormattedMessage
-                  defaultMessage="We've had {number} unique active users on our site. Verifiable by Google Analytics."
-                  description="Tooltip for used by engineers"
-                  id="5kWNqG"
-                  values={{
-                    number: '500k+', // TODO(interviews): Used exact real numbers instead of approx value
-                  }}
-                />
-              }>
+          <Tooltip
+            asChild={true}
+            label={
+              <FormattedMessage
+                defaultMessage="We've had {number} unique active users on our site. Verifiable by Google Analytics."
+                description="Tooltip for used by engineers"
+                id="5kWNqG"
+                values={{
+                  number: '500k+', // TODO(interviews): Used exact real numbers instead of approx value
+                }}
+              />
+            }>
+            <div className="flex flex-col items-start gap-1">
               <Text
                 className="block"
                 color="subtitle"
@@ -197,23 +199,23 @@ export default function InterviewsMarketingHeroNew({ testimonials }: Props) {
                   values={{ number: '500k+' }}
                 />
               </Text>
-            </Tooltip>
-            <Text
-              className="flex gap-1.5"
-              color="secondary"
-              size="body3"
-              weight="medium">
-              <GoogleAnalyticsLogo
-                aria-hidden={true}
-                className="size-4 shrink-0"
-              />
-              <FormattedMessage
-                defaultMessage="Verifiable by Google Analytics"
-                description="Number of engineers using can be verified by Google Analytics"
-                id="3tY8mQ"
-              />
-            </Text>
-          </div>
+              <Text
+                className="flex gap-1.5"
+                color="secondary"
+                size="body3"
+                weight="medium">
+                <GoogleAnalyticsLogo
+                  aria-hidden={true}
+                  className="size-4 shrink-0"
+                />
+                <FormattedMessage
+                  defaultMessage="Verifiable by Google Analytics"
+                  description="Number of engineers using can be verified by Google Analytics"
+                  id="3tY8mQ"
+                />
+              </Text>
+            </div>
+          </Tooltip>
         </div>
       </div>
     </Container>

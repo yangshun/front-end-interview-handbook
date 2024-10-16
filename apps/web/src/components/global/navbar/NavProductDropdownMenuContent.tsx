@@ -3,10 +3,9 @@ import { PiPathBold } from 'react-icons/pi';
 import { RiAwardLine, RiBriefcaseLine } from 'react-icons/ri';
 
 import useCommonNavItems from '~/components/common/navigation/useCommonNavItems';
-import InterviewsLogo from '~/components/global/logos/InterviewsLogo';
-import ProjectsLogo from '~/components/global/logos/ProjectsLogo';
 import Anchor from '~/components/ui/Anchor';
 import Badge from '~/components/ui/Badge';
+import Divider from '~/components/ui/Divider';
 import Text, { textVariants } from '~/components/ui/Text';
 import {
   themeBackgroundElementColor,
@@ -14,8 +13,10 @@ import {
   themeBackgroundElementEmphasizedStateColor_Focus,
   themeBackgroundElementEmphasizedStateColor_Hover,
   themeBorderElementColor,
+  themeTextSubtleColor,
 } from '~/components/ui/theme';
 
+import LogoComboMark from '../logos/LogoComboMark';
 import { useProductMenuUnseenIndicator } from '../product-theme/useProductMenuUnseenIndicator';
 
 import * as DropdownMenuPrimitive from '@radix-ui/react-dropdown-menu';
@@ -25,59 +26,61 @@ type ProductValue = 'interviews' | 'projects';
 function NavProductDropdownMenuItem({
   beta = false,
   href,
-  theme,
-  logo: Logo,
   label,
+  product,
   showNewIndicator,
-  subtitle,
 }: Readonly<{
   beta?: boolean;
   href: string;
   label: string;
-  logo: (props: Readonly<{ height?: number }>) => JSX.Element;
+  product: string;
   showNewIndicator: boolean;
-  subtitle: string;
-  theme: 'interviews' | 'projects';
 }>) {
   return (
     <DropdownMenuPrimitive.Item
       asChild={true}
       className={clsx(
-        'relative flex flex-col gap-3 rounded p-4',
+        'relative flex flex-col gap-3',
+        'rounded',
+        'px-3 py-2',
         'select-none outline-none',
         themeBackgroundElementEmphasizedStateColor_Hover,
         themeBackgroundElementEmphasizedStateColor_Focus,
       )}>
       <Anchor
-        aria-label={label}
-        data-theme={theme}
+        aria-label={product}
         href={href}
         locale="en-US"
         prefetch={null}
         variant="unstyled">
-        <div className="flex justify-between">
-          <div className="relative">
-            <Logo height={32} />
+        <div className="flex h-5 items-center justify-between">
+          <div className="relative flex items-center gap-2.5">
+            <LogoComboMark height={17} />
+            <Divider
+              className="h-3.5"
+              color="emphasized"
+              direction="vertical"
+            />
+            <Text className="text-[13px]" size="inherit" weight="bold">
+              {label}
+            </Text>
             {showNewIndicator && (
               <span
                 aria-hidden={true}
                 className={clsx(
-                  'size-1.5 inline-block',
+                  'size-1 inline-block',
                   'bg-red rounded-full',
-                  'absolute -right-1.5 -top-0.5',
+                  'absolute -right-1.5 top-1',
                 )}
               />
             )}
           </div>
           {beta && (
-            <span>
-              <Badge label="Beta" size="sm" variant="primary" />
+            <span className="flex">
+              <Badge label="Beta" size="xs" variant="primary" />
             </span>
           )}
         </div>
-        <Text color="secondary" size="body2">
-          {subtitle}
-        </Text>
       </Anchor>
     </DropdownMenuPrimitive.Item>
   );
@@ -105,89 +108,79 @@ export default function NavProductDropdownMenuContent({ product }: Props) {
         'z-dropdown',
       )}
       sideOffset={8}>
-      <div className={clsx('flex flex-col gap-2', 'p-4')}>
-        <NavProductDropdownMenuItem
-          href="/"
-          label="GreatFrontEnd Interviews"
-          logo={InterviewsLogo}
-          showNewIndicator={false}
-          subtitle="Learn and train for your front end interviews"
-          theme="interviews"
-        />
-        <NavProductDropdownMenuItem
-          beta={true}
-          href="/projects"
-          label="GreatFrontEnd Projects"
-          logo={ProjectsLogo}
-          showNewIndicator={showUnseenIndicator}
-          subtitle="Build real-world projects to learn skills or for portfolio"
-          theme="projects"
-        />
+      <div className={clsx('flex flex-col gap-3', 'px-5 pb-3 pt-4')}>
+        <Text color="secondary" size="body3">
+          Products
+        </Text>
+        <div className={clsx('flex flex-col gap-1.5')}>
+          <NavProductDropdownMenuItem
+            href="/"
+            label="Interviews"
+            product="GreatFrontEnd Interviews"
+            showNewIndicator={false}
+          />
+          <NavProductDropdownMenuItem
+            beta={true}
+            href="/projects"
+            label="Projects"
+            product="GreatFrontEnd Projects"
+            showNewIndicator={showUnseenIndicator}
+          />
+        </div>
       </div>
       <div
         className={clsx(
-          'flex flex-col gap-1',
-          'px-4 py-2',
+          'flex flex-col gap-2',
+          'px-5 py-4',
           themeBackgroundElementEmphasizedStateColor,
         )}>
-        <Anchor
-          className={clsx(
-            'inline-flex items-center gap-2 p-3',
-            textVariants({
-              color: 'inherit',
-              size: 'body2',
-              weight: 'medium',
-            }),
-          )}
-          href={items.blog.href}
-          variant="secondary">
-          {items.blog.icon != null && (
-            <items.blog.icon aria-hidden={true} className="size-4 shrink-0" />
-          )}
-          {items.blog.label}
-        </Anchor>
-        <Anchor
-          className={clsx(
-            'inline-flex items-center gap-2 p-3',
-            textVariants({
-              color: 'inherit',
-              size: 'body2',
-              weight: 'medium',
-            }),
-          )}
-          href="/affiliates"
-          variant="secondary">
-          <RiAwardLine className="size-4 shrink-0" />
-          Become an affiliate
-        </Anchor>
-        <Anchor
-          className={clsx(
-            'inline-flex items-center gap-2 p-3',
-            textVariants({
-              color: 'inherit',
-              size: 'body2',
-              weight: 'medium',
-            }),
-          )}
-          href={roadmapLinks[product]}
-          variant="secondary">
-          <PiPathBold className="size-4 shrink-0" />
-          Roadmap
-        </Anchor>
-        <Anchor
-          className={clsx(
-            'inline-flex items-center gap-2 p-3',
-            textVariants({
-              color: 'inherit',
-              size: 'body2',
-              weight: 'medium',
-            }),
-          )}
-          href="/jobs"
-          variant="secondary">
-          <RiBriefcaseLine className="size-4 shrink-0" />
-          We're hiring
-        </Anchor>
+        <Text color="secondary" size="body3">
+          Others
+        </Text>
+        <div className={clsx('flex flex-col gap-0.5')}>
+          {[
+            {
+              href: items.blog.href,
+              icon: items.blog.icon,
+              label: items.blog.label,
+            },
+            {
+              href: '/affiliates',
+              icon: RiAwardLine,
+              label: 'Become an affiliate',
+            },
+            {
+              href: roadmapLinks[product],
+              icon: PiPathBold,
+              label: 'Roadmap',
+            },
+            {
+              href: '/jobs',
+              icon: RiBriefcaseLine,
+              label: "We're hiring",
+            },
+          ].map(({ label, href, icon: Icon }) => (
+            <Anchor
+              key={href}
+              className={clsx(
+                'inline-flex items-center gap-2 py-2',
+                textVariants({
+                  color: 'inherit',
+                  size: 'body2',
+                }),
+              )}
+              href={href}
+              variant="flat">
+              {Icon && (
+                <Icon
+                  aria-hidden={true}
+                  className={clsx('size-4 shrink-0', themeTextSubtleColor)}
+                />
+              )}
+              {label}
+            </Anchor>
+          ))}
+        </div>
       </div>
     </DropdownMenuPrimitive.Content>
   );

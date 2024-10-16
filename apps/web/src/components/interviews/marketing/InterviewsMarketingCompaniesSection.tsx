@@ -10,10 +10,7 @@ import Container from '~/components/ui/Container';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 import Text from '~/components/ui/Text';
-import {
-  themeBackgroundCardColor,
-  themeGradientHeading,
-} from '~/components/ui/theme';
+import { themeGradientHeading } from '~/components/ui/theme';
 
 type Props = Readonly<{
   companyGuides: ReadonlyArray<InterviewsCompanyGuide>;

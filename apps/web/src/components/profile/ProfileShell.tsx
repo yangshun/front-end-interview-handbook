@@ -12,21 +12,18 @@ import {
 
 import { trpc } from '~/hooks/trpc';
 
-import { hasProjectsBetaAccess } from '~/data/PromotionConfig';
 import { SocialLinks } from '~/data/SocialLinks';
 
 import { FormattedMessage, useIntl } from '~/components/intl';
 import Anchor from '~/components/ui/Anchor';
 import Avatar from '~/components/ui/Avatar';
+import Badge from '~/components/ui/Badge';
 import Button from '~/components/ui/Button';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 import Tabs from '~/components/ui/Tabs';
 import Text from '~/components/ui/Text';
 import { themeBorderColor } from '~/components/ui/theme';
-
-import ComingSoonTicket from '../promotions/new-product/ComingSoonTicket';
-import Badge from '../ui/Badge';
 
 import type { User } from '@supabase/auth-helpers-nextjs';
 
@@ -186,14 +183,6 @@ export default function ProfileShell({ user, children }: Props) {
                                 variant="primary"
                               />
                             )}
-                          </div>
-                          <div className="hidden lg:block">
-                            {profileDataQuery.data?.premium &&
-                              hasProjectsBetaAccess(
-                                new Date(
-                                  profileDataQuery.data?.createdAt,
-                                ).getTime(),
-                              ) && <ComingSoonTicket width={240} />}
                           </div>
                           <div className="flex items-center gap-x-2">
                             <RiMailLine
