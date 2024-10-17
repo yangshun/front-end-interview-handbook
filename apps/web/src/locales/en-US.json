@@ -835,10 +835,6 @@
     "defaultMessage": "Billing",
     "description": "Link label to the billing page"
   },
-  "47LloU": {
-    "defaultMessage": "Enjoy {discountPercentage}% off all plans by <follow>following us on social media</follow>. Check out other <promotion>promotions</promotion>!",
-    "description": "Text on Promo Banner appearing almost on all application pages to inform user of a discount"
-  },
   "47jdAi": {
     "defaultMessage": "{count, plural, one {1 credit} other {# credits}}",
     "description": "Number of credits"
@@ -2810,6 +2806,10 @@
   "H1aK4/": {
     "defaultMessage": "Style guide",
     "description": "Project assets category label"
+  },
+  "H1kMHf": {
+    "defaultMessage": "Check it out",
+    "description": "Marketing promotions"
   },
   "H2F0aE": {
     "defaultMessage": "Rep will be awarded for using skills in a project. Realistically, we expect up to 8 skills being used in a large project.",
@@ -5211,6 +5211,10 @@
     "defaultMessage": "Coding",
     "description": "Coding questions short title"
   },
+  "VR6dnk": {
+    "defaultMessage": "GreatFrontEnd Projects is now in BETA! Get {percentage}% off with code {promoCode}",
+    "description": "Text on Promo Banner"
+  },
   "VRv5cU": {
     "defaultMessage": "You have an unused promo code",
     "description": "Rewards discount message"
@@ -6371,6 +6375,10 @@
     "defaultMessage": "Get Started",
     "description": "Title of get started page"
   },
+  "coAsEN": {
+    "defaultMessage": "Other promotions",
+    "description": "Marketing promotions"
+  },
   "cotxax": {
     "defaultMessage": "Component track",
     "description": "Label for Component Track filter for submissions list"
@@ -6719,6 +6727,10 @@
     "defaultMessage": "Purchase premium to get access to premium challenges, production-ready Figma design files, official guides, solutions, and exclusive component tracks and skill plans.",
     "description": "Subtitle for a premium project paywall"
   },
+  "f7fKvu": {
+    "defaultMessage": "Enjoy {discountPercentage}% off all plans by following our social accounts",
+    "description": "Text on Promo Banner appearing almost on all application pages to inform user of a discount"
+  },
   "f8ishg": {
     "defaultMessage": "Showing {startCount} to {endCount} out of {totalCount} submissions",
     "description": "Pagination label"
@@ -6918,10 +6930,6 @@
   "g3PJQr": {
     "defaultMessage": "LinkedIn",
     "description": "Company name for LinkedIn"
-  },
-  "g9Db2B": {
-    "defaultMessage": "GreatFrontEnd Projects is now in BETA! Get {percentage}% off with code {promoCode}. <link>Check it out</link>! 🚀",
-    "description": "Text on Promo Banner"
   },
   "g9OX0J": {
     "defaultMessage": "{replyCount, plural, one {Show # reply} other {Show # replies}}",

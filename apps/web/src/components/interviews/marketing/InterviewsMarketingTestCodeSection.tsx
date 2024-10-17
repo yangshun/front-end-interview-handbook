@@ -15,6 +15,7 @@ import Section from '~/components/ui/Heading/HeadingContext';
 import Text from '~/components/ui/Text';
 import {
   themeBackgroundColor,
+  themeBackgroundInvertColor,
   themeDivideColor,
   themeGlassyBorder,
   themeGradientHeading,
@@ -80,6 +81,7 @@ function TestCaseAnimation({
   >([]);
   const [showTestCaseLines, setShowTestCaseLines] = useState(false);
   const cursorControls = useAnimation();
+  const rippleControls = useAnimation();
 
   // Show test cases lines by pushing test cases to the visibleTestCases array
   useEffect(() => {
@@ -93,7 +95,7 @@ function TestCaseAnimation({
   }, [showTestCaseLines, visibleTestCases.length]);
 
   useEffect(() => {
-    function runAnimation() {
+    async function runAnimation() {
       if (buttonRef.current && codeBlockRef.current) {
         const containerRect = codeBlockRef.current.getBoundingClientRect();
         const buttonRect = buttonRef.current.getBoundingClientRect();
@@ -103,17 +105,29 @@ function TestCaseAnimation({
         const centerY =
           buttonRect.top - containerRect.top + buttonRect.height / 2;
 
+        // Show cursor
+        cursorControls.start({
+          opacity: 1,
+          transition: { duration: 0 },
+        });
         // Move cursor to button
-        cursorControls
-          .start({
-            left: centerX,
-            top: centerY,
-            transition: { duration: 1 },
-          })
-          .then(() => {
-            // Start the showing the test cases
-            setShowTestCaseLines(true);
-          });
+        await cursorControls.start({
+          left: centerX,
+          top: centerY,
+          transition: { duration: 1 },
+        });
+        // Show ripple effect around the cursor
+        await rippleControls.start({
+          scale: 1,
+          transition: { duration: 0.5 },
+        });
+        // Hide the cursor after the ripple effect
+        cursorControls.start({
+          opacity: 0,
+          transition: { duration: 0.1 },
+        });
+        // Start the showing the test cases
+        setShowTestCaseLines(true);
       }
     }
 
@@ -175,10 +189,21 @@ function TestCaseAnimation({
       </div>
       <motion.div
         animate={cursorControls}
-        className="absolute cursor-none"
-        initial={{ bottom: '-50%', left: '30%' }}
+        className="size-8 absolute cursor-none"
+        initial={{ left: 60, opacity: 0, top: 260 }}
         style={{ pointerEvents: 'none' }}>
         <RiCursorLine className={clsx('size-5 shrink-0', themeTextColor)} />
+        <motion.div
+          animate={rippleControls}
+          className={clsx(
+            'absolute -left-2 -top-3',
+            'rounded-full',
+            themeBackgroundInvertColor,
+            'opacity-40',
+            'size-8',
+          )}
+          initial={{ scale: 0 }}
+        />
       </motion.div>
     </>
   );
