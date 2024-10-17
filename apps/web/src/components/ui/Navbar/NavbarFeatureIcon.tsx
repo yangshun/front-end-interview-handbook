@@ -1,11 +1,8 @@
 import clsx from 'clsx';
 
-import {
-  themeBorderBrandColor_GroupHover,
-  themeBorderEmphasizeColor,
-  themeTextBrandColor_GroupHover,
-  themeTextSecondaryColor,
-} from '../theme';
+import { themeGlassyBorder } from '~/components/ui/theme';
+
+import { themeTextSecondaryColor } from '../theme';
 
 type Props =
   | Readonly<{
@@ -19,17 +16,16 @@ export default function NavbarFeatureIcon(props: Props) {
   return (
     <div
       className={clsx(
-        'rounded-full p-3',
+        'inline-flex shrink-0 items-center justify-center',
+        'size-8',
+        'rounded-md',
         'icon' in props ? 'dark:bg-neutral-800/70' : 'bg-white',
         'transition-colors',
-        ['border', themeBorderEmphasizeColor, themeBorderBrandColor_GroupHover],
+        themeGlassyBorder,
         themeTextSecondaryColor,
       )}>
       {'icon' in props ? (
-        <props.icon
-          aria-hidden="true"
-          className={clsx('size-6 shrink-0', themeTextBrandColor_GroupHover)}
-        />
+        <props.icon aria-hidden="true" className={clsx('size-4 shrink-0')} />
       ) : (
         <img
           alt=""

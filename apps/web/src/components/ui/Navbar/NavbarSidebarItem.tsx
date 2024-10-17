@@ -2,6 +2,9 @@ import clsx from 'clsx';
 import { useState } from 'react';
 import { RiArrowDownSLine, RiArrowUpSLine } from 'react-icons/ri';
 
+import Anchor from '~/components/ui/Anchor';
+import Divider from '~/components/ui/Divider';
+import Text, { textVariants } from '~/components/ui/Text';
 import {
   themeBackgroundLayerEmphasized_Hover,
   themeGlassyBorder,
@@ -15,10 +18,6 @@ import type {
   NavPopoverItem,
   NavPopoverTabsItem,
 } from './NavTypes';
-import Anchor from '../Anchor';
-import Button from '../Button';
-import Divider from '../Divider';
-import Text, { textVariants } from '../Text';
 
 type Item = NavPopoverChildItem | NavPopoverItem | NavPopoverTabsItem;
 
@@ -106,20 +105,6 @@ function NavbarAccordionSubsection({
           </li>
         ))}
       </ul>
-      {props.type === 'popover-list' && props.supplementaryItem && (
-        <Button
-          addonPosition="start"
-          className="self-end"
-          href={props.supplementaryItem.href}
-          icon={props.supplementaryItem.icon}
-          label={props.supplementaryItem.label}
-          variant="secondary"
-          onClick={(event) => {
-            props?.supplementaryItem?.onClick?.(event);
-            onClick?.(event);
-          }}
-        />
-      )}
     </div>
   );
 }

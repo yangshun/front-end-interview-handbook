@@ -29,51 +29,51 @@ export function useGuidesData() {
     'behavioral-interview-guidebook': {
       description: intl.formatMessage({
         defaultMessage:
-          'Efficient strategies to prepare and ace behavioral interviews.',
+          'The only behavioral interview guide written specifically for front end engineers.',
         description: 'Behavioral interview guidebook description',
-        id: 'drvlbZ',
+        id: 'MV8xp3',
       }),
       href: behavioralInterviewGuidebookBasePath,
       icon: RiQuestionAnswerLine,
       key: 'big',
       name: intl.formatMessage({
-        defaultMessage: 'Behavioral Interview Guidebook',
-        description: 'Title for behavioral interview guidebook',
-        id: '6fAxyB',
+        defaultMessage: 'Behavioral Interview Playbook',
+        description: 'Title for behavioral interview playbook',
+        id: 'Y072iD',
       }),
       shortName: intl.formatMessage({
         defaultMessage: 'Behavioral Interview',
-        description: 'Short title for behavioral interview guidebook',
-        id: 'DP3Y2U',
+        description: 'Short title for behavioral interview playbook',
+        id: 'xBNYLl',
       }),
     },
     'front-end-interview-guidebook': {
       description: intl.formatMessage({
         defaultMessage:
-          'The definitive guide to front end / web developer interviews.',
+          'The definitive guide to preparing for Front End Interviews, written by the author of Front End Interview Handbook.',
         description: 'Front end interview guidebook description',
-        id: 'ee862n',
+        id: 'XtKx03',
       }),
       href: frontEndInterviewGuidebookBasePath,
       icon: RiBookOpenLine,
       key: 'feig',
       name: intl.formatMessage({
-        defaultMessage: 'Front End Interview Guidebook',
-        description: 'Front End Interview Guidebook title',
-        id: 'w0Gmne',
+        defaultMessage: 'Front End Interview Playbook',
+        description: 'Front End Interview Playbook title',
+        id: 'd1mCvP',
       }),
       shortName: intl.formatMessage({
         defaultMessage: 'Front End Interview',
-        description: 'Short title for Front End Interview Guidebook',
-        id: '9wRhlQ',
+        description: 'Short title for Front End Interview Playbook',
+        id: '5DLanP',
       }),
     },
     'front-end-system-design-guidebook': {
       description: intl.formatMessage({
         defaultMessage:
-          'Guide to preparing for Front End-focused System Design questions in front end / web developer interviews',
+          'The most comprehensive guide to Front End System Design Interviews you can find.',
         description: 'Front end system design guidebook description',
-        id: 'bWymcE',
+        id: 'jm+fR2',
       }),
       href: '/system-design',
       icon: RiFlowChart,

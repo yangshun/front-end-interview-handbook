@@ -13,7 +13,6 @@ export default function useInterviewsSidebarLinks(
       ...navItems.practice,
       align: 'center',
     },
-    navItems.guides,
     navItems.features,
     !isPremium ? navItems.pricing : null,
   ];

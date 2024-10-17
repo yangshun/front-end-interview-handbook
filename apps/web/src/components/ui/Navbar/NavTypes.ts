@@ -51,18 +51,12 @@ export type NavPopoverTabsItem = Readonly<
 >;
 
 export type NavPopoverChildItem = NavPopoverGroupItem | NavPopoverLinkItem;
-export type NavPopoverSupplementaryItem = Readonly<
-  NavLinkItem &
-    Readonly<{
-      icon: (props: React.ComponentProps<'svg'>) => JSX.Element;
-    }>
->;
+
 export type NavPopoverGroupItem = Readonly<
   NavBaseItem &
     Readonly<{
       alignment?: 'center' | 'top';
       items: ReadonlyArray<NavPopoverLinkItem>;
-      supplementaryItem?: NavPopoverSupplementaryItem;
       type: 'popover-list';
     }>
 >;
@@ -70,6 +64,7 @@ export type NavPopoverGroupItem = Readonly<
 export type NavPopoverLinkItem = Readonly<
   NavBaseItem &
     Readonly<{
+      bottomEl?: React.ReactNode;
       href?: string;
       labelAddon?: React.ReactNode;
       sublabel?: string;

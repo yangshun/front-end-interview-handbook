@@ -1,22 +1,23 @@
 import clsx from 'clsx';
 import { useEffect, useState } from 'react';
+import { RiArrowRightLine } from 'react-icons/ri';
 import { useMediaQuery } from 'usehooks-ts';
 
 import Anchor from '~/components/ui/Anchor';
 import {
-  themeBackgroundCardAltColor,
   themeBackgroundColor,
-  themeBackgroundElementEmphasizedStateColor,
   themeBackgroundElementEmphasizedStateColor_Hover,
   themeBorderEmphasizeColor,
+  themeBorderEmphasizeColor_Hover,
   themeOutlineElement_FocusVisible,
   themeOutlineElementBrandColor_FocusVisible,
+  themeTextSubtleColor,
 } from '~/components/ui/theme';
 
 import NavbarFeatureIcon from './NavbarFeatureIcon';
 import type { NavPopoverGroupItem, NavPopoverLinkItem } from './NavTypes';
-import Button from '../Button';
 import Text, { textVariants } from '../Text';
+import { themeTextColor_Hover } from '../theme';
 
 import * as TabsPrimitive from '@radix-ui/react-tabs';
 
@@ -26,37 +27,39 @@ function NavbarPopoverLink({
   onClick,
   sublabel,
   labelAddon,
+  bottomEl,
   ...props
 }: NavPopoverLinkItem) {
-  const el =
-    sublabel != null ? (
-      <div className="group flex items-start gap-4 xl:flex-col">
-        <NavbarFeatureIcon {...props} />
-        <div className="flex flex-col gap-y-0.5 xl:gap-y-1">
-          <Text
-            className="flex items-center gap-2"
-            size="body1"
-            weight="medium">
-            <span className="shrink-0">{label}</span> {labelAddon}
-          </Text>
-          {sublabel && (
-            <Text className="block" color="secondary" size="body2">
-              {sublabel}
-            </Text>
-          )}
-        </div>
-      </div>
-    ) : (
-      <div className="group flex items-center gap-x-4">
-        <NavbarFeatureIcon {...props} />
-        <Text
-          className="flex flex-wrap items-center gap-2"
-          size="body2"
-          weight="medium">
-          <span>{label}</span> {labelAddon}
+  const el = (
+    <div
+      className={clsx(
+        'w-full',
+        'group',
+        'p-3',
+        'flex items-center gap-4',
+        'rounded-md',
+        'transition-colors',
+        themeBackgroundElementEmphasizedStateColor_Hover,
+        ['border border-transparent', themeBorderEmphasizeColor_Hover],
+      )}>
+      <NavbarFeatureIcon {...props} />
+      <div className={clsx('flex grow flex-col justify-center')}>
+        <Text className="flex items-center gap-2" size="body2" weight="bold">
+          <span className="shrink-0">{label}</span> {labelAddon}
         </Text>
+        {sublabel && (
+          <Text className="mt-1 block" color="secondary" size="body3">
+            {sublabel}
+          </Text>
+        )}
+        {bottomEl && <div className="mt-2">{bottomEl}</div>}
       </div>
-    );
+      <RiArrowRightLine
+        aria-hidden={true}
+        className={clsx('size-5 shrink-0', themeTextSubtleColor)}
+      />
+    </div>
+  );
 
   const className = clsx(
     'group flex grow',
@@ -102,8 +105,9 @@ export default function NavbarPopoverTabs({
   return (
     <div
       className={clsx(
-        'flex',
+        'flex gap-4',
         'overflow-hidden',
+        'p-4',
         'rounded-lg',
         'shadow-lg dark:shadow-none',
         ['border', themeBorderEmphasizeColor],
@@ -115,24 +119,21 @@ export default function NavbarPopoverTabs({
         value={value}
         onValueChange={setValue}>
         <TabsPrimitive.List
-          className={clsx(
-            'flex w-64 shrink-0 flex-col gap-y-2 p-4',
-            themeBackgroundCardAltColor,
-          )}>
+          className={clsx('w-64', 'flex shrink-0 flex-col gap-y-2')}>
           {items.map(({ itemKey, label }) => (
             <TabsPrimitive.Trigger
               key={itemKey}
               className={clsx(
-                'block w-full rounded-md p-3',
+                'block w-full',
+                'rounded-md',
+                'px-3 py-2',
                 'text-left text-sm font-medium',
                 'outline-none',
-                themeBackgroundElementEmphasizedStateColor_Hover,
                 themeOutlineElement_FocusVisible,
-                themeOutlineElementBrandColor_FocusVisible,
-                value === itemKey && themeBackgroundElementEmphasizedStateColor,
+                themeTextColor_Hover,
                 'text-pretty',
                 textVariants({
-                  color: value === itemKey ? 'active' : 'default',
+                  color: value === itemKey ? 'default' : 'secondary',
                   size: 'body2',
                   weight: 'medium',
                 }),
@@ -151,60 +152,20 @@ export default function NavbarPopoverTabs({
               key={item.itemKey}
               className={clsx(
                 'outline-none',
-                value === item.itemKey &&
-                  'size-full flex flex-col justify-between',
+                value === item.itemKey && 'size-full flex flex-col gap-y-2',
               )}
               value={item.itemKey}>
-              <div
-                className={clsx(
-                  'relative',
-                  'p-6 xl:px-8 xl:py-10',
-                  'grid grow gap-x-6 gap-y-6',
-                  item.items.length > 3 &&
-                    item.items.length <= 8 &&
-                    'grid-cols-2',
-                  item.items.length > 8 && 'grid-cols-3',
-                  (item.items.length === 2 || item.items.length === 4) &&
-                    'xl:grid-cols-2',
-                  (item.items.length === 3 || item.items.length > 4) &&
-                    'xl:grid-cols-3',
-                )}>
-                {item.items.map((childItem) => (
-                  <div
-                    key={childItem.itemKey}
-                    className={clsx(
-                      'flex h-full grow',
-                      item.alignment === 'center' && 'items-center',
-                    )}>
-                    <NavbarPopoverLink
-                      {...childItem}
-                      onClick={(event) => {
-                        // To close the popover.
-                        onClose(event);
-                        item.onClick?.(event);
-                      }}
-                    />
-                  </div>
-                ))}
-              </div>
-              {item.supplementaryItem != null && (
-                <div
-                  className={clsx('flex justify-end', 'w-full', 'px-8 pb-6')}>
-                  <Button
-                    className={clsx('-mb-3 -me-6')}
-                    href={item.supplementaryItem.href}
-                    icon={item.supplementaryItem.icon}
-                    label={item.supplementaryItem.label}
-                    size="md"
-                    variant="tertiary"
-                    onClick={(event) => {
-                      item.supplementaryItem?.onClick?.(event);
-                      // To close the popover.
-                      onClose(event);
-                    }}
-                  />
-                </div>
-              )}
+              {item.items.map((childItem) => (
+                <NavbarPopoverLink
+                  key={childItem.itemKey}
+                  {...childItem}
+                  onClick={(event) => {
+                    // To close the popover.
+                    onClose(event);
+                    item.onClick?.(event);
+                  }}
+                />
+              ))}
             </TabsPrimitive.Content>
           ))}
         </div>

@@ -82,7 +82,7 @@ export default function NavbarItem({
             'z-popover',
             'rounded-lg',
             'shadow-lg',
-            'w-screen max-w-3xl xl:max-w-5xl',
+            'w-screen max-w-3xl',
           )}
           sideOffset={8}>
           {(() => {

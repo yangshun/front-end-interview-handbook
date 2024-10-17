@@ -1,9 +1,13 @@
 import {
-  RiBookOpenLine,
+  RiBuilding2Line,
+  RiCalendar2Line,
+  RiFocus2Line,
   RiHome3Line,
-  RiPlayLine,
   RiPriceTag3Line,
+  RiQuestionAnswerLine,
+  RiReactjsFill,
   RiShiningLine,
+  RiStarFill,
   RiTerminalWindowLine,
 } from 'react-icons/ri';
 import url from 'url';
@@ -11,29 +15,15 @@ import url from 'url';
 import gtag from '~/lib/gtag';
 import { SCROLL_HASH_INTERVIEWS_FEATURES } from '~/hooks/useScrollToHash';
 
-import { getFocusAreaTheme } from '~/data/focus-areas/FocusAreas';
-import { useFocusAreas } from '~/data/focus-areas/FocusAreasHooks';
 import { useGuidesData } from '~/data/Guides';
-import { getPreparationPlanTheme } from '~/data/plans/PreparationPlans';
-import { usePreparationPlans } from '~/data/plans/PreparationPlansHooks';
-import {
-  useQuestionTechnologyLists,
-  useQuestionUserFacingFormatData,
-} from '~/data/QuestionFormats';
 
 import { useIntl } from '~/components/intl';
 import Badge from '~/components/ui/Badge';
 import type { NavbarPrimaryItem } from '~/components/ui/Navbar/NavTypes';
 
-import { allInterviewsCompanyGuides } from '../../../../.contentlayer/generated/InterviewsCompanyGuide/_index.mjs';
-
 export default function useInterviewsNavItems(placement: 'nav' | 'sidebar') {
   const intl = useIntl();
 
-  const questionTechnologyLists = useQuestionTechnologyLists();
-  const questionFormatLists = useQuestionUserFacingFormatData();
-  const preparationPlans = usePreparationPlans();
-  const focusAreas = useFocusAreas();
   const guidesData = useGuidesData();
 
   const dashboard: NavbarPrimaryItem = {
@@ -79,14 +69,315 @@ export default function useInterviewsNavItems(placement: 'nav' | 'sidebar') {
     scroll: false,
     type: 'link',
   };
-  const guides: NavbarPrimaryItem = {
+  const practice: NavbarPrimaryItem = {
     align: 'center',
-    currentMatchRegex: /guidebook/,
-    icon: RiBookOpenLine,
-    itemKey: 'guides',
+    // TODO: Adding the regex causes this item to be active during SSR for /prepare. Disabling first.
+    // currentMatchRegex: /^(\/prepare\/(coding|quiz|system|behavioral))|\/questions\/|\/focus-areas\//,
+    icon: RiTerminalWindowLine,
+    itemKey: 'practice-questions',
     items: [
       {
-        itemKey: 'guidebooks',
+        itemKey: 'questions-types',
+        // TODO(interviews): consolidate with "recommended prep strategy" dropdown menu.
+        items: [
+          {
+            href: guidesData['front-end-interview-guidebook'].href,
+            icon: guidesData['front-end-interview-guidebook'].icon,
+            itemKey: guidesData['front-end-interview-guidebook'].key,
+            label: guidesData['front-end-interview-guidebook'].name,
+            onClick: () => {
+              gtag.event({
+                action: `${placement}.prepare.recommended.feig.click`,
+                category: 'engagement',
+                label: guidesData['front-end-interview-guidebook'].name,
+              });
+            },
+            sublabel: intl.formatMessage({
+              defaultMessage: 'Quick start guide to front end interviews',
+              description: 'Description of front end interview playbook',
+              id: '1Q18c8',
+            }),
+            type: 'popover-link',
+          },
+          {
+            href: '/interviews/greatfrontend75',
+            icon: RiStarFill,
+            itemKey: 'gfe75',
+            label: 'GreatFrontEnd 75',
+            onClick: () => {
+              gtag.event({
+                action: `${placement}.prepare.recommended.gfe75.click`,
+                category: 'engagement',
+                label: 'GreatFrontEnd 75',
+              });
+            },
+            sublabel: intl.formatMessage({
+              defaultMessage:
+                'Most important 75 questions for front end interviews',
+              description: 'Description of GreatFrontEnd 75',
+              id: 'N0z+Fz',
+            }),
+            type: 'popover-link',
+          },
+          {
+            href: guidesData['front-end-system-design-guidebook'].href,
+            icon: guidesData['front-end-system-design-guidebook'].icon,
+            itemKey: guidesData['front-end-system-design-guidebook'].key,
+            label: guidesData['front-end-system-design-guidebook'].name,
+            onClick: () => {
+              gtag.event({
+                action: `${placement}.prepare.recommended.fesdg.click`,
+                category: 'engagement',
+                label: 'Front End System Design',
+              });
+            },
+            sublabel: intl.formatMessage({
+              defaultMessage:
+                'Core front end system design techniques and in-depth solutions',
+              description: 'Description of front end system design playbook',
+              id: 'uuRCtm',
+            }),
+            type: 'popover-link',
+          },
+        ],
+        label: intl.formatMessage({
+          defaultMessage: 'Recommended preparation',
+          description: 'Recommended interview preparation resources',
+          id: '19cHR9',
+        }),
+        type: 'popover-list',
+      },
+      {
+        itemKey: 'time-savers',
+        items: [
+          {
+            href: '/study-plans',
+            icon: RiCalendar2Line,
+            itemKey: 'study-plans',
+            label: intl.formatMessage({
+              defaultMessage: 'Study plans',
+              description: 'Interviews study plans',
+              id: 'htx1cR',
+            }),
+            onClick: () => {
+              gtag.event({
+                action: `${placement}.prepare.time_savers.study_plans.click`,
+                category: 'engagement',
+                label: 'Study plans',
+              });
+            },
+            sublabel: intl.formatMessage({
+              defaultMessage:
+                'Prepare for your front end interviews in 1 week, 1 month, or 3 months',
+              description: 'Description for interview study plans',
+              id: 'Fpu2gU',
+            }),
+            type: 'popover-link',
+          },
+          {
+            bottomEl: (
+              <div className="flex gap-1.5">
+                {[
+                  {
+                    imgSrc: '/img/company-logos/google-logomark.svg',
+                    label: 'Google',
+                  },
+                  {
+                    imgSrc: '/img/company-logos/amazon-logomark.svg',
+                    label: 'Amazon',
+                  },
+                  {
+                    imgSrc: '/img/company-logos/tiktok-logomark.svg',
+                    label: 'TikTok',
+                  },
+                  {
+                    imgSrc: '/img/company-logos/microsoft-logomark.svg',
+                    label: 'Microsoft',
+                  },
+                ].map(({ label, imgSrc }) => (
+                  <img
+                    key={label}
+                    alt={label}
+                    className="size-4 inline-block shrink-0 rounded bg-white p-0.5"
+                    src={imgSrc}
+                  />
+                ))}
+                <Badge label="+6 more" size="xs" variant="neutral" />
+              </div>
+            ),
+            href: '/interviews/company',
+            icon: RiBuilding2Line,
+            itemKey: 'company-guide',
+            label: intl.formatMessage({
+              defaultMessage: 'Company guides',
+              description: 'Company interview guides',
+              id: 'Kj5nRS',
+            }),
+            onClick: () => {
+              gtag.event({
+                action: `${placement}.prepare.time_savers.company_guides.click`,
+                category: 'engagement',
+                label: 'Company guides',
+              });
+            },
+            sublabel: intl.formatMessage({
+              defaultMessage:
+                'Optimized preparation for target companies, leveraging insider tips and expertise',
+              description: 'Description for company interview guides',
+              id: 'xlpypp',
+            }),
+            type: 'popover-link',
+          },
+          {
+            bottomEl: (
+              <div className="flex gap-2">
+                {[
+                  'Polyfills',
+                  'Async',
+                  'Design Systems',
+                  'Accessibility',
+                  '+8 more',
+                ].map((label) => (
+                  <Badge
+                    key={label}
+                    label={label}
+                    size="xs"
+                    variant="neutral"
+                  />
+                ))}
+              </div>
+            ),
+            href: '/focus-areas',
+            icon: RiFocus2Line,
+            itemKey: 'focus-areas',
+            label: intl.formatMessage({
+              defaultMessage: 'Focus areas',
+              description: 'Interview preparation focus areas',
+              id: 'Y0QGFG',
+            }),
+            onClick: () => {
+              gtag.event({
+                action: `${placement}.prepare.time_savers.focus_areas.click`,
+                category: 'engagement',
+                label: 'Focus areas',
+              });
+            },
+            sublabel: intl.formatMessage({
+              defaultMessage:
+                'Deep dive into topical focus areas critical for front end interviews',
+              description: 'Description for interview preparation focus areas',
+              id: 'wrQH8L',
+            }),
+            type: 'popover-link',
+          },
+        ],
+        label: intl.formatMessage({
+          defaultMessage: 'Time-savers',
+          description: 'Section title for study plans',
+          id: 'rrz3iJ',
+        }),
+        type: 'popover-list',
+      },
+      {
+        itemKey: 'practice-questions',
+        items: [
+          {
+            bottomEl: (
+              <div className="flex gap-2">
+                {[
+                  'React',
+                  'TypeScript',
+                  'Vue',
+                  'Angular',
+                  'Svelte',
+                  '+3 more',
+                ].map((label) => (
+                  <Badge
+                    key={label}
+                    label={label}
+                    size="xs"
+                    variant="neutral"
+                  />
+                ))}
+              </div>
+            ),
+            href: '/questions',
+            icon: RiReactjsFill,
+            itemKey: 'question-framework',
+            label: intl.formatMessage({
+              defaultMessage: 'By framework or language',
+              description:
+                'Practice for interviews by question frameworks or language',
+              id: 'nLjMCI',
+            }),
+            onClick: () => {
+              gtag.event({
+                action: `${placement}.prepare.practice_questions.frameworks.click`,
+                category: 'engagement',
+                label: 'By framework or language',
+              });
+            },
+            sublabel: intl.formatMessage({
+              defaultMessage:
+                'Targeted practice in specific front end frameworks and languages.',
+              description:
+                'Description for interviews practice by frameworks and languages',
+              id: 'taJXPg',
+            }),
+            type: 'popover-link',
+          },
+          {
+            bottomEl: (
+              <div className="flex gap-2">
+                {[
+                  'JavaScript coding',
+                  'UI coding',
+                  'Algo coding',
+                  '+2 more',
+                ].map((label) => (
+                  <Badge
+                    key={label}
+                    label={label}
+                    size="xs"
+                    variant="neutral"
+                  />
+                ))}
+              </div>
+            ),
+            href: '/prepare',
+            icon: RiQuestionAnswerLine,
+            itemKey: 'question-format',
+            label: intl.formatMessage({
+              defaultMessage: 'By question format',
+              description: 'Practice for interviews question format',
+              id: 'eUSr+T',
+            }),
+            onClick: () => {
+              gtag.event({
+                action: `${placement}.prepare.practice_questions.question_format.click`,
+                category: 'engagement',
+                label: 'Focus areas',
+              });
+            },
+            sublabel: intl.formatMessage({
+              defaultMessage:
+                'Gain expertise in handling commonly asked question formats in front end interviews',
+              description:
+                'Description for interview practice by question format',
+              id: '9Bbo+p',
+            }),
+            type: 'popover-link',
+          },
+        ],
+        label: intl.formatMessage({
+          defaultMessage: 'Practice questions',
+          description: 'Section title',
+          id: 'qdOBuk',
+        }),
+        type: 'popover-list',
+      },
+      {
+        itemKey: 'guides',
         items: [
           {
             href: guidesData['front-end-interview-guidebook'].href,
@@ -106,7 +397,7 @@ export default function useInterviewsNavItems(placement: 'nav' | 'sidebar') {
             ),
             onClick: () => {
               gtag.event({
-                action: `${placement}.guides.feig.click`,
+                action: `${placement}.prepare.guides.feig.click`,
                 category: 'engagement',
                 label: 'Front End Interview Guidebook',
               });
@@ -121,7 +412,7 @@ export default function useInterviewsNavItems(placement: 'nav' | 'sidebar') {
             label: guidesData['front-end-system-design-guidebook'].name,
             onClick: () => {
               gtag.event({
-                action: `${placement}.guides.fesdg.click`,
+                action: `${placement}.prepare.guides.fesdg.click`,
                 category: 'engagement',
                 label: 'Front End System Design Guidebook',
               });
@@ -142,13 +433,13 @@ export default function useInterviewsNavItems(placement: 'nav' | 'sidebar') {
                   description: 'Free-of-charge label',
                   id: 'S+6OOS',
                 })}
-                size="sm"
+                size="xs"
                 variant="success"
               />
             ),
             onClick: () => {
               gtag.event({
-                action: `${placement}.guides.big.click`,
+                action: `${placement}.prepare.guides.big.click`,
                 category: 'engagement',
                 label: 'Behavioral Interview Guidebook',
               });
@@ -158,383 +449,17 @@ export default function useInterviewsNavItems(placement: 'nav' | 'sidebar') {
           },
         ],
         label: intl.formatMessage({
-          defaultMessage: 'Guidebooks',
+          defaultMessage: 'Guides',
           description: 'Guidebooks category',
-          id: 'B82jFj',
+          id: 'RKER+g',
         }),
         type: 'popover-list',
       },
     ],
     label: intl.formatMessage({
-      defaultMessage: 'Guides',
-      description: 'Guides navbar item',
-      id: 'H/u+cg',
-    }),
-    onClick: () => {
-      gtag.event({
-        action: `${placement}.guides.click`,
-        category: 'engagement',
-        label: 'Guides',
-      });
-    },
-    position: 'start',
-    type: 'popover',
-  };
-  const practice: NavbarPrimaryItem = {
-    align: 'center',
-    // TODO: Adding the regex causes this item to be active during SSR for /prepare. Disabling first.
-    // currentMatchRegex: /^(\/prepare\/(coding|quiz|system|behavioral))|\/questions\/|\/focus-areas\//,
-    icon: RiTerminalWindowLine,
-    itemKey: 'practice-questions',
-    items: [
-      {
-        alignment: 'top',
-        itemKey: 'questions-types',
-        items: [
-          {
-            href: questionFormatLists.coding.href,
-            icon: questionFormatLists.coding.icon,
-            itemKey: questionFormatLists.coding.key,
-            label: questionFormatLists.coding.longName,
-            onClick: () => {
-              gtag.event({
-                action: `${placement}.practice.questions.coding.click`,
-                category: 'engagement',
-                label: 'Coding Questions',
-              });
-            },
-            sublabel: questionFormatLists.coding.description,
-            type: 'popover-link',
-          },
-          {
-            href: questionFormatLists['system-design'].href,
-            icon: questionFormatLists['system-design'].icon,
-            itemKey: questionFormatLists['system-design'].key,
-            label: questionFormatLists['system-design'].longName,
-            onClick: () => {
-              gtag.event({
-                action: `${placement}.practice.questions.system_design.click`,
-                category: 'engagement',
-                label: 'System Design Questions',
-              });
-            },
-            sublabel: questionFormatLists['system-design'].description,
-            type: 'popover-link',
-          },
-          {
-            href: questionFormatLists.quiz.href,
-            icon: questionFormatLists.quiz.icon,
-            itemKey: questionFormatLists.quiz.key,
-            label: questionFormatLists.quiz.longName,
-            labelAddon: (
-              <Badge
-                label={intl.formatMessage({
-                  defaultMessage: 'Free',
-                  description: 'Free-of-charge label',
-                  id: 'S+6OOS',
-                })}
-                size="sm"
-                variant="success"
-              />
-            ),
-            onClick: () => {
-              gtag.event({
-                action: `${placement}.practice.questions.quiz.click`,
-                category: 'engagement',
-                label: 'Quiz Questions',
-              });
-            },
-            sublabel: questionFormatLists.quiz.description,
-            type: 'popover-link',
-          },
-        ],
-        label: intl.formatMessage({
-          defaultMessage: 'Prepare end-to-end for front end interviews',
-          description: 'Title for question format category links in navbar',
-          id: 'mOk1w0',
-        }),
-        supplementaryItem: {
-          href: questionFormatLists.coding.href,
-          icon: RiPlayLine,
-          itemKey: questionFormatLists.coding.key,
-          label: intl.formatMessage({
-            defaultMessage: 'Practice end-to-end',
-            description: 'Practice questions for all stages',
-            id: 'QHtJPS',
-          }),
-          type: 'link',
-        },
-        type: 'popover-list',
-      },
-      {
-        alignment: 'center',
-        itemKey: 'language-framework',
-        items: [
-          {
-            href: questionTechnologyLists.js.href,
-            icon: questionTechnologyLists.js.icon,
-            itemKey: questionTechnologyLists.js.key,
-            label: questionTechnologyLists.js.longName,
-            onClick: () => {
-              gtag.event({
-                action: `${placement}.practice.topic.javascript.click`,
-                category: 'engagement',
-                label: 'JavaScript Questions',
-              });
-            },
-            type: 'popover-link',
-          },
-          {
-            href: questionTechnologyLists.html.href,
-            icon: questionTechnologyLists.html.icon,
-            itemKey: questionTechnologyLists.html.key,
-            label: questionTechnologyLists.html.longName,
-            onClick: () => {
-              gtag.event({
-                action: `${placement}.practice.topic.html.click`,
-                category: 'engagement',
-                label: 'HTML Questions',
-              });
-            },
-            type: 'popover-link',
-          },
-          {
-            href: questionTechnologyLists.css.href,
-            icon: questionTechnologyLists.css.icon,
-            itemKey: questionTechnologyLists.css.key,
-            label: questionTechnologyLists.css.longName,
-            onClick: () => {
-              gtag.event({
-                action: `${placement}.practice.topic.css.click`,
-                category: 'engagement',
-                label: 'CSS Questions',
-              });
-            },
-            type: 'popover-link',
-          },
-          {
-            href: questionTechnologyLists.react.href,
-            icon: questionTechnologyLists.react.icon,
-            itemKey: questionTechnologyLists.react.key,
-            label: questionTechnologyLists.react.longName,
-            onClick: () => {
-              gtag.event({
-                action: `${placement}.practice.topic.react.click`,
-                category: 'engagement',
-                label: 'React Questions',
-              });
-            },
-            type: 'popover-link',
-          },
-          {
-            href: questionTechnologyLists.angular.href,
-            icon: questionTechnologyLists.angular.icon,
-            itemKey: questionTechnologyLists.angular.key,
-            label: questionTechnologyLists.angular.name,
-            onClick: () => {
-              gtag.event({
-                action: `${placement}.practice.topic.angular.click`,
-                category: 'engagement',
-                label: 'Angular',
-              });
-            },
-            type: 'popover-link',
-          },
-          {
-            href: questionTechnologyLists.vue.href,
-            icon: questionTechnologyLists.vue.icon,
-            itemKey: questionTechnologyLists.vue.key,
-            label: questionTechnologyLists.vue.name,
-            labelAddon: (
-              <Badge
-                label={intl.formatMessage({
-                  defaultMessage: 'New!',
-                  description: 'New label',
-                  id: 'HrMm6A',
-                })}
-                size="xs"
-                variant="success"
-              />
-            ),
-            onClick: () => {
-              gtag.event({
-                action: `${placement}.practice.topic.vue.click`,
-                category: 'engagement',
-                label: 'Vue',
-              });
-            },
-            type: 'popover-link',
-          },
-          {
-            href: questionTechnologyLists.svelte.href,
-            icon: questionTechnologyLists.svelte.icon,
-            itemKey: questionTechnologyLists.svelte.key,
-            label: questionTechnologyLists.svelte.name,
-            onClick: () => {
-              gtag.event({
-                action: `${placement}.practice.topic.svelte.click`,
-                category: 'engagement',
-                label: 'Svelte',
-              });
-            },
-            type: 'popover-link',
-          },
-        ],
-        label: intl.formatMessage({
-          defaultMessage: 'Practice questions by framework or language',
-          description: 'Title for question framework category links in navbar',
-          id: '0mKzkX',
-        }),
-        type: 'popover-list',
-      },
-      {
-        itemKey: 'study-plans',
-        items: [
-          {
-            href: preparationPlans['one-week'].href,
-            icon: getPreparationPlanTheme('one-week').iconOutline,
-            itemKey: preparationPlans['one-week'].type,
-            label: preparationPlans['one-week'].longName,
-            onClick: () => {
-              gtag.event({
-                action: `${placement}.practice.plans.one_week.click`,
-                category: 'engagement',
-                label: '1 Week Plan',
-              });
-            },
-            sublabel: preparationPlans['one-week'].shortDescription,
-            type: 'popover-link',
-          },
-          {
-            href: preparationPlans['one-month'].href,
-            icon: getPreparationPlanTheme('one-month').iconOutline,
-            itemKey: preparationPlans['one-month'].type,
-            label: preparationPlans['one-month'].longName,
-            onClick: () => {
-              gtag.event({
-                action: `${placement}.practice.plans.one_month.click`,
-                category: 'engagement',
-                label: '1 Month Plan',
-              });
-            },
-            sublabel: preparationPlans['one-month'].shortDescription,
-            type: 'popover-link',
-          },
-          {
-            href: preparationPlans['three-months'].href,
-            icon: getPreparationPlanTheme('three-months').iconOutline,
-            itemKey: preparationPlans['three-months'].type,
-            label: preparationPlans['three-months'].longName,
-            onClick: () => {
-              gtag.event({
-                action: `${placement}.practice.plans.three_months.click`,
-                category: 'engagement',
-                label: '3 Months Plan',
-              });
-            },
-            sublabel: preparationPlans['three-months'].shortDescription,
-            type: 'popover-link',
-          },
-        ],
-        label: intl.formatMessage({
-          defaultMessage: 'Practice with study plans and timelines',
-          description: 'Section title for study plans',
-          id: 'CQOAJS',
-        }),
-        supplementaryItem: {
-          href: '/study-plans',
-          icon: RiPlayLine,
-          itemKey: 'study-plans',
-          label: intl.formatMessage({
-            defaultMessage: 'View study plans',
-            description: 'Link label to view all study plans',
-            id: 'lGUj4P',
-          }),
-          type: 'link',
-        },
-        type: 'popover-list',
-      },
-      {
-        itemKey: 'focus-areas',
-        items: (
-          [
-            'async-operations',
-            'data-structures-algorithms',
-            'design-system-components',
-            'lodash',
-            'dom-manipulation',
-            'accessibility',
-            'javascript-polyfills',
-            'forms',
-          ] as const
-        ).map((focusArea) => ({
-          href: focusAreas[focusArea].href,
-          icon: getFocusAreaTheme(focusArea).iconOutline,
-          itemKey: focusAreas[focusArea].type,
-          key: focusArea,
-          label: focusAreas[focusArea].longName,
-          onClick: () => {
-            gtag.event({
-              action: `${placement}.practice.focus_areas.${focusAreas[focusArea].type}.click`,
-              category: 'engagement',
-              label: focusAreas[focusArea].longName,
-            });
-          },
-          type: 'popover-link',
-        })),
-        label: intl.formatMessage({
-          defaultMessage: 'Practice for specific focus areas',
-          description: 'Section title',
-          id: 'PigS2u',
-        }),
-        supplementaryItem: {
-          href: '/focus-areas',
-          icon: RiPlayLine,
-          itemKey: 'focus-areas',
-          label: intl.formatMessage({
-            defaultMessage: 'View focus areas',
-            description: 'Link label to view all focus areas',
-            id: 'PvVu6g',
-          }),
-          type: 'link',
-        },
-        type: 'popover-list',
-      },
-      {
-        itemKey: 'company-guides',
-        items: allInterviewsCompanyGuides.map((companyGuide) => ({
-          href: companyGuide.href,
-          imageUrl: companyGuide.logoUrl,
-          itemKey: companyGuide._id,
-          key: companyGuide._id,
-          label: companyGuide.name,
-          onClick: () => {},
-          type: 'popover-link',
-        })),
-        label: intl.formatMessage({
-          defaultMessage: 'Practice questions by companies',
-          description: 'Section title',
-          id: 'gisBlD',
-        }),
-        supplementaryItem: {
-          href: '/interviews/company',
-          icon: RiPlayLine,
-          itemKey: 'company-guides',
-          label: intl.formatMessage({
-            defaultMessage: 'View company guides',
-            description: 'Link label to view all company guides',
-            id: 'EaGsco',
-          }),
-          type: 'link',
-        },
-        type: 'popover-list',
-      },
-    ],
-    label: intl.formatMessage({
-      defaultMessage: 'Practice questions',
-      description:
-        'Section title for links to question lists by category and format',
-      id: 'hphZ3y',
+      defaultMessage: 'Prepare',
+      description: 'Prepare for interviews',
+      id: 'oj/6Ow',
     }),
     position: 'start',
     type: 'popover-tabs',
@@ -562,7 +487,6 @@ export default function useInterviewsNavItems(placement: 'nav' | 'sidebar') {
   return {
     dashboard,
     features,
-    guides,
     practice,
     pricing,
   };
