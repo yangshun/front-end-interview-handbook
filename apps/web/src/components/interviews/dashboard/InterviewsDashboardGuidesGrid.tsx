@@ -16,8 +16,8 @@ type Props = Readonly<{
     cardTitle?: string;
     description?: string;
     href: string;
+    label: string;
     slug: string;
-    title: string;
   }>;
   title: string;
 }>;
@@ -82,7 +82,7 @@ export default function InterviewsDashboardGuidesGrid({
                 <Heading
                   className="text-xs font-medium md:w-full md:text-center md:text-sm"
                   level="custom">
-                  {guide.cardTitle ?? guide.title}
+                  {guide.cardTitle ?? guide.label}
                 </Heading>
                 {guide.description && (
                   <Section>

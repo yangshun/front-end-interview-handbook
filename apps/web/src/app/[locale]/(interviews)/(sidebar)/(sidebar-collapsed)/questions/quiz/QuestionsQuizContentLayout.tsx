@@ -4,7 +4,7 @@ import clsx from 'clsx';
 
 import useScrollToTop from '~/hooks/useScrollToTop';
 
-import SidebarCollapser from '~/components/common/SidebarCollapser';
+import SidebarCollapser from '~/components/global/sidebar/SidebarCollapser';
 import { useUserPreferences } from '~/components/global/UserPreferencesProvider';
 import type { QuestionMetadata } from '~/components/interviews/questions/common/QuestionsTypes';
 import Anchor from '~/components/ui/Anchor';

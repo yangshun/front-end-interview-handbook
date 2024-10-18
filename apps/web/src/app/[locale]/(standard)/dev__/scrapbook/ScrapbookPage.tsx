@@ -306,23 +306,23 @@ export default function ScrapbookPage() {
                   items={[
                     {
                       href: '/dev__/scrapbook',
+                      label: 'Intro to Coding Round',
                       slug: 'intro',
-                      title: 'Intro to Coding Round',
                     },
                     {
                       href: '/dev__/scrapbook',
+                      label: 'Algorithm Questions',
                       slug: 'algo',
-                      title: 'Algorithm Questions',
                     },
                     {
                       href: '/dev__/scrapbook',
+                      label: 'JavaScript Questions',
                       slug: 'js',
-                      title: 'JavaScript Questions',
                     },
                     {
                       href: '/dev__/scrapbook',
+                      label: 'User Interface Questions',
                       slug: 'ui',
-                      title: 'User Interface Questions',
                     },
                   ]}
                 />

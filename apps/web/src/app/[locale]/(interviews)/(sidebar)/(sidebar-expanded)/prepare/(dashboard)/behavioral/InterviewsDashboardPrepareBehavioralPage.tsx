@@ -12,7 +12,7 @@ export default function InterviewsDashboardPrepareBehavioralInterviewPage() {
   return (
     <InterviewsDashboardGuidesGrid
       items={behavioralInterviewGuidebookNavigation.items
-        .map((item) => (item.type === 'list' ? item.links : [item]))
+        .map((item) => (item.type === 'list' ? item.items : [item]))
         .flat()}
       title={intl.formatMessage({
         defaultMessage: 'Behavioral Interview Study Guides',

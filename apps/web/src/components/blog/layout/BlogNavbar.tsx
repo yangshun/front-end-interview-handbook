@@ -8,7 +8,7 @@ import useIsSticky from '~/hooks/useIsSticky';
 
 import type { BlogArticleNavigationType } from '~/components/blog/BlogTypes';
 import BlogSidebar from '~/components/blog/layout/BlogSidebar';
-import { SidebarLinksList } from '~/components/common/SidebarLinksList';
+import { SidebarLinksList_DEPRECATED } from '~/components/global/sidebar/SidebarLinksList_DEPRECATED';
 import { useIntl } from '~/components/intl';
 import Button from '~/components/ui/Button';
 import Container from '~/components/ui/Container';
@@ -95,7 +95,7 @@ export default function BlogNavbar({ seriesContents }: Props) {
               />
             }
             onClose={() => setIsRightSidebarOpen(false)}>
-            <SidebarLinksList
+            <SidebarLinksList_DEPRECATED
               navigation={[
                 {
                   items: seriesContents.items,

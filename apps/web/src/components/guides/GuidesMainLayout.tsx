@@ -118,7 +118,7 @@ export default function GuidesMainLayout({
                     )}>
                     <div className="max-w-64 flex flex-col items-end gap-2">
                       <GuidesProgressAction
-                        guideName={currentItem.title}
+                        guideName={currentItem.label}
                         guideProgress={
                           'guideProgress' in props ? props.guideProgress : null
                         }
@@ -194,7 +194,7 @@ export default function GuidesMainLayout({
                               id: 'piDflv',
                             },
                             {
-                              articleName: currentItem.title,
+                              articleName: currentItem.label,
                             },
                           ),
                           variant: 'success',

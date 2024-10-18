@@ -3,8 +3,8 @@ import Anchor from '~/components/ui/Anchor';
 
 type PaginationItem = Readonly<{
   href?: string;
+  label: string;
   slug?: string;
-  title: string;
 }>;
 
 type Props = Readonly<{
@@ -72,13 +72,13 @@ export default function ArticlePagination({
   };
 
   const prevLabelProps = {
-    children: prevArticle?.title,
+    children: prevArticle?.label,
     className:
       'line-clamp-2 text-base font-semibold text-neutral-900 transition hover:text-neutral-600 dark:text-white dark:hover:text-neutral-300',
   };
 
   const nextLabelProps = {
-    children: nextArticle?.title,
+    children: nextArticle?.label,
     className:
       'line-clamp-2 text-right text-base font-semibold text-neutral-900 transition hover:text-neutral-600 dark:text-white dark:hover:text-neutral-300',
   };

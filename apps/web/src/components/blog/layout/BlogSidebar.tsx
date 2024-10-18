@@ -26,8 +26,8 @@ export type BlogSeriesNavigationLink<T = Record<string, unknown>> = Readonly<
   T & {
     description?: string;
     href: string;
+    label: string;
     slug: string;
-    title: string;
   }
 >;
 
@@ -39,8 +39,8 @@ type BlogSeriesNavigationItems<
   T extends BlogSeriesNavigationLink = BlogSeriesNavigationLink,
 > = ReadonlyArray<
   Readonly<{
-    links: BlogSeriesNavigationLinks<T>;
-    title: string;
+    items: BlogSeriesNavigationLinks<T>;
+    label: string;
   }>
 >;
 type BlogSidebarSeries = BlogSidebarItem &
@@ -54,8 +54,8 @@ type BlogSidebarItem = Readonly<{
   currentMatchRegex?: RegExp;
   icon?: (props: React.ComponentProps<'svg'>) => JSX.Element;
   key: string;
+  label: string;
   labelAddon?: ReactNode;
-  name: string;
 }>;
 
 type BlogSidebarLink = BlogSidebarItem &
@@ -74,7 +74,7 @@ function useBlogSidebarNavigation() {
       href: '/blog',
       icon: RiHome3Line,
       key: 'blog',
-      name: intl.formatMessage({
+      label: intl.formatMessage({
         defaultMessage: 'Home',
         description: 'Sidebar label for Blog home page',
         id: 'NALiPB',
@@ -86,7 +86,7 @@ function useBlogSidebarNavigation() {
       href: '/blog/latest',
       icon: RiTerminalWindowLine,
       key: 'new',
-      name: intl.formatMessage({
+      label: intl.formatMessage({
         defaultMessage: "What's new",
         description: "Sidebar label for What's New",
         id: 'iFFbCA',
@@ -98,7 +98,7 @@ function useBlogSidebarNavigation() {
       href: '/blog/explore',
       items: navigationTree,
       key: 'series',
-      name: intl.formatMessage({
+      label: intl.formatMessage({
         defaultMessage: 'Explore series',
         description: 'Sidebar label for explore series',
         id: 'SsWL2T',
@@ -143,7 +143,7 @@ function LinksListItem({
           )}
           href={link.href}
           variant="unstyled">
-          <span style={{ paddingLeft: 12 * nestedLevel }}>{link.title}</span>
+          <span style={{ paddingLeft: 12 * nestedLevel }}>{link.label}</span>
         </Anchor>
       </div>
     </li>
@@ -181,14 +181,14 @@ function SeriesList({
       className="flex grow flex-col gap-y-2 overflow-y-auto px-2 pb-3"
       role="list">
       {items.map((series) => (
-        <li key={series.title}>
+        <li key={series.label}>
           <Heading
             className="mb-3 text-sm font-semibold leading-6"
             level="custom">
-            {series.title}
+            {series.label}
           </Heading>
           <Section>
-            <LinksList items={series.links} />
+            <LinksList items={series.items} />
           </Section>
         </li>
       ))}
@@ -218,7 +218,7 @@ export default function BlogSidebar() {
               weight="medium">
               {item.icon != null && <SidebarIcon icon={item.icon} />}
               {isSeries && <SidebarIcon icon={RiArrowDownSLine} />}
-              {item.name}
+              {item.label}
             </Text>
           );
 
@@ -236,10 +236,10 @@ export default function BlogSidebar() {
             (pathname != null && item.currentMatchRegex?.test(pathname));
 
           return (
-            <div key={item.name} className="flex flex-col gap-y-2">
+            <div key={item.label} className="flex flex-col gap-y-2">
               <Anchor
                 aria-current={current ? 'page' : undefined}
-                aria-label={item.name}
+                aria-label={item.label}
                 className={clsx(
                   itemClassname,
                   current ? activeClassName : defaultClassName,

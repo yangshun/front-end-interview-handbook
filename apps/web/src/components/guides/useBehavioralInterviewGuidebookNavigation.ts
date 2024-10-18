@@ -20,7 +20,7 @@ export default function useBehavioralInterviewGuidebookNavigation() {
   const navigation: GuideNavigation = {
     items: [
       {
-        links: [
+        items: [
           {
             description: intl.formatMessage({
               defaultMessage:
@@ -30,12 +30,12 @@ export default function useBehavioralInterviewGuidebookNavigation() {
             }),
             href: basePath,
             icon: RiPlayFill,
-            slug: 'introduction',
-            title: intl.formatMessage({
+            label: intl.formatMessage({
               defaultMessage: 'Intro to behavioral interviews',
               description: 'Introduction to behavioral interviews',
               id: 'dKaQQ+',
             }),
+            slug: 'introduction',
             type: 'link',
           },
           {
@@ -48,16 +48,16 @@ export default function useBehavioralInterviewGuidebookNavigation() {
             }),
             href: `${basePath}/questions`,
             icon: RiQuestionAnswerLine,
-            slug: 'common-interview-questions',
-            title: intl.formatMessage({
+            label: intl.formatMessage({
               defaultMessage: 'Most common questions',
               description: 'Most common behavioral interview questions',
               id: 'BPUOzL',
             }),
+            slug: 'common-interview-questions',
             type: 'link',
           },
         ],
-        title: intl.formatMessage({
+        label: intl.formatMessage({
           defaultMessage: 'Overview',
           description: 'Overview of behavioral interview',
           id: 'OWKf+S',
@@ -65,7 +65,7 @@ export default function useBehavioralInterviewGuidebookNavigation() {
         type: 'list',
       },
       {
-        links: [
+        items: [
           {
             description: intl.formatMessage({
               defaultMessage:
@@ -76,13 +76,13 @@ export default function useBehavioralInterviewGuidebookNavigation() {
             }),
             href: `${basePath}/self-introduction`,
             icon: RiUserSmileLine,
-            slug: 'self-introduction',
-            title: intl.formatMessage({
+            label: intl.formatMessage({
               defaultMessage: 'Answering "Tell me about yourself"',
               description:
                 'How to answer the self introduction question in behavioral interviews',
               id: 'JGfGOf',
             }),
+            slug: 'self-introduction',
             type: 'link',
           },
           {
@@ -95,13 +95,13 @@ export default function useBehavioralInterviewGuidebookNavigation() {
             }),
             href: `${basePath}/why-work-here`,
             icon: RiBriefcase2Line,
-            slug: 'why-work-here',
-            title: intl.formatMessage({
+            label: intl.formatMessage({
               defaultMessage: 'Answering "Why work here"',
               description:
                 'How to answer the "why work here" question in behavioral interviews',
               id: 'ypT9B0',
             }),
+            slug: 'why-work-here',
             type: 'link',
           },
           {
@@ -114,13 +114,13 @@ export default function useBehavioralInterviewGuidebookNavigation() {
             }),
             href: `${basePath}/questions-to-ask`,
             icon: RiQuestionnaireLine,
-            slug: 'questions-to-ask',
-            title: intl.formatMessage({
+            label: intl.formatMessage({
               defaultMessage: 'Questions to ask (end of interview)',
               description:
                 'Best questions to ask at the end of a behavioral interviews',
               id: 'rg3DjU',
             }),
+            slug: 'questions-to-ask',
             type: 'link',
           },
           {
@@ -133,13 +133,13 @@ export default function useBehavioralInterviewGuidebookNavigation() {
             }),
             href: `${basePath}/problem-solving`,
             icon: RiLightbulbLine,
-            slug: 'problem-solving',
-            title: intl.formatMessage({
+            label: intl.formatMessage({
               defaultMessage: 'Problem solving questions',
               description:
                 'Title for sidebar on problem solving situation questions in behavioral interviews',
               id: 'fBszEG',
             }),
+            slug: 'problem-solving',
             type: 'link',
           },
           {
@@ -152,13 +152,13 @@ export default function useBehavioralInterviewGuidebookNavigation() {
             }),
             href: `${basePath}/collaboration`,
             icon: RiShakeHandsLine,
-            slug: 'collaboration',
-            title: intl.formatMessage({
+            label: intl.formatMessage({
               defaultMessage: 'Collaboration questions',
               description:
                 'Title for sidebar on collaboration situation questions in behavioral interviews',
               id: 'JPr1gs',
             }),
+            slug: 'collaboration',
             type: 'link',
           },
           {
@@ -171,16 +171,16 @@ export default function useBehavioralInterviewGuidebookNavigation() {
             }),
             href: `${basePath}/growth-mindset`,
             icon: RiLineChartLine,
-            slug: 'growth-mindset',
-            title: intl.formatMessage({
+            label: intl.formatMessage({
               defaultMessage: 'Growth mindset questions',
               description: 'Title for growth mindset collaboration questions',
               id: '592QG3',
             }),
+            slug: 'growth-mindset',
             type: 'link',
           },
         ],
-        title: intl.formatMessage({
+        label: intl.formatMessage({
           defaultMessage: 'Solving common questions',
           description: 'Title for solving common behavioral questions section',
           id: 'NgG1HQ',

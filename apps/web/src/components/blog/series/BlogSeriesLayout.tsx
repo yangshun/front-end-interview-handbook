@@ -12,7 +12,7 @@ import BlogCategoryLabel from '~/components/blog/metadata/BlogCategoryLabel';
 import BlogLevelLabel from '~/components/blog/metadata/BlogLevelLabel';
 import CopyLinkButton from '~/components/common/CopyLinkButton';
 import ShareButton from '~/components/common/ShareButton';
-import { SidebarLinksList } from '~/components/common/SidebarLinksList';
+import { SidebarLinksList_DEPRECATED } from '~/components/global/sidebar/SidebarLinksList_DEPRECATED';
 import { FormattedMessage } from '~/components/intl';
 import Container from '~/components/ui/Container';
 import Divider from '~/components/ui/Divider';
@@ -53,7 +53,7 @@ export default function BlogSeriesLayout({
                   'hidden xl:contents',
                   'sticky top-[var(--global-sticky-height)]',
                 )}>
-                <SidebarLinksList
+                <SidebarLinksList_DEPRECATED
                   navigation={[
                     {
                       items: navigation.items,

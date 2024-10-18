@@ -1,4 +1,4 @@
-import { SidebarLinksList } from '~/components/common/SidebarLinksList';
+import { SidebarLinksList_DEPRECATED } from '~/components/global/sidebar/SidebarLinksList_DEPRECATED';
 import ProjectsChallengeHowItWorksCard from '~/components/projects/challenges/header/works/ProjectsChallengeHowItWorksCard';
 
 export default function ProjectsChallengeHowItWorksGuidesCard() {
@@ -6,19 +6,19 @@ export default function ProjectsChallengeHowItWorksGuidesCard() {
     {
       items: [
         {
+          label: 'How to use Figma for development',
           slug: 'figma',
-          title: 'How to use Figma for development',
         },
         {
+          label: 'How to use DevTools for developments',
           slug: 'github',
-          title: 'How to use DevTools for developments',
         },
         {
+          label: 'Connecting to various Cloud services',
           slug: 'cloud',
-          title: 'Connecting to various Cloud services',
         },
       ],
-      title: 'Official guides',
+      label: 'Official guides',
     },
   ];
 
@@ -28,7 +28,7 @@ export default function ProjectsChallengeHowItWorksGuidesCard() {
         style={{
           transform: 'scale(0.8) translate(-35px, -90px)',
         }}>
-        <SidebarLinksList
+        <SidebarLinksList_DEPRECATED
           activeItem="figma"
           className="!w-[260px]"
           navigation={links}

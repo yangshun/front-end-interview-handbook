@@ -9,7 +9,7 @@ import { useRef, useState } from 'react';
 import { RiLockLine, RiLockUnlockLine, RiMenu2Line } from 'react-icons/ri';
 
 import ArticlePagination from '~/components/common/ArticlePagination';
-import { SidebarLinksList } from '~/components/common/SidebarLinksList';
+import { SidebarLinksList_DEPRECATED } from '~/components/global/sidebar/SidebarLinksList_DEPRECATED';
 import { useIntl } from '~/components/intl';
 import MDXContent from '~/components/mdx/MDXContent';
 import Alert from '~/components/ui/Alert';
@@ -74,12 +74,12 @@ export default function ProjectsChallengeGuideSection({
   const challengeGuideItems = [
     {
       addOnElement: <Icon aria-hidden={true} className="size-4 shrink-0" />,
-      slug: CHALLENGE_GUIDE_SLUG,
-      title: intl.formatMessage({
+      label: intl.formatMessage({
         defaultMessage: 'Challenge guide',
         description: 'Project guides category title',
         id: 'VeRWF3',
       }),
+      slug: CHALLENGE_GUIDE_SLUG,
       ...challengeGuide,
     },
   ];
@@ -90,11 +90,13 @@ export default function ProjectsChallengeGuideSection({
         (commonGuideItem) => commonGuideItem.slug === guideSlug,
       ),
     )
-    .flatMap((guide) => (guide != null ? [guide] : []));
+    .flatMap((guide) =>
+      guide != null ? [{ ...guide, label: guide.title }] : [],
+    );
 
-  const commonGuidesWithoutRelevantGuides = commonGuides.filter(
-    (commonGuideItem) => !relevantGuides.includes(commonGuideItem.slug),
-  );
+  const commonGuidesWithoutRelevantGuides = commonGuides
+    .filter((commonGuideItem) => !relevantGuides.includes(commonGuideItem.slug))
+    .map((guide) => ({ ...guide, label: guide.title }));
   const allGuides = [
     ...challengeGuideItems,
     ...relevantGuideItems,
@@ -108,7 +110,7 @@ export default function ProjectsChallengeGuideSection({
     challengeGuideItems != null && challengeGuideItems.length > 0
       ? {
           items: challengeGuideItems,
-          title: intl.formatMessage({
+          label: intl.formatMessage({
             defaultMessage: 'Challenge walkthrough',
             description: 'Project guides category title',
             id: 'aICrh0',
@@ -118,7 +120,7 @@ export default function ProjectsChallengeGuideSection({
     relevantGuideItems.length > 0
       ? {
           items: relevantGuideItems,
-          title: intl.formatMessage({
+          label: intl.formatMessage({
             defaultMessage: 'Relevant techniques',
             description: 'Project guides category title',
             id: 'IK3TnA',
@@ -127,7 +129,7 @@ export default function ProjectsChallengeGuideSection({
       : null,
     {
       items: commonGuidesWithoutRelevantGuides,
-      title: intl.formatMessage({
+      label: intl.formatMessage({
         defaultMessage: 'General guides',
         description: 'Project guides category title',
         id: 'q6xeLh',
@@ -152,7 +154,7 @@ export default function ProjectsChallengeGuideSection({
           'hidden xl:contents',
           'sticky top-[calc(var(--global-sticky-height)_+_200px)]',
         )}>
-        <SidebarLinksList
+        <SidebarLinksList_DEPRECATED
           activeItem={activeGuideSlug}
           className={clsx(
             'sticky',
@@ -191,7 +193,7 @@ export default function ProjectsChallengeGuideSection({
             />
           }
           onClose={() => setIsLeftSidebarOpen(false)}>
-          <SidebarLinksList
+          <SidebarLinksList_DEPRECATED
             activeItem={activeGuideSlug}
             navigation={sidebarNavigation}
             onSelect={onGuideChange}

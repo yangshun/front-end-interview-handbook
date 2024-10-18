@@ -26,7 +26,7 @@ function flattenNavigationItems<Link extends BaseGuideNavigationLink>({
     }
 
     links.forEach((link) => {
-      const newBreadcrumbs = [...breadcrumbs, link.title];
+      const newBreadcrumbs = [...breadcrumbs, link.label];
 
       flatItems.push({ ...link, breadcrumbs: newBreadcrumbs });
       flatten(
@@ -38,7 +38,7 @@ function flattenNavigationItems<Link extends BaseGuideNavigationLink>({
 
   items.forEach((item) => {
     if (item.type === 'list') {
-      flatten(item.links, [...crumbs, item.title]);
+      flatten(item.items, [...crumbs, item.label]);
     } else {
       flatItems.push({
         ...item,

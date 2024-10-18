@@ -325,7 +325,7 @@ export default function InterviewsQuestionFormatsSection({
     icon: RiChat4Line,
     question: {
       completed: behavioralGuideProgress.length,
-      total: behavioralInterviewGuidebook.items.map((item) => item.links).flat()
+      total: behavioralInterviewGuidebook.items.map((item) => item.items).flat()
         .length,
     },
     title: intl.formatMessage({

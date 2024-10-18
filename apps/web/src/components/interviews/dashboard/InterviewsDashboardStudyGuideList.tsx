@@ -11,8 +11,8 @@ type Props = Readonly<{
     cardTitle?: string;
     description?: string;
     href: string;
+    label: string;
     slug: string;
-    title: string;
   }>;
 }>;
 
@@ -47,12 +47,12 @@ export default function InterviewsDashboardStudyGuideList({
         />
       </div>
       <div className="flex w-full flex-col gap-2">
-        {items.map(({ cardTitle, href, slug, title }, index) => (
+        {items.map(({ cardTitle, href, slug, label }, index) => (
           <RankNavigationItem
             key={slug}
             href={href}
             rank={index + 1}
-            title={cardTitle ?? title}
+            title={cardTitle ?? label}
           />
         ))}
       </div>

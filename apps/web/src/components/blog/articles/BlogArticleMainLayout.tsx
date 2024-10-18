@@ -25,8 +25,8 @@ export default function BlogArticleMainLayout({ children, metadata }: Props) {
     seriesSource: (metadata as BlogPost).series,
   }).map((post) => ({
     href: post.href,
+    label: post.title,
     slug: post.slug,
-    title: post.title,
   }));
 
   return (

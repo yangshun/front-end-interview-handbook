@@ -11,7 +11,7 @@ import {
 
 import { SocialLinks } from '~/data/SocialLinks';
 
-import SidebarLinkItem from '~/components/global/sidebar/SidebarLinkItem';
+import SidebarLinkItem from '~/components/global/sidebar/SidebarLinkItem_DEPRECATED';
 import { useIntl } from '~/components/intl';
 import Button from '~/components/ui/Button';
 import Divider from '~/components/ui/Divider';

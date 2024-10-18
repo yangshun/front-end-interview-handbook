@@ -166,9 +166,9 @@ export default function QuestionQuizContents({
           <Divider />
           <ArticlePagination
             activeItem={question.metadata.href}
-            items={questionList.map(({ title: titleParam, href }) => ({
+            items={questionList.map(({ title, href }) => ({
               href,
-              title: titleParam,
+              label: title,
             }))}
           />
         </div>

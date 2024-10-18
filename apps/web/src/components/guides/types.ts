@@ -1,3 +1,5 @@
+import type { ReactNode } from 'react';
+
 import type {
   behavioralSlugs,
   frontendInterviewSlugs,
@@ -6,12 +8,13 @@ import type {
 
 export type BaseGuideNavigationLink<T = Record<string, unknown>> = Readonly<
   T & {
+    addOnElement?: ReactNode | null;
     description?: string;
     href: string;
     icon?: (props: React.ComponentProps<'svg'>) => JSX.Element;
     items?: GuideNavigationLinks<BaseGuideNavigationLink<T>>;
+    label: string;
     slug: string;
-    title: string;
     type: 'link';
   }
 >;
@@ -29,8 +32,8 @@ export type GuideNavigationItems<
 > = ReadonlyArray<
   | Link
   | Readonly<{
-      links: GuideNavigationLinks<Link>;
-      title: string;
+      items: GuideNavigationLinks<Link>;
+      label: string;
       type: 'list';
     }>
 >;

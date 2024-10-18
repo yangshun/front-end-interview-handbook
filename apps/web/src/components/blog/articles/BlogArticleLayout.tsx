@@ -9,7 +9,7 @@ import type {
   BlogMetadata,
 } from '~/components/blog/BlogTypes';
 import BlogMainLayout from '~/components/blog/layout/BlogMainLayout';
-import { SidebarLinksList } from '~/components/common/SidebarLinksList';
+import { SidebarLinksList_DEPRECATED } from '~/components/global/sidebar/SidebarLinksList_DEPRECATED';
 import Container from '~/components/ui/Container';
 
 import { useI18nPathname } from '~/next-i18nostic/src';
@@ -50,7 +50,7 @@ export default function BlogArticleLayout({
                   'hidden xl:contents',
                   'sticky top-[var(--global-sticky-height)] h-[calc(100vh_-_var(--global-sticky-height))]',
                 )}>
-                <SidebarLinksList
+                <SidebarLinksList_DEPRECATED
                   navigation={[
                     {
                       items: navigation.items,

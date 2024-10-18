@@ -17,14 +17,14 @@ type SidebarItemType = Readonly<
   | {
       addOnElement?: React.ReactNode;
       href: string;
+      label: string;
       slug?: string;
-      title: string;
     }
   | {
       addOnElement?: React.ReactNode;
       href?: string;
+      label: string;
       slug: string;
-      title: string;
     }
 >;
 
@@ -67,7 +67,7 @@ function LinksListItem({
               )}
               href={link.href}
               variant="unstyled">
-              <span className="pl-4">{link.title}</span>
+              <span className="pl-4">{link.label}</span>
               {isExternalURL && (
                 <RiExternalLinkFill className="size-4 text-inherit" />
               )}
@@ -88,7 +88,7 @@ function LinksListItem({
             )}
             type="button"
             onClick={() => onSelect?.(link.slug ?? '')}>
-            <span className="pl-4 text-left">{link.title}</span>
+            <span className="pl-4 text-left">{link.label}</span>
             {link.addOnElement}
           </button>
         );
@@ -97,19 +97,20 @@ function LinksListItem({
   );
 }
 
-type SidebarLinksListProps = Readonly<{
+type SidebarLinksList_DEPRECATEDProps = Readonly<{
   activeItem?: string;
   className?: string;
   navigation: Array<NavigationType>;
   onSelect?: (value: string) => void;
 }>;
 
-export function SidebarLinksList({
+// TODO: deprecate this component and use SidebarLinksSection.
+export function SidebarLinksList_DEPRECATED({
   navigation,
   className,
   onSelect,
   activeItem,
-}: SidebarLinksListProps) {
+}: SidebarLinksList_DEPRECATEDProps) {
   return (
     <nav className={clsx('flex w-[280px] shrink-0 flex-col gap-4', className)}>
       <div className="flex flex-col gap-8">

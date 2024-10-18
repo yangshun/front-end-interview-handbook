@@ -85,7 +85,7 @@ export function readBlogSeriesPostNavigation(
         ? isMatchingSeries && isMatchingSubseries
         : isMatchingSeries;
     })
-    .map(({ href, slug, title }) => ({ href, slug, title }));
+    .map(({ href, slug, title }) => ({ href, label: title, slug }));
 
   return {
     items: posts,
@@ -107,9 +107,9 @@ export function buildBlogNavigationTree() {
   const navigation = sortedCategories.map((category) => {
     const series = allSeries
       .filter((seriesItem) => seriesItem.category?.source === category.source)
-      .map(({ href, slug, title }) => ({ href, slug, title }));
+      .map(({ href, slug, title }) => ({ href, label: title, slug }));
 
-    return { links: series, title: category.title };
+    return { items: series, label: category.title };
   });
 
   return navigation;
