@@ -12,7 +12,6 @@ import { PROJECTS_NOTIFICATION_AVAILABLE } from '~/data/FeatureFlags';
 import useCommonNavItems from '~/components/common/navigation/useCommonNavItems';
 import { useColorSchemePreferences } from '~/components/global/color-scheme/ColorSchemePreferencesProvider';
 import ColorSchemeSelect from '~/components/global/color-scheme/ColorSchemeSelect';
-import LogoLink from '~/components/global/logos/LogoLink';
 import NavColorSchemeDropdown from '~/components/global/navbar/NavColorSchemeDropdown';
 import NavProductDropdownMenu from '~/components/global/navbar/NavProductDropdownMenu';
 import NavProfileIcon from '~/components/global/navbar/NavProfileIcon';
@@ -260,9 +259,14 @@ export default function ProjectsNavbar({ hideOnDesktop = false }: Props) {
       hideOnDesktop={hideOnDesktop}
       isLoading={isUserProfileLoading}
       links={navLinks}
-      logo={<LogoLink href="/projects" />}
+      logo={
+        <NavProductDropdownMenu
+          product="projects"
+          triggerClassname="-ml-2"
+          variant="full"
+        />
+      }
       mobileSidebarBottomItems={mobileSidebarBottomItems}
-      productMenu={<NavProductDropdownMenu value="projects" />}
       renderMobileSidebarAddOnItems={renderMobileSidebarAddOnItems}
       transparent={!isSticky}
       unreadNotificationCount={unreadNotificationCount}

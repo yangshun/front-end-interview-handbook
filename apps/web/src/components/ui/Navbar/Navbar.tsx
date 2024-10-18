@@ -5,7 +5,6 @@ import type { CSSProperties } from 'react';
 import { forwardRef, useState } from 'react';
 import { RiMenuFill } from 'react-icons/ri';
 
-import Divider from '~/components/ui/Divider';
 import SlideOut from '~/components/ui/SlideOut';
 import {
   themeBackgroundBrandColor,
@@ -25,7 +24,6 @@ type Props = Readonly<{
   links: ReadonlyArray<NavbarPrimaryItem>;
   logo?: React.ReactNode;
   mobileSidebarBottomItems?: React.ReactNode;
-  productMenu?: React.ReactNode;
   renderMobileSidebarAddOnItems?: ({
     closeMobileNav,
   }: Readonly<{ closeMobileNav: () => void }>) => React.ReactNode;
@@ -41,7 +39,6 @@ function Navbar(
     isLoading,
     links,
     logo,
-    productMenu,
     renderMobileSidebarAddOnItems,
     mobileSidebarBottomItems,
     transparent = false,
@@ -89,15 +86,7 @@ function Navbar(
             'h-[var(--navbar-height)]',
           )}>
           <div className="flex items-center justify-start lg:w-0 lg:grow">
-            <div className="flex items-center">
-              {logo}
-              <Divider
-                className="ml-4 h-3"
-                color="emphasized"
-                direction="vertical"
-              />
-              {productMenu}
-            </div>
+            {logo}
             <nav className="hidden items-center space-x-4 lg:ml-10 lg:flex lg:w-0 lg:flex-1">
               {leftLinks.map((navItem) => (
                 <NavbarItem key={navItem.itemKey} {...navItem} />

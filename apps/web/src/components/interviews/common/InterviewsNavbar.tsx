@@ -10,7 +10,6 @@ import useUserProfile from '~/hooks/user/useUserProfile';
 import { useColorSchemePreferences } from '~/components/global/color-scheme/ColorSchemePreferencesProvider';
 import ColorSchemeSelect from '~/components/global/color-scheme/ColorSchemeSelect';
 import I18nSelect from '~/components/global/i18n/I18nSelect';
-import LogoLink from '~/components/global/logos/LogoLink';
 import NavColorSchemeDropdown from '~/components/global/navbar/NavColorSchemeDropdown';
 import NavI18nDropdown from '~/components/global/navbar/NavI18nDropdown';
 import NavProductDropdownMenu from '~/components/global/navbar/NavProductDropdownMenu';
@@ -179,9 +178,14 @@ export default function InterviewsNavbar({ hideOnDesktop = false }: Props) {
       hideOnDesktop={hideOnDesktop}
       isLoading={isUserProfileLoading}
       links={navLinksFull}
-      logo={<LogoLink />}
+      logo={
+        <NavProductDropdownMenu
+          product="interviews"
+          triggerClassname="-ml-2"
+          variant="full"
+        />
+      }
       mobileSidebarBottomItems={mobileSidebarBottomItems}
-      productMenu={<NavProductDropdownMenu value="interviews" />}
       renderMobileSidebarAddOnItems={renderMobileSidebarAddOnItems}
       transparent={!isSticky}
     />

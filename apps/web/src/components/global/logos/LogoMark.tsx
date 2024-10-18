@@ -1,4 +1,4 @@
-import { themeFillBrandColor } from '~/components/ui/theme';
+import { themeFillColor } from '~/components/ui/theme';
 
 type Props = Readonly<{
   height?: number;
@@ -9,7 +9,7 @@ export default function LogoMark({ height = 20, width = 26 }: Props) {
   return (
     <svg
       aria-label="GreatFrontEnd"
-      className={themeFillBrandColor}
+      className={themeFillColor}
       height={height}
       viewBox="0 0 26 19"
       width={width}

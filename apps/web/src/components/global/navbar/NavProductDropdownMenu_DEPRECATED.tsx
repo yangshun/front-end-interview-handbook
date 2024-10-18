@@ -1,8 +1,8 @@
 import clsx from 'clsx';
 import { RiArrowDownSLine } from 'react-icons/ri';
 
-import LogoLink from '~/components/global/logos/LogoLink';
 import LogoMark from '~/components/global/logos/LogoMark';
+import ProjectsLogo from '~/components/global/logos/ProjectsLogo';
 import NavProductDropdownMenuContent from '~/components/global/navbar/NavProductDropdownMenuContent';
 import {
   themeBackgroundElementEmphasizedStateColor_Hover,
@@ -17,7 +17,7 @@ import { useProductMenuUnseenIndicator } from '../product-theme/useProductMenuUn
 import * as DropdownMenuPrimitive from '@radix-ui/react-dropdown-menu';
 
 type Props = Readonly<{
-  value: 'interviews' | 'projects';
+  product: 'interviews' | 'projects';
   variant: 'compact' | 'full';
 }>;
 
@@ -34,7 +34,14 @@ const buttonBaseClassname = clsx(
   themeBackgroundElementPressedStateColor_Active,
 );
 
-export default function NavProductMenuSelector({ variant, value }: Props) {
+export default function NavProductDropdownMenu_DEPRECATED({
+  variant,
+  product,
+}: Props) {
+  if (product === 'interviews') {
+    throw 'Interviews unsupported';
+  }
+
   const [showUnseenIndicator] = useProductMenuUnseenIndicator();
 
   return (
@@ -52,7 +59,7 @@ export default function NavProductMenuSelector({ variant, value }: Props) {
             )}
             type="button">
             <div className="flex gap-1">
-              <LogoLink height={17} />
+              <ProjectsLogo height={32} />
               {showUnseenIndicator && (
                 <span
                   aria-hidden={true}
@@ -86,7 +93,7 @@ export default function NavProductMenuSelector({ variant, value }: Props) {
             {showUnseenIndicator && (
               <span
                 className={clsx(
-                  'size-2 absolute',
+                  'size-1.5 absolute',
                   'bg-red rounded-full',
                   'right-1 top-1',
                 )}
@@ -96,7 +103,7 @@ export default function NavProductMenuSelector({ variant, value }: Props) {
         )}
       </DropdownMenuPrimitive.Trigger>
       <DropdownMenuPrimitive.Portal>
-        <NavProductDropdownMenuContent product={value} />
+        <NavProductDropdownMenuContent product={product} />
       </DropdownMenuPrimitive.Portal>
     </DropdownMenuPrimitive.Root>
   );

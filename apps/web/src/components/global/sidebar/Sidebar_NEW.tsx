@@ -20,7 +20,7 @@ import type { NavbarPrimaryItem } from '~/components/ui/Navbar/NavTypes';
 
 import SidebarAuthDropdownItem from './SidebarAuthDropdownItem';
 import SidebarColorSchemeSubMenu from './SidebarColorSchemeSubMenu';
-import NavProductDropdownMenu_DEPRECATED from '../navbar/NavProductDropdownMenu_DEPRECATED';
+import NavProductDropdownMenu from '../navbar/NavProductDropdownMenu';
 
 export type SidebarItem = NavbarPrimaryItem;
 
@@ -38,9 +38,7 @@ export function SidebarCollapsed({
   moreMenuItems: React.ReactElement | false | null | undefined;
   notificationItem?: React.ReactElement | false | null | undefined;
   onCollapseClick: () => void;
-  product: React.ComponentProps<
-    typeof NavProductDropdownMenu_DEPRECATED
-  >['product'];
+  product: React.ComponentProps<typeof NavProductDropdownMenu>['product'];
   showPremiumDiscord: boolean;
   sidebarItems: SidebarItems;
   topAddonElements?: React.ReactNode;
@@ -56,7 +54,7 @@ export function SidebarCollapsed({
         'relative h-full',
         'px-3 py-4',
       )}>
-      <NavProductDropdownMenu_DEPRECATED product={product} variant="compact" />
+      <NavProductDropdownMenu product={product} variant="compact" />
       {topAddonElements}
       <ul className="flex grow flex-col gap-1">
         {startItems.map((item) => (
@@ -153,12 +151,10 @@ export function SidebarExpanded({
   bottomBarItems?: React.ReactElement | false | null | undefined;
   isLoading: boolean;
   isViewerPremium: boolean;
-  moreMenuItems: React.ReactElement | false | null | undefined;
+  moreMenuItems?: React.ReactElement | false | null | undefined;
   notificationItem?: React.ReactElement | false | null | undefined;
   onCollapseClick?: () => void;
-  product: React.ComponentProps<
-    typeof NavProductDropdownMenu_DEPRECATED
-  >['product'];
+  product: React.ComponentProps<typeof NavProductDropdownMenu>['product'];
   renderBottomAddonElements?: (fadeInClassname: string) => React.ReactNode;
   renderTopAddonElements?: (fadeInClassname: string) => React.ReactNode;
   sidebarItems: SidebarItems;
@@ -173,7 +169,9 @@ export function SidebarExpanded({
 
   return (
     <nav className={clsx('flex flex-col gap-y-4', 'relative h-full p-4')}>
-      <NavProductDropdownMenu_DEPRECATED product={product} variant="full" />
+      <div className="flex justify-center">
+        <NavProductDropdownMenu product={product} variant="full" />
+      </div>
       {renderTopAddonElements?.(fadeInClass)}
       <ul className={clsx('flex grow flex-col gap-2', fadeInClass)}>
         {startItems.map((item) => (

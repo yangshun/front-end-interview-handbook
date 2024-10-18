@@ -10,7 +10,7 @@ import InterviewsSidebar_DEPRECATED from './InterviewsSidebar_DEPRECATED';
 
 type Props = Readonly<{
   initialCollapsed?: boolean;
-  showNewSidebar: boolean;
+  showNewSidebar: boolean; // TODO(interviews): clean up old sidebar
 }>;
 
 export default function InterviewsSidebarContainer({
@@ -26,7 +26,7 @@ export default function InterviewsSidebarContainer({
         'sticky top-[var(--global-sticky-height)] h-[calc(100vh_-_var(--global-sticky-height))]',
         'shrink-0 overflow-y-hidden',
         ['border-e', themeBorderColor],
-        isCollapsed ? 'w-[68px]' : 'w-60',
+        isCollapsed ? 'w-[68px]' : 'w-[280px]',
       )}>
       {showNewSidebar ? (
         <InterviewsSidebar

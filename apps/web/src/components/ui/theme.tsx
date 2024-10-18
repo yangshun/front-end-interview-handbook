@@ -122,6 +122,7 @@ export const themeBackgroundElementPressedStateColor_Active = clsx(
 );
 
 // Fills
+export const themeFillColor = clsx('fill-neutral-900 dark:fill-neutral-100');
 export const themeFillBrandColor = clsx('fill-neutral-900 dark:fill-brand');
 
 // Lines.
