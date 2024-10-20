@@ -1,13 +1,13 @@
-import type { NavbarPrimaryItem } from '~/components/ui/Navbar/NavTypes';
+import type { NavbarTopLevelItem } from '~/components/ui/Navbar/NavTypes';
 
 import useProjectsNavItems from '../useProjectsNavItems';
 
 export default function useProjectsSidebarLinks(
   isPremium: boolean,
-): ReadonlyArray<NavbarPrimaryItem> {
+): ReadonlyArray<NavbarTopLevelItem> {
   const navItems = useProjectsNavItems('sidebar');
 
-  const links: ReadonlyArray<NavbarPrimaryItem | null> = [
+  const links: ReadonlyArray<NavbarTopLevelItem | null> = [
     navItems.dashboard,
     navItems.challenges,
     navItems.submissions,
@@ -17,5 +17,5 @@ export default function useProjectsSidebarLinks(
 
   return links.filter(
     (item) => item != null,
-  ) as ReadonlyArray<NavbarPrimaryItem>;
+  ) as ReadonlyArray<NavbarTopLevelItem>;
 }

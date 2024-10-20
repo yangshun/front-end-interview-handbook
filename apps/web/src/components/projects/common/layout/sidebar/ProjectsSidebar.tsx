@@ -7,11 +7,11 @@ import { RiLinkedinFill, RiSettings3Line } from 'react-icons/ri';
 import { PROJECTS_NOTIFICATION_AVAILABLE } from '~/data/FeatureFlags';
 import { SocialLinks } from '~/data/SocialLinks';
 
-import type { SidebarItems } from '~/components/global/sidebar/Sidebar';
+import type { SidebarItems } from '~/components/global/sidebar/Sidebar_DEPRECATED';
 import {
   SidebarCollapsed,
   SidebarExpanded,
-} from '~/components/global/sidebar/Sidebar';
+} from '~/components/global/sidebar/Sidebar_DEPRECATED';
 import { useIntl } from '~/components/intl';
 import ProjectsNotification from '~/components/projects/notifications/ProjectsNotification';
 import ProjectsProfileAvatar from '~/components/projects/users/ProjectsProfileAvatar';

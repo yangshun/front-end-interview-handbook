@@ -75,7 +75,7 @@ export function GuidesSidebar({
                 'flex grow overflow-hidden',
                 isSidebar && 'vignette-scroll',
               )}>
-              <ScrollArea>
+              <ScrollArea className="p-4">
                 <SidebarLinksSection items={navigation.items} />
               </ScrollArea>
             </div>

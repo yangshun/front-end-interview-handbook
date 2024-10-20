@@ -6,7 +6,7 @@ import url from 'url';
 import Anchor from '~/components/ui/Anchor';
 import NavbarPopover from '~/components/ui/Navbar/NavbarPopover';
 import NavbarPopoverTabs from '~/components/ui/Navbar/NavbarPopoverTabs';
-import type { NavbarPrimaryItem } from '~/components/ui/Navbar/NavTypes';
+import type { NavbarTopLevelItem } from '~/components/ui/Navbar/NavTypes';
 import Text from '~/components/ui/Text';
 import {
   themeBackgroundElementEmphasizedStateColor,
@@ -23,7 +23,7 @@ import { useI18nPathname } from '~/next-i18nostic/src';
 
 import * as PopoverPrimitive from '@radix-ui/react-popover';
 
-type Props = NavbarPrimaryItem &
+type Props = NavbarTopLevelItem &
   Readonly<{
     isLabelHidden?: boolean;
   }>;

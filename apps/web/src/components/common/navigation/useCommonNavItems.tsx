@@ -4,7 +4,7 @@ import gtag from '~/lib/gtag';
 import { useAuthLogout, useAuthSignInUp } from '~/hooks/user/useAuthFns';
 
 import { useIntl } from '~/components/intl';
-import type { NavbarPrimaryItem } from '~/components/ui/Navbar/NavTypes';
+import type { NavbarTopLevelItem } from '~/components/ui/Navbar/NavTypes';
 
 export default function useCommonNavItems() {
   const intl = useIntl();
@@ -12,7 +12,7 @@ export default function useCommonNavItems() {
   const { signInUpLabel, signInUpHref } = useAuthSignInUp();
   const { logoutLabel, logoutHref } = useAuthLogout();
 
-  const login: NavbarPrimaryItem = {
+  const login: NavbarTopLevelItem = {
     href: signInUpHref(),
     itemKey: 'login',
     label: signInUpLabel,
@@ -26,7 +26,7 @@ export default function useCommonNavItems() {
     position: 'end',
     type: 'link',
   };
-  const logout: NavbarPrimaryItem = {
+  const logout: NavbarTopLevelItem = {
     href: logoutHref(),
     icon: RiLogoutBoxLine,
     itemKey: 'logout',
@@ -41,7 +41,7 @@ export default function useCommonNavItems() {
     position: 'end',
     type: 'link',
   };
-  const blog: NavbarPrimaryItem = {
+  const blog: NavbarTopLevelItem = {
     href: '/blog',
     icon: RiPagesLine,
     itemKey: 'blog',

@@ -14,7 +14,7 @@ import {
 
 import NavbarPopover from './NavbarPopover';
 import NavbarPopoverTabs from './NavbarPopoverTabs';
-import type { NavbarPrimaryItem } from './NavTypes';
+import type { NavbarTopLevelItem } from './NavTypes';
 import Anchor from '../Anchor';
 
 import * as PopoverPrimitive from '@radix-ui/react-popover';
@@ -23,7 +23,7 @@ export default function NavbarItem({
   onClick,
   label,
   ...props
-}: NavbarPrimaryItem) {
+}: NavbarTopLevelItem) {
   const [open, setOpen] = useState(false);
 
   const commonStyles = clsx(

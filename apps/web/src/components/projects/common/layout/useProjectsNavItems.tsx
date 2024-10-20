@@ -14,12 +14,12 @@ import {
 } from '~/hooks/useScrollToHash';
 
 import { useIntl } from '~/components/intl';
-import type { NavbarPrimaryItem } from '~/components/ui/Navbar/NavTypes';
+import type { NavbarTopLevelItem } from '~/components/ui/Navbar/NavTypes';
 
 export default function useProjectsNavItems(placement: 'nav' | 'sidebar') {
   const intl = useIntl();
 
-  const dashboard: NavbarPrimaryItem = {
+  const dashboard: NavbarTopLevelItem = {
     href: url.format({
       hash: SCROLL_HASH_PROJECTS_DASHBOARD,
       pathname: '/projects/dashboard',
@@ -41,7 +41,7 @@ export default function useProjectsNavItems(placement: 'nav' | 'sidebar') {
     position: 'start',
     type: 'link',
   };
-  const challenges: NavbarPrimaryItem = {
+  const challenges: NavbarTopLevelItem = {
     href: '/projects/challenges',
     icon: RiRocketLine,
     itemKey: 'challenges',
@@ -60,7 +60,7 @@ export default function useProjectsNavItems(placement: 'nav' | 'sidebar') {
     position: 'start',
     type: 'link',
   };
-  const submissions: NavbarPrimaryItem = {
+  const submissions: NavbarTopLevelItem = {
     href: '/projects/submissions',
     icon: RiCodeSSlashLine,
     itemKey: 'all-submissions',
@@ -79,7 +79,7 @@ export default function useProjectsNavItems(placement: 'nav' | 'sidebar') {
     position: 'start',
     type: 'link',
   };
-  const features: NavbarPrimaryItem = {
+  const features: NavbarTopLevelItem = {
     href: url.format({
       hash: SCROLL_HASH_PROJECTS_FEATURES,
       pathname: '/projects',
@@ -102,7 +102,7 @@ export default function useProjectsNavItems(placement: 'nav' | 'sidebar') {
     scroll: false,
     type: 'link',
   };
-  const pricing: NavbarPrimaryItem = {
+  const pricing: NavbarTopLevelItem = {
     href: '/projects/pricing',
     icon: RiPriceTag3Line,
     itemKey: 'pricing',

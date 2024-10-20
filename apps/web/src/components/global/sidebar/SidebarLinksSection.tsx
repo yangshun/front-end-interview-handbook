@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 import type { ReactNode } from 'react';
-import { RiArrowDownSLine } from 'react-icons/ri';
+import { RiArrowRightSLine } from 'react-icons/ri';
 
 import Anchor from '~/components/ui/Anchor';
 import {
@@ -10,6 +10,7 @@ import {
   themeTextColor,
   themeTextFaintColor,
   themeTextSecondaryColor,
+  themeTextSubtitleColor_Hover,
   themeTextSubtleColor,
 } from '~/components/ui/theme';
 import Tooltip from '~/components/ui/Tooltip';
@@ -18,8 +19,9 @@ import { useI18nPathname } from '~/next-i18nostic/src';
 
 import * as AccordionPrimitive from '@radix-ui/react-accordion';
 
-type SidebarBaseLink = Readonly<{
+type SidebarBaseItem = Readonly<{
   addOnElement?: ReactNode;
+  currentMatchRegex?: RegExp;
   icon?: (props: React.ComponentProps<'svg'>) => JSX.Element;
   label: string;
 }>;
@@ -27,23 +29,34 @@ type SidebarBaseLink = Readonly<{
 type SidebarLink = Readonly<{
   href: string;
 }> &
-  SidebarBaseLink;
+  SidebarBaseItem;
 
-type SidebarLinkList = Readonly<{
+type SidebarItemList = Readonly<{
   items: ReadonlyArray<SidebarLink>;
 }> &
-  SidebarBaseLink;
+  SidebarBaseItem;
 
-type SidebarLinkEntity = SidebarLink | SidebarLinkList;
+export type SidebarLinkEntity = SidebarItemList | SidebarLink;
 
 function SidebarLinkItem({
   addOnElement,
   href,
   icon: Icon,
   label,
-}: SidebarLink) {
+  showIcon,
+}: Readonly<{ showIcon: boolean }> & SidebarLink) {
   const { pathname } = useI18nPathname();
   const isActive = pathname === href;
+
+  const activeClassName = clsx(
+    themeTextColor,
+    'font-medium',
+    'bg-neutral-200/40 dark:bg-neutral-800/40',
+  );
+  const defaultClassName = clsx(
+    themeTextSecondaryColor,
+    themeTextSubtitleColor_Hover,
+  );
 
   return (
     <li key={href} className="relative">
@@ -54,7 +67,7 @@ function SidebarLinkItem({
             'flex items-center gap-x-2.5',
             'w-full p-2',
             'rounded-md',
-            'text-[0.8125rem] font-medium leading-4',
+            'text-[0.8125rem] leading-4',
             'select-none outline-none',
             'transition-colors',
             'hover:bg-neutral-200/40 dark:hover:bg-neutral-800/40',
@@ -62,17 +75,11 @@ function SidebarLinkItem({
               themeOutlineElement_FocusVisible,
               themeOutlineElementBrandColor_FocusVisible,
             ],
-            isActive && 'bg-neutral-200/40 dark:bg-neutral-800/40',
-            isActive
-              ? clsx(themeTextColor, 'font-semibold')
-              : clsx(
-                  themeTextSecondaryColor,
-                  'hover:text-neutral-700 dark:hover:text-neutral-300',
-                ),
+            isActive ? activeClassName : defaultClassName,
           )}
           href={href}
           variant="unstyled">
-          {Icon && (
+          {Icon && showIcon && (
             <Icon
               className={clsx(
                 'size-4 group-hover:animate-wiggle shrink-0 origin-bottom',
@@ -90,11 +97,13 @@ function SidebarLinkItem({
   );
 }
 
-function SidebarLinks({ item }: Readonly<{ item: SidebarLinkEntity }>) {
+function SidebarLinks({
+  item,
+}: Readonly<{ item: SidebarLinkEntity; showIcon: boolean }>) {
   const { pathname } = useI18nPathname();
 
   if (!('items' in item)) {
-    return <SidebarLinkItem key={item.href} {...item} />;
+    return <SidebarLinkItem key={item.href} showIcon={false} {...item} />;
   }
 
   const isActiveSection = item.items.find(
@@ -127,10 +136,10 @@ function SidebarLinks({ item }: Readonly<{ item: SidebarLinkEntity }>) {
             )}>
             {item.label}
           </span>
-          <RiArrowDownSLine
+          <RiArrowRightSLine
             aria-hidden={true}
             className={clsx(
-              'size-4 shrink-0 transition-transform group-data-[state=open]:-rotate-90',
+              'size-4 shrink-0 transition-transform group-data-[state=open]:rotate-90',
               isActiveSection ? themeTextColor : themeTextSubtleColor,
             )}
           />
@@ -144,7 +153,11 @@ function SidebarLinks({ item }: Readonly<{ item: SidebarLinkEntity }>) {
         )}>
         <ul className={clsx('flex flex-col gap-y-px', 'py-1 pl-3')} role="list">
           {item.items.map((linkItem) => (
-            <SidebarLinkItem key={linkItem.href} {...linkItem} />
+            <SidebarLinkItem
+              key={linkItem.href}
+              showIcon={true}
+              {...linkItem}
+            />
           ))}
         </ul>
       </AccordionPrimitive.Content>
@@ -160,12 +173,12 @@ export default function SidebarLinksSection({
   return (
     <AccordionPrimitive.Root
       asChild={true}
-      className={clsx('flex flex-col gap-y-px', 'p-4')}
+      className={clsx('flex flex-col gap-y-px')}
       defaultValue={items.map((section) => section.label)}
       type="multiple">
       <ul>
         {items.map((item) => (
-          <SidebarLinks key={item.label} item={item} />
+          <SidebarLinks key={item.label} item={item} showIcon={false} />
         ))}
       </ul>
     </AccordionPrimitive.Root>

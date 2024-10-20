@@ -1,23 +1,21 @@
 import useCommonNavItems from '~/components/common/navigation/useCommonNavItems';
-import type { NavbarPrimaryItem } from '~/components/ui/Navbar/NavTypes';
+import type { NavbarTopLevelItem } from '~/components/ui/Navbar/NavTypes';
 
 import useInterviewsNavItems from './useInterviewsNavItems';
 
 export default function useInterviewsNavLinks(
   isLoggedIn: boolean,
   isPremium: boolean,
-): ReadonlyArray<NavbarPrimaryItem> {
+): ReadonlyArray<NavbarTopLevelItem> {
   const commonNavItems = useCommonNavItems();
   const interviewsNavItems = useInterviewsNavItems('nav');
 
-  const links: ReadonlyArray<NavbarPrimaryItem | null> = [
+  const links: ReadonlyArray<NavbarTopLevelItem | null> = [
     interviewsNavItems.dashboard,
     interviewsNavItems.practice,
     !isPremium ? interviewsNavItems.pricing : null,
     !isLoggedIn ? commonNavItems.login : null,
   ];
 
-  return links.filter(
-    (item) => item != null,
-  ) as ReadonlyArray<NavbarPrimaryItem>;
+  return links.flatMap((item) => (item != null ? [item] : []));
 }

@@ -1,23 +1,24 @@
-import type { NavbarPrimaryItem } from '~/components/ui/Navbar/NavTypes';
-
 import useInterviewsNavItems from './useInterviewsNavItems';
 
-export default function useInterviewsSidebarLinks(
-  isPremium: boolean,
-): ReadonlyArray<NavbarPrimaryItem> {
+export default function useInterviewsSidebarLinks(isPremium: boolean) {
   const navItems = useInterviewsNavItems('sidebar');
 
-  const links: ReadonlyArray<NavbarPrimaryItem | null> = [
+  const links = [
     navItems.dashboard,
-    {
-      ...navItems.practice,
-      align: 'center',
-    },
-    navItems.features,
+    ...[
+      navItems.recommendedPreparation,
+      navItems.timeSavers,
+      navItems.practiceQuestions,
+      navItems.guides,
+    ].map(
+      (item) =>
+        ({
+          ...item,
+          position: 'start',
+        }) as const,
+    ),
     !isPremium ? navItems.pricing : null,
   ];
 
-  return links.filter(
-    (item) => item != null,
-  ) as ReadonlyArray<NavbarPrimaryItem>;
+  return links.flatMap((item) => (item != null ? [item] : []));
 }

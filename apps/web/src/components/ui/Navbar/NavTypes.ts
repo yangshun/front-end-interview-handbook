@@ -17,22 +17,16 @@ export type NavLinkItem = NavBaseItem &
     type: 'link';
   }>;
 
-export type NavPrimaryItem = Readonly<{
+type NavTopLevelItem = Readonly<{
   icon?: (props: React.ComponentProps<'svg'>) => JSX.Element;
   position: 'end' | 'start';
 }>;
 
-export type NavPrimaryLinkItem = Readonly<
-  NavLinkItem &
-    NavPrimaryItem &
-    Readonly<{
-      type: 'link';
-    }>
->;
+export type NavTopLevelLinkItem = Readonly<NavLinkItem & NavTopLevelItem>;
 
 export type NavPopoverItem = Readonly<
   NavBaseItem &
-    NavPrimaryItem &
+    NavTopLevelItem &
     Readonly<{
       align: PopoverContentAlignment;
       items: ReadonlyArray<NavPopoverChildItem>;
@@ -42,20 +36,21 @@ export type NavPopoverItem = Readonly<
 
 export type NavPopoverTabsItem = Readonly<
   NavBaseItem &
-    NavPrimaryItem &
+    NavTopLevelItem &
     Readonly<{
       align: PopoverContentAlignment;
-      items: ReadonlyArray<NavPopoverGroupItem>;
+      items: ReadonlyArray<NavPopoverListItem>;
       type: 'popover-tabs';
     }>
 >;
 
-export type NavPopoverChildItem = NavPopoverGroupItem | NavPopoverLinkItem;
+export type NavPopoverChildItem = NavPopoverLinkItem | NavPopoverListItem;
 
-export type NavPopoverGroupItem = Readonly<
+export type NavPopoverListItem = Readonly<
   NavBaseItem &
     Readonly<{
-      alignment?: 'center' | 'top';
+      align: 'center';
+      icon?: (props: React.ComponentProps<'svg'>) => JSX.Element;
       items: ReadonlyArray<NavPopoverLinkItem>;
       type: 'popover-list';
     }>
@@ -76,7 +71,7 @@ export type NavPopoverLinkItem = Readonly<
     )
 >;
 
-export type NavbarPrimaryItem =
+export type NavbarTopLevelItem =
   | NavPopoverItem
   | NavPopoverTabsItem
-  | NavPrimaryLinkItem;
+  | NavTopLevelLinkItem;

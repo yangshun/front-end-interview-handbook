@@ -18,6 +18,9 @@ export const themeTextTitleColor = clsx(
 export const themeTextSubtitleColor = clsx(
   'text-neutral-700 dark:text-neutral-300',
 );
+export const themeTextSubtitleColor_Hover = clsx(
+  'hover:text-neutral-700 dark:hover:text-neutral-300',
+);
 export const themeTextSecondaryColor = clsx(
   'text-neutral-600 dark:text-neutral-400',
 );

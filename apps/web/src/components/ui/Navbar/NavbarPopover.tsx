@@ -11,8 +11,8 @@ import {
 import NavbarFeatureIcon from './NavbarFeatureIcon';
 import type {
   NavPopoverChildItem,
-  NavPopoverGroupItem,
   NavPopoverLinkItem,
+  NavPopoverListItem,
 } from './NavTypes';
 import Text from '../Text';
 
@@ -72,7 +72,7 @@ function NavbarPopoverLink({
   );
 }
 
-function NavbarPopoverGroup({ label, items, onClick }: NavPopoverGroupItem) {
+function NavbarPopoverGroup({ label, items, onClick }: NavPopoverListItem) {
   return (
     <div>
       <span className="sr-only">{label}</span>

@@ -13,7 +13,7 @@ import {
 
 import NavbarItem from './NavbarItem';
 import NavbarSidebarItem from './NavbarSidebarItem';
-import type { NavbarPrimaryItem } from './NavTypes';
+import type { NavbarTopLevelItem } from './NavTypes';
 import Button from '../Button';
 
 type Props = Readonly<{
@@ -21,7 +21,7 @@ type Props = Readonly<{
   endAddOnItems?: React.ReactNode;
   hideOnDesktop?: boolean;
   isLoading: boolean;
-  links: ReadonlyArray<NavbarPrimaryItem>;
+  links: ReadonlyArray<NavbarTopLevelItem>;
   logo?: React.ReactNode;
   mobileSidebarBottomItems?: React.ReactNode;
   renderMobileSidebarAddOnItems?: ({

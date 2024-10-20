@@ -11,20 +11,20 @@ import {
 
 import { SocialLinks } from '~/data/SocialLinks';
 
-import SidebarLinkItem from '~/components/global/sidebar/SidebarLinkItem_DEPRECATED';
+import SidebarLinkItem_DEPRECATED from '~/components/global/sidebar/SidebarLinkItem_DEPRECATED';
 import { useIntl } from '~/components/intl';
 import Button from '~/components/ui/Button';
 import Divider from '~/components/ui/Divider';
 import DropdownMenu from '~/components/ui/DropdownMenu';
-import type { NavbarPrimaryItem } from '~/components/ui/Navbar/NavTypes';
+import type { NavbarTopLevelItem } from '~/components/ui/Navbar/NavTypes';
 
 import SidebarAuthDropdownItem from './SidebarAuthDropdownItem';
 import SidebarColorSchemeSubMenu from './SidebarColorSchemeSubMenu';
-import NavProductDropdownMenu from '../navbar/NavProductDropdownMenu';
+import NavProductDropdownMenu_DEPRECATED from '../navbar/NavProductDropdownMenu_DEPRECATED';
 
-export type SidebarItem = NavbarPrimaryItem;
+export type SidebarItem = NavbarTopLevelItem;
 
-export type SidebarItems = ReadonlyArray<NavbarPrimaryItem>;
+export type SidebarItems = ReadonlyArray<NavbarTopLevelItem>;
 
 export function SidebarCollapsed({
   moreMenuItems,
@@ -38,7 +38,9 @@ export function SidebarCollapsed({
   moreMenuItems: React.ReactElement | false | null | undefined;
   notificationItem?: React.ReactElement | false | null | undefined;
   onCollapseClick: () => void;
-  product: React.ComponentProps<typeof NavProductDropdownMenu>['product'];
+  product: React.ComponentProps<
+    typeof NavProductDropdownMenu_DEPRECATED
+  >['product'];
   showPremiumDiscord: boolean;
   sidebarItems: SidebarItems;
   topAddonElements?: React.ReactNode;
@@ -54,12 +56,12 @@ export function SidebarCollapsed({
         'relative h-full',
         'px-3 py-4',
       )}>
-      <NavProductDropdownMenu product={product} variant="compact" />
+      <NavProductDropdownMenu_DEPRECATED product={product} variant="compact" />
       {topAddonElements}
       <ul className="flex grow flex-col gap-1">
         {startItems.map((item) => (
           <li key={item.itemKey}>
-            <SidebarLinkItem isLabelHidden={true} {...item} />
+            <SidebarLinkItem_DEPRECATED isLabelHidden={true} {...item} />
           </li>
         ))}
       </ul>
@@ -69,7 +71,7 @@ export function SidebarCollapsed({
           <ul className="flex flex-col gap-1">
             {endItems.map((item) => (
               <li key={item.itemKey}>
-                <SidebarLinkItem isLabelHidden={true} {...item} />
+                <SidebarLinkItem_DEPRECATED isLabelHidden={true} {...item} />
               </li>
             ))}
           </ul>
@@ -151,10 +153,12 @@ export function SidebarExpanded({
   bottomBarItems?: React.ReactElement | false | null | undefined;
   isLoading: boolean;
   isViewerPremium: boolean;
-  moreMenuItems?: React.ReactElement | false | null | undefined;
+  moreMenuItems: React.ReactElement | false | null | undefined;
   notificationItem?: React.ReactElement | false | null | undefined;
   onCollapseClick?: () => void;
-  product: React.ComponentProps<typeof NavProductDropdownMenu>['product'];
+  product: React.ComponentProps<
+    typeof NavProductDropdownMenu_DEPRECATED
+  >['product'];
   renderBottomAddonElements?: (fadeInClassname: string) => React.ReactNode;
   renderTopAddonElements?: (fadeInClassname: string) => React.ReactNode;
   sidebarItems: SidebarItems;
@@ -169,14 +173,12 @@ export function SidebarExpanded({
 
   return (
     <nav className={clsx('flex flex-col gap-y-4', 'relative h-full p-4')}>
-      <div className="flex justify-center">
-        <NavProductDropdownMenu product={product} variant="full" />
-      </div>
+      <NavProductDropdownMenu_DEPRECATED product={product} variant="full" />
       {renderTopAddonElements?.(fadeInClass)}
       <ul className={clsx('flex grow flex-col gap-2', fadeInClass)}>
         {startItems.map((item) => (
           <li key={item.itemKey}>
-            <SidebarLinkItem {...item} />
+            <SidebarLinkItem_DEPRECATED {...item} />
           </li>
         ))}
       </ul>
@@ -187,7 +189,7 @@ export function SidebarExpanded({
             <ul className="flex flex-col gap-2">
               {endItems.map((item) => (
                 <li key={item.itemKey}>
-                  <SidebarLinkItem {...item} />
+                  <SidebarLinkItem_DEPRECATED {...item} />
                 </li>
               ))}
             </ul>

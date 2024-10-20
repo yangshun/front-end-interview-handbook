@@ -13,7 +13,7 @@ import {
 } from '~/components/ui/theme';
 
 import type {
-  NavbarPrimaryItem,
+  NavbarTopLevelItem,
   NavPopoverChildItem,
   NavPopoverItem,
   NavPopoverTabsItem,
@@ -168,7 +168,7 @@ export default function NavbarSidebarItem({
   onClick,
   label,
   ...props
-}: NavbarPrimaryItem) {
+}: NavbarTopLevelItem) {
   const isCurrent = false; // TODO: Read from router.
   const linkClass = clsx(themeBackgroundLayerEmphasized_Hover);
 
