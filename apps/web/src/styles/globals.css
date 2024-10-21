@@ -109,27 +109,6 @@ a {
   }
 }
 
-/* Sync with flipUp first keyframe */
-.flipUp--initial {
-  transform: perspective(1000px) rotateX(15deg);
-  transform-origin: bottom;
-  opacity: 0.5;
-}
-
-@keyframes flipUp {
-  from {
-    transform: perspective(1000px) rotateX(15deg);
-    transform-origin: bottom;
-    opacity: 0.5;
-  }
-
-  to {
-    transform: perspective(1000px) rotateX(0deg);
-    transform-origin: bottom;
-    opacity: 1;
-  }
-}
-
 :root {
   --animate-duration: 1.5s;
 }
@@ -141,11 +120,6 @@ a {
   animation-duration: var(--animate-duration);
   -webkit-animation-fill-mode: both;
   animation-fill-mode: both;
-}
-
-.animate__flipUp {
-  backface-visibility: visible !important;
-  animation-name: flipUp;
 }
 
 .code-block__counter {

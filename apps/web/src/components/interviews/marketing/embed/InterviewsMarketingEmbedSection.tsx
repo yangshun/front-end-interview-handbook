@@ -1,10 +1,17 @@
 'use client';
 
 import clsx from 'clsx';
-import { useInView } from 'framer-motion';
+import {
+  easeIn,
+  motion,
+  useInView,
+  useScroll,
+  useTransform,
+} from 'framer-motion';
 import dynamic from 'next/dynamic';
 import { useRef, useState } from 'react';
 import { RiJavascriptFill } from 'react-icons/ri';
+import { useMediaQuery } from 'usehooks-ts';
 
 import gtag from '~/lib/gtag';
 
@@ -82,16 +89,60 @@ export default function InterviewsMarketingEmbedSection({
 }>) {
   const intl = useIntl();
   const tabs = useTabs();
+  const isMobile = useMediaQuery('(max-width: 767px)');
+  const isTablet = useMediaQuery('(min-width: 768px) and (max-width: 1024px)');
   const [selectedTab, setSelectedTab] = useState(tabs[0].value);
-  const containerRef = useRef(null);
+  const containerRef = useRef<HTMLDivElement>(null);
   const isVisible = useInView(containerRef, {
     amount: 'some',
     once: true,
   });
   const showContents = useInView(containerRef, {
-    amount: 0.5,
+    amount: 0.2,
     once: true,
   });
+  const { scrollYProgress } = useScroll({
+    offset: ['start end', 'start start'],
+    target: containerRef,
+  });
+
+  const animationStartScrollProgress = isTablet ? 0.6 : 0.5;
+  const animationEndScrollProgress = isTablet ? 0.9 : 0.8;
+
+  const rotateX = useTransform(
+    scrollYProgress,
+    [animationStartScrollProgress, animationEndScrollProgress],
+    [isMobile ? 0 : 28, 0],
+    { ease: easeIn },
+  );
+  const scaleX = useTransform(
+    scrollYProgress,
+    [animationStartScrollProgress, animationEndScrollProgress],
+    [isMobile ? 1 : 0.8, 1],
+    { ease: easeIn },
+  );
+  const scaleY = useTransform(
+    scrollYProgress,
+    [animationStartScrollProgress, animationEndScrollProgress],
+    [isMobile ? 1 : 0.8, 1],
+    { ease: easeIn },
+  );
+  const opacity = useTransform(
+    scrollYProgress,
+    [animationStartScrollProgress, animationEndScrollProgress],
+    [isMobile ? 1 : 0.5, 1],
+  );
+  const marginBottom = useTransform(
+    scrollYProgress,
+    [animationStartScrollProgress, animationEndScrollProgress],
+    [-50, 0],
+  );
+
+  const perspectiveTransform = useTransform(
+    [rotateX, scaleX, scaleY],
+    ([rotateXValue, scaleXValue, scaleYValue]) =>
+      `perspective(1000px) rotateX(${rotateXValue}deg) scaleX(${scaleXValue}) scaleY(${scaleYValue})`,
+  );
 
   return (
     <div
@@ -106,33 +157,39 @@ export default function InterviewsMarketingEmbedSection({
       <Container
         className={clsx('relative flex flex-col gap-y-8')}
         variant="screen-2xl">
-        <InterviewsMarketingHeroBrowserWindowFrame
-          className={clsx(
-            showContents
-              ? 'animate__animated animate__flipUp'
-              : 'flipUp--initial',
-          )}>
-          <div className="lg:h-[600px]">
-            {showContents && (
-              <>
-                {selectedTab === 'user-interface' && (
-                  <InterviewsMarketingEmbedUIQuestion
-                    question={uiEmbedExample}
-                  />
-                )}
-                {selectedTab === 'javascript' && (
-                  <InterviewsMarketingEmbedJavaScriptQuestion
-                    javaScriptEmbedExample={javaScriptEmbedExample}
-                  />
-                )}
-                {selectedTab === 'system-design' && (
-                  <MarketingEmbedSystemDesignQuestion />
-                )}
-                {selectedTab === 'quiz' && <MarketingEmbedQuizQuestion />}
-              </>
-            )}
-          </div>
-        </InterviewsMarketingHeroBrowserWindowFrame>
+        <motion.div
+          style={{
+            marginBottom,
+            opacity,
+            scaleX,
+            scaleY,
+            transform: perspectiveTransform,
+            transformOrigin: 'center top',
+            transformStyle: 'preserve-3d',
+          }}>
+          <InterviewsMarketingHeroBrowserWindowFrame>
+            <div className="lg:h-[600px]">
+              {showContents && (
+                <>
+                  {selectedTab === 'user-interface' && (
+                    <InterviewsMarketingEmbedUIQuestion
+                      question={uiEmbedExample}
+                    />
+                  )}
+                  {selectedTab === 'javascript' && (
+                    <InterviewsMarketingEmbedJavaScriptQuestion
+                      javaScriptEmbedExample={javaScriptEmbedExample}
+                    />
+                  )}
+                  {selectedTab === 'system-design' && (
+                    <MarketingEmbedSystemDesignQuestion />
+                  )}
+                  {selectedTab === 'quiz' && <MarketingEmbedQuizQuestion />}
+                </>
+              )}
+            </div>
+          </InterviewsMarketingHeroBrowserWindowFrame>
+        </motion.div>
         <div className="flex justify-center">
           <TabsUnderline
             display="inline"
