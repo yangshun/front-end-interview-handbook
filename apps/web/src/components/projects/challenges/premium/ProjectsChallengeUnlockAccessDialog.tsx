@@ -110,7 +110,7 @@ export default function ProjectsChallengeUnlockAccessDialog({
   );
 
   const creditsLeftAfterUnlocking = credits - (data?.creditsRequired ?? 0);
-  const hasSufficientCreditsToUnlock = creditsLeftAfterUnlocking > 0;
+  const hasSufficientCreditsToUnlock = creditsLeftAfterUnlocking >= 0;
 
   return (
     <ConfirmationDialog
@@ -198,16 +198,20 @@ export default function ProjectsChallengeUnlockAccessDialog({
                   }}
                 />
               </Text>
-              <PrerequisiteChallengesList
-                challenges={data.challengesToUnlock}
-              />
-              <Text className="block">
-                <FormattedMessage
-                  defaultMessage="As this is a composite challenge, you may choose to unlock the dependent challenges first."
-                  description="Confirmation text for unlocking a premium challenge"
-                  id="6J+fmT"
-                />
-              </Text>
+              {data.challengesToUnlock.length > 1 && (
+                <>
+                  <PrerequisiteChallengesList
+                    challenges={data.challengesToUnlock}
+                  />
+                  <Text className="block">
+                    <FormattedMessage
+                      defaultMessage="As this is a composite challenge, you may choose to unlock the dependent challenges first."
+                      description="Confirmation text for unlocking a premium challenge"
+                      id="6J+fmT"
+                    />
+                  </Text>
+                </>
+              )}
             </div>
           );
         }
