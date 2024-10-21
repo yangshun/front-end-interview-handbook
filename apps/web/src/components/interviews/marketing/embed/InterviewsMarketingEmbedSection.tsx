@@ -19,7 +19,7 @@ import { useQuestionUserFacingFormatData } from '~/data/QuestionFormats';
 
 import { useIntl } from '~/components/intl';
 import Container from '~/components/ui/Container';
-import TabsUnderline from '~/components/ui/Tabs/TabsUnderline';
+import FilterButton from '~/components/ui/FilterButton/FilterButton';
 
 import InterviewsMarketingEmbedJavaScriptQuestion from './InterviewsMarketingEmbedJavaScriptQuestion';
 import type { EmbedUIQuestion } from './InterviewsMarketingEmbedUIQuestion';
@@ -106,8 +106,8 @@ export default function InterviewsMarketingEmbedSection({
     target: containerRef,
   });
 
-  const animationStartScrollProgress = isTablet ? 0.6 : 0.5;
-  const animationEndScrollProgress = isTablet ? 0.9 : 0.8;
+  const animationStartScrollProgress = 0;
+  const animationEndScrollProgress = isTablet ? 0.7 : 0.5;
 
   const rotateX = useTransform(
     scrollYProgress,
@@ -153,9 +153,10 @@ export default function InterviewsMarketingEmbedSection({
         'duration-1000',
         'delay-1000',
         isVisible ? 'opacity-100' : 'opacity-0',
+        'scroll-mt-16',
       )}>
       <Container
-        className={clsx('relative flex flex-col gap-y-8')}
+        className={clsx('relative', 'flex flex-col gap-y-10')}
         variant="screen-2xl">
         <motion.div
           style={{
@@ -190,27 +191,39 @@ export default function InterviewsMarketingEmbedSection({
             </div>
           </InterviewsMarketingHeroBrowserWindowFrame>
         </motion.div>
-        <div className="flex justify-center">
-          <TabsUnderline
-            display="inline"
-            label={intl.formatMessage({
-              defaultMessage: 'Select question format',
-              description:
-                'Label for tabs to select sample interview question format',
-              id: '50kzzq',
-            })}
-            tabs={tabs}
-            value={selectedTab}
-            onSelect={(newTab: string) => {
-              gtag.event({
-                action: `homepage.hero.embed.${newTab}.click`,
-                category: 'engagement',
-                label: newTab,
-              });
-              setSelectedTab(newTab);
-            }}
-          />
-        </div>
+        <nav
+          aria-label={intl.formatMessage({
+            defaultMessage: 'Select question format',
+            description:
+              'Label for tabs to select sample interview question format',
+            id: '50kzzq',
+          })}
+          className="flex justify-center gap-2">
+          {tabs.map((tab) => (
+            <FilterButton
+              key={tab.value}
+              label={tab.label}
+              selected={selectedTab === tab.value}
+              onClick={() => {
+                gtag.event({
+                  action: `homepage.hero.embed.${tab.value}.click`,
+                  category: 'engagement',
+                  label: tab.value,
+                });
+                setSelectedTab(tab.value);
+                containerRef.current?.scrollIntoView({
+                  behavior:
+                    // Coding workspace contains some scrolling interaction as well, which
+                    // interferes with a smooth scrollIntoView(), so for embed of workspaces
+                    // we scroll instantly.
+                    tab.value === 'javascript' || tab.value === 'user-interface'
+                      ? 'auto'
+                      : 'smooth',
+                });
+              }}
+            />
+          ))}
+        </nav>
       </Container>
     </div>
   );

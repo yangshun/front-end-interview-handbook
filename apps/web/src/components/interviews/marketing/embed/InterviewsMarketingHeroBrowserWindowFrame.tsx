@@ -19,6 +19,7 @@ export default function InterviewsMarketingHeroBrowserWindowFrame({
         'rounded-lg sm:rounded-xl',
         'border border-neutral-300 dark:border-white/10',
         'bg-white dark:bg-neutral-800/40',
+        'shadow-xl',
         className,
       )}>
       <div
