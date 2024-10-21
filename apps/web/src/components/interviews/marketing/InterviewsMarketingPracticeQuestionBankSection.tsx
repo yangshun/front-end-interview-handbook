@@ -2,7 +2,6 @@ import clsx from 'clsx';
 import { useState } from 'react';
 import { RiArrowRightLine } from 'react-icons/ri';
 
-import FilterButton from '~/components/common/FilterButton';
 import type {
   QuestionLanguage,
   QuestionMetadata,
@@ -27,6 +26,7 @@ import QuestionTotalTimeLabel from '~/components/interviews/questions/metadata/Q
 import { FormattedMessage, useIntl } from '~/components/intl';
 import Button from '~/components/ui/Button';
 import Container from '~/components/ui/Container';
+import FilterButton from '~/components/ui/FilterButton/FilterButton';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 import TabsUnderline from '~/components/ui/Tabs/TabsUnderline';
@@ -339,7 +339,6 @@ export default function InterviewsMarketingPracticeQuestionBankSection({
                   <FilterButton
                     key={value}
                     label={label}
-                    purpose="button"
                     selected={selectedFilter === value}
                     onClick={() => setSelectedFilter(value)}
                   />

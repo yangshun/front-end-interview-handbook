@@ -6,7 +6,6 @@ import { z } from 'zod';
 
 import { trpc } from '~/hooks/trpc';
 
-import FilterButton from '~/components/common/FilterButton';
 import { useToast } from '~/components/global/toasts/useToast';
 import { useIntl } from '~/components/intl';
 import UserProfileInformationRow from '~/components/profile/info/UserProfileInformationRow';
@@ -16,6 +15,7 @@ import {
 } from '~/components/projects/discussions/ProjectsDiscussionsCommentBodySchema';
 import type { ProjectsDiscussionsCommentAuthor } from '~/components/projects/discussions/types';
 import Button from '~/components/ui/Button';
+import FilterButton from '~/components/ui/FilterButton/FilterButton';
 import RichTextEditor from '~/components/ui/RichTextEditor';
 import Text from '~/components/ui/Text';
 
@@ -141,7 +141,6 @@ export default function ProjectsChallengeSubmissionDiscussionsNewComment({
                 <FilterButton
                   key={value}
                   label={label}
-                  purpose="tab"
                   selected={field.value === value}
                   size="xs"
                   onClick={() => {

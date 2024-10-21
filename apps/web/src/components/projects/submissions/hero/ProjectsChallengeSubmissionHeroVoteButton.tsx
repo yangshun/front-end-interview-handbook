@@ -3,9 +3,9 @@ import { RiThumbUpFill } from 'react-icons/ri';
 
 import { trpc } from '~/hooks/trpc';
 
-import FilterButton from '~/components/common/FilterButton';
 import { useToast } from '~/components/global/toasts/useToast';
 import { useIntl } from '~/components/intl';
+import FilterButton from '~/components/ui/FilterButton/FilterButton';
 
 import { useI18nRouter } from '~/next-i18nostic/src';
 
@@ -61,7 +61,6 @@ export default function ProjectsChallengeSubmissionHeroVoteButton({
       icon={RiThumbUpFill}
       isDisabled={isLoading || vote.isLoading || unvote.isLoading || disabled}
       label={String(votes)}
-      purpose="button"
       selected={viewerUpvoted}
       tooltip={
         viewerUpvoted

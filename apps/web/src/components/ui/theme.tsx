@@ -65,7 +65,7 @@ export const themeIconColor = clsx('text-neutral-400 dark:text-neutral-500');
 // Background colors.
 export const themeBackgroundBrandColor = clsx('bg-brand-dark dark:bg-brand');
 export const themeBackgroundColor = clsx('bg-white dark:bg-neutral-900');
-export const themeBackgroundInvertColor = clsx('bg-neutral-950 dark:bg-white');
+export const themeBackgroundInvertColor = clsx('bg-neutral-900 dark:bg-white');
 export const themeBackgroundLayerColor = clsx('bg-white dark:bg-neutral-900');
 
 export const themeBackgroundEmphasized = clsx(
@@ -117,11 +117,17 @@ export const themeBackgroundElementEmphasizedStateColor = clsx(
 export const themeBackgroundElementEmphasizedStateColor_Hover = clsx(
   'hover:bg-neutral-100 dark:hover:bg-neutral-800/70',
 );
+export const themeBackgroundElementInvertEmphasizedStateColor_Hover = clsx(
+  'hover:bg-neutral-800 dark:hover:bg-neutral-100',
+);
 export const themeBackgroundElementEmphasizedStateColor_Focus = clsx(
   'focus:bg-neutral-100 dark:focus:bg-neutral-800/70',
 );
 export const themeBackgroundElementPressedStateColor_Active = clsx(
   'active:bg-neutral-200 dark:active:bg-neutral-700',
+);
+export const themeBackgroundElementInvertPressedStateColor_Active = clsx(
+  'active:bg-neutral-700 dark:active:bg-neutral-200',
 );
 
 // Fills

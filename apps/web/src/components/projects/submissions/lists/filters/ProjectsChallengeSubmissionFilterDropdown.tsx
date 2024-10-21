@@ -1,9 +1,9 @@
 import { RiArrowDownSLine } from 'react-icons/ri';
 
-import FilterButton from '~/components/common/FilterButton';
 import type { ProjectsChallengeSubmissionFilterOption } from '~/components/projects/submissions/lists/filters/ProjectsChallengeSubmissionFilterContext';
 import { useProjectsChallengeSubmissionFilterState } from '~/components/projects/submissions/lists/filters/ProjectsChallengeSubmissionFilterContext';
 import CheckboxInput from '~/components/ui/CheckboxInput';
+import FilterButton from '~/components/ui/FilterButton/FilterButton';
 import Popover from '~/components/ui/Popover';
 
 type Props = Readonly<{
@@ -35,7 +35,6 @@ export default function ProjectsChallengeSubmissionFilterDropdown({
           addonPosition="end"
           icon={RiArrowDownSLine}
           label={filter.label}
-          purpose="button"
           selected={selectedOptions.length > 0}
           size="md"
         />

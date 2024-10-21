@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import { RiAddLine, RiCheckFill, RiCircleFill } from 'react-icons/ri';
 
-import FilterButton from '~/components/common/FilterButton';
+import FilterButton from '~/components/ui/FilterButton/FilterButton';
 import Text from '~/components/ui/Text';
 import { themeIconColor } from '~/components/ui/theme';
 
@@ -66,7 +66,6 @@ export default function ProjectsSkillRoadmapSelection({
                           key={skillKey}
                           icon={selected ? RiCheckFill : RiAddLine}
                           label={label}
-                          purpose="button"
                           selected={selected}
                           onClick={() => {
                             if (selected) {

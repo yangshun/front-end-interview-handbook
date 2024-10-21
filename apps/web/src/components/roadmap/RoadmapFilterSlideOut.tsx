@@ -4,7 +4,6 @@ import React, { Fragment, useState } from 'react';
 import { RiCalendar2Line } from 'react-icons/ri';
 import type { IntlShape } from 'react-intl';
 
-import FilterButton from '~/components/common/FilterButton';
 import { useIntl } from '~/components/intl';
 import {
   Accordion,
@@ -14,6 +13,7 @@ import {
 } from '~/components/ui/Accordion';
 import Button from '~/components/ui/Button';
 import Divider from '~/components/ui/Divider';
+import FilterButton from '~/components/ui/FilterButton/FilterButton';
 import SlideOut from '~/components/ui/SlideOut';
 import Text from '~/components/ui/Text';
 
@@ -223,7 +223,6 @@ function RoadmapFilterSlideOut({
               'Label for All Filters button for roadmap page on mobile',
             id: '/ElgZZ',
           })}
-          purpose="button"
           selected={true}
           size="sm"
           onClick={() => {

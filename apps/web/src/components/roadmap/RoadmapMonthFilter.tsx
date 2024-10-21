@@ -3,8 +3,8 @@ import { startCase } from 'lodash-es';
 import { RiArrowDownSLine } from 'react-icons/ri';
 import type { IntlShape } from 'react-intl';
 
-import FilterButton from '~/components/common/FilterButton';
 import { useIntl } from '~/components/intl';
+import FilterButton from '~/components/ui/FilterButton/FilterButton';
 import Popover from '~/components/ui/Popover';
 
 import { MONTHS } from './constants';
@@ -65,7 +65,6 @@ function RoadmapMonthFilter({
           addonPosition="end"
           icon={RiArrowDownSLine}
           label={getMonthLabel(showDefaultMonths, months, intl)}
-          purpose="button"
           selected={true}
           size="md"
         />

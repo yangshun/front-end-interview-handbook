@@ -1,9 +1,9 @@
-import FilterButton from '~/components/common/FilterButton';
 import { useIntl } from '~/components/intl';
 import {
   type ProjectsImageBreakpointCategory,
   ProjectsImageBreakpointDimensions,
 } from '~/components/projects/common/ProjectsImageBreakpoints';
+import FilterButton from '~/components/ui/FilterButton/FilterButton';
 
 type Props = Readonly<{
   breakpoint: ProjectsImageBreakpointCategory;
@@ -72,7 +72,6 @@ export default function ProjectsImageBreakpointButtonGroup({
           icon={icon}
           isLabelHidden={true}
           label={label}
-          purpose="tab"
           selected={breakpoint === value}
           tooltip={label}
           onClick={() => {

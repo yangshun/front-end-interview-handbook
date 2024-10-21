@@ -19,6 +19,7 @@ import Container from '~/components/ui/Container';
 import DialogExamples from '~/components/ui/Dialog/DialogExamples';
 import DropdownMenuExamples from '~/components/ui/DropdownMenu/DropdownMenuExamples';
 import EmptyStateExamples from '~/components/ui/EmptyState/EmptyStateExamples';
+import FilterButtonExamples from '~/components/ui/FilterButton/FilterButtonExamples';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 import HeadingExamples from '~/components/ui/Heading/HeadingExamples';
@@ -72,6 +73,7 @@ export default function UILibraryPage() {
         <AnchorExamples />
         {/* Form */}
         <ButtonExamples />
+        <FilterButtonExamples />
         <TextInputExamples />
         <TextAreaExamples />
         <SelectExamples />

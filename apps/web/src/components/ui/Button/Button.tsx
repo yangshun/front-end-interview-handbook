@@ -10,11 +10,15 @@ import {
 import {
   themeBackgroundElementColor,
   themeBackgroundElementEmphasizedStateColor_Hover,
+  themeBackgroundElementInvertEmphasizedStateColor_Hover,
+  themeBackgroundElementInvertPressedStateColor_Active,
   themeBackgroundElementPressedStateColor_Active,
+  themeBackgroundInvertColor,
   themeBorderElementColor,
   themeOutlineElement_FocusVisible,
   themeOutlineElementBrandColor_FocusVisible,
   themeTextColor,
+  themeTextInvertColor,
 } from '~/components/ui/theme';
 
 import type { Props as AnchorProps } from '../Anchor';
@@ -27,6 +31,7 @@ export type ButtonDisplay = 'block' | 'inline';
 export type ButtonSize = 'lg' | 'md' | 'sm' | 'xs';
 export type ButtonVariant =
   | 'danger'
+  | 'inverted_INTERNAL_ONLY'
   | 'primary'
   | 'secondary'
   | 'special'
@@ -142,6 +147,14 @@ const variantClasses: Record<ButtonVariant, string> = {
     'active:bg-danger-darker dark:active:bg-danger-lighter',
     'focus-visible:outline-danger',
   ),
+  inverted_INTERNAL_ONLY: clsx(
+    'border-transparent',
+    themeTextInvertColor,
+    themeBackgroundInvertColor,
+    themeBackgroundElementInvertEmphasizedStateColor_Hover,
+    themeBackgroundElementInvertPressedStateColor_Active,
+    themeOutlineElementBrandColor_FocusVisible,
+  ),
   primary: clsx(
     'border-transparent',
     'text-neutral-900',
@@ -192,6 +205,11 @@ const variantDisabledClasses: Record<ButtonVariant, string> = {
     'disabled:border-transparent',
     'disabled:text-white dark:disabled:text-neutral-700',
     'disabled:bg-neutral-300 dark:disabled:bg-neutral-900',
+  ),
+  inverted_INTERNAL_ONLY: clsx(
+    'disabled:border-transparent',
+    'disabled:text-neutral-400 dark:disabled:text-neutral-600',
+    'disabled:bg-neutral-50 dark:disabled:bg-neutral-800',
   ),
   primary: clsx(
     'disabled:border-transparent',

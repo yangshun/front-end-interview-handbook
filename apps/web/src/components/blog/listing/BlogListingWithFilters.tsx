@@ -22,10 +22,10 @@ import BlogViewDropdown from '~/components/blog/filters/BlogViewDropdown';
 import useBlogPostFilters from '~/components/blog/filters/hooks/useBlogPostFilters';
 import BlogList from '~/components/blog/filters/items/BlogList';
 import BlogCountLabel from '~/components/blog/metadata/BlogCountLabel';
-import FilterButton from '~/components/common/FilterButton';
 import { FormattedMessage, useIntl } from '~/components/intl';
 import CheckboxInput from '~/components/ui/CheckboxInput';
 import DropdownMenu from '~/components/ui/DropdownMenu';
+import FilterButton from '~/components/ui/FilterButton/FilterButton';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 import Popover from '~/components/ui/Popover';
@@ -114,7 +114,6 @@ export default function BlogListingWithFilters({
                   id: 'k2Oi+j',
                 }) + (numberOfFilters > 0 ? ` (${numberOfFilters})` : '')
               }
-              purpose="button"
               selected={numberOfFilters > 0}
               size="sm"
             />
@@ -193,7 +192,6 @@ export default function BlogListingWithFilters({
                 addonPosition="end"
                 icon={RiArrowDownSLine}
                 label={levelFilterOptions.name}
-                purpose="button"
                 selected={levelFilters.size > 0}
                 size="sm"
               />
@@ -222,7 +220,6 @@ export default function BlogListingWithFilters({
                 addonPosition="end"
                 icon={RiArrowDownSLine}
                 label={tagFilterOptions.name}
-                purpose="button"
                 selected={tagFilters.size > 0}
                 size="sm"
               />

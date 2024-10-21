@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 
-import FilterButton from '~/components/common/FilterButton';
+import FilterButton from '~/components/ui/FilterButton/FilterButton';
 
 import type { QuestionFilter } from './QuestionFilterType';
 import type { QuestionMetadata } from '../../common/QuestionsTypes';
@@ -23,7 +23,6 @@ export default function QuestionListingTopicFilters<
             key={option.value}
             icon={Icon}
             label={String(option.label)}
-            purpose="tab"
             selected={values.has(option.value)}
             tooltip={option.tooltip}
             onClick={() => section.onChange(option.value)}

@@ -2,7 +2,6 @@ import clsx from 'clsx';
 import type { ReactNode } from 'react';
 import { RiArrowDownSLine, RiSearchLine, RiSortDesc } from 'react-icons/ri';
 
-import FilterButton from '~/components/common/FilterButton';
 import { useUserProfile } from '~/components/global/UserProfileProvider';
 import type { GuideCardMetadataWithCompletedStatus } from '~/components/guides/types';
 import InterviewsGuideCard from '~/components/interviews/guides/InterviewsGuideCard';
@@ -26,6 +25,7 @@ import { FormattedMessage, useIntl } from '~/components/intl';
 import CheckboxInput from '~/components/ui/CheckboxInput';
 import Divider from '~/components/ui/Divider';
 import DropdownMenu from '~/components/ui/DropdownMenu';
+import FilterButton from '~/components/ui/FilterButton/FilterButton';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 import Popover from '~/components/ui/Popover';
@@ -329,7 +329,6 @@ export default function QuestionsUnifiedListWithFilters({
                 addonPosition="end"
                 icon={RiArrowDownSLine}
                 label={companyFilterOptions.name}
-                purpose="button"
                 selected={companyFilters.size > 0}
                 size="sm"
               />
@@ -357,7 +356,6 @@ export default function QuestionsUnifiedListWithFilters({
                 addonPosition="end"
                 icon={RiArrowDownSLine}
                 label={difficultyFilterOptions.name}
-                purpose="button"
                 selected={difficultyFilters.size > 0}
                 size="sm"
               />
@@ -388,7 +386,6 @@ export default function QuestionsUnifiedListWithFilters({
                 addonPosition="end"
                 icon={RiArrowDownSLine}
                 label={frameworkFilterOptions.name}
-                purpose="button"
                 selected={frameworkFilters.size > 0}
                 size="sm"
               />
@@ -445,7 +442,6 @@ export default function QuestionsUnifiedListWithFilters({
                 addonPosition="end"
                 icon={RiArrowDownSLine}
                 label={completionStatusFilterOptions.name}
-                purpose="button"
                 selected={completionStatusFilters.size > 0}
                 size="sm"
               />

@@ -4,7 +4,6 @@ import { useRef } from 'react';
 import { RiArrowLeftLine, RiMessage2Fill, RiPencilLine } from 'react-icons/ri';
 import { useMediaQuery } from 'usehooks-ts';
 
-import FilterButton from '~/components/common/FilterButton';
 import { useIntl } from '~/components/intl';
 import MarketingHeroBackground from '~/components/marketing/MarketingHeroBackground';
 import type { ProjectsChallengeItem } from '~/components/projects/challenges/types';
@@ -15,6 +14,7 @@ import ProjectsChallengeSubmissionHeroViews from '~/components/projects/submissi
 import ProjectsChallengeSubmissionHeroVoteButton from '~/components/projects/submissions/hero/ProjectsChallengeSubmissionHeroVoteButton';
 import type { ProjectsChallengeSubmissionAugmented } from '~/components/projects/submissions/types';
 import Button from '~/components/ui/Button';
+import FilterButton from '~/components/ui/FilterButton/FilterButton';
 import Heading from '~/components/ui/Heading';
 import Text from '~/components/ui/Text';
 import { themeBackgroundColor, themeBorderColor } from '~/components/ui/theme';
@@ -109,7 +109,6 @@ export default function ProjectsChallengeSubmissionHero({
       icon={RiMessage2Fill}
       isDisabled={!isLoggedIn}
       label={String(submission.comments ?? 0)}
-      purpose="button"
       tooltip={intl.formatMessage({
         defaultMessage: 'Comment on this submission',
         description: 'Tooltip for Comment on submission button',

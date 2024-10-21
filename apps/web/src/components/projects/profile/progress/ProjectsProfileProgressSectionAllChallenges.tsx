@@ -3,11 +3,11 @@
 import { useState } from 'react';
 import { RiRocketLine } from 'react-icons/ri';
 
-import FilterButton from '~/components/common/FilterButton';
 import { useIntl } from '~/components/intl';
 import useProjectsAllChallengesFilterOptions from '~/components/projects/profile/progress/useProjectsAllChallengesFilterOptions';
 import CheckboxInput from '~/components/ui/CheckboxInput';
 import EmptyState from '~/components/ui/EmptyState';
+import FilterButton from '~/components/ui/FilterButton/FilterButton';
 import { themeTextColor } from '~/components/ui/theme';
 
 import ProjectsProfileProgressChallengeList from './ProjectsProfileProgressChallengeList';
@@ -79,7 +79,6 @@ export default function ProjectsProfileProgressSectionAllChallenges({
                 key={option.value}
                 icon={Icon}
                 label={String(option.label)}
-                purpose="tab"
                 selected={challengeStatusFilter === option.value}
                 tooltip={option.tooltip}
                 onClick={() => {

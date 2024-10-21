@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react';
 import { RiFilterLine } from 'react-icons/ri';
 
-import FilterButton from '~/components/common/FilterButton';
 import type { QuestionFormat } from '~/components/interviews/questions/common/QuestionsTypes';
 import { useIntl } from '~/components/intl';
 import Button from '~/components/ui/Button';
+import FilterButton from '~/components/ui/FilterButton/FilterButton';
 import SlideOut from '~/components/ui/SlideOut';
 
 import useQuestionUnifiedFilters from './hooks/useQuestionUnifiedFilters';
@@ -159,7 +159,6 @@ export default function QuestionsListingFilterSlideOut({
               id: 'k2Oi+j',
             }) + (numberOfFilters > 0 ? ` (${numberOfFilters})` : '')
           }
-          purpose="button"
           selected={numberOfFilters > 0}
           size="sm"
           onClick={() => {

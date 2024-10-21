@@ -1,7 +1,6 @@
 import { Fragment, useEffect, useMemo, useState } from 'react';
 import { RiFilterLine } from 'react-icons/ri';
 
-import FilterButton from '~/components/common/FilterButton';
 import { useIntl } from '~/components/intl';
 import {
   Accordion,
@@ -12,6 +11,7 @@ import {
 import Button from '~/components/ui/Button';
 import CheckboxInput from '~/components/ui/CheckboxInput';
 import Divider from '~/components/ui/Divider';
+import FilterButton from '~/components/ui/FilterButton/FilterButton';
 import SlideOut from '~/components/ui/SlideOut';
 import Text from '~/components/ui/Text';
 
@@ -190,7 +190,6 @@ export default function ProjectsChallengeFilterSlideOut({
               description: 'Label for All Filters button for projects list',
               id: 'i9ojv3',
             })}
-            purpose="button"
             selected={selected}
             size="md"
             tooltip={intl.formatMessage({
