@@ -1,14 +1,25 @@
 'use client';
 
+import clsx from 'clsx';
 import { useEffect, useRef } from 'react';
-import { RiStarSmileLine } from 'react-icons/ri';
+import { RiStarSmileFill, RiStarSmileLine } from 'react-icons/ri';
 import { useLocalStorage, useMediaQuery } from 'usehooks-ts';
 
 import { trpc } from '~/hooks/trpc';
 
+import { INTERVIEWS_REVAMP_2024 } from '~/data/FeatureFlags';
+
 import { useToast } from '~/components/global/toasts/useToast';
 import { FormattedMessage } from '~/components/intl';
 import Anchor from '~/components/ui/Anchor';
+import Chip from '~/components/ui/Chip';
+import Text from '~/components/ui/Text';
+import {
+  themeBackgroundColor,
+  themeGlassyBorder,
+  themeWhiteGlowCardBackground,
+} from '~/components/ui/theme';
+import { ToastClose } from '~/components/ui/Toast/Toast';
 
 import { useUserProfile } from '../../global/UserProfileProvider';
 
@@ -90,6 +101,125 @@ function MarketingRecentPurchasesImpl({
   return null;
 }
 
+function RecentPurchaseToastComponent({
+  onClose,
+  country,
+}: Readonly<{ country: string; onClose: () => void }>) {
+  return (
+    <div
+      className={clsx(
+        'relative isolate overflow-hidden',
+        'rounded-full',
+        'p-3',
+        'drop-shadow-sm',
+        'max-w-sm',
+        themeBackgroundColor,
+        [
+          themeWhiteGlowCardBackground,
+          'before:-left-20 before:-top-28 before:z-[1]',
+        ],
+      )}>
+      <div
+        className={clsx(
+          '!absolute inset-0 rounded-[inherit] before:m-[-1px]',
+          themeGlassyBorder,
+        )}
+      />
+      <div className={clsx('relative z-[2]', 'flex items-center')}>
+        <div className="flex items-center gap-2">
+          <Chip
+            icon={RiStarSmileFill}
+            iconClassName="!text-neutral-950 size-4"
+            isLabelHidden={true}
+            label="Premium"
+            size="sm"
+            variant="primary"
+          />
+          <Text color="subtitle" size="body3" weight="medium">
+            <FormattedMessage
+              defaultMessage="Someone from {country} subscribed to <link>Premium</link> recently"
+              description="Marketing toast to show that someone has subscribed"
+              id="5gqGca"
+              values={{
+                country,
+                link: (chunks) => (
+                  <Anchor href="/interviews/pricing" prefetch={null}>
+                    {chunks}
+                  </Anchor>
+                ),
+              }}
+            />
+          </Text>
+        </div>
+        <ToastClose onClick={onClose} />
+      </div>
+    </div>
+  );
+}
+
+function MarketingRecentPurchasesImplNew({
+  setLastShown,
+}: Readonly<{
+  setLastShown: (lastShown: number) => void;
+}>) {
+  const { showToast, dismissToast } = useToast();
+  const lastToastId = useRef<string | null>(null);
+  const { data } = trpc.purchases.recent.useQuery();
+
+  const [index, setIndex] = useLocalStorage(MARKETING_TOAST_INDEX, 0);
+
+  useEffect(() => {
+    if (data == null) {
+      return;
+    }
+
+    if (index >= data.length) {
+      setLastShown(Date.now());
+
+      return;
+    }
+
+    const currentPurchase = data[index];
+
+    if (currentPurchase == null) {
+      return;
+    }
+
+    // Manual dismissing because the toast may still be present
+    // as Radix still shows the previous toast if it's being focused
+    // or the page is blurred.
+    if (lastToastId.current) {
+      dismissToast(lastToastId.current);
+    }
+
+    const { id } = showToast({
+      customComponent: () => (
+        <RecentPurchaseToastComponent
+          country={currentPurchase.country}
+          onClose={() => {
+            setIndex(data.length);
+            setLastShown(Date.now());
+          }}
+        />
+      ),
+      duration: 8000,
+      variant: 'custom',
+    });
+
+    lastToastId.current = id;
+
+    const timer = setTimeout(() => {
+      setIndex((curr) => curr + 1);
+    }, 30000);
+
+    return () => {
+      clearTimeout(timer);
+    };
+  }, [index, data, showToast, dismissToast, setLastShown, setIndex]);
+
+  return null;
+}
+
 export default function InterviewsMarketingRecentPurchasesToasts() {
   const { isUserProfileLoading, userProfile } = useUserProfile();
   const isMobileAndBelow = useMediaQuery('(max-width: 768px)');
@@ -119,5 +249,9 @@ export default function InterviewsMarketingRecentPurchasesToasts() {
     localStorage.removeItem(MARKETING_TOAST_INDEX);
   }
 
-  return <MarketingRecentPurchasesImpl setLastShown={setLastShown} />;
+  return INTERVIEWS_REVAMP_2024 ? (
+    <MarketingRecentPurchasesImplNew setLastShown={setLastShown} />
+  ) : (
+    <MarketingRecentPurchasesImpl setLastShown={setLastShown} />
+  );
 }
