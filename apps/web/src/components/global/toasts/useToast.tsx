@@ -1,7 +1,11 @@
 // Inspired by react-hot-toast library
 import { useCallback, useEffect, useState } from 'react';
 
-import type { ToastProps } from '~/components/ui/Toast/Toast';
+import type {
+  CustomToastProps,
+  DefaultToastProps,
+  ToastProps,
+} from '~/components/ui/Toast/Toast';
 
 const TOAST_LIMIT = 5;
 const TOAST_REMOVE_DELAY = 10000;
@@ -10,6 +14,14 @@ type ToasterToast = Readonly<{
   id: string;
 }> &
   ToastProps;
+type DefaultToasterToast = DefaultToastProps &
+  Readonly<{
+    id: string;
+  }>;
+type CustomToasterToast = CustomToastProps &
+  Readonly<{
+    id: string;
+  }>;
 
 const actionTypes = {
   ADD_TOAST: 'ADD_TOAST',
@@ -30,12 +42,12 @@ type ActionType = typeof actionTypes;
 
 type Action =
   | {
-      toast: Partial<ToasterToast>;
-      type: ActionType['UPDATE_TOAST'];
+      toast: ToasterToast;
+      type: ActionType['ADD_TOAST'];
     }
   | {
       toast: ToasterToast;
-      type: ActionType['ADD_TOAST'];
+      type: ActionType['UPDATE_TOAST'];
     }
   | {
       toastId?: ToasterToast['id'];
@@ -135,7 +147,9 @@ function dispatch(action: Action) {
   });
 }
 
-type Toast = Omit<ToasterToast, 'id'>;
+type DefaultToast = Omit<DefaultToasterToast, 'id'>;
+type CustomToast = Omit<CustomToasterToast, 'id'>;
+type Toast = CustomToast | DefaultToast;
 
 function showToast({ ...props }: Toast) {
   const id = genId();

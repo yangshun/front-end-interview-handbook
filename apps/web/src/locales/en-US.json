@@ -7987,6 +7987,10 @@
     "defaultMessage": "Step 2",
     "description": "Title for \"Step 2\" tab on Projects project page"
   },
+  "mmCDp8": {
+    "defaultMessage": "Complete simple social tasks",
+    "description": "Social discount toast message"
+  },
   "msvqkR": {
     "defaultMessage": "Every project belongs to 1 of 7 reusable components libraries",
     "description": "Short description for \"Component libraries\" feature on Projects home page"

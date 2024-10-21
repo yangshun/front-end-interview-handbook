@@ -183,59 +183,70 @@ ToastDescription.displayName = ToastPrimitive.Description.displayName;
 export const ToastImpl = React.forwardRef<
   React.ElementRef<typeof ToastPrimitive.Root>,
   ToastProps
->(
-  (
-    {
-      title,
-      className,
-      addOnIcon: AddOnIcon,
-      addOnLabel,
-      variant,
-      maxWidth,
-      description,
-      icon: IconProp,
-      onClose,
-      ...props
-    },
-    ref,
-  ) => {
-    const {
-      borderClass,
-      backgroundClass,
-      icon: VariantIcon,
-      addOnClass,
-      iconClass,
-      textColor,
-    } = classes[variant];
+>((props, ref) => {
+  const commonClass = clsx(
+    'group pointer-events-auto relative list-none',
+    'w-full',
+    'transition-all',
+    'data-[swipe=cancel]:translate-x-0',
+    'data-[swipe=end]:translate-x-[var(--radix-toast-swipe-end-x)]',
+    'data-[swipe=end]:animate-out',
+    'data-[swipe=move]:translate-x-[var(--radix-toast-swipe-move-x)]',
+    'data-[swipe=move]:transition-none',
+    'data-[state=open]:animate-in',
+    'data-[state=open]:sm:slide-in-from-left-full',
+    'data-[state=closed]:animate-out',
+    'data-[state=closed]:fade-out-80',
+    'data-[state=closed]:slide-out-to-left-full',
+  );
 
-    const Icon = IconProp ?? VariantIcon;
+  if (props.variant === 'custom') {
+    const { customComponent: Component, ...remainingProps } = props;
 
     return (
-      <li
-        ref={ref}
+      <li ref={ref} className={commonClass} {...remainingProps}>
+        <Component />
+      </li>
+    );
+  }
+
+  const {
+    title,
+    className,
+    addOnIcon: AddOnIcon,
+    addOnLabel,
+    variant,
+    maxWidth,
+    description,
+    icon: IconProp,
+    onClose,
+    ...remainingProps
+  } = props;
+
+  const {
+    borderClass,
+    backgroundClass,
+    icon: VariantIcon,
+    addOnClass,
+    iconClass,
+    textColor,
+  } = classes[variant];
+
+  const Icon = IconProp ?? VariantIcon;
+
+  return (
+    <li ref={ref} className={commonClass} {...remainingProps}>
+      <div
         className={clsx(
           'group pointer-events-auto relative',
           'flex items-center justify-between gap-x-4',
           'overflow-hidden rounded shadow-lg',
-          'w-full',
-          'transition-all',
-          'data-[swipe=cancel]:translate-x-0',
-          'data-[swipe=end]:translate-x-[var(--radix-toast-swipe-end-x)]',
-          'data-[swipe=end]:animate-out',
-          'data-[swipe=move]:translate-x-[var(--radix-toast-swipe-move-x)]',
-          'data-[swipe=move]:transition-none',
-          'data-[state=open]:animate-in',
-          'data-[state=open]:sm:slide-in-from-left-full',
-          'data-[state=closed]:animate-out',
-          'data-[state=closed]:fade-out-80',
-          'data-[state=closed]:slide-out-to-left-full',
           backgroundClass,
           borderClass && ['border', borderClass],
           maxWidth === 'sm' && 'max-w-sm',
           maxWidth === 'md' && 'max-w-md',
           className,
-        )}
-        {...props}>
+        )}>
         <Text
           className="flex w-full items-start gap-x-2 px-3 py-2"
           color={textColor}
@@ -272,12 +283,12 @@ export const ToastImpl = React.forwardRef<
             )}
           </div>
         </Text>
-      </li>
-    );
-  },
-);
+      </div>
+    </li>
+  );
+});
 
-type Props = Readonly<{
+type DefaultProps = Readonly<{
   addOnIcon?: (props: React.ComponentProps<'svg'>) => JSX.Element;
   addOnLabel?: string;
   className?: string;
@@ -289,48 +300,65 @@ type Props = Readonly<{
   variant: ToastVariant;
 }>;
 
-export type ToastProps = Omit<
+type CustomProps = Readonly<{
+  customComponent: () => JSX.Element;
+  variant: 'custom';
+}>;
+
+type BaseToastProps = Omit<
   React.ComponentPropsWithoutRef<typeof ToastPrimitive.Root>,
   'children' | 'title'
-> &
-  Props;
+>;
+
+export type DefaultToastProps = BaseToastProps & DefaultProps;
+
+export type CustomToastProps = BaseToastProps & CustomProps;
+
+export type ToastProps = CustomToastProps | DefaultToastProps;
 
 const Toast = React.forwardRef<
   React.ElementRef<typeof ToastPrimitive.Root>,
   ToastProps
->(
-  (
-    {
-      className,
-      maxWidth,
-      description,
-      icon,
-      title,
-      addOnIcon,
-      addOnLabel,
-      variant,
-      onClose,
-      ...props
-    },
-    ref,
-  ) => {
+>((props, ref) => {
+  if (props.variant === 'custom') {
+    const { customComponent, variant, ...remainingProps } = props;
+
     return (
-      <ToastPrimitive.Root ref={ref} asChild={true} {...props}>
-        <ToastImpl
-          addOnIcon={addOnIcon}
-          addOnLabel={addOnLabel}
-          className={className}
-          description={description}
-          icon={icon}
-          maxWidth={maxWidth}
-          title={title}
-          variant={variant}
-          onClose={onClose}
-        />
+      <ToastPrimitive.Root ref={ref} asChild={true} {...remainingProps}>
+        <ToastImpl customComponent={customComponent} variant={variant} />
       </ToastPrimitive.Root>
     );
-  },
-);
+  }
+
+  const {
+    className,
+    maxWidth,
+    description,
+    icon,
+    title,
+    addOnIcon,
+    addOnLabel,
+    variant,
+    onClose,
+    ...remainingProps
+  } = props;
+
+  return (
+    <ToastPrimitive.Root ref={ref} asChild={true} {...remainingProps}>
+      <ToastImpl
+        addOnIcon={addOnIcon}
+        addOnLabel={addOnLabel}
+        className={className}
+        description={description}
+        icon={icon}
+        maxWidth={maxWidth}
+        title={title}
+        variant={variant}
+        onClose={onClose}
+      />
+    </ToastPrimitive.Root>
+  );
+});
 
 export default Toast;
 

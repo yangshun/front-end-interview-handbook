@@ -13,6 +13,7 @@ import type {
   QuestionJavaScript,
   QuestionMetadata,
 } from '~/components/interviews/questions/common/QuestionsTypes';
+import SocialDiscountToast from '~/components/promotions/social/SocialDiscountToast';
 import Section from '~/components/ui/Heading/HeadingContext';
 
 import InterviewsMarketingHomePageBottomContainer from './InterviewsMarketingHomePageBottomContainer';
@@ -59,6 +60,7 @@ export default function InterviewsMarketingHomePageNew({
           questions={questions}
         />
       </Section>
+      <SocialDiscountToast />
     </main>
   );
 }
