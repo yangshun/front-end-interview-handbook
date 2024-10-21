@@ -3343,6 +3343,10 @@
     "defaultMessage": "Failed to mark question as complete. Please try again",
     "description": "Error message shown when a question has failed to mark as complete"
   },
+  "KZOa5l": {
+    "defaultMessage": "Cancel",
+    "description": "Label for cancel button"
+  },
   "KZWEcx": {
     "defaultMessage": "Please enter a different email address.",
     "description": "Email validation error message"
@@ -4035,6 +4039,10 @@
     "defaultMessage": "New here? <link>How it works</link>",
     "description": "Link to 'How it works' page on Projects project page"
   },
+  "ObnlA+": {
+    "defaultMessage": "If the payment still doesn't succeed, go to the <link>Customer Portal from the Billing page</link> and delete any cards that have been added. Then try paying again.",
+    "description": "Reason label for other reason"
+  },
   "OchGBW": {
     "defaultMessage": "Join Discord channel (public)",
     "description": "Link to the Discord server"
@@ -4378,6 +4386,10 @@
   "QVh3mt": {
     "defaultMessage": "Dropbox",
     "description": "Company name for Dropbox"
+  },
+  "QWwKE4": {
+    "defaultMessage": "If these steps do not resolve the issue, please contact our support team at <link>support@greatfrontend.com</link> or through the <feedback>feedback widget</feedback>.",
+    "description": "Bottom content for payment failure dialog"
   },
   "QaaZVv": {
     "defaultMessage": "README file",
@@ -5543,6 +5555,10 @@
     "defaultMessage": "Subscribe to our newsletter",
     "description": "Title for subscribe newsletter"
   },
+  "XU3IQO": {
+    "defaultMessage": "Enable international or online payments or charges for your card. You might be able to do this using your bank's mobile app or by calling your bank.",
+    "description": "Reason label for international online payment"
+  },
   "XVCsHH": {
     "defaultMessage": "Download this Figma file (<code>.fig</code>) and open it using the <link>Figma desktop app</link> or the <link2>Figma website</link2>.",
     "description": "Download a premium Figma file"
@@ -6350,6 +6366,10 @@
   "cZVPou": {
     "defaultMessage": "HTML",
     "description": "Label for HTML language"
+  },
+  "cf4ZZE": {
+    "defaultMessage": "We noticed that your attempt to pay on GreatFrontEnd has failed. Here are some actions that may help:",
+    "description": "Description for payment failure dialog"
   },
   "cgIBe4": {
     "defaultMessage": "Review must be at least {wordCount} words long or a video of at least {videoDurationInSeconds}s.",
@@ -7927,6 +7947,10 @@
     "defaultMessage": "Get started",
     "description": "Label for dashboard title for guest"
   },
+  "maVeCK": {
+    "defaultMessage": "Retry the payment after some time, as the decline might be due to a temporary issue.",
+    "description": "Reason label for retry payment"
+  },
   "mb7erW": {
     "defaultMessage": "Importance",
     "description": "Label for question importance - how important it is to practice this question"
@@ -8283,6 +8307,10 @@
     "defaultMessage": "Premium company tag",
     "description": "Paywall title for company tags feature"
   },
+  "oyxdln": {
+    "defaultMessage": "Payment Unsuccessful - Let's Try Again",
+    "description": "Title for payment failure dialog"
+  },
   "ozQHOy": {
     "defaultMessage": "Hide widget for this session",
     "description": "Feedback widget button label to hide the feedback widget for their current session"
@@ -8586,6 +8614,10 @@
   "qkSNy+": {
     "defaultMessage": "Challenges | Progress | Dashboard",
     "description": "Title of challenges section on dashboard page"
+  },
+  "qmXBt3": {
+    "defaultMessage": "If you are using a debit card, ensure that there are sufficient funds in your card.",
+    "description": "Reason label for insufficient balance"
   },
   "qnBYb6": {
     "defaultMessage": "Premium component track",
@@ -9191,6 +9223,10 @@
     "defaultMessage": "Including core maintainers at popular open source projects and creators of Blind 75 and Front End Interview Handbook.",
     "description": "Description of 'Guided by well-known senior engineers' feature in marketing page"
   },
+  "ukBdux": {
+    "defaultMessage": "Try again",
+    "description": "Label for try again button"
+  },
   "uogn1k": {
     "defaultMessage": "Practice build all sorts of user interfaces: components, apps, games, etc, in the framework of your choice.",
     "description": "Subtitle for an example list of User Interface Questions on marketing pages"
@@ -9262,6 +9298,10 @@
   "v9//lW": {
     "defaultMessage": "Targeted practice in specific front end frameworks and languages.",
     "description": "Description for framework and language section"
+  },
+  "vCMNqP": {
+    "defaultMessage": "Contact your bank or card issuer to inquire about the decline.",
+    "description": "Reason label for contact bank"
   },
   "vHNURr": {
     "defaultMessage": "View all filters",
