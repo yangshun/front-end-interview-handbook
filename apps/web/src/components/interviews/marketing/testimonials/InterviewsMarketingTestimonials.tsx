@@ -26,7 +26,7 @@ export function InterviewsMarketingTestimonialsDict() {
     name: 'Alan',
     testimonial:
       "Just want to say THANK YOU! I was laid off from Google and my interviews were really different from previous interview cycles in that they tested heavy frontend knowledge as opposed to typical LeetCode like I was used to. This platform provided a comprehensive way for me to study all the basics and really solidify my frontend fundamentals. I found the system design questions especially helpful, as I wasn't able to find any other front end system design resources anywhere near the quality provided on this platform. I was able to land a front end engineering role at TikTok thanks in huge part to this platform. I am really glad I decided to pay for this platform.",
-    title: 'Software Engineer, TikTok',
+    title: 'Software Engineer',
   };
   const nam: InterviewsMarketingTestimonial = {
     anonymous: false,
@@ -41,7 +41,7 @@ export function InterviewsMarketingTestimonialsDict() {
     name: 'Nam Nguyen',
     testimonial:
       'GreatFrontEnd is my top pick among platforms for frontend resources because it covers essential web development aspects like DOM manipulation, design systems, async operations, data structures, and accessibility. It stands out for its focus on developing UI patterns, making it a valuable tool for enhancing UI engineering skills. I highly recommend it to anyone looking to improve in this area.',
-    title: 'Sr. Software Engineer, Shopify',
+    title: 'Senior Software Engineer',
   };
   const larry: InterviewsMarketingTestimonial = {
     anonymous: false,
@@ -149,6 +149,7 @@ export function InterviewsMarketingTestimonialsDict() {
   };
   const gouseBasha: InterviewsMarketingTestimonial = {
     anonymous: false,
+    authorThumbnailUrl: '/img/testimonials/users/gouse-basha.jpg',
     authorUrl: 'https://www.linkedin.com/in/gouse-basha-7a0902191/',
     createdAt: '2023-07-01',
     featuredOffer: null,
@@ -302,7 +303,7 @@ export function InterviewsMarketingTestimonialsDict() {
     name: 'Pratik Mehta',
     testimonial:
       'I have received "Strong Hire - P50" recommendation from Atlassian hiring committee. I was asked if I want to level up for P60 on condition that I pass two more interviews - one more for system design and another for leadership crafts. I have opted in since I have nothing to lose. Thanks to GreatFrontEnd for all the system design resources.',
-    title: 'Sr. Engineer',
+    title: 'Senior Engineer',
   };
 
   const anonNVIDIA: InterviewsMarketingTestimonial = {
@@ -342,6 +343,7 @@ export function InterviewsMarketingTestimonialsDict() {
 
   const skarKing: InterviewsMarketingTestimonial = {
     anonymous: true,
+    companyLogoUrl: '/img/testimonials/company/hubspot.svg',
     createdAt: '2024-04-11',
     featuredOffer: 'HubSpot',
     id: 'skarking',
@@ -374,6 +376,7 @@ export function InterviewsMarketingTestimonialsDict() {
 
   const notrxx: InterviewsMarketingTestimonial = {
     anonymous: true,
+    companyLogoUrl: '/img/testimonials/company/hubspot.svg',
     createdAt: '2024-04-19',
     featuredOffer: 'HubSpot',
     id: 'notrxx',
@@ -425,14 +428,17 @@ export function InterviewsMarketingTestimonialsDict() {
     title: 'Front End Engineer',
   };
 
-  const deewee: InterviewsMarketingTestimonial = {
-    anonymous: true,
+  const deannaTran: InterviewsMarketingTestimonial = {
+    anonymous: false,
+    authorThumbnailUrl: '/img/testimonials/users/deanna-tran.jpg',
+    authorUrl: 'https://www.linkedin.com/in/deannatran/',
     companyLogoUrl: '/img/testimonials/company/cloudflare.svg',
     createdAt: '2024-06-24',
+    featured: true,
     featuredOffer: 'Cloudflare',
-    id: 'deewee',
-    location: 'Remote',
-    name: 'Deewee',
+    id: 'deanna-tran',
+    location: 'New York, US',
+    name: 'Deanna Tran',
     offers: ['Wealthfront', 'Superscript', 'Brigit'],
     testimonial:
       "GreatFrontEnd's product and community were crucial to my success in finding a new job after being laid off. GFE gave me guardrails around how I should focus my studying, I learned so much that I'll use in my career, not just for interviews. With their help, I achieved a 17% increase in base pay and 46% increase in total compensation at Cloudflare! Thank the universe for GreatFrontEnd!",
@@ -500,7 +506,8 @@ export function InterviewsMarketingTestimonialsDict() {
 
   const dustinLakin: InterviewsMarketingTestimonial = {
     anonymous: false,
-    authorThumbnailUrl: null,
+    authorThumbnailUrl: '/img/testimonials/users/dustin-lakin.jpg',
+    authorUrl: 'https://www.linkedin.com/in/dustinlakin/',
     companyLogoUrl: '/img/testimonials/company/cloudflare.svg',
     createdAt: '2024-06-02',
     featuredOffer: 'Cloudflare',
@@ -577,17 +584,105 @@ export function InterviewsMarketingTestimonialsDict() {
 
   const yuhuiWang: InterviewsMarketingTestimonial = {
     anonymous: false,
+    authorThumbnailUrl: '/img/testimonials/users/yuhui-wang.jpg',
     authorUrl: 'https://www.linkedin.com/in/yuhuiwang/',
     companyLogoUrl: '/img/testimonials/company/tiktok.svg',
-    createdAt: '2023-09-02',
+    createdAt: '2023-09-01',
     featuredOffer: 'TikTok',
     id: 'yuhui-wang',
     location: 'San Jose, US',
-    name: 'Gary Wang',
+    name: 'Yuhui Wang',
     offers: [],
     testimonial:
       'GreatFrontEnd helped me organize my System Design knowledge, providing not just practical examples but also a way of thinking. This structured approach allowed me to answer interview questions more confidently and clearly, ultimately helping me secure a job offer. Highly recommended!',
     title: 'Front End Engineer',
+  };
+
+  const kevinGonzalez: InterviewsMarketingTestimonial = {
+    anonymous: false,
+    authorThumbnailUrl: '/img/testimonials/users/kevin-gonzalez.jpg',
+    authorUrl: 'https://www.linkedin.com/in/gonzalezkev/',
+    companyLogoUrl: '/img/testimonials/company/apple.svg',
+    createdAt: '2024-07-17',
+    featuredOffer: 'Apple',
+    id: 'gonzalezkev',
+    location: 'San Francisco, US',
+    name: 'Kevin Gonzalez',
+    offers: ['HubSpot'],
+    testimonial:
+      'GreatFrontend has been instrumental to keep my interviewing skills up-to-date. Standard frontend prep did not really exist until GFE came along and provided a good way to keep sharp on coding, system design, UI, and frontend trivia. Throughout my career, I have used GFE to nail startup interviews, and even nail FAANG. Would highly recommend to any Front End Engineer.',
+    title: 'Senior Software Engineer',
+  };
+
+  const amyZheng: InterviewsMarketingTestimonial = {
+    anonymous: false,
+    authorThumbnailUrl: '/img/testimonials/users/amy-zheng.jpg',
+    authorUrl: 'https://www.linkedin.com/in/amy-zheng-100/',
+    companyLogoUrl: '/img/testimonials/company/grow-therapy.png',
+    createdAt: '2024-07-17',
+    featuredOffer: 'Grow Therapy',
+    id: 'amy-zheng',
+    location: 'San Francisco, US',
+    name: 'Amy Zheng',
+    offers: ['LinkTree'],
+    testimonial:
+      "I was laid-off from my previous company and decided to take a long break. When I was ready to interview, I realized I didn't know what to expect from frontend interviews. GreatFrontEnd has helped me pass multiple frontend interviews. I saw a lot of similar questions during the process. I ended up getting 2 offers and passing the final round of a 3rd company.",
+    title: 'Software Engineer',
+  };
+  const sanchitBhatnagar: InterviewsMarketingTestimonial = {
+    anonymous: false,
+    authorThumbnailUrl: '/img/testimonials/users/sanchit-bhatnagar.jpg',
+    authorUrl: 'https://www.linkedin.com/in/sanchitb23/',
+    createdAt: '2024-09-03',
+    id: 'sanchit-bhatnagar',
+    location: 'India',
+    name: 'Sanchit Bhatnagar',
+    testimonial:
+      'As someone who is still in early stages of my Software Development Career, There were some nitty gritty knowledge that I lacked, while in theory, i knew stuff, but the practical implementation and visualization is what I lacked, GFE helped me connect those dots and made me realise there is alot to learn, even for a person who is pretty proficient in Reacjs and other JS Framework, Vanilla JS still have some tricks up its sleeves. Have heard alot about the System Design Questions of GFE, tried them first hand, and it really helps!',
+    title: 'Full Stack Engineer',
+  };
+  const shrinivasKangal: InterviewsMarketingTestimonial = {
+    anonymous: false,
+    authorThumbnailUrl: '/img/testimonials/users/shrinivas-kangal.png',
+    authorUrl: 'https://www.linkedin.com/in/shrinivas-kangal/',
+    companyLogoUrl: '/img/testimonials/company/samsung.svg',
+    createdAt: '2024-08-01',
+    featuredOffer: 'Samsung',
+    id: 'shrinivas-kangal',
+    location: 'Bay Area, US',
+    name: 'Shrinivas Kangal',
+    testimonial:
+      "After being out of the job market for over a decade, I found myself uncertain about where to start. While platforms like LeetCode are great for DSA, the Frontend interview prep resources were lacking. That's when I discovered GreatFrontEnd, and subscribing to their lifetime plan was a no-brainer. The structured approach helped me prepare effectively for interviews, with daily practice becoming a part of my routine. The system design section is invaluable, offering comprehensive preparation for interviews. Additionally, the supportive Discord community has been incredibly helpful. I'm thrilled with my decision to sign up and will continue using this fantastic resource to stay interview-ready.",
+    title: 'Staff Engineer',
+  };
+  const yugantJoshi: InterviewsMarketingTestimonial = {
+    anonymous: false,
+    authorThumbnailUrl: '/img/testimonials/users/yugant-joshi.jpg',
+    authorUrl: 'https://www.linkedin.com/in/yugant-joshi/',
+    companyLogoUrl: '/img/testimonials/company/tiktok.svg',
+    createdAt: '2024-09-15',
+    featuredOffer: 'TikTok',
+    id: 'yugant-joshi',
+    location: 'San Jose, US',
+    name: 'Yugant Joshi',
+    offers: ['Amazon', 'Doordash'],
+    testimonial:
+      'When I started interviewing for frontend positions, I found it really hard to find quality content for the interviews whereas backend interviews seemed to have an endless supply of questions ranging from leetcode-style to system design. GreatFrontEnd provides an amazing platform to hone your frontend skills for interviews and beyond. It helped me bridge the gaps in my knowledge of the core fundamentals and provided an awesome framework for system design that really dove into the tradeoffs of the design decisions I choose. GreatFrontEnd was truly a game changer for my interviews skills and I will definitely be coming back to it in the future.',
+    title: 'Frontend Software Engineer',
+  };
+  const kiaanCastillo: InterviewsMarketingTestimonial = {
+    anonymous: false,
+    authorThumbnailUrl: '/img/testimonials/users/kiaan-castillo.jpg',
+    authorUrl: 'https://www.linkedin.com/in/kiaancastillo/',
+    companyLogoUrl: '/img/testimonials/company/amazon.svg',
+    createdAt: '2024-09-22',
+    featuredOffer: 'Amazon',
+    id: 'kiaancastillo',
+    location: 'Seattle, WA, US',
+    name: 'Kiaan Castillo',
+    testimonial:
+      "GreatFrontEnd is a literal gold mine and it's not just the incredible platform but also the Discord community for premium subscribers. Everyone on there is so helpful and informative! As for the platform itself, all of the questions on there are so relevant to what's being asked in frontend engineer interviews. I've gotten questions that were exactly what was on GreatFrontEnd. And the system design resources are so well structured and detailed. I am forever grateful I found GreatFrontEnd because I honestly would not have gotten my FAANG offer without it.",
+    title: 'Frontend Engineer II',
   };
 
   // Const template: InterviewsMarketingTestimonial = {
@@ -608,12 +703,13 @@ export function InterviewsMarketingTestimonialsDict() {
 
   return {
     alan,
+    amyZheng,
     anand,
     anonNVIDIA,
     anonymousJake,
     chenweiZhang,
     curryspices,
-    deewee,
+    deannaTran,
     delhi,
     dustinLakin,
     edWang,
@@ -624,6 +720,8 @@ export function InterviewsMarketingTestimonialsDict() {
     india,
     ismail,
     jacky,
+    kevinGonzalez,
+    kiaanCastillo,
     larry,
     locChuong,
     luca,
@@ -638,8 +736,10 @@ export function InterviewsMarketingTestimonialsDict() {
     purplePaisley,
     ryan,
     saiSrinivas,
+    sanchitBhatnagar,
     shellyPaul,
     shoaibAhmed,
+    shrinivasKangal,
     skarKing,
     skykillz,
     t4d95,
@@ -647,6 +747,7 @@ export function InterviewsMarketingTestimonialsDict() {
     vali,
     vietnam,
     yuChienChan,
+    yugantJoshi,
     yuhuiWang,
     zhenchao,
     zizib2000,
