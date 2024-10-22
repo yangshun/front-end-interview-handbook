@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 
 import InterviewsTestimonialsSlider from '~/components/interviews/common/InterviewsTestimonialsSlider';
-import { InterviewsMarketingTestimonialsDict } from '~/components/interviews/marketing/testimonials/InterviewsMarketingTestimonials';
+import useInterviewsMarketingSliderTestimonials from '~/components/interviews/marketing/testimonials/useInterviewsMarketingSliderTestimonials';
 import { FormattedMessage } from '~/components/intl';
 import Container from '~/components/ui/Container';
 import Heading from '~/components/ui/Heading';
@@ -10,47 +10,7 @@ import Text from '~/components/ui/Text';
 import { themeGradientHeading } from '~/components/ui/theme';
 
 export default function InterviewsMarketingOffersDontLieSection() {
-  const testimonials = InterviewsMarketingTestimonialsDict();
-
-  // TODO(interviews): remove hardcoded data
-  const testimonialsData = [
-    {
-      ...testimonials.lunghaoLee,
-      compensationIncreased: '4x',
-      offers: [
-        {
-          logoUrl: '/img/company-logos/dropbox-logomark.svg',
-          name: 'Dropbox',
-        },
-        {
-          logoUrl: '/img/company-logos/lyft-logomark.svg',
-          name: 'Lyft',
-        },
-        {
-          logoUrl: '/img/company-logos/google-logomark.svg',
-          name: 'Google',
-        },
-        {
-          logoUrl: '/img/company-logos/airbnb-logomark.svg',
-          name: 'Airbnb',
-        },
-      ],
-    },
-    {
-      ...testimonials.locChuong,
-      compensationIncreased: '2x',
-      offers: [
-        {
-          logoUrl: '/img/company-logos/airbnb-logomark.svg',
-          name: 'Airbnb',
-        },
-        {
-          logoUrl: '/img/company-logos/lyft-logomark.svg',
-          name: 'Lyft',
-        },
-      ],
-    },
-  ];
+  const testimonials = useInterviewsMarketingSliderTestimonials();
 
   return (
     <Container className={clsx('flex flex-col gap-6 md:gap-12', 'py-20')}>
@@ -83,10 +43,7 @@ export default function InterviewsMarketingOffersDontLieSection() {
         </Text>
       </div>
       <Section>
-        <InterviewsTestimonialsSlider
-          brandSlider={false}
-          data={testimonialsData}
-        />
+        <InterviewsTestimonialsSlider brandSlider={false} data={testimonials} />
       </Section>
     </Container>
   );

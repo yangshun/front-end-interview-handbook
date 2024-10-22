@@ -117,7 +117,7 @@ type Props = Readonly<{
   brandSlider?: boolean;
   data: ReadonlyArray<
     Omit<InterviewsMarketingTestimonial, 'offers'> & {
-      compensationIncreased: string;
+      compensationMultiplier: string | null;
       offers: ReadonlyArray<{
         logoUrl: string;
         name: string;
@@ -137,7 +137,7 @@ export default function InterviewsTestimonialsSlider({
   useEffect(() => {
     timer.current = setInterval(() => {
       setCurrentItemIndex((preIndex) => (preIndex + 1) % data.length);
-    }, 6000);
+    }, 10000);
 
     return () => {
       window.clearInterval(timer.current);
@@ -163,14 +163,16 @@ export default function InterviewsTestimonialsSlider({
         id: '9qNteR',
       }),
     },
-    {
-      label: data[currentItemIndex].compensationIncreased,
-      subtitle: intl.formatMessage({
-        defaultMessage: 'Increase in total compensation',
-        description: 'Testimonials overview',
-        id: 'meAtoW',
-      }),
-    },
+    data[currentItemIndex].compensationMultiplier
+      ? {
+          label: data[currentItemIndex].compensationMultiplier,
+          subtitle: intl.formatMessage({
+            defaultMessage: 'Total compensation',
+            description: 'Total compensation label',
+            id: 'T3WnuZ',
+          }),
+        }
+      : null,
   ];
 
   const sliderNavigation = (
@@ -180,7 +182,7 @@ export default function InterviewsTestimonialsSlider({
           <button
             aria-label={item.id}
             className={clsx(
-              'h-1 w-12 rounded',
+              'h-1.5 w-12 rounded',
               item.id === dataValue
                 ? brandSlider
                   ? themeBackgroundBrandColor
@@ -221,56 +223,59 @@ export default function InterviewsTestimonialsSlider({
           className={clsx(
             'flex w-full flex-col gap-y-12 md:flex-row lg:flex-col',
           )}>
-          {overview.map(({ label, subtitle, logos }) => (
-            <div key={label} className={clsx('flex flex-1 items-center gap-6')}>
+          {overview
+            .flatMap((item) => (item != null ? [item] : []))
+            .map(({ label, subtitle, logos }) => (
               <div
-                className={clsx(
-                  'h-6 w-0.5',
-                  'rounded-3xl',
-                  themeBackgroundLineEmphasizedColor,
-                )}
-              />
-              <div className="flex flex-col gap-2">
-                <div className="flex items-center gap-3">
-                  <Heading level="heading5">{label}</Heading>
-
-                  {logos && (
-                    <div className="isolate flex">
-                      {logos.map((logo, index) => (
-                        <Tooltip
-                          key={logo.name}
-                          asChild={true}
-                          label={logo.name}>
-                          <div
-                            className={clsx(
-                              'flex items-center justify-center',
-                              'size-6 shrink-0',
-                              'rounded-full',
-                              'overflow-hidden',
-                              'bg-neutral-900 dark:bg-white',
-                              'hover:z-[1]',
-                              'border border-white dark:border-neutral-900',
-                              index > 0 && '-ml-2',
-                            )}>
-                            <img
-                              alt={logo.name}
-                              className={clsx('size-3')}
-                              decoding="async"
-                              loading="lazy"
-                              src={logo.logoUrl}
-                            />
-                          </div>
-                        </Tooltip>
-                      ))}
-                    </div>
+                key={label}
+                className={clsx('flex flex-1 items-center gap-6')}>
+                <div
+                  className={clsx(
+                    'h-6 w-0.5',
+                    'rounded-3xl',
+                    themeBackgroundLineEmphasizedColor,
                   )}
+                />
+                <div className="flex flex-col gap-2">
+                  <div className="flex items-center gap-3">
+                    <Heading level="heading5">{label}</Heading>
+                    {logos && (
+                      <div className="isolate flex">
+                        {logos.map((logo, index) => (
+                          <Tooltip
+                            key={logo.name}
+                            asChild={true}
+                            label={logo.name}>
+                            <div
+                              className={clsx(
+                                'flex items-center justify-center',
+                                'size-8 shrink-0',
+                                'rounded-full',
+                                'overflow-hidden',
+                                'bg-neutral-900 dark:bg-white',
+                                'hover:z-[1]',
+                                'border border-white dark:border-neutral-900',
+                                index > 0 && '-ml-2',
+                              )}>
+                              <img
+                                alt={logo.name}
+                                className="size-4"
+                                decoding="async"
+                                loading="lazy"
+                                src={logo.logoUrl}
+                              />
+                            </div>
+                          </Tooltip>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                  <Text color="subtitle" size="body1" weight="medium">
+                    {subtitle}
+                  </Text>
                 </div>
-                <Text color="subtitle" size="body1" weight="medium">
-                  {subtitle}
-                </Text>
               </div>
-            </div>
-          ))}
+            ))}
         </div>
       </div>
       <div className="block lg:hidden">{sliderNavigation}</div>

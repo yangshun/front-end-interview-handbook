@@ -1,52 +1,12 @@
 import InterviewsTestimonialsSlider from '~/components/interviews/common/InterviewsTestimonialsSlider';
-import { InterviewsMarketingTestimonialsDict } from '~/components/interviews/marketing/testimonials/InterviewsMarketingTestimonials';
+import useInterviewsMarketingSliderTestimonials from '~/components/interviews/marketing/testimonials/useInterviewsMarketingSliderTestimonials';
 import { FormattedMessage } from '~/components/intl';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 import Text from '~/components/ui/Text';
 
 export default function InterviewsStudyPlanTestimonialsSection() {
-  const testimonials = InterviewsMarketingTestimonialsDict();
-
-  // TODO(interviews): remove hardcoded data
-  const testimonialsData = [
-    {
-      ...testimonials.lunghaoLee,
-      compensationIncreased: '4x',
-      offers: [
-        {
-          logoUrl: '/img/company-logos/dropbox-logomark.svg',
-          name: 'Dropbox logo',
-        },
-        {
-          logoUrl: '/img/company-logos/lyft-logomark.svg',
-          name: 'Lyft logo',
-        },
-        {
-          logoUrl: '/img/company-logos/google-logomark.svg',
-          name: 'Google logo',
-        },
-        {
-          logoUrl: '/img/company-logos/airbnb-logomark.svg',
-          name: 'Airbnb logo',
-        },
-      ],
-    },
-    {
-      ...testimonials.locChuong,
-      compensationIncreased: '2x',
-      offers: [
-        {
-          logoUrl: '/img/company-logos/airbnb-logomark.svg',
-          name: 'Airbnb logo',
-        },
-        {
-          logoUrl: '/img/company-logos/lyft-logomark.svg',
-          name: 'Lyft logo',
-        },
-      ],
-    },
-  ];
+  const testimonials = useInterviewsMarketingSliderTestimonials();
 
   return (
     <Section>
@@ -67,7 +27,7 @@ export default function InterviewsStudyPlanTestimonialsSection() {
             />
           </Text>
         </div>
-        <InterviewsTestimonialsSlider data={testimonialsData} />
+        <InterviewsTestimonialsSlider data={testimonials} />
       </div>
     </Section>
   );
