@@ -21,7 +21,6 @@ import InterviewsMarketingHomePageBottomContainer from './InterviewsMarketingHom
 type Props = Readonly<{
   companyGuides: ReadonlyArray<InterviewsCompanyGuide>;
   javaScriptEmbedExample: QuestionJavaScript;
-  javaScriptQuestions: ReadonlyArray<QuestionMetadata>;
   questions: {
     algo: ReadonlyArray<QuestionMetadata>;
     js: ReadonlyArray<QuestionMetadata>;
@@ -29,8 +28,6 @@ type Props = Readonly<{
     'system-design': ReadonlyArray<QuestionMetadata>;
     ui: ReadonlyArray<QuestionMetadata>;
   };
-  quizQuestions: ReadonlyArray<QuestionMetadata>;
-  systemDesignQuestions: ReadonlyArray<QuestionMetadata>;
   testimonials: ReadonlyArray<InterviewsMarketingTestimonial>;
   uiCodingQuestion: EmbedUIQuestion;
 }>;

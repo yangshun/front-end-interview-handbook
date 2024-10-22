@@ -4,7 +4,6 @@ import type { Metadata } from 'next/types';
 import { INTERVIEWS_REVAMP_2024 } from '~/data/FeatureFlags';
 
 import { InterviewsMarketingTestimonialsDict } from '~/components/interviews/marketing/testimonials/InterviewsMarketingTestimonials';
-import { sortQuestions } from '~/components/interviews/questions/listings/filters/QuestionsProcessor';
 import { QuestionCount } from '~/components/interviews/questions/listings/stats/QuestionCount';
 
 import { fetchInterviewsCompanyGuides } from '~/db/contentlayer/InterviewsCompanyGuideReader';
@@ -94,8 +93,6 @@ export default function flatten(
 }
 `;
 
-const QUESTIONS_TO_SHOW = 6;
-
 export default async function Page({ params }: Props) {
   if (!INTERVIEWS_REVAMP_2024) {
     return notFound();
@@ -110,18 +107,6 @@ export default async function Page({ params }: Props) {
     todoListAngularSolutionBundle,
     todoListVueSolutionBundle,
     todoListSvelteSolutionBundle,
-  ] = await Promise.all([
-    readQuestionJavaScriptContents('flatten', locale),
-    readQuestionUserInterface('todo-list', 'react', 'solution-improved'),
-    readQuestionUserInterface('todo-list', 'vanilla', 'solution-template'),
-    readQuestionUserInterface('todo-list', 'angular', 'solution'),
-    readQuestionUserInterface('todo-list', 'vue', 'solution'),
-    readQuestionUserInterface('todo-list', 'svelte', 'solution'),
-  ]);
-
-  const testimonials = InterviewsMarketingTestimonialsDict();
-
-  const [
     { questions: quizQuestions },
     { questions: javaScriptQuestions },
     { questions: algoQuestions },
@@ -129,13 +114,25 @@ export default async function Page({ params }: Props) {
     { questions: systemDesignQuestions },
     companyGuides,
   ] = await Promise.all([
+    // JS question embed
+    readQuestionJavaScriptContents('flatten', locale),
+    // UI question embed
+    readQuestionUserInterface('todo-list', 'react', 'solution-improved'),
+    readQuestionUserInterface('todo-list', 'vanilla', 'solution-template'),
+    readQuestionUserInterface('todo-list', 'angular', 'solution'),
+    readQuestionUserInterface('todo-list', 'vue', 'solution'),
+    readQuestionUserInterface('todo-list', 'svelte', 'solution'),
+    // Question list
     fetchQuestionsListQuiz(locale),
     fetchQuestionsListJavaScript(locale),
     fetchQuestionsListAlgo(locale),
     fetchQuestionsListUserInterface(locale),
     fetchQuestionsListSystemDesign(locale),
+    // Company guides
     fetchInterviewsCompanyGuides(),
   ]);
+
+  const testimonials = InterviewsMarketingTestimonialsDict();
 
   const sortedGuides = companyGuides
     .slice()
@@ -151,11 +148,6 @@ export default async function Page({ params }: Props) {
           ts: FLATTEN_SKELETON_TS,
         },
       }}
-      javaScriptQuestions={sortQuestions(
-        javaScriptQuestions.filter((question) => question.featured),
-        'importance',
-        false,
-      ).slice(0, QUESTIONS_TO_SHOW)}
       questions={{
         algo: algoQuestions,
         js: javaScriptQuestions,
@@ -163,16 +155,6 @@ export default async function Page({ params }: Props) {
         'system-design': systemDesignQuestions,
         ui: userInterfaceQuestions,
       }}
-      quizQuestions={sortQuestions(
-        quizQuestions.filter((question) => question.featured),
-        'importance',
-        false,
-      ).slice(0, QUESTIONS_TO_SHOW)}
-      systemDesignQuestions={sortQuestions(
-        systemDesignQuestions.filter((question) => question.featured),
-        'ranking',
-        true,
-      ).slice(0, QUESTIONS_TO_SHOW)}
       testimonials={[
         testimonials.shoaibAhmed,
         testimonials.locChuong,
