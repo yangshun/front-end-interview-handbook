@@ -1,6 +1,7 @@
 'use client';
 
 import clsx from 'clsx';
+import type { ReactNode } from 'react';
 import { useRef } from 'react';
 
 import { FormattedMessage } from '~/components/intl';
@@ -11,6 +12,7 @@ import Section from '~/components/ui/Heading/HeadingContext';
 import Text from '~/components/ui/Text';
 import {
   themeBackgroundCardColor,
+  themeBackgroundCardNoAlphaColor,
   themeBackgroundColor,
   themeBorderColor,
   themeGradientHeading,
@@ -53,20 +55,40 @@ export default function InterviewsMarketingPlansSection() {
           size="inherit"
           weight="medium">
           <FormattedMessage
-            defaultMessage="We’ve condensed everything info a simple strategy you can use to conquer essential interview patterns."
+            defaultMessage="We've condensed everything info a simple strategy you can use to conquer essential interview patterns."
             description="Subtitle for marketing page study plans section"
-            id="oAPvOw"
+            id="k9LkIB"
           />
         </Text>
         <div className="mt-16 flex items-center justify-center">
-          <DesktopAsset2 />
+          <GraphNodes />
         </div>
       </Section>
     </Container>
   );
 }
 
-function DesktopAsset2() {
+function TopicNode({
+  children,
+}: Readonly<{
+  children: ReactNode;
+}>) {
+  return (
+    <div
+      className={clsx(
+        'z-[1]',
+        'flex items-center justify-center rounded-lg',
+        'px-3.5 py-2.5',
+        ['font-medium', themeTextSubtitleColor],
+        themeBackgroundCardColor,
+        [themeBorderColor, 'border'],
+      )}>
+      {children}
+    </div>
+  );
+}
+
+function GraphNodes() {
   const containerRef = useRef<HTMLDivElement>(null);
   const div1Ref = useRef<HTMLDivElement>(null);
   const div2Ref = useRef<HTMLDivElement>(null);
@@ -84,74 +106,59 @@ function DesktopAsset2() {
     <div
       ref={containerRef}
       className={clsx(
-        'bg-background relative flex h-[420px] w-[343px] items-center justify-center md:h-[380px] md:w-[720px] lg:w-[1000px]',
+        'isolate',
+        'relative flex h-[420px] w-[343px] items-center justify-center md:h-[380px] md:w-[720px] lg:w-[1000px]',
       )}>
       <div className="size-full flex flex-col items-center justify-center md:flex-row md:justify-between">
-        <div className="size-full relative md:h-full md:w-[220px]">
+        <div className="size-full relative md:h-full md:w-[240px]">
           <div
             ref={div1Ref}
-            className="absolute left-0 top-0  flex justify-center  text-xs sm:top-[40px] md:left-0 md:text-sm">
-            <div
-              className={clsx(
-                'z-10 flex items-center justify-center rounded-lg border px-2 py-1',
-                themeTextSubtitleColor,
-                themeBackgroundCardColor,
-                themeBorderColor,
-              )}>
-              Data structures & algorithms
-            </div>
+            className="absolute left-0 top-0 flex justify-center text-xs sm:top-[40px] md:left-0 md:text-sm">
+            <TopicNode>
+              <FormattedMessage
+                defaultMessage="Data structures & algorithms"
+                description="Front end topic"
+                id="GXlJqk"
+              />
+            </TopicNode>
           </div>
           <div
             ref={div2Ref}
             className="absolute left-[190px] top-0 flex justify-center  text-xs md:left-0 md:top-[105px] md:text-sm ">
-            <div
-              className={clsx(
-                'z-10 flex items-center justify-center rounded-lg border px-2 py-1',
-                themeTextSubtitleColor,
-                themeBackgroundCardColor,
-                themeBorderColor,
-              )}>
-              Javascript Functions
-            </div>
+            <TopicNode>
+              <FormattedMessage
+                defaultMessage="JavaScript Functions"
+                description="Front end topic"
+                id="RBV1s+"
+              />
+            </TopicNode>
           </div>
           <div
             ref={div3Ref}
             className="absolute left-[150px] top-[40px] flex justify-center text-xs md:left-0 md:top-[160px] md:text-sm">
-            <div
-              className={clsx(
-                'z-10 flex items-center justify-center rounded-lg border px-2 py-1',
-                themeTextSubtitleColor,
-                themeBackgroundCardColor,
-                themeBorderColor,
-              )}>
-              Accesibility
-            </div>
+            <TopicNode>
+              <FormattedMessage
+                defaultMessage="Accessibility"
+                description="Front end topic"
+                id="sx3TNQ"
+              />
+            </TopicNode>
           </div>
           <div
             ref={div4Ref}
             className="absolute left-[50] top-[40px] flex justify-center text-xs  md:left-0 md:top-[219px] md:text-sm">
-            <div
-              className={clsx(
-                'z-10 flex items-center justify-center rounded-lg border px-2 py-1',
-                themeTextSubtitleColor,
-                themeBackgroundCardColor,
-                themeBorderColor,
-              )}>
-              Networking
-            </div>
+            <TopicNode>
+              <FormattedMessage
+                defaultMessage="Networking"
+                description="Front end topic"
+                id="gjRrM6"
+              />
+            </TopicNode>
           </div>
           <div
             ref={div5Ref}
             className="absolute left-[240px] top-[40px] flex justify-center text-xs md:left-0 md:top-[273px] md:text-sm">
-            <div
-              className={clsx(
-                'z-10 flex items-center justify-center rounded-lg border px-2 py-1',
-                themeTextSubtitleColor,
-                themeBackgroundCardColor,
-                themeBorderColor,
-              )}>
-              React
-            </div>
+            <TopicNode>React</TopicNode>
           </div>
         </div>
         <div
@@ -161,7 +168,7 @@ function DesktopAsset2() {
           )}>
           <div
             className={clsx(
-              'relative z-10 flex w-fit flex-col items-start justify-center rounded-lg border p-2',
+              'relative z-[1] flex w-fit flex-col items-start justify-center rounded-lg border p-2',
               themeBackgroundColor,
               themeBorderColor,
             )}>
@@ -182,7 +189,6 @@ function DesktopAsset2() {
               </div>
               <div>GFE 75</div>
             </div>
-
             {/* Second item */}
             <div
               className={clsx(
@@ -200,7 +206,6 @@ function DesktopAsset2() {
               </div>
               <span>Blind 75</span>
             </div>
-
             {/* Third item */}
             <div
               className={clsx(
@@ -216,79 +221,74 @@ function DesktopAsset2() {
                 )}>
                 3
               </div>
-              <span>Front End System Design</span>
+              <span>
+                <FormattedMessage
+                  defaultMessage="Front end system design"
+                  description="Front end topic"
+                  id="nYqpMP"
+                />
+              </span>
             </div>
           </div>
         </div>
-        <div className="size-full relative md:h-full md:w-[200px]">
+        <div className="size-full relative md:h-full md:w-[240px]">
           <div
             ref={div7Ref}
-            className=" absolute right-[170px] top-[80px] flex justify-center text-xs md:right-[10px] md:top-[40px] md:text-sm">
-            <div
-              className={clsx(
-                'z-10 flex items-center justify-center rounded-lg border px-2 py-1',
-                themeTextSubtitleColor,
-                themeBackgroundCardColor,
-                themeBorderColor,
-              )}>
-              Frontend system design
-            </div>
+            className="absolute right-[170px] top-[80px] flex justify-center text-xs md:right-[10px] md:top-[40px] md:text-sm">
+            <TopicNode>
+              <FormattedMessage
+                defaultMessage="Front end system design"
+                description="Front end topic"
+                id="nYqpMP"
+              />
+            </TopicNode>
           </div>
           <div
             ref={div8Ref}
             className="absolute right-[40px] top-[80px] flex justify-center text-xs md:right-[10px] md:top-[105px] md:text-sm">
-            <div
-              className={clsx(
-                'z-10 flex items-center justify-center rounded-lg border px-2 py-1',
-                themeTextSubtitleColor,
-                themeBackgroundCardColor,
-                themeBorderColor,
-              )}>
-              DOM manipulation
-            </div>
+            <TopicNode>
+              <FormattedMessage
+                defaultMessage="DOM manipulation"
+                description="Front end topic"
+                id="WjyQOy"
+              />
+            </TopicNode>
           </div>
           <div
             ref={div9Ref}
             className="absolute right-[90px] top-[40px] flex justify-center text-xs md:right-[10px] md:top-[160px] md:text-sm">
-            <div
-              className={clsx(
-                'z-10 flex items-center justify-center rounded-lg border px-2 py-1',
-                themeTextSubtitleColor,
-                themeBackgroundCardColor,
-                themeBorderColor,
-              )}>
-              Internationalization
-            </div>
+            <TopicNode>
+              <FormattedMessage
+                defaultMessage="Internationalization"
+                description="Front end topic"
+                id="ZYOMsS"
+              />
+            </TopicNode>
           </div>
           <div
             ref={div10Ref}
             className="absolute right-[220px] top-[40px] flex justify-center text-xs md:right-[10px]  md:top-[219px] md:text-sm">
-            <div
-              className={clsx(
-                'z-10 flex items-center justify-center rounded-lg border px-2 py-1',
-                themeTextSubtitleColor,
-                themeBackgroundCardColor,
-                themeBorderColor,
-              )}>
-              User interfaces
-            </div>
+            <TopicNode>
+              <FormattedMessage
+                defaultMessage="User interfaces"
+                description="Front end topic"
+                id="gGg9If"
+              />
+            </TopicNode>
           </div>
           <div
             ref={div11Ref}
             className="absolute right-0 top-[40px] flex justify-center text-xs md:right-[10px] md:top-[273px] md:text-sm">
-            <div
-              className={clsx(
-                'z-10 flex items-center justify-center rounded-lg border px-2 py-1',
-                themeTextSubtitleColor,
-                themeBackgroundCardColor,
-                themeBorderColor,
-              )}>
-              Peformance
-            </div>
+            <TopicNode>
+              <FormattedMessage
+                defaultMessage="Performance"
+                description="Front end topic"
+                id="JUHkm7"
+              />
+            </TopicNode>
           </div>
         </div>
       </div>
-
       <AnimatedBeam
         containerRef={containerRef}
         fromRef={div1Ref}
@@ -309,13 +309,11 @@ function DesktopAsset2() {
         fromRef={div4Ref}
         toRef={div6Ref}
       />
-
       <AnimatedBeam
         containerRef={containerRef}
         fromRef={div5Ref}
         toRef={div6Ref}
       />
-
       <AnimatedBeam
         containerRef={containerRef}
         fromRef={div7Ref}

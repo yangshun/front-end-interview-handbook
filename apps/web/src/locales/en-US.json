@@ -2735,6 +2735,10 @@
     "defaultMessage": "<authorProfileLink>{author}</authorProfileLink> contributed a code review for <recipientProfileLink>{recipient}</recipientProfileLink> on their submission <link>{submissionTitle}</link>: <comment>\"{description}\"</comment>",
     "description": "Log message for someone reviewing a submission"
   },
+  "GXlJqk": {
+    "defaultMessage": "Data structures & algorithms",
+    "description": "Front end topic"
+  },
   "GZnl60": {
     "defaultMessage": "Tips for making a strong first impression in your self introduction",
     "description": "How to make strong first impressions during self introductions"
@@ -3186,6 +3190,10 @@
   "JQa3Or": {
     "defaultMessage": "Can't find the answer you are looking for? <link>Reach out to us!</link>",
     "description": "Subtitle of Homepage's FAQ section, encouraging users to contact us if none of the FAQs resolve their problems"
+  },
+  "JUHkm7": {
+    "defaultMessage": "Performance",
+    "description": "Front end topic"
   },
   "JUhFP/": {
     "defaultMessage": "Minimum {minNumber} characters. Letters and digits required.",
@@ -4523,6 +4531,10 @@
     "defaultMessage": "Premium",
     "description": "Premium badge on profile page"
   },
+  "RBV1s+": {
+    "defaultMessage": "JavaScript Functions",
+    "description": "Front end topic"
+  },
   "RCdUk4": {
     "defaultMessage": "Unpin",
     "description": "Label for unpin submission button"
@@ -4858,6 +4870,10 @@
   "SyOeb2": {
     "defaultMessage": "Company Interview Guides | GreatFrontEnd",
     "description": "Social title for company guides listing"
+  },
+  "T3WnuZ": {
+    "defaultMessage": "Total compensation",
+    "description": "Total compensation label"
   },
   "T4ajXP": {
     "defaultMessage": "{discountPercentage}% off",
@@ -5451,6 +5467,10 @@
     "defaultMessage": "I want to use React for this challenge, but it's not listed as one of the skills. Can I still use it?",
     "description": "FAQ question for projects platform"
   },
+  "WjyQOy": {
+    "defaultMessage": "DOM manipulation",
+    "description": "Front end topic"
+  },
   "WmI0h+": {
     "defaultMessage": "{numberOfSeries} series",
     "description": "Number of articles in a list"
@@ -5874,6 +5894,10 @@
   "ZYFcYD": {
     "defaultMessage": "Report an issue",
     "description": "Label for reporting an issue"
+  },
+  "ZYOMsS": {
+    "defaultMessage": "Internationalization",
+    "description": "Front end topic"
   },
   "ZYXIkT": {
     "defaultMessage": "Please enter your social media handles for us to verify.",
@@ -6971,6 +6995,10 @@
     "defaultMessage": "Email",
     "description": "Label for email field for subscribe newsletter"
   },
+  "gGg9If": {
+    "defaultMessage": "User interfaces",
+    "description": "Front end topic"
+  },
   "gHIBZl": {
     "defaultMessage": "Our platform is built to support community-driven development",
     "description": "Description for \"Build together with other like-minded individuals\" feature marketing section on Projects home page"
@@ -7034,6 +7062,10 @@
   "ghssuE": {
     "defaultMessage": "Next",
     "description": "Label for Next button on Projects profile onboarding page"
+  },
+  "gjRrM6": {
+    "defaultMessage": "Networking",
+    "description": "Front end topic"
   },
   "gl9tj6": {
     "defaultMessage": "Solved by ex-interviewers",
@@ -7567,6 +7599,10 @@
     "defaultMessage": "HTML",
     "description": "CSS questions category short title"
   },
+  "k9LkIB": {
+    "defaultMessage": "We've condensed everything info a simple strategy you can use to conquer essential interview patterns.",
+    "description": "Subtitle for marketing page study plans section"
+  },
   "k9iwXD": {
     "defaultMessage": "Code from submissions are pulled directly on the platform for convenient reference and feedback",
     "description": "Description for \"Easy code reviews\" feature on Projects home page"
@@ -7967,10 +8003,6 @@
     "defaultMessage": "Focus Areas",
     "description": "Title for practice by focus areas section"
   },
-  "meAtoW": {
-    "defaultMessage": "Increase in total compensation",
-    "description": "Testimonials overview"
-  },
   "mflEX7": {
     "defaultMessage": "You made a post on <recipientProfileLink>{recipient}</recipientProfileLink>'s submission <link>{submissionTitle}</link>: <comment>\"{description}\"</comment>",
     "description": "Log message for you making a post on others submission"
@@ -8091,6 +8123,10 @@
     "defaultMessage": "Privacy Policy",
     "description": "Title of Privacy Policy page"
   },
+  "nYqpMP": {
+    "defaultMessage": "Front end system design",
+    "description": "Front end topic"
+  },
   "nai6YT": {
     "defaultMessage": "Amazon logo",
     "description": "Amazon company logo"
@@ -8182,10 +8218,6 @@
   "o8bpfE": {
     "defaultMessage": "Front end interview questions",
     "description": "Title of all practice questions page"
-  },
-  "oAPvOw": {
-    "defaultMessage": "We’ve condensed everything info a simple strategy you can use to conquer essential interview patterns.",
-    "description": "Subtitle for marketing page study plans section"
   },
   "oAUXEp": {
     "defaultMessage": "Beautiful designs made by high-end designers",
@@ -8922,6 +8954,10 @@
   "swjkuF": {
     "defaultMessage": "Study plans",
     "description": "Title of study plans page"
+  },
+  "sx3TNQ": {
+    "defaultMessage": "Accessibility",
+    "description": "Front end topic"
   },
   "syVPb5": {
     "defaultMessage": "Add GitHub",
