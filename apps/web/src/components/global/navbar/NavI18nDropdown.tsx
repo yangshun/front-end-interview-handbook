@@ -21,7 +21,7 @@ export default function NavI18nDropdown() {
         id: '58dfbv',
       })}
       showChevron={false}
-      size="sm"
+      size="xs"
       tooltip={intl.formatMessage({
         defaultMessage: 'Language',
         description: 'Tooltip for language selector',

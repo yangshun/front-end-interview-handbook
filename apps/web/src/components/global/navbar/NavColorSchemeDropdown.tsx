@@ -27,7 +27,7 @@ export default function NavColorSchemeDropdown() {
         id: 'n4aKYo',
       })}
       showChevron={false}
-      size="sm"
+      size="xs"
       tooltip={intl.formatMessage({
         defaultMessage: 'Theme',
         description: 'Tooltip for theme selector',

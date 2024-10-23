@@ -16,6 +16,8 @@ import NavbarSidebarItem from './NavbarSidebarItem';
 import type { NavbarTopLevelItem } from './NavTypes';
 import Button from '../Button';
 
+const NAVBAR_HEIGHT = 48;
+
 type Props = Readonly<{
   className?: string;
   endAddOnItems?: React.ReactNode;
@@ -69,7 +71,7 @@ function Navbar(
       )}>
       <style
         dangerouslySetInnerHTML={{
-          __html: `:root { --navbar-height: 52px; --navbar-border: 1px; }`,
+          __html: `:root { --navbar-height: ${NAVBAR_HEIGHT}px; --navbar-border: 1px; }`,
         }}
       />
       {hideOnDesktop && (
@@ -87,7 +89,7 @@ function Navbar(
           )}>
           <div className="flex items-center justify-start lg:w-0 lg:grow">
             {logo}
-            <nav className="hidden items-center space-x-4 lg:ml-10 lg:flex lg:w-0 lg:flex-1">
+            <nav className="hidden items-center gap-x-4 lg:ml-10 lg:flex lg:w-0 lg:flex-1">
               {leftLinks.map((navItem) => (
                 <NavbarItem key={navItem.itemKey} {...navItem} />
               ))}
@@ -95,10 +97,10 @@ function Navbar(
           </div>
           <div
             className={clsx(
-              'hidden items-center justify-end gap-x-4 transition-opacity duration-500 md:flex md:grow lg:w-0 lg:grow-0',
+              'hidden items-center justify-end gap-x-3 transition-opacity duration-500 md:flex md:grow lg:w-0 lg:grow-0',
               isLoading ? 'opacity-0' : 'opacity-100',
             )}>
-            <div className="flex gap-x-4">
+            <div className="flex items-center gap-x-3">
               {rightLinks.map((navItem) => (
                 <NavbarItem key={navItem.itemKey} {...navItem} />
               ))}
@@ -118,6 +120,7 @@ function Navbar(
                     icon={RiMenuFill}
                     isLabelHidden={true}
                     label="Open menu"
+                    size="xs"
                     variant="secondary"
                     onClick={() => {
                       setIsMobileNavOpen(true);

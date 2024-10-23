@@ -35,7 +35,7 @@ export default function NavProfileIcon({
         className={clsx(
           'group inline-flex shrink-0 items-center justify-center',
           'rounded-full',
-          'size-8',
+          'size-7',
           'transition-colors',
           ['border', themeBorderElementColor],
           themeBackgroundElementColor,
@@ -53,7 +53,7 @@ export default function NavProfileIcon({
             id="EjbpUe"
           />
         </span>
-        <Avatar alt={userIdentifierString ?? ''} src={avatarUrl} />
+        <Avatar alt={userIdentifierString ?? ''} size="xs" src={avatarUrl} />
       </DropdownMenuPrimitive.Trigger>
       <DropdownMenuPrimitive.Portal>
         <DropdownMenuPrimitive.Content

@@ -162,7 +162,7 @@ export default function ProjectsNavbar({ hideOnDesktop = false }: Props) {
               'Get full access button on the top right corner of the navigation bar to allow users to start evaluating plans and make a purchase',
             id: '0dpOm/',
           })}
-          size="sm"
+          size="xs"
           variant="primary"
           onClick={() => {
             gtag.event({
