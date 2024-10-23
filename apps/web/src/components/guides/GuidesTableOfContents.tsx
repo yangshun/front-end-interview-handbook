@@ -11,31 +11,16 @@ import useScrollIntoView from '~/hooks/useScrollIntoView';
 import useScrollParent from '~/hooks/useScrollParent';
 
 import { FormattedMessage } from '~/components/intl';
-import Anchor from '~/components/ui/Anchor';
 import Button from '~/components/ui/Button';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 import ScrollArea from '~/components/ui/ScrollArea';
 import { textVariants } from '~/components/ui/Text';
-import {
-  themeBorderColor,
-  themeTextSecondaryColor,
-} from '~/components/ui/theme';
+import { themeTextSecondaryColor } from '~/components/ui/theme';
 
 import { useActiveHeadingId } from './GuidesHeadingObserver';
-
-function flattenTOC(
-  items: ReadonlyArray<TableOfContentsItem>,
-): ReadonlyArray<TableOfContentsItem> {
-  return items.reduce<Array<TableOfContentsItem>>((acc, item) => {
-    acc.push(item);
-    if (item.children) {
-      acc = acc.concat(flattenTOC(item.children));
-    }
-
-    return acc;
-  }, []);
-}
+import type { SideNavigationItems } from '../common/SideNavigation';
+import SideNavigation from '../common/SideNavigation';
 
 type TableOfContentsItem = Readonly<{
   children?: ReadonlyArray<TableOfContentsItem>;
@@ -46,118 +31,14 @@ type TableOfContentsItem = Readonly<{
 
 export type TableOfContents = ReadonlyArray<TableOfContentsItem>;
 
-function ListItem({
-  activeId,
-  activeLinkRef,
-  level,
-  section,
-}: Readonly<{
-  activeId: string | null;
-  activeLinkRef: Ref<HTMLAnchorElement>;
-  level: number;
-  section: TableOfContentsItem;
-}>) {
-  const isActive = activeId === section.id;
-
-  const hasChildren = section.children && section.children.length > 0;
-
-  return (
-    <li key={section.id} className="text-sm leading-6">
-      <div className={clsx('flex', hasChildren && 'mb-2')}>
-        <Anchor
-          ref={isActive ? activeLinkRef : undefined}
-          className={clsx(
-            '-ml-0.5 flex w-full items-center gap-x-2 pl-[19px]',
-            'motion-safe:transition-all',
-            'text-[0.8125rem] leading-5',
-            themeTextSecondaryColor,
-            'hover:text-neutral-900 dark:hover:text-white',
-          )}
-          href={`#${section.id}`}
-          variant="unstyled">
-          <span className="line-clamp-1" style={{ paddingLeft: 12 * level }}>
-            {section.value}
-          </span>
-        </Anchor>
-      </div>
-      {hasChildren && (
-        <ListItems
-          activeId={activeId}
-          activeLinkRef={activeLinkRef}
-          items={section.children}
-          level={level + 1}
-        />
-      )}
-    </li>
-  );
-}
-
-function ListItems({
-  activeId,
-  activeLinkRef,
-  items,
-  level = 0,
-}: Readonly<{
-  activeId: string | null;
-  activeLinkRef: Ref<HTMLAnchorElement>;
-  items: TableOfContents;
-  level: number;
-}>) {
-  return (
-    <ul
-      className={clsx(
-        'flex flex-col gap-y-2',
-        level === 0 && ['border-l-2', themeBorderColor],
-      )}
-      role="list">
-      {items.map((section) => (
-        <ListItem
-          key={section.id}
-          activeId={activeId}
-          activeLinkRef={activeLinkRef}
-          level={level}
-          section={section}
-        />
-      ))}
-    </ul>
-  );
-}
-
-function ParentList({
-  activeId,
-  activeLinkRef,
-  items,
-}: Readonly<{
-  activeId: string | null;
-  activeLinkRef: Ref<HTMLAnchorElement>;
-  items: TableOfContents;
-}>) {
-  const flatItems = flattenTOC(items);
-  const ITEM_HEIGHT_AND_GAP = 28;
-  const TOC_HEADING_HEIGHT_AND_PADDING = 44;
-  const activeItemIndex = flatItems.findIndex((item) => item.id === activeId);
-  const activeIndicatorTopPosition = activeItemIndex * ITEM_HEIGHT_AND_GAP;
-
-  return (
-    <>
-      <div
-        className={clsx(
-          'absolute h-5 w-0.5 rounded-full bg-current',
-          'transition-all duration-300 ease-in-out',
-          activeItemIndex < 0 && 'hidden',
-        )}
-        style={{
-          top: `${activeIndicatorTopPosition + TOC_HEADING_HEIGHT_AND_PADDING}px`,
-        }}
-      />
-      <ListItems
-        activeId={activeId}
-        activeLinkRef={activeLinkRef}
-        items={items}
-        level={0}
-      />
-    </>
-  );
+function convertToSideNavigationItem(
+  tocItems: TableOfContents,
+): SideNavigationItems {
+  return tocItems.map((item) => ({
+    children: convertToSideNavigationItem(item.children ?? []),
+    label: item.value,
+    value: item.id,
+  }));
 }
 
 type Props = Readonly<{
@@ -184,7 +65,7 @@ export default function GuidesTableOfContents({
 
   const scrollIntoView = useScrollIntoView(scrollParent, {
     behavior: 'smooth',
-    inPadding: 128,
+    inPadding: 170,
   });
 
   useEffect(() => {
@@ -251,10 +132,10 @@ export default function GuidesTableOfContents({
               </div>
               <Section>
                 <div className="py-4 pl-2">
-                  <ParentList
-                    activeId={activeId}
-                    activeLinkRef={activeLinkRef}
-                    items={tableOfContents}
+                  <SideNavigation
+                    ref={activeLinkRef}
+                    activeValue={activeId}
+                    items={convertToSideNavigationItem(tableOfContents)}
                   />
                 </div>
               </Section>

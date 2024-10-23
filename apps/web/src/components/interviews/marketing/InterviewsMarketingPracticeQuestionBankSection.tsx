@@ -2,6 +2,7 @@ import clsx from 'clsx';
 import { useState } from 'react';
 import { RiArrowRightLine } from 'react-icons/ri';
 
+import SideNavigation from '~/components/common/SideNavigation';
 import type {
   QuestionLanguage,
   QuestionMetadata,
@@ -31,12 +32,7 @@ import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 import TabsUnderline from '~/components/ui/Tabs/TabsUnderline';
 import Text from '~/components/ui/Text';
-import {
-  themeBorderColor,
-  themeGradientHeading,
-  themeTextColor,
-  themeTextSecondaryColor,
-} from '~/components/ui/theme';
+import { themeGradientHeading } from '~/components/ui/theme';
 
 type FilterType = 'format' | 'framework' | 'topics';
 
@@ -361,38 +357,11 @@ export default function InterviewsMarketingPracticeQuestionBankSection({
                   onSelect={filterNavigation.onClick}
                 />
               </div>
-              <ul
-                className={clsx('hidden md:flex', 'flex-col gap-y-2.5', [
-                  'border-l-2',
-                  themeBorderColor,
-                ])}
-                role="list">
-                {filterNavigation.items.map((item) => (
-                  <button
-                    key={item.value}
-                    className={clsx(
-                      '-ml-0.5 pl-5',
-                      'block w-fit outline-none',
-                      'border-l-2',
-                      item.value === filterNavigation.value
-                        ? 'border-neutral-900 dark:border-neutral-100'
-                        : themeBorderColor,
-                    )}
-                    type="button"
-                    onClick={() => filterNavigation.onClick(item.value)}>
-                    <Text
-                      className={clsx(
-                        item.value === filterNavigation.value
-                          ? ['font-medium', themeTextColor]
-                          : themeTextSecondaryColor,
-                      )}
-                      color="inherit"
-                      size="body2">
-                      {item.label}
-                    </Text>
-                  </button>
-                ))}
-              </ul>
+              <SideNavigation
+                activeValue={filterNavigation.value}
+                items={filterNavigation.items}
+                onClick={filterNavigation.onClick}
+              />
             </div>
             <div
               className={clsx(
