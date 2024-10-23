@@ -72,7 +72,7 @@ function TestimonialCard({
             alt={name ?? ''}
             decoding="async"
             loading="lazy"
-            size="sm"
+            size="md"
             src={authorThumbnailUrl}
           />
         )}
