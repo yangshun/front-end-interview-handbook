@@ -32,16 +32,8 @@ export default function GuidesListWithCategory({ guides }: Props) {
   const addGuideProgressMutation = useMutationGuideProgressAdd();
   const deleteGuideProgressMutation = useMutationGuideProgressDelete();
 
-  function canMarkGuides() {
-    if (!user) {
-      return false;
-    }
-
-    return true;
-  }
-
   function markGuideAsCompleted(guide: GuideCardMetadata) {
-    if (!canMarkGuides()) {
+    if (user == null) {
       return;
     }
 
@@ -85,7 +77,7 @@ export default function GuidesListWithCategory({ guides }: Props) {
   }
 
   function markGuideAsNotCompleted(guide: GuideCardMetadata) {
-    if (!canMarkGuides()) {
+    if (user == null) {
       return;
     }
 

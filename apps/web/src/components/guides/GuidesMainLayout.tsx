@@ -26,6 +26,8 @@ import useFlattenedNavigationItems from './useFlattenedNavigationItems';
 import { useGuidesAutoMarkAsComplete } from './useGuidesAutoMarkAsComplete';
 import { useToast } from '../global/toasts/useToast';
 
+import { useUser } from '@supabase/auth-helpers-react';
+
 type MarkAsCompleteProps = Readonly<
   | {
       guideProgress?: GuideProgress | null;
@@ -61,6 +63,7 @@ export default function GuidesMainLayout({
   const { collapsedToC, setCollapsedToC } = useGuidesContext();
   const articleContainerRef = useRef<HTMLDivElement>(null);
   const { showToast } = useToast();
+  const user = useUser();
 
   useScrollToTop([pathname]);
 
@@ -147,6 +150,7 @@ export default function GuidesMainLayout({
                 items={flatNavigationItems}
                 onNext={() => {
                   if (
+                    user == null ||
                     !autoMarkAsComplete ||
                     metadata == null ||
                     ('guideProgress' in props &&
