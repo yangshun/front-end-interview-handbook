@@ -90,7 +90,7 @@ module.exports = {
         marquee: 'marquee linear infinite',
         marquee2: 'marquee2 linear infinite',
         'pulse-slow': 'pulse 5s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-        wiggle: 'wiggle 1s ease-in-out',
+        wiggle: 'wiggle 1s linear infinite',
       },
       keyframes: {
         'accordion-down': {

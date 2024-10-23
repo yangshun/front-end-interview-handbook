@@ -21,7 +21,7 @@ export default function GuidesFocusModeToggle({
   return (
     <div className="flex w-full items-center justify-between gap-2">
       {!isFocusMode && (
-        <Text size="body2" weight="medium">
+        <Text color="secondary" size="body3" weight="medium">
           {intl.formatMessage({
             defaultMessage: 'Focus mode',
             description: 'Label for focus mode toggle button',
@@ -54,10 +54,10 @@ export default function GuidesFocusModeToggle({
             [
               'border',
               isFocusMode
-                ? 'border-brand-dark dark:border-brand'
+                ? 'dark:border-white'
                 : 'border-neutral-700 dark:border-neutral-100',
             ],
-            isFocusMode && 'bg-brand-dark dark:bg-brand',
+            isFocusMode && 'bg-neutral-900 dark:bg-white',
             themeOutlineElementBrandColor_FocusVisible,
           )}
           onCheckedChange={toggleFocusMode}>
@@ -66,7 +66,7 @@ export default function GuidesFocusModeToggle({
               'block',
               'size-2 rounded-full',
               isFocusMode
-                ? 'bg-neutral-100'
+                ? 'bg-white dark:bg-neutral-900'
                 : 'bg-neutral-700 dark:bg-neutral-100',
               'translate-x-1 data-[state=checked]:translate-x-[18px]',
               'transition-transform duration-100 will-change-transform',
