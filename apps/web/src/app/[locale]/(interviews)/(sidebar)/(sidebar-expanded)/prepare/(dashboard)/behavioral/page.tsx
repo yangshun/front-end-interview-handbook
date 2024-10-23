@@ -1,9 +1,9 @@
 import type { Metadata } from 'next/types';
 
+import InterviewsDashboardPrepareBehavioralPage from '~/components/interviews/dashboard/InterviewsDashboardPrepareBehavioralPage';
+
 import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
-
-import InterviewsDashboardPrepareBehavioralPage from './InterviewsDashboardPrepareBehavioralPage';
 
 export const dynamic = 'force-static';
 

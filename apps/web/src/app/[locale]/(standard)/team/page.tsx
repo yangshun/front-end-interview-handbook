@@ -1,9 +1,9 @@
 import type { Metadata } from 'next/types';
 
-import defaultMetadata from '~/seo/defaultMetadata';
+import MarketingTeamPage from '~/components/marketing/team/MarketingTeamPage';
+import { teamUsers } from '~/components/marketing/team/MarketingTeamUsers';
 
-import TeamPage from './TeamPage';
-import { teamUsers } from './TeamUsers';
+import defaultMetadata from '~/seo/defaultMetadata';
 
 export const dynamic = 'force-static';
 
@@ -26,5 +26,5 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function Page() {
-  return <TeamPage users={teamUsers} />;
+  return <MarketingTeamPage users={teamUsers} />;
 }

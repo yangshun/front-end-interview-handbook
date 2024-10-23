@@ -1,8 +1,7 @@
+import QuestionsQuizContentLayout from '~/components/interviews/questions/content/quiz/QuestionsQuizContentLayout';
 import { sortQuestionsMultiple } from '~/components/interviews/questions/listings/filters/QuestionsProcessor';
 
 import { fetchQuestionsListQuiz } from '~/db/QuestionsListReader';
-
-import QuestionsQuizContentLayout from './QuestionsQuizContentLayout';
 
 type Props = Readonly<{
   children: React.ReactNode;

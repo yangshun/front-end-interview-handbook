@@ -1,9 +1,9 @@
 import type { Metadata } from 'next/types';
 
+import MarketingContactPage from '~/components/marketing/contact/MarketingContactPage';
+
 import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
-
-import ContactPage from './ContactPage';
 
 type Props = Readonly<{
   params: Readonly<{
@@ -34,5 +34,5 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default function Page() {
-  return <ContactPage />;
+  return <MarketingContactPage />;
 }

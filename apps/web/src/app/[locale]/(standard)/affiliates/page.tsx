@@ -1,9 +1,9 @@
 import type { Metadata } from 'next/types';
 
+import MarketingAffiliatesPage from '~/components/marketing/affiliates/MarketingAffiliatesPage';
+
 import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
-
-import AffiliatePage from './AffiliatePage';
 
 type Props = Readonly<{
   params: Readonly<{
@@ -34,5 +34,5 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default function Page() {
-  return <AffiliatePage />;
+  return <MarketingAffiliatesPage />;
 }

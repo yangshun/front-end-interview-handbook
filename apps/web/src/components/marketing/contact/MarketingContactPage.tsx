@@ -6,7 +6,7 @@ import MarketingEmailSubscribe from '~/components/marketing/contact/MarketingEma
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 
-export default function ContactPage() {
+export default function MarketingContactPage() {
   return (
     <div className="flex flex-col gap-12 py-12 md:py-16">
       <Heading className="sr-only" level="custom">

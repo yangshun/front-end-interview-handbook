@@ -1,5 +1,6 @@
 import type { Metadata } from 'next/types';
 
+import InterviewsMarketingGetStartedPage from '~/components/interviews/marketing/InterviewsMarketingGetStartedPage';
 import { sortQuestions } from '~/components/interviews/questions/listings/filters/QuestionsProcessor';
 
 import {
@@ -10,8 +11,6 @@ import {
 } from '~/db/QuestionsListReader';
 import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
-
-import InterviewsMarketingGetStartedPage from './InterviewsMarketingGetStartedPage';
 
 export const dynamic = 'force-static';
 

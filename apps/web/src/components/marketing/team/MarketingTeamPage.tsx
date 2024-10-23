@@ -14,7 +14,7 @@ import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 import Text from '~/components/ui/Text';
 
-import type { TeamCategory, TeamUser } from './TeamUsers';
+import type { TeamCategory, TeamUser } from './MarketingTeamUsers';
 
 const categoryToVariant: Record<TeamCategory, BadgeVariant> = {
   alumni: 'success',
@@ -23,7 +23,7 @@ const categoryToVariant: Record<TeamCategory, BadgeVariant> = {
   team: 'special',
 };
 
-export default function TeamPage({
+export default function MarketingTeamPage({
   users,
 }: Readonly<{
   users: ReadonlyArray<TeamUser>;

@@ -1,5 +1,7 @@
 import type { Metadata } from 'next/types';
 
+import InterviewsDashboardPrepareCodingPage from '~/components/interviews/dashboard/InterviewsDashboardPrepareCodingPage';
+
 import { fetchQuestionCompletionCount } from '~/db/QuestionsCount';
 import {
   fetchQuestionsListCoding,
@@ -7,8 +9,6 @@ import {
 } from '~/db/QuestionsListReader';
 import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
-
-import InterviewsDashboardPrepareCodingPage from './InterviewsDashboardPrepareCodingPage';
 
 export const dynamic = 'force-static';
 

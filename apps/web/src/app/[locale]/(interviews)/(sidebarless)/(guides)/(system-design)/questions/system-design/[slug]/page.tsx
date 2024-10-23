@@ -2,6 +2,7 @@ import { notFound } from 'next/navigation';
 import type { Metadata } from 'next/types';
 
 import GuidesArticleJsonLd from '~/components/guides/GuidesArticleJsonLd';
+import InterviewsQuestionsSystemDesignPage from '~/components/interviews/questions/content/system-design/InterviewsQuestionsSystemDesignPage';
 
 import { readQuestionSystemDesignContents } from '~/db/QuestionsContentsReader';
 import { getIntlServerOnly } from '~/i18n';
@@ -10,8 +11,6 @@ import {
   createSupabaseAdminClientGFE_SERVER_ONLY,
   readViewerFromToken,
 } from '~/supabase/SupabaseServerGFE';
-
-import InterviewsQuestionsSystemDesignPage from './InterviewsQuestionsSystemDesignPage';
 
 type Props = Readonly<{
   params: Readonly<{
