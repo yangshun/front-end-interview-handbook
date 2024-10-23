@@ -8,18 +8,14 @@ type Props = Readonly<{
   children: React.ReactNode;
 }>;
 
-export default function InterviewsSidebarLessLayout({ children }: Props) {
+export default function InterviewsSidebarlessLayout({ children }: Props) {
   return (
     <>
       <GlobalBannerInterviews />
       <div className="flex min-h-screen flex-col">
         <InterviewsNavbar />
-        <div className="grow">
-          <div className="flex">
-            <div className="relative w-0 grow">{children}</div>
-            <FeedbackWidget bottomClassname="bottom-12" />
-          </div>
-        </div>
+        {children}
+        <FeedbackWidget bottomClassname="bottom-12" />
         <Section>
           <InterviewsFooter />
         </Section>

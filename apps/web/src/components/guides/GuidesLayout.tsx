@@ -14,16 +14,20 @@ type GuidesContextType = Readonly<{
   setCollapsedToC: (value: boolean) => void;
 }>;
 
-const GuidesContext = createContext<GuidesContextType | undefined>(undefined);
+const GuidesContext = createContext<GuidesContextType>({
+  collapsedToC: false,
+  setCollapsedToC: () => {},
+});
 
 export function useGuidesContext() {
   const context = useContext(GuidesContext);
 
-  if (context === undefined) {
-    throw new Error(
-      'useGuidesContext must be used within a GuidesContextProvider',
-    );
-  }
+  // TODO(interviews/playlist): define GuideContext for playlist mode.
+  // if (context === undefined) {
+  //   throw new Error(
+  //     'useGuidesContext must be used within a GuidesContextProvider',
+  //   );
+  // }
 
   return context;
 }
