@@ -5,9 +5,7 @@ import type { EmbedUIQuestion } from '~/components/interviews/marketing/embed/In
 import InterviewsMarketingForeword from '~/components/interviews/marketing/InterviewsMarketingForeword';
 import InterviewsMarketingHeroNew from '~/components/interviews/marketing/InterviewsMarketingHeroNew';
 import InterviewsMarketingOffersDontLieSection from '~/components/interviews/marketing/InterviewsMarketingOffersDontLieSection';
-import InterviewsMarketingPlansSection from '~/components/interviews/marketing/InterviewsMarketingPlansSection';
 import InterviewsMarketingPrepResourcesByBigTechEngineers from '~/components/interviews/marketing/InterviewsMarketingPrepResourcesByBigTechEngineers';
-import InterviewsMarketingSimulateRealInterviews from '~/components/interviews/marketing/InterviewsMarketingSimulateRealInterviews';
 import type { InterviewsMarketingTestimonial } from '~/components/interviews/marketing/testimonials/InterviewsMarketingTestimonialCard';
 import type {
   QuestionJavaScript,
@@ -50,8 +48,6 @@ export default function InterviewsMarketingHomePageNew({
         <InterviewsMarketingForeword />
         <InterviewsMarketingOffersDontLieSection />
         <InterviewsMarketingPrepResourcesByBigTechEngineers />
-        <InterviewsMarketingPlansSection />
-        <InterviewsMarketingSimulateRealInterviews />
         <InterviewsMarketingHomePageBottomContainer
           companyGuides={companyGuides}
           questions={questions}

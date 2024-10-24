@@ -5,6 +5,8 @@ import { useInView } from 'framer-motion';
 import dynamic from 'next/dynamic';
 import { useRef } from 'react';
 
+import InterviewsMarketingPlansSection from '~/components/interviews/marketing/InterviewsMarketingPlansSection';
+import InterviewsMarketingSimulateRealInterviews from '~/components/interviews/marketing/InterviewsMarketingSimulateRealInterviews';
 import type { QuestionMetadata } from '~/components/interviews/questions/common/QuestionsTypes';
 
 const InterviewsMarketingHomePageBottomNew = dynamic(
@@ -36,6 +38,8 @@ export default function InterviewsMarketingHomePageBottomContainer({
   return (
     <>
       <div ref={loadBottomHalfMarkerRef} />
+      <InterviewsMarketingPlansSection />
+      <InterviewsMarketingSimulateRealInterviews />
       {showBottomHalf ? (
         <InterviewsMarketingHomePageBottomNew
           companyGuides={companyGuides}
