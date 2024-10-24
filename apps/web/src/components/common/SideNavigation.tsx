@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 import type { ReactNode } from 'react';
-import { forwardRef, type Ref } from 'react';
+import { type Ref } from 'react';
 
 import Anchor from '~/components/ui/Anchor';
 import {
@@ -8,10 +8,12 @@ import {
   themeTextSecondaryColor,
 } from '~/components/ui/theme';
 
-function flattenNavigationItems(
-  items: ReadonlyArray<SideNavigationItem>,
-): ReadonlyArray<SideNavigationItem> {
-  return items.reduce<Array<SideNavigationItem>>((acc, item) => {
+import { themeTextColor, themeTextColor_Hover } from '../ui/theme';
+
+function flattenNavigationItems<T>(
+  items: ReadonlyArray<SideNavigationItem<T>>,
+): ReadonlyArray<SideNavigationItem<T>> {
+  return items.reduce<Array<SideNavigationItem<T>>>((acc, item) => {
     acc.push(item);
     if (item.children) {
       acc = acc.concat(flattenNavigationItems(item.children));
@@ -21,15 +23,15 @@ function flattenNavigationItems(
   }, []);
 }
 
-type SideNavigationItem = Readonly<{
-  children?: ReadonlyArray<SideNavigationItem>;
+type SideNavigationItem<T> = Readonly<{
+  children?: ReadonlyArray<SideNavigationItem<T>>;
   label: ReactNode;
-  value: string;
+  value: T;
 }>;
 
-export type SideNavigationItems = ReadonlyArray<SideNavigationItem>;
+export type SideNavigationItems<T> = ReadonlyArray<SideNavigationItem<T>>;
 
-function NavigationItem({
+function NavigationItem<T>({
   activeValue,
   activeLinkRef,
   level,
@@ -37,17 +39,17 @@ function NavigationItem({
   onClick,
 }: Readonly<{
   activeLinkRef?: Ref<HTMLAnchorElement>;
-  activeValue: string | null;
+  activeValue: T | null;
   level: number;
-  onClick?: (value: string) => void;
-  section: SideNavigationItem;
+  onClick?: (value: T) => void;
+  section: SideNavigationItem<T>;
 }>) {
   const isActive = activeValue === section.value;
 
   const hasChildren = section.children && section.children.length > 0;
 
   return (
-    <li key={section.value} className="text-sm leading-6">
+    <li key={String(section.value)} className="text-sm leading-6">
       <div className={clsx('flex', hasChildren && 'mb-2')}>
         <Anchor
           ref={isActive ? activeLinkRef : undefined}
@@ -55,8 +57,8 @@ function NavigationItem({
             '-ml-0.5 flex w-full items-center gap-x-2 pl-[19px]',
             'motion-safe:transition-all',
             'text-[0.8125rem] leading-5',
-            themeTextSecondaryColor,
-            'hover:text-neutral-900 dark:hover:text-white',
+            isActive ? themeTextColor : themeTextSecondaryColor,
+            themeTextColor_Hover,
           )}
           href={onClick ? '#' : `#${section.value}`}
           variant="unstyled"
@@ -72,24 +74,25 @@ function NavigationItem({
           activeValue={activeValue}
           items={section.children}
           level={level + 1}
+          // We don't support clicks for non-first level items for now.
         />
       )}
     </li>
   );
 }
 
-function NavigationItems({
-  activeValue,
+function NavigationItems<T>({
   activeLinkRef,
+  activeValue,
   items,
   level = 0,
   onClick,
 }: Readonly<{
   activeLinkRef?: Ref<HTMLAnchorElement>;
-  activeValue: string | null;
-  items: SideNavigationItems;
+  activeValue: T | null;
+  items: SideNavigationItems<T>;
   level: number;
-  onClick?: (value: string) => void;
+  onClick?: (value: T) => void;
 }>) {
   return (
     <ul
@@ -100,7 +103,7 @@ function NavigationItems({
       role="list">
       {items.map((section) => (
         <NavigationItem
-          key={section.value}
+          key={String(section.value)}
           activeLinkRef={activeLinkRef}
           activeValue={activeValue}
           level={level}
@@ -112,16 +115,19 @@ function NavigationItems({
   );
 }
 
-type Props = Readonly<{
-  activeValue: string | null;
-  items: SideNavigationItems;
-  onClick?: (value: string) => void;
+type Props<T> = Readonly<{
+  activeLinkRef?: Ref<HTMLAnchorElement>;
+  activeValue: T | null;
+  items: SideNavigationItems<T>;
+  onClick?: (value: T) => void;
 }>;
 
-function SideNavigation(
-  { activeValue, items, onClick }: Props,
-  ref: Ref<HTMLAnchorElement>,
-) {
+export default function SideNavigation<T>({
+  activeValue,
+  activeLinkRef,
+  items,
+  onClick,
+}: Props<T>) {
   const flatItems = flattenNavigationItems(items);
   const ITEM_HEIGHT_AND_GAP = 28;
   const activeItemIndex = flatItems.findIndex(
@@ -142,7 +148,7 @@ function SideNavigation(
         }}
       />
       <NavigationItems
-        activeLinkRef={ref}
+        activeLinkRef={activeLinkRef}
         activeValue={activeValue}
         items={items}
         level={0}
@@ -151,5 +157,3 @@ function SideNavigation(
     </div>
   );
 }
-
-export default forwardRef(SideNavigation);

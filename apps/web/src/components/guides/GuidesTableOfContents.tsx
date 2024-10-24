@@ -33,7 +33,7 @@ export type TableOfContents = ReadonlyArray<TableOfContentsItem>;
 
 function convertToSideNavigationItem(
   tocItems: TableOfContents,
-): SideNavigationItems {
+): SideNavigationItems<string> {
   return tocItems.map((item) => ({
     children: convertToSideNavigationItem(item.children ?? []),
     label: item.value,
@@ -133,7 +133,7 @@ export default function GuidesTableOfContents({
               <Section>
                 <div className="py-4 pl-2">
                   <SideNavigation
-                    ref={activeLinkRef}
+                    activeLinkRef={activeLinkRef}
                     activeValue={activeId}
                     items={convertToSideNavigationItem(tableOfContents)}
                   />
