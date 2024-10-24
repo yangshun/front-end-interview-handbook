@@ -3,6 +3,7 @@ import { useInView } from 'framer-motion';
 import type { ReactNode } from 'react';
 import { useEffect, useRef, useState } from 'react';
 
+import SideNavigation from '~/components/common/SideNavigation';
 import TypingString from '~/components/common/TypingString';
 import { FormattedMessage } from '~/components/intl';
 import MDXCodeBlock from '~/components/mdx/MDXCodeBlock';
@@ -19,7 +20,15 @@ import {
 const HIGHLIGHT_MATCH_START_REGEX = /\/\*\s*hl:s(\((\w*)\))?\s*\*\//;
 const HIGHLIGHT_MATCH_END_REGEX = /\/\*\s*hl:e\s*\*\//;
 
-const code = `/**
+type QuestionSlug = 'data-table' | 'deep-clone' | 'flatten';
+
+const questions: ReadonlyArray<{
+  code: string;
+  label: string;
+  value: QuestionSlug;
+}> = [
+  {
+    code: `/**
  * @param {Array<*|Array>} value
  * @return {Array}
  */
@@ -29,7 +38,49 @@ export default function flatten(value) {
     [],
   );
 }
-`;
+`,
+    label: 'Flatten',
+    value: 'flatten',
+  },
+  {
+    code: `/**
+ * @template T
+ * @param {T} value
+ * @return {T}
+ */
+export default function deepClone(value) {
+  if (/* hl:s(yangshun) */typeof value !== 'object' || value === null/* hl:e */) {
+    return value;
+  }
+
+  if (/* hl:s(yangshun) */Array.isArray(value)/* hl:e */) {
+    return value.map((item) => deepClone(item));
+  }
+
+  return /* hl:s(yangshun) */Object.fromEntries/* hl:e */(
+    Object.entries(value).map(([key, value]) => [key, deepClone(value)]),
+  );
+}
+`,
+    label: 'Deep Clone',
+    value: 'deep-clone',
+  },
+  {
+    code: `/**
+ * @param {Array<*|Array>} value
+ * @return {Array}
+ */
+export default function flatten(value) {
+  return /* hl:s(yangshun) */value/* hl:e */.reduce(
+    (acc, curr) => /*   hl:s(zhenghao) */acc.concat(Array.isArray(curr) ? flatten(curr) : curr)/* hl:e */,
+    [],
+  );
+}
+`,
+    label: 'Data Table',
+    value: 'data-table',
+  },
+] as const;
 
 function getAnnotationData(highlightId: string | null):
   | Readonly<{
@@ -145,6 +196,9 @@ export default function InterviewsMarketingSolutionsByExInterviewersSection() {
     once: true,
   });
 
+  const [selectedQuestion, setSelectedQuestion] =
+    useState<QuestionSlug>('flatten');
+
   return (
     <Container className={clsx('py-20')}>
       <Heading
@@ -159,7 +213,7 @@ export default function InterviewsMarketingSolutionsByExInterviewersSection() {
       </Heading>
       <Section>
         <div className="mt-16 flex grid-cols-12 flex-col gap-6 lg:grid">
-          <div className="col-span-5">
+          <div className={clsx('flex flex-col gap-10', 'col-span-5')}>
             <Text
               className={clsx(
                 'block',
@@ -176,6 +230,30 @@ export default function InterviewsMarketingSolutionsByExInterviewersSection() {
                 id="jGbCXt"
               />
             </Text>
+            <div className="flex flex-col gap-6">
+              <Text
+                className={clsx(
+                  'block',
+                  'text-base lg:text-lg',
+                  'lg:font-medium',
+                )}
+                color="subtitle"
+                size="inherit"
+                weight="inherit">
+                <FormattedMessage
+                  defaultMessage="Example solutions"
+                  description="Example code solutions"
+                  id="egSWgk"
+                />
+              </Text>
+              <SideNavigation
+                activeValue={selectedQuestion}
+                items={questions}
+                onClick={(value) => {
+                  setSelectedQuestion(value);
+                }}
+              />
+            </div>
           </div>
           <div ref={codeBlockRef} className="prose col-span-7 text-sm">
             <div
@@ -272,7 +350,10 @@ export default function InterviewsMarketingSolutionsByExInterviewersSection() {
                   return lineContents;
                 }}
                 showCopyButton={false}>
-                {code}
+                {
+                  questions.find(({ value }) => selectedQuestion === value)
+                    ?.code
+                }
               </MDXCodeBlock>
             </div>
           </div>

@@ -7,6 +7,7 @@ import type { InterviewsMarketingTestimonial } from '~/components/interviews/mar
 import { useIntl } from '~/components/intl';
 import Anchor from '~/components/ui/Anchor';
 import Avatar from '~/components/ui/Avatar';
+import BorderBeam from '~/components/ui/BorderBeam/BorderBeam';
 import Heading from '~/components/ui/Heading';
 import ScrollArea from '~/components/ui/ScrollArea';
 import Text, { textVariants } from '~/components/ui/Text';
@@ -208,12 +209,13 @@ export default function InterviewsTestimonialsSlider({
         setCurrentItemIndex(data.findIndex(({ id }) => id === newValue));
       }}>
       <div className="flex flex-col gap-6">
-        <div>
+        <div className="relative rounded-lg">
           {data.map((item) => (
             <TabsPrimitive.Content key={item.id} value={item.id}>
               <TestimonialCard {...item} />
             </TabsPrimitive.Content>
           ))}
+          <BorderBeam />
         </div>
         <div className="hidden lg:block">{sliderNavigation}</div>
       </div>

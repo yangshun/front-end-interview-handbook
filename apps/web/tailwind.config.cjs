@@ -87,6 +87,7 @@ module.exports = {
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
+        'border-beam': 'border-beam calc(var(--duration)*1s) infinite linear',
         marquee: 'marquee linear infinite',
         marquee2: 'marquee2 linear infinite',
         'pulse-slow': 'pulse 5s cubic-bezier(0.4, 0, 0.6, 1) infinite',
@@ -100,6 +101,11 @@ module.exports = {
         'accordion-up': {
           from: { height: 'var(--radix-accordion-content-height)' },
           to: { height: '0' },
+        },
+        'border-beam': {
+          '100%': {
+            'offset-distance': '100%',
+          },
         },
         marquee: {
           '0%': { transform: 'translateX(0%)' },

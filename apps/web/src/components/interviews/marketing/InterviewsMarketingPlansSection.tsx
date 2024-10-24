@@ -1,11 +1,12 @@
 'use client';
 
 import clsx from 'clsx';
-import type { ReactNode } from 'react';
-import { useRef } from 'react';
+import type { ForwardedRef, ReactNode } from 'react';
+import { forwardRef, useRef } from 'react';
 
 import { FormattedMessage } from '~/components/intl';
-import AnimatedBeam from '~/components/ui/AnimatedBeam/AnimateBeam';
+import AnimatedBeam from '~/components/ui/AnimatedBeam/AnimatedBeam';
+import BorderBeam from '~/components/ui/BorderBeam/BorderBeam';
 import Container from '~/components/ui/Container';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
@@ -14,6 +15,7 @@ import {
   themeBackgroundCardColor,
   themeBackgroundColor,
   themeBorderColor,
+  themeBorderEmphasizeColor_Hover,
   themeGradientHeading,
   themeTextSubtitleColor,
   themeTextSubtleColor,
@@ -60,32 +62,40 @@ export default function InterviewsMarketingPlansSection() {
           />
         </Text>
         <div className="mt-16 flex items-center justify-center">
-          <GraphNodes />
+          <NodesNetwork />
         </div>
       </Section>
     </Container>
   );
 }
 
-function TopicNode({
-  children,
-}: Readonly<{
-  children: ReactNode;
-}>) {
+function TopicNodeImpl(
+  {
+    children,
+  }: Readonly<{
+    children: ReactNode;
+  }>,
+  ref: ForwardedRef<HTMLDivElement>,
+) {
   return (
     <div
+      ref={ref}
       className={clsx(
         'z-[1]',
-        'flex items-center justify-center rounded-lg',
-        'px-[8px] py-[4px] md:px-[10px] md:py-[6px] lg:px-[14px] lg:py-[8px]',
+        'flex items-center justify-center',
+        'p-2 md:px-2.5 md:py-1.5 lg:px-3.5 lg:py-2',
         ['text-xs lg:text-sm', 'font-medium', themeTextSubtitleColor],
         themeBackgroundCardColor,
-        [themeBorderColor, 'border'],
+        'transition-colors',
+        [themeBorderColor, 'border', themeBorderEmphasizeColor_Hover],
+        'rounded-lg',
       )}>
       {children}
     </div>
   );
 }
+
+const TopicNode = forwardRef(TopicNodeImpl);
 
 function CenterNode({
   number,
@@ -97,18 +107,19 @@ function CenterNode({
   return (
     <div
       className={clsx(
-        'flex items-center',
-        'h-[33px] w-fit rounded-lg p-2 lg:h-[40px] lg:px-4',
-        ['border', themeBorderColor],
+        'flex items-center gap-3',
+        'p-3',
+        'rounded-lg',
+        'transition-colors',
+        ['border', themeBorderColor, themeBorderEmphasizeColor_Hover],
       )}>
       <div
         className={clsx(
           'flex items-center justify-center',
-          'mr-3 h-6 w-6 rounded-full',
+          'size-6 rounded-full',
           ['border', themeBorderColor],
           themeBackgroundCardColor,
-          ['text-xs lg:text-base', themeTextSubtleColor],
-          'font-medium',
+          ['text-xs lg:text-base', themeTextSubtleColor, 'font-medium'],
         )}>
         {number}
       </div>
@@ -117,19 +128,19 @@ function CenterNode({
   );
 }
 
-function GraphNodes() {
+function NodesNetwork() {
   const containerRef = useRef<HTMLDivElement>(null);
-  const div1Ref = useRef<HTMLDivElement>(null);
-  const div2Ref = useRef<HTMLDivElement>(null);
-  const div3Ref = useRef<HTMLDivElement>(null);
-  const div4Ref = useRef<HTMLDivElement>(null);
-  const div5Ref = useRef<HTMLDivElement>(null);
-  const div6Ref = useRef<HTMLDivElement>(null);
-  const div7Ref = useRef<HTMLDivElement>(null);
-  const div8Ref = useRef<HTMLDivElement>(null);
-  const div9Ref = useRef<HTMLDivElement>(null);
-  const div10Ref = useRef<HTMLDivElement>(null);
-  const div11Ref = useRef<HTMLDivElement>(null);
+  const centerRef = useRef<HTMLDivElement>(null);
+  const dsaRef = useRef<HTMLDivElement>(null);
+  const jsFnRef = useRef<HTMLDivElement>(null);
+  const a11yRef = useRef<HTMLDivElement>(null);
+  const networkingRef = useRef<HTMLDivElement>(null);
+  const reactRef = useRef<HTMLDivElement>(null);
+  const fesdRef = useRef<HTMLDivElement>(null);
+  const domManipulationRef = useRef<HTMLDivElement>(null);
+  const i18nRef = useRef<HTMLDivElement>(null);
+  const uiRef = useRef<HTMLDivElement>(null);
+  const perfRef = useRef<HTMLDivElement>(null);
 
   return (
     <div
@@ -139,171 +150,158 @@ function GraphNodes() {
         'relative flex h-fit w-[343px] items-center justify-center md:h-[380px] md:w-[720px] lg:w-[1000px]',
       )}>
       <div className="size-full flex flex-col items-center justify-center gap-10 md:flex-row md:justify-between md:gap-0">
-        <div className="flex h-[100px] flex-wrap items-center justify-center gap-2 md:h-full md:w-[240px] md:flex-col md:items-start md:justify-evenly md:gap-3">
-          <div ref={div1Ref} className="flex h-6 justify-center md:h-7 lg:h-9">
-            <TopicNode>
-              <FormattedMessage
-                defaultMessage="Data structures & algorithms"
-                description="Front end topic"
-                id="GXlJqk"
-              />
-            </TopicNode>
-          </div>
-          <div ref={div2Ref} className="flex h-6 justify-center md:h-7 lg:h-9">
-            <TopicNode>
-              <FormattedMessage
-                defaultMessage="JavaScript Functions"
-                description="Front end topic"
-                id="RBV1s+"
-              />
-            </TopicNode>
-          </div>
-          <div ref={div3Ref} className="flex h-6 justify-center md:h-7 lg:h-9">
-            <TopicNode>
-              <FormattedMessage
-                defaultMessage="Accessibility"
-                description="Front end topic"
-                id="sx3TNQ"
-              />
-            </TopicNode>
-          </div>
-          <div ref={div4Ref} className="flex h-6 justify-center md:h-7 lg:h-9">
-            <TopicNode>
-              <FormattedMessage
-                defaultMessage="Networking"
-                description="Front end topic"
-                id="gjRrM6"
-              />
-            </TopicNode>
-          </div>
-          <div ref={div5Ref} className="flex h-6 justify-center md:h-7 lg:h-9">
-            <TopicNode>React</TopicNode>
-          </div>
+        <div
+          className={clsx(
+            'flex flex-wrap items-center justify-center gap-2',
+            'md:h-full md:w-[240px] md:flex-col md:items-start md:justify-between md:gap-3',
+          )}>
+          <TopicNode ref={a11yRef}>
+            <FormattedMessage
+              defaultMessage="Accessibility"
+              description="Front end topic"
+              id="sx3TNQ"
+            />
+          </TopicNode>
+          <TopicNode ref={jsFnRef}>
+            <FormattedMessage
+              defaultMessage="JavaScript Functions"
+              description="Front end topic"
+              id="RBV1s+"
+            />
+          </TopicNode>
+          <TopicNode ref={reactRef}>React</TopicNode>
+          <TopicNode ref={networkingRef}>
+            <FormattedMessage
+              defaultMessage="Networking"
+              description="Front end topic"
+              id="gjRrM6"
+            />
+          </TopicNode>
+          <TopicNode ref={dsaRef}>
+            <FormattedMessage
+              defaultMessage="Data structures & algorithms"
+              description="Front end topic"
+              id="GXlJqk"
+            />
+          </TopicNode>
         </div>
         <div
-          ref={div6Ref}
+          ref={centerRef}
           className={clsx(
-            'flex h-[146px] w-full flex-shrink-0 items-start justify-center md:h-[138px] md:w-[228px] md:items-center lg:h-[176px] lg:w-[293px]',
+            'flex flex-col gap-2',
+            'relative z-[1]',
+            'rounded-lg',
+            'p-4',
+            themeBackgroundColor,
+            ['border', themeBorderColor],
           )}>
-          <div
-            className={clsx(
-              'relative z-[1] flex h-full w-fit flex-col items-start justify-center gap-2 rounded-lg border p-3',
-              themeBackgroundColor,
-              themeBorderColor,
-            )}>
-            <CenterNode number={1}>GFE 75</CenterNode>
-            <CenterNode number={2}>Blind 75</CenterNode>
-            <CenterNode number={3}>
-              <FormattedMessage
-                defaultMessage="Front end system design"
-                description="Front end topic"
-                id="nYqpMP"
-              />
-            </CenterNode>
-          </div>
+          <CenterNode number={1}>GFE 75</CenterNode>
+          <CenterNode number={2}>Blind 75</CenterNode>
+          <CenterNode number={3}>
+            <FormattedMessage
+              defaultMessage="Front end system design"
+              description="Front end topic"
+              id="nYqpMP"
+            />
+          </CenterNode>
+          <BorderBeam duration={5} />
         </div>
-        <div className="flex h-[100px] flex-wrap-reverse items-center justify-center gap-2 md:h-full md:w-[240px] md:flex-col md:flex-nowrap md:items-end md:justify-evenly md:gap-3">
-          <div ref={div7Ref} className="flex h-6 justify-center md:h-7 lg:h-9">
-            <TopicNode>
-              <FormattedMessage
-                defaultMessage="Front end system design"
-                description="Front end topic"
-                id="nYqpMP"
-              />
-            </TopicNode>
-          </div>
-          <div ref={div8Ref} className="flex h-6 justify-center md:h-7 lg:h-9">
-            <TopicNode>
-              <FormattedMessage
-                defaultMessage="DOM manipulation"
-                description="Front end topic"
-                id="WjyQOy"
-              />
-            </TopicNode>
-          </div>
-          <div ref={div9Ref} className="flex h-6 justify-center md:h-7 lg:h-9">
-            <TopicNode>
-              <FormattedMessage
-                defaultMessage="Internationalization"
-                description="Front end topic"
-                id="ZYOMsS"
-              />
-            </TopicNode>
-          </div>
-          <div ref={div10Ref} className="flex h-6 justify-center md:h-7 lg:h-9">
-            <TopicNode>
-              <FormattedMessage
-                defaultMessage="User interfaces"
-                description="Front end topic"
-                id="gGg9If"
-              />
-            </TopicNode>
-          </div>
-          <div ref={div11Ref} className="flex h-6 justify-center md:h-7 lg:h-9">
-            <TopicNode>
-              <FormattedMessage
-                defaultMessage="Performance"
-                description="Front end topic"
-                id="JUHkm7"
-              />
-            </TopicNode>
-          </div>
+        <div
+          className={clsx(
+            'flex flex-wrap-reverse items-center justify-center gap-2',
+            'md:h-full md:w-[240px] md:flex-col md:flex-nowrap md:items-end md:justify-between md:gap-3',
+          )}>
+          <TopicNode ref={fesdRef}>
+            <FormattedMessage
+              defaultMessage="Front end system design"
+              description="Front end topic"
+              id="nYqpMP"
+            />
+          </TopicNode>
+          <TopicNode ref={domManipulationRef}>
+            <FormattedMessage
+              defaultMessage="DOM manipulation"
+              description="Front end topic"
+              id="WjyQOy"
+            />
+          </TopicNode>
+          <TopicNode ref={i18nRef}>
+            <FormattedMessage
+              defaultMessage="Internationalization"
+              description="Front end topic"
+              id="ZYOMsS"
+            />
+          </TopicNode>
+          <TopicNode ref={uiRef}>
+            <FormattedMessage
+              defaultMessage="User interfaces"
+              description="Front end topic"
+              id="gGg9If"
+            />
+          </TopicNode>
+          <TopicNode ref={perfRef}>
+            <FormattedMessage
+              defaultMessage="Performance"
+              description="Front end topic"
+              id="JUHkm7"
+            />
+          </TopicNode>
         </div>
       </div>
       <AnimatedBeam
         containerRef={containerRef}
-        fromRef={div1Ref}
-        toRef={div6Ref}
+        fromRef={dsaRef}
+        toRef={centerRef}
       />
       <AnimatedBeam
         containerRef={containerRef}
-        fromRef={div2Ref}
-        toRef={div6Ref}
+        fromRef={jsFnRef}
+        toRef={centerRef}
       />
       <AnimatedBeam
         containerRef={containerRef}
-        fromRef={div3Ref}
-        toRef={div6Ref}
+        fromRef={a11yRef}
+        toRef={centerRef}
       />
       <AnimatedBeam
         containerRef={containerRef}
-        fromRef={div4Ref}
-        toRef={div6Ref}
+        fromRef={networkingRef}
+        toRef={centerRef}
       />
       <AnimatedBeam
         containerRef={containerRef}
-        fromRef={div5Ref}
-        toRef={div6Ref}
+        fromRef={reactRef}
+        toRef={centerRef}
       />
       <AnimatedBeam
         containerRef={containerRef}
-        fromRef={div7Ref}
+        fromRef={fesdRef}
         reverse={true}
-        toRef={div6Ref}
+        toRef={centerRef}
       />
       <AnimatedBeam
         containerRef={containerRef}
-        fromRef={div8Ref}
+        fromRef={domManipulationRef}
         reverse={true}
-        toRef={div6Ref}
+        toRef={centerRef}
       />
       <AnimatedBeam
         containerRef={containerRef}
-        fromRef={div9Ref}
+        fromRef={i18nRef}
         reverse={true}
-        toRef={div6Ref}
+        toRef={centerRef}
       />
       <AnimatedBeam
         containerRef={containerRef}
-        fromRef={div10Ref}
+        fromRef={uiRef}
         reverse={true}
-        toRef={div6Ref}
+        toRef={centerRef}
       />
       <AnimatedBeam
         containerRef={containerRef}
-        fromRef={div11Ref}
+        fromRef={perfRef}
         reverse={true}
-        toRef={div6Ref}
+        toRef={centerRef}
       />
     </div>
   );
