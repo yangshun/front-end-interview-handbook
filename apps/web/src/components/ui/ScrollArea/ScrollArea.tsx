@@ -23,32 +23,38 @@ type ScrollAreaProps = React.ComponentPropsWithoutRef<
 const ScrollArea = React.forwardRef<
   React.ElementRef<typeof ScrollAreaPrimitive.Root>,
   ScrollAreaProps
->(({ className, children, ...props }, ref) => {
-  const {
-    asChild,
-    size = 'default',
-    radius = 'rounded',
-    scrollbars = 'vertical',
-    heightClass = 'h-full',
-    widthClass = 'w-full',
-    viewportClass,
-  } = props;
-
-  return (
-    <ScrollAreaPrimitive.Root
-      asChild={asChild}
-      className={clsx('overflow-hidden', widthClass, heightClass, className)}
-      {...props}>
-      <ScrollAreaPrimitive.Viewport
-        ref={ref}
-        className={clsx('size-full', viewportClass)}>
-        {children}
-      </ScrollAreaPrimitive.Viewport>
-      <ScrollBar radius={radius} scrollbars={scrollbars} size={size} />
-      <ScrollAreaPrimitive.Corner />
-    </ScrollAreaPrimitive.Root>
-  );
-});
+>(
+  (
+    {
+      asChild,
+      className,
+      children,
+      size = 'default',
+      radius = 'rounded',
+      scrollbars = 'vertical',
+      heightClass = 'h-full',
+      widthClass = 'w-full',
+      viewportClass,
+      ...props
+    },
+    ref,
+  ) => {
+    return (
+      <ScrollAreaPrimitive.Root
+        asChild={asChild}
+        className={clsx('overflow-hidden', widthClass, heightClass, className)}
+        {...props}>
+        <ScrollAreaPrimitive.Viewport
+          ref={ref}
+          className={clsx('size-full', viewportClass)}>
+          {children}
+        </ScrollAreaPrimitive.Viewport>
+        <ScrollBar radius={radius} scrollbars={scrollbars} size={size} />
+        <ScrollAreaPrimitive.Corner />
+      </ScrollAreaPrimitive.Root>
+    );
+  },
+);
 
 ScrollArea.displayName = ScrollAreaPrimitive.Root.displayName;
 
