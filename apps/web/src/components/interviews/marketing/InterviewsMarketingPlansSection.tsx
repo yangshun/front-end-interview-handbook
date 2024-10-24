@@ -12,7 +12,6 @@ import Section from '~/components/ui/Heading/HeadingContext';
 import Text from '~/components/ui/Text';
 import {
   themeBackgroundCardColor,
-  themeBackgroundCardNoAlphaColor,
   themeBackgroundColor,
   themeBorderColor,
   themeGradientHeading,
@@ -78,12 +77,42 @@ function TopicNode({
       className={clsx(
         'z-[1]',
         'flex items-center justify-center rounded-lg',
-        'px-3.5 py-2.5',
-        ['font-medium', themeTextSubtitleColor],
+        'px-[8px] py-[4px] md:px-[10px] md:py-[6px] lg:px-[14px] lg:py-[8px]',
+        ['text-xs lg:text-sm', 'font-medium', themeTextSubtitleColor],
         themeBackgroundCardColor,
         [themeBorderColor, 'border'],
       )}>
       {children}
+    </div>
+  );
+}
+
+function CenterNode({
+  number,
+  children,
+}: Readonly<{
+  children: ReactNode;
+  number: number;
+}>) {
+  return (
+    <div
+      className={clsx(
+        'flex items-center',
+        'h-[33px] w-fit rounded-lg p-2 lg:h-[40px] lg:px-4',
+        ['border', themeBorderColor],
+      )}>
+      <div
+        className={clsx(
+          'flex items-center justify-center',
+          'mr-3 h-6 w-6 rounded-full',
+          ['border', themeBorderColor],
+          themeBackgroundCardColor,
+          ['text-xs lg:text-base', themeTextSubtleColor],
+          'font-medium',
+        )}>
+        {number}
+      </div>
+      <div className={clsx('text-xs font-medium lg:text-base')}>{children}</div>
     </div>
   );
 }
@@ -107,13 +136,11 @@ function GraphNodes() {
       ref={containerRef}
       className={clsx(
         'isolate',
-        'relative flex h-[420px] w-[343px] items-center justify-center md:h-[380px] md:w-[720px] lg:w-[1000px]',
+        'relative flex h-fit w-[343px] items-center justify-center md:h-[380px] md:w-[720px] lg:w-[1000px]',
       )}>
-      <div className="size-full flex flex-col items-center justify-center md:flex-row md:justify-between">
-        <div className="size-full relative md:h-full md:w-[240px]">
-          <div
-            ref={div1Ref}
-            className="absolute left-0 top-0 flex justify-center text-xs sm:top-[40px] md:left-0 md:text-sm">
+      <div className="size-full flex flex-col items-center justify-center gap-10 md:flex-row md:justify-between md:gap-0">
+        <div className="flex h-[100px] flex-wrap items-center justify-center gap-2 md:h-full md:w-[240px] md:flex-col md:items-start md:justify-evenly md:gap-3">
+          <div ref={div1Ref} className="flex h-6 justify-center md:h-7 lg:h-9">
             <TopicNode>
               <FormattedMessage
                 defaultMessage="Data structures & algorithms"
@@ -122,9 +149,7 @@ function GraphNodes() {
               />
             </TopicNode>
           </div>
-          <div
-            ref={div2Ref}
-            className="absolute left-[190px] top-0 flex justify-center  text-xs md:left-0 md:top-[105px] md:text-sm ">
+          <div ref={div2Ref} className="flex h-6 justify-center md:h-7 lg:h-9">
             <TopicNode>
               <FormattedMessage
                 defaultMessage="JavaScript Functions"
@@ -133,9 +158,7 @@ function GraphNodes() {
               />
             </TopicNode>
           </div>
-          <div
-            ref={div3Ref}
-            className="absolute left-[150px] top-[40px] flex justify-center text-xs md:left-0 md:top-[160px] md:text-sm">
+          <div ref={div3Ref} className="flex h-6 justify-center md:h-7 lg:h-9">
             <TopicNode>
               <FormattedMessage
                 defaultMessage="Accessibility"
@@ -144,9 +167,7 @@ function GraphNodes() {
               />
             </TopicNode>
           </div>
-          <div
-            ref={div4Ref}
-            className="absolute left-[50] top-[40px] flex justify-center text-xs  md:left-0 md:top-[219px] md:text-sm">
+          <div ref={div4Ref} className="flex h-6 justify-center md:h-7 lg:h-9">
             <TopicNode>
               <FormattedMessage
                 defaultMessage="Networking"
@@ -155,86 +176,34 @@ function GraphNodes() {
               />
             </TopicNode>
           </div>
-          <div
-            ref={div5Ref}
-            className="absolute left-[240px] top-[40px] flex justify-center text-xs md:left-0 md:top-[273px] md:text-sm">
+          <div ref={div5Ref} className="flex h-6 justify-center md:h-7 lg:h-9">
             <TopicNode>React</TopicNode>
           </div>
         </div>
         <div
           ref={div6Ref}
           className={clsx(
-            'flex w-full justify-center md:flex md:h-full md:w-[300px] md:items-center md:justify-center',
+            'flex h-[146px] w-full flex-shrink-0 items-start justify-center md:h-[138px] md:w-[228px] md:items-center lg:h-[176px] lg:w-[293px]',
           )}>
           <div
             className={clsx(
-              'relative z-[1] flex w-fit flex-col items-start justify-center rounded-lg border p-2',
+              'relative z-[1] flex h-full w-fit flex-col items-start justify-center gap-2 rounded-lg border p-3',
               themeBackgroundColor,
               themeBorderColor,
             )}>
-            {/* First item */}
-            <div
-              className={clsx(
-                'mb-4 flex w-fit items-center rounded-lg border p-2',
-                themeBorderColor,
-              )}>
-              <div
-                className={clsx(
-                  'mr-3 flex h-6 w-6 items-center justify-center rounded-full border',
-                  themeBorderColor,
-                  themeBackgroundCardColor,
-                  themeTextSubtleColor,
-                )}>
-                1
-              </div>
-              <div>GFE 75</div>
-            </div>
-            {/* Second item */}
-            <div
-              className={clsx(
-                'mb-4 flex w-fit flex-none items-center rounded-lg border p-2',
-                themeBorderColor,
-              )}>
-              <div
-                className={clsx(
-                  'mr-3 flex h-6 w-6 items-center justify-center rounded-full border',
-                  themeBorderColor,
-                  themeBackgroundCardColor,
-                  themeTextSubtleColor,
-                )}>
-                2
-              </div>
-              <span>Blind 75</span>
-            </div>
-            {/* Third item */}
-            <div
-              className={clsx(
-                'flex w-fit flex-nowrap items-center rounded-lg border p-2',
-                themeBorderColor,
-              )}>
-              <div
-                className={clsx(
-                  'mr-3 flex h-6 w-6 items-center justify-center rounded-full border',
-                  themeBorderColor,
-                  themeBackgroundCardColor,
-                  themeTextSubtleColor,
-                )}>
-                3
-              </div>
-              <span>
-                <FormattedMessage
-                  defaultMessage="Front end system design"
-                  description="Front end topic"
-                  id="nYqpMP"
-                />
-              </span>
-            </div>
+            <CenterNode number={1}>GFE 75</CenterNode>
+            <CenterNode number={2}>Blind 75</CenterNode>
+            <CenterNode number={3}>
+              <FormattedMessage
+                defaultMessage="Front end system design"
+                description="Front end topic"
+                id="nYqpMP"
+              />
+            </CenterNode>
           </div>
         </div>
-        <div className="size-full relative md:h-full md:w-[240px]">
-          <div
-            ref={div7Ref}
-            className="absolute right-[170px] top-[80px] flex justify-center text-xs md:right-[10px] md:top-[40px] md:text-sm">
+        <div className="flex h-[100px] flex-wrap-reverse items-center justify-center gap-2 md:h-full md:w-[240px] md:flex-col md:flex-nowrap md:items-end md:justify-evenly md:gap-3">
+          <div ref={div7Ref} className="flex h-6 justify-center md:h-7 lg:h-9">
             <TopicNode>
               <FormattedMessage
                 defaultMessage="Front end system design"
@@ -243,9 +212,7 @@ function GraphNodes() {
               />
             </TopicNode>
           </div>
-          <div
-            ref={div8Ref}
-            className="absolute right-[40px] top-[80px] flex justify-center text-xs md:right-[10px] md:top-[105px] md:text-sm">
+          <div ref={div8Ref} className="flex h-6 justify-center md:h-7 lg:h-9">
             <TopicNode>
               <FormattedMessage
                 defaultMessage="DOM manipulation"
@@ -254,9 +221,7 @@ function GraphNodes() {
               />
             </TopicNode>
           </div>
-          <div
-            ref={div9Ref}
-            className="absolute right-[90px] top-[40px] flex justify-center text-xs md:right-[10px] md:top-[160px] md:text-sm">
+          <div ref={div9Ref} className="flex h-6 justify-center md:h-7 lg:h-9">
             <TopicNode>
               <FormattedMessage
                 defaultMessage="Internationalization"
@@ -265,9 +230,7 @@ function GraphNodes() {
               />
             </TopicNode>
           </div>
-          <div
-            ref={div10Ref}
-            className="absolute right-[220px] top-[40px] flex justify-center text-xs md:right-[10px]  md:top-[219px] md:text-sm">
+          <div ref={div10Ref} className="flex h-6 justify-center md:h-7 lg:h-9">
             <TopicNode>
               <FormattedMessage
                 defaultMessage="User interfaces"
@@ -276,9 +239,7 @@ function GraphNodes() {
               />
             </TopicNode>
           </div>
-          <div
-            ref={div11Ref}
-            className="absolute right-0 top-[40px] flex justify-center text-xs md:right-[10px] md:top-[273px] md:text-sm">
+          <div ref={div11Ref} className="flex h-6 justify-center md:h-7 lg:h-9">
             <TopicNode>
               <FormattedMessage
                 defaultMessage="Performance"

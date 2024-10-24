@@ -5,8 +5,6 @@ import { motion } from 'framer-motion';
 import type { RefObject } from 'react';
 import { useEffect, useId, useState } from 'react';
 
-import { themeGradientYellowGreen } from '~/components/ui/theme';
-
 export type Props = Readonly<{
   className?: string;
   containerRef: RefObject<HTMLElement>;
@@ -40,8 +38,8 @@ export default function AnimatedBeam({
   pathColor = 'gray',
   pathWidth = 2,
   pathOpacity = 0.2,
-  gradientStartColor = themeGradientYellowGreen.startColor,
-  gradientStopColor = themeGradientYellowGreen.endColor,
+  gradientStartColor = '#E4FE71',
+  gradientStopColor = '#E4FE71',
   startXOffset = 0,
   startYOffset = 0,
   endXOffset = 0,
