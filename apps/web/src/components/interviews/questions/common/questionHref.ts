@@ -12,7 +12,13 @@ export function questionHrefWithList(
 
   const urlObject = new URL(href, origin);
 
+  // TODO(interviews): remove `list` searchParam when progress reads from URL pathname.
   urlObject.searchParams.append('list', listKey);
 
-  return urlObject.pathname + urlObject.search + urlObject.hash;
+  return (
+    `/interviews/l/${listKey}` +
+    urlObject.pathname +
+    urlObject.search +
+    urlObject.hash
+  );
 }

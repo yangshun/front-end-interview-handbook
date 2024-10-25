@@ -313,7 +313,6 @@ export default function InterviewsCompanyGuidePage({
               </div>
             </div>
           )}
-
           {bottomContent && (
             <Section>
               <Divider />
