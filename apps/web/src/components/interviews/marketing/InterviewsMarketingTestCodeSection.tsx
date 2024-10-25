@@ -304,16 +304,18 @@ export default function InterviewsMarketingTestCodeSection() {
                 'code-block__marketing overflow-hidden rounded-xl',
                 [
                   themeWhiteGlowCardBackground,
-                  'before:-left-10 before:-top-24 before:z-[2]',
+                  'before:-left-10 before:-top-24 before:z-[1]',
                 ],
               )}>
               <div
                 className={clsx(
-                  '!absolute inset-0 top-0 z-[1] rounded-[inherit] before:m-[-1px]',
+                  '!absolute inset-0 top-0 rounded-[inherit]',
                   themeGlassyBorder,
                 )}
               />
-              <MDXCodeBlock showCopyButton={false}>{code}</MDXCodeBlock>
+              <div className="m-0.5 overflow-hidden rounded-t-[inherit]">
+                <MDXCodeBlock showCopyButton={false}>{code}</MDXCodeBlock>
+              </div>
               <TestCaseAnimation
                 codeAnimationCompleted={value.length === remainingCode.length}
                 codeBlockRef={codeBlockRef}

@@ -262,99 +262,101 @@ export default function InterviewsMarketingSolutionsByExInterviewersSection() {
                 'code-block__marketing overflow-hidden rounded-xl',
                 [
                   themeWhiteGlowCardBackground,
-                  'before:-left-10 before:-top-24 before:z-[2]',
+                  'before:-left-10 before:-top-24 before:z-[1]',
                 ],
               )}>
               <div
                 className={clsx(
-                  '!absolute inset-0 top-0 z-[1] rounded-[inherit] before:m-[-1px]',
+                  '!absolute inset-0 top-0 rounded-[inherit]',
                   themeGlassyBorder,
                 )}
               />
-              <MDXCodeBlock
-                renderLineContents={({ line, getTokenProps }) => {
-                  const lineContents = [];
+              <div className="m-0.5 overflow-hidden rounded-[inherit]">
+                <MDXCodeBlock
+                  renderLineContents={({ line, getTokenProps }) => {
+                    const lineContents = [];
 
-                  for (let index_ = 0; index_ < line.length; index_++) {
-                    const tokenKey = index_;
-                    const token = line[tokenKey];
-                    let tokenEl = (
-                      <span
-                        {...getTokenProps({
-                          token,
-                        })}
-                        key={tokenKey}
-                      />
-                    );
+                    for (let index_ = 0; index_ < line.length; index_++) {
+                      const tokenKey = index_;
+                      const token = line[tokenKey];
+                      let tokenEl = (
+                        <span
+                          {...getTokenProps({
+                            token,
+                          })}
+                          key={tokenKey}
+                        />
+                      );
 
-                    if (HIGHLIGHT_MATCH_START_REGEX.test(token.content)) {
-                      const highlightIdMatches =
-                        HIGHLIGHT_MATCH_START_REGEX.exec(token.content);
-                      const highlightId =
-                        highlightIdMatches != null
-                          ? highlightIdMatches[2]
-                          : null;
-
-                      index_++;
-
-                      const highlightContents = [];
-                      let highlightedToken = line[index_];
-
-                      while (
-                        !HIGHLIGHT_MATCH_END_REGEX.test(
-                          highlightedToken.content,
-                        )
-                      ) {
-                        highlightContents.push(
-                          <span
-                            data-key={highlightId}
-                            {...getTokenProps({
-                              token: highlightedToken,
-                            })}
-                            key={tokenKey}
-                          />,
-                        );
+                      if (HIGHLIGHT_MATCH_START_REGEX.test(token.content)) {
+                        const highlightIdMatches =
+                          HIGHLIGHT_MATCH_START_REGEX.exec(token.content);
+                        const highlightId =
+                          highlightIdMatches != null
+                            ? highlightIdMatches[2]
+                            : null;
 
                         index_++;
-                        highlightedToken = line[index_];
+
+                        const highlightContents = [];
+                        let highlightedToken = line[index_];
+
+                        while (
+                          !HIGHLIGHT_MATCH_END_REGEX.test(
+                            highlightedToken.content,
+                          )
+                        ) {
+                          highlightContents.push(
+                            <span
+                              data-key={highlightId}
+                              {...getTokenProps({
+                                token: highlightedToken,
+                              })}
+                              key={tokenKey}
+                            />,
+                          );
+
+                          index_++;
+                          highlightedToken = line[index_];
+                        }
+
+                        const annotationData = getAnnotationData(highlightId);
+
+                        tokenEl = (
+                          <span
+                            className={clsx(
+                              'rounded-sm',
+                              'transition-all',
+                              'relative',
+                              'outline-1 outline-offset-2',
+                              showAnnotations && 'outline',
+                              annotationData?.highlightClass,
+                            )}>
+                            {annotationData?.contents && (
+                              <CodeAnnotation
+                                alignment={annotationData?.alignment}
+                                className={annotationData?.className}
+                                isShown={showAnnotations}>
+                                {annotationData.contents}
+                              </CodeAnnotation>
+                            )}
+                            {highlightContents}
+                          </span>
+                        );
                       }
 
-                      const annotationData = getAnnotationData(highlightId);
-
-                      tokenEl = (
-                        <span
-                          className={clsx(
-                            'rounded-sm',
-                            'transition-all',
-                            'relative',
-                            'outline-1 outline-offset-2',
-                            showAnnotations && 'outline',
-                            annotationData?.highlightClass,
-                          )}>
-                          {annotationData?.contents && (
-                            <CodeAnnotation
-                              alignment={annotationData?.alignment}
-                              className={annotationData?.className}
-                              isShown={showAnnotations}>
-                              {annotationData.contents}
-                            </CodeAnnotation>
-                          )}
-                          {highlightContents}
-                        </span>
-                      );
+                      lineContents.push(tokenEl);
                     }
 
-                    lineContents.push(tokenEl);
+                    return lineContents;
+                  }}
+                  showCopyButton={false}>
+                  {
+                    questions.find(({ value }) => selectedQuestion === value)
+                      ?.code
                   }
-
-                  return lineContents;
-                }}
-                showCopyButton={false}>
-                {
-                  questions.find(({ value }) => selectedQuestion === value)
-                    ?.code
-                }
-              </MDXCodeBlock>
+                </MDXCodeBlock>
+              </div>
             </div>
           </div>
         </div>
