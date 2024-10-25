@@ -6695,6 +6695,10 @@
     "defaultMessage": "Framework",
     "description": "Label for the selection dropdown used to select the framework to use for the question"
   },
+  "egSWgk": {
+    "defaultMessage": "Example solutions",
+    "description": "Example code solutions"
+  },
   "ekSPPz": {
     "defaultMessage": "Flashcard format",
     "description": "Button label for flashcard display format of quiz questions"

@@ -7,7 +7,9 @@ import type {
   QuestionLanguage,
   QuestionMetadata,
   QuestionSlug,
+  QuestionTopic,
 } from '~/components/interviews/questions/common/QuestionsTypes';
+import { filterQuestions } from '~/components/interviews/questions/listings/filters/QuestionsProcessor';
 
 import type { QuestionProgress } from './QuestionsProgressTypes';
 
@@ -298,4 +300,133 @@ export function questionsForImportProgress(
   return questions.filter((item) =>
     questionsProgressToImport.has(hashQuestion(item.format, item.slug)),
   );
+}
+
+export function categorizeQuestionsByFrameworkAndLanguage(
+  questions: Readonly<{
+    codingQuestions: ReadonlyArray<QuestionMetadata>;
+    quizQuestions?: ReadonlyArray<QuestionMetadata>;
+  }>,
+): Readonly<{
+  framework: Record<QuestionFramework, ReadonlyArray<QuestionMetadata>>;
+  language: Record<QuestionLanguage, ReadonlyArray<QuestionMetadata>>;
+}> {
+  const { codingQuestions, quizQuestions } = questions;
+  const allQuestions = [...codingQuestions, ...(quizQuestions || [])];
+
+  const framework = {
+    angular: filterQuestions(codingQuestions, [
+      (question) =>
+        question.frameworks.some(
+          (frameworkItem) => 'angular' === frameworkItem.framework,
+        ),
+    ]),
+    react: filterQuestions(codingQuestions, [
+      (question) =>
+        question.frameworks.some(
+          (frameworkItem) => 'react' === frameworkItem.framework,
+        ),
+    ]),
+    svelte: filterQuestions(codingQuestions, [
+      (question) =>
+        question.frameworks.some(
+          (frameworkItem) => 'svelte' === frameworkItem.framework,
+        ),
+    ]),
+    vanilla: filterQuestions(codingQuestions, [
+      (question) =>
+        question.frameworks.some(
+          (frameworkItem) => 'vanilla' === frameworkItem.framework,
+        ),
+    ]),
+    vue: filterQuestions(codingQuestions, [
+      (question) =>
+        question.frameworks.some(
+          (frameworkItem) => 'vue' === frameworkItem.framework,
+        ),
+    ]),
+  };
+
+  const language = {
+    css: filterQuestions(allQuestions, [
+      (question) =>
+        question.languages.includes('css') || question.topics.includes('css'),
+    ]),
+    html: filterQuestions(allQuestions, [
+      (question) =>
+        question.languages.includes('html') || question.topics.includes('html'),
+    ]),
+    js: filterQuestions(allQuestions, [
+      (question) =>
+        question.languages.includes('js') ||
+        question.topics.includes('javascript'),
+    ]),
+
+    ts: filterQuestions(allQuestions, [
+      (question) => question.languages.includes('ts'),
+    ]),
+  };
+
+  return {
+    framework,
+    language,
+  };
+}
+
+export function categorizeQuestionsByTopic(
+  questions: Readonly<{
+    codingQuestions: ReadonlyArray<QuestionMetadata>;
+    quizQuestions: ReadonlyArray<QuestionMetadata>;
+  }>,
+): Record<QuestionTopic, ReadonlyArray<QuestionMetadata>> {
+  const categorizedQuestions: Record<
+    QuestionTopic,
+    ReadonlyArray<QuestionMetadata>
+  > = {
+    a11y: [],
+    css: [],
+    html: [],
+    i18n: [],
+    javascript: [],
+    network: [],
+    performance: [],
+    security: [],
+    testing: [],
+  };
+  const { codingQuestions, quizQuestions } = questions;
+  const LANGUAGE_TO_TOPIC: Record<string, QuestionTopic> = {
+    css: 'css',
+    html: 'html',
+    js: 'javascript',
+  };
+
+  function categorize(question: QuestionMetadata, type: 'coding' | 'quiz') {
+    if (type === 'coding') {
+      question.languages.forEach((language) => {
+        const topic = LANGUAGE_TO_TOPIC[language];
+
+        if (topic) {
+          categorizedQuestions[topic] = [
+            ...categorizedQuestions[topic],
+            question,
+          ];
+        }
+      });
+    } else {
+      question.topics.forEach((topic) => {
+        if (categorizedQuestions[topic]) {
+          categorizedQuestions[topic] = [
+            ...categorizedQuestions[topic],
+            question,
+          ];
+        }
+      });
+    }
+  }
+
+  // Process all coding and quiz questions in a single pass
+  codingQuestions.forEach((question) => categorize(question, 'coding'));
+  quizQuestions.forEach((question) => categorize(question, 'quiz'));
+
+  return categorizedQuestions;
 }

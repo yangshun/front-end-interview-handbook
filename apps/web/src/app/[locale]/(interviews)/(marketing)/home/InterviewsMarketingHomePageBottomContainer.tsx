@@ -6,8 +6,8 @@ import dynamic from 'next/dynamic';
 import { useRef } from 'react';
 
 import InterviewsMarketingPlansSection from '~/components/interviews/marketing/InterviewsMarketingPlansSection';
+import type { QuestionBankDataType } from '~/components/interviews/marketing/InterviewsMarketingPracticeQuestionBankSection';
 import InterviewsMarketingSimulateRealInterviews from '~/components/interviews/marketing/InterviewsMarketingSimulateRealInterviews';
-import type { QuestionMetadata } from '~/components/interviews/questions/common/QuestionsTypes';
 
 const InterviewsMarketingHomePageBottomNew = dynamic(
   () => import('./InterviewsMarketingHomePageBottomNew'),
@@ -16,13 +16,7 @@ const InterviewsMarketingHomePageBottomNew = dynamic(
 
 type Props = Readonly<{
   companyGuides: ReadonlyArray<InterviewsCompanyGuide>;
-  questions: {
-    algo: ReadonlyArray<QuestionMetadata>;
-    js: ReadonlyArray<QuestionMetadata>;
-    quiz: ReadonlyArray<QuestionMetadata>;
-    'system-design': ReadonlyArray<QuestionMetadata>;
-    ui: ReadonlyArray<QuestionMetadata>;
-  };
+  questions: QuestionBankDataType;
 }>;
 
 export default function InterviewsMarketingHomePageBottomContainer({

@@ -3,7 +3,18 @@ import type { Metadata } from 'next/types';
 
 import { INTERVIEWS_REVAMP_2024 } from '~/data/FeatureFlags';
 
+import type { QuestionBankDataType } from '~/components/interviews/marketing/InterviewsMarketingPracticeQuestionBankSection';
 import { InterviewsMarketingTestimonialsDict } from '~/components/interviews/marketing/testimonials/InterviewsMarketingTestimonials';
+import type {
+  QuestionFramework,
+  QuestionLanguage,
+  QuestionMetadata,
+  QuestionTopic,
+} from '~/components/interviews/questions/common/QuestionsTypes';
+import {
+  countQuestionsTotalDurationMins,
+  sortQuestions,
+} from '~/components/interviews/questions/listings/filters/QuestionsProcessor';
 import { QuestionCount } from '~/components/interviews/questions/listings/stats/QuestionCount';
 
 import { fetchInterviewsCompanyGuides } from '~/db/contentlayer/InterviewsCompanyGuideReader';
@@ -12,12 +23,14 @@ import {
   readQuestionUserInterface,
 } from '~/db/QuestionsContentsReader';
 import {
-  fetchQuestionsListAlgo,
-  fetchQuestionsListJavaScript,
+  fetchQuestionsListCoding,
   fetchQuestionsListQuiz,
   fetchQuestionsListSystemDesign,
-  fetchQuestionsListUserInterface,
 } from '~/db/QuestionsListReader';
+import {
+  categorizeQuestionsByFrameworkAndLanguage,
+  categorizeQuestionsByTopic,
+} from '~/db/QuestionsUtils';
 import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
 
@@ -93,6 +106,88 @@ export default function flatten(
 }
 `;
 
+function getQuestionBankSectionData(
+  codingQuestions: ReadonlyArray<QuestionMetadata>,
+  quizQuestions: ReadonlyArray<QuestionMetadata>,
+  systemDesignQuestions: ReadonlyArray<QuestionMetadata>,
+): QuestionBankDataType {
+  const MAX_TO_SHOW = 4;
+  const { framework, language } = categorizeQuestionsByFrameworkAndLanguage({
+    codingQuestions,
+  });
+  const topicQuestions = categorizeQuestionsByTopic({
+    codingQuestions,
+    quizQuestions,
+  });
+
+  function createQuestionData(questions: ReadonlyArray<QuestionMetadata>) {
+    return {
+      count: questions.length,
+      duration: countQuestionsTotalDurationMins(questions),
+      questions: sortQuestions(questions, 'importance', false).slice(
+        0,
+        MAX_TO_SHOW,
+      ),
+    };
+  }
+
+  const frameworkQuestionsData: Record<
+    QuestionFramework,
+    {
+      count: number;
+      duration: number;
+      questions: ReadonlyArray<QuestionMetadata>;
+    }
+  > = {
+    angular: createQuestionData(framework.angular),
+    react: createQuestionData(framework.react),
+    svelte: createQuestionData(framework.svelte),
+    vanilla: createQuestionData(framework.vanilla),
+    vue: createQuestionData(framework.vue),
+  };
+  const languageQuestionsData: Record<
+    QuestionLanguage,
+    {
+      count: number;
+      duration: number;
+      questions: ReadonlyArray<QuestionMetadata>;
+    }
+  > = {
+    css: createQuestionData(language.css),
+    html: createQuestionData(language.html),
+    js: createQuestionData(language.js),
+    ts: createQuestionData(language.ts),
+  };
+
+  const topicQuestionsData: Record<
+    QuestionTopic,
+    {
+      count: number;
+      duration: number;
+      questions: ReadonlyArray<QuestionMetadata>;
+    }
+  > = {
+    a11y: createQuestionData(topicQuestions.a11y),
+    css: createQuestionData(topicQuestions.css),
+    html: createQuestionData(topicQuestions.html),
+    i18n: createQuestionData(topicQuestions.i18n),
+    javascript: createQuestionData(topicQuestions.javascript),
+    network: createQuestionData(topicQuestions.network),
+    performance: createQuestionData(topicQuestions.performance),
+    security: createQuestionData(topicQuestions.security),
+    testing: createQuestionData(topicQuestions.testing),
+  };
+
+  return {
+    coding: createQuestionData(codingQuestions),
+    framework: frameworkQuestionsData,
+    language: languageQuestionsData,
+    quiz: createQuestionData(quizQuestions),
+    systemDesign: createQuestionData(systemDesignQuestions),
+    topic: topicQuestionsData,
+  };
+}
+
 export default async function Page({ params }: Props) {
   if (!INTERVIEWS_REVAMP_2024) {
     return notFound();
@@ -107,10 +202,8 @@ export default async function Page({ params }: Props) {
     todoListAngularSolutionBundle,
     todoListVueSolutionBundle,
     todoListSvelteSolutionBundle,
+    { questions: codingQuestions },
     { questions: quizQuestions },
-    { questions: javaScriptQuestions },
-    { questions: algoQuestions },
-    { questions: userInterfaceQuestions },
     { questions: systemDesignQuestions },
     companyGuides,
   ] = await Promise.all([
@@ -123,16 +216,20 @@ export default async function Page({ params }: Props) {
     readQuestionUserInterface('todo-list', 'vue', 'solution'),
     readQuestionUserInterface('todo-list', 'svelte', 'solution'),
     // Question list
+    fetchQuestionsListCoding(locale),
     fetchQuestionsListQuiz(locale),
-    fetchQuestionsListJavaScript(locale),
-    fetchQuestionsListAlgo(locale),
-    fetchQuestionsListUserInterface(locale),
     fetchQuestionsListSystemDesign(locale),
     // Company guides
     fetchInterviewsCompanyGuides(),
   ]);
 
   const testimonials = InterviewsMarketingTestimonialsDict();
+
+  const questionBankData = getQuestionBankSectionData(
+    codingQuestions,
+    quizQuestions,
+    systemDesignQuestions,
+  );
 
   const sortedGuides = companyGuides
     .slice()
@@ -148,13 +245,7 @@ export default async function Page({ params }: Props) {
           ts: FLATTEN_SKELETON_TS,
         },
       }}
-      questions={{
-        algo: algoQuestions,
-        js: javaScriptQuestions,
-        quiz: quizQuestions,
-        'system-design': systemDesignQuestions,
-        ui: userInterfaceQuestions,
-      }}
+      questions={questionBankData}
       testimonials={[
         testimonials.shoaibAhmed,
         testimonials.locChuong,

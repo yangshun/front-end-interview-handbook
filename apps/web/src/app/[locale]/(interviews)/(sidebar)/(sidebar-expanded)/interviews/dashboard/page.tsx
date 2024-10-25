@@ -13,11 +13,11 @@ import { fetchInterviewsCompanyGuides } from '~/db/contentlayer/InterviewsCompan
 import { fetchInterviewListingBottomContent } from '~/db/contentlayer/InterviewsListingBottomContentReader';
 import { fetchPreparationPlans } from '~/db/PreparationPlansReader';
 import {
-  categorizeQuestionsByFrameworkAndLanguage,
   fetchQuestionsListCoding,
   fetchQuestionsListQuiz,
   fetchQuestionsListSystemDesign,
 } from '~/db/QuestionsListReader';
+import { categorizeQuestionsByFrameworkAndLanguage } from '~/db/QuestionsUtils';
 import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
 
@@ -57,7 +57,6 @@ export default async function Page({ params }: Props) {
     { questions: quizQuestions },
     { questions: codingQuestions },
     { questions: systemDesignQuestions },
-    { framework, language },
     bottomContent,
     companyGuides,
   ] = await Promise.all([
@@ -65,11 +64,13 @@ export default async function Page({ params }: Props) {
     fetchQuestionsListQuiz(locale),
     fetchQuestionsListCoding(locale),
     fetchQuestionsListSystemDesign(locale),
-    categorizeQuestionsByFrameworkAndLanguage(locale),
     fetchInterviewListingBottomContent('dashboard'),
     fetchInterviewsCompanyGuides(),
   ]);
-
+  const { framework, language } = categorizeQuestionsByFrameworkAndLanguage({
+    codingQuestions,
+    quizQuestions,
+  });
   const sortedGuides = companyGuides
     .slice()
     .sort((a, b) => a.ranking - b.ranking);

@@ -15,13 +15,7 @@ import useQuestionFrameworkFilter, {
 } from '~/components/interviews/questions/listings/filters/hooks/useQuestionFrameworkFilter';
 import useQuestionLanguageFilter from '~/components/interviews/questions/listings/filters/hooks/useQuestionLanguageFilter';
 import useQuestionTopicFilter from '~/components/interviews/questions/listings/filters/hooks/useQuestionTopicFilter';
-import {
-  countQuestionsTotalDurationMins,
-  filterQuestions,
-  sortQuestions,
-} from '~/components/interviews/questions/listings/filters/QuestionsProcessor';
 import QuestionsList from '~/components/interviews/questions/listings/items/QuestionsList';
-import type { QuestionListCategory } from '~/components/interviews/questions/listings/types';
 import QuestionCountLabel from '~/components/interviews/questions/metadata/QuestionCountLabel';
 import QuestionTotalTimeLabel from '~/components/interviews/questions/metadata/QuestionTotalTimeLabel';
 import { FormattedMessage, useIntl } from '~/components/intl';
@@ -36,21 +30,28 @@ import { themeGradientHeading } from '~/components/ui/theme';
 
 type FilterType = 'format' | 'framework' | 'topics';
 
-type Props = Readonly<{
-  questions: {
-    algo: ReadonlyArray<QuestionMetadata>;
-    js: ReadonlyArray<QuestionMetadata>;
-    quiz: ReadonlyArray<QuestionMetadata>;
-    'system-design': ReadonlyArray<QuestionMetadata>;
-    ui: ReadonlyArray<QuestionMetadata>;
+type QuestionDataType = {
+  count: number;
+  duration: number;
+  questions: ReadonlyArray<QuestionMetadata>;
+};
+
+export type QuestionBankDataType = Readonly<{
+  coding: QuestionDataType;
+  framework: Record<QuestionFramework, QuestionDataType>;
+  language: Record<QuestionLanguage, QuestionDataType>;
+  quiz: QuestionDataType;
+  systemDesign: {
+    count: number;
+    duration: number;
+    questions: ReadonlyArray<QuestionMetadata>;
   };
+  topic: Record<QuestionTopic, QuestionDataType>;
 }>;
 
-const TOPIC_TO_CATEGORY: Record<string, QuestionListCategory> = {
-  css: 'css',
-  html: 'html',
-  javascript: 'js',
-};
+type Props = Readonly<{
+  questions: QuestionBankDataType;
+}>;
 
 const formatRoute: Record<QuestionUserFacingFormat, string> = {
   coding: '/interviews/questions/javascript',
@@ -197,22 +198,7 @@ export default function InterviewsMarketingPracticeQuestionBankSection({
 
   const filterNavigation = navigation[selectedFilter];
 
-  const frameworkAndLanguageQuestions = sortQuestions(
-    [...questions.ui, ...questions.js],
-    'importance',
-    false,
-  );
-  const codingQuestions = sortQuestions(
-    [...questions.js, ...questions.algo, ...questions.ui],
-    'importance',
-    false,
-  );
-  const quizQuestions = sortQuestions(questions.quiz, 'importance', false);
-  const systemDesignQuestions = sortQuestions(
-    questions['system-design'],
-    'importance',
-    false,
-  );
+  const { framework, language, coding, quiz, topic, systemDesign } = questions;
 
   const selectedRoute = (() => {
     switch (selectedFilter) {
@@ -234,63 +220,38 @@ export default function InterviewsMarketingPracticeQuestionBankSection({
     switch (selectedFilter) {
       case 'format': {
         if (selectedFormat === 'coding') {
-          return codingQuestions;
+          return coding;
         }
         if (selectedFormat === 'quiz') {
-          return quizQuestions;
+          return quiz;
         }
 
-        return systemDesignQuestions;
+        return systemDesign;
       }
       case 'framework': {
-        const filters: ReadonlyArray<(question: QuestionMetadata) => boolean> =
-          [
-            // Language.
-            languageFilterOptions.matches,
-            // Framework.
-            frameworkFilterOptions.matches,
-          ];
-
-        return filterQuestions(
-          frameworkAndLanguageQuestions,
-          filters.map((filterFn) => filterFn),
-        );
+        return framework[selectedFramework] || language[selectedLanguage];
       }
       case 'topics': {
-        const filteredCodingQuestions = filterQuestions(codingQuestions, [
-          (question) =>
-            question.languages.some(
-              (languageItem) =>
-                languageItem === TOPIC_TO_CATEGORY[selectedTopic],
-            ),
-        ]);
-
-        const filteredQuizQuestions = filterQuestions(quizQuestions, [
-          (question) => topicFilterOptions.matches(question),
-        ]);
-
-        return [...filteredCodingQuestions, ...filteredQuizQuestions];
+        return topic[selectedTopic];
       }
     }
   }
 
-  const processedQuestions = processQuestions();
+  const {
+    questions: processedQuestions,
+    count: questionsCount,
+    duration,
+  } = processQuestions();
 
   const questionsWithCompletionStatus = processedQuestions.map((question) => ({
     ...question,
     isCompleted: false,
   }));
-  const totalDurationMins = countQuestionsTotalDurationMins(
-    questionsWithCompletionStatus,
-  );
 
   const listMetadata = (
     <div className="flex gap-x-10">
-      <QuestionCountLabel
-        count={questionsWithCompletionStatus.length}
-        showIcon={true}
-      />
-      <QuestionTotalTimeLabel mins={totalDurationMins} showIcon={true} />
+      <QuestionCountLabel count={questionsCount} showIcon={true} />
+      <QuestionTotalTimeLabel mins={duration} showIcon={true} />
     </div>
   );
 

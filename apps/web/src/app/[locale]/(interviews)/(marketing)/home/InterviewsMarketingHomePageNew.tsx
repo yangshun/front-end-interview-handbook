@@ -5,12 +5,10 @@ import type { EmbedUIQuestion } from '~/components/interviews/marketing/embed/In
 import InterviewsMarketingForeword from '~/components/interviews/marketing/InterviewsMarketingForeword';
 import InterviewsMarketingHeroNew from '~/components/interviews/marketing/InterviewsMarketingHeroNew';
 import InterviewsMarketingOffersDontLieSection from '~/components/interviews/marketing/InterviewsMarketingOffersDontLieSection';
+import type { QuestionBankDataType } from '~/components/interviews/marketing/InterviewsMarketingPracticeQuestionBankSection';
 import InterviewsMarketingPrepResourcesByBigTechEngineers from '~/components/interviews/marketing/InterviewsMarketingPrepResourcesByBigTechEngineers';
 import type { InterviewsMarketingTestimonial } from '~/components/interviews/marketing/testimonials/InterviewsMarketingTestimonialCard';
-import type {
-  QuestionJavaScript,
-  QuestionMetadata,
-} from '~/components/interviews/questions/common/QuestionsTypes';
+import type { QuestionJavaScript } from '~/components/interviews/questions/common/QuestionsTypes';
 import SocialDiscountToast from '~/components/promotions/social/SocialDiscountToast';
 import Section from '~/components/ui/Heading/HeadingContext';
 
@@ -19,13 +17,7 @@ import InterviewsMarketingHomePageBottomContainer from './InterviewsMarketingHom
 type Props = Readonly<{
   companyGuides: ReadonlyArray<InterviewsCompanyGuide>;
   javaScriptEmbedExample: QuestionJavaScript;
-  questions: {
-    algo: ReadonlyArray<QuestionMetadata>;
-    js: ReadonlyArray<QuestionMetadata>;
-    quiz: ReadonlyArray<QuestionMetadata>;
-    'system-design': ReadonlyArray<QuestionMetadata>;
-    ui: ReadonlyArray<QuestionMetadata>;
-  };
+  questions: QuestionBankDataType;
   testimonials: ReadonlyArray<InterviewsMarketingTestimonial>;
   uiCodingQuestion: EmbedUIQuestion;
 }>;

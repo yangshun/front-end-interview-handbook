@@ -8,7 +8,6 @@ import fs from 'node:fs';
 import type {
   QuestionFormat,
   QuestionFramework,
-  QuestionLanguage,
   QuestionMetadata,
   QuestionSlug,
 } from '~/components/interviews/questions/common/QuestionsTypes';
@@ -270,76 +269,5 @@ export async function fetchQuestionsBySlug(
     quiz: quizQuestionsFiltered,
     'system-design': systemDesignQuestionsFiltered,
     'user-interface': uiQuestionsFiltered,
-  };
-}
-
-export async function categorizeQuestionsByFrameworkAndLanguage(
-  locale = 'en-US',
-): Promise<
-  Readonly<{
-    framework: Record<QuestionFramework, ReadonlyArray<QuestionMetadata>>;
-    language: Record<QuestionLanguage, ReadonlyArray<QuestionMetadata>>;
-  }>
-> {
-  const { questions: codingQuestions } = await fetchQuestionsListCoding(locale);
-  const { questions: quizQuestions } = await fetchQuestionsListQuiz(locale);
-  const allQuestions = [...codingQuestions, ...quizQuestions];
-
-  const framework = {
-    angular: filterQuestions(codingQuestions, [
-      (question) =>
-        question.frameworks.some(
-          (frameworkItem) => 'angular' === frameworkItem.framework,
-        ),
-    ]),
-    react: filterQuestions(codingQuestions, [
-      (question) =>
-        question.frameworks.some(
-          (frameworkItem) => 'react' === frameworkItem.framework,
-        ),
-    ]),
-    svelte: filterQuestions(codingQuestions, [
-      (question) =>
-        question.frameworks.some(
-          (frameworkItem) => 'svelte' === frameworkItem.framework,
-        ),
-    ]),
-    vanilla: filterQuestions(codingQuestions, [
-      (question) =>
-        question.frameworks.some(
-          (frameworkItem) => 'vanilla' === frameworkItem.framework,
-        ),
-    ]),
-    vue: filterQuestions(codingQuestions, [
-      (question) =>
-        question.frameworks.some(
-          (frameworkItem) => 'vue' === frameworkItem.framework,
-        ),
-    ]),
-  };
-
-  const language = {
-    css: filterQuestions(allQuestions, [
-      (question) =>
-        question.languages.includes('css') || question.topics.includes('css'),
-    ]),
-    html: filterQuestions(allQuestions, [
-      (question) =>
-        question.languages.includes('html') || question.topics.includes('html'),
-    ]),
-    js: filterQuestions(allQuestions, [
-      (question) =>
-        question.languages.includes('js') ||
-        question.topics.includes('javascript'),
-    ]),
-
-    ts: filterQuestions(allQuestions, [
-      (question) => question.languages.includes('ts'),
-    ]),
-  };
-
-  return {
-    framework,
-    language,
   };
 }

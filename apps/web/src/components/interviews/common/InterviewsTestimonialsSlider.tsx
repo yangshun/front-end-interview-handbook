@@ -47,9 +47,10 @@ function TestimonialCard({
     <div
       className={clsx(
         'isolate overflow-hidden',
-        'flex flex-col gap-3',
+        'flex flex-col justify-between gap-3',
         'p-6',
         'rounded-lg',
+        'h-[318px] md:h-[218px]',
         themeBackgroundCardColor,
         ['border', themeBorderElementColor],
         [themeWhiteGlowCardBackground, 'before:-left-10 before:-top-10'],

@@ -5,24 +5,18 @@ import InterviewsMarketingCompaniesSection from '~/components/interviews/marketi
 import InterviewsMarketingContactSection from '~/components/interviews/marketing/InterviewsMarketingContactSection';
 import InterviewsMarketingDreamJobSection from '~/components/interviews/marketing/InterviewsMarketingDreamJobSection';
 import InterviewsMarketingFAQSection from '~/components/interviews/marketing/InterviewsMarketingFAQSection';
+import type { QuestionBankDataType } from '~/components/interviews/marketing/InterviewsMarketingPracticeQuestionBankSection';
 import InterviewsMarketingPracticeQuestionBankSection from '~/components/interviews/marketing/InterviewsMarketingPracticeQuestionBankSection';
 import InterviewsMarketingSolutionsByExInterviewersSection from '~/components/interviews/marketing/InterviewsMarketingSolutionsByExInterviewersSection';
 import InterviewsMarketingTestCodeSection from '~/components/interviews/marketing/InterviewsMarketingTestCodeSection';
 import InterviewsMarketingTestimonialsSection from '~/components/interviews/marketing/testimonials/InterviewsMarketingTestimonialsSection';
 import { useInterviewsMarketingTestimonials } from '~/components/interviews/marketing/testimonials/useInterviewsMarketingTestimonials';
 import InterviewsPricingSectionLocalizedContainer from '~/components/interviews/purchase/InterviewsPricingSectionLocalizedContainer';
-import type { QuestionMetadata } from '~/components/interviews/questions/common/QuestionsTypes';
 import MarketingCommunitySection from '~/components/marketing/contact/MarketingCommunitySection';
 
 type Props = Readonly<{
   companyGuides: ReadonlyArray<InterviewsCompanyGuide>;
-  questions: {
-    algo: ReadonlyArray<QuestionMetadata>;
-    js: ReadonlyArray<QuestionMetadata>;
-    quiz: ReadonlyArray<QuestionMetadata>;
-    'system-design': ReadonlyArray<QuestionMetadata>;
-    ui: ReadonlyArray<QuestionMetadata>;
-  };
+  questions: QuestionBankDataType;
 }>;
 
 export default function InterviewsMarketingHomePageBottomNew({
