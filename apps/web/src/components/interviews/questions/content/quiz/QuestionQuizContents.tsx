@@ -8,7 +8,7 @@ import { RiEditBoxLine } from 'react-icons/ri';
 import ArticlePagination from '~/components/common/ArticlePagination';
 import { FormattedMessage, useIntl } from '~/components/intl';
 import MDXCodeBlock from '~/components/mdx/MDXCodeBlock';
-import MDXComponents from '~/components/mdx/MDXComponents';
+import MDXComponentsForQuiz from '~/components/mdx/MDXComponentsForQuiz';
 import Button from '~/components/ui/Button';
 import Divider from '~/components/ui/Divider';
 import Heading from '~/components/ui/Heading';
@@ -145,7 +145,7 @@ export default function QuestionQuizContents({
                         </div>
                       ) : (
                         <Prose>
-                          <Solution components={MDXComponents} />
+                          <Solution components={MDXComponentsForQuiz} />
                         </Prose>
                       )}
                     </div>
