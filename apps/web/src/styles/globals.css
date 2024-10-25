@@ -151,3 +151,12 @@ a {
   margin: 0;
   border-radius: unset;
 }
+
+.console [data-method='log'] {
+  align-items: center;
+  padding-left: 12px;
+}
+
+.console [role='tree'] {
+  vertical-align: middle;
+}

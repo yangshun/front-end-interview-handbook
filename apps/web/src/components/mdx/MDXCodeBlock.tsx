@@ -58,7 +58,7 @@ function CopyButton({ contents }: Readonly<{ contents: string }>) {
   );
 }
 
-function convertContentToCode(
+export function convertContentToCode(
   children: React.ReactNode,
 ): Readonly<{ code: string; language: Language | null }> | null {
   if (children == null) {

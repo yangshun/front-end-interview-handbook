@@ -1,3 +1,4 @@
+import clsx from 'clsx';
 import type { editor } from 'monaco-editor';
 import React, { useEffect, useRef } from 'react';
 
@@ -29,10 +30,14 @@ loader.config({
 
 type Props = Readonly<
   {
-    filePath: string;
+    className?: string;
+    filePath?: string;
+    height?: React.ComponentProps<typeof MonacoEditor>['height'];
     keepCurrentModel?: boolean;
+    language?: string;
     onFocus?: () => void;
     onMount?: (codeEditor: editor.IStandaloneCodeEditor) => void;
+    options?: editor.IStandaloneEditorConstructionOptions;
     value: string | null;
     wordWrap?: boolean;
   } & (
@@ -73,7 +78,10 @@ async function pingMonacoEditorLoader() {
 let pingSent = false;
 
 export default function MonacoCodeEditor({
+  className,
   filePath,
+  language,
+  height,
   value,
   onMount,
   onChange,
@@ -81,6 +89,7 @@ export default function MonacoCodeEditor({
   wordWrap = false,
   readOnly = false,
   keepCurrentModel = true,
+  options,
 }: Props) {
   const monaco = useMonaco();
   const editorRef = useRef<editor.IStandaloneCodeEditor | null>(null);
@@ -96,17 +105,21 @@ export default function MonacoCodeEditor({
     pingMonacoEditorLoader();
   }, []);
 
+  const languageExt = getLanguageFromFilePath(filePath);
+
   useMonacoEditorAddActions(monaco, editorRef.current);
-  useMonacoEditorAddFormatter(monaco, editorRef.current, filePath);
+  useMonacoEditorAddFormatter(monaco, editorRef.current, languageExt?.ext);
   useMonacoEditorOnShown(editorContainerRef.current, onFocus);
 
-  const language = getLanguageFromFilePath(filePath);
-
   return (
-    <div ref={editorContainerRef} className="size-full" onFocus={onFocus}>
+    <div
+      ref={editorContainerRef}
+      className={clsx(className, 'size-full')}
+      onFocus={onFocus}>
       <MonacoEditor
+        height={height}
         keepCurrentModel={keepCurrentModel}
-        language={language}
+        language={language ?? languageExt?.language ?? undefined}
         loading={
           <EmptyState
             iconClassName="animate-bounce"
@@ -122,6 +135,7 @@ export default function MonacoCodeEditor({
           },
           readOnly,
           wordWrap: wordWrap ? 'on' : 'off',
+          ...options,
         }}
         path={filePath}
         theme={themeKey}

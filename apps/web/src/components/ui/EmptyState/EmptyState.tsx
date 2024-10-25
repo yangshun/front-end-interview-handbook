@@ -42,6 +42,7 @@ type Props = Readonly<{
   subtitle?: React.ReactNode;
   title: React.ReactNode;
   variant?: EmptyStateVariant;
+  verticalPadding?: boolean;
 }>;
 
 const sizes: Record<
@@ -95,12 +96,17 @@ export default function EmptyState({
   size = 'md',
   title,
   variant = 'empty',
+  verticalPadding = true,
 }: Props) {
   const Icon = icon ?? icons[variant];
   const { title: titleSize, subtitle: subtitleSize } = sizes[size];
 
   return (
-    <div className="mx-auto max-w-md py-6 text-center sm:py-12">
+    <div
+      className={clsx(
+        'mx-auto max-w-md text-center',
+        verticalPadding && 'py-6 sm:py-12',
+      )}>
       <Icon
         aria-hidden="true"
         className={clsx(

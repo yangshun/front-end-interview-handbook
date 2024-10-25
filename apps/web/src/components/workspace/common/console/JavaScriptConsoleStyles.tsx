@@ -12,7 +12,7 @@ export function getConsoleStyles(theme: Variants, fontSize: string): Styles {
     LOG_AMOUNT_BACKGROUND: isLight ? '#a5b4fc' : '#6366f1',
     LOG_AMOUNT_COLOR: '#000',
     LOG_BACKGROUND: 'transparent',
-    LOG_BORDER: isLight ? '#e2e8f0' : '#1e293b',
+    LOG_BORDER: isLight ? '#e4e4e7' : '#27272a',
     LOG_COLOR: isLight ? '#000' : '#fff',
     LOG_DEBUG_COLOR: '#4D88FF',
     LOG_ERROR_AMOUNT_BACKGROUND: '#dc2727',

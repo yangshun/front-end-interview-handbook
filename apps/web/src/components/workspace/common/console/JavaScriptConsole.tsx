@@ -10,19 +10,18 @@ import {
   RiDeleteBinLine,
   RiSearchLine,
   RiSettings3Line,
-  RiTerminalBoxLine,
 } from 'react-icons/ri';
 
 import { useCodingPreferences } from '~/components/global/CodingPreferencesProvider';
-import { FormattedMessage, useIntl } from '~/components/intl';
+import { useIntl } from '~/components/intl';
 import Button from '~/components/ui/Button';
 import CheckboxInput from '~/components/ui/CheckboxInput';
 import Dialog from '~/components/ui/Dialog';
-import EmptyState from '~/components/ui/EmptyState';
 import Select from '~/components/ui/Select';
 import TextInput from '~/components/ui/TextInput';
 import { themeBorderColor, themeDivideColor } from '~/components/ui/theme';
 
+import JavaScriptConsoleEmptyState from './JavaScriptConsoleEmptyState';
 import { getConsoleStyles } from './JavaScriptConsoleStyles';
 
 import type { SandpackConsoleData } from '@codesandbox/sandpack-react/dist/components/Console/utils/getType';
@@ -35,34 +34,6 @@ type Props = Readonly<{
 }>;
 
 type LogLevelFilter = Methods | 'all';
-
-function NoLogs() {
-  return (
-    <div className="flex h-full grow items-center justify-center px-4 py-4 sm:px-6 lg:px-4">
-      <EmptyState
-        icon={RiTerminalBoxLine}
-        size="sm"
-        subtitle={
-          <FormattedMessage
-            defaultMessage="<code>console.log()</code> statements will appear here."
-            description="Text in coding workspace's console to let users know that they can expect console logs to be found there"
-            id="XygrPg"
-            values={{
-              code: (chunks) => <code>{chunks}</code>,
-            }}
-          />
-        }
-        title={
-          <FormattedMessage
-            defaultMessage="JavaScript Console"
-            description="Title of JavaScript console panel"
-            id="TL822E"
-          />
-        }
-      />
-    </div>
-  );
-}
 
 export default function JavaScriptConsole({
   logs,
@@ -305,28 +276,6 @@ export default function JavaScriptConsole({
     </div>
   );
 
-  const consoleComponent = (
-    <div
-      ref={consoleRef}
-      className={clsx(
-        'overflow-y-auto',
-        consoleTheme === 'light' ? 'bg-white' : 'bg-neutral-900',
-      )}
-      onScroll={handleScroll}>
-      <Console
-        filter={getLogLevelFilter(logLevelFilter)}
-        /* eslint-disable-next-line @typescript-eslint/ban-ts-comment */
-        /* @ts-ignore */
-        logs={logs}
-        /* Escapes special regex characters `- / \ ^ $ * + ? . ( ) | [ ] { }` in the query string to
-        treat them as literals, preventing unintended regex behavior when using the query in a regular expression. */
-        searchKeywords={query.replace(/[-/\\^$*+?.()|[\]{}]/g, '\\$&')}
-        styles={consoleStyles}
-        variant={consoleTheme}
-      />
-    </div>
-  );
-
   const hasLogs = logs.length > 0;
 
   return (
@@ -348,7 +297,36 @@ export default function JavaScriptConsole({
         </div>
       )}
       {toolbar}
-      {hasLogs ? consoleComponent : <NoLogs />}
+      {hasLogs ? (
+        <div
+          ref={consoleRef}
+          className={clsx(
+            'console',
+            'overflow-y-auto',
+            consoleTheme === 'light' ? 'bg-white' : 'bg-neutral-900',
+          )}
+          onScroll={handleScroll}>
+          <Console
+            filter={getLogLevelFilter(logLevelFilter)}
+            /* eslint-disable-next-line @typescript-eslint/ban-ts-comment */
+            /* @ts-ignore */
+            logs={logs}
+            /* Escapes special regex characters `- / \ ^ $ * + ? . ( ) | [ ] { }` in the query string to
+        treat them as literals, preventing unintended regex behavior when using the query in a regular expression. */
+            searchKeywords={query.replace(/[-/\\^$*+?.()|[\]{}]/g, '\\$&')}
+            styles={consoleStyles}
+            variant={consoleTheme}
+          />
+        </div>
+      ) : (
+        <div
+          className={clsx(
+            'flex h-full grow items-center justify-center',
+            'px-4 py-4 sm:px-6 lg:px-4',
+          )}>
+          <JavaScriptConsoleEmptyState />
+        </div>
+      )}
     </div>
   );
 }

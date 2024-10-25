@@ -10,7 +10,7 @@ import type { Monaco } from '@monaco-editor/react';
 export default function useMonacoEditorAddFormatter(
   monaco: Monaco | null,
   editor: Editor.IStandaloneCodeEditor | null,
-  filePath: string,
+  fileExtension: string | null | undefined,
 ) {
   const { showToast } = useToast();
   const intl = useIntl();
@@ -48,8 +48,6 @@ export default function useMonacoEditorAddFormatter(
       parser: 'babel',
       plugins: [] as Array<Plugin>,
     };
-
-    const fileExtension = filePath.split('.').pop();
 
     switch (fileExtension) {
       case 'ts':
@@ -99,6 +97,9 @@ export default function useMonacoEditorAddFormatter(
         options.plugins.push(await import('prettier/plugins/postcss'));
         options.parser = 'css';
         break;
+      default: {
+        return;
+      }
     }
 
     try {
@@ -149,7 +150,7 @@ export default function useMonacoEditorAddFormatter(
       showErrorToast();
       console.error(e);
     }
-  }, [editor, filePath, showErrorToast, monaco]);
+  }, [editor, fileExtension, showErrorToast, monaco]);
 
   useEffect(() => {
     if (!monaco || !editor) {

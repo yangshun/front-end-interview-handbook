@@ -8,9 +8,18 @@ const languageMapping: Record<string, string> = {
   vue: 'html',
 };
 
-export default function getLanguageFromFilePath(filePath: string): string {
+export default function getLanguageFromFilePath(
+  filePath?: string,
+): { ext: string | null; language: string | null } | null {
+  if (filePath == null) {
+    return null;
+  }
+
   const parts = filePath.split('.');
   const ext = parts[parts.length - 1];
 
-  return ext in languageMapping ? languageMapping[ext] : ext;
+  return {
+    ext,
+    language: ext in languageMapping ? languageMapping[ext] : null,
+  };
 }

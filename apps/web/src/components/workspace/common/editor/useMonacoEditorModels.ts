@@ -27,9 +27,13 @@ export default function useMonacoEditorModels(
         return;
       }
 
-      const language = getLanguageFromFilePath(filePath);
+      const result = getLanguageFromFilePath(filePath);
 
-      monaco.editor.createModel(bundlerFile.code, language, uri);
+      monaco.editor.createModel(
+        bundlerFile.code,
+        result?.language ?? undefined,
+        uri,
+      );
     });
   }, [monaco, files]);
 
