@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import type { InterviewsLearningList } from 'contentlayer/generated';
+import type { InterviewsStudyList } from 'contentlayer/generated';
 import { RiArrowRightLine } from 'react-icons/ri';
 
 import { INTERVIEWS_REVAMP_2024 } from '~/data/FeatureFlags';
@@ -21,7 +21,7 @@ import CompletionCountSummary from '../questions/listings/stats/CompletionCountS
 import QuestionCountLabel from '../questions/metadata/QuestionCountLabel';
 
 type Props = Readonly<{
-  companyGuide: InterviewsLearningList;
+  companyGuide: InterviewsStudyList;
   completionCount?: number;
   isStarted?: boolean;
   showProgressBar?: boolean;

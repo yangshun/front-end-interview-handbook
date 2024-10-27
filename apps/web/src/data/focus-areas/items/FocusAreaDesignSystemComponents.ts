@@ -1,12 +1,14 @@
 import { RiDashboardLine } from 'react-icons/ri';
 import type { IntlShape } from 'react-intl';
 
-import type { QuestionListTheme } from '~/components/interviews/questions/common/QuestionsTypes';
+import type { QuestionListTheme_DEPRECATED } from '~/components/interviews/questions/common/QuestionsTypes';
 import type { ThemeGradient } from '~/components/ui/theme';
 
-import type { FocusArea } from '../FocusAreas';
+import type { FocusArea_DEPRECATED } from '../FocusAreas';
 
-export function getFocusAreaDesignSystemComponents(intl: IntlShape): FocusArea {
+export function getFocusAreaDesignSystemComponents(
+  intl: IntlShape,
+): FocusArea_DEPRECATED {
   return {
     description: intl.formatMessage({
       defaultMessage:
@@ -80,7 +82,7 @@ const gradient: ThemeGradient<'#FF5F6D', '#FFC371'> = {
   startColor: '#FF5F6D',
 };
 
-export function getFocusAreaThemeDesignSystemComponents(): QuestionListTheme {
+export function getFocusAreaThemeDesignSystemComponents(): QuestionListTheme_DEPRECATED {
   return {
     gradient,
     iconOutline: RiDashboardLine,

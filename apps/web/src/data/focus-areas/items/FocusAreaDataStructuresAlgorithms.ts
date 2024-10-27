@@ -1,15 +1,15 @@
 import { TbBinaryTree } from 'react-icons/tb';
 import type { IntlShape } from 'react-intl';
 
-import type { QuestionListTheme } from '~/components/interviews/questions/common/QuestionsTypes';
+import type { QuestionListTheme_DEPRECATED } from '~/components/interviews/questions/common/QuestionsTypes';
 import { QuestionCount } from '~/components/interviews/questions/listings/stats/QuestionCount';
 import type { ThemeGradient } from '~/components/ui/theme';
 
-import type { FocusArea } from '../FocusAreas';
+import type { FocusArea_DEPRECATED } from '../FocusAreas';
 
 export function getFocusAreaDataStructuresAlgorithms(
   intl: IntlShape,
-): FocusArea {
+): FocusArea_DEPRECATED {
   return {
     description: intl.formatMessage(
       {
@@ -101,7 +101,7 @@ const gradient: ThemeGradient<'#50C9C3', '#96DEDA'> = {
   startColor: '#50C9C3',
 };
 
-export function getFocusAreaThemeDataStructuresAlgorithms(): QuestionListTheme {
+export function getFocusAreaThemeDataStructuresAlgorithms(): QuestionListTheme_DEPRECATED {
   return {
     gradient,
     iconOutline: TbBinaryTree,

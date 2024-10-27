@@ -171,7 +171,7 @@ export type QuestionQuiz = QuestionBase;
 /**
  * @deprecated
  *
- * Use InterviewsLearningListDocument instead.
+ * Use InterviewsStudyListDocument instead.
  */
 export type QuestionList_DEPRECATED = Readonly<{
   description: string;
@@ -187,7 +187,7 @@ export type QuestionList_DEPRECATED = Readonly<{
   shortDescription: string;
 }>;
 
-export type QuestionListTheme = Readonly<{
+export type QuestionListTheme_DEPRECATED = Readonly<{
   customIcon?: (props: { size?: 'lg' | 'md' | 'sm' }) => JSX.Element;
   gradient: ThemeGradient;
   iconOutline: (props: React.ComponentProps<'svg'>) => JSX.Element;

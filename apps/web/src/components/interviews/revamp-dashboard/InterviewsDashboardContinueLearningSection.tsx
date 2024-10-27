@@ -2,7 +2,7 @@ import clsx from 'clsx';
 
 import {
   getQuestionListThemes,
-  useQuestionLists,
+  useQuestionLists_DEPRECATED,
 } from '~/data/question-lists/QuestionListsHooks';
 
 import getProgressBarGradient from '~/components/interviews/common/utils';
@@ -35,7 +35,7 @@ export default function InterviewsDashboardContinueLearningSection({
   questionListSessions,
 }: Props) {
   const intl = useIntl();
-  const questionLists = useQuestionLists();
+  const questionLists = useQuestionLists_DEPRECATED();
   const themes = getQuestionListThemes();
 
   const items = questionListSessions

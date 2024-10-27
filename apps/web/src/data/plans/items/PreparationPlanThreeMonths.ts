@@ -1,7 +1,7 @@
 import { RiStarFill, RiStarLine } from 'react-icons/ri';
 import type { IntlShape } from 'react-intl';
 
-import type { QuestionListTheme } from '~/components/interviews/questions/common/QuestionsTypes';
+import type { QuestionListTheme_DEPRECATED } from '~/components/interviews/questions/common/QuestionsTypes';
 import type { ThemeGradient } from '~/components/ui/theme';
 
 import {
@@ -138,7 +138,7 @@ const gradient: ThemeGradient<'#7F00FF', '#E100FF'> = {
   startColor: '#7F00FF',
 };
 
-export function getPreparationPlanThemeThreeMonths(): QuestionListTheme {
+export function getPreparationPlanThemeThreeMonths(): QuestionListTheme_DEPRECATED {
   return {
     gradient,
     iconOutline: RiStarLine,

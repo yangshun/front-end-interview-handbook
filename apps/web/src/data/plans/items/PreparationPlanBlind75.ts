@@ -1,7 +1,7 @@
 import { RiEye2Fill, RiEye2Line } from 'react-icons/ri';
 import type { IntlShape } from 'react-intl';
 
-import type { QuestionListTheme } from '~/components/interviews/questions/common/QuestionsTypes';
+import type { QuestionListTheme_DEPRECATED } from '~/components/interviews/questions/common/QuestionsTypes';
 import { type ThemeGradient } from '~/components/ui/theme';
 
 import { PreparationPlanQuizImportanceHighJavaScript } from './PreparationPlanQuizQuestions';
@@ -99,7 +99,7 @@ const gradient: ThemeGradient<'#B7B1FF', '#4B468B'> = {
   startColor: '#B7B1FF',
 };
 
-export function getPreparationPlanThemeBlind75(): QuestionListTheme {
+export function getPreparationPlanThemeBlind75(): QuestionListTheme_DEPRECATED {
   return {
     gradient,
     iconOutline: RiEye2Line,

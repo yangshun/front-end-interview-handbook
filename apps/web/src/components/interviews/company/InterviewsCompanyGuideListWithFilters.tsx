@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import type { InterviewsLearningList } from 'contentlayer/generated';
+import type { InterviewsStudyList } from 'contentlayer/generated';
 import { useState } from 'react';
 import { RiSearchLine } from 'react-icons/ri';
 
@@ -21,10 +21,10 @@ import { InterviewsCompanyGuideCard } from './InterviewsCompanyGuideCard';
 import { useUser } from '@supabase/auth-helpers-react';
 
 type Props = Readonly<{
-  companyGuides: Array<InterviewsLearningList>;
+  companyGuides: Array<InterviewsStudyList>;
 }>;
 
-export default function InterviewsLearningListListWithFilters({
+export default function InterviewsStudyListListWithFilters({
   companyGuides,
 }: Props) {
   const intl = useIntl();

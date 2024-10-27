@@ -1,6 +1,6 @@
 import {
   getQuestionListThemes,
-  useQuestionLists,
+  useQuestionLists_DEPRECATED,
 } from '~/data/question-lists/QuestionListsHooks';
 
 import InterviewsDashboardContinueLearning from '~/components/interviews/dashboard/InterviewsDashboardContinueLearning';
@@ -17,7 +17,7 @@ type Props = Readonly<{
 export default function InterviewsDashboardContinueLearningContainer({
   items,
 }: Props) {
-  const questionLists = useQuestionLists();
+  const questionLists = useQuestionLists_DEPRECATED();
   const themes = getQuestionListThemes();
 
   return (

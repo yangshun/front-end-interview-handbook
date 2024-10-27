@@ -1,9 +1,9 @@
 import {
-  categorizeFocusAreas,
-  getFocusAreaTheme,
+  categorizeFocusAreas_DEPRECATED,
+  getFocusAreaTheme_DEPRECATED,
 } from '~/data/focus-areas/FocusAreas';
 
-import InterviewsLearningListCard from '~/components/interviews/questions/listings/learning/InterviewsLearningListCard';
+import InterviewsStudyListCard from '~/components/interviews/questions/listings/learning/InterviewsStudyListCard';
 import InterviewsDashboardLearningSection from '~/components/interviews/revamp-dashboard/InterviewsDashboardLearningSection';
 import { useIntl } from '~/components/intl';
 import Text from '~/components/ui/Text';
@@ -20,7 +20,7 @@ export default function InterviewsDashboardPracticeByFocusAreasSection({
   questionListSessions,
 }: Props) {
   const intl = useIntl();
-  const focusAreasCategories = categorizeFocusAreas(intl);
+  const focusAreasCategories = categorizeFocusAreas_DEPRECATED(intl);
 
   return (
     <InterviewsDashboardLearningSection
@@ -48,10 +48,10 @@ export default function InterviewsDashboardPracticeByFocusAreasSection({
                   (session_) => session_.key === focusArea.type,
                 );
                 const completionCount = session?._count.progress;
-                const theme = getFocusAreaTheme(focusArea.type);
+                const theme = getFocusAreaTheme_DEPRECATED(focusArea.type);
 
                 return (
-                  <InterviewsLearningListCard
+                  <InterviewsStudyListCard
                     key={focusArea.type}
                     completionCount={completionCount}
                     isStarted={session != null}

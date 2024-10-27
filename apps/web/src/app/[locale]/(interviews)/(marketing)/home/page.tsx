@@ -17,7 +17,7 @@ import {
 } from '~/components/interviews/questions/listings/filters/QuestionsProcessor';
 import { QuestionCount } from '~/components/interviews/questions/listings/stats/QuestionCount';
 
-import { fetchInterviewsLearningLists } from '~/db/contentlayer/InterviewsLearningListReader';
+import { fetchInterviewsStudyLists } from '~/db/contentlayer/InterviewsStudyListReader';
 import {
   readQuestionJavaScriptContents,
   readQuestionUserInterface,
@@ -220,7 +220,7 @@ export default async function Page({ params }: Props) {
     fetchQuestionsListQuiz(locale),
     fetchQuestionsListSystemDesign(locale),
     // Company guides
-    fetchInterviewsLearningLists('company'),
+    fetchInterviewsStudyLists('company'),
   ]);
 
   const testimonials = InterviewsMarketingTestimonialsDict();

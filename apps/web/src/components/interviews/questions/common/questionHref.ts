@@ -16,7 +16,7 @@ export function questionHrefWithList(
   urlObject.searchParams.append('list', listKey);
 
   return (
-    `/interviews/l/${listKey}` +
+    `/interviews/study/${listKey}` +
     urlObject.pathname +
     urlObject.search +
     urlObject.hash

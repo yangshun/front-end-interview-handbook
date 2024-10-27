@@ -21,7 +21,7 @@ import InterviewsMarketingQuestionCardMarquee from '~/components/interviews/mark
 import InterviewsPaymentFailureDialog from '~/components/interviews/purchase/InterviewsPaymentFailureDialog';
 import type { QuestionMetadata } from '~/components/interviews/questions/common/QuestionsTypes';
 import QuestionListingTopicFilters from '~/components/interviews/questions/listings/filters/QuestionListingTopicFilters';
-import QuestionsLearningListTitleSection from '~/components/interviews/questions/listings/learning/QuestionsLearningListTitleSection';
+import QuestionsStudyListTitleSection_DEPRECATED from '~/components/interviews/questions/listings/learning/QuestionsStudyListTitleSection_DEPRECATED';
 import QuestionListingDifficultySummary from '~/components/interviews/questions/listings/stats/QuestionListingDifficultySummary';
 import QuestionsProgressPanel from '~/components/interviews/questions/listings/stats/QuestionsProgressPanel';
 import QuestionCountLabel from '~/components/interviews/questions/metadata/QuestionCountLabel';
@@ -372,7 +372,7 @@ export default function ScrapbookPage() {
         <Section>
           <div>
             <UIExamplesGroup>
-              <QuestionsLearningListTitleSection
+              <QuestionsStudyListTitleSection_DEPRECATED
                 difficultySummary={{
                   easy: 30,
                   hard: 10,

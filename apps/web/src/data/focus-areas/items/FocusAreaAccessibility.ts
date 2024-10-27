@@ -1,12 +1,14 @@
 import { BiUniversalAccess } from 'react-icons/bi';
 import type { IntlShape } from 'react-intl';
 
-import type { QuestionListTheme } from '~/components/interviews/questions/common/QuestionsTypes';
+import type { QuestionListTheme_DEPRECATED } from '~/components/interviews/questions/common/QuestionsTypes';
 import type { ThemeGradient } from '~/components/ui/theme';
 
-import type { FocusArea } from '../FocusAreas';
+import type { FocusArea_DEPRECATED } from '../FocusAreas';
 
-export function getFocusAreaAccessibility(intl: IntlShape): FocusArea {
+export function getFocusAreaAccessibility(
+  intl: IntlShape,
+): FocusArea_DEPRECATED {
   return {
     description: intl.formatMessage({
       defaultMessage: 'Targeted practice on Accessibility interview questions',
@@ -79,7 +81,7 @@ const gradient: ThemeGradient<'#f953c6', '#b91d73'> = {
   startColor: '#f953c6',
 };
 
-export function getFocusAreaThemeAccessibility(): QuestionListTheme {
+export function getFocusAreaThemeAccessibility(): QuestionListTheme_DEPRECATED {
   return {
     gradient,
     iconOutline: BiUniversalAccess,

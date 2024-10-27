@@ -2,8 +2,8 @@
 
 import clsx from 'clsx';
 import type {
-  InterviewsLearningList,
   InterviewsListingBottomContent,
+  InterviewsStudyList,
 } from 'contentlayer/generated';
 import { useMemo } from 'react';
 import {
@@ -27,9 +27,9 @@ import type {
   QuestionTopic,
 } from '~/components/interviews/questions/common/QuestionsTypes';
 import QuestionsList from '~/components/interviews/questions/listings/items/QuestionsList';
-import QuestionsLearningList from '~/components/interviews/questions/listings/learning/QuestionsLearningList';
-import QuestionsLearningListPageTitleSection from '~/components/interviews/questions/listings/learning/QuestionsLearningListPageTitleSection';
-import QuestionsLearningListTitleSection from '~/components/interviews/questions/listings/learning/QuestionsLearningListTitleSection';
+import QuestionsLearningList from '~/components/interviews/questions/listings/learning/QuestionsStudyList';
+import QuestionsLearningListPageTitleSection from '~/components/interviews/questions/listings/learning/QuestionsStudyListPageTitleSection';
+import QuestionsStudyListTitleSection_DEPRECATED from '~/components/interviews/questions/listings/learning/QuestionsStudyListTitleSection_DEPRECATED';
 import { useIntl } from '~/components/intl';
 import MDXContent from '~/components/mdx/MDXContent';
 import Button from '~/components/ui/Button';
@@ -53,7 +53,7 @@ import { useUser } from '@supabase/auth-helpers-react';
 type Props = Readonly<{
   bottomContent?: InterviewsListingBottomContent;
   codingQuestions: ReadonlyArray<QuestionMetadata>;
-  companyGuide: InterviewsLearningList;
+  companyGuide: InterviewsStudyList;
   companyQuestions: Record<QuestionFormat, ReadonlyArray<QuestionSlug>>;
   quizQuestions: ReadonlyArray<QuestionMetadata>;
   systemDesignQuestions: ReadonlyArray<QuestionMetadata>;
@@ -200,7 +200,7 @@ export default function InterviewsCompanyGuidePage({
             )}
           </>
         ) : (
-          <QuestionsLearningListTitleSection
+          <QuestionsStudyListTitleSection_DEPRECATED
             description={<MDXContent mdxCode={companyGuide.body.code} />}
             feature="company-guides"
             icon={({ className, ...props }) => (

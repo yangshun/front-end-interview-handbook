@@ -1,23 +1,29 @@
 import type {
   QuestionList_DEPRECATED,
-  QuestionListTheme,
+  QuestionListTheme_DEPRECATED,
 } from '~/components/interviews/questions/common/QuestionsTypes';
 
-import { getFocusAreaThemes } from '../focus-areas/FocusAreas';
-import { useFocusAreas } from '../focus-areas/FocusAreasHooks';
+import { getFocusAreaThemes_DEPRECATED } from '../focus-areas/FocusAreas';
+import { useFocusAreas_DEPRECATED } from '../focus-areas/FocusAreasHooks';
 import { getPreparationPlanThemes } from '../plans/PreparationPlans';
 import { usePreparationPlans } from '../plans/PreparationPlansHooks';
 
-export function useQuestionLists(): Record<string, QuestionList_DEPRECATED> {
+export function useQuestionLists_DEPRECATED(): Record<
+  string,
+  QuestionList_DEPRECATED
+> {
   const plans = usePreparationPlans();
-  const focusAreas = useFocusAreas();
+  const focusAreas = useFocusAreas_DEPRECATED();
 
   return { ...plans, ...focusAreas };
 }
 
-export function getQuestionListThemes(): Record<string, QuestionListTheme> {
+export function getQuestionListThemes(): Record<
+  string,
+  QuestionListTheme_DEPRECATED
+> {
   const planThemes = getPreparationPlanThemes();
-  const focusAreaThemes = getFocusAreaThemes();
+  const focusAreaThemes = getFocusAreaThemes_DEPRECATED();
 
   return { ...planThemes, ...focusAreaThemes };
 }

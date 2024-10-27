@@ -1,12 +1,14 @@
 import { RiFlowChart } from 'react-icons/ri';
 import type { IntlShape } from 'react-intl';
 
-import type { QuestionListTheme } from '~/components/interviews/questions/common/QuestionsTypes';
+import type { QuestionListTheme_DEPRECATED } from '~/components/interviews/questions/common/QuestionsTypes';
 import type { ThemeGradient } from '~/components/ui/theme';
 
-import type { FocusArea } from '../FocusAreas';
+import type { FocusArea_DEPRECATED } from '../FocusAreas';
 
-export function getFocusAreaStateManagement(intl: IntlShape): FocusArea {
+export function getFocusAreaStateManagement(
+  intl: IntlShape,
+): FocusArea_DEPRECATED {
   return {
     description: intl.formatMessage({
       defaultMessage:
@@ -85,7 +87,7 @@ const gradient: ThemeGradient<'#4e54c8', '#8f94fb'> = {
   startColor: '#4e54c8',
 };
 
-export function getFocusAreaThemeStateManagement(): QuestionListTheme {
+export function getFocusAreaThemeStateManagement(): QuestionListTheme_DEPRECATED {
   return {
     gradient,
     iconOutline: RiFlowChart,

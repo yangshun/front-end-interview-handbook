@@ -1,12 +1,14 @@
 import { RiRefreshLine } from 'react-icons/ri';
 import type { IntlShape } from 'react-intl';
 
-import type { QuestionListTheme } from '~/components/interviews/questions/common/QuestionsTypes';
+import type { QuestionListTheme_DEPRECATED } from '~/components/interviews/questions/common/QuestionsTypes';
 import type { ThemeGradient } from '~/components/ui/theme';
 
-import type { FocusArea } from '../FocusAreas';
+import type { FocusArea_DEPRECATED } from '../FocusAreas';
 
-export function getFocusAreaAsyncOperations(intl: IntlShape): FocusArea {
+export function getFocusAreaAsyncOperations(
+  intl: IntlShape,
+): FocusArea_DEPRECATED {
   return {
     description: intl.formatMessage({
       defaultMessage:
@@ -102,7 +104,7 @@ const gradient: ThemeGradient<'#8E2DE2', '#4A00E0'> = {
   startColor: '#8E2DE2',
 };
 
-export function getFocusAreaThemeAsyncOperations(): QuestionListTheme {
+export function getFocusAreaThemeAsyncOperations(): QuestionListTheme_DEPRECATED {
   return {
     gradient,
     iconOutline: RiRefreshLine,

@@ -1,12 +1,14 @@
 import { RiWindowFill } from 'react-icons/ri';
 import type { IntlShape } from 'react-intl';
 
-import type { QuestionListTheme } from '~/components/interviews/questions/common/QuestionsTypes';
+import type { QuestionListTheme_DEPRECATED } from '~/components/interviews/questions/common/QuestionsTypes';
 import type { ThemeGradient } from '~/components/ui/theme';
 
-import type { FocusArea } from '../FocusAreas';
+import type { FocusArea_DEPRECATED } from '../FocusAreas';
 
-export function getFocusAreaDOMManipulation(intl: IntlShape): FocusArea {
+export function getFocusAreaDOMManipulation(
+  intl: IntlShape,
+): FocusArea_DEPRECATED {
   return {
     description: intl.formatMessage({
       defaultMessage:
@@ -78,7 +80,7 @@ const gradient: ThemeGradient<'#bc4e9c', '#f80759'> = {
   startColor: '#bc4e9c',
 };
 
-export function getFocusAreaThemeDOMManipulation(): QuestionListTheme {
+export function getFocusAreaThemeDOMManipulation(): QuestionListTheme_DEPRECATED {
   return {
     gradient,
     iconOutline: RiWindowFill,

@@ -1,7 +1,7 @@
 import { RiFlashlightFill, RiFlashlightLine } from 'react-icons/ri';
 import type { IntlShape } from 'react-intl';
 
-import type { QuestionListTheme } from '~/components/interviews/questions/common/QuestionsTypes';
+import type { QuestionListTheme_DEPRECATED } from '~/components/interviews/questions/common/QuestionsTypes';
 import type { ThemeGradient } from '~/components/ui/theme';
 
 import {
@@ -92,7 +92,7 @@ const gradient: ThemeGradient<'#f7ff00', '#db36a4'> = {
   startColor: '#f7ff00',
 };
 
-export function getPreparationPlanThemeOneWeek(): QuestionListTheme {
+export function getPreparationPlanThemeOneWeek(): QuestionListTheme_DEPRECATED {
   return {
     gradient,
     iconOutline: RiFlashlightLine,

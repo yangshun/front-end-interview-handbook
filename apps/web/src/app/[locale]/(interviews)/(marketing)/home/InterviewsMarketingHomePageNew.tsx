@@ -1,4 +1,4 @@
-import type { InterviewsLearningList } from 'contentlayer/generated';
+import type { InterviewsStudyList } from 'contentlayer/generated';
 
 import InterviewsMarketingEmbedSection from '~/components/interviews/marketing/embed/InterviewsMarketingEmbedSection';
 import type { EmbedUIQuestion } from '~/components/interviews/marketing/embed/InterviewsMarketingEmbedUIQuestion';
@@ -15,7 +15,7 @@ import Section from '~/components/ui/Heading/HeadingContext';
 import InterviewsMarketingHomePageBottomContainer from './InterviewsMarketingHomePageBottomContainer';
 
 type Props = Readonly<{
-  companyGuides: ReadonlyArray<InterviewsLearningList>;
+  companyGuides: ReadonlyArray<InterviewsStudyList>;
   javaScriptEmbedExample: QuestionJavaScript;
   questions: QuestionBankDataType;
   testimonials: ReadonlyArray<InterviewsMarketingTestimonial>;

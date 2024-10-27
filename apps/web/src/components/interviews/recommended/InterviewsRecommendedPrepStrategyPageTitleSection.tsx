@@ -29,7 +29,7 @@ import type { QuestionProgress } from '~/db/QuestionsProgressTypes';
 
 import InterviewsPageHeaderActions from '../common/InterviewsPageHeaderActions';
 import type { QuestionMetadata } from '../questions/common/QuestionsTypes';
-import QuestionsLearningListPageTitleSection from '../questions/listings/learning/QuestionsLearningListPageTitleSection';
+import QuestionsLearningListPageTitleSection from '../questions/listings/learning/QuestionsStudyListPageTitleSection';
 import QuestionListingQuestionCount from '../questions/listings/stats/QuestionListingQuestionCount';
 
 import { useUser } from '@supabase/auth-helpers-react';

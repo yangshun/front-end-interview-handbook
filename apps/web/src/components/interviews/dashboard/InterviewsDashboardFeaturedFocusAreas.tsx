@@ -1,4 +1,4 @@
-import { useFocusAreas } from '~/data/focus-areas/FocusAreasHooks';
+import { useFocusAreas_DEPRECATED } from '~/data/focus-areas/FocusAreasHooks';
 
 import { useIntl } from '~/components/intl';
 
@@ -12,7 +12,7 @@ export default function InterviewsDashboardFeaturedFocusAreas({
   limit = Infinity,
 }: Props) {
   const intl = useIntl();
-  const focusAreas = useFocusAreas();
+  const focusAreas = useFocusAreas_DEPRECATED();
   const areas = [
     focusAreas['async-operations'],
     focusAreas['data-structures-algorithms'],

@@ -9,8 +9,8 @@ import {
 
 import InterviewsDashboardPage from '~/components/interviews/revamp-dashboard/InterviewsDashboardPage';
 
-import { fetchInterviewsLearningLists } from '~/db/contentlayer/InterviewsLearningListReader';
 import { fetchInterviewListingBottomContent } from '~/db/contentlayer/InterviewsListingBottomContentReader';
+import { fetchInterviewsStudyLists } from '~/db/contentlayer/InterviewsStudyListReader';
 import { fetchPreparationPlans } from '~/db/PreparationPlansReader';
 import {
   fetchQuestionsListCoding,
@@ -65,7 +65,7 @@ export default async function Page({ params }: Props) {
     fetchQuestionsListCoding(locale),
     fetchQuestionsListSystemDesign(locale),
     fetchInterviewListingBottomContent('dashboard'),
-    fetchInterviewsLearningLists('company'),
+    fetchInterviewsStudyLists('company'),
   ]);
   const { framework, language } = categorizeQuestionsByFrameworkAndLanguage({
     codingQuestions,

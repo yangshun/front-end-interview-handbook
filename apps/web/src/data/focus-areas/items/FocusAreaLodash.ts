@@ -1,12 +1,12 @@
 import { SiLodash } from 'react-icons/si';
 import type { IntlShape } from 'react-intl';
 
-import type { QuestionListTheme } from '~/components/interviews/questions/common/QuestionsTypes';
+import type { QuestionListTheme_DEPRECATED } from '~/components/interviews/questions/common/QuestionsTypes';
 import type { ThemeGradient } from '~/components/ui/theme';
 
-import type { FocusArea } from '../FocusAreas';
+import type { FocusArea_DEPRECATED } from '../FocusAreas';
 
-export function getFocusAreaLodash(intl: IntlShape): FocusArea {
+export function getFocusAreaLodash(intl: IntlShape): FocusArea_DEPRECATED {
   return {
     description: intl.formatMessage({
       defaultMessage:
@@ -96,7 +96,7 @@ const gradient: ThemeGradient<'#7474BF', '#348AC7'> = {
   startColor: '#7474BF',
 };
 
-export function getFocusAreaThemeLodash(): QuestionListTheme {
+export function getFocusAreaThemeLodash(): QuestionListTheme_DEPRECATED {
   return {
     gradient,
     iconOutline: SiLodash,

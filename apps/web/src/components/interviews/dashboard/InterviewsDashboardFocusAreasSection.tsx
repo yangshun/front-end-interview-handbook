@@ -1,8 +1,8 @@
 import clsx from 'clsx';
 import { RiArrowRightLine, RiQuestionFill } from 'react-icons/ri';
 
-import type { FocusArea } from '~/data/focus-areas/FocusAreas';
-import { getFocusAreaTheme } from '~/data/focus-areas/FocusAreas';
+import type { FocusArea_DEPRECATED } from '~/data/focus-areas/FocusAreas';
+import { getFocusAreaTheme_DEPRECATED } from '~/data/focus-areas/FocusAreas';
 
 import { useIntl } from '~/components/intl';
 import Anchor from '~/components/ui/Anchor';
@@ -25,7 +25,7 @@ import QuestionCountLabel from '../questions/metadata/QuestionCountLabel';
 
 type Props = Readonly<{
   description: string;
-  focusAreas: ReadonlyArray<FocusArea>;
+  focusAreas: ReadonlyArray<FocusArea_DEPRECATED>;
   title: string;
 }>;
 
@@ -65,7 +65,7 @@ export default function InterviewsDashboardFocusAreasSection({
       </div>
       <CardContainer className="@4xl:grid-cols-4 @md:grid-cols-2 grid grid-cols-1 grid-rows-1 gap-3 md:gap-4 lg:gap-6">
         {focusAreas.map(({ href, name, type, shortDescription, questions }) => {
-          const Icon = getFocusAreaTheme(type).iconSolid;
+          const Icon = getFocusAreaTheme_DEPRECATED(type).iconSolid;
 
           return (
             <Anchor key={type} href={href} variant="unstyled">

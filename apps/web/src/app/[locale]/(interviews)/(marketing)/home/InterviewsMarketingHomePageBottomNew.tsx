@@ -1,4 +1,4 @@
-import type { InterviewsLearningList } from 'contentlayer/generated';
+import type { InterviewsStudyList } from 'contentlayer/generated';
 
 import { useUserProfile } from '~/components/global/UserProfileProvider';
 import InterviewsMarketingCompaniesSection from '~/components/interviews/marketing/InterviewsMarketingCompaniesSection';
@@ -15,7 +15,7 @@ import InterviewsPricingSectionLocalizedContainer from '~/components/interviews/
 import MarketingCommunitySection from '~/components/marketing/contact/MarketingCommunitySection';
 
 type Props = Readonly<{
-  companyGuides: ReadonlyArray<InterviewsLearningList>;
+  companyGuides: ReadonlyArray<InterviewsStudyList>;
   questions: QuestionBankDataType;
 }>;
 

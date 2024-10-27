@@ -1163,10 +1163,6 @@
     "defaultMessage": "Annual plan",
     "description": "Title of annual pricing plan"
   },
-  "6TG+jF": {
-    "defaultMessage": "The one-stop to prepare well for your {company} front end interviews.",
-    "description": "Description for company guides detail page"
-  },
   "6U52IB": {
     "defaultMessage": "FAQ",
     "description": "Title for FAQ section on Projects project page"
@@ -4411,10 +4407,6 @@
     "defaultMessage": "Holistic front end skill roadmap",
     "description": "Title of 'Roadmap of front end skills' sub-feature in Projects marketing page"
   },
-  "Qe4ww/": {
-    "defaultMessage": "Discover focus areas tailored to your needs to help you prepare for your upcoming technical interviews.",
-    "description": "Description for focus areas page"
-  },
   "QeQWqZ": {
     "defaultMessage": "Explore component tracks",
     "description": "Recommended action for new projects platform user"
@@ -5064,7 +5056,7 @@
     "description": "Coding questions long title"
   },
   "UET3FT": {
-    "defaultMessage": "Front End Interview Focus Areas—Accessibility, Forms and more",
+    "defaultMessage": "Front End Interview Focus Areas — Accessibility, Forms and more",
     "description": "Page title for focus areas listing"
   },
   "UISwUX": {

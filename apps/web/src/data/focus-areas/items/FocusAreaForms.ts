@@ -1,12 +1,12 @@
 import { TbForms } from 'react-icons/tb';
 import type { IntlShape } from 'react-intl';
 
-import type { QuestionListTheme } from '~/components/interviews/questions/common/QuestionsTypes';
+import type { QuestionListTheme_DEPRECATED } from '~/components/interviews/questions/common/QuestionsTypes';
 import type { ThemeGradient } from '~/components/ui/theme';
 
-import type { FocusArea } from '../FocusAreas';
+import type { FocusArea_DEPRECATED } from '../FocusAreas';
 
-export function getFocusAreaForms(intl: IntlShape): FocusArea {
+export function getFocusAreaForms(intl: IntlShape): FocusArea_DEPRECATED {
   return {
     description: intl.formatMessage({
       defaultMessage: 'Targeted practice on Forms interview questions',
@@ -75,7 +75,7 @@ const gradient: ThemeGradient<'#56ab2f', '#a8e063'> = {
   startColor: '#56ab2f',
 };
 
-export function getFocusAreaThemeForms(): QuestionListTheme {
+export function getFocusAreaThemeForms(): QuestionListTheme_DEPRECATED {
   return {
     gradient,
     iconOutline: TbForms,

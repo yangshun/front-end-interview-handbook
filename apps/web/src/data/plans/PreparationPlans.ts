@@ -2,7 +2,7 @@ import type { IntlShape } from 'react-intl';
 
 import type {
   QuestionList_DEPRECATED,
-  QuestionListTheme,
+  QuestionListTheme_DEPRECATED,
 } from '~/components/interviews/questions/common/QuestionsTypes';
 
 import {
@@ -79,7 +79,7 @@ export function getPreparationPlan(
 
 export function getPreparationPlanThemes(): Record<
   PreparationPlanType,
-  QuestionListTheme
+  QuestionListTheme_DEPRECATED
 > {
   return {
     blind75: getPreparationPlanTheme('greatfrontend75'),
@@ -92,7 +92,7 @@ export function getPreparationPlanThemes(): Record<
 
 export function getPreparationPlanTheme(
   planType: PreparationPlanType,
-): QuestionListTheme {
+): QuestionListTheme_DEPRECATED {
   switch (planType) {
     case 'one-week':
       return getPreparationPlanThemeOneWeek();

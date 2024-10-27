@@ -2,7 +2,7 @@ import type { IntlShape } from 'react-intl';
 
 import type {
   QuestionList_DEPRECATED,
-  QuestionListTheme,
+  QuestionListTheme_DEPRECATED,
 } from '~/components/interviews/questions/common/QuestionsTypes';
 
 import {
@@ -42,7 +42,8 @@ import {
   getFocusAreaThemeStateManagement,
 } from './items/FocusAreaStateManagement';
 
-export type FocusAreaType =
+/** @deprecated */
+export type FocusAreaType_DEPRECATED =
   | 'accessibility'
   | 'async-operations'
   | 'data-structures-algorithms'
@@ -53,37 +54,51 @@ export type FocusAreaType =
   | 'lodash'
   | 'state-management';
 
-// Can only contain serializable values as it's passed between the server-client boundary.
-export type FocusArea = QuestionList_DEPRECATED &
+/** @deprecated Can only contain serializable values as it's passed between the server-client boundary. */
+export type FocusArea_DEPRECATED = QuestionList_DEPRECATED &
   Readonly<{
-    type: FocusAreaType;
+    type: FocusAreaType_DEPRECATED;
   }>;
 
-export type FocusAreas = Record<FocusAreaType, FocusArea>;
+/** @deprecated */
+export type FocusAreas_DEPRECATED = Record<
+  FocusAreaType_DEPRECATED,
+  FocusArea_DEPRECATED
+>;
 
-export function getFocusAreas(intl: IntlShape): FocusAreas {
-  const focusAreas: FocusAreas = {
-    accessibility: getFocusArea('accessibility', intl),
-    'async-operations': getFocusArea('async-operations', intl),
-    'data-structures-algorithms': getFocusArea(
+/** @deprecated */
+export function getFocusAreas_DEPRECATED(
+  intl: IntlShape,
+): FocusAreas_DEPRECATED {
+  const focusAreas: FocusAreas_DEPRECATED = {
+    accessibility: getFocusArea_DEPRECATED('accessibility', intl),
+    'async-operations': getFocusArea_DEPRECATED('async-operations', intl),
+    'data-structures-algorithms': getFocusArea_DEPRECATED(
       'data-structures-algorithms',
       intl,
     ),
-    'design-system-components': getFocusArea('design-system-components', intl),
-    'dom-manipulation': getFocusArea('dom-manipulation', intl),
-    forms: getFocusArea('forms', intl),
-    'javascript-polyfills': getFocusArea('javascript-polyfills', intl),
-    lodash: getFocusArea('lodash', intl),
-    'state-management': getFocusArea('state-management', intl),
+    'design-system-components': getFocusArea_DEPRECATED(
+      'design-system-components',
+      intl,
+    ),
+    'dom-manipulation': getFocusArea_DEPRECATED('dom-manipulation', intl),
+    forms: getFocusArea_DEPRECATED('forms', intl),
+    'javascript-polyfills': getFocusArea_DEPRECATED(
+      'javascript-polyfills',
+      intl,
+    ),
+    lodash: getFocusArea_DEPRECATED('lodash', intl),
+    'state-management': getFocusArea_DEPRECATED('state-management', intl),
   };
 
   return focusAreas;
 }
 
-export function getFocusArea(
-  focusArea: FocusAreaType,
+/** @deprecated */
+export function getFocusArea_DEPRECATED(
+  focusArea: FocusAreaType_DEPRECATED,
   intl: IntlShape,
-): FocusArea {
+): FocusArea_DEPRECATED {
   switch (focusArea) {
     case 'accessibility':
       return getFocusAreaAccessibility(intl);
@@ -106,23 +121,33 @@ export function getFocusArea(
   }
 }
 
-export function getFocusAreaThemes(): Record<FocusAreaType, QuestionListTheme> {
+export function getFocusAreaThemes_DEPRECATED(): Record<
+  FocusAreaType_DEPRECATED,
+  QuestionListTheme_DEPRECATED
+> {
   return {
-    accessibility: getFocusAreaTheme('accessibility'),
-    'async-operations': getFocusAreaTheme('async-operations'),
-    'data-structures-algorithms': getFocusAreaTheme(
+    accessibility: getFocusAreaTheme_DEPRECATED('accessibility'),
+    'async-operations': getFocusAreaTheme_DEPRECATED('async-operations'),
+    'data-structures-algorithms': getFocusAreaTheme_DEPRECATED(
       'data-structures-algorithms',
     ),
-    'design-system-components': getFocusAreaTheme('design-system-components'),
-    'dom-manipulation': getFocusAreaTheme('dom-manipulation'),
-    forms: getFocusAreaTheme('forms'),
-    'javascript-polyfills': getFocusAreaTheme('javascript-polyfills'),
-    lodash: getFocusAreaTheme('lodash'),
-    'state-management': getFocusAreaTheme('state-management'),
+    'design-system-components': getFocusAreaTheme_DEPRECATED(
+      'design-system-components',
+    ),
+    'dom-manipulation': getFocusAreaTheme_DEPRECATED('dom-manipulation'),
+    forms: getFocusAreaTheme_DEPRECATED('forms'),
+    'javascript-polyfills': getFocusAreaTheme_DEPRECATED(
+      'javascript-polyfills',
+    ),
+    lodash: getFocusAreaTheme_DEPRECATED('lodash'),
+    'state-management': getFocusAreaTheme_DEPRECATED('state-management'),
   };
 }
 
-export function getFocusAreaTheme(focusArea: FocusAreaType): QuestionListTheme {
+/** @deprecated */
+export function getFocusAreaTheme_DEPRECATED(
+  focusArea: string,
+): QuestionListTheme_DEPRECATED {
   switch (focusArea) {
     case 'accessibility':
       return getFocusAreaThemeAccessibility();
@@ -142,11 +167,14 @@ export function getFocusAreaTheme(focusArea: FocusAreaType): QuestionListTheme {
       return getFocusAreaThemeJavaScriptPolyfills();
     case 'state-management':
       return getFocusAreaThemeStateManagement();
+    default:
+      throw Error('No such focus area');
   }
 }
 
-export function categorizeFocusAreas(intl: IntlShape) {
-  const focusAreas = getFocusAreas(intl);
+/** @deprecated */
+export function categorizeFocusAreas_DEPRECATED(intl: IntlShape) {
+  const focusAreas = getFocusAreas_DEPRECATED(intl);
 
   return [
     {

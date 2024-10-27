@@ -2,8 +2,8 @@
 
 import clsx from 'clsx';
 import type {
-  InterviewsLearningList,
   InterviewsListingBottomContent,
+  InterviewsStudyList,
 } from 'contentlayer/generated';
 import {
   RiThumbUpLine,
@@ -26,10 +26,10 @@ import InterviewsCompanyGuideListWithFilters from './InterviewsCompanyGuideListW
 
 type Props = Readonly<{
   bottomContent?: InterviewsListingBottomContent;
-  companyGuides: Array<InterviewsLearningList>;
+  companyGuides: Array<InterviewsStudyList>;
 }>;
 
-export default function InterviewsLearningListListPage({
+export default function InterviewsStudyListListPage({
   companyGuides,
   bottomContent,
 }: Props) {

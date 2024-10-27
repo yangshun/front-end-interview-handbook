@@ -1,12 +1,14 @@
 import { RiJavascriptFill } from 'react-icons/ri';
 import type { IntlShape } from 'react-intl';
 
-import type { QuestionListTheme } from '~/components/interviews/questions/common/QuestionsTypes';
+import type { QuestionListTheme_DEPRECATED } from '~/components/interviews/questions/common/QuestionsTypes';
 import type { ThemeGradient } from '~/components/ui/theme';
 
-import type { FocusArea } from '../FocusAreas';
+import type { FocusArea_DEPRECATED } from '../FocusAreas';
 
-export function getFocusAreaJavaScriptPolyfills(intl: IntlShape): FocusArea {
+export function getFocusAreaJavaScriptPolyfills(
+  intl: IntlShape,
+): FocusArea_DEPRECATED {
   return {
     description: intl.formatMessage({
       defaultMessage:
@@ -95,7 +97,7 @@ const gradient: ThemeGradient<'#f7df1e', '#f7df1e'> = {
   startColor: '#f7df1e',
 };
 
-export function getFocusAreaThemeJavaScriptPolyfills(): QuestionListTheme {
+export function getFocusAreaThemeJavaScriptPolyfills(): QuestionListTheme_DEPRECATED {
   return {
     gradient,
     iconOutline: RiJavascriptFill,

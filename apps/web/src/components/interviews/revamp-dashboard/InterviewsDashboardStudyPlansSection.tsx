@@ -3,7 +3,7 @@ import {
   type PreparationPlans,
 } from '~/data/plans/PreparationPlans';
 
-import InterviewsLearningListCard from '~/components/interviews/questions/listings/learning/InterviewsLearningListCard';
+import InterviewsStudyListCard from '~/components/interviews/questions/listings/learning/InterviewsStudyListCard';
 import { useIntl } from '~/components/intl';
 
 import InterviewsDashboardLearningSection from './InterviewsDashboardLearningSection';
@@ -48,7 +48,7 @@ export default function InterviewsDashboardStudyPlansSection({
           const theme = getPreparationPlanTheme(studyPlan.type);
 
           return (
-            <InterviewsLearningListCard
+            <InterviewsStudyListCard
               key={studyPlan.type}
               completionCount={completionCount}
               isStarted={session != null}
