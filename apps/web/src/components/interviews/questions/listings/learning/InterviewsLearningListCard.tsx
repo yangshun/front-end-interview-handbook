@@ -5,7 +5,7 @@ import type { PreparationPlanSchedule } from '~/data/plans/PreparationPlans';
 
 import InterviewsEntityProgress from '~/components/interviews/common/InterviewsEntityProgress';
 import type {
-  QuestionList,
+  QuestionList_DEPRECATED,
   QuestionListTheme,
 } from '~/components/interviews/questions/common/QuestionsTypes';
 import QuestionStudyAllocationLabel from '~/components/interviews/questions/metadata/QuestionStudyAllocationLabel';
@@ -28,7 +28,7 @@ import { countNumberOfQuestionsInList } from '~/db/QuestionsUtils';
 type Props = Readonly<{
   completionCount?: number;
   isStarted?: boolean;
-  metadata: QuestionList;
+  metadata: QuestionList_DEPRECATED;
   schedule?: PreparationPlanSchedule;
   theme: QuestionListTheme;
 }>;

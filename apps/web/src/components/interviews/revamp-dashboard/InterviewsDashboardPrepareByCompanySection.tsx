@@ -1,4 +1,4 @@
-import type { InterviewsCompanyGuide } from 'contentlayer/generated';
+import type { InterviewsLearningList } from 'contentlayer/generated';
 
 import { useIntl } from '~/components/intl';
 
@@ -8,7 +8,7 @@ import { InterviewsCompanyGuideCard } from '../company/InterviewsCompanyGuideCar
 import type { LearningSession } from '@prisma/client';
 
 type Props = Readonly<{
-  companyGuides: Array<InterviewsCompanyGuide>;
+  companyGuides: Array<InterviewsLearningList>;
   questionListSessions: Array<
     LearningSession & { _count: { progress: number } }
   >;

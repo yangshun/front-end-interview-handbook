@@ -1,7 +1,7 @@
 import type { IntlShape } from 'react-intl';
 
 import type {
-  QuestionList,
+  QuestionList_DEPRECATED,
   QuestionListTheme,
 } from '~/components/interviews/questions/common/QuestionsTypes';
 
@@ -37,7 +37,7 @@ export type PreparationPlanSchedule = Readonly<{
   hours: number;
 }>;
 // Can only contain serializable values as it's passed between the server-client boundary.
-export type PreparationPlan = QuestionList &
+export type PreparationPlan = QuestionList_DEPRECATED &
   Readonly<{
     schedule: PreparationPlanSchedule;
     type: PreparationPlanType;

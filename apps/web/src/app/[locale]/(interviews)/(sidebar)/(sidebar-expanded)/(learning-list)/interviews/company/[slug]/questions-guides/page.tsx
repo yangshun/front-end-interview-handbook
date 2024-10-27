@@ -7,7 +7,7 @@ import InterviewsCompanyGuidePage from '~/components/interviews/company/Intervie
 import type { QuestionMetadata } from '~/components/interviews/questions/common/QuestionsTypes';
 import { sortQuestions } from '~/components/interviews/questions/listings/filters/QuestionsProcessor';
 
-import { fetchInterviewsCompanyGuide } from '~/db/contentlayer/InterviewsCompanyGuideReader';
+import { fetchInterviewsLearningList } from '~/db/contentlayer/InterviewsLearningListReader';
 import { fetchInterviewListingBottomContent } from '~/db/contentlayer/InterviewsListingBottomContentReader';
 import { fetchQuestionsBySlug } from '~/db/QuestionsListReader';
 import { getIntlServerOnly } from '~/i18n';
@@ -29,7 +29,7 @@ async function getPageSEOMetadata({ params }: Props) {
   const { locale, slug } = params;
   const [intl, companyGuide] = await Promise.all([
     getIntlServerOnly(locale),
-    fetchInterviewsCompanyGuide(slug),
+    fetchInterviewsLearningList(slug),
   ]);
 
   if (companyGuide == null) {
@@ -92,7 +92,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function Page({ params }: Props) {
   const { locale, slug } = params;
 
-  const companyGuide = await fetchInterviewsCompanyGuide(slug);
+  const companyGuide = await fetchInterviewsLearningList(slug);
 
   if (companyGuide == null) {
     return notFound();

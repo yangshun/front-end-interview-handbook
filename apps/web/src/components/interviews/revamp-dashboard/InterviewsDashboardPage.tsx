@@ -2,7 +2,7 @@
 
 import clsx from 'clsx';
 import type {
-  InterviewsCompanyGuide,
+  InterviewsLearningList,
   InterviewsListingBottomContent,
 } from 'contentlayer/generated';
 import { useMemo } from 'react';
@@ -33,7 +33,7 @@ import { useUser } from '@supabase/auth-helpers-react';
 
 type Props = Readonly<{
   bottomContent?: InterviewsListingBottomContent;
-  companyGuides: Array<InterviewsCompanyGuide>;
+  companyGuides: Array<InterviewsLearningList>;
   preparationPlans: PreparationPlans;
   questions: {
     codingQuestions: ReadonlyArray<QuestionMetadata>;

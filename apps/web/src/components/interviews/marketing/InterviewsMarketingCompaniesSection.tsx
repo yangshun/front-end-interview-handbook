@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import type { InterviewsCompanyGuide } from 'contentlayer/generated';
+import type { InterviewsLearningList } from 'contentlayer/generated';
 import { RiArrowRightLine } from 'react-icons/ri';
 import { useMediaQuery } from 'usehooks-ts';
 
@@ -13,7 +13,7 @@ import Text from '~/components/ui/Text';
 import { themeGradientHeading } from '~/components/ui/theme';
 
 type Props = Readonly<{
-  companyGuides: ReadonlyArray<InterviewsCompanyGuide>;
+  companyGuides: ReadonlyArray<InterviewsLearningList>;
 }>;
 
 export default function InterviewsMarketingCompaniesSection({

@@ -168,7 +168,12 @@ export type QuestionTopic =
 
 export type QuestionQuiz = QuestionBase;
 
-export type QuestionList = Readonly<{
+/**
+ * @deprecated
+ *
+ * Use InterviewsLearningListDocument instead.
+ */
+export type QuestionList_DEPRECATED = Readonly<{
   description: string;
   href: string;
   longName: string;

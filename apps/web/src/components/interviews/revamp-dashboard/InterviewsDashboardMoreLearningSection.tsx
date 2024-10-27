@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import type { InterviewsCompanyGuide } from 'contentlayer/generated';
+import type { InterviewsLearningList } from 'contentlayer/generated';
 
 import type { PreparationPlans } from '~/data/plans/PreparationPlans';
 
@@ -25,7 +25,7 @@ import InterviewsDashboardPracticeQuestionsSection from './practice/InterviewsDa
 import type { LearningSession } from '@prisma/client';
 
 type Props = Readonly<{
-  companyGuides: Array<InterviewsCompanyGuide>;
+  companyGuides: Array<InterviewsLearningList>;
   guidesProgress: ReadonlyArray<
     Readonly<{ id: string; slug: string; type: GuideCategory }>
   >;

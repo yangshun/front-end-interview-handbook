@@ -23,7 +23,7 @@ import { ProjectsTrackInfoDocument } from './src/components/projects/contentlaye
 import { ProjectsSkillMetadataDocument } from './src/components/projects/contentlayer/ProjectsSkillMetadataDocument';
 import { ProjectsSkillInfoDocument } from './src/components/projects/contentlayer/ProjectsSkillInfoDocument';
 import { JobsPostingDocument } from './src/components/hiring/contentlayer/JobsPostingDocument.ts';
-import { InterviewsCompanyGuideDocument } from './src/components/interviews/company/contentlayer/InterviewsCompanyGuideDocument.ts';
+import { InterviewsLearningListDocument } from './src/components/interviews/questions/listings/learning/InterviewsLearningListDocument.ts';
 import { InterviewsListingBottomContentDocument } from './src/components/interviews/company/contentlayer/InterviewsListingBottomContentDocument.ts';
 
 export default makeSource({
@@ -34,7 +34,7 @@ export default makeSource({
     BlogPostDocument,
     BlogSeriesDocument,
     BlogSubseriesDocument,
-    InterviewsCompanyGuideDocument,
+    InterviewsLearningListDocument,
     InterviewsListingBottomContentDocument,
     ProjectsCommonGuideDocument,
     ProjectsChallengeAppendixDocument,

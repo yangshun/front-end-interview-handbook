@@ -1,6 +1,6 @@
 'use client';
 
-import type { InterviewsCompanyGuide } from 'contentlayer/generated';
+import type { InterviewsLearningList } from 'contentlayer/generated';
 import { useInView } from 'framer-motion';
 import dynamic from 'next/dynamic';
 import { useRef } from 'react';
@@ -15,7 +15,7 @@ const InterviewsMarketingHomePageBottomNew = dynamic(
 );
 
 type Props = Readonly<{
-  companyGuides: ReadonlyArray<InterviewsCompanyGuide>;
+  companyGuides: ReadonlyArray<InterviewsLearningList>;
   questions: QuestionBankDataType;
 }>;
 

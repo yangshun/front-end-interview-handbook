@@ -4,7 +4,7 @@ import { INTERVIEWS_REVAMP_BOTTOM_CONTENT } from '~/data/FeatureFlags';
 
 import InterviewsCompanyGuideListPage from '~/components/interviews/company/InterviewsCompanyGuideListPage';
 
-import { fetchInterviewsCompanyGuides } from '~/db/contentlayer/InterviewsCompanyGuideReader';
+import { fetchInterviewsLearningLists } from '~/db/contentlayer/InterviewsLearningListReader';
 import { fetchInterviewListingBottomContent } from '~/db/contentlayer/InterviewsListingBottomContentReader';
 import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
@@ -57,7 +57,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function Page() {
   const [companyGuides, bottomContent] = await Promise.all([
-    fetchInterviewsCompanyGuides(),
+    fetchInterviewsLearningLists('company'),
     fetchInterviewListingBottomContent('company'),
   ]);
   const sortedGuides = companyGuides

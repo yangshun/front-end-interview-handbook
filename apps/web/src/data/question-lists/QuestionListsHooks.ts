@@ -1,5 +1,5 @@
 import type {
-  QuestionList,
+  QuestionList_DEPRECATED,
   QuestionListTheme,
 } from '~/components/interviews/questions/common/QuestionsTypes';
 
@@ -8,7 +8,7 @@ import { useFocusAreas } from '../focus-areas/FocusAreasHooks';
 import { getPreparationPlanThemes } from '../plans/PreparationPlans';
 import { usePreparationPlans } from '../plans/PreparationPlansHooks';
 
-export function useQuestionLists(): Record<string, QuestionList> {
+export function useQuestionLists(): Record<string, QuestionList_DEPRECATED> {
   const plans = usePreparationPlans();
   const focusAreas = useFocusAreas();
 

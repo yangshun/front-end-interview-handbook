@@ -4,6 +4,7 @@
   "type": "module",
   "scripts": {
     "check": "npm run tsc && next lint",
+    "cl": "contentlayer build",
     "dev": "next dev --turbo",
     "dev:wp": "next dev",
     "dev:gen": "concurrently -n gfe,next -c green,blue -k \"npm run gen:watch\" \"next dev\"",

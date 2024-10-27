@@ -1,7 +1,7 @@
 import type { IntlShape } from 'react-intl';
 
 import type {
-  QuestionList,
+  QuestionList_DEPRECATED,
   QuestionListTheme,
 } from '~/components/interviews/questions/common/QuestionsTypes';
 
@@ -54,7 +54,7 @@ export type FocusAreaType =
   | 'state-management';
 
 // Can only contain serializable values as it's passed between the server-client boundary.
-export type FocusArea = QuestionList &
+export type FocusArea = QuestionList_DEPRECATED &
   Readonly<{
     type: FocusAreaType;
   }>;

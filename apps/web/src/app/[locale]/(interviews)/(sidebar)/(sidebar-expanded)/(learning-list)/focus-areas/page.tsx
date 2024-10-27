@@ -6,7 +6,7 @@ import { getFocusAreas } from '~/data/focus-areas/FocusAreas';
 
 import type {
   QuestionDifficulty,
-  QuestionList,
+  QuestionList_DEPRECATED,
 } from '~/components/interviews/questions/common/QuestionsTypes';
 import { countQuestionsByDifficulty } from '~/components/interviews/questions/listings/filters/QuestionsProcessor';
 
@@ -75,7 +75,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 async function getDifficultySummaryForList(
-  list: QuestionList,
+  list: QuestionList_DEPRECATED,
   locale: string,
 ): Promise<Record<QuestionDifficulty, number>> {
   const questions = await fetchQuestionsBySlug(list.questions, locale);

@@ -2,7 +2,7 @@
 
 import clsx from 'clsx';
 import type {
-  InterviewsCompanyGuide,
+  InterviewsLearningList,
   InterviewsListingBottomContent,
 } from 'contentlayer/generated';
 import {
@@ -26,10 +26,10 @@ import InterviewsCompanyGuideListWithFilters from './InterviewsCompanyGuideListW
 
 type Props = Readonly<{
   bottomContent?: InterviewsListingBottomContent;
-  companyGuides: Array<InterviewsCompanyGuide>;
+  companyGuides: Array<InterviewsLearningList>;
 }>;
 
-export default function InterviewsCompanyGuideListPage({
+export default function InterviewsLearningListListPage({
   companyGuides,
   bottomContent,
 }: Props) {
