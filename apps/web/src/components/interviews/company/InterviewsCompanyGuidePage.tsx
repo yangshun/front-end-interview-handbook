@@ -172,17 +172,7 @@ export default function InterviewsCompanyGuidePage({
         {INTERVIEWS_REVAMP_2024 ? (
           <>
             <QuestionsLearningListPageTitleSection
-              description={intl.formatMessage(
-                {
-                  defaultMessage:
-                    'The one-stop to prepare well for your {company} front end interviews.',
-                  description: 'Description for company guides detail page',
-                  id: '6TG+jF',
-                },
-                {
-                  company: companyGuide.name,
-                },
-              )}
+              description={companyGuide.shortDescription}
               feature="company-guides"
               features={features}
               logoImgSrc={companyGuide.logoUrl}

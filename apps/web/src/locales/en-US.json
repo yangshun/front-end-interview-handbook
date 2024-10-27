@@ -1767,10 +1767,6 @@
     "defaultMessage": "Skills | Progress | {name}",
     "description": "Title of user profile skills page"
   },
-  "A8Qo2Q": {
-    "defaultMessage": "{company} Front End Interview Playbook - Prep Strategies and Practice Questions",
-    "description": "Page title for company guides detail"
-  },
   "ABJ7ip": {
     "defaultMessage": "<bold>{completedQuestions}</bold>/{totalQuestions} completed",
     "description": "Line describing the number of questions completed by user over the total number of questions"
@@ -6651,10 +6647,6 @@
     "defaultMessage": "Build an entire library of {trackName} components from scratch. Use it for your portfolio, or as a component toolkit for future projects",
     "description": "Description of Projects component track page"
   },
-  "eGdxs5": {
-    "defaultMessage": "{company} Front End Interview Playbook | GreatFrontEnd",
-    "description": "Social title for company guides detail"
-  },
   "eHjHnz": {
     "defaultMessage": "The URL where your solution is hosted. Click 'Deployment instructions' to get suggestions on recommended free hosting providers.",
     "description": "Form description"
@@ -8722,10 +8714,6 @@
   "rHrbfF": {
     "defaultMessage": "Implement JavaScript functions like utility methods, polyfills, or DOM APIs.",
     "description": "Javascript coding question format page description"
-  },
-  "rIMevx": {
-    "defaultMessage": "The one-stop to prepare well for your {company} front end interviews. Discover insider tips, optimal prep strategies, and practice questions known to be tested.",
-    "description": "Page description for company guides detail"
   },
   "rIxZsj": {
     "defaultMessage": "This challenge can be unlocked without spending any credits because you have unlocked all pre-requisite challenges. Proceed to unlock challenge?",

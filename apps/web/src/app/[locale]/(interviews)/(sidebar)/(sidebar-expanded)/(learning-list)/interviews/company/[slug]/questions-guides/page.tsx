@@ -37,40 +37,10 @@ async function getPageSEOMetadata({ params }: Props) {
   }
 
   return {
-    description: intl.formatMessage(
-      {
-        defaultMessage:
-          'The one-stop to prepare well for your {company} front end interviews. Discover insider tips, optimal prep strategies, and practice questions known to be tested.',
-        description: 'Page description for company guides detail',
-        id: 'rIMevx',
-      },
-      {
-        company: companyGuide.name,
-      },
-    ),
-    href: `/interviews/company/${slug}/questions-guides`,
-    socialTitle: intl.formatMessage(
-      {
-        defaultMessage:
-          '{company} Front End Interview Playbook | GreatFrontEnd',
-        description: 'Social title for company guides detail',
-        id: 'eGdxs5',
-      },
-      {
-        company: companyGuide.name,
-      },
-    ),
-    title: intl.formatMessage(
-      {
-        defaultMessage:
-          '{company} Front End Interview Playbook - Prep Strategies and Practice Questions',
-        description: 'Page title for company guides detail',
-        id: 'A8Qo2Q',
-      },
-      {
-        company: companyGuide.name,
-      },
-    ),
+    description: companyGuide.seoDescription,
+    href: companyGuide.href,
+    socialTitle: companyGuide.socialTitle,
+    title: companyGuide.seoTitle,
   };
 }
 
