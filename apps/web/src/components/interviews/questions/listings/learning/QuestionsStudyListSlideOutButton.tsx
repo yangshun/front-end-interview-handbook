@@ -1,3 +1,5 @@
+'use client';
+
 import clsx from 'clsx';
 import { RiArrowLeftSLine, RiArrowRightSLine } from 'react-icons/ri';
 import { useSessionStorage } from 'usehooks-ts';

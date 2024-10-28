@@ -15,16 +15,19 @@ import {
 
 import { hashQuestion } from '~/db/QuestionsUtils';
 
+import { questionHrefWithList } from '../../common/questionHref';
 import type { QuestionMetadata } from '../../common/QuestionsTypes';
 import QuestionDifficultyLabel from '../../metadata/QuestionDifficultyLabel';
 
 type Props<Q extends QuestionMetadata> = Readonly<{
   checkIfCompletedQuestion?: (question: Q) => boolean;
+  listKey?: string;
   questions: ReadonlyArray<Q>;
 }>;
 
 export default function QuestionsCodingListBrief<Q extends QuestionMetadata>({
   checkIfCompletedQuestion,
+  listKey,
   questions,
 }: Props<Q>) {
   const intl = useIntl();
@@ -72,11 +75,12 @@ export default function QuestionsCodingListBrief<Q extends QuestionMetadata>({
               'focus-within:ring-brand focus-within:ring-2 focus-within:ring-inset',
             )}>
             <div className="flex grow items-center justify-between">
-              <div className="flex items-center space-x-4">
+              <div className="flex items-center gap-x-4">
                 {checkIfCompletedQuestion != null && (
                   <span
                     className={clsx(
                       'flex items-center justify-center',
+                      'shrink-0',
                       'size-6 rounded-full',
                       'border-2',
                       hasCompletedQuestion
@@ -84,7 +88,10 @@ export default function QuestionsCodingListBrief<Q extends QuestionMetadata>({
                         : themeBorderColor,
                     )}>
                     {hasCompletedQuestion && (
-                      <RiCheckLine aria-hidden="true" className="size-4" />
+                      <RiCheckLine
+                        aria-hidden="true"
+                        className="size-4 shrink-0"
+                      />
                     )}
                   </span>
                 )}
@@ -94,7 +101,7 @@ export default function QuestionsCodingListBrief<Q extends QuestionMetadata>({
                   weight="medium">
                   <Anchor
                     className="focus:outline-none"
-                    href={question.href}
+                    href={questionHrefWithList(question.href, listKey)}
                     variant="unstyled">
                     {/* Extend touch target to entire panel */}
                     <span aria-hidden="true" className="absolute inset-0" />

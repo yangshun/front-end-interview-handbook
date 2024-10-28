@@ -73,8 +73,10 @@ function FilterSection<T extends string, Q extends QuestionMetadata>({
 }
 
 function Contents({
+  listKey,
   questions,
 }: Readonly<{
+  listKey?: string | undefined;
   questions: ReadonlyArray<QuestionMetadataWithCompletedStatus>;
 }>) {
   const { userProfile } = useUserProfile();
@@ -176,6 +178,7 @@ function Contents({
       </form>
       <QuestionsCodingListBrief
         checkIfCompletedQuestion={(question) => question.isCompleted}
+        listKey={listKey}
         questions={processedQuestions}
       />
     </div>
@@ -226,7 +229,9 @@ export default function QuestionsStudyListSlideOut({
         />
       }
       onClose={() => setIsShown(false)}>
-      {isShown && <Contents questions={questions} />}
+      {isShown && (
+        <Contents listKey={studyList?.listKey} questions={questions} />
+      )}
     </SlideOut>
   );
 }

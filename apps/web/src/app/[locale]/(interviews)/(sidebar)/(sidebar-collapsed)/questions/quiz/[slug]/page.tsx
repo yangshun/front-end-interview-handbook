@@ -2,6 +2,7 @@ import type { Metadata } from 'next/types';
 import { ArticleJsonLd } from 'next-seo';
 
 import QuestionQuizContents from '~/components/interviews/questions/content/quiz/QuestionQuizContents';
+import QuestionQuizPagination from '~/components/interviews/questions/content/quiz/QuestionQuizPagination';
 import { sortQuestionsMultiple } from '~/components/interviews/questions/listings/filters/QuestionsProcessor';
 
 import { readQuestionQuizContents } from '~/db/QuestionsContentsReader';
@@ -58,6 +59,16 @@ export default async function Page({ params }: Props) {
   const { question } = readQuestionQuizContents(slug, locale);
 
   const { questions: quizQuestions } = await fetchQuestionsListQuiz(locale);
+  const questionList = sortQuestionsMultiple(quizQuestions, [
+    {
+      field: 'ranking',
+      isAscendingOrder: true,
+    },
+    {
+      field: 'importance',
+      isAscendingOrder: false,
+    },
+  ]);
 
   return (
     <>
@@ -77,18 +88,15 @@ export default async function Page({ params }: Props) {
         useAppDir={true}
       />
       <QuestionQuizContents
+        paginationEl={
+          <QuestionQuizPagination
+            question={question}
+            questionList={questionList}
+          />
+        }
         question={question}
         // Keep in sync with layout.
-        questionList={sortQuestionsMultiple(quizQuestions, [
-          {
-            field: 'ranking',
-            isAscendingOrder: true,
-          },
-          {
-            field: 'importance',
-            isAscendingOrder: false,
-          },
-        ])}
+        questionList={questionList}
       />
     </>
   );

@@ -2,7 +2,7 @@ import type { Metadata } from 'next/types';
 import { ArticleJsonLd } from 'next-seo';
 
 import QuestionQuizContents from '~/components/interviews/questions/content/quiz/QuestionQuizContents';
-import { sortQuestionsMultiple } from '~/components/interviews/questions/listings/filters/QuestionsProcessor';
+import QuestionsStudyListSlideOutButton from '~/components/interviews/questions/listings/learning/QuestionsStudyListSlideOutButton';
 
 import { fetchInterviewsStudyList } from '~/db/contentlayer/InterviewsStudyListReader';
 import { readQuestionQuizContents } from '~/db/QuestionsContentsReader';
@@ -59,10 +59,7 @@ export default async function Page({ params }: Props) {
   const { locale, slug, listKey } = params;
   const { question } = readQuestionQuizContents(slug, locale);
 
-  const [{ questions: quizQuestions }, studyList] = await Promise.all([
-    fetchQuestionsListQuiz(locale),
-    fetchInterviewsStudyList(listKey),
-  ]);
+  const [studyList] = await Promise.all([fetchInterviewsStudyList(listKey)]);
 
   return (
     <>
@@ -82,21 +79,16 @@ export default async function Page({ params }: Props) {
         useAppDir={true}
       />
       <QuestionQuizContents
-        question={question}
-        // Keep in sync with layout.
-        questionList={sortQuestionsMultiple(quizQuestions, [
-          {
-            field: 'ranking',
-            isAscendingOrder: true,
-          },
-          {
-            field: 'importance',
-            isAscendingOrder: false,
-          },
-        ])}
-        studyList={
-          studyList != null ? { listKey, name: studyList.name } : undefined
+        listKey={listKey}
+        paginationEl={
+          <QuestionsStudyListSlideOutButton
+            metadata={question.metadata}
+            studyList={
+              studyList != null ? { listKey, name: studyList.name } : undefined
+            }
+          />
         }
+        question={question}
       />
     </>
   );

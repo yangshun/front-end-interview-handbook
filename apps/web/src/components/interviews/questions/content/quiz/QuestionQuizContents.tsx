@@ -29,9 +29,10 @@ import QuestionImportanceLabel from '../../metadata/QuestionImportanceLabel';
 import QuestionTopics from '../../metadata/QuestionTopics';
 
 type Props = Readonly<{
+  listKey?: string;
+  paginationEl: React.ReactNode;
   question: QuestionQuiz;
-  questionList: ReadonlyArray<QuestionMetadata>;
-  studyList?: Readonly<{ listKey: string; name: string }>;
+  questionList?: ReadonlyArray<QuestionMetadata>;
 }>;
 
 function GitHubEditButton({
@@ -63,7 +64,8 @@ function GitHubEditButton({
 export default function QuestionQuizContents({
   question,
   questionList,
-  studyList,
+  listKey,
+  paginationEl,
 }: Props) {
   const copyRef = useQuestionLogEventCopyContents<HTMLDivElement>();
   const { solution } = question;
@@ -165,20 +167,24 @@ export default function QuestionQuizContents({
             />
             <GitHubEditButton question={question} />
           </div>
-          <Divider />
-          <ArticlePagination
-            activeItem={question.metadata.href}
-            items={questionList.map(({ title, href }) => ({
-              href,
-              label: title,
-            }))}
-          />
+          {questionList != null && (
+            <>
+              <Divider />
+              <ArticlePagination
+                activeItem={question.metadata.href}
+                items={questionList.map(({ title, href }) => ({
+                  href,
+                  label: title,
+                }))}
+              />
+            </>
+          )}
         </div>
       </div>
       <QuestionQuizBottomNav
+        listKey={listKey}
+        paginationEl={paginationEl}
         question={question}
-        questionList={questionList}
-        studyList={studyList}
       />
     </div>
   );

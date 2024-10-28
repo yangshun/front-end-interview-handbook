@@ -1,7 +1,7 @@
+'use client';
+
 import { RiArrowLeftSLine, RiArrowRightSLine } from 'react-icons/ri';
 
-import useQuestionsWithCompletionStatus from '~/components/interviews/questions/listings/filters/hooks/useQuestionsWithCompletionStatus';
-import QuestionsStudyListSlideOut from '~/components/interviews/questions/listings/learning/QuestionsStudyListSlideOut';
 import { useIntl } from '~/components/intl';
 import Button from '~/components/ui/Button';
 import Text from '~/components/ui/Text';
@@ -14,23 +14,22 @@ import type {
 type Props = Readonly<{
   question: QuestionQuiz;
   questionList: ReadonlyArray<QuestionMetadata>;
-  studyList?: Readonly<{ listKey: string; name: string }>;
 }>;
 
 export default function QuestionQuizPagination({
   question,
   questionList,
-  studyList,
 }: Props) {
   const intl = useIntl();
   // Loop through list to get next, prev and current question number vs total question list.
   let prevQuestion = null;
   let nextQuestion = null;
-  const questionsWithCompletionStatus = useQuestionsWithCompletionStatus(
-    questionList ?? [],
-  );
+  let currentQuestionPosition = 0;
+  const totalNumQuestions = questionList.length;
 
   for (let i = 0; i < questionList.length; i++) {
+    currentQuestionPosition++;
+
     if (questionList[i].slug !== question.metadata.slug) {
       continue;
     }
@@ -67,11 +66,8 @@ export default function QuestionQuizPagination({
           variant="secondary"
         />
         <Text className="flex items-center px-6" size="body2" weight="medium">
-          <QuestionsStudyListSlideOut
-            isDisabled={false}
-            questions={questionsWithCompletionStatus}
-            studyList={studyList}
-          />
+          <span>{currentQuestionPosition}</span> /{' '}
+          <span>{totalNumQuestions}</span>
         </Text>
         <Button
           href={nextQuestion?.href}
