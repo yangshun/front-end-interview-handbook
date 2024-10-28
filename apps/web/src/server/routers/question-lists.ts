@@ -1,5 +1,13 @@
+import nullthrows from 'nullthrows';
 import { z } from 'zod';
 
+import type { QuestionMetadata } from '~/components/interviews/questions/common/QuestionsTypes';
+
+import { fetchInterviewsStudyList } from '~/db/contentlayer/InterviewsStudyListReader';
+import {
+  fetchQuestionsBySlug,
+  fetchQuestionsListCoding,
+} from '~/db/QuestionsListReader';
 import { hashQuestion } from '~/db/QuestionsUtils';
 import prisma from '~/server/prisma';
 
@@ -41,6 +49,44 @@ export const questionListsRouter = router({
       },
     });
   }),
+  getQuestions: userProcedure
+    .input(
+      z.object({
+        listKey: z.string().optional(),
+      }),
+    )
+    .query(async ({ input: { listKey } }) => {
+      if (listKey == null) {
+        const { questions } = await fetchQuestionsListCoding();
+
+        return questions as ReadonlyArray<QuestionMetadata>;
+      }
+
+      const studyList_ = await fetchInterviewsStudyList(listKey);
+
+      const studyList = nullthrows(
+        studyList_,
+        `Study list not found for listKey ${listKey}`,
+      );
+
+      const questionsSlugs = {
+        algo: studyList.questionsAlgo ?? [],
+        javascript: studyList.questionsJavaScript ?? [],
+        quiz: studyList.questionsQuiz ?? [],
+        'system-design': studyList.questionsSystemDesign ?? [],
+        'user-interface': studyList.questionsUserInterface ?? [],
+      };
+
+      const questionsByFormat = await fetchQuestionsBySlug(questionsSlugs);
+
+      return [
+        ...questionsByFormat.javascript,
+        ...questionsByFormat['user-interface'],
+        ...questionsByFormat.algo,
+        ...questionsByFormat['system-design'],
+        ...questionsByFormat.quiz,
+      ];
+    }),
   getSessionProgress: userProcedure
     .input(
       z.object({

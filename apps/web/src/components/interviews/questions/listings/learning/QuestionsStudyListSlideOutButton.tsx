@@ -19,6 +19,8 @@ import Button from '~/components/ui/Button';
 
 import { hashQuestion } from '~/db/QuestionsUtils';
 
+import { questionHrefWithList } from '../../common/questionHref';
+
 export default function QuestionsStudyListSlideOutButton({
   metadata,
   studyList,
@@ -27,9 +29,13 @@ export default function QuestionsStudyListSlideOutButton({
   studyList?: Readonly<{ listKey: string; name: string }>;
 }>) {
   const { userProfile } = useUserProfile();
-  const { isLoading, data: codingQuestions } = trpc.questions.coding.useQuery();
+  const { isLoading, data: questions } =
+    trpc.questionLists.getQuestions.useQuery({
+      listKey: studyList?.listKey,
+    });
+
   const questionsWithCompletionStatus = useQuestionsWithCompletionStatus(
-    codingQuestions ?? [],
+    questions ?? [],
   );
 
   const [namespace] = useSessionStorage(
@@ -84,7 +90,11 @@ export default function QuestionsStudyListSlideOutButton({
         <Button
           addonPosition="start"
           className={clsx(prevQuestionButtonDisabled && 'opacity-50')}
-          href={prevQuestionButtonDisabled ? undefined : prevQuestion?.href}
+          href={
+            prevQuestionButtonDisabled
+              ? undefined
+              : questionHrefWithList(prevQuestion?.href, studyList?.listKey)
+          }
           icon={RiArrowLeftSLine}
           isDisabled={prevQuestionButtonDisabled}
           isLabelHidden={true}
@@ -105,7 +115,11 @@ export default function QuestionsStudyListSlideOutButton({
         <Button
           addonPosition="start"
           className={clsx(nextQuestionButtonDisabled && 'opacity-50')}
-          href={nextQuestionButtonDisabled ? undefined : nextQuestion?.href}
+          href={
+            nextQuestionButtonDisabled
+              ? undefined
+              : questionHrefWithList(nextQuestion?.href, studyList?.listKey)
+          }
           icon={RiArrowRightSLine}
           isDisabled={nextQuestionButtonDisabled}
           isLabelHidden={true}

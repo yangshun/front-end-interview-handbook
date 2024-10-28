@@ -75,7 +75,7 @@ export default function ProfileActivity() {
     data: questionList,
     isLoading: isFetchingQuestionList,
     isError: isErrorQuestionList,
-  } = trpc.questions.coding.useQuery();
+  } = trpc.questionLists.getQuestions.useQuery({});
 
   if (isFetchingQuestionProgress || isFetchingQuestionList) {
     return (
