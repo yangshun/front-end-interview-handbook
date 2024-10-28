@@ -12,7 +12,10 @@ import Label from '~/components/ui/Label';
 import RichTextEditorToolbar from '~/components/ui/RichTextEditor/components/RichTextEditorToolbar';
 import RichTextEditorCodeHighlightPlugin from '~/components/ui/RichTextEditor/plugin/RichTextEditorCodeHighlightPlugin';
 import Text from '~/components/ui/Text';
-import { themeTextColor } from '~/components/ui/theme';
+import {
+  themeBackgroundInputColor,
+  themeTextColor,
+} from '~/components/ui/theme';
 
 import { PLAYGROUND_TRANSFORMERS } from './plugin/MarkdownTransformers';
 import RichTextEditorAutoLinkPlugin from './plugin/RichTextEditorAutoLinkPlugin';
@@ -151,7 +154,7 @@ function RichTextEditor(
         <div
           className={clsx(
             'relative',
-            'bg-white dark:bg-neutral-950',
+            themeBackgroundInputColor,
             'rounded',
             'border-0',
             'ring-1 ring-inset',

@@ -157,7 +157,8 @@ export default function QuestionPaywall({
       className={clsx(
         background &&
           clsx(
-            'rounded-lg border bg-white/60 px-8 backdrop-blur dark:bg-neutral-950/60',
+            'rounded-lg border px-8 backdrop-blur',
+            'bg-white/60 dark:bg-neutral-950/60',
             themeBorderColor,
           ),
       )}>

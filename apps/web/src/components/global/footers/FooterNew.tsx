@@ -20,6 +20,7 @@ import Text from '~/components/ui/Text';
 import TextInput from '~/components/ui/TextInput';
 import {
   themeBackgroundColor,
+  themeBackgroundDarkColor,
   themeBorderColor,
   themeTextBrandColor_Hover,
   themeTextSubtleColor,
@@ -211,7 +212,7 @@ export default function Footer({ navigation }: Props) {
                     }}>
                     <TextInput
                       autoComplete="email"
-                      className={clsx('bg-white dark:bg-neutral-950', 'pr-24')}
+                      className={clsx(themeBackgroundDarkColor, 'pr-24')}
                       errorMessage={failureReason?.message}
                       isLabelHidden={true}
                       label={intl.formatMessage({

@@ -5,7 +5,7 @@ import QuestionProgressAction from '~/components/interviews/questions/common/Que
 import QuestionReportIssueButton from '~/components/interviews/questions/common/QuestionReportIssueButton';
 import Container from '~/components/ui/Container';
 import {
-  themeBackgroundPageColor,
+  themeBackgroundDarkColor,
   themeBorderColor,
 } from '~/components/ui/theme';
 
@@ -34,7 +34,7 @@ export default function QuestionQuizBottomNav({
         className={clsx(
           'border-t',
           themeBorderColor,
-          themeBackgroundPageColor,
+          themeBackgroundDarkColor,
         )}>
         <Container
           className="flex h-12 items-center justify-between"

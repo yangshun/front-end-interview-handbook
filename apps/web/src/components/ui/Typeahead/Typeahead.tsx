@@ -18,6 +18,7 @@ import {
   themeBackgroundChipColor,
   themeBackgroundColor,
   themeBackgroundElementEmphasizedStateColor,
+  themeBackgroundInputColor,
   themeBorderElementColor,
   themeTextFaintColor,
   themeTextPlaceholderColor,
@@ -202,7 +203,7 @@ export default function Typeahead<T>({
                   'ring-neutral-300 dark:ring-neutral-700',
                   'cursor-not-allowed',
                 ]
-              : clsx('bg-white dark:bg-neutral-950', stateClasses[state]),
+              : clsx(themeBackgroundInputColor, stateClasses[state]),
             'text-sm',
             'rounded',
             'ring-1 ring-inset',

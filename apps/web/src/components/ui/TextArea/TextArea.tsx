@@ -7,6 +7,7 @@ import type { LabelDescriptionStyle } from '../Label';
 import Label from '../Label';
 import Text from '../Text/Text';
 import TextMaxLengthLabel from '../Text/TextMaxLengthLabel';
+import { themeBackgroundInputColor } from '../theme';
 
 type Attributes = Pick<
   TextareaHTMLAttributes<HTMLTextAreaElement>,
@@ -166,7 +167,7 @@ function TextArea(
         aria-invalid={hasError ? true : undefined}
         className={clsx(
           'block w-full',
-          'bg-white dark:bg-neutral-950',
+          themeBackgroundInputColor,
           [
             'disabled:bg-neutral-200 dark:disabled:bg-neutral-800',
             'disabled:text-neutral-300 dark:disabled:text-neutral-700',

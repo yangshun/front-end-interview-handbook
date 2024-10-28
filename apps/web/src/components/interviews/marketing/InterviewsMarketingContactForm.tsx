@@ -101,7 +101,6 @@ export default function InterviewsMarketingContactForm() {
       <div className="size-full flex flex-col gap-6">
         <TextArea
           autoResize={false}
-          className="bg-white dark:bg-neutral-950"
           errorMessage={submitFailureReason?.message}
           label={intl.formatMessage({
             defaultMessage: 'Message',
@@ -115,7 +114,6 @@ export default function InterviewsMarketingContactForm() {
         <div>
           <TextInput
             autoComplete="email"
-            className="bg-white dark:bg-neutral-950"
             description={
               <FormattedMessage
                 defaultMessage="If you'd like a reply, please provide your email address."
