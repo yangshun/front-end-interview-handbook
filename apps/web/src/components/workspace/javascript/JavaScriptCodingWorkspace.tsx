@@ -76,6 +76,7 @@ function JavaScriptCodingWorkspaceImpl({
   similarQuestions,
   question,
   skeleton,
+  studyList,
   workspace,
 }: Readonly<{
   canViewPremiumContent: boolean;
@@ -88,6 +89,7 @@ function JavaScriptCodingWorkspaceImpl({
   question: QuestionJavaScript;
   similarQuestions: ReadonlyArray<QuestionMetadata>;
   skeleton: QuestionJavaScriptSkeleton;
+  studyList?: Readonly<{ listKey: string; name: string }>;
   workspace: QuestionJavaScriptWorkspace;
 }>) {
   const { description, metadata, solution } = question;
@@ -294,6 +296,15 @@ function JavaScriptCodingWorkspaceImpl({
     workspace.main,
   ]);
 
+  const bottomBar = (
+    <JavaScriptCodingWorkspaceBottomBar
+      layout={embed ? 'minimal' : 'full'}
+      metadata={metadata}
+      nextQuestions={nextQuestions}
+      studyList={studyList}
+    />
+  );
+
   return (
     <CodingWorkspaceProvider
       loadedFilesFromLocalStorage={loadedFilesFromLocalStorage}
@@ -320,11 +331,7 @@ function JavaScriptCodingWorkspaceImpl({
               similarQuestions={[]}
             />
             <JavaScriptCodingWorkspaceSolutionMobile solution={solution} />
-            <JavaScriptCodingWorkspaceBottomBar
-              layout={embed ? 'minimal' : 'full'}
-              metadata={metadata}
-              nextQuestions={nextQuestions}
-            />
+            {bottomBar}
           </div>
         )}
         <div
@@ -371,11 +378,7 @@ function JavaScriptCodingWorkspaceImpl({
               />
             </div>
           </div>
-          <JavaScriptCodingWorkspaceBottomBar
-            layout={embed ? 'minimal' : 'full'}
-            metadata={metadata}
-            nextQuestions={nextQuestions}
-          />
+          {bottomBar}
         </div>
       </JavaScriptCodingWorkspaceContextProvider>
     </CodingWorkspaceProvider>
@@ -394,6 +397,7 @@ export default function JavaScriptCodingWorkspace({
   embed,
   language,
   onLanguageChange,
+  studyList,
 }: Readonly<{
   canViewPremiumContent: boolean;
   defaultFiles: Record<string, string>;
@@ -405,6 +409,7 @@ export default function JavaScriptCodingWorkspace({
   question: QuestionJavaScript;
   similarQuestions: ReadonlyArray<QuestionMetadata>;
   skeleton: QuestionJavaScriptSkeleton;
+  studyList?: Readonly<{ listKey: string; name: string }>;
   workspace: QuestionJavaScriptWorkspace;
 }>) {
   const { sandpack } = useSandpack();
@@ -428,6 +433,7 @@ export default function JavaScriptCodingWorkspace({
         question={question}
         similarQuestions={similarQuestions}
         skeleton={skeleton}
+        studyList={studyList}
         workspace={workspace}
         onLanguageChange={onLanguageChange}
       />

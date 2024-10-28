@@ -28,6 +28,7 @@ type Props = Readonly<{
   ) => void;
   question: QuestionUserInterface;
   similarQuestions: ReadonlyArray<QuestionMetadata>;
+  studyList?: Readonly<{ listKey: string; name: string }>;
   timeoutLoggerInstance: string;
 }>;
 
@@ -41,6 +42,7 @@ export default function UserInterfaceCodingWorkspaceSection({
   embed = false,
   timeoutLoggerInstance,
   onFrameworkChange,
+  studyList,
 }: Props) {
   const { colorScheme } = useColorSchemePreferences();
 
@@ -98,6 +100,7 @@ export default function UserInterfaceCodingWorkspaceSection({
           nextQuestions={nextQuestions}
           question={question}
           similarQuestions={similarQuestions}
+          studyList={studyList}
           onFrameworkChange={onFrameworkChange}
         />
         <SandpackErrorReporting instance={timeoutLoggerInstance} />

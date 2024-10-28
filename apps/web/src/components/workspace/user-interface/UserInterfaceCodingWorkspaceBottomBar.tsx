@@ -21,6 +21,7 @@ type Props = Readonly<{
   nextQuestions: ReadonlyArray<QuestionMetadata>;
   question: QuestionUserInterface;
   resetToDefaultCode: () => void;
+  studyList?: Readonly<{ listKey: string; name: string }>;
 }>;
 
 export default function UserInterfaceCodingWorkspaceBottomBar({
@@ -30,6 +31,7 @@ export default function UserInterfaceCodingWorkspaceBottomBar({
   mode,
   nextQuestions,
   resetToDefaultCode,
+  studyList,
 }: Props) {
   const [isLayoutDialogOpen, setIsLayoutDialogOpen] = useState(false);
 
@@ -93,6 +95,7 @@ export default function UserInterfaceCodingWorkspaceBottomBar({
           <UserInterfaceCodingWorkspaceSaveButton question={question} />
         ) : undefined
       }
+      studyList={studyList}
     />
   );
 }

@@ -6,6 +6,7 @@ import { sortQuestionsMultiple } from '~/components/interviews/questions/listing
 import CodingWorkspacePaywallPage from '~/components/workspace/common/CodingWorkspacePaywallPage';
 import JavaScriptCodingWorkspacePage from '~/components/workspace/javascript/JavaScriptCodingWorkspacePage';
 
+import { fetchInterviewsStudyList } from '~/db/contentlayer/InterviewsStudyListReader';
 import { readQuestionJavaScriptContents } from '~/db/QuestionsContentsReader';
 import { fetchQuestionsListCoding } from '~/db/QuestionsListReader';
 import { getIntlServerOnly } from '~/i18n';
@@ -50,7 +51,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function Page({ params }: Props) {
-  const { locale, slug: rawSlug } = params;
+  const { locale, slug: rawSlug, listKey } = params;
   // So that we handle typos like extra characters.
   const slug = decodeURIComponent(rawSlug)
     .replaceAll(/[^\da-zA-Z-]/g, '')
@@ -80,8 +81,10 @@ export default async function Page({ params }: Props) {
   const isQuestionLockedForUser =
     question.metadata.premium && !canViewPremiumContent;
 
-  // TODO(interviews/learning-list): fetch list questions instead.
-  const { questions: codingQuestions } = await fetchQuestionsListCoding(locale);
+  const [{ questions: codingQuestions }, studyList] = await Promise.all([
+    fetchQuestionsListCoding(locale),
+    fetchInterviewsStudyList(listKey),
+  ]);
   const nextQuestions = sortQuestionsMultiple(
     codingQuestions.filter((questionItem) =>
       question.metadata.nextQuestions.includes(questionItem.slug),
@@ -138,6 +141,9 @@ export default async function Page({ params }: Props) {
           nextQuestions={nextQuestions}
           question={question}
           similarQuestions={similarQuestions}
+          studyList={
+            studyList != null ? { listKey, name: studyList.name } : undefined
+          }
         />
       )}
     </>

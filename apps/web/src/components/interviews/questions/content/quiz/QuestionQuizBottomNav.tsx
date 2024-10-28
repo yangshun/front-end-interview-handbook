@@ -1,7 +1,6 @@
 import clsx from 'clsx';
 
 import QuestionProgressAction from '~/components/interviews/questions/common/QuestionProgressAction';
-import { FormattedMessage } from '~/components/intl';
 import { themeBackgroundColor, themeBorderColor } from '~/components/ui/theme';
 
 import { useQueryQuestionProgress } from '~/db/QuestionsProgressClient';
@@ -15,11 +14,13 @@ import type {
 type Props = Readonly<{
   question: QuestionQuiz;
   questionList: ReadonlyArray<QuestionMetadata>;
+  studyList?: Readonly<{ listKey: string; name: string }>;
 }>;
 
 export default function QuestionQuizBottomNav({
   question,
   questionList,
+  studyList,
 }: Props) {
   const { data: questionProgress, isSuccess } = useQueryQuestionProgress(
     question.metadata,
@@ -30,18 +31,7 @@ export default function QuestionQuizBottomNav({
       <div className={clsx('border-t', themeBorderColor, themeBackgroundColor)}>
         <div className="mx-auto px-3 py-2 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between">
-            {/* HACK: code to centralize the items */}
-            <div className="hidden w-32 items-center xl:block">
-              <p className="font-medium text-neutral-600">
-                <span className="hidden">
-                  <FormattedMessage
-                    defaultMessage="Flashcard format"
-                    description="Button label for flashcard display format of quiz questions"
-                    id="ekSPPz"
-                  />
-                </span>
-              </p>
-            </div>
+            <div className="hidden w-32 items-center xl:block" />
             <div
               className={clsx(
                 'transition-colors xl:order-2',
@@ -55,6 +45,7 @@ export default function QuestionQuizBottomNav({
             <QuestionQuizPagination
               question={question}
               questionList={questionList}
+              studyList={studyList}
             />
           </div>
         </div>

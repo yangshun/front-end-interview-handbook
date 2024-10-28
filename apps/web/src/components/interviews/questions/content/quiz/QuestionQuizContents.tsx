@@ -31,6 +31,7 @@ import QuestionTopics from '../../metadata/QuestionTopics';
 type Props = Readonly<{
   question: QuestionQuiz;
   questionList: ReadonlyArray<QuestionMetadata>;
+  studyList?: Readonly<{ listKey: string; name: string }>;
 }>;
 
 function GitHubEditButton({
@@ -62,6 +63,7 @@ function GitHubEditButton({
 export default function QuestionQuizContents({
   question,
   questionList,
+  studyList,
 }: Props) {
   const copyRef = useQuestionLogEventCopyContents<HTMLDivElement>();
   const { solution } = question;
@@ -173,7 +175,11 @@ export default function QuestionQuizContents({
           />
         </div>
       </div>
-      <QuestionQuizBottomNav question={question} questionList={questionList} />
+      <QuestionQuizBottomNav
+        question={question}
+        questionList={questionList}
+        studyList={studyList}
+      />
     </div>
   );
 }

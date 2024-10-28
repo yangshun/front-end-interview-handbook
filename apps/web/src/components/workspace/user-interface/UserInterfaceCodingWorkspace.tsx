@@ -78,6 +78,7 @@ function UserInterfaceCodingWorkspaceImpl({
   nextQuestions,
   similarQuestions,
   onFrameworkChange,
+  studyList,
 }: Readonly<{
   canViewPremiumContent: boolean;
   defaultFiles: SandpackFiles;
@@ -91,6 +92,7 @@ function UserInterfaceCodingWorkspaceImpl({
   ) => void;
   question: QuestionUserInterface;
   similarQuestions: ReadonlyArray<QuestionMetadata>;
+  studyList?: Readonly<{ listKey: string; name: string }>;
 }>) {
   const { framework, metadata: rawMetadata, description, solution } = question;
 
@@ -387,6 +389,7 @@ function UserInterfaceCodingWorkspaceImpl({
             nextQuestions={nextQuestions}
             question={question}
             resetToDefaultCode={resetToDefaultCode}
+            studyList={studyList}
           />
         </div>
       )}
@@ -476,6 +479,7 @@ function UserInterfaceCodingWorkspaceImpl({
             nextQuestions={nextQuestions}
             question={question}
             resetToDefaultCode={resetToDefaultCode}
+            studyList={studyList}
           />
         )}
       </div>
@@ -494,6 +498,7 @@ export default function UserInterfaceCodingWorkspace({
   nextQuestions,
   similarQuestions,
   onFrameworkChange,
+  studyList,
 }: Readonly<{
   activeTabScrollIntoView?: boolean;
   canViewPremiumContent: boolean;
@@ -508,6 +513,7 @@ export default function UserInterfaceCodingWorkspace({
   ) => void;
   question: QuestionUserInterface;
   similarQuestions: ReadonlyArray<QuestionMetadata>;
+  studyList?: Readonly<{ listKey: string; name: string }>;
 }>) {
   const { sandpack } = useSandpack();
   const { activeFile, visibleFiles } = sandpack;
@@ -531,6 +537,7 @@ export default function UserInterfaceCodingWorkspace({
         nextQuestions={nextQuestions}
         question={question}
         similarQuestions={similarQuestions}
+        studyList={studyList}
         onFrameworkChange={onFrameworkChange}
       />
     </TilesProvider>

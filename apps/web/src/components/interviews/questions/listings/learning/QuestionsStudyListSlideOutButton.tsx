@@ -14,15 +14,17 @@ import {
   filterQuestions,
   sortQuestionsMultiple,
 } from '~/components/interviews/questions/listings/filters/QuestionsProcessor';
+import QuestionsStudyListSlideOut from '~/components/interviews/questions/listings/learning/QuestionsStudyListSlideOut';
 import Button from '~/components/ui/Button';
-import CodingWorkspaceQuestionListSlideOut from '~/components/workspace/common/questions/CodingWorkspaceQuestionListSlideOut';
 
 import { hashQuestion } from '~/db/QuestionsUtils';
 
-export default function CodingWorkspaceQuestionListSlideOutButton({
+export default function QuestionsStudyListSlideOutButton({
   metadata,
+  studyList,
 }: Readonly<{
   metadata: QuestionMetadata;
+  studyList?: Readonly<{ listKey: string; name: string }>;
 }>) {
   const { userProfile } = useUserProfile();
   const { isLoading, data: codingQuestions } = trpc.questions.coding.useQuery();
@@ -95,9 +97,10 @@ export default function CodingWorkspaceQuestionListSlideOutButton({
           }
           variant="secondary"
         />
-        <CodingWorkspaceQuestionListSlideOut
+        <QuestionsStudyListSlideOut
           isDisabled={isLoading}
           questions={questionsWithCompletionStatus}
+          studyList={studyList}
         />
         <Button
           addonPosition="start"

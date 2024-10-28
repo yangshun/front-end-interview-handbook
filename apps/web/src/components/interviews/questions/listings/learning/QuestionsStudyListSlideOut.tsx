@@ -1,5 +1,6 @@
 import { useId, useState } from 'react';
-import { RiListUnordered, RiSearchLine } from 'react-icons/ri';
+import { RiFilterLine, RiSearchLine } from 'react-icons/ri';
+import { useIntl } from 'react-intl';
 import { useMediaQuery, useSessionStorage } from 'usehooks-ts';
 
 import { useQuestionUserFacingFormatData } from '~/data/QuestionFormats';
@@ -184,16 +185,18 @@ function Contents({
 type Props = Readonly<{
   isDisabled: boolean;
   questions: ReadonlyArray<QuestionMetadataWithCompletedStatus>;
+  studyList?: Readonly<{ listKey: string; name: string }>;
 }>;
 
-export default function CodingWorkspaceQuestionListSlideOut({
+export default function QuestionsStudyListSlideOut({
   isDisabled,
   questions,
+  studyList,
 }: Props) {
+  const intl = useIntl();
   // Have to be controlled because we don't want to
   // render the contents for nothing because it does a fetch.
   const [isShown, setIsShown] = useState(false);
-  const questionFormatLists = useQuestionUserFacingFormatData();
   const isMobile = useMediaQuery('(max-width: 500px)');
 
   return (
@@ -201,14 +204,22 @@ export default function CodingWorkspaceQuestionListSlideOut({
       enterFrom="start"
       isShown={isShown}
       size="xl"
-      title={questionFormatLists.coding.longName}
+      title={
+        studyList != null
+          ? studyList.name
+          : intl.formatMessage({
+              defaultMessage: 'Questions',
+              description: 'Questions list',
+              id: 'Lo9TQS',
+            })
+      }
       trigger={
         <Button
           addonPosition="start"
-          icon={RiListUnordered}
+          icon={RiFilterLine}
           isDisabled={isDisabled}
           isLabelHidden={isMobile}
-          label="Question list"
+          label={studyList != null ? studyList.name : 'Question list'}
           size="xs"
           variant="secondary"
           onClick={() => setIsShown(true)}

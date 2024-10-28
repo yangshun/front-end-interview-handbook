@@ -1,4 +1,3 @@
-import type { ReactNode } from 'react';
 import { useState } from 'react';
 import { RiArrowGoBackLine, RiPlayLine, RiSettings2Line } from 'react-icons/ri';
 import { VscLayout } from 'react-icons/vsc';
@@ -18,12 +17,13 @@ type Props = Readonly<{
   layout: 'full' | 'minimal';
   metadata: QuestionMetadata;
   nextQuestions: ReadonlyArray<QuestionMetadata>;
-  rightElements?: ReactNode;
+  studyList?: Readonly<{ listKey: string; name: string }>;
 }>;
 
 export default function JavaScriptCodingWorkspaceBottomBar({
   metadata,
   layout,
+  studyList,
   nextQuestions,
 }: Props) {
   const { status, runTests, submit, resetToDefaultCode } =
@@ -137,6 +137,7 @@ export default function JavaScriptCodingWorkspaceBottomBar({
       nextQuestions={nextQuestions}
       rightElements={runSubmitButtons}
       showQuestionsListButton={layout === 'full'}
+      studyList={studyList}
     />
   );
 }

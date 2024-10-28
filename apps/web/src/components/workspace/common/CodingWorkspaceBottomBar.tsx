@@ -3,12 +3,12 @@ import type { ReactNode } from 'react';
 import QuestionProgressAction from '~/components/interviews/questions/common/QuestionProgressAction';
 import type { QuestionMetadata } from '~/components/interviews/questions/common/QuestionsTypes';
 import QuestionNextQuestions from '~/components/interviews/questions/content/QuestionNextQuestions';
+import QuestionsStudyListSlideOutButton from '~/components/interviews/questions/listings/learning/QuestionsStudyListSlideOutButton';
 import Divider from '~/components/ui/Divider';
 
 import { useQueryQuestionProgress } from '~/db/QuestionsProgressClient';
 
 import CodingWorkspaceTimer from './CodingWorkspaceTimer';
-import CodingWorkspaceQuestionListSlideOutButton from './questions/CodingWorkspaceQuestionListSlideOutButton';
 
 type Props = Readonly<{
   leftElements?: ReactNode;
@@ -16,6 +16,7 @@ type Props = Readonly<{
   nextQuestions: ReadonlyArray<QuestionMetadata>;
   rightElements?: ReactNode;
   showQuestionsListButton?: boolean;
+  studyList?: Readonly<{ listKey: string; name: string }>;
 }>;
 
 export default function CodingWorkspaceBottomBar({
@@ -24,6 +25,7 @@ export default function CodingWorkspaceBottomBar({
   nextQuestions,
   rightElements,
   showQuestionsListButton = true,
+  studyList,
 }: Props) {
   const { data: questionProgress } = useQueryQuestionProgress(metadata);
 
@@ -34,7 +36,10 @@ export default function CodingWorkspaceBottomBar({
       )}
       {showQuestionsListButton && (
         <div className="absolute left-4 md:left-1/2 md:-translate-x-1/2">
-          <CodingWorkspaceQuestionListSlideOutButton metadata={metadata} />
+          <QuestionsStudyListSlideOutButton
+            metadata={metadata}
+            studyList={studyList}
+          />
         </div>
       )}
       <div className="flex items-center gap-x-2">

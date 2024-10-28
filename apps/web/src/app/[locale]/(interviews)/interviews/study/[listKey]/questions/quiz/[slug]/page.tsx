@@ -4,6 +4,7 @@ import { ArticleJsonLd } from 'next-seo';
 import QuestionQuizContents from '~/components/interviews/questions/content/quiz/QuestionQuizContents';
 import { sortQuestionsMultiple } from '~/components/interviews/questions/listings/filters/QuestionsProcessor';
 
+import { fetchInterviewsStudyList } from '~/db/contentlayer/InterviewsStudyListReader';
 import { readQuestionQuizContents } from '~/db/QuestionsContentsReader';
 import { fetchQuestionsListQuiz } from '~/db/QuestionsListReader';
 import { getIntlServerOnly } from '~/i18n';
@@ -55,10 +56,13 @@ export async function generateStaticParams({ params }: Props) {
 }
 
 export default async function Page({ params }: Props) {
-  const { locale, slug } = params;
+  const { locale, slug, listKey } = params;
   const { question } = readQuestionQuizContents(slug, locale);
 
-  const { questions: quizQuestions } = await fetchQuestionsListQuiz(locale);
+  const [{ questions: quizQuestions }, studyList] = await Promise.all([
+    fetchQuestionsListQuiz(locale),
+    fetchInterviewsStudyList(listKey),
+  ]);
 
   return (
     <>
@@ -90,6 +94,9 @@ export default async function Page({ params }: Props) {
             isAscendingOrder: false,
           },
         ])}
+        studyList={
+          studyList != null ? { listKey, name: studyList.name } : undefined
+        }
       />
     </>
   );
