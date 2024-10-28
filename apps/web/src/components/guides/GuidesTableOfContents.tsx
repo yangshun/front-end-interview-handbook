@@ -1,4 +1,5 @@
 import clsx from 'clsx';
+import { debounce } from 'lodash-es';
 import type { Ref } from 'react';
 import { useEffect, useId, useRef, useState } from 'react';
 import {
@@ -68,9 +69,17 @@ export default function GuidesTableOfContents({
     inPadding: 170,
   });
 
+  const debouncedScrollIntoView = debounce((element) => {
+    scrollIntoView(element);
+  }, 100);
+
   useEffect(() => {
-    scrollIntoView(activeLink);
-  }, [scrollIntoView, activeLink]);
+    if (activeLink) {
+      debouncedScrollIntoView(activeLink);
+    }
+
+    return () => debouncedScrollIntoView.cancel(); // Cancel on cleanup
+  }, [scrollIntoView, activeLink, debouncedScrollIntoView]);
 
   return (
     <ScrollArea>
