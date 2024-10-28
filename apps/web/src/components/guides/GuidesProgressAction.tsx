@@ -23,6 +23,7 @@ import { useUser } from '@supabase/auth-helpers-react';
 type Props = Readonly<{
   guideName: string;
   guideProgress?: GuideProgress | null;
+  listKey: string | undefined;
   metadata: GuideMetadata;
   signInModalContents?: React.ReactNode;
 }>;
@@ -32,6 +33,7 @@ export default function GuidesProgressAction({
   signInModalContents,
   guideProgress,
   metadata,
+  listKey,
 }: Props) {
   const intl = useIntl();
   const user = useUser();
@@ -170,9 +172,6 @@ export default function GuidesProgressAction({
       size="xs"
       variant="secondary"
       onClick={() => {
-        const listKey =
-          new URL(window.location.href).searchParams.get('list') ?? undefined;
-
         addGuideProgressMutation.mutate(
           {
             category: metadata.category,

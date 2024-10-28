@@ -4,6 +4,7 @@ import type { Metadata } from 'next/types';
 import GuidesArticleJsonLd from '~/components/guides/GuidesArticleJsonLd';
 import InterviewsQuestionsSystemDesignPage from '~/components/interviews/questions/content/system-design/InterviewsQuestionsSystemDesignPage';
 
+import { fetchInterviewsStudyList } from '~/db/contentlayer/InterviewsStudyListReader';
 import { readQuestionSystemDesignContents } from '~/db/QuestionsContentsReader';
 import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
@@ -73,7 +74,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function Page({ params }: Props) {
-  const { locale, slug } = params;
+  const { locale, slug, listKey } = params;
 
   const { question } = readQuestionSystemDesignContents(slug, locale);
 
@@ -96,6 +97,7 @@ export default async function Page({ params }: Props) {
   })();
 
   const isQuestionLocked = question.metadata.premium && !canViewPremiumContent;
+  const studyList = await fetchInterviewsStudyList(listKey);
 
   return (
     <>
@@ -114,6 +116,9 @@ export default async function Page({ params }: Props) {
           metadata: question.metadata,
           solution: isQuestionLocked ? null : question.solution,
         }}
+        studyList={
+          studyList != null ? { listKey, name: studyList.name } : undefined
+        }
       />
     </>
   );

@@ -12,9 +12,6 @@ export function questionHrefWithList(
 
   const urlObject = new URL(href, origin);
 
-  // TODO(interviews): remove `list` searchParam when progress reads from URL pathname.
-  urlObject.searchParams.append('list', listKey);
-
   return (
     `/interviews/study/${listKey}` +
     urlObject.pathname +

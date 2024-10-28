@@ -14,12 +14,14 @@ type Props = Readonly<{
   canViewPremiumContent: boolean;
   isQuestionLocked: boolean;
   question: QuestionSystemDesign;
+  studyList?: Readonly<{ listKey: string; name: string }>;
 }>;
 
 export default function InterviewsQuestionsSystemDesignPage({
   canViewPremiumContent,
   isQuestionLocked,
   question,
+  studyList,
 }: Props) {
   const isAvailable = ReadyQuestions.includes(question.metadata.slug);
 
@@ -35,7 +37,10 @@ export default function InterviewsQuestionsSystemDesignPage({
   const navigation = useSystemDesignNavigation();
 
   return (
-    <GuidesMainLayout navigation={navigation} tableOfContents={tableOfContents}>
+    <GuidesMainLayout
+      listKey={studyList?.listKey}
+      navigation={navigation}
+      tableOfContents={tableOfContents}>
       {!isAvailable ? (
         <QuestionPaywall
           subtitle="System Design content will be released on a rolling basis. Prices will be increased after System Design content is complete. Subscribe to lifetime today and secure the better deal!"
@@ -47,6 +52,7 @@ export default function InterviewsQuestionsSystemDesignPage({
           key={question.metadata.slug}
           canViewPremiumContent={canViewPremiumContent}
           isQuestionLocked={isQuestionLocked}
+          listKey={studyList?.listKey}
           question={question}
         />
       )}

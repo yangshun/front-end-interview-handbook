@@ -249,6 +249,7 @@ function JavaScriptCodingWorkspaceImpl({
     submit: {
       contents: (
         <JavaScriptCodingWorkspaceTestsSubmitTab
+          listKey={studyList?.listKey}
           metadata={metadata}
           openBesideTabId={codingWorkspaceTabFileId(workspace.run)}
           specPath={workspace.submit}

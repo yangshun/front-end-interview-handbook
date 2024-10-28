@@ -45,6 +45,7 @@ type Props = Readonly<
   MarkAsCompleteProps & {
     children?: React.ReactNode;
     isAccessibleForFree?: boolean;
+    listKey?: string;
     navigation: GuideNavigation;
     tableOfContents?: TableOfContents;
   }
@@ -53,6 +54,7 @@ type Props = Readonly<
 export default function GuidesMainLayout({
   children,
   navigation,
+  listKey,
   tableOfContents,
   showMarkAsComplete = false,
   metadata,
@@ -125,6 +127,7 @@ export default function GuidesMainLayout({
                         guideProgress={
                           'guideProgress' in props ? props.guideProgress : null
                         }
+                        listKey={listKey}
                         metadata={metadata}
                       />
                       <CheckboxInput
@@ -158,10 +161,6 @@ export default function GuidesMainLayout({
                   ) {
                     return;
                   }
-
-                  const listKey =
-                    new URL(window.location.href).searchParams.get('list') ??
-                    undefined;
 
                   addGuideProgressMutation.mutate(
                     {

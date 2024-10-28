@@ -20,11 +20,13 @@ import InterviewsPremiumBadge from '../../../common/InterviewsPremiumBadge';
 type Props = Readonly<{
   canViewPremiumContent: boolean;
   isQuestionLocked: boolean;
+  listKey?: string;
   question: QuestionBase;
 }>;
 
 export default function QuestionContentsSystemDesign({
   canViewPremiumContent,
+  listKey,
   isQuestionLocked,
   question,
 }: Props) {
@@ -102,6 +104,7 @@ export default function QuestionContentsSystemDesign({
               isSuccess ? 'opacity-100' : 'opacity-0',
             )}>
             <QuestionProgressAction
+              listKey={listKey}
               metadata={question.metadata}
               questionProgress={questionProgress}
             />

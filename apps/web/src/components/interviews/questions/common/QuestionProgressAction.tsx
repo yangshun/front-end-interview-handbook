@@ -22,6 +22,7 @@ import CodingWorkspaceBottomBarEmitter from '../../../workspace/common/CodingWor
 import { useUser } from '@supabase/auth-helpers-react';
 
 type Props = Readonly<{
+  listKey?: string;
   metadata: QuestionMetadata;
   questionProgress?: QuestionProgress | null;
   signInModalContents?: React.ReactNode;
@@ -31,6 +32,7 @@ export default function QuestionProgressAction({
   signInModalContents,
   questionProgress,
   metadata,
+  listKey,
 }: Props) {
   const intl = useIntl();
   const user = useUser();
@@ -163,9 +165,6 @@ export default function QuestionProgressAction({
       size="xs"
       variant="secondary"
       onClick={() => {
-        const listKey =
-          new URL(window.location.href).searchParams.get('list') ?? undefined;
-
         addProgressMutation.mutate(
           {
             format: metadata.format,

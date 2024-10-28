@@ -1,4 +1,3 @@
-import { useSearchParams } from 'next/navigation';
 import { useEffect } from 'react';
 
 import { trpc } from '~/hooks/trpc';
@@ -24,9 +23,11 @@ import { useUser } from '@supabase/auth-helpers-react';
 
 export default function JavaScriptCodingWorkspaceTestsSubmitTab({
   metadata,
+  listKey,
   openBesideTabId,
   specPath,
 }: Readonly<{
+  listKey?: string;
   metadata: QuestionMetadata;
   openBesideTabId: CodingWorkspaceTabFileType;
   specPath: string;
@@ -48,7 +49,6 @@ export default function JavaScriptCodingWorkspaceTestsSubmitTab({
 
   const user = useUser();
   const { data: questionProgress } = useQueryQuestionProgress(metadata);
-  const searchParams = useSearchParams();
   const { showToast } = useToast();
 
   useEffect(() => {
@@ -99,7 +99,7 @@ export default function JavaScriptCodingWorkspaceTestsSubmitTab({
 
           addProgressMutation.mutate({
             format: metadata.format,
-            listKey: searchParams?.get('list') ?? undefined,
+            listKey,
             progressId: questionProgress?.id,
             slug: metadata.slug,
             status: 'complete',

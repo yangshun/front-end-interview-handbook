@@ -3639,6 +3639,10 @@
     "defaultMessage": "CSS",
     "description": "CSS questions category short title"
   },
+  "Lo9TQS": {
+    "defaultMessage": "Questions",
+    "description": "Questions list"
+  },
   "LpW2AE": {
     "defaultMessage": "Robust framework",
     "description": "Features for frontend system design playbook page"
@@ -5054,10 +5058,6 @@
   "UCt/lF": {
     "defaultMessage": "Coding Questions",
     "description": "Coding questions long title"
-  },
-  "UET3FT": {
-    "defaultMessage": "Front End Interview Focus Areas — Accessibility, Forms and more",
-    "description": "Page title for focus areas listing"
   },
   "UISwUX": {
     "defaultMessage": "Explore {topicsCount} critical topics for front end interviews. Master them with targeted practice questions—each with detailed solutions and tests to learn from.",
@@ -6683,10 +6683,6 @@
     "defaultMessage": "Example solutions",
     "description": "Example code solutions"
   },
-  "ekSPPz": {
-    "defaultMessage": "Flashcard format",
-    "description": "Button label for flashcard display format of quiz questions"
-  },
   "emlXOt": {
     "defaultMessage": "You've just attained level {level} ✨ Congratulations!",
     "description": "Description for level up"
@@ -7382,6 +7378,10 @@
   "j+cFfc": {
     "defaultMessage": "Resubscribe to unlock",
     "description": "Title for a paywall of a submission for a premium project"
+  },
+  "j/2Zyj": {
+    "defaultMessage": "Front End Interview Focus Areas — Accessibility, Forms and more",
+    "description": "Page title for focus areas listing"
   },
   "j06fZl": {
     "defaultMessage": "Strikethrough",

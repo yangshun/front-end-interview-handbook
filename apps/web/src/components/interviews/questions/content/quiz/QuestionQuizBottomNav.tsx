@@ -38,6 +38,7 @@ export default function QuestionQuizBottomNav({
                 isSuccess ? 'opacity-100' : 'opacity-0',
               )}>
               <QuestionProgressAction
+                listKey={studyList?.listKey}
                 metadata={question.metadata}
                 questionProgress={questionProgress}
               />
