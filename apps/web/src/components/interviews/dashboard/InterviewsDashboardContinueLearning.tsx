@@ -1,11 +1,11 @@
 import clsx from 'clsx';
 
+import getProgressBarGradient from '~/components/interviews/common/utils';
 import { FormattedMessage } from '~/components/intl';
 import Button from '~/components/ui/Button';
 import GradientProgressBar from '~/components/ui/GradientProgressBar/GradientProgressBar';
 import Heading from '~/components/ui/Heading';
 import Text from '~/components/ui/Text';
-import type { ThemeGradient } from '~/components/ui/theme';
 import {
   themeBackgroundCardWhiteOnLightColor,
   themeBorderColor,
@@ -22,7 +22,6 @@ type Props = Readonly<{
   items: ReadonlyArray<{
     completedCount: number;
     durationMins?: number;
-    gradient: ThemeGradient;
     // Resume button leads here.
     href: string;
     questionsCount: number;
@@ -57,13 +56,13 @@ export default function InterviewsDashboardContinueLearning({
           ({
             completedCount,
             durationMins,
-            gradient,
             href,
             reverseGradient = false,
             title,
             questionsCount,
           }) => {
-            const progressPercentage = (completedCount / questionsCount) * 100;
+            const progressPercentage =
+              Math.min(completedCount / Math.max(questionsCount, 1), 1) * 100;
 
             return (
               <div
@@ -75,7 +74,10 @@ export default function InterviewsDashboardContinueLearning({
                 <div className="flex items-center gap-4">
                   <GradientProgressBar
                     className="size-14"
-                    gradient={gradient}
+                    gradient={getProgressBarGradient({
+                      total: questionsCount,
+                      value: completedCount,
+                    })}
                     progressPercentage={progressPercentage}
                     reverseGradient={reverseGradient}
                   />

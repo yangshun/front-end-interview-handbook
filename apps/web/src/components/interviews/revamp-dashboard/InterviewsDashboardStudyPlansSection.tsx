@@ -1,7 +1,4 @@
-import {
-  getPreparationPlanTheme,
-  type PreparationPlans,
-} from '~/data/plans/PreparationPlans';
+import { type PreparationPlans } from '~/data/plans/PreparationPlans';
 
 import InterviewsStudyListCard from '~/components/interviews/questions/listings/learning/InterviewsStudyListCard';
 import { useIntl } from '~/components/intl';
@@ -45,7 +42,6 @@ export default function InterviewsDashboardStudyPlansSection({
             (session_) => session_.key === studyPlan.type,
           );
           const completionCount = session?._count.progress;
-          const theme = getPreparationPlanTheme(studyPlan.type);
 
           return (
             <InterviewsStudyListCard
@@ -54,7 +50,7 @@ export default function InterviewsDashboardStudyPlansSection({
               isStarted={session != null}
               metadata={studyPlan}
               schedule={studyPlan.schedule}
-              theme={theme}
+              // TODO(interviews): need to pass icon
             />
           );
         })}

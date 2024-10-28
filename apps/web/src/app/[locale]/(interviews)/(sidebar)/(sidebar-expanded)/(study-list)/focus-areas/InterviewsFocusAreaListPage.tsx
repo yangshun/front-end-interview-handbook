@@ -13,12 +13,11 @@ import {
 
 import { trpc } from '~/hooks/trpc';
 
-import {
-  categorizeFocusAreas_DEPRECATED,
-  getFocusAreaTheme_DEPRECATED,
-} from '~/data/focus-areas/FocusAreas';
-
 import InterviewsListPageHeader from '~/components/interviews/common/InterviewsListPageHeader';
+import {
+  categorizeFocusAreas,
+  FocusAreaIcons,
+} from '~/components/interviews/questions/content/study-list/FocusAreas';
 import InterviewsStudyListCard from '~/components/interviews/questions/listings/learning/InterviewsStudyListCard';
 import { useIntl } from '~/components/intl';
 import MDXContent from '~/components/mdx/MDXContent';
@@ -47,7 +46,7 @@ export default function InterviewsRevampFocusAreaListPage({
     });
 
   const sessions = questionListSessions ?? [];
-  const focusAreasCategories = categorizeFocusAreas_DEPRECATED(intl);
+  const focusAreasCategories = categorizeFocusAreas(intl, focusAreas);
 
   const features = [
     {
@@ -123,18 +122,17 @@ export default function InterviewsRevampFocusAreaListPage({
               <div className="flex flex-col gap-4">
                 {items.map((focusArea) => {
                   const session = sessions.find(
-                    (session_) => session_.key === focusArea.type,
+                    (session_) => session_.key === focusArea.slug,
                   );
                   const completionCount = session?._count.progress;
-                  const theme = getFocusAreaTheme_DEPRECATED(focusArea.type);
 
                   return (
                     <InterviewsStudyListCard
-                      key={focusArea.type}
+                      key={focusArea.slug}
                       completionCount={completionCount}
+                      icon={FocusAreaIcons[focusArea.slug]}
                       isStarted={session != null}
                       metadata={focusArea}
-                      theme={theme}
                     />
                   );
                 })}

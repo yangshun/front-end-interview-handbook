@@ -315,10 +315,6 @@
     "defaultMessage": "Cancel",
     "description": "Cancel button label"
   },
-  "0HOYxB": {
-    "defaultMessage": "Lodash Functions",
-    "description": "Name of focus area questions"
-  },
   "0IALGm": {
     "defaultMessage": "Hello {userEmail}!",
     "description": "Title of AuthPage when logged in"
@@ -515,10 +511,6 @@
     "defaultMessage": "Project progress",
     "description": "Project progress item label"
   },
-  "1kiNiW": {
-    "defaultMessage": "Accessibility",
-    "description": "Name of focus area questions"
-  },
   "1lAgj0": {
     "defaultMessage": "YOE / Job status",
     "description": "Label for experience filter for submissions list"
@@ -691,10 +683,6 @@
     "defaultMessage": "You replied to <recipientProfileLink>{recipient}</recipientProfileLink> on the challenge forum for <link>{challengeTitle}</link>: <comment>\"{description}\"</comment>",
     "description": "Log message for you replying to someone on the challenge forum"
   },
-  "30sSdR": {
-    "defaultMessage": "JavaScript Polyfills Interview Questions | GreatFrontEnd",
-    "description": "Social title for interview preparation focus area"
-  },
   "37Ttml": {
     "defaultMessage": "Security",
     "description": "Title for Security section on profile page"
@@ -862,10 +850,6 @@
   "4FirvF": {
     "defaultMessage": "Reset progress",
     "description": "Label to reset study plan progress"
-  },
-  "4GPc8y": {
-    "defaultMessage": "Practice State Management interview questions that train your skills in complex state design and state manipulation. Code in-browser with solutions from ex-interviewers.",
-    "description": "Description for interview preparation focus area"
   },
   "4KKeKQ": {
     "defaultMessage": "Syntax highlighting, theming and shortcuts",
@@ -1099,10 +1083,6 @@
     "defaultMessage": "System Design",
     "description": "Tile for system design question type"
   },
-  "65GCar": {
-    "defaultMessage": "Practice Forms Interview Questions with Solutions",
-    "description": "Title for interview preparation focus area"
-  },
   "680b8U": {
     "defaultMessage": "Vanilla JS Questions",
     "description": "Vanilla JS questions category long title"
@@ -1255,10 +1235,6 @@
     "defaultMessage": "{commentsCount, plural, =0 {No comments} one {# comment} other {# comments}}",
     "description": "Number of comments for project submission"
   },
-  "7+uXHt": {
-    "defaultMessage": "Targeted practice on JavaScript Polyfills interview questions",
-    "description": "Description for interview preparation focus area"
-  },
   "7/se2x": {
     "defaultMessage": "{count}+ questions are free to do",
     "description": "Marketing page section subtitle"
@@ -1383,10 +1359,6 @@
     "defaultMessage": "Implementation must contain at least {minLength} character(s).",
     "description": "Error message"
   },
-  "7aqW08": {
-    "defaultMessage": "Practice JavaScript Polyfills Interview Questions with Solutions",
-    "description": "Title for interview preparation focus area"
-  },
   "7fCoNs": {
     "defaultMessage": "Will I have to code within the platform, or use my own IDE?",
     "description": "FAQ question for projects platform"
@@ -1434,10 +1406,6 @@
   "7wqhjF": {
     "defaultMessage": "Practice Top HTML Front End Interview Questions with Solutions",
     "description": "SEO title for HTML questions list page"
-  },
-  "7xPEg+": {
-    "defaultMessage": "State Management",
-    "description": "Name of focus area questions"
   },
   "7xuDzw": {
     "defaultMessage": "We are also the only platform offering decent front end system design content.",
@@ -1494,10 +1462,6 @@
   "8JoIUN": {
     "defaultMessage": "Coming soon",
     "description": "Tooltip for Coming Soon questions label"
-  },
-  "8Luumm": {
-    "defaultMessage": "Targeted practice on DOM Manipulation interview questions",
-    "description": "Description for interview preparation focus area"
   },
   "8Nm9WZ": {
     "defaultMessage": "Walmart",
@@ -1615,10 +1579,6 @@
     "defaultMessage": "Key features",
     "description": "Key features of the product"
   },
-  "97VOmx": {
-    "defaultMessage": "Practice Lodash Interview Questions with Solutions",
-    "description": "Title for interview preparation focus area"
-  },
   "99Ewym": {
     "defaultMessage": "Introduction",
     "description": "Front End interview preparation guide"
@@ -1638,10 +1598,6 @@
   "9CjNZn": {
     "defaultMessage": "You have ended this project session. Returning you to the project detail page.",
     "description": "Toast subtitle for project session ended"
-  },
-  "9Ct+/8": {
-    "defaultMessage": "State Management Interview Questions | GreatFrontEnd",
-    "description": "Social title for interview preparation focus area"
   },
   "9D27sg": {
     "defaultMessage": "Discussions",
@@ -1683,10 +1639,6 @@
     "defaultMessage": "Tracks | Progress | {name}",
     "description": "Title of user profile progress tracks page"
   },
-  "9Q8e4/": {
-    "defaultMessage": "JavaScript Polyfills",
-    "description": "Name of focus area questions"
-  },
   "9RYs96": {
     "defaultMessage": "Review community submissions",
     "description": "Recommended action for new projects platform user"
@@ -1698,10 +1650,6 @@
   "9gs1LO": {
     "defaultMessage": "Buy now",
     "description": "Purchase button label"
-  },
-  "9kGiQx": {
-    "defaultMessage": "Practice form-related interview questions on form components, validation, and submission handling. Code in-browser with solutions from ex-interviewers.",
-    "description": "Description for interview preparation focus area"
   },
   "9kkbE6": {
     "defaultMessage": "A simple yet comprehensive plan to follow",
@@ -1787,10 +1735,6 @@
     "defaultMessage": "Low",
     "description": "Low importance question"
   },
-  "ANgYyn": {
-    "defaultMessage": "Practice Lodash interview questions, implementing functions to manipulate and transform data efficiently. Code in-browser with solutions from ex-interviewers.",
-    "description": "Description for interview preparation focus area"
-  },
   "ATjflV": {
     "defaultMessage": "Choose up to 2 reasons so that we can improve your experience",
     "description": "Subtitle of motivation for joining section of projects profile edit page"
@@ -1826,10 +1770,6 @@
   "Ad94JV": {
     "defaultMessage": "Use code at checkout",
     "description": "Instruction to apply discount"
-  },
-  "Adsxn4": {
-    "defaultMessage": "Async Operations Interview Questions | GreatFrontEnd",
-    "description": "Social title for interview preparation focus area"
   },
   "Ae22GD": {
     "defaultMessage": "Images just for illustration. Actual page(s) could be longer",
@@ -2255,10 +2195,6 @@
     "defaultMessage": "Premium question",
     "description": "Paywall title for premium questions feature"
   },
-  "DbEF7d": {
-    "defaultMessage": "Master the art of building interactive and user-friendly forms.",
-    "description": "Description for interview preparation focus area"
-  },
   "Dc5QrJ": {
     "defaultMessage": "Coding",
     "description": "Tile for coding question type"
@@ -2367,10 +2303,6 @@
     "defaultMessage": "There were some issues with taking a screenshot for your site. Please try again.",
     "description": "Error message for screenshot generation"
   },
-  "EDmnjv": {
-    "defaultMessage": "Targeted practice on Lodash Functions interview questions",
-    "description": "Description for interview preparation focus area"
-  },
   "EDnI5H": {
     "defaultMessage": "Expand to view all guides",
     "description": "Tooltip for expanded guide button"
@@ -2478,10 +2410,6 @@
   "Et7nC7": {
     "defaultMessage": "Project started! Leverage the provided resources and submit a link to your site once ready!",
     "description": "Toast subtitle for project session started"
-  },
-  "EteZq/": {
-    "defaultMessage": "Practice Data Structures and Algorithms Interview Questions",
-    "description": "Title for interview preparation focus area"
   },
   "Euaee/": {
     "defaultMessage": "Resubscribe to unlock",
@@ -2603,10 +2531,6 @@
     "defaultMessage": "Manage your subscription status and payment methods on the Stripe billing portal.",
     "description": "Call to action text to uppgrade plan."
   },
-  "FwKG3p": {
-    "defaultMessage": "Practice front end Accessibility interview questions on semantic HTML, ARIA, and screen readers. Code in-browser with curated solutions from ex-interviewers.",
-    "description": "Description for interview preparation focus area"
-  },
   "G+S25i": {
     "defaultMessage": "Language",
     "description": "Tooltip for language selector"
@@ -2698,10 +2622,6 @@
   "GPp0wf": {
     "defaultMessage": "Welcome to GreatFrontEnd Projects!",
     "description": "Title for Projects onboarding page"
-  },
-  "GQfy69": {
-    "defaultMessage": "Practice Accessibility Interview Questions with Solutions",
-    "description": "Title for interview preparation focus area"
   },
   "GR83Ca": {
     "defaultMessage": "System",
@@ -2854,10 +2774,6 @@
   "HL6v38": {
     "defaultMessage": "Marked \"{articleName}\" as not completed",
     "description": "Success message shown when an article was marked as not completed"
-  },
-  "HMJJLh": {
-    "defaultMessage": "Hone your computer science fundamentals by implementing important data structures and algorithms from scratch.",
-    "description": "Description for interview preparation focus area"
   },
   "HP/djb": {
     "defaultMessage": "Experience | Settings",
@@ -3435,10 +3351,6 @@
     "defaultMessage": "Javascript Interview Guides",
     "description": "Title for guide card"
   },
-  "KyrxLW": {
-    "defaultMessage": "Practice Design System Components Interview Questions",
-    "description": "Title for interview preparation focus area"
-  },
   "L+jocg": {
     "defaultMessage": "View plans",
     "description": "View pricing plans"
@@ -3514,10 +3426,6 @@
   "LGHLf5": {
     "defaultMessage": "Gamified learning",
     "description": "Title for \"Gamified learning\" feature on Projects home page"
-  },
-  "LGm3GF": {
-    "defaultMessage": "Async Operations",
-    "description": "Name of focus area questions"
   },
   "LKILl5": {
     "defaultMessage": "Submission successfully unpinned!",
@@ -3622,10 +3530,6 @@
   "LlhHTu": {
     "defaultMessage": "Unlock challenge",
     "description": "Unlock premium access for a project"
-  },
-  "LmjB8K": {
-    "defaultMessage": "Practice JavaScript Polyfills interview questions by implementing JS and DOM APIs from scratch. Code in-browser with solutions by ex-interviewers.",
-    "description": "Description for interview preparation focus area"
   },
   "LmwfmQ": {
     "defaultMessage": "Front End System Design",
@@ -3939,10 +3843,6 @@
     "defaultMessage": "How we count contributions",
     "description": "Label for how we count contributions"
   },
-  "NoFZV/": {
-    "defaultMessage": "Strengthen your proficiency in JavaScript through writing Lodash functions from scratch.",
-    "description": "Description for interview preparation focus area"
-  },
   "Nt+P5A": {
     "defaultMessage": "Simulate real interview conditions, no need for any setup!",
     "description": "Subtitle for in-browser coding workspace feature"
@@ -4178,10 +4078,6 @@
   "PGFsFr": {
     "defaultMessage": "3 Months Plan",
     "description": "Link to three months study plan"
-  },
-  "PGq6U8": {
-    "defaultMessage": "Elevate your front-end skills by practicing the creation of front end design system components.",
-    "description": "Description for interview preparation focus area"
   },
   "PHhUwD": {
     "defaultMessage": "Back to focus areas",
@@ -4663,10 +4559,6 @@
     "defaultMessage": "Horizontal rule",
     "description": "Label for horizontal rule"
   },
-  "RvPm3x": {
-    "defaultMessage": "DOM Manipulation",
-    "description": "Name of focus area questions"
-  },
   "RxU5TE": {
     "defaultMessage": "Privacy policy",
     "description": "Link to privacy policy page"
@@ -4818,10 +4710,6 @@
   "SiWL+G": {
     "defaultMessage": "Once you're done developing, follow this step-by-step guide to host your solution and submit the challenge.",
     "description": "Description for the project submission checklist section"
-  },
-  "Sj1CaY": {
-    "defaultMessage": "Practice developing inclusive and accessible web experiences.",
-    "description": "Description for interview preparation focus area"
   },
   "Sj7pMJ": {
     "defaultMessage": "<authorProfileLink>{author}</authorProfileLink> replied to <recipientProfileLink>{recipient}</recipientProfileLink> on the submission <link>{submissionTitle}</link>: <comment>\"{description}\"</comment>",
@@ -5126,10 +5014,6 @@
   "Up/FZA": {
     "defaultMessage": "No result",
     "description": "Title for empty state when application of filters return no results"
-  },
-  "UrnJdy": {
-    "defaultMessage": "Sharpen your skills in asynchronous programming by practicing the use of async/await, Promises, and callback functions.",
-    "description": "Description for interview preparation focus area"
   },
   "Us7Uly": {
     "defaultMessage": "Ask us about it",
@@ -5579,10 +5463,6 @@
     "defaultMessage": "Vue Coding Questions",
     "description": "Description for Vue questions title"
   },
-  "XauDQh": {
-    "defaultMessage": "Targeted practice on Accessibility interview questions",
-    "description": "Description for interview preparation focus area"
-  },
   "Xcw/lL": {
     "defaultMessage": "Explore user submissions handpicked for your growth - based on your profile, skills you're keen to learn, and the projects you've completed.",
     "description": "Page subtitle"
@@ -5622,10 +5502,6 @@
   "Xmdm8f": {
     "defaultMessage": "Suggests best projects for skill",
     "description": "Title of 'Recommended projects to build' sub-feature in Projects marketing page"
-  },
-  "Xs7UBt": {
-    "defaultMessage": "Targeted practice on Async Operations interview questions",
-    "description": "Description for interview preparation focus area"
   },
   "XtKx03": {
     "defaultMessage": "The definitive guide to preparing for Front End Interviews, written by the author of Front End Interview Handbook.",
@@ -5691,10 +5567,6 @@
     "defaultMessage": "As mentioned above, there are many ways to host your project for free. Our recommend hosts are:",
     "description": "Text for Deployment Info in Projects"
   },
-  "YGqz7y": {
-    "defaultMessage": "Gain proficiency in front end fundamentals by implementing JavaScript and DOM APIs from scratch.",
-    "description": "Description for interview preparation focus area"
-  },
   "YIry1B": {
     "defaultMessage": "Pricing plans",
     "description": "Title for projects pricing plans"
@@ -5706,10 +5578,6 @@
   "YJmwAv": {
     "defaultMessage": "Or reach us via these channels",
     "description": "Text to introduce users to alternative feedback channels"
-  },
-  "YKZzqP": {
-    "defaultMessage": "Forms",
-    "description": "Name of focus area questions"
   },
   "YM1bnf": {
     "defaultMessage": "An error has occurred",
@@ -5898,10 +5766,6 @@
   "ZZIJ0i": {
     "defaultMessage": "Since {date}",
     "description": "Since date for current project session card"
-  },
-  "ZcKmXM": {
-    "defaultMessage": "Accessibility Interview Questions | GreatFrontEnd",
-    "description": "Social title for interview preparation focus area"
   },
   "Zdojj9": {
     "defaultMessage": "Other",
@@ -6771,10 +6635,6 @@
     "defaultMessage": "Project completed!",
     "description": "Success message"
   },
-  "fDWt7h": {
-    "defaultMessage": "Data Structures and Algorithms Interview Questions | GreatFrontEnd",
-    "description": "Social title for interview preparation focus area"
-  },
   "fEoTGW": {
     "defaultMessage": "Start a project",
     "description": "Label for Start a project button on Projects dashboard page"
@@ -7039,10 +6899,6 @@
     "defaultMessage": "<authorProfileLink>{author}</authorProfileLink> left a question on their submission <link>{submissionTitle}</link>: <comment>\"{description}\"</comment>",
     "description": "Log message for someone asking question on their submission"
   },
-  "geKY+2": {
-    "defaultMessage": "Practice design system components interview questions, including Tabs, Modals, Accordions, and Progress Bars. Code in-browser with solutions from ex-interviewers.",
-    "description": "Description for interview preparation focus area"
-  },
   "ghssuE": {
     "defaultMessage": "Next",
     "description": "Label for Next button on Projects profile onboarding page"
@@ -7150,10 +7006,6 @@
   "hJp3H7": {
     "defaultMessage": "This date is too long ago to be possible. Please recheck your selections",
     "description": "Error message for invalid \"Month and year you started work as a Front End Engineer\" input on Projects profile onboarding page"
-  },
-  "hLuz6h": {
-    "defaultMessage": "Practice State Management Interview Questions with Solutions",
-    "description": "Title for interview preparation focus area"
   },
   "hMx0CX": {
     "defaultMessage": "Everything from the blog",
@@ -7659,10 +7511,6 @@
     "defaultMessage": "Step 3",
     "description": "Step N of multiple steps when completing a project"
   },
-  "kWg+JN": {
-    "defaultMessage": "Practice DOM manipulation interview questions on CSS selectors, DOM traversal, and element manipulation. Code in-browser with solutions from ex-interviewers.",
-    "description": "Description for interview preparation focus area"
-  },
   "kaEcHw": {
     "defaultMessage": "You've gained reputation points for signing up",
     "description": "Toast message about gaining reputation points"
@@ -7783,10 +7631,6 @@
     "defaultMessage": "Join Discord",
     "description": "Join Discord channel"
   },
-  "l1pp5/": {
-    "defaultMessage": "DOM Manipulation Interview Questions | GreatFrontEnd",
-    "description": "Social title for interview preparation focus area"
-  },
   "l27vTV": {
     "defaultMessage": "Back to all challenges",
     "description": "Back button label"
@@ -7874,10 +7718,6 @@
   "ldxi7D": {
     "defaultMessage": "Cancel",
     "description": "Cancel button label in confirmation dialog"
-  },
-  "lf+GYY": {
-    "defaultMessage": "Targeted practice on Data Structures & Algorithms interview questions",
-    "description": "Description for interview preparation focus area"
   },
   "lfKH/E": {
     "defaultMessage": "Mark as complete",
@@ -8091,10 +7931,6 @@
     "defaultMessage": "Basic details",
     "description": "Section title for user onboarding form"
   },
-  "nQoQzP": {
-    "defaultMessage": "Practice Async Operations Interview Questions with Solutions",
-    "description": "Title for interview preparation focus area"
-  },
   "nRFkBV": {
     "defaultMessage": "Create a free account to track your progress",
     "description": "Title for overlay on Projects dashboard page"
@@ -8199,10 +8035,6 @@
     "defaultMessage": "Session status",
     "description": "Completed and in progress challenges"
   },
-  "o4CKFi": {
-    "defaultMessage": "Practice DOM Manipulation Interview Questions with Solutions",
-    "description": "Title for interview preparation focus area"
-  },
   "o8bpfE": {
     "defaultMessage": "Front end interview questions",
     "description": "Title of all practice questions page"
@@ -8294,10 +8126,6 @@
   "olxZ5i": {
     "defaultMessage": "Optimized preparation for target companies, leveraging insider tips and expertise.",
     "description": "Description for company guides page"
-  },
-  "onNjnt": {
-    "defaultMessage": "Design System Components",
-    "description": "Name of focus area questions"
   },
   "oo7GzR": {
     "defaultMessage": "Menu",
@@ -8495,10 +8323,6 @@
     "defaultMessage": "Top Svelte coding interview questions to build the most commonly-asked front end UI components and applications.",
     "description": "Description for Svelte questions page"
   },
-  "pyOncc": {
-    "defaultMessage": "Forms Interview Questions | GreatFrontEnd",
-    "description": "Social title for interview preparation focus area"
-  },
   "pz1v44": {
     "defaultMessage": "Next",
     "description": "Next button label"
@@ -8607,10 +8431,6 @@
     "defaultMessage": "Trending user submissions",
     "description": "Title for Trending submissions section on Projects dashboard page"
   },
-  "qZRTqi": {
-    "defaultMessage": "Data Structures & Algorithms",
-    "description": "Name of focus area questions"
-  },
   "qZTabX": {
     "defaultMessage": "Code in browser",
     "description": "Features for interviews questions"
@@ -8618,10 +8438,6 @@
   "qarlYe": {
     "defaultMessage": "First time preparing for front end interviews?",
     "description": "Link to front end interview guidebook"
-  },
-  "qbj/DA": {
-    "defaultMessage": "Lodash Functions Interview Questions | GreatFrontEnd",
-    "description": "Title for interview preparation focus area"
   },
   "qdOBuk": {
     "defaultMessage": "Practice questions",
@@ -8815,10 +8631,6 @@
     "defaultMessage": "Explore study plans that help you prepare for your front end interviews regardless of time left. Efficiently focus on topics that give you the most mileage for time.",
     "description": "Page description for study plans listing"
   },
-  "s8/47i": {
-    "defaultMessage": "Train your skills in designing complex state and implementing operations to manipulate state.",
-    "description": "Description for interview preparation focus area"
-  },
   "sCpKTY": {
     "defaultMessage": "Billing | Settings",
     "description": "Title of billing page"
@@ -8850,10 +8662,6 @@
   "sPnbze": {
     "defaultMessage": "+{count} more",
     "description": "Label for number of additional skills"
-  },
-  "sRPvHx": {
-    "defaultMessage": "Targeted practice on Forms interview questions",
-    "description": "Description for interview preparation focus area"
   },
   "sU6jXI": {
     "defaultMessage": "Reputation you have gained from completing challenges using this skill, including challenges not in the recommended skill plan",
@@ -8978,10 +8786,6 @@
   "t4Ma6G": {
     "defaultMessage": "Link Title",
     "description": "Label for link title"
-  },
-  "t55S7k": {
-    "defaultMessage": "Targeted practice on Design System Components interview questions",
-    "description": "Description for interview preparation focus area"
   },
   "t5L0yE": {
     "defaultMessage": "Pricing",
@@ -9263,10 +9067,6 @@
     "defaultMessage": "Sign in to your account",
     "description": "Subtitle of Sign In page"
   },
-  "urxhTe": {
-    "defaultMessage": "Practice data structures and algorithms interview questions in-browser with JavaScript / TypeScript solutions from ex-interviewers",
-    "description": "Description for interview preparation focus area"
-  },
   "ut9h+K": {
     "defaultMessage": "You have <bold>{amountLeft}</bold>/{totalAmount} premium credits remaining. Unlock this challenge to learn from user submissions for premium challenges.",
     "description": "Subtitle for project paywall"
@@ -9382,10 +9182,6 @@
   "vbwUYs": {
     "defaultMessage": "Clarify any doubts on a project in project-specific forums",
     "description": "Description for \"Learn from others\" feature on Projects home page"
-  },
-  "vccqVg": {
-    "defaultMessage": "Practice async operations interview questions on async / await, Promises, and callbacks. Code in-browser with quality solutions and tests from ex-interviewers.",
-    "description": "Description for interview preparation focus area"
   },
   "vegaR1": {
     "defaultMessage": "Sort by",
@@ -9647,10 +9443,6 @@
     "defaultMessage": "3 subcategories of questions: JavaScript, User Interfaces & Data Structures and Algorithms",
     "description": "Description of coding interview preparation"
   },
-  "xW6w5q": {
-    "defaultMessage": "Design System Components Interview Questions | GreatFrontEnd",
-    "description": "Social title for interview preparation focus area"
-  },
   "xWAt8Q": {
     "defaultMessage": "The ultimate Front End Interview preparation platform.",
     "description": "Description of GreatFrontEnd page"
@@ -9767,10 +9559,6 @@
     "defaultMessage": "Reading time",
     "description": "Reading time of the article"
   },
-  "yAJsl0": {
-    "defaultMessage": "Familiarize with selecting elements using CSS selectors, traverse the DOM hierarchy, and manipulate their properties, content, and styles.",
-    "description": "Description for interview preparation focus area"
-  },
   "yC3EoK": {
     "defaultMessage": "Practice JavaScript coding interview questions by implementing utility functions like throttle or polyfills. Code in-browser with solutions from ex-interviewers.",
     "description": "SEO description for Javascript coding question format page"
@@ -9874,10 +9662,6 @@
   "yw92sr": {
     "defaultMessage": "Unlike other challenge platforms, all our projects are modular with one other as they are constructed with the same design system. Easily mix and match any component or project you build to craft a unique app.",
     "description": "Description of 'Personalized projects' feature in Projects marketing page"
-  },
-  "yztOsj": {
-    "defaultMessage": "Targeted practice on State Management interview questions",
-    "description": "Description for interview preparation focus area"
   },
   "z+5YJV": {
     "defaultMessage": "View All Questions",

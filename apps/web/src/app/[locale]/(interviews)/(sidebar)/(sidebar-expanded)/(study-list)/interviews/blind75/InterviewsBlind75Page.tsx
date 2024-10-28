@@ -133,7 +133,6 @@ export default function InterviewsBlind75Page({
             ...systemDesignQuestions,
           ]}
           questionsSessionKey="blind75"
-          themeBackgroundClass={planTheme.gradient.className}
           title={plan.name}
         />
       </Container>

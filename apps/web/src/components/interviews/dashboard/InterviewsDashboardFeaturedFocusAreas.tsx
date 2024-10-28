@@ -1,27 +1,30 @@
-import { useFocusAreas_DEPRECATED } from '~/data/focus-areas/FocusAreasHooks';
+import type { InterviewsStudyList } from 'contentlayer/generated';
 
 import { useIntl } from '~/components/intl';
 
 import DashboardFocusAreasSection from './InterviewsDashboardFocusAreasSection';
+import { mapFocusAreasBySlug } from '../questions/content/study-list/FocusAreas';
 
 type Props = Readonly<{
+  focusAreas: ReadonlyArray<InterviewsStudyList>;
   limit?: number;
 }>;
 
 export default function InterviewsDashboardFeaturedFocusAreas({
   limit = Infinity,
+  focusAreas,
 }: Props) {
   const intl = useIntl();
-  const focusAreas = useFocusAreas_DEPRECATED();
+  const mapFocusAreas = mapFocusAreasBySlug(focusAreas);
   const areas = [
-    focusAreas['async-operations'],
-    focusAreas['data-structures-algorithms'],
-    focusAreas['design-system-components'],
-    focusAreas.lodash,
-    focusAreas['dom-manipulation'],
-    focusAreas.accessibility,
-    focusAreas['javascript-polyfills'],
-    focusAreas.forms,
+    mapFocusAreas['async-operations'],
+    mapFocusAreas['data-structures-algorithms'],
+    mapFocusAreas['design-system-components'],
+    mapFocusAreas.lodash,
+    mapFocusAreas['dom-manipulation'],
+    mapFocusAreas.accessibility,
+    mapFocusAreas['javascript-polyfills'],
+    mapFocusAreas.forms,
   ].slice(0, limit);
 
   return (

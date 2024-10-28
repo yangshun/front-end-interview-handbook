@@ -1,6 +1,7 @@
 'use client';
 
 import clsx from 'clsx';
+import type { InterviewsStudyList } from 'contentlayer/generated';
 import { useSelectedLayoutSegment } from 'next/navigation';
 import type { ReactNode } from 'react';
 import { useEffect, useRef } from 'react';
@@ -27,12 +28,14 @@ import { useUser } from '@supabase/auth-helpers-react';
 
 type Props = Readonly<{
   children: ReactNode;
+  focusAreas: ReadonlyArray<InterviewsStudyList>;
   questionTotalAvailableCount: QuestionTotalAvailableCount;
 }>;
 
 export default function InterviewsDashboardLayout({
   children,
   questionTotalAvailableCount,
+  focusAreas,
 }: Props) {
   const { pathname } = useI18nPathname();
   const tabsRef = useRef<HTMLDivElement>(null);
@@ -96,6 +99,7 @@ export default function InterviewsDashboardLayout({
           )}>
           {showContinueLearning && questionListSessions != null && (
             <DashboardContinueLearningWithFetching
+              focusAreas={focusAreas}
               items={questionListSessions.map((session) => ({
                 completedCount: session._count.progress,
                 listKey: session.key,
@@ -103,6 +107,7 @@ export default function InterviewsDashboardLayout({
             />
           )}
           <InterviewsDashboardFeaturedFocusAreas
+            focusAreas={focusAreas}
             limit={showContinueLearning ? 4 : 8}
           />
         </div>

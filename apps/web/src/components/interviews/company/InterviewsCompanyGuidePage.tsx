@@ -8,7 +8,6 @@ import type {
 import { useMemo } from 'react';
 import {
   RiArrowLeftLine,
-  RiGoogleFill,
   RiQuestionnaireLine,
   RiThumbUpLine,
   RiVerifiedBadgeLine,
@@ -29,7 +28,6 @@ import type {
 import QuestionsList from '~/components/interviews/questions/listings/items/QuestionsList';
 import QuestionsLearningList from '~/components/interviews/questions/listings/learning/QuestionsStudyList';
 import QuestionsLearningListPageTitleSection from '~/components/interviews/questions/listings/learning/QuestionsStudyListPageTitleSection';
-import QuestionsStudyListTitleSection_DEPRECATED from '~/components/interviews/questions/listings/learning/QuestionsStudyListTitleSection_DEPRECATED';
 import { useIntl } from '~/components/intl';
 import MDXContent from '~/components/mdx/MDXContent';
 import Button from '~/components/ui/Button';
@@ -37,7 +35,6 @@ import Container from '~/components/ui/Container';
 import Divider from '~/components/ui/Divider';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
-import { themeGradientGreenYellow } from '~/components/ui/theme';
 
 import {
   categorizeQuestionsProgress,
@@ -169,54 +166,31 @@ export default function InterviewsCompanyGuidePage({
             variant="tertiary"
           />
         </div>
-        {INTERVIEWS_REVAMP_2024 ? (
-          <>
-            <QuestionsLearningListPageTitleSection
-              description={companyGuide.shortDescription}
-              feature="company-guides"
-              features={features}
-              logoImgSrc={companyGuide.logoUrl}
-              overallProgress={questionProgressParam ?? []}
-              questions={questions}
-              questionsSessionKey={companyGuide.slug}
-              themeBackgroundClass={themeGradientGreenYellow.className}
-              title={intl.formatMessage(
-                {
-                  defaultMessage: '{company} Front End Interview Guide',
-                  description: 'Title for company guides detail page',
-                  id: 'SaUyXa',
-                },
-                {
-                  company: companyGuide.name,
-                },
-              )}
-            />
-            <Divider />
-            {/* Insider tips */}
-            {insiderTipsData.length > 0 && (
-              <div className="max-w-2xl">
-                <InterviewsCompanyInsiderTipsSlider data={insiderTipsData} />
-              </div>
-            )}
-          </>
-        ) : (
-          <QuestionsStudyListTitleSection_DEPRECATED
-            description={<MDXContent mdxCode={companyGuide.body.code} />}
-            feature="company-guides"
-            icon={({ className, ...props }) => (
-              <RiGoogleFill
-                className={clsx('text-neutral-900', className)}
-                {...props}
-              />
-            )}
-            logoImgSrc={companyGuide.logoUrl}
-            overallProgress={questionProgressParam ?? []}
-            questionCount={questionCount}
-            questionListKey={companyGuide.slug}
-            questions={questions}
-            themeBackgroundClass={clsx('bg-white', 'shadow-md')}
-            title={`${companyGuide.name} Front End Engineer Interview Questions and Guides`}
-          />
+        <QuestionsLearningListPageTitleSection
+          description={companyGuide.shortDescription}
+          feature="company-guides"
+          features={features}
+          logoImgSrc={companyGuide.logoUrl}
+          overallProgress={questionProgressParam ?? []}
+          questions={questions}
+          questionsSessionKey={companyGuide.slug}
+          title={intl.formatMessage(
+            {
+              defaultMessage: '{company} Front End Interview Guide',
+              description: 'Title for company guides detail page',
+              id: 'SaUyXa',
+            },
+            {
+              company: companyGuide.name,
+            },
+          )}
+        />
+        <Divider />
+        {/* Insider tips */}
+        {insiderTipsData.length > 0 && (
+          <div className="max-w-2xl">
+            <InterviewsCompanyInsiderTipsSlider data={insiderTipsData} />
+          </div>
         )}
       </Container>
       <Section>

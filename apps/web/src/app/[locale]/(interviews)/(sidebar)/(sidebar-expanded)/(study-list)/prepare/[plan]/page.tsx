@@ -7,10 +7,7 @@ import type { PreparationPlanType } from '~/data/plans/PreparationPlans';
 import { getPreparationPlan } from '~/data/plans/PreparationPlans';
 
 import type { QuestionMetadata } from '~/components/interviews/questions/common/QuestionsTypes';
-import {
-  countQuestionsByDifficulty,
-  sortQuestions,
-} from '~/components/interviews/questions/listings/filters/QuestionsProcessor';
+import { sortQuestions } from '~/components/interviews/questions/listings/filters/QuestionsProcessor';
 
 import { fetchInterviewListingBottomContent } from '~/db/contentlayer/InterviewsListingBottomContentReader';
 import { fetchPreparationPlans } from '~/db/PreparationPlansReader';
@@ -90,10 +87,6 @@ export default async function Page({ params }: Props) {
   const systemDesignQuestionsForPlan = questions['system-design'];
   const quizQuestionsForPlan =
     questions.quiz as ReadonlyArray<QuestionMetadata>;
-  const difficultySummary = countQuestionsByDifficulty([
-    ...codingQuestionsForPlan,
-    ...systemDesignQuestionsForPlan,
-  ]);
 
   return (
     <>
@@ -111,7 +104,6 @@ export default async function Page({ params }: Props) {
           INTERVIEWS_REVAMP_BOTTOM_CONTENT ? bottomContent : undefined
         }
         codingQuestions={codingQuestionsForPlan}
-        difficultySummary={difficultySummary}
         plan={preparationPlan}
         quizQuestions={sortQuestions(quizQuestionsForPlan, 'importance', false)}
         systemDesignQuestions={systemDesignQuestionsForPlan}

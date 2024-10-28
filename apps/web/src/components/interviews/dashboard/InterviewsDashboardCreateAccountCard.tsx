@@ -7,8 +7,6 @@ import Text from '~/components/ui/Text';
 import {
   themeBackgroundCardColor,
   themeBackgroundElementEmphasizedStateColor_Hover,
-  themeGradientGreenYellow,
-  themeGradientPurpleGreen,
   themeTextBrandColor_GroupHover,
 } from '~/components/ui/theme';
 
@@ -24,7 +22,6 @@ function MockContinueLearningCard() {
         {
           completedCount: 24,
           durationMins: 92,
-          gradient: themeGradientPurpleGreen,
           href: '/dsa',
           questionsCount: 47,
           reverseGradient: true,
@@ -37,7 +34,6 @@ function MockContinueLearningCard() {
         {
           completedCount: 24,
           durationMins: 92,
-          gradient: themeGradientGreenYellow,
           href: '/a11y',
           questionsCount: 50,
           reverseGradient: true,

@@ -1,8 +1,9 @@
-import {
-  categorizeFocusAreas_DEPRECATED,
-  getFocusAreaTheme_DEPRECATED,
-} from '~/data/focus-areas/FocusAreas';
+import type { InterviewsStudyList } from 'contentlayer/generated';
 
+import {
+  categorizeFocusAreas,
+  FocusAreaIcons,
+} from '~/components/interviews/questions/content/study-list/FocusAreas';
 import InterviewsStudyListCard from '~/components/interviews/questions/listings/learning/InterviewsStudyListCard';
 import InterviewsDashboardLearningSection from '~/components/interviews/revamp-dashboard/InterviewsDashboardLearningSection';
 import { useIntl } from '~/components/intl';
@@ -11,6 +12,7 @@ import Text from '~/components/ui/Text';
 import type { LearningSession } from '@prisma/client';
 
 type Props = Readonly<{
+  focusAreas: ReadonlyArray<InterviewsStudyList>;
   questionListSessions: Array<
     LearningSession & { _count: { progress: number } }
   >;
@@ -18,9 +20,10 @@ type Props = Readonly<{
 
 export default function InterviewsDashboardPracticeByFocusAreasSection({
   questionListSessions,
+  focusAreas,
 }: Props) {
   const intl = useIntl();
-  const focusAreasCategories = categorizeFocusAreas_DEPRECATED(intl);
+  const focusAreasCategories = categorizeFocusAreas(intl, focusAreas);
 
   return (
     <InterviewsDashboardLearningSection
@@ -45,18 +48,17 @@ export default function InterviewsDashboardPracticeByFocusAreasSection({
             <div className="flex flex-col gap-4">
               {items.map((focusArea) => {
                 const session = questionListSessions.find(
-                  (session_) => session_.key === focusArea.type,
+                  (session_) => session_.key === focusArea.slug,
                 );
                 const completionCount = session?._count.progress;
-                const theme = getFocusAreaTheme_DEPRECATED(focusArea.type);
 
                 return (
                   <InterviewsStudyListCard
-                    key={focusArea.type}
+                    key={focusArea.slug}
                     completionCount={completionCount}
+                    icon={FocusAreaIcons[focusArea.slug]}
                     isStarted={session != null}
                     metadata={focusArea}
-                    theme={theme}
                   />
                 );
               })}

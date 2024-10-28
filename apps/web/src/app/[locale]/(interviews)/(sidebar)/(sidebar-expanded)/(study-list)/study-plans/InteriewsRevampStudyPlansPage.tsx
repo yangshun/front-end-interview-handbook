@@ -7,7 +7,6 @@ import { RiListCheck3, RiTimerLine, RiVerifiedBadgeLine } from 'react-icons/ri';
 import { trpc } from '~/hooks/trpc';
 
 import {
-  getPreparationPlanTheme,
   type PreparationPlan,
   type PreparationPlans,
 } from '~/data/plans/PreparationPlans';
@@ -115,7 +114,6 @@ export default function InterviewsRevampStudyPlansPage({
                       (session_) => session_.key === studyPlan.type,
                     );
                     const completionCount = session?._count.progress;
-                    const theme = getPreparationPlanTheme(studyPlan.type);
 
                     return (
                       <InterviewsStudyListCard
@@ -124,7 +122,7 @@ export default function InterviewsRevampStudyPlansPage({
                         isStarted={session != null}
                         metadata={studyPlan}
                         schedule={studyPlan.schedule}
-                        theme={theme}
+                        // TODO(interviews): need to pass icon
                       />
                     );
                   })}

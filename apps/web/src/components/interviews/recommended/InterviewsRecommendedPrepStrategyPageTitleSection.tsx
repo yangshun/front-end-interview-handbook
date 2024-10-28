@@ -18,7 +18,6 @@ import Popover from '~/components/ui/Popover';
 import Text from '~/components/ui/Text';
 import {
   themeBorderElementColor,
-  themeGradientGreenYellow,
   themeOutlineElementBrandColor_FocusVisible,
   themeTextBrandColor_GroupHover,
   themeTextSubtleColor,
@@ -208,7 +207,6 @@ type CommonProps = Readonly<{
   questionsSessionKey?: string;
   showQuestionCountCard?: boolean;
   showRecommendedItemsDropdown?: boolean;
-  themeBackgroundClass?: string;
   title: string;
 }>;
 
@@ -226,7 +224,6 @@ type Props = WithIconProps | WithLogoProps;
 
 export default function InterviewsRecommendedPrepStrategyPageTitleSection({
   description,
-  themeBackgroundClass,
   title,
   features,
   longDescription,
@@ -284,9 +281,6 @@ export default function InterviewsRecommendedPrepStrategyPageTitleSection({
         overallProgress={overallProgress ?? []}
         progressTrackingAvailableToNonPremiumUsers={true}
         questions={questions ?? []}
-        themeBackgroundClass={
-          themeBackgroundClass ?? themeGradientGreenYellow.className
-        }
         title={title}
         {...props}
       />

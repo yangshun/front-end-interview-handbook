@@ -26,6 +26,7 @@ import type { LearningSession } from '@prisma/client';
 
 type Props = Readonly<{
   companyGuides: Array<InterviewsStudyList>;
+  focusAreas: ReadonlyArray<InterviewsStudyList>;
   guidesProgress: ReadonlyArray<
     Readonly<{ id: string; slug: string; type: GuideCategory }>
   >;
@@ -58,6 +59,7 @@ export default function InterviewsDashboardMoreLearningSection({
   questions,
   questionsProgress,
   guidesProgress,
+  focusAreas,
 }: Props) {
   return (
     <Section>
@@ -96,6 +98,7 @@ export default function InterviewsDashboardMoreLearningSection({
         />
 
         <InterviewsDashboardPracticeByFocusAreasSection
+          focusAreas={focusAreas}
           questionListSessions={questionListSessions}
         />
 

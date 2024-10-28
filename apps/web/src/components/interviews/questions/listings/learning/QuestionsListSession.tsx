@@ -11,8 +11,6 @@ import url from 'url';
 import { trpc } from '~/hooks/trpc';
 import { useAuthSignInUp } from '~/hooks/user/useAuthFns';
 
-import { INTERVIEWS_REVAMP_2024 } from '~/data/FeatureFlags';
-
 import ConfirmationDialog from '~/components/common/ConfirmationDialog';
 import { useToast } from '~/components/global/toasts/useToast';
 import { useUserProfile } from '~/components/global/UserProfileProvider';
@@ -43,14 +41,12 @@ type Props = Readonly<{
   questionCount: number;
   questionListKey: string;
   questions: ReadonlyArray<QuestionMetadata>;
-  themeBackgroundClass: string;
 }>;
 
 export default function QuestionsListSession({
   questionListKey,
   progressTrackingAvailableToNonPremiumUsers,
   questionCount,
-  themeBackgroundClass,
   questions,
   overallProgress,
   feature,
@@ -283,12 +279,10 @@ export default function QuestionsListSession({
                         id: 'zQFib0',
                       })}
                       progressClass={
-                        INTERVIEWS_REVAMP_2024
-                          ? getProgressBarGradient({
-                              total: completedQuestions,
-                              value: questionCount,
-                            }).className
-                          : themeBackgroundClass
+                        getProgressBarGradient({
+                          total: completedQuestions,
+                          value: questionCount,
+                        }).className
                       }
                       total={questionCount}
                       value={completedQuestions}

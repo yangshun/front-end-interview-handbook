@@ -29,13 +29,11 @@ type Props = Readonly<{
   progressTrackingAvailableToNonPremiumUsers?: boolean;
   questions: ReadonlyArray<QuestionMetadata>;
   questionsSessionKey?: string;
-  themeBackgroundClass: string;
   title: string;
 }>;
 
 export default function QuestionsLearningListPageTitleSection({
   description,
-  themeBackgroundClass,
   title,
   features,
   overallProgress,
@@ -93,7 +91,6 @@ export default function QuestionsLearningListPageTitleSection({
           questionCount={questions.length}
           questionListKey={props.questionsSessionKey}
           questions={questions}
-          themeBackgroundClass={themeBackgroundClass}
         />
       )}
     </div>

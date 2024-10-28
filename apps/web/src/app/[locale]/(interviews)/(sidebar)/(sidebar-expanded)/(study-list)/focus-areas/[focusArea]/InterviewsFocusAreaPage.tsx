@@ -14,17 +14,14 @@ import {
 
 import { trpc } from '~/hooks/trpc';
 
-import { INTERVIEWS_REVAMP_2024 } from '~/data/FeatureFlags';
-import { getFocusAreaTheme_DEPRECATED } from '~/data/focus-areas/FocusAreas';
-
 import type {
   QuestionFormat,
   QuestionMetadata,
   QuestionSlug,
 } from '~/components/interviews/questions/common/QuestionsTypes';
+import { FocusAreaIcons } from '~/components/interviews/questions/content/study-list/FocusAreas';
 import QuestionsLearningList from '~/components/interviews/questions/listings/learning/QuestionsStudyList';
 import QuestionsLearningListPageTitleSection from '~/components/interviews/questions/listings/learning/QuestionsStudyListPageTitleSection';
-import QuestionsStudyListTitleSection_DEPRECATED from '~/components/interviews/questions/listings/learning/QuestionsStudyListTitleSection_DEPRECATED';
 import { useIntl } from '~/components/intl';
 import MDXContent from '~/components/mdx/MDXContent';
 import Button from '~/components/ui/Button';
@@ -70,7 +67,6 @@ export default function InterviewsFocusAreaPage({
     questionsProgressAll,
     questionsSlugs,
   );
-  const focusAreaTheme = getFocusAreaTheme_DEPRECATED(focusArea.slug);
   const questionCount = countNumberOfQuestionsInList(questionsSlugs);
 
   const features = [
@@ -122,33 +118,16 @@ export default function InterviewsFocusAreaPage({
             variant="tertiary"
           />
         </div>
-        {INTERVIEWS_REVAMP_2024 ? (
-          <>
-            <QuestionsLearningListPageTitleSection
-              description={focusArea.description}
-              features={features}
-              icon={focusAreaTheme.iconOutline}
-              overallProgress={questionProgressParam ?? []}
-              questions={flattenQuestionFormatMetadata(questionsMetadata)}
-              questionsSessionKey={focusArea.type}
-              themeBackgroundClass={focusAreaTheme.gradient.className}
-              title={focusArea.longName}
-            />
-            <Divider />
-          </>
-        ) : (
-          <QuestionsStudyListTitleSection_DEPRECATED
-            description={focusArea.description}
-            icon={focusAreaTheme.iconOutline}
-            overallProgress={questionProgressParam ?? []}
-            progressTrackingAvailableToNonPremiumUsers={true}
-            questionCount={questionCount}
-            questionListKey={focusArea.type}
-            questions={flattenQuestionFormatMetadata(questionsMetadata)}
-            themeBackgroundClass={focusAreaTheme.gradient.className}
-            title={focusArea.longName}
-          />
-        )}
+        <QuestionsLearningListPageTitleSection
+          description={focusArea.description}
+          features={features}
+          icon={FocusAreaIcons[focusArea.type]}
+          overallProgress={questionProgressParam ?? []}
+          questions={flattenQuestionFormatMetadata(questionsMetadata)}
+          questionsSessionKey={focusArea.type}
+          title={focusArea.longName}
+        />
+        <Divider />
       </div>
       <Section>
         <QuestionsLearningList

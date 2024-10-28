@@ -1,13 +1,11 @@
 import clsx from 'clsx';
+import type { InterviewsStudyList } from 'contentlayer/generated';
 import { RiArrowRightLine } from 'react-icons/ri';
 
 import type { PreparationPlanSchedule } from '~/data/plans/PreparationPlans';
 
 import InterviewsEntityProgress from '~/components/interviews/common/InterviewsEntityProgress';
-import type {
-  QuestionList_DEPRECATED,
-  QuestionListTheme_DEPRECATED,
-} from '~/components/interviews/questions/common/QuestionsTypes';
+import type { QuestionList_DEPRECATED } from '~/components/interviews/questions/common/QuestionsTypes';
 import QuestionStudyAllocationLabel from '~/components/interviews/questions/metadata/QuestionStudyAllocationLabel';
 import { useIntl } from '~/components/intl';
 import Anchor from '~/components/ui/Anchor';
@@ -27,23 +25,29 @@ import { countNumberOfQuestionsInList } from '~/db/QuestionsUtils';
 
 type Props = Readonly<{
   completionCount?: number;
+  icon?: (props: React.ComponentProps<'svg'>) => JSX.Element;
   isStarted?: boolean;
-  metadata: QuestionList_DEPRECATED;
+  metadata: InterviewsStudyList | QuestionList_DEPRECATED;
   schedule?: PreparationPlanSchedule;
-  theme: QuestionListTheme_DEPRECATED;
 }>;
 
 export default function InterviewsStudyListCard({
   completionCount = 0,
   metadata,
   schedule,
-  theme,
+  icon: Icon,
   isStarted,
 }: Props) {
   const intl = useIntl();
 
-  const { name, shortDescription, questions, href } = metadata;
-  const questionCount = countNumberOfQuestionsInList(questions);
+  const { name, shortDescription, href } = metadata;
+  const questionCount =
+    'questions' in metadata
+      ? countNumberOfQuestionsInList(metadata.questions)
+      : (metadata.questionsAlgo?.length ?? 0) +
+        (metadata.questionsJavaScript?.length ?? 0) +
+        (metadata.questionsQuiz?.length ?? 0) +
+        (metadata.questionsUserInterface?.length ?? 0);
 
   return (
     <div
@@ -57,18 +61,18 @@ export default function InterviewsStudyListCard({
         ['border', themeBorderElementColor],
       )}>
       <div className="flex flex-1 flex-col gap-6 md:flex-row md:items-center">
-        <div
-          className={clsx(
-            'flex items-center justify-center',
-            'size-12 shrink-0',
-            'rounded-md',
-            themeBackgroundLayerEmphasized,
-            themeGlassyBorder,
-          )}>
-          <theme.iconOutline
-            className={clsx('size-6', themeTextSubtitleColor)}
-          />
-        </div>
+        {Icon && (
+          <div
+            className={clsx(
+              'flex items-center justify-center',
+              'size-12 shrink-0',
+              'rounded-md',
+              themeBackgroundLayerEmphasized,
+              themeGlassyBorder,
+            )}>
+            <Icon className={clsx('size-6', themeTextSubtitleColor)} />
+          </div>
+        )}
         <div className="flex flex-1 flex-col gap-4">
           <div className="flex flex-col items-start gap-1">
             <div className="flex items-center gap-3">

@@ -34,6 +34,7 @@ import { useUser } from '@supabase/auth-helpers-react';
 type Props = Readonly<{
   bottomContent?: InterviewsListingBottomContent;
   companyGuides: Array<InterviewsStudyList>;
+  focusAreas: ReadonlyArray<InterviewsStudyList>;
   preparationPlans: PreparationPlans;
   questions: {
     codingQuestions: ReadonlyArray<QuestionMetadata>;
@@ -55,6 +56,7 @@ export default function InterviewsDashboardPage({
   preparationPlans,
   questions,
   bottomContent,
+  focusAreas,
 }: Props) {
   const user = useUser();
   const isLoggedIn = !!user;
@@ -104,12 +106,14 @@ export default function InterviewsDashboardPage({
       )}
       {showContinueLearning && (
         <InterviewsDashboardContinueLearningSection
+          focusAreas={focusAreas}
           questionListSessions={sessions}
         />
       )}
       <InterviewsDashboardRecommendedPreparationStrategy />
       <InterviewsDashboardMoreLearningSection
         companyGuides={companyGuides}
+        focusAreas={focusAreas}
         guidesProgress={guidesProgress ?? []}
         preparationPlans={preparationPlans}
         questionListSessions={sessions}

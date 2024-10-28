@@ -9,7 +9,6 @@ import { trpc } from '~/hooks/trpc';
 
 import PreparationGFE75Logo from '~/data/plans/logo/PreparationGFE75Logo';
 import type { PreparationPlan } from '~/data/plans/PreparationPlans';
-import { getPreparationPlanTheme } from '~/data/plans/PreparationPlans';
 
 import FeedbackDialog from '~/components/global/feedback/FeedbackDialog';
 import { useUserPreferences } from '~/components/global/UserPreferencesProvider';
@@ -71,8 +70,6 @@ export default function InterviewsGFE75Page({
     questionsProgressAll,
     plan.questions,
   );
-
-  const planTheme = getPreparationPlanTheme(plan.type);
 
   const features = [
     {
@@ -147,7 +144,6 @@ export default function InterviewsGFE75Page({
             ...systemDesignQuestions,
           ]}
           questionsSessionKey="greatfrontend75"
-          themeBackgroundClass={planTheme.gradient.className}
           title={plan.name}
         />
       </Container>

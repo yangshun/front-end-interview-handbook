@@ -9,7 +9,6 @@ import {
   RiQuestionnaireLine,
   RiShieldKeyholeLine,
 } from 'react-icons/ri';
-import { TbBinaryTree } from 'react-icons/tb';
 
 import InterviewsGitHubSlider from '~/components/interviews/common/github/InterviewsGitHubSlider';
 import InterviewsDashboardContinueLearning from '~/components/interviews/dashboard/InterviewsDashboardContinueLearning';
@@ -21,7 +20,6 @@ import InterviewsMarketingQuestionCardMarquee from '~/components/interviews/mark
 import InterviewsPaymentFailureDialog from '~/components/interviews/purchase/InterviewsPaymentFailureDialog';
 import type { QuestionMetadata } from '~/components/interviews/questions/common/QuestionsTypes';
 import QuestionListingTopicFilters from '~/components/interviews/questions/listings/filters/QuestionListingTopicFilters';
-import QuestionsStudyListTitleSection_DEPRECATED from '~/components/interviews/questions/listings/learning/QuestionsStudyListTitleSection_DEPRECATED';
 import QuestionListingDifficultySummary from '~/components/interviews/questions/listings/stats/QuestionListingDifficultySummary';
 import QuestionsProgressPanel from '~/components/interviews/questions/listings/stats/QuestionsProgressPanel';
 import QuestionCountLabel from '~/components/interviews/questions/metadata/QuestionCountLabel';
@@ -337,7 +335,6 @@ export default function ScrapbookPage() {
                     {
                       completedCount: 30,
                       durationMins: 92,
-                      gradient: themeGradientPurpleGreen,
                       href: '/dev__/scrapbook?plan=algo',
                       questionsCount: 47,
                       reverseGradient: true,
@@ -346,7 +343,6 @@ export default function ScrapbookPage() {
                     {
                       completedCount: 25,
                       durationMins: 92,
-                      gradient: themeGradientGreenYellow,
                       href: '/dev__/scrapbook?plan=forms',
                       questionsCount: 47,
                       reverseGradient: true,
@@ -355,7 +351,6 @@ export default function ScrapbookPage() {
                     {
                       completedCount: 15,
                       durationMins: 92,
-                      gradient: themeGradientPinkPurple,
                       href: '/dev__/scrapbook?plan=accessibility',
                       questionsCount: 47,
                       title: 'Accessibility',
@@ -363,29 +358,6 @@ export default function ScrapbookPage() {
                   ]}
                 />
               </div>
-            </UIExamplesGroup>
-          </div>
-        </Section>
-        <Container>
-          <Heading level="heading3">Study Plans / Focus Areas</Heading>
-        </Container>
-        <Section>
-          <div>
-            <UIExamplesGroup>
-              <QuestionsStudyListTitleSection_DEPRECATED
-                difficultySummary={{
-                  easy: 30,
-                  hard: 10,
-                  medium: 20,
-                }}
-                icon={TbBinaryTree}
-                overallProgress={[]}
-                questionCount={47}
-                questionListKey="one-month"
-                questions={[]}
-                themeBackgroundClass={themeGradientPurpleGreen.className}
-                title="Data structure and algorithms"
-              />
             </UIExamplesGroup>
           </div>
         </Section>

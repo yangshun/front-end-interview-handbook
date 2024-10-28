@@ -1,11 +1,10 @@
 import clsx from 'clsx';
+import type { InterviewsStudyList } from 'contentlayer/generated';
 
-import {
-  getQuestionListThemes,
-  useQuestionLists_DEPRECATED,
-} from '~/data/question-lists/QuestionListsHooks';
+import { usePreparationPlans } from '~/data/plans/PreparationPlansHooks';
 
 import getProgressBarGradient from '~/components/interviews/common/utils';
+import { mapFocusAreasBySlug } from '~/components/interviews/questions/content/study-list/FocusAreas';
 import { FormattedMessage, useIntl } from '~/components/intl';
 import Button from '~/components/ui/Button';
 import GradientProgressBar from '~/components/ui/GradientProgressBar/GradientProgressBar';
@@ -19,13 +18,12 @@ import {
 } from '~/components/ui/theme';
 import Tooltip from '~/components/ui/Tooltip';
 
-import { countNumberOfQuestionsInList } from '~/db/QuestionsUtils';
-
 import QuestionCountLabel from '../questions/metadata/QuestionCountLabel';
 
 import type { LearningSession } from '@prisma/client';
 
 type Props = Readonly<{
+  focusAreas: ReadonlyArray<InterviewsStudyList>;
   questionListSessions: Array<
     LearningSession & { _count: { progress: number } }
   >;
@@ -33,24 +31,43 @@ type Props = Readonly<{
 
 export default function InterviewsDashboardContinueLearningSection({
   questionListSessions,
+  focusAreas,
 }: Props) {
   const intl = useIntl();
-  const questionLists = useQuestionLists_DEPRECATED();
-  const themes = getQuestionListThemes();
+  // TODO(interviews): need to update once preparation plan is migrated to contentlayer
+  const plans = usePreparationPlans() as unknown as Record<
+    string,
+    InterviewsStudyList
+  >;
+
+  const mapFocusAreas = mapFocusAreasBySlug(focusAreas);
+  const questionLists = { ...plans, ...mapFocusAreas };
 
   const items = questionListSessions
     // TODO(interviews): filter out company lists for now because company list
     // rendering is not yet supported on the dashboard.
     .filter(({ key }) => questionLists[key] != null)
-    .map(({ key, _count }) => ({
-      completedCount: _count.progress,
-      gradient: themes[key].gradient,
-      href: questionLists[key]?.href,
-      questionsCount: countNumberOfQuestionsInList(
-        questionLists[key].questions,
-      ),
-      title: questionLists[key].longName,
-    }));
+    .map(({ key, _count }) => {
+      const {
+        href,
+        longName,
+        questionsAlgo,
+        questionsJavaScript,
+        questionsQuiz,
+        questionsSystemDesign,
+      } = questionLists[key];
+
+      return {
+        completedCount: _count.progress,
+        href,
+        questionsCount:
+          (questionsAlgo?.length ?? 0) +
+          (questionsJavaScript?.length ?? 0) +
+          (questionsQuiz?.length ?? 0) +
+          (questionsSystemDesign?.length ?? 0),
+        title: longName,
+      };
+    });
 
   return (
     <Section>
@@ -65,7 +82,8 @@ export default function InterviewsDashboardContinueLearningSection({
 
         <div className={clsx('grid gap-4 lg:grid-cols-2')}>
           {items.map(({ completedCount, href, title, questionsCount }) => {
-            const progressPercentage = (completedCount / questionsCount) * 100;
+            const progressPercentage =
+              Math.min(completedCount / Math.max(questionsCount, 1), 1) * 100;
 
             return (
               <div

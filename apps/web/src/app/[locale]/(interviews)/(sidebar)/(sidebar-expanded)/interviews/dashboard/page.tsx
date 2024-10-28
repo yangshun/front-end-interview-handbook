@@ -59,6 +59,7 @@ export default async function Page({ params }: Props) {
     { questions: systemDesignQuestions },
     bottomContent,
     companyGuides,
+    focusAreas,
   ] = await Promise.all([
     await fetchPreparationPlans(intl as IntlShape),
     fetchQuestionsListQuiz(locale),
@@ -66,6 +67,7 @@ export default async function Page({ params }: Props) {
     fetchQuestionsListSystemDesign(locale),
     fetchInterviewListingBottomContent('dashboard'),
     fetchInterviewsStudyLists('company'),
+    fetchInterviewsStudyLists('focus-area'),
   ]);
   const { framework, language } = categorizeQuestionsByFrameworkAndLanguage({
     codingQuestions,
@@ -81,6 +83,7 @@ export default async function Page({ params }: Props) {
         INTERVIEWS_REVAMP_BOTTOM_CONTENT ? bottomContent : undefined
       }
       companyGuides={sortedGuides}
+      focusAreas={focusAreas}
       preparationPlans={preparationPlans}
       questions={{
         codingQuestions,
