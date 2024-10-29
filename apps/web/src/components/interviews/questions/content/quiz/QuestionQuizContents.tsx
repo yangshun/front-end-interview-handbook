@@ -17,13 +17,13 @@ import Prose from '~/components/ui/Prose';
 import Text from '~/components/ui/Text';
 import { themeBorderColor } from '~/components/ui/theme';
 
-import QuestionQuizBottomNav from './QuestionQuizBottomNav';
 import QuestionReportIssueButton from '../../common/QuestionReportIssueButton';
 import type {
   QuestionMetadata,
   QuestionQuiz,
 } from '../../common/QuestionsTypes';
 import useQuestionLogEventCopyContents from '../../common/useQuestionLogEventCopyContents';
+import QuestionsStudyListBottomNav from '../../listings/learning/QuestionsStudyListBottomNav';
 import QuestionDifficultyLabel from '../../metadata/QuestionDifficultyLabel';
 import QuestionImportanceLabel from '../../metadata/QuestionImportanceLabel';
 import QuestionTopics from '../../metadata/QuestionTopics';
@@ -181,7 +181,7 @@ export default function QuestionQuizContents({
           )}
         </div>
       </div>
-      <QuestionQuizBottomNav
+      <QuestionsStudyListBottomNav
         listKey={listKey}
         paginationEl={paginationEl}
         question={question}

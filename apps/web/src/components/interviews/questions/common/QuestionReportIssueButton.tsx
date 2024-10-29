@@ -11,6 +11,7 @@ import type { TooltipContentSide } from '~/components/ui/Tooltip';
 import type { QuestionFormat } from './QuestionsTypes';
 
 type Props = Readonly<{
+  className?: string;
   format: QuestionFormat;
   isLabelHidden?: boolean;
   showTooltip?: boolean;
@@ -28,6 +29,7 @@ const QuestionFormatToGitHubIssueLabel: Record<QuestionFormat, string> = {
 };
 
 export default function QuestionReportIssueButton({
+  className,
   isLabelHidden = true,
   format,
   showTooltip = true,
@@ -42,6 +44,7 @@ export default function QuestionReportIssueButton({
   return (
     <>
       <Button
+        className={className}
         icon={RiBugLine}
         isLabelHidden={isLabelHidden}
         label={intl.formatMessage({

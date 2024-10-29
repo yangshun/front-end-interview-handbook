@@ -1,6 +1,7 @@
 'use client';
 
 import { getMDXExport } from 'mdx-bundler/client';
+import type { ReactNode } from 'react';
 
 import GuidesMainLayout from '~/components/guides/GuidesMainLayout';
 import type { TableOfContents } from '~/components/guides/GuidesTableOfContents';
@@ -11,6 +12,7 @@ import { ReadyQuestions } from '~/components/interviews/questions/content/system
 import { useSystemDesignNavigation } from '~/components/interviews/questions/content/system-design/SystemDesignNavigation';
 
 type Props = Readonly<{
+  bottomNav?: ReactNode;
   canViewPremiumContent: boolean;
   isQuestionLocked: boolean;
   question: QuestionSystemDesign;
@@ -18,6 +20,7 @@ type Props = Readonly<{
 }>;
 
 export default function InterviewsQuestionsSystemDesignPage({
+  bottomNav,
   canViewPremiumContent,
   isQuestionLocked,
   question,
@@ -38,6 +41,7 @@ export default function InterviewsQuestionsSystemDesignPage({
 
   return (
     <GuidesMainLayout
+      bottomNav={bottomNav}
       listKey={studyList?.listKey}
       navigation={navigation}
       tableOfContents={tableOfContents}>

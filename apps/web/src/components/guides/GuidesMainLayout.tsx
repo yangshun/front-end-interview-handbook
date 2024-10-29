@@ -1,6 +1,7 @@
 'use client';
 
 import clsx from 'clsx';
+import type { ReactNode } from 'react';
 import { useRef } from 'react';
 
 import useScrollToTop from '~/hooks/useScrollToTop';
@@ -43,6 +44,7 @@ type MarkAsCompleteProps = Readonly<
 
 type Props = Readonly<
   MarkAsCompleteProps & {
+    bottomNav?: ReactNode;
     children?: React.ReactNode;
     isAccessibleForFree?: boolean;
     listKey?: string;
@@ -52,6 +54,7 @@ type Props = Readonly<
 >;
 
 export default function GuidesMainLayout({
+  bottomNav,
   children,
   navigation,
   listKey,
@@ -231,6 +234,7 @@ export default function GuidesMainLayout({
             </Section>
           )}
         </div>
+        {bottomNav}
       </div>
     </GuidesHeadingObserver>
   );

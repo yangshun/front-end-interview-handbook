@@ -1,3 +1,5 @@
+'use client';
+
 import clsx from 'clsx';
 import type { ReactNode } from 'react';
 
@@ -19,7 +21,7 @@ type Props = Readonly<{
   question: QuestionQuiz;
 }>;
 
-export default function QuestionQuizBottomNav({
+export default function QuestionsStudyListBottomNav({
   paginationEl,
   question,
   listKey,
@@ -37,24 +39,34 @@ export default function QuestionQuizBottomNav({
           themeBackgroundDarkColor,
         )}>
         <Container
-          className="flex h-12 items-center justify-between"
+          className="flex h-12 items-center justify-between gap-2"
           variant="screen-2xl">
-          <QuestionReportIssueButton
-            format="quiz"
-            title={question.metadata.title}
-          />
+          <div className="flex shrink-0 justify-center xl:order-2 xl:flex-1">
+            {paginationEl}
+          </div>
+          <div className="justify-center max-xl:hidden xl:flex-1">
+            <QuestionReportIssueButton
+              format="quiz"
+              title={question.metadata.title}
+            />
+          </div>
           <div
             className={clsx(
-              'transition-colors xl:order-2',
+              'flex justify-end xl:order-3 xl:flex-1',
+              'transition-colors',
               isSuccess ? 'opacity-100' : 'opacity-0',
             )}>
+            <QuestionReportIssueButton
+              className="mr-3 xl:hidden"
+              format="quiz"
+              title={question.metadata.title}
+            />
             <QuestionProgressAction
               listKey={listKey}
               metadata={question.metadata}
               questionProgress={questionProgress}
             />
           </div>
-          {paginationEl}
         </Container>
       </div>
     </div>

@@ -3,6 +3,8 @@ import type { Metadata } from 'next/types';
 
 import GuidesArticleJsonLd from '~/components/guides/GuidesArticleJsonLd';
 import InterviewsQuestionsSystemDesignPage from '~/components/interviews/questions/content/system-design/InterviewsQuestionsSystemDesignPage';
+import QuestionsStudyListBottomNav from '~/components/interviews/questions/listings/learning/QuestionsStudyListBottomNav';
+import QuestionsStudyListSlideOutButton from '~/components/interviews/questions/listings/learning/QuestionsStudyListSlideOutButton';
 
 import { fetchInterviewsStudyList } from '~/db/contentlayer/InterviewsStudyListReader';
 import { readQuestionSystemDesignContents } from '~/db/QuestionsContentsReader';
@@ -108,6 +110,22 @@ export default async function Page({ params }: Props) {
         title={`Front End System Design: ${question.metadata.title}`}
       />
       <InterviewsQuestionsSystemDesignPage
+        bottomNav={
+          <QuestionsStudyListBottomNav
+            listKey={listKey}
+            paginationEl={
+              <QuestionsStudyListSlideOutButton
+                metadata={question.metadata}
+                studyList={
+                  studyList != null
+                    ? { listKey, name: studyList.name }
+                    : undefined
+                }
+              />
+            }
+            question={question}
+          />
+        }
         canViewPremiumContent={canViewPremiumContent}
         isQuestionLocked={isQuestionLocked}
         question={{
