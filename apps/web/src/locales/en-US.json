@@ -3959,6 +3959,10 @@
     "defaultMessage": "Solutions & test from ex-interviewers",
     "description": "Features for dashboard"
   },
+  "Oxdmlq": {
+    "defaultMessage": "Reset filter",
+    "description": "Label for reset filter button"
+  },
   "Oxj7x1": {
     "defaultMessage": "Company (optional)",
     "description": "Label for \"Company\" input on Projects profile onboarding page"
@@ -8439,6 +8443,10 @@
     "defaultMessage": "Cancel",
     "description": "Label for button to cancel action"
   },
+  "rfSyqp": {
+    "defaultMessage": "Hide",
+    "description": "Label for hide filter button"
+  },
   "rg3DjU": {
     "defaultMessage": "Questions to ask (end of interview)",
     "description": "Best questions to ask at the end of a behavioral interviews"
@@ -9394,6 +9402,10 @@
   "y5OP5O": {
     "defaultMessage": "Here you'll find curated collection of our most insightful and engaging blog content, neatly organized into series for your convenience. Each series focuses on a unique theme or topic providing deep dive subject.",
     "description": "Description of GreatFrontEnd blog what's new page"
+  },
+  "y6DqsF": {
+    "defaultMessage": "Search in the list",
+    "description": "Search placeholder for study list"
   },
   "y7V401": {
     "defaultMessage": "This guide is the only resource designed specifically for front end engineers, offering you an insider's look at the unique behavioral challenges you’ll face in interviews. From nailing your self introduction to effectively working with cross-functional teams, this guide equips you with the tools, tips, and strategies you need to shine.",

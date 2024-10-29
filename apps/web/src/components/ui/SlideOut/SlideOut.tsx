@@ -9,6 +9,7 @@ import { FormattedMessage } from '~/components/intl';
 import DialogBaseOverlay from '../Dialog/DialogBaseOverlay';
 import Heading from '../Heading';
 import Section from '../Heading/HeadingContext';
+import ScrollArea from '../ScrollArea';
 import Text from '../Text';
 import { themeBackgroundLayerColor, themeBorderColor } from '../theme';
 
@@ -153,13 +154,15 @@ export function SlideOutBody({
   padding?: boolean;
 }>) {
   return (
-    <div className={clsx('grow overflow-y-auto', padding && 'px-6', className)}>
-      <Section>
-        <Text className="block h-full" size="body2">
-          {children}
-        </Text>
-      </Section>
-    </div>
+    <ScrollArea>
+      <div className={clsx('grow', padding && 'px-6', className)}>
+        <Section>
+          <Text className="block h-full" size="body2">
+            {children}
+          </Text>
+        </Section>
+      </div>
+    </ScrollArea>
   );
 }
 
