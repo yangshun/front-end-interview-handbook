@@ -30,8 +30,8 @@ export const InterviewsStudyListDocument = defineDocumentType(() => ({
     href: {
       description: 'Link to study list page',
       resolve: (doc) => {
-        if (doc.href) {
-          return doc.href;
+        if (doc.customHref) {
+          return doc.customHref;
         }
 
         const category = parseCategory(doc._raw.sourceFilePath);
@@ -59,14 +59,14 @@ export const InterviewsStudyListDocument = defineDocumentType(() => ({
   },
   contentType: 'mdx',
   fields: {
+    customHref: {
+      description: 'Link to study list page',
+      required: false,
+      type: 'string',
+    },
     description: {
       description: 'Description of the list',
       required: true,
-      type: 'string',
-    },
-    href: {
-      description: 'Link to study list page',
-      required: false,
       type: 'string',
     },
     logoUrl: {
