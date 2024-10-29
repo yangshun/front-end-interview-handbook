@@ -1,11 +1,11 @@
 import type { Metadata } from 'next/types';
 
+import InterviewsStudyPlansPage from '~/components/interviews/questions/listings/learning/study-plans/InterviewsStudyPlansPage';
+
 import { fetchInterviewListingBottomContent } from '~/db/contentlayer/InterviewsListingBottomContentReader';
 import { fetchInterviewsStudyLists } from '~/db/contentlayer/InterviewsStudyListReader';
 import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
-
-import InterviewsStudyPlansPage from './InterviewsStudyPlansPage';
 
 export const dynamic = 'force-static';
 
@@ -26,7 +26,7 @@ async function getPageSEOMetadata({ params }: Props) {
       description: 'Page description for study plans listing',
       id: 's7lhuQ',
     }),
-    href: '/study-plans',
+    href: '/interviews/study-plans',
     socialTitle: intl.formatMessage({
       defaultMessage: 'Study Plans | GreatFrontEnd',
       description: 'Social title for study plans listing',

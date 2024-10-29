@@ -154,7 +154,7 @@ export default function useInterviewsNavItems(placement: 'nav' | 'sidebar') {
     itemKey: 'time-savers',
     items: [
       {
-        href: '/study-plans',
+        href: '/interviews/study-plans',
         icon: RiCalendar2Line,
         itemKey: 'study-plans',
         label: intl.formatMessage({
@@ -245,7 +245,7 @@ export default function useInterviewsNavItems(placement: 'nav' | 'sidebar') {
             ))}
           </div>
         ),
-        href: '/focus-areas',
+        href: '/interviews/focus-areas',
         icon: RiFocus2Line,
         itemKey: 'focus-areas',
         label: intl.formatMessage({

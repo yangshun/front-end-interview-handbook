@@ -15,7 +15,7 @@ import {
   StudyPlanIcons,
 } from '~/components/interviews/questions/content/study-list/StudyPlans';
 import InterviewsStudyListCard from '~/components/interviews/questions/listings/learning/InterviewsStudyListCard';
-import InterviewsStudyPlanTestimonialsSection from '~/components/interviews/questions/listings/learning/study-plan/InterviewsStudyPlanTestimonialsSection';
+import InterviewsStudyPlanTestimonialsSection from '~/components/interviews/questions/listings/learning/study-plans/InterviewsStudyPlanTestimonialsSection';
 import { useIntl } from '~/components/intl';
 import MDXContent from '~/components/mdx/MDXContent';
 import Container from '~/components/ui/Container';

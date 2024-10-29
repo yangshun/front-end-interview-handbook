@@ -1,11 +1,11 @@
 import type { Metadata } from 'next/types';
 
+import InterviewsFocusAreaListPage from '~/components/interviews/questions/listings/learning/focus-areas/InterviewsFocusAreaListPage';
+
 import { fetchInterviewListingBottomContent } from '~/db/contentlayer/InterviewsListingBottomContentReader';
 import { fetchInterviewsStudyLists } from '~/db/contentlayer/InterviewsStudyListReader';
 import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
-
-import InterviewsFocusAreaListPage from './InterviewsFocusAreaListPage';
 
 export const dynamic = 'force-static';
 
@@ -34,7 +34,7 @@ async function getPageSEOMetadata({ params }: Props) {
         topicsCount: focusAreas.length,
       },
     ),
-    href: '/focus-areas',
+    href: '/interviews/focus-areas',
     socialTitle: intl.formatMessage({
       defaultMessage: 'Practice Questions by Focus Area | GreatFrontEnd',
       description: 'Social title for focus areas listing',

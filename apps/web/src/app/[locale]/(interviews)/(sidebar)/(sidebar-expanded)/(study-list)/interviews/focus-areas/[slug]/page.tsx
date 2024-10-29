@@ -5,6 +5,7 @@ import { CourseJsonLd } from 'next-seo';
 import { INTERVIEWS_REVAMP_BOTTOM_CONTENT } from '~/data/FeatureFlags';
 
 import { sortQuestions } from '~/components/interviews/questions/listings/filters/QuestionsProcessor';
+import InterviewsFocusAreaPage from '~/components/interviews/questions/listings/learning/focus-areas/InterviewsFocusAreaPage';
 
 import { fetchInterviewListingBottomContent } from '~/db/contentlayer/InterviewsListingBottomContentReader';
 import {
@@ -17,17 +18,15 @@ import { generateStaticParamsWithLocale } from '~/next-i18nostic/src';
 import defaultMetadata from '~/seo/defaultMetadata';
 import { getSiteOrigin } from '~/seo/siteUrl';
 
-import InterviewsFocusAreaPage from './InterviewsFocusAreaPage';
-
 type Props = Readonly<{
   params: {
-    focusArea: string;
     locale: string;
+    slug: string;
   };
 }>;
 
-async function getPageSEOMetadata({ focusArea }: Props['params']) {
-  const focusAreaDocument = await fetchInterviewsStudyList(focusArea);
+async function getPageSEOMetadata({ slug }: Props['params']) {
+  const focusAreaDocument = await fetchInterviewsStudyList(slug);
 
   if (focusAreaDocument == null) {
     return notFound();
@@ -65,9 +64,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function Page({ params }: Props) {
-  const { locale, focusArea: focusAreaType } = params;
+  const { locale, slug } = params;
 
-  const focusArea = await fetchInterviewsStudyList(focusAreaType);
+  const focusArea = await fetchInterviewsStudyList(slug);
 
   if (focusArea == null) {
     return notFound();
@@ -83,7 +82,7 @@ export default async function Page({ params }: Props) {
 
   const [questionsMetadata, bottomContent] = await Promise.all([
     fetchQuestionsBySlug(questionsSlugs, locale),
-    fetchInterviewListingBottomContent(`${focusAreaType}-focus-area`),
+    fetchInterviewListingBottomContent(`${slug}-focus-area`),
   ]);
 
   return (

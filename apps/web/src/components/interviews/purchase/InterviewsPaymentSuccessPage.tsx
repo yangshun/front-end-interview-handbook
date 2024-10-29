@@ -29,7 +29,7 @@ const actions = [
   },
   {
     description: 'Get started with study plans and focus areas',
-    href: '/study-plans',
+    href: '/interviews/study-plans',
     icon: RiCodeSSlashLine,
     title: 'Study plans',
   },

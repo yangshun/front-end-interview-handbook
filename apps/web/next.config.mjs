@@ -89,6 +89,21 @@ const nextConfig = {
         destination: '/questions/quiz/:path*',
         permanent: false,
       },
+      {
+        source: '/study-plans',
+        destination: '/interviews/study-plans',
+        permanent: false,
+      },
+      {
+        source: '/focus-areas',
+        destination: '/interviews/focus-areas',
+        permanent: false,
+      },
+      {
+        source: '/focus-areas/:path*',
+        destination: '/interviews/focus-areas/:path*',
+        permanent: false,
+      },
     ];
   },
   async headers() {

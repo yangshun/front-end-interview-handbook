@@ -5,6 +5,7 @@ import { CourseJsonLd } from 'next-seo';
 import { INTERVIEWS_REVAMP_BOTTOM_CONTENT } from '~/data/FeatureFlags';
 
 import { sortQuestions } from '~/components/interviews/questions/listings/filters/QuestionsProcessor';
+import InterviewsStudyPlanPage from '~/components/interviews/questions/listings/learning/study-plans/InterviewsStudyPlanPage';
 
 import { fetchInterviewListingBottomContent } from '~/db/contentlayer/InterviewsListingBottomContentReader';
 import {
@@ -16,8 +17,6 @@ import { flattenQuestionFormatMetadata } from '~/db/QuestionsUtils';
 import { generateStaticParamsWithLocale } from '~/next-i18nostic/src';
 import defaultMetadata from '~/seo/defaultMetadata';
 import { getSiteOrigin } from '~/seo/siteUrl';
-
-import InterviewsStudyPlanPage from './InterviewsStudyPlanPage';
 
 async function getPageSEOMetadata({ plan }: Props['params']) {
   const focusAreaDocument = await fetchInterviewsStudyList(plan);

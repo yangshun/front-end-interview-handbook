@@ -43,7 +43,7 @@ export default function InterviewsDashboardStudyPlansCTA() {
               className={clsx('size-5', themeTextSecondaryColor)}
             />
           </div>
-          <Anchor href="/study-plans" variant="unstyled">
+          <Anchor href="/interviews/study-plans" variant="unstyled">
             <span aria-hidden={true} className="absolute inset-0" />
             <Text className="block" color="subtitle" size="body3">
               <FormattedMessage

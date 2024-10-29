@@ -111,7 +111,7 @@ export default function InterviewsStudyPlanPage({
           <Button
             addonPosition="start"
             className="-mb-2 -ml-5"
-            href="/study-plans"
+            href="/interviews/study-plans"
             icon={RiArrowLeftLine}
             label={intl.formatMessage({
               defaultMessage: 'Back to study plans',

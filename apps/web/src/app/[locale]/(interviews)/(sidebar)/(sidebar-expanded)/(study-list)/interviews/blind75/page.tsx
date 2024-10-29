@@ -8,6 +8,7 @@ import {
 } from '~/data/FeatureFlags';
 
 import { sortQuestions } from '~/components/interviews/questions/listings/filters/QuestionsProcessor';
+import InterviewsBlind75Page from '~/components/interviews/questions/listings/learning/study-plans/InterviewsBlind75Page';
 
 import { fetchInterviewListingBottomContent } from '~/db/contentlayer/InterviewsListingBottomContentReader';
 import { fetchInterviewsStudyList } from '~/db/contentlayer/InterviewsStudyListReader';
@@ -15,8 +16,6 @@ import { fetchQuestionsBySlug } from '~/db/QuestionsListReader';
 import { flattenQuestionFormatMetadata } from '~/db/QuestionsUtils';
 import defaultMetadata from '~/seo/defaultMetadata';
 import { getSiteOrigin } from '~/seo/siteUrl';
-
-import InterviewsBlind75Page from './InterviewsBlind75Page';
 
 async function getPageSEOMetadata() {
   const studyPlanDocument = await fetchInterviewsStudyList('blind75');

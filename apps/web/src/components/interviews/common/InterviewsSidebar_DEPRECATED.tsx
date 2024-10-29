@@ -134,7 +134,7 @@ function useSidebarNavigation() {
     {
       currentMatchRegex:
         /^\/(study-plans|prepare\/(one-week|one-month|three-months))/,
-      href: '/study-plans',
+      href: '/interviews/study-plans',
       icon: RiCalendar2Line,
       key: 'study-plans',
       name: intl.formatMessage({
@@ -146,7 +146,7 @@ function useSidebarNavigation() {
     },
     {
       currentMatchRegex: /^\/focus-areas/,
-      href: '/focus-areas',
+      href: '/interviews/focus-areas',
       icon: RiFocus2Line,
       key: 'focus-areas',
       name: intl.formatMessage({
