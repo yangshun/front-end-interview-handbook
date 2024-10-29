@@ -30,12 +30,14 @@ type Props = Readonly<{
   children: ReactNode;
   focusAreas: ReadonlyArray<InterviewsStudyList>;
   questionTotalAvailableCount: QuestionTotalAvailableCount;
+  studyPlans: ReadonlyArray<InterviewsStudyList>;
 }>;
 
 export default function InterviewsDashboardLayout({
   children,
   questionTotalAvailableCount,
   focusAreas,
+  studyPlans,
 }: Props) {
   const { pathname } = useI18nPathname();
   const tabsRef = useRef<HTMLDivElement>(null);
@@ -104,6 +106,7 @@ export default function InterviewsDashboardLayout({
                 completedCount: session._count.progress,
                 listKey: session.key,
               }))}
+              studyPlans={studyPlans}
             />
           )}
           <InterviewsDashboardFeaturedFocusAreas

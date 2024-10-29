@@ -1,10 +1,9 @@
 import type { InterviewsStudyList } from 'contentlayer/generated';
 
-import { usePreparationPlans } from '~/data/plans/PreparationPlansHooks';
-
 import InterviewsDashboardContinueLearning from '~/components/interviews/dashboard/InterviewsDashboardContinueLearning';
 
 import { mapFocusAreasBySlug } from '../questions/content/study-list/FocusAreas';
+import { mapStudyPlansBySlug } from '../questions/content/study-list/StudyPlans';
 
 type Props = Readonly<{
   focusAreas: ReadonlyArray<InterviewsStudyList>;
@@ -12,20 +11,17 @@ type Props = Readonly<{
     completedCount: number;
     listKey: string;
   }>;
+  studyPlans: ReadonlyArray<InterviewsStudyList>;
 }>;
 
 export default function InterviewsDashboardContinueLearningContainer({
   items,
+  studyPlans,
   focusAreas,
 }: Props) {
-  // TODO(interviews): need to update once preparation plan is migrated to contentlayer
-  const plans = usePreparationPlans() as unknown as Record<
-    string,
-    InterviewsStudyList
-  >;
-
+  const mapStudyPlans = mapStudyPlansBySlug(studyPlans);
   const mapFocusAreas = mapFocusAreasBySlug(focusAreas);
-  const questionLists = { ...plans, ...mapFocusAreas };
+  const questionLists = { ...mapStudyPlans, ...mapFocusAreas };
 
   return (
     <InterviewsDashboardContinueLearning
@@ -40,6 +36,7 @@ export default function InterviewsDashboardContinueLearningContainer({
             questionsJavaScript,
             questionsQuiz,
             questionsSystemDesign,
+            questionsUserInterface,
           } = questionLists[listKey];
 
           return {
@@ -49,6 +46,8 @@ export default function InterviewsDashboardContinueLearningContainer({
               (questionsAlgo?.length ?? 0) +
               (questionsJavaScript?.length ?? 0) +
               (questionsQuiz?.length ?? 0) +
+              (questionsSystemDesign?.length ?? 0) +
+              (questionsUserInterface?.length ?? 0) +
               (questionsSystemDesign?.length ?? 0),
             title: longName,
           };

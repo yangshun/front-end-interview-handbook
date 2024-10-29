@@ -1,17 +1,19 @@
 'use client';
 
 import clsx from 'clsx';
+import type { InterviewsStudyList } from 'contentlayer/generated';
 
 import gtag from '~/lib/gtag';
-
-import { getPreparationPlanTheme } from '~/data/plans/PreparationPlans';
-import { usePreparationPlans } from '~/data/plans/PreparationPlansHooks';
 
 import InterviewsMarketingJavaScriptQuestionsExamples from '~/components/interviews/marketing/examples/InterviewsMarketingJavaScriptQuestionsExamples';
 import InterviewsMarketingQuizQuestionsExamples from '~/components/interviews/marketing/examples/InterviewsMarketingQuizQuestionsExamples';
 import InterviewsMarketingSystemDesignQuestionsExamples from '~/components/interviews/marketing/examples/InterviewsMarketingSystemDesignQuestionsExamples';
 import InterviewsMarketingUserInterfaceQuestionsExamples from '~/components/interviews/marketing/examples/InterviewsMarketingUserInterfaceQuestionsExamples';
 import type { QuestionMetadata } from '~/components/interviews/questions/common/QuestionsTypes';
+import {
+  mapStudyPlansBySlug,
+  StudyPlanIcons,
+} from '~/components/interviews/questions/content/study-list/StudyPlans';
 import { useIntl } from '~/components/intl';
 import Anchor from '~/components/ui/Anchor';
 import Container from '~/components/ui/Container';
@@ -30,9 +32,43 @@ type Props = Readonly<{
   userInterfaceQuestions: ReadonlyArray<QuestionMetadata>;
 }>;
 
-function PreparationPlansSection() {
+function PreparationPlansSection({
+  studyPlans,
+}: {
+  studyPlans: ReadonlyArray<InterviewsStudyList>;
+}) {
   const intl = useIntl();
-  const preparationPlans = usePreparationPlans();
+
+  const mapStudyPlans = mapStudyPlansBySlug(studyPlans);
+  const plans = [
+    {
+      ...mapStudyPlans['one-week'],
+      gradient: {
+        className:
+          'bg-[linear-gradient(133.77deg,_#f7ff00_0%,_#db36a4_97.95%)]',
+        endColor: '#db36a4',
+        startColor: '#f7ff00',
+      },
+    },
+    {
+      ...mapStudyPlans['one-month'],
+      gradient: {
+        className:
+          'bg-[linear-gradient(133.77deg,_#bc4e9c_0%,_#f80759_97.95%)]',
+        endColor: '#f80759',
+        startColor: '#bc4e9c',
+      },
+    },
+    {
+      ...mapStudyPlans['three-months'],
+      gradient: {
+        className:
+          'bg-[linear-gradient(133.77deg,_#7F00FF_0%,_#E100FF_97.95%)]',
+        endColor: '#E100FF',
+        startColor: '#7F00FF',
+      },
+    },
+  ];
 
   return (
     <div>
@@ -55,27 +91,27 @@ function PreparationPlansSection() {
       </div>
       <Section>
         <div className="mt-20 grid grid-cols-1 gap-y-20 lg:grid-cols-3 lg:gap-x-6 lg:gap-y-0">
-          {Object.entries(preparationPlans).map(([_, plan]) => {
-            const planTheme = getPreparationPlanTheme(plan.type);
+          {plans.map((plan) => {
+            const Icon = StudyPlanIcons[plan.slug];
 
             return (
               <div
-                key={plan.type}
+                key={plan.slug}
                 className={clsx(
                   'focus-within:ring-brand relative flex flex-col rounded-2xl px-6 pb-8 pt-12 focus-within:ring-2 focus-within:ring-inset',
-                  planTheme.gradient.className,
+                  plan.gradient.className,
                 )}>
                 <div
                   className={clsx(
                     'absolute top-0 inline-block -translate-y-1/2 transform rounded-xl border-2 p-3 shadow-lg',
                     themeBackgroundColor,
                   )}
-                  style={{ borderColor: planTheme.gradient.startColor }}>
-                  <planTheme.iconSolid
+                  style={{ borderColor: plan.gradient.startColor }}>
+                  <Icon
                     aria-hidden="true"
                     className={clsx('size-8')}
                     style={{
-                      color: planTheme.gradient.startColor,
+                      color: plan.gradient.startColor,
                     }}
                   />
                 </div>
@@ -178,7 +214,8 @@ export default function InterviewsMarketingGetStartedPage({
   userInterfaceQuestions,
   quizQuestions,
   systemDesignQuestions,
-}: Props) {
+  studyPlans,
+}: Props & Readonly<{ studyPlans: ReadonlyArray<InterviewsStudyList> }>) {
   const intl = useIntl();
 
   return (
@@ -196,7 +233,7 @@ export default function InterviewsMarketingGetStartedPage({
         })}
       </Heading>
       <Section>
-        <PreparationPlansSection />
+        <PreparationPlansSection studyPlans={studyPlans} />
         <Divider />
         <PracticeQuestionsSection
           javaScriptQuestions={javaScriptQuestions}

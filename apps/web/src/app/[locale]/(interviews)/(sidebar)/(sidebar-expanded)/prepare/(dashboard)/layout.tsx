@@ -8,15 +8,18 @@ type Props = Readonly<{
 }>;
 
 export default async function DashboardPageLayout({ children }: Props) {
-  const [questionTotalAvailableCount, focusAreas] = await Promise.all([
-    fetchQuestionsListCount(),
-    fetchInterviewsStudyLists('focus-area'),
-  ]);
+  const [questionTotalAvailableCount, focusAreas, studyPlans] =
+    await Promise.all([
+      fetchQuestionsListCount(),
+      fetchInterviewsStudyLists('focus-area'),
+      fetchInterviewsStudyLists('study-plan'),
+    ]);
 
   return (
     <InterviewsDashboardLayout
       focusAreas={focusAreas}
-      questionTotalAvailableCount={questionTotalAvailableCount}>
+      questionTotalAvailableCount={questionTotalAvailableCount}
+      studyPlans={studyPlans}>
       {children}
     </InterviewsDashboardLayout>
   );

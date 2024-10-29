@@ -1,8 +1,6 @@
 import clsx from 'clsx';
 import type { InterviewsStudyList } from 'contentlayer/generated';
 
-import { usePreparationPlans } from '~/data/plans/PreparationPlansHooks';
-
 import getProgressBarGradient from '~/components/interviews/common/utils';
 import { mapFocusAreasBySlug } from '~/components/interviews/questions/content/study-list/FocusAreas';
 import { FormattedMessage, useIntl } from '~/components/intl';
@@ -18,6 +16,7 @@ import {
 } from '~/components/ui/theme';
 import Tooltip from '~/components/ui/Tooltip';
 
+import { mapStudyPlansBySlug } from '../questions/content/study-list/StudyPlans';
 import QuestionCountLabel from '../questions/metadata/QuestionCountLabel';
 
 import type { LearningSession } from '@prisma/client';
@@ -27,21 +26,19 @@ type Props = Readonly<{
   questionListSessions: Array<
     LearningSession & { _count: { progress: number } }
   >;
+  studyPlans: ReadonlyArray<InterviewsStudyList>;
 }>;
 
 export default function InterviewsDashboardContinueLearningSection({
   questionListSessions,
   focusAreas,
+  studyPlans,
 }: Props) {
   const intl = useIntl();
-  // TODO(interviews): need to update once preparation plan is migrated to contentlayer
-  const plans = usePreparationPlans() as unknown as Record<
-    string,
-    InterviewsStudyList
-  >;
 
+  const mapStudyPlans = mapStudyPlansBySlug(studyPlans);
   const mapFocusAreas = mapFocusAreasBySlug(focusAreas);
-  const questionLists = { ...plans, ...mapFocusAreas };
+  const questionLists = { ...mapStudyPlans, ...mapFocusAreas };
 
   const items = questionListSessions
     // TODO(interviews): filter out company lists for now because company list
@@ -55,6 +52,7 @@ export default function InterviewsDashboardContinueLearningSection({
         questionsJavaScript,
         questionsQuiz,
         questionsSystemDesign,
+        questionsUserInterface,
       } = questionLists[key];
 
       return {
@@ -64,6 +62,7 @@ export default function InterviewsDashboardContinueLearningSection({
           (questionsAlgo?.length ?? 0) +
           (questionsJavaScript?.length ?? 0) +
           (questionsQuiz?.length ?? 0) +
+          (questionsUserInterface?.length ?? 0) +
           (questionsSystemDesign?.length ?? 0),
         title: longName,
       };

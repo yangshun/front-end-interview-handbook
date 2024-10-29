@@ -259,10 +259,6 @@
     "defaultMessage": "Create your developer profile on GreatFrontEnd. Showcase your skills, experiences and connect with the community.",
     "description": "Description of projects onboarding profile page"
   },
-  "/pkoGQ": {
-    "defaultMessage": "Prepare for your front end interviews in 1 week",
-    "description": "Description for one week study plan"
-  },
   "/pokLY": {
     "defaultMessage": "This is the name that will be shown on your profile. Use a maximum of {maxLength} character(s).",
     "description": "Name field description"
@@ -471,10 +467,6 @@
     "defaultMessage": "Select dashboard category",
     "description": "Tab label to select another dashboard category"
   },
-  "1PHE0Y": {
-    "defaultMessage": "Most complete all-in-one front end interview preparation.",
-    "description": "Short description for 3 months study plan"
-  },
   "1Q18c8": {
     "defaultMessage": "Quick start guide to front end interviews",
     "description": "Description of front end interview playbook"
@@ -582,10 +574,6 @@
   "2BQudu": {
     "defaultMessage": "Visit external link",
     "description": "Label for open external link button"
-  },
-  "2Bggln": {
-    "defaultMessage": "Most important 75 questions for front end interviews.",
-    "description": "Short description for GFE75 plan"
   },
   "2CZvP8": {
     "defaultMessage": "Title",
@@ -867,10 +855,6 @@
     "defaultMessage": "Mark as complete",
     "description": "Mark guide as complete"
   },
-  "4WUroS": {
-    "defaultMessage": "Efficiently focus on the most important concepts",
-    "description": "Short description for one week study plan"
-  },
   "4aoTWp": {
     "defaultMessage": "Complete the tasks",
     "description": "Rewards step label"
@@ -990,10 +974,6 @@
   "5ZA7Hl": {
     "defaultMessage": "Browse all submissions",
     "description": "Browser all submissions"
-  },
-  "5awWqG": {
-    "defaultMessage": "1 Week Study Plan",
-    "description": "Long label for one week study plan"
   },
   "5bW/ye": {
     "defaultMessage": "Created: Oldest to newest",
@@ -1727,10 +1707,6 @@
     "defaultMessage": "Name must contain at least {minLength} character(s).",
     "description": "Error message when display name is too short"
   },
-  "AMHPad": {
-    "defaultMessage": "Most important 75 questions for data structure and algorithm style interviews.",
-    "description": "Long description for Blind75 plan"
-  },
   "ANSxyW": {
     "defaultMessage": "Low",
     "description": "Low importance question"
@@ -1850,10 +1826,6 @@
   "BDbpLJ": {
     "defaultMessage": "Sign out",
     "description": "Link label to the sign out page"
-  },
-  "BEEepg": {
-    "defaultMessage": "Prepare well for your front end interviews in one month with practice questions spanning a perfect mix of topics. Solutions and tests by ex-interviewers from big tech.",
-    "description": "Description of 1 Month Preparation Plan page"
   },
   "BGn++d": {
     "defaultMessage": "Quiz Questions",
@@ -2315,10 +2287,6 @@
     "defaultMessage": "Pricing",
     "description": "Link to pricing page"
   },
-  "EJRNjL": {
-    "defaultMessage": "1 Month",
-    "description": "Short label for one month study plan"
-  },
   "ELcn8L": {
     "defaultMessage": "Recommended user submissions you can reference.",
     "description": "FAQ answer for projects platform"
@@ -2539,10 +2507,6 @@
     "defaultMessage": "This study list is part of our recommended preparation strategy.",
     "description": "Tooltip for recommended preparation strategy badge"
   },
-  "G+xlW/": {
-    "defaultMessage": "3 Months Study Plan",
-    "description": "Short label for 3 months study plan"
-  },
   "G11qgw": {
     "defaultMessage": "High resolution image assets",
     "description": "Provided resource for project"
@@ -2659,10 +2623,6 @@
     "defaultMessage": "Select project category",
     "description": "Tab label to select another project category"
   },
-  "GeKBII": {
-    "defaultMessage": "1 Month Study Plan",
-    "description": "Long label for one month study plan"
-  },
   "Geiogi": {
     "defaultMessage": "View your submission",
     "description": "Label for View your submission button on project submit page"
@@ -2686,10 +2646,6 @@
   "Gqq8RF": {
     "defaultMessage": "Build front end real-world projects",
     "description": "Title of Projects page"
-  },
-  "Gtlwzt": {
-    "defaultMessage": "Prepare well for your front end interviews in one week with a hyper-optimized list of practice questions. Solutions and tests by ex-interviewers from big tech.",
-    "description": "Description of 1 Week Preparation Plan page"
   },
   "Gttxsq": {
     "defaultMessage": "Try these popular Svelte questions",
@@ -3519,10 +3475,6 @@
     "defaultMessage": "Create a free account to track your progress",
     "description": "CTA to create a free account for non-logged in users"
   },
-  "Lhn9Pe": {
-    "defaultMessage": "One Month Study Plan for Front End Interviews",
-    "description": "Title of 1 Month Preparation Plan page"
-  },
   "LiRxEy": {
     "defaultMessage": "URL to the root or a subdirectory of your GitHub repository. We will use it to pull files onto the platform for code reviews.",
     "description": "Form description"
@@ -3623,17 +3575,9 @@
     "defaultMessage": "See all",
     "description": "Link to all focus areas page"
   },
-  "MLzMFp": {
-    "defaultMessage": "One Week Study Plan for Front End Interviews",
-    "description": "Title of 1 Week Preparation Plan page"
-  },
   "MMflpy": {
     "defaultMessage": "Follow",
     "description": "Label for github follow button"
-  },
-  "MN8mVk": {
-    "defaultMessage": "Three Months Study Plan for Front End Interviews",
-    "description": "Social title of 3 Months Preparation Plan page"
   },
   "MNAkQc": {
     "defaultMessage": "To build <keywords>side projects</keywords>",
@@ -3646,10 +3590,6 @@
   "MNzCyG": {
     "defaultMessage": "Store your code in a public GitHub repository",
     "description": "Description for GitHub repo step in project submission checklist"
-  },
-  "MObOIi": {
-    "defaultMessage": "Blind75 | GreatFrontEnd",
-    "description": "OG title of Blind75 page"
   },
   "MOxuKN": {
     "defaultMessage": "Select question category",
@@ -4123,10 +4063,6 @@
     "defaultMessage": "Completed",
     "description": "The guide has been completed"
   },
-  "PahqMO": {
-    "defaultMessage": "GFE 75 - 75 Most Important Front End Interview Questions",
-    "description": "Title of GFE75 page"
-  },
   "PbcB1O": {
     "defaultMessage": "If you haven’t started a job in SWE or front end yet, select another status to display in place of your YOE",
     "description": "Label for \"Status\" choices on Projects profile page"
@@ -4266,10 +4202,6 @@
   "QJTIr/": {
     "defaultMessage": "Can't find the answer you are looking for?",
     "description": "Marketing page section subtitle"
-  },
-  "QJUTsK": {
-    "defaultMessage": "GFE75 | GreatFrontEnd",
-    "description": "OG title of GFE75 page"
   },
   "QJaxVF": {
     "defaultMessage": "Our focus is currently on expanding our question base. New coding and system design questions are added to the platform on a weekly basis.",
@@ -4622,10 +4554,6 @@
   "SG08/K": {
     "defaultMessage": "Challenge unlocked successfully",
     "description": "Label to unlock a premium project"
-  },
-  "SId1Gq": {
-    "defaultMessage": "All rounded coverage to bring you to the next level.",
-    "description": "Short description for one month study plan"
   },
   "SK7Xn6": {
     "defaultMessage": "Write your status here",
@@ -5407,10 +5335,6 @@
     "defaultMessage": "More",
     "description": "Label for \"More\" button in pagination"
   },
-  "XFNi6J": {
-    "defaultMessage": "GFE 75",
-    "description": "Short label for GFE75 study plan"
-  },
   "XG1Wfg": {
     "defaultMessage": "Join Discord (premium)",
     "description": "Tooltip for join premium discord"
@@ -5735,10 +5659,6 @@
     "defaultMessage": "User Interfaces Coding",
     "description": "Title for ui coding questions"
   },
-  "ZV1bn5": {
-    "defaultMessage": "Blind 75",
-    "description": "Long label for Blind75 study plan"
-  },
   "ZWMfa0": {
     "defaultMessage": "Pricing plans",
     "description": "Section label on Pricing section of Homepage or Pricing page"
@@ -5878,10 +5798,6 @@
   "aTEHV0": {
     "defaultMessage": "Every project challenge was designed by senior UI/UX designers with perfect spacing units and design rules, so that your portfolio projects will always look professional.",
     "description": "Description of 'Beautiful designs made by high-end designers' feature in Projects marketing page"
-  },
-  "aUDq4G": {
-    "defaultMessage": "Prepare well for your front end interviews in three months with the complete all-in-one prep—over 140 questions and quality solutions from ex-interviewers at big tech",
-    "description": "Description of 3 Months Preparation Plan page"
   },
   "aVhVoX": {
     "defaultMessage": "RADIO framework",
@@ -6170,10 +6086,6 @@
   "c2hcfm": {
     "defaultMessage": "Submit",
     "description": "Feedback widget submit button label"
-  },
-  "c3ZWbk": {
-    "defaultMessage": "GreatFrontend 75",
-    "description": "Long label for GFE75 study plan"
   },
   "c4N2O5": {
     "defaultMessage": "Not signed in",
@@ -6683,10 +6595,6 @@
     "defaultMessage": "Will this be a timed challenge?",
     "description": "FAQ question for projects platform"
   },
-  "fR8Vkh": {
-    "defaultMessage": "Blind 75",
-    "description": "Short label for Blind75 study plan"
-  },
   "fRGOI+": {
     "defaultMessage": "Number of questions",
     "description": "Total number of questions in a list"
@@ -7111,10 +7019,6 @@
     "defaultMessage": "You've previously completed {questionCount, plural, =0 {<bold>0</bold> questions} one {<bold>1</bold> question} other {<bold>#</bold> questions}} from this list.",
     "description": "Description for import progress"
   },
-  "i0GIaV": {
-    "defaultMessage": "Most important 75 questions for front end interviews.",
-    "description": "Long description for GFE75 plan"
-  },
   "i0RFBu": {
     "defaultMessage": "Coupons | Settings",
     "description": "Title of coupons page"
@@ -7371,10 +7275,6 @@
     "defaultMessage": "Tech stack",
     "description": "Placeholder for \"Other tech stack used\" text input"
   },
-  "jvoxVL": {
-    "defaultMessage": "Prepare for your front end interviews in 3 months",
-    "description": "Long description for three months study plan"
-  },
   "jwZwsD": {
     "defaultMessage": "Mobile ({width}px x {height}px)",
     "description": "Responsive breakpoint category"
@@ -7502,10 +7402,6 @@
   "kS8Lwx": {
     "defaultMessage": "Settings",
     "description": "Link label to the settings page"
-  },
-  "kTIFRY": {
-    "defaultMessage": "1 Month Study Plan | GreatFrontEnd",
-    "description": "Title of 1 Month Preparation Plan page"
   },
   "kTyRGU": {
     "defaultMessage": "Step 3",
@@ -7683,10 +7579,6 @@
     "defaultMessage": "Core System Design techniques and in-depth solutions to common questions like building a social media feed, autocomplete component, e-commerce website.",
     "description": "Description for frontend system design guide"
   },
-  "lL2bPL": {
-    "defaultMessage": "Prepare for your front end interviews in 1 month",
-    "description": "Description for one month study plan"
-  },
   "lMWmct": {
     "defaultMessage": "An 'active day' is a day you completed at least 1 question",
     "description": "Tooltip label for active day in completions"
@@ -7702,10 +7594,6 @@
   "lNb6DV": {
     "defaultMessage": "Share this page",
     "description": "Tooltip for share button"
-  },
-  "lSt1q5": {
-    "defaultMessage": "1 Week Study Plan | GreatFrontEnd",
-    "description": "Social title of 1 Week Preparation Plan page"
   },
   "lWQA1A": {
     "defaultMessage": "Challenges completed",
@@ -7963,10 +7851,6 @@
     "defaultMessage": "Cancel",
     "description": "Label for cancel button for projects profile edit page"
   },
-  "ngnwcj": {
-    "defaultMessage": "Most important 75 questions for data structure and algorithm style interviews",
-    "description": "Short description for Blind75 plan"
-  },
   "nhMxxN": {
     "defaultMessage": "End-to-end guide",
     "description": "Features for frontend interviews playbook page"
@@ -8059,10 +7943,6 @@
     "defaultMessage": "Difficulty: Easy to Hard",
     "description": "Sorting option for question list - sort by difficulty from easy to hard"
   },
-  "oOrYqo": {
-    "defaultMessage": "3 Months Study Plan | GreatFrontEnd",
-    "description": "Title of 3 Months Preparation Plan page"
-  },
   "oPyUXk": {
     "defaultMessage": "Practice building all sorts of user interfaces: components, apps, games, etc, in the framework of your choice.",
     "description": "Subtitle for an example list of User Interface Questions on marketing pages"
@@ -8110,10 +7990,6 @@
   "ojo22x": {
     "defaultMessage": "No challenges started yet",
     "description": "Title of empty state on projects activity page"
-  },
-  "ojtNa2": {
-    "defaultMessage": "3 Months",
-    "description": "Short label for 3 months study plan"
   },
   "okguyM": {
     "defaultMessage": "{questionCount} question deep-dives",
@@ -8242,10 +8118,6 @@
   "pRCMpc": {
     "defaultMessage": "View plans",
     "description": "Button displayed on paywall on premium question pages, leading to our pricing plans"
-  },
-  "pRxRs2": {
-    "defaultMessage": "Hear from our users",
-    "description": "Title of testimonials section"
   },
   "pSJKPJ": {
     "defaultMessage": "Unlock premium challenge",
@@ -8535,10 +8407,6 @@
     "defaultMessage": "<authorProfileLink>{author}</authorProfileLink> asked a question on the challenge forum for <link>{challengeTitle}</link>: <comment>\"{description}\"</comment>",
     "description": "Log message for someone asking a question on the challenge forum"
   },
-  "rQneUp": {
-    "defaultMessage": "Blind75 - Top 75 Data Structures and Algorithms Questions",
-    "description": "Title of Blind75 page"
-  },
   "rQpb6P": {
     "defaultMessage": "Import that progress into this list?",
     "description": "Description for import progress"
@@ -8790,10 +8658,6 @@
   "t5L0yE": {
     "defaultMessage": "Pricing",
     "description": "Link to pricing plans page"
-  },
-  "t5nQRB": {
-    "defaultMessage": "Discover study plans tailored to your needs to help you prepare for your upcoming technical interviews.",
-    "description": "Description for study plans page"
   },
   "tBeimS": {
     "defaultMessage": "Challenges activity",
@@ -9187,10 +9051,6 @@
     "defaultMessage": "Sort by",
     "description": "Label for sorting button"
   },
-  "vfVwh2": {
-    "defaultMessage": "1 Week",
-    "description": "Short label for one week study plan"
-  },
   "vg2xht": {
     "defaultMessage": "Follow us on LinkedIn",
     "description": "Title for task"
@@ -9214,10 +9074,6 @@
   "vncIYl": {
     "defaultMessage": "Test cases",
     "description": "Features for all practice questions page"
-  },
-  "vp+axD": {
-    "defaultMessage": "The 75 most important questions to master for data structures and algorithms interviews, with solutions in JavaScript / TypeScript for front end engineers",
-    "description": "Description of Blind75 page"
   },
   "vp4zbB": {
     "defaultMessage": "Purchase premium to see companies which ask this question.",
@@ -9350,10 +9206,6 @@
   "wW8IAK": {
     "defaultMessage": "No file selected from the repository. Select a file to view.",
     "description": "Empty state message when the default file from the repository could not be loaded"
-  },
-  "wXON/G": {
-    "defaultMessage": "The 75 critical questions to master for Front End interviews, covering all essential topics. Code in-browser with solutions and tests from ex-interviewers.",
-    "description": "Description of GFE75 page"
   },
   "wdjeYA": {
     "defaultMessage": "View",

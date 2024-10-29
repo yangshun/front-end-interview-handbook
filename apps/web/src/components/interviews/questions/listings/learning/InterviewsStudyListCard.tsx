@@ -2,10 +2,7 @@ import clsx from 'clsx';
 import type { InterviewsStudyList } from 'contentlayer/generated';
 import { RiArrowRightLine } from 'react-icons/ri';
 
-import type { PreparationPlanSchedule } from '~/data/plans/PreparationPlans';
-
 import InterviewsEntityProgress from '~/components/interviews/common/InterviewsEntityProgress';
-import type { QuestionList_DEPRECATED } from '~/components/interviews/questions/common/QuestionsTypes';
 import QuestionStudyAllocationLabel from '~/components/interviews/questions/metadata/QuestionStudyAllocationLabel';
 import { useIntl } from '~/components/intl';
 import Anchor from '~/components/ui/Anchor';
@@ -21,20 +18,16 @@ import {
   themeTextSubtleColor,
 } from '~/components/ui/theme';
 
-import { countNumberOfQuestionsInList } from '~/db/QuestionsUtils';
-
 type Props = Readonly<{
   completionCount?: number;
   icon?: (props: React.ComponentProps<'svg'>) => JSX.Element;
   isStarted?: boolean;
-  metadata: InterviewsStudyList | QuestionList_DEPRECATED;
-  schedule?: PreparationPlanSchedule;
+  metadata: InterviewsStudyList;
 }>;
 
 export default function InterviewsStudyListCard({
   completionCount = 0,
   metadata,
-  schedule,
   icon: Icon,
   isStarted,
 }: Props) {
@@ -42,12 +35,11 @@ export default function InterviewsStudyListCard({
 
   const { name, shortDescription, href } = metadata;
   const questionCount =
-    'questions' in metadata
-      ? countNumberOfQuestionsInList(metadata.questions)
-      : (metadata.questionsAlgo?.length ?? 0) +
-        (metadata.questionsJavaScript?.length ?? 0) +
-        (metadata.questionsQuiz?.length ?? 0) +
-        (metadata.questionsUserInterface?.length ?? 0);
+    (metadata.questionsAlgo?.length ?? 0) +
+    (metadata.questionsJavaScript?.length ?? 0) +
+    (metadata.questionsQuiz?.length ?? 0) +
+    (metadata.questionsSystemDesign?.length ?? 0) +
+    (metadata.questionsUserInterface?.length ?? 0);
 
   return (
     <div
@@ -105,10 +97,10 @@ export default function InterviewsStudyListCard({
               total={questionCount}
               type="question"
             />
-            {schedule && (
+            {metadata.schedule && (
               <QuestionStudyAllocationLabel
-                frequency={schedule.frequency}
-                hours={schedule.hours}
+                frequency={metadata.schedule.frequency}
+                hours={metadata.schedule.hours}
                 showIcon={true}
               />
             )}

@@ -1,5 +1,3 @@
-import type { ThemeGradient } from '~/components/ui/theme';
-
 import type {
   SandboxEnvironment,
   SandboxTemplate,
@@ -167,32 +165,6 @@ export type QuestionTopic =
   | 'testing';
 
 export type QuestionQuiz = QuestionBase;
-
-/**
- * @deprecated
- *
- * Use InterviewsStudyListDocument instead.
- */
-export type QuestionList_DEPRECATED = Readonly<{
-  description: string;
-  href: string;
-  longName: string;
-  name: string;
-  questions: Record<QuestionFormat, ReadonlyArray<QuestionSlug>>;
-  seo: {
-    description: string;
-    socialTitle?: string;
-    title: string;
-  };
-  shortDescription: string;
-}>;
-
-export type QuestionListTheme_DEPRECATED = Readonly<{
-  customIcon?: (props: { size?: 'lg' | 'md' | 'sm' }) => JSX.Element;
-  gradient: ThemeGradient;
-  iconOutline: (props: React.ComponentProps<'svg'>) => JSX.Element;
-  iconSolid: (props: React.ComponentProps<'svg'>) => JSX.Element;
-}>;
 
 export type QuestionFeatureType =
   | 'company-guides'

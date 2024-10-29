@@ -9,6 +9,16 @@ function parseSlug(sourceFilePath: string) {
   return sourceFilePath.split(path.posix.sep)[3].replace(/\.mdx$/, '');
 }
 
+const Schedule = {
+  frequency: {
+    options: ['weekly', 'daily'],
+    type: 'enum',
+  },
+  hours: {
+    type: 'number', // Define hours as a number
+  },
+};
+
 export const InterviewsStudyListDocument = defineDocumentType(() => ({
   computedFields: {
     category: {
@@ -20,16 +30,22 @@ export const InterviewsStudyListDocument = defineDocumentType(() => ({
     href: {
       description: 'Link to study list page',
       resolve: (doc) => {
+        if (doc.href) {
+          return doc.href;
+        }
+
         const category = parseCategory(doc._raw.sourceFilePath);
+        const slug = parseSlug(doc._raw.sourceFilePath);
 
         switch (category) {
           case 'company': {
-            return `/interviews/company/${parseSlug(
-              doc._raw.sourceFilePath,
-            )}/questions-guides`;
+            return `/interviews/company/${slug}/questions-guides`;
           }
           case 'focus-area': {
-            return `/focus-area/${parseSlug(doc._raw.sourceFilePath)}`;
+            return `/focus-area/${slug}`;
+          }
+          case 'study-plan': {
+            return `/prepare/${slug}`;
           }
         }
       },
@@ -46,6 +62,11 @@ export const InterviewsStudyListDocument = defineDocumentType(() => ({
     description: {
       description: 'Description of the list',
       required: true,
+      type: 'string',
+    },
+    href: {
+      description: 'Link to study list page',
+      required: false,
       type: 'string',
     },
     logoUrl: {
@@ -94,6 +115,11 @@ export const InterviewsStudyListDocument = defineDocumentType(() => ({
       type: 'list',
     },
     ranking: { default: 999, required: false, type: 'number' },
+    schedule: {
+      of: Schedule,
+      required: false,
+      type: 'json',
+    },
     seoDescription: {
       description: 'SEO description',
       required: true,

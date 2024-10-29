@@ -9,8 +9,6 @@ import { useMemo } from 'react';
 
 import { trpc } from '~/hooks/trpc';
 
-import type { PreparationPlans } from '~/data/plans/PreparationPlans';
-
 import type {
   QuestionFramework,
   QuestionLanguage,
@@ -35,7 +33,6 @@ type Props = Readonly<{
   bottomContent?: InterviewsListingBottomContent;
   companyGuides: Array<InterviewsStudyList>;
   focusAreas: ReadonlyArray<InterviewsStudyList>;
-  preparationPlans: PreparationPlans;
   questions: {
     codingQuestions: ReadonlyArray<QuestionMetadata>;
     frameworkQuestions: Record<
@@ -49,11 +46,12 @@ type Props = Readonly<{
     quizQuestions: ReadonlyArray<QuestionMetadata>;
     systemDesignQuestions: ReadonlyArray<QuestionMetadata>;
   };
+  studyPlans: ReadonlyArray<InterviewsStudyList>;
 }>;
 
 export default function InterviewsDashboardPage({
   companyGuides,
-  preparationPlans,
+  studyPlans,
   questions,
   bottomContent,
   focusAreas,
@@ -108,6 +106,7 @@ export default function InterviewsDashboardPage({
         <InterviewsDashboardContinueLearningSection
           focusAreas={focusAreas}
           questionListSessions={sessions}
+          studyPlans={studyPlans}
         />
       )}
       <InterviewsDashboardRecommendedPreparationStrategy />
@@ -115,10 +114,10 @@ export default function InterviewsDashboardPage({
         companyGuides={companyGuides}
         focusAreas={focusAreas}
         guidesProgress={guidesProgress ?? []}
-        preparationPlans={preparationPlans}
         questionListSessions={sessions}
         questions={questions}
         questionsProgress={questionsProgress ?? []}
+        studyPlans={studyPlans}
       />
       {bottomContent && (
         <Section>

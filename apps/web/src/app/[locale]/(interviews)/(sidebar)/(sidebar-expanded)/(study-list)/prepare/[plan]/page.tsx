@@ -1,57 +1,58 @@
+import { notFound } from 'next/navigation';
 import type { Metadata } from 'next/types';
 import { CourseJsonLd } from 'next-seo';
-import type { IntlShape } from 'react-intl';
 
 import { INTERVIEWS_REVAMP_BOTTOM_CONTENT } from '~/data/FeatureFlags';
-import type { PreparationPlanType } from '~/data/plans/PreparationPlans';
-import { getPreparationPlan } from '~/data/plans/PreparationPlans';
 
-import type { QuestionMetadata } from '~/components/interviews/questions/common/QuestionsTypes';
 import { sortQuestions } from '~/components/interviews/questions/listings/filters/QuestionsProcessor';
 
 import { fetchInterviewListingBottomContent } from '~/db/contentlayer/InterviewsListingBottomContentReader';
-import { fetchPreparationPlans } from '~/db/PreparationPlansReader';
+import {
+  fetchInterviewsStudyList,
+  fetchInterviewsStudyLists,
+} from '~/db/contentlayer/InterviewsStudyListReader';
 import { fetchQuestionsBySlug } from '~/db/QuestionsListReader';
-import { getIntlServerOnly } from '~/i18n';
 import { generateStaticParamsWithLocale } from '~/next-i18nostic/src';
 import defaultMetadata from '~/seo/defaultMetadata';
 import { getSiteOrigin } from '~/seo/siteUrl';
 
 import InterviewsStudyPlanPage from './InterviewsStudyPlanPage';
 
-async function getPreparationPlansSEO(
-  planType: PreparationPlanType,
-  locale: string,
-) {
-  const intl = await getIntlServerOnly(locale);
-  // TODO: Remove this IntlShape typecast.
-  const plan = getPreparationPlan(planType, intl as IntlShape);
+async function getPageSEOMetadata({ plan }: Props['params']) {
+  const focusAreaDocument = await fetchInterviewsStudyList(plan);
 
-  return { ...plan.seo, href: plan.href };
+  if (focusAreaDocument == null) {
+    return notFound();
+  }
+
+  return {
+    description: focusAreaDocument.seoDescription,
+    href: focusAreaDocument.href,
+    socialTitle: focusAreaDocument.socialTitle,
+    title: focusAreaDocument.seoTitle,
+  };
 }
 
 export async function generateStaticParams() {
-  const plans: ReadonlyArray<PreparationPlanType> = [
-    'one-week',
-    'one-month',
-    'three-months',
-  ];
+  const studyPlans = await fetchInterviewsStudyLists('study-plan');
 
-  return generateStaticParamsWithLocale(plans.map((plan) => ({ plan })));
+  return generateStaticParamsWithLocale(
+    studyPlans.map((plan) => ({ plan: plan.slug })),
+  );
 }
 
 type Props = Readonly<{
   params: {
     locale: string;
-    plan: PreparationPlanType;
+    plan: string;
   };
 }>;
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { locale, plan: planType } = params;
+  const { locale } = params;
 
   const { title, description, href, socialTitle } =
-    await getPreparationPlansSEO(planType, locale);
+    await getPageSEOMetadata(params);
 
   return defaultMetadata({
     description,
@@ -63,36 +64,31 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function Page({ params }: Props) {
-  const { locale, plan: planType } = params;
+  const { locale, plan } = params;
+  const preparationPlan = await fetchInterviewsStudyList(plan);
 
-  const intl = await getIntlServerOnly(locale);
-  const [preparationPlans, { title, description }, bottomContent] =
-    await Promise.all([
-      // TODO: Remove this IntlShape typecast.
-      fetchPreparationPlans(intl as IntlShape),
-      getPreparationPlansSEO(planType, locale),
-      fetchInterviewListingBottomContent(`${planType}-study-plan`),
-    ]);
-  const preparationPlan = preparationPlans[planType];
+  if (preparationPlan == null) {
+    return notFound();
+  }
 
-  const questions = await fetchQuestionsBySlug(
-    preparationPlan.questions,
-    locale,
-  );
-  const codingQuestionsForPlan = [
-    ...questions.javascript,
-    ...questions['user-interface'],
-    ...questions.algo,
-  ];
-  const systemDesignQuestionsForPlan = questions['system-design'];
-  const quizQuestionsForPlan =
-    questions.quiz as ReadonlyArray<QuestionMetadata>;
+  const questionsSlugs = {
+    algo: preparationPlan.questionsAlgo ?? [],
+    javascript: preparationPlan.questionsJavaScript ?? [],
+    quiz: preparationPlan.questionsQuiz ?? [],
+    'system-design': preparationPlan.questionsSystemDesign ?? [],
+    'user-interface': preparationPlan.questionsUserInterface ?? [],
+  };
+
+  const [questionsMetadata, bottomContent] = await Promise.all([
+    fetchQuestionsBySlug(questionsSlugs, locale),
+    fetchInterviewListingBottomContent(`${plan}-study-plan`),
+  ]);
 
   return (
     <>
       <CourseJsonLd
-        courseName={title}
-        description={description}
+        courseName={preparationPlan.seoTitle}
+        description={preparationPlan.description}
         provider={{
           name: 'GreatFrontEnd',
           url: getSiteOrigin(),
@@ -103,10 +99,12 @@ export default async function Page({ params }: Props) {
         bottomContent={
           INTERVIEWS_REVAMP_BOTTOM_CONTENT ? bottomContent : undefined
         }
-        codingQuestions={codingQuestionsForPlan}
         plan={preparationPlan}
-        quizQuestions={sortQuestions(quizQuestionsForPlan, 'importance', false)}
-        systemDesignQuestions={systemDesignQuestionsForPlan}
+        questionsMetadata={{
+          ...questionsMetadata,
+          quiz: sortQuestions(questionsMetadata.quiz, 'importance', false),
+        }}
+        questionsSlugs={questionsSlugs}
       />
     </>
   );

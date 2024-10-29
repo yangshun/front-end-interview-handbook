@@ -1,6 +1,5 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import type { IntlShape } from 'react-intl';
 
 import {
   INTERVIEWS_REVAMP_2024,
@@ -11,7 +10,6 @@ import InterviewsDashboardPage from '~/components/interviews/revamp-dashboard/In
 
 import { fetchInterviewListingBottomContent } from '~/db/contentlayer/InterviewsListingBottomContentReader';
 import { fetchInterviewsStudyLists } from '~/db/contentlayer/InterviewsStudyListReader';
-import { fetchPreparationPlans } from '~/db/PreparationPlansReader';
 import {
   fetchQuestionsListCoding,
   fetchQuestionsListQuiz,
@@ -50,24 +48,22 @@ export default async function Page({ params }: Props) {
 
   const { locale } = params;
 
-  const intl = await getIntlServerOnly(locale);
-
   const [
-    preparationPlans,
     { questions: quizQuestions },
     { questions: codingQuestions },
     { questions: systemDesignQuestions },
     bottomContent,
     companyGuides,
     focusAreas,
+    studyPlans,
   ] = await Promise.all([
-    await fetchPreparationPlans(intl as IntlShape),
     fetchQuestionsListQuiz(locale),
     fetchQuestionsListCoding(locale),
     fetchQuestionsListSystemDesign(locale),
     fetchInterviewListingBottomContent('dashboard'),
     fetchInterviewsStudyLists('company'),
     fetchInterviewsStudyLists('focus-area'),
+    fetchInterviewsStudyLists('study-plan'),
   ]);
   const { framework, language } = categorizeQuestionsByFrameworkAndLanguage({
     codingQuestions,
@@ -84,7 +80,6 @@ export default async function Page({ params }: Props) {
       }
       companyGuides={sortedGuides}
       focusAreas={focusAreas}
-      preparationPlans={preparationPlans}
       questions={{
         codingQuestions,
         frameworkQuestions: framework,
@@ -92,6 +87,7 @@ export default async function Page({ params }: Props) {
         quizQuestions,
         systemDesignQuestions,
       }}
+      studyPlans={studyPlans}
     />
   );
 }

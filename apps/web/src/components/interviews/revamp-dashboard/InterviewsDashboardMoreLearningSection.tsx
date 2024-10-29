@@ -1,8 +1,6 @@
 import clsx from 'clsx';
 import type { InterviewsStudyList } from 'contentlayer/generated';
 
-import type { PreparationPlans } from '~/data/plans/PreparationPlans';
-
 import type { GuideCategory } from '~/components/guides/types';
 import type {
   QuestionFramework,
@@ -30,7 +28,6 @@ type Props = Readonly<{
   guidesProgress: ReadonlyArray<
     Readonly<{ id: string; slug: string; type: GuideCategory }>
   >;
-  preparationPlans: PreparationPlans;
   questionListSessions: Array<
     LearningSession & { _count: { progress: number } }
   >;
@@ -50,11 +47,12 @@ type Props = Readonly<{
   questionsProgress: ReadonlyArray<
     Readonly<{ format: string; id: string; slug: QuestionSlug }>
   > | null;
+  studyPlans: ReadonlyArray<InterviewsStudyList>;
 }>;
 
 export default function InterviewsDashboardMoreLearningSection({
   companyGuides,
-  preparationPlans,
+  studyPlans,
   questionListSessions,
   questions,
   questionsProgress,
@@ -89,8 +87,8 @@ export default function InterviewsDashboardMoreLearningSection({
           </Text>
         </div>
         <InterviewsDashboardStudyPlansSection
-          preparationPlans={preparationPlans}
           questionListSessions={questionListSessions}
+          studyPlans={studyPlans}
         />
         <InterviewsDashboardPrepareByCompanySection
           companyGuides={companyGuides}

@@ -1,19 +1,10 @@
 import type { Metadata } from 'next/types';
-import type { IntlShape } from 'react-intl';
-
-import { INTERVIEWS_REVAMP_2024 } from '~/data/FeatureFlags';
-import type { PreparationPlan } from '~/data/plans/PreparationPlans';
-
-import type { QuestionDifficulty } from '~/components/interviews/questions/common/QuestionsTypes';
-import { countQuestionsByDifficulty } from '~/components/interviews/questions/listings/filters/QuestionsProcessor';
 
 import { fetchInterviewListingBottomContent } from '~/db/contentlayer/InterviewsListingBottomContentReader';
-import { fetchPreparationPlans } from '~/db/PreparationPlansReader';
-import { fetchQuestionsBySlug } from '~/db/QuestionsListReader';
+import { fetchInterviewsStudyLists } from '~/db/contentlayer/InterviewsStudyListReader';
 import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
 
-import InterviewsRevampStudyPlansPage from './InteriewsRevampStudyPlansPage';
 import InterviewsStudyPlansPage from './InterviewsStudyPlansPage';
 
 export const dynamic = 'force-static';
@@ -65,52 +56,16 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   });
 }
 
-async function getDifficultySummaryForPlan(
-  plan: PreparationPlan,
-  locale: string,
-): Promise<Record<QuestionDifficulty, number>> {
-  const questions = await fetchQuestionsBySlug(plan.questions, locale);
-
-  return countQuestionsByDifficulty([
-    ...questions.javascript,
-    ...questions['user-interface'],
-    ...questions['system-design'],
-  ]);
-}
-
-export default async function Page({ params }: Props) {
-  const { locale } = params;
-
-  const intl = await getIntlServerOnly(locale);
-  const preparationPlans = await fetchPreparationPlans(intl as IntlShape);
-
-  const [
-    difficultySummaryOneWeek,
-    difficultySummaryOneMonth,
-    difficultySummaryThreeMonths,
-    bottomContent,
-  ] = await Promise.all([
-    getDifficultySummaryForPlan(preparationPlans['one-week'], locale),
-    getDifficultySummaryForPlan(preparationPlans['one-month'], locale),
-    getDifficultySummaryForPlan(preparationPlans['three-months'], locale),
+export default async function Page() {
+  const [studyPlans, bottomContent] = await Promise.all([
+    fetchInterviewsStudyLists('study-plan'),
     fetchInterviewListingBottomContent('study-plans'),
   ]);
 
-  return INTERVIEWS_REVAMP_2024 ? (
-    <InterviewsRevampStudyPlansPage
-      bottomContent={bottomContent}
-      preparationPlans={preparationPlans}
-    />
-  ) : (
+  return (
     <InterviewsStudyPlansPage
-      plansDifficultySummary={{
-        blind75: difficultySummaryOneMonth,
-        greatfrontend75: difficultySummaryOneMonth,
-        'one-month': difficultySummaryOneMonth,
-        'one-week': difficultySummaryOneWeek,
-        'three-months': difficultySummaryThreeMonths,
-      }}
-      preparationPlans={preparationPlans}
+      bottomContent={bottomContent}
+      studyPlans={studyPlans}
     />
   );
 }

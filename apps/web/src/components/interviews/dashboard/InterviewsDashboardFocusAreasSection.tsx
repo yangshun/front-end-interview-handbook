@@ -70,6 +70,7 @@ export default function InterviewsDashboardFocusAreasSection({
             questionsAlgo,
             questionsJavaScript,
             questionsSystemDesign,
+            questionsUserInterface,
             questionsQuiz,
           }) => {
             const Icon = FocusAreaIcons[slug];
@@ -102,6 +103,7 @@ export default function InterviewsDashboardFocusAreasSection({
                               (questionsAlgo?.length ?? 0) +
                               (questionsJavaScript?.length ?? 0) +
                               (questionsQuiz?.length ?? 0) +
+                              (questionsUserInterface?.length ?? 0) +
                               (questionsSystemDesign?.length ?? 0)
                             }
                             showIcon={true}

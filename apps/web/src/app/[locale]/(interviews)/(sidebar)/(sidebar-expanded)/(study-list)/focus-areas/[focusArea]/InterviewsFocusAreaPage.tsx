@@ -121,10 +121,10 @@ export default function InterviewsFocusAreaPage({
         <QuestionsLearningListPageTitleSection
           description={focusArea.description}
           features={features}
-          icon={FocusAreaIcons[focusArea.type]}
+          icon={FocusAreaIcons[focusArea.slug]}
           overallProgress={questionProgressParam ?? []}
           questions={flattenQuestionFormatMetadata(questionsMetadata)}
-          questionsSessionKey={focusArea.type}
+          questionsSessionKey={focusArea.slug}
           title={focusArea.longName}
         />
         <Divider />

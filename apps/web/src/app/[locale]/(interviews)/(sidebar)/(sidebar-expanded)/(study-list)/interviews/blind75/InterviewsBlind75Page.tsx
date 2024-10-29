@@ -1,15 +1,20 @@
 'use client';
 
 import clsx from 'clsx';
-import type { InterviewsListingBottomContent } from 'contentlayer/generated';
+import type {
+  InterviewsListingBottomContent,
+  InterviewsStudyList,
+} from 'contentlayer/generated';
 import { RiFlaskLine, RiVerifiedBadgeLine, RiWindowLine } from 'react-icons/ri';
 
 import { trpc } from '~/hooks/trpc';
 
-import type { PreparationPlan } from '~/data/plans/PreparationPlans';
-import { getPreparationPlanTheme } from '~/data/plans/PreparationPlans';
-
-import type { QuestionMetadata } from '~/components/interviews/questions/common/QuestionsTypes';
+import type {
+  QuestionFormat,
+  QuestionMetadata,
+  QuestionSlug,
+} from '~/components/interviews/questions/common/QuestionsTypes';
+import { StudyPlanIcons } from '~/components/interviews/questions/content/study-list/StudyPlans';
 import QuestionsLearningList from '~/components/interviews/questions/listings/learning/QuestionsStudyList';
 import InterviewsRecommendedPrepStrategyPageTitleSection from '~/components/interviews/recommended/InterviewsRecommendedPrepStrategyPageTitleSection';
 import { FormattedMessage, useIntl } from '~/components/intl';
@@ -22,30 +27,23 @@ import Text from '~/components/ui/Text';
 import {
   categorizeQuestionsProgress,
   filterQuestionsProgressByList,
+  flattenQuestionFormatMetadata,
 } from '~/db/QuestionsUtils';
 
 import { useUser } from '@supabase/auth-helpers-react';
 
 type Props = Readonly<{
   bottomContent?: InterviewsListingBottomContent;
-  codingQuestions: ReadonlyArray<QuestionMetadata>;
-  metadata: {
-    description: string;
-    href: string;
-    title: string;
-  };
-  plan: PreparationPlan;
-  quizQuestions: ReadonlyArray<QuestionMetadata>;
-  systemDesignQuestions: ReadonlyArray<QuestionMetadata>;
+  plan: InterviewsStudyList;
+  questionsMetadata: Record<QuestionFormat, ReadonlyArray<QuestionMetadata>>;
+  questionsSlugs: Record<QuestionFormat, ReadonlyArray<QuestionSlug>>;
 }>;
 
 export default function InterviewsBlind75Page({
-  quizQuestions,
-  codingQuestions,
-  systemDesignQuestions,
+  questionsMetadata,
+  questionsSlugs,
   bottomContent,
   plan,
-  metadata,
 }: Props) {
   const intl = useIntl();
   const user = useUser();
@@ -61,10 +59,8 @@ export default function InterviewsBlind75Page({
 
   const questionsOverallProgress = filterQuestionsProgressByList(
     questionsProgressAll,
-    plan.questions,
+    questionsSlugs,
   );
-
-  const planTheme = getPreparationPlanTheme(plan.type);
 
   const features = [
     {
@@ -99,7 +95,7 @@ export default function InterviewsBlind75Page({
         <InterviewsRecommendedPrepStrategyPageTitleSection
           description={plan.description}
           features={features}
-          icon={planTheme.iconOutline}
+          icon={StudyPlanIcons[plan.slug]}
           longDescription={
             <div className="flex flex-col gap-4">
               <Text color="secondary" size="body1">
@@ -125,13 +121,13 @@ export default function InterviewsBlind75Page({
               </Text>
             </div>
           }
-          metadata={metadata}
+          metadata={{
+            description: plan.seoDescription,
+            href: plan.href,
+            title: 'helllo',
+          }}
           overallProgress={questionProgressParam ?? []}
-          questions={[
-            ...quizQuestions,
-            ...codingQuestions,
-            ...systemDesignQuestions,
-          ]}
+          questions={flattenQuestionFormatMetadata(questionsMetadata)}
           questionsSessionKey="blind75"
           title={plan.name}
         />
@@ -139,12 +135,16 @@ export default function InterviewsBlind75Page({
       <Section>
         <Container className="flex flex-col gap-20">
           <QuestionsLearningList
-            codingQuestions={codingQuestions}
-            listKey={plan.type}
+            codingQuestions={[
+              ...questionsMetadata.javascript,
+              ...questionsMetadata['user-interface'],
+              ...questionsMetadata.algo,
+            ]}
+            listKey={plan.slug}
             overallProgress={questionsOverallProgress}
-            quizQuestions={quizQuestions}
+            quizQuestions={questionsMetadata.quiz}
             showSummarySection={false}
-            systemDesignQuestions={systemDesignQuestions}
+            systemDesignQuestions={questionsMetadata['system-design']}
           />
           {bottomContent && (
             <Section>

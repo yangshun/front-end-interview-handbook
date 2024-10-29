@@ -1,36 +1,36 @@
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next/types';
 import { CourseJsonLd } from 'next-seo';
-import type { IntlShape } from 'react-intl';
 
 import {
   INTERVIEWS_REVAMP_2024,
   INTERVIEWS_REVAMP_BOTTOM_CONTENT,
 } from '~/data/FeatureFlags';
-import type { PreparationPlanType } from '~/data/plans/PreparationPlans';
-import { getPreparationPlan } from '~/data/plans/PreparationPlans';
 
-import type { QuestionMetadata } from '~/components/interviews/questions/common/QuestionsTypes';
 import { sortQuestions } from '~/components/interviews/questions/listings/filters/QuestionsProcessor';
 
 import { fetchInterviewListingBottomContent } from '~/db/contentlayer/InterviewsListingBottomContentReader';
-import { fetchPreparationPlans } from '~/db/PreparationPlansReader';
+import { fetchInterviewsStudyList } from '~/db/contentlayer/InterviewsStudyListReader';
 import { fetchQuestionsBySlug } from '~/db/QuestionsListReader';
-import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
 import { getSiteOrigin } from '~/seo/siteUrl';
 
 import InterviewsGFE75Page from './InterviewsGFE75Page';
 
-async function getPreparationPlansSEO(
-  planType: PreparationPlanType,
-  locale: string,
-) {
-  const intl = await getIntlServerOnly(locale);
-  // TODO: Remove this IntlShape typecast.
-  const plan = getPreparationPlan(planType, intl as IntlShape);
+async function getPageSEOMetadata() {
+  const preparationPlanDocument =
+    await fetchInterviewsStudyList('greatfrontend75');
 
-  return { ...plan.seo, href: plan.href };
+  if (preparationPlanDocument == null) {
+    return notFound();
+  }
+
+  return {
+    description: preparationPlanDocument.seoDescription,
+    href: preparationPlanDocument.href,
+    socialTitle: preparationPlanDocument.socialTitle,
+    title: preparationPlanDocument.seoTitle,
+  };
 }
 
 type Props = Readonly<{
@@ -42,8 +42,7 @@ type Props = Readonly<{
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = params;
 
-  const { title, description, href, socialTitle } =
-    await getPreparationPlansSEO('greatfrontend75', locale);
+  const { title, description, href, socialTitle } = await getPageSEOMetadata();
 
   return defaultMetadata({
     description,
@@ -60,38 +59,30 @@ export default async function Page({ params }: Props) {
   }
 
   const { locale } = params;
+  const greatfrontend75 = await fetchInterviewsStudyList('greatfrontend75');
 
-  const intl = await getIntlServerOnly(locale);
-  const [
-    preparationPlans,
-    { title, description, socialTitle, href },
-    bottomContent,
-  ] = await Promise.all([
-    // TODO: Remove this IntlShape typecast.
-    fetchPreparationPlans(intl as IntlShape),
-    getPreparationPlansSEO('greatfrontend75', locale),
-    fetchInterviewListingBottomContent('greatfrontend75'),
+  if (greatfrontend75 == null) {
+    return notFound();
+  }
+
+  const questionsSlugs = {
+    algo: greatfrontend75.questionsAlgo ?? [],
+    javascript: greatfrontend75.questionsJavaScript ?? [],
+    quiz: greatfrontend75.questionsQuiz ?? [],
+    'system-design': greatfrontend75.questionsSystemDesign ?? [],
+    'user-interface': greatfrontend75.questionsUserInterface ?? [],
+  };
+
+  const [questionsMetadata, bottomContent] = await Promise.all([
+    fetchQuestionsBySlug(questionsSlugs, locale),
+    fetchInterviewListingBottomContent('blind75'),
   ]);
-
-  const preparationPlan = preparationPlans.greatfrontend75;
-  const questions = await fetchQuestionsBySlug(
-    preparationPlan.questions,
-    locale,
-  );
-  const codingQuestionsForPlan = [
-    ...questions.javascript,
-    ...questions['user-interface'],
-    ...questions.algo,
-  ];
-  const systemDesignQuestionsForPlan = questions['system-design'];
-  const quizQuestionsForPlan =
-    questions.quiz as ReadonlyArray<QuestionMetadata>;
 
   return (
     <>
       <CourseJsonLd
-        courseName={title}
-        description={description}
+        courseName={greatfrontend75.seoTitle}
+        description={greatfrontend75.description}
         provider={{
           name: 'GreatFrontEnd',
           url: getSiteOrigin(),
@@ -102,15 +93,12 @@ export default async function Page({ params }: Props) {
         bottomContent={
           INTERVIEWS_REVAMP_BOTTOM_CONTENT ? bottomContent : undefined
         }
-        codingQuestions={codingQuestionsForPlan}
-        metadata={{
-          description,
-          href,
-          title: socialTitle || title,
+        plan={greatfrontend75}
+        questionsMetadata={{
+          ...questionsMetadata,
+          quiz: sortQuestions(questionsMetadata.quiz, 'importance', false),
         }}
-        plan={preparationPlan}
-        quizQuestions={sortQuestions(quizQuestionsForPlan, 'importance', false)}
-        systemDesignQuestions={systemDesignQuestionsForPlan}
+        questionsSlugs={questionsSlugs}
       />
     </>
   );

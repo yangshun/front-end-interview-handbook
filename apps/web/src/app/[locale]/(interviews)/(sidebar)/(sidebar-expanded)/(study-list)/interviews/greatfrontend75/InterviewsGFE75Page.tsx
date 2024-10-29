@@ -1,18 +1,23 @@
 'use client';
 
 import clsx from 'clsx';
-import type { InterviewsListingBottomContent } from 'contentlayer/generated';
+import type {
+  InterviewsListingBottomContent,
+  InterviewsStudyList,
+} from 'contentlayer/generated';
 import { useState } from 'react';
 import { RiFlaskLine, RiVerifiedBadgeLine, RiWindowLine } from 'react-icons/ri';
 
 import { trpc } from '~/hooks/trpc';
 
-import PreparationGFE75Logo from '~/data/plans/logo/PreparationGFE75Logo';
-import type { PreparationPlan } from '~/data/plans/PreparationPlans';
-
 import FeedbackDialog from '~/components/global/feedback/FeedbackDialog';
 import { useUserPreferences } from '~/components/global/UserPreferencesProvider';
-import type { QuestionMetadata } from '~/components/interviews/questions/common/QuestionsTypes';
+import type {
+  QuestionFormat,
+  QuestionMetadata,
+  QuestionSlug,
+} from '~/components/interviews/questions/common/QuestionsTypes';
+import PreparationGFE75Logo from '~/components/interviews/questions/content/study-list/logo/PreparationGFE75Logo';
 import QuestionsLearningList from '~/components/interviews/questions/listings/learning/QuestionsStudyList';
 import InterviewsRecommendedPrepStrategyPageTitleSection from '~/components/interviews/recommended/InterviewsRecommendedPrepStrategyPageTitleSection';
 import { FormattedMessage, useIntl } from '~/components/intl';
@@ -26,30 +31,23 @@ import { themeOutlineElementBrandColor_FocusVisible } from '~/components/ui/them
 import {
   categorizeQuestionsProgress,
   filterQuestionsProgressByList,
+  flattenQuestionFormatMetadata,
 } from '~/db/QuestionsUtils';
 
 import { useUser } from '@supabase/auth-helpers-react';
 
 type Props = Readonly<{
   bottomContent?: InterviewsListingBottomContent;
-  codingQuestions: ReadonlyArray<QuestionMetadata>;
-  metadata: {
-    description: string;
-    href: string;
-    title: string;
-  };
-  plan: PreparationPlan;
-  quizQuestions: ReadonlyArray<QuestionMetadata>;
-  systemDesignQuestions: ReadonlyArray<QuestionMetadata>;
+  plan: InterviewsStudyList;
+  questionsMetadata: Record<QuestionFormat, ReadonlyArray<QuestionMetadata>>;
+  questionsSlugs: Record<QuestionFormat, ReadonlyArray<QuestionSlug>>;
 }>;
 
 export default function InterviewsGFE75Page({
-  quizQuestions,
-  codingQuestions,
-  systemDesignQuestions,
+  questionsMetadata,
+  questionsSlugs,
   bottomContent,
   plan,
-  metadata,
 }: Props) {
   const intl = useIntl();
   const user = useUser();
@@ -68,7 +66,7 @@ export default function InterviewsGFE75Page({
 
   const questionsOverallProgress = filterQuestionsProgressByList(
     questionsProgressAll,
-    plan.questions,
+    questionsSlugs,
   );
 
   const features = [
@@ -136,13 +134,13 @@ export default function InterviewsGFE75Page({
               </Text>
             </div>
           }
-          metadata={metadata}
+          metadata={{
+            description: plan.seoDescription,
+            href: plan.href,
+            title: plan.socialTitle || plan.seoTitle,
+          }}
           overallProgress={questionProgressParam ?? []}
-          questions={[
-            ...quizQuestions,
-            ...codingQuestions,
-            ...systemDesignQuestions,
-          ]}
+          questions={flattenQuestionFormatMetadata(questionsMetadata)}
           questionsSessionKey="greatfrontend75"
           title={plan.name}
         />
@@ -150,12 +148,16 @@ export default function InterviewsGFE75Page({
       <Section>
         <Container className="flex flex-col gap-20">
           <QuestionsLearningList
-            codingQuestions={codingQuestions}
-            listKey={plan.type}
+            codingQuestions={[
+              ...questionsMetadata.javascript,
+              ...questionsMetadata['user-interface'],
+              ...questionsMetadata.algo,
+            ]}
+            listKey={plan.slug}
             overallProgress={questionsOverallProgress}
-            quizQuestions={quizQuestions}
+            quizQuestions={questionsMetadata.quiz}
             showSummarySection={false}
-            systemDesignQuestions={systemDesignQuestions}
+            systemDesignQuestions={questionsMetadata['system-design']}
           />
           {bottomContent && (
             <Section>

@@ -1,5 +1,9 @@
-import { type PreparationPlans } from '~/data/plans/PreparationPlans';
+import type { InterviewsStudyList } from 'contentlayer/generated';
 
+import {
+  mapStudyPlansBySlug,
+  StudyPlanIcons,
+} from '~/components/interviews/questions/content/study-list/StudyPlans';
 import InterviewsStudyListCard from '~/components/interviews/questions/listings/learning/InterviewsStudyListCard';
 import { useIntl } from '~/components/intl';
 
@@ -8,21 +12,24 @@ import InterviewsDashboardLearningSection from './InterviewsDashboardLearningSec
 import type { LearningSession } from '@prisma/client';
 
 type Props = Readonly<{
-  preparationPlans: PreparationPlans;
   questionListSessions: Array<
     LearningSession & { _count: { progress: number } }
   >;
+  studyPlans: ReadonlyArray<InterviewsStudyList>;
 }>;
 
 export default function InterviewsDashboardStudyPlansSection({
-  preparationPlans,
+  studyPlans,
   questionListSessions,
 }: Props) {
   const intl = useIntl();
 
-  const plans = (['one-week', 'one-month', 'three-months'] as const).map(
-    (key) => preparationPlans[key],
-  );
+  const mapStudyPlans = mapStudyPlansBySlug(studyPlans);
+  const plans = [
+    mapStudyPlans['one-week'],
+    mapStudyPlans['one-month'],
+    mapStudyPlans['three-months'],
+  ];
 
   return (
     <InterviewsDashboardLearningSection
@@ -39,18 +46,17 @@ export default function InterviewsDashboardStudyPlansSection({
       <div className="flex flex-col gap-4">
         {plans.map((studyPlan) => {
           const session = questionListSessions.find(
-            (session_) => session_.key === studyPlan.type,
+            (session_) => session_.key === studyPlan.slug,
           );
           const completionCount = session?._count.progress;
 
           return (
             <InterviewsStudyListCard
-              key={studyPlan.type}
+              key={studyPlan.slug}
               completionCount={completionCount}
+              icon={StudyPlanIcons[studyPlan.slug]}
               isStarted={session != null}
               metadata={studyPlan}
-              schedule={studyPlan.schedule}
-              // TODO(interviews): need to pass icon
             />
           );
         })}

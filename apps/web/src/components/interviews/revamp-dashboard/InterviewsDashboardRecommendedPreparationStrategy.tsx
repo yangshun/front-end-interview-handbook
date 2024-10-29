@@ -8,9 +8,8 @@ import {
   RiTimelineView,
 } from 'react-icons/ri';
 
-import PreparationGFE75Logo from '~/data/plans/logo/PreparationGFE75Logo';
-
 import InterviewsEntityProgress from '~/components/interviews/common/InterviewsEntityProgress';
+import PreparationGFE75Logo from '~/components/interviews/questions/content/study-list/logo/PreparationGFE75Logo';
 import { FormattedMessage, useIntl } from '~/components/intl';
 import Anchor from '~/components/ui/Anchor';
 import Badge from '~/components/ui/Badge';

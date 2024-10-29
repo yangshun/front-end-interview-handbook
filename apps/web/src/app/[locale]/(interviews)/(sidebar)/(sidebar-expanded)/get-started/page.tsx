@@ -3,6 +3,7 @@ import type { Metadata } from 'next/types';
 import InterviewsMarketingGetStartedPage from '~/components/interviews/marketing/InterviewsMarketingGetStartedPage';
 import { sortQuestions } from '~/components/interviews/questions/listings/filters/QuestionsProcessor';
 
+import { fetchInterviewsStudyLists } from '~/db/contentlayer/InterviewsStudyListReader';
 import {
   fetchQuestionsListJavaScript,
   fetchQuestionsListQuiz,
@@ -57,11 +58,13 @@ export default async function Page({ params }: Props) {
     { questions: javaScriptQuestions },
     { questions: userInterfaceQuestions },
     { questions: systemDesignQuestions },
+    studyPlans,
   ] = await Promise.all([
     fetchQuestionsListQuiz(locale),
     fetchQuestionsListJavaScript(locale),
     fetchQuestionsListUserInterface(locale),
     fetchQuestionsListSystemDesign(locale),
+    fetchInterviewsStudyLists('study-plan'),
   ]);
 
   return (
@@ -76,6 +79,7 @@ export default async function Page({ params }: Props) {
         'importance',
         false,
       ).slice(0, QUESTIONS_TO_SHOW)}
+      studyPlans={studyPlans}
       systemDesignQuestions={sortQuestions(
         systemDesignQuestions.filter((question) => question.featured),
         'ranking',
