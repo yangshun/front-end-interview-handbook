@@ -22,24 +22,20 @@ type Props = Readonly<{
   completionCount?: number;
   icon?: (props: React.ComponentProps<'svg'>) => JSX.Element;
   isStarted?: boolean;
-  metadata: InterviewsStudyList;
+  studyList: InterviewsStudyList;
 }>;
 
+// TODO(interviews): consolidate with InterviewsCompanyGuideCard.
 export default function InterviewsStudyListCard({
   completionCount = 0,
-  metadata,
+  studyList,
   icon: Icon,
   isStarted,
 }: Props) {
   const intl = useIntl();
 
-  const { name, shortDescription, href } = metadata;
-  const questionCount =
-    (metadata.questionsAlgo?.length ?? 0) +
-    (metadata.questionsJavaScript?.length ?? 0) +
-    (metadata.questionsQuiz?.length ?? 0) +
-    (metadata.questionsSystemDesign?.length ?? 0) +
-    (metadata.questionsUserInterface?.length ?? 0);
+  const { name, shortDescription, href, questionHashes, schedule } = studyList;
+  const questionCount = questionHashes.length;
 
   return (
     <div
@@ -97,10 +93,10 @@ export default function InterviewsStudyListCard({
               total={questionCount}
               type="question"
             />
-            {metadata.schedule && (
+            {schedule && (
               <QuestionStudyAllocationLabel
-                frequency={metadata.schedule.frequency}
-                hours={metadata.schedule.hours}
+                frequency={schedule.frequency}
+                hours={schedule.hours}
                 showIcon={true}
               />
             )}

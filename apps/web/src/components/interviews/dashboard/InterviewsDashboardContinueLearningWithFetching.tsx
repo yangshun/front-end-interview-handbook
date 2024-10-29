@@ -29,26 +29,12 @@ export default function InterviewsDashboardContinueLearningContainer({
         // TODO(interviews): filter out company lists for now because company list rendering is not yet supported on the dashboard.
         .filter(({ listKey }) => questionLists[listKey] != null)
         .map(({ listKey, completedCount }) => {
-          const {
-            href,
-            longName,
-            questionsAlgo,
-            questionsJavaScript,
-            questionsQuiz,
-            questionsSystemDesign,
-            questionsUserInterface,
-          } = questionLists[listKey];
+          const { href, longName, questionHashes } = questionLists[listKey];
 
           return {
             completedCount,
             href,
-            questionsCount:
-              (questionsAlgo?.length ?? 0) +
-              (questionsJavaScript?.length ?? 0) +
-              (questionsQuiz?.length ?? 0) +
-              (questionsSystemDesign?.length ?? 0) +
-              (questionsUserInterface?.length ?? 0) +
-              (questionsSystemDesign?.length ?? 0),
+            questionsCount: questionHashes.length,
             title: longName,
           };
         })}

@@ -8,8 +8,8 @@ import fs from 'node:fs';
 import type {
   QuestionFormat,
   QuestionFramework,
+  QuestionHash,
   QuestionMetadata,
-  QuestionSlug,
 } from '~/components/interviews/questions/common/QuestionsTypes';
 import { ReadyQuestions } from '~/components/interviews/questions/content/system-design/SystemDesignConfig';
 import { filterQuestions } from '~/components/interviews/questions/listings/filters/QuestionsProcessor';
@@ -20,6 +20,7 @@ import { getQuestionsListOutFilenameJavaScript } from './questions-bundlers/Ques
 import { getQuestionsListOutFilenameQuiz } from './questions-bundlers/QuestionsBundlerQuizConfig';
 import { getQuestionsListOutFilenameSystemDesign } from './questions-bundlers/QuestionsBundlerSystemDesignConfig';
 import { getQuestionsListOutFilenameUserInterface } from './questions-bundlers/QuestionsBundlerUserInterfaceConfig';
+import { unhashQuestion } from './QuestionsUtils';
 
 export type QuestionTotalAvailableCount = Record<QuestionFormat, number>;
 
@@ -228,10 +229,10 @@ export async function fetchCodingQuestionsForFramework(
   ]);
 }
 
-export async function fetchQuestionsBySlug(
-  slugs: Record<QuestionFormat, ReadonlyArray<QuestionSlug>>,
+export async function fetchQuestionsByHash(
+  questionHashes: ReadonlyArray<QuestionHash>,
   locale = 'en-US',
-): Promise<Record<QuestionFormat, ReadonlyArray<QuestionMetadata>>> {
+): Promise<ReadonlyArray<QuestionMetadata>> {
   const [
     { questions: quizQuestions },
     { questions: algoQuestions },
@@ -246,28 +247,28 @@ export async function fetchQuestionsBySlug(
     fetchQuestionsListSystemDesign(locale),
   ]);
 
-  // TODO(interviews): Improve the lookup.
-  const algoQuestionsFiltered = algoQuestions.filter((question) =>
-    slugs.algo.includes(question.slug),
-  );
-  const jsQuestionsFiltered = jsQuestions.filter((question) =>
-    slugs.javascript.includes(question.slug),
-  );
-  const uiQuestionsFiltered = uiQuestions.filter((question) =>
-    slugs['user-interface'].includes(question.slug),
-  );
-  const quizQuestionsFiltered = quizQuestions.filter((question) =>
-    slugs.quiz.includes(question.slug),
-  );
-  const systemDesignQuestionsFiltered = systemDesignQuestions.filter(
-    (question) => slugs['system-design'].includes(question.slug),
-  );
+  const questionMetadata = questionHashes.map((qnHash) => {
+    const [format, slug] = unhashQuestion(qnHash);
 
-  return {
-    algo: algoQuestionsFiltered,
-    javascript: jsQuestionsFiltered,
-    quiz: quizQuestionsFiltered,
-    'system-design': systemDesignQuestionsFiltered,
-    'user-interface': uiQuestionsFiltered,
-  };
+    // TODO(interviews): Make the lookup to be more efficient.
+    switch (format) {
+      case 'algo': {
+        return algoQuestions.find((question) => question.slug === slug);
+      }
+      case 'javascript': {
+        return jsQuestions.find((question) => question.slug === slug);
+      }
+      case 'user-interface': {
+        return uiQuestions.find((question) => question.slug === slug);
+      }
+      case 'system-design': {
+        return systemDesignQuestions.find((question) => question.slug === slug);
+      }
+      case 'quiz': {
+        return quizQuestions.find((question) => question.slug === slug);
+      }
+    }
+  });
+
+  return questionMetadata.flatMap((item) => (item != null ? [item] : []));
 }

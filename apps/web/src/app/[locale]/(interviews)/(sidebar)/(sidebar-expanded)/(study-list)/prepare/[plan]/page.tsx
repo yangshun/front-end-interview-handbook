@@ -4,7 +4,6 @@ import { CourseJsonLd } from 'next-seo';
 
 import { INTERVIEWS_REVAMP_BOTTOM_CONTENT } from '~/data/FeatureFlags';
 
-import { sortQuestions } from '~/components/interviews/questions/listings/filters/QuestionsProcessor';
 import InterviewsStudyPlanPage from '~/components/interviews/questions/listings/learning/study-plans/InterviewsStudyPlanPage';
 
 import { fetchInterviewListingBottomContent } from '~/db/contentlayer/InterviewsListingBottomContentReader';
@@ -12,8 +11,8 @@ import {
   fetchInterviewsStudyList,
   fetchInterviewsStudyLists,
 } from '~/db/contentlayer/InterviewsStudyListReader';
-import { fetchQuestionsBySlug } from '~/db/QuestionsListReader';
-import { flattenQuestionFormatMetadata } from '~/db/QuestionsUtils';
+import { fetchQuestionsByHash } from '~/db/QuestionsListReader';
+import { groupQuestionHashesByFormat } from '~/db/QuestionsUtils';
 import { generateStaticParamsWithLocale } from '~/next-i18nostic/src';
 import defaultMetadata from '~/seo/defaultMetadata';
 import { getSiteOrigin } from '~/seo/siteUrl';
@@ -71,16 +70,10 @@ export default async function Page({ params }: Props) {
     return notFound();
   }
 
-  const questionsSlugs = {
-    algo: studyPlan.questionsAlgo ?? [],
-    javascript: studyPlan.questionsJavaScript ?? [],
-    quiz: studyPlan.questionsQuiz ?? [],
-    'system-design': studyPlan.questionsSystemDesign ?? [],
-    'user-interface': studyPlan.questionsUserInterface ?? [],
-  };
+  const questionsSlugs = groupQuestionHashesByFormat(studyPlan.questionHashes);
 
-  const [questionsMetadata, bottomContent] = await Promise.all([
-    fetchQuestionsBySlug(questionsSlugs, locale),
+  const [questions, bottomContent] = await Promise.all([
+    fetchQuestionsByHash(studyPlan.questionHashes, locale),
     fetchInterviewListingBottomContent(`${plan}-study-plan`),
   ]);
 
@@ -99,10 +92,7 @@ export default async function Page({ params }: Props) {
         bottomContent={
           INTERVIEWS_REVAMP_BOTTOM_CONTENT ? bottomContent : undefined
         }
-        questions={flattenQuestionFormatMetadata({
-          ...questionsMetadata,
-          quiz: sortQuestions(questionsMetadata.quiz, 'importance', false),
-        })}
+        questions={questions}
         questionsSlugs={questionsSlugs}
         studyList={studyPlan}
       />

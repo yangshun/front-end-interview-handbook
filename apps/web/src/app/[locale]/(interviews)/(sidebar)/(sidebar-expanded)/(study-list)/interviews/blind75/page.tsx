@@ -7,13 +7,12 @@ import {
   INTERVIEWS_REVAMP_BOTTOM_CONTENT,
 } from '~/data/FeatureFlags';
 
-import { sortQuestions } from '~/components/interviews/questions/listings/filters/QuestionsProcessor';
 import InterviewsBlind75Page from '~/components/interviews/questions/listings/learning/study-plans/InterviewsBlind75Page';
 
 import { fetchInterviewListingBottomContent } from '~/db/contentlayer/InterviewsListingBottomContentReader';
 import { fetchInterviewsStudyList } from '~/db/contentlayer/InterviewsStudyListReader';
-import { fetchQuestionsBySlug } from '~/db/QuestionsListReader';
-import { flattenQuestionFormatMetadata } from '~/db/QuestionsUtils';
+import { fetchQuestionsByHash } from '~/db/QuestionsListReader';
+import { groupQuestionHashesByFormat } from '~/db/QuestionsUtils';
 import defaultMetadata from '~/seo/defaultMetadata';
 import { getSiteOrigin } from '~/seo/siteUrl';
 
@@ -64,16 +63,10 @@ export default async function Page({ params }: Props) {
     return notFound();
   }
 
-  const questionsSlugs = {
-    algo: blind75.questionsAlgo ?? [],
-    javascript: blind75.questionsJavaScript ?? [],
-    quiz: blind75.questionsQuiz ?? [],
-    'system-design': blind75.questionsSystemDesign ?? [],
-    'user-interface': blind75.questionsUserInterface ?? [],
-  };
+  const questionsSlugs = groupQuestionHashesByFormat(blind75.questionHashes);
 
-  const [questionsMetadata, bottomContent] = await Promise.all([
-    fetchQuestionsBySlug(questionsSlugs, locale),
+  const [questions, bottomContent] = await Promise.all([
+    fetchQuestionsByHash(blind75.questionHashes, locale),
     fetchInterviewListingBottomContent('blind75'),
   ]);
 
@@ -92,10 +85,7 @@ export default async function Page({ params }: Props) {
         bottomContent={
           INTERVIEWS_REVAMP_BOTTOM_CONTENT ? bottomContent : undefined
         }
-        questions={flattenQuestionFormatMetadata({
-          ...questionsMetadata,
-          quiz: sortQuestions(questionsMetadata.quiz, 'importance', false),
-        })}
+        questions={questions}
         questionsSlugs={questionsSlugs}
         studyList={blind75}
       />

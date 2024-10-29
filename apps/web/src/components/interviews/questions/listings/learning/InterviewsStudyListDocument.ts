@@ -42,7 +42,7 @@ export const InterviewsStudyListDocument = defineDocumentType(() => ({
             return `/interviews/company/${slug}/questions-guides`;
           }
           case 'focus-area': {
-            return `/interviews/focus-area/${slug}`;
+            return `/interviews/focus-areas/${slug}`;
           }
           case 'study-plan': {
             return `/prepare/${slug}`;
@@ -84,34 +84,10 @@ export const InterviewsStudyListDocument = defineDocumentType(() => ({
       required: true,
       type: 'string',
     },
-    questionsAlgo: {
-      description: 'List of algo questions',
+    questionHashes: {
+      description: 'List of question slugs prefixed with format',
       of: { type: 'string' },
-      required: false,
-      type: 'list',
-    },
-    questionsJavaScript: {
-      description: 'List of JavaScript questions',
-      of: { type: 'string' },
-      required: false,
-      type: 'list',
-    },
-    questionsQuiz: {
-      description: 'List of quiz questions',
-      of: { type: 'string' },
-      required: false,
-      type: 'list',
-    },
-    questionsSystemDesign: {
-      description: 'List of system design questions',
-      of: { type: 'string' },
-      required: false,
-      type: 'list',
-    },
-    questionsUserInterface: {
-      description: 'List of user interface questions',
-      of: { type: 'string' },
-      required: false,
+      required: true,
       type: 'list',
     },
     ranking: { default: 999, required: false, type: 'number' },

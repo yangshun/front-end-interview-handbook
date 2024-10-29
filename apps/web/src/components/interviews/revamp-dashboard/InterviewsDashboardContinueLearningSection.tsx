@@ -45,25 +45,12 @@ export default function InterviewsDashboardContinueLearningSection({
     // rendering is not yet supported on the dashboard.
     .filter(({ key }) => questionLists[key] != null)
     .map(({ key, _count }) => {
-      const {
-        href,
-        longName,
-        questionsAlgo,
-        questionsJavaScript,
-        questionsQuiz,
-        questionsSystemDesign,
-        questionsUserInterface,
-      } = questionLists[key];
+      const { href, longName, questionHashes } = questionLists[key];
 
       return {
         completedCount: _count.progress,
         href,
-        questionsCount:
-          (questionsAlgo?.length ?? 0) +
-          (questionsJavaScript?.length ?? 0) +
-          (questionsQuiz?.length ?? 0) +
-          (questionsUserInterface?.length ?? 0) +
-          (questionsSystemDesign?.length ?? 0),
+        questionsCount: questionHashes.length,
         title: longName,
       };
     });

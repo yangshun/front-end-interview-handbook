@@ -58,7 +58,7 @@ export default function InterviewsDashboardPracticeByFocusAreasSection({
                     completionCount={completionCount}
                     icon={FocusAreaIcons[focusArea.slug]}
                     isStarted={session != null}
-                    metadata={focusArea}
+                    studyList={focusArea}
                   />
                 );
               })}

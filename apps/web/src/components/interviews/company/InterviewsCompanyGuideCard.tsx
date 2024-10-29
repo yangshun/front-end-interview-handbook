@@ -16,6 +16,8 @@ import {
   themeTextSubtleColor,
 } from '~/components/ui/theme';
 
+import { groupQuestionHashesByFormat } from '~/db/QuestionsUtils';
+
 import InterviewsEntityProgress from '../common/InterviewsEntityProgress';
 import CompletionCountSummary from '../questions/listings/stats/CompletionCountSummary';
 import QuestionCountLabel from '../questions/metadata/QuestionCountLabel';
@@ -27,6 +29,7 @@ type Props = Readonly<{
   showProgressBar?: boolean;
 }>;
 
+// TODO(interviews): consolidate with InterviewsStudyListCard.
 export function InterviewsCompanyGuideCard({
   companyGuide,
   isStarted = false,
@@ -35,21 +38,17 @@ export function InterviewsCompanyGuideCard({
 }: Props) {
   const intl = useIntl();
   const questionFormatLists = useQuestionUserFacingFormatData();
-  const {
-    name,
-    href,
-    logoUrl,
-    questionsJavaScript,
-    questionsUserInterface,
-    questionsQuiz,
-    questionsSystemDesign,
-  } = companyGuide;
+  const { name, href, logoUrl, questionHashes } = companyGuide;
+  const questionsSlugs = groupQuestionHashesByFormat(questionHashes);
+
   const questionsCodingCount =
-    (questionsJavaScript?.length ?? 0) + (questionsUserInterface?.length ?? 0);
+    questionsSlugs.algo.length +
+    questionsSlugs.javascript.length +
+    questionsSlugs['user-interface'].length;
   const questionCount =
     questionsCodingCount +
-    (questionsQuiz?.length ?? 0) +
-    (questionsSystemDesign?.length ?? 0);
+    questionsSlugs.quiz.length +
+    questionsSlugs['system-design'].length;
 
   return (
     <div
@@ -128,17 +127,17 @@ export function InterviewsCompanyGuideCard({
                     showIcon={true}
                   />
                 )}
-                {questionsQuiz && questionsQuiz?.length > 0 && (
+                {questionsSlugs.quiz.length > 0 && (
                   <QuestionCountLabel
-                    count={questionsQuiz.length}
+                    count={questionsSlugs.quiz.length}
                     icon={questionFormatLists.quiz.icon}
                     label={questionFormatLists.quiz.longName}
                     showIcon={true}
                   />
                 )}
-                {questionsSystemDesign && questionsSystemDesign?.length > 0 && (
+                {questionsSlugs['system-design']?.length > 0 && (
                   <QuestionCountLabel
-                    count={questionsSystemDesign.length}
+                    count={questionsSlugs['system-design'].length}
                     icon={questionFormatLists['system-design'].icon}
                     label={questionFormatLists['system-design'].longName}
                     showIcon={true}

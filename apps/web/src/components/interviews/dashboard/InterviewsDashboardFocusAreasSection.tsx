@@ -62,17 +62,7 @@ export default function InterviewsDashboardFocusAreasSection({
       </div>
       <CardContainer className="@4xl:grid-cols-4 @md:grid-cols-2 grid grid-cols-1 grid-rows-1 gap-3 md:gap-4 lg:gap-6">
         {focusAreas.map(
-          ({
-            href,
-            name,
-            slug,
-            shortDescription,
-            questionsAlgo,
-            questionsJavaScript,
-            questionsSystemDesign,
-            questionsUserInterface,
-            questionsQuiz,
-          }) => {
+          ({ href, name, slug, shortDescription, questionHashes }) => {
             const Icon = FocusAreaIcons[slug];
 
             return (
@@ -99,13 +89,7 @@ export default function InterviewsDashboardFocusAreasSection({
                           {shortDescription}
                           <Divider />
                           <QuestionCountLabel
-                            count={
-                              (questionsAlgo?.length ?? 0) +
-                              (questionsJavaScript?.length ?? 0) +
-                              (questionsQuiz?.length ?? 0) +
-                              (questionsUserInterface?.length ?? 0) +
-                              (questionsSystemDesign?.length ?? 0)
-                            }
+                            count={questionHashes.length}
                             showIcon={true}
                           />
                         </div>

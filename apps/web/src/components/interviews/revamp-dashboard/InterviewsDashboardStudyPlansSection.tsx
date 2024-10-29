@@ -56,7 +56,7 @@ export default function InterviewsDashboardStudyPlansSection({
               completionCount={completionCount}
               icon={StudyPlanIcons[studyPlan.slug]}
               isStarted={session != null}
-              metadata={studyPlan}
+              studyList={studyPlan}
             />
           );
         })}

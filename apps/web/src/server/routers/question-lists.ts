@@ -5,13 +5,10 @@ import type { QuestionMetadata } from '~/components/interviews/questions/common/
 
 import { fetchInterviewsStudyList } from '~/db/contentlayer/InterviewsStudyListReader';
 import {
-  fetchQuestionsBySlug,
+  fetchQuestionsByHash,
   fetchQuestionsListCoding,
 } from '~/db/QuestionsListReader';
-import {
-  flattenQuestionFormatMetadata,
-  hashQuestion,
-} from '~/db/QuestionsUtils';
+import { hashQuestion } from '~/db/QuestionsUtils';
 import prisma from '~/server/prisma';
 
 import { router, userProcedure } from '../trpc';
@@ -72,17 +69,7 @@ export const questionListsRouter = router({
         `Study list not found for listKey ${listKey}`,
       );
 
-      const questionsSlugs = {
-        algo: studyList.questionsAlgo ?? [],
-        javascript: studyList.questionsJavaScript ?? [],
-        quiz: studyList.questionsQuiz ?? [],
-        'system-design': studyList.questionsSystemDesign ?? [],
-        'user-interface': studyList.questionsUserInterface ?? [],
-      };
-
-      const questionsByFormat = await fetchQuestionsBySlug(questionsSlugs);
-
-      return flattenQuestionFormatMetadata(questionsByFormat);
+      return fetchQuestionsByHash(studyList.questionHashes);
     }),
   getSessionProgress: userProcedure
     .input(

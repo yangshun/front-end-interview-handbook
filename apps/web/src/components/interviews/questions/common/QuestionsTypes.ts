@@ -5,6 +5,7 @@ import type {
 } from '@codesandbox/sandpack-react';
 
 export type QuestionSlug = string;
+export type QuestionHash = string;
 export type QuestionCompany =
   | 'airbnb'
   | 'amazon'

@@ -4,6 +4,7 @@ import type {
   QuestionCodingFormat,
   QuestionFormat,
   QuestionFramework,
+  QuestionHash,
   QuestionLanguage,
   QuestionMetadata,
   QuestionSlug,
@@ -67,14 +68,38 @@ export function normalizeQuestionFrontMatter(
   };
 }
 
-export function hashQuestion(format: string, slug: QuestionSlug) {
+export function hashQuestion(format: string, slug: QuestionSlug): QuestionHash {
   return format + ':' + slug;
 }
 
-function unhashQuestion(key: string): [format: string, slug: QuestionSlug] {
+export function unhashQuestion(
+  key: QuestionHash,
+): [format: QuestionFormat, slug: QuestionSlug] {
   const parts = key.split(':');
 
-  return [parts[0], parts[1]];
+  return [parts[0] as QuestionFormat, parts[1]];
+}
+
+export function groupQuestionHashesByFormat(
+  questionHashes: ReadonlyArray<QuestionHash>,
+): Record<QuestionFormat, ReadonlyArray<QuestionSlug>> {
+  const parsedQuestionHashes = questionHashes.map((qnHash) =>
+    unhashQuestion(qnHash),
+  );
+
+  const slugs: Record<QuestionFormat, Array<QuestionSlug>> = {
+    algo: [],
+    javascript: [],
+    quiz: [],
+    'system-design': [],
+    'user-interface': [],
+  };
+
+  parsedQuestionHashes.forEach(([format, slug]) => {
+    slugs[format].push(slug);
+  });
+
+  return slugs;
 }
 
 export function hasCompletedQuestion(

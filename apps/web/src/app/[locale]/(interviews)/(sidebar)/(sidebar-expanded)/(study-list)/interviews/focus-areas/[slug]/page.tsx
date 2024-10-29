@@ -4,7 +4,6 @@ import { CourseJsonLd } from 'next-seo';
 
 import { INTERVIEWS_REVAMP_BOTTOM_CONTENT } from '~/data/FeatureFlags';
 
-import { sortQuestions } from '~/components/interviews/questions/listings/filters/QuestionsProcessor';
 import InterviewsFocusAreaPage from '~/components/interviews/questions/listings/learning/focus-areas/InterviewsFocusAreaPage';
 
 import { fetchInterviewListingBottomContent } from '~/db/contentlayer/InterviewsListingBottomContentReader';
@@ -12,8 +11,8 @@ import {
   fetchInterviewsStudyList,
   fetchInterviewsStudyLists,
 } from '~/db/contentlayer/InterviewsStudyListReader';
-import { fetchQuestionsBySlug } from '~/db/QuestionsListReader';
-import { flattenQuestionFormatMetadata } from '~/db/QuestionsUtils';
+import { fetchQuestionsByHash } from '~/db/QuestionsListReader';
+import { groupQuestionHashesByFormat } from '~/db/QuestionsUtils';
 import { generateStaticParamsWithLocale } from '~/next-i18nostic/src';
 import defaultMetadata from '~/seo/defaultMetadata';
 import { getSiteOrigin } from '~/seo/siteUrl';
@@ -72,16 +71,10 @@ export default async function Page({ params }: Props) {
     return notFound();
   }
 
-  const questionsSlugs = {
-    algo: focusArea.questionsAlgo ?? [],
-    javascript: focusArea.questionsJavaScript ?? [],
-    quiz: focusArea.questionsQuiz ?? [],
-    'system-design': focusArea.questionsSystemDesign ?? [],
-    'user-interface': focusArea.questionsUserInterface ?? [],
-  };
+  const questionsSlugs = groupQuestionHashesByFormat(focusArea.questionHashes);
 
-  const [questionsMetadata, bottomContent] = await Promise.all([
-    fetchQuestionsBySlug(questionsSlugs, locale),
+  const [questions, bottomContent] = await Promise.all([
+    fetchQuestionsByHash(focusArea.questionHashes, locale),
     fetchInterviewListingBottomContent(`${slug}-focus-area`),
   ]);
 
@@ -100,10 +93,7 @@ export default async function Page({ params }: Props) {
         bottomContent={
           INTERVIEWS_REVAMP_BOTTOM_CONTENT ? bottomContent : undefined
         }
-        questions={flattenQuestionFormatMetadata({
-          ...questionsMetadata,
-          quiz: sortQuestions(questionsMetadata.quiz, 'importance', false),
-        })}
+        questions={questions}
         questionsSlugs={questionsSlugs}
         studyList={focusArea}
       />

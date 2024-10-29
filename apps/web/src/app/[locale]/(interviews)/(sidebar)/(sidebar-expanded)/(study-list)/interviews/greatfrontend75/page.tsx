@@ -7,13 +7,12 @@ import {
   INTERVIEWS_REVAMP_BOTTOM_CONTENT,
 } from '~/data/FeatureFlags';
 
-import { sortQuestions } from '~/components/interviews/questions/listings/filters/QuestionsProcessor';
 import InterviewsGFE75Page from '~/components/interviews/questions/listings/learning/study-plans/InterviewsGFE75Page';
 
 import { fetchInterviewListingBottomContent } from '~/db/contentlayer/InterviewsListingBottomContentReader';
 import { fetchInterviewsStudyList } from '~/db/contentlayer/InterviewsStudyListReader';
-import { fetchQuestionsBySlug } from '~/db/QuestionsListReader';
-import { flattenQuestionFormatMetadata } from '~/db/QuestionsUtils';
+import { fetchQuestionsByHash } from '~/db/QuestionsListReader';
+import { groupQuestionHashesByFormat } from '~/db/QuestionsUtils';
 import defaultMetadata from '~/seo/defaultMetadata';
 import { getSiteOrigin } from '~/seo/siteUrl';
 
@@ -64,16 +63,12 @@ export default async function Page({ params }: Props) {
     return notFound();
   }
 
-  const questionsSlugs = {
-    algo: greatfrontend75.questionsAlgo ?? [],
-    javascript: greatfrontend75.questionsJavaScript ?? [],
-    quiz: greatfrontend75.questionsQuiz ?? [],
-    'system-design': greatfrontend75.questionsSystemDesign ?? [],
-    'user-interface': greatfrontend75.questionsUserInterface ?? [],
-  };
+  const questionsSlugs = groupQuestionHashesByFormat(
+    greatfrontend75.questionHashes,
+  );
 
-  const [questionsMetadata, bottomContent] = await Promise.all([
-    fetchQuestionsBySlug(questionsSlugs, locale),
+  const [questions, bottomContent] = await Promise.all([
+    fetchQuestionsByHash(greatfrontend75.questionHashes, locale),
     fetchInterviewListingBottomContent('blind75'),
   ]);
 
@@ -92,10 +87,7 @@ export default async function Page({ params }: Props) {
         bottomContent={
           INTERVIEWS_REVAMP_BOTTOM_CONTENT ? bottomContent : undefined
         }
-        questions={flattenQuestionFormatMetadata({
-          ...questionsMetadata,
-          quiz: sortQuestions(questionsMetadata.quiz, 'importance', false),
-        })}
+        questions={questions}
         questionsSlugs={questionsSlugs}
         studyList={greatfrontend75}
       />

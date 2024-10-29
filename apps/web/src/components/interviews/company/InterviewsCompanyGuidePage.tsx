@@ -50,14 +50,14 @@ import { useUser } from '@supabase/auth-helpers-react';
 type Props = Readonly<{
   bottomContent?: InterviewsListingBottomContent;
   companyGuide: InterviewsStudyList;
-  companyQuestions: Record<QuestionFormat, ReadonlyArray<QuestionSlug>>;
   questions: ReadonlyArray<QuestionMetadata>;
+  questionsSlugs: Record<QuestionFormat, ReadonlyArray<QuestionSlug>>;
 }>;
 
 export default function InterviewsCompanyGuidePage({
   companyGuide,
   questions,
-  companyQuestions,
+  questionsSlugs,
   bottomContent,
 }: Props) {
   const intl = useIntl();
@@ -78,10 +78,10 @@ export default function InterviewsCompanyGuidePage({
   );
   const questionsOverallProgress = filterQuestionsProgressByList(
     questionsProgressAll,
-    companyQuestions,
+    questionsSlugs,
   );
 
-  const questionCount = countNumberOfQuestionsInList(companyQuestions);
+  const questionCount = countNumberOfQuestionsInList(questionsSlugs);
   const topics = useMemo(() => {
     const topicsSet = new Set<QuestionTopic>();
 
