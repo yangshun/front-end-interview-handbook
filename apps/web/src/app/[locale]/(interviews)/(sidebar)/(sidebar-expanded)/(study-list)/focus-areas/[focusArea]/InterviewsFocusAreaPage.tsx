@@ -20,8 +20,8 @@ import type {
   QuestionSlug,
 } from '~/components/interviews/questions/common/QuestionsTypes';
 import { FocusAreaIcons } from '~/components/interviews/questions/content/study-list/FocusAreas';
-import QuestionsLearningList from '~/components/interviews/questions/listings/learning/QuestionsStudyList';
-import QuestionsLearningListPageTitleSection from '~/components/interviews/questions/listings/learning/QuestionsStudyListPageTitleSection';
+import QuestionsStudyList from '~/components/interviews/questions/listings/learning/QuestionsStudyList';
+import QuestionsStudyListPageTitleSection from '~/components/interviews/questions/listings/learning/QuestionsStudyListPageTitleSection';
 import { useIntl } from '~/components/intl';
 import MDXContent from '~/components/mdx/MDXContent';
 import Button from '~/components/ui/Button';
@@ -33,22 +33,21 @@ import {
   categorizeQuestionsProgress,
   countNumberOfQuestionsInList,
   filterQuestionsProgressByList,
-  flattenQuestionFormatMetadata,
 } from '~/db/QuestionsUtils';
 
 import { useUser } from '@supabase/auth-helpers-react';
 
 type Props = Readonly<{
   bottomContent?: InterviewsListingBottomContent;
-  focusArea: InterviewsStudyList;
-  questionsMetadata: Record<QuestionFormat, ReadonlyArray<QuestionMetadata>>;
+  questions: ReadonlyArray<QuestionMetadata>;
   questionsSlugs: Record<QuestionFormat, ReadonlyArray<QuestionSlug>>;
+  studyList: InterviewsStudyList;
 }>;
 
 export default function InterviewsFocusAreaPage({
   bottomContent,
-  focusArea,
-  questionsMetadata,
+  studyList,
+  questions,
   questionsSlugs,
 }: Props) {
   const intl = useIntl();
@@ -118,28 +117,22 @@ export default function InterviewsFocusAreaPage({
             variant="tertiary"
           />
         </div>
-        <QuestionsLearningListPageTitleSection
-          description={focusArea.description}
+        <QuestionsStudyListPageTitleSection
+          description={studyList.description}
           features={features}
-          icon={FocusAreaIcons[focusArea.slug]}
+          icon={FocusAreaIcons[studyList.slug]}
           overallProgress={questionProgressParam ?? []}
-          questions={flattenQuestionFormatMetadata(questionsMetadata)}
-          questionsSessionKey={focusArea.slug}
-          title={focusArea.longName}
+          questions={questions}
+          questionsSessionKey={studyList.slug}
+          title={studyList.longName}
         />
         <Divider />
       </div>
       <Section>
-        <QuestionsLearningList
-          codingQuestions={[
-            ...questionsMetadata.javascript,
-            ...questionsMetadata['user-interface'],
-            ...questionsMetadata.algo,
-          ]}
-          listKey={focusArea.slug}
+        <QuestionsStudyList
+          listKey={studyList.slug}
           overallProgress={questionsOverallProgress}
-          quizQuestions={questionsMetadata.quiz}
-          systemDesignQuestions={questionsMetadata['system-design']}
+          questions={questions}
         />
       </Section>
       {bottomContent && (

@@ -26,8 +26,8 @@ import type {
   QuestionTopic,
 } from '~/components/interviews/questions/common/QuestionsTypes';
 import QuestionsList from '~/components/interviews/questions/listings/items/QuestionsList';
-import QuestionsLearningList from '~/components/interviews/questions/listings/learning/QuestionsStudyList';
-import QuestionsLearningListPageTitleSection from '~/components/interviews/questions/listings/learning/QuestionsStudyListPageTitleSection';
+import QuestionsStudyList from '~/components/interviews/questions/listings/learning/QuestionsStudyList';
+import QuestionsStudyListPageTitleSection from '~/components/interviews/questions/listings/learning/QuestionsStudyListPageTitleSection';
 import { useIntl } from '~/components/intl';
 import MDXContent from '~/components/mdx/MDXContent';
 import Button from '~/components/ui/Button';
@@ -49,19 +49,15 @@ import { useUser } from '@supabase/auth-helpers-react';
 
 type Props = Readonly<{
   bottomContent?: InterviewsListingBottomContent;
-  codingQuestions: ReadonlyArray<QuestionMetadata>;
   companyGuide: InterviewsStudyList;
   companyQuestions: Record<QuestionFormat, ReadonlyArray<QuestionSlug>>;
-  quizQuestions: ReadonlyArray<QuestionMetadata>;
-  systemDesignQuestions: ReadonlyArray<QuestionMetadata>;
+  questions: ReadonlyArray<QuestionMetadata>;
 }>;
 
 export default function InterviewsCompanyGuidePage({
   companyGuide,
-  quizQuestions,
+  questions,
   companyQuestions,
-  codingQuestions,
-  systemDesignQuestions,
   bottomContent,
 }: Props) {
   const intl = useIntl();
@@ -86,11 +82,6 @@ export default function InterviewsCompanyGuidePage({
   );
 
   const questionCount = countNumberOfQuestionsInList(companyQuestions);
-  const questions = useMemo(
-    () => [...quizQuestions, ...codingQuestions, ...systemDesignQuestions],
-    [quizQuestions, codingQuestions, systemDesignQuestions],
-  );
-
   const topics = useMemo(() => {
     const topicsSet = new Set<QuestionTopic>();
 
@@ -166,7 +157,7 @@ export default function InterviewsCompanyGuidePage({
             variant="tertiary"
           />
         </div>
-        <QuestionsLearningListPageTitleSection
+        <QuestionsStudyListPageTitleSection
           description={companyGuide.shortDescription}
           feature="company-guides"
           features={features}
@@ -236,12 +227,10 @@ export default function InterviewsCompanyGuidePage({
             </Heading>
           )}
           {canViewStudyPlans ? (
-            <QuestionsLearningList
-              codingQuestions={codingQuestions}
+            <QuestionsStudyList
               listKey={companyGuide.slug}
               overallProgress={questionsOverallProgress}
-              quizQuestions={quizQuestions}
-              systemDesignQuestions={systemDesignQuestions}
+              questions={questions}
             />
           ) : (
             <div className="relative">
@@ -254,7 +243,7 @@ export default function InterviewsCompanyGuidePage({
                 {...{ inert: '' }}>
                 <QuestionsList
                   checkIfCompletedQuestion={() => false}
-                  questions={[...codingQuestions, ...quizQuestions].slice(0, 4)}
+                  questions={questions.slice(0, 4)}
                 />
               </div>
               <div

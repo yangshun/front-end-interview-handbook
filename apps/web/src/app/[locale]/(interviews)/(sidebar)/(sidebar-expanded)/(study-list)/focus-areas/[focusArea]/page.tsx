@@ -12,6 +12,7 @@ import {
   fetchInterviewsStudyLists,
 } from '~/db/contentlayer/InterviewsStudyListReader';
 import { fetchQuestionsBySlug } from '~/db/QuestionsListReader';
+import { flattenQuestionFormatMetadata } from '~/db/QuestionsUtils';
 import { generateStaticParamsWithLocale } from '~/next-i18nostic/src';
 import defaultMetadata from '~/seo/defaultMetadata';
 import { getSiteOrigin } from '~/seo/siteUrl';
@@ -64,9 +65,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function Page({ params }: Props) {
-  const { locale, focusArea: focusAreaSlug } = params;
+  const { locale, focusArea: focusAreaType } = params;
 
-  const focusArea = await fetchInterviewsStudyList(focusAreaSlug);
+  const focusArea = await fetchInterviewsStudyList(focusAreaType);
 
   if (focusArea == null) {
     return notFound();
@@ -82,7 +83,7 @@ export default async function Page({ params }: Props) {
 
   const [questionsMetadata, bottomContent] = await Promise.all([
     fetchQuestionsBySlug(questionsSlugs, locale),
-    fetchInterviewListingBottomContent(`${focusAreaSlug}-focus-area`),
+    fetchInterviewListingBottomContent(`${focusAreaType}-focus-area`),
   ]);
 
   return (
@@ -100,12 +101,12 @@ export default async function Page({ params }: Props) {
         bottomContent={
           INTERVIEWS_REVAMP_BOTTOM_CONTENT ? bottomContent : undefined
         }
-        focusArea={focusArea}
-        questionsMetadata={{
+        questions={flattenQuestionFormatMetadata({
           ...questionsMetadata,
           quiz: sortQuestions(questionsMetadata.quiz, 'importance', false),
-        }}
+        })}
         questionsSlugs={questionsSlugs}
+        studyList={focusArea}
       />
     </>
   );

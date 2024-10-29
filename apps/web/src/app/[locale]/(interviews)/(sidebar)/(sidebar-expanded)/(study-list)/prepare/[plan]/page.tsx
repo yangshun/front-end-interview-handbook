@@ -12,6 +12,7 @@ import {
   fetchInterviewsStudyLists,
 } from '~/db/contentlayer/InterviewsStudyListReader';
 import { fetchQuestionsBySlug } from '~/db/QuestionsListReader';
+import { flattenQuestionFormatMetadata } from '~/db/QuestionsUtils';
 import { generateStaticParamsWithLocale } from '~/next-i18nostic/src';
 import defaultMetadata from '~/seo/defaultMetadata';
 import { getSiteOrigin } from '~/seo/siteUrl';
@@ -65,18 +66,18 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function Page({ params }: Props) {
   const { locale, plan } = params;
-  const preparationPlan = await fetchInterviewsStudyList(plan);
+  const studyPlan = await fetchInterviewsStudyList(plan);
 
-  if (preparationPlan == null) {
+  if (studyPlan == null) {
     return notFound();
   }
 
   const questionsSlugs = {
-    algo: preparationPlan.questionsAlgo ?? [],
-    javascript: preparationPlan.questionsJavaScript ?? [],
-    quiz: preparationPlan.questionsQuiz ?? [],
-    'system-design': preparationPlan.questionsSystemDesign ?? [],
-    'user-interface': preparationPlan.questionsUserInterface ?? [],
+    algo: studyPlan.questionsAlgo ?? [],
+    javascript: studyPlan.questionsJavaScript ?? [],
+    quiz: studyPlan.questionsQuiz ?? [],
+    'system-design': studyPlan.questionsSystemDesign ?? [],
+    'user-interface': studyPlan.questionsUserInterface ?? [],
   };
 
   const [questionsMetadata, bottomContent] = await Promise.all([
@@ -87,8 +88,8 @@ export default async function Page({ params }: Props) {
   return (
     <>
       <CourseJsonLd
-        courseName={preparationPlan.seoTitle}
-        description={preparationPlan.description}
+        courseName={studyPlan.seoTitle}
+        description={studyPlan.description}
         provider={{
           name: 'GreatFrontEnd',
           url: getSiteOrigin(),
@@ -99,12 +100,12 @@ export default async function Page({ params }: Props) {
         bottomContent={
           INTERVIEWS_REVAMP_BOTTOM_CONTENT ? bottomContent : undefined
         }
-        plan={preparationPlan}
-        questionsMetadata={{
+        questions={flattenQuestionFormatMetadata({
           ...questionsMetadata,
           quiz: sortQuestions(questionsMetadata.quiz, 'importance', false),
-        }}
+        })}
         questionsSlugs={questionsSlugs}
+        studyList={studyPlan}
       />
     </>
   );

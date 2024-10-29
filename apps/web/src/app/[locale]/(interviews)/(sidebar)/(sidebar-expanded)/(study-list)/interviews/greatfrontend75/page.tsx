@@ -12,24 +12,24 @@ import { sortQuestions } from '~/components/interviews/questions/listings/filter
 import { fetchInterviewListingBottomContent } from '~/db/contentlayer/InterviewsListingBottomContentReader';
 import { fetchInterviewsStudyList } from '~/db/contentlayer/InterviewsStudyListReader';
 import { fetchQuestionsBySlug } from '~/db/QuestionsListReader';
+import { flattenQuestionFormatMetadata } from '~/db/QuestionsUtils';
 import defaultMetadata from '~/seo/defaultMetadata';
 import { getSiteOrigin } from '~/seo/siteUrl';
 
 import InterviewsGFE75Page from './InterviewsGFE75Page';
 
 async function getPageSEOMetadata() {
-  const preparationPlanDocument =
-    await fetchInterviewsStudyList('greatfrontend75');
+  const studyPlanDocument = await fetchInterviewsStudyList('greatfrontend75');
 
-  if (preparationPlanDocument == null) {
+  if (studyPlanDocument == null) {
     return notFound();
   }
 
   return {
-    description: preparationPlanDocument.seoDescription,
-    href: preparationPlanDocument.href,
-    socialTitle: preparationPlanDocument.socialTitle,
-    title: preparationPlanDocument.seoTitle,
+    description: studyPlanDocument.seoDescription,
+    href: studyPlanDocument.href,
+    socialTitle: studyPlanDocument.socialTitle,
+    title: studyPlanDocument.seoTitle,
   };
 }
 
@@ -93,12 +93,12 @@ export default async function Page({ params }: Props) {
         bottomContent={
           INTERVIEWS_REVAMP_BOTTOM_CONTENT ? bottomContent : undefined
         }
-        plan={greatfrontend75}
-        questionsMetadata={{
+        questions={flattenQuestionFormatMetadata({
           ...questionsMetadata,
           quiz: sortQuestions(questionsMetadata.quiz, 'importance', false),
-        }}
+        })}
         questionsSlugs={questionsSlugs}
+        studyList={greatfrontend75}
       />
     </>
   );

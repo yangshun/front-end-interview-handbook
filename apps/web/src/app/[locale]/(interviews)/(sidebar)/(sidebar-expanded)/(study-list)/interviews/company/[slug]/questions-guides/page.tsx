@@ -4,8 +4,6 @@ import type { Metadata } from 'next/types';
 import { INTERVIEWS_REVAMP_BOTTOM_CONTENT } from '~/data/FeatureFlags';
 
 import InterviewsCompanyGuidePage from '~/components/interviews/company/InterviewsCompanyGuidePage';
-import type { QuestionMetadata } from '~/components/interviews/questions/common/QuestionsTypes';
-import { sortQuestions } from '~/components/interviews/questions/listings/filters/QuestionsProcessor';
 
 import { fetchInterviewListingBottomContent } from '~/db/contentlayer/InterviewsListingBottomContentReader';
 import { fetchInterviewsStudyList } from '~/db/contentlayer/InterviewsStudyListReader';
@@ -72,32 +70,26 @@ export default async function Page({ params }: Props) {
     'user-interface': companyGuide.questionsUserInterface ?? [],
   };
 
-  const [questions, bottomContent] = await Promise.all([
+  const [questionsByFormat, bottomContent] = await Promise.all([
     fetchQuestionsBySlug(companyGuideQuestions, locale),
     fetchInterviewListingBottomContent('company-detail'),
   ]);
-  const codingQuestions = [
-    ...questions.javascript,
-    ...questions['user-interface'],
-    ...questions.algo,
+  const questionsList = [
+    ...questionsByFormat.javascript,
+    ...questionsByFormat['user-interface'],
+    ...questionsByFormat.algo,
+    ...questionsByFormat['system-design'],
+    ...questionsByFormat.quiz,
   ];
-  const systemDesignQuestions = questions['system-design'];
-  const quizQuestions = questions.quiz;
 
   return (
     <InterviewsCompanyGuidePage
       bottomContent={
         INTERVIEWS_REVAMP_BOTTOM_CONTENT ? bottomContent : undefined
       }
-      codingQuestions={codingQuestions}
       companyGuide={companyGuide}
       companyQuestions={companyGuideQuestions}
-      quizQuestions={sortQuestions(
-        quizQuestions as ReadonlyArray<QuestionMetadata>,
-        'importance',
-        false,
-      )}
-      systemDesignQuestions={systemDesignQuestions}
+      questions={questionsList}
     />
   );
 }

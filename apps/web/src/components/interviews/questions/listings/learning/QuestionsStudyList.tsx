@@ -14,20 +14,16 @@ import { sortQuestionsMultiple } from '../filters/QuestionsProcessor';
 
 import { useUser } from '@supabase/auth-helpers-react';
 
-export default function QuestionsLearningList({
+export default function QuestionsStudyList({
   listKey,
-  quizQuestions,
-  codingQuestions,
-  systemDesignQuestions,
   overallProgress,
+  questions,
   showSummarySection = true,
 }: Readonly<{
-  codingQuestions: ReadonlyArray<QuestionMetadata>;
   listKey: string;
   overallProgress: QuestionsCategorizedProgress;
-  quizQuestions: ReadonlyArray<QuestionMetadata>;
+  questions: ReadonlyArray<QuestionMetadata>;
   showSummarySection?: boolean;
-  systemDesignQuestions: ReadonlyArray<QuestionMetadata>;
 }>) {
   const intl = useIntl();
   const user = useUser();
@@ -44,11 +40,10 @@ export default function QuestionsLearningList({
 
   const { showToast } = useToast();
 
-  const questionsWithProgress = useQuestionsWithListProgressStatus(listKey, [
-    ...codingQuestions,
-    ...quizQuestions,
-    ...systemDesignQuestions,
-  ]);
+  const questionsWithProgress = useQuestionsWithListProgressStatus(
+    listKey,
+    questions,
+  );
   const markCompleteMutation = trpc.questionLists.markComplete.useMutation({
     onSuccess() {
       trpcUtils.questionLists.invalidate();

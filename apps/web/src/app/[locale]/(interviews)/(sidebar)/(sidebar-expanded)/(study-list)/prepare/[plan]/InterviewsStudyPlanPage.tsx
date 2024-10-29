@@ -23,8 +23,8 @@ import type {
 } from '~/components/interviews/questions/common/QuestionsTypes';
 import { StudyPlanIcons } from '~/components/interviews/questions/content/study-list/StudyPlans';
 import QuestionsList from '~/components/interviews/questions/listings/items/QuestionsList';
-import QuestionsLearningList from '~/components/interviews/questions/listings/learning/QuestionsStudyList';
-import QuestionsLearningListPageTitleSection from '~/components/interviews/questions/listings/learning/QuestionsStudyListPageTitleSection';
+import QuestionsStudyList from '~/components/interviews/questions/listings/learning/QuestionsStudyList';
+import QuestionsStudyListPageTitleSection from '~/components/interviews/questions/listings/learning/QuestionsStudyListPageTitleSection';
 import { useIntl } from '~/components/intl';
 import MDXContent from '~/components/mdx/MDXContent';
 import Button from '~/components/ui/Button';
@@ -36,22 +36,21 @@ import {
   categorizeQuestionsProgress,
   countNumberOfQuestionsInList,
   filterQuestionsProgressByList,
-  flattenQuestionFormatMetadata,
 } from '~/db/QuestionsUtils';
 
 import { useUser } from '@supabase/auth-helpers-react';
 
 type Props = Readonly<{
   bottomContent?: InterviewsListingBottomContent;
-  plan: InterviewsStudyList;
-  questionsMetadata: Record<QuestionFormat, ReadonlyArray<QuestionMetadata>>;
+  questions: ReadonlyArray<QuestionMetadata>;
   questionsSlugs: Record<QuestionFormat, ReadonlyArray<QuestionSlug>>;
+  studyList: InterviewsStudyList;
 }>;
 
 export default function InterviewsStudyPlanPage({
-  questionsMetadata,
-  plan,
   bottomContent,
+  studyList,
+  questions,
   questionsSlugs,
 }: Props) {
   const intl = useIntl();
@@ -123,32 +122,26 @@ export default function InterviewsStudyPlanPage({
             variant="tertiary"
           />
         </div>
-        <QuestionsLearningListPageTitleSection
-          description={plan.description}
+        <QuestionsStudyListPageTitleSection
+          description={studyList.description}
           feature="study-plans"
           features={features}
-          icon={StudyPlanIcons[plan.slug]}
+          icon={StudyPlanIcons[studyList.slug]}
           overallProgress={questionProgressParam ?? []}
-          questions={flattenQuestionFormatMetadata(questionsMetadata)}
-          questionsSessionKey={plan.slug}
-          title={plan.longName}
+          questions={questions}
+          questionsSessionKey={studyList.slug}
+          title={studyList.longName}
         />
         <Divider />
       </div>
       <Section>
         <div>
           {canViewStudyPlans ? (
-            <QuestionsLearningList
-              codingQuestions={[
-                ...questionsMetadata.javascript,
-                ...questionsMetadata['user-interface'],
-                ...questionsMetadata.algo,
-              ]}
-              listKey={plan.slug}
+            <QuestionsStudyList
+              listKey={studyList.slug}
               overallProgress={questionsOverallProgress}
-              quizQuestions={questionsMetadata.quiz}
+              questions={questions}
               showSummarySection={false}
-              systemDesignQuestions={questionsMetadata['system-design']}
             />
           ) : (
             <div className="relative">
@@ -158,11 +151,7 @@ export default function InterviewsStudyPlanPage({
                 {...{ inert: '' }}>
                 <QuestionsList
                   checkIfCompletedQuestion={() => false}
-                  questions={[
-                    ...questionsMetadata.javascript,
-                    ...questionsMetadata['user-interface'],
-                    ...questionsMetadata.algo,
-                  ].slice(0, 5)}
+                  questions={questions.slice(0, 5)}
                 />
               </div>
               <div className={clsx('absolute bottom-0 top-0 w-full')}>

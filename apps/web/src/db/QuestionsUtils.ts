@@ -266,6 +266,9 @@ export function roundQuestionCountToNearestTen(count: number) {
   return Math.floor(count / 10) * 10;
 }
 
+/**
+ * @deprecated
+ */
 export function flattenQuestionFormatMetadata(
   questions: Record<QuestionFormat, ReadonlyArray<QuestionMetadata>>,
 ): ReadonlyArray<QuestionMetadata> {

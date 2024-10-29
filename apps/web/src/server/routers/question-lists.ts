@@ -8,7 +8,10 @@ import {
   fetchQuestionsBySlug,
   fetchQuestionsListCoding,
 } from '~/db/QuestionsListReader';
-import { hashQuestion } from '~/db/QuestionsUtils';
+import {
+  flattenQuestionFormatMetadata,
+  hashQuestion,
+} from '~/db/QuestionsUtils';
 import prisma from '~/server/prisma';
 
 import { router, userProcedure } from '../trpc';
@@ -79,13 +82,7 @@ export const questionListsRouter = router({
 
       const questionsByFormat = await fetchQuestionsBySlug(questionsSlugs);
 
-      return [
-        ...questionsByFormat.javascript,
-        ...questionsByFormat['user-interface'],
-        ...questionsByFormat.algo,
-        ...questionsByFormat['system-design'],
-        ...questionsByFormat.quiz,
-      ];
+      return flattenQuestionFormatMetadata(questionsByFormat);
     }),
   getSessionProgress: userProcedure
     .input(

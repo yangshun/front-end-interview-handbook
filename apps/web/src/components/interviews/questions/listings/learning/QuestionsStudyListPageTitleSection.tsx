@@ -32,7 +32,7 @@ type Props = Readonly<{
   title: string;
 }>;
 
-export default function QuestionsLearningListPageTitleSection({
+export default function QuestionsStudyListPageTitleSection({
   description,
   title,
   features,

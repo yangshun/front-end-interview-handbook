@@ -15,7 +15,7 @@ import type {
   QuestionSlug,
 } from '~/components/interviews/questions/common/QuestionsTypes';
 import { StudyPlanIcons } from '~/components/interviews/questions/content/study-list/StudyPlans';
-import QuestionsLearningList from '~/components/interviews/questions/listings/learning/QuestionsStudyList';
+import QuestionsStudyList from '~/components/interviews/questions/listings/learning/QuestionsStudyList';
 import InterviewsRecommendedPrepStrategyPageTitleSection from '~/components/interviews/recommended/InterviewsRecommendedPrepStrategyPageTitleSection';
 import { FormattedMessage, useIntl } from '~/components/intl';
 import MDXContent from '~/components/mdx/MDXContent';
@@ -27,23 +27,22 @@ import Text from '~/components/ui/Text';
 import {
   categorizeQuestionsProgress,
   filterQuestionsProgressByList,
-  flattenQuestionFormatMetadata,
 } from '~/db/QuestionsUtils';
 
 import { useUser } from '@supabase/auth-helpers-react';
 
 type Props = Readonly<{
   bottomContent?: InterviewsListingBottomContent;
-  plan: InterviewsStudyList;
-  questionsMetadata: Record<QuestionFormat, ReadonlyArray<QuestionMetadata>>;
+  questions: ReadonlyArray<QuestionMetadata>;
   questionsSlugs: Record<QuestionFormat, ReadonlyArray<QuestionSlug>>;
+  studyList: InterviewsStudyList;
 }>;
 
 export default function InterviewsBlind75Page({
-  questionsMetadata,
-  questionsSlugs,
   bottomContent,
-  plan,
+  studyList,
+  questions,
+  questionsSlugs,
 }: Props) {
   const intl = useIntl();
   const user = useUser();
@@ -93,9 +92,9 @@ export default function InterviewsBlind75Page({
     <div className={clsx('flex flex-col gap-y-12', 'py-12', 'relative')}>
       <Container className="relative flex flex-col gap-y-5">
         <InterviewsRecommendedPrepStrategyPageTitleSection
-          description={plan.description}
+          description={studyList.description}
           features={features}
-          icon={StudyPlanIcons[plan.slug]}
+          icon={StudyPlanIcons[studyList.slug]}
           longDescription={
             <div className="flex flex-col gap-4">
               <Text color="secondary" size="body1">
@@ -122,29 +121,23 @@ export default function InterviewsBlind75Page({
             </div>
           }
           metadata={{
-            description: plan.seoDescription,
-            href: plan.href,
-            title: 'helllo',
+            description: studyList.seoDescription,
+            href: studyList.href,
+            title: studyList.socialTitle || studyList.seoTitle,
           }}
           overallProgress={questionProgressParam ?? []}
-          questions={flattenQuestionFormatMetadata(questionsMetadata)}
+          questions={questions}
           questionsSessionKey="blind75"
-          title={plan.name}
+          title={studyList.name}
         />
       </Container>
       <Section>
         <Container className="flex flex-col gap-20">
-          <QuestionsLearningList
-            codingQuestions={[
-              ...questionsMetadata.javascript,
-              ...questionsMetadata['user-interface'],
-              ...questionsMetadata.algo,
-            ]}
-            listKey={plan.slug}
+          <QuestionsStudyList
+            listKey={studyList.slug}
             overallProgress={questionsOverallProgress}
-            quizQuestions={questionsMetadata.quiz}
+            questions={questions}
             showSummarySection={false}
-            systemDesignQuestions={questionsMetadata['system-design']}
           />
           {bottomContent && (
             <Section>
