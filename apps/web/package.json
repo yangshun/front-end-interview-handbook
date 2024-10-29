@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "type": "module",
   "scripts": {
-    "check": "npm run tsc && next lint",
+    "check": "npm run tsc && next lint --fix",
     "cl": "contentlayer build",
     "dev": "next dev --turbo",
     "dev:wp": "next dev",
@@ -11,7 +11,7 @@
     "build": "npm run gen:all && next build && npm run sitemap",
     "sitemap": "next-sitemap",
     "start": "next start",
-    "lint": "next lint",
+    "lint": "next lint --fix",
     "test": "jest",
     "tsc": "tsc",
     "db:projects-sync": "ts-node --esm --experimentalSpecifierResolution node ./src/scripts/projects-challenges-sync.ts",
