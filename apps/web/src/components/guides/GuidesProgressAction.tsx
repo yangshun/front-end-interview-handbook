@@ -51,9 +51,9 @@ export default function GuidesProgressAction({
           addonPosition="start"
           icon={RiCheckLine}
           label={intl.formatMessage({
-            defaultMessage: 'Mark as complete',
+            defaultMessage: 'Mark complete',
             description: 'Mark guide as complete',
-            id: '4PeFV4',
+            id: 'Kt8F9D',
           })}
           size="xs"
           variant="secondary"
@@ -165,9 +165,9 @@ export default function GuidesProgressAction({
       isDisabled={addGuideProgressMutation.isLoading}
       isLoading={addGuideProgressMutation.isLoading}
       label={intl.formatMessage({
-        defaultMessage: 'Mark as complete',
+        defaultMessage: 'Mark complete',
         description: 'Mark the guide as complete',
-        id: 'HjFPvq',
+        id: 'wLM+DD',
       })}
       size="xs"
       variant="secondary"

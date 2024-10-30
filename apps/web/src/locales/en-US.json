@@ -855,10 +855,6 @@
     "defaultMessage": "A starter guide to preparing for front end interviews",
     "description": "Description for front end interview guide"
   },
-  "4PeFV4": {
-    "defaultMessage": "Mark as complete",
-    "description": "Mark guide as complete"
-  },
   "4aoTWp": {
     "defaultMessage": "Complete the tasks",
     "description": "Rewards step label"
@@ -1210,10 +1206,6 @@
   "6xnZGh": {
     "defaultMessage": "GreatFrontEnd: The Great Way to Prepare for Front End Interviews",
     "description": "Title of GreatFrontEnd standard page"
-  },
-  "6y6SUS": {
-    "defaultMessage": "Mark as complete",
-    "description": "Mark question as complete"
   },
   "6yAWpI": {
     "defaultMessage": "With over {QuestionCount} practice questions curated by senior front end engineers, you get all-rounded coverage for your preparation — HTML, CSS, JavaScript, algorithms, DOM APIs, accessibility, performance, front end fundamentals, and more.",
@@ -1946,6 +1938,10 @@
   "C34sRh": {
     "defaultMessage": "Account Settings",
     "description": "Screenreader text for account settings."
+  },
+  "C4am9n": {
+    "defaultMessage": "Mark complete",
+    "description": "Mark question as complete"
   },
   "C79VF0": {
     "defaultMessage": "Last week",
@@ -2795,10 +2791,6 @@
     "defaultMessage": "An error has occurred. Please try again later and contact support if the error persists.",
     "description": "Error message shown to user when they are trying to checkout but it fails"
   },
-  "HjFPvq": {
-    "defaultMessage": "Mark as complete",
-    "description": "Mark the guide as complete"
-  },
   "HlRbK4": {
     "defaultMessage": "High quality solutions",
     "description": "Title for high quality solutions feature"
@@ -3306,6 +3298,10 @@
   "KsNZvV": {
     "defaultMessage": "Get premium",
     "description": "Description of the pricing section in the Projects marketing page"
+  },
+  "Kt8F9D": {
+    "defaultMessage": "Mark complete",
+    "description": "Mark guide as complete"
   },
   "KtYnhS": {
     "defaultMessage": "Create a new account",
@@ -6503,10 +6499,6 @@
     "defaultMessage": "What kind of guidance will this platform provide me?",
     "description": "FAQ question for projects platform"
   },
-  "ew9tI2": {
-    "defaultMessage": "Mark as complete (previously completed)",
-    "description": "Label for questions solved in the past"
-  },
   "ex2n84": {
     "defaultMessage": "Work start date is required",
     "description": "Required Error message for work start date"
@@ -7631,10 +7623,6 @@
     "defaultMessage": "Cancel",
     "description": "Cancel button label in confirmation dialog"
   },
-  "lfKH/E": {
-    "defaultMessage": "Mark as complete",
-    "description": "Mark the question as complete"
-  },
   "lfY3AI": {
     "defaultMessage": "Spread the word and get rewarded",
     "description": "Title of the Hero section of the 'Become An Affiliate' page"
@@ -8190,6 +8178,10 @@
   "piqimi": {
     "defaultMessage": "OFF",
     "description": "Amount cashback/discount"
+  },
+  "pj07uD": {
+    "defaultMessage": "Mark complete",
+    "description": "Mark the question as complete"
   },
   "pjH0jb": {
     "defaultMessage": "{name} front end interview questions",
@@ -8919,6 +8911,10 @@
     "defaultMessage": "System design interviews are typically conducted for mid-level to senior positions. These interviews assess a candidate's ability to design complex, scalable, and maintainable systems.",
     "description": "Long description of frontend system design playbook page"
   },
+  "ub/oYs": {
+    "defaultMessage": "Mark complete (previously completed)",
+    "description": "Label for questions solved in the past"
+  },
   "ub441I": {
     "defaultMessage": "Help others improve",
     "description": "Title for recommended action for new projects platform user"
@@ -9218,6 +9214,10 @@
   "wJYG50": {
     "defaultMessage": "Practice data structures and algorithms interview questions, solved in JavaScript/TypeScript. Code in-browser with curated solutions from ex-interviewers.",
     "description": "SEO description for algo coding question format page"
+  },
+  "wLM+DD": {
+    "defaultMessage": "Mark complete",
+    "description": "Mark the guide as complete"
   },
   "wO0zga": {
     "defaultMessage": "Skills roadmap",

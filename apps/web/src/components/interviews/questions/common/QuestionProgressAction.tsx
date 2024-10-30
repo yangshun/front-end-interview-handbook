@@ -51,9 +51,9 @@ export default function QuestionProgressAction({
           addonPosition="start"
           icon={RiCheckLine}
           label={intl.formatMessage({
-            defaultMessage: 'Mark as complete',
+            defaultMessage: 'Mark complete',
             description: 'Mark question as complete',
-            id: '6y6SUS',
+            id: 'C4am9n',
           })}
           size="xs"
           variant="secondary"
@@ -160,9 +160,9 @@ export default function QuestionProgressAction({
       isDisabled={addProgressMutation.isLoading}
       isLoading={addProgressMutation.isLoading}
       label={intl.formatMessage({
-        defaultMessage: 'Mark as complete',
+        defaultMessage: 'Mark complete',
         description: 'Mark the question as complete',
-        id: 'lfKH/E',
+        id: 'pj07uD',
       })}
       size="xs"
       variant="secondary"

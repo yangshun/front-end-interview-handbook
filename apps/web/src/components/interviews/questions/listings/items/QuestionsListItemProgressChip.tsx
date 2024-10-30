@@ -121,9 +121,9 @@ function CompletedBeforeChip({
 }>) {
   const intl = useIntl();
   const actionLabel = intl.formatMessage({
-    defaultMessage: 'Mark as complete (previously completed)',
+    defaultMessage: 'Mark complete (previously completed)',
     description: 'Label for questions solved in the past',
-    id: 'ew9tI2',
+    id: 'ub/oYs',
   });
   const statusLabel = intl.formatMessage({
     defaultMessage: 'Previously completed (before starting this list)',
@@ -179,9 +179,9 @@ export function NotCompleted({
   const isHover = useHover(hoverRef);
   const intl = useIntl();
   const actionLabel = intl.formatMessage({
-    defaultMessage: 'Mark as complete',
+    defaultMessage: 'Mark complete',
     description: 'Mark question as complete',
-    id: '6y6SUS',
+    id: 'C4am9n',
   });
   const statusLabel = intl.formatMessage({
     defaultMessage: 'Not completed',
