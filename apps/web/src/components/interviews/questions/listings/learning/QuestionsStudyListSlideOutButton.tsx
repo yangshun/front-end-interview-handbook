@@ -111,6 +111,7 @@ export default function QuestionsStudyListSlideOutButton({
         />
         <QuestionsStudyListSlideOut
           isDisabled={isLoading}
+          metadata={metadata}
           questions={questionsWithCompletionStatus}
           studyList={studyList}
         />

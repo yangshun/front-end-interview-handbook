@@ -18,15 +18,29 @@ import Tooltip from '~/components/ui/Tooltip';
 
 import type { QuestionMetadata } from '../../common/QuestionsTypes';
 
-const progressChipSizeClass = clsx(
+const progressChipClass = clsx(
   'inline-flex items-center justify-center',
-  'size-8 rounded-full',
+  'rounded-full',
   'transition-colors',
   ['border', themeBorderElementColor],
 );
 
-function LockedChip() {
+type ProgressChipSize = 'md' | 'sm';
+
+const progressChipSizeClass: Record<ProgressChipSize, string> = {
+  md: 'size-8',
+  sm: 'size-6',
+};
+
+const progressChipIconSizeClass: Record<ProgressChipSize, string> = {
+  md: 'size-5',
+  sm: 'size-[15px]',
+};
+
+function LockedChip({ size = 'md' }: { size?: ProgressChipSize }) {
   const intl = useIntl();
+  const progressChipSize = progressChipSizeClass[size];
+  const iconChipSize = progressChipIconSizeClass[size];
 
   return (
     <Tooltip
@@ -36,10 +50,10 @@ function LockedChip() {
         description: 'Label for Premium questions label',
         id: 'l6JVmy',
       })}>
-      <span className={clsx(progressChipSizeClass)}>
+      <span className={clsx(progressChipClass, progressChipSize)}>
         <RiLockFill
           aria-hidden={true}
-          className={clsx('size-4 shrink-0', themeTextColor)}
+          className={clsx('shrink-0', themeTextColor, iconChipSize)}
         />
       </span>
     </Tooltip>
@@ -49,9 +63,11 @@ function LockedChip() {
 export function CompletedChip({
   showHoverState,
   onClick,
+  size = 'md',
 }: Readonly<{
   onClick?: () => void;
   showHoverState: boolean;
+  size?: ProgressChipSize;
 }>) {
   const intl = useIntl();
   const actionLabel = intl.formatMessage({
@@ -65,13 +81,16 @@ export function CompletedChip({
     id: 'yVJzTk',
   });
   const label = onClick ? actionLabel : statusLabel;
+  const progressChipSize = progressChipSizeClass[size];
+  const iconChipSize = progressChipIconSizeClass[size];
 
   return (
     <Tooltip asChild={true} label={label}>
       <button
         aria-label={label}
         className={clsx(
-          progressChipSizeClass,
+          progressChipClass,
+          progressChipSize,
           ['border', 'border-success dark:border-success-light'],
           'bg-success dark:bg-success-light',
           themeTextFainterColor,
@@ -82,7 +101,10 @@ export function CompletedChip({
         )}
         type="button"
         onClick={onClick}>
-        <RiCheckFill aria-hidden="true" className={clsx('size-5')} />
+        <RiCheckFill
+          aria-hidden="true"
+          className={clsx('shrink-0', iconChipSize)}
+        />
       </button>
     </Tooltip>
   );
@@ -91,9 +113,11 @@ export function CompletedChip({
 function CompletedBeforeChip({
   showHoverState,
   onClick,
+  size = 'md',
 }: Readonly<{
   onClick?: () => void;
   showHoverState: boolean;
+  size?: ProgressChipSize;
 }>) {
   const intl = useIntl();
   const actionLabel = intl.formatMessage({
@@ -107,13 +131,16 @@ function CompletedBeforeChip({
     id: 'RT2AQW',
   });
   const label = onClick ? actionLabel : statusLabel;
+  const progressChipSize = progressChipSizeClass[size];
+  const iconChipSize = progressChipIconSizeClass[size];
 
   return (
     <Tooltip asChild={true} label={label}>
       <button
         aria-label={label}
         className={clsx(
-          progressChipSizeClass,
+          progressChipClass,
+          progressChipSize,
           [themeTextSubtleColor, 'font-semibold'],
           themeBackgroundCardNoAlphaColor,
           'border-success border border-dashed',
@@ -126,7 +153,10 @@ function CompletedBeforeChip({
         )}
         type="button"
         onClick={onClick}>
-        <RiCheckFill aria-hidden="true" className={clsx('size-5')} />
+        <RiCheckFill
+          aria-hidden="true"
+          className={clsx('shrink-0', iconChipSize)}
+        />
       </button>
     </Tooltip>
   );
@@ -137,11 +167,13 @@ export function NotCompleted({
   showAsNumber,
   showHoverState,
   onClick,
+  size = 'md',
 }: Readonly<{
   number: number;
   onClick?: () => void;
   showAsNumber: boolean;
   showHoverState: boolean;
+  size?: ProgressChipSize;
 }>) {
   const hoverRef = useRef(null);
   const isHover = useHover(hoverRef);
@@ -157,6 +189,8 @@ export function NotCompleted({
     id: 'HaM5w5',
   });
   const label = onClick ? actionLabel : statusLabel;
+  const progressChipSize = progressChipSizeClass[size];
+  const iconChipSize = progressChipIconSizeClass[size];
 
   return (
     <Tooltip asChild={true} label={label}>
@@ -164,7 +198,8 @@ export function NotCompleted({
         ref={hoverRef}
         aria-label={label}
         className={clsx(
-          progressChipSizeClass,
+          progressChipClass,
+          progressChipSize,
           themeBackgroundCardNoAlphaColor,
           ['border', themeBorderElementColor],
           showAsNumber ? themeTextSubtleColor : themeTextFainterColor,
@@ -175,7 +210,10 @@ export function NotCompleted({
         {showAsNumber && showHoverState && !isHover ? (
           number
         ) : (
-          <RiCheckFill aria-hidden="true" className={clsx('size-5')} />
+          <RiCheckFill
+            aria-hidden="true"
+            className={clsx('shrink-0', iconChipSize)}
+          />
         )}
       </button>
     </Tooltip>
@@ -194,6 +232,7 @@ export default function QuestionsListItemProgressChip<
   onMarkAsCompleted,
   onMarkAsNotCompleted,
   index,
+  size = 'md',
 }: Readonly<{
   className: string;
   hasCompletedQuestion: boolean;
@@ -204,6 +243,7 @@ export default function QuestionsListItemProgressChip<
   onMarkAsNotCompleted?: (qn: Q) => void;
   premiumUser?: boolean;
   question: Q;
+  size?: ProgressChipSize;
 }>) {
   const [showHoverState, setShowHoverState] = useState(true);
 
@@ -215,13 +255,14 @@ export default function QuestionsListItemProgressChip<
       }}>
       {(() => {
         if (question.premium && !premiumUser) {
-          return <LockedChip />;
+          return <LockedChip size={size} />;
         }
 
         if (hasCompletedQuestion) {
           return (
             <CompletedChip
               showHoverState={onMarkAsCompleted ? showHoverState : false}
+              size={size}
               onClick={
                 onMarkAsCompleted
                   ? () => {
@@ -237,6 +278,7 @@ export default function QuestionsListItemProgressChip<
         return hasCompletedQuestionBefore ? (
           <CompletedBeforeChip
             showHoverState={onMarkAsCompleted ? showHoverState : false}
+            size={size}
             onClick={
               onMarkAsCompleted
                 ? () => {
@@ -251,6 +293,7 @@ export default function QuestionsListItemProgressChip<
             number={index + 1}
             showAsNumber={mode === 'learning-list'}
             showHoverState={onMarkAsCompleted ? showHoverState : false}
+            size={size}
             onClick={
               onMarkAsCompleted
                 ? () => {

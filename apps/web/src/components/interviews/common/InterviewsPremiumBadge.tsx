@@ -1,9 +1,14 @@
 import { RiStarSmileFill } from 'react-icons/ri';
 
 import { useIntl } from '~/components/intl';
+import type { BadgeSize } from '~/components/ui/Badge';
 import Badge from '~/components/ui/Badge';
 
-export default function InterviewsPremiumBadge() {
+type Props = Readonly<{
+  size?: BadgeSize;
+}>;
+
+export default function InterviewsPremiumBadge({ size = 'sm' }: Props) {
   const intl = useIntl();
 
   return (
@@ -15,7 +20,7 @@ export default function InterviewsPremiumBadge() {
         id: 'rf0xcZ',
       })}
       labelClassName="font-semibold"
-      size="sm"
+      size={size}
       variant="primary"
     />
   );

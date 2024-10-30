@@ -92,6 +92,7 @@ function ScrollBar({ size, radius, scrollbars }: ScrollBarProps) {
       {scrollbars !== 'horizontal' && (
         <ScrollAreaPrimitive.Scrollbar
           className={clsx(
+            'z-[100]',
             'flex p-0.5',
             'touch-none select-none',
             'transparent',

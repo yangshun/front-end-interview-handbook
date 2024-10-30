@@ -28,7 +28,6 @@ import {
   sortQuestionsMultiple,
   tabulateQuestionsAttributesUnion,
 } from '~/components/interviews/questions/listings/filters/QuestionsProcessor';
-import QuestionsCodingListBrief from '~/components/interviews/questions/listings/items/QuestionsCodingListBrief';
 import { useIntl } from '~/components/intl';
 import Button from '~/components/ui/Button';
 import CheckboxInput from '~/components/ui/CheckboxInput';
@@ -40,6 +39,8 @@ import SlideOut from '~/components/ui/SlideOut';
 import Text from '~/components/ui/Text';
 import TextInput from '~/components/ui/TextInput';
 import { themeBorderColor } from '~/components/ui/theme';
+
+import InterviewsStudyListQuestions from './InterviewsStudyListQuestions';
 
 function FilterSection<T extends string, Q extends QuestionMetadata>({
   coveredValues,
@@ -162,8 +163,10 @@ function FrameworkAndLanguageFilterSection<Q extends QuestionMetadata>({
 function Contents({
   listKey,
   questions,
+  metadata,
 }: Readonly<{
   listKey?: string | undefined;
+  metadata: QuestionMetadata;
   questions: ReadonlyArray<QuestionMetadataWithCompletedStatus>;
 }>) {
   const intl = useIntl();
@@ -253,11 +256,16 @@ function Contents({
       isLabelHidden={true}
       label={intl.formatMessage({
         defaultMessage: 'Sort by',
-        description: 'Label for sorting button',
-        id: 'vegaR1',
+        description: 'Tooltip for sorting button',
+        id: 'IAQscN',
       })}
       showChevron={false}
-      size="sm">
+      size="sm"
+      tooltip={intl.formatMessage({
+        defaultMessage: 'Sort by',
+        description: 'Label for sort by',
+        id: '4A5Ogu',
+      })}>
       {[
         makeDropdownItemProps(
           intl.formatMessage({
@@ -444,7 +452,7 @@ function Contents({
   return (
     <div className="flex flex-col gap-y-4">
       <form
-        className="flex w-full flex-col gap-4"
+        className="flex w-full flex-col gap-4 px-6"
         onSubmit={(event) => {
           event.preventDefault();
         }}>
@@ -462,7 +470,15 @@ function Contents({
                     })
                   : searchPlaceholder
               }
-              placeholder={searchPlaceholder}
+              placeholder={
+                listKey
+                  ? intl.formatMessage({
+                      defaultMessage: 'Search in the list',
+                      description: 'Search placeholder for study list',
+                      id: 'y6DqsF',
+                    })
+                  : searchPlaceholder
+              }
               size="sm"
               startIcon={RiSearchLine}
               type="search"
@@ -482,6 +498,19 @@ function Contents({
             }
             selected={numberOfFilters > 0}
             size="sm"
+            tooltip={
+              showFilters
+                ? intl.formatMessage({
+                    defaultMessage: 'Collapse filters',
+                    description: 'Tooltip for collapse filters',
+                    id: 'i2950u',
+                  })
+                : intl.formatMessage({
+                    defaultMessage: 'Expand filters',
+                    description: 'Tooltip for expand filters',
+                    id: 'ymvdJV',
+                  })
+            }
             onClick={() => {
               setShowFilters(!showFilters);
             }}
@@ -490,9 +519,10 @@ function Contents({
         </div>
         {showFilters && embedFilters}
       </form>
-      <QuestionsCodingListBrief
+      <InterviewsStudyListQuestions
         checkIfCompletedQuestion={(question) => question.isCompleted}
         listKey={listKey}
+        metadata={metadata}
         questions={processedQuestions}
       />
     </div>
@@ -501,6 +531,7 @@ function Contents({
 
 type Props = Readonly<{
   isDisabled: boolean;
+  metadata: QuestionMetadata;
   questions: ReadonlyArray<QuestionMetadataWithCompletedStatus>;
   studyList?: Readonly<{ listKey: string; name: string }>;
 }>;
@@ -509,6 +540,7 @@ export default function QuestionsStudyListSlideOut({
   isDisabled,
   questions,
   studyList,
+  metadata,
 }: Props) {
   const intl = useIntl();
   // Have to be controlled because we don't want to
@@ -520,6 +552,7 @@ export default function QuestionsStudyListSlideOut({
     <SlideOut
       enterFrom="start"
       isShown={isShown}
+      padding={false}
       size="xl"
       title={
         studyList != null
@@ -544,7 +577,11 @@ export default function QuestionsStudyListSlideOut({
       }
       onClose={() => setIsShown(false)}>
       {isShown && (
-        <Contents listKey={studyList?.listKey} questions={questions} />
+        <Contents
+          listKey={studyList?.listKey}
+          metadata={metadata}
+          questions={questions}
+        />
       )}
     </SlideOut>
   );

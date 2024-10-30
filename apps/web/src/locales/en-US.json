@@ -819,6 +819,10 @@
     "defaultMessage": "{count, plural, one {1 credit} other {# credits}}",
     "description": "Number of credits"
   },
+  "4A5Ogu": {
+    "defaultMessage": "Sort by",
+    "description": "Label for sort by"
+  },
   "4AetUb": {
     "defaultMessage": "Edit profile photo",
     "description": "Label for edit profile photo button on projects profile"
@@ -942,6 +946,10 @@
   "5DLanP": {
     "defaultMessage": "Front End Interview",
     "description": "Short title for Front End Interview Playbook"
+  },
+  "5DwYlA": {
+    "defaultMessage": "Type",
+    "description": "Label for question format column of questions list table"
   },
   "5Gjt4J": {
     "defaultMessage": "Something went wrong. Try again later or contact <link>support@greatfrontend.com</link>!",
@@ -2339,6 +2347,10 @@
     "defaultMessage": "{startedCount, plural, one {A user} other {# users}} started working on this challenge",
     "description": "Number of users who have started the challenge"
   },
+  "EjXbPp": {
+    "defaultMessage": "Difficulty",
+    "description": "Label for question difficulty column of questions list table"
+  },
   "EjbpUe": {
     "defaultMessage": "Open navigation profile menu",
     "description": "Screenreader text to open the profile menu"
@@ -2838,6 +2850,10 @@
   "I9lFwb": {
     "defaultMessage": "A forum where you can clarify doubts.",
     "description": "FAQ answer for projects platform"
+  },
+  "IAQscN": {
+    "defaultMessage": "Sort by",
+    "description": "Tooltip for sorting button"
   },
   "IBP/D0": {
     "defaultMessage": "Tell us your email if you want us to follow up with you.",
@@ -7031,6 +7047,10 @@
     "defaultMessage": "What do I need to prepare before starting a challenge?",
     "description": "FAQ question for projects platform"
   },
+  "i2950u": {
+    "defaultMessage": "Collapse filters",
+    "description": "Tooltip for collapse filters"
+  },
   "i4MSQe": {
     "defaultMessage": "1 Week Plan",
     "description": "Link to one week study plan"
@@ -8531,6 +8551,10 @@
     "defaultMessage": "{discountPercentage}% off all plans",
     "description": "Subtext for rewards complete page"
   },
+  "sO8Hr+": {
+    "defaultMessage": "Name",
+    "description": "Label for name column of questions list table"
+  },
   "sP54y8": {
     "defaultMessage": "Easy",
     "description": "Easy difficulty label for solved problems"
@@ -9498,6 +9522,10 @@
   "ymmDf7": {
     "defaultMessage": "Premium",
     "description": "Label for premium"
+  },
+  "ymvdJV": {
+    "defaultMessage": "Expand filters",
+    "description": "Tooltip for expand filters"
   },
   "ypT9B0": {
     "defaultMessage": "Answering \"Why work here\"",
