@@ -63,7 +63,10 @@ function FilterSection<T extends string, Q extends QuestionMetadata>({
         <FilterButton
           addonPosition="end"
           icon={RiArrowDownSLine}
-          label={filterOptions.name}
+          label={
+            filterOptions.name +
+            (filters.size === 0 ? '' : ` (${filters.size})`)
+          }
           selected={filters.size > 0}
           size="sm"
         />
@@ -99,6 +102,8 @@ function FrameworkAndLanguageFilterSection<Q extends QuestionMetadata>({
   languageFilterOptions: QuestionFilter<QuestionLanguage, Q>;
   languageFilters: Set<QuestionLanguage>;
 }>) {
+  const intl = useIntl();
+
   // No need filter if there's only a single option.
   if (
     languageCoveredValues != null &&
@@ -109,13 +114,22 @@ function FrameworkAndLanguageFilterSection<Q extends QuestionMetadata>({
     return null;
   }
 
+  const totalSelectionSize = frameworkFilters.size + languageFilters.size;
+
   return (
     <Popover
       trigger={
         <FilterButton
           addonPosition="end"
           icon={RiArrowDownSLine}
-          label="Framework / Language"
+          label={
+            intl.formatMessage({
+              defaultMessage: 'Framework / Language',
+              description:
+                'Label for frameworks and programming language button',
+              id: 'XhL9G7',
+            }) + (totalSelectionSize === 0 ? '' : ` (${totalSelectionSize})`)
+          }
           selected={frameworkFilters.size > 0 || languageFilters.size > 0}
           size="sm"
         />
@@ -438,9 +452,9 @@ function Contents({
         />
         <Button
           label={intl.formatMessage({
-            defaultMessage: 'Reset filter',
+            defaultMessage: 'Reset filters',
             description: 'Label for reset filter button',
-            id: 'Oxdmlq',
+            id: 'L3y2pt',
           })}
           size="xs"
           variant="tertiary"

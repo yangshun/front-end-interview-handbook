@@ -3355,6 +3355,10 @@
     "defaultMessage": "You have completed {percent}% of this study list.",
     "description": "Tooltip for learning list progress percent"
   },
+  "L3y2pt": {
+    "defaultMessage": "Reset filters",
+    "description": "Label for reset filter button"
+  },
   "L4W5rT": {
     "defaultMessage": "You can choose to end a project session if you choose not to work on it anymore. We will stop prompting you to continue the project in the dashboard",
     "description": "Tooltip for \"End session\" button on current project session card"
@@ -3970,10 +3974,6 @@
   "Ow7Mov": {
     "defaultMessage": "Solutions & test from ex-interviewers",
     "description": "Features for dashboard"
-  },
-  "Oxdmlq": {
-    "defaultMessage": "Reset filter",
-    "description": "Label for reset filter button"
   },
   "Oxj7x1": {
     "defaultMessage": "Company (optional)",
@@ -5418,6 +5418,10 @@
   "XhK6jS": {
     "defaultMessage": "Trivia-style front end questions asked across all interview rounds",
     "description": "Description of quiz interview preparation"
+  },
+  "XhL9G7": {
+    "defaultMessage": "Framework / Language",
+    "description": "Label for frameworks and programming language button"
   },
   "XjIm4S": {
     "defaultMessage": "Oldest first",
