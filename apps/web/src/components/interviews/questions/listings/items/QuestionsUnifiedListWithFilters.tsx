@@ -136,7 +136,7 @@ export default function QuestionsUnifiedListWithFilters({
     setSortField,
     defaultSortFields,
     premiumSortFields,
-  } = useQuestionCodingSorting();
+  } = useQuestionCodingSorting({ namespace });
 
   // Processing.
   const sortedQuestions = sortQuestionsMultiple(

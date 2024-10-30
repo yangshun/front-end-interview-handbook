@@ -56,6 +56,12 @@ export default function InterviewsStudyListQuestions<
     );
   }
 
+  const isCurrentQuestionInTheList = !!questions.find(
+    (question) =>
+      hashQuestion(question.format, question.slug) ===
+      hashQuestion(metadata.format, metadata.slug),
+  );
+
   return (
     <div>
       <table className="relative hidden w-full  table-fixed border-collapse md:block">
@@ -104,9 +110,12 @@ export default function InterviewsStudyListQuestions<
         <tbody className={clsx(['divide-y', themeDivideColor])}>
           {questions.map((question, index) => {
             const hasCompletedQuestion = checkIfCompletedQuestion?.(question);
-            const isActiveQuestion =
-              hashQuestion(question.format, question.slug) ===
-              hashQuestion(metadata.format, metadata.slug);
+
+            // If the current question is not in the list, the first question is going to be the active question
+            const isActiveQuestion = isCurrentQuestionInTheList
+              ? hashQuestion(question.format, question.slug) ===
+                hashQuestion(metadata.format, metadata.slug)
+              : index === 0;
 
             return (
               <tr
@@ -119,7 +128,7 @@ export default function InterviewsStudyListQuestions<
                   isActiveQuestion &&
                     themeBackgroundElementEmphasizedStateColor,
                 )}>
-                <td className="py-4 pl-6 pr-1.5">
+                <td className="w-full py-4 pl-6 pr-1.5">
                   <div className="flex items-center gap-x-4">
                     {checkIfCompletedQuestion != null && (
                       <QuestionsListItemProgressChip

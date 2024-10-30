@@ -2,14 +2,12 @@
 
 import clsx from 'clsx';
 import { RiArrowLeftSLine, RiArrowRightSLine } from 'react-icons/ri';
-import { useSessionStorage } from 'usehooks-ts';
 
 import { trpc } from '~/hooks/trpc';
 
 import { useUserProfile } from '~/components/global/UserProfileProvider';
 import type { QuestionMetadata } from '~/components/interviews/questions/common/QuestionsTypes';
 import useQuestionCodingSorting from '~/components/interviews/questions/listings/filters/hooks/useQuestionCodingSorting';
-import { QuestionsCodingFiltersNamespaceKey } from '~/components/interviews/questions/listings/filters/hooks/useQuestionsCodingFiltersNamespace';
 import useQuestionsWithCompletionStatus from '~/components/interviews/questions/listings/filters/hooks/useQuestionsWithCompletionStatus';
 import useQuestionUnifiedFilters from '~/components/interviews/questions/listings/filters/hooks/useQuestionUnifiedFilters';
 import {
@@ -40,16 +38,18 @@ export default function QuestionsStudyListSlideOutButton({
     questions ?? [],
   );
 
-  const [namespace] = useSessionStorage(
-    QuestionsCodingFiltersNamespaceKey,
-    'prepare-coding',
-  );
+  const namespace = studyList
+    ? `${studyList?.listKey}-coding`
+    : 'prepare-coding';
   // Filtering.
   const { filters } = useQuestionUnifiedFilters({
     namespace,
   });
+
   // Sorting.
-  const { defaultSortFields, premiumSortFields } = useQuestionCodingSorting();
+  const { defaultSortFields, premiumSortFields } = useQuestionCodingSorting({
+    namespace,
+  });
   // Processing.
   const sortedQuestions = sortQuestionsMultiple(
     questionsWithCompletionStatus,
@@ -63,15 +63,7 @@ export default function QuestionsStudyListSlideOutButton({
     filters.map(([_, filterFn]) => filterFn),
   );
 
-  // Non-completed questions including the current question.
-  const possibleQuestions = processedQuestions.filter(
-    (question) =>
-      !question.isCompleted ||
-      hashQuestion(question.format, question.slug) ===
-        hashQuestion(metadata.format, metadata.slug),
-  );
-
-  const currentQuestionIndex = possibleQuestions.findIndex(
+  const currentQuestionIndex = processedQuestions.findIndex(
     (question) =>
       hashQuestion(question.format, question.slug) ===
       hashQuestion(metadata.format, metadata.slug),
@@ -80,10 +72,10 @@ export default function QuestionsStudyListSlideOutButton({
   // The current question might not appear in the filtered list,
   // but `currentQuestionIndex` will return -1 and the next question
   // will be 0 index which is the first question in the processed list.
-  const prevQuestion = possibleQuestions[currentQuestionIndex - 1];
+  const prevQuestion = processedQuestions[currentQuestionIndex - 1];
   const prevQuestionButtonDisabled = isLoading || prevQuestion == null;
 
-  const nextQuestion = possibleQuestions[currentQuestionIndex + 1];
+  const nextQuestion = processedQuestions[currentQuestionIndex + 1];
   const nextQuestionButtonDisabled = isLoading || nextQuestion == null;
 
   return (
@@ -113,6 +105,8 @@ export default function QuestionsStudyListSlideOutButton({
           currentQuestionPosition={currentQuestionIndex + 1}
           isDisabled={isLoading}
           metadata={metadata}
+          namespace={namespace}
+          processedQuestions={processedQuestions}
           questions={questionsWithCompletionStatus}
           studyList={studyList}
         />

@@ -1,4 +1,5 @@
 import clsx from 'clsx';
+import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import {
   RiArrowDownSLine,
@@ -7,7 +8,7 @@ import {
   RiSearchLine,
   RiSortDesc,
 } from 'react-icons/ri';
-import { useMediaQuery, useSessionStorage } from 'usehooks-ts';
+import { useMediaQuery } from 'usehooks-ts';
 
 import { useQuestionUserFacingFormatData } from '~/data/QuestionFormats';
 
@@ -20,7 +21,6 @@ import type {
   QuestionSortField,
 } from '~/components/interviews/questions/common/QuestionsTypes';
 import useQuestionCodingSorting from '~/components/interviews/questions/listings/filters/hooks/useQuestionCodingSorting';
-import { QuestionsCodingFiltersNamespaceKey } from '~/components/interviews/questions/listings/filters/hooks/useQuestionsCodingFiltersNamespace';
 import useQuestionUnifiedFilters from '~/components/interviews/questions/listings/filters/hooks/useQuestionUnifiedFilters';
 import type { QuestionFilter } from '~/components/interviews/questions/listings/filters/QuestionFilterType';
 import {
@@ -42,6 +42,7 @@ import TextInput from '~/components/ui/TextInput';
 import { themeBorderColor } from '~/components/ui/theme';
 
 import InterviewsStudyListQuestions from './InterviewsStudyListQuestions';
+import { questionHrefWithList } from '../../common/questionHref';
 
 function FilterSection<T extends string, Q extends QuestionMetadata>({
   coveredValues,
@@ -179,17 +180,15 @@ function Contents({
   listKey,
   questions,
   metadata,
+  namespace,
 }: Readonly<{
   listKey?: string | undefined;
   metadata: QuestionMetadata;
+  namespace: string;
   questions: ReadonlyArray<QuestionMetadataWithCompletedStatus>;
 }>) {
   const intl = useIntl();
   const { userProfile } = useUserProfile();
-  const [namespace] = useSessionStorage(
-    QuestionsCodingFiltersNamespaceKey,
-    'prepare-coding',
-  );
 
   const questionFormatLists = useQuestionUserFacingFormatData();
   const { searchPlaceholder } = questionFormatLists.coding;
@@ -232,7 +231,9 @@ function Contents({
     setSortField,
     defaultSortFields,
     premiumSortFields,
-  } = useQuestionCodingSorting();
+  } = useQuestionCodingSorting({
+    namespace,
+  });
 
   // Processing.
   const sortedQuestions = sortQuestionsMultiple(
@@ -548,6 +549,8 @@ type Props = Readonly<{
   currentQuestionPosition: number;
   isDisabled: boolean;
   metadata: QuestionMetadata;
+  namespace: string;
+  processedQuestions: ReadonlyArray<QuestionMetadataWithCompletedStatus>;
   questions: ReadonlyArray<QuestionMetadataWithCompletedStatus>;
   studyList?: Readonly<{ listKey: string; name: string }>;
 }>;
@@ -557,13 +560,27 @@ export default function QuestionsStudyListSlideOut({
   questions,
   studyList,
   currentQuestionPosition,
+  processedQuestions,
   metadata,
+  namespace,
 }: Props) {
   const intl = useIntl();
   // Have to be controlled because we don't want to
   // render the contents for nothing because it does a fetch.
   const [isShown, setIsShown] = useState(false);
   const isMobile = useMediaQuery('(max-width: 500px)');
+  const router = useRouter();
+
+  const onClose = () => {
+    // If the active question is not in the list
+    // redirect to the first question in the list on closing
+    if (currentQuestionPosition === 0 && processedQuestions.length > 0) {
+      router.push(
+        questionHrefWithList(processedQuestions[0].href, studyList?.listKey),
+      );
+    }
+    setIsShown(false);
+  };
 
   return (
     <SlideOut
@@ -593,18 +610,19 @@ export default function QuestionsStudyListSlideOut({
           <div className="flex items-center gap-3">
             <span>{studyList != null ? studyList.name : 'Question list'}</span>
             <Badge
-              label={`${currentQuestionPosition}/${questions.length}`}
+              label={`${currentQuestionPosition}/${processedQuestions.length}`}
               size="xs"
               variant="neutral"
             />
           </div>
         </Button>
       }
-      onClose={() => setIsShown(false)}>
+      onClose={onClose}>
       {isShown && (
         <Contents
           listKey={studyList?.listKey}
           metadata={metadata}
+          namespace={namespace}
           questions={questions}
         />
       )}
