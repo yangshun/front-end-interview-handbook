@@ -11,7 +11,7 @@ import {
 import { hashQuestion } from '~/db/QuestionsUtils';
 import prisma from '~/server/prisma';
 
-import { router, userProcedure } from '../trpc';
+import { publicProcedure, router, userProcedure } from '../trpc';
 
 export const questionListsRouter = router({
   getActiveSession: userProcedure
@@ -49,7 +49,7 @@ export const questionListsRouter = router({
       },
     });
   }),
-  getQuestions: userProcedure
+  getQuestions: publicProcedure
     .input(
       z.object({
         listKey: z.string().optional(),

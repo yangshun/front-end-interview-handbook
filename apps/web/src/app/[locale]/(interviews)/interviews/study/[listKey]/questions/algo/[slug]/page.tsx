@@ -3,6 +3,8 @@ import type { Metadata } from 'next/types';
 import { ArticleJsonLd } from 'next-seo';
 
 import { sortQuestionsMultiple } from '~/components/interviews/questions/listings/filters/QuestionsProcessor';
+import QuestionsStudyListBottomNav from '~/components/interviews/questions/listings/learning/QuestionsStudyListBottomNav';
+import QuestionsStudyListSlideOutButton from '~/components/interviews/questions/listings/learning/QuestionsStudyListSlideOutButton';
 import CodingWorkspacePaywallPage from '~/components/workspace/common/CodingWorkspacePaywallPage';
 import JavaScriptCodingWorkspacePage from '~/components/workspace/javascript/JavaScriptCodingWorkspacePage';
 
@@ -134,7 +136,23 @@ export default async function Page({ params }: Props) {
         useAppDir={true}
       />
       {isQuestionLockedForUser ? (
-        <CodingWorkspacePaywallPage metadata={question.metadata} />
+        <>
+          <CodingWorkspacePaywallPage metadata={question.metadata} />
+          <QuestionsStudyListBottomNav
+            listKey={listKey}
+            paginationEl={
+              <QuestionsStudyListSlideOutButton
+                metadata={question.metadata}
+                studyList={
+                  studyList != null
+                    ? { listKey, name: studyList.name }
+                    : undefined
+                }
+              />
+            }
+            question={question}
+          />
+        </>
       ) : (
         <JavaScriptCodingWorkspacePage
           canViewPremiumContent={canViewPremiumContent}

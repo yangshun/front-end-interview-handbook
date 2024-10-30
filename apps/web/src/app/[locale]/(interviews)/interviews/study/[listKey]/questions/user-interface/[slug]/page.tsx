@@ -7,6 +7,8 @@ import { QuestionFrameworkLabels } from '~/components/interviews/questions/commo
 import type { QuestionUserInterfaceMode } from '~/components/interviews/questions/common/QuestionUserInterfacePath';
 import { determineFrameworkAndMode } from '~/components/interviews/questions/common/QuestionUserInterfacePath';
 import { sortQuestionsMultiple } from '~/components/interviews/questions/listings/filters/QuestionsProcessor';
+import QuestionsStudyListBottomNav from '~/components/interviews/questions/listings/learning/QuestionsStudyListBottomNav';
+import QuestionsStudyListSlideOutButton from '~/components/interviews/questions/listings/learning/QuestionsStudyListSlideOutButton';
 import CodingWorkspacePaywallPage from '~/components/workspace/common/CodingWorkspacePaywallPage';
 import UserInterfaceCodingWorkspacePage from '~/components/workspace/user-interface/UserInterfaceCodingWorkspacePage';
 
@@ -228,7 +230,23 @@ export default async function Page({ params }: Props) {
         useAppDir={true}
       />
       {isQuestionLockedForViewer ? (
-        <CodingWorkspacePaywallPage metadata={question.metadata} />
+        <>
+          <CodingWorkspacePaywallPage metadata={question.metadata} />
+          <QuestionsStudyListBottomNav
+            listKey={listKey}
+            paginationEl={
+              <QuestionsStudyListSlideOutButton
+                metadata={question.metadata}
+                studyList={
+                  studyList != null
+                    ? { listKey, name: studyList.name }
+                    : undefined
+                }
+              />
+            }
+            question={question}
+          />
+        </>
       ) : (
         <UserInterfaceCodingWorkspacePage
           canViewPremiumContent={canViewPremiumContent}
