@@ -110,6 +110,7 @@ export default function QuestionsStudyListSlideOutButton({
           variant="secondary"
         />
         <QuestionsStudyListSlideOut
+          currentQuestionPosition={currentQuestionIndex + 1}
           isDisabled={isLoading}
           metadata={metadata}
           questions={questionsWithCompletionStatus}

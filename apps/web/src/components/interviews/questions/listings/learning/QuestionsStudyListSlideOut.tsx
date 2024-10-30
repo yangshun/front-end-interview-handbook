@@ -29,6 +29,7 @@ import {
   tabulateQuestionsAttributesUnion,
 } from '~/components/interviews/questions/listings/filters/QuestionsProcessor';
 import { useIntl } from '~/components/intl';
+import Badge from '~/components/ui/Badge';
 import Button from '~/components/ui/Button';
 import CheckboxInput from '~/components/ui/CheckboxInput';
 import Divider from '~/components/ui/Divider';
@@ -530,6 +531,7 @@ function Contents({
 }
 
 type Props = Readonly<{
+  currentQuestionPosition: number;
   isDisabled: boolean;
   metadata: QuestionMetadata;
   questions: ReadonlyArray<QuestionMetadataWithCompletedStatus>;
@@ -540,6 +542,7 @@ export default function QuestionsStudyListSlideOut({
   isDisabled,
   questions,
   studyList,
+  currentQuestionPosition,
   metadata,
 }: Props) {
   const intl = useIntl();
@@ -572,8 +575,16 @@ export default function QuestionsStudyListSlideOut({
           label={studyList != null ? studyList.name : 'Question list'}
           size="xs"
           variant="secondary"
-          onClick={() => setIsShown(true)}
-        />
+          onClick={() => setIsShown(true)}>
+          <div className="flex items-center gap-3">
+            <span>{studyList != null ? studyList.name : 'Question list'}</span>
+            <Badge
+              label={`${currentQuestionPosition}/${questions.length}`}
+              size="xs"
+              variant="neutral"
+            />
+          </div>
+        </Button>
       }
       onClose={() => setIsShown(false)}>
       {isShown && (
