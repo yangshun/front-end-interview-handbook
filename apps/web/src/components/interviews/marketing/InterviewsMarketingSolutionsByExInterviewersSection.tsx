@@ -17,10 +17,10 @@ import {
   themeWhiteGlowCardBackground,
 } from '~/components/ui/theme';
 
-const HIGHLIGHT_MATCH_START_REGEX = /\/\*\s*hl:s(\((\w*)\))?\s*\*\//;
+const HIGHLIGHT_MATCH_START_REGEX = /\/\*\s*hl:s(\(([\w-]*)\))?\s*\*\//;
 const HIGHLIGHT_MATCH_END_REGEX = /\/\*\s*hl:e\s*\*\//;
 
-type QuestionSlug = 'data-table' | 'deep-clone' | 'flatten';
+type QuestionSlug = 'deep-clone' | 'flatten' | 'like-button';
 
 const questions: ReadonlyArray<{
   code: string;
@@ -33,8 +33,8 @@ const questions: ReadonlyArray<{
  * @return {Array}
  */
 export default function flatten(value) {
-  return /* hl:s(yangshun) */value/* hl:e */.reduce(
-    (acc, curr) => /*   hl:s(zhenghao) */acc.concat(Array.isArray(curr) ? flatten(curr) : curr)/* hl:e */,
+  return value./* hl:s(flatten-i) */reduce/* hl:e */(
+    (acc, curr) => acc.concat(Array.isArray(curr) ? /* hl:s(flatten-ii) */flatten(curr)/* hl:e */ : curr),
     [],
   );
 }
@@ -49,15 +49,15 @@ export default function flatten(value) {
  * @return {T}
  */
 export default function deepClone(value) {
-  if (/* hl:s(yangshun) */typeof value !== 'object' || value === null/* hl:e */) {
+  if (/* hl:s(deepclone-i) */typeof value !== 'object' || value === null/* hl:e */) {
     return value;
   }
 
-  if (/* hl:s(yangshun) */Array.isArray(value)/* hl:e */) {
+  if (/* hl:s(deepclone-ii) */Array.isArray(value)/* hl:e */) {
     return value.map((item) => deepClone(item));
   }
 
-  return /* hl:s(yangshun) */Object.fromEntries/* hl:e */(
+  return /* hl:s(deepclone-iii) */Object.fromEntries/* hl:e */(
     Object.entries(value).map(([key, value]) => [key, deepClone(value)]),
   );
 }
@@ -66,19 +66,31 @@ export default function deepClone(value) {
     value: 'deep-clone',
   },
   {
-    code: `/**
- * @param {Array<*|Array>} value
- * @return {Array}
- */
-export default function flatten(value) {
-  return /* hl:s(yangshun) */value/* hl:e */.reduce(
-    (acc, curr) => /*   hl:s(zhenghao) */acc.concat(Array.isArray(curr) ? flatten(curr) : curr)/* hl:e */,
-    [],
+    code: `function LikeButton() {
+  return (
+    <div className="button-container">
+      <button
+        className={classNames(
+          'like-button',
+          /* hl:s(like-button-i) */liked/* hl:e */
+            ? 'like-button--liked'
+            : 'like-button--default',
+        )}
+        disabled={isPending}
+        onClick={() => {
+          likeUnlikeAction();
+        }}>
+        {/* hl:s(like-button-ii) */isPending ? <SpinnerIcon /> : <HeartIcon />/* hl:e */}
+        {liked ? 'Liked' : 'Like'}
+      </button>
+      {errorMessage && (
+        <div className="error-message">{errorMessage}</div>
+      )}
+    </div>
   );
-}
 `,
-    label: 'Data Table',
-    value: 'data-table',
+    label: 'Like Button',
+    value: 'like-button',
   },
 ] as const;
 
@@ -88,6 +100,7 @@ function getAnnotationData(highlightId: string | null):
       className: string;
       contents: ReactNode;
       highlightClass: string;
+      position?: 'bottom' | 'top';
     }>
   | null
   | undefined {
@@ -95,40 +108,129 @@ function getAnnotationData(highlightId: string | null):
     return null;
   }
 
+  const pinkClassName = clsx('bg-neutral-900/90', 'border-pink-500');
+  const pinkHighlightClassName = clsx('bg-pink-500/10', 'outline-pink-500');
+
+  const greenClassName = clsx('bg-neutral-900/90', 'border-green-500');
+  const greenHighlightClassName = clsx('bg-green-500/10', 'outline-green-500');
+
+  const orangeClassName = clsx('bg-neutral-900/90', 'border-orange-500');
+  const orangeHighlightClassName = clsx(
+    'bg-orange-500/10',
+    'outline-orange-500',
+  );
+
   switch (highlightId) {
-    case 'yangshun': {
+    case 'flatten-i': {
       return {
         alignment: 'start',
-        className: clsx('bg-neutral-900/90', 'border-cyan-500'),
+        className: pinkClassName,
         contents: (
           <CodeAnnotationContents
-            contents="This has performance benefits"
+            className="w-[200px]"
+            contents="Reduce is suitable since we want to iterate through every element and consolidate them"
             name="Yangshun"
           />
         ),
-        highlightClass: clsx('bg-cyan-500/10', 'outline-cyan-500'),
+        highlightClass: pinkHighlightClassName,
       };
     }
-    case 'zhenghao': {
+    case 'flatten-ii': {
       return {
         alignment: 'end',
-        className: clsx('bg-neutral-900/90', 'border-green-500'),
+        className: greenClassName,
         contents: (
           <CodeAnnotationContents
-            contents="Using ternary operator makes the code more concise"
+            className="w-[150px]"
+            contents="Recursively call flatten() on nested arrays"
             name="Zhenghao"
           />
         ),
-        highlightClass: clsx('bg-green-500/10', 'outline-green-500'),
+        highlightClass: greenHighlightClassName,
+        position: 'bottom',
+      };
+    }
+    case 'deepclone-i': {
+      return {
+        alignment: 'start',
+        className: pinkClassName,
+        contents: (
+          <CodeAnnotationContents
+            className="w-[300px]"
+            contents="Handle primitive and null-ish values first by returning directly"
+            name="Yangshun"
+          />
+        ),
+        highlightClass: pinkHighlightClassName,
+      };
+    }
+    case 'deepclone-ii': {
+      return {
+        alignment: 'start',
+        className: greenClassName,
+        contents: (
+          <CodeAnnotationContents
+            className="w-[300px]"
+            contents="Recursively handle arrays by calling deepClone() on each item into a new array"
+            name="Zhenghao"
+          />
+        ),
+        highlightClass: greenHighlightClassName,
+      };
+    }
+    case 'deepclone-iii': {
+      return {
+        alignment: 'start',
+        className: orangeClassName,
+        contents: (
+          <CodeAnnotationContents
+            className="w-[300px]"
+            contents="Recursively handle objects by calling deepClone() on each entry into a new object"
+            name="Yangshun"
+          />
+        ),
+        highlightClass: orangeHighlightClassName,
+        position: 'bottom',
+      };
+    }
+    case 'like-button-i': {
+      return {
+        alignment: 'start',
+        className: pinkClassName,
+        contents: (
+          <CodeAnnotationContents
+            className="w-[300px]"
+            contents="Conditionally use the appropriate classname"
+            name="Yangshun"
+          />
+        ),
+        highlightClass: pinkHighlightClassName,
+      };
+    }
+    case 'like-button-ii': {
+      return {
+        alignment: 'start',
+        className: greenClassName,
+        contents: (
+          <CodeAnnotationContents
+            className="w-[300px]"
+            contents="Be sure to add aria-hidden to hide icons from screen readers"
+            name="Zhenghao"
+          />
+        ),
+        highlightClass: greenHighlightClassName,
+        position: 'bottom',
       };
     }
   }
 }
 
 function CodeAnnotationContents({
+  className,
   contents,
   name,
 }: Readonly<{
+  className: string;
   contents: string;
   name: string;
 }>) {
@@ -141,7 +243,7 @@ function CodeAnnotationContents({
   }, []);
 
   return (
-    <div className="flex min-w-[150px] max-w-[200px] flex-col gap-0.5">
+    <div className={clsx('flex min-w-[150px] flex-col gap-0.5', className)}>
       <Text color="light" size="body3" weight="medium">
         {name}
       </Text>
@@ -162,27 +264,31 @@ function CodeAnnotation({
   children,
   className,
   isShown,
+  position = 'top',
 }: Readonly<{
   alignment?: 'end' | 'start' | null;
   children: ReactNode;
   className?: string;
   isShown?: boolean;
+  position?: 'bottom' | 'top';
 }>) {
   return (
     <div
       className={clsx(
         'font-sans',
-        'absolute bottom-0 -translate-y-5',
+        'absolute',
+        position === 'top' && 'bottom-0 -translate-y-5 rounded-t-lg',
+        position === 'bottom' && 'top-0 translate-y-5 rounded-b-lg',
         alignment === 'start' && 'left-0 -ml-1',
         alignment === 'end' && 'right-0 -mr-0.5',
         'px-2 py-1',
         'border',
-        'rounded-t-lg',
         'transition-all',
-        'delay-500',
         'duration-500',
+        'hover:opacity-10',
+        isShown ? 'opacity-100' : 'opacity-0 delay-500',
+        'select-none',
         className,
-        isShown ? 'opacity-100' : 'opacity-0',
       )}>
       {children}
     </div>
@@ -312,7 +418,7 @@ export default function InterviewsMarketingSolutionsByExInterviewersSection() {
                               {...getTokenProps({
                                 token: highlightedToken,
                               })}
-                              key={tokenKey}
+                              key={index_}
                             />,
                           );
 
@@ -336,7 +442,8 @@ export default function InterviewsMarketingSolutionsByExInterviewersSection() {
                               <CodeAnnotation
                                 alignment={annotationData?.alignment}
                                 className={annotationData?.className}
-                                isShown={showAnnotations}>
+                                isShown={showAnnotations}
+                                position={annotationData?.position}>
                                 {annotationData.contents}
                               </CodeAnnotation>
                             )}
