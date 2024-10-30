@@ -140,8 +140,8 @@ export default function FrontEndSystemDesignPlaybookPage({
                 })}
               </Heading>
               <QuestionsSystemDesignListWithFilters
+                filterNamespace="system-design-format"
                 layout="full"
-                namespace="system-design-format"
               />
             </div>
           </Section>

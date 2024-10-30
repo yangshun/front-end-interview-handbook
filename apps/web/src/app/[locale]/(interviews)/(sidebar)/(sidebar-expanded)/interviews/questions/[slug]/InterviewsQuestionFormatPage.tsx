@@ -128,6 +128,8 @@ export default function InterviewsQuestionFormatPage({
           }),
   };
 
+  const filterNamespace = `format:${format}`;
+
   return (
     <Container className={clsx('flex flex-col', 'py-10', 'gap-y-12')}>
       <div>
@@ -157,14 +159,12 @@ export default function InterviewsQuestionFormatPage({
         <div className="mt-10">
           <InterviewsPageFeatures features={features} />
         </div>
-
         <Divider className="mt-8" />
       </div>
-
       <Section>
         {format === 'quiz' && (
           <QuestionsQuizListWithFiltersAndProgress
-            namespace={`${format}-format`}
+            filterNamespace={filterNamespace}
             questionCompletionCount={questionCompletionCount}
             questions={questions}
             showTopicFilterTags={false}
@@ -174,10 +174,10 @@ export default function InterviewsQuestionFormatPage({
           format === 'algo' ||
           format === 'user-interface') && (
           <QuestionsUnifiedListWithFiltersAndProgress
+            filterNamespace={filterNamespace}
             guides={
               guidesWithCompletionStatus.length > 0 ? guidesData : undefined
             }
-            namespace={`${format}-format`}
             questionCompletionCount={questionCompletionCount}
             questions={questions}
             showSummarySection={false}
@@ -185,8 +185,8 @@ export default function InterviewsQuestionFormatPage({
         )}
         {format === 'system-design' && (
           <QuestionsSystemDesignListWithFilters
+            filterNamespace={filterNamespace}
             layout="full"
-            namespace="system-design-format"
           />
         )}
       </Section>

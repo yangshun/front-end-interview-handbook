@@ -36,7 +36,6 @@ import { themeDivideEmphasizeColor } from '~/components/ui/theme';
 import type { QuestionCompletionCount } from '~/db/QuestionsCount';
 
 import useQuestionCodingSorting from '../filters/hooks/useQuestionCodingSorting';
-import useQuestionsCodingFiltersNamespace from '../filters/hooks/useQuestionsCodingFiltersNamespace';
 import useQuestionUnifiedFilters from '../filters/hooks/useQuestionUnifiedFilters';
 import QuestionListingUnifiedFilters from '../filters/QuestionListingUnifiedFilters';
 import QuestionsListingFilterSlideOut from '../filters/QuestionsListingFilterSlideout';
@@ -47,6 +46,7 @@ import QuestionTotalTimeLabel from '../../metadata/QuestionTotalTimeLabel';
 
 export type Props = Readonly<{
   checkIfCompletedQuestionBefore?: (question: QuestionMetadata) => boolean;
+  filterNamespace: string;
   formatFiltersFilterPredicate?: (format: QuestionFormat) => boolean;
   formatFiltersOrderComparator?: (
     a: QuestionFormat,
@@ -63,7 +63,6 @@ export type Props = Readonly<{
   listKey?: string;
   listMode?: 'default' | 'learning-list';
   mode?: 'default' | 'framework';
-  namespace: string;
   onMarkAsCompleted?: (question: QuestionMetadata) => void;
   onMarkAsNotCompleted?: (question: QuestionMetadata) => void;
   questionCompletionCount?: QuestionCompletionCount;
@@ -80,7 +79,7 @@ export default function QuestionsUnifiedListWithFilters({
   listKey,
   listMode,
   mode = 'default',
-  namespace,
+  filterNamespace,
   questions,
   questionCompletionCount,
   formatFiltersFilterPredicate,
@@ -90,10 +89,6 @@ export default function QuestionsUnifiedListWithFilters({
   showSummarySection = true,
   guides,
 }: Props) {
-  // Save the last-rendered filters in session storage to be retrieved
-  // on the coding workspace page for filtering all questions.
-  useQuestionsCodingFiltersNamespace(namespace);
-
   const intl = useIntl();
   const { userProfile } = useUserProfile();
 
@@ -122,10 +117,10 @@ export default function QuestionsUnifiedListWithFilters({
     topicFilterOptions,
     filters,
   } = useQuestionUnifiedFilters({
+    filterNamespace,
     formatFiltersFilterPredicate,
     formatFiltersOrderComparator,
     initialFormat,
-    namespace,
   });
 
   // Sorting.
@@ -136,7 +131,7 @@ export default function QuestionsUnifiedListWithFilters({
     setSortField,
     defaultSortFields,
     premiumSortFields,
-  } = useQuestionCodingSorting({ namespace });
+  } = useQuestionCodingSorting({ filterNamespace });
 
   // Processing.
   const sortedQuestions = sortQuestionsMultiple(
@@ -177,8 +172,8 @@ export default function QuestionsUnifiedListWithFilters({
       <div className={clsx(layout === 'full' && 'lg:hidden')}>
         <QuestionsListingFilterSlideOut
           attributesUnion={questionAttributesUnion}
+          filterNamespace={filterNamespace}
           mode={mode}
-          namespace={namespace}
         />
       </div>
       <DropdownMenu

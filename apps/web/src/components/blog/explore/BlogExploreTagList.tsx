@@ -23,8 +23,8 @@ export default function BlogExploreTagList({ articles, series, tag }: Props) {
       <BlogTypeTabs value={selectedTab} onSelect={setSelectedTab} />
       <BlogListingWithFilters
         key={selectedTab}
+        filterNamespace={`explore-${selectedTab}-${tag}`}
         layout="explore"
-        namespace={`explore-${selectedTab}-${tag}`}
         posts={postsFilteredByTag}
         showFilters={selectedTab === 'articles'}
         type={selectedTab}

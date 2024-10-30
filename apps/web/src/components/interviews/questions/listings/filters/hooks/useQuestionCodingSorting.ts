@@ -4,31 +4,34 @@ import { useSessionStorage } from 'usehooks-ts';
 import type { QuestionSortField } from '~/components/interviews/questions/common/QuestionsTypes';
 
 type Props = Readonly<{
-  namespace?: string;
+  filterNamespace?: string;
 }>;
 
 export default function useQuestionCodingSorting(props?: Props) {
-  const { namespace } = props || {};
+  const { filterNamespace } = props || {};
   const [isAscendingOrderState, setIsAscendingOrderState] = useState(true);
   const [sortFieldState, setSortFieldState] =
     useState<QuestionSortField>('difficulty');
   const [isAscendingOrderSessionStorage, setIsAscendingOrderSessionStorage] =
-    useSessionStorage<boolean>(`gfe:${namespace}:sort-isAscendingOrder`, true);
+    useSessionStorage<boolean>(
+      `gfe:${filterNamespace}:sort-isAscendingOrder`,
+      true,
+    );
   const [sortFieldSessionStorage, setSortFieldSessionStorage] =
     useSessionStorage<QuestionSortField>(
-      `gfe:${namespace}:sort-field`,
+      `gfe:${filterNamespace}:sort-field`,
       'difficulty',
     );
 
   // Conditionally select which hook's state to use
-  const sortField = namespace ? sortFieldSessionStorage : sortFieldState;
-  const isAscendingOrder = namespace
+  const sortField = filterNamespace ? sortFieldSessionStorage : sortFieldState;
+  const isAscendingOrder = filterNamespace
     ? isAscendingOrderSessionStorage
     : isAscendingOrderState;
-  const setSortField = namespace
+  const setSortField = filterNamespace
     ? setSortFieldSessionStorage
     : setSortFieldState;
-  const setIsAscendingOrder = namespace
+  const setIsAscendingOrder = filterNamespace
     ? setIsAscendingOrderSessionStorage
     : setIsAscendingOrderState;
   const defaultSortFields: ReadonlyArray<{

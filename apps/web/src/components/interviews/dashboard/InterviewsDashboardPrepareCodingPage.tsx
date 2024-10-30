@@ -27,8 +27,8 @@ export default function InterviewsDashboardPrepareCodingQuestionsPage({
     <div className="xl:grid xl:grid-cols-12 xl:gap-x-6">
       <div className="xl:col-span-9">
         <QuestionsUnifiedListWithFiltersAndProgress
+          filterNamespace="prepare-coding"
           layout="embedded"
-          namespace="prepare-coding"
           questionCompletionCount={questionCompletionCount}
           questions={questions}
         />

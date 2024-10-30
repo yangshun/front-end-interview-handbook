@@ -15,19 +15,19 @@ import useQuestionTopicFilter from './useQuestionTopicFilter';
 import questionMatchesTextQuery from '../questionMatchesTextQuery';
 
 type Props = Readonly<{
+  filterNamespace?: string;
   formatFiltersFilterPredicate?: (format: QuestionFormat) => boolean;
   formatFiltersOrderComparator?: (
     a: QuestionFormat,
     b: QuestionFormat,
   ) => number;
   initialFormat?: QuestionFormat | null;
-  namespace?: string;
 }>;
 
 export default function useQuestionUnifiedFilters({
   formatFiltersFilterPredicate,
   formatFiltersOrderComparator,
-  namespace,
+  filterNamespace: namespace,
   initialFormat,
 }: Props) {
   // Filtering.

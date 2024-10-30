@@ -13,6 +13,7 @@ import type { QuestionsListAttributesUnion } from './QuestionsProcessor';
 
 type Props = Readonly<{
   attributesUnion: QuestionsListAttributesUnion;
+  filterNamespace: string;
   formatFiltersFilterPredicate?: (format: QuestionFormat) => boolean;
   formatFiltersOrderComparator?: (
     a: QuestionFormat,
@@ -21,12 +22,11 @@ type Props = Readonly<{
   initialFormat?: QuestionFormat | null;
   initialOpenItems?: ReadonlyArray<string>;
   mode?: 'default' | 'framework';
-  namespace: string;
 }>;
 
 export default function QuestionsListingFilterSlideOut({
   attributesUnion,
-  namespace,
+  filterNamespace,
   initialFormat,
   formatFiltersFilterPredicate,
   formatFiltersOrderComparator,
@@ -55,10 +55,10 @@ export default function QuestionsListingFilterSlideOut({
     topicFilterOptions,
     filters,
   } = useQuestionUnifiedFilters({
+    filterNamespace,
     formatFiltersFilterPredicate,
     formatFiltersOrderComparator,
     initialFormat,
-    namespace,
   });
 
   // To maintain local state of the filters

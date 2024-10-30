@@ -180,11 +180,11 @@ function Contents({
   listKey,
   questions,
   metadata,
-  namespace,
+  filterNamespace,
 }: Readonly<{
+  filterNamespace: string;
   listKey?: string | undefined;
   metadata: QuestionMetadata;
-  namespace: string;
   questions: ReadonlyArray<QuestionMetadataWithCompletedStatus>;
 }>) {
   const intl = useIntl();
@@ -220,7 +220,7 @@ function Contents({
     filters,
     clearAllFilters,
   } = useQuestionUnifiedFilters({
-    namespace,
+    filterNamespace,
   });
 
   // Sorting.
@@ -232,7 +232,7 @@ function Contents({
     defaultSortFields,
     premiumSortFields,
   } = useQuestionCodingSorting({
-    namespace,
+    filterNamespace,
   });
 
   // Processing.
@@ -547,9 +547,9 @@ function Contents({
 
 type Props = Readonly<{
   currentQuestionPosition: number;
+  filterNamespace: string;
   isDisabled: boolean;
   metadata: QuestionMetadata;
-  namespace: string;
   processedQuestions: ReadonlyArray<QuestionMetadataWithCompletedStatus>;
   questions: ReadonlyArray<QuestionMetadataWithCompletedStatus>;
   studyList?: Readonly<{ listKey: string; name: string }>;
@@ -562,7 +562,7 @@ export default function QuestionsStudyListSlideOut({
   currentQuestionPosition,
   processedQuestions,
   metadata,
-  namespace,
+  filterNamespace,
 }: Props) {
   const intl = useIntl();
   // Have to be controlled because we don't want to
@@ -620,9 +620,9 @@ export default function QuestionsStudyListSlideOut({
       onClose={onClose}>
       {isShown && (
         <Contents
+          filterNamespace={filterNamespace}
           listKey={studyList?.listKey}
           metadata={metadata}
-          namespace={namespace}
           questions={questions}
         />
       )}

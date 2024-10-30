@@ -36,7 +36,7 @@ export default function InterviewsStudyListQuestions<
 
   if (questions.length === 0) {
     return (
-      <div className={clsx('border p-10', themeBorderColor)}>
+      <div className={clsx('p-10')}>
         <EmptyState
           subtitle={intl.formatMessage({
             defaultMessage: 'Try changing the filters',
@@ -64,7 +64,7 @@ export default function InterviewsStudyListQuestions<
 
   return (
     <div>
-      <table className="relative hidden w-full  table-fixed border-collapse md:block">
+      <table className="relative hidden w-full table-fixed border-collapse md:block">
         <colgroup>
           <col className="w-3/5" />
           <col className="w-[20%]" />
@@ -121,7 +121,7 @@ export default function InterviewsStudyListQuestions<
               <tr
                 key={hashQuestion(question.format, question.slug)}
                 className={clsx(
-                  'group relative rounded-lg',
+                  'group relative',
                   'transition-colors',
                   'focus-within:ring-brand focus-within:ring-2 focus-within:ring-inset',
                   themeBackgroundElementEmphasizedStateColor_Hover,
@@ -192,7 +192,7 @@ export default function InterviewsStudyListQuestions<
             <li
               key={hashQuestion(question.format, question.slug)}
               className={clsx(
-                'group relative rounded-lg',
+                'group relative',
                 'px-6 py-4',
                 'transition-colors',
                 'focus-within:ring-brand focus-within:ring-2 focus-within:ring-inset',

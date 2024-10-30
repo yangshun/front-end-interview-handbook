@@ -68,9 +68,9 @@ export default function QuestionsFrameworkPage({
             title={featuredSectionTitle}
           />
           <QuestionsUnifiedListWithFiltersAndProgress
+            filterNamespace={`framework:${framework}`}
             framework={framework}
             mode="framework"
-            namespace={`${framework}-quiz`}
             questionCompletionCount={questionCompletionCount}
             questions={questionList}
           />

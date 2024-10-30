@@ -147,6 +147,8 @@ export default function QuestionsStudyList({
     );
   }
 
+  const filterNamespace = `study-list:${listKey}`;
+
   return (
     <div className="flex flex-col gap-y-6">
       <Heading className="sr-only" level="custom">
@@ -168,9 +170,9 @@ export default function QuestionsStudyList({
               checkIfCompletedQuestionBefore={(question) =>
                 overallProgress[question.format].has(question.slug)
               }
+              filterNamespace={filterNamespace}
               listKey={listKey}
               listMode="learning-list"
-              namespace={`${listKey}-coding`}
               questions={sortedQuestions}
               showSummarySection={showSummarySection}
               onMarkAsCompleted={markQuestionAsCompleted}

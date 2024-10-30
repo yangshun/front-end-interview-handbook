@@ -14,8 +14,8 @@ export default function InterviewsDashboardPrepareSystemDesignPage() {
     <div className="xl:grid xl:grid-cols-12 xl:gap-x-6">
       <div className="xl:col-span-9">
         <QuestionsSystemDesignListWithFilters
+          filterNamespace="prepare-system-design"
           layout="embedded"
-          namespace="prepare-system-design"
         />
       </div>
       <aside

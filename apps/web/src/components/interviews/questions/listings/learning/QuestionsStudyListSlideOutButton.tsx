@@ -38,17 +38,17 @@ export default function QuestionsStudyListSlideOutButton({
     questions ?? [],
   );
 
-  const namespace = studyList
-    ? `${studyList?.listKey}-coding`
+  const filterNamespace = studyList
+    ? `study-list:${studyList?.listKey}`
     : 'prepare-coding';
   // Filtering.
   const { filters } = useQuestionUnifiedFilters({
-    namespace,
+    filterNamespace,
   });
 
   // Sorting.
   const { defaultSortFields, premiumSortFields } = useQuestionCodingSorting({
-    namespace,
+    filterNamespace,
   });
   // Processing.
   const sortedQuestions = sortQuestionsMultiple(
@@ -103,9 +103,9 @@ export default function QuestionsStudyListSlideOutButton({
         />
         <QuestionsStudyListSlideOut
           currentQuestionPosition={currentQuestionIndex + 1}
+          filterNamespace={filterNamespace}
           isDisabled={isLoading}
           metadata={metadata}
-          namespace={namespace}
           processedQuestions={processedQuestions}
           questions={questionsWithCompletionStatus}
           studyList={studyList}

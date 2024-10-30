@@ -31,10 +31,10 @@ import QuestionTotalTimeLabel from '../../metadata/QuestionTotalTimeLabel';
 
 export type Props = Readonly<{
   checkIfCompletedQuestionBefore?: (question: QuestionMetadata) => boolean;
+  filterNamespace: string;
   layout?: 'embedded' | 'full';
   listKey?: string;
   listMode?: 'default' | 'learning-list';
-  namespace: string;
   onMarkAsCompleted?: (question: QuestionMetadata) => void;
   onMarkAsNotCompleted?: (question: QuestionMetadata) => void;
   questionCompletionCount?: QuestionCompletionCount;
@@ -49,7 +49,7 @@ export default function QuestionsQuizListWithFilters({
   listMode = 'default',
   onMarkAsCompleted,
   onMarkAsNotCompleted,
-  namespace,
+  filterNamespace,
   questions,
   questionCompletionCount,
   showTopicFilterTags = true,
@@ -98,8 +98,8 @@ export default function QuestionsQuizListWithFilters({
     topicFilterOptions,
     filters,
   } = useQuestionUnifiedFilters({
+    filterNamespace,
     initialFormat: null,
-    namespace,
   });
 
   // Processing.
@@ -119,9 +119,9 @@ export default function QuestionsQuizListWithFilters({
       <div className={clsx(layout === 'full' && 'lg:hidden')}>
         <QuestionsListingFilterSlideOut
           attributesUnion={questionAttributesUnion}
+          filterNamespace={filterNamespace}
           initialOpenItems={['topic']}
           mode="default"
-          namespace={namespace}
         />
       </div>
       <DropdownMenu

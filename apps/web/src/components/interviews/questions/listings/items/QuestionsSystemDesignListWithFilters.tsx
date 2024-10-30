@@ -24,13 +24,13 @@ import QuestionsListingFilterSlideOut from '../filters/QuestionsListingFilterSli
 import { allSystemDesignQuestions } from '../../content/system-design/InterviewsSystemDesignQuestions';
 
 type Props = Readonly<{
+  filterNamespace: string;
   layout?: 'embedded' | 'full';
   listMode?: 'default' | 'learning-list';
-  namespace: string;
 }>;
 
 export default function QuestionsSystemDesignListWithFilters({
-  namespace,
+  filterNamespace,
   listMode = 'default',
   layout = 'full',
 }: Props) {
@@ -97,8 +97,8 @@ export default function QuestionsSystemDesignListWithFilters({
     topicFilterOptions,
     filters,
   } = useQuestionUnifiedFilters({
+    filterNamespace,
     initialFormat: null,
-    namespace,
   });
 
   // Processing.
@@ -123,8 +123,8 @@ export default function QuestionsSystemDesignListWithFilters({
       <div className={clsx(layout === 'full' && 'lg:hidden')}>
         <QuestionsListingFilterSlideOut
           attributesUnion={questionAttributesUnion}
+          filterNamespace={filterNamespace}
           mode="default"
-          namespace={namespace}
         />
       </div>
       <DropdownMenu

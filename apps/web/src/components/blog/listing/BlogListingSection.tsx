@@ -27,8 +27,8 @@ export default function BlogListingSection({ allSeries }: Props) {
       <div className="xl:grid xl:grid-cols-12 xl:gap-x-6">
         <div className="xl:col-span-9">
           <BlogListWithFilters
+            filterNamespace="blog-listing"
             layout="embedded"
-            namespace="blog-listing"
             posts={posts}
           />
         </div>

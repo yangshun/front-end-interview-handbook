@@ -99,6 +99,7 @@ function QuestionsList({
   const category = categoryParam ?? 'js';
   const format: QuestionUserFacingFormat = formatParam ?? 'coding';
   const router = useI18nRouter();
+  const filterNamespace = `category:${category}:${format}`;
 
   return (
     <div className="flex flex-col gap-y-4">
@@ -116,13 +117,14 @@ function QuestionsList({
       </div>
       {format === 'quiz' && (
         <QuestionsQuizListWithFiltersAndProgress
-          namespace={`${category}-quiz`}
+          filterNamespace={filterNamespace}
           questionCompletionCount={questionCompletionCount}
           questions={quizQuestions}
         />
       )}
       {format === 'coding' && (
         <QuestionsUnifiedListWithFiltersAndProgress
+          filterNamespace={filterNamespace}
           formatFiltersFilterPredicate={
             CategoryFilters[category].filterPredicate
           }
@@ -130,7 +132,6 @@ function QuestionsList({
             CategoryFilters[category].orderComparator
           }
           initialFormat={codingFormat}
-          namespace={`${category}-coding`}
           questionCompletionCount={questionCompletionCount}
           questions={codingQuestions}
         />

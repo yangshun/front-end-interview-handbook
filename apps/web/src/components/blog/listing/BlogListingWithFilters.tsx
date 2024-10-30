@@ -33,8 +33,8 @@ import SlideOut from '~/components/ui/SlideOut';
 import TextInput from '~/components/ui/TextInput';
 
 export type Props = Readonly<{
+  filterNamespace: string;
   layout?: 'embedded' | 'explore' | 'full';
-  namespace: string;
   posts: ReadonlyArray<BlogMetadata>;
   showFilters?: boolean;
   type?: Readonly<BlogFilterTab>;
@@ -42,7 +42,7 @@ export type Props = Readonly<{
 
 export default function BlogListingWithFilters({
   layout = 'full',
-  namespace,
+  filterNamespace,
   posts,
   showFilters = true,
   type = 'articles',
@@ -61,7 +61,7 @@ export default function BlogListingWithFilters({
     tagFilters,
     tagFilterOptions,
     filters,
-  } = useBlogPostFilters({ namespace });
+  } = useBlogPostFilters({ namespace: filterNamespace });
 
   // Processing.
   const sortedBlogPosts = sortBlogPostsMultiple(posts, [
