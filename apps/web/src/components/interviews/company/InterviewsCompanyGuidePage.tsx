@@ -38,7 +38,6 @@ import Section from '~/components/ui/Heading/HeadingContext';
 
 import {
   categorizeQuestionsProgress,
-  countNumberOfQuestionsInList,
   filterQuestionsProgressByList,
 } from '~/db/QuestionsUtils';
 
@@ -81,7 +80,6 @@ export default function InterviewsCompanyGuidePage({
     questionsSlugs,
   );
 
-  const questionCount = countNumberOfQuestionsInList(questionsSlugs);
   const topics = useMemo(() => {
     const topicsSet = new Set<QuestionTopic>();
 
@@ -93,6 +91,7 @@ export default function InterviewsCompanyGuidePage({
 
     return Array.from(topicsSet).map((topic) => topicLabels[topic].label);
   }, [questions, topicLabels]);
+  const questionCount = questions.length;
 
   const features = [
     {
@@ -114,7 +113,6 @@ export default function InterviewsCompanyGuidePage({
         id: 'F9KpiA',
       }),
     },
-
     {
       icon: RiThumbUpLine,
       label: intl.formatMessage({

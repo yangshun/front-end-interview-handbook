@@ -34,7 +34,6 @@ import Section from '~/components/ui/Heading/HeadingContext';
 
 import {
   categorizeQuestionsProgress,
-  countNumberOfQuestionsInList,
   filterQuestionsProgressByList,
 } from '~/db/QuestionsUtils';
 
@@ -72,8 +71,6 @@ export default function InterviewsStudyPlanPage({
     questionsSlugs,
   );
 
-  const questionCount = countNumberOfQuestionsInList(questionsSlugs);
-
   const features = [
     {
       icon: RiVerifiedBadgeLine,
@@ -91,7 +88,7 @@ export default function InterviewsStudyPlanPage({
           description: 'Features for study plans question listing',
           id: 'wVk78R',
         },
-        { questionCount },
+        { questionCount: questions.length },
       ),
     },
     {

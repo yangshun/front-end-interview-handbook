@@ -31,7 +31,6 @@ import Section from '~/components/ui/Heading/HeadingContext';
 
 import {
   categorizeQuestionsProgress,
-  countNumberOfQuestionsInList,
   filterQuestionsProgressByList,
 } from '~/db/QuestionsUtils';
 
@@ -66,7 +65,6 @@ export default function InterviewsFocusAreaPage({
     questionsProgressAll,
     questionsSlugs,
   );
-  const questionCount = countNumberOfQuestionsInList(questionsSlugs);
 
   const features = [
     {
@@ -77,7 +75,7 @@ export default function InterviewsFocusAreaPage({
           description: 'Features for focus areas question listing',
           id: 'DthPOl',
         },
-        { questionCount },
+        { questionCount: questions.length },
       ),
     },
     {
@@ -88,7 +86,6 @@ export default function InterviewsFocusAreaPage({
         id: '0/Rv7O',
       }),
     },
-
     {
       icon: RiTimerLine,
       label: intl.formatMessage({

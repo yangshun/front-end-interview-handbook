@@ -300,14 +300,6 @@ export function flattenQuestionFormatMetadata(
   return Object.values(questions).flat();
 }
 
-export function countNumberOfQuestionsInList(
-  questions: Record<QuestionFormat, ReadonlyArray<QuestionSlug>>,
-): number {
-  return Object.values(questions)
-    .map((q) => q.length)
-    .reduce((prev, curr) => prev + curr, 0);
-}
-
 export function questionsForImportProgress(
   questions: ReadonlyArray<QuestionMetadata>,
   overallProgress: ReadonlyArray<QuestionProgress>,
