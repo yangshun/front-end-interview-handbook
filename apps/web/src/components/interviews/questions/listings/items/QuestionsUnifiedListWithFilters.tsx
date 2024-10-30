@@ -489,7 +489,7 @@ export default function QuestionsUnifiedListWithFilters({
                   'pointer-events-none touch-none select-none',
                 )}
                 // So that focus cannot go into the card, which is not meant to be used.
-                {...{ inert: '' }}>
+                inert="">
                 <QuestionsList
                   checkIfCompletedQuestion={() => false}
                   questions={sortedQuestions.slice(0, 4)}

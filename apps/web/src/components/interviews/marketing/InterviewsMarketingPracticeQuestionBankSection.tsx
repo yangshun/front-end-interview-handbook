@@ -334,7 +334,7 @@ export default function InterviewsMarketingPracticeQuestionBankSection({
                 <div
                   className="pointer-events-none touch-none select-none"
                   // So that focus cannot go into the card, which is not meant to be used.
-                  {...{ inert: '' }}>
+                  inert="">
                   <QuestionsList
                     key={selectedFilter}
                     checkIfCompletedQuestion={() => false}

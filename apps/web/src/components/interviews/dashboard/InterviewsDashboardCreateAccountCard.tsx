@@ -67,7 +67,7 @@ export default function InterviewsDashboardCreateAccountCard() {
           aria-hidden="true"
           className="pointer-events-none absolute w-[650px] origin-top-left scale-[0.4] p-2"
           // So that focus cannot go into the card, which is not meant to be used.
-          {...{ inert: '' }}>
+          inert="">
           <MockContinueLearningCard />
         </div>
         <div className="size-full absolute bg-gradient-to-t from-neutral-200/70 dark:from-neutral-900" />

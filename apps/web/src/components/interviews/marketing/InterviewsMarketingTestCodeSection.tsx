@@ -145,7 +145,7 @@ function TestCaseAnimation({
           themeDivideColor,
         ])}
         // So that focus cannot go into the card, which is not meant to be used.
-        {...{ inert: '' }}>
+        inert="">
         {visibleTestCases.map(({ key, name, test }) => (
           <motion.div
             key={key}

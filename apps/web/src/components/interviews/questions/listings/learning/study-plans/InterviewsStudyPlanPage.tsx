@@ -145,7 +145,7 @@ export default function InterviewsStudyPlanPage({
               <div
                 className="border-lg pointer-events-none touch-none select-none"
                 // So that focus cannot go into the card, which is not meant to be used.
-                {...{ inert: '' }}>
+                inert="">
                 <QuestionsList
                   checkIfCompletedQuestion={() => false}
                   questions={questions.slice(0, 5)}
