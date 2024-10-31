@@ -36,6 +36,7 @@ export default function QuestionsStudyListSlideOutButton({
 
   const questionsWithCompletionStatus = useQuestionsWithCompletionStatus(
     questions ?? [],
+    studyList?.listKey,
   );
 
   const filterNamespace = studyList

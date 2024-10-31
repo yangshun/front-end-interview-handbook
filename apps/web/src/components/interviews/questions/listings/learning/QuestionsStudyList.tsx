@@ -9,7 +9,7 @@ import Section from '~/components/ui/Heading/HeadingContext';
 
 import type { QuestionsCategorizedProgress } from '~/db/QuestionsUtils';
 
-import useQuestionsWithListProgressStatus from '../filters/hooks/useQuestionsWithListProgressStatus';
+import useQuestionsWithCompletionStatus from '../filters/hooks/useQuestionsWithCompletionStatus';
 import { sortQuestionsMultiple } from '../filters/QuestionsProcessor';
 
 import { useUser } from '@supabase/auth-helpers-react';
@@ -40,9 +40,9 @@ export default function QuestionsStudyList({
 
   const { showToast } = useToast();
 
-  const questionsWithProgress = useQuestionsWithListProgressStatus(
-    listKey,
+  const questionsWithProgress = useQuestionsWithCompletionStatus(
     questions,
+    listKey,
   );
   const markCompleteMutation = trpc.questionLists.markComplete.useMutation({
     onSuccess() {

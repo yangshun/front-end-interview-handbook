@@ -17,28 +17,40 @@ export default function useQuestionsWithCompletionStatus<
   Q extends QuestionMetadata,
 >(
   questions: ReadonlyArray<Q>,
+  listKey?: string,
 ): ReadonlyArray<Q & QuestionMetadataWithCompletedStatus> {
   const user = useUser();
 
   const { data: questionProgress } = trpc.questionProgress.getAll.useQuery(
     undefined,
     {
-      enabled: !!user,
+      enabled: !!user && !listKey,
     },
   );
+  const { data: questionSessionProgress } =
+    trpc.questionLists.getSessionProgress.useQuery(
+      {
+        listKey: listKey!,
+      },
+      {
+        enabled: !!user && !!listKey,
+      },
+    );
 
   const questionsWithCompletionStatus = useMemo(() => {
     const completedQuestions = new Set(
-      (questionProgress ?? []).map(({ format, slug }) =>
-        hashQuestion(format, slug),
-      ),
+      listKey
+        ? (questionSessionProgress ?? []).map(({ key }) => key)
+        : (questionProgress ?? []).map(({ format, slug }) =>
+            hashQuestion(format, slug),
+          ),
     );
 
     return questions.map((question) => ({
       ...question,
       isCompleted: hasCompletedQuestion(completedQuestions, question),
     }));
-  }, [questionProgress, questions]);
+  }, [questionProgress, questions, listKey, questionSessionProgress]);
 
   return questionsWithCompletionStatus;
 }
