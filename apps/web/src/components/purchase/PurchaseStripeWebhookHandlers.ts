@@ -24,9 +24,9 @@ export async function purchaseCustomerAddPlan(
     throw new Error('Price is not found');
   }
 
-  const productID = price.product;
+  const productId = price.product;
 
-  switch (productID) {
+  switch (productId) {
     // TODO: Support interviews lifetime upgrade as well.
     case process.env.STRIPE_PRODUCT_ID_INTERVIEWS: {
       const planName: InterviewsProfileSubscriptionPlan =
@@ -45,7 +45,7 @@ export async function purchaseCustomerAddPlan(
       return { customerId, plan: planName, productDomain: 'projects' };
     }
     default: {
-      throw new Error(`Unknown product ${productID}`);
+      throw new Error(`Unknown product ${productId}`);
     }
   }
 }

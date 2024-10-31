@@ -4,13 +4,12 @@ import Stripe from 'stripe';
 import absoluteUrl from '~/lib/absoluteUrl';
 import { normalizeCurrencyValue } from '~/lib/stripeUtils';
 
+import { MAX_PPP_ELIGIBLE_FOR_FAANG_TECH_LEADS_PROMO } from '~/data/PromotionConfig';
+
 import fetchInterviewsPricingPlanPaymentConfigLocalizedRecord from '~/components/interviews/purchase/fetchInterviewsPricingPlanPaymentConfigLocalizedRecord';
 import type { InterviewsPricingPlanType } from '~/components/interviews/purchase/InterviewsPricingPlans';
 import fetchProjectsPricingPlanPaymentConfigLocalizedRecord from '~/components/projects/purchase/fetchProjectsPricingPlanPaymentConfigLocalizedRecord';
-import type {
-  PurchasePricingPlanPaymentConfigBase,
-  PurchasePricingPlanPaymentConfigLocalized,
-} from '~/components/purchase/PurchaseTypes';
+import type { PurchasePricingPlanPaymentConfigLocalized } from '~/components/purchase/PurchaseTypes';
 
 import type { ProjectsSubscriptionPlan } from '@prisma/client';
 
@@ -145,7 +144,7 @@ async function processSubscriptionPlan(
   stripeCustomerId: string,
   stripe: Stripe,
   planType: string,
-  planPaymentConfig: PurchasePricingPlanPaymentConfigBase,
+  planPaymentConfig: PurchasePricingPlanPaymentConfigLocalized,
   currency: string,
   unitAmountInCurrency: number,
   firstPromoterTrackingId?: string,
@@ -181,6 +180,14 @@ async function processSubscriptionPlan(
         quantity: 1,
       },
     ],
+    metadata:
+      productId === process.env.STRIPE_PRODUCT_ID_INTERVIEWS &&
+      planPaymentConfig.conversionFactor <=
+        MAX_PPP_ELIGIBLE_FOR_FAANG_TECH_LEADS_PROMO
+        ? {
+            ftl: 'true',
+          }
+        : undefined,
     mode: 'subscription',
     success_url: successUrl,
   });
@@ -200,7 +207,7 @@ async function processOneTimePlan(
   stripeCustomerId: string,
   stripe: Stripe,
   planType: string,
-  planPaymentConfig: PurchasePricingPlanPaymentConfigBase,
+  planPaymentConfig: PurchasePricingPlanPaymentConfigLocalized,
   currency: string,
   unitAmountInCurrency: number,
   receiptEmail?: string,
@@ -234,6 +241,14 @@ async function processOneTimePlan(
         quantity: 1,
       },
     ],
+    metadata:
+      productId === process.env.STRIPE_PRODUCT_ID_INTERVIEWS &&
+      planPaymentConfig.conversionFactor <=
+        MAX_PPP_ELIGIBLE_FOR_FAANG_TECH_LEADS_PROMO
+        ? {
+            ftl: 'true',
+          }
+        : undefined,
     mode: 'payment',
     payment_intent_data: {
       receipt_email: receiptEmail ?? undefined,

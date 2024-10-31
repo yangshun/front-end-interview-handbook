@@ -2,6 +2,7 @@ import { buffer } from 'micro';
 import type { NextApiRequest, NextApiResponse } from 'next';
 import Stripe from 'stripe';
 
+import { interviewsDetermineSubscriptionPlan } from '~/components/interviews/purchase/InterviewsStripeSyncUtils';
 import {
   purchaseCustomerAddPlan,
   purchaseCustomerRemovePlan,
@@ -91,6 +92,64 @@ export default async function handler(
       const result = await sendEmailPaymentFailed(email, name);
 
       return res.send(`Error email ${result.data?.id} sent for ${customerId}`);
+    }
+
+    case 'checkout.session.completed': {
+      const checkoutSession = event.data.object;
+      const { customer: customerId } = checkoutSession;
+      let { invoice } = checkoutSession;
+
+      if (checkoutSession?.metadata?.ftl !== 'true') {
+        return res.send(`${checkoutSession.id} not eligible for FTL`);
+      }
+
+      if (typeof invoice === 'string') {
+        invoice = await stripe.invoices.retrieve(invoice);
+      }
+
+      if (invoice == null) {
+        return res.send(`No invoice for ${checkoutSession.id}`);
+      }
+
+      const { price } = invoice.lines.data[0];
+
+      if (price == null) {
+        return res.send(`No price item for ${checkoutSession.id}`);
+      }
+
+      const productId = price.product;
+
+      if (productId !== process.env.STRIPE_PRODUCT_ID_INTERVIEWS) {
+        return res.send(`Only interviews product eligible`);
+      }
+
+      const plan = interviewsDetermineSubscriptionPlan(price);
+
+      switch (plan) {
+        case 'lifetime':
+        case 'year': {
+          const customerEmail =
+            checkoutSession.customer_email ||
+            checkoutSession.customer_details?.email;
+
+          if (customerEmail == null) {
+            return res.send(`No customer email for ${checkoutSession.id}`);
+          }
+
+          // Invite to FTL.
+          const results = await fetch(
+            `https://www.faangtechleads.com/api/invite?email=${customerEmail}`,
+          );
+          const data = await results.json();
+
+          return res.json(data);
+        }
+        default: {
+          return res.send(
+            `${customerId} purchase of interviews ${plan} not eligible for FTL`,
+          );
+        }
+      }
     }
 
     default:

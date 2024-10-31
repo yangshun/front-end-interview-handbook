@@ -15,7 +15,7 @@ import url from 'url';
 import { isProhibitedCountry } from '~/lib/stripeUtils';
 import { useAuthSignInUp } from '~/hooks/user/useAuthFns';
 
-import { FAANG_TECH_LEADS_PPP_THRESHOLD } from '~/data/PromotionConfig';
+import { MAX_PPP_ELIGIBLE_FOR_FAANG_TECH_LEADS_PROMO } from '~/data/PromotionConfig';
 
 import { useUserProfile } from '~/components/global/UserProfileProvider';
 import InterviewsRibbonBadge from '~/components/interviews/common/InterviewsRibbonBadge';
@@ -563,7 +563,7 @@ export default function InterviewsPricingTableSection({
     MAXIMUM_PPP_CONVERSION_FACTOR_TO_DISPLAY_BEFORE_PRICE;
   const showFTLBundle =
     featuredPlan.paymentConfig.conversionFactor <=
-    FAANG_TECH_LEADS_PPP_THRESHOLD;
+    MAX_PPP_ELIGIBLE_FOR_FAANG_TECH_LEADS_PROMO;
 
   return (
     <div className={clsx('flex flex-col', titleEl ? 'gap-y-16' : 'gap-y-8')}>
