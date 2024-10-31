@@ -17,7 +17,7 @@ type Props = Readonly<{
   className?: string;
   features: ReadonlyArray<React.ReactNode>;
   footer?: React.ReactNode;
-  rightSectionContents: React.ReactNode;
+  leftSectionContents: React.ReactNode;
   subtitle: React.ReactNode;
   title: React.ReactNode;
 }>;
@@ -27,7 +27,7 @@ export default function PurchaseBlockCard({
   title,
   subtitle,
   features,
-  rightSectionContents,
+  leftSectionContents,
   className,
 }: Props) {
   const id = useId();
@@ -72,7 +72,7 @@ export default function PurchaseBlockCard({
               className={clsx(
                 'lg:flex lg:shrink-0 lg:flex-col lg:justify-center',
               )}>
-              {rightSectionContents}
+              {leftSectionContents}
             </div>
           </Section>
         </div>
@@ -101,7 +101,7 @@ export default function PurchaseBlockCard({
                 </li>
               ))}
             </ul>
-            {footer && <div className="pt-8">{footer}</div>}
+            {footer && <div className="pt-4">{footer}</div>}
           </div>
         </Section>
       </div>

@@ -84,7 +84,7 @@ export function PromotionsStudentDiscountCard() {
           <PromotionsEmailUsLink />
         </Text>
       }
-      rightSectionContents={
+      leftSectionContents={
         <>
           <div className="mt-4 flex items-end gap-1">
             <Text

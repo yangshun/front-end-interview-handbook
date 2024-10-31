@@ -15,6 +15,8 @@ import url from 'url';
 import { isProhibitedCountry } from '~/lib/stripeUtils';
 import { useAuthSignInUp } from '~/hooks/user/useAuthFns';
 
+import { FAANG_TECH_LEADS_PPP_THRESHOLD } from '~/data/PromotionConfig';
+
 import { useUserProfile } from '~/components/global/UserProfileProvider';
 import InterviewsRibbonBadge from '~/components/interviews/common/InterviewsRibbonBadge';
 import type {
@@ -35,6 +37,7 @@ import {
 import PurchasePriceLabel from '~/components/purchase/PurchasePriceLabel';
 import PurchaseProhibitedCountryAlert from '~/components/purchase/PurchaseProhibitedCountryAlert';
 import type { Props as AnchorProps } from '~/components/ui/Anchor';
+import Anchor from '~/components/ui/Anchor';
 import Badge from '~/components/ui/Badge';
 import Button from '~/components/ui/Button';
 import Divider from '~/components/ui/Divider';
@@ -390,8 +393,43 @@ function PricingPlanComparisonDiscount({
   }
 }
 
+function FTLPromoSection() {
+  return (
+    <div>
+      <Text className="block" color="secondary" size="body3">
+        Included for free:
+      </Text>
+      <div className="mt-2 flex items-center gap-3">
+        <Text
+          className={clsx(
+            'bg-rose-500 font-extrabold text-white',
+            'px-2 py-1.5',
+            'rounded',
+          )}
+          color="light"
+          size="body2">
+          FTL
+        </Text>
+        <Text className="grow" color="secondary" size="body3">
+          FAANG Tech Leads{' '}
+          <Anchor
+            className={clsx(textVariants(), 'hover:underline')}
+            href="https://faangtechleads.com"
+            variant="unstyled">
+            Software Engineer Resume References and Handbook Package
+          </Anchor>{' '}
+        </Text>
+        <Text className="whitespace-nowrap" size="body0" weight="bold">
+          28 USD
+        </Text>
+      </div>
+    </div>
+  );
+}
+
 type InterviewsPricingPlanItem = Readonly<{
   description?: React.ReactNode;
+  ftlPromo?: boolean;
   includedFeatures: ReadonlyArray<React.ReactNode>;
   name: string;
   numberOfMonths?: number;
@@ -479,6 +517,7 @@ export default function InterviewsPricingTableSection({
   };
 
   const annualPlanDetails: InterviewsPricingPlanItem = {
+    ftlPromo: true,
     includedFeatures: [
       featureAllAccess,
       featureContinuousUpdates,
@@ -501,6 +540,7 @@ export default function InterviewsPricingTableSection({
         'Subtitle of LifeTime Access Pricing Plan found on Homepage or Pricing page',
       id: 'ZtqhZJ',
     }),
+    ftlPromo: true,
     includedFeatures: [featureAllAccess, featureDiscordAccess],
     name: intl.formatMessage({
       defaultMessage: 'Lifetime plan',
@@ -519,8 +559,11 @@ export default function InterviewsPricingTableSection({
 
   const featuredPlan = lifetimePlanDetails;
   const showPPPMessage =
-    featuredPlan.paymentConfig.conversionFactor <
+    featuredPlan.paymentConfig.conversionFactor <=
     MAXIMUM_PPP_CONVERSION_FACTOR_TO_DISPLAY_BEFORE_PRICE;
+  const showFTLBundle =
+    featuredPlan.paymentConfig.conversionFactor <=
+    FAANG_TECH_LEADS_PPP_THRESHOLD;
 
   return (
     <div className={clsx('flex flex-col', titleEl ? 'gap-y-16' : 'gap-y-8')}>
@@ -574,7 +617,15 @@ export default function InterviewsPricingTableSection({
         <PurchaseBlockCard
           className={isDialogView ? '!max-w-none' : undefined}
           features={featuredPlan.includedFeatures}
-          rightSectionContents={
+          footer={
+            showFTLBundle ? (
+              <>
+                <Divider className="mb-4" />
+                <FTLPromoSection />
+              </>
+            ) : undefined
+          }
+          leftSectionContents={
             <>
               <div className="flex flex-col">
                 {showPPPMessage && (
@@ -712,7 +763,13 @@ export default function InterviewsPricingTableSection({
               !isDialogView && 'mx-auto max-w-lg md:max-w-none',
             )}>
             {planList.map(
-              ({ numberOfMonths, paymentConfig, includedFeatures, name }) => {
+              ({
+                numberOfMonths,
+                paymentConfig,
+                includedFeatures,
+                name,
+                ftlPromo,
+              }) => {
                 const id = `tier-${paymentConfig.planType}`;
                 const recommendedPlan = paymentConfig.planType === 'annual';
 
@@ -904,6 +961,12 @@ export default function InterviewsPricingTableSection({
                             ))}
                           </ul>
                         </Section>
+                        {ftlPromo && showFTLBundle && (
+                          <>
+                            <Divider />
+                            <FTLPromoSection />
+                          </>
+                        )}
                       </Section>
                     </div>
                     {recommendedPlan && (

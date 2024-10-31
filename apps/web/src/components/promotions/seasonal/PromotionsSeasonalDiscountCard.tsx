@@ -41,7 +41,7 @@ export function PromotionsSeasonalDiscountCard() {
           <PromotionsEmailUsLink />
         </div>
       }
-      rightSectionContents={
+      leftSectionContents={
         <>
           <div className="mt-4 flex items-end gap-1">
             <Text
@@ -124,7 +124,7 @@ export function PromotionsSeasonalDiscountCard() {
               description: 'Label to indicate offer is a limited time deal',
               id: 'N5Cp1r',
             })}
-            variant="special"
+            variant="neutral-active"
           />
         </div>
       }
