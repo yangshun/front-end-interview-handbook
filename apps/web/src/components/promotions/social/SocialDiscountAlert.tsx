@@ -64,7 +64,7 @@ function SocialDiscountAlertImpl() {
               />
             </div>
             <div className="grow">
-              <Anchor href="/rewards/social">
+              <Anchor href="/rewards/social" variant="flat">
                 <Text className="block" color="secondary" size="body3">
                   {socialDiscountLabels.subtitle}{' '}
                   <RiArrowRightLine className="size-4 ml-0.5 inline-flex shrink-0" />

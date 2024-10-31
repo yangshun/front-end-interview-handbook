@@ -360,12 +360,7 @@ function PricingPlanComparisonDiscount({
     case 'MONTH':
       return null;
     case 'ANNUAL':
-      return (
-        <PurchasePriceAnnualComparison
-          discount={paymentConfig.discount}
-          price={paymentConfig}
-        />
-      );
+      return <PurchasePriceAnnualComparison price={paymentConfig} />;
   }
 }
 

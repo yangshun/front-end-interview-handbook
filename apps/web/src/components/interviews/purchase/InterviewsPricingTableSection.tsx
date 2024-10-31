@@ -8,6 +8,7 @@ import {
   RiArrowRightLine,
   RiCheckLine,
   RiDiscountPercentFill,
+  RiInformationLine,
 } from 'react-icons/ri';
 import url from 'url';
 
@@ -46,9 +47,11 @@ import {
   themeBorderColor,
   themeGlassyBorder,
   themeTextBrandColor,
+  themeTextSubtleColor,
   themeTextSuccessColor,
   themeWhiteGlowCardBackground,
 } from '~/components/ui/theme';
+import Tooltip from '~/components/ui/Tooltip';
 
 import PurchaseBlockCard from '../../purchase/PurchaseBlockCard';
 import { MAXIMUM_PPP_CONVERSION_FACTOR_TO_DISPLAY_BEFORE_PRICE } from '../../purchase/PurchasePricingConfig';
@@ -60,6 +63,7 @@ type Props = Readonly<{
   countryCode: string;
   countryName: string;
   plans: InterviewsPricingPlanPaymentConfigLocalizedRecord;
+  titleEl?: React.ReactNode;
   useCurrentPageAsCancelUrl?: boolean;
   view?: 'default' | 'dialog';
 }>;
@@ -353,19 +357,9 @@ function PricingPlanComparisonDiscount({
     case 'monthly':
       return <PurchasePriceMonthlyComparison price={paymentConfig} />;
     case 'quarterly':
-      return (
-        <PurchasePriceQuarterlyComparison
-          discount={paymentConfig.discount}
-          price={paymentConfig}
-        />
-      );
+      return <PurchasePriceQuarterlyComparison price={paymentConfig} />;
     case 'annual':
-      return (
-        <PurchasePriceAnnualComparison
-          discount={paymentConfig.discount}
-          price={paymentConfig}
-        />
-      );
+      return <PurchasePriceAnnualComparison price={paymentConfig} />;
     case 'lifetime': {
       if (showPPPMessage) {
         // Showing PPP strikethrough is enough, will be confusing to show both strikethrough and U.P.
@@ -397,7 +391,7 @@ function PricingPlanComparisonDiscount({
 }
 
 type InterviewsPricingPlanItem = Readonly<{
-  description: string;
+  description?: React.ReactNode;
   includedFeatures: ReadonlyArray<React.ReactNode>;
   name: string;
   numberOfMonths?: number;
@@ -408,6 +402,7 @@ export default function InterviewsPricingTableSection({
   countryCode,
   countryName,
   plans,
+  titleEl,
   view = 'default',
   useCurrentPageAsCancelUrl = false,
 }: Props) {
@@ -423,36 +418,41 @@ export default function InterviewsPricingTableSection({
     annual: annualPlan,
   } = plans;
 
-  const featureAllAccess = intl.formatMessage({
-    defaultMessage:
-      'Unlock all premium interviews content including official solutions, company tags, and study plans.',
-    description: 'Feature of quarterly pricing plan',
-    id: 'l1Ksil',
-  });
+  const featureAllAccess = (
+    <span>
+      {intl.formatMessage({
+        defaultMessage: 'Unlock all premium interviews content',
+        description: 'Feature of pricing plan',
+        id: 'TWF/3l',
+      })}
+      <Tooltip
+        label={intl.formatMessage({
+          defaultMessage:
+            'Includes official solutions, company tags, and study plans',
+          description: 'Feature of pricing plan',
+          id: 'mqAG0x',
+        })}
+        triggerClassName="ml-2 inline align-middle">
+        <RiInformationLine
+          aria-hidden={true}
+          className={clsx('size-4 shrink-0', themeTextSubtleColor)}
+        />
+      </Tooltip>
+    </span>
+  );
   const featureContinuousUpdates = intl.formatMessage({
-    defaultMessage:
-      'Access to continuously updating interview questions and content.',
+    defaultMessage: 'Access to updates while subscription is active',
     description: 'Feature of monthly pricing plan',
-    id: 'EnNFW9',
+    id: '14LihX',
   });
   const featureDiscordAccess = intl.formatMessage({
-    defaultMessage: 'Exclusive private Discord channel access for life.',
-    description: 'Feature of annual pricing plan',
-    id: 'O57nUH',
-  });
-  const featureRealtimeSupport = intl.formatMessage({
     defaultMessage:
-      'Real-time support from the team and the growing community.',
-    description: 'Lifetime membership feature of real-time support.',
-    id: 'F74ozi',
+      'Exclusive private Discord channel with real-time support from the team',
+    description: 'Feature of annual pricing plan',
+    id: 'ANnHJ7',
   });
 
   const monthlyPlanDetails: InterviewsPricingPlanItem = {
-    description: intl.formatMessage({
-      defaultMessage: 'Perfect for short term job hunts.',
-      description: 'Supporting statement for a monthly pricing plan',
-      id: 'GObvI2',
-    }),
     includedFeatures: [featureAllAccess, featureContinuousUpdates],
     name: intl.formatMessage({
       defaultMessage: 'Monthly plan',
@@ -464,11 +464,6 @@ export default function InterviewsPricingTableSection({
   };
 
   const quarterlyPlanDetails: InterviewsPricingPlanItem = {
-    description: intl.formatMessage({
-      defaultMessage: 'Discounted rate for a typical job hunt duration.',
-      description: 'Supporting statement for a quarterly pricing plan',
-      id: 'h63G52',
-    }),
     includedFeatures: [
       featureAllAccess,
       featureContinuousUpdates,
@@ -484,17 +479,10 @@ export default function InterviewsPricingTableSection({
   };
 
   const annualPlanDetails: InterviewsPricingPlanItem = {
-    description: intl.formatMessage({
-      defaultMessage:
-        'Best value for money with real-time support from the team and community.',
-      description: 'Supporting statement for an annual pricing plan',
-      id: 'BPQrNY',
-    }),
     includedFeatures: [
       featureAllAccess,
       featureContinuousUpdates,
       featureDiscordAccess,
-      featureRealtimeSupport,
     ],
     name: intl.formatMessage({
       defaultMessage: 'Annual plan',
@@ -513,17 +501,7 @@ export default function InterviewsPricingTableSection({
         'Subtitle of LifeTime Access Pricing Plan found on Homepage or Pricing page',
       id: 'ZtqhZJ',
     }),
-    includedFeatures: [
-      featureAllAccess,
-      intl.formatMessage({
-        defaultMessage: 'Access updates to the interviews platform for life.',
-        description:
-          'Lifetime membership feature of accessing updates to interview platforms',
-        id: '8F7JlA',
-      }),
-      featureDiscordAccess,
-      featureRealtimeSupport,
-    ],
+    includedFeatures: [featureAllAccess, featureDiscordAccess],
     name: intl.formatMessage({
       defaultMessage: 'Lifetime plan',
       description:
@@ -545,7 +523,7 @@ export default function InterviewsPricingTableSection({
     MAXIMUM_PPP_CONVERSION_FACTOR_TO_DISPLAY_BEFORE_PRICE;
 
   return (
-    <Section>
+    <div className={clsx('flex flex-col', titleEl ? 'gap-y-16' : 'gap-y-8')}>
       <div className="flex flex-col gap-y-8">
         {/* Banners */}
         <div className="flex flex-col gap-y-5">
@@ -589,6 +567,9 @@ export default function InterviewsPricingTableSection({
             <SocialDiscountAlert />
           </div>
         </div>
+        {titleEl}
+      </div>
+      <div className="flex flex-col gap-y-8">
         {/* Lifetime plan callout */}
         <PurchaseBlockCard
           className={isDialogView ? '!max-w-none' : undefined}
@@ -679,7 +660,11 @@ export default function InterviewsPricingTableSection({
                   </span>
                 </Text>
               </div>
-              <Text className="mt-2 block" size="body2" weight="medium">
+              <Text
+                className="mt-2 block"
+                color="secondary"
+                size="body2"
+                weight="medium">
                 <PricingPlanComparisonDiscount
                   paymentConfig={featuredPlan.paymentConfig}
                   showPPPMessage={showPPPMessage}
@@ -863,12 +848,13 @@ export default function InterviewsPricingTableSection({
                           </div>
                           <Text
                             className={clsx(
-                              'md:min-h-9 block pt-1',
+                              'md:min-h-9 mt-3 block',
                               paymentConfig.conversionFactor <
                                 MAXIMUM_PPP_CONVERSION_FACTOR_TO_DISPLAY_BEFORE_PRICE &&
                                 paymentConfig.planType === 'lifetime' &&
                                 'invisible',
                             )}
+                            color="secondary"
                             size="body3">
                             <PricingPlanComparisonDiscount
                               paymentConfig={paymentConfig}
@@ -939,7 +925,7 @@ export default function InterviewsPricingTableSection({
           </div>
         </Section>
         {/* Footnotes */}
-        <div className="px-8">
+        <div>
           <Text className="block" color="secondary" size="body3">
             *{' '}
             <FormattedMessage
@@ -984,6 +970,6 @@ export default function InterviewsPricingTableSection({
           )}
         </div>
       </div>
-    </Section>
+    </div>
   );
 }

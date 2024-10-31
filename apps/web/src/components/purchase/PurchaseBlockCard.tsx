@@ -8,7 +8,7 @@ import Section from '~/components/ui/Heading/HeadingContext';
 import Text, { textVariants } from '~/components/ui/Text';
 import {
   themeBackgroundColor,
-  themeBorderColor,
+  themeBorderEmphasizeColor,
   themeTextSuccessColor,
   themeWhiteGlowCardBackground,
 } from '~/components/ui/theme';
@@ -39,7 +39,7 @@ export default function PurchaseBlockCard({
         'rounded-xl',
         'mx-auto w-full max-w-lg md:max-w-none',
         themeBackgroundColor,
-        ['border', themeBorderColor],
+        ['border', themeBorderEmphasizeColor],
         [
           themeWhiteGlowCardBackground,
           'before:-top-[150px] before:left-1/2 before:h-[180px] before:w-[680px] before:-translate-x-1/2',

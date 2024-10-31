@@ -423,6 +423,10 @@
     "defaultMessage": "Can't find the answer you are looking for? <link>Reach out to us!</link>",
     "description": "Subtitle of projects pricing's FAQ section"
   },
+  "14LihX": {
+    "defaultMessage": "Access to updates while subscription is active",
+    "description": "Feature of monthly pricing plan"
+  },
   "15O0qb": {
     "defaultMessage": "Get Started",
     "description": "Link to get started page"
@@ -1427,10 +1431,6 @@
     "defaultMessage": "Behavioral Interview Playbook",
     "description": "Title of behavioral interview playbook page"
   },
-  "8F7JlA": {
-    "defaultMessage": "Access updates to the interviews platform for life.",
-    "description": "Lifetime membership feature of accessing updates to interview platforms"
-  },
   "8FAzVY": {
     "defaultMessage": "Try another track",
     "description": "Label for next track on project submission success page"
@@ -1711,6 +1711,10 @@
     "defaultMessage": "Low",
     "description": "Low importance question"
   },
+  "ANnHJ7": {
+    "defaultMessage": "Exclusive private Discord channel with real-time support from the team",
+    "description": "Feature of annual pricing plan"
+  },
   "ATjflV": {
     "defaultMessage": "Choose up to 2 reasons so that we can improve your experience",
     "description": "Subtitle of motivation for joining section of projects profile edit page"
@@ -1862,10 +1866,6 @@
   "BPE/qv": {
     "defaultMessage": "Premium Feature",
     "description": "Title for paywall over information about companies that asked the question"
-  },
-  "BPQrNY": {
-    "defaultMessage": "Best value for money with real-time support from the team and community.",
-    "description": "Supporting statement for an annual pricing plan"
   },
   "BPUOzL": {
     "defaultMessage": "Most common questions",
@@ -2235,10 +2235,6 @@
     "defaultMessage": "Front end system design guides",
     "description": "Paywall tags"
   },
-  "Dynazi": {
-    "defaultMessage": "(Save {discountPercentage}% vs monthly)",
-    "description": "Save more compared to monthly plan."
-  },
   "Dzv5LY": {
     "defaultMessage": "Explore skills roadmap",
     "description": "Recommended action for new projects platform user"
@@ -2351,10 +2347,6 @@
     "defaultMessage": "Open navigation profile menu",
     "description": "Screenreader text to open the profile menu"
   },
-  "EnNFW9": {
-    "defaultMessage": "Access to continuously updating interview questions and content.",
-    "description": "Feature of monthly pricing plan"
-  },
   "EnOEHg": {
     "defaultMessage": "Completions include both questions and articles across the interviews platform.",
     "description": "Label for completions tooltip"
@@ -2410,10 +2402,6 @@
   "F5oV3L": {
     "defaultMessage": "Delete line",
     "description": "Text describing command to delete line(s) in the coding workspace shortcuts menu"
-  },
-  "F74ozi": {
-    "defaultMessage": "Real-time support from the team and the growing community.",
-    "description": "Lifetime membership feature of real-time support."
   },
   "F8wNUD": {
     "defaultMessage": "Starter code with content copy",
@@ -2578,10 +2566,6 @@
   "GO8CZI": {
     "defaultMessage": "{skillName} | Skills",
     "description": "Title of Projects skill details page"
-  },
-  "GObvI2": {
-    "defaultMessage": "Perfect for short term job hunts.",
-    "description": "Supporting statement for a monthly pricing plan"
   },
   "GOvIqB": {
     "defaultMessage": "For learning",
@@ -3835,10 +3819,6 @@
     "defaultMessage": "While most projects on our platform are free, we offer premium features on each project like Figma files and official guides / solutions. Upon purchasing premium, you will be given a number of premium credits. A premium credit gives you access to all premium features in a project.",
     "description": "Description of premium feature"
   },
-  "O57nUH": {
-    "defaultMessage": "Exclusive private Discord channel access for life.",
-    "description": "Feature of annual pricing plan"
-  },
   "O6pifk": {
     "defaultMessage": "Coding interviews",
     "description": "Preparing by front end interview question format"
@@ -4196,7 +4176,7 @@
     "description": "HTML questions category long title"
   },
   "Q8aXJk": {
-    "defaultMessage": "Get another <bold>{discountPercentage}% discount</bold> off by following our social accounts",
+    "defaultMessage": "Get further <bold>{discountPercentage}% discount</bold> off by following our social accounts",
     "description": "Rewards discount message"
   },
   "QAFkOT": {
@@ -4778,6 +4758,10 @@
   "TW5R5d": {
     "defaultMessage": "Dashboard",
     "description": "Label for dashboard title for logged in user"
+  },
+  "TWF/3l": {
+    "defaultMessage": "Unlock all premium interviews content",
+    "description": "Feature of pricing plan"
   },
   "TaIXVz": {
     "defaultMessage": "Purchase premium to unlock full access to exclusive System Design content including high quality solutions and companies which ask this question.",
@@ -6887,10 +6871,6 @@
     "defaultMessage": "Questions List",
     "description": "Screenreader text indicating the question list component on question list pages"
   },
-  "h63G52": {
-    "defaultMessage": "Discounted rate for a typical job hunt duration.",
-    "description": "Supporting statement for a quarterly pricing plan"
-  },
   "hALSD8": {
     "defaultMessage": "Front End Interview Playbook: Everything you need to excel",
     "description": "Page title for frontend interview playbook cover page"
@@ -7539,10 +7519,6 @@
     "defaultMessage": "Our projects are designed with real world specs meant for professionals, allowing you to hit the ground running with whatever you learn while building them.",
     "description": "Description of 'Learn by building real world projects for professionals' feature in Projects marketing page"
   },
-  "l1Ksil": {
-    "defaultMessage": "Unlock all premium interviews content including official solutions, company tags, and study plans.",
-    "description": "Feature of quarterly pricing plan"
-  },
   "l1ZqoW": {
     "defaultMessage": "Join Discord",
     "description": "Join Discord channel"
@@ -7751,9 +7727,9 @@
     "defaultMessage": "Step 2",
     "description": "Title for \"Step 2\" tab on Projects project page"
   },
-  "mmCDp8": {
-    "defaultMessage": "Complete simple social tasks",
-    "description": "Social discount toast message"
+  "mqAG0x": {
+    "defaultMessage": "Includes official solutions, company tags, and study plans",
+    "description": "Feature of pricing plan"
   },
   "msvqkR": {
     "defaultMessage": "Every project belongs to 1 of 7 reusable components libraries",
@@ -8686,6 +8662,10 @@
   "t5L0yE": {
     "defaultMessage": "Pricing",
     "description": "Link to pricing plans page"
+  },
+  "t8xZ1p": {
+    "defaultMessage": "Get a discount by following us on social media.",
+    "description": "Social discount toast message"
   },
   "tBeimS": {
     "defaultMessage": "Challenges activity",

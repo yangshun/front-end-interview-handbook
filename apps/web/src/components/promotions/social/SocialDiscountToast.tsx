@@ -225,14 +225,12 @@ function SocialDiscountToastImplNew() {
             <div className="flex flex-col">
               <Text color="secondary" size="body3" weight="medium">
                 <FormattedMessage
-                  defaultMessage="Complete simple social tasks"
+                  defaultMessage="Get a discount by following us on social media."
                   description="Social discount toast message"
-                  id="mmCDp8"
-                />
-              </Text>
-              <div>
+                  id="t8xZ1p"
+                />{' '}
                 <Anchor
-                  className="flex items-center gap-1"
+                  className="inline-flex items-center gap-1"
                   href="/rewards/social"
                   variant="flat">
                   <Text size="body3" weight="bold">
@@ -242,7 +240,7 @@ function SocialDiscountToastImplNew() {
                     className={clsx('size-4 shrink-0', themeTextColor)}
                   />
                 </Anchor>
-              </div>
+              </Text>
             </div>
           </div>
         </CustomToastComponent>
