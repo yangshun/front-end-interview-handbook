@@ -108,6 +108,44 @@ export const purchasesRouter = router({
         plans,
       };
     }),
+  lastPaymentError: userProcedure.query(async ({ ctx: { viewer } }) => {
+    const userProfile = await prisma.profile.findFirst({
+      select: {
+        stripeCustomer: true,
+      },
+      where: {
+        id: viewer.id,
+      },
+    });
+
+    // A Stripe customer hasn't been created yet.
+    if (userProfile?.stripeCustomer == null) {
+      return null;
+    }
+
+    const { stripeCustomer: stripeCustomerId } = userProfile;
+
+    const paymentIntents = await stripe.paymentIntents.list({
+      customer: stripeCustomerId,
+    });
+
+    if (paymentIntents.data.length === 0) {
+      return null;
+    }
+
+    const lastPaymentIntent = paymentIntents.data[0];
+
+    if (lastPaymentIntent.last_payment_error != null) {
+      return {
+        code: lastPaymentIntent.last_payment_error.code,
+        declineCode_DO_NOT_DISPLAY_TO_USER:
+          lastPaymentIntent.last_payment_error.decline_code,
+        message: lastPaymentIntent.last_payment_error.message,
+      };
+    }
+
+    return null;
+  }),
   projectsPlans: publicProcedure
     .input(z.string().optional())
     .query(async ({ input: country, ctx: { req } }) => {

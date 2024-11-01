@@ -11,8 +11,10 @@ import {
   RiInformationLine,
 } from 'react-icons/ri';
 import url from 'url';
+import { useSessionStorage } from 'usehooks-ts';
 
 import { isProhibitedCountry } from '~/lib/stripeUtils';
+import { trpc } from '~/hooks/trpc';
 import { useAuthSignInUp } from '~/hooks/user/useAuthFns';
 
 import { MAX_PPP_ELIGIBLE_FOR_FAANG_TECH_LEADS_PROMO } from '~/data/PromotionConfig';
@@ -56,11 +58,12 @@ import {
 } from '~/components/ui/theme';
 import Tooltip from '~/components/ui/Tooltip';
 
+import InterviewsPaymentFailureDialog from './InterviewsPaymentFailureDialog';
 import PurchaseBlockCard from '../../purchase/PurchaseBlockCard';
 import { MAXIMUM_PPP_CONVERSION_FACTOR_TO_DISPLAY_BEFORE_PRICE } from '../../purchase/PurchasePricingConfig';
 import { priceRoundToNearestNiceNumber } from '../../purchase/PurchasePricingUtils';
 
-import { useSessionContext } from '@supabase/auth-helpers-react';
+import { useSessionContext, useUser } from '@supabase/auth-helpers-react';
 
 type Props = Readonly<{
   countryCode: string;
@@ -446,6 +449,23 @@ export default function InterviewsPricingTableSection({
 }: Props) {
   const intl = useIntl();
   const featuredPlanId = useId();
+  const user = useUser();
+  const { data: lastPaymentError } = trpc.purchases.lastPaymentError.useQuery(
+    undefined,
+    {
+      enabled: !!user,
+    },
+  );
+  const [showPaymentFailureDialog, setShowPaymentFailureDialog] =
+    useState(false);
+  const [hasDismissedFailureDialog, setHasDismissedFailureDialog] =
+    useSessionStorage('gfe:payment-failure', false);
+
+  useEffect(() => {
+    if (lastPaymentError != null && !hasDismissedFailureDialog) {
+      setShowPaymentFailureDialog(true);
+    }
+  }, [lastPaymentError, hasDismissedFailureDialog]);
 
   const isDialogView = view === 'dialog';
 
@@ -1033,6 +1053,14 @@ export default function InterviewsPricingTableSection({
           )}
         </div>
       </div>
+      <InterviewsPaymentFailureDialog
+        isShown={showPaymentFailureDialog}
+        lastPaymentError={lastPaymentError}
+        onClose={() => {
+          setShowPaymentFailureDialog(false);
+          setHasDismissedFailureDialog(true);
+        }}
+      />
     </div>
   );
 }

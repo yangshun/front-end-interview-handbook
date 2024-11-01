@@ -3207,10 +3207,6 @@
     "defaultMessage": "Failed to mark question as complete. Please try again",
     "description": "Error message shown when a question has failed to mark as complete"
   },
-  "KZOa5l": {
-    "defaultMessage": "Cancel",
-    "description": "Label for cancel button"
-  },
   "KZWEcx": {
     "defaultMessage": "Please enter a different email address.",
     "description": "Email validation error message"
@@ -4175,10 +4171,6 @@
     "defaultMessage": "HTML Questions",
     "description": "HTML questions category long title"
   },
-  "Q8aXJk": {
-    "defaultMessage": "Get further <bold>{discountPercentage}% discount</bold> off by following our social accounts",
-    "description": "Rewards discount message"
-  },
   "QAFkOT": {
     "defaultMessage": "No coupons available",
     "description": "Title of empty state on coupons page"
@@ -4666,6 +4658,10 @@
   "SuWvZa": {
     "defaultMessage": "Monthly plan",
     "description": "Title of monthly pricing plan"
+  },
+  "SvUinr": {
+    "defaultMessage": "Get further <bold>{discountPercentage}% discount</bold> off by following our social accounts",
+    "description": "Rewards discount message"
   },
   "Sy6yo4": {
     "defaultMessage": "Not completed",
@@ -5191,6 +5187,10 @@
     "defaultMessage": "Browse project solutions from our community. Interact with each unique submission, share your expertise, and evolve alongside our collaborative community.",
     "description": "Description of Projects submissions page"
   },
+  "WGA4JT": {
+    "defaultMessage": "Close",
+    "description": "Label for close button"
+  },
   "WHJSVt": {
     "defaultMessage": "Style guide for typography, colors and spacing",
     "description": "Provided resource for project"
@@ -5538,6 +5538,10 @@
   "YS1B1R": {
     "defaultMessage": "Find submissions suggested for your review, based on your completed challenges, tech skills, and experience.",
     "description": "Page subtitle"
+  },
+  "YU7Df2": {
+    "defaultMessage": "Your recent attempt to pay on GreatFrontEnd has failed with the following reason:",
+    "description": "Description for payment failure dialog"
   },
   "YUzNZk": {
     "defaultMessage": "User submissions you can reference",
@@ -6158,10 +6162,6 @@
   "cZVPou": {
     "defaultMessage": "HTML",
     "description": "Label for HTML language"
-  },
-  "cf4ZZE": {
-    "defaultMessage": "We noticed that your attempt to pay on GreatFrontEnd has failed. Here are some actions that may help:",
-    "description": "Description for payment failure dialog"
   },
   "cgIBe4": {
     "defaultMessage": "Review must be at least {wordCount} words long or a video of at least {videoDurationInSeconds}s.",
@@ -8027,10 +8027,6 @@
     "defaultMessage": "Premium company tag",
     "description": "Paywall title for company tags feature"
   },
-  "oyxdln": {
-    "defaultMessage": "Payment Unsuccessful - Let's Try Again",
-    "description": "Title for payment failure dialog"
-  },
   "ozQHOy": {
     "defaultMessage": "Hide widget for this session",
     "description": "Feedback widget button label to hide the feedback widget for their current session"
@@ -8146,6 +8142,10 @@
   "pfFpYc": {
     "defaultMessage": "Premium solution",
     "description": "Paywall title for official solutions feature"
+  },
+  "pg9g+C": {
+    "defaultMessage": "Payment attempt unsuccessful - Let's try again",
+    "description": "Title for payment failure dialog"
   },
   "pgK6Eb": {
     "defaultMessage": "Guidebook",
@@ -8926,10 +8926,6 @@
   "ujRHIv": {
     "defaultMessage": "Including core maintainers at popular open source projects and creators of Blind 75 and Front End Interview Handbook.",
     "description": "Description of 'Guided by well-known senior engineers' feature in marketing page"
-  },
-  "ukBdux": {
-    "defaultMessage": "Try again",
-    "description": "Label for try again button"
   },
   "uogn1k": {
     "defaultMessage": "Practice build all sorts of user interfaces: components, apps, games, etc, in the framework of your choice.",

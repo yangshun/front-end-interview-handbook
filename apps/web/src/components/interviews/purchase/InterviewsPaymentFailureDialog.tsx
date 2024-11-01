@@ -1,26 +1,35 @@
 import clsx from 'clsx';
 import { useState } from 'react';
 import { RiCheckLine } from 'react-icons/ri';
+import type Stripe from 'stripe';
 
 import FeedbackDialog from '~/components/global/feedback/FeedbackDialog';
 import { useUserPreferences } from '~/components/global/UserPreferencesProvider';
 import { FormattedMessage, useIntl } from '~/components/intl';
+import Alert from '~/components/ui/Alert';
 import Anchor from '~/components/ui/Anchor';
 import Button from '~/components/ui/Button';
 import Dialog from '~/components/ui/Dialog';
 import Text from '~/components/ui/Text';
-import { themeTextSuccessColor } from '~/components/ui/theme';
+import {
+  themeBorderEmphasizeColor,
+  themeTextSuccessColor,
+} from '~/components/ui/theme';
 
 type Props = Readonly<{
   isShown?: boolean;
+  lastPaymentError?: Readonly<{
+    code: Stripe.PaymentIntent.LastPaymentError.Code | undefined;
+    declineCode_DO_NOT_DISPLAY_TO_USER: string | undefined;
+    message: string | undefined;
+  }> | null;
   onClose?: () => void;
-  trigger?: React.ReactNode;
 }>;
 
 export default function InterviewsPaymentFailureDialog({
-  isShown,
+  lastPaymentError,
   onClose,
-  trigger,
+  isShown,
 }: Props) {
   const intl = useIntl();
   const { setShowFeedbackWidget } = useUserPreferences();
@@ -105,43 +114,38 @@ export default function InterviewsPaymentFailureDialog({
       primaryButton={
         <Button
           label={intl.formatMessage({
-            defaultMessage: 'Try again',
-            description: 'Label for try again button',
-            id: 'ukBdux',
+            defaultMessage: 'Close',
+            description: 'Label for close button',
+            id: 'WGA4JT',
           })}
           size="md"
           variant="primary"
           onClick={() => {}}
         />
       }
-      secondaryButton={
-        <Button
-          label={intl.formatMessage({
-            defaultMessage: 'Cancel',
-            description: 'Label for cancel button',
-            id: 'KZOa5l',
-          })}
-          size="md"
-          variant="secondary"
-          onClick={onClose}
-        />
-      }
       title={intl.formatMessage({
-        defaultMessage: "Payment Unsuccessful - Let's Try Again",
+        defaultMessage: "Payment attempt unsuccessful - Let's try again",
         description: 'Title for payment failure dialog',
-        id: 'oyxdln',
+        id: 'pg9g+C',
       })}
-      trigger={trigger}
       width="screen-lg"
       onClose={onClose}>
-      <div className="mt-3.5 flex w-full flex-col gap-10">
+      <div className="mt-3.5 flex w-full flex-col gap-4">
         <Text color="subtitle" size="body2">
           <FormattedMessage
-            defaultMessage="We noticed that your attempt to pay on GreatFrontEnd has failed. Here are some actions that may help:"
+            defaultMessage="Your recent attempt to pay on GreatFrontEnd has failed with the following reason:"
             description="Description for payment failure dialog"
-            id="cf4ZZE"
+            id="YU7Df2"
           />
         </Text>
+        {lastPaymentError?.message && (
+          <Alert
+            borderClass={clsx('border', themeBorderEmphasizeColor)}
+            title={lastPaymentError.code}
+            variant="neutral">
+            {lastPaymentError?.message}
+          </Alert>
+        )}
         <ul className="flex flex-col gap-4">
           {reasons.map(({ key, label }) => (
             <li key={key} className="flex items-center gap-3">
@@ -153,7 +157,6 @@ export default function InterviewsPaymentFailureDialog({
           ))}
         </ul>
       </div>
-
       <FeedbackDialog
         isShown={isOpenFeedback}
         onClose={() => setIsOpenFeedback(false)}
