@@ -78,9 +78,7 @@ function ColorSwatch({
       </Text>
       <div className="flex gap-x-2">
         {colors.map((color) => (
-          <div
-            key={color}
-            className={clsx('aspect-1 w-10 rounded', color)}></div>
+          <div key={color} className={clsx('size-10 rounded', color)}></div>
         ))}
       </div>
     </div>
