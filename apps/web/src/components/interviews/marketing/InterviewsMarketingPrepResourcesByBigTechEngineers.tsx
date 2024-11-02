@@ -28,9 +28,9 @@ export default function InterviewsMarketingPrepResourcesByBigTechEngineers() {
       key: 'companies',
       label: (
         <FormattedMessage
-          defaultMessage="Seniors to Principals at the world's best companies"
+          defaultMessage="By Senior to Principal-level Engineers at the world's best companies"
           description="Prep resources companies"
-          id="+IgJAp"
+          id="reqKoj"
         />
       ),
       logos: [
@@ -155,6 +155,7 @@ export default function InterviewsMarketingPrepResourcesByBigTechEngineers() {
                   'flex flex-col gap-6',
                   'py-6',
                   'rounded-2xl',
+                  'group',
                   themeBackgroundCardColor,
                   [
                     themeWhiteGlowCardBackground,
@@ -169,10 +170,13 @@ export default function InterviewsMarketingPrepResourcesByBigTechEngineers() {
                 />
                 <div
                   className={clsx(
-                    'relative z-[1]',
+                    'relative z-[2]',
                     'h-[180px]',
                     'flex items-center justify-center gap-4 xl:gap-6',
                     'px-6 md:px-2.5 lg:px-3',
+                    'transition-opacity',
+                    'opacity-75',
+                    'group-hover:opacity-100',
                   )}>
                   {item.logos.map((logoItem) => (
                     <div
@@ -189,7 +193,13 @@ export default function InterviewsMarketingPrepResourcesByBigTechEngineers() {
                   ))}
                 </div>
                 <Text
-                  className="px-6 md:px-4 lg:px-6"
+                  className={clsx(
+                    'px-6 md:px-4 lg:px-6',
+                    'z-[2]',
+                    'transition-opacity',
+                    'opacity-75',
+                    'group-hover:opacity-100',
+                  )}
                   size="body1"
                   weight="medium">
                   {item.label}

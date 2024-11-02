@@ -1,6 +1,7 @@
 'use client';
 
 import clsx from 'clsx';
+import { RiArrowRightSLine } from 'react-icons/ri';
 
 import gtag from '~/lib/gtag';
 
@@ -8,16 +9,16 @@ import { SocialLinks } from '~/data/SocialLinks';
 
 import { formatBigNumber } from '~/components/common/formatBigNumber';
 import { FormattedMessage } from '~/components/intl';
-import Anchor from '~/components/ui/Anchor';
+import Button from '~/components/ui/Button';
 import Container from '~/components/ui/Container';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 import Text from '~/components/ui/Text';
 import {
-  themeBackgroundElementEmphasizedStateColor_Hover,
+  themeBackgroundCardColor,
   themeGlassyBorder,
   themeGradientHeading,
-  themeTextSecondaryColor,
+  themeWhiteGlowCardBackground,
 } from '~/components/ui/theme';
 
 import logEvent from '~/logging/logEvent';
@@ -75,53 +76,58 @@ export default function MarketingCommunitySection() {
               const count = platform.userCount ?? 0;
 
               return (
-                <Anchor
+                <div
                   key={key}
-                  aria-label={name}
-                  href={href}
-                  variant="unstyled"
-                  onClick={() => {
-                    gtag.event({
-                      action: `contact_us.${key}.click`,
-                      category: 'engagement',
-                      label: platform.name,
-                    });
-                    logEvent('click', {
-                      element: 'Social link',
-                      label: name,
-                      namespace: 'marketing',
-                    });
-                  }}>
+                  className={clsx(
+                    'isolate overflow-hidden',
+                    'flex flex-col items-center gap-3',
+                    'p-6',
+                    'rounded-lg',
+                    themeBackgroundCardColor,
+                    [
+                      themeWhiteGlowCardBackground,
+                      'before:-left-[70px] before:-top-10 before:h-[105px] before:w-[176px]',
+                    ],
+                  )}>
                   <div
                     className={clsx(
-                      'flex flex-col items-center gap-3',
-                      'p-6',
-                      'rounded-lg',
-                      'transition-colors',
+                      'size-full !absolute inset-0 z-[1] rounded-[inherit] before:m-[-1px]',
                       themeGlassyBorder,
-                      themeBackgroundElementEmphasizedStateColor_Hover,
-                    )}>
-                    <Text
-                      className={clsx(
-                        themeGradientHeading,
-                        'text-4xl md:text-5xl',
-                        'font-medium',
-                      )}
-                      size="inherit"
-                      weight="inherit">
-                      {count ? formatBigNumber(count) : '-'}
-                    </Text>
-                    <div className="flex items-center gap-1">
-                      <Icon
-                        aria-hidden={true}
-                        className={clsx(
-                          'size-6 shrink-0',
-                          themeTextSecondaryColor,
-                        )}
-                      />
-                    </div>
-                  </div>
-                </Anchor>
+                    )}
+                  />
+                  <Text
+                    className={clsx(
+                      themeGradientHeading,
+                      'text-4xl md:text-5xl',
+                      'font-medium',
+                      'z-[2]',
+                    )}
+                    size="inherit"
+                    weight="inherit">
+                    {count ? formatBigNumber(count) : '-'}
+                  </Text>
+                  <Button
+                    className="z-[2]"
+                    href={href}
+                    icon={Icon}
+                    iconSecondary_USE_SPARINGLY={RiArrowRightSLine}
+                    label={name}
+                    size="md"
+                    variant="tertiary"
+                    onClick={() => {
+                      gtag.event({
+                        action: `contact_us.${key}.click`,
+                        category: 'engagement',
+                        label: platform.name,
+                      });
+                      logEvent('click', {
+                        element: 'Social link',
+                        label: name,
+                        namespace: 'marketing',
+                      });
+                    }}
+                  />
+                </div>
               );
             })}
           </div>

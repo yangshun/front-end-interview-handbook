@@ -163,7 +163,7 @@ function TestCaseAnimation({
             </Text>
           </motion.div>
         ))}
-        <div className={clsx('flex justify-end gap-2', 'px-6 py-2.5')}>
+        <div className={clsx('flex justify-end gap-2', 'px-6 py-2.5', 'z-[2]')}>
           <Button
             ref={buttonRef}
             addonPosition="start"
@@ -192,7 +192,9 @@ function TestCaseAnimation({
         className="size-8 absolute cursor-none"
         initial={{ left: 60, opacity: 0, top: 260 }}
         style={{ pointerEvents: 'none' }}>
-        <RiCursorLine className={clsx('size-5 shrink-0', themeTextColor)} />
+        <RiCursorLine
+          className={clsx('size-5 relative z-[3] shrink-0', themeTextColor)}
+        />
         <motion.div
           animate={rippleControls}
           className={clsx(
@@ -201,6 +203,7 @@ function TestCaseAnimation({
             themeBackgroundInvertColor,
             'opacity-40',
             'size-8',
+            'z-[3]',
           )}
           initial={{ scale: 0 }}
         />
@@ -313,7 +316,7 @@ export default function InterviewsMarketingTestCodeSection() {
                   themeGlassyBorder,
                 )}
               />
-              <div className="m-0.5 overflow-hidden rounded-t-[inherit]">
+              <div className="z-[2] m-0.5 overflow-hidden rounded-t-[inherit]">
                 <MDXCodeBlock showCopyButton={false}>{code}</MDXCodeBlock>
               </div>
               <TestCaseAnimation

@@ -17,7 +17,6 @@ import InterviewsGuideCard from '~/components/interviews/guides/InterviewsGuideC
 import InterviewsMarketingCompaniesMarquee from '~/components/interviews/marketing/InterviewsMarketingCompaniesMarquee';
 import InterviewsMarketingHomepageFeaturesRow from '~/components/interviews/marketing/InterviewsMarketingHomepageFeaturesRow';
 import InterviewsMarketingQuestionCardMarquee from '~/components/interviews/marketing/InterviewsMarketingQuestionCardMarquee';
-import InterviewsPaymentFailureDialog from '~/components/interviews/purchase/InterviewsPaymentFailureDialog';
 import type { QuestionMetadata } from '~/components/interviews/questions/common/QuestionsTypes';
 import QuestionListingTopicFilters from '~/components/interviews/questions/listings/filters/QuestionListingTopicFilters';
 import QuestionListingDifficultySummary from '~/components/interviews/questions/listings/stats/QuestionListingDifficultySummary';
@@ -29,7 +28,6 @@ import QuestionStudyAllocationLabel from '~/components/interviews/questions/meta
 import ExclusiveTicket from '~/components/promotions/tickets/ExclusiveTicket';
 import Ticket from '~/components/promotions/tickets/Ticket';
 import Badge from '~/components/ui/Badge';
-import Button from '~/components/ui/Button';
 import CardContainer from '~/components/ui/Card/CardContainer';
 import Container from '~/components/ui/Container';
 import Divider from '~/components/ui/Divider';
@@ -454,18 +452,6 @@ export default function ScrapbookPage() {
               </Text>
             </div>
           </Ticket>
-        </UIExamplesGroup>
-      </Section>
-      <Container>
-        <Heading level="heading3">Payment failure</Heading>
-      </Container>
-      <Section>
-        <UIExamplesGroup darkMode="horizontal">
-          <InterviewsPaymentFailureDialog
-            trigger={
-              <Button label="Trigger payment failure" variant="primary" />
-            }
-          />
         </UIExamplesGroup>
       </Section>
     </CardContainer>

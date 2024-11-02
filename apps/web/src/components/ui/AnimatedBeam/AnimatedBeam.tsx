@@ -32,8 +32,8 @@ export default function AnimatedBeam({
   fromRef,
   toRef,
   curvature = 0,
-  reverse = false, // Include the reverse prop
-  duration = Math.random() * 2 + 2,
+  reverse = false,
+  duration = Math.random() * 8 + 2,
   delay = 0,
   pathColor = 'gray',
   pathWidth = 2,
@@ -170,7 +170,6 @@ export default function AnimatedBeam({
           transition={{
             delay,
             duration,
-            ease: [0.16, 1, 0.3, 1], // https://easings.net/#easeOutExpo
             repeat: Infinity,
             repeatDelay: 0,
           }}>

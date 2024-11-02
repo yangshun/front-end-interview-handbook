@@ -35,10 +35,6 @@
     "defaultMessage": "Svelte Questions",
     "description": "Svelte questions category long title"
   },
-  "+IgJAp": {
-    "defaultMessage": "Seniors to Principals at the world's best companies",
-    "description": "Prep resources companies"
-  },
   "+JhlMu": {
     "defaultMessage": "Congratulations on completing the question! Sign into your account or sign up for free to save your progress!",
     "description": "Message shown when user completes a question"
@@ -1691,6 +1687,10 @@
     "defaultMessage": "Skills | Progress | {name}",
     "description": "Title of user profile skills page"
   },
+  "A9b+nP": {
+    "defaultMessage": "Get additional <bold>{discountPercentage}% discount</bold> off by following our social accounts",
+    "description": "Rewards discount message"
+  },
   "ABJ7ip": {
     "defaultMessage": "<bold>{completedQuestions}</bold>/{totalQuestions} completed",
     "description": "Line describing the number of questions completed by user over the total number of questions"
@@ -1778,6 +1778,10 @@
   "AkAu0m": {
     "defaultMessage": "High",
     "description": "High importance question"
+  },
+  "AkOMbK": {
+    "defaultMessage": "Purchasing power parity for {countryName} – {discountPercentage}% discount automatically applied!",
+    "description": "Purchasing power parity message"
   },
   "Alqb51": {
     "defaultMessage": "Blog Type",
@@ -1994,6 +1998,10 @@
   "CSUPyv": {
     "defaultMessage": "Username must contain at most {maxLength} character(s).",
     "description": "Error message when username is too long"
+  },
+  "CSvCK2": {
+    "defaultMessage": "\"Over my career, I have conducted over hundreds of interviews at Meta and have personally received offers from companies like Meta, Google, Airbnb, Lyft, Dropbox, Palantir, etc; I have probably seen all possible front end interview questions that can be asked.",
+    "description": "Co-founder foreword"
   },
   "CTQ5qO": {
     "defaultMessage": "Import progress ({questionCount})",
@@ -2983,6 +2991,10 @@
     "defaultMessage": "Purchase premium to unlock company tags and all the best materials we have to offer.",
     "description": "Paywall subtitle for company tags feature"
   },
+  "J41qJW": {
+    "defaultMessage": "{totalQuestions} questions",
+    "description": "Number of questions"
+  },
   "J7VxuG": {
     "defaultMessage": "Social Rewards Discount",
     "description": "Promotion title"
@@ -3778,6 +3790,10 @@
   "Nmz10h": {
     "defaultMessage": "How we count contributions",
     "description": "Label for how we count contributions"
+  },
+  "NqMXNi": {
+    "defaultMessage": "GreatFrontEnd is the culmination of my experience and knowledge in the front end domain to help fellow engineers efficiently and adequately prepare for front end interviews. The best part of GreatFrontEnd is that all users emerge being better front end engineers after using the platform.\"",
+    "description": "Co-founder foreword"
   },
   "Nt+P5A": {
     "defaultMessage": "Simulate real interview conditions, no need for any setup!",
@@ -4658,10 +4674,6 @@
   "SuWvZa": {
     "defaultMessage": "Monthly plan",
     "description": "Title of monthly pricing plan"
-  },
-  "SvUinr": {
-    "defaultMessage": "Get further <bold>{discountPercentage}% discount</bold> off by following our social accounts",
-    "description": "Rewards discount message"
   },
   "Sy6yo4": {
     "defaultMessage": "Not completed",
@@ -5546,10 +5558,6 @@
   "YUzNZk": {
     "defaultMessage": "User submissions you can reference",
     "description": "Title for user project submissions section"
-  },
-  "YWxe3k": {
-    "defaultMessage": "\"There is nothing fun in this world except helping people, and see more than 500k front end engineers achieve their dream careers come true. We are aiming to help 1 million front end engineers to achieve with GreatFrontEnd\"",
-    "description": "Yangshun foreword message"
   },
   "YWz2ko": {
     "defaultMessage": "Proven preparation plans",
@@ -7615,10 +7623,6 @@
     "defaultMessage": "Quiz Questions",
     "description": "Header for quiz questions"
   },
-  "lnbicx": {
-    "defaultMessage": "Purchasing power party for {countryName} – {discountPercentage}% discount applied!",
-    "description": "Purchasing power parity message"
-  },
   "lt1xn6": {
     "defaultMessage": "Student Discount Terms and Conditions",
     "description": "Title of legal page"
@@ -8426,6 +8430,10 @@
   "rZaG+f": {
     "defaultMessage": "Unpin one or more existing submissions to pin a new one.",
     "description": "Dialog subtitle for pinned submission"
+  },
+  "reqKoj": {
+    "defaultMessage": "By Senior to Principal-level Engineers at the world's best companies",
+    "description": "Prep resources companies"
   },
   "rf0xcZ": {
     "defaultMessage": "Premium",
@@ -9390,6 +9398,10 @@
   "y1y4Uh": {
     "defaultMessage": "Svelte",
     "description": "Svelte questions category short title"
+  },
+  "y2x1w7": {
+    "defaultMessage": "Ex-Staff Engineer, Meta. Author of Blind 75 and Docusaurus 2",
+    "description": "Position of Yangshun"
   },
   "y4Aai3": {
     "defaultMessage": "Algorithms Interview Guides",

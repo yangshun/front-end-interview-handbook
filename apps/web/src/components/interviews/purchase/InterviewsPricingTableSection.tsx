@@ -615,9 +615,9 @@ export default function InterviewsPricingTableSection({
                   />
                 </div>
                 <FormattedMessage
-                  defaultMessage="Purchasing power party for {countryName} – {discountPercentage}% discount applied!"
+                  defaultMessage="Purchasing power parity for {countryName} – {discountPercentage}% discount automatically applied!"
                   description="Purchasing power parity message"
-                  id="lnbicx"
+                  id="AkOMbK"
                   values={{
                     countryName,
                     discountPercentage: Math.ceil(

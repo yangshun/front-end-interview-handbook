@@ -232,7 +232,7 @@ export default function Footer({ navigation }: Props) {
                     />
                     <Button
                       className={clsx(
-                        'absolute right-1 top-0.5',
+                        'absolute right-1 top-1',
                         'border-none',
                         themeBackgroundColor,
                       )}
@@ -244,6 +244,7 @@ export default function Footer({ navigation }: Props) {
                           'Label for notify me button for subscribe newsletter',
                         id: 'nhNfxq',
                       })}
+                      size="xs"
                       type="submit"
                       variant="unstyled"
                     />

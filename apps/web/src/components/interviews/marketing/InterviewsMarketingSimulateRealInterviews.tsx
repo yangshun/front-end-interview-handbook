@@ -93,6 +93,7 @@ export default function InterviewsMarketingSimulateRealInterviews() {
                   'flex flex-col gap-6',
                   'p-6',
                   'rounded-2xl',
+                  'group',
                   themeBackgroundCardColor,
                   [
                     themeWhiteGlowCardBackground,
@@ -105,11 +106,24 @@ export default function InterviewsMarketingSimulateRealInterviews() {
                     themeGlassyBorder,
                   )}
                 />
-                <div className="relative z-[1] py-3 lg:h-[180px]">
+                <div
+                  className={clsx(
+                    'relative z-[2] py-3 lg:h-[180px]',
+                    'transition-opacity',
+                    'opacity-75',
+                    'group-hover:opacity-100',
+                  )}>
                   <ImageSVG />
                 </div>
-
-                <Text size="body1" weight="medium">
+                <Text
+                  className={clsx(
+                    'z-[2]',
+                    'transition-opacity',
+                    'opacity-75',
+                    'group-hover:opacity-100',
+                  )}
+                  size="body1"
+                  weight="medium">
                   {label}
                 </Text>
               </div>

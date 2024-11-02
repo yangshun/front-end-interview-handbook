@@ -209,7 +209,7 @@ export default function InterviewsTestimonialsSlider({
         window.clearInterval(timer.current);
         setCurrentItemIndex(data.findIndex(({ id }) => id === newValue));
       }}>
-      <div className="flex flex-col gap-6">
+      <div className="flex flex-col gap-6 overflow-hidden">
         <div className="relative rounded-lg">
           {data.map((item) => (
             <TabsPrimitive.Content key={item.id} value={item.id}>

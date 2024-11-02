@@ -33,20 +33,31 @@ export default function InterviewsEntityProgress({
         <Icon className={clsx('size-5 shrink-0', themeTextSubtleColor)} />
         <Text color="secondary" size="body3">
           {type === 'question' ? (
-            <FormattedMessage
-              defaultMessage="<bold>{completedQuestions}</bold>/{totalQuestions} questions"
-              description="Line describing the number of questions completed by user over the total number of questions"
-              id="9115HX"
-              values={{
-                bold: (chunks) => (
-                  <Text size="body2" weight="bold">
-                    {chunks}
-                  </Text>
-                ),
-                completedQuestions: completed,
-                totalQuestions: total,
-              }}
-            />
+            completed > 0 ? (
+              <FormattedMessage
+                defaultMessage="<bold>{completedQuestions}</bold>/{totalQuestions} questions"
+                description="Line describing the number of questions completed by user over the total number of questions"
+                id="9115HX"
+                values={{
+                  bold: (chunks) => (
+                    <Text size="body2" weight="bold">
+                      {chunks}
+                    </Text>
+                  ),
+                  completedQuestions: completed,
+                  totalQuestions: total,
+                }}
+              />
+            ) : (
+              <FormattedMessage
+                defaultMessage="{totalQuestions} questions"
+                description="Number of questions"
+                id="J41qJW"
+                values={{
+                  totalQuestions: total,
+                }}
+              />
+            )
           ) : (
             <FormattedMessage
               defaultMessage="<bold>{completedArticles}</bold>/{totalArticles} articles"

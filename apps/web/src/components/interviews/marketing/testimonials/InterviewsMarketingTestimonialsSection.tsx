@@ -43,7 +43,7 @@ export default function InterviewsMarketingTestimonialsSection({
             description="Testimonial section title"
             id="wm6L7K"
             values={{
-              count: '100k+',
+              count: '500k+',
             }}
           />
         </Heading>
