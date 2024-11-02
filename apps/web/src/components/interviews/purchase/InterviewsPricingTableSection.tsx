@@ -681,11 +681,7 @@ export default function InterviewsPricingTableSection({
                   </Text>
                 )}
                 <Text
-                  className={clsx('inline-flex items-end gap-x-2', [
-                    'text-md',
-                    featuredPlan.paymentConfig.unitCostCurrency.withPPP.after <
-                      1000 && 'sm:text-md',
-                  ])}
+                  className={clsx('inline-flex items-end gap-x-2')}
                   color="secondary"
                   size="inherit">
                   <span>

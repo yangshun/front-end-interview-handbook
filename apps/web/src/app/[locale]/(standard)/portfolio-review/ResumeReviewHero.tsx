@@ -128,7 +128,7 @@ export default function ResumeReviewHero() {
                 <h1 className="mt-10 text-4xl font-bold tracking-tight text-white sm:text-5xl">
                   Take your front end portfolio to the next level
                 </h1>
-                <div className="sm:text-md space-y-4 py-8 pb-6 text-left text-sm font-medium text-neutral-400 ">
+                <div className="space-y-4 py-8 pb-6 text-left text-sm font-medium text-neutral-400 sm:text-base ">
                   <p>By ex-interviewers at</p>
                   <span className="justify-left flex items-center gap-x-6 opacity-75">
                     <GoogleLogo
