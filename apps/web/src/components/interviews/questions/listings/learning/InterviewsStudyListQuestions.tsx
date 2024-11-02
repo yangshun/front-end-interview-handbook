@@ -5,7 +5,7 @@ import InterviewsPremiumBadge from '~/components/interviews/common/InterviewsPre
 import { questionHrefWithList } from '~/components/interviews/questions/common/questionHref';
 import type { QuestionMetadata } from '~/components/interviews/questions/common/QuestionsTypes';
 import QuestionsListItemProgressChip from '~/components/interviews/questions/listings/items/QuestionsListItemProgressChip';
-import InterviewsStudyListQuestionHoverCard from '~/components/interviews/questions/listings/learning/InterviewsStudyListQuestionHoverCard';
+import InterviewsStudyListQuestionHovercardContents from '~/components/interviews/questions/listings/learning/InterviewsStudyListQuestionHovercardContents';
 import QuestionDifficultyLabel from '~/components/interviews/questions/metadata/QuestionDifficultyLabel';
 import QuestionFormatLabel from '~/components/interviews/questions/metadata/QuestionFormatLabel';
 import { useIntl } from '~/components/intl';
@@ -126,7 +126,12 @@ export default function InterviewsStudyListQuestions<
               : index === 0;
 
             return (
-              <Hovercard key={hashQuestion(question.format, question.slug)}>
+              <Hovercard
+                key={hashQuestion(question.format, question.slug)}
+                // Add a small close delay so that cursor can enter the card
+                // fast enough before the card disappears.
+                closeDelay={50}
+                openDelay={0}>
                 <HovercardTrigger asChild={true}>
                   {
                     <tr
@@ -198,8 +203,14 @@ export default function InterviewsStudyListQuestions<
                       'border',
                       themeBorderColor,
                     ])}
-                    side="right">
-                    <InterviewsStudyListQuestionHoverCard question={question} />
+                    side="right"
+                    // Remove offset so that cursor can enter the card
+                    // fast enough before the card disappears.
+                    sideOffset={0}>
+                    <InterviewsStudyListQuestionHovercardContents
+                      listKey={listKey}
+                      question={question}
+                    />
                   </HovercardContent>
                 </HovercardPortal>
               </Hovercard>
@@ -207,7 +218,6 @@ export default function InterviewsStudyListQuestions<
           })}
         </tbody>
       </table>
-
       <ul className={clsx('block md:hidden', ['divide-y', themeDivideColor])}>
         {questions.map((question, index) => {
           const hasCompletedQuestion = checkIfCompletedQuestion?.(question);

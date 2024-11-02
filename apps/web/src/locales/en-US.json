@@ -491,10 +491,6 @@
     "defaultMessage": "Sign In",
     "description": "Label of Sign In button on Email Sign In page"
   },
-  "1hBmJl": {
-    "defaultMessage": "{QuestionCount}+ of the most important questions — from building user interfaces in popular front end frameworks to system design.",
-    "description": "Description of 'Practice everything in popular frameworks' feature in marketing page"
-  },
   "1hQIJA": {
     "defaultMessage": "Back to All practice questions",
     "description": "Link text to navigate to all practice questions page"
@@ -758,14 +754,6 @@
   "3gL2Vm": {
     "defaultMessage": "Join Reddit community",
     "description": "Label for join reddit"
-  },
-  "3i5xK8": {
-    "defaultMessage": "Large question bank",
-    "description": "Title of the 'Practice Everything Here' marketing section on Homepage"
-  },
-  "3l9u0k": {
-    "defaultMessage": "View roadmap",
-    "description": "Entrypoint for view roadmap on hero section of Interviews"
   },
   "3n0B1m": {
     "defaultMessage": "You currently have {count, plural, =0 {no premium credits} one {<bold>1 premium credit</bold>} other {<bold># premium credits</bold>}}. Proceed to unlock?",
@@ -1207,10 +1195,6 @@
     "defaultMessage": "GreatFrontEnd: The Great Way to Prepare for Front End Interviews",
     "description": "Title of GreatFrontEnd standard page"
   },
-  "6yAWpI": {
-    "defaultMessage": "With over {QuestionCount} practice questions curated by senior front end engineers, you get all-rounded coverage for your preparation — HTML, CSS, JavaScript, algorithms, DOM APIs, accessibility, performance, front end fundamentals, and more.",
-    "description": "Subtitle of the 'Practice Everything Here' marketing section on Homepage"
-  },
   "6zZ5vj": {
     "defaultMessage": "{commentsCount, plural, =0 {No comments} one {# comment} other {# comments}}",
     "description": "Number of comments for project submission"
@@ -1550,10 +1534,6 @@
   "95Is5V": {
     "defaultMessage": "Quickly convert challenge designs into HTML, CSS, and Tailwind code by using our <link>Figma to Code plugin</link>.",
     "description": "Use the Figma to code plugin"
-  },
-  "97HVxk": {
-    "defaultMessage": "Key features",
-    "description": "Key features of the product"
   },
   "99Ewym": {
     "defaultMessage": "Introduction",
@@ -2079,10 +2059,6 @@
     "defaultMessage": "Build together with other like-minded individuals",
     "description": "Title for \"Build together with other like-minded individuals\" feature marketing section on Projects home page"
   },
-  "D/cRh1": {
-    "defaultMessage": "Practice everything here",
-    "description": "Title of the 'Practice Everything Here' marketing section on Homepage"
-  },
   "D0xOX8": {
     "defaultMessage": "Framework / language",
     "description": "Label for framework/language filter"
@@ -2298,10 +2274,6 @@
   "ELcn8L": {
     "defaultMessage": "Recommended user submissions you can reference.",
     "description": "FAQ answer for projects platform"
-  },
-  "EM2v4V": {
-    "defaultMessage": "By creators of",
-    "description": "Text above logos on Hero section of HomePage. To let users know that the authors of this platform have also created the stated products."
   },
   "ENNKyg": {
     "defaultMessage": "View subscription plans",
@@ -2947,10 +2919,6 @@
     "defaultMessage": "Company",
     "description": "Header for company filters"
   },
-  "Im9sPX": {
-    "defaultMessage": "We are also looking to include more framework-specific questions like React, Vue, Angular, etc.",
-    "description": "Question base section subtitle - second paragraph"
-  },
   "ImDbLo": {
     "defaultMessage": "Total time",
     "description": "Total time needed to complete the questions"
@@ -3407,10 +3375,6 @@
     "defaultMessage": "Select tip type",
     "description": "Label for tabs to select tip type"
   },
-  "LNz/aW": {
-    "defaultMessage": "By ex-interviewers at",
-    "description": "Text above logos on Hero section of HomePage. To let users know that ex-interviewers at the stated companies have contributed expertise to this platform."
-  },
   "LPfKTO": {
     "defaultMessage": "Completed",
     "description": "Label to indicate that a question has been completed"
@@ -3726,10 +3690,6 @@
   "NL7HsI": {
     "defaultMessage": "Preview solution",
     "description": "Label for preview solution button"
-  },
-  "NMtINV": {
-    "defaultMessage": "The <underline>great</underline> way to prepare for <span>front end</span> interviews",
-    "description": "Title of Hero section on Homepage. To describe the product in 1 line so that users understand it immediately."
   },
   "NPBHO+": {
     "defaultMessage": "{questionCount}+ HTML interview questions, including quiz-style knowledge questions and HTML coding questions.",
@@ -4151,10 +4111,6 @@
     "defaultMessage": "You left a code review on your submission <link>{submissionTitle}</link>: <comment>\"{description}\"</comment>",
     "description": "Log message for you reviewing your submission"
   },
-  "PzZtIi": {
-    "defaultMessage": "No sign in required",
-    "description": "Additional text below Get Start button on Hero section of HomePage. To let users know that they can try the product without signing in."
-  },
   "Q+qNTr": {
     "defaultMessage": "Reference submissions",
     "description": "Reference code for projects"
@@ -4206,10 +4162,6 @@
   "QJTIr/": {
     "defaultMessage": "Can't find the answer you are looking for?",
     "description": "Marketing page section subtitle"
-  },
-  "QJaxVF": {
-    "defaultMessage": "Our focus is currently on expanding our question base. New coding and system design questions are added to the platform on a weekly basis.",
-    "description": "Question base section subtitle - first paragraph"
   },
   "QNqh1P": {
     "defaultMessage": "Experience",
@@ -4407,10 +4359,6 @@
     "defaultMessage": "Top 20+ common behavioral interview questions for SWE",
     "description": "Most common behavioral interview questions for software engineers"
   },
-  "RQm9cE": {
-    "defaultMessage": "We're still growing our question base",
-    "description": "Question base section title"
-  },
   "RQzpcq": {
     "defaultMessage": "Algorithmic coding",
     "description": "Data structures and algorithm questions"
@@ -4462,10 +4410,6 @@
   "RfVhtP": {
     "defaultMessage": "Use now",
     "description": "Button label for use now button"
-  },
-  "RhEhnv": {
-    "defaultMessage": "Get started (free)",
-    "description": "Label for Get Started button in Hero section of HomePage."
   },
   "RhV5e8": {
     "defaultMessage": "Completed",
@@ -5131,10 +5075,6 @@
     "defaultMessage": "Follow us on X",
     "description": "Label for join X"
   },
-  "W+ConA": {
-    "defaultMessage": "Guided by well-known senior engineers",
-    "description": "Title of 'Guided by well-known senior engineers' feature in marketing page"
-  },
   "W+UJZA": {
     "defaultMessage": "Algorithmic Coding",
     "description": "Page title for algo coding question format page"
@@ -5626,10 +5566,6 @@
   "Z4BPbp": {
     "defaultMessage": "Please upload a photo smaller than 1 MB",
     "description": "Profile photo size exceed error message"
-  },
-  "Z4VfkU": {
-    "defaultMessage": "Every question is accompanied by an official, well-explained solution from ex-interviewers.",
-    "description": "Description of 'Learn from official solutions and guides' feature in marketing page"
   },
   "Z5P0Gp": {
     "defaultMessage": "What to expect in the coding round and tips to succeed",
@@ -6231,10 +6167,6 @@
     "defaultMessage": "Bring your own framework",
     "description": "Title for bring your own framework feature"
   },
-  "d+9jeS": {
-    "defaultMessage": "Everything you need, in great quality",
-    "description": "Title of the 'Features' marketing section on Homepage"
-  },
   "d+wYSW": {
     "defaultMessage": "Sign up for a free GreatFrontEnd account to track your progress and access premium",
     "description": "Description of Sign Up page"
@@ -6643,10 +6575,6 @@
     "defaultMessage": "Component tracks",
     "description": "Title of Projects component tracks page"
   },
-  "fhTYwQ": {
-    "defaultMessage": "The only end-to-end front end interview preparation platform.{br} Brought to you by big tech Senior / Staff Front End Engineers.",
-    "description": "Subtitle for Hero section on Homepage. Explains in more detail what the product does in order to attract the user to read on."
-  },
   "fhfS0P": {
     "defaultMessage": "View more",
     "description": "Label of collapsed guide button"
@@ -6667,10 +6595,6 @@
     "defaultMessage": "Discussions",
     "description": "Challenge submission discussion section title"
   },
-  "fmAcHR": {
-    "defaultMessage": "Practice everything in popular frameworks",
-    "description": "Title of 'Practice everything in popular frameworks' feature in marketing page"
-  },
   "fmPah2": {
     "defaultMessage": "on your first order amount",
     "description": "GFE discount"
@@ -6686,10 +6610,6 @@
   "frl+Af": {
     "defaultMessage": "Prev",
     "description": "Label for button leading to the previous page"
-  },
-  "ft4ubO": {
-    "defaultMessage": "You won't find the same depth or quality elsewhere.",
-    "description": "Subtitle of the 'Features' marketing section on Homepage"
   },
   "ftK9zU": {
     "defaultMessage": "Link",
@@ -7939,10 +7859,6 @@
     "defaultMessage": "Difficulty: Easy to Hard",
     "description": "Sorting option for question list - sort by difficulty from easy to hard"
   },
-  "oPyUXk": {
-    "defaultMessage": "Practice building all sorts of user interfaces: components, apps, games, etc, in the framework of your choice.",
-    "description": "Subtitle for an example list of User Interface Questions on marketing pages"
-  },
   "oQYa8+": {
     "defaultMessage": "You have unlocked this Figma file",
     "description": "Tooltip for premium Figma file download button"
@@ -8035,10 +7951,6 @@
     "defaultMessage": "Hide widget for this session",
     "description": "Feedback widget button label to hide the feedback widget for their current session"
   },
-  "p/R4cx": {
-    "defaultMessage": "Learn from official solutions and guides",
-    "description": "Title of 'Learn from official solutions and guides' feature in marketing page"
-  },
   "p17SP8": {
     "defaultMessage": "Useful into the future",
     "description": "Title of the 'Permanent toolkit' marketing section on Projects home page"
@@ -8130,10 +8042,6 @@
   "pZq6+F": {
     "defaultMessage": "Supercharge your growth with concise step-by-step guides for practical development",
     "description": "Description for \"Official guides\" feature on Projects home page"
-  },
-  "pcKndh": {
-    "defaultMessage": "Try a question",
-    "description": "Label for Try a question button in Hero section of HomePage."
   },
   "pdO/k1": {
     "defaultMessage": "Turn off focus mode",
@@ -8931,10 +8839,6 @@
     "defaultMessage": "All submissions",
     "description": "Label for All submissions sidebar item in Projects sidebar"
   },
-  "ujRHIv": {
-    "defaultMessage": "Including core maintainers at popular open source projects and creators of Blind 75 and Front End Interview Handbook.",
-    "description": "Description of 'Guided by well-known senior engineers' feature in marketing page"
-  },
   "uogn1k": {
     "defaultMessage": "Practice build all sorts of user interfaces: components, apps, games, etc, in the framework of your choice.",
     "description": "Subtitle for an example list of User Interface Questions on marketing pages"
@@ -9470,10 +9374,6 @@
   "yWnRZS": {
     "defaultMessage": "Can't find the answer you are looking for? View all <link>frequently-asked questions</link>.",
     "description": "Subtitle of Homepage's FAQ section, encouraging users to contact us if none of the FAQs resolve their problems"
-  },
-  "yXYc5a": {
-    "defaultMessage": "Features",
-    "description": "Title of the 'Features' marketing section on Homepage"
   },
   "yZkY1S": {
     "defaultMessage": "Tell us about the skills you will be using",
