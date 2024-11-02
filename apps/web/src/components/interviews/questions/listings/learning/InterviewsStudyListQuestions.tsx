@@ -5,13 +5,21 @@ import InterviewsPremiumBadge from '~/components/interviews/common/InterviewsPre
 import { questionHrefWithList } from '~/components/interviews/questions/common/questionHref';
 import type { QuestionMetadata } from '~/components/interviews/questions/common/QuestionsTypes';
 import QuestionsListItemProgressChip from '~/components/interviews/questions/listings/items/QuestionsListItemProgressChip';
+import InterviewsStudyListQuestionHoverCard from '~/components/interviews/questions/listings/learning/InterviewsStudyListQuestionHoverCard';
 import QuestionDifficultyLabel from '~/components/interviews/questions/metadata/QuestionDifficultyLabel';
 import QuestionFormatLabel from '~/components/interviews/questions/metadata/QuestionFormatLabel';
 import { useIntl } from '~/components/intl';
 import Anchor from '~/components/ui/Anchor';
 import EmptyState from '~/components/ui/EmptyState';
+import {
+  Hovercard,
+  HovercardContent,
+  HovercardPortal,
+  HovercardTrigger,
+} from '~/components/ui/Hovercard/Hovercard';
 import Text from '~/components/ui/Text';
 import {
+  themeBackgroundColor,
   themeBackgroundElementEmphasizedStateColor,
   themeBackgroundElementEmphasizedStateColor_Hover,
   themeBackgroundLayerColor,
@@ -118,63 +126,83 @@ export default function InterviewsStudyListQuestions<
               : index === 0;
 
             return (
-              <tr
-                key={hashQuestion(question.format, question.slug)}
-                className={clsx(
-                  'group relative',
-                  'transition-colors',
-                  'focus-within:ring-brand focus-within:ring-2 focus-within:ring-inset',
-                  themeBackgroundElementEmphasizedStateColor_Hover,
-                  isActiveQuestion &&
-                    themeBackgroundElementEmphasizedStateColor,
-                )}>
-                <td className="w-full py-4 pl-6 pr-1.5">
-                  <div className="flex items-center gap-x-4">
-                    {checkIfCompletedQuestion != null && (
-                      <QuestionsListItemProgressChip
-                        className="z-[1]"
-                        hasCompletedQuestion={!!hasCompletedQuestion}
-                        hasCompletedQuestionBefore={false}
-                        index={index}
-                        premiumUser={userProfile?.isInterviewsPremium}
-                        question={question}
-                        size="sm"
-                      />
-                    )}
-                    <div className="flex flex-wrap items-center gap-x-2 gap-y-1.5">
-                      <Text
-                        className="flex items-center gap-x-2"
-                        size="body3"
-                        weight="medium">
-                        <Anchor
-                          className="focus:outline-none"
-                          href={questionHrefWithList(question.href, listKey)}
-                          variant="unstyled">
-                          {/* Extend touch target to entire panel */}
-                          <span
-                            aria-hidden="true"
-                            className="absolute inset-0"
-                          />
-                          {question.title}
-                        </Anchor>
-                      </Text>
-                      {question.premium && <InterviewsPremiumBadge size="xs" />}
-                    </div>
-                  </div>
-                </td>
-                <td className="px-1.5 py-4">
-                  <QuestionFormatLabel
-                    showIcon={true}
-                    value={question.format}
-                  />
-                </td>
-                <td className="py-4 pl-1.5 pr-6">
-                  <QuestionDifficultyLabel
-                    showIcon={true}
-                    value={question.difficulty}
-                  />
-                </td>
-              </tr>
+              <Hovercard key={hashQuestion(question.format, question.slug)}>
+                <HovercardTrigger asChild={true}>
+                  {
+                    <tr
+                      className={clsx(
+                        'group relative',
+                        'transition-colors',
+                        'focus-within:ring-brand focus-within:ring-2 focus-within:ring-inset',
+                        themeBackgroundElementEmphasizedStateColor_Hover,
+                        isActiveQuestion &&
+                          themeBackgroundElementEmphasizedStateColor,
+                      )}>
+                      <td className="w-full py-4 pl-6 pr-1.5">
+                        <div className="flex items-center gap-x-4">
+                          {checkIfCompletedQuestion != null && (
+                            <QuestionsListItemProgressChip
+                              className="z-[1]"
+                              hasCompletedQuestion={!!hasCompletedQuestion}
+                              hasCompletedQuestionBefore={false}
+                              index={index}
+                              premiumUser={userProfile?.isInterviewsPremium}
+                              question={question}
+                              size="sm"
+                            />
+                          )}
+                          <div className="flex flex-wrap items-center gap-x-2 gap-y-1.5">
+                            <Text
+                              className="flex items-center gap-x-2"
+                              size="body3"
+                              weight="medium">
+                              <Anchor
+                                className="focus:outline-none"
+                                href={questionHrefWithList(
+                                  question.href,
+                                  listKey,
+                                )}
+                                variant="unstyled">
+                                {/* Extend touch target to entire panel */}
+                                <span
+                                  aria-hidden="true"
+                                  className="absolute inset-0"
+                                />
+                                {question.title}
+                              </Anchor>
+                            </Text>
+                            {question.premium && (
+                              <InterviewsPremiumBadge size="xs" />
+                            )}
+                          </div>
+                        </div>
+                      </td>
+                      <td className="px-1.5 py-4">
+                        <QuestionFormatLabel
+                          showIcon={true}
+                          value={question.format}
+                        />
+                      </td>
+                      <td className="py-4 pl-1.5 pr-6">
+                        <QuestionDifficultyLabel
+                          showIcon={true}
+                          value={question.difficulty}
+                        />
+                      </td>
+                    </tr>
+                  }
+                </HovercardTrigger>
+                <HovercardPortal>
+                  <HovercardContent
+                    className={clsx(themeBackgroundColor, [
+                      'border',
+                      themeBorderColor,
+                    ])}
+                    side="right">
+                    <InterviewsStudyListQuestionHoverCard question={question} />
+                  </HovercardContent>
+                </HovercardPortal>
+              </Hovercard>
             );
           })}
         </tbody>
