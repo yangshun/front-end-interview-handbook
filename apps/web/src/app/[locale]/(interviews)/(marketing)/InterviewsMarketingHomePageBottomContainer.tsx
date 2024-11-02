@@ -9,8 +9,8 @@ import InterviewsMarketingPlansSection from '~/components/interviews/marketing/I
 import type { QuestionBankDataType } from '~/components/interviews/marketing/InterviewsMarketingPracticeQuestionBankSection';
 import InterviewsMarketingSimulateRealInterviews from '~/components/interviews/marketing/InterviewsMarketingSimulateRealInterviews';
 
-const InterviewsMarketingHomePageBottomNew = dynamic(
-  () => import('./InterviewsMarketingHomePageBottomNew'),
+const InterviewsMarketingHomePageBottom = dynamic(
+  () => import('./InterviewsMarketingHomePageBottom'),
   { ssr: false },
 );
 
@@ -35,7 +35,7 @@ export default function InterviewsMarketingHomePageBottomContainer({
       <InterviewsMarketingPlansSection />
       <InterviewsMarketingSimulateRealInterviews />
       {showBottomHalf ? (
-        <InterviewsMarketingHomePageBottomNew
+        <InterviewsMarketingHomePageBottom
           companyGuides={companyGuides}
           questions={questions}
         />

@@ -1,18 +1,33 @@
 import type { Metadata } from 'next/types';
 
-import { sortQuestions } from '~/components/interviews/questions/listings/filters/QuestionsProcessor';
+import type { QuestionBankDataType } from '~/components/interviews/marketing/InterviewsMarketingPracticeQuestionBankSection';
+import { InterviewsMarketingTestimonialsDict } from '~/components/interviews/marketing/testimonials/InterviewsMarketingTestimonials';
+import type {
+  QuestionFramework,
+  QuestionLanguage,
+  QuestionMetadata,
+  QuestionTopic,
+} from '~/components/interviews/questions/common/QuestionsTypes';
+import {
+  countQuestionsTotalDurationMins,
+  sortQuestions,
+} from '~/components/interviews/questions/listings/filters/QuestionsProcessor';
 import { QuestionCount } from '~/components/interviews/questions/listings/stats/QuestionCount';
 
+import { fetchInterviewsStudyLists } from '~/db/contentlayer/InterviewsStudyListReader';
 import {
   readQuestionJavaScriptContents,
   readQuestionUserInterface,
 } from '~/db/QuestionsContentsReader';
 import {
-  fetchQuestionsListJavaScript,
+  fetchQuestionsListCoding,
   fetchQuestionsListQuiz,
   fetchQuestionsListSystemDesign,
-  fetchQuestionsListUserInterface,
 } from '~/db/QuestionsListReader';
+import {
+  categorizeQuestionsByFrameworkAndLanguage,
+  categorizeQuestionsByTopic,
+} from '~/db/QuestionsUtils';
 import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
 
@@ -52,6 +67,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   });
 }
 
+type Props = Readonly<{
+  params: Readonly<{ locale: string }>;
+}>;
+
 // Custom skeleton example.
 const FLATTEN_SKELETON_JS = `/**
  * @param {Array<*|Array>} value
@@ -84,14 +103,91 @@ export default function flatten(
 }
 `;
 
-const QUESTIONS_TO_SHOW = 6;
+function getQuestionBankSectionData(
+  codingQuestions: ReadonlyArray<QuestionMetadata>,
+  quizQuestions: ReadonlyArray<QuestionMetadata>,
+  systemDesignQuestions: ReadonlyArray<QuestionMetadata>,
+): QuestionBankDataType {
+  const MAX_TO_SHOW = 4;
+  const { framework, language } = categorizeQuestionsByFrameworkAndLanguage({
+    codingQuestions,
+  });
+  const topicQuestions = categorizeQuestionsByTopic({
+    codingQuestions,
+    quizQuestions,
+  });
 
-type Props = Readonly<{
-  params: Readonly<{ locale: string }>;
-}>;
+  function createQuestionData(questions: ReadonlyArray<QuestionMetadata>) {
+    return {
+      count: questions.length,
+      duration: countQuestionsTotalDurationMins(questions),
+      questions: sortQuestions(questions, 'importance', false).slice(
+        0,
+        MAX_TO_SHOW,
+      ),
+    };
+  }
+
+  const frameworkQuestionsData: Record<
+    QuestionFramework,
+    {
+      count: number;
+      duration: number;
+      questions: ReadonlyArray<QuestionMetadata>;
+    }
+  > = {
+    angular: createQuestionData(framework.angular),
+    react: createQuestionData(framework.react),
+    svelte: createQuestionData(framework.svelte),
+    vanilla: createQuestionData(framework.vanilla),
+    vue: createQuestionData(framework.vue),
+  };
+  const languageQuestionsData: Record<
+    QuestionLanguage,
+    {
+      count: number;
+      duration: number;
+      questions: ReadonlyArray<QuestionMetadata>;
+    }
+  > = {
+    css: createQuestionData(language.css),
+    html: createQuestionData(language.html),
+    js: createQuestionData(language.js),
+    ts: createQuestionData(language.ts),
+  };
+
+  const topicQuestionsData: Record<
+    QuestionTopic,
+    {
+      count: number;
+      duration: number;
+      questions: ReadonlyArray<QuestionMetadata>;
+    }
+  > = {
+    a11y: createQuestionData(topicQuestions.a11y),
+    css: createQuestionData(topicQuestions.css),
+    html: createQuestionData(topicQuestions.html),
+    i18n: createQuestionData(topicQuestions.i18n),
+    javascript: createQuestionData(topicQuestions.javascript),
+    network: createQuestionData(topicQuestions.network),
+    performance: createQuestionData(topicQuestions.performance),
+    security: createQuestionData(topicQuestions.security),
+    testing: createQuestionData(topicQuestions.testing),
+  };
+
+  return {
+    coding: createQuestionData(codingQuestions),
+    framework: frameworkQuestionsData,
+    language: languageQuestionsData,
+    quiz: createQuestionData(quizQuestions),
+    systemDesign: createQuestionData(systemDesignQuestions),
+    topic: topicQuestionsData,
+  };
+}
 
 export default async function Page({ params }: Props) {
   const { locale } = params;
+
   const [
     { question: javaScriptEmbedExample },
     todoListReactSolutionBundle,
@@ -99,29 +195,42 @@ export default async function Page({ params }: Props) {
     todoListAngularSolutionBundle,
     todoListVueSolutionBundle,
     todoListSvelteSolutionBundle,
+    { questions: codingQuestions },
+    { questions: quizQuestions },
+    { questions: systemDesignQuestions },
+    companyGuides,
   ] = await Promise.all([
+    // JS question embed
     readQuestionJavaScriptContents('flatten', locale),
+    // UI question embed
     readQuestionUserInterface('todo-list', 'react', 'solution-improved'),
     readQuestionUserInterface('todo-list', 'vanilla', 'solution-template'),
     readQuestionUserInterface('todo-list', 'angular', 'solution'),
     readQuestionUserInterface('todo-list', 'vue', 'solution'),
     readQuestionUserInterface('todo-list', 'svelte', 'solution'),
+    // Question list
+    fetchQuestionsListCoding(locale),
+    fetchQuestionsListQuiz(locale),
+    fetchQuestionsListSystemDesign(locale),
+    // Company guides
+    fetchInterviewsStudyLists('company'),
   ]);
 
-  const [
-    { questions: quizQuestions },
-    { questions: javaScriptQuestions },
-    { questions: userInterfaceQuestions },
-    { questions: systemDesignQuestions },
-  ] = await Promise.all([
-    fetchQuestionsListQuiz(locale),
-    fetchQuestionsListJavaScript(locale),
-    fetchQuestionsListUserInterface(locale),
-    fetchQuestionsListSystemDesign(locale),
-  ]);
+  const testimonials = InterviewsMarketingTestimonialsDict();
+
+  const questionBankData = getQuestionBankSectionData(
+    codingQuestions,
+    quizQuestions,
+    systemDesignQuestions,
+  );
+
+  const sortedGuides = companyGuides
+    .slice()
+    .sort((a, b) => a.ranking - b.ranking);
 
   return (
     <InterviewsMarketingHomePage
+      companyGuides={sortedGuides}
       javaScriptEmbedExample={{
         ...javaScriptEmbedExample,
         skeleton: {
@@ -129,21 +238,14 @@ export default async function Page({ params }: Props) {
           ts: FLATTEN_SKELETON_TS,
         },
       }}
-      javaScriptQuestions={sortQuestions(
-        javaScriptQuestions.filter((question) => question.featured),
-        'importance',
-        false,
-      ).slice(0, QUESTIONS_TO_SHOW)}
-      quizQuestions={sortQuestions(
-        quizQuestions.filter((question) => question.featured),
-        'importance',
-        false,
-      ).slice(0, QUESTIONS_TO_SHOW)}
-      systemDesignQuestions={sortQuestions(
-        systemDesignQuestions.filter((question) => question.featured),
-        'ranking',
-        true,
-      ).slice(0, QUESTIONS_TO_SHOW)}
+      questions={questionBankData}
+      testimonials={[
+        testimonials.shoaibAhmed,
+        testimonials.locChuong,
+        testimonials.lunghaoLee,
+        testimonials.luke,
+        testimonials.ryan,
+      ]}
       uiCodingQuestion={{
         frameworks: {
           angular: todoListAngularSolutionBundle,
@@ -154,11 +256,6 @@ export default async function Page({ params }: Props) {
         },
         metadata: todoListReactSolutionBundle.metadata,
       }}
-      userInterfaceQuestions={sortQuestions(
-        userInterfaceQuestions.filter((question) => question.featured),
-        'importance',
-        false,
-      ).slice(0, QUESTIONS_TO_SHOW)}
     />
   );
 }

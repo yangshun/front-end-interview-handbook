@@ -15,9 +15,6 @@ import InterviewsDashboardContinueLearning from '~/components/interviews/dashboa
 import InterviewsDashboardStudyGuideList from '~/components/interviews/dashboard/InterviewsDashboardStudyGuideList';
 import InterviewsGuideCard from '~/components/interviews/guides/InterviewsGuideCard';
 import InterviewsMarketingCompaniesMarquee from '~/components/interviews/marketing/InterviewsMarketingCompaniesMarquee';
-import InterviewsMarketingHomepageFeaturesRow from '~/components/interviews/marketing/InterviewsMarketingHomepageFeaturesRow';
-import InterviewsMarketingQuestionCardMarquee from '~/components/interviews/marketing/InterviewsMarketingQuestionCardMarquee';
-import type { QuestionMetadata } from '~/components/interviews/questions/common/QuestionsTypes';
 import QuestionListingTopicFilters from '~/components/interviews/questions/listings/filters/QuestionListingTopicFilters';
 import QuestionListingDifficultySummary from '~/components/interviews/questions/listings/stats/QuestionListingDifficultySummary';
 import QuestionsProgressPanel from '~/components/interviews/questions/listings/stats/QuestionsProgressPanel';
@@ -40,38 +37,6 @@ import {
   themeGradientPinkPurple,
   themeGradientPurpleGreen,
 } from '~/components/ui/theme';
-
-const mockQuestion: QuestionMetadata = {
-  author: null,
-  companies: [],
-  created: 0,
-  difficulty: 'medium',
-  duration: 0,
-  excerpt:
-    'Implement a stack data structure containing the common stack methods',
-  featured: false,
-  format: 'quiz',
-  frameworkDefault: null,
-  frameworks: [],
-  href: '/dev__/scrapbook',
-  importance: 'high',
-  languages: ['js', 'ts'],
-  nextQuestions: [],
-  premium: false,
-  published: false,
-  ranking: 0,
-  similarQuestions: [],
-  slug: 'stack',
-  subtitle: null,
-  title: 'Stack',
-  topics: [],
-};
-
-const mockQuestions = Array.from({ length: 10 }, (_, i) => ({
-  ...mockQuestion,
-  slug: `${mockQuestion.title}${i}`,
-  title: `${mockQuestion.title} ${i}`,
-}));
 
 export default function ScrapbookPage() {
   const [selectedFilters, setSelectedFilters] = useState<Set<string>>(
@@ -366,28 +331,7 @@ export default function ScrapbookPage() {
           <div>
             <UIExamplesGroup darkMode="vertical">
               <div>
-                <InterviewsMarketingHomepageFeaturesRow />
-              </div>
-            </UIExamplesGroup>
-            <UIExamplesGroup darkMode="vertical">
-              <div>
                 <InterviewsMarketingCompaniesMarquee />
-              </div>
-            </UIExamplesGroup>
-            <UIExamplesGroup darkMode="horizontal">
-              <div className="flex flex-col gap-8">
-                <Heading level="heading4">Question marquees</Heading>
-                <InterviewsMarketingQuestionCardMarquee
-                  periodSeconds={120}
-                  questions={mockQuestions}
-                  rows={1}
-                />
-                <Divider />
-                <InterviewsMarketingQuestionCardMarquee
-                  periodSeconds={60}
-                  questions={mockQuestions}
-                  rows={2}
-                />
               </div>
             </UIExamplesGroup>
           </div>
