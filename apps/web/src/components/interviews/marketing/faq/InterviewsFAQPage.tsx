@@ -61,7 +61,7 @@ export default function InterviewsFAQPage() {
   const intl = useIntl();
 
   return (
-    <Container className="my-20 flex flex-col gap-y-8" variant="4xl">
+    <Container className="my-20 flex flex-col gap-y-8" width="4xl">
       <Heading level="heading2">GreatFrontEnd Interviews FAQs</Heading>
       <Text color="secondary">
         This page answers questions related to GreatFrontEnd Interviews.

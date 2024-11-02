@@ -28,7 +28,7 @@ export default function BlogHomePage({ allSeries }: Props) {
           // Workaround to make inner contents always 1080px on >= lg screens
           'lg:!max-w-[calc(1080px_+_4rem)] xl:!max-w-[calc(1080px_+_7.5rem)]',
         )}
-        variant="normal">
+        width="7xl">
         <div className="flex flex-col gap-y-3">
           <Heading level="heading5">
             <FormattedMessage

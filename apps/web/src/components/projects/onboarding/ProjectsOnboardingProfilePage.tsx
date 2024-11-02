@@ -34,7 +34,7 @@ export default function ProjectsOnboardingProfilePage() {
     <main>
       <Container
         className="flex flex-col items-stretch gap-12 pb-24 pt-16"
-        variant="2xl">
+        width="2xl">
         <div className="flex flex-col items-center gap-4">
           <Heading level="heading5">
             <FormattedMessage

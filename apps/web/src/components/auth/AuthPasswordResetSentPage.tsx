@@ -22,7 +22,7 @@ export default function AuthPasswordResetSentPage({ next }: Props) {
   return (
     <Container
       className={clsx('flex flex-col', 'py-8 md:py-12 lg:py-16')}
-      variant="xl">
+      width="xl">
       <Heading className="text-center" level="heading5">
         {intl.formatMessage({
           defaultMessage:

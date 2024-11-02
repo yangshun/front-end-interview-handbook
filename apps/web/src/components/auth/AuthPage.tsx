@@ -39,7 +39,7 @@ export default function AuthPage({ view }: Props) {
   return (
     <Container
       className={clsx('flex flex-col gap-y-6', 'py-8 md:py-12 lg:py-16')}
-      variant="xl">
+      width="xl">
       {!user ? (
         <>
           {error && (

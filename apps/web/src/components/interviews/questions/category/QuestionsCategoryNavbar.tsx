@@ -102,7 +102,7 @@ export default function QuestionsCategoryNavbar({ category }: Props) {
           'gap-y-8 md:gap-y-10 2xl:gap-y-12',
           'py-5 lg:py-6',
         )}
-        variant="normal">
+        width="7xl">
         <QuestionsCategoryTabs
           label={intl.formatMessage({
             defaultMessage: 'Select question category',

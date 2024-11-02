@@ -18,7 +18,7 @@ export default async function ExploreLayout({ children }: Props) {
           // Workaround to make inner contents always 1080px on >= lg screens
           'lg:!max-w-[calc(1080px_+_4rem)] xl:!max-w-[calc(1080px_+_7.5rem)]',
         )}
-        variant="normal">
+        width="7xl">
         <div className="lg:max-w-4xl">{children}</div>
       </Container>
     </BlogMainLayout>

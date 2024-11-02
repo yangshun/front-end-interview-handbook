@@ -16,7 +16,7 @@ import TestimonialCard from './InterviewsMarketingTestimonialCard';
 
 type Props = Readonly<{
   columns?: number;
-  containerVariant?: ComponentProps<typeof Container>['variant'];
+  containerVariant?: ComponentProps<typeof Container>['width'];
   showSeeAllLink?: boolean;
   testimonials: ReadonlyArray<InterviewsMarketingTestimonial>;
 }>;
@@ -32,7 +32,7 @@ export default function InterviewsMarketingTestimonialsSection({
   return (
     <Container
       className={clsx('flex flex-col gap-16', 'py-20', 'isolate')}
-      variant={containerVariant}>
+      width={containerVariant}>
       <div className="max-w-xl">
         <Heading
           className={clsx(themeGradientHeading, 'pb-1')}

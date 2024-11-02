@@ -13,7 +13,7 @@ export default function AuthPasswordResetPage({ next }: Props) {
   return (
     <Container
       className={clsx('flex flex-col', 'py-8 md:py-12 lg:py-16')}
-      variant="xl">
+      width="xl">
       <SupabaseAuthUpdatePassword next={next} />
     </Container>
   );

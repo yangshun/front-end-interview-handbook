@@ -73,9 +73,7 @@ const logos = [
 
 export default function ResumeReviewLogoWall() {
   return (
-    <Container
-      className="flex flex-col gap-y-12 py-12 lg:py-16"
-      variant="narrow">
+    <Container className="flex flex-col gap-y-12 py-12 lg:py-16" width="6xl">
       <Text
         className="block text-center"
         color="secondary"

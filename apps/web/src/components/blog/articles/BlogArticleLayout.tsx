@@ -38,7 +38,7 @@ export default function BlogArticleLayout({
       <BlogMainLayout seriesContents={navigation}>
         <Container
           className={clsx('flex flex-col', 'py-6 lg:py-8')}
-          variant="normal">
+          width="7xl">
           <div
             className={clsx(
               'flex gap-x-10 gap-y-8 md:gap-y-10 2xl:gap-y-12',

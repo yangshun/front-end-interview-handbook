@@ -80,7 +80,7 @@ export default function ProjectsPricingPromotions() {
   const alertValue = alerts[index].value;
 
   return (
-    <Container className="py-6" variant="4xl">
+    <Container className="py-6" width="4xl">
       <TabsPrimitive.Root
         className="flex flex-col gap-8"
         value={alertValue}

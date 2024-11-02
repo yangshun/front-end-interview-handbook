@@ -20,7 +20,7 @@ import MarketingContactPlatformsConfig from './MarketingContactPlatformsConfig';
 
 export default function MarketingContactUs() {
   return (
-    <Container variant="narrow">
+    <Container width="6xl">
       <div
         className={clsx(
           'p-8 px-4 md:p-16 lg:p-20',

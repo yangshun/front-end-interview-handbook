@@ -14,7 +14,7 @@ export default function PromotionsPage() {
   return (
     <Container
       className="my-12 flex flex-col gap-y-8 md:my-24 md:gap-y-16"
-      variant="narrow">
+      width="6xl">
       <Heading level="heading2">
         <FormattedMessage
           defaultMessage="Promotions"

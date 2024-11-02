@@ -39,7 +39,7 @@ export default function InterviewsPricingFAQSection() {
   return (
     <Container
       className="max-lg:theme-bg-radial-glow relative isolate flex flex-col gap-y-12 py-24 max-lg:rounded-t-3xl lg:py-32"
-      variant="narrow">
+      width="6xl">
       <MarketingSectionHeader
         description={
           <FormattedMessage

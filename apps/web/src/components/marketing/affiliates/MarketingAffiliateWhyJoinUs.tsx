@@ -19,7 +19,7 @@ export default function MarketingAffiliateWhyJoinUs() {
 
   return (
     <div>
-      <Container variant="narrow">
+      <Container width="6xl">
         <div
           className={clsx(
             'relative py-24 transition-opacity duration-1000 ease-in-out lg:pt-16',

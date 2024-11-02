@@ -21,7 +21,7 @@ export default function AuthUnverifiedEmailPage({ email, redirectTo }: Props) {
   return (
     <Container
       className={clsx('flex flex-col', 'py-8 md:py-12 lg:py-16')}
-      variant="xl">
+      width="xl">
       <Heading className="text-center" level="heading5">
         Looks like you haven't verified your email address
       </Heading>

@@ -157,7 +157,7 @@ export default function InterviewsMarketingEmbedSection({
       )}>
       <Container
         className={clsx('relative', 'flex flex-col gap-y-10')}
-        variant="screen-2xl">
+        width="screen-2xl">
         <motion.div
           style={{
             marginBottom,

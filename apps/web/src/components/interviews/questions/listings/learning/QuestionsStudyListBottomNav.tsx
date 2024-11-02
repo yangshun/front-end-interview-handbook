@@ -40,7 +40,7 @@ export default function QuestionsStudyListBottomNav({
         )}>
         <Container
           className="flex h-12 items-center justify-between gap-2"
-          variant="screen-2xl">
+          width="screen-2xl">
           <div className="flex shrink-0 justify-center xl:order-2 xl:flex-1">
             {paginationEl}
           </div>

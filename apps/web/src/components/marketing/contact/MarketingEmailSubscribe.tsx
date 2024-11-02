@@ -200,7 +200,7 @@ export default function MarketingEmailSubscribe() {
   );
 
   return (
-    <Container variant="narrow">
+    <Container width="6xl">
       <div className="hidden lg:contents">{content}</div>
       <Card
         classNameOuter="lg:hidden"

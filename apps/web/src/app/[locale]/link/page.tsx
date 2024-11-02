@@ -55,7 +55,7 @@ export default function ExternalLinkPage() {
     <div className="flex min-h-screen flex-col">
       <Container
         className="flex h-full flex-1 flex-col items-center justify-center gap-6"
-        variant="md">
+        width="md">
         <div
           className={clsx(
             'flex flex-col items-center justify-center gap-2',

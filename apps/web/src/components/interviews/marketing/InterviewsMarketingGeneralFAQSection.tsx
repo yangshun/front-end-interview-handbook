@@ -39,7 +39,7 @@ export default function InterviewsMarketingGeneralFAQSection() {
         'py-24 lg:py-32',
         'max-lg:theme-bg-radial-glow max-lg:rounded-t-3xl',
       )}
-      variant="narrow">
+      width="6xl">
       <MarketingSectionHeader
         description={
           <FormattedMessage

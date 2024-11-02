@@ -80,7 +80,7 @@ export default function InterviewsMarketingCompaniesMarquee() {
   return (
     <Container
       className="flex flex-col gap-y-6 py-8 lg:gap-y-12 lg:py-16"
-      variant="narrow">
+      width="6xl">
       <Text
         className="block text-center"
         color="secondary"

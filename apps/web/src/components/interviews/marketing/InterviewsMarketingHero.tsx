@@ -44,7 +44,7 @@ export default function InterviewsMarketingHeroNew({ testimonials }: Props) {
   });
 
   return (
-    <Container className={clsx('px-6 py-20', 'flex flex-col gap-12')}>
+    <Container className={clsx('py-20', 'flex flex-col gap-12')}>
       <div
         ref={titleRef}
         className={clsx('flex flex-col gap-8', 'lg:max-w-[634px]')}>

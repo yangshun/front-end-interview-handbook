@@ -65,7 +65,7 @@ export default function ProjectsOnboardingReasonPage() {
       <main>
         <Container
           className="flex flex-col items-center gap-12 pb-24 pt-16"
-          variant="narrow">
+          width="6xl">
           <div className="flex flex-col items-center gap-4">
             <Text
               className="text-pretty block text-center"

@@ -86,7 +86,7 @@ export default function ResumeReviewProcess() {
             }}
           />
         </div>
-        <Container variant="narrow">
+        <Container width="6xl">
           <div className="mx-auto text-left">
             <p className="text-brand pb-6 text-base font-semibold leading-7">
               What's Included

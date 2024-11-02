@@ -29,9 +29,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default function Page() {
   return (
-    <Container
-      className="my-10 grid gap-y-8 md:my-20 md:gap-y-16"
-      variant="narrow">
+    <Container className="my-10 grid gap-y-8 md:my-20 md:gap-y-16" width="6xl">
       <Prose>
         <Content />
       </Prose>

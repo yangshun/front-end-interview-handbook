@@ -115,9 +115,7 @@ export default async function Page({ searchParams }: Props) {
   });
 
   return (
-    <Container
-      className="my-10 grid gap-y-8 md:my-20 md:gap-y-16"
-      variant="narrow">
+    <Container className="my-10 grid gap-y-8 md:my-20 md:gap-y-16" width="6xl">
       <div className="flex flex-col gap-y-6">
         <Heading level="heading2">Open positions</Heading>
         <Text className="text-lg" color="subtitle" size="inherit">

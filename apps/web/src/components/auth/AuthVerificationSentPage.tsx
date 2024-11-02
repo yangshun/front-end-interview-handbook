@@ -21,7 +21,7 @@ export default function AuthVerificationSentPage({ email, redirectTo }: Props) {
   return (
     <Container
       className={clsx('flex flex-col', 'py-8 md:py-12 lg:py-16')}
-      variant="xl">
+      width="xl">
       <Heading className="text-center" level="heading5">
         We have sent a verification link to {email}
       </Heading>
