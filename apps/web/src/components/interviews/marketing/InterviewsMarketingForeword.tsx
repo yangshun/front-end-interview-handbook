@@ -7,7 +7,6 @@ import Anchor from '~/components/ui/Anchor';
 import Avatar from '~/components/ui/Avatar';
 import Container from '~/components/ui/Container';
 import Heading from '~/components/ui/Heading';
-import Section from '~/components/ui/Heading/HeadingContext';
 import Text, { textVariants } from '~/components/ui/Text';
 import {
   themeBorderColor,
@@ -133,92 +132,91 @@ function CardBorder({ children }: Readonly<{ children: ReactNode }>) {
 
 export default function InterviewsMarketingForeword() {
   return (
-    <Section>
-      <Container
+    <Container
+      className={clsx(
+        'px-6',
+        'py-16 md:py-20',
+        'flex flex-col items-center justify-center gap-16',
+        'overflow-hidden',
+      )}
+      width="marketing">
+      <Heading
         className={clsx(
-          'px-6',
-          'py-16 md:py-20',
-          'flex flex-col items-center justify-center gap-16',
-          'overflow-hidden',
-        )}>
-        <Heading
+          'max-w-xs text-center sm:max-w-sm md:max-w-2xl',
+          themeGradientHeading,
+        )}
+        level="heading4"
+        weight="medium">
+        <FormattedMessage
+          defaultMessage="We're crafting GreatFrontEnd with passion, precision and quality."
+          description="Heading title for Yangshun foreword section"
+          id="/g/6lA"
+        />
+      </Heading>
+      <CardBorder>
+        <div
           className={clsx(
-            'max-w-xs text-center sm:max-w-sm md:max-w-2xl',
-            themeGradientHeading,
-          )}
-          level="heading4"
-          weight="medium">
-          <FormattedMessage
-            defaultMessage="We're crafting GreatFrontEnd with passion, precision and quality."
-            description="Heading title for Yangshun foreword section"
-            id="/g/6lA"
-          />
-        </Heading>
-        <CardBorder>
-          <div
-            className={clsx(
-              'isolate overflow-hidden',
-              'flex flex-col gap-10',
-              'max-w-[540px]',
-              'p-8',
-              'rounded-md',
-              'bg-neutral-200/20 dark:bg-neutral-800/20',
-              ['border', themeBorderColor],
-              [
-                themeWhiteGlowCardBackground,
-                'before:-bottom-14 before:-right-14',
-              ],
-            )}>
-            <blockquote
-              className={textVariants({ size: 'body1', weight: 'medium' })}>
-              <FormattedMessage
-                defaultMessage='"Over my career, I have conducted over hundreds of interviews at Meta and have personally received offers from companies like Meta, Google, Airbnb, Lyft, Dropbox, Palantir, etc; I have probably seen all possible front end interview questions that can be asked.'
-                description="Co-founder foreword"
-                id="CSvCK2"
-              />
-              <br />
-              <br />
-              <FormattedMessage
-                defaultMessage='GreatFrontEnd is the culmination of my experience and knowledge in the front end domain to help fellow engineers efficiently and adequately prepare for front end interviews. The best part of GreatFrontEnd is that all users emerge being better front end engineers after using the platform."'
-                description="Co-founder foreword"
-                id="NqMXNi"
-              />
-            </blockquote>
-            <figcaption className="flex items-center justify-between gap-2">
-              <div className="flex flex-col gap-1">
-                <Anchor
-                  className={textVariants({ size: 'body1', weight: 'bold' })}
-                  href="https://linkedin.com/in/yangshun"
-                  variant="flat">
-                  Yangshun Tay{' '}
-                  <RiLinkedinBoxFill className="size-6 ml-0.5 inline -translate-y-0.5 align-middle" />
-                </Anchor>
-                <Text color="secondary" size="body3" weight="medium">
-                  <FormattedMessage
-                    defaultMessage="Founder, CEO of GreatFrontEnd"
-                    description="Position of Yangshun"
-                    id="7YjBUE"
-                  />
-                </Text>
-                <Text color="secondary" size="body3" weight="medium">
-                  <FormattedMessage
-                    defaultMessage="Ex-Staff Engineer, Meta. Author of Blind 75 and Docusaurus 2"
-                    description="Position of Yangshun"
-                    id="y2x1w7"
-                  />
-                </Text>
-              </div>
-              <Avatar
-                alt="Yangshun Tay's image"
-                decoding="async"
-                loading="lazy"
-                size="2xl"
-                src="/img/team/yangshun.jpg"
-              />
-            </figcaption>
-          </div>
-        </CardBorder>
-      </Container>
-    </Section>
+            'isolate overflow-hidden',
+            'flex flex-col gap-10',
+            'max-w-[540px]',
+            'p-8',
+            'rounded-md',
+            'bg-neutral-200/20 dark:bg-neutral-800/20',
+            ['border', themeBorderColor],
+            [
+              themeWhiteGlowCardBackground,
+              'before:-bottom-14 before:-right-14',
+            ],
+          )}>
+          <blockquote
+            className={textVariants({ size: 'body1', weight: 'medium' })}>
+            <FormattedMessage
+              defaultMessage='"Over my career, I have conducted over hundreds of interviews at Meta and have personally received offers from companies like Meta, Google, Airbnb, Lyft, Dropbox, Palantir, etc; I have probably seen all possible front end interview questions that can be asked.'
+              description="Co-founder foreword"
+              id="CSvCK2"
+            />
+            <br />
+            <br />
+            <FormattedMessage
+              defaultMessage='GreatFrontEnd is the culmination of my experience and knowledge in the front end domain to help fellow engineers efficiently and adequately prepare for front end interviews. The best part of GreatFrontEnd is that all users emerge being better front end engineers after using the platform."'
+              description="Co-founder foreword"
+              id="NqMXNi"
+            />
+          </blockquote>
+          <figcaption className="flex items-center justify-between gap-2">
+            <div className="flex flex-col gap-1">
+              <Anchor
+                className={textVariants({ size: 'body1', weight: 'bold' })}
+                href="https://linkedin.com/in/yangshun"
+                variant="flat">
+                Yangshun Tay{' '}
+                <RiLinkedinBoxFill className="size-6 ml-0.5 inline -translate-y-0.5 align-middle" />
+              </Anchor>
+              <Text color="secondary" size="body3" weight="medium">
+                <FormattedMessage
+                  defaultMessage="Founder, CEO of GreatFrontEnd"
+                  description="Position of Yangshun"
+                  id="7YjBUE"
+                />
+              </Text>
+              <Text color="secondary" size="body3" weight="medium">
+                <FormattedMessage
+                  defaultMessage="Ex-Staff Engineer, Meta. Author of Blind 75 and Docusaurus 2"
+                  description="Position of Yangshun"
+                  id="y2x1w7"
+                />
+              </Text>
+            </div>
+            <Avatar
+              alt="Yangshun Tay's image"
+              decoding="async"
+              loading="lazy"
+              size="2xl"
+              src="/img/team/yangshun.jpg"
+            />
+          </figcaption>
+        </div>
+      </CardBorder>
+    </Container>
   );
 }

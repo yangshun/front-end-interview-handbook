@@ -774,7 +774,7 @@ export default function InterviewsPricingTableSection({
         <Section>
           <div
             className={clsx(
-              'grid grid-cols-1 gap-8',
+              'grid grid-cols-1 gap-6',
               isDialogView ? 'xl:grid-cols-3' : 'md:grid-cols-3',
               !isDialogView && 'mx-auto max-w-lg md:max-w-none',
             )}>

@@ -3,7 +3,6 @@ import clsx from 'clsx';
 import { FormattedMessage } from '~/components/intl';
 import Container from '~/components/ui/Container';
 import Heading from '~/components/ui/Heading';
-import Section from '~/components/ui/Heading/HeadingContext';
 import ScrollArea from '~/components/ui/ScrollArea';
 import Text from '~/components/ui/Text';
 import {
@@ -52,86 +51,86 @@ export default function InterviewsMarketingSimulateRealInterviews() {
   ];
 
   return (
-    <Section>
-      <Container className={clsx('flex flex-col gap-12', 'py-20')}>
-        <div className={clsx('lg:max-w-[634px]')}>
-          <Heading
-            className={clsx(themeGradientHeading)}
-            level="heading2"
-            weight="medium">
-            <FormattedMessage
-              defaultMessage="Practice in an environment that simulates real interviews"
-              description="Title for the simulate real interviews section"
-              id="1obIS0"
-            />
-          </Heading>
-          <Text
-            className={clsx(
-              'mt-6 block',
-              'text-base lg:text-lg',
-              'lg:font-medium',
-              'max-w-md lg:max-w-2xl',
-            )}
-            color="secondary"
-            size="inherit"
-            weight="inherit">
-            <FormattedMessage
-              defaultMessage="Our in-browser coding workspace allows you to simulate a real interview environment with no set up required."
-              description="Subtitle for the simulate real interviews section"
-              id="VMcSLx"
-            />
-          </Text>
-        </div>
-        <ScrollArea scrollbars="horizontal">
-          <div className="flex flex-col justify-between gap-x-4 gap-y-6 md:flex-row lg:gap-x-6 ">
-            {data.map(({ key, label, image: ImageSVG }) => (
+    <Container
+      className={clsx('flex flex-col gap-12', 'py-20')}
+      width="marketing">
+      <div className={clsx('lg:max-w-[634px]')}>
+        <Heading
+          className={clsx(themeGradientHeading)}
+          level="heading2"
+          weight="medium">
+          <FormattedMessage
+            defaultMessage="Practice in an environment that simulates real interviews"
+            description="Title for the simulate real interviews section"
+            id="1obIS0"
+          />
+        </Heading>
+        <Text
+          className={clsx(
+            'mt-6 block',
+            'text-base lg:text-lg',
+            'lg:font-medium',
+            'max-w-md lg:max-w-2xl',
+          )}
+          color="secondary"
+          size="inherit"
+          weight="inherit">
+          <FormattedMessage
+            defaultMessage="Our in-browser coding workspace allows you to simulate a real interview environment with no set up required."
+            description="Subtitle for the simulate real interviews section"
+            id="VMcSLx"
+          />
+        </Text>
+      </div>
+      <ScrollArea scrollbars="horizontal">
+        <div className="flex flex-col justify-between gap-x-4 gap-y-6 md:flex-row lg:gap-x-6 ">
+          {data.map(({ key, label, image: ImageSVG }) => (
+            <div
+              key={key}
+              className={clsx(
+                'isolate overflow-hidden',
+                'flex-1',
+                'flex flex-col gap-6',
+                'p-6',
+                'rounded-2xl',
+                'group',
+                themeBackgroundCardColor,
+                [
+                  themeWhiteGlowCardBackground,
+                  'before:-left-[70px] before:-top-10 before:h-[105px] before:w-[176px]',
+                ],
+              )}>
               <div
-                key={key}
                 className={clsx(
-                  'isolate overflow-hidden',
-                  'flex-1',
-                  'flex flex-col gap-6',
-                  'p-6',
-                  'rounded-2xl',
-                  'group',
-                  themeBackgroundCardColor,
-                  [
-                    themeWhiteGlowCardBackground,
-                    'before:-left-[70px] before:-top-10 before:h-[105px] before:w-[176px]',
-                  ],
+                  'size-full !absolute inset-0 z-[1] rounded-[inherit] before:m-[-1px]',
+                  themeGlassyBorder,
+                )}
+              />
+              <div
+                className={clsx(
+                  'relative z-[2] py-3 lg:h-[180px]',
+                  'transition-opacity',
+                  'opacity-75',
+                  'group-hover:opacity-100',
                 )}>
-                <div
-                  className={clsx(
-                    'size-full !absolute inset-0 z-[1] rounded-[inherit] before:m-[-1px]',
-                    themeGlassyBorder,
-                  )}
-                />
-                <div
-                  className={clsx(
-                    'relative z-[2] py-3 lg:h-[180px]',
-                    'transition-opacity',
-                    'opacity-75',
-                    'group-hover:opacity-100',
-                  )}>
-                  <ImageSVG />
-                </div>
-                <Text
-                  className={clsx(
-                    'z-[2]',
-                    'transition-opacity',
-                    'opacity-75',
-                    'group-hover:opacity-100',
-                  )}
-                  size="body1"
-                  weight="medium">
-                  {label}
-                </Text>
+                <ImageSVG />
               </div>
-            ))}
-          </div>
-        </ScrollArea>
-      </Container>
-    </Section>
+              <Text
+                className={clsx(
+                  'z-[2]',
+                  'transition-opacity',
+                  'opacity-75',
+                  'group-hover:opacity-100',
+                )}
+                size="body1"
+                weight="medium">
+                {label}
+              </Text>
+            </div>
+          ))}
+        </div>
+      </ScrollArea>
+    </Container>
   );
 }
 

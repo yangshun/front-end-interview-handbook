@@ -35,7 +35,7 @@ export default function InterviewsMarketingFAQSection() {
   const intl = useIntl();
 
   return (
-    <Container className={clsx('py-20')}>
+    <Container className={clsx('py-20')} width="marketing">
       <Heading
         className={clsx(themeGradientHeading, 'max-w-2xl pb-1')}
         level="heading2"

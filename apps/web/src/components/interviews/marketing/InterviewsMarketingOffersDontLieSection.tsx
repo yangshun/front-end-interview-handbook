@@ -13,7 +13,9 @@ export default function InterviewsMarketingOffersDontLieSection() {
   const testimonials = useInterviewsMarketingSliderTestimonials();
 
   return (
-    <Container className={clsx('flex flex-col gap-6 md:gap-12', 'py-20')}>
+    <Container
+      className={clsx('flex flex-col gap-6 md:gap-12', 'py-20')}
+      width="marketing">
       <div>
         <Heading
           className={themeGradientHeading}

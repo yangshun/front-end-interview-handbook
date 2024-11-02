@@ -16,13 +16,13 @@ import TestimonialCard from './InterviewsMarketingTestimonialCard';
 
 type Props = Readonly<{
   columns?: number;
-  containerVariant?: ComponentProps<typeof Container>['width'];
   showSeeAllLink?: boolean;
   testimonials: ReadonlyArray<InterviewsMarketingTestimonial>;
+  width?: ComponentProps<typeof Container>['width'];
 }>;
 
 export default function InterviewsMarketingTestimonialsSection({
-  containerVariant,
+  width,
   columns = 3,
   showSeeAllLink = true,
   testimonials,
@@ -32,7 +32,7 @@ export default function InterviewsMarketingTestimonialsSection({
   return (
     <Container
       className={clsx('flex flex-col gap-16', 'py-20', 'isolate')}
-      width={containerVariant}>
+      width={width}>
       <div className="max-w-xl">
         <Heading
           className={clsx(themeGradientHeading, 'pb-1')}

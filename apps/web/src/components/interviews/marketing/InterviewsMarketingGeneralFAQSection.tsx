@@ -37,9 +37,8 @@ export default function InterviewsMarketingGeneralFAQSection() {
       className={clsx(
         'relative isolate flex flex-col gap-y-12',
         'py-24 lg:py-32',
-        'max-lg:theme-bg-radial-glow max-lg:rounded-t-3xl',
       )}
-      width="6xl">
+      width="marketing">
       <MarketingSectionHeader
         description={
           <FormattedMessage

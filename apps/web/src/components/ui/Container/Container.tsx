@@ -9,8 +9,10 @@ type ContainerWidth =
   | '6xl'
   | '7xl'
   | 'lg'
+  | 'marketing'
   | 'md'
   | 'screen-2xl'
+  | 'screen-xl'
   | 'xl';
 type Props = Readonly<{
   children: React.ReactNode;
@@ -26,8 +28,10 @@ const widthStyles: Record<ContainerWidth, string> = {
   '6xl': 'max-w-6xl',
   '7xl': 'max-w-7xl',
   lg: 'max-w-lg',
+  marketing: 'lg:max-w-[928px] xl:max-w-[1104px]',
   md: 'max-w-md',
   'screen-2xl': 'max-w-screen-2xl',
+  'screen-xl': 'max-w-screen-xl',
   xl: 'max-w-xl',
 };
 
@@ -40,7 +44,7 @@ export default function Container({
     <div
       className={clsx(
         'mx-auto w-full',
-        'px-4 md:px-6 lg:px-8 xl:px-[3.75rem]',
+        'max-xl:px-6',
         widthStyles[width],
         className,
       )}>

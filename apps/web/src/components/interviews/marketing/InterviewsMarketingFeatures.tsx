@@ -184,7 +184,7 @@ export default function InterviewsMarketingFeatures() {
   const features = useFeatures();
 
   return (
-    <Container>
+    <Container width="marketing">
       <Heading className="sr-only" level="custom">
         {/* TODO: i18n */}
         Features

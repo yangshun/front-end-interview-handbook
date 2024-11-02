@@ -110,7 +110,9 @@ export default function InterviewsMarketingPrepResourcesByBigTechEngineers() {
   ];
 
   return (
-    <Container className={clsx('flex flex-col gap-12', 'py-20')}>
+    <Container
+      className={clsx('flex flex-col gap-12', 'py-20')}
+      width="marketing">
       <div>
         <Heading
           className={clsx(

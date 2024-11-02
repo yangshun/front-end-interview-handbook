@@ -23,7 +23,7 @@ export default function InterviewsMarketingCompaniesSection({
   const isTablet = useMediaQuery('(min-width: 768px) and (max-width: 1024px)');
 
   return (
-    <Container className={clsx('py-20')}>
+    <Container className={clsx('py-20')} width="marketing">
       <Heading
         className={clsx(themeGradientHeading, 'max-w-lg pb-1')}
         level="heading2"

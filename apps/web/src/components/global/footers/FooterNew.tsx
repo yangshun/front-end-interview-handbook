@@ -178,7 +178,9 @@ export default function Footer({ navigation }: Props) {
         />
       </Heading>
       <Section>
-        <Container className={clsx('py-14 md:py-20', 'flex flex-col gap-14')}>
+        <Container
+          className={clsx('py-14 md:py-20', 'flex flex-col gap-14')}
+          width="marketing">
           <div className="flex flex-col gap-6 md:grid md:grid-cols-8 lg:grid-cols-12">
             <div className="flex flex-col justify-between gap-y-4 md:col-span-3 lg:col-span-4">
               <div className="flex flex-col gap-y-8">

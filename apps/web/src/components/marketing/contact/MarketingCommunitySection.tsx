@@ -28,7 +28,8 @@ export default function MarketingCommunitySection() {
     <Container
       className={clsx(
         'flex flex-col items-center justify-center gap-[64px] self-stretch py-20 md:items-start',
-      )}>
+      )}
+      width="marketing">
       <div>
         <Heading
           className={clsx(

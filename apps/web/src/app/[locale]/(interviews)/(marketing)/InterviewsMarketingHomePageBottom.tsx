@@ -35,7 +35,10 @@ export default function InterviewsMarketingHomePageBottom({
       {!(
         userProfile?.isInterviewsPremium && userProfile?.plan === 'lifetime'
       ) && <InterviewsPricingSectionLocalizedContainer />}
-      <InterviewsMarketingTestimonialsSection testimonials={testimonials} />
+      <InterviewsMarketingTestimonialsSection
+        testimonials={testimonials}
+        width="marketing"
+      />
       <InterviewsMarketingFAQSection />
       <MarketingCommunitySection />
       <InterviewsMarketingContactSection />

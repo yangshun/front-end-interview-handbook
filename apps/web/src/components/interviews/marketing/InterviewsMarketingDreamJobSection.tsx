@@ -20,7 +20,8 @@ export default function InterviewsMarketingDreamJobSection() {
         'sm:flex-row sm:items-end sm:justify-between sm:gap-0',
         'lg:items-end',
         'py-20',
-      )}>
+      )}
+      width="marketing">
       <Heading
         className={clsx(
           themeGradientHeading,

@@ -81,7 +81,7 @@ function Navbar(
           }}
         />
       )}
-      <div className="max-w-8xl mx-auto px-4 md:px-6">
+      <div className="max-w-8xl mx-auto px-6">
         <div
           className={clsx(
             'flex items-center justify-between md:justify-start md:gap-4',

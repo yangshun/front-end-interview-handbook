@@ -11,9 +11,9 @@ export default function InterviewsMarketingTestimonialPage() {
   return (
     <InterviewsMarketingTestimonialsSection
       columns={columns}
-      containerVariant="screen-2xl"
       showSeeAllLink={false}
       testimonials={testimonials}
+      width="marketing"
     />
   );
 }

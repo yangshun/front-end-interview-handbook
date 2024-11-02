@@ -306,7 +306,7 @@ export default function InterviewsMarketingSolutionsByExInterviewersSection() {
     useState<QuestionSlug>('flatten');
 
   return (
-    <Container className={clsx('py-20')}>
+    <Container className={clsx('py-20')} width="marketing">
       <Heading
         className={clsx(themeGradientHeading, 'max-w-xl pb-1')}
         level="heading2"

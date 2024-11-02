@@ -148,7 +148,7 @@ export default function InterviewsMarketingEmbedSection({
     <div
       ref={containerRef}
       className={clsx(
-        'relative scale-95 pb-24 lg:pb-32',
+        'relative pb-24 lg:pb-32',
         'transition-opacity',
         'duration-1000',
         'delay-1000',
@@ -157,7 +157,7 @@ export default function InterviewsMarketingEmbedSection({
       )}>
       <Container
         className={clsx('relative', 'flex flex-col gap-y-10')}
-        width="screen-2xl">
+        width="screen-xl">
         <motion.div
           style={{
             marginBottom,
