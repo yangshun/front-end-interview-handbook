@@ -2767,6 +2767,10 @@
     "defaultMessage": "LeetCode-style algorithmic coding questions which evaluate your core data structures and algorithms skills.",
     "description": "Description for ui coding questions"
   },
+  "Hq/krL": {
+    "defaultMessage": "Complete simple social tasks",
+    "description": "Instructions to get a discount"
+  },
   "HtFDkf": {
     "defaultMessage": "Official guides",
     "description": "Title for \"Official guides\" feature on Projects home page"
@@ -4987,10 +4991,6 @@
     "defaultMessage": "You have an unused promo code",
     "description": "Rewards discount message"
   },
-  "VT494Q": {
-    "defaultMessage": "Profile",
-    "description": "Navigation menu item label"
-  },
   "VVf84T": {
     "defaultMessage": "Password",
     "description": "Label of password field on Change Password page"
@@ -5878,6 +5878,10 @@
   "b7eX+v": {
     "defaultMessage": "Stripe",
     "description": "Placeholder for \"Company\" input on Projects profile onboarding page"
+  },
+  "b8crUg": {
+    "defaultMessage": "Limited time offer",
+    "description": "Label for rewards campaign"
   },
   "bA4tTF": {
     "defaultMessage": "Username must contain at least {minLength} character(s).",
@@ -7314,10 +7318,6 @@
   "kPBwBR": {
     "defaultMessage": "Resume preparation",
     "description": "Preparing a resume for front end interviews"
-  },
-  "kPJCx6": {
-    "defaultMessage": "Limited",
-    "description": "Label for rewards campaign"
   },
   "kPaVl6": {
     "defaultMessage": "LinkedIn username",

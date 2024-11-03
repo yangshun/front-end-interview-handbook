@@ -22,6 +22,7 @@ import {
   themeGlassyBorder,
   themeTextColor,
   themeWhiteGlowCardBackground,
+  themeWhiteGlowTicketBackground,
 } from '~/components/ui/theme';
 import { ToastClose } from '~/components/ui/Toast/Toast';
 
@@ -216,7 +217,14 @@ function SocialDiscountToastImplNew() {
         <CustomToastComponent>
           <div className="flex flex-1 items-center gap-3">
             <Ticket padding="none" variant="normal" width={96}>
-              <div className="flex h-full flex-col items-center justify-center">
+              <div
+                className={clsx(
+                  'flex h-full flex-col items-center justify-center',
+                  [
+                    themeWhiteGlowTicketBackground,
+                    'before:-top-3 before:left-4',
+                  ],
+                )}>
                 <Text size="body1" weight="bold">
                   {socialDiscountLabels.ticketTitle}
                 </Text>

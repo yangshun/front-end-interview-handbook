@@ -130,17 +130,17 @@ function TicketPlainBorder() {
           y1="52.7964"
           y2="12.7303">
           <stop
-            className="text-neutral-300 dark:text-neutral-800"
+            className="text-neutral-300 dark:text-neutral-700"
             offset="1"
             stopColor="currentColor"
           />
           <stop
-            className="text-neutral-300 dark:text-neutral-800"
+            className="text-neutral-300 dark:text-neutral-700"
             offset="1"
             stopColor="currentColor"
           />
           <stop
-            className="text-neutral-300 dark:text-neutral-800"
+            className="text-neutral-300 dark:text-neutral-700"
             offset="1"
             stopColor="currentColor"
           />

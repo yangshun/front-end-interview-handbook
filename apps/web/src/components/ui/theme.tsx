@@ -265,6 +265,11 @@ export const themeWhiteGlowCardBackground = clsx(
   'relative before:absolute before:-z-[1] before:h-[130px] before:w-[210px] before:rounded-full',
   'before:bg-[radial-gradient(32.11%_32.11%_at_50%_50%,_#FFFFFF_0%,_#D8D8E1_100%)] before:opacity-10 before:blur-[42.0942px]',
 );
+export const themeWhiteGlowTicketBackground = clsx([
+  'relative before:absolute',
+  'before:size-6 before:rounded-full ',
+  'before:bg-[radial-gradient(32.11%_32.11%_at_50%_50%,_#FFFFFF_0%,_#D8D8E1_100%)] before:blur-[20.25px]',
+]);
 
 // Shadow
 export const themeBoxShadow = clsx(

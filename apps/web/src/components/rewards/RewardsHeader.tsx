@@ -18,11 +18,11 @@ export default function RewardsHeader() {
       <Badge
         icon={RiTimeLine}
         label={intl.formatMessage({
-          defaultMessage: 'Limited',
+          defaultMessage: 'Limited time offer',
           description: 'Label for rewards campaign',
-          id: 'kPJCx6',
+          id: 'b8crUg',
         })}
-        variant="special"
+        variant="neutral-active"
       />
       <div className="flex flex-col items-center gap-y-2 sm:gap-y-4">
         <Heading level="heading2">

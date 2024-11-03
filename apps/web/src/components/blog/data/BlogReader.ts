@@ -3,7 +3,6 @@ import type { BlogPost, BlogSeries } from 'contentlayer/generated';
 import type { BlogLevel, BlogMetadata } from '~/components/blog/BlogTypes';
 import { sortBlogPostsMultiple } from '~/components/blog/data/BlogPostsProcessor';
 
-import { getAllBlogCategories } from '~/db/contentlayer/blog/BlogCategoryReader';
 import { getAllBlogPost } from '~/db/contentlayer/blog/BlogPostReader';
 import {
   getAllBlogSeries,

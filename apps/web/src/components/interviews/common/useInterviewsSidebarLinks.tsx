@@ -1,6 +1,6 @@
 import useInterviewsNavItems from './useInterviewsNavItems';
 
-export default function useInterviewsSidebarLinks(isPremium: boolean) {
+export default function useInterviewsSidebarLinks() {
   const navItems = useInterviewsNavItems('sidebar');
 
   const links = [
@@ -17,7 +17,6 @@ export default function useInterviewsSidebarLinks(isPremium: boolean) {
           position: 'start',
         }) as const,
     ),
-    !isPremium ? navItems.pricing : null,
   ];
 
   return links.flatMap((item) => (item != null ? [item] : []));

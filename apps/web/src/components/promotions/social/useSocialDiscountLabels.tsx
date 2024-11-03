@@ -60,7 +60,7 @@ export function useSocialDiscountLabels() {
         id="A9b+nP"
         values={{
           bold: (chunks) => (
-            <Text size="inherit" weight="bold">
+            <Text color="inherit" size="inherit" weight="bold">
               {chunks}
             </Text>
           ),

@@ -15,6 +15,7 @@ import { useIntl } from '~/components/intl';
 import Button from '~/components/ui/Button';
 import Divider from '~/components/ui/Divider';
 import DropdownMenu from '~/components/ui/DropdownMenu';
+import ScrollArea from '~/components/ui/ScrollArea';
 
 import SidebarAuthDropdownItem from './SidebarAuthDropdownItem';
 import type { SidebarCollapsedLinkItemProps } from './SidebarCollapsedLinkItem';
@@ -26,6 +27,7 @@ import NavProductDropdownMenu from '../navbar/NavProductDropdownMenu';
 
 export function SidebarCollapsed({
   moreMenuItems,
+  bottomAddonElements,
   topAddonElements,
   sidebarItems,
   onCollapseClick,
@@ -33,6 +35,7 @@ export function SidebarCollapsed({
   product,
   notificationItem,
 }: Readonly<{
+  bottomAddonElements?: React.ReactNode;
   moreMenuItems: React.ReactElement | false | null | undefined;
   notificationItem?: React.ReactElement | false | null | undefined;
   onCollapseClick: () => void;
@@ -52,7 +55,7 @@ export function SidebarCollapsed({
       className={clsx(
         'flex flex-col items-center gap-y-4',
         'relative h-full',
-        'px-3 py-4',
+        'py-4',
       )}>
       <div className="pb-8">
         <NavProductDropdownMenu product={product} variant="compact" />
@@ -77,8 +80,9 @@ export function SidebarCollapsed({
           </ul>
         </>
       )}
+      {bottomAddonElements}
       <Divider className="w-full" />
-      <div className="flex flex-col items-center gap-6">
+      <div className="flex flex-col items-center gap-4">
         {notificationItem}
         <div className="flex flex-col items-center gap-4">
           <DropdownMenu
@@ -173,20 +177,26 @@ export function SidebarExpanded({
 
   return (
     <nav className={clsx('flex flex-col', 'relative h-full')}>
-      <div className="grow p-4">
+      <div className="flex grow flex-col justify-between p-4">
         <div className="flex justify-center pb-7">
           <NavProductDropdownMenu product={product} variant="full" />
         </div>
-        {renderTopAddonElements?.(fadeInClass)}
-        <SidebarLinksSection items={startItems} />
-        <div className={clsx('flex flex-col gap-y-4', fadeInClass)}>
-          {endItems.length > 0 && (
-            <>
-              <Divider />
-              <SidebarLinksSection items={endItems} />
-            </>
-          )}
-          {renderBottomAddonElements?.(fadeInClass)}
+        <div className="flex grow flex-col justify-between gap-4">
+          <div className="h-0 grow overflow-auto">
+            <ScrollArea>
+              {renderTopAddonElements?.(fadeInClass)}
+              <SidebarLinksSection items={startItems} />
+            </ScrollArea>
+          </div>
+          <div className={clsx('flex flex-col gap-y-4', fadeInClass)}>
+            {endItems.length > 0 && (
+              <>
+                <Divider />
+                <SidebarLinksSection items={endItems} />
+              </>
+            )}
+            {renderBottomAddonElements?.(fadeInClass)}
+          </div>
         </div>
       </div>
       <Divider />

@@ -1,10 +1,18 @@
-import { RiLogoutBoxLine, RiPagesLine } from 'react-icons/ri';
+import {
+  RiLogoutBoxLine,
+  RiPagesLine,
+  RiUserLine,
+  RiWallet3Line,
+} from 'react-icons/ri';
 
 import gtag from '~/lib/gtag';
 import { useAuthLogout, useAuthSignInUp } from '~/hooks/user/useAuthFns';
 
 import { useIntl } from '~/components/intl';
-import type { NavbarTopLevelItem } from '~/components/ui/Navbar/NavTypes';
+import type {
+  NavbarTopLevelItem,
+  NavLinkItem,
+} from '~/components/ui/Navbar/NavTypes';
 
 export default function useCommonNavItems() {
   const intl = useIntl();
@@ -60,6 +68,42 @@ export default function useCommonNavItems() {
     position: 'start',
     type: 'link',
   };
+  const interviewsProfile: NavLinkItem = {
+    href: '/profile',
+    icon: RiUserLine,
+    itemKey: 'profile',
+    label: intl.formatMessage({
+      defaultMessage: 'Profile',
+      description: 'Link label to the profile page',
+      id: 'BwHkBU',
+    }),
+    onClick: () => {
+      gtag.event({
+        action: `nav.profile.click`,
+        category: 'engagement',
+        label: 'Profile',
+      });
+    },
+    type: 'link',
+  };
+  const interviewsBilling: NavLinkItem = {
+    href: '/profile/billing',
+    icon: RiWallet3Line,
+    itemKey: 'billing',
+    label: intl.formatMessage({
+      defaultMessage: 'Billing',
+      description: 'Link label to the billing page',
+      id: '45Wusd',
+    }),
+    onClick: () => {
+      gtag.event({
+        action: `nav.billing.click`,
+        category: 'engagement',
+        label: 'Billing',
+      });
+    },
+    type: 'link',
+  };
 
-  return { blog, login, logout };
+  return { blog, interviewsBilling, interviewsProfile, login, logout };
 }
