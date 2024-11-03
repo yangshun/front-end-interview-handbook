@@ -100,21 +100,6 @@ export function readBlogSeries(slug: string) {
   return series ? getBlogTypeCastedMetadata(series) : null;
 }
 
-export function buildBlogNavigationTree() {
-  const allCategories = getAllBlogCategories();
-  const allSeries = getAllBlogSeries();
-  const sortedCategories = allCategories.sort((a, b) => a.ranking - b.ranking);
-  const navigation = sortedCategories.map((category) => {
-    const series = allSeries
-      .filter((seriesItem) => seriesItem.category?.source === category.source)
-      .map(({ href, slug, title }) => ({ href, label: title, slug }));
-
-    return { items: series, label: category.title };
-  });
-
-  return navigation;
-}
-
 type BlogPostQueryOptions =
   | Readonly<{
       ascending?: boolean;

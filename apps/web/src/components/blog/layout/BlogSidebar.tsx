@@ -1,20 +1,16 @@
 import clsx from 'clsx';
 import { type ReactNode } from 'react';
 import {
-  RiArrowDownSLine,
+  RiCompass3Line,
   RiHome3Line,
   RiTerminalWindowLine,
 } from 'react-icons/ri';
 
-import { buildBlogNavigationTree } from '~/components/blog/data/BlogReader';
 import { useIntl } from '~/components/intl';
 import Anchor from '~/components/ui/Anchor';
-import Heading from '~/components/ui/Heading';
-import Section from '~/components/ui/Heading/HeadingContext';
 import Text from '~/components/ui/Text';
 import {
   themeBackgroundElementEmphasizedStateColor,
-  themeBorderColor,
   themeTextBrandColor,
   themeTextBrandColor_Hover,
   themeTextSecondaryColor,
@@ -30,25 +26,6 @@ export type BlogSeriesNavigationLink<T = Record<string, unknown>> = Readonly<
     slug: string;
   }
 >;
-
-type BlogSeriesNavigationLinks<
-  T extends BlogSeriesNavigationLink = BlogSeriesNavigationLink,
-> = ReadonlyArray<T>;
-
-type BlogSeriesNavigationItems<
-  T extends BlogSeriesNavigationLink = BlogSeriesNavigationLink,
-> = ReadonlyArray<
-  Readonly<{
-    items: BlogSeriesNavigationLinks<T>;
-    label: string;
-  }>
->;
-type BlogSidebarSeries = BlogSidebarItem &
-  Readonly<{
-    href: string;
-    items: BlogSeriesNavigationItems;
-    type: 'series';
-  }>;
 
 type BlogSidebarItem = Readonly<{
   currentMatchRegex?: RegExp;
@@ -66,9 +43,8 @@ type BlogSidebarLink = BlogSidebarItem &
 
 function useBlogSidebarNavigation() {
   const intl = useIntl();
-  const navigationTree = buildBlogNavigationTree();
 
-  const navigation: ReadonlyArray<BlogSidebarLink | BlogSidebarSeries> = [
+  const navigation: ReadonlyArray<BlogSidebarLink> = [
     {
       currentMatchRegex: /\/blog$/,
       href: '/blog',
@@ -96,14 +72,14 @@ function useBlogSidebarNavigation() {
     {
       currentMatchRegex: /^\/blog\/explore\//,
       href: '/blog/explore',
-      items: navigationTree,
+      icon: RiCompass3Line,
       key: 'series',
       label: intl.formatMessage({
         defaultMessage: 'Explore series',
         description: 'Sidebar label for explore series',
         id: 'SsWL2T',
       }),
-      type: 'series',
+      type: 'link',
     },
   ];
 
@@ -118,84 +94,6 @@ function SidebarIcon({
   return <Icon aria-hidden="true" className={clsx('size-5 shrink-0')} />;
 }
 
-function LinksListItem({
-  link,
-  nestedLevel,
-}: Readonly<{
-  link: BlogSeriesNavigationLink;
-  nestedLevel: number;
-}>) {
-  const { pathname } = useI18nPathname();
-
-  return (
-    <li key={link.href} className="relative text-sm leading-6">
-      <div className="flex">
-        <Anchor
-          className={clsx(
-            '-ml-px flex w-full items-center gap-x-2 border-l pl-4',
-            !link.items && 'py-1',
-            pathname === link.href
-              ? clsx(themeTextBrandColor, 'border-current font-semibold')
-              : clsx(
-                  themeTextSecondaryColor,
-                  'border-transparent hover:border-current hover:text-neutral-800 dark:hover:text-white',
-                ),
-          )}
-          href={link.href}
-          variant="unstyled">
-          <span style={{ paddingLeft: 12 * nestedLevel }}>{link.label}</span>
-        </Anchor>
-      </div>
-    </li>
-  );
-}
-
-function LinksList({
-  items,
-  nestedLevel = 0,
-}: Readonly<{
-  items: BlogSeriesNavigationLinks;
-  nestedLevel?: number;
-}>) {
-  return (
-    <ul
-      className={clsx(
-        'flex flex-col',
-        nestedLevel === 0 && ['border-l', themeBorderColor],
-      )}
-      role="list">
-      {items.map((link) => (
-        <LinksListItem key={link.href} link={link} nestedLevel={nestedLevel} />
-      ))}
-    </ul>
-  );
-}
-
-function SeriesList({
-  items,
-}: Readonly<{
-  items: BlogSeriesNavigationItems;
-}>) {
-  return (
-    <ul
-      className="flex grow flex-col gap-y-2 overflow-y-auto px-2 pb-3"
-      role="list">
-      {items.map((series) => (
-        <li key={series.label}>
-          <Heading
-            className="mb-3 text-sm font-semibold leading-6"
-            level="custom">
-            {series.label}
-          </Heading>
-          <Section>
-            <LinksList items={series.items} />
-          </Section>
-        </li>
-      ))}
-    </ul>
-  );
-}
-
 export default function BlogSidebar() {
   const { pathname } = useI18nPathname();
   const navigation = useBlogSidebarNavigation();
@@ -207,19 +105,6 @@ export default function BlogSidebar() {
           const itemClassname = clsx(
             'group flex w-full items-center gap-x-2 rounded text-xs font-medium',
             'p-2',
-          );
-          const isSeries = item.type === 'series';
-
-          const label = (
-            <Text
-              className="flex gap-x-2"
-              color="inherit"
-              size="body2"
-              weight="medium">
-              {item.icon != null && <SidebarIcon icon={item.icon} />}
-              {isSeries && <SidebarIcon icon={RiArrowDownSLine} />}
-              {item.label}
-            </Text>
           );
 
           const activeClassName = clsx(
@@ -246,11 +131,15 @@ export default function BlogSidebar() {
                 )}
                 href={item.href}
                 variant="unstyled">
-                {label}
+                <Text
+                  className="flex gap-x-2"
+                  color="inherit"
+                  size="body2"
+                  weight="medium">
+                  {item.icon != null && <SidebarIcon icon={item.icon} />}
+                  {item.label}
+                </Text>
               </Anchor>
-              {isSeries && item.items != null && (
-                <SeriesList items={item.items} />
-              )}
             </div>
           );
         })}

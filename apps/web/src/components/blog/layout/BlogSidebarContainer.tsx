@@ -5,7 +5,7 @@ import clsx from 'clsx';
 import BlogSidebar from '~/components/blog/layout/BlogSidebar';
 import { themeBorderColor } from '~/components/ui/theme';
 
-export default function SidebarContainer() {
+export default function BlogSidebarContainer() {
   return (
     <aside
       className={clsx(
