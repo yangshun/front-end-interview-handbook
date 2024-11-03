@@ -255,9 +255,9 @@ export default function InterviewsTestimonialsSlider({
                                 'size-8 shrink-0',
                                 'rounded-full',
                                 'overflow-hidden',
-                                'bg-neutral-900 dark:bg-white',
+                                'bg-white',
                                 'hover:z-[1]',
-                                'border border-white dark:border-neutral-900',
+                                'border border-neutral-200 dark:border-neutral-900',
                                 index > 0 && '-ml-2',
                               )}>
                               <img
