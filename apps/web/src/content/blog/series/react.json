@@ -1,0 +1,8 @@
+{
+  "title": "React",
+  "description": "Articles related to using React in production",
+  "level": "intermediate",
+  "tags": ["react"],
+  "category": "blog/category/real-world-front-end.json",
+  "ranking": 200
+}
