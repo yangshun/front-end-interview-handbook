@@ -247,13 +247,25 @@
     "defaultMessage": "3 simple steps to start earning",
     "description": "Title for 'How does it work' section on the 'Become an Affiliate'  page to explain how the affiliate program works"
   },
+  "/kBLUQ": {
+    "defaultMessage": "Use a different card that has not expired.",
+    "description": "Reason label for not expired card"
+  },
   "/kvO93": {
     "defaultMessage": "Additionally, we offer a gamified progress tracking system to monitor your proficiency in applying these skills across our projects.",
     "description": "Description for skill roadmap feature"
   },
+  "/l5dnt": {
+    "defaultMessage": "Try a different card if you are unable to enter a valid CVC.",
+    "description": "Reason label for different card"
+  },
   "/mJXTQ": {
     "defaultMessage": "Warm up question",
     "description": "Label for warm up questions"
+  },
+  "/n0jtw": {
+    "defaultMessage": "Contact your bank to get a new card issued.",
+    "description": "Reason label for new card issue"
   },
   "/nidaR": {
     "defaultMessage": "Create your developer profile on GreatFrontEnd. Showcase your skills, experiences and connect with the community.",
@@ -290,6 +302,10 @@
   "03TVln": {
     "defaultMessage": "Filter by component track",
     "description": "Tooltip for Component track filter for projects list"
+  },
+  "042orS": {
+    "defaultMessage": "The card has been reported as stolen, and the issuer has blocked all transactions.",
+    "description": "Decline message for lost card"
   },
   "04Q6JH": {
     "defaultMessage": "TypeScript supported",
@@ -530,6 +546,10 @@
   "1sJ8d7": {
     "defaultMessage": "Free plan",
     "description": "Projects sidebar card CTA title"
+  },
+  "1sLCIj": {
+    "defaultMessage": "Try using a different card or payment method with enough balance.",
+    "description": "Reason label for different card"
   },
   "1wrVTx": {
     "defaultMessage": "Edit on GitHub",
@@ -843,6 +863,10 @@
     "defaultMessage": "Front End Interview Playbook | GreatFrontEnd",
     "description": "Social title for frontend interview playbook cover page"
   },
+  "4EqfQx": {
+    "defaultMessage": "Use a different card to make the payment.",
+    "description": "Reason label for different card"
+  },
   "4FirvF": {
     "defaultMessage": "Reset progress",
     "description": "Label to reset study plan progress"
@@ -891,6 +915,10 @@
     "defaultMessage": "Number of questions completed",
     "description": "Number of questions completed in a list of questions"
   },
+  "4qv0in": {
+    "defaultMessage": "Use a different payment method if the issue persists.",
+    "description": "Reason label for different payment method"
+  },
   "4s0hMm": {
     "defaultMessage": "All tasks completed!",
     "description": "Title for rewards complete page"
@@ -898,6 +926,10 @@
   "4s0s2J": {
     "defaultMessage": "Edit profile",
     "description": "Label for edit projects profile button"
+  },
+  "4u03oA": {
+    "defaultMessage": "Ensure your internet connection is stable during the payment process.",
+    "description": "Reason label for stable internet connection"
   },
   "4uXotU": {
     "defaultMessage": "Italic",
@@ -1399,6 +1431,10 @@
     "defaultMessage": "Your Google Auth account has been successfully connected.",
     "description": "Success toast message for connected successfully"
   },
+  "81fBRO": {
+    "defaultMessage": "Contact your bank to request an increase in the number of allowed transactions.",
+    "description": "Reason label for increase transactions"
+  },
   "81i+95": {
     "defaultMessage": "Profile",
     "description": "Profile page title"
@@ -1535,6 +1571,10 @@
     "defaultMessage": "You may be interested",
     "description": "Title for you may be interested section on Projects challenge submission page"
   },
+  "90E9LR": {
+    "defaultMessage": "The card has reached its limit for the number of allowed transactions in a given timeframe, as defined by the issuer.",
+    "description": "Decline message for card velocity exceeded"
+  },
   "90EGb3": {
     "defaultMessage": "Your dream job is absolutely worth it",
     "description": "Title for marketing page section"
@@ -1554,6 +1594,10 @@
   "95Is5V": {
     "defaultMessage": "Quickly convert challenge designs into HTML, CSS, and Tailwind code by using our <link>Figma to Code plugin</link>.",
     "description": "Use the Figma to code plugin"
+  },
+  "97cePL": {
+    "defaultMessage": "Adjust the transaction amount if needed and try again.",
+    "description": "Reason label for adjust amount"
   },
   "99Ewym": {
     "defaultMessage": "Introduction",
@@ -1922,6 +1966,10 @@
   "BwHkBU": {
     "defaultMessage": "Profile",
     "description": "Link label to the profile page"
+  },
+  "ByLCoo": {
+    "defaultMessage": "Verify that the CVC code you entered matches the one on the card.",
+    "description": "Reason label for verify cvc"
   },
   "BzDeUP": {
     "defaultMessage": "{days, plural, =0 {<bold>0 days</bold>} =1 {<bold>1 day</bold>} other {<bold># days</bold>}} current streak",
@@ -2367,6 +2415,10 @@
     "defaultMessage": "Front end interviews are mostly practical in nature – till you're met with the traditional data structure and algorithms questions that are expected of traditional software engineering interviews.",
     "description": "Description for Blind75 page"
   },
+  "EqK1pY": {
+    "defaultMessage": "The card has expired, and the transaction cannot be processed.",
+    "description": "Decline message for expired card"
+  },
   "EqpH9/": {
     "defaultMessage": "Go to the live site for this submission",
     "description": "Tooltip for preview solution button"
@@ -2514,6 +2566,10 @@
   "G11qgw": {
     "defaultMessage": "High resolution image assets",
     "description": "Provided resource for project"
+  },
+  "G2tdz+": {
+    "defaultMessage": "The card does not support transactions in the currency used.",
+    "description": "Decline message for currency not supported"
   },
   "G38r8R": {
     "defaultMessage": "Email rate limit exceeded. Please try again later",
@@ -3655,6 +3711,10 @@
     "defaultMessage": "Console settings",
     "description": "Title for console settings dialog"
   },
+  "Midz7M": {
+    "defaultMessage": "Try using a different card that supports payments in the required currency.",
+    "description": "Reason label for wait for currency supported card"
+  },
   "MjpQ2L": {
     "defaultMessage": "Top Angular coding interview questions to build the most commonly-asked front end UI components and applications.",
     "description": "Description for Angular questions page"
@@ -4022,6 +4082,10 @@
   "PB+rpp": {
     "defaultMessage": "Reset Progress",
     "description": "Label for button to reset progress"
+  },
+  "PDOWFg": {
+    "defaultMessage": "The card was declined, but no specific reason was given by the card issuer.",
+    "description": "Decline message for generic decline"
   },
   "PDz3Oi": {
     "defaultMessage": "Free project challenges",
@@ -4398,6 +4462,10 @@
   "RMBCok": {
     "defaultMessage": "Snap",
     "description": "Company name for Snap"
+  },
+  "RMED1P": {
+    "defaultMessage": "The CVC (Card Verification Code) provided is incorrect.",
+    "description": "Decline message for incorrect cvc"
   },
   "RNRY70": {
     "defaultMessage": "We've automatically applied a {discountPercentage}% discount on all prices to account for purchasing power in {countryName}",
@@ -5086,6 +5154,10 @@
   "VmzkpS": {
     "defaultMessage": "Screenshot-taking success!",
     "description": "Success message for screenshot generation"
+  },
+  "VnPiXE": {
+    "defaultMessage": "The card does not have enough funds available to complete the transaction.",
+    "description": "Decline message for insufficient fund"
   },
   "Vp6BGE": {
     "defaultMessage": "At least {minLength} character(s).",
@@ -5791,6 +5863,10 @@
     "defaultMessage": "Every project challenge was designed by senior UI/UX designers with perfect spacing units and design rules, so that your portfolio projects will always look professional.",
     "description": "Description of 'Beautiful designs made by high-end designers' feature in Projects marketing page"
   },
+  "aVN/XP": {
+    "defaultMessage": "Verify that the amount entered is correct and meets the minimum transaction requirement.",
+    "description": "Reason label for verify amount"
+  },
   "aVhVoX": {
     "defaultMessage": "RADIO framework",
     "description": "RADIO (acroynm) framework name for front end system design interviews. Don't translate RADIO"
@@ -6043,6 +6119,10 @@
     "defaultMessage": "Browse all user submissions",
     "description": "Learn from other user submissions"
   },
+  "bpZ6V4": {
+    "defaultMessage": "Use a different card, as this one has been reported as stolen.",
+    "description": "Reason label for different card"
+  },
   "bq/h99": {
     "defaultMessage": "14-day money back guarantee",
     "description": "Pricing plan policy"
@@ -6150,6 +6230,10 @@
   "cZVPou": {
     "defaultMessage": "HTML",
     "description": "Label for HTML language"
+  },
+  "cf4ZZE": {
+    "defaultMessage": "We noticed that your attempt to pay on GreatFrontEnd has failed. Here are some actions that may help:",
+    "description": "Description for payment failure dialog"
   },
   "cgIBe4": {
     "defaultMessage": "Review must be at least {wordCount} words long or a video of at least {videoDurationInSeconds}s.",
@@ -6395,6 +6479,10 @@
     "defaultMessage": "Filter user submissions by whether you have completed their corresponding challenges",
     "description": "Tooltip for Status filter for projects list"
   },
+  "eCcsyY": {
+    "defaultMessage": "Wait for a day or two before attempting the payment again, as your card may have a limit on the number of transactions per day.",
+    "description": "Reason label for wait for reattempting"
+  },
   "eG2r74": {
     "defaultMessage": "Build an entire library of {trackName} components from scratch. Use it for your portfolio, or as a component toolkit for future projects",
     "description": "Description of Projects component track page"
@@ -6438,6 +6526,10 @@
   "eWwVqI": {
     "defaultMessage": "Premium is required to unlock this project",
     "description": "Unlock premium access for a project"
+  },
+  "eZ7okb": {
+    "defaultMessage": "Use a different card or payment method to complete the payment.",
+    "description": "Reason label for different card"
   },
   "eeWLAW": {
     "defaultMessage": "Framework",
@@ -6827,6 +6919,10 @@
     "defaultMessage": "Premium Discord",
     "description": "Link to the premium Discord server"
   },
+  "gvMGnP": {
+    "defaultMessage": "Choose a payment method that supports the currency, such as UPI or Net Banking for INR payments.",
+    "description": "Reason label for choose required payment method"
+  },
   "gvhz5x": {
     "defaultMessage": "Out of {total} medium-level problems, you have solved or marked as complete {completed} across Coding, Quiz, and System Design.",
     "description": "Tooltip for solved problems progress"
@@ -6918,6 +7014,10 @@
   "hS+erO": {
     "defaultMessage": "Quiz",
     "description": "Label for quiz format"
+  },
+  "hURbkG": {
+    "defaultMessage": "Contact your bank to get a new card issued.",
+    "description": "Reason label for contact bank"
   },
   "hYp7sF": {
     "defaultMessage": "Normal",
@@ -7303,6 +7403,10 @@
     "defaultMessage": "{discountPercentage}% off GreatFrontEnd Annual plan.",
     "description": "Subtitle of discount promotion card"
   },
+  "k6hwbn": {
+    "defaultMessage": "There was a problem processing the transaction, possibly a temporary issue.",
+    "description": "Decline message for invalid cvc"
+  },
   "k79xTX": {
     "defaultMessage": "Reset this file",
     "description": "Label for button that allows users to reset their coding workspace to the initial code"
@@ -7631,6 +7735,10 @@
     "defaultMessage": "Insert code block",
     "description": "Insert code block tooltip for Richtext toolbar"
   },
+  "m9Ai9P": {
+    "defaultMessage": "Ensure that your account has sufficient funds for the payment.",
+    "description": "Reason label for sufficient funds"
+  },
   "mACTSv": {
     "defaultMessage": "Skills | Progress | Dashboard",
     "description": "Title of skills section on dashboard page"
@@ -7811,6 +7919,10 @@
     "defaultMessage": "Front end system design",
     "description": "Front end topic"
   },
+  "nZdU0v": {
+    "defaultMessage": "Contact your bank to get a replacement card issued.",
+    "description": "Reason label for contact bank"
+  },
   "nai6YT": {
     "defaultMessage": "Amazon logo",
     "description": "Amazon company logo"
@@ -7886,6 +7998,10 @@
   "o+1cag": {
     "defaultMessage": "Clear Console",
     "description": "Button label to clear the console in the coding workspace"
+  },
+  "o26OYL": {
+    "defaultMessage": "The transaction amount is invalid, which might be due to the amount being too low or incorrect formatting.",
+    "description": "Decline message for invalid amount"
   },
   "o3nhZ8": {
     "defaultMessage": "Session status",
@@ -8047,6 +8163,10 @@
     "defaultMessage": "{price} billed per month.",
     "description": "Description of billing frequency for monthly plan"
   },
+  "pI+b1R": {
+    "defaultMessage": "The account linked to the card is invalid, possibly closed or inactivated.",
+    "description": "Decline message for invalid account"
+  },
   "pJA5oJ": {
     "defaultMessage": "Code review",
     "description": "Label for question badge"
@@ -8182,6 +8302,10 @@
   "q2NV/N": {
     "defaultMessage": "Must have completed at least {quantity} coding or system design questions (to ensure sufficient experience before reviewing).",
     "description": "Condition for promotion"
+  },
+  "q5ShEB": {
+    "defaultMessage": "The provided CVC code is invalid, which could indicate a typo or an incorrect code for the card used.",
+    "description": "Decline message for invalid cvc"
   },
   "q6xeLh": {
     "defaultMessage": "General guides",
@@ -8563,6 +8687,10 @@
     "defaultMessage": "👍️️️️️️ Follow us on GitHub",
     "description": "Title for github card"
   },
+  "sm9wXD": {
+    "defaultMessage": "Retry the payment after some time.",
+    "description": "Reason label for retry payment"
+  },
   "sn/P86": {
     "defaultMessage": "Guides",
     "description": "Section heading in footer for links to interview guides"
@@ -8762,6 +8890,10 @@
   "trXVQB": {
     "defaultMessage": "Search CSS questions",
     "description": "Placeholder for search input of CSS question list"
+  },
+  "tryW5f": {
+    "defaultMessage": "Use a different card if you are unsure of the correct CVC.",
+    "description": "Reason label for different card"
   },
   "tsVEh8": {
     "defaultMessage": "Title: A to Z",
@@ -9183,6 +9315,10 @@
     "defaultMessage": "Motivations for joining",
     "description": "Projects profile motivation for joining section title"
   },
+  "wUDPNG": {
+    "defaultMessage": "The card has been reported as lost, and the issuer has blocked all transactions.",
+    "description": "Decline message for lost card"
+  },
   "wVk78R": {
     "defaultMessage": "{questionCount} solved practice questions",
     "description": "Features for study plans question listing"
@@ -9210,6 +9346,10 @@
   "wnW+2J": {
     "defaultMessage": "You have completed this track",
     "description": "Description for projects track completed status"
+  },
+  "wqEClM": {
+    "defaultMessage": "Contact your bank to inquire if your card can be enabled for the specified currency.",
+    "description": "Reason label for enabled specified currency"
   },
   "wqIwvv": {
     "defaultMessage": "{questionTitle} | JavaScript Front End Interview Questions with Solutions",
@@ -9463,6 +9603,10 @@
     "defaultMessage": "View all <link>frequently asked questions</link>",
     "description": "Marketing page section subtitle"
   },
+  "yjbqSs": {
+    "defaultMessage": "Contact your bank to verify the account linked to your card is active.",
+    "description": "Reason label for recheck cvc"
+  },
   "yjjdMB": {
     "defaultMessage": "Marked \"{articleTitle}\" as not completed",
     "description": "Success message for marking a question as not completed"
@@ -9595,9 +9739,17 @@
     "defaultMessage": "Progress",
     "description": "Label for progress bar for learning progress"
   },
+  "zRnkGf": {
+    "defaultMessage": "Use a different card, as this one has been reported as lost.",
+    "description": "Reason label for different card"
+  },
   "zStaaO": {
     "defaultMessage": "Completed",
     "description": "Tooltip for Completed guide label"
+  },
+  "zTKtX7": {
+    "defaultMessage": "Double-check the CVC code (3-digit number on the back of your card) and re-enter it.",
+    "description": "Reason label for recheck cvc"
   },
   "zUB9Jv": {
     "defaultMessage": "Upcoming content or features to be launched. Not all features will be publicized on the roadmap.",
