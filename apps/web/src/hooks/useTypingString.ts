@@ -5,6 +5,8 @@ export default function useTypingString(characters: string, interval = 100) {
   const [index, setIndex] = useState(indexRef.current);
 
   function start() {
+    indexRef.current = 0;
+
     const timer = setInterval(() => {
       indexRef.current++;
 

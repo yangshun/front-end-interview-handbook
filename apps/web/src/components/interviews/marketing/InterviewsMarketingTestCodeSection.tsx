@@ -70,9 +70,11 @@ const testCases: ReadonlyArray<TestCase> = [
 function TestCaseAnimation({
   codeAnimationCompleted,
   codeBlockRef,
+  startTypingAnimation,
 }: Readonly<{
   codeAnimationCompleted: boolean;
   codeBlockRef: RefObject<HTMLDivElement>;
+  startTypingAnimation: () => void;
 }>) {
   const intl = useIntl();
   const buttonRef = useRef<HTMLButtonElement>(null);
@@ -94,8 +96,28 @@ function TestCaseAnimation({
     }
   }, [showTestCaseLines, visibleTestCases.length]);
 
+  function rerunAnimation() {
+    startTypingAnimation();
+    setShowTestCaseLines(false);
+    setVisibleTestCases([]);
+    cursorControls.start({
+      left: 60,
+      opacity: 0,
+      top: 260,
+      transition: { duration: 0 },
+    });
+    rippleControls.start({
+      scale: 0,
+    });
+  }
+
   useEffect(() => {
     async function runAnimation() {
+      cursorControls.start({
+        left: 60,
+        opacity: 0,
+        transition: { duration: 0 },
+      });
       if (buttonRef.current && codeBlockRef.current) {
         const containerRect = codeBlockRef.current.getBoundingClientRect();
         const buttonRect = buttonRef.current.getBoundingClientRect();
@@ -130,7 +152,6 @@ function TestCaseAnimation({
         setShowTestCaseLines(true);
       }
     }
-
     if (codeAnimationCompleted) {
       runAnimation();
     }
@@ -140,12 +161,12 @@ function TestCaseAnimation({
   return (
     <>
       <div
-        className={clsx('flex flex-col', 'w-full', [
-          'divide-y',
-          themeDivideColor,
-        ])}
-        // So that focus cannot go into the card, which is not meant to be used.
-        inert="">
+        className={clsx(
+          'flex flex-col',
+          'w-full p-0.5 pt-0',
+          'relative z-[1]',
+          ['divide-y', themeDivideColor],
+        )}>
         {visibleTestCases.map(({ key, name, test }) => (
           <motion.div
             key={key}
@@ -163,7 +184,7 @@ function TestCaseAnimation({
             </Text>
           </motion.div>
         ))}
-        <div className={clsx('flex justify-end gap-2', 'px-6 py-2.5', 'z-[2]')}>
+        <div className={clsx('flex justify-end', 'px-6 py-2.5')}>
           <Button
             ref={buttonRef}
             addonPosition="start"
@@ -174,16 +195,8 @@ function TestCaseAnimation({
               id: '0SrfG9',
             })}
             size="xs"
-            variant="secondary"
-          />
-          <Button
-            label={intl.formatMessage({
-              defaultMessage: 'Submit',
-              description: 'Label for submit button',
-              id: 'K3opjL',
-            })}
-            size="xs"
             variant="primary"
+            onClick={rerunAnimation}
           />
         </div>
       </div>
@@ -322,6 +335,7 @@ export default function InterviewsMarketingTestCodeSection() {
               <TestCaseAnimation
                 codeAnimationCompleted={value.length === remainingCode.length}
                 codeBlockRef={codeBlockRef}
+                startTypingAnimation={start}
               />
             </div>
           </div>
