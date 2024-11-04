@@ -8,7 +8,7 @@ type Props = Readonly<{
 export default function SidebarExpandedLayout({ children }: Props) {
   return (
     <div className="flex">
-      <InterviewsSidebarContainer showNewSidebar={true} />
+      <InterviewsSidebarContainer />
       <div className="relative w-0 grow">{children}</div>
       <FeedbackWidget />
     </div>

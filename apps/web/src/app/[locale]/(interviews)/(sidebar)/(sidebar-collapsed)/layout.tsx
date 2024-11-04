@@ -8,10 +8,7 @@ type Props = Readonly<{
 export default function SidebarCollapsedLayout({ children }: Props) {
   return (
     <div className="flex">
-      <InterviewsSidebarContainer
-        initialCollapsed={true}
-        showNewSidebar={true}
-      />
+      <InterviewsSidebarContainer initialCollapsed={true} />
       <div className="relative w-0 grow">{children}</div>
       <FeedbackWidget bottomClassname="bottom-12" />
     </div>

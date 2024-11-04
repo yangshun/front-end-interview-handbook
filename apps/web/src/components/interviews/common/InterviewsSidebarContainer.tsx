@@ -6,16 +6,13 @@ import { useToggle } from 'usehooks-ts';
 import { themeBorderColor } from '~/components/ui/theme';
 
 import InterviewsSidebar from './InterviewsSidebar';
-import InterviewsSidebar_DEPRECATED from './InterviewsSidebar_DEPRECATED';
 
 type Props = Readonly<{
   initialCollapsed?: boolean;
-  showNewSidebar: boolean; // TODO(interviews): clean up old sidebar
 }>;
 
 export default function InterviewsSidebarContainer({
   initialCollapsed = false,
-  showNewSidebar,
 }: Props) {
   const [isCollapsed, toggleIsCollapsed] = useToggle(initialCollapsed);
 
@@ -28,17 +25,10 @@ export default function InterviewsSidebarContainer({
         ['border-e', themeBorderColor],
         isCollapsed ? 'w-[78px]' : 'w-[280px]',
       )}>
-      {showNewSidebar ? (
-        <InterviewsSidebar
-          isCollapsed={isCollapsed}
-          onCollapseClick={toggleIsCollapsed}
-        />
-      ) : (
-        <InterviewsSidebar_DEPRECATED
-          isCollapsed={isCollapsed}
-          onCollapseClick={toggleIsCollapsed}
-        />
-      )}
+      <InterviewsSidebar
+        isCollapsed={isCollapsed}
+        onCollapseClick={toggleIsCollapsed}
+      />
     </aside>
   );
 }

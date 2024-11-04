@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import type { ReactNode } from 'react';
+import { type ReactNode, useEffect, useState } from 'react';
 import { RiArrowRightSLine } from 'react-icons/ri';
 
 import Anchor from '~/components/ui/Anchor';
@@ -99,7 +99,11 @@ function SidebarLinkItem({
 
 function SidebarLinks({
   item,
-}: Readonly<{ item: SidebarLinkEntity; showIcon: boolean }>) {
+  onToggle,
+}: Readonly<{
+  item: SidebarLinkEntity;
+  onToggle: () => void;
+}>) {
   const { pathname } = useI18nPathname();
 
   if (!('items' in item)) {
@@ -126,7 +130,10 @@ function SidebarLinks({
             ],
             'transition-colors',
             themeBackgroundElementEmphasizedStateColor_Hover,
-          )}>
+          )}
+          onClick={() => {
+            onToggle();
+          }}>
           <span
             className={clsx(
               'text-left text-[0.8125rem] font-medium leading-4',
@@ -170,15 +177,62 @@ export default function SidebarLinksSection({
 }: Readonly<{
   items: ReadonlyArray<SidebarLinkEntity>;
 }>) {
+  const { pathname } = useI18nPathname();
+  const [manuallyOpenSections, setManuallyOpenSections] = useState<
+    ReadonlyArray<string>
+  >([]);
+  const [automaticOpenSections, setAutomaticOpenSections] = useState<
+    ReadonlyArray<string>
+  >([]);
+
+  useEffect(() => {
+    const activeValue = (() => {
+      for (const item of items) {
+        if (!('items' in item)) {
+          continue;
+        }
+
+        if (item.items.find((linkItem) => linkItem.href === pathname)) {
+          return item.label;
+        }
+      }
+    })();
+
+    if (activeValue) {
+      setAutomaticOpenSections([activeValue]);
+    }
+  }, [items, pathname]);
+
   return (
     <AccordionPrimitive.Root
       asChild={true}
       className={clsx('flex flex-col gap-y-px')}
-      defaultValue={items.map((section) => section.label)}
-      type="multiple">
+      type="multiple"
+      value={[...automaticOpenSections, ...manuallyOpenSections]}>
       <ul>
         {items.map((item) => (
-          <SidebarLinks key={item.label} item={item} showIcon={false} />
+          <SidebarLinks
+            key={item.label}
+            item={item}
+            onToggle={() => {
+              const inAutomaticOpen = automaticOpenSections.includes(
+                item.label,
+              );
+
+              if (inAutomaticOpen) {
+                setAutomaticOpenSections(
+                  automaticOpenSections.filter((label) => label !== item.label),
+                );
+              }
+              if (manuallyOpenSections.includes(item.label)) {
+                setManuallyOpenSections(
+                  manuallyOpenSections.filter((label) => label !== item.label),
+                );
+              } else if (!inAutomaticOpen) {
+                setManuallyOpenSections([...manuallyOpenSections, item.label]);
+              }
+            }}
+          />
         ))}
       </ul>
     </AccordionPrimitive.Root>
