@@ -76,8 +76,9 @@ export default {
       '/questions/svelte',
       '/questions/system-design',
       '/questions/vanilla',
-      '/focus-areas',
-      '/study-plans',
+      '/interviews/focus-areas',
+      '/interviews/study-plans',
+      '/interviews/company',
       '/interviews/roadmap',
       // Projects.
       '/projects',
