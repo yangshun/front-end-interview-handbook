@@ -10,6 +10,7 @@ import type {
   BehavioralRouteType,
   GuideCardMetadata,
 } from '~/components/guides/types';
+import BehavioralInterviewPlaybookPage from '~/components/interviews/guides/BehavioralInterviewPlaybookPage';
 
 import { readGuidesContents } from '~/db/guides/GuidesReader';
 import {
@@ -18,8 +19,6 @@ import {
 } from '~/db/guides/GuidesUtils';
 import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
-
-import BehavioralInterviewPlaybookPage from './BehavioralInterviewPlaybookPage';
 
 export const dynamic = 'force-static';
 

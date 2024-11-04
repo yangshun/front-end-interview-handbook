@@ -3,11 +3,11 @@ import type { Metadata } from 'next/types';
 
 import { INTERVIEWS_REVAMP_2024 } from '~/data/FeatureFlags';
 
+import FrontEndInterviewPlaybookPage from '~/components/interviews/guides/FrontEndInterviewPlaybookPage';
+
 import { readAllFrontEndInterviewGuides } from '~/db/guides/GuidesReader';
 import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
-
-import FrontEndInterviewPlaybookPage from './FrontEndInterviewPlaybookPage';
 
 export const dynamic = 'force-static';
 

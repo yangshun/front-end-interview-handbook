@@ -12,23 +12,28 @@ import GuidesCoverLayout from '~/components/guides/cover/GuidesCoverLayout';
 import GuidesListWithCategory from '~/components/guides/cover/GuidesListWithCategory';
 import type { GuideCardMetadata } from '~/components/guides/types';
 import useGuidesWithCompletionStatus from '~/components/guides/useGuidesWithCompletionStatus';
-import QuestionsSystemDesignListWithFilters from '~/components/interviews/questions/listings/items/QuestionsSystemDesignListWithFilters';
+import QuestionsUnifiedListWithFiltersAndProgress from '~/components/interviews/questions/listings/items/QuestionsUnifiedListWithFiltersAndProgress';
 import { useIntl } from '~/components/intl';
 import Divider from '~/components/ui/Divider';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 import Text from '~/components/ui/Text';
 
+import type { QuestionCompletionCount } from '~/db/QuestionsCount';
 import { roundQuestionCountToNearestTen } from '~/db/QuestionsUtils';
+
+import type { QuestionMetadata } from '../questions/common/QuestionsTypes';
 
 type Props = Readonly<{
   allGuides: ReadonlyArray<GuideCardMetadata>;
-  questionCount: number;
+  questionCompletionCount?: QuestionCompletionCount;
+  questions: ReadonlyArray<QuestionMetadata>;
 }>;
 
 export default function FrontEndSystemDesignPlaybookPage({
   allGuides,
-  questionCount,
+  questions,
+  questionCompletionCount,
 }: Props) {
   const intl = useIntl();
 
@@ -65,7 +70,7 @@ export default function FrontEndSystemDesignPlaybookPage({
           id: 'DmLCt5',
         },
         {
-          questionCount: roundQuestionCountToNearestTen(questionCount),
+          questionCount: roundQuestionCountToNearestTen(questions.length),
         },
       ),
     },
@@ -139,9 +144,10 @@ export default function FrontEndSystemDesignPlaybookPage({
                   id: 'jQ6uOU',
                 })}
               </Heading>
-              <QuestionsSystemDesignListWithFilters
+              <QuestionsUnifiedListWithFiltersAndProgress
                 filterNamespace="system-design-format"
-                layout="full"
+                questionCompletionCount={questionCompletionCount}
+                questions={questions}
               />
             </div>
           </Section>

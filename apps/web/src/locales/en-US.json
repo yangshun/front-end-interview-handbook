@@ -155,6 +155,10 @@
     "defaultMessage": "Nothing found just yet",
     "description": "Title for empty state for roadmap"
   },
+  "/7J8Gp": {
+    "defaultMessage": "Explore other items from our recommended preparation strategy.",
+    "description": "Tooltip for other recommended preparation strategy"
+  },
   "/95uM9": {
     "defaultMessage": "Username should begin and end with an alphanumeric character, and only contain alphanumeric characters or dashes.",
     "description": "Error message when username contains invalid characters"
@@ -550,6 +554,10 @@
   "1sLCIj": {
     "defaultMessage": "Try using a different card or payment method with enough balance.",
     "description": "Reason label for different card"
+  },
+  "1w3zxf": {
+    "defaultMessage": "Search questions",
+    "description": "Placeholder for search input of question list"
   },
   "1wrVTx": {
     "defaultMessage": "Edit on GitHub",
@@ -1022,10 +1030,6 @@
   "5bW/ye": {
     "defaultMessage": "Created: Oldest to newest",
     "description": "Sorting option for projects list - sort by created"
-  },
-  "5c7RMQ": {
-    "defaultMessage": "Practice by framework",
-    "description": "Sidebar label for Questions list page"
   },
   "5db7o8": {
     "defaultMessage": "Coding Interviews",
@@ -1771,14 +1775,6 @@
     "defaultMessage": "Step 2",
     "description": "Step N of multiple steps when completing a project"
   },
-  "AYkO94": {
-    "defaultMessage": "Questions List",
-    "description": "Screenreader text for quiz questions list"
-  },
-  "Aa86vz": {
-    "defaultMessage": "Free",
-    "description": "Label to indicate the item is free"
-  },
   "AaYDa2": {
     "defaultMessage": "Implementation details",
     "description": "Challenge submission form label"
@@ -2027,10 +2023,6 @@
     "defaultMessage": "We recommend well-rated submissions using the same stack for your reference",
     "description": "Description for \"Learn from good code\" item in Expected Support section on Projects project page"
   },
-  "CIPW07": {
-    "defaultMessage": "Interview guides",
-    "description": "Sidebar label for Interview Guides category"
-  },
   "CNjnh0": {
     "defaultMessage": "Not written for this question.",
     "description": "Text that apppears if a solution has not been written for the question"
@@ -2098,10 +2090,6 @@
   "Cqx/J0": {
     "defaultMessage": "The following challenges will be unlocked:",
     "description": "Confirmation text for unlocking a premium challenge"
-  },
-  "CrNgUe": {
-    "defaultMessage": "Questions List",
-    "description": "Screenreader text for question list"
   },
   "CsuGzS": {
     "defaultMessage": "JavaScript Questions",
@@ -2686,10 +2674,6 @@
   "Geiogi": {
     "defaultMessage": "View your submission",
     "description": "Label for View your submission button on project submit page"
-  },
-  "Gi1TRd": {
-    "defaultMessage": "Filters",
-    "description": "Screenreader text for Filters"
   },
   "GiSp0E": {
     "defaultMessage": "Medium",
@@ -3967,10 +3951,6 @@
     "defaultMessage": "Project challenges",
     "description": "Sidebar navigation label"
   },
-  "OfXxAy": {
-    "defaultMessage": "Explore three other items from our recommended preparation strategy.",
-    "description": "Tooltip for other recommended preparation strategy"
-  },
   "OjLxYa": {
     "defaultMessage": "<bold>{count}</bold>",
     "description": "Number of incomplete challenges in projects dashboard"
@@ -4122,10 +4102,6 @@
   "PQRmTe": {
     "defaultMessage": "You are on the <bold>Lifetime</bold> plan.",
     "description": "Text describing user's subscription plan."
-  },
-  "PXLoIh": {
-    "defaultMessage": "Focus areas",
-    "description": "Sidebar label for interview focus area category"
   },
   "PXcS/H": {
     "defaultMessage": "<authorLink>{author}</authorLink> replied to your code review on <submissionLink>{entityTitle}</submissionLink> {timestamp}",
@@ -4590,10 +4566,6 @@
   "S8SLzJ": {
     "defaultMessage": "You asked a question on the challenge forum for <link>{challengeTitle}</link>: <comment>\"{description}\"</comment>",
     "description": "Log message for you asking a question on the challenge forum"
-  },
-  "S8TA2O": {
-    "defaultMessage": "Visit our LinkedIn page",
-    "description": "Tooltip for linkedin button"
   },
   "S98EuF": {
     "defaultMessage": "Project brief",
@@ -5267,10 +5239,6 @@
     "defaultMessage": "End session",
     "description": "Label for \"End session\" button on current project session card"
   },
-  "WNRcvy": {
-    "defaultMessage": "Study plans",
-    "description": "Sidebar label for Study Plans category"
-  },
   "WPmd3v": {
     "defaultMessage": "Guides & discussions",
     "description": "Tab title for projects challenges"
@@ -5726,10 +5694,6 @@
   "ZWMfa0": {
     "defaultMessage": "Pricing plans",
     "description": "Section label on Pricing section of Homepage or Pricing page"
-  },
-  "ZX2n3I": {
-    "defaultMessage": "Importance: Low to High",
-    "description": "Sorting option on quiz questions page - from Low to High"
   },
   "ZYFcYD": {
     "defaultMessage": "Report an issue",
@@ -6547,6 +6511,10 @@
     "defaultMessage": "{yoe} YOE",
     "description": "Years of experience"
   },
+  "erkZY+": {
+    "defaultMessage": "List of the 75 most important algorithm questions",
+    "description": "Description of Blind 75"
+  },
   "etKgoR": {
     "defaultMessage": "Less",
     "description": "Label for less contribution"
@@ -7055,10 +7023,6 @@
     "defaultMessage": "Insider tips",
     "description": "Title for inside tips"
   },
-  "hoQUfU": {
-    "defaultMessage": "Importance: High to Low",
-    "description": "Sorting option on quiz questions page - from High to Low"
-  },
   "hqeSrQ": {
     "defaultMessage": "Everything else apart from the actual technical execution has been prepared for you. Just click \"Start project\", and we will take care of everything else.",
     "description": "Description of 'Start building' feature in Projects marketing page"
@@ -7383,10 +7347,6 @@
     "defaultMessage": "Latest first",
     "description": "Sorting option for blog list"
   },
-  "k1fJ6k": {
-    "defaultMessage": "Company guides",
-    "description": "Sidebar label for page showing list of companies"
-  },
   "k2Oi+j": {
     "defaultMessage": "Filters",
     "description": "Label for filters button"
@@ -7526,10 +7486,6 @@
   "kn+R8V": {
     "defaultMessage": "Have questions, feedback, or anything to say? Let us know and we will get back as soon as possible.",
     "description": "Description of Contact Us page"
-  },
-  "knfvnJ": {
-    "defaultMessage": "Filters",
-    "description": "Screenreader text to indicate filters component on quiz questions list"
   },
   "kngdhG": {
     "defaultMessage": "Start tasks",
@@ -8607,10 +8563,6 @@
     "defaultMessage": "Choose additional skills you will use in this project",
     "description": "Dialog title for skills section"
   },
-  "sGyUQa": {
-    "defaultMessage": "Join Discord channel (public)",
-    "description": "Tooltip for join discord"
-  },
   "sM1Ppu": {
     "defaultMessage": "{discountPercentage}% off all plans",
     "description": "Subtext for rewards complete page"
@@ -9103,10 +9055,6 @@
     "defaultMessage": "Interviews",
     "description": "Label for Interviews filter button"
   },
-  "vKebLa": {
-    "defaultMessage": "Visit our GitHub page",
-    "description": "Tooltip for  github button"
-  },
   "vLdUUt": {
     "defaultMessage": "View other's code and learn from their approach",
     "description": "Description for recommended action for new projects platform user"
@@ -9506,10 +9454,6 @@
   "y4Aai3": {
     "defaultMessage": "Algorithms Interview Guides",
     "description": "Title for guide card"
-  },
-  "y4l5Q0": {
-    "defaultMessage": "Prep dashboard",
-    "description": "Sidebar label for Front End Interview Prep Dashboard page"
   },
   "y4v8AZ": {
     "defaultMessage": "Component libraries",

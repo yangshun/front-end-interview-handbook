@@ -300,14 +300,14 @@ export default function QuestionsUnifiedListWithFilters({
           autoComplete="off"
           isLabelHidden={true}
           label={intl.formatMessage({
-            defaultMessage: 'Search coding questions',
-            description: 'Placeholder for search input of coding question list',
-            id: 'jGQnYd',
+            defaultMessage: 'Search questions',
+            description: 'Placeholder for search input of question list',
+            id: '1w3zxf',
           })}
           placeholder={intl.formatMessage({
-            defaultMessage: 'Search coding questions',
-            description: 'Placeholder for search input of coding question list',
-            id: 'jGQnYd',
+            defaultMessage: 'Search questions',
+            description: 'Placeholder for search input of question list',
+            id: '1w3zxf',
           })}
           size="sm"
           startIcon={RiSearchLine}

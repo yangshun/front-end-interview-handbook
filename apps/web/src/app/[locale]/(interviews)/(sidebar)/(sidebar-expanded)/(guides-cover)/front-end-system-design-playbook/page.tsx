@@ -10,17 +10,17 @@ import type {
   FrontEndSystemDesignRouteType,
   GuideCardMetadata,
 } from '~/components/guides/types';
+import FrontEndSystemDesignPlaybookPage from '~/components/interviews/guides/FrontEndSystemDesignPlaybookPage';
 
 import { readGuidesContents } from '~/db/guides/GuidesReader';
 import {
   frontendSystemDesignRouteToFile,
   frontendSystemDesignSlugs,
 } from '~/db/guides/GuidesUtils';
+import { fetchQuestionCompletionCount } from '~/db/QuestionsCount';
 import { fetchQuestionsListSystemDesign } from '~/db/QuestionsListReader';
 import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
-
-import FrontEndSystemDesignPlaybookPage from './FrontEndSystemDesignPlaybookPage';
 
 export const dynamic = 'force-static';
 
@@ -134,15 +134,19 @@ export default async function Page({ params }: Props) {
 
   const { locale } = params;
 
-  const [allGuides, { questions }] = await Promise.all([
-    readAllGuides({ params }),
-    fetchQuestionsListSystemDesign(locale),
-  ]);
+  const [allGuides, { questions }, questionCompletionCount] = await Promise.all(
+    [
+      readAllGuides({ params }),
+      fetchQuestionsListSystemDesign(locale),
+      fetchQuestionCompletionCount(['system-design']),
+    ],
+  );
 
   return (
     <FrontEndSystemDesignPlaybookPage
       allGuides={allGuides}
-      questionCount={questions.length}
+      questionCompletionCount={questionCompletionCount}
+      questions={questions}
     />
   );
 }

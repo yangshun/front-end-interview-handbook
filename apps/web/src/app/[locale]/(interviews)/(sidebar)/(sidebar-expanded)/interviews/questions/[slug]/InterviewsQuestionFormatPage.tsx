@@ -19,8 +19,6 @@ import type {
   QuestionFormat,
   QuestionMetadata,
 } from '~/components/interviews/questions/common/QuestionsTypes';
-import QuestionsQuizListWithFiltersAndProgress from '~/components/interviews/questions/listings/items/QuestionsQuizListWithFiltersAndProgress';
-import QuestionsSystemDesignListWithFilters from '~/components/interviews/questions/listings/items/QuestionsSystemDesignListWithFilters';
 import QuestionsUnifiedListWithFiltersAndProgress from '~/components/interviews/questions/listings/items/QuestionsUnifiedListWithFiltersAndProgress';
 import { useIntl } from '~/components/intl';
 import MDXContent from '~/components/mdx/MDXContent';
@@ -162,35 +160,16 @@ export default function InterviewsQuestionFormatPage({
         <Divider className="mt-8" />
       </div>
       <Section>
-        {format === 'quiz' && (
-          <QuestionsQuizListWithFiltersAndProgress
-            filterNamespace={filterNamespace}
-            questionCompletionCount={questionCompletionCount}
-            questions={questions}
-            showTopicFilterTags={false}
-          />
-        )}
-        {(format === 'javascript' ||
-          format === 'algo' ||
-          format === 'user-interface') && (
-          <QuestionsUnifiedListWithFiltersAndProgress
-            filterNamespace={filterNamespace}
-            guides={
-              guidesWithCompletionStatus.length > 0 ? guidesData : undefined
-            }
-            questionCompletionCount={questionCompletionCount}
-            questions={questions}
-            showSummarySection={false}
-          />
-        )}
-        {format === 'system-design' && (
-          <QuestionsSystemDesignListWithFilters
-            filterNamespace={filterNamespace}
-            layout="full"
-          />
-        )}
+        <QuestionsUnifiedListWithFiltersAndProgress
+          filterNamespace={filterNamespace}
+          guides={
+            guidesWithCompletionStatus.length > 0 ? guidesData : undefined
+          }
+          questionCompletionCount={questionCompletionCount}
+          questions={questions}
+          showSummarySection={false}
+        />
       </Section>
-
       {bottomContent && (
         <>
           <Divider className="my-8" />

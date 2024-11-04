@@ -1,33 +1,25 @@
 'use client';
 
-import clsx from 'clsx';
+import QuestionsUnifiedListWithFiltersAndProgress from '~/components/interviews/questions/listings/items/QuestionsUnifiedListWithFiltersAndProgress';
 
-import InterviewsDashboardStudyGuideList from '~/components/interviews/dashboard/InterviewsDashboardStudyGuideList';
-import InterviewsDashboardStudyPlansCTA from '~/components/interviews/dashboard/InterviewsDashboardStudyPlansCTA';
-import { useSystemDesignGuides } from '~/components/interviews/questions/content/system-design/SystemDesignNavigation';
-import QuestionsSystemDesignListWithFilters from '~/components/interviews/questions/listings/items/QuestionsSystemDesignListWithFilters';
+import type { QuestionCompletionCount } from '~/db/QuestionsCount';
 
-export default function InterviewsDashboardPrepareSystemDesignPage() {
-  const systemDesignLearningContent = useSystemDesignGuides();
+import type { QuestionMetadata } from '../questions/common/QuestionsTypes';
 
+type Props = Readonly<{
+  questionCompletionCount?: QuestionCompletionCount;
+  questions: ReadonlyArray<QuestionMetadata>;
+}>;
+
+export default function InterviewsDashboardPrepareSystemDesignPage({
+  questions,
+  questionCompletionCount,
+}: Props) {
   return (
-    <div className="xl:grid xl:grid-cols-12 xl:gap-x-6">
-      <div className="xl:col-span-9">
-        <QuestionsSystemDesignListWithFilters
-          filterNamespace="prepare-system-design"
-          layout="embedded"
-        />
-      </div>
-      <aside
-        className={clsx(
-          'hidden h-full flex-col gap-y-12 xl:col-span-3 xl:flex',
-        )}>
-        <InterviewsDashboardStudyPlansCTA />
-        <InterviewsDashboardStudyGuideList
-          href={systemDesignLearningContent[0].href}
-          items={systemDesignLearningContent}
-        />
-      </aside>
-    </div>
+    <QuestionsUnifiedListWithFiltersAndProgress
+      filterNamespace="prepare-system-design"
+      questionCompletionCount={questionCompletionCount}
+      questions={questions}
+    />
   );
 }

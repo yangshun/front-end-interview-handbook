@@ -51,21 +51,18 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function Page({ params }: Props) {
   const { locale } = params;
-  const [
-    { questions: quizQuestions },
-    questionCompletionCount,
-    questionTotalAvailableCount,
-  ] = await Promise.all([
-    fetchQuestionsListQuiz(locale),
-    fetchQuestionCompletionCount(['quiz']),
-    fetchQuestionsListCount(),
-  ]);
+  const [{ questions }, questionCompletionCount, questionTotalAvailableCount] =
+    await Promise.all([
+      fetchQuestionsListQuiz(locale),
+      fetchQuestionCompletionCount(['quiz']),
+      fetchQuestionsListCount(),
+    ]);
 
   return (
     <InterviewsDashboardPrepareQuizPage
       questionCompletionCount={questionCompletionCount}
       questionTotalAvailableCount={questionTotalAvailableCount}
-      questions={quizQuestions}
+      questions={questions}
     />
   );
 }

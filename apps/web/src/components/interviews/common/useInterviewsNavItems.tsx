@@ -2,6 +2,7 @@ import {
   RiBookOpenLine,
   RiBuilding2Line,
   RiCalendar2Line,
+  RiEyeLine,
   RiFocus2Line,
   RiHome3Line,
   RiPriceTag3Line,
@@ -75,13 +76,12 @@ export default function useInterviewsNavItems(placement: 'nav' | 'sidebar') {
   } as const;
   const recommendedPreparation = {
     align: 'center',
-    currentMatchRegex: /greatfrontend75/,
     icon: RiThumbUpLine,
     itemKey: 'questions-types',
     // TODO(interviews): consolidate with "recommended prep strategy" dropdown menu.
     items: [
       {
-        href: guidesData['front-end-interview-guidebook'].href,
+        href: '/front-end-system-design-playbook',
         icon: guidesData['front-end-interview-guidebook'].icon,
         itemKey: guidesData['front-end-interview-guidebook'].key,
         label: guidesData['front-end-interview-guidebook'].name,
@@ -120,7 +120,26 @@ export default function useInterviewsNavItems(placement: 'nav' | 'sidebar') {
         type: 'popover-link',
       },
       {
-        href: guidesData['front-end-system-design-guidebook'].href,
+        href: '/interviews/blind75',
+        icon: RiEyeLine,
+        itemKey: 'blind75',
+        label: 'Blind 75',
+        onClick: () => {
+          gtag.event({
+            action: `${placement}.prepare.recommended.blind75.click`,
+            category: 'engagement',
+            label: 'Bling 75',
+          });
+        },
+        sublabel: intl.formatMessage({
+          defaultMessage: 'List of the 75 most important algorithm questions',
+          description: 'Description of Blind 75',
+          id: 'erkZY+',
+        }),
+        type: 'popover-link',
+      },
+      {
+        href: '/front-end-system-design-playbook',
         icon: guidesData['front-end-system-design-guidebook'].icon,
         itemKey: guidesData['front-end-system-design-guidebook'].key,
         label: guidesData['front-end-system-design-guidebook'].name,

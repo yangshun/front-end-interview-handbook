@@ -44,11 +44,9 @@ function RecommendedItemsDropdown({
   }>;
 }) {
   const gfe75session = sessions.find(
-    (session_) => session_.key === 'greatfrontend75',
+    (session) => session.key === 'greatfrontend75',
   );
-  const blind75session = sessions.find(
-    (session_) => session_.key === 'blind75',
-  );
+  const blind75session = sessions.find((session) => session.key === 'blind75');
 
   const items = [
     {
@@ -60,7 +58,7 @@ function RecommendedItemsDropdown({
       href: '/interviews/greatfrontend75',
       // TODO(interviews): better way to count completion.
       isCompleted: gfe75session?._count.progress === 75,
-      label: 'GFE 75',
+      label: 'GreatFrontEnd 75',
     },
     {
       href: '/interviews/blind75',
@@ -89,9 +87,9 @@ function RecommendedItemsDropdown({
             asChild={true}
             label={
               <FormattedMessage
-                defaultMessage="Explore three other items from our recommended preparation strategy."
+                defaultMessage="Explore other items from our recommended preparation strategy."
                 description="Tooltip for other recommended preparation strategy"
-                id="OfXxAy"
+                id="/7J8Gp"
               />
             }>
             <div className="flex items-center gap-1">
@@ -249,6 +247,7 @@ export default function InterviewsRecommendedPrepStrategyPageTitleSection({
         {showRecommendedItemsDropdown && (
           <div className="flex items-center gap-3">
             <Tooltip
+              asChild={true}
               label={
                 <FormattedMessage
                   defaultMessage="This study list is part of our recommended preparation strategy."

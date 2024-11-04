@@ -2,6 +2,8 @@ import type { Metadata } from 'next/types';
 
 import InterviewsDashboardPrepareSystemDesignPage from '~/components/interviews/dashboard/InterviewsDashboardPrepareSystemDesignPage';
 
+import { fetchQuestionCompletionCount } from '~/db/QuestionsCount';
+import { fetchQuestionsListSystemDesign } from '~/db/QuestionsListReader';
 import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
 
@@ -36,6 +38,17 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   });
 }
 
-export default async function Page() {
-  return <InterviewsDashboardPrepareSystemDesignPage />;
+export default async function Page({ params }: Props) {
+  const { locale } = params;
+  const [{ questions }, questionCompletionCount] = await Promise.all([
+    fetchQuestionsListSystemDesign(locale),
+    fetchQuestionCompletionCount(['system-design']),
+  ]);
+
+  return (
+    <InterviewsDashboardPrepareSystemDesignPage
+      questionCompletionCount={questionCompletionCount}
+      questions={questions}
+    />
+  );
 }
