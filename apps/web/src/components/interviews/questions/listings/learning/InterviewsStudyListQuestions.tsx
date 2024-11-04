@@ -31,14 +31,23 @@ import { hashQuestion } from '~/db/QuestionsUtils';
 
 type Props<Q extends QuestionMetadata> = Readonly<{
   checkIfCompletedQuestion?: (question: Q) => boolean;
+  currentListKey?: string;
   listKey?: string;
   metadata: QuestionMetadata;
+  onClickDifferentStudyListQuestion: (href: string) => void;
   questions: ReadonlyArray<Q>;
 }>;
 
 export default function InterviewsStudyListQuestions<
   Q extends QuestionMetadata,
->({ checkIfCompletedQuestion, listKey, questions, metadata }: Props<Q>) {
+>({
+  checkIfCompletedQuestion,
+  listKey,
+  currentListKey,
+  questions,
+  metadata,
+  onClickDifferentStudyListQuestion,
+}: Props<Q>) {
   const intl = useIntl();
   const { userProfile } = useUserProfile();
 
@@ -69,6 +78,7 @@ export default function InterviewsStudyListQuestions<
       hashQuestion(question.format, question.slug) ===
       hashQuestion(metadata.format, metadata.slug),
   );
+  const isDifferentStudyList = listKey && listKey !== currentListKey;
 
   return (
     <div>
@@ -119,11 +129,13 @@ export default function InterviewsStudyListQuestions<
           {questions.map((question, index) => {
             const hasCompletedQuestion = checkIfCompletedQuestion?.(question);
 
-            // If the current question is not in the list, the first question is going to be the active question
-            const isActiveQuestion = isCurrentQuestionInTheList
-              ? hashQuestion(question.format, question.slug) ===
-                hashQuestion(metadata.format, metadata.slug)
-              : index === 0;
+            // If the current question is not in the list or different study list, the first question is going to be the active question
+            const isActiveQuestion =
+              isCurrentQuestionInTheList && !isDifferentStudyList
+                ? hashQuestion(question.format, question.slug) ===
+                  hashQuestion(metadata.format, metadata.slug)
+                : index === 0;
+            const href = questionHrefWithList(question.href, currentListKey);
 
             return (
               <Hovercard
@@ -163,11 +175,14 @@ export default function InterviewsStudyListQuestions<
                               weight="medium">
                               <Anchor
                                 className="focus:outline-none"
-                                href={questionHrefWithList(
-                                  question.href,
-                                  listKey,
-                                )}
-                                variant="unstyled">
+                                href={isDifferentStudyList ? '#' : href}
+                                variant="unstyled"
+                                onClick={
+                                  isDifferentStudyList
+                                    ? () =>
+                                        onClickDifferentStudyListQuestion(href)
+                                    : undefined
+                                }>
                                 {/* Extend touch target to entire panel */}
                                 <span
                                   aria-hidden="true"
@@ -226,6 +241,8 @@ export default function InterviewsStudyListQuestions<
             hashQuestion(question.format, question.slug) ===
             hashQuestion(metadata.format, metadata.slug);
 
+          const href = questionHrefWithList(question.href, currentListKey);
+
           return (
             <li
               key={hashQuestion(question.format, question.slug)}
@@ -257,8 +274,13 @@ export default function InterviewsStudyListQuestions<
                       weight="medium">
                       <Anchor
                         className="focus:outline-none"
-                        href={questionHrefWithList(question.href, listKey)}
-                        variant="unstyled">
+                        href={isDifferentStudyList ? '#' : href}
+                        variant="unstyled"
+                        onClick={
+                          isDifferentStudyList
+                            ? () => onClickDifferentStudyListQuestion(href)
+                            : undefined
+                        }>
                         {/* Extend touch target to entire panel */}
                         <span aria-hidden="true" className="absolute inset-0" />
                         {question.title}

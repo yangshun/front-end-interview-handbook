@@ -31,6 +31,10 @@
     "defaultMessage": "{totalCount} submissions",
     "description": "Total number of projects submissions"
   },
+  "+C/8iu": {
+    "defaultMessage": "You've selected a question from a different study list than the one you're currently using. Navigating to it will switch your current list. Do you want to proceed?",
+    "description": "Confirmation text for switching study list"
+  },
   "+ESKYF": {
     "defaultMessage": "Svelte Questions",
     "description": "Svelte questions category long title"
@@ -175,6 +179,10 @@
     "defaultMessage": "Special case for richtext editor",
     "description": "Special case action for richtext editor toolbar"
   },
+  "/D6EXa": {
+    "defaultMessage": "You've selected a different study list than the one you're currently using. Navigating to it will switch your current list. Do you want to proceed?",
+    "description": "Confirmation text for switching study list"
+  },
   "/DSBg7": {
     "defaultMessage": "Bio",
     "description": "Label for bio field"
@@ -290,6 +298,10 @@
   "08L9Y1": {
     "defaultMessage": "Previous submissions",
     "description": "Historical project submissions"
+  },
+  "09QDZQ": {
+    "defaultMessage": "Switch",
+    "description": "Button label for switch study list"
   },
   "0AnwRY": {
     "defaultMessage": "GreatFrontEnd Interviews",
@@ -666,6 +678,10 @@
   "37Ttml": {
     "defaultMessage": "Security",
     "description": "Title for Security section on profile page"
+  },
+  "3EzwJo": {
+    "defaultMessage": "Switch study list",
+    "description": "Label to switch study list dialog"
   },
   "3FeosO": {
     "defaultMessage": "NEW",

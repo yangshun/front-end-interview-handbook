@@ -92,17 +92,32 @@ const nextConfig = {
       {
         source: '/study-plans',
         destination: '/interviews/study-plans',
-        permanent: false,
+        permanent: true,
+      },
+      {
+        source: '/prepare/one-week',
+        destination: '/interviews/study-plans/one-week',
+        permanent: true,
+      },
+      {
+        source: '/prepare/one-month',
+        destination: '/interviews/study-plans/one-month',
+        permanent: true,
+      },
+      {
+        source: '/prepare/three-months',
+        destination: '/interviews/study-plans/three-months',
+        permanent: true,
       },
       {
         source: '/focus-areas',
         destination: '/interviews/focus-areas',
-        permanent: false,
+        permanent: true,
       },
       {
         source: '/focus-areas/:path*',
         destination: '/interviews/focus-areas/:path*',
-        permanent: false,
+        permanent: true,
       },
     ];
   },

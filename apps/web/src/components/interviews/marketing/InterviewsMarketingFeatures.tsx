@@ -76,17 +76,19 @@ function useFeatures() {
           id="YdQTiq"
           values={{
             omlink: (chunks) => (
-              <Anchor href="/prepare/one-month" prefetch={null}>
+              <Anchor href="/interviews/study-plans/one-month" prefetch={null}>
                 {chunks}
               </Anchor>
             ),
             owlink: (chunks) => (
-              <Anchor href="/prepare/one-week" prefetch={null}>
+              <Anchor href="/interviews/study-plans/one-week" prefetch={null}>
                 {chunks}
               </Anchor>
             ),
             tmlink: (chunks) => (
-              <Anchor href="/prepare/three-months" prefetch={null}>
+              <Anchor
+                href="/interviews/study-plans/three-months"
+                prefetch={null}>
                 {chunks}
               </Anchor>
             ),

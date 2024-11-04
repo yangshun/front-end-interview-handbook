@@ -80,7 +80,7 @@ function useFooterNavigation() {
       key: 'preparationPlans',
       links: [
         {
-          href: '/prepare/one-week',
+          href: '/interviews/study-plans/one-week',
           key: 'one_week',
           name: intl.formatMessage({
             defaultMessage: '1 Week Plan',
@@ -89,7 +89,7 @@ function useFooterNavigation() {
           }),
         },
         {
-          href: '/prepare/one-month',
+          href: '/interviews/study-plans/one-month',
           key: 'one_month',
           name: intl.formatMessage({
             defaultMessage: '1 Month Plan',
@@ -98,7 +98,7 @@ function useFooterNavigation() {
           }),
         },
         {
-          href: '/prepare/three-months',
+          href: '/interviews/study-plans/three-months',
           key: 'three_months',
           name: intl.formatMessage({
             defaultMessage: '3 Months Plan',

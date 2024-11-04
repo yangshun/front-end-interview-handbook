@@ -1,8 +1,12 @@
 import clsx from 'clsx';
-import { RiArrowRightSLine, RiFilterLine } from 'react-icons/ri';
+import { useState } from 'react';
+import { RiArrowRightSLine, RiFilterLine, RiLockLine } from 'react-icons/ri';
 
 import { trpc } from '~/hooks/trpc';
 
+import { useUserProfile } from '~/components/global/UserProfileProvider';
+import InterviewsPricingTableDialog from '~/components/interviews/purchase/InterviewsPricingTableDialog';
+import type { QuestionFeatureType } from '~/components/interviews/questions/common/QuestionsTypes';
 import { useIntl } from '~/components/intl';
 import DropdownMenu from '~/components/ui/DropdownMenu';
 import ScrollArea from '~/components/ui/ScrollArea';
@@ -20,10 +24,15 @@ import * as AccordionPrimitive from '@radix-ui/react-accordion';
 function StudyListsItems({
   item,
   onChangeStudyList,
+  openPricingDialog,
 }: Readonly<{
   item: StudyListItemsType;
   onChangeStudyList: (value: StudyListItemType) => void;
+  openPricingDialog: (feature: QuestionFeatureType | undefined) => void;
 }>) {
+  const { userProfile } = useUserProfile();
+  const showPremiumLock = item.isPremium && !userProfile?.isInterviewsPremium;
+
   return (
     <AccordionPrimitive.Item className="flex flex-col gap-1" value={item.key}>
       <AccordionPrimitive.Header>
@@ -63,10 +72,23 @@ function StudyListsItems({
           {item.items.map((studyListItem) => (
             <DropdownMenu.Item
               key={studyListItem.listKey}
-              label={<Text size="body2">{studyListItem.name}</Text>}
-              onClick={() => {
-                onChangeStudyList(studyListItem);
-              }}
+              endAddOn={
+                showPremiumLock ? (
+                  <RiLockLine
+                    className={clsx('size-4 shrink-0', themeTextSubtleColor)}
+                  />
+                ) : undefined
+              }
+              label={
+                <Text className="w-full" size="body2">
+                  {studyListItem.name}
+                </Text>
+              }
+              onClick={() =>
+                showPremiumLock
+                  ? openPricingDialog(item.pricingTableFeature)
+                  : onChangeStudyList(studyListItem)
+              }
             />
           ))}
         </ul>
@@ -75,7 +97,15 @@ function StudyListsItems({
   );
 }
 
-function DropdownContent({ currentStudyList, onChangeStudyList }: Props) {
+function DropdownContent({
+  currentStudyList,
+  onChangeStudyList,
+  openPricingDialog,
+}: Readonly<{
+  currentStudyList: StudyListItemType;
+  onChangeStudyList: (value: StudyListItemType) => void;
+  openPricingDialog: (feature: QuestionFeatureType | undefined) => void;
+}>) {
   const intl = useIntl();
   const { data: studyLists, isLoading } =
     trpc.questionLists.getStudyListsSelectorData.useQuery();
@@ -100,6 +130,7 @@ function DropdownContent({ currentStudyList, onChangeStudyList }: Props) {
       }),
     },
     {
+      isPremium: true,
       items: [
         studyPlansMap['one-week'],
         studyPlansMap['one-month'],
@@ -111,6 +142,7 @@ function DropdownContent({ currentStudyList, onChangeStudyList }: Props) {
         description: 'Label for study plans study list',
         id: 'mKOi1B',
       }),
+      pricingTableFeature: 'study-plans',
     },
     {
       items: studyLists.focusAreas,
@@ -122,6 +154,7 @@ function DropdownContent({ currentStudyList, onChangeStudyList }: Props) {
       }),
     },
     {
+      isPremium: true,
       items: studyLists.companies,
       key: 'company',
       label: intl.formatMessage({
@@ -129,6 +162,7 @@ function DropdownContent({ currentStudyList, onChangeStudyList }: Props) {
         description: 'Label for company study list',
         id: 'Ekf7hb',
       }),
+      pricingTableFeature: 'company-guides',
     },
   ];
 
@@ -154,6 +188,7 @@ function DropdownContent({ currentStudyList, onChangeStudyList }: Props) {
             <StudyListsItems
               key={item.key}
               item={item}
+              openPricingDialog={openPricingDialog}
               onChangeStudyList={onChangeStudyList}
             />
           ))}
@@ -169,9 +204,11 @@ export type StudyListItemType = Readonly<{
 }>;
 
 type StudyListItemsType = Readonly<{
+  isPremium?: boolean;
   items: ReadonlyArray<StudyListItemType>;
   key: string;
   label: string;
+  pricingTableFeature?: QuestionFeatureType;
 }>;
 
 function convertToMap(studyLists: ReadonlyArray<StudyListItemType>) {
@@ -191,19 +228,45 @@ export default function InterviewsStudyListSelector({
   currentStudyList,
   onChangeStudyList,
 }: Props) {
+  const [showPricingDialog, setShowPricingDialog] = useState<{
+    feature: QuestionFeatureType | undefined;
+    show: boolean;
+  }>({
+    feature: undefined,
+    show: false,
+  });
+
   return (
-    <DropdownMenu
-      align="start"
-      icon={RiFilterLine}
-      label={currentStudyList.name}
-      modal={true}
-      showChevron={true}
-      size="md"
-      variant="tertiary">
-      <DropdownContent
-        currentStudyList={currentStudyList}
-        onChangeStudyList={onChangeStudyList}
+    <>
+      <DropdownMenu
+        align="start"
+        icon={RiFilterLine}
+        label={currentStudyList.name}
+        modal={true}
+        showChevron={true}
+        size="md"
+        variant="tertiary">
+        <DropdownContent
+          currentStudyList={currentStudyList}
+          openPricingDialog={(feature) =>
+            setShowPricingDialog({
+              feature,
+              show: true,
+            })
+          }
+          onChangeStudyList={onChangeStudyList}
+        />
+      </DropdownMenu>
+      <InterviewsPricingTableDialog
+        feature={showPricingDialog.feature}
+        isShown={showPricingDialog.show}
+        onClose={() =>
+          setShowPricingDialog({
+            feature: undefined,
+            show: false,
+          })
+        }
       />
-    </DropdownMenu>
+    </>
   );
 }

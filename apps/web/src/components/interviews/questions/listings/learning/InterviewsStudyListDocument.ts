@@ -45,7 +45,7 @@ export const InterviewsStudyListDocument = defineDocumentType(() => ({
             return `/interviews/focus-areas/${slug}`;
           }
           case 'study-plan': {
-            return `/prepare/${slug}`;
+            return `/interviews/study-plans/${slug}`;
           }
         }
       },

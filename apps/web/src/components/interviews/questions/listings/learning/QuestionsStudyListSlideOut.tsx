@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 import { useRouter } from 'next/navigation';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import {
   RiArrowDownSLine,
   RiArrowUpSLine,
@@ -14,6 +14,7 @@ import { trpc } from '~/hooks/trpc';
 
 import { useQuestionUserFacingFormatData } from '~/data/QuestionFormats';
 
+import ConfirmationDialog from '~/components/common/ConfirmationDialog';
 import { useUserProfile } from '~/components/global/UserProfileProvider';
 import type {
   QuestionFramework,
@@ -32,7 +33,7 @@ import {
 } from '~/components/interviews/questions/listings/filters/QuestionsProcessor';
 import type { StudyListItemType } from '~/components/interviews/questions/listings/learning/InterviewsStudyListSelector';
 import InterviewsStudyListSelector from '~/components/interviews/questions/listings/learning/InterviewsStudyListSelector';
-import { useIntl } from '~/components/intl';
+import { FormattedMessage, useIntl } from '~/components/intl';
 import Badge from '~/components/ui/Badge';
 import Button from '~/components/ui/Button';
 import CheckboxInput from '~/components/ui/CheckboxInput';
@@ -184,12 +185,18 @@ function FrameworkAndLanguageFilterSection<Q extends QuestionMetadata>({
 
 function Contents({
   listKey,
+  currentListKey,
   metadata,
   filterNamespace,
+  setFirstQuestionHref,
+  onClickDifferentStudyListQuestion,
 }: Readonly<{
+  currentListKey?: string;
   filterNamespace: string;
-  listKey?: string | undefined;
+  listKey?: string;
   metadata: QuestionMetadata;
+  onClickDifferentStudyListQuestion: (href: string) => void;
+  setFirstQuestionHref: (href: string) => void;
 }>) {
   const intl = useIntl();
   const { userProfile } = useUserProfile();
@@ -201,8 +208,9 @@ function Contents({
   // To fetch the list specific question when user change the study list
   const { data: listQuestions, isLoading } =
     trpc.questionLists.getQuestions.useQuery({
-      listKey,
+      listKey: currentListKey,
     });
+
   const questionsWithCompletionStatus = useQuestionsWithCompletionStatus(
     listQuestions ?? [],
   );
@@ -262,6 +270,15 @@ function Contents({
     sortedQuestions,
     filters.map(([_, filterFn]) => filterFn),
   );
+
+  // Get the href of the first question in the list for navigation on closing slide out
+  useEffect(() => {
+    if (processedQuestions.length > 0) {
+      setFirstQuestionHref(
+        questionHrefWithList(processedQuestions[0].href, currentListKey),
+      );
+    }
+  }, [currentListKey, processedQuestions, setFirstQuestionHref]);
 
   const numberOfFilters = filters.filter(([size]) => size > 0).length;
 
@@ -493,7 +510,7 @@ function Contents({
               autoComplete="off"
               isLabelHidden={true}
               label={
-                listKey
+                currentListKey
                   ? intl.formatMessage({
                       defaultMessage: 'Search in the list',
                       description: 'Search placeholder for study list',
@@ -502,7 +519,7 @@ function Contents({
                   : searchPlaceholder
               }
               placeholder={
-                listKey
+                currentListKey
                   ? intl.formatMessage({
                       defaultMessage: 'Search in the list',
                       description: 'Search placeholder for study list',
@@ -557,9 +574,11 @@ function Contents({
       ) : (
         <InterviewsStudyListQuestions
           checkIfCompletedQuestion={(question) => question.isCompleted}
+          currentListKey={currentListKey}
           listKey={listKey}
           metadata={metadata}
           questions={processedQuestions}
+          onClickDifferentStudyListQuestion={onClickDifferentStudyListQuestion}
         />
       )}
     </div>
@@ -592,17 +611,44 @@ export default function QuestionsStudyListSlideOut({
   const filterNamespace = studyList
     ? `study-list:${currentStudyList?.listKey}`
     : 'prepare-coding';
+  const [showStudyListSwitchDialog, setShowStudyListSwitchDialog] = useState<{
+    href: string | null;
+    show: boolean;
+    type: 'question-click' | 'switch';
+  }>({
+    href: null,
+    show: false,
+    type: 'switch',
+  });
+  const [firstQuestionHref, setFirstQuestionHref] = useState<string | null>(
+    null,
+  );
 
-  const onClose = () => {
+  function onClose() {
+    if (studyList?.listKey && studyList.listKey !== currentStudyList?.listKey) {
+      setShowStudyListSwitchDialog({
+        href: firstQuestionHref,
+        show: true,
+        type: 'switch',
+      });
+
+      return;
+    }
     // If the active question is not in the list
     // redirect to the first question in the list on closing
-    if (currentQuestionPosition === 0 && processedQuestions.length > 0) {
-      router.push(
-        questionHrefWithList(processedQuestions[0].href, studyList?.listKey),
-      );
+    if (currentQuestionPosition === 0 && firstQuestionHref) {
+      router.push(firstQuestionHref);
     }
     setIsShown(false);
-  };
+  }
+
+  function onCloseStudyListSwitchDialog() {
+    setShowStudyListSwitchDialog((prev) => ({
+      ...prev,
+      href: null,
+      show: false,
+    }));
+  }
 
   return (
     <SlideOut
@@ -648,11 +694,55 @@ export default function QuestionsStudyListSlideOut({
       {isShown && (
         <Contents
           key={currentStudyList?.listKey ?? 'coding'}
+          currentListKey={currentStudyList?.listKey}
           filterNamespace={filterNamespace}
           listKey={currentStudyList?.listKey}
           metadata={metadata}
+          setFirstQuestionHref={setFirstQuestionHref}
+          onClickDifferentStudyListQuestion={(href: string) =>
+            setShowStudyListSwitchDialog({
+              href,
+              show: true,
+              type: 'question-click',
+            })
+          }
         />
       )}
+      <ConfirmationDialog
+        confirmButtonLabel={intl.formatMessage({
+          defaultMessage: 'Switch',
+          description: 'Button label for switch study list',
+          id: '09QDZQ',
+        })}
+        isShown={showStudyListSwitchDialog.show}
+        title={intl.formatMessage({
+          defaultMessage: 'Switch study list',
+          description: 'Label to switch study list dialog',
+          id: '3EzwJo',
+        })}
+        onCancel={onCloseStudyListSwitchDialog}
+        onConfirm={() => {
+          if (!showStudyListSwitchDialog.href) {
+            return;
+          }
+          onCloseStudyListSwitchDialog();
+          setIsShown(false);
+          router.push(showStudyListSwitchDialog.href);
+        }}>
+        {showStudyListSwitchDialog.type === 'question-click' ? (
+          <FormattedMessage
+            defaultMessage="You've selected a question from a different study list than the one you're currently using. Navigating to it will switch your current list. Do you want to proceed?"
+            description="Confirmation text for switching study list"
+            id="+C/8iu"
+          />
+        ) : (
+          <FormattedMessage
+            defaultMessage="You've selected a different study list than the one you're currently using. Navigating to it will switch your current list. Do you want to proceed?"
+            description="Confirmation text for switching study list"
+            id="/D6EXa"
+          />
+        )}
+      </ConfirmationDialog>
     </SlideOut>
   );
 }

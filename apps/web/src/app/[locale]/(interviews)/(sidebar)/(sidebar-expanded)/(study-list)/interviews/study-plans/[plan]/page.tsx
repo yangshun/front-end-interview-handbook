@@ -18,17 +18,17 @@ import defaultMetadata from '~/seo/defaultMetadata';
 import { getSiteOrigin } from '~/seo/siteUrl';
 
 async function getPageSEOMetadata({ plan }: Props['params']) {
-  const focusAreaDocument = await fetchInterviewsStudyList(plan);
+  const studyPlanDocument = await fetchInterviewsStudyList(plan);
 
-  if (focusAreaDocument == null) {
+  if (studyPlanDocument == null) {
     return notFound();
   }
 
   return {
-    description: focusAreaDocument.seoDescription,
-    href: focusAreaDocument.href,
-    socialTitle: focusAreaDocument.socialTitle,
-    title: focusAreaDocument.seoTitle,
+    description: studyPlanDocument.seoDescription,
+    href: studyPlanDocument.href,
+    socialTitle: studyPlanDocument.socialTitle,
+    title: studyPlanDocument.seoTitle,
   };
 }
 
