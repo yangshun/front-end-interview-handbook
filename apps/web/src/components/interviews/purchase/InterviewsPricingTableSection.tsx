@@ -5,7 +5,6 @@ import { useEffect } from 'react';
 import { useId } from 'react';
 import { useState } from 'react';
 import {
-  RiArrowRightLine,
   RiCheckLine,
   RiDiscountPercentFill,
   RiInformationLine,
@@ -77,7 +76,6 @@ type Props = Readonly<{
 function PricingButton({
   'aria-describedby': ariaDescribedBy,
   href,
-  icon,
   isDisabled,
   isLoading,
   variant,
@@ -86,7 +84,6 @@ function PricingButton({
 }: Readonly<{
   'aria-describedby': string;
   href?: AnchorProps['href'];
-  icon?: (props: React.ComponentProps<'svg'>) => JSX.Element;
   isDisabled?: boolean;
   isLoading?: boolean;
   label: string;
@@ -98,7 +95,6 @@ function PricingButton({
       aria-describedby={ariaDescribedBy}
       display="block"
       href={href}
-      icon={icon}
       isDisabled={isLoading || isDisabled}
       isLoading={isLoading}
       label={label}
@@ -133,7 +129,6 @@ function PricingButtonNonLoggedIn({
           source: 'buy_now',
         },
       })}
-      icon={RiArrowRightLine}
       isDisabled={isDisabled}
       label={intl.formatMessage({
         defaultMessage: 'Buy now',
@@ -253,7 +248,6 @@ function PricingButtonNonPremium({
       <PricingButton
         aria-describedby={ariaDescribedBy}
         href={checkoutSessionHref ?? undefined}
-        icon={RiArrowRightLine}
         isDisabled={showUserThereIsAsyncRequest || isUserProfileLoading}
         isLoading={showUserThereIsAsyncRequest}
         label={intl.formatMessage({
@@ -329,7 +323,6 @@ function PricingButtonSection({
       <PricingButton
         aria-describedby={ariaDescribedBy}
         href="/profile/billing"
-        icon={RiArrowRightLine}
         isDisabled={isPending}
         label={intl.formatMessage({
           defaultMessage: 'Manage subscription',
@@ -400,7 +393,11 @@ function FTLPromoSection() {
   return (
     <div>
       <Text className="block" color="secondary" size="body3">
-        Included for free:
+        <FormattedMessage
+          defaultMessage="Included for free"
+          description="Bonus freebie for purchasing"
+          id="GEjP1P"
+        />
       </Text>
       <div className="mt-2 flex items-center gap-3">
         <Text
@@ -413,15 +410,20 @@ function FTLPromoSection() {
           size="body2">
           FTL
         </Text>
-        <Text className="grow" color="secondary" size="body3">
-          FAANG Tech Leads{' '}
-          <Anchor
-            className={clsx(textVariants(), 'hover:underline')}
-            href="https://faangtechleads.com"
-            variant="unstyled">
-            Software Engineer Resume References and Handbook Package
-          </Anchor>{' '}
-        </Text>
+        <Anchor
+          className={clsx(
+            textVariants({
+              className: 'grow',
+              color: 'secondary',
+              size: 'body3',
+            }),
+            'hover:underline',
+          )}
+          href="https://faangtechleads.com"
+          variant="unstyled">
+          FAANG Tech Leads Software Engineer Resume References and Handbook
+          Package
+        </Anchor>
         <Text className="whitespace-nowrap" size="body0" weight="bold">
           28 USD
         </Text>
@@ -615,10 +617,10 @@ export default function InterviewsPricingTableSection({
   const lifetimePlanDetails: InterviewsPricingPlanItem = {
     description: intl.formatMessage({
       defaultMessage:
-        'Pay once, get full access to the interviews platform forever, including updates.',
+        'Pay once, get full access to the interviews platform forever',
       description:
         'Subtitle of LifeTime Access Pricing Plan found on Homepage or Pricing page',
-      id: 'ZtqhZJ',
+      id: '4P9bN0',
     }),
     ftlPromo: true,
     includedFeatures: [featureAllAccess, featureDiscordAccess],

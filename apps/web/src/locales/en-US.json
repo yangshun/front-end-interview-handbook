@@ -839,6 +839,10 @@
     "defaultMessage": "Number of challenges completed using this skill, including challenges not in the recommended skill plan",
     "description": "Tooltip for completed challenges label"
   },
+  "4P9bN0": {
+    "defaultMessage": "Pay once, get full access to the interviews platform forever",
+    "description": "Subtitle of LifeTime Access Pricing Plan found on Homepage or Pricing page"
+  },
   "4PQzx7": {
     "defaultMessage": "A starter guide to preparing for front end interviews",
     "description": "Description for front end interview guide"
@@ -2522,6 +2526,10 @@
   "GDgFZ0": {
     "defaultMessage": "GreatFrontEnd Annual",
     "description": "GFE annual plan"
+  },
+  "GEjP1P": {
+    "defaultMessage": "Included for free",
+    "description": "Bonus freebie for purchasing"
   },
   "GHQ8sO": {
     "defaultMessage": "Cancel anytime.",
@@ -5698,10 +5706,6 @@
   "ZsOMcv": {
     "defaultMessage": "Select online asset type",
     "description": "Label for tabs to select online asset type"
-  },
-  "ZtqhZJ": {
-    "defaultMessage": "Pay once, get full access to the interviews platform forever, including updates.",
-    "description": "Subtitle of LifeTime Access Pricing Plan found on Homepage or Pricing page"
   },
   "Zui1cu": {
     "defaultMessage": "Focus areas",
