@@ -149,6 +149,7 @@ export default async function handler(req: NextRequest) {
       first_promoter_tid: req.cookies.get('_fprom_tid')?.value,
       receipt_email: user?.email,
       stripe_customer_id: stripeCustomerId,
+      'x-vercel-protection-bypass': process.env.VERCEL_AUTOMATION_BYPASS_SECRET,
     };
 
     const queryParams: CheckoutQueryParams =
