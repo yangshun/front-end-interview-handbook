@@ -21,13 +21,15 @@ import { hashQuestion } from '~/db/QuestionsUtils';
 
 import { questionHrefWithList } from '../../common/questionHref';
 
+type Props = Readonly<{
+  metadata: QuestionMetadata;
+  studyList?: Readonly<{ listKey: string; name: string }>;
+}>;
+
 export default function QuestionsStudyListSlideOutButton({
   metadata,
   studyList,
-}: Readonly<{
-  metadata: QuestionMetadata;
-  studyList?: Readonly<{ listKey: string; name: string }>;
-}>) {
+}: Props) {
   const { userProfile } = useUserProfile();
   const { isLoading, data: questions } =
     trpc.questionLists.getQuestions.useQuery({
@@ -104,11 +106,9 @@ export default function QuestionsStudyListSlideOutButton({
         />
         <QuestionsStudyListSlideOut
           currentQuestionPosition={currentQuestionIndex + 1}
-          filterNamespace={filterNamespace}
           isDisabled={isLoading}
           metadata={metadata}
           processedQuestions={processedQuestions}
-          questions={questionsWithCompletionStatus}
           studyList={studyList}
         />
         <Button

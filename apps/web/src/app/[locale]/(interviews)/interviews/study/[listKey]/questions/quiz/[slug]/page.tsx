@@ -59,7 +59,7 @@ export default async function Page({ params }: Props) {
   const { locale, slug, listKey } = params;
   const { question } = readQuestionQuizContents(slug, locale);
 
-  const [studyList] = await Promise.all([fetchInterviewsStudyList(listKey)]);
+  const studyList = await fetchInterviewsStudyList(listKey);
 
   return (
     <>

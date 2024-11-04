@@ -2331,6 +2331,10 @@
     "defaultMessage": "Open navigation profile menu",
     "description": "Screenreader text to open the profile menu"
   },
+  "Ekf7hb": {
+    "defaultMessage": "Company guides",
+    "description": "Label for company study list"
+  },
   "EnOEHg": {
     "defaultMessage": "Completions include both questions and articles across the interviews platform.",
     "description": "Label for completions tooltip"
@@ -7255,6 +7259,10 @@
     "defaultMessage": "Warning",
     "description": "Warning badge label for GitHub repo step in project submission checklist"
   },
+  "k+qWwN": {
+    "defaultMessage": "Recommended prep strategy",
+    "description": "Label for recommended prep study list"
+  },
   "k18teo": {
     "defaultMessage": "This is a one-time use promo code exclusive to your account and <strong>can only be generated once</strong>.",
     "description": "Subtext for rewards complete page"
@@ -7503,6 +7511,10 @@
     "defaultMessage": "Cheatsheet",
     "description": "Best practices for building UI during front end interviews"
   },
+  "l714HN": {
+    "defaultMessage": "Focus areas",
+    "description": "Label for focus areas study list"
+  },
   "l9OWsu": {
     "defaultMessage": "Testing",
     "description": "Testing topic for quiz questions"
@@ -7618,6 +7630,10 @@
   "mH6g90": {
     "defaultMessage": "You are currently working on this skill",
     "description": "Description for projects skill in progress status"
+  },
+  "mKOi1B": {
+    "defaultMessage": "Study plans",
+    "description": "Label for study plans study list"
   },
   "mLRZ25": {
     "defaultMessage": "See all",

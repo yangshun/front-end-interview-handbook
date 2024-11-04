@@ -17,3 +17,13 @@ export async function fetchInterviewsStudyLists(
     ({ category }) => categoryParam === category,
   );
 }
+
+export async function fetchInterviewsAllStudyLists() {
+  const [focusAreas, studyPlans, companies] = await Promise.all([
+    fetchInterviewsStudyLists('focus-area'),
+    fetchInterviewsStudyLists('study-plan'),
+    fetchInterviewsStudyLists('company'),
+  ]);
+
+  return { companies, focusAreas, studyPlans };
+}

@@ -9,6 +9,7 @@ import {
   fetchQuestionsListCoding,
 } from '~/db/QuestionsListReader';
 import { hashQuestion } from '~/db/QuestionsUtils';
+import { fetchStudyListsSelectorData } from '~/db/StudyListUtils';
 import prisma from '~/server/prisma';
 
 import { publicProcedure, router, userProcedure } from '../trpc';
@@ -96,6 +97,9 @@ export const questionListsRouter = router({
         },
       });
     }),
+  getStudyListsSelectorData: userProcedure.query(async () => {
+    return await fetchStudyListsSelectorData();
+  }),
   markAsNotComplete: userProcedure
     .input(
       z.object({

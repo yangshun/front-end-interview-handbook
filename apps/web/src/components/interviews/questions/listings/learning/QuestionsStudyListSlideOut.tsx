@@ -10,6 +10,8 @@ import {
 } from 'react-icons/ri';
 import { useMediaQuery } from 'usehooks-ts';
 
+import { trpc } from '~/hooks/trpc';
+
 import { useQuestionUserFacingFormatData } from '~/data/QuestionFormats';
 
 import { useUserProfile } from '~/components/global/UserProfileProvider';
@@ -28,6 +30,8 @@ import {
   sortQuestionsMultiple,
   tabulateQuestionsAttributesUnion,
 } from '~/components/interviews/questions/listings/filters/QuestionsProcessor';
+import type { StudyListItemType } from '~/components/interviews/questions/listings/learning/InterviewsStudyListSelector';
+import InterviewsStudyListSelector from '~/components/interviews/questions/listings/learning/InterviewsStudyListSelector';
 import { useIntl } from '~/components/intl';
 import Badge from '~/components/ui/Badge';
 import Button from '~/components/ui/Button';
@@ -37,11 +41,13 @@ import DropdownMenu from '~/components/ui/DropdownMenu';
 import FilterButton from '~/components/ui/FilterButton/FilterButton';
 import Popover from '~/components/ui/Popover';
 import SlideOut from '~/components/ui/SlideOut';
+import Spinner from '~/components/ui/Spinner';
 import Text from '~/components/ui/Text';
 import TextInput from '~/components/ui/TextInput';
 import { themeBorderColor } from '~/components/ui/theme';
 
 import InterviewsStudyListQuestions from './InterviewsStudyListQuestions';
+import useQuestionsWithCompletionStatus from '../filters/hooks/useQuestionsWithCompletionStatus';
 import { questionHrefWithList } from '../../common/questionHref';
 
 function FilterSection<T extends string, Q extends QuestionMetadata>({
@@ -178,14 +184,12 @@ function FrameworkAndLanguageFilterSection<Q extends QuestionMetadata>({
 
 function Contents({
   listKey,
-  questions,
   metadata,
   filterNamespace,
 }: Readonly<{
   filterNamespace: string;
   listKey?: string | undefined;
   metadata: QuestionMetadata;
-  questions: ReadonlyArray<QuestionMetadataWithCompletedStatus>;
 }>) {
   const intl = useIntl();
   const { userProfile } = useUserProfile();
@@ -194,8 +198,19 @@ function Contents({
   const { searchPlaceholder } = questionFormatLists.coding;
   const [showFilters, setShowFilters] = useState(false);
 
+  // To fetch the list specific question when user change the study list
+  const { data: listQuestions, isLoading } =
+    trpc.questionLists.getQuestions.useQuery({
+      listKey,
+    });
+  const questionsWithCompletionStatus = useQuestionsWithCompletionStatus(
+    listQuestions ?? [],
+  );
+
   // Tabulating.
-  const attributesUnion = tabulateQuestionsAttributesUnion(questions);
+  const attributesUnion = tabulateQuestionsAttributesUnion(
+    questionsWithCompletionStatus,
+  );
 
   // Filtering.
   const {
@@ -237,7 +252,7 @@ function Contents({
 
   // Processing.
   const sortedQuestions = sortQuestionsMultiple(
-    questions,
+    questionsWithCompletionStatus,
     userProfile?.isInterviewsPremium
       ? defaultSortFields
       : // Show free questions first if user is not a premium user.
@@ -535,34 +550,36 @@ function Contents({
         </div>
         {showFilters && embedFilters}
       </form>
-      <InterviewsStudyListQuestions
-        checkIfCompletedQuestion={(question) => question.isCompleted}
-        listKey={listKey}
-        metadata={metadata}
-        questions={processedQuestions}
-      />
+      {isLoading ? (
+        <div className="flex h-40 w-full items-center justify-center">
+          <Spinner size="sm" />
+        </div>
+      ) : (
+        <InterviewsStudyListQuestions
+          checkIfCompletedQuestion={(question) => question.isCompleted}
+          listKey={listKey}
+          metadata={metadata}
+          questions={processedQuestions}
+        />
+      )}
     </div>
   );
 }
 
 type Props = Readonly<{
   currentQuestionPosition: number;
-  filterNamespace: string;
   isDisabled: boolean;
   metadata: QuestionMetadata;
   processedQuestions: ReadonlyArray<QuestionMetadataWithCompletedStatus>;
-  questions: ReadonlyArray<QuestionMetadataWithCompletedStatus>;
   studyList?: Readonly<{ listKey: string; name: string }>;
 }>;
 
 export default function QuestionsStudyListSlideOut({
   isDisabled,
-  questions,
   studyList,
   currentQuestionPosition,
   processedQuestions,
   metadata,
-  filterNamespace,
 }: Props) {
   const intl = useIntl();
   // Have to be controlled because we don't want to
@@ -570,6 +587,11 @@ export default function QuestionsStudyListSlideOut({
   const [isShown, setIsShown] = useState(false);
   const isMobile = useMediaQuery('(max-width: 500px)');
   const router = useRouter();
+  const [currentStudyList, setCurrentStudyList] =
+    useState<StudyListItemType | null>(studyList ?? null);
+  const filterNamespace = studyList
+    ? `study-list:${currentStudyList?.listKey}`
+    : 'prepare-coding';
 
   const onClose = () => {
     // If the active question is not in the list
@@ -589,13 +611,18 @@ export default function QuestionsStudyListSlideOut({
       padding={false}
       size="xl"
       title={
-        studyList != null
-          ? studyList.name
-          : intl.formatMessage({
-              defaultMessage: 'Questions',
-              description: 'Questions list',
-              id: 'Lo9TQS',
-            })
+        currentStudyList != null ? (
+          <InterviewsStudyListSelector
+            currentStudyList={currentStudyList}
+            onChangeStudyList={setCurrentStudyList}
+          />
+        ) : (
+          intl.formatMessage({
+            defaultMessage: 'Questions',
+            description: 'Questions list',
+            id: 'Lo9TQS',
+          })
+        )
       }
       trigger={
         <Button
@@ -620,10 +647,10 @@ export default function QuestionsStudyListSlideOut({
       onClose={onClose}>
       {isShown && (
         <Contents
+          key={currentStudyList?.listKey ?? 'coding'}
           filterNamespace={filterNamespace}
-          listKey={studyList?.listKey}
+          listKey={currentStudyList?.listKey}
           metadata={metadata}
-          questions={questions}
         />
       )}
     </SlideOut>

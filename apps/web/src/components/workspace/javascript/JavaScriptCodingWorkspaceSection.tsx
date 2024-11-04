@@ -23,7 +23,7 @@ type Props = Readonly<{
   onLanguageChange: (language: QuestionCodingWorkingLanguage) => void;
   question: QuestionJavaScript;
   similarQuestions: ReadonlyArray<QuestionMetadata>;
-  studyList?: Readonly<{ listKey: string, name: string; }>;
+  studyList?: Readonly<{ listKey: string; name: string }>;
   timeoutLoggerInstance: string;
 }>;
 
