@@ -151,10 +151,6 @@
     "defaultMessage": "Nothing found just yet",
     "description": "Title for empty state for roadmap"
   },
-  "/8GtPZ": {
-    "defaultMessage": "All plans, including lifetime",
-    "description": "Rewards discount message"
-  },
   "/95uM9": {
     "defaultMessage": "Username should begin and end with an alphanumeric character, and only contain alphanumeric characters or dashes.",
     "description": "Error message when username contains invalid characters"
@@ -730,6 +726,10 @@
   "3bTpP/": {
     "defaultMessage": "Verify your social accounts",
     "description": "Rewards step label"
+  },
+  "3bgJ4F": {
+    "defaultMessage": "Connect with like-minded individuals in the community and get useful tips about building projects - no spam!",
+    "description": "Subtitle for Projects newsletter sign up section"
   },
   "3c9VZh": {
     "defaultMessage": "Clarify doubts in project-specific forums",
@@ -1467,10 +1467,6 @@
     "defaultMessage": "Clarify doubts in forums",
     "description": "Title of 'Clarify doubts in forums' sub-feature in Projects marketing page"
   },
-  "8dsQTo": {
-    "defaultMessage": "Quickly convert challenge designs into HTML, CSS, and Tailwind code by using our <link>Figma to Code plugin</link>.",
-    "description": "Use the Figma to code plugin"
-  },
   "8gXpts": {
     "defaultMessage": "Tasks | Rewards",
     "description": "Title of Rewards tasks page"
@@ -1534,6 +1530,10 @@
   "93rlLI": {
     "defaultMessage": "URL is required",
     "description": "Error message"
+  },
+  "95Is5V": {
+    "defaultMessage": "Quickly convert challenge designs into HTML, CSS, and Tailwind code by using our <link>Figma to Code plugin</link>.",
+    "description": "Use the Figma to code plugin"
   },
   "99Ewym": {
     "defaultMessage": "Introduction",
@@ -2771,13 +2771,13 @@
     "defaultMessage": "LeetCode-style algorithmic coding questions which evaluate your core data structures and algorithms skills.",
     "description": "Description for ui coding questions"
   },
-  "HsLNW4": {
-    "defaultMessage": "Comprehensive front end system design guides",
-    "description": "Tooltip label for unlock all premium interviews content"
-  }
   "Hq/krL": {
     "defaultMessage": "Complete simple social tasks",
     "description": "Instructions to get a discount"
+  },
+  "HsLNW4": {
+    "defaultMessage": "Comprehensive front end system design guides",
+    "description": "Tooltip label for unlock all premium interviews content"
   },
   "HtFDkf": {
     "defaultMessage": "Official guides",
@@ -3183,6 +3183,10 @@
     "defaultMessage": "Social Providers",
     "description": "Title social identities in account section"
   },
+  "KTxLJk": {
+    "defaultMessage": "All plans, incl. lifetime",
+    "description": "Rewards discount message"
+  },
   "KU/uns": {
     "defaultMessage": "Previous",
     "description": "Previous step button label"
@@ -3286,10 +3290,6 @@
   "Ku3VdX": {
     "defaultMessage": "Uber",
     "description": "Company name for Uber"
-  },
-  "KuBz9b": {
-    "defaultMessage": "We've automatically applied a {discountPercentage}% discount on all prices to account for purchasing power parity in {countryName}",
-    "description": "Tooltip for used by engineers"
   },
   "Kxs/q8": {
     "defaultMessage": "Javascript Interview Guides",
@@ -4370,6 +4370,10 @@
   "RMBCok": {
     "defaultMessage": "Snap",
     "description": "Company name for Snap"
+  },
+  "RNRY70": {
+    "defaultMessage": "We've automatically applied a {discountPercentage}% discount on all prices to account for purchasing power in {countryName}",
+    "description": "Tooltip for purchasing power parity"
   },
   "RQRPBv": {
     "defaultMessage": "Top 20+ common behavioral interview questions for SWE",
@@ -6219,10 +6223,6 @@
     "defaultMessage": "Theme",
     "description": "Label for select that changes the theme of the editor"
   },
-  "dBJLg6": {
-    "defaultMessage": "We appreciate any feedback or bug reports on the product. Feedback that the team finds useful will be rewarded with freebies and discounts or even cashbacks on your order!",
-    "description": "Feedback widget description."
-  },
   "dCV3vl": {
     "defaultMessage": "Blind 75",
     "description": "Title for Blind75"
@@ -6690,10 +6690,6 @@
   "gBdxyo": {
     "defaultMessage": "Recommended prep strategy",
     "description": "Label for other items dropdown"
-  },
-  "gCKB+U": {
-    "defaultMessage": "Connect with like-minded individuals in the community and get useful tips about building projects - no spam!",
-    "description": "Subtitle for Projects newsletter sign up section"
   },
   "gDAVYm": {
     "defaultMessage": "Report an issue",
@@ -7455,6 +7451,10 @@
     "defaultMessage": "From beginner to advanced",
     "description": "Label for skill roadmap feature for month plan"
   },
+  "kzxwOd": {
+    "defaultMessage": "We appreciate any feedback or bug reports on the product. Feedback that the team finds useful will be rewarded with freebies and discounts or even cashbacks on your order!",
+    "description": "Feedback widget description."
+  },
   "l+NV6Y": {
     "defaultMessage": "Official solutions",
     "description": "Features for interviews questions"
@@ -7882,10 +7882,6 @@
   "oS10TF": {
     "defaultMessage": "Follow us on GitHub",
     "description": "Title for task"
-  },
-  "oSEF7X": {
-    "defaultMessage": "We currently offer student discounts at up to 40% off plans if you sign in / up with your .edu student email account. Alumni are excluded from this discount. Please read more at our <link>Student Discount Terms and Conditions</link>.",
-    "description": "Answer on projects pricing's FAQ section - student discounts"
   },
   "oTMcbU": {
     "defaultMessage": "System Design Interviews",
@@ -8754,6 +8750,10 @@
   "txe6H8": {
     "defaultMessage": "Info",
     "description": "Section heading in Projects footer for links to more information"
+  },
+  "u/YBSN": {
+    "defaultMessage": "We currently offer student discounts at up to 40% off plans if you sign in / up with your .edu student email account. Alumni are excluded from this discount. Please read more at our <link>Student Discount Terms and Conditions</link>.",
+    "description": "Answer on projects pricing's FAQ section - student discounts"
   },
   "u/s8vM": {
     "defaultMessage": "for Interviews",

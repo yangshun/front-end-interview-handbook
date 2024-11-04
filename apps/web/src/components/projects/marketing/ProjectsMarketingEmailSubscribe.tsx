@@ -142,7 +142,7 @@ export default function ProjectsMarketingEmailSubscribe() {
             defaultMessage="Connect with like-minded individuals in the community and get useful tips about
 building projects - no spam!"
             description="Subtitle for Projects newsletter sign up section"
-            id="gCKB+U"
+            id="3bgJ4F"
           />
         </Text>
       </div>

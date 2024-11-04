@@ -69,9 +69,9 @@ export function useSocialDiscountLabels() {
       />
     ),
     ticketSubtitle: intl.formatMessage({
-      defaultMessage: 'All plans, including lifetime',
+      defaultMessage: 'All plans, incl. lifetime',
       description: 'Rewards discount message',
-      id: '/8GtPZ',
+      id: 'KTxLJk',
     }),
     ticketTitle: intl.formatMessage(
       {

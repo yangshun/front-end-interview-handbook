@@ -43,11 +43,9 @@ export const themeTextDarkColor = clsx('text-neutral-900');
 export const themeTextLightColor = clsx('text-neutral-100');
 
 // Text colors -- semantic.
-export const themeTextSuccessColor = clsx(
-  'text-success dark:text-success-light',
-);
+export const themeTextSuccessColor = clsx('text-success');
 export const themeTextSuccessColor_Hover = clsx(
-  'hover:text-success dark:hover:text-success-light',
+  'hover:text-success dark:hover:text-success',
 );
 export const themeTextWarningColor = clsx(
   'text-warning dark:text-warning-light',

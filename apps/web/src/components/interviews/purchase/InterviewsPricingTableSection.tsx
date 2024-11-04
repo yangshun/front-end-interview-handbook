@@ -485,75 +485,70 @@ export default function InterviewsPricingTableSection({
       })}
       <Tooltip
         label={
-          <div>
-            <ul className="flex flex-col gap-y-4">
-              <li className="flex items-start lg:col-span-1">
-                <div className="mr-3 shrink-0">
-                  <RiCheckLine
-                    aria-hidden="true"
-                    className={clsx('size-4 shrink-0', themeTextSuccessColor)}
+          <ul className="flex flex-col gap-y-1.5">
+            {[
+              {
+                key: 'unlock-all',
+                label: (
+                  <FormattedMessage
+                    defaultMessage="Unlock all premium interviews content"
+                    description="Tooltip label for unlock all premium interviews content"
+                    id="EtxfAG"
                   />
-                </div>
-                <FormattedMessage
-                  defaultMessage="Unlock all premium interviews content"
-                  description="Tooltip label for unlock all premium interviews content"
-                  id="EtxfAG"
-                />
-              </li>
-              <li className="flex items-start lg:col-span-1">
-                <div className="mr-3 shrink-0">
-                  <RiCheckLine
-                    aria-hidden="true"
-                    className={clsx('size-4 shrink-0', themeTextSuccessColor)}
+                ),
+              },
+              {
+                key: 'official-solutions',
+                label: (
+                  <FormattedMessage
+                    defaultMessage="Official solutions for all questions, authored by former FAANG interviewers"
+                    description="Tooltip label for unlock all premium interviews content"
+                    id="vVS7kl"
                   />
-                </div>
-                <FormattedMessage
-                  defaultMessage="Official solutions for all questions, authored by former FAANG interviewers"
-                  description="Tooltip label for unlock all premium interviews content"
-                  id="vVS7kl"
-                />
-              </li>
-              <li className="flex items-start lg:col-span-1">
-                <div className="mr-3 shrink-0">
-                  <RiCheckLine
-                    aria-hidden="true"
-                    className={clsx('size-4 shrink-0', themeTextSuccessColor)}
+                ),
+              },
+              {
+                key: 'system-design',
+                label: (
+                  <FormattedMessage
+                    defaultMessage="Comprehensive front end system design guides"
+                    description="Tooltip label for unlock all premium interviews content"
+                    id="HsLNW4"
                   />
-                </div>
-                <FormattedMessage
-                  defaultMessage="Comprehensive front end system design guides"
-                  description="Tooltip label for unlock all premium interviews content"
-                  id="HsLNW4"
-                />
-              </li>
-              <li className="flex items-start lg:col-span-1">
-                <div className="mr-3 shrink-0">
-                  <RiCheckLine
-                    aria-hidden="true"
-                    className={clsx('size-4 shrink-0', themeTextSuccessColor)}
+                ),
+              },
+              {
+                key: 'company-specific',
+                label: (
+                  <FormattedMessage
+                    defaultMessage="Company-specific guides for targeted interview preparation"
+                    description="Tooltip label for unlock all premium interviews content"
+                    id="3J1qTY"
                   />
-                </div>
-                <FormattedMessage
-                  defaultMessage="Company-specific guides for targeted interview preparation"
-                  description="Tooltip label for unlock all premium interviews content"
-                  id="3J1qTY"
-                />
-              </li>
-              <li className="flex items-start lg:col-span-1">
-                <div className="mr-3 shrink-0">
-                  <RiCheckLine
-                    aria-hidden="true"
-                    className={clsx('size-4 shrink-0', themeTextSuccessColor)}
+                ),
+              },
+              {
+                key: 'study-plans',
+                label: (
+                  <FormattedMessage
+                    defaultMessage="Specialized study plans for different interview objectives"
+                    description="Tooltip label for unlock all premium interviews content"
+                    id="fDOayR"
                   />
-                </div>
-                <FormattedMessage
-                  defaultMessage="Specialized study plans for different interview objectives"
-                  description="Tooltip label for unlock all premium interviews content"
-                  id="fDOayR"
+                ),
+              },
+            ].map(({ label, key }) => (
+              <li key={key} className="flex items-center gap-2">
+                <RiCheckLine
+                  aria-hidden="true"
+                  className={clsx('size-3.5 shrink-0', themeTextSuccessColor)}
                 />
+                <Text color="inherit" size="inherit" weight="medium">
+                  {label}
+                </Text>
               </li>
-            </ul>
-          </div>
+            ))}
+          </ul>
         }
         triggerClassName="ml-2 inline align-middle">
         <RiInformationLine
@@ -662,9 +657,9 @@ export default function InterviewsPricingTableSection({
                 asChild={true}
                 label={
                   <FormattedMessage
-                    defaultMessage="We've automatically applied a {discountPercentage}% discount on all prices to account for purchasing power parity in {countryName}"
-                    description="Tooltip for used by engineers"
-                    id="KuBz9b"
+                    defaultMessage="We've automatically applied a {discountPercentage}% discount on all prices to account for purchasing power in {countryName}"
+                    description="Tooltip for purchasing power parity"
+                    id="RNRY70"
                     values={{
                       countryName,
                       discountPercentage: Math.ceil(

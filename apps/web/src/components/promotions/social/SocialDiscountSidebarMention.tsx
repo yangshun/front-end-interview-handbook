@@ -17,13 +17,12 @@ import { useUser } from '@supabase/auth-helpers-react';
 function SocialDiscountSidebarMentionImpl() {
   const socialDiscountLabels = useSocialDiscountLabels();
   const user = useUser();
-
   const { isLoading, data: promoCodes } =
     trpc.marketing.userPromoCodes.useQuery(undefined, {
       enabled: !!user,
     });
 
-  if (isLoading) {
+  if (user != null && isLoading) {
     return null;
   }
 
@@ -89,8 +88,11 @@ function SocialDiscountSidebarMentionImpl() {
           <Text size="body1" weight="bold">
             {socialDiscountLabels.ticketTitle}
           </Text>
-          <Text className="text-2xs" color="secondary" size="inherit">
-            All plans
+          <Text
+            className="text-2xs text-center"
+            color="secondary"
+            size="inherit">
+            {socialDiscountLabels.ticketSubtitle}
           </Text>
         </div>
       </Ticket>

@@ -46,7 +46,7 @@ export const studentDiscounts: FAQItem = {
       / up with your .edu student email account. Alumni are excluded from this
       discount. Please read more at our <link>Student Discount Terms and Conditions</link>."
       description="Answer on projects pricing's FAQ section - student discounts"
-      id="oSEF7X"
+      id="u/YBSN"
       values={{
         link: (chunks) => (
           <Anchor
