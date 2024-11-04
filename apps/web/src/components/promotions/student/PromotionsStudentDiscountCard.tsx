@@ -55,9 +55,9 @@ export function PromotionsStudentDiscountCard() {
         }),
         intl.formatMessage({
           defaultMessage:
-            'Your account email contains ".edu", ".ac" or certain other valid institutions. Reach out to us if you believe your school should qualify.',
+            'Your account email contains ".edu", ".ac", or other institutional second-level domains. Reach out to us if you believe your school should qualify.',
           description: 'Condition for promotion',
-          id: 'sGwT8p',
+          id: 'hhuG8E',
         }),
       ]}
       footer={

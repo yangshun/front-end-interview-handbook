@@ -3411,10 +3411,6 @@
     "defaultMessage": "Series",
     "description": "Label for Blog Series"
   },
-  "LTB2j0": {
-    "defaultMessage": "Existing students with a valid school email get a {discountPercentage}% off the Annual premium plans.",
-    "description": "Subtitle of discount promotion card"
-  },
   "LTreFY": {
     "defaultMessage": "Reset password",
     "description": "Title of reset password page"
@@ -3790,6 +3786,10 @@
   "O+NT3M": {
     "defaultMessage": "Angular",
     "description": "Angular questions category short title"
+  },
+  "O+ovnq": {
+    "defaultMessage": "Seasonal Discount",
+    "description": "Promotion title"
   },
   "O0Nl6x": {
     "defaultMessage": "Article view",
@@ -6259,10 +6259,6 @@
     "defaultMessage": "Study plans",
     "description": "Preparation study plans"
   },
-  "dPdK9A": {
-    "defaultMessage": "Fall Discount",
-    "description": "Promotion title"
-  },
   "dRUyU9": {
     "defaultMessage": "Contact us",
     "description": "Link to contact page"
@@ -6402,6 +6398,10 @@
   "eRu+ff": {
     "defaultMessage": "Browse project solutions from our community. Interact with each unique submission, share your expertise, and evolve alongside our collaborative coding community.",
     "description": "Page subtitle"
+  },
+  "eSkmDW": {
+    "defaultMessage": "Existing students with a valid school email get {discountPercentage}% off the Annual premium plans",
+    "description": "Subtitle of discount promotion card"
   },
   "eT2mrq": {
     "defaultMessage": "View the full solution and other System Design guides.",
@@ -6914,6 +6914,10 @@
   "hfba4L": {
     "defaultMessage": "{completedCount}/{totalCount} completed",
     "description": "Label for completed count"
+  },
+  "hhuG8E": {
+    "defaultMessage": "Your account email contains \".edu\", \".ac\", or other institutional second-level domains. Reach out to us if you believe your school should qualify.",
+    "description": "Condition for promotion"
   },
   "hkKaPn": {
     "defaultMessage": "Numbered list",
@@ -8446,10 +8450,6 @@
   "sGgZ9N": {
     "defaultMessage": "Choose additional skills you will use in this project",
     "description": "Dialog title for skills section"
-  },
-  "sGwT8p": {
-    "defaultMessage": "Your account email contains \".edu\", \".ac\" or certain other valid institutions. Reach out to us if you believe your school should qualify.",
-    "description": "Condition for promotion"
   },
   "sGyUQa": {
     "defaultMessage": "Join Discord channel (public)",

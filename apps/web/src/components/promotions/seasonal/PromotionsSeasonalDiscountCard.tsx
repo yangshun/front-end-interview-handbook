@@ -114,9 +114,9 @@ export function PromotionsSeasonalDiscountCard() {
       title={
         <div className="flex items-center gap-x-2">
           <FormattedMessage
-            defaultMessage="Fall Discount"
+            defaultMessage="Seasonal Discount"
             description="Promotion title"
-            id="dPdK9A"
+            id="O+ovnq"
           />
           <Badge
             label={intl.formatMessage({
