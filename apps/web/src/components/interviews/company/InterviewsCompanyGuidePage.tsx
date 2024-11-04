@@ -48,13 +48,13 @@ import { useUser } from '@supabase/auth-helpers-react';
 
 type Props = Readonly<{
   bottomContent?: InterviewsListingBottomContent;
-  companyGuide: InterviewsStudyList;
   questions: ReadonlyArray<QuestionMetadata>;
   questionsSlugs: Record<QuestionFormat, ReadonlyArray<QuestionSlug>>;
+  studyList: InterviewsStudyList;
 }>;
 
 export default function InterviewsCompanyGuidePage({
-  companyGuide,
+  studyList,
   questions,
   questionsSlugs,
   bottomContent,
@@ -156,13 +156,13 @@ export default function InterviewsCompanyGuidePage({
           />
         </div>
         <QuestionsStudyListPageTitleSection
-          description={companyGuide.shortDescription}
+          description={studyList.shortDescription}
           feature="company-guides"
           features={features}
-          logoImgSrc={companyGuide.logoUrl}
+          logoImgSrc={studyList.logoUrl}
           overallProgress={questionProgressParam ?? []}
           questions={questions}
-          questionsSessionKey={companyGuide.slug}
+          questionsSessionKey={studyList.slug}
           title={intl.formatMessage(
             {
               defaultMessage: '{company} Front End Interview Guide',
@@ -170,7 +170,7 @@ export default function InterviewsCompanyGuidePage({
               id: 'SaUyXa',
             },
             {
-              company: companyGuide.name,
+              company: studyList.name,
             },
           )}
         />
@@ -219,14 +219,14 @@ export default function InterviewsCompanyGuidePage({
                   id: '5jFQfq',
                 },
                 {
-                  company: companyGuide.name,
+                  company: studyList.name,
                 },
               )}
             </Heading>
           )}
           {canViewStudyPlans ? (
             <QuestionsStudyList
-              listKey={companyGuide.slug}
+              listKey={studyList.slug}
               overallProgress={questionsOverallProgress}
               questions={questions}
             />
@@ -269,7 +269,7 @@ export default function InterviewsCompanyGuidePage({
               <Divider />
               <MDXContent
                 components={{
-                  CompanyName: () => <span>{companyGuide.name}</span>,
+                  CompanyName: () => <span>{studyList.name}</span>,
                   QuestionCount: () => <span>{questionCount}</span>,
                   Topics: () => <span>{Array.from(topics).join(', ')}</span>,
                 }}

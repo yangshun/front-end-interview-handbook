@@ -6,15 +6,14 @@ import { INTERVIEWS_REVAMP_BOTTOM_CONTENT } from '~/data/FeatureFlags';
 import InterviewsCompanyGuidePage from '~/components/interviews/company/InterviewsCompanyGuidePage';
 
 import { fetchInterviewListingBottomContent } from '~/db/contentlayer/InterviewsListingBottomContentReader';
-import { fetchInterviewsStudyList } from '~/db/contentlayer/InterviewsStudyListReader';
+import {
+  fetchInterviewsStudyList,
+  fetchInterviewsStudyLists,
+} from '~/db/contentlayer/InterviewsStudyListReader';
 import { fetchQuestionsByHash } from '~/db/QuestionsListReader';
 import { groupQuestionHashesByFormat } from '~/db/QuestionsUtils';
+import { generateStaticParamsWithLocale } from '~/next-i18nostic/src';
 import defaultMetadata from '~/seo/defaultMetadata';
-
-// TODO(interviews/companies)
-// export async function generateStaticParams() {
-//   return [];
-// }
 
 type Props = Readonly<{
   params: {
@@ -23,8 +22,15 @@ type Props = Readonly<{
   };
 }>;
 
-async function getPageSEOMetadata({ params }: Props) {
-  const { slug } = params;
+export async function generateStaticParams() {
+  const companyGuides = await fetchInterviewsStudyLists('company-guide');
+
+  return generateStaticParamsWithLocale(
+    companyGuides.map((companyGuide) => ({ slug: companyGuide.slug })),
+  );
+}
+
+async function getPageSEOMetadata({ slug }: Props['params']) {
   const companyGuide = await fetchInterviewsStudyList(slug);
 
   if (companyGuide == null) {
@@ -41,9 +47,8 @@ async function getPageSEOMetadata({ params }: Props) {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = params;
-  const { title, description, socialTitle, href } = await getPageSEOMetadata({
-    params,
-  });
+  const { title, description, socialTitle, href } =
+    await getPageSEOMetadata(params);
 
   return defaultMetadata({
     description,
@@ -77,9 +82,9 @@ export default async function Page({ params }: Props) {
       bottomContent={
         INTERVIEWS_REVAMP_BOTTOM_CONTENT ? bottomContent : undefined
       }
-      companyGuide={companyGuide}
       questions={questions}
       questionsSlugs={questionsSlugs}
+      studyList={companyGuide}
     />
   );
 }
