@@ -129,7 +129,7 @@ function DownloadSection({
               defaultMessage="Quickly convert challenge designs into
             HTML, CSS, and Tailwind code by using our <link>Figma to Code plugin</link>."
               description="Use the Figma to code plugin"
-              id="95Is5V"
+              id="8dsQTo"
               values={{
                 link: (chunks) => (
                   <Anchor href={FIGMA_TO_CODE_PLUGIN_URL}>{chunks}</Anchor>

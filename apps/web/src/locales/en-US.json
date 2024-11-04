@@ -683,6 +683,10 @@
     "defaultMessage": "Copy promo code",
     "description": "Copy button label"
   },
+  "3J1qTY": {
+    "defaultMessage": "Company-specific guides for targeted interview preparation",
+    "description": "Tooltip label for unlock all premium interviews content"
+  },
   "3JSDTC": {
     "defaultMessage": "Personal website",
     "description": "Personal website link field"
@@ -726,10 +730,6 @@
   "3bTpP/": {
     "defaultMessage": "Verify your social accounts",
     "description": "Rewards step label"
-  },
-  "3bgJ4F": {
-    "defaultMessage": "Connect with like-minded individuals in the community and get useful tips about building projects - no spam!",
-    "description": "Subtitle for Projects newsletter sign up section"
   },
   "3c9VZh": {
     "defaultMessage": "Clarify doubts in project-specific forums",
@@ -1467,6 +1467,10 @@
     "defaultMessage": "Clarify doubts in forums",
     "description": "Title of 'Clarify doubts in forums' sub-feature in Projects marketing page"
   },
+  "8dsQTo": {
+    "defaultMessage": "Quickly convert challenge designs into HTML, CSS, and Tailwind code by using our <link>Figma to Code plugin</link>.",
+    "description": "Use the Figma to code plugin"
+  },
   "8gXpts": {
     "defaultMessage": "Tasks | Rewards",
     "description": "Title of Rewards tasks page"
@@ -1530,10 +1534,6 @@
   "93rlLI": {
     "defaultMessage": "URL is required",
     "description": "Error message"
-  },
-  "95Is5V": {
-    "defaultMessage": "Quickly convert challenge designs into HTML, CSS, and Tailwind code by using our <link>Figma to Code plugin</link>.",
-    "description": "Use the Figma to code plugin"
   },
   "99Ewym": {
     "defaultMessage": "Introduction",
@@ -2359,6 +2359,10 @@
     "defaultMessage": "Project started! Leverage the provided resources and submit a link to your site once ready!",
     "description": "Toast subtitle for project session started"
   },
+  "EtxfAG": {
+    "defaultMessage": "Unlock all premium interviews content",
+    "description": "Tooltip label for unlock all premium interviews content"
+  },
   "Euaee/": {
     "defaultMessage": "Resubscribe to unlock",
     "description": "Title for a premium project paywall"
@@ -2767,6 +2771,10 @@
     "defaultMessage": "LeetCode-style algorithmic coding questions which evaluate your core data structures and algorithms skills.",
     "description": "Description for ui coding questions"
   },
+  "HsLNW4": {
+    "defaultMessage": "Comprehensive front end system design guides",
+    "description": "Tooltip label for unlock all premium interviews content"
+  }
   "Hq/krL": {
     "defaultMessage": "Complete simple social tasks",
     "description": "Instructions to get a discount"
@@ -3278,6 +3286,10 @@
   "Ku3VdX": {
     "defaultMessage": "Uber",
     "description": "Company name for Uber"
+  },
+  "KuBz9b": {
+    "defaultMessage": "We've automatically applied a {discountPercentage}% discount on all prices to account for purchasing power parity in {countryName}",
+    "description": "Tooltip for used by engineers"
   },
   "Kxs/q8": {
     "defaultMessage": "Javascript Interview Guides",
@@ -6207,6 +6219,10 @@
     "defaultMessage": "Theme",
     "description": "Label for select that changes the theme of the editor"
   },
+  "dBJLg6": {
+    "defaultMessage": "We appreciate any feedback or bug reports on the product. Feedback that the team finds useful will be rewarded with freebies and discounts or even cashbacks on your order!",
+    "description": "Feedback widget description."
+  },
   "dCV3vl": {
     "defaultMessage": "Blind 75",
     "description": "Title for Blind75"
@@ -6491,6 +6507,10 @@
     "defaultMessage": "Project completed!",
     "description": "Success message"
   },
+  "fDOayR": {
+    "defaultMessage": "Specialized study plans for different interview objectives",
+    "description": "Tooltip label for unlock all premium interviews content"
+  },
   "fEoTGW": {
     "defaultMessage": "Start a project",
     "description": "Label for Start a project button on Projects dashboard page"
@@ -6670,6 +6690,10 @@
   "gBdxyo": {
     "defaultMessage": "Recommended prep strategy",
     "description": "Label for other items dropdown"
+  },
+  "gCKB+U": {
+    "defaultMessage": "Connect with like-minded individuals in the community and get useful tips about building projects - no spam!",
+    "description": "Subtitle for Projects newsletter sign up section"
   },
   "gDAVYm": {
     "defaultMessage": "Report an issue",
@@ -7431,10 +7455,6 @@
     "defaultMessage": "From beginner to advanced",
     "description": "Label for skill roadmap feature for month plan"
   },
-  "kzxwOd": {
-    "defaultMessage": "We appreciate any feedback or bug reports on the product. Feedback that the team finds useful will be rewarded with freebies and discounts or even cashbacks on your order!",
-    "description": "Feedback widget description."
-  },
   "l+NV6Y": {
     "defaultMessage": "Official solutions",
     "description": "Features for interviews questions"
@@ -7651,10 +7671,6 @@
     "defaultMessage": "Step 2",
     "description": "Title for \"Step 2\" tab on Projects project page"
   },
-  "mqAG0x": {
-    "defaultMessage": "Includes official solutions, company tags, and study plans",
-    "description": "Feature of pricing plan"
-  },
   "msvqkR": {
     "defaultMessage": "Every project belongs to 1 of 7 reusable components libraries",
     "description": "Short description for \"Component libraries\" feature on Projects home page"
@@ -7866,6 +7882,10 @@
   "oS10TF": {
     "defaultMessage": "Follow us on GitHub",
     "description": "Title for task"
+  },
+  "oSEF7X": {
+    "defaultMessage": "We currently offer student discounts at up to 40% off plans if you sign in / up with your .edu student email account. Alumni are excluded from this discount. Please read more at our <link>Student Discount Terms and Conditions</link>.",
+    "description": "Answer on projects pricing's FAQ section - student discounts"
   },
   "oTMcbU": {
     "defaultMessage": "System Design Interviews",
@@ -8355,6 +8375,10 @@
     "defaultMessage": "Hide",
     "description": "Label for hide filter button"
   },
+  "rfZvjQ": {
+    "defaultMessage": "Complete simple tasks like following our social media pages for another {percentOff}%",
+    "description": "Tooltip for used by engineers"
+  },
   "rg3DjU": {
     "defaultMessage": "Questions to ask (end of interview)",
     "description": "Best questions to ask at the end of a behavioral interviews"
@@ -8731,10 +8755,6 @@
     "defaultMessage": "Info",
     "description": "Section heading in Projects footer for links to more information"
   },
-  "u/YBSN": {
-    "defaultMessage": "We currently offer student discounts at up to 40% off plans if you sign in / up with your .edu student email account. Alumni are excluded from this discount. Please read more at our <link>Student Discount Terms and Conditions</link>.",
-    "description": "Answer on projects pricing's FAQ section - student discounts"
-  },
   "u/s8vM": {
     "defaultMessage": "for Interviews",
     "description": "GreatFrontEnd product vertical"
@@ -8958,6 +8978,10 @@
   "vTb+8H": {
     "defaultMessage": "Format",
     "description": "Label for format filter"
+  },
+  "vVS7kl": {
+    "defaultMessage": "Official solutions for all questions, authored by former FAANG interviewers",
+    "description": "Tooltip label for unlock all premium interviews content"
   },
   "vWzLH8": {
     "defaultMessage": "Full access to tracks & skills. Unlimited <tooltip>premium credits</tooltip>",

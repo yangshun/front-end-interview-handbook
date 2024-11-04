@@ -108,7 +108,7 @@ export default function FeedbackDialog({
         defaultMessage="We appreciate any feedback or bug reports on the product. Feedback that the team finds useful will be rewarded with freebies and
             discounts or even cashbacks on your order!"
         description="Feedback widget description."
-        id="kzxwOd"
+        id="dBJLg6"
       />
     </Text>
   );

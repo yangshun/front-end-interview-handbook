@@ -484,12 +484,77 @@ export default function InterviewsPricingTableSection({
         id: 'TWF/3l',
       })}
       <Tooltip
-        label={intl.formatMessage({
-          defaultMessage:
-            'Includes official solutions, company tags, and study plans',
-          description: 'Feature of pricing plan',
-          id: 'mqAG0x',
-        })}
+        label={
+          <div>
+            <ul className="flex flex-col gap-y-4">
+              <li className="flex items-start lg:col-span-1">
+                <div className="mr-3 shrink-0">
+                  <RiCheckLine
+                    aria-hidden="true"
+                    className={clsx('size-4 shrink-0', themeTextSuccessColor)}
+                  />
+                </div>
+                <FormattedMessage
+                  defaultMessage="Unlock all premium interviews content"
+                  description="Tooltip label for unlock all premium interviews content"
+                  id="EtxfAG"
+                />
+              </li>
+              <li className="flex items-start lg:col-span-1">
+                <div className="mr-3 shrink-0">
+                  <RiCheckLine
+                    aria-hidden="true"
+                    className={clsx('size-4 shrink-0', themeTextSuccessColor)}
+                  />
+                </div>
+                <FormattedMessage
+                  defaultMessage="Official solutions for all questions, authored by former FAANG interviewers"
+                  description="Tooltip label for unlock all premium interviews content"
+                  id="vVS7kl"
+                />
+              </li>
+              <li className="flex items-start lg:col-span-1">
+                <div className="mr-3 shrink-0">
+                  <RiCheckLine
+                    aria-hidden="true"
+                    className={clsx('size-4 shrink-0', themeTextSuccessColor)}
+                  />
+                </div>
+                <FormattedMessage
+                  defaultMessage="Comprehensive front end system design guides"
+                  description="Tooltip label for unlock all premium interviews content"
+                  id="HsLNW4"
+                />
+              </li>
+              <li className="flex items-start lg:col-span-1">
+                <div className="mr-3 shrink-0">
+                  <RiCheckLine
+                    aria-hidden="true"
+                    className={clsx('size-4 shrink-0', themeTextSuccessColor)}
+                  />
+                </div>
+                <FormattedMessage
+                  defaultMessage="Company-specific guides for targeted interview preparation"
+                  description="Tooltip label for unlock all premium interviews content"
+                  id="3J1qTY"
+                />
+              </li>
+              <li className="flex items-start lg:col-span-1">
+                <div className="mr-3 shrink-0">
+                  <RiCheckLine
+                    aria-hidden="true"
+                    className={clsx('size-4 shrink-0', themeTextSuccessColor)}
+                  />
+                </div>
+                <FormattedMessage
+                  defaultMessage="Specialized study plans for different interview objectives"
+                  description="Tooltip label for unlock all premium interviews content"
+                  id="fDOayR"
+                />
+              </li>
+            </ul>
+          </div>
+        }
         triggerClassName="ml-2 inline align-middle">
         <RiInformationLine
           aria-hidden={true}
@@ -593,39 +658,55 @@ export default function InterviewsPricingTableSection({
           <PurchaseProhibitedCountryAlert countryCode={countryCode} />
           <div className="flex flex-col items-start justify-between gap-4 xl:flex-row xl:items-center">
             {showPPPMessage && (
-              <div
-                className={clsx(
-                  'flex items-center gap-2',
-                  'rounded-full',
-                  'px-2 py-1.5',
-                  'whitespace-nowrap',
-                  textVariants({ size: 'body3', weight: 'medium' }),
-                  themeGlassyBorder,
-                )}>
+              <Tooltip
+                asChild={true}
+                label={
+                  <FormattedMessage
+                    defaultMessage="We've automatically applied a {discountPercentage}% discount on all prices to account for purchasing power parity in {countryName}"
+                    description="Tooltip for used by engineers"
+                    id="KuBz9b"
+                    values={{
+                      countryName,
+                      discountPercentage: Math.ceil(
+                        100 - featuredPlan.paymentConfig.conversionFactor * 100,
+                      ),
+                    }}
+                  />
+                }>
                 <div
                   className={clsx(
-                    'flex items-center justify-center',
-                    'size-5',
+                    'flex items-center gap-2',
                     'rounded-full',
-                    themeBackgroundSuccessColor,
+                    'px-2 py-1.5',
+                    'whitespace-nowrap',
+                    textVariants({ size: 'body3', weight: 'medium' }),
+                    themeGlassyBorder,
                   )}>
-                  <RiDiscountPercentFill
-                    aria-hidden={true}
-                    className="size-3 text-white"
+                  <div
+                    className={clsx(
+                      'flex items-center justify-center',
+                      'size-5',
+                      'rounded-full',
+                      themeBackgroundSuccessColor,
+                    )}>
+                    <RiDiscountPercentFill
+                      aria-hidden={true}
+                      className="size-3 text-white"
+                    />
+                  </div>
+                  <FormattedMessage
+                    defaultMessage="Purchasing power parity for {countryName} – {discountPercentage}% discount automatically applied!"
+                    description="Purchasing power parity message"
+                    id="AkOMbK"
+                    values={{
+                      countryName,
+                      discountPercentage: Math.ceil(
+                        100 - featuredPlan.paymentConfig.conversionFactor * 100,
+                      ),
+                    }}
                   />
                 </div>
-                <FormattedMessage
-                  defaultMessage="Purchasing power parity for {countryName} – {discountPercentage}% discount automatically applied!"
-                  description="Purchasing power parity message"
-                  id="AkOMbK"
-                  values={{
-                    countryName,
-                    discountPercentage: Math.ceil(
-                      100 - featuredPlan.paymentConfig.conversionFactor * 100,
-                    ),
-                  }}
-                />
-              </div>
+              </Tooltip>
             )}
             <SocialDiscountAlert />
           </div>

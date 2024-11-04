@@ -1,6 +1,7 @@
 import clsx from 'clsx';
 import type { ReactNode } from 'react';
 import { RiArrowRightLine } from 'react-icons/ri';
+import { FormattedMessage } from 'react-intl';
 
 import { trpc } from '~/hooks/trpc';
 import useUserProfile from '~/hooks/user/useUserProfile';
@@ -8,7 +9,9 @@ import useUserProfile from '~/hooks/user/useUserProfile';
 import Anchor from '~/components/ui/Anchor';
 import Text from '~/components/ui/Text';
 import { themeGlassyBorder } from '~/components/ui/theme';
+import Tooltip from '~/components/ui/Tooltip';
 
+import { SOCIAL_DISCOUNT_PERCENTAGE } from './SocialDiscountConfig';
 import { useSocialDiscountLabels } from './useSocialDiscountLabels';
 
 function SocialDiscountTicketSmall({
@@ -44,14 +47,26 @@ function SocialDiscountAlertImpl() {
           return (
             <>
               <SocialDiscountTicketSmall title={promoCode?.code} />
-              <div className="grow">
-                <Text className="block" color="secondary" size="body3">
-                  {socialDiscountLabels.existingPromoSubtitle(
-                    promoCode.expires_at!,
-                    promoCode.coupon.percent_off,
-                  )}
-                </Text>
-              </div>
+              <Tooltip
+                label={
+                  <FormattedMessage
+                    defaultMessage="Complete simple tasks like following our social media pages for another {percentOff}%"
+                    description="Tooltip for used by engineers"
+                    id="rfZvjQ"
+                    values={{
+                      percentOff: `${promoCode.coupon.percent_off}`,
+                    }}
+                  />
+                }>
+                <div className="grow">
+                  <Text className="block" color="secondary" size="body3">
+                    {socialDiscountLabels.existingPromoSubtitle(
+                      promoCode.expires_at!,
+                      promoCode.coupon.percent_off,
+                    )}
+                  </Text>
+                </div>
+              </Tooltip>
             </>
           );
         }
@@ -63,14 +78,26 @@ function SocialDiscountAlertImpl() {
                 title={socialDiscountLabels.ticketTitle}
               />
             </div>
-            <div className="grow">
-              <Anchor href="/rewards/social" variant="flat">
-                <Text className="block" color="secondary" size="body3">
-                  {socialDiscountLabels.subtitle}{' '}
-                  <RiArrowRightLine className="size-4 ml-0.5 inline-flex shrink-0" />
-                </Text>
-              </Anchor>
-            </div>
+            <Tooltip
+              label={
+                <FormattedMessage
+                  defaultMessage="Complete simple tasks like following our social media pages for another {percentOff}%"
+                  description="Tooltip for used by engineers"
+                  id="rfZvjQ"
+                  values={{
+                    percentOff: `${SOCIAL_DISCOUNT_PERCENTAGE}`,
+                  }}
+                />
+              }>
+              <div className="grow">
+                <Anchor href="/rewards/social" variant="flat">
+                  <Text className="block" color="secondary" size="body3">
+                    {socialDiscountLabels.subtitle}{' '}
+                    <RiArrowRightLine className="size-4 ml-0.5 inline-flex shrink-0" />
+                  </Text>
+                </Anchor>
+              </div>
+            </Tooltip>
           </>
         );
       })()}
