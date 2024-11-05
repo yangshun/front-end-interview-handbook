@@ -11,6 +11,7 @@ import type {
   GuideCardMetadata,
 } from '~/components/guides/types';
 import FrontEndSystemDesignPlaybookPage from '~/components/interviews/guides/FrontEndSystemDesignPlaybookPage';
+import { basePath } from '~/components/interviews/questions/content/system-design/SystemDesignNavigation';
 
 import { readGuidesContents } from '~/db/guides/GuidesReader';
 import {
@@ -42,7 +43,7 @@ async function getPageSEOMetadata({ params }: Props) {
         'Page description for frontend system design playbook cover page',
       id: 'O237FB',
     }),
-    href: '/front-end-system-design-playbook',
+    href: basePath,
     socialTitle: intl.formatMessage({
       defaultMessage: 'Front End System Design Playbook | GreatFrontEnd',
       description:
@@ -73,13 +74,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   });
 }
 
-function requestToPaths({
-  route,
-}: {
-  route: FrontEndSystemDesignRouteType;
-}): Readonly<{
-  directoryPath: string;
-}> {
+// TODO(interviews): consolidate
+function requestToPaths(route: FrontEndSystemDesignRouteType) {
   const directoryPath = path.join(
     process.cwd(),
     '..',
@@ -98,14 +94,9 @@ function requestToPaths({
 async function readAllGuides({ params }: Props) {
   const { locale } = params;
   const guidesData: Array<GuideCardMetadata> = [];
-  const basePath = '/system-design';
 
   frontendSystemDesignSlugs.forEach((slug) => {
-    // For the introduction article, the slug is introduction, but the content href is the basePath itself
-    const route = slug === 'introduction' ? '' : slug;
-    const { directoryPath } = requestToPaths({
-      route,
-    });
+    const { directoryPath } = requestToPaths(slug);
 
     const mdxSource = readGuidesContents(directoryPath, locale);
 
@@ -116,8 +107,7 @@ async function readAllGuides({ params }: Props) {
     guidesData.push({
       category: 'system-design-guide',
       description,
-      // For the introduction article, the slug is introduction, but the content href is the basePath itself
-      href: `${basePath}/${route}`,
+      href: `${basePath}/${slug}`,
       readingTime: time,
       slug,
       title,

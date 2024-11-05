@@ -20,9 +20,18 @@ import * as DropdownMenuPrimitive from '@radix-ui/react-dropdown-menu';
 export default function GuidesDropdownMenu() {
   const guidesData = useGuidesData();
   const guides = [
-    guidesData['front-end-interview-guidebook'],
-    guidesData['front-end-system-design-guidebook'],
-    guidesData['behavioral-interview-guidebook'],
+    {
+      ...guidesData['front-end-interview-playbook'],
+      href: `${guidesData['front-end-interview-playbook'].href}/introduction`,
+    },
+    {
+      ...guidesData['front-end-system-design-playbook'],
+      href: `${guidesData['front-end-system-design-playbook'].href}/introduction`,
+    },
+    {
+      ...guidesData['behavioral-interview-playbook'],
+      href: `${guidesData['behavioral-interview-playbook'].href}/introduction`,
+    },
   ];
 
   const pathname = usePathname();
@@ -31,7 +40,7 @@ export default function GuidesDropdownMenu() {
     Object.values(guides).find(({ href }) => pathname?.startsWith(href)) ??
     // System design questions are part of the FESD guidebook.
     (pathname?.includes('/questions/system-design')
-      ? guidesData['front-end-system-design-guidebook']
+      ? guidesData['front-end-system-design-playbook']
       : guides[0]);
 
   const Icon = selectedGuide.icon;

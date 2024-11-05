@@ -1,6 +1,5 @@
 'use client';
 
-import clsx from 'clsx';
 import type { InterviewsListingBottomContent } from 'contentlayer/generated';
 import {
   RiArrowLeftLine,
@@ -23,7 +22,6 @@ import QuestionsUnifiedListWithFiltersAndProgress from '~/components/interviews/
 import { useIntl } from '~/components/intl';
 import MDXContent from '~/components/mdx/MDXContent';
 import Button from '~/components/ui/Button';
-import Container from '~/components/ui/Container';
 import Divider from '~/components/ui/Divider';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';

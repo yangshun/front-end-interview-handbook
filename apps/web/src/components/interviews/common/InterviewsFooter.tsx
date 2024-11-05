@@ -55,19 +55,19 @@ function useFooterNavigation() {
       key: 'guides',
       links: [
         {
-          href: guides['front-end-interview-guidebook'].href,
-          key: guides['front-end-interview-guidebook'].key,
-          name: guides['front-end-interview-guidebook'].name,
+          href: guides['front-end-interview-playbook'].href,
+          key: guides['front-end-interview-playbook'].key,
+          name: guides['front-end-interview-playbook'].name,
         },
         {
-          href: guides['front-end-system-design-guidebook'].href,
-          key: guides['front-end-system-design-guidebook'].key,
-          name: guides['front-end-system-design-guidebook'].name,
+          href: guides['front-end-system-design-playbook'].href,
+          key: guides['front-end-system-design-playbook'].key,
+          name: guides['front-end-system-design-playbook'].name,
         },
         {
-          href: guides['behavioral-interview-guidebook'].href,
-          key: guides['behavioral-interview-guidebook'].key,
-          name: guides['behavioral-interview-guidebook'].name,
+          href: guides['behavioral-interview-playbook'].href,
+          key: guides['behavioral-interview-playbook'].key,
+          name: guides['behavioral-interview-playbook'].name,
         },
       ],
       title: intl.formatMessage({

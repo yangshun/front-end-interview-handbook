@@ -5,6 +5,7 @@ import path from 'path';
 
 import FrontEndInterviewGuidebookLayout from '~/components/guides/FrontEndInterviewGuidebookLayout';
 import type { FrontEndInterviewRouteType } from '~/components/guides/types';
+import { basePath } from '~/components/guides/useFrontEndInterviewGuidebookNavigation';
 import MDXCodeBlock from '~/components/mdx/MDXCodeBlock';
 import MDXComponents from '~/components/mdx/MDXComponents';
 
@@ -17,7 +18,7 @@ import defaultMetadata from '~/seo/defaultMetadata';
 type Props = Readonly<{
   params: {
     locale: string;
-    slug?: ReadonlyArray<string>;
+    slug: ReadonlyArray<string>;
   };
 }>;
 
@@ -49,7 +50,7 @@ function requestToPaths({ params }: Props): Readonly<{
     'contents',
     frontEndInterviewsRouteToFile[mdxPath],
   );
-  const pathname = `/front-end-interview-guidebook/${mdxPath}`;
+  const pathname = `${basePath}/${mdxPath}`;
 
   return { directoryPath, pathname };
 }

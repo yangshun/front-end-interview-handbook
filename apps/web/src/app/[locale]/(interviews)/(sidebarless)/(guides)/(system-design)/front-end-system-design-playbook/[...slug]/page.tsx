@@ -5,6 +5,7 @@ import path from 'path';
 
 import SystemDesignGuidebookLayout from '~/components/guides/SystemDesignGuidebookLayout';
 import type { FrontEndSystemDesignRouteType } from '~/components/guides/types';
+import { basePath } from '~/components/interviews/questions/content/system-design/SystemDesignNavigation';
 import MDXCodeBlock from '~/components/mdx/MDXCodeBlock';
 import MDXComponents from '~/components/mdx/MDXComponents';
 
@@ -17,7 +18,7 @@ import defaultMetadata from '~/seo/defaultMetadata';
 type Props = Readonly<{
   params: {
     locale: string;
-    slug?: ReadonlyArray<string>;
+    slug: ReadonlyArray<string>;
   };
 }>;
 
@@ -29,6 +30,7 @@ export async function generateStaticParams() {
   );
 }
 
+// TODO(interviews): consolidate
 function requestToPaths({ params }: Props): Readonly<{
   directoryPath: string;
   pathname: string;
@@ -48,7 +50,7 @@ function requestToPaths({ params }: Props): Readonly<{
     'contents',
     frontendSystemDesignRouteToFile[mdxPath],
   );
-  const pathname = `/system-design/${mdxPath}`;
+  const pathname = `${basePath}/${mdxPath}`;
 
   return { directoryPath, pathname };
 }

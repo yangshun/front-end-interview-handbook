@@ -2,7 +2,6 @@ import type { Metadata } from 'next';
 import React from 'react';
 
 import RoadmapPage from '~/components/roadmap/RoadmapPage';
-import Container from '~/components/ui/Container';
 
 import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';

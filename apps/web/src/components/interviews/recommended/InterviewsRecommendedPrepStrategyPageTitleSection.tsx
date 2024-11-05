@@ -9,6 +9,8 @@ import {
 
 import { trpc } from '~/hooks/trpc';
 
+import { useGuidesData } from '~/data/Guides';
+
 import { FormattedMessage, useIntl } from '~/components/intl';
 import Anchor from '~/components/ui/Anchor';
 import Badge from '~/components/ui/Badge';
@@ -47,12 +49,14 @@ function RecommendedItemsDropdown({
     (session) => session.key === 'greatfrontend75',
   );
   const blind75session = sessions.find((session) => session.key === 'blind75');
+  const guidesData = useGuidesData();
 
   const items = [
     {
-      href: '/front-end-interview-playbook',
+      href: guidesData['front-end-interview-playbook'].href,
+      // TODO(interviews): remove hardcoding
       isCompleted: false,
-      label: 'Front End Interview Playbook',
+      label: guidesData['front-end-interview-playbook'].name,
     },
     {
       href: '/interviews/greatfrontend75',
@@ -67,9 +71,10 @@ function RecommendedItemsDropdown({
       label: 'Blind 75',
     },
     {
-      href: '/front-end-system-design-playbook',
+      href: guidesData['front-end-system-design-playbook'].href,
+      // TODO(interviews): remove hardcoding
       isCompleted: false,
-      label: 'Front End System Design',
+      label: guidesData['front-end-system-design-playbook'].name,
     },
   ];
 

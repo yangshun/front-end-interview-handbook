@@ -119,6 +119,36 @@ const nextConfig = {
         destination: '/interviews/focus-areas/:path*',
         permanent: true,
       },
+      {
+        source: '/system-design',
+        destination: '/front-end-system-design-playbook',
+        permanent: true,
+      },
+      {
+        source: '/system-design/:path*',
+        destination: '/front-end-system-design-playbook/:path*',
+        permanent: true,
+      },
+      {
+        source: '/front-end-interview-guidebook',
+        destination: '/front-end-interview-playbook',
+        permanent: true,
+      },
+      {
+        source: '/front-end-interview-guidebook/:path*',
+        destination: '/front-end-interview-playbook/:path*',
+        permanent: true,
+      },
+      {
+        source: '/behavioral-interview-guidebook',
+        destination: '/behavioral-interview-playbook',
+        permanent: true,
+      },
+      {
+        source: '/behavioral-interview-guidebook/:path*',
+        destination: '/behavioral-interview-playbook/:path*',
+        permanent: true,
+      },
     ];
   },
   async headers() {

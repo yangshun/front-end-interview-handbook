@@ -1,6 +1,5 @@
 'use client';
 
-import clsx from 'clsx';
 import type { InterviewsListingBottomContent } from 'contentlayer/generated';
 import {
   RiTestTubeLine,
@@ -20,7 +19,6 @@ import InterviewsFrameworkAndLanguageSection from '~/components/interviews/quest
 import InterviewsQuestionFormatsSection from '~/components/interviews/questions/listings/practice-questions/InterviewsQuestionFormatsSection';
 import { useIntl } from '~/components/intl';
 import MDXContent from '~/components/mdx/MDXContent';
-import Container from '~/components/ui/Container';
 import Divider from '~/components/ui/Divider';
 import Section from '~/components/ui/Heading/HeadingContext';
 

@@ -112,10 +112,9 @@ export default function QuestionsCategoryNavbar({ category }: Props) {
           tabs={items}
           value={category}
         />
-
         <Anchor
           className="flex items-center gap-1"
-          href="/front-end-interview-guidebook">
+          href="/front-end-interview-playbook">
           <Text color="inherit" size="body3" weight="medium">
             <FormattedMessage
               defaultMessage="Follow our front end interview roadmap"

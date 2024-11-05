@@ -2543,6 +2543,10 @@
     "defaultMessage": "Manage your subscription status and payment methods on the Stripe billing portal.",
     "description": "Call to action text to uppgrade plan."
   },
+  "FyfO1X": {
+    "defaultMessage": "Front End System Design Playbook",
+    "description": "Front end system design guidebook title"
+  },
   "G+S25i": {
     "defaultMessage": "Language",
     "description": "Tooltip for language selector"
@@ -4155,6 +4159,10 @@
     "defaultMessage": "Follow <link>this guide</link> on how to create a GitHub repository.",
     "description": "Description for GitHub repo step in project submission checklist"
   },
+  "PqBXo4": {
+    "defaultMessage": "Front End Interview Playbook",
+    "description": "Front End Interview guide title"
+  },
   "Pr2Uly": {
     "defaultMessage": "{numUsers} done",
     "description": "Number of users who completed the question"
@@ -4787,10 +4795,6 @@
     "defaultMessage": "There is something to learn from GreatFrontEnd for engineers of all seniority levels. Junior engineers will be able to solidify their fundamentals and learn techniques they never knew about. Mid-level engineers will benefit from more advanced concepts like internationalization, accessibility, and performance. Senior engineers will benefit most from the system design questions which impart architectural concepts.",
     "description": "Answer to 'Is GreatFrontEnd targeted at engineers of specific seniority?' on Homepage's FAQ sections"
   },
-  "TRWLN8": {
-    "defaultMessage": "Front End System Design",
-    "description": "Short title of front end system design guidebook"
-  },
   "TW5R5d": {
     "defaultMessage": "Dashboard",
     "description": "Label for dashboard title for logged in user"
@@ -4962,10 +4966,6 @@
   "Ui0v53": {
     "defaultMessage": "Our projects are designed to make for an <em>impressive</em> portfolio, even for seniors",
     "description": "Heading of the 'Portfolio features' marketing section on Projects home page"
-  },
-  "Ul08Jw": {
-    "defaultMessage": "Front End System Design Playbook",
-    "description": "Title for frontend system design guide"
   },
   "UltF1J": {
     "defaultMessage": "Already an affiliate? <link>Access dashboard</link>",
@@ -5494,10 +5494,6 @@
   "XysLlX": {
     "defaultMessage": "Settings",
     "description": "App settings label"
-  },
-  "Y072iD": {
-    "defaultMessage": "Behavioral Interview Playbook",
-    "description": "Title for behavioral interview playbook"
   },
   "Y0QGFG": {
     "defaultMessage": "Focus areas",
@@ -6263,10 +6259,6 @@
     "defaultMessage": "The vast breadth of topics that could come up during a front end interview can be daunting.",
     "description": "Long description for focus areas page"
   },
-  "d1mCvP": {
-    "defaultMessage": "Front End Interview Playbook",
-    "description": "Front End Interview Playbook title"
-  },
   "d3GL1v": {
     "defaultMessage": "Copy line down",
     "description": "Text describing command to copy lines down in the coding workspace shortcuts menu"
@@ -6482,6 +6474,10 @@
   "eUSr+T": {
     "defaultMessage": "By question format",
     "description": "Practice for interviews question format"
+  },
+  "eWWazl": {
+    "defaultMessage": "Behavioral Interview Playbook",
+    "description": "Title for behavioral interview guide"
   },
   "eWwVqI": {
     "defaultMessage": "Premium is required to unlock this project",
@@ -8055,6 +8051,10 @@
     "defaultMessage": "Page name must contain at most {maxLength} character(s).",
     "description": "Error message"
   },
+  "owQqZY": {
+    "defaultMessage": "Front End System Design",
+    "description": "Short title of front end system design playbook"
+  },
   "oxD4TD": {
     "defaultMessage": "Fresh Grad",
     "description": "Label for \"Fresh Grad\" option in YOE replacement"
@@ -8534,10 +8534,6 @@
   "rzu02O": {
     "defaultMessage": "Nothing at all! Just click \"Start project\", and we will take care of everything else and guide you along the way.",
     "description": "FAQ answer for projects platform"
-  },
-  "s/8W4z": {
-    "defaultMessage": "Front End Interview Playbook",
-    "description": "Title for front end interview guide"
   },
   "s0MeXj": {
     "defaultMessage": "Check it out",

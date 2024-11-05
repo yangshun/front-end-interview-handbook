@@ -39,7 +39,7 @@ import {
 } from './InterviewsSystemDesignQuestions';
 import { ReadyQuestions } from './SystemDesignConfig';
 
-export const basePath = '/system-design';
+export const basePath = '/front-end-system-design-playbook';
 
 export type SystemDesignNavigationLink = BaseGuideNavigationLink<{
   kind: 'guide' | 'question';
@@ -85,7 +85,7 @@ export function useSystemDesignGuides() {
           'Sidebar link title for front end system design interviews',
         id: 'H39M2g',
       }),
-      href: basePath,
+      href: `${basePath}/introduction`,
       icon: RiPlayFill,
       kind: 'guide',
       label: intl.formatMessage({

@@ -11,7 +11,7 @@ import { useIntl } from '~/components/intl';
 
 import type { GuideNavigation, GuideNavigationLink } from './types';
 
-export const basePath = '/front-end-interview-guidebook';
+export const basePath = '/front-end-interview-playbook';
 
 function useCodingSectionItem() {
   const intl = useIntl();
@@ -172,7 +172,7 @@ export function useFrontEndInterviewGuidebookNavigation() {
   const navigation: GuideNavigation = {
     items: [
       {
-        href: basePath,
+        href: `${basePath}/introduction`,
         label: intl.formatMessage({
           defaultMessage: 'Introduction',
           description: 'Front End interview preparation guide',

@@ -10,6 +10,7 @@ import type {
   BehavioralRouteType,
   GuideCardMetadata,
 } from '~/components/guides/types';
+import { basePath } from '~/components/guides/useBehavioralInterviewGuidebookNavigation';
 import BehavioralInterviewPlaybookPage from '~/components/interviews/guides/BehavioralInterviewPlaybookPage';
 
 import { readGuidesContents } from '~/db/guides/GuidesReader';
@@ -40,7 +41,7 @@ async function getPageSEOMetadata({ params }: Props) {
         'Page description for behavioral interview playbook cover page',
       id: 'zqIbYm',
     }),
-    href: '/front-end-interview-playbook',
+    href: basePath,
     socialTitle: intl.formatMessage({
       defaultMessage: 'Behavioral Interview Playbook | GreatFrontEnd',
       description: 'Social title for behavioral interview playbook cover page',
@@ -71,7 +72,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   });
 }
 
-function requestToPaths({ route }: { route: BehavioralRouteType }): Readonly<{
+function requestToPaths(route: BehavioralRouteType): Readonly<{
   directoryPath: string;
 }> {
   const directoryPath = path.join(
@@ -93,14 +94,9 @@ async function readAllGuides({ params }: Props) {
   const { locale } = params;
 
   const guidesData: Array<GuideCardMetadata> = [];
-  const basePath = '/behavioral-interview-guidebook';
 
   behavioralSlugs.forEach((slug) => {
-    // For the introduction article, the slug is introduction, but the content href is the basePath itself
-    const route = slug === 'introduction' ? '' : slug;
-    const { directoryPath } = requestToPaths({
-      route,
-    });
+    const { directoryPath } = requestToPaths(slug);
 
     const mdxSource = readGuidesContents(directoryPath, locale);
 
@@ -111,7 +107,7 @@ async function readAllGuides({ params }: Props) {
     guidesData.push({
       category: 'behavioral-interview-guide',
       description,
-      href: `${basePath}/${route}`,
+      href: `${basePath}/${slug}`,
       readingTime: time,
       slug,
       title,

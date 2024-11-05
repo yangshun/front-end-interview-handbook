@@ -7,6 +7,7 @@ import type {
   FrontEndInterviewRouteType,
   GuideCardMetadata,
 } from '~/components/guides/types';
+import { basePath } from '~/components/guides/useFrontEndInterviewGuidebookNavigation';
 
 import {
   frontendInterviewSlugs,
@@ -29,11 +30,9 @@ export function readGuidesContents(
   return fileContents.toString();
 }
 
-function requestToFrontEndInterviewGuidesPaths({
-  route,
-}: {
-  route: FrontEndInterviewRouteType;
-}): Readonly<{
+function requestToFrontEndInterviewGuidesPaths(
+  route: FrontEndInterviewRouteType,
+): Readonly<{
   directoryPath: string;
 }> {
   const directoryPath = path.join(
@@ -53,14 +52,9 @@ function requestToFrontEndInterviewGuidesPaths({
 
 export async function readAllFrontEndInterviewGuides(locale: string) {
   const guidesData: Array<GuideCardMetadata> = [];
-  const basePath = '/front-end-interview-guidebook';
 
   frontendInterviewSlugs.forEach((slug) => {
-    // For the introduction article, the slug is introduction, but the content href is the basePath itself
-    const route = slug === 'introduction' ? '' : slug;
-    const { directoryPath } = requestToFrontEndInterviewGuidesPaths({
-      route,
-    });
+    const { directoryPath } = requestToFrontEndInterviewGuidesPaths(slug);
 
     const mdxSource = readGuidesContents(directoryPath, locale);
 
@@ -71,7 +65,7 @@ export async function readAllFrontEndInterviewGuides(locale: string) {
     guidesData.push({
       category: 'front-end-interview-guide',
       description,
-      href: `${basePath}/${route}`,
+      href: `${basePath}/${slug}`,
       readingTime: time,
       slug,
       title,

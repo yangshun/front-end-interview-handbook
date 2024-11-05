@@ -36,9 +36,9 @@ export const frontEndInterviewsRouteToFile: Record<
   FrontEndInterviewRouteType,
   string
 > = {
-  '': 'overview',
   algorithms: 'algorithms',
   coding: 'coding',
+  introduction: 'overview',
   javascript: 'javascript',
   quiz: 'quiz',
   resume: 'resume',
@@ -62,11 +62,11 @@ export const frontendSystemDesignRouteToFile: Record<
   FrontEndSystemDesignRouteType,
   string
 > = {
-  '': 'introduction',
   cheatsheet: 'cheatsheet',
   'common-mistakes': 'common-mistakes',
   'evaluation-axes': 'evaluation-axes',
   framework: 'framework',
+  introduction: 'introduction',
   'types-of-questions': 'types-of-questions',
 };
 
@@ -82,9 +82,9 @@ export const behavioralSlugs = [
 ] as const;
 
 export const behavioralRouteToFile: Record<BehavioralRouteType, string> = {
-  '': 'overview',
   collaboration: 'collaboration',
   'growth-mindset': 'growth-mindset',
+  introduction: 'overview',
   'problem-solving': 'problem-solving',
   questions: 'questions',
   'questions-to-ask': 'questions-to-ask',

@@ -58,24 +58,18 @@ export type GuideMetadata = Readonly<{
 export type FrontEndInterviewSlugType = (typeof frontendInterviewSlugs)[number];
 
 // For the introduction article, the slug is introduction, but the route is ''
-export type FrontEndInterviewRouteType =
-  | Exclude<FrontEndInterviewSlugType, 'introduction'>
-  | '';
+export type FrontEndInterviewRouteType = FrontEndInterviewSlugType;
 
 export type FrontEndSystemDesignSlugType =
   (typeof frontendSystemDesignSlugs)[number];
 
 // For the introduction article, the slug is introduction, but the route is ''
-export type FrontEndSystemDesignRouteType =
-  | Exclude<FrontEndSystemDesignSlugType, 'introduction'>
-  | '';
+export type FrontEndSystemDesignRouteType = FrontEndSystemDesignSlugType;
 
 export type BehavioralSlugType = (typeof behavioralSlugs)[number];
 
 // For the introduction article, the slug is introduction, but the route is ''
-export type BehavioralRouteType =
-  | Exclude<BehavioralSlugType, 'introduction'>
-  | '';
+export type BehavioralRouteType = BehavioralSlugType;
 
 export type GuideCardMetadata = GuideMetadata &
   Readonly<{

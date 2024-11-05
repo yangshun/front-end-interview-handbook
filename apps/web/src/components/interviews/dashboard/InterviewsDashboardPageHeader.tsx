@@ -58,7 +58,7 @@ export default function InterviewsDashboardPageHeader() {
                 className={clsx('size-5', themeTextSecondaryColor)}
               />
             </div>
-            <Anchor href="/front-end-interview-guidebook" variant="unstyled">
+            <Anchor href="/front-end-interview-playbook" variant="unstyled">
               <span aria-hidden={true} className="absolute inset-0" />
               <Text className="block" color="subtitle" size="body3">
                 <p className="whitespace-nowrap">

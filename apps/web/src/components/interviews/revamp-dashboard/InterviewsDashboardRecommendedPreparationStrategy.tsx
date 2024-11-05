@@ -1,12 +1,8 @@
 import clsx from 'clsx';
 import type { ReactNode } from 'react';
-import {
-  RiArrowRightLine,
-  RiBookOpenLine,
-  RiCheckFill,
-  RiEye2Line,
-  RiTimelineView,
-} from 'react-icons/ri';
+import { RiArrowRightLine, RiCheckFill, RiEye2Line } from 'react-icons/ri';
+
+import { useGuidesData } from '~/data/Guides';
 
 import InterviewsEntityProgress from '~/components/interviews/common/InterviewsEntityProgress';
 import PreparationGFE75Logo from '~/components/interviews/questions/content/study-list/logo/PreparationGFE75Logo';
@@ -133,6 +129,7 @@ function PreparationStrategyCard({ data }: { data: PreparationStrategyItem }) {
 
 export default function InterviewsDashboardRecommendedPreparationStrategy() {
   const intl = useIntl();
+  const guidesData = useGuidesData();
 
   // TODO(interviews): Re-look into these data and values
   const preparationStrategies: Array<PreparationStrategyItem> = [
@@ -146,13 +143,9 @@ export default function InterviewsDashboardRecommendedPreparationStrategy() {
         description: 'Description for front end interview guide',
         id: '4PQzx7',
       }),
-      href: '/front-end-interview-playbook',
-      icon: RiTimelineView,
-      title: intl.formatMessage({
-        defaultMessage: 'Front End Interview Playbook',
-        description: 'Title for front end interview guide',
-        id: 's/8W4z',
-      }),
+      href: guidesData['front-end-interview-playbook'].href,
+      icon: guidesData['front-end-interview-playbook'].icon,
+      title: guidesData['front-end-interview-playbook'].name,
       variant: 'neutral',
     },
     {
@@ -217,8 +210,8 @@ export default function InterviewsDashboardRecommendedPreparationStrategy() {
         description: 'Description for frontend system design guide',
         id: 'lKKC9U',
       }),
-      href: '/front-end-system-design-playbook',
-      icon: RiBookOpenLine,
+      href: guidesData['front-end-system-design-playbook'].href,
+      icon: guidesData['front-end-system-design-playbook'].icon,
       question: {
         completed: 5,
         total: 90,
@@ -228,11 +221,7 @@ export default function InterviewsDashboardRecommendedPreparationStrategy() {
         description: 'Label for frontend system design tag',
         id: 'jb5IjS',
       }),
-      title: intl.formatMessage({
-        defaultMessage: 'Front End System Design Playbook',
-        description: 'Title for frontend system design guide',
-        id: 'Ul08Jw',
-      }),
+      title: guidesData['front-end-system-design-playbook'].name,
       variant: 'info',
     },
   ];

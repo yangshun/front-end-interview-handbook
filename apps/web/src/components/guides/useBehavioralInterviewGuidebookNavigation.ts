@@ -13,7 +13,7 @@ import { useIntl } from '~/components/intl';
 
 import type { GuideNavigation } from './types';
 
-export const basePath = '/behavioral-interview-guidebook';
+export const basePath = '/behavioral-interview-playbook';
 
 export default function useBehavioralInterviewGuidebookNavigation() {
   const intl = useIntl();
@@ -28,7 +28,7 @@ export default function useBehavioralInterviewGuidebookNavigation() {
               description: 'What to expect in behavioral interviews',
               id: 'hESyRg',
             }),
-            href: basePath,
+            href: `${basePath}/introduction`,
             icon: RiPlayFill,
             label: intl.formatMessage({
               defaultMessage: 'Intro to behavioral interviews',

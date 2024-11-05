@@ -5,6 +5,7 @@ import path from 'path';
 
 import BehavioralInterviewGuidebookLayout from '~/components/guides/BehavioralInterviewGuidebookLayout';
 import type { BehavioralRouteType } from '~/components/guides/types';
+import { basePath } from '~/components/guides/useBehavioralInterviewGuidebookNavigation';
 import MDXCodeBlock from '~/components/mdx/MDXCodeBlock';
 import MDXComponents from '~/components/mdx/MDXComponents';
 
@@ -17,7 +18,7 @@ import defaultMetadata from '~/seo/defaultMetadata';
 type Props = Readonly<{
   params: {
     locale: string;
-    slug?: ReadonlyArray<string>;
+    slug: ReadonlyArray<string>;
   };
 }>;
 
@@ -48,7 +49,7 @@ function requestToPaths({ params }: Props): Readonly<{
     'contents',
     behavioralRouteToFile[mdxPath],
   );
-  const pathname = `/behavioral-interview-guidebook/${mdxPath}`;
+  const pathname = `${basePath}/${mdxPath}`;
 
   return { directoryPath, pathname };
 }
@@ -70,8 +71,8 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
 }
 
 export default async function Page(props: Props) {
-  const { directoryPath } = requestToPaths(props);
   const { locale } = props.params;
+  const { directoryPath } = requestToPaths(props);
 
   const code = await readMDXFileWithLocaleFallback(directoryPath, locale, {
     extractFrontmatter: true,

@@ -3,6 +3,7 @@ import type { Metadata } from 'next/types';
 
 import { INTERVIEWS_REVAMP_2024 } from '~/data/FeatureFlags';
 
+import { basePath } from '~/components/guides/useBehavioralInterviewGuidebookNavigation';
 import FrontEndInterviewPlaybookPage from '~/components/interviews/guides/FrontEndInterviewPlaybookPage';
 
 import { readAllFrontEndInterviewGuides } from '~/db/guides/GuidesReader';
@@ -29,7 +30,7 @@ async function getPageSEOMetadata({ params }: Props) {
         'Page description for frontend interview playbook cover page',
       id: 'qI3Dry',
     }),
-    href: '/front-end-interview-playbook',
+    href: basePath,
     socialTitle: intl.formatMessage({
       defaultMessage: 'Front End Interview Playbook | GreatFrontEnd',
       description: 'Social title for frontend interview playbook cover page',

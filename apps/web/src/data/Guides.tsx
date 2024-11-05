@@ -4,14 +4,15 @@ import {
   RiQuestionAnswerLine,
 } from 'react-icons/ri';
 
-import { basePath as behavioralInterviewGuidebookBasePath } from '~/components/guides/useBehavioralInterviewGuidebookNavigation';
-import { basePath as frontEndInterviewGuidebookBasePath } from '~/components/guides/useFrontEndInterviewGuidebookNavigation';
+import { basePath as behavioralInterviewPlaybookBasePath } from '~/components/guides/useBehavioralInterviewGuidebookNavigation';
+import { basePath as frontEndInterviewPlaybookBasePath } from '~/components/guides/useFrontEndInterviewGuidebookNavigation';
+import { basePath as frontEndSystemDesignPlaybookBasePath } from '~/components/interviews/questions/content/system-design/SystemDesignNavigation';
 import { useIntl } from '~/components/intl';
 
 type GuideType =
-  | 'behavioral-interview-guidebook'
-  | 'front-end-interview-guidebook'
-  | 'front-end-system-design-guidebook';
+  | 'behavioral-interview-playbook'
+  | 'front-end-interview-playbook'
+  | 'front-end-system-design-playbook';
 
 type GuideData = Readonly<{
   description: string;
@@ -26,20 +27,20 @@ export function useGuidesData() {
   const intl = useIntl();
 
   const items: Record<GuideType, GuideData> = {
-    'behavioral-interview-guidebook': {
+    'behavioral-interview-playbook': {
       description: intl.formatMessage({
         defaultMessage:
           'The only behavioral interview guide written specifically for front end engineers.',
         description: 'Behavioral interview guidebook description',
         id: 'MV8xp3',
       }),
-      href: behavioralInterviewGuidebookBasePath,
+      href: behavioralInterviewPlaybookBasePath,
       icon: RiQuestionAnswerLine,
       key: 'big',
       name: intl.formatMessage({
         defaultMessage: 'Behavioral Interview Playbook',
-        description: 'Title for behavioral interview playbook',
-        id: 'Y072iD',
+        description: 'Title for behavioral interview guide',
+        id: 'eWWazl',
       }),
       shortName: intl.formatMessage({
         defaultMessage: 'Behavioral Interview',
@@ -47,20 +48,20 @@ export function useGuidesData() {
         id: 'xBNYLl',
       }),
     },
-    'front-end-interview-guidebook': {
+    'front-end-interview-playbook': {
       description: intl.formatMessage({
         defaultMessage:
           'The definitive guide to preparing for Front End Interviews, written by the author of Front End Interview Handbook.',
         description: 'Front end interview guidebook description',
         id: 'XtKx03',
       }),
-      href: frontEndInterviewGuidebookBasePath,
+      href: frontEndInterviewPlaybookBasePath,
       icon: RiBookOpenLine,
       key: 'feig',
       name: intl.formatMessage({
         defaultMessage: 'Front End Interview Playbook',
-        description: 'Front End Interview Playbook title',
-        id: 'd1mCvP',
+        description: 'Front End Interview guide title',
+        id: 'PqBXo4',
       }),
       shortName: intl.formatMessage({
         defaultMessage: 'Front End Interview',
@@ -68,25 +69,25 @@ export function useGuidesData() {
         id: '5DLanP',
       }),
     },
-    'front-end-system-design-guidebook': {
+    'front-end-system-design-playbook': {
       description: intl.formatMessage({
         defaultMessage:
           'The most comprehensive guide to Front End System Design Interviews you can find.',
         description: 'Front end system design guidebook description',
         id: 'jm+fR2',
       }),
-      href: '/system-design',
+      href: frontEndSystemDesignPlaybookBasePath,
       icon: RiFlowChart,
       key: 'fesdg',
       name: intl.formatMessage({
-        defaultMessage: 'Front End System Design Guidebook',
+        defaultMessage: 'Front End System Design Playbook',
         description: 'Front end system design guidebook title',
-        id: 'NdDD5W',
+        id: 'FyfO1X',
       }),
       shortName: intl.formatMessage({
         defaultMessage: 'Front End System Design',
-        description: 'Short title of front end system design guidebook',
-        id: 'TRWLN8',
+        description: 'Short title of front end system design playbook',
+        id: 'owQqZY',
       }),
     },
   };
