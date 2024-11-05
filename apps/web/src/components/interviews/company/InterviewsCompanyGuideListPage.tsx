@@ -63,7 +63,9 @@ export default function InterviewsStudyListListPage({
   ];
 
   return (
-    <Container className={clsx('flex flex-col', 'py-10', 'gap-y-12')}>
+    <Container
+      className={clsx('flex flex-col', 'py-10', 'gap-y-12')}
+      width="app">
       {INTERVIEWS_REVAMP_2024 ? (
         <InterviewsListPageHeader
           description={intl.formatMessage({

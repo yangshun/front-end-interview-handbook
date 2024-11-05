@@ -138,8 +138,10 @@ export default function InterviewsCompanyGuidePage({
   ];
 
   return (
-    <div className={clsx('flex flex-col gap-y-12', 'py-12', 'relative')}>
-      <Container className="relative flex flex-col gap-y-8">
+    <Container
+      className={clsx('flex flex-col gap-y-12', 'py-12', 'relative')}
+      width="app">
+      <div className="relative flex flex-col gap-y-8">
         <div className="flex items-center justify-between gap-2">
           <Button
             addonPosition="start"
@@ -181,9 +183,9 @@ export default function InterviewsCompanyGuidePage({
             <InterviewsCompanyInsiderTipsSlider data={insiderTipsData} />
           </div>
         )}
-      </Container>
+      </div>
       <Section>
-        <Container className="@container flex flex-col gap-8">
+        <div className="@container flex flex-col gap-8">
           {/* <CardContainer className="@4xl:grid-cols-4 @md:grid-cols-2 grid grid-cols-1 grid-rows-1 gap-3 md:gap-4 lg:gap-6">
             <InterviewsCompanyRoundCard
               description={<>2 questions on data structures and algorithms</>}
@@ -277,8 +279,8 @@ export default function InterviewsCompanyGuidePage({
               />
             </Section>
           )}
-        </Container>
+        </div>
       </Section>
-    </div>
+    </Container>
   );
 }

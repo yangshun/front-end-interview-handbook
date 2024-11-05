@@ -81,7 +81,9 @@ export default function InterviewsRevampFocusAreaListPage({
   ];
 
   return (
-    <Container className={clsx('flex flex-col', 'py-10', 'gap-y-12')}>
+    <Container
+      className={clsx('flex flex-col', 'py-10', 'gap-y-12')}
+      width="app">
       <InterviewsListPageHeader
         description={intl.formatMessage({
           defaultMessage:

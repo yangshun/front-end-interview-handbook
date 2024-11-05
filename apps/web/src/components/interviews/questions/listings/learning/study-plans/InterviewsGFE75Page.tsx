@@ -96,8 +96,10 @@ export default function InterviewsGFE75Page({
   ];
 
   return (
-    <div className={clsx('flex flex-col gap-y-12', 'py-12', 'relative')}>
-      <Container className="relative flex flex-col gap-y-5">
+    <Container
+      className={clsx('flex flex-col gap-y-12', 'py-12', 'relative')}
+      width="app">
+      <div className="relative flex flex-col gap-y-5">
         <InterviewsRecommendedPrepStrategyPageTitleSection
           description={studyList.description}
           features={features}
@@ -143,9 +145,9 @@ export default function InterviewsGFE75Page({
           questionsSessionKey="greatfrontend75"
           title={studyList.name}
         />
-      </Container>
+      </div>
       <Section>
-        <Container className="flex flex-col gap-20">
+        <div className="flex flex-col gap-20">
           <QuestionsStudyList
             listKey={studyList.slug}
             overallProgress={questionsOverallProgress}
@@ -158,7 +160,7 @@ export default function InterviewsGFE75Page({
               <MDXContent mdxCode={bottomContent.body.code} />
             </Section>
           )}
-        </Container>
+        </div>
       </Section>
       <FeedbackDialog
         isShown={isOpenFeedback}
@@ -167,6 +169,6 @@ export default function InterviewsGFE75Page({
           setShowFeedbackWidget(false);
         }}
       />
-    </div>
+    </Container>
   );
 }

@@ -102,7 +102,9 @@ export default function InterviewsStudyPlanPage({
   ];
 
   return (
-    <Container className={clsx('flex flex-col gap-y-12', 'py-12', 'relative')}>
+    <Container
+      className={clsx('flex flex-col gap-y-12', 'py-12', 'relative')}
+      width="app">
       <div className="relative flex flex-col gap-y-8">
         <div className="flex items-center justify-between gap-2">
           <Button
