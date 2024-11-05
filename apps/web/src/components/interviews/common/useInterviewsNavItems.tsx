@@ -2,7 +2,6 @@ import {
   RiBookOpenLine,
   RiBuilding2Line,
   RiCalendar2Line,
-  RiEyeLine,
   RiFocus2Line,
   RiHome3Line,
   RiPriceTag3Line,
@@ -10,7 +9,6 @@ import {
   RiQuestionnaireLine,
   RiReactjsFill,
   RiShiningLine,
-  RiStarFill,
   RiTerminalWindowLine,
   RiThumbUpLine,
   RiTimeLine,
@@ -22,6 +20,7 @@ import { SCROLL_HASH_INTERVIEWS_FEATURES } from '~/hooks/useScrollToHash';
 
 import { useGuidesData } from '~/data/Guides';
 
+import { StudyPlanIcons } from '~/components/interviews/questions/content/study-list/StudyPlans';
 import { useIntl } from '~/components/intl';
 import Badge from '~/components/ui/Badge';
 import type { NavbarTopLevelItem } from '~/components/ui/Navbar/NavTypes';
@@ -101,9 +100,9 @@ export default function useInterviewsNavItems(placement: 'nav' | 'sidebar') {
       },
       {
         href: '/interviews/greatfrontend75',
-        icon: RiStarFill,
+        icon: StudyPlanIcons.greatfrontend75,
         itemKey: 'gfe75',
-        label: 'GreatFrontEnd 75',
+        label: 'GFE 75',
         onClick: () => {
           gtag.event({
             action: `${placement}.prepare.recommended.gfe75.click`,
@@ -121,14 +120,14 @@ export default function useInterviewsNavItems(placement: 'nav' | 'sidebar') {
       },
       {
         href: '/interviews/blind75',
-        icon: RiEyeLine,
+        icon: StudyPlanIcons.blind75,
         itemKey: 'blind75',
         label: 'Blind 75',
         onClick: () => {
           gtag.event({
             action: `${placement}.prepare.recommended.blind75.click`,
             category: 'engagement',
-            label: 'Bling 75',
+            label: 'Blind 75',
           });
         },
         sublabel: intl.formatMessage({

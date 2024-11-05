@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 import type { ReactNode } from 'react';
-import { RiArrowRightLine, RiCheckFill, RiEye2Line } from 'react-icons/ri';
+import { RiArrowRightLine, RiCheckFill } from 'react-icons/ri';
 
 import { useGuidesData } from '~/data/Guides';
 
@@ -24,6 +24,8 @@ import {
   themeTextSubtleColor,
 } from '~/components/ui/theme';
 import Tooltip from '~/components/ui/Tooltip';
+
+import { StudyPlanIcons } from '../questions/content/study-list/StudyPlans';
 
 type PreparationStrategyItem = Readonly<{
   article?: {
@@ -114,7 +116,6 @@ function PreparationStrategyCard({ data }: { data: PreparationStrategyItem }) {
           </div>
         </div>
       </div>
-
       <RiArrowRightLine
         className={clsx(
           'size-5 shrink-0',
@@ -161,11 +162,7 @@ export default function InterviewsDashboardRecommendedPreparationStrategy() {
         completed: 2,
         total: 90,
       },
-      title: intl.formatMessage({
-        defaultMessage: 'GFE 75',
-        description: 'Title for gfe75',
-        id: 'C9uKzE',
-      }),
+      title: 'GFE 75',
       variant: 'neutral',
     },
     {
@@ -176,7 +173,7 @@ export default function InterviewsDashboardRecommendedPreparationStrategy() {
         id: 'Zk/GBk',
       }),
       href: '/interviews/blind75',
-      icon: RiEye2Line,
+      icon: StudyPlanIcons.blind75,
       question: {
         completed: 30,
         total: 90,
@@ -192,11 +189,7 @@ export default function InterviewsDashboardRecommendedPreparationStrategy() {
         description: 'Tooltip for the tag',
         id: '6w7Ge4',
       }),
-      title: intl.formatMessage({
-        defaultMessage: 'Blind 75',
-        description: 'Title for Blind75',
-        id: 'dCV3vl',
-      }),
+      title: 'Blind 75',
       variant: 'warning',
     },
     {
@@ -221,7 +214,7 @@ export default function InterviewsDashboardRecommendedPreparationStrategy() {
         description: 'Label for frontend system design tag',
         id: 'jb5IjS',
       }),
-      title: guidesData['front-end-system-design-playbook'].name,
+      title: guidesData['front-end-system-design-playbook'].shortName,
       variant: 'info',
     },
   ];

@@ -62,7 +62,7 @@ function RecommendedItemsDropdown({
       href: '/interviews/greatfrontend75',
       // TODO(interviews): better way to count completion.
       isCompleted: gfe75session?._count.progress === 75,
-      label: 'GreatFrontEnd 75',
+      label: 'GFE 75',
     },
     {
       href: '/interviews/blind75',
@@ -74,7 +74,7 @@ function RecommendedItemsDropdown({
       href: guidesData['front-end-system-design-playbook'].href,
       // TODO(interviews): remove hardcoding
       isCompleted: false,
-      label: guidesData['front-end-system-design-playbook'].name,
+      label: guidesData['front-end-system-design-playbook'].shortName,
     },
   ];
 
