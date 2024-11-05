@@ -129,7 +129,7 @@ export default function InterviewsQuestionFormatPage({
   const filterNamespace = `format:${format}`;
 
   return (
-    <Container className={clsx('flex flex-col', 'py-10', 'gap-y-12')}>
+    <>
       <div>
         <div className="mb-8 flex items-center justify-between gap-2">
           <Button
@@ -178,6 +178,6 @@ export default function InterviewsQuestionFormatPage({
           </Section>
         </>
       )}
-    </Container>
+    </>
   );
 }

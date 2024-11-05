@@ -91,7 +91,7 @@ export default function InterviewsAllPracticeQuestionsPage({
   ];
 
   return (
-    <Container className={clsx('flex flex-col', 'py-10', 'gap-y-12')}>
+    <>
       <InterviewsListPageHeader
         description={intl.formatMessage({
           defaultMessage:
@@ -106,7 +106,6 @@ export default function InterviewsAllPracticeQuestionsPage({
           id: 'o8bpfE',
         })}
       />
-
       <Section>
         <InterviewsQuestionFormatsSection
           guidesProgress={guidesProgress ?? []}
@@ -118,7 +117,6 @@ export default function InterviewsAllPracticeQuestionsPage({
           questionsProgress={questionsProgress ?? []}
         />
       </Section>
-
       {bottomContent && (
         <>
           <Divider className="my-8" />
@@ -127,6 +125,6 @@ export default function InterviewsAllPracticeQuestionsPage({
           </Section>
         </>
       )}
-    </Container>
+    </>
   );
 }

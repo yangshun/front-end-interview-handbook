@@ -152,7 +152,7 @@ export default function QuestionsCategoryPage({
           'gap-y-8 md:gap-y-10 2xl:gap-y-12',
           INTERVIEWS_REVAMP_2024 ? 'py-12' : 'py-4 md:py-6 lg:py-8 xl:py-16',
         )}
-        width="7xl">
+        width="app">
         <QuestionCategoryTitleSection
           category={category}
           count={codingQuestions.length + quizQuestions.length}

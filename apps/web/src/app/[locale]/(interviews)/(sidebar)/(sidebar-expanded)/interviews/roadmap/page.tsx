@@ -35,11 +35,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 function InterviewsRoadmap() {
-  return (
-    <Container className="py-4 md:py-6 lg:py-8 xl:py-16">
-      <RoadmapPage />
-    </Container>
-  );
+  return <RoadmapPage />;
 }
 
 export default InterviewsRoadmap;

@@ -82,7 +82,8 @@ export default function InterviewsDashboardLayout({
         'flex flex-col',
         'gap-y-8 md:gap-y-10 2xl:gap-y-12',
         'py-4 md:py-6 lg:py-8 xl:py-16',
-      )}>
+      )}
+      width="app">
       <Section>
         <div className="flex flex-col gap-y-6">
           <InterviewsDashboardPageHeader />

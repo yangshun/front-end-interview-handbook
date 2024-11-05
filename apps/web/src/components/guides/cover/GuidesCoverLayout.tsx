@@ -27,7 +27,9 @@ export default function GuidesCoverLayout({
   showRecommendedItemsDropdown,
 }: Props) {
   return (
-    <Container className={clsx('flex flex-col gap-y-12', 'py-12', 'relative')}>
+    <Container
+      className={clsx('flex flex-col gap-y-12', 'py-12', 'relative')}
+      width="app">
       <InterviewsRecommendedPrepStrategyPageTitleSection
         description={description}
         features={features}
