@@ -59,21 +59,21 @@ const nextConfig = {
         destination: '/questions/js',
         permanent: false,
       },
-      {
-        source: '/questions/coding',
-        destination: '/prepare/coding',
-        permanent: false,
-      },
-      {
-        source: '/questions/quiz',
-        destination: '/prepare/quiz',
-        permanent: false,
-      },
-      {
-        source: '/questions/system-design',
-        destination: '/prepare/system-design',
-        permanent: false,
-      },
+      // {
+      //   source: '/prepare/coding',
+      //   destination: '/questions/javascript',
+      //   permanent: false,
+      // },
+      // {
+      //   source: '/prepare/quiz',
+      //   destination: '/questions/quiz',
+      //   permanent: false,
+      // },
+      // {
+      //   source: '/prepare/system-design',
+      //   destination: '/questions/system-design',
+      //   permanent: false,
+      // },
       {
         source: '/questions/quiz/css/:path*',
         destination: '/questions/quiz/:path*',

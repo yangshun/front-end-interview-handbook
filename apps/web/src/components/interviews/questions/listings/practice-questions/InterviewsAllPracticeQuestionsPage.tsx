@@ -1,5 +1,6 @@
 'use client';
 
+import clsx from 'clsx';
 import type { InterviewsListingBottomContent } from 'contentlayer/generated';
 import {
   RiTestTubeLine,
@@ -89,7 +90,7 @@ export default function InterviewsAllPracticeQuestionsPage({
   ];
 
   return (
-    <>
+    <div className={clsx('flex flex-col', 'gap-y-8 md:gap-y-10 2xl:gap-y-12')}>
       <InterviewsListPageHeader
         description={intl.formatMessage({
           defaultMessage:
@@ -123,6 +124,6 @@ export default function InterviewsAllPracticeQuestionsPage({
           </Section>
         </>
       )}
-    </>
+    </div>
   );
 }

@@ -19,7 +19,6 @@ import QuestionsStudyList from '~/components/interviews/questions/listings/learn
 import InterviewsRecommendedPrepStrategyPageTitleSection from '~/components/interviews/recommended/InterviewsRecommendedPrepStrategyPageTitleSection';
 import { FormattedMessage, useIntl } from '~/components/intl';
 import MDXContent from '~/components/mdx/MDXContent';
-import Container from '~/components/ui/Container';
 import Divider from '~/components/ui/Divider';
 import Section from '~/components/ui/Heading/HeadingContext';
 import Text from '~/components/ui/Text';
@@ -89,9 +88,7 @@ export default function InterviewsBlind75Page({
   ];
 
   return (
-    <Container
-      className={clsx('flex flex-col gap-y-12', 'py-12', 'relative')}
-      width="app">
+    <div className={clsx('flex flex-col gap-y-12', 'relative')}>
       <div className="relative flex flex-col gap-y-5">
         <InterviewsRecommendedPrepStrategyPageTitleSection
           description={studyList.description}
@@ -149,6 +146,6 @@ export default function InterviewsBlind75Page({
           )}
         </div>
       </Section>
-    </Container>
+    </div>
   );
 }

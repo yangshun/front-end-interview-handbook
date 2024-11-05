@@ -16,7 +16,6 @@ import {
 } from '~/components/interviews/questions/content/study-list/StudyPlans';
 import { useIntl } from '~/components/intl';
 import Anchor from '~/components/ui/Anchor';
-import Container from '~/components/ui/Container';
 import Divider from '~/components/ui/Divider';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
@@ -219,12 +218,7 @@ export default function InterviewsMarketingGetStartedPage({
   const intl = useIntl();
 
   return (
-    <Container
-      className={clsx(
-        'flex flex-col',
-        'py-4 md:py-6 lg:py-8 xl:py-16',
-        'gap-y-12 lg:gap-y-16',
-      )}>
+    <div className={clsx('flex flex-col', 'gap-y-12 lg:gap-y-16')}>
       <Heading level="heading3">
         {intl.formatMessage({
           defaultMessage: 'Get Started',
@@ -242,6 +236,6 @@ export default function InterviewsMarketingGetStartedPage({
           userInterfaceQuestions={userInterfaceQuestions}
         />
       </Section>
-    </Container>
+    </div>
   );
 }

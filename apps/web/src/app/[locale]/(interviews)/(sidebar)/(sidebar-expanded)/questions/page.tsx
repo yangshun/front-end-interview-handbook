@@ -1,8 +1,6 @@
 import type { Metadata } from 'next';
-import { notFound } from 'next/navigation';
 
-import { INTERVIEWS_REVAMP_2024 } from '~/data/FeatureFlags';
-
+import InterviewsAllPracticeQuestionsPage from '~/components/interviews/questions/listings/practice-questions/InterviewsAllPracticeQuestionsPage';
 import { QuestionCount } from '~/components/interviews/questions/listings/stats/QuestionCount';
 
 import { fetchInterviewListingBottomContent } from '~/db/contentlayer/InterviewsListingBottomContentReader';
@@ -14,8 +12,6 @@ import {
 import { categorizeQuestionsByFrameworkAndLanguage } from '~/db/QuestionsUtils';
 import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
-
-import InterviewsAllPracticeQuestionsPage from './InterviewsAllPracticeQuestionsPage';
 
 type Props = Readonly<{
   params: Readonly<{
@@ -34,7 +30,7 @@ async function getPageSEOMetadata({ params }: Props) {
       description: 'Page description for focus areas listing',
       id: 'cNg7I1',
     }),
-    href: '/interviews/questions',
+    href: '/questions',
     socialTitle: intl.formatMessage({
       defaultMessage: 'Front End Interview Practice Questions | GreatFrontEnd',
       description: 'Social title for focus areas listing',
@@ -71,10 +67,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function Page({ params }: Props) {
-  if (!INTERVIEWS_REVAMP_2024) {
-    return notFound();
-  }
-
   const { locale } = params;
 
   const [

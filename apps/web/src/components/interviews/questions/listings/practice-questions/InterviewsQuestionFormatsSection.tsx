@@ -10,6 +10,8 @@ import {
 } from 'react-icons/ri';
 import { TbBinaryTree } from 'react-icons/tb';
 
+import { SCROLL_HASH_INTERVIEWS_QUESTIONS_FORMAT } from '~/hooks/useScrollToHash';
+
 import type { GuideCategory } from '~/components/guides/types';
 import useBehavioralInterviewGuidebookNavigation from '~/components/guides/useBehavioralInterviewGuidebookNavigation';
 import InterviewsEntityProgress from '~/components/interviews/common/InterviewsEntityProgress';
@@ -268,9 +270,9 @@ export default function InterviewsQuestionFormatsSection({
       total: uiQuestions.length,
     },
     title: intl.formatMessage({
-      defaultMessage: 'User Interfaces Coding',
+      defaultMessage: 'User Interface Coding',
       description: 'Title for ui coding questions',
-      id: 'ZS/d9t',
+      id: 'Yhn5fM',
     }),
   };
 
@@ -345,7 +347,9 @@ export default function InterviewsQuestionFormatsSection({
   ];
 
   return (
-    <div className="flex flex-col gap-6">
+    <div
+      className={clsx('flex flex-col gap-6', 'md:scroll-mt-16 lg:scroll-mt-12')}
+      id={SCROLL_HASH_INTERVIEWS_QUESTIONS_FORMAT}>
       <div className="flex flex-col gap-3">
         <Heading level="heading6">
           <FormattedMessage

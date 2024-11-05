@@ -2,6 +2,8 @@ import clsx from 'clsx';
 import { type ReactNode, useMemo } from 'react';
 import { RiArrowRightLine } from 'react-icons/ri';
 
+import { SCROLL_HASH_INTERVIEWS_QUESTIONS_FRAMEWORK_LANGUAGE } from '~/hooks/useScrollToHash';
+
 import AngularLogo from '~/components/icons/AngularLogo';
 import CSS3Logo from '~/components/icons/CSS3Logo';
 import HTML5Logo from '~/components/icons/HTML5Logo';
@@ -196,7 +198,9 @@ export default function InterviewsFrameworkAndLanguageSection({
   ];
 
   return (
-    <div className="flex flex-col gap-6">
+    <div
+      className={clsx('flex flex-col gap-6', 'md:scroll-mt-16 lg:scroll-mt-12')}
+      id={SCROLL_HASH_INTERVIEWS_QUESTIONS_FRAMEWORK_LANGUAGE}>
       <div className="flex flex-col gap-3">
         <Heading level="heading6">
           <FormattedMessage
@@ -213,7 +217,6 @@ export default function InterviewsFrameworkAndLanguageSection({
           />
         </Text>
       </div>
-
       <div className="grid gap-x-4 gap-y-6 md:grid-cols-2">
         {frameworks.map((framework) => (
           <FrameworkCard key={framework.title} {...framework} />

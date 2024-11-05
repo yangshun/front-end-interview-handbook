@@ -2,7 +2,6 @@ import clsx from 'clsx';
 import type { ReactNode } from 'react';
 
 import InterviewsRecommendedPrepStrategyPageTitleSection from '~/components/interviews/recommended/InterviewsRecommendedPrepStrategyPageTitleSection';
-import Container from '~/components/ui/Container';
 
 type Props = Readonly<{
   children: ReactNode;
@@ -27,9 +26,7 @@ export default function GuidesCoverLayout({
   showRecommendedItemsDropdown,
 }: Props) {
   return (
-    <Container
-      className={clsx('flex flex-col gap-y-12', 'py-12', 'relative')}
-      width="app">
+    <div className={clsx('flex flex-col gap-y-12', 'relative')}>
       <InterviewsRecommendedPrepStrategyPageTitleSection
         description={description}
         features={features}
@@ -40,6 +37,6 @@ export default function GuidesCoverLayout({
         title={title}
       />
       {children}
-    </Container>
+    </div>
   );
 }

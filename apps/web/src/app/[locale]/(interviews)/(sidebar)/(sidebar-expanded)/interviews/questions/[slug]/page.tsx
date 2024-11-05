@@ -8,6 +8,7 @@ import type {
   QuestionFormat,
   QuestionMetadata,
 } from '~/components/interviews/questions/common/QuestionsTypes';
+import InterviewsQuestionFormatPage from '~/components/interviews/questions/listings/practice-questions/InterviewsQuestionFormatPage';
 
 import { fetchInterviewListingBottomContent } from '~/db/contentlayer/InterviewsListingBottomContentReader';
 import { readAllFrontEndInterviewGuides } from '~/db/guides/GuidesReader';
@@ -20,8 +21,6 @@ import {
 import { roundQuestionCountToNearestTen } from '~/db/QuestionsUtils';
 import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
-
-import InterviewsQuestionFormatPage from './InterviewsQuestionFormatPage';
 
 type Props = Readonly<{
   params: Readonly<{

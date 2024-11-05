@@ -16,7 +16,6 @@ import { INTERVIEWS_REVAMP_2024 } from '~/data/FeatureFlags';
 import InterviewsListPageHeader from '~/components/interviews/common/InterviewsListPageHeader';
 import { useIntl } from '~/components/intl';
 import MDXContent from '~/components/mdx/MDXContent';
-import Container from '~/components/ui/Container';
 import Divider from '~/components/ui/Divider';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
@@ -63,9 +62,7 @@ export default function InterviewsStudyListListPage({
   ];
 
   return (
-    <Container
-      className={clsx('flex flex-col', 'py-10', 'gap-y-12')}
-      width="app">
+    <div className={clsx('flex flex-col gap-y-12')}>
       {INTERVIEWS_REVAMP_2024 ? (
         <InterviewsListPageHeader
           description={intl.formatMessage({
@@ -110,6 +107,6 @@ export default function InterviewsStudyListListPage({
           </Section>
         </>
       )}
-    </Container>
+    </div>
   );
 }

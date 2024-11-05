@@ -1,5 +1,6 @@
 'use client';
 
+import clsx from 'clsx';
 import type { InterviewsListingBottomContent } from 'contentlayer/generated';
 import {
   RiArrowLeftLine,
@@ -127,13 +128,13 @@ export default function InterviewsQuestionFormatPage({
   const filterNamespace = `format:${format}`;
 
   return (
-    <>
+    <div className={clsx('flex flex-col', 'gap-y-8 md:gap-y-10 2xl:gap-y-12')}>
       <div>
         <div className="mb-8 flex items-center justify-between gap-2">
           <Button
             addonPosition="start"
             className="-mb-2 -ml-5"
-            href="/interviews/questions"
+            href="/questions"
             icon={RiArrowLeftLine}
             label={intl.formatMessage({
               defaultMessage: 'Back to All practice questions',
@@ -176,6 +177,6 @@ export default function InterviewsQuestionFormatPage({
           </Section>
         </>
       )}
-    </>
+    </div>
   );
 }

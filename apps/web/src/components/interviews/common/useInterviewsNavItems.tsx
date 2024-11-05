@@ -16,7 +16,11 @@ import {
 import url from 'url';
 
 import gtag from '~/lib/gtag';
-import { SCROLL_HASH_INTERVIEWS_FEATURES } from '~/hooks/useScrollToHash';
+import {
+  SCROLL_HASH_INTERVIEWS_FEATURES,
+  SCROLL_HASH_INTERVIEWS_QUESTIONS_FORMAT,
+  SCROLL_HASH_INTERVIEWS_QUESTIONS_FRAMEWORK_LANGUAGE,
+} from '~/hooks/useScrollToHash';
 
 import { useGuidesData } from '~/data/Guides';
 
@@ -31,8 +35,8 @@ export default function useInterviewsNavItems(placement: 'nav' | 'sidebar') {
   const guidesData = useGuidesData();
 
   const dashboard = {
-    currentMatchRegex: /\prepare$/,
-    href: '/prepare',
+    currentMatchRegex: /\/interviews\/dashboard$/,
+    href: '/interviews/dashboard',
     icon: RiHome3Line,
     itemKey: 'dashboard',
     label: intl.formatMessage({
@@ -303,6 +307,42 @@ export default function useInterviewsNavItems(placement: 'nav' | 'sidebar') {
       {
         bottomEl: (
           <div className="flex gap-2">
+            {['JavaScript coding', 'UI coding', 'Algo coding', '+2 more'].map(
+              (label) => (
+                <Badge key={label} label={label} size="xs" variant="neutral" />
+              ),
+            )}
+          </div>
+        ),
+        href: url.format({
+          hash: SCROLL_HASH_INTERVIEWS_QUESTIONS_FORMAT,
+          pathname: '/questions',
+        }),
+        icon: RiQuestionAnswerLine,
+        itemKey: 'question-format',
+        label: intl.formatMessage({
+          defaultMessage: 'By question format',
+          description: 'Practice for interviews question format',
+          id: 'eUSr+T',
+        }),
+        onClick: () => {
+          gtag.event({
+            action: `${placement}.prepare.practice_questions.question_format.click`,
+            category: 'engagement',
+            label: 'Focus areas',
+          });
+        },
+        sublabel: intl.formatMessage({
+          defaultMessage:
+            'Gain expertise in handling commonly asked question formats in front end interviews',
+          description: 'Description for interview practice by question format',
+          id: '9Bbo+p',
+        }),
+        type: 'popover-link',
+      },
+      {
+        bottomEl: (
+          <div className="flex gap-2">
             {['React', 'TypeScript', 'Vue', 'Angular', 'Svelte', '+3 more'].map(
               (label) => (
                 <Badge key={label} label={label} size="xs" variant="neutral" />
@@ -310,7 +350,10 @@ export default function useInterviewsNavItems(placement: 'nav' | 'sidebar') {
             )}
           </div>
         ),
-        href: '/questions',
+        href: url.format({
+          hash: SCROLL_HASH_INTERVIEWS_QUESTIONS_FRAMEWORK_LANGUAGE,
+          pathname: '/questions',
+        }),
         icon: RiReactjsFill,
         itemKey: 'question-framework',
         label: intl.formatMessage({
@@ -332,39 +375,6 @@ export default function useInterviewsNavItems(placement: 'nav' | 'sidebar') {
           description:
             'Description for interviews practice by frameworks and languages',
           id: 'taJXPg',
-        }),
-        type: 'popover-link',
-      },
-      {
-        bottomEl: (
-          <div className="flex gap-2">
-            {['JavaScript coding', 'UI coding', 'Algo coding', '+2 more'].map(
-              (label) => (
-                <Badge key={label} label={label} size="xs" variant="neutral" />
-              ),
-            )}
-          </div>
-        ),
-        href: '/prepare',
-        icon: RiQuestionAnswerLine,
-        itemKey: 'question-format',
-        label: intl.formatMessage({
-          defaultMessage: 'By question format',
-          description: 'Practice for interviews question format',
-          id: 'eUSr+T',
-        }),
-        onClick: () => {
-          gtag.event({
-            action: `${placement}.prepare.practice_questions.question_format.click`,
-            category: 'engagement',
-            label: 'Focus areas',
-          });
-        },
-        sublabel: intl.formatMessage({
-          defaultMessage:
-            'Gain expertise in handling commonly asked question formats in front end interviews',
-          description: 'Description for interview practice by question format',
-          id: '9Bbo+p',
         }),
         type: 'popover-link',
       },

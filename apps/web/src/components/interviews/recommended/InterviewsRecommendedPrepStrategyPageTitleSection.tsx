@@ -248,37 +248,43 @@ export default function InterviewsRecommendedPrepStrategyPageTitleSection({
 
   return (
     <div className="flex flex-col gap-8">
-      <div className="flex flex-wrap items-center justify-between gap-x-2 gap-y-4">
-        {showRecommendedItemsDropdown && (
-          <div className="flex items-center gap-3">
-            <Tooltip
-              asChild={true}
-              label={
-                <FormattedMessage
-                  defaultMessage="This study list is part of our recommended preparation strategy."
-                  description="Tooltip for recommended preparation strategy badge"
-                  id="G+XbLQ"
+      {(showRecommendedItemsDropdown || metadata) && (
+        <div
+          className={clsx(
+            'flex flex-wrap items-center justify-between gap-x-2 gap-y-4',
+            'h-7', // Add a fixed height so that the page contents don't shift around when navigating between pages that don't have metadata.
+          )}>
+          {showRecommendedItemsDropdown && (
+            <div className="flex items-center gap-3">
+              <Tooltip
+                asChild={true}
+                label={
+                  <FormattedMessage
+                    defaultMessage="This study list is part of our recommended preparation strategy."
+                    description="Tooltip for recommended preparation strategy badge"
+                    id="G+XbLQ"
+                  />
+                }>
+                <Badge
+                  label={intl.formatMessage({
+                    defaultMessage: 'Recommended',
+                    description: 'Label for Recommended tag',
+                    id: 'baItxW',
+                  })}
+                  size="xs"
+                  variant="primary"
                 />
-              }>
-              <Badge
-                label={intl.formatMessage({
-                  defaultMessage: 'Recommended',
-                  description: 'Label for Recommended tag',
-                  id: 'baItxW',
-                })}
-                size="xs"
-                variant="primary"
-              />
-            </Tooltip>
-            <RecommendedItemsDropdown sessions={sessions} />
-          </div>
-        )}
-        {metadata && (
-          <div className="flex flex-1 justify-end">
-            <InterviewsPageHeaderActions metadata={metadata} />
-          </div>
-        )}
-      </div>
+              </Tooltip>
+              <RecommendedItemsDropdown sessions={sessions} />
+            </div>
+          )}
+          {metadata && (
+            <div className="flex flex-1 justify-end">
+              <InterviewsPageHeaderActions metadata={metadata} />
+            </div>
+          )}
+        </div>
+      )}
       <QuestionsStudyListPageTitleSection
         description={description}
         features={features}

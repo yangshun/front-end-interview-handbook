@@ -21,7 +21,6 @@ import {
 import InterviewsStudyListCard from '~/components/interviews/questions/listings/learning/InterviewsStudyListCard';
 import { useIntl } from '~/components/intl';
 import MDXContent from '~/components/mdx/MDXContent';
-import Container from '~/components/ui/Container';
 import Divider from '~/components/ui/Divider';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
@@ -81,9 +80,7 @@ export default function InterviewsRevampFocusAreaListPage({
   ];
 
   return (
-    <Container
-      className={clsx('flex flex-col', 'py-10', 'gap-y-12')}
-      width="app">
+    <div className={clsx('flex flex-col gap-y-12')}>
       <InterviewsListPageHeader
         description={intl.formatMessage({
           defaultMessage:
@@ -151,6 +148,6 @@ export default function InterviewsRevampFocusAreaListPage({
           </Section>
         </>
       )}
-    </Container>
+    </div>
   );
 }

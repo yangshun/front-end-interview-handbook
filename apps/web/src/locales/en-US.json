@@ -2007,10 +2007,6 @@
     "defaultMessage": "'Max streak' is the number of continuous active days",
     "description": "Tooltip label for active day in completions"
   },
-  "C9uKzE": {
-    "defaultMessage": "GFE 75",
-    "description": "Title for gfe75"
-  },
   "CBU+k0": {
     "defaultMessage": "Company",
     "description": "Section heading in footer for links to company-related pages like pricing, about, contact us, affiliate, etc."
@@ -5607,6 +5603,10 @@
     "defaultMessage": "Level up in your skills or complete component track",
     "description": "Description for \"Level up in your skills or complete component track\" feature on Projects home page"
   },
+  "Yhn5fM": {
+    "defaultMessage": "User Interface Coding",
+    "description": "Title for ui coding questions"
+  },
   "YpJ3q8": {
     "defaultMessage": "Reply to comment",
     "description": "Label for discussion post reply input"
@@ -5682,10 +5682,6 @@
   "ZRUNG5": {
     "defaultMessage": "Promotions",
     "description": "Title of Promotions page"
-  },
-  "ZS/d9t": {
-    "defaultMessage": "User Interfaces Coding",
-    "description": "Title for ui coding questions"
   },
   "ZWMfa0": {
     "defaultMessage": "Pricing plans",
@@ -6282,10 +6278,6 @@
   "dAHBqv": {
     "defaultMessage": "Theme",
     "description": "Label for select that changes the theme of the editor"
-  },
-  "dCV3vl": {
-    "defaultMessage": "Blind 75",
-    "description": "Title for Blind75"
   },
   "dFjMzR": {
     "defaultMessage": "Copy link",

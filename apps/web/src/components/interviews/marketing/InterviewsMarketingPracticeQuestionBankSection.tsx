@@ -54,9 +54,9 @@ type Props = Readonly<{
 }>;
 
 const formatRoute: Record<QuestionUserFacingFormat, string> = {
-  coding: '/interviews/questions/javascript',
-  quiz: '/interviews/questions/quiz',
-  'system-design': '/interviews/questions/system-design',
+  coding: '/questions/javascript',
+  quiz: '/questions/quiz',
+  'system-design': '/questions/system-design',
 };
 const frameworkRoute: Record<QuestionFramework, string> = {
   angular: '/questions/angular',
@@ -72,6 +72,7 @@ const languageRoute: Record<QuestionLanguage, string> = {
   ts: '/questions/js',
 };
 
+// TODO(interviews): update this.
 const topicRoute: Record<QuestionTopic, string> = {
   a11y: '/interviews/questions/quiz',
   css: '/questions/css',

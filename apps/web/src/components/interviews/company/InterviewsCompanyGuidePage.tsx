@@ -31,7 +31,6 @@ import QuestionsStudyListPageTitleSection from '~/components/interviews/question
 import { useIntl } from '~/components/intl';
 import MDXContent from '~/components/mdx/MDXContent';
 import Button from '~/components/ui/Button';
-import Container from '~/components/ui/Container';
 import Divider from '~/components/ui/Divider';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
@@ -138,9 +137,7 @@ export default function InterviewsCompanyGuidePage({
   ];
 
   return (
-    <Container
-      className={clsx('flex flex-col gap-y-12', 'py-12', 'relative')}
-      width="app">
+    <div className={clsx('flex flex-col gap-y-12', 'relative')}>
       <div className="relative flex flex-col gap-y-8">
         <div className="flex items-center justify-between gap-2">
           <Button
@@ -281,6 +278,6 @@ export default function InterviewsCompanyGuidePage({
           )}
         </div>
       </Section>
-    </Container>
+    </div>
   );
 }
