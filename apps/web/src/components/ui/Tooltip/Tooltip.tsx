@@ -28,6 +28,7 @@ type Props = Readonly<{
   asChild?: boolean;
   children: ReactNode;
   className?: string;
+  delayDuration?: number;
   invert?: boolean;
   label?: ReactNode;
   side?: TooltipContentSide;
@@ -40,6 +41,7 @@ export default function Tooltip({
   align = 'center',
   asChild = false,
   children,
+  delayDuration,
   className,
   triggerClassName,
   invert = false,
@@ -56,8 +58,9 @@ export default function Tooltip({
     : 'fill-neutral-950 dark:fill-neutral-200';
 
   return (
+    // TODO: Move to global-level.
     <TooltipPrimitive.Provider>
-      <TooltipPrimitive.Root>
+      <TooltipPrimitive.Root delayDuration={delayDuration}>
         <TooltipPrimitive.Trigger
           asChild={asChild}
           className={triggerClassName}
