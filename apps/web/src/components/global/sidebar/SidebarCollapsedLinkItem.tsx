@@ -84,7 +84,7 @@ export default function SidebarCollapsedLinkItem({
     );
 
     return (
-      <Tooltip asChild={true} label={label} side="right">
+      <Tooltip asChild={true} delayDuration={0} label={label} side="right">
         {link}
       </Tooltip>
     );
@@ -92,7 +92,7 @@ export default function SidebarCollapsedLinkItem({
 
   return (
     <PopoverPrimitive.Root open={open} onOpenChange={setOpen}>
-      <Tooltip asChild={true} label={label} side="right">
+      <Tooltip asChild={true} delayDuration={0} label={label} side="right">
         <PopoverPrimitive.Trigger
           aria-label={label}
           className={clsx(

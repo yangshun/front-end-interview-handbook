@@ -38,15 +38,28 @@ type SidebarItemList = Readonly<{
 
 export type SidebarLinkEntity = SidebarItemList | SidebarLink;
 
+function isItemActive(
+  {
+    href,
+    currentMatchRegex,
+  }: Readonly<{ currentMatchRegex?: RegExp, href: string; }>,
+  pathname: string | null,
+) {
+  return (
+    pathname === href || (pathname != null && currentMatchRegex?.test(pathname))
+  );
+}
+
 function SidebarLinkItem({
   addOnElement,
   href,
   icon: Icon,
   label,
   showIcon,
+  currentMatchRegex,
 }: Readonly<{ showIcon: boolean }> & SidebarLink) {
   const { pathname } = useI18nPathname();
-  const isActive = pathname === href;
+  const isActive = isItemActive({ currentMatchRegex, href }, pathname);
 
   const activeClassName = clsx(
     themeTextColor,
@@ -110,8 +123,8 @@ function SidebarLinks({
     return <SidebarLinkItem key={item.href} showIcon={false} {...item} />;
   }
 
-  const isActiveSection = item.items.find(
-    (linkItem) => linkItem.href === pathname,
+  const isActiveSection = item.items.find((linkItem) =>
+    isItemActive(linkItem, pathname),
   );
 
   return (
@@ -192,7 +205,7 @@ export default function SidebarLinksSection({
           continue;
         }
 
-        if (item.items.find((linkItem) => linkItem.href === pathname)) {
+        if (item.items.find((linkItem) => isItemActive(linkItem, pathname))) {
           return item.label;
         }
       }

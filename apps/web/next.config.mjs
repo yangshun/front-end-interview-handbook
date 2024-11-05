@@ -55,15 +55,10 @@ const nextConfig = {
         permanent: false,
       },
       {
-        source: '/questions/javascript',
-        destination: '/questions/js',
+        source: '/prepare',
+        destination: '/questions/user-interface',
         permanent: false,
       },
-      // {
-      //   source: '/prepare/coding',
-      //   destination: '/questions/javascript',
-      //   permanent: false,
-      // },
       // {
       //   source: '/prepare/quiz',
       //   destination: '/questions/quiz',

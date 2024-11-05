@@ -74,15 +74,15 @@ const languageRoute: Record<QuestionLanguage, string> = {
 
 // TODO(interviews): update this.
 const topicRoute: Record<QuestionTopic, string> = {
-  a11y: '/interviews/questions/quiz',
+  a11y: '/questions/quiz',
   css: '/questions/css',
   html: '/questions/html',
-  i18n: '/interviews/questions/quiz',
+  i18n: '/questions/quiz',
   javascript: '/questions/js',
-  network: '/interviews/questions/quiz',
-  performance: '/interviews/questions/quiz',
-  security: '/interviews/questions/quiz',
-  testing: '/interviews/questions/quiz',
+  network: '/questions/quiz',
+  performance: '/questions/quiz',
+  security: '/questions/quiz',
+  testing: '/questions/quiz',
 };
 
 const MAX_TO_SHOW = 4;

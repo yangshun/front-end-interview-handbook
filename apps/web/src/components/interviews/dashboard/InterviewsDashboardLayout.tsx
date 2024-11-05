@@ -16,7 +16,6 @@ import InterviewsDashboardOnboarding from '~/components/interviews/dashboard/Int
 import DashboardOverallCompletionProgress from '~/components/interviews/dashboard/InterviewsDashboardOverallCompletionProgress';
 import InterviewsDashboardPageHeader from '~/components/interviews/dashboard/InterviewsDashboardPageHeader';
 import QuestionsPreparationTabs from '~/components/interviews/questions/listings/filters/QuestionsPreparationTabs';
-import Container from '~/components/ui/Container';
 import Section from '~/components/ui/Heading/HeadingContext';
 
 import type { QuestionTotalAvailableCount } from '~/db/QuestionsListReader';
@@ -77,13 +76,7 @@ export default function InterviewsDashboardLayout({
   }, [pathname, routeSegment]);
 
   return (
-    <Container
-      className={clsx(
-        'flex flex-col',
-        'gap-y-8 md:gap-y-10 2xl:gap-y-12',
-        'py-4 md:py-6 lg:py-8 xl:py-16',
-      )}
-      width="app">
+    <div className={clsx('flex flex-col', 'gap-y-8 md:gap-y-10 2xl:gap-y-12')}>
       <Section>
         <div className="flex flex-col gap-y-6">
           <InterviewsDashboardPageHeader />
@@ -120,6 +113,6 @@ export default function InterviewsDashboardLayout({
         </div>
         {children}
       </Section>
-    </Container>
+    </div>
   );
 }

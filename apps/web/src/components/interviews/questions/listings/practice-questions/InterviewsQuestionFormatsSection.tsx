@@ -212,7 +212,7 @@ export default function InterviewsQuestionFormatsSection({
       description: 'Description for quiz questions',
       id: 'tDwpNT',
     }),
-    href: '/interviews/questions/quiz',
+    href: '/questions/quiz',
     icon: RiQuestionnaireLine,
     question: {
       completed: questionsProgressAll.quiz.size,
@@ -243,7 +243,7 @@ export default function InterviewsQuestionFormatsSection({
       description: 'Description for js coding questions',
       id: 'S/DgGm',
     }),
-    href: '/interviews/questions/javascript',
+    href: '/questions/javascript',
     icon: RiJavascriptLine,
     question: {
       completed: codingQuestionsProgressAll.javascript.size,
@@ -263,7 +263,7 @@ export default function InterviewsQuestionFormatsSection({
       description: 'Description for ui coding questions',
       id: 'bJYnS1',
     }),
-    href: '/interviews/questions/user-interface',
+    href: '/questions/user-interface',
     icon: RiPagesLine,
     question: {
       completed: codingQuestionsProgressAll['user-interface'].size,
@@ -283,7 +283,7 @@ export default function InterviewsQuestionFormatsSection({
       description: 'Description for ui coding questions',
       id: 'Hph7Vz',
     }),
-    href: '/interviews/questions/algo',
+    href: '/questions/algo',
     icon: TbBinaryTree,
     question: {
       completed: codingQuestionsProgressAll.algo.size,
@@ -303,7 +303,7 @@ export default function InterviewsQuestionFormatsSection({
       description: 'Description for system design questions',
       id: 'KS2MMz',
     }),
-    href: '/interviews/questions/system-design',
+    href: '/questions/system-design',
     icon: RiTimelineView,
     question: {
       completed: questionsProgressAll['system-design'].size,

@@ -79,6 +79,10 @@ export default function useInterviewsNavItems(placement: 'nav' | 'sidebar') {
   } as const;
   const recommendedPreparation = {
     align: 'center',
+    currentMatchRegex: new RegExp(
+      `(/blind75|/greatfrontend75|${guidesData['front-end-interview-playbook'].href}|${guidesData['front-end-system-design-playbook'].href})`,
+      'i',
+    ),
     icon: RiThumbUpLine,
     itemKey: 'questions-types',
     // TODO(interviews): consolidate with "recommended prep strategy" dropdown menu.
@@ -171,11 +175,12 @@ export default function useInterviewsNavItems(placement: 'nav' | 'sidebar') {
   } as const;
   const timeSavers = {
     align: 'center',
-    currentMatchRegex: /\/study-plans|\/interviews\/company|\/focus-areas/,
+    currentMatchRegex: /^\/interviews\/(study-plans|company|focus-areas)/,
     icon: RiTimeLine,
     itemKey: 'time-savers',
     items: [
       {
+        currentMatchRegex: /^\/interviews\/study-plans/,
         href: '/interviews/study-plans',
         icon: RiCalendar2Line,
         itemKey: 'study-plans',
@@ -230,6 +235,7 @@ export default function useInterviewsNavItems(placement: 'nav' | 'sidebar') {
             <Badge label="+6 more" size="xs" variant="neutral" />
           </div>
         ),
+        currentMatchRegex: /^\/interviews\/company/,
         href: '/interviews/company',
         icon: RiBuilding2Line,
         itemKey: 'company-guide',
@@ -267,6 +273,7 @@ export default function useInterviewsNavItems(placement: 'nav' | 'sidebar') {
             ))}
           </div>
         ),
+        currentMatchRegex: /^\/interviews\/focus-areas/,
         href: '/interviews/focus-areas',
         icon: RiFocus2Line,
         itemKey: 'focus-areas',
@@ -300,7 +307,7 @@ export default function useInterviewsNavItems(placement: 'nav' | 'sidebar') {
   } as const;
   const practiceQuestions = {
     align: 'center',
-    currentMatchRegex: /\/interviews\/questions/,
+    currentMatchRegex: /\/questions/,
     icon: RiQuestionnaireLine,
     itemKey: 'practice-questions',
     items: [

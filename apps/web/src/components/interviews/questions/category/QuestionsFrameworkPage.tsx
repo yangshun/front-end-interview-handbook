@@ -3,8 +3,6 @@
 import clsx from 'clsx';
 import type { ReactNode } from 'react';
 
-import { INTERVIEWS_REVAMP_2024 } from '~/data/FeatureFlags';
-
 import QuestionCategoryTitleSection from '~/components/interviews/questions/category/QuestionCategoryTitleSection';
 import type {
   QuestionFramework,
@@ -12,7 +10,6 @@ import type {
 } from '~/components/interviews/questions/common/QuestionsTypes';
 import QuestionListingFeaturedQuestions from '~/components/interviews/questions/listings/auxilliary/QuestionListingFeaturedQuestions';
 import QuestionsUnifiedListWithFiltersAndProgress from '~/components/interviews/questions/listings/items/QuestionsUnifiedListWithFiltersAndProgress';
-import Container from '~/components/ui/Container';
 import Section from '~/components/ui/Heading/HeadingContext';
 
 import type { QuestionCompletionCount } from '~/db/QuestionsCount';
@@ -43,39 +40,29 @@ export default function QuestionsFrameworkPage({
   titleAddOnText,
 }: Props) {
   return (
-    <>
-      {INTERVIEWS_REVAMP_2024 && (
-        <QuestionsCategoryNavbar category={framework} />
-      )}
-      <Container
-        className={clsx(
-          'flex flex-col',
-          'gap-y-8 md:gap-y-10 2xl:gap-y-12',
-          INTERVIEWS_REVAMP_2024 ? 'py-12' : 'py-4 md:py-6 lg:py-8 xl:py-16',
-        )}
-        width="app">
-        <QuestionCategoryTitleSection
-          category={framework}
-          count={questionList.length}
-          description={description}
-          logo={logo}
-          title={title}
-          titleAddOnText={titleAddOnText}
+    <div className={clsx('flex flex-col', 'gap-y-8 md:gap-y-10 2xl:gap-y-12')}>
+      <QuestionsCategoryNavbar category={framework} />
+      <QuestionCategoryTitleSection
+        category={framework}
+        count={questionList.length}
+        description={description}
+        logo={logo}
+        title={title}
+        titleAddOnText={titleAddOnText}
+      />
+      <Section>
+        <QuestionListingFeaturedQuestions
+          questions={featuredQuestions}
+          title={featuredSectionTitle}
         />
-        <Section>
-          <QuestionListingFeaturedQuestions
-            questions={featuredQuestions}
-            title={featuredSectionTitle}
-          />
-          <QuestionsUnifiedListWithFiltersAndProgress
-            filterNamespace={`framework:${framework}`}
-            framework={framework}
-            mode="framework"
-            questionCompletionCount={questionCompletionCount}
-            questions={questionList}
-          />
-        </Section>
-      </Container>
-    </>
+        <QuestionsUnifiedListWithFiltersAndProgress
+          filterNamespace={`framework:${framework}`}
+          framework={framework}
+          mode="framework"
+          questionCompletionCount={questionCompletionCount}
+          questions={questionList}
+        />
+      </Section>
+    </div>
   );
 }

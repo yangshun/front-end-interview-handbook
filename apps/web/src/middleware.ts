@@ -31,10 +31,7 @@ function addCountry(req: NextRequest, res: NextResponse) {
 }
 
 export function middleware(req: NextRequest) {
-  const i18nMiddlewareRes = i18nMiddleware(req, {
-    '/prepare': '/prepare/coding',
-  });
-
+  const i18nMiddlewareRes = i18nMiddleware(req);
   const res = i18nMiddlewareRes ?? NextResponse.next();
 
   upsertCookie(req, res);

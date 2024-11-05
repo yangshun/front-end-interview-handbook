@@ -103,10 +103,6 @@
     "defaultMessage": "Name",
     "description": "Lable for name field"
   },
-  "+p6rsI": {
-    "defaultMessage": "Practice Top JavaScript and TypeScript Front End Interview Questions with Solutions",
-    "description": "SEO title for JavaScript questions list page"
-  },
   "+pieds": {
     "defaultMessage": "Sign up for our newsletter and join our community of passionate <span>Front End Engineers</span>.",
     "description": "Subtitle text for newsletter sign up section"
@@ -454,10 +450,6 @@
   "15O0qb": {
     "defaultMessage": "Get Started",
     "description": "Link to get started page"
-  },
-  "16RIbp": {
-    "defaultMessage": "Try these popular CSS questions",
-    "description": "Title for featured questions section"
   },
   "17Ty2c": {
     "defaultMessage": "Front End Interview Practice Questions | GreatFrontEnd",
@@ -1423,10 +1415,6 @@
     "defaultMessage": "Premium is required to access premium questions",
     "description": "Title for premium questions feature"
   },
-  "7wqhjF": {
-    "defaultMessage": "Practice Top HTML Front End Interview Questions with Solutions",
-    "description": "SEO title for HTML questions list page"
-  },
   "7xuDzw": {
     "defaultMessage": "We are also the only platform offering decent front end system design content.",
     "description": "FAQ answer"
@@ -2051,10 +2039,6 @@
     "defaultMessage": "Your subscription renews on <bold>{date}</bold>",
     "description": "Information about subscription"
   },
-  "CXs8z4": {
-    "defaultMessage": "Practice Front End Quiz Interview Questions With Solutions",
-    "description": "Title of Interview Preparation Quiz page"
-  },
   "CZJo2K": {
     "defaultMessage": "Test cases",
     "description": "Features for interviews questions"
@@ -2086,10 +2070,6 @@
   "Cqx/J0": {
     "defaultMessage": "The following challenges will be unlocked:",
     "description": "Confirmation text for unlocking a premium challenge"
-  },
-  "CsuGzS": {
-    "defaultMessage": "JavaScript Questions",
-    "description": "JavaScript Questions list page title"
   },
   "Ctnuuc": {
     "defaultMessage": "+ {numberOfTags} more",
@@ -2174,10 +2154,6 @@
   "DK7QZb": {
     "defaultMessage": "More time-savers",
     "description": "Label for more time savers"
-  },
-  "DLky7V": {
-    "defaultMessage": "Practice UI and JavaScript/TypeScript Interview Questions with Solutions",
-    "description": "Title of Interview Preparation Coding page"
   },
   "DOTuWP": {
     "defaultMessage": "Premium credits remaining",
@@ -3171,10 +3147,6 @@
     "defaultMessage": "See all",
     "description": "See all button label in browse series section in blog homepage"
   },
-  "K/Nz6V": {
-    "defaultMessage": "Top {questionCount} front end interview coding questions to practice, with detailed solutions and explanations by ex-interviewers at FAANG.",
-    "description": "Description of Interview Preparation Quiz page"
-  },
   "K/j0Zl": {
     "defaultMessage": "Curated learning resources",
     "description": "Title of 'Curated learning resources' sub-feature in Projects marketing page"
@@ -3499,10 +3471,6 @@
     "defaultMessage": "Free",
     "description": "Free label for free vs premium question breakdown in question listing"
   },
-  "LYxZLx": {
-    "defaultMessage": "CSS Questions",
-    "description": "CSS Questions list page title"
-  },
   "Lc/pH5": {
     "defaultMessage": "We will begin tracking your progress on this study list.",
     "description": "Tooltip for start learning session button"
@@ -3715,10 +3683,6 @@
     "defaultMessage": "Explore our starter guides to get a solid grasp of Javascript interview prep before jumping into practice.",
     "description": "Description for guide card"
   },
-  "MyaXLl": {
-    "defaultMessage": "Practice Top CSS Front End Interview Questions with Solutions",
-    "description": "SEO title for CSS questions list page"
-  },
   "N+FW6k": {
     "defaultMessage": "Resize and customize the workspace as you like",
     "description": "Label for item 2 for simulate real interviews section"
@@ -3771,10 +3735,6 @@
     "defaultMessage": "Preview solution",
     "description": "Label for preview solution button"
   },
-  "NPBHO+": {
-    "defaultMessage": "{questionCount}+ HTML interview questions, including quiz-style knowledge questions and HTML coding questions.",
-    "description": "Subtitle for HTML questions list page"
-  },
   "NUrxUb": {
     "defaultMessage": "Gain reputation and level up for productive actions",
     "description": "Short description for \"Gamified learning\" feature on Projects home page"
@@ -3782,10 +3742,6 @@
   "NVGZEe": {
     "defaultMessage": "Close menu",
     "description": "Button to close menu"
-  },
-  "NVrKll": {
-    "defaultMessage": "Question formats",
-    "description": "Label for tabs for question formats"
   },
   "NX+p0K": {
     "defaultMessage": "Are you intending to use <bold>\"{parentSkill} - {childSkill}\"</bold> for this challenge? We will add it to the skills used so your progress for its skill plan will be tracked.",
@@ -3879,10 +3835,6 @@
     "defaultMessage": "Coding interviews",
     "description": "Preparing by front end interview question format"
   },
-  "O9szXK": {
-    "defaultMessage": "We help you get ready within 1 week, 1 month or 3 months",
-    "description": "Study plans description"
-  },
   "OCgyrM": {
     "defaultMessage": "There are currently very few resources available for front-end system design. To address this issue, we've invested significant effort into creating the most comprehensive guide on the market - the Front-End System Design Guide.",
     "description": "Long description of frontend system design playbook page"
@@ -3898,10 +3850,6 @@
   "ODRVQi": {
     "defaultMessage": "Learn by building real world projects for professionals",
     "description": "Title of 'Learn by building real world projects for professionals' feature in Projects marketing page"
-  },
-  "OGpZxl": {
-    "defaultMessage": "Top front end interview system design questions to practice, with detailed solutions and explanations by ex-interviewers at FAANG.",
-    "description": "Description of Interview Preparation System Design page"
   },
   "OGvytR": {
     "defaultMessage": "Search JavaScript questions",
@@ -5287,10 +5235,6 @@
     "defaultMessage": "Here you'll find curated collection of our most insightful and engaging blog content, neatly organized into series for your convenience. Each series focuses on a unique theme or topic providing deep dive subject.",
     "description": "Latest blog articles page subtitle"
   },
-  "Wgz18L": {
-    "defaultMessage": "Try these popular HTML questions",
-    "description": "Title for featured questions section"
-  },
   "WiZAwx": {
     "defaultMessage": "I want to use React for this challenge, but it's not listed as one of the skills. Can I still use it?",
     "description": "FAQ question for projects platform"
@@ -5698,10 +5642,6 @@
   "ZYXIkT": {
     "defaultMessage": "Please enter your social media handles for us to verify.",
     "description": "Rewards campaign help text"
-  },
-  "ZYtAFY": {
-    "defaultMessage": "{questionCount}+ CSS interview questions, including quiz-style knowledge questions and CSS coding questions.",
-    "description": "Subtitle for CSS questions list page"
   },
   "ZZIJ0i": {
     "defaultMessage": "Since {date}",
@@ -6127,10 +6067,6 @@
     "defaultMessage": "Status",
     "description": "Label for Status filter for projects list"
   },
-  "c7lcjj": {
-    "defaultMessage": "HTML Questions",
-    "description": "HTML Questions list page title"
-  },
   "c7uUxL": {
     "defaultMessage": "Don't worry about losing steam. Track your progress and level up as you learn and grow.",
     "description": "Description of 'Gamify your learning' feature in Projects marketing page"
@@ -6306,10 +6242,6 @@
   "dKoCFD": {
     "defaultMessage": "Component tracks",
     "description": "Projects component tracks item label"
-  },
-  "dOsu3y": {
-    "defaultMessage": "Study plans",
-    "description": "Preparation study plans"
   },
   "dRUyU9": {
     "defaultMessage": "Contact us",
@@ -6650,10 +6582,6 @@
   "fcKx8Z": {
     "defaultMessage": "Advanced",
     "description": "Advanced blog"
-  },
-  "fcYNb3": {
-    "defaultMessage": "{questionCount}+ JavaScript and TypeScript interview questions, from implementing common library APIs, utility functions, algorithms, to building UI components and more.",
-    "description": "Subtitle for JavaScript questions list page"
   },
   "fevC5W": {
     "defaultMessage": "Free",
@@ -7447,10 +7375,6 @@
     "defaultMessage": "Join Discord",
     "description": "Link to the Discord server"
   },
-  "ke8J8T": {
-    "defaultMessage": "Try these popular JavaScript questions",
-    "description": "Title for featured questions section"
-  },
   "kfKz/1": {
     "defaultMessage": "Delete submission",
     "description": "Delete challenge submission"
@@ -7698,10 +7622,6 @@
   "mKOi1B": {
     "defaultMessage": "Study plans",
     "description": "Label for study plans study list"
-  },
-  "mLRZ25": {
-    "defaultMessage": "See all",
-    "description": "See all button label in study guides list section in preparation dashboard"
   },
   "mNb3b2": {
     "defaultMessage": "Hard",
@@ -8307,10 +8227,6 @@
     "defaultMessage": "Assets",
     "description": "Subtitle for \"Assets\" tab on Projects project page"
   },
-  "qR472c": {
-    "defaultMessage": "Study guides",
-    "description": "Study guides list section title in preparation dashboard"
-  },
   "qRBY3O": {
     "defaultMessage": "Difficulty",
     "description": "Label for Difficulty filter for projects list"
@@ -8642,10 +8558,6 @@
   "soQjY2": {
     "defaultMessage": "You upvoted this",
     "description": "Tooltip for upvoted submission button"
-  },
-  "srrlrR": {
-    "defaultMessage": "Practice Front End System Design Interview Questions with Solutions",
-    "description": "Title of Interview Preparation System Design page"
   },
   "ssyz8C": {
     "defaultMessage": "Testimonials",
@@ -9318,10 +9230,6 @@
   "x6+x/5": {
     "defaultMessage": "Edit profile",
     "description": "Title of Projects edit profile page"
-  },
-  "x8+4jJ": {
-    "defaultMessage": "Top {questionCount} front end interview coding questions to practice, with detailed solutions and explanations by ex-interviewers at FAANG.",
-    "description": "Description of Interview Preparation Coding page"
   },
   "xBNYLl": {
     "defaultMessage": "Behavioral Interview",

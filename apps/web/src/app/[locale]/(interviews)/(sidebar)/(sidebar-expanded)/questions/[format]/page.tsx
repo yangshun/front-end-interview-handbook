@@ -1,7 +1,4 @@
 import type { Metadata } from 'next';
-import { notFound } from 'next/navigation';
-
-import { INTERVIEWS_REVAMP_2024 } from '~/data/FeatureFlags';
 
 import type { GuideCardMetadata } from '~/components/guides/types';
 import type {
@@ -24,14 +21,14 @@ import defaultMetadata from '~/seo/defaultMetadata';
 
 type Props = Readonly<{
   params: Readonly<{
+    format: string;
     locale: string;
-    slug: string;
   }>;
 }>;
 
 async function processParams(params: Props['params']) {
-  const { slug, locale } = params;
-  const questionFormat = slug.replace(/\/$/g, '') as QuestionFormat;
+  const { format, locale } = params;
+  const questionFormat = format.replace(/\/$/g, '') as QuestionFormat;
 
   const intl = await getIntlServerOnly(locale);
 
@@ -272,26 +269,24 @@ async function processParams(params: Props['params']) {
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { locale, slug } = params;
+  const { locale, format } = params;
 
   const { seoTitle, socialTitle, seoDescription } = await processParams(params);
 
   return defaultMetadata({
     description: seoDescription,
     locale,
-    pathname: `/questions/interviews/${slug}`,
+    pathname: `/interviews/${format}`,
     socialTitle,
     title: seoTitle,
   });
 }
 
 export default async function Page({ params }: Props) {
-  if (!INTERVIEWS_REVAMP_2024) {
-    return notFound();
-  }
+  const { format } = params;
+  const questionFormat = format.replace(/\/$/g, '') as QuestionFormat;
 
-  const { slug } = params;
-  const questionFormat = slug.replace(/\/$/g, '') as QuestionFormat;
+  // TODO(interviews): add notFound() experience.
 
   const [
     { pageTitle, description, questions },
@@ -299,8 +294,9 @@ export default async function Page({ params }: Props) {
     bottomContent,
   ] = await Promise.all([
     processParams(params),
+    // TODO(interviews): see if system design and algo need.
     fetchQuestionCompletionCount(['user-interface', 'javascript', 'quiz']),
-    fetchInterviewListingBottomContent(`${slug}-question-format`),
+    fetchInterviewListingBottomContent(`${format}-question-format`),
   ]);
   let guides: ReadonlyArray<GuideCardMetadata> = [];
 

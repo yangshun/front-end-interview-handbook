@@ -12,7 +12,6 @@ import {
 
 import InterviewsGitHubSlider from '~/components/interviews/common/github/InterviewsGitHubSlider';
 import InterviewsDashboardContinueLearning from '~/components/interviews/dashboard/InterviewsDashboardContinueLearning';
-import InterviewsDashboardStudyGuideList from '~/components/interviews/dashboard/InterviewsDashboardStudyGuideList';
 import InterviewsGuideCard from '~/components/interviews/guides/InterviewsGuideCard';
 import InterviewsMarketingCompaniesMarquee from '~/components/interviews/marketing/InterviewsMarketingCompaniesMarquee';
 import QuestionListingTopicFilters from '~/components/interviews/questions/listings/filters/QuestionListingTopicFilters';
@@ -259,35 +258,6 @@ export default function ScrapbookPage() {
                     setValues: setSelectedFilters,
                   }}
                   values={selectedFilters}
-                />
-              </div>
-            </UIExamplesGroup>
-            <UIExamplesGroup darkMode="horizontal">
-              <div className="inline-flex flex-col items-start gap-y-6">
-                <InterviewsDashboardStudyGuideList
-                  href="#"
-                  items={[
-                    {
-                      href: '/dev__/scrapbook',
-                      label: 'Intro to Coding Round',
-                      slug: 'intro',
-                    },
-                    {
-                      href: '/dev__/scrapbook',
-                      label: 'Algorithm Questions',
-                      slug: 'algo',
-                    },
-                    {
-                      href: '/dev__/scrapbook',
-                      label: 'JavaScript Questions',
-                      slug: 'js',
-                    },
-                    {
-                      href: '/dev__/scrapbook',
-                      label: 'User Interface Questions',
-                      slug: 'ui',
-                    },
-                  ]}
                 />
               </div>
             </UIExamplesGroup>
