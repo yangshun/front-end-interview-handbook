@@ -511,10 +511,6 @@
     "defaultMessage": "Sign In",
     "description": "Label of Sign In button on Email Sign In page"
   },
-  "1hQIJA": {
-    "defaultMessage": "Back to All practice questions",
-    "description": "Link text to navigate to all practice questions page"
-  },
   "1i1F/f": {
     "defaultMessage": "Project progress",
     "description": "Project progress item label"

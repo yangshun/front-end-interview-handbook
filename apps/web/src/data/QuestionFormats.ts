@@ -40,6 +40,7 @@ type QuestionFormatLists<C extends string> = Record<C, QuestionListLink>;
 type QuestionFormatData = Record<
   QuestionFormat,
   {
+    href: `/questions/${QuestionFormat}`;
     icon: (props: React.ComponentProps<'svg'>) => JSX.Element;
     label: string;
     shortLabel: string;
@@ -53,6 +54,7 @@ export function useQuestionFormatsData(): QuestionFormatData {
 
   return {
     algo: {
+      href: '/questions/algo',
       icon: TbBinaryTree,
       label: intl.formatMessage({
         defaultMessage: 'Algorithmic coding',
@@ -73,6 +75,7 @@ export function useQuestionFormatsData(): QuestionFormatData {
       value: 'algo',
     },
     javascript: {
+      href: '/questions/javascript',
       icon: RiJavascriptFill,
       label: intl.formatMessage({
         defaultMessage: 'JavaScript coding',
@@ -93,6 +96,7 @@ export function useQuestionFormatsData(): QuestionFormatData {
       value: 'javascript',
     },
     quiz: {
+      href: '/questions/quiz',
       icon: RiQuestionnaireLine,
       label: intl.formatMessage({
         defaultMessage: 'Quiz',
@@ -113,6 +117,7 @@ export function useQuestionFormatsData(): QuestionFormatData {
       value: 'quiz',
     },
     'system-design': {
+      href: '/questions/system-design',
       icon: RiFlowChart,
       label: intl.formatMessage({
         defaultMessage: 'System design',
@@ -133,6 +138,7 @@ export function useQuestionFormatsData(): QuestionFormatData {
       value: 'system-design',
     },
     'user-interface': {
+      href: '/questions/user-interface',
       icon: RiTerminalWindowLine,
       label: intl.formatMessage({
         defaultMessage: 'User interface coding',

@@ -3,7 +3,6 @@
 import clsx from 'clsx';
 import type { InterviewsListingBottomContent } from 'contentlayer/generated';
 import {
-  RiArrowLeftLine,
   RiTestTubeLine,
   RiVerifiedBadgeLine,
   RiWindow2Line,
@@ -22,7 +21,6 @@ import type {
 import QuestionsUnifiedListWithFiltersAndProgress from '~/components/interviews/questions/listings/items/QuestionsUnifiedListWithFiltersAndProgress';
 import { useIntl } from '~/components/intl';
 import MDXContent from '~/components/mdx/MDXContent';
-import Button from '~/components/ui/Button';
 import Divider from '~/components/ui/Divider';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
@@ -130,22 +128,6 @@ export default function InterviewsQuestionFormatPage({
   return (
     <div className={clsx('flex flex-col', 'gap-y-8 md:gap-y-10 2xl:gap-y-12')}>
       <div>
-        <div className="mb-8 flex items-center justify-between gap-2">
-          <Button
-            addonPosition="start"
-            className="-mb-2 -ml-5"
-            href="/questions"
-            icon={RiArrowLeftLine}
-            label={intl.formatMessage({
-              defaultMessage: 'Back to All practice questions',
-              description:
-                'Link text to navigate to all practice questions page',
-              id: '1hQIJA',
-            })}
-            size="md"
-            variant="tertiary"
-          />
-        </div>
         <div className="flex flex-col gap-4">
           <Heading level="heading4">{title}</Heading>
           <Text className="block" color="subtitle" size="body1" weight="medium">
