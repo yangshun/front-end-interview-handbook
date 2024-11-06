@@ -1,4 +1,3 @@
-import clsx from 'clsx';
 import { type ReactNode } from 'react';
 import {
   RiCompass3Line,
@@ -6,17 +5,8 @@ import {
   RiTerminalWindowLine,
 } from 'react-icons/ri';
 
+import SidebarLinksSection from '~/components/global/sidebar/SidebarLinksSection';
 import { useIntl } from '~/components/intl';
-import Anchor from '~/components/ui/Anchor';
-import Text from '~/components/ui/Text';
-import {
-  themeBackgroundElementEmphasizedStateColor,
-  themeTextBrandColor,
-  themeTextBrandColor_Hover,
-  themeTextSecondaryColor,
-} from '~/components/ui/theme';
-
-import { useI18nPathname } from '~/next-i18nostic/src';
 
 export type BlogSeriesNavigationLink<T = Record<string, unknown>> = Readonly<
   T & {
@@ -86,64 +76,12 @@ function useBlogSidebarNavigation() {
   return navigation;
 }
 
-function SidebarIcon({
-  icon: Icon,
-}: Readonly<{
-  icon: (props: React.ComponentProps<'svg'>) => JSX.Element;
-}>) {
-  return <Icon aria-hidden="true" className={clsx('size-5 shrink-0')} />;
-}
-
 export default function BlogSidebar() {
-  const { pathname } = useI18nPathname();
   const navigation = useBlogSidebarNavigation();
 
   return (
-    <div className="size-full flex flex-1 grow flex-col justify-between lg:p-4">
-      <div className={clsx('grid gap-2')}>
-        {navigation.map((item) => {
-          const itemClassname = clsx(
-            'group flex w-full items-center gap-x-2 rounded text-xs font-medium',
-            'p-2',
-          );
-
-          const activeClassName = clsx(
-            themeTextBrandColor,
-            themeBackgroundElementEmphasizedStateColor,
-          );
-          const defaultClassName = clsx(
-            themeTextSecondaryColor,
-            themeTextBrandColor_Hover,
-          );
-
-          const current =
-            pathname === item.href ||
-            (pathname != null && item.currentMatchRegex?.test(pathname));
-
-          return (
-            <div key={item.label} className="flex flex-col gap-y-2">
-              <Anchor
-                aria-current={current ? 'page' : undefined}
-                aria-label={item.label}
-                className={clsx(
-                  itemClassname,
-                  current ? activeClassName : defaultClassName,
-                )}
-                href={item.href}
-                variant="unstyled">
-                <Text
-                  className="flex gap-x-2"
-                  color="inherit"
-                  size="body2"
-                  weight="medium">
-                  {item.icon != null && <SidebarIcon icon={item.icon} />}
-                  {item.label}
-                </Text>
-              </Anchor>
-            </div>
-          );
-        })}
-      </div>
+    <div className="size-full flex flex-1 grow flex-col justify-between p-4">
+      <SidebarLinksSection items={navigation} />
     </div>
   );
 }
