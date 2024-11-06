@@ -23,6 +23,7 @@ type BlogSidebarItem = Readonly<{
   key: string;
   label: string;
   labelAddon?: ReactNode;
+  showIcon?: boolean;
 }>;
 
 type BlogSidebarLink = BlogSidebarItem &
@@ -45,6 +46,7 @@ function useBlogSidebarNavigation() {
         description: 'Sidebar label for Blog home page',
         id: 'NALiPB',
       }),
+      showIcon: true,
       type: 'link',
     },
     {
@@ -57,6 +59,7 @@ function useBlogSidebarNavigation() {
         description: "Sidebar label for What's New",
         id: 'iFFbCA',
       }),
+      showIcon: true,
       type: 'link',
     },
     {
@@ -69,6 +72,7 @@ function useBlogSidebarNavigation() {
         description: 'Sidebar label for explore series',
         id: 'SsWL2T',
       }),
+      showIcon: true,
       type: 'link',
     },
   ];

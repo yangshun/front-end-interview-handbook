@@ -24,6 +24,7 @@ type SidebarBaseItem = Readonly<{
   currentMatchRegex?: RegExp;
   icon?: (props: React.ComponentProps<'svg'>) => JSX.Element;
   label: string;
+  showIcon?: boolean;
 }>;
 
 type SidebarLink = Readonly<{
@@ -42,7 +43,7 @@ function isItemActive(
   {
     href,
     currentMatchRegex,
-  }: Readonly<{ currentMatchRegex?: RegExp, href: string; }>,
+  }: Readonly<{ currentMatchRegex?: RegExp; href: string }>,
   pathname: string | null,
 ) {
   return (
@@ -55,9 +56,9 @@ function SidebarLinkItem({
   href,
   icon: Icon,
   label,
-  showIcon,
+  showIcon = false,
   currentMatchRegex,
-}: Readonly<{ showIcon: boolean }> & SidebarLink) {
+}: SidebarLink) {
   const { pathname } = useI18nPathname();
   const isActive = isItemActive({ currentMatchRegex, href }, pathname);
 
@@ -120,7 +121,13 @@ function SidebarLinks({
   const { pathname } = useI18nPathname();
 
   if (!('items' in item)) {
-    return <SidebarLinkItem key={item.href} showIcon={false} {...item} />;
+    return (
+      <SidebarLinkItem
+        key={item.href}
+        showIcon={item.showIcon}
+        {...item}
+      />
+    );
   }
 
   const isActiveSection = item.items.find((linkItem) =>
