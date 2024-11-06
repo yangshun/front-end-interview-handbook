@@ -10,10 +10,7 @@ import useUserProfile from '~/hooks/user/useUserProfile';
 import { useColorSchemePreferences } from '~/components/global/color-scheme/ColorSchemePreferencesProvider';
 import ColorSchemeSelect from '~/components/global/color-scheme/ColorSchemeSelect';
 import I18nSelect from '~/components/global/i18n/I18nSelect';
-import NavColorSchemeDropdown from '~/components/global/navbar/NavColorSchemeDropdown';
-import NavI18nDropdown from '~/components/global/navbar/NavI18nDropdown';
 import NavProductDropdownMenu from '~/components/global/navbar/NavProductDropdownMenu';
-import NavProfileIcon from '~/components/global/navbar/NavProfileIcon';
 import { useIntl } from '~/components/intl';
 import Anchor from '~/components/ui/Anchor';
 import Avatar from '~/components/ui/Avatar';
@@ -27,6 +24,7 @@ import {
 
 import { useI18nPathname, useI18nRouter } from '~/next-i18nostic/src';
 
+import InterviewsNavbarEndAddOnItems from './InterviewsNavbarEndAddOnItems';
 import useInterviewsLoggedInLinks from './useInterviewsLoggedInLinks';
 import useInterviewsNavLinks from './useInterviewsNavLinks';
 
@@ -40,9 +38,9 @@ export default function InterviewsNavbar({ hideOnDesktop = false }: Props) {
   const { colorSchemePreference, setColorSchemePreference } =
     useColorSchemePreferences();
   const user = useUser();
+  const isLoggedIn = user != null;
   const { isLoading: isUserProfileLoading, userProfile } = useUserProfile();
   const intl = useIntl();
-  const isLoggedIn = user != null;
   const isPremium = userProfile?.premium ?? false;
   const navLinksFull = useInterviewsNavLinks(isLoggedIn, isPremium);
   const loggedInLinks = useInterviewsLoggedInLinks();
@@ -50,43 +48,6 @@ export default function InterviewsNavbar({ hideOnDesktop = false }: Props) {
   const router = useI18nRouter();
   const navbarRef = useRef(null);
   const { isSticky } = useIsSticky(navbarRef);
-
-  const endAddOnItems = (
-    <>
-      {/* This custom breakpoint is set to avoid overlapping of elements on near tab breakpoint */}
-      <div className="hidden gap-x-4 min-[1150px]:flex">
-        <NavI18nDropdown />
-        <NavColorSchemeDropdown />
-      </div>
-      {!isPremium && (
-        <Button
-          href="/interviews/pricing"
-          label={intl.formatMessage({
-            defaultMessage: 'Get full access',
-            description:
-              'Get full access button on the top right corner of the navigation bar to allow users to start evaluating plans and make a purchase',
-            id: '0dpOm/',
-          })}
-          size="xs"
-          variant="primary"
-          onClick={() => {
-            gtag.event({
-              action: `nav.get_full_access.click`,
-              category: 'ecommerce',
-              label: 'Get full access',
-            });
-          }}
-        />
-      )}
-      {isLoggedIn && (
-        <NavProfileIcon
-          avatarUrl={userProfile?.avatarUrl ?? user?.user_metadata?.avatar_url}
-          navItems={loggedInLinks}
-          userIdentifierString={userProfile?.name ?? user?.email}
-        />
-      )}
-    </>
-  );
 
   function renderMobileSidebarAddOnItems({
     closeMobileNav,
@@ -174,7 +135,7 @@ export default function InterviewsNavbar({ hideOnDesktop = false }: Props) {
   return (
     <Navbar
       ref={navbarRef}
-      endAddOnItems={endAddOnItems}
+      endAddOnItems={<InterviewsNavbarEndAddOnItems />}
       hideOnDesktop={hideOnDesktop}
       isLoading={isUserProfileLoading}
       links={navLinksFull}

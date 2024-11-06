@@ -168,15 +168,13 @@ export default function InterviewsQuestionFormatPage({
           questions={questions}
           showSummarySection={false}
         />
-      </Section>
-      {bottomContent && (
-        <>
-          <Divider className="my-8" />
-          <Section>
+        {bottomContent && (
+          <>
+            <Divider className="my-8" />
             <MDXContent mdxCode={bottomContent.body.code} />
-          </Section>
-        </>
-      )}
+          </>
+        )}
+      </Section>
     </div>
   );
 }

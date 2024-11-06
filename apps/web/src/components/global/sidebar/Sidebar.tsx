@@ -11,6 +11,7 @@ import {
 
 import { SocialLinks } from '~/data/SocialLinks';
 
+import SidebarI18nSubMenu from '~/components/global/sidebar/SidebarI18nSubMenu';
 import { useIntl } from '~/components/intl';
 import Button from '~/components/ui/Button';
 import Divider from '~/components/ui/Divider';
@@ -94,6 +95,7 @@ export function SidebarCollapsed({
             side="right"
             size="sm">
             <SidebarColorSchemeSubMenu />
+            <SidebarI18nSubMenu type="submenu" />
             {moreMenuItems}
             <Divider />
             <DropdownMenu.Item
@@ -244,6 +246,8 @@ export function SidebarExpanded({
             showChevron={false}
             size="sm">
             <SidebarColorSchemeSubMenu />
+            <SidebarI18nSubMenu type="submenu" />
+            <Divider />
             {moreMenuItems}
             <DropdownMenu.Item
               href="/contact"

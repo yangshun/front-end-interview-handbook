@@ -11,6 +11,7 @@ import {
   themeBorderColor,
 } from '~/components/ui/theme';
 
+import NavbarEnd from './NavbarEnd';
 import NavbarItem from './NavbarItem';
 import NavbarSidebarItem from './NavbarSidebarItem';
 import type { NavbarTopLevelItem } from './NavTypes';
@@ -95,18 +96,15 @@ function Navbar(
               ))}
             </nav>
           </div>
-          <div
+          <NavbarEnd
+            addOnItems={endAddOnItems}
             className={clsx(
-              'hidden items-center justify-end gap-x-3 transition-opacity duration-500 md:flex md:grow lg:w-0 lg:grow-0',
-              isLoading ? 'opacity-0' : 'opacity-100',
-            )}>
-            <div className="flex items-center gap-x-3">
-              {rightLinks.map((navItem) => (
-                <NavbarItem key={navItem.itemKey} {...navItem} />
-              ))}
-            </div>
-            {endAddOnItems}
-          </div>
+              'hidden items-center justify-end gap-x-3',
+              'md:flex md:grow lg:w-0 lg:grow-0',
+            )}
+            isLoading={isLoading}
+            links={rightLinks}
+          />
           <div className="-my-2 sm:-mr-2 lg:hidden">
             <SlideOut
               enterFrom="start"

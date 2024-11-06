@@ -9,7 +9,6 @@ import {
   SidebarCollapsed,
   SidebarExpanded,
 } from '~/components/global/sidebar/Sidebar';
-import SidebarI18nSubMenu from '~/components/global/sidebar/SidebarI18nSubMenu';
 import { SocialDiscountSidebarMention } from '~/components/promotions/social/SocialDiscountSidebarMention';
 import { useSocialDiscountLabels } from '~/components/promotions/social/useSocialDiscountLabels';
 import Anchor from '~/components/ui/Anchor';
@@ -38,7 +37,6 @@ export function InterviewsSidebarExpanded({
 
   return (
     <SidebarExpanded
-      bottomBarItems={<SidebarI18nSubMenu type="menu" />}
       isLoading={isLoading}
       isViewerPremium={isPremium}
       product="interviews"
@@ -93,24 +91,21 @@ function InterviewsSidebarCollapsed({
         </Tooltip>
       }
       moreMenuItems={
-        <>
-          <SidebarI18nSubMenu type="submenu" />
-          <Divider />
-          {userProfile && (
-            <>
-              <DropdownMenu.Item
-                href={commonNavItems.interviewsProfile.href}
-                icon={commonNavItems.interviewsProfile.icon}
-                label={commonNavItems.interviewsProfile.label}
-              />
-              <DropdownMenu.Item
-                href={commonNavItems.interviewsBilling.href}
-                icon={commonNavItems.interviewsBilling.icon}
-                label={commonNavItems.interviewsBilling.label}
-              />
-            </>
-          )}
-        </>
+        userProfile ? (
+          <>
+            <Divider />
+            <DropdownMenu.Item
+              href={commonNavItems.interviewsProfile.href}
+              icon={commonNavItems.interviewsProfile.icon}
+              label={commonNavItems.interviewsProfile.label}
+            />
+            <DropdownMenu.Item
+              href={commonNavItems.interviewsBilling.href}
+              icon={commonNavItems.interviewsBilling.icon}
+              label={commonNavItems.interviewsBilling.label}
+            />
+          </>
+        ) : undefined
       }
       product="interviews"
       showPremiumDiscord={userProfile?.premium ?? false}
