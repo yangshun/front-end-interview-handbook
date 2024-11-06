@@ -106,7 +106,7 @@ export default function InterviewsMarketingEmbedSection({
     target: containerRef,
   });
 
-  const animationStartScrollProgress = 0;
+  const animationStartScrollProgress = 0.2;
   const animationEndScrollProgress = isTablet ? 0.7 : 0.5;
 
   const rotateX = useTransform(
@@ -148,7 +148,7 @@ export default function InterviewsMarketingEmbedSection({
     <div
       ref={containerRef}
       className={clsx(
-        'relative pb-24 lg:pb-32',
+        'relative overflow-hidden pb-24 lg:pb-32',
         'transition-opacity',
         'duration-1000',
         'delay-1000',

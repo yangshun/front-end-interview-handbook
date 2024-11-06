@@ -20,6 +20,7 @@ import { MousePositionContext } from './CardContainer';
 
 type Props = Readonly<{
   border?: boolean;
+  brandColorSpotlight?: boolean;
   children: ReactNode;
   className?: string;
   classNameOuter?: string;
@@ -31,8 +32,7 @@ type Props = Readonly<{
 
 const cardOuterContainerSpotlightClassNames = clsx(
   'before:absolute before:rounded-full before:pointer-events-none before:transition-opacity',
-  'before:w-40 before:h-40 before:-left-20 before:-top-20 before:blur-[40px]',
-  'before:bg-brand-light dark:before:bg-brand',
+  'before:w-16 before:h-16 before:-left-20 before:-top-20 before:blur-[40px]',
   'before:opacity-0 before:group-hover/card-container:opacity-100',
   'before:translate-x-[var(--mouse-x)] before:translate-y-[var(--mouse-y)]',
   'before:z-10',
@@ -40,7 +40,6 @@ const cardOuterContainerSpotlightClassNames = clsx(
   'after:absolute after:rounded-full after:pointer-events-none after:transition-opacity after:duration-500',
   'after:w-32 after:h-32 after:-left-16 after:-top-16 after:blur-[72px]',
   'after:opacity-0 after:hover:opacity-70 dark:after:hover:opacity-80',
-  'after:bg-brand-dark',
   'after:translate-x-[var(--mouse-x)] after:translate-y-[var(--mouse-y)]',
   'after:z-30',
 );
@@ -64,6 +63,7 @@ export default function Card({
   border = true,
   disableBackground = false,
   disableSpotlight = false,
+  brandColorSpotlight = true,
   padding = true,
   pattern = true,
 }: Props) {
@@ -105,8 +105,12 @@ export default function Card({
         !disableBackground && themeBackgroundColor,
         classNameOuter,
         !disableSpotlight &&
-          isBrowserAllowed &&
-          cardOuterContainerSpotlightClassNames,
+          isBrowserAllowed && [
+            cardOuterContainerSpotlightClassNames,
+            brandColorSpotlight
+              ? 'after:bg-brand-dark'
+              : 'after:bg-neutral-500',
+          ],
       )}>
       <div
         className={clsx(

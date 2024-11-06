@@ -52,6 +52,7 @@ export default function InterviewsMarketingTestimonialCard({
 }: InterviewsMarketingTestimonial & Readonly<{ disableSpotlight?: boolean }>) {
   return (
     <Card
+      brandColorSpotlight={false}
       className="rounded-2xl p-4 text-sm leading-6"
       disableSpotlight={disableSpotlight}
       padding={false}

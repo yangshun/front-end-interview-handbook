@@ -950,7 +950,7 @@ export default function InterviewsPricingTableSection({
                               </Text>
                             )}
                             <Text
-                              className="flex items-baseline gap-x-2"
+                              className="flex flex-wrap items-baseline gap-x-2"
                               color="subtitle"
                               size="body1"
                               weight="medium">

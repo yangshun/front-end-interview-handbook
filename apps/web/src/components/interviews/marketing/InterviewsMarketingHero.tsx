@@ -45,7 +45,7 @@ export default function InterviewsMarketingHeroNew({ testimonials }: Props) {
 
   return (
     <Container
-      className={clsx('py-20', 'flex flex-col gap-12')}
+      className={clsx('pb-10 pt-20', 'flex flex-col gap-12')}
       width="marketing">
       <div
         ref={titleRef}
