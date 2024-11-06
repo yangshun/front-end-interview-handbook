@@ -120,18 +120,6 @@ export function filterQuestions<T extends QuestionMetadata>(
   );
 }
 
-export function countQuestionsByDifficulty<T extends QuestionMetadata>(
-  questions: ReadonlyArray<T>,
-): Record<QuestionDifficulty, number> {
-  const grouped = groupBy(questions, 'difficulty');
-
-  return {
-    easy: grouped.easy?.length ?? 0,
-    hard: grouped.hard?.length ?? 0,
-    medium: grouped.medium?.length ?? 0,
-  };
-}
-
 export function countQuestionsByPremium<T extends QuestionMetadata>(
   questions: ReadonlyArray<T>,
 ): Record<QuestionPremiumStatus, number> {

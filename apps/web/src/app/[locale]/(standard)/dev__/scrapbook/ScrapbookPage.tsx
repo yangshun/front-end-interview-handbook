@@ -15,7 +15,6 @@ import InterviewsDashboardContinueLearning from '~/components/interviews/dashboa
 import InterviewsGuideCard from '~/components/interviews/guides/InterviewsGuideCard';
 import InterviewsMarketingCompaniesMarquee from '~/components/interviews/marketing/InterviewsMarketingCompaniesMarquee';
 import QuestionListingTopicFilters from '~/components/interviews/questions/listings/filters/QuestionListingTopicFilters';
-import QuestionListingDifficultySummary from '~/components/interviews/questions/listings/stats/QuestionListingDifficultySummary';
 import QuestionsProgressPanel from '~/components/interviews/questions/listings/stats/QuestionsProgressPanel';
 import QuestionCountLabel from '~/components/interviews/questions/metadata/QuestionCountLabel';
 import QuestionDifficultyLabel from '~/components/interviews/questions/metadata/QuestionDifficultyLabel';
@@ -175,20 +174,6 @@ export default function ScrapbookPage() {
                   title: 'Javascript Interview guides',
                 }}
               />
-            </UIExamplesGroup>
-            <UIExamplesGroup darkMode="horizontal">
-              <div className="inline-flex flex-col items-start gap-y-6">
-                <QuestionListingDifficultySummary
-                  easy={67}
-                  hard={78}
-                  medium={36}
-                />
-                <QuestionListingDifficultySummary
-                  easy={10}
-                  hard={1234}
-                  medium={234}
-                />
-              </div>
             </UIExamplesGroup>
             <UIExamplesGroup darkMode="horizontal">
               <div className="grid items-start gap-y-6">

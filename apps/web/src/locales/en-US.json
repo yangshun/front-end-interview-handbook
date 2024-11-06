@@ -3271,10 +3271,6 @@
     "defaultMessage": "We're largely free to use, but Premium gives you access to our best material and efforts.",
     "description": "Description of the pricing section in the Projects marketing page"
   },
-  "KhP4uM": {
-    "defaultMessage": "Medium",
-    "description": "Medium difficulty label for question difficulty summary in question listing"
-  },
   "KhmeKO": {
     "defaultMessage": "Hide child skills",
     "description": "Label to collapse skills card"
@@ -4490,10 +4486,6 @@
   "S+6OOS": {
     "defaultMessage": "Free",
     "description": "Free-of-charge label"
-  },
-  "S+iQW8": {
-    "defaultMessage": "Hard",
-    "description": "Hard difficulty label for question difficulty summary in question listing"
   },
   "S/DgGm": {
     "defaultMessage": "Coding questions that require you to implement functions in JavaScript, which can be utility functions found in Lodash/Underscore. a polyfill for the JavaScript language, or DOM APIs.",
@@ -7586,10 +7578,6 @@
   "lyxOq4": {
     "defaultMessage": "Check out the latest promotions and discounts that GreatFrontEnd offers.",
     "description": "Description of Promotions page"
-  },
-  "lz6hfa": {
-    "defaultMessage": "Easy",
-    "description": "Easy difficulty label for question difficulty summary in question listing"
   },
   "m0cej4": {
     "defaultMessage": "Started tracking progress",

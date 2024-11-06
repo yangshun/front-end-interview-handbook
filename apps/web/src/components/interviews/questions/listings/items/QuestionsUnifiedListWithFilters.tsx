@@ -13,7 +13,6 @@ import type {
   QuestionSortField,
 } from '~/components/interviews/questions/common/QuestionsTypes';
 import {
-  countQuestionsByDifficulty,
   countQuestionsByPremium,
   countQuestionsTotalDurationMins,
   filterQuestions,
@@ -44,7 +43,7 @@ import type { QuestionFramework } from '../../common/QuestionsTypes';
 import QuestionCountLabel from '../../metadata/QuestionCountLabel';
 import QuestionTotalTimeLabel from '../../metadata/QuestionTotalTimeLabel';
 
-export type Props = Readonly<{
+type Props = Readonly<{
   checkIfCompletedQuestionBefore?: (question: QuestionMetadata) => boolean;
   filterNamespace: string;
   formatFiltersFilterPredicate?: (format: QuestionFormat) => boolean;
@@ -146,7 +145,6 @@ export default function QuestionsUnifiedListWithFilters({
     filters.map(([_, filterFn]) => filterFn),
   );
 
-  const difficultyCount = countQuestionsByDifficulty(processedQuestions);
   const premiumCount = countQuestionsByPremium(processedQuestions);
   const totalDurationMins = countQuestionsTotalDurationMins(processedQuestions);
   const showPaywall =
@@ -555,7 +553,6 @@ export default function QuestionsUnifiedListWithFilters({
             <QuestionListingSummarySection
               free={premiumCount.free}
               premium={premiumCount.premium}
-              {...difficultyCount}
             />
           )}
           <section
