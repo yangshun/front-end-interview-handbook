@@ -1,9 +1,9 @@
 import type { InterviewsStudyList } from 'contentlayer/generated';
 
+import InterviewsStudyListCard from '~/components/interviews/questions/listings/learning/InterviewsStudyListCard';
 import { useIntl } from '~/components/intl';
 
 import InterviewsDashboardLearningSection from './InterviewsDashboardLearningSection';
-import { InterviewsCompanyGuideCard } from '../company/InterviewsCompanyGuideCard';
 
 import type { LearningSession } from '@prisma/client';
 
@@ -41,10 +41,13 @@ export default function InterviewsDashboardPrepareByCompanySection({
           const completionCount = session?._count.progress;
 
           return (
-            <InterviewsCompanyGuideCard
+            <InterviewsStudyListCard
               key={companyGuide.slug}
-              companyGuide={companyGuide}
+              alignVerticalOnMobile={false}
               completionCount={completionCount}
+              isStarted={session != null}
+              showDescription={false}
+              studyList={companyGuide}
             />
           );
         })}

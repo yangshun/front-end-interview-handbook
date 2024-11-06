@@ -19,22 +19,32 @@ import {
 } from '~/components/ui/theme';
 
 type Props = Readonly<{
+  alignVerticalOnMobile?: boolean;
+  backgroundClass?: string;
   completionCount?: number;
   icon?: (props: React.ComponentProps<'svg'>) => JSX.Element;
   isStarted?: boolean;
+  showDescription?: boolean;
+  showLogoShadow?: boolean;
+  showProgressBar?: boolean;
   studyList: InterviewsStudyList;
 }>;
 
-// TODO(interviews): consolidate with InterviewsCompanyGuideCard.
 export default function InterviewsStudyListCard({
   completionCount = 0,
   studyList,
   icon: Icon,
   isStarted,
+  showDescription = true,
+  showProgressBar = true,
+  showLogoShadow = true,
+  backgroundClass = themeBackgroundCardWhiteOnLightColor,
+  alignVerticalOnMobile = true,
 }: Props) {
   const intl = useIntl();
 
-  const { name, shortDescription, href, questionHashes, schedule } = studyList;
+  const { name, shortDescription, href, questionHashes, schedule, logoUrl } =
+    studyList;
   const questionCount = questionHashes.length;
 
   return (
@@ -44,24 +54,46 @@ export default function InterviewsStudyListCard({
         'relative isolate',
         'flex flex-grow items-center gap-2 md:gap-6',
         'rounded-lg',
-        'px-6 py-5',
-        themeBackgroundCardWhiteOnLightColor,
+        'px-6 py-4',
+        backgroundClass,
         ['border', themeBorderElementColor],
       )}>
-      <div className="flex flex-1 flex-col gap-6 md:flex-row md:items-center">
-        {Icon && (
+      <div
+        className={clsx(
+          'flex flex-1 gap-4',
+          alignVerticalOnMobile
+            ? 'flex-col md:flex-row md:items-center'
+            : 'flex-row items-center',
+        )}>
+        {(logoUrl || Icon) && (
           <div
             className={clsx(
-              'flex items-center justify-center',
-              'size-12 shrink-0',
-              'rounded-md',
-              themeBackgroundLayerEmphasized,
-              themeGlassyBorder,
+              'flex shrink-0 items-center justify-center',
+              'size-12 rounded-lg',
+              logoUrl
+                ? ['bg-white', showLogoShadow && 'shadow-md']
+                : [themeBackgroundLayerEmphasized, themeGlassyBorder],
             )}>
-            <Icon className={clsx('size-6', themeTextSubtitleColor)} />
+            {logoUrl ? (
+              <img
+                alt={name}
+                className="size-9"
+                decoding="async"
+                loading="lazy"
+                src={logoUrl}
+              />
+            ) : (
+              Icon && (
+                <Icon className={clsx('size-6', themeTextSubtitleColor)} />
+              )
+            )}
           </div>
         )}
-        <div className="flex flex-1 flex-col gap-4">
+        <div
+          className={clsx(
+            'flex flex-1 flex-col',
+            showDescription ? 'gap-4' : 'gap-2',
+          )}>
           <div className="flex flex-col items-start gap-1">
             <div className="flex items-center gap-3">
               <Text size="body0" weight="bold">
@@ -82,13 +114,16 @@ export default function InterviewsStudyListCard({
                 </span>
               )}
             </div>
-            <Text color="secondary" size="body2">
-              {shortDescription}
-            </Text>
+            {showDescription && (
+              <Text color="secondary" size="body2">
+                {shortDescription}
+              </Text>
+            )}
           </div>
           <div className="flex flex-wrap items-center gap-x-8 gap-y-2 md:gap-x-10">
             <InterviewsEntityProgress
               completed={completionCount}
+              showProgress={showProgressBar}
               title={name}
               total={questionCount}
               type="question"

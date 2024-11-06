@@ -7,6 +7,7 @@ import { trpc } from '~/hooks/trpc';
 
 import { INTERVIEWS_REVAMP_2024 } from '~/data/FeatureFlags';
 
+import InterviewsStudyListCard from '~/components/interviews/questions/listings/learning/InterviewsStudyListCard';
 import { useIntl } from '~/components/intl';
 import EmptyState from '~/components/ui/EmptyState';
 import TextInput from '~/components/ui/TextInput';
@@ -14,8 +15,6 @@ import {
   themeBackgroundCardColor,
   themeBorderElementColor,
 } from '~/components/ui/theme';
-
-import { InterviewsCompanyGuideCard } from './InterviewsCompanyGuideCard';
 
 import { useUser } from '@supabase/auth-helpers-react';
 
@@ -97,11 +96,13 @@ export default function InterviewsStudyListListWithFilters({
             const completionCount = session?._count.progress;
 
             return (
-              <InterviewsCompanyGuideCard
+              <InterviewsStudyListCard
                 key={companyGuide.slug}
-                companyGuide={companyGuide}
+                alignVerticalOnMobile={false}
                 completionCount={completionCount}
                 isStarted={session != null}
+                showDescription={false}
+                studyList={companyGuide}
               />
             );
           })}

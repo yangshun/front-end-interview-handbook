@@ -3,7 +3,7 @@ import type { InterviewsStudyList } from 'contentlayer/generated';
 import { RiArrowRightLine } from 'react-icons/ri';
 import { useMediaQuery } from 'usehooks-ts';
 
-import { InterviewsCompanyGuideCard } from '~/components/interviews/company/InterviewsCompanyGuideCard';
+import InterviewsStudyListCard from '~/components/interviews/questions/listings/learning/InterviewsStudyListCard';
 import { FormattedMessage, useIntl } from '~/components/intl';
 import Button from '~/components/ui/Button';
 import Container from '~/components/ui/Container';
@@ -58,12 +58,16 @@ export default function InterviewsMarketingCompaniesSection({
             )}>
             {companyGuides.slice(0, isTablet ? 8 : 9).map((companyGuide) => {
               return (
-                <InterviewsCompanyGuideCard
+                <InterviewsStudyListCard
                   key={companyGuide.slug}
-                  companyGuide={companyGuide}
+                  alignVerticalOnMobile={false}
+                  backgroundClass="bg-neutral-50 dark:bg-neutral-800/40"
                   completionCount={0}
                   isStarted={false}
+                  showDescription={false}
+                  showLogoShadow={false}
                   showProgressBar={false}
+                  studyList={companyGuide}
                 />
               );
             })}
