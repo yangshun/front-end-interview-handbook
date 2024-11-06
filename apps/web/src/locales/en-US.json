@@ -2139,6 +2139,10 @@
     "defaultMessage": "No contributions in the community so far",
     "description": "Subtitle for empty state when there are no contributions"
   },
+  "DIX7Z0": {
+    "defaultMessage": "Start progress tracking",
+    "description": "Label to start progress tracking"
+  },
   "DIdMCT": {
     "defaultMessage": "Reputation and leveling system",
     "description": "Title of 'Reputation and leveling system' sub-feature in Projects marketing page"
@@ -2746,6 +2750,10 @@
   "HGXwui": {
     "defaultMessage": "Expand sidebar",
     "description": "Tooltip for expand sidebar"
+  },
+  "HJ+bJn": {
+    "defaultMessage": "We've started tracking your progress",
+    "description": "Success message for starting a study plan"
   },
   "HL6v38": {
     "defaultMessage": "Marked \"{articleName}\" as not completed",
@@ -6635,6 +6643,10 @@
     "defaultMessage": "Back to study plans",
     "description": "Link text to navigate to study plans page"
   },
+  "fvvmHT": {
+    "defaultMessage": "Start tracking your progress on this question list?",
+    "description": "Confirmation text for start progress tracking"
+  },
   "fxfae3": {
     "defaultMessage": "If you're stuck, clarify any doubts within the discussion forums in Step 3's. If you need answers urgently for a critical issue, email as at <link>support@greatfrontend.com</link>.",
     "description": "FAQ answer for projects platform"
@@ -7578,10 +7590,6 @@
   "lyxOq4": {
     "defaultMessage": "Check out the latest promotions and discounts that GreatFrontEnd offers.",
     "description": "Description of Promotions page"
-  },
-  "m0cej4": {
-    "defaultMessage": "Started tracking progress",
-    "description": "Success message for starting a study plan"
   },
   "m2WYh/": {
     "defaultMessage": "Insert code block",

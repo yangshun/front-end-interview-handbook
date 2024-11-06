@@ -30,6 +30,7 @@ import type { QuestionProgress } from '~/db/QuestionsProgressTypes';
 import { questionsForImportProgress } from '~/db/QuestionsUtils';
 
 import QuestionsImportProgressModal from './QuestionsImportProgressModal';
+import { useStartLearningSessionMutation } from './QuestionsListSessionUtils';
 import QuestionsProgressFraction from '../../common/QuestionsProgressFraction';
 
 import { useUser } from '@supabase/auth-helpers-react';
@@ -78,11 +79,8 @@ export default function QuestionsListSession({
     questionListSession?.progress ?? [],
   );
 
-  const startSessionMutation = trpc.questionLists.startSession.useMutation({
-    onSuccess() {
-      trpcUtils.questionLists.invalidate();
-    },
-  });
+  const startSessionMutation = useStartLearningSessionMutation(questionListKey);
+
   const stopSessionMutation = trpc.questionLists.stopSession.useMutation({
     onSuccess() {
       trpcUtils.questionLists.invalidate();
@@ -129,15 +127,6 @@ export default function QuestionsListSession({
         },
         {
           onSuccess: () => {
-            showToast({
-              title: intl.formatMessage({
-                defaultMessage: 'Started tracking progress',
-                description: 'Success message for starting a study plan',
-                id: 'm0cej4',
-              }),
-              variant: 'success',
-            });
-
             if (previousSessionQuestionProgress.length > 0) {
               setShowImportProgressModal(true);
             }
@@ -150,9 +139,7 @@ export default function QuestionsListSession({
     userProfile?.isInterviewsPremium,
     startSessionMutation,
     questionListKey,
-    showToast,
     previousSessionQuestionProgress,
-    intl,
   ]);
 
   useEffect(() => {
