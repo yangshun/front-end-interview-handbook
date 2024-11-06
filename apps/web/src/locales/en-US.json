@@ -4375,6 +4375,10 @@
     "defaultMessage": "Worry about a shaky foundation? Harness curated tools from senior engineers at big tech and learn the best practices for practical development",
     "description": "Description for \"Get the right foundation for practical development\" feature marketing section on Projects home page"
   },
+  "RJqMw1": {
+    "defaultMessage": "{number} engineers already on board",
+    "description": "Number of engineers using"
+  },
   "RKER+g": {
     "defaultMessage": "Guides",
     "description": "Guidebooks category"
@@ -9642,10 +9646,6 @@
   "zw0Ov8": {
     "defaultMessage": "Hard",
     "description": "Hard question difficulty"
-  },
-  "zw3lia": {
-    "defaultMessage": "Used by {number} engineers",
-    "description": "Number of engineers using"
   },
   "zyPeie": {
     "defaultMessage": "Email address",

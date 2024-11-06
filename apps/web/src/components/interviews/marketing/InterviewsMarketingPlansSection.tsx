@@ -147,7 +147,8 @@ function NodesNetwork() {
       ref={containerRef}
       className={clsx(
         'isolate',
-        'relative flex h-fit w-[343px] items-center justify-center md:h-[380px] md:w-[720px] lg:w-[1000px]',
+        'relative flex h-fit w-[343px] items-center justify-center md:h-[380px] md:w-[720px] lg:h-[456px] lg:w-[1000px]',
+        'lg:py-[42px]',
       )}>
       <div className="size-full flex flex-col items-center justify-center gap-10 overflow-hidden md:flex-row md:justify-between md:gap-0">
         <div

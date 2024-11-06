@@ -98,7 +98,7 @@ function PricingButton({
       isDisabled={isLoading || isDisabled}
       isLoading={isLoading}
       label={label}
-      size="lg"
+      size="md"
       target="_self"
       type="button"
       variant={variant}
@@ -674,7 +674,7 @@ export default function InterviewsPricingTableSection({
                   className={clsx(
                     'flex items-center gap-2',
                     'rounded-full',
-                    'px-2 py-1.5',
+                    'px-2 py-[5px]',
                     'whitespace-nowrap',
                     textVariants({ size: 'body3', weight: 'medium' }),
                     themeGlassyBorder,
@@ -805,16 +805,21 @@ export default function InterviewsPricingTableSection({
                   </span>
                 </Text>
               </div>
-              <Text
-                className="mt-2 block"
-                color="secondary"
-                size="body2"
-                weight="medium">
-                <PricingPlanComparisonDiscount
-                  paymentConfig={featuredPlan.paymentConfig}
-                  showPPPMessage={showPPPMessage}
-                />
-              </Text>
+              {!(
+                featuredPlan.paymentConfig.planType === 'lifetime' &&
+                showPPPMessage
+              ) && (
+                <Text
+                  className="mt-2 block"
+                  color="secondary"
+                  size="body2"
+                  weight="medium">
+                  <PricingPlanComparisonDiscount
+                    paymentConfig={featuredPlan.paymentConfig}
+                    showPPPMessage={showPPPMessage}
+                  />
+                </Text>
+              )}
               <div className="mt-6">
                 <PricingButtonSection
                   aria-describedby={featuredPlanId}
@@ -852,7 +857,7 @@ export default function InterviewsPricingTableSection({
         <Section>
           <div
             className={clsx(
-              'grid grid-cols-1 gap-6',
+              'grid grid-cols-1 gap-8',
               isDialogView ? 'xl:grid-cols-3' : 'md:grid-cols-3',
               !isDialogView && 'mx-auto max-w-lg md:max-w-none',
             )}>
@@ -889,7 +894,7 @@ export default function InterviewsPricingTableSection({
                     <div
                       className={clsx(
                         'relative z-[1]',
-                        'flex flex-col gap-y-6 rounded-[inherit] px-4 py-6',
+                        'flex flex-col gap-y-6 rounded-[inherit] p-6',
                       )}>
                       <div className="grow md:grow-0">
                         <div className="flex flex-wrap gap-x-3">

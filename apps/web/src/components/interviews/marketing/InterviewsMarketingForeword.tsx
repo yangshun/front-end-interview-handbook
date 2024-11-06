@@ -184,28 +184,31 @@ export default function InterviewsMarketingForeword() {
             />
           </blockquote>
           <figcaption className="flex items-center justify-between gap-2">
-            <div className="flex flex-col gap-1">
+            <div className="flex flex-col gap-2">
               <Anchor
-                className={textVariants({ size: 'body1', weight: 'bold' })}
+                className={textVariants({ size: 'body1' })}
                 href="https://linkedin.com/in/yangshun"
-                variant="flat">
+                variant="flat"
+                weight="bold">
                 Yangshun Tay{' '}
                 <RiLinkedinBoxFill className="size-6 ml-0.5 inline -translate-y-0.5 align-middle" />
               </Anchor>
-              <Text color="secondary" size="body3" weight="medium">
-                <FormattedMessage
-                  defaultMessage="Founder, CEO of GreatFrontEnd"
-                  description="Position of Yangshun"
-                  id="7YjBUE"
-                />
-              </Text>
-              <Text color="secondary" size="body3" weight="medium">
-                <FormattedMessage
-                  defaultMessage="Ex-Staff Engineer, Meta. Author of Blind 75 and Docusaurus 2"
-                  description="Position of Yangshun"
-                  id="y2x1w7"
-                />
-              </Text>
+              <div className="flex flex-col gap-1">
+                <Text color="secondary" size="body3" weight="medium">
+                  <FormattedMessage
+                    defaultMessage="Founder, CEO of GreatFrontEnd"
+                    description="Position of Yangshun"
+                    id="7YjBUE"
+                  />
+                </Text>
+                <Text color="secondary" size="body3" weight="medium">
+                  <FormattedMessage
+                    defaultMessage="Ex-Staff Engineer, Meta. Author of Blind 75 and Docusaurus 2"
+                    description="Position of Yangshun"
+                    id="y2x1w7"
+                  />
+                </Text>
+              </div>
             </div>
             <Avatar
               alt="Yangshun Tay's image"

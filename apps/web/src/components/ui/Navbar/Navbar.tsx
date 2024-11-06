@@ -90,7 +90,7 @@ function Navbar(
           )}>
           <div className="flex items-center justify-start lg:w-0 lg:grow">
             {logo}
-            <nav className="hidden items-center gap-x-4 lg:ml-10 lg:flex lg:w-0 lg:flex-1">
+            <nav className="hidden items-center gap-x-4 lg:ml-[68px] lg:flex lg:w-0 lg:flex-1">
               {leftLinks.map((navItem) => (
                 <NavbarItem key={navItem.itemKey} {...navItem} />
               ))}

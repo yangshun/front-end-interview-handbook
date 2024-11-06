@@ -319,11 +319,13 @@ export default function InterviewsMarketingPracticeQuestionBankSection({
                   onSelect={filterNavigation.onClick}
                 />
               </div>
-              <SideNavigation
-                activeValue={filterNavigation.value}
-                items={filterNavigation.items}
-                onClick={filterNavigation.onClick}
-              />
+              <div className="hidden md:block">
+                <SideNavigation
+                  activeValue={filterNavigation.value}
+                  items={filterNavigation.items}
+                  onClick={filterNavigation.onClick}
+                />
+              </div>
             </div>
             <div
               className={clsx(

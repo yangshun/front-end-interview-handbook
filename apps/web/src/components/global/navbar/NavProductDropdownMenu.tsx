@@ -55,7 +55,7 @@ export default function NavProductDropdownMenu({
         {variant === 'full' ? (
           <button
             className={clsx(
-              'flex items-center gap-2.5',
+              'flex items-center gap-2 md:gap-4',
               'px-2 py-2',
               'rounded',
               'border-transparent',
@@ -69,14 +69,14 @@ export default function NavProductDropdownMenu({
               triggerClassname,
             )}
             type="button">
-            <LogoComboMark className="shrink-0" height={19} />
+            <LogoComboMark className="shrink-0" />
             <Divider
               className="h-3 shrink-0"
               color="emphasized"
               direction="vertical"
             />
-            <span className="relative flex items-center gap-1.5">
-              <Text className="text-[13px]" color="secondary" size="inherit">
+            <span className="relative flex items-center gap-2">
+              <Text size="body2" weight="bold">
                 {label}
               </Text>
               {showUnseenIndicator && (
@@ -91,7 +91,7 @@ export default function NavProductDropdownMenu({
               )}
               <RiArrowDownSLine
                 aria-hidden={true}
-                className={clsx('size-4 shrink-0', themeTextSubtleColor)}
+                className={clsx('size-5 shrink-0', themeTextSubtleColor)}
               />
             </span>
           </button>

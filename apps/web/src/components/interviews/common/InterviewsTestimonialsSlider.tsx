@@ -47,10 +47,10 @@ function TestimonialCard({
     <div
       className={clsx(
         'isolate overflow-hidden',
-        'flex flex-col justify-between gap-3',
-        'p-6',
+        'flex flex-col justify-between gap-6',
+        'p-8',
         'rounded-lg',
-        'h-[318px] md:h-[218px]',
+        'h-[338px] md:h-[238px]',
         themeBackgroundCardColor,
         ['border', themeBorderElementColor],
         [themeWhiteGlowCardBackground, 'before:-left-10 before:-top-10'],
@@ -62,7 +62,7 @@ function TestimonialCard({
           'before:z-[1] before:h-8',
           'before:bg-gradient-to-b before:from-[rgba(0,0,0,0)] before:to-neutral-50 before:dark:to-[#1E1E21]',
         )}>
-        <ScrollArea heightClass="h-[168px] md:h-[124px]">
+        <ScrollArea heightClass="h-[160px] md:h-[116px]">
           <div className={clsx('pb-5 text-base font-semibold md:text-lg')}>
             "{testimonial}"
           </div>
@@ -224,7 +224,7 @@ export default function InterviewsTestimonialsSlider({
         className={clsx('w-full shrink-0 lg:w-[352px]', 'flex items-center')}>
         <div
           className={clsx(
-            'flex w-full flex-col gap-y-12 md:flex-row lg:flex-col',
+            'flex w-full flex-col gap-y-6 md:flex-row lg:flex-col',
           )}>
           {overview
             .flatMap((item) => (item != null ? [item] : []))

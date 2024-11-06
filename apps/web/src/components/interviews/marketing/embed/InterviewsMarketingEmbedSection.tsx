@@ -148,7 +148,7 @@ export default function InterviewsMarketingEmbedSection({
     <div
       ref={containerRef}
       className={clsx(
-        'relative overflow-hidden pb-24 lg:pb-32',
+        'relative overflow-hidden pb-10 lg:pb-12',
         'transition-opacity',
         'duration-1000',
         'delay-1000',

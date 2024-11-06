@@ -69,7 +69,7 @@ export default function InterviewsStudyListCard({
           <div
             className={clsx(
               'flex shrink-0 items-center justify-center',
-              'size-12 rounded-lg',
+              'size-10 rounded-lg',
               logoUrl
                 ? ['bg-white', showLogoShadow && 'shadow-md']
                 : [themeBackgroundLayerEmphasized, themeGlassyBorder],
@@ -77,7 +77,7 @@ export default function InterviewsStudyListCard({
             {logoUrl ? (
               <img
                 alt={name}
-                className="size-9"
+                className="size-6"
                 decoding="async"
                 loading="lazy"
                 src={logoUrl}
@@ -96,7 +96,7 @@ export default function InterviewsStudyListCard({
           )}>
           <div className="flex flex-col items-start gap-1">
             <div className="flex items-center gap-3">
-              <Text size="body0" weight="bold">
+              <Text size="body2" weight="bold">
                 {name}
               </Text>
 

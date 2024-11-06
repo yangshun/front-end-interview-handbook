@@ -28,11 +28,13 @@ export default function InterviewsPricingPage({
   return (
     <div className={clsx('flex flex-col gap-y-16 sm:gap-y-20')}>
       <InterviewsPurchaseCancelLogging plansPaymentConfig={plans} />
-      <InterviewsPricingSection
-        countryCode={countryCode}
-        countryName={countryName}
-        plans={plans}
-      />
+      <div className="py-12 lg:mx-8 lg:py-24">
+        <InterviewsPricingSection
+          countryCode={countryCode}
+          countryName={countryName}
+          plans={plans}
+        />
+      </div>
       <Section>
         <InterviewsMarketingFeatures />
         <div>

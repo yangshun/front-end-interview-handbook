@@ -14,10 +14,12 @@ export default function InterviewsPricingSectionLocalizedContainer() {
   const { country, plans } = data;
 
   return (
-    <InterviewsPricingSection
-      countryCode={country.code}
-      countryName={country.name}
-      plans={plans}
-    />
+    <div className="py-20">
+      <InterviewsPricingSection
+        countryCode={country.code}
+        countryName={country.name}
+        plans={plans}
+      />
+    </div>
   );
 }

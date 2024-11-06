@@ -45,7 +45,10 @@ export default function InterviewsMarketingHeroNew({ testimonials }: Props) {
 
   return (
     <Container
-      className={clsx('pb-10 pt-20', 'flex flex-col gap-12')}
+      className={clsx(
+        'pb-10 pt-20 md:pt-[88px] xl:pt-[108px]',
+        'flex flex-col gap-12',
+      )}
       width="marketing">
       <div
         ref={titleRef}
@@ -141,7 +144,7 @@ export default function InterviewsMarketingHeroNew({ testimonials }: Props) {
         </div>
         <div
           className={clsx(
-            'flex gap-5',
+            'flex flex-wrap gap-x-5 gap-y-2',
             'py-0.5',
             'transition-opacity',
             'duration-1000',
@@ -188,16 +191,16 @@ export default function InterviewsMarketingHeroNew({ testimonials }: Props) {
                 }}
               />
             }>
-            <div className="flex flex-col items-start gap-1">
+            <div className="flex flex-col items-start gap-1.5">
               <Text
                 className="block"
                 color="subtitle"
                 size="body3"
                 weight="medium">
                 <FormattedMessage
-                  defaultMessage="Used by {number} engineers"
+                  defaultMessage="{number} engineers already on board"
                   description="Number of engineers using"
-                  id="zw3lia"
+                  id="RJqMw1"
                   values={{ number: '500k+' }}
                 />
               </Text>

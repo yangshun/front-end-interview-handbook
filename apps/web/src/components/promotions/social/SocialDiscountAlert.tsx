@@ -29,7 +29,7 @@ function SocialDiscountTicketSmall({
       className={clsx(
         'relative',
         ['border', themeGlassyBorder],
-        'px-3 py-1',
+        'px-3 py-[3px]',
         'rounded',
         'overflow-hidden',
       )}>
@@ -62,7 +62,7 @@ function SocialDiscountAlertImpl() {
     const promoCode = promoCodes?.data[0];
 
     return (
-      <div className="flex items-center gap-4">
+      <div className="flex items-center gap-3">
         <Tooltip asChild={true} label={socialDiscountLabels.existingPromoTitle}>
           {/* Wrapper span so that the promo code can be copied */}
           <span>
@@ -80,7 +80,7 @@ function SocialDiscountAlertImpl() {
   }
 
   return (
-    <div className="flex items-center gap-4">
+    <div className="flex items-center gap-3">
       <div className="hidden md:contents">
         <SocialDiscountTicketSmall title={socialDiscountLabels.ticketTitle} />
       </div>
