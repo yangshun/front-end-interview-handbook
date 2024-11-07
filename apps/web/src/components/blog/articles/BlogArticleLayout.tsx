@@ -10,32 +10,22 @@ import type {
   BlogMetadata,
 } from '~/components/blog/BlogTypes';
 import BlogMainLayout from '~/components/blog/layout/BlogMainLayout';
-import type { BlogSeriesNavigationLink } from '~/components/blog/layout/BlogSidebar';
-import type { SideNavigationItems } from '~/components/common/SideNavigation';
 import SideNavigation from '~/components/common/SideNavigation';
 import Container from '~/components/ui/Container';
 import Text from '~/components/ui/Text';
 
 import { useI18nPathname } from '~/next-i18nostic/src';
 
-function convertToSideNavigationItem(
-  tocItems: ReadonlyArray<BlogSeriesNavigationLink>,
-): SideNavigationItems<string> {
-  return tocItems.map((item) => ({
-    label: item.label,
-    value: item.href,
-  }));
-}
 type Props = Readonly<{
   children?: React.ReactNode;
   metadata: BlogMetadata;
-  navigation?: BlogArticleNavigationType | null;
+  seriesContents?: BlogArticleNavigationType | null;
 }>;
 
 export default function BlogArticleLayout({
   children,
   metadata,
-  navigation,
+  seriesContents,
 }: Props) {
   const router = useRouter();
   const { pathname } = useI18nPathname();
@@ -48,43 +38,42 @@ export default function BlogArticleLayout({
         pathname={pathname}
         title={metadata.title}
       />
-      <BlogMainLayout seriesContents={navigation}>
+      <BlogMainLayout seriesContents={seriesContents}>
         <Container
           className={clsx('flex flex-col', 'py-6 lg:py-8')}
           width="app">
           <div
             className={clsx(
               'flex gap-x-10 gap-y-8 md:gap-y-10 2xl:gap-y-12',
-              !navigation && 'justify-center',
+              !seriesContents && 'justify-center',
             )}>
-            {metadata.isSeriesArticle && navigation && (
+            {metadata.isSeriesArticle && seriesContents && (
               <div
                 className={clsx(
-                  'hidden xl:contents',
+                  'hidden xl:block',
                   'sticky top-[var(--global-sticky-height)] h-[calc(100vh_-_var(--global-sticky-height))]',
+                  'w-[200px]',
                 )}>
-                <div key={navigation.seriesTitle || navigation.subseriesTitle}>
-                  {navigation.subseriesTitle && (
-                    <Text
-                      className="text-neutral-700 dark:text-neutral-500"
-                      size="body3"
-                      weight="bold">
-                      {navigation.seriesTitle}
-                    </Text>
-                  )}
-                  <div className="flex flex-col flex-wrap gap-3">
-                    <Text size="body2" weight="bold">
-                      {navigation.subseriesTitle || navigation.seriesTitle}
-                    </Text>
-
-                    <SideNavigation
-                      activeValue={pathname}
-                      items={convertToSideNavigationItem(navigation.items)}
-                      onClick={(value) => {
-                        router.push(value);
-                      }}
-                    />
-                  </div>
+                {seriesContents.subseriesTitle && (
+                  <Text color="secondary" size="body3" weight="bold">
+                    {seriesContents.seriesTitle}
+                  </Text>
+                )}
+                <div className="flex flex-col flex-wrap gap-3">
+                  <Text size="body2" weight="bold">
+                    {seriesContents.subseriesTitle ||
+                      seriesContents.seriesTitle}
+                  </Text>
+                  <SideNavigation
+                    activeValue={pathname}
+                    items={seriesContents.items.map((item) => ({
+                      label: item.label,
+                      value: item.href,
+                    }))}
+                    onClick={(value) => {
+                      router.push(value);
+                    }}
+                  />
                 </div>
               </div>
             )}

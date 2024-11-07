@@ -74,7 +74,7 @@ export default function Page({ params }: Props) {
   return (
     <BlogArticleLayout
       metadata={blogMetadata}
-      navigation={seriesArticleNavigation}>
+      seriesContents={seriesArticleNavigation}>
       <BlogArticleMainLayout metadata={blogMetadata}>
         <BlogMdx code={(blogMetadata as BlogPost)?.body.code || ''} />
       </BlogArticleMainLayout>

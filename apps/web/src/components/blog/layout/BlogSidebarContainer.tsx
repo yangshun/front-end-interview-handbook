@@ -13,6 +13,7 @@ export default function BlogSidebarContainer() {
         'sticky top-[var(--global-sticky-height)] h-[calc(100vh_-_var(--global-sticky-height))]',
         'w-[280px] shrink-0 overflow-visible',
         ['border-r', themeBorderColor],
+        'p-4',
       )}>
       <BlogSidebar />
     </aside>

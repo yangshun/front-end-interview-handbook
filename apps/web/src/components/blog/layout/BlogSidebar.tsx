@@ -20,7 +20,7 @@ export type BlogSeriesNavigationLink<T = Record<string, unknown>> = Readonly<
 type BlogSidebarItem = Readonly<{
   currentMatchRegex?: RegExp;
   icon?: (props: React.ComponentProps<'svg'>) => JSX.Element;
-  key: string;
+  id: string;
   label: string;
   labelAddon?: ReactNode;
   showIcon?: boolean;
@@ -40,7 +40,7 @@ function useBlogSidebarNavigation() {
       currentMatchRegex: /\/blog$/,
       href: '/blog',
       icon: RiHome3Line,
-      key: 'blog',
+      id: 'blog',
       label: intl.formatMessage({
         defaultMessage: 'Home',
         description: 'Sidebar label for Blog home page',
@@ -53,7 +53,7 @@ function useBlogSidebarNavigation() {
       currentMatchRegex: /^\/blog\/latest\//,
       href: '/blog/latest',
       icon: RiTerminalWindowLine,
-      key: 'new',
+      id: 'new',
       label: intl.formatMessage({
         defaultMessage: "What's new",
         description: "Sidebar label for What's New",
@@ -66,7 +66,7 @@ function useBlogSidebarNavigation() {
       currentMatchRegex: /^\/blog\/explore\//,
       href: '/blog/explore',
       icon: RiCompass3Line,
-      key: 'series',
+      id: 'series',
       label: intl.formatMessage({
         defaultMessage: 'Explore series',
         description: 'Sidebar label for explore series',
@@ -83,9 +83,5 @@ function useBlogSidebarNavigation() {
 export default function BlogSidebar() {
   const navigation = useBlogSidebarNavigation();
 
-  return (
-    <div className="size-full flex flex-1 grow flex-col justify-between p-4">
-      <SidebarLinksSection items={navigation} />
-    </div>
-  );
+  return <SidebarLinksSection items={navigation} />;
 }
