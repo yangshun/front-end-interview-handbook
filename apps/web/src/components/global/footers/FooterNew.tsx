@@ -8,7 +8,6 @@ import { trpc } from '~/hooks/trpc';
 
 import { SocialLinks } from '~/data/SocialLinks';
 
-import I18nSelect from '~/components/global/i18n/I18nSelect';
 import LogoLink from '~/components/global/logos/LogoLink';
 import { FormattedMessage, useIntl } from '~/components/intl';
 import Anchor from '~/components/ui/Anchor';
@@ -26,7 +25,7 @@ import {
   themeTextSubtleColor,
 } from '~/components/ui/theme';
 
-import { useI18nPathname, useI18nRouter } from '~/next-i18nostic/src';
+import NavI18nDropdown from '../navbar/NavI18nDropdown';
 
 type FooterLink = Readonly<{
   href: string;
@@ -82,14 +81,14 @@ function FooterSection({
   title: string;
 }>) {
   return (
-    <div className="flex flex-col gap-y-2">
+    <div className="flex flex-col gap-y-4">
       <Heading color="custom" level="custom">
         <Text size="body2" weight="medium">
           {title}
         </Text>
       </Heading>
       <Section>
-        <ul className="flex flex-col gap-y-2" role="list">
+        <ul className="flex flex-col gap-y-3" role="list">
           {links
             .filter((item) => item != null)
             .map((item_) => {
@@ -136,8 +135,6 @@ type Props = Readonly<{
 export default function Footer({ navigation }: Props) {
   const intl = useIntl();
   const commonLinks = useCommonFooterLinks();
-  const { locale, pathname } = useI18nPathname();
-  const router = useI18nRouter();
 
   const {
     data: submitMessage,
@@ -263,8 +260,8 @@ export default function Footer({ navigation }: Props) {
                 </div>
               </div>
             </div>
-            <div className="col-span-8 grid grid-cols-2 gap-12 md:grid-cols-4">
-              <div className="sm:grid-cols-2 md:col-span-2 md:grid md:gap-12">
+            <div className="col-span-8 grid grid-cols-2 gap-6 md:grid-cols-4">
+              <div className="sm:grid-cols-2 md:col-span-2 md:grid md:gap-6">
                 <FooterSection
                   links={navigation[0].links}
                   title={navigation[0].title}
@@ -276,7 +273,7 @@ export default function Footer({ navigation }: Props) {
                   />
                 </div>
               </div>
-              <div className="sm:grid-cols-2 md:col-span-2 md:grid md:gap-8">
+              <div className="sm:grid-cols-2 md:col-span-2 md:grid md:gap-6">
                 <div>
                   <FooterSection
                     links={navigation[2].links}
@@ -319,23 +316,14 @@ export default function Footer({ navigation }: Props) {
                 ))}
               </div>
               <div>
-                <I18nSelect
-                  locale={locale ?? 'en-US'}
-                  onChange={(newLocale: string) => {
-                    if (pathname == null) {
-                      return;
-                    }
-
-                    router.push(pathname, { locale: newLocale });
-                  }}
-                />
+                <NavI18nDropdown showSelected={true} size="md" />
               </div>
             </div>
 
             <div
               className={clsx(
                 'col-span-8',
-                'flex flex-wrap items-center gap-6',
+                'flex flex-wrap items-center gap-8',
               )}>
               {copyrightStatement}
               {dividerDot}

@@ -66,7 +66,7 @@ export default function MarketingCommunitySection() {
       </div>
       <Section>
         <div className="w-full">
-          <div className="grid w-full grid-cols-2 gap-4 md:grid-cols-4 lg:gap-6">
+          <div className="grid w-full grid-cols-2 gap-4 md:grid-cols-4 lg:gap-6 xl:gap-8">
             {[
               SocialLinks.linkedin,
               SocialLinks.discord,

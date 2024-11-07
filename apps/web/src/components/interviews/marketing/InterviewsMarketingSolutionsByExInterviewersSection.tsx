@@ -34,7 +34,8 @@ const questions: ReadonlyArray<{
  */
 export default function flatten(value) {
   return value./* hl:s(flatten-i) */reduce/* hl:e */(
-    (acc, curr) => acc.concat(Array.isArray(curr) ? /* hl:s(flatten-ii) */flatten(curr)/* hl:e */ : curr),
+    (acc, curr) => acc.concat(Array.isArray(curr)
+      ? /* hl:s(flatten-ii) */flatten(curr)/* hl:e */ : curr),
     [],
   );
 }

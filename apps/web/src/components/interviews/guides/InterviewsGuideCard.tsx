@@ -171,6 +171,7 @@ export default function InterviewsGuideCard({ data }: Props) {
               <Button
                 className={themeTextSubtleColor}
                 icon={DropdownIcon}
+                iconClassName="!size-6"
                 isLabelHidden={true}
                 label={
                   isOpen

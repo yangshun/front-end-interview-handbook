@@ -6,22 +6,37 @@ import DropdownMenu from '~/components/ui/DropdownMenu';
 import i18nLabelOptions from '~/i18n/i18nLabelOptions';
 import { useI18nPathname } from '~/next-i18nostic/src';
 
-export default function NavI18nDropdown() {
+type Props = Readonly<{
+  showSelected?: boolean;
+  size?: 'md' | 'xs';
+}>;
+
+export default function NavI18nDropdown({ size = 'xs', showSelected }: Props) {
   const intl = useIntl();
   const { pathname, locale } = useI18nPathname();
+
+  const selectedLocale = i18nLabelOptions.find(
+    (item) => item.locale === (locale ?? 'en-US'),
+  );
+
+  const showLabel = showSelected && !!selectedLocale;
 
   return (
     <DropdownMenu
       align="end"
-      icon={RiTranslate2}
-      isLabelHidden={true}
-      label={intl.formatMessage({
-        defaultMessage: 'Language',
-        description: 'Change site language button label',
-        id: '58dfbv',
-      })}
-      showChevron={false}
-      size="xs"
+      icon={showLabel ? undefined : RiTranslate2}
+      isLabelHidden={!showLabel}
+      label={
+        showLabel
+          ? selectedLocale?.locale ?? ''
+          : intl.formatMessage({
+              defaultMessage: 'Language',
+              description: 'Change site language button label',
+              id: '58dfbv',
+            })
+      }
+      showChevron={showLabel}
+      size={size}
       tooltip={intl.formatMessage({
         defaultMessage: 'Language',
         description: 'Tooltip for language selector',

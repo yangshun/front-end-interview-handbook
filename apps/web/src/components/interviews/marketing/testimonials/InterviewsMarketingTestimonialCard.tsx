@@ -57,7 +57,7 @@ export default function InterviewsMarketingTestimonialCard({
       disableSpotlight={disableSpotlight}
       padding={false}
       pattern={false}>
-      <div className={clsx('flex items-center justify-between', 'mb-2')}>
+      <div className={clsx('flex items-center justify-between', 'mb-3')}>
         {featuredOffer ? (
           <div className={clsx('flex items-center gap-3')}>
             {companyLogoUrl && (
@@ -97,7 +97,7 @@ export default function InterviewsMarketingTestimonialCard({
             alt={name ?? ''}
             decoding="async"
             loading="lazy"
-            size="xl"
+            size="lg"
             src={authorThumbnailUrl}
           />
         )}
@@ -115,7 +115,7 @@ export default function InterviewsMarketingTestimonialCard({
               return (
                 <Anchor
                   className={textVariants({
-                    className: 'flex items-center gap-x-1.5',
+                    className: 'flex items-center gap-x-1',
                     size: 'body2',
                     weight: 'bold',
                   })}
@@ -129,7 +129,7 @@ export default function InterviewsMarketingTestimonialCard({
                 </Anchor>
               );
             })()}
-          <Text className="block" color="secondary" size="body3">
+          <Text className="mt-1 block" color="secondary" size="body3">
             {[title, location].filter(Boolean).join(', ')}
           </Text>
           {offers != null && offers.length > 0 && (

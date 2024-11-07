@@ -55,7 +55,7 @@ export default function NavProductDropdownMenu({
         {variant === 'full' ? (
           <button
             className={clsx(
-              'flex items-center gap-2 md:gap-4',
+              'flex items-center gap-2.5',
               'px-2 py-2',
               'rounded',
               'border-transparent',
@@ -69,7 +69,7 @@ export default function NavProductDropdownMenu({
               triggerClassname,
             )}
             type="button">
-            <LogoComboMark className="shrink-0" />
+            <LogoComboMark className="shrink-0" height={19} />
             <Divider
               className="h-3 shrink-0"
               color="emphasized"

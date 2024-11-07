@@ -86,7 +86,7 @@ export default function InterviewsMarketingFAQSection() {
 
         <div className="mt-16">
           <MarketingFAQSection
-            accordionTriggerClassName="py-8"
+            accordionTriggerClassName="py-8 text-lg"
             faqs={generalFaqs}
             hideTitle={true}
             title={intl.formatMessage({
