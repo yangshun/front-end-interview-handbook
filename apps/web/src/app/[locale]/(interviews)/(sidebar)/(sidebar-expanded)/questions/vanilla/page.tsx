@@ -52,8 +52,6 @@ export default async function Page() {
   return (
     <QuestionsFrameworkPage
       description="Top Vanilla JavaScript UI coding interview questions."
-      featuredQuestions={questionList.filter((question) => question.featured)}
-      featuredSectionTitle="Try these popular Vanilla JavaScript UI questions"
       framework={framework}
       questionCompletionCount={questionCompletionCount}
       questionList={questionList}

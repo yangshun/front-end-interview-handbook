@@ -2667,10 +2667,6 @@
     "defaultMessage": "Build front end real-world projects",
     "description": "Title of Projects page"
   },
-  "Gttxsq": {
-    "defaultMessage": "Try these popular Svelte questions",
-    "description": "Title for featured questions section"
-  },
   "Gv0+LY": {
     "defaultMessage": "Woohoo! You completed the question!",
     "description": "Toast congratulating user once they mark a question as complete"
@@ -3142,10 +3138,6 @@
   "Ju61WC": {
     "defaultMessage": "To download",
     "description": "Title for To Download section on Projects project assets page"
-  },
-  "JxbpKs": {
-    "defaultMessage": "Try these popular Angular questions",
-    "description": "Title for featured questions section"
   },
   "JyoY2G": {
     "defaultMessage": "See all",
@@ -4787,10 +4779,6 @@
     "defaultMessage": "Premium is required to access company tags",
     "description": "Title for company tags feature"
   },
-  "TiAC18": {
-    "defaultMessage": "Try these popular Vue questions",
-    "description": "Title for featured questions section"
-  },
   "Tjz+5U": {
     "defaultMessage": "Giving away {discountPercentage}% off all plans!",
     "description": "Rewards discount message"
@@ -4978,10 +4966,6 @@
   "VBLk5q": {
     "defaultMessage": "With our study plans, many users have secured multiple offers at leading companies with substantial TC gains. You could be next.",
     "description": "Testimonials section description of study plans page"
-  },
-  "VBOVcb": {
-    "defaultMessage": "Try these popular React questions",
-    "description": "Title for featured questions section"
   },
   "VJ8xZy": {
     "defaultMessage": "Prices will be increased as more content is being added to the website.",
@@ -6998,10 +6982,6 @@
   "i7u7fD": {
     "defaultMessage": "Mark as incomplete",
     "description": "Mark the question as incomplete"
-  },
-  "i8776d": {
-    "defaultMessage": "Follow our front end interview roadmap",
-    "description": "Label for follow frontend interview roadmap"
   },
   "i9ojv3": {
     "defaultMessage": "All filters",

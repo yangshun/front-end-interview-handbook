@@ -48,7 +48,7 @@ export default function InterviewsDashboardOverallCompletionProgress({
             questionsProgressAll['user-interface'].size,
           gradient: questionFormats.coding.themeGradient,
           icon: questionFormats.coding.icon,
-          title: questionFormats.coding.name,
+          title: questionFormats.coding.label,
           totalQuestions:
             questionTotalAvailableCount.javascript +
             questionTotalAvailableCount['user-interface'],
@@ -57,14 +57,14 @@ export default function InterviewsDashboardOverallCompletionProgress({
           completedQuestions: questionsProgressAll.quiz.size,
           gradient: questionFormats.quiz.themeGradient,
           icon: questionFormats.quiz.icon,
-          title: questionFormats.quiz.name,
+          title: questionFormats.quiz.label,
           totalQuestions: questionTotalAvailableCount.quiz,
         },
         {
           completedQuestions: questionsProgressAll['system-design'].size,
           gradient: questionFormats['system-design'].themeGradient,
           icon: questionFormats['system-design'].icon,
-          title: questionFormats['system-design'].name,
+          title: questionFormats['system-design'].label,
           totalQuestions: questionTotalAvailableCount['system-design'],
         },
       ].map(({ completedQuestions, gradient, title, totalQuestions }) => (

@@ -56,12 +56,6 @@ export default async function Page({ params }: Props) {
         description: 'Description for Svelte questions page',
         id: 'puirr6',
       })}
-      featuredQuestions={questionList.filter((question) => question.featured)}
-      featuredSectionTitle={intl.formatMessage({
-        defaultMessage: 'Try these popular Svelte questions',
-        description: 'Title for featured questions section',
-        id: 'Gttxsq',
-      })}
       framework={framework}
       logo={<SvelteLogo className="size-16" style={{ color: '#ff3e00' }} />}
       questionCompletionCount={questionCompletionCount}

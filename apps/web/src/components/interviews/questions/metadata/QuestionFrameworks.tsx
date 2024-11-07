@@ -44,11 +44,11 @@ export default function QuestionFrameworks({ frameworks }: Props) {
                 id: '72GwzV',
               },
               {
-                frameworkLabel: questionTechnologyLists[framework].name,
+                frameworkLabel: questionTechnologyLists[framework].label,
               },
             )}>
             <Anchor
-              aria-label={questionTechnologyLists[framework].name}
+              aria-label={questionTechnologyLists[framework].label}
               href={href}
               variant="unstyled"
               onClick={(event) => {

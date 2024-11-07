@@ -56,12 +56,6 @@ export default async function Page({ params }: Props) {
         description: 'Description for Vue questions page',
         id: '8I4gwW',
       })}
-      featuredQuestions={questionList.filter((question) => question.featured)}
-      featuredSectionTitle={intl.formatMessage({
-        defaultMessage: 'Try these popular Vue questions',
-        description: 'Title for featured questions section',
-        id: 'TiAC18',
-      })}
       framework={framework}
       logo={<VueLogo className="size-16" style={{ color: '#ff3e00' }} />}
       questionCompletionCount={questionCompletionCount}

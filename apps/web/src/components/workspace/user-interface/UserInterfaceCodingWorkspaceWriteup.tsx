@@ -158,7 +158,7 @@ export default function UserInterfaceCodingWorkspaceWriteup({
                 id: 'eeWLAW',
               })}
               options={metadata.frameworks.map((frameworkItem) => ({
-                label: questionTechnologyLists[frameworkItem.framework].name,
+                label: questionTechnologyLists[frameworkItem.framework].label,
                 value: frameworkItem.framework,
               }))}
               size="sm"

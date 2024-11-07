@@ -13,19 +13,19 @@ export default function InterviewsNotFoundPage() {
       description: questionFormatLists.coding.description,
       href: questionFormatLists.coding.href,
       icon: questionFormatLists.coding.icon,
-      title: `Prepare for ${questionFormatLists.coding.name} questions`,
+      title: `Prepare for ${questionFormatLists.coding.label} questions`,
     },
     {
       description: questionFormatLists['system-design'].description,
       href: questionFormatLists['system-design'].href,
       icon: questionFormatLists['system-design'].icon,
-      title: `Prepare for ${questionFormatLists['system-design'].name} questions`,
+      title: `Prepare for ${questionFormatLists['system-design'].label} questions`,
     },
     {
       description: questionFormatLists.quiz.description,
       href: questionFormatLists.quiz.href,
       icon: questionFormatLists.quiz.icon,
-      title: `Prepare for ${questionFormatLists.quiz.name} questions`,
+      title: `Prepare for ${questionFormatLists.quiz.label} questions`,
     },
     {
       description:

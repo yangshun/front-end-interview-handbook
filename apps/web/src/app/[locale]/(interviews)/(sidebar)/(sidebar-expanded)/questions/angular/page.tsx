@@ -56,12 +56,6 @@ export default async function Page({ params }: Props) {
         description: 'Description for Angular questions page',
         id: 'MjpQ2L',
       })}
-      featuredQuestions={questionList.filter((question) => question.featured)}
-      featuredSectionTitle={intl.formatMessage({
-        defaultMessage: 'Try these popular Angular questions',
-        description: 'Title for featured questions section',
-        id: 'JxbpKs',
-      })}
       framework={framework}
       logo={<AngularLogo className="size-16" />}
       questionCompletionCount={questionCompletionCount}

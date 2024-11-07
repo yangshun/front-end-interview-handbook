@@ -67,12 +67,12 @@ function useTabs() {
     },
     {
       icon: questionFormat['system-design'].icon,
-      label: questionFormat['system-design'].name,
+      label: questionFormat['system-design'].label,
       value: 'system-design',
     },
     {
       icon: questionFormat.quiz.icon,
-      label: questionFormat.quiz.name,
+      label: questionFormat.quiz.label,
       value: 'quiz',
     },
   ];
