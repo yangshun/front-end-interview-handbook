@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import type { ForwardedRef, ForwardRefWithGenerics } from 'react';
+import type { ForwardedRef, ForwardRefWithGenerics, ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import Anchor from '~/components/ui/Anchor';
@@ -13,6 +13,7 @@ import Text from '../Text';
 import { themeTextSecondaryColor } from '../theme';
 
 export type TabItem<T> = Readonly<{
+  addOn?: ReactElement;
   href?: string;
   icon?: React.ComponentType<React.ComponentProps<'svg'>>;
   label: string;
@@ -97,6 +98,7 @@ function TabsUnderline<T>(
       <nav aria-label={label} className={clsx('-mb-px flex', tabGapSize)}>
         {tabs.map((tabItem) => {
           const {
+            addOn,
             icon: Icon,
             label: tabItemLabel,
             value: tabItemValue,
@@ -123,6 +125,7 @@ function TabsUnderline<T>(
                   />
                 )}
                 {tabItemLabel}
+                {addOn}
               </Text>
             ),
             className: clsx(

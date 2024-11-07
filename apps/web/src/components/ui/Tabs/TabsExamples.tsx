@@ -8,6 +8,7 @@ import {
 import TabsUnderline from '~/components/ui/Tabs/TabsUnderline';
 
 import Tabs from './Tabs';
+import Badge from '../Badge';
 import UIExamplesGroup from '../misc/UIExamplesGroup';
 
 const tabs = [
@@ -61,6 +62,38 @@ export default function TabsExamples() {
           label="Select navigation item"
           size="xs"
           tabs={tabs}
+          value={selectedTab}
+          onSelect={setSelectedTab}
+        />
+        <TabsUnderline
+          label="Select navigation item"
+          size="sm"
+          tabs={[
+            {
+              addOn: (
+                <Badge className="ml-1.5" label="23" variant="neutral-active" />
+              ),
+              icon: RiAccountCircleFill,
+              label: 'Account',
+              value: 'account',
+            },
+            {
+              addOn: (
+                <Badge className="ml-1.5" label="45" variant="neutral-active" />
+              ),
+              icon: RiBuildingFill,
+              label: 'Company',
+              value: 'company',
+            },
+            {
+              addOn: (
+                <Badge className="ml-1.5" label="67" variant="neutral-active" />
+              ),
+              icon: RiGroupFill,
+              label: 'Team Members',
+              value: 'team',
+            },
+          ]}
           value={selectedTab}
           onSelect={setSelectedTab}
         />
