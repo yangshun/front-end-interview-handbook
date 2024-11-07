@@ -39,7 +39,7 @@ export default function QuestionsStudyListBottomNav({
           themeBackgroundDarkColor,
         )}>
         <Container
-          className="flex h-12 items-center justify-between gap-2"
+          className="flex h-12 items-center justify-between gap-2 px-6"
           width="screen-2xl">
           <div className="flex shrink-0 justify-center xl:order-2 xl:flex-1">
             {paginationEl}

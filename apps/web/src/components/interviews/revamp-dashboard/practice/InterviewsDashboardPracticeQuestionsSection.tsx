@@ -7,8 +7,8 @@ import type {
   QuestionMetadata,
   QuestionSlug,
 } from '~/components/interviews/questions/common/QuestionsTypes';
-import InterviewsFrameworkAndLanguageSection from '~/components/interviews/questions/listings/practice-questions/InterviewsFrameworkAndLanguageSection';
-import InterviewsQuestionFormatsSection from '~/components/interviews/questions/listings/practice-questions/InterviewsQuestionFormatsSection';
+import InterviewsFrameworkAndLanguageSection from '~/components/interviews/questions/listings/practice/InterviewsFrameworkAndLanguageSection';
+import InterviewsQuestionFormatsSection from '~/components/interviews/questions/listings/practice/InterviewsQuestionFormatsSection';
 import { FormattedMessage } from '~/components/intl';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';

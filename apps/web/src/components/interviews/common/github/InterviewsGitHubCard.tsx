@@ -39,7 +39,7 @@ export default function InterviewsGitHubCard({
       className={clsx(
         'relative rounded-lg p-5',
         'flex flex-col items-start gap-y-4',
-        'h-full',
+        'size-full',
         themeBackgroundCardAltColor,
         themeGlassyBorder,
       )}>

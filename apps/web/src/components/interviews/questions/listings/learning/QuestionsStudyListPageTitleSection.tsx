@@ -75,7 +75,6 @@ export default function QuestionsStudyListPageTitleSection({
           <Text color="subtitle" size="body1" weight="medium">
             {description}
           </Text>
-
           {/* Features */}
           <InterviewsPageFeatures features={features} />
         </div>

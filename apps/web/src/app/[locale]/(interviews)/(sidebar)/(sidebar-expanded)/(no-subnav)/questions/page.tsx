@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 
-import InterviewsAllPracticeQuestionsPage from '~/components/interviews/questions/listings/practice-questions/InterviewsAllPracticeQuestionsPage';
+import InterviewsAllPracticeQuestionsPage from '~/components/interviews/questions/listings/practice/InterviewsAllPracticeQuestionsPage';
 import { QuestionCount } from '~/components/interviews/questions/listings/stats/QuestionCount';
 
 import { fetchInterviewListingBottomContent } from '~/db/contentlayer/InterviewsListingBottomContentReader';

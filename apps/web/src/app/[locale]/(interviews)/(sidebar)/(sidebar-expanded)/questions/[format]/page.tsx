@@ -5,7 +5,7 @@ import type {
   QuestionFormat,
   QuestionMetadata,
 } from '~/components/interviews/questions/common/QuestionsTypes';
-import InterviewsQuestionFormatPage from '~/components/interviews/questions/listings/practice-questions/InterviewsQuestionFormatPage';
+import InterviewsQuestionFormatPage from '~/components/interviews/questions/listings/practice/InterviewsQuestionFormatPage';
 
 import { fetchInterviewListingBottomContent } from '~/db/contentlayer/InterviewsListingBottomContentReader';
 import { readAllFrontEndInterviewGuides } from '~/db/guides/GuidesReader';

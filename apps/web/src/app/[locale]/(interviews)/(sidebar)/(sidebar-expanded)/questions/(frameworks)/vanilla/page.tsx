@@ -1,7 +1,7 @@
 import type { Metadata } from 'next/types';
 
-import QuestionsFrameworkPage from '~/components/interviews/questions/category/QuestionsFrameworkPage';
 import type { QuestionFramework } from '~/components/interviews/questions/common/QuestionsTypes';
+import InterviewsQuestionsFrameworkPage from '~/components/interviews/questions/listings/practice/InterviewsQuestionsFrameworkPage';
 
 import { fetchQuestionCompletionCount } from '~/db/QuestionsCount';
 import { fetchCodingQuestionsForFramework } from '~/db/QuestionsListReader';
@@ -50,7 +50,7 @@ export default async function Page() {
 
   // TODO: i18n
   return (
-    <QuestionsFrameworkPage
+    <InterviewsQuestionsFrameworkPage
       description="Top Vanilla JavaScript UI coding interview questions."
       framework={framework}
       questionCompletionCount={questionCompletionCount}

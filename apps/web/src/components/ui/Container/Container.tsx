@@ -28,7 +28,7 @@ const widthStyles: Record<ContainerWidth, string> = {
   '5xl': 'max-w-5xl',
   '6xl': 'max-w-6xl',
   '7xl': 'max-w-7xl',
-  app: 'lg:max-w-[904px] xl:max-w-[1040px] max-2xl:px-6 2xl:max-w-[1280px]',
+  app: 'min-[1264px]:max-w-[904px] min-[1440px]:max-w-[1040px] min-[1920px]:max-w-[1280px]',
   lg: 'max-w-lg',
   marketing: 'lg:max-w-[928px] xl:max-w-[1104px]',
   md: 'max-w-md',

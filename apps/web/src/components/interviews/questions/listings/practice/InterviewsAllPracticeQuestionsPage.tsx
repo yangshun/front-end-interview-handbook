@@ -16,8 +16,8 @@ import type {
   QuestionLanguage,
   QuestionMetadata,
 } from '~/components/interviews/questions/common/QuestionsTypes';
-import InterviewsFrameworkAndLanguageSection from '~/components/interviews/questions/listings/practice-questions/InterviewsFrameworkAndLanguageSection';
-import InterviewsQuestionFormatsSection from '~/components/interviews/questions/listings/practice-questions/InterviewsQuestionFormatsSection';
+import InterviewsFrameworkAndLanguageSection from '~/components/interviews/questions/listings/practice/InterviewsFrameworkAndLanguageSection';
+import InterviewsQuestionFormatsSection from '~/components/interviews/questions/listings/practice/InterviewsQuestionFormatsSection';
 import { useIntl } from '~/components/intl';
 import MDXContent from '~/components/mdx/MDXContent';
 import Divider from '~/components/ui/Divider';

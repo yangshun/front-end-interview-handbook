@@ -1,8 +1,8 @@
 import type { Metadata } from 'next/types';
 
 import ReactLogo from '~/components/icons/ReactLogo';
-import QuestionsFrameworkPage from '~/components/interviews/questions/category/QuestionsFrameworkPage';
 import type { QuestionFramework } from '~/components/interviews/questions/common/QuestionsTypes';
+import InterviewsQuestionsFrameworkPage from '~/components/interviews/questions/listings/practice/InterviewsQuestionsFrameworkPage';
 
 import { fetchQuestionCompletionCount } from '~/db/QuestionsCount';
 import { fetchCodingQuestionsForFramework } from '~/db/QuestionsListReader';
@@ -50,7 +50,7 @@ export default async function Page({ params }: Props) {
   ]);
 
   return (
-    <QuestionsFrameworkPage
+    <InterviewsQuestionsFrameworkPage
       description={intl.formatMessage({
         defaultMessage:
           'Top React coding interview questions to build the most commonly-asked front end UI components and applications.',

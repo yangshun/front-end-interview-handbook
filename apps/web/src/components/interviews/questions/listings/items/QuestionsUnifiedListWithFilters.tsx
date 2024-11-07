@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 import type { ReactNode } from 'react';
-import { RiArrowDownSLine, RiSearchLine, RiSortDesc } from 'react-icons/ri';
+import { RiSearchLine, RiSortDesc } from 'react-icons/ri';
 
 import { useUserProfile } from '~/components/global/UserProfileProvider';
 import type { GuideCardMetadataWithCompletedStatus } from '~/components/guides/types';
@@ -21,14 +21,9 @@ import {
 } from '~/components/interviews/questions/listings/filters/QuestionsProcessor';
 import QuestionsList from '~/components/interviews/questions/listings/items/QuestionsList';
 import { FormattedMessage, useIntl } from '~/components/intl';
-import CheckboxInput from '~/components/ui/CheckboxInput';
-import Divider from '~/components/ui/Divider';
 import DropdownMenu from '~/components/ui/DropdownMenu';
-import FilterButton from '~/components/ui/FilterButton/FilterButton';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
-import Popover from '~/components/ui/Popover';
-import Text from '~/components/ui/Text';
 import TextInput from '~/components/ui/TextInput';
 import { themeDivideEmphasizeColor } from '~/components/ui/theme';
 
@@ -58,7 +53,6 @@ type Props = Readonly<{
     title: string;
   };
   initialFormat?: QuestionFormat | null;
-  layout?: 'embedded' | 'full';
   listKey?: string;
   listMode?: 'default' | 'learning-list';
   mode?: 'default' | 'framework';
@@ -75,7 +69,6 @@ export default function QuestionsUnifiedListWithFilters({
   checkIfCompletedQuestionBefore,
   initialFormat = null,
   framework,
-  layout = 'full',
   listKey,
   listMode,
   mode = 'default',
@@ -169,7 +162,7 @@ export default function QuestionsUnifiedListWithFilters({
 
   const sortAndFilters = (
     <div className="flex shrink-0 justify-end gap-2 sm:pt-0">
-      <div className={clsx(layout === 'full' && 'lg:hidden')}>
+      <div className={clsx('lg:hidden')}>
         <QuestionsListingFilterSlideOut
           attributesUnion={questionAttributesUnion}
           filterNamespace={filterNamespace}
@@ -294,7 +287,7 @@ export default function QuestionsUnifiedListWithFilters({
     </div>
   );
   const searchFilterRow = (
-    <div className={clsx('flex justify-end gap-2')}>
+    <div className={clsx('flex justify-end gap-4')}>
       <div className="flex-1">
         <TextInput
           autoComplete="off"
@@ -316,149 +309,6 @@ export default function QuestionsUnifiedListWithFilters({
           onChange={(value) => setQuery(value)}
         />
       </div>
-      {layout === 'embedded' && (
-        <div className="hidden lg:inline-flex">
-          <Popover
-            trigger={
-              <FilterButton
-                addonPosition="end"
-                icon={RiArrowDownSLine}
-                label={companyFilterOptions.name}
-                selected={companyFilters.size > 0}
-                size="sm"
-              />
-            }>
-            <div className="grid grid-cols-2 gap-x-4 gap-y-3">
-              {companyFilterOptions.options.map((option) => (
-                <div key={option.value} className="flex items-center">
-                  <CheckboxInput
-                    label={option.label}
-                    size="sm"
-                    value={companyFilters.has(option.value)}
-                    onChange={() => companyFilterOptions.onChange(option.value)}
-                  />
-                </div>
-              ))}
-            </div>
-          </Popover>
-        </div>
-      )}
-      {layout === 'embedded' && (
-        <div className="hidden lg:inline-flex">
-          <Popover
-            trigger={
-              <FilterButton
-                addonPosition="end"
-                icon={RiArrowDownSLine}
-                label={difficultyFilterOptions.name}
-                selected={difficultyFilters.size > 0}
-                size="sm"
-              />
-            }
-            width="sm">
-            <div className="flex flex-wrap gap-x-6 gap-y-3">
-              {difficultyFilterOptions.options.map((option) => (
-                <div key={option.value} className="flex items-center">
-                  <CheckboxInput
-                    label={option.label}
-                    size="sm"
-                    value={difficultyFilters.has(option.value)}
-                    onChange={() =>
-                      difficultyFilterOptions.onChange(option.value)
-                    }
-                  />
-                </div>
-              ))}
-            </div>
-          </Popover>
-        </div>
-      )}
-      {layout === 'embedded' && (
-        <div className="hidden lg:inline-flex">
-          <Popover
-            trigger={
-              <FilterButton
-                addonPosition="end"
-                icon={RiArrowDownSLine}
-                label={frameworkFilterOptions.name}
-                selected={frameworkFilters.size > 0}
-                size="sm"
-              />
-            }>
-            <div className={clsx('flex flex-col')}>
-              <div className="flex flex-col gap-2">
-                <Text className="block" size="body3" weight="medium">
-                  {frameworkFilterOptions.name}
-                </Text>
-                <div className="flex flex-wrap gap-x-6 gap-y-3">
-                  {frameworkFilterOptions.options.map((option) => (
-                    <div key={option.value} className="flex items-center">
-                      <CheckboxInput
-                        label={option.label}
-                        size="sm"
-                        value={frameworkFilters.has(option.value)}
-                        onChange={() =>
-                          frameworkFilterOptions.onChange(option.value)
-                        }
-                      />
-                    </div>
-                  ))}
-                </div>
-              </div>
-              <Divider className="my-4" />
-              <div className="flex flex-col gap-2">
-                <Text className="block" size="body3" weight="medium">
-                  {languageFilterOptions.name}
-                </Text>
-                <div className="flex flex-wrap gap-x-6 gap-y-3">
-                  {languageFilterOptions.options.map((option) => (
-                    <div key={option.value} className="flex items-center">
-                      <CheckboxInput
-                        label={option.label}
-                        size="sm"
-                        value={languageFilters.has(option.value)}
-                        onChange={() =>
-                          languageFilterOptions.onChange(option.value)
-                        }
-                      />
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </Popover>
-        </div>
-      )}
-      {layout === 'embedded' && (
-        <div className="hidden lg:inline-flex">
-          <Popover
-            trigger={
-              <FilterButton
-                addonPosition="end"
-                icon={RiArrowDownSLine}
-                label={completionStatusFilterOptions.name}
-                selected={completionStatusFilters.size > 0}
-                size="sm"
-              />
-            }
-            width="sm">
-            <div className="flex flex-wrap gap-x-6 gap-y-3">
-              {completionStatusFilterOptions.options.map((option) => (
-                <div key={option.value} className="flex items-center">
-                  <CheckboxInput
-                    label={option.label}
-                    size="sm"
-                    value={completionStatusFilters.has(option.value)}
-                    onChange={() =>
-                      completionStatusFilterOptions.onChange(option.value)
-                    }
-                  />
-                </div>
-              ))}
-            </div>
-          </Popover>
-        </div>
-      )}
       {sortAndFilters}
     </div>
   );
@@ -472,12 +322,9 @@ export default function QuestionsUnifiedListWithFilters({
   );
 
   return (
-    <div
-      className={clsx(
-        layout === 'full' && 'lg:grid lg:grid-cols-12 lg:gap-x-6',
-      )}>
+    <div className={clsx('lg:grid lg:grid-cols-3 lg:gap-x-6')}>
       {/* Left Column */}
-      <section className="flex flex-col gap-8 lg:col-span-9">
+      <section className="flex flex-col gap-8 lg:col-span-2">
         <div className="flex flex-col gap-4">{searchFilterRow}</div>
         <div className="flex flex-col gap-4">
           {listMetadata}
@@ -546,55 +393,54 @@ export default function QuestionsUnifiedListWithFilters({
         </div>
       </section>
       {/* Right Column */}
-      {layout === 'full' && (
-        <aside
+      <aside
+        className={clsx(
+          'hidden h-full flex-col gap-y-10 lg:col-span-1 lg:flex',
+          'px-5',
+          ['divide-y', themeDivideEmphasizeColor],
+        )}>
+        {showSummarySection && (
+          <QuestionListingSummarySection
+            free={premiumCount.free}
+            premium={premiumCount.premium}
+          />
+        )}
+        <section
           className={clsx(
-            'hidden h-full flex-col gap-y-10 lg:col-span-3 lg:flex',
-            ['divide-y', themeDivideEmphasizeColor],
+            'overflow-y-auto',
+            'sticky top-[var(--global-sticky-height)] h-[calc(100vh_-_var(--global-sticky-height))]',
           )}>
-          {showSummarySection && (
-            <QuestionListingSummarySection
-              free={premiumCount.free}
-              premium={premiumCount.premium}
+          <Heading className="sr-only" level="custom">
+            <FormattedMessage
+              defaultMessage="Filters"
+              description="Screenreader text indicating the filters component on question list pages"
+              id="GyDKzV"
             />
-          )}
-          <section
-            className={clsx(
-              'overflow-y-auto',
-              'sticky top-[var(--global-sticky-height)] h-[calc(100vh_-_var(--global-sticky-height))]',
-            )}>
-            <Heading className="sr-only" level="custom">
-              <FormattedMessage
-                defaultMessage="Filters"
-                description="Screenreader text indicating the filters component on question list pages"
-                id="GyDKzV"
-              />
-            </Heading>
-            <Section>
-              <QuestionListingUnifiedFilters
-                attributesUnion={questionAttributesUnion}
-                companyFilterOptions={companyFilterOptions}
-                companyFilters={companyFilters}
-                completionStatusFilterOptions={completionStatusFilterOptions}
-                completionStatusFilters={completionStatusFilters}
-                difficultyFilterOptions={difficultyFilterOptions}
-                difficultyFilters={difficultyFilters}
-                formatFilterOptions={formatFilterOptions}
-                formatFilters={formatFilters}
-                frameworkFilterOptions={frameworkFilterOptions}
-                frameworkFilters={frameworkFilters}
-                importanceFilterOptions={importanceFilterOptions}
-                importanceFilters={importanceFilters}
-                languageFilterOptions={languageFilterOptions}
-                languageFilters={languageFilters}
-                mode={mode}
-                topicFilterOptions={topicFilterOptions}
-                topicFilters={topicFilters}
-              />
-            </Section>
-          </section>
-        </aside>
-      )}
+          </Heading>
+          <Section>
+            <QuestionListingUnifiedFilters
+              attributesUnion={questionAttributesUnion}
+              companyFilterOptions={companyFilterOptions}
+              companyFilters={companyFilters}
+              completionStatusFilterOptions={completionStatusFilterOptions}
+              completionStatusFilters={completionStatusFilters}
+              difficultyFilterOptions={difficultyFilterOptions}
+              difficultyFilters={difficultyFilters}
+              formatFilterOptions={formatFilterOptions}
+              formatFilters={formatFilters}
+              frameworkFilterOptions={frameworkFilterOptions}
+              frameworkFilters={frameworkFilters}
+              importanceFilterOptions={importanceFilterOptions}
+              importanceFilters={importanceFilters}
+              languageFilterOptions={languageFilterOptions}
+              languageFilters={languageFilters}
+              mode={mode}
+              topicFilterOptions={topicFilterOptions}
+              topicFilters={topicFilters}
+            />
+          </Section>
+        </section>
+      </aside>
     </div>
   );
 }
