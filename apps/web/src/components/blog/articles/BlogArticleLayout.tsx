@@ -1,6 +1,7 @@
 'use client';
 
 import clsx from 'clsx';
+import { useRouter } from 'next/navigation';
 
 import BlogArticle from '~/components/blog/articles/BlogArticle';
 import BlogArticleJsonLd from '~/components/blog/articles/BlogArticleJsonLd';
@@ -9,11 +10,22 @@ import type {
   BlogMetadata,
 } from '~/components/blog/BlogTypes';
 import BlogMainLayout from '~/components/blog/layout/BlogMainLayout';
-import { SidebarLinksList_DEPRECATED } from '~/components/global/sidebar/SidebarLinksList_DEPRECATED';
+import type { BlogSeriesNavigationLink } from '~/components/blog/layout/BlogSidebar';
+import type { SideNavigationItems } from '~/components/common/SideNavigation';
+import SideNavigation from '~/components/common/SideNavigation';
 import Container from '~/components/ui/Container';
+import Text from '~/components/ui/Text';
 
 import { useI18nPathname } from '~/next-i18nostic/src';
 
+function convertToSideNavigationItem(
+  tocItems: ReadonlyArray<BlogSeriesNavigationLink>,
+): SideNavigationItems<string> {
+  return tocItems.map((item) => ({
+    label: item.label,
+    value: item.href,
+  }));
+}
 type Props = Readonly<{
   children?: React.ReactNode;
   metadata: BlogMetadata;
@@ -25,6 +37,7 @@ export default function BlogArticleLayout({
   metadata,
   navigation,
 }: Props) {
+  const router = useRouter();
   const { pathname } = useI18nPathname();
 
   return (
@@ -38,7 +51,7 @@ export default function BlogArticleLayout({
       <BlogMainLayout seriesContents={navigation}>
         <Container
           className={clsx('flex flex-col', 'py-6 lg:py-8')}
-          width="7xl">
+          width="app">
           <div
             className={clsx(
               'flex gap-x-10 gap-y-8 md:gap-y-10 2xl:gap-y-12',
@@ -50,15 +63,29 @@ export default function BlogArticleLayout({
                   'hidden xl:contents',
                   'sticky top-[var(--global-sticky-height)] h-[calc(100vh_-_var(--global-sticky-height))]',
                 )}>
-                <SidebarLinksList_DEPRECATED
-                  navigation={[
-                    {
-                      items: navigation.items,
-                      subtitle: navigation.subseriesTitle,
-                      title: navigation.seriesTitle,
-                    },
-                  ]}
-                />
+                <div key={navigation.seriesTitle || navigation.subseriesTitle}>
+                  {navigation.subseriesTitle && (
+                    <Text
+                      className="text-neutral-700 dark:text-neutral-500"
+                      size="body3"
+                      weight="bold">
+                      {navigation.seriesTitle}
+                    </Text>
+                  )}
+                  <div className="flex flex-col flex-wrap gap-3">
+                    <Text size="body2" weight="bold">
+                      {navigation.subseriesTitle || navigation.seriesTitle}
+                    </Text>
+
+                    <SideNavigation
+                      activeValue={pathname}
+                      items={convertToSideNavigationItem(navigation.items)}
+                      onClick={(value) => {
+                        router.push(value);
+                      }}
+                    />
+                  </div>
+                </div>
               </div>
             )}
             <div className={clsx('w-full max-w-2xl')}>
