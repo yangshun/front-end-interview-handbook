@@ -51,7 +51,11 @@ export default function InterviewsMarketingCompaniesSection({
             id="z9lq1x"
           />
         </Text>
-        <div className={clsx('mt-16', 'flex flex-col items-center gap-8')}>
+        <div
+          className={clsx(
+            'mt-12 lg:mt-16',
+            'flex flex-col items-center gap-8',
+          )}>
           <div
             className={clsx(
               'grid w-full gap-x-5 gap-y-4 md:grid-cols-2 lg:grid-cols-3',

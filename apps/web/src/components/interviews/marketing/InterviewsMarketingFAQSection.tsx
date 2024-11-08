@@ -84,7 +84,7 @@ export default function InterviewsMarketingFAQSection() {
           />
         </Text>
 
-        <div className="mt-16">
+        <div className="mt-12 lg:mt-16">
           <MarketingFAQSection
             accordionTriggerClassName="py-8 text-lg"
             faqs={generalFaqs}

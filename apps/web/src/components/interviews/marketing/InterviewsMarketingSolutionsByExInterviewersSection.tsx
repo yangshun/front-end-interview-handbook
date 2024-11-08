@@ -319,7 +319,11 @@ export default function InterviewsMarketingSolutionsByExInterviewersSection() {
         />
       </Heading>
       <Section>
-        <div className="mt-16 flex grid-cols-12 flex-col gap-6 lg:grid">
+        <div
+          className={clsx(
+            'flex grid-cols-12 flex-col gap-6 lg:grid',
+            'mt-12 lg:mt-16',
+          )}>
           <div className={clsx('flex flex-col gap-10', 'col-span-5')}>
             <Text
               className={clsx(

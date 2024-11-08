@@ -61,7 +61,11 @@ export default function InterviewsMarketingPlansSection() {
             id="k9LkIB"
           />
         </Text>
-        <div className="mt-16 flex items-center justify-center">
+        <div
+          className={clsx(
+            'mt-12 lg:mt-16',
+            'flex items-center justify-center',
+          )}>
           <NodesNetwork />
         </div>
       </Section>

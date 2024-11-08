@@ -26,9 +26,7 @@ import logEvent from '~/logging/logEvent';
 export default function MarketingCommunitySection() {
   return (
     <Container
-      className={clsx(
-        'flex flex-col items-center justify-center gap-[64px] self-stretch py-20 md:items-start',
-      )}
+      className={clsx('flex flex-col gap-12 lg:gap-16', 'py-20')}
       width="marketing">
       <div>
         <Heading

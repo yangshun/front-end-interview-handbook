@@ -72,25 +72,26 @@ function InterviewsQuestionFormatCard({
   return (
     <div
       className={clsx(
-        'group relative flex flex-1 items-center gap-x-8 md:gap-x-6 ',
-        'rounded-lg px-6 py-5',
+        'group relative flex flex-1 items-center gap-4',
+        'md:flex-row md:items-center',
+        'rounded-lg px-6 py-4',
         'transition',
         themeBackgroundCardWhiteOnLightColor,
         ['border', themeBorderElementColor],
         'isolate',
       )}>
-      <div className="flex flex-grow flex-col gap-6 md:flex-row md:items-center">
-        <div
-          className={clsx(
-            'flex items-center justify-center',
-            'rounded-md',
-            'size-12 shrink-0',
-            themeBackgroundLayerEmphasized,
-            themeGlassyBorder,
-          )}>
-          <Icon className={clsx('size-6', themeTextSubtitleColor)} />
-        </div>
-        <div className="flex flex-1 flex-col gap-5">
+      <div
+        className={clsx(
+          'flex items-center justify-center',
+          'rounded-md',
+          'size-12 shrink-0',
+          themeBackgroundLayerEmphasized,
+          themeGlassyBorder,
+        )}>
+        <Icon className={clsx('size-6', themeTextSubtitleColor)} />
+      </div>
+      <div className="flex flex-grow items-center gap-4">
+        <div className="flex flex-1 flex-col gap-4">
           <div className="flex flex-1 flex-col gap-1">
             <Text size="body1" weight="medium">
               {title}
@@ -150,14 +151,14 @@ function InterviewsQuestionFormatCard({
             )}
           </div>
         </div>
+        <RiArrowRightLine
+          className={clsx(
+            'size-6 shrink-0 transition-colors',
+            themeTextSubtleColor,
+            themeTextBrandColor_GroupHover,
+          )}
+        />
       </div>
-      <RiArrowRightLine
-        className={clsx(
-          'size-6 shrink-0 transition-colors',
-          themeTextSubtleColor,
-          themeTextBrandColor_GroupHover,
-        )}
-      />
       <Anchor aria-label={title} className="absolute inset-0" href={href} />
     </div>
   );

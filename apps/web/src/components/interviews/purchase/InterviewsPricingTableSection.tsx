@@ -648,7 +648,11 @@ export default function InterviewsPricingTableSection({
     MAX_PPP_ELIGIBLE_FOR_FAANG_TECH_LEADS_PROMO;
 
   return (
-    <div className={clsx('flex flex-col', titleEl ? 'gap-y-16' : 'gap-y-8')}>
+    <div
+      className={clsx(
+        'flex flex-col',
+        titleEl ? 'gap-y-12 lg:gap-y-16' : 'gap-y-8',
+      )}>
       <div className="flex flex-col gap-y-8">
         {/* Banners */}
         <div className="flex flex-col gap-y-5">

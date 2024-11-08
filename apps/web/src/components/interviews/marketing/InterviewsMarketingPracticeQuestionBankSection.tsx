@@ -285,7 +285,7 @@ export default function InterviewsMarketingPracticeQuestionBankSection({
             id="2vJhW9"
           />
         </Text>
-        <div className={clsx('mt-16', 'flex flex-col gap-8')}>
+        <div className={clsx('mt-12 lg:mt-16', 'flex flex-col gap-8')}>
           <div className="xl:grid xl:grid-cols-12">
             <div
               className={clsx(

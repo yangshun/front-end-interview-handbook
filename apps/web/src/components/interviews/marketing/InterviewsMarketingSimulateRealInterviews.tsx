@@ -52,7 +52,7 @@ export default function InterviewsMarketingSimulateRealInterviews() {
 
   return (
     <Container
-      className={clsx('flex flex-col gap-12', 'py-20')}
+      className={clsx('flex flex-col gap-12 lg:gap-16', 'py-20')}
       width="marketing">
       <div className={clsx('lg:max-w-[634px]')}>
         <Heading

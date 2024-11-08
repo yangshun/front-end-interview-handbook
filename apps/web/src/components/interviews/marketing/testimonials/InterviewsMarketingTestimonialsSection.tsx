@@ -31,7 +31,7 @@ export default function InterviewsMarketingTestimonialsSection({
 
   return (
     <Container
-      className={clsx('flex flex-col gap-16', 'py-20', 'isolate')}
+      className={clsx('flex flex-col gap-12 lg:gap-16', 'py-20', 'isolate')}
       width={width}>
       <div className="max-w-xl">
         <Heading

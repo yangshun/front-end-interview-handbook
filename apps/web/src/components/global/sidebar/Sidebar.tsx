@@ -59,7 +59,7 @@ export function SidebarCollapsed({
         'py-4',
       )}>
       <div className="pb-8">
-        <NavProductDropdownMenu product={product} variant="compact" />
+        <NavProductDropdownMenu product={product} variant="minimal" />
       </div>
       {topAddonElements}
       <ul className="flex grow flex-col gap-1">
@@ -181,7 +181,7 @@ export function SidebarExpanded({
     <nav className={clsx('flex flex-col', 'relative h-full')}>
       <div className="flex grow flex-col justify-between p-4">
         <div className="flex justify-center pb-7">
-          <NavProductDropdownMenu product={product} variant="full" />
+          <NavProductDropdownMenu product={product} variant="compact" />
         </div>
         <div className="flex grow flex-col justify-between gap-4">
           <div className="h-0 grow overflow-auto">

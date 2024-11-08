@@ -52,43 +52,43 @@ export default function InterviewsStudyListCard({
       className={clsx(
         'group',
         'relative isolate',
-        'flex flex-grow items-center gap-2 md:gap-6',
+        'flex flex-grow',
+        alignVerticalOnMobile
+          ? 'flex-col md:flex-row md:items-center'
+          : 'flex-row items-center',
+        showDescription ? 'gap-4' : 'gap-6',
         'rounded-lg',
         'px-6 py-4',
         backgroundClass,
         ['border', themeBorderElementColor],
       )}>
+      {(logoUrl || Icon) && (
+        <div
+          className={clsx(
+            'flex shrink-0 items-center justify-center',
+            'size-10 rounded-lg',
+            logoUrl
+              ? ['bg-white', showLogoShadow && 'shadow-md']
+              : [themeBackgroundLayerEmphasized, themeGlassyBorder],
+          )}>
+          {logoUrl ? (
+            <img
+              alt={name}
+              className="size-6"
+              decoding="async"
+              loading="lazy"
+              src={logoUrl}
+            />
+          ) : (
+            Icon && <Icon className={clsx('size-6', themeTextSubtitleColor)} />
+          )}
+        </div>
+      )}
       <div
         className={clsx(
-          'flex flex-1 gap-4',
-          alignVerticalOnMobile
-            ? 'flex-col md:flex-row md:items-center'
-            : 'flex-row items-center',
+          'flex flex-1 items-center',
+          showDescription ? 'gap-4' : 'gap-6',
         )}>
-        {(logoUrl || Icon) && (
-          <div
-            className={clsx(
-              'flex shrink-0 items-center justify-center',
-              'size-10 rounded-lg',
-              logoUrl
-                ? ['bg-white', showLogoShadow && 'shadow-md']
-                : [themeBackgroundLayerEmphasized, themeGlassyBorder],
-            )}>
-            {logoUrl ? (
-              <img
-                alt={name}
-                className="size-6"
-                decoding="async"
-                loading="lazy"
-                src={logoUrl}
-              />
-            ) : (
-              Icon && (
-                <Icon className={clsx('size-6', themeTextSubtitleColor)} />
-              )
-            )}
-          </div>
-        )}
         <div
           className={clsx(
             'flex flex-1 flex-col',
@@ -137,14 +137,14 @@ export default function InterviewsStudyListCard({
             )}
           </div>
         </div>
+        <RiArrowRightLine
+          className={clsx(
+            'size-6 shrink-0 transition-colors',
+            themeTextSubtleColor,
+            themeTextBrandColor_GroupHover,
+          )}
+        />
       </div>
-      <RiArrowRightLine
-        className={clsx(
-          'size-6 shrink-0 transition-colors',
-          themeTextSubtleColor,
-          themeTextBrandColor_GroupHover,
-        )}
-      />
       <Anchor aria-label={name} className="absolute inset-0" href={href} />
     </div>
   );

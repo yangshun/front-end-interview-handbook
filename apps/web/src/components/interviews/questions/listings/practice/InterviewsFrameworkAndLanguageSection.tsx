@@ -56,7 +56,7 @@ function FrameworkCard({
     <div
       className={clsx(
         'group relative flex items-center gap-6',
-        'rounded-lg px-6 py-5',
+        'rounded-lg px-6 py-4',
         themeBackgroundCardWhiteOnLightColor,
         ['border', themeBorderElementColor],
         'isolate',

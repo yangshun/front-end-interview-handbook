@@ -123,7 +123,7 @@ export default function InterviewsMarketingContactSection() {
       <Section>
         <div
           className={clsx(
-            'mt-16',
+            'mt-12 lg:mt-16',
             'grid gap-x-6 gap-y-12 md:gap-x-6 lg:grid-cols-12',
           )}>
           <div className="flex flex-col gap-10 lg:col-span-5">

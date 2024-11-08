@@ -38,7 +38,7 @@ const labels: Record<
 type Props = Readonly<{
   product: ProductValue;
   triggerClassname?: string;
-  variant: 'compact' | 'full';
+  variant: 'compact' | 'full' | 'minimal';
 }>;
 
 export default function NavProductDropdownMenu({
@@ -52,10 +52,11 @@ export default function NavProductDropdownMenu({
   return (
     <DropdownMenuPrimitive.Root>
       <DropdownMenuPrimitive.Trigger asChild={true}>
-        {variant === 'full' ? (
+        {variant === 'full' || variant === 'compact' ? (
           <button
             className={clsx(
-              'flex items-center gap-2.5',
+              'flex items-center',
+              variant === 'full' ? 'gap-2 md:gap-4' : 'gap-2.5',
               'px-2 py-2',
               'rounded',
               'border-transparent',
@@ -69,7 +70,10 @@ export default function NavProductDropdownMenu({
               triggerClassname,
             )}
             type="button">
-            <LogoComboMark className="shrink-0" height={19} />
+            <LogoComboMark
+              className="shrink-0"
+              height={variant === 'full' ? 20 : 19}
+            />
             <Divider
               className="h-3 shrink-0"
               color="emphasized"
