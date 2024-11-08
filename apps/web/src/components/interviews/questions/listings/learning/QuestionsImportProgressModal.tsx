@@ -3,6 +3,7 @@ import { useState } from 'react';
 
 import { trpc } from '~/hooks/trpc';
 
+import { useToast } from '~/components/global/toasts/useToast';
 import type { QuestionMetadata } from '~/components/interviews/questions/common/QuestionsTypes';
 import { FormattedMessage, useIntl } from '~/components/intl';
 import Button from '~/components/ui/Button';
@@ -29,6 +30,7 @@ export default function QuestionsImportProgressModal({
 }: Props) {
   const intl = useIntl();
   const utils = trpc.useUtils();
+  const { showToast } = useToast();
   const importProgressMutation =
     trpc.questionProgress.importProgress.useMutation();
   const [selectedQuestionsSlug, setSelectedQuestionsSlug] = useState<
@@ -69,6 +71,14 @@ export default function QuestionsImportProgressModal({
         onSuccess() {
           utils.questionLists.getActiveSession.invalidate();
           utils.questionLists.getSessionProgress.invalidate();
+          showToast({
+            title: intl.formatMessage({
+              defaultMessage: 'Progress imported successfully',
+              description: 'Success message for import progress',
+              id: 'DXjqwr',
+            }),
+            variant: 'success',
+          });
           onClose();
         },
       },

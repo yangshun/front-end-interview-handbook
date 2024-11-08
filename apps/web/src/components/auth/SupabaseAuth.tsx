@@ -1,4 +1,5 @@
 import clsx from 'clsx';
+import { useSearchParams } from 'next/navigation';
 import React, { useState } from 'react';
 
 import { FormattedMessage } from '~/components/intl';
@@ -48,6 +49,8 @@ export default function SupabaseAuth({
     initialView === 'sign_up' && signedInBefore ? 'sign_in' : initialView,
   );
   const hasThirdPartyProviders = providers != null && providers.length > 0;
+  const searchParams = useSearchParams();
+  const sourceSearchParam = searchParams?.get('source');
 
   function Container({ children }: Readonly<{ children: React.ReactNode }>) {
     return (
@@ -57,11 +60,19 @@ export default function SupabaseAuth({
             <div className="flex flex-col gap-y-2">
               <Heading className="text-center" level="heading5">
                 {authView === 'sign_in' ? (
-                  <FormattedMessage
-                    defaultMessage="Sign in to your account"
-                    description="Subtitle of Sign In page"
-                    id="urvIL3"
-                  />
+                  sourceSearchParam === 'track_progress' ? (
+                    <FormattedMessage
+                      defaultMessage="Sign in to track your progress"
+                      description="Subtitle of Sign In page"
+                      id="ClNAgn"
+                    />
+                  ) : (
+                    <FormattedMessage
+                      defaultMessage="Sign in to your account"
+                      description="Subtitle of Sign In page"
+                      id="urvIL3"
+                    />
+                  )
                 ) : (
                   <FormattedMessage
                     defaultMessage="Create a new account"

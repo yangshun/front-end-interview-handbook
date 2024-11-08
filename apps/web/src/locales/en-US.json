@@ -883,6 +883,10 @@
     "defaultMessage": "A starter guide to preparing for front end interviews",
     "description": "Description for front end interview guide"
   },
+  "4Z+OVm": {
+    "defaultMessage": "Marked \"{articleName}\" as complete!",
+    "description": "Success message shown when an article was marked as complete"
+  },
   "4aoTWp": {
     "defaultMessage": "Complete the tasks",
     "description": "Rewards step label"
@@ -1098,6 +1102,10 @@
   "62/edi": {
     "defaultMessage": "System Design",
     "description": "Tile for system design question type"
+  },
+  "64nz1e": {
+    "defaultMessage": "Switching on focus mode collapses all sidebars to provide a better reading experience.",
+    "description": "Label for turning focus mode on"
   },
   "680b8U": {
     "defaultMessage": "Vanilla JS Questions",
@@ -1659,6 +1667,10 @@
     "defaultMessage": "Buy now",
     "description": "Purchase button label"
   },
+  "9iMDoE": {
+    "defaultMessage": "Marked \"{articleName}\" as incomplete!",
+    "description": "Success message shown when an article was marked as not completed"
+  },
   "9kkbE6": {
     "defaultMessage": "A simple yet comprehensive plan to follow",
     "description": "Title for marketing page study plans section"
@@ -2055,6 +2067,10 @@
     "defaultMessage": "On this page",
     "description": "Title of the table of contents for a guidebook page."
   },
+  "ClNAgn": {
+    "defaultMessage": "Sign in to track your progress",
+    "description": "Subtitle of Sign In page"
+  },
   "CmOrKy": {
     "defaultMessage": "Tips for all questions types",
     "description": "Features for frontend interviews playbook page"
@@ -2182,6 +2198,10 @@
   "DV+l42": {
     "defaultMessage": "Premium question",
     "description": "Paywall title for premium questions feature"
+  },
+  "DXjqwr": {
+    "defaultMessage": "Progress imported successfully",
+    "description": "Success message for import progress"
   },
   "Dc5QrJ": {
     "defaultMessage": "Coding",
@@ -2746,10 +2766,6 @@
   "HJ+bJn": {
     "defaultMessage": "We've started tracking your progress",
     "description": "Success message for starting a study plan"
-  },
-  "HL6v38": {
-    "defaultMessage": "Marked \"{articleName}\" as not completed",
-    "description": "Success message shown when an article was marked as not completed"
   },
   "HP/djb": {
     "defaultMessage": "Experience | Settings",
@@ -3443,10 +3459,6 @@
     "defaultMessage": "Reset password",
     "description": "Title of reset password page"
   },
-  "LTsqRi": {
-    "defaultMessage": "Switching on focus mode collapses all sidebars to provide a better reading experience.\"",
-    "description": "Label for turning focus mode on"
-  },
   "LU7oiZ": {
     "defaultMessage": "Preparation areas",
     "description": "Preparation tabs title"
@@ -3674,6 +3686,10 @@
   "Mx+po8": {
     "defaultMessage": "Explore our starter guides to get a solid grasp of Javascript interview prep before jumping into practice.",
     "description": "Description for guide card"
+  },
+  "MxvduC": {
+    "defaultMessage": "Import the progress of {questionCount} previously completed {questionCount, plural, one {question} other {questions}}",
+    "description": "Tooltip for import button on import progress dialog"
   },
   "N+FW6k": {
     "defaultMessage": "Resize and customize the workspace as you like",
@@ -3934,10 +3950,6 @@
   "OtaEwl": {
     "defaultMessage": "Purchase premium to get access to all 200+ interview questions, official solutions, study plans, and company tags.",
     "description": "Text describing user's subscription plan."
-  },
-  "Ou1LIp": {
-    "defaultMessage": "Marked question as completed",
-    "description": "Success message shown when a question was marked as complete"
   },
   "Ov/A49": {
     "defaultMessage": "If you'd like a reply, please provide your email address.",
@@ -4882,6 +4894,10 @@
   "UX45fV": {
     "defaultMessage": "Homepage",
     "description": "Placeholder for name field of the deployment url"
+  },
+  "UZVSxt": {
+    "defaultMessage": "Marked question as incomplete!",
+    "description": "Success message shown when a question is marked as complete"
   },
   "UbCsf6": {
     "defaultMessage": "Stack",
@@ -6138,10 +6154,6 @@
   "cqEIAI": {
     "defaultMessage": "{questionTitle} | Front End Quiz Interview Questions with Solutions",
     "description": "Title of quiz question page"
-  },
-  "ctK5lb": {
-    "defaultMessage": "Marked \"{articleName}\" as completed",
-    "description": "Success message shown when an article was marked as complete"
   },
   "ctKiBc": {
     "defaultMessage": "User submissions",
@@ -7791,10 +7803,6 @@
     "defaultMessage": "Go to this submission's GitHub repository",
     "description": "Tooltip for view code button"
   },
-  "npXLPp": {
-    "defaultMessage": "Marked question as not completed",
-    "description": "Success message shown when a question is marked as complete"
-  },
   "nqRMgW": {
     "defaultMessage": "The offers don't lie",
     "description": "Title for the offers don't lie section"
@@ -8078,10 +8086,6 @@
   "pgK6Eb": {
     "defaultMessage": "Guidebook",
     "description": "How to prepare for front end system design interviews"
-  },
-  "piDflv": {
-    "defaultMessage": "Marked \"{articleName}\" as complete",
-    "description": "Success message shown when an article was marked as complete"
   },
   "piqimi": {
     "defaultMessage": "OFF",
@@ -9190,6 +9194,10 @@
   "wwf4o6": {
     "defaultMessage": "Dashboard",
     "description": "Title of Projects Dashboard page"
+  },
+  "wxtWHx": {
+    "defaultMessage": "Marked question as complete!",
+    "description": "Success message shown when a question was marked as complete"
   },
   "wzQGxj": {
     "defaultMessage": "Start in minutes",

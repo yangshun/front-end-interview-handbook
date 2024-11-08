@@ -138,10 +138,10 @@ export default function QuestionProgressAction({
               onSuccess: () => {
                 showToast({
                   title: intl.formatMessage({
-                    defaultMessage: 'Marked question as not completed',
+                    defaultMessage: 'Marked question as incomplete!',
                     description:
                       'Success message shown when a question is marked as complete',
-                    id: 'npXLPp',
+                    id: 'UZVSxt',
                   }),
                   variant: 'info',
                 });
@@ -191,10 +191,10 @@ export default function QuestionProgressAction({
             onSuccess: () => {
               showToast({
                 title: intl.formatMessage({
-                  defaultMessage: 'Marked question as completed',
+                  defaultMessage: 'Marked question as complete!',
                   description:
                     'Success message shown when a question was marked as complete',
-                  id: 'Ou1LIp',
+                  id: 'wxtWHx',
                 }),
                 variant: 'success',
               });

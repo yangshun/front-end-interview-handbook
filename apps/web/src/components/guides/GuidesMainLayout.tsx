@@ -4,6 +4,7 @@ import clsx from 'clsx';
 import type { ReactNode } from 'react';
 import { useRef } from 'react';
 
+import { useAuthSignInUp } from '~/hooks/user/useAuthFns';
 import useScrollToTop from '~/hooks/useScrollToTop';
 
 import ArticlePagination from '~/components/common/ArticlePagination';
@@ -65,6 +66,7 @@ export default function GuidesMainLayout({
 }: Props) {
   const intl = useIntl();
   const { pathname } = useI18nPathname();
+  const { navigateToSignInUpPage } = useAuthSignInUp();
   const { collapsedToC, setCollapsedToC } = useGuidesContext();
   const articleContainerRef = useRef<HTMLDivElement>(null);
   const { showToast } = useToast();
@@ -116,23 +118,26 @@ export default function GuidesMainLayout({
               {showMarkAsComplete && metadata && (
                 <>
                   <div
-                    className={clsx(
-                      'flex justify-end',
-                      'transition-colors',
-                      'isGuideProgressLoaded' in props &&
-                        props.isGuideProgressLoaded
-                        ? 'opacity-100'
-                        : 'opacity-0',
-                    )}>
+                    className={clsx('flex justify-end', 'transition-colors')}>
                     <div className="max-w-64 flex flex-col items-end gap-2">
-                      <GuidesProgressAction
-                        guideName={currentItem.label}
-                        guideProgress={
-                          'guideProgress' in props ? props.guideProgress : null
-                        }
-                        listKey={listKey}
-                        metadata={metadata}
-                      />
+                      <div
+                        className={clsx(
+                          'isGuideProgressLoaded' in props &&
+                            props.isGuideProgressLoaded
+                            ? 'opacity-100'
+                            : 'opacity-0',
+                        )}>
+                        <GuidesProgressAction
+                          guideName={currentItem.label}
+                          guideProgress={
+                            'guideProgress' in props
+                              ? props.guideProgress
+                              : null
+                          }
+                          listKey={listKey}
+                          metadata={metadata}
+                        />
+                      </div>
                       <CheckboxInput
                         label={intl.formatMessage({
                           defaultMessage:
@@ -141,8 +146,15 @@ export default function GuidesMainLayout({
                           id: 'tdR9Fm',
                         })}
                         size="sm"
-                        value={autoMarkAsComplete}
+                        value={user == null ? undefined : autoMarkAsComplete}
                         onChange={(value) => {
+                          if (user == null) {
+                            navigateToSignInUpPage({
+                              query: { source: 'track_progress' },
+                            });
+
+                            return;
+                          }
                           setAutoMarkAsComplete(value);
                         }}
                       />
@@ -194,10 +206,10 @@ export default function GuidesMainLayout({
                           title: intl.formatMessage(
                             {
                               defaultMessage:
-                                'Marked "{articleName}" as complete',
+                                'Marked "{articleName}" as complete!',
                               description:
                                 'Success message shown when an article was marked as complete',
-                              id: 'piDflv',
+                              id: '4Z+OVm',
                             },
                             {
                               articleName: currentItem.label,

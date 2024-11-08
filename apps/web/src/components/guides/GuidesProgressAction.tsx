@@ -139,10 +139,10 @@ export default function GuidesProgressAction({
                 showToast({
                   title: intl.formatMessage(
                     {
-                      defaultMessage: 'Marked "{articleName}" as not completed',
+                      defaultMessage: 'Marked "{articleName}" as incomplete!',
                       description:
                         'Success message shown when an article was marked as not completed',
-                      id: 'HL6v38',
+                      id: '9iMDoE',
                     },
                     {
                       articleName: guideName,
@@ -197,10 +197,10 @@ export default function GuidesProgressAction({
               showToast({
                 title: intl.formatMessage(
                   {
-                    defaultMessage: 'Marked "{articleName}" as completed',
+                    defaultMessage: 'Marked "{articleName}" as complete!',
                     description:
                       'Success message shown when an article was marked as complete',
-                    id: 'ctK5lb',
+                    id: '4Z+OVm',
                   },
                   {
                     articleName: guideName,
