@@ -7,7 +7,10 @@ import Container from '~/components/ui/Container';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 import Text from '~/components/ui/Text';
-import { themeGradientHeading } from '~/components/ui/theme';
+import {
+  themeGradientHeading,
+  themeMarketingHeadingSize,
+} from '~/components/ui/theme';
 
 export default function InterviewsMarketingOffersDontLieSection() {
   const testimonials = useInterviewsMarketingSliderTestimonials();
@@ -18,8 +21,8 @@ export default function InterviewsMarketingOffersDontLieSection() {
       width="marketing">
       <div>
         <Heading
-          className={themeGradientHeading}
-          level="heading2"
+          className={clsx(themeMarketingHeadingSize, themeGradientHeading)}
+          level="custom"
           weight="medium">
           <FormattedMessage
             defaultMessage="The offers don't lie"
@@ -32,7 +35,7 @@ export default function InterviewsMarketingOffersDontLieSection() {
             'mt-6 block',
             'text-base lg:text-lg',
             'lg:font-medium',
-            'max-w-md lg:max-w-2xl',
+            'lg:max-w-2xl',
           )}
           color="secondary"
           size="inherit"

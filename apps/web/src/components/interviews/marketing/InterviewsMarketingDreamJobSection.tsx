@@ -6,7 +6,10 @@ import Container from '~/components/ui/Container';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 import Text from '~/components/ui/Text';
-import { themeGradientHeading } from '~/components/ui/theme';
+import {
+  themeGradientHeading,
+  themeMarketingHeadingSize,
+} from '~/components/ui/theme';
 
 import { QuestionCountFree } from '../questions/listings/stats/QuestionCount';
 
@@ -24,11 +27,12 @@ export default function InterviewsMarketingDreamJobSection() {
       width="marketing">
       <Heading
         className={clsx(
+          themeMarketingHeadingSize,
           themeGradientHeading,
           'max-w-lg pb-1 xl:max-w-3xl',
           '!text-balance',
         )}
-        level="heading2"
+        level="custom"
         weight="medium">
         <FormattedMessage
           defaultMessage="Your dream job is absolutely worth it"

@@ -3,7 +3,10 @@ import clsx from 'clsx';
 import { FormattedMessage } from '~/components/intl';
 import Container from '~/components/ui/Container';
 import Heading from '~/components/ui/Heading';
-import { themeGradientHeading } from '~/components/ui/theme';
+import {
+  themeGradientHeading,
+  themeMarketingHeadingSize,
+} from '~/components/ui/theme';
 
 import type { InterviewsPricingPlanPaymentConfigLocalizedRecord } from './InterviewsPricingPlans';
 import InterviewsPricingTableSection from './InterviewsPricingTableSection';
@@ -29,8 +32,12 @@ export default function InterviewsPricingSection({
         plans={plans}
         titleEl={
           <Heading
-            className={clsx(themeGradientHeading, 'max-w-2xl pb-1')}
-            level="heading2"
+            className={clsx(
+              themeMarketingHeadingSize,
+              themeGradientHeading,
+              'max-w-2xl pb-1',
+            )}
+            level="custom"
             weight="medium">
             <FormattedMessage
               defaultMessage="Save time, ace interviews, and secure high-paying roles"

@@ -142,10 +142,11 @@ export default function InterviewsMarketingForeword() {
       width="marketing">
       <Heading
         className={clsx(
-          'max-w-xs text-center sm:max-w-sm md:max-w-2xl',
+          'max-w-xs text-center sm:max-w-2xl',
+          '-tracking-1 text-3xl',
           themeGradientHeading,
         )}
-        level="heading4"
+        level="custom"
         weight="medium">
         <FormattedMessage
           defaultMessage="We're crafting GreatFrontEnd with passion, precision and quality."

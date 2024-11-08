@@ -19,6 +19,7 @@ import {
   themeDivideColor,
   themeGlassyBorder,
   themeGradientHeading,
+  themeMarketingHeadingSize,
   themeTextColor,
   themeTextSubtitleColor,
   themeWhiteGlowCardBackground,
@@ -267,8 +268,12 @@ export default function InterviewsMarketingTestCodeSection() {
   return (
     <Container className={clsx('py-20')} width="marketing">
       <Heading
-        className={clsx(themeGradientHeading, 'max-w-2xl pb-1')}
-        level="heading2"
+        className={clsx(
+          themeMarketingHeadingSize,
+          themeGradientHeading,
+          'max-w-2xl pb-1',
+        )}
+        level="custom"
         weight="medium">
         <FormattedMessage
           defaultMessage="Test your code automatically with a single click"
@@ -288,7 +293,6 @@ export default function InterviewsMarketingTestCodeSection() {
                 'block',
                 'text-base lg:text-lg',
                 'lg:font-medium',
-                'max-w-md lg:max-w-2xl',
               )}
               color="secondary"
               size="inherit"
@@ -316,7 +320,7 @@ export default function InterviewsMarketingTestCodeSection() {
           <div
             ref={codeBlockRef}
             className={clsx(
-              'prose relative col-span-7 min-h-[463px] overflow-hidden text-sm',
+              'prose relative col-span-7 min-h-[469px] overflow-hidden text-sm',
             )}>
             <div
               className={clsx(

@@ -20,6 +20,7 @@ import {
   HovercardTrigger,
 } from '~/components/ui/Hovercard/Hovercard';
 import Text from '~/components/ui/Text';
+import { themeTextColor } from '~/components/ui/theme';
 import Tooltip from '~/components/ui/Tooltip';
 
 import type { InterviewsMarketingTestimonial } from './testimonials/InterviewsMarketingTestimonialCard';
@@ -52,9 +53,16 @@ export default function InterviewsMarketingHeroNew({ testimonials }: Props) {
       width="marketing">
       <div
         ref={titleRef}
-        className={clsx('flex flex-col gap-8', 'lg:max-w-[634px]')}>
+        className={clsx('flex flex-col gap-8', 'md:max-w-[634px]')}>
         {/* Cannot use gradient for heading because it messes with the entrance transitions */}
-        <Heading level="heading1" weight="medium">
+        <Heading
+          className={clsx(
+            '-tracking-4 text-5xl md:text-6xl md:leading-[4rem]',
+            themeTextColor,
+          )}
+          color="custom"
+          level="custom"
+          weight="medium">
           <FadeInSentence
             isVisible={isTitleVisible}
             sentence={intl.formatMessage({
@@ -66,7 +74,7 @@ export default function InterviewsMarketingHeroNew({ testimonials }: Props) {
         </Heading>
         <Text
           className={clsx(
-            'max-w-[483px] text-base lg:text-xl',
+            'max-w-[634px] text-lg md:text-xl',
             'transition-opacity',
             'duration-1000',
             DELAY_SECOND,

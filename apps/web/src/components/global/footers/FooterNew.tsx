@@ -166,7 +166,7 @@ export default function Footer({ navigation }: Props) {
   return (
     <footer
       aria-labelledby="footer-heading"
-      className={clsx('border-t dark:bg-[#070708]', themeBorderColor)}>
+      className={clsx('border-t', themeBorderColor, themeBackgroundColor)}>
       <Heading className="sr-only" id="footer-heading" level="custom">
         <FormattedMessage
           defaultMessage="Footer"
@@ -323,7 +323,7 @@ export default function Footer({ navigation }: Props) {
             <div
               className={clsx(
                 'col-span-8',
-                'flex flex-wrap items-center gap-8',
+                'flex flex-wrap items-center gap-x-8 gap-y-4',
               )}>
               {copyrightStatement}
               {dividerDot}

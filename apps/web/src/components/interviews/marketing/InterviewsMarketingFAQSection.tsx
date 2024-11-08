@@ -19,7 +19,10 @@ import Container from '~/components/ui/Container';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 import Text from '~/components/ui/Text';
-import { themeGradientHeading } from '~/components/ui/theme';
+import {
+  themeGradientHeading,
+  themeMarketingHeadingSize,
+} from '~/components/ui/theme';
 
 const generalFaqs: FAQItems = [
   generalTarget,
@@ -37,8 +40,12 @@ export default function InterviewsMarketingFAQSection() {
   return (
     <Container className={clsx('py-20')} width="marketing">
       <Heading
-        className={clsx(themeGradientHeading, 'max-w-2xl pb-1')}
-        level="heading2"
+        className={clsx(
+          themeMarketingHeadingSize,
+          themeGradientHeading,
+          'max-w-2xl pb-1',
+        )}
+        level="custom"
         weight="medium">
         <FormattedMessage
           defaultMessage="Your commonly asked questions, answered"

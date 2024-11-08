@@ -10,10 +10,12 @@ import MDXCodeBlock from '~/components/mdx/MDXCodeBlock';
 import Container from '~/components/ui/Container';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
+import TabsUnderline from '~/components/ui/Tabs/TabsUnderline';
 import Text from '~/components/ui/Text';
 import {
   themeGlassyBorder,
   themeGradientHeading,
+  themeMarketingHeadingSize,
   themeWhiteGlowCardBackground,
 } from '~/components/ui/theme';
 
@@ -309,8 +311,12 @@ export default function InterviewsMarketingSolutionsByExInterviewersSection() {
   return (
     <Container className={clsx('py-20')} width="marketing">
       <Heading
-        className={clsx(themeGradientHeading, 'max-w-xl pb-1')}
-        level="heading2"
+        className={clsx(
+          themeMarketingHeadingSize,
+          themeGradientHeading,
+          'max-w-xl pb-1',
+        )}
+        level="custom"
         weight="medium">
         <FormattedMessage
           defaultMessage="Every question answered by ex-interviewers"
@@ -330,7 +336,7 @@ export default function InterviewsMarketingSolutionsByExInterviewersSection() {
                 'block',
                 'text-base lg:text-lg',
                 'lg:font-medium',
-                'max-w-md lg:max-w-2xl',
+                'lg:max-w-2xl',
               )}
               color="secondary"
               size="inherit"
@@ -343,11 +349,7 @@ export default function InterviewsMarketingSolutionsByExInterviewersSection() {
             </Text>
             <div className="flex flex-col gap-6">
               <Text
-                className={clsx(
-                  'block',
-                  'text-base lg:text-lg',
-                  'lg:font-medium',
-                )}
+                className={clsx('block', 'text-base md:text-lg', 'font-medium')}
                 color="subtitle"
                 size="inherit"
                 weight="inherit">
@@ -357,13 +359,25 @@ export default function InterviewsMarketingSolutionsByExInterviewersSection() {
                   id="egSWgk"
                 />
               </Text>
-              <SideNavigation
-                activeValue={selectedQuestion}
-                items={questions}
-                onClick={(value) => {
-                  setSelectedQuestion(value);
-                }}
-              />
+              <div className="block lg:hidden">
+                <TabsUnderline
+                  alignment="stretch"
+                  label="Select navigation item"
+                  size="sm"
+                  tabs={questions}
+                  value={selectedQuestion}
+                  onSelect={setSelectedQuestion}
+                />
+              </div>
+              <div className="hidden lg:block">
+                <SideNavigation
+                  activeValue={selectedQuestion}
+                  items={questions}
+                  onClick={(value) => {
+                    setSelectedQuestion(value);
+                  }}
+                />
+              </div>
             </div>
           </div>
           <div ref={codeBlockRef} className="prose col-span-7 text-sm">

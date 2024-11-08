@@ -15,6 +15,7 @@ import {
   themeBackgroundCardWhiteOnLightColor,
   themeGlassyBorder,
   themeGradientHeading,
+  themeMarketingHeadingSize,
   themeWhiteGlowCardBackground,
 } from '~/components/ui/theme';
 
@@ -116,11 +117,11 @@ export default function InterviewsMarketingPrepResourcesByBigTechEngineers() {
       <div>
         <Heading
           className={clsx(
+            themeMarketingHeadingSize,
             themeGradientHeading,
-            'max-w-xl lg:max-w-3xl',
-            'pb-1',
+            'pb-1 lg:max-w-3xl',
           )}
-          level="heading2"
+          level="custom"
           weight="medium">
           <FormattedMessage
             defaultMessage="Let big tech senior/staff engineers write your prep resources"
@@ -133,7 +134,7 @@ export default function InterviewsMarketingPrepResourcesByBigTechEngineers() {
             'mt-6 block',
             'text-base lg:text-lg',
             'lg:font-medium',
-            'max-w-md lg:max-w-2xl',
+            'lg:max-w-2xl',
           )}
           color="secondary"
           size="inherit"
@@ -202,7 +203,7 @@ export default function InterviewsMarketingPrepResourcesByBigTechEngineers() {
                     'opacity-75',
                     'group-hover:opacity-100',
                   )}
-                  size="body1"
+                  size="body2"
                   weight="medium">
                   {item.label}
                 </Text>

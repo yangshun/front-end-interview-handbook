@@ -9,6 +9,7 @@ import { themeIconColor } from '~/components/ui/theme';
 import Tooltip from '~/components/ui/Tooltip';
 
 type Props = Readonly<{
+  color?: 'default' | 'inherit';
   mins: number;
   showIcon?: boolean;
   size?: TextSize;
@@ -18,6 +19,7 @@ export default function QuestionTotalTimeLabel({
   showIcon = false,
   mins,
   size = 'body3',
+  color = 'default',
 }: Props) {
   const id = useId();
   const intl = useIntl();
@@ -40,7 +42,10 @@ export default function QuestionTotalTimeLabel({
           />
         )}
         <Text
-          className="whitespace-nowrap text-neutral-700 dark:text-neutral-500"
+          className={clsx(
+            'whitespace-nowrap',
+            color === 'default' && 'text-neutral-700 dark:text-neutral-500',
+          )}
           color="inherit"
           size={size}>
           <FormattedMessage

@@ -26,7 +26,11 @@ import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 import TabsUnderline from '~/components/ui/Tabs/TabsUnderline';
 import Text from '~/components/ui/Text';
-import { themeGradientHeading } from '~/components/ui/theme';
+import {
+  themeGradientHeading,
+  themeMarketingHeadingSize,
+  themeTextSecondaryColor,
+} from '~/components/ui/theme';
 
 type FilterType = 'format' | 'framework' | 'topics';
 
@@ -250,17 +254,25 @@ export default function InterviewsMarketingPracticeQuestionBankSection({
   }));
 
   const listMetadata = (
-    <div className="flex gap-x-10">
-      <QuestionCountLabel count={questionsCount} showIcon={true} />
-      <QuestionTotalTimeLabel mins={duration} showIcon={true} />
+    <div className={clsx('flex gap-x-10', themeTextSecondaryColor)}>
+      <QuestionCountLabel
+        color="inherit"
+        count={questionsCount}
+        showIcon={true}
+      />
+      <QuestionTotalTimeLabel color="inherit" mins={duration} showIcon={true} />
     </div>
   );
 
   return (
     <Container className={clsx('py-20')} width="marketing">
       <Heading
-        className={clsx(themeGradientHeading, 'max-w-2xl pb-1')}
-        level="heading2"
+        className={clsx(
+          themeMarketingHeadingSize,
+          themeGradientHeading,
+          'max-w-2xl pb-1',
+        )}
+        level="custom"
         weight="medium">
         <FormattedMessage
           defaultMessage="A practice question bank with everything you'd ever need"
@@ -274,7 +286,7 @@ export default function InterviewsMarketingPracticeQuestionBankSection({
             'mt-6 block',
             'text-base lg:text-lg',
             'lg:font-medium',
-            'max-w-md lg:max-w-2xl',
+            'md:max-w-[634px]',
           )}
           color="secondary"
           size="inherit"
@@ -285,7 +297,7 @@ export default function InterviewsMarketingPracticeQuestionBankSection({
             id="2vJhW9"
           />
         </Text>
-        <div className={clsx('mt-12 lg:mt-16', 'flex flex-col gap-8')}>
+        <div className={clsx('mt-12 lg:mt-16', 'flex flex-col gap-6')}>
           <div className="xl:grid xl:grid-cols-12">
             <div
               className={clsx(

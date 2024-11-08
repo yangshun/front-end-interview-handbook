@@ -9,7 +9,10 @@ import Container from '~/components/ui/Container';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 import Marquee from '~/components/ui/Marquee';
-import { themeGradientHeading } from '~/components/ui/theme';
+import {
+  themeGradientHeading,
+  themeMarketingHeadingSize,
+} from '~/components/ui/theme';
 
 import type { InterviewsMarketingTestimonial } from './InterviewsMarketingTestimonialCard';
 import TestimonialCard from './InterviewsMarketingTestimonialCard';
@@ -35,8 +38,12 @@ export default function InterviewsMarketingTestimonialsSection({
       width={width}>
       <div className="max-w-xl">
         <Heading
-          className={clsx(themeGradientHeading, 'pb-1')}
-          level="heading2"
+          className={clsx(
+            themeMarketingHeadingSize,
+            themeGradientHeading,
+            'pb-1',
+          )}
+          level="custom"
           weight="medium">
           <FormattedMessage
             defaultMessage="{count} engineers trust us with their job interviews"
@@ -52,7 +59,7 @@ export default function InterviewsMarketingTestimonialsSection({
         <div className={clsx('mx-auto md:mx-0', 'hidden sm:flow-root')}>
           <CardContainer
             className={clsx(
-              '-mt-6 sm:-mx-3 sm:text-[0] lg:columns-2',
+              '-mt-6 sm:-mx-3 sm:text-[0] md:columns-2',
               columns === 3 && 'xl:columns-3',
               columns === 4 && 'xl:columns-3 2xl:columns-4',
             )}>

@@ -18,6 +18,7 @@ import {
   themeBorderElementColor,
   themeOutlineElement_FocusVisible,
   themeOutlineElementBrandColor_FocusVisible,
+  themeTextSubtitleColor,
   themeWhiteGlowCardBackground,
 } from '~/components/ui/theme';
 import Tooltip from '~/components/ui/Tooltip';
@@ -58,8 +59,8 @@ function TestimonialCard({
       <blockquote
         className={clsx(
           'relative',
-          'before:absolute before:inset-x-0 before:bottom-0',
-          'before:z-[1] before:h-8',
+          'before:absolute before:inset-x-0 before:-bottom-1',
+          'before:z-[1] before:h-12',
           'before:bg-gradient-to-b before:from-[rgba(0,0,0,0)] before:to-neutral-50 before:dark:to-[#1E1E21]',
         )}>
         <ScrollArea heightClass="h-[160px] md:h-[116px]">
@@ -241,7 +242,12 @@ export default function InterviewsTestimonialsSlider({
                 />
                 <div className="flex flex-col gap-2">
                   <div className="flex items-center gap-3">
-                    <Heading level="heading5">{label}</Heading>
+                    <Heading
+                      className={themeTextSubtitleColor}
+                      color="custom"
+                      level="heading5">
+                      {label}
+                    </Heading>
                     {logos && (
                       <div className="isolate flex">
                         {logos.map((logo, index) => (

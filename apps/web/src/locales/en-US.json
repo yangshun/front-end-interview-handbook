@@ -1463,6 +1463,10 @@
     "defaultMessage": "Try another track",
     "description": "Label for next track on project submission success page"
   },
+  "8Gd7BO": {
+    "defaultMessage": "Purchasing power parity for {countryName} - {discountPercentage}% discount applied!",
+    "description": "Purchasing power parity message"
+  },
   "8JoIUN": {
     "defaultMessage": "Coming soon",
     "description": "Tooltip for Coming Soon questions label"
@@ -1810,10 +1814,6 @@
   "AkAu0m": {
     "defaultMessage": "High",
     "description": "High importance question"
-  },
-  "AkOMbK": {
-    "defaultMessage": "Purchasing power parity for {countryName} – {discountPercentage}% discount automatically applied!",
-    "description": "Purchasing power parity message"
   },
   "Alqb51": {
     "defaultMessage": "Blog Type",
@@ -4898,6 +4898,10 @@
   "UQh7Xv": {
     "defaultMessage": "Filter by log level",
     "description": "Select label to filter console log by level"
+  },
+  "UQxm8e": {
+    "defaultMessage": "Get another {percentOff}% off",
+    "description": "Tooltip for used by engineers"
   },
   "USCbSv": {
     "defaultMessage": "Adjust your filters a bit, and let’s see what we can find!",

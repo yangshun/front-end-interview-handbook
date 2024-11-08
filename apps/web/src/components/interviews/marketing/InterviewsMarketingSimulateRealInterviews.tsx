@@ -10,6 +10,7 @@ import {
   themeFillBrandColor,
   themeGlassyBorder,
   themeGradientHeading,
+  themeMarketingHeadingSize,
   themeWhiteGlowCardBackground,
 } from '~/components/ui/theme';
 
@@ -54,10 +55,10 @@ export default function InterviewsMarketingSimulateRealInterviews() {
     <Container
       className={clsx('flex flex-col gap-12 lg:gap-16', 'py-20')}
       width="marketing">
-      <div className={clsx('lg:max-w-[634px]')}>
+      <div className={clsx('md:max-w-[634px]')}>
         <Heading
-          className={clsx(themeGradientHeading)}
-          level="heading2"
+          className={clsx(themeMarketingHeadingSize, themeGradientHeading)}
+          level="custom"
           weight="medium">
           <FormattedMessage
             defaultMessage="Practice in an environment that simulates real interviews"
@@ -70,7 +71,7 @@ export default function InterviewsMarketingSimulateRealInterviews() {
             'mt-6 block',
             'text-base lg:text-lg',
             'lg:font-medium',
-            'max-w-md lg:max-w-2xl',
+            'md:max-w-xl',
           )}
           color="secondary"
           size="inherit"
@@ -122,7 +123,7 @@ export default function InterviewsMarketingSimulateRealInterviews() {
                   'opacity-75',
                   'group-hover:opacity-100',
                 )}
-                size="body1"
+                size="body2"
                 weight="medium">
                 {label}
               </Text>

@@ -58,6 +58,12 @@ export const themeTextLabelColor = clsx(
   'text-neutral-700 dark:text-neutral-300',
 );
 
+// Font size
+export const themeMarketingHeadingSize = clsx(
+  'md:-tracking-3 md:text-5xl',
+  '-tracking-2 text-4xl',
+);
+
 export const themeIconColor = clsx('text-neutral-400 dark:text-neutral-500');
 
 // Background colors.

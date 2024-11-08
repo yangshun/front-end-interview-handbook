@@ -10,7 +10,10 @@ import Container from '~/components/ui/Container';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 import Text from '~/components/ui/Text';
-import { themeGradientHeading } from '~/components/ui/theme';
+import {
+  themeGradientHeading,
+  themeMarketingHeadingSize,
+} from '~/components/ui/theme';
 
 type Props = Readonly<{
   companyGuides: ReadonlyArray<InterviewsStudyList>;
@@ -25,8 +28,12 @@ export default function InterviewsMarketingCompaniesSection({
   return (
     <Container className={clsx('py-20')} width="marketing">
       <Heading
-        className={clsx(themeGradientHeading, 'max-w-lg pb-1')}
-        level="heading2"
+        className={clsx(
+          themeMarketingHeadingSize,
+          themeGradientHeading,
+          'max-w-lg pb-1',
+        )}
+        level="custom"
         weight="medium">
         <FormattedMessage
           defaultMessage="Leverage insider tips from leading companies"
@@ -40,7 +47,7 @@ export default function InterviewsMarketingCompaniesSection({
             'mt-6 block',
             'text-base lg:text-lg',
             'lg:font-medium',
-            'max-w-md lg:max-w-2xl',
+            'lg:max-w-2xl',
           )}
           color="secondary"
           size="inherit"

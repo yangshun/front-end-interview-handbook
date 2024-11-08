@@ -19,6 +19,7 @@ import {
   themeBorderColor,
   themeGradientHeading,
   themeTextBrandColor_GroupHover,
+  themeTextSubtitleColor,
   themeTextSubtleColor,
 } from '~/components/ui/theme';
 import Tooltip from '~/components/ui/Tooltip';
@@ -172,7 +173,7 @@ export default function InterviewsMarketingContactSection() {
                       aria-hidden={true}
                       className={clsx(
                         'size-5 shrink-0',
-                        themeTextSubtleColor,
+                        themeTextSubtitleColor,
                         themeTextBrandColor_GroupHover,
                         'transition-colors',
                       )}

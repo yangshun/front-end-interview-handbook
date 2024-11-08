@@ -81,9 +81,7 @@ function SocialDiscountAlertImpl() {
 
   return (
     <div className="flex items-center gap-3">
-      <div className="hidden md:contents">
-        <SocialDiscountTicketSmall title={socialDiscountLabels.ticketTitle} />
-      </div>
+      <SocialDiscountTicketSmall title={socialDiscountLabels.ticketTitle} />
       <Tooltip
         label={
           <FormattedMessage
@@ -98,7 +96,14 @@ function SocialDiscountAlertImpl() {
         <div className="grow">
           <Anchor href="/rewards/social" variant="flat">
             <Text className="block" color="subtitle" size="body3">
-              {socialDiscountLabels.subtitle}{' '}
+              <FormattedMessage
+                defaultMessage="Get another {percentOff}% off"
+                description="Tooltip for used by engineers"
+                id="UQxm8e"
+                values={{
+                  percentOff: SOCIAL_DISCOUNT_PERCENTAGE,
+                }}
+              />
               <RiArrowRightLine className="size-4 ml-0.5 inline-flex shrink-0" />
             </Text>
           </Anchor>

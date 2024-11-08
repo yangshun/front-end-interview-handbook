@@ -17,6 +17,7 @@ import {
   themeBorderColor,
   themeBorderEmphasizeColor_Hover,
   themeGradientHeading,
+  themeMarketingHeadingSize,
   themeTextSubtitleColor,
   themeTextSubtleColor,
 } from '~/components/ui/theme';
@@ -25,8 +26,12 @@ export default function InterviewsMarketingPlansSection() {
   return (
     <Container className={clsx('py-20')} width="marketing">
       <Heading
-        className={clsx(themeGradientHeading, 'max-w-2xl pb-1')}
-        level="heading2"
+        className={clsx(
+          themeMarketingHeadingSize,
+          themeGradientHeading,
+          'pb-1 lg:max-w-2xl',
+        )}
+        level="custom"
         weight="medium">
         <FormattedMessage
           defaultMessage="A simple yet comprehensive plan to follow"
@@ -40,7 +45,7 @@ export default function InterviewsMarketingPlansSection() {
             'mt-6 block',
             'text-base lg:text-lg',
             'lg:font-medium',
-            'max-w-md lg:max-w-2xl',
+            'md:max-w-[634px]',
           )}
           color="secondary"
           size="inherit"
@@ -52,7 +57,7 @@ export default function InterviewsMarketingPlansSection() {
           />
         </Text>
         <Text
-          className="mt-10 block max-w-xl text-base lg:text-lg"
+          className={clsx('mt-10 block max-w-xl text-lg', themeGradientHeading)}
           size="inherit"
           weight="medium">
           <FormattedMessage
@@ -85,15 +90,22 @@ function TopicNodeImpl(
     <div
       ref={ref}
       className={clsx(
-        'z-[1]',
+        'relative isolate z-[1]',
         'flex items-center justify-center',
         'p-2 md:px-2.5 md:py-1.5 lg:px-3.5 lg:py-2',
         ['text-xs lg:text-sm', 'font-medium', themeTextSubtitleColor],
-        themeBackgroundCardColor,
+        themeBackgroundColor,
         'transition-colors',
         [themeBorderColor, 'border', themeBorderEmphasizeColor_Hover],
         'rounded-lg',
       )}>
+      {/* To hide the beam running running below */}
+      <div
+        className={clsx(
+          'absolute inset-0 z-[2] rounded-[inherit]',
+          themeBackgroundCardColor,
+        )}
+      />
       {children}
     </div>
   );
@@ -112,7 +124,7 @@ function CenterNode({
     <div
       className={clsx(
         'flex items-center gap-3',
-        'p-3',
+        'px-3 py-2',
         'rounded-lg',
         'transition-colors',
         ['border', themeBorderColor, themeBorderEmphasizeColor_Hover],
@@ -196,7 +208,7 @@ function NodesNetwork() {
             'flex flex-col gap-2',
             'relative z-[1]',
             'rounded-lg',
-            'p-4',
+            'p-3 lg:p-4',
             themeBackgroundColor,
             ['border', themeBorderColor],
           )}>

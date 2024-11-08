@@ -679,7 +679,6 @@ export default function InterviewsPricingTableSection({
                     'flex items-center gap-2',
                     'rounded-full',
                     'px-2 py-[5px]',
-                    'whitespace-nowrap',
                     textVariants({ size: 'body3', weight: 'medium' }),
                     themeGlassyBorder,
                   )}>
@@ -696,9 +695,9 @@ export default function InterviewsPricingTableSection({
                     />
                   </div>
                   <FormattedMessage
-                    defaultMessage="Purchasing power parity for {countryName} – {discountPercentage}% discount automatically applied!"
+                    defaultMessage="Purchasing power parity for {countryName} - {discountPercentage}% discount applied!"
                     description="Purchasing power parity message"
-                    id="AkOMbK"
+                    id="8Gd7BO"
                     values={{
                       countryName,
                       discountPercentage: Math.ceil(
@@ -861,7 +860,7 @@ export default function InterviewsPricingTableSection({
         <Section>
           <div
             className={clsx(
-              'grid grid-cols-1 gap-8',
+              'grid grid-cols-1 gap-8 md:gap-4 lg:gap-8',
               isDialogView ? 'xl:grid-cols-3' : 'md:grid-cols-3',
               !isDialogView && 'mx-auto max-w-lg md:max-w-none',
             )}>

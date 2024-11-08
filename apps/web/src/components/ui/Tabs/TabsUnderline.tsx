@@ -108,7 +108,11 @@ function TabsUnderline<T>(
           const commonProps = {
             children: (
               <Text
-                className={clsx('group flex items-center', tabInternalGapSize)}
+                className={clsx(
+                  'group flex items-center',
+                  alignment === 'stretch' && 'justify-center',
+                  tabInternalGapSize,
+                )}
                 color={isSelected ? 'default' : 'inherit'}
                 size={textSize}
                 weight="medium">
