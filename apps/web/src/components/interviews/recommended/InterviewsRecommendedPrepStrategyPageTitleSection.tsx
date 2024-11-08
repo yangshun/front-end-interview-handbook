@@ -26,7 +26,9 @@ import {
 } from '~/components/ui/theme';
 import Tooltip from '~/components/ui/Tooltip';
 
+import { useGuideCompletionCount } from '~/db/guides/GuidesProgressClient';
 import type { QuestionProgress } from '~/db/QuestionsProgressTypes';
+import { categorizeQuestionsProgress } from '~/db/QuestionsUtils';
 
 import InterviewsPageHeaderActions from '../common/InterviewsPageHeaderActions';
 import type { QuestionMetadata } from '../questions/common/QuestionsTypes';
@@ -36,44 +38,69 @@ import QuestionListingQuestionCount from '../questions/listings/stats/QuestionLi
 import { useUser } from '@supabase/auth-helpers-react';
 
 function RecommendedItemsDropdown({
-  sessions,
-}: {
-  sessions: ReadonlyArray<{
-    _count: {
-      progress: number;
-    };
-    key: string;
+  recommendedPrepData,
+  overallProgress,
+}: Readonly<{
+  overallProgress: ReadonlyArray<QuestionProgress>;
+  recommendedPrepData: Readonly<{
+    blind75: Readonly<{
+      listKey: string;
+      questionCount: number;
+    }>;
+    gfe75: Readonly<{
+      listKey: string;
+      questionCount: number;
+    }>;
+    systemDesignQuestionCount: number;
   }>;
-}) {
+}>) {
+  const user = useUser();
+  const { data: questionListSessions } =
+    trpc.questionLists.getActiveSessions.useQuery(undefined, {
+      enabled: !!user,
+    });
+
+  const sessions = questionListSessions ?? [];
   const gfe75session = sessions.find(
-    (session) => session.key === 'greatfrontend75',
+    (session) => session.key === recommendedPrepData.gfe75.listKey,
   );
-  const blind75session = sessions.find((session) => session.key === 'blind75');
+  const blind75session = sessions.find(
+    (session) => session.key === recommendedPrepData.blind75.listKey,
+  );
+  const { frontendInterviewPlaybook, systemDesignPlaybook } =
+    useGuideCompletionCount();
+  const questionsProgressAll = categorizeQuestionsProgress(overallProgress);
+
   const guidesData = useGuidesData();
 
   const items = [
     {
       href: guidesData['front-end-interview-playbook'].href,
-      // TODO(interviews): remove hardcoding
-      isCompleted: false,
+      isCompleted:
+        frontendInterviewPlaybook.total === frontendInterviewPlaybook.completed,
       label: guidesData['front-end-interview-playbook'].name,
     },
     {
       href: '/interviews/greatfrontend75',
-      // TODO(interviews): better way to count completion.
-      isCompleted: gfe75session?._count.progress === 75,
+      isCompleted:
+        gfe75session?._count.progress ===
+        recommendedPrepData.gfe75.questionCount,
       label: 'GFE 75',
     },
     {
       href: '/interviews/blind75',
-      // TODO(interviews): better way to count completion.
-      isCompleted: blind75session?._count.progress === 75,
+      isCompleted:
+        blind75session?._count.progress ===
+        recommendedPrepData.blind75.questionCount,
       label: 'Blind 75',
     },
     {
       href: guidesData['front-end-system-design-playbook'].href,
-      // TODO(interviews): remove hardcoding
-      isCompleted: false,
+      isCompleted:
+        questionsProgressAll['system-design'].size +
+          systemDesignPlaybook.completed ===
+        systemDesignPlaybook.total +
+          recommendedPrepData.systemDesignQuestionCount,
       label: guidesData['front-end-system-design-playbook'].shortName,
     },
   ];
@@ -208,8 +235,18 @@ type CommonProps = Readonly<{
   overallProgress?: ReadonlyArray<QuestionProgress>;
   questions?: ReadonlyArray<QuestionMetadata>;
   questionsSessionKey?: string;
+  recommendedPrepData?: Readonly<{
+    blind75: Readonly<{
+      listKey: string;
+      questionCount: number;
+    }>;
+    gfe75: Readonly<{
+      listKey: string;
+      questionCount: number;
+    }>;
+    systemDesignQuestionCount: number;
+  }>;
   showQuestionCountCard?: boolean;
-  showRecommendedItemsDropdown?: boolean;
   title: string;
 }>;
 
@@ -234,27 +271,20 @@ export default function InterviewsRecommendedPrepStrategyPageTitleSection({
   questions,
   overallProgress,
   showQuestionCountCard = true,
-  showRecommendedItemsDropdown = true,
+  recommendedPrepData,
   ...props
 }: Props) {
   const intl = useIntl();
-  const user = useUser();
-  const { data: questionListSessions } =
-    trpc.questionLists.getActiveSessions.useQuery(undefined, {
-      enabled: !!user && showRecommendedItemsDropdown,
-    });
-
-  const sessions = questionListSessions ?? [];
 
   return (
     <div className="flex flex-col gap-8">
-      {(showRecommendedItemsDropdown || metadata) && (
+      {(recommendedPrepData || metadata) && (
         <div
           className={clsx(
             'flex flex-wrap items-center justify-between gap-x-2 gap-y-4',
             'h-7', // Add a fixed height so that the page contents don't shift around when navigating between pages that don't have metadata.
           )}>
-          {showRecommendedItemsDropdown && (
+          {recommendedPrepData && (
             <div className="flex items-center gap-3">
               <Tooltip
                 asChild={true}
@@ -275,7 +305,10 @@ export default function InterviewsRecommendedPrepStrategyPageTitleSection({
                   variant="primary"
                 />
               </Tooltip>
-              <RecommendedItemsDropdown sessions={sessions} />
+              <RecommendedItemsDropdown
+                overallProgress={overallProgress ?? []}
+                recommendedPrepData={recommendedPrepData}
+              />
             </div>
           )}
           {metadata && (

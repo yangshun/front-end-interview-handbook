@@ -12,6 +12,7 @@ import GuidesCoverLayout from '~/components/guides/cover/GuidesCoverLayout';
 import GuidesListWithCategory from '~/components/guides/cover/GuidesListWithCategory';
 import type { GuideCardMetadata } from '~/components/guides/types';
 import useGuidesWithCompletionStatus from '~/components/guides/useGuidesWithCompletionStatus';
+import type { QuestionMetadata } from '~/components/interviews/questions/common/QuestionsTypes';
 import QuestionsUnifiedListWithFiltersAndProgress from '~/components/interviews/questions/listings/items/QuestionsUnifiedListWithFiltersAndProgress';
 import { useIntl } from '~/components/intl';
 import Divider from '~/components/ui/Divider';
@@ -22,18 +23,28 @@ import Text from '~/components/ui/Text';
 import type { QuestionCompletionCount } from '~/db/QuestionsCount';
 import { roundQuestionCountToNearestTen } from '~/db/QuestionsUtils';
 
-import type { QuestionMetadata } from '../questions/common/QuestionsTypes';
-
 type Props = Readonly<{
   allGuides: ReadonlyArray<GuideCardMetadata>;
   questionCompletionCount?: QuestionCompletionCount;
   questions: ReadonlyArray<QuestionMetadata>;
+  recommendedPrepData: Readonly<{
+    blind75: Readonly<{
+      listKey: string;
+      questionCount: number;
+    }>;
+    gfe75: Readonly<{
+      listKey: string;
+      questionCount: number;
+    }>;
+    systemDesignQuestionCount: number;
+  }>;
 }>;
 
 export default function FrontEndSystemDesignPlaybookPage({
   allGuides,
   questions,
   questionCompletionCount,
+  recommendedPrepData,
 }: Props) {
   const intl = useIntl();
 
@@ -125,6 +136,7 @@ export default function FrontEndSystemDesignPlaybookPage({
           </Text>
         </div>
       }
+      recommendedPrepData={recommendedPrepData}
       title={intl.formatMessage({
         defaultMessage: 'Front End System Design Playbook',
         description: 'Title of frontend system design playbook page',

@@ -14,6 +14,7 @@ import type {
   QuestionLanguage,
   QuestionMetadata,
 } from '~/components/interviews/questions/common/QuestionsTypes';
+import { mapStudyPlansBySlug } from '~/components/interviews/questions/content/study-list/StudyPlans';
 import { FormattedMessage } from '~/components/intl';
 import MDXContent from '~/components/mdx/MDXContent';
 import Anchor from '~/components/ui/Anchor';
@@ -92,6 +93,8 @@ export default function InterviewsDashboardPage({
   const showContinueLearning =
     questionListSessions != null && questionListSessions.length > 0;
 
+  const mapStudyPlan = mapStudyPlansBySlug(studyPlans);
+
   return (
     <div className={clsx('flex flex-col gap-12')}>
       <InterviewsDashboardPageHeader contributions={contributions} />
@@ -109,7 +112,21 @@ export default function InterviewsDashboardPage({
           studyPlans={studyPlans}
         />
       )}
-      <InterviewsDashboardRecommendedPreparationStrategy />
+      <InterviewsDashboardRecommendedPreparationStrategy
+        questionListSessions={sessions}
+        questionsProgress={questionsProgress ?? []}
+        recommendedPrepData={{
+          blind75: {
+            listKey: mapStudyPlan.blind75.slug,
+            questionCount: mapStudyPlan.blind75?.questionHashes.length,
+          },
+          gfe75: {
+            listKey: mapStudyPlan.greatfrontend75?.slug ?? '',
+            questionCount: mapStudyPlan.greatfrontend75?.questionHashes.length,
+          },
+          systemDesignQuestionCount: questions.systemDesignQuestions.length,
+        }}
+      />
       <InterviewsDashboardMoreLearningSection
         companyGuides={companyGuides}
         focusAreas={focusAreas}

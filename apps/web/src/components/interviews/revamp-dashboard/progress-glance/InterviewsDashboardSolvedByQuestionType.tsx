@@ -64,7 +64,7 @@ export default function InterviewsDashboardSolvedByQuestionType({
       totalQuestions: questions.quizQuestions.length,
     },
     {
-      completedQuestions: questionsProgressAll.quiz.size,
+      completedQuestions: questionsProgressAll['system-design'].size,
       gradient: themeGradientYellowGreen.className,
       title: intl.formatMessage({
         defaultMessage: 'System Design',

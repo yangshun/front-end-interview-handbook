@@ -127,7 +127,6 @@ export default function BehavioralInterviewPlaybookPage({ allGuides }: Props) {
           </Text>
         </div>
       }
-      showRecommendedItemsDropdown={false}
       title={intl.formatMessage({
         defaultMessage: 'Behavioral Interview Playbook',
         description: 'Title of behavioral interview playbook page',

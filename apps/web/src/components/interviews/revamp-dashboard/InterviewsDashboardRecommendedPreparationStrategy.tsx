@@ -5,7 +5,9 @@ import { RiArrowRightLine, RiCheckFill } from 'react-icons/ri';
 import { useGuidesData } from '~/data/Guides';
 
 import InterviewsEntityProgress from '~/components/interviews/common/InterviewsEntityProgress';
+import type { QuestionSlug } from '~/components/interviews/questions/common/QuestionsTypes';
 import PreparationGFE75Logo from '~/components/interviews/questions/content/study-list/logo/PreparationGFE75Logo';
+import { StudyPlanIcons } from '~/components/interviews/questions/content/study-list/StudyPlans';
 import { FormattedMessage, useIntl } from '~/components/intl';
 import Anchor from '~/components/ui/Anchor';
 import Badge from '~/components/ui/Badge';
@@ -25,7 +27,10 @@ import {
 } from '~/components/ui/theme';
 import Tooltip from '~/components/ui/Tooltip';
 
-import { StudyPlanIcons } from '../questions/content/study-list/StudyPlans';
+import { useGuideCompletionCount } from '~/db/guides/GuidesProgressClient';
+import { categorizeQuestionsProgress } from '~/db/QuestionsUtils';
+
+import type { LearningSession } from '@prisma/client';
 
 type PreparationStrategyItem = Readonly<{
   article?: {
@@ -128,16 +133,48 @@ function PreparationStrategyCard({ data }: { data: PreparationStrategyItem }) {
   );
 }
 
-export default function InterviewsDashboardRecommendedPreparationStrategy() {
+type Props = Readonly<{
+  questionListSessions: Array<
+    LearningSession & { _count: { progress: number } }
+  >;
+  questionsProgress: ReadonlyArray<
+    Readonly<{ format: string; id: string; slug: QuestionSlug }>
+  >;
+  recommendedPrepData: Readonly<{
+    blind75: Readonly<{
+      listKey: string;
+      questionCount: number;
+    }>;
+    gfe75: Readonly<{
+      listKey: string;
+      questionCount: number;
+    }>;
+    systemDesignQuestionCount: number;
+  }>;
+}>;
+
+export default function InterviewsDashboardRecommendedPreparationStrategy({
+  recommendedPrepData,
+  questionListSessions,
+  questionsProgress,
+}: Props) {
   const intl = useIntl();
   const guidesData = useGuidesData();
+  const gfe75session = questionListSessions.find(
+    (session) => session.key === recommendedPrepData.gfe75.listKey,
+  );
+  const blind75session = questionListSessions.find(
+    (session) => session.key === recommendedPrepData.blind75.listKey,
+  );
+  const { frontendInterviewPlaybook, systemDesignPlaybook } =
+    useGuideCompletionCount();
+  const questionsProgressAll = categorizeQuestionsProgress(questionsProgress);
 
-  // TODO(interviews): Re-look into these data and values
   const preparationStrategies: Array<PreparationStrategyItem> = [
     {
       article: {
-        completed: 5,
-        total: 10,
+        completed: frontendInterviewPlaybook.completed,
+        total: frontendInterviewPlaybook.total,
       },
       description: intl.formatMessage({
         defaultMessage: 'A starter guide to preparing for front end interviews',
@@ -159,8 +196,8 @@ export default function InterviewsDashboardRecommendedPreparationStrategy() {
       }),
       href: '/interviews/greatfrontend75',
       question: {
-        completed: 2,
-        total: 90,
+        completed: gfe75session?._count.progress ?? 0,
+        total: recommendedPrepData.gfe75.questionCount,
       },
       title: 'GFE 75',
       variant: 'neutral',
@@ -175,8 +212,8 @@ export default function InterviewsDashboardRecommendedPreparationStrategy() {
       href: '/interviews/blind75',
       icon: StudyPlanIcons.blind75,
       question: {
-        completed: 30,
-        total: 90,
+        completed: blind75session?._count.progress ?? 0,
+        total: recommendedPrepData.blind75.questionCount,
       },
       tagLabel: intl.formatMessage({
         defaultMessage: 'If you expect DSA questions',
@@ -194,8 +231,8 @@ export default function InterviewsDashboardRecommendedPreparationStrategy() {
     },
     {
       article: {
-        completed: 10,
-        total: 90,
+        completed: systemDesignPlaybook.completed,
+        total: systemDesignPlaybook.total,
       },
       description: intl.formatMessage({
         defaultMessage:
@@ -206,15 +243,15 @@ export default function InterviewsDashboardRecommendedPreparationStrategy() {
       href: guidesData['front-end-system-design-playbook'].href,
       icon: guidesData['front-end-system-design-playbook'].icon,
       question: {
-        completed: 5,
-        total: 90,
+        completed: questionsProgressAll['system-design'].size,
+        total: recommendedPrepData.systemDesignQuestionCount,
       },
       tagLabel: intl.formatMessage({
         defaultMessage: "If you're a senior engineer",
         description: 'Label for frontend system design tag',
         id: 'jb5IjS',
       }),
-      title: guidesData['front-end-system-design-playbook'].shortName,
+      title: guidesData['front-end-system-design-playbook'].name,
       variant: 'info',
     },
   ];

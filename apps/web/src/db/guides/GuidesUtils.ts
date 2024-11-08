@@ -5,11 +5,18 @@ import type {
   FrontEndInterviewRouteType,
   FrontEndSystemDesignRouteType,
   GuideCardMetadata,
+  GuideCategory,
   GuideMetadata,
 } from '~/components/guides/types';
 
 export function hashGuide(type: string, slug: string) {
   return type + ':' + slug;
+}
+
+export function unhashGuide(key: string): [type: GuideCategory, slug: string] {
+  const parts = key.split(':');
+
+  return [parts[0] as GuideCategory, parts[1]];
 }
 
 export function hasCompletedGuide(

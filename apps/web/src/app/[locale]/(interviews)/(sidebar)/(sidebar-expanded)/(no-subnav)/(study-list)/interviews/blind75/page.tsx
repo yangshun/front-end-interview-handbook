@@ -11,7 +11,10 @@ import InterviewsBlind75Page from '~/components/interviews/questions/listings/le
 
 import { fetchInterviewListingBottomContent } from '~/db/contentlayer/InterviewsListingBottomContentReader';
 import { fetchInterviewsStudyList } from '~/db/contentlayer/InterviewsStudyListReader';
-import { fetchQuestionsByHash } from '~/db/QuestionsListReader';
+import {
+  fetchQuestionsByHash,
+  fetchQuestionsListSystemDesign,
+} from '~/db/QuestionsListReader';
 import { groupQuestionHashesByFormat } from '~/db/QuestionsUtils';
 import defaultMetadata from '~/seo/defaultMetadata';
 import { getSiteOrigin } from '~/seo/siteUrl';
@@ -65,8 +68,15 @@ export default async function Page({ params }: Props) {
 
   const questionsSlugs = groupQuestionHashesByFormat(blind75.questionHashes);
 
-  const [questions, bottomContent] = await Promise.all([
+  const [
+    questions,
+    gfe75StudyList,
+    { questions: systemDesignQuestions },
+    bottomContent,
+  ] = await Promise.all([
     fetchQuestionsByHash(blind75.questionHashes, locale),
+    fetchInterviewsStudyList('greatfrontend75'),
+    fetchQuestionsListSystemDesign(locale),
     fetchInterviewListingBottomContent('blind75'),
   ]);
 
@@ -87,6 +97,17 @@ export default async function Page({ params }: Props) {
         }
         questions={questions}
         questionsSlugs={questionsSlugs}
+        recommendedPrepData={{
+          blind75: {
+            listKey: blind75.slug,
+            questionCount: blind75?.questionHashes.length ?? 0,
+          },
+          gfe75: {
+            listKey: gfe75StudyList?.slug ?? '',
+            questionCount: gfe75StudyList?.questionHashes.length ?? 0,
+          },
+          systemDesignQuestionCount: systemDesignQuestions.length,
+        }}
         studyList={blind75}
       />
     </>

@@ -13,6 +13,7 @@ import type {
 import FrontEndSystemDesignPlaybookPage from '~/components/interviews/guides/FrontEndSystemDesignPlaybookPage';
 import { basePath } from '~/components/interviews/questions/content/system-design/SystemDesignNavigation';
 
+import { fetchInterviewsStudyList } from '~/db/contentlayer/InterviewsStudyListReader';
 import { readGuidesContents } from '~/db/guides/GuidesReader';
 import {
   frontendSystemDesignRouteToFile,
@@ -124,19 +125,31 @@ export default async function Page({ params }: Props) {
 
   const { locale } = params;
 
-  const [allGuides, { questions }, questionCompletionCount] = await Promise.all(
-    [
+  const [allGuides, { questions }, questionCompletionCount, blind75, gfe75] =
+    await Promise.all([
       readAllGuides({ params }),
       fetchQuestionsListSystemDesign(locale),
       fetchQuestionCompletionCount(['system-design']),
-    ],
-  );
+      fetchInterviewsStudyList('blind75'),
+      fetchInterviewsStudyList('greatfrontend75'),
+    ]);
 
   return (
     <FrontEndSystemDesignPlaybookPage
       allGuides={allGuides}
       questionCompletionCount={questionCompletionCount}
       questions={questions}
+      recommendedPrepData={{
+        blind75: {
+          listKey: blind75?.slug ?? '',
+          questionCount: blind75?.questionHashes.length ?? 0,
+        },
+        gfe75: {
+          listKey: gfe75?.slug ?? '',
+          questionCount: gfe75?.questionHashes.length ?? 0,
+        },
+        systemDesignQuestionCount: questions.length,
+      }}
     />
   );
 }

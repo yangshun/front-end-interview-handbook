@@ -38,6 +38,17 @@ type Props = Readonly<{
   bottomContent?: InterviewsListingBottomContent;
   questions: ReadonlyArray<QuestionMetadata>;
   questionsSlugs: Record<QuestionFormat, ReadonlyArray<QuestionSlug>>;
+  recommendedPrepData: Readonly<{
+    blind75: Readonly<{
+      listKey: string;
+      questionCount: number;
+    }>;
+    gfe75: Readonly<{
+      listKey: string;
+      questionCount: number;
+    }>;
+    systemDesignQuestionCount: number;
+  }>;
   studyList: InterviewsStudyList;
 }>;
 
@@ -46,6 +57,7 @@ export default function InterviewsGFE75Page({
   studyList,
   questions,
   questionsSlugs,
+  recommendedPrepData,
 }: Props) {
   const intl = useIntl();
   const user = useUser();
@@ -140,6 +152,7 @@ export default function InterviewsGFE75Page({
           overallProgress={questionProgressParam ?? []}
           questions={questions}
           questionsSessionKey="greatfrontend75"
+          recommendedPrepData={recommendedPrepData}
           title={studyList.name}
         />
       </div>

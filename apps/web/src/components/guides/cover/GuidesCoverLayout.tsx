@@ -12,7 +12,17 @@ type Props = Readonly<{
   }>;
   icon: (props: React.ComponentProps<'svg'>) => JSX.Element;
   longDescription: ReactNode;
-  showRecommendedItemsDropdown?: boolean;
+  recommendedPrepData?: Readonly<{
+    blind75: Readonly<{
+      listKey: string;
+      questionCount: number;
+    }>;
+    gfe75: Readonly<{
+      listKey: string;
+      questionCount: number;
+    }>;
+    systemDesignQuestionCount: number;
+  }>;
   title: string;
 }>;
 
@@ -22,8 +32,8 @@ export default function GuidesCoverLayout({
   features,
   icon,
   longDescription,
+  recommendedPrepData,
   children,
-  showRecommendedItemsDropdown,
 }: Props) {
   return (
     <div className={clsx('flex flex-col gap-y-12', 'relative')}>
@@ -32,8 +42,8 @@ export default function GuidesCoverLayout({
         features={features}
         icon={icon}
         longDescription={longDescription}
+        recommendedPrepData={recommendedPrepData}
         showQuestionCountCard={false}
-        showRecommendedItemsDropdown={showRecommendedItemsDropdown}
         title={title}
       />
       {children}

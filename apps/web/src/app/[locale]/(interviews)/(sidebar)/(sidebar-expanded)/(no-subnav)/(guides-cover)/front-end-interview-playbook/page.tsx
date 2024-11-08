@@ -6,7 +6,9 @@ import { INTERVIEWS_REVAMP_2024 } from '~/data/FeatureFlags';
 import { basePath } from '~/components/guides/useBehavioralInterviewGuidebookNavigation';
 import FrontEndInterviewPlaybookPage from '~/components/interviews/guides/FrontEndInterviewPlaybookPage';
 
+import { fetchInterviewsStudyList } from '~/db/contentlayer/InterviewsStudyListReader';
 import { readAllFrontEndInterviewGuides } from '~/db/guides/GuidesReader';
+import { fetchQuestionsListSystemDesign } from '~/db/QuestionsListReader';
 import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
 
@@ -66,7 +68,28 @@ export default async function Page({ params }: Props) {
     return notFound();
   }
 
-  const allGuides = await readAllFrontEndInterviewGuides(params.locale);
+  const [allGuides, blind75, gfe75, { questions: systemDesignQuestions }] =
+    await Promise.all([
+      readAllFrontEndInterviewGuides(params.locale),
+      fetchInterviewsStudyList('blind75'),
+      fetchInterviewsStudyList('greatfrontend75'),
+      fetchQuestionsListSystemDesign(params.locale),
+    ]);
 
-  return <FrontEndInterviewPlaybookPage allGuides={allGuides} />;
+  return (
+    <FrontEndInterviewPlaybookPage
+      allGuides={allGuides}
+      recommendedPrepData={{
+        blind75: {
+          listKey: blind75?.slug ?? '',
+          questionCount: blind75?.questionHashes.length ?? 0,
+        },
+        gfe75: {
+          listKey: gfe75?.slug ?? '',
+          questionCount: gfe75?.questionHashes.length ?? 0,
+        },
+        systemDesignQuestionCount: systemDesignQuestions.length,
+      }}
+    />
+  );
 }
