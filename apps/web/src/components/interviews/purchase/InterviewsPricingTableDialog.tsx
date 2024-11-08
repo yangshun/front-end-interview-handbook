@@ -66,6 +66,13 @@ export default function InterviewsPricingTableDialog({
         id: 'Ti1Gle',
       }),
     },
+    'focus-areas': {
+      title: intl.formatMessage({
+        defaultMessage: 'Premium is required to access focus-areas',
+        description: 'Title for company guides feature',
+        id: 'FiI9XO',
+      }),
+    },
     'official-solutions': {
       title: intl.formatMessage({
         defaultMessage: 'Premium is required to access official solutions',

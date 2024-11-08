@@ -40,7 +40,6 @@ const progressChipIconSizeClass: Record<ProgressChipSize, string> = {
 function LockedChip({ size = 'md' }: { size?: ProgressChipSize }) {
   const intl = useIntl();
   const progressChipSize = progressChipSizeClass[size];
-  const iconChipSize = progressChipIconSizeClass[size];
 
   return (
     <Tooltip
@@ -53,7 +52,11 @@ function LockedChip({ size = 'md' }: { size?: ProgressChipSize }) {
       <span className={clsx(progressChipClass, progressChipSize)}>
         <RiLockFill
           aria-hidden={true}
-          className={clsx('shrink-0', themeTextColor, iconChipSize)}
+          className={clsx(
+            'shrink-0',
+            themeTextColor,
+            size === 'md' ? 'size-4' : 'size-2.5',
+          )}
         />
       </span>
     </Tooltip>

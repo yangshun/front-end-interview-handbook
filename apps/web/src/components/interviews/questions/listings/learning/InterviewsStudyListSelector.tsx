@@ -145,6 +145,7 @@ function DropdownContent({
       pricingTableFeature: 'study-plans',
     },
     {
+      isPremium: true,
       items: studyLists.focusAreas,
       key: 'focus-area',
       label: intl.formatMessage({
@@ -152,6 +153,7 @@ function DropdownContent({
         description: 'Label for focus areas study list',
         id: 'l714HN',
       }),
+      pricingTableFeature: 'focus-areas',
     },
     {
       isPremium: true,

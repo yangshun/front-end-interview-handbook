@@ -1103,6 +1103,10 @@
     "defaultMessage": "System Design",
     "description": "Tile for system design question type"
   },
+  "62sNHV": {
+    "defaultMessage": "Try changing your search terms or filters",
+    "description": "Subtitle for empty state when no questions are returned from application of filters on quiz questions list"
+  },
   "64nz1e": {
     "defaultMessage": "Switching on focus mode collapses all sidebars to provide a better reading experience.",
     "description": "Label for turning focus mode on"
@@ -1394,10 +1398,6 @@
   "7lppmr": {
     "defaultMessage": "Blog",
     "description": "Link to blog page"
-  },
-  "7npEXn": {
-    "defaultMessage": "Practice by Framework",
-    "description": "Questions list page title"
   },
   "7o0DXO": {
     "defaultMessage": "All our challenges come with at least 1 official solution (coming soon) and step-by-step guide from senior big tech engineers. Learn best practices as early as possible.",
@@ -2511,6 +2511,10 @@
     "defaultMessage": "See all",
     "description": "Link to see all submissions"
   },
+  "FiI9XO": {
+    "defaultMessage": "Premium is required to access focus-areas",
+    "description": "Title for company guides feature"
+  },
   "FixyP6": {
     "defaultMessage": "Tip: Many users have reimbursed GreatFrontEnd Interviews Premium as part of their company's flexible benefits or learning and training budget.",
     "description": "Tip at the bottom of the Pricing section to let users they can reimburse their purchase of GreatFrontEnd with their company's learning budgets"
@@ -3535,10 +3539,6 @@
     "defaultMessage": "Have any doubts or need help? Ask in the community and discuss with others.",
     "description": "Description for \"Ask any questions in community\" item in Expected Support section on Projects project page"
   },
-  "LzKi2d": {
-    "defaultMessage": "{questionCount}+ questions",
-    "description": "Number of questions in the list"
-  },
   "M0TkWc": {
     "defaultMessage": "Reviews meeting eligibility and terms will be rewarded regardless of whether it was positive or negative.",
     "description": "Condition for promotion"
@@ -3610,10 +3610,6 @@
   "MNzCyG": {
     "defaultMessage": "Store your code in a public GitHub repository",
     "description": "Description for GitHub repo step in project submission checklist"
-  },
-  "MOxuKN": {
-    "defaultMessage": "Select question category",
-    "description": "Tab label to select another question category"
   },
   "MU0N83": {
     "defaultMessage": "User Interface Coding",
@@ -4615,6 +4611,10 @@
     "defaultMessage": "Nothing found just yet",
     "description": "Title for empty state when application of filters return no results"
   },
+  "SdwINk": {
+    "defaultMessage": "Mid",
+    "description": "Medium question difficulty"
+  },
   "SgTflO": {
     "defaultMessage": "+{reputation}",
     "description": "Title for level Up"
@@ -5391,6 +5391,10 @@
     "defaultMessage": "Complete your profile",
     "description": "Title for Complete profile card on Projects dashboard page"
   },
+  "XkWy18": {
+    "defaultMessage": "Premium focus area",
+    "description": "Paywall title for focus areas feature"
+  },
   "XliVbn": {
     "defaultMessage": "Everything you need to host and deploy your solution for {challengeName} upon project completion",
     "description": "Description of Projects challenge completion page"
@@ -5802,10 +5806,6 @@
   "all5El": {
     "defaultMessage": "You can download assets after starting the project",
     "description": "Title for project overlay on projects details page"
-  },
-  "am2rVD": {
-    "defaultMessage": "Try changing the filters",
-    "description": "Subtitle for empty state when no questions are returned from application of filters on quiz questions list"
   },
   "amYRnY": {
     "defaultMessage": "To progress in the skill plan, you must add the skill to the <bold>\"Skills used\"</bold> field when completing a challenge.",
@@ -6790,10 +6790,6 @@
   "grLe+N": {
     "defaultMessage": "Number of series",
     "description": "Total number of series in a list"
-  },
-  "gtouN7": {
-    "defaultMessage": "Medium",
-    "description": "Medium question difficulty"
   },
   "gvLQbK": {
     "defaultMessage": "Premium Discord",
@@ -7870,6 +7866,10 @@
   "oIktGl": {
     "defaultMessage": "One-time use; can only be completed once.",
     "description": "Condition for promotion"
+  },
+  "oMYV+Y": {
+    "defaultMessage": "Purchase premium to unlock focus aras and all the best materials we have to offer.",
+    "description": "Paywall subtitle for focus areas feature"
   },
   "oNMAi3": {
     "defaultMessage": "Difficulty: Easy to Hard",

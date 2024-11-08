@@ -82,6 +82,19 @@ export default function QuestionPaywall({
         id: 'oyk4XO',
       }),
     },
+    'focus-areas': {
+      subtitle: intl.formatMessage({
+        defaultMessage:
+          'Purchase premium to unlock focus aras and all the best materials we have to offer.',
+        description: 'Paywall subtitle for focus areas feature',
+        id: 'oMYV+Y',
+      }),
+      title: intl.formatMessage({
+        defaultMessage: 'Premium focus area',
+        description: 'Paywall title for focus areas feature',
+        id: 'XkWy18',
+      }),
+    },
     'official-solutions': {
       subtitle: intl.formatMessage({
         defaultMessage:
@@ -174,7 +187,6 @@ export default function QuestionPaywall({
         <div>
           <Heading
             className={textVariants({
-              className: 'mt-4 block',
               size: 'body1',
               weight: 'bold',
             })}

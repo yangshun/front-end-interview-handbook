@@ -40,9 +40,9 @@ export default function QuestionDifficultyLabel({
       id: 'zw0Ov8',
     }),
     medium: intl.formatMessage({
-      defaultMessage: 'Medium',
+      defaultMessage: 'Mid',
       description: 'Medium question difficulty',
-      id: 'gtouN7',
+      id: 'SdwINk',
     }),
   };
   const label = intl.formatMessage({

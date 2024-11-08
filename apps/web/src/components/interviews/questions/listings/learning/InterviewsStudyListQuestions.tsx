@@ -56,10 +56,10 @@ export default function InterviewsStudyListQuestions<
       <div className={clsx('p-10')}>
         <EmptyState
           subtitle={intl.formatMessage({
-            defaultMessage: 'Try changing the filters',
+            defaultMessage: 'Try changing your search terms or filters',
             description:
               'Subtitle for empty state when no questions are returned from application of filters on quiz questions list',
-            id: 'am2rVD',
+            id: '62sNHV',
           })}
           title={intl.formatMessage({
             defaultMessage: 'No questions',

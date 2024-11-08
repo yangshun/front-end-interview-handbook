@@ -14,12 +14,15 @@ import {
 
 import { trpc } from '~/hooks/trpc';
 
+import { useUserProfile } from '~/components/global/UserProfileProvider';
+import QuestionPaywall from '~/components/interviews/questions/common/QuestionPaywall';
 import type {
   QuestionFormat,
   QuestionMetadata,
   QuestionSlug,
 } from '~/components/interviews/questions/common/QuestionsTypes';
 import { FocusAreaIcons } from '~/components/interviews/questions/content/study-list/FocusAreas';
+import QuestionsList from '~/components/interviews/questions/listings/items/QuestionsList';
 import QuestionsStudyList from '~/components/interviews/questions/listings/learning/QuestionsStudyList';
 import QuestionsStudyListPageTitleSection from '~/components/interviews/questions/listings/learning/QuestionsStudyListPageTitleSection';
 import { useIntl } from '~/components/intl';
@@ -50,6 +53,8 @@ export default function InterviewsFocusAreaPage({
 }: Props) {
   const intl = useIntl();
   const user = useUser();
+  const { userProfile } = useUserProfile();
+  const canViewFocusAreas = userProfile?.isInterviewsPremium;
   const { data: questionProgressParam } = trpc.questionProgress.getAll.useQuery(
     undefined,
     {
@@ -125,11 +130,36 @@ export default function InterviewsFocusAreaPage({
         <Divider />
       </div>
       <Section>
-        <QuestionsStudyList
-          listKey={studyList.slug}
-          overallProgress={questionsOverallProgress}
-          questions={questions}
-        />
+        {canViewFocusAreas ? (
+          <QuestionsStudyList
+            listKey={studyList.slug}
+            overallProgress={questionsOverallProgress}
+            questions={questions}
+          />
+        ) : (
+          <div className="relative">
+            <div
+              className="border-lg pointer-events-none touch-none select-none"
+              // So that focus cannot go into the card, which is not meant to be used.
+              inert="">
+              <QuestionsList
+                checkIfCompletedQuestion={() => false}
+                questions={questions.slice(0, 5)}
+              />
+            </div>
+            <div className={clsx('absolute bottom-0 top-0 w-full')}>
+              <div
+                className={clsx(
+                  'absolute bottom-0 top-0 w-full',
+                  'bg-gradient-to-t from-white via-white dark:from-neutral-950 dark:via-neutral-950',
+                )}
+              />
+              <div className={clsx('absolute bottom-0 w-full px-8')}>
+                <QuestionPaywall background={false} feature="focus-areas" />
+              </div>
+            </div>
+          </div>
+        )}
       </Section>
       {bottomContent && (
         <>
