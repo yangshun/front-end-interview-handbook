@@ -1,7 +1,6 @@
 import type { Metadata } from 'next/types';
 
-import SvelteLogo from '~/components/icons/SvelteLogo';
-import InterviewsQuestionsFrameworkPage from '~/components/interviews/questions/listings/practice/InterviewsQuestionsFrameworkPage';
+import InterviewsQuestionsFrameworkDefaultPage from '~/components/interviews/questions/listings/frameworks/InterviewsQuestionsFrameworkDefaultPage';
 
 import { fetchQuestionCompletionCount } from '~/db/QuestionsCount';
 import { fetchCodingQuestionsForFramework } from '~/db/QuestionsListReader';
@@ -40,31 +39,23 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   });
 }
 
-export default async function Page({ params }: Props) {
-  const { locale } = params;
-  const [questionList, intl, questionCompletionCount] = await Promise.all([
+export default async function Page() {
+  const [questionList, questionCompletionCount] = await Promise.all([
     fetchCodingQuestionsForFramework(framework),
-    getIntlServerOnly(locale),
     fetchQuestionCompletionCount(['user-interface']),
   ]);
 
+  const questionListForFramework = questionList.filter((metadata) =>
+    metadata.frameworks.some(
+      ({ framework: frameworkValue }) => frameworkValue === framework,
+    ),
+  );
+
   return (
-    <InterviewsQuestionsFrameworkPage
-      description={intl.formatMessage({
-        defaultMessage:
-          'Top Svelte coding interview questions to build the most commonly-asked front end UI components and applications.',
-        description: 'Description for Svelte questions page',
-        id: 'puirr6',
-      })}
+    <InterviewsQuestionsFrameworkDefaultPage
       framework={framework}
-      logo={<SvelteLogo className="size-16" style={{ color: '#ff3e00' }} />}
       questionCompletionCount={questionCompletionCount}
-      questionList={questionList}
-      title={intl.formatMessage({
-        defaultMessage: 'Svelte Coding Questions',
-        description: 'Description for Svelte questions title',
-        id: 'belvJ0',
-      })}
+      questionList={questionListForFramework}
     />
   );
 }

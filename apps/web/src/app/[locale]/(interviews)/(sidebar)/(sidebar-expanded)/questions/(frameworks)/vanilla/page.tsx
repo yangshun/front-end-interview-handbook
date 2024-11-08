@@ -1,7 +1,7 @@
 import type { Metadata } from 'next/types';
 
 import type { QuestionFramework } from '~/components/interviews/questions/common/QuestionsTypes';
-import InterviewsQuestionsFrameworkPage from '~/components/interviews/questions/listings/practice/InterviewsQuestionsFrameworkPage';
+import InterviewsQuestionsFrameworkDefaultPage from '~/components/interviews/questions/listings/frameworks/InterviewsQuestionsFrameworkDefaultPage';
 
 import { fetchQuestionCompletionCount } from '~/db/QuestionsCount';
 import { fetchCodingQuestionsForFramework } from '~/db/QuestionsListReader';
@@ -48,14 +48,17 @@ export default async function Page() {
     fetchQuestionCompletionCount(['user-interface']),
   ]);
 
-  // TODO: i18n
+  const questionListForFramework = questionList.filter((metadata) =>
+    metadata.frameworks.some(
+      ({ framework: frameworkValue }) => frameworkValue === framework,
+    ),
+  );
+
   return (
-    <InterviewsQuestionsFrameworkPage
-      description="Top Vanilla JavaScript UI coding interview questions."
+    <InterviewsQuestionsFrameworkDefaultPage
       framework={framework}
       questionCompletionCount={questionCompletionCount}
-      questionList={questionList}
-      title="Vanilla JavaScript User Interface Questions"
+      questionList={questionListForFramework}
     />
   );
 }

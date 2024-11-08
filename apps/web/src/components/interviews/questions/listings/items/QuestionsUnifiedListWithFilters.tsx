@@ -8,6 +8,7 @@ import InterviewsGuideCard from '~/components/interviews/guides/InterviewsGuideC
 import QuestionPaywall from '~/components/interviews/questions/common/QuestionPaywall';
 import type {
   QuestionFormat,
+  QuestionFrameworkOrLanguage,
   QuestionMetadata,
   QuestionMetadataWithCompletedStatus,
   QuestionSortField,
@@ -34,11 +35,11 @@ import useQuestionUnifiedFilters from '../filters/hooks/useQuestionUnifiedFilter
 import QuestionListingUnifiedFilters from '../filters/QuestionListingUnifiedFilters';
 import QuestionsListingFilterSlideOut from '../filters/QuestionsListingFilterSlideout';
 import QuestionListingSummarySection from '../stats/QuestionListingSummarySection';
-import type { QuestionFramework } from '../../common/QuestionsTypes';
 import QuestionCountLabel from '../../metadata/QuestionCountLabel';
 import QuestionTotalTimeLabel from '../../metadata/QuestionTotalTimeLabel';
 
 type Props = Readonly<{
+  categoryTabs?: ReactNode;
   checkIfCompletedQuestionBefore?: (question: QuestionMetadata) => boolean;
   filterNamespace: string;
   formatFiltersFilterPredicate?: (format: QuestionFormat) => boolean;
@@ -46,7 +47,7 @@ type Props = Readonly<{
     a: QuestionFormat,
     b: QuestionFormat,
   ) => number;
-  framework?: QuestionFramework;
+  framework?: QuestionFrameworkOrLanguage;
   guides?: {
     description: string;
     items: ReadonlyArray<GuideCardMetadataWithCompletedStatus>;
@@ -61,12 +62,14 @@ type Props = Readonly<{
   onQuestionClickIntercept?: (redirectHref: string) => void;
   questionCompletionCount?: QuestionCompletionCount;
   questions: ReadonlyArray<QuestionMetadataWithCompletedStatus>;
+  searchPlaceholder?: string;
   showSummarySection?: boolean;
   sideColumnAddOn?: ReactNode;
 }>;
 
 export default function QuestionsUnifiedListWithFilters({
   checkIfCompletedQuestionBefore,
+  categoryTabs,
   initialFormat = null,
   framework,
   listKey,
@@ -79,6 +82,7 @@ export default function QuestionsUnifiedListWithFilters({
   formatFiltersOrderComparator,
   onMarkAsCompleted,
   onMarkAsNotCompleted,
+  searchPlaceholder,
   showSummarySection = true,
   onQuestionClickIntercept,
   guides,
@@ -287,30 +291,36 @@ export default function QuestionsUnifiedListWithFilters({
     </div>
   );
   const searchFilterRow = (
-    <div className={clsx('flex justify-end gap-4')}>
-      <div className="flex-1">
-        <TextInput
-          autoComplete="off"
-          isLabelHidden={true}
-          label={intl.formatMessage({
-            defaultMessage: 'Search questions',
-            description: 'Placeholder for search input of question list',
-            id: '1w3zxf',
-          })}
-          placeholder={intl.formatMessage({
-            defaultMessage: 'Search questions',
-            description: 'Placeholder for search input of question list',
-            id: '1w3zxf',
-          })}
-          size="sm"
-          startIcon={RiSearchLine}
-          type="search"
-          value={query}
-          onChange={(value) => setQuery(value)}
-        />
+    <>
+      <div className={clsx('flex justify-end gap-4')}>
+        <div className="flex-1">
+          <TextInput
+            autoComplete="off"
+            isLabelHidden={true}
+            label={intl.formatMessage({
+              defaultMessage: 'Search questions',
+              description: 'Placeholder for search input of question list',
+              id: '1w3zxf',
+            })}
+            placeholder={
+              searchPlaceholder ??
+              intl.formatMessage({
+                defaultMessage: 'Search questions',
+                description: 'Placeholder for search input of question list',
+                id: '1w3zxf',
+              })
+            }
+            size="sm"
+            startIcon={RiSearchLine}
+            type="search"
+            value={query}
+            onChange={(value) => setQuery(value)}
+          />
+        </div>
+        {sortAndFilters}
       </div>
-      {sortAndFilters}
-    </div>
+      {categoryTabs}
+    </>
   );
   const listMetadata = (
     <div className="flex gap-x-10">
@@ -325,7 +335,7 @@ export default function QuestionsUnifiedListWithFilters({
     <div className={clsx('lg:grid lg:grid-cols-3 lg:gap-x-6')}>
       {/* Left Column */}
       <section className="flex flex-col gap-8 lg:col-span-2">
-        <div className="flex flex-col gap-4">{searchFilterRow}</div>
+        <div className="flex flex-col gap-8">{searchFilterRow}</div>
         <div className="flex flex-col gap-4">
           {listMetadata}
           {showPaywall ? (
@@ -377,7 +387,15 @@ export default function QuestionsUnifiedListWithFilters({
                     checkIfCompletedQuestionBefore={
                       checkIfCompletedQuestionBefore
                     }
-                    framework={framework}
+                    framework={
+                      // TODO(interviews): improve this
+                      framework !== 'html' &&
+                      framework !== 'js' &&
+                      framework !== 'ts' &&
+                      framework !== 'css'
+                        ? framework
+                        : undefined
+                    }
                     listKey={listKey}
                     mode={listMode}
                     questionCompletionCount={questionCompletionCount}

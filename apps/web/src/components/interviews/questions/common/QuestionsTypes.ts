@@ -59,6 +59,7 @@ export type QuestionFramework =
   | 'svelte'
   | 'vanilla'
   | 'vue';
+export type QuestionFrameworkOrLanguage = QuestionFramework | QuestionLanguage;
 export const QuestionFrameworkLabels: Record<QuestionFramework, string> = {
   angular: 'Angular',
   react: 'React',

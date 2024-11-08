@@ -1,8 +1,7 @@
 import type { Metadata } from 'next/types';
 
-import ReactLogo from '~/components/icons/ReactLogo';
 import type { QuestionFramework } from '~/components/interviews/questions/common/QuestionsTypes';
-import InterviewsQuestionsFrameworkPage from '~/components/interviews/questions/listings/practice/InterviewsQuestionsFrameworkPage';
+import InterviewsQuestionsFrameworkDefaultPage from '~/components/interviews/questions/listings/frameworks/InterviewsQuestionsFrameworkDefaultPage';
 
 import { fetchQuestionCompletionCount } from '~/db/QuestionsCount';
 import { fetchCodingQuestionsForFramework } from '~/db/QuestionsListReader';
@@ -41,33 +40,23 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   });
 }
 
-export default async function Page({ params }: Props) {
-  const { locale } = params;
-  const [questionList, intl, questionCompletionCount] = await Promise.all([
+export default async function Page() {
+  const [questionList, questionCompletionCount] = await Promise.all([
     fetchCodingQuestionsForFramework(framework),
-    getIntlServerOnly(locale),
     fetchQuestionCompletionCount(['user-interface']),
   ]);
 
+  const questionListForFramework = questionList.filter((metadata) =>
+    metadata.frameworks.some(
+      ({ framework: frameworkValue }) => frameworkValue === framework,
+    ),
+  );
+
   return (
-    <InterviewsQuestionsFrameworkPage
-      description={intl.formatMessage({
-        defaultMessage:
-          'Top React coding interview questions to build the most commonly-asked front end UI components and applications.',
-        description: 'Description for React questions page',
-        id: 'j5W1/P',
-      })}
+    <InterviewsQuestionsFrameworkDefaultPage
       framework={framework}
-      logo={
-        <ReactLogo className="size-16" style={{ fill: 'rgb(20, 158, 202)' }} />
-      }
       questionCompletionCount={questionCompletionCount}
-      questionList={questionList}
-      title={intl.formatMessage({
-        defaultMessage: 'React Coding Questions',
-        description: 'Description for React questions title',
-        id: 'Qf/RU+',
-      })}
+      questionList={questionListForFramework}
     />
   );
 }

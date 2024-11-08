@@ -18,9 +18,12 @@ export default function Layout({ children }: Props) {
         items={[
           technology.react,
           technology.angular,
-          technology.svelte,
           technology.vue,
-          technology.vanilla,
+          technology.svelte,
+          technology.js,
+          technology.css,
+          technology.html,
+          technology.ts,
         ]}
       />
       <Container className="py-8 xl:py-12" width="app">

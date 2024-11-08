@@ -1,7 +1,6 @@
 import type { Metadata } from 'next/types';
 
-import AngularLogo from '~/components/icons/AngularLogo';
-import InterviewsQuestionsFrameworkPage from '~/components/interviews/questions/listings/practice/InterviewsQuestionsFrameworkPage';
+import InterviewsQuestionsFrameworkDefaultPage from '~/components/interviews/questions/listings/frameworks/InterviewsQuestionsFrameworkDefaultPage';
 
 import { fetchQuestionCompletionCount } from '~/db/QuestionsCount';
 import { fetchCodingQuestionsForFramework } from '~/db/QuestionsListReader';
@@ -40,31 +39,23 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   });
 }
 
-export default async function Page({ params }: Props) {
-  const { locale } = params;
-  const [questionList, intl, questionCompletionCount] = await Promise.all([
+export default async function Page() {
+  const [questionList, questionCompletionCount] = await Promise.all([
     fetchCodingQuestionsForFramework(framework),
-    getIntlServerOnly(locale),
     fetchQuestionCompletionCount(['user-interface']),
   ]);
 
+  const questionListForFramework = questionList.filter((metadata) =>
+    metadata.frameworks.some(
+      ({ framework: frameworkValue }) => frameworkValue === framework,
+    ),
+  );
+
   return (
-    <InterviewsQuestionsFrameworkPage
-      description={intl.formatMessage({
-        defaultMessage:
-          'Top Angular coding interview questions to build the most commonly-asked front end UI components and applications.',
-        description: 'Description for Angular questions page',
-        id: 'MjpQ2L',
-      })}
+    <InterviewsQuestionsFrameworkDefaultPage
       framework={framework}
-      logo={<AngularLogo className="size-16" />}
       questionCompletionCount={questionCompletionCount}
-      questionList={questionList}
-      title={intl.formatMessage({
-        defaultMessage: 'Angular Coding Questions',
-        description: 'Description for Angular questions title',
-        id: '86Oken',
-      })}
+      questionList={questionListForFramework}
     />
   );
 }

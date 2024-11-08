@@ -1,7 +1,7 @@
 'use client';
 
 import clsx from 'clsx';
-import type { ReactNode } from 'react';
+import { type ReactNode } from 'react';
 import {
   RiTestTubeLine,
   RiVerifiedBadgeLine,
@@ -14,7 +14,7 @@ import InterviewsGitHubSlider from '~/components/interviews/common/github/Interv
 import InterviewsPageFeatures from '~/components/interviews/common/InterviewsPageFeatures';
 import InterviewsPageHeaderLogo from '~/components/interviews/common/InterviewsPageHeaderLogo';
 import type {
-  QuestionFramework,
+  QuestionFrameworkOrLanguage,
   QuestionMetadata,
 } from '~/components/interviews/questions/common/QuestionsTypes';
 import QuestionsUnifiedListWithFiltersAndProgress from '~/components/interviews/questions/listings/items/QuestionsUnifiedListWithFiltersAndProgress';
@@ -27,22 +27,26 @@ import Text from '~/components/ui/Text';
 import type { QuestionCompletionCount } from '~/db/QuestionsCount';
 
 type Props = Readonly<{
+  categoryTabs?: ReactNode;
   description: string;
-  framework: QuestionFramework;
-  logo?: ReactNode;
+  framework: QuestionFrameworkOrLanguage;
   questionCompletionCount?: QuestionCompletionCount;
   questionList: ReadonlyArray<QuestionMetadata>;
+  searchPlaceholder: string;
   title: string;
   titleAddOnText?: string;
 }>;
 
 export default function InterviewsQuestionsFrameworkPage({
+  categoryTabs,
   description,
   framework,
   questionCompletionCount,
   questionList,
+  searchPlaceholder,
   title,
 }: Props) {
+  const tech = useQuestionTechnologyLists();
   const intl = useIntl();
   const filterNamespace = `framework:${framework}`;
   const features = [
@@ -71,7 +75,6 @@ export default function InterviewsQuestionsFrameworkPage({
       }),
     },
   ];
-  const tech = useQuestionTechnologyLists();
 
   return (
     <div className={clsx('flex flex-col', 'gap-y-8 md:gap-y-10 2xl:gap-y-12')}>
@@ -102,11 +105,13 @@ export default function InterviewsQuestionsFrameworkPage({
       </div>
       <Section>
         <QuestionsUnifiedListWithFiltersAndProgress
+          categoryTabs={categoryTabs}
           filterNamespace={filterNamespace}
           framework={framework}
           mode="framework"
           questionCompletionCount={questionCompletionCount}
           questions={questionList}
+          searchPlaceholder={searchPlaceholder}
         />
       </Section>
     </div>
