@@ -1,6 +1,6 @@
 import type { Metadata } from 'next/types';
 
-import InterviewsQuestionsFrameworkLanguagePage from '~/components/interviews/questions/listings/frameworks/InterviewsQuestionsFrameworkLanguagePage';
+import InterviewsQuestionsCategoryLanguagePage from '~/components/interviews/questions/listings/category/InterviewsQuestionsCategoryLanguagePage';
 
 import { fetchQuestionCompletionCount } from '~/db/QuestionsCount';
 import {
@@ -10,7 +10,7 @@ import {
 import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
 
-const language = 'css';
+const language = 'js';
 
 export const dynamic = 'force-static';
 
@@ -22,22 +22,21 @@ type Props = Readonly<{
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = params;
-
   const intl = await getIntlServerOnly(locale);
 
   return defaultMetadata({
     description: intl.formatMessage({
       defaultMessage:
-        'Top CSS front end interview coding questions to practice, with detailed solutions and explanations by ex-interviewers at FAANG.',
+        'Top JavaScript front end interview coding questions to practice, with detailed solutions and explanations by ex-interviewers at FAANG.',
       description: 'Description of Interview Questions page',
-      id: 'pTuBE6',
+      id: '8MUzsn',
     }),
     locale,
     pathname: `/questions/${language}`,
     title: intl.formatMessage({
-      defaultMessage: 'Practice CSS Interview Questions with Solutions',
-      description: 'Title of interview Questions page',
-      id: 'GkiSbQ',
+      defaultMessage: 'Practice JavaScript Interview Questions with Solutions',
+      description: 'Title of JavaScript Interview Questions page',
+      id: 'RVTdMV',
     }),
   });
 }
@@ -55,19 +54,19 @@ export default async function Page({ params }: Props) {
     fetchQuestionCompletionCount(['javascript']),
   ]);
 
-  const questionsCodingCSS = questionsCoding.filter((metadata) =>
+  const questionsCodingJS = questionsCoding.filter((metadata) =>
     metadata.languages.includes(language),
   );
-  const questionsQuizCSS = questionsQuiz.filter((metadata) =>
-    metadata.topics.includes(language),
+  const questionsQuizJS = questionsQuiz.filter((metadata) =>
+    metadata.topics.includes('javascript'),
   );
 
   return (
-    <InterviewsQuestionsFrameworkLanguagePage
+    <InterviewsQuestionsCategoryLanguagePage
       language={language}
       questionCompletionCount={questionCompletionCount}
-      questionsCoding={questionsCodingCSS}
-      questionsQuiz={questionsQuizCSS}
+      questionsCoding={questionsCodingJS}
+      questionsQuiz={questionsQuizJS}
     />
   );
 }

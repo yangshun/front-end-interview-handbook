@@ -1,16 +1,15 @@
 import type { Metadata } from 'next/types';
 
-import type { QuestionFramework } from '~/components/interviews/questions/common/QuestionsTypes';
-import InterviewsQuestionsFrameworkDefaultPage from '~/components/interviews/questions/listings/frameworks/InterviewsQuestionsFrameworkDefaultPage';
+import InterviewsQuestionsCategoryFrameworkPage from '~/components/interviews/questions/listings/category/InterviewsQuestionsCategoryFrameworkPage';
 
 import { fetchQuestionCompletionCount } from '~/db/QuestionsCount';
 import { fetchCodingQuestionsForFramework } from '~/db/QuestionsListReader';
 import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
 
-export const dynamic = 'force-static';
+const framework = 'svelte';
 
-const framework: QuestionFramework = 'vanilla';
+export const dynamic = 'force-static';
 
 type Props = Readonly<{
   params: Readonly<{
@@ -26,18 +25,16 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return defaultMetadata({
     description: intl.formatMessage({
       defaultMessage:
-        'Top Vanilla JavaScript UI front end interview coding questions to practice, with detailed solutions and explanations by ex-interviewers at FAANG.',
-      description:
-        'Description of Vanilla JavaScript UI Interview Questions page',
-      id: 'VLFSw7',
+        'Top Svelte front end interview coding questions to practice, with detailed solutions and explanations by ex-interviewers at FAANG.',
+      description: 'Description of Svelte Interview Questions page',
+      id: '03N/MG',
     }),
     locale,
     pathname: `/questions/${framework}`,
     title: intl.formatMessage({
-      defaultMessage:
-        'Practice Vanilla JavaScript UI Interview Questions with Solutions',
-      description: 'Title of Vanilla JavaScript UI Interview Questions page',
-      id: 'A+H3cR',
+      defaultMessage: 'Practice Svelte Interview Questions with Solutions',
+      description: 'Title of Svelte Interview Questions page',
+      id: 'I4lo5m',
     }),
   });
 }
@@ -55,7 +52,7 @@ export default async function Page() {
   );
 
   return (
-    <InterviewsQuestionsFrameworkDefaultPage
+    <InterviewsQuestionsCategoryFrameworkPage
       framework={framework}
       questionCompletionCount={questionCompletionCount}
       questionList={questionListForFramework}

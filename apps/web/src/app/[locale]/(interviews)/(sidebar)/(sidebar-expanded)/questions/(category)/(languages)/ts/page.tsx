@@ -1,6 +1,6 @@
 import type { Metadata } from 'next/types';
 
-import InterviewsQuestionsFrameworkLanguagePage from '~/components/interviews/questions/listings/frameworks/InterviewsQuestionsFrameworkLanguagePage';
+import InterviewsQuestionsCategoryLanguagePage from '~/components/interviews/questions/listings/category/InterviewsQuestionsCategoryLanguagePage';
 
 import { fetchQuestionCompletionCount } from '~/db/QuestionsCount';
 import {
@@ -62,7 +62,7 @@ export default async function Page({ params }: Props) {
   );
 
   return (
-    <InterviewsQuestionsFrameworkLanguagePage
+    <InterviewsQuestionsCategoryLanguagePage
       language={language}
       questionCompletionCount={questionCompletionCount}
       questionsCoding={questionsCodingTS}

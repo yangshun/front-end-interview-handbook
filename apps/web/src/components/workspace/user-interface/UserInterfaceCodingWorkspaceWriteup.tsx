@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import { RiArrowRightUpLine } from 'react-icons/ri';
 
-import { useQuestionTechnologyLists } from '~/data/QuestionFormats';
+import { useQuestionFrameworksData } from '~/data/QuestionFormats';
 
 import type {
   QuestionFramework,
@@ -60,7 +60,7 @@ export default function UserInterfaceCodingWorkspaceWriteup({
   const { data: questionProgress } = useQueryQuestionProgress(metadata);
   const { save } = useUserInterfaceCodingWorkspaceSavesContext();
   const intl = useIntl();
-  const questionTechnologyLists = useQuestionTechnologyLists();
+  const frameworks = useQuestionFrameworksData();
   const { dispatch } = useUserInterfaceCodingWorkspaceTilesContext();
 
   return (
@@ -158,7 +158,7 @@ export default function UserInterfaceCodingWorkspaceWriteup({
                 id: 'eeWLAW',
               })}
               options={metadata.frameworks.map((frameworkItem) => ({
-                label: questionTechnologyLists[frameworkItem.framework].label,
+                label: frameworks[frameworkItem.framework].label,
                 value: frameworkItem.framework,
               }))}
               size="sm"

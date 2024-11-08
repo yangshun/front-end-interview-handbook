@@ -153,7 +153,7 @@ export default function QuestionsList<Q extends QuestionMetadata>({
                     <span aria-hidden="true" className="absolute inset-0" />
                     {questionMetadata.title}
                   </Anchor>
-                  {/* TODO: remove hardcoding of "counter" and shift it into metadata */}
+                  {/* TODO(interviews): remove hardcoding of "counter" and shift it into metadata */}
                   {questionMetadata.slug === 'counter' && (
                     <Badge
                       label={intl.formatMessage({

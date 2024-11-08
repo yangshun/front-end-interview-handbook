@@ -3,13 +3,13 @@
 import { useState } from 'react';
 
 import {
-  useQuestionTechnologyLists,
+  useQuestionLanguagesData,
   useQuestionUserFacingFormatData,
 } from '~/data/QuestionFormats';
 
 import TabsUnderline from '~/components/ui/Tabs/TabsUnderline';
 
-import InterviewsQuestionsFrameworkPage from './InterviewsQuestionsFrameworkPage';
+import InterviewsQuestionsCategoryPage from './InterviewsQuestionsCategoryPage';
 import type {
   QuestionLanguage,
   QuestionMetadata,
@@ -17,7 +17,7 @@ import type {
 } from '../../common/QuestionsTypes';
 
 type Props = Omit<
-  React.ComponentProps<typeof InterviewsQuestionsFrameworkPage>,
+  React.ComponentProps<typeof InterviewsQuestionsCategoryPage>,
   'description' | 'framework' | 'questionList' | 'searchPlaceholder' | 'title'
 > &
   Readonly<{
@@ -26,14 +26,14 @@ type Props = Omit<
     questionsQuiz: ReadonlyArray<QuestionMetadata>;
   }>;
 
-export default function InterviewsQuestionsFrameworkLanguagePage({
+export default function InterviewsQuestionsCategoryLanguagePage({
   language,
   questionsCoding,
   questionsQuiz,
   ...props
 }: Props) {
   const formats = useQuestionUserFacingFormatData();
-  const tech = useQuestionTechnologyLists();
+  const languages = useQuestionLanguagesData();
   const [selectedTab, setSelectedTab] = useState<QuestionUserFacingFormat>(
     formats.coding.id,
   );
@@ -60,13 +60,13 @@ export default function InterviewsQuestionsFrameworkLanguagePage({
   );
 
   return (
-    <InterviewsQuestionsFrameworkPage
+    <InterviewsQuestionsCategoryPage
       categoryTabs={categoryTabs}
-      description={tech[language].description}
+      description={languages[language].description}
       framework={language}
       questionList={filteredQuestions}
-      searchPlaceholder={tech[language].searchPlaceholder}
-      title={tech[language].longName}
+      searchPlaceholder={languages[language].searchPlaceholder}
+      title={languages[language].longName}
       {...props}
     />
   );

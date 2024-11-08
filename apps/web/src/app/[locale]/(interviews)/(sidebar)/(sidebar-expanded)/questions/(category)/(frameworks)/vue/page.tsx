@@ -1,6 +1,6 @@
 import type { Metadata } from 'next/types';
 
-import InterviewsQuestionsFrameworkDefaultPage from '~/components/interviews/questions/listings/frameworks/InterviewsQuestionsFrameworkDefaultPage';
+import InterviewsQuestionsCategoryFrameworkPage from '~/components/interviews/questions/listings/category/InterviewsQuestionsCategoryFrameworkPage';
 
 import { fetchQuestionCompletionCount } from '~/db/QuestionsCount';
 import { fetchCodingQuestionsForFramework } from '~/db/QuestionsListReader';
@@ -52,7 +52,7 @@ export default async function Page() {
   );
 
   return (
-    <InterviewsQuestionsFrameworkDefaultPage
+    <InterviewsQuestionsCategoryFrameworkPage
       framework={framework}
       questionCompletionCount={questionCompletionCount}
       questionList={questionListForFramework}

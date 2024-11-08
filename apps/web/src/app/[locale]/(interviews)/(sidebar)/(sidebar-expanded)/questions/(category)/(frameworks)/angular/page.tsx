@@ -1,14 +1,13 @@
 import type { Metadata } from 'next/types';
 
-import type { QuestionFramework } from '~/components/interviews/questions/common/QuestionsTypes';
-import InterviewsQuestionsFrameworkDefaultPage from '~/components/interviews/questions/listings/frameworks/InterviewsQuestionsFrameworkDefaultPage';
+import InterviewsQuestionsCategoryFrameworkPage from '~/components/interviews/questions/listings/category/InterviewsQuestionsCategoryFrameworkPage';
 
 import { fetchQuestionCompletionCount } from '~/db/QuestionsCount';
 import { fetchCodingQuestionsForFramework } from '~/db/QuestionsListReader';
 import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
 
-const framework: QuestionFramework = 'react';
+const framework = 'angular';
 
 export const dynamic = 'force-static';
 
@@ -26,16 +25,16 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return defaultMetadata({
     description: intl.formatMessage({
       defaultMessage:
-        'Top React front end interview coding questions to practice, with detailed solutions and explanations by ex-interviewers at FAANG.',
-      description: 'Description of React Interview Questions page',
-      id: 'MkjGJD',
+        'Top Angular front end interview coding questions to practice, with detailed solutions and explanations by ex-interviewers at FAANG.',
+      description: 'Description of Angular Interview Questions page',
+      id: 'gTFqs7',
     }),
     locale,
     pathname: `/questions/${framework}`,
     title: intl.formatMessage({
-      defaultMessage: 'Practice React Interview Questions with Solutions',
-      description: 'Title of React Interview Questions page',
-      id: '035J/P',
+      defaultMessage: 'Practice Angular Interview Questions with Solutions',
+      description: 'Title of Angular Interview Questions page',
+      id: 'ez5OLq',
     }),
   });
 }
@@ -53,7 +52,7 @@ export default async function Page() {
   );
 
   return (
-    <InterviewsQuestionsFrameworkDefaultPage
+    <InterviewsQuestionsCategoryFrameworkPage
       framework={framework}
       questionCompletionCount={questionCompletionCount}
       questionList={questionListForFramework}

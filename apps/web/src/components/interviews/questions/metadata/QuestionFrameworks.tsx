@@ -1,6 +1,6 @@
 import { useId } from 'react';
 
-import { useQuestionTechnologyLists } from '~/data/QuestionFormats';
+import { useQuestionFrameworksData } from '~/data/QuestionFormats';
 
 import { FormattedMessage, useIntl } from '~/components/intl';
 import Anchor from '~/components/ui/Anchor';
@@ -20,7 +20,7 @@ type Props = Readonly<{
 
 export default function QuestionFrameworks({ frameworks }: Props) {
   const id = useId();
-  const questionTechnologyLists = useQuestionTechnologyLists();
+  const frameworksData = useQuestionFrameworksData();
   const intl = useIntl();
 
   return (
@@ -44,11 +44,11 @@ export default function QuestionFrameworks({ frameworks }: Props) {
                 id: '72GwzV',
               },
               {
-                frameworkLabel: questionTechnologyLists[framework].label,
+                frameworkLabel: frameworksData[framework].label,
               },
             )}>
             <Anchor
-              aria-label={questionTechnologyLists[framework].label}
+              aria-label={frameworksData[framework].label}
               href={href}
               variant="unstyled"
               onClick={(event) => {

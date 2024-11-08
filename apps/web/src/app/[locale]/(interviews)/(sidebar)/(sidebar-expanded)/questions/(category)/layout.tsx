@@ -1,6 +1,9 @@
 'use client';
 
-import { useQuestionTechnologyLists } from '~/data/QuestionFormats';
+import {
+  useQuestionFrameworksData,
+  useQuestionLanguagesData,
+} from '~/data/QuestionFormats';
 
 import QuestionsSubnav from '~/components/interviews/questions/common/QuestionsSubnav';
 import Container from '~/components/ui/Container';
@@ -10,20 +13,21 @@ type Props = Readonly<{
 }>;
 
 export default function Layout({ children }: Props) {
-  const technology = useQuestionTechnologyLists();
+  const frameworks = useQuestionFrameworksData();
+  const languages = useQuestionLanguagesData();
 
   return (
     <>
       <QuestionsSubnav
         items={[
-          technology.react,
-          technology.angular,
-          technology.vue,
-          technology.svelte,
-          technology.js,
-          technology.css,
-          technology.html,
-          technology.ts,
+          frameworks.react,
+          frameworks.angular,
+          frameworks.vue,
+          frameworks.svelte,
+          languages.js,
+          languages.css,
+          languages.html,
+          languages.ts,
         ]}
       />
       <Container className="py-8 xl:py-12" width="app">

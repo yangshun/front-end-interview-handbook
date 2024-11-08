@@ -8,13 +8,18 @@ import {
   RiWindow2Line,
 } from 'react-icons/ri';
 
-import { useQuestionTechnologyLists } from '~/data/QuestionFormats';
+import {
+  useQuestionFrameworksData,
+  useQuestionLanguagesData,
+} from '~/data/QuestionFormats';
 
 import InterviewsGitHubSlider from '~/components/interviews/common/github/InterviewsGitHubSlider';
 import InterviewsPageFeatures from '~/components/interviews/common/InterviewsPageFeatures';
 import InterviewsPageHeaderLogo from '~/components/interviews/common/InterviewsPageHeaderLogo';
 import type {
+  QuestionFramework,
   QuestionFrameworkOrLanguage,
+  QuestionLanguage,
   QuestionMetadata,
 } from '~/components/interviews/questions/common/QuestionsTypes';
 import QuestionsUnifiedListWithFiltersAndProgress from '~/components/interviews/questions/listings/items/QuestionsUnifiedListWithFiltersAndProgress';
@@ -37,7 +42,7 @@ type Props = Readonly<{
   titleAddOnText?: string;
 }>;
 
-export default function InterviewsQuestionsFrameworkPage({
+export default function InterviewsQuestionsCategoryPage({
   categoryTabs,
   description,
   framework,
@@ -46,9 +51,14 @@ export default function InterviewsQuestionsFrameworkPage({
   searchPlaceholder,
   title,
 }: Props) {
-  const tech = useQuestionTechnologyLists();
+  const languages = useQuestionLanguagesData();
+  const frameworks = useQuestionFrameworksData();
+  const Icon =
+    framework in languages
+      ? languages[framework as QuestionLanguage].icon
+      : frameworks[framework as QuestionFramework].icon;
   const intl = useIntl();
-  const filterNamespace = `framework:${framework}`;
+  const filterNamespace = `category:${framework}`;
   const features = [
     {
       icon: RiWindow2Line,
@@ -82,7 +92,7 @@ export default function InterviewsQuestionsFrameworkPage({
         <div className="grid gap-x-6 gap-y-8 xl:grid-cols-3">
           <div className="flex flex-col gap-8 xl:col-span-2">
             <div className="flex items-center gap-6">
-              <InterviewsPageHeaderLogo icon={tech[framework].icon} />
+              <InterviewsPageHeaderLogo icon={Icon} />
               <Heading level="heading4">{title}</Heading>
             </div>
             <Text

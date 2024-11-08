@@ -19,7 +19,8 @@ import { TbBinaryTree } from 'react-icons/tb';
 import SvelteLogo from '~/components/icons/SvelteLogo';
 import type {
   QuestionFormat,
-  QuestionFrameworkOrLanguage,
+  QuestionFramework,
+  QuestionLanguage,
   QuestionUserFacingFormat,
 } from '~/components/interviews/questions/common/QuestionsTypes';
 import { useIntl } from '~/components/intl';
@@ -263,244 +264,246 @@ export function useQuestionUserFacingFormatData() {
   return questionUserFacingFormatData;
 }
 
-export function useQuestionTechnologyLists() {
+export function useQuestionLanguagesData(): QuestionCategoryLists<QuestionLanguage> {
   const intl = useIntl();
-  const questionTechnologyLists: QuestionCategoryLists<QuestionFrameworkOrLanguage> =
-    {
-      angular: {
-        description: intl.formatMessage({
-          defaultMessage: 'Practice top Angular interview questions. TODO',
-          description: 'Subtitle for questions list page',
-          id: 'I2gPuj',
-        }),
-        href: '/questions/angular',
-        icon: BiLogoAngular,
-        id: 'angular',
-        label: intl.formatMessage({
-          defaultMessage: 'Angular',
-          description: 'Angular questions category short title',
-          id: 'O+NT3M',
-        }),
-        longName: intl.formatMessage({
-          defaultMessage: 'Angular Interview Questions',
-          description: 'Angular questions category long title',
-          id: 'hW1w8e',
-        }),
-        searchPlaceholder: intl.formatMessage({
-          defaultMessage: 'Search Angular interview questions',
-          description: 'Placeholder for search input of Angular question list',
-          id: '3VdP4W',
-        }),
-      },
-      css: {
-        description: intl.formatMessage({
-          defaultMessage:
-            'Practice CSS interview questions, including quiz-style knowledge questions and CSS coding questions.',
-          description: 'Subtitle for CSS questions list page',
-          id: 'BaJrKW',
-        }),
-        href: '/questions/css',
-        icon: BiLogoCss3,
-        id: 'css',
-        label: intl.formatMessage({
-          defaultMessage: 'CSS',
-          description: 'CSS questions category short title',
-          id: 'LnzTdG',
-        }),
-        longName: intl.formatMessage({
-          defaultMessage: 'CSS Interview Questions',
-          description: 'CSS questions category long title',
-          id: 'S2GzJi',
-        }),
-        searchPlaceholder: intl.formatMessage({
-          defaultMessage: 'Search CSS interview questions',
-          description: 'Placeholder for search input of CSS question list',
-          id: 'gLZ11S',
-        }),
-      },
-      html: {
-        description: intl.formatMessage({
-          defaultMessage:
-            'Practice HTML interview questions, including quiz-style knowledge questions and HTML coding questions.',
-          description: 'Subtitle for HTML questions list page',
-          id: 'fjna4j',
-        }),
-        href: '/questions/html',
-        icon: BiLogoHtml5,
-        id: 'html',
-        label: intl.formatMessage({
-          defaultMessage: 'HTML',
-          description: 'CSS questions category short title',
-          id: 'k964KU',
-        }),
-        longName: intl.formatMessage({
-          defaultMessage: 'HTML Interview Questions',
-          description: 'HTML questions category long title',
-          id: 'oIJgRa',
-        }),
-        searchPlaceholder: intl.formatMessage({
-          defaultMessage: 'Search HTML interview questions',
-          description: 'Placeholder for search input of HTML question list',
-          id: 'fPftCJ',
-        }),
-      },
-      js: {
-        description: intl.formatMessage({
-          defaultMessage:
-            'Practice JavaScript and TypeScript interview questions, from implementing common library APIs, utility functions, algorithms, to building UI components and more.',
-          description: 'Subtitle for JavaScript questions list page',
-          id: 'JAEdbj',
-        }),
-        href: '/questions/js',
-        icon: BiLogoJavascript,
-        id: 'js',
-        label: intl.formatMessage({
-          defaultMessage: 'JavaScript',
-          description: 'JavaScript questions category long title',
-          id: 'au4m82',
-        }),
-        longName: intl.formatMessage({
-          defaultMessage: 'JavaScript Interview Questions',
-          description: 'JavaScript questions category long title',
-          id: 'GeN7OJ',
-        }),
-        searchPlaceholder: intl.formatMessage({
-          defaultMessage: 'Search JavaScript interview questions',
-          description:
-            'Placeholder for search input of JavaScript question list',
-          id: 'w3mqdJ',
-        }),
-      },
-      react: {
-        description: intl.formatMessage({
-          defaultMessage: 'Practice top React interview questions. TODO',
-          description: 'Subtitle for questions list page',
-          id: 'bjGLO9',
-        }),
-        href: '/questions/react',
-        icon: BiLogoReact,
-        id: 'react',
-        label: intl.formatMessage({
-          defaultMessage: 'React',
-          description: 'React questions category short title',
-          id: '2OmfN2',
-        }),
-        longName: intl.formatMessage({
-          defaultMessage: 'React Interview Questions',
-          description: 'React questions category long title',
-          id: '+bg08+',
-        }),
-        searchPlaceholder: intl.formatMessage({
-          defaultMessage: 'Search React interview questions',
-          description: 'Placeholder for search input of React question list',
-          id: 'qSO2uW',
-        }),
-      },
-      svelte: {
-        description: intl.formatMessage({
-          defaultMessage: 'Practice top Svelte interview questions. TODO',
-          description: 'Subtitle for questions list page',
-          id: 'NvnkrI',
-        }),
-        href: '/questions/svelte',
-        icon: SvelteLogo,
-        id: 'svelte',
-        label: intl.formatMessage({
-          defaultMessage: 'Svelte',
-          description: 'Svelte questions category short title',
-          id: 'y1y4Uh',
-        }),
-        longName: intl.formatMessage({
-          defaultMessage: 'Svelte Interview Questions',
-          description: 'Svelte questions category long title',
-          id: 'jGPKlz',
-        }),
-        searchPlaceholder: intl.formatMessage({
-          defaultMessage: 'Search Svelte interview questions',
-          description: 'Placeholder for search input of Svelte question list',
-          id: 'tmTNK0',
-        }),
-      },
-      ts: {
-        description: intl.formatMessage({
-          defaultMessage:
-            'Practice TypeScript interview questions, from implementing common library APIs, utility functions, algorithms, to building UI components and more.',
-          description: 'Subtitle for questions list page',
-          id: '7JUoIp',
-        }),
-        href: '/questions/ts',
-        icon: BiLogoTypescript,
-        id: 'ts',
-        label: intl.formatMessage({
-          defaultMessage: 'TypeScript',
-          description: 'TypeScript questions category long title',
-          id: '66j+4g',
-        }),
-        longName: intl.formatMessage({
-          defaultMessage: 'TypeScript Interview Questions',
-          description: 'TypeScript questions category long title',
-          id: 'zGDMkS',
-        }),
-        searchPlaceholder: intl.formatMessage({
-          defaultMessage: 'Search TypeScript interview questions',
-          description:
-            'Placeholder for search input of TypeScript question list',
-          id: 'SoNXJL',
-        }),
-      },
-      vanilla: {
-        description: intl.formatMessage({
-          defaultMessage:
-            'Practice top Vanilla JavaScript interview questions. TODO',
-          description: 'Subtitle for questions list page',
-          id: 'IE+oUR',
-        }),
-        href: '/questions/vanilla',
-        icon: BiLogoHtml5,
-        id: 'vanilla',
-        label: intl.formatMessage({
-          defaultMessage: 'Vanilla JS',
-          description: 'Vanilla JS questions category short title',
-          id: 'Js4axe',
-        }),
-        longName: intl.formatMessage({
-          defaultMessage: 'Vanilla JS Interview Questions',
-          description: 'Vanilla JS questions category long title',
-          id: '3hQg9K',
-        }),
-        searchPlaceholder: intl.formatMessage({
-          defaultMessage: 'Search Vanilla JS interview questions',
-          description:
-            'Placeholder for search input of Vanilla JS question list',
-          id: 'oLO2pr',
-        }),
-      },
-      vue: {
-        description: intl.formatMessage({
-          defaultMessage: 'Practice top Vue interview questions. TODO',
-          description: 'Subtitle for questions list page',
-          id: 'K7BZAc',
-        }),
-        href: '/questions/vue',
-        icon: BiLogoVuejs,
-        id: 'vue',
-        label: intl.formatMessage({
-          defaultMessage: 'Vue',
-          description: 'Vue questions category short title',
-          id: 'JPbOCy',
-        }),
-        longName: intl.formatMessage({
-          defaultMessage: 'Vue Interview Questions',
-          description: 'Vue questions category long title',
-          id: 'BFqThO',
-        }),
-        searchPlaceholder: intl.formatMessage({
-          defaultMessage: 'Search Vue interview questions',
-          description: 'Placeholder for search input of Vue question list',
-          id: 'XAuXdM',
-        }),
-      },
-    };
 
-  return questionTechnologyLists;
+  return {
+    css: {
+      description: intl.formatMessage({
+        defaultMessage:
+          'Practice CSS interview questions, including quiz-style knowledge questions and CSS coding questions.',
+        description: 'Subtitle for CSS questions list page',
+        id: 'BaJrKW',
+      }),
+      href: '/questions/css',
+      icon: BiLogoCss3,
+      id: 'css',
+      label: intl.formatMessage({
+        defaultMessage: 'CSS',
+        description: 'CSS questions category short title',
+        id: 'LnzTdG',
+      }),
+      longName: intl.formatMessage({
+        defaultMessage: 'CSS Interview Questions',
+        description: 'CSS questions category long title',
+        id: 'S2GzJi',
+      }),
+      searchPlaceholder: intl.formatMessage({
+        defaultMessage: 'Search CSS interview questions',
+        description: 'Placeholder for search input of CSS question list',
+        id: 'gLZ11S',
+      }),
+    },
+    html: {
+      description: intl.formatMessage({
+        defaultMessage:
+          'Practice HTML interview questions, including quiz-style knowledge questions and HTML coding questions.',
+        description: 'Subtitle for HTML questions list page',
+        id: 'fjna4j',
+      }),
+      href: '/questions/html',
+      icon: BiLogoHtml5,
+      id: 'html',
+      label: intl.formatMessage({
+        defaultMessage: 'HTML',
+        description: 'CSS questions category short title',
+        id: 'k964KU',
+      }),
+      longName: intl.formatMessage({
+        defaultMessage: 'HTML Interview Questions',
+        description: 'HTML questions category long title',
+        id: 'oIJgRa',
+      }),
+      searchPlaceholder: intl.formatMessage({
+        defaultMessage: 'Search HTML interview questions',
+        description: 'Placeholder for search input of HTML question list',
+        id: 'fPftCJ',
+      }),
+    },
+    js: {
+      description: intl.formatMessage({
+        defaultMessage:
+          'Practice JavaScript and TypeScript interview questions, from implementing common library APIs, utility functions, algorithms, to building UI components and more.',
+        description: 'Subtitle for JavaScript questions list page',
+        id: 'JAEdbj',
+      }),
+      href: '/questions/js',
+      icon: BiLogoJavascript,
+      id: 'js',
+      label: intl.formatMessage({
+        defaultMessage: 'JavaScript',
+        description: 'JavaScript questions category long title',
+        id: 'au4m82',
+      }),
+      longName: intl.formatMessage({
+        defaultMessage: 'JavaScript Interview Questions',
+        description: 'JavaScript questions category long title',
+        id: 'GeN7OJ',
+      }),
+      searchPlaceholder: intl.formatMessage({
+        defaultMessage: 'Search JavaScript interview questions',
+        description: 'Placeholder for search input of JavaScript question list',
+        id: 'w3mqdJ',
+      }),
+    },
+    ts: {
+      description: intl.formatMessage({
+        defaultMessage:
+          'Practice TypeScript interview questions, from implementing common library APIs, utility functions, algorithms, to building UI components and more.',
+        description: 'Subtitle for questions list page',
+        id: '7JUoIp',
+      }),
+      href: '/questions/ts',
+      icon: BiLogoTypescript,
+      id: 'ts',
+      label: intl.formatMessage({
+        defaultMessage: 'TypeScript',
+        description: 'TypeScript questions category long title',
+        id: '66j+4g',
+      }),
+      longName: intl.formatMessage({
+        defaultMessage: 'TypeScript Interview Questions',
+        description: 'TypeScript questions category long title',
+        id: 'zGDMkS',
+      }),
+      searchPlaceholder: intl.formatMessage({
+        defaultMessage: 'Search TypeScript interview questions',
+        description: 'Placeholder for search input of TypeScript question list',
+        id: 'SoNXJL',
+      }),
+    },
+  };
+}
+
+export function useQuestionFrameworksData(): QuestionCategoryLists<QuestionFramework> {
+  const intl = useIntl();
+
+  return {
+    angular: {
+      description: intl.formatMessage({
+        defaultMessage: 'Practice top Angular interview questions. TODO',
+        description: 'Subtitle for questions list page',
+        id: 'I2gPuj',
+      }),
+      href: '/questions/angular',
+      icon: BiLogoAngular,
+      id: 'angular',
+      label: intl.formatMessage({
+        defaultMessage: 'Angular',
+        description: 'Angular questions category short title',
+        id: 'O+NT3M',
+      }),
+      longName: intl.formatMessage({
+        defaultMessage: 'Angular Interview Questions',
+        description: 'Angular questions category long title',
+        id: 'hW1w8e',
+      }),
+      searchPlaceholder: intl.formatMessage({
+        defaultMessage: 'Search Angular interview questions',
+        description: 'Placeholder for search input of Angular question list',
+        id: '3VdP4W',
+      }),
+    },
+    react: {
+      description: intl.formatMessage({
+        defaultMessage: 'Practice top React interview questions. TODO',
+        description: 'Subtitle for questions list page',
+        id: 'bjGLO9',
+      }),
+      href: '/questions/react',
+      icon: BiLogoReact,
+      id: 'react',
+      label: intl.formatMessage({
+        defaultMessage: 'React',
+        description: 'React questions category short title',
+        id: '2OmfN2',
+      }),
+      longName: intl.formatMessage({
+        defaultMessage: 'React Interview Questions',
+        description: 'React questions category long title',
+        id: '+bg08+',
+      }),
+      searchPlaceholder: intl.formatMessage({
+        defaultMessage: 'Search React interview questions',
+        description: 'Placeholder for search input of React question list',
+        id: 'qSO2uW',
+      }),
+    },
+    svelte: {
+      description: intl.formatMessage({
+        defaultMessage: 'Practice top Svelte interview questions. TODO',
+        description: 'Subtitle for questions list page',
+        id: 'NvnkrI',
+      }),
+      href: '/questions/svelte',
+      icon: SvelteLogo,
+      id: 'svelte',
+      label: intl.formatMessage({
+        defaultMessage: 'Svelte',
+        description: 'Svelte questions category short title',
+        id: 'y1y4Uh',
+      }),
+      longName: intl.formatMessage({
+        defaultMessage: 'Svelte Interview Questions',
+        description: 'Svelte questions category long title',
+        id: 'jGPKlz',
+      }),
+      searchPlaceholder: intl.formatMessage({
+        defaultMessage: 'Search Svelte interview questions',
+        description: 'Placeholder for search input of Svelte question list',
+        id: 'tmTNK0',
+      }),
+    },
+    vanilla: {
+      description: intl.formatMessage({
+        defaultMessage:
+          'Practice top Vanilla JavaScript interview questions. TODO',
+        description: 'Subtitle for questions list page',
+        id: 'IE+oUR',
+      }),
+      href: '/questions/vanilla',
+      icon: BiLogoHtml5,
+      id: 'vanilla',
+      label: intl.formatMessage({
+        defaultMessage: 'Vanilla JS',
+        description: 'Vanilla JS questions category short title',
+        id: 'Js4axe',
+      }),
+      longName: intl.formatMessage({
+        defaultMessage: 'Vanilla JS Interview Questions',
+        description: 'Vanilla JS questions category long title',
+        id: '3hQg9K',
+      }),
+      searchPlaceholder: intl.formatMessage({
+        defaultMessage: 'Search Vanilla JS interview questions',
+        description: 'Placeholder for search input of Vanilla JS question list',
+        id: 'oLO2pr',
+      }),
+    },
+    vue: {
+      description: intl.formatMessage({
+        defaultMessage: 'Practice top Vue interview questions. TODO',
+        description: 'Subtitle for questions list page',
+        id: 'K7BZAc',
+      }),
+      href: '/questions/vue',
+      icon: BiLogoVuejs,
+      id: 'vue',
+      label: intl.formatMessage({
+        defaultMessage: 'Vue',
+        description: 'Vue questions category short title',
+        id: 'JPbOCy',
+      }),
+      longName: intl.formatMessage({
+        defaultMessage: 'Vue Interview Questions',
+        description: 'Vue questions category long title',
+        id: 'BFqThO',
+      }),
+      searchPlaceholder: intl.formatMessage({
+        defaultMessage: 'Search Vue interview questions',
+        description: 'Placeholder for search input of Vue question list',
+        id: 'XAuXdM',
+      }),
+    },
+  };
 }
