@@ -17,11 +17,12 @@ import {
 } from '~/db/QuestionsListReader';
 import { roundQuestionCountToNearestTen } from '~/db/QuestionsUtils';
 import { getIntlServerOnly } from '~/i18n';
+import { generateStaticParamsWithLocale } from '~/next-i18nostic/src';
 import defaultMetadata from '~/seo/defaultMetadata';
 
 type Props = Readonly<{
   params: Readonly<{
-    format: string;
+    format: QuestionFormat;
     locale: string;
   }>;
 }>;
@@ -282,6 +283,22 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   });
 }
 
+export async function generateStaticParams() {
+  const questionFormats: Record<QuestionFormat, null> = {
+    algo: null,
+    javascript: null,
+    quiz: null,
+    'system-design': null,
+    'user-interface': null,
+  };
+
+  return generateStaticParamsWithLocale(
+    Object.keys(questionFormats).map((questionFormat) => ({
+      format: questionFormat,
+    })),
+  );
+}
+
 export default async function Page({ params }: Props) {
   const { format } = params;
   const questionFormat = format.replace(/\/$/g, '') as QuestionFormat;
@@ -294,8 +311,7 @@ export default async function Page({ params }: Props) {
     bottomContent,
   ] = await Promise.all([
     processParams(params),
-    // TODO(interviews): see if system design and algo need.
-    fetchQuestionCompletionCount(['user-interface', 'javascript', 'quiz']),
+    fetchQuestionCompletionCount([questionFormat]),
     fetchInterviewListingBottomContent(`${format}-question-format`),
   ]);
   let guides: ReadonlyArray<GuideCardMetadata> = [];
