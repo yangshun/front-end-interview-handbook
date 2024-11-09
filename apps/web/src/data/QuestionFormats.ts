@@ -8,7 +8,6 @@ import {
   BiLogoVuejs,
 } from 'react-icons/bi';
 import {
-  RiCodeBoxFill,
   RiFlowChart,
   RiJavascriptFill,
   RiQuestionnaireLine,
@@ -22,14 +21,8 @@ import type {
   QuestionFramework,
   QuestionLanguage,
   QuestionTopic,
-  QuestionUserFacingFormat,
 } from '~/components/interviews/questions/common/QuestionsTypes';
 import { useIntl } from '~/components/intl';
-import {
-  themeGradientGreenYellow,
-  themeGradientPinkPurple,
-  themeGradientPurpleGreen,
-} from '~/components/ui/theme';
 
 type QuestionListLink<T> = Readonly<{
   description: string;
@@ -42,8 +35,6 @@ type QuestionListLink<T> = Readonly<{
   value: T;
 }>;
 
-type QuestionFormatLists<T extends string> = Record<T, QuestionListLink<T>>;
-
 type QuestionCategoryLists<T extends string> = Record<
   T,
   QuestionListLink<T> &
@@ -55,6 +46,7 @@ type QuestionCategoryLists<T extends string> = Record<
 type QuestionFormatData = Record<
   QuestionFormat,
   {
+    briefName: string;
     href: `/questions/${QuestionFormat}`;
     icon: (props: React.ComponentProps<'svg'>) => JSX.Element;
     label: string;
@@ -72,6 +64,11 @@ export function useQuestionFormatsData(): QuestionFormatData {
 
   return {
     algo: {
+      briefName: intl.formatMessage({
+        defaultMessage: 'Algo coding',
+        description: 'Data structures and algorithm questions',
+        id: 'qvT5Mx',
+      }),
       href: '/questions/algo',
       icon: TbBinaryTree,
       label: intl.formatMessage({
@@ -104,6 +101,11 @@ export function useQuestionFormatsData(): QuestionFormatData {
       value: 'algo',
     },
     javascript: {
+      briefName: intl.formatMessage({
+        defaultMessage: 'JavaScript coding',
+        description: 'Question format',
+        id: 'HCcf9D',
+      }),
       href: '/questions/javascript',
       icon: RiJavascriptFill,
       label: intl.formatMessage({
@@ -136,6 +138,11 @@ export function useQuestionFormatsData(): QuestionFormatData {
       value: 'javascript',
     },
     quiz: {
+      briefName: intl.formatMessage({
+        defaultMessage: 'Quiz',
+        description: 'Question format',
+        id: 'doY6Fg',
+      }),
       href: '/questions/quiz',
       icon: RiQuestionnaireLine,
       label: intl.formatMessage({
@@ -179,6 +186,11 @@ export function useQuestionFormatsData(): QuestionFormatData {
       value: 'quiz',
     },
     'system-design': {
+      briefName: intl.formatMessage({
+        defaultMessage: 'System design',
+        description: 'Question format',
+        id: '57qxzy',
+      }),
       href: '/questions/system-design',
       icon: RiFlowChart,
       label: intl.formatMessage({
@@ -211,6 +223,11 @@ export function useQuestionFormatsData(): QuestionFormatData {
       value: 'system-design',
     },
     'user-interface': {
+      briefName: intl.formatMessage({
+        defaultMessage: 'UI components',
+        description: 'Question format',
+        id: 'mwlQkw',
+      }),
       href: '/questions/user-interface',
       icon: RiTerminalWindowLine,
       label: intl.formatMessage({
@@ -243,95 +260,6 @@ export function useQuestionFormatsData(): QuestionFormatData {
       value: 'user-interface',
     },
   };
-}
-
-export function useQuestionUserFacingFormatData() {
-  const intl = useIntl();
-  const questionUserFacingFormatData: QuestionFormatLists<QuestionUserFacingFormat> =
-    {
-      coding: {
-        description: intl.formatMessage({
-          defaultMessage: 'JS functions, algorithms, building components, etc.',
-          description: 'Description of coding questions',
-          id: 'uDUEmN',
-        }),
-        href: '/questions/javascript',
-        icon: RiCodeBoxFill,
-        label: intl.formatMessage({
-          defaultMessage: 'Coding',
-          description: 'Coding questions short title',
-          id: 'VQfbK1',
-        }),
-        longName: intl.formatMessage({
-          defaultMessage: 'Coding Questions',
-          description: 'Coding questions long title',
-          id: 'UCt/lF',
-        }),
-        searchPlaceholder: intl.formatMessage({
-          defaultMessage: 'Search coding questions',
-          description: 'Placeholder for search input of coding question list',
-          id: 'jGQnYd',
-        }),
-        themeGradient: themeGradientPurpleGreen.className,
-        value: 'coding',
-      },
-      quiz: {
-        description: intl.formatMessage({
-          defaultMessage:
-            'Trivia-style questions on essential front end know-how',
-          description: 'Description of quiz questions',
-          id: 'HDsjyG',
-        }),
-        href: '/questions/quiz',
-        icon: RiQuestionnaireLine,
-        label: intl.formatMessage({
-          defaultMessage: 'Quiz',
-          description: 'Quiz questions short title',
-          id: '7Wsapt',
-        }),
-        longName: intl.formatMessage({
-          defaultMessage: 'Quiz Questions',
-          description: 'Quiz questions long title',
-          id: 'JhZ/aF',
-        }),
-        searchPlaceholder: intl.formatMessage({
-          defaultMessage: 'Search quiz questions',
-          description: 'Placeholder for search input of quiz question list',
-          id: 'YbRLG7',
-        }),
-        themeGradient: themeGradientGreenYellow.className,
-        value: 'quiz',
-      },
-      'system-design': {
-        description: intl.formatMessage({
-          defaultMessage: 'Design patterns and architecture of front end apps',
-          description: 'Description of system design questions',
-          id: 'vqKJ0D',
-        }),
-        href: '/questions/system-design',
-        icon: RiFlowChart,
-        label: intl.formatMessage({
-          defaultMessage: 'System Design',
-          description: 'System design questions short title',
-          id: 'MF21p5',
-        }),
-        longName: intl.formatMessage({
-          defaultMessage: 'System Design Questions',
-          description: 'System design questions long title',
-          id: 'sa8B3r',
-        }),
-        searchPlaceholder: intl.formatMessage({
-          defaultMessage: 'Search system design questions',
-          description:
-            'Placeholder for search input of system design question list',
-          id: 'BgJTSk',
-        }),
-        themeGradient: themeGradientPinkPurple.className,
-        value: 'system-design',
-      },
-    };
-
-  return questionUserFacingFormatData;
 }
 
 export function useQuestionLanguagesData(): QuestionCategoryLists<QuestionLanguage> {

@@ -12,8 +12,6 @@ import { useMediaQuery } from 'usehooks-ts';
 
 import { trpc } from '~/hooks/trpc';
 
-import { useQuestionUserFacingFormatData } from '~/data/QuestionFormats';
-
 import ConfirmationDialog from '~/components/common/ConfirmationDialog';
 import { useUserProfile } from '~/components/global/UserProfileProvider';
 import type {
@@ -201,8 +199,6 @@ function Contents({
   const intl = useIntl();
   const { userProfile } = useUserProfile();
 
-  const questionFormatLists = useQuestionUserFacingFormatData();
-  const { searchPlaceholder } = questionFormatLists.coding;
   const [showFilters, setShowFilters] = useState(false);
 
   // To fetch the list specific question when user change the study list
@@ -516,7 +512,11 @@ function Contents({
                       description: 'Search placeholder for study list',
                       id: 'y6DqsF',
                     })
-                  : searchPlaceholder
+                  : intl.formatMessage({
+                      defaultMessage: 'Search questions',
+                      description: 'Search placeholder label',
+                      id: 'K4Xbup',
+                    })
               }
               placeholder={
                 currentListKey
@@ -525,7 +525,11 @@ function Contents({
                       description: 'Search placeholder for study list',
                       id: 'y6DqsF',
                     })
-                  : searchPlaceholder
+                  : intl.formatMessage({
+                      defaultMessage: 'Search questions',
+                      description: 'Search placeholder label',
+                      id: 'K4Xbup',
+                    })
               }
               size="sm"
               startIcon={RiSearchLine}

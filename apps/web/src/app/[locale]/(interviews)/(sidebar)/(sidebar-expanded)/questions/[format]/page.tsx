@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { notFound } from 'next/navigation';
 
 import type { GuideCardMetadata } from '~/components/guides/types';
 import type {
@@ -272,15 +273,20 @@ async function processParams(params: Props['params']) {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale, format } = params;
 
-  const { seoTitle, socialTitle, seoDescription } = await processParams(params);
+  try {
+    const { seoTitle, socialTitle, seoDescription } =
+      await processParams(params);
 
-  return defaultMetadata({
-    description: seoDescription,
-    locale,
-    pathname: `/interviews/${format}`,
-    socialTitle,
-    title: seoTitle,
-  });
+    return defaultMetadata({
+      description: seoDescription,
+      locale,
+      pathname: `/interviews/${format}`,
+      socialTitle,
+      title: seoTitle,
+    });
+  } catch {
+    notFound();
+  }
 }
 
 export async function generateStaticParams() {
@@ -302,8 +308,6 @@ export async function generateStaticParams() {
 export default async function Page({ params }: Props) {
   const { format } = params;
   const questionFormat = format.replace(/\/$/g, '') as QuestionFormat;
-
-  // TODO(interviews): add notFound() experience.
 
   const [
     { pageTitle, description, questions },

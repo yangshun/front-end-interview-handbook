@@ -2,11 +2,9 @@
 
 import { useState } from 'react';
 
-import {
-  useQuestionLanguagesData,
-  useQuestionUserFacingFormatData,
-} from '~/data/QuestionFormats';
+import { useQuestionLanguagesData } from '~/data/QuestionFormats';
 
+import { useIntl } from '~/components/intl';
 import TabsUnderline from '~/components/ui/Tabs/TabsUnderline';
 
 import InterviewsQuestionsCategoryPage from './InterviewsQuestionsCategoryPage';
@@ -32,26 +30,33 @@ export default function InterviewsQuestionsCategoryLanguagePage({
   questionsQuiz,
   ...props
 }: Props) {
-  const formats = useQuestionUserFacingFormatData();
+  const intl = useIntl();
   const languages = useQuestionLanguagesData();
-  const [selectedTab, setSelectedTab] = useState<QuestionUserFacingFormat>(
-    formats.coding.value,
-  );
+  const [selectedTab, setSelectedTab] =
+    useState<QuestionUserFacingFormat>('coding');
 
   const filteredQuestions =
-    selectedTab === formats.coding.value ? questionsCoding : questionsQuiz;
+    selectedTab === 'coding' ? questionsCoding : questionsQuiz;
 
   const categoryTabs = (
     <TabsUnderline
       size="sm"
       tabs={[
         {
-          label: formats.coding.label,
-          value: formats.coding.value,
+          label: intl.formatMessage({
+            defaultMessage: 'Coding',
+            description: 'Question format',
+            id: 'eJU0PN',
+          }),
+          value: 'coding',
         },
         {
-          label: formats.quiz.label,
-          value: formats.quiz.value,
+          label: intl.formatMessage({
+            defaultMessage: 'Quiz',
+            description: 'Question format',
+            id: 'doY6Fg',
+          }),
+          value: 'quiz',
         },
       ]}
       value={selectedTab}

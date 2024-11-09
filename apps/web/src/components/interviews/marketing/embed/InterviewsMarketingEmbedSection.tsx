@@ -10,12 +10,11 @@ import {
 } from 'framer-motion';
 import dynamic from 'next/dynamic';
 import { useRef, useState } from 'react';
-import { RiJavascriptFill } from 'react-icons/ri';
 import { useMediaQuery } from 'usehooks-ts';
 
 import gtag from '~/lib/gtag';
 
-import { useQuestionUserFacingFormatData } from '~/data/QuestionFormats';
+import { useQuestionFormatsData } from '~/data/QuestionFormats';
 
 import { useIntl } from '~/components/intl';
 import Container from '~/components/ui/Container';
@@ -47,33 +46,28 @@ const MarketingEmbedQuizQuestion = dynamic(
 );
 
 function useTabs() {
-  const intl = useIntl();
-  const questionFormat = useQuestionUserFacingFormatData();
+  const formats = useQuestionFormatsData();
 
   const tabs = [
     {
-      icon: questionFormat.coding.icon,
-      label: intl.formatMessage({
-        defaultMessage: 'UI / Components',
-        description: 'User interface component questions',
-        id: 'UCAeM0',
-      }),
-      value: 'user-interface',
+      icon: formats['user-interface'].icon,
+      label: formats['user-interface'].briefName,
+      value: formats['user-interface'].value,
     },
     {
-      icon: RiJavascriptFill,
-      label: 'JavaScript',
-      value: 'javascript',
+      icon: formats.javascript.icon,
+      label: formats.javascript.briefName,
+      value: formats.javascript.value,
     },
     {
-      icon: questionFormat['system-design'].icon,
-      label: questionFormat['system-design'].label,
-      value: 'system-design',
+      icon: formats['system-design'].icon,
+      label: formats['system-design'].briefName,
+      value: formats['system-design'].value,
     },
     {
-      icon: questionFormat.quiz.icon,
-      label: questionFormat.quiz.label,
-      value: 'quiz',
+      icon: formats.quiz.icon,
+      label: formats.quiz.briefName,
+      value: formats.quiz.value,
     },
   ];
 

@@ -947,6 +947,10 @@
     "defaultMessage": "Yes of course! You are encouraged to use your own customized stack to build the challenges and share your implementation and approach.",
     "description": "FAQ answer for projects platform"
   },
+  "57qxzy": {
+    "defaultMessage": "System design",
+    "description": "Question format"
+  },
   "58dfbv": {
     "defaultMessage": "Language",
     "description": "Change site language button label"
@@ -1362,10 +1366,6 @@
   "7VXf2Y": {
     "defaultMessage": "Roadmap",
     "description": "Link to roadmap page"
-  },
-  "7Wsapt": {
-    "defaultMessage": "Quiz",
-    "description": "Quiz questions short title"
   },
   "7YjBUE": {
     "defaultMessage": "Founder, CEO of GreatFrontEnd",
@@ -1935,10 +1935,6 @@
     "defaultMessage": "Challenge difficulty",
     "description": "Label for Difficulty filter for submissions list"
   },
-  "BgJTSk": {
-    "defaultMessage": "Search system design questions",
-    "description": "Placeholder for search input of system design question list"
-  },
   "BhmpD2": {
     "defaultMessage": "A structured way to approach system design questions",
     "description": "Sidebar link for front end system design interview"
@@ -2066,10 +2062,6 @@
   "ClNAgn": {
     "defaultMessage": "Sign in to track your progress",
     "description": "Subtitle of Sign In page"
-  },
-  "CmOrKy": {
-    "defaultMessage": "Tips for all questions types",
-    "description": "Features for frontend interviews playbook page"
   },
   "CqG3Op": {
     "defaultMessage": "Completed Questions",
@@ -2739,6 +2731,10 @@
     "defaultMessage": "{count} premium credits every month",
     "description": "Label for unlocks feature for month plan"
   },
+  "HCcf9D": {
+    "defaultMessage": "JavaScript coding",
+    "description": "Question format"
+  },
   "HCrCHg": {
     "defaultMessage": "Challenge status",
     "description": "Label for Status filter for projects list"
@@ -2746,10 +2742,6 @@
   "HDAMDM": {
     "defaultMessage": "Practice front end system design interview questions by describing how you'd architect UI components, apps, or games. Get detailed solutions from ex-interviewers.",
     "description": "SEO description for System design question format page"
-  },
-  "HDsjyG": {
-    "defaultMessage": "Trivia-style questions on essential front end know-how",
-    "description": "Description of quiz questions"
   },
   "HEQbsp": {
     "defaultMessage": "Created: Oldest to Newest",
@@ -3139,10 +3131,6 @@
     "defaultMessage": "Reset",
     "description": "Label for reset button for projects profile edit page"
   },
-  "JhZ/aF": {
-    "defaultMessage": "Quiz Questions",
-    "description": "Quiz questions long title"
-  },
   "JinTBm": {
     "defaultMessage": "Upvotes received",
     "description": "Number of upvotes received"
@@ -3186,6 +3174,10 @@
   "K4JOjo": {
     "defaultMessage": "Deep-dives into real-world applications",
     "description": "Features for frontend system design playbook page"
+  },
+  "K4Xbup": {
+    "defaultMessage": "Search questions",
+    "description": "Search placeholder label"
   },
   "K6BzpD": {
     "defaultMessage": "Intermediate",
@@ -3583,10 +3575,6 @@
     "defaultMessage": "Next.js, Nuxt, SvelteKit",
     "description": "Placeholder for tech stack field"
   },
-  "MF21p5": {
-    "defaultMessage": "System Design",
-    "description": "System design questions short title"
-  },
   "MHO54p": {
     "defaultMessage": "Billing",
     "description": "Profile billing tab title"
@@ -3842,6 +3830,10 @@
   "O6pifk": {
     "defaultMessage": "Coding interviews",
     "description": "Preparing by front end interview question format"
+  },
+  "OBxxHX": {
+    "defaultMessage": "Tips for all questions types",
+    "description": "Features for frontend interviews playbook page"
   },
   "OCgyrM": {
     "defaultMessage": "There are currently very few resources available for front-end system design. To address this issue, we've invested significant effort into creating the most comprehensive guide on the market - the Front-End System Design Guide.",
@@ -4847,17 +4839,9 @@
     "defaultMessage": "Yelp",
     "description": "Company name for Yelp"
   },
-  "UCAeM0": {
-    "defaultMessage": "UI / Components",
-    "description": "User interface component questions"
-  },
   "UCJ7hl": {
     "defaultMessage": "Step 1",
     "description": "Step N of multiple steps when completing a project"
-  },
-  "UCt/lF": {
-    "defaultMessage": "Coding Questions",
-    "description": "Coding questions long title"
   },
   "UISwUX": {
     "defaultMessage": "Explore {topicsCount} critical topics for front end interviews. Master them with targeted practice questions—each with detailed solutions and tests to learn from.",
@@ -5002,10 +4986,6 @@
   "VQ9c4+": {
     "defaultMessage": "Feedback received successfully.",
     "description": "Feedback widget success message."
-  },
-  "VQfbK1": {
-    "defaultMessage": "Coding",
-    "description": "Coding questions short title"
   },
   "VR6dnk": {
     "defaultMessage": "GreatFrontEnd Projects is now in BETA! Get {percentage}% off with code {promoCode}",
@@ -5530,10 +5510,6 @@
   "Yb2e9Q": {
     "defaultMessage": "HTML",
     "description": "HTML topic for quiz questions"
-  },
-  "YbRLG7": {
-    "defaultMessage": "Search quiz questions",
-    "description": "Placeholder for search input of quiz question list"
   },
   "YdQTiq": {
     "defaultMessage": "Preparation plans for all kinds of preparation timelines — <owlink>1 week</owlink>, <omlink>1 month</omlink>, <tmlink>3 months</tmlink>.",
@@ -6271,6 +6247,10 @@
     "defaultMessage": "Terms of Service",
     "description": "Title of Terms of Service page"
   },
+  "doY6Fg": {
+    "defaultMessage": "Quiz",
+    "description": "Question format"
+  },
   "doYVKC": {
     "defaultMessage": "Enter",
     "description": "Richtext placeholder"
@@ -6358,6 +6338,10 @@
   "eHjHnz": {
     "defaultMessage": "The URL where your solution is hosted. Click 'Deployment instructions' to get suggestions on recommended free hosting providers.",
     "description": "Form description"
+  },
+  "eJU0PN": {
+    "defaultMessage": "Coding",
+    "description": "Question format"
   },
   "eNCfLw": {
     "defaultMessage": "When your site URL was submitted, we automatically take screenshots of your pages. You can manually trigger retake with this button if your site has been updated",
@@ -7115,10 +7099,6 @@
     "defaultMessage": "Svelte Interview Questions",
     "description": "Svelte questions category long title"
   },
-  "jGQnYd": {
-    "defaultMessage": "Search coding questions",
-    "description": "Placeholder for search input of coding question list"
-  },
   "jGbCXt": {
     "defaultMessage": "Referencing good solutions is crucial to learning effectively. We've written our solutions with special care to include practical considerations and multiple approaches.",
     "description": "Marketing page section subtitle"
@@ -7690,6 +7670,10 @@
   "mwgF3L": {
     "defaultMessage": "Tips specific to front end",
     "description": "Features for behavioral playbook page"
+  },
+  "mwlQkw": {
+    "defaultMessage": "UI components",
+    "description": "Question format"
   },
   "myWGmV": {
     "defaultMessage": "Coupons | Profile",
@@ -8479,10 +8463,6 @@
     "defaultMessage": "Username already exists",
     "description": "Error for user already exists"
   },
-  "sa8B3r": {
-    "defaultMessage": "System Design Questions",
-    "description": "System design questions long title"
-  },
   "saFHOR": {
     "defaultMessage": "Learn new skills, improve your techniques and stay updated on latest front end trends and developments.",
     "description": "Description of GreatFrontEnd blog homepage"
@@ -8775,10 +8755,6 @@
     "defaultMessage": "Go back to sign in",
     "description": "Label of link to return to Sign In Page on Password Reset page"
   },
-  "uDUEmN": {
-    "defaultMessage": "JS functions, algorithms, building components, etc.",
-    "description": "Description of coding questions"
-  },
   "uGIcYs": {
     "defaultMessage": "Welcome to GreatFrontEnd Projects!",
     "description": "Title for Projects profile onboarding page"
@@ -9010,10 +8986,6 @@
   "vq1VAh": {
     "defaultMessage": "Reference others' approaches",
     "description": "Title of 'Reference other's approach' sub-feature in Projects marketing page"
-  },
-  "vqKJ0D": {
-    "defaultMessage": "Design patterns and architecture of front end apps",
-    "description": "Description of system design questions"
   },
   "vqL6fD": {
     "defaultMessage": "Start earning passive commissions with a great product",

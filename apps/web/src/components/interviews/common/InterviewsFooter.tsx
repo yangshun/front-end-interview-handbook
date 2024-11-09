@@ -2,7 +2,7 @@
 
 import { INTERVIEWS_REVAMP_2024 } from '~/data/FeatureFlags';
 import { useGuidesData } from '~/data/Guides';
-import { useQuestionUserFacingFormatData } from '~/data/QuestionFormats';
+import { useQuestionFormatsData } from '~/data/QuestionFormats';
 
 import { useIntl } from '~/components/intl';
 
@@ -12,7 +12,7 @@ import FooterNew from '../../global/footers/FooterNew';
 
 function useFooterNavigation() {
   const intl = useIntl();
-  const questionFormatLists = useQuestionUserFacingFormatData();
+  const formats = useQuestionFormatsData();
   const guides = useGuidesData();
 
   const navigation: FooterNavigation = [
@@ -29,19 +29,24 @@ function useFooterNavigation() {
           }),
         },
         {
-          href: questionFormatLists.coding.href,
-          key: 'questions.coding',
-          name: questionFormatLists.coding.longName,
+          href: formats.javascript.href,
+          key: formats.javascript.value,
+          name: formats.javascript.label,
         },
         {
-          href: questionFormatLists['system-design'].href,
-          key: 'questions.system_design',
-          name: questionFormatLists['system-design'].longName,
+          href: formats['user-interface'].href,
+          key: formats['user-interface'].value,
+          name: formats['user-interface'].label,
         },
         {
-          href: questionFormatLists.quiz.href,
-          key: 'questions.quiz',
-          name: questionFormatLists.quiz.longName,
+          href: formats['system-design'].href,
+          key: formats['system-design'].value,
+          name: formats['system-design'].label,
+        },
+        {
+          href: formats.quiz.href,
+          key: formats.quiz.value,
+          name: formats.quiz.label,
         },
       ],
       title: intl.formatMessage({

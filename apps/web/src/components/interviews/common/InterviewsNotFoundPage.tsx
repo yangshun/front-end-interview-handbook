@@ -2,30 +2,30 @@
 
 import { RiStarSmileFill } from 'react-icons/ri';
 
-import { useQuestionUserFacingFormatData } from '~/data/QuestionFormats';
+import { useQuestionFormatsData } from '~/data/QuestionFormats';
 
 import NotFoundPage from '../../global/error/NotFoundPage';
 
 export default function InterviewsNotFoundPage() {
-  const questionFormatLists = useQuestionUserFacingFormatData();
+  const formats = useQuestionFormatsData();
   const links = [
     {
-      description: questionFormatLists.coding.description,
-      href: questionFormatLists.coding.href,
-      icon: questionFormatLists.coding.icon,
-      title: `Prepare for ${questionFormatLists.coding.label} questions`,
+      description: formats.javascript.listingDescription,
+      href: formats.javascript.href,
+      icon: formats.javascript.icon,
+      title: formats.javascript.label,
     },
     {
-      description: questionFormatLists['system-design'].description,
-      href: questionFormatLists['system-design'].href,
-      icon: questionFormatLists['system-design'].icon,
-      title: `Prepare for ${questionFormatLists['system-design'].label} questions`,
+      description: formats['system-design'].listingDescription,
+      href: formats['system-design'].href,
+      icon: formats['system-design'].icon,
+      title: formats['system-design'].label,
     },
     {
-      description: questionFormatLists.quiz.description,
-      href: questionFormatLists.quiz.href,
-      icon: questionFormatLists.quiz.icon,
-      title: `Prepare for ${questionFormatLists.quiz.label} questions`,
+      description: formats.quiz.listingDescription,
+      href: formats.quiz.href,
+      icon: formats.quiz.icon,
+      title: formats.quiz.label,
     },
     {
       description:
