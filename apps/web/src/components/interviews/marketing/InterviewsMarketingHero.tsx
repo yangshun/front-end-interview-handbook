@@ -195,7 +195,7 @@ export default function InterviewsMarketingHeroNew({ testimonials }: Props) {
                 description="Tooltip for used by engineers"
                 id="5kWNqG"
                 values={{
-                  number: '500k+', // TODO(interviews): Used exact real numbers instead of approx value
+                  number: '500k+',
                 }}
               />
             }>

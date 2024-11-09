@@ -21,8 +21,9 @@ export default function QuestionsSubnav({ items }: Props) {
   return (
     <div
       className={clsx(
-        'relative flex h-[52px] items-center gap-6 px-6 lg:justify-end',
-        'w-full',
+        'relative',
+        'flex items-center gap-6 xl:justify-end',
+        'h-[52px] w-full px-6',
         'overflow-x-auto',
       )}>
       <div

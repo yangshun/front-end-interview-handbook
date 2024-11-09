@@ -97,9 +97,9 @@ export default function QuestionsImportProgressModal({
           isLoading={importProgressMutation.isLoading}
           label={intl.formatMessage(
             {
-              defaultMessage: 'Import({questionCount})',
+              defaultMessage: 'Import ({questionCount})',
               description: 'Label for import button on import progress dialog',
-              id: 'YRXT3j',
+              id: 'qDiloP',
             },
             {
               questionCount: selectedQuestionsSlug.length,

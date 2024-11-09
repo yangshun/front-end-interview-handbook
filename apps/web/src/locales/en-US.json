@@ -791,6 +791,10 @@
     "defaultMessage": "Learn together with like-minded others",
     "description": "Title of 'Learn together' feature in Projects marketing page"
   },
+  "3o++cB": {
+    "defaultMessage": "Search quiz questions",
+    "description": "Search placeholder"
+  },
   "3tY8mQ": {
     "defaultMessage": "Verifiable by Google Analytics",
     "description": "Number of engineers using can be verified by Google Analytics"
@@ -1850,6 +1854,10 @@
   "BAIz4v": {
     "defaultMessage": "Next challenge:",
     "description": "Label for next challenges on project submission success page"
+  },
+  "BBf20X": {
+    "defaultMessage": "Search algorithmic coding questions",
+    "description": "Search placeholder"
   },
   "BDGx19": {
     "defaultMessage": "Verifying",
@@ -5479,10 +5487,6 @@
     "defaultMessage": "Review Cashback Terms and Conditions",
     "description": "Title of legal page"
   },
-  "YRXT3j": {
-    "defaultMessage": "Import({questionCount})",
-    "description": "Label for import button on import progress dialog"
-  },
   "YS1B1R": {
     "defaultMessage": "Find submissions suggested for your review, based on your completed challenges, tech skills, and experience.",
     "description": "Page subtitle"
@@ -5554,6 +5558,10 @@
   "Z1jeeR": {
     "defaultMessage": "Congratulations on completing the guide! Sign into your account or sign up for free to save your progress!",
     "description": "Message shown when user completes a guide"
+  },
+  "Z1vsfi": {
+    "defaultMessage": "Search user interface questions",
+    "description": "Search placeholder"
   },
   "Z3Z5Fp": {
     "defaultMessage": "Review other's project code and help them improve",
@@ -6126,6 +6134,10 @@
   "cotxax": {
     "defaultMessage": "Component track",
     "description": "Label for Component Track filter for submissions list"
+  },
+  "cpvb0H": {
+    "defaultMessage": "Search JavaScript coding questions",
+    "description": "Search placeholder"
   },
   "cqEIAI": {
     "defaultMessage": "{questionTitle} | Front End Quiz Interview Questions with Solutions",
@@ -8167,6 +8179,10 @@
     "defaultMessage": "Other skills you are using which are not within the skills roadmap. Also helps community members understand more about the tech stack. If you don't see the tag you need, email us.",
     "description": "Description for tech stack input on project submit page"
   },
+  "qDiloP": {
+    "defaultMessage": "Import ({questionCount})",
+    "description": "Label for import button on import progress dialog"
+  },
   "qEo3cR": {
     "defaultMessage": "Filter by status",
     "description": "Tooltip for Status filter for projects list"
@@ -8282,6 +8298,10 @@
   "r00qIX": {
     "defaultMessage": "Requirement specs by product managers",
     "description": "Title of 'Specs by product managers' sub-feature in Projects marketing page"
+  },
+  "r0smyz": {
+    "defaultMessage": "Search system design questions",
+    "description": "Search placeholder"
   },
   "r1Pjn6": {
     "defaultMessage": "Go to project",

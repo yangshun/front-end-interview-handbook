@@ -52,6 +52,7 @@ type QuestionFormatData = Record<
     label: string;
     listingDescription: string;
     listingName: string;
+    searchPlaceholder: string;
     shortLabel: string;
     tooltip: string;
     topics?: Array<QuestionTopic>;
@@ -86,6 +87,11 @@ export function useQuestionFormatsData(): QuestionFormatData {
         defaultMessage: 'Data Structures and Algorithms Coding',
         description: 'Title for ui coding questions',
         id: 'xWBL/9',
+      }),
+      searchPlaceholder: intl.formatMessage({
+        defaultMessage: 'Search algorithmic coding questions',
+        description: 'Search placeholder',
+        id: 'BBf20X',
       }),
       shortLabel: intl.formatMessage({
         defaultMessage: 'Algo coding',
@@ -124,6 +130,11 @@ export function useQuestionFormatsData(): QuestionFormatData {
         description: 'Title for js coding questions',
         id: 'ZeUMGU',
       }),
+      searchPlaceholder: intl.formatMessage({
+        defaultMessage: 'Search JavaScript coding questions',
+        description: 'Search placeholder',
+        id: 'cpvb0H',
+      }),
       shortLabel: intl.formatMessage({
         defaultMessage: 'JS coding',
         description: 'Front end JavaScript utility functions',
@@ -160,6 +171,11 @@ export function useQuestionFormatsData(): QuestionFormatData {
         defaultMessage: 'Quiz',
         description: 'Title for quiz questions',
         id: 'gAvT0O',
+      }),
+      searchPlaceholder: intl.formatMessage({
+        defaultMessage: 'Search quiz questions',
+        description: 'Search placeholder',
+        id: '3o++cB',
       }),
       shortLabel: intl.formatMessage({
         defaultMessage: 'Quiz',
@@ -209,6 +225,11 @@ export function useQuestionFormatsData(): QuestionFormatData {
         description: 'Title for system design questions',
         id: '83BIY0',
       }),
+      searchPlaceholder: intl.formatMessage({
+        defaultMessage: 'Search system design questions',
+        description: 'Search placeholder',
+        id: 'r0smyz',
+      }),
       shortLabel: intl.formatMessage({
         defaultMessage: 'System design',
         description: 'Front end system design questions',
@@ -245,6 +266,11 @@ export function useQuestionFormatsData(): QuestionFormatData {
         defaultMessage: 'User Interface Coding',
         description: 'Title for ui coding questions',
         id: 'Yhn5fM',
+      }),
+      searchPlaceholder: intl.formatMessage({
+        defaultMessage: 'Search user interface questions',
+        description: 'Search placeholder',
+        id: 'Z1vsfi',
       }),
       shortLabel: intl.formatMessage({
         defaultMessage: 'UI coding',

@@ -14,6 +14,7 @@ import type {
   GuideCardMetadata,
 } from '~/components/guides/types';
 import useGuidesWithCompletionStatus from '~/components/guides/useGuidesWithCompletionStatus';
+import { QuestionCount } from '~/components/interviews/questions/listings/stats/QuestionCount';
 import { useIntl } from '~/components/intl';
 import Section from '~/components/ui/Heading/HeadingContext';
 import Text from '~/components/ui/Text';
@@ -139,9 +140,9 @@ export default function FrontEndInterviewPlaybookPage({
     {
       icon: RiShiningLine,
       label: intl.formatMessage({
-        defaultMessage: 'Tips  for all questions types',
+        defaultMessage: 'Tips for all questions types',
         description: 'Features for frontend interviews playbook page',
-        id: 'CmOrKy',
+        id: 'OBxxHX',
       }),
     },
     {
@@ -153,7 +154,7 @@ export default function FrontEndInterviewPlaybookPage({
           id: '2NpESj',
         },
         {
-          questionCount: 200, // TODO(interviews): need to re-look into this value
+          questionCount: QuestionCount,
         },
       ),
     },

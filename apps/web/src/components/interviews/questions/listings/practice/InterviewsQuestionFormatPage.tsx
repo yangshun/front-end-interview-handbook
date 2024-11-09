@@ -8,12 +8,15 @@ import {
   RiWindow2Line,
 } from 'react-icons/ri';
 
+import { useQuestionFormatsData } from '~/data/QuestionFormats';
+
 import type {
   FrontEndInterviewSlugType,
   GuideCardMetadata,
 } from '~/components/guides/types';
 import useGuidesWithCompletionStatus from '~/components/guides/useGuidesWithCompletionStatus';
 import InterviewsPageFeatures from '~/components/interviews/common/InterviewsPageFeatures';
+import InterviewsPageHeaderLogo from '~/components/interviews/common/InterviewsPageHeaderLogo';
 import type {
   QuestionFormat,
   QuestionMetadata,
@@ -123,13 +126,17 @@ export default function InterviewsQuestionFormatPage({
           }),
   };
 
+  const formatData = useQuestionFormatsData();
   const filterNamespace = `format:${format}`;
 
   return (
     <div className={clsx('flex flex-col', 'gap-y-8 md:gap-y-10 2xl:gap-y-12')}>
       <div>
         <div className="flex flex-col gap-4">
-          <Heading level="heading4">{title}</Heading>
+          <div className="flex items-center gap-6">
+            <InterviewsPageHeaderLogo icon={formatData[format].icon} />
+            <Heading level="heading4">{title}</Heading>
+          </div>
           <Text className="block" color="subtitle" size="body1" weight="medium">
             {description}
           </Text>
@@ -148,6 +155,7 @@ export default function InterviewsQuestionFormatPage({
           }
           questionCompletionCount={questionCompletionCount}
           questions={questions}
+          searchPlaceholder={formatData[format].searchPlaceholder}
           showSummarySection={false}
         />
         {bottomContent && (

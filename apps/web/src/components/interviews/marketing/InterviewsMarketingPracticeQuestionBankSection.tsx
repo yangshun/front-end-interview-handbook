@@ -73,10 +73,8 @@ const languageRoute: Record<QuestionLanguage, string> = {
   css: '/questions/css',
   html: '/questions/html',
   js: '/questions/js',
-  ts: '/questions/js',
+  ts: '/questions/ts',
 };
-
-// TODO(interviews): update this.
 const topicRoute: Record<QuestionTopic, string> = {
   a11y: '/questions/quiz',
   css: '/questions/css',

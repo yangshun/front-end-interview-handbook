@@ -97,7 +97,7 @@ export default function InterviewsQuestionsCategoryPage({
             </div>
             <Text
               className="block"
-              color="secondary"
+              color="subtitle"
               size="body1"
               weight="medium">
               {description}

@@ -250,7 +250,7 @@ export async function fetchQuestionsByHash(
   const questionMetadata = questionHashes.map((qnHash) => {
     const [format, slug] = unhashQuestion(qnHash);
 
-    // TODO(interviews): Make the lookup to be more efficient.
+    // TODO(interviews): Make the lookup more efficient.
     switch (format) {
       case 'algo': {
         return algoQuestions.find((question) => question.slug === slug);
