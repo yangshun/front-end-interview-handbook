@@ -12,8 +12,12 @@ import { TbBinaryTree } from 'react-icons/tb';
 
 import { SCROLL_HASH_INTERVIEWS_QUESTIONS_FORMAT } from '~/hooks/useScrollToHash';
 
+import { useQuestionFormatsData } from '~/data/QuestionFormats';
+
 import type { GuideCategory } from '~/components/guides/types';
-import useBehavioralInterviewGuidebookNavigation from '~/components/guides/useBehavioralInterviewGuidebookNavigation';
+import useBehavioralInterviewGuidebookNavigation, {
+  basePath,
+} from '~/components/guides/useBehavioralInterviewGuidebookNavigation';
 import InterviewsEntityProgress from '~/components/interviews/common/InterviewsEntityProgress';
 import type {
   QuestionMetadata,
@@ -42,25 +46,25 @@ import {
 } from '~/db/QuestionsUtils';
 
 type InterviewsQuestionFormatType = Readonly<{
-  description: string;
   href: string;
   icon: (props: React.ComponentProps<'svg'>) => JSX.Element;
+  listingDescription: string;
+  listingName: string;
   question: {
     completed: number;
     total: number;
   };
-  title: string;
   topics?: Array<QuestionTopic>;
 }>;
 
 const MAX_TOPIC = 4;
 
 function InterviewsQuestionFormatCard({
-  description,
+  listingDescription: description,
   href,
   icon: Icon,
   question,
-  title,
+  listingName: title,
   topics,
 }: InterviewsQuestionFormatType) {
   const intl = useIntl();
@@ -96,12 +100,10 @@ function InterviewsQuestionFormatCard({
             <Text size="body1" weight="medium">
               {title}
             </Text>
-
             <Text color="secondary" size="body2">
               {description}
             </Text>
           </div>
-
           <div className="flex flex-wrap items-center gap-x-8 gap-y-3">
             <InterviewsEntityProgress
               completed={completed}
@@ -109,7 +111,6 @@ function InterviewsQuestionFormatCard({
               total={total}
               type="question"
             />
-
             {topics && (
               <>
                 <span className="sr-only" id={id}>
@@ -205,137 +206,67 @@ export default function InterviewsQuestionFormatsSection({
   const behavioralGuideProgress = guidesProgress.filter(
     ({ type }) => type === 'behavioral-interview-guide',
   );
+  const formats = useQuestionFormatsData();
 
   const quizQuestionsData: InterviewsQuestionFormatType = {
-    description: intl.formatMessage({
-      defaultMessage:
-        'Short questions which test your knowledge and have clear, non-subjective answers. Commonly asked during recruiter screens or by companies which do not adopt coding rounds.',
-      description: 'Description for quiz questions',
-      id: 'tDwpNT',
-    }),
-    href: '/questions/quiz',
-    icon: RiQuestionnaireLine,
+    ...formats.quiz,
     question: {
       completed: questionsProgressAll.quiz.size,
       total: quizQuestions.length,
     },
-    title: intl.formatMessage({
-      defaultMessage: 'Quiz',
-      description: 'Title for quiz questions',
-      id: 'gAvT0O',
-    }),
-    topics: [
-      'javascript',
-      'html',
-      'performance',
-      'a11y',
-      'i18n',
-      'css',
-      'network',
-      'security',
-      'testing',
-    ],
   };
 
   const jsQuestionsData: InterviewsQuestionFormatType = {
-    description: intl.formatMessage({
-      defaultMessage:
-        'Coding questions that require you to implement functions in JavaScript, which can be utility functions found in Lodash/Underscore. a polyfill for the JavaScript language, or DOM APIs.',
-      description: 'Description for js coding questions',
-      id: 'S/DgGm',
-    }),
-    href: '/questions/javascript',
-    icon: RiJavascriptLine,
+    ...formats.javascript,
     question: {
       completed: codingQuestionsProgressAll.javascript.size,
       total: jsQuestions.length,
     },
-    title: intl.formatMessage({
-      defaultMessage: 'JavaScript Coding',
-      description: 'Title for js coding questions',
-      id: 'ZeUMGU',
-    }),
   };
 
   const uiQuestionsData: InterviewsQuestionFormatType = {
-    description: intl.formatMessage({
-      defaultMessage:
-        'Coding questions that require you to build user interfaces, whether it is a UI component, an app, or a game. Requires HTML, CSS, JavaScript, or UI frameworks.',
-      description: 'Description for ui coding questions',
-      id: 'bJYnS1',
-    }),
-    href: '/questions/user-interface',
-    icon: RiPagesLine,
+    ...formats['user-interface'],
     question: {
       completed: codingQuestionsProgressAll['user-interface'].size,
       total: uiQuestions.length,
     },
-    title: intl.formatMessage({
-      defaultMessage: 'User Interface Coding',
-      description: 'Title for ui coding questions',
-      id: 'Yhn5fM',
-    }),
   };
 
   const algoQuestionsData: InterviewsQuestionFormatType = {
-    description: intl.formatMessage({
-      defaultMessage:
-        'LeetCode-style algorithmic coding questions which evaluate your core data structures and algorithms skills.',
-      description: 'Description for ui coding questions',
-      id: 'Hph7Vz',
-    }),
-    href: '/questions/algo',
-    icon: TbBinaryTree,
+    ...formats.algo,
     question: {
       completed: codingQuestionsProgressAll.algo.size,
       total: algoQuestions.length,
     },
-    title: intl.formatMessage({
-      defaultMessage: 'Data Structures and Algorithms Coding',
-      description: 'Title for ui coding questions',
-      id: 'xWBL/9',
-    }),
   };
 
   const systemDesignQuestionsData: InterviewsQuestionFormatType = {
-    description: intl.formatMessage({
-      defaultMessage:
-        'Technical architecture design questions that assess your ability to design scalable and maintainable front end systems. Typically asked for mid to senior level positions.',
-      description: 'Description for system design questions',
-      id: 'KS2MMz',
-    }),
-    href: '/questions/system-design',
-    icon: RiTimelineView,
+    ...formats['system-design'],
     question: {
       completed: questionsProgressAll['system-design'].size,
       total: systemDesignQuestions.length,
     },
-    title: intl.formatMessage({
-      defaultMessage: 'Front End System Design',
-      description: 'Title for system design questions',
-      id: '83BIY0',
-    }),
   };
 
   const behavioralQuestionsData: InterviewsQuestionFormatType = {
-    description: intl.formatMessage({
+    href: basePath,
+    icon: RiChat4Line,
+    listingDescription: intl.formatMessage({
       defaultMessage:
         'Non-technical interview questions designed to assess your past behavior in professional settings, including your communication, teamwork, leadership and problem solving skills.',
       description: 'Description for behavioral questions',
       id: 'etjCNj',
     }),
-    href: '/prepare/behavioral',
-    icon: RiChat4Line,
+    listingName: intl.formatMessage({
+      defaultMessage: 'Behavioral',
+      description: 'Title for behavioral questions',
+      id: '9EIdsB',
+    }),
     question: {
       completed: behavioralGuideProgress.length,
       total: behavioralInterviewGuidebook.items.map((item) => item.items).flat()
         .length,
     },
-    title: intl.formatMessage({
-      defaultMessage: 'Behavioral',
-      description: 'Title for behavioral questions',
-      id: '9EIdsB',
-    }),
   };
 
   const questionFormatsData = [
@@ -369,7 +300,7 @@ export default function InterviewsQuestionFormatsSection({
       </div>
       <div className="flex flex-col gap-6">
         {questionFormatsData.map((item) => (
-          <InterviewsQuestionFormatCard {...item} key={item.title} />
+          <InterviewsQuestionFormatCard {...item} key={item.listingName} />
         ))}
       </div>
     </div>

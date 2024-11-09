@@ -21,6 +21,7 @@ import type {
   QuestionFormat,
   QuestionFramework,
   QuestionLanguage,
+  QuestionTopic,
   QuestionUserFacingFormat,
 } from '~/components/interviews/questions/common/QuestionsTypes';
 import { useIntl } from '~/components/intl';
@@ -30,24 +31,24 @@ import {
   themeGradientPurpleGreen,
 } from '~/components/ui/theme';
 
-type QuestionListLink<C> = Readonly<{
+type QuestionListLink<T> = Readonly<{
   description: string;
   href: string;
   icon: (props: React.ComponentProps<'svg'>) => JSX.Element;
-  id: C;
   label: string;
   longName: string;
   searchPlaceholder: string;
   themeGradient?: string;
+  value: T;
 }>;
 
-type QuestionFormatLists<C extends string> = Record<C, QuestionListLink<C>>;
+type QuestionFormatLists<T extends string> = Record<T, QuestionListLink<T>>;
 
-type QuestionCategoryLists<C extends string> = Record<
-  C,
-  QuestionListLink<C> &
+type QuestionCategoryLists<T extends string> = Record<
+  T,
+  QuestionListLink<T> &
     Readonly<{
-      href: `/questions/${C}`;
+      href: `/questions/${T}`;
     }>
 >;
 
@@ -56,10 +57,13 @@ type QuestionFormatData = Record<
   {
     href: `/questions/${QuestionFormat}`;
     icon: (props: React.ComponentProps<'svg'>) => JSX.Element;
-    id: QuestionFormat;
     label: string;
+    listingDescription: string;
+    listingName: string;
     shortLabel: string;
     tooltip: string;
+    topics?: Array<QuestionTopic>;
+    value: QuestionFormat;
   }
 >;
 
@@ -70,11 +74,21 @@ export function useQuestionFormatsData(): QuestionFormatData {
     algo: {
       href: '/questions/algo',
       icon: TbBinaryTree,
-      id: 'algo',
       label: intl.formatMessage({
         defaultMessage: 'Algorithmic coding',
         description: 'Data structures and algorithm questions',
         id: 'RQzpcq',
+      }),
+      listingDescription: intl.formatMessage({
+        defaultMessage:
+          'LeetCode-style algorithmic coding questions which evaluate your core data structures and algorithms skills.',
+        description: 'Description for ui coding questions',
+        id: 'Hph7Vz',
+      }),
+      listingName: intl.formatMessage({
+        defaultMessage: 'Data Structures and Algorithms Coding',
+        description: 'Title for ui coding questions',
+        id: 'xWBL/9',
       }),
       shortLabel: intl.formatMessage({
         defaultMessage: 'Algo coding',
@@ -87,15 +101,26 @@ export function useQuestionFormatsData(): QuestionFormatData {
         description: 'Description of data structures and algorithm questions',
         id: 'VjJtDL',
       }),
+      value: 'algo',
     },
     javascript: {
       href: '/questions/javascript',
       icon: RiJavascriptFill,
-      id: 'javascript',
       label: intl.formatMessage({
         defaultMessage: 'JavaScript coding',
         description: 'Front end JavaScript utility functions',
         id: 'EQXg+W',
+      }),
+      listingDescription: intl.formatMessage({
+        defaultMessage:
+          'Coding questions that require you to implement functions in JavaScript, which can be utility functions found in Lodash/Underscore. a polyfill for the JavaScript language, or DOM APIs.',
+        description: 'Description for js coding questions',
+        id: 'S/DgGm',
+      }),
+      listingName: intl.formatMessage({
+        defaultMessage: 'JavaScript Coding',
+        description: 'Title for js coding questions',
+        id: 'ZeUMGU',
       }),
       shortLabel: intl.formatMessage({
         defaultMessage: 'JS coding',
@@ -108,15 +133,26 @@ export function useQuestionFormatsData(): QuestionFormatData {
         description: 'Description of JavaScript function questions',
         id: 'Aqyo8Q',
       }),
+      value: 'javascript',
     },
     quiz: {
       href: '/questions/quiz',
       icon: RiQuestionnaireLine,
-      id: 'quiz',
       label: intl.formatMessage({
         defaultMessage: 'Quiz',
         description: 'Front end quiz questions',
         id: 'L2l9WA',
+      }),
+      listingDescription: intl.formatMessage({
+        defaultMessage:
+          'Short questions which test your knowledge and have clear, non-subjective answers. Commonly asked during recruiter screens or by companies which do not adopt coding rounds.',
+        description: 'Description for quiz questions',
+        id: 'tDwpNT',
+      }),
+      listingName: intl.formatMessage({
+        defaultMessage: 'Quiz',
+        description: 'Title for quiz questions',
+        id: 'gAvT0O',
       }),
       shortLabel: intl.formatMessage({
         defaultMessage: 'Quiz',
@@ -129,15 +165,37 @@ export function useQuestionFormatsData(): QuestionFormatData {
         description: 'Description of data structures and algorithm questions',
         id: 'aK5rZ5',
       }),
+      topics: [
+        'javascript',
+        'html',
+        'performance',
+        'a11y',
+        'i18n',
+        'css',
+        'network',
+        'security',
+        'testing',
+      ],
+      value: 'quiz',
     },
     'system-design': {
       href: '/questions/system-design',
       icon: RiFlowChart,
-      id: 'system-design',
       label: intl.formatMessage({
         defaultMessage: 'System design',
         description: 'Front end system design questions',
         id: '5n/TXe',
+      }),
+      listingDescription: intl.formatMessage({
+        defaultMessage:
+          'Technical architecture design questions that assess your ability to design scalable and maintainable front end systems. Typically asked for mid to senior level positions.',
+        description: 'Description for system design questions',
+        id: 'KS2MMz',
+      }),
+      listingName: intl.formatMessage({
+        defaultMessage: 'Front End System Design',
+        description: 'Title for system design questions',
+        id: '83BIY0',
       }),
       shortLabel: intl.formatMessage({
         defaultMessage: 'System design',
@@ -150,15 +208,26 @@ export function useQuestionFormatsData(): QuestionFormatData {
         description: 'Description of data structures and algorithm questions',
         id: 'Rz6MDM',
       }),
+      value: 'system-design',
     },
     'user-interface': {
       href: '/questions/user-interface',
       icon: RiTerminalWindowLine,
-      id: 'user-interface',
       label: intl.formatMessage({
         defaultMessage: 'User interface coding',
         description: 'Front end user interface questions',
         id: 'Iq5gAi',
+      }),
+      listingDescription: intl.formatMessage({
+        defaultMessage:
+          'Coding questions that require you to build user interfaces, whether it is a UI component, an app, or a game. Requires HTML, CSS, JavaScript, or UI frameworks.',
+        description: 'Description for ui coding questions',
+        id: 'bJYnS1',
+      }),
+      listingName: intl.formatMessage({
+        defaultMessage: 'User Interface Coding',
+        description: 'Title for ui coding questions',
+        id: 'Yhn5fM',
       }),
       shortLabel: intl.formatMessage({
         defaultMessage: 'UI coding',
@@ -171,6 +240,7 @@ export function useQuestionFormatsData(): QuestionFormatData {
         description: 'Description of front end user interface questions',
         id: 'zVBgBc',
       }),
+      value: 'user-interface',
     },
   };
 }
@@ -187,7 +257,6 @@ export function useQuestionUserFacingFormatData() {
         }),
         href: '/prepare/coding',
         icon: RiCodeBoxFill,
-        id: 'coding',
         label: intl.formatMessage({
           defaultMessage: 'Coding',
           description: 'Coding questions short title',
@@ -204,6 +273,7 @@ export function useQuestionUserFacingFormatData() {
           id: 'jGQnYd',
         }),
         themeGradient: themeGradientPurpleGreen.className,
+        value: 'coding',
       },
       quiz: {
         description: intl.formatMessage({
@@ -214,7 +284,6 @@ export function useQuestionUserFacingFormatData() {
         }),
         href: '/prepare/quiz',
         icon: RiQuestionnaireLine,
-        id: 'quiz',
         label: intl.formatMessage({
           defaultMessage: 'Quiz',
           description: 'Quiz questions short title',
@@ -231,6 +300,7 @@ export function useQuestionUserFacingFormatData() {
           id: 'YbRLG7',
         }),
         themeGradient: themeGradientGreenYellow.className,
+        value: 'quiz',
       },
       'system-design': {
         description: intl.formatMessage({
@@ -240,7 +310,6 @@ export function useQuestionUserFacingFormatData() {
         }),
         href: '/prepare/system-design',
         icon: RiFlowChart,
-        id: 'system-design',
         label: intl.formatMessage({
           defaultMessage: 'System Design',
           description: 'System design questions short title',
@@ -258,6 +327,7 @@ export function useQuestionUserFacingFormatData() {
           id: 'BgJTSk',
         }),
         themeGradient: themeGradientPinkPurple.className,
+        value: 'system-design',
       },
     };
 
@@ -277,7 +347,6 @@ export function useQuestionLanguagesData(): QuestionCategoryLists<QuestionLangua
       }),
       href: '/questions/css',
       icon: BiLogoCss3,
-      id: 'css',
       label: intl.formatMessage({
         defaultMessage: 'CSS',
         description: 'CSS questions category short title',
@@ -293,6 +362,7 @@ export function useQuestionLanguagesData(): QuestionCategoryLists<QuestionLangua
         description: 'Placeholder for search input of CSS question list',
         id: 'gLZ11S',
       }),
+      value: 'css',
     },
     html: {
       description: intl.formatMessage({
@@ -303,7 +373,6 @@ export function useQuestionLanguagesData(): QuestionCategoryLists<QuestionLangua
       }),
       href: '/questions/html',
       icon: BiLogoHtml5,
-      id: 'html',
       label: intl.formatMessage({
         defaultMessage: 'HTML',
         description: 'CSS questions category short title',
@@ -319,6 +388,7 @@ export function useQuestionLanguagesData(): QuestionCategoryLists<QuestionLangua
         description: 'Placeholder for search input of HTML question list',
         id: 'fPftCJ',
       }),
+      value: 'html',
     },
     js: {
       description: intl.formatMessage({
@@ -329,7 +399,6 @@ export function useQuestionLanguagesData(): QuestionCategoryLists<QuestionLangua
       }),
       href: '/questions/js',
       icon: BiLogoJavascript,
-      id: 'js',
       label: intl.formatMessage({
         defaultMessage: 'JavaScript',
         description: 'JavaScript questions category long title',
@@ -345,6 +414,7 @@ export function useQuestionLanguagesData(): QuestionCategoryLists<QuestionLangua
         description: 'Placeholder for search input of JavaScript question list',
         id: 'w3mqdJ',
       }),
+      value: 'js',
     },
     ts: {
       description: intl.formatMessage({
@@ -355,7 +425,6 @@ export function useQuestionLanguagesData(): QuestionCategoryLists<QuestionLangua
       }),
       href: '/questions/ts',
       icon: BiLogoTypescript,
-      id: 'ts',
       label: intl.formatMessage({
         defaultMessage: 'TypeScript',
         description: 'TypeScript questions category long title',
@@ -371,6 +440,7 @@ export function useQuestionLanguagesData(): QuestionCategoryLists<QuestionLangua
         description: 'Placeholder for search input of TypeScript question list',
         id: 'SoNXJL',
       }),
+      value: 'ts',
     },
   };
 }
@@ -387,7 +457,6 @@ export function useQuestionFrameworksData(): QuestionCategoryLists<QuestionFrame
       }),
       href: '/questions/angular',
       icon: BiLogoAngular,
-      id: 'angular',
       label: intl.formatMessage({
         defaultMessage: 'Angular',
         description: 'Angular questions category short title',
@@ -403,6 +472,7 @@ export function useQuestionFrameworksData(): QuestionCategoryLists<QuestionFrame
         description: 'Placeholder for search input of Angular question list',
         id: '3VdP4W',
       }),
+      value: 'angular',
     },
     react: {
       description: intl.formatMessage({
@@ -412,7 +482,6 @@ export function useQuestionFrameworksData(): QuestionCategoryLists<QuestionFrame
       }),
       href: '/questions/react',
       icon: BiLogoReact,
-      id: 'react',
       label: intl.formatMessage({
         defaultMessage: 'React',
         description: 'React questions category short title',
@@ -428,6 +497,7 @@ export function useQuestionFrameworksData(): QuestionCategoryLists<QuestionFrame
         description: 'Placeholder for search input of React question list',
         id: 'qSO2uW',
       }),
+      value: 'react',
     },
     svelte: {
       description: intl.formatMessage({
@@ -437,7 +507,6 @@ export function useQuestionFrameworksData(): QuestionCategoryLists<QuestionFrame
       }),
       href: '/questions/svelte',
       icon: SvelteLogo,
-      id: 'svelte',
       label: intl.formatMessage({
         defaultMessage: 'Svelte',
         description: 'Svelte questions category short title',
@@ -453,6 +522,7 @@ export function useQuestionFrameworksData(): QuestionCategoryLists<QuestionFrame
         description: 'Placeholder for search input of Svelte question list',
         id: 'tmTNK0',
       }),
+      value: 'svelte',
     },
     vanilla: {
       description: intl.formatMessage({
@@ -463,7 +533,6 @@ export function useQuestionFrameworksData(): QuestionCategoryLists<QuestionFrame
       }),
       href: '/questions/vanilla',
       icon: BiLogoHtml5,
-      id: 'vanilla',
       label: intl.formatMessage({
         defaultMessage: 'Vanilla JS',
         description: 'Vanilla JS questions category short title',
@@ -479,6 +548,7 @@ export function useQuestionFrameworksData(): QuestionCategoryLists<QuestionFrame
         description: 'Placeholder for search input of Vanilla JS question list',
         id: 'oLO2pr',
       }),
+      value: 'vanilla',
     },
     vue: {
       description: intl.formatMessage({
@@ -488,7 +558,6 @@ export function useQuestionFrameworksData(): QuestionCategoryLists<QuestionFrame
       }),
       href: '/questions/vue',
       icon: BiLogoVuejs,
-      id: 'vue',
       label: intl.formatMessage({
         defaultMessage: 'Vue',
         description: 'Vue questions category short title',
@@ -504,6 +573,7 @@ export function useQuestionFrameworksData(): QuestionCategoryLists<QuestionFrame
         description: 'Placeholder for search input of Vue question list',
         id: 'XAuXdM',
       }),
+      value: 'vue',
     },
   };
 }

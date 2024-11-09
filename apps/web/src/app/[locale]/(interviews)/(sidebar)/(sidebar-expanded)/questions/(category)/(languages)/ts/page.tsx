@@ -50,7 +50,6 @@ export default async function Page({ params }: Props) {
   ] = await Promise.all([
     fetchQuestionsListCoding(locale),
     fetchQuestionsListQuiz(locale),
-    // TODO(interviews): see if we still need this
     fetchQuestionCompletionCount(['javascript']),
   ]);
 

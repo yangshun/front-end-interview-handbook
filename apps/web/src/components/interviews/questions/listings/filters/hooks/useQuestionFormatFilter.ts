@@ -43,9 +43,9 @@ export default function useQuestionFormatFilter({
 
   let options: ReadonlyArray<{
     icon: (props: React.ComponentProps<'svg'>) => JSX.Element;
-    id: QuestionFormat;
     label: string;
     tooltip: string;
+    value: QuestionFormat;
   }> = [
     questionFormatsData.javascript,
     questionFormatsData['user-interface'],
@@ -55,10 +55,10 @@ export default function useQuestionFormatFilter({
   ];
 
   if (filter != null) {
-    options = options.filter((option) => filter(option.id));
+    options = options.filter((option) => filter(option.value));
   }
   if (order != null) {
-    options = options.slice().sort((a, b) => order(a.id, b.id));
+    options = options.slice().sort((a, b) => order(a.value, b.value));
   }
 
   const codingFormatFilterOptions: QuestionFilter<QuestionFormat> = {
@@ -84,7 +84,7 @@ export default function useQuestionFormatFilter({
     onClear: () => {
       setCodingFormatFilters(new Set());
     },
-    options: options.map((option) => ({ ...option, value: option.id })),
+    options,
     setValues: setCodingFormatFilters,
     tooltip: intl.formatMessage({
       defaultMessage:

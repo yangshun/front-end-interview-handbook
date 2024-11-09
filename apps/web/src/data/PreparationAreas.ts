@@ -48,7 +48,7 @@ export function usePreparationAreas(): PreparationAreaData {
       href: questionFormats.coding.href,
       icon: questionFormats.coding.icon,
       name: questionFormats.coding.label,
-      value: questionFormats.coding.id,
+      value: questionFormats.coding.value,
     },
     quiz: {
       description: intl.formatMessage({
@@ -60,7 +60,7 @@ export function usePreparationAreas(): PreparationAreaData {
       href: questionFormats.quiz.href,
       icon: questionFormats.quiz.icon,
       name: questionFormats.quiz.label,
-      value: questionFormats.quiz.id,
+      value: questionFormats.quiz.value,
     },
     'system-design': {
       description: intl.formatMessage({
@@ -72,7 +72,7 @@ export function usePreparationAreas(): PreparationAreaData {
       href: questionFormats['system-design'].href,
       icon: questionFormats['system-design'].icon,
       name: questionFormats['system-design'].label,
-      value: questionFormats['system-design'].id,
+      value: questionFormats['system-design'].value,
     },
   };
 }

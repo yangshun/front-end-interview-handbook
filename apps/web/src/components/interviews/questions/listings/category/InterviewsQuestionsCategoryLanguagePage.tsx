@@ -35,11 +35,11 @@ export default function InterviewsQuestionsCategoryLanguagePage({
   const formats = useQuestionUserFacingFormatData();
   const languages = useQuestionLanguagesData();
   const [selectedTab, setSelectedTab] = useState<QuestionUserFacingFormat>(
-    formats.coding.id,
+    formats.coding.value,
   );
 
   const filteredQuestions =
-    selectedTab === formats.coding.id ? questionsCoding : questionsQuiz;
+    selectedTab === formats.coding.value ? questionsCoding : questionsQuiz;
 
   const categoryTabs = (
     <TabsUnderline
@@ -47,11 +47,11 @@ export default function InterviewsQuestionsCategoryLanguagePage({
       tabs={[
         {
           label: formats.coding.label,
-          value: formats.coding.id,
+          value: formats.coding.value,
         },
         {
           label: formats.quiz.label,
-          value: formats.quiz.id,
+          value: formats.quiz.value,
         },
       ]}
       value={selectedTab}

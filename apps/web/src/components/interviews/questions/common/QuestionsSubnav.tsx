@@ -10,8 +10,8 @@ type Props = Readonly<{
   items: ReadonlyArray<{
     href: string;
     icon: (props: React.ComponentProps<'svg'>) => JSX.Element;
-    id: string;
     label: string;
+    value: string;
   }>;
 }>;
 
@@ -32,12 +32,12 @@ export default function QuestionsSubnav({ items }: Props) {
           'bg-gradient-to-r from-transparent to-neutral-200 dark:to-neutral-800',
         )}
       />
-      {items.map(({ href, label, id, icon: Icon }) => {
+      {items.map(({ href, label, value, icon: Icon }) => {
         const isActive = href === pathname;
 
         return (
           <Anchor
-            key={id}
+            key={value}
             className={clsx(
               'inline-flex gap-2 whitespace-nowrap',
               textVariants({

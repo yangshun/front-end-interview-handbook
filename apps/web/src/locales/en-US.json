@@ -8475,10 +8475,6 @@
     "defaultMessage": "Check it out",
     "description": "Button label for check it out"
   },
-  "s7CwKz": {
-    "defaultMessage": "Behavioral Interview Study Guides",
-    "description": "Behavioral interview study guides"
-  },
   "s7lhuQ": {
     "defaultMessage": "Explore study plans that help you prepare for your front end interviews regardless of time left. Efficiently focus on topics that give you the most mileage for time.",
     "description": "Page description for study plans listing"
@@ -9075,10 +9071,6 @@
     "defaultMessage": "Start earning passive commissions with a great product",
     "description": "Title of Call to action banner found at the bottom of the 'Become an Affiliate' page."
   },
-  "vrK3ev": {
-    "defaultMessage": "Prepare for Front End Behavioral Interviews",
-    "description": "Title of Behavioral Interview Preparation page"
-  },
   "vsgUOt": {
     "defaultMessage": "Copy the link to this page",
     "description": "Tooltip for copy link"
@@ -9102,10 +9094,6 @@
   "w0Gmne": {
     "defaultMessage": "Front End Interview Guidebook",
     "description": "Front End Interview Guidebook title"
-  },
-  "w0h58l": {
-    "defaultMessage": "Efficiently prepare for behavioral interviews for front end / web developers / software engineers, with guides about evaluation criteria at big tech, preparation strategies, and common behavioral interview questions.",
-    "description": "Description of Behavioral Interview Preparation page"
   },
   "w1Jqfl": {
     "defaultMessage": "Welcome back!",
