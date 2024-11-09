@@ -36,5 +36,5 @@ export default function InterviewsNotFoundPage() {
     },
   ];
 
-  return <NotFoundPage links={links} returnHref="/prepare" />;
+  return <NotFoundPage links={links} returnHref="/questions" />;
 }

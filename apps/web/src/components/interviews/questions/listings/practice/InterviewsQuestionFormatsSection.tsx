@@ -1,14 +1,6 @@
 import clsx from 'clsx';
 import { useId } from 'react';
-import {
-  RiArrowRightLine,
-  RiChat4Line,
-  RiJavascriptLine,
-  RiPagesLine,
-  RiQuestionnaireLine,
-  RiTimelineView,
-} from 'react-icons/ri';
-import { TbBinaryTree } from 'react-icons/tb';
+import { RiArrowRightLine, RiChat4Line } from 'react-icons/ri';
 
 import { SCROLL_HASH_INTERVIEWS_QUESTIONS_FORMAT } from '~/hooks/useScrollToHash';
 

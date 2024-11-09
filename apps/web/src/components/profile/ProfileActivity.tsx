@@ -51,7 +51,7 @@ function NoCompletedQuestions() {
         </Text>
         <div className="mt-6">
           <Button
-            href="/prepare/coding"
+            href="/questions"
             label={intl.formatMessage({
               defaultMessage: 'View questions',
               description: 'Label for button to view questions',

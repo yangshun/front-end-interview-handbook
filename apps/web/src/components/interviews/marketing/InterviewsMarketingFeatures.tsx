@@ -33,12 +33,12 @@ function useFeatures() {
           id="+99sZT"
           values={{
             clink: (chunks) => (
-              <Anchor href="/prepare/coding" prefetch={null}>
+              <Anchor href="/questions/javascript" prefetch={null}>
                 {chunks}
               </Anchor>
             ),
             qlink: (chunks) => (
-              <Anchor href="/prepare/quiz" prefetch={null}>
+              <Anchor href="/questions/quiz" prefetch={null}>
                 {chunks}
               </Anchor>
             ),

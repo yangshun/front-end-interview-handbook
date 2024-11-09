@@ -49,7 +49,7 @@ export default function InterviewsMarketingSystemDesignQuestionsExamples({
           </Text>
           <div>
             <Button
-              href="/prepare/system-design"
+              href="/questions/system-design"
               label={intl.formatMessage({
                 defaultMessage: 'View All Questions',
                 description:

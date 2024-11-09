@@ -56,19 +56,29 @@ const nextConfig = {
       },
       {
         source: '/prepare',
-        destination: '/questions/user-interface',
+        destination: '/interviews/dashboard',
         permanent: false,
       },
-      // {
-      //   source: '/prepare/quiz',
-      //   destination: '/questions/quiz',
-      //   permanent: false,
-      // },
-      // {
-      //   source: '/prepare/system-design',
-      //   destination: '/questions/system-design',
-      //   permanent: false,
-      // },
+      {
+        source: '/prepare/coding',
+        destination: '/questions',
+        permanent: false,
+      },
+      {
+        source: '/prepare/quiz',
+        destination: '/questions/quiz',
+        permanent: false,
+      },
+      {
+        source: '/prepare/system-design',
+        destination: '/questions/system-design',
+        permanent: false,
+      },
+      {
+        source: '/prepare/behavioral',
+        destination: '/behavioral-interview-playbook',
+        permanent: false,
+      },
       {
         source: '/questions/quiz/css/:path*',
         destination: '/questions/quiz/:path*',

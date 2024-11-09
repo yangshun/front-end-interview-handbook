@@ -31,5 +31,5 @@ export default function Error({ error }: Props) {
     });
   }, [error]);
 
-  return <ErrorMessageBlock returnHref="/prepare" />;
+  return <ErrorMessageBlock returnHref="/questions" />;
 }

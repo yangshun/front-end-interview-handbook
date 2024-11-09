@@ -11,7 +11,6 @@ import {
 } from 'react-icons/ri';
 
 import InterviewsGitHubSlider from '~/components/interviews/common/github/InterviewsGitHubSlider';
-import InterviewsDashboardContinueLearning from '~/components/interviews/dashboard/InterviewsDashboardContinueLearning';
 import InterviewsGuideCard from '~/components/interviews/guides/InterviewsGuideCard';
 import InterviewsMarketingCompaniesMarquee from '~/components/interviews/marketing/InterviewsMarketingCompaniesMarquee';
 import QuestionListingTopicFilters from '~/components/interviews/questions/listings/filters/QuestionListingTopicFilters';
@@ -243,37 +242,6 @@ export default function ScrapbookPage() {
                     setValues: setSelectedFilters,
                   }}
                   values={selectedFilters}
-                />
-              </div>
-            </UIExamplesGroup>
-            <UIExamplesGroup darkMode="horizontal">
-              <div className="inline-grid grid-cols-1">
-                <InterviewsDashboardContinueLearning
-                  items={[
-                    {
-                      completedCount: 30,
-                      durationMins: 92,
-                      href: '/dev__/scrapbook?plan=algo',
-                      questionsCount: 47,
-                      reverseGradient: true,
-                      title: 'Data structure and algorithms',
-                    },
-                    {
-                      completedCount: 25,
-                      durationMins: 92,
-                      href: '/dev__/scrapbook?plan=forms',
-                      questionsCount: 47,
-                      reverseGradient: true,
-                      title: 'Forms',
-                    },
-                    {
-                      completedCount: 15,
-                      durationMins: 92,
-                      href: '/dev__/scrapbook?plan=accessibility',
-                      questionsCount: 47,
-                      title: 'Accessibility',
-                    },
-                  ]}
                 />
               </div>
             </UIExamplesGroup>

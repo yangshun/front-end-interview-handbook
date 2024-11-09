@@ -1,11 +1,11 @@
 import type { InterviewsStudyList } from 'contentlayer/generated';
 
+import InterviewsDashboardLearningSection from '~/components/interviews/dashboard/InterviewsDashboardLearningSection';
 import {
   categorizeFocusAreas,
   FocusAreaIcons,
 } from '~/components/interviews/questions/content/study-list/FocusAreas';
 import InterviewsStudyListCard from '~/components/interviews/questions/listings/learning/InterviewsStudyListCard';
-import InterviewsDashboardLearningSection from '~/components/interviews/revamp-dashboard/InterviewsDashboardLearningSection';
 import { useIntl } from '~/components/intl';
 import Text from '~/components/ui/Text';
 

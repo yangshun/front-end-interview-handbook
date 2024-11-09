@@ -6,7 +6,7 @@ import {
   INTERVIEWS_REVAMP_BOTTOM_CONTENT,
 } from '~/data/FeatureFlags';
 
-import InterviewsDashboardPage from '~/components/interviews/revamp-dashboard/InterviewsDashboardPage';
+import InterviewsDashboardPage from '~/components/interviews/dashboard/InterviewsDashboardPage';
 
 import { fetchInterviewListingBottomContent } from '~/db/contentlayer/InterviewsListingBottomContentReader';
 import { fetchInterviewsStudyLists } from '~/db/contentlayer/InterviewsStudyListReader';

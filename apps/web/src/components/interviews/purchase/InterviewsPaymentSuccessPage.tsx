@@ -23,7 +23,7 @@ const actions = [
   },
   {
     description: 'Start practicing coding and system design questions',
-    href: '/prepare',
+    href: '/questions',
     icon: RiArrowRightCircleLine,
     title: 'Start practicing',
   },

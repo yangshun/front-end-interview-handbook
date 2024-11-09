@@ -65,7 +65,7 @@ export default function InterviewsMarketingQuizQuestionsExamples({
           </Text>
           <div>
             <Button
-              href="/prepare/quiz"
+              href="/questions/quiz"
               label={intl.formatMessage({
                 defaultMessage: 'View All Questions',
                 description:

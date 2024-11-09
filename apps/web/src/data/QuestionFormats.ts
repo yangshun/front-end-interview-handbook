@@ -255,7 +255,7 @@ export function useQuestionUserFacingFormatData() {
           description: 'Description of coding questions',
           id: 'uDUEmN',
         }),
-        href: '/prepare/coding',
+        href: '/questions/javascript',
         icon: RiCodeBoxFill,
         label: intl.formatMessage({
           defaultMessage: 'Coding',
@@ -282,7 +282,7 @@ export function useQuestionUserFacingFormatData() {
           description: 'Description of quiz questions',
           id: 'HDsjyG',
         }),
-        href: '/prepare/quiz',
+        href: '/questions/quiz',
         icon: RiQuestionnaireLine,
         label: intl.formatMessage({
           defaultMessage: 'Quiz',
@@ -308,7 +308,7 @@ export function useQuestionUserFacingFormatData() {
           description: 'Description of system design questions',
           id: 'vqKJ0D',
         }),
-        href: '/prepare/system-design',
+        href: '/questions/system-design',
         icon: RiFlowChart,
         label: intl.formatMessage({
           defaultMessage: 'System Design',

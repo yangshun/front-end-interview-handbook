@@ -187,10 +187,6 @@
     "defaultMessage": "All filters",
     "description": "Label for All Filters button for roadmap page on mobile"
   },
-  "/F80kH": {
-    "defaultMessage": "Read our <link>Front End Interview Guidebook</link>",
-    "description": "Link to front end interview guidebook"
-  },
   "/FyqAR": {
     "defaultMessage": "Translations for {locale} are in beta and may not be accurate. Do give feedback or <link>contact us</link> if you are interested in helping to translate!",
     "description": "Banner about beta locale version"
@@ -1443,10 +1439,6 @@
     "defaultMessage": "Introduction",
     "description": "Introduction to front end system design"
   },
-  "854lgU": {
-    "defaultMessage": "Strategies to tackle the wide domain of behavioral interviews, specific to SWE",
-    "description": "Description of behavioral interview preparation"
-  },
   "869F+x": {
     "defaultMessage": "{numberOfHours} hours daily",
     "description": "Number of hours needed on a daily basis. E.g. 4 hours daily"
@@ -2431,10 +2423,6 @@
     "defaultMessage": "Only Marketing track",
     "description": "Label for component tracks feature for pricing plan"
   },
-  "F+dxo7": {
-    "defaultMessage": "Recommended focus areas",
-    "description": "Title of recommended focus areas section on preparation page"
-  },
   "F09XFi": {
     "defaultMessage": "Full access to tracks & skills",
     "description": "Subtitle of premium plan CTA card"
@@ -2454,10 +2442,6 @@
   "F9KpiA": {
     "defaultMessage": "Insider tips",
     "description": "Features for company guides question listing"
-  },
-  "F9Zh+J": {
-    "defaultMessage": "{number} bite-sized focus areas that collectively cover the key topics required for front end interviews. If you prefer the topical approach, use these lists to systematically approach your preparation.",
-    "description": "Tooltip of recommended focus areas"
   },
   "FAArTO": {
     "defaultMessage": "Earn passive commissions when others purchase GreatFrontEnd through you.",
@@ -3491,10 +3475,6 @@
     "defaultMessage": "Reset password",
     "description": "Title of reset password page"
   },
-  "LU7oiZ": {
-    "defaultMessage": "Preparation areas",
-    "description": "Preparation tabs title"
-  },
   "LWEEN+": {
     "defaultMessage": "Solved by question type",
     "description": "Title for solved by question type"
@@ -3618,10 +3598,6 @@
   "MJYzca": {
     "defaultMessage": "{readingTime} minutes",
     "description": "Reading time of the article"
-  },
-  "MJyQhr": {
-    "defaultMessage": "See all",
-    "description": "Link to all focus areas page"
   },
   "MMflpy": {
     "defaultMessage": "Follow",
@@ -5279,10 +5255,6 @@
     "defaultMessage": "Delete",
     "description": "Delete button label"
   },
-  "WoqXSx": {
-    "defaultMessage": "Behavioral",
-    "description": "Title of behavioral interview preparation area"
-  },
   "Wq6liX": {
     "defaultMessage": "Complete projects, with rep awarded by difficulty",
     "description": "Description for \"Complete projects, with rep awarded by difficulty\" feature on Projects home page"
@@ -5394,10 +5366,6 @@
   "XejHfx": {
     "defaultMessage": "Implementation details",
     "description": "Section title for implementation detail"
-  },
-  "XhK6jS": {
-    "defaultMessage": "Trivia-style front end questions asked across all interview rounds",
-    "description": "Description of quiz interview preparation"
   },
   "XhL9G7": {
     "defaultMessage": "Framework / Language",
@@ -7855,10 +7823,6 @@
     "defaultMessage": "What's new",
     "description": "Latest blog articles page title"
   },
-  "nvhCqI": {
-    "defaultMessage": "We recommend these {numberOfAreas} areas of learning to prepare you holistically for your front end interview rounds. Explore guides and {count}+ practice questions here.",
-    "description": "Message in onboarding card on prepare page"
-  },
   "nxJioH": {
     "defaultMessage": "Warnings",
     "description": "Select label for warning log level in console filter"
@@ -8283,10 +8247,6 @@
     "defaultMessage": "Code in browser",
     "description": "Features for interviews questions"
   },
-  "qarlYe": {
-    "defaultMessage": "First time preparing for front end interviews?",
-    "description": "Link to front end interview guidebook"
-  },
   "qdOBuk": {
     "defaultMessage": "Practice questions",
     "description": "Section title"
@@ -8338,10 +8298,6 @@
   "r00qIX": {
     "defaultMessage": "Requirement specs by product managers",
     "description": "Title of 'Specs by product managers' sub-feature in Projects marketing page"
-  },
-  "r0Ddhm": {
-    "defaultMessage": "Preparation dashboard",
-    "description": "Preparation dashboard section title"
   },
   "r1Pjn6": {
     "defaultMessage": "Go to project",
@@ -8430,10 +8386,6 @@
   "rg3DjU": {
     "defaultMessage": "Questions to ask (end of interview)",
     "description": "Best questions to ask at the end of a behavioral interviews"
-  },
-  "rhLand": {
-    "defaultMessage": "Navigate to preparation area",
-    "description": "Tab label to navigate to another preparation page"
   },
   "riPEvL": {
     "defaultMessage": "Lifetime plan",
@@ -8714,10 +8666,6 @@
   "tbIHno": {
     "defaultMessage": "Work start date cannot be in the future. Please recheck your selections",
     "description": "Error message for invalid \"Month and year you started work as a Front End Engineer\" input on Projects profile onboarding page"
-  },
-  "tcKl41": {
-    "defaultMessage": "Design, architecture and optimization decisions for common front end apps",
-    "description": "Description of system design interview preparation"
   },
   "tdR9Fm": {
     "defaultMessage": "Automatically mark as complete when moving to the next article",
@@ -9095,10 +9043,6 @@
     "defaultMessage": "Front End Interview Guidebook",
     "description": "Front End Interview Guidebook title"
   },
-  "w1Jqfl": {
-    "defaultMessage": "Welcome back!",
-    "description": "Message greeting the user on preparation dashboard page"
-  },
   "w22UH7": {
     "defaultMessage": "JavaScript",
     "description": "JavaScript topic for quiz questions"
@@ -9274,10 +9218,6 @@
   "xR2GQR": {
     "defaultMessage": "Front End Interview Playbooks for Target Companies",
     "description": "Page title for company guides listing"
-  },
-  "xU32y0": {
-    "defaultMessage": "3 subcategories of questions: JavaScript, User Interfaces & Data Structures and Algorithms",
-    "description": "Description of coding interview preparation"
   },
   "xWAt8Q": {
     "defaultMessage": "The ultimate Front End Interview preparation platform.",
