@@ -127,7 +127,7 @@ export default function InterviewsMarketingHeroNew({ testimonials }: Props) {
             isTitleVisible ? 'opacity-100' : 'opacity-0',
           )}>
           <Button
-            href="/questions"
+            href="/interviews/dashboard"
             icon={RiArrowRightLine}
             label={intl.formatMessage({
               defaultMessage: 'Get started now',

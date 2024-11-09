@@ -27,7 +27,7 @@ export default function AuthLogoutPage() {
       const redirectPath =
         !!nextSearchParam && nextSearchParam !== window.location.pathname
           ? nextSearchParam
-          : '/questions';
+          : '/interviews/dashboard';
 
       // TODO: There's a problem with signing out not actually signing out.
       // Force the cookie to be removed and wait a while before redirecting.

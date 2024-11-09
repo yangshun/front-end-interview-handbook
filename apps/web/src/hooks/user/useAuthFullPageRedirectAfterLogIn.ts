@@ -21,7 +21,9 @@ export default function useAuthFullPageRedirectAfterLogin(
     // Redirect user to the page they were intending to
     // go to (if defined) and if that page is not the current page.
     const redirectPath =
-      !!next && next !== window.location.pathname ? next : '/questions';
+      !!next && next !== window.location.pathname
+        ? next
+        : '/interviews/dashboard';
 
     // The cookie is set on the client side, so race conditions can happen
     // where we redirect to a new page that checks for signed in status

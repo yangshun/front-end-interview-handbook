@@ -27,9 +27,9 @@ export default function CodingWorkspacePaywallPage({ metadata }: Props) {
             <QuestionPaywall />
             <Button
               addonPosition="start"
-              href="/questions"
+              href="/interviews/dashboard"
               icon={RiArrowLeftLine}
-              label="Back to questions list"
+              label="Back to dashboard"
               variant="secondary"
             />
           </div>

@@ -31,5 +31,5 @@ export default function Error({ error }: Props) {
     });
   }, [error]);
 
-  return <ErrorMessageBlock returnHref="/questions" />;
+  return <ErrorMessageBlock returnHref="/interviews/dashboard" />;
 }

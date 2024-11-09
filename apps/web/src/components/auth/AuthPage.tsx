@@ -49,7 +49,7 @@ export default function AuthPage({ view }: Props) {
           )}
           <SupabaseAuth
             initialView={view}
-            next={nextSearchParam || '/questions'}
+            next={nextSearchParam || '/interviews/dashboard'}
             preBodyContents={
               nextSearchParam === '/interviews/pricing' &&
               sourceSearchParam === 'buy_now' ? (

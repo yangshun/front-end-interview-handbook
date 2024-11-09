@@ -4835,6 +4835,10 @@
     "defaultMessage": "Resubscribe to premium to learn from user submissions for premium challenges. You have {amountLeft, plural, =0 {no premium credits} one {<bold>1</bold> premium credit} other {<bold>#</bold> premium credits}} left.",
     "description": "Subtitle for project paywall"
   },
+  "UAUsez": {
+    "defaultMessage": "Go to dashboard",
+    "description": "Go to interviews platform dashboard"
+  },
   "UBPrBM": {
     "defaultMessage": "Yelp",
     "description": "Company name for Yelp"
@@ -7418,10 +7422,6 @@
   "kwblYW": {
     "defaultMessage": "Performance",
     "description": "Performance topic for quiz questions"
-  },
-  "kx0gZt": {
-    "defaultMessage": "View questions",
-    "description": "Label for button to view questions"
   },
   "kzklH3": {
     "defaultMessage": "From beginner to advanced",

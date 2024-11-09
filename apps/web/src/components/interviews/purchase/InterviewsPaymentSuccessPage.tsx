@@ -22,8 +22,8 @@ const actions = [
     title: 'Join Premium Discord',
   },
   {
-    description: 'Start practicing coding and system design questions',
-    href: '/questions',
+    description: 'Go to dashboard and start practicing',
+    href: '/interviews/dashboard',
     icon: RiArrowRightCircleLine,
     title: 'Start practicing',
   },

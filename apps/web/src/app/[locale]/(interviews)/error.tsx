@@ -32,5 +32,5 @@ export default function InterviewsError({ error }: Props) {
     });
   }, [error]);
 
-  return <ErrorMessageBlock returnHref="/questions" />;
+  return <ErrorMessageBlock returnHref="/interviews/dashboard" />;
 }

@@ -51,11 +51,11 @@ function NoCompletedQuestions() {
         </Text>
         <div className="mt-6">
           <Button
-            href="/questions"
+            href="/interviews/dashboard"
             label={intl.formatMessage({
-              defaultMessage: 'View questions',
-              description: 'Label for button to view questions',
-              id: 'kx0gZt',
+              defaultMessage: 'Go to dashboard',
+              description: 'Go to interviews platform dashboard',
+              id: 'UAUsez',
             })}
             variant="primary"
           />
