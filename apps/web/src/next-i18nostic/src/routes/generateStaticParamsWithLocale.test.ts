@@ -96,7 +96,7 @@ describe('generateStaticParamsWithLocale', () => {
   });
 
   it('accepts a custom parameter name', () => {
-    const result = generateStaticParamsWithLocale(params, 'lang');
+    const result = generateStaticParamsWithLocale(params, true, 'lang');
 
     expect(result).toMatchInlineSnapshot(`
       [
