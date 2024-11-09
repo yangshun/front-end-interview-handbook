@@ -1,10 +1,6 @@
 import type { Metadata } from 'next';
-import { notFound } from 'next/navigation';
 
-import {
-  INTERVIEWS_REVAMP_2024,
-  INTERVIEWS_REVAMP_BOTTOM_CONTENT,
-} from '~/data/FeatureFlags';
+import { INTERVIEWS_REVAMP_BOTTOM_CONTENT } from '~/data/FeatureFlags';
 
 import InterviewsDashboardPage from '~/components/interviews/dashboard/InterviewsDashboardPage';
 
@@ -42,10 +38,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function Page({ params }: Props) {
-  if (!INTERVIEWS_REVAMP_2024) {
-    return notFound();
-  }
-
   const { locale } = params;
 
   const [

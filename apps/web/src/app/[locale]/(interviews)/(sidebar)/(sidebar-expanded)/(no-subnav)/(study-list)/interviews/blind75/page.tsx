@@ -2,10 +2,7 @@ import { notFound } from 'next/navigation';
 import type { Metadata } from 'next/types';
 import { CourseJsonLd } from 'next-seo';
 
-import {
-  INTERVIEWS_REVAMP_2024,
-  INTERVIEWS_REVAMP_BOTTOM_CONTENT,
-} from '~/data/FeatureFlags';
+import { INTERVIEWS_REVAMP_BOTTOM_CONTENT } from '~/data/FeatureFlags';
 
 import InterviewsBlind75Page from '~/components/interviews/questions/listings/learning/study-plans/InterviewsBlind75Page';
 
@@ -55,10 +52,6 @@ type Props = Readonly<{
 }>;
 
 export default async function Page({ params }: Props) {
-  if (!INTERVIEWS_REVAMP_2024) {
-    return notFound();
-  }
-
   const { locale } = params;
   const blind75 = await fetchInterviewsStudyList('blind75');
 

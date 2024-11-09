@@ -11,15 +11,11 @@ import {
   RiWindowLine,
 } from 'react-icons/ri';
 
-import { INTERVIEWS_REVAMP_2024 } from '~/data/FeatureFlags';
-
 import InterviewsListPageHeader from '~/components/interviews/common/InterviewsListPageHeader';
 import { useIntl } from '~/components/intl';
 import MDXContent from '~/components/mdx/MDXContent';
 import Divider from '~/components/ui/Divider';
-import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
-import Text from '~/components/ui/Text';
 
 import InterviewsCompanyGuideListWithFilters from './InterviewsCompanyGuideListWithFilters';
 
@@ -63,41 +59,20 @@ export default function InterviewsStudyListListPage({
 
   return (
     <div className={clsx('flex flex-col gap-y-12')}>
-      {INTERVIEWS_REVAMP_2024 ? (
-        <InterviewsListPageHeader
-          description={intl.formatMessage({
-            defaultMessage:
-              'Optimized preparation for target companies, leveraging insider tips and expertise.',
-            description: 'Description for company guides page',
-            id: 'olxZ5i',
-          })}
-          features={features}
-          title={intl.formatMessage({
-            defaultMessage: 'Company guides',
-            description: 'Title of company guides page',
-            id: 'k2qYCS',
-          })}
-        />
-      ) : (
-        <div className="flex flex-col gap-3">
-          <Heading level="heading5">
-            {intl.formatMessage({
-              defaultMessage:
-                'Company Guides for Front End Engineer Interviews',
-              description: 'Title of company guides page',
-              id: 'BvkdTb',
-            })}
-          </Heading>
-          <Text className="block" color="secondary" size="body2">
-            {intl.formatMessage({
-              defaultMessage:
-                'Explore front end engineering interview questions and preparation resources tailored to popular companies and ace your interviews.',
-              description: 'Description for company guides page',
-              id: 'hf8Jl7',
-            })}
-          </Text>
-        </div>
-      )}
+      <InterviewsListPageHeader
+        description={intl.formatMessage({
+          defaultMessage:
+            'Optimized preparation for target companies, leveraging insider tips and expertise.',
+          description: 'Description for company guides page',
+          id: 'olxZ5i',
+        })}
+        features={features}
+        title={intl.formatMessage({
+          defaultMessage: 'Company guides',
+          description: 'Title of company guides page',
+          id: 'k2qYCS',
+        })}
+      />
       <InterviewsCompanyGuideListWithFilters companyGuides={companyGuides} />
       {bottomContent && (
         <>

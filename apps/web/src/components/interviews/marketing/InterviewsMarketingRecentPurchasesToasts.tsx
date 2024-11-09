@@ -2,12 +2,10 @@
 
 import clsx from 'clsx';
 import { useEffect, useRef } from 'react';
-import { RiStarSmileFill, RiStarSmileLine } from 'react-icons/ri';
+import { RiStarSmileFill } from 'react-icons/ri';
 import { useLocalStorage, useMediaQuery } from 'usehooks-ts';
 
 import { trpc } from '~/hooks/trpc';
-
-import { INTERVIEWS_REVAMP_2024 } from '~/data/FeatureFlags';
 
 import { useToast } from '~/components/global/toasts/useToast';
 import { FormattedMessage } from '~/components/intl';
@@ -26,80 +24,6 @@ import { useUserProfile } from '../../global/UserProfileProvider';
 const ONE_DAY_IN_SECONDS = 24 * 60 * 60 * 1_000;
 const ONE_WEEK_IN_SECONDS = 7 * ONE_DAY_IN_SECONDS;
 const MARKETING_TOAST_INDEX = 'gfe:marketing.purchases.toast.index';
-
-function MarketingRecentPurchasesImpl({
-  setLastShown,
-}: Readonly<{
-  setLastShown: (lastShown: number) => void;
-}>) {
-  const { showToast, dismissToast } = useToast();
-  const lastToastId = useRef<string | null>(null);
-  const { data } = trpc.purchases.recent.useQuery();
-
-  const [index, setIndex] = useLocalStorage(MARKETING_TOAST_INDEX, 0);
-
-  useEffect(() => {
-    if (data == null) {
-      return;
-    }
-
-    if (index >= data.length) {
-      setLastShown(Date.now());
-
-      return;
-    }
-
-    const currentPurchase = data[index];
-
-    if (currentPurchase == null) {
-      return;
-    }
-
-    // Manual dismissing because the toast may still be present
-    // as Radix still shows the previous toast if it's being focused
-    // or the page is blurred.
-    if (lastToastId.current) {
-      dismissToast(lastToastId.current);
-    }
-
-    const { id } = showToast({
-      duration: 8000,
-      icon: RiStarSmileLine,
-      onClose: () => {
-        setIndex(data.length);
-        setLastShown(Date.now());
-      },
-      title: (
-        <FormattedMessage
-          defaultMessage="Someone from {country} subscribed to <link>Premium</link> recently"
-          description="Marketing toast to show that someone has subscribed"
-          id="5gqGca"
-          values={{
-            country: currentPurchase.country,
-            link: (chunks) => (
-              <Anchor href="/interviews/pricing" prefetch={null}>
-                {chunks}
-              </Anchor>
-            ),
-          }}
-        />
-      ),
-      variant: 'dark',
-    });
-
-    lastToastId.current = id;
-
-    const timer = setTimeout(() => {
-      setIndex((curr) => curr + 1);
-    }, 30000);
-
-    return () => {
-      clearTimeout(timer);
-    };
-  }, [index, data, showToast, dismissToast, setLastShown, setIndex]);
-
-  return null;
-}
 
 function RecentPurchaseToastComponent({
   onClose,
@@ -157,7 +81,7 @@ function RecentPurchaseToastComponent({
   );
 }
 
-function MarketingRecentPurchasesImplNew({
+function MarketingRecentPurchasesImpl({
   setLastShown,
 }: Readonly<{
   setLastShown: (lastShown: number) => void;
@@ -249,9 +173,5 @@ export default function InterviewsMarketingRecentPurchasesToasts() {
     localStorage.removeItem(MARKETING_TOAST_INDEX);
   }
 
-  return INTERVIEWS_REVAMP_2024 ? (
-    <MarketingRecentPurchasesImplNew setLastShown={setLastShown} />
-  ) : (
-    <MarketingRecentPurchasesImpl setLastShown={setLastShown} />
-  );
+  return <MarketingRecentPurchasesImpl setLastShown={setLastShown} />;
 }

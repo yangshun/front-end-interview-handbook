@@ -2,10 +2,7 @@ import { notFound } from 'next/navigation';
 import type { Metadata } from 'next/types';
 import { CourseJsonLd } from 'next-seo';
 
-import {
-  INTERVIEWS_REVAMP_2024,
-  INTERVIEWS_REVAMP_BOTTOM_CONTENT,
-} from '~/data/FeatureFlags';
+import { INTERVIEWS_REVAMP_BOTTOM_CONTENT } from '~/data/FeatureFlags';
 
 import InterviewsGFE75Page from '~/components/interviews/questions/listings/learning/study-plans/InterviewsGFE75Page';
 
@@ -55,10 +52,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function Page({ params }: Props) {
-  if (!INTERVIEWS_REVAMP_2024) {
-    return notFound();
-  }
-
   const { locale } = params;
   const greatfrontend75 = await fetchInterviewsStudyList('greatfrontend75');
 

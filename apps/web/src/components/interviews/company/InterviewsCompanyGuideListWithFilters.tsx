@@ -5,8 +5,6 @@ import { RiSearchLine } from 'react-icons/ri';
 
 import { trpc } from '~/hooks/trpc';
 
-import { INTERVIEWS_REVAMP_2024 } from '~/data/FeatureFlags';
-
 import InterviewsStudyListCard from '~/components/interviews/questions/listings/learning/InterviewsStudyListCard';
 import { useIntl } from '~/components/intl';
 import EmptyState from '~/components/ui/EmptyState';
@@ -44,26 +42,24 @@ export default function InterviewsStudyListListWithFilters({
 
   return (
     <div className="flex flex-col gap-8">
-      {INTERVIEWS_REVAMP_2024 && (
-        <TextInput
-          autoComplete="off"
-          isLabelHidden={true}
-          label={intl.formatMessage({
-            defaultMessage: 'Search company guides',
-            description: 'Placeholder for search input of company guides',
-            id: 'ysth0B',
-          })}
-          placeholder={intl.formatMessage({
-            defaultMessage: 'Search for your target company',
-            description: 'Placeholder for search input of company guides',
-            id: 'J7bWrf',
-          })}
-          size="sm"
-          startIcon={RiSearchLine}
-          value={query}
-          onChange={(value) => setQuery(value)}
-        />
-      )}
+      <TextInput
+        autoComplete="off"
+        isLabelHidden={true}
+        label={intl.formatMessage({
+          defaultMessage: 'Search company guides',
+          description: 'Placeholder for search input of company guides',
+          id: 'ysth0B',
+        })}
+        placeholder={intl.formatMessage({
+          defaultMessage: 'Search for your target company',
+          description: 'Placeholder for search input of company guides',
+          id: 'J7bWrf',
+        })}
+        size="sm"
+        startIcon={RiSearchLine}
+        value={query}
+        onChange={(value) => setQuery(value)}
+      />
       {isEmptyState ? (
         <div
           className={clsx(

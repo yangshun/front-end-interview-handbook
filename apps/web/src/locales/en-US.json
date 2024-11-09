@@ -1951,10 +1951,6 @@
     "defaultMessage": "Bio must contain at most {maxLength} character(s).",
     "description": "Error message when bio is too long"
   },
-  "BvkdTb": {
-    "defaultMessage": "Company Guides for Front End Engineer Interviews",
-    "description": "Title of company guides page"
-  },
   "BwHkBU": {
     "defaultMessage": "Profile",
     "description": "Link label to the profile page"
@@ -6922,10 +6918,6 @@
   "hclu+0": {
     "defaultMessage": "Front End Interview Playbook",
     "description": "Title of frontend interview playbook page"
-  },
-  "hf8Jl7": {
-    "defaultMessage": "Explore front end engineering interview questions and preparation resources tailored to popular companies and ace your interviews.",
-    "description": "Description for company guides page"
   },
   "hfba4L": {
     "defaultMessage": "{completedCount}/{totalCount} completed",

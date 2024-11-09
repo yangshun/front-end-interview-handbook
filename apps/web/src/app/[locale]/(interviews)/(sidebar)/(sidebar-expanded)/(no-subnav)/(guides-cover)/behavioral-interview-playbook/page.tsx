@@ -1,10 +1,7 @@
 import grayMatter from 'gray-matter';
-import { notFound } from 'next/navigation';
 import type { Metadata } from 'next/types';
 import path from 'path';
 import readingTime from 'reading-time';
-
-import { INTERVIEWS_REVAMP_2024 } from '~/data/FeatureFlags';
 
 import type {
   BehavioralRouteType,
@@ -118,10 +115,6 @@ async function readAllGuides({ params }: Props) {
 }
 
 export default async function Page({ params }: Props) {
-  if (!INTERVIEWS_REVAMP_2024) {
-    return notFound();
-  }
-
   const allGuides = await readAllGuides({ params });
 
   return <BehavioralInterviewPlaybookPage allGuides={allGuides} />;

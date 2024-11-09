@@ -15,8 +15,6 @@ import {
 
 import { trpc } from '~/hooks/trpc';
 
-import { INTERVIEWS_REVAMP_2024 } from '~/data/FeatureFlags';
-
 import { useUserProfile } from '~/components/global/UserProfileProvider';
 import QuestionPaywall from '~/components/interviews/questions/common/QuestionPaywall';
 import type {
@@ -207,22 +205,18 @@ export default function InterviewsCompanyGuidePage({
               title="Final round"
             />
           </CardContainer> */}
-          {INTERVIEWS_REVAMP_2024 && (
-            <Heading level="heading6">
-              {intl.formatMessage(
-                {
-                  defaultMessage:
-                    'Known {company} front end interview questions',
-                  description:
-                    'Heading for questions listing for company guides',
-                  id: '5jFQfq',
-                },
-                {
-                  company: studyList.name,
-                },
-              )}
-            </Heading>
-          )}
+          <Heading level="heading6">
+            {intl.formatMessage(
+              {
+                defaultMessage: 'Known {company} front end interview questions',
+                description: 'Heading for questions listing for company guides',
+                id: '5jFQfq',
+              },
+              {
+                company: studyList.name,
+              },
+            )}
+          </Heading>
           {canViewStudyPlans ? (
             <QuestionsStudyList
               listKey={studyList.slug}

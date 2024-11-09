@@ -1,7 +1,4 @@
-import { notFound } from 'next/navigation';
 import type { Metadata } from 'next/types';
-
-import { INTERVIEWS_REVAMP_2024 } from '~/data/FeatureFlags';
 
 import { basePath } from '~/components/guides/useBehavioralInterviewGuidebookNavigation';
 import FrontEndInterviewPlaybookPage from '~/components/interviews/guides/FrontEndInterviewPlaybookPage';
@@ -64,10 +61,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function Page({ params }: Props) {
-  if (!INTERVIEWS_REVAMP_2024) {
-    return notFound();
-  }
-
   const [allGuides, blind75, gfe75, { questions: systemDesignQuestions }] =
     await Promise.all([
       readAllFrontEndInterviewGuides(params.locale),
