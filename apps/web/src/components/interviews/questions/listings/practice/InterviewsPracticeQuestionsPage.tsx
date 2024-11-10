@@ -42,7 +42,7 @@ type Props = Readonly<{
   };
 }>;
 
-export default function InterviewsAllPracticeQuestionsPage({
+export default function InterviewsPracticeQuestionsPage({
   questions,
   bottomContent,
 }: Props) {

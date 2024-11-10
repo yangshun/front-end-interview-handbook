@@ -1,17 +1,15 @@
+import { BiLogoJavascript, BiLogoTypescript } from 'react-icons/bi';
 import {
-  BiLogoAngular,
-  BiLogoCss3,
-  BiLogoHtml5,
-  BiLogoJavascript,
-  BiLogoReact,
-  BiLogoTypescript,
-  BiLogoVuejs,
-} from 'react-icons/bi';
-import {
+  RiAngularjsFill,
+  RiCss3Fill,
   RiFlowChart,
+  RiHtml5Fill,
   RiJavascriptFill,
   RiQuestionnaireLine,
+  RiReactjsLine,
+  RiSvelteFill,
   RiTerminalWindowLine,
+  RiVuejsLine,
 } from 'react-icons/ri';
 import { TbBinaryTree } from 'react-icons/tb';
 
@@ -300,7 +298,7 @@ export function useQuestionLanguagesData(): QuestionCategoryLists<QuestionLangua
         id: 'BaJrKW',
       }),
       href: '/questions/css',
-      icon: BiLogoCss3,
+      icon: RiCss3Fill,
       label: intl.formatMessage({
         defaultMessage: 'CSS',
         description: 'CSS questions category short title',
@@ -326,7 +324,7 @@ export function useQuestionLanguagesData(): QuestionCategoryLists<QuestionLangua
         id: 'fjna4j',
       }),
       href: '/questions/html',
-      icon: BiLogoHtml5,
+      icon: RiHtml5Fill,
       label: intl.formatMessage({
         defaultMessage: 'HTML',
         description: 'CSS questions category short title',
@@ -410,7 +408,7 @@ export function useQuestionFrameworksData(): QuestionCategoryLists<QuestionFrame
         id: 'I2gPuj',
       }),
       href: '/questions/angular',
-      icon: BiLogoAngular,
+      icon: RiAngularjsFill,
       label: intl.formatMessage({
         defaultMessage: 'Angular',
         description: 'Angular questions category short title',
@@ -435,7 +433,7 @@ export function useQuestionFrameworksData(): QuestionCategoryLists<QuestionFrame
         id: 'bjGLO9',
       }),
       href: '/questions/react',
-      icon: BiLogoReact,
+      icon: RiReactjsLine,
       label: intl.formatMessage({
         defaultMessage: 'React',
         description: 'React questions category short title',
@@ -460,7 +458,7 @@ export function useQuestionFrameworksData(): QuestionCategoryLists<QuestionFrame
         id: 'NvnkrI',
       }),
       href: '/questions/svelte',
-      icon: SvelteLogo,
+      icon: RiSvelteFill,
       label: intl.formatMessage({
         defaultMessage: 'Svelte',
         description: 'Svelte questions category short title',
@@ -486,7 +484,7 @@ export function useQuestionFrameworksData(): QuestionCategoryLists<QuestionFrame
         id: 'IE+oUR',
       }),
       href: '/questions/vanilla',
-      icon: BiLogoHtml5,
+      icon: RiHtml5Fill,
       label: intl.formatMessage({
         defaultMessage: 'Vanilla JS',
         description: 'Vanilla JS questions category short title',
@@ -511,7 +509,7 @@ export function useQuestionFrameworksData(): QuestionCategoryLists<QuestionFrame
         id: 'K7BZAc',
       }),
       href: '/questions/vue',
-      icon: BiLogoVuejs,
+      icon: RiVuejsLine,
       label: intl.formatMessage({
         defaultMessage: 'Vue',
         description: 'Vue questions category short title',

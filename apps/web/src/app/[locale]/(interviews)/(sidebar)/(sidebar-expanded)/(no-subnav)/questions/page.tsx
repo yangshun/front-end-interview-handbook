@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 
-import InterviewsAllPracticeQuestionsPage from '~/components/interviews/questions/listings/practice/InterviewsAllPracticeQuestionsPage';
+import InterviewsPracticeQuestionsPage from '~/components/interviews/questions/listings/practice/InterviewsPracticeQuestionsPage';
 import { QuestionCount } from '~/components/interviews/questions/listings/stats/QuestionCount';
 
 import { fetchInterviewListingBottomContent } from '~/db/contentlayer/InterviewsListingBottomContentReader';
@@ -87,7 +87,7 @@ export default async function Page({ params }: Props) {
   });
 
   return (
-    <InterviewsAllPracticeQuestionsPage
+    <InterviewsPracticeQuestionsPage
       bottomContent={bottomContent}
       questions={{
         codingQuestions,

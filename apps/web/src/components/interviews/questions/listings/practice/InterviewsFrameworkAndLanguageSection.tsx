@@ -165,7 +165,7 @@ export default function InterviewsFrameworkAndLanguageSection({
       href: '/questions/vue',
       icon: <VueLogo className="size-6" />,
       title: 'Vue',
-      totalQuestions: 10,
+      totalQuestions: frameworkQuestions.vue.length,
     },
     {
       completedQuestions: frameworkProgress.svelte.size,

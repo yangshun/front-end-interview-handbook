@@ -374,6 +374,7 @@ export function categorizeQuestionsByFrameworkAndLanguage(
   };
 
   const language = {
+    // TODO(interviews): sync logic with detail pages.
     css: filterQuestions(allQuestions, [
       (question) =>
         question.languages.includes('css') || question.topics.includes('css'),
@@ -387,7 +388,6 @@ export function categorizeQuestionsByFrameworkAndLanguage(
         question.languages.includes('js') ||
         question.topics.includes('javascript'),
     ]),
-
     ts: filterQuestions(allQuestions, [
       (question) => question.languages.includes('ts'),
     ]),
