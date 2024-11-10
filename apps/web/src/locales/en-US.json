@@ -611,10 +611,6 @@
     "defaultMessage": "{questionCount}+ practice questions",
     "description": "Features for frontend interviews playbook page"
   },
-  "2OmfN2": {
-    "defaultMessage": "React",
-    "description": "React questions category short title"
-  },
   "2QyluM": {
     "defaultMessage": "Add proficient skills",
     "description": "Title for Add Proficient Skills task on Projects dashboard page"
@@ -1110,10 +1106,6 @@
   "64nz1e": {
     "defaultMessage": "Switching on focus mode collapses all sidebars to provide a better reading experience.",
     "description": "Label for turning focus mode on"
-  },
-  "66j+4g": {
-    "defaultMessage": "TypeScript",
-    "description": "TypeScript questions category long title"
   },
   "68EGSg": {
     "defaultMessage": "View All Questions",
@@ -3091,10 +3083,6 @@
     "defaultMessage": "Top HTML front end interview coding questions to practice, with detailed solutions and explanations by ex-interviewers at FAANG.",
     "description": "Description of Interview Questions page"
   },
-  "JPbOCy": {
-    "defaultMessage": "Vue",
-    "description": "Vue questions category short title"
-  },
   "JPr1gs": {
     "defaultMessage": "Collaboration questions",
     "description": "Title for sidebar on collaboration situation questions in behavioral interviews"
@@ -3519,10 +3507,6 @@
     "defaultMessage": "One-time use; only applicable to GreatFrontEnd Annual plan.",
     "description": "Condition for promotion"
   },
-  "LnzTdG": {
-    "defaultMessage": "CSS",
-    "description": "CSS questions category short title"
-  },
   "Lo9TQS": {
     "defaultMessage": "Questions",
     "description": "Questions list"
@@ -3802,10 +3786,6 @@
   "Nz7W/0": {
     "defaultMessage": "Oops something went wrong",
     "description": "Error message"
-  },
-  "O+NT3M": {
-    "defaultMessage": "Angular",
-    "description": "Angular questions category short title"
   },
   "O+ovnq": {
     "defaultMessage": "Seasonal Discount",
@@ -5819,10 +5799,6 @@
     "defaultMessage": "GreatFrontEnd Projects",
     "description": "GreatFrontEnd product vertical"
   },
-  "au4m82": {
-    "defaultMessage": "JavaScript",
-    "description": "JavaScript questions category long title"
-  },
   "avuK5U": {
     "defaultMessage": "Rewards Terms and Conditions",
     "description": "Title of rewards terms page"
@@ -7282,10 +7258,6 @@
   "k8wyWA": {
     "defaultMessage": "Submit your project - host your project on any service and submit your Github repo and site url",
     "description": "Step 4 of the \"How it works\" section on the Projects home page"
-  },
-  "k964KU": {
-    "defaultMessage": "HTML",
-    "description": "CSS questions category short title"
   },
   "k9LkIB": {
     "defaultMessage": "We've condensed everything info a simple strategy you can use to conquer essential interview patterns.",
@@ -9282,10 +9254,6 @@
   "y16Lzt": {
     "defaultMessage": "Find out what questions companies are asking their candidates.",
     "description": "Subtitle for company-tagged questions feature"
-  },
-  "y1y4Uh": {
-    "defaultMessage": "Svelte",
-    "description": "Svelte questions category short title"
   },
   "y2x1w7": {
     "defaultMessage": "Ex-Staff Engineer, Meta. Author of Blind 75 and Docusaurus 2",

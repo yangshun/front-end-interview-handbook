@@ -4,6 +4,11 @@ import { RiArrowRightLine } from 'react-icons/ri';
 
 import { SCROLL_HASH_INTERVIEWS_QUESTIONS_FRAMEWORK_LANGUAGE } from '~/hooks/useScrollToHash';
 
+import {
+  useQuestionFrameworksData,
+  useQuestionLanguagesData,
+} from '~/data/QuestionFormats';
+
 import AngularLogo from '~/components/icons/AngularLogo';
 import CSS3Logo from '~/components/icons/CSS3Logo';
 import HTML5Logo from '~/components/icons/HTML5Logo';
@@ -121,6 +126,8 @@ export default function InterviewsFrameworkAndLanguageSection({
 }: Props) {
   const intl = useIntl();
   const { frameworkQuestions, languageQuestions } = questions;
+  const languagesData = useQuestionLanguagesData();
+  const frameworksData = useQuestionFrameworksData();
 
   const { framework: frameworkProgress, language: languageProgress } = useMemo(
     () =>
@@ -134,9 +141,9 @@ export default function InterviewsFrameworkAndLanguageSection({
   const frameworks: ReadonlyArray<FrameworkCardProps> = [
     {
       completedQuestions: languageProgress.js.size,
-      href: '/questions/js',
+      href: languagesData.js.href,
       icon: <JavaScriptLogo className="size-6" />,
-      title: 'JavaScript',
+      title: languagesData.js.label,
       titleAddOnText: intl.formatMessage({
         defaultMessage: 'TypeScript supported',
         description: 'JavaScript questions can be done in TypeScript',
@@ -146,53 +153,53 @@ export default function InterviewsFrameworkAndLanguageSection({
     },
     {
       completedQuestions: frameworkProgress.react.size,
-      href: '/questions/react',
+      href: frameworksData.react.href,
       icon: (
         <ReactLogo className="size-6" style={{ fill: 'rgb(20, 158, 202)' }} />
       ),
-      title: 'React',
+      title: frameworksData.react.label,
       totalQuestions: frameworkQuestions.react.length,
     },
     {
       completedQuestions: frameworkProgress.angular.size,
-      href: '/questions/angular',
+      href: frameworksData.angular.href,
       icon: <AngularLogo className="size-6" />,
-      title: 'Angular',
+      title: frameworksData.react.label,
       totalQuestions: frameworkQuestions.angular.length,
     },
     {
       completedQuestions: frameworkProgress.vue.size,
-      href: '/questions/vue',
+      href: frameworksData.vue.href,
       icon: <VueLogo className="size-6" />,
-      title: 'Vue',
+      title: frameworksData.vue.label,
       totalQuestions: frameworkQuestions.vue.length,
     },
     {
       completedQuestions: frameworkProgress.svelte.size,
-      href: '/questions/svelte',
+      href: frameworksData.svelte.href,
       icon: <SvelteLogo className="size-6" />,
-      title: 'Svelte',
+      title: frameworksData.svelte.label,
       totalQuestions: frameworkQuestions.svelte.length,
     },
     {
       completedQuestions: languageProgress.html.size,
-      href: '/questions/html',
+      href: languagesData.html.href,
       icon: <HTML5Logo className="size-6" />,
-      title: 'HTML',
+      title: languagesData.html.label,
       totalQuestions: languageQuestions.html.length,
     },
     {
       completedQuestions: languageProgress.css.size,
-      href: '/questions/css',
+      href: languagesData.css.href,
       icon: <CSS3Logo className="size-6" />,
-      title: 'CSS',
+      title: languagesData.css.label,
       totalQuestions: languageQuestions.css.length,
     },
     {
       completedQuestions: languageProgress.ts.size,
-      href: '/questions/js',
+      href: languagesData.ts.href,
       icon: <TypeScriptLogo className="size-6" />,
-      title: 'TypeScript',
+      title: languagesData.html.label,
       totalQuestions: languageQuestions.ts.length,
     },
   ];

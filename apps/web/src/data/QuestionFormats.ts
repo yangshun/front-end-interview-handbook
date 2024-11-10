@@ -13,7 +13,6 @@ import {
 } from 'react-icons/ri';
 import { TbBinaryTree } from 'react-icons/tb';
 
-import SvelteLogo from '~/components/icons/SvelteLogo';
 import type {
   QuestionFormat,
   QuestionFramework,
@@ -299,11 +298,7 @@ export function useQuestionLanguagesData(): QuestionCategoryLists<QuestionLangua
       }),
       href: '/questions/css',
       icon: RiCss3Fill,
-      label: intl.formatMessage({
-        defaultMessage: 'CSS',
-        description: 'CSS questions category short title',
-        id: 'LnzTdG',
-      }),
+      label: 'CSS',
       longName: intl.formatMessage({
         defaultMessage: 'CSS Interview Questions',
         description: 'CSS questions category long title',
@@ -325,11 +320,7 @@ export function useQuestionLanguagesData(): QuestionCategoryLists<QuestionLangua
       }),
       href: '/questions/html',
       icon: RiHtml5Fill,
-      label: intl.formatMessage({
-        defaultMessage: 'HTML',
-        description: 'CSS questions category short title',
-        id: 'k964KU',
-      }),
+      label: 'HTML',
       longName: intl.formatMessage({
         defaultMessage: 'HTML Interview Questions',
         description: 'HTML questions category long title',
@@ -351,11 +342,7 @@ export function useQuestionLanguagesData(): QuestionCategoryLists<QuestionLangua
       }),
       href: '/questions/js',
       icon: BiLogoJavascript,
-      label: intl.formatMessage({
-        defaultMessage: 'JavaScript',
-        description: 'JavaScript questions category long title',
-        id: 'au4m82',
-      }),
+      label: 'JavaScript',
       longName: intl.formatMessage({
         defaultMessage: 'JavaScript Interview Questions',
         description: 'JavaScript questions category long title',
@@ -377,11 +364,7 @@ export function useQuestionLanguagesData(): QuestionCategoryLists<QuestionLangua
       }),
       href: '/questions/ts',
       icon: BiLogoTypescript,
-      label: intl.formatMessage({
-        defaultMessage: 'TypeScript',
-        description: 'TypeScript questions category long title',
-        id: '66j+4g',
-      }),
+      label: 'TypeScript',
       longName: intl.formatMessage({
         defaultMessage: 'TypeScript Interview Questions',
         description: 'TypeScript questions category long title',
@@ -409,11 +392,7 @@ export function useQuestionFrameworksData(): QuestionCategoryLists<QuestionFrame
       }),
       href: '/questions/angular',
       icon: RiAngularjsFill,
-      label: intl.formatMessage({
-        defaultMessage: 'Angular',
-        description: 'Angular questions category short title',
-        id: 'O+NT3M',
-      }),
+      label: 'Angular',
       longName: intl.formatMessage({
         defaultMessage: 'Angular Interview Questions',
         description: 'Angular questions category long title',
@@ -434,11 +413,7 @@ export function useQuestionFrameworksData(): QuestionCategoryLists<QuestionFrame
       }),
       href: '/questions/react',
       icon: RiReactjsLine,
-      label: intl.formatMessage({
-        defaultMessage: 'React',
-        description: 'React questions category short title',
-        id: '2OmfN2',
-      }),
+      label: 'React',
       longName: intl.formatMessage({
         defaultMessage: 'React Interview Questions',
         description: 'React questions category long title',
@@ -459,11 +434,7 @@ export function useQuestionFrameworksData(): QuestionCategoryLists<QuestionFrame
       }),
       href: '/questions/svelte',
       icon: RiSvelteFill,
-      label: intl.formatMessage({
-        defaultMessage: 'Svelte',
-        description: 'Svelte questions category short title',
-        id: 'y1y4Uh',
-      }),
+      label: 'Svelte',
       longName: intl.formatMessage({
         defaultMessage: 'Svelte Interview Questions',
         description: 'Svelte questions category long title',
@@ -510,11 +481,7 @@ export function useQuestionFrameworksData(): QuestionCategoryLists<QuestionFrame
       }),
       href: '/questions/vue',
       icon: RiVuejsLine,
-      label: intl.formatMessage({
-        defaultMessage: 'Vue',
-        description: 'Vue questions category short title',
-        id: 'JPbOCy',
-      }),
+      label: 'Vue',
       longName: intl.formatMessage({
         defaultMessage: 'Vue Interview Questions',
         description: 'Vue questions category long title',
