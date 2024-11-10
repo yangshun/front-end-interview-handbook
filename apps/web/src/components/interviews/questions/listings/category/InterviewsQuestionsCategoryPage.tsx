@@ -11,7 +11,7 @@ import {
 import {
   useQuestionFrameworksData,
   useQuestionLanguagesData,
-} from '~/data/QuestionFormats';
+} from '~/data/QuestionLists';
 
 import InterviewsGitHubSlider from '~/components/interviews/common/github/InterviewsGitHubSlider';
 import InterviewsPageFeatures from '~/components/interviews/common/InterviewsPageFeatures';

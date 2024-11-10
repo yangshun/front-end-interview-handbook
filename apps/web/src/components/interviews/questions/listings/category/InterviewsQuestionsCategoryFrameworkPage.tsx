@@ -1,6 +1,6 @@
 'use client';
 
-import { useQuestionFrameworksData } from '~/data/QuestionFormats';
+import { useQuestionFrameworksData } from '~/data/QuestionLists';
 
 import InterviewsQuestionsCategoryPage from './InterviewsQuestionsCategoryPage';
 import type { QuestionFramework } from '../../common/QuestionsTypes';

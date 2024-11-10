@@ -4,7 +4,7 @@ import { RiArrowRightLine, RiChat4Line } from 'react-icons/ri';
 
 import { SCROLL_HASH_INTERVIEWS_QUESTIONS_FORMAT } from '~/hooks/useScrollToHash';
 
-import { useQuestionFormatsData } from '~/data/QuestionFormats';
+import { useQuestionFormatsData } from '~/data/QuestionLists';
 
 import type { GuideCategory } from '~/components/guides/types';
 import useBehavioralInterviewGuidebookNavigation, {

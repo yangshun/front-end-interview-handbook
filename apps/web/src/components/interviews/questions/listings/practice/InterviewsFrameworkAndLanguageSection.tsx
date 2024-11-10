@@ -7,7 +7,7 @@ import { SCROLL_HASH_INTERVIEWS_QUESTIONS_FRAMEWORK_LANGUAGE } from '~/hooks/use
 import {
   useQuestionFrameworksData,
   useQuestionLanguagesData,
-} from '~/data/QuestionFormats';
+} from '~/data/QuestionLists';
 
 import AngularLogo from '~/components/icons/AngularLogo';
 import CSS3Logo from '~/components/icons/CSS3Logo';

@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import { RiArrowRightUpLine } from 'react-icons/ri';
 
-import { useQuestionFrameworksData } from '~/data/QuestionFormats';
+import { useQuestionFrameworksData } from '~/data/QuestionLists';
 
 import type {
   QuestionFramework,

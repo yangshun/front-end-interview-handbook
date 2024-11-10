@@ -14,7 +14,7 @@ import { useMediaQuery } from 'usehooks-ts';
 
 import gtag from '~/lib/gtag';
 
-import { useQuestionFormatsData } from '~/data/QuestionFormats';
+import { useQuestionFormatsData } from '~/data/QuestionLists';
 
 import { useIntl } from '~/components/intl';
 import Container from '~/components/ui/Container';

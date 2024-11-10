@@ -2,7 +2,7 @@ import { useState } from 'react';
 
 import useSessionStorageForSets from '~/hooks/useSessionStorageForSets';
 
-import { useQuestionFormatsData } from '~/data/QuestionFormats';
+import { useQuestionFormatsData } from '~/data/QuestionLists';
 
 import type { QuestionFormat } from '~/components/interviews/questions/common/QuestionsTypes';
 import { useIntl } from '~/components/intl';

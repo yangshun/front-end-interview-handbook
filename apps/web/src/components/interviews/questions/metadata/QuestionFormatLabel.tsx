@@ -2,7 +2,7 @@ import clsx from 'clsx';
 import { useId } from 'react';
 import React from 'react';
 
-import { useQuestionFormatsData } from '~/data/QuestionFormats';
+import { useQuestionFormatsData } from '~/data/QuestionLists';
 
 import type { QuestionFormat } from '~/components/interviews/questions/common/QuestionsTypes';
 import type { TextSize } from '~/components/ui/Text';

@@ -3,7 +3,7 @@
 import {
   useQuestionFrameworksData,
   useQuestionLanguagesData,
-} from '~/data/QuestionFormats';
+} from '~/data/QuestionLists';
 
 import QuestionsSubnav from '~/components/interviews/questions/common/QuestionsSubnav';
 import Container from '~/components/ui/Container';

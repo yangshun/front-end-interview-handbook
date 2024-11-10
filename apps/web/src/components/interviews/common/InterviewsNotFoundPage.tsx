@@ -2,7 +2,7 @@
 
 import { RiStarSmileFill } from 'react-icons/ri';
 
-import { useQuestionFormatsData } from '~/data/QuestionFormats';
+import { useQuestionFormatsData } from '~/data/QuestionLists';
 
 import NotFoundPage from '../../global/error/NotFoundPage';
 
