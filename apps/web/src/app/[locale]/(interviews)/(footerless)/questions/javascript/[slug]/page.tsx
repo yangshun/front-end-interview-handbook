@@ -38,8 +38,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         {
           defaultMessage:
             '{questionTitle} | JavaScript Front End Interview Questions with Solutions',
-          description: 'Title of Javascript Front End interview questions page',
-          id: 'wqIwvv',
+          description: 'Title of JavaScript Front End interview questions page',
+          id: 'Vz/EyQ',
         },
         { questionTitle: question.metadata.title },
       ),

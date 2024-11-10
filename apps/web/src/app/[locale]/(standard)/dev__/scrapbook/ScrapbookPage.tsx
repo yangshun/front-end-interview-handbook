@@ -170,7 +170,7 @@ export default function ScrapbookPage() {
                       title: 'Object Oriented Programming',
                     },
                   ],
-                  title: 'Javascript Interview guides',
+                  title: 'JavaScript Interview guides',
                 }}
               />
             </UIExamplesGroup>

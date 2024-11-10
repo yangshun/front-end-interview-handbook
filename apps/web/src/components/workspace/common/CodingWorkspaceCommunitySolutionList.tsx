@@ -36,7 +36,7 @@ export default function CodingWorkspaceCommunitySolutionList({
 }: Props) {
   const { openCommunitySolution } = useCodingWorkspaceContext();
 
-  const isJavascript = (
+  const isJavaScript = (
     _:
       | QuestionJavaScriptCommunitySolution
       | QuestionUserInterfaceCommunitySolution,
@@ -87,8 +87,7 @@ export default function CodingWorkspaceCommunitySolutionList({
                       </Text>
                       <span className="absolute inset-0" />
                     </button>
-
-                    {isJavascript(solution) ? (
+                    {isJavaScript(solution) ? (
                       <QuestionLanguages
                         languages={[staticLowerCase(solution.language)]}
                       />

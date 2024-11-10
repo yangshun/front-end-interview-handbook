@@ -80,32 +80,32 @@ async function processParams(params: Props['params']) {
       description: intl.formatMessage({
         defaultMessage:
           'Implement JavaScript functions like utility methods, polyfills, or DOM APIs.',
-        description: 'Javascript coding question format page description',
-        id: 'rHrbfF',
+        description: 'JavaScript coding question format page description',
+        id: '1a25kg',
       }),
       pageTitle: intl.formatMessage({
         defaultMessage: 'JavaScript Coding',
-        description: 'Page title for Javascript coding question format',
-        id: '8viqEG',
+        description: 'Page title for JavaScript coding question format',
+        id: 'XjVpRD',
       }),
       seoDescription: intl.formatMessage({
         defaultMessage:
           'Practice JavaScript coding interview questions by implementing utility functions like throttle or polyfills. Code in-browser with solutions from ex-interviewers.',
         description:
-          'SEO description for Javascript coding question format page',
-        id: 'yC3EoK',
+          'SEO description for JavaScript coding question format page',
+        id: '+NbHNn',
       }),
       seoTitle: () =>
         intl.formatMessage({
           defaultMessage:
             'Practice JavaScript Coding Interview Questions with Solutions',
-          description: 'SEO title for Javascript coding question format page',
-          id: 'Rrs+sq',
+          description: 'SEO title for JavaScript coding question format page',
+          id: 'CJmMgh',
         }),
       socialTitle: intl.formatMessage({
         defaultMessage: 'JavaScript Coding Interview Questions | GreatFrontEnd',
-        description: 'Social title for Javascript coding question format page',
-        id: 'p53i2S',
+        description: 'Social title for JavaScript coding question format page',
+        id: 'o1/80a',
       }),
     },
     quiz: {

@@ -101,23 +101,23 @@ export default function InterviewsQuestionFormatPage({
       format === 'javascript'
         ? intl.formatMessage({
             defaultMessage:
-              'Explore our starter guides to get a solid grasp of Javascript interview prep before jumping into practice.',
+              'Explore our starter guides to get a solid grasp of JavaScript interview prep before jumping into practice.',
             description: 'Description for guide card',
-            id: 'Mx+po8',
+            id: '9uzsoQ',
           })
         : intl.formatMessage({
             defaultMessage:
-              'Explore our starter guides to get a solid grasp of Algorithms interview prep before jumping into practice.',
+              'Explore our starter guides to get a solid grasp of algorithms interview prep before jumping into practice.',
             description: 'Description for guide card',
-            id: '7Qdtf9',
+            id: '7Z4BzJ',
           }),
     items: guidesWithCompletionStatus,
     title:
       format === 'javascript'
         ? intl.formatMessage({
-            defaultMessage: 'Javascript Interview Guides',
+            defaultMessage: 'JavaScript Interview Guides',
             description: 'Title for guide card',
-            id: 'Kxs/q8',
+            id: '0ljSJ7',
           })
         : intl.formatMessage({
             defaultMessage: 'Algorithms Interview Guides',

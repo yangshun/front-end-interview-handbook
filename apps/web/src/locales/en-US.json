@@ -43,6 +43,10 @@
     "defaultMessage": "{questionTitle} | Algorithms Front End Interview Questions with Solutions",
     "description": "Title of Algorithms Front End interview questions page"
   },
+  "+NbHNn": {
+    "defaultMessage": "Practice JavaScript coding interview questions by implementing utility functions like throttle or polyfills. Code in-browser with solutions from ex-interviewers.",
+    "description": "SEO description for JavaScript coding question format page"
+  },
   "+OVTKu": {
     "defaultMessage": "Billing | Profile",
     "description": "Title of Profile Billing page"
@@ -387,6 +391,10 @@
     "defaultMessage": "Coming soon",
     "description": "Front end system design questions that are coming soon"
   },
+  "0ljSJ7": {
+    "defaultMessage": "JavaScript Interview Guides",
+    "description": "Title for guide card"
+  },
   "0p6dRS": {
     "defaultMessage": "Practice makes perfect. With our collection of over {count} front end questions, you get all-rounded coverage for your preparation — HTML, CSS, JavaScript, algorithms, DOM APIs, accessibility, performance, front end fundamentals, and more.",
     "description": "Title of question examples section on getting started page"
@@ -486,6 +494,10 @@
   "1XjF3L": {
     "defaultMessage": "Medium",
     "description": "Label for medium question importance"
+  },
+  "1a25kg": {
+    "defaultMessage": "Implement JavaScript functions like utility methods, polyfills, or DOM APIs.",
+    "description": "JavaScript coding question format page description"
   },
   "1b+8YV": {
     "defaultMessage": "Read more",
@@ -706,10 +718,6 @@
   "3KGbuG": {
     "defaultMessage": "Never waste your time building one-off projects",
     "description": "Title for \"Never waste your time building one-off projects\" feature marketing section on Projects home page"
-  },
-  "3NSzVn": {
-    "defaultMessage": "Premium",
-    "description": "Premium label for free vs premium question breakdown in question listing"
   },
   "3OlyG+": {
     "defaultMessage": "Filters",
@@ -1335,10 +1343,6 @@
     "defaultMessage": "Know your fundamentals",
     "description": "Label for an example list of Quiz Questions on marketing pages"
   },
-  "7Qdtf9": {
-    "defaultMessage": "Explore our starter guides to get a solid grasp of Algorithms interview prep before jumping into practice.",
-    "description": "Description for guide card"
-  },
   "7Rr7Yf": {
     "defaultMessage": "{minutes} min read",
     "description": "Blog read duration label"
@@ -1366,6 +1370,10 @@
   "7YjBUE": {
     "defaultMessage": "Founder, CEO of GreatFrontEnd",
     "description": "Position of Yangshun"
+  },
+  "7Z4BzJ": {
+    "defaultMessage": "Explore our starter guides to get a solid grasp of algorithms interview prep before jumping into practice.",
+    "description": "Description for guide card"
   },
   "7ZjmR2": {
     "defaultMessage": "Implementation must contain at least {minLength} character(s).",
@@ -1539,10 +1547,6 @@
     "defaultMessage": "All questions come with solutions written by ex-FAANG Senior Front End Engineers.",
     "description": "Subtitle for high quality solutions feature"
   },
-  "8viqEG": {
-    "defaultMessage": "JavaScript Coding",
-    "description": "Page title for Javascript coding question format"
-  },
   "8vjTks": {
     "defaultMessage": "Select current line",
     "description": "Text describing command to select current line in the coding workspace shortcuts menu"
@@ -1686,6 +1690,10 @@
   "9uTTIS": {
     "defaultMessage": "Practice front end interview questions requiring you to build UI with HTML, CSS, JavaScript/TypeScript, or React, Angular, and Vue. Solutions and tests from ex-interviewers.",
     "description": "SEO description for UI question format page"
+  },
+  "9uzsoQ": {
+    "defaultMessage": "Explore our starter guides to get a solid grasp of JavaScript interview prep before jumping into practice.",
+    "description": "Description for guide card"
   },
   "9xFHNn": {
     "defaultMessage": "{questionTitle} | Front End System Design Question",
@@ -2002,6 +2010,10 @@
   "CCiMOz": {
     "defaultMessage": "We recommend well-rated submissions using the same stack for your reference",
     "description": "Description for \"Learn from good code\" item in Expected Support section on Projects project page"
+  },
+  "CJmMgh": {
+    "defaultMessage": "Practice JavaScript Coding Interview Questions with Solutions",
+    "description": "SEO title for JavaScript coding question format page"
   },
   "CNjnh0": {
     "defaultMessage": "Not written for this question.",
@@ -3335,10 +3347,6 @@
     "defaultMessage": "Uber",
     "description": "Company name for Uber"
   },
-  "Kxs/q8": {
-    "defaultMessage": "Javascript Interview Guides",
-    "description": "Title for guide card"
-  },
   "L+jocg": {
     "defaultMessage": "View plans",
     "description": "View pricing plans"
@@ -3466,10 +3474,6 @@
   "LXcvcX": {
     "defaultMessage": "Ok",
     "description": "Ok label"
-  },
-  "LYaH0T": {
-    "defaultMessage": "Free",
-    "description": "Free label for free vs premium question breakdown in question listing"
   },
   "Lc/pH5": {
     "defaultMessage": "We will begin tracking your progress on this study list.",
@@ -3654,10 +3658,6 @@
   "MwvhTF": {
     "defaultMessage": "See whole component track",
     "description": "Label for \"See whole component track\" button in Component track accordion"
-  },
-  "Mx+po8": {
-    "defaultMessage": "Explore our starter guides to get a solid grasp of Javascript interview prep before jumping into practice.",
-    "description": "Description for guide card"
   },
   "MxvduC": {
     "defaultMessage": "Import the progress of {questionCount} previously completed {questionCount, plural, one {question} other {questions}}",
@@ -4435,10 +4435,6 @@
     "defaultMessage": "An account is required to purchase premium",
     "description": "Title of alert requesting user to create an account to purchase premium plans"
   },
-  "Rrs+sq": {
-    "defaultMessage": "Practice JavaScript Coding Interview Questions with Solutions",
-    "description": "SEO title for Javascript coding question format page"
-  },
   "RsPxKM": {
     "defaultMessage": "Superscript",
     "description": "Label for superscript"
@@ -5067,6 +5063,10 @@
     "defaultMessage": "Read the project details",
     "description": "Instruction for projects"
   },
+  "Vz/EyQ": {
+    "defaultMessage": "{questionTitle} | JavaScript Front End Interview Questions with Solutions",
+    "description": "Title of JavaScript Front End interview questions page"
+  },
   "W+3cZW": {
     "defaultMessage": "Follow us on X",
     "description": "Label for join X"
@@ -5342,6 +5342,10 @@
   "XjIm4S": {
     "defaultMessage": "Oldest first",
     "description": "Sorting option for blog list"
+  },
+  "XjVpRD": {
+    "defaultMessage": "JavaScript Coding",
+    "description": "Page title for JavaScript coding question format"
   },
   "XjwGKd": {
     "defaultMessage": "Are you sure you want to delete this comment?",
@@ -5818,6 +5822,10 @@
   "ayZIpd": {
     "defaultMessage": "Medium",
     "description": "Medium importance question"
+  },
+  "azDVOg": {
+    "defaultMessage": "Free",
+    "description": "Free question"
   },
   "b/4l5Z": {
     "defaultMessage": "Subscriptions are automatically renewed and you will be charged again then. You may cancel your subscription anytime via the Stripe billing portal.",
@@ -7715,6 +7723,10 @@
     "defaultMessage": "Author",
     "description": "Author of the blog"
   },
+  "nS1n8l": {
+    "defaultMessage": "Premium",
+    "description": "Premium question"
+  },
   "nSDLrS": {
     "defaultMessage": "More settings",
     "description": "Button label to show more settings for the console in the coding workspace"
@@ -7798,6 +7810,10 @@
   "o+1cag": {
     "defaultMessage": "Clear Console",
     "description": "Button label to clear the console in the coding workspace"
+  },
+  "o1/80a": {
+    "defaultMessage": "JavaScript Coding Interview Questions | GreatFrontEnd",
+    "description": "Social title for JavaScript coding question format page"
   },
   "o26OYL": {
     "defaultMessage": "The transaction amount is invalid, which might be due to the amount being too low or incorrect formatting.",
@@ -7950,10 +7966,6 @@
   "p3mRa0": {
     "defaultMessage": "Job title is required.",
     "description": "Error message"
-  },
-  "p53i2S": {
-    "defaultMessage": "JavaScript Coding Interview Questions | GreatFrontEnd",
-    "description": "Social title for Javascript coding question format page"
   },
   "p8zMao": {
     "defaultMessage": "Insert inline code",
@@ -8290,10 +8302,6 @@
   "rH3Vfz": {
     "defaultMessage": "Ask any questions in community",
     "description": "Label for \"Ask any questions in community\" item in Expected Support section on Projects project page"
-  },
-  "rHrbfF": {
-    "defaultMessage": "Implement JavaScript functions like utility methods, polyfills, or DOM APIs.",
-    "description": "Javascript coding question format page description"
   },
   "rIxZsj": {
     "defaultMessage": "This challenge can be unlocked without spending any credits because you have unlocked all pre-requisite challenges. Proceed to unlock challenge?",
@@ -9111,10 +9119,6 @@
     "defaultMessage": "Contact your bank to inquire if your card can be enabled for the specified currency.",
     "description": "Reason label for enabled specified currency"
   },
-  "wqIwvv": {
-    "defaultMessage": "{questionTitle} | JavaScript Front End Interview Questions with Solutions",
-    "description": "Title of Javascript Front End interview questions page"
-  },
   "wrQH8L": {
     "defaultMessage": "Deep dive into topical focus areas critical for front end interviews",
     "description": "Description for interview preparation focus areas"
@@ -9290,10 +9294,6 @@
   "y9hdD1": {
     "defaultMessage": "Reading time",
     "description": "Reading time of the article"
-  },
-  "yC3EoK": {
-    "defaultMessage": "Practice JavaScript coding interview questions by implementing utility functions like throttle or polyfills. Code in-browser with solutions from ex-interviewers.",
-    "description": "SEO description for Javascript coding question format page"
   },
   "yCyxT4": {
     "defaultMessage": "All tracks",
