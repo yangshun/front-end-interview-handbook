@@ -2,6 +2,7 @@
   "description": "var Component=(()=>{var m=Object.create;var i=Object.defineProperty;var h=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var g=Object.getPrototypeOf,u=Object.prototype.hasOwnProperty;var x=(e,n)=>()=>(n||e((n={exports:{}}).exports,n),n.exports),w=(e,n)=>{for(var o in n)i(e,o,{get:n[o],enumerable:!0})},r=(e,n,o,l)=>{if(n&&typeof n==\"object\"||typeof n==\"function\")for(let a of p(n))!u.call(e,a)&&a!==o&&i(e,a,{get:()=>n[a],enumerable:!(l=h(n,a))||l.enumerable});return e};var f=(e,n,o)=>(o=e!=null?m(g(e)):{},r(n||!e||!e.__esModule?i(o,\"default\",{value:e,enumerable:!0}):o,e)),M=e=>r(i({},\"__esModule\",{value:!0}),e);var s=x((y,c)=>{c.exports=_jsx_runtime});var v={};w(v,{default:()=>_,frontmatter:()=>j});var t=f(s()),j={title:\"Modal Dialog\",excerpt:\"Design a modal/dialog component that shows a window overlaying the contents on the page\"};function d(e){let n=Object.assign({h2:\"h2\",p:\"p\",img:\"img\",h3:\"h3\",ul:\"ul\",li:\"li\",a:\"a\"},e.components);return(0,t.jsxs)(t.Fragment,{children:[(0,t.jsx)(n.h2,{children:\"Question\"}),`\n`,(0,t.jsx)(n.p,{children:\"Design a modal/dialog component that shows content in a window overlaying the page.\"}),`\n`,(0,t.jsx)(n.p,{children:(0,t.jsx)(n.img,{src:\"/img/questions/modal-dialog/modal-dialog-example.png\",alt:\"Modal Dialog Example\"})}),`\n`,(0,t.jsx)(n.h3,{children:\"Real-life examples\"}),`\n`,(0,t.jsxs)(n.ul,{children:[`\n`,(0,t.jsx)(n.li,{children:(0,t.jsx)(n.a,{href:\"https://getbootstrap.com/docs/5.3/components/modal\",children:\"Modal \\xB7 Bootstrap v5.3\"})}),`\n`,(0,t.jsx)(n.li,{children:(0,t.jsx)(n.a,{href:\"https://mui.com/material-ui/react-modal/\",children:\"React Modal component - Material UI\"})}),`\n`,(0,t.jsx)(n.li,{children:(0,t.jsx)(n.a,{href:\"https://www.radix-ui.com/docs/primitives/components/dialog\",children:\"Dialog \\u2014 Radix UI\"})}),`\n`]})]})}function D(e={}){let{wrapper:n}=e.components||{};return n?(0,t.jsx)(n,Object.assign({},e,{children:(0,t.jsx)(d,e)})):d(e)}var _=D;return M(v);})();\n;return Component;",
   "format": "system-design",
   "metadata": {
+    "access": "premium",
     "author": null,
     "companies": [],
     "created": 1674950400,
@@ -16,7 +17,6 @@
     "importance": "low",
     "languages": [],
     "nextQuestions": [],
-    "premium": true,
     "published": true,
     "ranking": 11,
     "similarQuestions": [],

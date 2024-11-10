@@ -4,7 +4,7 @@
   "languages": ["js", "ts"],
   "companies": ["intuit"],
   "author": "yangshun",
-  "premium": true,
+  "access": "premium",
   "duration": 15,
   "published": true,
   "importance": "medium",

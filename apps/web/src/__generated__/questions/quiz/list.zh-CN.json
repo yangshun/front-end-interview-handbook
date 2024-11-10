@@ -1,5 +1,6 @@
 [
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -14,7 +15,6 @@
     "importance": "medium",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 999,
     "similarQuestions": [],
@@ -27,6 +27,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/can-you-offer-a-use-case-for-the-new-arrow-function-syntax-how-does-this-new-syntax-differ-from-other-functions/zh-CN.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -41,7 +42,6 @@
     "importance": "high",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 210,
     "similarQuestions": [],
@@ -55,6 +55,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/describe-event-bubbling/zh-CN.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -69,7 +70,6 @@
     "importance": "high",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 220,
     "similarQuestions": [],
@@ -83,6 +83,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/describe-event-capturing/en-US.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [
       "amazon",
@@ -100,7 +101,6 @@
     "importance": "high",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 70,
     "similarQuestions": [],
@@ -113,6 +113,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/describe-the-difference-between-a-cookie-sessionstorage-and-localstorage/zh-CN.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -127,7 +128,6 @@
     "importance": "high",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 80,
     "similarQuestions": [],
@@ -141,6 +141,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/describe-the-difference-between-script-async-and-script-defer/zh-CN.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -155,7 +156,6 @@
     "importance": "low",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 999,
     "similarQuestions": [],
@@ -169,6 +169,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/difference-between-document-load-event-and-document-domcontentloaded-event/zh-CN.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -183,7 +184,6 @@
     "importance": "high",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 140,
     "similarQuestions": [],
@@ -196,6 +196,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/difference-between-function-person-var-person-person-and-var-person-new-person/zh-CN.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -210,7 +211,6 @@
     "importance": "medium",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 270,
     "similarQuestions": [],
@@ -224,6 +224,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/explain-ajax-in-as-much-detail-as-possible/zh-CN.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [
       "linkedin"
@@ -240,7 +241,6 @@
     "importance": "high",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 50,
     "similarQuestions": [],
@@ -254,6 +254,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/explain-event-delegation/zh-CN.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -268,7 +269,6 @@
     "importance": "high",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 110,
     "similarQuestions": [],
@@ -281,6 +281,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/explain-function-prototype-bind/zh-CN.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -295,7 +296,6 @@
     "importance": "high",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 10,
     "similarQuestions": [],
@@ -308,6 +308,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/explain-hoisting/zh-CN.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -322,7 +323,6 @@
     "importance": "low",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 999,
     "similarQuestions": [],
@@ -337,6 +337,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/explain-how-jsonp-works-and-how-its-not-really-ajax/zh-CN.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -351,7 +352,6 @@
     "importance": "high",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 130,
     "similarQuestions": [],
@@ -364,6 +364,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/explain-how-prototypal-inheritance-works/zh-CN.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -378,7 +379,6 @@
     "importance": "high",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 60,
     "similarQuestions": [],
@@ -391,6 +391,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/explain-how-this-works-in-javascript/zh-CN.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -405,7 +406,6 @@
     "importance": "low",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 999,
     "similarQuestions": [],
@@ -418,6 +418,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/explain-the-concept-of-a-callback-function-in-asynchronous-operations/en-US.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -432,7 +433,6 @@
     "importance": "low",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 999,
     "similarQuestions": [],
@@ -445,6 +445,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/explain-the-concept-of-a-microtask-queue/en-US.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -459,7 +460,6 @@
     "importance": "low",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 999,
     "similarQuestions": [],
@@ -473,6 +473,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/explain-the-concept-of-caching-and-how-it-can-be-used-to-improve-performance/en-US.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -487,7 +488,6 @@
     "importance": "low",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 999,
     "similarQuestions": [],
@@ -501,6 +501,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/explain-the-concept-of-code-coverage-and-how-it-can-be-used-to-assess-test-quality/en-US.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -515,7 +516,6 @@
     "importance": "low",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 999,
     "similarQuestions": [],
@@ -529,6 +529,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/explain-the-concept-of-content-security-policy-csp-and-how-it-enhances-security/en-US.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -543,7 +544,6 @@
     "importance": "low",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 999,
     "similarQuestions": [],
@@ -558,6 +558,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/explain-the-concept-of-cross-site-request-forgery-csrf-and-its-mitigation-techniques/en-US.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -572,7 +573,6 @@
     "importance": "low",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 999,
     "similarQuestions": [],
@@ -586,6 +586,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/explain-the-concept-of-debouncing-and-throttling/en-US.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -600,7 +601,6 @@
     "importance": "low",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 999,
     "similarQuestions": [],
@@ -613,6 +613,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/explain-the-concept-of-destructuring-assignment-for-objects-and-arrays/en-US.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -627,7 +628,6 @@
     "importance": "low",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 999,
     "similarQuestions": [],
@@ -640,6 +640,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/explain-the-concept-of-error-propagation-in-javascript/en-US.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -654,7 +655,6 @@
     "importance": "low",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 999,
     "similarQuestions": [],
@@ -667,6 +667,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/explain-the-concept-of-hoisting-with-regards-to-functions/en-US.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -681,7 +682,6 @@
     "importance": "low",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 999,
     "similarQuestions": [],
@@ -694,6 +694,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/explain-the-concept-of-inheritance-in-es2015-classes/en-US.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -708,7 +709,6 @@
     "importance": "low",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 999,
     "similarQuestions": [],
@@ -722,6 +722,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/explain-the-concept-of-input-validation-and-its-importance-in-security/en-US.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -736,7 +737,6 @@
     "importance": "low",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 999,
     "similarQuestions": [],
@@ -750,6 +750,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/explain-the-concept-of-lazy-loading-and-how-it-can-improve-performance/en-US.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -764,7 +765,6 @@
     "importance": "low",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 999,
     "similarQuestions": [],
@@ -777,6 +777,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/explain-the-concept-of-lexical-scoping/en-US.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -791,7 +792,6 @@
     "importance": "low",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 999,
     "similarQuestions": [],
@@ -804,6 +804,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/explain-the-concept-of-partial-application/en-US.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -818,7 +819,6 @@
     "importance": "low",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 999,
     "similarQuestions": [],
@@ -831,6 +831,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/explain-the-concept-of-scope-in-javascript/en-US.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -845,7 +846,6 @@
     "importance": "low",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 999,
     "similarQuestions": [],
@@ -858,6 +858,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/explain-the-concept-of-tagged-templates/en-US.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -872,7 +873,6 @@
     "importance": "low",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 999,
     "similarQuestions": [],
@@ -886,6 +886,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/explain-the-concept-of-test-driven-development-tdd/en-US.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -900,7 +901,6 @@
     "importance": "low",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 999,
     "similarQuestions": [],
@@ -913,6 +913,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/explain-the-concept-of-the-prototype-pattern/en-US.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -927,7 +928,6 @@
     "importance": "low",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 999,
     "similarQuestions": [],
@@ -940,6 +940,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/explain-the-concept-of-the-singleton-pattern/en-US.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -954,7 +955,6 @@
     "importance": "low",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 999,
     "similarQuestions": [],
@@ -967,6 +967,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/explain-the-concept-of-the-spread-operator-and-its-uses/en-US.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -981,7 +982,6 @@
     "importance": "low",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 999,
     "similarQuestions": [],
@@ -994,6 +994,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/explain-the-concept-of-the-strategy-pattern/en-US.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -1008,7 +1009,6 @@
     "importance": "low",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 999,
     "similarQuestions": [],
@@ -1022,6 +1022,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/explain-the-concept-of-the-web-socket-api/en-US.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -1036,7 +1037,6 @@
     "importance": "low",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 999,
     "similarQuestions": [],
@@ -1049,6 +1049,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/explain-the-concept-of-this-binding-in-event-handlers/en-US.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -1063,7 +1064,6 @@
     "importance": "low",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 999,
     "similarQuestions": [],
@@ -1076,6 +1076,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/explain-the-concept-of-tree-shaking-in-module-bundling/en-US.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -1090,7 +1091,6 @@
     "importance": "low",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 999,
     "similarQuestions": [],
@@ -1103,6 +1103,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/explain-the-difference-between-classical-inheritance-and-prototypal-inheritance/en-US.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -1117,7 +1118,6 @@
     "importance": "low",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 999,
     "similarQuestions": [],
@@ -1131,6 +1131,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/explain-the-difference-between-documentqueryselector-and-documentgetelementbyid/en-US.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -1145,7 +1146,6 @@
     "importance": "low",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 999,
     "similarQuestions": [],
@@ -1158,6 +1158,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/explain-the-difference-between-dot-notation-and-bracket-notation-for-accessing-object-properties/en-US.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -1172,7 +1173,6 @@
     "importance": "low",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 999,
     "similarQuestions": [],
@@ -1185,6 +1185,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/explain-the-difference-between-global-scope-function-scope-and-block-scope/en-US.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -1199,7 +1200,6 @@
     "importance": "medium",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 390,
     "similarQuestions": [],
@@ -1212,6 +1212,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/explain-the-difference-between-mutable-and-immutable-objects/zh-CN.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -1226,7 +1227,6 @@
     "importance": "low",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 999,
     "similarQuestions": [],
@@ -1239,6 +1239,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/explain-the-difference-between-shallow-copy-and-deep-copy/en-US.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -1253,7 +1254,6 @@
     "importance": "high",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 250,
     "similarQuestions": [],
@@ -1266,6 +1266,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/explain-the-difference-between-synchronous-and-asynchronous-functions/zh-CN.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -1280,7 +1281,6 @@
     "importance": "low",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 999,
     "similarQuestions": [],
@@ -1294,6 +1294,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/explain-the-difference-between-unit-testing-integration-testing-and-end-to-end-testing/en-US.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -1308,7 +1309,6 @@
     "importance": "low",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 999,
     "similarQuestions": [],
@@ -1321,6 +1321,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/explain-the-difference-in-hoisting-between-var-let-and-const/en-US.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -1335,7 +1336,6 @@
     "importance": "medium",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 340,
     "similarQuestions": [],
@@ -1348,6 +1348,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/explain-the-differences-between-commonjs-modules-and-es-modules/en-US.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -1362,7 +1363,6 @@
     "importance": "high",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 150,
     "similarQuestions": [],
@@ -1375,6 +1375,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/explain-the-differences-on-the-usage-of-foo-between-function-foo-and-var-foo-function/zh-CN.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -1389,7 +1390,6 @@
     "importance": "low",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 999,
     "similarQuestions": [],
@@ -1402,6 +1402,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/explain-the-different-states-of-a-promise/en-US.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -1416,7 +1417,6 @@
     "importance": "low",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 999,
     "similarQuestions": [],
@@ -1429,6 +1429,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/explain-the-different-ways-the-this-keyword-can-be-bound/en-US.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -1443,7 +1444,6 @@
     "importance": "low",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 999,
     "similarQuestions": [],
@@ -1456,6 +1456,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/explain-the-event-phases-in-a-browser/en-US.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -1470,7 +1471,6 @@
     "importance": "low",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 999,
     "similarQuestions": [],
@@ -1483,6 +1483,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/explain-the-observer-pattern-and-its-use-cases/en-US.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -1497,7 +1498,6 @@
     "importance": "low",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 999,
     "similarQuestions": [],
@@ -1512,6 +1512,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/explain-the-same-origin-policy-with-regards-to-javascript/zh-CN.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -1526,7 +1527,6 @@
     "importance": "medium",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 999,
     "similarQuestions": [],
@@ -1540,6 +1540,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/explain-what-a-single-page-app-is-and-how-to-make-one-seo-friendly/zh-CN.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -1554,7 +1555,6 @@
     "importance": "low",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 999,
     "similarQuestions": [],
@@ -1567,6 +1567,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/explain-why-the-following-doesnt-work-as-an-iife-function-foo--what-needs-to-be-changed-to-properly-make-it-an-iife/zh-CN.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -1581,7 +1582,6 @@
     "importance": "low",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 999,
     "similarQuestions": [],
@@ -1594,6 +1594,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/how-can-closures-be-used-to-create-private-variables/en-US.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -1608,7 +1609,6 @@
     "importance": "low",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 999,
     "similarQuestions": [],
@@ -1621,6 +1621,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/how-can-you-avoid-problems-related-to-hoisting/en-US.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -1635,7 +1636,6 @@
     "importance": "low",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 999,
     "similarQuestions": [],
@@ -1648,6 +1648,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/how-can-you-create-custom-error-objects/en-US.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -1662,7 +1663,6 @@
     "importance": "low",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 999,
     "similarQuestions": [],
@@ -1676,6 +1676,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/how-can-you-implement-secure-authentication-and-authorization-in-javascript-applications/en-US.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -1690,7 +1691,6 @@
     "importance": "low",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 999,
     "similarQuestions": [],
@@ -1704,6 +1704,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/how-can-you-optimize-dom-manipulation-for-better-performance/en-US.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -1718,7 +1719,6 @@
     "importance": "low",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 999,
     "similarQuestions": [],
@@ -1732,6 +1732,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/how-can-you-optimize-network-requests-for-better-performance/en-US.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -1746,7 +1747,6 @@
     "importance": "low",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 999,
     "similarQuestions": [],
@@ -1760,6 +1760,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/how-can-you-prevent-clickjacking-attacks/en-US.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -1774,7 +1775,6 @@
     "importance": "low",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 999,
     "similarQuestions": [],
@@ -1788,6 +1788,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/how-can-you-prevent-sql-injection-vulnerabilities-in-javascript-applications/en-US.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -1802,7 +1803,6 @@
     "importance": "low",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 999,
     "similarQuestions": [],
@@ -1815,6 +1815,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/how-can-you-share-code-between-files/zh-CN.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -1829,7 +1830,6 @@
     "importance": "low",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 999,
     "similarQuestions": [],
@@ -1843,6 +1843,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/how-can-you-test-asynchronous-code-in-javascript/en-US.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -1857,7 +1858,6 @@
     "importance": "low",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 999,
     "similarQuestions": [],
@@ -1870,6 +1870,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/how-do-currying-and-partial-application-differ-from-each-other/en-US.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -1884,7 +1885,6 @@
     "importance": "low",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 999,
     "similarQuestions": [],
@@ -1898,6 +1898,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/how-do-iframe-on-a-page-communicate/en-US.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -1912,7 +1913,6 @@
     "importance": "low",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 999,
     "similarQuestions": [],
@@ -1925,6 +1925,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/how-do-sets-and-maps-handle-equality-checks-for-objects/en-US.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -1939,7 +1940,6 @@
     "importance": "medium",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 300,
     "similarQuestions": [],
@@ -1953,6 +1953,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/how-do-you-abort-a-web-request-using-abortcontrollers/en-US.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -1967,7 +1968,6 @@
     "importance": "low",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 999,
     "similarQuestions": [],
@@ -1980,6 +1980,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/how-do-you-access-the-index-of-an-element-in-an-array-during-iteration/en-US.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -1994,7 +1995,6 @@
     "importance": "low",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 999,
     "similarQuestions": [],
@@ -2008,6 +2008,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/how-do-you-add-remove-and-modify-html-elements-using-javascript/en-US.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -2022,7 +2023,6 @@
     "importance": "low",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 999,
     "similarQuestions": [],
@@ -2035,6 +2035,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/how-do-you-add-remove-and-update-elements-in-an-array/en-US.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -2049,7 +2050,6 @@
     "importance": "low",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 999,
     "similarQuestions": [],
@@ -2062,6 +2062,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/how-do-you-check-if-an-object-has-a-specific-property/en-US.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -2076,7 +2077,6 @@
     "importance": "low",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 999,
     "similarQuestions": [],
@@ -2089,6 +2089,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/how-do-you-check-the-data-type-of-a-variable/en-US.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -2103,7 +2104,6 @@
     "importance": "low",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 999,
     "similarQuestions": [],
@@ -2116,6 +2116,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/how-do-you-convert-a-set-to-an-array-in-javascript/en-US.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -2130,7 +2131,6 @@
     "importance": "low",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 999,
     "similarQuestions": [],
@@ -2143,6 +2143,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/how-do-you-convert-a-string-to-a-number-in-javascript/en-US.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -2157,7 +2158,6 @@
     "importance": "low",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 999,
     "similarQuestions": [],
@@ -2170,6 +2170,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/how-do-you-create-a-constructor-function/en-US.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -2184,7 +2185,6 @@
     "importance": "low",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 999,
     "similarQuestions": [],
@@ -2197,6 +2197,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/how-do-you-detect-if-javascript-is-disabled-on-a-page/en-US.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -2211,7 +2212,6 @@
     "importance": "low",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 999,
     "similarQuestions": [],
@@ -2224,6 +2224,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/how-do-you-get-the-query-string-values-of-the-current-page-in-javascript/en-US.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -2238,7 +2239,6 @@
     "importance": "low",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 999,
     "similarQuestions": [],
@@ -2251,6 +2251,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/how-do-you-handle-errors-in-asynchronous-operations/en-US.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -2265,7 +2266,6 @@
     "importance": "low",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 999,
     "similarQuestions": [],
@@ -2278,6 +2278,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/how-do-you-handle-errors-using-trycatch-blocks/en-US.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -2292,7 +2293,6 @@
     "importance": "low",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 999,
     "similarQuestions": [],
@@ -2305,6 +2305,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/how-do-you-import-and-export-modules-in-javascript/en-US.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -2319,7 +2320,6 @@
     "importance": "low",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 999,
     "similarQuestions": [],
@@ -2333,6 +2333,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/how-do-you-make-an-http-request-using-the-fetch-api/en-US.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -2347,7 +2348,6 @@
     "importance": "low",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 999,
     "similarQuestions": [],
@@ -2361,6 +2361,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/how-do-you-manipulate-css-styles-using-javascript/en-US.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -2375,7 +2376,6 @@
     "importance": "low",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 999,
     "similarQuestions": [],
@@ -2388,6 +2388,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/how-do-you-organize-your-code-module-pattern-classical-inheritance/zh-CN.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -2402,7 +2403,6 @@
     "importance": "low",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 999,
     "similarQuestions": [],
@@ -2415,6 +2415,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/how-do-you-prevent-the-default-behavior-of-an-event/en-US.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -2429,7 +2430,6 @@
     "importance": "low",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 999,
     "similarQuestions": [],
@@ -2442,6 +2442,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/how-do-you-redirect-to-a-new-page-in-javascript/en-US.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -2456,7 +2457,6 @@
     "importance": "low",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 999,
     "similarQuestions": [],
@@ -2469,6 +2469,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/how-do-you-reliably-determine-whether-an-object-is-empty/en-US.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -2483,7 +2484,6 @@
     "importance": "low",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 999,
     "similarQuestions": [],
@@ -2496,6 +2496,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/how-do-you-use-windowhistory-api/en-US.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -2510,7 +2511,6 @@
     "importance": "low",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 999,
     "similarQuestions": [],
@@ -2523,6 +2523,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/how-do-you-validate-form-elements-using-the-constraint-validation-api/en-US.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -2537,7 +2538,6 @@
     "importance": "low",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 999,
     "similarQuestions": [],
@@ -2551,6 +2551,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/how-do-you-write-unit-tests-for-javascript-code/en-US.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -2565,7 +2566,6 @@
     "importance": "low",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 999,
     "similarQuestions": [],
@@ -2578,6 +2578,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/how-does-hoisting-affect-function-declarations-and-expressions/en-US.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -2592,7 +2593,6 @@
     "importance": "medium",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 500,
     "similarQuestions": [],
@@ -2605,6 +2605,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/how-does-javascript-garbage-collection-work/en-US.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -2619,7 +2620,6 @@
     "importance": "low",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 999,
     "similarQuestions": [],
@@ -2632,6 +2632,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/how-is-promiseall-different-from-promiseallsettled/en-US.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -2646,7 +2647,6 @@
     "importance": "low",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 999,
     "similarQuestions": [],
@@ -2659,6 +2659,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/provide-some-examples-of-how-currying-and-partial-application-can-be-used/en-US.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -2673,7 +2674,6 @@
     "importance": "high",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 120,
     "similarQuestions": [],
@@ -2686,6 +2686,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-advantage-is-there-for-using-the-arrow-syntax-for-a-method-in-a-constructor/zh-CN.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -2700,7 +2701,6 @@
     "importance": "low",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 999,
     "similarQuestions": [],
@@ -2713,6 +2713,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-are-callback-functions-and-how-are-they-used/en-US.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -2727,7 +2728,6 @@
     "importance": "low",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 999,
     "similarQuestions": [],
@@ -2740,6 +2740,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-are-default-parameters-and-how-are-they-used/en-US.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -2754,7 +2755,6 @@
     "importance": "low",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 999,
     "similarQuestions": [],
@@ -2767,6 +2767,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-are-design-patterns-and-why-are-they-useful/en-US.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -2781,7 +2782,6 @@
     "importance": "low",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 999,
     "similarQuestions": [],
@@ -2794,6 +2794,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-are-event-listeners-and-how-are-they-used/en-US.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -2808,7 +2809,6 @@
     "importance": "medium",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 380,
     "similarQuestions": [],
@@ -2821,6 +2821,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-are-iterators-and-generators-and-what-are-they-used-for/en-US.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -2835,7 +2836,6 @@
     "importance": "medium",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 460,
     "similarQuestions": [],
@@ -2848,6 +2848,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-are-javascript-object-getters-and-setters-for/en-US.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -2862,7 +2863,6 @@
     "importance": "medium",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 450,
     "similarQuestions": [],
@@ -2875,6 +2875,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-are-javascript-object-property-flags-and-descriptors/en-US.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -2889,7 +2890,6 @@
     "importance": "medium",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 310,
     "similarQuestions": [],
@@ -2902,6 +2902,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-are-javascript-polyfills-for/en-US.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -2916,7 +2917,6 @@
     "importance": "low",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 999,
     "similarQuestions": [],
@@ -2930,6 +2930,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-are-mocks-and-stubs-and-how-are-they-used-in-testing/en-US.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -2944,7 +2945,6 @@
     "importance": "low",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 999,
     "similarQuestions": [],
@@ -2957,6 +2957,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-are-modules-and-why-are-they-useful/en-US.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -2971,7 +2972,6 @@
     "importance": "low",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 999,
     "similarQuestions": [],
@@ -2984,6 +2984,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-are-progressive-web-applications-pwas/en-US.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -2998,7 +2999,6 @@
     "importance": "low",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 999,
     "similarQuestions": [],
@@ -3011,6 +3011,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-are-promises-and-how-do-they-work/en-US.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -3025,7 +3026,6 @@
     "importance": "low",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 470,
     "similarQuestions": [],
@@ -3038,6 +3038,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-are-proxies-in-javascript-used-for/en-US.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -3052,7 +3053,6 @@
     "importance": "low",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 999,
     "similarQuestions": [],
@@ -3065,6 +3065,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-are-rest-parameters-and-how-are-they-used/en-US.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -3079,7 +3080,6 @@
     "importance": "medium",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 440,
     "similarQuestions": [],
@@ -3092,6 +3092,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-are-server-sent-events/en-US.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -3106,7 +3107,6 @@
     "importance": "low",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 999,
     "similarQuestions": [],
@@ -3119,6 +3119,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-are-sets-and-maps-and-how-are-they-used/en-US.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -3133,7 +3134,6 @@
     "importance": "low",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 999,
     "similarQuestions": [],
@@ -3147,6 +3147,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-are-some-best-practices-for-handling-sensitive-data-in-javascript/en-US.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -3161,7 +3162,6 @@
     "importance": "low",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 999,
     "similarQuestions": [],
@@ -3175,6 +3175,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-are-some-best-practices-for-writing-maintainable-and-effective-tests/en-US.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -3189,7 +3190,6 @@
     "importance": "low",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 999,
     "similarQuestions": [],
@@ -3203,6 +3203,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-are-some-common-performance-bottlenecks-in-javascript-applications/en-US.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -3217,7 +3218,6 @@
     "importance": "low",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 999,
     "similarQuestions": [],
@@ -3231,6 +3231,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-are-some-common-security-headers-and-their-purpose/en-US.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -3245,7 +3246,6 @@
     "importance": "low",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 999,
     "similarQuestions": [],
@@ -3258,6 +3258,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-are-some-of-the-advantages-disadvantages-of-writing-javascript-code-in-a-language-that-compiles-to-javascript/zh-CN.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -3272,7 +3273,6 @@
     "importance": "low",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 999,
     "similarQuestions": [],
@@ -3286,6 +3286,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-are-some-popular-javascript-testing-frameworks/en-US.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -3300,7 +3301,6 @@
     "importance": "low",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 999,
     "similarQuestions": [],
@@ -3314,6 +3314,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-are-some-techniques-for-reducing-reflows-and-repaints/en-US.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -3328,7 +3329,6 @@
     "importance": "low",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 999,
     "similarQuestions": [],
@@ -3342,6 +3342,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-are-some-tools-and-techniques-for-identifying-security-vulnerabilities-in-javascript-code/en-US.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -3356,7 +3357,6 @@
     "importance": "low",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 999,
     "similarQuestions": [],
@@ -3370,6 +3370,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-are-some-tools-that-can-be-used-for-javascript-testing/en-US.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -3384,7 +3385,6 @@
     "importance": "low",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 999,
     "similarQuestions": [],
@@ -3398,6 +3398,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-are-some-tools-that-can-be-used-to-measure-and-analyze-javascript-performance/en-US.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -3412,7 +3413,6 @@
     "importance": "medium",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 430,
     "similarQuestions": [],
@@ -3425,6 +3425,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-are-symbols-used-for/en-US.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -3439,7 +3440,6 @@
     "importance": "low",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 999,
     "similarQuestions": [],
@@ -3452,6 +3452,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-are-template-literals-and-how-are-they-used/en-US.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -3466,7 +3467,6 @@
     "importance": "medium",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 280,
     "similarQuestions": [],
@@ -3480,6 +3480,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-are-the-advantages-and-disadvantages-of-using-ajax/zh-CN.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -3494,7 +3495,6 @@
     "importance": "low",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 999,
     "similarQuestions": [],
@@ -3507,6 +3507,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-are-the-advantages-of-using-the-spread-operator-with-arrays-and-objects/en-US.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -3521,7 +3522,6 @@
     "importance": "low",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 999,
     "similarQuestions": [],
@@ -3534,6 +3534,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-are-the-benefits-of-using-a-module-bundler/en-US.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -3548,7 +3549,6 @@
     "importance": "low",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 999,
     "similarQuestions": [],
@@ -3561,6 +3561,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-are-the-benefits-of-using-currying-and-partial-application/en-US.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -3575,7 +3576,6 @@
     "importance": "low",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 370,
     "similarQuestions": [],
@@ -3588,6 +3588,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-are-the-benefits-of-using-spread-syntax-and-how-is-it-different-from-rest-syntax/zh-CN.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -3602,7 +3603,6 @@
     "importance": "low",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 999,
     "similarQuestions": [],
@@ -3615,6 +3615,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-are-the-common-pitfalls-of-using-the-this-keyword/en-US.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -3629,7 +3630,6 @@
     "importance": "high",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 200,
     "similarQuestions": [],
@@ -3642,6 +3642,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-are-the-differences-between-es6-class-and-es5-function-constructors/zh-CN.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -3656,7 +3657,6 @@
     "importance": "medium",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 410,
     "similarQuestions": [],
@@ -3669,6 +3669,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-are-the-differences-between-map-set-and-weakmap-weakset/en-US.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [
       "microsoft"
@@ -3685,7 +3686,6 @@
     "importance": "high",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 20,
     "similarQuestions": [],
@@ -3698,6 +3698,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-are-the-differences-between-variables-created-using-let-var-or-const/zh-CN.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -3712,7 +3713,6 @@
     "importance": "medium",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 290,
     "similarQuestions": [],
@@ -3726,6 +3726,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-are-the-differences-between-xmlhttprequest-and-fetch/en-US.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -3740,7 +3741,6 @@
     "importance": "low",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 999,
     "similarQuestions": [],
@@ -3753,6 +3753,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-are-the-different-methods-for-iterating-over-an-array/en-US.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -3767,7 +3768,6 @@
     "importance": "low",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 999,
     "similarQuestions": [],
@@ -3780,6 +3780,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-are-the-different-types-of-errors-in-javascript/en-US.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -3794,7 +3795,6 @@
     "importance": "low",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 999,
     "similarQuestions": [],
@@ -3808,6 +3808,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-are-the-different-types-of-testing-in-software-development/en-US.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -3822,7 +3823,6 @@
     "importance": "low",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 999,
     "similarQuestions": [],
@@ -3835,6 +3835,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-are-the-different-ways-to-copy-an-object-or-an-array/en-US.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -3849,7 +3850,6 @@
     "importance": "low",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 999,
     "similarQuestions": [],
@@ -3863,6 +3863,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-are-the-different-ways-to-make-an-api-call-in-javascript/en-US.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -3877,7 +3878,6 @@
     "importance": "low",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 999,
     "similarQuestions": [],
@@ -3890,6 +3890,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-are-the-metadata-fields-of-a-module/en-US.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -3904,7 +3905,6 @@
     "importance": "low",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 999,
     "similarQuestions": [],
@@ -3917,6 +3917,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-are-the-potential-issues-caused-by-hoisting/en-US.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -3931,7 +3932,6 @@
     "importance": "low",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 999,
     "similarQuestions": [],
@@ -3944,6 +3944,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-are-the-potential-pitfalls-of-using-closures/en-US.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [
       "linkedin"
@@ -3960,7 +3961,6 @@
     "importance": "high",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 260,
     "similarQuestions": [],
@@ -3973,6 +3973,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-are-the-pros-and-cons-of-using-promises-instead-of-callbacks/zh-CN.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -3987,7 +3988,6 @@
     "importance": "low",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 350,
     "similarQuestions": [],
@@ -4000,6 +4000,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-are-the-various-data-types-in-javascript/en-US.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -4014,7 +4015,6 @@
     "importance": "high",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 170,
     "similarQuestions": [],
@@ -4027,6 +4027,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-are-the-various-ways-to-create-objects-in-javascript/en-US.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -4041,7 +4042,6 @@
     "importance": "low",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 999,
     "similarQuestions": [],
@@ -4055,6 +4055,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-are-web-workers-and-how-can-they-be-used-to-improve-performance/en-US.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -4069,7 +4070,6 @@
     "importance": "medium",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 490,
     "similarQuestions": [],
@@ -4082,6 +4082,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-are-workers-in-javascript-used-for/en-US.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -4096,7 +4097,6 @@
     "importance": "low",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 999,
     "similarQuestions": [],
@@ -4109,6 +4109,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-do-you-think-of-amd-vs-commonjs/zh-CN.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [
       "amazon",
@@ -4128,7 +4129,6 @@
     "importance": "high",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 180,
     "similarQuestions": [],
@@ -4141,6 +4141,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-is-a-closure-and-how-why-would-you-use-one/zh-CN.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -4155,7 +4156,6 @@
     "importance": "low",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 999,
     "similarQuestions": [],
@@ -4168,6 +4168,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-is-asyncawait-and-how-does-it-simplify-asynchronous-code/en-US.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -4182,7 +4183,6 @@
     "importance": "low",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 999,
     "similarQuestions": [],
@@ -4196,6 +4196,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-is-cross-site-scripting-xss-and-how-can-you-prevent-it/en-US.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -4210,7 +4211,6 @@
     "importance": "low",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 999,
     "similarQuestions": [],
@@ -4223,6 +4223,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-is-currying-and-how-does-it-work/en-US.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [
       "amazon",
@@ -4240,7 +4241,6 @@
     "importance": "high",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 40,
     "similarQuestions": [],
@@ -4253,6 +4253,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-is-event-loop-what-is-the-difference-between-call-stack-and-task-queue/zh-CN.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -4267,7 +4268,6 @@
     "importance": "low",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 999,
     "similarQuestions": [],
@@ -4280,6 +4280,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-is-objectfreeze-for/en-US.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -4294,7 +4295,6 @@
     "importance": "low",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 999,
     "similarQuestions": [],
@@ -4307,6 +4307,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-is-objectpreventextensions-for/en-US.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -4321,7 +4322,6 @@
     "importance": "low",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 999,
     "similarQuestions": [],
@@ -4334,6 +4334,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-is-objectseal-for/en-US.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -4348,7 +4349,6 @@
     "importance": "low",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 999,
     "similarQuestions": [],
@@ -4361,6 +4361,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-is-recursion-and-how-is-it-used-in-javascript/en-US.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -4375,7 +4376,6 @@
     "importance": "low",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 999,
     "similarQuestions": [],
@@ -4388,6 +4388,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-is-the-command-pattern-and-how-is-it-used/en-US.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -4402,7 +4403,6 @@
     "importance": "low",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 999,
     "similarQuestions": [],
@@ -4415,6 +4415,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-is-the-decorator-pattern-and-how-is-it-used/en-US.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -4429,7 +4430,6 @@
     "importance": "high",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 190,
     "similarQuestions": [],
@@ -4442,6 +4442,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-is-the-definition-of-a-higher-order-function/zh-CN.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -4456,7 +4457,6 @@
     "importance": "medium",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 400,
     "similarQuestions": [],
@@ -4469,6 +4469,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-is-the-difference-between-a-map-object-and-a-plain-object-in-javascript/en-US.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -4483,7 +4484,6 @@
     "importance": "low",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 999,
     "similarQuestions": [],
@@ -4496,6 +4496,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-is-the-difference-between-a-parameter-and-an-argument/en-US.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -4510,7 +4511,6 @@
     "importance": "high",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 30,
     "similarQuestions": [],
@@ -4523,6 +4523,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-is-the-difference-between-double-equal-and-triple-equal/zh-CN.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -4537,7 +4538,6 @@
     "importance": "low",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 999,
     "similarQuestions": [],
@@ -4551,6 +4551,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-is-the-difference-between-eventpreventdefault-and-eventstoppropagation/en-US.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -4565,7 +4566,6 @@
     "importance": "low",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 999,
     "similarQuestions": [],
@@ -4579,6 +4579,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-is-the-difference-between-innerhtml-and-textcontent/en-US.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -4593,7 +4594,6 @@
     "importance": "low",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 230,
     "similarQuestions": [],
@@ -4607,6 +4607,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-is-the-difference-between-mouseenter-and-mouseover-event/en-US.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -4621,7 +4622,6 @@
     "importance": "low",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 999,
     "similarQuestions": [],
@@ -4634,6 +4634,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-is-the-difference-between-settimeout-setimmediate-and-processnexttick/en-US.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -4648,7 +4649,6 @@
     "importance": "low",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 999,
     "similarQuestions": [],
@@ -4661,6 +4661,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-is-the-difference-between-the-window-object-and-the-document-object/en-US.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -4675,7 +4676,6 @@
     "importance": "low",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 999,
     "similarQuestions": [],
@@ -4689,6 +4689,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-is-the-dom-and-how-is-it-structured/en-US.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -4703,7 +4704,6 @@
     "importance": "low",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 999,
     "similarQuestions": [],
@@ -4716,6 +4716,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-is-the-factory-pattern-and-how-is-it-used/en-US.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -4730,7 +4731,6 @@
     "importance": "low",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 999,
     "similarQuestions": [],
@@ -4744,6 +4744,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-is-the-intl-namespace-object-for/en-US.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -4758,7 +4759,6 @@
     "importance": "low",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 999,
     "similarQuestions": [],
@@ -4771,6 +4771,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-is-the-module-pattern-and-how-does-it-help-with-encapsulation/en-US.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -4785,7 +4786,6 @@
     "importance": "low",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 999,
     "similarQuestions": [],
@@ -4798,6 +4798,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-is-the-prototype-chain-and-how-does-it-work/en-US.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -4812,7 +4813,6 @@
     "importance": "low",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 999,
     "similarQuestions": [],
@@ -4825,6 +4825,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-is-the-purpose-of-the-break-and-continue-statements/en-US.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -4839,7 +4840,6 @@
     "importance": "low",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 999,
     "similarQuestions": [],
@@ -4852,6 +4852,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-is-the-purpose-of-the-finally-block/en-US.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -4866,7 +4867,6 @@
     "importance": "low",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 999,
     "similarQuestions": [],
@@ -4879,6 +4879,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-is-the-purpose-of-the-new-keyword/en-US.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -4893,7 +4894,6 @@
     "importance": "low",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 999,
     "similarQuestions": [],
@@ -4906,6 +4906,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-is-the-purpose-of-the-switch-statement/en-US.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -4920,7 +4921,6 @@
     "importance": "low",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 999,
     "similarQuestions": [],
@@ -4933,6 +4933,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-is-the-spread-operator-and-how-is-it-used/en-US.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -4947,7 +4948,6 @@
     "importance": "low",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 999,
     "similarQuestions": [],
@@ -4960,6 +4960,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-is-the-ternary-operator-and-how-is-it-used/en-US.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -4974,7 +4975,6 @@
     "importance": "low",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 999,
     "similarQuestions": [],
@@ -4987,6 +4987,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-is-the-use-of-promiseall/en-US.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -5001,7 +5002,6 @@
     "importance": "medium",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 240,
     "similarQuestions": [],
@@ -5014,6 +5014,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-is-use-strict-what-are-the-advantages-and-disadvantages-to-using-it/zh-CN.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -5028,7 +5029,6 @@
     "importance": "low",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 360,
     "similarQuestions": [],
@@ -5041,6 +5041,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-language-constructs-do-you-use-for-iterating-over-object-properties-and-array-items/zh-CN.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -5055,7 +5056,6 @@
     "importance": "low",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 480,
     "similarQuestions": [],
@@ -5068,6 +5068,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-tools-and-techniques-do-you-use-for-debugging-javascript-code/zh-CN.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -5082,7 +5083,6 @@
     "importance": "high",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 160,
     "similarQuestions": [],
@@ -5095,6 +5095,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/whats-a-typical-use-case-for-anonymous-functions/zh-CN.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -5109,7 +5110,6 @@
     "importance": "high",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 90,
     "similarQuestions": [],
@@ -5122,6 +5122,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/whats-the-difference-between-a-variable-that-is-null-undefined-or-undeclared-how-would-you-go-about-checking-for-any-of-these-states/zh-CN.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -5136,7 +5137,6 @@
     "importance": "medium",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 999,
     "similarQuestions": [],
@@ -5150,6 +5150,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/whats-the-difference-between-an-attribute-and-a-property/zh-CN.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -5164,7 +5165,6 @@
     "importance": "high",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 100,
     "similarQuestions": [],
@@ -5177,6 +5177,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/whats-the-difference-between-call-and-apply/zh-CN.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -5191,7 +5192,6 @@
     "importance": "low",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 999,
     "similarQuestions": [],
@@ -5205,6 +5205,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/when-would-you-use-document-write/zh-CN.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -5219,7 +5220,6 @@
     "importance": "medium",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 320,
     "similarQuestions": [],
@@ -5232,6 +5232,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/why-is-extending-built-in-javascript-objects-not-a-good-idea/zh-CN.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -5246,7 +5247,6 @@
     "importance": "medium",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 330,
     "similarQuestions": [],
@@ -5259,6 +5259,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/why-is-it-in-general-a-good-idea-to-leave-the-global-scope-of-a-website-as-is-and-never-touch-it/zh-CN.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -5273,7 +5274,6 @@
     "importance": "medium",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 420,
     "similarQuestions": [],
@@ -5286,6 +5286,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/why-you-might-want-to-create-static-class-members/zh-CN.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -5300,7 +5301,6 @@
     "importance": "low",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 100,
     "similarQuestions": [],
@@ -5313,6 +5313,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/front-end-interview-handbook/blob/main/packages/quiz/questions/are-you-familiar-with-styling-svg/zh-CN.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -5327,7 +5328,6 @@
     "importance": "low",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 100,
     "similarQuestions": [],
@@ -5340,6 +5340,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/front-end-interview-handbook/blob/main/packages/quiz/questions/can-you-explain-the-difference-between-coding-a-website-to-be-responsive-versus-using-a-mobile-first-strategy/zh-CN.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -5354,7 +5355,6 @@
     "importance": "low",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 100,
     "similarQuestions": [],
@@ -5367,6 +5367,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/front-end-interview-handbook/blob/main/packages/quiz/questions/can-you-give-an-example-of-an-media-property-other-than-screen/zh-CN.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -5381,7 +5382,6 @@
     "importance": "high",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 100,
     "similarQuestions": [],
@@ -5395,6 +5395,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/front-end-interview-handbook/blob/main/packages/quiz/questions/css-link-between-head-and-js-script-just-before-body/zh-CN.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -5409,7 +5410,6 @@
     "importance": "medium",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 100,
     "similarQuestions": [],
@@ -5422,6 +5422,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/front-end-interview-handbook/blob/main/packages/quiz/questions/describe-block-formatting-context-bfc-and-how-it-works/zh-CN.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -5436,7 +5437,6 @@
     "importance": "medium",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 100,
     "similarQuestions": [],
@@ -5449,6 +5449,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/front-end-interview-handbook/blob/main/packages/quiz/questions/describe-floats-and-how-they-work/zh-CN.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -5463,7 +5464,6 @@
     "importance": "medium",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 100,
     "similarQuestions": [],
@@ -5476,6 +5476,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/front-end-interview-handbook/blob/main/packages/quiz/questions/describe-pseudo-elements-and-discuss-what-they-are-used-for/zh-CN.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -5490,7 +5491,6 @@
     "importance": "low",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 100,
     "similarQuestions": [],
@@ -5503,6 +5503,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/front-end-interview-handbook/blob/main/packages/quiz/questions/describe-what-you-like-and-dislike-about-the-css-preprocessors-you-have-used/zh-CN.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -5517,7 +5518,6 @@
     "importance": "medium",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 100,
     "similarQuestions": [],
@@ -5530,6 +5530,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/front-end-interview-handbook/blob/main/packages/quiz/questions/describe-z-index-and-how-stacking-context-is-formed/zh-CN.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -5544,7 +5545,6 @@
     "importance": "medium",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 100,
     "similarQuestions": [],
@@ -5558,6 +5558,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/front-end-interview-handbook/blob/main/packages/quiz/questions/designing-or-developing-for-multilingual-sites/zh-CN.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -5572,7 +5573,6 @@
     "importance": "medium",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 100,
     "similarQuestions": [],
@@ -5586,6 +5586,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/front-end-interview-handbook/blob/main/packages/quiz/questions/explain-css-sprites-and-how-you-would-implement-them-on-a-page-or-site/zh-CN.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -5600,7 +5601,6 @@
     "importance": "high",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 100,
     "similarQuestions": [],
@@ -5613,6 +5613,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/front-end-interview-handbook/blob/main/packages/quiz/questions/explain-how-a-browser-determines-what-elements-match-a-css-selector/zh-CN.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [
       "amazon",
@@ -5631,7 +5632,6 @@
     "importance": "high",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 1,
     "similarQuestions": [],
@@ -5644,6 +5644,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/front-end-interview-handbook/blob/main/packages/quiz/questions/explain-your-understanding-of-the-box-model-and-how-you-would-tell-the-browser-in-css-to-render-your-layout-in-different-box-models/zh-CN.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -5658,7 +5659,6 @@
     "importance": "medium",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 100,
     "similarQuestions": [],
@@ -5671,6 +5671,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/front-end-interview-handbook/blob/main/packages/quiz/questions/have-you-ever-used-a-grid-system-and-if-so-what-do-you-prefer/zh-CN.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -5685,7 +5686,6 @@
     "importance": "low",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 100,
     "similarQuestions": [],
@@ -5698,6 +5698,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/front-end-interview-handbook/blob/main/packages/quiz/questions/have-you-ever-worked-with-retina-graphics-if-so-when-and-what-techniques-did-you-use/zh-CN.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -5712,7 +5713,6 @@
     "importance": "high",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 100,
     "similarQuestions": [],
@@ -5725,6 +5725,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/front-end-interview-handbook/blob/main/packages/quiz/questions/have-you-played-around-with-the-new-css-flexbox-or-grid-specs/zh-CN.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -5739,7 +5740,6 @@
     "importance": "low",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 100,
     "similarQuestions": [],
@@ -5752,6 +5752,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/front-end-interview-handbook/blob/main/packages/quiz/questions/have-you-used-or-implemented-media-queries-or-mobile-specific-layouts-css/zh-CN.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -5766,7 +5767,6 @@
     "importance": "medium",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 100,
     "similarQuestions": [],
@@ -5780,6 +5780,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/front-end-interview-handbook/blob/main/packages/quiz/questions/how-do-you-serve-a-page-with-content-in-multiple-languages/zh-CN.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -5794,7 +5795,6 @@
     "importance": "medium",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 100,
     "similarQuestions": [],
@@ -5807,6 +5807,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/front-end-interview-handbook/blob/main/packages/quiz/questions/how-do-you-serve-your-pages-for-feature-constrained-browsers-what-techniques-processes-do-you-use/zh-CN.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -5821,7 +5822,6 @@
     "importance": "medium",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 100,
     "similarQuestions": [],
@@ -5834,6 +5834,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/front-end-interview-handbook/blob/main/packages/quiz/questions/how-is-responsive-design-different-from-adaptive-design/zh-CN.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -5848,7 +5849,6 @@
     "importance": "medium",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 100,
     "similarQuestions": [],
@@ -5861,6 +5861,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/front-end-interview-handbook/blob/main/packages/quiz/questions/how-would-you-approach-fixing-browser-specific-styling-issues/zh-CN.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -5875,7 +5876,6 @@
     "importance": "low",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 100,
     "similarQuestions": [],
@@ -5888,6 +5888,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/front-end-interview-handbook/blob/main/packages/quiz/questions/html5-as-an-open-web-platform-building-blocks/zh-CN.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -5902,7 +5903,6 @@
     "importance": "high",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 100,
     "similarQuestions": [],
@@ -5916,6 +5916,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/front-end-interview-handbook/blob/main/packages/quiz/questions/is-there-any-reason-youd-want-to-use-translate-instead-of-absolute-positioning-or-vice-versa-and-why/zh-CN.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -5930,7 +5931,6 @@
     "importance": "medium",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 100,
     "similarQuestions": [],
@@ -5944,6 +5944,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/front-end-interview-handbook/blob/main/packages/quiz/questions/what-are-data-attributes-good-for/zh-CN.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -5958,7 +5959,6 @@
     "importance": "low",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 100,
     "similarQuestions": [],
@@ -5971,6 +5971,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/front-end-interview-handbook/blob/main/packages/quiz/questions/what-are-some-of-the-gotchas-for-writing-efficient-css/zh-CN.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [
       "linkedin"
@@ -5987,7 +5988,6 @@
     "importance": "medium",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 100,
     "similarQuestions": [],
@@ -6000,6 +6000,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/front-end-interview-handbook/blob/main/packages/quiz/questions/what-are-the-advantages-disadvantages-of-using-css-preprocessors/zh-CN.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -6014,7 +6015,6 @@
     "importance": "medium",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 100,
     "similarQuestions": [],
@@ -6028,6 +6028,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/front-end-interview-handbook/blob/main/packages/quiz/questions/what-are-the-different-ways-to-visually-hide-content-and-make-it-available-only-for-screen-readers/zh-CN.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -6042,7 +6043,6 @@
     "importance": "low",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 100,
     "similarQuestions": [],
@@ -6055,6 +6055,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/front-end-interview-handbook/blob/main/packages/quiz/questions/what-are-the-various-clearing-techniques-and-which-is-appropriate-for-what-context/zh-CN.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -6069,7 +6070,6 @@
     "importance": "low",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 100,
     "similarQuestions": [],
@@ -6082,6 +6082,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/front-end-interview-handbook/blob/main/packages/quiz/questions/what-does-a-doctype-do/zh-CN.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -6096,7 +6097,6 @@
     "importance": "high",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 1,
     "similarQuestions": [],
@@ -6109,6 +6109,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/front-end-interview-handbook/blob/main/packages/quiz/questions/what-does-box-sizing-border-box-do-what-are-its-advantages/zh-CN.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -6123,7 +6124,6 @@
     "importance": "low",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 100,
     "similarQuestions": [],
@@ -6136,6 +6136,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/front-end-interview-handbook/blob/main/packages/quiz/questions/what-existing-css-frameworks-have-you-used-locally-or-in-production-how-would-you-changeimprove-them/zh-CN.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -6150,7 +6151,6 @@
     "importance": "high",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 1,
     "similarQuestions": [],
@@ -6163,6 +6163,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/front-end-interview-handbook/blob/main/packages/quiz/questions/what-is-css-selector-specificity-and-how-does-it-work/zh-CN.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -6177,7 +6178,6 @@
     "importance": "medium",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 100,
     "similarQuestions": [],
@@ -6190,6 +6190,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/front-end-interview-handbook/blob/main/packages/quiz/questions/what-is-progressive-rendering/zh-CN.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -6204,7 +6205,6 @@
     "importance": "high",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 1,
     "similarQuestions": [],
@@ -6217,6 +6217,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/front-end-interview-handbook/blob/main/packages/quiz/questions/what-is-the-css-display-property-and-can-you-give-a-few-examples-of-its-use/zh-CN.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [
       "rippling",
@@ -6234,7 +6235,6 @@
     "importance": "high",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 2,
     "similarQuestions": [],
@@ -6247,6 +6247,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/front-end-interview-handbook/blob/main/packages/quiz/questions/whats-the-difference-between-a-relative-fixed-absolute-and-statically-positioned-element/zh-CN.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -6261,7 +6262,6 @@
     "importance": "medium",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 100,
     "similarQuestions": [],
@@ -6274,6 +6274,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/front-end-interview-handbook/blob/main/packages/quiz/questions/whats-the-difference-between-feature-detection-feature-inference-and-using-the-ua-string/zh-CN.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -6288,7 +6289,6 @@
     "importance": "high",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 2,
     "similarQuestions": [],
@@ -6301,6 +6301,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/front-end-interview-handbook/blob/main/packages/quiz/questions/whats-the-difference-between-inline-and-inline-block/zh-CN.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -6315,7 +6316,6 @@
     "importance": "medium",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 100,
     "similarQuestions": [],
@@ -6328,6 +6328,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/front-end-interview-handbook/blob/main/packages/quiz/questions/whats-the-difference-between-resetting-and-normalizing-css-which-would-you-choose-and-why/zh-CN.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -6342,7 +6343,6 @@
     "importance": "low",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 100,
     "similarQuestions": [],
@@ -6355,6 +6355,7 @@
     "gitHubEditUrl": "https://github.com/yangshun/front-end-interview-handbook/blob/main/packages/quiz/questions/why-would-you-use-something-like-the-load-event-does-this-event-have-disadvantages-do-you-know-any-alternatives-and-why-would-you-use-those/zh-CN.mdx"
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -6369,7 +6370,6 @@
     "importance": "medium",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 100,
     "similarQuestions": [],

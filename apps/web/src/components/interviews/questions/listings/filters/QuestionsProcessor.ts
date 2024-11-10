@@ -1,13 +1,13 @@
 import { find, groupBy, sumBy } from 'lodash-es';
 
 import type {
+  QuestionAccess,
   QuestionDifficulty,
   QuestionFormat,
   QuestionFramework,
   QuestionImportance,
   QuestionLanguage,
   QuestionMetadata,
-  QuestionPremiumStatus,
   QuestionSlug,
   QuestionSortField,
   QuestionTopic,
@@ -82,7 +82,8 @@ export function sortQuestions<T extends QuestionMetadata>(
         return isAscendingOrder ? value : -value;
       }
       case 'premium': {
-        const value = Number(a.premium) - Number(b.premium);
+        const value =
+          Number(a.access === 'premium') - Number(b.access === 'premium');
 
         return isAscendingOrder ? value : -value;
       }
@@ -120,16 +121,18 @@ export function filterQuestions<T extends QuestionMetadata>(
   );
 }
 
-export function countQuestionsByPremium<T extends QuestionMetadata>(
+export function countQuestionsByAccess<T extends QuestionMetadata>(
   questions: ReadonlyArray<T>,
-): Record<QuestionPremiumStatus, number> {
-  const grouped = groupBy(questions, (question) =>
-    question.premium ? 'premium' : 'free',
+): Record<QuestionAccess, number> {
+  const grouped = groupBy(
+    questions,
+    (questionMetadata) => questionMetadata.access,
   );
 
   return {
     free: grouped.free?.length ?? 0,
     premium: grouped.premium?.length ?? 0,
+    standard: grouped.standard?.length ?? 0,
   };
 }
 

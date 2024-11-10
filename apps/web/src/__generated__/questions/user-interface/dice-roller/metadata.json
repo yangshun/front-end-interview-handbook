@@ -1,4 +1,5 @@
 {
+  "access": "free",
   "author": null,
   "companies": [],
   "created": 1719964800,
@@ -34,7 +35,6 @@
     "js"
   ],
   "nextQuestions": [],
-  "premium": false,
   "published": true,
   "ranking": 100,
   "similarQuestions": [],

@@ -4,7 +4,7 @@
   "created": "2022-05-21T00:00:00.000Z",
   "languages": ["js", "ts"],
   "companies": ["bytedance"],
-  "premium": false,
+  "access": "free",
   "duration": 25,
   "published": true,
   "importance": "high",

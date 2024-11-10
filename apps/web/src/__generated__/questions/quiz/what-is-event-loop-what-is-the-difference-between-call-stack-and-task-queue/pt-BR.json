@@ -2,6 +2,7 @@
   "description": null,
   "format": "quiz",
   "metadata": {
+    "access": "free",
     "author": null,
     "companies": [
       "amazon",
@@ -19,7 +20,6 @@
     "importance": "high",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 40,
     "similarQuestions": [],

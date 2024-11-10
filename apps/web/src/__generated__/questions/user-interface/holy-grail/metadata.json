@@ -1,4 +1,5 @@
 {
+  "access": "free",
   "author": "yangshun",
   "companies": [],
   "created": 1658275200,
@@ -41,7 +42,6 @@
     "todo-list",
     "contact-form"
   ],
-  "premium": false,
   "published": true,
   "ranking": 100,
   "similarQuestions": [

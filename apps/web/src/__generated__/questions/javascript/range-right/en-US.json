@@ -9,6 +9,7 @@
   },
   "format": "javascript",
   "metadata": {
+    "access": "premium",
     "author": null,
     "companies": [],
     "created": 1710633600,
@@ -28,7 +29,6 @@
     "nextQuestions": [
       "range"
     ],
-    "premium": true,
     "published": true,
     "ranking": 100,
     "similarQuestions": [

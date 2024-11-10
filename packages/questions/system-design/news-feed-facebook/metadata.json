@@ -4,7 +4,7 @@
   "created": "2022-09-25T00:00:00.000Z",
   "languages": [],
   "companies": ["facebook", "twitter"],
-  "premium": false,
+  "access": "free",
   "duration": 30,
   "published": true,
   "featured": true,

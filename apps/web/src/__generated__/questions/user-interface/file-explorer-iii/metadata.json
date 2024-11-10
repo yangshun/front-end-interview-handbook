@@ -1,4 +1,5 @@
 {
+  "access": "premium",
   "author": "yangshun",
   "companies": [
     "amazon",
@@ -28,7 +29,6 @@
   "nextQuestions": [
     "file-explorer-iii"
   ],
-  "premium": true,
   "published": true,
   "ranking": 100,
   "similarQuestions": [],

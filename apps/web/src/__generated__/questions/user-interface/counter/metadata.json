@@ -1,4 +1,5 @@
 {
+  "access": "free",
   "author": "yangshun",
   "companies": [
     "amazon"
@@ -43,7 +44,6 @@
     "todo-list",
     "contact-form"
   ],
-  "premium": false,
   "published": true,
   "ranking": 100,
   "similarQuestions": [

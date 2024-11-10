@@ -2,7 +2,7 @@
   "slug": "email-client-outlook",
   "languages": [],
   "companies": [],
-  "premium": true,
+  "access": "premium",
   "duration": 30,
   "published": true,
   "featured": false,

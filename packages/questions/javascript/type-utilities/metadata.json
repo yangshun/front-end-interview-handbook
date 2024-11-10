@@ -4,7 +4,7 @@
   "languages": ["js", "ts"],
   "companies": [],
   "author": "yangshun",
-  "premium": false,
+  "access": "free",
   "duration": 10,
   "published": true,
   "importance": "low",

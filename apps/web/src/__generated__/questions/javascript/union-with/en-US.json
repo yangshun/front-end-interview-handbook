@@ -8,6 +8,7 @@
   },
   "format": "javascript",
   "metadata": {
+    "access": "premium",
     "author": null,
     "companies": [],
     "created": 1712016000,
@@ -29,7 +30,6 @@
       "union",
       "union-by"
     ],
-    "premium": true,
     "published": false,
     "ranking": 100,
     "similarQuestions": [],

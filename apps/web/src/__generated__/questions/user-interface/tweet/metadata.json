@@ -1,4 +1,5 @@
 {
+  "access": "premium",
   "author": "yangshun",
   "companies": [],
   "created": 1658188800,
@@ -37,7 +38,6 @@
     "css"
   ],
   "nextQuestions": [],
-  "premium": true,
   "published": true,
   "ranking": 100,
   "similarQuestions": [

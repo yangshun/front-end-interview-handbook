@@ -4,7 +4,7 @@
   "created": "2022-04-14T00:00:00.000Z",
   "languages": ["js", "ts"],
   "companies": ["amazon", "apple", "lyft", "meta", "rippling", "salesforce"],
-  "premium": false,
+  "access": "free",
   "duration": 20,
   "published": true,
   "importance": "high",

@@ -7,7 +7,10 @@ type Props = Readonly<{
   total: number;
 }>;
 
-export default function CompletionCountSummary({ completed, total }: Props) {
+export default function QuestionCompletionCountSummary({
+  completed,
+  total,
+}: Props) {
   const hasCompletedAll = completed === total;
 
   return (

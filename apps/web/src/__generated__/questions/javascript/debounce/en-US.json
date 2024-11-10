@@ -9,6 +9,7 @@
   },
   "format": "javascript",
   "metadata": {
+    "access": "free",
     "author": "yangshun",
     "companies": [
       "flipkart",
@@ -36,7 +37,6 @@
       "debounce-ii",
       "holy-grail"
     ],
-    "premium": false,
     "published": true,
     "ranking": 100,
     "similarQuestions": [

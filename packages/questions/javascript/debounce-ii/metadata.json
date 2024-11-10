@@ -4,7 +4,7 @@
   "languages": ["js", "ts"],
   "companies": ["flipkart", "google", "lyft", "walmart", "yelp"],
   "author": "yangshun",
-  "premium": true,
+  "access": "premium",
   "duration": 20,
   "published": true,
   "importance": "high",

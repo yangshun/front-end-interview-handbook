@@ -1,4 +1,5 @@
 {
+  "access": "premium",
   "author": "yangshun",
   "companies": [
     "tiktok"
@@ -38,7 +39,6 @@
   "nextQuestions": [
     "transfer-list-ii"
   ],
-  "premium": true,
   "published": true,
   "ranking": 100,
   "similarQuestions": [

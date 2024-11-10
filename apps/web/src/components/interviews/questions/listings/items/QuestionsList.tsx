@@ -165,7 +165,9 @@ export default function QuestionsList<Q extends QuestionMetadata>({
                       variant="warning"
                     />
                   )}
-                  {questionMetadata.premium && <InterviewsPremiumBadge />}
+                  {questionMetadata.access === 'premium' && (
+                    <InterviewsPremiumBadge />
+                  )}
                   {questionMetadata.format === 'system-design' &&
                     !ReadyQuestions.includes(questionMetadata.slug) && (
                       <Badge

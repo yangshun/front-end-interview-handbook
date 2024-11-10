@@ -4,7 +4,7 @@
   "created": "2022-06-27T00:00:00.000Z",
   "languages": ["html", "js", "ts"],
   "companies": [],
-  "premium": true,
+  "access": "premium",
   "duration": 25,
   "published": true,
   "importance": "low",

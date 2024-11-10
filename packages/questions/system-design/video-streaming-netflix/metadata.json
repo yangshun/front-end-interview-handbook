@@ -2,7 +2,7 @@
   "slug": "video-streaming-netflix",
   "languages": [],
   "companies": [],
-  "premium": true,
+  "access": "premium",
   "duration": 45,
   "published": true,
   "featured": false,

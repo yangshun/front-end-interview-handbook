@@ -1,5 +1,6 @@
 [
   {
+    "access": "free",
     "author": "yangshun",
     "companies": [],
     "created": 1671580800,
@@ -29,7 +30,6 @@
     "nextQuestions": [
       "accordion-ii"
     ],
-    "premium": true,
     "published": true,
     "ranking": 100,
     "similarQuestions": [],
@@ -39,6 +39,7 @@
     "topics": []
   },
   {
+    "access": "premium",
     "author": "yangshun",
     "companies": [],
     "created": 1671580800,
@@ -67,7 +68,6 @@
     "nextQuestions": [
       "accordion-iii"
     ],
-    "premium": true,
     "published": true,
     "ranking": 100,
     "similarQuestions": [],
@@ -77,6 +77,7 @@
     "topics": []
   },
   {
+    "access": "premium",
     "author": "yangshun",
     "companies": [],
     "created": 1671580800,
@@ -99,7 +100,6 @@
       "js"
     ],
     "nextQuestions": [],
-    "premium": true,
     "published": true,
     "ranking": 100,
     "similarQuestions": [],
@@ -109,6 +109,7 @@
     "topics": []
   },
   {
+    "access": "premium",
     "author": "yangshun",
     "companies": [
       "lyft"
@@ -150,7 +151,6 @@
       "js"
     ],
     "nextQuestions": [],
-    "premium": true,
     "published": true,
     "ranking": 100,
     "similarQuestions": [
@@ -162,6 +162,7 @@
     "topics": []
   },
   {
+    "access": "premium",
     "author": null,
     "companies": [],
     "created": 1658102400,
@@ -179,7 +180,6 @@
       "ts"
     ],
     "nextQuestions": [],
-    "premium": true,
     "published": true,
     "ranking": 100,
     "similarQuestions": [],
@@ -189,6 +189,7 @@
     "topics": []
   },
   {
+    "access": "premium",
     "author": null,
     "companies": [
       "apple"
@@ -212,7 +213,6 @@
       "array-reduce",
       "array-filter"
     ],
-    "premium": true,
     "published": true,
     "ranking": 100,
     "similarQuestions": [
@@ -226,6 +226,7 @@
     "topics": []
   },
   {
+    "access": "premium",
     "author": null,
     "companies": [
       "amazon",
@@ -249,7 +250,6 @@
       "array-map",
       "array-reduce"
     ],
-    "premium": true,
     "published": true,
     "ranking": 100,
     "similarQuestions": [
@@ -263,6 +263,7 @@
     "topics": []
   },
   {
+    "access": "premium",
     "author": null,
     "companies": [
       "amazon",
@@ -288,7 +289,6 @@
       "deep-map",
       "object-map"
     ],
-    "premium": true,
     "published": true,
     "ranking": 100,
     "similarQuestions": [
@@ -302,6 +302,7 @@
     "topics": []
   },
   {
+    "access": "premium",
     "author": null,
     "companies": [
       "adobe",
@@ -327,7 +328,6 @@
       "array-filter",
       "array-map"
     ],
-    "premium": true,
     "published": true,
     "ranking": 100,
     "similarQuestions": [
@@ -341,6 +341,7 @@
     "topics": []
   },
   {
+    "access": "premium",
     "author": null,
     "companies": [
       "bytedance",
@@ -361,7 +362,6 @@
       "ts"
     ],
     "nextQuestions": [],
-    "premium": true,
     "published": true,
     "ranking": 100,
     "similarQuestions": [
@@ -375,6 +375,7 @@
     "topics": []
   },
   {
+    "access": "premium",
     "author": null,
     "companies": [],
     "created": 1723766400,
@@ -398,7 +399,6 @@
       "js"
     ],
     "nextQuestions": [],
-    "premium": true,
     "published": true,
     "ranking": 100,
     "similarQuestions": [],
@@ -408,6 +408,7 @@
     "topics": []
   },
   {
+    "access": "premium",
     "author": null,
     "companies": [
       "airbnb"
@@ -429,7 +430,6 @@
     "nextQuestions": [
       ""
     ],
-    "premium": true,
     "published": true,
     "ranking": 100,
     "similarQuestions": [
@@ -442,6 +442,7 @@
     "topics": []
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1671667200,
@@ -465,7 +466,6 @@
       "depth-first-search",
       "breadth-first-search"
     ],
-    "premium": false,
     "published": true,
     "ranking": 100,
     "similarQuestions": [],
@@ -475,6 +475,7 @@
     "topics": []
   },
   {
+    "access": "premium",
     "author": null,
     "companies": [],
     "created": 1723766400,
@@ -510,7 +511,6 @@
       "js"
     ],
     "nextQuestions": [],
-    "premium": true,
     "published": true,
     "ranking": 100,
     "similarQuestions": [],
@@ -520,6 +520,7 @@
     "topics": []
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1679788800,
@@ -537,7 +538,6 @@
       "ts"
     ],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 100,
     "similarQuestions": [
@@ -549,6 +549,7 @@
     "topics": []
   },
   {
+    "access": "premium",
     "author": "zhenghao",
     "companies": [],
     "created": 1656460800,
@@ -566,7 +567,6 @@
       "ts"
     ],
     "nextQuestions": [],
-    "premium": true,
     "published": true,
     "ranking": 100,
     "similarQuestions": [
@@ -579,6 +579,7 @@
     "topics": []
   },
   {
+    "access": "premium",
     "author": null,
     "companies": [],
     "created": 1689552000,
@@ -596,7 +597,6 @@
       "ts"
     ],
     "nextQuestions": [],
-    "premium": true,
     "published": true,
     "ranking": 100,
     "similarQuestions": [
@@ -608,6 +608,7 @@
     "topics": []
   },
   {
+    "access": "premium",
     "author": null,
     "companies": [],
     "created": 1689552000,
@@ -625,7 +626,6 @@
       "ts"
     ],
     "nextQuestions": [],
-    "premium": true,
     "published": true,
     "ranking": 100,
     "similarQuestions": [
@@ -637,6 +637,7 @@
     "topics": []
   },
   {
+    "access": "premium",
     "author": null,
     "companies": [],
     "created": 1682553600,
@@ -654,7 +655,6 @@
       "ts"
     ],
     "nextQuestions": [],
-    "premium": true,
     "published": true,
     "ranking": 100,
     "similarQuestions": [
@@ -666,6 +666,7 @@
     "topics": []
   },
   {
+    "access": "premium",
     "author": null,
     "companies": [],
     "created": 1683331200,
@@ -685,7 +686,6 @@
     "nextQuestions": [
       "in-range"
     ],
-    "premium": true,
     "published": true,
     "ranking": 100,
     "similarQuestions": [
@@ -697,6 +697,7 @@
     "topics": []
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1651449600,
@@ -715,7 +716,6 @@
       "ts"
     ],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 100,
     "similarQuestions": [],
@@ -725,6 +725,7 @@
     "topics": []
   },
   {
+    "access": "premium",
     "author": null,
     "companies": [],
     "created": 1701302400,
@@ -743,7 +744,6 @@
       "ts"
     ],
     "nextQuestions": [],
-    "premium": true,
     "published": true,
     "ranking": 100,
     "similarQuestions": [
@@ -755,6 +755,7 @@
     "topics": []
   },
   {
+    "access": "premium",
     "author": null,
     "companies": [],
     "created": 1682553600,
@@ -772,7 +773,6 @@
       "ts"
     ],
     "nextQuestions": [],
-    "premium": true,
     "published": true,
     "ranking": 100,
     "similarQuestions": [
@@ -785,6 +785,7 @@
     "topics": []
   },
   {
+    "access": "premium",
     "author": null,
     "companies": [],
     "created": 1690761600,
@@ -802,7 +803,6 @@
       "ts"
     ],
     "nextQuestions": [],
-    "premium": true,
     "published": true,
     "ranking": 100,
     "similarQuestions": [
@@ -814,6 +814,7 @@
     "topics": []
   },
   {
+    "access": "premium",
     "author": null,
     "companies": [],
     "created": 1689552000,
@@ -831,7 +832,6 @@
       "ts"
     ],
     "nextQuestions": [],
-    "premium": true,
     "published": true,
     "ranking": 100,
     "similarQuestions": [],
@@ -841,6 +841,7 @@
     "topics": []
   },
   {
+    "access": "premium",
     "author": null,
     "companies": [],
     "created": 1712102400,
@@ -858,7 +859,6 @@
       "ts"
     ],
     "nextQuestions": [],
-    "premium": true,
     "published": true,
     "ranking": 100,
     "similarQuestions": [
@@ -870,6 +870,7 @@
     "topics": []
   },
   {
+    "access": "premium",
     "author": null,
     "companies": [],
     "created": 1719964800,
@@ -905,7 +906,6 @@
       "css"
     ],
     "nextQuestions": [],
-    "premium": true,
     "published": true,
     "ranking": 100,
     "similarQuestions": [],
@@ -915,6 +915,7 @@
     "topics": []
   },
   {
+    "access": "free",
     "author": "yangshun",
     "companies": [
       "lyft"
@@ -957,7 +958,6 @@
       "flatten",
       "signup-form"
     ],
-    "premium": false,
     "published": true,
     "ranking": 100,
     "similarQuestions": [
@@ -969,6 +969,7 @@
     "topics": []
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1690416000,
@@ -986,7 +987,6 @@
       "ts"
     ],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 100,
     "similarQuestions": [
@@ -998,6 +998,7 @@
     "topics": []
   },
   {
+    "access": "free",
     "author": "yangshun",
     "companies": [
       "amazon"
@@ -1042,7 +1043,6 @@
       "todo-list",
       "contact-form"
     ],
-    "premium": false,
     "published": true,
     "ranking": 100,
     "similarQuestions": [
@@ -1055,6 +1055,7 @@
     "topics": []
   },
   {
+    "access": "premium",
     "author": "yangshun",
     "companies": [
       "intuit"
@@ -1078,7 +1079,6 @@
       "promise-all",
       "todo-list"
     ],
-    "premium": true,
     "published": true,
     "ranking": 100,
     "similarQuestions": [
@@ -1091,6 +1091,7 @@
     "topics": []
   },
   {
+    "access": "premium",
     "author": "yangshun",
     "companies": [],
     "created": 1655510400,
@@ -1110,7 +1111,6 @@
     "nextQuestions": [
       "curry-iii"
     ],
-    "premium": true,
     "published": true,
     "ranking": 100,
     "similarQuestions": [
@@ -1122,6 +1122,7 @@
     "topics": []
   },
   {
+    "access": "premium",
     "author": "yangshun",
     "companies": [],
     "created": 1670630400,
@@ -1139,7 +1140,6 @@
       "ts"
     ],
     "nextQuestions": [],
-    "premium": true,
     "published": true,
     "ranking": 100,
     "similarQuestions": [
@@ -1152,6 +1152,7 @@
     "topics": []
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1699488000,
@@ -1169,7 +1170,6 @@
       "ts"
     ],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 100,
     "similarQuestions": [],
@@ -1179,6 +1179,7 @@
     "topics": []
   },
   {
+    "access": "premium",
     "author": null,
     "companies": [
       "soundcloud"
@@ -1198,7 +1199,6 @@
       "ts"
     ],
     "nextQuestions": [],
-    "premium": true,
     "published": true,
     "ranking": 100,
     "similarQuestions": [
@@ -1211,6 +1211,7 @@
     "topics": []
   },
   {
+    "access": "premium",
     "author": null,
     "companies": [
       "soundcloud"
@@ -1230,7 +1231,6 @@
       "ts"
     ],
     "nextQuestions": [],
-    "premium": true,
     "published": true,
     "ranking": 100,
     "similarQuestions": [
@@ -1242,6 +1242,7 @@
     "topics": []
   },
   {
+    "access": "free",
     "author": "yangshun",
     "companies": [
       "palantir"
@@ -1268,7 +1269,6 @@
     "nextQuestions": [
       "data-table-ii"
     ],
-    "premium": false,
     "published": true,
     "ranking": 100,
     "similarQuestions": [],
@@ -1278,6 +1278,7 @@
     "topics": []
   },
   {
+    "access": "premium",
     "author": "yangshun",
     "companies": [
       "palantir"
@@ -1302,7 +1303,6 @@
       "js"
     ],
     "nextQuestions": [],
-    "premium": true,
     "published": true,
     "ranking": 100,
     "similarQuestions": [],
@@ -1312,6 +1312,7 @@
     "topics": []
   },
   {
+    "access": "premium",
     "author": "yangshun",
     "companies": [
       "palantir"
@@ -1336,7 +1337,6 @@
       "js"
     ],
     "nextQuestions": [],
-    "premium": true,
     "published": true,
     "ranking": 100,
     "similarQuestions": [],
@@ -1346,6 +1346,7 @@
     "topics": []
   },
   {
+    "access": "premium",
     "author": "yangshun",
     "companies": [
       "palantir"
@@ -1370,7 +1371,6 @@
       "js"
     ],
     "nextQuestions": [],
-    "premium": true,
     "published": true,
     "ranking": 100,
     "similarQuestions": [],
@@ -1380,6 +1380,7 @@
     "topics": []
   },
   {
+    "access": "free",
     "author": "yangshun",
     "companies": [
       "flipkart",
@@ -1407,7 +1408,6 @@
       "debounce-ii",
       "holy-grail"
     ],
-    "premium": false,
     "published": true,
     "ranking": 100,
     "similarQuestions": [
@@ -1419,6 +1419,7 @@
     "topics": []
   },
   {
+    "access": "premium",
     "author": "yangshun",
     "companies": [
       "flipkart",
@@ -1444,7 +1445,6 @@
     "nextQuestions": [
       "throttle"
     ],
-    "premium": true,
     "published": true,
     "ranking": 100,
     "similarQuestions": [
@@ -1457,6 +1457,7 @@
     "topics": []
   },
   {
+    "access": "free",
     "author": "zhenghao",
     "companies": [
       "bytedance"
@@ -1480,7 +1481,6 @@
       "deep-equal",
       "deep-clone-ii"
     ],
-    "premium": false,
     "published": true,
     "ranking": 100,
     "similarQuestions": [
@@ -1493,6 +1493,7 @@
     "topics": []
   },
   {
+    "access": "premium",
     "author": "zhenghao",
     "companies": [],
     "created": 1653177600,
@@ -1510,7 +1511,6 @@
       "ts"
     ],
     "nextQuestions": [],
-    "premium": true,
     "published": true,
     "ranking": 100,
     "similarQuestions": [
@@ -1522,6 +1522,7 @@
     "topics": []
   },
   {
+    "access": "premium",
     "author": "zhenghao",
     "companies": [
       "google"
@@ -1541,7 +1542,6 @@
       "ts"
     ],
     "nextQuestions": [],
-    "premium": true,
     "published": true,
     "ranking": 100,
     "similarQuestions": [
@@ -1554,6 +1554,7 @@
     "topics": []
   },
   {
+    "access": "premium",
     "author": null,
     "companies": [],
     "created": 1690761600,
@@ -1571,7 +1572,6 @@
       "ts"
     ],
     "nextQuestions": [],
-    "premium": true,
     "published": true,
     "ranking": 100,
     "similarQuestions": [
@@ -1584,6 +1584,7 @@
     "topics": []
   },
   {
+    "access": "premium",
     "author": null,
     "companies": [],
     "created": 1690848000,
@@ -1601,7 +1602,6 @@
       "ts"
     ],
     "nextQuestions": [],
-    "premium": true,
     "published": true,
     "ranking": 100,
     "similarQuestions": [
@@ -1613,6 +1613,7 @@
     "topics": []
   },
   {
+    "access": "premium",
     "author": null,
     "companies": [],
     "created": 1690761600,
@@ -1630,7 +1631,6 @@
       "ts"
     ],
     "nextQuestions": [],
-    "premium": true,
     "published": true,
     "ranking": 100,
     "similarQuestions": [
@@ -1642,6 +1642,7 @@
     "topics": []
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1671667200,
@@ -1659,7 +1660,6 @@
       "ts"
     ],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 100,
     "similarQuestions": [
@@ -1671,6 +1671,7 @@
     "topics": []
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1719964800,
@@ -1706,7 +1707,6 @@
       "js"
     ],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 100,
     "similarQuestions": [],
@@ -1716,6 +1716,7 @@
     "topics": []
   },
   {
+    "access": "premium",
     "author": null,
     "companies": [],
     "created": 1682553600,
@@ -1733,7 +1734,6 @@
       "ts"
     ],
     "nextQuestions": [],
-    "premium": true,
     "published": true,
     "ranking": 100,
     "similarQuestions": [
@@ -1747,6 +1747,7 @@
     "topics": []
   },
   {
+    "access": "free",
     "author": "yangshun",
     "companies": [
       "lyft"
@@ -1788,7 +1789,6 @@
       "js"
     ],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 100,
     "similarQuestions": [],
@@ -1798,6 +1798,7 @@
     "topics": []
   },
   {
+    "access": "premium",
     "author": null,
     "companies": [],
     "created": 1682553600,
@@ -1815,7 +1816,6 @@
       "ts"
     ],
     "nextQuestions": [],
-    "premium": true,
     "published": true,
     "ranking": 100,
     "similarQuestions": [
@@ -1827,6 +1827,7 @@
     "topics": []
   },
   {
+    "access": "premium",
     "author": null,
     "companies": [],
     "created": 1682553600,
@@ -1846,7 +1847,6 @@
     "nextQuestions": [
       "drop-right-while"
     ],
-    "premium": true,
     "published": true,
     "ranking": 100,
     "similarQuestions": [],
@@ -1856,6 +1856,7 @@
     "topics": []
   },
   {
+    "access": "free",
     "author": null,
     "companies": [
       "google",
@@ -1880,7 +1881,6 @@
     "nextQuestions": [
       "event-emitter-ii"
     ],
-    "premium": false,
     "published": true,
     "ranking": 100,
     "similarQuestions": [
@@ -1893,6 +1893,7 @@
     "topics": []
   },
   {
+    "access": "premium",
     "author": null,
     "companies": [
       "google",
@@ -1916,7 +1917,6 @@
       "jquery-class-manipulation",
       "backbone-model"
     ],
-    "premium": true,
     "published": true,
     "ranking": 100,
     "similarQuestions": [
@@ -1929,6 +1929,7 @@
     "topics": []
   },
   {
+    "access": "free",
     "author": "yangshun",
     "companies": [
       "amazon",
@@ -1959,7 +1960,6 @@
       "file-explorer-ii",
       "file-explorer-iii"
     ],
-    "premium": false,
     "published": true,
     "ranking": 100,
     "similarQuestions": [
@@ -1971,6 +1971,7 @@
     "topics": []
   },
   {
+    "access": "premium",
     "author": "yangshun",
     "companies": [
       "amazon",
@@ -2000,7 +2001,6 @@
     "nextQuestions": [
       "file-explorer-iii"
     ],
-    "premium": true,
     "published": true,
     "ranking": 100,
     "similarQuestions": [],
@@ -2010,6 +2010,7 @@
     "topics": []
   },
   {
+    "access": "premium",
     "author": "yangshun",
     "companies": [
       "amazon",
@@ -2039,7 +2040,6 @@
     "nextQuestions": [
       "file-explorer-iii"
     ],
-    "premium": true,
     "published": true,
     "ranking": 100,
     "similarQuestions": [],
@@ -2049,6 +2049,7 @@
     "topics": []
   },
   {
+    "access": "premium",
     "author": null,
     "companies": [],
     "created": 1682553600,
@@ -2066,7 +2067,6 @@
       "ts"
     ],
     "nextQuestions": [],
-    "premium": true,
     "published": true,
     "ranking": 100,
     "similarQuestions": [],
@@ -2076,6 +2076,7 @@
     "topics": []
   },
   {
+    "access": "premium",
     "author": null,
     "companies": [],
     "created": 1682726400,
@@ -2093,7 +2094,6 @@
       "ts"
     ],
     "nextQuestions": [],
-    "premium": true,
     "published": true,
     "ranking": 100,
     "similarQuestions": [
@@ -2105,6 +2105,7 @@
     "topics": []
   },
   {
+    "access": "premium",
     "author": null,
     "companies": [],
     "created": 1682726400,
@@ -2122,7 +2123,6 @@
       "ts"
     ],
     "nextQuestions": [],
-    "premium": true,
     "published": true,
     "ranking": 100,
     "similarQuestions": [
@@ -2134,6 +2134,7 @@
     "topics": []
   },
   {
+    "access": "free",
     "author": "zhenghao",
     "companies": [
       "amazon",
@@ -2162,7 +2163,6 @@
       "holy-grail",
       "deep-equal"
     ],
-    "premium": false,
     "published": true,
     "ranking": 100,
     "similarQuestions": [
@@ -2175,6 +2175,7 @@
     "topics": []
   },
   {
+    "access": "premium",
     "author": "yangshun",
     "companies": [],
     "created": 1682121600,
@@ -2209,7 +2210,6 @@
       "js"
     ],
     "nextQuestions": [],
-    "premium": true,
     "published": true,
     "ranking": 100,
     "similarQuestions": [],
@@ -2219,6 +2219,7 @@
     "topics": []
   },
   {
+    "access": "premium",
     "author": null,
     "companies": [],
     "created": 1687651200,
@@ -2236,7 +2237,6 @@
       "ts"
     ],
     "nextQuestions": [],
-    "premium": true,
     "published": true,
     "ranking": 100,
     "similarQuestions": [],
@@ -2246,6 +2246,7 @@
     "topics": []
   },
   {
+    "access": "premium",
     "author": null,
     "companies": [],
     "created": 1683331200,
@@ -2265,7 +2266,6 @@
     "nextQuestions": [
       "curry"
     ],
-    "premium": true,
     "published": true,
     "ranking": 100,
     "similarQuestions": [
@@ -2277,6 +2277,7 @@
     "topics": []
   },
   {
+    "access": "premium",
     "author": null,
     "companies": [],
     "created": 1690329600,
@@ -2294,7 +2295,6 @@
       "ts"
     ],
     "nextQuestions": [],
-    "premium": true,
     "published": true,
     "ranking": 100,
     "similarQuestions": [
@@ -2307,6 +2307,7 @@
     "topics": []
   },
   {
+    "access": "premium",
     "author": "zhenghao",
     "companies": [
       "amazon",
@@ -2329,7 +2330,6 @@
     "nextQuestions": [
       "curry"
     ],
-    "premium": true,
     "published": true,
     "ranking": 100,
     "similarQuestions": [
@@ -2342,6 +2342,7 @@
     "topics": []
   },
   {
+    "access": "premium",
     "author": null,
     "companies": [],
     "created": 1690329600,
@@ -2359,7 +2360,6 @@
       "ts"
     ],
     "nextQuestions": [],
-    "premium": true,
     "published": true,
     "ranking": 100,
     "similarQuestions": [
@@ -2372,6 +2372,7 @@
     "topics": []
   },
   {
+    "access": "premium",
     "author": "yangshun",
     "companies": [
       "google"
@@ -2412,7 +2413,6 @@
       "js"
     ],
     "nextQuestions": [],
-    "premium": true,
     "published": true,
     "ranking": 100,
     "similarQuestions": [],
@@ -2422,6 +2422,7 @@
     "topics": []
   },
   {
+    "access": "premium",
     "author": "yangshun",
     "companies": [
       "tiktok"
@@ -2441,7 +2442,6 @@
       "ts"
     ],
     "nextQuestions": [],
-    "premium": true,
     "published": true,
     "ranking": 100,
     "similarQuestions": [
@@ -2453,6 +2453,7 @@
     "topics": []
   },
   {
+    "access": "premium",
     "author": "yangshun",
     "companies": [
       "dropbox",
@@ -2476,7 +2477,6 @@
       "ts"
     ],
     "nextQuestions": [],
-    "premium": true,
     "published": true,
     "ranking": 100,
     "similarQuestions": [
@@ -2489,6 +2489,7 @@
     "topics": []
   },
   {
+    "access": "premium",
     "author": "yangshun",
     "companies": [
       "amazon"
@@ -2510,7 +2511,6 @@
       "ts"
     ],
     "nextQuestions": [],
-    "premium": true,
     "published": true,
     "ranking": 100,
     "similarQuestions": [
@@ -2523,6 +2523,7 @@
     "topics": []
   },
   {
+    "access": "premium",
     "author": "yangshun",
     "companies": [
       "google"
@@ -2543,7 +2544,6 @@
       "ts"
     ],
     "nextQuestions": [],
-    "premium": true,
     "published": true,
     "ranking": 100,
     "similarQuestions": [
@@ -2556,6 +2556,7 @@
     "topics": []
   },
   {
+    "access": "premium",
     "author": "yangshun",
     "companies": [
       "dropbox"
@@ -2576,7 +2577,6 @@
       "ts"
     ],
     "nextQuestions": [],
-    "premium": true,
     "published": true,
     "ranking": 100,
     "similarQuestions": [
@@ -2590,6 +2590,7 @@
     "topics": []
   },
   {
+    "access": "premium",
     "author": "yangshun",
     "companies": [
       "uber"
@@ -2627,7 +2628,6 @@
       "js"
     ],
     "nextQuestions": [],
-    "premium": true,
     "published": true,
     "ranking": 100,
     "similarQuestions": [],
@@ -2637,6 +2637,7 @@
     "topics": []
   },
   {
+    "access": "premium",
     "author": null,
     "companies": [],
     "created": 1690502400,
@@ -2654,7 +2655,6 @@
       "ts"
     ],
     "nextQuestions": [],
-    "premium": true,
     "published": true,
     "ranking": 100,
     "similarQuestions": [
@@ -2666,6 +2666,7 @@
     "topics": []
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1673395200,
@@ -2685,7 +2686,6 @@
     "nextQuestions": [
       "quick-sort"
     ],
-    "premium": false,
     "published": true,
     "ranking": 100,
     "similarQuestions": [
@@ -2697,6 +2697,7 @@
     "topics": []
   },
   {
+    "access": "free",
     "author": "yangshun",
     "companies": [],
     "created": 1658275200,
@@ -2739,7 +2740,6 @@
       "todo-list",
       "contact-form"
     ],
-    "premium": false,
     "published": true,
     "ranking": 100,
     "similarQuestions": [
@@ -2751,6 +2751,7 @@
     "topics": []
   },
   {
+    "access": "premium",
     "author": "zhenghao",
     "companies": [
       "tiktok"
@@ -2771,7 +2772,6 @@
       "ts"
     ],
     "nextQuestions": [],
-    "premium": true,
     "published": true,
     "ranking": 100,
     "similarQuestions": [
@@ -2783,6 +2783,7 @@
     "topics": []
   },
   {
+    "access": "premium",
     "author": "zhenghao",
     "companies": [],
     "created": 1649894400,
@@ -2801,7 +2802,6 @@
       "ts"
     ],
     "nextQuestions": [],
-    "premium": true,
     "published": true,
     "ranking": 100,
     "similarQuestions": [
@@ -2813,6 +2813,7 @@
     "topics": []
   },
   {
+    "access": "free",
     "author": "yangshun",
     "companies": [
       "amazon",
@@ -2847,7 +2848,6 @@
       "image-carousel-ii",
       "image-carousel-iii"
     ],
-    "premium": false,
     "published": true,
     "ranking": 100,
     "similarQuestions": [],
@@ -2857,6 +2857,7 @@
     "topics": []
   },
   {
+    "access": "premium",
     "author": "yangshun",
     "companies": [
       "amazon",
@@ -2890,7 +2891,6 @@
     "nextQuestions": [
       "image-carousel-iii"
     ],
-    "premium": true,
     "published": true,
     "ranking": 100,
     "similarQuestions": [],
@@ -2900,6 +2900,7 @@
     "topics": []
   },
   {
+    "access": "premium",
     "author": "yangshun",
     "companies": [
       "amazon",
@@ -2931,7 +2932,6 @@
       "css"
     ],
     "nextQuestions": [],
-    "premium": true,
     "published": true,
     "ranking": 100,
     "similarQuestions": [],
@@ -2941,6 +2941,7 @@
     "topics": []
   },
   {
+    "access": "premium",
     "author": null,
     "companies": [],
     "created": 1683331200,
@@ -2958,7 +2959,6 @@
       "ts"
     ],
     "nextQuestions": [],
-    "premium": true,
     "published": true,
     "ranking": 100,
     "similarQuestions": [
@@ -2970,6 +2970,7 @@
     "topics": []
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1671667200,
@@ -2989,7 +2990,6 @@
     "nextQuestions": [
       "quick-sort"
     ],
-    "premium": false,
     "published": true,
     "ranking": 100,
     "similarQuestions": [
@@ -3001,6 +3001,7 @@
     "topics": []
   },
   {
+    "access": "premium",
     "author": null,
     "companies": [],
     "created": 1687651200,
@@ -3021,7 +3022,6 @@
       "intersection-by",
       "intersection-with"
     ],
-    "premium": true,
     "published": true,
     "ranking": 100,
     "similarQuestions": [],
@@ -3031,6 +3031,7 @@
     "topics": []
   },
   {
+    "access": "premium",
     "author": null,
     "companies": [],
     "created": 1687651200,
@@ -3048,7 +3049,6 @@
       "ts"
     ],
     "nextQuestions": [],
-    "premium": true,
     "published": true,
     "ranking": 100,
     "similarQuestions": [
@@ -3061,6 +3061,7 @@
     "topics": []
   },
   {
+    "access": "premium",
     "author": null,
     "companies": [],
     "created": 1687651200,
@@ -3078,7 +3079,6 @@
       "ts"
     ],
     "nextQuestions": [],
-    "premium": true,
     "published": true,
     "ranking": 100,
     "similarQuestions": [
@@ -3091,6 +3091,7 @@
     "topics": []
   },
   {
+    "access": "premium",
     "author": null,
     "companies": [],
     "created": 1683331200,
@@ -3108,7 +3109,6 @@
       "ts"
     ],
     "nextQuestions": [],
-    "premium": true,
     "published": true,
     "ranking": 100,
     "similarQuestions": [],
@@ -3118,6 +3118,7 @@
     "topics": []
   },
   {
+    "access": "free",
     "author": "dhillon",
     "companies": [
       "microsoft",
@@ -3160,7 +3161,6 @@
       "js"
     ],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 100,
     "similarQuestions": [],
@@ -3170,6 +3170,7 @@
     "topics": []
   },
   {
+    "access": "premium",
     "author": "yangshun",
     "companies": [],
     "created": 1655510400,
@@ -3189,7 +3190,6 @@
       "ts"
     ],
     "nextQuestions": [],
-    "premium": true,
     "published": true,
     "ranking": 100,
     "similarQuestions": [
@@ -3201,6 +3201,7 @@
     "topics": []
   },
   {
+    "access": "premium",
     "author": "yangshun",
     "companies": [],
     "created": 1654992000,
@@ -3220,7 +3221,6 @@
       "ts"
     ],
     "nextQuestions": [],
-    "premium": true,
     "published": true,
     "ranking": 100,
     "similarQuestions": [
@@ -3232,6 +3232,7 @@
     "topics": []
   },
   {
+    "access": "premium",
     "author": null,
     "companies": [
       "snap"
@@ -3253,7 +3254,6 @@
     "nextQuestions": [
       "json-stringify-ii"
     ],
-    "premium": true,
     "published": true,
     "ranking": 100,
     "similarQuestions": [
@@ -3265,6 +3265,7 @@
     "topics": []
   },
   {
+    "access": "premium",
     "author": "zhenghao",
     "companies": [
       "snap"
@@ -3284,7 +3285,6 @@
       "ts"
     ],
     "nextQuestions": [],
-    "premium": true,
     "published": true,
     "ranking": 100,
     "similarQuestions": [
@@ -3296,6 +3296,7 @@
     "topics": []
   },
   {
+    "access": "premium",
     "author": "yangshun",
     "companies": [
       "amazon"
@@ -3333,7 +3334,6 @@
       "js"
     ],
     "nextQuestions": [],
-    "premium": true,
     "published": true,
     "ranking": 100,
     "similarQuestions": [],
@@ -3343,6 +3343,7 @@
     "topics": []
   },
   {
+    "access": "premium",
     "author": "yangshun",
     "companies": [],
     "created": 1670803200,
@@ -3360,7 +3361,6 @@
       "ts"
     ],
     "nextQuestions": [],
-    "premium": true,
     "published": true,
     "ranking": 100,
     "similarQuestions": [
@@ -3372,6 +3372,7 @@
     "topics": []
   },
   {
+    "access": "premium",
     "author": "yangshun",
     "companies": [
       "dropbox"
@@ -3391,7 +3392,6 @@
       "ts"
     ],
     "nextQuestions": [],
-    "premium": true,
     "published": true,
     "ranking": 100,
     "similarQuestions": [],
@@ -3401,6 +3401,7 @@
     "topics": []
   },
   {
+    "access": "free",
     "author": null,
     "companies": [
       "amazon"
@@ -3422,7 +3423,6 @@
     "nextQuestions": [
       "make-counter-ii"
     ],
-    "premium": false,
     "published": true,
     "ranking": 100,
     "similarQuestions": [
@@ -3434,6 +3434,7 @@
     "topics": []
   },
   {
+    "access": "premium",
     "author": null,
     "companies": [],
     "created": 1683331200,
@@ -3453,7 +3454,6 @@
     "nextQuestions": [
       "jquery-css"
     ],
-    "premium": true,
     "published": true,
     "ranking": 100,
     "similarQuestions": [
@@ -3466,6 +3466,7 @@
     "topics": []
   },
   {
+    "access": "premium",
     "author": null,
     "companies": [
       "google",
@@ -3489,7 +3490,6 @@
     "nextQuestions": [
       "map-async-limit"
     ],
-    "premium": true,
     "published": true,
     "ranking": 100,
     "similarQuestions": [
@@ -3501,6 +3501,7 @@
     "topics": []
   },
   {
+    "access": "premium",
     "author": null,
     "companies": [
       "google",
@@ -3522,7 +3523,6 @@
       "ts"
     ],
     "nextQuestions": [],
-    "premium": true,
     "published": true,
     "ranking": 100,
     "similarQuestions": [
@@ -3534,6 +3534,7 @@
     "topics": []
   },
   {
+    "access": "premium",
     "author": null,
     "companies": [],
     "created": 1710720000,
@@ -3551,7 +3552,6 @@
       "ts"
     ],
     "nextQuestions": [],
-    "premium": true,
     "published": true,
     "ranking": 100,
     "similarQuestions": [
@@ -3564,6 +3564,7 @@
     "topics": []
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1710633600,
@@ -3583,7 +3584,6 @@
     "nextQuestions": [
       "array-reduce"
     ],
-    "premium": false,
     "published": true,
     "ranking": 100,
     "similarQuestions": [],
@@ -3593,6 +3593,7 @@
     "topics": []
   },
   {
+    "access": "premium",
     "author": null,
     "companies": [
       "intuit",
@@ -3613,7 +3614,6 @@
       "ts"
     ],
     "nextQuestions": [],
-    "premium": true,
     "published": true,
     "ranking": 100,
     "similarQuestions": [],
@@ -3623,6 +3623,7 @@
     "topics": []
   },
   {
+    "access": "premium",
     "author": null,
     "companies": [
       "linkedin"
@@ -3642,7 +3643,6 @@
       "ts"
     ],
     "nextQuestions": [],
-    "premium": true,
     "published": true,
     "ranking": 100,
     "similarQuestions": [],
@@ -3652,6 +3652,7 @@
     "topics": []
   },
   {
+    "access": "premium",
     "author": null,
     "companies": [],
     "created": 1684108800,
@@ -3687,7 +3688,6 @@
       "js"
     ],
     "nextQuestions": [],
-    "premium": true,
     "published": true,
     "ranking": 100,
     "similarQuestions": [],
@@ -3697,6 +3697,7 @@
     "topics": []
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1671667200,
@@ -3714,7 +3715,6 @@
       "ts"
     ],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 100,
     "similarQuestions": [
@@ -3726,6 +3726,7 @@
     "topics": []
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1710720000,
@@ -3743,7 +3744,6 @@
       "ts"
     ],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 100,
     "similarQuestions": [
@@ -3756,6 +3756,7 @@
     "topics": []
   },
   {
+    "access": "free",
     "author": "yangshun",
     "companies": [
       "amazon"
@@ -3783,7 +3784,6 @@
     "nextQuestions": [
       "modal-dialog-ii"
     ],
-    "premium": false,
     "published": true,
     "ranking": 100,
     "similarQuestions": [],
@@ -3793,6 +3793,7 @@
     "topics": []
   },
   {
+    "access": "premium",
     "author": "yangshun",
     "companies": [
       "amazon"
@@ -3820,7 +3821,6 @@
     "nextQuestions": [
       "modal-dialog-iii"
     ],
-    "premium": true,
     "published": true,
     "ranking": 100,
     "similarQuestions": [],
@@ -3830,6 +3830,7 @@
     "topics": []
   },
   {
+    "access": "premium",
     "author": "yangshun",
     "companies": [
       "amazon"
@@ -3856,7 +3857,6 @@
     "nextQuestions": [
       "modal-dialog-iv"
     ],
-    "premium": true,
     "published": true,
     "ranking": 100,
     "similarQuestions": [],
@@ -3866,6 +3866,7 @@
     "topics": []
   },
   {
+    "access": "premium",
     "author": "yangshun",
     "companies": [
       "amazon"
@@ -3890,7 +3891,6 @@
       "js"
     ],
     "nextQuestions": [],
-    "premium": true,
     "published": true,
     "ranking": 100,
     "similarQuestions": [],
@@ -3900,6 +3900,7 @@
     "topics": []
   },
   {
+    "access": "free",
     "author": "dhillon",
     "companies": [],
     "created": 1681430400,
@@ -3938,7 +3939,6 @@
       "js"
     ],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 100,
     "similarQuestions": [],
@@ -3948,6 +3948,7 @@
     "topics": []
   },
   {
+    "access": "premium",
     "author": "yangshun",
     "companies": [
       "google"
@@ -3972,7 +3973,6 @@
       "js"
     ],
     "nextQuestions": [],
-    "premium": true,
     "published": true,
     "ranking": 100,
     "similarQuestions": [
@@ -3984,6 +3984,7 @@
     "topics": []
   },
   {
+    "access": "premium",
     "author": null,
     "companies": [],
     "created": 1683331200,
@@ -4004,7 +4005,6 @@
       "classnames",
       "curry"
     ],
-    "premium": true,
     "published": true,
     "ranking": 100,
     "similarQuestions": [
@@ -4016,6 +4016,7 @@
     "topics": []
   },
   {
+    "access": "premium",
     "author": null,
     "companies": [],
     "created": 1690761600,
@@ -4035,7 +4036,6 @@
     "nextQuestions": [
       "deep-map"
     ],
-    "premium": true,
     "published": true,
     "ranking": 100,
     "similarQuestions": [
@@ -4047,6 +4047,7 @@
     "topics": []
   },
   {
+    "access": "premium",
     "author": "yangshun",
     "companies": [
       "amazon"
@@ -4068,7 +4069,6 @@
     "nextQuestions": [
       "limit"
     ],
-    "premium": true,
     "published": true,
     "ranking": 100,
     "similarQuestions": [],
@@ -4078,6 +4078,7 @@
     "topics": []
   },
   {
+    "access": "premium",
     "author": "yangshun",
     "companies": [],
     "created": 1723766400,
@@ -4113,7 +4114,6 @@
       "js"
     ],
     "nextQuestions": [],
-    "premium": true,
     "published": true,
     "ranking": 100,
     "similarQuestions": [],
@@ -4123,6 +4123,7 @@
     "topics": []
   },
   {
+    "access": "premium",
     "author": "yangshun",
     "companies": [
       "uber"
@@ -4156,7 +4157,6 @@
       "flatten",
       "star-rating"
     ],
-    "premium": true,
     "published": true,
     "ranking": 100,
     "similarQuestions": [
@@ -4168,6 +4168,7 @@
     "topics": []
   },
   {
+    "access": "premium",
     "author": "yangshun",
     "companies": [
       "uber"
@@ -4195,7 +4196,6 @@
     "nextQuestions": [
       "progress-bars-ii"
     ],
-    "premium": true,
     "published": true,
     "ranking": 100,
     "similarQuestions": [],
@@ -4205,6 +4205,7 @@
     "topics": []
   },
   {
+    "access": "premium",
     "author": "yangshun",
     "companies": [
       "uber"
@@ -4232,7 +4233,6 @@
     "nextQuestions": [
       "progress-bars-iii"
     ],
-    "premium": true,
     "published": true,
     "ranking": 100,
     "similarQuestions": [],
@@ -4242,6 +4242,7 @@
     "topics": []
   },
   {
+    "access": "premium",
     "author": "yangshun",
     "companies": [
       "uber"
@@ -4269,7 +4270,6 @@
     "nextQuestions": [
       "progress-bars-iv"
     ],
-    "premium": true,
     "published": true,
     "ranking": 100,
     "similarQuestions": [],
@@ -4279,6 +4279,7 @@
     "topics": []
   },
   {
+    "access": "premium",
     "author": "yangshun",
     "companies": [
       "uber"
@@ -4304,7 +4305,6 @@
       "js"
     ],
     "nextQuestions": [],
-    "premium": true,
     "published": true,
     "ranking": 100,
     "similarQuestions": [],
@@ -4314,6 +4314,7 @@
     "topics": []
   },
   {
+    "access": "premium",
     "author": null,
     "companies": [],
     "created": 1683331200,
@@ -4333,7 +4334,6 @@
     "nextQuestions": [
       "promise-all"
     ],
-    "premium": true,
     "published": true,
     "ranking": 100,
     "similarQuestions": [
@@ -4346,6 +4346,7 @@
     "topics": []
   },
   {
+    "access": "premium",
     "author": null,
     "companies": [],
     "created": 1689552000,
@@ -4363,7 +4364,6 @@
       "ts"
     ],
     "nextQuestions": [],
-    "premium": true,
     "published": true,
     "ranking": 100,
     "similarQuestions": [],
@@ -4373,6 +4373,7 @@
     "topics": []
   },
   {
+    "access": "free",
     "author": "yangshun",
     "companies": [
       "amazon",
@@ -4400,7 +4401,6 @@
       "promise-any",
       "todo-list"
     ],
-    "premium": false,
     "published": true,
     "ranking": 100,
     "similarQuestions": [
@@ -4414,6 +4414,7 @@
     "topics": []
   },
   {
+    "access": "premium",
     "author": "yangshun",
     "companies": [],
     "created": 1655337600,
@@ -4431,7 +4432,6 @@
       "ts"
     ],
     "nextQuestions": [],
-    "premium": true,
     "published": true,
     "ranking": 100,
     "similarQuestions": [
@@ -4445,6 +4445,7 @@
     "topics": []
   },
   {
+    "access": "premium",
     "author": "yangshun",
     "companies": [],
     "created": 1655596800,
@@ -4462,7 +4463,6 @@
       "ts"
     ],
     "nextQuestions": [],
-    "premium": true,
     "published": true,
     "ranking": 100,
     "similarQuestions": [
@@ -4476,6 +4476,7 @@
     "topics": []
   },
   {
+    "access": "premium",
     "author": "yangshun",
     "companies": [
       "google"
@@ -4495,7 +4496,6 @@
       "ts"
     ],
     "nextQuestions": [],
-    "premium": true,
     "published": true,
     "ranking": 100,
     "similarQuestions": [
@@ -4509,6 +4509,7 @@
     "topics": []
   },
   {
+    "access": "premium",
     "author": null,
     "companies": [
       "google"
@@ -4530,7 +4531,6 @@
     "nextQuestions": [
       "promise-with-resolvers"
     ],
-    "premium": true,
     "published": true,
     "ranking": 100,
     "similarQuestions": [
@@ -4542,6 +4542,7 @@
     "topics": []
   },
   {
+    "access": "premium",
     "author": null,
     "companies": [
       "google"
@@ -4563,7 +4564,6 @@
     "nextQuestions": [
       "promise-with-resolvers"
     ],
-    "premium": true,
     "published": true,
     "ranking": 100,
     "similarQuestions": [
@@ -4575,6 +4575,7 @@
     "topics": []
   },
   {
+    "access": "premium",
     "author": "yangshun",
     "companies": [],
     "created": 1723766400,
@@ -4592,7 +4593,6 @@
       "ts"
     ],
     "nextQuestions": [],
-    "premium": true,
     "published": true,
     "ranking": 100,
     "similarQuestions": [
@@ -4605,6 +4605,7 @@
     "topics": []
   },
   {
+    "access": "premium",
     "author": null,
     "companies": [
       "amazon"
@@ -4626,7 +4627,6 @@
     "nextQuestions": [
       "promisify-ii"
     ],
-    "premium": true,
     "published": true,
     "ranking": 100,
     "similarQuestions": [],
@@ -4636,6 +4636,7 @@
     "topics": []
   },
   {
+    "access": "premium",
     "author": null,
     "companies": [],
     "created": 1690070400,
@@ -4653,7 +4654,6 @@
       "ts"
     ],
     "nextQuestions": [],
-    "premium": true,
     "published": true,
     "ranking": 100,
     "similarQuestions": [],
@@ -4663,6 +4663,7 @@
     "topics": []
   },
   {
+    "access": "free",
     "author": "yangshun",
     "companies": [],
     "created": 1670457600,
@@ -4680,7 +4681,6 @@
       "ts"
     ],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 100,
     "similarQuestions": [
@@ -4692,6 +4692,7 @@
     "topics": []
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1671667200,
@@ -4709,7 +4710,6 @@
       "ts"
     ],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 100,
     "similarQuestions": [
@@ -4721,6 +4721,7 @@
     "topics": []
   },
   {
+    "access": "premium",
     "author": null,
     "companies": [],
     "created": 1710633600,
@@ -4740,7 +4741,6 @@
     "nextQuestions": [
       "range-right"
     ],
-    "premium": true,
     "published": true,
     "ranking": 100,
     "similarQuestions": [
@@ -4753,6 +4753,7 @@
     "topics": []
   },
   {
+    "access": "premium",
     "author": null,
     "companies": [],
     "created": 1710633600,
@@ -4772,7 +4773,6 @@
     "nextQuestions": [
       "range"
     ],
-    "premium": true,
     "published": true,
     "ranking": 100,
     "similarQuestions": [
@@ -4785,6 +4785,7 @@
     "topics": []
   },
   {
+    "access": "premium",
     "author": null,
     "companies": [],
     "created": 1689552000,
@@ -4802,7 +4803,6 @@
       "ts"
     ],
     "nextQuestions": [],
-    "premium": true,
     "published": true,
     "ranking": 100,
     "similarQuestions": [
@@ -4814,6 +4814,7 @@
     "topics": []
   },
   {
+    "access": "premium",
     "author": "yangshun",
     "companies": [],
     "created": 1723766400,
@@ -4837,7 +4838,6 @@
       "css"
     ],
     "nextQuestions": [],
-    "premium": true,
     "published": true,
     "ranking": 100,
     "similarQuestions": [],
@@ -4847,6 +4847,7 @@
     "topics": []
   },
   {
+    "access": "premium",
     "author": null,
     "companies": [],
     "created": 1671667200,
@@ -4866,7 +4867,6 @@
     "nextQuestions": [
       "quick-sort"
     ],
-    "premium": true,
     "published": true,
     "ranking": 100,
     "similarQuestions": [
@@ -4878,6 +4878,7 @@
     "topics": []
   },
   {
+    "access": "premium",
     "author": "yangshun",
     "companies": [
       "lyft",
@@ -4903,7 +4904,6 @@
       "js"
     ],
     "nextQuestions": [],
-    "premium": true,
     "published": true,
     "ranking": 100,
     "similarQuestions": [
@@ -4915,6 +4915,7 @@
     "topics": []
   },
   {
+    "access": "premium",
     "author": null,
     "companies": [],
     "created": 1699747200,
@@ -4932,7 +4933,6 @@
       "ts"
     ],
     "nextQuestions": [],
-    "premium": true,
     "published": true,
     "ranking": 100,
     "similarQuestions": [],
@@ -4942,6 +4942,7 @@
     "topics": []
   },
   {
+    "access": "premium",
     "author": null,
     "companies": [],
     "created": 1690502400,
@@ -4959,7 +4960,6 @@
       "ts"
     ],
     "nextQuestions": [],
-    "premium": true,
     "published": true,
     "ranking": 100,
     "similarQuestions": [],
@@ -4969,6 +4969,7 @@
     "topics": []
   },
   {
+    "access": "premium",
     "author": null,
     "companies": [],
     "created": 1683331200,
@@ -4986,7 +4987,6 @@
       "ts"
     ],
     "nextQuestions": [],
-    "premium": true,
     "published": true,
     "ranking": 100,
     "similarQuestions": [],
@@ -4996,6 +4996,7 @@
     "topics": []
   },
   {
+    "access": "premium",
     "author": "zhenghao",
     "companies": [],
     "created": 1654992000,
@@ -5013,7 +5014,6 @@
       "ts"
     ],
     "nextQuestions": [],
-    "premium": true,
     "published": true,
     "ranking": 100,
     "similarQuestions": [
@@ -5026,6 +5026,7 @@
     "topics": []
   },
   {
+    "access": "free",
     "author": "yangshun",
     "companies": [],
     "created": 1670025600,
@@ -5045,7 +5046,6 @@
     "nextQuestions": [
       "queue"
     ],
-    "premium": false,
     "published": true,
     "ranking": 100,
     "similarQuestions": [
@@ -5057,6 +5057,7 @@
     "topics": []
   },
   {
+    "access": "premium",
     "author": "yangshun",
     "companies": [
       "airbnb",
@@ -5096,7 +5097,6 @@
       "js"
     ],
     "nextQuestions": [],
-    "premium": true,
     "published": true,
     "ranking": 100,
     "similarQuestions": [
@@ -5108,6 +5108,7 @@
     "topics": []
   },
   {
+    "access": "premium",
     "author": "yangshun",
     "companies": [
       "cisco",
@@ -5150,7 +5151,6 @@
       "js"
     ],
     "nextQuestions": [],
-    "premium": true,
     "published": true,
     "ranking": 100,
     "similarQuestions": [
@@ -5162,6 +5162,7 @@
     "topics": []
   },
   {
+    "access": "premium",
     "author": "yangshun",
     "companies": [
       "amazon"
@@ -5181,7 +5182,6 @@
       "ts"
     ],
     "nextQuestions": [],
-    "premium": true,
     "published": true,
     "ranking": 100,
     "similarQuestions": [
@@ -5194,6 +5194,7 @@
     "topics": []
   },
   {
+    "access": "premium",
     "author": "yangshun",
     "companies": [
       "google"
@@ -5214,7 +5215,6 @@
       "ts"
     ],
     "nextQuestions": [],
-    "premium": true,
     "published": true,
     "ranking": 100,
     "similarQuestions": [],
@@ -5224,6 +5224,7 @@
     "topics": []
   },
   {
+    "access": "free",
     "author": "yangshun",
     "companies": [
       "airbnb",
@@ -5264,7 +5265,6 @@
     "nextQuestions": [
       "tabs-ii"
     ],
-    "premium": false,
     "published": true,
     "ranking": 100,
     "similarQuestions": [],
@@ -5274,6 +5274,7 @@
     "topics": []
   },
   {
+    "access": "premium",
     "author": "yangshun",
     "companies": [
       "airbnb",
@@ -5314,7 +5315,6 @@
     "nextQuestions": [
       "tabs-iii"
     ],
-    "premium": true,
     "published": true,
     "ranking": 100,
     "similarQuestions": [],
@@ -5324,6 +5324,7 @@
     "topics": []
   },
   {
+    "access": "premium",
     "author": "yangshun",
     "companies": [
       "airbnb",
@@ -5357,7 +5358,6 @@
       "js"
     ],
     "nextQuestions": [],
-    "premium": true,
     "published": true,
     "ranking": 100,
     "similarQuestions": [],
@@ -5367,6 +5367,7 @@
     "topics": []
   },
   {
+    "access": "premium",
     "author": "yangshun",
     "companies": [],
     "created": 1657065600,
@@ -5405,7 +5406,6 @@
       "js"
     ],
     "nextQuestions": [],
-    "premium": true,
     "published": true,
     "ranking": 100,
     "similarQuestions": [
@@ -5417,6 +5417,7 @@
     "topics": []
   },
   {
+    "access": "premium",
     "author": "zhenghao",
     "companies": [],
     "created": 1656288000,
@@ -5439,7 +5440,6 @@
       "promise-all",
       "todo-list"
     ],
-    "premium": true,
     "published": true,
     "ranking": 100,
     "similarQuestions": [
@@ -5451,6 +5451,7 @@
     "topics": []
   },
   {
+    "access": "premium",
     "author": "zhenghao",
     "companies": [],
     "created": 1656288000,
@@ -5469,7 +5470,6 @@
       "ts"
     ],
     "nextQuestions": [],
-    "premium": true,
     "published": true,
     "ranking": 100,
     "similarQuestions": [
@@ -5481,6 +5481,7 @@
     "topics": []
   },
   {
+    "access": "premium",
     "author": "yangshun",
     "companies": [
       "google",
@@ -5503,7 +5504,6 @@
       "ts"
     ],
     "nextQuestions": [],
-    "premium": true,
     "published": true,
     "ranking": 100,
     "similarQuestions": [
@@ -5515,6 +5515,7 @@
     "topics": []
   },
   {
+    "access": "premium",
     "author": null,
     "companies": [
       "google",
@@ -5557,7 +5558,6 @@
     "nextQuestions": [
       "tic-tac-toe-ii"
     ],
-    "premium": true,
     "published": true,
     "ranking": 100,
     "similarQuestions": [],
@@ -5567,6 +5567,7 @@
     "topics": []
   },
   {
+    "access": "premium",
     "author": null,
     "companies": [
       "google",
@@ -5607,7 +5608,6 @@
       "js"
     ],
     "nextQuestions": [],
-    "premium": true,
     "published": true,
     "ranking": 100,
     "similarQuestions": [],
@@ -5617,6 +5617,7 @@
     "topics": []
   },
   {
+    "access": "free",
     "author": "yangshun",
     "companies": [
       "grab",
@@ -5662,7 +5663,6 @@
       "promise-any",
       "holy-grail"
     ],
-    "premium": false,
     "published": true,
     "ranking": 100,
     "similarQuestions": [
@@ -5674,6 +5674,7 @@
     "topics": []
   },
   {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1673395200,
@@ -5693,7 +5694,6 @@
     "nextQuestions": [
       "quick-sort"
     ],
-    "premium": false,
     "published": true,
     "ranking": 100,
     "similarQuestions": [
@@ -5705,6 +5705,7 @@
     "topics": []
   },
   {
+    "access": "free",
     "author": "yangshun",
     "companies": [
       "roblox"
@@ -5746,7 +5747,6 @@
       "js"
     ],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 100,
     "similarQuestions": [
@@ -5758,6 +5758,7 @@
     "topics": []
   },
   {
+    "access": "premium",
     "author": "yangshun",
     "companies": [
       "tiktok"
@@ -5797,7 +5798,6 @@
     "nextQuestions": [
       "transfer-list-ii"
     ],
-    "premium": true,
     "published": true,
     "ranking": 100,
     "similarQuestions": [
@@ -5809,6 +5809,7 @@
     "topics": []
   },
   {
+    "access": "premium",
     "author": "yangshun",
     "companies": [],
     "created": 1683158400,
@@ -5844,7 +5845,6 @@
       "js"
     ],
     "nextQuestions": [],
-    "premium": true,
     "published": true,
     "ranking": 100,
     "similarQuestions": [
@@ -5857,6 +5857,7 @@
     "topics": []
   },
   {
+    "access": "premium",
     "author": null,
     "companies": [],
     "created": 1689638400,
@@ -5874,7 +5875,6 @@
       "ts"
     ],
     "nextQuestions": [],
-    "premium": true,
     "published": true,
     "ranking": 100,
     "similarQuestions": [],
@@ -5884,6 +5884,7 @@
     "topics": []
   },
   {
+    "access": "premium",
     "author": "yangshun",
     "companies": [],
     "created": 1658188800,
@@ -5922,7 +5923,6 @@
       "css"
     ],
     "nextQuestions": [],
-    "premium": true,
     "published": true,
     "ranking": 100,
     "similarQuestions": [
@@ -5934,6 +5934,7 @@
     "topics": []
   },
   {
+    "access": "free",
     "author": "yangshun",
     "companies": [],
     "created": 1649894400,
@@ -5953,7 +5954,6 @@
     "nextQuestions": [
       "type-utilities-ii"
     ],
-    "premium": false,
     "published": true,
     "ranking": 100,
     "similarQuestions": [],
@@ -5963,6 +5963,7 @@
     "topics": []
   },
   {
+    "access": "free",
     "author": "yangshun",
     "companies": [],
     "created": 1649894400,
@@ -5984,7 +5985,6 @@
       "deep-clone",
       "deep-equal"
     ],
-    "premium": false,
     "published": true,
     "ranking": 100,
     "similarQuestions": [
@@ -5996,6 +5996,7 @@
     "topics": []
   },
   {
+    "access": "premium",
     "author": null,
     "companies": [],
     "created": 1681257600,
@@ -6030,7 +6031,6 @@
       "js"
     ],
     "nextQuestions": [],
-    "premium": true,
     "published": true,
     "ranking": 100,
     "similarQuestions": [
@@ -6042,6 +6042,7 @@
     "topics": []
   },
   {
+    "access": "premium",
     "author": null,
     "companies": [],
     "created": 1711929600,
@@ -6062,7 +6063,6 @@
       "unique-array",
       "union"
     ],
-    "premium": true,
     "published": true,
     "ranking": 100,
     "similarQuestions": [],
@@ -6072,6 +6072,7 @@
     "topics": []
   },
   {
+    "access": "premium",
     "author": "yangshun",
     "companies": [],
     "created": 1655164800,
@@ -6089,7 +6090,6 @@
       "ts"
     ],
     "nextQuestions": [],
-    "premium": true,
     "published": true,
     "ranking": 100,
     "similarQuestions": [
@@ -6101,6 +6101,7 @@
     "topics": []
   },
   {
+    "access": "premium",
     "author": "yangshun",
     "companies": [],
     "created": 1723766400,
@@ -6124,7 +6125,6 @@
       "css"
     ],
     "nextQuestions": [],
-    "premium": true,
     "published": true,
     "ranking": 100,
     "similarQuestions": [],
@@ -6134,6 +6134,7 @@
     "topics": []
   },
   {
+    "access": "premium",
     "author": null,
     "companies": [
       "lyft"
@@ -6171,7 +6172,6 @@
       "js"
     ],
     "nextQuestions": [],
-    "premium": true,
     "published": true,
     "ranking": 100,
     "similarQuestions": [
@@ -6183,6 +6183,7 @@
     "topics": []
   },
   {
+    "access": "premium",
     "author": null,
     "companies": [],
     "created": 1684022400,
@@ -6218,7 +6219,6 @@
       "js"
     ],
     "nextQuestions": [],
-    "premium": true,
     "published": true,
     "ranking": 100,
     "similarQuestions": [],

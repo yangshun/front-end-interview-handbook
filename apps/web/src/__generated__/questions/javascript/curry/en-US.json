@@ -9,6 +9,7 @@
   },
   "format": "javascript",
   "metadata": {
+    "access": "premium",
     "author": "yangshun",
     "companies": [
       "intuit"
@@ -32,7 +33,6 @@
       "promise-all",
       "todo-list"
     ],
-    "premium": true,
     "published": true,
     "ranking": 100,
     "similarQuestions": [

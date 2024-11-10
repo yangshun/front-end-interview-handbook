@@ -2,6 +2,7 @@
   "description": "var Component=(()=>{var m=Object.create;var r=Object.defineProperty;var p=Object.getOwnPropertyDescriptor;var h=Object.getOwnPropertyNames;var u=Object.getPrototypeOf,x=Object.prototype.hasOwnProperty;var g=(e,n)=>()=>(n||e((n={exports:{}}).exports,n),n.exports),w=(e,n)=>{for(var o in n)r(e,o,{get:n[o],enumerable:!0})},c=(e,n,o,a)=>{if(n&&typeof n==\"object\"||typeof n==\"function\")for(let i of h(n))!x.call(e,i)&&i!==o&&r(e,i,{get:()=>n[i],enumerable:!(a=p(n,i))||a.enumerable});return e};var f=(e,n,o)=>(o=e!=null?m(u(e)):{},c(n||!e||!e.__esModule?r(o,\"default\",{value:e,enumerable:!0}):o,e)),D=e=>c(r({},\"__esModule\",{value:!0}),e);var d=g((R,s)=>{s.exports=_jsx_runtime});var v={};w(v,{default:()=>_,frontmatter:()=>M});var t=f(d()),M={title:\"Dropdown Menu\",excerpt:\"Design a dropdown menu component that reveals a menu containing a list of actions\"};function l(e){let n=Object.assign({h2:\"h2\",p:\"p\",img:\"img\",h3:\"h3\",ul:\"ul\",li:\"li\",a:\"a\"},e.components);return(0,t.jsxs)(t.Fragment,{children:[(0,t.jsx)(n.h2,{children:\"Question\"}),`\n`,(0,t.jsx)(n.p,{children:\"Design a dropdown menu component that can reveal a menu containing a list of actions.\"}),`\n`,(0,t.jsx)(n.p,{children:(0,t.jsx)(n.img,{src:\"/img/questions/dropdown-menu/dropdown-menu-example.png\",alt:\"Dropdown Menu Example\"})}),`\n`,(0,t.jsx)(n.h3,{children:\"Real-life examples\"}),`\n`,(0,t.jsxs)(n.ul,{children:[`\n`,(0,t.jsx)(n.li,{children:(0,t.jsx)(n.a,{href:\"https://getbootstrap.com/docs/5.3/components/dropdowns\",children:\"Dropdowns \\xB7 Bootstrap v5.3\"})}),`\n`,(0,t.jsx)(n.li,{children:(0,t.jsx)(n.a,{href:\"https://mui.com/material-ui/react-menu/\",children:\"React Menu component - Material UI\"})}),`\n`,(0,t.jsx)(n.li,{children:(0,t.jsx)(n.a,{href:\"https://www.radix-ui.com/docs/primitives/components/dropdown-menu\",children:\"Dropdown Menu \\u2014 Radix UI\"})}),`\n`]})]})}function j(e={}){let{wrapper:n}=e.components||{};return n?(0,t.jsx)(n,Object.assign({},e,{children:(0,t.jsx)(l,e)})):l(e)}var _=j;return D(v);})();\n;return Component;",
   "format": "system-design",
   "metadata": {
+    "access": "premium",
     "author": null,
     "companies": [
       "google",
@@ -19,7 +20,6 @@
     "importance": "low",
     "languages": [],
     "nextQuestions": [],
-    "premium": true,
     "published": true,
     "ranking": 11,
     "similarQuestions": [],

@@ -9,6 +9,7 @@
   },
   "format": "javascript",
   "metadata": {
+    "access": "premium",
     "author": null,
     "companies": [],
     "created": 1683331200,
@@ -28,7 +29,6 @@
     "nextQuestions": [
       "jquery-css"
     ],
-    "premium": true,
     "published": true,
     "ranking": 100,
     "similarQuestions": [

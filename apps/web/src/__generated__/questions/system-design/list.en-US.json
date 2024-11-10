@@ -1,5 +1,6 @@
 [
   {
+    "access": "free",
     "author": null,
     "companies": [
       "airbnb",
@@ -18,7 +19,6 @@
     "importance": "high",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 2,
     "similarQuestions": [],
@@ -28,6 +28,7 @@
     "topics": []
   },
   {
+    "access": "premium",
     "author": null,
     "companies": [],
     "created": 1668211200,
@@ -42,7 +43,6 @@
     "importance": "medium",
     "languages": [],
     "nextQuestions": [],
-    "premium": true,
     "published": true,
     "ranking": 9,
     "similarQuestions": [],
@@ -52,6 +52,7 @@
     "topics": []
   },
   {
+    "access": "premium",
     "author": "yangshun",
     "companies": [
       "asana"
@@ -68,7 +69,6 @@
     "importance": "medium",
     "languages": [],
     "nextQuestions": [],
-    "premium": true,
     "published": true,
     "ranking": 5,
     "similarQuestions": [],
@@ -78,6 +78,7 @@
     "topics": []
   },
   {
+    "access": "premium",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -92,7 +93,6 @@
     "importance": "low",
     "languages": [],
     "nextQuestions": [],
-    "premium": true,
     "published": true,
     "ranking": 14,
     "similarQuestions": [],
@@ -102,6 +102,7 @@
     "topics": []
   },
   {
+    "access": "premium",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -116,7 +117,6 @@
     "importance": "medium",
     "languages": [],
     "nextQuestions": [],
-    "premium": true,
     "published": true,
     "ranking": 15,
     "similarQuestions": [],
@@ -126,6 +126,7 @@
     "topics": []
   },
   {
+    "access": "premium",
     "author": null,
     "companies": [
       "google",
@@ -143,7 +144,6 @@
     "importance": "low",
     "languages": [],
     "nextQuestions": [],
-    "premium": true,
     "published": true,
     "ranking": 11,
     "similarQuestions": [],
@@ -153,6 +153,7 @@
     "topics": []
   },
   {
+    "access": "premium",
     "author": null,
     "companies": [],
     "created": 1666396800,
@@ -167,7 +168,6 @@
     "importance": "medium",
     "languages": [],
     "nextQuestions": [],
-    "premium": true,
     "published": true,
     "ranking": 7,
     "similarQuestions": [],
@@ -177,6 +177,7 @@
     "topics": []
   },
   {
+    "access": "premium",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -191,7 +192,6 @@
     "importance": "low",
     "languages": [],
     "nextQuestions": [],
-    "premium": true,
     "published": true,
     "ranking": 14,
     "similarQuestions": [],
@@ -201,6 +201,7 @@
     "topics": []
   },
   {
+    "access": "premium",
     "author": null,
     "companies": [
       "amazon",
@@ -221,7 +222,6 @@
     "importance": "low",
     "languages": [],
     "nextQuestions": [],
-    "premium": true,
     "published": true,
     "ranking": 11,
     "similarQuestions": [],
@@ -231,6 +231,7 @@
     "topics": []
   },
   {
+    "access": "premium",
     "author": null,
     "companies": [],
     "created": 1674950400,
@@ -245,7 +246,6 @@
     "importance": "low",
     "languages": [],
     "nextQuestions": [],
-    "premium": true,
     "published": true,
     "ranking": 11,
     "similarQuestions": [],
@@ -255,6 +255,7 @@
     "topics": []
   },
   {
+    "access": "premium",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -269,7 +270,6 @@
     "importance": "medium",
     "languages": [],
     "nextQuestions": [],
-    "premium": true,
     "published": true,
     "ranking": 15,
     "similarQuestions": [],
@@ -279,6 +279,7 @@
     "topics": []
   },
   {
+    "access": "free",
     "author": "yangshun",
     "companies": [
       "facebook",
@@ -296,7 +297,6 @@
     "importance": "high",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 1,
     "similarQuestions": [],
@@ -306,6 +306,7 @@
     "topics": []
   },
   {
+    "access": "premium",
     "author": null,
     "companies": [
       "facebook"
@@ -322,7 +323,6 @@
     "importance": "low",
     "languages": [],
     "nextQuestions": [],
-    "premium": true,
     "published": true,
     "ranking": 10,
     "similarQuestions": [],
@@ -332,6 +332,7 @@
     "topics": []
   },
   {
+    "access": "premium",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -346,7 +347,6 @@
     "importance": "medium",
     "languages": [],
     "nextQuestions": [],
-    "premium": true,
     "published": true,
     "ranking": 3,
     "similarQuestions": [],
@@ -356,6 +356,7 @@
     "topics": []
   },
   {
+    "access": "premium",
     "author": null,
     "companies": [],
     "created": 1662854400,
@@ -370,7 +371,6 @@
     "importance": "low",
     "languages": [],
     "nextQuestions": [],
-    "premium": true,
     "published": true,
     "ranking": 12,
     "similarQuestions": [],
@@ -380,6 +380,7 @@
     "topics": []
   },
   {
+    "access": "premium",
     "author": "yangshun",
     "companies": [
       "meta"
@@ -396,7 +397,6 @@
     "importance": "medium",
     "languages": [],
     "nextQuestions": [],
-    "premium": true,
     "published": true,
     "ranking": 4,
     "similarQuestions": [],
@@ -406,6 +406,7 @@
     "topics": []
   },
   {
+    "access": "premium",
     "author": null,
     "companies": [],
     "created": 1673395200,
@@ -420,7 +421,6 @@
     "importance": "medium",
     "languages": [],
     "nextQuestions": [],
-    "premium": true,
     "published": true,
     "ranking": 8,
     "similarQuestions": [],
@@ -430,6 +430,7 @@
     "topics": []
   },
   {
+    "access": "premium",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -444,7 +445,6 @@
     "importance": "low",
     "languages": [],
     "nextQuestions": [],
-    "premium": true,
     "published": true,
     "ranking": 15,
     "similarQuestions": [],
@@ -454,6 +454,7 @@
     "topics": []
   },
   {
+    "access": "premium",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -468,7 +469,6 @@
     "importance": "medium",
     "languages": [],
     "nextQuestions": [],
-    "premium": true,
     "published": true,
     "ranking": 6,
     "similarQuestions": [],

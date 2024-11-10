@@ -227,7 +227,7 @@ export default function QuestionsListItemProgressChip<
   Q extends QuestionMetadata,
 >({
   className,
-  question,
+  question: questionMetadata,
   premiumUser,
   hasCompletedQuestion,
   hasCompletedQuestionBefore,
@@ -257,7 +257,7 @@ export default function QuestionsListItemProgressChip<
         setShowHoverState(true);
       }}>
       {(() => {
-        if (question.premium && !premiumUser) {
+        if (questionMetadata.access === 'premium' && !premiumUser) {
           return <LockedChip size={size} />;
         }
 
@@ -269,7 +269,7 @@ export default function QuestionsListItemProgressChip<
               onClick={
                 onMarkAsCompleted
                   ? () => {
-                      onMarkAsNotCompleted?.(question);
+                      onMarkAsNotCompleted?.(questionMetadata);
                       setShowHoverState(false);
                     }
                   : undefined
@@ -285,7 +285,7 @@ export default function QuestionsListItemProgressChip<
             onClick={
               onMarkAsCompleted
                 ? () => {
-                    onMarkAsCompleted?.(question);
+                    onMarkAsCompleted?.(questionMetadata);
                     setShowHoverState(false);
                   }
                 : undefined
@@ -300,7 +300,7 @@ export default function QuestionsListItemProgressChip<
             onClick={
               onMarkAsCompleted
                 ? () => {
-                    onMarkAsCompleted?.(question);
+                    onMarkAsCompleted?.(questionMetadata);
                     setShowHoverState(false);
                   }
                 : undefined

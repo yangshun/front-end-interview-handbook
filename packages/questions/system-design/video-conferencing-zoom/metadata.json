@@ -2,7 +2,7 @@
   "slug": "video-conferencing-zoom",
   "languages": [],
   "companies": [],
-  "premium": true,
+  "access": "premium",
   "duration": 30,
   "published": true,
   "importance": "low",

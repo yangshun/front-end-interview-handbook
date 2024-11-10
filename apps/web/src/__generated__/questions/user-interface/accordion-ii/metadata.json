@@ -1,4 +1,5 @@
 {
+  "access": "premium",
   "author": "yangshun",
   "companies": [],
   "created": 1671580800,
@@ -27,7 +28,6 @@
   "nextQuestions": [
     "accordion-iii"
   ],
-  "premium": true,
   "published": true,
   "ranking": 100,
   "similarQuestions": [],

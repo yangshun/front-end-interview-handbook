@@ -9,6 +9,7 @@
   },
   "format": "javascript",
   "metadata": {
+    "access": "free",
     "author": "zhenghao",
     "companies": [
       "amazon",
@@ -37,7 +38,6 @@
       "holy-grail",
       "deep-equal"
     ],
-    "premium": false,
     "published": true,
     "ranking": 100,
     "similarQuestions": [

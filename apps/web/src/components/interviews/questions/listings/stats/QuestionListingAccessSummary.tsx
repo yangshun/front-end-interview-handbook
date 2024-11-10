@@ -1,13 +1,15 @@
 import { useUserProfile } from '~/components/global/UserProfileProvider';
-import QuestionListingQuestionCount from '~/components/interviews/questions/listings/stats/QuestionListingQuestionCount';
+import QuestionListingAccessCount from '~/components/interviews/questions/listings/stats/QuestionListingAccessCount';
 
 type Props = Readonly<{
   free: number;
   premium: number;
+  standard: number;
 }>;
 
-export default function QuestionListingSummarySection({
+export default function QuestionListingAccessSummary({
   free,
+  standard,
   premium,
 }: Props) {
   const { userProfile } = useUserProfile();
@@ -20,12 +22,12 @@ export default function QuestionListingSummarySection({
     <div className="flex gap-2">
       {free > 0 && (
         <div className="flex-1">
-          <QuestionListingQuestionCount count={free} variant="free" />
+          <QuestionListingAccessCount count={free + standard} variant="free" />
         </div>
       )}
       {premium > 0 && (
         <div className="flex-1">
-          <QuestionListingQuestionCount count={premium} variant="premium" />
+          <QuestionListingAccessCount count={premium} variant="premium" />
         </div>
       )}
     </div>

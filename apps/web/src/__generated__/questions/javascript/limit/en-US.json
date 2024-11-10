@@ -9,6 +9,7 @@
   },
   "format": "javascript",
   "metadata": {
+    "access": "premium",
     "author": "yangshun",
     "companies": [],
     "created": 1670803200,
@@ -26,7 +27,6 @@
       "ts"
     ],
     "nextQuestions": [],
-    "premium": true,
     "published": true,
     "ranking": 100,
     "similarQuestions": [

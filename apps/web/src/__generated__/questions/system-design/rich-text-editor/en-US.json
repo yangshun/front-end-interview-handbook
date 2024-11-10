@@ -2,6 +2,7 @@
   "description": "var Component=(()=>{var d=Object.create;var s=Object.defineProperty;var p=Object.getOwnPropertyDescriptor;var u=Object.getOwnPropertyNames;var x=Object.getPrototypeOf,m=Object.prototype.hasOwnProperty;var g=(i,e)=>()=>(e||i((e={exports:{}}).exports,e),e.exports),f=(i,e)=>{for(var n in e)s(i,n,{get:e[n],enumerable:!0})},a=(i,e,n,o)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let r of u(e))!m.call(i,r)&&r!==n&&s(i,r,{get:()=>e[r],enumerable:!(o=p(e,r))||o.enumerable});return i};var y=(i,e,n)=>(n=i!=null?d(x(i)):{},a(e||!i||!i.__esModule?s(n,\"default\",{value:i,enumerable:!0}):n,i)),j=i=>a(s({},\"__esModule\",{value:!0}),i);var c=g((M,l)=>{l.exports=_jsx_runtime});var _={};f(_,{default:()=>b,frontmatter:()=>w});var t=y(c()),w={title:\"Rich Text Editor\",excerpt:\"Design a rich text editor component used on websites like Medium and Gmail\"};function h(i){let e=Object.assign({h2:\"h2\",p:\"p\",h3:\"h3\",ul:\"ul\",li:\"li\",a:\"a\",strong:\"strong\"},i.components);return(0,t.jsxs)(t.Fragment,{children:[(0,t.jsx)(e.h2,{children:\"Question\"}),`\n`,(0,t.jsx)(e.p,{children:\"Design an extensible rich text editor component that allows users to create and edit text with various formatting options.\"}),`\n`,(0,t.jsx)(e.h3,{children:\"Real-life examples\"}),`\n`,(0,t.jsxs)(e.ul,{children:[`\n`,(0,t.jsx)(e.li,{children:(0,t.jsx)(e.a,{href:\"https://lexical.dev/\",children:\"Lexical\"})}),`\n`,(0,t.jsx)(e.li,{children:(0,t.jsx)(e.a,{href:\"https://tiptap.dev/\",children:\"Tiptap\"})}),`\n`,(0,t.jsx)(e.li,{children:(0,t.jsx)(e.a,{href:\"http://slatejs.org/\",children:\"Slate\"})}),`\n`,(0,t.jsx)(e.li,{children:(0,t.jsx)(e.a,{href:\"https://quilljs.com/\",children:\"Quill\"})}),`\n`,(0,t.jsxs)(e.li,{children:[(0,t.jsx)(e.a,{href:\"https://draftjs.org/\",children:\"Draft.js\"}),\" (predecessor of Lexical)\"]}),`\n`]}),`\n`,(0,t.jsx)(e.p,{children:'Rich text editors are also commonly known as WYSIWYG editors (\"What you see is what you get\") as you can directly format text without using special markup or syntax.'}),`\n`,(0,t.jsxs)(e.p,{children:[(0,t.jsx)(e.strong,{children:\"Note\"}),\": This writeup delves deeply into rich text editing, covering more than what is typically required for interviews. However, the concepts discussed here are valuable beyond rich text editing, providing insights that can enhance your ability to design complex UI applications.\"]})]})}function v(i={}){let{wrapper:e}=i.components||{};return e?(0,t.jsx)(e,Object.assign({},i,{children:(0,t.jsx)(h,i)})):h(i)}var b=v;return j(_);})();\n;return Component;",
   "format": "system-design",
   "metadata": {
+    "access": "premium",
     "author": "yangshun",
     "companies": [
       "meta"
@@ -18,7 +19,6 @@
     "importance": "medium",
     "languages": [],
     "nextQuestions": [],
-    "premium": true,
     "published": true,
     "ranking": 4,
     "similarQuestions": [],

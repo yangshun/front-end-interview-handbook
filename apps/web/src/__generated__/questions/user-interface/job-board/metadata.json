@@ -1,4 +1,5 @@
 {
+  "access": "free",
   "author": "dhillon",
   "companies": [
     "microsoft",
@@ -41,7 +42,6 @@
     "js"
   ],
   "nextQuestions": [],
-  "premium": false,
   "published": true,
   "ranking": 100,
   "similarQuestions": [],

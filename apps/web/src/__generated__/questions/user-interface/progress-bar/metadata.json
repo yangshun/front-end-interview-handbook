@@ -1,4 +1,5 @@
 {
+  "access": "premium",
   "author": "yangshun",
   "companies": [
     "uber"
@@ -32,7 +33,6 @@
     "flatten",
     "star-rating"
   ],
-  "premium": true,
   "published": true,
   "ranking": 100,
   "similarQuestions": [

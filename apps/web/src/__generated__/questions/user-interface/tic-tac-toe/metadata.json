@@ -1,4 +1,5 @@
 {
+  "access": "premium",
   "author": null,
   "companies": [
     "google",
@@ -41,7 +42,6 @@
   "nextQuestions": [
     "tic-tac-toe-ii"
   ],
-  "premium": true,
   "published": true,
   "ranking": 100,
   "similarQuestions": [],

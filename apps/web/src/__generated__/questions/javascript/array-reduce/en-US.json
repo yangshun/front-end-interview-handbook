@@ -9,6 +9,7 @@
   },
   "format": "javascript",
   "metadata": {
+    "access": "premium",
     "author": null,
     "companies": [
       "adobe",
@@ -34,7 +35,6 @@
       "array-filter",
       "array-map"
     ],
-    "premium": true,
     "published": true,
     "ranking": 100,
     "similarQuestions": [

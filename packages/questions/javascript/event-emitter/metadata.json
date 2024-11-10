@@ -3,7 +3,7 @@
   "created": "2022-11-26T00:00:00.000Z",
   "languages": ["js", "ts"],
   "companies": ["google", "lyft", "rippling", "tiktok"],
-  "premium": false,
+  "access": "free",
   "duration": 20,
   "published": true,
   "importance": "medium",

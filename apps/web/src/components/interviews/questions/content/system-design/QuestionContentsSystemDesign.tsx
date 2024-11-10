@@ -45,7 +45,7 @@ export default function QuestionContentsSystemDesign({
             {metadata.title}
           </Heading>
           <div className="flex gap-2">
-            {metadata.premium && <InterviewsPremiumBadge />}
+            {metadata.access === 'premium' && <InterviewsPremiumBadge />}
             {questionProgress?.status === 'complete' && (
               <Badge
                 label={intl.formatMessage({

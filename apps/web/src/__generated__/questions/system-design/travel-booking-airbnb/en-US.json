@@ -2,6 +2,7 @@
   "description": "var Component=(()=>{var d=Object.create;var o=Object.defineProperty;var g=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var m=Object.getPrototypeOf,b=Object.prototype.hasOwnProperty;var u=(e,n)=>()=>(n||e((n={exports:{}}).exports,n),n.exports),x=(e,n)=>{for(var t in n)o(e,t,{get:n[t],enumerable:!0})},l=(e,n,t,a)=>{if(n&&typeof n==\"object\"||typeof n==\"function\")for(let r of p(n))!b.call(e,r)&&r!==t&&o(e,r,{get:()=>n[r],enumerable:!(a=g(n,r))||a.enumerable});return e};var k=(e,n,t)=>(t=e!=null?d(m(e)):{},l(n||!e||!e.__esModule?o(t,\"default\",{value:e,enumerable:!0}):t,e)),w=e=>l(o({},\"__esModule\",{value:!0}),e);var c=u((D,s)=>{s.exports=_jsx_runtime});var _={};x(_,{default:()=>j,frontmatter:()=>v});var i=k(c()),v={title:\"Travel Booking (e.g. Airbnb)\",excerpt:\"Design a travel booking website like Airbnb and Expedia\"};function h(e){let n=Object.assign({h2:\"h2\",p:\"p\",img:\"img\",h3:\"h3\",ul:\"ul\",li:\"li\",a:\"a\"},e.components);return(0,i.jsxs)(i.Fragment,{children:[(0,i.jsx)(n.h2,{children:\"Question\"}),`\n`,(0,i.jsx)(n.p,{children:\"Design a travel booking website that allows users to search for accommodations and make a reservation.\"}),`\n`,(0,i.jsx)(n.p,{children:(0,i.jsx)(n.img,{src:\"/img/questions/travel-booking-airbnb/travel-booking-plp.png\",alt:\"Travel Booking Application Product Listing Page\"})}),`\n`,(0,i.jsx)(n.p,{children:(0,i.jsx)(n.img,{src:\"/img/questions/travel-booking-airbnb/travel-booking-pdp.png\",alt:\"Travel Booking Application Product Details Page\"})}),`\n`,(0,i.jsx)(n.h3,{children:\"Real-life examples\"}),`\n`,(0,i.jsxs)(n.ul,{children:[`\n`,(0,i.jsx)(n.li,{children:(0,i.jsx)(n.a,{href:\"https://airbnb.com\",children:\"Airbnb\"})}),`\n`,(0,i.jsx)(n.li,{children:(0,i.jsx)(n.a,{href:\"https://www.booking.com\",children:\"Booking.com\"})}),`\n`,(0,i.jsx)(n.li,{children:(0,i.jsx)(n.a,{href:\"https://www.expedia.com\",children:\"Expedia\"})}),`\n`,(0,i.jsx)(n.li,{children:(0,i.jsx)(n.a,{href:\"https://www.tripadvisor.com\",children:\"TripAdvisor\"})}),`\n`]})]})}function f(e={}){let{wrapper:n}=e.components||{};return n?(0,i.jsx)(n,Object.assign({},e,{children:(0,i.jsx)(h,e)})):h(e)}var j=f;return w(_);})();\n;return Component;",
   "format": "system-design",
   "metadata": {
+    "access": "premium",
     "author": null,
     "companies": [],
     "created": 1673395200,
@@ -16,7 +17,6 @@
     "importance": "medium",
     "languages": [],
     "nextQuestions": [],
-    "premium": true,
     "published": true,
     "ranking": 8,
     "similarQuestions": [],

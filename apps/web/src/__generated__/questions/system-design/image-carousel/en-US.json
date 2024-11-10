@@ -2,6 +2,7 @@
   "description": "var Component=(()=>{var g=Object.create;var s=Object.defineProperty;var u=Object.getOwnPropertyDescriptor;var h=Object.getOwnPropertyNames;var p=Object.getPrototypeOf,x=Object.prototype.hasOwnProperty;var d=(t,e)=>()=>(e||t((e={exports:{}}).exports,e),e.exports),j=(t,e)=>{for(var o in e)s(t,o,{get:e[o],enumerable:!0})},r=(t,e,o,i)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let a of h(e))!x.call(t,a)&&a!==o&&s(t,a,{get:()=>e[a],enumerable:!(i=u(e,a))||i.enumerable});return t};var _=(t,e,o)=>(o=t!=null?g(p(t)):{},r(e||!t||!t.__esModule?s(o,\"default\",{value:t,enumerable:!0}):o,t)),f=t=>r(s({},\"__esModule\",{value:!0}),t);var c=d((M,m)=>{m.exports=_jsx_runtime});var D={};j(D,{default:()=>C,frontmatter:()=>b});var n=_(c()),b={title:\"Image Carousel\",excerpt:\"Design a horizontally-scrolling image carousel component\"};function l(t){let e=Object.assign({h2:\"h2\",p:\"p\",img:\"img\"},t.components);return(0,n.jsxs)(n.Fragment,{children:[(0,n.jsx)(e.h2,{children:\"Question\"}),`\n`,(0,n.jsx)(e.p,{children:\"Design an image carousel component that displays a list of images one at a time, allowing the user to browse through them with pagination buttons.\"}),`\n`,(0,n.jsx)(e.p,{children:(0,n.jsx)(e.img,{src:\"/img/questions/image-carousel/image-carousel-example.png\",alt:\"Image Carousel Example\"})})]})}function w(t={}){let{wrapper:e}=t.components||{};return e?(0,n.jsx)(e,Object.assign({},t,{children:(0,n.jsx)(l,t)})):l(t)}var C=w;return f(D);})();\n;return Component;",
   "format": "system-design",
   "metadata": {
+    "access": "premium",
     "author": null,
     "companies": [
       "amazon",
@@ -22,7 +23,6 @@
     "importance": "low",
     "languages": [],
     "nextQuestions": [],
-    "premium": true,
     "published": true,
     "ranking": 11,
     "similarQuestions": [],

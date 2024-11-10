@@ -2,7 +2,7 @@
   "slug": "music-streaming-spotify",
   "languages": [],
   "companies": [],
-  "premium": true,
+  "access": "premium",
   "duration": 30,
   "published": true,
   "featured": false,

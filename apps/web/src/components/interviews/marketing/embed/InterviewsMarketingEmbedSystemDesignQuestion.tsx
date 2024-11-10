@@ -488,6 +488,7 @@ function Optimizations() {
 }
 
 const questionMetadata: QuestionMetadata = {
+  access: 'free',
   author: 'yangshun',
   companies: ['twitter'],
   created: Math.floor(Date.now() / 1000),
@@ -502,7 +503,6 @@ const questionMetadata: QuestionMetadata = {
   importance: 'high',
   languages: [],
   nextQuestions: [],
-  premium: false,
   published: true,
   ranking: 1,
   similarQuestions: [],

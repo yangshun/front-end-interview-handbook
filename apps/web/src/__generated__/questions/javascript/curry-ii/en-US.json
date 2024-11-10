@@ -9,6 +9,7 @@
   },
   "format": "javascript",
   "metadata": {
+    "access": "premium",
     "author": "yangshun",
     "companies": [],
     "created": 1655510400,
@@ -28,7 +29,6 @@
     "nextQuestions": [
       "curry-iii"
     ],
-    "premium": true,
     "published": true,
     "ranking": 100,
     "similarQuestions": [

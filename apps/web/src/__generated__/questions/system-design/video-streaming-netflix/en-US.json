@@ -2,6 +2,7 @@
   "description": "var Component=(()=>{var m=Object.create;var r=Object.defineProperty;var d=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var g=Object.getPrototypeOf,u=Object.prototype.hasOwnProperty;var w=(i,e)=>()=>(e||i((e={exports:{}}).exports,e),e.exports),f=(i,e)=>{for(var n in e)r(i,n,{get:e[n],enumerable:!0})},a=(i,e,n,s)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let o of p(e))!u.call(i,o)&&o!==n&&r(i,o,{get:()=>e[o],enumerable:!(s=d(e,o))||s.enumerable});return i};var x=(i,e,n)=>(n=i!=null?m(g(i)):{},a(e||!i||!i.__esModule?r(n,\"default\",{value:i,enumerable:!0}):n,i)),v=i=>a(r({},\"__esModule\",{value:!0}),i);var c=w((N,l)=>{l.exports=_jsx_runtime});var y={};f(y,{default:()=>_,frontmatter:()=>b});var t=x(c()),b={title:\"Video Streaming (e.g. Netflix)\",excerpt:\"Design a video streaming application like Netflix and YouTube\"};function h(i){let e=Object.assign({p:\"p\",h2:\"h2\",img:\"img\",h3:\"h3\",ul:\"ul\",li:\"li\",a:\"a\"},i.components);return(0,t.jsxs)(t.Fragment,{children:[(0,t.jsx)(e.p,{children:\"Designing a video streaming application is a common but complex system design question, but there are limited resources that provide a comprehensive guide on how to design the front end for such platforms.\"}),`\n`,(0,t.jsx)(e.h2,{children:\"Question\"}),`\n`,(0,t.jsx)(e.p,{children:\"Design a video streaming application similar to platforms like Netflix and YouTube that allows users to browse through a library of video content to discover interesting videos and watch videos.\"}),`\n`,(0,t.jsx)(e.p,{children:(0,t.jsx)(e.img,{src:\"/img/questions/video-streaming-netflix/video-streaming-netflix-netflix-discovery-page.png\",alt:\"Netflix recommendations page\"})}),`\n`,(0,t.jsx)(e.p,{children:(0,t.jsx)(e.img,{src:\"/img/questions/video-streaming-netflix/video-streaming-netflix-netflix-watch-page.png\",alt:\"Netflix watch page\"})}),`\n`,(0,t.jsx)(e.h3,{children:\"Real-life examples\"}),`\n`,(0,t.jsxs)(e.ul,{children:[`\n`,(0,t.jsx)(e.li,{children:(0,t.jsx)(e.a,{href:\"https://www.netflix.com\",children:\"https://www.netflix.com\"})}),`\n`,(0,t.jsx)(e.li,{children:(0,t.jsx)(e.a,{href:\"https://www.youtube.com\",children:\"https://www.youtube.com\"})}),`\n`,(0,t.jsx)(e.li,{children:(0,t.jsx)(e.a,{href:\"https://www.hulu.com\",children:\"https://www.hulu.com\"})}),`\n`,(0,t.jsx)(e.li,{children:(0,t.jsx)(e.a,{href:\"https://www.primevideo.com\",children:\"https://www.primevideo.com\"})}),`\n`]})]})}function j(i={}){let{wrapper:e}=i.components||{};return e?(0,t.jsx)(e,Object.assign({},i,{children:(0,t.jsx)(h,i)})):h(i)}var _=j;return v(y);})();\n;return Component;",
   "format": "system-design",
   "metadata": {
+    "access": "premium",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -16,7 +17,6 @@
     "importance": "medium",
     "languages": [],
     "nextQuestions": [],
-    "premium": true,
     "published": true,
     "ranking": 6,
     "similarQuestions": [],

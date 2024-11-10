@@ -126,20 +126,29 @@ export default function InterviewsStudyListQuestions<
           </tr>
         </thead>
         <tbody className={clsx(['divide-y', themeDivideColor])}>
-          {questions.map((question, index) => {
-            const hasCompletedQuestion = checkIfCompletedQuestion?.(question);
+          {questions.map((questionMetadata, index) => {
+            const hasCompletedQuestion =
+              checkIfCompletedQuestion?.(questionMetadata);
 
             // If the current question is not in the list or different study list, the first question is going to be the active question
             const isActiveQuestion =
               isCurrentQuestionInTheList && !isDifferentStudyList
-                ? hashQuestion(question.format, question.slug) ===
-                  hashQuestion(metadata.format, metadata.slug)
+                ? hashQuestion(
+                    questionMetadata.format,
+                    questionMetadata.slug,
+                  ) === hashQuestion(metadata.format, metadata.slug)
                 : index === 0;
-            const href = questionHrefWithList(question.href, currentListKey);
+            const href = questionHrefWithList(
+              questionMetadata.href,
+              currentListKey,
+            );
 
             return (
               <Hovercard
-                key={hashQuestion(question.format, question.slug)}
+                key={hashQuestion(
+                  questionMetadata.format,
+                  questionMetadata.slug,
+                )}
                 // Add a small close delay so that cursor can enter the card
                 // fast enough before the card disappears.
                 closeDelay={50}
@@ -164,7 +173,7 @@ export default function InterviewsStudyListQuestions<
                               hasCompletedQuestionBefore={false}
                               index={index}
                               premiumUser={userProfile?.isInterviewsPremium}
-                              question={question}
+                              question={questionMetadata}
                               size="sm"
                             />
                           )}
@@ -188,10 +197,10 @@ export default function InterviewsStudyListQuestions<
                                   aria-hidden="true"
                                   className="absolute inset-0"
                                 />
-                                {question.title}
+                                {questionMetadata.title}
                               </Anchor>
                             </Text>
-                            {question.premium && (
+                            {questionMetadata.access === 'premium' && (
                               <InterviewsPremiumBadge size="xs" />
                             )}
                           </div>
@@ -200,13 +209,13 @@ export default function InterviewsStudyListQuestions<
                       <td className="px-1.5 py-4">
                         <QuestionFormatLabel
                           showIcon={true}
-                          value={question.format}
+                          value={questionMetadata.format}
                         />
                       </td>
                       <td className="py-4 pl-1.5 pr-6">
                         <QuestionDifficultyLabel
                           showIcon={true}
-                          value={question.difficulty}
+                          value={questionMetadata.difficulty}
                         />
                       </td>
                     </tr>
@@ -224,7 +233,7 @@ export default function InterviewsStudyListQuestions<
                     sideOffset={0}>
                     <InterviewsStudyListQuestionHovercardContents
                       listKey={listKey}
-                      question={question}
+                      question={questionMetadata}
                     />
                   </HovercardContent>
                 </HovercardPortal>
@@ -234,18 +243,22 @@ export default function InterviewsStudyListQuestions<
         </tbody>
       </table>
       <ul className={clsx('block md:hidden', ['divide-y', themeDivideColor])}>
-        {questions.map((question, index) => {
-          const hasCompletedQuestion = checkIfCompletedQuestion?.(question);
+        {questions.map((questionMetadata, index) => {
+          const hasCompletedQuestion =
+            checkIfCompletedQuestion?.(questionMetadata);
 
           const isActiveQuestion =
-            hashQuestion(question.format, question.slug) ===
+            hashQuestion(questionMetadata.format, questionMetadata.slug) ===
             hashQuestion(metadata.format, metadata.slug);
 
-          const href = questionHrefWithList(question.href, currentListKey);
+          const href = questionHrefWithList(
+            questionMetadata.href,
+            currentListKey,
+          );
 
           return (
             <li
-              key={hashQuestion(question.format, question.slug)}
+              key={hashQuestion(questionMetadata.format, questionMetadata.slug)}
               className={clsx(
                 'group relative',
                 'px-6 py-4',
@@ -262,7 +275,7 @@ export default function InterviewsStudyListQuestions<
                     hasCompletedQuestionBefore={false}
                     index={index}
                     premiumUser={userProfile?.isInterviewsPremium}
-                    question={question}
+                    question={questionMetadata}
                     size="sm"
                   />
                 )}
@@ -283,19 +296,21 @@ export default function InterviewsStudyListQuestions<
                         }>
                         {/* Extend touch target to entire panel */}
                         <span aria-hidden="true" className="absolute inset-0" />
-                        {question.title}
+                        {questionMetadata.title}
                       </Anchor>
                     </Text>
-                    {question.premium && <InterviewsPremiumBadge size="xs" />}
+                    {questionMetadata.access === 'premium' && (
+                      <InterviewsPremiumBadge size="xs" />
+                    )}
                   </div>
                   <div className="flex flex-wrap items-center gap-x-4 gap-y-1.5">
                     <QuestionFormatLabel
                       showIcon={true}
-                      value={question.format}
+                      value={questionMetadata.format}
                     />
                     <QuestionDifficultyLabel
                       showIcon={true}
-                      value={question.difficulty}
+                      value={questionMetadata.difficulty}
                     />
                   </div>
                 </div>

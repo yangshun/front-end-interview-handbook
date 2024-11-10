@@ -31,7 +31,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const intl = await getIntlServerOnly(locale);
 
   try {
-    const { question } = readQuestionAlgoContents(slug, locale);
+    const { question } = readQuestionAlgoContents(slug, false, locale);
 
     return defaultMetadata({
       description: question.metadata.excerpt!,
@@ -61,13 +61,10 @@ export default async function Page({ params }: Props) {
   const supabaseAdmin = createSupabaseAdminClientGFE_SERVER_ONLY();
 
   const viewer = await readViewerFromToken();
-
-  const { question } = readQuestionAlgoContents(slug, locale);
-
-  let canViewPremiumContent = false;
+  let isViewerPremium = false;
 
   if (viewer != null) {
-    canViewPremiumContent = await Promise.resolve(
+    isViewerPremium = await Promise.resolve(
       (async () => {
         const { data: profile } = await supabaseAdmin
           .from('Profile')
@@ -80,8 +77,10 @@ export default async function Page({ params }: Props) {
     );
   }
 
+  const { question } = readQuestionAlgoContents(slug, isViewerPremium, locale);
+
   const isQuestionLockedForUser =
-    question.metadata.premium && !canViewPremiumContent;
+    question.metadata.access === 'premium' && !isViewerPremium;
 
   const [{ questions: codingQuestions }, studyList] = await Promise.all([
     fetchQuestionsListCoding(locale),
@@ -130,14 +129,17 @@ export default async function Page({ params }: Props) {
         datePublished="2022-11-01T08:00:00+08:00"
         description={question.metadata.excerpt!}
         images={[]}
-        isAccessibleForFree={!question.metadata.premium}
+        isAccessibleForFree={question.metadata.access !== 'premium'}
         title={`Front End Coding Interview Question: ${question.metadata.title}`}
         url={new URL(question.metadata.href, getSiteOrigin()).toString()}
         useAppDir={true}
       />
       {isQuestionLockedForUser ? (
         <>
-          <CodingWorkspacePaywallPage metadata={question.metadata} />
+          <CodingWorkspacePaywallPage
+            metadata={question.metadata}
+            mode="practice"
+          />
           <QuestionsStudyListBottomNav
             listKey={listKey}
             paginationEl={
@@ -155,7 +157,7 @@ export default async function Page({ params }: Props) {
         </>
       ) : (
         <JavaScriptCodingWorkspacePage
-          canViewPremiumContent={canViewPremiumContent}
+          canViewPremiumContent={isViewerPremium}
           nextQuestions={nextQuestions}
           question={question}
           similarQuestions={similarQuestions}

@@ -9,6 +9,7 @@
   },
   "format": "javascript",
   "metadata": {
+    "access": "premium",
     "author": null,
     "companies": [
       "google",
@@ -32,7 +33,6 @@
       "jquery-class-manipulation",
       "backbone-model"
     ],
-    "premium": true,
     "published": true,
     "ranking": 100,
     "similarQuestions": [

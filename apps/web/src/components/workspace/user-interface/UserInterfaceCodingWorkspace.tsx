@@ -101,7 +101,7 @@ function UserInterfaceCodingWorkspaceImpl({
     author:
       (mode === 'practice'
         ? question.skeletonBundle.author
-        : question.solutionBundle.author) ?? rawMetadata.author,
+        : question.solutionBundle?.author) ?? rawMetadata.author,
   };
 
   const copyRef = useQuestionLogEventCopyContents<HTMLDivElement>();

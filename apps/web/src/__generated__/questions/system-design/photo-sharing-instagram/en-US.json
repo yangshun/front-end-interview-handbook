@@ -2,6 +2,7 @@
   "description": "var Component=(()=>{var p=Object.create;var s=Object.defineProperty;var m=Object.getOwnPropertyDescriptor;var g=Object.getOwnPropertyNames;var d=Object.getPrototypeOf,w=Object.prototype.hasOwnProperty;var u=(t,n)=>()=>(n||t((n={exports:{}}).exports,n),n.exports),x=(t,n)=>{for(var i in n)s(t,i,{get:n[i],enumerable:!0})},r=(t,n,i,o)=>{if(n&&typeof n==\"object\"||typeof n==\"function\")for(let a of g(n))!w.call(t,a)&&a!==i&&s(t,a,{get:()=>n[a],enumerable:!(o=m(n,a))||o.enumerable});return t};var f=(t,n,i)=>(i=t!=null?p(d(t)):{},r(n||!t||!t.__esModule?s(i,\"default\",{value:t,enumerable:!0}):i,t)),j=t=>r(s({},\"__esModule\",{value:!0}),t);var c=u((y,h)=>{h.exports=_jsx_runtime});var k={};x(k,{default:()=>b,frontmatter:()=>_});var e=f(c()),_={title:\"Photo Sharing (e.g. Instagram)\",excerpt:\"Design a photo sharing application like Instagram\"};function l(t){let n=Object.assign({h2:\"h2\",p:\"p\",img:\"img\",h3:\"h3\",ul:\"ul\",li:\"li\",a:\"a\"},t.components);return(0,e.jsxs)(e.Fragment,{children:[(0,e.jsx)(n.h2,{children:\"Question\"}),`\n`,(0,e.jsx)(n.p,{children:\"Design a photo sharing application that contains a list of photo posts created by users. Users can create new posts containing photos.\"}),`\n`,(0,e.jsx)(n.p,{children:(0,e.jsx)(n.img,{src:\"/img/questions/photo-sharing-instagram/photo-sharing-example.png\",alt:\"Photo Sharing Example\"})}),`\n`,(0,e.jsx)(n.h3,{children:\"Real-life examples\"}),`\n`,(0,e.jsxs)(n.ul,{children:[`\n`,(0,e.jsx)(n.li,{children:(0,e.jsx)(n.a,{href:\"https://www.instagram.com\",children:\"https://www.instagram.com\"})}),`\n`,(0,e.jsx)(n.li,{children:(0,e.jsx)(n.a,{href:\"https://www.flickr.com\",children:\"https://www.flickr.com\"})}),`\n`]})]})}function D(t={}){let{wrapper:n}=t.components||{};return n?(0,e.jsx)(n,Object.assign({},t,{children:(0,e.jsx)(l,t)})):l(t)}var b=D;return j(k);})();\n;return Component;",
   "format": "system-design",
   "metadata": {
+    "access": "premium",
     "author": null,
     "companies": [
       "facebook"
@@ -18,7 +19,6 @@
     "importance": "low",
     "languages": [],
     "nextQuestions": [],
-    "premium": true,
     "published": true,
     "ranking": 10,
     "similarQuestions": [],

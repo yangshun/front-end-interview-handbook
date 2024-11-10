@@ -3,7 +3,7 @@
   "created": "2022-05-18T00:00:00.000Z",
   "languages": ["js", "ts"],
   "companies": ["bytedance", "linkedin"],
-  "premium": true,
+  "access": "premium",
   "duration": 10,
   "published": true,
   "importance": "low",

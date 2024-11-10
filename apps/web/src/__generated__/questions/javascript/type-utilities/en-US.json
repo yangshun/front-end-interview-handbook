@@ -9,6 +9,7 @@
   },
   "format": "javascript",
   "metadata": {
+    "access": "free",
     "author": "yangshun",
     "companies": [],
     "created": 1649894400,
@@ -28,7 +29,6 @@
     "nextQuestions": [
       "type-utilities-ii"
     ],
-    "premium": false,
     "published": true,
     "ranking": 100,
     "similarQuestions": [],

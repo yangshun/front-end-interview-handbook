@@ -76,7 +76,7 @@ export default async function Page({ params }: Props) {
 
   const { question } = readQuestionSystemDesignContents(slug, locale);
 
-  const canViewPremiumContent: boolean = await (async () => {
+  const isViewerPremium: boolean = await (async () => {
     const viewer = await readViewerFromToken();
 
     if (viewer == null) {
@@ -94,18 +94,19 @@ export default async function Page({ params }: Props) {
     return profile?.premium ?? false;
   })();
 
-  const isQuestionLocked = question.metadata.premium && !canViewPremiumContent;
+  const isQuestionLocked =
+    question.metadata.access === 'premium' && !isViewerPremium;
 
   return (
     <>
       <GuidesArticleJsonLd
         description={question.metadata.excerpt ?? ''}
-        isAccessibleForFree={!question.metadata.premium}
+        isAccessibleForFree={question.metadata.access !== 'premium'}
         pathname={question.metadata.href}
         title={`Front End System Design: ${question.metadata.title}`}
       />
       <InterviewsQuestionsSystemDesignPage
-        canViewPremiumContent={canViewPremiumContent}
+        canViewPremiumContent={isViewerPremium}
         isQuestionLocked={isQuestionLocked}
         question={{
           description: question.description,

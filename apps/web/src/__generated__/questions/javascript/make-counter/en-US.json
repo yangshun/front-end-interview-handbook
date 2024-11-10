@@ -9,6 +9,7 @@
   },
   "format": "javascript",
   "metadata": {
+    "access": "free",
     "author": null,
     "companies": [
       "amazon"
@@ -30,7 +31,6 @@
     "nextQuestions": [
       "make-counter-ii"
     ],
-    "premium": false,
     "published": true,
     "ranking": 100,
     "similarQuestions": [

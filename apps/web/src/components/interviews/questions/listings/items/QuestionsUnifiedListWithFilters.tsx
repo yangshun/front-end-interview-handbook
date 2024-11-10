@@ -14,7 +14,7 @@ import type {
   QuestionSortField,
 } from '~/components/interviews/questions/common/QuestionsTypes';
 import {
-  countQuestionsByPremium,
+  countQuestionsByAccess,
   countQuestionsTotalDurationMins,
   filterQuestions,
   sortQuestionsMultiple,
@@ -34,7 +34,7 @@ import useQuestionCodingSorting from '../filters/hooks/useQuestionCodingSorting'
 import useQuestionUnifiedFilters from '../filters/hooks/useQuestionUnifiedFilters';
 import QuestionListingUnifiedFilters from '../filters/QuestionListingUnifiedFilters';
 import QuestionsListingFilterSlideOut from '../filters/QuestionsListingFilterSlideout';
-import QuestionListingSummarySection from '../stats/QuestionListingSummarySection';
+import QuestionListingAccessSummary from '../stats/QuestionListingAccessSummary';
 import QuestionCountLabel from '../../metadata/QuestionCountLabel';
 import QuestionTotalTimeLabel from '../../metadata/QuestionTotalTimeLabel';
 
@@ -144,7 +144,7 @@ export default function QuestionsUnifiedListWithFilters({
     filters.map(([_, filterFn]) => filterFn),
   );
 
-  const premiumCount = countQuestionsByPremium(processedQuestions);
+  const premiumCount = countQuestionsByAccess(processedQuestions);
   const totalDurationMins = countQuestionsTotalDurationMins(processedQuestions);
   const showPaywall =
     !userProfile?.isInterviewsPremium && companyFilters.size > 0;
@@ -418,10 +418,7 @@ export default function QuestionsUnifiedListWithFilters({
           ['divide-y', themeDivideEmphasizeColor],
         )}>
         {showSummarySection && (
-          <QuestionListingSummarySection
-            free={premiumCount.free}
-            premium={premiumCount.premium}
-          />
+          <QuestionListingAccessSummary {...premiumCount} />
         )}
         <section
           className={clsx(

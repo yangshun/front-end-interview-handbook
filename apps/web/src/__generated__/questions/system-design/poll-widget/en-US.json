@@ -2,6 +2,7 @@
   "description": "var Component=(()=>{var c=Object.create;var l=Object.defineProperty;var p=Object.getOwnPropertyDescriptor;var g=Object.getOwnPropertyNames;var m=Object.getPrototypeOf,u=Object.prototype.hasOwnProperty;var w=(n,e)=>()=>(e||n((e={exports:{}}).exports,e),e.exports),f=(n,e)=>{for(var i in e)l(n,i,{get:e[i],enumerable:!0})},r=(n,e,i,s)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let o of g(e))!u.call(n,o)&&o!==i&&l(n,o,{get:()=>e[o],enumerable:!(s=p(e,o))||s.enumerable});return n};var b=(n,e,i)=>(i=n!=null?c(m(n)):{},r(e||!n||!n.__esModule?l(i,\"default\",{value:n,enumerable:!0}):i,n)),x=n=>r(l({},\"__esModule\",{value:!0}),n);var a=w((T,d)=>{d.exports=_jsx_runtime});var y={};f(y,{default:()=>_,frontmatter:()=>v});var t=b(a()),v={title:\"Poll Widget\",excerpt:\"Design a poll widget that can be embedded on websites\"};function h(n){let e=Object.assign({h2:\"h2\",p:\"p\",img:\"img\",h3:\"h3\",ul:\"ul\",li:\"li\"},n.components);return(0,t.jsxs)(t.Fragment,{children:[(0,t.jsx)(e.h2,{children:\"Question\"}),`\n`,(0,t.jsx)(e.p,{children:\"Design a poll widget that can be easily embedded on websites, such as articles and blogs to allow website viewers to vote on options.\"}),`\n`,(0,t.jsx)(e.p,{children:(0,t.jsx)(e.img,{src:\"/img/questions/poll-widget/poll-widget-example.png\",alt:\"Poll Widget Example\"})}),`\n`,(0,t.jsx)(e.h3,{children:\"Requirements\"}),`\n`,(0,t.jsxs)(e.ul,{children:[`\n`,(0,t.jsxs)(e.li,{children:[\"The widget displays the following information:\",`\n`,(0,t.jsxs)(e.ul,{children:[`\n`,(0,t.jsx)(e.li,{children:\"A list of options for users to vote on.\"}),`\n`,(0,t.jsx)(e.li,{children:\"The latest number of votes for each option. This is only shown after the user has submitted a vote.\"}),`\n`]}),`\n`]}),`\n`,(0,t.jsxs)(e.li,{children:[\"The following back end APIs are provided:\",`\n`,(0,t.jsxs)(e.ul,{children:[`\n`,(0,t.jsx)(e.li,{children:\"Fetching of the poll results.\"}),`\n`,(0,t.jsx)(e.li,{children:\"Record a new vote on an existing poll option.\"}),`\n`,(0,t.jsx)(e.li,{children:\"Remove a vote from an existing poll option.\"}),`\n`]}),`\n`]}),`\n`,(0,t.jsx)(e.li,{children:\"It should not require much effort for a website owner to embed a poll widget within their websites.\"}),`\n`]})]})}function j(n={}){let{wrapper:e}=n.components||{};return e?(0,t.jsx)(e,Object.assign({},n,{children:(0,t.jsx)(h,n)})):h(n)}var _=j;return x(y);})();\n;return Component;",
   "format": "system-design",
   "metadata": {
+    "access": "premium",
     "author": null,
     "companies": [],
     "created": 1662854400,
@@ -16,7 +17,6 @@
     "importance": "low",
     "languages": [],
     "nextQuestions": [],
-    "premium": true,
     "published": true,
     "ranking": 12,
     "similarQuestions": [],

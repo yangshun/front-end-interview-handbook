@@ -35,6 +35,7 @@ export function normalizeQuestionFrontMatter(
     frontmatter.frameworks ?? [];
 
   return {
+    access: frontmatter.access ?? 'free',
     author: frontmatter.author ?? null,
     companies: frontmatter.companies ?? [],
     created: new Date(frontmatter.created ?? '2021-09-05').getTime() / 1000,
@@ -56,7 +57,6 @@ export function normalizeQuestionFrontMatter(
     importance: frontmatter.importance ?? null,
     languages: frontmatter.languages ?? [],
     nextQuestions: frontmatter.next_questions ?? [],
-    premium: frontmatter.premium,
     published: frontmatter.published,
     ranking: frontmatter.ranking ?? 100, // 1-100 where 1 is the top.
     similarQuestions: frontmatter.similar_questions ?? [],

@@ -10,7 +10,8 @@ import {
 import Tooltip from '~/components/ui/Tooltip';
 
 import QuestionListingSideCard from './QuestionListingSideCard';
-import type { QuestionPremiumStatus } from '../../common/QuestionsTypes';
+
+type QuestionPremiumStatus = 'free' | 'premium';
 
 type Props = Readonly<{
   count: number;
@@ -36,7 +37,7 @@ const icons: Record<
   premium: RiLockFill,
 };
 
-export default function QuestionListingQuestionCount({
+export default function QuestionListingAccessCount({
   variant,
   count,
   totalCount,
@@ -46,15 +47,13 @@ export default function QuestionListingQuestionCount({
   const labels = {
     free: intl.formatMessage({
       defaultMessage: 'Free',
-      description:
-        'Free label for free vs premium question breakdown in question listing',
-      id: 'LYaH0T',
+      description: 'Free question',
+      id: 'azDVOg',
     }),
     premium: intl.formatMessage({
       defaultMessage: 'Premium',
-      description:
-        'Premium label for free vs premium question breakdown in question listing',
-      id: '3NSzVn',
+      description: 'Premium question',
+      id: 'nS1n8l',
     }),
   };
 

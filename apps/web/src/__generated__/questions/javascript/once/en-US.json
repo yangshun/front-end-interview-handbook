@@ -9,6 +9,7 @@
   },
   "format": "javascript",
   "metadata": {
+    "access": "premium",
     "author": "yangshun",
     "companies": [
       "amazon"
@@ -30,7 +31,6 @@
     "nextQuestions": [
       "limit"
     ],
-    "premium": true,
     "published": true,
     "ranking": 100,
     "similarQuestions": [],

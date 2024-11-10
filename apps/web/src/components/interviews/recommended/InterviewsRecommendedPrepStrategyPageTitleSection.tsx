@@ -33,7 +33,7 @@ import { categorizeQuestionsProgress } from '~/db/QuestionsUtils';
 import InterviewsPageHeaderActions from '../common/InterviewsPageHeaderActions';
 import type { QuestionMetadata } from '../questions/common/QuestionsTypes';
 import QuestionsStudyListPageTitleSection from '../questions/listings/learning/QuestionsStudyListPageTitleSection';
-import QuestionListingQuestionCount from '../questions/listings/stats/QuestionListingQuestionCount';
+import QuestionListingAccessCount from '../questions/listings/stats/QuestionListingAccessCount';
 
 import { useUser } from '@supabase/auth-helpers-react';
 
@@ -332,7 +332,7 @@ export default function InterviewsRecommendedPrepStrategyPageTitleSection({
         <div className={clsx('grid items-center gap-6 lg:grid-cols-12')}>
           <div className="lg:col-span-9">{longDescription}</div>
           <aside className="lg:col-span-3">
-            <QuestionListingQuestionCount
+            <QuestionListingAccessCount
               count={75}
               totalCount={75}
               variant="free"

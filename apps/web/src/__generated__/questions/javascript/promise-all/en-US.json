@@ -9,6 +9,7 @@
   },
   "format": "javascript",
   "metadata": {
+    "access": "free",
     "author": "yangshun",
     "companies": [
       "amazon",
@@ -36,7 +37,6 @@
       "promise-any",
       "todo-list"
     ],
-    "premium": false,
     "published": true,
     "ranking": 100,
     "similarQuestions": [

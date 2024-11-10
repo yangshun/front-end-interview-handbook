@@ -3,7 +3,7 @@
   "created": "2023-08-01T00:00:00.000Z",
   "languages": ["js", "ts"],
   "companies": ["linkedin"],
-  "premium": true,
+  "access": "premium",
   "duration": 30,
   "published": true,
   "importance": "low",

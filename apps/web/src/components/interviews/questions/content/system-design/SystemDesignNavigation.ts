@@ -212,13 +212,13 @@ export function useSystemDesignNavigation() {
         type: 'list',
       },
       {
-        items: readySystemDesignQuestions.map((question) => ({
-          href: question.href,
-          icon: SystemDesignIcons[question.slug],
+        items: readySystemDesignQuestions.map((questionMetadata) => ({
+          href: questionMetadata.href,
+          icon: SystemDesignIcons[questionMetadata.slug],
           kind: 'question',
-          label: question.title,
-          premium: question.premium,
-          slug: question.slug,
+          label: questionMetadata.title,
+          premium: questionMetadata.access === 'premium',
+          slug: questionMetadata.slug,
           type: 'link',
         })),
         label: intl.formatMessage({
@@ -232,14 +232,17 @@ export function useSystemDesignNavigation() {
         items: allSystemDesignQuestions
           .slice()
           .sort((a, b) => a.ranking - b.ranking)
-          .filter((question) => !ReadyQuestions.includes(question.slug))
-          .map((question) => ({
-            href: question.href,
-            icon: SystemDesignIcons[question.slug],
+          .filter(
+            (questionMetadata) =>
+              !ReadyQuestions.includes(questionMetadata.slug),
+          )
+          .map((questionMetadata) => ({
+            href: questionMetadata.href,
+            icon: SystemDesignIcons[questionMetadata.slug],
             kind: 'question',
-            label: question.title,
-            premium: question.premium,
-            slug: question.slug,
+            label: questionMetadata.title,
+            premium: questionMetadata.access === 'premium',
+            slug: questionMetadata.slug,
             type: 'link',
           })),
         label: intl.formatMessage({

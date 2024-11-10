@@ -23,6 +23,7 @@ import { getQuestionOutPathUserInterface } from './questions-bundlers/QuestionsB
 
 export function readQuestionAlgoContents(
   slug: string,
+  isViewerPremium: boolean,
   requestedLocale = 'en-US',
 ): Readonly<{
   loadedLocale: string;
@@ -44,14 +45,32 @@ export function readQuestionAlgoContents(
     }
   })();
 
+  let question = JSON.parse(String(response)) as QuestionJavaScript;
+
+  // Hide solution if user does not have access.
+  if (
+    !isViewerPremium &&
+    (question.metadata.access === 'standard' ||
+      question.metadata.access === 'premium')
+  ) {
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    const { solution, ...rest } = question;
+
+    question = {
+      ...rest,
+      solution: null,
+    };
+  }
+
   return {
     loadedLocale,
-    question: JSON.parse(String(response)) as QuestionJavaScript,
+    question,
   };
 }
 
 export function readQuestionJavaScriptContents(
   slug: string,
+  isViewerPremium: boolean,
   requestedLocale = 'en-US',
 ): Readonly<{
   loadedLocale: string;
@@ -76,9 +95,26 @@ export function readQuestionJavaScriptContents(
     }
   })();
 
+  let question = JSON.parse(String(response)) as QuestionJavaScript;
+
+  // Hide solution if user does not have access.
+  if (
+    !isViewerPremium &&
+    (question.metadata.access === 'standard' ||
+      question.metadata.access === 'premium')
+  ) {
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    const { solution, ...rest } = question;
+
+    question = {
+      ...rest,
+      solution: null,
+    };
+  }
+
   return {
     loadedLocale,
-    question: JSON.parse(String(response)) as QuestionJavaScript,
+    question,
   };
 }
 
@@ -145,6 +181,7 @@ export function readQuestionSystemDesignContents(
 
 export async function readQuestionUserInterface(
   slug: string,
+  isViewerPremium: boolean,
   frameworkParam?: QuestionFramework | null,
   codeId?: string,
 ): Promise<QuestionUserInterface> {
@@ -172,7 +209,17 @@ export async function readQuestionUserInterface(
       path.join(questionOutDir, framework, `${codeId ?? 'solution'}.json`),
     );
 
-    return JSON.parse(String(response)) as QuestionUserInterfaceBundle;
+    const solutionBundleValue: QuestionUserInterfaceBundle = JSON.parse(
+      String(response),
+    );
+
+    const canAccessSolutionWriteup =
+      isViewerPremium || metadata.access === 'free';
+
+    return {
+      ...solutionBundleValue,
+      writeup: canAccessSolutionWriteup ? solutionBundleValue.writeup : null,
+    };
   })();
 
   return {
@@ -181,7 +228,7 @@ export async function readQuestionUserInterface(
     framework,
     metadata,
     skeletonBundle,
-    solution: solutionBundle.writeup ?? null,
+    solution: solutionBundle?.writeup ?? null,
     solutionBundle,
   };
 }

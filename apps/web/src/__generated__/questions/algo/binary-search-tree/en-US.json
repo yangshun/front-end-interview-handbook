@@ -9,6 +9,7 @@
   },
   "format": "algo",
   "metadata": {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1715126400,
@@ -26,7 +27,6 @@
       "ts"
     ],
     "nextQuestions": [],
-    "premium": false,
     "published": false,
     "ranking": 100,
     "similarQuestions": [

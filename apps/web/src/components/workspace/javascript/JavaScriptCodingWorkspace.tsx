@@ -223,7 +223,12 @@ function JavaScriptCodingWorkspaceImpl({
       label: 'Run tests',
     },
     solution: {
-      contents: <JavaScriptCodingWorkspaceSolutionTab solution={solution} />,
+      contents: (
+        <JavaScriptCodingWorkspaceSolutionTab
+          canViewPremiumContent={canViewPremiumContent}
+          solution={solution}
+        />
+      ),
       icon: CodingWorkspaceTabIcons.solution.icon,
       label: 'Solution',
     },
@@ -331,7 +336,10 @@ function JavaScriptCodingWorkspaceImpl({
               nextQuestions={[]}
               similarQuestions={[]}
             />
-            <JavaScriptCodingWorkspaceSolutionMobile solution={solution} />
+            <JavaScriptCodingWorkspaceSolutionMobile
+              canViewPremiumContent={canViewPremiumContent}
+              solution={solution}
+            />
             {bottomBar}
           </div>
         )}

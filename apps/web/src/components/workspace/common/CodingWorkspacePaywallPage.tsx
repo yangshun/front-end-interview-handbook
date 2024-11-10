@@ -12,9 +12,10 @@ import Section from '~/components/ui/Heading/HeadingContext';
 
 type Props = Readonly<{
   metadata: QuestionMetadata;
+  mode: 'practice' | 'solution';
 }>;
 
-export default function CodingWorkspacePaywallPage({ metadata }: Props) {
+export default function CodingWorkspacePaywallPage({ metadata, mode }: Props) {
   return (
     <Container>
       <div className="flex h-[calc(100vh_-_var(--global-sticky-height))] flex-col items-center gap-y-8 py-16 sm:justify-center">
@@ -24,7 +25,11 @@ export default function CodingWorkspacePaywallPage({ metadata }: Props) {
         </div>
         <Section>
           <div className="flex flex-col items-center gap-y-4">
-            <QuestionPaywall />
+            <QuestionPaywall
+              feature={
+                mode === 'solution' ? 'official-solutions' : 'premium-questions'
+              }
+            />
             <Button
               addonPosition="start"
               href="/interviews/dashboard"

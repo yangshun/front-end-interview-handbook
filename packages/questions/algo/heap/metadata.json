@@ -3,7 +3,7 @@
   "created": "2024-05-06T00:00:00.000Z",
   "languages": ["js", "ts"],
   "companies": [],
-  "premium": false,
+  "access": "free",
   "duration": 15,
   "published": false,
   "importance": "low",

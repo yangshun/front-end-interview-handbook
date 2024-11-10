@@ -123,7 +123,7 @@ export default function UserInterfaceCodingWorkspaceWriteup({
                   {metadata.title} {contentType === 'solution' && ' Solution'}
                 </span>
               </Heading>
-              {metadata.premium && (
+              {metadata.access === 'premium' && (
                 <Badge
                   label={intl.formatMessage({
                     defaultMessage: 'Premium',

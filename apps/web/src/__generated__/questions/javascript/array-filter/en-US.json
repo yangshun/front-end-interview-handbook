@@ -9,6 +9,7 @@
   },
   "format": "javascript",
   "metadata": {
+    "access": "premium",
     "author": null,
     "companies": [
       "amazon",
@@ -32,7 +33,6 @@
       "array-map",
       "array-reduce"
     ],
-    "premium": true,
     "published": true,
     "ranking": 100,
     "similarQuestions": [

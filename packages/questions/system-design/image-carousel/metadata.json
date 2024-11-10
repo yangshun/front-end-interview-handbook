@@ -3,7 +3,7 @@
   "created": "2022-10-16T00:00:00.000Z",
   "languages": [],
   "companies": ["amazon", "doordash", "dropbox", "google", "microsoft"],
-  "premium": true,
+  "access": "premium",
   "duration": 30,
   "featured": true,
   "published": true,

@@ -2,6 +2,7 @@
   "description": null,
   "format": "quiz",
   "metadata": {
+    "access": "free",
     "author": null,
     "companies": [
       "linkedin"
@@ -18,7 +19,6 @@
     "importance": "medium",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 100,
     "similarQuestions": [],

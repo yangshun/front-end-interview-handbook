@@ -9,6 +9,7 @@
   },
   "format": "javascript",
   "metadata": {
+    "access": "free",
     "author": "zhenghao",
     "companies": [
       "bytedance"
@@ -32,7 +33,6 @@
       "deep-equal",
       "deep-clone-ii"
     ],
-    "premium": false,
     "published": true,
     "ranking": 100,
     "similarQuestions": [

@@ -9,6 +9,7 @@
   },
   "format": "javascript",
   "metadata": {
+    "access": "free",
     "author": "yangshun",
     "companies": [],
     "created": 1649894400,
@@ -30,7 +31,6 @@
       "deep-clone",
       "deep-equal"
     ],
-    "premium": false,
     "published": true,
     "ranking": 100,
     "similarQuestions": [

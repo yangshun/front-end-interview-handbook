@@ -9,6 +9,7 @@
   },
   "format": "javascript",
   "metadata": {
+    "access": "premium",
     "author": "zhenghao",
     "companies": [],
     "created": 1656288000,
@@ -27,7 +28,6 @@
       "ts"
     ],
     "nextQuestions": [],
-    "premium": true,
     "published": true,
     "ranking": 100,
     "similarQuestions": [

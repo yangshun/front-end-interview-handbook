@@ -2,7 +2,7 @@
   "slug": "collaborative-spreadsheet-google-sheets",
   "languages": [],
   "companies": [],
-  "premium": true,
+  "access": "premium",
   "duration": 40,
   "published": true,
   "featured": false,

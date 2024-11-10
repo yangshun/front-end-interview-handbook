@@ -4,7 +4,7 @@
   "created": "2022-06-16T00:00:00.000Z",
   "languages": ["html", "css", "js", "ts"],
   "companies": ["dropbox", "google", "linkedin"],
-  "premium": true,
+  "access": "premium",
   "duration": 25,
   "published": true,
   "importance": "medium",

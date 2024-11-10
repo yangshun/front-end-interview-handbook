@@ -36,7 +36,10 @@ export const QuestionLanguageLabels: Record<QuestionLanguage, string> = {
 export type QuestionCompletionStatus = 'completed' | 'incomplete';
 export type QuestionDifficulty = 'easy' | 'hard' | 'medium';
 export type QuestionImportance = 'high' | 'low' | 'medium';
-export type QuestionPremiumStatus = 'free' | 'premium';
+// - Free: can access both desc and solution
+// - Premium: cannot access desc and solution
+// - Standard: can access desc but not solution
+export type QuestionAccess = 'free' | 'premium' | 'standard';
 export type QuestionSortField =
   | 'created'
   | 'difficulty'
@@ -78,10 +81,11 @@ export type QuestionUserInterfaceBundle = Readonly<{
   author: string | null;
   files: SandpackFiles;
   workspace: QuestionUserInterfaceWorkspace;
-  writeup: string;
+  writeup: string | null;
 }>;
 
 export type QuestionMetadata = {
+  readonly access: QuestionAccess;
   readonly author: string | null;
   readonly companies: ReadonlyArray<QuestionCompany>;
   readonly created: number; // Unix timestamp in seconds.
@@ -102,10 +106,9 @@ export type QuestionMetadata = {
   readonly importance: QuestionImportance;
   readonly languages: ReadonlyArray<QuestionLanguage>;
   readonly nextQuestions: ReadonlyArray<QuestionSlug>;
-  readonly premium: boolean;
   readonly published: boolean;
-  readonly ranking: number;
   // Value from 1-100 where 1 is the highest ranking.
+  readonly ranking: number;
   readonly similarQuestions: ReadonlyArray<QuestionSlug>;
   readonly slug: QuestionSlug;
   readonly subtitle: string | null;

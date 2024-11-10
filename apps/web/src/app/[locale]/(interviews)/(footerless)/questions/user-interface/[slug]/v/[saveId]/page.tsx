@@ -28,7 +28,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   try {
     const [question, save] = await Promise.all([
-      readQuestionUserInterface(slug),
+      readQuestionUserInterface(slug, false),
       prisma.questionUserInterfaceSave.findFirst({
         where: {
           id: saveId,
@@ -70,16 +70,11 @@ export default async function Page({ params }: Props) {
     return <div className="p-4 text-center">No such save.</div>;
   }
 
-  const question = await readQuestionUserInterface(
-    slug,
-    staticLowerCase(save!.framework),
-  );
-
-  let canViewPremiumContent = false;
   const supabaseAdmin = createSupabaseAdminClientGFE_SERVER_ONLY();
+  let isViewerPremium = false;
 
   if (viewer != null) {
-    canViewPremiumContent = await Promise.resolve(
+    isViewerPremium = await Promise.resolve(
       (async () => {
         const { data: profile } = await supabaseAdmin
           .from('Profile')
@@ -92,11 +87,22 @@ export default async function Page({ params }: Props) {
     );
   }
 
+  const question = await readQuestionUserInterface(
+    slug,
+    isViewerPremium,
+    staticLowerCase(save!.framework),
+  );
+
   const isQuestionLockedForViewer =
-    question.metadata.premium && !canViewPremiumContent;
+    question.metadata.access === 'premium' && !isViewerPremium;
 
   if (isQuestionLockedForViewer) {
-    return <CodingWorkspacePaywallPage metadata={question.metadata} />;
+    return (
+      <CodingWorkspacePaywallPage
+        metadata={question.metadata}
+        mode="practice"
+      />
+    );
   }
 
   const { questions: codingQuestions } = await fetchQuestionsListCoding();
@@ -133,7 +139,7 @@ export default async function Page({ params }: Props) {
 
   return (
     <UserInterfaceCodingWorkspaceSavesPage
-      canViewPremiumContent={canViewPremiumContent}
+      canViewPremiumContent={isViewerPremium}
       nextQuestions={nextQuestions}
       question={question}
       save={save!}

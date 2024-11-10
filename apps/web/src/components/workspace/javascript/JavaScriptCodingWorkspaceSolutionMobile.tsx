@@ -6,10 +6,12 @@ import Button from '~/components/ui/Button';
 import JavaScriptCodingWorkspaceSolutionTab from './JavaScriptCodingWorkspaceSolutionTab';
 
 type Props = Readonly<{
+  canViewPremiumContent: boolean;
   solution: string | null;
 }>;
 
 export default function JavaScriptCodingWorkspaceSolutionMobile({
+  canViewPremiumContent,
   solution,
 }: Props) {
   const [showSolution, setShowSolution] = useState(false);
@@ -31,7 +33,10 @@ export default function JavaScriptCodingWorkspaceSolutionMobile({
         />
       </div>
       {showSolution && (
-        <JavaScriptCodingWorkspaceSolutionTab solution={solution} />
+        <JavaScriptCodingWorkspaceSolutionTab
+          canViewPremiumContent={canViewPremiumContent}
+          solution={solution}
+        />
       )}
     </div>
   );

@@ -37,19 +37,21 @@ const colors: Record<PremiumWallVariant, string> = {
   under_construction: themeTextSecondaryColor,
 };
 
+type Props = Readonly<{
+  background?: boolean;
+  feature?: QuestionFeatureType;
+  subtitle?: string;
+  title?: string;
+  variant?: PremiumWallVariant;
+}>;
+
 export default function QuestionPaywall({
   title: titleProp,
   subtitle: subtitleProp,
   variant = 'not_subscribed',
   background = true,
   feature = 'premium-questions',
-}: Readonly<{
-  background?: boolean;
-  feature?: QuestionFeatureType;
-  subtitle?: string;
-  title?: string;
-  variant?: PremiumWallVariant;
-}>) {
+}: Props) {
   const intl = useIntl();
 
   const featuresHeading: Record<

@@ -67,6 +67,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   try {
     const question = await readQuestionUserInterface(
       slug,
+      false,
       parsedFramework,
       codeId,
     );
@@ -149,16 +150,13 @@ export default async function Page({ params }: Props) {
     codeId,
   } = determineFrameworkAndMode(rest);
 
-  const [viewer, question] = await Promise.all([
-    readViewerFromToken(),
-    readQuestionUserInterface(slug, parsedFramework, codeId),
-  ]);
-
-  let canViewPremiumContent = false;
   const supabaseAdmin = createSupabaseAdminClientGFE_SERVER_ONLY();
+  const viewer = await readViewerFromToken();
+
+  let isViewerPremium = false;
 
   if (viewer != null) {
-    canViewPremiumContent = await Promise.resolve(
+    isViewerPremium = await Promise.resolve(
       (async () => {
         const { data: profile } = await supabaseAdmin
           .from('Profile')
@@ -171,8 +169,28 @@ export default async function Page({ params }: Props) {
     );
   }
 
-  const isQuestionLockedForViewer =
-    question.metadata.premium && !canViewPremiumContent;
+  const question = await readQuestionUserInterface(
+    slug,
+    isViewerPremium,
+    parsedFramework,
+    codeId,
+  );
+
+  const isQuestionLockedForViewer = (() => {
+    if (mode === 'practice') {
+      return question.metadata.access === 'premium' && !isViewerPremium;
+    }
+
+    if (mode === 'solution') {
+      return (
+        (question.metadata.access === 'standard' ||
+          question.metadata.access === 'premium') &&
+        !isViewerPremium
+      );
+    }
+
+    return true;
+  })();
   const { url } = frameworkAgnosticLinks(question, mode);
 
   const [{ questions: codingQuestions }, studyList] = await Promise.all([
@@ -222,7 +240,7 @@ export default async function Page({ params }: Props) {
         datePublished="2022-11-01T08:00:00+08:00"
         description={question.metadata.excerpt!}
         images={[]}
-        isAccessibleForFree={!question.metadata.premium}
+        isAccessibleForFree={question.metadata.access !== 'premium'}
         title={`Front End Coding Interview Question: ${
           mode === 'solution' ? 'Solution ' : ''
         }${question.metadata.title}`}
@@ -231,7 +249,10 @@ export default async function Page({ params }: Props) {
       />
       {isQuestionLockedForViewer ? (
         <>
-          <CodingWorkspacePaywallPage metadata={question.metadata} />
+          <CodingWorkspacePaywallPage
+            metadata={question.metadata}
+            mode="practice"
+          />
           <QuestionsStudyListBottomNav
             listKey={listKey}
             paginationEl={
@@ -249,7 +270,7 @@ export default async function Page({ params }: Props) {
         </>
       ) : (
         <UserInterfaceCodingWorkspacePage
-          canViewPremiumContent={canViewPremiumContent}
+          canViewPremiumContent={isViewerPremium}
           mode={mode}
           nextQuestions={nextQuestions}
           question={question}

@@ -2,6 +2,7 @@
   "description": "var Component=(()=>{var d=Object.create;var i=Object.defineProperty;var x=Object.getOwnPropertyDescriptor;var u=Object.getOwnPropertyNames;var m=Object.getPrototypeOf,p=Object.prototype.hasOwnProperty;var O=(n,e)=>()=>(e||n((e={exports:{}}).exports,e),e.exports),g=(n,e)=>{for(var l in e)i(n,l,{get:e[l],enumerable:!0})},s=(n,e,l,o)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let r of u(e))!p.call(n,r)&&r!==l&&i(n,r,{get:()=>e[r],enumerable:!(o=x(e,r))||o.enumerable});return n};var j=(n,e,l)=>(l=n!=null?d(m(n)):{},s(e||!n||!n.__esModule?i(l,\"default\",{value:n,enumerable:!0}):l,n)),_=n=>s(i({},\"__esModule\",{value:!0}),n);var a=O((C,c)=>{c.exports=_jsx_runtime});var M={};g(M,{default:()=>b,frontmatter:()=>f});var t=j(a()),f={title:\"Google Sheets\",excerpt:\"Design a collaborative spreadsheet like Google Sheet and Excel\"};function h(n){let e=Object.assign({h2:\"h2\",p:\"p\",h3:\"h3\",ul:\"ul\",li:\"li\"},n.components);return(0,t.jsxs)(t.Fragment,{children:[(0,t.jsx)(e.h2,{children:\"Question\"}),`\n`,(0,t.jsx)(e.p,{children:\"TODO\"}),`\n`,(0,t.jsx)(e.h3,{children:\"Real-life examples\"}),`\n`,(0,t.jsxs)(e.ul,{children:[`\n`,(0,t.jsx)(e.li,{children:\"TODO\"}),`\n`,(0,t.jsx)(e.li,{children:\"TODO\"}),`\n`]})]})}function D(n={}){let{wrapper:e}=n.components||{};return e?(0,t.jsx)(e,Object.assign({},n,{children:(0,t.jsx)(h,n)})):h(n)}var b=D;return _(M);})();\n;return Component;",
   "format": "system-design",
   "metadata": {
+    "access": "premium",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -16,7 +17,6 @@
     "importance": "low",
     "languages": [],
     "nextQuestions": [],
-    "premium": true,
     "published": true,
     "ranking": 14,
     "similarQuestions": [],

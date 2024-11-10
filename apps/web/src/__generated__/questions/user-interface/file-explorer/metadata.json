@@ -1,4 +1,5 @@
 {
+  "access": "free",
   "author": "yangshun",
   "companies": [
     "amazon",
@@ -29,7 +30,6 @@
     "file-explorer-ii",
     "file-explorer-iii"
   ],
-  "premium": false,
   "published": true,
   "ranking": 100,
   "similarQuestions": [

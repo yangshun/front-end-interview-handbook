@@ -4,7 +4,7 @@
   "author": "zhenghao",
   "languages": ["js", "ts"],
   "companies": [],
-  "premium": true,
+  "access": "premium",
   "duration": 20,
   "published": true,
   "importance": "medium",

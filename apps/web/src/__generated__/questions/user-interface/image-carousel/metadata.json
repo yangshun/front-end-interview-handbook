@@ -1,4 +1,5 @@
 {
+  "access": "free",
   "author": "yangshun",
   "companies": [
     "amazon",
@@ -33,7 +34,6 @@
     "image-carousel-ii",
     "image-carousel-iii"
   ],
-  "premium": false,
   "published": true,
   "ranking": 100,
   "similarQuestions": [],

@@ -9,6 +9,7 @@
   },
   "format": "javascript",
   "metadata": {
+    "access": "free",
     "author": null,
     "companies": [
       "google",
@@ -33,7 +34,6 @@
     "nextQuestions": [
       "event-emitter-ii"
     ],
-    "premium": false,
     "published": true,
     "ranking": 100,
     "similarQuestions": [

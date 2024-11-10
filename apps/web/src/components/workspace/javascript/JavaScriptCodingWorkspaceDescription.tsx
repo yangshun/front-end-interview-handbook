@@ -36,36 +36,36 @@ export default function JavaScriptCodingWorkspaceDescription({
     <div className="w-full">
       <ScrollArea>
         <div className="mx-auto flex max-w-3xl flex-col gap-y-6 p-4">
-            <div className="flex flex-col gap-y-6">
-              <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
-                <Heading level="heading5">{metadata.title}</Heading>
-                {metadata.premium && <InterviewsPremiumBadge />}
-                {questionProgress?.status === 'complete' && (
-                  <Badge
-                    label={intl.formatMessage({
-                      defaultMessage: 'Completed',
-                      description:
-                        'Label indicating that the question has been completed',
-                      id: 'iIQL6V',
-                    })}
-                    size="sm"
-                    variant="success"
-                  />
-                )}
-              </div>
-              <QuestionMetadataSection metadata={metadata} />
-            </div>
-            <div className="flex flex-col gap-y-8">
-              <QuestionContentProse contents={description} />
-              <div className={clsx('flex flex-col gap-y-8')}>
-                <QuestionCompanies
-                  canViewPremiumContent={canViewPremiumContent}
-                  companies={metadata.companies}
+          <div className="flex flex-col gap-y-6">
+            <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
+              <Heading level="heading5">{metadata.title}</Heading>
+              {metadata.access === 'premium' && <InterviewsPremiumBadge />}
+              {questionProgress?.status === 'complete' && (
+                <Badge
+                  label={intl.formatMessage({
+                    defaultMessage: 'Completed',
+                    description:
+                      'Label indicating that the question has been completed',
+                    id: 'iIQL6V',
+                  })}
+                  size="sm"
+                  variant="success"
                 />
-                <QuestionNextQuestions questions={nextQuestions} />
-                <QuestionSimilarQuestions questions={similarQuestions} />
-              </div>
+              )}
             </div>
+            <QuestionMetadataSection metadata={metadata} />
+          </div>
+          <div className="flex flex-col gap-y-8">
+            <QuestionContentProse contents={description} />
+            <div className={clsx('flex flex-col gap-y-8')}>
+              <QuestionCompanies
+                canViewPremiumContent={canViewPremiumContent}
+                companies={metadata.companies}
+              />
+              <QuestionNextQuestions questions={nextQuestions} />
+              <QuestionSimilarQuestions questions={similarQuestions} />
+            </div>
+          </div>
         </div>
       </ScrollArea>
     </div>

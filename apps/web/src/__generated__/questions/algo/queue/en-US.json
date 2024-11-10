@@ -9,6 +9,7 @@
   },
   "format": "algo",
   "metadata": {
+    "access": "free",
     "author": "yangshun",
     "companies": [],
     "created": 1670457600,
@@ -26,7 +27,6 @@
       "ts"
     ],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 100,
     "similarQuestions": [

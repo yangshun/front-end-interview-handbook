@@ -2,6 +2,7 @@
   "description": null,
   "format": "quiz",
   "metadata": {
+    "access": "free",
     "author": null,
     "companies": [],
     "created": 1630800000,
@@ -16,7 +17,6 @@
     "importance": "medium",
     "languages": [],
     "nextQuestions": [],
-    "premium": false,
     "published": true,
     "ranking": 380,
     "similarQuestions": [],

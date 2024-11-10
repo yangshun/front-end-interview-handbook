@@ -201,13 +201,18 @@ export default async function Page({ params }: Props) {
     companyGuides,
   ] = await Promise.all([
     // JS question embed
-    readQuestionJavaScriptContents('flatten', locale),
+    readQuestionJavaScriptContents('flatten', false, locale),
     // UI question embed
-    readQuestionUserInterface('todo-list', 'react', 'solution-improved'),
-    readQuestionUserInterface('todo-list', 'vanilla', 'solution-template'),
-    readQuestionUserInterface('todo-list', 'angular', 'solution'),
-    readQuestionUserInterface('todo-list', 'vue', 'solution'),
-    readQuestionUserInterface('todo-list', 'svelte', 'solution'),
+    readQuestionUserInterface('todo-list', false, 'react', 'solution-improved'),
+    readQuestionUserInterface(
+      'todo-list',
+      false,
+      'vanilla',
+      'solution-template',
+    ),
+    readQuestionUserInterface('todo-list', false, 'angular', 'solution'),
+    readQuestionUserInterface('todo-list', false, 'vue', 'solution'),
+    readQuestionUserInterface('todo-list', false, 'svelte', 'solution'),
     // Question list
     fetchQuestionsListCoding(locale),
     fetchQuestionsListQuiz(locale),

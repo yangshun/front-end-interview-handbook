@@ -1,4 +1,5 @@
 {
+  "access": "premium",
   "author": "yangshun",
   "companies": [
     "airbnb",
@@ -39,7 +40,6 @@
   "nextQuestions": [
     "tabs-iii"
   ],
-  "premium": true,
   "published": true,
   "ranking": 100,
   "similarQuestions": [],

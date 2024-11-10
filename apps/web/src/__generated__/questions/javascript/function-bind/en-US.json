@@ -9,6 +9,7 @@
   },
   "format": "javascript",
   "metadata": {
+    "access": "premium",
     "author": "zhenghao",
     "companies": [
       "amazon",
@@ -31,7 +32,6 @@
     "nextQuestions": [
       "curry"
     ],
-    "premium": true,
     "published": true,
     "ranking": 100,
     "similarQuestions": [

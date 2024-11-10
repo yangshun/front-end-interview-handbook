@@ -19,7 +19,7 @@ import {
 
 import { categorizeQuestionsProgress } from '~/db/QuestionsUtils';
 
-import CompletionCountSummary from '../../questions/listings/stats/CompletionCountSummary';
+import QuestionCompletionCountSummary from '../../questions/listings/stats/QuestionCompletionCountSummary';
 
 type Props = Readonly<{
   questions: {
@@ -102,7 +102,7 @@ export default function InterviewsDashboardSolvedByQuestionType({
                   <Text size="body3" weight="medium">
                     {item.title}
                   </Text>
-                  <CompletionCountSummary
+                  <QuestionCompletionCountSummary
                     completed={item.completedQuestions}
                     total={item.totalQuestions}
                   />

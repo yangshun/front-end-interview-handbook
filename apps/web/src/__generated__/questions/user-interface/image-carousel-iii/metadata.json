@@ -1,4 +1,5 @@
 {
+  "access": "premium",
   "author": "yangshun",
   "companies": [
     "amazon",
@@ -30,7 +31,6 @@
     "css"
   ],
   "nextQuestions": [],
-  "premium": true,
   "published": true,
   "ranking": 100,
   "similarQuestions": [],
