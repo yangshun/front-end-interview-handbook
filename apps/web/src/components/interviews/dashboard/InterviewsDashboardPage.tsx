@@ -33,6 +33,7 @@ import { useUser } from '@supabase/auth-helpers-react';
 type Props = Readonly<{
   bottomContent?: InterviewsListingBottomContent;
   companyGuides: Array<InterviewsStudyList>;
+  defaultLoggedIn: boolean;
   focusAreas: ReadonlyArray<InterviewsStudyList>;
   questions: {
     codingQuestions: ReadonlyArray<QuestionMetadata>;
@@ -52,13 +53,14 @@ type Props = Readonly<{
 
 export default function InterviewsDashboardPage({
   companyGuides,
+  defaultLoggedIn,
   studyPlans,
   questions,
   bottomContent,
   focusAreas,
 }: Props) {
   const user = useUser();
-  const isLoggedIn = !!user;
+  const isLoggedIn = defaultLoggedIn || !!user;
   const { data: questionsProgress } = trpc.questionProgress.getAll.useQuery(
     undefined,
     {
@@ -97,7 +99,10 @@ export default function InterviewsDashboardPage({
 
   return (
     <div className={clsx('flex flex-col gap-12')}>
-      <InterviewsDashboardPageHeader contributions={contributions} />
+      <InterviewsDashboardPageHeader
+        contributions={contributions}
+        isLoggedIn={isLoggedIn}
+      />
       {isLoggedIn && (
         <InterviewsDashboardProgressAtGlanceSection
           contributions={contributions}

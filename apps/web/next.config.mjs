@@ -55,6 +55,11 @@ const nextConfig = {
         permanent: false,
       },
       {
+        source: '/get-started',
+        destination: '/interviews/get-started',
+        permanent: false,
+      },
+      {
         source: '/prepare',
         destination: '/interviews/dashboard',
         permanent: false,
@@ -97,62 +102,62 @@ const nextConfig = {
       {
         source: '/study-plans',
         destination: '/interviews/study-plans',
-        permanent: true,
+        permanent: false,
       },
       {
         source: '/prepare/one-week',
         destination: '/interviews/study-plans/one-week',
-        permanent: true,
+        permanent: false,
       },
       {
         source: '/prepare/one-month',
         destination: '/interviews/study-plans/one-month',
-        permanent: true,
+        permanent: false,
       },
       {
         source: '/prepare/three-months',
         destination: '/interviews/study-plans/three-months',
-        permanent: true,
+        permanent: false,
       },
       {
         source: '/focus-areas',
         destination: '/interviews/focus-areas',
-        permanent: true,
+        permanent: false,
       },
       {
         source: '/focus-areas/:path*',
         destination: '/interviews/focus-areas/:path*',
-        permanent: true,
+        permanent: false,
       },
       {
         source: '/system-design',
         destination: '/front-end-system-design-playbook',
-        permanent: true,
+        permanent: false,
       },
       {
         source: '/system-design/:path*',
         destination: '/front-end-system-design-playbook/:path*',
-        permanent: true,
+        permanent: false,
       },
       {
         source: '/front-end-interview-guidebook',
         destination: '/front-end-interview-playbook',
-        permanent: true,
+        permanent: false,
       },
       {
         source: '/front-end-interview-guidebook/:path*',
         destination: '/front-end-interview-playbook/:path*',
-        permanent: true,
+        permanent: false,
       },
       {
         source: '/behavioral-interview-guidebook',
         destination: '/behavioral-interview-playbook',
-        permanent: true,
+        permanent: false,
       },
       {
         source: '/behavioral-interview-guidebook/:path*',
         destination: '/behavioral-interview-playbook/:path*',
-        permanent: true,
+        permanent: false,
       },
     ];
   },

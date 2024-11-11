@@ -38,7 +38,7 @@ export function createSupabaseAdminClientGFE_SERVER_ONLY() {
 
 /**
  * @deprecated Makes a database call to get the full user data from the `auth` schema.
- * If you only need the user id or token, use `readUserFromToken` instead.
+ * If you only need the user id or token, use `readViewerFromToken` instead.
  */
 export async function fetchUser_DO_NOT_USE_IF_ONLY_USER_ID_OR_EMAIL_NEEDED(
   authToken?: string,

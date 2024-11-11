@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { redirect } from 'next/navigation';
 
 import { INTERVIEWS_REVAMP_BOTTOM_CONTENT } from '~/data/FeatureFlags';
 
@@ -14,6 +15,7 @@ import {
 import { categorizeQuestionsByFrameworkAndLanguage } from '~/db/QuestionsUtils';
 import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
+import { readViewerFromToken } from '~/supabase/SupabaseServerGFE';
 
 type Props = Readonly<{
   params: Readonly<{
@@ -38,6 +40,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function Page({ params }: Props) {
+  const viewer = await readViewerFromToken();
+
+  if (viewer == null) {
+    return redirect('/interviews/get-started');
+  }
+
   const { locale } = params;
 
   const [
@@ -71,6 +79,7 @@ export default async function Page({ params }: Props) {
         INTERVIEWS_REVAMP_BOTTOM_CONTENT ? bottomContent : undefined
       }
       companyGuides={sortedGuides}
+      defaultLoggedIn={true}
       focusAreas={focusAreas}
       questions={{
         codingQuestions,

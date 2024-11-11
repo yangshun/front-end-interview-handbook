@@ -1,19 +1,21 @@
+import { redirect } from 'next/navigation';
 import type { Metadata } from 'next/types';
 
-import InterviewsMarketingGetStartedPage from '~/components/interviews/marketing/InterviewsMarketingGetStartedPage';
-import { sortQuestions } from '~/components/interviews/questions/listings/filters/QuestionsProcessor';
+import { INTERVIEWS_REVAMP_BOTTOM_CONTENT } from '~/data/FeatureFlags';
 
+import InterviewsDashboardPage from '~/components/interviews/dashboard/InterviewsDashboardPage';
+
+import { fetchInterviewListingBottomContent } from '~/db/contentlayer/InterviewsListingBottomContentReader';
 import { fetchInterviewsStudyLists } from '~/db/contentlayer/InterviewsStudyListReader';
 import {
-  fetchQuestionsListJavaScript,
+  fetchQuestionsListCoding,
   fetchQuestionsListQuiz,
   fetchQuestionsListSystemDesign,
-  fetchQuestionsListUserInterface,
 } from '~/db/QuestionsListReader';
+import { categorizeQuestionsByFrameworkAndLanguage } from '~/db/QuestionsUtils';
 import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
-
-export const dynamic = 'force-static';
+import { readViewerFromToken } from '~/supabase/SupabaseServerGFE';
 
 type Props = Readonly<{
   params: Readonly<{
@@ -33,7 +35,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       id: 'hOA7E4',
     }),
     locale,
-    pathname: '/get-started',
+    pathname: '/interviews/get-started',
     socialTitle: intl.formatMessage({
       defaultMessage: 'Prepare for your Front End Interviews | Get Started',
       description: 'Social title of Get Started page',
@@ -48,48 +50,56 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   });
 }
 
-const QUESTIONS_TO_SHOW = 6;
-
 export default async function Page({ params }: Props) {
+  const viewer = await readViewerFromToken();
+
+  if (viewer) {
+    return redirect('/interviews/dashboard');
+  }
+
   const { locale } = params;
 
   const [
     { questions: quizQuestions },
-    { questions: javaScriptQuestions },
-    { questions: userInterfaceQuestions },
+    { questions: codingQuestions },
     { questions: systemDesignQuestions },
+    bottomContent,
+    companyGuides,
+    focusAreas,
     studyPlans,
   ] = await Promise.all([
     fetchQuestionsListQuiz(locale),
-    fetchQuestionsListJavaScript(locale),
-    fetchQuestionsListUserInterface(locale),
+    fetchQuestionsListCoding(locale),
     fetchQuestionsListSystemDesign(locale),
+    fetchInterviewListingBottomContent('dashboard'),
+    fetchInterviewsStudyLists('company'),
+    fetchInterviewsStudyLists('focus-area'),
     fetchInterviewsStudyLists('study-plan'),
   ]);
+  const { framework, language } = categorizeQuestionsByFrameworkAndLanguage({
+    codingQuestions,
+    quizQuestions,
+  });
+  const sortedGuides = companyGuides
+    .slice()
+    .sort((a, b) => a.ranking - b.ranking);
 
   return (
-    <InterviewsMarketingGetStartedPage
-      javaScriptQuestions={sortQuestions(
-        javaScriptQuestions.filter((question) => question.featured),
-        'importance',
-        false,
-      ).slice(0, QUESTIONS_TO_SHOW)}
-      quizQuestions={sortQuestions(
-        quizQuestions.filter((question) => question.featured),
-        'importance',
-        false,
-      ).slice(0, QUESTIONS_TO_SHOW)}
+    <InterviewsDashboardPage
+      bottomContent={
+        INTERVIEWS_REVAMP_BOTTOM_CONTENT ? bottomContent : undefined
+      }
+      companyGuides={sortedGuides}
+      defaultLoggedIn={false}
+      focusAreas={focusAreas}
+      questions={{
+        codingQuestions,
+        frameworkQuestions: framework,
+        languageQuestions: language,
+        quizQuestions,
+        systemDesignQuestions,
+      }}
       studyPlans={studyPlans}
-      systemDesignQuestions={sortQuestions(
-        systemDesignQuestions.filter((question) => question.featured),
-        'ranking',
-        true,
-      ).slice(0, QUESTIONS_TO_SHOW)}
-      userInterfaceQuestions={sortQuestions(
-        userInterfaceQuestions.filter((question) => question.featured),
-        'importance',
-        false,
-      ).slice(0, QUESTIONS_TO_SHOW)}
     />
   );
 }
