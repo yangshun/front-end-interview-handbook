@@ -72,7 +72,7 @@ export default async function Page({ params }: Props) {
     fetchQuestionsByHash(greatfrontend75.questionHashes, locale),
     fetchInterviewsStudyList('blind75'),
     fetchQuestionsListSystemDesign(locale),
-    fetchInterviewListingBottomContent('blind75'),
+    fetchInterviewListingBottomContent('greatfrontend75'),
   ]);
 
   return (

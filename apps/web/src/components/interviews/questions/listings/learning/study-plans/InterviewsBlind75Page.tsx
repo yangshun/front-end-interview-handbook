@@ -100,7 +100,7 @@ export default function InterviewsBlind75Page({
   ];
 
   return (
-    <div className={clsx('flex flex-col gap-y-12', 'relative')}>
+    <div className={clsx('flex flex-col gap-y-12 md:gap-y-16', 'relative')}>
       <div className="relative flex flex-col gap-y-5">
         <InterviewsRecommendedPrepStrategyPageTitleSection
           description={studyList.description}
@@ -110,23 +110,16 @@ export default function InterviewsBlind75Page({
             <div className="flex flex-col gap-4">
               <Text color="secondary" size="body1">
                 <FormattedMessage
-                  defaultMessage="Front end interviews are mostly practical in nature – till you're met with the traditional data structure and algorithms questions that are expected of traditional software engineering interviews."
+                  defaultMessage="Front-end interviews are largely practical—until you encounter traditional software engineering questions on data structures and algorithms (DSA)."
                   description="Description for Blind75 page"
-                  id="Eq+Sdc"
+                  id="2WRnXW"
                 />
               </Text>
               <Text color="secondary" size="body1">
                 <FormattedMessage
-                  defaultMessage="Our recommended approach is to work on the Blind75, which is the smallest list of data structures and algorithms (DSA) questions that prepares you well for such interviews. Many candidates use the Blind 75 list as a study guide, working through each problem and understanding the underlying concepts, patterns, and techniques."
+                  defaultMessage="We recommend working through the Blind 75, a concise list of DSA questions that effectively prepares you for these topics. Many candidates use this list as a guide, focusing on each problem to grasp the core concepts, patterns, and techniques. We've solved all these questions in JavaScript/TypeScript to make them accessible to the front-end engineering community."
                   description="Description for Blind75 page"
-                  id="1Dvsx4"
-                />
-              </Text>
-              <Text color="secondary" size="body1">
-                <FormattedMessage
-                  defaultMessage="We've solved all of these questions in JavaScript / TypeScript, which would be friendly for the front end engineering community."
-                  description="Description for Blind75 page"
-                  id="Wc2sX9"
+                  id="NMsuaM"
                 />
               </Text>
             </div>

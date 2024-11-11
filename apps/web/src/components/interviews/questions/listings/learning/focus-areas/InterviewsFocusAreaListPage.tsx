@@ -80,7 +80,7 @@ export default function InterviewsRevampFocusAreaListPage({
   ];
 
   return (
-    <div className={clsx('flex flex-col gap-y-12')}>
+    <div className={clsx('flex flex-col gap-y-12 md:gap-y-16')}>
       <InterviewsListPageHeader
         description={intl.formatMessage({
           defaultMessage:
@@ -104,12 +104,17 @@ export default function InterviewsRevampFocusAreaListPage({
             })}
           </Text>
           <Text color="secondary" size="body1">
-            {intl.formatMessage({
-              defaultMessage:
-                "To simplify your preparation, we've carefully organized the entire front end domain into 8 critical focus areas, each covering the most frequently tested topics in interviews.",
-              description: 'Long description for focus areas page',
-              id: 'aatVPw',
-            })}
+            {intl.formatMessage(
+              {
+                defaultMessage:
+                  "To simplify your preparation, we've carefully organized the entire front end domain into {focusAreasCount} critical focus areas, each covering the most frequently tested topics in interviews.",
+                description: 'Long description for focus areas page',
+                id: 'SskhEH',
+              },
+              {
+                focusAreasCount: focusAreas.length,
+              },
+            )}
           </Text>
         </div>
       </InterviewsListPageHeader>
@@ -142,7 +147,7 @@ export default function InterviewsRevampFocusAreaListPage({
       </Section>
       {bottomContent && (
         <>
-          <Divider className="my-8" />
+          <Divider className="my-8 md:my-4" />
           <Section>
             <MDXContent mdxCode={bottomContent.body.code} />
           </Section>

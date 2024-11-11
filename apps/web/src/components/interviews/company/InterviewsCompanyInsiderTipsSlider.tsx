@@ -5,7 +5,6 @@ import { useIntl } from '~/components/intl';
 import Heading from '~/components/ui/Heading';
 import Text from '~/components/ui/Text';
 import {
-  themeBackgroundBrandColor,
   themeOutlineElement_FocusVisible,
   themeOutlineElementBrandColor_FocusVisible,
 } from '~/components/ui/theme';
@@ -48,7 +47,7 @@ export default function InterviewsCompanyInsiderTipsSlider({ data }: Props) {
         })}
       </Heading>
       <TabsPrimitive.Root
-        className="flex flex-col gap-8"
+        className="flex flex-col gap-6"
         value={dataValue}
         onValueChange={(newValue) => {
           // Stop auto-advancing if user interacts with steppers.
@@ -79,18 +78,18 @@ export default function InterviewsCompanyInsiderTipsSlider({ data }: Props) {
                 key={item.id}
                 asChild={true}
                 value={item.id}>
-                <button
-                  aria-label={item.id}
-                  className={clsx(
-                    'h-[4px] w-12 rounded',
-                    item.id === dataValue
-                      ? themeBackgroundBrandColor
-                      : 'bg-neutral-200/70 dark:bg-neutral-700',
-                    themeOutlineElement_FocusVisible,
-                    themeOutlineElementBrandColor_FocusVisible,
-                  )}
-                  type="button"
-                />
+                <button aria-label={item.id} className="py-0.5" type="button">
+                  <div
+                    className={clsx(
+                      'h-1 w-12 rounded',
+                      item.id === dataValue
+                        ? 'bg-neutral-900 dark:bg-neutral-100'
+                        : 'bg-neutral-200/70 dark:bg-neutral-700',
+                      themeOutlineElement_FocusVisible,
+                      themeOutlineElementBrandColor_FocusVisible,
+                    )}
+                  />
+                </button>
               </TabsPrimitive.Trigger>
             ))}
           </TabsPrimitive.List>

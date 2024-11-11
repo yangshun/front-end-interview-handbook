@@ -118,18 +118,30 @@ async function readAllGuides({ params }: Props) {
 export default async function Page({ params }: Props) {
   const { locale } = params;
 
-  const [allGuides, { questions }, questionCompletionCount, blind75, gfe75] =
-    await Promise.all([
-      readAllGuides({ params }),
-      fetchQuestionsListSystemDesign(locale),
-      fetchQuestionCompletionCount(['system-design']),
-      fetchInterviewsStudyList('blind75'),
-      fetchInterviewsStudyList('greatfrontend75'),
-    ]);
+  const [
+    allGuides,
+    { questions },
+    questionCompletionCount,
+    blind75,
+    gfe75,
+    { title, description, socialTitle, href },
+  ] = await Promise.all([
+    readAllGuides({ params }),
+    fetchQuestionsListSystemDesign(locale),
+    fetchQuestionCompletionCount(['system-design']),
+    fetchInterviewsStudyList('blind75'),
+    fetchInterviewsStudyList('greatfrontend75'),
+    getPageSEOMetadata({ params }),
+  ]);
 
   return (
     <FrontEndSystemDesignPlaybookPage
       allGuides={allGuides}
+      metadata={{
+        description,
+        href,
+        title: socialTitle || title,
+      }}
       questionCompletionCount={questionCompletionCount}
       questions={questions}
       recommendedPrepData={{

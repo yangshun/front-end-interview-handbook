@@ -61,17 +61,28 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function Page({ params }: Props) {
-  const [allGuides, blind75, gfe75, { questions: systemDesignQuestions }] =
-    await Promise.all([
-      readAllFrontEndInterviewGuides(params.locale),
-      fetchInterviewsStudyList('blind75'),
-      fetchInterviewsStudyList('greatfrontend75'),
-      fetchQuestionsListSystemDesign(params.locale),
-    ]);
+  const [
+    allGuides,
+    blind75,
+    gfe75,
+    { questions: systemDesignQuestions },
+    { title, description, socialTitle, href },
+  ] = await Promise.all([
+    readAllFrontEndInterviewGuides(params.locale),
+    fetchInterviewsStudyList('blind75'),
+    fetchInterviewsStudyList('greatfrontend75'),
+    fetchQuestionsListSystemDesign(params.locale),
+    getPageSEOMetadata({ params }),
+  ]);
 
   return (
     <FrontEndInterviewPlaybookPage
       allGuides={allGuides}
+      metadata={{
+        description,
+        href,
+        title: socialTitle || title,
+      }}
       recommendedPrepData={{
         blind75: {
           listKey: blind75?.slug ?? '',

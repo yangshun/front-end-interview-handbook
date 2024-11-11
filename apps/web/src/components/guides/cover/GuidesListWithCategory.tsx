@@ -1,3 +1,5 @@
+import clsx from 'clsx';
+
 import { useToast } from '~/components/global/toasts/useToast';
 import type {
   GuideCardMetadata,
@@ -120,22 +122,24 @@ export default function GuidesListWithCategory({ guides }: Props) {
   }
 
   return (
-    <div className="flex flex-col gap-12">
-      {guides.map(({ title, totalReadingTime, articles }) => (
-        <div key={title}>
-          <Heading level="heading5">{title}</Heading>
-          <div className="mb-4 mt-6 flex items-center gap-10">
-            <GuidesCountLabel count={articles.length} />
-            <GuideReadingTimeLabel readingTime={totalReadingTime} />
+    <div className={clsx('grid lg:grid-cols-12')}>
+      <div className={clsx('flex flex-col gap-12', 'lg:col-span-9')}>
+        {guides.map(({ title, totalReadingTime, articles }) => (
+          <div key={title}>
+            <Heading level="heading5">{title}</Heading>
+            <div className="mb-4 mt-6 flex items-center gap-10">
+              <GuidesCountLabel count={articles.length} />
+              <GuideReadingTimeLabel readingTime={totalReadingTime} />
+            </div>
+            <GuidesList
+              articles={articles}
+              checkIfCompletedGuide={(guide) => guide.isCompleted}
+              onMarkAsCompleted={markGuideAsCompleted}
+              onMarkAsNotCompleted={markGuideAsNotCompleted}
+            />
           </div>
-          <GuidesList
-            articles={articles}
-            checkIfCompletedGuide={(guide) => guide.isCompleted}
-            onMarkAsCompleted={markGuideAsCompleted}
-            onMarkAsNotCompleted={markGuideAsNotCompleted}
-          />
-        </div>
-      ))}
+        ))}
+      </div>
     </div>
   );
 }

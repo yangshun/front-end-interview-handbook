@@ -101,7 +101,7 @@ export default function InterviewsFocusAreaPage({
   ];
 
   return (
-    <div className={clsx('flex flex-col gap-y-12', 'relative')}>
+    <div className={clsx('flex flex-col gap-y-12 md:gap-y-16', 'relative')}>
       <div className="relative flex flex-col gap-y-8">
         <div className="flex items-center justify-between gap-2">
           <Button
@@ -135,6 +135,7 @@ export default function InterviewsFocusAreaPage({
             listKey={studyList.slug}
             overallProgress={questionsOverallProgress}
             questions={questions}
+            showSummarySection={false}
           />
         ) : (
           <div className="relative">
@@ -163,7 +164,7 @@ export default function InterviewsFocusAreaPage({
       </Section>
       {bottomContent && (
         <>
-          <Divider className="my-8" />
+          <Divider className="my-8 md:my-4" />
           <Section>
             <MDXContent mdxCode={bottomContent.body.code} />
           </Section>

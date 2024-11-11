@@ -302,7 +302,7 @@ export default function InterviewsRecommendedPrepStrategyPageTitleSection({
                     id: 'baItxW',
                   })}
                   size="xs"
-                  variant="primary"
+                  variant="neutral-active"
                 />
               </Tooltip>
               <RecommendedItemsDropdown
@@ -328,9 +328,9 @@ export default function InterviewsRecommendedPrepStrategyPageTitleSection({
         {...props}
       />
       <Divider />
-      {showQuestionCountCard ? (
-        <div className={clsx('grid items-center gap-6 lg:grid-cols-12')}>
-          <div className="lg:col-span-9">{longDescription}</div>
+      <div className={clsx('grid items-center gap-6 lg:grid-cols-12')}>
+        <div className="lg:col-span-9">{longDescription}</div>
+        {showQuestionCountCard && (
           <aside className="lg:col-span-3">
             <QuestionListingAccessCount
               count={75}
@@ -338,10 +338,8 @@ export default function InterviewsRecommendedPrepStrategyPageTitleSection({
               variant="free"
             />
           </aside>
-        </div>
-      ) : (
-        longDescription
-      )}
+        )}
+      </div>
     </div>
   );
 }

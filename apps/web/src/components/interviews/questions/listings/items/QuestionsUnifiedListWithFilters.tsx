@@ -317,12 +317,19 @@ export default function QuestionsUnifiedListWithFilters({
               id: '1w3zxf',
             })}
             placeholder={
-              searchPlaceholder ??
-              intl.formatMessage({
-                defaultMessage: 'Search questions',
-                description: 'Placeholder for search input of question list',
-                id: '1w3zxf',
-              })
+              searchPlaceholder ?? listKey
+                ? intl.formatMessage({
+                    defaultMessage: 'Search within this list of questions',
+                    description:
+                      'Placeholder for search input of question list',
+                    id: 'WUBRnN',
+                  })
+                : intl.formatMessage({
+                    defaultMessage: 'Search questions',
+                    description:
+                      'Placeholder for search input of question list',
+                    id: '1w3zxf',
+                  })
             }
             size="sm"
             startIcon={RiSearchLine}

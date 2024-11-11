@@ -35,7 +35,7 @@ export default function NavbarPopoverTabs({
   }, [onClose, laptopAndAbove]);
 
   return (
-    <div className={clsx('flex gap-4', popoverContentClassName, 'p-0')}>
+    <div className={clsx('flex gap-4', popoverContentClassName, '!p-0')}>
       <TabsPrimitive.Root
         className="flex w-full gap-4"
         orientation="vertical"

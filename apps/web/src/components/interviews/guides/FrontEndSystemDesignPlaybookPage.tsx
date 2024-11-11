@@ -25,6 +25,11 @@ import { roundQuestionCountToNearestTen } from '~/db/QuestionsUtils';
 
 type Props = Readonly<{
   allGuides: ReadonlyArray<GuideCardMetadata>;
+  metadata: {
+    description: string;
+    href: string;
+    title: string;
+  };
   questionCompletionCount?: QuestionCompletionCount;
   questions: ReadonlyArray<QuestionMetadata>;
   recommendedPrepData: Readonly<{
@@ -45,6 +50,7 @@ export default function FrontEndSystemDesignPlaybookPage({
   questions,
   questionCompletionCount,
   recommendedPrepData,
+  metadata,
 }: Props) {
   const intl = useIntl();
 
@@ -136,6 +142,7 @@ export default function FrontEndSystemDesignPlaybookPage({
           </Text>
         </div>
       }
+      metadata={metadata}
       recommendedPrepData={recommendedPrepData}
       title={intl.formatMessage({
         defaultMessage: 'Front End System Design Playbook',

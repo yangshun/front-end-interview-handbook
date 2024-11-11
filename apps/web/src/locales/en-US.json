@@ -195,6 +195,10 @@
     "defaultMessage": "Translations for {locale} are in beta and may not be accurate. Do give feedback or <link>contact us</link> if you are interested in helping to translate!",
     "description": "Banner about beta locale version"
   },
+  "/HgB22": {
+    "defaultMessage": "Increase in total compensation",
+    "description": "Total compensation label"
+  },
   "/Ig2Nh": {
     "defaultMessage": "Answering common questions",
     "description": "Title for Answering common questions category of behavioral playbook cover page"
@@ -463,10 +467,6 @@
     "defaultMessage": "Gamify your learning and track your progress",
     "description": "Title of 'Gamify your learning' feature in Projects marketing page"
   },
-  "1Dvsx4": {
-    "defaultMessage": "Our recommended approach is to work on the Blind75, which is the smallest list of data structures and algorithms (DSA) questions that prepares you well for such interviews. Many candidates use the Blind 75 list as a study guide, working through each problem and understanding the underlying concepts, patterns, and techniques.",
-    "description": "Description for Blind75 page"
-  },
   "1Fl422": {
     "defaultMessage": "Browse content series that are tailored to your experience level.",
     "description": "Browse series section description in blog homepage"
@@ -630,6 +630,10 @@
   "2SDdF5": {
     "defaultMessage": "Support",
     "description": "Title for FAQ section"
+  },
+  "2WRnXW": {
+    "defaultMessage": "Front-end interviews are largely practical—until you encounter traditional software engineering questions on data structures and algorithms (DSA).",
+    "description": "Description for Blind75 page"
   },
   "2a6qgD": {
     "defaultMessage": "Your code was restored from client storage. <link>Reset to default</link>",
@@ -2383,10 +2387,6 @@
     "defaultMessage": "Try changing the filters",
     "description": "Subtitle for empty state when no articles are returned from application of filters on blog list"
   },
-  "Eq+Sdc": {
-    "defaultMessage": "Front end interviews are mostly practical in nature – till you're met with the traditional data structure and algorithms questions that are expected of traditional software engineering interviews.",
-    "description": "Description for Blind75 page"
-  },
   "EqK1pY": {
     "defaultMessage": "The card has expired, and the transaction cannot be processed.",
     "description": "Decline message for expired card"
@@ -2506,6 +2506,10 @@
   "FonVOb": {
     "defaultMessage": "All question progress has been reset.",
     "description": "Message shown when question reset progress action succeeds."
+  },
+  "FptoKG": {
+    "defaultMessage": "A concise guide to the most common front end interview topics, covering everything from coding challenges to React fundamentals. Written by the author of the Front End Interview Handbook, it's packed with essential insights and strategies to help you confidently tackle your next interview.",
+    "description": "Long description of frontend interview playbook page"
   },
   "Fpu2gU": {
     "defaultMessage": "Prepare for your front end interviews in 1 week, 1 month, or 3 months",
@@ -3699,6 +3703,10 @@
     "defaultMessage": "Preview solution",
     "description": "Label for preview solution button"
   },
+  "NMsuaM": {
+    "defaultMessage": "We recommend working through the Blind 75, a concise list of DSA questions that effectively prepares you for these topics. Many candidates use this list as a guide, focusing on each problem to grasp the core concepts, patterns, and techniques. We've solved all these questions in JavaScript/TypeScript to make them accessible to the front-end engineering community.",
+    "description": "Description for Blind75 page"
+  },
   "NUrxUb": {
     "defaultMessage": "Gain reputation and level up for productive actions",
     "description": "Short description for \"Gamified learning\" feature on Projects home page"
@@ -4235,10 +4243,6 @@
     "defaultMessage": "Quizzes",
     "description": "Tile for quiz question type"
   },
-  "Qr0tcR": {
-    "defaultMessage": "Front end interviews are notoriously unpredictable, with no universal standard across companies. Each interview can vary greatly in focus, from coding challenges to quizzes about the inner workings of React. Recognizing this, we've organized a preparation guide that reflects the most common practices in front end interviews today.",
-    "description": "Long description of frontend interview playbook page"
-  },
   "QrikGf": {
     "defaultMessage": "Copy to clipboard",
     "description": "Button label for copy button"
@@ -4619,6 +4623,10 @@
     "defaultMessage": "Explore series",
     "description": "Sidebar label for explore series"
   },
+  "SskhEH": {
+    "defaultMessage": "To simplify your preparation, we've carefully organized the entire front end domain into {focusAreasCount} critical focus areas, each covering the most frequently tested topics in interviews.",
+    "description": "Long description for focus areas page"
+  },
   "SuWvZa": {
     "defaultMessage": "Monthly plan",
     "description": "Title of monthly pricing plan"
@@ -4630,10 +4638,6 @@
   "SyOeb2": {
     "defaultMessage": "Company Interview Guides | GreatFrontEnd",
     "description": "Social title for company guides listing"
-  },
-  "T3WnuZ": {
-    "defaultMessage": "Total compensation",
-    "description": "Total compensation label"
   },
   "T4ajXP": {
     "defaultMessage": "{discountPercentage}% off",
@@ -5163,6 +5167,10 @@
     "defaultMessage": "Regardless of preparation timeline, there's a plan for you.",
     "description": "Preparation plans section subtitle"
   },
+  "WUBRnN": {
+    "defaultMessage": "Search within this list of questions",
+    "description": "Placeholder for search input of question list"
+  },
   "WUv05Y": {
     "defaultMessage": "Challenge: <hover>{title}</hover>",
     "description": "Link to project submission's original challenge"
@@ -5182,10 +5190,6 @@
   "WZy7m4": {
     "defaultMessage": "Table of Contents",
     "description": "Guides table of contents menu button label"
-  },
-  "Wc2sX9": {
-    "defaultMessage": "We've solved all of these questions in JavaScript / TypeScript, which would be friendly for the front end engineering community.",
-    "description": "Description for Blind75 page"
   },
   "WctnWS": {
     "defaultMessage": "Generating screenshots",
@@ -5734,10 +5738,6 @@
   "aadNm4": {
     "defaultMessage": "Tablet ({width}px x {height}px)",
     "description": "Responsive breakpoint category"
-  },
-  "aatVPw": {
-    "defaultMessage": "To simplify your preparation, we've carefully organized the entire front end domain into 8 critical focus areas, each covering the most frequently tested topics in interviews.",
-    "description": "Long description for focus areas page"
   },
   "abJ+kd": {
     "defaultMessage": "Development guides written & curated by Sr engineers at Big tech, such as:",
@@ -6379,6 +6379,10 @@
     "defaultMessage": "Use a different card or payment method to complete the payment.",
     "description": "Reason label for different card"
   },
+  "edBcYW": {
+    "defaultMessage": "Topics",
+    "description": "Question quiz topic"
+  },
   "eeWLAW": {
     "defaultMessage": "Framework",
     "description": "Label for the selection dropdown used to select the framework to use for the question"
@@ -6702,10 +6706,6 @@
   "gRN6GJ": {
     "defaultMessage": "Assets provided",
     "description": "Label for Assets Provided card on start project overlay on Projects project assets page"
-  },
-  "gRSa2L": {
-    "defaultMessage": "Written by the author of Front End Interview Handbook, our guide offers valuable insights into what you should be ready for, covering key areas most likely to come up during your interview. From understanding the types of questions you might face to strategic tips on how to prepare for them, we distill the best advice and preparation strategies so you can confidently approach your next interview.",
-    "description": "Long description of frontend interview playbook page"
   },
   "gSoK2P": {
     "defaultMessage": "Revert to default",
@@ -7883,10 +7883,6 @@
     "defaultMessage": "Here are the tasks for this campaign:",
     "description": "Description for campaign tasks"
   },
-  "oieVuW": {
-    "defaultMessage": "Topic",
-    "description": "Question quiz topic"
-  },
   "oj/6Ow": {
     "defaultMessage": "Prepare",
     "description": "Prepare for interviews"
@@ -8934,6 +8930,10 @@
   "vbwUYs": {
     "defaultMessage": "Clarify any doubts on a project in project-specific forums",
     "description": "Description for \"Learn from others\" feature on Projects home page"
+  },
+  "vcnpme": {
+    "defaultMessage": "Default",
+    "description": "Default sorting"
   },
   "vegaR1": {
     "defaultMessage": "Sort by",

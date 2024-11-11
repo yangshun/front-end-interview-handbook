@@ -48,7 +48,7 @@ export default function InterviewsMarketingOffersDontLieSection() {
         </Text>
       </div>
       <Section>
-        <InterviewsTestimonialsSlider brandSlider={false} data={testimonials} />
+        <InterviewsTestimonialsSlider data={testimonials} />
       </Section>
     </Container>
   );

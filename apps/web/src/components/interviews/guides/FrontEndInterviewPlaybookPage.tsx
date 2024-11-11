@@ -23,6 +23,11 @@ import { categorizeGuides } from '~/db/guides/GuidesUtils';
 
 type Props = Readonly<{
   allGuides: ReadonlyArray<GuideCardMetadata>;
+  metadata: {
+    description: string;
+    href: string;
+    title: string;
+  };
   recommendedPrepData: Readonly<{
     blind75: Readonly<{
       listKey: string;
@@ -39,6 +44,7 @@ type Props = Readonly<{
 export default function FrontEndInterviewPlaybookPage({
   allGuides,
   recommendedPrepData,
+  metadata,
 }: Props) {
   const intl = useIntl();
 
@@ -170,27 +176,16 @@ export default function FrontEndInterviewPlaybookPage({
       features={features}
       icon={RiBookOpenLine}
       longDescription={
-        <div className="flex flex-col gap-4">
-          <Text color="secondary" size="body1">
-            {intl.formatMessage({
-              defaultMessage:
-                "Front end interviews are notoriously unpredictable, with no universal standard across companies. Each interview can vary greatly in focus, from coding challenges to quizzes about the inner workings of React. Recognizing this, we've organized a preparation guide that reflects the most common practices in front end interviews today.",
-              description:
-                'Long description of frontend interview playbook page',
-              id: 'Qr0tcR',
-            })}
-          </Text>
-          <Text color="secondary" size="body1">
-            {intl.formatMessage({
-              defaultMessage:
-                'Written by the author of Front End Interview Handbook, our guide offers valuable insights into what you should be ready for, covering key areas most likely to come up during your interview. From understanding the types of questions you might face to strategic tips on how to prepare for them, we distill the best advice and preparation strategies so you can confidently approach your next interview.',
-              description:
-                'Long description of frontend interview playbook page',
-              id: 'gRSa2L',
-            })}
-          </Text>
-        </div>
+        <Text color="secondary" size="body1">
+          {intl.formatMessage({
+            defaultMessage:
+              "A concise guide to the most common front end interview topics, covering everything from coding challenges to React fundamentals. Written by the author of the Front End Interview Handbook, it's packed with essential insights and strategies to help you confidently tackle your next interview.",
+            description: 'Long description of frontend interview playbook page',
+            id: 'FptoKG',
+          })}
+        </Text>
       }
+      metadata={metadata}
       recommendedPrepData={recommendedPrepData}
       title={intl.formatMessage({
         defaultMessage: 'Front End Interview Playbook',

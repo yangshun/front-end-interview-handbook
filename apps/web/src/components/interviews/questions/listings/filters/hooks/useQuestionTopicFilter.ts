@@ -58,9 +58,9 @@ export default function useQuestionTopicFilter(
       topicFilters.size === 0 ||
       question.topics.some((topic) => topicFilters.has(topic)),
     name: intl.formatMessage({
-      defaultMessage: 'Topic',
+      defaultMessage: 'Topics',
       description: 'Question quiz topic',
-      id: 'oieVuW',
+      id: 'edBcYW',
     }),
     onChange: (value) => {
       const newTopics = new Set(topicFilters);

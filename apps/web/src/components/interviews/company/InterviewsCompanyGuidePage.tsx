@@ -135,7 +135,7 @@ export default function InterviewsCompanyGuidePage({
   ];
 
   return (
-    <div className={clsx('flex flex-col gap-y-12', 'relative')}>
+    <div className={clsx('flex flex-col gap-y-12 md:gap-y-16', 'relative')}>
       <div className="relative flex flex-col gap-y-8">
         <div className="flex items-center justify-between gap-2">
           <Button
@@ -180,7 +180,7 @@ export default function InterviewsCompanyGuidePage({
         )}
       </div>
       <Section>
-        <div className="@container flex flex-col gap-8">
+        <div className="@container flex flex-col gap-20">
           {/* <CardContainer className="@4xl:grid-cols-4 @md:grid-cols-2 grid grid-cols-1 grid-rows-1 gap-3 md:gap-4 lg:gap-6">
             <InterviewsCompanyRoundCard
               description={<>2 questions on data structures and algorithms</>}
@@ -205,58 +205,63 @@ export default function InterviewsCompanyGuidePage({
               title="Final round"
             />
           </CardContainer> */}
-          <Heading level="heading6">
-            {intl.formatMessage(
-              {
-                defaultMessage: 'Known {company} front end interview questions',
-                description: 'Heading for questions listing for company guides',
-                id: '5jFQfq',
-              },
-              {
-                company: studyList.name,
-              },
-            )}
-          </Heading>
-          {canViewStudyPlans ? (
-            <QuestionsStudyList
-              listKey={studyList.slug}
-              overallProgress={questionsOverallProgress}
-              questions={questions}
-            />
-          ) : (
-            <div className="relative">
-              <div
-                className={clsx(
-                  'min-h-[500px]',
-                  'pointer-events-none touch-none select-none',
-                )}
-                // So that focus cannot go into the card, which is not meant to be used.
-                inert="">
-                <QuestionsList
-                  checkIfCompletedQuestion={() => false}
-                  questions={questions.slice(0, 4)}
-                />
-              </div>
-              <div
-                className={clsx(
-                  'absolute bottom-0 top-0',
-                  'w-full overflow-hidden rounded-b-lg',
-                )}>
+          <div className="flex flex-col gap-8">
+            <Heading level="heading6">
+              {intl.formatMessage(
+                {
+                  defaultMessage:
+                    'Known {company} front end interview questions',
+                  description:
+                    'Heading for questions listing for company guides',
+                  id: '5jFQfq',
+                },
+                {
+                  company: studyList.name,
+                },
+              )}
+            </Heading>
+            {canViewStudyPlans ? (
+              <QuestionsStudyList
+                listKey={studyList.slug}
+                overallProgress={questionsOverallProgress}
+                questions={questions}
+                showSummarySection={false}
+              />
+            ) : (
+              <div className="relative">
                 <div
                   className={clsx(
-                    'absolute bottom-0 top-0 w-full',
-                    'bg-gradient-to-t from-white via-white dark:from-neutral-950 dark:via-neutral-950',
+                    'min-h-[500px]',
+                    'pointer-events-none touch-none select-none',
                   )}
-                />
-                <div className={clsx('absolute bottom-0 w-full px-8')}>
-                  <QuestionPaywall
-                    background={false}
-                    feature="company-guides"
+                  // So that focus cannot go into the card, which is not meant to be used.
+                  inert="">
+                  <QuestionsList
+                    checkIfCompletedQuestion={() => false}
+                    questions={questions.slice(0, 4)}
                   />
                 </div>
+                <div
+                  className={clsx(
+                    'absolute bottom-0 top-0',
+                    'w-full overflow-hidden rounded-b-lg',
+                  )}>
+                  <div
+                    className={clsx(
+                      'absolute bottom-0 top-0 w-full',
+                      'bg-gradient-to-t from-white via-white dark:from-neutral-950 dark:via-neutral-950',
+                    )}
+                  />
+                  <div className={clsx('absolute bottom-0 w-full px-8')}>
+                    <QuestionPaywall
+                      background={false}
+                      feature="company-guides"
+                    />
+                  </div>
+                </div>
               </div>
-            </div>
-          )}
+            )}
+          </div>
           {bottomContent && (
             <Section>
               <Divider />

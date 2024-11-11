@@ -12,7 +12,6 @@ import Heading from '~/components/ui/Heading';
 import ScrollArea from '~/components/ui/ScrollArea';
 import Text, { textVariants } from '~/components/ui/Text';
 import {
-  themeBackgroundBrandColor,
   themeBackgroundCardColor,
   themeBackgroundLineEmphasizedColor,
   themeBorderElementColor,
@@ -117,7 +116,6 @@ function TestimonialCard({
 }
 
 type Props = Readonly<{
-  brandSlider?: boolean;
   data: ReadonlyArray<
     Omit<InterviewsMarketingTestimonial, 'offers'> & {
       compensationMultiplier: string | null;
@@ -129,10 +127,7 @@ type Props = Readonly<{
   >;
 }>;
 
-export default function InterviewsTestimonialsSlider({
-  data,
-  brandSlider = true,
-}: Props) {
+export default function InterviewsTestimonialsSlider({ data }: Props) {
   const intl = useIntl();
   const timer = useRef<NodeJS.Timeout>();
   const [currentItemIndex, setCurrentItemIndex] = useState(0);
@@ -170,9 +165,9 @@ export default function InterviewsTestimonialsSlider({
       ? {
           label: data[currentItemIndex].compensationMultiplier,
           subtitle: intl.formatMessage({
-            defaultMessage: 'Total compensation',
+            defaultMessage: 'Increase in total compensation',
             description: 'Total compensation label',
-            id: 'T3WnuZ',
+            id: '/HgB22',
           }),
         }
       : null,
@@ -182,20 +177,18 @@ export default function InterviewsTestimonialsSlider({
     <TabsPrimitive.List className="flex justify-center gap-4">
       {data.map((item) => (
         <TabsPrimitive.Trigger key={item.id} asChild={true} value={item.id}>
-          <button
-            aria-label={item.id}
-            className={clsx(
-              'h-1.5 w-12 rounded',
-              item.id === dataValue
-                ? brandSlider
-                  ? themeBackgroundBrandColor
-                  : 'bg-neutral-900 dark:bg-neutral-100'
-                : 'bg-neutral-200/70 dark:bg-neutral-700',
-              themeOutlineElement_FocusVisible,
-              themeOutlineElementBrandColor_FocusVisible,
-            )}
-            type="button"
-          />
+          <button aria-label={item.id} className="py-0.5" type="button">
+            <div
+              className={clsx(
+                'h-1 w-12 rounded',
+                item.id === dataValue
+                  ? 'bg-neutral-900 dark:bg-neutral-100'
+                  : 'bg-neutral-200/70 dark:bg-neutral-700',
+                themeOutlineElement_FocusVisible,
+                themeOutlineElementBrandColor_FocusVisible,
+              )}
+            />
+          </button>
         </TabsPrimitive.Trigger>
       ))}
     </TabsPrimitive.List>
@@ -245,7 +238,7 @@ export default function InterviewsTestimonialsSlider({
                     <Heading
                       className={themeTextSubtitleColor}
                       color="custom"
-                      level="heading5">
+                      level="heading6">
                       {label}
                     </Heading>
                     {logos && (
@@ -279,7 +272,7 @@ export default function InterviewsTestimonialsSlider({
                       </div>
                     )}
                   </div>
-                  <Text color="subtitle" size="body1" weight="medium">
+                  <Text color="subtitle" size="body2" weight="medium">
                     {subtitle}
                   </Text>
                 </div>
