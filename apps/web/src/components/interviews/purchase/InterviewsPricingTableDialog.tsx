@@ -100,9 +100,9 @@ export default function InterviewsPricingTableDialog({
 
   const subtitle = intl.formatMessage({
     defaultMessage:
-      'Your dream job could be just a few months of prep away. Unlock premium at a fraction of your potential daily salary.',
+      "Your dream job is within reach—just a few months of preparation away. Unlock premium for less than the cost of a day's pay and get there faster!",
     description: 'Subtitle for a premium interviews content',
-    id: 'Eoiq1B',
+    id: 'zySjbq',
   });
 
   return (

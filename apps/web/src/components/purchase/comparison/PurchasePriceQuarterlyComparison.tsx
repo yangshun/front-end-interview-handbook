@@ -11,9 +11,9 @@ export default function PurchasePriceQuarterlyComparison({ price }: Props) {
   return (
     <span className="whitespace-nowrap">
       <FormattedMessage
-        defaultMessage="{price} billed every 3 months"
+        defaultMessage="Billed quarterly ({price})"
         description="Description of billing frequency for quarterly plan"
-        id="2XR9B5"
+        id="onMs8o"
         values={{
           price: (
             <PurchasePriceLabel

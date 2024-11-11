@@ -631,10 +631,6 @@
     "defaultMessage": "Support",
     "description": "Title for FAQ section"
   },
-  "2XR9B5": {
-    "defaultMessage": "{price} billed every 3 months",
-    "description": "Description of billing frequency for quarterly plan"
-  },
   "2a6qgD": {
     "defaultMessage": "Your code was restored from client storage. <link>Reset to default</link>",
     "description": "Message that appears under the coding workspace when user has previously worked on this problem and we restored their code"
@@ -866,6 +862,10 @@
   "4FirvF": {
     "defaultMessage": "Reset progress",
     "description": "Label to reset study plan progress"
+  },
+  "4JANuX": {
+    "defaultMessage": "{focusAreasCount} critical topical focus areas for deep dives",
+    "description": "Tooltip label for unlock all premium interviews content"
   },
   "4KKeKQ": {
     "defaultMessage": "Syntax highlighting, theming and shortcuts",
@@ -1411,10 +1411,6 @@
     "defaultMessage": "Underline",
     "description": "Underline tooltip for Richtext toolbar"
   },
-  "7uB2Jj": {
-    "defaultMessage": "{price} billed yearly",
-    "description": "Description of billing frequency for annual plan"
-  },
   "7wfbGH": {
     "defaultMessage": "Premium is required to access premium questions",
     "description": "Title for premium questions feature"
@@ -1923,6 +1919,10 @@
     "defaultMessage": "<authorProfileLink>{author}</authorProfileLink> replied to <recipientProfileLink>{recipient}</recipientProfileLink> on the challenge forum for <link>{challengeTitle}</link>: <comment>\"{description}\"</comment>",
     "description": "Log message for someone replying to someone on the challenge forum"
   },
+  "BW/SaQ": {
+    "defaultMessage": "Billed yearly ({price})",
+    "description": "Description of billing frequency for annual plan"
+  },
   "BWVaW8": {
     "defaultMessage": "Mark as not complete",
     "description": "Mark question as not complete"
@@ -2379,10 +2379,6 @@
     "defaultMessage": "Completions include both questions and articles across the interviews platform.",
     "description": "Label for completions tooltip"
   },
-  "Eoiq1B": {
-    "defaultMessage": "Your dream job could be just a few months of prep away. Unlock premium at a fraction of your potential daily salary.",
-    "description": "Subtitle for a premium interviews content"
-  },
   "EpJ74A": {
     "defaultMessage": "Try changing the filters",
     "description": "Subtitle for empty state when no articles are returned from application of filters on blog list"
@@ -2410,10 +2406,6 @@
   "Et7nC7": {
     "defaultMessage": "Project started! Leverage the provided resources and submit a link to your site once ready!",
     "description": "Toast subtitle for project session started"
-  },
-  "EtxfAG": {
-    "defaultMessage": "Unlock all premium interviews content",
-    "description": "Tooltip label for unlock all premium interviews content"
   },
   "Euaee/": {
     "defaultMessage": "Resubscribe to unlock",
@@ -2582,10 +2574,6 @@
   "GEjP1P": {
     "defaultMessage": "Included for free",
     "description": "Bonus freebie for purchasing"
-  },
-  "GHQ8sO": {
-    "defaultMessage": "Cancel anytime.",
-    "description": "Cancel the subscription anytime."
   },
   "GHbtp8": {
     "defaultMessage": "Overview",
@@ -7919,6 +7907,10 @@
     "defaultMessage": "Optimized preparation for target companies, leveraging insider tips and expertise.",
     "description": "Description for company guides page"
   },
+  "onMs8o": {
+    "defaultMessage": "Billed quarterly ({price})",
+    "description": "Description of billing frequency for quarterly plan"
+  },
   "oo7GzR": {
     "defaultMessage": "Menu",
     "description": "Guides navbar menu button label"
@@ -7990,10 +7982,6 @@
   "pDlGO7": {
     "defaultMessage": "Explore articles related to \"{tagName}\".",
     "description": "Description of GreatFrontEnd blog tag page"
-  },
-  "pDo/V5": {
-    "defaultMessage": "{price} billed per month.",
-    "description": "Description of billing frequency for monthly plan"
   },
   "pI+b1R": {
     "defaultMessage": "The account linked to the card is invalid, possibly closed or inactivated.",
@@ -9003,6 +8991,10 @@
     "defaultMessage": "Email",
     "description": "Label of email field on Password Reset page"
   },
+  "vy4bM7": {
+    "defaultMessage": "Billed monthly",
+    "description": "Description of billing frequency for monthly plan"
+  },
   "vyB72k": {
     "defaultMessage": "More",
     "description": "Label for more contribution"
@@ -9574,5 +9566,9 @@
   "zyPeie": {
     "defaultMessage": "Email address",
     "description": "Label for email address input field"
+  },
+  "zySjbq": {
+    "defaultMessage": "Your dream job is within reach—just a few months of preparation away. Unlock premium for less than the cost of a day's pay and get there faster!",
+    "description": "Subtitle for a premium interviews content"
   }
 }

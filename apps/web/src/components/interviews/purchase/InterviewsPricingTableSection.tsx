@@ -354,7 +354,7 @@ function PricingPlanComparisonDiscount({
 }>) {
   switch (paymentConfig.planType) {
     case 'monthly':
-      return <PurchasePriceMonthlyComparison price={paymentConfig} />;
+      return <PurchasePriceMonthlyComparison />;
     case 'quarterly':
       return <PurchasePriceQuarterlyComparison price={paymentConfig} />;
     case 'annual':
@@ -490,16 +490,6 @@ export default function InterviewsPricingTableSection({
           <ul className="flex flex-col gap-y-1.5">
             {[
               {
-                key: 'unlock-all',
-                label: (
-                  <FormattedMessage
-                    defaultMessage="Unlock all premium interviews content"
-                    description="Tooltip label for unlock all premium interviews content"
-                    id="EtxfAG"
-                  />
-                ),
-              },
-              {
                 key: 'official-solutions',
                 label: (
                   <FormattedMessage
@@ -526,6 +516,19 @@ export default function InterviewsPricingTableSection({
                     defaultMessage="Company-specific guides for targeted interview preparation"
                     description="Tooltip label for unlock all premium interviews content"
                     id="3J1qTY"
+                  />
+                ),
+              },
+              {
+                key: 'focus-areas',
+                label: (
+                  <FormattedMessage
+                    defaultMessage="{focusAreasCount} critical topical focus areas for deep dives"
+                    description="Tooltip label for unlock all premium interviews content"
+                    id="4JANuX"
+                    values={{
+                      focusAreasCount: 9,
+                    }}
                   />
                 ),
               },

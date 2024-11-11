@@ -11,9 +11,9 @@ export default function PurchasePriceAnnualComparison({ price }: Props) {
   return (
     <span className="whitespace-nowrap">
       <FormattedMessage
-        defaultMessage="{price} billed yearly"
+        defaultMessage="Billed yearly ({price})"
         description="Description of billing frequency for annual plan"
-        id="7uB2Jj"
+        id="BW/SaQ"
         values={{
           price: (
             <PurchasePriceLabel
