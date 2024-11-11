@@ -35,6 +35,7 @@ export default function QuestionContentsSystemDesign({
   const { description, metadata, solution } = question;
   const { data: questionProgress, isSuccess } = useQueryQuestionProgress(
     question.metadata,
+    listKey,
   );
 
   return (

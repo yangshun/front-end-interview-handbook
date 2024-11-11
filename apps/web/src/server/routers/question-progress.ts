@@ -4,7 +4,7 @@ import { groupByDateFormatter } from '~/components/interviews/dashboard/progress
 import type { QuestionFormat } from '~/components/interviews/questions/common/QuestionsTypes';
 
 import type { QuestionProgressStatus } from '~/db/QuestionsProgressTypes';
-import { hashQuestion } from '~/db/QuestionsUtils';
+import { hashQuestion, unhashQuestion } from '~/db/QuestionsUtils';
 import prisma from '~/server/prisma';
 
 import { publicProcedure, router, userProcedure } from '../trpc';
@@ -19,12 +19,11 @@ export const questionProgressRouter = router({
         listKey: z.string().optional(),
         progressId: z.string().optional(),
         slug: z.string(),
-        status: z.string(),
       }),
     )
     .mutation(
       async ({
-        input: { format, slug, status, progressId, listKey },
+        input: { format, slug, progressId, listKey },
         ctx: { viewer },
       }) => {
         if (!viewer) {
@@ -34,7 +33,7 @@ export const questionProgressRouter = router({
         const createData = {
           format,
           slug,
-          status,
+          status: 'complete',
           userId: viewer.id,
         };
         let questionProgress = null;
@@ -90,11 +89,33 @@ export const questionProgressRouter = router({
     .input(
       z.object({
         format: z.string(),
+        listKey: z.string().optional(),
         slug: z.string(),
       }),
     )
-    .mutation(async ({ input: { slug, format }, ctx: { viewer } }) => {
-      await prisma.questionProgress.deleteMany({
+    .mutation(async ({ input: { slug, format, listKey }, ctx: { viewer } }) => {
+      if (listKey) {
+        const session = await prisma.learningSession.findFirst({
+          where: {
+            key: listKey,
+            status: 'IN_PROGRESS',
+            userId: viewer.id,
+          },
+        });
+
+        if (session == null) {
+          return;
+        }
+
+        return await prisma.learningSessionProgress.deleteMany({
+          where: {
+            key: hashQuestion(format, slug),
+            sessionId: session.id,
+          },
+        });
+      }
+
+      return await prisma.questionProgress.deleteMany({
         where: {
           format,
           slug,
@@ -112,13 +133,69 @@ export const questionProgressRouter = router({
   get: userProcedure
     .input(
       z.object({
+        listKey: z.string().optional(),
         question: z.object({
           format: z.string(),
           slug: z.string(),
         }),
       }),
     )
-    .query(async ({ input: { question }, ctx: { viewer } }) => {
+    .query(async ({ input: { question, listKey }, ctx: { viewer } }) => {
+      if (listKey) {
+        const session = await prisma.learningSession.findFirst({
+          where: {
+            key: listKey,
+            status: 'IN_PROGRESS',
+            userId: viewer.id,
+          },
+        });
+
+        if (session == null) {
+          return null;
+        }
+
+        const [listQuestionProgress, questionProgress] = await Promise.all([
+          prisma.learningSessionProgress.findFirst({
+            where: {
+              key: hashQuestion(question.format, question.slug),
+              sessionId: session.id,
+            },
+          }),
+          prisma.questionProgress.findFirst({
+            orderBy: {
+              createdAt: 'desc',
+            },
+            select: {
+              createdAt: true,
+              format: true,
+              id: true,
+              slug: true,
+              status: true,
+            },
+            where: {
+              format: question.format,
+              slug: question.slug,
+              userId: viewer.id,
+            },
+          }),
+        ]);
+
+        if (!listQuestionProgress) {
+          return null;
+        }
+
+        const [format, slug] = unhashQuestion(listQuestionProgress.key);
+        const completeStatus: QuestionProgressStatus = 'complete';
+
+        return {
+          ...listQuestionProgress,
+          format,
+          questionProgressId: questionProgress?.id,
+          slug,
+          status: completeStatus,
+        };
+      }
+
       const questionProgress = await prisma.questionProgress.findFirst({
         orderBy: {
           createdAt: 'desc',

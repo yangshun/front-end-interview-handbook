@@ -8,7 +8,6 @@ import {
   fetchQuestionsByHash,
   fetchQuestionsListCoding,
 } from '~/db/QuestionsListReader';
-import { hashQuestion } from '~/db/QuestionsUtils';
 import { fetchStudyListsSelectorData } from '~/db/StudyListUtils';
 import prisma from '~/server/prisma';
 
@@ -100,71 +99,6 @@ export const questionListsRouter = router({
   getStudyListsSelectorData: userProcedure.query(async () => {
     return await fetchStudyListsSelectorData();
   }),
-  markAsNotComplete: userProcedure
-    .input(
-      z.object({
-        format: z.string(),
-        listKey: z.string(),
-        slug: z.string(),
-      }),
-    )
-    .mutation(async ({ input: { format, slug, listKey }, ctx: { viewer } }) => {
-      try {
-        const session = await prisma.learningSession.findFirst({
-          where: {
-            key: listKey,
-            status: 'IN_PROGRESS',
-            userId: viewer.id,
-          },
-        });
-
-        if (session == null) {
-          return;
-        }
-
-        await prisma.learningSessionProgress.deleteMany({
-          where: {
-            key: hashQuestion(format, slug),
-            sessionId: session.id,
-          },
-        });
-      } catch {
-        // TODO: Report error
-      }
-    }),
-  markComplete: userProcedure
-    .input(
-      z.object({
-        format: z.string(),
-        listKey: z.string(),
-        slug: z.string(),
-      }),
-    )
-    .mutation(async ({ input: { format, slug, listKey }, ctx: { viewer } }) => {
-      try {
-        const session = await prisma.learningSession.findFirst({
-          where: {
-            key: listKey,
-            status: 'IN_PROGRESS',
-            userId: viewer.id,
-          },
-        });
-
-        if (session == null) {
-          return;
-        }
-
-        return await prisma.learningSessionProgress.create({
-          data: {
-            key: hashQuestion(format, slug),
-            sessionId: session.id,
-            status: 'COMPLETED',
-          },
-        });
-      } catch {
-        // TODO: Report error
-      }
-    }),
   resetSessionProgress: userProcedure
     .input(
       z.object({

@@ -11,7 +11,11 @@ import { FormattedMessage, useIntl } from '~/components/intl';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 
-import { type QuestionsCategorizedProgress } from '~/db/QuestionsUtils';
+import {
+  useMutationQuestionProgressAdd,
+  useMutationQuestionProgressDelete,
+} from '~/db/QuestionsProgressClient';
+import type { QuestionsCategorizedProgress } from '~/db/QuestionsUtils';
 
 import {
   useHideStartSessionDialogStorage,
@@ -33,10 +37,10 @@ export default function QuestionsStudyList({
   questions: ReadonlyArray<QuestionMetadata>;
   showSummarySection?: boolean;
 }>) {
+  const trpcUtils = trpc.useUtils();
   const intl = useIntl();
   const router = useRouter();
   const user = useUser();
-  const trpcUtils = trpc.useUtils();
   const [startSessionDialog, setStartSessionDialog] = useState({
     redirectHref: '',
     show: false,
@@ -65,17 +69,8 @@ export default function QuestionsStudyList({
     questions,
     listKey,
   );
-  const markCompleteMutation = trpc.questionLists.markComplete.useMutation({
-    onSuccess() {
-      trpcUtils.questionLists.invalidate();
-    },
-  });
-  const markAsNotCompleteMutation =
-    trpc.questionLists.markAsNotComplete.useMutation({
-      onSuccess() {
-        trpcUtils.questionLists.invalidate();
-      },
-    });
+  const markCompleteMutation = useMutationQuestionProgressAdd();
+  const markAsNotCompleteMutation = useMutationQuestionProgressDelete();
 
   function canMarkQuestions() {
     if (isQuestionListSessionLoading) {
@@ -117,6 +112,7 @@ export default function QuestionsStudyList({
       },
       {
         onSuccess: () => {
+          trpcUtils.questionLists.invalidate();
           showToast({
             title: intl.formatMessage(
               {
@@ -149,6 +145,7 @@ export default function QuestionsStudyList({
       },
       {
         onSuccess: () => {
+          trpcUtils.questionLists.invalidate();
           showToast({
             title: intl.formatMessage(
               {

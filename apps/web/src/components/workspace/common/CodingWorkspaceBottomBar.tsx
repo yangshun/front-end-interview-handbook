@@ -27,7 +27,10 @@ export default function CodingWorkspaceBottomBar({
   showQuestionsListButton = true,
   studyList,
 }: Props) {
-  const { data: questionProgress } = useQueryQuestionProgress(metadata);
+  const { data: questionProgress } = useQueryQuestionProgress(
+    metadata,
+    studyList?.listKey,
+  );
 
   return (
     <div className="relative flex flex-wrap items-center justify-between gap-2 px-3 py-3">

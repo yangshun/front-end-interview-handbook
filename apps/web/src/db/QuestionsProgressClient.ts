@@ -9,11 +9,15 @@ import type {
 
 import { useUser } from '@supabase/auth-helpers-react';
 
-export function useQueryQuestionProgress(metadata: QuestionMetadata) {
+export function useQueryQuestionProgress(
+  metadata: QuestionMetadata,
+  listKey?: string,
+) {
   const user = useUser();
 
   return trpc.questionProgress.get.useQuery(
     {
+      listKey,
       question: {
         format: metadata.format,
         slug: metadata.slug,

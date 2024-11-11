@@ -209,6 +209,7 @@ function Contents({
 
   const questionsWithCompletionStatus = useQuestionsWithCompletionStatus(
     listQuestions ?? [],
+    currentListKey,
   );
 
   // Tabulating.

@@ -23,10 +23,14 @@ import CodingWorkspaceBottomBarEmitter from '../../../workspace/common/CodingWor
 
 import { useUser } from '@supabase/auth-helpers-react';
 
+type QuestionProgressWithId = QuestionProgress & {
+  questionProgressId?: string;
+};
+
 type Props = Readonly<{
   listKey?: string;
   metadata: QuestionMetadata;
-  questionProgress?: QuestionProgress | null;
+  questionProgress?: QuestionProgressWithId | null;
   signInModalContents?: React.ReactNode;
 }>;
 
@@ -121,7 +125,7 @@ export default function QuestionProgressAction({
         variant="success"
         onClick={() => {
           deleteProgressMutation.mutate(
-            { format: metadata.format, slug: metadata.slug },
+            { format: metadata.format, listKey, slug: metadata.slug },
             {
               onError: () => {
                 showToast({
@@ -171,9 +175,10 @@ export default function QuestionProgressAction({
           {
             format: metadata.format,
             listKey,
-            progressId: questionProgress?.id,
+            progressId: listKey
+              ? questionProgress?.questionProgressId
+              : questionProgress?.id,
             slug: metadata.slug,
-            status: 'complete',
           },
           {
             onError: () => {

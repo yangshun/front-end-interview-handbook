@@ -102,7 +102,6 @@ export default function JavaScriptCodingWorkspaceTestsSubmitTab({
             listKey,
             progressId: questionProgress?.id,
             slug: metadata.slug,
-            status: 'complete',
           });
         }
 

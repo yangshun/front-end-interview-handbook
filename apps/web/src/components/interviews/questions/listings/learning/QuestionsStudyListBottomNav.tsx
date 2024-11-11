@@ -28,6 +28,7 @@ export default function QuestionsStudyListBottomNav({
 }: Props) {
   const { data: questionProgress, isSuccess } = useQueryQuestionProgress(
     question.metadata,
+    listKey
   );
 
   return (
