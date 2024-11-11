@@ -11,7 +11,7 @@ export default function useInterviewsNavLinks(
   const interviewsNavItems = useInterviewsNavItems('nav');
 
   const links: ReadonlyArray<NavbarTopLevelItem | null> = [
-    interviewsNavItems.dashboard,
+    isLoggedIn ? interviewsNavItems.dashboard : interviewsNavItems.getStarted,
     interviewsNavItems.practice,
     !isPremium ? interviewsNavItems.pricing : null,
     !isLoggedIn ? commonNavItems.login : null,

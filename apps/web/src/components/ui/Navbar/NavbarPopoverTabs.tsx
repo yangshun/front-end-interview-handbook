@@ -3,7 +3,11 @@ import { useEffect, useState } from 'react';
 import { useMediaQuery } from 'usehooks-ts';
 
 import { popoverContentClassName } from '~/components/ui/Popover/popoverStyles';
-import { themeOutlineElement_FocusVisible } from '~/components/ui/theme';
+import {
+  themeBackgroundCardColor,
+  themeBorderColor,
+  themeOutlineElement_FocusVisible,
+} from '~/components/ui/theme';
 
 import NavbarPopoverLink from './NavbarPopoverLink';
 import type { NavPopoverListItem } from './NavTypes';
@@ -31,14 +35,20 @@ export default function NavbarPopoverTabs({
   }, [onClose, laptopAndAbove]);
 
   return (
-    <div className={clsx('flex gap-4', popoverContentClassName)}>
+    <div className={clsx('flex gap-4', popoverContentClassName, 'p-0')}>
       <TabsPrimitive.Root
-        className="flex w-full"
+        className="flex w-full gap-4"
         orientation="vertical"
         value={value}
         onValueChange={setValue}>
         <TabsPrimitive.List
-          className={clsx('w-64', 'flex shrink-0 flex-col gap-y-2')}>
+          className={clsx(
+            'w-56',
+            'flex shrink-0 flex-col gap-y-2',
+            'px-1 py-4',
+            themeBackgroundCardColor,
+            ['border-r', themeBorderColor],
+          )}>
           {items.map(({ itemKey, label }) => (
             <TabsPrimitive.Trigger
               key={itemKey}
@@ -65,7 +75,7 @@ export default function NavbarPopoverTabs({
             </TabsPrimitive.Trigger>
           ))}
         </TabsPrimitive.List>
-        <div className="flex w-full grow items-center">
+        <div className="flex w-full grow items-center py-4">
           {items.map((item) => (
             <TabsPrimitive.Content
               key={item.itemKey}

@@ -41,11 +41,11 @@ export default function NavbarPopoverLink({
           <span className="shrink-0">{label}</span> {labelAddon}
         </Text>
         {sublabel && (
-          <Text className="mt-1 block" color="secondary" size="body3">
+          <Text className="mt-2 block" color="secondary" size="body3">
             {sublabel}
           </Text>
         )}
-        {bottomEl && <div className="mt-2">{bottomEl}</div>}
+        {bottomEl && <div className="mt-3">{bottomEl}</div>}
       </div>
       <RiArrowRightLine
         aria-hidden={true}

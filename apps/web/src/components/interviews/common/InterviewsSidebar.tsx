@@ -25,6 +25,8 @@ import Tooltip from '~/components/ui/Tooltip';
 
 import useInterviewsSidebarLinks from './useInterviewsSidebarLinks';
 
+import { useUser } from '@supabase/auth-helpers-react';
+
 export function InterviewsSidebarExpanded({
   sidebarItems,
   onCollapseClick,
@@ -124,7 +126,9 @@ export default function InterviewsSidebar({
   isCollapsed,
   onCollapseClick,
 }: Props) {
-  const sidebarItems = useInterviewsSidebarLinks();
+  const user = useUser();
+  const isLoggedIn = user != null;
+  const sidebarItems = useInterviewsSidebarLinks(isLoggedIn);
 
   return isCollapsed ? (
     <InterviewsSidebarCollapsed

@@ -54,6 +54,26 @@ export default function useInterviewsNavItems(placement: 'nav' | 'sidebar') {
     position: 'start',
     type: 'link',
   } as const;
+  const getStarted = {
+    currentMatchRegex: /\/interviews\/get-started$/,
+    href: '/interviews/get-started',
+    icon: RiHome3Line,
+    itemKey: 'get-started',
+    label: intl.formatMessage({
+      defaultMessage: 'Get started',
+      description: 'Link to get started page',
+      id: '60XjnL',
+    }),
+    onClick: () => {
+      gtag.event({
+        action: `${placement}.get-started.click`,
+        category: 'engagement',
+        label: 'Get started',
+      });
+    },
+    position: 'start',
+    type: 'link',
+  } as const;
   const features = {
     href: url.format({
       hash: SCROLL_HASH_INTERVIEWS_FEATURES,
@@ -139,9 +159,10 @@ export default function useInterviewsNavItems(placement: 'nav' | 'sidebar') {
           });
         },
         sublabel: intl.formatMessage({
-          defaultMessage: 'List of the 75 most important algorithm questions',
+          defaultMessage:
+            'Famed list of the 75 most important algorithm questions',
           description: 'Description of Blind 75',
-          id: 'erkZY+',
+          id: 'uGbcAo',
         }),
         type: 'popover-link',
       },
@@ -167,9 +188,9 @@ export default function useInterviewsNavItems(placement: 'nav' | 'sidebar') {
       },
     ],
     label: intl.formatMessage({
-      defaultMessage: 'Recommended preparation',
+      defaultMessage: 'Recommended strategy',
       description: 'Recommended interview preparation resources',
-      id: '19cHR9',
+      id: 'atvqCE',
     }),
     type: 'popover-list',
   } as const;
@@ -253,15 +274,15 @@ export default function useInterviewsNavItems(placement: 'nav' | 'sidebar') {
         },
         sublabel: intl.formatMessage({
           defaultMessage:
-            'Optimized preparation for target companies, leveraging insider tips and expertise',
+            'Prepare for specific companies with known questions and insider tips.',
           description: 'Description for company interview guides',
-          id: 'xlpypp',
+          id: 'BCP1Ce',
         }),
         type: 'popover-link',
       },
       {
         bottomEl: (
-          <div className="flex gap-2">
+          <div className="flex flex-wrap gap-2">
             {[
               'Polyfills',
               'Async',
@@ -313,7 +334,7 @@ export default function useInterviewsNavItems(placement: 'nav' | 'sidebar') {
     items: [
       {
         bottomEl: (
-          <div className="flex gap-2">
+          <div className="flex flex-wrap gap-2">
             {['JavaScript coding', 'UI coding', 'Algo coding', '+2 more'].map(
               (label) => (
                 <Badge key={label} label={label} size="xs" variant="neutral" />
@@ -341,15 +362,15 @@ export default function useInterviewsNavItems(placement: 'nav' | 'sidebar') {
         },
         sublabel: intl.formatMessage({
           defaultMessage:
-            'Gain expertise in handling commonly asked question formats in front end interviews',
+            'Targeted practice in specific question formats for front end interviews.',
           description: 'Description for interview practice by question format',
-          id: '9Bbo+p',
+          id: 'OlUgMf',
         }),
         type: 'popover-link',
       },
       {
         bottomEl: (
-          <div className="flex gap-2">
+          <div className="flex flex-wrap gap-2">
             {['React', 'TypeScript', 'Vue', 'Angular', 'Svelte', '+3 more'].map(
               (label) => (
                 <Badge key={label} label={label} size="xs" variant="neutral" />
@@ -421,7 +442,11 @@ export default function useInterviewsNavItems(placement: 'nav' | 'sidebar') {
             label: 'Front End Interview Guidebook',
           });
         },
-        sublabel: guidesData['front-end-interview-playbook'].description,
+        sublabel: intl.formatMessage({
+          defaultMessage: 'Quick start guide to front end interviews',
+          description: 'Description of front end interview playbook',
+          id: '1Q18c8',
+        }),
         type: 'popover-link',
       },
       {
@@ -509,6 +534,7 @@ export default function useInterviewsNavItems(placement: 'nav' | 'sidebar') {
   return {
     dashboard,
     features,
+    getStarted,
     guides,
     practice,
     practiceQuestions,

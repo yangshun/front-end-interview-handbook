@@ -455,10 +455,6 @@
     "defaultMessage": "Disconnect your GitHub Auth account",
     "description": "Label to disconnect social"
   },
-  "19cHR9": {
-    "defaultMessage": "Recommended preparation",
-    "description": "Recommended interview preparation resources"
-  },
   "19uyd3": {
     "defaultMessage": "<bold>+{points}</bold> rep",
     "description": "Tooltip for rep count increase in Projects level progress bar"
@@ -1099,6 +1095,10 @@
     "defaultMessage": "Start project",
     "description": "Label for \"Start project\" button on Projects project page"
   },
+  "60XjnL": {
+    "defaultMessage": "Get started",
+    "description": "Link to get started page"
+  },
   "61X1bs": {
     "defaultMessage": "Common mistakes",
     "description": "Common mistakes made during front end system design interviews"
@@ -1599,10 +1599,6 @@
     "defaultMessage": "Prepare the best you can within any timeline.",
     "description": "Description for study plans section"
   },
-  "9Bbo+p": {
-    "defaultMessage": "Gain expertise in handling commonly asked question formats in front end interviews",
-    "description": "Description for interview practice by question format"
-  },
   "9CjNZn": {
     "defaultMessage": "You have ended this project session. Returning you to the project detail page.",
     "description": "Toast subtitle for project session ended"
@@ -1858,6 +1854,10 @@
   "BBf20X": {
     "defaultMessage": "Search algorithmic coding questions",
     "description": "Search placeholder"
+  },
+  "BCP1Ce": {
+    "defaultMessage": "Prepare for specific companies with known questions and insider tips.",
+    "description": "Description for company interview guides"
   },
   "BDGx19": {
     "defaultMessage": "Verifying",
@@ -3891,6 +3891,10 @@
     "defaultMessage": "View GitHub profile",
     "description": "Link to GitHub profile"
   },
+  "OlUgMf": {
+    "defaultMessage": "Targeted practice in specific question formats for front end interviews.",
+    "description": "Description for interview practice by question format"
+  },
   "Omqpux": {
     "defaultMessage": "You have <bold>unlimited premium credits</bold>. Unlock this project to access all premium features for this challenge, including the Figma design files, official guides, and solutions.",
     "description": "Subtitle for project paywall"
@@ -5803,6 +5807,10 @@
     "defaultMessage": "GreatFrontEnd Projects",
     "description": "GreatFrontEnd product vertical"
   },
+  "atvqCE": {
+    "defaultMessage": "Recommended strategy",
+    "description": "Recommended interview preparation resources"
+  },
   "avuK5U": {
     "defaultMessage": "Rewards Terms and Conditions",
     "description": "Title of rewards terms page"
@@ -6402,10 +6410,6 @@
   "er6Ns7": {
     "defaultMessage": "{yoe} YOE",
     "description": "Years of experience"
-  },
-  "erkZY+": {
-    "defaultMessage": "List of the 75 most important algorithm questions",
-    "description": "Description of Blind 75"
   },
   "etKgoR": {
     "defaultMessage": "Less",
@@ -8751,6 +8755,10 @@
     "defaultMessage": "Welcome to GreatFrontEnd Projects!",
     "description": "Title for Projects profile onboarding page"
   },
+  "uGbcAo": {
+    "defaultMessage": "Famed list of the 75 most important algorithm questions",
+    "description": "Description of Blind 75"
+  },
   "uK9SHL": {
     "defaultMessage": "You're about to visit an external website. Proceed with caution and keep your personal information safe!",
     "description": "Subtitle for external link page"
@@ -9222,10 +9230,6 @@
   "xleg5b": {
     "defaultMessage": "Even when you are not actively subscribed, unspent premium credits will roll over to the next cycle. For annual users, we will roll over credits for projects that remain locked at the end of your subscription cycle. However, credits can only be spent when you are an active premium member.",
     "description": "Description of premium feature"
-  },
-  "xlpypp": {
-    "defaultMessage": "Optimized preparation for target companies, leveraging insider tips and expertise",
-    "description": "Description for company interview guides"
   },
   "xmK6tB": {
     "defaultMessage": "Build the foundation from ground up for reuse",

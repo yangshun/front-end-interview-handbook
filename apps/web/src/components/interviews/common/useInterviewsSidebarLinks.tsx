@@ -1,10 +1,10 @@
 import useInterviewsNavItems from './useInterviewsNavItems';
 
-export default function useInterviewsSidebarLinks() {
+export default function useInterviewsSidebarLinks(isLoggedIn: boolean) {
   const navItems = useInterviewsNavItems('sidebar');
 
   const links = [
-    navItems.dashboard,
+    isLoggedIn ? navItems.dashboard : navItems.getStarted,
     ...[
       navItems.recommendedPreparation,
       navItems.timeSavers,
