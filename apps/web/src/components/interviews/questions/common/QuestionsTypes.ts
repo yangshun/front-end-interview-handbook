@@ -42,6 +42,7 @@ export type QuestionImportance = 'high' | 'low' | 'medium';
 export type QuestionAccess = 'free' | 'premium' | 'standard';
 export type QuestionSortField =
   | 'created'
+  | 'default'
   | 'difficulty'
   | 'duration'
   | 'importance'

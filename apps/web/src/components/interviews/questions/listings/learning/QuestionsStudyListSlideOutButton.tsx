@@ -51,6 +51,7 @@ export default function QuestionsStudyListSlideOutButton({
 
   // Sorting.
   const { defaultSortFields, premiumSortFields } = useQuestionCodingSorting({
+    defaultSortField: 'default',
     filterNamespace,
   });
   // Processing.

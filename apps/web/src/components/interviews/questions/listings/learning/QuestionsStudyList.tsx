@@ -22,7 +22,6 @@ import {
   useStartLearningSessionMutation,
 } from './QuestionsListSessionUtils';
 import useQuestionsWithCompletionStatus from '../filters/hooks/useQuestionsWithCompletionStatus';
-import { sortQuestionsMultiple } from '../filters/QuestionsProcessor';
 
 import { useUser } from '@supabase/auth-helpers-react';
 
@@ -173,6 +172,7 @@ export default function QuestionsStudyList({
   }
 
   const filterNamespace = `study-list:${listKey}`;
+  const sortedQuestions = questionsWithProgress;
 
   return (
     <div className="flex flex-col gap-y-6">
@@ -184,32 +184,22 @@ export default function QuestionsStudyList({
         />
       </Heading>
       <Section>
-        {(() => {
-          const sortedQuestions = sortQuestionsMultiple(questionsWithProgress, [
-            { field: 'difficulty', isAscendingOrder: true },
-            { field: 'premium', isAscendingOrder: true },
-          ]);
-
-          return (
-            <QuestionsUnifiedListWithFilters
-              checkIfCompletedQuestionBefore={(question) =>
-                overallProgress[question.format].has(question.slug)
-              }
-              filterNamespace={filterNamespace}
-              listKey={listKey}
-              listMode="learning-list"
-              questions={sortedQuestions}
-              showSummarySection={showSummarySection}
-              onMarkAsCompleted={markQuestionAsCompleted}
-              onMarkAsNotCompleted={markQuestionAsNotCompleted}
-              onQuestionClickIntercept={
-                showStartSessionDialogOnClick
-                  ? openStartSessionDialog
-                  : undefined
-              }
-            />
-          );
-        })()}
+        <QuestionsUnifiedListWithFilters
+          checkIfCompletedQuestionBefore={(question) =>
+            overallProgress[question.format].has(question.slug)
+          }
+          defaultSortField="default"
+          filterNamespace={filterNamespace}
+          listKey={listKey}
+          listMode="learning-list"
+          questions={sortedQuestions}
+          showSummarySection={showSummarySection}
+          onMarkAsCompleted={markQuestionAsCompleted}
+          onMarkAsNotCompleted={markQuestionAsNotCompleted}
+          onQuestionClickIntercept={
+            showStartSessionDialogOnClick ? openStartSessionDialog : undefined
+          }
+        />
       </Section>
       <ConfirmationDialog
         isDisabled={startSessionMutation.isLoading}

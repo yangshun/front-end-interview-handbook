@@ -252,6 +252,7 @@ function Contents({
     defaultSortFields,
     premiumSortFields,
   } = useQuestionCodingSorting({
+    defaultSortField: listKey == null ? 'difficulty' : 'default',
     filterNamespace,
   });
 
@@ -312,6 +313,15 @@ function Contents({
         id: '4A5Ogu',
       })}>
       {[
+        makeDropdownItemProps(
+          intl.formatMessage({
+            defaultMessage: 'Default',
+            description: 'Default sorting',
+            id: 'vcnpme',
+          }),
+          'default',
+          true,
+        ),
         makeDropdownItemProps(
           intl.formatMessage({
             defaultMessage: 'Title: A to Z',

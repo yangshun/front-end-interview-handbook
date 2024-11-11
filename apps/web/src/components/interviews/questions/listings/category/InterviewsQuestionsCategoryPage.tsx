@@ -116,6 +116,7 @@ export default function InterviewsQuestionsCategoryPage({
       <Section>
         <QuestionsUnifiedListWithFiltersAndProgress
           categoryTabs={categoryTabs}
+          defaultSortField="difficulty"
           filterNamespace={filterNamespace}
           framework={framework}
           mode="framework"

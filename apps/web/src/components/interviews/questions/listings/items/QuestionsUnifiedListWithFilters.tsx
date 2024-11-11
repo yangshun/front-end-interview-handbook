@@ -41,6 +41,7 @@ import QuestionTotalTimeLabel from '../../metadata/QuestionTotalTimeLabel';
 type Props = Readonly<{
   categoryTabs?: ReactNode;
   checkIfCompletedQuestionBefore?: (question: QuestionMetadata) => boolean;
+  defaultSortField: QuestionSortField;
   filterNamespace: string;
   formatFiltersFilterPredicate?: (format: QuestionFormat) => boolean;
   formatFiltersOrderComparator?: (
@@ -70,6 +71,7 @@ type Props = Readonly<{
 export default function QuestionsUnifiedListWithFilters({
   checkIfCompletedQuestionBefore,
   categoryTabs,
+  defaultSortField = 'default',
   initialFormat = null,
   framework,
   listKey,
@@ -129,7 +131,7 @@ export default function QuestionsUnifiedListWithFilters({
     setSortField,
     defaultSortFields,
     premiumSortFields,
-  } = useQuestionCodingSorting({ filterNamespace });
+  } = useQuestionCodingSorting({ defaultSortField, filterNamespace });
 
   // Processing.
   const sortedQuestions = sortQuestionsMultiple(
@@ -184,6 +186,16 @@ export default function QuestionsUnifiedListWithFilters({
         showChevron={true}
         size="sm">
         {[
+          defaultSortField === 'default' &&
+            makeDropdownItemProps(
+              intl.formatMessage({
+                defaultMessage: 'Default',
+                description: 'Default sorting',
+                id: 'vcnpme',
+              }),
+              'default',
+              true,
+            ),
           makeDropdownItemProps(
             intl.formatMessage({
               defaultMessage: 'Title: A to Z',
@@ -284,9 +296,11 @@ export default function QuestionsUnifiedListWithFilters({
             'created',
             false,
           ),
-        ].map((props) => (
-          <DropdownMenu.Item key={props.label} {...props} />
-        ))}
+        ]
+          .flatMap((item) => (item ? [item] : []))
+          .map((props) => (
+            <DropdownMenu.Item key={props.label} {...props} />
+          ))}
       </DropdownMenu>
     </div>
   );

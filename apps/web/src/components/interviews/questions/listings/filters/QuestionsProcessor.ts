@@ -50,6 +50,10 @@ export function sortQuestions<T extends QuestionMetadata>(
   field: QuestionSortField,
   isAscendingOrder = true,
 ): Array<T> {
+  if (field === 'default') {
+    return questions.slice();
+  }
+
   return questions.slice().sort((a, b) => {
     switch (field) {
       case 'title': {

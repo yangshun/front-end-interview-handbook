@@ -149,6 +149,7 @@ export default function InterviewsQuestionFormatPage({
       </div>
       <Section>
         <QuestionsUnifiedListWithFiltersAndProgress
+          defaultSortField="difficulty"
           filterNamespace={filterNamespace}
           guides={
             guidesWithCompletionStatus.length > 0 ? guidesData : undefined

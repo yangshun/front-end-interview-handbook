@@ -4,14 +4,17 @@ import { useSessionStorage } from 'usehooks-ts';
 import type { QuestionSortField } from '~/components/interviews/questions/common/QuestionsTypes';
 
 type Props = Readonly<{
+  defaultSortField: QuestionSortField;
   filterNamespace?: string;
 }>;
 
 export default function useQuestionCodingSorting(props?: Props) {
-  const { filterNamespace } = props || {};
+  const { defaultSortField, filterNamespace } = props || {
+    defaultSortField: 'default',
+  };
   const [isAscendingOrderState, setIsAscendingOrderState] = useState(true);
   const [sortFieldState, setSortFieldState] =
-    useState<QuestionSortField>('difficulty');
+    useState<QuestionSortField>(defaultSortField);
   const [isAscendingOrderSessionStorage, setIsAscendingOrderSessionStorage] =
     useSessionStorage<boolean>(
       `gfe:${filterNamespace}:sort-isAscendingOrder`,
@@ -20,7 +23,7 @@ export default function useQuestionCodingSorting(props?: Props) {
   const [sortFieldSessionStorage, setSortFieldSessionStorage] =
     useSessionStorage<QuestionSortField>(
       `gfe:${filterNamespace}:sort-field`,
-      'difficulty',
+      defaultSortField,
     );
 
   // Conditionally select which hook's state to use
