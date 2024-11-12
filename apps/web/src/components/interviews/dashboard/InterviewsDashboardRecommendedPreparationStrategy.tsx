@@ -13,7 +13,6 @@ import Anchor from '~/components/ui/Anchor';
 import Badge from '~/components/ui/Badge';
 import Chip from '~/components/ui/Chip';
 import Heading from '~/components/ui/Heading';
-import Section from '~/components/ui/Heading/HeadingContext';
 import Text from '~/components/ui/Text';
 import {
   themeBackgroundCardColor,
@@ -257,71 +256,68 @@ export default function InterviewsDashboardRecommendedPreparationStrategy({
   ];
 
   return (
-    <Section>
-      <div className="mb-12 flex flex-col gap-[30px]">
-        <Heading className={themeTextColor} color="custom" level="heading5">
-          <FormattedMessage
-            defaultMessage="Recommended preparation"
-            description="Title for recommended preparation strategy section"
-            id="zKboNH"
-          />
-        </Heading>
-        <div
-          className={clsx('relative flex flex-col gap-8', 'overflow-hidden')}>
-          {preparationStrategies.map((strategy, index) => {
-            const { article, question } = strategy;
-            const isCompleted =
-              (question?.total || 0) + (article?.total || 0) ===
-              (article?.completed || 0) + (question?.completed || 0);
+    <div className="mb-12 flex flex-col gap-[30px]">
+      <Heading className={themeTextColor} color="custom" level="heading5">
+        <FormattedMessage
+          defaultMessage="Recommended preparation"
+          description="Title for recommended preparation strategy section"
+          id="zKboNH"
+        />
+      </Heading>
+      <div className={clsx('relative flex flex-col gap-8', 'overflow-hidden')}>
+        {preparationStrategies.map((strategy, index) => {
+          const { article, question } = strategy;
+          const isCompleted =
+            (question?.total || 0) + (article?.total || 0) ===
+            (article?.completed || 0) + (question?.completed || 0);
 
-            return (
-              <div key={strategy.title} className="flex w-full gap-4 md:gap-6">
-                <div
-                  className={clsx(
-                    'relative flex flex-col justify-center self-stretch',
-                  )}>
-                  {isCompleted ? (
-                    <Chip
-                      icon={RiCheckFill}
-                      isLabelHidden={true}
-                      label="Completed"
-                      variant="success"
-                    />
-                  ) : (
-                    <Chip label={(index + 1).toString()} variant="neutral" />
-                  )}
-                  {index < preparationStrategies.length - 1 && (
-                    <div
-                      className={clsx(
-                        'absolute top-[55%] -z-10 h-full w-px translate-y-3 self-center border-l-2',
-                        themeBorderElementColor,
-                      )}
-                    />
-                  )}
-                </div>
-                <div
-                  className={clsx('w-full', 'flex flex-col items-start gap-3')}>
-                  {strategy.tagLabel &&
-                    (strategy.tagTooltip ? (
-                      <Tooltip label={strategy.tagTooltip}>
-                        <Badge
-                          label={strategy.tagLabel}
-                          variant={strategy.variant}
-                        />
-                      </Tooltip>
-                    ) : (
+          return (
+            <div key={strategy.title} className="flex w-full gap-4 md:gap-6">
+              <div
+                className={clsx(
+                  'relative flex flex-col justify-center self-stretch',
+                )}>
+                {isCompleted ? (
+                  <Chip
+                    icon={RiCheckFill}
+                    isLabelHidden={true}
+                    label="Completed"
+                    variant="success"
+                  />
+                ) : (
+                  <Chip label={(index + 1).toString()} variant="neutral" />
+                )}
+                {index < preparationStrategies.length - 1 && (
+                  <div
+                    className={clsx(
+                      'absolute top-[55%] -z-10 h-full w-px translate-y-3 self-center border-l-2',
+                      themeBorderElementColor,
+                    )}
+                  />
+                )}
+              </div>
+              <div
+                className={clsx('w-full', 'flex flex-col items-start gap-3')}>
+                {strategy.tagLabel &&
+                  (strategy.tagTooltip ? (
+                    <Tooltip label={strategy.tagTooltip}>
                       <Badge
                         label={strategy.tagLabel}
                         variant={strategy.variant}
                       />
-                    ))}
-                  <PreparationStrategyCard data={strategy} />
-                </div>
+                    </Tooltip>
+                  ) : (
+                    <Badge
+                      label={strategy.tagLabel}
+                      variant={strategy.variant}
+                    />
+                  ))}
+                <PreparationStrategyCard data={strategy} />
               </div>
-            );
-          })}
-        </div>
+            </div>
+          );
+        })}
       </div>
-    </Section>
+    </div>
   );
 }

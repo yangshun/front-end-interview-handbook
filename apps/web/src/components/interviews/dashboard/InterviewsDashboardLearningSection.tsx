@@ -20,21 +20,19 @@ export default function InterviewsDashboardLearningSection({
   className,
 }: Props) {
   return (
-    <Section>
-      <div className={clsx('flex flex-col gap-6', className)}>
-        <div className="flex flex-col gap-3">
-          <Heading
-            className={themeTextSubtitleColor}
-            color="custom"
-            level="heading6">
-            {title}
-          </Heading>
-          <Text color="secondary" size="body2">
-            {description}
-          </Text>
-        </div>
-        {children}
+    <div className={clsx('flex flex-col gap-6', className)}>
+      <div className="flex flex-col gap-3">
+        <Heading
+          className={themeTextSubtitleColor}
+          color="custom"
+          level="heading6">
+          {title}
+        </Heading>
+        <Text color="secondary" size="body2">
+          {description}
+        </Text>
       </div>
-    </Section>
+      <Section>{children}</Section>
+    </div>
   );
 }

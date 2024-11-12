@@ -1,6 +1,6 @@
 import { z } from 'zod';
 
-import { groupByDateFormatter } from '~/components/interviews/dashboard/progress-glance/utils';
+import { groupByDateFormatter } from '~/components/interviews/dashboard/progress/utils';
 import type { QuestionFormat } from '~/components/interviews/questions/common/QuestionsTypes';
 
 import type { QuestionProgressStatus } from '~/db/QuestionsProgressTypes';

@@ -18,7 +18,7 @@ type Props = Readonly<{
   >;
 }>;
 
-export default function InterviewsDashboardPracticeByFocusAreasSection({
+export default function InterviewsDashboardFocusAreasSection({
   questionListSessions,
   focusAreas,
 }: Props) {

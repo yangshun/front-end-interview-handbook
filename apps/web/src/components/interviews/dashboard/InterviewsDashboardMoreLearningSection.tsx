@@ -11,13 +11,14 @@ import type {
 import { FormattedMessage } from '~/components/intl';
 import Divider from '~/components/ui/Divider';
 import Heading from '~/components/ui/Heading';
+import Section from '~/components/ui/Heading/HeadingContext';
 import Text from '~/components/ui/Text';
 import { themeTextColor } from '~/components/ui/theme';
 
-import InterviewsDashboardPrepareByCompanySection from './InterviewsDashboardPrepareByCompanySection';
-import InterviewsDashboardStudyPlansSection from './InterviewsDashboardStudyPlansSection';
-import InterviewsDashboardPracticeByFocusAreasSection from './practice/focus-areas/InterviewsDashboardPracticeByFocusAreasSection';
-import InterviewsDashboardPracticeQuestionsSection from './practice/InterviewsDashboardPracticeQuestionsSection';
+import InterviewsDashboardPracticeQuestionsSection from './InterviewsDashboardPracticeQuestionsSection';
+import InterviewsDashboardCompanySection from './time-savers/InterviewsDashboardCompanySection';
+import InterviewsDashboardFocusAreasSection from './time-savers/InterviewsDashboardFocusAreasSection';
+import InterviewsDashboardStudyPlansSection from './time-savers/InterviewsDashboardStudyPlansSection';
 
 import type { LearningSession } from '@prisma/client';
 
@@ -84,24 +85,26 @@ export default function InterviewsDashboardMoreLearningSection({
           />
         </Text>
       </div>
-      <InterviewsDashboardStudyPlansSection
-        questionListSessions={questionListSessions}
-        studyPlans={studyPlans}
-      />
-      <InterviewsDashboardPrepareByCompanySection
-        companyGuides={companyGuides}
-        questionListSessions={questionListSessions}
-      />
-      <InterviewsDashboardPracticeByFocusAreasSection
-        focusAreas={focusAreas}
-        questionListSessions={questionListSessions}
-      />
-      <Divider />
-      <InterviewsDashboardPracticeQuestionsSection
-        guidesProgress={guidesProgress}
-        questions={questions}
-        questionsProgress={questionsProgress}
-      />
+      <Section>
+        <InterviewsDashboardStudyPlansSection
+          questionListSessions={questionListSessions}
+          studyPlans={studyPlans}
+        />
+        <InterviewsDashboardCompanySection
+          companyGuides={companyGuides}
+          questionListSessions={questionListSessions}
+        />
+        <InterviewsDashboardFocusAreasSection
+          focusAreas={focusAreas}
+          questionListSessions={questionListSessions}
+        />
+        <Divider />
+        <InterviewsDashboardPracticeQuestionsSection
+          guidesProgress={guidesProgress}
+          questions={questions}
+          questionsProgress={questionsProgress}
+        />
+      </Section>
     </div>
   );
 }

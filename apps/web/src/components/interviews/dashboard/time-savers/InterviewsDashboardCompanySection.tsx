@@ -3,7 +3,7 @@ import type { InterviewsStudyList } from 'contentlayer/generated';
 import InterviewsStudyListCard from '~/components/interviews/questions/listings/learning/InterviewsStudyListCard';
 import { useIntl } from '~/components/intl';
 
-import InterviewsDashboardLearningSection from './InterviewsDashboardLearningSection';
+import InterviewsDashboardLearningSection from '../InterviewsDashboardLearningSection';
 
 import type { LearningSession } from '@prisma/client';
 
@@ -14,7 +14,7 @@ type Props = Readonly<{
   >;
 }>;
 
-export default function InterviewsDashboardPrepareByCompanySection({
+export default function InterviewsDashboardCompanySection({
   companyGuides,
   questionListSessions,
 }: Props) {

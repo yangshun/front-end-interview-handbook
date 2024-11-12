@@ -25,8 +25,8 @@ import InterviewsDashboardContinueLearningSection from './InterviewsDashboardCon
 import InterviewsDashboardMoreLearningSection from './InterviewsDashboardMoreLearningSection';
 import InterviewsDashboardPageHeader from './InterviewsDashboardPageHeader';
 import InterviewsDashboardRecommendedPreparationStrategy from './InterviewsDashboardRecommendedPreparationStrategy';
-import InterviewsDashboardProgressAtGlanceSection from './progress-glance/InterviewsDashboardProgressAtGlanceSection';
-import { getDateRangeFromToday } from './progress-glance/utils';
+import InterviewsDashboardProgressAtGlanceSection from './progress/InterviewsDashboardProgressAtGlanceSection';
+import { getDateRangeFromToday } from './progress/utils';
 
 import { useUser } from '@supabase/auth-helpers-react';
 
@@ -64,19 +64,19 @@ export default function InterviewsDashboardPage({
   const { data: questionsProgress } = trpc.questionProgress.getAll.useQuery(
     undefined,
     {
-      enabled: !!user,
+      enabled: isLoggedIn,
     },
   );
 
   const { data: questionListSessions } =
     trpc.questionLists.getActiveSessions.useQuery(undefined, {
-      enabled: !!user,
+      enabled: isLoggedIn,
     });
 
   const { data: guidesProgress } = trpc.guideProgress.getAll.useQuery(
     undefined,
     {
-      enabled: !!user,
+      enabled: isLoggedIn,
     },
   );
   const { startTime, endTime } = useMemo(() => getDateRangeFromToday(), []);
@@ -87,7 +87,7 @@ export default function InterviewsDashboardPage({
         startTime,
       },
       {
-        enabled: !!user,
+        enabled: isLoggedIn,
       },
     );
 
@@ -103,70 +103,73 @@ export default function InterviewsDashboardPage({
         contributions={contributions}
         isLoggedIn={isLoggedIn}
       />
-      {isLoggedIn && (
-        <InterviewsDashboardProgressAtGlanceSection
-          contributions={contributions}
+      <Section>
+        {isLoggedIn && (
+          <InterviewsDashboardProgressAtGlanceSection
+            contributions={contributions}
+            questions={questions}
+            questionsProgress={questionsProgress ?? []}
+          />
+        )}
+        {showContinueLearning && (
+          <InterviewsDashboardContinueLearningSection
+            focusAreas={focusAreas}
+            questionListSessions={sessions}
+            studyPlans={studyPlans}
+          />
+        )}
+        <InterviewsDashboardRecommendedPreparationStrategy
+          questionListSessions={sessions}
+          questionsProgress={questionsProgress ?? []}
+          recommendedPrepData={{
+            blind75: {
+              listKey: mapStudyPlan.blind75.slug,
+              questionCount: mapStudyPlan.blind75?.questionHashes.length,
+            },
+            gfe75: {
+              listKey: mapStudyPlan.greatfrontend75?.slug ?? '',
+              questionCount:
+                mapStudyPlan.greatfrontend75?.questionHashes.length,
+            },
+            systemDesignQuestionCount: questions.systemDesignQuestions.length,
+          }}
+        />
+        <InterviewsDashboardMoreLearningSection
+          companyGuides={companyGuides}
+          focusAreas={focusAreas}
+          guidesProgress={guidesProgress ?? []}
+          questionListSessions={sessions}
           questions={questions}
           questionsProgress={questionsProgress ?? []}
-        />
-      )}
-      {showContinueLearning && (
-        <InterviewsDashboardContinueLearningSection
-          focusAreas={focusAreas}
-          questionListSessions={sessions}
           studyPlans={studyPlans}
         />
-      )}
-      <InterviewsDashboardRecommendedPreparationStrategy
-        questionListSessions={sessions}
-        questionsProgress={questionsProgress ?? []}
-        recommendedPrepData={{
-          blind75: {
-            listKey: mapStudyPlan.blind75.slug,
-            questionCount: mapStudyPlan.blind75?.questionHashes.length,
-          },
-          gfe75: {
-            listKey: mapStudyPlan.greatfrontend75?.slug ?? '',
-            questionCount: mapStudyPlan.greatfrontend75?.questionHashes.length,
-          },
-          systemDesignQuestionCount: questions.systemDesignQuestions.length,
-        }}
-      />
-      <InterviewsDashboardMoreLearningSection
-        companyGuides={companyGuides}
-        focusAreas={focusAreas}
-        guidesProgress={guidesProgress ?? []}
-        questionListSessions={sessions}
-        questions={questions}
-        questionsProgress={questionsProgress ?? []}
-        studyPlans={studyPlans}
-      />
-      {bottomContent && (
-        <Section>
-          <Divider className="my-8" />
-          <MDXContent
-            components={{
-              GuideLists: () => (
-                <ul>
-                  {companyGuides.map((guide) => (
-                    <li key={guide.href}>
-                      <Anchor href={guide.href}>
-                        <FormattedMessage
-                          defaultMessage="{name} front end interview questions"
-                          description="Label for company guides"
-                          id="pjH0jb"
-                          values={{ name: guide.name }}
-                        />
-                      </Anchor>
-                    </li>
-                  ))}
-                </ul>
-              ),
-            }}
-            mdxCode={bottomContent.body.code}
-          />
-        </Section>
-      )}
+        {bottomContent && (
+          <>
+            <Divider className="my-8" />
+            <MDXContent
+              components={{
+                GuideLists: () => (
+                  <ul>
+                    {companyGuides.map((guide) => (
+                      <li key={guide.href}>
+                        <Anchor href={guide.href}>
+                          <FormattedMessage
+                            defaultMessage="{name} front end interview questions"
+                            description="Label for company guides"
+                            id="pjH0jb"
+                            values={{ name: guide.name }}
+                          />
+                        </Anchor>
+                      </li>
+                    ))}
+                  </ul>
+                ),
+              }}
+              mdxCode={bottomContent.body.code}
+            />
+          </>
+        )}
+      </Section>
     </div>
   );
 }

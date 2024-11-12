@@ -12,7 +12,7 @@ import Text from '~/components/ui/Text';
 import { themeGlassyBorder, themeTextColor } from '~/components/ui/theme';
 import Tooltip from '~/components/ui/Tooltip';
 
-import { findMaxConsecutiveDays } from './progress-glance/utils';
+import { findMaxConsecutiveDays } from './progress/utils';
 import InterviewsPageHeader from '../common/InterviewsPageHeader';
 import InterviewsDashboardCreateAccountCard from '../dashboard/InterviewsDashboardCreateAccountCard';
 

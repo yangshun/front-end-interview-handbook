@@ -7,7 +7,7 @@ import {
 import InterviewsStudyListCard from '~/components/interviews/questions/listings/learning/InterviewsStudyListCard';
 import { useIntl } from '~/components/intl';
 
-import InterviewsDashboardLearningSection from './InterviewsDashboardLearningSection';
+import InterviewsDashboardLearningSection from '../InterviewsDashboardLearningSection';
 
 import type { LearningSession } from '@prisma/client';
 
