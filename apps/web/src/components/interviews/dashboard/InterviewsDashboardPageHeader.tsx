@@ -5,17 +5,15 @@ import {
   RiVerifiedBadgeLine,
 } from 'react-icons/ri';
 
-import InterviewsPageFeatures from '~/components/interviews/common/InterviewsPageFeatures';
 import { QuestionCount } from '~/components/interviews/questions/listings/stats/QuestionCount';
 import { FormattedMessage, useIntl } from '~/components/intl';
-import Divider from '~/components/ui/Divider';
 import Heading from '~/components/ui/Heading';
-import Section from '~/components/ui/Heading/HeadingContext';
 import Text from '~/components/ui/Text';
 import { themeGlassyBorder, themeTextColor } from '~/components/ui/theme';
 import Tooltip from '~/components/ui/Tooltip';
 
 import { findMaxConsecutiveDays } from './progress-glance/utils';
+import InterviewsPageHeader from '../common/InterviewsPageHeader';
 import InterviewsDashboardCreateAccountCard from '../dashboard/InterviewsDashboardCreateAccountCard';
 
 type Props = Readonly<{
@@ -28,9 +26,7 @@ export default function InterviewsDashboardPageHeader({
   isLoggedIn,
 }: Props) {
   const intl = useIntl();
-
   const maxConsecutiveDays = findMaxConsecutiveDays(contributions);
-
   const features = [
     {
       icon: RiQuestionnaireLine,
@@ -58,7 +54,7 @@ export default function InterviewsDashboardPageHeader({
   if (isLoggedIn) {
     return (
       <div className="flex items-center gap-4">
-        <Heading level="heading5">
+        <Heading level="heading4">
           <FormattedMessage
             defaultMessage="Dashboard"
             description="Label for dashboard title for logged in user"
@@ -109,33 +105,20 @@ export default function InterviewsDashboardPageHeader({
   }
 
   return (
-    <div>
-      <div
-        className={clsx(
-          'grid grid-cols-1 items-stretch justify-between gap-x-2 gap-y-6 sm:flex sm:flex-row',
-        )}>
-        <div className="flex flex-col gap-3">
-          <Heading level="heading5">
-            <FormattedMessage
-              defaultMessage="Get started"
-              description="Label for dashboard title for guest"
-              id="mYn2DH"
-            />
-          </Heading>
-          <Text color="secondary" size="body2">
-            <FormattedMessage
-              defaultMessage="The one-stop page to prepare fully for your front end interviews."
-              description="Description for get started in dashboard"
-              id="DgT+f8"
-            />
-          </Text>
-        </div>
-        <InterviewsDashboardCreateAccountCard />
-      </div>
-      <div className="mb-12 mt-10">
-        <InterviewsPageFeatures features={features} />
-      </div>
-      <Divider />
-    </div>
+    <InterviewsPageHeader
+      description={intl.formatMessage({
+        defaultMessage:
+          'The one-stop page to prepare fully for your front end interviews.',
+        description: 'Description for get started in dashboard',
+        id: 'DgT+f8',
+      })}
+      features={features}
+      sideElement={<InterviewsDashboardCreateAccountCard />}
+      title={intl.formatMessage({
+        defaultMessage: 'Get started',
+        description: 'Label for dashboard title for guest',
+        id: 'mYn2DH',
+      })}
+    />
   );
 }

@@ -13,7 +13,7 @@ import {
 
 import { trpc } from '~/hooks/trpc';
 
-import InterviewsListPageHeader from '~/components/interviews/common/InterviewsListPageHeader';
+import InterviewsPageHeader from '~/components/interviews/common/InterviewsPageHeader';
 import {
   categorizeFocusAreas,
   FocusAreaIcons,
@@ -81,7 +81,7 @@ export default function InterviewsRevampFocusAreaListPage({
 
   return (
     <div className={clsx('flex flex-col gap-y-12 md:gap-y-16')}>
-      <InterviewsListPageHeader
+      <InterviewsPageHeader
         description={intl.formatMessage({
           defaultMessage:
             'Deep-dive into topical focus areas critical for front end interviews.',
@@ -117,7 +117,7 @@ export default function InterviewsRevampFocusAreaListPage({
             )}
           </Text>
         </div>
-      </InterviewsListPageHeader>
+      </InterviewsPageHeader>
       <Section>
         <div className="flex flex-col gap-12">
           {focusAreasCategories.map(({ title, items }) => (

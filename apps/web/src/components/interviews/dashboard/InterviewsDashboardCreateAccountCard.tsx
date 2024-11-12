@@ -1,6 +1,8 @@
 import clsx from 'clsx';
 import { RiArrowRightSLine } from 'react-icons/ri';
 
+import { useAuthSignInUp } from '~/hooks/user/useAuthFns';
+
 import { FormattedMessage, useIntl } from '~/components/intl';
 import Anchor from '~/components/ui/Anchor';
 import Text from '~/components/ui/Text';
@@ -20,21 +22,9 @@ function MockContinueLearningCard() {
       hideHeading={true}
       items={[
         {
-          completedCount: 24,
+          completedCount: 36,
           durationMins: 92,
-          href: '/dsa',
-          questionsCount: 47,
-          reverseGradient: true,
-          title: intl.formatMessage({
-            defaultMessage: 'Data structures and algorithms',
-            description: 'Title of study plan',
-            id: 'OOYktU',
-          }),
-        },
-        {
-          completedCount: 24,
-          durationMins: 92,
-          href: '/a11y',
+          href: '#',
           questionsCount: 50,
           reverseGradient: true,
           title: intl.formatMessage({
@@ -43,12 +33,26 @@ function MockContinueLearningCard() {
             id: 'qzlnBr',
           }),
         },
+        {
+          completedCount: 24,
+          durationMins: 92,
+          href: '#',
+          questionsCount: 47,
+          reverseGradient: true,
+          title: intl.formatMessage({
+            defaultMessage: 'Design system components',
+            description: 'Title of study plan',
+            id: '/FjDQ0',
+          }),
+        },
       ]}
     />
   );
 }
 
 export default function InterviewsDashboardCreateAccountCard() {
+  const { signInUpHref } = useAuthSignInUp();
+
   return (
     <div
       className={clsx(
@@ -60,12 +64,13 @@ export default function InterviewsDashboardCreateAccountCard() {
       )}>
       <div
         className={clsx(
-          'relative h-full w-36 overflow-clip',
+          'relative h-20 w-36',
+          'overflow-clip',
           'bg-neutral-200/70 dark:bg-neutral-900',
         )}>
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute w-[650px] origin-top-left scale-[0.4] p-2"
+          className="pointer-events-none absolute w-[650px] origin-top-left scale-[0.4] p-4"
           // So that focus cannot go into the card, which is not meant to be used.
           inert="">
           <MockContinueLearningCard />
@@ -73,9 +78,9 @@ export default function InterviewsDashboardCreateAccountCard() {
         <div className="size-full absolute bg-gradient-to-t from-neutral-200/70 dark:from-neutral-900" />
       </div>
       <div className="flex items-center p-4">
-        <Anchor href="/sign-up" variant="unstyled">
+        <Anchor href={signInUpHref()} variant="unstyled">
           <span aria-hidden={true} className="absolute inset-0" />
-          <Text className="block sm:max-w-[158px]" size="body3">
+          <Text className="block sm:max-w-[140px]" size="body3">
             <FormattedMessage
               defaultMessage="Create a free account to track your progress"
               description="CTA to create a free account for non-logged in users"
@@ -84,6 +89,7 @@ export default function InterviewsDashboardCreateAccountCard() {
           </Text>
         </Anchor>
         <RiArrowRightSLine
+          aria-hidden={true}
           className={clsx(
             'size-5 shrink-0 text-neutral-500 dark:text-neutral-400',
             themeTextBrandColor_GroupHover,

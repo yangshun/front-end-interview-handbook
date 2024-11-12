@@ -10,7 +10,7 @@ import {
 
 import { trpc } from '~/hooks/trpc';
 
-import InterviewsListPageHeader from '~/components/interviews/common/InterviewsListPageHeader';
+import InterviewsPageHeader from '~/components/interviews/common/InterviewsPageHeader';
 import type {
   QuestionFramework,
   QuestionLanguage,
@@ -91,7 +91,7 @@ export default function InterviewsPracticeQuestionsPage({
 
   return (
     <div className={clsx('flex flex-col', 'gap-y-8 md:gap-y-10 2xl:gap-y-12')}>
-      <InterviewsListPageHeader
+      <InterviewsPageHeader
         description={intl.formatMessage({
           defaultMessage:
             'Practice questions for specific frameworks, languages or question formats.',

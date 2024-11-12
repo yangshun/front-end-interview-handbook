@@ -191,6 +191,10 @@
     "defaultMessage": "All filters",
     "description": "Label for All Filters button for roadmap page on mobile"
   },
+  "/FjDQ0": {
+    "defaultMessage": "Design system components",
+    "description": "Title of study plan"
+  },
   "/FyqAR": {
     "defaultMessage": "Translations for {locale} are in beta and may not be accurate. Do give feedback or <link>contact us</link> if you are interested in helping to translate!",
     "description": "Banner about beta locale version"
@@ -398,10 +402,6 @@
   "0ljSJ7": {
     "defaultMessage": "JavaScript Interview Guides",
     "description": "Title for guide card"
-  },
-  "0p6dRS": {
-    "defaultMessage": "Practice makes perfect. With our collection of over {count} front end questions, you get all-rounded coverage for your preparation — HTML, CSS, JavaScript, algorithms, DOM APIs, accessibility, performance, front end fundamentals, and more.",
-    "description": "Title of question examples section on getting started page"
   },
   "0rR1Bo": {
     "defaultMessage": "Impress recruiters with component libraries and designs systems",
@@ -1119,10 +1119,6 @@
     "defaultMessage": "Switching on focus mode collapses all sidebars to provide a better reading experience.",
     "description": "Label for turning focus mode on"
   },
-  "68EGSg": {
-    "defaultMessage": "View All Questions",
-    "description": "Link label to the list of all System Design questions"
-  },
   "68EuCT": {
     "defaultMessage": "Project challenges",
     "description": "Title of Projects challenges page"
@@ -1343,10 +1339,6 @@
     "defaultMessage": "Start coding!",
     "description": "Label for \"Start coding!\" step in dialog on Projects project page"
   },
-  "7Po5ci": {
-    "defaultMessage": "Know your fundamentals",
-    "description": "Label for an example list of Quiz Questions on marketing pages"
-  },
   "7Rr7Yf": {
     "defaultMessage": "{minutes} min read",
     "description": "Blog read duration label"
@@ -1386,10 +1378,6 @@
   "7fCoNs": {
     "defaultMessage": "Will I have to code within the platform, or use my own IDE?",
     "description": "FAQ question for projects platform"
-  },
-  "7gb9hK": {
-    "defaultMessage": "Everything you need",
-    "description": "Label for an example list of JavaScript Questions on marketing pages"
   },
   "7jRY6z": {
     "defaultMessage": "Run your code against tests and instantly preview your output",
@@ -1486,10 +1474,6 @@
   "8Ti6rm": {
     "defaultMessage": "Your password has been updated",
     "description": "Message indicating a successful password update"
-  },
-  "8UZ9q3": {
-    "defaultMessage": "See plan",
-    "description": "Link to view study plan details"
   },
   "8XVsRJ": {
     "defaultMessage": "Join Premium Discord",
@@ -1870,10 +1854,6 @@
   "BFqThO": {
     "defaultMessage": "Vue Interview Questions",
     "description": "Vue questions category long title"
-  },
-  "BGn++d": {
-    "defaultMessage": "Quiz Questions",
-    "description": "Title for an example list of Quiz Questions on marketing pages"
   },
   "BHjWCo": {
     "defaultMessage": "API specifications and sample data",
@@ -3043,10 +3023,6 @@
     "defaultMessage": "Search for your target company",
     "description": "Placeholder for search input of company guides"
   },
-  "J90fcx": {
-    "defaultMessage": "Preparation Plans",
-    "description": "Preparation plans section title"
-  },
   "JAEdbj": {
     "defaultMessage": "Practice JavaScript and TypeScript interview questions, from implementing common library APIs, utility functions, algorithms, to building UI components and more.",
     "description": "Subtitle for JavaScript questions list page"
@@ -3739,10 +3715,6 @@
     "defaultMessage": "Purchase premium to unlock study plans and all the best materials we have to offer.",
     "description": "Paywall subtitle for study plans feature"
   },
-  "Nh3PP/": {
-    "defaultMessage": "Practice Questions",
-    "description": "Title of question examples section on getting started page"
-  },
   "NjnYqU": {
     "defaultMessage": "Sort by",
     "description": "Label for sort button for projects discussion post list"
@@ -3838,10 +3810,6 @@
   "OOT9uz": {
     "defaultMessage": "<authorProfileLink>{author}</authorProfileLink> left a code review on their submission <link>{submissionTitle}</link>: <comment>\"{description}\"</comment>",
     "description": "Log message for someone reviewing their submission"
-  },
-  "OOYktU": {
-    "defaultMessage": "Data structures and algorithms",
-    "description": "Title of study plan"
   },
   "OOyT6O": {
     "defaultMessage": "An error occurred while formatting the code",
@@ -4158,10 +4126,6 @@
   "QENy25": {
     "defaultMessage": "Fully public and customizable",
     "description": "Features for test code section of homepage"
-  },
-  "QIRY6V": {
-    "defaultMessage": "Front end system design resources are virtually non-existent. This is the only place you'll find in-depth solutions for front end system design questions along with our proven answering framework.",
-    "description": "Subtitle for an example list of User Interface Questions on marketing pages"
   },
   "QJTIr/": {
     "defaultMessage": "Can't find the answer you are looking for?",
@@ -5163,10 +5127,6 @@
     "defaultMessage": "Submit",
     "description": "Submit button label"
   },
-  "WRQRec": {
-    "defaultMessage": "Regardless of preparation timeline, there's a plan for you.",
-    "description": "Preparation plans section subtitle"
-  },
   "WUBRnN": {
     "defaultMessage": "Search within this list of questions",
     "description": "Placeholder for search input of question list"
@@ -5831,10 +5791,6 @@
     "defaultMessage": "This subset of test cases are used when \"Run\"-ning your code.",
     "description": "Message to explain the custom tests cases"
   },
-  "b0OofK": {
-    "defaultMessage": "Front end coding interview questions come in many forms — practice writing JavaScript functions, data structures, and algorithms.",
-    "description": "Subtitle for an example list of JavaScript Questions on marketing pages"
-  },
   "b28Bb0": {
     "defaultMessage": "Designs",
     "description": "Project assets category label"
@@ -6003,10 +5959,6 @@
     "defaultMessage": "Tell the community about your motivations for joining this platform",
     "description": "Description for \"Motivation for joining\" for projects profile page"
   },
-  "bxZm1S": {
-    "defaultMessage": "User Interface Questions",
-    "description": "Title for an example list of User Interface Questions on marketing pages"
-  },
   "c2emAw": {
     "defaultMessage": "Challenge: {challengeName} | Discussions",
     "description": "Title of Projects challenge resources discussions page"
@@ -6099,10 +6051,6 @@
     "defaultMessage": "Read how to solve {questionTitle} using {questionFramework}",
     "description": "Description of Front End Interview UI Coding Questions solution page"
   },
-  "cktXm2": {
-    "defaultMessage": "Get Started",
-    "description": "Title of get started page"
-  },
   "coAsEN": {
     "defaultMessage": "Other promotions",
     "description": "Marketing promotions"
@@ -6190,10 +6138,6 @@
   "dHaRPA": {
     "defaultMessage": "Build to learn",
     "description": "Title for recommended action for new projects platform user"
-  },
-  "dJf+5S": {
-    "defaultMessage": "JavaScript Questions",
-    "description": "Title for an example list of JavaScript Questions on marketing pages"
   },
   "dKaQQ+": {
     "defaultMessage": "Intro to behavioral interviews",
@@ -6558,10 +6502,6 @@
   "fcKx8Z": {
     "defaultMessage": "Advanced",
     "description": "Advanced blog"
-  },
-  "fevC5W": {
-    "defaultMessage": "Free",
-    "description": "Label indicating that quiz questions are free"
   },
   "fg9NRy": {
     "defaultMessage": "Download your unlocked Figma file (<code>.fig</code>) and open it using the <link>Figma desktop app</link> or the <link2>Figma website</link2>.",
@@ -7175,10 +7115,6 @@
     "defaultMessage": "API design principles",
     "description": "User Interface components API design principles"
   },
-  "jnV/ZP": {
-    "defaultMessage": "System Design Questions",
-    "description": "Title for an example list of System Design Questions on marketing pages"
-  },
   "jp2HuK": {
     "defaultMessage": "Recommended",
     "description": "Sorting option for projects list - recommended"
@@ -7275,10 +7211,6 @@
     "defaultMessage": "{count, plural, one {Your submission <bold>{title}</bold> has received its 1st upvote {timestamp}} other {Your submission <bold>{title}</bold> has received # upvotes {timestamp}}}",
     "description": "Number of comments for project submission"
   },
-  "kF3Llo": {
-    "defaultMessage": "Knowledge is power. Over {count} short questions with answers to build and solidify your front end fundamentals.",
-    "description": "Subtitle for an example list of Quiz Questions on marketing pages"
-  },
   "kJOJ4u": {
     "defaultMessage": "Is it really worth it to buy GreatFrontEnd Interviews?",
     "description": "Question on Homepage's FAQ section - on the worthiness of purchasing the product"
@@ -7294,10 +7226,6 @@
   "kKZhDV": {
     "defaultMessage": "Don't let front end interviews hold you back",
     "description": "Homepage title"
-  },
-  "kL0yEH": {
-    "defaultMessage": "You can't find it elsewhere",
-    "description": "Label for an example list of System Design Questions on marketing pages"
   },
   "kPBwBR": {
     "defaultMessage": "Resume preparation",
@@ -7470,10 +7398,6 @@
   "lJF2aI": {
     "defaultMessage": "See child skills ({count})",
     "description": "Label to show skills card"
-  },
-  "lJupPX": {
-    "defaultMessage": "View All Questions",
-    "description": "Link label to the list of all JavaScript coding questions"
   },
   "lKKC9U": {
     "defaultMessage": "Core System Design techniques and in-depth solutions to common questions like building a social media feed, autocomplete component, e-commerce website.",
@@ -8703,10 +8627,6 @@
     "defaultMessage": "for Interviews",
     "description": "GreatFrontEnd product vertical"
   },
-  "u0dndi": {
-    "defaultMessage": "View All Questions",
-    "description": "Link label to the list of all Quiz coding questions"
-  },
   "u2wpqq": {
     "defaultMessage": "Redo",
     "description": "Redo tooltip for Richtext toolbar"
@@ -8802,10 +8722,6 @@
   "ujBJq7": {
     "defaultMessage": "All submissions",
     "description": "Label for All submissions sidebar item in Projects sidebar"
-  },
-  "uogn1k": {
-    "defaultMessage": "Practice build all sorts of user interfaces: components, apps, games, etc, in the framework of your choice.",
-    "description": "Subtitle for an example list of User Interface Questions on marketing pages"
   },
   "uqu1l4": {
     "defaultMessage": "Browse all challenges",
@@ -9018,10 +8934,6 @@
   "w3mqdJ": {
     "defaultMessage": "Search JavaScript interview questions",
     "description": "Placeholder for search input of JavaScript question list"
-  },
-  "w3pn1B": {
-    "defaultMessage": "Pick your framework",
-    "description": "Label for an example list of User Interface Questions on marketing pages"
   },
   "w85sKh": {
     "defaultMessage": "<authorLink>{author}</authorLink> replied to your question on the project discussions for <challengeLink>{entityTitle}</challengeLink> {timestamp}",
@@ -9394,10 +9306,6 @@
   "yw92sr": {
     "defaultMessage": "Unlike other challenge platforms, all our projects are modular with one other as they are constructed with the same design system. Easily mix and match any component or project you build to craft a unique app.",
     "description": "Description of 'Personalized projects' feature in Projects marketing page"
-  },
-  "z+5YJV": {
-    "defaultMessage": "View All Questions",
-    "description": "Link label to the list of all User Interface coding questions"
   },
   "z06VRE": {
     "defaultMessage": "To bridge <keywords>skill gaps</keywords>",

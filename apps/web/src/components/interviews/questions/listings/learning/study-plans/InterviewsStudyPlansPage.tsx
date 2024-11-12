@@ -9,7 +9,7 @@ import { RiListCheck3, RiTimerLine, RiVerifiedBadgeLine } from 'react-icons/ri';
 
 import { trpc } from '~/hooks/trpc';
 
-import InterviewsListPageHeader from '~/components/interviews/common/InterviewsListPageHeader';
+import InterviewsPageHeader from '~/components/interviews/common/InterviewsPageHeader';
 import {
   mapStudyPlansBySlug,
   StudyPlanIcons,
@@ -92,7 +92,7 @@ export default function InterviewsStudyPlansPage({
 
   return (
     <div className={clsx('flex flex-col gap-y-12 md:gap-y-16')}>
-      <InterviewsListPageHeader
+      <InterviewsPageHeader
         description={intl.formatMessage({
           defaultMessage:
             'Prepare well for your front end interviews regardless of time left.',

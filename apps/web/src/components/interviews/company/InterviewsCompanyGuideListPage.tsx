@@ -11,7 +11,7 @@ import {
   RiWindowLine,
 } from 'react-icons/ri';
 
-import InterviewsListPageHeader from '~/components/interviews/common/InterviewsListPageHeader';
+import InterviewsPageHeader from '~/components/interviews/common/InterviewsPageHeader';
 import { useIntl } from '~/components/intl';
 import MDXContent from '~/components/mdx/MDXContent';
 import Divider from '~/components/ui/Divider';
@@ -59,7 +59,7 @@ export default function InterviewsStudyListListPage({
 
   return (
     <div className={clsx('flex flex-col gap-y-12 md:gap-y-16')}>
-      <InterviewsListPageHeader
+      <InterviewsPageHeader
         description={intl.formatMessage({
           defaultMessage:
             'Optimized preparation for target companies, leveraging insider tips and expertise.',
