@@ -75,7 +75,7 @@ export default function NavbarPopoverTabs({
             </TabsPrimitive.Trigger>
           ))}
         </TabsPrimitive.List>
-        <div className="flex w-full grow items-center py-4">
+        <div className="flex w-full grow items-center py-4 pe-4">
           {items.map((item) => (
             <TabsPrimitive.Content
               key={item.itemKey}
