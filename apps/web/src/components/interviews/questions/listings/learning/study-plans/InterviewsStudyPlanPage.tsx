@@ -128,7 +128,6 @@ export default function InterviewsStudyPlanPage({
           questionsSessionKey={studyList.slug}
           title={studyList.longName}
         />
-        <Divider />
       </div>
       <Section>
         <div>

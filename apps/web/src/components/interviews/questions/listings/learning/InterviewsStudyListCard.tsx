@@ -123,7 +123,7 @@ export default function InterviewsStudyListCard({
           <div className="flex flex-wrap items-center gap-x-8 gap-y-2 md:gap-x-10">
             <InterviewsEntityProgress
               completed={completionCount}
-              showProgress={showProgressBar}
+              showProgress={showProgressBar && isStarted}
               title={name}
               total={questionCount}
               type="question"

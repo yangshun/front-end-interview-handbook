@@ -2,6 +2,8 @@
 
 import { useQuestionFrameworksData } from '~/data/QuestionLists';
 
+import type { GuideCardMetadata } from '~/components/guides/types';
+
 import InterviewsQuestionsCategoryPage from './InterviewsQuestionsCategoryPage';
 import type { QuestionFramework } from '../../common/QuestionsTypes';
 
@@ -11,6 +13,7 @@ type Props = Omit<
 > &
   Readonly<{
     framework: QuestionFramework;
+    guides: ReadonlyArray<GuideCardMetadata>;
   }>;
 
 export default function InterviewsQuestionsCategoryFrameworkPage({

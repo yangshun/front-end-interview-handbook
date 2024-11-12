@@ -80,7 +80,10 @@ export default function NavProductDropdownMenu({
               direction="vertical"
             />
             <span className="relative flex items-center gap-2">
-              <Text size="body2" weight="bold">
+              <Text
+                color={variant === 'full' ? 'default' : 'secondary'}
+                size="body2"
+                weight="bold">
                 {label}
               </Text>
               {showUnseenIndicator && (

@@ -12,6 +12,7 @@ import { useQuestionFormatsData } from '~/data/QuestionLists';
 
 import type {
   FrontEndInterviewSlugType,
+  FrontEndSystemDesignSlugType,
   GuideCardMetadata,
 } from '~/components/guides/types';
 import useGuidesWithCompletionStatus from '~/components/guides/useGuidesWithCompletionStatus';
@@ -78,53 +79,60 @@ export default function InterviewsQuestionFormatPage({
     },
   ];
 
-  const slugs: ReadonlyArray<FrontEndInterviewSlugType> =
-    format === 'javascript'
-      ? [
-          'javascript',
-          'algorithms',
-          'user-interface',
-          'user-interface-questions-cheatsheet',
-          'user-interface-components-api-design-principles',
-        ]
-      : ['algorithms'];
+  const guidesSlugs: Record<
+    QuestionFormat,
+    ReadonlyArray<FrontEndInterviewSlugType | FrontEndSystemDesignSlugType>
+  > = {
+    algo: ['algorithms'],
+    javascript: ['javascript'],
+    quiz: ['quiz'],
+    'system-design': [
+      'introduction',
+      'types-of-questions',
+      'framework',
+      'evaluation-axes',
+      'cheatsheet',
+    ],
+    'user-interface': [
+      'user-interface',
+      'user-interface-questions-cheatsheet',
+      'user-interface-components-api-design-principles',
+    ],
+  };
+  const guideCardTitle: Record<QuestionFormat, string> = {
+    algo: intl.formatMessage({
+      defaultMessage: 'Algorithmic Coding Interview Guides',
+      description: 'Title for guide card',
+      id: 'nYa2H9',
+    }),
+    javascript: intl.formatMessage({
+      defaultMessage: 'JavaScript Interview Guides',
+      description: 'Title for guide card',
+      id: '0ljSJ7',
+    }),
+    quiz: intl.formatMessage({
+      defaultMessage: 'Quiz Interview Guides',
+      description: 'Title for guide card',
+      id: 'cblnDH',
+    }),
+    'system-design': intl.formatMessage({
+      defaultMessage: 'Front End System Design Interview Guides',
+      description: 'Title for guide card',
+      id: 'kpj0yo',
+    }),
+    'user-interface': intl.formatMessage({
+      defaultMessage: 'User Interface Coding Guides',
+      description: 'Title for guide card',
+      id: 'DmiRUe',
+    }),
+  };
 
   const filteredGuides = guides.filter((guide) =>
-    slugs.includes(guide.slug as FrontEndInterviewSlugType),
+    guidesSlugs[format].includes(guide.slug as FrontEndInterviewSlugType),
   );
 
   const guidesWithCompletionStatus =
     useGuidesWithCompletionStatus(filteredGuides);
-
-  const guidesData = {
-    description:
-      format === 'javascript'
-        ? intl.formatMessage({
-            defaultMessage:
-              'Explore our starter guides to get a solid grasp of JavaScript interview prep before jumping into practice.',
-            description: 'Description for guide card',
-            id: '9uzsoQ',
-          })
-        : intl.formatMessage({
-            defaultMessage:
-              'Explore our starter guides to get a solid grasp of algorithms interview prep before jumping into practice.',
-            description: 'Description for guide card',
-            id: '7Z4BzJ',
-          }),
-    items: guidesWithCompletionStatus,
-    title:
-      format === 'javascript'
-        ? intl.formatMessage({
-            defaultMessage: 'JavaScript Interview Guides',
-            description: 'Title for guide card',
-            id: '0ljSJ7',
-          })
-        : intl.formatMessage({
-            defaultMessage: 'Algorithms Interview Guides',
-            description: 'Title for guide card',
-            id: 'y4Aai3',
-          }),
-  };
 
   const formatData = useQuestionFormatsData();
   const filterNamespace = `format:${format}`;
@@ -152,7 +160,18 @@ export default function InterviewsQuestionFormatPage({
           defaultSortField="difficulty"
           filterNamespace={filterNamespace}
           guides={
-            guidesWithCompletionStatus.length > 0 ? guidesData : undefined
+            guidesWithCompletionStatus.length > 0
+              ? {
+                  description: intl.formatMessage({
+                    defaultMessage:
+                      'Gain an insider overview of essential tips to prepare effectively before you begin practicing.',
+                    description: 'Description for guide card',
+                    id: 'v1a7l5',
+                  }),
+                  items: guidesWithCompletionStatus,
+                  title: guideCardTitle[format],
+                }
+              : undefined
           }
           questionCompletionCount={questionCompletionCount}
           questions={questions}

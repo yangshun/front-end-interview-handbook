@@ -1,6 +1,7 @@
 import clsx from 'clsx';
 
 import QuestionListingFilterItem from '~/components/interviews/questions/listings/filters/QuestionListingFilterItem';
+import { FormattedMessage } from '~/components/intl';
 import {
   Accordion,
   AccordionContent,
@@ -81,9 +82,9 @@ export default function QuestionListingUnifiedFilters({
         className={clsx('border-b', themeBorderElementColor)}
         defaultValue={[
           companyFilterOptions.id,
-          difficultyFilterOptions.id,
-          initialOpenItems?.includes('topic') || topicFilters.size > 0
-            ? topicFilterOptions.id
+          topicFilterOptions.id,
+          initialOpenItems?.includes('difficulty') || difficultyFilters.size > 0
+            ? difficultyFilterOptions.id
             : null,
           initialOpenItems?.includes('importance') || importanceFilters.size > 0
             ? importanceFilterOptions.id
@@ -122,6 +123,10 @@ export default function QuestionListingUnifiedFilters({
           section={importanceFilterOptions}
           values={importanceFilters}
         />
+        <QuestionListingFilterItem
+          section={completionStatusFilterOptions}
+          values={completionStatusFilters}
+        />
         {(attributesUnion.frameworks.size > 1 ||
           attributesUnion.languages.size > 1) && (
           <AccordionItem value="framework-language">
@@ -129,12 +134,20 @@ export default function QuestionListingUnifiedFilters({
               asChild={true}
               label={
                 <p className="flex flex-col gap-2">
-                  You may complete questions in any language or framework within
-                  our coding workspace.
+                  <FormattedMessage
+                    defaultMessage="You may complete questions in any language or framework within
+                  our coding workspace."
+                    description="Framework/language filter tooltip content"
+                    id="5FjCpN"
+                  />
                   <br />
                   <br />
-                  This filter helps you to find questions with official
-                  solutions in these Frameworks or Languages.
+                  <FormattedMessage
+                    defaultMessage="This filter helps you to find questions with official
+                  solutions in these Frameworks or Languages."
+                    description="Framework/language filter tooltip content"
+                    id="rzk8kt"
+                  />
                 </p>
               }>
               <AccordionTrigger>
@@ -146,42 +159,38 @@ export default function QuestionListingUnifiedFilters({
             </Tooltip>
             <AccordionContent>
               <div className="flex flex-col gap-y-5">
+                {attributesUnion.languages.size > 1 && (
+                  <>
+                    <div className="flex flex-col gap-y-3">
+                      <Text className="block" size="body2">
+                        {languageFilterOptions.name}
+                      </Text>
+                      <QuestionListingFilterItemCheckboxes
+                        coveredValues={attributesUnion.languages}
+                        section={languageFilterOptions}
+                        values={languageFilters}
+                      />
+                    </div>
+                    <Divider />
+                  </>
+                )}
                 {mode !== 'framework' &&
                   attributesUnion.frameworks.size > 1 && (
-                    <>
-                      <div className="flex flex-col gap-y-3">
-                        <Text className="block" size="body2">
-                          {frameworkFilterOptions.name}
-                        </Text>
-                        <QuestionListingFilterItemCheckboxes
-                          coveredValues={attributesUnion.frameworks}
-                          section={frameworkFilterOptions}
-                          values={frameworkFilters}
-                        />
-                      </div>
-                      <Divider />
-                    </>
+                    <div className="flex flex-col gap-y-3">
+                      <Text className="block" size="body2">
+                        {frameworkFilterOptions.name}
+                      </Text>
+                      <QuestionListingFilterItemCheckboxes
+                        coveredValues={attributesUnion.frameworks}
+                        section={frameworkFilterOptions}
+                        values={frameworkFilters}
+                      />
+                    </div>
                   )}
-                {attributesUnion.languages.size > 1 && (
-                  <div className="flex flex-col gap-y-3">
-                    <Text className="block" size="body2">
-                      {languageFilterOptions.name}
-                    </Text>
-                    <QuestionListingFilterItemCheckboxes
-                      coveredValues={attributesUnion.languages}
-                      section={languageFilterOptions}
-                      values={languageFilters}
-                    />
-                  </div>
-                )}
               </div>
             </AccordionContent>
           </AccordionItem>
         )}
-        <QuestionListingFilterItem
-          section={completionStatusFilterOptions}
-          values={completionStatusFilters}
-        />
         <QuestionListingFilterItem
           coveredValues={attributesUnion.formats}
           section={formatFilterOptions}

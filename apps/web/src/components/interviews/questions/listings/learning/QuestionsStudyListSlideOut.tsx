@@ -640,6 +640,10 @@ export default function QuestionsStudyListSlideOut({
   );
 
   function onClose() {
+    // If there are no questions after the filter, prevent closing
+    if (processedQuestions.length === 0) {
+      return;
+    }
     if (studyList?.listKey && studyList.listKey !== currentStudyList?.listKey) {
       setShowStudyListSwitchDialog({
         href: firstQuestionHref,

@@ -1,11 +1,12 @@
 import clsx from 'clsx';
 
-import { themeTextBrandColor } from '../theme';
+import { themeTextBrandColor, themeTextColor } from '../theme';
 
 export type ChipSize = 'md' | 'sm' | 'xs';
 
 export type ChipVariant =
   | 'active'
+  | 'neutral-active'
   | 'neutral'
   | 'primary'
   | 'secondary'
@@ -50,6 +51,12 @@ const variantClasses: Record<
     borderClass: 'border border-neutral-200 dark:border-neutral-700',
     iconClass: 'text-neutral-500',
     textClass: 'text-neutral-500 dark:text-neutral-400',
+  },
+  'neutral-active': {
+    backgroundClass: '',
+    borderClass: 'border border-neutral-700 dark:border-neutral-100',
+    iconClass: themeTextColor,
+    textClass: themeTextColor,
   },
   primary: {
     backgroundClass: 'bg-brand-dark dark:bg-brand',

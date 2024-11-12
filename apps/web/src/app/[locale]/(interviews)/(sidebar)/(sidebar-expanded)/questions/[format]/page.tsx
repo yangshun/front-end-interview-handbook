@@ -1,7 +1,6 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 
-import type { GuideCardMetadata } from '~/components/guides/types';
 import type {
   QuestionFormat,
   QuestionMetadata,
@@ -9,7 +8,10 @@ import type {
 import InterviewsQuestionFormatPage from '~/components/interviews/questions/listings/practice/InterviewsQuestionFormatPage';
 
 import { fetchInterviewListingBottomContent } from '~/db/contentlayer/InterviewsListingBottomContentReader';
-import { readAllFrontEndInterviewGuides } from '~/db/guides/GuidesReader';
+import {
+  readAllFrontEndInterviewGuides,
+  readAllFrontendSystemDesignGuides,
+} from '~/db/guides/GuidesReader';
 import { fetchQuestionCompletionCount } from '~/db/QuestionsCount';
 import {
   fetchQuestionsListCoding,
@@ -313,17 +315,15 @@ export default async function Page({ params }: Props) {
     { pageTitle, description, questions },
     questionCompletionCount,
     bottomContent,
+    guides,
   ] = await Promise.all([
     processParams(params),
     fetchQuestionCompletionCount([questionFormat]),
     fetchInterviewListingBottomContent(`${format}-question-format`),
+    format === 'system-design'
+      ? readAllFrontendSystemDesignGuides(params.locale)
+      : readAllFrontEndInterviewGuides(params.locale),
   ]);
-  let guides: ReadonlyArray<GuideCardMetadata> = [];
-
-  // Need to show guides card only for javascript and algo format question
-  if (questionFormat === 'javascript' || questionFormat === 'algo') {
-    guides = await readAllFrontEndInterviewGuides(params.locale);
-  }
 
   return (
     <InterviewsQuestionFormatPage

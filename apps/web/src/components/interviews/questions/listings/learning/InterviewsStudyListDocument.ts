@@ -120,3 +120,4 @@ export const InterviewsStudyListDocument = defineDocumentType(() => ({
   filePathPattern: 'interviews/study-list/**/*.mdx',
   name: 'InterviewsStudyList',
 }));
+

@@ -1,20 +1,9 @@
-import grayMatter from 'gray-matter';
 import type { Metadata } from 'next/types';
-import path from 'path';
-import readingTime from 'reading-time';
 
-import type {
-  BehavioralRouteType,
-  GuideCardMetadata,
-} from '~/components/guides/types';
 import { basePath } from '~/components/guides/useBehavioralInterviewGuidebookNavigation';
 import BehavioralInterviewPlaybookPage from '~/components/interviews/guides/BehavioralInterviewPlaybookPage';
 
-import { readGuidesContents } from '~/db/guides/GuidesReader';
-import {
-  behavioralRouteToFile,
-  behavioralSlugs,
-} from '~/db/guides/GuidesUtils';
+import { readAllBehavioralGuides } from '~/db/guides/GuidesReader';
 import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
 
@@ -69,53 +58,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   });
 }
 
-function requestToPaths(route: BehavioralRouteType): Readonly<{
-  directoryPath: string;
-}> {
-  const directoryPath = path.join(
-    process.cwd(),
-    '..',
-    '..',
-    'submodules',
-    'front-end-interview-handbook',
-    'packages',
-    'behavioral-interview-guidebook',
-    'contents',
-    behavioralRouteToFile[route],
-  );
-
-  return { directoryPath };
-}
-
-async function readAllGuides({ params }: Props) {
-  const { locale } = params;
-
-  const guidesData: Array<GuideCardMetadata> = [];
-
-  behavioralSlugs.forEach((slug) => {
-    const { directoryPath } = requestToPaths(slug);
-
-    const mdxSource = readGuidesContents(directoryPath, locale);
-
-    const { data } = grayMatter(mdxSource);
-    const { description, title } = data;
-    const time = Math.ceil(readingTime(mdxSource ?? '').minutes);
-
-    guidesData.push({
-      category: 'behavioral-interview-guide',
-      description,
-      href: `${basePath}/${slug}`,
-      readingTime: time,
-      slug,
-      title,
-    });
-  });
-
-  return guidesData;
-}
-
 export default async function Page({ params }: Props) {
-  const allGuides = await readAllGuides({ params });
+  const allGuides = await readAllBehavioralGuides(params.locale);
 
   return <BehavioralInterviewPlaybookPage allGuides={allGuides} />;
 }

@@ -20,6 +20,7 @@ type Props<Q extends GuideCardMetadata> = Readonly<{
   checkIfCompletedGuide: (guide: Q) => boolean;
   onMarkAsCompleted?: (guide: Q) => void;
   onMarkAsNotCompleted?: (guide: Q) => void;
+  startingValue?: number;
 }>;
 
 export default function GuidesList<Q extends GuideCardMetadata>({
@@ -27,6 +28,7 @@ export default function GuidesList<Q extends GuideCardMetadata>({
   checkIfCompletedGuide,
   onMarkAsCompleted,
   onMarkAsNotCompleted,
+  startingValue = 0,
 }: Props<Q>) {
   return (
     <ul className={clsx('flex flex-col gap-4')}>
@@ -49,7 +51,7 @@ export default function GuidesList<Q extends GuideCardMetadata>({
               className="z-[1]"
               guide={guide}
               hasCompleted={hasCompletedQuestion}
-              index={index}
+              index={index + startingValue}
               onMarkAsCompleted={onMarkAsCompleted}
               onMarkAsNotCompleted={onMarkAsNotCompleted}
             />

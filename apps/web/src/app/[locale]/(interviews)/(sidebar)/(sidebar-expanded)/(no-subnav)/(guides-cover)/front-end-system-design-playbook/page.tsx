@@ -1,21 +1,10 @@
-import grayMatter from 'gray-matter';
 import type { Metadata } from 'next/types';
-import path from 'path';
-import readingTime from 'reading-time';
 
-import type {
-  FrontEndSystemDesignRouteType,
-  GuideCardMetadata,
-} from '~/components/guides/types';
 import FrontEndSystemDesignPlaybookPage from '~/components/interviews/guides/FrontEndSystemDesignPlaybookPage';
 import { basePath } from '~/components/interviews/questions/content/system-design/SystemDesignNavigation';
 
 import { fetchInterviewsStudyList } from '~/db/contentlayer/InterviewsStudyListReader';
-import { readGuidesContents } from '~/db/guides/GuidesReader';
-import {
-  frontendSystemDesignRouteToFile,
-  frontendSystemDesignSlugs,
-} from '~/db/guides/GuidesUtils';
+import { readAllFrontendSystemDesignGuides } from '~/db/guides/GuidesReader';
 import { fetchQuestionCompletionCount } from '~/db/QuestionsCount';
 import { fetchQuestionsListSystemDesign } from '~/db/QuestionsListReader';
 import { getIntlServerOnly } from '~/i18n';
@@ -72,49 +61,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   });
 }
 
-// TODO(interviews): consolidate
-function requestToPaths(route: FrontEndSystemDesignRouteType) {
-  const directoryPath = path.join(
-    process.cwd(),
-    '..',
-    '..',
-    'submodules',
-    'front-end-interview-handbook',
-    'packages',
-    'system-design',
-    'contents',
-    frontendSystemDesignRouteToFile[route],
-  );
-
-  return { directoryPath };
-}
-
-async function readAllGuides({ params }: Props) {
-  const { locale } = params;
-  const guidesData: Array<GuideCardMetadata> = [];
-
-  frontendSystemDesignSlugs.forEach((slug) => {
-    const { directoryPath } = requestToPaths(slug);
-
-    const mdxSource = readGuidesContents(directoryPath, locale);
-
-    const { data } = grayMatter(mdxSource);
-    const { description, title } = data;
-    const time = Math.ceil(readingTime(mdxSource ?? '').minutes);
-
-    guidesData.push({
-      category: 'system-design-guide',
-      description,
-      href: `${basePath}/${slug}`,
-      readingTime: time,
-      slug,
-      title,
-    });
-  });
-
-  return guidesData;
-}
-
 export default async function Page({ params }: Props) {
   const { locale } = params;
 
@@ -126,7 +72,7 @@ export default async function Page({ params }: Props) {
     gfe75,
     { title, description, socialTitle, href },
   ] = await Promise.all([
-    readAllGuides({ params }),
+    readAllFrontendSystemDesignGuides(params.locale),
     fetchQuestionsListSystemDesign(locale),
     fetchQuestionCompletionCount(['system-design']),
     fetchInterviewsStudyList('blind75'),

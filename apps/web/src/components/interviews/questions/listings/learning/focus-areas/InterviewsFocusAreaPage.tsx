@@ -21,7 +21,10 @@ import type {
   QuestionMetadata,
   QuestionSlug,
 } from '~/components/interviews/questions/common/QuestionsTypes';
-import { FocusAreaIcons } from '~/components/interviews/questions/content/study-list/FocusAreas';
+import {
+  FocusAreaIcons,
+  focusAreaLongDescription,
+} from '~/components/interviews/questions/content/study-list/FocusAreas';
 import QuestionsList from '~/components/interviews/questions/listings/items/QuestionsList';
 import QuestionsStudyList from '~/components/interviews/questions/listings/learning/QuestionsStudyList';
 import QuestionsStudyListPageTitleSection from '~/components/interviews/questions/listings/learning/QuestionsStudyListPageTitleSection';
@@ -30,6 +33,7 @@ import MDXContent from '~/components/mdx/MDXContent';
 import Button from '~/components/ui/Button';
 import Divider from '~/components/ui/Divider';
 import Section from '~/components/ui/Heading/HeadingContext';
+import Text from '~/components/ui/Text';
 
 import {
   categorizeQuestionsProgress,
@@ -99,6 +103,7 @@ export default function InterviewsFocusAreaPage({
       }),
     },
   ];
+  const longDescription = focusAreaLongDescription(intl);
 
   return (
     <div className={clsx('flex flex-col gap-y-12 md:gap-y-16', 'relative')}>
@@ -127,7 +132,15 @@ export default function InterviewsFocusAreaPage({
           questionsSessionKey={studyList.slug}
           title={studyList.longName}
         />
-        <Divider />
+        {longDescription[studyList.slug] && (
+          <div className={clsx('grid items-center gap-6 lg:grid-cols-12')}>
+            <div className="lg:col-span-9">
+              <Text color="secondary" size="body1">
+                {longDescription[studyList.slug]}
+              </Text>
+            </div>
+          </div>
+        )}
       </div>
       <Section>
         {canViewFocusAreas ? (

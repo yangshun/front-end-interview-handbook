@@ -2,6 +2,7 @@ import type { Metadata } from 'next/types';
 
 import InterviewsQuestionsCategoryFrameworkPage from '~/components/interviews/questions/listings/category/InterviewsQuestionsCategoryFrameworkPage';
 
+import { readAllFrontEndInterviewGuides } from '~/db/guides/GuidesReader';
 import { fetchQuestionCompletionCount } from '~/db/QuestionsCount';
 import { fetchCodingQuestionsForFramework } from '~/db/QuestionsListReader';
 import { getIntlServerOnly } from '~/i18n';
@@ -39,10 +40,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   });
 }
 
-export default async function Page() {
-  const [questionList, questionCompletionCount] = await Promise.all([
+export default async function Page({ params }: Props) {
+  const [questionList, questionCompletionCount, guides] = await Promise.all([
     fetchCodingQuestionsForFramework(framework),
     fetchQuestionCompletionCount(['user-interface']),
+    readAllFrontEndInterviewGuides(params.locale),
   ]);
 
   const questionListForFramework = questionList.filter((metadata) =>
@@ -54,6 +56,7 @@ export default async function Page() {
   return (
     <InterviewsQuestionsCategoryFrameworkPage
       framework={framework}
+      guides={guides}
       questionCompletionCount={questionCompletionCount}
       questionList={questionListForFramework}
     />

@@ -71,6 +71,7 @@ export default function InterviewsQuestionsCategoryLanguagePage({
       framework={language}
       questionList={filteredQuestions}
       searchPlaceholder={languages[language].searchPlaceholder}
+      selectedCategoryTab={selectedTab}
       title={languages[language].longName}
       {...props}
     />

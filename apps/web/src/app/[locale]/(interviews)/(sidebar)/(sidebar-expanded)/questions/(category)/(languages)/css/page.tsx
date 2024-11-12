@@ -2,6 +2,7 @@ import type { Metadata } from 'next/types';
 
 import InterviewsQuestionsCategoryLanguagePage from '~/components/interviews/questions/listings/category/InterviewsQuestionsCategoryLanguagePage';
 
+import { readAllFrontEndInterviewGuides } from '~/db/guides/GuidesReader';
 import { fetchQuestionCompletionCount } from '~/db/QuestionsCount';
 import {
   fetchQuestionsListCoding,
@@ -48,10 +49,12 @@ export default async function Page({ params }: Props) {
     { questions: questionsCoding },
     { questions: questionsQuiz },
     questionCompletionCount,
+    guides,
   ] = await Promise.all([
     fetchQuestionsListCoding(locale),
     fetchQuestionsListQuiz(locale),
     fetchQuestionCompletionCount(['javascript', 'user-interface', 'quiz']),
+    readAllFrontEndInterviewGuides(params.locale),
   ]);
 
   const questionsCodingCSS = questionsCoding.filter((metadata) =>
@@ -63,6 +66,7 @@ export default async function Page({ params }: Props) {
 
   return (
     <InterviewsQuestionsCategoryLanguagePage
+      guides={guides}
       language={language}
       questionCompletionCount={questionCompletionCount}
       questionsCoding={questionsCodingCSS}

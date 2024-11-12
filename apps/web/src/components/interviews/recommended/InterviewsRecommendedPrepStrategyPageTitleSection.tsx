@@ -174,7 +174,7 @@ function RecommendedItemsDropdown({
                   <Chip
                     label={(index + 1).toString()}
                     size="sm"
-                    variant={isSelected ? 'active' : 'neutral'}
+                    variant={isSelected ? 'neutral-active' : 'neutral'}
                   />
                 )}
                 {index < items.length - 1 && (

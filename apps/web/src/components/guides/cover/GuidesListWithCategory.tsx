@@ -1,4 +1,5 @@
 import clsx from 'clsx';
+import { last, reduce } from 'lodash-es';
 
 import { useToast } from '~/components/global/toasts/useToast';
 import type {
@@ -121,10 +122,23 @@ export default function GuidesListWithCategory({ guides }: Props) {
     );
   }
 
+  // For the starting value of the guides list
+  const cumulativeCounts = reduce(
+    guides,
+    (result, item) => {
+      const lastCount = last(result) || 0;
+
+      result.push(lastCount + item.articles.length);
+
+      return result;
+    },
+    [0],
+  );
+
   return (
     <div className={clsx('grid lg:grid-cols-12')}>
       <div className={clsx('flex flex-col gap-12', 'lg:col-span-9')}>
-        {guides.map(({ title, totalReadingTime, articles }) => (
+        {guides.map(({ title, totalReadingTime, articles }, index) => (
           <div key={title}>
             <Heading level="heading5">{title}</Heading>
             <div className="mb-4 mt-6 flex items-center gap-10">
@@ -134,6 +148,7 @@ export default function GuidesListWithCategory({ guides }: Props) {
             <GuidesList
               articles={articles}
               checkIfCompletedGuide={(guide) => guide.isCompleted}
+              startingValue={cumulativeCounts[index]}
               onMarkAsCompleted={markGuideAsCompleted}
               onMarkAsNotCompleted={markGuideAsNotCompleted}
             />

@@ -164,7 +164,7 @@ export default function InterviewsFrameworkAndLanguageSection({
       completedQuestions: frameworkProgress.angular.size,
       href: frameworksData.angular.href,
       icon: <AngularLogo className="size-6" />,
-      title: frameworksData.react.label,
+      title: frameworksData.angular.label,
       totalQuestions: frameworkQuestions.angular.length,
     },
     {

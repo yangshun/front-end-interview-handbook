@@ -683,6 +683,10 @@
     "defaultMessage": "You replied to <recipientProfileLink>{recipient}</recipientProfileLink> on the challenge forum for <link>{challengeTitle}</link>: <comment>\"{description}\"</comment>",
     "description": "Log message for you replying to someone on the challenge forum"
   },
+  "33r7p3": {
+    "defaultMessage": "Hone your computer science fundamentals by implementing important data structures and algorithms from scratch and practice the questions where algorithmic efficiency is key.",
+    "description": "Title for focus area type"
+  },
   "37Ttml": {
     "defaultMessage": "Security",
     "description": "Title for Security section on profile page"
@@ -814,6 +818,10 @@
   "3z2LJp": {
     "defaultMessage": "Practice",
     "description": "Section heading in footer for links to practice question pages"
+  },
+  "4+MpEW": {
+    "defaultMessage": "Master the art of building interactive and user-friendly forms by exploring various form components, validation techniques, and handling form submissions.",
+    "description": "Long description for focus areas"
   },
   "4/SGqe": {
     "defaultMessage": "Earlier",
@@ -990,6 +998,10 @@
   "5DwYlA": {
     "defaultMessage": "Type",
     "description": "Label for question format column of questions list table"
+  },
+  "5FjCpN": {
+    "defaultMessage": "You may complete questions in any language or framework within our coding workspace.",
+    "description": "Framework/language filter tooltip content"
   },
   "5Gjt4J": {
     "defaultMessage": "Something went wrong. Try again later or contact <link>support@greatfrontend.com</link>!",
@@ -1359,10 +1371,6 @@
     "defaultMessage": "Founder, CEO of GreatFrontEnd",
     "description": "Position of Yangshun"
   },
-  "7Z4BzJ": {
-    "defaultMessage": "Explore our starter guides to get a solid grasp of algorithms interview prep before jumping into practice.",
-    "description": "Description for guide card"
-  },
   "7ZjmR2": {
     "defaultMessage": "Implementation must contain at least {minLength} character(s).",
     "description": "Error message"
@@ -1635,6 +1643,10 @@
     "defaultMessage": "Marked \"{articleName}\" as incomplete!",
     "description": "Success message shown when an article was marked as not completed"
   },
+  "9jeX9H": {
+    "defaultMessage": "Dive into the world of element selection and modification in the DOM. Practice selecting elements using CSS selectors, traverse the DOM hierarchy, and manipulate their properties, content, and styles.",
+    "description": "Long description for focus areas"
+  },
   "9kkbE6": {
     "defaultMessage": "A simple yet comprehensive plan to follow",
     "description": "Title for marketing page study plans section"
@@ -1662,10 +1674,6 @@
   "9uTTIS": {
     "defaultMessage": "Practice front end interview questions requiring you to build UI with HTML, CSS, JavaScript/TypeScript, or React, Angular, and Vue. Solutions and tests from ex-interviewers.",
     "description": "SEO description for UI question format page"
-  },
-  "9uzsoQ": {
-    "defaultMessage": "Explore our starter guides to get a solid grasp of JavaScript interview prep before jumping into practice.",
-    "description": "Description for guide card"
   },
   "9xFHNn": {
     "defaultMessage": "{questionTitle} | Front End System Design Question",
@@ -2211,6 +2219,10 @@
     "defaultMessage": "{questionCount}+ solved questions",
     "description": "Features for frontend system design playbook page"
   },
+  "DmiRUe": {
+    "defaultMessage": "User Interface Coding Guides",
+    "description": "Title for guide card"
+  },
   "Dpfbeq": {
     "defaultMessage": "Purchase premium to unlock company guides and all the best materials we have to offer.",
     "description": "Paywall subtitle for company guides feature"
@@ -2458,6 +2470,10 @@
   "Fgr6w/": {
     "defaultMessage": "See all",
     "description": "Link to see all submissions"
+  },
+  "FhnnWR": {
+    "defaultMessage": "Gain proficiency in front end fundamentals by implementing JavaScript and DOM APIs from scratch.",
+    "description": "Long description for focus areas"
   },
   "FiI9XO": {
     "defaultMessage": "Premium is required to access focus-areas",
@@ -2966,6 +2982,10 @@
   "Iq5gAi": {
     "defaultMessage": "User interface coding",
     "description": "Front end user interface questions"
+  },
+  "IrBtz7": {
+    "defaultMessage": "Sharpen your skills in asynchronous programming by practicing the use of async/await, Promises, and callback functions. Dive into scenarios that require asynchronous operations, such as making API requests and delayed code execution.",
+    "description": "Long description for focus areas"
   },
   "IuGYUN": {
     "defaultMessage": "Community | Dashboard",
@@ -4831,6 +4851,10 @@
     "defaultMessage": "Our projects are designed to make for an <em>impressive</em> portfolio, even for seniors",
     "description": "Heading of the 'Portfolio features' marketing section on Projects home page"
   },
+  "Ul4HxL": {
+    "defaultMessage": "Elevate your front-end skills by practicing the creation of front end design system components.",
+    "description": "Long description for focus areas"
+  },
   "UltF1J": {
     "defaultMessage": "Already an affiliate? <link>Access dashboard</link>",
     "description": "Button to access dashboard above the Title of the 'Become An Affiliate' page's Hero section"
@@ -6015,6 +6039,10 @@
     "defaultMessage": "HTML",
     "description": "Label for HTML language"
   },
+  "cblnDH": {
+    "defaultMessage": "Quiz Interview Guides",
+    "description": "Title for guide card"
+  },
   "cf4ZZE": {
     "defaultMessage": "We noticed that your attempt to pay on GreatFrontEnd has failed. Here are some actions that may help:",
     "description": "Description for payment failure dialog"
@@ -6663,6 +6691,10 @@
     "defaultMessage": "Change password for {userEmail}",
     "description": "Title of Change Password page"
   },
+  "gaTO0X": {
+    "defaultMessage": "{framework} Interview Guides",
+    "description": "Description for guide card"
+  },
   "gbjgjg": {
     "defaultMessage": "<authorProfileLink>{author}</authorProfileLink> left a question on their submission <link>{submissionTitle}</link>: <comment>\"{description}\"</comment>",
     "description": "Log message for someone asking question on their submission"
@@ -6718,6 +6750,10 @@
   "gvncuz": {
     "defaultMessage": "Prioritized lists",
     "description": "Features for study plans"
+  },
+  "h+WHk/": {
+    "defaultMessage": "Train your skills in designing complex state and implementing operations to manipulate state.",
+    "description": "Long description for focus areas"
   },
   "h2eWtB": {
     "defaultMessage": "Build dynamic user interfaces using HTML, CSS, JavaScript, or popular UI frameworks like React, Angular, or Vue.",
@@ -6882,6 +6918,10 @@
   "i2950u": {
     "defaultMessage": "Collapse filters",
     "description": "Tooltip for collapse filters"
+  },
+  "i2twoD": {
+    "defaultMessage": "Practice developing inclusive and accessible web experiences. Explore the principles and techniques of web accessibility, including semantic HTML, ARIA roles, keyboard navigation, and screen reader compatibility, a skill which differentiates senior from junior front end engineers.",
+    "description": "Long description for focus areas"
   },
   "i4MSQe": {
     "defaultMessage": "1 Week Plan",
@@ -7291,6 +7331,10 @@
     "defaultMessage": "No starter files and design files required because it is an integration of other challenges.",
     "description": "Information for challenges that do not have any provided files."
   },
+  "kpj0yo": {
+    "defaultMessage": "Front End System Design Interview Guides",
+    "description": "Title for guide card"
+  },
   "kqHSpd": {
     "defaultMessage": "Time-savers like focus areas",
     "description": "Paywall tags"
@@ -7638,6 +7682,10 @@
   "nTu2nu": {
     "defaultMessage": "Privacy Policy",
     "description": "Title of Privacy Policy page"
+  },
+  "nYa2H9": {
+    "defaultMessage": "Algorithmic Coding Interview Guides",
+    "description": "Title for guide card"
   },
   "nYqpMP": {
     "defaultMessage": "Front end system design",
@@ -8291,6 +8339,10 @@
     "defaultMessage": "We're still growing our challenge base",
     "description": "Challenge base section title"
   },
+  "rzk8kt": {
+    "defaultMessage": "This filter helps you to find questions with official solutions in these Frameworks or Languages.",
+    "description": "Framework/language filter tooltip content"
+  },
   "rzu02O": {
     "defaultMessage": "Nothing at all! Just click \"Start project\", and we will take care of everything else and guide you along the way.",
     "description": "FAQ answer for projects platform"
@@ -8302,6 +8354,10 @@
   "s7lhuQ": {
     "defaultMessage": "Explore study plans that help you prepare for your front end interviews regardless of time left. Efficiently focus on topics that give you the most mileage for time.",
     "description": "Page description for study plans listing"
+  },
+  "sBY9/Q": {
+    "defaultMessage": "Implement various Lodash functions and methods to manipulate and transform data efficiently, a common task given during front end interviews and improve your front end interview readiness.",
+    "description": "Long description for focus areas"
   },
   "sCpKTY": {
     "defaultMessage": "Billing | Settings",
@@ -8755,6 +8811,10 @@
     "defaultMessage": "Salesforce",
     "description": "Company name for Salesforce"
   },
+  "v1a7l5": {
+    "defaultMessage": "Gain an insider overview of essential tips to prepare effectively before you begin practicing.",
+    "description": "Description for guide card"
+  },
   "v2TGFl": {
     "defaultMessage": "High",
     "description": "Label for high question importance"
@@ -9154,10 +9214,6 @@
   "y2x1w7": {
     "defaultMessage": "Ex-Staff Engineer, Meta. Author of Blind 75 and Docusaurus 2",
     "description": "Position of Yangshun"
-  },
-  "y4Aai3": {
-    "defaultMessage": "Algorithms Interview Guides",
-    "description": "Title for guide card"
   },
   "y4v8AZ": {
     "defaultMessage": "Component libraries",

@@ -317,7 +317,7 @@ export default function QuestionsUnifiedListWithFilters({
               id: '1w3zxf',
             })}
             placeholder={
-              searchPlaceholder ?? listKey
+              searchPlaceholder ?? (listKey
                 ? intl.formatMessage({
                     defaultMessage: 'Search within this list of questions',
                     description:
@@ -329,7 +329,7 @@ export default function QuestionsUnifiedListWithFilters({
                     description:
                       'Placeholder for search input of question list',
                     id: '1w3zxf',
-                  })
+                  }))
             }
             size="sm"
             startIcon={RiSearchLine}
