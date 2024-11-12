@@ -109,11 +109,11 @@ export function getDateRangeFromToday() {
   };
 }
 
-// Function to parse a date string in DD/MM/YYYY format
-function parseDate(dateString: string): Date {
-  const [day, month, year] = dateString.split('/').map(Number);
+function isConsecutiveDay(currentDate: Date, previousDate: Date): boolean {
+  const differenceInTime = currentDate.getTime() - previousDate.getTime();
+  const differenceInDays = differenceInTime / (1000 * 60 * 60 * 24);
 
-  return new Date(year, month - 1, day);
+  return differenceInDays === 1;
 }
 
 // Function to find the maximum number of consecutive days
@@ -122,7 +122,9 @@ export function findMaxConsecutiveDays(data?: Record<string, number>): number {
     return 0;
   }
 
-  const dates: Array<Date> = Object.keys(data).map(parseDate);
+  const dates: Array<Date> = Object.keys(data).map(
+    (dateStr) => new Date(dateStr),
+  );
   const sortedDates = sortBy(dates);
 
   let maxConsecutive = 1;
@@ -131,10 +133,8 @@ export function findMaxConsecutiveDays(data?: Record<string, number>): number {
   for (let i = 1; i < sortedDates.length; i++) {
     const prevDate = sortedDates[i - 1];
     const currentDate = sortedDates[i];
-    const diffInTime = currentDate.getTime() - prevDate.getTime();
-    const diffInDays = diffInTime / (1000 * 60 * 60 * 24);
 
-    if (diffInDays === 1) {
+    if (isConsecutiveDay(currentDate, prevDate)) {
       currentConsecutive++;
     } else {
       maxConsecutive = Math.max(maxConsecutive, currentConsecutive);
@@ -143,6 +143,48 @@ export function findMaxConsecutiveDays(data?: Record<string, number>): number {
   }
 
   return Math.max(maxConsecutive, currentConsecutive);
+}
+
+// Function to find the current number of consecutive days
+export function findCurrentMaxConsecutiveDays(
+  data?: Record<string, number>,
+): number {
+  if (!data) {
+    return 0;
+  }
+
+  const dates: Array<Date> = Object.keys(data).map(
+    (dateStr) => new Date(dateStr),
+  );
+  const sortedDates = sortBy(dates);
+
+  const today = new Date();
+  const yesterday = groupByDateFormatter.format(
+    new Date(today).setDate(today.getDate() - 1),
+  );
+  const isIncludedTodayContribution = Object.keys(data).includes(
+    groupByDateFormatter.format(today),
+  );
+  const isIncludedYesterdayContribution = Object.keys(data).includes(yesterday);
+
+  if (!isIncludedYesterdayContribution && !isIncludedTodayContribution) {
+    return 0; // No contribution on the most recent day, so streak is 0
+  }
+
+  let currentStreak = 1;
+
+  for (let i = sortedDates.length - 1; i > 0; i--) {
+    const currentDate = sortedDates[i];
+    const previousDate = sortedDates[i - 1];
+
+    if (isConsecutiveDay(currentDate, previousDate)) {
+      currentStreak += 1;
+    } else {
+      break;
+    }
+  }
+
+  return currentStreak;
 }
 
 export const groupByDateFormatter = new Intl.DateTimeFormat('en-US', {

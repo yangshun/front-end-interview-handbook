@@ -12,7 +12,7 @@ import Text from '~/components/ui/Text';
 import { themeGlassyBorder, themeTextColor } from '~/components/ui/theme';
 import Tooltip from '~/components/ui/Tooltip';
 
-import { findMaxConsecutiveDays } from './progress/utils';
+import { findCurrentMaxConsecutiveDays } from './progress/utils';
 import InterviewsPageHeader from '../common/InterviewsPageHeader';
 import InterviewsDashboardCreateAccountCard from '../dashboard/InterviewsDashboardCreateAccountCard';
 
@@ -26,7 +26,8 @@ export default function InterviewsDashboardPageHeader({
   isLoggedIn,
 }: Props) {
   const intl = useIntl();
-  const maxConsecutiveDays = findMaxConsecutiveDays(contributions);
+  const currentMaxConsecutiveDays =
+    findCurrentMaxConsecutiveDays(contributions);
   const features = [
     {
       icon: RiQuestionnaireLine,
@@ -69,7 +70,7 @@ export default function InterviewsDashboardPageHeader({
                 description="Tooltip for max consecutive days of contributions"
                 id="p1MoBS"
                 values={{
-                  days: maxConsecutiveDays,
+                  days: currentMaxConsecutiveDays,
                 }}
               />
             }>
@@ -95,7 +96,7 @@ export default function InterviewsDashboardPageHeader({
                     {chunk}
                   </Text>
                 ),
-                days: maxConsecutiveDays,
+                days: currentMaxConsecutiveDays,
               }}
             />
           </Text>

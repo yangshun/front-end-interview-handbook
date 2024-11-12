@@ -255,27 +255,67 @@ export const questionProgressRouter = router({
       }),
     )
     .query(async ({ ctx: { viewer }, input: { startTime, endTime } }) => {
-      const progress = await prisma.questionProgress.groupBy({
-        _count: {
-          id: true,
-        },
-        by: ['createdAt'],
-        where: {
-          createdAt: {
-            gte: startTime,
-            lte: endTime,
-          },
-          userId: viewer.id,
-        },
-      });
-      // Formatting the result
+      const [questionProgress, learningSessionProgress, guideProgress] =
+        await Promise.all([
+          prisma.questionProgress.groupBy({
+            _count: {
+              id: true,
+            },
+            by: ['createdAt'],
+            where: {
+              createdAt: {
+                gte: startTime,
+                lte: endTime,
+              },
+              userId: viewer.id,
+            },
+          }),
+          prisma.learningSessionProgress.groupBy({
+            _count: {
+              id: true,
+            },
+            by: ['createdAt'],
+            where: {
+              createdAt: {
+                gte: startTime,
+                lte: endTime,
+              },
+              session: {
+                userId: viewer.id,
+              },
+            },
+          }),
+          prisma.guideProgress.groupBy({
+            _count: {
+              id: true,
+            },
+            by: ['createdAt'],
+            where: {
+              createdAt: {
+                gte: startTime,
+                lte: endTime,
+              },
+              userId: viewer.id,
+            },
+          }),
+        ]);
+
       const formattedResults: Record<string, number> = {};
+      const addCounts = (
+        progressData: Array<{ _count: { id: number }; createdAt: Date }>,
+      ) => {
+        progressData.forEach(({ createdAt, _count }) => {
+          const dateStr = groupByDateFormatter.format(new Date(createdAt));
 
-      progress.forEach(({ createdAt, _count }) => {
-        const dateStr = groupByDateFormatter.format(new Date(createdAt));
+          formattedResults[dateStr] =
+            (formattedResults[dateStr] ?? 0) + _count.id;
+        });
+      };
 
-        formattedResults[dateStr] = _count.id;
-      });
+      // Aggregate each progress array
+      addCounts(questionProgress);
+      addCounts(learningSessionProgress);
+      addCounts(guideProgress);
 
       return formattedResults;
     }),
