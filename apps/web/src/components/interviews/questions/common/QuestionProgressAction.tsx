@@ -127,8 +127,9 @@ export default function QuestionProgressAction({
           deleteProgressMutation.mutate(
             { format: metadata.format, listKey, slug: metadata.slug },
             {
-              onError: () => {
+              onError: (error) => {
                 showToast({
+                  description: error.message,
                   title: intl.formatMessage({
                     defaultMessage:
                       'Failed to mark question as incomplete. Please try again',
@@ -142,10 +143,10 @@ export default function QuestionProgressAction({
               onSuccess: () => {
                 showToast({
                   title: intl.formatMessage({
-                    defaultMessage: 'Marked question as incomplete!',
+                    defaultMessage: 'Marked question as incomplete',
                     description:
                       'Success message shown when a question is marked as complete',
-                    id: 'UZVSxt',
+                    id: 'oR0ECI',
                   }),
                   variant: 'info',
                 });
@@ -181,14 +182,14 @@ export default function QuestionProgressAction({
             slug: metadata.slug,
           },
           {
-            onError: () => {
+            onError: (error) => {
               showToast({
+                description: error.message,
                 title: intl.formatMessage({
-                  defaultMessage:
-                    'Failed to mark question as complete. Please try again',
+                  defaultMessage: 'Failed to mark question as complete',
                   description:
                     'Error message shown when a question has failed to mark as complete',
-                  id: 'KY8GB9',
+                  id: 'mFyOK6',
                 }),
                 variant: 'danger',
               });
@@ -196,10 +197,10 @@ export default function QuestionProgressAction({
             onSuccess: () => {
               showToast({
                 title: intl.formatMessage({
-                  defaultMessage: 'Marked question as complete!',
+                  defaultMessage: 'Marked question as complete',
                   description:
                     'Success message shown when a question was marked as complete',
-                  id: 'wxtWHx',
+                  id: '3fkhgw',
                 }),
                 variant: 'success',
               });

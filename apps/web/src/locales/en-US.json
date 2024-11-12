@@ -779,6 +779,10 @@
     "defaultMessage": "Page name must contain at least {minLength} character(s).",
     "description": "Error message"
   },
+  "3fkhgw": {
+    "defaultMessage": "Marked question as complete",
+    "description": "Success message shown when a question was marked as complete"
+  },
   "3gL2Vm": {
     "defaultMessage": "Join Reddit community",
     "description": "Label for join reddit"
@@ -3235,10 +3239,6 @@
     "defaultMessage": "Software Engineer",
     "description": "Placeholder for \"Job Title\" input on Projects profile onboarding page"
   },
-  "KY8GB9": {
-    "defaultMessage": "Failed to mark question as complete. Please try again",
-    "description": "Error message shown when a question has failed to mark as complete"
-  },
   "KZWEcx": {
     "defaultMessage": "Please enter a different email address.",
     "description": "Email validation error message"
@@ -4830,10 +4830,6 @@
   "UX45fV": {
     "defaultMessage": "Homepage",
     "description": "Placeholder for name field of the deployment url"
-  },
-  "UZVSxt": {
-    "defaultMessage": "Marked question as incomplete!",
-    "description": "Success message shown when a question is marked as complete"
   },
   "UbCsf6": {
     "defaultMessage": "Stack",
@@ -7511,6 +7507,10 @@
     "defaultMessage": "<count>{questionCount}</count> <questions>questions</questions>",
     "description": "Number of questions"
   },
+  "mFyOK6": {
+    "defaultMessage": "Failed to mark question as complete",
+    "description": "Error message shown when a question has failed to mark as complete"
+  },
   "mGYl8O": {
     "defaultMessage": "Upvoted successfully!",
     "description": "Successful upvote toaster"
@@ -7810,6 +7810,10 @@
   "oQYa8+": {
     "defaultMessage": "You have unlocked this Figma file",
     "description": "Tooltip for premium Figma file download button"
+  },
+  "oR0ECI": {
+    "defaultMessage": "Marked question as incomplete",
+    "description": "Success message shown when a question is marked as complete"
   },
   "oS10TF": {
     "defaultMessage": "Follow us on GitHub",
@@ -9090,10 +9094,6 @@
   "wwf4o6": {
     "defaultMessage": "Dashboard",
     "description": "Title of Projects Dashboard page"
-  },
-  "wxtWHx": {
-    "defaultMessage": "Marked question as complete!",
-    "description": "Success message shown when a question was marked as complete"
   },
   "wzQGxj": {
     "defaultMessage": "Start in minutes",

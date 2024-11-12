@@ -30,59 +30,57 @@ export const questionProgressRouter = router({
           return null;
         }
 
-        const createData = {
-          format,
-          slug,
-          status: 'complete',
-          userId: viewer.id,
-        };
-        let questionProgress = null;
+        if (listKey == null) {
+          const createData = {
+            format,
+            slug,
+            status: 'complete',
+            userId: viewer.id,
+          };
+          let questionProgress = null;
 
-        if (!progressId) {
-          questionProgress = await prisma.questionProgress.create({
-            data: createData,
-          });
-        } else {
-          questionProgress = await prisma.questionProgress.upsert({
-            create: createData,
-            update: {
-              status,
-            },
-            where: {
-              id: progressId,
-            },
-          });
-        }
-
-        if (listKey != null) {
-          try {
-            const session = await prisma.learningSession.findFirst({
+          if (!progressId) {
+            questionProgress = await prisma.questionProgress.create({
+              data: createData,
+            });
+          } else {
+            questionProgress = await prisma.questionProgress.upsert({
+              create: createData,
+              update: {
+                status,
+              },
               where: {
-                key: listKey,
-                status: 'IN_PROGRESS',
-                userId: viewer.id,
+                id: progressId,
               },
             });
-
-            if (session != null) {
-              await prisma.learningSessionProgress.create({
-                data: {
-                  key: hashQuestion(format, slug),
-                  sessionId: session.id,
-                  status: 'COMPLETED',
-                },
-              });
-            }
-          } catch {
-            // TODO: Report error
           }
+
+          return {
+            ...questionProgress,
+            format: questionProgress.format as QuestionFormat,
+            status: questionProgress.status as QuestionProgressStatus,
+          };
         }
 
-        return {
-          ...questionProgress,
-          format: questionProgress.format as QuestionFormat,
-          status: questionProgress.status as QuestionProgressStatus,
-        };
+        const session = await prisma.learningSession.findFirst({
+          where: {
+            key: listKey,
+            status: 'IN_PROGRESS',
+            userId: viewer.id,
+          },
+        });
+
+        if (session == null) {
+          throw 'No ongoing learning session. Start tracking progress first.';
+        }
+
+        return await prisma.learningSessionProgress.create({
+          data: {
+            key: hashQuestion(format, slug),
+            sessionId: session.id,
+            status: 'COMPLETED',
+          },
+        });
       },
     ),
   delete: userProcedure
@@ -104,7 +102,7 @@ export const questionProgressRouter = router({
         });
 
         if (session == null) {
-          return;
+          throw 'No ongoing learning session. Start tracking progress first.';
         }
 
         return await prisma.learningSessionProgress.deleteMany({
