@@ -171,7 +171,6 @@ export default function InterviewsCompanyGuidePage({
             },
           )}
         />
-        <Divider />
         {/* Insider tips */}
         {insiderTipsData.length > 0 && (
           <div className="max-w-2xl">

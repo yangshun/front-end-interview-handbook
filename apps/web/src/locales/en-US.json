@@ -819,10 +819,6 @@
     "defaultMessage": "Earlier",
     "description": "Title for earlier list of comments"
   },
-  "40aZC1": {
-    "defaultMessage": "System Design",
-    "description": "Label for system design format"
-  },
   "41uq3N": {
     "defaultMessage": "Theme",
     "description": "Tooltip for theme selector"
@@ -1134,10 +1130,6 @@
   "6H0D7u": {
     "defaultMessage": "Learning features",
     "description": "Learning features of the product in Projects marketing page"
-  },
-  "6IcSN4": {
-    "defaultMessage": "{count, plural, =0 {0 Completions in the last year} one {<bold>{value}</bold> Completion in the last year} other {<bold>{value}</bold> Completions in the last year}}",
-    "description": "Label for completions count"
   },
   "6J+fmT": {
     "defaultMessage": "As this is a composite challenge, you may choose to unlock the dependent challenges first.",
@@ -2327,13 +2319,13 @@
     "defaultMessage": "Access to over {freeChallengeCount} free challenges. {unlocks, plural, =0 {No access to <tooltip>premium credits</tooltip>} one {<tooltip>1 premium credit</tooltip> unspent} other {<tooltip># premium credits</tooltip> unspent}}",
     "description": "Subtitle of Free Plan CTA card in Projects sidebar"
   },
-  "EaDXUz": {
-    "defaultMessage": "No contributions on {date}",
-    "description": "Tooltip label for no contribution count"
-  },
   "EaMmzf": {
     "defaultMessage": "Edit submission",
     "description": "Title of Projects edit submission page"
+  },
+  "Eah4gl": {
+    "defaultMessage": "No completions on {date}",
+    "description": "Tooltip label for completion count"
   },
   "Eel+ez": {
     "defaultMessage": "Meet the <strong>front end interview prep platform</strong> built to make your interviews much easier. By Big Tech ex-interviewers at",
@@ -2358,10 +2350,6 @@
   "Ekf7hb": {
     "defaultMessage": "Company guides",
     "description": "Label for company study list"
-  },
-  "EnOEHg": {
-    "defaultMessage": "Completions include both questions and articles across the interviews platform.",
-    "description": "Label for completions tooltip"
   },
   "EpJ74A": {
     "defaultMessage": "Try changing the filters",
@@ -3727,10 +3715,6 @@
     "defaultMessage": "Challenges",
     "description": "Title of Challenges page"
   },
-  "Nmz10h": {
-    "defaultMessage": "How we count contributions",
-    "description": "Label for how we count contributions"
-  },
   "NqMXNi": {
     "defaultMessage": "GreatFrontEnd is the culmination of my experience and knowledge in the front end domain to help fellow engineers efficiently and adequately prepare for front end interviews. The best part of GreatFrontEnd is that all users emerge being better front end engineers after using the platform.\"",
     "description": "Co-founder foreword"
@@ -4399,10 +4383,6 @@
     "defaultMessage": "Superscript",
     "description": "Label for superscript"
   },
-  "RssKRj": {
-    "defaultMessage": "In the past year, you have been active for {days, plural, =0 {0 days} =1 {1 day} other {# days}}, completing at least one question each day.",
-    "description": "Tooltip for contributions max streak"
-  },
   "RuN/vS": {
     "defaultMessage": "Horizontal rule",
     "description": "Label for horizontal rule"
@@ -4506,6 +4486,10 @@
   "STZOEm": {
     "defaultMessage": "Assets",
     "description": "Tab title for projects challenges"
+  },
+  "STZzq1": {
+    "defaultMessage": "In the past year, you have been active for {days, plural, =0 {0 days} =1 {1 day} other {# days}}, completing at least one question each day.",
+    "description": "Tooltip for max completion streak"
   },
   "SUmtwn": {
     "defaultMessage": "Check it out",
@@ -5379,10 +5363,6 @@
     "defaultMessage": "By proceeding, you agree to GreatFrontEnd's <tos>Terms of Service</tos> and <pp>Privacy Policy</pp>.",
     "description": "Disclaimer of agreement to terms of service and privacy policy on Email Sign Up page"
   },
-  "Y9v6Lw": {
-    "defaultMessage": "Coding",
-    "description": "Label for coding format"
-  },
   "YBlo/J": {
     "defaultMessage": "As mentioned above, there are many ways to host your project for free. Our recommend hosts are:",
     "description": "Text for Deployment Info in Projects"
@@ -5782,6 +5762,10 @@
   "azDVOg": {
     "defaultMessage": "Free",
     "description": "Free question"
+  },
+  "b+T14M": {
+    "defaultMessage": "Completions include both questions and articles across the interviews platform",
+    "description": "Label for completions tooltip"
   },
   "b/4l5Z": {
     "defaultMessage": "Subscriptions are automatically renewed and you will be charged again then. You may cancel your subscription anytime via the Stripe billing portal.",
@@ -6335,6 +6319,10 @@
     "defaultMessage": "Example solutions",
     "description": "Example code solutions"
   },
+  "elg6NS": {
+    "defaultMessage": "How we count completions",
+    "description": "How question completions are counted"
+  },
   "emlXOt": {
     "defaultMessage": "You've just attained level {level} ✨ Congratulations!",
     "description": "Description for level up"
@@ -6811,10 +6799,6 @@
     "defaultMessage": "Why be a GreatFrontEnd Affiliate?",
     "description": "Title for the 'Why become an affiliate' section on the 'Become an Affiliate' page"
   },
-  "hS+erO": {
-    "defaultMessage": "Quiz",
-    "description": "Label for quiz format"
-  },
   "hURbkG": {
     "defaultMessage": "Contact your bank to get a new card issued.",
     "description": "Reason label for contact bank"
@@ -7046,6 +7030,10 @@
   "jNLP4m": {
     "defaultMessage": "Other tech stack used (outside of skills roadmap)",
     "description": "Label for tech stack input on project submit page"
+  },
+  "jOyFXD": {
+    "defaultMessage": "{count, plural, =0 {0 completions} one {<bold>{value}</bold> completion} other {<bold>{value}</bold> completions}} in the last year",
+    "description": "Label for completions count"
   },
   "jPrd8a": {
     "defaultMessage": "Algorithmic Coding Interview Questions | GreatFrontEnd",
@@ -7694,10 +7682,6 @@
   "nqRMgW": {
     "defaultMessage": "The offers don't lie",
     "description": "Title for the offers don't lie section"
-  },
-  "nsedzV": {
-    "defaultMessage": "In the past year, you remained active for {days, plural, =0 {0 days} =1 {1 day} other {# consecutive days}}, completing at least one question per day.",
-    "description": "Tooltip for contributions max streak"
   },
   "nsk8M8": {
     "defaultMessage": "In progress",
@@ -9215,10 +9199,6 @@
     "defaultMessage": "Editor Shortcuts",
     "description": "Label for slideout for code editor shortcuts"
   },
-  "yT/nav": {
-    "defaultMessage": "{count, plural, one {# contribution on {date}} other {# contributions on {date}}}",
-    "description": "Tooltip label for contribution count"
-  },
   "yUfdpX": {
     "defaultMessage": "Mentor others",
     "description": "Page title for mentoring others in their projects"
@@ -9258,6 +9238,10 @@
   "yiXkEL": {
     "defaultMessage": "View all <link>frequently asked questions</link>",
     "description": "Marketing page section subtitle"
+  },
+  "yin+9r": {
+    "defaultMessage": "{count, plural, one {# completion on {date}} other {# completions on {date}}}",
+    "description": "Tooltip label for completion count"
   },
   "yjbqSs": {
     "defaultMessage": "Contact your bank to verify the account linked to your card is active.",
@@ -9438,6 +9422,10 @@
   "zkcMQT": {
     "defaultMessage": "Top Vue front end interview coding questions to practice, with detailed solutions and explanations by ex-interviewers at FAANG.",
     "description": "Description of Vue Interview Questions page"
+  },
+  "zkccTX": {
+    "defaultMessage": "In the past year, you remained active for {days, plural, =0 {0 days} =1 {1 day} other {# consecutive days}}, completing at least one question per day",
+    "description": "Tooltip for contributions max streak"
   },
   "zn3iWx": {
     "defaultMessage": "Repeat Password",

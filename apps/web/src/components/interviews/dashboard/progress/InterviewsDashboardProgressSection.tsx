@@ -6,7 +6,7 @@ import { FormattedMessage } from '~/components/intl';
 import Heading from '~/components/ui/Heading';
 import { themeTextColor } from '~/components/ui/theme';
 
-import InterviewsDashboardContributionsHeatMapCard from './InterviewsDashboardContributionsHeatmapCard';
+import InterviewsDashboardContributionsHeatmapCard from './InterviewsDashboardContributionsHeatmapCard';
 import InterviewsDashboardSolvedByTechnologyOrQuestionType from './InterviewsDashboardSolvedByQuestionType';
 import InterviewsDashboardSolvedProblemsCard from './InterviewsDashboardSolvedProblemsCard';
 
@@ -22,7 +22,7 @@ type Props = Readonly<{
   > | null;
 }>;
 
-export default function InterviewsDashboardProgressAtGlanceSection({
+export default function InterviewsDashboardProgressSection({
   questionsProgress,
   questions,
   contributions,
@@ -46,7 +46,7 @@ export default function InterviewsDashboardProgressAtGlanceSection({
           questionsProgress={questionsProgress}
         />
       </div>
-      <InterviewsDashboardContributionsHeatMapCard
+      <InterviewsDashboardContributionsHeatmapCard
         contributions={contributions}
       />
     </div>

@@ -75,7 +75,7 @@ export default function InterviewsPageHeader({
             {description}
           </Text>
         </div>
-        <div className="col-span-1">{sideElement}</div>
+        <div className="col-span-1 flex xl:justify-end">{sideElement}</div>
       </div>
       {/* Features */}
       <InterviewsPageFeatures features={features} />

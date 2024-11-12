@@ -1,4 +1,4 @@
-import { set, subYears } from 'date-fns';
+import { set, subWeeks } from 'date-fns';
 import { sortBy } from 'lodash-es';
 
 type DayOfWeek =
@@ -92,8 +92,8 @@ export function getDateRangeFromToday() {
   // Get today's date
   const today = new Date();
 
-  // Calculate the same day last year
-  const lastYearDate = subYears(today, 1);
+  // Calculate the day 52 weeks ago
+  const lastYearDate = subWeeks(today, 52);
 
   // Set the year of lastYearDate to the current year
   const startOfDayThisYear = set(today, { year: today.getFullYear() });

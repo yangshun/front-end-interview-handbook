@@ -25,7 +25,7 @@ import InterviewsDashboardContinueLearningSection from './InterviewsDashboardCon
 import InterviewsDashboardMoreLearningSection from './InterviewsDashboardMoreLearningSection';
 import InterviewsDashboardPageHeader from './InterviewsDashboardPageHeader';
 import InterviewsDashboardRecommendedPreparationStrategy from './InterviewsDashboardRecommendedPreparationStrategy';
-import InterviewsDashboardProgressAtGlanceSection from './progress/InterviewsDashboardProgressAtGlanceSection';
+import InterviewsDashboardProgressSection from './progress/InterviewsDashboardProgressSection';
 import { getDateRangeFromToday } from './progress/utils';
 
 import { useUser } from '@supabase/auth-helpers-react';
@@ -105,7 +105,7 @@ export default function InterviewsDashboardPage({
       />
       <Section>
         {isLoggedIn && (
-          <InterviewsDashboardProgressAtGlanceSection
+          <InterviewsDashboardProgressSection
             contributions={contributions}
             questions={questions}
             questionsProgress={questionsProgress ?? []}

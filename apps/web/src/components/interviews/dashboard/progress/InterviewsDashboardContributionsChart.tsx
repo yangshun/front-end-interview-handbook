@@ -41,7 +41,9 @@ export default function InterviewsDashboardContributionsChart({
       <ScrollArea scrollbars="horizontal">
         <div
           className={clsx(
-            'grid auto-cols-max grid-flow-col grid-rows-4 gap-2 sm:grid-rows-2 lg:grid-rows-1',
+            'grid auto-cols-max grid-flow-col grid-rows-4 sm:grid-rows-2 lg:grid-rows-1',
+            'place-content-center',
+            'gap-x-0.5 gap-y-2',
           )}>
           {months.map((item) => {
             const { month, days } = item;
@@ -58,9 +60,7 @@ export default function InterviewsDashboardContributionsChart({
 
             return (
               <div key={month} className="flex flex-col items-center gap-2.5">
-                <div
-                  key={month}
-                  className="grid-rows-7 grid shrink-0 auto-cols-max grid-flow-col items-start gap-0.5">
+                <div className="grid-rows-7 grid shrink-0 auto-cols-max grid-flow-col items-start gap-0.5">
                   {days.map((day, index) => {
                     const { date, dayOfWeek } = day;
                     const formattedDate = groupByDateFormatter.format(
@@ -77,10 +77,9 @@ export default function InterviewsDashboardContributionsChart({
                       contributionCount === 0
                         ? intl.formatMessage(
                             {
-                              defaultMessage: 'No contributions on {date}',
-                              description:
-                                'Tooltip label for no contribution count',
-                              id: 'EaDXUz',
+                              defaultMessage: 'No completions on {date}',
+                              description: 'Tooltip label for completion count',
+                              id: 'Eah4gl',
                             },
                             {
                               date: formatter.format(new Date(date)),
@@ -89,10 +88,9 @@ export default function InterviewsDashboardContributionsChart({
                         : intl.formatMessage(
                             {
                               defaultMessage:
-                                '{count, plural, one {# contribution on {date}} other {# contributions on {date}}}',
-                              description:
-                                'Tooltip label for contribution count',
-                              id: 'yT/nav',
+                                '{count, plural, one {# completion on {date}} other {# completions on {date}}}',
+                              description: 'Tooltip label for completion count',
+                              id: 'yin+9r',
                             },
                             {
                               count: contributionCount,
@@ -133,18 +131,16 @@ export default function InterviewsDashboardContributionsChart({
           })}
         </div>
       </ScrollArea>
-
-      {/* How we count contributions */}
       <div className="flex flex-col justify-between gap-4 md:flex-row md:items-center">
-        <Text color="secondary" size="body1">
+        <Text color="secondary" size="body2">
           <FormattedMessage
-            defaultMessage="How we count contributions"
-            description="Label for how we count contributions"
-            id="Nmz10h"
+            defaultMessage="How we count completions"
+            description="How question completions are counted"
+            id="elg6NS"
           />
         </Text>
         <div className="flex items-center gap-2">
-          <Text color="secondary" size="body1">
+          <Text color="secondary" size="body2">
             <FormattedMessage
               defaultMessage="Less"
               description="Label for less contribution"
@@ -162,7 +158,7 @@ export default function InterviewsDashboardContributionsChart({
               />
             ))}
           </div>
-          <Text color="secondary" size="body1">
+          <Text color="secondary" size="body2">
             <FormattedMessage
               defaultMessage="More"
               description="Label for more contribution"

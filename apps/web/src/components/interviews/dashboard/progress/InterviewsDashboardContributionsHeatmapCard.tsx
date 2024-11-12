@@ -19,7 +19,7 @@ type Props = Readonly<{
   contributions?: Record<string, number>;
 }>;
 
-export default function InterviewsDashboardContributionsHeatMapCard({
+export default function InterviewsDashboardContributionsHeatmapCard({
   contributions,
 }: Props) {
   const { startTime, endTime } = useMemo(() => getDateRangeFromToday(), []);
@@ -39,17 +39,13 @@ export default function InterviewsDashboardContributionsHeatMapCard({
       <div className="flex flex-col justify-between gap-4 md:flex-row md:items-center">
         {/* Contributions count */}
         <div className="flex items-center gap-2">
-          <Text color="secondary" size="body1">
+          <Text color="secondary" size="body2">
             <FormattedMessage
-              defaultMessage="{count, plural, =0 {0 Completions in the last year} one {<bold>{value}</bold> Completion in the last year} other {<bold>{value}</bold> Completions in the last year}}"
+              defaultMessage="{count, plural, =0 {0 completions} one {<bold>{value}</bold> completion} other {<bold>{value}</bold> completions}} in the last year"
               description="Label for completions count"
-              id="6IcSN4"
+              id="jOyFXD"
               values={{
-                bold: (chunks) => (
-                  <Text size="body1" weight="bold">
-                    {chunks}
-                  </Text>
-                ),
+                bold: (chunks) => <Text weight="bold">{chunks}</Text>,
                 count: totalContributions,
                 value: new Intl.NumberFormat().format(totalContributions),
               }}
@@ -59,9 +55,9 @@ export default function InterviewsDashboardContributionsHeatMapCard({
             label={
               <div>
                 <FormattedMessage
-                  defaultMessage="Completions include both questions and articles across the interviews platform."
+                  defaultMessage="Completions include both questions and articles across the interviews platform"
                   description="Label for completions tooltip"
-                  id="EnOEHg"
+                  id="b+T14M"
                 />
                 <ul className="list-inside list-disc">
                   <li>
@@ -86,28 +82,27 @@ export default function InterviewsDashboardContributionsHeatMapCard({
             />
           </Tooltip>
         </div>
-
         {/* Active days and max streak */}
         <div className="flex flex-wrap gap-x-4">
           <Tooltip
             label={
               <FormattedMessage
                 defaultMessage="In the past year, you have been active for {days, plural, =0 {0 days} =1 {1 day} other {# days}}, completing at least one question each day."
-                description="Tooltip for contributions max streak"
-                id="RssKRj"
+                description="Tooltip for max completion streak"
+                id="STZzq1"
                 values={{
                   days: totalActiveDays,
                 }}
               />
             }>
-            <Text color="secondary" size="body1">
+            <Text color="secondary" size="body2">
               <FormattedMessage
                 defaultMessage="Total active days: <bold>{count}</bold>"
                 description="Label for active days"
                 id="dpBKYx"
                 values={{
                   bold: (chunks) => (
-                    <Text color="subtitle" size="body1" weight="medium">
+                    <Text color="subtitle" weight="medium">
                       {chunks}
                     </Text>
                   ),
@@ -119,22 +114,22 @@ export default function InterviewsDashboardContributionsHeatMapCard({
           <Tooltip
             label={
               <FormattedMessage
-                defaultMessage="In the past year, you remained active for {days, plural, =0 {0 days} =1 {1 day} other {# consecutive days}}, completing at least one question per day."
+                defaultMessage="In the past year, you remained active for {days, plural, =0 {0 days} =1 {1 day} other {# consecutive days}}, completing at least one question per day"
                 description="Tooltip for contributions max streak"
-                id="nsedzV"
+                id="zkccTX"
                 values={{
                   days: maxConsecutiveDays,
                 }}
               />
             }>
-            <Text color="secondary" size="body1">
+            <Text color="secondary" size="body2">
               <FormattedMessage
                 defaultMessage="Max streak: <bold>{count}</bold>"
                 description="Label for max streak"
                 id="glZsYe"
                 values={{
                   bold: (chunks) => (
-                    <Text color="subtitle" size="body1" weight="medium">
+                    <Text color="subtitle" weight="medium">
                       {chunks}
                     </Text>
                   ),
@@ -145,7 +140,6 @@ export default function InterviewsDashboardContributionsHeatMapCard({
           </Tooltip>
         </div>
       </div>
-
       {/* Contributions heatmap */}
       <InterviewsDashboardContributionsChart
         contributions={contributions}
