@@ -61,14 +61,6 @@ export default function InterviewsDashboardMoreLearningSection({
 }: Props) {
   return (
     <div className={clsx('flex flex-col gap-12')}>
-      <Text color="subtitle" size="body2" weight="medium">
-        <FormattedMessage
-          defaultMessage="With extra time, continue working on the lists below depending on your needs!"
-          description="Label for more learning section"
-          id="gTOYrn"
-        />
-      </Text>
-      <Divider />
       <div className="flex flex-col gap-3">
         <Heading className={themeTextColor} color="custom" level="heading5">
           <FormattedMessage

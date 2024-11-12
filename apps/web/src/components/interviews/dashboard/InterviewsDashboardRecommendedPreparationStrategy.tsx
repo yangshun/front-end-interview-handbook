@@ -7,7 +7,7 @@ import { useGuidesData } from '~/data/Guides';
 import InterviewsEntityProgress from '~/components/interviews/common/InterviewsEntityProgress';
 import type { QuestionSlug } from '~/components/interviews/questions/common/QuestionsTypes';
 import PreparationGFE75Logo from '~/components/interviews/questions/content/study-list/logo/PreparationGFE75Logo';
-import { StudyPlanIcons } from '~/components/interviews/questions/content/study-list/StudyPlans';
+import { StudyPlanIcons } from '~/components/interviews/questions/content/study-list/StudyListUtils';
 import { FormattedMessage, useIntl } from '~/components/intl';
 import Anchor from '~/components/ui/Anchor';
 import Badge from '~/components/ui/Badge';
@@ -256,7 +256,7 @@ export default function InterviewsDashboardRecommendedPreparationStrategy({
   ];
 
   return (
-    <div className="mb-12 flex flex-col gap-[30px]">
+    <div className="flex flex-col gap-8">
       <Heading className={themeTextColor} color="custom" level="heading5">
         <FormattedMessage
           defaultMessage="Recommended preparation"
@@ -318,6 +318,13 @@ export default function InterviewsDashboardRecommendedPreparationStrategy({
           );
         })}
       </div>
+      <Text className="pt-4" color="subtitle" size="body2" weight="medium">
+        <FormattedMessage
+          defaultMessage="With extra time, continue working on the lists below depending on your needs!"
+          description="Label for more learning section"
+          id="gTOYrn"
+        />
+      </Text>
     </div>
   );
 }

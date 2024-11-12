@@ -11,9 +11,9 @@ import { trpc } from '~/hooks/trpc';
 
 import InterviewsPageHeader from '~/components/interviews/common/InterviewsPageHeader';
 import {
-  mapStudyPlansBySlug,
+  createStudyListMapFromArray,
   StudyPlanIcons,
-} from '~/components/interviews/questions/content/study-list/StudyPlans';
+} from '~/components/interviews/questions/content/study-list/StudyListUtils';
 import InterviewsStudyListCard from '~/components/interviews/questions/listings/learning/InterviewsStudyListCard';
 import InterviewsStudyPlanTestimonialsSection from '~/components/interviews/questions/listings/learning/study-plans/InterviewsStudyPlanTestimonialsSection';
 import { useIntl } from '~/components/intl';
@@ -46,7 +46,7 @@ export default function InterviewsStudyPlansPage({
     });
 
   const sessions = questionListSessions ?? [];
-  const mapStudyPlans = mapStudyPlansBySlug(studyPlans);
+  const mapStudyPlans = createStudyListMapFromArray(studyPlans);
 
   const StudyPlanSections: Array<StudyPlanSection> = [
     {

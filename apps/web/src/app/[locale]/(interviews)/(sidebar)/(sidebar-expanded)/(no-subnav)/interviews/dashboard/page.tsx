@@ -6,7 +6,7 @@ import { INTERVIEWS_REVAMP_BOTTOM_CONTENT } from '~/data/FeatureFlags';
 import InterviewsDashboardPage from '~/components/interviews/dashboard/InterviewsDashboardPage';
 
 import { fetchInterviewListingBottomContent } from '~/db/contentlayer/InterviewsListingBottomContentReader';
-import { fetchInterviewsStudyLists } from '~/db/contentlayer/InterviewsStudyListReader';
+import { fetchInterviewsAllStudyLists } from '~/db/contentlayer/InterviewsStudyListReader';
 import {
   fetchQuestionsListCoding,
   fetchQuestionsListQuiz,
@@ -53,23 +53,19 @@ export default async function Page({ params }: Props) {
     { questions: codingQuestions },
     { questions: systemDesignQuestions },
     bottomContent,
-    companyGuides,
-    focusAreas,
-    studyPlans,
+    studyLists,
   ] = await Promise.all([
     fetchQuestionsListQuiz(locale),
     fetchQuestionsListCoding(locale),
     fetchQuestionsListSystemDesign(locale),
     fetchInterviewListingBottomContent('dashboard'),
-    fetchInterviewsStudyLists('company'),
-    fetchInterviewsStudyLists('focus-area'),
-    fetchInterviewsStudyLists('study-plan'),
+    fetchInterviewsAllStudyLists(),
   ]);
   const { framework, language } = categorizeQuestionsByFrameworkAndLanguage({
     codingQuestions,
     quizQuestions,
   });
-  const sortedGuides = companyGuides
+  const companyGuidesSorted = studyLists.companies
     .slice()
     .sort((a, b) => a.ranking - b.ranking);
 
@@ -78,9 +74,9 @@ export default async function Page({ params }: Props) {
       bottomContent={
         INTERVIEWS_REVAMP_BOTTOM_CONTENT ? bottomContent : undefined
       }
-      companyGuides={sortedGuides}
+      companyGuides={companyGuidesSorted}
       defaultLoggedIn={true}
-      focusAreas={focusAreas}
+      focusAreas={studyLists.focusAreas}
       questions={{
         codingQuestions,
         frameworkQuestions: framework,
@@ -88,7 +84,7 @@ export default async function Page({ params }: Props) {
         quizQuestions,
         systemDesignQuestions,
       }}
-      studyPlans={studyPlans}
+      studyPlans={studyLists.studyPlans}
     />
   );
 }

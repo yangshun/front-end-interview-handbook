@@ -14,7 +14,6 @@ import type {
   QuestionLanguage,
   QuestionMetadata,
 } from '~/components/interviews/questions/common/QuestionsTypes';
-import { mapStudyPlansBySlug } from '~/components/interviews/questions/content/study-list/StudyPlans';
 import { FormattedMessage } from '~/components/intl';
 import MDXContent from '~/components/mdx/MDXContent';
 import Anchor from '~/components/ui/Anchor';
@@ -27,6 +26,7 @@ import InterviewsDashboardPageHeader from './InterviewsDashboardPageHeader';
 import InterviewsDashboardRecommendedPreparationStrategy from './InterviewsDashboardRecommendedPreparationStrategy';
 import InterviewsDashboardProgressSection from './progress/InterviewsDashboardProgressSection';
 import { getDateRangeFromToday } from './progress/utils';
+import { createStudyListMapFromArray } from '../questions/content/study-list/StudyListUtils';
 
 import { useUser } from '@supabase/auth-helpers-react';
 
@@ -95,7 +95,11 @@ export default function InterviewsDashboardPage({
   const showContinueLearning =
     questionListSessions != null && questionListSessions.length > 0;
 
-  const mapStudyPlan = mapStudyPlansBySlug(studyPlans);
+  const studyListsMap = createStudyListMapFromArray([
+    ...studyPlans,
+    ...companyGuides,
+    ...focusAreas,
+  ]);
 
   return (
     <div className={clsx('flex flex-col gap-12')}>
@@ -113,9 +117,8 @@ export default function InterviewsDashboardPage({
         )}
         {showContinueLearning && (
           <InterviewsDashboardContinueLearningSection
-            focusAreas={focusAreas}
             questionListSessions={sessions}
-            studyPlans={studyPlans}
+            studyListsMap={studyListsMap}
           />
         )}
         <InterviewsDashboardRecommendedPreparationStrategy
@@ -123,17 +126,18 @@ export default function InterviewsDashboardPage({
           questionsProgress={questionsProgress ?? []}
           recommendedPrepData={{
             blind75: {
-              listKey: mapStudyPlan.blind75.slug,
-              questionCount: mapStudyPlan.blind75?.questionHashes.length,
+              listKey: studyListsMap.blind75.slug,
+              questionCount: studyListsMap.blind75?.questionHashes.length,
             },
             gfe75: {
-              listKey: mapStudyPlan.greatfrontend75?.slug ?? '',
+              listKey: studyListsMap.greatfrontend75?.slug ?? '',
               questionCount:
-                mapStudyPlan.greatfrontend75?.questionHashes.length,
+                studyListsMap.greatfrontend75?.questionHashes.length,
             },
             systemDesignQuestionCount: questions.systemDesignQuestions.length,
           }}
         />
+        <Divider />
         <InterviewsDashboardMoreLearningSection
           companyGuides={companyGuides}
           focusAreas={focusAreas}

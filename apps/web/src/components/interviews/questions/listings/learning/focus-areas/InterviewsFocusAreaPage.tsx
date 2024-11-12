@@ -24,7 +24,7 @@ import type {
 import {
   FocusAreaIcons,
   focusAreaLongDescription,
-} from '~/components/interviews/questions/content/study-list/FocusAreas';
+} from '~/components/interviews/questions/content/study-list/StudyListUtils';
 import QuestionsList from '~/components/interviews/questions/listings/items/QuestionsList';
 import QuestionsStudyList from '~/components/interviews/questions/listings/learning/QuestionsStudyList';
 import QuestionsStudyListPageTitleSection from '~/components/interviews/questions/listings/learning/QuestionsStudyListPageTitleSection';

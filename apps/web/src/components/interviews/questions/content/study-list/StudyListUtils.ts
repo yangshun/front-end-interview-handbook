@@ -2,9 +2,14 @@ import type { InterviewsStudyList } from 'contentlayer/generated';
 import { BiUniversalAccess } from 'react-icons/bi';
 import {
   RiDashboardLine,
+  RiEye2Line,
+  RiFireLine,
+  RiFlashlightLine,
   RiFlowChart,
   RiJavascriptFill,
   RiRefreshLine,
+  RiRocketLine,
+  RiStarLine,
   RiWindowFill,
 } from 'react-icons/ri';
 import { SiLodash } from 'react-icons/si';
@@ -26,21 +31,35 @@ export const FocusAreaIcons: Record<
   'state-management': RiFlowChart,
 };
 
-export function mapFocusAreasBySlug(
-  focusAreas: ReadonlyArray<InterviewsStudyList>,
-) {
-  return focusAreas.reduce((acc: Record<string, InterviewsStudyList>, item) => {
-    acc[item.slug] = item;
+export const StudyPlanIcons: Record<
+  string,
+  (props: React.ComponentProps<'svg'>) => JSX.Element
+> = {
+  blind75: RiEye2Line,
+  greatfrontend75: RiRocketLine,
+  'one-month': RiFireLine,
+  'one-week': RiFlashlightLine,
+  'three-months': RiStarLine,
+};
 
-    return acc;
-  }, {});
+export function createStudyListMapFromArray(
+  studyListItems: ReadonlyArray<InterviewsStudyList>,
+) {
+  return studyListItems.reduce(
+    (acc: Record<string, InterviewsStudyList>, item) => {
+      acc[item.slug] = item;
+
+      return acc;
+    },
+    {},
+  );
 }
 
 export function categorizeFocusAreas(
   intl: IntlShape,
   focusAreas: ReadonlyArray<InterviewsStudyList>,
 ) {
-  const mapFocusAreas = mapFocusAreasBySlug(focusAreas);
+  const mapFocusAreas = createStudyListMapFromArray(focusAreas);
 
   return [
     {

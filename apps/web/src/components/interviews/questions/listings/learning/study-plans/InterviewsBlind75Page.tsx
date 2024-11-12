@@ -14,7 +14,7 @@ import type {
   QuestionMetadata,
   QuestionSlug,
 } from '~/components/interviews/questions/common/QuestionsTypes';
-import { StudyPlanIcons } from '~/components/interviews/questions/content/study-list/StudyPlans';
+import { StudyPlanIcons } from '~/components/interviews/questions/content/study-list/StudyListUtils';
 import QuestionsStudyList from '~/components/interviews/questions/listings/learning/QuestionsStudyList';
 import InterviewsRecommendedPrepStrategyPageTitleSection from '~/components/interviews/recommended/InterviewsRecommendedPrepStrategyPageTitleSection';
 import { FormattedMessage, useIntl } from '~/components/intl';

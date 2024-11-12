@@ -2,7 +2,6 @@ import clsx from 'clsx';
 import type { InterviewsStudyList } from 'contentlayer/generated';
 
 import getProgressBarGradient from '~/components/interviews/common/utils';
-import { mapFocusAreasBySlug } from '~/components/interviews/questions/content/study-list/FocusAreas';
 import { FormattedMessage, useIntl } from '~/components/intl';
 import Button from '~/components/ui/Button';
 import GradientProgressBar from '~/components/ui/GradientProgressBar/GradientProgressBar';
@@ -15,35 +14,27 @@ import {
 } from '~/components/ui/theme';
 import Tooltip from '~/components/ui/Tooltip';
 
-import { mapStudyPlansBySlug } from '../questions/content/study-list/StudyPlans';
 import QuestionCountLabel from '../questions/metadata/QuestionCountLabel';
 
 import type { LearningSession } from '@prisma/client';
 
 type Props = Readonly<{
-  focusAreas: ReadonlyArray<InterviewsStudyList>;
   questionListSessions: Array<
     LearningSession & { _count: { progress: number } }
   >;
-  studyPlans: ReadonlyArray<InterviewsStudyList>;
+  studyListsMap: Record<string, InterviewsStudyList>;
 }>;
 
 export default function InterviewsDashboardContinueLearningSection({
   questionListSessions,
-  focusAreas,
-  studyPlans,
+  studyListsMap,
 }: Props) {
   const intl = useIntl();
 
-  // TODO(interviews): Support company lists.
-  const mapStudyPlans = mapStudyPlansBySlug(studyPlans);
-  const mapFocusAreas = mapFocusAreasBySlug(focusAreas);
-  const questionLists = { ...mapStudyPlans, ...mapFocusAreas };
-
   const items = questionListSessions
-    .filter(({ key }) => questionLists[key] != null)
+    .filter(({ key }) => studyListsMap[key] != null)
     .map(({ key, _count }) => {
-      const { href, longName, questionHashes } = questionLists[key];
+      const { href, longName, questionHashes } = studyListsMap[key];
 
       return {
         completedCount: _count.progress,

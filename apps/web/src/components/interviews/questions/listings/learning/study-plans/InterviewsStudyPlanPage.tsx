@@ -21,7 +21,7 @@ import type {
   QuestionMetadata,
   QuestionSlug,
 } from '~/components/interviews/questions/common/QuestionsTypes';
-import { StudyPlanIcons } from '~/components/interviews/questions/content/study-list/StudyPlans';
+import { StudyPlanIcons } from '~/components/interviews/questions/content/study-list/StudyListUtils';
 import QuestionsList from '~/components/interviews/questions/listings/items/QuestionsList';
 import QuestionsStudyList from '~/components/interviews/questions/listings/learning/QuestionsStudyList';
 import QuestionsStudyListPageTitleSection from '~/components/interviews/questions/listings/learning/QuestionsStudyListPageTitleSection';

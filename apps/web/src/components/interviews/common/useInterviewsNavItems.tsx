@@ -24,7 +24,7 @@ import {
 
 import { useGuidesData } from '~/data/Guides';
 
-import { StudyPlanIcons } from '~/components/interviews/questions/content/study-list/StudyPlans';
+import { StudyPlanIcons } from '~/components/interviews/questions/content/study-list/StudyListUtils';
 import { useIntl } from '~/components/intl';
 import Badge from '~/components/ui/Badge';
 import type { NavbarTopLevelItem } from '~/components/ui/Navbar/NavTypes';

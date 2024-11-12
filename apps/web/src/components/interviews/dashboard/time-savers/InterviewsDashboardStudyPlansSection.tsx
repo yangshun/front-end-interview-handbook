@@ -1,9 +1,9 @@
 import type { InterviewsStudyList } from 'contentlayer/generated';
 
 import {
-  mapStudyPlansBySlug,
+  createStudyListMapFromArray,
   StudyPlanIcons,
-} from '~/components/interviews/questions/content/study-list/StudyPlans';
+} from '~/components/interviews/questions/content/study-list/StudyListUtils';
 import InterviewsStudyListCard from '~/components/interviews/questions/listings/learning/InterviewsStudyListCard';
 import { useIntl } from '~/components/intl';
 
@@ -24,7 +24,7 @@ export default function InterviewsDashboardStudyPlansSection({
 }: Props) {
   const intl = useIntl();
 
-  const mapStudyPlans = mapStudyPlansBySlug(studyPlans);
+  const mapStudyPlans = createStudyListMapFromArray(studyPlans);
   const plans = [
     mapStudyPlans['one-week'],
     mapStudyPlans['one-month'],
