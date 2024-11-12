@@ -290,7 +290,7 @@ export default function InterviewsQuestionFormatsSection({
           />
         </Text>
       </div>
-      <div className="flex flex-col gap-6">
+      <div className="flex flex-col gap-4">
         {questionFormatsData.map((item) => (
           <InterviewsQuestionFormatCard {...item} key={item.listingName} />
         ))}

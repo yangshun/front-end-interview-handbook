@@ -15,7 +15,6 @@ import { FormattedMessage, useIntl } from '~/components/intl';
 import Anchor from '~/components/ui/Anchor';
 import Badge from '~/components/ui/Badge';
 import Chip from '~/components/ui/Chip';
-import Divider from '~/components/ui/Divider';
 import Popover from '~/components/ui/Popover';
 import Text from '~/components/ui/Text';
 import {
@@ -327,7 +326,6 @@ export default function InterviewsRecommendedPrepStrategyPageTitleSection({
         title={title}
         {...props}
       />
-      <Divider />
       <div className={clsx('grid items-center gap-6 lg:grid-cols-12')}>
         <div className="lg:col-span-9">{longDescription}</div>
         {showQuestionCountCard && (

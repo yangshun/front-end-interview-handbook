@@ -199,7 +199,7 @@ export default function InterviewsFrameworkAndLanguageSection({
       completedQuestions: languageProgress.ts.size,
       href: languagesData.ts.href,
       icon: <TypeScriptLogo className="size-6" />,
-      title: languagesData.html.label,
+      title: languagesData.ts.label,
       totalQuestions: languageQuestions.ts.length,
     },
   ];
@@ -224,7 +224,7 @@ export default function InterviewsFrameworkAndLanguageSection({
           />
         </Text>
       </div>
-      <div className="grid gap-x-4 gap-y-6 md:grid-cols-2">
+      <div className="grid gap-6 lg:grid-cols-2">
         {frameworks.map((framework) => (
           <FrameworkCard key={framework.title} {...framework} />
         ))}

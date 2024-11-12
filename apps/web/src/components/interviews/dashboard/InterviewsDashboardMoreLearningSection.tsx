@@ -11,7 +11,6 @@ import type {
 import { FormattedMessage } from '~/components/intl';
 import Divider from '~/components/ui/Divider';
 import Heading from '~/components/ui/Heading';
-import Section from '~/components/ui/Heading/HeadingContext';
 import Text from '~/components/ui/Text';
 import { themeTextColor } from '~/components/ui/theme';
 
@@ -60,54 +59,49 @@ export default function InterviewsDashboardMoreLearningSection({
   focusAreas,
 }: Props) {
   return (
-    <Section>
-      <div className={clsx('flex flex-col gap-12')}>
-        <Text color="subtitle" size="body2" weight="medium">
+    <div className={clsx('flex flex-col gap-12')}>
+      <Text color="subtitle" size="body2" weight="medium">
+        <FormattedMessage
+          defaultMessage="With extra time, continue working on the lists below depending on your needs!"
+          description="Label for more learning section"
+          id="gTOYrn"
+        />
+      </Text>
+      <Divider />
+      <div className="flex flex-col gap-3">
+        <Heading className={themeTextColor} color="custom" level="heading5">
           <FormattedMessage
-            defaultMessage="With extra time, continue working on the lists below depending on your needs!"
-            description="Label for more learning section"
-            id="gTOYrn"
+            defaultMessage="More time-savers"
+            description="Label for more time savers"
+            id="DK7QZb"
+          />
+        </Heading>
+        <Text color="secondary" size="body2">
+          <FormattedMessage
+            defaultMessage="Efficient ways to prepare when you're short on time."
+            description="Description for time savers"
+            id="agUqSZ"
           />
         </Text>
-        <Divider />
-        <div className="flex flex-col gap-3">
-          <Heading className={themeTextColor} color="custom" level="heading5">
-            <FormattedMessage
-              defaultMessage="More time-savers"
-              description="Label for more time savers"
-              id="DK7QZb"
-            />
-          </Heading>
-          <Text color="secondary" size="body2">
-            <FormattedMessage
-              defaultMessage="Efficient ways to prepare when you're short on time."
-              description="Description for time savers"
-              id="agUqSZ"
-            />
-          </Text>
-        </div>
-        <InterviewsDashboardStudyPlansSection
-          questionListSessions={questionListSessions}
-          studyPlans={studyPlans}
-        />
-        <InterviewsDashboardPrepareByCompanySection
-          companyGuides={companyGuides}
-          questionListSessions={questionListSessions}
-        />
-
-        <InterviewsDashboardPracticeByFocusAreasSection
-          focusAreas={focusAreas}
-          questionListSessions={questionListSessions}
-        />
-
-        <Divider />
-
-        <InterviewsDashboardPracticeQuestionsSection
-          guidesProgress={guidesProgress}
-          questions={questions}
-          questionsProgress={questionsProgress}
-        />
       </div>
-    </Section>
+      <InterviewsDashboardStudyPlansSection
+        questionListSessions={questionListSessions}
+        studyPlans={studyPlans}
+      />
+      <InterviewsDashboardPrepareByCompanySection
+        companyGuides={companyGuides}
+        questionListSessions={questionListSessions}
+      />
+      <InterviewsDashboardPracticeByFocusAreasSection
+        focusAreas={focusAreas}
+        questionListSessions={questionListSessions}
+      />
+      <Divider />
+      <InterviewsDashboardPracticeQuestionsSection
+        guidesProgress={guidesProgress}
+        questions={questions}
+        questionsProgress={questionsProgress}
+      />
+    </div>
   );
 }

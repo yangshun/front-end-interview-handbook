@@ -8,8 +8,8 @@ import InterviewsDashboardLearningSection from './InterviewsDashboardLearningSec
 import type { LearningSession } from '@prisma/client';
 
 type Props = Readonly<{
-  companyGuides: Array<InterviewsStudyList>;
-  questionListSessions: Array<
+  companyGuides: ReadonlyArray<InterviewsStudyList>;
+  questionListSessions: ReadonlyArray<
     LearningSession & { _count: { progress: number } }
   >;
 }>;
@@ -33,7 +33,7 @@ export default function InterviewsDashboardPrepareByCompanySection({
         description: 'Title for prepare by company',
         id: 'kju3R1',
       })}>
-      <div className="grid gap-x-6 gap-y-4 lg:grid-cols-2">
+      <div className="grid gap-6 lg:grid-cols-2">
         {companyGuides.map((companyGuide) => {
           const session = questionListSessions.find(
             (session_) => session_.key === companyGuide.slug,

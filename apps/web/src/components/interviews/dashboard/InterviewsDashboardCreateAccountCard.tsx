@@ -17,6 +17,8 @@ import InterviewsDashboardContinueLearning from './InterviewsDashboardContinueLe
 function MockContinueLearningCard() {
   const intl = useIntl();
 
+  // TODO(interviews): Migrate to InterviewsDashboardContinueLearningSection
+  // and delete InterviewsDashboardContinueLearning
   return (
     <InterviewsDashboardContinueLearning
       hideHeading={true}
