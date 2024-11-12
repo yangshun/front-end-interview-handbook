@@ -2,12 +2,18 @@ import clsx from 'clsx';
 import { useState } from 'react';
 import { RiArrowRightLine } from 'react-icons/ri';
 
+import {
+  useQuestionFormatsData,
+  useQuestionFrameworksData,
+  useQuestionLanguagesData,
+} from '~/data/QuestionLists';
+
 import SideNavigation from '~/components/common/SideNavigation';
 import type {
+  QuestionFormat,
   QuestionLanguage,
   QuestionMetadata,
   QuestionTopic,
-  QuestionUserFacingFormat,
 } from '~/components/interviews/questions/common/QuestionsTypes';
 import type { QuestionFramework } from '~/components/interviews/questions/common/QuestionsTypes';
 import useQuestionFrameworkFilter, {
@@ -32,6 +38,8 @@ import {
   themeTextSecondaryColor,
 } from '~/components/ui/theme';
 
+import useQuestionFormatFilter from '../questions/listings/filters/hooks/useQuestionFormatFilter';
+
 type FilterType = 'format' | 'framework' | 'topics';
 
 type QuestionDataType = {
@@ -41,15 +49,9 @@ type QuestionDataType = {
 };
 
 export type QuestionBankDataType = Readonly<{
-  coding: QuestionDataType;
+  format: Record<QuestionFormat, QuestionDataType>;
   framework: Record<QuestionFramework, QuestionDataType>;
   language: Record<QuestionLanguage, QuestionDataType>;
-  quiz: QuestionDataType;
-  systemDesign: {
-    count: number;
-    duration: number;
-    questions: ReadonlyArray<QuestionMetadata>;
-  };
   topic: Record<QuestionTopic, QuestionDataType>;
 }>;
 
@@ -57,24 +59,6 @@ type Props = Readonly<{
   questions: QuestionBankDataType;
 }>;
 
-const formatRoute: Record<QuestionUserFacingFormat, string> = {
-  coding: '/questions/javascript',
-  quiz: '/questions/quiz',
-  'system-design': '/questions/system-design',
-};
-const frameworkRoute: Record<QuestionFramework, string> = {
-  angular: '/questions/angular',
-  react: '/questions/react',
-  svelte: '/questions/svelte',
-  vanilla: '/questions/vanilla',
-  vue: '/questions/vue',
-};
-const languageRoute: Record<QuestionLanguage, string> = {
-  css: '/questions/css',
-  html: '/questions/html',
-  js: '/questions/js',
-  ts: '/questions/ts',
-};
 const topicRoute: Record<QuestionTopic, string> = {
   a11y: '/questions/quiz',
   css: '/questions/css',
@@ -95,8 +79,9 @@ export default function InterviewsMarketingPracticeQuestionBankSection({
   const intl = useIntl();
 
   const [selectedFilter, setSelectedFilter] = useState<FilterType>('topics');
-  const [selectedFormat, setSelectedFormat] =
-    useState<QuestionUserFacingFormat>('coding');
+  const [formatFilters, formatFilterOptions] = useQuestionFormatFilter({
+    initialValue: ['javascript'],
+  });
   const [topicFilters, topicFilterOptions] = useQuestionTopicFilter({
     initialValue: ['javascript'],
   });
@@ -105,6 +90,8 @@ export default function InterviewsMarketingPracticeQuestionBankSection({
   });
   const [frameworkFilters, frameworkFilterOptions] =
     useQuestionFrameworkFilter();
+
+  const selectedFormat = Array.from(formatFilters)[0];
   const selectedTopic = Array.from(topicFilters)[0];
   const selectedLanguage = Array.from(languageFilters)[0];
   const selectedFramework = Array.from(frameworkFilters)[0];
@@ -141,34 +128,9 @@ export default function InterviewsMarketingPracticeQuestionBankSection({
 
   const navigation = {
     format: {
-      items: [
-        {
-          label: intl.formatMessage({
-            defaultMessage: 'Coding',
-            description: 'Label for coding format',
-            id: 'Y9v6Lw',
-          }),
-          value: 'coding',
-        },
-        {
-          label: intl.formatMessage({
-            defaultMessage: 'Quiz',
-            description: 'Label for quiz format',
-            id: 'hS+erO',
-          }),
-          value: 'quiz',
-        },
-        {
-          label: intl.formatMessage({
-            defaultMessage: 'System Design',
-            description: 'Label for system design format',
-            id: '40aZC1',
-          }),
-          value: 'system-design',
-        },
-      ],
+      items: formatFilterOptions.options,
       onClick: (value: string) =>
-        setSelectedFormat(value as QuestionUserFacingFormat),
+        formatFilterOptions.setValues(new Set([value]) as Set<QuestionFormat>),
       value: selectedFormat,
     },
     framework: {
@@ -201,7 +163,10 @@ export default function InterviewsMarketingPracticeQuestionBankSection({
 
   const filterNavigation = navigation[selectedFilter];
 
-  const { framework, language, coding, quiz, topic, systemDesign } = questions;
+  const { framework, language, format, topic } = questions;
+  const frameworksData = useQuestionFrameworksData();
+  const languagesData = useQuestionLanguagesData();
+  const formatsData = useQuestionFormatsData();
 
   const selectedRoute = (() => {
     switch (selectedFilter) {
@@ -210,11 +175,11 @@ export default function InterviewsMarketingPracticeQuestionBankSection({
       }
       case 'framework': {
         return (
-          frameworkRoute[selectedFramework] || languageRoute[selectedLanguage]
-        );
+          frameworksData[selectedFramework] || languagesData[selectedLanguage]
+        ).href;
       }
       case 'format': {
-        return formatRoute[selectedFormat];
+        return formatsData[selectedFormat].href;
       }
     }
   })();
@@ -222,14 +187,7 @@ export default function InterviewsMarketingPracticeQuestionBankSection({
   function processQuestions() {
     switch (selectedFilter) {
       case 'format': {
-        if (selectedFormat === 'coding') {
-          return coding;
-        }
-        if (selectedFormat === 'quiz') {
-          return quiz;
-        }
-
-        return systemDesign;
+        return format[selectedFormat];
       }
       case 'framework': {
         return framework[selectedFramework] || language[selectedLanguage];
