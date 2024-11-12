@@ -8,6 +8,7 @@ import Dialog from '~/components/ui/Dialog';
 import { textVariants } from '../ui/Text';
 
 type Props = Readonly<{
+  cancelButtonLabel?: string;
   children?: ReactNode;
   confirmButtonLabel?: string;
   confirmButtonVariant?: ButtonVariant;
@@ -22,6 +23,7 @@ type Props = Readonly<{
 }>;
 
 export default function ConfirmationDialog({
+  cancelButtonLabel,
   children,
   confirmButtonLabel,
   confirmButtonVariant = 'primary',
@@ -60,11 +62,14 @@ export default function ConfirmationDialog({
         showCancelButton ? (
           <Button
             isDisabled={isLoading}
-            label={intl.formatMessage({
-              defaultMessage: 'Cancel',
-              description: 'Cancel button label in confirmation dialog',
-              id: 'ldxi7D',
-            })}
+            label={
+              cancelButtonLabel ??
+              intl.formatMessage({
+                defaultMessage: 'Cancel',
+                description: 'Cancel button label in confirmation dialog',
+                id: 'ldxi7D',
+              })
+            }
             size="md"
             variant="secondary"
             onClick={() => onCancel?.()}

@@ -695,18 +695,34 @@ export default function QuestionsStudyListSlideOut({
           icon={RiFilterLine}
           isDisabled={isDisabled}
           isLabelHidden={isMobile}
-          label={studyList != null ? studyList.name : 'Question list'}
+          label={
+            studyList != null
+              ? studyList.name
+              : intl.formatMessage({
+                  defaultMessage: 'Question list',
+                  description: 'Questions list',
+                  id: '5lRIfw',
+                })
+          }
           size="xs"
           variant="secondary"
           onClick={() => setIsShown(true)}>
-          <div className="flex items-center gap-3">
-            <span>{studyList != null ? studyList.name : 'Question list'}</span>
-            <Badge
-              label={`${currentQuestionPosition}/${processedQuestions.length}`}
-              size="xs"
-              variant="neutral"
-            />
-          </div>
+          {studyList == null ? (
+            intl.formatMessage({
+              defaultMessage: 'Question list',
+              description: 'Questions list',
+              id: '5lRIfw',
+            })
+          ) : (
+            <div className="flex items-center gap-3">
+              <span>{studyList.name}</span>
+              <Badge
+                label={`${currentQuestionPosition}/${processedQuestions.length}`}
+                size="xs"
+                variant="neutral"
+              />
+            </div>
+          )}
         </Button>
       }
       onClose={onClose}>

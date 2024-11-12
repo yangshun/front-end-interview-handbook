@@ -583,6 +583,10 @@
     "defaultMessage": "Next challenge:",
     "description": "Label for next challenge for skill plan on project submission success page"
   },
+  "29rLgw": {
+    "defaultMessage": "Proceed without tracking",
+    "description": "Cancel button label for session progress tracking"
+  },
   "2BOlBd": {
     "defaultMessage": "Your motivations",
     "description": "Title of projects onboarding motivations page"
@@ -3823,6 +3827,10 @@
     "defaultMessage": "Resubscribe to access",
     "description": "Title for a premium project paywall"
   },
+  "OV17LW": {
+    "defaultMessage": "Start tracking",
+    "description": "Confirmation button label for session progress tracking"
+  },
   "OWKf+S": {
     "defaultMessage": "Overview",
     "description": "Overview of behavioral interview"
@@ -5231,6 +5239,10 @@
     "defaultMessage": "Search Vue interview questions",
     "description": "Placeholder for search input of Vue question list"
   },
+  "XCg8lD": {
+    "defaultMessage": "You have to start the session before your progress for this list can be tracked. Start tracking your progress on this question list?",
+    "description": "Confirmation text for start progress tracking"
+  },
   "XD52zM": {
     "defaultMessage": "More",
     "description": "Label for \"More\" button in pagination"
@@ -6574,10 +6586,6 @@
   "fv+TLc": {
     "defaultMessage": "Back to study plans",
     "description": "Link text to navigate to study plans page"
-  },
-  "fvvmHT": {
-    "defaultMessage": "Start tracking your progress on this question list?",
-    "description": "Confirmation text for start progress tracking"
   },
   "fxfae3": {
     "defaultMessage": "If you're stuck, clarify any doubts within the discussion forums in Step 3's. If you need answers urgently for a critical issue, email as at <link>support@greatfrontend.com</link>.",

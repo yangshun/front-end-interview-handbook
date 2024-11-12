@@ -202,6 +202,17 @@ export default function QuestionsStudyList({
         />
       </Section>
       <ConfirmationDialog
+        cancelButtonLabel={intl.formatMessage({
+          defaultMessage: 'Proceed without tracking',
+          description: 'Cancel button label for session progress tracking',
+          id: '29rLgw',
+        })}
+        confirmButtonLabel={intl.formatMessage({
+          defaultMessage: 'Start tracking',
+          description:
+            'Confirmation button label for session progress tracking',
+          id: 'OV17LW',
+        })}
         isDisabled={startSessionMutation.isLoading}
         isLoading={startSessionMutation.isLoading}
         isShown={startSessionDialog.show}
@@ -235,9 +246,9 @@ export default function QuestionsStudyList({
           );
         }}>
         <FormattedMessage
-          defaultMessage="Start tracking your progress on this question list?"
+          defaultMessage="You have to start the session before your progress for this list can be tracked. Start tracking your progress on this question list?"
           description="Confirmation text for start progress tracking"
-          id="fvvmHT"
+          id="XCg8lD"
         />
       </ConfirmationDialog>
     </div>
