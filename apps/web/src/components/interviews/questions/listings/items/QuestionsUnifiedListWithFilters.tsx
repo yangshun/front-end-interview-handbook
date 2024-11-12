@@ -185,6 +185,7 @@ export default function QuestionsUnifiedListWithFilters({
         })}
         showChevron={true}
         size="sm">
+        {/* TODO(interviews): consolidate with QuestionsStudyListSlideOut */}
         {[
           defaultSortField === 'default' &&
             makeDropdownItemProps(
@@ -317,7 +318,8 @@ export default function QuestionsUnifiedListWithFilters({
               id: '1w3zxf',
             })}
             placeholder={
-              searchPlaceholder ?? (listKey
+              searchPlaceholder ??
+              (listKey
                 ? intl.formatMessage({
                     defaultMessage: 'Search within this list of questions',
                     description:

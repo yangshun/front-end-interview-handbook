@@ -242,6 +242,7 @@ function Contents({
   } = useQuestionUnifiedFilters({
     filterNamespace,
   });
+  const defaultSortField = listKey == null ? 'difficulty' : 'default';
 
   // Sorting.
   const {
@@ -252,7 +253,7 @@ function Contents({
     defaultSortFields,
     premiumSortFields,
   } = useQuestionCodingSorting({
-    defaultSortField: listKey == null ? 'difficulty' : 'default',
+    defaultSortField,
     filterNamespace,
   });
 
@@ -312,16 +313,18 @@ function Contents({
         description: 'Label for sort by',
         id: '4A5Ogu',
       })}>
+      {/* TODO(interviews): consolidate with QuestionsUnifiedListWithFilters */}
       {[
-        makeDropdownItemProps(
-          intl.formatMessage({
-            defaultMessage: 'Default',
-            description: 'Default sorting',
-            id: 'vcnpme',
-          }),
-          'default',
-          true,
-        ),
+        defaultSortField === 'default' &&
+          makeDropdownItemProps(
+            intl.formatMessage({
+              defaultMessage: 'Default',
+              description: 'Default sorting',
+              id: 'vcnpme',
+            }),
+            'default',
+            true,
+          ),
         makeDropdownItemProps(
           intl.formatMessage({
             defaultMessage: 'Title: A to Z',
@@ -422,9 +425,11 @@ function Contents({
           'created',
           false,
         ),
-      ].map((props) => (
-        <DropdownMenu.Item key={props.label} {...props} />
-      ))}
+      ]
+        .flatMap((item) => (item ? [item] : []))
+        .map((props) => (
+          <DropdownMenu.Item key={props.label} {...props} />
+        ))}
     </DropdownMenu>
   );
 
