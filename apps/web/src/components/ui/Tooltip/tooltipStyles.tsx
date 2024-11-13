@@ -5,7 +5,6 @@ export const tooltipContentClassName = clsx(
   'rounded',
   'z-tooltip',
   'max-w-64',
-  'hyphens-auto',
   'z-popover',
   'animate-in data-[state=closed]:animate-out',
   'fade-in-0 data-[state=closed]:fade-out-0',

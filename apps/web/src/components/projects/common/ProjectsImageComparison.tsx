@@ -303,6 +303,7 @@ export default function ProjectsImageComparison({
             <div className="flex items-center gap-2">
               <Tooltip
                 asChild={true}
+                hyphenated={true}
                 label={deploymentUrls[selectedScreenIndex].href}>
                 <Anchor
                   className={clsx(

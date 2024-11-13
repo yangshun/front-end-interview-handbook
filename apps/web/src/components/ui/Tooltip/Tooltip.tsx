@@ -29,6 +29,7 @@ type Props = Readonly<{
   children: ReactNode;
   className?: string;
   delayDuration?: number;
+  hyphenated?: boolean;
   invert?: boolean;
   label?: ReactNode;
   side?: TooltipContentSide;
@@ -41,13 +42,14 @@ export default function Tooltip({
   align = 'center',
   asChild = false,
   children,
-  delayDuration,
   className,
-  triggerClassName,
+  delayDuration,
+  hyphenated = false,
   invert = false,
   label,
   side = 'top',
   size = 'sm',
+  triggerClassName,
   triggerType = 'button', // To prevent clicking on tooltip from submitting if it is within a form.
 }: Props) {
   const tooltipBackgroundColor = invert
@@ -72,6 +74,7 @@ export default function Tooltip({
             align={align}
             className={clsx(
               tooltipContentClassName,
+              hyphenated && 'hyphens-auto',
               tooltipBackgroundColor,
               sizeClasses[size],
               textVariants({
