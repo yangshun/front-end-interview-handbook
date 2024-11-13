@@ -130,17 +130,17 @@ a {
   counter-increment: line;
   content: counter(line);
   display: inline-block;
-  width: 40px;
+  width: 32px;
   text-align: right;
-  margin-right: 20px;
+  margin-right: 12px;
   position: sticky;
   left: 0;
   flex-shrink: 0;
-  padding-left: 16px;
   padding-right: 8px;
 
   background-color: var(--code-bg-color);
   color: var(--code-color);
+  opacity: 0.5;
 
   user-select: none;
   -moz-user-select: none;
