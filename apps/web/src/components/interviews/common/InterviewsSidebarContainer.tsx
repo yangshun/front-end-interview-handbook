@@ -35,7 +35,7 @@ export default function InterviewsSidebarContainer({
     <aside
       className={clsx(
         'hidden lg:block',
-        'sticky top-[var(--global-sticky-height)] h-[calc(100vh_-_var(--global-sticky-height))]',
+        'sticky top-[var(--banner-height)] h-[calc(100vh_-_var(--banner-height))]',
         'shrink-0 overflow-y-hidden',
         ['border-e', themeBorderColor],
         isCollapsed ? 'w-[78px]' : 'w-[280px]',
