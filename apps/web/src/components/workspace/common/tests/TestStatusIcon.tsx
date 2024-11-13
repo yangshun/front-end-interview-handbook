@@ -1,3 +1,11 @@
+import clsx from 'clsx';
+import {
+  RiCheckLine,
+  RiCircleLine,
+  RiCloseLine,
+  RiPlayLine,
+} from 'react-icons/ri';
+
 import {
   failTextClassName,
   passTextClassName,
@@ -11,20 +19,22 @@ export default function TestStatusIcon({
 }: Readonly<{
   status: TestStatus;
 }>) {
-  return (
-    <span className="size-3 flex shrink-0 items-center text-lg">
-      {(() => {
-        switch (status) {
-          case 'pass':
-            return <span className={passTextClassName}>✓</span>;
-          case 'fail':
-            return <span className={failTextClassName}>✕</span>;
-          case 'running':
-            return <span className={runningTextClassName}>ᐅ</span>;
-          case 'idle':
-            return <span className={skipTextClassName}>○</span>;
-        }
-      })()}
-    </span>
-  );
+  const commonClass = 'size-4 shrink-0';
+
+  return (() => {
+    switch (status) {
+      case 'pass':
+        return <RiCheckLine className={clsx(commonClass, passTextClassName)} />;
+      case 'fail':
+        return <RiCloseLine className={clsx(commonClass, failTextClassName)} />;
+      case 'running':
+        return (
+          <RiPlayLine className={clsx(commonClass, runningTextClassName)} />
+        );
+      case 'idle':
+        return (
+          <RiCircleLine className={clsx(commonClass, skipTextClassName)} />
+        );
+    }
+  })();
 }
