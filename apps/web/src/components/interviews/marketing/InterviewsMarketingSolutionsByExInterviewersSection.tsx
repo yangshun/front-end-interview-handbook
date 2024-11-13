@@ -255,7 +255,7 @@ function CodeAnnotationContents({
           className="whitespace-normal text-neutral-300"
           color="inherit"
           size="body3">
-          <TypingString characters={contents} />
+          <TypingString characters={contents} interval={20} />
         </Text>
       )}
     </div>
@@ -319,9 +319,9 @@ export default function InterviewsMarketingSolutionsByExInterviewersSection() {
         level="custom"
         weight="medium">
         <FormattedMessage
-          defaultMessage="Every question answered by ex-interviewers"
+          defaultMessage="Every question answered by Ex-interviewers"
           description="Title for marketing page section"
-          id="LMI4bA"
+          id="0EoEMb"
         />
       </Heading>
       <Section>

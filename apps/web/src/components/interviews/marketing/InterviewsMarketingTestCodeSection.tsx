@@ -137,12 +137,12 @@ function TestCaseAnimation({
         await cursorControls.start({
           left: centerX,
           top: centerY,
-          transition: { duration: 1 },
+          transition: { duration: 0.7 },
         });
         // Show ripple effect around the cursor
         await rippleControls.start({
           scale: 1,
-          transition: { duration: 0.5 },
+          transition: { duration: 0.3 },
         });
         // Hide the cursor after the ripple effect
         cursorControls.start({
@@ -175,7 +175,7 @@ function TestCaseAnimation({
             className={clsx('px-6 py-3', themeBackgroundColor)}
             initial={{ opacity: 0 }}
             transition={{ duration: 0.1 }}>
-            <Text className="flex items-center gap-3" size="body3">
+            <Text className="flex items-center gap-2" size="body2">
               <TestStatusIcon status="pass" />{' '}
               <span className="font-mono text-xs">
                 <span>{name}</span>
@@ -229,7 +229,7 @@ function TestCaseAnimation({
 export default function InterviewsMarketingTestCodeSection() {
   const codeBlockRef = useRef<HTMLDivElement>(null);
   const showTestCode = useInView(codeBlockRef, {
-    amount: 'all',
+    amount: 0.3,
     once: true,
   });
   const features = [
@@ -255,7 +255,7 @@ export default function InterviewsMarketingTestCodeSection() {
     },
   ];
 
-  const { value, start } = useTypingString(remainingCode, 30);
+  const { value, start } = useTypingString(remainingCode, 20);
   const code = getCode(value);
 
   useEffect(() => {

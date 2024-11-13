@@ -331,6 +331,10 @@
     "defaultMessage": "Algo concepts to cover and tips to succeed",
     "description": "Algorithm concepts needed in front end coding interviews"
   },
+  "0EoEMb": {
+    "defaultMessage": "Every question answered by Ex-interviewers",
+    "description": "Title for marketing page section"
+  },
   "0GT0SI": {
     "defaultMessage": "Cancel",
     "description": "Cancel button label"
@@ -3414,10 +3418,6 @@
   "LKILl5": {
     "defaultMessage": "Submission successfully unpinned!",
     "description": "Submission unpin toaster"
-  },
-  "LMI4bA": {
-    "defaultMessage": "Every question answered by ex-interviewers",
-    "description": "Title for marketing page section"
   },
   "LNBK2M": {
     "defaultMessage": "Our services are unavailable at your location.",
