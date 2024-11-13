@@ -6,6 +6,7 @@ import useUserProfile from '~/hooks/user/useUserProfile';
 
 import useCommonNavItems from '~/components/common/navigation/useCommonNavItems';
 import NavbarEnd from '~/components/ui/Navbar/NavbarEnd';
+import NavbarHeightStyles from '~/components/ui/Navbar/NavbarHeightStyles';
 import type { NavbarTopLevelItem } from '~/components/ui/Navbar/NavTypes';
 
 import InterviewsNavbarEndAddOnItems from './InterviewsNavbarEndAddOnItems';
@@ -31,6 +32,7 @@ export default function InterviewsNavbarEnd() {
       className={clsx(
         'z-fixed sticky top-[var(--banner-height)] backdrop-blur max-lg:hidden',
       )}>
+      <NavbarHeightStyles />
       <NavbarEnd
         addOnItems={<InterviewsNavbarEndAddOnItems />}
         className={clsx(

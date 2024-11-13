@@ -12,12 +12,11 @@ import {
 } from '~/components/ui/theme';
 
 import NavbarEnd from './NavbarEnd';
+import NavbarHeightStyles from './NavbarHeightStyles';
 import NavbarItem from './NavbarItem';
 import NavbarSidebarItem from './NavbarSidebarItem';
 import type { NavbarTopLevelItem } from './NavTypes';
 import Button from '../Button';
-
-const NAVBAR_HEIGHT = 48;
 
 type Props = Readonly<{
   className?: string;
@@ -74,18 +73,7 @@ function Navbar(
         hideOnDesktop && 'lg:hidden',
         className,
       )}>
-      <style
-        dangerouslySetInnerHTML={{
-          __html: `:root { --navbar-height: ${NAVBAR_HEIGHT}px; --navbar-border: 1px; }`,
-        }}
-      />
-      {hideOnDesktop && (
-        <style
-          dangerouslySetInnerHTML={{
-            __html: `@media (min-width: 1024px) { :root { --navbar-height: 0px; --navbar-border: 0px; } }`,
-          }}
-        />
-      )}
+      <NavbarHeightStyles hideOnDesktop={hideOnDesktop}/>
       <div className="max-w-8xl mx-auto px-6">
         <div
           className={clsx(

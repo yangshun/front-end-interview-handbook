@@ -25,6 +25,7 @@ import { FormattedMessage, useIntl } from '~/components/intl';
 import DropdownMenu from '~/components/ui/DropdownMenu';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
+import ScrollArea from '~/components/ui/ScrollArea';
 import TextInput from '~/components/ui/TextInput';
 import { themeDivideEmphasizeColor } from '~/components/ui/theme';
 
@@ -443,40 +444,38 @@ export default function QuestionsUnifiedListWithFilters({
         {showSummarySection && (
           <QuestionListingAccessSummary {...premiumCount} />
         )}
-        <section
-          className={clsx(
-            'overflow-y-auto',
-            'sticky top-[var(--global-sticky-height)] h-[calc(100vh_-_var(--global-sticky-height))]',
-          )}>
-          <Heading className="sr-only" level="custom">
-            <FormattedMessage
-              defaultMessage="Filters"
-              description="Screenreader text indicating the filters component on question list pages"
-              id="GyDKzV"
-            />
-          </Heading>
-          <Section>
-            <QuestionListingUnifiedFilters
-              attributesUnion={questionAttributesUnion}
-              companyFilterOptions={companyFilterOptions}
-              companyFilters={companyFilters}
-              completionStatusFilterOptions={completionStatusFilterOptions}
-              completionStatusFilters={completionStatusFilters}
-              difficultyFilterOptions={difficultyFilterOptions}
-              difficultyFilters={difficultyFilters}
-              formatFilterOptions={formatFilterOptions}
-              formatFilters={formatFilters}
-              frameworkFilterOptions={frameworkFilterOptions}
-              frameworkFilters={frameworkFilters}
-              importanceFilterOptions={importanceFilterOptions}
-              importanceFilters={importanceFilters}
-              languageFilterOptions={languageFilterOptions}
-              languageFilters={languageFilters}
-              mode={mode}
-              topicFilterOptions={topicFilterOptions}
-              topicFilters={topicFilters}
-            />
-          </Section>
+        <section className="sticky top-[var(--global-sticky-height)] h-[calc(100vh_-_var(--global-sticky-height))]">
+          <ScrollArea>
+            <Heading className="sr-only" level="custom">
+              <FormattedMessage
+                defaultMessage="Filters"
+                description="Screenreader text indicating the filters component on question list pages"
+                id="GyDKzV"
+              />
+            </Heading>
+            <Section>
+              <QuestionListingUnifiedFilters
+                attributesUnion={questionAttributesUnion}
+                companyFilterOptions={companyFilterOptions}
+                companyFilters={companyFilters}
+                completionStatusFilterOptions={completionStatusFilterOptions}
+                completionStatusFilters={completionStatusFilters}
+                difficultyFilterOptions={difficultyFilterOptions}
+                difficultyFilters={difficultyFilters}
+                formatFilterOptions={formatFilterOptions}
+                formatFilters={formatFilters}
+                frameworkFilterOptions={frameworkFilterOptions}
+                frameworkFilters={frameworkFilters}
+                importanceFilterOptions={importanceFilterOptions}
+                importanceFilters={importanceFilters}
+                languageFilterOptions={languageFilterOptions}
+                languageFilters={languageFilters}
+                mode={mode}
+                topicFilterOptions={topicFilterOptions}
+                topicFilters={topicFilters}
+              />
+            </Section>
+          </ScrollArea>
         </section>
       </aside>
     </div>
