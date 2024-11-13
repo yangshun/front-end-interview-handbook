@@ -115,7 +115,7 @@ export default function QuestionsList<Q extends QuestionMetadata>({
 
         return (
           <li
-            key={hashQuestion(questionMetadata.format, questionMetadata.slug)}
+            key={hashQuestion(questionMetadata)}
             className={clsx(
               'group relative',
               'focus-within:ring-brand focus-within:ring-2 focus-within:ring-inset',

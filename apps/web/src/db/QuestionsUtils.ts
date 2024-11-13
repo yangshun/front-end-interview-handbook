@@ -68,7 +68,10 @@ export function normalizeQuestionFrontMatter(
   };
 }
 
-export function hashQuestion(format: string, slug: QuestionSlug): QuestionHash {
+export function hashQuestion({
+  format,
+  slug,
+}: Pick<QuestionMetadata, 'format' | 'slug'>): QuestionHash {
   return format + ':' + slug;
 }
 
@@ -106,7 +109,7 @@ export function hasCompletedQuestion(
   completedQuestions: Set<QuestionSlug>,
   question: QuestionMetadata,
 ): boolean {
-  return completedQuestions.has(hashQuestion(question.format, question.slug));
+  return completedQuestions.has(hashQuestion(question));
 }
 
 export type QuestionsCategorizedProgress = Record<QuestionFormat, Set<string>>;
@@ -310,7 +313,7 @@ export function questionsForImportProgress(
 ) {
   // Create a Set for fast lookups
   const overallProgressSession = new Set(
-    overallProgress?.map((item) => hashQuestion(item.format, item.slug)),
+    overallProgress?.map((item) => hashQuestion(item)),
   );
   const currentSession = new Set(
     currentSessionProgress?.map((item) => item.key),
@@ -324,7 +327,7 @@ export function questionsForImportProgress(
   );
 
   return questions.filter((item) =>
-    questionsProgressToImport.has(hashQuestion(item.format, item.slug)),
+    questionsProgressToImport.has(hashQuestion(item)),
   );
 }
 

@@ -11,6 +11,8 @@ import QuestionContentsSystemDesign from '~/components/interviews/questions/cont
 import { ReadyQuestions } from '~/components/interviews/questions/content/system-design/SystemDesignConfig';
 import { useSystemDesignNavigation } from '~/components/interviews/questions/content/system-design/SystemDesignNavigation';
 
+import { hashQuestion } from '~/db/QuestionsUtils';
+
 type Props = Readonly<{
   bottomNav?: ReactNode;
   canViewPremiumContent: boolean;
@@ -53,7 +55,7 @@ export default function InterviewsQuestionsSystemDesignPage({
         />
       ) : (
         <QuestionContentsSystemDesign
-          key={question.metadata.slug}
+          key={hashQuestion(question.metadata)}
           canViewPremiumContent={canViewPremiumContent}
           isQuestionLocked={isQuestionLocked}
           listKey={studyList?.listKey}

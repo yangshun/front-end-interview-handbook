@@ -17,6 +17,8 @@ import Prose from '~/components/ui/Prose';
 import Text from '~/components/ui/Text';
 import { themeBorderColor } from '~/components/ui/theme';
 
+import { hashQuestion } from '~/db/QuestionsUtils';
+
 import QuestionReportIssueButton from '../../common/QuestionReportIssueButton';
 import type {
   QuestionMetadata,
@@ -101,7 +103,7 @@ export default function QuestionQuizContents({
             </Text>
             {/* Question solution */}
             <div
-              key={question.metadata.slug}
+              key={hashQuestion(question.metadata)}
               className="relative mx-auto flex min-w-0 flex-1 flex-col">
               <article aria-labelledby="question-title" className="grow">
                 <div className="min-h-0 flex-1">

@@ -74,9 +74,7 @@ export default function InterviewsStudyListQuestions<
   }
 
   const isCurrentQuestionInTheList = !!questions.find(
-    (question) =>
-      hashQuestion(question.format, question.slug) ===
-      hashQuestion(metadata.format, metadata.slug),
+    (question) => hashQuestion(question) === hashQuestion(metadata),
   );
   const isDifferentStudyList = listKey && listKey !== currentListKey;
 
@@ -133,10 +131,7 @@ export default function InterviewsStudyListQuestions<
             // If the current question is not in the list or different study list, the first question is going to be the active question
             const isActiveQuestion =
               isCurrentQuestionInTheList && !isDifferentStudyList
-                ? hashQuestion(
-                    questionMetadata.format,
-                    questionMetadata.slug,
-                  ) === hashQuestion(metadata.format, metadata.slug)
+                ? hashQuestion(questionMetadata) === hashQuestion(metadata)
                 : index === 0;
             const href = questionHrefWithList(
               questionMetadata.href,
@@ -145,10 +140,7 @@ export default function InterviewsStudyListQuestions<
 
             return (
               <Hovercard
-                key={hashQuestion(
-                  questionMetadata.format,
-                  questionMetadata.slug,
-                )}
+                key={hashQuestion(questionMetadata)}
                 // Add a small close delay so that cursor can enter the card
                 // fast enough before the card disappears.
                 closeDelay={50}
@@ -248,8 +240,7 @@ export default function InterviewsStudyListQuestions<
             checkIfCompletedQuestion?.(questionMetadata);
 
           const isActiveQuestion =
-            hashQuestion(questionMetadata.format, questionMetadata.slug) ===
-            hashQuestion(metadata.format, metadata.slug);
+            hashQuestion(questionMetadata) === hashQuestion(metadata);
 
           const href = questionHrefWithList(
             questionMetadata.href,
@@ -258,7 +249,7 @@ export default function InterviewsStudyListQuestions<
 
           return (
             <li
-              key={hashQuestion(questionMetadata.format, questionMetadata.slug)}
+              key={hashQuestion(questionMetadata)}
               className={clsx(
                 'group relative',
                 'px-6 py-4',

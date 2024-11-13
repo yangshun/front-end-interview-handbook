@@ -68,9 +68,7 @@ export default function QuestionsStudyListSlideOutButton({
   );
 
   const currentQuestionIndex = processedQuestions.findIndex(
-    (question) =>
-      hashQuestion(question.format, question.slug) ===
-      hashQuestion(metadata.format, metadata.slug),
+    (question) => hashQuestion(question) === hashQuestion(metadata),
   );
 
   // The current question might not appear in the filtered list,

@@ -76,7 +76,7 @@ export const questionProgressRouter = router({
 
         return await prisma.learningSessionProgress.create({
           data: {
-            key: hashQuestion(format, slug),
+            key: hashQuestion({ format: format as QuestionFormat, slug }),
             sessionId: session.id,
             status: 'COMPLETED',
           },
@@ -107,7 +107,7 @@ export const questionProgressRouter = router({
 
         return await prisma.learningSessionProgress.deleteMany({
           where: {
-            key: hashQuestion(format, slug),
+            key: hashQuestion({ format: format as QuestionFormat, slug }),
             sessionId: session.id,
           },
         });
@@ -155,7 +155,10 @@ export const questionProgressRouter = router({
         const [listQuestionProgress, questionProgress] = await Promise.all([
           prisma.learningSessionProgress.findFirst({
             where: {
-              key: hashQuestion(question.format, question.slug),
+              key: hashQuestion({
+                format: question.format as QuestionFormat,
+                slug: question.slug,
+              }),
               sessionId: session.id,
             },
           }),
@@ -366,7 +369,7 @@ export const questionProgressRouter = router({
       const data = questions.map(
         ({ format, slug }) =>
           ({
-            key: hashQuestion(format, slug),
+            key: hashQuestion({ format: format as QuestionFormat, slug }),
             sessionId: session.id,
             status: 'COMPLETED',
           }) as const,

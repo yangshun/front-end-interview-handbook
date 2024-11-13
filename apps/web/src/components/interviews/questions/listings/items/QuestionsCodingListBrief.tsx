@@ -62,12 +62,13 @@ export default function QuestionsCodingListBrief<Q extends QuestionMetadata>({
         ['divide-y', themeDivideEmphasizeColor],
         'overflow-hidden',
       )}>
-      {questions.map((question) => {
-        const hasCompletedQuestion = checkIfCompletedQuestion?.(question);
+      {questions.map((questionMetadata) => {
+        const hasCompletedQuestion =
+          checkIfCompletedQuestion?.(questionMetadata);
 
         return (
           <li
-            key={hashQuestion(question.format, question.slug)}
+            key={hashQuestion(questionMetadata)}
             className={clsx(
               'group relative flex gap-x-6 p-3',
               themeBackgroundCardWhiteOnLightColor,
@@ -101,16 +102,16 @@ export default function QuestionsCodingListBrief<Q extends QuestionMetadata>({
                   weight="medium">
                   <Anchor
                     className="focus:outline-none"
-                    href={questionHrefWithList(question.href, listKey)}
+                    href={questionHrefWithList(questionMetadata.href, listKey)}
                     variant="unstyled">
                     {/* Extend touch target to entire panel */}
                     <span aria-hidden="true" className="absolute inset-0" />
-                    {question.title}
+                    {questionMetadata.title}
                   </Anchor>
                 </Text>
               </div>
               <div className="flex items-center space-x-6">
-                <QuestionDifficultyLabel value={question.difficulty} />
+                <QuestionDifficultyLabel value={questionMetadata.difficulty} />
               </div>
             </div>
           </li>

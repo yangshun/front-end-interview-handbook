@@ -103,7 +103,7 @@ export default function ProfileActivity() {
   }
 
   const questionsProgressWithMetadata = uniqBy(questionProgress, (progress) =>
-    hashQuestion(progress.format, progress.slug),
+    hashQuestion(progress),
   )
     .map((progress) => ({
       createdAt: progress.createdAt,

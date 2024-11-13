@@ -41,9 +41,7 @@ export default function useQuestionsWithCompletionStatus<
     const completedQuestions = new Set(
       listKey
         ? (questionSessionProgress ?? []).map(({ key }) => key)
-        : (questionProgress ?? []).map(({ format, slug }) =>
-            hashQuestion(format, slug),
-          ),
+        : (questionProgress ?? []).map((item) => hashQuestion(item)),
     );
 
     return questions.map((question) => ({
