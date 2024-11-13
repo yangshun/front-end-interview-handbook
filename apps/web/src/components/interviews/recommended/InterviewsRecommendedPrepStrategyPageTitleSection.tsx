@@ -80,7 +80,7 @@ function RecommendedItemsDropdown({
       label: guidesData['front-end-interview-playbook'].name,
     },
     {
-      href: '/interviews/greatfrontend75',
+      href: '/interviews/gfe75',
       isCompleted:
         gfe75session?._count.progress ===
         recommendedPrepData.gfe75.questionCount,

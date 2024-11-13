@@ -100,7 +100,7 @@ export default function useInterviewsNavItems(placement: 'nav' | 'sidebar') {
   const recommendedPreparation = {
     align: 'center',
     currentMatchRegex: new RegExp(
-      `(/blind75|/greatfrontend75|${guidesData['front-end-interview-playbook'].href}|${guidesData['front-end-system-design-playbook'].href})`,
+      `(/blind75|/gfe75|${guidesData['front-end-interview-playbook'].href}|${guidesData['front-end-system-design-playbook'].href})`,
       'i',
     ),
     icon: RiThumbUpLine,
@@ -127,8 +127,8 @@ export default function useInterviewsNavItems(placement: 'nav' | 'sidebar') {
         type: 'popover-link',
       },
       {
-        href: '/interviews/greatfrontend75',
-        icon: StudyPlanIcons.greatfrontend75,
+        href: '/interviews/gfe75',
+        icon: StudyPlanIcons.gfe75,
         itemKey: 'gfe75',
         label: 'GFE 75',
         onClick: () => {

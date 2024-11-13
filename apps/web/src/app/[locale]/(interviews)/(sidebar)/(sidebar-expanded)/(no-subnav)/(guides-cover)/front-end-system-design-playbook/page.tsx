@@ -76,7 +76,7 @@ export default async function Page({ params }: Props) {
     fetchQuestionsListSystemDesign(locale),
     fetchQuestionCompletionCount(['system-design']),
     fetchInterviewsStudyList('blind75'),
-    fetchInterviewsStudyList('greatfrontend75'),
+    fetchInterviewsStudyList('gfe75'),
     getPageSEOMetadata({ params }),
   ]);
 

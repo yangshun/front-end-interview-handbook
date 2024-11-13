@@ -68,7 +68,7 @@ export default async function Page({ params }: Props) {
     bottomContent,
   ] = await Promise.all([
     fetchQuestionsByHash(blind75.questionHashes, locale),
-    fetchInterviewsStudyList('greatfrontend75'),
+    fetchInterviewsStudyList('gfe75'),
     fetchQuestionsListSystemDesign(locale),
     fetchInterviewListingBottomContent('blind75'),
   ]);

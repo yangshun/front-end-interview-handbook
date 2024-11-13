@@ -1075,9 +1075,9 @@
     "defaultMessage": "Known {company} front end interview questions",
     "description": "Heading for questions listing for company guides"
   },
-  "5jNSb2": {
-    "defaultMessage": "The smallest list of practice questions that gets you the most mileage in your preparation. Covers the most commonly asked front end interview topics.",
-    "description": "Description for GFE75 page"
+  "5kTIFT": {
+    "defaultMessage": "Your dream job is within reach—just a few months of preparation away. Unlock premium for less than the cost of a day's pay and get there faster.",
+    "description": "Subtitle for a premium interviews content"
   },
   "5kWNqG": {
     "defaultMessage": "We've had {number} unique active users on our site. Verifiable by Google Analytics.",
@@ -3359,10 +3359,6 @@
     "defaultMessage": "{startedCount} started",
     "description": "Label for number of users who have started the challenge"
   },
-  "L2J7Pv": {
-    "defaultMessage": "Created with the expertise of senior to staff front end interviewers from some of the top companies in the world. <button>Have a suggestion?</button>",
-    "description": "Description for GFE75 page"
-  },
   "L2l9WA": {
     "defaultMessage": "Quiz",
     "description": "Front end quiz questions"
@@ -5230,6 +5226,10 @@
   "X1UVMv": {
     "defaultMessage": "We add more questions and guides from time to time, available for free to premium subscribers.",
     "description": "Subtitle for free continuous updates feature"
+  },
+  "X2w/yO": {
+    "defaultMessage": "Created with the expertise of senior to staff front end interviewers from some of the top companies in the world. <button>Have a suggestion?</button>",
+    "description": "Description for study list"
   },
   "X6Eh8S": {
     "defaultMessage": "Email us",
@@ -7847,6 +7847,10 @@
     "defaultMessage": "Status must contain at most {maxLength} character(s).",
     "description": "Error message for exceed char limit in other input for yoe status on projects profile page"
   },
+  "oXdinV": {
+    "defaultMessage": "The smallest list of practice questions that gets you the most mileage in your preparation. Covers the most commonly asked front end interview topics.",
+    "description": "Description for study list"
+  },
   "ofFMGr": {
     "defaultMessage": "Check out other available <link>promotions</link>.",
     "description": "Promotional message"
@@ -9534,9 +9538,5 @@
   "zyPeie": {
     "defaultMessage": "Email address",
     "description": "Label for email address input field"
-  },
-  "zySjbq": {
-    "defaultMessage": "Your dream job is within reach—just a few months of preparation away. Unlock premium for less than the cost of a day's pay and get there faster!",
-    "description": "Subtitle for a premium interviews content"
   }
 }

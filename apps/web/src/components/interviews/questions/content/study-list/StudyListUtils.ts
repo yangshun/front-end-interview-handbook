@@ -36,7 +36,7 @@ export const StudyPlanIcons: Record<
   (props: React.ComponentProps<'svg'>) => JSX.Element
 > = {
   blind75: RiEye2Line,
-  greatfrontend75: RiRocketLine,
+  gfe75: RiRocketLine,
   'one-month': RiFireLine,
   'one-week': RiFlashlightLine,
   'three-months': RiStarLine,

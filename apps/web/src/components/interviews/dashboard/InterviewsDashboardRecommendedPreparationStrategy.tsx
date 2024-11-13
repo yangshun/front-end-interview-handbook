@@ -193,7 +193,7 @@ export default function InterviewsDashboardRecommendedPreparationStrategy({
         description: 'Description for gfe75',
         id: 'bNgObx',
       }),
-      href: '/interviews/greatfrontend75',
+      href: '/interviews/gfe75',
       question: {
         completed: gfe75session?._count.progress ?? 0,
         total: recommendedPrepData.gfe75.questionCount,

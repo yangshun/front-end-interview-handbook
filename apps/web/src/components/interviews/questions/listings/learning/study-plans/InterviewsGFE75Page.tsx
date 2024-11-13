@@ -118,15 +118,15 @@ export default function InterviewsGFE75Page({
               <Text color="secondary" size="body1">
                 <FormattedMessage
                   defaultMessage="The smallest list of practice questions that gets you the most mileage in your preparation. Covers the most commonly asked front end interview topics."
-                  description="Description for GFE75 page"
-                  id="5jNSb2"
+                  description="Description for study list"
+                  id="oXdinV"
                 />
               </Text>
               <Text color="secondary" size="body1">
                 <FormattedMessage
                   defaultMessage="Created with the expertise of senior to staff front end interviewers from some of the top companies in the world. <button>Have a suggestion?</button>"
-                  description="Description for GFE75 page"
-                  id="L2J7Pv"
+                  description="Description for study list"
+                  id="X2w/yO"
                   values={{
                     button: (chunks) => (
                       <button
@@ -151,7 +151,7 @@ export default function InterviewsGFE75Page({
           }}
           overallProgress={questionProgressParam ?? []}
           questions={questions}
-          questionsSessionKey="greatfrontend75"
+          questionsSessionKey="gfe75"
           recommendedPrepData={recommendedPrepData}
           title={studyList.name}
         />

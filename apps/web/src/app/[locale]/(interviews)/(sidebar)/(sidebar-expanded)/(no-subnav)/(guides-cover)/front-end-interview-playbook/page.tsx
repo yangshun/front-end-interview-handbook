@@ -70,7 +70,7 @@ export default async function Page({ params }: Props) {
   ] = await Promise.all([
     readAllFrontEndInterviewGuides(params.locale),
     fetchInterviewsStudyList('blind75'),
-    fetchInterviewsStudyList('greatfrontend75'),
+    fetchInterviewsStudyList('gfe75'),
     fetchQuestionsListSystemDesign(params.locale),
     getPageSEOMetadata({ params }),
   ]);

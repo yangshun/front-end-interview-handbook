@@ -121,7 +121,7 @@ function DropdownContent({
   const studyPlansMap = convertToMap(studyLists.studyPlans);
   const items: ReadonlyArray<StudyListItemsType> = [
     {
-      items: [studyPlansMap.greatfrontend75, studyPlansMap.blind75],
+      items: [studyPlansMap.gfe75, studyPlansMap.blind75],
       key: 'prep-strategy',
       label: intl.formatMessage({
         defaultMessage: 'Recommended prep strategy',

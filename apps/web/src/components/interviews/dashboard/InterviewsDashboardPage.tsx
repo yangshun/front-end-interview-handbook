@@ -130,9 +130,8 @@ export default function InterviewsDashboardPage({
               questionCount: studyListsMap.blind75?.questionHashes.length,
             },
             gfe75: {
-              listKey: studyListsMap.greatfrontend75?.slug ?? '',
-              questionCount:
-                studyListsMap.greatfrontend75?.questionHashes.length,
+              listKey: studyListsMap.gfe75?.slug ?? '',
+              questionCount: studyListsMap.gfe75?.questionHashes.length,
             },
             systemDesignQuestionCount: questions.systemDesignQuestions.length,
           }}
