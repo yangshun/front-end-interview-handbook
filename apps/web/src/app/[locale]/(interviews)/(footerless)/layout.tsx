@@ -9,7 +9,7 @@ export default function FooterlessLayout({ children }: Props) {
   return (
     <>
       <GlobalBannerInterviews />
-      <InterviewsNavbar />
+      <InterviewsNavbar showBottomBorderOnScroll={false} />
       {children}
     </>
   );

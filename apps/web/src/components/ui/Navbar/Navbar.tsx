@@ -30,6 +30,7 @@ type Props = Readonly<{
   renderMobileSidebarAddOnItems?: ({
     closeMobileNav,
   }: Readonly<{ closeMobileNav: () => void }>) => React.ReactNode;
+  showBottomBorderOnScroll?: boolean;
   style?: CSSProperties;
   transparent?: boolean;
   unreadNotificationCount?: number;
@@ -47,6 +48,7 @@ function Navbar(
     transparent = false,
     hideOnDesktop = false,
     unreadNotificationCount = 0,
+    showBottomBorderOnScroll,
   }: Props,
   ref: React.Ref<HTMLDivElement>,
 ) {
@@ -59,12 +61,14 @@ function Navbar(
     setIsMobileNavOpen(false);
   }
 
+  const showBottomBorder = showBottomBorderOnScroll ? transparent : true;
+
   return (
     <div
       ref={ref}
       className={clsx(
         'z-fixed sticky top-[var(--banner-height)] backdrop-blur',
-        ['border-b', themeBorderColor],
+        showBottomBorder && ['border-b', themeBorderColor],
         transparent && 'bg-white dark:bg-neutral-900/60',
         'transition-[background-color]',
         hideOnDesktop && 'lg:hidden',

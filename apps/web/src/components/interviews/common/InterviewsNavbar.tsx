@@ -32,9 +32,13 @@ import { useUser } from '@supabase/auth-helpers-react';
 
 type Props = Readonly<{
   hideOnDesktop?: boolean;
+  showBottomBorderOnScroll?: boolean;
 }>;
 
-export default function InterviewsNavbar({ hideOnDesktop = false }: Props) {
+export default function InterviewsNavbar({
+  hideOnDesktop = false,
+  showBottomBorderOnScroll = true,
+}: Props) {
   const { colorSchemePreference, setColorSchemePreference } =
     useColorSchemePreferences();
   const user = useUser();
@@ -148,6 +152,7 @@ export default function InterviewsNavbar({ hideOnDesktop = false }: Props) {
       }
       mobileSidebarBottomItems={mobileSidebarBottomItems}
       renderMobileSidebarAddOnItems={renderMobileSidebarAddOnItems}
+      showBottomBorderOnScroll={showBottomBorderOnScroll}
       transparent={!isSticky}
     />
   );
