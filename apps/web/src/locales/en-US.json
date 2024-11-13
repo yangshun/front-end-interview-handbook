@@ -4555,10 +4555,6 @@
     "defaultMessage": "Nothing found just yet",
     "description": "Title for empty state when application of filters return no results"
   },
-  "SdwINk": {
-    "defaultMessage": "Mid",
-    "description": "Medium question difficulty"
-  },
   "SgTflO": {
     "defaultMessage": "+{reputation}",
     "description": "Title for level Up"
@@ -6742,6 +6738,10 @@
   "grLe+N": {
     "defaultMessage": "Number of series",
     "description": "Total number of series in a list"
+  },
+  "gtouN7": {
+    "defaultMessage": "Medium",
+    "description": "Medium question difficulty"
   },
   "gvLQbK": {
     "defaultMessage": "Premium Discord",
