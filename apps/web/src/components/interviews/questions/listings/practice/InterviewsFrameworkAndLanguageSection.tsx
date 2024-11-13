@@ -140,18 +140,6 @@ export default function InterviewsFrameworkAndLanguageSection({
 
   const frameworks: ReadonlyArray<FrameworkCardProps> = [
     {
-      completedQuestions: languageProgress.js.size,
-      href: languagesData.js.href,
-      icon: <JavaScriptLogo className="size-6" />,
-      title: languagesData.js.label,
-      titleAddOnText: intl.formatMessage({
-        defaultMessage: 'TypeScript supported',
-        description: 'JavaScript questions can be done in TypeScript',
-        id: '04Q6JH',
-      }),
-      totalQuestions: languageQuestions.js.length,
-    },
-    {
       completedQuestions: frameworkProgress.react.size,
       href: frameworksData.react.href,
       icon: (
@@ -182,11 +170,16 @@ export default function InterviewsFrameworkAndLanguageSection({
       totalQuestions: frameworkQuestions.svelte.length,
     },
     {
-      completedQuestions: languageProgress.html.size,
-      href: languagesData.html.href,
-      icon: <HTML5Logo className="size-6" />,
-      title: languagesData.html.label,
-      totalQuestions: languageQuestions.html.length,
+      completedQuestions: languageProgress.js.size,
+      href: languagesData.js.href,
+      icon: <JavaScriptLogo className="size-6" />,
+      title: languagesData.js.label,
+      titleAddOnText: intl.formatMessage({
+        defaultMessage: 'TypeScript supported',
+        description: 'JavaScript questions can be done in TypeScript',
+        id: '04Q6JH',
+      }),
+      totalQuestions: languageQuestions.js.length,
     },
     {
       completedQuestions: languageProgress.css.size,
@@ -194,6 +187,13 @@ export default function InterviewsFrameworkAndLanguageSection({
       icon: <CSS3Logo className="size-6" />,
       title: languagesData.css.label,
       totalQuestions: languageQuestions.css.length,
+    },
+    {
+      completedQuestions: languageProgress.html.size,
+      href: languagesData.html.href,
+      icon: <HTML5Logo className="size-6" />,
+      title: languagesData.html.label,
+      totalQuestions: languageQuestions.html.length,
     },
     {
       completedQuestions: languageProgress.ts.size,

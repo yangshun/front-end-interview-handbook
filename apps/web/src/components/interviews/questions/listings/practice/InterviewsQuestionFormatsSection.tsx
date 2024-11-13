@@ -262,10 +262,10 @@ export default function InterviewsQuestionFormatsSection({
   };
 
   const questionFormatsData = [
-    quizQuestionsData,
     jsQuestionsData,
     uiQuestionsData,
     algoQuestionsData,
+    quizQuestionsData,
     systemDesignQuestionsData,
     behavioralQuestionsData,
   ];
