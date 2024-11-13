@@ -59,9 +59,9 @@ export default function QuestionCountLabel({
           size={size}>
           {showQuestionsLabel ? (
             <FormattedMessage
-              defaultMessage="{numberOfQuestions, plural, =0 {no questions} one {1 question} other {# questions}}"
+              defaultMessage="{numberOfQuestions, plural, =0 {No questions} one {1 question} other {# questions}}"
               description="Number of questions in a list"
-              id="xtxnjG"
+              id="Ghc5ye"
               values={{
                 numberOfQuestions: count,
               }}

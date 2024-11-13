@@ -2659,6 +2659,10 @@
     "defaultMessage": "View your submission",
     "description": "Label for View your submission button on project submit page"
   },
+  "Ghc5ye": {
+    "defaultMessage": "{numberOfQuestions, plural, =0 {No questions} one {1 question} other {# questions}}",
+    "description": "Number of questions in a list"
+  },
   "GiSp0E": {
     "defaultMessage": "Medium",
     "description": "Medium difficulty question"
@@ -9210,10 +9214,6 @@
   "xtUjHr": {
     "defaultMessage": "Discover front end interview questions and preparation resources for top tech companies like Google, Facebook, Amazon, Apple, Microsoft, TikTok and more.",
     "description": "Page description for company guides listing"
-  },
-  "xtxnjG": {
-    "defaultMessage": "{numberOfQuestions, plural, =0 {no questions} one {1 question} other {# questions}}",
-    "description": "Number of questions in a list"
   },
   "xyPOJe": {
     "defaultMessage": "{points} Reputation",
