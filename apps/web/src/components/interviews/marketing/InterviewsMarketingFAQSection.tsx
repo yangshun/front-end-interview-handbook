@@ -39,58 +39,61 @@ export default function InterviewsMarketingFAQSection() {
 
   return (
     <Container className={clsx('py-20')} width="marketing">
-      <Heading
-        className={clsx(
-          themeMarketingHeadingSize,
-          themeGradientHeading,
-          'max-w-2xl pb-1',
-        )}
-        level="custom"
-        weight="medium">
-        <FormattedMessage
-          defaultMessage="Your commonly asked questions, answered"
-          description="Title for marketing page section"
-          id="cOyhbp"
-        />
-      </Heading>
-      <Section>
-        <Text
+      <div className="flex flex-col gap-x-2 gap-y-6 lg:flex-row lg:items-end lg:justify-between">
+        <Heading
           className={clsx(
-            'mt-6 block',
-            'text-base lg:text-lg',
-            'lg:font-medium',
-            'max-w-md lg:max-w-2xl',
+            themeMarketingHeadingSize,
+            themeGradientHeading,
+            'max-w-lg pb-1',
           )}
-          color="secondary"
-          size="inherit"
-          weight="inherit">
-          <FormattedMessage
-            defaultMessage="Can't find the answer you are looking for?"
-            description="Marketing page section subtitle"
-            id="QJTIr/"
-          />
-        </Text>
-        <Text
-          className="block max-w-xl text-base lg:text-lg"
-          color="secondary"
-          size="inherit"
+          level="custom"
           weight="medium">
           <FormattedMessage
-            defaultMessage="View all <link>frequently asked questions</link>"
-            description="Marketing page section subtitle"
-            id="yiXkEL"
-            values={{
-              link: (chunks) => (
-                <Anchor
-                  className="inline-flex items-center gap-1"
-                  href="/interviews/faq">
-                  {chunks} <RiArrowRightLine className="size-4.5 shrink-0" />
-                </Anchor>
-              ),
-            }}
+            defaultMessage="Your commonly asked questions, answered"
+            description="Title for marketing page section"
+            id="cOyhbp"
           />
-        </Text>
-
+        </Heading>
+        <div className="flex flex-col lg:items-end">
+          <Text
+            className={clsx(
+              'block xl:mt-6',
+              'text-base lg:text-lg',
+              'lg:font-medium',
+              'max-w-md lg:max-w-2xl',
+            )}
+            color="secondary"
+            size="inherit"
+            weight="inherit">
+            <FormattedMessage
+              defaultMessage="Can't find the answer you are looking for?"
+              description="Marketing page section subtitle"
+              id="QJTIr/"
+            />
+          </Text>
+          <Text
+            className="block max-w-xl text-base lg:text-lg"
+            color="secondary"
+            size="inherit"
+            weight="medium">
+            <FormattedMessage
+              defaultMessage="View all <link>frequently asked questions</link>"
+              description="Marketing page section subtitle"
+              id="yiXkEL"
+              values={{
+                link: (chunks) => (
+                  <Anchor
+                    className="inline-flex items-center gap-1"
+                    href="/interviews/faq">
+                    {chunks} <RiArrowRightLine className="size-4.5 shrink-0" />
+                  </Anchor>
+                ),
+              }}
+            />
+          </Text>
+        </div>
+      </div>
+      <Section>
         <div className="mt-12 lg:mt-16">
           <MarketingFAQSection
             accordionTriggerClassName="py-8 text-lg"

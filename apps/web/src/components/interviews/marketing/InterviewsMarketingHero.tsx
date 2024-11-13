@@ -83,16 +83,18 @@ export default function InterviewsMarketingHeroNew({ testimonials }: Props) {
           color="secondary"
           size="inherit"
           weight="medium">
-          <FormattedMessage
-            defaultMessage="Meet the <strong>front end interview prep platform</strong> built to make your interviews much easier. By Big Tech ex-interviewers at"
-            description="Subtitle for hero"
-            id="Eel+ez"
-            values={{
-              strong: (chunks) => <Text color="default">{chunks}</Text>,
-            }}
-          />
+          <span className="me-2">
+            <FormattedMessage
+              defaultMessage="Meet the <strong>front end interview prep platform</strong> built to make your interviews much easier. By Big Tech ex-interviewers at"
+              description="Subtitle for hero"
+              id="Eel+ez"
+              values={{
+                strong: (chunks) => <Text color="default">{chunks}</Text>,
+              }}
+            />
+          </span>
           <GoogleLogo
-            className="ms-2 inline-flex h-5"
+            className="me-3 inline-flex h-5"
             title={intl.formatMessage({
               defaultMessage: 'Google logo',
               description: 'Google company logo',
@@ -100,7 +102,7 @@ export default function InterviewsMarketingHeroNew({ testimonials }: Props) {
             })}
           />
           <AmazonLogo
-            className="ms-3 mt-2 inline-flex h-5"
+            className="me-4 mt-2 inline-flex h-5"
             title={intl.formatMessage({
               defaultMessage: 'Amazon logo',
               description: 'Amazon company logo',
@@ -108,7 +110,7 @@ export default function InterviewsMarketingHeroNew({ testimonials }: Props) {
             })}
           />
           <MetaLogo
-            className="ms-4 inline-flex h-3.5"
+            className="inline-flex h-3.5"
             title={intl.formatMessage({
               defaultMessage: 'Meta logo',
               description: 'Meta company logo',

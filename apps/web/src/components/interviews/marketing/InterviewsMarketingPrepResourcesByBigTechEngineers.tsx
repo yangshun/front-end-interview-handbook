@@ -96,7 +96,7 @@ export default function InterviewsMarketingPrepResourcesByBigTechEngineers() {
       logos: [
         {
           logo: ({ className }: LogoProps) => (
-            <SvelteLogo className={clsx('text-[#585860]', className)} />
+            <SvelteLogo className={className} colorClassName="text-[#585860]" />
           ),
           name: 'Svelte',
         },

@@ -4747,10 +4747,6 @@
     "defaultMessage": "This URL is invalid. Check if you've typed it correctly.",
     "description": "Error message"
   },
-  "TpWg4H": {
-    "defaultMessage": "Have questions, feedback or anything to say? Contact us. We usually get back within a day or two.",
-    "description": "Marketing page section subtitle"
-  },
   "Tt86gs": {
     "defaultMessage": "Importance: High to Low",
     "description": "Sorting option for question list - sort by importance from high to low"
@@ -5235,6 +5231,10 @@
     "defaultMessage": "We add more questions and guides from time to time, available for free to premium subscribers.",
     "description": "Subtitle for free continuous updates feature"
   },
+  "X6Eh8S": {
+    "defaultMessage": "Email us",
+    "description": "Label for email us"
+  },
   "X6kis4": {
     "defaultMessage": "Explore series",
     "description": "Explore series page title"
@@ -5566,6 +5566,10 @@
   "ZWMfa0": {
     "defaultMessage": "Pricing plans",
     "description": "Section label on Pricing section of Homepage or Pricing page"
+  },
+  "ZXUeF4": {
+    "defaultMessage": "Have questions, feedback, or anything to say? Tell us. We usually get back within 1-2 days.",
+    "description": "Marketing page section subtitle"
   },
   "ZYFcYD": {
     "defaultMessage": "Report an issue",

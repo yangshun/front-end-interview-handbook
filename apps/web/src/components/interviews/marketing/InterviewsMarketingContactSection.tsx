@@ -38,7 +38,13 @@ export default function InterviewsMarketingContactSection() {
       href: 'mailto:contact@greatfrontend.com',
       icon: RiMailLine,
       key: 'mail',
-      label: 'Email',
+      label: (
+        <FormattedMessage
+          defaultMessage="Email us"
+          description="Label for email us"
+          id="X6Eh8S"
+        />
+      ),
     },
     {
       href: SocialLinks.discord.href,
@@ -139,9 +145,9 @@ export default function InterviewsMarketingContactSection() {
               size="inherit"
               weight="inherit">
               <FormattedMessage
-                defaultMessage="Have questions, feedback or anything to say? Contact us. We usually get back within a day or two."
+                defaultMessage="Have questions, feedback, or anything to say? Tell us. We usually get back within 1-2 days."
                 description="Marketing page section subtitle"
-                id="TpWg4H"
+                id="ZXUeF4"
               />
             </Text>
             <div
