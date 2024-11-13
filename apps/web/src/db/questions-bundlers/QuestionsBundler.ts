@@ -3,6 +3,7 @@ import { bundleMDX } from 'mdx-bundler';
 import path, { dirname } from 'path';
 import remarkFrontmatter from 'remark-frontmatter';
 import remarkGfm from 'remark-gfm';
+import remarkMdxCodeMeta from 'remark-mdx-code-meta';
 import remarkMdxFrontmatter from 'remark-mdx-frontmatter';
 import remarkSlug from 'remark-slug';
 
@@ -66,6 +67,7 @@ export async function readMDXFile(
       const remarkPlugins = options.remarkPlugins ?? [];
 
       remarkPlugins.push(remarkGfm);
+      remarkPlugins.push(remarkMdxCodeMeta)
 
       if (extractFrontmatter) {
         remarkPlugins.push(remarkFrontmatter, remarkMdxFrontmatter);

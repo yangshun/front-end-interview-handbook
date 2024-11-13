@@ -125,6 +125,7 @@
     "reading-time": "^1.5.0",
     "remark-frontmatter": "^4.0.1",
     "remark-gfm": "^3.0.1",
+    "remark-mdx-code-meta": "^2.0.0",
     "remark-mdx-frontmatter": "^2.1.1",
     "remark-slug": "^7.0.1",
     "resend": "^2.0.0",
