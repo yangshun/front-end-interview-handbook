@@ -50,7 +50,7 @@ function TestimonialCard({
         'flex flex-col justify-between gap-6',
         'p-8',
         'rounded-lg',
-        'h-[338px] md:h-[238px]',
+        'h-[338px] md:h-[256px]',
         themeBackgroundCardColor,
         ['border', themeBorderElementColor],
         [themeWhiteGlowCardBackground, 'before:-left-10 before:-top-10'],
@@ -62,7 +62,7 @@ function TestimonialCard({
           'before:z-[1] before:h-12',
           'before:bg-gradient-to-b before:from-[rgba(0,0,0,0)] before:to-neutral-50 before:dark:to-[#1E1E21]',
         )}>
-        <ScrollArea heightClass="h-[160px] md:h-[116px]">
+        <ScrollArea heightClass="h-[160px] md:h-[134px]">
           <div className={clsx('pb-5 text-base font-semibold md:text-lg')}>
             "{testimonial}"
           </div>
@@ -177,10 +177,10 @@ export default function InterviewsTestimonialsSlider({ data }: Props) {
     <TabsPrimitive.List className="flex justify-center gap-4">
       {data.map((item) => (
         <TabsPrimitive.Trigger key={item.id} asChild={true} value={item.id}>
-          <button aria-label={item.id} className="py-0.5" type="button">
+          <button aria-label={item.id} className="w-12 py-1.5" type="button">
             <div
               className={clsx(
-                'h-1 w-12 rounded',
+                'h-1 w-full rounded',
                 item.id === dataValue
                   ? 'bg-neutral-900 dark:bg-neutral-100'
                   : 'bg-neutral-200/70 dark:bg-neutral-700',
@@ -203,7 +203,7 @@ export default function InterviewsTestimonialsSlider({ data }: Props) {
         window.clearInterval(timer.current);
         setCurrentItemIndex(data.findIndex(({ id }) => id === newValue));
       }}>
-      <div className="flex flex-col gap-6 overflow-hidden">
+      <div className="flex flex-col gap-[18px] overflow-hidden">
         <div className="relative rounded-lg">
           {data.map((item) => (
             <TabsPrimitive.Content key={item.id} value={item.id}>

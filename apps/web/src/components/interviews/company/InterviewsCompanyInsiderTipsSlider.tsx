@@ -47,7 +47,7 @@ export default function InterviewsCompanyInsiderTipsSlider({ data }: Props) {
         })}
       </Heading>
       <TabsPrimitive.Root
-        className="flex flex-col gap-6"
+        className="flex flex-col gap-[18px]"
         value={dataValue}
         onValueChange={(newValue) => {
           // Stop auto-advancing if user interacts with steppers.
@@ -78,10 +78,13 @@ export default function InterviewsCompanyInsiderTipsSlider({ data }: Props) {
                 key={item.id}
                 asChild={true}
                 value={item.id}>
-                <button aria-label={item.id} className="py-0.5" type="button">
+                <button
+                  aria-label={item.id}
+                  className="w-12 py-1.5"
+                  type="button">
                   <div
                     className={clsx(
-                      'h-1 w-12 rounded',
+                      'h-1 w-full rounded',
                       item.id === dataValue
                         ? 'bg-neutral-900 dark:bg-neutral-100'
                         : 'bg-neutral-200/70 dark:bg-neutral-700',
