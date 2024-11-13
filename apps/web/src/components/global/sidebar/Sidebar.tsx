@@ -24,7 +24,9 @@ import SidebarCollapsedLinkItem from './SidebarCollapsedLinkItem';
 import SidebarColorSchemeSubMenu from './SidebarColorSchemeSubMenu';
 import type { SidebarLinkEntity } from './SidebarLinksSection';
 import SidebarLinksSection from './SidebarLinksSection';
-import NavProductDropdownMenu from '../navbar/NavProductDropdownMenu';
+import NavProductDropdownMenu, {
+  NavProductDropdownMenuLogoOnly,
+} from '../navbar/NavProductDropdownMenu';
 
 export function SidebarCollapsed({
   moreMenuItems,
@@ -59,7 +61,7 @@ export function SidebarCollapsed({
         'py-4',
       )}>
       <div className="pb-8">
-        <NavProductDropdownMenu product={product} variant="minimal" />
+        <NavProductDropdownMenuLogoOnly product={product} />
       </div>
       {topAddonElements}
       <ul className="flex grow flex-col gap-1">
@@ -180,7 +182,7 @@ export function SidebarExpanded({
   return (
     <nav className={clsx('flex flex-col', 'relative h-full')}>
       <div className="flex grow flex-col justify-between p-4">
-        <div className="flex justify-center pb-7">
+        <div className="flex justify-center pb-7 pl-2">
           <NavProductDropdownMenu product={product} variant="compact" />
         </div>
         <div className="flex grow flex-col justify-between gap-4">

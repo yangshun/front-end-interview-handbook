@@ -4,6 +4,7 @@ import { RiArrowDownSLine } from 'react-icons/ri';
 
 import LogoMark from '~/components/global/logos/LogoMark';
 import NavProductDropdownMenuContent from '~/components/global/navbar/NavProductDropdownMenuContent';
+import Anchor from '~/components/ui/Anchor';
 import Divider from '~/components/ui/Divider';
 import Text, { textVariants } from '~/components/ui/Text';
 import {
@@ -38,7 +39,7 @@ const labels: Record<
 type Props = Readonly<{
   product: ProductValue;
   triggerClassname?: string;
-  variant: 'compact' | 'full' | 'minimal';
+  variant: 'compact' | 'full';
 }>;
 
 export default function NavProductDropdownMenu({
@@ -50,13 +51,28 @@ export default function NavProductDropdownMenu({
   const [showUnseenIndicator] = useProductMenuUnseenIndicator();
 
   return (
-    <DropdownMenuPrimitive.Root>
-      <DropdownMenuPrimitive.Trigger asChild={true}>
-        {variant === 'full' || variant === 'compact' ? (
+    <div
+      className={clsx(
+        'flex items-center',
+        variant === 'full' ? 'gap-2 md:gap-4' : 'gap-2.5',
+      )}>
+      <Anchor href="/" variant="unstyled">
+        <LogoComboMark
+          className="shrink-0"
+          height={variant === 'full' ? 20 : 19}
+        />
+      </Anchor>
+      <Divider
+        className="h-3 shrink-0"
+        color="emphasized"
+        direction="vertical"
+      />
+      <DropdownMenuPrimitive.Root>
+        <DropdownMenuPrimitive.Trigger asChild={true}>
           <button
             className={clsx(
-              'flex items-center',
-              variant === 'full' ? 'gap-2 md:gap-4' : 'gap-2.5',
+              '-ml-2',
+              'relative flex items-center gap-2',
               'px-2 py-2',
               'rounded',
               'border-transparent',
@@ -70,70 +86,79 @@ export default function NavProductDropdownMenu({
               triggerClassname,
             )}
             type="button">
-            <LogoComboMark
-              className="shrink-0"
-              height={variant === 'full' ? 20 : 19}
-            />
-            <Divider
-              className="h-3 shrink-0"
-              color="emphasized"
-              direction="vertical"
-            />
-            <span className="relative flex items-center gap-2">
-              <Text
-                color={variant === 'full' ? 'default' : 'secondary'}
-                size="body2"
-                weight="bold">
-                {label}
-              </Text>
-              {showUnseenIndicator && (
-                <span
-                  aria-hidden={true}
-                  className={clsx(
-                    'size-1.5 inline-block',
-                    'bg-red rounded-full',
-                    'absolute -right-1.5 -top-0.5',
-                  )}
-                />
-              )}
-              <RiArrowDownSLine
-                aria-hidden={true}
-                className={clsx('size-5 shrink-0', themeTextSubtleColor)}
-              />
-            </span>
-          </button>
-        ) : (
-          <button
-            aria-label="Select product"
-            className={clsx(
-              'group',
-              'flex shrink-0 items-center justify-center',
-              'relative',
-              'size-11',
-              'rounded-lg',
-              'select-none outline-none',
-              'transition-colors',
-              [
-                themeOutlineElement_FocusVisible,
-                themeOutlineElementBrandColor_FocusVisible,
-              ],
-              themeBackgroundElementEmphasizedStateColor_Hover,
-              themeBackgroundElementPressedStateColor_Active,
-              triggerClassname,
-            )}
-            type="button">
-            <LogoMark height={19} width={26} />
+            <Text
+              color={variant === 'full' ? 'default' : 'secondary'}
+              size="body2"
+              weight="bold">
+              {label}
+            </Text>
             {showUnseenIndicator && (
               <span
+                aria-hidden={true}
                 className={clsx(
-                  'size-1.5 absolute',
+                  'size-1.5 inline-block',
                   'bg-red rounded-full',
-                  'right-1 top-1',
+                  'absolute -right-1.5 -top-0.5',
                 )}
               />
             )}
+            <RiArrowDownSLine
+              aria-hidden={true}
+              className={clsx('size-5 shrink-0', themeTextSubtleColor)}
+            />
           </button>
-        )}
+        </DropdownMenuPrimitive.Trigger>
+        <DropdownMenuPrimitive.Portal>
+          <NavProductDropdownMenuContent product={product} />
+        </DropdownMenuPrimitive.Portal>
+      </DropdownMenuPrimitive.Root>
+    </div>
+  );
+}
+
+export function NavProductDropdownMenuLogoOnly({
+  product,
+  triggerClassname,
+}: Readonly<{
+  product: ProductValue;
+  triggerClassname?: string;
+}>) {
+  const [showUnseenIndicator] = useProductMenuUnseenIndicator();
+
+  return (
+    <DropdownMenuPrimitive.Root>
+      <DropdownMenuPrimitive.Trigger asChild={true}>
+        <Anchor
+          aria-label="Select product"
+          className={clsx(
+            'group',
+            'flex shrink-0 items-center justify-center',
+            'relative',
+            'size-11',
+            'rounded-lg',
+            'select-none outline-none',
+            'transition-colors',
+            [
+              themeOutlineElement_FocusVisible,
+              themeOutlineElementBrandColor_FocusVisible,
+            ],
+            themeBackgroundElementEmphasizedStateColor_Hover,
+            themeBackgroundElementPressedStateColor_Active,
+            triggerClassname,
+          )}
+          href="/"
+          variant="unstyled">
+          <LogoMark height={19} width={26} />
+          {showUnseenIndicator && (
+            <span
+              className={clsx(
+                'size-1.5 absolute',
+                'bg-red rounded-full',
+                'right-1 top-1',
+              )}
+            />
+          )}
+        </Anchor>
       </DropdownMenuPrimitive.Trigger>
       <DropdownMenuPrimitive.Portal>
         <NavProductDropdownMenuContent product={product} />
