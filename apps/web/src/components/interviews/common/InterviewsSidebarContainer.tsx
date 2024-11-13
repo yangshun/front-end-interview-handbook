@@ -1,7 +1,8 @@
 'use client';
 
 import clsx from 'clsx';
-import { useToggle } from 'usehooks-ts';
+import { useEffect, useState } from 'react';
+import { useSessionStorage } from 'usehooks-ts';
 
 import { themeBorderColor } from '~/components/ui/theme';
 
@@ -14,7 +15,21 @@ type Props = Readonly<{
 export default function InterviewsSidebarContainer({
   initialCollapsed = false,
 }: Props) {
-  const [isCollapsed, toggleIsCollapsed] = useToggle(initialCollapsed);
+  const [isMounted, setIsMounted] = useState(false);
+  const [storedCollapsed, setStoredCollapsed] = useSessionStorage<boolean>(
+    `gfe:interviews:sidebar-collapsed`,
+    initialCollapsed,
+  );
+  const isCollapsed = isMounted ? storedCollapsed : initialCollapsed;
+
+  // To prevent server side mismatch
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
+  function toggleIsCollapsed() {
+    setStoredCollapsed(!isCollapsed);
+  }
 
   return (
     <aside
