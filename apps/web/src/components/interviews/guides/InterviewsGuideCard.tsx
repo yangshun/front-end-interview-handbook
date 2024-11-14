@@ -131,7 +131,10 @@ export default function InterviewsGuideCard({ data }: Props) {
 
         <div className={clsx('flex flex-col gap-6', 'px-6 py-4')}>
           <div className={clsx('flex items-center gap-x-6')}>
-            <InterviewsGuideProgress completed={isGuideCompleted} />
+            <InterviewsGuideProgress
+              className="z-[1]"
+              completed={isGuideCompleted}
+            />
 
             <div className="flex flex-1 flex-col gap-5">
               <div className="flex flex-col gap-2">

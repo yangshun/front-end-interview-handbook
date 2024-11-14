@@ -4595,10 +4595,6 @@
     "defaultMessage": "Monthly plan",
     "description": "Title of monthly pricing plan"
   },
-  "Sy6yo4": {
-    "defaultMessage": "Not completed",
-    "description": "Tooltip for incomplete guide label"
-  },
   "SyOeb2": {
     "defaultMessage": "Company Interview Guides | GreatFrontEnd",
     "description": "Social title for company guides listing"
@@ -9446,10 +9442,6 @@
   "zRnkGf": {
     "defaultMessage": "Use a different card, as this one has been reported as lost.",
     "description": "Reason label for different card"
-  },
-  "zStaaO": {
-    "defaultMessage": "Completed",
-    "description": "Tooltip for Completed guide label"
   },
   "zTKtX7": {
     "defaultMessage": "Double-check the CVC code (3-digit number on the back of your card) and re-enter it.",
