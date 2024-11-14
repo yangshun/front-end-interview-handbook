@@ -1,6 +1,7 @@
 import clsx from 'clsx';
 import type { ReactNode } from 'react';
-import { RiArrowRightLine, RiCheckFill } from 'react-icons/ri';
+import { FaCheck } from 'react-icons/fa6';
+import { RiArrowRightLine } from 'react-icons/ri';
 
 import { useGuidesData } from '~/data/Guides';
 
@@ -279,7 +280,8 @@ export default function InterviewsDashboardRecommendedPreparationStrategy({
                 )}>
                 {isCompleted ? (
                   <Chip
-                    icon={RiCheckFill}
+                    icon={FaCheck}
+                    iconClassName="size-5"
                     isLabelHidden={true}
                     label="Completed"
                     variant="success"

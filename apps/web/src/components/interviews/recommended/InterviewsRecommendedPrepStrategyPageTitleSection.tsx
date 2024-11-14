@@ -1,11 +1,8 @@
 import clsx from 'clsx';
 import { usePathname } from 'next/navigation';
 import type { ReactNode } from 'react';
-import {
-  RiArrowDownSLine,
-  RiArrowRightLine,
-  RiCheckFill,
-} from 'react-icons/ri';
+import { FaCheck } from 'react-icons/fa6';
+import { RiArrowDownSLine, RiArrowRightLine } from 'react-icons/ri';
 
 import { trpc } from '~/hooks/trpc';
 
@@ -164,7 +161,8 @@ function RecommendedItemsDropdown({
                 )}>
                 {isCompleted ? (
                   <Chip
-                    icon={RiCheckFill}
+                    icon={FaCheck}
+                    iconClassName="size-4"
                     isLabelHidden={true}
                     label="Completed"
                     size="sm"

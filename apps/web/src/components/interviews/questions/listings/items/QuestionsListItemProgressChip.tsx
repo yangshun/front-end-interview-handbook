@@ -1,6 +1,7 @@
 import clsx from 'clsx';
 import { useRef, useState } from 'react';
-import { RiCheckFill, RiLockFill } from 'react-icons/ri';
+import { FaCheck } from 'react-icons/fa6';
+import { RiLockFill } from 'react-icons/ri';
 import { useHover } from 'usehooks-ts';
 
 import { useIntl } from '~/components/intl';
@@ -104,7 +105,7 @@ export function CompletedChip({
         )}
         type="button"
         onClick={onClick}>
-        <RiCheckFill
+        <FaCheck
           aria-hidden="true"
           className={clsx('shrink-0', iconChipSize)}
         />
@@ -156,7 +157,7 @@ function CompletedBeforeChip({
         )}
         type="button"
         onClick={onClick}>
-        <RiCheckFill
+        <FaCheck
           aria-hidden="true"
           className={clsx('shrink-0', iconChipSize)}
         />
@@ -213,7 +214,7 @@ export function NotCompleted({
         {showAsNumber && showHoverState && !isHover ? (
           number
         ) : (
-          <RiCheckFill
+          <FaCheck
             aria-hidden="true"
             className={clsx('shrink-0', iconChipSize)}
           />
