@@ -179,9 +179,9 @@ export default function FrontEndInterviewPlaybookPage({
         <Text color="secondary" size="body1">
           {intl.formatMessage({
             defaultMessage:
-              "A concise guide to the most common front end interview topics, covering everything from coding challenges to React fundamentals. Written by the author of the Front End Interview Handbook, it's packed with essential insights and strategies to help you confidently tackle your next interview.",
+              "Tackle your next interview with confidence using this focused, no-nonsense front end prep guide. Created by the author of the Front End Interview Handbook, it's filled with practical strategies and insider tips you won't find anywhere else.",
             description: 'Long description of frontend interview playbook page',
-            id: 'FptoKG',
+            id: 'ejhiw3',
           })}
         </Text>
       }

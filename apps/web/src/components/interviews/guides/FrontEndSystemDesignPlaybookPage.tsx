@@ -116,28 +116,19 @@ export default function FrontEndSystemDesignPlaybookPage({
           <Text color="secondary" size="body1">
             {intl.formatMessage({
               defaultMessage:
-                "System design interviews are typically conducted for mid-level to senior positions. These interviews assess a candidate's ability to design complex, scalable, and maintainable systems.",
+                "System design interviews are often reserved for mid-to-senior roles, focusing on your ability to design complex, scalable, and maintainable systems. With few resources out there specifically for front-end system design, we've crafted the Front-End System Design Guide—the most comprehensive resource available.",
               description:
-                'Long description of frontend system design playbook page',
-              id: 'uZk0CY',
+                'Long description of frontend interview playbook page',
+              id: '1ygaKJ',
             })}
           </Text>
           <Text color="secondary" size="body1">
             {intl.formatMessage({
               defaultMessage:
-                "There are currently very few resources available for front-end system design. To address this issue, we've invested significant effort into creating the most comprehensive guide on the market - the Front-End System Design Guide.",
+                "It's split into two parts: first, understanding what to expect in these interviews, and second, learning a reliable framework to tackle common challenges, complete with real case studies.",
               description:
-                'Long description of frontend system design playbook page',
-              id: 'OCgyrM',
-            })}
-          </Text>
-          <Text color="secondary" size="body1">
-            {intl.formatMessage({
-              defaultMessage:
-                "This guide is structured into two parts. First, you will gain a deeper understanding of what to expect in these interviews. Then, you will learn a robust framework that you can reliably use to solve most problems, and you'll apply it to real case studies.",
-              description:
-                'Long description of frontend system design playbook page',
-              id: 'L6yVhS',
+                'Long description of frontend interview playbook page',
+              id: 'Y9Lzdo',
             })}
           </Text>
         </div>

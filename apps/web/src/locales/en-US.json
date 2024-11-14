@@ -547,6 +547,10 @@
     "defaultMessage": "Edit on GitHub",
     "description": "Edit on GitHub button"
   },
+  "1ygaKJ": {
+    "defaultMessage": "System design interviews are often reserved for mid-to-senior roles, focusing on your ability to design complex, scalable, and maintainable systems. With few resources out there specifically for front-end system design, we've crafted the Front-End System Design Guide—the most comprehensive resource available.",
+    "description": "Long description of frontend interview playbook page"
+  },
   "1zLRKA": {
     "defaultMessage": "Introduction",
     "description": "Title for introduction category of frontend interview playbook cover page"
@@ -2503,10 +2507,6 @@
     "defaultMessage": "All question progress has been reset.",
     "description": "Message shown when question reset progress action succeeds."
   },
-  "FptoKG": {
-    "defaultMessage": "A concise guide to the most common front end interview topics, covering everything from coding challenges to React fundamentals. Written by the author of the Front End Interview Handbook, it's packed with essential insights and strategies to help you confidently tackle your next interview.",
-    "description": "Long description of frontend interview playbook page"
-  },
   "Fpu2gU": {
     "defaultMessage": "Prepare for your front end interviews in 1 week, 1 month, or 3 months",
     "description": "Description for interview study plans"
@@ -3375,10 +3375,6 @@
     "defaultMessage": "You can choose to end a project session if you choose not to work on it anymore. We will stop prompting you to continue the project in the dashboard",
     "description": "Tooltip for \"End session\" button on current project session card"
   },
-  "L6yVhS": {
-    "defaultMessage": "This guide is structured into two parts. First, you will gain a deeper understanding of what to expect in these interviews. Then, you will learn a robust framework that you can reliably use to solve most problems, and you'll apply it to real case studies.",
-    "description": "Long description of frontend system design playbook page"
-  },
   "L7w0Ka": {
     "defaultMessage": "Computer Science Foundations",
     "description": "Title for focus area type"
@@ -3794,10 +3790,6 @@
   "OBxxHX": {
     "defaultMessage": "Tips for all questions types",
     "description": "Features for frontend interviews playbook page"
-  },
-  "OCgyrM": {
-    "defaultMessage": "There are currently very few resources available for front-end system design. To address this issue, we've invested significant effort into creating the most comprehensive guide on the market - the Front-End System Design Guide.",
-    "description": "Long description of frontend system design playbook page"
   },
   "OCk0lu": {
     "defaultMessage": "Filter by stack used by the creator",
@@ -5391,6 +5383,10 @@
     "defaultMessage": "By proceeding, you agree to GreatFrontEnd's <tos>Terms of Service</tos> and <pp>Privacy Policy</pp>.",
     "description": "Disclaimer of agreement to terms of service and privacy policy on Email Sign Up page"
   },
+  "Y9Lzdo": {
+    "defaultMessage": "It's split into two parts: first, understanding what to expect in these interviews, and second, learning a reliable framework to tackle common challenges, complete with real case studies.",
+    "description": "Long description of frontend interview playbook page"
+  },
   "YBlo/J": {
     "defaultMessage": "As mentioned above, there are many ways to host your project for free. Our recommend hosts are:",
     "description": "Text for Deployment Info in Projects"
@@ -6358,6 +6354,10 @@
   "egSWgk": {
     "defaultMessage": "Example solutions",
     "description": "Example code solutions"
+  },
+  "ejhiw3": {
+    "defaultMessage": "Tackle your next interview with confidence using this focused, no-nonsense front end prep guide. Created by the author of the Front End Interview Handbook, it's filled with practical strategies and insider tips you won't find anywhere else.",
+    "description": "Long description of frontend interview playbook page"
   },
   "elg6NS": {
     "defaultMessage": "How we count completions",
@@ -8754,10 +8754,6 @@
   "uViVdm": {
     "defaultMessage": "Details of rep gain across skills",
     "description": "Details of rep gain across skills for submission"
-  },
-  "uZk0CY": {
-    "defaultMessage": "System design interviews are typically conducted for mid-level to senior positions. These interviews assess a candidate's ability to design complex, scalable, and maintainable systems.",
-    "description": "Long description of frontend system design playbook page"
   },
   "ub/oYs": {
     "defaultMessage": "Mark complete (previously completed)",
