@@ -1,4 +1,5 @@
 import clsx from 'clsx';
+import type { CSSProperties } from 'react';
 import React from 'react';
 
 type ContainerWidth =
@@ -15,9 +16,11 @@ type ContainerWidth =
   | 'screen-2xl'
   | 'screen-xl'
   | 'xl';
+
 type Props = Readonly<{
   children: React.ReactNode;
   className?: string;
+  style?: CSSProperties;
   width?: ContainerWidth;
 }>;
 
@@ -41,6 +44,7 @@ export default function Container({
   children,
   className,
   width = '6xl',
+  style,
 }: Props) {
   return (
     <div
@@ -49,7 +53,8 @@ export default function Container({
         'max-xl:px-6',
         widthStyles[width],
         className,
-      )}>
+      )}
+      style={style}>
       {children}
     </div>
   );

@@ -153,7 +153,7 @@ export default function InterviewsNavbar({
       mobileSidebarBottomItems={mobileSidebarBottomItems}
       renderMobileSidebarAddOnItems={renderMobileSidebarAddOnItems}
       showBottomBorderOnScroll={showBottomBorderOnScroll}
-      transparent={!isSticky}
+      translucent={!isSticky}
     />
   );
 }

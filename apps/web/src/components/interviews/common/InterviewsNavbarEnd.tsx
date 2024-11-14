@@ -8,6 +8,7 @@ import useCommonNavItems from '~/components/common/navigation/useCommonNavItems'
 import NavbarEnd from '~/components/ui/Navbar/NavbarEnd';
 import NavbarHeightStyles from '~/components/ui/Navbar/NavbarHeightStyles';
 import type { NavbarTopLevelItem } from '~/components/ui/Navbar/NavTypes';
+import { themeBackgroundColor } from '~/components/ui/theme';
 
 import InterviewsNavbarEndAddOnItems from './InterviewsNavbarEndAddOnItems';
 import useInterviewsNavItems from './useInterviewsNavItems';
@@ -30,9 +31,10 @@ export default function InterviewsNavbarEnd() {
   return (
     <div
       className={clsx(
-        'z-fixed sticky top-[var(--banner-height)] backdrop-blur max-lg:hidden',
+        'z-fixed sticky top-[var(--banner-height)] max-lg:hidden',
+        themeBackgroundColor,
       )}>
-      <NavbarHeightStyles />
+      <NavbarHeightStyles borderHeight={0} />
       <NavbarEnd
         addOnItems={<InterviewsNavbarEndAddOnItems />}
         className={clsx(

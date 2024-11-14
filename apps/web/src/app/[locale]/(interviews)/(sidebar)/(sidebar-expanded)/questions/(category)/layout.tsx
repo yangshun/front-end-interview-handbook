@@ -30,7 +30,15 @@ export default function Layout({ children }: Props) {
           languages.ts,
         ]}
       />
-      <Container className="py-8 xl:py-12" width="app">
+      <Container
+        className="py-8 xl:py-12"
+        style={{
+          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+          // @ts-ignore
+          '--global-sticky-height':
+            'calc(var(--navbar-height) + var(--navbar-border) + var(--banner-height) + var(--subnav-height))',
+        }}
+        width="app">
         {children}
       </Container>
     </>

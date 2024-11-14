@@ -268,7 +268,7 @@ export default function ProjectsNavbar({ hideOnDesktop = false }: Props) {
       }
       mobileSidebarBottomItems={mobileSidebarBottomItems}
       renderMobileSidebarAddOnItems={renderMobileSidebarAddOnItems}
-      transparent={!isSticky}
+      translucent={!isSticky}
       unreadNotificationCount={unreadNotificationCount}
     />
   );

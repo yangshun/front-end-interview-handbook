@@ -31,7 +31,7 @@ type Props = Readonly<{
   }: Readonly<{ closeMobileNav: () => void }>) => React.ReactNode;
   showBottomBorderOnScroll?: boolean;
   style?: CSSProperties;
-  transparent?: boolean;
+  translucent?: boolean;
   unreadNotificationCount?: number;
 }>;
 
@@ -44,7 +44,7 @@ function Navbar(
     logo,
     renderMobileSidebarAddOnItems,
     mobileSidebarBottomItems,
-    transparent = false,
+    translucent = false,
     hideOnDesktop = false,
     unreadNotificationCount = 0,
     showBottomBorderOnScroll,
@@ -60,20 +60,20 @@ function Navbar(
     setIsMobileNavOpen(false);
   }
 
-  const showBottomBorder = showBottomBorderOnScroll ? transparent : true;
+  const showBottomBorder = showBottomBorderOnScroll ? translucent : true;
 
   return (
     <div
       ref={ref}
       className={clsx(
-        'z-fixed sticky top-[var(--banner-height)] backdrop-blur',
+        'z-fixed sticky top-[var(--banner-height)]',
         showBottomBorder && ['border-b', themeBorderColor],
-        transparent && 'bg-white dark:bg-neutral-900/60',
+        translucent ? 'backdrop-blur' : 'bg-white dark:bg-neutral-900/60',
         'transition-[background-color]',
         hideOnDesktop && 'lg:hidden',
         className,
       )}>
-      <NavbarHeightStyles hideOnDesktop={hideOnDesktop}/>
+      <NavbarHeightStyles hideOnDesktop={hideOnDesktop} />
       <div className="max-w-8xl mx-auto px-6">
         <div
           className={clsx(

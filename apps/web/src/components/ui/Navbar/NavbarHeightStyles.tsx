@@ -1,9 +1,11 @@
 type Props = Readonly<{
+  borderHeight?: number;
   hideOnDesktop?: boolean;
   navbarHeight?: number;
 }>;
 
 export default function NavbarHeightStyles({
+  borderHeight = 1,
   hideOnDesktop = false,
   navbarHeight = 48,
 }: Props) {
@@ -11,7 +13,7 @@ export default function NavbarHeightStyles({
     <>
       <style
         dangerouslySetInnerHTML={{
-          __html: `:root { --navbar-height: ${navbarHeight}px; --navbar-border: 1px; }`,
+          __html: `:root { --navbar-height: ${navbarHeight}px; --navbar-border: ${borderHeight}px; }`,
         }}
       />
       {hideOnDesktop && (

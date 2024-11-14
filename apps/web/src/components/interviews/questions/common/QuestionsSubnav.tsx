@@ -2,9 +2,14 @@ import clsx from 'clsx';
 
 import Anchor from '~/components/ui/Anchor';
 import { textVariants } from '~/components/ui/Text';
-import { themeTextSubtleColor } from '~/components/ui/theme';
+import {
+  themeBackgroundColor,
+  themeTextSubtleColor,
+} from '~/components/ui/theme';
 
 import { useI18nPathname } from '~/next-i18nostic/src';
+
+const SUBNAV_HEIGHT = 52;
 
 type Props = Readonly<{
   items: ReadonlyArray<{
@@ -23,9 +28,23 @@ export default function QuestionsSubnav({ items }: Props) {
       className={clsx(
         'relative',
         'flex items-center gap-6 xl:justify-end',
-        'h-[52px] w-full px-6',
+        'h-[var(--subnav-height)] w-full px-6',
+        'z-fixed sticky top-[var(--global-sticky-height)]',
+        'backdrop-blur',
         'overflow-x-auto',
       )}>
+      <style
+        dangerouslySetInnerHTML={{
+          __html: `:root { --subnav-height: ${SUBNAV_HEIGHT}px; }`,
+        }}
+      />
+      <div
+        className={clsx(
+          'max-lg:hidden',
+          'absolute -right-0 top-0 h-px w-full',
+          themeBackgroundColor,
+        )}
+      />
       <div
         className={clsx(
           'max-lg:hidden',
