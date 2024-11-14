@@ -86,7 +86,7 @@ export default async function Page({ params }: Props) {
         INTERVIEWS_REVAMP_BOTTOM_CONTENT ? bottomContent : undefined
       }
       companyGuides={companyGuidesSorted}
-      defaultLoggedIn={true}
+      defaultLoggedIn={false}
       focusAreas={studyLists.focusAreas}
       questions={{
         codingQuestions,
