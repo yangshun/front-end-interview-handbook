@@ -72,7 +72,7 @@ export default function InterviewsCompanyInsiderTipsSlider({ data }: Props) {
           ))}
         </div>
         {data.length > 1 && (
-          <TabsPrimitive.List className="flex justify-start gap-4">
+          <TabsPrimitive.List className="flex justify-start gap-3">
             {data.map((item) => (
               <TabsPrimitive.Trigger
                 key={item.id}
