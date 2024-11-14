@@ -18,7 +18,6 @@ import type {
   GuideCardMetadata,
 } from '~/components/guides/types';
 import useGuidesWithCompletionStatus from '~/components/guides/useGuidesWithCompletionStatus';
-import InterviewsGitHubSlider from '~/components/interviews/common/github/InterviewsGitHubSlider';
 import InterviewsPageHeader from '~/components/interviews/common/InterviewsPageHeader';
 import type {
   QuestionFramework,
@@ -27,6 +26,7 @@ import type {
   QuestionMetadata,
   QuestionUserFacingFormat,
 } from '~/components/interviews/questions/common/QuestionsTypes';
+import InterviewsQuestionsCategoryContentSlider from '~/components/interviews/questions/listings/category/InterviewsQuestionsCategoryContentSlider';
 import QuestionsUnifiedListWithFiltersAndProgress from '~/components/interviews/questions/listings/items/QuestionsUnifiedListWithFiltersAndProgress';
 import { useIntl } from '~/components/intl';
 import Section from '~/components/ui/Heading/HeadingContext';
@@ -135,7 +135,7 @@ export default function InterviewsQuestionsCategoryPage({
         description={description}
         features={features}
         icon={Icon}
-        sideElement={<InterviewsGitHubSlider />}
+        sideElement={<InterviewsQuestionsCategoryContentSlider framework={framework}/>}
         title={title}
       />
       <Section>

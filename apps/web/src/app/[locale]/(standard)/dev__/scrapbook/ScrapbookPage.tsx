@@ -10,9 +10,9 @@ import {
   RiShieldKeyholeLine,
 } from 'react-icons/ri';
 
-import InterviewsGitHubSlider from '~/components/interviews/common/github/InterviewsGitHubSlider';
 import InterviewsGuideCard from '~/components/interviews/guides/InterviewsGuideCard';
 import InterviewsMarketingCompaniesMarquee from '~/components/interviews/marketing/InterviewsMarketingCompaniesMarquee';
+import InterviewsQuestionsCategoryContentSlider from '~/components/interviews/questions/listings/category/InterviewsQuestionsCategoryContentSlider';
 import QuestionListingTopicFilters from '~/components/interviews/questions/listings/filters/QuestionListingTopicFilters';
 import QuestionsProgressPanel from '~/components/interviews/questions/listings/stats/QuestionsProgressPanel';
 import QuestionCountLabel from '~/components/interviews/questions/metadata/QuestionCountLabel';
@@ -141,7 +141,7 @@ export default function ScrapbookPage() {
               />
             </UIExamplesGroup>
             <UIExamplesGroup darkMode="horizontal">
-              <InterviewsGitHubSlider />
+              <InterviewsQuestionsCategoryContentSlider framework="js" />
             </UIExamplesGroup>
             <UIExamplesGroup darkMode="horizontal">
               <InterviewsGuideCard

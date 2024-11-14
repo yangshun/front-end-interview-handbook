@@ -19,10 +19,6 @@
     "defaultMessage": "{questionCount}+ interview questions across <clink>coding</clink> and <qlink>quiz</qlink> formats and new questions constantly being added.",
     "description": "Subtitle for huge question bank feature"
   },
-  "+9bAd9": {
-    "defaultMessage": "⭐️ Star our Front End System Design repo",
-    "description": "Title for github star CTA"
-  },
   "+9bM81": {
     "defaultMessage": "Official solutions",
     "description": "Reference code for projects"
@@ -1207,10 +1203,6 @@
     "defaultMessage": "{noOfOnlineUsers} online",
     "description": "Text describing online users"
   },
-  "6WCFJb": {
-    "defaultMessage": "Follow the GreatFrontEnd GitHub organization for updates",
-    "description": "Description for github Card"
-  },
   "6WpcdM": {
     "defaultMessage": "CS student at MIT",
     "description": "Placeholder for \"Title\" input on Projects profile onboarding page"
@@ -1966,6 +1958,10 @@
   "C+WlY+": {
     "defaultMessage": "Please create a free account in order to purchase the premium plans.",
     "description": "Content of alert requesting user to create an account to purchase premium plans"
+  },
+  "C+siQy": {
+    "defaultMessage": "Use our <anchor>front end interview</anchor> roadmap, crafted to ensure you cover all the essentials efficiently.",
+    "description": "Description for github star"
   },
   "C/3YNR": {
     "defaultMessage": "Pinned submissions",
@@ -4699,10 +4695,6 @@
     "defaultMessage": "Purchase premium to unlock full access to exclusive System Design content including high quality solutions and companies which ask this question.",
     "description": "System design questions paywall"
   },
-  "Tc9jZ0": {
-    "defaultMessage": "⭐️ Star our top JavaScript questions repo",
-    "description": "Title for github star CTA"
-  },
   "Tdn+OY": {
     "defaultMessage": "Starting is as easy as clicking a Start project button, and we will take you through every step of the way.",
     "description": "Ready to start section subtitle"
@@ -5722,6 +5714,10 @@
   "abJ+kd": {
     "defaultMessage": "Development guides written & curated by Sr engineers at Big tech, such as:",
     "description": "Description for \"Official guides & resources\" item in Expected Support section on Projects project page"
+  },
+  "acvTMO": {
+    "defaultMessage": "⭐️ Star our JavaScript repo",
+    "description": "Title for github star CTA"
   },
   "aeeTOy": {
     "defaultMessage": "Font size",
@@ -7791,6 +7787,10 @@
     "defaultMessage": "Session status",
     "description": "Completed and in progress challenges"
   },
+  "o6c8e2": {
+    "defaultMessage": "Grinding questions mindlessly won't work",
+    "description": "Title for github star CTA"
+  },
   "o8bpfE": {
     "defaultMessage": "Front end interview questions",
     "description": "Title of all practice questions page"
@@ -8463,10 +8463,6 @@
     "defaultMessage": "Manage subscription",
     "description": "Manage user membership subscription button label"
   },
-  "skF8Vm": {
-    "defaultMessage": "👍️️️️️️ Follow us on GitHub",
-    "description": "Title for github card"
-  },
   "sm9wXD": {
     "defaultMessage": "Retry the payment after some time.",
     "description": "Reason label for retry payment"
@@ -8810,10 +8806,6 @@
   "uvoNYz": {
     "defaultMessage": "You have solved or marked as complete {completed} out of {total} problems across Coding, Quiz, and System Design.",
     "description": "Tooltip for solved problems progress"
-  },
-  "uw/XXy": {
-    "defaultMessage": "Star our repo containing awesome front end system design resources",
-    "description": "Description for github star"
   },
   "uxNShP": {
     "defaultMessage": "Activity | Settings",

@@ -12,9 +12,10 @@ async function fetchGitHubStars(repo: string) {
   return data.stargazers_count;
 }
 
-export function useGitHubStars(repo: string) {
+export function useGitHubStars(repo: string, enabled = true) {
   return useQuery(['githubStars', repo], () => fetchGitHubStars(repo), {
     cacheTime: 60 * 60 * 24 * 1000, // 24 hours
+    enabled,
     staleTime: 60 * 60 * 24 * 1000, // 24 hours
   });
 }
