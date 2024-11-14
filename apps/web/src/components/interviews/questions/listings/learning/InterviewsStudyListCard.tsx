@@ -26,6 +26,7 @@ type Props = Readonly<{
   isStarted?: boolean;
   showDescription?: boolean;
   showLogoShadow?: boolean;
+  showLongName?: boolean;
   showProgress?: boolean;
   studyList: InterviewsStudyList;
 }>;
@@ -40,11 +41,19 @@ export default function InterviewsStudyListCard({
   showLogoShadow = true,
   backgroundClass = themeBackgroundCardWhiteOnLightColor,
   alignVerticalOnMobile = true,
+  showLongName = false,
 }: Props) {
   const intl = useIntl();
 
-  const { name, shortDescription, href, questionHashes, schedule, logoUrl } =
-    studyList;
+  const {
+    name,
+    shortDescription,
+    href,
+    questionHashes,
+    schedule,
+    logoUrl,
+    longName,
+  } = studyList;
   const questionCount = questionHashes.length;
 
   return (
@@ -97,7 +106,7 @@ export default function InterviewsStudyListCard({
           <div className="flex flex-col items-start gap-1">
             <div className="flex items-center gap-3">
               <Text size="body2" weight="bold">
-                {name}
+                {showLongName ? longName : name}
               </Text>
 
               {isStarted && (

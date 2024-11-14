@@ -125,6 +125,7 @@ export default function InterviewsStudyPlansPage({
                         completionCount={completionCount}
                         icon={StudyPlanIcons[studyPlan.slug]}
                         isStarted={session != null}
+                        showLongName={true}
                         studyList={studyPlan}
                       />
                     );
