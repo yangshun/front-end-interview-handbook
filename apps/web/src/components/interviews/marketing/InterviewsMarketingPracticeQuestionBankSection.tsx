@@ -290,6 +290,7 @@ export default function InterviewsMarketingPracticeQuestionBankSection({
               <div className="hidden md:block">
                 <SideNavigation
                   activeValue={filterNavigation.value}
+                  fontSize="medium"
                   items={filterNavigation.items}
                   onClick={filterNavigation.onClick}
                 />

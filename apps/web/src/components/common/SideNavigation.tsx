@@ -49,14 +49,14 @@ function NavigationItem<T>({
   const hasChildren = section.children && section.children.length > 0;
 
   return (
-    <li key={String(section.value)} className="text-sm leading-6">
+    <li key={String(section.value)}>
       <div className={clsx('flex', hasChildren && 'mb-2')}>
         <Anchor
           ref={isActive ? activeLinkRef : undefined}
           className={clsx(
             '-ml-0.5 flex w-full items-center gap-x-2 pl-[19px]',
             'motion-safe:transition-all',
-            'text-[0.8125rem] leading-5',
+            'leading-5',
             isActive ? themeTextColor : themeTextSecondaryColor,
             themeTextColor_Hover,
           )}
@@ -118,6 +118,7 @@ function NavigationItems<T>({
 type Props<T> = Readonly<{
   activeLinkRef?: Ref<HTMLAnchorElement>;
   activeValue: T | null;
+  fontSize?: 'medium' | 'normal';
   items: SideNavigationItems<T>;
   onClick?: (value: T) => void;
 }>;
@@ -126,6 +127,7 @@ export default function SideNavigation<T>({
   activeValue,
   activeLinkRef,
   items,
+  fontSize = 'normal',
   onClick,
 }: Props<T>) {
   const flatItems = flattenNavigationItems(items);
@@ -136,7 +138,11 @@ export default function SideNavigation<T>({
   const activeIndicatorTopPosition = activeItemIndex * ITEM_HEIGHT_AND_GAP;
 
   return (
-    <div className="relative">
+    <div
+      className={clsx(
+        'relative',
+        fontSize === 'normal' ? 'text-[0.8125rem]' : 'text-sm',
+      )}>
       <div
         className={clsx(
           'absolute h-5 w-0.5 rounded-full bg-current',
