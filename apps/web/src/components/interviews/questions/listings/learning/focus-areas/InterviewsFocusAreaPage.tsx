@@ -6,7 +6,6 @@ import type {
   InterviewsStudyList,
 } from 'contentlayer/generated';
 import {
-  RiArrowLeftLine,
   RiQuestionnaireLine,
   RiTimerLine,
   RiVerifiedBadgeLine,
@@ -30,7 +29,6 @@ import QuestionsStudyList from '~/components/interviews/questions/listings/learn
 import QuestionsStudyListPageTitleSection from '~/components/interviews/questions/listings/learning/QuestionsStudyListPageTitleSection';
 import { useIntl } from '~/components/intl';
 import MDXContent from '~/components/mdx/MDXContent';
-import Button from '~/components/ui/Button';
 import Divider from '~/components/ui/Divider';
 import Section from '~/components/ui/Heading/HeadingContext';
 import Text from '~/components/ui/Text';
@@ -108,21 +106,6 @@ export default function InterviewsFocusAreaPage({
   return (
     <div className={clsx('flex flex-col gap-y-12 md:gap-y-16', 'relative')}>
       <div className="relative flex flex-col gap-y-8">
-        <div className="flex items-center justify-between gap-2">
-          <Button
-            addonPosition="start"
-            className="-mb-2 -ml-5"
-            href="/focus-areas"
-            icon={RiArrowLeftLine}
-            label={intl.formatMessage({
-              defaultMessage: 'Back to focus areas',
-              description: 'Link text to navigate to focus areas list page',
-              id: 'PHhUwD',
-            })}
-            size="md"
-            variant="tertiary"
-          />
-        </div>
         <QuestionsStudyListPageTitleSection
           description={studyList.description}
           features={features}
@@ -133,13 +116,12 @@ export default function InterviewsFocusAreaPage({
           title={studyList.longName}
         />
         {longDescription[studyList.slug] && (
-          <div className={clsx('grid items-center gap-6 lg:grid-cols-12')}>
-            <div className="lg:col-span-9">
-              <Text color="secondary" size="body1">
-                {longDescription[studyList.slug]}
-              </Text>
-            </div>
-          </div>
+          <Text
+            className={clsx('block xl:max-w-[75%]')}
+            color="secondary"
+            size="body1">
+            {longDescription[studyList.slug]}
+          </Text>
         )}
       </div>
       <Section>

@@ -94,7 +94,7 @@ export default function InterviewsRevampFocusAreaListPage({
           description: 'Title of focus areas page',
           id: 'Zui1cu',
         })}>
-        <div className="flex max-w-3xl flex-col gap-4">
+        <div className="flex flex-col gap-4 xl:max-w-[75%]">
           <Text color="secondary" size="body1">
             {intl.formatMessage({
               defaultMessage:
@@ -144,15 +144,14 @@ export default function InterviewsRevampFocusAreaListPage({
             </div>
           ))}
         </div>
-      </Section>
-      {bottomContent && (
-        <>
-          <Divider className="my-8 md:my-4" />
-          <Section>
+        {bottomContent && (
+          <>
+            <Divider className="my-8 md:my-4" />
+
             <MDXContent mdxCode={bottomContent.body.code} />
-          </Section>
-        </>
-      )}
+          </>
+        )}
+      </Section>
     </div>
   );
 }

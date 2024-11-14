@@ -2475,6 +2475,10 @@
     "defaultMessage": "General",
     "description": "Title for FAQ section"
   },
+  "FXHDD2": {
+    "defaultMessage": "Premium is required to access focus areas",
+    "description": "Title for company guides feature"
+  },
   "FXfZQF": {
     "defaultMessage": "Unverified email",
     "description": "Title of verify email page"
@@ -2494,10 +2498,6 @@
   "FhnnWR": {
     "defaultMessage": "Gain proficiency in front end fundamentals by implementing JavaScript and DOM APIs from scratch.",
     "description": "Long description for focus areas"
-  },
-  "FiI9XO": {
-    "defaultMessage": "Premium is required to access focus areas",
-    "description": "Title for company guides feature"
   },
   "FixyP6": {
     "defaultMessage": "Tip: Many users have reimbursed GreatFrontEnd Interviews Premium as part of their company's flexible benefits or learning and training budget.",
@@ -3971,10 +3971,6 @@
     "defaultMessage": "3 Months Plan",
     "description": "Link to three months study plan"
   },
-  "PHhUwD": {
-    "defaultMessage": "Back to focus areas",
-    "description": "Link text to navigate to focus areas list page"
-  },
   "PHuc2+": {
     "defaultMessage": "Please create a free account in order to start on project challenges.",
     "description": "Prompting the user to create an account before starting a project challenge"
@@ -5419,10 +5415,6 @@
     "defaultMessage": "Do unspent GreatFrontEnd Projects credits roll over?",
     "description": "Question on projects pricing's FAQ section - unused credits"
   },
-  "YPNHFR": {
-    "defaultMessage": "Back to companies",
-    "description": "Link text to navigate to companies list page"
-  },
   "YRVMeX": {
     "defaultMessage": "Review Cashback Terms and Conditions",
     "description": "Title of legal page"
@@ -6586,10 +6578,6 @@
   "ftr2lo": {
     "defaultMessage": "No tagged companies",
     "description": "Text that appears if the question does not have any tagged comppanies (where the question was known to be asked)"
-  },
-  "fv+TLc": {
-    "defaultMessage": "Back to study plans",
-    "description": "Link text to navigate to study plans page"
   },
   "fxfae3": {
     "defaultMessage": "If you're stuck, clarify any doubts within the discussion forums in Step 3's. If you need answers urgently for a critical issue, email as at <link>support@greatfrontend.com</link>.",

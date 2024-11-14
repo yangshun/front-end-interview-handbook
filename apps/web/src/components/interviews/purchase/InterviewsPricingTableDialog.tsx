@@ -70,7 +70,7 @@ export default function InterviewsPricingTableDialog({
       title: intl.formatMessage({
         defaultMessage: 'Premium is required to access focus areas',
         description: 'Title for company guides feature',
-        id: 'FiI9XO',
+        id: 'FXHDD2',
       }),
     },
     'official-solutions': {

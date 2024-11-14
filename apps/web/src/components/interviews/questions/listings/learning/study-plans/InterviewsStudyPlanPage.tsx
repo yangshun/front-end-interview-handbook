@@ -6,7 +6,6 @@ import type {
   InterviewsStudyList,
 } from 'contentlayer/generated';
 import {
-  RiArrowLeftLine,
   RiQuestionnaireLine,
   RiTimerLine,
   RiVerifiedBadgeLine,
@@ -27,7 +26,6 @@ import QuestionsStudyList from '~/components/interviews/questions/listings/learn
 import QuestionsStudyListPageTitleSection from '~/components/interviews/questions/listings/learning/QuestionsStudyListPageTitleSection';
 import { useIntl } from '~/components/intl';
 import MDXContent from '~/components/mdx/MDXContent';
-import Button from '~/components/ui/Button';
 import Divider from '~/components/ui/Divider';
 import Section from '~/components/ui/Heading/HeadingContext';
 
@@ -103,21 +101,6 @@ export default function InterviewsStudyPlanPage({
   return (
     <div className={clsx('flex flex-col gap-y-12 md:gap-y-16', 'relative')}>
       <div className="relative flex flex-col gap-y-8">
-        <div className="flex items-center justify-between gap-2">
-          <Button
-            addonPosition="start"
-            className="-mb-2 -ml-5"
-            href="/interviews/study-plans"
-            icon={RiArrowLeftLine}
-            label={intl.formatMessage({
-              defaultMessage: 'Back to study plans',
-              description: 'Link text to navigate to study plans page',
-              id: 'fv+TLc',
-            })}
-            size="md"
-            variant="tertiary"
-          />
-        </div>
         <QuestionsStudyListPageTitleSection
           description={studyList.description}
           feature="study-plans"

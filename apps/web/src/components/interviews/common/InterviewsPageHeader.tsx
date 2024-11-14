@@ -38,6 +38,28 @@ export default function InterviewsPageHeader({
   title,
   ...props
 }: Props) {
+  const iconEl =
+    'logo' in props ? (
+      props.logo
+    ) : logoImgSrc ? (
+      <div
+        className={clsx(
+          'inline-flex shrink-0 items-center justify-center',
+          'size-16 rounded-lg shadow-md',
+          'bg-white',
+        )}>
+        <img
+          alt={title}
+          className="size-9"
+          decoding="async"
+          loading="lazy"
+          src={logoImgSrc}
+        />
+      </div>
+    ) : props.icon ? (
+      <InterviewsPageHeaderLogo icon={props.icon} />
+    ) : null;
+
   return (
     <div className="flex flex-col gap-8">
       {metadata && (
@@ -47,35 +69,22 @@ export default function InterviewsPageHeader({
         />
       )}
       <div className="grid gap-x-6 gap-y-8 xl:grid-cols-3">
-        <div className="flex flex-col gap-8 xl:col-span-2">
+        <div
+          className={clsx(
+            'flex flex-col xl:col-span-2',
+            iconEl ? 'gap-8' : 'gap-4',
+          )}>
           <div className="flex items-center gap-6">
-            {'logo' in props ? (
-              props.logo
-            ) : logoImgSrc ? (
-              <div
-                className={clsx(
-                  'inline-flex shrink-0 items-center justify-center',
-                  'size-16 rounded-lg shadow-md',
-                  'bg-white',
-                )}>
-                <img
-                  alt={title}
-                  className="size-9"
-                  decoding="async"
-                  loading="lazy"
-                  src={logoImgSrc}
-                />
-              </div>
-            ) : (
-              props.icon && <InterviewsPageHeaderLogo icon={props.icon} />
-            )}
+            {iconEl}
             <Heading level="heading4">{title}</Heading>
           </div>
           <Text className="block" color="subtitle" size="body1" weight="medium">
             {description}
           </Text>
         </div>
-        <div className="col-span-1 flex xl:justify-end">{sideElement}</div>
+        {sideElement && (
+          <div className="col-span-1 flex lg:justify-end">{sideElement}</div>
+        )}
       </div>
       {/* Features */}
       <InterviewsPageFeatures features={features} />

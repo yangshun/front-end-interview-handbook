@@ -7,7 +7,6 @@ import type {
 } from 'contentlayer/generated';
 import { useMemo } from 'react';
 import {
-  RiArrowLeftLine,
   RiQuestionnaireLine,
   RiThumbUpLine,
   RiVerifiedBadgeLine,
@@ -28,7 +27,6 @@ import QuestionsStudyList from '~/components/interviews/questions/listings/learn
 import QuestionsStudyListPageTitleSection from '~/components/interviews/questions/listings/learning/QuestionsStudyListPageTitleSection';
 import { useIntl } from '~/components/intl';
 import MDXContent from '~/components/mdx/MDXContent';
-import Button from '~/components/ui/Button';
 import Divider from '~/components/ui/Divider';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
@@ -137,21 +135,6 @@ export default function InterviewsCompanyGuidePage({
   return (
     <div className={clsx('flex flex-col gap-y-12 md:gap-y-16', 'relative')}>
       <div className="relative flex flex-col gap-y-8">
-        <div className="flex items-center justify-between gap-2">
-          <Button
-            addonPosition="start"
-            className="-mb-2 -ml-5"
-            href="/interviews/company"
-            icon={RiArrowLeftLine}
-            label={intl.formatMessage({
-              defaultMessage: 'Back to companies',
-              description: 'Link text to navigate to companies list page',
-              id: 'YPNHFR',
-            })}
-            size="md"
-            variant="tertiary"
-          />
-        </div>
         <QuestionsStudyListPageTitleSection
           description={studyList.shortDescription}
           feature="company-guides"
