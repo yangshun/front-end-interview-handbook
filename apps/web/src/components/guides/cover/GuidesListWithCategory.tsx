@@ -140,7 +140,7 @@ export default function GuidesListWithCategory({ guides }: Props) {
       <div className={clsx('flex flex-col gap-12', 'lg:col-span-10')}>
         {guides.map(({ title, totalReadingTime, articles }, index) => (
           <div key={title}>
-            <Heading level="heading5">{title}</Heading>
+            <Heading level="heading6">{title}</Heading>
             <div className="mb-4 mt-6 flex items-center gap-10">
               <GuidesCountLabel count={articles.length} />
               <GuideReadingTimeLabel readingTime={totalReadingTime} />
