@@ -1,9 +1,13 @@
 import clsx from 'clsx';
 
+type OpacityRange = 0 | 0.1 | 0.2 | 0.3 | 0.4 | 0.5 | 0.6 | 0.7 | 0.8 | 0.9 | 1;
+
 type Props = Readonly<{
   align?: 'bottom' | 'center' | 'top';
+  blurClassName?: string;
   children: React.ReactNode;
   height?: number;
+  opacity?: OpacityRange;
   overlay: React.ReactNode;
   showOverlay?: boolean;
 }>;
@@ -14,6 +18,8 @@ export default function BlurOverlay({
   showOverlay = false,
   overlay,
   height = 500,
+  blurClassName = 'blur',
+  opacity = 0.3,
 }: Props) {
   if (!showOverlay) {
     // eslint-disable-next-line react/jsx-no-useless-fragment
@@ -24,9 +30,13 @@ export default function BlurOverlay({
     <div className="relative w-full">
       <div
         aria-hidden={true}
-        className="h-full overflow-hidden blur"
+        className={clsx('h-full overflow-hidden', blurClassName)}
         style={{ height }}>
-        <div className="blur-overlay h-full" style={{ height }}>
+        <div
+          className="h-full"
+          style={{
+            maskImage: `linear-gradient(to bottom, rgba(0, 0, 0, ${opacity}), transparent)`,
+          }}>
           {children}
         </div>
       </div>

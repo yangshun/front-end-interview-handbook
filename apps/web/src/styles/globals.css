@@ -57,10 +57,6 @@ a {
   text-align: center;
 }
 
-.blur-overlay {
-  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), transparent);
-}
-
 .vignette-scroll {
   mask-image: linear-gradient(
     to top,

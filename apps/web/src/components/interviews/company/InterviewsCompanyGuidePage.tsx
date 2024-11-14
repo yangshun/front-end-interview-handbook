@@ -14,6 +14,7 @@ import {
 
 import { trpc } from '~/hooks/trpc';
 
+import BlurOverlay from '~/components/common/BlurOverlay';
 import { useUserProfile } from '~/components/global/UserProfileProvider';
 import QuestionPaywall from '~/components/interviews/questions/common/QuestionPaywall';
 import type {
@@ -210,38 +211,27 @@ export default function InterviewsCompanyGuidePage({
                 showSummarySection={false}
               />
             ) : (
-              <div className="relative">
+              <BlurOverlay
+                align="bottom"
+                blurClassName="blur-sm"
+                opacity={0.5}
+                overlay={
+                  <QuestionPaywall
+                    background={false}
+                    feature="company-guides"
+                  />
+                }
+                showOverlay={true}>
                 <div
-                  className={clsx(
-                    'min-h-[500px]',
-                    'pointer-events-none touch-none select-none',
-                  )}
+                  className="border-lg pointer-events-none touch-none select-none"
                   // So that focus cannot go into the card, which is not meant to be used.
                   inert="">
                   <QuestionsList
                     checkIfCompletedQuestion={() => false}
-                    questions={questions.slice(0, 4)}
+                    questions={questions.slice(0, 5)}
                   />
                 </div>
-                <div
-                  className={clsx(
-                    'absolute bottom-0 top-0',
-                    'w-full overflow-hidden rounded-b-lg',
-                  )}>
-                  <div
-                    className={clsx(
-                      'absolute bottom-0 top-0 w-full',
-                      'bg-gradient-to-t from-white via-white dark:from-neutral-950 dark:via-neutral-950',
-                    )}
-                  />
-                  <div className={clsx('absolute bottom-0 w-full px-8')}>
-                    <QuestionPaywall
-                      background={false}
-                      feature="company-guides"
-                    />
-                  </div>
-                </div>
-              </div>
+              </BlurOverlay>
             )}
           </div>
           {bottomContent && (
