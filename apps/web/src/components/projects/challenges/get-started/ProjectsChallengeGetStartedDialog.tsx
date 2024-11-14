@@ -1,7 +1,8 @@
 import clsx from 'clsx';
 import { useSearchParams } from 'next/navigation';
 import { useState } from 'react';
-import { RiArrowLeftLine, RiArrowRightLine, RiCheckLine } from 'react-icons/ri';
+import { FaCheck } from 'react-icons/fa6';
+import { RiArrowLeftLine, RiArrowRightLine } from 'react-icons/ri';
 
 import { useIntl } from '~/components/intl';
 import Button from '~/components/ui/Button';
@@ -240,7 +241,7 @@ export default function ProjectsChallengeGetStartedDialog({
                   <Chip
                     aria-hidden={true}
                     className="shrink-0"
-                    icon={RiCheckLine}
+                    icon={FaCheck}
                     isLabelHidden={true}
                     label={(index + 1).toString()}
                     size="sm"

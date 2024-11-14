@@ -1,9 +1,9 @@
 'use client';
 
+import { FaCheck } from 'react-icons/fa6';
 import {
   RiArrowRightLine,
   RiCheckboxCircleLine,
-  RiCheckLine,
   RiFileCopyLine,
 } from 'react-icons/ri';
 
@@ -126,7 +126,7 @@ export default function RewardsCompletePage() {
             <Button
               className="self-stretch sm:self-auto"
               display="block"
-              icon={isCopied ? RiCheckLine : RiFileCopyLine}
+              icon={isCopied ? FaCheck : RiFileCopyLine}
               label={
                 isCopied
                   ? intl.formatMessage({

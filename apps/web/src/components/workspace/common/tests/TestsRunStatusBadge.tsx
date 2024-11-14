@@ -1,4 +1,5 @@
-import { RiCheckLine, RiCloseLine, RiHourglassLine } from 'react-icons/ri';
+import { FaCheck } from 'react-icons/fa6';
+import { RiCloseLine, RiHourglassLine } from 'react-icons/ri';
 
 import Spinner from '~/components/ui/Spinner';
 import Text from '~/components/ui/Text';
@@ -25,7 +26,7 @@ export default function TestsRunStatusBadge({ status }: Props) {
           case 'complete':
             return (
               <>
-                <RiCheckLine aria-hidden="true" className="size-4 shrink-0" />
+                <FaCheck aria-hidden="true" className="size-4 shrink-0" />
                 Run completed
               </>
             );

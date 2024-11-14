@@ -1,10 +1,10 @@
 import clsx from 'clsx';
 import { useState } from 'react';
+import { FaCheck } from 'react-icons/fa6';
 import {
   RiArrowDownSLine,
   RiArrowRightLine,
   RiArrowUpSLine,
-  RiCheckFill,
 } from 'react-icons/ri';
 import url from 'url';
 
@@ -160,7 +160,7 @@ export default function ProjectsDashboardCompleteProfileCard() {
             {profileTasks.map((task) => (
               <div key={task.title} className="flex items-center gap-4">
                 <Chip
-                  icon={RiCheckFill}
+                  icon={FaCheck}
                   isLabelHidden={true}
                   label={task.isComplete ? 'Completed' : 'Not completed'}
                   size="sm"

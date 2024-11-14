@@ -1,5 +1,6 @@
 import clsx from 'clsx';
-import { RiCheckLine, RiLoader2Line } from 'react-icons/ri';
+import { FaCheck } from 'react-icons/fa6';
+import { RiLoader2Line } from 'react-icons/ri';
 
 import { useIntl } from '~/components/intl';
 import { avatarVariants } from '~/components/ui/Avatar/AvatarStyles';
@@ -28,7 +29,7 @@ const statusClasses: Record<
 > = {
   COMPLETED: {
     className: 'bg-success dark:bg-success-light',
-    icon: RiCheckLine,
+    icon: FaCheck,
   },
   IN_PROGRESS: {
     className: 'bg-warning',

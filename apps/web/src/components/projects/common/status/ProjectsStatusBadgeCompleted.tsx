@@ -1,5 +1,6 @@
 import clsx from 'clsx';
-import { RiCheckboxCircleLine, RiCheckLine } from 'react-icons/ri';
+import { FaCheck } from 'react-icons/fa6';
+import { RiCheckboxCircleLine } from 'react-icons/ri';
 
 import { useIntl } from '~/components/intl';
 import Badge from '~/components/ui/Badge';
@@ -18,7 +19,7 @@ type Props = Readonly<{
 }>;
 
 const IconCheckboxCircle = RiCheckboxCircleLine;
-const IconCheck = RiCheckLine;
+const IconCheck = FaCheck;
 
 export default function ProjectsStatusBadgeCompleted({
   entity,

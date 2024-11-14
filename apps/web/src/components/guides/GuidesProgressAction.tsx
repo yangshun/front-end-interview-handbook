@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { RiCheckLine } from 'react-icons/ri';
+import { FaCheck } from 'react-icons/fa6';
 
 import { useAuthSignInUp } from '~/hooks/user/useAuthFns';
 
@@ -49,7 +49,7 @@ export default function GuidesProgressAction({
       <>
         <Button
           addonPosition="start"
-          icon={RiCheckLine}
+          icon={FaCheck}
           label={intl.formatMessage({
             defaultMessage: 'Mark complete',
             description: 'Mark guide as complete',
@@ -103,7 +103,7 @@ export default function GuidesProgressAction({
   if (guideProgress?.status === 'complete') {
     return (
       <Button
-        icon={RiCheckLine}
+        icon={FaCheck}
         isDisabled={deleteGuideProgressMutation.isLoading}
         isLoading={deleteGuideProgressMutation.isLoading}
         label={intl.formatMessage({
@@ -161,7 +161,7 @@ export default function GuidesProgressAction({
   return (
     <Button
       addonPosition="start"
-      icon={RiCheckLine}
+      icon={FaCheck}
       isDisabled={addGuideProgressMutation.isLoading}
       isLoading={addGuideProgressMutation.isLoading}
       label={intl.formatMessage({

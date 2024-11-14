@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 import React, { useId } from 'react';
-import { RiCheckLine } from 'react-icons/ri';
+import { FaCheck } from 'react-icons/fa6';
 
 import Divider from '~/components/ui/Divider';
 import Heading from '~/components/ui/Heading';
@@ -95,7 +95,7 @@ export default function PurchaseBlockCard({
                   key={idx}
                   className="flex items-start lg:col-span-1">
                   <div className="shrink-0">
-                    <RiCheckLine
+                    <FaCheck
                       aria-hidden="true"
                       className={clsx('size-5 shrink-0', themeTextSuccessColor)}
                     />

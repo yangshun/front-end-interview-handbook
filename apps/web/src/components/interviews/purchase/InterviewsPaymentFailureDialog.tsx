@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 import { useState } from 'react';
-import { RiCheckLine } from 'react-icons/ri';
+import { FaCheck } from 'react-icons/fa6';
 import type Stripe from 'stripe';
 
 import FeedbackDialog from '~/components/global/feedback/FeedbackDialog';
@@ -107,7 +107,7 @@ export default function InterviewsPaymentFailureDialog({
         <ul className="flex flex-col gap-4">
           {error.steps.map(({ key, label }) => (
             <li key={key} className="flex items-center gap-3">
-              <RiCheckLine
+              <FaCheck
                 className={clsx('size-4 shrink-0', themeTextSuccessColor)}
               />
               <Text>{label}</Text>

@@ -1,10 +1,6 @@
 import clsx from 'clsx';
-import {
-  RiCheckLine,
-  RiCircleLine,
-  RiCloseLine,
-  RiPlayLine,
-} from 'react-icons/ri';
+import { FaCheck } from 'react-icons/fa6';
+import { RiCircleLine, RiCloseLine, RiPlayLine } from 'react-icons/ri';
 
 import {
   failTextClassName,
@@ -24,7 +20,7 @@ export default function TestStatusIcon({
   return (() => {
     switch (status) {
       case 'pass':
-        return <RiCheckLine className={clsx(commonClass, passTextClassName)} />;
+        return <FaCheck className={clsx(commonClass, passTextClassName)} />;
       case 'fail':
         return <RiCloseLine className={clsx(commonClass, failTextClassName)} />;
       case 'running':

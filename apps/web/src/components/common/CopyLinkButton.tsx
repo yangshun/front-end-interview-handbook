@@ -1,5 +1,6 @@
 import type { ReactNode } from 'react';
-import { RiCheckLine, RiLinksLine } from 'react-icons/ri';
+import { FaCheck } from 'react-icons/fa6';
+import { RiLinksLine } from 'react-icons/ri';
 
 import useCopyToClipboardWithRevert from '~/hooks/useCopyToClipboardWithRevert';
 
@@ -37,7 +38,7 @@ export default function CopyLinkButton({
   return (
     <Button
       addonPosition="start"
-      icon={isCopied ? RiCheckLine : RiLinksLine}
+      icon={isCopied ? FaCheck : RiLinksLine}
       isLabelHidden={iconOnly}
       label={
         isCopied

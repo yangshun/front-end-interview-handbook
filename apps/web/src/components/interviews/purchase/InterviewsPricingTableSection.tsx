@@ -4,11 +4,8 @@ import { useRef } from 'react';
 import { useEffect } from 'react';
 import { useId } from 'react';
 import { useState } from 'react';
-import {
-  RiCheckLine,
-  RiDiscountPercentFill,
-  RiInformationLine,
-} from 'react-icons/ri';
+import { FaCheck } from 'react-icons/fa6';
+import { RiDiscountPercentFill, RiInformationLine } from 'react-icons/ri';
 import url from 'url';
 import { useSessionStorage } from 'usehooks-ts';
 
@@ -548,7 +545,7 @@ export default function InterviewsPricingTableSection({
               },
             ].map(({ label, key }) => (
               <li key={key} className="flex items-center gap-2">
-                <RiCheckLine
+                <FaCheck
                   aria-hidden="true"
                   className={clsx('size-3.5 shrink-0', themeTextSuccessColor)}
                 />
@@ -1057,7 +1054,7 @@ export default function InterviewsPricingTableSection({
                                 // eslint-disable-next-line react/no-array-index-key
                                 key={idx}
                                 className="flex gap-x-3">
-                                <RiCheckLine
+                                <FaCheck
                                   aria-hidden="true"
                                   className={clsx(
                                     'size-5 shrink-0',

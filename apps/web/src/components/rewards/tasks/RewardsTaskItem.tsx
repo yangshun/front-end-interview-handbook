@@ -1,5 +1,6 @@
 import clsx from 'clsx';
-import { RiArrowRightLine, RiCheckFill } from 'react-icons/ri';
+import { FaCheck } from 'react-icons/fa6';
+import { RiArrowRightLine } from 'react-icons/ri';
 
 import { FormattedMessage, useIntl } from '~/components/intl';
 import Button from '~/components/ui/Button';
@@ -104,7 +105,7 @@ export default function RewardsTaskItem({
               color="success"
               size="body3"
               weight="medium">
-              <RiCheckFill className="size-4 shrink-0" />
+              <FaCheck className="size-4 shrink-0" />
               <FormattedMessage
                 defaultMessage="Completed"
                 description="Completed task label"

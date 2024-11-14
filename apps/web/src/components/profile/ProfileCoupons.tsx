@@ -1,7 +1,8 @@
 'use client';
 
 import clsx from 'clsx';
-import { RiCheckLine, RiFileCopyLine, RiPercentLine } from 'react-icons/ri';
+import { FaCheck } from 'react-icons/fa6';
+import { RiFileCopyLine, RiPercentLine } from 'react-icons/ri';
 
 import { trpc } from '~/hooks/trpc';
 import useCopyToClipboardWithRevert from '~/hooks/useCopyToClipboardWithRevert';
@@ -29,7 +30,7 @@ function CopyCodeButton({ code }: { code: string }) {
 
   return (
     <Button
-      icon={isCopied ? RiCheckLine : RiFileCopyLine}
+      icon={isCopied ? FaCheck : RiFileCopyLine}
       isLabelHidden={true}
       label={
         isCopied

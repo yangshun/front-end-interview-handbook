@@ -10,7 +10,8 @@ import type {
 import { Highlight, themes } from 'prism-react-renderer';
 import type { ComponentProps, ReactElement, ReactNode } from 'react';
 import { useState } from 'react';
-import { RiCheckLine, RiFileCopyLine } from 'react-icons/ri';
+import { FaCheck } from 'react-icons/fa6';
+import { RiFileCopyLine } from 'react-icons/ri';
 
 import useCopyToClipboardWithRevert from '~/hooks/useCopyToClipboardWithRevert';
 import useHoverState from '~/hooks/useHoverState';
@@ -50,7 +51,7 @@ function CopyButton({ contents }: Readonly<{ contents: string }>) {
 
   return (
     <Button
-      icon={isCopied ? RiCheckLine : RiFileCopyLine}
+      icon={isCopied ? FaCheck : RiFileCopyLine}
       isLabelHidden={true}
       label={isCopied ? 'Copied!' : 'Copy code to clipboard'}
       size="xs"

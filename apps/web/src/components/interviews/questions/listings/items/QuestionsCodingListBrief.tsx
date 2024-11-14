@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import { RiCheckLine } from 'react-icons/ri';
+import { FaCheck } from 'react-icons/fa6';
 
 import { useIntl } from '~/components/intl';
 import Anchor from '~/components/ui/Anchor';
@@ -89,10 +89,7 @@ export default function QuestionsCodingListBrief<Q extends QuestionMetadata>({
                         : themeBorderColor,
                     )}>
                     {hasCompletedQuestion && (
-                      <RiCheckLine
-                        aria-hidden="true"
-                        className="size-4 shrink-0"
-                      />
+                      <FaCheck aria-hidden="true" className="size-4 shrink-0" />
                     )}
                   </span>
                 )}

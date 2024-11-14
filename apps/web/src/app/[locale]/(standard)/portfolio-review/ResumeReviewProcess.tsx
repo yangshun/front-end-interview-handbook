@@ -1,9 +1,9 @@
 'use client';
 
 import clsx from 'clsx';
+import { FaCheck } from 'react-icons/fa6';
 import {
   RiAccountBoxLine,
-  RiCheckLine,
   RiComputerLine,
   RiGithubFill,
   RiSurveyLine,
@@ -132,7 +132,7 @@ export default function ResumeReviewProcess() {
                   <ul className="mt-8 space-y-3 xl:mt-10" role="list">
                     {feature.subfeatures.map((subfeature) => (
                       <li key={subfeature} className="flex gap-x-3">
-                        <RiCheckLine
+                        <FaCheck
                           aria-hidden="true"
                           className={clsx('h-5 flex-none', themeTextBrandColor)}
                         />

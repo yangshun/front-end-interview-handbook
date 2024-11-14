@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import { RiCheckLine } from 'react-icons/ri';
+import { FaCheck } from 'react-icons/fa6';
 
 import { useAuthSignInUp } from '~/hooks/user/useAuthFns';
 
@@ -53,7 +53,7 @@ export default function QuestionProgressAction({
       <>
         <Button
           addonPosition="start"
-          icon={RiCheckLine}
+          icon={FaCheck}
           label={intl.formatMessage({
             defaultMessage: 'Mark complete',
             description: 'Mark question as complete',
@@ -107,7 +107,7 @@ export default function QuestionProgressAction({
   if (questionProgress?.status === 'complete') {
     return (
       <Button
-        icon={RiCheckLine}
+        icon={FaCheck}
         isDisabled={deleteProgressMutation.isLoading}
         isLoading={deleteProgressMutation.isLoading}
         label={intl.formatMessage({
@@ -161,7 +161,7 @@ export default function QuestionProgressAction({
   return (
     <Button
       addonPosition="start"
-      icon={RiCheckLine}
+      icon={FaCheck}
       isDisabled={addProgressMutation.isLoading}
       isLoading={addProgressMutation.isLoading}
       label={intl.formatMessage({

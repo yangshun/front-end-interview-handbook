@@ -1,7 +1,7 @@
 'use client';
 
 import clsx from 'clsx';
-import { RiCheckLine } from 'react-icons/ri';
+import { FaCheck } from 'react-icons/fa6';
 
 import Badge from '~/components/ui/Badge';
 import Button from '~/components/ui/Button';
@@ -105,7 +105,7 @@ export default function ResumeReviewPricing() {
                     role="list">
                     {tier.features.map((feature) => (
                       <li key={feature} className="flex gap-x-3">
-                        <RiCheckLine
+                        <FaCheck
                           aria-hidden="true"
                           className="text-brand h-6 w-5 flex-none"
                         />

@@ -1,5 +1,5 @@
+import { FaCheck } from 'react-icons/fa6';
 import {
-  RiCheckFill,
   RiCursorFill,
   RiLoader2Line,
   RiLockLine,
@@ -16,7 +16,7 @@ export default function ChipExamples() {
         <Chip label="1" variant="neutral" />
         <Chip label="1" variant="active" />
         <Chip
-          icon={RiCheckFill}
+          icon={FaCheck}
           isLabelHidden={true}
           label="Completed"
           variant="success"
@@ -40,7 +40,7 @@ export default function ChipExamples() {
           variant="special"
         />
         <Chip
-          icon={RiCheckFill}
+          icon={FaCheck}
           isLabelHidden={true}
           label="Loading"
           variant="secondary"

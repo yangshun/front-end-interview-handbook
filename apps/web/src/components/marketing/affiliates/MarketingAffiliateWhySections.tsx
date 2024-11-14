@@ -1,8 +1,8 @@
 import clsx from 'clsx';
 import { useState } from 'react';
+import { FaCheck } from 'react-icons/fa6';
 import {
   RiArrowRightLine,
-  RiCheckLine,
   RiHandCoinLine,
   RiMoneyDollarBoxLine,
   RiThumbUpLine,
@@ -46,10 +46,7 @@ function ProductSection() {
             'inline-flex items-center gap-1 rounded-lg px-4 py-2',
             'bg-neutral-100 dark:bg-neutral-800/40',
           )}>
-          <RiCheckLine
-            aria-hidden={true}
-            className="text-success size-4 -ml-1"
-          />
+          <FaCheck aria-hidden={true} className="text-success size-4 -ml-1" />
           <Text color="secondary" size="body2" weight="medium">
             {feature}
           </Text>

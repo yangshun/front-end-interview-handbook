@@ -2,10 +2,10 @@
 
 import clsx from 'clsx';
 import { type ReactNode, useRef, useState } from 'react';
+import { FaCheck } from 'react-icons/fa6';
 import {
   RiArrowLeftLine,
   RiArrowRightLine,
-  RiCheckLine,
   RiGithubFill,
   RiLinkedinFill,
   RiTwitterXFill,
@@ -65,7 +65,7 @@ function RewardsStepLabel({
             ),
         )}>
         {status === 'completed' ? (
-          <RiCheckLine className={clsx('size-4', themeTextInvertColor)} />
+          <FaCheck className={clsx('size-4', themeTextInvertColor)} />
         ) : (
           <Text
             color={status === 'active' ? 'active' : 'default'}
