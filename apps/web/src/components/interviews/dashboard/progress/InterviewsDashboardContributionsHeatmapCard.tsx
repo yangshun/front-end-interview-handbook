@@ -13,7 +13,7 @@ import {
 import Tooltip from '~/components/ui/Tooltip';
 
 import InterviewsDashboardContributionsChart from './InterviewsDashboardContributionsChart';
-import { findCurrentMaxConsecutiveDays, getDateRangeFromToday } from './utils';
+import { findMaxConsecutiveDays, getDateRangeFromToday } from './utils';
 
 type Props = Readonly<{
   contributions?: Record<string, number>;
@@ -23,7 +23,7 @@ export default function InterviewsDashboardContributionsHeatmapCard({
   contributions,
 }: Props) {
   const { startTime, endTime } = useMemo(() => getDateRangeFromToday(), []);
-  const maxConsecutiveDays = findCurrentMaxConsecutiveDays(contributions);
+  const maxConsecutiveDays = findMaxConsecutiveDays(contributions);
   const totalActiveDays = Object.keys(contributions ?? {}).length;
   const totalContributions = sum(values(contributions));
 
