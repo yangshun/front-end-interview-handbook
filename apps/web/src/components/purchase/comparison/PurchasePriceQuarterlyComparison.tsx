@@ -1,5 +1,6 @@
 import { FormattedMessage } from '~/components/intl';
 import type { PurchasePrice } from '~/components/purchase/PurchaseTypes';
+import Text from '~/components/ui/Text';
 
 import PurchasePriceLabel from '../PurchasePriceLabel';
 
@@ -11,9 +12,9 @@ export default function PurchasePriceQuarterlyComparison({ price }: Props) {
   return (
     <span className="whitespace-nowrap">
       <FormattedMessage
-        defaultMessage="Billed quarterly ({price})"
+        defaultMessage="Billed quarterly <priceText>({price})</priceText>"
         description="Description of billing frequency for quarterly plan"
-        id="onMs8o"
+        id="DENmgP"
         values={{
           price: (
             <PurchasePriceLabel
@@ -21,6 +22,11 @@ export default function PurchasePriceQuarterlyComparison({ price }: Props) {
               currency={price.currency.toUpperCase()}
               symbol={price.symbol}
             />
+          ),
+          priceText: (chunks) => (
+            <Text color="subtitle" size="inherit" weight="inherit">
+              {chunks}
+            </Text>
           ),
         }}
       />

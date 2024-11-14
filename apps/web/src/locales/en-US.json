@@ -1151,6 +1151,10 @@
     "defaultMessage": "Months",
     "description": "Label for  Months filter button"
   },
+  "6E6+pG": {
+    "defaultMessage": "Billed yearly <priceText>({price})</priceText>",
+    "description": "Description of billing frequency for annual plan"
+  },
   "6GBUHZ": {
     "defaultMessage": "The social account is already associated with another user. Please try with different one.",
     "description": "Error message for existing social account"
@@ -1915,10 +1919,6 @@
     "defaultMessage": "<authorProfileLink>{author}</authorProfileLink> replied to <recipientProfileLink>{recipient}</recipientProfileLink> on the challenge forum for <link>{challengeTitle}</link>: <comment>\"{description}\"</comment>",
     "description": "Log message for someone replying to someone on the challenge forum"
   },
-  "BW/SaQ": {
-    "defaultMessage": "Billed yearly ({price})",
-    "description": "Description of billing frequency for annual plan"
-  },
   "BWVaW8": {
     "defaultMessage": "Mark as not complete",
     "description": "Mark question as not complete"
@@ -2138,6 +2138,10 @@
   "DDJTQX": {
     "defaultMessage": "Intro to Coding Round",
     "description": "Introduction to front end coding interview"
+  },
+  "DENmgP": {
+    "defaultMessage": "Billed quarterly <priceText>({price})</priceText>",
+    "description": "Description of billing frequency for quarterly plan"
   },
   "DEhOz5": {
     "defaultMessage": "Users completed",
@@ -7882,10 +7886,6 @@
   "olxZ5i": {
     "defaultMessage": "Optimized preparation for target companies, leveraging insider tips and expertise.",
     "description": "Description for company guides page"
-  },
-  "onMs8o": {
-    "defaultMessage": "Billed quarterly ({price})",
-    "description": "Description of billing frequency for quarterly plan"
   },
   "oo7GzR": {
     "defaultMessage": "Menu",

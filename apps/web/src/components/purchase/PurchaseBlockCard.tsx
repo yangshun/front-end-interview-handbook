@@ -61,9 +61,14 @@ export default function PurchaseBlockCard({
           )}>
           <div className="flex flex-col gap-y-2">
             <Heading
-              className={textVariants({ size: 'body2', weight: 'medium' })}
+              className={textVariants({
+                color: 'default',
+                size: 'body2',
+              })}
+              color="custom"
               id={id}
-              level="custom">
+              level="custom"
+              weight="medium">
               {title}
             </Heading>
           </div>
@@ -101,7 +106,7 @@ export default function PurchaseBlockCard({
                 </li>
               ))}
             </ul>
-            {footer && <div className="pt-4">{footer}</div>}
+            {footer && <div>{footer}</div>}
           </div>
         </Section>
       </div>

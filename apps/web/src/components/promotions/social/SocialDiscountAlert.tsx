@@ -81,7 +81,9 @@ function SocialDiscountAlertImpl() {
 
   return (
     <div className="flex items-center gap-3">
-      <SocialDiscountTicketSmall title={socialDiscountLabels.ticketTitle} />
+      <Anchor href="/rewards/social" variant="unstyled">
+        <SocialDiscountTicketSmall title={socialDiscountLabels.ticketTitle} />
+      </Anchor>
       <Tooltip
         label={
           <FormattedMessage

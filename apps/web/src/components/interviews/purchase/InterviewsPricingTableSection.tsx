@@ -399,7 +399,7 @@ function FTLPromoSection() {
           id="GEjP1P"
         />
       </Text>
-      <div className="mt-2 flex items-center gap-3">
+      <div className="group relative mt-2 flex items-center gap-3">
         <Text
           className={clsx(
             'bg-rose-500 font-extrabold text-white',
@@ -417,7 +417,7 @@ function FTLPromoSection() {
               color: 'secondary',
               size: 'body3',
             }),
-            'hover:underline',
+            'group-hover:underline',
           )}
           href="https://faangtechleads.com"
           variant="unstyled">
@@ -427,6 +427,10 @@ function FTLPromoSection() {
         <Text className="whitespace-nowrap" size="body0" weight="bold">
           28 USD
         </Text>
+        <Anchor
+          className="absolute inset-0"
+          href="https://faangtechleads.com"
+        />
       </div>
     </div>
   );
@@ -847,6 +851,7 @@ export default function InterviewsPricingTableSection({
                   description: 'Label to indicate offer is a limited time deal',
                   id: 'N5Cp1r',
                 })}
+                size="sm"
                 variant="neutral-active"
               />
             </div>
@@ -1010,7 +1015,7 @@ export default function InterviewsPricingTableSection({
                           </div>
                           <Text
                             className={clsx(
-                              'md:min-h-9 mt-3 block',
+                              'mt-3 block',
                               paymentConfig.conversionFactor <
                                 MAXIMUM_PPP_CONVERSION_FACTOR_TO_DISPLAY_BEFORE_PRICE &&
                                 paymentConfig.planType === 'lifetime' &&
