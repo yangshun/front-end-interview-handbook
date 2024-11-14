@@ -26,7 +26,7 @@ type Props = Readonly<{
   isStarted?: boolean;
   showDescription?: boolean;
   showLogoShadow?: boolean;
-  showProgressBar?: boolean;
+  showProgress?: boolean;
   studyList: InterviewsStudyList;
 }>;
 
@@ -36,7 +36,7 @@ export default function InterviewsStudyListCard({
   icon: Icon,
   isStarted,
   showDescription = true,
-  showProgressBar = true,
+  showProgress = true,
   showLogoShadow = true,
   backgroundClass = themeBackgroundCardWhiteOnLightColor,
   alignVerticalOnMobile = true,
@@ -123,7 +123,7 @@ export default function InterviewsStudyListCard({
           <div className="flex flex-wrap items-center gap-x-8 gap-y-2 md:gap-x-10">
             <InterviewsEntityProgress
               completed={completionCount}
-              showProgress={showProgressBar && isStarted}
+              showProgress={showProgress && isStarted}
               title={name}
               total={questionCount}
               type="question"

@@ -42,10 +42,7 @@ export default function QuestionStudyAllocationLabel({
             className={clsx('size-5 shrink-0', themeIconColor)}
           />
         )}
-        <Text
-          className="whitespace-nowrap text-neutral-700 dark:text-neutral-500"
-          color="inherit"
-          size={size}>
+        <Text className="whitespace-nowrap" color="secondary" size={size}>
           {(() => {
             switch (frequency) {
               case 'daily':

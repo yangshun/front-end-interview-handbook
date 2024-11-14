@@ -75,7 +75,7 @@ export default function InterviewsMarketingCompaniesSection({
                   isStarted={false}
                   showDescription={false}
                   showLogoShadow={false}
-                  showProgressBar={false}
+                  showProgress={false}
                   studyList={companyGuide}
                 />
               );

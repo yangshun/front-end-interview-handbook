@@ -33,7 +33,7 @@ export default function InterviewsEntityProgress({
         <Icon className={clsx('size-5 shrink-0', themeTextSubtleColor)} />
         <Text color="secondary" size="body3">
           {type === 'question' ? (
-            completed > 0 ? (
+            showProgress ? (
               <FormattedMessage
                 defaultMessage="<bold>{completedQuestions}</bold>/{totalQuestions} questions"
                 description="Line describing the number of questions completed by user over the total number of questions"
