@@ -27,11 +27,7 @@ import {
 import TestStatusIcon from '~/components/workspace/common/tests/TestStatusIcon';
 
 function getCode(dynamicContent: string) {
-  return `/**
- * @param {number} initialValue
- * @return {Function}
- */
-export default function makeCounter(initialValue = 0) {
+  return `export default function makeCounter(initialValue = 0) {
   let count = ${dynamicContent}
 `;
 }
@@ -104,7 +100,7 @@ function TestCaseAnimation({
     cursorControls.start({
       left: 60,
       opacity: 0,
-      top: 260,
+      top: 200,
       transition: { duration: 0 },
     });
     rippleControls.start({
@@ -204,7 +200,7 @@ function TestCaseAnimation({
       <motion.div
         animate={cursorControls}
         className="size-8 absolute cursor-none"
-        initial={{ left: 60, opacity: 0, top: 260 }}
+        initial={{ left: 60, opacity: 0, top: 200 }}
         style={{ pointerEvents: 'none' }}>
         <RiCursorLine
           className={clsx('size-5 relative z-[3] shrink-0', themeTextColor)}
@@ -320,7 +316,7 @@ export default function InterviewsMarketingTestCodeSection() {
           <div
             ref={codeBlockRef}
             className={clsx(
-              'prose relative col-span-7 min-h-[469px] overflow-hidden text-sm',
+              'prose relative col-span-7 min-h-[385px] overflow-hidden text-sm',
             )}>
             <div
               className={clsx(
@@ -338,7 +334,9 @@ export default function InterviewsMarketingTestCodeSection() {
                 )}
               />
               <div className="z-[2] m-0.5 overflow-hidden rounded-t-[inherit]">
-                <MDXCodeBlock showCopyButton={false}>{code}</MDXCodeBlock>
+                <MDXCodeBlock showCopyButton={false} showLineNumbers={true}>
+                  {code}
+                </MDXCodeBlock>
               </div>
               <TestCaseAnimation
                 codeAnimationCompleted={value.length === remainingCode.length}

@@ -242,7 +242,7 @@ function CodeAnnotationContents({
   useEffect(() => {
     setTimeout(() => {
       setShowContents(true);
-    }, 1500);
+    }, 180);
   }, []);
 
   return (
@@ -255,7 +255,7 @@ function CodeAnnotationContents({
           className="whitespace-normal text-neutral-300"
           color="inherit"
           size="body3">
-          <TypingString characters={contents} interval={20} />
+          <TypingString characters={contents} interval={16} />
         </Text>
       )}
     </div>
@@ -275,9 +275,14 @@ function CodeAnnotation({
   isShown?: boolean;
   position?: 'bottom' | 'top';
 }>) {
+  if (!isShown) {
+    return null;
+  }
+
   return (
     <div
       className={clsx(
+        'z-[1]',
         'font-sans',
         'absolute',
         position === 'top' && 'bottom-0 -translate-y-5 rounded-t-lg',
@@ -289,7 +294,6 @@ function CodeAnnotation({
         'transition-all',
         'duration-500',
         'hover:opacity-10',
-        isShown ? 'opacity-100' : 'opacity-0 delay-500',
         'select-none',
         className,
       )}>
