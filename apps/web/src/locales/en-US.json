@@ -3639,10 +3639,6 @@
     "defaultMessage": "See whole component track",
     "description": "Label for \"See whole component track\" button in Component track accordion"
   },
-  "MxvduC": {
-    "defaultMessage": "Import the progress of {questionCount} previously completed {questionCount, plural, one {question} other {questions}}",
-    "description": "Tooltip for import button on import progress dialog"
-  },
   "N+FW6k": {
     "defaultMessage": "Resize and customize the workspace as you like",
     "description": "Label for item 2 for simulate real interviews section"
@@ -3770,6 +3766,10 @@
   "O0Nl6x": {
     "defaultMessage": "Article view",
     "description": "View option for blog list"
+  },
+  "O0WPJA": {
+    "defaultMessage": "Import the progress of <bold>{questionCount}</bold> previously completed {questionCount, plural, one {question} other {questions}}",
+    "description": "Tooltip for import button on import progress dialog"
   },
   "O1vplm": {
     "defaultMessage": "Top TypeScript front end interview coding questions to practice, with detailed solutions and explanations by ex-interviewers at FAANG.",

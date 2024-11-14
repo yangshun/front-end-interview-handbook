@@ -364,18 +364,21 @@ export default function QuestionsListSession({
                       },
                     )}
                     size="xs"
-                    tooltip={intl.formatMessage(
-                      {
-                        defaultMessage:
-                          'Import the progress of {questionCount} previously completed {questionCount, plural, one {question} other {questions}}',
-                        description:
-                          'Tooltip for import button on import progress dialog',
-                        id: 'MxvduC',
-                      },
-                      {
-                        questionCount: previousSessionQuestionProgress.length,
-                      },
-                    )}
+                    tooltip={
+                      <FormattedMessage
+                        defaultMessage="Import the progress of <bold>{questionCount}</bold> previously completed {questionCount, plural, one {question} other {questions}}"
+                        description="Tooltip for import button on import progress dialog"
+                        id="O0WPJA"
+                        values={{
+                          bold: (chunks) => (
+                            <Text color="inherit" size="inherit" weight="bold">
+                              {chunks}
+                            </Text>
+                          ),
+                          questionCount: previousSessionQuestionProgress.length,
+                        }}
+                      />
+                    }
                     variant="tertiary"
                     onClick={() => setShowImportProgressModal(true)}
                   />
