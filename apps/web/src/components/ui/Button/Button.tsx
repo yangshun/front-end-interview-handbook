@@ -13,7 +13,6 @@ import {
   themeBackgroundElementInvertEmphasizedStateColor_Hover,
   themeBackgroundElementInvertPressedStateColor_Active,
   themeBackgroundElementPressedStateColor_Active,
-  themeBackgroundInvertColor,
   themeBorderElementColor,
   themeOutlineElement_FocusVisible,
   themeOutlineElementBrandColor_FocusVisible,
@@ -150,7 +149,7 @@ const variantClasses: Record<ButtonVariant, string> = {
   inverted_INTERNAL_ONLY: clsx(
     'border-transparent',
     themeTextInvertColor,
-    themeBackgroundInvertColor,
+    'dark:bg-neutral-100 bg-neutral-900',
     themeBackgroundElementInvertEmphasizedStateColor_Hover,
     themeBackgroundElementInvertPressedStateColor_Active,
     themeOutlineElementBrandColor_FocusVisible,
