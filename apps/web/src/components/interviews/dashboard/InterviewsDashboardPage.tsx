@@ -116,10 +116,13 @@ export default function InterviewsDashboardPage({
           />
         )}
         {showContinueLearning && (
-          <InterviewsDashboardContinueLearningSection
-            questionListSessions={sessions}
-            studyListsMap={studyListsMap}
-          />
+          <>
+            <InterviewsDashboardContinueLearningSection
+              questionListSessions={sessions}
+              studyListsMap={studyListsMap}
+            />
+            <Divider />
+          </>
         )}
         <InterviewsDashboardRecommendedPreparationStrategy
           questionListSessions={sessions}
