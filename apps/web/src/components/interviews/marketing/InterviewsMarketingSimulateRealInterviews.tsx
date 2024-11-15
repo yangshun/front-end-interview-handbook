@@ -1,6 +1,8 @@
 import clsx from 'clsx';
 
 import { FormattedMessage } from '~/components/intl';
+import Card from '~/components/ui/Card';
+import CardContainer from '~/components/ui/Card/CardContainer';
 import Container from '~/components/ui/Container';
 import Heading from '~/components/ui/Heading';
 import ScrollArea from '~/components/ui/ScrollArea';
@@ -8,7 +10,6 @@ import Text from '~/components/ui/Text';
 import {
   themeBackgroundCardColor,
   themeFillBrandColor,
-  themeGlassyBorder,
   themeGradientHeading,
   themeMarketingHeadingSize,
   themeWhiteGlowCardBackground,
@@ -84,13 +85,12 @@ export default function InterviewsMarketingSimulateRealInterviews() {
         </Text>
       </div>
       <ScrollArea scrollbars="horizontal">
-        <div className="flex flex-col justify-between gap-x-4 gap-y-6 md:flex-row lg:gap-x-6 ">
+        <CardContainer className="flex flex-col justify-between gap-x-4 gap-y-6 md:flex-row lg:gap-x-6 ">
           {data.map(({ key, label, image: ImageSVG }) => (
-            <div
+            <Card
               key={key}
+              brandColorSpotlight={false}
               className={clsx(
-                'isolate overflow-hidden',
-                'flex-1',
                 'flex flex-col gap-6',
                 'p-6',
                 'rounded-2xl',
@@ -100,36 +100,20 @@ export default function InterviewsMarketingSimulateRealInterviews() {
                   themeWhiteGlowCardBackground,
                   'before:-left-[70px] before:-top-10 before:h-[105px] before:w-[176px]',
                 ],
-              )}>
-              <div
-                className={clsx(
-                  'size-full !absolute inset-0 z-[1] rounded-[inherit] before:m-[-1px]',
-                  themeGlassyBorder,
-                )}
-              />
-              <div
-                className={clsx(
-                  'relative z-[2] py-3 lg:h-[180px]',
-                  'transition-opacity',
-                  'opacity-75',
-                  'group-hover:opacity-100',
-                )}>
+              )}
+              classNameOuter="flex-1"
+              disableBackground={true}
+              padding={false}
+              pattern={false}>
+              <div className={clsx('relative py-3 lg:h-[180px]')}>
                 <ImageSVG />
               </div>
-              <Text
-                className={clsx(
-                  'z-[2]',
-                  'transition-opacity',
-                  'opacity-75',
-                  'group-hover:opacity-100',
-                )}
-                size="body2"
-                weight="medium">
+              <Text size="body2" weight="medium">
                 {label}
               </Text>
-            </div>
+            </Card>
           ))}
-        </div>
+        </CardContainer>
       </ScrollArea>
     </Container>
   );

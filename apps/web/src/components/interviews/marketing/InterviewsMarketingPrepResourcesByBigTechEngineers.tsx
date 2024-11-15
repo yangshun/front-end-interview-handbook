@@ -5,6 +5,8 @@ import DocusaurusLogo from '~/components/icons/DocusaurusLogo';
 import FrontEndInterviewHandbookLogo from '~/components/icons/FrontEndInterviewHandbookLogo';
 import SvelteLogo from '~/components/icons/SvelteLogo';
 import { FormattedMessage } from '~/components/intl';
+import Card from '~/components/ui/Card';
+import CardContainer from '~/components/ui/Card/CardContainer';
 import Container from '~/components/ui/Container';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
@@ -148,13 +150,12 @@ export default function InterviewsMarketingPrepResourcesByBigTechEngineers() {
       </div>
       <Section>
         <ScrollArea scrollbars="horizontal">
-          <div className="flex flex-col justify-between gap-x-3.5 gap-y-6 md:flex-row lg:gap-x-6 ">
+          <CardContainer className="flex flex-col justify-between gap-x-3.5 gap-y-6 md:flex-row lg:gap-x-6 ">
             {data.map((item) => (
-              <div
+              <Card
                 key={item.key}
+                brandColorSpotlight={false}
                 className={clsx(
-                  'isolate overflow-hidden',
-                  'flex-1',
                   'flex flex-col gap-6',
                   'py-6',
                   'rounded-2xl',
@@ -164,22 +165,16 @@ export default function InterviewsMarketingPrepResourcesByBigTechEngineers() {
                     themeWhiteGlowCardBackground,
                     'before:-left-[70px] before:-top-10 before:h-[105px] before:w-[176px]',
                   ],
-                )}>
+                )}
+                classNameOuter="flex-1"
+                disableBackground={true}
+                padding={false}
+                pattern={false}>
                 <div
                   className={clsx(
-                    'size-full !absolute inset-0 z-[1] rounded-[inherit] before:m-[-1px]',
-                    themeGlassyBorder,
-                  )}
-                />
-                <div
-                  className={clsx(
-                    'relative z-[2]',
                     'h-[180px]',
                     'flex items-center justify-center gap-4 xl:gap-6',
                     'px-6 md:px-2.5 lg:px-3',
-                    'transition-opacity',
-                    'opacity-75',
-                    'group-hover:opacity-100',
                   )}>
                   {item.logos.map((logoItem) => (
                     <div
@@ -196,20 +191,14 @@ export default function InterviewsMarketingPrepResourcesByBigTechEngineers() {
                   ))}
                 </div>
                 <Text
-                  className={clsx(
-                    'px-6 md:px-4 lg:px-6',
-                    'z-[2]',
-                    'transition-opacity',
-                    'opacity-75',
-                    'group-hover:opacity-100',
-                  )}
+                  className={clsx('px-6 md:px-4 lg:px-6')}
                   size="body2"
                   weight="medium">
                   {item.label}
                 </Text>
-              </div>
+              </Card>
             ))}
-          </div>
+          </CardContainer>
         </ScrollArea>
       </Section>
     </Container>
