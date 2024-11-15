@@ -113,7 +113,7 @@ export default function NavProductPopover({
                 className={clsx(
                   'size-1.5 inline-block',
                   'bg-red rounded-full',
-                  'absolute -right-1.5 -top-0.5',
+                  'absolute right-7 top-2.5',
                 )}
               />
             )}
