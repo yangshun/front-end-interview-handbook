@@ -19,7 +19,6 @@ import type {
 import useQuestionTopicLabels from '~/components/interviews/questions/listings/filters/useQuestionTopicLabels';
 import { FormattedMessage, useIntl } from '~/components/intl';
 import Anchor from '~/components/ui/Anchor';
-import Badge from '~/components/ui/Badge';
 import Heading from '~/components/ui/Heading';
 import Text from '~/components/ui/Text';
 import {
@@ -68,8 +67,8 @@ function InterviewsQuestionFormatCard({
   return (
     <div
       className={clsx(
-        'group relative flex flex-1 items-center gap-4',
-        'md:flex-row md:items-center',
+        'group relative',
+        'flex flex-1 flex-col gap-4 md:flex-row md:items-center',
         'rounded-lg px-6 py-4',
         'transition',
         themeBackgroundCardWhiteOnLightColor,
@@ -80,79 +79,80 @@ function InterviewsQuestionFormatCard({
         className={clsx(
           'flex items-center justify-center',
           'rounded-md',
-          'size-12 shrink-0',
+          'size-10 shrink-0',
           themeBackgroundLayerEmphasized,
           themeGlassyBorder,
         )}>
-        <Icon className={clsx('size-6', themeTextSubtitleColor)} />
+        <Icon className={clsx('size-5', themeTextSubtitleColor)} />
       </div>
-      <div className="flex flex-grow items-center gap-4">
-        <div className="flex flex-1 flex-col gap-4">
-          <div className="flex flex-1 flex-col gap-1">
-            <Text size="body1" weight="medium">
-              {title}
-            </Text>
-            <Text color="secondary" size="body2">
-              {description}
-            </Text>
+      <div className="flex flex-1 items-center gap-4">
+        <div className="flex flex-grow items-center gap-4">
+          <div className="flex flex-1 flex-col gap-4">
+            <div className="flex flex-1 flex-col gap-2">
+              <Text size="body2" weight="medium">
+                {title}
+              </Text>
+              <Text color="secondary" size="body2">
+                {description}
+              </Text>
+            </div>
+            <div className="flex flex-wrap items-center gap-x-8 gap-y-3">
+              <InterviewsEntityProgress
+                completed={completed}
+                title={title}
+                total={total}
+                type="question"
+              />
+              {topics && (
+                <>
+                  <span className="sr-only" id={id}>
+                    <FormattedMessage
+                      defaultMessage="Question topics"
+                      description="Screenreader text to indicate the question topics"
+                      id="PtAdqY"
+                    />
+                  </span>
+                  <div
+                    aria-labelledby={id}
+                    className="flex flex-wrap gap-x-2 gap-y-1">
+                    {topics.slice(0, MAX_TOPIC).map((topic) => (
+                      <Text
+                        key={topic}
+                        color="secondary"
+                        size="body3"
+                        weight="medium">
+                        #{topicLabels[topic].label}
+                      </Text>
+                    ))}
+                    {topics.length > MAX_TOPIC && (
+                      <Text color="secondary" size="body3" weight="medium">
+                        {intl.formatMessage(
+                          {
+                            defaultMessage: '+{count} more',
+                            description: 'Badge label for more topics',
+                            id: 'sg/5hy',
+                          },
+                          {
+                            count: topics.length - MAX_TOPIC,
+                          },
+                        )}
+                      </Text>
+                    )}
+                  </div>
+                </>
+              )}
+            </div>
           </div>
-          <div className="flex flex-wrap items-center gap-x-8 gap-y-3">
-            <InterviewsEntityProgress
-              completed={completed}
-              title={title}
-              total={total}
-              type="question"
-            />
-            {topics && (
-              <>
-                <span className="sr-only" id={id}>
-                  <FormattedMessage
-                    defaultMessage="Question topics"
-                    description="Screenreader text to indicate the question topics"
-                    id="PtAdqY"
-                  />
-                </span>
-                <div
-                  aria-labelledby={id}
-                  className="flex flex-wrap gap-x-2 gap-y-1">
-                  {topics.slice(0, MAX_TOPIC).map((topic) => (
-                    <Badge
-                      key={topic}
-                      label={`#${topicLabels[topic].label}`}
-                      size="sm"
-                      variant="neutral"
-                    />
-                  ))}
-                  {topics.length > MAX_TOPIC && (
-                    <Badge
-                      label={intl.formatMessage(
-                        {
-                          defaultMessage: '+{count} more',
-                          description: 'Badge label for more topics',
-                          id: 'sg/5hy',
-                        },
-                        {
-                          count: topics.length - MAX_TOPIC,
-                        },
-                      )}
-                      size="sm"
-                      variant="neutral"
-                    />
-                  )}
-                </div>
-              </>
+          <RiArrowRightLine
+            className={clsx(
+              'size-6 shrink-0 transition-colors',
+              themeTextSubtleColor,
+              themeTextBrandColor_GroupHover,
             )}
-          </div>
+          />
         </div>
-        <RiArrowRightLine
-          className={clsx(
-            'size-6 shrink-0 transition-colors',
-            themeTextSubtleColor,
-            themeTextBrandColor_GroupHover,
-          )}
-        />
+        <Anchor aria-label={title} className="absolute inset-0" href={href} />
       </div>
-      <Anchor aria-label={title} className="absolute inset-0" href={href} />
     </div>
   );
 }
@@ -290,7 +290,7 @@ export default function InterviewsQuestionFormatsSection({
           />
         </Text>
       </div>
-      <div className="flex flex-col gap-4">
+      <div className="flex flex-col gap-6">
         {questionFormatsData.map((item) => (
           <InterviewsQuestionFormatCard {...item} key={item.listingName} />
         ))}
