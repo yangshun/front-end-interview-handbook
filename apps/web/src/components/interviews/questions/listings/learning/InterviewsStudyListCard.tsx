@@ -103,7 +103,7 @@ export default function InterviewsStudyListCard({
             'flex flex-1 flex-col',
             showDescription ? 'gap-4' : 'gap-2',
           )}>
-          <div className="flex flex-col items-start gap-1">
+          <div className="flex flex-col items-start gap-2">
             <div className="flex items-center gap-3">
               <Text size="body2" weight="bold">
                 {showLongName ? longName : name}
