@@ -108,7 +108,10 @@ export default function InterviewsMarketingSimulateRealInterviews() {
               <div className={clsx('relative py-3 lg:h-[180px]')}>
                 <ImageSVG />
               </div>
-              <Text size="body2" weight="medium">
+              <Text
+                className="text-sm lg:text-base"
+                size="inherit"
+                weight="medium">
                 {label}
               </Text>
             </Card>

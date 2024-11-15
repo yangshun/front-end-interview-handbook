@@ -191,8 +191,11 @@ export default function InterviewsMarketingPrepResourcesByBigTechEngineers() {
                   ))}
                 </div>
                 <Text
-                  className={clsx('px-6 md:px-4 lg:px-6')}
-                  size="body2"
+                  className={clsx(
+                    'px-6 md:px-4 lg:px-6',
+                    'text-sm lg:text-base',
+                  )}
+                  size="inherit"
                   weight="medium">
                   {item.label}
                 </Text>
