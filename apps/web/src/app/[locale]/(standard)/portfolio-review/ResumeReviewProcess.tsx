@@ -102,7 +102,7 @@ export default function ResumeReviewProcess() {
             </p>
           </div>
           <div>
-            <div className="lg:gap-y-18 mt-12 grid grid-cols-1 gap-x-8 gap-y-16 sm:grid-cols-1 lg:mt-16 lg:grid-cols-2 lg:gap-x-16">
+            <div className="lg:gap-y-18 mt-12 grid grid-cols-1 gap-x-8 gap-y-16 sm:grid-cols-1 md:grid-cols-2 lg:mt-16 lg:gap-x-16">
               {features.map((feature) => (
                 <div key={feature.name}>
                   <div>

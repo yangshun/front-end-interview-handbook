@@ -22,7 +22,7 @@ export default function BlogRelatedArticlesSection({ relatedPosts }: Props) {
         />
       </Heading>
       <Section>
-        <div className={clsx('grid gap-6 lg:grid-cols-2')}>
+        <div className={clsx('grid gap-6 md:grid-cols-2')}>
           {relatedPosts.map(({ slug }, index) => {
             const post = readBlogPostsAll().find(
               (postItem) => postItem.slug === slug.trim(),

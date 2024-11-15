@@ -26,7 +26,7 @@ export default function TextExamples() {
   return (
     <UIExamplesGroup title="Text">
       {sizes.map((size) => (
-        <div key={size} className="grid grid-cols-3 gap-2">
+        <div key={size} className="grid gap-2 md:grid-cols-2 lg:grid-cols-3">
           {weights.map((weight) => (
             <Fragment key={weight}>
               <Text

@@ -124,7 +124,7 @@ export default async function Page({ searchParams }: Props) {
         </Text>
       </div>
       <Section>
-        <div className="grid gap-6 lg:grid-cols-2">
+        <div className="grid gap-6 md:grid-cols-2">
           {filteredJobPostings.map((jobPosting) => (
             <JobPostingItem
               key={jobPosting.slug}

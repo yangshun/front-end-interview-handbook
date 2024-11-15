@@ -124,7 +124,7 @@ export default function ProjectsDashboardLayout({ children, viewer }: Props) {
           {viewer && startedBefore ? (
             <div
               className={clsx(
-                'grid grid-cols-1 lg:grid-cols-2',
+                'grid grid-cols-1 md:grid-cols-2',
                 'gap-x-3 gap-y-10 md:gap-x-4 lg:gap-x-6',
               )}>
               <div

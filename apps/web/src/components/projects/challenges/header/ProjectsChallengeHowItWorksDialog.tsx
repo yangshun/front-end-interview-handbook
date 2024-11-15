@@ -77,7 +77,7 @@ export default function ProjectsChallengeHowItWorksDialog({
       })}
       width="screen-xl"
       onClose={() => onClose()}>
-      <div className="grid h-full grid-cols-1 gap-x-6 gap-y-8 pb-8 pt-4 lg:grid-cols-2 xl:grid-cols-4">
+      <div className="grid h-full grid-cols-1 gap-x-6 gap-y-8 pb-8 pt-4 md:grid-cols-2 xl:grid-cols-4">
         {steps.map(({ id, description, card }, index) => (
           <div key={id} className="flex flex-col gap-4 lg:gap-6">
             <div className="flex items-center gap-x-3">

@@ -136,7 +136,7 @@ export default function ProjectsChallengeSubmissionForm({
     <FormProvider {...formMethods}>
       <form className="flex flex-col gap-12" onSubmit={handleSubmit(onSubmit)}>
         <div className="flex flex-col gap-10">
-          <div className="grid gap-6 lg:grid-cols-2">
+          <div className="grid gap-6 md:grid-cols-2">
             <ProjectsChallengeSubmissionTitleField control={control} />
             <ProjectsChallengeSubmissionRepositoryUrlField control={control} />
             <ProjectsChallengeSubmissionRoadmapSkillsField
@@ -155,7 +155,7 @@ export default function ProjectsChallengeSubmissionForm({
             control={control}
           />
           <Divider />
-          <div className="grid gap-6 lg:grid-cols-2">
+          <div className="grid gap-6 md:grid-cols-2">
             <ProjectsChallengeSubmissionSummaryField control={control} />
             <ProjectsChallengeSubmissionImplementationField control={control} />
           </div>

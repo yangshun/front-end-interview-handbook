@@ -62,7 +62,7 @@ export default function UIExamplesGroup({
           <div className="relative flex">
             <div className="absolute inset-y-0 right-0 -z-10 hidden w-1/2 bg-neutral-900 lg:block"></div>
             <Container className="w-full">
-              <div className="grid w-full lg:grid-cols-2">
+              <div className="grid w-full md:grid-cols-2">
                 <div
                   className={clsx(
                     'grid grow py-12 lg:pr-12',

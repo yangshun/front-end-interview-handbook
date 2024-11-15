@@ -47,7 +47,7 @@ export default function ProjectsChallengeBriefPage({
       }
       showOverlay={showPaywall}>
       <div className="flex flex-col items-stretch gap-20 pb-40">
-        <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
           <div className="flex flex-col gap-6">
             <div className="lg:hidden">
               <ProjectsChallengeBriefImageCarousel

@@ -187,7 +187,7 @@ export default function ResumeReviewTestimonials() {
         <h2 className="mt-1 text-3xl font-bold text-white sm:text-4xl sm:leading-none sm:tracking-tight">
           Hear from our users
         </h2>
-        <div className="mt-16 space-y-16 lg:grid lg:grid-cols-2 lg:gap-x-12 lg:gap-y-16 lg:space-y-0">
+        <div className="mt-16 space-y-16 md:grid-cols-2 lg:grid lg:gap-x-12 lg:gap-y-16 lg:space-y-0">
           {testimonials.map((testimonial) => (
             <blockquote key={testimonial.id} className="sm:flex lg:block">
               <svg
