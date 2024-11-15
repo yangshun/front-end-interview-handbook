@@ -72,8 +72,8 @@ function Navbar(
         className,
       )}>
       <NavbarHeightStyles
-        hideOnDesktop={hideOnDesktop}
         borderHeight={bottomBorder ? 1 : 0}
+        hideOnDesktop={hideOnDesktop}
       />
       <div className="max-w-8xl mx-auto px-6">
         <div

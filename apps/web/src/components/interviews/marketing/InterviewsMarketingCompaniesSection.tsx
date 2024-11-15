@@ -65,7 +65,7 @@ export default function InterviewsMarketingCompaniesSection({
           )}>
           <div
             className={clsx(
-              'grid gap-6 md:grid-cols-2 lg:grid-cols-3',
+              'grid gap-4 md:grid-cols-2 lg:grid-cols-3 xl:gap-6',
               'w-full',
             )}>
             {companyGuides.slice(0, isTablet ? 8 : 9).map((companyGuide) => {

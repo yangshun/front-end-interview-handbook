@@ -84,7 +84,7 @@ export default function InterviewsStudyListListWithFilters({
           />
         </div>
       ) : (
-        <div className="grid gap-6 md:grid-cols-2">
+        <div className="grid gap-4 md:grid-cols-2 xl:gap-6">
           {filteredCompanyGuides.map((companyGuide) => {
             const session = sessions.find(
               (session_) => session_.key === companyGuide.slug,

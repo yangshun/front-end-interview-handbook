@@ -53,7 +53,7 @@ export default function InterviewsDashboardContinueLearningSection({
           id="wvGU2J"
         />
       </Heading>
-      <div className={clsx('grid gap-4 md:grid-cols-2')}>
+      <div className={clsx('grid gap-4 md:grid-cols-2 xl:gap-6')}>
         {items.map(({ completedCount, href, title, questionsCount }) => {
           const progressPercentage =
             Math.min(completedCount / Math.max(questionsCount, 1), 1) * 100;
@@ -62,7 +62,7 @@ export default function InterviewsDashboardContinueLearningSection({
             <div
               key={href}
               className={clsx(
-                'flex items-center justify-between gap-4 p-6',
+                'flex items-center justify-between gap-6 p-6',
                 'rounded-lg',
                 themeBackgroundCardWhiteOnLightColor,
                 ['border', themeBorderElementColor],

@@ -33,7 +33,7 @@ export default function InterviewsDashboardCompanySection({
         description: 'Title for prepare by company',
         id: 'kju3R1',
       })}>
-      <div className="grid gap-6 md:grid-cols-2">
+      <div className="grid gap-4 md:grid-cols-2 xl:gap-6">
         {companyGuides.map((companyGuide) => {
           const session = questionListSessions.find(
             (session_) => session_.key === companyGuide.slug,
