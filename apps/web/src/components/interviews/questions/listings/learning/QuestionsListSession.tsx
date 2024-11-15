@@ -1,3 +1,4 @@
+import clsx from 'clsx';
 import { usePathname } from 'next/navigation';
 import { useRouter } from 'next/navigation';
 import { useCallback, useEffect, useRef, useState } from 'react';
@@ -182,7 +183,7 @@ export default function QuestionsListSession({
   ]);
 
   return (
-    <div>
+    <div className="w-full lg:w-auto">
       {(() => {
         if (isQuestionListSessionLoading && !!user) {
           return null;
@@ -240,7 +241,11 @@ export default function QuestionsListSession({
         }
 
         return (
-          <div className="flex min-w-[363px] flex-col items-end gap-y-2">
+          <div
+            className={clsx(
+              'flex flex-col items-end gap-y-2',
+              'w-full min-w-[332px] 2xl:min-w-[363px]',
+            )}>
             <Card
               className="flex justify-between gap-4 px-4 py-3"
               classNameOuter="w-full"
