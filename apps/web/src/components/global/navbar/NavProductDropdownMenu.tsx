@@ -88,7 +88,7 @@ export default function NavProductDropdownMenu({
             type="button">
             <Text
               color={variant === 'full' ? 'default' : 'secondary'}
-              size="body2"
+              size={variant === 'full' ? 'body2' : 'body3'}
               weight="bold">
               {label}
             </Text>

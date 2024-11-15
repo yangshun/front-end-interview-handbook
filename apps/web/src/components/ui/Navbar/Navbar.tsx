@@ -19,6 +19,7 @@ import type { NavbarTopLevelItem } from './NavTypes';
 import Button from '../Button';
 
 type Props = Readonly<{
+  bottomBorder?: boolean;
   className?: string;
   endAddOnItems?: React.ReactNode;
   hideOnDesktop?: boolean;
@@ -29,7 +30,6 @@ type Props = Readonly<{
   renderMobileSidebarAddOnItems?: ({
     closeMobileNav,
   }: Readonly<{ closeMobileNav: () => void }>) => React.ReactNode;
-  showBottomBorderOnScroll?: boolean;
   style?: CSSProperties;
   translucent?: boolean;
   unreadNotificationCount?: number;
@@ -47,7 +47,7 @@ function Navbar(
     translucent = false,
     hideOnDesktop = false,
     unreadNotificationCount = 0,
-    showBottomBorderOnScroll,
+    bottomBorder,
   }: Props,
   ref: React.Ref<HTMLDivElement>,
 ) {
@@ -60,20 +60,21 @@ function Navbar(
     setIsMobileNavOpen(false);
   }
 
-  const showBottomBorder = showBottomBorderOnScroll ? translucent : true;
-
   return (
     <div
       ref={ref}
       className={clsx(
         'z-fixed sticky top-[var(--banner-height)]',
-        showBottomBorder && ['border-b', themeBorderColor],
+        bottomBorder && ['border-b', themeBorderColor],
         translucent ? 'backdrop-blur' : 'bg-white dark:bg-neutral-900/60',
         'transition-[background-color]',
         hideOnDesktop && 'lg:hidden',
         className,
       )}>
-      <NavbarHeightStyles hideOnDesktop={hideOnDesktop} />
+      <NavbarHeightStyles
+        hideOnDesktop={hideOnDesktop}
+        borderHeight={bottomBorder ? 1 : 0}
+      />
       <div className="max-w-8xl mx-auto px-6">
         <div
           className={clsx(

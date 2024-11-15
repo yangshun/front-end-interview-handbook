@@ -31,13 +31,13 @@ import useInterviewsNavLinks from './useInterviewsNavLinks';
 import { useUser } from '@supabase/auth-helpers-react';
 
 type Props = Readonly<{
+  bottomBorder?: boolean;
   hideOnDesktop?: boolean;
-  showBottomBorderOnScroll?: boolean;
 }>;
 
 export default function InterviewsNavbar({
+  bottomBorder = true,
   hideOnDesktop = false,
-  showBottomBorderOnScroll = true,
 }: Props) {
   const { colorSchemePreference, setColorSchemePreference } =
     useColorSchemePreferences();
@@ -139,6 +139,7 @@ export default function InterviewsNavbar({
   return (
     <Navbar
       ref={navbarRef}
+      bottomBorder={bottomBorder}
       endAddOnItems={<InterviewsNavbarEndAddOnItems />}
       hideOnDesktop={hideOnDesktop}
       isLoading={isUserProfileLoading}
@@ -152,7 +153,6 @@ export default function InterviewsNavbar({
       }
       mobileSidebarBottomItems={mobileSidebarBottomItems}
       renderMobileSidebarAddOnItems={renderMobileSidebarAddOnItems}
-      showBottomBorderOnScroll={showBottomBorderOnScroll}
       translucent={!isSticky}
     />
   );
