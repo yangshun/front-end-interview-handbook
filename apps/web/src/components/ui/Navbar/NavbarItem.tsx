@@ -1,6 +1,7 @@
 import clsx from 'clsx';
 import { useState } from 'react';
 import { RiArrowDownSLine } from 'react-icons/ri';
+import { useDebounce } from 'usehooks-ts';
 
 import {
   themeOutlineElement_FocusVisible,
@@ -25,6 +26,17 @@ export default function NavbarItem({
   ...props
 }: NavbarTopLevelItem) {
   const [open, setOpen] = useState(false);
+  // To debounce open state when quick hovering on and out
+  const debouncedOpen = useDebounce(open, 100);
+  const [isClicked, setIsClicked] = useState(false);
+
+  function handleMouseEnter() {
+    setOpen(true);
+  }
+
+  function handleMouseLeave() {
+    setOpen(false);
+  }
 
   const commonStyles = clsx(
     'group',
@@ -58,14 +70,17 @@ export default function NavbarItem({
   }
 
   return (
-    <PopoverPrimitive.Root open={open} onOpenChange={setOpen}>
+    <PopoverPrimitive.Root open={debouncedOpen} onOpenChange={setOpen}>
       <PopoverPrimitive.Trigger
         className={clsx(
           commonStyles,
           open
             ? themeTextBrandColor
             : clsx(themeTextColor, themeTextBrandColor_Hover),
-        )}>
+        )}
+        onClick={() => setIsClicked(true)}
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}>
         <span>{label}</span>
         <RiArrowDownSLine
           aria-hidden="true"
@@ -77,6 +92,7 @@ export default function NavbarItem({
       </PopoverPrimitive.Trigger>
       <PopoverPrimitive.Portal>
         <PopoverPrimitive.Content
+          // Prevent auto focus when popover is opened due to hover
           align={props.align}
           className={clsx(
             'z-popover',
@@ -84,7 +100,15 @@ export default function NavbarItem({
             'shadow-lg',
             'w-screen max-w-[720px]',
           )}
-          sideOffset={8}>
+          sideOffset={8}
+          onCloseAutoFocus={(event) => {
+            if (!isClicked) {
+              event.preventDefault();
+            }
+            setIsClicked(false);
+          }}
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}>
           {(() => {
             switch (props.type) {
               case 'popover':
