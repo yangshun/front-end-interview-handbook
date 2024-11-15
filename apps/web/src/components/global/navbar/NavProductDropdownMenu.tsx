@@ -54,16 +54,16 @@ export default function NavProductDropdownMenu({
     <div
       className={clsx(
         'flex items-center',
-        variant === 'full' ? 'gap-2 md:gap-4' : 'gap-2.5',
+        variant === 'full' ? 'gap-2 md:gap-4' : 'gap-2',
       )}>
       <Anchor href="/" variant="unstyled">
         <LogoComboMark
           className="shrink-0"
-          height={variant === 'full' ? 20 : 19}
+          height={variant === 'full' ? 20 : 17}
         />
       </Anchor>
       <Divider
-        className="h-3 shrink-0"
+        className="h-3.5 shrink-0"
         color="emphasized"
         direction="vertical"
       />

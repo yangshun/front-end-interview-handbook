@@ -189,14 +189,14 @@ export function SidebarExpanded({
           <div className="h-0 grow overflow-auto">
             <ScrollArea>
               {renderTopAddonElements?.(fadeInClass)}
-              <SidebarLinksSection items={startItems} />
+              <SidebarLinksSection items={startItems} size="md" />
             </ScrollArea>
           </div>
           <div className={clsx('flex flex-col gap-y-4', fadeInClass)}>
             {endItems.length > 0 && (
               <>
                 <Divider />
-                <SidebarLinksSection items={endItems} />
+                <SidebarLinksSection items={endItems} size="md" />
               </>
             )}
             {renderBottomAddonElements?.(fadeInClass)}

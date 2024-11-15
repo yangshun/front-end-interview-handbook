@@ -83,5 +83,5 @@ function useBlogSidebarNavigation() {
 export default function BlogSidebar() {
   const navigation = useBlogSidebarNavigation();
 
-  return <SidebarLinksSection items={navigation} />;
+  return <SidebarLinksSection items={navigation} size="md" />;
 }

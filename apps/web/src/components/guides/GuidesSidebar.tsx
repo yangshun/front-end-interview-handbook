@@ -76,7 +76,7 @@ export function GuidesSidebar({
                 isSidebar && 'vignette-scroll',
               )}>
               <ScrollArea className="p-4">
-                <SidebarLinksSection items={navigation.items} />
+                <SidebarLinksSection items={navigation.items} size="sm" />
               </ScrollArea>
             </div>
           </>
