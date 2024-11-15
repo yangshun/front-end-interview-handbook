@@ -388,15 +388,15 @@ function PricingPlanComparisonDiscount({
 
 function FTLPromoSection() {
   return (
-    <div>
-      <Text className="block" color="secondary" size="body3">
+    <div className="w-fit">
+      <Text className="block" color="subtle" size="body3" weight="medium">
         <FormattedMessage
           defaultMessage="Included for free"
           description="Bonus freebie for purchasing"
           id="GEjP1P"
         />
       </Text>
-      <div className="group relative mt-2 flex items-center gap-3">
+      <div className="group relative mt-3 flex items-center gap-3">
         <Text
           className={clsx(
             'bg-rose-500 font-extrabold text-white',
@@ -412,7 +412,7 @@ function FTLPromoSection() {
             textVariants({
               className: 'grow',
               color: 'secondary',
-              size: 'body3',
+              size: 'body2',
             }),
             'group-hover:underline',
           )}
@@ -655,13 +655,13 @@ export default function InterviewsPricingTableSection({
     <div
       className={clsx(
         'flex flex-col',
-        titleEl ? 'gap-y-12 lg:gap-y-16' : 'gap-y-8',
+        titleEl ? 'gap-y-12 lg:gap-y-16' : 'gap-y-8 md:gap-y-6 lg:gap-y-8',
       )}>
-      <div className="flex flex-col gap-y-8">
+      <div className="flex flex-col gap-y-6 md:gap-y-8">
         {/* Banners */}
         <div className="flex flex-col gap-y-5">
           <PurchaseProhibitedCountryAlert countryCode={countryCode} />
-          <div className="flex flex-col items-start justify-between gap-4 xl:flex-row xl:items-center">
+          <div className="flex flex-col flex-wrap items-start justify-between gap-4 md:flex-row xl:items-center">
             {showPPPMessage && (
               <Tooltip
                 asChild={true}
@@ -717,7 +717,7 @@ export default function InterviewsPricingTableSection({
         </div>
         {titleEl}
       </div>
-      <div className="flex flex-col gap-y-8">
+      <div className="flex flex-col gap-y-8 md:gap-y-6 lg:gap-y-8">
         {/* Lifetime plan callout */}
         <PurchaseBlockCard
           className={isDialogView ? '!max-w-none' : undefined}
@@ -865,8 +865,8 @@ export default function InterviewsPricingTableSection({
         <Section>
           <div
             className={clsx(
-              'grid grid-cols-1 gap-8 md:gap-4 lg:gap-8',
-              isDialogView ? 'xl:grid-cols-3' : 'md:grid-cols-3',
+              'grid grid-cols-1 gap-8 md:gap-4 xl:gap-8',
+              'md:grid-cols-3',
               !isDialogView && 'mx-auto max-w-lg md:max-w-none',
             )}>
             {planList.map(
@@ -902,7 +902,8 @@ export default function InterviewsPricingTableSection({
                     <div
                       className={clsx(
                         'relative z-[1]',
-                        'flex flex-col gap-y-6 rounded-[inherit] p-6',
+                        'flex flex-col gap-y-6 rounded-[inherit]',
+                        'px-4 py-6 lg:px-6',
                       )}>
                       <div className="grow md:grow-0">
                         <div className="flex flex-wrap gap-x-3">
@@ -913,6 +914,7 @@ export default function InterviewsPricingTableSection({
                                 weight: 'medium',
                               }),
                             )}
+                            color="custom"
                             id={id}
                             level="custom">
                             {name}
@@ -963,10 +965,9 @@ export default function InterviewsPricingTableSection({
                               </Text>
                             )}
                             <Text
-                              className="flex flex-wrap items-baseline gap-x-2"
-                              color="subtitle"
-                              size="body1"
-                              weight="medium">
+                              className="flex flex-wrap items-baseline gap-x-0.5"
+                              color="secondary"
+                              size="body2">
                               <span>
                                 <PurchasePriceLabel
                                   amount={priceRoundToNearestNiceNumber(
@@ -977,13 +978,10 @@ export default function InterviewsPricingTableSection({
                                   symbol={paymentConfig.symbol}>
                                   {(parts) => (
                                     <Text
-                                      className={headingCVA({
-                                        level: 'heading2',
-                                        weight: 'medium',
-                                      })}
+                                      className="text-5xl"
                                       color="default"
                                       size="inherit"
-                                      weight="inherit">
+                                      weight="medium">
                                       <>
                                         {parts[0].value}
                                         {parts
@@ -1053,11 +1051,11 @@ export default function InterviewsPricingTableSection({
                               <li
                                 // eslint-disable-next-line react/no-array-index-key
                                 key={idx}
-                                className="flex gap-x-3">
+                                className="flex gap-x-2">
                                 <FaCheck
                                   aria-hidden="true"
                                   className={clsx(
-                                    'size-5 shrink-0',
+                                    'size-4 shrink-0',
                                     themeTextSuccessColor,
                                   )}
                                 />
@@ -1078,7 +1076,7 @@ export default function InterviewsPricingTableSection({
                     </div>
                     {recommendedPlan && (
                       <InterviewsRibbonBadge
-                        className="top-4"
+                        className="top-6"
                         label={intl.formatMessage({
                           defaultMessage: 'RECOMMENDED',
                           description:

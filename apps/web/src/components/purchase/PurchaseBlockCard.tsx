@@ -48,7 +48,7 @@ export default function PurchaseBlockCard({
       <div
         className={clsx(
           'relative z-10',
-          'flex flex-col gap-10 lg:flex-row lg:items-stretch',
+          'flex flex-col gap-x-8 gap-y-10 md:flex-row lg:items-stretch',
           'w-full',
           'rounded-[inherit]',
           'p-6',
@@ -56,8 +56,8 @@ export default function PurchaseBlockCard({
         )}>
         <div
           className={clsx(
-            'flex flex-1 flex-col gap-y-6',
-            'min-w-[300px] xl:max-w-[350px]',
+            'flex flex-col gap-y-6 lg:flex-1',
+            'min-w-[240px] lg:min-w-[300px] xl:max-w-[350px]',
           )}>
           <div className="flex flex-col gap-y-2">
             <Heading
@@ -81,26 +81,30 @@ export default function PurchaseBlockCard({
             </div>
           </Section>
         </div>
-        <Divider className="lg:hidden" direction="horizontal" />
-        <Divider className="hidden lg:block" direction="vertical" />
+        <Divider className="md:hidden" direction="horizontal" />
+        <Divider className="hidden md:block" direction="vertical" />
         <Section>
           <div className="flex flex-1 grow flex-col justify-center gap-4">
-            <Text className="block" size="body1" weight="bold">
+            <Text
+              className="block text-sm xl:text-base"
+              size="inherit"
+              weight="bold">
               {subtitle}
             </Text>
-            <ul className="flex flex-col gap-y-4" role="list">
+            <ul className="flex flex-col gap-y-2 lg:gap-y-4" role="list">
               {features.map((feature, idx) => (
                 <li
                   // eslint-disable-next-line react/no-array-index-key
                   key={idx}
                   className="flex items-start lg:col-span-1">
-                  <div className="shrink-0">
-                    <FaCheck
-                      aria-hidden="true"
-                      className={clsx('size-5 shrink-0', themeTextSuccessColor)}
-                    />
-                  </div>
-                  <Text className="ml-3 block" color="secondary" size="body2">
+                  <FaCheck
+                    aria-hidden="true"
+                    className={clsx('size-4 shrink-0', themeTextSuccessColor)}
+                  />
+                  <Text
+                    className="ml-2 block text-xs md:text-sm"
+                    color="secondary"
+                    size="inherit">
                     {feature}
                   </Text>
                 </li>
