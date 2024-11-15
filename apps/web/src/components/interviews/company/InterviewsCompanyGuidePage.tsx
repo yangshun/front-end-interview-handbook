@@ -14,7 +14,7 @@ import {
 
 import { trpc } from '~/hooks/trpc';
 
-import BlurOverlay from '~/components/common/BlurOverlay';
+import VignetteOverlay from '~/components/common/VignetteOverlay';
 import { useUserProfile } from '~/components/global/UserProfileProvider';
 import QuestionPaywall from '~/components/interviews/questions/common/QuestionPaywall';
 import type {
@@ -211,17 +211,13 @@ export default function InterviewsCompanyGuidePage({
                 showSummarySection={false}
               />
             ) : (
-              <BlurOverlay
-                align="bottom"
-                blurClassName="blur-sm"
-                opacity={0.5}
+              <VignetteOverlay
                 overlay={
                   <QuestionPaywall
                     background={false}
                     feature="company-guides"
                   />
-                }
-                showOverlay={true}>
+                }>
                 <div
                   className="border-lg pointer-events-none touch-none select-none"
                   // So that focus cannot go into the card, which is not meant to be used.
@@ -231,7 +227,7 @@ export default function InterviewsCompanyGuidePage({
                     questions={questions.slice(0, 5)}
                   />
                 </div>
-              </BlurOverlay>
+              </VignetteOverlay>
             )}
           </div>
           {bottomContent && (
