@@ -1,9 +1,11 @@
 import clsx from 'clsx';
+import { useState } from 'react';
 import { RiArrowDownSLine } from 'react-icons/ri';
+import { useDebounce } from 'usehooks-ts';
 
 import LogoMark from '~/components/global/logos/LogoMark';
 import ProjectsLogo from '~/components/global/logos/ProjectsLogo';
-import NavProductDropdownMenuContent from '~/components/global/navbar/NavProductDropdownMenuContent';
+import NavProductPopoverContent from '~/components/global/navbar/NavProductPopoverContent';
 import {
   themeBackgroundElementEmphasizedStateColor_Hover,
   themeBackgroundElementPressedStateColor_Active,
@@ -14,7 +16,7 @@ import {
 
 import { useProductMenuUnseenIndicator } from '../product-theme/useProductMenuUnseenIndicator';
 
-import * as DropdownMenuPrimitive from '@radix-ui/react-dropdown-menu';
+import * as PopoverPrimitive from '@radix-ui/react-popover';
 
 type Props = Readonly<{
   product: 'interviews' | 'projects';
@@ -34,7 +36,7 @@ const buttonBaseClassname = clsx(
   themeBackgroundElementPressedStateColor_Active,
 );
 
-export default function NavProductDropdownMenu_DEPRECATED({
+export default function NavProductPopover_DEPRECATED({
   variant,
   product,
 }: Props) {
@@ -43,10 +45,24 @@ export default function NavProductDropdownMenu_DEPRECATED({
   }
 
   const [showUnseenIndicator] = useProductMenuUnseenIndicator();
+  const [open, setOpen] = useState(false);
+  // To debounce open state when quick hovering on and out
+  const debouncedOpen = useDebounce(open, 100);
+
+  function handleMouseEnter() {
+    setOpen(true);
+  }
+
+  function handleMouseLeave() {
+    setOpen(false);
+  }
 
   return (
-    <DropdownMenuPrimitive.Root>
-      <DropdownMenuPrimitive.Trigger asChild={true}>
+    <PopoverPrimitive.Root open={debouncedOpen} onOpenChange={setOpen}>
+      <PopoverPrimitive.Trigger
+        asChild={true}
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}>
         {variant === 'full' ? (
           <button
             aria-label="Select product"
@@ -101,10 +117,14 @@ export default function NavProductDropdownMenu_DEPRECATED({
             )}
           </button>
         )}
-      </DropdownMenuPrimitive.Trigger>
-      <DropdownMenuPrimitive.Portal>
-        <NavProductDropdownMenuContent product={product} />
-      </DropdownMenuPrimitive.Portal>
-    </DropdownMenuPrimitive.Root>
+      </PopoverPrimitive.Trigger>
+      <PopoverPrimitive.Portal>
+        <NavProductPopoverContent
+          product={product}
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
+        />
+      </PopoverPrimitive.Portal>
+    </PopoverPrimitive.Root>
   );
 }

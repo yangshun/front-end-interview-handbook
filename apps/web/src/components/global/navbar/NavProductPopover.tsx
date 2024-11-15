@@ -1,9 +1,10 @@
 import clsx from 'clsx';
-import React from 'react';
+import React, { useState } from 'react';
 import { RiArrowDownSLine } from 'react-icons/ri';
+import { useDebounce } from 'usehooks-ts';
 
 import LogoMark from '~/components/global/logos/LogoMark';
-import NavProductDropdownMenuContent from '~/components/global/navbar/NavProductDropdownMenuContent';
+import NavProductPopoverContent from '~/components/global/navbar/NavProductPopoverContent';
 import Anchor from '~/components/ui/Anchor';
 import Divider from '~/components/ui/Divider';
 import Text, { textVariants } from '~/components/ui/Text';
@@ -18,7 +19,7 @@ import {
 import LogoComboMark from '../logos/LogoComboMark';
 import { useProductMenuUnseenIndicator } from '../product-theme/useProductMenuUnseenIndicator';
 
-import * as DropdownMenuPrimitive from '@radix-ui/react-dropdown-menu';
+import * as PopoverPrimitive from '@radix-ui/react-popover';
 
 type ProductValue = 'interviews' | 'projects';
 
@@ -42,13 +43,24 @@ type Props = Readonly<{
   variant: 'compact' | 'full';
 }>;
 
-export default function NavProductDropdownMenu({
+export default function NavProductPopover({
   variant,
   product,
   triggerClassname,
 }: Props) {
   const { label } = labels[product];
   const [showUnseenIndicator] = useProductMenuUnseenIndicator();
+  const [open, setOpen] = useState(false);
+  // To debounce open state when quick hovering on and out
+  const debouncedOpen = useDebounce(open, 100);
+
+  function handleMouseEnter() {
+    setOpen(true);
+  }
+
+  function handleMouseLeave() {
+    setOpen(false);
+  }
 
   return (
     <div
@@ -67,8 +79,11 @@ export default function NavProductDropdownMenu({
         color="emphasized"
         direction="vertical"
       />
-      <DropdownMenuPrimitive.Root>
-        <DropdownMenuPrimitive.Trigger asChild={true}>
+      <PopoverPrimitive.Root open={debouncedOpen} onOpenChange={setOpen}>
+        <PopoverPrimitive.Trigger
+          asChild={true}
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}>
           <button
             className={clsx(
               '-ml-2',
@@ -107,16 +122,20 @@ export default function NavProductDropdownMenu({
               className={clsx('size-5 shrink-0', themeTextSubtleColor)}
             />
           </button>
-        </DropdownMenuPrimitive.Trigger>
-        <DropdownMenuPrimitive.Portal>
-          <NavProductDropdownMenuContent product={product} />
-        </DropdownMenuPrimitive.Portal>
-      </DropdownMenuPrimitive.Root>
+        </PopoverPrimitive.Trigger>
+        <PopoverPrimitive.Portal>
+          <NavProductPopoverContent
+            product={product}
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+          />
+        </PopoverPrimitive.Portal>
+      </PopoverPrimitive.Root>
     </div>
   );
 }
 
-export function NavProductDropdownMenuLogoOnly({
+export function NavProductPopoverLogoOnly({
   product,
   triggerClassname,
 }: Readonly<{
@@ -124,10 +143,24 @@ export function NavProductDropdownMenuLogoOnly({
   triggerClassname?: string;
 }>) {
   const [showUnseenIndicator] = useProductMenuUnseenIndicator();
+  const [open, setOpen] = useState(false);
+  // To debounce open state when quick hovering on and out
+  const debouncedOpen = useDebounce(open, 100);
+
+  function handleMouseEnter() {
+    setOpen(true);
+  }
+
+  function handleMouseLeave() {
+    setOpen(false);
+  }
 
   return (
-    <DropdownMenuPrimitive.Root>
-      <DropdownMenuPrimitive.Trigger asChild={true}>
+    <PopoverPrimitive.Root open={debouncedOpen} onOpenChange={setOpen}>
+      <PopoverPrimitive.Trigger
+        asChild={true}
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}>
         <Anchor
           aria-label="Select product"
           className={clsx(
@@ -159,10 +192,14 @@ export function NavProductDropdownMenuLogoOnly({
             />
           )}
         </Anchor>
-      </DropdownMenuPrimitive.Trigger>
-      <DropdownMenuPrimitive.Portal>
-        <NavProductDropdownMenuContent product={product} />
-      </DropdownMenuPrimitive.Portal>
-    </DropdownMenuPrimitive.Root>
+      </PopoverPrimitive.Trigger>
+      <PopoverPrimitive.Portal>
+        <NavProductPopoverContent
+          product={product}
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
+        />
+      </PopoverPrimitive.Portal>
+    </PopoverPrimitive.Root>
   );
 }

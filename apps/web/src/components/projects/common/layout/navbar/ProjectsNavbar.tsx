@@ -13,7 +13,7 @@ import useCommonNavItems from '~/components/common/navigation/useCommonNavItems'
 import { useColorSchemePreferences } from '~/components/global/color-scheme/ColorSchemePreferencesProvider';
 import ColorSchemeSelect from '~/components/global/color-scheme/ColorSchemeSelect';
 import NavColorSchemeDropdown from '~/components/global/navbar/NavColorSchemeDropdown';
-import NavProductDropdownMenu from '~/components/global/navbar/NavProductDropdownMenu';
+import NavProductPopover from '~/components/global/navbar/NavProductPopover';
 import NavProfileIcon from '~/components/global/navbar/NavProfileIcon';
 import { useIntl } from '~/components/intl';
 import useProjectsNotificationUnreadCount from '~/components/projects/notifications/hooks/useProjectsNotificationUnreadCount';
@@ -260,7 +260,7 @@ export default function ProjectsNavbar({ hideOnDesktop = false }: Props) {
       isLoading={isUserProfileLoading}
       links={navLinks}
       logo={
-        <NavProductDropdownMenu
+        <NavProductPopover
           product="projects"
           triggerClassname="-ml-2"
           variant="full"

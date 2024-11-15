@@ -10,7 +10,7 @@ import useUserProfile from '~/hooks/user/useUserProfile';
 import { useColorSchemePreferences } from '~/components/global/color-scheme/ColorSchemePreferencesProvider';
 import ColorSchemeSelect from '~/components/global/color-scheme/ColorSchemeSelect';
 import I18nSelect from '~/components/global/i18n/I18nSelect';
-import NavProductDropdownMenu from '~/components/global/navbar/NavProductDropdownMenu';
+import NavProductPopover from '~/components/global/navbar/NavProductPopover';
 import { useIntl } from '~/components/intl';
 import Anchor from '~/components/ui/Anchor';
 import Avatar from '~/components/ui/Avatar';
@@ -145,7 +145,7 @@ export default function InterviewsNavbar({
       isLoading={isUserProfileLoading}
       links={navLinksFull}
       logo={
-        <NavProductDropdownMenu
+        <NavProductPopover
           product="interviews"
           triggerClassname="-ml-2"
           variant="full"
