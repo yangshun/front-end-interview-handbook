@@ -2,7 +2,7 @@ import clsx from 'clsx';
 import type { ForwardedRef } from 'react';
 import { forwardRef } from 'react';
 
-export type ProseTextSize = 'md' | 'sm';
+export type ProseTextSize = 'custom' | 'md' | 'sm';
 
 type Props = Readonly<{
   children?: React.ReactNode;
@@ -12,6 +12,7 @@ type Props = Readonly<{
 }>;
 
 const textSizes: Record<ProseTextSize, string> = {
+  custom: '',
   md: 'text-[15px]',
   sm: 'prose-sm',
 };

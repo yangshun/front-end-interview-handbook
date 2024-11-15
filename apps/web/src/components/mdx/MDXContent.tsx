@@ -5,14 +5,21 @@ import Prose from '~/components/ui/Prose';
 
 type Props = Readonly<{
   components?: Record<string, () => JSX.Element>;
+  fontSize?: 'custom' | 'md' | 'sm';
   mdxCode: string;
+  proseClassName?: string;
 }>;
 
-export default function MDXContent({ mdxCode, components }: Props) {
+export default function MDXContent({
+  mdxCode,
+  components,
+  proseClassName,
+  fontSize = 'sm',
+}: Props) {
   const Content = useMDXComponent(mdxCode);
 
   return (
-    <Prose textSize="sm">
+    <Prose className={proseClassName} textSize={fontSize}>
       <Content components={{ ...MDXComponents, ...components }} />
     </Prose>
   );

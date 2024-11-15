@@ -21,10 +21,7 @@ import type {
   QuestionMetadata,
   QuestionSlug,
 } from '~/components/interviews/questions/common/QuestionsTypes';
-import {
-  FocusAreaIcons,
-  focusAreaLongDescription,
-} from '~/components/interviews/questions/content/study-list/StudyListUtils';
+import { FocusAreaIcons } from '~/components/interviews/questions/content/study-list/StudyListUtils';
 import QuestionsList from '~/components/interviews/questions/listings/items/QuestionsList';
 import QuestionsStudyList from '~/components/interviews/questions/listings/learning/QuestionsStudyList';
 import QuestionsStudyListPageTitleSection from '~/components/interviews/questions/listings/learning/QuestionsStudyListPageTitleSection';
@@ -32,7 +29,7 @@ import { useIntl } from '~/components/intl';
 import MDXContent from '~/components/mdx/MDXContent';
 import Divider from '~/components/ui/Divider';
 import Section from '~/components/ui/Heading/HeadingContext';
-import Text from '~/components/ui/Text';
+import { themeTextSecondaryColor } from '~/components/ui/theme';
 
 import {
   categorizeQuestionsProgress,
@@ -102,7 +99,6 @@ export default function InterviewsFocusAreaPage({
       }),
     },
   ];
-  const longDescription = focusAreaLongDescription(intl);
 
   return (
     <div className={clsx('flex flex-col gap-y-12 md:gap-y-16', 'relative')}>
@@ -116,13 +112,16 @@ export default function InterviewsFocusAreaPage({
           questionsSessionKey={studyList.slug}
           title={studyList.longName}
         />
-        {longDescription[studyList.slug] && (
-          <Text
-            className={clsx('block xl:max-w-[75%]')}
-            color="secondary"
-            size="body1">
-            {longDescription[studyList.slug]}
-          </Text>
+        {studyList.body.code && (
+          <MDXContent
+            fontSize="custom"
+            mdxCode={studyList.body.code}
+            proseClassName={clsx(
+              'block xl:max-w-[75%]',
+              'text-base',
+              themeTextSecondaryColor,
+            )}
+          />
         )}
       </div>
       <Section>
