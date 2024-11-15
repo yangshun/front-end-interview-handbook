@@ -39,13 +39,17 @@ export default function InterviewsDashboardContributionsHeatmapCard({
       <div className="flex flex-col justify-between gap-4 md:flex-row md:items-center">
         {/* Contributions count */}
         <div className="flex items-center gap-2">
-          <Text color="secondary" size="body2">
+          <Text color="secondary" size="body1">
             <FormattedMessage
               defaultMessage="{count, plural, =0 {0 completions} one {<bold>{value}</bold> completion} other {<bold>{value}</bold> completions}} in the last year"
               description="Label for completions count"
               id="jOyFXD"
               values={{
-                bold: (chunks) => <Text weight="bold">{chunks}</Text>,
+                bold: (chunks) => (
+                  <Text size="inherit" weight="bold">
+                    {chunks}
+                  </Text>
+                ),
                 count: totalContributions,
                 value: new Intl.NumberFormat().format(totalContributions),
               }}
@@ -83,7 +87,7 @@ export default function InterviewsDashboardContributionsHeatmapCard({
           </Tooltip>
         </div>
         {/* Active days and max streak */}
-        <div className="flex flex-wrap gap-x-4">
+        <div className="flex flex-col flex-wrap items-start gap-x-4 gap-y-1.5 md:flex-row">
           <Tooltip
             label={
               <FormattedMessage
@@ -102,7 +106,7 @@ export default function InterviewsDashboardContributionsHeatmapCard({
                 id="dpBKYx"
                 values={{
                   bold: (chunks) => (
-                    <Text color="subtitle" weight="medium">
+                    <Text color="subtitle" size="inherit" weight="medium">
                       {chunks}
                     </Text>
                   ),
@@ -129,7 +133,7 @@ export default function InterviewsDashboardContributionsHeatmapCard({
                 id="glZsYe"
                 values={{
                   bold: (chunks) => (
-                    <Text color="subtitle" weight="medium">
+                    <Text color="subtitle" size="inherit" weight="medium">
                       {chunks}
                     </Text>
                   ),

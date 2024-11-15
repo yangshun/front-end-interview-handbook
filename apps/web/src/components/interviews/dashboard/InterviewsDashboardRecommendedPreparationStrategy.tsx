@@ -67,7 +67,7 @@ function PreparationStrategyCard({ data }: { data: PreparationStrategyItem }) {
       className={clsx(
         'group relative w-full',
         'flex items-center gap-2 md:gap-6',
-        'px-6 py-5',
+        'px-6 py-4',
         'rounded-lg',
         themeBackgroundCardWhiteOnLightColor,
         ['border', themeBorderElementColor],
@@ -79,20 +79,20 @@ function PreparationStrategyCard({ data }: { data: PreparationStrategyItem }) {
               <div
                 className={clsx(
                   'flex items-center justify-center',
-                  'size-12 shrink-0',
+                  'size-10 shrink-0',
                   'rounded-lg',
                   themeGlassyBorder,
                   themeBackgroundCardColor,
                 )}>
                 <Icon
-                  className={clsx('size-6 shrink-0', themeTextSubtitleColor)}
+                  className={clsx('size-5 shrink-0', themeTextSubtitleColor)}
                 />
               </div>
             )}
 
         <div className="flex flex-1 flex-col gap-4">
-          <div className="flex flex-col gap-1">
-            <Text size="body0" weight="bold">
+          <div className="flex flex-col gap-2">
+            <Text size="body2" weight="bold">
               {title}
             </Text>
             <Text color="secondary" size="body2">
@@ -292,7 +292,12 @@ export default function InterviewsDashboardRecommendedPreparationStrategy({
                 {index < preparationStrategies.length - 1 && (
                   <div
                     className={clsx(
-                      'absolute top-[55%] -z-10 h-full w-px translate-y-3 self-center border-l-2',
+                      'absolute top-[55%] -z-10 w-px translate-y-3 self-center border-l-2',
+                      // Find a better way to do this
+                      // To fix line not connecting the chip
+                      index === 0 || index !== preparationStrategies.length - 2
+                        ? 'h-[150%]'
+                        : 'h-full',
                       themeBorderElementColor,
                     )}
                   />

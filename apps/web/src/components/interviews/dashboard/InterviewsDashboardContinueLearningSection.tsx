@@ -45,7 +45,7 @@ export default function InterviewsDashboardContinueLearningSection({
     });
 
   return (
-    <div className="hidden flex-col gap-6 md:flex">
+    <div className="flex flex-col gap-6">
       <Heading className={themeTextColor} color="custom" level="heading6">
         <FormattedMessage
           defaultMessage="Continue learning"
@@ -53,7 +53,7 @@ export default function InterviewsDashboardContinueLearningSection({
           id="wvGU2J"
         />
       </Heading>
-      <div className={clsx('grid gap-6 lg:grid-cols-2')}>
+      <div className={clsx('grid gap-4 lg:grid-cols-2')}>
         {items.map(({ completedCount, href, title, questionsCount }) => {
           const progressPercentage =
             Math.min(completedCount / Math.max(questionsCount, 1), 1) * 100;
@@ -101,7 +101,7 @@ export default function InterviewsDashboardContinueLearningSection({
                             <Text
                               className="font-bold"
                               color="inherit"
-                              size="body1"
+                              size="body2"
                               weight="inherit">
                               {chunks}
                             </Text>
@@ -134,7 +134,7 @@ export default function InterviewsDashboardContinueLearningSection({
                   description: 'Button label for resume',
                   id: 'jIpLwU',
                 })}
-                variant="primary"
+                variant="secondary"
               />
             </div>
           );

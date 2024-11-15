@@ -131,7 +131,7 @@ export default function InterviewsDashboardContributionsChart({
           })}
         </div>
       </ScrollArea>
-      <div className="flex flex-col justify-between gap-4 md:flex-row md:items-center">
+      <div className="flex flex-col items-end justify-between gap-x-4 gap-y-1 md:flex-row md:items-center">
         <Text color="secondary" size="body2">
           <FormattedMessage
             defaultMessage="How we count completions"

@@ -29,7 +29,7 @@ const classes: Record<
   },
   sm: {
     logoClass: 'h-5 w-[26px] top-[3px]',
-    outerClass: 'size-12',
+    outerClass: 'size-10',
     textClass: 'text-[1.328rem] leading-5',
   },
 };
