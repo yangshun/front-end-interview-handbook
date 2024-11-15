@@ -8335,6 +8335,10 @@
     "defaultMessage": "Explore study plans that help you prepare for your front end interviews regardless of time left. Efficiently focus on topics that give you the most mileage for time.",
     "description": "Page description for study plans listing"
   },
+  "sAA7bn": {
+    "defaultMessage": "Premium",
+    "description": "Tooltip label for premium badge"
+  },
   "sCpKTY": {
     "defaultMessage": "Billing | Settings",
     "description": "Title of billing page"

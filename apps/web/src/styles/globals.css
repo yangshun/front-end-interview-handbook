@@ -61,14 +61,14 @@ a {
   mask-image: linear-gradient(
     to top,
     transparent,
-    black 3%,
+    black 5%,
     black 97%,
     transparent
   );
   -webkit-mask-image: linear-gradient(
     to top,
     transparent,
-    black 3%,
+    black 5%,
     black 97%,
     transparent
   );

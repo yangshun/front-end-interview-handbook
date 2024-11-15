@@ -78,41 +78,41 @@ function SidebarLinkItem({
 
   return (
     <li key={href} className="relative">
-      <Tooltip asChild={true} label={label} side="right">
-        <Anchor
-          className={clsx(
-            'group',
-            'flex items-center gap-x-2.5',
-            'w-full p-2',
-            'rounded-md',
-            size === 'sm'
-              ? 'text-[0.8125rem] leading-4'
-              : textVariants({ size: 'body2' }),
-            'select-none outline-none',
-            'transition-colors',
-            'hover:bg-neutral-200/40 dark:hover:bg-neutral-800/40',
-            [
-              themeOutlineElement_FocusVisible,
-              themeOutlineElementBrandColor_FocusVisible,
-            ],
-            isActive ? activeClassName : defaultClassName,
-          )}
-          href={href}
-          variant="unstyled">
-          {Icon && showIcon && (
-            <Icon
-              className={clsx(
-                'size-4 group-hover:animate-wiggle shrink-0 origin-bottom',
-                !isActive && themeTextFaintColor,
-              )}
-            />
-          )}
-          <div className="flex items-center gap-x-2">
+      <Anchor
+        className={clsx(
+          'group',
+          'flex items-center gap-x-2.5',
+          'w-full p-2',
+          'rounded-md',
+          size === 'sm'
+            ? 'text-[0.8125rem] leading-4'
+            : textVariants({ size: 'body2' }),
+          'select-none outline-none',
+          'transition-colors',
+          'hover:bg-neutral-200/40 dark:hover:bg-neutral-800/40',
+          [
+            themeOutlineElement_FocusVisible,
+            themeOutlineElementBrandColor_FocusVisible,
+          ],
+          isActive ? activeClassName : defaultClassName,
+        )}
+        href={href}
+        variant="unstyled">
+        {Icon && showIcon && (
+          <Icon
+            className={clsx(
+              'size-4 group-hover:animate-wiggle shrink-0 origin-bottom',
+              !isActive && themeTextFaintColor,
+            )}
+          />
+        )}
+        <div className="flex items-center gap-x-2">
+          <Tooltip asChild={true} label={label} side="right">
             <span className="line-clamp-1">{label}</span>
-            {addOnElement}
-          </div>
-        </Anchor>
-      </Tooltip>
+          </Tooltip>
+          {addOnElement}
+        </div>
+      </Anchor>
     </li>
   );
 }
