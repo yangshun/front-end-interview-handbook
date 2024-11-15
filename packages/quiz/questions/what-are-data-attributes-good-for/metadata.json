@@ -5,7 +5,7 @@
   "access": "free",
   "duration": 5,
   "published": true,
-  "topics": ["html", "testing"],
+  "topics": ["web-api", "html", "testing"],
   "importance": "medium",
   "difficulty": "medium"
 }

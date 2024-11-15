@@ -5,7 +5,7 @@
   "access": "free",
   "duration": 5,
   "published": true,
-  "topics": ["css", "a11y"],
+  "topics": ["a11y", "css"],
   "importance": "medium",
   "difficulty": "medium"
 }

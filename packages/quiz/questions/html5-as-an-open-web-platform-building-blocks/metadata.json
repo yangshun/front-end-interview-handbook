@@ -5,7 +5,7 @@
   "access": "free",
   "duration": 5,
   "published": true,
-  "topics": ["html"],
+  "topics": ["browser", "html"],
   "importance": "low",
   "difficulty": "medium"
 }

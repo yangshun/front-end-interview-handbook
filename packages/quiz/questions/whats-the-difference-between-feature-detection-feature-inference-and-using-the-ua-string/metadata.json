@@ -5,7 +5,7 @@
   "access": "free",
   "duration": 5,
   "published": true,
-  "topics": ["javascript"],
+  "topics": ["browser", "javascript"],
   "importance": "medium",
   "difficulty": "medium"
 }
