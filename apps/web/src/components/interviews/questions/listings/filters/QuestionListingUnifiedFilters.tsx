@@ -171,7 +171,8 @@ export default function QuestionListingUnifiedFilters({
                         values={languageFilters}
                       />
                     </div>
-                    <Divider />
+                    {mode !== 'framework' &&
+                      attributesUnion.frameworks.size > 1 && <Divider />}
                   </>
                 )}
                 {mode !== 'framework' &&
