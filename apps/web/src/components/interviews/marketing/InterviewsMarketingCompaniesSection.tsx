@@ -64,7 +64,10 @@ export default function InterviewsMarketingCompaniesSection({
             'flex flex-col items-center gap-8',
           )}>
           <div
-            className={clsx('grid w-full gap-6 md:grid-cols-2 lg:grid-cols-3')}>
+            className={clsx(
+              'grid gap-6 md:grid-cols-2 lg:grid-cols-3',
+              'w-full',
+            )}>
             {companyGuides.slice(0, isTablet ? 8 : 9).map((companyGuide) => {
               return (
                 <InterviewsStudyListCard

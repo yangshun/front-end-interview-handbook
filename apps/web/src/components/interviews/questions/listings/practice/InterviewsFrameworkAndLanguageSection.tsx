@@ -224,7 +224,7 @@ export default function InterviewsFrameworkAndLanguageSection({
           />
         </Text>
       </div>
-      <div className="grid gap-6 lg:grid-cols-2">
+      <div className="grid gap-6 md:grid-cols-2">
         {frameworks.map((framework) => (
           <FrameworkCard key={framework.title} {...framework} />
         ))}

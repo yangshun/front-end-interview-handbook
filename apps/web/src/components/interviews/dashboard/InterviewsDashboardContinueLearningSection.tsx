@@ -53,7 +53,7 @@ export default function InterviewsDashboardContinueLearningSection({
           id="wvGU2J"
         />
       </Heading>
-      <div className={clsx('grid gap-4 lg:grid-cols-2')}>
+      <div className={clsx('grid gap-4 md:grid-cols-2')}>
         {items.map(({ completedCount, href, title, questionsCount }) => {
           const progressPercentage =
             Math.min(completedCount / Math.max(questionsCount, 1), 1) * 100;

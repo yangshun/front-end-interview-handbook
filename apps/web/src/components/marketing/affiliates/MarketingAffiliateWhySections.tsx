@@ -145,7 +145,7 @@ export default function MarketingAffiliateWhySections() {
       {reasons.map((reason) => (
         <div
           key={reason.title}
-          className="lg:mx-auto lg:grid lg:grid-flow-col-dense lg:grid-cols-2 lg:gap-24">
+          className="md:grid-cols-2 lg:mx-auto lg:grid lg:grid-flow-col-dense lg:gap-24">
           <div className="mx-auto lg:col-start-2 lg:mx-0 lg:py-24">
             <div>
               <span

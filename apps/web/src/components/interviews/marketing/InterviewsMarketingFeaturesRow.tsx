@@ -32,7 +32,11 @@ export default function InterviewsMarketingFeaturesRow({
         {title}
       </Heading>
       <Section>
-        <div className="mx-auto grid max-w-sm grid-cols-1 gap-x-8 gap-y-12 md:max-w-xl lg:max-w-full lg:grid-cols-3">
+        <div
+          className={clsx(
+            'grid gap-x-8 gap-y-12 md:grid-cols-2 lg:grid-cols-3',
+            'mx-auto max-w-sm md:max-w-xl lg:max-w-full',
+          )}>
           {features.map(({ description, key, icon: Icon, name }) => (
             <div
               key={key}

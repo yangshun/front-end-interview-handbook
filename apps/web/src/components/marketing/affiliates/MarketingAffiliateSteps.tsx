@@ -34,7 +34,7 @@ export default function MarketingAffiliateSteps() {
   return (
     <div aria-label="Steps">
       <ol
-        className="grid grow grid-cols-1 content-start gap-8 align-top md:grid-cols-3 md:gap-12"
+        className="grid grow grid-cols-1 content-start gap-8 align-top md:grid-cols-2 md:gap-12 lg:grid-cols-3"
         role="list">
         {steps.map((step, stepIdx) => (
           <li key={step.title} className="flex flex-col md:col-span-1">
