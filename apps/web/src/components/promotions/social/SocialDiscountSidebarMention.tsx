@@ -35,7 +35,7 @@ function SocialDiscountSidebarMentionImpl() {
           {socialDiscountLabels.existingPromoTitle}
         </Text>
         <div className="flex flex-1 items-center gap-3">
-          <Ticket padding="none" variant="normal" width={96}>
+          <Ticket padding="none" ratio="wide" variant="normal" width={96}>
             <div
               className={clsx(
                 'flex h-full flex-col items-center justify-center',
@@ -78,7 +78,7 @@ function SocialDiscountSidebarMentionImpl() {
 
   return (
     <div className="flex flex-1 items-center gap-3">
-      <Ticket padding="none" variant="normal" width={96}>
+      <Ticket padding="none" ratio="wide" variant="normal" width={96}>
         <div
           className={clsx(
             'flex h-full flex-col items-center justify-center',
@@ -87,12 +87,6 @@ function SocialDiscountSidebarMentionImpl() {
           )}>
           <Text size="body1" weight="bold">
             {socialDiscountLabels.ticketTitle}
-          </Text>
-          <Text
-            className="text-2xs text-center"
-            color="secondary"
-            size="inherit">
-            {socialDiscountLabels.ticketSubtitle}
           </Text>
         </div>
       </Ticket>
