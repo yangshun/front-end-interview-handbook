@@ -168,7 +168,7 @@ export default function QuestionsUnifiedListWithFilters({
   }
 
   const sortAndFilters = (
-    <div className="flex shrink-0 justify-end gap-2 sm:pt-0">
+    <div className="flex shrink-0 justify-end gap-2 sm:pt-0 md:gap-4">
       <div className={clsx('lg:hidden')}>
         <QuestionsListingFilterSlideOut
           attributesUnion={questionAttributesUnion}
@@ -308,7 +308,7 @@ export default function QuestionsUnifiedListWithFilters({
   );
   const searchFilterRow = (
     <>
-      <div className={clsx('flex justify-end gap-4')}>
+      <div className={clsx('flex justify-end gap-2 md:gap-4')}>
         <div className="flex-1">
           <TextInput
             autoComplete="off"

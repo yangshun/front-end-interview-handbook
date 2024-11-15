@@ -28,7 +28,7 @@ export default function QuestionListingFilterItem<
   }
 
   const trigger = (
-    <AccordionTrigger>
+    <AccordionTrigger className="pb-5 pt-6">
       <QuestionListingFilterItemLabel
         label={section.name}
         showInfoIcon={section.tooltip != null}
@@ -45,7 +45,7 @@ export default function QuestionListingFilterItem<
       ) : (
         trigger
       )}
-      <AccordionContent>
+      <AccordionContent className="pb-6">
         <QuestionListingFilterItemCheckboxes
           coveredValues={coveredValues}
           section={section}
