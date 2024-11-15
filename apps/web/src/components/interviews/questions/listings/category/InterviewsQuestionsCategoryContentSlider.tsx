@@ -51,9 +51,9 @@ export default function InterviewsQuestionsCategoryContentSlider({
     count: null,
     description: (
       <FormattedMessage
-        defaultMessage="Use our <anchor>front end interview</anchor> roadmap, crafted to ensure you cover all the essentials efficiently."
-        description="Description for github star"
-        id="C+siQy"
+        defaultMessage="Leverage our <anchor>front end interview roadmap</anchor> to prepare quickly and effectively."
+        description="Description for front end interview roadmap"
+        id="9Oyn4m"
         values={{
           anchor: (chunks) => (
             <Anchor href="/front-end-interview-playbook">{chunks}</Anchor>
@@ -63,9 +63,9 @@ export default function InterviewsQuestionsCategoryContentSlider({
     ),
     href: '/front-end-interview-playbook',
     title: intl.formatMessage({
-      defaultMessage: "Grinding questions mindlessly won't work",
-      description: 'Title for github star CTA',
-      id: 'o6c8e2',
+      defaultMessage: "Don't waste time on mindless grinding",
+      description: 'Title for front end interview roadmap',
+      id: 'xF6ENX',
     }),
     type: 'link',
     value: 'frontend-interview',

@@ -1635,6 +1635,10 @@
     "defaultMessage": "Tracks | Progress | {name}",
     "description": "Title of user profile progress tracks page"
   },
+  "9Oyn4m": {
+    "defaultMessage": "Leverage our <anchor>front end interview roadmap</anchor> to prepare quickly and effectively.",
+    "description": "Description for front end interview roadmap"
+  },
   "9RYs96": {
     "defaultMessage": "Review community submissions",
     "description": "Recommended action for new projects platform user"
@@ -1950,10 +1954,6 @@
   "C+WlY+": {
     "defaultMessage": "Please create a free account in order to purchase the premium plans.",
     "description": "Content of alert requesting user to create an account to purchase premium plans"
-  },
-  "C+siQy": {
-    "defaultMessage": "Use our <anchor>front end interview</anchor> roadmap, crafted to ensure you cover all the essentials efficiently.",
-    "description": "Description for github star"
   },
   "C/3YNR": {
     "defaultMessage": "Pinned submissions",
@@ -7743,10 +7743,6 @@
     "defaultMessage": "Session status",
     "description": "Completed and in progress challenges"
   },
-  "o6c8e2": {
-    "defaultMessage": "Grinding questions mindlessly won't work",
-    "description": "Title for github star CTA"
-  },
   "o8bpfE": {
     "defaultMessage": "Front end interview questions",
     "description": "Title of all practice questions page"
@@ -9082,6 +9078,10 @@
   "xEvm93": {
     "defaultMessage": "Features",
     "description": "Link to features page"
+  },
+  "xF6ENX": {
+    "defaultMessage": "Don't waste time on mindless grinding",
+    "description": "Title for front end interview roadmap"
   },
   "xJJGlf": {
     "defaultMessage": "Your submission is successful and now available for community code reviews",
