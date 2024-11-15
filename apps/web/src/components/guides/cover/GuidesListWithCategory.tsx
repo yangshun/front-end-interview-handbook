@@ -8,6 +8,7 @@ import type {
 } from '~/components/guides/types';
 import { useIntl } from '~/components/intl';
 import Heading from '~/components/ui/Heading';
+import { themeTextColor } from '~/components/ui/theme';
 
 import {
   useMutationGuideProgressAdd,
@@ -137,10 +138,12 @@ export default function GuidesListWithCategory({ guides }: Props) {
 
   return (
     <div className={clsx('grid lg:grid-cols-12')}>
-      <div className={clsx('flex flex-col gap-12', 'lg:col-span-10')}>
+      <div className={clsx('flex flex-col gap-12', 'lg:col-span-9')}>
         {guides.map(({ title, totalReadingTime, articles }, index) => (
           <div key={title}>
-            <Heading level="heading6">{title}</Heading>
+            <Heading className={themeTextColor} color="custom" level="heading6">
+              {title}
+            </Heading>
             <div className="mb-4 mt-6 flex items-center gap-10">
               <GuidesCountLabel count={articles.length} />
               <GuideReadingTimeLabel readingTime={totalReadingTime} />

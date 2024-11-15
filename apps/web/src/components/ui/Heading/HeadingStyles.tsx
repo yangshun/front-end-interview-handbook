@@ -1,6 +1,12 @@
 import { cva } from 'class-variance-authority';
 import clsx from 'clsx';
 
+import {
+  themeTextColor,
+  themeTextDarkColor,
+  themeTextLightColor,
+} from '~/components/ui/theme';
+
 export type HeadingLevel =
   | 'custom'
   | 'heading1'
@@ -26,10 +32,10 @@ const headingLevelClasses: Record<HeadingLevel, string> = {
 };
 
 const headingColorClasses: Record<HeadingColor, string> = {
-  auto: 'text-neutral-900 dark:text-white',
+  auto: themeTextColor,
   custom: '',
-  dark: 'text-neutral-900',
-  light: 'text-white',
+  dark: themeTextDarkColor,
+  light: themeTextLightColor,
 };
 
 const headingWeightClasses: Record<HeadingWeight, string> = {

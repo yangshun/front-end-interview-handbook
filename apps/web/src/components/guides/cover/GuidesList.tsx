@@ -43,7 +43,7 @@ export default function GuidesList<Q extends GuideCardMetadata>({
               'relative isolate',
               'flex flex-grow items-center gap-6',
               'rounded-lg',
-              'px-6 py-5',
+              'px-6 py-4',
               themeBackgroundCardWhiteOnLightColor,
               ['border', themeBorderElementColor],
             )}>
@@ -55,8 +55,8 @@ export default function GuidesList<Q extends GuideCardMetadata>({
               onMarkAsCompleted={onMarkAsCompleted}
               onMarkAsNotCompleted={onMarkAsNotCompleted}
             />
-            <div className="flex flex-1 flex-col items-start gap-1">
-              <Text size="body2" weight="bold">
+            <div className="flex flex-1 flex-col items-start gap-2">
+              <Text size="body1" weight="bold">
                 {guide.title}
               </Text>
               <Text color="secondary" size="body2">
