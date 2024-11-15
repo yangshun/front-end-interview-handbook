@@ -207,39 +207,31 @@ export function SidebarExpanded({
       <div className={clsx('flex justify-between gap-4', 'p-4')}>
         <div className="flex gap-4">
           {notificationItem}
-          {isViewerPremium ? (
-            <Button
-              href={SocialLinks.discordPremium.href}
-              icon={RiDiscordLine}
-              isLabelHidden={true}
-              label={intl.formatMessage({
-                defaultMessage: 'Premium Discord',
-                description: 'Link to the premium Discord server',
-                id: 'gvLQbK',
-              })}
-              size="sm"
-              tooltip={intl.formatMessage({
-                defaultMessage: 'Join Discord (premium)',
-                description: 'Tooltip for join premium discord',
-                id: 'XG1Wfg',
-              })}
-              variant="special"
-            />
-          ) : (
-            <Button
-              href={SocialLinks.discord.href}
-              icon={RiDiscordLine}
-              isLabelHidden={true}
-              label="Discord"
-              size="sm"
-              tooltip={intl.formatMessage({
-                defaultMessage: 'Join Discord channel (public)',
-                description: 'Link to the Discord server',
-                id: 'OchGBW',
-              })}
-              variant="secondary"
-            />
-          )}
+          <Button
+            href={
+              isViewerPremium
+                ? SocialLinks.discordPremium.href
+                : SocialLinks.discord.href
+            }
+            icon={RiDiscordLine}
+            isLabelHidden={true}
+            label="Discord"
+            size="sm"
+            tooltip={
+              isViewerPremium
+                ? intl.formatMessage({
+                    defaultMessage: 'Join Discord (premium)',
+                    description: 'Tooltip for join premium discord',
+                    id: 'XG1Wfg',
+                  })
+                : intl.formatMessage({
+                    defaultMessage: 'Join Discord channel (public)',
+                    description: 'Link to the Discord server',
+                    id: 'OchGBW',
+                  })
+            }
+            variant="secondary"
+          />
           {bottomBarItems}
           <DropdownMenu
             icon={RiMoreLine}
