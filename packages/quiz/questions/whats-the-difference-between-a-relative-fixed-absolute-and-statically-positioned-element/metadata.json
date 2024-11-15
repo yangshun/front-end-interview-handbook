@@ -2,7 +2,7 @@
   "slug": "whats-the-difference-between-a-relative-fixed-absolute-and-statically-positioned-element",
   "languages": [],
   "companies": ["rippling", "salesforce"],
-  "premium": false,
+  "access": "free",
   "duration": 5,
   "published": true,
   "topics": ["css"],

@@ -2,7 +2,7 @@
   "slug": "explain-your-understanding-of-the-box-model-and-how-you-would-tell-the-browser-in-css-to-render-your-layout-in-different-box-models",
   "languages": [],
   "companies": ["amazon", "google", "linkedin"],
-  "premium": false,
+  "access": "free",
   "duration": 5,
   "published": true,
   "topics": ["css"],
