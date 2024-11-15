@@ -125,7 +125,7 @@ export default function QuestionsList<Q extends QuestionMetadata>({
               index === 0 && 'rounded-t-lg',
               index === questions.length - 1 && 'rounded-b-lg',
             )}>
-            <div className={clsx('flex gap-x-4 px-6 py-4', 'isolate')}>
+            <div className={clsx('flex gap-x-4 px-6 py-5 md:py-4', 'isolate')}>
               <QuestionNewLabel created={questionMetadata.created} />
               {showProgress && (
                 <QuestionsListItemProgressChip
@@ -142,9 +142,9 @@ export default function QuestionsList<Q extends QuestionMetadata>({
               )}
               <div className="grow">
                 <Text
-                  className="inline-flex flex-wrap items-center gap-x-2 gap-y-1.5"
+                  className="inline-flex flex-wrap items-center gap-x-2 gap-y-3"
                   size="body2"
-                  weight="medium">
+                  weight="bold">
                   <Anchor
                     className="focus:outline-none"
                     href={redirectHref}
@@ -189,7 +189,7 @@ export default function QuestionsList<Q extends QuestionMetadata>({
                 )}
                 <div
                   className={clsx(
-                    'mt-4 flex flex-wrap items-center gap-x-8 gap-y-2',
+                    'mt-4 flex flex-wrap items-center gap-x-8 gap-y-3.5',
                     'relative z-10',
                   )}>
                   <span className="inline-flex">
