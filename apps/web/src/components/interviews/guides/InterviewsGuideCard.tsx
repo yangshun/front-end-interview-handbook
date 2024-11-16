@@ -136,7 +136,7 @@ export default function InterviewsGuideCard({ data }: Props) {
               completed={isGuideCompleted}
             />
 
-            <div className="flex flex-1 flex-col gap-5">
+            <div className="flex flex-1 flex-col gap-4">
               <div className="flex flex-col gap-2">
                 <Text size="body2" weight="bold">
                   {cardTitle}

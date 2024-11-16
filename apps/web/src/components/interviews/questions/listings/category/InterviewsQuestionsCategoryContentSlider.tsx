@@ -99,7 +99,10 @@ export default function InterviewsQuestionsCategoryContentSlider({
       }}>
       <div className={clsx('w-full', data.length > 1 && 'min-h-[154px]')}>
         {data.map((item) => (
-          <TabsPrimitive.Content key={item.value} value={item.value}>
+          <TabsPrimitive.Content
+            key={item.value}
+            className="h-full"
+            value={item.value}>
             <InterviewsContentSliderCard
               count={item.count}
               description={item.description}

@@ -130,12 +130,14 @@ export default function InterviewsQuestionsCategoryPage({
     useGuidesWithCompletionStatus(filteredGuides);
 
   return (
-    <div className={clsx('flex flex-col', 'gap-y-8 md:gap-y-10 2xl:gap-y-12')}>
+    <div className={clsx('flex flex-col', 'gap-y-10 md:gap-y-16')}>
       <InterviewsPageHeader
         description={description}
         features={features}
         icon={Icon}
-        sideElement={<InterviewsQuestionsCategoryContentSlider framework={framework}/>}
+        sideElement={
+          <InterviewsQuestionsCategoryContentSlider framework={framework} />
+        }
         title={title}
       />
       <Section>
