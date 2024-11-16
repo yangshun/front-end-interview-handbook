@@ -150,7 +150,7 @@ export default function InterviewsMarketingEmbedSection({
         'scroll-mt-16',
       )}>
       <Container
-        className={clsx('relative', 'flex flex-col gap-y-10')}
+        className={clsx('relative', 'flex flex-col gap-y-8')}
         width="screen-xl">
         <motion.div
           style={{

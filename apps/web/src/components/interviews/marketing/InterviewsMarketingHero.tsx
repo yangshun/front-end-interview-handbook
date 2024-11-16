@@ -122,7 +122,7 @@ export default function InterviewsMarketingHeroNew({ testimonials }: Props) {
       <div className="flex flex-col gap-x-16 gap-y-6 md:flex-row">
         <div
           className={clsx(
-            'flex flex-col items-start gap-4',
+            'flex flex-col items-center gap-4',
             'transition-opacity',
             'duration-1000',
             DELAY_THIRD,

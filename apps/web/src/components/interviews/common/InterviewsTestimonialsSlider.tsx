@@ -17,7 +17,6 @@ import {
   themeBorderElementColor,
   themeOutlineElement_FocusVisible,
   themeOutlineElementBrandColor_FocusVisible,
-  themeTextSubtitleColor,
   themeWhiteGlowCardBackground,
 } from '~/components/ui/theme';
 import Tooltip from '~/components/ui/Tooltip';
@@ -174,10 +173,10 @@ export default function InterviewsTestimonialsSlider({ data }: Props) {
   ];
 
   const sliderNavigation = (
-    <TabsPrimitive.List className="flex justify-center gap-4">
+    <TabsPrimitive.List className="flex justify-center gap-3">
       {data.map((item) => (
         <TabsPrimitive.Trigger key={item.id} asChild={true} value={item.id}>
-          <button aria-label={item.id} className="w-12 py-1.5" type="button">
+          <button aria-label={item.id} className="w-12 py-[5px]" type="button">
             <div
               className={clsx(
                 'h-1 w-full rounded',
@@ -235,12 +234,7 @@ export default function InterviewsTestimonialsSlider({ data }: Props) {
                 />
                 <div className="flex flex-col gap-2">
                   <div className="flex items-center gap-3">
-                    <Heading
-                      className={themeTextSubtitleColor}
-                      color="custom"
-                      level="heading6">
-                      {label}
-                    </Heading>
+                    <Heading level="heading6">{label}</Heading>
                     {logos && (
                       <div className="isolate flex">
                         {logos.map((logo, index) => (

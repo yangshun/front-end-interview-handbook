@@ -376,7 +376,6 @@ export default function InterviewsMarketingSolutionsByExInterviewersSection() {
               <div className="hidden lg:block">
                 <SideNavigation
                   activeValue={selectedQuestion}
-                  fontSize="medium"
                   items={questions}
                   onClick={(value) => {
                     setSelectedQuestion(value);
