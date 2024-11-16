@@ -214,12 +214,7 @@ export default function SidebarLinksSection({
   size: SidebarSize;
 }>) {
   const { pathname } = useI18nPathname();
-  const [manuallyOpenSections, setManuallyOpenSections] = useState<
-    ReadonlyArray<string>
-  >([]);
-  const [automaticOpenSections, setAutomaticOpenSections] = useState<
-    ReadonlyArray<string>
-  >([]);
+  const [openSection, setOpenSection] = useState<string | null>(null);
 
   useEffect(() => {
     const activeValue = (() => {
@@ -235,7 +230,7 @@ export default function SidebarLinksSection({
     })();
 
     if (activeValue) {
-      setAutomaticOpenSections([activeValue]);
+      setOpenSection(activeValue);
     }
   }, [items, pathname]);
 
@@ -243,8 +238,9 @@ export default function SidebarLinksSection({
     <AccordionPrimitive.Root
       asChild={true}
       className={clsx('flex flex-col gap-y-2')}
-      type="multiple"
-      value={[...automaticOpenSections, ...manuallyOpenSections]}>
+      type="single"
+      // Fake null value to force everything to close.
+      value={openSection ?? '__FAKE_NULL_VALUE__'}>
       <ul>
         {items.map((item) => (
           <SidebarLinks
@@ -252,22 +248,7 @@ export default function SidebarLinksSection({
             item={item}
             size={size}
             onToggle={() => {
-              const inAutomaticOpen = automaticOpenSections.includes(
-                item.label,
-              );
-
-              if (inAutomaticOpen) {
-                setAutomaticOpenSections(
-                  automaticOpenSections.filter((label) => label !== item.label),
-                );
-              }
-              if (manuallyOpenSections.includes(item.label)) {
-                setManuallyOpenSections(
-                  manuallyOpenSections.filter((label) => label !== item.label),
-                );
-              } else if (!inAutomaticOpen) {
-                setManuallyOpenSections([...manuallyOpenSections, item.label]);
-              }
+              setOpenSection(openSection === item.label ? null : item.label);
             }}
           />
         ))}
