@@ -2,6 +2,7 @@ import clsx from 'clsx';
 import type { ReactNode } from 'react';
 import { RiSearchLine, RiSortDesc } from 'react-icons/ri';
 
+import VignetteOverlay from '~/components/common/VignetteOverlay';
 import { useUserProfile } from '~/components/global/UserProfileProvider';
 import type { GuideCardMetadataWithCompletedStatus } from '~/components/guides/types';
 import InterviewsGuideCard from '~/components/interviews/guides/InterviewsGuideCard';
@@ -363,35 +364,20 @@ export default function QuestionsUnifiedListWithFilters({
         <div className="flex flex-col gap-4">
           {listMetadata}
           {showPaywall ? (
-            <div className="relative">
+            <VignetteOverlay
+              overlay={
+                <QuestionPaywall background={false} feature="company-tags" />
+              }>
               <div
-                className={clsx(
-                  'min-h-[500px]',
-                  'pointer-events-none touch-none select-none',
-                )}
+                className="border-lg pointer-events-none touch-none select-none"
                 // So that focus cannot go into the card, which is not meant to be used.
                 inert="">
                 <QuestionsList
                   checkIfCompletedQuestion={() => false}
-                  questions={sortedQuestions.slice(0, 4)}
+                  questions={questions.slice(0, 4)}
                 />
               </div>
-              <div
-                className={clsx(
-                  'absolute bottom-0 top-0',
-                  'w-full overflow-hidden rounded-b-lg',
-                )}>
-                <div
-                  className={clsx(
-                    'absolute bottom-0 top-0 w-full',
-                    'bg-gradient-to-t from-white via-white dark:from-neutral-950 dark:via-neutral-950',
-                  )}
-                />
-                <div className={clsx('absolute bottom-0 w-full px-8')}>
-                  <QuestionPaywall background={false} feature="company-tags" />
-                </div>
-              </div>
-            </div>
+            </VignetteOverlay>
           ) : (
             <div>
               <Heading className="sr-only" level="custom">
