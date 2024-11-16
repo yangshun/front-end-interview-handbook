@@ -978,10 +978,13 @@ export default function InterviewsPricingTableSection({
                                   symbol={paymentConfig.symbol}>
                                   {(parts) => (
                                     <Text
-                                      className="text-5xl"
+                                      className={headingCVA({
+                                        level: 'heading2',
+                                        weight: 'medium',
+                                      })}
                                       color="default"
                                       size="inherit"
-                                      weight="medium">
+                                      weight="inherit">
                                       <>
                                         {parts[0].value}
                                         {parts

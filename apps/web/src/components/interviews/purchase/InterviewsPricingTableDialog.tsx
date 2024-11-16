@@ -110,7 +110,8 @@ export default function InterviewsPricingTableDialog({
       isShown={isShown}
       title={title}
       trigger={trigger}
-      width="screen-xl"
+      width="custom"
+      widthClass="lg:max-w-screen-lg 2xl:max-w-screen-xl lg:mx-auto"
       onClose={onClose}>
       <div className="flex w-full flex-col gap-8">
         <Text className="block" color="secondary" size="body2">

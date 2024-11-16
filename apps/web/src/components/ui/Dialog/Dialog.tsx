@@ -14,6 +14,7 @@ import { themeBackgroundLayerEmphasized } from '../theme';
 import * as DialogPrimitive from '@radix-ui/react-dialog';
 
 export type DialogWidth =
+  | 'custom'
   | 'screen-lg'
   | 'screen-md'
   | 'screen-sm'
@@ -21,12 +22,13 @@ export type DialogWidth =
   | 'sm';
 
 export const widthClasses: Record<DialogWidth, string> = {
+  custom: '',
   'screen-lg':
     'md:mx-auto md:max-w-screen-sm lg:max-w-screen-md xl:max-w-screen-lg',
   'screen-md': 'md:mx-auto md:max-w-screen-sm lg:max-w-screen-md',
   'screen-sm': 'md:mx-auto md:max-w-screen-sm',
   'screen-xl':
-    'md:mx-auto md:max-w-[720px] lg:max-w-screen-md xl:max-w-screen-lg 2xl:max-w-screen-xl',
+    'md:mx-auto md:max-screen-sm lg:max-w-screen-md xl:max-w-screen-lg 2xl:max-w-screen-xl',
   sm: 'sm:max-w-sm sm:mx-auto',
 };
 
@@ -193,7 +195,7 @@ export function DialogFooter({
 }
 DialogFooter.displayName = 'DialogFooter';
 
-type Props = Readonly<{
+type BaseProps = Readonly<{
   asChild?: boolean;
   bottomContents?: React.ReactNode;
   centered?: boolean;
@@ -212,6 +214,14 @@ type Props = Readonly<{
   wrapChildren?: (children: React.ReactNode) => React.ReactNode;
 }>;
 
+type PropsWithCustomWidth = Omit<BaseProps, 'width'> &
+  Readonly<{
+    width: 'custom';
+    widthClass?: string;
+  }>;
+
+type Props = BaseProps | PropsWithCustomWidth;
+
 export default function Dialog({
   asChild = true,
   bottomContents,
@@ -228,6 +238,7 @@ export default function Dialog({
   width = 'sm',
   wrapChildren,
   onClose,
+  ...props
 }: Props) {
   return (
     <DialogRoot
@@ -245,6 +256,7 @@ export default function Dialog({
               'relative',
               'm-4',
               ['w-auto', widthClasses[width]],
+              'widthClass' in props && props.widthClass,
               'pointer-events-none',
               centered && 'flex min-h-[calc(100%_-_32px)] items-center',
             )}>
