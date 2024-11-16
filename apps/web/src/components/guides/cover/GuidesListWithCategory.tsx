@@ -41,43 +41,12 @@ export default function GuidesListWithCategory({ guides }: Props) {
       return;
     }
 
-    addGuideProgressMutation.mutate(
-      {
-        category: guide.category,
-        slug: guide.slug,
-        status: 'complete',
-      },
-      {
-        onError: () => {
-          showToast({
-            title: intl.formatMessage({
-              defaultMessage:
-                'Failed to mark article as complete. Please try again',
-              description:
-                'Error message shown when a guide has failed to mark as complete',
-              id: '6eVVTu',
-            }),
-            variant: 'danger',
-          });
-        },
-        onSuccess: () => {
-          showToast({
-            title: intl.formatMessage(
-              {
-                defaultMessage: 'Marked "{articleTitle}" as complete',
-                description:
-                  'Success message for marking a question as complete',
-                id: 'GoDdwh',
-              },
-              {
-                articleTitle: guide.title,
-              },
-            ),
-            variant: 'success',
-          });
-        },
-      },
-    );
+    addGuideProgressMutation.mutate({
+      category: guide.category,
+      guideName: guide.title,
+      slug: guide.slug,
+      status: 'complete',
+    });
   }
 
   function markGuideAsNotCompleted(guide: GuideCardMetadata) {

@@ -75,6 +75,7 @@ export default function GuidesMainLayout({
   useScrollToTop([pathname]);
 
   const addGuideProgressMutation = useMutationGuideProgressAdd();
+
   const [autoMarkAsComplete, setAutoMarkAsComplete] =
     useGuidesAutoMarkAsComplete();
 
@@ -120,24 +121,14 @@ export default function GuidesMainLayout({
                   <div
                     className={clsx('flex justify-end', 'transition-colors')}>
                     <div className="max-w-64 flex flex-col items-end gap-2">
-                      <div
-                        className={clsx(
-                          'isGuideProgressLoaded' in props &&
-                            props.isGuideProgressLoaded
-                            ? 'opacity-100'
-                            : 'opacity-0',
-                        )}>
-                        <GuidesProgressAction
-                          guideName={currentItem.label}
-                          guideProgress={
-                            'guideProgress' in props
-                              ? props.guideProgress
-                              : null
-                          }
-                          listKey={listKey}
-                          metadata={metadata}
-                        />
-                      </div>
+                      <GuidesProgressAction
+                        guideName={currentItem.label}
+                        guideProgress={
+                          'guideProgress' in props ? props.guideProgress : null
+                        }
+                        listKey={listKey}
+                        metadata={metadata}
+                      />
                       <CheckboxInput
                         label={intl.formatMessage({
                           defaultMessage:
@@ -180,6 +171,7 @@ export default function GuidesMainLayout({
                   addGuideProgressMutation.mutate(
                     {
                       category: metadata.category,
+                      guideName: currentItem.label,
                       listKey,
                       progressId:
                         'guideProgress' in props
@@ -206,10 +198,10 @@ export default function GuidesMainLayout({
                           title: intl.formatMessage(
                             {
                               defaultMessage:
-                                'Marked "{articleName}" as complete!',
+                                'Marked "{articleName}" as complete',
                               description:
                                 'Success message shown when an article was marked as complete',
-                              id: '4Z+OVm',
+                              id: 'piDflv',
                             },
                             {
                               articleName: currentItem.label,

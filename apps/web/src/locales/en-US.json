@@ -923,10 +923,6 @@
     "defaultMessage": "A starter guide to preparing for front end interviews",
     "description": "Description for front end interview guide"
   },
-  "4Z+OVm": {
-    "defaultMessage": "Marked \"{articleName}\" as complete!",
-    "description": "Success message shown when an article was marked as complete"
-  },
   "4aoTWp": {
     "defaultMessage": "Complete the tasks",
     "description": "Rewards step label"
@@ -1686,10 +1682,6 @@
   "9gs1LO": {
     "defaultMessage": "Buy now",
     "description": "Purchase button label"
-  },
-  "9iMDoE": {
-    "defaultMessage": "Marked \"{articleName}\" as incomplete!",
-    "description": "Success message shown when an article was marked as not completed"
   },
   "9kkbE6": {
     "defaultMessage": "A simple yet comprehensive plan to follow",
@@ -3158,6 +3150,10 @@
   "Js4axe": {
     "defaultMessage": "Vanilla JS",
     "description": "Vanilla JS questions category short title"
+  },
+  "JsjM2e": {
+    "defaultMessage": "Marked \"{articleName}\" as incomplete",
+    "description": "Success message shown when an article was marked as not completed"
   },
   "Ju61WC": {
     "defaultMessage": "To download",
@@ -5503,10 +5499,6 @@
     "defaultMessage": "Starter files and APIs",
     "description": "Title of 'Starter code and APIs' sub-feature in Projects marketing page"
   },
-  "Z1jeeR": {
-    "defaultMessage": "Congratulations on completing the guide! Sign into your account or sign up for free to save your progress!",
-    "description": "Message shown when user completes a guide"
-  },
   "Z1vsfi": {
     "defaultMessage": "Search user interface questions",
     "description": "Search placeholder"
@@ -7563,10 +7555,6 @@
     "defaultMessage": "After completion",
     "description": "Tab label for projects challenges"
   },
-  "mUUWJi": {
-    "defaultMessage": "Sign in to save progress",
-    "description": "Message shown when user completes a guide without signing in"
-  },
   "mYn2DH": {
     "defaultMessage": "Get started",
     "description": "Label for dashboard title for guest"
@@ -8046,6 +8034,10 @@
   "pgK6Eb": {
     "defaultMessage": "Guidebook",
     "description": "How to prepare for front end system design interviews"
+  },
+  "piDflv": {
+    "defaultMessage": "Marked \"{articleName}\" as complete",
+    "description": "Success message shown when an article was marked as complete"
   },
   "piqimi": {
     "defaultMessage": "OFF",

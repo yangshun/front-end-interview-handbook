@@ -13,6 +13,7 @@ export const guideProgressRouter = router({
     .input(
       z.object({
         category: z.string(),
+        guideName: z.string(),
         listKey: z.string().optional(),
         progressId: z.string().optional(),
         slug: z.string(),

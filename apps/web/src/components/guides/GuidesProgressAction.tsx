@@ -1,13 +1,11 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { FaCheck } from 'react-icons/fa6';
 
 import { useAuthSignInUp } from '~/hooks/user/useAuthFns';
 
 import { useToast } from '~/components/global/toasts/useToast';
-import { FormattedMessage, useIntl } from '~/components/intl';
+import { useIntl } from '~/components/intl';
 import Button from '~/components/ui/Button';
-import Dialog from '~/components/ui/Dialog';
-import Text from '~/components/ui/Text';
 
 import type { GuideProgress } from '~/db/guides/GuideProgressTypes';
 import {
@@ -25,78 +23,38 @@ type Props = Readonly<{
   guideProgress?: GuideProgress | null;
   listKey: string | undefined;
   metadata: GuideMetadata;
-  signInModalContents?: React.ReactNode;
 }>;
 
 export default function GuidesProgressAction({
   guideName,
-  signInModalContents,
   guideProgress,
   metadata,
   listKey,
 }: Props) {
   const intl = useIntl();
   const user = useUser();
-  const [isLoginDialogShown, setIsLoginDialogShown] = useState(false);
   const addGuideProgressMutation = useMutationGuideProgressAdd();
   const deleteGuideProgressMutation = useMutationGuideProgressDelete();
 
   const { showToast } = useToast();
-  const { signInUpHref, signInUpLabel } = useAuthSignInUp();
+  const { signInUpHref } = useAuthSignInUp();
 
   if (user == null) {
     return (
-      <>
-        <Button
-          addonPosition="start"
-          icon={FaCheck}
-          label={intl.formatMessage({
-            defaultMessage: 'Mark complete',
-            description: 'Mark guide as complete',
-            id: 'Kt8F9D',
-          })}
-          size="xs"
-          variant="secondary"
-          onClick={() => setIsLoginDialogShown(true)}
-        />
-        <Dialog
-          isShown={isLoginDialogShown}
-          primaryButton={
-            <Button
-              href={signInUpHref()}
-              label={signInUpLabel}
-              variant="primary"
-              onClick={() => setIsLoginDialogShown(false)}
-            />
-          }
-          secondaryButton={
-            <Button
-              label={intl.formatMessage({
-                defaultMessage: 'Cancel',
-                description: 'Cancel and close the sign in modal',
-                id: 'YXs0ZC',
-              })}
-              variant="secondary"
-              onClick={() => setIsLoginDialogShown(false)}
-            />
-          }
-          title={intl.formatMessage({
-            defaultMessage: 'Sign in to save progress',
-            description:
-              'Message shown when user completes a guide without signing in',
-            id: 'mUUWJi',
-          })}
-          onClose={() => setIsLoginDialogShown(false)}>
-          <Text className="block" color="secondary" size="body2">
-            <FormattedMessage
-              defaultMessage="Congratulations on completing the guide! Sign into your account or sign up for free to save your progress!"
-              description="Message shown when user completes a guide"
-              id="Z1jeeR"
-            />
-          </Text>
-          {signInModalContents}
-        </Dialog>
-      </>
+      <Button
+        addonPosition="start"
+        href={signInUpHref({
+          query: { source: 'track_progress' },
+        })}
+        icon={FaCheck}
+        label={intl.formatMessage({
+          defaultMessage: 'Mark complete',
+          description: 'Mark guide as complete',
+          id: 'Kt8F9D',
+        })}
+        size="xs"
+        variant="secondary"
+      />
     );
   }
 
@@ -139,10 +97,10 @@ export default function GuidesProgressAction({
                 showToast({
                   title: intl.formatMessage(
                     {
-                      defaultMessage: 'Marked "{articleName}" as incomplete!',
+                      defaultMessage: 'Marked "{articleName}" as incomplete',
                       description:
                         'Success message shown when an article was marked as not completed',
-                      id: '9iMDoE',
+                      id: 'JsjM2e',
                     },
                     {
                       articleName: guideName,
@@ -172,45 +130,14 @@ export default function GuidesProgressAction({
       size="xs"
       variant="secondary"
       onClick={() => {
-        addGuideProgressMutation.mutate(
-          {
-            category: metadata.category,
-            listKey,
-            progressId: guideProgress?.id,
-            slug: metadata.slug,
-            status: 'complete',
-          },
-          {
-            onError: () => {
-              showToast({
-                title: intl.formatMessage({
-                  defaultMessage:
-                    'Failed to mark article as complete. Please try again',
-                  description:
-                    'Error message shown when a guide has failed to mark as complete',
-                  id: '6eVVTu',
-                }),
-                variant: 'danger',
-              });
-            },
-            onSuccess: () => {
-              showToast({
-                title: intl.formatMessage(
-                  {
-                    defaultMessage: 'Marked "{articleName}" as complete!',
-                    description:
-                      'Success message shown when an article was marked as complete',
-                    id: '4Z+OVm',
-                  },
-                  {
-                    articleName: guideName,
-                  },
-                ),
-                variant: 'success',
-              });
-            },
-          },
-        );
+        addGuideProgressMutation.mutate({
+          category: metadata.category,
+          guideName,
+          listKey,
+          progressId: guideProgress?.id,
+          slug: metadata.slug,
+          status: 'complete',
+        });
         logEvent('guide.mark_complete', {
           category: metadata.category,
           namespace: 'interviews',
