@@ -117,9 +117,9 @@ export default function InterviewsBlind75Page({
               </Text>
               <Text color="secondary" size="body1">
                 <FormattedMessage
-                  defaultMessage="Many candidates use this list as a guide, focusing on each problem to grasp core concepts and techniques. We’ve solved these questions in JavaScript/TypeScript to make them accessible to front-end engineers."
+                  defaultMessage="Many candidates use this list as a guide, focusing on each problem to grasp core concepts and techniques. We've solved these questions in JavaScript/TypeScript to make them accessible to front end engineers."
                   description="Description for Blind75 page"
-                  id="o68FqB"
+                  id="myzwQ8"
                 />
               </Text>
             </div>

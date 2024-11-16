@@ -7619,6 +7619,10 @@
     "defaultMessage": "Coupons | Profile",
     "description": "Title of Profile coupons page"
   },
+  "myzwQ8": {
+    "defaultMessage": "Many candidates use this list as a guide, focusing on each problem to grasp core concepts and techniques. We've solved these questions in JavaScript/TypeScript to make them accessible to front end engineers.",
+    "description": "Description for Blind75 page"
+  },
   "n0mDHU": {
     "defaultMessage": "Author",
     "description": "Author of the question"
@@ -7778,10 +7782,6 @@
   "o3nhZ8": {
     "defaultMessage": "Session status",
     "description": "Completed and in progress challenges"
-  },
-  "o68FqB": {
-    "defaultMessage": "Many candidates use this list as a guide, focusing on each problem to grasp core concepts and techniques. We’ve solved these questions in JavaScript/TypeScript to make them accessible to front-end engineers.",
-    "description": "Description for Blind75 page"
   },
   "o8bpfE": {
     "defaultMessage": "Front end interview questions",
