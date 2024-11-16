@@ -8,6 +8,10 @@ import {
   fetchQuestionsListCoding,
   fetchQuestionsListQuiz,
 } from '~/db/QuestionsListReader';
+import {
+  categorizeQuestionsByFrameworkAndLanguage,
+  roundQuestionCountToNearestTen,
+} from '~/db/QuestionsUtils';
 import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
 
@@ -23,21 +27,47 @@ type Props = Readonly<{
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = params;
-  const intl = await getIntlServerOnly(locale);
+
+  const [intl, { questions: questionsCoding }, { questions: questionsQuiz }] =
+    await Promise.all([
+      getIntlServerOnly(locale),
+      fetchQuestionsListCoding(locale),
+      fetchQuestionsListQuiz(locale),
+    ]);
+
+  const { language: languageQuestions } =
+    categorizeQuestionsByFrameworkAndLanguage({
+      codingQuestions: questionsCoding,
+      quizQuestions: questionsQuiz,
+    });
 
   return defaultMetadata({
-    description: intl.formatMessage({
-      defaultMessage:
-        'Top TypeScript front end interview coding questions to practice, with detailed solutions and explanations by ex-interviewers at FAANG.',
-      description: 'Description of Interview Questions page',
-      id: 'O1vplm',
-    }),
+    description: intl.formatMessage(
+      {
+        defaultMessage:
+          'Practice {questionCount}+ curated TypeScript Interview Questions in-browser, with solutions and test cases from big tech ex-interviewers',
+        description: 'Description of Interview Questions page',
+        id: 'icPBtm',
+      },
+      {
+        questionCount: roundQuestionCountToNearestTen(
+          languageQuestions.ts.length,
+        ),
+      },
+    ),
     locale,
     pathname: `/questions/${language}`,
-    title: intl.formatMessage({
-      defaultMessage: 'Practice TypeScript Interview Questions with Solutions',
+    socialTitle: intl.formatMessage({
+      defaultMessage:
+        'TypeScript Interview Questions with Solutions | GreatFrontEnd',
       description: 'Title of TypeScript Interview Questions page',
-      id: 'Zlg/Mc',
+      id: '/+I2B/',
+    }),
+    title: intl.formatMessage({
+      defaultMessage:
+        'TypeScript Interview Questions | Solutions by Ex-FAANG interviewers',
+      description: 'Title of TypeScript Interview Questions page',
+      id: 'anKB4B',
     }),
   });
 }

@@ -8,6 +8,10 @@ import {
   fetchQuestionsListCoding,
   fetchQuestionsListQuiz,
 } from '~/db/QuestionsListReader';
+import {
+  categorizeQuestionsByFrameworkAndLanguage,
+  roundQuestionCountToNearestTen,
+} from '~/db/QuestionsUtils';
 import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
 
@@ -24,21 +28,45 @@ type Props = Readonly<{
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = params;
 
-  const intl = await getIntlServerOnly(locale);
+  const [intl, { questions: questionsCoding }, { questions: questionsQuiz }] =
+    await Promise.all([
+      getIntlServerOnly(locale),
+      fetchQuestionsListCoding(locale),
+      fetchQuestionsListQuiz(locale),
+    ]);
+
+  const { language: languageQuestions } =
+    categorizeQuestionsByFrameworkAndLanguage({
+      codingQuestions: questionsCoding,
+      quizQuestions: questionsQuiz,
+    });
 
   return defaultMetadata({
-    description: intl.formatMessage({
-      defaultMessage:
-        'Top CSS front end interview coding questions to practice, with detailed solutions and explanations by ex-interviewers at FAANG.',
-      description: 'Description of Interview Questions page',
-      id: 'pTuBE6',
-    }),
+    description: intl.formatMessage(
+      {
+        defaultMessage:
+          'Practice {questionCount}+ curated CSS Interview Questions in-browser, with solutions and test cases from big tech ex-interviewers',
+        description: 'Description of CSS Interview Questions page',
+        id: 'S349rn',
+      },
+      {
+        questionCount: roundQuestionCountToNearestTen(
+          languageQuestions.css.length,
+        ),
+      },
+    ),
     locale,
     pathname: `/questions/${language}`,
+    socialTitle: intl.formatMessage({
+      defaultMessage: 'CSS Interview Questions with Solutions | GreatFrontEnd',
+      description: 'Social title of CSS interview Questions page',
+      id: '5Kx8ZQ',
+    }),
     title: intl.formatMessage({
-      defaultMessage: 'Practice CSS Interview Questions with Solutions',
-      description: 'Title of interview Questions page',
-      id: 'GkiSbQ',
+      defaultMessage:
+        'CSS Interview Questions | Solutions by Ex-FAANG interviewers',
+      description: 'Title of CSS interview Questions page',
+      id: '31BVI1',
     }),
   });
 }

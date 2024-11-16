@@ -15,6 +15,10 @@
     "defaultMessage": "Your username has been updated.",
     "description": "Success message when for username changes"
   },
+  "+5hnxx": {
+    "defaultMessage": "Practice {questionCount}+ curated Vanilla JavaScript UI Interview Questions in-browser, with solutions and test cases from big tech ex-interviewers",
+    "description": "Description of Interview Questions page"
+  },
   "+98gxd": {
     "defaultMessage": "Upload a photo",
     "description": "Label for upload photo"
@@ -135,6 +139,10 @@
     "defaultMessage": "Support you can expect",
     "description": "Title for Expected Support section on Projects project page"
   },
+  "/+I2B/": {
+    "defaultMessage": "TypeScript Interview Questions with Solutions | GreatFrontEnd",
+    "description": "Title of TypeScript Interview Questions page"
+  },
   "//v4RL": {
     "defaultMessage": "Deploying your project",
     "description": "Title for Deployment Info in Projects"
@@ -219,6 +227,10 @@
     "defaultMessage": "Launched",
     "description": "Tooltip for launched icon in roadmap"
   },
+  "/ZJu61": {
+    "defaultMessage": "Practice {questionCount}+ curated Angular Interview Questions in-browser, with solutions and test cases from big tech ex-interviewers",
+    "description": "Description of Interview Questions page"
+  },
   "/aaSHm": {
     "defaultMessage": "Star our \"JavaScript Interview Questions\" repo",
     "description": "Title for task"
@@ -283,6 +295,14 @@
     "defaultMessage": "Collapse sidebar",
     "description": "Tooltip for collapse sidebar"
   },
+  "/zdDbr": {
+    "defaultMessage": "React Interview Questions with Solutions | GreatFrontEnd",
+    "description": "Title of React Interview Questions page"
+  },
+  "0+Zgu8": {
+    "defaultMessage": "Vue Interview Questions with Solutions | GreatFrontEnd",
+    "description": "Title of React Interview Questions page"
+  },
   "0/Rv7O": {
     "defaultMessage": "Curated by ex-interviewers",
     "description": "Features for focus areas question listing"
@@ -294,14 +314,6 @@
   "032cio": {
     "defaultMessage": "Move line up",
     "description": "Text describing command to move lines up in the coding workspace shortcuts menu"
-  },
-  "035J/P": {
-    "defaultMessage": "Practice React Interview Questions with Solutions",
-    "description": "Title of React Interview Questions page"
-  },
-  "03N/MG": {
-    "defaultMessage": "Top Svelte front end interview coding questions to practice, with detailed solutions and explanations by ex-interviewers at FAANG.",
-    "description": "Description of Svelte Interview Questions page"
   },
   "03TVln": {
     "defaultMessage": "Filter by component track",
@@ -691,6 +703,10 @@
     "defaultMessage": "You replied to <recipientProfileLink>{recipient}</recipientProfileLink> on the challenge forum for <link>{challengeTitle}</link>: <comment>\"{description}\"</comment>",
     "description": "Log message for you replying to someone on the challenge forum"
   },
+  "31BVI1": {
+    "defaultMessage": "CSS Interview Questions | Solutions by Ex-FAANG interviewers",
+    "description": "Title of CSS interview Questions page"
+  },
   "37Ttml": {
     "defaultMessage": "Security",
     "description": "Title for Security section on profile page"
@@ -827,6 +843,10 @@
     "defaultMessage": "Practice",
     "description": "Section heading in footer for links to practice question pages"
   },
+  "4+51tF": {
+    "defaultMessage": "React Interview Questions | Solutions by Ex-FAANG interviewers",
+    "description": "Title of React Interview Questions page"
+  },
   "4/SGqe": {
     "defaultMessage": "Earlier",
     "description": "Title for earlier list of comments"
@@ -850,6 +870,10 @@
   "4A5Ogu": {
     "defaultMessage": "Sort by",
     "description": "Label for sort by"
+  },
+  "4AAKga": {
+    "defaultMessage": "Vue Interview Questions | Solutions by Ex-FAANG interviewers",
+    "description": "Title of React Interview Questions page"
   },
   "4AetUb": {
     "defaultMessage": "Edit profile photo",
@@ -930,6 +954,10 @@
   "4pEeq1": {
     "defaultMessage": "Number of questions completed",
     "description": "Number of questions completed in a list of questions"
+  },
+  "4qFdKz": {
+    "defaultMessage": "Practice {questionCount}+ curated JavaScript Interview Questions in-browser, with solutions and test cases from big tech ex-interviewers",
+    "description": "Description of Interview Questions page"
   },
   "4qv0in": {
     "defaultMessage": "Use a different payment method if the issue persists.",
@@ -1014,6 +1042,10 @@
   "5Gjt4J": {
     "defaultMessage": "Something went wrong. Try again later or contact <link>support@greatfrontend.com</link>!",
     "description": "Error toast for project"
+  },
+  "5Kx8ZQ": {
+    "defaultMessage": "CSS Interview Questions with Solutions | GreatFrontEnd",
+    "description": "Social title of CSS interview Questions page"
   },
   "5M4u9n": {
     "defaultMessage": "You have <bold>{amountLeft}</bold> premium credits remaining. Unlock this project to access all premium features for this challenge, including the Figma design files, official guides, and solutions.",
@@ -1439,6 +1471,10 @@
     "defaultMessage": "Front End System Design",
     "description": "Title for system design questions"
   },
+  "83G2F2": {
+    "defaultMessage": "Svelte Interview Questions with Solutions | GreatFrontEnd",
+    "description": "Title of React Interview Questions page"
+  },
   "83GIBc": {
     "defaultMessage": "Introduction",
     "description": "Introduction to front end system design"
@@ -1466,10 +1502,6 @@
   "8JoIUN": {
     "defaultMessage": "Coming soon",
     "description": "Tooltip for Coming Soon questions label"
-  },
-  "8MUzsn": {
-    "defaultMessage": "Top JavaScript front end interview coding questions to practice, with detailed solutions and explanations by ex-interviewers at FAANG.",
-    "description": "Description of Interview Questions page"
   },
   "8Nm9WZ": {
     "defaultMessage": "Walmart",
@@ -1690,10 +1722,6 @@
   "9xFHNn": {
     "defaultMessage": "{questionTitle} | Front End System Design Question",
     "description": "Title of system design question page"
-  },
-  "A+H3cR": {
-    "defaultMessage": "Practice Vanilla JavaScript UI Interview Questions with Solutions",
-    "description": "Title of Vanilla JavaScript UI Interview Questions page"
   },
   "A+qESm": {
     "defaultMessage": "Created: Newest to Oldest",
@@ -2042,6 +2070,10 @@
   "CZJo2K": {
     "defaultMessage": "Test cases",
     "description": "Features for interviews questions"
+  },
+  "CbIPy4": {
+    "defaultMessage": "Vanilla JavaScript UI Interview Questions with Solutions | GreatFrontEnd",
+    "description": "Title of React Interview Questions page"
   },
   "CfLpPw": {
     "defaultMessage": "<authorProfileLink>{author}</authorProfileLink> posted on the challenge forum for <link>{challengeTitle}</link>: <comment>\"{description}\"</comment>",
@@ -2659,10 +2691,6 @@
     "defaultMessage": "Medium",
     "description": "Medium difficulty question"
   },
-  "GkiSbQ": {
-    "defaultMessage": "Practice CSS Interview Questions with Solutions",
-    "description": "Title of interview Questions page"
-  },
   "GoDdwh": {
     "defaultMessage": "Marked \"{articleTitle}\" as complete",
     "description": "Success message for marking a question as complete"
@@ -2842,10 +2870,6 @@
   "I2gPuj": {
     "defaultMessage": "Practice top Angular interview questions. TODO",
     "description": "Subtitle for questions list page"
-  },
-  "I4lo5m": {
-    "defaultMessage": "Practice Svelte Interview Questions with Solutions",
-    "description": "Title of Svelte Interview Questions page"
   },
   "I5MeD9": {
     "defaultMessage": "Signed up successfully",
@@ -3074,10 +3098,6 @@
   "JLYqCO": {
     "defaultMessage": "Includes starter code, image assets, images of the designs, along with a README to help you get started.",
     "description": "Help text for Download starter files button for projects"
-  },
-  "JLvCfD": {
-    "defaultMessage": "Top HTML front end interview coding questions to practice, with detailed solutions and explanations by ex-interviewers at FAANG.",
-    "description": "Description of Interview Questions page"
   },
   "JPr1gs": {
     "defaultMessage": "Collaboration questions",
@@ -3471,6 +3491,10 @@
     "defaultMessage": "URL to the root or a subdirectory of your GitHub repository. We will use it to pull files onto the platform for code reviews.",
     "description": "Form description"
   },
+  "LkjqcQ": {
+    "defaultMessage": "Practice {questionCount}+ curated Svelte Interview Questions in-browser, with solutions and test cases from big tech ex-interviewers",
+    "description": "Description of Interview Questions page"
+  },
   "LlhHTu": {
     "defaultMessage": "Unlock challenge",
     "description": "Unlock premium access for a project"
@@ -3623,10 +3647,6 @@
     "defaultMessage": "Try using a different card that supports payments in the required currency.",
     "description": "Reason label for wait for currency supported card"
   },
-  "MkjGJD": {
-    "defaultMessage": "Top React front end interview coding questions to practice, with detailed solutions and explanations by ex-interviewers at FAANG.",
-    "description": "Description of React Interview Questions page"
-  },
   "MoV/nU": {
     "defaultMessage": "URL copied to clipboard",
     "description": "Copied heading URL"
@@ -3703,6 +3723,10 @@
     "defaultMessage": "Front End System Design Guidebook",
     "description": "Front end system design guidebook title"
   },
+  "Ng8CsI": {
+    "defaultMessage": "JavaScript Interview Questions | Solutions by Ex-FAANG interviewers",
+    "description": "Title of JavaScript Interview Questions page"
+  },
   "NgG1HQ": {
     "defaultMessage": "Solving common questions",
     "description": "Title for solving common behavioral questions section"
@@ -3762,10 +3786,6 @@
   "O0WPJA": {
     "defaultMessage": "Import the progress of <bold>{questionCount}</bold> previously completed {questionCount, plural, one {question} other {questions}}",
     "description": "Tooltip for import button on import progress dialog"
-  },
-  "O1vplm": {
-    "defaultMessage": "Top TypeScript front end interview coding questions to practice, with detailed solutions and explanations by ex-interviewers at FAANG.",
-    "description": "Description of Interview Questions page"
   },
   "O237FB": {
     "defaultMessage": "The definitive guide to Front End System Design interviews. Learn useful techniques and how to approach the most common questions. Written by Ex-FAANG interviewers.",
@@ -4343,10 +4363,6 @@
     "defaultMessage": "Challenges | Progress | {name}",
     "description": "Title of user profile challenge page"
   },
-  "RVTdMV": {
-    "defaultMessage": "Practice JavaScript Interview Questions with Solutions",
-    "description": "Title of JavaScript Interview Questions page"
-  },
   "RW0xSE": {
     "defaultMessage": "Official solutions in JS/TS",
     "description": "Features for blind75"
@@ -4434,6 +4450,10 @@
   "S2VtP2": {
     "defaultMessage": "Manage your subscription and renewal status on Stripe billing portal",
     "description": "Manage user membership subscription button label"
+  },
+  "S349rn": {
+    "defaultMessage": "Practice {questionCount}+ curated CSS Interview Questions in-browser, with solutions and test cases from big tech ex-interviewers",
+    "description": "Description of CSS Interview Questions page"
   },
   "S4nrpS": {
     "defaultMessage": "{trackName} Track",
@@ -4902,10 +4922,6 @@
   "VJ8xZy": {
     "defaultMessage": "Prices will be increased as more content is being added to the website.",
     "description": "Tip at the bottom of the Pricing section to let users know that we would increase prices gradually as the content becomes more complete"
-  },
-  "VLFSw7": {
-    "defaultMessage": "Top Vanilla JavaScript UI front end interview coding questions to practice, with detailed solutions and explanations by ex-interviewers at FAANG.",
-    "description": "Description of Vanilla JavaScript UI Interview Questions page"
   },
   "VMcSLx": {
     "defaultMessage": "Our in-browser coding workspace allows you to simulate a real interview environment with no set up required.",
@@ -5379,6 +5395,10 @@
     "defaultMessage": "By proceeding, you agree to GreatFrontEnd's <tos>Terms of Service</tos> and <pp>Privacy Policy</pp>.",
     "description": "Disclaimer of agreement to terms of service and privacy policy on Email Sign Up page"
   },
+  "Y7kOcC": {
+    "defaultMessage": "JavaScript Interview Questions with Solutions | GreatFrontEnd",
+    "description": "Social title of JavaScript Interview Questions page"
+  },
   "Y9Lzdo": {
     "defaultMessage": "It's split into two parts: first, understanding what to expect in these interviews, and second, learning a reliable framework to tackle common challenges, complete with real case studies.",
     "description": "Long description of frontend interview playbook page"
@@ -5583,10 +5603,6 @@
     "defaultMessage": "The famed list of questions commonly used to prepare for standard data structures and algorithms style software engineering interviews. Solved in JavaScript / TypeScript for front end engineers.",
     "description": "Description for Blind75"
   },
-  "Zlg/Mc": {
-    "defaultMessage": "Practice TypeScript Interview Questions with Solutions",
-    "description": "Title of TypeScript Interview Questions page"
-  },
   "Zm3csd": {
     "defaultMessage": "Dark",
     "description": "Dark color scheme option label"
@@ -5735,6 +5751,10 @@
     "defaultMessage": "To progress in the skill plan, you must add the skill to the <bold>\"Skills used\"</bold> field when completing a challenge.",
     "description": "Warning message for skill plan section"
   },
+  "anKB4B": {
+    "defaultMessage": "TypeScript Interview Questions | Solutions by Ex-FAANG interviewers",
+    "description": "Title of TypeScript Interview Questions page"
+  },
   "anZw89": {
     "defaultMessage": "Please enter your status",
     "description": "Error message for empty other input for yoe status on projects profile page"
@@ -5850,6 +5870,10 @@
   "bJYnS1": {
     "defaultMessage": "Coding questions that require you to build user interfaces, whether it is a UI component, an app, or a game. Requires HTML, CSS, JavaScript, or UI frameworks.",
     "description": "Description for ui coding questions"
+  },
+  "bJcVtt": {
+    "defaultMessage": "Vanilla JavaScript UI Interview Questions | Solutions by Ex-FAANG interviewers",
+    "description": "Title of React Interview Questions page"
   },
   "bNW00Y": {
     "defaultMessage": "Available frameworks",
@@ -6403,17 +6427,13 @@
     "defaultMessage": "Have questions, feedback or anything to say?",
     "description": "Title for contact us section"
   },
-  "eywycX": {
-    "defaultMessage": "Practice HTML Interview Questions with Solutions",
-    "description": "Title of interview Questions page"
-  },
   "ez3Cqu": {
     "defaultMessage": "What if I get stuck in a challenge?",
     "description": "FAQ question for projects platform"
   },
-  "ez5OLq": {
-    "defaultMessage": "Practice Angular Interview Questions with Solutions",
-    "description": "Title of Angular Interview Questions page"
+  "ezEYel": {
+    "defaultMessage": "Async",
+    "description": "Front end development topic"
   },
   "ezEYel": {
     "defaultMessage": "Async",
@@ -6575,6 +6595,10 @@
     "defaultMessage": "Front End System Design Interview Questions | GreatFrontEnd",
     "description": "Social title for System design question format page"
   },
+  "fq5xTR": {
+    "defaultMessage": "HTML Interview Questions with Solutions | GreatFrontEnd",
+    "description": "Social title of HTML Interview Questions page"
+  },
   "fr4Vl4": {
     "defaultMessage": "Polish your answers with a comprehensive test suite that covers all the important edge cases that interviewers will look out for.",
     "description": "Marketing page section subtitle"
@@ -6675,10 +6699,6 @@
     "defaultMessage": "Revert to default",
     "description": "Revert skills section to default"
   },
-  "gTFqs7": {
-    "defaultMessage": "Top Angular front end interview coding questions to practice, with detailed solutions and explanations by ex-interviewers at FAANG.",
-    "description": "Description of Angular Interview Questions page"
-  },
   "gTOYrn": {
     "defaultMessage": "With extra time, continue working on the lists below depending on your needs!",
     "description": "Label for more learning section"
@@ -6686,10 +6706,6 @@
   "gU6oac": {
     "defaultMessage": "See all testimonials",
     "description": "Label for view all testimonials button in homepage"
-  },
-  "gWoDz/": {
-    "defaultMessage": "Practice Vue Interview Questions with Solutions",
-    "description": "Title of Vue Interview Questions page"
   },
   "gXbjAw": {
     "defaultMessage": "<authorLink>{author}</authorLink> left a question on <submissionLink>{entityTitle}</submissionLink> {timestamp}",
@@ -6999,9 +7015,17 @@
     "defaultMessage": "It looks like you don’t have any notifications at the moment. Check back here for updates on your activities, messages, and more.",
     "description": "Description for no notification"
   },
+  "icPBtm": {
+    "defaultMessage": "Practice {questionCount}+ curated TypeScript Interview Questions in-browser, with solutions and test cases from big tech ex-interviewers",
+    "description": "Description of Interview Questions page"
+  },
   "ifwPMU": {
     "defaultMessage": "If you expect DSA questions",
     "description": "Label for Blind75 tag"
+  },
+  "ih/GUI": {
+    "defaultMessage": "Practice {questionCount}+ curated Vue Interview Questions in-browser, with solutions and test cases from big tech ex-interviewers",
+    "description": "Description of Interview Questions page"
   },
   "iq1rXh": {
     "defaultMessage": "Settings",
@@ -7034,6 +7058,10 @@
   "j/2Zyj": {
     "defaultMessage": "Front End Interview Focus Areas — Accessibility, Forms and more",
     "description": "Page title for focus areas listing"
+  },
+  "j/tNtM": {
+    "defaultMessage": "Angular Interview Questions | Solutions by Ex-FAANG interviewers",
+    "description": "Title of React Interview Questions page"
   },
   "j06fZl": {
     "defaultMessage": "Strikethrough",
@@ -7090,6 +7118,10 @@
   "jROOlG": {
     "defaultMessage": "Our users now work in these companies",
     "description": "Title of company logos section"
+  },
+  "jS+FMq": {
+    "defaultMessage": "HTML Interview Questions | Solutions by Ex-FAANG interviewers",
+    "description": "Title of HTML Interview Questions page"
   },
   "jSue8y": {
     "defaultMessage": "Guidebook",
@@ -7591,6 +7623,10 @@
     "defaultMessage": "Front End System Design Interview Questions with Solutions",
     "description": "SEO title for System design question format page"
   },
+  "muCdsx": {
+    "defaultMessage": "Practice {questionCount}+ curated React Interview Questions in-browser, with solutions and test cases from big tech ex-interviewers",
+    "description": "Description of Interview Questions page"
+  },
   "mukCc2": {
     "defaultMessage": "Add",
     "description": "Add a URL to a form"
@@ -7974,10 +8010,6 @@
   "pSJKPJ": {
     "defaultMessage": "Unlock premium challenge",
     "description": "Title for unlocking a premium challenge"
-  },
-  "pTuBE6": {
-    "defaultMessage": "Top CSS front end interview coding questions to practice, with detailed solutions and explanations by ex-interviewers at FAANG.",
-    "description": "Description of Interview Questions page"
   },
   "pWwyKQ": {
     "defaultMessage": "You're about to open a link:",
@@ -8503,6 +8535,10 @@
     "defaultMessage": "Pricing",
     "description": "Link to pricing plans page"
   },
+  "t6SUbS": {
+    "defaultMessage": "Angular Interview Questions with Solutions | GreatFrontEnd",
+    "description": "Title of React Interview Questions page"
+  },
   "t8xZ1p": {
     "defaultMessage": "Get a discount by following us on social media.",
     "description": "Social discount toast message"
@@ -8687,6 +8723,10 @@
     "defaultMessage": "Go back to sign in",
     "description": "Label of link to return to Sign In Page on Password Reset page"
   },
+  "uFcyu1": {
+    "defaultMessage": "Svelte Interview Questions | Solutions by Ex-FAANG interviewers",
+    "description": "Title of React Interview Questions page"
+  },
   "uGIcYs": {
     "defaultMessage": "Welcome to GreatFrontEnd Projects!",
     "description": "Title for Projects profile onboarding page"
@@ -8826,6 +8866,10 @@
   "vHU58I": {
     "defaultMessage": "Interviews",
     "description": "Label for Interviews filter button"
+  },
+  "vKD8vq": {
+    "defaultMessage": "Practice {questionCount}+ curated HTML Interview Questions in-browser, with solutions and test cases from big tech ex-interviewers",
+    "description": "Description of Interview Questions page"
   },
   "vLdUUt": {
     "defaultMessage": "View other's code and learn from their approach",
@@ -9446,10 +9490,6 @@
   "zgj9Pd": {
     "defaultMessage": "Learn from others",
     "description": "Title for \"Learn from others\" feature on Projects home page"
-  },
-  "zkcMQT": {
-    "defaultMessage": "Top Vue front end interview coding questions to practice, with detailed solutions and explanations by ex-interviewers at FAANG.",
-    "description": "Description of Vue Interview Questions page"
   },
   "zkccTX": {
     "defaultMessage": "In the past year, you remained active for {days, plural, =0 {0 days} =1 {1 day} other {# consecutive days}}, completing at least one question per day",

@@ -5,6 +5,7 @@ import InterviewsQuestionsCategoryFrameworkPage from '~/components/interviews/qu
 import { readAllFrontEndInterviewGuides } from '~/db/guides/GuidesReader';
 import { fetchQuestionCompletionCount } from '~/db/QuestionsCount';
 import { fetchCodingQuestionsForFramework } from '~/db/QuestionsListReader';
+import { roundQuestionCountToNearestTen } from '~/db/QuestionsUtils';
 import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
 
@@ -18,40 +19,69 @@ type Props = Readonly<{
   }>;
 }>;
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
+async function processParams(params: Props['params']) {
   const { locale } = params;
-
-  const intl = await getIntlServerOnly(locale);
-
-  return defaultMetadata({
-    description: intl.formatMessage({
-      defaultMessage:
-        'Top Angular front end interview coding questions to practice, with detailed solutions and explanations by ex-interviewers at FAANG.',
-      description: 'Description of Angular Interview Questions page',
-      id: 'gTFqs7',
-    }),
-    locale,
-    pathname: `/questions/${framework}`,
-    title: intl.formatMessage({
-      defaultMessage: 'Practice Angular Interview Questions with Solutions',
-      description: 'Title of Angular Interview Questions page',
-      id: 'ez5OLq',
-    }),
-  });
-}
-
-export default async function Page({ params }: Props) {
-  const [questionList, questionCompletionCount, guides] = await Promise.all([
+  const [intl, questionList] = await Promise.all([
+    getIntlServerOnly(locale),
     fetchCodingQuestionsForFramework(framework),
-    fetchQuestionCompletionCount(['user-interface']),
-    readAllFrontEndInterviewGuides(params.locale),
   ]);
-
   const questionListForFramework = questionList.filter((metadata) =>
     metadata.frameworks.some(
       ({ framework: frameworkValue }) => frameworkValue === framework,
     ),
   );
+
+  return {
+    questionListForFramework,
+    seoDescription: intl.formatMessage(
+      {
+        defaultMessage:
+          'Practice {questionCount}+ curated Angular Interview Questions in-browser, with solutions and test cases from big tech ex-interviewers',
+        description: 'Description of Interview Questions page',
+        id: '/ZJu61',
+      },
+      {
+        questionCount: roundQuestionCountToNearestTen(
+          questionListForFramework.length,
+        ),
+      },
+    ),
+    seoTitle: intl.formatMessage({
+      defaultMessage:
+        'Angular Interview Questions | Solutions by Ex-FAANG interviewers',
+      description: 'Title of React Interview Questions page',
+      id: 'j/tNtM',
+    }),
+    socialTitle: intl.formatMessage({
+      defaultMessage:
+        'Angular Interview Questions with Solutions | GreatFrontEnd',
+      description: 'Title of React Interview Questions page',
+      id: 't6SUbS',
+    }),
+  };
+}
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale } = params;
+
+  const { seoDescription, seoTitle, socialTitle } = await processParams(params);
+
+  return defaultMetadata({
+    description: seoDescription,
+    locale,
+    pathname: `/questions/${framework}`,
+    socialTitle,
+    title: seoTitle,
+  });
+}
+
+export default async function Page({ params }: Props) {
+  const [{ questionListForFramework }, questionCompletionCount, guides] =
+    await Promise.all([
+      processParams(params),
+      fetchQuestionCompletionCount(['user-interface']),
+      readAllFrontEndInterviewGuides(params.locale),
+    ]);
 
   return (
     <InterviewsQuestionsCategoryFrameworkPage
