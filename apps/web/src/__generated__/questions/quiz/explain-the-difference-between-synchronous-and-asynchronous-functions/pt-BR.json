@@ -24,6 +24,7 @@
     "subtitle": null,
     "title": "Explique a diferença entre funções síncronas e assíncronas",
     "topics": [
+      "async",
       "javascript"
     ],
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/explain-the-difference-between-synchronous-and-asynchronous-functions/pt-BR.mdx"

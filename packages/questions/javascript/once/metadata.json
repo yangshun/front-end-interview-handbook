@@ -9,5 +9,6 @@
   "published": true,
   "importance": "low",
   "difficulty": "easy",
-  "next_questions": ["limit"]
+  "next_questions": ["limit"],
+  "topics": ["closure"]
 }

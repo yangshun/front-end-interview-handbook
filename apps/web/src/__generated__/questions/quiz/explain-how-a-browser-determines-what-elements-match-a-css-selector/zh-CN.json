@@ -24,6 +24,7 @@
     "subtitle": null,
     "title": "解释浏览器如何决定什么元素与 CSS 选择器匹配。",
     "topics": [
+      "browser",
       "css"
     ],
     "gitHubEditUrl": "https://github.com/yangshun/front-end-interview-handbook/blob/main/packages/quiz/questions/explain-how-a-browser-determines-what-elements-match-a-css-selector/zh-CN.mdx"

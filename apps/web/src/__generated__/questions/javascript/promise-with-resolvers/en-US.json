@@ -36,7 +36,9 @@
     "slug": "promise-with-resolvers",
     "subtitle": null,
     "title": "Promise.withResolvers",
-    "topics": []
+    "topics": [
+      "async"
+    ]
   },
   "skeleton": {
     "js": "/**\n * @returns { promise: Promise, resolve: Function, reject: Function }\n */\nexport default function promiseWithResolvers() {\n  throw 'Not implemented';\n}",

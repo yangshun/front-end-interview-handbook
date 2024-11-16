@@ -39,7 +39,9 @@
     "slug": "promise-reject",
     "subtitle": null,
     "title": "Promise.reject",
-    "topics": []
+    "topics": [
+      "async"
+    ]
   },
   "skeleton": {
     "js": "/**\n * @param {*} reason\n * @returns Promise\n */\nexport default function promiseReject(reason) {\n  throw 'Not implemented';\n}",

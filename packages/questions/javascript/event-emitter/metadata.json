@@ -9,5 +9,6 @@
   "importance": "medium",
   "difficulty": "medium",
   "similar_questions": ["event-emitter-ii", "jquery-class-manipulation"],
-  "next_questions": ["event-emitter-ii"]
+  "next_questions": ["event-emitter-ii"],
+  "topics": ["oop"]
 }

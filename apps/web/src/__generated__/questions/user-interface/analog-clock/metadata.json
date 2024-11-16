@@ -49,5 +49,8 @@
   "slug": "analog-clock",
   "subtitle": null,
   "title": "Analog Clock",
-  "topics": []
+  "topics": [
+    "a11y",
+    "async"
+  ]
 }

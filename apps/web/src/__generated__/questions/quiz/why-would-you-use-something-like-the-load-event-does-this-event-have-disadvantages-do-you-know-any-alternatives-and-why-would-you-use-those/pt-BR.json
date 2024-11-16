@@ -24,6 +24,7 @@
     "subtitle": "Este evento tem desvantagens? Você conhece alguma alternativa, e por que as usaria?",
     "title": "Por que você usaria algo como o evento `load`?",
     "topics": [
+      "web-api",
       "javascript"
     ],
     "gitHubEditUrl": "https://github.com/yangshun/front-end-interview-handbook/blob/main/packages/quiz/questions/why-would-you-use-something-like-the-load-event-does-this-event-have-disadvantages-do-you-know-any-alternatives-and-why-would-you-use-those/pt-BR.mdx"

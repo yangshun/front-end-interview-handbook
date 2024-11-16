@@ -24,7 +24,8 @@
     "subtitle": null,
     "title": "解释原型继承如何工作",
     "topics": [
-      "javascript"
+      "javascript",
+      "oop"
     ],
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/explain-how-prototypal-inheritance-works/zh-CN.mdx"
   },

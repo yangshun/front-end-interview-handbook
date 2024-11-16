@@ -9,5 +9,6 @@
   "published": true,
   "importance": "low",
   "difficulty": "medium",
-  "similar_questions": ["jquery-css"]
+  "similar_questions": ["jquery-css"],
+  "topics": ["oop", "web-api"]
 }

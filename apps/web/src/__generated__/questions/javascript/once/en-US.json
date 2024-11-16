@@ -37,7 +37,9 @@
     "slug": "once",
     "subtitle": null,
     "title": "Once",
-    "topics": []
+    "topics": [
+      "closure"
+    ]
   },
   "skeleton": {
     "js": "/**\n * @template {Function} T\n * @param {T} func\n * @return {T}\n */\nexport default function once(func) {\n  throw 'Not implemented!';\n}",

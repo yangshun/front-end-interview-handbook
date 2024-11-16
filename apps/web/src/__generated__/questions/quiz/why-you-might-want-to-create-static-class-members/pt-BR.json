@@ -24,7 +24,8 @@
     "subtitle": null,
     "title": "Por que você pode querer criar membros de classe estáticos?",
     "topics": [
-      "javascript"
+      "javascript",
+      "oop"
     ],
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/why-you-might-want-to-create-static-class-members/pt-BR.mdx"
   },

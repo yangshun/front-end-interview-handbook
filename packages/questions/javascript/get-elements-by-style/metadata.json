@@ -12,5 +12,6 @@
   "similar_questions": [
     "get-elements-by-tag-name",
     "get-elements-by-class-name"
-  ]
+  ],
+  "topics": ["web-api"]
 }

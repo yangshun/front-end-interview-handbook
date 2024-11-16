@@ -24,6 +24,7 @@
     "subtitle": null,
     "title": "What is the difference between `setTimeout()`, `setImmediate()`, and `process.nextTick()`?",
     "topics": [
+      "web-api",
       "javascript"
     ],
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-is-the-difference-between-settimeout-setimmediate-and-processnexttick/en-US.mdx"

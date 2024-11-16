@@ -49,5 +49,7 @@
   "slug": "traffic-light",
   "subtitle": null,
   "title": "Traffic Light",
-  "topics": []
+  "topics": [
+    "async"
+  ]
 }

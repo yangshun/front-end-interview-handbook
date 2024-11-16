@@ -24,7 +24,8 @@
     "subtitle": null,
     "title": "Por que estender objetos JavaScript nativos não é uma boa ideia?",
     "topics": [
-      "javascript"
+      "javascript",
+      "oop"
     ],
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/why-is-extending-built-in-javascript-objects-not-a-good-idea/pt-BR.mdx"
   },

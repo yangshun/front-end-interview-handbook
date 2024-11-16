@@ -24,7 +24,8 @@
     "subtitle": null,
     "title": "Explain the concept of inheritance in ES2015 classes",
     "topics": [
-      "javascript"
+      "javascript",
+      "oop"
     ],
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/explain-the-concept-of-inheritance-in-es2015-classes/en-US.mdx"
   },

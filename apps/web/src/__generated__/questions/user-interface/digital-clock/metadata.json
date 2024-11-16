@@ -47,5 +47,8 @@
   "slug": "digital-clock",
   "subtitle": null,
   "title": "Digital Clock",
-  "topics": []
+  "topics": [
+    "a11y",
+    "async"
+  ]
 }

@@ -24,8 +24,8 @@
     "subtitle": null,
     "title": "描述事件冒泡过程",
     "topics": [
-      "javascript",
-      "html"
+      "web-api",
+      "javascript"
     ],
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/describe-event-bubbling/zh-CN.mdx"
   },

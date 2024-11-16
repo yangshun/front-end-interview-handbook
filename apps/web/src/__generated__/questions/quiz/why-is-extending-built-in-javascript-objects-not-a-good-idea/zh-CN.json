@@ -24,7 +24,8 @@
     "subtitle": null,
     "title": "为什么扩展内置的 JavaScript 对象不是一个好主意？",
     "topics": [
-      "javascript"
+      "javascript",
+      "oop"
     ],
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/why-is-extending-built-in-javascript-objects-not-a-good-idea/zh-CN.mdx"
   },

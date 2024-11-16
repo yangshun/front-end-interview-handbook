@@ -29,6 +29,7 @@
     "subtitle": null,
     "title": "什么是闭包？ 你如何/为何使用？",
     "topics": [
+      "closure",
       "javascript"
     ],
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-is-a-closure-and-how-why-would-you-use-one/zh-CN.mdx"

@@ -24,6 +24,7 @@
     "subtitle": null,
     "title": "How can closures be used to create private variables?",
     "topics": [
+      "closure",
       "javascript"
     ],
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/how-can-closures-be-used-to-create-private-variables/en-US.mdx"

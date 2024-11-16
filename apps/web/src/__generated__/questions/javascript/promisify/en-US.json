@@ -37,7 +37,9 @@
     "slug": "promisify",
     "subtitle": null,
     "title": "Promisify",
-    "topics": []
+    "topics": [
+      "async"
+    ]
   },
   "skeleton": {
     "js": "/**\n * @callback func\n * @returns Function\n */\nexport default function promisify(func) {\n  throw 'Not implemented';\n}",

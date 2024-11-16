@@ -24,6 +24,7 @@
     "subtitle": "此事件是否有缺点？ 您是否知道任何替代方法，以及为什么要使用这些方法？",
     "title": "你为什么要使用 `load` 事件？",
     "topics": [
+      "web-api",
       "javascript"
     ],
     "gitHubEditUrl": "https://github.com/yangshun/front-end-interview-handbook/blob/main/packages/quiz/questions/why-would-you-use-something-like-the-load-event-does-this-event-have-disadvantages-do-you-know-any-alternatives-and-why-would-you-use-those/zh-CN.mdx"

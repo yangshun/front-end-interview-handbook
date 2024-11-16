@@ -9,5 +9,6 @@
   "importance": "medium",
   "difficulty": "hard",
   "similar_questions": ["event-emitter", "event-emitter-ii"],
-  "next_questions": [""]
+  "next_questions": [],
+  "topics": ["oop"]
 }

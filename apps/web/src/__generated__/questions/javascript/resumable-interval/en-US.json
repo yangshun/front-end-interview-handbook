@@ -35,7 +35,10 @@
     "slug": "resumable-interval",
     "subtitle": null,
     "title": "Resumable Interval",
-    "topics": []
+    "topics": [
+      "async",
+      "closure"
+    ]
   },
   "skeleton": {
     "js": "/**\n * @param {Function} callback\n * @param {number} delay\n * @param {...any} args\n * @returns {{start: Function, pause: Function, stop: Function}}\n */\nexport default function createResumableInterval(callback, delay, ...args) {\n  throw 'Not implemented';\n}",

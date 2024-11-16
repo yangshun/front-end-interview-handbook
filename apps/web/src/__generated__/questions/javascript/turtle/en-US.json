@@ -33,7 +33,9 @@
     "slug": "turtle",
     "subtitle": null,
     "title": "Turtle",
-    "topics": []
+    "topics": [
+      "oop"
+    ]
   },
   "skeleton": {
     "js": "export default class Turtle {\n  constructor() {\n    throw 'Not implemented';\n  }\n\n  /**\n   * @param {number} distance Distance to move forward while facing the current direction.\n   * @return {Turtle}\n   */\n  forward(distance) {\n    throw 'Not implemented';\n  }\n\n  /**\n   * @param {number} distance Distance to move backward while facing the current direction.\n   * @return {Turtle}\n   */\n  backward(distance) {\n    throw 'Not implemented';\n  }\n\n  /**\n   * Turns the turtle left.\n   * @return {Turtle}\n   */\n  left() {\n    throw 'Not implemented';\n  }\n\n  /**\n   * Turns the turtle right.\n   * @return {Turtle}\n   */\n  right() {\n    throw 'Not implemented';\n  }\n\n  /**\n   * @return {[number, number]} Coordinates [x, y]\n   */\n  position() {\n    throw 'Not implemented';\n  }\n}",

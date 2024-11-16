@@ -24,7 +24,8 @@
     "subtitle": null,
     "title": "What are the common pitfalls of using the `this` keyword?",
     "topics": [
-      "javascript"
+      "javascript",
+      "oop"
     ],
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-are-the-common-pitfalls-of-using-the-this-keyword/en-US.mdx"
   },

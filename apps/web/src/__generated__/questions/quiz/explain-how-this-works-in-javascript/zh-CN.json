@@ -24,7 +24,8 @@
     "subtitle": null,
     "title": "解释 JavaScript `this` 如何工作",
     "topics": [
-      "javascript"
+      "javascript",
+      "oop"
     ],
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/explain-how-this-works-in-javascript/zh-CN.mdx"
   },

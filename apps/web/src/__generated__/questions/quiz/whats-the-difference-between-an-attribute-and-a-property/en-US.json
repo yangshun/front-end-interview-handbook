@@ -24,6 +24,7 @@
     "subtitle": null,
     "title": "What's the difference between an \"attribute\" and a \"property\" in the DOM?",
     "topics": [
+      "web-api",
       "javascript",
       "html"
     ],

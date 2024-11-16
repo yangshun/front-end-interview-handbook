@@ -9,5 +9,6 @@
   "importance": "low",
   "difficulty": "easy",
   "similar_questions": ["cancellable-interval"],
-  "next_questions": []
+  "next_questions": [],
+  "topics": ["async"]
 }

@@ -24,6 +24,7 @@
     "subtitle": null,
     "title": "What are some techniques for reducing reflows and repaints?",
     "topics": [
+      "browser",
       "javascript",
       "performance"
     ],

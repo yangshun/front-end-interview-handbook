@@ -9,5 +9,6 @@
   "published": true,
   "importance": "high",
   "difficulty": "medium",
-  "similar_questions": ["debounce"]
+  "similar_questions": ["debounce"],
+  "topics": ["async"]
 }

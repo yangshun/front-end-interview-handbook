@@ -28,9 +28,7 @@
       "js",
       "ts"
     ],
-    "nextQuestions": [
-      ""
-    ],
+    "nextQuestions": [],
     "published": true,
     "ranking": 100,
     "similarQuestions": [
@@ -40,7 +38,9 @@
     "slug": "backbone-model",
     "subtitle": null,
     "title": "Backbone Model",
-    "topics": []
+    "topics": [
+      "oop"
+    ]
   },
   "skeleton": {
     "js": "// You are free to use alternative approaches of\n// defining BackboneModel as long as the\n// default export can be instantiated.\nexport default class BackboneModel {\n  /**\n   * @param {Object} initialValues\n   * @returns BackboneModel\n   */\n  constructor(initialValues) {\n    throw 'Not implemented!';\n  }\n\n  /**\n   * Get the value of a specific attribute.\n   * @param {string} attribute - The attribute name.\n   * @returns {any | undefined} The value of the attribute.\n   */\n  get(attribute) {\n    throw 'Not implemented!';\n  }\n\n  /**\n   * Set the value of a specific attribute.\n   * @param {string} attribute - The attribute name.\n   * @param {any} value - The value to set for the attribute.\n   */\n  set(attribute, value) {\n    throw 'Not implemented!';\n  }\n\n  /**\n   * Check if the model has a specific attribute.\n   * @param {string} attribute - The attribute name.\n   * @returns {boolean} `true` if the model has the attribute, `false` otherwise.\n   */\n  has(attribute) {\n    throw 'Not implemented!';\n  }\n\n  /**\n   * Unset a specific attribute.\n   * @param {string} attribute - The attribute name to unset.\n   */\n  unset(attribute) {\n    throw 'Not implemented!';\n  }\n\n  /**\n   * Register an event listener for changes to a specific attribute.\n   * @param {string} eventName - The event name.\n   * @param {string} attribute - The attribute name to listen for changes.\n   * @param {Function} callback - The callback function to be executed on the event.\n   * @param {any} [context] - The context in which to execute the callback.\n   */\n  on(eventName, attribute, callback, context) {\n    throw 'Not implemented!';\n  }\n\n  /**\n   * Remove an event listener for changes to a specific attribute.\n   * @param {string} eventName - The event name.\n   * @param {string} attribute - The attribute name to stop listening for changes.\n   * @param {Function} callback - The callback function to remove.\n   */\n  off(eventName, attribute, callback) {\n    throw 'Not implemented!';\n  }\n}",

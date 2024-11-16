@@ -11,7 +11,7 @@
       "code": "import { useState } from 'react';\n\nexport default function App() {\n  const [message] = useState('Hello World!');\n\n  return <div>{message}</div>;\n}\n"
     },
     "/src/index.js": {
-      "code": "import React, { StrictMode } from 'react';\nimport { createRoot } from 'react-dom/client';\n\nimport App from './App';\n\nconst root = createRoot(document.getElementById('root'));\nroot.render(\n  <StrictMode>\n    <App />\n  </StrictMode>,\n);\n"
+      "code": "import React, { StrictMode } from 'react';\nimport { createRoot } from 'react-dom/client';\n\nimport App from './App';\n\nimport './styles.css';\n\nconst root = createRoot(document.getElementById('root'));\nroot.render(\n  <StrictMode>\n    <App />\n  </StrictMode>,\n);\n"
     },
     "/src/styles.css": {
       "code": "body {\n  font-family: sans-serif;\n  margin: 0;\n}\n"

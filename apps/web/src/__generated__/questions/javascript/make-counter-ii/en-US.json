@@ -38,7 +38,9 @@
     "slug": "make-counter-ii",
     "subtitle": null,
     "title": "Make Counter II",
-    "topics": []
+    "topics": [
+      "closure"
+    ]
   },
   "skeleton": {
     "js": "/**\n * @param {number} initialValue\n * @return {{get: Function, increment: Function, decrement: Function, reset: Function }}\n */\nexport default function makeCounter(initialValue = 0) {\n  throw 'Not implemented';\n}",

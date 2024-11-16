@@ -24,8 +24,8 @@
     "subtitle": null,
     "title": "有哪些不同的方法可以在视觉上隐藏内容（并使其仅对屏幕阅读器可用）？",
     "topics": [
-      "css",
-      "a11y"
+      "a11y",
+      "css"
     ],
     "gitHubEditUrl": "https://github.com/yangshun/front-end-interview-handbook/blob/main/packages/quiz/questions/what-are-the-different-ways-to-visually-hide-content-and-make-it-available-only-for-screen-readers/zh-CN.mdx"
   },

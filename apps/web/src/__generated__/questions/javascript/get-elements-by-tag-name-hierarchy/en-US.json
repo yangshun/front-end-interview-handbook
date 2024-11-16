@@ -40,7 +40,9 @@
     "slug": "get-elements-by-tag-name-hierarchy",
     "subtitle": null,
     "title": "getElementsByTagNameHierarchy",
-    "topics": []
+    "topics": [
+      "web-api"
+    ]
   },
   "skeleton": {
     "js": "/**\n * @param {Document} document\n * @param {string} tagNames\n * @return {Array<Element>}\n */\nexport default function getElementsByTagNameHierarchy(document, tagNames) {\n  throw 'Not implemented!';\n}",

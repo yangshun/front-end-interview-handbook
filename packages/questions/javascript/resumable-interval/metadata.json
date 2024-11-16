@@ -9,5 +9,6 @@
   "importance": "low",
   "difficulty": "medium",
   "similar_questions": ["resumable-timeout"],
-  "next_questions": []
+  "next_questions": [],
+  "topics": ["async", "closure"]
 }

@@ -50,5 +50,7 @@
   "slug": "stopwatch",
   "subtitle": null,
   "title": "Stopwatch",
-  "topics": []
+  "topics": [
+    "async"
+  ]
 }

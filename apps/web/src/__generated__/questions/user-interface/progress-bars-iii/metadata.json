@@ -33,5 +33,7 @@
   "slug": "progress-bars-iii",
   "subtitle": null,
   "title": "Progress Bars III",
-  "topics": []
+  "topics": [
+    "async"
+  ]
 }

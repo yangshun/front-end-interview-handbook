@@ -39,7 +39,9 @@
     "slug": "make-counter",
     "subtitle": null,
     "title": "Make Counter",
-    "topics": []
+    "topics": [
+      "closure"
+    ]
   },
   "skeleton": {
     "js": "/**\n * @param {number} initialValue\n * @return {Function}\n */\nexport default function makeCounter(initialValue = 0) {\n  throw 'Not implemented';\n}",

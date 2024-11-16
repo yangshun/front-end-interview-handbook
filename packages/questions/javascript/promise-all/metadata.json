@@ -11,5 +11,6 @@
   "difficulty": "medium",
   "featured": true,
   "similar_questions": ["promise-all-settled", "promise-any", "promise-race"],
-  "next_questions": ["flatten", "promise-any", "todo-list"]
+  "next_questions": ["flatten", "promise-any", "todo-list"],
+  "topics": ["async"]
 }

@@ -27,6 +27,7 @@
     "subtitle": null,
     "title": "Describe the difference between a cookie, `sessionStorage` and `localStorage` in browsers",
     "topics": [
+      "web-api",
       "javascript"
     ],
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/describe-the-difference-between-a-cookie-sessionstorage-and-localstorage/en-US.mdx"

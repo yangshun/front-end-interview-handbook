@@ -26,6 +26,7 @@
     "subtitle": null,
     "title": "使用Promise而不是回调的利弊是什么？",
     "topics": [
+      "async",
       "javascript"
     ],
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-are-the-pros-and-cons-of-using-promises-instead-of-callbacks/zh-CN.mdx"

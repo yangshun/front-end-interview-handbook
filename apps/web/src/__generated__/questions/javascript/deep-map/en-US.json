@@ -36,7 +36,9 @@
     "slug": "deep-map",
     "subtitle": null,
     "title": "Deep Map",
-    "topics": []
+    "topics": [
+      "recursion"
+    ]
   },
   "skeleton": {
     "js": "/**\n * @param {any} value\n * @param {Function} fn\n * @returns any\n */\nexport default function deepMap(value, fn) {\n  throw 'Not implemented';\n}",

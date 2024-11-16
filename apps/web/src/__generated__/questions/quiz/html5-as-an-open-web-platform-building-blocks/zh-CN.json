@@ -24,6 +24,7 @@
     "subtitle": null,
     "title": "将 HTML5 视为一个开放的网络平台。 HTML5 由哪些东西构成？",
     "topics": [
+      "browser",
       "html"
     ],
     "gitHubEditUrl": "https://github.com/yangshun/front-end-interview-handbook/blob/main/packages/quiz/questions/html5-as-an-open-web-platform-building-blocks/zh-CN.mdx"

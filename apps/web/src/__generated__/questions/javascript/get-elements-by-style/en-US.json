@@ -40,7 +40,9 @@
     "slug": "get-elements-by-style",
     "subtitle": null,
     "title": "getElementsByStyle",
-    "topics": []
+    "topics": [
+      "web-api"
+    ]
   },
   "skeleton": {
     "js": "/**\n * @param {Element} element\n * @param {string} property\n * @param {string} value\n * @return {Array<Element>}\n */\nexport default function getElementsByStyle(element, property, value) {\n  throw 'Not implemented!';\n}",

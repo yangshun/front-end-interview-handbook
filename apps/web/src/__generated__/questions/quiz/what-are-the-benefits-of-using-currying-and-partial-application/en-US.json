@@ -24,6 +24,7 @@
     "subtitle": null,
     "title": "What are the benefits of using currying and partial application?",
     "topics": [
+      "closure",
       "javascript"
     ],
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-are-the-benefits-of-using-currying-and-partial-application/en-US.mdx"

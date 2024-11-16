@@ -24,6 +24,7 @@
     "subtitle": null,
     "title": "Qual é a diferença entre detecção de recurso, inferência de recurso e uso da string UA?",
     "topics": [
+      "browser",
       "javascript"
     ],
     "gitHubEditUrl": "https://github.com/yangshun/front-end-interview-handbook/blob/main/packages/quiz/questions/whats-the-difference-between-feature-detection-feature-inference-and-using-the-ua-string/pt-BR.mdx"

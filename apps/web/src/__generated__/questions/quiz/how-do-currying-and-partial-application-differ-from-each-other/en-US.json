@@ -24,6 +24,7 @@
     "subtitle": null,
     "title": "How do currying and partial application differ from each other?",
     "topics": [
+      "closure",
       "javascript"
     ],
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/how-do-currying-and-partial-application-differ-from-each-other/en-US.mdx"

@@ -24,8 +24,9 @@
     "subtitle": null,
     "title": "What is the difference between `mouseenter` and `mouseover` event in JavaScript and browsers?",
     "topics": [
-      "javascript",
-      "html"
+      "web-api",
+      "html",
+      "javascript"
     ],
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-is-the-difference-between-mouseenter-and-mouseover-event/en-US.mdx"
   },

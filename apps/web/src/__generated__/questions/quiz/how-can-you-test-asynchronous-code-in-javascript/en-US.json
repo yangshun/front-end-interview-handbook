@@ -24,6 +24,7 @@
     "subtitle": null,
     "title": "How can you test asynchronous code in JavaScript?",
     "topics": [
+      "async",
       "javascript",
       "testing"
     ],

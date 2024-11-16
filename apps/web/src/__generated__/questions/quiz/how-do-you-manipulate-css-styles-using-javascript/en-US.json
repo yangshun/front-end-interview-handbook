@@ -24,8 +24,9 @@
     "subtitle": null,
     "title": "How do you manipulate CSS styles using JavaScript?",
     "topics": [
-      "javascript",
-      "css"
+      "css",
+      "web-api",
+      "javascript"
     ],
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/how-do-you-manipulate-css-styles-using-javascript/en-US.mdx"
   },

@@ -24,8 +24,8 @@
     "subtitle": null,
     "title": "Qual a diferença entre o evento `load` do documento e o evento `DOMContentLoaded` do documento?",
     "topics": [
-      "javascript",
-      "html"
+      "html",
+      "javascript"
     ],
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/difference-between-document-load-event-and-document-domcontentloaded-event/pt-BR.mdx"
   },

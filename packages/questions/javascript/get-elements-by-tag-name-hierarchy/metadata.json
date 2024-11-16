@@ -14,5 +14,6 @@
     "get-elements-by-class-name",
     "get-elements-by-style",
     "get-elements-by-tag-name"
-  ]
+  ],
+  "topics": ["web-api"]
 }

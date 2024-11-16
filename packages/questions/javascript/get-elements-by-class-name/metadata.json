@@ -9,5 +9,6 @@
   "published": true,
   "importance": "medium",
   "difficulty": "medium",
-  "similar_questions": ["get-elements-by-tag-name", "get-elements-by-style"]
+  "similar_questions": ["get-elements-by-tag-name", "get-elements-by-style"],
+  "topics": ["web-api"]
 }

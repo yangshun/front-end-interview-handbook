@@ -37,7 +37,9 @@
     "slug": "json-stringify-ii",
     "subtitle": null,
     "title": "JSON.stringify II",
-    "topics": []
+    "topics": [
+      "recursion"
+    ]
   },
   "skeleton": {
     "js": "/**\n * @param {*} value\n * @return {string}\n */\nexport default function jsonStringify(value) {\n  throw 'Not implemented!';\n}",

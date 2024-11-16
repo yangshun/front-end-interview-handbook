@@ -24,6 +24,7 @@
     "subtitle": null,
     "title": "What is the difference between the Window object and the Document object?",
     "topics": [
+      "web-api",
       "javascript"
     ],
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-is-the-difference-between-the-window-object-and-the-document-object/en-US.mdx"

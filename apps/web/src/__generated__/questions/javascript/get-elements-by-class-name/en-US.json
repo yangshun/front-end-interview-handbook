@@ -42,7 +42,9 @@
     "slug": "get-elements-by-class-name",
     "subtitle": null,
     "title": "getElementsByClassName",
-    "topics": []
+    "topics": [
+      "web-api"
+    ]
   },
   "skeleton": {
     "js": "/**\n * @param {Element} element\n * @param {string} classNames\n * @return {Array<Element>}\n */\nexport default function getElementsByClassName(element, classNames) {\n  throw 'Not implemented!';\n}",

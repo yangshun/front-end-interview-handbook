@@ -24,6 +24,7 @@
     "subtitle": null,
     "title": "Explain the event phases in a browser",
     "topics": [
+      "browser",
       "javascript"
     ],
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/explain-the-event-phases-in-a-browser/en-US.mdx"

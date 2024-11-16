@@ -24,7 +24,8 @@
     "subtitle": null,
     "title": "What are the differences between JavaScript ES2015 classes and ES5 function constructors?",
     "topics": [
-      "javascript"
+      "javascript",
+      "oop"
     ],
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-are-the-differences-between-es6-class-and-es5-function-constructors/en-US.mdx"
   },

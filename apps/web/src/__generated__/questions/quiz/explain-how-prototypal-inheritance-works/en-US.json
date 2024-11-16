@@ -24,7 +24,8 @@
     "subtitle": null,
     "title": "Explain how prototypal inheritance works in JavaScript",
     "topics": [
-      "javascript"
+      "javascript",
+      "oop"
     ],
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/explain-how-prototypal-inheritance-works/en-US.mdx"
   },

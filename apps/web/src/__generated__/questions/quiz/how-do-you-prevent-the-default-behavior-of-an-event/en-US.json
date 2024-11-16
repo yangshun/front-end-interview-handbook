@@ -24,6 +24,7 @@
     "subtitle": null,
     "title": "How do you prevent the default behavior of an event?",
     "topics": [
+      "web-api",
       "javascript"
     ],
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/how-do-you-prevent-the-default-behavior-of-an-event/en-US.mdx"

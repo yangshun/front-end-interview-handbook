@@ -24,6 +24,8 @@
     "subtitle": null,
     "title": "Explain the concept of `this` binding in event handlers",
     "topics": [
+      "closure",
+      "web-api",
       "javascript"
     ],
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/explain-the-concept-of-this-binding-in-event-handlers/en-US.mdx"

@@ -9,5 +9,6 @@
   "published": true,
   "importance": "medium",
   "difficulty": "easy",
-  "similar_questions": ["promise-all", "promise-all-settled", "promise-any"]
+  "similar_questions": ["promise-all", "promise-all-settled", "promise-any"],
+  "topics": ["async"]
 }

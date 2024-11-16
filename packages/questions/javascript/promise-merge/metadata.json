@@ -9,5 +9,6 @@
   "importance": "low",
   "difficulty": "medium",
   "similar_questions": ["promise-all", "promise-all-settled"],
-  "next_questions": ["promise-all"]
+  "next_questions": ["promise-all"],
+  "topics": ["async"]
 }

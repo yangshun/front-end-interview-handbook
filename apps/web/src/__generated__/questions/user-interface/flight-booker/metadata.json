@@ -15,6 +15,10 @@
       "href": "/questions/user-interface/flight-booker/react"
     },
     {
+      "framework": "vanilla",
+      "href": "/questions/user-interface/flight-booker/vanilla"
+    },
+    {
       "framework": "angular",
       "href": "/questions/user-interface/flight-booker/angular"
     },
@@ -40,5 +44,7 @@
   "slug": "flight-booker",
   "subtitle": null,
   "title": "Flight Booker",
-  "topics": []
+  "topics": [
+    "a11y"
+  ]
 }

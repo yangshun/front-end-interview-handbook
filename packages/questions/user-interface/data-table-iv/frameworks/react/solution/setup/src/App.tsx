@@ -40,7 +40,8 @@ const userColumns: Columns<User> = [
       a: User,
       b: User,
       direction: SortDirection,
-    ) => (direction === 'asc' ? a.id - b.id : b.id - a.id),
+    ) =>
+      direction === 'asc' ? a.age - b.age : b.age - a.age,
     filterType: 'range',
   },
   {

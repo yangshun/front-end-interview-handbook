@@ -39,5 +39,7 @@
   "slug": "tabs-iii",
   "subtitle": null,
   "title": "Tabs III",
-  "topics": []
+  "topics": [
+    "a11y"
+  ]
 }

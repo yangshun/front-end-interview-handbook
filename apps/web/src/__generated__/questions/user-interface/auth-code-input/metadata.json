@@ -29,5 +29,7 @@
   "slug": "auth-code-input",
   "subtitle": null,
   "title": "Auth Code Input",
-  "topics": []
+  "topics": [
+    "a11y"
+  ]
 }

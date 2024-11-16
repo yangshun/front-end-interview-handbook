@@ -24,6 +24,7 @@
     "subtitle": null,
     "title": "How do `<iframe>` on a page communicate?",
     "topics": [
+      "web-api",
       "javascript",
       "html"
     ],

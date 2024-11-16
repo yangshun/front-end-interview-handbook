@@ -37,7 +37,10 @@
     "slug": "jquery-css",
     "subtitle": null,
     "title": "jQuery.css",
-    "topics": []
+    "topics": [
+      "oop",
+      "web-api"
+    ]
   },
   "skeleton": {
     "js": "/**\n * @param {string} selector\n * @return {{css: Function}}\n */\nexport default function $(selector) {\n  throw 'Not implemented!';\n}",

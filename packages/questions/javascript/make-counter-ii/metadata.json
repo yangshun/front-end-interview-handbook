@@ -9,5 +9,6 @@
   "importance": "low",
   "difficulty": "medium",
   "similar_questions": ["make-counter", "jquery-css"],
-  "next_questions": ["jquery-css"]
+  "next_questions": ["jquery-css"],
+  "topics": ["closure"]
 }

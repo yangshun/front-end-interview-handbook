@@ -24,7 +24,8 @@
     "subtitle": null,
     "title": "Difference between: `function Person(){}`, `const person = Person()`, and `const person = new Person()` in JavaScript?",
     "topics": [
-      "javascript"
+      "javascript",
+      "oop"
     ],
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/difference-between-function-person-var-person-person-and-var-person-new-person/en-US.mdx"
   },

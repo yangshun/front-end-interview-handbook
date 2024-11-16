@@ -33,7 +33,9 @@
     "slug": "cycle",
     "subtitle": null,
     "title": "Cycle",
-    "topics": []
+    "topics": [
+      "closure"
+    ]
   },
   "skeleton": {
     "js": "/**\n * @template T\n * @param  {...T} values\n *\n * @returns () => T\n */\nexport default function cycle(...values) {\n  throw 'Not implemented';\n}",

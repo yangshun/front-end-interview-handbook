@@ -24,6 +24,7 @@
     "subtitle": null,
     "title": "功能检测、功能推断和使用UA字符串之间有什么区别？",
     "topics": [
+      "browser",
       "javascript"
     ],
     "gitHubEditUrl": "https://github.com/yangshun/front-end-interview-handbook/blob/main/packages/quiz/questions/whats-the-difference-between-feature-detection-feature-inference-and-using-the-ua-string/zh-CN.mdx"

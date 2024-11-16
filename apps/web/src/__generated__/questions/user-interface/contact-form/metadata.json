@@ -50,5 +50,7 @@
   "slug": "contact-form",
   "subtitle": null,
   "title": "Contact Form",
-  "topics": []
+  "topics": [
+    "a11y"
+  ]
 }

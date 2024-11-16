@@ -24,6 +24,7 @@
     "subtitle": null,
     "title": "Explain the different ways the `this` keyword can be bound",
     "topics": [
+      "closure",
       "javascript"
     ],
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/explain-the-different-ways-the-this-keyword-can-be-bound/en-US.mdx"

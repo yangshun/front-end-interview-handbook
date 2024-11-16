@@ -24,6 +24,7 @@
     "subtitle": null,
     "title": "How is `Promise.all()` different from `Promise.allSettled()`?",
     "topics": [
+      "async",
       "javascript"
     ],
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/how-is-promiseall-different-from-promiseallsettled/en-US.mdx"

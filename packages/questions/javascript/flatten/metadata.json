@@ -11,5 +11,6 @@
   "featured": true,
   "difficulty": "medium",
   "similar_questions": ["squash-object", "get"],
-  "next_questions": ["todo-list", "holy-grail", "deep-equal"]
+  "next_questions": ["todo-list", "holy-grail", "deep-equal"],
+  "topics": ["recursion"]
 }

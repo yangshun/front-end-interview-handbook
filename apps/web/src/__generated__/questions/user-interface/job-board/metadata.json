@@ -48,5 +48,7 @@
   "slug": "job-board",
   "subtitle": null,
   "title": "Job Board",
-  "topics": []
+  "topics": [
+    "networking"
+  ]
 }

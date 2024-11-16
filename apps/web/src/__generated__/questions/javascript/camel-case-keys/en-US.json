@@ -36,7 +36,9 @@
     "slug": "camel-case-keys",
     "subtitle": null,
     "title": "Camel Case Keys",
-    "topics": []
+    "topics": [
+      "recursion"
+    ]
   },
   "skeleton": {
     "js": "/**\n * @param Object\n * @return Object\n */\nexport default function camelCaseKeys(object) {\n  throw 'Not implemented!';\n}",

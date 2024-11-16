@@ -48,5 +48,7 @@
   "slug": "tic-tac-toe",
   "subtitle": null,
   "title": "Tic-tac-toe",
-  "topics": []
+  "topics": [
+    "a11y"
+  ]
 }

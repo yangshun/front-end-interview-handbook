@@ -41,5 +41,7 @@
   "slug": "dice-roller",
   "subtitle": null,
   "title": "Dice Roller",
-  "topics": []
+  "topics": [
+    "a11y"
+  ]
 }

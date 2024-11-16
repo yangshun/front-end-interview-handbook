@@ -9,5 +9,6 @@
   "importance": "low",
   "difficulty": "medium",
   "similar_questions": [],
-  "next_questions": ["promisify-ii"]
+  "next_questions": ["promisify-ii"],
+  "topics": ["async"]
 }

@@ -1,6 +1,6 @@
 [
   {
-    "access": "free",
+    "access": "premium",
     "author": "yangshun",
     "companies": [],
     "created": 1671580800,
@@ -36,7 +36,9 @@
     "slug": "accordion",
     "subtitle": null,
     "title": "Accordion",
-    "topics": []
+    "topics": [
+      "a11y"
+    ]
   },
   {
     "access": "premium",
@@ -74,7 +76,9 @@
     "slug": "accordion-ii",
     "subtitle": null,
     "title": "Accordion II",
-    "topics": []
+    "topics": [
+      "a11y"
+    ]
   },
   {
     "access": "premium",
@@ -106,7 +110,9 @@
     "slug": "accordion-iii",
     "subtitle": null,
     "title": "Accordion III",
-    "topics": []
+    "topics": [
+      "a11y"
+    ]
   },
   {
     "access": "premium",
@@ -159,7 +165,10 @@
     "slug": "analog-clock",
     "subtitle": null,
     "title": "Analog Clock",
-    "topics": []
+    "topics": [
+      "a11y",
+      "async"
+    ]
   },
   {
     "access": "premium",
@@ -192,7 +201,9 @@
     "slug": "auth-code-input",
     "subtitle": null,
     "title": "Auth Code Input",
-    "topics": []
+    "topics": [
+      "a11y"
+    ]
   },
   {
     "access": "premium",
@@ -336,7 +347,9 @@
     "slug": "contact-form",
     "subtitle": null,
     "title": "Contact Form",
-    "topics": []
+    "topics": [
+      "a11y"
+    ]
   },
   {
     "access": "free",
@@ -576,7 +589,9 @@
     "slug": "dice-roller",
     "subtitle": null,
     "title": "Dice Roller",
-    "topics": []
+    "topics": [
+      "a11y"
+    ]
   },
   {
     "access": "free",
@@ -627,7 +642,10 @@
     "slug": "digital-clock",
     "subtitle": null,
     "title": "Digital Clock",
-    "topics": []
+    "topics": [
+      "a11y",
+      "async"
+    ]
   },
   {
     "access": "free",
@@ -669,7 +687,9 @@
     "slug": "file-explorer",
     "subtitle": null,
     "title": "File Explorer",
-    "topics": []
+    "topics": [
+      "a11y"
+    ]
   },
   {
     "access": "premium",
@@ -739,7 +759,7 @@
       "js"
     ],
     "nextQuestions": [
-      "file-explorer-iii"
+      "nested-checkboxes"
     ],
     "published": true,
     "ranking": 100,
@@ -764,6 +784,10 @@
       {
         "framework": "react",
         "href": "/questions/user-interface/flight-booker/react"
+      },
+      {
+        "framework": "vanilla",
+        "href": "/questions/user-interface/flight-booker/vanilla"
       },
       {
         "framework": "angular",
@@ -791,7 +815,9 @@
     "slug": "flight-booker",
     "subtitle": null,
     "title": "Flight Booker",
-    "topics": []
+    "topics": [
+      "a11y"
+    ]
   },
   {
     "access": "premium",
@@ -888,7 +914,10 @@
     "slug": "grid-lights",
     "subtitle": null,
     "title": "Grid Lights",
-    "topics": []
+    "topics": [
+      "a11y",
+      "async"
+    ]
   },
   {
     "access": "free",
@@ -986,7 +1015,9 @@
     "slug": "image-carousel",
     "subtitle": null,
     "title": "Image Carousel",
-    "topics": []
+    "topics": [
+      "a11y"
+    ]
   },
   {
     "access": "premium",
@@ -1029,7 +1060,9 @@
     "slug": "image-carousel-ii",
     "subtitle": null,
     "title": "Image Carousel II",
-    "topics": []
+    "topics": [
+      "a11y"
+    ]
   },
   {
     "access": "premium",
@@ -1122,7 +1155,9 @@
     "slug": "job-board",
     "subtitle": null,
     "title": "Job Board",
-    "topics": []
+    "topics": [
+      "networking"
+    ]
   },
   {
     "access": "premium",
@@ -1169,7 +1204,10 @@
     "slug": "like-button",
     "subtitle": null,
     "title": "Like Button",
-    "topics": []
+    "topics": [
+      "async",
+      "networking"
+    ]
   },
   {
     "access": "premium",
@@ -1251,7 +1289,9 @@
     "slug": "modal-dialog",
     "subtitle": null,
     "title": "Modal Dialog",
-    "topics": []
+    "topics": [
+      "a11y"
+    ]
   },
   {
     "access": "premium",
@@ -1288,7 +1328,9 @@
     "slug": "modal-dialog-ii",
     "subtitle": null,
     "title": "Modal Dialog II",
-    "topics": []
+    "topics": [
+      "a11y"
+    ]
   },
   {
     "access": "premium",
@@ -1324,7 +1366,9 @@
     "slug": "modal-dialog-iii",
     "subtitle": null,
     "title": "Modal Dialog III",
-    "topics": []
+    "topics": [
+      "a11y"
+    ]
   },
   {
     "access": "premium",
@@ -1358,7 +1402,9 @@
     "slug": "modal-dialog-iv",
     "subtitle": null,
     "title": "Modal Dialog IV",
-    "topics": []
+    "topics": [
+      "a11y"
+    ]
   },
   {
     "access": "free",
@@ -1487,7 +1533,9 @@
     "slug": "pixel-art",
     "subtitle": null,
     "title": "Pixel Art",
-    "topics": []
+    "topics": [
+      "a11y"
+    ]
   },
   {
     "access": "premium",
@@ -1569,7 +1617,9 @@
     "slug": "progress-bars",
     "subtitle": null,
     "title": "Progress Bars",
-    "topics": []
+    "topics": [
+      "async"
+    ]
   },
   {
     "access": "premium",
@@ -1606,7 +1656,9 @@
     "slug": "progress-bars-ii",
     "subtitle": null,
     "title": "Progress Bars II",
-    "topics": []
+    "topics": [
+      "async"
+    ]
   },
   {
     "access": "premium",
@@ -1643,7 +1695,9 @@
     "slug": "progress-bars-iii",
     "subtitle": null,
     "title": "Progress Bars III",
-    "topics": []
+    "topics": [
+      "async"
+    ]
   },
   {
     "access": "premium",
@@ -1678,7 +1732,9 @@
     "slug": "progress-bars-iv",
     "subtitle": null,
     "title": "Progress Bars IV",
-    "topics": []
+    "topics": [
+      "async"
+    ]
   },
   {
     "access": "premium",
@@ -1853,7 +1909,9 @@
     "slug": "stopwatch",
     "subtitle": null,
     "title": "Stopwatch",
-    "topics": []
+    "topics": [
+      "async"
+    ]
   },
   {
     "access": "free",
@@ -1903,7 +1961,9 @@
     "slug": "tabs",
     "subtitle": null,
     "title": "Tabs",
-    "topics": []
+    "topics": [
+      "a11y"
+    ]
   },
   {
     "access": "premium",
@@ -1953,7 +2013,9 @@
     "slug": "tabs-ii",
     "subtitle": null,
     "title": "Tabs II",
-    "topics": []
+    "topics": [
+      "a11y"
+    ]
   },
   {
     "access": "premium",
@@ -1996,7 +2058,9 @@
     "slug": "tabs-iii",
     "subtitle": null,
     "title": "Tabs III",
-    "topics": []
+    "topics": [
+      "a11y"
+    ]
   },
   {
     "access": "premium",
@@ -2098,7 +2162,9 @@
     "slug": "tic-tac-toe",
     "subtitle": null,
     "title": "Tic-tac-toe",
-    "topics": []
+    "topics": [
+      "a11y"
+    ]
   },
   {
     "access": "premium",
@@ -2148,7 +2214,9 @@
     "slug": "tic-tac-toe-ii",
     "subtitle": null,
     "title": "Tic-tac-toe II",
-    "topics": []
+    "topics": [
+      "a11y"
+    ]
   },
   {
     "access": "free",
@@ -2258,7 +2326,9 @@
     "slug": "traffic-light",
     "subtitle": null,
     "title": "Traffic Light",
-    "topics": []
+    "topics": [
+      "async"
+    ]
   },
   {
     "access": "premium",

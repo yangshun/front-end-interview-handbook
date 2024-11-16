@@ -1,5 +1,5 @@
 {
-  "access": "free",
+  "access": "premium",
   "author": "yangshun",
   "companies": [],
   "created": 1671580800,
@@ -35,5 +35,7 @@
   "slug": "accordion",
   "subtitle": null,
   "title": "Accordion",
-  "topics": []
+  "topics": [
+    "a11y"
+  ]
 }

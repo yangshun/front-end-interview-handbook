@@ -24,6 +24,7 @@
     "subtitle": null,
     "title": "When would you use `document.write()`?",
     "topics": [
+      "web-api",
       "javascript",
       "html"
     ],

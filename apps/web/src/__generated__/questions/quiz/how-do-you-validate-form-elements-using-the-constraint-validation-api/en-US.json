@@ -24,6 +24,7 @@
     "subtitle": null,
     "title": "How do you validate form elements using the Constraint Validation API?",
     "topics": [
+      "web-api",
       "javascript"
     ],
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/how-do-you-validate-form-elements-using-the-constraint-validation-api/en-US.mdx"

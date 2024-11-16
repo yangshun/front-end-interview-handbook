@@ -38,7 +38,9 @@
     "slug": "promise-merge",
     "subtitle": null,
     "title": "Promise Merge",
-    "topics": []
+    "topics": [
+      "async"
+    ]
   },
   "skeleton": {
     "js": "/**\n * @param {Promise} p1\n * @param {Promise} p2\n * @return {Promise<any>}\n */\nexport default function promiseMerge(p1, p2) {\n  throw 'Not implemented';\n}",

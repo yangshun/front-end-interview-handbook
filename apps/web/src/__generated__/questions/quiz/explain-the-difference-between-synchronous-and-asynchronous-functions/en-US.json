@@ -24,6 +24,7 @@
     "subtitle": null,
     "title": "Explain the difference between synchronous and asynchronous functions in JavaScript",
     "topics": [
+      "async",
       "javascript"
     ],
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/explain-the-difference-between-synchronous-and-asynchronous-functions/en-US.mdx"

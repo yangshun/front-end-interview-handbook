@@ -43,5 +43,8 @@
   "slug": "like-button",
   "subtitle": null,
   "title": "Like Button",
-  "topics": []
+  "topics": [
+    "async",
+    "networking"
+  ]
 }

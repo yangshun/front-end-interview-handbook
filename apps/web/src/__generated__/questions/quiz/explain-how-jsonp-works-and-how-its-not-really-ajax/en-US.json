@@ -25,7 +25,7 @@
     "title": "Explain how JSONP works (and how it's not really Ajax)",
     "topics": [
       "javascript",
-      "network",
+      "networking",
       "security"
     ],
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/explain-how-jsonp-works-and-how-its-not-really-ajax/en-US.mdx"

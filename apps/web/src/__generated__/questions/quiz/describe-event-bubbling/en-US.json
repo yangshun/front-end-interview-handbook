@@ -24,8 +24,8 @@
     "subtitle": null,
     "title": "Describe event bubbling in JavaScript and browsers",
     "topics": [
-      "javascript",
-      "html"
+      "web-api",
+      "javascript"
     ],
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/describe-event-bubbling/en-US.mdx"
   },

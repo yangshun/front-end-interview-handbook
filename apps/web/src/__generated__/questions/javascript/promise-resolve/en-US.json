@@ -39,7 +39,9 @@
     "slug": "promise-resolve",
     "subtitle": null,
     "title": "Promise.resolve",
-    "topics": []
+    "topics": [
+      "async"
+    ]
   },
   "skeleton": {
     "js": "/**\n * @param {*} value\n * @returns Promise\n */\nexport default function promiseResolve(value) {\n  throw 'Not implemented';\n}",

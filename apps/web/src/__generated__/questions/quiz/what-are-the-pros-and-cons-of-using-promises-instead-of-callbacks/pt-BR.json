@@ -26,6 +26,7 @@
     "subtitle": null,
     "title": "Quais são os prós e contras de usar Promises em vez de callbacks?",
     "topics": [
+      "async",
       "javascript"
     ],
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-are-the-pros-and-cons-of-using-promises-instead-of-callbacks/pt-BR.mdx"

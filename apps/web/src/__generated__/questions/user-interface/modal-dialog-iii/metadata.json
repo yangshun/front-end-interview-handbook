@@ -32,5 +32,7 @@
   "slug": "modal-dialog-iii",
   "subtitle": null,
   "title": "Modal Dialog III",
-  "topics": []
+  "topics": [
+    "a11y"
+  ]
 }

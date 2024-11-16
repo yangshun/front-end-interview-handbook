@@ -37,7 +37,10 @@
     "slug": "jquery-class-manipulation",
     "subtitle": null,
     "title": "jQuery Class Manipulation",
-    "topics": []
+    "topics": [
+      "oop",
+      "web-api"
+    ]
   },
   "skeleton": {
     "js": "/**\n * @param {string} selector\n * @return {{toggleClass: Function, addClass: Function, removeClass: Function}}\n */\nexport default function $(selector) {\n  const element = document.querySelector(selector);\n\n  return {\n    /**\n     * @param {string} className\n     * @param {boolean} [state]\n     * @return {Object|void}\n     */\n    toggleClass: function (className, state) {\n      throw 'Not implemented!';\n    },\n    /**\n     * @param {string} className\n     * @return {Object}\n     */\n    addClass: function (className) {\n      throw 'Not implemented!';\n    },\n    /**\n     * @param {string} className\n     * @return {Object}\n     */\n    removeClass: function (className) {\n      throw 'Not implemented!';\n    },\n  };\n}",

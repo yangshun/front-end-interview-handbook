@@ -24,6 +24,7 @@
     "subtitle": null,
     "title": "Provide some examples of how currying and partial application can be used",
     "topics": [
+      "closure",
       "javascript"
     ],
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/provide-some-examples-of-how-currying-and-partial-application-can-be-used/en-US.mdx"

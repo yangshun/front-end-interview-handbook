@@ -47,7 +47,9 @@
     "slug": "flatten",
     "subtitle": null,
     "title": "Flatten",
-    "topics": []
+    "topics": [
+      "recursion"
+    ]
   },
   "skeleton": {
     "js": "/**\n * @param {Array<*|Array>} value\n * @return {Array}\n */\nexport default function flatten(value) {\n  throw 'Not implemented!';\n}",

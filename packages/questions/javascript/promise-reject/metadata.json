@@ -9,5 +9,6 @@
   "importance": "low",
   "difficulty": "easy",
   "similar_questions": ["promise-resolve"],
-  "next_questions": ["promise-with-resolvers"]
+  "next_questions": ["promise-with-resolvers"],
+  "topics": ["async"]
 }

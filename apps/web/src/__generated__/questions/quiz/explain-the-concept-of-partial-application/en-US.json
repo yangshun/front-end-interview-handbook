@@ -24,6 +24,7 @@
     "subtitle": null,
     "title": "Explain the concept of partial application",
     "topics": [
+      "closure",
       "javascript"
     ],
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/explain-the-concept-of-partial-application/en-US.mdx"

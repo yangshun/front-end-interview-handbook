@@ -9,5 +9,6 @@
   "published": true,
   "importance": "low",
   "difficulty": "medium",
-  "similar_questions": ["flatten", "get"]
+  "similar_questions": ["flatten", "get"],
+  "topics": ["recursion"]
 }

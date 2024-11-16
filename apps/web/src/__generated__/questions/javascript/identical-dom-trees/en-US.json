@@ -36,7 +36,11 @@
     "slug": "identical-dom-trees",
     "subtitle": null,
     "title": "Identical DOM Trees",
-    "topics": []
+    "topics": [
+      "recursion",
+      "tree",
+      "web-api"
+    ]
   },
   "skeleton": {
     "js": "/**\n * @param {Node} nodeA\n * @param {Node} nodeB\n * @return {boolean}\n */\nexport default function identicalDOMTrees(nodeA, nodeB) {\n  throw 'Not implemented!';\n}",

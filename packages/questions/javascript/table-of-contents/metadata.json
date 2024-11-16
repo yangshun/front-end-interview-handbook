@@ -8,5 +8,6 @@
   "duration": 30,
   "published": true,
   "importance": "medium",
-  "difficulty": "hard"
+  "difficulty": "hard",
+  "topics": ["recursion", "tree", "web-api"]
 }

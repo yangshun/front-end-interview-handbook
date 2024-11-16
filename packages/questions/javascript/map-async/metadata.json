@@ -9,5 +9,6 @@
   "importance": "low",
   "difficulty": "medium",
   "similar_questions": ["promise-all"],
-  "next_questions": ["map-async-limit"]
+  "next_questions": ["map-async-limit"],
+  "topics": ["async"]
 }

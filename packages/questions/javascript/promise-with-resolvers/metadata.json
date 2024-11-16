@@ -10,5 +10,6 @@
   "importance": "low",
   "difficulty": "medium",
   "similar_questions": ["promise-resolve", "promise-reject"],
-  "next_questions": []
+  "next_questions": [],
+  "topics": ["async"]
 }

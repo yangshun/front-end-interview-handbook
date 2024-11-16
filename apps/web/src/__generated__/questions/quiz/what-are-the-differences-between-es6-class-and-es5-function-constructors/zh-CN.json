@@ -24,7 +24,8 @@
     "subtitle": null,
     "title": "ES2015类和 ES5 函数构造函数之间有什么区别？",
     "topics": [
-      "javascript"
+      "javascript",
+      "oop"
     ],
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-are-the-differences-between-es6-class-and-es5-function-constructors/zh-CN.mdx"
   },

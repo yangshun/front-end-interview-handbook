@@ -36,7 +36,11 @@
     "slug": "table-of-contents",
     "subtitle": null,
     "title": "Table of Contents",
-    "topics": []
+    "topics": [
+      "recursion",
+      "tree",
+      "web-api"
+    ]
   },
   "skeleton": {
     "js": "/**\n * @param {Document} doc\n * @return {string}\n */\nexport default function tableOfContents(doc) {\n  throw 'Not implemented!';\n}",

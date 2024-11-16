@@ -24,6 +24,7 @@
     "subtitle": null,
     "title": "What is async/await and how does it simplify asynchronous code?",
     "topics": [
+      "async",
       "javascript"
     ],
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-is-asyncawait-and-how-does-it-simplify-asynchronous-code/en-US.mdx"

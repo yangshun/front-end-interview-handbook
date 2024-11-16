@@ -24,6 +24,7 @@
     "subtitle": null,
     "title": "What are the potential pitfalls of using closures?",
     "topics": [
+      "closure",
       "javascript"
     ],
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-are-the-potential-pitfalls-of-using-closures/en-US.mdx"

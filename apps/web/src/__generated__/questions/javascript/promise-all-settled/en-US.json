@@ -37,7 +37,9 @@
     "slug": "promise-all-settled",
     "subtitle": null,
     "title": "Promise.allSettled",
-    "topics": []
+    "topics": [
+      "async"
+    ]
   },
   "skeleton": {
     "js": "/**\n * @param {Array} iterable\n * @return {Promise<Array<{status: 'fulfilled', value: *}|{status: 'rejected', reason: *}>>}\n */\nexport default function promiseAllSettled(iterable) {\n  throw 'Not implemented!';\n}",

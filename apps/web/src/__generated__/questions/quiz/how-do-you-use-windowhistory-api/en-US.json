@@ -24,6 +24,7 @@
     "subtitle": null,
     "title": "How do you use `window.history` API?",
     "topics": [
+      "web-api",
       "javascript"
     ],
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/how-do-you-use-windowhistory-api/en-US.mdx"

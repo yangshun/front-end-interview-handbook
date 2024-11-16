@@ -24,8 +24,8 @@
     "subtitle": null,
     "title": "Descreva a propagação de eventos",
     "topics": [
-      "javascript",
-      "html"
+      "web-api",
+      "javascript"
     ],
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/describe-event-bubbling/pt-BR.mdx"
   },

@@ -24,6 +24,7 @@
     "subtitle": null,
     "title": "Explain the different states of a Promise",
     "topics": [
+      "async",
       "javascript"
     ],
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/explain-the-different-states-of-a-promise/en-US.mdx"

@@ -25,7 +25,7 @@
     "title": "How do you abort a web request using `AbortController` in JavaScript?",
     "topics": [
       "javascript",
-      "network"
+      "networking"
     ],
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/how-do-you-abort-a-web-request-using-abortcontrollers/en-US.mdx"
   },

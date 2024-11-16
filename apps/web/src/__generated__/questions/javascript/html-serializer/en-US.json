@@ -38,7 +38,9 @@
     "slug": "html-serializer",
     "subtitle": null,
     "title": "HTML Serializer",
-    "topics": []
+    "topics": [
+      "recursion"
+    ]
   },
   "skeleton": {
     "js": "/**\n * @param {Object} element\n * @return {string}\n */\nexport default function serializeHTML(element) {\n  throw 'Not implemented!';\n}",

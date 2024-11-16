@@ -24,6 +24,7 @@
     "subtitle": null,
     "title": "Explain the difference between `document.querySelector()` and `document.getElementById()`",
     "topics": [
+      "web-api",
       "javascript",
       "html"
     ],

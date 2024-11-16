@@ -24,7 +24,8 @@
     "subtitle": null,
     "title": "Explique `Function.prototype.bind`",
     "topics": [
-      "javascript"
+      "javascript",
+      "oop"
     ],
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/explain-function-prototype-bind/pt-BR.mdx"
   },

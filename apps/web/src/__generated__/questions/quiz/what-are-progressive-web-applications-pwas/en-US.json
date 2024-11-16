@@ -24,6 +24,7 @@
     "subtitle": null,
     "title": "What are Progressive Web Applications (PWAs)?",
     "topics": [
+      "browser",
       "javascript"
     ],
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-are-progressive-web-applications-pwas/en-US.mdx"

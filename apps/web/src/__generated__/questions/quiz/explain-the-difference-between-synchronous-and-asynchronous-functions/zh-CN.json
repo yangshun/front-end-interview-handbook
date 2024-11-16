@@ -24,6 +24,7 @@
     "subtitle": null,
     "title": "解释同步函数和异步函数之间的差异",
     "topics": [
+      "async",
       "javascript"
     ],
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/explain-the-difference-between-synchronous-and-asynchronous-functions/zh-CN.mdx"

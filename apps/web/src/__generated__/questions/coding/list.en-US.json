@@ -1,6 +1,6 @@
 [
   {
-    "access": "free",
+    "access": "premium",
     "author": "yangshun",
     "companies": [],
     "created": 1671580800,
@@ -36,7 +36,9 @@
     "slug": "accordion",
     "subtitle": null,
     "title": "Accordion",
-    "topics": []
+    "topics": [
+      "a11y"
+    ]
   },
   {
     "access": "premium",
@@ -74,7 +76,9 @@
     "slug": "accordion-ii",
     "subtitle": null,
     "title": "Accordion II",
-    "topics": []
+    "topics": [
+      "a11y"
+    ]
   },
   {
     "access": "premium",
@@ -106,7 +110,9 @@
     "slug": "accordion-iii",
     "subtitle": null,
     "title": "Accordion III",
-    "topics": []
+    "topics": [
+      "a11y"
+    ]
   },
   {
     "access": "premium",
@@ -159,7 +165,10 @@
     "slug": "analog-clock",
     "subtitle": null,
     "title": "Analog Clock",
-    "topics": []
+    "topics": [
+      "a11y",
+      "async"
+    ]
   },
   {
     "access": "premium",
@@ -405,7 +414,9 @@
     "slug": "auth-code-input",
     "subtitle": null,
     "title": "Auth Code Input",
-    "topics": []
+    "topics": [
+      "a11y"
+    ]
   },
   {
     "access": "premium",
@@ -427,9 +438,7 @@
       "js",
       "ts"
     ],
-    "nextQuestions": [
-      ""
-    ],
+    "nextQuestions": [],
     "published": true,
     "ranking": 100,
     "similarQuestions": [
@@ -439,7 +448,9 @@
     "slug": "backbone-model",
     "subtitle": null,
     "title": "Backbone Model",
-    "topics": []
+    "topics": [
+      "oop"
+    ]
   },
   {
     "access": "free",
@@ -576,7 +587,9 @@
     "slug": "camel-case-keys",
     "subtitle": null,
     "title": "Camel Case Keys",
-    "topics": []
+    "topics": [
+      "recursion"
+    ]
   },
   {
     "access": "premium",
@@ -605,7 +618,9 @@
     "slug": "cancellable-interval",
     "subtitle": null,
     "title": "Cancellable Interval",
-    "topics": []
+    "topics": [
+      "async"
+    ]
   },
   {
     "access": "premium",
@@ -634,7 +649,9 @@
     "slug": "cancellable-timeout",
     "subtitle": null,
     "title": "Cancellable Timeout",
-    "topics": []
+    "topics": [
+      "async"
+    ]
   },
   {
     "access": "premium",
@@ -966,7 +983,9 @@
     "slug": "contact-form",
     "subtitle": null,
     "title": "Contact Form",
-    "topics": []
+    "topics": [
+      "a11y"
+    ]
   },
   {
     "access": "free",
@@ -1176,7 +1195,9 @@
     "slug": "cycle",
     "subtitle": null,
     "title": "Cycle",
-    "topics": []
+    "topics": [
+      "closure"
+    ]
   },
   {
     "access": "premium",
@@ -1416,7 +1437,9 @@
     "slug": "debounce",
     "subtitle": null,
     "title": "Debounce",
-    "topics": []
+    "topics": [
+      "async"
+    ]
   },
   {
     "access": "premium",
@@ -1454,7 +1477,9 @@
     "slug": "debounce-ii",
     "subtitle": null,
     "title": "Debounce II",
-    "topics": []
+    "topics": [
+      "async"
+    ]
   },
   {
     "access": "free",
@@ -1490,7 +1515,9 @@
     "slug": "deep-clone",
     "subtitle": null,
     "title": "Deep Clone",
-    "topics": []
+    "topics": [
+      "recursion"
+    ]
   },
   {
     "access": "premium",
@@ -1519,7 +1546,9 @@
     "slug": "deep-clone-ii",
     "subtitle": null,
     "title": "Deep Clone II",
-    "topics": []
+    "topics": [
+      "recursion"
+    ]
   },
   {
     "access": "premium",
@@ -1551,7 +1580,9 @@
     "slug": "deep-equal",
     "subtitle": null,
     "title": "Deep Equal",
-    "topics": []
+    "topics": [
+      "recursion"
+    ]
   },
   {
     "access": "premium",
@@ -1581,7 +1612,9 @@
     "slug": "deep-map",
     "subtitle": null,
     "title": "Deep Map",
-    "topics": []
+    "topics": [
+      "recursion"
+    ]
   },
   {
     "access": "premium",
@@ -1610,7 +1643,9 @@
     "slug": "deep-merge",
     "subtitle": null,
     "title": "Deep Merge",
-    "topics": []
+    "topics": [
+      "recursion"
+    ]
   },
   {
     "access": "premium",
@@ -1639,7 +1674,9 @@
     "slug": "deep-omit",
     "subtitle": null,
     "title": "Deep Omit",
-    "topics": []
+    "topics": [
+      "recursion"
+    ]
   },
   {
     "access": "free",
@@ -1713,7 +1750,9 @@
     "slug": "dice-roller",
     "subtitle": null,
     "title": "Dice Roller",
-    "topics": []
+    "topics": [
+      "a11y"
+    ]
   },
   {
     "access": "premium",
@@ -1795,7 +1834,10 @@
     "slug": "digital-clock",
     "subtitle": null,
     "title": "Digital Clock",
-    "topics": []
+    "topics": [
+      "a11y",
+      "async"
+    ]
   },
   {
     "access": "premium",
@@ -1890,7 +1932,9 @@
     "slug": "event-emitter",
     "subtitle": null,
     "title": "Event Emitter",
-    "topics": []
+    "topics": [
+      "oop"
+    ]
   },
   {
     "access": "premium",
@@ -1926,7 +1970,9 @@
     "slug": "event-emitter-ii",
     "subtitle": null,
     "title": "Event Emitter II",
-    "topics": []
+    "topics": [
+      "oop"
+    ]
   },
   {
     "access": "free",
@@ -1968,7 +2014,9 @@
     "slug": "file-explorer",
     "subtitle": null,
     "title": "File Explorer",
-    "topics": []
+    "topics": [
+      "a11y"
+    ]
   },
   {
     "access": "premium",
@@ -2038,7 +2086,7 @@
       "js"
     ],
     "nextQuestions": [
-      "file-explorer-iii"
+      "nested-checkboxes"
     ],
     "published": true,
     "ranking": 100,
@@ -2172,7 +2220,9 @@
     "slug": "flatten",
     "subtitle": null,
     "title": "Flatten",
-    "topics": []
+    "topics": [
+      "recursion"
+    ]
   },
   {
     "access": "premium",
@@ -2189,6 +2239,10 @@
       {
         "framework": "react",
         "href": "/questions/user-interface/flight-booker/react"
+      },
+      {
+        "framework": "vanilla",
+        "href": "/questions/user-interface/flight-booker/vanilla"
       },
       {
         "framework": "angular",
@@ -2216,7 +2270,9 @@
     "slug": "flight-booker",
     "subtitle": null,
     "title": "Flight Booker",
-    "topics": []
+    "topics": [
+      "a11y"
+    ]
   },
   {
     "access": "premium",
@@ -2450,7 +2506,9 @@
     "slug": "get",
     "subtitle": null,
     "title": "Get",
-    "topics": []
+    "topics": [
+      "recursion"
+    ]
   },
   {
     "access": "premium",
@@ -2486,7 +2544,9 @@
     "slug": "get-elements-by-class-name",
     "subtitle": null,
     "title": "getElementsByClassName",
-    "topics": []
+    "topics": [
+      "web-api"
+    ]
   },
   {
     "access": "premium",
@@ -2520,7 +2580,9 @@
     "slug": "get-elements-by-style",
     "subtitle": null,
     "title": "getElementsByStyle",
-    "topics": []
+    "topics": [
+      "web-api"
+    ]
   },
   {
     "access": "premium",
@@ -2553,7 +2615,9 @@
     "slug": "get-elements-by-tag-name",
     "subtitle": null,
     "title": "getElementsByTagName",
-    "topics": []
+    "topics": [
+      "web-api"
+    ]
   },
   {
     "access": "premium",
@@ -2587,7 +2651,9 @@
     "slug": "get-elements-by-tag-name-hierarchy",
     "subtitle": null,
     "title": "getElementsByTagNameHierarchy",
-    "topics": []
+    "topics": [
+      "web-api"
+    ]
   },
   {
     "access": "premium",
@@ -2634,7 +2700,10 @@
     "slug": "grid-lights",
     "subtitle": null,
     "title": "Grid Lights",
-    "topics": []
+    "topics": [
+      "a11y",
+      "async"
+    ]
   },
   {
     "access": "premium",
@@ -2780,7 +2849,9 @@
     "slug": "html-serializer",
     "subtitle": null,
     "title": "HTML Serializer",
-    "topics": []
+    "topics": [
+      "recursion"
+    ]
   },
   {
     "access": "premium",
@@ -2810,7 +2881,11 @@
     "slug": "identical-dom-trees",
     "subtitle": null,
     "title": "Identical DOM Trees",
-    "topics": []
+    "topics": [
+      "recursion",
+      "tree",
+      "web-api"
+    ]
   },
   {
     "access": "free",
@@ -2854,7 +2929,9 @@
     "slug": "image-carousel",
     "subtitle": null,
     "title": "Image Carousel",
-    "topics": []
+    "topics": [
+      "a11y"
+    ]
   },
   {
     "access": "premium",
@@ -2897,7 +2974,9 @@
     "slug": "image-carousel-ii",
     "subtitle": null,
     "title": "Image Carousel II",
-    "topics": []
+    "topics": [
+      "a11y"
+    ]
   },
   {
     "access": "premium",
@@ -3167,7 +3246,9 @@
     "slug": "job-board",
     "subtitle": null,
     "title": "Job Board",
-    "topics": []
+    "topics": [
+      "networking"
+    ]
   },
   {
     "access": "premium",
@@ -3198,7 +3279,10 @@
     "slug": "jquery-class-manipulation",
     "subtitle": null,
     "title": "jQuery Class Manipulation",
-    "topics": []
+    "topics": [
+      "oop",
+      "web-api"
+    ]
   },
   {
     "access": "premium",
@@ -3229,7 +3313,10 @@
     "slug": "jquery-css",
     "subtitle": null,
     "title": "jQuery.css",
-    "topics": []
+    "topics": [
+      "oop",
+      "web-api"
+    ]
   },
   {
     "access": "premium",
@@ -3262,7 +3349,9 @@
     "slug": "json-stringify",
     "subtitle": null,
     "title": "JSON.stringify",
-    "topics": []
+    "topics": [
+      "recursion"
+    ]
   },
   {
     "access": "premium",
@@ -3293,7 +3382,9 @@
     "slug": "json-stringify-ii",
     "subtitle": null,
     "title": "JSON.stringify II",
-    "topics": []
+    "topics": [
+      "recursion"
+    ]
   },
   {
     "access": "premium",
@@ -3340,7 +3431,10 @@
     "slug": "like-button",
     "subtitle": null,
     "title": "Like Button",
-    "topics": []
+    "topics": [
+      "async",
+      "networking"
+    ]
   },
   {
     "access": "premium",
@@ -3431,7 +3525,9 @@
     "slug": "make-counter",
     "subtitle": null,
     "title": "Make Counter",
-    "topics": []
+    "topics": [
+      "closure"
+    ]
   },
   {
     "access": "premium",
@@ -3463,7 +3559,9 @@
     "slug": "make-counter-ii",
     "subtitle": null,
     "title": "Make Counter II",
-    "topics": []
+    "topics": [
+      "closure"
+    ]
   },
   {
     "access": "premium",
@@ -3498,7 +3596,9 @@
     "slug": "map-async",
     "subtitle": null,
     "title": "Map Async",
-    "topics": []
+    "topics": [
+      "async"
+    ]
   },
   {
     "access": "premium",
@@ -3531,7 +3631,9 @@
     "slug": "map-async-limit",
     "subtitle": null,
     "title": "Map Async Limit",
-    "topics": []
+    "topics": [
+      "async"
+    ]
   },
   {
     "access": "premium",
@@ -3790,7 +3892,9 @@
     "slug": "modal-dialog",
     "subtitle": null,
     "title": "Modal Dialog",
-    "topics": []
+    "topics": [
+      "a11y"
+    ]
   },
   {
     "access": "premium",
@@ -3827,7 +3931,9 @@
     "slug": "modal-dialog-ii",
     "subtitle": null,
     "title": "Modal Dialog II",
-    "topics": []
+    "topics": [
+      "a11y"
+    ]
   },
   {
     "access": "premium",
@@ -3863,7 +3969,9 @@
     "slug": "modal-dialog-iii",
     "subtitle": null,
     "title": "Modal Dialog III",
-    "topics": []
+    "topics": [
+      "a11y"
+    ]
   },
   {
     "access": "premium",
@@ -3897,7 +4005,9 @@
     "slug": "modal-dialog-iv",
     "subtitle": null,
     "title": "Modal Dialog IV",
-    "topics": []
+    "topics": [
+      "a11y"
+    ]
   },
   {
     "access": "free",
@@ -4075,7 +4185,9 @@
     "slug": "once",
     "subtitle": null,
     "title": "Once",
-    "topics": []
+    "topics": [
+      "closure"
+    ]
   },
   {
     "access": "premium",
@@ -4120,7 +4232,9 @@
     "slug": "pixel-art",
     "subtitle": null,
     "title": "Pixel Art",
-    "topics": []
+    "topics": [
+      "a11y"
+    ]
   },
   {
     "access": "premium",
@@ -4202,7 +4316,9 @@
     "slug": "progress-bars",
     "subtitle": null,
     "title": "Progress Bars",
-    "topics": []
+    "topics": [
+      "async"
+    ]
   },
   {
     "access": "premium",
@@ -4239,7 +4355,9 @@
     "slug": "progress-bars-ii",
     "subtitle": null,
     "title": "Progress Bars II",
-    "topics": []
+    "topics": [
+      "async"
+    ]
   },
   {
     "access": "premium",
@@ -4276,7 +4394,9 @@
     "slug": "progress-bars-iii",
     "subtitle": null,
     "title": "Progress Bars III",
-    "topics": []
+    "topics": [
+      "async"
+    ]
   },
   {
     "access": "premium",
@@ -4311,7 +4431,9 @@
     "slug": "progress-bars-iv",
     "subtitle": null,
     "title": "Progress Bars IV",
-    "topics": []
+    "topics": [
+      "async"
+    ]
   },
   {
     "access": "premium",
@@ -4343,7 +4465,9 @@
     "slug": "promise-merge",
     "subtitle": null,
     "title": "Promise Merge",
-    "topics": []
+    "topics": [
+      "async"
+    ]
   },
   {
     "access": "premium",
@@ -4370,7 +4494,9 @@
     "slug": "promise-timeout",
     "subtitle": null,
     "title": "Promise Timeout",
-    "topics": []
+    "topics": [
+      "async"
+    ]
   },
   {
     "access": "free",
@@ -4411,7 +4537,9 @@
     "slug": "promise-all",
     "subtitle": null,
     "title": "Promise.all",
-    "topics": []
+    "topics": [
+      "async"
+    ]
   },
   {
     "access": "premium",
@@ -4442,7 +4570,9 @@
     "slug": "promise-all-settled",
     "subtitle": null,
     "title": "Promise.allSettled",
-    "topics": []
+    "topics": [
+      "async"
+    ]
   },
   {
     "access": "premium",
@@ -4473,7 +4603,9 @@
     "slug": "promise-any",
     "subtitle": null,
     "title": "Promise.any",
-    "topics": []
+    "topics": [
+      "async"
+    ]
   },
   {
     "access": "premium",
@@ -4506,7 +4638,9 @@
     "slug": "promise-race",
     "subtitle": null,
     "title": "Promise.race",
-    "topics": []
+    "topics": [
+      "async"
+    ]
   },
   {
     "access": "premium",
@@ -4539,7 +4673,9 @@
     "slug": "promise-reject",
     "subtitle": null,
     "title": "Promise.reject",
-    "topics": []
+    "topics": [
+      "async"
+    ]
   },
   {
     "access": "premium",
@@ -4572,7 +4708,9 @@
     "slug": "promise-resolve",
     "subtitle": null,
     "title": "Promise.resolve",
-    "topics": []
+    "topics": [
+      "async"
+    ]
   },
   {
     "access": "premium",
@@ -4602,7 +4740,9 @@
     "slug": "promise-with-resolvers",
     "subtitle": null,
     "title": "Promise.withResolvers",
-    "topics": []
+    "topics": [
+      "async"
+    ]
   },
   {
     "access": "premium",
@@ -4633,7 +4773,9 @@
     "slug": "promisify",
     "subtitle": null,
     "title": "Promisify",
-    "topics": []
+    "topics": [
+      "async"
+    ]
   },
   {
     "access": "premium",
@@ -4660,7 +4802,9 @@
     "slug": "promisify-ii",
     "subtitle": null,
     "title": "Promisify II",
-    "topics": []
+    "topics": [
+      "async"
+    ]
   },
   {
     "access": "free",
@@ -4811,7 +4955,10 @@
     "slug": "resumable-interval",
     "subtitle": null,
     "title": "Resumable Interval",
-    "topics": []
+    "topics": [
+      "async",
+      "closure"
+    ]
   },
   {
     "access": "premium",
@@ -4993,7 +5140,9 @@
     "slug": "sleep",
     "subtitle": null,
     "title": "Sleep",
-    "topics": []
+    "topics": [
+      "async"
+    ]
   },
   {
     "access": "premium",
@@ -5023,7 +5172,9 @@
     "slug": "squash-object",
     "subtitle": null,
     "title": "Squash Object",
-    "topics": []
+    "topics": [
+      "recursion"
+    ]
   },
   {
     "access": "free",
@@ -5159,7 +5310,9 @@
     "slug": "stopwatch",
     "subtitle": null,
     "title": "Stopwatch",
-    "topics": []
+    "topics": [
+      "async"
+    ]
   },
   {
     "access": "premium",
@@ -5191,7 +5344,9 @@
     "slug": "sum",
     "subtitle": null,
     "title": "Sum",
-    "topics": []
+    "topics": [
+      "closure"
+    ]
   },
   {
     "access": "premium",
@@ -5221,7 +5376,11 @@
     "slug": "table-of-contents",
     "subtitle": null,
     "title": "Table of Contents",
-    "topics": []
+    "topics": [
+      "recursion",
+      "tree",
+      "web-api"
+    ]
   },
   {
     "access": "free",
@@ -5271,7 +5430,9 @@
     "slug": "tabs",
     "subtitle": null,
     "title": "Tabs",
-    "topics": []
+    "topics": [
+      "a11y"
+    ]
   },
   {
     "access": "premium",
@@ -5321,7 +5482,9 @@
     "slug": "tabs-ii",
     "subtitle": null,
     "title": "Tabs II",
-    "topics": []
+    "topics": [
+      "a11y"
+    ]
   },
   {
     "access": "premium",
@@ -5364,7 +5527,9 @@
     "slug": "tabs-iii",
     "subtitle": null,
     "title": "Tabs III",
-    "topics": []
+    "topics": [
+      "a11y"
+    ]
   },
   {
     "access": "premium",
@@ -5512,7 +5677,9 @@
     "slug": "throttle",
     "subtitle": null,
     "title": "Throttle",
-    "topics": []
+    "topics": [
+      "async"
+    ]
   },
   {
     "access": "premium",
@@ -5564,7 +5731,9 @@
     "slug": "tic-tac-toe",
     "subtitle": null,
     "title": "Tic-tac-toe",
-    "topics": []
+    "topics": [
+      "a11y"
+    ]
   },
   {
     "access": "premium",
@@ -5614,7 +5783,9 @@
     "slug": "tic-tac-toe-ii",
     "subtitle": null,
     "title": "Tic-tac-toe II",
-    "topics": []
+    "topics": [
+      "a11y"
+    ]
   },
   {
     "access": "free",
@@ -5755,7 +5926,9 @@
     "slug": "traffic-light",
     "subtitle": null,
     "title": "Traffic Light",
-    "topics": []
+    "topics": [
+      "async"
+    ]
   },
   {
     "access": "premium",
@@ -5881,7 +6054,9 @@
     "slug": "turtle",
     "subtitle": null,
     "title": "Turtle",
-    "topics": []
+    "topics": [
+      "oop"
+    ]
   },
   {
     "access": "premium",

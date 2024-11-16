@@ -38,7 +38,9 @@
     "slug": "deep-equal",
     "subtitle": null,
     "title": "Deep Equal",
-    "topics": []
+    "topics": [
+      "recursion"
+    ]
   },
   "skeleton": {
     "js": "/**\n * @param {*} valueA\n * @param {*} valueB\n * @return {boolean}\n */\nexport default function deepEqual(valueA, valueB) {\n  throw 'Not implemented!';\n}",

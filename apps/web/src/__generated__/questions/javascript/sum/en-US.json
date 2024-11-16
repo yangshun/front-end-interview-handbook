@@ -38,7 +38,9 @@
     "slug": "sum",
     "subtitle": null,
     "title": "Sum",
-    "topics": []
+    "topics": [
+      "closure"
+    ]
   },
   "skeleton": {
     "js": "/**\n * @param {number} value\n * @return {Function}\n */\nexport default function sum(value) {\n  throw 'Not implemented!';\n}",

@@ -24,7 +24,8 @@
     "subtitle": null,
     "title": "What are server-sent events?",
     "topics": [
-      "javascript"
+      "javascript",
+      "networking"
     ],
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-are-server-sent-events/en-US.mdx"
   },

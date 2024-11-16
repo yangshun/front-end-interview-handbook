@@ -37,7 +37,9 @@
     "slug": "get",
     "subtitle": null,
     "title": "Get",
-    "topics": []
+    "topics": [
+      "recursion"
+    ]
   },
   "skeleton": {
     "js": "/**\n * @param {Object} objectParam\n * @param {string|Array<string>} pathParam\n * @param {*} [defaultValue]\n * @return {*}\n */\nexport default function get(objectParam, pathParam, defaultValue) {\n  throw 'Not implemented!';\n}",

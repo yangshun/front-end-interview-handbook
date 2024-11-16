@@ -24,7 +24,8 @@
     "subtitle": null,
     "title": "Why is extending built-in JavaScript objects not a good idea?",
     "topics": [
-      "javascript"
+      "javascript",
+      "oop"
     ],
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/why-is-extending-built-in-javascript-objects-not-a-good-idea/en-US.mdx"
   },

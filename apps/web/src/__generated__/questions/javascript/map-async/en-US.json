@@ -41,7 +41,9 @@
     "slug": "map-async",
     "subtitle": null,
     "title": "Map Async",
-    "topics": []
+    "topics": [
+      "async"
+    ]
   },
   "skeleton": {
     "js": "/**\n * @param {Array<any>} iterable\n * @param {Function} callbackFn\n *\n * @return {Promise}\n */\nexport default function mapAsync(iterable, callbackFn) {\n  throw 'Not implemented';\n}",

@@ -25,7 +25,7 @@
     "title": "Explique a política de mesma origem em relação ao JavaScript",
     "topics": [
       "javascript",
-      "network",
+      "networking",
       "security"
     ],
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/explain-the-same-origin-policy-with-regards-to-javascript/pt-BR.mdx"

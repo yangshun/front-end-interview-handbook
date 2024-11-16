@@ -33,7 +33,9 @@
     "slug": "promise-timeout",
     "subtitle": null,
     "title": "Promise Timeout",
-    "topics": []
+    "topics": [
+      "async"
+    ]
   },
   "skeleton": {
     "js": "/**\n * @template T\n * @param {Promise<T>} promise\n * @param {number} duration\n * @return {Promise<T>}\n */\nexport default function promiseTimeout(promise, duration) {\n  throw 'Not implemented';\n}",

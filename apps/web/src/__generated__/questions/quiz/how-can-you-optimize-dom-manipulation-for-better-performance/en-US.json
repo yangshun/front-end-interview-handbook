@@ -24,6 +24,7 @@
     "subtitle": null,
     "title": "How can you optimize DOM manipulation for better performance?",
     "topics": [
+      "web-api",
       "javascript",
       "performance"
     ],

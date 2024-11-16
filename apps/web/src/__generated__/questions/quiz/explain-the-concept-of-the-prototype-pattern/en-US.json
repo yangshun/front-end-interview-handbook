@@ -24,7 +24,8 @@
     "subtitle": null,
     "title": "Explain the concept of the Prototype pattern",
     "topics": [
-      "javascript"
+      "javascript",
+      "oop"
     ],
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/explain-the-concept-of-the-prototype-pattern/en-US.mdx"
   },

@@ -37,7 +37,9 @@
     "slug": "promise-any",
     "subtitle": null,
     "title": "Promise.any",
-    "topics": []
+    "topics": [
+      "async"
+    ]
   },
   "skeleton": {
     "js": "/**\n * @param {Array} iterable\n * @return {Promise}\n */\nexport default function promiseAny(iterable) {\n  throw 'Not implemented!';\n}",

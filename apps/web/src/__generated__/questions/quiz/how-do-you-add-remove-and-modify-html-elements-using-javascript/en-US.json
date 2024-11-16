@@ -24,6 +24,7 @@
     "subtitle": null,
     "title": "How do you add, remove, and modify HTML elements using JavaScript?",
     "topics": [
+      "web-api",
       "javascript",
       "html"
     ],

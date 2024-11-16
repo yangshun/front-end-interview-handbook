@@ -24,6 +24,7 @@
     "subtitle": null,
     "title": "What is the use of `Promise.all()`",
     "topics": [
+      "async",
       "javascript"
     ],
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-is-the-use-of-promiseall/en-US.mdx"

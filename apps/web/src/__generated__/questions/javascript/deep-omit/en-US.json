@@ -35,7 +35,9 @@
     "slug": "deep-omit",
     "subtitle": null,
     "title": "Deep Omit",
-    "topics": []
+    "topics": [
+      "recursion"
+    ]
   },
   "skeleton": {
     "js": "/**\n * @param {any} val\n * @param {Array<string>} keys\n * @returns any\n */\nexport default function deepOmit(val, keys) {\n  throw 'Not implemented';\n}",

@@ -24,6 +24,7 @@
     "subtitle": null,
     "title": "What are Web Workers and how can they be used to improve performance?",
     "topics": [
+      "web-api",
       "javascript",
       "performance"
     ],

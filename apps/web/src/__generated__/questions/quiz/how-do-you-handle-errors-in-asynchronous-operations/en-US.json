@@ -24,6 +24,7 @@
     "subtitle": null,
     "title": "How do you handle errors in asynchronous operations?",
     "topics": [
+      "async",
       "javascript"
     ],
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/how-do-you-handle-errors-in-asynchronous-operations/en-US.mdx"

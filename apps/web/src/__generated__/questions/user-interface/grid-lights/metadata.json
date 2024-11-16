@@ -43,5 +43,8 @@
   "slug": "grid-lights",
   "subtitle": null,
   "title": "Grid Lights",
-  "topics": []
+  "topics": [
+    "a11y",
+    "async"
+  ]
 }

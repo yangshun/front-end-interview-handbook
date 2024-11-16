@@ -24,7 +24,8 @@
     "subtitle": null,
     "title": "What is recursion and how is it used in JavaScript?",
     "topics": [
-      "javascript"
+      "javascript",
+      "recursion"
     ],
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-is-recursion-and-how-is-it-used-in-javascript/en-US.mdx"
   },

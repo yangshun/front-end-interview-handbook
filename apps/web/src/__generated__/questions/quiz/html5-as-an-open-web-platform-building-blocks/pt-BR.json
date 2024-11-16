@@ -24,6 +24,7 @@
     "subtitle": null,
     "title": "Considere HTML5 como uma plataforma web aberta. Quais são os blocos de construção do HTML5?",
     "topics": [
+      "browser",
       "html"
     ],
     "gitHubEditUrl": "https://github.com/yangshun/front-end-interview-handbook/blob/main/packages/quiz/questions/html5-as-an-open-web-platform-building-blocks/pt-BR.mdx"

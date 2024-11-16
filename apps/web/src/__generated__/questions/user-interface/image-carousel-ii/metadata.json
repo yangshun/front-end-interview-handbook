@@ -39,5 +39,7 @@
   "slug": "image-carousel-ii",
   "subtitle": null,
   "title": "Image Carousel II",
-  "topics": []
+  "topics": [
+    "a11y"
+  ]
 }

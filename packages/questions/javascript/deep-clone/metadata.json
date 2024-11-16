@@ -10,5 +10,6 @@
   "importance": "high",
   "difficulty": "medium",
   "similar_questions": ["deep-equal", "deep-clone-ii"],
-  "next_questions": ["todo-list", "deep-equal", "deep-clone-ii"]
+  "next_questions": ["todo-list", "deep-equal", "deep-clone-ii"],
+  "topics": ["recursion"]
 }

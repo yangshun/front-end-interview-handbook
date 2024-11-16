@@ -46,5 +46,7 @@
   "slug": "tabs-ii",
   "subtitle": null,
   "title": "Tabs II",
-  "topics": []
+  "topics": [
+    "a11y"
+  ]
 }

@@ -24,8 +24,8 @@
     "subtitle": null,
     "title": "What are the different ways to visually hide content (and make it available only for screen readers)?",
     "topics": [
-      "css",
-      "a11y"
+      "a11y",
+      "css"
     ],
     "gitHubEditUrl": "https://github.com/yangshun/front-end-interview-handbook/blob/main/packages/quiz/questions/what-are-the-different-ways-to-visually-hide-content-and-make-it-available-only-for-screen-readers/en-US.mdx"
   },

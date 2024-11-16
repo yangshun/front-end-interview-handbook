@@ -10,5 +10,6 @@
   "importance": "low",
   "difficulty": "hard",
   "featured": true,
-  "similar_questions": ["html-serializer"]
+  "similar_questions": ["html-serializer"],
+  "topics": ["recursion"]
 }

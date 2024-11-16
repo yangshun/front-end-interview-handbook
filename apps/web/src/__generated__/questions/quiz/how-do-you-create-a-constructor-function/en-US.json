@@ -24,7 +24,8 @@
     "subtitle": null,
     "title": "How do you create a constructor function?",
     "topics": [
-      "javascript"
+      "javascript",
+      "oop"
     ],
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/how-do-you-create-a-constructor-function/en-US.mdx"
   },

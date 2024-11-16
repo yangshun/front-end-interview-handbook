@@ -24,6 +24,7 @@
     "subtitle": null,
     "title": "What are callback functions and how are they used?",
     "topics": [
+      "async",
       "javascript"
     ],
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-are-callback-functions-and-how-are-they-used/en-US.mdx"

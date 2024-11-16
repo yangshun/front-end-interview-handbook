@@ -41,5 +41,7 @@
   "slug": "pixel-art",
   "subtitle": null,
   "title": "Pixel Art",
-  "topics": []
+  "topics": [
+    "a11y"
+  ]
 }

@@ -34,5 +34,7 @@
   "slug": "accordion-ii",
   "subtitle": null,
   "title": "Accordion II",
-  "topics": []
+  "topics": [
+    "a11y"
+  ]
 }

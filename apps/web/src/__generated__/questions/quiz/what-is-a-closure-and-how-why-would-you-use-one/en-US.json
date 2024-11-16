@@ -29,6 +29,7 @@
     "subtitle": null,
     "title": "What is a closure in JavaScript, and how/why would you use one?",
     "topics": [
+      "closure",
       "javascript"
     ],
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-is-a-closure-and-how-why-would-you-use-one/en-US.mdx"

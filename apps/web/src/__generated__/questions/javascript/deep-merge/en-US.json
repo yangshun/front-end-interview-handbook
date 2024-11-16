@@ -35,7 +35,9 @@
     "slug": "deep-merge",
     "subtitle": null,
     "title": "Deep Merge",
-    "topics": []
+    "topics": [
+      "recursion"
+    ]
   },
   "skeleton": {
     "js": "/**\n * @param {Object|Array} valA\n * @param {Object|Array} valB\n * @returns Object|Array\n */\nexport default function deepMerge(valA, valB) {\n  throw 'Not implemented';\n}",

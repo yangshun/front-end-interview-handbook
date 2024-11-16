@@ -38,5 +38,7 @@
   "slug": "file-explorer",
   "subtitle": null,
   "title": "File Explorer",
-  "topics": []
+  "topics": [
+    "a11y"
+  ]
 }

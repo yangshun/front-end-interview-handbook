@@ -24,8 +24,8 @@
     "subtitle": null,
     "title": "Describe event capturing in JavaScript and browsers",
     "topics": [
-      "javascript",
-      "html"
+      "web-api",
+      "javascript"
     ],
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/describe-event-capturing/en-US.mdx"
   },

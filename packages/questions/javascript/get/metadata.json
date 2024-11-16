@@ -9,5 +9,6 @@
   "published": true,
   "importance": "low",
   "difficulty": "easy",
-  "similar_questions": ["squash-object"]
+  "similar_questions": ["squash-object"],
+  "topics": ["recursion"]
 }

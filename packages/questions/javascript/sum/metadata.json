@@ -9,5 +9,6 @@
   "published": true,
   "importance": "low",
   "difficulty": "easy",
-  "similar_questions": ["curry", "curry-ii"]
+  "similar_questions": ["curry", "curry-ii"],
+  "topics": ["closure"]
 }

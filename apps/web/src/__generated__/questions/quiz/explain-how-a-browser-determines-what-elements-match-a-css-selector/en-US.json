@@ -24,6 +24,7 @@
     "subtitle": null,
     "title": "Explain how a browser determines what elements match a CSS selector.",
     "topics": [
+      "browser",
       "css"
     ],
     "gitHubEditUrl": "https://github.com/yangshun/front-end-interview-handbook/blob/main/packages/quiz/questions/explain-how-a-browser-determines-what-elements-match-a-css-selector/en-US.mdx"

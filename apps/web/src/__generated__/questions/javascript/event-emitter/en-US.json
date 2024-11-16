@@ -43,7 +43,9 @@
     "slug": "event-emitter",
     "subtitle": null,
     "title": "Event Emitter",
-    "topics": []
+    "topics": [
+      "oop"
+    ]
   },
   "skeleton": {
     "js": "// You are free to use alternative approaches of\n// instantiating the EventEmitter as long as the\n// default export is correct.\n\nexport default class EventEmitter {\n  constructor() {\n    throw 'Not implemented!';\n  }\n\n  /**\n   * @param {string} eventName\n   * @param {Function} listener\n   * @returns {EventEmitter}\n   */\n  on(eventName, listener) {\n    throw 'Not implemented!';\n  }\n\n  /**\n   * @param {string} eventName\n   * @param {Function} listener\n   * @returns {EventEmitter}\n   */\n  off(eventName, listener) {\n    throw 'Not implemented!';\n  }\n\n  /**\n   * @param {string} eventName\n   * @param  {...any} args\n   * @returns {boolean}\n   */\n  emit(eventName, ...args) {\n    throw 'Not implemented!';\n  }\n}",

@@ -24,7 +24,8 @@
     "subtitle": null,
     "title": "What is the purpose of the `new` keyword?",
     "topics": [
-      "javascript"
+      "javascript",
+      "oop"
     ],
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-is-the-purpose-of-the-new-keyword/en-US.mdx"
   },

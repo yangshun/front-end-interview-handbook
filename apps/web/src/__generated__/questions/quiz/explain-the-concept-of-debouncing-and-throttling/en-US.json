@@ -24,6 +24,7 @@
     "subtitle": null,
     "title": "Explain the concept of debouncing and throttling",
     "topics": [
+      "async",
       "javascript",
       "performance"
     ],

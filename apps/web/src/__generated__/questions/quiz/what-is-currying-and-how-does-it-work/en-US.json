@@ -24,6 +24,7 @@
     "subtitle": null,
     "title": "What is currying and how does it work?",
     "topics": [
+      "closure",
       "javascript"
     ],
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-is-currying-and-how-does-it-work/en-US.mdx"

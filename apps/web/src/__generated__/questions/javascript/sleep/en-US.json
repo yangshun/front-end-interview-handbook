@@ -33,7 +33,9 @@
     "slug": "sleep",
     "subtitle": null,
     "title": "Sleep",
-    "topics": []
+    "topics": [
+      "async"
+    ]
   },
   "skeleton": {
     "js": "/**\n * @param {number} duration\n * @return {Promise<void>}\n */\nexport default async function sleep(duration) {\n  throw 'Not implemented';\n}",
