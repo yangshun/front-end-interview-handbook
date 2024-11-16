@@ -147,8 +147,12 @@ export default function InterviewsRevampFocusAreaListPage({
         {bottomContent && (
           <>
             <Divider className="my-8 md:my-4" />
-
-            <MDXContent mdxCode={bottomContent.body.code} />
+            <MDXContent
+              components={{
+                FocusAreasCount: () => <span>{focusAreas.length}</span>,
+              }}
+              mdxCode={bottomContent.body.code}
+            />
           </>
         )}
       </Section>
