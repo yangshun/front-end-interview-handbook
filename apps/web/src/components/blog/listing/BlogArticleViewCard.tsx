@@ -1,7 +1,6 @@
 'use client';
 
 import clsx from 'clsx';
-import type { BlogPost } from 'contentlayer/generated';
 import { useState } from 'react';
 import {
   RiArrowDownSLine,
@@ -10,7 +9,6 @@ import {
 } from 'react-icons/ri';
 
 import BlogArticle from '~/components/blog/articles/BlogArticle';
-import BlogMdx from '~/components/blog/articles/BlogMdx';
 import type { BlogMetadata } from '~/components/blog/BlogTypes';
 import { useIntl } from '~/components/intl';
 import Button from '~/components/ui/Button';
@@ -23,7 +21,7 @@ type Props = Readonly<{
   metadata: BlogMetadata;
 }>;
 
-export default function ArticleViewCard({ metadata }: Props) {
+export default function BlogArticleViewCard({ metadata }: Props) {
   const intl = useIntl();
   const [isExpanded, setIsExpanded] = useState(false);
 
@@ -39,9 +37,7 @@ export default function ArticleViewCard({ metadata }: Props) {
           'max-h-[700px]': !isExpanded,
           'max-h-full': isExpanded,
         })}>
-        <BlogArticle metadata={metadata} view="card">
-          <BlogMdx code={(metadata as BlogPost)?.body.code || ''} />
-        </BlogArticle>
+        <BlogArticle metadata={metadata} view="card" />
       </div>
       <div className="flex items-center justify-between">
         <Button

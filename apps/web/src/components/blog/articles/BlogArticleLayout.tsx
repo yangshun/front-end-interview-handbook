@@ -39,9 +39,7 @@ export default function BlogArticleLayout({
         title={metadata.title}
       />
       <BlogMainLayout seriesContents={seriesContents}>
-        <Container
-          className={clsx('flex flex-col', 'py-6 lg:py-8')}
-          width="app">
+        <Container className={clsx('flex flex-col')} width="app">
           <div
             className={clsx(
               'flex gap-x-10 gap-y-8 md:gap-y-10 2xl:gap-y-12',
@@ -50,7 +48,7 @@ export default function BlogArticleLayout({
             {metadata.isSeriesArticle && seriesContents && (
               <div
                 className={clsx(
-                  'hidden xl:block',
+                  'hidden md:block',
                   'sticky top-[var(--global-sticky-height)] h-[calc(100vh_-_var(--global-sticky-height))]',
                   'w-[200px]',
                 )}>

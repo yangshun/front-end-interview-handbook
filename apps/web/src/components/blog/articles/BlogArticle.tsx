@@ -1,7 +1,9 @@
 'use client';
 
+import type { BlogPost } from 'contentlayer/generated';
 import type { PropsWithChildren } from 'react';
 
+import BlogMdx from '~/components/blog/articles/BlogMdx';
 import type { BlogMetadata } from '~/components/blog/BlogTypes';
 import BlogMetadataSection from '~/components/blog/metadata/BlogMetadataSection';
 import Heading from '~/components/ui/Heading';
@@ -16,16 +18,12 @@ type Props = PropsWithChildren<
   }>
 >;
 
-export default function BlogArticle({
-  metadata,
-  view = 'default',
-  children,
-}: Props) {
+export default function BlogArticle({ metadata, view = 'default' }: Props) {
   return (
     <div className="flex flex-col gap-12">
       <div className="flex flex-col gap-5">
         <div className="flex flex-col gap-3">
-          <Heading level={view === 'card' ? 'heading6' : 'heading4'}>
+          <Heading level={view === 'card' ? 'heading5' : 'heading4'}>
             {metadata.title}
           </Heading>
           <Text
@@ -45,7 +43,7 @@ export default function BlogArticle({
           src={metadata.imageUrl}
         />
       )}
-      {children}
+      <BlogMdx code={(metadata as BlogPost)?.body.code || ''} textSize="sm" />
     </div>
   );
 }

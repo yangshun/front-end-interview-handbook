@@ -11,11 +11,7 @@ export default async function ExploreLayout({ children }: Props) {
   return (
     <BlogMainLayout>
       <Container
-        className={clsx(
-          'flex flex-col',
-          'py-4 md:py-6 lg:py-8',
-          'gap-y-8 md:gap-y-10 2xl:gap-y-12',
-        )}
+        className={clsx('flex flex-col', 'gap-y-8 md:gap-y-10 2xl:gap-y-12')}
         width="app">
         {children}
       </Container>

@@ -2,7 +2,6 @@ import type { Metadata } from 'next';
 
 import { readBlogPostsAll } from '~/components/blog/data/BlogReader';
 import { BlogLatestPage } from '~/components/blog/listing/BlogLatestPage';
-import BlogWhatsNewListing from '~/components/blog/listing/BlogWhatsNewListing';
 
 import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
@@ -38,9 +37,5 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function Page() {
   const posts = readBlogPostsAll();
 
-  return (
-    <BlogLatestPage>
-      <BlogWhatsNewListing posts={posts} />
-    </BlogLatestPage>
-  );
+  return <BlogLatestPage posts={posts} />;
 }
