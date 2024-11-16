@@ -29,7 +29,10 @@ export default function MarketingFAQSection({
 }: Props) {
   return (
     <div className="flex flex-col gap-y-2">
-      <Heading className={clsx(hideTitle && 'sr-only')} level="heading4">
+      <Heading
+        className={clsx(hideTitle && 'sr-only')}
+        level="heading3"
+        weight="medium">
         {title}
       </Heading>
       <Section>

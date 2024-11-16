@@ -62,7 +62,9 @@ export default function InterviewsFAQPage() {
 
   return (
     <Container className="my-20 flex flex-col gap-y-8" width="marketing">
-      <Heading level="heading2">GreatFrontEnd Interviews FAQs</Heading>
+      <Heading level="heading2" weight="medium">
+        GreatFrontEnd Interviews FAQs
+      </Heading>
       <Section>
         <Text color="secondary">
           This page answers questions related to GreatFrontEnd Interviews.
