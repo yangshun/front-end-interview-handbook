@@ -61,8 +61,8 @@ const variantClasses: Record<
   primary: {
     backgroundClass: 'bg-brand-dark dark:bg-brand',
     borderClass: '',
-    iconClass: 'text-white',
-    textClass: 'text-white',
+    iconClass: 'text-neutral-900',
+    textClass: 'text-neutral-900',
   },
   secondary: {
     backgroundClass: 'bg-brand-lightest dark:bg-neutral-800',
