@@ -31,14 +31,14 @@ import MDXContent from '~/components/mdx/MDXContent';
 import Divider from '~/components/ui/Divider';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
+import { themeTextSecondaryColor } from '~/components/ui/theme';
 
 import {
   categorizeQuestionsProgress,
   filterQuestionsProgressByList,
 } from '~/db/QuestionsUtils';
 
-import InterviewsCompanyInsiderTipsSlider from './InterviewsCompanyInsiderTipsSlider';
-import useQuestionTopicLabels from '../questions/listings/filters/useQuestionTopicLabels';
+import useQuestionTopicLabels from '../../filters/useQuestionTopicLabels';
 
 import { useUser } from '@supabase/auth-helpers-react';
 
@@ -119,20 +119,6 @@ export default function InterviewsCompanyGuidePage({
     },
   ];
 
-  // TODO(interviews): add real insider tips data
-  const insiderTipsData = [
-    {
-      content:
-        'Amazon is known to focus a lot on behavioral questions and their Leadership Principles. Hence be well-prepared in the non-technical aspects too.',
-      id: 'tip1',
-    },
-    {
-      content:
-        'Google is known to focus a lot on behavioral questions and their Leadership Principles. Hence be well-prepared in the non-technical aspects too.',
-      id: 'tip2',
-    },
-  ];
-
   return (
     <div className={clsx('flex flex-col gap-y-12 md:gap-y-16', 'relative')}>
       <div className="relative flex flex-col gap-y-8">
@@ -155,11 +141,15 @@ export default function InterviewsCompanyGuidePage({
             },
           )}
         />
-        {/* Insider tips */}
-        {insiderTipsData.length > 0 && (
-          <div className="max-w-2xl">
-            <InterviewsCompanyInsiderTipsSlider data={insiderTipsData} />
-          </div>
+        {studyList.body.code && (
+          <MDXContent
+            fontSize="sm"
+            mdxCode={studyList.body.code}
+            proseClassName={clsx(
+              'block xl:max-w-[75%]',
+              themeTextSecondaryColor,
+            )}
+          />
         )}
       </div>
       <Section>

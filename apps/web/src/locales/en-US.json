@@ -5347,10 +5347,6 @@
     "defaultMessage": "Account",
     "description": "Profile account tab title"
   },
-  "XwYAwS": {
-    "defaultMessage": "Interviewers",
-    "description": "Label for interviewers"
-  },
   "XwbyU0": {
     "defaultMessage": "Types of UI questions, concepts to cover and rubrics",
     "description": "Front End User Interface interview questions, concepts and rubrics"
@@ -6886,10 +6882,6 @@
   "hm0ODb": {
     "defaultMessage": "Delete comment?",
     "description": "Delete comment confirmation dialog title"
-  },
-  "hnbgcq": {
-    "defaultMessage": "Insider tips",
-    "description": "Title for inside tips"
   },
   "hqeSrQ": {
     "defaultMessage": "Everything else apart from the actual technical execution has been prepared for you. Just click \"Start project\", and we will take care of everything else.",
