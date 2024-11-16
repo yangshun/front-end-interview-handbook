@@ -408,54 +408,37 @@ export function categorizeQuestionsByTopic(
     quizQuestions: ReadonlyArray<QuestionMetadata>;
   }>,
 ): Record<QuestionTopic, ReadonlyArray<QuestionMetadata>> {
-  const categorizedQuestions: Record<
-    QuestionTopic,
-    ReadonlyArray<QuestionMetadata>
-  > = {
+  const categorizedQuestions: Record<QuestionTopic, Array<QuestionMetadata>> = {
     a11y: [],
+    async: [],
+    browser: [],
+    closure: [],
     css: [],
+    graph: [],
     html: [],
     i18n: [],
     javascript: [],
-    network: [],
+    networking: [],
+    oop: [],
     performance: [],
+    recursion: [],
     security: [],
     testing: [],
+    tree: [],
+    'web-api': [],
   };
   const { codingQuestions, quizQuestions } = questions;
-  const LANGUAGE_TO_TOPIC: Record<string, QuestionTopic> = {
-    css: 'css',
-    html: 'html',
-    js: 'javascript',
-  };
 
-  function categorize(question: QuestionMetadata, type: 'coding' | 'quiz') {
-    if (type === 'coding') {
-      question.languages.forEach((language) => {
-        const topic = LANGUAGE_TO_TOPIC[language];
-
-        if (topic) {
-          categorizedQuestions[topic] = [
-            ...categorizedQuestions[topic],
-            question,
-          ];
-        }
-      });
-    } else {
-      question.topics.forEach((topic) => {
-        if (categorizedQuestions[topic]) {
-          categorizedQuestions[topic] = [
-            ...categorizedQuestions[topic],
-            question,
-          ];
-        }
-      });
-    }
-  }
-
-  // Process all coding and quiz questions in a single pass
-  codingQuestions.forEach((question) => categorize(question, 'coding'));
-  quizQuestions.forEach((question) => categorize(question, 'quiz'));
+  codingQuestions.forEach((question) => {
+    question.topics.forEach((topic) => {
+      categorizedQuestions[topic].push(question);
+    });
+  });
+  quizQuestions.forEach((question) => {
+    question.topics.forEach((topic) => {
+      categorizedQuestions[topic].push(question);
+    });
+  });
 
   return categorizedQuestions;
 }

@@ -161,14 +161,22 @@ export type QuestionMetadataWithCompletedStatus = QuestionMetadata & {
 
 export type QuestionTopic =
   | 'a11y'
+  | 'async'
+  | 'browser'
+  | 'closure'
   | 'css'
+  | 'graph'
   | 'html'
   | 'i18n'
   | 'javascript'
-  | 'network'
+  | 'networking'
+  | 'oop'
   | 'performance'
+  | 'recursion'
   | 'security'
-  | 'testing';
+  | 'testing'
+  | 'tree'
+  | 'web-api';
 
 export type QuestionQuiz = QuestionBase;
 

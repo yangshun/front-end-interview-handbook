@@ -39,6 +39,7 @@ import {
 } from '~/components/ui/theme';
 
 import useQuestionFormatFilter from '../questions/listings/filters/hooks/useQuestionFormatFilter';
+import useQuestionTopicLabels from '../questions/listings/filters/useQuestionTopicLabels';
 
 type FilterType = 'format' | 'framework' | 'topics';
 
@@ -52,23 +53,43 @@ export type QuestionBankDataType = Readonly<{
   format: Record<QuestionFormat, QuestionDataType>;
   framework: Record<QuestionFramework, QuestionDataType>;
   language: Record<QuestionLanguage, QuestionDataType>;
-  topic: Record<QuestionTopic, QuestionDataType>;
+  topic: Partial<Record<QuestionTopic, QuestionDataType>>;
 }>;
 
 type Props = Readonly<{
   questions: QuestionBankDataType;
 }>;
 
-const topicRoute: Record<QuestionTopic, string> = {
-  a11y: '/questions/quiz',
+const selectedTopics = [
+  'a11y',
+  'async',
+  'css',
+  'closure',
+  'html',
+  'i18n',
+  'javascript',
+  'networking',
+  'oop',
+  'performance',
+  'security',
+  'web-api',
+] as const;
+
+type QuestionTopicToDisplay = (typeof selectedTopics)[number];
+
+const topicHrefs: Record<QuestionTopicToDisplay, string> = {
+  a11y: '/questions/user-interface',
+  async: '/questions/quiz',
+  closure: '/questions/closure',
   css: '/questions/css',
   html: '/questions/html',
   i18n: '/questions/quiz',
-  javascript: '/questions/js',
-  network: '/questions/quiz',
+  javascript: '/questions/javascript',
+  networking: '/questions/quiz',
+  oop: '/questions/quiz',
   performance: '/questions/quiz',
   security: '/questions/quiz',
-  testing: '/questions/quiz',
+  'web-api': '/questions/quiz',
 };
 
 const MAX_TO_SHOW = 4;
@@ -78,12 +99,13 @@ export default function InterviewsMarketingPracticeQuestionBankSection({
 }: Props) {
   const intl = useIntl();
 
+  const topics = useQuestionTopicLabels();
   const [selectedFilter, setSelectedFilter] = useState<FilterType>('topics');
   const [formatFilters, formatFilterOptions] = useQuestionFormatFilter({
     initialValue: ['javascript'],
   });
   const [topicFilters, topicFilterOptions] = useQuestionTopicFilter({
-    initialValue: ['javascript'],
+    initialValue: ['a11y'],
   });
   const [languageFilters, languageFilterOptions] = useQuestionLanguageFilter({
     initialValue: ['html'],
@@ -154,7 +176,10 @@ export default function InterviewsMarketingPracticeQuestionBankSection({
       value: selectedFramework || selectedLanguage,
     },
     topics: {
-      items: topicFilterOptions.options,
+      items: selectedTopics.map((topic) => ({
+        label: topics[topic].label,
+        value: topic,
+      })),
       onClick: (value: string) =>
         topicFilterOptions.setValues(new Set([value]) as Set<QuestionTopic>),
       value: selectedTopic,
@@ -171,7 +196,9 @@ export default function InterviewsMarketingPracticeQuestionBankSection({
   const selectedRoute = (() => {
     switch (selectedFilter) {
       case 'topics': {
-        return topicRoute[selectedTopic];
+        return (
+          topicHrefs[selectedTopic as QuestionTopicToDisplay] ?? '/questions'
+        );
       }
       case 'framework': {
         return (
@@ -193,7 +220,7 @@ export default function InterviewsMarketingPracticeQuestionBankSection({
         return framework[selectedFramework] || language[selectedLanguage];
       }
       case 'topics': {
-        return topic[selectedTopic];
+        return topic[selectedTopic] ?? { count: 0, duration: 0, questions: [] };
       }
     }
   }

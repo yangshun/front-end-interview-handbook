@@ -14,14 +14,22 @@ import type { QuestionFilter } from '../QuestionFilterType';
 // The lower the earlier it appears.
 const topicRanks: Record<QuestionTopic, number> = {
   a11y: 3,
+  async: 0,
+  browser: 0,
+  closure: 0,
   css: 1,
+  graph: 0,
   html: 2,
   i18n: 40,
   javascript: 0,
-  network: 60,
+  networking: 60,
+  oop: 0,
   performance: 50,
+  recursion: 0,
   security: 80,
   testing: 99,
+  tree: 0,
+  'web-api': 0,
 };
 
 type Props = Readonly<{
@@ -77,7 +85,6 @@ export default function useQuestionTopicFilter(
           topicRanks[a as QuestionTopic] - topicRanks[b as QuestionTopic],
       )
       .map((topic) => ({
-        icon: topicLabels[topic as QuestionTopic].icon,
         label: topicLabels[topic as QuestionTopic].label,
         value: topic as QuestionTopic,
       })),

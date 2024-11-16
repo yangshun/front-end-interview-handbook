@@ -1,15 +1,3 @@
-import { BiUniversalAccess } from 'react-icons/bi';
-import {
-  RiCss3Fill,
-  RiDashboard2Line,
-  RiHtml5Fill,
-  RiJavascriptFill,
-  RiLock2Line,
-  RiTestTubeLine,
-  RiTranslate2,
-  RiWifiLine,
-} from 'react-icons/ri';
-
 import { useIntl } from '~/components/intl';
 
 import type { QuestionTopic } from '../../common/QuestionsTypes';
@@ -20,80 +8,114 @@ export default function useQuestionTopicLabels() {
   const topicTitles: Record<
     QuestionTopic,
     Readonly<{
-      icon: (props: React.ComponentProps<'svg'>) => JSX.Element;
       label: string;
     }>
   > = {
     a11y: {
-      icon: BiUniversalAccess,
       label: intl.formatMessage({
         defaultMessage: 'Accessibility',
-        description: 'Accessibility topic for quiz questions',
-        id: 'q0+3Lk',
+        description: 'Front end development topic',
+        id: 'TbZTWa',
+      }),
+    },
+    async: {
+      label: intl.formatMessage({
+        defaultMessage: 'Async',
+        description: 'Front end development topic',
+        id: 'ezEYel',
+      }),
+    },
+    browser: {
+      label: intl.formatMessage({
+        defaultMessage: 'Browser',
+        description: 'Front end development topic',
+        id: '+4J3PK',
+      }),
+    },
+    closure: {
+      label: intl.formatMessage({
+        defaultMessage: 'Closure',
+        description: 'Front end development topic',
+        id: 'MMLnqG',
       }),
     },
     css: {
-      icon: RiCss3Fill,
+      label: 'CSS',
+    },
+    graph: {
       label: intl.formatMessage({
-        defaultMessage: 'CSS',
-        description: 'CSS topic for quiz questions',
-        id: 'P4Or/u',
+        defaultMessage: 'Graph',
+        description: 'Front end development topic',
+        id: 'F8ULPJ',
       }),
     },
     html: {
-      icon: RiHtml5Fill,
-      label: intl.formatMessage({
-        defaultMessage: 'HTML',
-        description: 'HTML topic for quiz questions',
-        id: 'Yb2e9Q',
-      }),
+      label: 'HTML',
     },
     i18n: {
-      icon: RiTranslate2,
       label: intl.formatMessage({
         defaultMessage: 'Internationalization',
-        description: 'Internationalization topic for quiz questions',
-        id: 'tonRki',
+        description: 'Front end development topic',
+        id: 'Oykw81',
       }),
     },
     javascript: {
-      icon: RiJavascriptFill,
+      label: 'JavaScript',
+    },
+    networking: {
       label: intl.formatMessage({
-        defaultMessage: 'JavaScript',
-        description: 'JavaScript topic for quiz questions',
-        id: 'w22UH7',
+        defaultMessage: 'Networking',
+        description: 'Front end development topic',
+        id: 'ZutazH',
       }),
     },
-    network: {
-      icon: RiWifiLine,
+    oop: {
       label: intl.formatMessage({
-        defaultMessage: 'Network',
-        description: 'Network topic for quiz questions',
-        id: 'pM/ZPq',
+        defaultMessage: 'Object-oriented programming',
+        description: 'Front end development topic',
+        id: 'KLoXYT',
       }),
     },
     performance: {
-      icon: RiDashboard2Line,
       label: intl.formatMessage({
         defaultMessage: 'Performance',
-        description: 'Performance topic for quiz questions',
-        id: 'kwblYW',
+        description: 'Front end development topic',
+        id: 'd1LTa+',
+      }),
+    },
+    recursion: {
+      label: intl.formatMessage({
+        defaultMessage: 'Recursion',
+        description: 'Front end development topic',
+        id: 'trRb9Z',
       }),
     },
     security: {
-      icon: RiLock2Line,
       label: intl.formatMessage({
         defaultMessage: 'Security',
-        description: 'Security topic for quiz questions',
-        id: 'kvLlxS',
+        description: 'Front end development topic',
+        id: '4MzF6x',
       }),
     },
     testing: {
-      icon: RiTestTubeLine,
       label: intl.formatMessage({
         defaultMessage: 'Testing',
-        description: 'Testing topic for quiz questions',
-        id: 'l9OWsu',
+        description: 'Front end development topic',
+        id: 'QwoKre',
+      }),
+    },
+    tree: {
+      label: intl.formatMessage({
+        defaultMessage: 'Tree',
+        description: 'Front end development topic',
+        id: 'Rs1Xi9',
+      }),
+    },
+    'web-api': {
+      label: intl.formatMessage({
+        defaultMessage: 'Web APIs',
+        description: 'Front end development topic',
+        id: 'a1RZkG',
       }),
     },
   };

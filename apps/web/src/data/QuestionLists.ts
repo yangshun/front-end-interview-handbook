@@ -192,7 +192,7 @@ export function useQuestionFormatsData(): QuestionFormatData {
         'a11y',
         'i18n',
         'css',
-        'network',
+        'networking',
         'security',
         'testing',
       ],

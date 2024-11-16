@@ -171,23 +171,28 @@ function getQuestionBankSectionData(
     ts: createQuestionData(language.ts),
   };
 
-  const topicQuestionsData: Record<
-    QuestionTopic,
-    {
-      count: number;
-      duration: number;
-      questions: ReadonlyArray<QuestionMetadata>;
-    }
+  const topicQuestionsData: Partial<
+    Record<
+      QuestionTopic,
+      {
+        count: number;
+        duration: number;
+        questions: ReadonlyArray<QuestionMetadata>;
+      }
+    >
   > = {
     a11y: createQuestionData(topicQuestions.a11y),
+    async: createQuestionData(topicQuestions.async),
+    closure: createQuestionData(topicQuestions.closure),
     css: createQuestionData(topicQuestions.css),
     html: createQuestionData(topicQuestions.html),
     i18n: createQuestionData(topicQuestions.i18n),
     javascript: createQuestionData(topicQuestions.javascript),
-    network: createQuestionData(topicQuestions.network),
+    networking: createQuestionData(topicQuestions.networking),
+    oop: createQuestionData(topicQuestions.oop),
     performance: createQuestionData(topicQuestions.performance),
     security: createQuestionData(topicQuestions.security),
-    testing: createQuestionData(topicQuestions.testing),
+    'web-api': createQuestionData(topicQuestions['web-api']),
   };
 
   const formatQuestionsData: Record<
