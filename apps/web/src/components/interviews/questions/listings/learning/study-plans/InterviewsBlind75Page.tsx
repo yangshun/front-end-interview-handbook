@@ -110,16 +110,16 @@ export default function InterviewsBlind75Page({
             <div className="flex flex-col gap-4">
               <Text color="secondary" size="body1">
                 <FormattedMessage
-                  defaultMessage="Front-end interviews are largely practical—until you encounter traditional software engineering questions on data structures and algorithms (DSA)."
+                  defaultMessage="For data structures and algorithms (DSA) questions, we recommend working through the Blind 75, a concise list that effectively prepares you for these topics."
                   description="Description for Blind75 page"
-                  id="2WRnXW"
+                  id="l2urik"
                 />
               </Text>
               <Text color="secondary" size="body1">
                 <FormattedMessage
-                  defaultMessage="We recommend working through the Blind 75, a concise list of DSA questions that effectively prepares you for these topics. Many candidates use this list as a guide, focusing on each problem to grasp the core concepts, patterns, and techniques. We've solved all these questions in JavaScript/TypeScript to make them accessible to the front-end engineering community."
+                  defaultMessage="Many candidates use this list as a guide, focusing on each problem to grasp core concepts and techniques. We’ve solved these questions in JavaScript/TypeScript to make them accessible to front-end engineers."
                   description="Description for Blind75 page"
-                  id="NMsuaM"
+                  id="o68FqB"
                 />
               </Text>
             </div>

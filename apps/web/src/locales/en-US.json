@@ -643,10 +643,6 @@
     "defaultMessage": "Support",
     "description": "Title for FAQ section"
   },
-  "2WRnXW": {
-    "defaultMessage": "Front-end interviews are largely practical—until you encounter traditional software engineering questions on data structures and algorithms (DSA).",
-    "description": "Description for Blind75 page"
-  },
   "2a6qgD": {
     "defaultMessage": "Your code was restored from client storage. <link>Reset to default</link>",
     "description": "Message that appears under the coding workspace when user has previously worked on this problem and we restored their code"
@@ -3686,10 +3682,6 @@
   "NL7HsI": {
     "defaultMessage": "Preview solution",
     "description": "Label for preview solution button"
-  },
-  "NMsuaM": {
-    "defaultMessage": "We recommend working through the Blind 75, a concise list of DSA questions that effectively prepares you for these topics. Many candidates use this list as a guide, focusing on each problem to grasp the core concepts, patterns, and techniques. We've solved all these questions in JavaScript/TypeScript to make them accessible to the front-end engineering community.",
-    "description": "Description for Blind75 page"
   },
   "NUrxUb": {
     "defaultMessage": "Gain reputation and level up for productive actions",
@@ -7387,6 +7379,10 @@
     "defaultMessage": "Back to all challenges",
     "description": "Back button label"
   },
+  "l2urik": {
+    "defaultMessage": "For data structures and algorithms (DSA) questions, we recommend working through the Blind 75, a concise list that effectively prepares you for these topics.",
+    "description": "Description for Blind75 page"
+  },
   "l5U3bQ": {
     "defaultMessage": "Unlock premium challenges and premium features on free challenges",
     "description": "Label for unlocks feature"
@@ -7770,6 +7766,10 @@
   "o3nhZ8": {
     "defaultMessage": "Session status",
     "description": "Completed and in progress challenges"
+  },
+  "o68FqB": {
+    "defaultMessage": "Many candidates use this list as a guide, focusing on each problem to grasp core concepts and techniques. We’ve solved these questions in JavaScript/TypeScript to make them accessible to front-end engineers.",
+    "description": "Description for Blind75 page"
   },
   "o8bpfE": {
     "defaultMessage": "Front end interview questions",
