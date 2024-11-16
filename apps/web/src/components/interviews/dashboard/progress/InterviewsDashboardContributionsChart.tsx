@@ -20,6 +20,7 @@ const contributionColorMap: Record<number, string> = {
 type Props = Readonly<{
   contributions?: Record<string, number>;
   endTime: Date;
+  isContributionsLoading: boolean;
   startTime: Date;
 }>;
 
@@ -27,6 +28,7 @@ export default function InterviewsDashboardContributionsChart({
   contributions,
   startTime,
   endTime,
+  isContributionsLoading,
 }: Props) {
   const intl = useIntl();
   const months = useMemo(
@@ -111,6 +113,10 @@ export default function InterviewsDashboardContributionsChart({
                               dayOfWeek === 'Thursday' && 'row-start-5',
                               dayOfWeek === 'Friday' && 'row-start-6',
                               dayOfWeek === 'Saturday' && 'row-start-7',
+                            ],
+                            [
+                              'transition-colors duration-500',
+                              isContributionsLoading && contributionColorMap[0],
                             ],
                             [
                               contributionCount >= 4

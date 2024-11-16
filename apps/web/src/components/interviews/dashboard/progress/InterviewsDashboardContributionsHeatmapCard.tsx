@@ -17,10 +17,12 @@ import { findMaxConsecutiveDays, getDateRangeFromToday } from './utils';
 
 type Props = Readonly<{
   contributions?: Record<string, number>;
+  isContributionsLoading: boolean;
 }>;
 
 export default function InterviewsDashboardContributionsHeatmapCard({
   contributions,
+  isContributionsLoading,
 }: Props) {
   const { startTime, endTime } = useMemo(() => getDateRangeFromToday(), []);
   const maxConsecutiveDays = findMaxConsecutiveDays(contributions);
@@ -39,7 +41,13 @@ export default function InterviewsDashboardContributionsHeatmapCard({
       <div className="flex flex-col justify-between gap-4 md:flex-row md:items-center">
         {/* Contributions count */}
         <div className="flex items-center gap-2">
-          <Text color="secondary" size="body1">
+          <Text
+            className={clsx([
+              'transition-opacity duration-500',
+              isContributionsLoading ? 'opacity-0' : 'opacity-100',
+            ])}
+            color="secondary"
+            size="body1">
             <FormattedMessage
               defaultMessage="{count, plural, =0 {0 completions} one {<bold>{value}</bold> completion} other {<bold>{value}</bold> completions}} in the last year"
               description="Label for completions count"
@@ -89,6 +97,13 @@ export default function InterviewsDashboardContributionsHeatmapCard({
         {/* Active days and max streak */}
         <div className="flex flex-col flex-wrap items-start gap-x-4 gap-y-1.5 md:flex-row">
           <Tooltip
+            className={clsx(
+              [
+                'transition-opacity duration-500',
+                isContributionsLoading ? 'opacity-0' : 'opacity-100',
+              ],
+              [!isContributionsLoading && totalActiveDays === 0 && 'hidden'],
+            )}
             label={
               <FormattedMessage
                 defaultMessage="In the past year, you have been active for {days, plural, =0 {0 days} =1 {1 day} other {# days}}, completing at least one question each day."
@@ -99,7 +114,16 @@ export default function InterviewsDashboardContributionsHeatmapCard({
                 }}
               />
             }>
-            <Text color="secondary" size="body2">
+            <Text
+              className={clsx(
+                [
+                  'transition-opacity duration-500',
+                  isContributionsLoading ? 'opacity-0' : 'opacity-100',
+                ],
+                [!isContributionsLoading && totalActiveDays === 0 && 'hidden'],
+              )}
+              color="secondary"
+              size="body2">
               <FormattedMessage
                 defaultMessage="Total active days: <bold>{count}</bold>"
                 description="Label for active days"
@@ -116,6 +140,13 @@ export default function InterviewsDashboardContributionsHeatmapCard({
             </Text>
           </Tooltip>
           <Tooltip
+            className={clsx(
+              [
+                'transition-opacity duration-500',
+                isContributionsLoading ? 'opacity-0' : 'opacity-100',
+              ],
+              [!isContributionsLoading && maxConsecutiveDays === 0 && 'hidden'],
+            )}
             label={
               <FormattedMessage
                 defaultMessage="In the past year, you remained active for {days, plural, =0 {0 days} =1 {1 day} other {# consecutive days}}, completing at least one question per day"
@@ -126,7 +157,20 @@ export default function InterviewsDashboardContributionsHeatmapCard({
                 }}
               />
             }>
-            <Text color="secondary" size="body2">
+            <Text
+              className={clsx(
+                [
+                  'transition-opacity duration-500',
+                  isContributionsLoading ? 'opacity-0' : 'opacity-100',
+                ],
+                [
+                  !isContributionsLoading &&
+                    maxConsecutiveDays === 0 &&
+                    'hidden',
+                ],
+              )}
+              color="secondary"
+              size="body2">
               <FormattedMessage
                 defaultMessage="Max streak: <bold>{count}</bold>"
                 description="Label for max streak"
@@ -148,6 +192,7 @@ export default function InterviewsDashboardContributionsHeatmapCard({
       <InterviewsDashboardContributionsChart
         contributions={contributions}
         endTime={endTime}
+        isContributionsLoading={isContributionsLoading}
         startTime={startTime}
       />
     </div>

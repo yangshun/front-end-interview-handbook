@@ -83,9 +83,12 @@ export default function InterviewsDashboardPageHeader({
                 themeGlassyBorder,
                 [
                   'transition-opacity duration-500',
-                  isContributionsLoading || currentMaxConsecutiveDays === 0
-                    ? 'opacity-0'
-                    : 'opacity-100',
+                  isContributionsLoading ? 'opacity-0' : 'opacity-100',
+                ],
+                [
+                  !isContributionsLoading &&
+                    currentMaxConsecutiveDays === 0 &&
+                    'hidden',
                 ],
               )}>
               <RiFlashlightFill
@@ -95,10 +98,15 @@ export default function InterviewsDashboardPageHeader({
           </Tooltip>
           <Text
             className={clsx(
-              'transition-opacity duration-500',
-              isContributionsLoading || currentMaxConsecutiveDays === 0
-                ? 'opacity-0'
-                : 'opacity-100',
+              [
+                'transition-opacity duration-500',
+                isContributionsLoading ? 'opacity-0' : 'opacity-100',
+              ],
+              [
+                !isContributionsLoading &&
+                  currentMaxConsecutiveDays === 0 &&
+                  'hidden',
+              ],
             )}
             color="secondary"
             size="body3">

@@ -112,6 +112,7 @@ export default function InterviewsDashboardPage({
         {isLoggedIn && (
           <InterviewsDashboardProgressSection
             contributions={contributions}
+            isContributionsLoading={isContributionsLoading}
             questions={questions}
             questionsProgress={questionsProgress ?? []}
           />
