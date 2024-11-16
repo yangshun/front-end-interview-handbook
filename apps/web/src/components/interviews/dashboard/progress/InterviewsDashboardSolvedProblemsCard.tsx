@@ -23,6 +23,7 @@ import {
 import Tooltip from '~/components/ui/Tooltip';
 
 type Props = Readonly<{
+  isQuestionProgressLoading: boolean;
   questions: {
     codingQuestions: ReadonlyArray<QuestionMetadata>;
     quizQuestions: ReadonlyArray<QuestionMetadata>;
@@ -36,6 +37,7 @@ type Props = Readonly<{
 export default function InterviewsDashboardSolvedProblemsCard({
   questions,
   questionsProgress,
+  isQuestionProgressLoading,
 }: Props) {
   const intl = useIntl();
 
@@ -212,13 +214,23 @@ export default function InterviewsDashboardSolvedProblemsCard({
                 />
               }>
               <Heading
-                className={themeTextColor}
+                className={clsx(themeTextColor, [
+                  'transition-opacity duration-500',
+                  isQuestionProgressLoading ? 'opacity-0' : 'opacity-100',
+                ])}
                 color="custom"
                 level="heading5">
                 {completedCount}
               </Heading>
             </Tooltip>
-            <Text color="subtitle" size="body3" weight="medium">
+            <Text
+              className={clsx(themeTextColor, [
+                'transition-opacity duration-500',
+                isQuestionProgressLoading ? 'opacity-0' : 'opacity-100',
+              ])}
+              color="subtitle"
+              size="body3"
+              weight="medium">
               <FormattedMessage
                 defaultMessage="Solved"
                 description="Label for number of solved problems"
@@ -239,8 +251,20 @@ export default function InterviewsDashboardSolvedProblemsCard({
                 <Text size="body3" weight="medium">
                   {label}
                 </Text>
-                <Tooltip asChild={true} label={tooltip}>
-                  <Text size="body2" weight="bold">
+                <Tooltip
+                  asChild={true}
+                  className={clsx([
+                    'transition-opacity duration-500',
+                    isQuestionProgressLoading ? 'opacity-0' : 'opacity-100',
+                  ])}
+                  label={tooltip}>
+                  <Text
+                    className={clsx([
+                      'transition-opacity duration-500',
+                      isQuestionProgressLoading ? 'opacity-0' : 'opacity-100',
+                    ])}
+                    size="body2"
+                    weight="bold">
                     {completed}
                     <Text color="secondary" size="body3">
                       /{total}
@@ -252,12 +276,13 @@ export default function InterviewsDashboardSolvedProblemsCard({
                 backgroundClass={themeBackgroundLineEmphasizedColor}
                 heightClass="h-1.5"
                 label={label}
-                progressClass={
+                progressClass={clsx(
                   getProgressBarGradient({
                     total,
                     value: completed,
-                  }).className
-                }
+                  }).className,
+                  ['transition-all duration-1000 ease-in-out'],
+                )}
                 total={total}
                 value={completed}
               />

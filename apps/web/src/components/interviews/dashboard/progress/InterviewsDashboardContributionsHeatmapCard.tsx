@@ -64,6 +64,10 @@ export default function InterviewsDashboardContributionsHeatmapCard({
             />
           </Text>
           <Tooltip
+            className={clsx([
+              'transition-opacity duration-500',
+              isContributionsLoading ? 'opacity-0' : 'opacity-100',
+            ])}
             label={
               <div>
                 <FormattedMessage
@@ -90,7 +94,10 @@ export default function InterviewsDashboardContributionsHeatmapCard({
               </div>
             }>
             <RiInformationLine
-              className={clsx('size-4', themeTextSubtleColor)}
+              className={clsx('size-4', themeTextSubtleColor, [
+                'transition-opacity duration-500',
+                isContributionsLoading ? 'opacity-0' : 'opacity-100',
+              ])}
             />
           </Tooltip>
         </div>

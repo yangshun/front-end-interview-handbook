@@ -61,12 +61,10 @@ export default function InterviewsDashboardPage({
 }: Props) {
   const user = useUser();
   const isLoggedIn = defaultLoggedIn || !!user;
-  const { data: questionsProgress } = trpc.questionProgress.getAll.useQuery(
-    undefined,
-    {
+  const { data: questionsProgress, isLoading: isQuestionsProgressLoading } =
+    trpc.questionProgress.getAll.useQuery(undefined, {
       enabled: isLoggedIn,
-    },
-  );
+    });
 
   const { data: questionListSessions } =
     trpc.questionLists.getActiveSessions.useQuery(undefined, {
@@ -113,6 +111,7 @@ export default function InterviewsDashboardPage({
           <InterviewsDashboardProgressSection
             contributions={contributions}
             isContributionsLoading={isContributionsLoading}
+            isQuestionProgressLoading={isQuestionsProgressLoading}
             questions={questions}
             questionsProgress={questionsProgress ?? []}
           />
