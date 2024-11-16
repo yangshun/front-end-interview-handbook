@@ -31,7 +31,7 @@ type Props = Readonly<{
 export default function useScrollToHash(props?: Props) {
   const {
     onScrolledToItem,
-    topOffset = 0,
+    topOffset = 80, // Rough value to counter the navbar height and banner height
     delay = DEFAULT_SCROLL_DELAY,
   } = props || {};
   // Listening for `hashchange` event doesn't work too,
