@@ -13,7 +13,7 @@ import InterviewsDashboardSolvedProblemsCard from './InterviewsDashboardSolvedPr
 type Props = Readonly<{
   contributions?: Record<string, number>;
   isContributionsLoading: boolean;
-  isQuestionProgressLoading: boolean;
+  isQuestionsProgressLoading: boolean;
   questions: {
     codingQuestions: ReadonlyArray<QuestionMetadata>;
     quizQuestions: ReadonlyArray<QuestionMetadata>;
@@ -29,7 +29,7 @@ export default function InterviewsDashboardProgressSection({
   questions,
   contributions,
   isContributionsLoading,
-  isQuestionProgressLoading,
+  isQuestionsProgressLoading,
 }: Props) {
   return (
     <div className="flex flex-col gap-6">
@@ -42,11 +42,12 @@ export default function InterviewsDashboardProgressSection({
       </Heading>
       <div className="grid gap-6 lg:grid-cols-2">
         <InterviewsDashboardSolvedProblemsCard
-          isQuestionProgressLoading={isQuestionProgressLoading}
+          isQuestionsProgressLoading={isQuestionsProgressLoading}
           questions={questions}
           questionsProgress={questionsProgress}
         />
         <InterviewsDashboardSolvedByTechnologyOrQuestionType
+          isQuestionsProgressLoading={isQuestionsProgressLoading}
           questions={questions}
           questionsProgress={questionsProgress}
         />

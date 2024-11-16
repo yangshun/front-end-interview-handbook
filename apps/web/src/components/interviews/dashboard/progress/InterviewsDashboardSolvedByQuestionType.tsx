@@ -22,6 +22,7 @@ import { categorizeQuestionsProgress } from '~/db/QuestionsUtils';
 import QuestionCompletionCountSummary from '../../questions/listings/stats/QuestionCompletionCountSummary';
 
 type Props = Readonly<{
+  isQuestionsProgressLoading: boolean;
   questions: {
     codingQuestions: ReadonlyArray<QuestionMetadata>;
     quizQuestions: ReadonlyArray<QuestionMetadata>;
@@ -35,6 +36,7 @@ type Props = Readonly<{
 export default function InterviewsDashboardSolvedByQuestionType({
   questions,
   questionsProgress,
+  isQuestionsProgressLoading,
 }: Props) {
   const intl = useIntl();
 
@@ -104,10 +106,18 @@ export default function InterviewsDashboardSolvedByQuestionType({
                   </Text>
                   <QuestionCompletionCountSummary
                     completed={item.completedQuestions}
+                    isQuestionsProgressLoading={isQuestionsProgressLoading}
                     total={item.totalQuestions}
                   />
                 </div>
-                <Text color="subtitle" size="body2" weight="medium">
+                <Text
+                  className={clsx([
+                    'transition-opacity duration-500',
+                    isQuestionsProgressLoading ? 'opacity-0' : 'opacity-100',
+                  ])}
+                  color="subtitle"
+                  size="body2"
+                  weight="medium">
                   {intl.formatNumber(
                     item.completedQuestions / item.totalQuestions,
                     {
@@ -121,12 +131,13 @@ export default function InterviewsDashboardSolvedByQuestionType({
                 backgroundClass={themeBackgroundLineEmphasizedColor}
                 heightClass="h-1.5"
                 label={item.title}
-                progressClass={
+                progressClass={clsx(
                   getProgressBarGradient({
                     total: item.totalQuestions,
                     value: item.completedQuestions,
-                  }).className
-                }
+                  }).className,
+                  ['transition-all duration-1000 ease-in-out'],
+                )}
                 total={item.totalQuestions}
                 value={item.completedQuestions}
               />

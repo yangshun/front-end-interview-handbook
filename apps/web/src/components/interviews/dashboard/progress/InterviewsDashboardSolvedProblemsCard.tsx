@@ -23,7 +23,7 @@ import {
 import Tooltip from '~/components/ui/Tooltip';
 
 type Props = Readonly<{
-  isQuestionProgressLoading: boolean;
+  isQuestionsProgressLoading: boolean;
   questions: {
     codingQuestions: ReadonlyArray<QuestionMetadata>;
     quizQuestions: ReadonlyArray<QuestionMetadata>;
@@ -37,7 +37,7 @@ type Props = Readonly<{
 export default function InterviewsDashboardSolvedProblemsCard({
   questions,
   questionsProgress,
-  isQuestionProgressLoading,
+  isQuestionsProgressLoading,
 }: Props) {
   const intl = useIntl();
 
@@ -216,7 +216,7 @@ export default function InterviewsDashboardSolvedProblemsCard({
               <Heading
                 className={clsx(themeTextColor, [
                   'transition-opacity duration-500',
-                  isQuestionProgressLoading ? 'opacity-0' : 'opacity-100',
+                  isQuestionsProgressLoading ? 'opacity-0' : 'opacity-100',
                 ])}
                 color="custom"
                 level="heading5">
@@ -226,7 +226,7 @@ export default function InterviewsDashboardSolvedProblemsCard({
             <Text
               className={clsx(themeTextColor, [
                 'transition-opacity duration-500',
-                isQuestionProgressLoading ? 'opacity-0' : 'opacity-100',
+                isQuestionsProgressLoading ? 'opacity-0' : 'opacity-100',
               ])}
               color="subtitle"
               size="body3"
@@ -255,13 +255,13 @@ export default function InterviewsDashboardSolvedProblemsCard({
                   asChild={true}
                   className={clsx([
                     'transition-opacity duration-500',
-                    isQuestionProgressLoading ? 'opacity-0' : 'opacity-100',
+                    isQuestionsProgressLoading ? 'opacity-0' : 'opacity-100',
                   ])}
                   label={tooltip}>
                   <Text
                     className={clsx([
                       'transition-opacity duration-500',
-                      isQuestionProgressLoading ? 'opacity-0' : 'opacity-100',
+                      isQuestionsProgressLoading ? 'opacity-0' : 'opacity-100',
                     ])}
                     size="body2"
                     weight="bold">

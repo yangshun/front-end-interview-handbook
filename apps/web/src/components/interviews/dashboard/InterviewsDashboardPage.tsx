@@ -111,7 +111,7 @@ export default function InterviewsDashboardPage({
           <InterviewsDashboardProgressSection
             contributions={contributions}
             isContributionsLoading={isContributionsLoading}
-            isQuestionProgressLoading={isQuestionsProgressLoading}
+            isQuestionsProgressLoading={isQuestionsProgressLoading}
             questions={questions}
             questionsProgress={questionsProgress ?? []}
           />
