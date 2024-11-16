@@ -209,12 +209,24 @@ function SidebarLinks({
 export default function SidebarLinksSection({
   items,
   size,
+  type,
 }: Readonly<{
   items: ReadonlyArray<SidebarLinkEntity>;
   size: SidebarSize;
+  type: React.ComponentProps<typeof AccordionPrimitive.Root>['type'];
 }>) {
   const { pathname } = useI18nPathname();
+
+  // `single` type
   const [openSection, setOpenSection] = useState<string | null>(null);
+
+  // `multiple` type
+  const [manuallyOpenSections, setManuallyOpenSections] = useState<
+    ReadonlyArray<string>
+  >([]);
+  const [automaticOpenSections, setAutomaticOpenSections] = useState<
+    ReadonlyArray<string>
+  >([]);
 
   useEffect(() => {
     const activeValue = (() => {
@@ -230,29 +242,70 @@ export default function SidebarLinksSection({
     })();
 
     if (activeValue) {
-      setOpenSection(activeValue);
+      if (type === 'single') {
+        setOpenSection(activeValue);
+      } else {
+        setAutomaticOpenSections([activeValue]);
+      }
     }
-  }, [items, pathname]);
+  }, [items, pathname, type]);
+
+  const className = clsx('flex flex-col gap-y-2');
+  const contents = (
+    <ul>
+      {items.map((item) => (
+        <SidebarLinks
+          key={item.label}
+          item={item}
+          size={size}
+          onToggle={() => {
+            if (type === 'single') {
+              setOpenSection(openSection === item.label ? null : item.label);
+            } else {
+              const inAutomaticOpen = automaticOpenSections.includes(
+                item.label,
+              );
+
+              if (inAutomaticOpen) {
+                setAutomaticOpenSections(
+                  automaticOpenSections.filter((label) => label !== item.label),
+                );
+              }
+
+              if (manuallyOpenSections.includes(item.label)) {
+                setManuallyOpenSections(
+                  manuallyOpenSections.filter((label) => label !== item.label),
+                );
+              } else if (!inAutomaticOpen) {
+                setManuallyOpenSections([...manuallyOpenSections, item.label]);
+              }
+            }
+          }}
+        />
+      ))}
+    </ul>
+  );
+
+  if (type === 'single') {
+    return (
+      <AccordionPrimitive.Root
+        asChild={true}
+        className={className}
+        type="single"
+        // Fake null value to force everything to close.
+        value={openSection ?? '__FAKE_NULL_VALUE__'}>
+        {contents}
+      </AccordionPrimitive.Root>
+    );
+  }
 
   return (
     <AccordionPrimitive.Root
       asChild={true}
-      className={clsx('flex flex-col gap-y-2')}
-      type="single"
-      // Fake null value to force everything to close.
-      value={openSection ?? '__FAKE_NULL_VALUE__'}>
-      <ul>
-        {items.map((item) => (
-          <SidebarLinks
-            key={item.label}
-            item={item}
-            size={size}
-            onToggle={() => {
-              setOpenSection(openSection === item.label ? null : item.label);
-            }}
-          />
-        ))}
-      </ul>
+      className={className}
+      type="multiple"
+      value={[...automaticOpenSections, ...manuallyOpenSections]}>
+      {contents}
     </AccordionPrimitive.Root>
   );
 }
