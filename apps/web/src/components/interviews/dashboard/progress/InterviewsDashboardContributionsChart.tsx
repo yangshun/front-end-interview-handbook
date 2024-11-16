@@ -131,41 +131,32 @@ export default function InterviewsDashboardContributionsChart({
           })}
         </div>
       </ScrollArea>
-      <div className="flex flex-col items-end justify-between gap-x-4 gap-y-1 md:flex-row md:items-center">
+      <div className="flex items-center justify-end gap-2">
         <Text color="secondary" size="body2">
           <FormattedMessage
-            defaultMessage="How we count completions"
-            description="How question completions are counted"
-            id="elg6NS"
+            defaultMessage="Less"
+            description="Label for less contribution"
+            id="etKgoR"
           />
         </Text>
-        <div className="flex items-center gap-2">
-          <Text color="secondary" size="body2">
-            <FormattedMessage
-              defaultMessage="Less"
-              description="Label for less contribution"
-              id="etKgoR"
+        <div className="flex gap-1">
+          {[0, 1, 2, 3, 4].map((item) => (
+            <div
+              key={item}
+              className={clsx(
+                'size-3.5 rounded-sm',
+                contributionColorMap[item],
+              )}
             />
-          </Text>
-          <div className="flex gap-1">
-            {[0, 1, 2, 3, 4].map((item) => (
-              <div
-                key={item}
-                className={clsx(
-                  'size-3.5 rounded-sm',
-                  contributionColorMap[item],
-                )}
-              />
-            ))}
-          </div>
-          <Text color="secondary" size="body2">
-            <FormattedMessage
-              defaultMessage="More"
-              description="Label for more contribution"
-              id="vyB72k"
-            />
-          </Text>
+          ))}
         </div>
+        <Text color="secondary" size="body2">
+          <FormattedMessage
+            defaultMessage="More"
+            description="Label for more contribution"
+            id="vyB72k"
+          />
+        </Text>
       </div>
     </div>
   );

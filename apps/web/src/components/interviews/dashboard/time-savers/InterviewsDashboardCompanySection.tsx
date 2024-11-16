@@ -29,9 +29,9 @@ export default function InterviewsDashboardCompanySection({
         id: 'uA9EBK',
       })}
       title={intl.formatMessage({
-        defaultMessage: 'Company Guides',
+        defaultMessage: 'Company guides',
         description: 'Title for prepare by company',
-        id: 'kju3R1',
+        id: 'cjCfJX',
       })}>
       <div className="grid gap-4 md:grid-cols-2 xl:gap-6">
         {companyGuides.map((companyGuide) => {

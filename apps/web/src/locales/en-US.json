@@ -3,6 +3,10 @@
     "defaultMessage": "+{points} rep",
     "description": "Rep gain for parent skill"
   },
+  "+4J3PK": {
+    "defaultMessage": "Browser",
+    "description": "Front end development topic"
+  },
   "+5JohH": {
     "defaultMessage": "About",
     "description": "Link to company's about page"
@@ -886,6 +890,10 @@
   "4KjsB6": {
     "defaultMessage": "Number of challenges completed using this skill, including challenges not in the recommended skill plan",
     "description": "Tooltip for completed challenges label"
+  },
+  "4MzF6x": {
+    "defaultMessage": "Security",
+    "description": "Front end development topic"
   },
   "4P9bN0": {
     "defaultMessage": "Pay once, get full access to the interviews platform forever",
@@ -2415,6 +2423,10 @@
     "defaultMessage": "Delete line",
     "description": "Text describing command to delete line(s) in the coding workspace shortcuts menu"
   },
+  "F8ULPJ": {
+    "defaultMessage": "Graph",
+    "description": "Front end development topic"
+  },
   "F8wNUD": {
     "defaultMessage": "Starter code with content copy",
     "description": "Provided resource for project"
@@ -3199,6 +3211,10 @@
     "defaultMessage": "Must be two characters or more",
     "description": "Error message for min length"
   },
+  "KLoXYT": {
+    "defaultMessage": "Object-oriented programming",
+    "description": "Front end development topic"
+  },
   "KPn83+": {
     "defaultMessage": "Series Contents",
     "description": "Series contents navigation menu button label"
@@ -3538,6 +3554,10 @@
   "MJYzca": {
     "defaultMessage": "{readingTime} minutes",
     "description": "Reading time of the article"
+  },
+  "MMLnqG": {
+    "defaultMessage": "Closure",
+    "description": "Front end development topic"
   },
   "MMflpy": {
     "defaultMessage": "Follow",
@@ -3895,6 +3915,10 @@
     "defaultMessage": "Filter by contribution type",
     "description": "Tooltip for contribution type filter for contribution list"
   },
+  "Oykw81": {
+    "defaultMessage": "Internationalization",
+    "description": "Front end development topic"
+  },
   "Ozg1OX": {
     "defaultMessage": "{questionTitle} | Front End System Design",
     "description": "Social title of system design question page"
@@ -3914,10 +3938,6 @@
   "P3mHDw": {
     "defaultMessage": "Hoping to grow in skills / tools / frameworks",
     "description": "Projects profile tech stack I am hoping to grow section title"
-  },
-  "P4Or/u": {
-    "defaultMessage": "CSS",
-    "description": "CSS topic for quiz questions"
   },
   "P4vm6j": {
     "defaultMessage": "Support us by starring our GitHub repo and consider contributing!",
@@ -4211,6 +4231,10 @@
     "defaultMessage": "Guides",
     "description": "Projects guides"
   },
+  "QwoKre": {
+    "defaultMessage": "Testing",
+    "description": "Front end development topic"
+  },
   "QxlS4d": {
     "defaultMessage": "Difficulty: Hard to Easy",
     "description": "Sorting option for submissions list - sort by difficulty from hard to easy"
@@ -4378,6 +4402,10 @@
   "RnHcaK": {
     "defaultMessage": "An account is required to purchase premium",
     "description": "Title of alert requesting user to create an account to purchase premium plans"
+  },
+  "Rs1Xi9": {
+    "defaultMessage": "Tree",
+    "description": "Front end development topic"
   },
   "RsPxKM": {
     "defaultMessage": "Superscript",
@@ -4662,6 +4690,10 @@
   "TaIXVz": {
     "defaultMessage": "Purchase premium to unlock full access to exclusive System Design content including high quality solutions and companies which ask this question.",
     "description": "System design questions paywall"
+  },
+  "TbZTWa": {
+    "defaultMessage": "Accessibility",
+    "description": "Front end development topic"
   },
   "Tdn+OY": {
     "defaultMessage": "Starting is as easy as clicking a Start project button, and we will take you through every step of the way.",
@@ -5423,10 +5455,6 @@
     "defaultMessage": "Start building from our large repository of real-world front end project challenges. Hone core front end skills and build an impressive project portfolio.",
     "description": "Description of Challenges page"
   },
-  "Yb2e9Q": {
-    "defaultMessage": "HTML",
-    "description": "HTML topic for quiz questions"
-  },
   "YdQTiq": {
     "defaultMessage": "Preparation plans for all kinds of preparation timelines — <owlink>1 week</owlink>, <omlink>1 month</omlink>, <tmlink>3 months</tmlink>.",
     "description": "Subtitle for proven preparation plans feature"
@@ -5595,9 +5623,17 @@
     "defaultMessage": "Focus areas",
     "description": "Title of focus areas page"
   },
+  "ZutazH": {
+    "defaultMessage": "Networking",
+    "description": "Front end development topic"
+  },
   "a0Osa7": {
     "defaultMessage": "Challenge: {challengeName} | Completion steps",
     "description": "Title of Projects challenge completion page"
+  },
+  "a1RZkG": {
+    "defaultMessage": "Web APIs",
+    "description": "Front end development topic"
   },
   "a3MONw": {
     "defaultMessage": "Time efficient",
@@ -6035,6 +6071,10 @@
     "defaultMessage": "Status",
     "description": "Label for \"Years of experience replacement status\" choices on Projects profile onboarding page"
   },
+  "cjCfJX": {
+    "defaultMessage": "Company guides",
+    "description": "Title for prepare by company"
+  },
   "cjgzTz": {
     "defaultMessage": "Read how to solve {questionTitle} using {questionFramework}",
     "description": "Description of Front End Interview UI Coding Questions solution page"
@@ -6086,6 +6126,10 @@
   "d/hzjd": {
     "defaultMessage": "The vast breadth of topics that could come up during a front end interview can be daunting.",
     "description": "Long description for focus areas page"
+  },
+  "d1LTa+": {
+    "defaultMessage": "Performance",
+    "description": "Front end development topic"
   },
   "d3GL1v": {
     "defaultMessage": "Copy line down",
@@ -6327,10 +6371,6 @@
     "defaultMessage": "Tackle your next interview with confidence using this focused, no-nonsense front end prep guide. Created by the author of the Front End Interview Handbook, it's filled with practical strategies and insider tips you won't find anywhere else.",
     "description": "Long description of frontend interview playbook page"
   },
-  "elg6NS": {
-    "defaultMessage": "How we count completions",
-    "description": "How question completions are counted"
-  },
   "emlXOt": {
     "defaultMessage": "You've just attained level {level} ✨ Congratulations!",
     "description": "Description for level up"
@@ -6382,6 +6422,10 @@
   "ez5OLq": {
     "defaultMessage": "Practice Angular Interview Questions with Solutions",
     "description": "Title of Angular Interview Questions page"
+  },
+  "ezEYel": {
+    "defaultMessage": "Async",
+    "description": "Front end development topic"
   },
   "f/t2zt": {
     "defaultMessage": "Project session ended!",
@@ -7267,10 +7311,6 @@
     "defaultMessage": "Build a whole component library or design system for your portfolio",
     "description": "Description for recommended action for new projects platform user"
   },
-  "kju3R1": {
-    "defaultMessage": "Company Guides",
-    "description": "Title for prepare by company"
-  },
   "kmemRr": {
     "defaultMessage": "Submission title",
     "description": "Label for submission title input on project submit page"
@@ -7311,10 +7351,6 @@
     "defaultMessage": "Resubscribe to access",
     "description": "Title for a paywall of a submission for a premium project"
   },
-  "kvLlxS": {
-    "defaultMessage": "Security",
-    "description": "Security topic for quiz questions"
-  },
   "kvhZfI": {
     "defaultMessage": "You are on the <bold>Annual</bold> plan.",
     "description": "Text describing user's subscription plan."
@@ -7322,10 +7358,6 @@
   "kwHN0l": {
     "defaultMessage": "Choose your component and pick any theme",
     "description": "Short description for \"Composable themes\" feature on Projects home page"
-  },
-  "kwblYW": {
-    "defaultMessage": "Performance",
-    "description": "Performance topic for quiz questions"
   },
   "kzklH3": {
     "defaultMessage": "From beginner to advanced",
@@ -7378,10 +7410,6 @@
   "l714HN": {
     "defaultMessage": "Focus areas",
     "description": "Label for focus areas study list"
-  },
-  "l9OWsu": {
-    "defaultMessage": "Testing",
-    "description": "Testing topic for quiz questions"
   },
   "lD302L": {
     "defaultMessage": "Recommended duration to spend during interviews",
@@ -7923,10 +7951,6 @@
     "defaultMessage": "Add website",
     "description": "Title for Add Website task on Projects dashboard page"
   },
-  "pM/ZPq": {
-    "defaultMessage": "Network",
-    "description": "Network topic for quiz questions"
-  },
   "pN0mtf": {
     "defaultMessage": "Settings | Projects",
     "description": "Title of projects settings page"
@@ -8030,10 +8054,6 @@
   "q+ZK0L": {
     "defaultMessage": "Progress",
     "description": "Title for learning progress card"
-  },
-  "q0+3Lk": {
-    "defaultMessage": "Accessibility",
-    "description": "Accessibility topic for quiz questions"
   },
   "q0J0CA": {
     "defaultMessage": "Continue with {authProviderLabel}",
@@ -8595,13 +8615,13 @@
     "defaultMessage": "Move line down",
     "description": "Text describing command to move lines down in the coding workspace shortcuts menu"
   },
-  "tonRki": {
-    "defaultMessage": "Internationalization",
-    "description": "Internationalization topic for quiz questions"
-  },
   "tpQwtr": {
     "defaultMessage": "Thanks for contributing",
     "description": "Toast message title about gaining reputation points"
+  },
+  "trRb9Z": {
+    "defaultMessage": "Recursion",
+    "description": "Front end development topic"
   },
   "tryW5f": {
     "defaultMessage": "Use a different card if you are unsure of the correct CVC.",
@@ -8930,10 +8950,6 @@
   "w0Gmne": {
     "defaultMessage": "Front End Interview Guidebook",
     "description": "Front End Interview Guidebook title"
-  },
-  "w22UH7": {
-    "defaultMessage": "JavaScript",
-    "description": "JavaScript topic for quiz questions"
   },
   "w3T2Ld": {
     "defaultMessage": "Editor shortcuts",
