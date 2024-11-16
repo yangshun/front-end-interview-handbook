@@ -1,6 +1,7 @@
 import clsx from 'clsx';
 import { useState } from 'react';
 import url from 'url';
+import { useDebounce } from 'usehooks-ts';
 
 import Anchor from '~/components/ui/Anchor';
 import NavbarPopoverLink from '~/components/ui/Navbar/NavbarPopoverLink';
@@ -9,6 +10,7 @@ import type {
   NavTopLevelLinkItem,
 } from '~/components/ui/Navbar/NavTypes';
 import { popoverContentClassName } from '~/components/ui/Popover/popoverStyles';
+import Text from '~/components/ui/Text';
 import {
   themeOutlineElement_FocusVisible,
   themeOutlineElementBrandColor_FocusVisible,
@@ -35,6 +37,16 @@ export default function SidebarCollapsedLinkItem({
   ...props
 }: SidebarCollapsedLinkItemProps) {
   const [open, setOpen] = useState(false);
+  const debouncedOpen = useDebounce(open, 100);
+
+  function handleMouseEnter() {
+    setOpen(true);
+  }
+
+  function handleMouseLeave() {
+    setOpen(false);
+  }
+
   const { pathname } = useI18nPathname();
   const activeClassName = clsx(
     themeTextColor,
@@ -91,34 +103,50 @@ export default function SidebarCollapsedLinkItem({
   }
 
   return (
-    <PopoverPrimitive.Root open={open} onOpenChange={setOpen}>
-      <Tooltip asChild={true} delayDuration={0} label={label} side="right">
-        <PopoverPrimitive.Trigger
-          aria-label={label}
-          className={clsx(
-            commonClass,
-            isSelected || open ? activeClassName : defaultClassName,
-          )}>
-          {iconElement}
-        </PopoverPrimitive.Trigger>
-      </Tooltip>
+    <PopoverPrimitive.Root open={debouncedOpen} onOpenChange={setOpen}>
+      <PopoverPrimitive.Trigger
+        aria-label={label}
+        className={clsx(
+          commonClass,
+          isSelected || open ? activeClassName : defaultClassName,
+        )}
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}>
+        {iconElement}
+      </PopoverPrimitive.Trigger>
       <PopoverPrimitive.Portal>
         <PopoverPrimitive.Content
           align={props.align}
-          className={clsx(popoverContentClassName, 'max-w-lg')}
+          className={clsx(
+            popoverContentClassName,
+            'flex flex-col gap-2',
+            'max-w-[448px]',
+            'outline-none',
+          )}
           side="right"
-          sideOffset={8}>
-          {props.items.map((childItem) => (
-            <NavbarPopoverLink
-              key={childItem.itemKey}
-              {...childItem}
-              onClick={(event) => {
-                // To close the popover.
-                setOpen(false);
-                childItem.onClick?.(event);
-              }}
-            />
-          ))}
+          sideOffset={8}
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}>
+          <Text
+            className="px-2 py-0.5"
+            color="secondary"
+            size="body2"
+            weight="medium">
+            {label}
+          </Text>
+          <div className="flex flex-col gap-1.5">
+            {props.items.map((childItem) => (
+              <NavbarPopoverLink
+                key={childItem.itemKey}
+                {...childItem}
+                onClick={(event) => {
+                  // To close the popover.
+                  setOpen(false);
+                  childItem.onClick?.(event);
+                }}
+              />
+            ))}
+          </div>
         </PopoverPrimitive.Content>
       </PopoverPrimitive.Portal>
     </PopoverPrimitive.Root>
