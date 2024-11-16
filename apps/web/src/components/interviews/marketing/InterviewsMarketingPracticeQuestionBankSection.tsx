@@ -341,6 +341,7 @@ export default function InterviewsMarketingPracticeQuestionBankSection({
                       0,
                       MAX_TO_SHOW,
                     )}
+                    showArrowRight={false}
                     showOverlayAtLastItem={
                       questionsWithCompletionStatus.length >= MAX_TO_SHOW
                     }

@@ -48,6 +48,7 @@ type Props<Q extends QuestionMetadata> = Readonly<{
   primaryLabel?: 'difficulty' | 'importance';
   questionCompletionCount?: QuestionCompletionCount;
   questions: ReadonlyArray<Q>;
+  showArrowRight?: boolean;
   showOverlayAtLastItem?: boolean;
   showProgress?: boolean;
 }>;
@@ -65,6 +66,7 @@ export default function QuestionsList<Q extends QuestionMetadata>({
   onMarkAsCompleted,
   onMarkAsNotCompleted,
   showOverlayAtLastItem,
+  showArrowRight = true,
   mode = 'default',
 }: Props<Q>) {
   const { userProfile } = useUserProfile();
@@ -241,16 +243,18 @@ export default function QuestionsList<Q extends QuestionMetadata>({
                   })()}
                 </div>
               </div>
-              <div className="flex items-center justify-center">
-                <RiArrowRightLine
-                  aria-hidden="true"
-                  className={clsx(
-                    'size-6 shrink-0',
-                    themeTextFaintColor,
-                    themeTextBrandColor_GroupHover,
-                  )}
-                />
-              </div>
+              {showArrowRight && (
+                <div className="flex items-center justify-center">
+                  <RiArrowRightLine
+                    aria-hidden="true"
+                    className={clsx(
+                      'size-6 shrink-0',
+                      themeTextFaintColor,
+                      themeTextBrandColor_GroupHover,
+                    )}
+                  />
+                </div>
+              )}
             </div>
             {onQuestionClickIntercept && (
               <span
