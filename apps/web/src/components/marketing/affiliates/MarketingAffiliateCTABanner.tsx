@@ -9,7 +9,7 @@ export default function MarketingAffiliateCTABanner() {
   return (
     <div className="bg-brand-dark relative mx-auto mt-24 flex justify-center px-4 py-24 transition-opacity duration-1000 ease-in-out">
       <div>
-        <Heading className="text-center" color="light" level="heading4">
+        <Heading className="text-center" color="dark" level="heading4">
           <FormattedMessage
             defaultMessage="Start earning passive commissions with a great product"
             description="Title of Call to action banner found at the bottom of the 'Become an Affiliate' page."

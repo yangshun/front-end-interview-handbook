@@ -1,3 +1,4 @@
+import Chip from '~/components/ui/Chip';
 import Text from '~/components/ui/Text';
 
 const steps = [
@@ -39,9 +40,7 @@ export default function MarketingAffiliateSteps() {
         {steps.map((step, stepIdx) => (
           <li key={step.title} className="flex flex-col md:col-span-1">
             <div className="flex items-center">
-              <div className="bg-brand-dark size-8 flex shrink-0 items-center justify-center rounded-full text-base font-medium text-white">
-                <p>{stepIdx + 1}</p>
-              </div>
+              <Chip label={`${stepIdx + 1}`} variant="primary" />
               <Text
                 className="block py-4 pl-4 text-2xl md:text-xl"
                 weight="bold">
