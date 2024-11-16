@@ -80,7 +80,7 @@ export default function InterviewsDashboardPage({
     },
   );
   const { startTime, endTime } = useMemo(() => getDateRangeFromToday(), []);
-  const { data: contributions } =
+  const { data: contributions, isLoading: isContributionsLoading } =
     trpc.questionProgress.getContributionsCount.useQuery(
       {
         endTime,
@@ -105,6 +105,7 @@ export default function InterviewsDashboardPage({
     <div className={clsx('flex flex-col gap-12')}>
       <InterviewsDashboardPageHeader
         contributions={contributions}
+        isContributionsLoading={isContributionsLoading}
         isLoggedIn={isLoggedIn}
       />
       <Section>

@@ -18,12 +18,14 @@ import InterviewsDashboardCreateAccountCard from '../dashboard/InterviewsDashboa
 
 type Props = Readonly<{
   contributions?: Record<string, number>;
+  isContributionsLoading: boolean;
   isLoggedIn: boolean;
 }>;
 
 export default function InterviewsDashboardPageHeader({
   contributions,
   isLoggedIn,
+  isContributionsLoading,
 }: Props) {
   const intl = useIntl();
   const currentMaxConsecutiveDays =
@@ -79,13 +81,27 @@ export default function InterviewsDashboardPageHeader({
                 'flex items-center justify-center',
                 'size-5 rounded-full',
                 themeGlassyBorder,
+                [
+                  'transition-opacity duration-500',
+                  isContributionsLoading || currentMaxConsecutiveDays === 0
+                    ? 'opacity-0'
+                    : 'opacity-100',
+                ],
               )}>
               <RiFlashlightFill
                 className={clsx('size-3 shrink-0', themeTextColor)}
               />
             </div>
           </Tooltip>
-          <Text color="secondary" size="body3">
+          <Text
+            className={clsx(
+              'transition-opacity duration-500',
+              isContributionsLoading || currentMaxConsecutiveDays === 0
+                ? 'opacity-0'
+                : 'opacity-100',
+            )}
+            color="secondary"
+            size="body3">
             <FormattedMessage
               defaultMessage="{days, plural, =0 {<bold>0 days</bold>} =1 {<bold>1 day</bold>} other {<bold># days</bold>}} current streak"
               description="Label for max consecutive days"
