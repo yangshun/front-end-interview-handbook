@@ -44,7 +44,7 @@ import SlideOut from '~/components/ui/SlideOut';
 import Spinner from '~/components/ui/Spinner';
 import Text from '~/components/ui/Text';
 import TextInput from '~/components/ui/TextInput';
-import { themeBorderColor } from '~/components/ui/theme';
+import { themeBorderColor, themeTextInvertColor } from '~/components/ui/theme';
 
 import InterviewsStudyListQuestions from './InterviewsStudyListQuestions';
 import useQuestionsWithCompletionStatus from '../filters/hooks/useQuestionsWithCompletionStatus';
@@ -684,6 +684,11 @@ export default function QuestionsStudyListSlideOut({
     }));
   }
 
+  const { filters } = useQuestionUnifiedFilters({
+    filterNamespace,
+  });
+  const numberOfFilters = filters.filter(([size]) => size > 0).length;
+
   return (
     <SlideOut
       enterFrom="start"
@@ -705,40 +710,58 @@ export default function QuestionsStudyListSlideOut({
         )
       }
       trigger={
-        <Button
-          addonPosition="start"
-          icon={RiFilterLine}
-          isDisabled={isDisabled}
-          isLabelHidden={isMobile}
-          label={
-            studyList != null
-              ? studyList.name
-              : intl.formatMessage({
-                  defaultMessage: 'Question list',
-                  description: 'Questions list',
-                  id: '5lRIfw',
-                })
-          }
-          size="xs"
-          variant="secondary"
-          onClick={() => setIsShown(true)}>
-          {studyList == null ? (
-            intl.formatMessage({
-              defaultMessage: 'Question list',
-              description: 'Questions list',
-              id: '5lRIfw',
-            })
-          ) : (
-            <div className="flex items-center gap-3">
-              <span>{studyList.name}</span>
-              <Badge
-                label={`${currentQuestionPosition}/${processedQuestions.length}`}
-                size="xs"
-                variant="neutral"
-              />
+        <div className="relative">
+          <Button
+            addonPosition="start"
+            icon={RiFilterLine}
+            iconClassName={clsx(
+              numberOfFilters > 0 && 'dark:text-brand text-brand-darker',
+            )}
+            isDisabled={isDisabled}
+            isLabelHidden={isMobile}
+            label={
+              studyList != null
+                ? studyList.name
+                : intl.formatMessage({
+                    defaultMessage: 'Question list',
+                    description: 'Questions list',
+                    id: '5lRIfw',
+                  })
+            }
+            size="xs"
+            variant="secondary"
+            onClick={() => setIsShown(true)}>
+            {studyList == null ? (
+              intl.formatMessage({
+                defaultMessage: 'Question list',
+                description: 'Questions list',
+                id: '5lRIfw',
+              })
+            ) : (
+              <div className="flex items-center gap-3">
+                <span>{studyList.name}</span>
+                <Badge
+                  label={`${currentQuestionPosition}/${processedQuestions.length}`}
+                  size="xs"
+                  variant="neutral"
+                />
+              </div>
+            )}
+          </Button>
+          {numberOfFilters > 0 && (
+            <div
+              className={clsx(
+                'absolute bottom-0 left-4',
+                'flex items-center justify-center',
+                'size-3 rounded-full',
+                'bg-neutral-900 dark:bg-neutral-100',
+                'text-[8px] font-bold',
+                themeTextInvertColor,
+              )}>
+              {numberOfFilters}
             </div>
           )}
-        </Button>
+        </div>
       }
       onClose={onClose}>
       {isShown && (

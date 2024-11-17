@@ -101,7 +101,7 @@ export default function QuestionsStudyListSlideOutButton({
               ? undefined
               : `Previous question: ${prevQuestion?.title}`
           }
-          variant="secondary"
+          variant={isLoading ? 'tertiary' : 'secondary'}
         />
         <QuestionsStudyListSlideOut
           currentQuestionPosition={currentQuestionIndex + 1}
@@ -128,7 +128,7 @@ export default function QuestionsStudyListSlideOutButton({
               ? undefined
               : `Next question: ${nextQuestion?.title}`
           }
-          variant="secondary"
+          variant={isLoading ? 'tertiary' : 'secondary'}
         />
       </div>
     </div>
