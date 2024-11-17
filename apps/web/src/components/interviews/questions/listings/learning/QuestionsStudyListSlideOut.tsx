@@ -39,6 +39,7 @@ import Divider from '~/components/ui/Divider';
 import DropdownMenu from '~/components/ui/DropdownMenu';
 import FilterButton from '~/components/ui/FilterButton/FilterButton';
 import Popover from '~/components/ui/Popover';
+import ScrollArea from '~/components/ui/ScrollArea';
 import SlideOut from '~/components/ui/SlideOut';
 import Spinner from '~/components/ui/Spinner';
 import Text from '~/components/ui/Text';
@@ -732,21 +733,23 @@ export default function QuestionsStudyListSlideOut({
       }
       onClose={onClose}>
       {isShown && (
-        <Contents
-          key={currentStudyList?.listKey ?? 'coding'}
-          currentListKey={currentStudyList?.listKey}
-          filterNamespace={filterNamespace}
-          listKey={currentStudyList?.listKey}
-          metadata={metadata}
-          setFirstQuestionHref={setFirstQuestionHref}
-          onClickDifferentStudyListQuestion={(href: string) =>
-            setShowStudyListSwitchDialog({
-              href,
-              show: true,
-              type: 'question-click',
-            })
-          }
-        />
+        <ScrollArea>
+          <Contents
+            key={currentStudyList?.listKey ?? 'coding'}
+            currentListKey={currentStudyList?.listKey}
+            filterNamespace={filterNamespace}
+            listKey={currentStudyList?.listKey}
+            metadata={metadata}
+            setFirstQuestionHref={setFirstQuestionHref}
+            onClickDifferentStudyListQuestion={(href: string) =>
+              setShowStudyListSwitchDialog({
+                href,
+                show: true,
+                type: 'question-click',
+              })
+            }
+          />
+        </ScrollArea>
       )}
       <ConfirmationDialog
         confirmButtonLabel={intl.formatMessage({
