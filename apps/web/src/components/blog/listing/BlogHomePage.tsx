@@ -16,19 +16,15 @@ type Props = Readonly<{
 export default function BlogHomePage({ allSeries }: Props) {
   return (
     <>
-      <div className="flex flex-col gap-y-6">
-        <Heading level="heading4">
+      <div className="flex flex-col gap-y-3">
+        <Heading level="heading5">
           <FormattedMessage
             defaultMessage="GreatFrontEnd Blog"
             description="Blog home page title"
             id="uMAaCa"
           />
         </Heading>
-        <Text
-          className="block max-w-3xl"
-          color="subtitle"
-          size="body1"
-          weight="medium">
+        <Text className="block max-w-3xl" color="secondary" size="body2">
           <FormattedMessage
             defaultMessage="Learn new skills, improve your techniques and stay updated on latest front end trends and developments."
             description="Blog home page description"

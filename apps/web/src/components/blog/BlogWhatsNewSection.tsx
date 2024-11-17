@@ -18,7 +18,7 @@ export default function BlogWhatsNewSection() {
   return (
     <div className="flex flex-col gap-y-4">
       <div className="flex items-center justify-between">
-        <Heading level="heading6">
+        <Heading className="text-xl font-semibold" level="custom">
           <FormattedMessage
             defaultMessage="What's new"
             description="Section title for blog home page"

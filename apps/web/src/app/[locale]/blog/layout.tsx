@@ -15,7 +15,7 @@ export default function BlogLayout({ children }: Props) {
         <InterviewsNavbar />
         <div className="flex">
           <BlogSidebarContainer />
-          <div className="relative w-0 grow">{children}</div>
+          <div className="relative w-0 grow pb-8">{children}</div>
         </div>
         <InterviewsFooter />
       </div>

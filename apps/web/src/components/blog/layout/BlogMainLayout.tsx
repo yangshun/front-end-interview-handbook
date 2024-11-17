@@ -11,7 +11,7 @@ export default function BlogMainLayout({ children, seriesContents }: Props) {
   return (
     <div className="flex w-full flex-col">
       <BlogNavbar seriesContents={seriesContents} />
-      <div className="py-8 xl:py-12">{children}</div>
+      {children}
     </div>
   );
 }

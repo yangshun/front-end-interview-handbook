@@ -20,9 +20,9 @@ export default function BlogExploreTagPage({ articles, series, tag }: Props) {
 
   return (
     <div className="flex flex-col gap-y-10">
-      <div className="flex flex-col gap-y-6">
-        <Heading level="heading4">{startCase(tag)}</Heading>
-        <Text color="subtitle" size="body1" weight="medium">
+      <div className="flex flex-col gap-y-3">
+        <Heading level="heading5">{startCase(tag)}</Heading>
+        <Text color="secondary" size="body1">
           {intl.formatMessage(
             {
               defaultMessage: 'Explore articles related to "{tagName}".',

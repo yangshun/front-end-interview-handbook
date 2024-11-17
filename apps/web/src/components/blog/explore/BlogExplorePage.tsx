@@ -23,7 +23,7 @@ export default function BlogExplorePage() {
 
   return (
     <div className="flex flex-col gap-y-10">
-      <div className="flex flex-col gap-y-6">
+      <div className="flex flex-col gap-y-3">
         <div>
           <Button
             addonPosition="start"
@@ -39,18 +39,14 @@ export default function BlogExplorePage() {
             variant="tertiary"
           />
         </div>
-        <Heading level="heading4">
+        <Heading level="heading5">
           <FormattedMessage
             defaultMessage="Explore series"
             description="Explore series page title"
             id="X6kis4"
           />
         </Heading>
-        <Text
-          className="block max-w-3xl"
-          color="subtitle"
-          size="body1"
-          weight="medium">
+        <Text className="block max-w-3xl" color="secondary" size="body2">
           <FormattedMessage
             defaultMessage="Here you'll find a curated collection of our most insightful and engaging blog content, neatly organized into series for your convenience. Each series focuses on a unique theme or topic providing a deep dive subject."
             description="Explore series page description"
