@@ -101,6 +101,7 @@ function CheckboxInput(
                 'focus:ring-transparent focus:ring-offset-transparent',
                 'focus:outline-neutral-700 dark:focus:outline-neutral-300',
               ],
+              !disabled && 'cursor-pointer',
             )}
             defaultChecked={defaultValue}
             disabled={disabled}
@@ -123,11 +124,14 @@ function CheckboxInput(
             topMarginVariants[size],
           )}>
           <label
-            className={textVariants({
-              className: 'block',
-              color: disabled ? 'disabled' : 'secondary',
-              size: textSizeVariants[size],
-            })}
+            className={clsx(
+              textVariants({
+                className: 'block',
+                color: disabled ? 'disabled' : 'secondary',
+                size: textSizeVariants[size],
+              }),
+              !disabled && 'cursor-pointer',
+            )}
             htmlFor={id}>
             {label}
           </label>
