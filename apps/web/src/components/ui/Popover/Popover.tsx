@@ -15,6 +15,10 @@ type Props = Readonly<{
   asChild?: boolean;
   children: React.ReactNode;
   className?: string;
+  onOpenChange?: React.ComponentProps<
+    typeof PopoverPrimitive.Root
+  >['onOpenChange'];
+  open?: React.ComponentProps<typeof PopoverPrimitive.Root>['open'];
   side?: PopoverContentSide;
   trigger: React.ReactNode;
   width?: PopoverContentWidth;
@@ -33,11 +37,13 @@ export default function Popover({
   children,
   side = 'bottom',
   trigger,
+  open,
   width = 'md',
   className,
+  onOpenChange,
 }: Props) {
   return (
-    <PopoverPrimitive.Root>
+    <PopoverPrimitive.Root open={open} onOpenChange={onOpenChange}>
       <PopoverPrimitive.Trigger asChild={asChild}>
         {trigger}
       </PopoverPrimitive.Trigger>
