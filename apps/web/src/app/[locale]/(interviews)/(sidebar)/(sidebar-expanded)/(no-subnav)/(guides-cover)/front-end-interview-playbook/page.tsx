@@ -3,9 +3,7 @@ import type { Metadata } from 'next/types';
 import { basePath } from '~/components/guides/useBehavioralInterviewGuidebookNavigation';
 import FrontEndInterviewPlaybookPage from '~/components/interviews/guides/FrontEndInterviewPlaybookPage';
 
-import { fetchInterviewsStudyList } from '~/db/contentlayer/InterviewsStudyListReader';
 import { readAllFrontEndInterviewGuides } from '~/db/guides/GuidesReader';
-import { fetchQuestionsListSystemDesign } from '~/db/QuestionsListReader';
 import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
 
@@ -61,19 +59,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function Page({ params }: Props) {
-  const [
-    allGuides,
-    blind75,
-    gfe75,
-    { questions: systemDesignQuestions },
-    { title, description, socialTitle, href },
-  ] = await Promise.all([
-    readAllFrontEndInterviewGuides(params.locale),
-    fetchInterviewsStudyList('blind75'),
-    fetchInterviewsStudyList('gfe75'),
-    fetchQuestionsListSystemDesign(params.locale),
-    getPageSEOMetadata({ params }),
-  ]);
+  const [allGuides, { title, description, socialTitle, href }] =
+    await Promise.all([
+      readAllFrontEndInterviewGuides(params.locale),
+      getPageSEOMetadata({ params }),
+    ]);
 
   return (
     <FrontEndInterviewPlaybookPage
@@ -82,17 +72,6 @@ export default async function Page({ params }: Props) {
         description,
         href,
         title: socialTitle || title,
-      }}
-      recommendedPrepData={{
-        blind75: {
-          listKey: blind75?.slug ?? '',
-          questionCount: blind75?.questionHashes.length ?? 0,
-        },
-        gfe75: {
-          listKey: gfe75?.slug ?? '',
-          questionCount: gfe75?.questionHashes.length ?? 0,
-        },
-        systemDesignQuestionCount: systemDesignQuestions.length,
       }}
     />
   );

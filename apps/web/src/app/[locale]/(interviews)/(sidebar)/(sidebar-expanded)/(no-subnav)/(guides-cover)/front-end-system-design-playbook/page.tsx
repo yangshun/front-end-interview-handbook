@@ -3,7 +3,6 @@ import type { Metadata } from 'next/types';
 import FrontEndSystemDesignPlaybookPage from '~/components/interviews/guides/FrontEndSystemDesignPlaybookPage';
 import { basePath } from '~/components/interviews/questions/content/system-design/SystemDesignNavigation';
 
-import { fetchInterviewsStudyList } from '~/db/contentlayer/InterviewsStudyListReader';
 import { readAllFrontendSystemDesignGuides } from '~/db/guides/GuidesReader';
 import { fetchQuestionCompletionCount } from '~/db/QuestionsCount';
 import { fetchQuestionsListSystemDesign } from '~/db/QuestionsListReader';
@@ -68,15 +67,11 @@ export default async function Page({ params }: Props) {
     allGuides,
     { questions },
     questionCompletionCount,
-    blind75,
-    gfe75,
     { title, description, socialTitle, href },
   ] = await Promise.all([
     readAllFrontendSystemDesignGuides(params.locale),
     fetchQuestionsListSystemDesign(locale),
     fetchQuestionCompletionCount(['system-design']),
-    fetchInterviewsStudyList('blind75'),
-    fetchInterviewsStudyList('gfe75'),
     getPageSEOMetadata({ params }),
   ]);
 
@@ -90,17 +85,6 @@ export default async function Page({ params }: Props) {
       }}
       questionCompletionCount={questionCompletionCount}
       questions={questions}
-      recommendedPrepData={{
-        blind75: {
-          listKey: blind75?.slug ?? '',
-          questionCount: blind75?.questionHashes.length ?? 0,
-        },
-        gfe75: {
-          listKey: gfe75?.slug ?? '',
-          questionCount: gfe75?.questionHashes.length ?? 0,
-        },
-        systemDesignQuestionCount: questions.length,
-      }}
     />
   );
 }

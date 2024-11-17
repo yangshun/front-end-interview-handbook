@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 import { usePathname } from 'next/navigation';
-import type { ReactNode } from 'react';
+import { type ReactNode, useState } from 'react';
 import { FaCheck } from 'react-icons/fa6';
 import { RiArrowDownSLine, RiArrowRightLine } from 'react-icons/ri';
 
@@ -33,35 +33,31 @@ import QuestionListingAccessCount from '../questions/listings/stats/QuestionList
 
 import { useUser } from '@supabase/auth-helpers-react';
 
-function RecommendedItemsDropdown({
-  recommendedPrepData,
+function RecommendedItemsPopover({
   overallProgress,
 }: Readonly<{
   overallProgress: ReadonlyArray<QuestionProgress>;
-  recommendedPrepData: Readonly<{
-    blind75: Readonly<{
-      listKey: string;
-      questionCount: number;
-    }>;
-    gfe75: Readonly<{
-      listKey: string;
-      questionCount: number;
-    }>;
-    systemDesignQuestionCount: number;
-  }>;
 }>) {
+  const [isPopoverOpen, setIsPopoverOpen] = useState(false);
   const user = useUser();
   const { data: questionListSessions } =
     trpc.questionLists.getActiveSessions.useQuery(undefined, {
       enabled: !!user,
     });
+  const { data: recommendedPrepData } =
+    trpc.questionLists.getRecommendedStudyList.useQuery(undefined, {
+      enabled: isPopoverOpen,
+    });
 
   const sessions = questionListSessions ?? [];
   const gfe75session = sessions.find(
-    (session) => session.key === recommendedPrepData.gfe75.listKey,
+    (session) =>
+      recommendedPrepData && session.key === recommendedPrepData.gfe75.listKey,
   );
   const blind75session = sessions.find(
-    (session) => session.key === recommendedPrepData.blind75.listKey,
+    (session) =>
+      recommendedPrepData &&
+      session.key === recommendedPrepData.blind75.listKey,
   );
   const { frontendInterviewPlaybook, systemDesignPlaybook } =
     useGuideCompletionCount();
@@ -74,29 +70,33 @@ function RecommendedItemsDropdown({
       href: guidesData['front-end-interview-playbook'].href,
       isCompleted:
         frontendInterviewPlaybook.total === frontendInterviewPlaybook.completed,
+      isLoading: false,
       label: guidesData['front-end-interview-playbook'].name,
     },
     {
       href: '/interviews/gfe75',
       isCompleted:
+        recommendedPrepData &&
         gfe75session?._count.progress ===
-        recommendedPrepData.gfe75.questionCount,
+          recommendedPrepData.gfe75.questionCount,
       label: 'GFE 75',
     },
     {
       href: '/interviews/blind75',
       isCompleted:
+        recommendedPrepData &&
         blind75session?._count.progress ===
-        recommendedPrepData.blind75.questionCount,
+          recommendedPrepData.blind75.questionCount,
       label: 'Blind 75',
     },
     {
       href: guidesData['front-end-system-design-playbook'].href,
       isCompleted:
+        recommendedPrepData &&
         questionsProgressAll['system-design'].size +
           systemDesignPlaybook.completed ===
-        systemDesignPlaybook.total +
-          recommendedPrepData.systemDesignQuestionCount,
+          systemDesignPlaybook.total +
+            recommendedPrepData.systemDesignQuestionCount,
       label: guidesData['front-end-system-design-playbook'].shortName,
     },
   ];
@@ -110,7 +110,8 @@ function RecommendedItemsDropdown({
       trigger={
         <button
           className={clsx(themeOutlineElementBrandColor_FocusVisible)}
-          type="button">
+          type="button"
+          onClick={() => setIsPopoverOpen(true)}>
           <Tooltip
             asChild={true}
             label={
@@ -193,7 +194,9 @@ function RecommendedItemsDropdown({
                 href={href}
                 variant="unstyled">
                 <Text
-                  className="block group-hover:text-neutral-900 dark:group-hover:text-neutral-100"
+                  className={clsx(
+                    'block group-hover:text-neutral-900 dark:group-hover:text-neutral-100',
+                  )}
                   color={isSelected ? 'default' : 'secondary'}
                   size="body2"
                   weight={isSelected ? 'bold' : 'normal'}>
@@ -232,17 +235,6 @@ type CommonProps = Readonly<{
   overallProgress?: ReadonlyArray<QuestionProgress>;
   questions?: ReadonlyArray<QuestionMetadata>;
   questionsSessionKey?: string;
-  recommendedPrepData?: Readonly<{
-    blind75: Readonly<{
-      listKey: string;
-      questionCount: number;
-    }>;
-    gfe75: Readonly<{
-      listKey: string;
-      questionCount: number;
-    }>;
-    systemDesignQuestionCount: number;
-  }>;
   showQuestionCountCard?: boolean;
   title: string;
 }>;
@@ -268,46 +260,41 @@ export default function InterviewsRecommendedPrepStrategyPageTitleSection({
   questions,
   overallProgress,
   showQuestionCountCard = true,
-  recommendedPrepData,
   ...props
 }: Props) {
   const intl = useIntl();
 
   return (
     <div className="flex flex-col gap-8">
-      {(recommendedPrepData || metadata) && (
+      {metadata && (
         <div
           className={clsx(
             'flex flex-wrap items-center justify-between gap-x-2 gap-y-4',
             'h-7', // Add a fixed height so that the page contents don't shift around when navigating between pages that don't have metadata.
           )}>
-          {recommendedPrepData && (
-            <div className="flex items-center gap-3">
-              <Tooltip
-                asChild={true}
-                label={
-                  <FormattedMessage
-                    defaultMessage="This study list is part of our recommended preparation strategy."
-                    description="Tooltip for recommended preparation strategy badge"
-                    id="G+XbLQ"
-                  />
-                }>
-                <Badge
-                  label={intl.formatMessage({
-                    defaultMessage: 'Recommended',
-                    description: 'Label for Recommended tag',
-                    id: 'baItxW',
-                  })}
-                  size="xs"
-                  variant="neutral-active"
+          <div className="flex items-center gap-3">
+            <Tooltip
+              asChild={true}
+              label={
+                <FormattedMessage
+                  defaultMessage="This study list is part of our recommended preparation strategy."
+                  description="Tooltip for recommended preparation strategy badge"
+                  id="G+XbLQ"
                 />
-              </Tooltip>
-              <RecommendedItemsDropdown
-                overallProgress={overallProgress ?? []}
-                recommendedPrepData={recommendedPrepData}
+              }>
+              <Badge
+                label={intl.formatMessage({
+                  defaultMessage: 'Recommended',
+                  description: 'Label for Recommended tag',
+                  id: 'baItxW',
+                })}
+                size="xs"
+                variant="neutral-active"
               />
-            </div>
-          )}
+            </Tooltip>
+            <RecommendedItemsPopover overallProgress={overallProgress ?? []} />
+          </div>
+
           {metadata && (
             <div className="flex flex-1 justify-end">
               <InterviewsPageHeaderActions metadata={metadata} />

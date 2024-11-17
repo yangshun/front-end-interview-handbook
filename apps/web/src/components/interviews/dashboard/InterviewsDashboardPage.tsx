@@ -128,17 +128,6 @@ export default function InterviewsDashboardPage({
         <InterviewsDashboardRecommendedPreparationStrategy
           questionListSessions={sessions}
           questionsProgress={questionsProgress ?? []}
-          recommendedPrepData={{
-            blind75: {
-              listKey: studyListsMap.blind75.slug,
-              questionCount: studyListsMap.blind75?.questionHashes.length,
-            },
-            gfe75: {
-              listKey: studyListsMap.gfe75?.slug ?? '',
-              questionCount: studyListsMap.gfe75?.questionHashes.length,
-            },
-            systemDesignQuestionCount: questions.systemDesignQuestions.length,
-          }}
         />
         <Divider />
         <InterviewsDashboardMoreLearningSection

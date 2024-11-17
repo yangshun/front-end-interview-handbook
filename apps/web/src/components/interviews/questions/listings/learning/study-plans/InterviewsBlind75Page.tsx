@@ -34,17 +34,6 @@ type Props = Readonly<{
   bottomContent?: InterviewsListingBottomContent;
   questions: ReadonlyArray<QuestionMetadata>;
   questionsSlugs: Record<QuestionFormat, ReadonlyArray<QuestionSlug>>;
-  recommendedPrepData: Readonly<{
-    blind75: Readonly<{
-      listKey: string;
-      questionCount: number;
-    }>;
-    gfe75: Readonly<{
-      listKey: string;
-      questionCount: number;
-    }>;
-    systemDesignQuestionCount: number;
-  }>;
   studyList: InterviewsStudyList;
 }>;
 
@@ -53,7 +42,6 @@ export default function InterviewsBlind75Page({
   studyList,
   questions,
   questionsSlugs,
-  recommendedPrepData,
 }: Props) {
   const intl = useIntl();
   const user = useUser();
@@ -132,7 +120,6 @@ export default function InterviewsBlind75Page({
           overallProgress={questionProgressParam ?? []}
           questions={questions}
           questionsSessionKey="blind75"
-          recommendedPrepData={recommendedPrepData}
           title={studyList.name}
         />
       </div>

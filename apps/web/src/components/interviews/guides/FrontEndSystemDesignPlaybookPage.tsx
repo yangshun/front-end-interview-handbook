@@ -32,24 +32,12 @@ type Props = Readonly<{
   };
   questionCompletionCount?: QuestionCompletionCount;
   questions: ReadonlyArray<QuestionMetadata>;
-  recommendedPrepData: Readonly<{
-    blind75: Readonly<{
-      listKey: string;
-      questionCount: number;
-    }>;
-    gfe75: Readonly<{
-      listKey: string;
-      questionCount: number;
-    }>;
-    systemDesignQuestionCount: number;
-  }>;
 }>;
 
 export default function FrontEndSystemDesignPlaybookPage({
   allGuides,
   questions,
   questionCompletionCount,
-  recommendedPrepData,
   metadata,
 }: Props) {
   const intl = useIntl();
@@ -134,7 +122,6 @@ export default function FrontEndSystemDesignPlaybookPage({
         </div>
       }
       metadata={metadata}
-      recommendedPrepData={recommendedPrepData}
       title={intl.formatMessage({
         defaultMessage: 'Front End System Design Playbook',
         description: 'Title of frontend system design playbook page',

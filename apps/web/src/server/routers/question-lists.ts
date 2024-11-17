@@ -7,6 +7,7 @@ import { fetchInterviewsStudyList } from '~/db/contentlayer/InterviewsStudyListR
 import {
   fetchQuestionsByHash,
   fetchQuestionsListCoding,
+  fetchQuestionsListSystemDesign,
 } from '~/db/QuestionsListReader';
 import { fetchStudyListsSelectorData } from '~/db/StudyListUtils';
 import prisma from '~/server/prisma';
@@ -71,6 +72,24 @@ export const questionListsRouter = router({
 
       return fetchQuestionsByHash(studyList.questionHashes);
     }),
+  getRecommendedStudyList: publicProcedure
+  .query(async () => {
+    const blind75 = await fetchInterviewsStudyList('blind75');
+    const gfe75 = await fetchInterviewsStudyList('gfe75');
+    const { questions } = await fetchQuestionsListSystemDesign('en-US');
+
+    return {
+      blind75: {
+        listKey: blind75?.slug ?? '',
+        questionCount: blind75?.questionHashes.length ?? 0
+      },
+      gfe75: {
+        listKey: gfe75?.slug ?? '',
+        questionCount: gfe75?.questionHashes.length ?? 0
+      },
+      systemDesignQuestionCount: questions.length,
+    }
+  }),
   getSessionProgress: userProcedure
     .input(
       z.object({

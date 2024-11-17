@@ -17,17 +17,6 @@ type Props = Readonly<{
     href: string;
     title: string;
   };
-  recommendedPrepData?: Readonly<{
-    blind75: Readonly<{
-      listKey: string;
-      questionCount: number;
-    }>;
-    gfe75: Readonly<{
-      listKey: string;
-      questionCount: number;
-    }>;
-    systemDesignQuestionCount: number;
-  }>;
   title: string;
 }>;
 
@@ -37,7 +26,6 @@ export default function GuidesCoverLayout({
   features,
   icon,
   longDescription,
-  recommendedPrepData,
   metadata,
   children,
 }: Props) {
@@ -49,7 +37,6 @@ export default function GuidesCoverLayout({
         icon={icon}
         longDescription={longDescription}
         metadata={metadata}
-        recommendedPrepData={recommendedPrepData}
         showQuestionCountCard={false}
         title={title}
       />

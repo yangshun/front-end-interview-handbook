@@ -3,6 +3,8 @@ import type { ReactNode } from 'react';
 import { FaCheck } from 'react-icons/fa6';
 import { RiArrowRightLine } from 'react-icons/ri';
 
+import { trpc } from '~/hooks/trpc';
+
 import { useGuidesData } from '~/data/Guides';
 
 import InterviewsEntityProgress from '~/components/interviews/common/InterviewsEntityProgress';
@@ -140,31 +142,24 @@ type Props = Readonly<{
   questionsProgress: ReadonlyArray<
     Readonly<{ format: string; id: string; slug: QuestionSlug }>
   >;
-  recommendedPrepData: Readonly<{
-    blind75: Readonly<{
-      listKey: string;
-      questionCount: number;
-    }>;
-    gfe75: Readonly<{
-      listKey: string;
-      questionCount: number;
-    }>;
-    systemDesignQuestionCount: number;
-  }>;
 }>;
 
 export default function InterviewsDashboardRecommendedPreparationStrategy({
-  recommendedPrepData,
   questionListSessions,
   questionsProgress,
 }: Props) {
   const intl = useIntl();
   const guidesData = useGuidesData();
+  const { data: recommendedPrepData } =
+    trpc.questionLists.getRecommendedStudyList.useQuery(undefined);
   const gfe75session = questionListSessions.find(
-    (session) => session.key === recommendedPrepData.gfe75.listKey,
+    (session) =>
+      recommendedPrepData && session.key === recommendedPrepData.gfe75.listKey,
   );
   const blind75session = questionListSessions.find(
-    (session) => session.key === recommendedPrepData.blind75.listKey,
+    (session) =>
+      recommendedPrepData &&
+      session.key === recommendedPrepData.blind75.listKey,
   );
   const { frontendInterviewPlaybook, systemDesignPlaybook } =
     useGuideCompletionCount();
@@ -197,7 +192,7 @@ export default function InterviewsDashboardRecommendedPreparationStrategy({
       href: '/interviews/gfe75',
       question: {
         completed: gfe75session?._count.progress ?? 0,
-        total: recommendedPrepData.gfe75.questionCount,
+        total: recommendedPrepData?.gfe75.questionCount ?? 0,
       },
       title: 'GFE 75',
       variant: 'neutral',
@@ -213,7 +208,7 @@ export default function InterviewsDashboardRecommendedPreparationStrategy({
       icon: StudyPlanIcons.blind75,
       question: {
         completed: blind75session?._count.progress ?? 0,
-        total: recommendedPrepData.blind75.questionCount,
+        total: recommendedPrepData?.blind75.questionCount ?? 0,
       },
       tagLabel: intl.formatMessage({
         defaultMessage: 'If you expect DSA questions',
@@ -244,7 +239,7 @@ export default function InterviewsDashboardRecommendedPreparationStrategy({
       icon: guidesData['front-end-system-design-playbook'].icon,
       question: {
         completed: questionsProgressAll['system-design'].size,
-        total: recommendedPrepData.systemDesignQuestionCount,
+        total: recommendedPrepData?.systemDesignQuestionCount ?? 0,
       },
       tagLabel: intl.formatMessage({
         defaultMessage: "If you're a senior engineer",

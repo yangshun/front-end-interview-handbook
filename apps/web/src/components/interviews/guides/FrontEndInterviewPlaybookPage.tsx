@@ -28,22 +28,10 @@ type Props = Readonly<{
     href: string;
     title: string;
   };
-  recommendedPrepData: Readonly<{
-    blind75: Readonly<{
-      listKey: string;
-      questionCount: number;
-    }>;
-    gfe75: Readonly<{
-      listKey: string;
-      questionCount: number;
-    }>;
-    systemDesignQuestionCount: number;
-  }>;
 }>;
 
 export default function FrontEndInterviewPlaybookPage({
   allGuides,
-  recommendedPrepData,
   metadata,
 }: Props) {
   const intl = useIntl();
@@ -186,7 +174,6 @@ export default function FrontEndInterviewPlaybookPage({
         </Text>
       }
       metadata={metadata}
-      recommendedPrepData={recommendedPrepData}
       title={intl.formatMessage({
         defaultMessage: 'Front End Interview Playbook',
         description: 'Title of frontend interview playbook page',
