@@ -29,7 +29,6 @@ import { categorizeQuestionsProgress } from '~/db/QuestionsUtils';
 import InterviewsPageHeaderActions from '../common/InterviewsPageHeaderActions';
 import type { QuestionMetadata } from '../questions/common/QuestionsTypes';
 import QuestionsStudyListPageTitleSection from '../questions/listings/learning/QuestionsStudyListPageTitleSection';
-import QuestionListingAccessCount from '../questions/listings/stats/QuestionListingAccessCount';
 
 import { useUser } from '@supabase/auth-helpers-react';
 
@@ -235,7 +234,6 @@ type CommonProps = Readonly<{
   overallProgress?: ReadonlyArray<QuestionProgress>;
   questions?: ReadonlyArray<QuestionMetadata>;
   questionsSessionKey?: string;
-  showQuestionCountCard?: boolean;
   title: string;
 }>;
 
@@ -259,7 +257,6 @@ export default function InterviewsRecommendedPrepStrategyPageTitleSection({
   metadata,
   questions,
   overallProgress,
-  showQuestionCountCard = true,
   ...props
 }: Props) {
   const intl = useIntl();
@@ -311,17 +308,8 @@ export default function InterviewsRecommendedPrepStrategyPageTitleSection({
         title={title}
         {...props}
       />
-      <div className={clsx('grid items-center gap-6 lg:grid-cols-12')}>
+      <div className={clsx('grid lg:grid-cols-12')}>
         <div className="lg:col-span-9">{longDescription}</div>
-        {showQuestionCountCard && (
-          <aside className="lg:col-span-3">
-            <QuestionListingAccessCount
-              count={75}
-              totalCount={75}
-              variant="free"
-            />
-          </aside>
-        )}
       </div>
     </div>
   );

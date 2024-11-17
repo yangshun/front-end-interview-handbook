@@ -22,7 +22,11 @@ export default function QuestionListingAccessSummary({
     <div className="flex gap-2">
       {free > 0 && (
         <div className="flex-1">
-          <QuestionListingAccessCount count={free + standard} variant="free" />
+          <QuestionListingAccessCount
+            count={free + standard}
+            totalCount={free + standard + premium}
+            variant="free"
+          />
         </div>
       )}
       {premium > 0 && (

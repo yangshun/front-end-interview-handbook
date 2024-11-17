@@ -13,7 +13,9 @@ import GuidesListWithCategory from '~/components/guides/cover/GuidesListWithCate
 import type { GuideCardMetadata } from '~/components/guides/types';
 import useGuidesWithCompletionStatus from '~/components/guides/useGuidesWithCompletionStatus';
 import type { QuestionMetadata } from '~/components/interviews/questions/common/QuestionsTypes';
+import { countQuestionsByAccess } from '~/components/interviews/questions/listings/filters/QuestionsProcessor';
 import QuestionsUnifiedListWithFiltersAndProgress from '~/components/interviews/questions/listings/items/QuestionsUnifiedListWithFiltersAndProgress';
+import QuestionListingAccessSummary from '~/components/interviews/questions/listings/stats/QuestionListingAccessSummary';
 import { useIntl } from '~/components/intl';
 import Divider from '~/components/ui/Divider';
 import Heading from '~/components/ui/Heading';
@@ -43,6 +45,7 @@ export default function FrontEndSystemDesignPlaybookPage({
   const intl = useIntl();
 
   const guidesWithCompletionStatus = useGuidesWithCompletionStatus(allGuides);
+  const questionsCount = countQuestionsByAccess(questions);
 
   const guidesData = [
     {
@@ -146,6 +149,11 @@ export default function FrontEndSystemDesignPlaybookPage({
                 filterNamespace="system-design-format"
                 questionCompletionCount={questionCompletionCount}
                 questions={questions}
+                sideColumnAddOn={
+                  <div className="hidden lg:block">
+                    <QuestionListingAccessSummary {...questionsCount} />
+                  </div>
+                }
               />
             </div>
           </Section>

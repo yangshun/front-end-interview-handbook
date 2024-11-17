@@ -18,7 +18,9 @@ import type {
   QuestionSlug,
 } from '~/components/interviews/questions/common/QuestionsTypes';
 import PreparationGFE75Logo from '~/components/interviews/questions/content/study-list/logo/PreparationGFE75Logo';
+import { countQuestionsByAccess } from '~/components/interviews/questions/listings/filters/QuestionsProcessor';
 import QuestionsStudyList from '~/components/interviews/questions/listings/learning/QuestionsStudyList';
+import QuestionListingAccessSummary from '~/components/interviews/questions/listings/stats/QuestionListingAccessSummary';
 import InterviewsRecommendedPrepStrategyPageTitleSection from '~/components/interviews/recommended/InterviewsRecommendedPrepStrategyPageTitleSection';
 import { FormattedMessage, useIntl } from '~/components/intl';
 import MDXContent from '~/components/mdx/MDXContent';
@@ -66,6 +68,7 @@ export default function InterviewsGFE75Page({
     questionsProgressAll,
     questionsSlugs,
   );
+  const questionsCount = countQuestionsByAccess(questions);
 
   const features = [
     {
@@ -95,8 +98,8 @@ export default function InterviewsGFE75Page({
   ];
 
   return (
-    <div className={clsx('flex flex-col gap-y-12 md:gap-y-16', 'relative')}>
-      <div className="relative flex flex-col gap-y-5">
+    <div className={clsx('flex flex-col gap-y-10 md:gap-y-16', 'relative')}>
+      <div className="relative flex flex-col gap-y-6">
         <InterviewsRecommendedPrepStrategyPageTitleSection
           description={studyList.description}
           features={features}
@@ -142,6 +145,9 @@ export default function InterviewsGFE75Page({
           questionsSessionKey="gfe75"
           title={studyList.name}
         />
+        <div className="block lg:hidden">
+          <QuestionListingAccessSummary {...questionsCount} />
+        </div>
       </div>
       <Section>
         <div className="flex flex-col gap-20">
@@ -149,7 +155,11 @@ export default function InterviewsGFE75Page({
             listKey={studyList.slug}
             overallProgress={questionsOverallProgress}
             questions={questions}
-            showSummarySection={false}
+            sideColumnAddOn={
+              <div className="hidden lg:block">
+                <QuestionListingAccessSummary {...questionsCount} />
+              </div>
+            }
           />
           {bottomContent && (
             <Section>

@@ -198,7 +198,6 @@ export default function InterviewsCompanyGuidePage({
                 listKey={studyList.slug}
                 overallProgress={questionsOverallProgress}
                 questions={questions}
-                showSummarySection={false}
               />
             ) : (
               <VignetteOverlay

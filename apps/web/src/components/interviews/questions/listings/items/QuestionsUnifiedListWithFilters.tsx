@@ -15,7 +15,6 @@ import type {
   QuestionSortField,
 } from '~/components/interviews/questions/common/QuestionsTypes';
 import {
-  countQuestionsByAccess,
   countQuestionsTotalDurationMins,
   filterQuestions,
   sortQuestionsMultiple,
@@ -36,7 +35,6 @@ import useQuestionCodingSorting from '../filters/hooks/useQuestionCodingSorting'
 import useQuestionUnifiedFilters from '../filters/hooks/useQuestionUnifiedFilters';
 import QuestionListingUnifiedFilters from '../filters/QuestionListingUnifiedFilters';
 import QuestionsListingFilterSlideOut from '../filters/QuestionsListingFilterSlideout';
-import QuestionListingAccessSummary from '../stats/QuestionListingAccessSummary';
 import QuestionCountLabel from '../../metadata/QuestionCountLabel';
 import QuestionTotalTimeLabel from '../../metadata/QuestionTotalTimeLabel';
 
@@ -66,7 +64,6 @@ type Props = Readonly<{
   questionCompletionCount?: QuestionCompletionCount;
   questions: ReadonlyArray<QuestionMetadataWithCompletedStatus>;
   searchPlaceholder?: string;
-  showSummarySection?: boolean;
   sideColumnAddOn?: ReactNode;
 }>;
 
@@ -87,7 +84,7 @@ export default function QuestionsUnifiedListWithFilters({
   onMarkAsCompleted,
   onMarkAsNotCompleted,
   searchPlaceholder,
-  showSummarySection = true,
+  sideColumnAddOn,
   onQuestionClickIntercept,
   guides,
 }: Props) {
@@ -148,7 +145,6 @@ export default function QuestionsUnifiedListWithFilters({
     filters.map(([_, filterFn]) => filterFn),
   );
 
-  const premiumCount = countQuestionsByAccess(processedQuestions);
   const totalDurationMins = countQuestionsTotalDurationMins(processedQuestions);
   const showPaywall =
     !userProfile?.isInterviewsPremium && companyFilters.size > 0;
@@ -427,9 +423,7 @@ export default function QuestionsUnifiedListWithFilters({
           'px-5',
           ['divide-y', themeDivideEmphasizeColor],
         )}>
-        {showSummarySection && (
-          <QuestionListingAccessSummary {...premiumCount} />
-        )}
+        {sideColumnAddOn}
         <section className="sticky top-[var(--global-sticky-height)] h-[calc(100vh_-_var(--global-sticky-height))]">
           <ScrollArea>
             <Heading className="sr-only" level="custom">

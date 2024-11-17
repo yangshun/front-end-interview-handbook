@@ -1,4 +1,5 @@
 import { useRouter } from 'next/navigation';
+import type { ReactNode } from 'react';
 import { useState } from 'react';
 
 import { trpc } from '~/hooks/trpc';
@@ -29,12 +30,12 @@ export default function QuestionsStudyList({
   listKey,
   overallProgress,
   questions,
-  showSummarySection = true,
+  sideColumnAddOn,
 }: Readonly<{
   listKey: string;
   overallProgress: QuestionsCategorizedProgress;
   questions: ReadonlyArray<QuestionMetadata>;
-  showSummarySection?: boolean;
+  sideColumnAddOn?: ReactNode;
 }>) {
   const trpcUtils = trpc.useUtils();
   const intl = useIntl();
@@ -193,7 +194,7 @@ export default function QuestionsStudyList({
           listKey={listKey}
           listMode="learning-list"
           questions={sortedQuestions}
-          showSummarySection={showSummarySection}
+          sideColumnAddOn={sideColumnAddOn}
           onMarkAsCompleted={markQuestionAsCompleted}
           onMarkAsNotCompleted={markQuestionAsNotCompleted}
           onQuestionClickIntercept={

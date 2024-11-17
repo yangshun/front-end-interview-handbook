@@ -176,7 +176,6 @@ export default function InterviewsQuestionFormatPage({
           questionCompletionCount={questionCompletionCount}
           questions={questions}
           searchPlaceholder={formatData[format].searchPlaceholder}
-          showSummarySection={false}
         />
         {bottomContent && (
           <>

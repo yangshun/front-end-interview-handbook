@@ -37,7 +37,6 @@ export default function GuidesCoverLayout({
         icon={icon}
         longDescription={longDescription}
         metadata={metadata}
-        showQuestionCountCard={false}
         title={title}
       />
       {children}

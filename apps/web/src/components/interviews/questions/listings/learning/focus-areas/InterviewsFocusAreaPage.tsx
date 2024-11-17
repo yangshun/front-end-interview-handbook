@@ -130,7 +130,6 @@ export default function InterviewsFocusAreaPage({
             listKey={studyList.slug}
             overallProgress={questionsOverallProgress}
             questions={questions}
-            showSummarySection={false}
           />
         ) : (
           <VignetteOverlay

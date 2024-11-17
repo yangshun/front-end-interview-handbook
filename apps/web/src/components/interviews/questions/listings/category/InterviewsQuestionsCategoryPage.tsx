@@ -27,7 +27,9 @@ import type {
   QuestionUserFacingFormat,
 } from '~/components/interviews/questions/common/QuestionsTypes';
 import InterviewsQuestionsCategoryContentSlider from '~/components/interviews/questions/listings/category/InterviewsQuestionsCategoryContentSlider';
+import { countQuestionsByAccess } from '~/components/interviews/questions/listings/filters/QuestionsProcessor';
 import QuestionsUnifiedListWithFiltersAndProgress from '~/components/interviews/questions/listings/items/QuestionsUnifiedListWithFiltersAndProgress';
+import QuestionListingAccessSummary from '~/components/interviews/questions/listings/stats/QuestionListingAccessSummary';
 import { useIntl } from '~/components/intl';
 import Section from '~/components/ui/Heading/HeadingContext';
 
@@ -129,6 +131,8 @@ export default function InterviewsQuestionsCategoryPage({
   const guidesWithCompletionStatus =
     useGuidesWithCompletionStatus(filteredGuides);
 
+  const questionsCount = countQuestionsByAccess(questionList);
+
   return (
     <div className={clsx('flex flex-col', 'gap-y-10 md:gap-y-16')}>
       <InterviewsPageHeader
@@ -176,6 +180,11 @@ export default function InterviewsQuestionsCategoryPage({
           questionCompletionCount={questionCompletionCount}
           questions={questionList}
           searchPlaceholder={searchPlaceholder}
+          sideColumnAddOn={
+            <div className="hidden lg:block">
+              <QuestionListingAccessSummary {...questionsCount} />
+            </div>
+          }
         />
       </Section>
     </div>
