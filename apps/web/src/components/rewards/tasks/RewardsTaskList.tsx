@@ -8,14 +8,19 @@ import type { Props as RewardsTaskProps } from './RewardsTaskItem';
 import RewardsTaskItem from './RewardsTaskItem';
 
 type Props = Readonly<{
+  isDisabled?: boolean;
   tasks: ReadonlyArray<RewardsTaskProps>;
 }>;
 
-export default function RewardsTaskList({ tasks }: Props) {
+export default function RewardsTaskList({ tasks, isDisabled }: Props) {
   return (
     <div className={clsx(['divide-y', themeDivideColor])}>
       {tasks?.map((task) => (
-        <RewardsTaskItem key={task.actionName} {...task} />
+        <RewardsTaskItem
+          key={task.actionName}
+          {...task}
+          isDisabled={isDisabled}
+        />
       ))}
     </div>
   );

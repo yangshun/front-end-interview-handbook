@@ -266,6 +266,8 @@ export default function RewardsTasksPage() {
     ({ status }) => status === 'completed',
   );
 
+  const isLastStep = currentStep === 2;
+
   return (
     <div className="mx-auto flex w-full max-w-lg flex-col items-center gap-y-10">
       <RewardsHeader />
@@ -273,9 +275,9 @@ export default function RewardsTasksPage() {
         <RewardsStepLabel
           label={
             <FormattedMessage
-              defaultMessage="Verify your social accounts"
+              defaultMessage="Enter your social media handles"
               description="Rewards step label"
-              id="3bTpP/"
+              id="nTw2HR"
             />
           }
           status={firstStepStatus}
@@ -303,22 +305,27 @@ export default function RewardsTasksPage() {
           )}
         </div>
       </div>
+      {/* Step 2 */}
       <div className="flex w-full flex-col gap-4">
         <RewardsStepLabel
           label={
             <FormattedMessage
-              defaultMessage="Complete the tasks"
+              defaultMessage="Complete tasks"
               description="Rewards step label"
-              id="4aoTWp"
+              id="mb1n+/"
             />
           }
           status={secondStepStatus}
           step={2}
         />
-        {currentStep === 2 && (
-          <div className="flex w-full flex-col gap-4 pl-8">
-            <RewardsTaskList tasks={tasksWithStatus} />
-            <div className="flex justify-between">
+        <div className="flex w-full flex-col gap-4 pl-8">
+          <RewardsTaskList isDisabled={!isLastStep} tasks={tasksWithStatus} />
+          <div
+            className={clsx(
+              'flex',
+              isLastStep ? 'justify-between' : 'justify-end',
+            )}>
+            {isLastStep && (
               <Button
                 addonPosition="start"
                 icon={RiArrowLeftLine}
@@ -330,47 +337,47 @@ export default function RewardsTasksPage() {
                   setCurrentStep(1);
                 }}
               />
-              {completedAllTasks ? (
-                <Button
-                  icon={RiArrowRightLine}
-                  isDisabled={generateSocialTasksPromoCodeMutation.isLoading}
-                  isLoading={generateSocialTasksPromoCodeMutation.isLoading}
-                  label="Claim promo code"
-                  size="sm"
-                  variant="primary"
-                  onClick={() => {
-                    generateSocialTasksPromoCodeMutation.mutate(undefined, {
-                      onError: (error) => {
-                        showToast({
-                          description: error.message,
-                          title: intl.formatMessage({
-                            defaultMessage: 'Error generating promo code',
-                            description: 'Error message',
-                            id: 'tPMvxG',
-                          }),
-                          variant: 'danger',
-                        });
-                      },
-                      onSuccess: () => {
-                        router.push('/rewards/social/complete');
-                      },
-                    });
-                  }}
-                />
-              ) : (
-                <Button
-                  isDisabled={currentVerifyingTask != null}
-                  label="Verify"
-                  size="sm"
-                  variant="primary"
-                  onClick={() => {
-                    findNextTaskToVerify();
-                  }}
-                />
-              )}
-            </div>
+            )}
+            {completedAllTasks ? (
+              <Button
+                icon={RiArrowRightLine}
+                isDisabled={generateSocialTasksPromoCodeMutation.isLoading}
+                isLoading={generateSocialTasksPromoCodeMutation.isLoading}
+                label="Claim promo code"
+                size="sm"
+                variant="primary"
+                onClick={() => {
+                  generateSocialTasksPromoCodeMutation.mutate(undefined, {
+                    onError: (error) => {
+                      showToast({
+                        description: error.message,
+                        title: intl.formatMessage({
+                          defaultMessage: 'Error generating promo code',
+                          description: 'Error message',
+                          id: 'tPMvxG',
+                        }),
+                        variant: 'danger',
+                      });
+                    },
+                    onSuccess: () => {
+                      router.push('/rewards/social/complete');
+                    },
+                  });
+                }}
+              />
+            ) : (
+              <Button
+                isDisabled={currentVerifyingTask != null || !isLastStep}
+                label="Verify"
+                size="sm"
+                variant="primary"
+                onClick={() => {
+                  findNextTaskToVerify();
+                }}
+              />
+            )}
           </div>
-        )}
+        </div>
       </div>
     </div>
   );

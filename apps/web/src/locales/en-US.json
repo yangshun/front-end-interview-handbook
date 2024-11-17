@@ -771,10 +771,6 @@
     "defaultMessage": "Recommended actions for you",
     "description": "Title for Recommended actions section on Projects dashboard page"
   },
-  "3bTpP/": {
-    "defaultMessage": "Verify your social accounts",
-    "description": "Rewards step label"
-  },
   "3bgJ4F": {
     "defaultMessage": "Connect with like-minded individuals in the community and get useful tips about building projects - no spam!",
     "description": "Subtitle for Projects newsletter sign up section"
@@ -915,6 +911,10 @@
     "defaultMessage": "Security",
     "description": "Front end development topic"
   },
+  "4OAQyn": {
+    "defaultMessage": "For a profile URL like <bold>https://github.com/john-doe</bold>, your handle would be <bold>john-doe</bold>.",
+    "description": "Rewards campaign help text"
+  },
   "4P9bN0": {
     "defaultMessage": "Pay once, get full access to the interviews platform forever",
     "description": "Subtitle of LifeTime Access Pricing Plan found on Homepage or Pricing page"
@@ -922,10 +922,6 @@
   "4PQzx7": {
     "defaultMessage": "A starter guide to preparing for front end interviews",
     "description": "Description for front end interview guide"
-  },
-  "4aoTWp": {
-    "defaultMessage": "Complete the tasks",
-    "description": "Rewards step label"
   },
   "4cjRbk": {
     "defaultMessage": "Info",
@@ -1310,6 +1306,10 @@
   "72GwzV": {
     "defaultMessage": "Available in {frameworkLabel}",
     "description": "Label indicating what JavaScript frameworks this question is available in"
+  },
+  "72r1UC": {
+    "defaultMessage": "For a profile URL like <bold>https://linkedin.com/in/john-doe</bold>, your handle would be <bold>john-doe</bold>.",
+    "description": "Rewards campaign help text"
   },
   "731FKz": {
     "defaultMessage": "Explore challenges",
@@ -5563,10 +5563,6 @@
     "defaultMessage": "Internationalization",
     "description": "Front end topic"
   },
-  "ZYXIkT": {
-    "defaultMessage": "Please enter your social media handles for us to verify.",
-    "description": "Rewards campaign help text"
-  },
   "ZZIJ0i": {
     "defaultMessage": "Since {date}",
     "description": "Since date for current project session card"
@@ -7551,6 +7547,10 @@
     "defaultMessage": "Retry the payment after some time, as the decline might be due to a temporary issue.",
     "description": "Reason label for retry payment"
   },
+  "mb1n+/": {
+    "defaultMessage": "Complete tasks",
+    "description": "Rewards step label"
+  },
   "mb7erW": {
     "defaultMessage": "Importance",
     "description": "Label for question importance - how important it is to practice this question"
@@ -7694,6 +7694,10 @@
   "nTu2nu": {
     "defaultMessage": "Privacy Policy",
     "description": "Title of Privacy Policy page"
+  },
+  "nTw2HR": {
+    "defaultMessage": "Enter your social media handles",
+    "description": "Rewards step label"
   },
   "nYa2H9": {
     "defaultMessage": "Algorithmic Coding Interview Guides",
@@ -8202,6 +8206,10 @@
   "qoTBLI": {
     "defaultMessage": "Know where to find important info",
     "description": "Label for \"Know where to find important info\" step in dialog on Projects project page"
+  },
+  "qsjqbZ": {
+    "defaultMessage": "For a profile URL like <bold>https://x.com/in/john-doe</bold>, your handle would be <bold>john-doe</bold>.",
+    "description": "Rewards campaign help text"
   },
   "qv5NJ8": {
     "defaultMessage": "Feedback submitted successfully",
@@ -9250,6 +9258,10 @@
   "yCznFA": {
     "defaultMessage": "Premium study plan",
     "description": "Paywall title for study plans feature"
+  },
+  "yDVs1E": {
+    "defaultMessage": "We will only use them to verify task completion. This information will not be stored on our servers.",
+    "description": "Rewards campaign help text"
   },
   "yM3vbW": {
     "defaultMessage": "Editor Shortcuts",

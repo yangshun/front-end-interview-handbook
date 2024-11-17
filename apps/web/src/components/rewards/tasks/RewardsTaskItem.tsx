@@ -25,6 +25,7 @@ export type RewardsTasksActionName =
 export type Props = Readonly<{
   actionName: RewardsTasksActionName;
   icon: (props: React.ComponentProps<'svg'>) => JSX.Element;
+  isDisabled?: boolean;
   label: string;
   status: RewardsTasksItemStatus;
   taskHref: string;
@@ -82,6 +83,7 @@ export default function RewardsTaskItem({
   label,
   taskHref,
   status,
+  isDisabled,
 }: Props) {
   const intl = useIntl();
 
@@ -117,6 +119,7 @@ export default function RewardsTaskItem({
             <Button
               addonPosition="end"
               icon={RiArrowRightLine}
+              isDisabled={isDisabled}
               label={
                 status === 'pending'
                   ? intl.formatMessage({
