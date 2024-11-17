@@ -1,7 +1,6 @@
 import clsx from 'clsx';
 
 import QuestionListingFilterItem from '~/components/interviews/questions/listings/filters/QuestionListingFilterItem';
-import { FormattedMessage } from '~/components/intl';
 import {
   Accordion,
   AccordionContent,
@@ -14,6 +13,7 @@ import { themeBorderElementColor } from '~/components/ui/theme';
 import Tooltip from '~/components/ui/Tooltip';
 
 import type { QuestionFilter } from './QuestionFilterType';
+import QuestionFrameworkLanguageTooltipLabel from './QuestionFrameworkLanguageTooltipLabel';
 import QuestionListingFilterItemCheckboxes from './QuestionListingFilterItemCheckboxes';
 import QuestionListingFilterItemLabel from './QuestionListingFilterItemLabel';
 import type { QuestionsListAttributesUnion } from './QuestionsProcessor';
@@ -132,24 +132,7 @@ export default function QuestionListingUnifiedFilters({
           <AccordionItem value="framework-language">
             <Tooltip
               asChild={true}
-              label={
-                <p className="flex flex-col gap-2">
-                  <FormattedMessage
-                    defaultMessage="You may complete questions in any language or framework within
-                  our coding workspace."
-                    description="Framework/language filter tooltip content"
-                    id="5FjCpN"
-                  />
-                  <br />
-                  <br />
-                  <FormattedMessage
-                    defaultMessage="This filter helps you to find questions with official
-                  solutions in these Frameworks or Languages."
-                    description="Framework/language filter tooltip content"
-                    id="rzk8kt"
-                  />
-                </p>
-              }>
+              label={<QuestionFrameworkLanguageTooltipLabel />}>
               <AccordionTrigger>
                 <QuestionListingFilterItemLabel
                   label="Framework / Language"

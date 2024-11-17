@@ -1031,10 +1031,6 @@
     "defaultMessage": "Type",
     "description": "Label for question format column of questions list table"
   },
-  "5FjCpN": {
-    "defaultMessage": "You may complete questions in any language or framework within our coding workspace.",
-    "description": "Framework/language filter tooltip content"
-  },
   "5Gjt4J": {
     "defaultMessage": "Something went wrong. Try again later or contact <link>support@greatfrontend.com</link>!",
     "description": "Error toast for project"
@@ -1114,6 +1110,10 @@
   "5n/TXe": {
     "defaultMessage": "System design",
     "description": "Front end system design questions"
+  },
+  "5nqh7s": {
+    "defaultMessage": "You may complete questions in any language or framework within our coding workspace.",
+    "description": "Framework/language filter tooltip content"
   },
   "5ozhak": {
     "defaultMessage": "Start the project to access guides, discussions and reference code",

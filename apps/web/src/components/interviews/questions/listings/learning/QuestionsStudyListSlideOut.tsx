@@ -24,6 +24,8 @@ import type {
 import useQuestionCodingSorting from '~/components/interviews/questions/listings/filters/hooks/useQuestionCodingSorting';
 import useQuestionUnifiedFilters from '~/components/interviews/questions/listings/filters/hooks/useQuestionUnifiedFilters';
 import type { QuestionFilter } from '~/components/interviews/questions/listings/filters/QuestionFilterType';
+import QuestionFrameworkLanguageTooltipLabel from '~/components/interviews/questions/listings/filters/QuestionFrameworkLanguageTooltipLabel';
+import QuestionListingFilterItemCheckboxes from '~/components/interviews/questions/listings/filters/QuestionListingFilterItemCheckboxes';
 import {
   filterQuestions,
   sortQuestionsMultiple,
@@ -34,7 +36,6 @@ import InterviewsStudyListSelector from '~/components/interviews/questions/listi
 import { FormattedMessage, useIntl } from '~/components/intl';
 import Badge from '~/components/ui/Badge';
 import Button from '~/components/ui/Button';
-import CheckboxInput from '~/components/ui/CheckboxInput';
 import Divider from '~/components/ui/Divider';
 import DropdownMenu from '~/components/ui/DropdownMenu';
 import FilterButton from '~/components/ui/FilterButton/FilterButton';
@@ -76,20 +77,14 @@ function FilterSection<T extends string, Q extends QuestionMetadata>({
           }
           selected={filters.size > 0}
           size="sm"
+          tooltip={filterOptions.tooltip}
         />
       }>
-      <div className="grid grid-cols-2 gap-x-4 gap-y-3">
-        {filterOptions.options.map((option) => (
-          <div key={option.value} className="flex items-center">
-            <CheckboxInput
-              label={option.label}
-              size="sm"
-              value={filters.has(option.value)}
-              onChange={() => filterOptions.onChange(option.value)}
-            />
-          </div>
-        ))}
-      </div>
+      <QuestionListingFilterItemCheckboxes
+        coveredValues={coveredValues}
+        section={filterOptions}
+        values={filters}
+      />
     </Popover>
   );
 }
@@ -139,44 +134,37 @@ function FrameworkAndLanguageFilterSection<Q extends QuestionMetadata>({
           }
           selected={frameworkFilters.size > 0 || languageFilters.size > 0}
           size="sm"
+          tooltip={<QuestionFrameworkLanguageTooltipLabel />}
         />
       }>
       <div className={clsx('flex flex-col')}>
-        <div className="flex flex-col gap-2">
-          <Text className="block" size="body3" weight="medium">
-            {frameworkFilterOptions.name}
-          </Text>
-          <div className="flex flex-wrap gap-x-6 gap-y-3">
-            {frameworkFilterOptions.options.map((option) => (
-              <div key={option.value} className="flex items-center">
-                <CheckboxInput
-                  label={option.label}
-                  size="sm"
-                  value={frameworkFilters.has(option.value)}
-                  onChange={() => frameworkFilterOptions.onChange(option.value)}
-                />
-              </div>
-            ))}
+        {languageCoveredValues && languageCoveredValues.size > 1 && (
+          <div className="flex flex-col gap-2">
+            <Text className="block" size="body3" weight="medium">
+              {languageFilterOptions.name}
+            </Text>
+            <QuestionListingFilterItemCheckboxes
+              coveredValues={languageCoveredValues}
+              section={languageFilterOptions}
+              values={languageFilters}
+            />
           </div>
-        </div>
-        <Divider className="my-4" />
-        <div className="flex flex-col gap-2">
-          <Text className="block" size="body3" weight="medium">
-            {languageFilterOptions.name}
-          </Text>
-          <div className="flex flex-wrap gap-x-6 gap-y-3">
-            {languageFilterOptions.options.map((option) => (
-              <div key={option.value} className="flex items-center">
-                <CheckboxInput
-                  label={option.label}
-                  size="sm"
-                  value={languageFilters.has(option.value)}
-                  onChange={() => languageFilterOptions.onChange(option.value)}
-                />
-              </div>
-            ))}
-          </div>
-        </div>
+        )}
+        {frameworkCoveredValues && frameworkCoveredValues.size > 1 && (
+          <>
+            <Divider className="my-4" />
+            <div className="flex flex-col gap-2">
+              <Text className="block" size="body3" weight="medium">
+                {frameworkFilterOptions.name}
+              </Text>
+              <QuestionListingFilterItemCheckboxes
+                coveredValues={frameworkCoveredValues}
+                section={frameworkFilterOptions}
+                values={frameworkFilters}
+              />
+            </div>
+          </>
+        )}
       </div>
     </Popover>
   );
