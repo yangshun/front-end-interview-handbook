@@ -101,6 +101,7 @@ export function useQuestionFormatsData(): QuestionFormatData {
         description: 'Description of data structures and algorithm questions',
         id: 'VjJtDL',
       }),
+      topics: ['graph', 'tree', 'recursion'],
       value: 'algo',
     },
     javascript: {
@@ -143,6 +144,7 @@ export function useQuestionFormatsData(): QuestionFormatData {
         description: 'Description of JavaScript function questions',
         id: 'Aqyo8Q',
       }),
+      topics: ['async', 'closure', 'oop', 'recursion'],
       value: 'javascript',
     },
     quiz: {
@@ -185,17 +187,7 @@ export function useQuestionFormatsData(): QuestionFormatData {
         description: 'Description of data structures and algorithm questions',
         id: 'aK5rZ5',
       }),
-      topics: [
-        'javascript',
-        'html',
-        'performance',
-        'a11y',
-        'i18n',
-        'css',
-        'networking',
-        'security',
-        'testing',
-      ],
+      topics: ['a11y', 'performance', 'networking', 'security'],
       value: 'quiz',
     },
     'system-design': {
@@ -238,6 +230,7 @@ export function useQuestionFormatsData(): QuestionFormatData {
         description: 'Description of data structures and algorithm questions',
         id: 'Rz6MDM',
       }),
+      topics: ['ui-component', 'seo', 'networking', 'performance'],
       value: 'system-design',
     },
     'user-interface': {
@@ -280,6 +273,7 @@ export function useQuestionFormatsData(): QuestionFormatData {
         description: 'Description of front end user interface questions',
         id: 'zVBgBc',
       }),
+      topics: ['a11y', 'async', 'css', 'ui-component'],
       value: 'user-interface',
     },
   };

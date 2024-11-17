@@ -1,5 +1,4 @@
 import clsx from 'clsx';
-import { useId } from 'react';
 import { RiArrowRightLine, RiChat4Line } from 'react-icons/ri';
 
 import { SCROLL_HASH_INTERVIEWS_QUESTIONS_FORMAT } from '~/hooks/useScrollToHash';
@@ -16,7 +15,6 @@ import type {
   QuestionSlug,
   QuestionTopic,
 } from '~/components/interviews/questions/common/QuestionsTypes';
-import useQuestionTopicLabels from '~/components/interviews/questions/listings/filters/useQuestionTopicLabels';
 import { FormattedMessage, useIntl } from '~/components/intl';
 import Anchor from '~/components/ui/Anchor';
 import Heading from '~/components/ui/Heading';
@@ -36,19 +34,19 @@ import {
   categorizeQuestionsProgressByCodingFormat,
 } from '~/db/QuestionsUtils';
 
+import QuestionTopics from '../../metadata/QuestionTopics';
+
 type InterviewsQuestionFormatType = Readonly<{
   href: string;
   icon: (props: React.ComponentProps<'svg'>) => JSX.Element;
   listingDescription: string;
   listingName: string;
-  question: {
+  question: Readonly<{
     completed: number;
     total: number;
-  };
+  }>;
   topics?: Array<QuestionTopic>;
 }>;
-
-const MAX_TOPIC = 4;
 
 function InterviewsQuestionFormatCard({
   listingDescription: description,
@@ -58,11 +56,7 @@ function InterviewsQuestionFormatCard({
   listingName: title,
   topics,
 }: InterviewsQuestionFormatType) {
-  const intl = useIntl();
-  const id = useId();
   const { completed, total } = question;
-
-  const topicLabels = useQuestionTopicLabels();
 
   return (
     <div
@@ -103,44 +97,7 @@ function InterviewsQuestionFormatCard({
                 total={total}
                 type="question"
               />
-              {topics && (
-                <>
-                  <span className="sr-only" id={id}>
-                    <FormattedMessage
-                      defaultMessage="Question topics"
-                      description="Screenreader text to indicate the question topics"
-                      id="PtAdqY"
-                    />
-                  </span>
-                  <div
-                    aria-labelledby={id}
-                    className="flex flex-wrap gap-x-2 gap-y-1">
-                    {topics.slice(0, MAX_TOPIC).map((topic) => (
-                      <Text
-                        key={topic}
-                        color="secondary"
-                        size="body3"
-                        weight="medium">
-                        #{topicLabels[topic].label}
-                      </Text>
-                    ))}
-                    {topics.length > MAX_TOPIC && (
-                      <Text color="secondary" size="body3" weight="medium">
-                        {intl.formatMessage(
-                          {
-                            defaultMessage: '+{count} more',
-                            description: 'Badge label for more topics',
-                            id: 'sg/5hy',
-                          },
-                          {
-                            count: topics.length - MAX_TOPIC,
-                          },
-                        )}
-                      </Text>
-                    )}
-                  </div>
-                </>
-              )}
+              {topics && <QuestionTopics topics={topics} />}
             </div>
           </div>
           <RiArrowRightLine
