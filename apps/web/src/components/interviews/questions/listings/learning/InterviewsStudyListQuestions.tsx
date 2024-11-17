@@ -1,5 +1,6 @@
 import clsx from 'clsx';
 
+import VignetteOverlay from '~/components/common/VignetteOverlay';
 import { useUserProfile } from '~/components/global/UserProfileProvider';
 import InterviewsPremiumBadge from '~/components/interviews/common/InterviewsPremiumBadge';
 import { questionHrefWithList } from '~/components/interviews/questions/common/questionHref';
@@ -29,6 +30,8 @@ import {
 
 import { hashQuestion } from '~/db/QuestionsUtils';
 
+import QuestionPaywall from '../../common/QuestionPaywall';
+
 type Props<Q extends QuestionMetadata> = Readonly<{
   checkIfCompletedQuestion?: (question: Q) => boolean;
   currentListKey?: string;
@@ -36,6 +39,7 @@ type Props<Q extends QuestionMetadata> = Readonly<{
   metadata: QuestionMetadata;
   onClickDifferentStudyListQuestion: (href: string) => void;
   questions: ReadonlyArray<Q>;
+  showCompanyPaywall?: boolean;
 }>;
 
 export default function InterviewsStudyListQuestions<
@@ -47,6 +51,7 @@ export default function InterviewsStudyListQuestions<
   questions,
   metadata,
   onClickDifferentStudyListQuestion,
+  showCompanyPaywall,
 }: Props<Q>) {
   const intl = useIntl();
   const { userProfile } = useUserProfile();
@@ -80,7 +85,7 @@ export default function InterviewsStudyListQuestions<
 
   return (
     <div>
-      <table className="relative hidden w-full table-fixed border-collapse md:block">
+      <table className="relative hidden h-full w-full table-fixed border-collapse md:block">
         <colgroup>
           <col className="w-3/5" />
           <col className="w-[20%]" />
@@ -123,193 +128,225 @@ export default function InterviewsStudyListQuestions<
             </th>
           </tr>
         </thead>
-        <tbody className={clsx(['divide-y', themeDivideColor])}>
-          {questions.map((questionMetadata, index) => {
-            const hasCompletedQuestion =
-              checkIfCompletedQuestion?.(questionMetadata);
+        <VignetteOverlay
+          className={clsx(
+            'min-h-[600px]',
+            'pointer-events-none touch-none select-none',
+          )}
+          overlay={
+            <QuestionPaywall background={false} feature="company-tags" />
+          }
+          showOverlay={showCompanyPaywall}>
+          <tbody
+            className={clsx(['divide-y', themeDivideColor])}
+            {...(showCompanyPaywall && { inert: '' })}>
+            {questions.map((questionMetadata, index) => {
+              const hasCompletedQuestion =
+                checkIfCompletedQuestion?.(questionMetadata);
 
-            // If the current question is not in the list or different study list, the first question is going to be the active question
-            const isActiveQuestion =
-              isCurrentQuestionInTheList && !isDifferentStudyList
-                ? hashQuestion(questionMetadata) === hashQuestion(metadata)
-                : index === 0;
-            const href = questionHrefWithList(
-              questionMetadata.href,
-              currentListKey,
-            );
+              // If the current question is not in the list or different study list, the first question is going to be the active question
+              const isActiveQuestion =
+                isCurrentQuestionInTheList && !isDifferentStudyList
+                  ? hashQuestion(questionMetadata) === hashQuestion(metadata)
+                  : index === 0;
+              const href = questionHrefWithList(
+                questionMetadata.href,
+                currentListKey,
+              );
 
-            return (
-              <Hovercard
-                key={hashQuestion(questionMetadata)}
-                // Add a small close delay so that cursor can enter the card
-                // fast enough before the card disappears.
-                closeDelay={50}
-                openDelay={0}>
-                <HovercardTrigger asChild={true}>
-                  {
-                    <tr
-                      className={clsx(
-                        'group relative',
-                        'transition-colors',
-                        'focus-within:ring-brand focus-within:ring-2 focus-within:ring-inset',
-                        themeBackgroundElementEmphasizedStateColor_Hover,
-                        isActiveQuestion &&
-                          themeBackgroundElementEmphasizedStateColor,
-                      )}>
-                      <td className="w-full py-4 pl-6 pr-1.5">
-                        <div className="flex items-center gap-x-4">
-                          {checkIfCompletedQuestion != null && (
-                            <QuestionsListItemProgressChip
-                              className="z-[1]"
-                              hasCompletedQuestion={!!hasCompletedQuestion}
-                              hasCompletedQuestionBefore={false}
-                              index={index}
-                              premiumUser={userProfile?.isInterviewsPremium}
-                              question={questionMetadata}
-                              size="sm"
-                            />
-                          )}
-                          <div className="flex flex-wrap items-center gap-x-2 gap-y-1.5">
-                            <Text
-                              className="flex items-center gap-x-2"
-                              size="body3"
-                              weight="medium">
-                              <Anchor
-                                className="focus:outline-none"
-                                href={isDifferentStudyList ? '#' : href}
-                                variant="unstyled"
-                                onClick={
-                                  isDifferentStudyList
-                                    ? () =>
-                                        onClickDifferentStudyListQuestion(href)
-                                    : undefined
-                                }>
-                                {/* Extend touch target to entire panel */}
-                                <span
-                                  aria-hidden="true"
-                                  className="absolute inset-0"
-                                />
-                                {questionMetadata.title}
-                              </Anchor>
-                            </Text>
-                            {questionMetadata.access === 'premium' && (
-                              <InterviewsPremiumBadge size="xs" />
+              return (
+                <Hovercard
+                  key={hashQuestion(questionMetadata)}
+                  // Add a small close delay so that cursor can enter the card
+                  // fast enough before the card disappears.
+                  closeDelay={50}
+                  openDelay={0}>
+                  <HovercardTrigger asChild={true}>
+                    {
+                      <tr
+                        className={clsx(
+                          'group relative',
+                          'transition-colors',
+                          'focus-within:ring-brand focus-within:ring-2 focus-within:ring-inset',
+                          themeBackgroundElementEmphasizedStateColor_Hover,
+                          isActiveQuestion &&
+                            themeBackgroundElementEmphasizedStateColor,
+                        )}>
+                        <td className="w-full py-4 pl-6 pr-1.5">
+                          <div className="flex items-center gap-x-4">
+                            {checkIfCompletedQuestion != null && (
+                              <QuestionsListItemProgressChip
+                                className="z-[1]"
+                                hasCompletedQuestion={!!hasCompletedQuestion}
+                                hasCompletedQuestionBefore={false}
+                                index={index}
+                                premiumUser={userProfile?.isInterviewsPremium}
+                                question={questionMetadata}
+                                size="sm"
+                              />
                             )}
+                            <div className="flex flex-wrap items-center gap-x-2 gap-y-1.5">
+                              <Text
+                                className="flex items-center gap-x-2"
+                                size="body3"
+                                weight="medium">
+                                <Anchor
+                                  className="focus:outline-none"
+                                  href={isDifferentStudyList ? '#' : href}
+                                  variant="unstyled"
+                                  onClick={
+                                    isDifferentStudyList
+                                      ? () =>
+                                          onClickDifferentStudyListQuestion(
+                                            href,
+                                          )
+                                      : undefined
+                                  }>
+                                  {/* Extend touch target to entire panel */}
+                                  <span
+                                    aria-hidden="true"
+                                    className="absolute inset-0"
+                                  />
+                                  {questionMetadata.title}
+                                </Anchor>
+                              </Text>
+                              {questionMetadata.access === 'premium' && (
+                                <InterviewsPremiumBadge size="xs" />
+                              )}
+                            </div>
                           </div>
-                        </div>
-                      </td>
-                      <td className="px-1.5 py-4">
+                        </td>
+                        <td className="px-1.5 py-4">
+                          <QuestionFormatLabel
+                            showIcon={true}
+                            value={questionMetadata.format}
+                          />
+                        </td>
+                        <td className="py-4 pl-1.5 pr-6">
+                          <QuestionDifficultyLabel
+                            showIcon={true}
+                            value={questionMetadata.difficulty}
+                          />
+                        </td>
+                      </tr>
+                    }
+                  </HovercardTrigger>
+                  <HovercardPortal>
+                    <HovercardContent
+                      className={clsx(themeBackgroundColor, [
+                        'border',
+                        themeBorderColor,
+                      ])}
+                      side="right"
+                      // Remove offset so that cursor can enter the card
+                      // fast enough before the card disappears.
+                      sideOffset={0}>
+                      <InterviewsStudyListQuestionHovercardContents
+                        listKey={listKey}
+                        question={questionMetadata}
+                      />
+                    </HovercardContent>
+                  </HovercardPortal>
+                </Hovercard>
+              );
+            })}
+          </tbody>
+        </VignetteOverlay>
+      </table>
+      <div className="block md:hidden">
+        <VignetteOverlay
+          className={clsx(
+            'min-h-[800px]',
+            'pointer-events-none touch-none select-none',
+          )}
+          overlay={
+            <QuestionPaywall background={false} feature="company-tags" />
+          }
+          showOverlay={showCompanyPaywall}>
+          <ul
+            className={clsx(['divide-y', themeDivideColor])}
+            {...(showCompanyPaywall && { inert: '' })}>
+            {questions.map((questionMetadata, index) => {
+              const hasCompletedQuestion =
+                checkIfCompletedQuestion?.(questionMetadata);
+
+              const isActiveQuestion =
+                hashQuestion(questionMetadata) === hashQuestion(metadata);
+
+              const href = questionHrefWithList(
+                questionMetadata.href,
+                currentListKey,
+              );
+
+              return (
+                <li
+                  key={hashQuestion(questionMetadata)}
+                  className={clsx(
+                    'group relative',
+                    'px-6 py-4',
+                    'transition-colors',
+                    'focus-within:ring-brand focus-within:ring-2 focus-within:ring-inset',
+                    themeBackgroundElementEmphasizedStateColor_Hover,
+                    isActiveQuestion &&
+                      themeBackgroundElementEmphasizedStateColor,
+                  )}>
+                  <div className="flex items-center gap-x-4">
+                    {checkIfCompletedQuestion != null && (
+                      <QuestionsListItemProgressChip
+                        className="z-[1]"
+                        hasCompletedQuestion={!!hasCompletedQuestion}
+                        hasCompletedQuestionBefore={false}
+                        index={index}
+                        premiumUser={userProfile?.isInterviewsPremium}
+                        question={questionMetadata}
+                        size="sm"
+                      />
+                    )}
+                    <div className="flex flex-col gap-3">
+                      <div className="flex flex-wrap items-center gap-x-2 gap-y-1.5">
+                        <Text
+                          className="flex items-center gap-x-2"
+                          size="body3"
+                          weight="medium">
+                          <Anchor
+                            className="focus:outline-none"
+                            href={isDifferentStudyList ? '#' : href}
+                            variant="unstyled"
+                            onClick={
+                              isDifferentStudyList
+                                ? () => onClickDifferentStudyListQuestion(href)
+                                : undefined
+                            }>
+                            {/* Extend touch target to entire panel */}
+                            <span
+                              aria-hidden="true"
+                              className="absolute inset-0"
+                            />
+                            {questionMetadata.title}
+                          </Anchor>
+                        </Text>
+                        {questionMetadata.access === 'premium' && (
+                          <InterviewsPremiumBadge size="xs" />
+                        )}
+                      </div>
+                      <div className="flex flex-wrap items-center gap-x-4 gap-y-1.5">
                         <QuestionFormatLabel
                           showIcon={true}
                           value={questionMetadata.format}
                         />
-                      </td>
-                      <td className="py-4 pl-1.5 pr-6">
                         <QuestionDifficultyLabel
                           showIcon={true}
                           value={questionMetadata.difficulty}
                         />
-                      </td>
-                    </tr>
-                  }
-                </HovercardTrigger>
-                <HovercardPortal>
-                  <HovercardContent
-                    className={clsx(themeBackgroundColor, [
-                      'border',
-                      themeBorderColor,
-                    ])}
-                    side="right"
-                    // Remove offset so that cursor can enter the card
-                    // fast enough before the card disappears.
-                    sideOffset={0}>
-                    <InterviewsStudyListQuestionHovercardContents
-                      listKey={listKey}
-                      question={questionMetadata}
-                    />
-                  </HovercardContent>
-                </HovercardPortal>
-              </Hovercard>
-            );
-          })}
-        </tbody>
-      </table>
-      <ul className={clsx('block md:hidden', ['divide-y', themeDivideColor])}>
-        {questions.map((questionMetadata, index) => {
-          const hasCompletedQuestion =
-            checkIfCompletedQuestion?.(questionMetadata);
-
-          const isActiveQuestion =
-            hashQuestion(questionMetadata) === hashQuestion(metadata);
-
-          const href = questionHrefWithList(
-            questionMetadata.href,
-            currentListKey,
-          );
-
-          return (
-            <li
-              key={hashQuestion(questionMetadata)}
-              className={clsx(
-                'group relative',
-                'px-6 py-4',
-                'transition-colors',
-                'focus-within:ring-brand focus-within:ring-2 focus-within:ring-inset',
-                themeBackgroundElementEmphasizedStateColor_Hover,
-                isActiveQuestion && themeBackgroundElementEmphasizedStateColor,
-              )}>
-              <div className="flex items-center gap-x-4">
-                {checkIfCompletedQuestion != null && (
-                  <QuestionsListItemProgressChip
-                    className="z-[1]"
-                    hasCompletedQuestion={!!hasCompletedQuestion}
-                    hasCompletedQuestionBefore={false}
-                    index={index}
-                    premiumUser={userProfile?.isInterviewsPremium}
-                    question={questionMetadata}
-                    size="sm"
-                  />
-                )}
-                <div className="flex flex-col gap-3">
-                  <div className="flex flex-wrap items-center gap-x-2 gap-y-1.5">
-                    <Text
-                      className="flex items-center gap-x-2"
-                      size="body3"
-                      weight="medium">
-                      <Anchor
-                        className="focus:outline-none"
-                        href={isDifferentStudyList ? '#' : href}
-                        variant="unstyled"
-                        onClick={
-                          isDifferentStudyList
-                            ? () => onClickDifferentStudyListQuestion(href)
-                            : undefined
-                        }>
-                        {/* Extend touch target to entire panel */}
-                        <span aria-hidden="true" className="absolute inset-0" />
-                        {questionMetadata.title}
-                      </Anchor>
-                    </Text>
-                    {questionMetadata.access === 'premium' && (
-                      <InterviewsPremiumBadge size="xs" />
-                    )}
+                      </div>
+                    </div>
                   </div>
-                  <div className="flex flex-wrap items-center gap-x-4 gap-y-1.5">
-                    <QuestionFormatLabel
-                      showIcon={true}
-                      value={questionMetadata.format}
-                    />
-                    <QuestionDifficultyLabel
-                      showIcon={true}
-                      value={questionMetadata.difficulty}
-                    />
-                  </div>
-                </div>
-              </div>
-            </li>
-          );
-        })}
-      </ul>
+                </li>
+              );
+            })}
+          </ul>
+        </VignetteOverlay>
+      </div>
     </div>
   );
 }

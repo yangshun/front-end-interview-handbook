@@ -271,15 +271,6 @@ function Contents({
     filters.map(([_, filterFn]) => filterFn),
   );
 
-  // Get the href of the first question in the list for navigation on closing slide out
-  useEffect(() => {
-    if (processedQuestions.length > 0) {
-      setFirstQuestionHref(
-        questionHrefWithList(processedQuestions[0].href, currentListKey),
-      );
-    }
-  }, [currentListKey, processedQuestions, setFirstQuestionHref]);
-
   const numberOfFilters = filters.filter(([size]) => size > 0).length;
 
   function makeDropdownItemProps(
@@ -442,14 +433,10 @@ function Contents({
           filterOptions={topicFilterOptions}
           filters={topicFilters}
         />
-        {userProfile?.isInterviewsPremium && (
-          <div className="col-span-2">
-            <FilterSection
-              filterOptions={companyFilterOptions}
-              filters={companyFilters}
-            />
-          </div>
-        )}
+        <FilterSection
+          filterOptions={companyFilterOptions}
+          filters={companyFilters}
+        />
         <FilterSection
           coveredValues={attributesUnion.difficulty}
           filterOptions={difficultyFilterOptions}
@@ -509,6 +496,23 @@ function Contents({
       </div>
     </div>
   );
+
+  const showCompanyPaywall =
+    !userProfile?.isInterviewsPremium && companyFilters.size > 0;
+
+  // Get the href of the first question in the list for navigation on closing slide out
+  useEffect(() => {
+    if (processedQuestions.length > 0 && !showCompanyPaywall) {
+      setFirstQuestionHref(
+        questionHrefWithList(processedQuestions[0].href, currentListKey),
+      );
+    }
+  }, [
+    currentListKey,
+    processedQuestions,
+    setFirstQuestionHref,
+    showCompanyPaywall,
+  ]);
 
   return (
     <div className="flex flex-col gap-y-4">
@@ -598,7 +602,12 @@ function Contents({
           currentListKey={currentListKey}
           listKey={listKey}
           metadata={metadata}
-          questions={processedQuestions}
+          questions={
+            showCompanyPaywall
+              ? sortedQuestions.slice(0, 4)
+              : processedQuestions
+          }
+          showCompanyPaywall={showCompanyPaywall}
           onClickDifferentStudyListQuestion={onClickDifferentStudyListQuestion}
         />
       )}
