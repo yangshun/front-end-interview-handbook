@@ -140,7 +140,7 @@
     "topics": []
   },
   {
-    "access": "premium",
+    "access": "standard",
     "author": null,
     "companies": [
       "adobe",
@@ -603,7 +603,7 @@
     "topics": []
   },
   {
-    "access": "premium",
+    "access": "standard",
     "author": "yangshun",
     "companies": [
       "intuit"
@@ -729,7 +729,7 @@
     ]
   },
   {
-    "access": "premium",
+    "access": "standard",
     "author": null,
     "companies": [
       "soundcloud"
@@ -942,7 +942,7 @@
     ]
   },
   {
-    "access": "premium",
+    "access": "standard",
     "author": "zhenghao",
     "companies": [
       "google"
@@ -1039,7 +1039,7 @@
     ]
   },
   {
-    "access": "premium",
+    "access": "standard",
     "author": null,
     "companies": [],
     "created": 1690761600,
@@ -1456,7 +1456,7 @@
     "topics": []
   },
   {
-    "access": "premium",
+    "access": "standard",
     "author": null,
     "companies": [],
     "created": 1690329600,
@@ -1550,7 +1550,7 @@
     ]
   },
   {
-    "access": "premium",
+    "access": "standard",
     "author": "yangshun",
     "companies": [
       "dropbox",
@@ -1588,7 +1588,7 @@
     ]
   },
   {
-    "access": "premium",
+    "access": "standard",
     "author": "yangshun",
     "companies": [
       "amazon"
@@ -1724,7 +1724,7 @@
     "topics": []
   },
   {
-    "access": "premium",
+    "access": "standard",
     "author": "zhenghao",
     "companies": [
       "tiktok"
@@ -2006,7 +2006,7 @@
     ]
   },
   {
-    "access": "premium",
+    "access": "standard",
     "author": null,
     "companies": [
       "snap"
@@ -2103,7 +2103,7 @@
     "topics": []
   },
   {
-    "access": "premium",
+    "access": "standard",
     "author": "yangshun",
     "companies": [
       "dropbox"
@@ -2238,7 +2238,7 @@
     ]
   },
   {
-    "access": "premium",
+    "access": "standard",
     "author": null,
     "companies": [
       "google",
@@ -2332,7 +2332,7 @@
     "topics": []
   },
   {
-    "access": "premium",
+    "access": "standard",
     "author": null,
     "companies": [
       "intuit",
@@ -2593,7 +2593,7 @@
     ]
   },
   {
-    "access": "premium",
+    "access": "standard",
     "author": "yangshun",
     "companies": [],
     "created": 1655596800,
@@ -2826,7 +2826,7 @@
     ]
   },
   {
-    "access": "premium",
+    "access": "standard",
     "author": null,
     "companies": [
       "amazon"
@@ -3067,7 +3067,7 @@
     ]
   },
   {
-    "access": "premium",
+    "access": "standard",
     "author": "zhenghao",
     "companies": [],
     "created": 1654992000,
@@ -3231,7 +3231,7 @@
     "topics": []
   },
   {
-    "access": "premium",
+    "access": "standard",
     "author": "yangshun",
     "companies": [
       "google",

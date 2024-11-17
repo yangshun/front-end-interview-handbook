@@ -1,6 +1,6 @@
 [
   {
-    "access": "premium",
+    "access": "standard",
     "author": "yangshun",
     "companies": [],
     "created": 1671580800,
@@ -1160,7 +1160,7 @@
     ]
   },
   {
-    "access": "premium",
+    "access": "standard",
     "author": "yangshun",
     "companies": [
       "amazon"
@@ -1455,7 +1455,7 @@
     "topics": []
   },
   {
-    "access": "premium",
+    "access": "standard",
     "author": "yangshun",
     "companies": [
       "google"
@@ -1583,7 +1583,7 @@
     "topics": []
   },
   {
-    "access": "premium",
+    "access": "standard",
     "author": "yangshun",
     "companies": [
       "uber"
@@ -1807,7 +1807,7 @@
     "topics": []
   },
   {
-    "access": "premium",
+    "access": "standard",
     "author": "yangshun",
     "companies": [
       "airbnb",
@@ -1858,7 +1858,7 @@
     "topics": []
   },
   {
-    "access": "premium",
+    "access": "standard",
     "author": "yangshun",
     "companies": [
       "cisco",
@@ -2113,7 +2113,7 @@
     "topics": []
   },
   {
-    "access": "premium",
+    "access": "standard",
     "author": null,
     "companies": [
       "google",
@@ -2331,7 +2331,7 @@
     ]
   },
   {
-    "access": "premium",
+    "access": "standard",
     "author": "yangshun",
     "companies": [
       "tiktok"

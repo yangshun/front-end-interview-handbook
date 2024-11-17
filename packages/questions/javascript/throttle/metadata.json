@@ -4,7 +4,7 @@
   "created": "2022-04-14T00:00:00.000Z",
   "languages": ["js", "ts"],
   "companies": ["google", "tiktok", "walmart", "yelp"],
-  "access": "premium",
+  "access": "standard",
   "duration": 15,
   "published": true,
   "importance": "high",

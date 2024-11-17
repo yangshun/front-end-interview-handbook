@@ -4,7 +4,7 @@
   "created": "2022-05-18T00:00:00.000Z",
   "languages": ["js", "ts"],
   "companies": ["dropbox"],
-  "access": "premium",
+  "access": "standard",
   "duration": 20,
   "published": true,
   "importance": "medium",
