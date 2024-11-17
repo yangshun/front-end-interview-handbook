@@ -69,6 +69,8 @@ model QuestionProgress {
   createdAt DateTime @default(now()) @db.Timestamptz(6)
   userId    String   @db.Uuid
   profile   Profile  @relation(fields: [userId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+
+  @@unique([format, slug, status, userId])
 }
 
 model GuideProgress {

@@ -70,7 +70,7 @@ export default function QuestionsStudyList({
     listKey,
   );
   const markCompleteMutation = useMutationQuestionProgressAdd();
-  const markAsNotCompleteMutation = useMutationQuestionProgressDelete();
+  const markNotCompleteMutation = useMutationQuestionProgressDelete();
 
   function canMarkQuestions() {
     if (isQuestionListSessionLoading) {
@@ -137,7 +137,7 @@ export default function QuestionsStudyList({
       return;
     }
 
-    markAsNotCompleteMutation.mutate(
+    markNotCompleteMutation.mutate(
       {
         format: question.format,
         listKey,

@@ -17,72 +17,51 @@ export const questionProgressRouter = router({
       z.object({
         format: z.string(),
         listKey: z.string().optional(),
-        progressId: z.string().optional(),
         slug: z.string(),
       }),
     )
-    .mutation(
-      async ({
-        input: { format, slug, progressId, listKey },
-        ctx: { viewer },
-      }) => {
-        if (!viewer) {
-          return null;
-        }
+    .mutation(async ({ input: { format, slug, listKey }, ctx: { viewer } }) => {
+      if (!viewer) {
+        return null;
+      }
 
-        if (listKey == null) {
-          const createData = {
+      try {
+        const questionProgress = await prisma.questionProgress.create({
+          data: {
             format,
             slug,
             status: 'complete',
             userId: viewer.id,
-          };
-          let questionProgress = null;
-
-          if (!progressId) {
-            questionProgress = await prisma.questionProgress.create({
-              data: createData,
-            });
-          } else {
-            questionProgress = await prisma.questionProgress.upsert({
-              create: createData,
-              update: {
-                status,
-              },
-              where: {
-                id: progressId,
-              },
-            });
-          }
-
-          return {
-            ...questionProgress,
-            format: questionProgress.format as QuestionFormat,
-            status: questionProgress.status as QuestionProgressStatus,
-          };
-        }
-
-        const session = await prisma.learningSession.findFirst({
-          where: {
-            key: listKey,
-            status: 'IN_PROGRESS',
-            userId: viewer.id,
           },
         });
 
-        if (session == null) {
-          throw 'No ongoing learning session. Start tracking progress first.';
+        if (listKey == null) {
+          return questionProgress;
         }
+      } catch (_err) {
+        // Do nothing because it's a unique index.
+      }
 
-        return await prisma.learningSessionProgress.create({
-          data: {
-            key: hashQuestion({ format: format as QuestionFormat, slug }),
-            sessionId: session.id,
-            status: 'COMPLETED',
-          },
-        });
-      },
-    ),
+      const session = await prisma.learningSession.findFirst({
+        where: {
+          key: listKey,
+          status: 'IN_PROGRESS',
+          userId: viewer.id,
+        },
+      });
+
+      if (session == null) {
+        throw 'No ongoing learning session. Start tracking progress first.';
+      }
+
+      return await prisma.learningSessionProgress.create({
+        data: {
+          key: hashQuestion({ format: format as QuestionFormat, slug }),
+          sessionId: session.id,
+          status: 'COMPLETED',
+        },
+      });
+    }),
   delete: userProcedure
     .input(
       z.object({
@@ -92,6 +71,7 @@ export const questionProgressRouter = router({
       }),
     )
     .mutation(async ({ input: { slug, format, listKey }, ctx: { viewer } }) => {
+      // Remove EITHER overall progress or learning session progress but not both.
       if (listKey) {
         const session = await prisma.learningSession.findFirst({
           where: {

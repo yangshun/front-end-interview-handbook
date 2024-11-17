@@ -100,7 +100,6 @@ export default function JavaScriptCodingWorkspaceTestsSubmitTab({
           addProgressMutation.mutate({
             format: metadata.format,
             listKey,
-            progressId: questionProgress?.id,
             slug: metadata.slug,
           });
         }

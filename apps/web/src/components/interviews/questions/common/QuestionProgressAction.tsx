@@ -23,14 +23,10 @@ import CodingWorkspaceBottomBarEmitter from '../../../workspace/common/CodingWor
 
 import { useUser } from '@supabase/auth-helpers-react';
 
-type QuestionProgressWithId = QuestionProgress & {
-  questionProgressId?: string;
-};
-
 type Props = Readonly<{
   listKey?: string;
   metadata: QuestionMetadata;
-  questionProgress?: QuestionProgressWithId | null;
+  questionProgress?: QuestionProgress | null;
   signInModalContents?: React.ReactNode;
 }>;
 
@@ -176,9 +172,6 @@ export default function QuestionProgressAction({
           {
             format: metadata.format,
             listKey,
-            progressId: listKey
-              ? questionProgress?.questionProgressId
-              : questionProgress?.id,
             slug: metadata.slug,
           },
           {
