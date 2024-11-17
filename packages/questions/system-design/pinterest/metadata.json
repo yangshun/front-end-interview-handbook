@@ -8,5 +8,6 @@
   "featured": false,
   "importance": "medium",
   "difficulty": "hard",
-  "ranking": 3
+  "ranking": 3,
+  "topics": ["a11y", "networking", "performance"]
 }

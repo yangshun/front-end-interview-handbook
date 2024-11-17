@@ -9,5 +9,6 @@
   "featured": true,
   "importance": "medium",
   "difficulty": "medium",
-  "ranking": 7
+  "ranking": 7,
+  "topics": ["seo"]
 }

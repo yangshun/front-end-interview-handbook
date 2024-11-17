@@ -10,5 +10,6 @@
   "featured": true,
   "importance": "high",
   "difficulty": "medium",
-  "ranking": 1
+  "ranking": 1,
+  "topics": ["a11y", "performance"]
 }

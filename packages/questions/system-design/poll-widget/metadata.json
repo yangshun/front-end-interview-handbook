@@ -9,5 +9,6 @@
   "featured": true,
   "importance": "low",
   "difficulty": "easy",
-  "ranking": 12
+  "ranking": 12,
+  "topics": ["ui-component"]
 }

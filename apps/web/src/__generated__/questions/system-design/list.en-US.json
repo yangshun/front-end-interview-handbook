@@ -381,7 +381,11 @@
     "slug": "pinterest",
     "subtitle": null,
     "title": "Pinterest",
-    "topics": []
+    "topics": [
+      "a11y",
+      "networking",
+      "performance"
+    ]
   },
   {
     "access": "premium",

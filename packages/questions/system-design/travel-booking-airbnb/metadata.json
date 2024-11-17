@@ -8,5 +8,6 @@
   "published": true,
   "importance": "medium",
   "difficulty": "medium",
-  "ranking": 8
+  "ranking": 8,
+  "topics": ["performance", "seo"]
 }

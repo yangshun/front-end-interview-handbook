@@ -8,5 +8,6 @@
   "published": true,
   "importance": "low",
   "difficulty": "medium",
-  "ranking": 11
+  "ranking": 11,
+  "topics": ["a11y", "ui-component"]
 }

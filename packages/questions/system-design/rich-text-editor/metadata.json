@@ -10,5 +10,6 @@
   "featured": false,
   "importance": "medium",
   "difficulty": "hard",
-  "ranking": 4
+  "ranking": 4,
+  "topics": ["performance", "ui-component"]
 }

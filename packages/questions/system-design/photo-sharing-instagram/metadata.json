@@ -9,5 +9,6 @@
   "featured": true,
   "importance": "low",
   "difficulty": "medium",
-  "ranking": 10
+  "ranking": 10,
+  "topics": ["a11y", "networking", "performance"]
 }

@@ -8,5 +8,6 @@
   "featured": false,
   "importance": "medium",
   "difficulty": "hard",
-  "ranking": 15
+  "ranking": 15,
+  "topics": ["networking"]
 }

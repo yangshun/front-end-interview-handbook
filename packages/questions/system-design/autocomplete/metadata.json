@@ -9,5 +9,6 @@
   "featured": true,
   "importance": "high",
   "difficulty": "medium",
-  "ranking": 2
+  "ranking": 2,
+  "topics": ["a11y", "ui-component"]
 }
