@@ -14,22 +14,24 @@ import type { QuestionFilter } from '../QuestionFilterType';
 // The lower the earlier it appears.
 const topicRanks: Record<QuestionTopic, number> = {
   a11y: 3,
-  async: 0,
-  browser: 0,
-  closure: 0,
+  async: 99,
+  browser: 99,
+  closure: 99,
   css: 1,
-  graph: 0,
+  graph: 99,
   html: 2,
   i18n: 40,
   javascript: 0,
   networking: 60,
   oop: 0,
   performance: 50,
-  recursion: 0,
+  recursion: 99,
   security: 80,
+  seo: 99,
   testing: 99,
-  tree: 0,
-  'web-api': 0,
+  tree: 99,
+  'ui-component': 99,
+  'web-api': 99,
 };
 
 type Props = Readonly<{

@@ -71,9 +71,9 @@ export default function useQuestionTopicLabels() {
     },
     oop: {
       label: intl.formatMessage({
-        defaultMessage: 'Object-oriented programming',
+        defaultMessage: 'OOP',
         description: 'Front end development topic',
-        id: 'KLoXYT',
+        id: '9a88P6',
       }),
     },
     performance: {
@@ -97,6 +97,13 @@ export default function useQuestionTopicLabels() {
         id: '4MzF6x',
       }),
     },
+    seo: {
+      label: intl.formatMessage({
+        defaultMessage: 'SEO',
+        description: 'Front end development topic',
+        id: 'HY/9dZ',
+      }),
+    },
     testing: {
       label: intl.formatMessage({
         defaultMessage: 'Testing',
@@ -109,6 +116,13 @@ export default function useQuestionTopicLabels() {
         defaultMessage: 'Tree',
         description: 'Front end development topic',
         id: 'Rs1Xi9',
+      }),
+    },
+    'ui-component': {
+      label: intl.formatMessage({
+        defaultMessage: 'UI component',
+        description: 'Front end development topic',
+        id: 'kxzXZj',
       }),
     },
     'web-api': {

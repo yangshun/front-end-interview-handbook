@@ -1675,6 +1675,10 @@
     "defaultMessage": "Review community submissions",
     "description": "Recommended action for new projects platform user"
   },
+  "9a88P6": {
+    "defaultMessage": "OOP",
+    "description": "Front end development topic"
+  },
   "9dQ21j": {
     "defaultMessage": "Set new profile photo",
     "description": "Label for new profile photo button"
@@ -2791,6 +2795,10 @@
     "defaultMessage": "<bold>{credits}</bold>/{totalCredits} <tooltip>premium credits</tooltip> left",
     "description": "Number of premium credits left"
   },
+  "HY/9dZ": {
+    "defaultMessage": "SEO",
+    "description": "Front end development topic"
+  },
   "HaIAzk": {
     "defaultMessage": "Light",
     "description": "Select label for light console theme in console settings"
@@ -3222,10 +3230,6 @@
   "KJ2yNC": {
     "defaultMessage": "Must be two characters or more",
     "description": "Error message for min length"
-  },
-  "KLoXYT": {
-    "defaultMessage": "Object-oriented programming",
-    "description": "Front end development topic"
   },
   "KPn83+": {
     "defaultMessage": "Series Contents",
@@ -7358,6 +7362,10 @@
   "kwHN0l": {
     "defaultMessage": "Choose your component and pick any theme",
     "description": "Short description for \"Composable themes\" feature on Projects home page"
+  },
+  "kxzXZj": {
+    "defaultMessage": "UI component",
+    "description": "Front end development topic"
   },
   "kzklH3": {
     "defaultMessage": "From beginner to advanced",

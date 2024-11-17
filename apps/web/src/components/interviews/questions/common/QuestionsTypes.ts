@@ -174,8 +174,10 @@ export type QuestionTopic =
   | 'performance'
   | 'recursion'
   | 'security'
+  | 'seo'
   | 'testing'
   | 'tree'
+  | 'ui-component'
   | 'web-api';
 
 export type QuestionQuiz = QuestionBase;

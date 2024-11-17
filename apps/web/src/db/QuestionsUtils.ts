@@ -423,8 +423,10 @@ export function categorizeQuestionsByTopic(
     performance: [],
     recursion: [],
     security: [],
+    seo: [],
     testing: [],
     tree: [],
+    'ui-component': [],
     'web-api': [],
   };
   const { codingQuestions, quizQuestions } = questions;

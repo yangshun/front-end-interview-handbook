@@ -25,7 +25,10 @@
     "slug": "autocomplete",
     "subtitle": null,
     "title": "Autocomplete",
-    "topics": []
+    "topics": [
+      "a11y",
+      "ui-component"
+    ]
   },
   {
     "access": "premium",
@@ -49,7 +52,9 @@
     "slug": "chat-application-messenger",
     "subtitle": null,
     "title": "Chat App (e.g. Messenger)",
-    "topics": []
+    "topics": [
+      "networking"
+    ]
   },
   {
     "access": "premium",
@@ -75,7 +80,9 @@
     "slug": "collaborative-editor-google-docs",
     "subtitle": null,
     "title": "Google Docs",
-    "topics": []
+    "topics": [
+      "networking"
+    ]
   },
   {
     "access": "premium",
@@ -150,7 +157,10 @@
     "slug": "dropdown-menu",
     "subtitle": null,
     "title": "Dropdown Menu",
-    "topics": []
+    "topics": [
+      "a11y",
+      "ui-component"
+    ]
   },
   {
     "access": "premium",
@@ -174,7 +184,9 @@
     "slug": "e-commerce-amazon",
     "subtitle": null,
     "title": "E-commerce Marketplace (e.g. Amazon)",
-    "topics": []
+    "topics": [
+      "seo"
+    ]
   },
   {
     "access": "premium",
@@ -228,7 +240,11 @@
     "slug": "image-carousel",
     "subtitle": null,
     "title": "Image Carousel",
-    "topics": []
+    "topics": [
+      "a11y",
+      "performance",
+      "ui-component"
+    ]
   },
   {
     "access": "premium",
@@ -252,7 +268,10 @@
     "slug": "modal-dialog",
     "subtitle": null,
     "title": "Modal Dialog",
-    "topics": []
+    "topics": [
+      "a11y",
+      "ui-component"
+    ]
   },
   {
     "access": "premium",
@@ -276,7 +295,9 @@
     "slug": "music-streaming-spotify",
     "subtitle": null,
     "title": "Music Streaming (e.g. Spotify)",
-    "topics": []
+    "topics": [
+      "networking"
+    ]
   },
   {
     "access": "free",
@@ -303,7 +324,10 @@
     "slug": "news-feed-facebook",
     "subtitle": null,
     "title": "News Feed (e.g. Facebook)",
-    "topics": []
+    "topics": [
+      "a11y",
+      "performance"
+    ]
   },
   {
     "access": "premium",
@@ -329,7 +353,11 @@
     "slug": "photo-sharing-instagram",
     "subtitle": null,
     "title": "Photo Sharing (e.g. Instagram)",
-    "topics": []
+    "topics": [
+      "a11y",
+      "networking",
+      "performance"
+    ]
   },
   {
     "access": "premium",
@@ -377,7 +405,9 @@
     "slug": "poll-widget",
     "subtitle": null,
     "title": "Poll Widget",
-    "topics": []
+    "topics": [
+      "ui-component"
+    ]
   },
   {
     "access": "premium",
@@ -403,7 +433,10 @@
     "slug": "rich-text-editor",
     "subtitle": null,
     "title": "Rich Text Editor",
-    "topics": []
+    "topics": [
+      "performance",
+      "ui-component"
+    ]
   },
   {
     "access": "premium",
@@ -427,7 +460,10 @@
     "slug": "travel-booking-airbnb",
     "subtitle": null,
     "title": "Travel Booking (e.g. Airbnb)",
-    "topics": []
+    "topics": [
+      "performance",
+      "seo"
+    ]
   },
   {
     "access": "premium",
@@ -451,7 +487,10 @@
     "slug": "video-conferencing-zoom",
     "subtitle": null,
     "title": "Video Conferencing (e.g. Zoom)",
-    "topics": []
+    "topics": [
+      "networking",
+      "performance"
+    ]
   },
   {
     "access": "premium",
@@ -475,6 +514,9 @@
     "slug": "video-streaming-netflix",
     "subtitle": null,
     "title": "Video Streaming (e.g. Netflix)",
-    "topics": []
+    "topics": [
+      "networking",
+      "performance"
+    ]
   }
 ]

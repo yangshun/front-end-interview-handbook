@@ -214,15 +214,34 @@ export default function QuestionsList<Q extends QuestionMetadata>({
                       />
                     )}
                   </span>
-                  {questionMetadata.topics.length > 0 ? (
-                    <QuestionTopics topics={questionMetadata.topics} />
-                  ) : questionMetadata.frameworks.length > 0 ? (
-                    <QuestionFrameworks
-                      frameworks={questionMetadata.frameworks}
-                    />
-                  ) : (
-                    <QuestionLanguages languages={questionMetadata.languages} />
-                  )}
+                  {(() => {
+                    switch (questionMetadata.format) {
+                      case 'algo':
+                      case 'javascript':
+                        return (
+                          <QuestionLanguages
+                            languages={questionMetadata.languages}
+                          />
+                        );
+                      case 'user-interface':
+                        return (
+                          <QuestionFrameworks
+                            frameworks={questionMetadata.frameworks}
+                          />
+                        );
+                      case 'quiz':
+                      case 'system-design':
+                        if (questionMetadata.topics.length > 0) {
+                          return (
+                            <QuestionTopics topics={questionMetadata.topics} />
+                          );
+                        }
+
+                        return null;
+                      default:
+                        return null;
+                    }
+                  })()}
                   {(() => {
                     const count =
                       questionCompletionCount?.[questionMetadata.format]?.[
