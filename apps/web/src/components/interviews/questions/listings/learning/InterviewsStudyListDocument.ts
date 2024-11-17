@@ -116,8 +116,14 @@ export const InterviewsStudyListDocument = defineDocumentType(() => ({
       required: false,
       type: 'string',
     },
+    topics: {
+      default: [],
+      description: 'List of topics',
+      of: { type: 'string' },
+      required: false,
+      type: 'list',
+    },
   },
   filePathPattern: 'interviews/study-list/**/*.mdx',
   name: 'InterviewsStudyList',
 }));
-

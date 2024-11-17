@@ -18,6 +18,9 @@ import {
   themeTextSubtleColor,
 } from '~/components/ui/theme';
 
+import type { QuestionTopic } from '../../common/QuestionsTypes';
+import QuestionTopics from '../../metadata/QuestionTopics';
+
 type Props = Readonly<{
   alignVerticalOnMobile?: boolean;
   backgroundClass?: string;
@@ -50,9 +53,10 @@ export default function InterviewsStudyListCard({
     shortDescription,
     href,
     questionHashes,
-    schedule,
     logoUrl,
     longName,
+    schedule,
+    topics,
   } = studyList;
   const questionCount = questionHashes.length;
 
@@ -129,7 +133,7 @@ export default function InterviewsStudyListCard({
               </Text>
             )}
           </div>
-          <div className="flex flex-wrap items-center gap-x-8 gap-y-2 md:gap-x-10">
+          <div className="z-[1] flex flex-wrap items-center gap-x-8 gap-y-2 md:gap-x-10">
             <InterviewsEntityProgress
               completed={completionCount}
               showProgress={showProgress && isStarted}
@@ -143,6 +147,9 @@ export default function InterviewsStudyListCard({
                 hours={schedule.hours}
                 showIcon={true}
               />
+            )}
+            {topics.length > 0 && (
+              <QuestionTopics topics={topics as ReadonlyArray<QuestionTopic>} />
             )}
           </div>
         </div>

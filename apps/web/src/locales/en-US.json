@@ -2127,10 +2127,6 @@
     "defaultMessage": "The skills / tools / frameworks you are already familiar in. Cannot find the tag you need? Email us at {supportEmail}",
     "description": "Description for tech stack field"
   },
-  "D2YUXz": {
-    "defaultMessage": "Topics",
-    "description": "Screenreader text indicating component for question topics"
-  },
   "D5644P": {
     "defaultMessage": "Existing subscribers can upgrade to the lifetime plan at a discount, send an email to <link>contact@greatfrontend</link> to find out more.",
     "description": "Call to action text to upgrade plan."
@@ -2463,10 +2459,6 @@
     "defaultMessage": "Earn passive commissions when others purchase GreatFrontEnd through you.",
     "description": "Subtitle of the Hero section of the 'Become An Affiliate' page"
   },
-  "FAtaOX": {
-    "defaultMessage": "Languages",
-    "description": "Screenreader text to indicate the Programming Languages section"
-  },
   "FCFcH2": {
     "defaultMessage": "Start tasks",
     "description": "Start tasks button"
@@ -2694,6 +2686,10 @@
   "GohLa0": {
     "defaultMessage": "Skills you are proficient in",
     "description": "Label for tech stack field"
+  },
+  "Gps//z": {
+    "defaultMessage": "Languages",
+    "description": "Programming languages used for the question"
   },
   "Gqq8RF": {
     "defaultMessage": "Build front end real-world projects",
@@ -4074,10 +4070,6 @@
   "PrexEG": {
     "defaultMessage": "Notifications",
     "description": "Label for notifications"
-  },
-  "PtAdqY": {
-    "defaultMessage": "Question topics",
-    "description": "Screenreader text to indicate the question topics"
   },
   "Ptmnjq": {
     "defaultMessage": "Free continuous updates",
@@ -8251,6 +8243,10 @@
     "defaultMessage": "Go to project",
     "description": "Label for \"Go to project\" button in Project card"
   },
+  "r5tcl0": {
+    "defaultMessage": "Topics",
+    "description": "Technical topics relevant to the question"
+  },
   "r6RLjU": {
     "defaultMessage": "<authorProfileLink>{author}</authorProfileLink> made a post on <recipientProfileLink>{recipient}</recipientProfileLink>'s submission <link>{submissionTitle}</link>: <comment>\"{description}\"</comment>",
     "description": "Log message for someone making a post on others submission"
@@ -8450,10 +8446,6 @@
   "sfJ1Oa": {
     "defaultMessage": "Purchase premium to get access to all component tracks as well as exclusive skills, official how-to guides and production-ready Figma files.",
     "description": "Subtitle for premium projects component track"
-  },
-  "sg/5hy": {
-    "defaultMessage": "+{count} more",
-    "description": "Badge label for more topics"
   },
   "sjLtW1": {
     "defaultMessage": "Manage subscription",
