@@ -87,9 +87,9 @@ export default function QuestionPaywall({
     'focus-areas': {
       subtitle: intl.formatMessage({
         defaultMessage:
-          'Purchase premium to unlock focus aras and all the best materials we have to offer.',
+          'Purchase premium to unlock focus areas and all the best materials we have to offer.',
         description: 'Paywall subtitle for focus areas feature',
-        id: 'oMYV+Y',
+        id: 'fteidk',
       }),
       title: intl.formatMessage({
         defaultMessage: 'Premium focus area',

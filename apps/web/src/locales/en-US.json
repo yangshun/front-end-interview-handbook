@@ -6587,6 +6587,10 @@
     "defaultMessage": "Link",
     "description": "Label for link"
   },
+  "fteidk": {
+    "defaultMessage": "Purchase premium to unlock focus areas and all the best materials we have to offer.",
+    "description": "Paywall subtitle for focus areas feature"
+  },
   "ftr2lo": {
     "defaultMessage": "No tagged companies",
     "description": "Text that appears if the question does not have any tagged comppanies (where the question was known to be asked)"
@@ -7814,10 +7818,6 @@
   "oLO2pr": {
     "defaultMessage": "Search Vanilla JS interview questions",
     "description": "Placeholder for search input of Vanilla JS question list"
-  },
-  "oMYV+Y": {
-    "defaultMessage": "Purchase premium to unlock focus aras and all the best materials we have to offer.",
-    "description": "Paywall subtitle for focus areas feature"
   },
   "oNMAi3": {
     "defaultMessage": "Difficulty: Easy to Hard",

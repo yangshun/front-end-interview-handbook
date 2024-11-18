@@ -105,6 +105,7 @@ export default function InterviewsFocusAreaPage({
       <div className="relative flex flex-col gap-y-8">
         <QuestionsStudyListPageTitleSection
           description={studyList.description}
+          feature="focus-areas"
           features={features}
           icon={FocusAreaIcons[studyList.slug]}
           overallProgress={questionProgressParam ?? []}
