@@ -23,7 +23,7 @@ export default function InterviewsMarketingCompaniesSection({
   companyGuides,
 }: Props) {
   const intl = useIntl();
-  const isTablet = useMediaQuery('(min-width: 768px) and (max-width: 1024px)');
+  const isTablet = useMediaQuery('(min-width: 640px) and (max-width: 1024px)');
 
   return (
     <Container className={clsx('py-20')} width="marketing">
@@ -65,7 +65,7 @@ export default function InterviewsMarketingCompaniesSection({
           )}>
           <div
             className={clsx(
-              'grid gap-4 md:grid-cols-2 lg:grid-cols-3 xl:gap-6',
+              'grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:gap-6',
               'w-full',
             )}>
             {companyGuides.slice(0, isTablet ? 8 : 9).map((companyGuide) => {

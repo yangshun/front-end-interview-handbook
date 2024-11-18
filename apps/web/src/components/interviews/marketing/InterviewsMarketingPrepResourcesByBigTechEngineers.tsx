@@ -76,7 +76,7 @@ export default function InterviewsMarketingPrepResourcesByBigTechEngineers() {
         {
           logo: () => (
             <Text
-              className="text-base md:text-sm lg:text-base"
+              className="text-base sm:text-xs md:text-sm lg:text-base"
               size="inherit"
               weight="bold">
               Blind75
@@ -150,7 +150,7 @@ export default function InterviewsMarketingPrepResourcesByBigTechEngineers() {
       </div>
       <Section>
         <ScrollArea scrollbars="horizontal">
-          <CardContainer className="flex flex-col justify-between gap-x-3.5 gap-y-6 md:flex-row lg:gap-x-6 ">
+          <CardContainer className="flex flex-col justify-between gap-x-2.5 gap-y-6 sm:flex-row md:gap-x-3.5 lg:gap-x-6 ">
             {data.map((item) => (
               <Card
                 key={item.key}
@@ -172,9 +172,9 @@ export default function InterviewsMarketingPrepResourcesByBigTechEngineers() {
                 pattern={false}>
                 <div
                   className={clsx(
-                    'h-[180px]',
-                    'flex items-center justify-center gap-4 xl:gap-6',
-                    'px-6 md:px-2.5 lg:px-3',
+                    'h-[180px] sm:h-[120px] md:h-[180px]',
+                    'flex items-center justify-center gap-4 sm:gap-2 md:gap-4 xl:gap-6',
+                    'px-6 sm:px-4 md:px-2.5 lg:px-3',
                   )}>
                   {item.logos.map((logoItem) => (
                     <div
@@ -182,17 +182,17 @@ export default function InterviewsMarketingPrepResourcesByBigTechEngineers() {
                       className={clsx(
                         'rounded-full',
                         themeBackgroundCardWhiteOnLightColor,
-                        'size-20 md:size-16 lg:size-20 shrink-0',
+                        'size-20 sm:size-14 md:size-16 lg:size-20 shrink-0',
                         'flex items-center justify-center',
                         themeGlassyBorder,
                       )}>
-                      <logoItem.logo className="size-10 md:size-8 lg:size-10" />
+                      <logoItem.logo className="size-10 sm:size-7 md:size-8 lg:size-10" />
                     </div>
                   ))}
                 </div>
                 <Text
                   className={clsx(
-                    'px-6 md:px-4 lg:px-6',
+                    'px-6 sm:px-4 lg:px-6',
                     'text-sm lg:text-base',
                   )}
                   size="inherit"

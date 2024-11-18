@@ -217,7 +217,7 @@ export default function InterviewsTestimonialsSlider({ data }: Props) {
         className={clsx('w-full shrink-0 lg:w-[352px]', 'flex items-center')}>
         <div
           className={clsx(
-            'flex w-full flex-col gap-y-6 md:flex-row lg:flex-col',
+            'flex w-full flex-col gap-y-6 sm:flex-row lg:flex-col',
           )}>
           {overview
             .flatMap((item) => (item != null ? [item] : []))

@@ -151,9 +151,9 @@ export default function InterviewsMarketingContactSection() {
           )}>
           <div
             className={clsx(
-              'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1',
+              'grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1',
               'lg:col-span-5',
-              'gap-0 md:gap-x-6 lg:gap-0',
+              'gap-0 sm:gap-x-6 lg:gap-0',
               '-mt-5',
             )}>
             {data.map(({ key, label, icon: Icon, href, tooltip }) => (

@@ -192,7 +192,7 @@ export default function InterviewsMarketingEmbedSection({
               'Label for tabs to select sample interview question format',
             id: '50kzzq',
           })}
-          className="flex justify-center gap-2">
+          className="flex justify-center gap-2 flex-wrap">
           {tabs.map((tab) => (
             <FilterButton
               key={tab.value}

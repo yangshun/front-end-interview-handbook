@@ -59,7 +59,7 @@ export default function InterviewsMarketingTestimonialsSection({
         <div className={clsx('mx-auto md:mx-0', 'hidden sm:flow-root')}>
           <CardContainer
             className={clsx(
-              '-mt-6 sm:-mx-3 sm:text-[0] md:columns-2',
+              '-mt-6 sm:-mx-3 sm:columns-2 sm:text-[0]',
               columns === 3 && 'xl:columns-3',
               columns === 4 && 'xl:columns-3 2xl:columns-4',
             )}>

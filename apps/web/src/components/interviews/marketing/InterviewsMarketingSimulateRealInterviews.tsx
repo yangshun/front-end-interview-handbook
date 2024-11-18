@@ -85,14 +85,18 @@ export default function InterviewsMarketingSimulateRealInterviews() {
         </Text>
       </div>
       <ScrollArea scrollbars="horizontal">
-        <CardContainer className="flex flex-col justify-between gap-x-4 gap-y-6 md:flex-row lg:gap-x-6 ">
+        <CardContainer
+          className={clsx(
+            'flex flex-col justify-between sm:flex-row',
+            'gap-x-4 gap-y-6 lg:gap-x-6',
+          )}>
           {data.map(({ key, label, image: ImageSVG }) => (
             <Card
               key={key}
               brandColorSpotlight={false}
               className={clsx(
                 'flex flex-col gap-6',
-                'p-6',
+                'p-6 sm:p-4 md:p-6',
                 'rounded-2xl',
                 'group',
                 themeBackgroundCardColor,

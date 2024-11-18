@@ -119,7 +119,7 @@ export default function InterviewsMarketingHeroNew({ testimonials }: Props) {
           />
         </Text>
       </div>
-      <div className="flex flex-col gap-x-16 gap-y-6 md:flex-row">
+      <div className="flex flex-col gap-x-8 gap-y-6 sm:flex-row md:gap-x-16">
         <div
           className={clsx(
             'w-fit',
