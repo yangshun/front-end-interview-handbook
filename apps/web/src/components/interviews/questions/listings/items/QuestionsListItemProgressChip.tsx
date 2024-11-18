@@ -118,12 +118,16 @@ function CompletedBeforeChip({
   showHoverState,
   onClick,
   size = 'md',
+  number,
 }: Readonly<{
+  number?: number;
   onClick?: () => void;
   showHoverState: boolean;
   size?: ProgressChipSize;
 }>) {
   const intl = useIntl();
+  const hoverRef = useRef(null);
+  const isHover = useHover(hoverRef);
   const actionLabel = intl.formatMessage({
     defaultMessage: 'Mark complete (previously completed)',
     description: 'Label for questions solved in the past',
@@ -141,26 +145,27 @@ function CompletedBeforeChip({
   return (
     <Tooltip asChild={true} label={label}>
       <button
+        ref={hoverRef}
         aria-label={label}
         className={clsx(
           progressChipClass,
           progressChipSize,
-          [themeTextSubtleColor, 'font-semibold'],
           themeBackgroundCardNoAlphaColor,
-          'border-success border border-dashed',
-          showHoverState && [
-            'hover:border-solid',
-            themeBorderElementColor_Hover,
-            themeTextFainterColor,
-            themeTextSuccessColor_Hover,
-          ],
+          'font-semibold',
+          'border-success dark:border-success-light border border-dashed',
+          number != null ? themeTextSubtleColor : themeTextFainterColor,
+          showHoverState && themeTextSuccessColor_Hover,
         )}
         type="button"
         onClick={onClick}>
-        <FaCheck
-          aria-hidden="true"
-          className={clsx('shrink-0', iconChipSize)}
-        />
+        {number != null && showHoverState && !isHover ? (
+          number
+        ) : (
+          <FaCheck
+            aria-hidden="true"
+            className={clsx('shrink-0', iconChipSize)}
+          />
+        )}
       </button>
     </Tooltip>
   );
@@ -168,14 +173,12 @@ function CompletedBeforeChip({
 
 export function NotCompleted({
   number,
-  showAsNumber,
   showHoverState,
   onClick,
   size = 'md',
 }: Readonly<{
-  number: number;
+  number?: number;
   onClick?: () => void;
-  showAsNumber: boolean;
   showHoverState: boolean;
   size?: ProgressChipSize;
 }>) {
@@ -206,12 +209,13 @@ export function NotCompleted({
           progressChipSize,
           themeBackgroundCardNoAlphaColor,
           ['border', themeBorderElementColor],
-          showAsNumber ? themeTextSubtleColor : themeTextFainterColor,
+          'font-semibold',
+          number != null ? themeTextSubtleColor : themeTextFainterColor,
           showHoverState && themeTextSuccessColor_Hover,
         )}
         type="button"
         onClick={onClick}>
-        {showAsNumber && showHoverState && !isHover ? (
+        {number != null && showHoverState && !isHover ? (
           number
         ) : (
           <FaCheck
@@ -232,7 +236,6 @@ export default function QuestionsListItemProgressChip<
   premiumUser,
   hasCompletedQuestion,
   hasCompletedQuestionBefore,
-  mode,
   onMarkAsCompleted,
   onMarkAsNotCompleted,
   index,
@@ -241,8 +244,7 @@ export default function QuestionsListItemProgressChip<
   className: string;
   hasCompletedQuestion: boolean;
   hasCompletedQuestionBefore: boolean;
-  index: number;
-  mode?: 'default' | 'learning-list';
+  index?: number;
   onMarkAsCompleted?: (qn: Q) => void;
   onMarkAsNotCompleted?: (qn: Q) => void;
   premiumUser?: boolean;
@@ -281,6 +283,7 @@ export default function QuestionsListItemProgressChip<
 
         return hasCompletedQuestionBefore ? (
           <CompletedBeforeChip
+            number={index != null ? index + 1 : undefined}
             showHoverState={onMarkAsCompleted ? showHoverState : false}
             size={size}
             onClick={
@@ -294,8 +297,7 @@ export default function QuestionsListItemProgressChip<
           />
         ) : (
           <NotCompleted
-            number={index + 1}
-            showAsNumber={mode === 'learning-list'}
+            number={index != null ? index + 1 : undefined}
             showHoverState={onMarkAsCompleted ? showHoverState : false}
             size={size}
             onClick={

@@ -52,7 +52,6 @@ export default function GuidesListItemProgressChip<
         return (
           <NotCompleted
             number={index + 1}
-            showAsNumber={true}
             showHoverState={onMarkAsCompleted ? showHoverState : false}
             onClick={
               onMarkAsCompleted

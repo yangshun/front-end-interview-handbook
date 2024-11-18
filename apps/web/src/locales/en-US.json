@@ -7819,14 +7819,6 @@
     "defaultMessage": "One-time use; can only be completed once.",
     "description": "Condition for promotion"
   },
-  "oMYV+Y": {
-    "defaultMessage": "Purchase premium to unlock focus aras and all the best materials we have to offer.",
-    "description": "Paywall subtitle for focus areas feature"
-  }
-  "oLO2pr": {
-    "defaultMessage": "Search Vanilla JS interview questions",
-    "description": "Placeholder for search input of Vanilla JS question list"
-  },
   "oNMAi3": {
     "defaultMessage": "Difficulty: Easy to Hard",
     "description": "Sorting option for question list - sort by difficulty from easy to hard"

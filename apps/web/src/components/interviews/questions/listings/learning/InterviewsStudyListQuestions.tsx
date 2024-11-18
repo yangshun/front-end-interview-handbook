@@ -179,7 +179,6 @@ export default function InterviewsStudyListQuestions<
                                 className="z-[1]"
                                 hasCompletedQuestion={!!hasCompletedQuestion}
                                 hasCompletedQuestionBefore={false}
-                                index={index}
                                 premiumUser={userProfile?.isInterviewsPremium}
                                 question={questionMetadata}
                                 size="sm"
@@ -266,7 +265,7 @@ export default function InterviewsStudyListQuestions<
           <ul
             className={clsx(['divide-y', themeDivideColor])}
             {...(showCompanyPaywall && { inert: '' })}>
-            {questions.map((questionMetadata, index) => {
+            {questions.map((questionMetadata) => {
               const hasCompletedQuestion =
                 checkIfCompletedQuestion?.(questionMetadata);
 
@@ -296,7 +295,6 @@ export default function InterviewsStudyListQuestions<
                         className="z-[1]"
                         hasCompletedQuestion={!!hasCompletedQuestion}
                         hasCompletedQuestionBefore={false}
-                        index={index}
                         premiumUser={userProfile?.isInterviewsPremium}
                         question={questionMetadata}
                         size="sm"

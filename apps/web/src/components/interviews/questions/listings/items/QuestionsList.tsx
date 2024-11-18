@@ -134,8 +134,7 @@ export default function QuestionsList<Q extends QuestionMetadata>({
                   className="z-[1]" // Needed for the icon to be above the link.
                   hasCompletedQuestion={hasCompletedQuestion}
                   hasCompletedQuestionBefore={hasCompletedQuestionBefore}
-                  index={index}
-                  mode={mode}
+                  index={mode === 'learning-list' ? index : undefined}
                   premiumUser={userProfile?.isInterviewsPremium}
                   question={questionMetadata}
                   onMarkAsCompleted={onMarkAsCompleted}

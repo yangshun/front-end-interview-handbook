@@ -20,12 +20,7 @@ export default function InterviewsGuideProgress({
       {completed ? (
         <CompletedChip showHoverState={false} size={size} />
       ) : (
-        <NotCompleted
-          number={0}
-          showAsNumber={false}
-          showHoverState={false}
-          size={size}
-        />
+        <NotCompleted showHoverState={false} size={size} />
       )}
     </div>
   );
