@@ -29,7 +29,7 @@ export default function useGuidesWithCompletionStatus<
 
   const guidesWithCompletionStatus = useMemo(() => {
     const completedGuides = new Set(
-      (guideProgress ?? []).map(({ type, slug }) => hashGuide(type, slug)),
+      (guideProgress ?? []).map(({ book, slug }) => hashGuide(book, slug)),
     );
 
     return guides.map((guide) => ({

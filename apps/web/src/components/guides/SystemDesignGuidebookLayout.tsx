@@ -37,7 +37,7 @@ export default function SystemDesignGuidebookLayout({
   )!;
 
   const guideMetadata: GuideMetadata = {
-    category: 'system-design-guide',
+    book: 'FRONT_END_SYSTEM_DESIGN_PLAYBOOK',
     slug: currentItem.slug,
   };
 

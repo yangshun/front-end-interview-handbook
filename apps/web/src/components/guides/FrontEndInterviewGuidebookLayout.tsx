@@ -34,7 +34,7 @@ export default function FrontEndInterviewGuidebookLayout({
   )!;
 
   const guideMetadata: GuideMetadata = {
-    category: 'front-end-interview-guide',
+    book: 'FRONT_END_INTERVIEW_PLAYBOOK',
     slug: currentItem.slug,
   };
 

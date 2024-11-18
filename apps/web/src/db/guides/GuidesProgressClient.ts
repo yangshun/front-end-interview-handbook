@@ -21,7 +21,7 @@ export function useQueryGuideProgress(metadata: GuideMetadata) {
   return trpc.guideProgress.get.useQuery(
     {
       guide: {
-        category: metadata.category,
+        book: metadata.book,
         slug: metadata.slug,
       },
     },
@@ -111,7 +111,7 @@ export function useGuideCompletionCount() {
   }
 
   const completedGuides = new Set(
-    guideProgress.map(({ type, slug }) => hashGuide(type, slug)),
+    guideProgress.map(({ book, slug }) => hashGuide(book, slug)),
   );
 
   const {
@@ -119,12 +119,12 @@ export function useGuideCompletionCount() {
     systemDesignPlaybookCompletionCount,
   } = Array.from(completedGuides).reduce(
     (counts, item) => {
-      const [type] = unhashGuide(item);
+      const [book] = unhashGuide(item);
 
-      if (type === 'front-end-interview-guide') {
+      if (book === 'FRONT_END_INTERVIEW_PLAYBOOK') {
         counts.frontendInterviewPlaybookCompletionCount++;
       }
-      if (type === 'system-design-guide') {
+      if (book === 'FRONT_END_SYSTEM_DESIGN_PLAYBOOK') {
         counts.systemDesignPlaybookCompletionCount++;
       }
 

@@ -13,7 +13,6 @@ import CheckboxInput from '~/components/ui/CheckboxInput';
 import Divider from '~/components/ui/Divider';
 import Section from '~/components/ui/Heading/HeadingContext';
 
-import type { GuideProgress } from '~/db/guides/GuideProgressTypes';
 import { useMutationGuideProgressAdd } from '~/db/guides/GuidesProgressClient';
 import { useI18nPathname } from '~/next-i18nostic/src';
 
@@ -28,6 +27,7 @@ import useFlattenedNavigationItems from './useFlattenedNavigationItems';
 import { useGuidesAutoMarkAsComplete } from './useGuidesAutoMarkAsComplete';
 import { useToast } from '../global/toasts/useToast';
 
+import type { GuideProgress } from '@prisma/client';
 import { useUser } from '@supabase/auth-helpers-react';
 
 type MarkAsCompleteProps = Readonly<
@@ -163,22 +163,17 @@ export default function GuidesMainLayout({
                     !autoMarkAsComplete ||
                     metadata == null ||
                     ('guideProgress' in props &&
-                      props.guideProgress?.status === 'complete')
+                      props.guideProgress?.status === 'COMPLETED')
                   ) {
                     return;
                   }
 
                   addGuideProgressMutation.mutate(
                     {
-                      category: metadata.category,
+                      book: metadata.book,
                       guideName: currentItem.label,
                       listKey,
-                      progressId:
-                        'guideProgress' in props
-                          ? props.guideProgress?.id
-                          : undefined,
                       slug: metadata.slug,
-                      status: 'complete',
                     },
                     {
                       onError: () => {

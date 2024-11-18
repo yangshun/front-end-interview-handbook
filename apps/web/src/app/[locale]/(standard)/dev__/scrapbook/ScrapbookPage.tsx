@@ -150,7 +150,7 @@ export default function ScrapbookPage() {
                     'Explore our starter guides to get a solid grasp of JavaScript interview prep before jumping into practice.',
                   items: [
                     {
-                      category: 'front-end-interview-guide',
+                      book: 'FRONT_END_INTERVIEW_PLAYBOOK',
                       description:
                         'Answering fundamental of JavaScript and related.',
                       href: '#',
@@ -160,7 +160,7 @@ export default function ScrapbookPage() {
                       title: 'Foundation of JS',
                     },
                     {
-                      category: 'front-end-interview-guide',
+                      book: 'FRONT_END_SYSTEM_DESIGN_PLAYBOOK',
                       description:
                         'Answering fundamental of JavaScript and related.',
                       href: '#',

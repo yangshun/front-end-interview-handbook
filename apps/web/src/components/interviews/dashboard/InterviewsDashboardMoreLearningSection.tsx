@@ -1,7 +1,6 @@
 import clsx from 'clsx';
 import type { InterviewsStudyList } from 'contentlayer/generated';
 
-import type { GuideCategory } from '~/components/guides/types';
 import type {
   QuestionFramework,
   QuestionLanguage,
@@ -20,14 +19,12 @@ import InterviewsDashboardCompanySection from './time-savers/InterviewsDashboard
 import InterviewsDashboardFocusAreasSection from './time-savers/InterviewsDashboardFocusAreasSection';
 import InterviewsDashboardStudyPlansSection from './time-savers/InterviewsDashboardStudyPlansSection';
 
-import type { LearningSession } from '@prisma/client';
+import type { GuideProgress, LearningSession } from '@prisma/client';
 
 type Props = Readonly<{
   companyGuides: Array<InterviewsStudyList>;
   focusAreas: ReadonlyArray<InterviewsStudyList>;
-  guidesProgress: ReadonlyArray<
-    Readonly<{ id: string; slug: string; type: GuideCategory }>
-  >;
+  guidesProgress: ReadonlyArray<GuideProgress>;
   questionListSessions: Array<
     LearningSession & { _count: { progress: number } }
   >;

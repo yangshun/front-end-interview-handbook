@@ -7,7 +7,6 @@ import { useToast } from '~/components/global/toasts/useToast';
 import { useIntl } from '~/components/intl';
 import Button from '~/components/ui/Button';
 
-import type { GuideProgress } from '~/db/guides/GuideProgressTypes';
 import {
   useMutationGuideProgressAdd,
   useMutationGuideProgressDelete,
@@ -16,6 +15,7 @@ import logEvent from '~/logging/logEvent';
 
 import type { GuideMetadata } from './types';
 
+import type { GuideProgress } from '@prisma/client';
 import { useUser } from '@supabase/auth-helpers-react';
 
 type Props = Readonly<{
@@ -58,7 +58,7 @@ export default function GuidesProgressAction({
     );
   }
 
-  if (guideProgress?.status === 'complete') {
+  if (guideProgress?.status === 'COMPLETED') {
     return (
       <Button
         icon={FaCheck}
@@ -79,7 +79,7 @@ export default function GuidesProgressAction({
         variant="success"
         onClick={() => {
           deleteGuideProgressMutation.mutate(
-            { category: metadata.category, slug: metadata.slug },
+            { book: metadata.book, slug: metadata.slug },
             {
               onError: () => {
                 showToast({
@@ -131,15 +131,14 @@ export default function GuidesProgressAction({
       variant="secondary"
       onClick={() => {
         addGuideProgressMutation.mutate({
-          category: metadata.category,
+          book: metadata.book,
           guideName,
           listKey,
-          progressId: guideProgress?.id,
           slug: metadata.slug,
-          status: 'complete',
         });
+
         logEvent('guide.mark_complete', {
-          category: metadata.category,
+          book: metadata.book,
           namespace: 'interviews',
           slug: metadata.slug,
         });

@@ -42,10 +42,9 @@ export default function GuidesListWithCategory({ guides }: Props) {
     }
 
     addGuideProgressMutation.mutate({
-      category: guide.category,
+      book: guide.book,
       guideName: guide.title,
       slug: guide.slug,
-      status: 'complete',
     });
   }
 
@@ -56,7 +55,7 @@ export default function GuidesListWithCategory({ guides }: Props) {
 
     deleteGuideProgressMutation.mutate(
       {
-        category: guide.category,
+        book: guide.book,
         slug: guide.slug,
       },
       {

@@ -73,14 +73,26 @@ model QuestionProgress {
   @@unique([format, slug, status, userId])
 }
 
+enum GuideProgressStatus {
+  COMPLETED
+}
+
+enum GuidebookItem {
+  BEHAVIORAL_INTERVIEW_PLAYBOOK
+  FRONT_END_INTERVIEW_PLAYBOOK
+  FRONT_END_SYSTEM_DESIGN_PLAYBOOK
+}
+
 model GuideProgress {
-  id        String   @id @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
-  category  String
+  id        String              @id @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
+  book      GuidebookItem
   slug      String
-  status    String
-  createdAt DateTime @default(now()) @db.Timestamptz(6)
-  userId    String   @db.Uuid
-  profile   Profile  @relation(fields: [userId], references: [id], onDelete: Cascade, onUpdate: NoAction)
+  status    GuideProgressStatus
+  createdAt DateTime            @default(now()) @db.Timestamptz(6)
+  userId    String              @db.Uuid
+  profile   Profile             @relation(fields: [userId], references: [id], onDelete: Cascade, onUpdate: NoAction)
+
+  @@unique([book, slug, status, userId])
 }
 
 model QuestionDiscussionPost {

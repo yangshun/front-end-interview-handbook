@@ -1,6 +1,5 @@
 import clsx from 'clsx';
 
-import type { GuideCategory } from '~/components/guides/types';
 import type {
   QuestionFramework,
   QuestionLanguage,
@@ -15,10 +14,10 @@ import Section from '~/components/ui/Heading/HeadingContext';
 import Text from '~/components/ui/Text';
 import { themeTextColor } from '~/components/ui/theme';
 
+import type { GuideProgress } from '@prisma/client';
+
 type Props = Readonly<{
-  guidesProgress: ReadonlyArray<
-    Readonly<{ id: string; slug: string; type: GuideCategory }>
-  >;
+  guidesProgress: ReadonlyArray<GuideProgress>;
   questions: {
     codingQuestions: ReadonlyArray<QuestionMetadata>;
     frameworkQuestions: Record<

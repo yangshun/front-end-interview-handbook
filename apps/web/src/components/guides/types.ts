@@ -6,6 +6,8 @@ import type {
   frontendSystemDesignSlugs,
 } from '~/db/guides/GuidesUtils';
 
+import type { GuidebookItem } from '@prisma/client';
+
 export type BaseGuideNavigationLink<T = Record<string, unknown>> = Readonly<
   T & {
     addOnElement?: ReactNode | null;
@@ -45,13 +47,8 @@ export type GuideNavigation<
   title: string;
 }>;
 
-export type GuideCategory =
-  | 'behavioral-interview-guide'
-  | 'front-end-interview-guide'
-  | 'system-design-guide';
-
 export type GuideMetadata = Readonly<{
-  category: GuideCategory;
+  book: GuidebookItem;
   slug: string;
 }>;
 

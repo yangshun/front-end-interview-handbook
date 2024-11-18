@@ -5,25 +5,26 @@ import type {
   FrontEndInterviewRouteType,
   FrontEndSystemDesignRouteType,
   GuideCardMetadata,
-  GuideCategory,
   GuideMetadata,
 } from '~/components/guides/types';
 
-export function hashGuide(type: string, slug: string) {
-  return type + ':' + slug;
+import type { GuidebookItem } from '@prisma/client';
+
+export function hashGuide(book: GuidebookItem, slug: string) {
+  return book + ':' + slug;
 }
 
-export function unhashGuide(key: string): [type: GuideCategory, slug: string] {
+export function unhashGuide(key: string): [book: GuidebookItem, slug: string] {
   const parts = key.split(':');
 
-  return [parts[0] as GuideCategory, parts[1]];
+  return [parts[0] as GuidebookItem, parts[1]];
 }
 
 export function hasCompletedGuide(
   completedGuides: Set<string>,
   guide: GuideMetadata,
 ): boolean {
-  return completedGuides.has(hashGuide(guide.category, guide.slug));
+  return completedGuides.has(hashGuide(guide.book, guide.slug));
 }
 
 export const frontendInterviewSlugs = [

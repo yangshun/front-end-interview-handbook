@@ -1,100 +1,79 @@
 import { z } from 'zod';
 
-import type { GuideCategory } from '~/components/guides/types';
-
-import type { GuideProgressStatus } from '~/db/guides/GuideProgressTypes';
 import { hashGuide } from '~/db/guides/GuidesUtils';
 import prisma from '~/server/prisma';
 
 import { router, userProcedure } from '../trpc';
 
+const guidebookZodEnum = z.enum([
+  'BEHAVIORAL_INTERVIEW_PLAYBOOK',
+  'FRONT_END_INTERVIEW_PLAYBOOK',
+  'FRONT_END_SYSTEM_DESIGN_PLAYBOOK',
+]);
+
 export const guideProgressRouter = router({
   add: userProcedure
     .input(
       z.object({
-        category: z.string(),
-        guideName: z.string(),
+        book: guidebookZodEnum,
+        guideName: z.string(), // Only used by the client for showing within the response toast.
         listKey: z.string().optional(),
-        progressId: z.string().optional(),
         slug: z.string(),
-        status: z.string(),
       }),
     )
-    .mutation(
-      async ({
-        input: { category, slug, status, progressId, listKey },
-        ctx: { viewer },
-      }) => {
-        if (!viewer) {
-          return null;
-        }
+    .mutation(async ({ input: { book, slug, listKey }, ctx: { viewer } }) => {
+      if (!viewer) {
+        return null;
+      }
 
-        const createData = {
-          category,
-          slug,
-          status,
+      try {
+        const guideProgress = await prisma.guideProgress.create({
+          data: {
+            book,
+            slug,
+            status: 'COMPLETED',
+            userId: viewer.id,
+          },
+        });
+
+        if (listKey == null) {
+          return guideProgress;
+        }
+      } catch (_err) {
+        // Do nothing because it's a unique index.
+      }
+
+      const session = await prisma.learningSession.findFirst({
+        where: {
+          key: listKey,
+          status: 'IN_PROGRESS',
           userId: viewer.id,
-        };
-        let guideProgress = null;
+        },
+      });
 
-        if (!progressId) {
-          guideProgress = await prisma.guideProgress.create({
-            data: createData,
-          });
-        } else {
-          guideProgress = await prisma.guideProgress.upsert({
-            create: createData,
-            update: {
-              status,
-            },
-            where: {
-              id: progressId,
-            },
-          });
-        }
+      if (session == null) {
+        throw 'No ongoing learning session. Start tracking progress first.';
+      }
 
-        if (listKey != null) {
-          try {
-            const session = await prisma.learningSession.findFirst({
-              where: {
-                key: listKey,
-                status: 'IN_PROGRESS',
-                userId: viewer.id,
-              },
-            });
-
-            if (session != null) {
-              await prisma.learningSessionProgress.create({
-                data: {
-                  key: hashGuide(category, slug),
-                  sessionId: session.id,
-                  status: 'COMPLETED',
-                },
-              });
-            }
-          } catch {
-            // TODO(interviews): Report error
-          }
-        }
-
-        return {
-          ...guideProgress,
-          status: guideProgress.status as GuideProgressStatus,
-          type: guideProgress.category as GuideCategory,
-        };
-      },
-    ),
+      return await prisma.learningSessionProgress.create({
+        data: {
+          key: hashGuide(book, slug),
+          sessionId: session.id,
+          status: 'COMPLETED',
+        },
+      });
+    }),
   delete: userProcedure
     .input(
       z.object({
-        category: z.string(),
+        book: guidebookZodEnum,
         slug: z.string(),
       }),
     )
-    .mutation(async ({ input: { slug, category }, ctx: { viewer } }) => {
+    .mutation(async ({ input: { slug, book }, ctx: { viewer } }) => {
       await prisma.guideProgress.deleteMany({
         where: {
-          category,
+          book,
           slug,
           userId: viewer.id,
         },
@@ -111,7 +90,7 @@ export const guideProgressRouter = router({
     .input(
       z.object({
         guide: z.object({
-          category: z.string(),
+          book: guidebookZodEnum,
           slug: z.string(),
         }),
       }),
@@ -122,14 +101,15 @@ export const guideProgressRouter = router({
           createdAt: 'desc',
         },
         select: {
-          category: true,
+          book: true,
           createdAt: true,
           id: true,
           slug: true,
           status: true,
+          userId: true,
         },
         where: {
-          category: guide.category,
+          book: guide.book,
           slug: guide.slug,
           userId: viewer.id,
         },
@@ -139,33 +119,24 @@ export const guideProgressRouter = router({
         return null;
       }
 
-      return {
-        ...guideProgress,
-        status: guideProgress.status as GuideProgressStatus,
-        type: guideProgress.category as GuideCategory,
-      };
+      return guideProgress;
     }),
   getAll: userProcedure.query(async ({ ctx: { viewer } }) => {
-    const guideProgressList = await prisma.guideProgress.findMany({
+    return await prisma.guideProgress.findMany({
       orderBy: {
         createdAt: 'desc',
       },
       select: {
-        category: true,
+        book: true,
         createdAt: true,
         id: true,
         slug: true,
         status: true,
+        userId: true,
       },
       where: {
         userId: viewer.id,
       },
     });
-
-    return guideProgressList.map((guideProgress) => ({
-      ...guideProgress,
-      status: guideProgress.status as GuideProgressStatus,
-      type: guideProgress.category as GuideCategory,
-    }));
   }),
 });

@@ -88,7 +88,7 @@ export async function readAllFrontEndInterviewGuides(locale: string) {
     const time = Math.ceil(readingTime(mdxSource ?? '').minutes);
 
     guidesData.push({
-      category: 'front-end-interview-guide',
+      book: 'FRONT_END_INTERVIEW_PLAYBOOK',
       description,
       href: `${basePath}/${slug}`,
       readingTime: time,
@@ -113,7 +113,7 @@ export async function readAllFrontendSystemDesignGuides(locale: string) {
     const time = Math.ceil(readingTime(mdxSource ?? '').minutes);
 
     guidesData.push({
-      category: 'system-design-guide',
+      book: 'FRONT_END_SYSTEM_DESIGN_PLAYBOOK',
       description,
       href: `${basePath}/${slug}`,
       readingTime: time,
@@ -141,7 +141,7 @@ export async function readAllBehavioralGuides(locale: string) {
     const time = Math.ceil(readingTime(mdxSource ?? '').minutes);
 
     guidesData.push({
-      category: 'behavioral-interview-guide',
+      book: 'BEHAVIORAL_INTERVIEW_PLAYBOOK',
       description,
       href: `${basePath}/${slug}`,
       readingTime: time,

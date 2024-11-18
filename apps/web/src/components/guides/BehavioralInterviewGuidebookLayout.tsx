@@ -34,7 +34,7 @@ export default function BehavioralInterviewGuidebookLayout({
   )!;
 
   const guideMetadata: GuideMetadata = {
-    category: 'behavioral-interview-guide',
+    book: 'BEHAVIORAL_INTERVIEW_PLAYBOOK',
     slug: currentItem.slug,
   };
 

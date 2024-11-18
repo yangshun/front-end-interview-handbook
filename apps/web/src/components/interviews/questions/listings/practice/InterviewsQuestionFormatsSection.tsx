@@ -5,7 +5,6 @@ import { SCROLL_HASH_INTERVIEWS_QUESTIONS_FORMAT } from '~/hooks/useScrollToHash
 
 import { useQuestionFormatsData } from '~/data/QuestionLists';
 
-import type { GuideCategory } from '~/components/guides/types';
 import useBehavioralInterviewGuidebookNavigation, {
   basePath,
 } from '~/components/guides/useBehavioralInterviewGuidebookNavigation';
@@ -35,6 +34,8 @@ import {
 } from '~/db/QuestionsUtils';
 
 import QuestionTopics from '../../metadata/QuestionTopics';
+
+import type { GuideProgress } from '@prisma/client';
 
 type InterviewsQuestionFormatType = Readonly<{
   href: string;
@@ -115,9 +116,7 @@ function InterviewsQuestionFormatCard({
 }
 
 type Props = Readonly<{
-  guidesProgress: ReadonlyArray<
-    Readonly<{ id: string; slug: string; type: GuideCategory }>
-  >;
+  guidesProgress: ReadonlyArray<GuideProgress>;
   questions: {
     codingQuestions: ReadonlyArray<QuestionMetadata>;
     quizQuestions: ReadonlyArray<QuestionMetadata>;
@@ -153,7 +152,7 @@ export default function InterviewsQuestionFormatsSection({
   );
 
   const behavioralGuideProgress = guidesProgress.filter(
-    ({ type }) => type === 'behavioral-interview-guide',
+    ({ book }) => book === 'BEHAVIORAL_INTERVIEW_PLAYBOOK',
   );
   const formats = useQuestionFormatsData();
 
