@@ -60,7 +60,6 @@ type Props = Readonly<{
   mode?: 'default' | 'framework';
   onMarkAsCompleted?: (question: QuestionMetadata) => void;
   onMarkAsNotCompleted?: (question: QuestionMetadata) => void;
-  onQuestionClickIntercept?: (redirectHref: string) => void;
   questionCompletionCount?: QuestionCompletionCount;
   questions: ReadonlyArray<QuestionMetadataWithCompletedStatus>;
   searchPlaceholder?: string;
@@ -85,7 +84,6 @@ export default function QuestionsUnifiedListWithFilters({
   onMarkAsNotCompleted,
   searchPlaceholder,
   sideColumnAddOn,
-  onQuestionClickIntercept,
   guides,
 }: Props) {
   const intl = useIntl();
@@ -408,7 +406,6 @@ export default function QuestionsUnifiedListWithFilters({
                     questions={processedQuestions}
                     onMarkAsCompleted={onMarkAsCompleted}
                     onMarkAsNotCompleted={onMarkAsNotCompleted}
-                    onQuestionClickIntercept={onQuestionClickIntercept}
                   />
                 </div>
               </Section>

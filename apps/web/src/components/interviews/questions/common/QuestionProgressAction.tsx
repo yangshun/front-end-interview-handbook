@@ -39,7 +39,7 @@ export default function QuestionProgressAction({
   const intl = useIntl();
   const user = useUser();
   const [isLoginDialogShown, setIsLoginDialogShown] = useState(false);
-  const addProgressMutation = useMutationQuestionProgressAdd();
+  const markCompleteMutation = useMutationQuestionProgressAdd();
   const deleteProgressMutation = useMutationQuestionProgressDelete();
   const { showToast } = useToast();
   const { signInUpHref, signInUpLabel } = useAuthSignInUp();
@@ -158,8 +158,8 @@ export default function QuestionProgressAction({
     <Button
       addonPosition="start"
       icon={FaCheck}
-      isDisabled={addProgressMutation.isLoading}
-      isLoading={addProgressMutation.isLoading}
+      isDisabled={markCompleteMutation.isLoading}
+      isLoading={markCompleteMutation.isLoading}
       label={intl.formatMessage({
         defaultMessage: 'Mark complete',
         description: 'Mark the question as complete',
@@ -168,7 +168,7 @@ export default function QuestionProgressAction({
       size="xs"
       variant="secondary"
       onClick={() => {
-        addProgressMutation.mutate(
+        markCompleteMutation.mutate(
           {
             format: metadata.format,
             listKey,

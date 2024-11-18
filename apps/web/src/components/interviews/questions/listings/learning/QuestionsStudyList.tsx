@@ -1,10 +1,7 @@
-import { useRouter } from 'next/navigation';
 import type { ReactNode } from 'react';
-import { useState } from 'react';
 
 import { trpc } from '~/hooks/trpc';
 
-import ConfirmationDialog from '~/components/common/ConfirmationDialog';
 import { useToast } from '~/components/global/toasts/useToast';
 import type { QuestionMetadata } from '~/components/interviews/questions/common/QuestionsTypes';
 import QuestionsUnifiedListWithFilters from '~/components/interviews/questions/listings/items/QuestionsUnifiedListWithFilters';
@@ -18,13 +15,7 @@ import {
 } from '~/db/QuestionsProgressClient';
 import type { QuestionsCategorizedProgress } from '~/db/QuestionsUtils';
 
-import {
-  useHideStartSessionDialogStorage,
-  useStartLearningSessionMutation,
-} from './QuestionsListSessionUtils';
 import useQuestionsWithCompletionStatus from '../filters/hooks/useQuestionsWithCompletionStatus';
-
-import { useUser } from '@supabase/auth-helpers-react';
 
 export default function QuestionsStudyList({
   listKey,
@@ -39,30 +30,6 @@ export default function QuestionsStudyList({
 }>) {
   const trpcUtils = trpc.useUtils();
   const intl = useIntl();
-  const router = useRouter();
-  const user = useUser();
-  const [startSessionDialog, setStartSessionDialog] = useState({
-    redirectHref: '',
-    show: false,
-  });
-  const { add: addHideStartSession, isHidden: isStartSessionPromptHidden } =
-    useHideStartSessionDialogStorage(listKey);
-  const { data: questionListSession, isLoading: isQuestionListSessionLoading } =
-    trpc.questionLists.getActiveSession.useQuery(
-      {
-        listKey,
-      },
-      {
-        enabled: !!user,
-      },
-    );
-
-  const startSessionMutation = useStartLearningSessionMutation(listKey);
-  const showStartSessionDialogOnClick =
-    !isQuestionListSessionLoading &&
-    questionListSession == null &&
-    !isStartSessionPromptHidden();
-
   const { showToast } = useToast();
 
   const questionsWithProgress = useQuestionsWithCompletionStatus(
@@ -72,35 +39,8 @@ export default function QuestionsStudyList({
   const markCompleteMutation = useMutationQuestionProgressAdd();
   const markNotCompleteMutation = useMutationQuestionProgressDelete();
 
-  function canMarkQuestions() {
-    if (isQuestionListSessionLoading) {
-      return false;
-    }
-
-    if (questionListSession == null) {
-      showToast({
-        description: intl.formatMessage({
-          defaultMessage: 'You need to start the learning session first',
-          description:
-            'Message telling users that need to start on a study plan session first',
-          id: 'CvwT9O',
-        }),
-        title: intl.formatMessage({
-          defaultMessage: 'No ongoing learning session',
-          description: 'No active study plan session started',
-          id: '7N70T1',
-        }),
-        variant: 'danger',
-      });
-
-      return false;
-    }
-
-    return true;
-  }
-
   function markQuestionAsCompleted(question: QuestionMetadata) {
-    if (!canMarkQuestions()) {
+    if (markCompleteMutation.isLoading) {
       return;
     }
 
@@ -133,7 +73,7 @@ export default function QuestionsStudyList({
   }
 
   function markQuestionAsNotCompleted(question: QuestionMetadata) {
-    if (!canMarkQuestions()) {
+    if (markNotCompleteMutation.isLoading) {
       return;
     }
 
@@ -165,13 +105,6 @@ export default function QuestionsStudyList({
     );
   }
 
-  function openStartSessionDialog(redirectHref: string) {
-    setStartSessionDialog({
-      redirectHref,
-      show: true,
-    });
-  }
-
   const filterNamespace = `study-list:${listKey}`;
   const sortedQuestions = questionsWithProgress;
 
@@ -197,61 +130,8 @@ export default function QuestionsStudyList({
           sideColumnAddOn={sideColumnAddOn}
           onMarkAsCompleted={markQuestionAsCompleted}
           onMarkAsNotCompleted={markQuestionAsNotCompleted}
-          onQuestionClickIntercept={
-            showStartSessionDialogOnClick ? openStartSessionDialog : undefined
-          }
         />
       </Section>
-      <ConfirmationDialog
-        cancelButtonLabel={intl.formatMessage({
-          defaultMessage: 'Proceed without tracking',
-          description: 'Cancel button label for session progress tracking',
-          id: '29rLgw',
-        })}
-        confirmButtonLabel={intl.formatMessage({
-          defaultMessage: 'Start tracking',
-          description:
-            'Confirmation button label for session progress tracking',
-          id: 'OV17LW',
-        })}
-        isDisabled={startSessionMutation.isLoading}
-        isLoading={startSessionMutation.isLoading}
-        isShown={startSessionDialog.show}
-        title={intl.formatMessage({
-          defaultMessage: 'Start progress tracking',
-          description: 'Label to start progress tracking',
-          id: 'DIX7Z0',
-        })}
-        onCancel={() => {
-          addHideStartSession();
-          router.push(startSessionDialog.redirectHref);
-          setStartSessionDialog({
-            redirectHref: '',
-            show: false,
-          });
-        }}
-        onConfirm={() => {
-          startSessionMutation.mutate(
-            {
-              listKey,
-            },
-            {
-              onSuccess() {
-                router.push(startSessionDialog.redirectHref);
-                setStartSessionDialog({
-                  redirectHref: '',
-                  show: false,
-                });
-              },
-            },
-          );
-        }}>
-        <FormattedMessage
-          defaultMessage="You have to start the session before your progress for this list can be tracked. Start tracking your progress on this question list?"
-          description="Confirmation text for start progress tracking"
-          id="XCg8lD"
-        />
-      </ConfirmationDialog>
     </div>
   );
 }

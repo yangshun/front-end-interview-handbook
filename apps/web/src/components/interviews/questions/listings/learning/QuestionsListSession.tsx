@@ -80,7 +80,7 @@ export default function QuestionsListSession({
     questionListSession?.progress ?? [],
   );
 
-  const startSessionMutation = useStartLearningSessionMutation(questionListKey);
+  const startSessionMutation = useStartLearningSessionMutation();
 
   const stopSessionMutation = trpc.questionLists.stopSession.useMutation({
     onSuccess() {

@@ -2,10 +2,12 @@
 
 import { trpc } from '~/hooks/trpc';
 
+import { useToast } from '~/components/global/toasts/useToast';
 import type {
   QuestionFormat,
   QuestionMetadata,
 } from '~/components/interviews/questions/common/QuestionsTypes';
+import { useIntl } from '~/components/intl';
 
 import { useUser } from '@supabase/auth-helpers-react';
 
@@ -30,13 +32,27 @@ export function useQueryQuestionProgress(
 }
 
 export function useMutationQuestionProgressAdd() {
+  const intl = useIntl();
+  const { showToast } = useToast();
   const trpcUtils = trpc.useUtils();
 
   return trpc.questionProgress.add.useMutation({
-    onSuccess: () => {
+    onSuccess: (data) => {
       // TODO(interviews): find out why setData is not working
       // trpcUtils.questionProgress.get.setData({ question: variables }, data);
       trpcUtils.questionProgress.invalidate();
+
+      if (data?.newSessionCreated) {
+        trpcUtils.questionLists.invalidate();
+        showToast({
+          title: intl.formatMessage({
+            defaultMessage: "We've started tracking your progress",
+            description: 'Success message for starting a study plan',
+            id: 'HJ+bJn',
+          }),
+          variant: 'success',
+        });
+      }
     },
   });
 }

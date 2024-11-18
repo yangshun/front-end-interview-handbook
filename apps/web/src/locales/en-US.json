@@ -615,10 +615,6 @@
     "defaultMessage": "Next challenge:",
     "description": "Label for next challenge for skill plan on project submission success page"
   },
-  "29rLgw": {
-    "defaultMessage": "Proceed without tracking",
-    "description": "Cancel button label for session progress tracking"
-  },
   "2BOlBd": {
     "defaultMessage": "Your motivations",
     "description": "Title of projects onboarding motivations page"
@@ -1379,10 +1375,6 @@
     "defaultMessage": "Share",
     "description": "Share button label"
   },
-  "7N70T1": {
-    "defaultMessage": "No ongoing learning session",
-    "description": "No active study plan session started"
-  },
   "7OMhXJ": {
     "defaultMessage": "Level",
     "description": "Blog Level"
@@ -2115,10 +2107,6 @@
     "defaultMessage": "Blog",
     "description": "Title of GreatFrontEnd blog homepage"
   },
-  "CvwT9O": {
-    "defaultMessage": "You need to start the learning session first",
-    "description": "Message telling users that need to start on a study plan session first"
-  },
   "CxZ3Vp": {
     "defaultMessage": "Pricing plans tailored to your needs. Grab our all-access lifetime plans at a {discountPercentage}% discount today!",
     "description": "Description of Pricing page"
@@ -2174,10 +2162,6 @@
   "DHQOPk": {
     "defaultMessage": "No contributions in the community so far",
     "description": "Subtitle for empty state when there are no contributions"
-  },
-  "DIX7Z0": {
-    "defaultMessage": "Start progress tracking",
-    "description": "Label to start progress tracking"
   },
   "DIdMCT": {
     "defaultMessage": "Reputation and leveling system",
@@ -3827,10 +3811,6 @@
     "defaultMessage": "Resubscribe to access",
     "description": "Title for a premium project paywall"
   },
-  "OV17LW": {
-    "defaultMessage": "Start tracking",
-    "description": "Confirmation button label for session progress tracking"
-  },
   "OWKf+S": {
     "defaultMessage": "Overview",
     "description": "Overview of behavioral interview"
@@ -5222,10 +5202,6 @@
   "X6kis4": {
     "defaultMessage": "Explore series",
     "description": "Explore series page title"
-  },
-  "XCg8lD": {
-    "defaultMessage": "You have to start the session before your progress for this list can be tracked. Start tracking your progress on this question list?",
-    "description": "Confirmation text for start progress tracking"
   },
   "XD52zM": {
     "defaultMessage": "More",

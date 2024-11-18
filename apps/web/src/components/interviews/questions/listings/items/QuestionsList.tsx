@@ -44,7 +44,6 @@ type Props<Q extends QuestionMetadata> = Readonly<{
   mode?: 'default' | 'learning-list';
   onMarkAsCompleted?: (question: Q) => void;
   onMarkAsNotCompleted?: (question: Q) => void;
-  onQuestionClickIntercept?: (redirectHref: string) => void;
   primaryLabel?: 'difficulty' | 'importance';
   questionCompletionCount?: QuestionCompletionCount;
   questions: ReadonlyArray<Q>;
@@ -59,7 +58,6 @@ export default function QuestionsList<Q extends QuestionMetadata>({
   framework,
   primaryLabel = 'difficulty',
   listKey,
-  onQuestionClickIntercept,
   questions,
   questionCompletionCount,
   showProgress = true,
@@ -274,13 +272,6 @@ export default function QuestionsList<Q extends QuestionMetadata>({
                 </div>
               )}
             </div>
-            {onQuestionClickIntercept && (
-              <span
-                aria-hidden="true"
-                className="absolute inset-0 cursor-pointer"
-                onClick={() => onQuestionClickIntercept(redirectHref)}
-              />
-            )}
             {index === questions.length - 1 && showOverlayAtLastItem && (
               <div
                 className={clsx(

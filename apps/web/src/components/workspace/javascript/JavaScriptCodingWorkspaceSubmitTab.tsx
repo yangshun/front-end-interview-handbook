@@ -38,7 +38,7 @@ export default function JavaScriptCodingWorkspaceTestsSubmitTab({
   const { dispatch } = useJavaScriptCodingWorkspaceTilesContext();
   const { status } = useCodingWorkspaceContext();
   const { language, mainFileCode } = useJavaScriptCodingWorkspaceContext();
-  const addProgressMutation = useMutationQuestionProgressAdd();
+  const markCompleteMutation = useMutationQuestionProgressAdd();
   const javaScriptAddSubmissionMutation =
     trpc.questionSubmission.javaScriptAdd.useMutation({
       onSuccess: () => {
@@ -97,11 +97,27 @@ export default function JavaScriptCodingWorkspaceTestsSubmitTab({
             return;
           }
 
-          addProgressMutation.mutate({
-            format: metadata.format,
-            listKey,
-            slug: metadata.slug,
-          });
+          markCompleteMutation.mutate(
+            {
+              format: metadata.format,
+              listKey,
+              slug: metadata.slug,
+            },
+            {
+              onSuccess: (data) => {
+                if (data?.newSessionCreated) {
+                  showToast({
+                    title: intl.formatMessage({
+                      defaultMessage: "We've started tracking your progress",
+                      description: 'Success message for starting a study plan',
+                      id: 'HJ+bJn',
+                    }),
+                    variant: 'success',
+                  });
+                }
+              },
+            },
+          );
         }
 
         // Only need to do something when correct or wrong outcome.

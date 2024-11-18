@@ -25,42 +25,73 @@ export const questionProgressRouter = router({
         return null;
       }
 
-      try {
-        const questionProgress = await prisma.questionProgress.create({
-          data: {
+      const questionProgress = await prisma.questionProgress.upsert({
+        create: {
+          format,
+          slug,
+          status: 'complete',
+          userId: viewer.id,
+        },
+        update: {},
+        where: {
+          format_slug_status_userId: {
             format,
             slug,
             status: 'complete',
             userId: viewer.id,
           },
+        },
+      });
+
+      if (listKey == null) {
+        return { newSessionCreated: false, questionProgress };
+      }
+
+      const [newSessionCreated, session] = await (async () => {
+        // We don't check if the user is premium and can
+        // start a premium list, it's probably fine.
+        const session_ = await prisma.learningSession.findFirst({
+          where: {
+            key: listKey,
+            status: 'IN_PROGRESS',
+            userId: viewer.id,
+          },
         });
 
-        if (listKey == null) {
-          return questionProgress;
+        if (session_ != null) {
+          return [false, session_];
         }
-      } catch (_err) {
-        // Do nothing because it's a unique index.
-      }
 
-      const session = await prisma.learningSession.findFirst({
-        where: {
-          key: listKey,
-          status: 'IN_PROGRESS',
-          userId: viewer.id,
-        },
-      });
+        // Create a session.
+        const session__ = await prisma.learningSession.create({
+          data: {
+            key: listKey,
+            userId: viewer.id,
+          },
+        });
 
-      if (session == null) {
-        throw 'No ongoing learning session. Start tracking progress first.';
-      }
+        return [true, session__];
+      })();
 
-      return await prisma.learningSessionProgress.create({
-        data: {
-          key: hashQuestion({ format: format as QuestionFormat, slug }),
-          sessionId: session.id,
+      const key = hashQuestion({ format: format as QuestionFormat, slug });
+      const sessionId = session.id;
+
+      const sessionProgress = await prisma.learningSessionProgress.upsert({
+        create: {
+          key,
+          sessionId,
           status: 'COMPLETED',
         },
+        update: {},
+        where: {
+          sessionId_key: {
+            key,
+            sessionId,
+          },
+        },
       });
+
+      return { newSessionCreated, questionProgress, sessionProgress };
     }),
   delete: userProcedure
     .input(
@@ -132,7 +163,7 @@ export const questionProgressRouter = router({
           return null;
         }
 
-        const [listQuestionProgress, questionProgress] = await Promise.all([
+        const [sessionProgress, questionProgress] = await Promise.all([
           prisma.learningSessionProgress.findFirst({
             where: {
               key: hashQuestion({
@@ -161,15 +192,15 @@ export const questionProgressRouter = router({
           }),
         ]);
 
-        if (!listQuestionProgress) {
+        if (!sessionProgress) {
           return null;
         }
 
-        const [format, slug] = unhashQuestion(listQuestionProgress.key);
+        const [format, slug] = unhashQuestion(sessionProgress.key);
         const completeStatus: QuestionProgressStatus = 'complete';
 
         return {
-          ...listQuestionProgress,
+          ...sessionProgress,
           format,
           questionProgressId: questionProgress?.id,
           slug,
