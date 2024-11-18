@@ -67,7 +67,7 @@ export default function InterviewsStudyListCard({
         'relative isolate',
         'flex flex-grow',
         alignVerticalOnMobile
-          ? 'flex-col md:flex-row md:items-center'
+          ? 'flex-col sm:flex-row sm:items-center'
           : 'flex-row items-center',
         showDescription ? 'gap-4' : 'gap-6',
         'rounded-lg',
@@ -108,7 +108,7 @@ export default function InterviewsStudyListCard({
             showDescription ? 'gap-4' : 'gap-2',
           )}>
           <div className="flex flex-col items-start gap-2">
-            <div className="flex items-center gap-3">
+            <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
               <Text size="body2" weight="bold">
                 {showLongName ? longName : name}
               </Text>

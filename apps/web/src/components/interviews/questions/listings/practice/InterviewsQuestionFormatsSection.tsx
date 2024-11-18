@@ -63,7 +63,7 @@ function InterviewsQuestionFormatCard({
     <div
       className={clsx(
         'group relative',
-        'flex flex-1 flex-col gap-4 md:flex-row md:items-center',
+        'flex flex-1 flex-col gap-4 sm:flex-row sm:items-center',
         'rounded-lg px-6 py-4',
         'transition',
         themeBackgroundCardWhiteOnLightColor,

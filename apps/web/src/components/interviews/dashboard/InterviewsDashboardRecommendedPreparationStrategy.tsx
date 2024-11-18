@@ -74,7 +74,7 @@ function PreparationStrategyCard({ data }: { data: PreparationStrategyItem }) {
         themeBackgroundCardWhiteOnLightColor,
         ['border', themeBorderElementColor],
       )}>
-      <div className="flex flex-1 flex-col gap-4 md:flex-row md:items-center">
+      <div className="flex flex-1 flex-col gap-4 sm:flex-row sm:items-center">
         {customIcon
           ? customIcon
           : Icon && (

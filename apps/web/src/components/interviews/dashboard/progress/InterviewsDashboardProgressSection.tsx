@@ -40,7 +40,7 @@ export default function InterviewsDashboardProgressSection({
           id="InbLxy"
         />
       </Heading>
-      <div className="grid gap-6 lg:grid-cols-2">
+      <div className="grid gap-6 md:grid-cols-2">
         <InterviewsDashboardSolvedProblemsCard
           isQuestionsProgressLoading={isQuestionsProgressLoading}
           questions={questions}
