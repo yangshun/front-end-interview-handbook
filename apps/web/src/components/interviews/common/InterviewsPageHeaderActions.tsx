@@ -34,7 +34,7 @@ export default function InterviewsPageHeaderActions({
 
   return (
     <>
-      <div className={clsx('hidden items-center gap-3 md:flex', className)}>
+      <div className={clsx('hidden items-center gap-3 sm:flex', className)}>
         <CopyLinkButton
           size="xs"
           tooltip={copyLinkTooltip}
@@ -47,7 +47,7 @@ export default function InterviewsPageHeaderActions({
           variant="tertiary"
         />
       </div>
-      <div className={clsx('flex items-center gap-3 md:hidden', className)}>
+      <div className={clsx('flex items-center gap-3 sm:hidden', className)}>
         <CopyLinkButton
           iconOnly={true}
           size="xs"
