@@ -3903,10 +3903,6 @@
     "defaultMessage": "Purchase premium to get access to all 200+ interview questions, official solutions, study plans, and company tags.",
     "description": "Text describing user's subscription plan."
   },
-  "Ou83ii": {
-    "defaultMessage": "{questionCount}+ most important Vue interview questions on component architecture, hooks, state management, performance, and real-world UI components. TODO",
-    "description": "Subtitle for questions list page"
-  },
   "Ov/A49": {
     "defaultMessage": "If you'd like a reply, please provide your email address.",
     "description": "Description for email field for contact form"
@@ -7655,6 +7651,10 @@
     "defaultMessage": "Theme",
     "description": "Change site theme button label"
   },
+  "n7/w8e": {
+    "defaultMessage": "{questionCount}+ most important Vue interview questions covering stores, bindings, reactivity, lifecycle, and building interactive components.",
+    "description": "Subtitle for questions list page"
+  },
   "nAvA8M": {
     "defaultMessage": "Progress | {name}",
     "description": "Title of user profile progress page"
@@ -9190,6 +9190,10 @@
   "xmK6tB": {
     "defaultMessage": "Build the foundation from ground up for reuse",
     "description": "Short description for \"Design systems\" feature on Projects home page"
+  },
+  "xnNQIA": {
+    "defaultMessage": "Explore our starter guides to get a solid grasp of {framework} interview prep before jumping into practice.",
+    "description": "Description for guide card"
   },
   "xoXirC": {
     "defaultMessage": "Time-efficient",

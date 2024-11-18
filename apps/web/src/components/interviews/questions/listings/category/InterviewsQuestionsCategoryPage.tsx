@@ -154,12 +154,20 @@ export default function InterviewsQuestionsCategoryPage({
           guides={
             guidesWithCompletionStatus.length > 0
               ? {
-                  description: intl.formatMessage({
-                    defaultMessage:
-                      'Gain an insider overview of essential tips to prepare effectively before you begin practicing.',
-                    description: 'Description for guide card',
-                    id: 'v1a7l5',
-                  }),
+                  description: intl.formatMessage(
+                    {
+                      defaultMessage:
+                        'Explore our starter guides to get a solid grasp of {framework} interview prep before jumping into practice.',
+                      description: 'Description for guide card',
+                      id: 'xnNQIA',
+                    },
+                    {
+                      framework:
+                        framework in languages
+                          ? languages[framework as QuestionLanguage].label
+                          : frameworks[framework as QuestionFramework].label,
+                    },
+                  ),
                   items: guidesWithCompletionStatus,
                   title: intl.formatMessage(
                     {

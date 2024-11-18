@@ -128,14 +128,12 @@ export default function InterviewsGuideCard({ data }: Props) {
         )}>
         {/* Radial glow */}
         <div className="theme-bg-radial-glow absolute inset-0 before:h-[136px] before:opacity-20 dark:-top-10" />
-
         <div className={clsx('flex flex-col gap-6', 'px-6 py-4')}>
           <div className={clsx('flex items-center gap-x-6')}>
             <InterviewsGuideProgress
               className="z-[1]"
               completed={isGuideCompleted}
             />
-
             <div className="flex flex-1 flex-col gap-4">
               <div className="flex flex-col gap-2">
                 <Text size="body2" weight="bold">
@@ -145,31 +143,31 @@ export default function InterviewsGuideCard({ data }: Props) {
                   {cardDescription}
                 </Text>
               </div>
-
               {/* Guides metadata */}
-              <div className="flex items-center gap-1.5">
-                <RiBookOpenLine
-                  className={clsx('size-5 shrink-0', themeTextSubtleColor)}
-                />
-                <Text color="secondary" size="body3">
-                  <FormattedMessage
-                    defaultMessage="<bold>{completionCount}</bold>/{totalCount} guides"
-                    description="Label for completed guides"
-                    id="TeK1xE"
-                    values={{
-                      bold: (chunks) => (
-                        <Text size="body2" weight="bold">
-                          {chunks}
-                        </Text>
-                      ),
-                      completionCount,
-                      totalCount,
-                    }}
+              {hasMultipleGuides && (
+                <div className="flex items-center gap-1.5">
+                  <RiBookOpenLine
+                    className={clsx('size-5 shrink-0', themeTextSubtleColor)}
                   />
-                </Text>
-              </div>
+                  <Text color="secondary" size="body3">
+                    <FormattedMessage
+                      defaultMessage="<bold>{completionCount}</bold>/{totalCount} guides"
+                      description="Label for completed guides"
+                      id="TeK1xE"
+                      values={{
+                        bold: (chunks) => (
+                          <Text size="body2" weight="bold">
+                            {chunks}
+                          </Text>
+                        ),
+                        completionCount,
+                        totalCount,
+                      }}
+                    />
+                  </Text>
+                </div>
+              )}
             </div>
-
             {hasMultipleGuides ? (
               <Button
                 className={themeTextSubtleColor}
@@ -214,7 +212,6 @@ export default function InterviewsGuideCard({ data }: Props) {
               />
             )}
           </div>
-
           {isOpen && <InterviewGuideList className="pl-14" data={data.items} />}
           {!hasMultipleGuides && (
             <Anchor className="absolute inset-0" href={items[0].href} />

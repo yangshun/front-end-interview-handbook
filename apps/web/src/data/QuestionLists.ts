@@ -584,9 +584,9 @@ export function useQuestionFrameworksData(): QuestionCategoryLists<QuestionFrame
         intl.formatMessage(
           {
             defaultMessage:
-              '{questionCount}+ most important Vue interview questions on component architecture, hooks, state management, performance, and real-world UI components. TODO',
+              '{questionCount}+ most important Vue interview questions covering stores, bindings, reactivity, lifecycle, and building interactive components.',
             description: 'Subtitle for questions list page',
-            id: 'Ou83ii',
+            id: 'n7/w8e',
           },
           {
             questionCount: roundQuestionCountToNearestTen(questionCount),
