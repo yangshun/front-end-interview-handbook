@@ -261,6 +261,25 @@ export default function InterviewsMarketingTestCodeSection() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [showTestCode]);
 
+  const subtitle = (
+    <Text
+      className={clsx(
+        'block',
+        'text-base lg:text-lg',
+        'lg:font-medium',
+        'max-w-[634px]',
+      )}
+      color="secondary"
+      size="inherit"
+      weight="inherit">
+      <FormattedMessage
+        defaultMessage="Polish your answers with a comprehensive test suite that covers all the important edge cases that interviewers will look out for."
+        description="Marketing page section subtitle"
+        id="fr4Vl4"
+      />
+    </Text>
+  );
+
   return (
     <Container className={clsx('py-20')} width="marketing">
       <Heading
@@ -278,27 +297,19 @@ export default function InterviewsMarketingTestCodeSection() {
         />
       </Heading>
       <Section>
+        <div className={clsx('mt-6', 'block lg:hidden')}>{subtitle}</div>
         <div
           className={clsx(
-            'flex grid-cols-12 flex-col gap-6 lg:grid',
+            'flex flex-col gap-6',
+            'sm:grid sm:grid-cols-8 lg:grid-cols-12',
             'mt-12 lg:mt-16',
           )}>
-          <div className={clsx('col-span-5', 'flex flex-col gap-10')}>
-            <Text
-              className={clsx(
-                'block',
-                'text-base lg:text-lg',
-                'lg:font-medium',
-              )}
-              color="secondary"
-              size="inherit"
-              weight="inherit">
-              <FormattedMessage
-                defaultMessage="Polish your answers with a comprehensive test suite that covers all the important edge cases that interviewers will look out for."
-                description="Marketing page section subtitle"
-                id="fr4Vl4"
-              />
-            </Text>
+          <div
+            className={clsx(
+              'col-span-2 lg:col-span-5',
+              'flex flex-col gap-10',
+            )}>
+            <div className={clsx('mt-6', 'hidden lg:block')}>{subtitle}</div>
             <ol className="flex flex-col gap-3">
               {features.map(({ key, label }) => (
                 <li key={key} className="flex items-center gap-3">
@@ -316,7 +327,11 @@ export default function InterviewsMarketingTestCodeSection() {
           <div
             ref={codeBlockRef}
             className={clsx(
-              'prose relative col-span-7 min-h-[385px] overflow-hidden text-sm',
+              'prose relative',
+              'min-h-[385px]',
+              'text-sm',
+              'overflow-hidden',
+              'col-span-6 lg:col-span-7',
             )}>
             <div
               className={clsx(

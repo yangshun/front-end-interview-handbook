@@ -312,6 +312,25 @@ export default function InterviewsMarketingSolutionsByExInterviewersSection() {
   const [selectedQuestion, setSelectedQuestion] =
     useState<QuestionSlug>('flatten');
 
+  const subtitle = (
+    <Text
+      className={clsx(
+        'block',
+        'text-base lg:text-lg',
+        'lg:font-medium',
+        'max-w-[634px]',
+      )}
+      color="secondary"
+      size="inherit"
+      weight="inherit">
+      <FormattedMessage
+        defaultMessage="Referencing good solutions is crucial to learning effectively. We've written our solutions with special care to include practical considerations and multiple approaches."
+        description="Marketing page section subtitle"
+        id="jGbCXt"
+      />
+    </Text>
+  );
+
   return (
     <Container className={clsx('py-20')} width="marketing">
       <Heading
@@ -329,28 +348,19 @@ export default function InterviewsMarketingSolutionsByExInterviewersSection() {
         />
       </Heading>
       <Section>
+        <div className={clsx('mt-6', 'block lg:hidden')}>{subtitle}</div>
         <div
           className={clsx(
-            'flex grid-cols-12 flex-col gap-6 lg:grid',
+            'flex flex-col gap-6',
+            'sm:grid sm:grid-cols-8 lg:grid-cols-12',
             'mt-12 lg:mt-16',
           )}>
-          <div className={clsx('flex flex-col gap-10', 'col-span-5')}>
-            <Text
-              className={clsx(
-                'block',
-                'text-base lg:text-lg',
-                'lg:font-medium',
-                'lg:max-w-2xl',
-              )}
-              color="secondary"
-              size="inherit"
-              weight="inherit">
-              <FormattedMessage
-                defaultMessage="Referencing good solutions is crucial to learning effectively. We've written our solutions with special care to include practical considerations and multiple approaches."
-                description="Marketing page section subtitle"
-                id="jGbCXt"
-              />
-            </Text>
+          <div
+            className={clsx(
+              'flex flex-col gap-10',
+              'col-span-2 lg:col-span-5',
+            )}>
+            <div className="hidden lg:block">{subtitle}</div>
             <div className="flex flex-col gap-6">
               <Text
                 className={clsx('block', 'text-base md:text-lg', 'font-medium')}
@@ -363,7 +373,7 @@ export default function InterviewsMarketingSolutionsByExInterviewersSection() {
                   id="egSWgk"
                 />
               </Text>
-              <div className="block lg:hidden">
+              <div className="block sm:hidden">
                 <TabsUnderline
                   alignment="stretch"
                   label="Select navigation item"
@@ -373,7 +383,7 @@ export default function InterviewsMarketingSolutionsByExInterviewersSection() {
                   onSelect={setSelectedQuestion}
                 />
               </div>
-              <div className="hidden lg:block">
+              <div className="hidden sm:block">
                 <SideNavigation
                   activeValue={selectedQuestion}
                   items={questions}
@@ -384,7 +394,9 @@ export default function InterviewsMarketingSolutionsByExInterviewersSection() {
               </div>
             </div>
           </div>
-          <div ref={codeBlockRef} className="prose col-span-7 text-sm">
+          <div
+            ref={codeBlockRef}
+            className="prose col-span-6 text-sm lg:col-span-7">
             <div
               className={clsx(
                 'isolate',
