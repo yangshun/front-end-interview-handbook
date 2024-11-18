@@ -6,14 +6,16 @@ import type Stripe from 'stripe';
 import FeedbackDialog from '~/components/global/feedback/FeedbackDialog';
 import { useUserPreferences } from '~/components/global/UserPreferencesProvider';
 import { FormattedMessage, useIntl } from '~/components/intl';
-import Alert from '~/components/ui/Alert';
 import Anchor from '~/components/ui/Anchor';
+import Badge from '~/components/ui/Badge';
 import Button from '~/components/ui/Button';
 import Dialog from '~/components/ui/Dialog';
 import Text from '~/components/ui/Text';
 import {
+  themeBackgroundColor,
   themeBorderEmphasizeColor,
   themeTextSuccessColor,
+  themeWhiteGlowCardBackground,
 } from '~/components/ui/theme';
 
 type Props = Readonly<{
@@ -80,7 +82,7 @@ export default function InterviewsPaymentFailureDialog({
       })}
       width="screen-lg"
       onClose={onClose}>
-      <div className="mt-3.5 flex w-full flex-col gap-4">
+      <div className="mt-3.5 flex w-full flex-col gap-10">
         <Text color="subtitle" size="body2">
           {error.message && lastPaymentError?.code ? (
             <FormattedMessage
@@ -97,20 +99,37 @@ export default function InterviewsPaymentFailureDialog({
           )}
         </Text>
         {error.message && lastPaymentError?.code && (
-          <Alert
-            borderClass={clsx('border', themeBorderEmphasizeColor)}
-            title={lastPaymentError.code}
-            variant="neutral">
-            {error.message}
-          </Alert>
+          <div
+            className={clsx(
+              'flex flex-col items-start gap-2',
+              'w-fit',
+              'relative isolate overflow-hidden',
+              'rounded-xl',
+              'px-4 py-3',
+              themeBackgroundColor,
+              ['border', themeBorderEmphasizeColor],
+              [themeWhiteGlowCardBackground, 'before:-left-0 before:-top-12'],
+            )}>
+            <Badge
+              className="font-mono"
+              label={lastPaymentError.code}
+              size="sm"
+              variant="neutral"
+            />
+            <Text size="body2" weight="bold">
+              {error.message}
+            </Text>
+          </div>
         )}
-        <ul className="flex flex-col gap-4">
+        <ul className="flex max-w-2xl flex-col gap-4">
           {error.steps.map(({ key, label }) => (
             <li key={key} className="flex items-center gap-3">
               <FaCheck
                 className={clsx('size-4 shrink-0', themeTextSuccessColor)}
               />
-              <Text>{label}</Text>
+              <Text color="subtitle" size="body2">
+                {label}
+              </Text>
             </li>
           ))}
         </ul>
