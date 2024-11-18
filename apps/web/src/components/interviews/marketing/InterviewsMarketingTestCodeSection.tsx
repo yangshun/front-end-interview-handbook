@@ -309,7 +309,7 @@ export default function InterviewsMarketingTestCodeSection() {
               'col-span-2 lg:col-span-5',
               'flex flex-col gap-10',
             )}>
-            <div className={clsx('mt-6', 'hidden lg:block')}>{subtitle}</div>
+            <div className={clsx('hidden lg:block')}>{subtitle}</div>
             <ol className="flex flex-col gap-3">
               {features.map(({ key, label }) => (
                 <li key={key} className="flex items-center gap-3">
