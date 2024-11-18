@@ -94,11 +94,18 @@ function SocialDiscountSidebarMentionImpl() {
         className="inline-flex items-center gap-1"
         href="/rewards/social"
         variant="flat">
-        <Text size="body3" weight="bold">
+        <Text color="subtitle" size="body3">
           <FormattedMessage
-            defaultMessage="Complete simple social tasks"
+            defaultMessage="Complete simple <bold>social tasks</bold>"
             description="Instructions to get a discount"
-            id="Hq/krL"
+            id="tLMGe8"
+            values={{
+              bold: (chunks) => (
+                <Text color="default" size="inherit" weight="bold">
+                  {chunks}
+                </Text>
+              ),
+            }}
           />
           <RiArrowRightLine
             aria-hidden={true}
