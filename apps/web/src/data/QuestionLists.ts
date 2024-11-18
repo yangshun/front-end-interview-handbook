@@ -21,13 +21,15 @@ import type {
 } from '~/components/interviews/questions/common/QuestionsTypes';
 import { useIntl } from '~/components/intl';
 
+import { roundQuestionCountToNearestTen } from '~/db/QuestionsUtils';
+
 type QuestionListLink<T> = Readonly<{
-  description: string;
+  getDescription: (questionCount: number) => string;
+  getSearchPlaceholder: (questionCount: number) => string;
   href: string;
   icon: (props: React.ComponentProps<'svg'>) => JSX.Element;
   label: string;
   longName: string;
-  searchPlaceholder: string;
   themeGradient?: string;
   value: T;
 }>;
@@ -284,12 +286,30 @@ export function useQuestionLanguagesData(): QuestionCategoryLists<QuestionLangua
 
   return {
     css: {
-      description: intl.formatMessage({
-        defaultMessage:
-          'Practice CSS interview questions, including quiz-style knowledge questions and CSS coding questions.',
-        description: 'Subtitle for CSS questions list page',
-        id: 'BaJrKW',
-      }),
+      getDescription: (questionCount) =>
+        intl.formatMessage(
+          {
+            defaultMessage:
+              '{questionCount}+ most important CSS interview questions covering layouts, animations, responsive design, specificity, and creating engaging interfaces.',
+            description: 'Subtitle for CSS questions list page',
+            id: 'Xu6JMi',
+          },
+          {
+            questionCount: roundQuestionCountToNearestTen(questionCount),
+          },
+        ),
+      getSearchPlaceholder: (questionCount) =>
+        intl.formatMessage(
+          {
+            defaultMessage:
+              'Search over {questionCount} CSS interview questions',
+            description: 'Search placeholder for CSS questions list page',
+            id: '0Z+Itx',
+          },
+          {
+            questionCount: roundQuestionCountToNearestTen(questionCount),
+          },
+        ),
       href: '/questions/css',
       icon: RiCss3Fill,
       label: 'CSS',
@@ -298,20 +318,33 @@ export function useQuestionLanguagesData(): QuestionCategoryLists<QuestionLangua
         description: 'CSS questions category long title',
         id: 'S2GzJi',
       }),
-      searchPlaceholder: intl.formatMessage({
-        defaultMessage: 'Search CSS interview questions',
-        description: 'Placeholder for search input of CSS question list',
-        id: 'gLZ11S',
-      }),
       value: 'css',
     },
     html: {
-      description: intl.formatMessage({
-        defaultMessage:
-          'Practice HTML interview questions, including quiz-style knowledge questions and HTML coding questions.',
-        description: 'Subtitle for HTML questions list page',
-        id: 'fjna4j',
-      }),
+      getDescription: (questionCount) =>
+        intl.formatMessage(
+          {
+            defaultMessage:
+              '{questionCount}+ most important HTML interview questions covering semantics, forms, accessibility, media, and creating structured, interactive web pages.',
+            description: 'Subtitle for HTML questions list page',
+            id: 'l7RnuO',
+          },
+          {
+            questionCount: roundQuestionCountToNearestTen(questionCount),
+          },
+        ),
+      getSearchPlaceholder: (questionCount) =>
+        intl.formatMessage(
+          {
+            defaultMessage:
+              'Search over {questionCount} HTML interview questions',
+            description: 'Search placeholder for HTML questions list page',
+            id: 'zbigrn',
+          },
+          {
+            questionCount: roundQuestionCountToNearestTen(questionCount),
+          },
+        ),
       href: '/questions/html',
       icon: RiHtml5Fill,
       label: 'HTML',
@@ -320,20 +353,34 @@ export function useQuestionLanguagesData(): QuestionCategoryLists<QuestionLangua
         description: 'HTML questions category long title',
         id: 'oIJgRa',
       }),
-      searchPlaceholder: intl.formatMessage({
-        defaultMessage: 'Search HTML interview questions',
-        description: 'Placeholder for search input of HTML question list',
-        id: 'fPftCJ',
-      }),
       value: 'html',
     },
     js: {
-      description: intl.formatMessage({
-        defaultMessage:
-          'Practice JavaScript and TypeScript interview questions, from implementing common library APIs, utility functions, algorithms, to building UI components and more.',
-        description: 'Subtitle for JavaScript questions list page',
-        id: 'JAEdbj',
-      }),
+      getDescription: (questionCount) =>
+        intl.formatMessage(
+          {
+            defaultMessage:
+              '{questionCount}+ most important JavaScript interview questions, from library APIs and utility functions to algorithms and UI components.',
+            description: 'Subtitle for JavaScript questions list page',
+            id: '3QZFQc',
+          },
+          {
+            questionCount: roundQuestionCountToNearestTen(questionCount),
+          },
+        ),
+      getSearchPlaceholder: (questionCount) =>
+        intl.formatMessage(
+          {
+            defaultMessage:
+              'Search over {questionCount} JavaScript interview questions',
+            description:
+              'Search placeholder for JavaScript questions list page',
+            id: 'INrnLA',
+          },
+          {
+            questionCount: roundQuestionCountToNearestTen(questionCount),
+          },
+        ),
       href: '/questions/js',
       icon: BiLogoJavascript,
       label: 'JavaScript',
@@ -342,20 +389,34 @@ export function useQuestionLanguagesData(): QuestionCategoryLists<QuestionLangua
         description: 'JavaScript questions category long title',
         id: 'GeN7OJ',
       }),
-      searchPlaceholder: intl.formatMessage({
-        defaultMessage: 'Search JavaScript interview questions',
-        description: 'Placeholder for search input of JavaScript question list',
-        id: 'w3mqdJ',
-      }),
       value: 'js',
     },
     ts: {
-      description: intl.formatMessage({
-        defaultMessage:
-          'Practice TypeScript interview questions, from implementing common library APIs, utility functions, algorithms, to building UI components and more.',
-        description: 'Subtitle for questions list page',
-        id: '7JUoIp',
-      }),
+      getDescription: (questionCount) =>
+        intl.formatMessage(
+          {
+            defaultMessage:
+              '{questionCount}+ most important TypeScript interview questions on library APIs, utility types, algorithms, and building strong, typed components.',
+            description: 'Subtitle for questions list page',
+            id: '1fjGWk',
+          },
+          {
+            questionCount: roundQuestionCountToNearestTen(questionCount),
+          },
+        ),
+      getSearchPlaceholder: (questionCount) =>
+        intl.formatMessage(
+          {
+            defaultMessage:
+              'Search over {questionCount} TypeScript interview questions',
+            description:
+              'Search placeholder for TypeScript questions list page',
+            id: 'bGbV1l',
+          },
+          {
+            questionCount: roundQuestionCountToNearestTen(questionCount),
+          },
+        ),
       href: '/questions/ts',
       icon: BiLogoTypescript,
       label: 'TypeScript',
@@ -363,11 +424,6 @@ export function useQuestionLanguagesData(): QuestionCategoryLists<QuestionLangua
         defaultMessage: 'TypeScript Interview Questions',
         description: 'TypeScript questions category long title',
         id: 'zGDMkS',
-      }),
-      searchPlaceholder: intl.formatMessage({
-        defaultMessage: 'Search TypeScript interview questions',
-        description: 'Placeholder for search input of TypeScript question list',
-        id: 'SoNXJL',
       }),
       value: 'ts',
     },
@@ -379,11 +435,30 @@ export function useQuestionFrameworksData(): QuestionCategoryLists<QuestionFrame
 
   return {
     angular: {
-      description: intl.formatMessage({
-        defaultMessage: 'Practice top Angular interview questions. TODO',
-        description: 'Subtitle for questions list page',
-        id: 'I2gPuj',
-      }),
+      getDescription: (questionCount) =>
+        intl.formatMessage(
+          {
+            defaultMessage:
+              '{questionCount}+ most important Angular interview questions on services, directives, RxJS, forms, state management, and dynamic component building.',
+            description: 'Subtitle for questions list page',
+            id: 'hRukCr',
+          },
+          {
+            questionCount: roundQuestionCountToNearestTen(questionCount),
+          },
+        ),
+      getSearchPlaceholder: (questionCount) =>
+        intl.formatMessage(
+          {
+            defaultMessage:
+              'Search over {questionCount} Angular interview questions',
+            description: 'Search placeholder for Angular questions list page',
+            id: 'I4MnL2',
+          },
+          {
+            questionCount: roundQuestionCountToNearestTen(questionCount),
+          },
+        ),
       href: '/questions/angular',
       icon: RiAngularjsFill,
       label: 'Angular',
@@ -392,19 +467,33 @@ export function useQuestionFrameworksData(): QuestionCategoryLists<QuestionFrame
         description: 'Angular questions category long title',
         id: 'hW1w8e',
       }),
-      searchPlaceholder: intl.formatMessage({
-        defaultMessage: 'Search Angular interview questions',
-        description: 'Placeholder for search input of Angular question list',
-        id: '3VdP4W',
-      }),
       value: 'angular',
     },
     react: {
-      description: intl.formatMessage({
-        defaultMessage: 'Practice top React interview questions. TODO',
-        description: 'Subtitle for questions list page',
-        id: 'bjGLO9',
-      }),
+      getDescription: (questionCount) =>
+        intl.formatMessage(
+          {
+            defaultMessage:
+              '{questionCount}+ most important React interview questions on component architecture, hooks, state management, performance, and real-world UI components.',
+            description: 'Subtitle for questions list page',
+            id: 'cYRco3',
+          },
+          {
+            questionCount: roundQuestionCountToNearestTen(questionCount),
+          },
+        ),
+      getSearchPlaceholder: (questionCount) =>
+        intl.formatMessage(
+          {
+            defaultMessage:
+              'Search over {questionCount} React interview questions',
+            description: 'Search placeholder for React questions list page',
+            id: 'VejmxA',
+          },
+          {
+            questionCount: roundQuestionCountToNearestTen(questionCount),
+          },
+        ),
       href: '/questions/react',
       icon: RiReactjsLine,
       label: 'React',
@@ -413,19 +502,33 @@ export function useQuestionFrameworksData(): QuestionCategoryLists<QuestionFrame
         description: 'React questions category long title',
         id: '+bg08+',
       }),
-      searchPlaceholder: intl.formatMessage({
-        defaultMessage: 'Search React interview questions',
-        description: 'Placeholder for search input of React question list',
-        id: 'qSO2uW',
-      }),
       value: 'react',
     },
     svelte: {
-      description: intl.formatMessage({
-        defaultMessage: 'Practice top Svelte interview questions. TODO',
-        description: 'Subtitle for questions list page',
-        id: 'NvnkrI',
-      }),
+      getDescription: (questionCount) =>
+        intl.formatMessage(
+          {
+            defaultMessage:
+              '{questionCount}+ most important Svelte interview questions covering stores, bindings, reactivity, lifecycle, and building interactive components.',
+            description: 'Subtitle for questions list page',
+            id: '3pEuVX',
+          },
+          {
+            questionCount: roundQuestionCountToNearestTen(questionCount),
+          },
+        ),
+      getSearchPlaceholder: (questionCount) =>
+        intl.formatMessage(
+          {
+            defaultMessage:
+              'Search over {questionCount} Svelte interview questions',
+            description: 'Search placeholder for Svelte questions list page',
+            id: 'pp575K',
+          },
+          {
+            questionCount: roundQuestionCountToNearestTen(questionCount),
+          },
+        ),
       href: '/questions/svelte',
       icon: RiSvelteFill,
       label: 'Svelte',
@@ -434,20 +537,34 @@ export function useQuestionFrameworksData(): QuestionCategoryLists<QuestionFrame
         description: 'Svelte questions category long title',
         id: 'jGPKlz',
       }),
-      searchPlaceholder: intl.formatMessage({
-        defaultMessage: 'Search Svelte interview questions',
-        description: 'Placeholder for search input of Svelte question list',
-        id: 'tmTNK0',
-      }),
       value: 'svelte',
     },
     vanilla: {
-      description: intl.formatMessage({
-        defaultMessage:
-          'Practice top Vanilla JavaScript interview questions. TODO',
-        description: 'Subtitle for questions list page',
-        id: 'IE+oUR',
-      }),
+      getDescription: (questionCount) =>
+        intl.formatMessage(
+          {
+            defaultMessage:
+              '{questionCount}+ most important JavaScript interview questions, from library APIs and utility functions to algorithms and UI components.',
+            description: 'Subtitle for questions list page',
+            id: '+EcvKM',
+          },
+          {
+            questionCount: roundQuestionCountToNearestTen(questionCount),
+          },
+        ),
+      getSearchPlaceholder: (questionCount) =>
+        intl.formatMessage(
+          {
+            defaultMessage:
+              'Search over {questionCount} Vanilla JS interview questions',
+            description:
+              'Search placeholder for Vanilla JS questions list page',
+            id: 'K7CwuJ',
+          },
+          {
+            questionCount: roundQuestionCountToNearestTen(questionCount),
+          },
+        ),
       href: '/questions/vanilla',
       icon: RiHtml5Fill,
       label: intl.formatMessage({
@@ -460,19 +577,33 @@ export function useQuestionFrameworksData(): QuestionCategoryLists<QuestionFrame
         description: 'Vanilla JS questions category long title',
         id: '3hQg9K',
       }),
-      searchPlaceholder: intl.formatMessage({
-        defaultMessage: 'Search Vanilla JS interview questions',
-        description: 'Placeholder for search input of Vanilla JS question list',
-        id: 'oLO2pr',
-      }),
       value: 'vanilla',
     },
     vue: {
-      description: intl.formatMessage({
-        defaultMessage: 'Practice top Vue interview questions. TODO',
-        description: 'Subtitle for questions list page',
-        id: 'K7BZAc',
-      }),
+      getDescription: (questionCount) =>
+        intl.formatMessage(
+          {
+            defaultMessage:
+              '{questionCount}+ most important Vue interview questions on component architecture, hooks, state management, performance, and real-world UI components. TODO',
+            description: 'Subtitle for questions list page',
+            id: 'Ou83ii',
+          },
+          {
+            questionCount: roundQuestionCountToNearestTen(questionCount),
+          },
+        ),
+      getSearchPlaceholder: (questionCount) =>
+        intl.formatMessage(
+          {
+            defaultMessage:
+              'Search over {questionCount} Vue interview questions',
+            description: 'Search placeholder for Vue questions list page',
+            id: 'qS4yLY',
+          },
+          {
+            questionCount: roundQuestionCountToNearestTen(questionCount),
+          },
+        ),
       href: '/questions/vue',
       icon: RiVuejsLine,
       label: 'Vue',
@@ -480,11 +611,6 @@ export function useQuestionFrameworksData(): QuestionCategoryLists<QuestionFrame
         defaultMessage: 'Vue Interview Questions',
         description: 'Vue questions category long title',
         id: 'BFqThO',
-      }),
-      searchPlaceholder: intl.formatMessage({
-        defaultMessage: 'Search Vue interview questions',
-        description: 'Placeholder for search input of Vue question list',
-        id: 'XAuXdM',
       }),
       value: 'vue',
     },

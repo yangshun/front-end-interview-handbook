@@ -39,6 +39,10 @@
     "defaultMessage": "You've selected a question from a different study list than the one you're currently using. Navigating to it will switch your current list. Do you want to proceed?",
     "description": "Confirmation text for switching study list"
   },
+  "+EcvKM": {
+    "defaultMessage": "{questionCount}+ most important JavaScript interview questions, from library APIs and utility functions to algorithms and UI components.",
+    "description": "Subtitle for questions list page"
+  },
   "+JhlMu": {
     "defaultMessage": "Congratulations on completing the question! Sign into your account or sign up for free to save your progress!",
     "description": "Message shown when user completes a question"
@@ -383,6 +387,10 @@
     "defaultMessage": "Premium is required to access study plans",
     "description": "Title for study plans feature"
   },
+  "0Z+Itx": {
+    "defaultMessage": "Search over {questionCount} CSS interview questions",
+    "description": "Search placeholder for CSS questions list page"
+  },
   "0Z5awQ": {
     "defaultMessage": "Feel free to include any custom pages you have added for this challenge. They will be featured on the submission page.",
     "description": "Button tooltip for adding another URL to a project submission"
@@ -518,6 +526,10 @@
   "1c9cCj": {
     "defaultMessage": "<authorLink>{author}</authorLink> replied to your comment on the project discussions for <challengeLink>{entityTitle}</challengeLink> {timestamp}",
     "description": "Notification for someone replied to your question"
+  },
+  "1fjGWk": {
+    "defaultMessage": "{questionCount}+ most important TypeScript interview questions on library APIs, utility types, algorithms, and building strong, typed components.",
+    "description": "Subtitle for questions list page"
   },
   "1gkgr4": {
     "defaultMessage": "Sign In",
@@ -747,6 +759,10 @@
     "defaultMessage": "Your name has been updated.",
     "description": "Success message when for name change"
   },
+  "3QZFQc": {
+    "defaultMessage": "{questionCount}+ most important JavaScript interview questions, from library APIs and utility functions to algorithms and UI components.",
+    "description": "Subtitle for JavaScript questions list page"
+  },
   "3QliNF": {
     "defaultMessage": "Access to Component Tracks",
     "description": "Label for component tracks feature"
@@ -758,10 +774,6 @@
   "3UtpZS": {
     "defaultMessage": "Submission deleted!",
     "description": "Delete challenge success message"
-  },
-  "3VdP4W": {
-    "defaultMessage": "Search Angular interview questions",
-    "description": "Placeholder for search input of Angular question list"
   },
   "3WHiQS": {
     "defaultMessage": "Cheatsheet",
@@ -818,6 +830,10 @@
   "3o++cB": {
     "defaultMessage": "Search quiz questions",
     "description": "Search placeholder"
+  },
+  "3pEuVX": {
+    "defaultMessage": "{questionCount}+ most important Svelte interview questions covering stores, bindings, reactivity, lifecycle, and building interactive components.",
+    "description": "Subtitle for questions list page"
   },
   "3tY8mQ": {
     "defaultMessage": "Verifiable by Google Analytics",
@@ -1362,10 +1378,6 @@
   "7J8+8B": {
     "defaultMessage": "Share",
     "description": "Share button label"
-  },
-  "7JUoIp": {
-    "defaultMessage": "Practice TypeScript interview questions, from implementing common library APIs, utility functions, algorithms, to building UI components and more.",
-    "description": "Subtitle for questions list page"
   },
   "7N70T1": {
     "defaultMessage": "No ongoing learning session",
@@ -1946,10 +1958,6 @@
   "BWcVlu": {
     "defaultMessage": "{totalCount, plural, =0 {No challenges} one {1 challenge} other {# challenges}}",
     "description": "Total number of challenges"
-  },
-  "BaJrKW": {
-    "defaultMessage": "Practice CSS interview questions, including quiz-style knowledge questions and CSS coding questions.",
-    "description": "Subtitle for CSS questions list page"
   },
   "BfCWYl": {
     "defaultMessage": "Select at least 1 skill that was used",
@@ -2863,9 +2871,9 @@
     "defaultMessage": "Something went wrong. Please try again later.",
     "description": "Title for error state for roadmap"
   },
-  "I2gPuj": {
-    "defaultMessage": "Practice top Angular interview questions. TODO",
-    "description": "Subtitle for questions list page"
+  "I4MnL2": {
+    "defaultMessage": "Search over {questionCount} Angular interview questions",
+    "description": "Search placeholder for Angular questions list page"
   },
   "I5MeD9": {
     "defaultMessage": "Signed up successfully",
@@ -2907,10 +2915,6 @@
     "defaultMessage": "Unlock this premium challenge",
     "description": "Title for a premium project paywall"
   },
-  "IE+oUR": {
-    "defaultMessage": "Practice top Vanilla JavaScript interview questions. TODO",
-    "description": "Subtitle for questions list page"
-  },
   "IG13JQ": {
     "defaultMessage": "How it works",
     "description": "Instruction for projects"
@@ -2938,6 +2942,10 @@
   "IK3TnA": {
     "defaultMessage": "Relevant techniques",
     "description": "Project guides category title"
+  },
+  "INrnLA": {
+    "defaultMessage": "Search over {questionCount} JavaScript interview questions",
+    "description": "Search placeholder for JavaScript questions list page"
   },
   "IQ9qW7": {
     "defaultMessage": "Get promo code",
@@ -3058,10 +3066,6 @@
   "J7bWrf": {
     "defaultMessage": "Search for your target company",
     "description": "Placeholder for search input of company guides"
-  },
-  "JAEdbj": {
-    "defaultMessage": "Practice JavaScript and TypeScript interview questions, from implementing common library APIs, utility functions, algorithms, to building UI components and more.",
-    "description": "Subtitle for JavaScript questions list page"
   },
   "JCAJF/": {
     "defaultMessage": "Practice Front End Algorithmic Coding Interview Questions",
@@ -3191,9 +3195,9 @@
     "defaultMessage": "Intermediate",
     "description": "Intermediate blog"
   },
-  "K7BZAc": {
-    "defaultMessage": "Practice top Vue interview questions. TODO",
-    "description": "Subtitle for questions list page"
+  "K7CwuJ": {
+    "defaultMessage": "Search over {questionCount} Vanilla JS interview questions",
+    "description": "Search placeholder for Vanilla JS questions list page"
   },
   "K7D+wG": {
     "defaultMessage": "Recommended resources",
@@ -3763,10 +3767,6 @@
     "defaultMessage": "See all questions",
     "description": "Label for see all questions button"
   },
-  "NvnkrI": {
-    "defaultMessage": "Practice top Svelte interview questions. TODO",
-    "description": "Subtitle for questions list page"
-  },
   "Nz7W/0": {
     "defaultMessage": "Oops something went wrong",
     "description": "Error message"
@@ -3906,6 +3906,10 @@
   "OtaEwl": {
     "defaultMessage": "Purchase premium to get access to all 200+ interview questions, official solutions, study plans, and company tags.",
     "description": "Text describing user's subscription plan."
+  },
+  "Ou83ii": {
+    "defaultMessage": "{questionCount}+ most important Vue interview questions on component architecture, hooks, state management, performance, and real-world UI components. TODO",
+    "description": "Subtitle for questions list page"
   },
   "Ov/A49": {
     "defaultMessage": "If you'd like a reply, please provide your email address.",
@@ -4583,10 +4587,6 @@
     "defaultMessage": "Number of challenges completed in skill plan",
     "description": "Tooltip for skill plan challenges label"
   },
-  "SoNXJL": {
-    "defaultMessage": "Search TypeScript interview questions",
-    "description": "Placeholder for search input of TypeScript question list"
-  },
   "Sp5xdN": {
     "defaultMessage": "{numberOfBlogs} articles",
     "description": "Number of articles in a list"
@@ -4959,6 +4959,10 @@
     "defaultMessage": "Challenge guide",
     "description": "Project guides category title"
   },
+  "VejmxA": {
+    "defaultMessage": "Search over {questionCount} React interview questions",
+    "description": "Search placeholder for React questions list page"
+  },
   "VfNkH+": {
     "defaultMessage": "CASHBACK",
     "description": "Amount cashback/discount"
@@ -5227,10 +5231,6 @@
     "defaultMessage": "Explore series",
     "description": "Explore series page title"
   },
-  "XAuXdM": {
-    "defaultMessage": "Search Vue interview questions",
-    "description": "Placeholder for search input of Vue question list"
-  },
   "XCg8lD": {
     "defaultMessage": "You have to start the session before your progress for this list can be tracked. Start tracking your progress on this question list?",
     "description": "Confirmation text for start progress tracking"
@@ -5338,6 +5338,10 @@
   "XtKx03": {
     "defaultMessage": "The definitive guide to preparing for Front End Interviews, written by the author of Front End Interview Handbook.",
     "description": "Front end interview guidebook description"
+  },
+  "Xu6JMi": {
+    "defaultMessage": "{questionCount}+ most important CSS interview questions covering layouts, animations, responsive design, specificity, and creating engaging interfaces.",
+    "description": "Subtitle for CSS questions list page"
   },
   "XuVGsX": {
     "defaultMessage": "Account",
@@ -5843,6 +5847,10 @@
     "defaultMessage": "Professional designs in 3 breakpoints",
     "description": "Label for breakpoints feature"
   },
+  "bGbV1l": {
+    "defaultMessage": "Search over {questionCount} TypeScript interview questions",
+    "description": "Search placeholder for TypeScript questions list page"
+  },
   "bJ3A5y": {
     "defaultMessage": "You will be able to modify the skills and tech stack used once you start the project.",
     "description": "FAQ answer for projects platform"
@@ -5926,10 +5934,6 @@
   "bj6RGb": {
     "defaultMessage": "Filter by roadmap skills used by the creator",
     "description": "Label for skills filter"
-  },
-  "bjGLO9": {
-    "defaultMessage": "Practice top React interview questions. TODO",
-    "description": "Subtitle for questions list page"
   },
   "bnqijt": {
     "defaultMessage": "Post",
@@ -6042,6 +6046,10 @@
   "cWKGyh": {
     "defaultMessage": "You have just gained {points} rep for completing the project! 🔥",
     "description": "Success message after submitting a project"
+  },
+  "cYRco3": {
+    "defaultMessage": "{questionCount}+ most important React interview questions on component architecture, hooks, state management, performance, and real-world UI components.",
+    "description": "Subtitle for questions list page"
   },
   "cZVPou": {
     "defaultMessage": "HTML",
@@ -6503,10 +6511,6 @@
     "defaultMessage": "Will this be a timed challenge?",
     "description": "FAQ question for projects platform"
   },
-  "fPftCJ": {
-    "defaultMessage": "Search HTML interview questions",
-    "description": "Placeholder for search input of HTML question list"
-  },
   "fRGOI+": {
     "defaultMessage": "Number of questions",
     "description": "Total number of questions in a list"
@@ -6554,10 +6558,6 @@
   "fjj5BL": {
     "defaultMessage": "Profile saved!",
     "description": "Toast for project profile saved"
-  },
-  "fjna4j": {
-    "defaultMessage": "Practice HTML interview questions, including quiz-style knowledge questions and HTML coding questions.",
-    "description": "Subtitle for HTML questions list page"
   },
   "fklQmL": {
     "defaultMessage": "Discussions",
@@ -6666,10 +6666,6 @@
   "gIvdNL": {
     "defaultMessage": "We help you learn through building - without tutorial hell",
     "description": "Heading of the 'We help you learn through building - without tutorial hell' marketing section on Projects home page"
-  },
-  "gLZ11S": {
-    "defaultMessage": "Search CSS interview questions",
-    "description": "Placeholder for search input of CSS question list"
   },
   "gRN6GJ": {
     "defaultMessage": "Assets provided",
@@ -6838,6 +6834,10 @@
   "hQa+4K": {
     "defaultMessage": "Why be a GreatFrontEnd Affiliate?",
     "description": "Title for the 'Why become an affiliate' section on the 'Become an Affiliate' page"
+  },
+  "hRukCr": {
+    "defaultMessage": "{questionCount}+ most important Angular interview questions on services, directives, RxJS, forms, state management, and dynamic component building.",
+    "description": "Subtitle for questions list page"
   },
   "hURbkG": {
     "defaultMessage": "Contact your bank to get a new card issued.",
@@ -7419,6 +7419,10 @@
     "defaultMessage": "Focus areas",
     "description": "Label for focus areas study list"
   },
+  "l7RnuO": {
+    "defaultMessage": "{questionCount}+ most important HTML interview questions covering semantics, forms, accessibility, media, and creating structured, interactive web pages.",
+    "description": "Subtitle for HTML questions list page"
+  },
   "lD302L": {
     "defaultMessage": "Recommended duration to spend during interviews",
     "description": "Recommended duration tooltip displayed on question cards found on question lists"
@@ -7815,6 +7819,10 @@
     "defaultMessage": "One-time use; can only be completed once.",
     "description": "Condition for promotion"
   },
+  "oMYV+Y": {
+    "defaultMessage": "Purchase premium to unlock focus aras and all the best materials we have to offer.",
+    "description": "Paywall subtitle for focus areas feature"
+  }
   "oLO2pr": {
     "defaultMessage": "Search Vanilla JS interview questions",
     "description": "Placeholder for search input of Vanilla JS question list"
@@ -8059,6 +8067,10 @@
     "defaultMessage": "Copy line (empty selection)",
     "description": "Text describing command to copy line(s) in the coding workspace shortcuts menu"
   },
+  "pp575K": {
+    "defaultMessage": "Search over {questionCount} Svelte interview questions",
+    "description": "Search placeholder for Svelte questions list page"
+  },
   "puP8B5": {
     "defaultMessage": "Collapse {replyCount, plural, =0 {none} one {# reply} other {# replies}}",
     "description": "Label for collapse replies button"
@@ -8155,9 +8167,9 @@
     "defaultMessage": "Copied!",
     "description": "Button label for copy button"
   },
-  "qSO2uW": {
-    "defaultMessage": "Search React interview questions",
-    "description": "Placeholder for search input of React question list"
+  "qS4yLY": {
+    "defaultMessage": "Search over {questionCount} Vue interview questions",
+    "description": "Search placeholder for Vue questions list page"
   },
   "qTHHNG": {
     "defaultMessage": "More on <link>Rewards Terms and Conditions</link>",
@@ -8631,10 +8643,6 @@
     "defaultMessage": "Social rewards",
     "description": "Title of Rewards page"
   },
-  "tmTNK0": {
-    "defaultMessage": "Search Svelte interview questions",
-    "description": "Placeholder for search input of Svelte question list"
-  },
   "tnHfa2": {
     "defaultMessage": "Move line down",
     "description": "Text describing command to move lines down in the coding workspace shortcuts menu"
@@ -8986,10 +8994,6 @@
   "w3T2Ld": {
     "defaultMessage": "Editor shortcuts",
     "description": "Tooltip for button to open code editor shortcuts"
-  },
-  "w3mqdJ": {
-    "defaultMessage": "Search JavaScript interview questions",
-    "description": "Placeholder for search input of JavaScript question list"
   },
   "w85sKh": {
     "defaultMessage": "<authorLink>{author}</authorLink> replied to your question on the project discussions for <challengeLink>{entityTitle}</challengeLink> {timestamp}",
@@ -9474,6 +9478,10 @@
   "zYh2Tl": {
     "defaultMessage": "80% of challenges are <bold>free to do</bold>",
     "description": "Caption for Explore projects button in Projects marketing hero section"
+  },
+  "zbigrn": {
+    "defaultMessage": "Search over {questionCount} HTML interview questions",
+    "description": "Search placeholder for HTML questions list page"
   },
   "zeK111": {
     "defaultMessage": "E.g. \"Responsive solution with React and Tailwind CSS\"",

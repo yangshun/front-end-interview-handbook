@@ -67,10 +67,14 @@ export default function InterviewsQuestionsCategoryLanguagePage({
   return (
     <InterviewsQuestionsCategoryPage
       categoryTabs={categoryTabs}
-      description={languages[language].description}
+      description={languages[language].getDescription(
+        questionsCoding.length + questionsQuiz.length,
+      )}
       framework={language}
       questionList={filteredQuestions}
-      searchPlaceholder={languages[language].searchPlaceholder}
+      searchPlaceholder={languages[language].getSearchPlaceholder(
+        questionsCoding.length + questionsQuiz.length,
+      )}
       selectedCategoryTab={selectedTab}
       title={languages[language].longName}
       {...props}

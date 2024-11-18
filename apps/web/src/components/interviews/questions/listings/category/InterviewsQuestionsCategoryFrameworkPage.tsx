@@ -24,9 +24,13 @@ export default function InterviewsQuestionsCategoryFrameworkPage({
 
   return (
     <InterviewsQuestionsCategoryPage
-      description={frameworks[framework].description}
+      description={frameworks[framework].getDescription(
+        props.questionList.length,
+      )}
       framework={framework}
-      searchPlaceholder={frameworks[framework].searchPlaceholder}
+      searchPlaceholder={frameworks[framework].getSearchPlaceholder(
+        props.questionList.length,
+      )}
       title={frameworks[framework].longName}
       {...props}
     />
