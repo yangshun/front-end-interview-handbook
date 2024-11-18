@@ -193,16 +193,18 @@ export default function QuestionsListSession({
           return (
             <div className="flex w-fit flex-col items-end gap-3">
               <Button
-                {...(userProfile == null && {
-                  href: signInUpHref({
-                    next: url.format({
-                      pathname,
-                      query: {
-                        action: 'start_session',
-                      },
-                    }),
-                  }),
-                })}
+                href={
+                  userProfile == null
+                    ? undefined
+                    : signInUpHref({
+                        next: url.format({
+                          pathname,
+                          query: {
+                            action: 'start_session',
+                          },
+                        }),
+                      })
+                }
                 isDisabled={startSessionMutation.isLoading}
                 isLoading={startSessionMutation.isLoading}
                 label={intl.formatMessage({

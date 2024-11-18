@@ -25,6 +25,7 @@ import type {
   QuestionQuiz,
 } from '../../common/QuestionsTypes';
 import useQuestionLogEventCopyContents from '../../common/useQuestionLogEventCopyContents';
+import useQuestionsAutoMarkAsComplete from '../../common/useQuestionsAutoMarkAsComplete';
 import QuestionsStudyListBottomNav from '../../listings/learning/QuestionsStudyListBottomNav';
 import QuestionDifficultyLabel from '../../metadata/QuestionDifficultyLabel';
 import QuestionImportanceLabel from '../../metadata/QuestionImportanceLabel';
@@ -82,6 +83,8 @@ export default function QuestionQuizContents({
       MDXCodeBlock,
     });
   }, [solution]);
+
+  useQuestionsAutoMarkAsComplete(question.metadata, listKey);
 
   return (
     <div>

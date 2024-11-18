@@ -14,6 +14,7 @@ import QuestionContentProse from '../QuestionContentProse';
 import QuestionProgressAction from '../../common/QuestionProgressAction';
 import type { QuestionBase } from '../../common/QuestionsTypes';
 import useQuestionLogEventCopyContents from '../../common/useQuestionLogEventCopyContents';
+import useQuestionsAutoMarkAsComplete from '../../common/useQuestionsAutoMarkAsComplete';
 import QuestionMetadataSection from '../../metadata/QuestionMetadataSection';
 import InterviewsPremiumBadge from '../../../common/InterviewsPremiumBadge';
 
@@ -37,6 +38,8 @@ export default function QuestionContentsSystemDesign({
     question.metadata,
     listKey,
   );
+
+  useQuestionsAutoMarkAsComplete(question.metadata, listKey);
 
   return (
     <article ref={copyRef} className="space-y-8">

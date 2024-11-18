@@ -1,8 +1,11 @@
 'use client';
 
+import { usePathname } from 'next/navigation';
 import React, { useState } from 'react';
 import { FaCheck } from 'react-icons/fa6';
+import url from 'url';
 
+import { queryParamActionKey } from '~/hooks/useQueryParamAction';
 import { useAuthSignInUp } from '~/hooks/user/useAuthFns';
 
 import { useToast } from '~/components/global/toasts/useToast';
@@ -19,6 +22,7 @@ import type { QuestionProgress } from '~/db/QuestionsProgressTypes';
 import logEvent from '~/logging/logEvent';
 
 import type { QuestionMetadata } from './QuestionsTypes';
+import { MARK_AS_COMPLETE_ACTION_NAME } from './useQuestionsAutoMarkAsComplete';
 import CodingWorkspaceBottomBarEmitter from '../../../workspace/common/CodingWorkspaceBottomBarEmitter';
 
 import { useUser } from '@supabase/auth-helpers-react';
@@ -37,7 +41,9 @@ export default function QuestionProgressAction({
   listKey,
 }: Props) {
   const intl = useIntl();
+  const pathname = usePathname();
   const user = useUser();
+
   const [isLoginDialogShown, setIsLoginDialogShown] = useState(false);
   const markCompleteMutation = useMutationQuestionProgressAdd();
   const deleteProgressMutation = useMutationQuestionProgressDelete();
@@ -63,7 +69,14 @@ export default function QuestionProgressAction({
           isShown={isLoginDialogShown}
           primaryButton={
             <Button
-              href={signInUpHref()}
+              href={signInUpHref({
+                next: url.format({
+                  pathname,
+                  query: {
+                    [queryParamActionKey]: MARK_AS_COMPLETE_ACTION_NAME,
+                  },
+                }),
+              })}
               label={signInUpLabel}
               variant="primary"
               onClick={() => setIsLoginDialogShown(false)}

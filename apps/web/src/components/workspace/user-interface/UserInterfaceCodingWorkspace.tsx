@@ -9,6 +9,7 @@ import type {
 } from '~/components/interviews/questions/common/QuestionsTypes';
 import type { QuestionUserInterfaceMode } from '~/components/interviews/questions/common/QuestionUserInterfacePath';
 import useQuestionLogEventCopyContents from '~/components/interviews/questions/common/useQuestionLogEventCopyContents';
+import useQuestionsAutoMarkAsComplete from '~/components/interviews/questions/common/useQuestionsAutoMarkAsComplete';
 import { questionUserInterfaceSolutionPath } from '~/components/interviews/questions/content/user-interface/QuestionUserInterfaceRoutes';
 import Button from '~/components/ui/Button';
 import EmptyState from '~/components/ui/EmptyState';
@@ -149,6 +150,8 @@ function UserInterfaceCodingWorkspaceImpl({
       openFile(filePathToOpen, fromFilePath);
     },
   );
+
+  useQuestionsAutoMarkAsComplete(metadata, studyList?.listKey);
 
   useEffect(() => {
     dispatch({
