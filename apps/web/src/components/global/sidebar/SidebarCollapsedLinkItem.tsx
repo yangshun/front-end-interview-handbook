@@ -134,7 +134,7 @@ export default function SidebarCollapsedLinkItem({
             weight="medium">
             {label}
           </Text>
-          <div className="flex flex-col gap-1.5">
+          <div className="flex flex-col gap-2">
             {props.items.map((childItem) => (
               <NavbarPopoverLink
                 key={childItem.itemKey}

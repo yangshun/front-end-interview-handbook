@@ -1,8 +1,9 @@
 import clsx from 'clsx';
 
-import { themeGlassyBorder } from '~/components/ui/theme';
-
-import { themeTextSecondaryColor } from '../theme';
+import {
+  themeGlassyBorder,
+  themeTextSubtitleColor,
+} from '~/components/ui/theme';
 
 type Props =
   | Readonly<{
@@ -22,7 +23,7 @@ export default function NavbarFeatureIcon(props: Props) {
         'icon' in props ? 'dark:bg-neutral-800/70' : 'bg-white',
         'transition-colors',
         themeGlassyBorder,
-        themeTextSecondaryColor,
+        themeTextSubtitleColor,
       )}>
       {'icon' in props ? (
         <props.icon aria-hidden="true" className={clsx('size-4 shrink-0')} />
