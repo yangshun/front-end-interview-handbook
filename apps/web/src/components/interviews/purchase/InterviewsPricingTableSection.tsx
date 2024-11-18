@@ -720,7 +720,6 @@ export default function InterviewsPricingTableSection({
       <div className="flex flex-col gap-y-8 md:gap-y-6 lg:gap-y-8">
         {/* Lifetime plan callout */}
         <PurchaseBlockCard
-          className={isDialogView ? '!max-w-none' : undefined}
           features={featuredPlan.includedFeatures}
           footer={
             showFTLBundle ? (
@@ -853,6 +852,9 @@ export default function InterviewsPricingTableSection({
               />
             </div>
           }
+          widthClassName={
+            isDialogView ? 'w-full' : 'w-full max-w-lg md:max-w-none'
+          }
         />
         {/* Pricing table */}
         <Heading className="sr-only" level="custom">
@@ -867,7 +869,7 @@ export default function InterviewsPricingTableSection({
             className={clsx(
               'grid grid-cols-1 gap-8 md:gap-4 xl:gap-8',
               'md:grid-cols-3',
-              !isDialogView && 'mx-auto max-w-lg md:max-w-none',
+              !isDialogView && 'mx-auto w-full max-w-lg md:max-w-none',
             )}>
             {planList.map(
               ({

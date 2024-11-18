@@ -20,6 +20,7 @@ type Props = Readonly<{
   leftSectionContents: React.ReactNode;
   subtitle: React.ReactNode;
   title: React.ReactNode;
+  widthClassName?: string;
 }>;
 
 export default function PurchaseBlockCard({
@@ -29,6 +30,7 @@ export default function PurchaseBlockCard({
   features,
   leftSectionContents,
   className,
+  widthClassName = 'w-full max-w-xl md:max-w-none',
 }: Props) {
   const id = useId();
 
@@ -37,7 +39,8 @@ export default function PurchaseBlockCard({
       className={clsx(
         'relative isolate overflow-hidden',
         'rounded-xl',
-        'mx-auto w-full max-w-xl md:max-w-none',
+        'mx-auto',
+        widthClassName,
         themeBackgroundColor,
         ['border', themeBorderEmphasizeColor],
         [
