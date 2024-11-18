@@ -1,7 +1,10 @@
+import clsx from 'clsx';
+
 import { useUserProfile } from '~/components/global/UserProfileProvider';
 import QuestionListingAccessCount from '~/components/interviews/questions/listings/stats/QuestionListingAccessCount';
 
 type Props = Readonly<{
+  className?: string;
   free: number;
   premium: number;
   standard: number;
@@ -11,6 +14,7 @@ export default function QuestionListingAccessSummary({
   free,
   standard,
   premium,
+  className,
 }: Props) {
   const { userProfile } = useUserProfile();
 
@@ -19,7 +23,7 @@ export default function QuestionListingAccessSummary({
   }
 
   return (
-    <div className="flex gap-2">
+    <div className={clsx('flex gap-2', className)}>
       {free > 0 && (
         <div className="flex-1">
           <QuestionListingAccessCount

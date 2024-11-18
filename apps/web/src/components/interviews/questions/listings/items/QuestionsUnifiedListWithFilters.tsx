@@ -419,12 +419,16 @@ export default function QuestionsUnifiedListWithFilters({
       {/* Right Column */}
       <aside
         className={clsx(
-          'hidden h-full flex-col gap-y-10 lg:col-span-1 lg:flex',
+          'hidden h-full flex-col lg:col-span-1 lg:flex',
           'px-5',
-          ['divide-y', themeDivideEmphasizeColor],
         )}>
         {sideColumnAddOn}
-        <section className="sticky top-[var(--global-sticky-height)] h-[calc(100vh_-_var(--global-sticky-height))]">
+        <section
+          className={clsx(
+            'sticky top-[var(--global-sticky-height)] h-[calc(100vh_-_var(--global-sticky-height))]',
+            'flex-col gap-y-10 lg:flex',
+            ['divide-y', themeDivideEmphasizeColor],
+          )}>
           <ScrollArea>
             <Heading className="sr-only" level="custom">
               <FormattedMessage

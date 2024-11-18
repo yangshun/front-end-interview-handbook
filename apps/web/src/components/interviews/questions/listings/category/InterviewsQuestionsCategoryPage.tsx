@@ -32,6 +32,7 @@ import QuestionsUnifiedListWithFiltersAndProgress from '~/components/interviews/
 import QuestionListingAccessSummary from '~/components/interviews/questions/listings/stats/QuestionListingAccessSummary';
 import { useIntl } from '~/components/intl';
 import Section from '~/components/ui/Heading/HeadingContext';
+import { themeBorderEmphasizeColor } from '~/components/ui/theme';
 
 import type { QuestionCompletionCount } from '~/db/QuestionsCount';
 
@@ -182,7 +183,13 @@ export default function InterviewsQuestionsCategoryPage({
           searchPlaceholder={searchPlaceholder}
           sideColumnAddOn={
             <div className="hidden lg:block">
-              <QuestionListingAccessSummary {...questionsCount} />
+              <QuestionListingAccessSummary
+                {...questionsCount}
+                className={clsx('pb-10', [
+                  'border-b',
+                  themeBorderEmphasizeColor,
+                ])}
+              />
             </div>
           }
         />
