@@ -13,7 +13,10 @@ type Props = Readonly<{
 export default function InterviewsPageFeatures({ features }: Props) {
   return (
     <div
-      className={clsx('flex flex-col flex-wrap gap-x-12 gap-y-4 md:flex-row')}>
+      className={clsx(
+        'flex flex-col flex-wrap sm:flex-row',
+        'gap-y-4 sm:gap-x-8 md:gap-x-12',
+      )}>
       {features.map(({ icon: FeatureIcon, label }) => (
         <div key={label} className={clsx('flex items-center gap-2')}>
           <FeatureIcon className={clsx('size-5', themeTextSubtitleColor)} />
