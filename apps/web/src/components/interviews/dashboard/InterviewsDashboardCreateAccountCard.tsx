@@ -58,7 +58,7 @@ export default function InterviewsDashboardCreateAccountCard() {
   return (
     <div
       className={clsx(
-        'group relative flex justify-between',
+        'group relative flex w-full justify-between',
         'border border-neutral-200 dark:border-transparent',
         'overflow-hidden rounded-lg',
         themeBackgroundCardColor,
@@ -66,7 +66,7 @@ export default function InterviewsDashboardCreateAccountCard() {
       )}>
       <div
         className={clsx(
-          'relative h-20 w-36',
+          'relative h-20 w-36 shrink-0',
           'overflow-clip',
           'bg-neutral-200/70 dark:bg-neutral-900',
         )}>
@@ -79,10 +79,10 @@ export default function InterviewsDashboardCreateAccountCard() {
         </div>
         <div className="size-full absolute bg-gradient-to-t from-neutral-200/70 dark:from-neutral-900" />
       </div>
-      <div className="flex items-center p-4">
+      <div className="flex flex-1 items-center justify-between gap-2 p-4">
         <Anchor href={signInUpHref()} variant="unstyled">
           <span aria-hidden={true} className="absolute inset-0" />
-          <Text className="block sm:max-w-[140px]" size="body3">
+          <Text className="block" size="body3">
             <FormattedMessage
               defaultMessage="Create a free account to track your progress"
               description="CTA to create a free account for non-logged in users"

@@ -68,7 +68,7 @@ export default function InterviewsPageHeader({
           metadata={metadata}
         />
       )}
-      <div className="grid gap-x-6 gap-y-8 xl:grid-cols-3">
+      <div className="flex flex-col justify-between gap-6 lg:flex-row">
         <div
           className={clsx(
             'flex flex-col xl:col-span-2',
@@ -83,11 +83,16 @@ export default function InterviewsPageHeader({
           </Text>
         </div>
         {sideElement && (
-          <div className="col-span-1 flex lg:justify-end">{sideElement}</div>
+          <div className="hidden max-w-[363px] lg:flex lg:justify-end">
+            {sideElement}
+          </div>
         )}
       </div>
       {/* Features */}
       <InterviewsPageFeatures features={features} />
+      {sideElement && (
+        <div className="flex w-full lg:hidden">{sideElement}</div>
+      )}
       <Divider />
       {children}
     </div>
