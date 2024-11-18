@@ -81,56 +81,54 @@ export default function QuestionsStudyListSlideOutButton({
   const nextQuestionButtonDisabled = isLoading || nextQuestion == null;
 
   return (
-    <div>
-      <div className="flex gap-x-2">
-        <Button
-          addonPosition="start"
-          className={clsx(prevQuestionButtonDisabled && 'opacity-50')}
-          href={
-            prevQuestionButtonDisabled
-              ? undefined
-              : questionHrefWithList(prevQuestion?.href, studyList?.listKey)
-          }
-          icon={RiArrowLeftSLine}
-          isDisabled={prevQuestionButtonDisabled}
-          isLabelHidden={true}
-          label="Previous question"
-          size="xs"
-          tooltip={
-            prevQuestionButtonDisabled
-              ? undefined
-              : `Previous question: ${prevQuestion?.title}`
-          }
-          variant={isLoading ? 'tertiary' : 'secondary'}
-        />
-        <QuestionsStudyListSlideOut
-          currentQuestionPosition={currentQuestionIndex + 1}
-          isDisabled={isLoading}
-          metadata={metadata}
-          processedQuestions={processedQuestions}
-          studyList={studyList}
-        />
-        <Button
-          addonPosition="start"
-          className={clsx(nextQuestionButtonDisabled && 'opacity-50')}
-          href={
-            nextQuestionButtonDisabled
-              ? undefined
-              : questionHrefWithList(nextQuestion?.href, studyList?.listKey)
-          }
-          icon={RiArrowRightSLine}
-          isDisabled={nextQuestionButtonDisabled}
-          isLabelHidden={true}
-          label="Next question"
-          size="xs"
-          tooltip={
-            nextQuestionButtonDisabled
-              ? undefined
-              : `Next question: ${nextQuestion?.title}`
-          }
-          variant={isLoading ? 'tertiary' : 'secondary'}
-        />
-      </div>
+    <div className="flex gap-x-2">
+      <Button
+        addonPosition="start"
+        className={clsx(prevQuestionButtonDisabled && 'opacity-50')}
+        href={
+          prevQuestionButtonDisabled
+            ? undefined
+            : questionHrefWithList(prevQuestion?.href, studyList?.listKey)
+        }
+        icon={RiArrowLeftSLine}
+        isDisabled={prevQuestionButtonDisabled}
+        isLabelHidden={true}
+        label="Previous question"
+        size="xs"
+        tooltip={
+          prevQuestionButtonDisabled
+            ? undefined
+            : `Previous question: ${prevQuestion?.title}`
+        }
+        variant="tertiary"
+      />
+      <QuestionsStudyListSlideOut
+        currentQuestionPosition={currentQuestionIndex + 1}
+        isDisabled={isLoading}
+        metadata={metadata}
+        processedQuestions={processedQuestions}
+        studyList={studyList}
+      />
+      <Button
+        addonPosition="start"
+        className={clsx(nextQuestionButtonDisabled && 'opacity-50')}
+        href={
+          nextQuestionButtonDisabled
+            ? undefined
+            : questionHrefWithList(nextQuestion?.href, studyList?.listKey)
+        }
+        icon={RiArrowRightSLine}
+        isDisabled={nextQuestionButtonDisabled}
+        isLabelHidden={true}
+        label="Next question"
+        size="xs"
+        tooltip={
+          nextQuestionButtonDisabled
+            ? undefined
+            : `Next question: ${nextQuestion?.title}`
+        }
+        variant="tertiary"
+      />
     </div>
   );
 }
