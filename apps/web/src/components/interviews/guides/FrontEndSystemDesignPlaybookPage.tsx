@@ -156,7 +156,7 @@ export default function FrontEndSystemDesignPlaybookPage({
                     <QuestionListingAccessSummary
                       {...questionsCount}
                       className={clsx('pb-10', [
-                        'border-b',
+                      'border-b',
                         themeBorderEmphasizeColor,
                       ])}
                     />

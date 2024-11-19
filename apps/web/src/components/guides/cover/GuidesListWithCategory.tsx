@@ -106,7 +106,11 @@ export default function GuidesListWithCategory({ guides }: Props) {
 
   return (
     <div className={clsx('grid lg:grid-cols-12')}>
-      <div className={clsx('flex flex-col gap-12', 'lg:col-span-9')}>
+      <div
+        className={clsx(
+          'flex flex-col gap-10',
+          'lg:col-span-10 xl:col-span-9',
+        )}>
         {guides.map(({ title, totalReadingTime, articles }, index) => (
           <div key={title}>
             <Heading className={themeTextColor} color="custom" level="heading6">
