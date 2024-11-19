@@ -386,7 +386,11 @@ function PricingPlanComparisonDiscount({
   }
 }
 
-function FTLPromoSection() {
+function FTLPromoSection({
+  variant,
+}: Readonly<{
+  variant: 'compact' | 'full';
+}>) {
   return (
     <div className="w-fit">
       <Text className="block" color="subtle" size="body3" weight="medium">
@@ -396,7 +400,13 @@ function FTLPromoSection() {
           id="GEjP1P"
         />
       </Text>
-      <div className="group relative mt-3 flex items-center gap-3">
+      <div
+        className={clsx(
+          'group relative mt-3 flex gap-3',
+          variant === 'compact'
+            ? 'flex-row items-center md:flex-col md:items-start lg:flex-row lg:items-center'
+            : 'items-center',
+        )}>
         <Text
           className={clsx(
             'bg-rose-500 font-extrabold text-white',
@@ -407,23 +417,25 @@ function FTLPromoSection() {
           size="body2">
           FTL
         </Text>
-        <Anchor
-          className={clsx(
-            textVariants({
-              className: 'grow',
-              color: 'secondary',
-              size: 'body2',
-            }),
-            'group-hover:underline',
-          )}
-          href="https://faangtechleads.com"
-          variant="unstyled">
-          FAANG Tech Leads Software Engineer Resume References and Handbook
-          Package
-        </Anchor>
-        <Text className="whitespace-nowrap" size="body0" weight="bold">
-          28 USD
-        </Text>
+        <div className="flex items-center gap-3">
+          <Anchor
+            className={clsx(
+              textVariants({
+                className: 'grow',
+                color: 'secondary',
+                size: 'inherit',
+              }),
+              'group-hover:underline',
+              variant === 'compact' ? 'text-xs' : 'text-xs xl:text-sm',
+            )}
+            href="https://faangtechleads.com"
+            variant="unstyled">
+            FAANG Tech Leads Software Engineer Resume References and Handbook
+          </Anchor>
+          <Text className="whitespace-nowrap" size="body0" weight="bold">
+            28 USD
+          </Text>
+        </div>
         <Anchor
           className="absolute inset-0"
           href="https://faangtechleads.com"
@@ -725,7 +737,7 @@ export default function InterviewsPricingTableSection({
             showFTLBundle ? (
               <>
                 <Divider className="mb-4" />
-                <FTLPromoSection />
+                <FTLPromoSection variant="full" />
               </>
             ) : undefined
           }
@@ -1074,7 +1086,7 @@ export default function InterviewsPricingTableSection({
                         {ftlPromo && showFTLBundle && (
                           <>
                             <Divider />
-                            <FTLPromoSection />
+                            <FTLPromoSection variant="compact" />
                           </>
                         )}
                       </Section>
