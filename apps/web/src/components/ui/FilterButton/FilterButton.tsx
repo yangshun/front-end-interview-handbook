@@ -3,7 +3,10 @@ import type { ForwardedRef } from 'react';
 import React, { forwardRef } from 'react';
 
 import Button from '~/components/ui/Button';
-import { themeBorderColor } from '~/components/ui/theme';
+import {
+  themeBorderColor,
+  themeTextSecondaryColor,
+} from '~/components/ui/theme';
 
 type Props = Omit<React.ComponentProps<typeof Button>, 'variant'> &
   Readonly<{
@@ -19,7 +22,12 @@ function FilterButton(
       ref={ref}
       addonPosition="start"
       {...props}
-      className={clsx(className, selected ? 'font-semibold' : themeBorderColor)}
+      className={clsx(
+        className,
+        selected
+          ? 'font-semibold'
+          : [themeBorderColor, themeTextSecondaryColor],
+      )}
       variant={selected ? 'inverted_INTERNAL_ONLY' : 'secondary'}
     />
   );
