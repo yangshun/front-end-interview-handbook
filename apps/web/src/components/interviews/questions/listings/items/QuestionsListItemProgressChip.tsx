@@ -209,7 +209,7 @@ export function NotCompleted({
           progressChipSize,
           themeBackgroundCardNoAlphaColor,
           ['border', themeBorderElementColor],
-          'font-semibold',
+          'text-sm font-semibold',
           number != null ? themeTextSubtleColor : themeTextFainterColor,
           showHoverState && themeTextSuccessColor_Hover,
         )}
