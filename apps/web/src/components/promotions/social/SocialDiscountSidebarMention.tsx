@@ -96,16 +96,9 @@ function SocialDiscountSidebarMentionImpl() {
         variant="flat">
         <Text color="subtitle" size="body3">
           <FormattedMessage
-            defaultMessage="Complete simple <bold>social tasks</bold>"
+            defaultMessage="Complete simple social tasks"
             description="Instructions to get a discount"
-            id="tLMGe8"
-            values={{
-              bold: (chunks) => (
-                <Text color="default" size="inherit" weight="bold">
-                  {chunks}
-                </Text>
-              ),
-            }}
+            id="Hq/krL"
           />
           <RiArrowRightLine
             aria-hidden={true}

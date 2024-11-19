@@ -2835,6 +2835,10 @@
     "defaultMessage": "LeetCode-style algorithmic coding questions which evaluate your core data structures and algorithms skills.",
     "description": "Description for ui coding questions"
   },
+  "Hq/krL": {
+    "defaultMessage": "Complete simple social tasks",
+    "description": "Instructions to get a discount"
+  },
   "HsLNW4": {
     "defaultMessage": "Comprehensive front end system design guides",
     "description": "Tooltip label for unlock all premium interviews content"
@@ -8542,10 +8546,6 @@
   "tK6m9g": {
     "defaultMessage": "Build entire component libraries or design systems from scratch for your portfolio or as a toolkit for future projects.",
     "description": "Description of Projects component tracks page"
-  },
-  "tLMGe8": {
-    "defaultMessage": "Complete simple <bold>social tasks</bold>",
-    "description": "Instructions to get a discount"
   },
   "tMvSIc": {
     "defaultMessage": "Enjoy your exclusive promo code",
