@@ -32,6 +32,7 @@ import QuestionsUnifiedListWithFiltersAndProgress from '~/components/interviews/
 import QuestionListingAccessSummary from '~/components/interviews/questions/listings/stats/QuestionListingAccessSummary';
 import { useIntl } from '~/components/intl';
 import Section from '~/components/ui/Heading/HeadingContext';
+import Text from '~/components/ui/Text';
 import { themeBorderEmphasizeColor } from '~/components/ui/theme';
 
 import type { QuestionCompletionCount } from '~/db/QuestionsCount';
@@ -79,11 +80,18 @@ export default function InterviewsQuestionsCategoryPage({
     },
     {
       icon: RiTestTubeLine,
-      label: intl.formatMessage({
-        defaultMessage: 'Test cases',
-        description: 'Features for question format page',
-        id: 'nI4Alg',
-      }),
+      label:
+        framework in languages
+          ? intl.formatMessage({
+              defaultMessage: 'Test cases',
+              description: 'Features for question format page',
+              id: 'nI4Alg',
+            })
+          : intl.formatMessage({
+              defaultMessage: 'Test scenarios',
+              description: 'Features for question format page',
+              id: 'HB0fzm',
+            }),
     },
     {
       icon: RiWindow2Line,
@@ -137,14 +145,30 @@ export default function InterviewsQuestionsCategoryPage({
   return (
     <div className={clsx('flex flex-col', 'gap-y-12 md:gap-y-16')}>
       <InterviewsPageHeader
-        description={description}
+        description={intl.formatMessage(
+          {
+            defaultMessage:
+              '{framework} interview questions with detailed solutions and tests',
+            description: 'Description for guide card',
+            id: 'wC2T5Q',
+          },
+          {
+            framework:
+              framework in languages
+                ? languages[framework as QuestionLanguage].label
+                : frameworks[framework as QuestionFramework].label,
+          },
+        )}
         features={features}
         icon={Icon}
         sideElement={
           <InterviewsQuestionsCategoryContentSlider framework={framework} />
         }
-        title={title}
-      />
+        title={title}>
+        <Text className="block xl:max-w-[75%]" color="secondary" size="body1">
+          {description}
+        </Text>
+      </InterviewsPageHeader>
       <Section>
         <QuestionsUnifiedListWithFiltersAndProgress
           categoryTabs={categoryTabs}

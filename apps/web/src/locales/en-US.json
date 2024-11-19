@@ -2735,6 +2735,10 @@
     "defaultMessage": "Formats / types of questions you can expect in your interview",
     "description": "Tooltip for question format label"
   },
+  "HB0fzm": {
+    "defaultMessage": "Test scenarios",
+    "description": "Features for question format page"
+  },
   "HBTTrj": {
     "defaultMessage": "{count} premium credits every month",
     "description": "Label for unlocks feature for month plan"
@@ -8990,6 +8994,10 @@
   "wBeFIk": {
     "defaultMessage": "Scores of our users have landed multiple offers at the world's top companies with substantial TC gains. Be the next.",
     "description": "Subtitle for the offers don't lie section"
+  },
+  "wC2T5Q": {
+    "defaultMessage": "{framework} interview questions with detailed solutions and tests",
+    "description": "Description for guide card"
   },
   "wDKscz": {
     "defaultMessage": "Completed",
