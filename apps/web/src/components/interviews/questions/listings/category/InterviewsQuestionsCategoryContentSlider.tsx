@@ -122,22 +122,21 @@ export default function InterviewsQuestionsCategoryContentSlider({
         window.clearInterval(timer.current);
         setIndex(data.findIndex(({ value }) => value === newValue));
       }}>
-      <div className={clsx('w-full', data.length > 1 && 'min-h-[154px]')}>
-        {data.map((item) => (
-          <TabsPrimitive.Content
-            key={item.value}
-            className="h-full"
-            value={item.value}>
-            <InterviewsContentSliderCard
-              count={item.count}
-              description={item.description}
-              href={item.href}
-              title={item.title}
-              type={item.type}
-            />
-          </TabsPrimitive.Content>
-        ))}
-      </div>
+      {data.map((item) => (
+        <TabsPrimitive.Content key={item.value} value={item.value}>
+          <InterviewsContentSliderCard
+            className={clsx(
+              data.length > 1 &&
+                'h-full min-h-[154px] md:min-h-[134px] lg:min-h-[154px]',
+            )}
+            count={item.count}
+            description={item.description}
+            href={item.href}
+            title={item.title}
+            type={item.type}
+          />
+        </TabsPrimitive.Content>
+      ))}
       {data.length > 1 && (
         <TabsPrimitive.List className="flex justify-center gap-4">
           {data.map((item) => (

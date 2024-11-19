@@ -13,6 +13,7 @@ import {
 } from '~/components/ui/theme';
 
 type Props = Readonly<{
+  className?: string;
   count?: number;
   description: JSX.Element | string;
   href: string;
@@ -26,6 +27,7 @@ export default function InterviewsContentSliderCard({
   href,
   count,
   type,
+  className,
 }: Props) {
   const backgroundColorClass = 'bg-white dark:bg-neutral-900';
   const tagCommonClass = clsx(
@@ -44,6 +46,7 @@ export default function InterviewsContentSliderCard({
         'size-full',
         themeBackgroundCardAltColor,
         themeGlassyBorder,
+        className,
       )}>
       <div className="flex flex-col gap-2">
         <div className="flex items-center gap-4">
