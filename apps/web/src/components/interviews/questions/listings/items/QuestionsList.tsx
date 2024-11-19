@@ -41,7 +41,7 @@ type Props<Q extends QuestionMetadata> = Readonly<{
   checkIfCompletedQuestionBefore?: (question: Q) => boolean;
   framework?: QuestionFramework;
   listKey?: string;
-  mode?: 'default' | 'learning-list';
+  mode?: 'default' | 'study-list';
   onMarkAsCompleted?: (question: Q) => void;
   onMarkAsNotCompleted?: (question: Q) => void;
   primaryLabel?: 'difficulty' | 'importance';
@@ -132,7 +132,7 @@ export default function QuestionsList<Q extends QuestionMetadata>({
                   className="z-[1]" // Needed for the icon to be above the link.
                   hasCompletedQuestion={hasCompletedQuestion}
                   hasCompletedQuestionBefore={hasCompletedQuestionBefore}
-                  index={mode === 'learning-list' ? index : undefined}
+                  index={mode === 'study-list' ? index : undefined}
                   premiumUser={userProfile?.isInterviewsPremium}
                   question={questionMetadata}
                   onMarkAsCompleted={onMarkAsCompleted}

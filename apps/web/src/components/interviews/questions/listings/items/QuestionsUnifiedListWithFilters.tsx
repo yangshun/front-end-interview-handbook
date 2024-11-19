@@ -56,7 +56,7 @@ type Props = Readonly<{
   };
   initialFormat?: QuestionFormat | null;
   listKey?: string;
-  listMode?: 'default' | 'learning-list';
+  listMode?: React.ComponentProps<typeof QuestionsList>['mode'];
   mode?: 'default' | 'framework';
   onMarkAsCompleted?: (question: QuestionMetadata) => void;
   onMarkAsNotCompleted?: (question: QuestionMetadata) => void;

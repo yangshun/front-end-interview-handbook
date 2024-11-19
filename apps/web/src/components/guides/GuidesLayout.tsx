@@ -22,7 +22,7 @@ const GuidesContext = createContext<GuidesContextType>({
 export function useGuidesContext() {
   const context = useContext(GuidesContext);
 
-  // TODO(interviews/learning-list): define GuideContext for learning-list mode.
+  // TODO(interviews/study-list): define GuideContext for study-list mode.
   // if (context === undefined) {
   //   throw new Error(
   //     'useGuidesContext must be used within a GuidesContextProvider',
