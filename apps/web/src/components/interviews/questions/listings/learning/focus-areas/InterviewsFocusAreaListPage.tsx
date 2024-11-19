@@ -148,7 +148,7 @@ export default function InterviewsRevampFocusAreaListPage({
         </div>
         {bottomContent && (
           <>
-            <Divider className="my-8 md:my-4" />
+            <Divider className="my-10 xl:my-4" />
             <MDXContent
               components={{
                 FocusAreasCount: () => <span>{focusAreas.length}</span>,

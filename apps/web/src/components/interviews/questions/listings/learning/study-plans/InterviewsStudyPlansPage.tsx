@@ -108,45 +108,47 @@ export default function InterviewsStudyPlansPage({
           id: 'swjkuF',
         })}
       />
-      <Section>
-        <div className="flex flex-col gap-4">
-          {StudyPlanSections.map(({ plans, title }) => (
-            <div key={title} className="flex flex-col gap-y-4">
-              <Heading level="heading6">{title}</Heading>
-              <Section>
-                <div className="flex flex-col gap-4">
-                  {plans.map((studyPlan) => {
-                    const session = sessions.find(
-                      (session_) => session_.key === studyPlan.slug,
-                    );
-                    const completionCount = session?._count.progress;
+      <div className="flex flex-col gap-y-16">
+        <Section>
+          <div className="flex flex-col gap-4">
+            {StudyPlanSections.map(({ plans, title }) => (
+              <div key={title} className="flex flex-col gap-y-4">
+                <Heading level="heading6">{title}</Heading>
+                <Section>
+                  <div className="flex flex-col gap-4">
+                    {plans.map((studyPlan) => {
+                      const session = sessions.find(
+                        (session_) => session_.key === studyPlan.slug,
+                      );
+                      const completionCount = session?._count.progress;
 
-                    return (
-                      <InterviewsStudyListCard
-                        key={studyPlan.slug}
-                        completionCount={completionCount}
-                        icon={StudyPlanIcons[studyPlan.slug]}
-                        isStarted={session != null}
-                        showLongName={true}
-                        studyList={studyPlan}
-                      />
-                    );
-                  })}
-                </div>
-              </Section>
-            </div>
-          ))}
-        </div>
-      </Section>
-      <InterviewsStudyPlanTestimonialsSection />
-      {bottomContent && (
-        <>
-          <Divider className="my-8 md:my-4" />
-          <Section>
-            <MDXContent mdxCode={bottomContent.body.code} />
-          </Section>
-        </>
-      )}
+                      return (
+                        <InterviewsStudyListCard
+                          key={studyPlan.slug}
+                          completionCount={completionCount}
+                          icon={StudyPlanIcons[studyPlan.slug]}
+                          isStarted={session != null}
+                          showLongName={true}
+                          studyList={studyPlan}
+                        />
+                      );
+                    })}
+                  </div>
+                </Section>
+              </div>
+            ))}
+          </div>
+        </Section>
+        <InterviewsStudyPlanTestimonialsSection />
+        {bottomContent && (
+          <>
+            <Divider className="my-4" />
+            <Section>
+              <MDXContent mdxCode={bottomContent.body.code} />
+            </Section>
+          </>
+        )}
+      </div>
     </div>
   );
 }

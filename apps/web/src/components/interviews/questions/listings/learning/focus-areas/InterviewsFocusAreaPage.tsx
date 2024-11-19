@@ -151,7 +151,7 @@ export default function InterviewsFocusAreaPage({
       </Section>
       {bottomContent && (
         <>
-          <Divider className="my-8 md:my-4" />
+          <Divider className="my-10 xl:my-4" />
           <Section>
             <MDXContent mdxCode={bottomContent.body.code} />
           </Section>
