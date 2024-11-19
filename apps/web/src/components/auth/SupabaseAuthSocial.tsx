@@ -96,8 +96,8 @@ export default function SupabaseAuthSocial({
     <div className="flex flex-col gap-y-2">
       <div
         className={clsx(
-          'flex',
-          layout === 'horizontal' ? 'gap-x-2' : 'flex-col gap-y-2',
+          'flex flex-col gap-y-3',
+          layout === 'horizontal' && 'gap-x-4 lg:flex-row',
         )}>
         {providers.map((provider) => {
           const { icon, label } = providerDetails(provider);

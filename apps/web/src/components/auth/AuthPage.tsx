@@ -91,7 +91,7 @@ export default function AuthPage({ view }: Props) {
                 ? ['github', 'google']
                 : ['github']
             }
-            socialLayout="vertical"
+            socialLayout="horizontal"
             supabaseClient={supabaseClient}
           />
         </>
