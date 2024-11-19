@@ -14,7 +14,11 @@ export default function Layout({ children }: { children: ReactNode }) {
     items:
       navItem.items?.map((navItemItem) => ({
         ...navItemItem,
-        addOnElement: navItemItem.premium ? <SidebarPremiumChip /> : null,
+        addOnElement: navItemItem.premium ? (
+          <div className="flex grow justify-end">
+            <SidebarPremiumChip />
+          </div>
+        ) : null,
       })) ?? [],
   }));
 
