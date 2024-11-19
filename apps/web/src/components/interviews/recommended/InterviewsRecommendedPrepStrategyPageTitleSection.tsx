@@ -55,7 +55,7 @@ export default function InterviewsRecommendedPrepStrategyPageTitleSection({
   const intl = useIntl();
 
   return (
-    <div className="flex flex-col gap-8">
+    <div className="flex flex-col gap-4 xl:gap-5">
       {metadata && (
         <div
           className={clsx(
@@ -93,17 +93,17 @@ export default function InterviewsRecommendedPrepStrategyPageTitleSection({
           )}
         </div>
       )}
-      <QuestionsStudyListPageTitleSection
-        description={description}
-        features={features}
-        overallProgress={overallProgress ?? []}
-        progressTrackingAvailableToNonPremiumUsers={true}
-        questions={questions ?? []}
-        title={title}
-        {...props}
-      />
-      <div className={clsx('grid lg:grid-cols-12')}>
-        <div className="lg:col-span-9">{longDescription}</div>
+      <div className="flex flex-col gap-8">
+        <QuestionsStudyListPageTitleSection
+          description={description}
+          features={features}
+          overallProgress={overallProgress ?? []}
+          progressTrackingAvailableToNonPremiumUsers={true}
+          questions={questions ?? []}
+          title={title}
+          {...props}
+        />
+        <div className="w-full lg:w-3/4">{longDescription}</div>
       </div>
     </div>
   );

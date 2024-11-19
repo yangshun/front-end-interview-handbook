@@ -7,7 +7,7 @@ import {
   themeTextSubtitleColor,
 } from '~/components/ui/theme';
 
-export type GFE75LogoSize = 'lg' | 'md' | 'sm';
+export type GFE75LogoSize = 'lg' | 'md' | 'sm' | 'xl';
 
 const classes: Record<
   GFE75LogoSize,
@@ -18,19 +18,24 @@ const classes: Record<
   }>
 > = {
   lg: {
-    logoClass: 'w-12 h-10 top-[8%]',
-    outerClass: 'size-20',
-    textClass: 'text-4xl',
+    logoClass: 'w-12 h-10',
+    outerClass: 'size-14',
+    textClass: 'text-3xl',
   },
   md: {
-    logoClass: 'w-[41px] h-8 top-[8%]',
-    outerClass: 'size-16',
-    textClass: 'text-[2.125rem] leading-8',
+    logoClass: 'w-[38px] h-6',
+    outerClass: 'size-12',
+    textClass: 'text-[1.65rem] leading-8',
   },
   sm: {
-    logoClass: 'h-5 w-[26px] top-[3px]',
+    logoClass: 'h-5 w-[26px]',
     outerClass: 'size-10',
     textClass: 'text-[1.328rem] leading-5',
+  },
+  xl: {
+    logoClass: 'w-12 h-10',
+    outerClass: 'size-16',
+    textClass: 'text-4xl',
   },
 };
 
@@ -52,11 +57,11 @@ export default function PreparationGFE75Logo({ size = 'md' }: Props) {
         themeGlassyBorder,
         outerClass,
       )}>
-      <GrayedOutLogoMark className={clsx('-z-1 absolute', logoClass)} />
+      <GrayedOutLogoMark className={clsx('-z-1 absolute top-0', logoClass)} />
       <span
         className={clsx(
           'font-extrabold tracking-tight',
-          'absolute top-[30%]',
+          'absolute top-[50%] -translate-y-1/2',
           themeTextSubtitleColor,
           textClass,
         )}>

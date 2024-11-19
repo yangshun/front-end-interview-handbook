@@ -7,6 +7,7 @@ import type {
 } from 'contentlayer/generated';
 import { useState } from 'react';
 import { RiFlaskLine, RiVerifiedBadgeLine, RiWindowLine } from 'react-icons/ri';
+import { useMediaQuery } from 'usehooks-ts';
 
 import { trpc } from '~/hooks/trpc';
 
@@ -54,6 +55,8 @@ export default function InterviewsGFE75Page({
 }: Props) {
   const intl = useIntl();
   const user = useUser();
+  const isTabletAndAbove = useMediaQuery('(min-width: 640px)');
+  const isLaptopAndAbove = useMediaQuery('(min-width: 1280px)');
 
   const { setShowFeedbackWidget } = useUserPreferences();
   const [isOpenFeedback, setIsOpenFeedback] = useState(false);
@@ -106,7 +109,11 @@ export default function InterviewsGFE75Page({
         <InterviewsRecommendedPrepStrategyPageTitleSection
           description={studyList.description}
           features={features}
-          logo={<PreparationGFE75Logo />}
+          logo={
+            <PreparationGFE75Logo
+              size={isLaptopAndAbove ? 'xl' : isTabletAndAbove ? 'lg' : 'md'}
+            />
+          }
           longDescription={
             <div className="flex flex-col gap-4">
               <Text color="secondary" size="body1">

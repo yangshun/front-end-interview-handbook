@@ -47,12 +47,12 @@ export default function InterviewsPageHeader({
       <div
         className={clsx(
           'inline-flex shrink-0 items-center justify-center',
-          'size-16 rounded-lg shadow-md',
+          'size-12 sm:size-14 xl:size-16 rounded-lg shadow-md',
           'bg-white',
         )}>
         <img
           alt={title}
-          className="size-9"
+          className="size-7 sm:size-9"
           decoding="async"
           loading="lazy"
           src={logoImgSrc}
@@ -72,32 +72,36 @@ export default function InterviewsPageHeader({
       )}
       <div
         className={clsx(
-          'flex flex-col justify-between xl:flex-row',
-          'gap-x-6 gap-y-8 md:gap-y-6',
+          'flex w-full flex-col justify-between xl:flex-row',
+          'gap-x-6 gap-y-8 sm:gap-y-6',
         )}>
-        <div
-          className={clsx(
-            'flex flex-col xl:col-span-2',
-            iconEl ? 'gap-8' : 'gap-4',
-          )}>
-          <div className="flex items-center gap-6">
-            {iconEl}
-            <div className="flex items-center gap-4">
-              <Heading level="heading4">{title}</Heading>
-              {headingAddOnElement}
+        <div className={clsx('flex flex-col gap-8 xl:col-span-2')}>
+          <div
+            className={clsx(
+              'flex flex-col',
+              iconEl ? 'gap-2 lg:gap-4 xl:gap-8' : 'gap-4',
+            )}>
+            <div className="flex items-center gap-6">
+              {iconEl}
+              <div className="flex items-center gap-4">
+                <Heading level="heading4">{title}</Heading>
+                {headingAddOnElement}
+              </div>
             </div>
+            <Text
+              className={clsx('block max-w-2xl text-sm lg:text-base')}
+              color="subtitle"
+              size="inherit"
+              weight="medium">
+              {description}
+            </Text>
           </div>
-          <Text
-            className="block max-w-2xl"
-            color="subtitle"
-            size="body1"
-            weight="medium">
-            {description}
-          </Text>
           {/* Features */}
           <InterviewsPageFeatures features={features} />
         </div>
-        {sideElement && <div className="max-w-[363px]">{sideElement}</div>}
+        {sideElement && (
+          <div className="w-full lg:w-auto lg:max-w-[363px]">{sideElement}</div>
+        )}
       </div>
       <Divider />
       {children}
