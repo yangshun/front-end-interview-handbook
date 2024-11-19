@@ -49,6 +49,7 @@ export default function InterviewsNavbarEndAddOnItems() {
       {isLoggedIn && (
         <NavProfileIcon
           avatarUrl={userProfile?.avatarUrl ?? user?.user_metadata?.avatar_url}
+          isPremium={isPremium}
           navItems={loggedInLinks}
           userIdentifierString={userProfile?.name ?? user?.email}
         />

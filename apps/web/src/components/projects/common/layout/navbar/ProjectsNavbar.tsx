@@ -176,6 +176,7 @@ export default function ProjectsNavbar({ hideOnDesktop = false }: Props) {
       {isLoggedIn && (
         <NavProfileIcon
           avatarUrl={userProfile?.avatarUrl ?? user?.user_metadata?.avatar_url}
+          isPremium={isPremium}
           navItems={userNavigationLinks}
           userIdentifierString={userProfile?.name ?? user?.email}
         />

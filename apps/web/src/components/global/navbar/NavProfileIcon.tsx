@@ -1,7 +1,9 @@
 import clsx from 'clsx';
+import { RiStarSmileFill } from 'react-icons/ri';
 
 import { FormattedMessage } from '~/components/intl';
 import Avatar from '~/components/ui/Avatar';
+import Chip from '~/components/ui/Chip';
 import Divider from '~/components/ui/Divider';
 import DropdownMenu from '~/components/ui/DropdownMenu';
 import { dropdownContentClassName } from '~/components/ui/DropdownMenu/dropdownStyles';
@@ -19,15 +21,17 @@ import {
 import * as DropdownMenuPrimitive from '@radix-ui/react-dropdown-menu';
 
 type Props = Readonly<{
-  avatarUrl?: string; // Can be name or email.
+  avatarUrl?: string;
+  isPremium?: boolean;
   navItems: ReadonlyArray<NavLinkItem>;
-  userIdentifierString?: string;
+  userIdentifierString?: string; // Can be name or email.
 }>;
 
 export default function NavProfileIcon({
   avatarUrl,
   userIdentifierString,
   navItems,
+  isPremium,
 }: Props) {
   return (
     <DropdownMenuPrimitive.Root>
@@ -58,14 +62,26 @@ export default function NavProfileIcon({
       <DropdownMenuPrimitive.Portal>
         <DropdownMenuPrimitive.Content
           align="end"
-          className={dropdownContentClassName}
+          className={clsx(dropdownContentClassName, 'max-w-52')}
           sideOffset={8}>
-          <Text
-            className="display truncate px-2 py-1"
-            size="body2"
-            weight="bold">
-            {userIdentifierString}
-          </Text>
+          <div className="flex items-center">
+            <Text
+              className="display truncate px-2 py-1"
+              size="body2"
+              weight="bold">
+              {userIdentifierString}
+            </Text>
+            {isPremium && (
+              <Chip
+                className="size-[18px]"
+                icon={RiStarSmileFill}
+                iconClassName="size-[14px]"
+                isLabelHidden={true}
+                label="Premium user badge"
+                variant="primary"
+              />
+            )}
+          </div>
           <Divider className="my-1" />
           <div>
             {navItems.map((navItem) => (
