@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 import { usePathname } from 'next/navigation';
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import {
   RiDownloadLine,
   RiLoopLeftLine,
@@ -103,7 +103,7 @@ export default function QuestionsListSession({
     setAutomaticallyStartLearning(true);
   });
 
-  function onStartLearning() {
+  const onStartLearning = useCallback(() => {
     if (
       !progressTrackingAvailableToNonPremiumUsers &&
       !userProfile?.isInterviewsPremium
@@ -125,7 +125,13 @@ export default function QuestionsListSession({
         },
       },
     );
-  }
+  }, [
+    previousSessionQuestionProgress.length,
+    progressTrackingAvailableToNonPremiumUsers,
+    questionListKey,
+    startSessionMutation,
+    userProfile?.isInterviewsPremium,
+  ]);
 
   useEffect(() => {
     if (user == null || isUserProfileLoading) {
@@ -138,7 +144,7 @@ export default function QuestionsListSession({
 
     setAutomaticallyStartLearning(false);
     onStartLearning();
-  }, [automaticallyStartLearning, isUserProfileLoading, Boolean(user)]);
+  }, [automaticallyStartLearning, isUserProfileLoading, onStartLearning, user]);
 
   return (
     <div className="w-full lg:w-auto">
