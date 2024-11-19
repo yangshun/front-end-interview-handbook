@@ -26,7 +26,10 @@ export default function RewardsHeader() {
         })}
         variant="neutral-active"
       />
-      <Heading className={themeGradientHeading} level="heading2">
+      <Heading
+        className={themeGradientHeading}
+        level="heading2"
+        weight="medium">
         {intl.formatMessage(
           {
             defaultMessage: '{discountPercentage}% off all plans',
