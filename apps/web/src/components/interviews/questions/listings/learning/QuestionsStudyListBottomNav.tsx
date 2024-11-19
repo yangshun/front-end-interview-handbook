@@ -15,6 +15,8 @@ import { useQueryQuestionProgress } from '~/db/QuestionsProgressClient';
 
 import type { QuestionQuiz } from '../../common/QuestionsTypes';
 
+import { useUser } from '@supabase/auth-helpers-react';
+
 type Props = Readonly<{
   listKey?: string;
   paginationEl: ReactNode;
@@ -26,9 +28,10 @@ export default function QuestionsStudyListBottomNav({
   question,
   listKey,
 }: Props) {
-  const { data: questionProgress, isSuccess } = useQueryQuestionProgress(
+  const user = useUser();
+  const { data: questionProgress, isLoading } = useQueryQuestionProgress(
     question.metadata,
-    listKey
+    listKey,
   );
 
   return (
@@ -55,7 +58,7 @@ export default function QuestionsStudyListBottomNav({
             className={clsx(
               'flex justify-end xl:order-3 xl:flex-1',
               'transition-colors',
-              isSuccess ? 'opacity-100' : 'opacity-0',
+              isLoading && user != null ? 'opacity-0' : 'opacity-100',
             )}>
             <QuestionReportIssueButton
               className="mr-3 xl:hidden"

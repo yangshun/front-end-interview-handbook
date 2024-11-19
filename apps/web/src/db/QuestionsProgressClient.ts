@@ -26,7 +26,7 @@ export function useQueryQuestionProgress(
       },
     },
     {
-      enabled: !!user, // Only enable the query if the user is logged in
+      enabled: user != null, // Only enable the query if the user is logged in
     },
   );
 }
