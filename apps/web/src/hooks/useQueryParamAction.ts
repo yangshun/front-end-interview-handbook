@@ -4,25 +4,32 @@ import url from 'url';
 
 export const queryParamActionKey = 'action';
 
-export default function useQueryParamAction(
+type StrictObject<T extends string> = {
+  [K in T]: string;
+};
+
+export default function useQueryParamAction<T extends string>(
   actionName: string,
-  handler: () => void,
+  handler: (params_?: Record<T, string>) => void,
+  params?: ReadonlyArray<T>,
 ) {
   const hasRunRef = useRef(false);
   const pathname = usePathname();
   const { replace } = useRouter();
 
   const clearActionQueryParams = useCallback(() => {
-    const params = new URLSearchParams(window.location.search);
+    const searchParams = new URLSearchParams(window.location.search);
 
-    params.delete(queryParamActionKey);
+    [queryParamActionKey, ...(params ?? [])].forEach((key) => {
+      searchParams.delete(key);
+    });
     replace(
       url.format({
         pathname,
-        query: Object.fromEntries(params),
+        query: Object.fromEntries(searchParams),
       }),
     );
-  }, [pathname, replace]);
+  }, [params, pathname, replace]);
 
   useEffect(() => {
     if (hasRunRef.current) {
@@ -32,22 +39,38 @@ export default function useQueryParamAction(
     hasRunRef.current = true;
 
     // Read the parameter on-demand to avoid using useSearchParams.
-    const params = new URLSearchParams(window.location.search);
-    const actionParamValue = params.get(queryParamActionKey);
+    const searchParams = new URLSearchParams(window.location.search);
+    const actionParamValue = searchParams.get(queryParamActionKey);
+
+    // eslint-disable-next-line @typescript-eslint/consistent-indexed-object-style
+    const actionQueryParams: { [key: string]: string } = {};
+
+    params?.forEach((key) => {
+      const value = searchParams.get(key);
+
+      if (value) {
+        actionQueryParams[key] = value;
+      }
+    });
 
     if (actionParamValue === actionName) {
-      handler();
+      handler(params ? (actionQueryParams as StrictObject<T>) : undefined);
       clearActionQueryParams();
     }
-  }, [actionName, clearActionQueryParams, handler]);
+  }, [actionName, clearActionQueryParams, handler, params]);
 
-  function addQueryParamToPath(href: string) {
+  function addQueryParamToPath(href: string, queryParams?: StrictObject<T>) {
     const urlObj = new URL(
       href,
       'https://greatfrontend.com', // The domain is not used.
     );
 
     urlObj.searchParams.set(queryParamActionKey, actionName);
+    if (params && queryParams) {
+      params.forEach((key: T) => {
+        urlObj.searchParams.set(key, queryParams[key]);
+      });
+    }
 
     return url.format({
       pathname: urlObj.pathname,

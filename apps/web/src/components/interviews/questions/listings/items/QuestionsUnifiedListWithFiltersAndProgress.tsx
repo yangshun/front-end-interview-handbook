@@ -1,4 +1,9 @@
+import { usePathname, useRouter } from 'next/navigation';
+import { useCallback, useEffect, useState } from 'react';
+
 import { trpc } from '~/hooks/trpc';
+import useQueryParamAction from '~/hooks/useQueryParamAction';
+import { useAuthSignInUp } from '~/hooks/user/useAuthFns';
 
 import { useToast } from '~/components/global/toasts/useToast';
 import type { GuideCardMetadataWithCompletedStatus } from '~/components/guides/types';
@@ -13,6 +18,8 @@ import QuestionsUnifiedListWithFilters from './QuestionsUnifiedListWithFilters';
 import useQuestionsWithCompletionStatus from '../filters/hooks/useQuestionsWithCompletionStatus';
 import type { QuestionMetadata } from '../../common/QuestionsTypes';
 
+import { useUser } from '@supabase/auth-helpers-react';
+
 type Props = Omit<
   React.ComponentProps<typeof QuestionsUnifiedListWithFilters>,
   'onMarkAsCompleted' | 'onMarkAsNotCompleted' | 'questions'
@@ -26,6 +33,8 @@ type Props = Omit<
     questions: ReadonlyArray<QuestionMetadata>;
   }>;
 
+const MARK_QN_COMPLETE_ACTION = 'mark-question-complete';
+
 export default function QuestionsUnifiedListWithFiltersAndProgress({
   questions,
   listKey,
@@ -34,6 +43,24 @@ export default function QuestionsUnifiedListWithFiltersAndProgress({
   const trpcUtils = trpc.useUtils();
   const intl = useIntl();
   const { showToast } = useToast();
+  const user = useUser();
+  const router = useRouter();
+  const pathname = usePathname();
+  const { signInUpHref } = useAuthSignInUp();
+  const [
+    automaticallyMarkCompleteQuestion,
+    setAutomaticallyMarkCompleteQuestion,
+  ] = useState<{ format: string; slug: string; title: string } | null>(null);
+
+  const addQueryParamToPath = useQueryParamAction<'format' | 'slug' | 'title'>(
+    MARK_QN_COMPLETE_ACTION,
+    (params) => {
+      if (params) {
+        setAutomaticallyMarkCompleteQuestion(params);
+      }
+    },
+    ['format', 'slug', 'title'],
+  );
 
   const questionsWithCompletionStatus = useQuestionsWithCompletionStatus(
     questions,
@@ -42,41 +69,68 @@ export default function QuestionsUnifiedListWithFiltersAndProgress({
   const markCompleteMutation = useMutationQuestionProgressAdd();
   const markNotCompleteMutation = useMutationQuestionProgressDelete();
 
-  function markQuestionAsCompleted(question: QuestionMetadata) {
-    if (markCompleteMutation.isLoading) {
+  const markQuestionAsCompleted = useCallback(
+    ({
+      slug,
+      title,
+      format,
+    }: Readonly<{ format: string; slug: string; title: string }>) => {
+      if (user == null || markCompleteMutation.isLoading) {
+        return;
+      }
+
+      markCompleteMutation.mutate(
+        {
+          format,
+          listKey,
+          slug,
+        },
+        {
+          onSuccess: () => {
+            trpcUtils.questionLists.invalidate();
+            showToast({
+              title: intl.formatMessage(
+                {
+                  defaultMessage: 'Marked "{questionTitle}" as complete',
+                  description:
+                    'Success message for marking a question as complete',
+                  id: 'awMxNG',
+                },
+                {
+                  questionTitle: title,
+                },
+              ),
+              variant: 'success',
+            });
+          },
+        },
+      );
+    },
+    [
+      intl,
+      listKey,
+      markCompleteMutation,
+      showToast,
+      trpcUtils.questionLists,
+      user,
+    ],
+  );
+
+  useEffect(() => {
+    if (user == null) {
       return;
     }
 
-    markCompleteMutation.mutate(
-      {
-        format: question.format,
-        listKey,
-        slug: question.slug,
-      },
-      {
-        onSuccess: () => {
-          trpcUtils.questionLists.invalidate();
-          showToast({
-            title: intl.formatMessage(
-              {
-                defaultMessage: 'Marked "{questionTitle}" as complete',
-                description:
-                  'Success message for marking a question as complete',
-                id: 'awMxNG',
-              },
-              {
-                questionTitle: question.title,
-              },
-            ),
-            variant: 'success',
-          });
-        },
-      },
-    );
-  }
+    if (automaticallyMarkCompleteQuestion == null) {
+      return;
+    }
+
+    markQuestionAsCompleted(automaticallyMarkCompleteQuestion);
+    setAutomaticallyMarkCompleteQuestion(null);
+  }, [automaticallyMarkCompleteQuestion, markQuestionAsCompleted, user]);
 
   function markQuestionAsNotCompleted(question: QuestionMetadata) {
-    if (markNotCompleteMutation.isLoading) {
+    if (user == null || markNotCompleteMutation.isLoading) {
       return;
     }
 
@@ -112,8 +166,24 @@ export default function QuestionsUnifiedListWithFiltersAndProgress({
     <QuestionsUnifiedListWithFilters
       listKey={listKey}
       questions={questionsWithCompletionStatus}
-      onMarkAsCompleted={markQuestionAsCompleted}
-      onMarkAsNotCompleted={markQuestionAsNotCompleted}
+      onMarkAsCompleted={
+        user == null
+          ? (questionMetadata) => {
+              router.push(
+                signInUpHref({
+                  next: addQueryParamToPath(pathname || '', {
+                    format: questionMetadata.format,
+                    slug: questionMetadata.slug,
+                    title: questionMetadata.title,
+                  }),
+                }),
+              );
+            }
+          : markQuestionAsCompleted
+      }
+      onMarkAsNotCompleted={
+        user == null ? undefined : markQuestionAsNotCompleted
+      }
       {...props}
     />
   );
