@@ -5,8 +5,8 @@ export default function useInterviewsLoggedInLinks() {
   const commonNavItems = useCommonNavItems();
 
   const userNavigation: ReadonlyArray<NavLinkItem> = [
-    commonNavItems.interviewsProfile,
     commonNavItems.interviewsBilling,
+    commonNavItems.interviewsSettings,
     commonNavItems.logout,
   ];
 

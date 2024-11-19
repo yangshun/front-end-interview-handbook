@@ -1,7 +1,7 @@
 import {
   RiLogoutBoxLine,
   RiPagesLine,
-  RiUserLine,
+  RiSettings3Line,
   RiWallet3Line,
 } from 'react-icons/ri';
 
@@ -68,20 +68,20 @@ export default function useCommonNavItems() {
     position: 'start',
     type: 'link',
   };
-  const interviewsProfile: NavLinkItem = {
+  const interviewsSettings: NavLinkItem = {
     href: '/profile',
-    icon: RiUserLine,
+    icon: RiSettings3Line,
     itemKey: 'profile',
     label: intl.formatMessage({
-      defaultMessage: 'Profile',
+      defaultMessage: 'Settings',
       description: 'Link label to the profile page',
-      id: 'BwHkBU',
+      id: 'SWnsuA',
     }),
     onClick: () => {
       gtag.event({
         action: `nav.profile.click`,
         category: 'engagement',
-        label: 'Profile',
+        label: 'Settings',
       });
     },
     type: 'link',
@@ -105,5 +105,5 @@ export default function useCommonNavItems() {
     type: 'link',
   };
 
-  return { blog, interviewsBilling, interviewsProfile, login, logout };
+  return { blog, interviewsBilling, interviewsSettings, login, logout };
 }

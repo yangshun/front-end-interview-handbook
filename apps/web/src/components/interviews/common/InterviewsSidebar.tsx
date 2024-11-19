@@ -36,11 +36,19 @@ export function InterviewsSidebarExpanded({
 }>) {
   const { isLoading, userProfile } = useUserProfile();
   const isPremium = userProfile?.premium ?? false;
+  const commonNavItems = useCommonNavItems();
 
   return (
     <SidebarExpanded
       isLoading={isLoading}
       isViewerPremium={isPremium}
+      moreMenuItems={
+        <DropdownMenu.Item
+          href={commonNavItems.interviewsSettings.href}
+          icon={commonNavItems.interviewsSettings.icon}
+          label={commonNavItems.interviewsSettings.label}
+        />
+      }
       product="interviews"
       renderBottomAddonElements={() => <SocialDiscountSidebarMention />}
       sidebarItems={sidebarItems}
@@ -97,14 +105,14 @@ function InterviewsSidebarCollapsed({
           <>
             <Divider />
             <DropdownMenu.Item
-              href={commonNavItems.interviewsProfile.href}
-              icon={commonNavItems.interviewsProfile.icon}
-              label={commonNavItems.interviewsProfile.label}
-            />
-            <DropdownMenu.Item
               href={commonNavItems.interviewsBilling.href}
               icon={commonNavItems.interviewsBilling.icon}
               label={commonNavItems.interviewsBilling.label}
+            />
+            <DropdownMenu.Item
+              href={commonNavItems.interviewsSettings.href}
+              icon={commonNavItems.interviewsSettings.icon}
+              label={commonNavItems.interviewsSettings.label}
             />
           </>
         ) : undefined

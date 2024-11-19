@@ -4507,6 +4507,10 @@
     "defaultMessage": "Next",
     "description": "Next step button label"
   },
+  "SWnsuA": {
+    "defaultMessage": "Settings",
+    "description": "Link label to the profile page"
+  },
   "SZ26iB": {
     "defaultMessage": "Search",
     "description": "Placeholder for search input of blog list"

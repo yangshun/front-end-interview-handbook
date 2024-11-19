@@ -69,7 +69,11 @@ export default function NavProfileIcon({
           <Divider className="my-1" />
           <div>
             {navItems.map((navItem) => (
-              <DropdownMenu.Item key={navItem.itemKey} {...navItem} />
+              <DropdownMenu.Item
+                key={navItem.itemKey}
+                {...navItem}
+                icon={undefined}
+              />
             ))}
           </div>
         </DropdownMenuPrimitive.Content>
