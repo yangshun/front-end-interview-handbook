@@ -1,15 +1,14 @@
 import clsx from 'clsx';
 import { usePathname } from 'next/navigation';
-import { useRouter } from 'next/navigation';
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import {
   RiDownloadLine,
   RiLoopLeftLine,
   RiStopCircleLine,
 } from 'react-icons/ri';
-import url from 'url';
 
 import { trpc } from '~/hooks/trpc';
+import useQueryParamAction from '~/hooks/useQueryParamAction';
 import { useAuthSignInUp } from '~/hooks/user/useAuthFns';
 
 import ConfirmationDialog from '~/components/common/ConfirmationDialog';
@@ -55,12 +54,9 @@ export default function QuestionsListSession({
 }: Props) {
   const intl = useIntl();
   const pathname = usePathname();
-  const { replace } = useRouter();
-  // This ref exists to prevent double firing of start mutation requests.
-  const actionWasProcessedRef = useRef(false);
 
   const trpcUtils = trpc.useUtils();
-  const { userProfile } = useUserProfile();
+  const { userProfile, isUserProfileLoading } = useUserProfile();
   const user = useUser();
   const { signInUpHref } = useAuthSignInUp();
 
@@ -70,7 +66,7 @@ export default function QuestionsListSession({
         listKey: questionListKey,
       },
       {
-        enabled: !!user,
+        enabled: user != null,
       },
     );
 
@@ -81,7 +77,6 @@ export default function QuestionsListSession({
   );
 
   const startSessionMutation = useStartLearningSessionMutation();
-
   const stopSessionMutation = trpc.questionLists.stopSession.useMutation({
     onSuccess() {
       trpcUtils.questionLists.invalidate();
@@ -102,85 +97,48 @@ export default function QuestionsListSession({
   const [showPricingDialog, setShowPricingDialog] = useState(false);
   const [showImportProgressModal, setShowImportProgressModal] = useState(false);
   const { showToast } = useToast();
+  const [automaticallyStartLearning, setAutomaticallyStartLearning] =
+    useState(false);
+  const addQueryParamToPath = useQueryParamAction('start-session', () => {
+    setAutomaticallyStartLearning(true);
+  });
 
-  const clearActionSearchParams = useCallback(() => {
-    const params = new URLSearchParams(window.location.search);
-
-    params.delete('action');
-    replace(
-      url.format({
-        pathname,
-        query: Object.fromEntries(params),
-      }),
-    );
-  }, [pathname, replace]);
-
-  const onStartLearning = useCallback(() => {
+  function onStartLearning() {
     if (
       !progressTrackingAvailableToNonPremiumUsers &&
       !userProfile?.isInterviewsPremium
     ) {
       setShowPricingDialog(true);
-    } else {
-      startSessionMutation.mutate(
-        {
-          listKey: questionListKey,
-        },
-        {
-          onSuccess: () => {
-            if (previousSessionQuestionProgress.length > 0) {
-              setShowImportProgressModal(true);
-            }
-          },
-        },
-      );
+
+      return;
     }
-  }, [
-    progressTrackingAvailableToNonPremiumUsers,
-    userProfile?.isInterviewsPremium,
-    startSessionMutation,
-    questionListKey,
-    previousSessionQuestionProgress,
-  ]);
+
+    startSessionMutation.mutate(
+      {
+        listKey: questionListKey,
+      },
+      {
+        onSuccess: () => {
+          if (previousSessionQuestionProgress.length > 0) {
+            setShowImportProgressModal(true);
+          }
+        },
+      },
+    );
+  }
 
   useEffect(() => {
-    if (
-      userProfile == null ||
-      isQuestionListSessionLoading ||
-      actionWasProcessedRef.current === true
-    ) {
+    if (user == null || isUserProfileLoading) {
       return;
     }
 
-    // Don't process action if there's an ongoing session.
-    // Clear the search param and set the ref to false
-    // so that if a user stops the session, it isn't automatically restarted.
-    if (questionListSession != null) {
-      actionWasProcessedRef.current = true;
-      clearActionSearchParams();
-
+    if (!automaticallyStartLearning) {
       return;
     }
 
-    // Read the parameter on-demand to avoid using useSearchParams.
-    const params = new URLSearchParams(window.location.search);
-    const actionParam = params.get('action');
-
-    if (actionParam) {
-      actionWasProcessedRef.current = true;
-      clearActionSearchParams();
-    }
-
-    if (actionParam === 'start_session') {
-      onStartLearning();
-    }
-  }, [
-    questionListSession,
-    isQuestionListSessionLoading,
-    userProfile,
-    onStartLearning,
-    clearActionSearchParams,
-  ]);
+    setAutomaticallyStartLearning(false);
+    onStartLearning();
+  }, [automaticallyStartLearning, isUserProfileLoading, Boolean(user)]);
 
   return (
     <div className="w-full lg:w-auto">
@@ -191,21 +149,18 @@ export default function QuestionsListSession({
 
         if (questionListSession == null) {
           return (
-            <div className="flex w-fit flex-col items-end gap-3">
+            <div className="flex w-fit flex-col gap-3 lg:items-end">
               <Button
                 href={
-                  userProfile == null
-                    ? undefined
-                    : signInUpHref({
-                        next: url.format({
-                          pathname,
-                          query: {
-                            action: 'start_session',
-                          },
-                        }),
+                  user == null
+                    ? signInUpHref({
+                        next: addQueryParamToPath(pathname || ''),
                       })
+                    : undefined
                 }
-                isDisabled={startSessionMutation.isLoading}
+                isDisabled={
+                  startSessionMutation.isLoading || isUserProfileLoading
+                }
                 isLoading={startSessionMutation.isLoading}
                 label={intl.formatMessage({
                   defaultMessage: 'Start learning',
@@ -353,7 +308,6 @@ export default function QuestionsListSession({
                 />
               </div>
             </Card>
-
             {questionListSession != null &&
               previousSessionQuestionProgress.length > 0 && (
                 <div>

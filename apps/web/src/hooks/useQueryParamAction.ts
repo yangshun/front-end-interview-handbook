@@ -41,10 +41,10 @@ export default function useQueryParamAction(
     }
   }, [actionName, clearActionQueryParams, handler]);
 
-  function addQueryParamToPath(href?: string) {
+  function addQueryParamToPath(href: string) {
     const urlObj = new URL(
-      href || window.location.href,
-      window.location.origin, // The domain is not used.
+      href,
+      'https://greatfrontend.com', // The domain is not used.
     );
 
     urlObj.searchParams.set(queryParamActionKey, actionName);
