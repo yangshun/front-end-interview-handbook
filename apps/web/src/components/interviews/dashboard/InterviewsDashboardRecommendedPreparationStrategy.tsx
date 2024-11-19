@@ -94,7 +94,7 @@ function PreparationStrategyCard({ data }: { data: PreparationStrategyItem }) {
 
         <div className="flex flex-1 flex-col gap-4">
           <div className="flex flex-col gap-2">
-            <Text size="body2" weight="bold">
+            <Text className="text-sm sm:text-base" size="inherit" weight="bold">
               {title}
             </Text>
             <Text color="secondary" size="body2">

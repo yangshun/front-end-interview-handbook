@@ -109,7 +109,10 @@ export default function InterviewsStudyListCard({
           )}>
           <div className="flex flex-col items-start gap-2">
             <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
-              <Text size="body2" weight="bold">
+              <Text
+                className={clsx(showDescription && 'text-sm sm:text-base')}
+                size={showDescription ? 'inherit' : 'body2'}
+                weight="bold">
                 {showLongName ? longName : name}
               </Text>
 

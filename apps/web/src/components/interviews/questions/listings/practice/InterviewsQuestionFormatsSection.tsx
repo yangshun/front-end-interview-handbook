@@ -84,7 +84,10 @@ function InterviewsQuestionFormatCard({
         <div className="flex flex-grow items-center gap-4">
           <div className="flex flex-1 flex-col gap-4">
             <div className="flex flex-1 flex-col gap-2">
-              <Text size="body2" weight="medium">
+              <Text
+                className="text-sm sm:text-base"
+                size="inherit"
+                weight="bold">
                 {title}
               </Text>
               <Text color="secondary" size="body2">
