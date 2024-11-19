@@ -54,7 +54,7 @@ export default function BlogExplorePage() {
           />
         </Text>
       </div>
-      <div className="flex flex-col gap-x-10 gap-y-3 lg:flex-row">
+      <div className="flex flex-col gap-x-4 gap-y-3 lg:flex-row lg:gap-x-6 xl:gap-x-10">
         <div className="hidden lg:contents">
           <BlogExploreSeriesSidebar
             activeItem={activeItem}

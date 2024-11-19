@@ -25,7 +25,7 @@ export default function BlogArticle({
     <div className="flex flex-col gap-12">
       <div className="flex flex-col gap-5">
         <div className="flex flex-col gap-3">
-          <Heading level={view === 'card' ? 'heading6' : 'heading4'}>
+          <Heading level={view === 'card' ? 'heading5' : 'heading4'}>
             {metadata.title}
           </Heading>
           <Text

@@ -41,8 +41,8 @@ export default function BlogWhatsNewSection() {
       <Section>
         <div
           className={clsx(
-            'grid gap-6 md:grid-cols-2',
-            posts.length === ROW_SIZE && 'lg:grid-cols-3',
+            'grid gap-6 lg:grid-cols-2',
+            posts.length === ROW_SIZE && 'xl:grid-cols-3',
           )}>
           {posts.map((metadata, index) => (
             <div
