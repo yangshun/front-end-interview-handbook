@@ -28,6 +28,10 @@ export default function InterviewsQuestionsCategoryContentSlider({
     'yangshun/top-javascript-interview-questions',
     framework === 'js',
   );
+  const { data: starCountReact } = useGitHubStars(
+    'yangshun/top-reactjs-interview-questions',
+    framework === 'react',
+  );
 
   const jsRepoData = {
     count: starCountJS ?? null,
@@ -45,6 +49,24 @@ export default function InterviewsQuestionsCategoryContentSlider({
     }),
     type: 'github-star',
     value: 'js-repo',
+  } as const;
+
+  const reactRepoData = {
+    count: starCountReact ?? null,
+    description: intl.formatMessage({
+      defaultMessage:
+        'Support us by starring our GitHub repo and consider contributing!',
+      description: 'Description for github star',
+      id: 'P4vm6j',
+    }),
+    href: 'https://github.com/yangshun/top-reactjs-interview-questions',
+    title: intl.formatMessage({
+      defaultMessage: '⭐️ Star our React repo',
+      description: 'Title for github star CTA',
+      id: 'ahI9XV',
+    }),
+    type: 'github-star',
+    value: 'react-repo',
   } as const;
 
   const frontEndInterviewData = {
@@ -71,10 +93,13 @@ export default function InterviewsQuestionsCategoryContentSlider({
     value: 'frontend-interview',
   } as const;
 
-  const data =
-    framework === 'js'
-      ? [jsRepoData, frontEndInterviewData]
-      : [frontEndInterviewData];
+  const data = (
+    [
+      framework === 'js' ? jsRepoData : null,
+      framework === 'react' ? reactRepoData : null,
+      frontEndInterviewData,
+    ] as const
+  ).flatMap((item) => (item != null ? [item] : []));
 
   useEffect(() => {
     timer.current = setInterval(() => {

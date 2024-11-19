@@ -3039,6 +3039,10 @@
     "defaultMessage": "{totalQuestions} questions",
     "description": "Number of questions"
   },
+  "J4hWfE": {
+    "defaultMessage": "React",
+    "description": "Front end development topic"
+  },
   "J7VxuG": {
     "defaultMessage": "Social Rewards Discount",
     "description": "Promotion title"
@@ -5690,6 +5694,10 @@
   "agUqSZ": {
     "defaultMessage": "Efficient ways to prepare when you're short on time.",
     "description": "Description for time savers"
+  },
+  "ahI9XV": {
+    "defaultMessage": "⭐️ Star our React repo",
+    "description": "Title for github star CTA"
   },
   "akHBWv": {
     "defaultMessage": "Outdent line",
