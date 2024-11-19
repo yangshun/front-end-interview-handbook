@@ -97,8 +97,8 @@ function InterviewsRecommendedPrepStrategyPopoverContents({
       <Text className="block" color="secondary" size="body3" weight="medium">
         <FormattedMessage
           defaultMessage="Recommended prep strategy"
-          description="Label for other items dropdown"
-          id="gBdxyo"
+          description="Recommended interview preparation strategy"
+          id="jCBp3Z"
         />
       </Text>
       <div className="flex flex-col gap-6">

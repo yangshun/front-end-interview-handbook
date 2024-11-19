@@ -135,9 +135,10 @@ export default function SidebarCollapsedLinkItem({
             {label}
           </Text>
           <div className="flex flex-col gap-2">
-            {props.items.map((childItem) => (
+            {props.items.map((childItem, index) => (
               <NavbarPopoverLink
                 key={childItem.itemKey}
+                number={index + 1}
                 {...childItem}
                 onClick={(event) => {
                   // To close the popover.

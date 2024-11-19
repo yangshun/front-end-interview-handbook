@@ -125,8 +125,8 @@ function DropdownContent({
       key: 'prep-strategy',
       label: intl.formatMessage({
         defaultMessage: 'Recommended prep strategy',
-        description: 'Label for recommended prep study list',
-        id: 'k+qWwN',
+        description: 'Recommended interview preparation strategy',
+        id: 'jCBp3Z',
       }),
     },
     {

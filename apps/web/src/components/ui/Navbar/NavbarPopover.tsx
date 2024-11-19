@@ -17,17 +17,22 @@ import type {
 import Text from '../Text';
 
 function NavbarPopoverLink({
+  number,
   label,
   href,
   onClick,
   sublabel,
   labelAddon,
+  showAsNumber,
   ...props
-}: NavPopoverLinkItem) {
+}: NavPopoverLinkItem & Readonly<{ number: number }>) {
   const el =
     sublabel != null ? (
       <div className={clsx('group flex items-start gap-4 xl:flex-col')}>
-        <NavbarFeatureIcon {...props} />
+        <NavbarFeatureIcon
+          number={showAsNumber ? number : undefined}
+          {...props}
+        />
         <div className="flex flex-col gap-y-0.5 xl:gap-y-1">
           <Text
             className="flex items-center gap-2"
@@ -44,7 +49,10 @@ function NavbarPopoverLink({
       </div>
     ) : (
       <div className="group flex flex-col gap-y-4">
-        <NavbarFeatureIcon {...props} />
+        <NavbarFeatureIcon
+          number={showAsNumber ? number : undefined}
+          {...props}
+        />
         <div className="ml-4">
           <Text
             className="flex items-center gap-2"
@@ -83,9 +91,10 @@ function NavbarPopoverGroup({ label, items, onClick }: NavPopoverListItem) {
           items.length === 3 && 'xl:grid-cols-3',
         )}
         role="list">
-        {items.map(({ onClick: onItemClick, ...item }) => (
+        {items.map(({ onClick: onItemClick, ...item }, index) => (
           <li key={item.itemKey}>
             <NavbarPopoverLink
+              number={index + 1}
               {...item}
               onClick={(event) => {
                 onItemClick?.(event);
@@ -150,6 +159,7 @@ export default function NavbarPopover({
             )}
             {item.type === 'popover-link' && (
               <NavbarPopoverLink
+                number={index + 1}
                 {...item}
                 onClick={(event) => {
                   onClose();

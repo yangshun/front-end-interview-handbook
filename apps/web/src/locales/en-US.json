@@ -6607,10 +6607,6 @@
     "defaultMessage": "Quiz",
     "description": "Title for quiz questions"
   },
-  "gBdxyo": {
-    "defaultMessage": "Recommended prep strategy",
-    "description": "Label for other items dropdown"
-  },
   "gDAVYm": {
     "defaultMessage": "Report an issue",
     "description": "Tooltip for button to report an issue"
@@ -7027,6 +7023,10 @@
     "defaultMessage": "You can add more skills e.g. UI frameworks used after starting the project",
     "description": "Additional information for skills section on Projects project page"
   },
+  "jCBp3Z": {
+    "defaultMessage": "Recommended prep strategy",
+    "description": "Recommended interview preparation strategy"
+  },
   "jGPKlz": {
     "defaultMessage": "Svelte Interview Questions",
     "description": "Svelte questions category long title"
@@ -7166,10 +7166,6 @@
   "k+T8RZ": {
     "defaultMessage": "Warning",
     "description": "Warning badge label for GitHub repo step in project submission checklist"
-  },
-  "k+qWwN": {
-    "defaultMessage": "Recommended prep strategy",
-    "description": "Label for recommended prep study list"
   },
   "k18teo": {
     "defaultMessage": "This is a one-time use promo code exclusive to your account and <strong>can only be generated once</strong>.",

@@ -62,6 +62,7 @@ export type NavPopoverLinkItem = Readonly<
       bottomEl?: React.ReactNode;
       href?: string;
       labelAddon?: React.ReactNode;
+      showAsNumber?: boolean;
       sublabel?: string;
       type: 'popover-link';
     }> &

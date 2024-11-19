@@ -120,6 +120,7 @@ export default function useInterviewsNavItems(placement: 'nav' | 'sidebar') {
             label: guidesData['front-end-interview-playbook'].name,
           });
         },
+        showAsNumber: true,
         sublabel: intl.formatMessage({
           defaultMessage: 'Quick start guide to front end interviews',
           description: 'Description of front end interview playbook',
@@ -139,6 +140,7 @@ export default function useInterviewsNavItems(placement: 'nav' | 'sidebar') {
             label: 'GreatFrontEnd 75',
           });
         },
+        showAsNumber: true,
         sublabel: intl.formatMessage({
           defaultMessage:
             'Most important 75 questions for front end interviews',
@@ -159,6 +161,7 @@ export default function useInterviewsNavItems(placement: 'nav' | 'sidebar') {
             label: 'Blind 75',
           });
         },
+        showAsNumber: true,
         sublabel: intl.formatMessage({
           defaultMessage:
             'Famed list of the 75 most important algorithm questions',
@@ -179,6 +182,7 @@ export default function useInterviewsNavItems(placement: 'nav' | 'sidebar') {
             label: 'Front End System Design',
           });
         },
+        showAsNumber: true,
         sublabel: intl.formatMessage({
           defaultMessage:
             'Core front end system design techniques and in-depth solutions',

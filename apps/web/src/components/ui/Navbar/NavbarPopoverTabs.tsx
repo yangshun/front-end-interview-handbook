@@ -84,9 +84,10 @@ export default function NavbarPopoverTabs({
                 value === item.itemKey && 'size-full flex flex-col gap-y-2',
               )}
               value={item.itemKey}>
-              {item.items.map((childItem) => (
+              {item.items.map((childItem, index) => (
                 <NavbarPopoverLink
                   key={childItem.itemKey}
+                  number={index + 1}
                   {...childItem}
                   onClick={(event) => {
                     // To close the popover.

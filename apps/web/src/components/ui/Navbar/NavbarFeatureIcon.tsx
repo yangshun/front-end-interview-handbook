@@ -1,19 +1,28 @@
 import clsx from 'clsx';
 
+import Chip from '~/components/ui/Chip';
 import {
   themeGlassyBorder,
   themeTextSubtitleColor,
 } from '~/components/ui/theme';
 
-type Props =
-  | Readonly<{
-      icon: (props: React.ComponentProps<'svg'>) => JSX.Element;
-    }>
-  | Readonly<{
-      imageUrl: string;
-    }>;
+type Props = Readonly<{
+  number?: number;
+}> &
+  (
+    | Readonly<{
+        icon: (props: React.ComponentProps<'svg'>) => JSX.Element;
+      }>
+    | Readonly<{
+        imageUrl: string;
+      }>
+  );
 
-export default function NavbarFeatureIcon(props: Props) {
+export default function NavbarFeatureIcon({ number, ...props }: Props) {
+  if (number !== undefined) {
+    return <Chip label={number.toString()} size="sm" variant="neutral" />;
+  }
+
   return (
     <div
       className={clsx(

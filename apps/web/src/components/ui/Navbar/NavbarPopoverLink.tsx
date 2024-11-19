@@ -17,12 +17,14 @@ import Text from '../Text';
 export default function NavbarPopoverLink({
   label,
   href,
+  number,
   onClick,
   sublabel,
+  showAsNumber,
   labelAddon,
   bottomEl,
   ...props
-}: NavPopoverLinkItem) {
+}: NavPopoverLinkItem & Readonly<{ number: number }>) {
   const el = (
     <div
       className={clsx(
@@ -35,7 +37,10 @@ export default function NavbarPopoverLink({
         themeBackgroundElementEmphasizedStateColor_Hover,
         ['border border-transparent', themeBorderEmphasizeColor_Hover],
       )}>
-      <NavbarFeatureIcon {...props} />
+      <NavbarFeatureIcon
+        number={showAsNumber ? number : undefined}
+        {...props}
+      />
       <div className={clsx('flex grow flex-col justify-center')}>
         <Text className="flex items-center gap-2" size="body2" weight="bold">
           <span className="shrink-0">{label}</span> {labelAddon}
