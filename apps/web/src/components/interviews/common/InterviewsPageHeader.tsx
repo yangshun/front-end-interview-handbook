@@ -68,7 +68,11 @@ export default function InterviewsPageHeader({
           metadata={metadata}
         />
       )}
-      <div className="flex flex-col justify-between gap-6 lg:flex-row">
+      <div
+        className={clsx(
+          'flex flex-col justify-between xl:flex-row',
+          'gap-x-6 gap-y-8 md:gap-y-6',
+        )}>
         <div
           className={clsx(
             'flex flex-col xl:col-span-2',
@@ -78,21 +82,18 @@ export default function InterviewsPageHeader({
             {iconEl}
             <Heading level="heading4">{title}</Heading>
           </div>
-          <Text className="block" color="subtitle" size="body1" weight="medium">
+          <Text
+            className="block max-w-2xl"
+            color="subtitle"
+            size="body1"
+            weight="medium">
             {description}
           </Text>
+          {/* Features */}
+          <InterviewsPageFeatures features={features} />
         </div>
-        {sideElement && (
-          <div className="hidden max-w-[363px] lg:flex lg:justify-end">
-            {sideElement}
-          </div>
-        )}
+        {sideElement && <div className="max-w-[363px]">{sideElement}</div>}
       </div>
-      {/* Features */}
-      <InterviewsPageFeatures features={features} />
-      {sideElement && (
-        <div className="flex w-full lg:hidden">{sideElement}</div>
-      )}
       <Divider />
       {children}
     </div>

@@ -16,8 +16,7 @@ import type {
   GuideCardMetadata,
 } from '~/components/guides/types';
 import useGuidesWithCompletionStatus from '~/components/guides/useGuidesWithCompletionStatus';
-import InterviewsPageFeatures from '~/components/interviews/common/InterviewsPageFeatures';
-import InterviewsPageHeaderLogo from '~/components/interviews/common/InterviewsPageHeaderLogo';
+import InterviewsPageHeader from '~/components/interviews/common/InterviewsPageHeader';
 import type {
   QuestionFormat,
   QuestionMetadata,
@@ -26,9 +25,7 @@ import QuestionsUnifiedListWithFiltersAndProgress from '~/components/interviews/
 import { useIntl } from '~/components/intl';
 import MDXContent from '~/components/mdx/MDXContent';
 import Divider from '~/components/ui/Divider';
-import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
-import Text from '~/components/ui/Text';
 
 import type { QuestionCompletionCount } from '~/db/QuestionsCount';
 
@@ -139,22 +136,12 @@ export default function InterviewsQuestionFormatPage({
 
   return (
     <div className={clsx('flex flex-col', 'gap-y-8 md:gap-y-10 2xl:gap-y-12')}>
-      <div>
-        <div className="flex flex-col gap-4">
-          <div className="flex items-center gap-6">
-            <InterviewsPageHeaderLogo icon={formatData[format].icon} />
-            <Heading level="heading4">{title}</Heading>
-          </div>
-          <Text className="block" color="subtitle" size="body1" weight="medium">
-            {description}
-          </Text>
-        </div>
-        {/* Features */}
-        <div className="mt-10">
-          <InterviewsPageFeatures features={features} />
-        </div>
-        <Divider className="mt-8" />
-      </div>
+      <InterviewsPageHeader
+        description={description}
+        features={features}
+        icon={formatData[format].icon}
+        title={title}
+      />
       <Section>
         <QuestionsUnifiedListWithFiltersAndProgress
           defaultSortField="difficulty"
