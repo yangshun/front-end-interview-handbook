@@ -691,10 +691,6 @@
     "defaultMessage": "We have questions in every critical topic, interview format and framework / language. Every question comes with solutions and test cases.",
     "description": "Subtitle for marketing page section"
   },
-  "2w8GaX": {
-    "defaultMessage": "Claim {discountPercentage}% off all plans by completing simple social tasks!",
-    "description": "Title for rewards page"
-  },
   "2y24a/": {
     "defaultMessage": "Save",
     "description": "Save button label"
@@ -6950,6 +6946,10 @@
   "iLx/BQ": {
     "defaultMessage": "Amazon",
     "description": "Company name for Amazon"
+  },
+  "iP5QzF": {
+    "defaultMessage": "We are giving away an exclusive {discountPercentage}% of all plans for completing simple tasks like following our socials!",
+    "description": "Title for rewards page"
   },
   "iRkjCv": {
     "defaultMessage": "Code in browser",

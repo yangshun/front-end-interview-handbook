@@ -95,7 +95,7 @@ export default function RewardsTaskItem({
           status === 'none' ? 'h-11' : 'h-14',
         )}>
         <div className="flex items-center gap-x-4">
-          <Icon className={clsx('size-6 shrink-0', themeIconColor)} />
+          <Icon className={clsx('size-5 shrink-0', themeIconColor)} />
           <Text className="block" size="body2">
             {label}
           </Text>

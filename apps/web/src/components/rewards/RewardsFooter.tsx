@@ -18,7 +18,7 @@ export default function RewardsHeader() {
 
   return (
     <Container className="flex flex-col items-center gap-6">
-      <div className="flex flex-col items-center gap-4">
+      <div className="flex flex-col items-center gap-2">
         <Text color="secondary" size="body2">
           <FormattedMessage
             defaultMessage="Ready to begin?"
