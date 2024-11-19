@@ -41,11 +41,7 @@ export default function QuestionMetadataSection({
       {elements.includes('languages') &&
         metadata.languages &&
         metadata.languages.length > 0 && (
-          <QuestionLanguages
-            languages={metadata.languages}
-            showIcon={true}
-            size={size}
-          />
+          <QuestionLanguages languages={metadata.languages} showIcon={true} />
         )}
       {elements.includes('difficulty') && metadata.difficulty && (
         <QuestionDifficultyLabel
