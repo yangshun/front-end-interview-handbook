@@ -14,7 +14,7 @@ export default function InterviewsPricingSectionLocalizedContainer() {
   const { country, plans } = data;
 
   return (
-    <div className="py-20">
+    <div className="py-16 sm:py-20">
       <InterviewsPricingSection
         countryCode={country.code}
         countryName={country.name}

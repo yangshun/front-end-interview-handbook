@@ -22,7 +22,7 @@ export default function InterviewsMarketingDreamJobSection() {
         'flex flex-col items-start justify-end gap-6 self-stretch',
         'sm:flex-row sm:items-end sm:justify-between sm:gap-0',
         'lg:items-end',
-        'py-20',
+        'py-16 sm:py-20',
       )}
       width="marketing">
       <Heading

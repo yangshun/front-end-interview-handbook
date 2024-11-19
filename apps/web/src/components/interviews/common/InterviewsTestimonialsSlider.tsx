@@ -49,7 +49,7 @@ function TestimonialCard({
         'flex flex-col justify-between gap-6',
         'p-8',
         'rounded-lg',
-        'h-[338px] md:h-[256px]',
+        'h-[338px] sm:h-[256px]',
         themeBackgroundCardColor,
         ['border', themeBorderElementColor],
         [themeWhiteGlowCardBackground, 'before:-left-10 before:-top-10'],
@@ -61,13 +61,13 @@ function TestimonialCard({
           'before:z-[1] before:h-12',
           'before:bg-gradient-to-b before:from-[rgba(0,0,0,0)] before:to-neutral-50 before:dark:to-[#1E1E21]',
         )}>
-        <ScrollArea heightClass="h-[160px] md:h-[134px]">
+        <ScrollArea heightClass="h-[160px] sm:h-[134px]">
           <div className={clsx('pb-5 text-base font-semibold md:text-lg')}>
             "{testimonial}"
           </div>
         </ScrollArea>
       </blockquote>
-      <figcaption className="flex flex-col gap-4 md:flex-row md:items-center">
+      <figcaption className="flex flex-col gap-4 sm:flex-row sm:items-center">
         {authorThumbnailUrl && (
           <Avatar
             alt={name ?? ''}
@@ -77,7 +77,7 @@ function TestimonialCard({
             src={authorThumbnailUrl}
           />
         )}
-        <div className="flex flex-col flex-wrap gap-x-2 md:flex-row">
+        <div className="flex flex-col flex-wrap gap-x-2 sm:flex-row">
           {name &&
             (() => {
               if (!authorUrl) {

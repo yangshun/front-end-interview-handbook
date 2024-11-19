@@ -135,7 +135,7 @@ export default function InterviewsMarketingForeword() {
     <Container
       className={clsx(
         'px-6',
-        'py-16 md:py-20',
+        'py-16 sm:py-20',
         'flex flex-col items-center justify-center gap-12 lg:gap-16',
         'overflow-hidden',
       )}

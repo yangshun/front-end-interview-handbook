@@ -54,7 +54,7 @@ export default function InterviewsMarketingSimulateRealInterviews() {
 
   return (
     <Container
-      className={clsx('flex flex-col gap-12 lg:gap-16', 'py-20')}
+      className={clsx('flex flex-col gap-12 lg:gap-16', 'py-16 sm:py-20')}
       width="marketing">
       <div className={clsx('md:max-w-[634px]')}>
         <Heading
@@ -72,7 +72,7 @@ export default function InterviewsMarketingSimulateRealInterviews() {
             'mt-6 block',
             'text-base lg:text-lg',
             'lg:font-medium',
-            'md:max-w-xl',
+            'sm:max-w-xl',
           )}
           color="secondary"
           size="inherit"

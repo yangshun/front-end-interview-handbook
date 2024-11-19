@@ -26,7 +26,7 @@ import logEvent from '~/logging/logEvent';
 export default function MarketingCommunitySection() {
   return (
     <Container
-      className={clsx('flex flex-col gap-12 lg:gap-16', 'py-20')}
+      className={clsx('flex flex-col gap-12 lg:gap-16', 'py-16 sm:py-20')}
       width="marketing">
       <div>
         <Heading
@@ -64,7 +64,7 @@ export default function MarketingCommunitySection() {
       </div>
       <Section>
         <div className="w-full">
-          <div className="grid w-full grid-cols-2 gap-6 md:grid-cols-4">
+          <div className="grid w-full grid-cols-2 gap-4 sm:grid-cols-4 lg:gap-6">
             {[
               SocialLinks.linkedin,
               SocialLinks.discord,

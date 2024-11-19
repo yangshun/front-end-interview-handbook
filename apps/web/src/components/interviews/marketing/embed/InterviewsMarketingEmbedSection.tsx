@@ -150,7 +150,7 @@ export default function InterviewsMarketingEmbedSection({
         'scroll-mt-16',
       )}>
       <Container
-        className={clsx('relative', 'flex flex-col gap-y-8')}
+        className={clsx('relative', 'flex flex-col gap-y-5')}
         width="screen-xl">
         <motion.div
           style={{
@@ -192,7 +192,7 @@ export default function InterviewsMarketingEmbedSection({
               'Label for tabs to select sample interview question format',
             id: '50kzzq',
           })}
-          className="flex justify-center gap-2 flex-wrap">
+          className="flex flex-wrap justify-center gap-2">
           {tabs.map((tab) => (
             <FilterButton
               key={tab.value}

@@ -281,7 +281,7 @@ export default function InterviewsMarketingTestCodeSection() {
   );
 
   return (
-    <Container className={clsx('py-20')} width="marketing">
+    <Container className={clsx('py-16 sm:py-20')} width="marketing">
       <Heading
         className={clsx(
           themeMarketingHeadingSize,

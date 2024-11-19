@@ -114,7 +114,7 @@ export default function InterviewsMarketingPrepResourcesByBigTechEngineers() {
 
   return (
     <Container
-      className={clsx('flex flex-col gap-12 lg:gap-16', 'py-20')}
+      className={clsx('flex flex-col gap-12 lg:gap-16', 'py-16 sm:py-20')}
       width="marketing">
       <div>
         <Heading
@@ -150,7 +150,7 @@ export default function InterviewsMarketingPrepResourcesByBigTechEngineers() {
       </div>
       <Section>
         <ScrollArea scrollbars="horizontal">
-          <CardContainer className="flex flex-col justify-between gap-x-2.5 gap-y-6 sm:flex-row md:gap-x-3.5 lg:gap-x-6 ">
+          <CardContainer className="flex flex-col justify-between gap-x-4 gap-y-6 sm:flex-row lg:gap-x-6 ">
             {data.map((item) => (
               <Card
                 key={item.key}
