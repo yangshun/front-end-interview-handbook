@@ -101,7 +101,7 @@ export default function InterviewsGFE75Page({
   ];
 
   return (
-    <div className={clsx('flex flex-col gap-y-12 md:gap-y-16', 'relative')}>
+    <div className={clsx('flex flex-col gap-y-10 xl:gap-y-16', 'relative')}>
       <div className="relative flex flex-col gap-y-6">
         <InterviewsRecommendedPrepStrategyPageTitleSection
           description={studyList.description}

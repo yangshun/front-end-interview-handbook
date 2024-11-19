@@ -30,7 +30,7 @@ export default function GuidesCoverLayout({
   children,
 }: Props) {
   return (
-    <div className={clsx('flex flex-col gap-y-12 md:gap-y-16', 'relative')}>
+    <div className={clsx('flex flex-col gap-y-10 xl:gap-y-16', 'relative')}>
       <InterviewsRecommendedPrepStrategyPageTitleSection
         description={description}
         features={features}

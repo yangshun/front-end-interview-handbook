@@ -143,7 +143,7 @@ export default function InterviewsQuestionsCategoryPage({
   const questionsCount = countQuestionsByAccess(questionList);
 
   return (
-    <div className={clsx('flex flex-col', 'gap-y-12 md:gap-y-16')}>
+    <div className={clsx('flex flex-col', 'gap-y-10 xl:gap-y-16')}>
       <InterviewsPageHeader
         description={intl.formatMessage(
           {
