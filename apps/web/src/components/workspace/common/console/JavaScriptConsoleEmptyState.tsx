@@ -1,6 +1,6 @@
 import { RiTerminalBoxLine } from 'react-icons/ri';
-import { FormattedMessage } from 'react-intl';
 
+import { FormattedMessage } from '~/components/intl';
 import EmptyState from '~/components/ui/EmptyState';
 
 type Props = Readonly<{

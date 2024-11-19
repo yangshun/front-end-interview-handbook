@@ -213,7 +213,7 @@ export function SidebarExpanded({
                 description: 'Tooltip for join premium discord',
                 id: 'XG1Wfg',
               })}
-              variant="special"
+              variant="primary"
             />
           ) : (
             <Button

@@ -14,10 +14,10 @@ import { trpc } from '~/hooks/trpc';
 
 import { SocialLinks } from '~/data/SocialLinks';
 
+import InterviewsPremiumBadge from '~/components/interviews/common/InterviewsPremiumBadge';
 import { FormattedMessage, useIntl } from '~/components/intl';
 import Anchor from '~/components/ui/Anchor';
 import Avatar from '~/components/ui/Avatar';
-import Badge from '~/components/ui/Badge';
 import Button from '~/components/ui/Button';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
@@ -153,15 +153,7 @@ export default function ProfileShell({ user, children }: Props) {
                           <div className="flex items-center gap-x-2">
                             {profileDataQuery.data?.premium ? (
                               <div className="flex items-center gap-2">
-                                <Badge
-                                  label={intl.formatMessage({
-                                    defaultMessage: 'Premium',
-                                    description:
-                                      'Premium badge on profile page',
-                                    id: 'RBB42Z',
-                                  })}
-                                  variant="special"
-                                />
+                                <InterviewsPremiumBadge />
                                 <Text color="secondary" size="body3">
                                   <FormattedMessage
                                     defaultMessage="for Interviews"
@@ -264,7 +256,7 @@ export default function ProfileShell({ user, children }: Props) {
                                 description: 'Join Discord channel',
                                 id: '8XVsRJ',
                               })}
-                              variant="special"
+                              variant="primary"
                             />
                           ) : (
                             <div className="flex items-center gap-x-2">

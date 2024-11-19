@@ -1,8 +1,7 @@
-import { useIntl } from 'react-intl';
-
 import { trpc } from '~/hooks/trpc';
 
 import { useToast } from '~/components/global/toasts/useToast';
+import { useIntl } from '~/components/intl';
 
 export function useStartLearningSessionMutation() {
   const trpcUtils = trpc.useUtils();
