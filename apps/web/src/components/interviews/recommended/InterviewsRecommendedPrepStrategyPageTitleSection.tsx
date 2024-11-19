@@ -79,7 +79,7 @@ export default function InterviewsRecommendedPrepStrategyPageTitleSection({
                   id: 'baItxW',
                 })}
                 size="xs"
-                variant="primary"
+                variant="neutral-active"
               />
             </Tooltip>
             <InterviewsRecommendedPrepStrategyPopover
