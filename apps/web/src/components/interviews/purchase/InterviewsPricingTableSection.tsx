@@ -429,7 +429,8 @@ function FTLPromoSection({
               variant === 'compact' ? 'text-xs' : 'text-xs xl:text-sm',
             )}
             href="https://faangtechleads.com"
-            variant="unstyled">
+            variant="unstyled"
+            weight="normal">
             FAANG Tech Leads Software Engineer Resume References and Handbook
           </Anchor>
           <Text className="whitespace-nowrap" size="body0" weight="bold">
