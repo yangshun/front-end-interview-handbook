@@ -50,7 +50,7 @@ export default function Container({
     <div
       className={clsx(
         'mx-auto w-full',
-        'max-xl:px-6',
+        width === 'marketing' ? 'max-lg:px-6' : 'max-xl:px-6',
         widthStyles[width],
         className,
       )}
