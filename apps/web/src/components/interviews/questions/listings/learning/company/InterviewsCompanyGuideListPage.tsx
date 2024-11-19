@@ -12,6 +12,7 @@ import {
 } from 'react-icons/ri';
 
 import InterviewsPageHeader from '~/components/interviews/common/InterviewsPageHeader';
+import InterviewsPremiumBadge from '~/components/interviews/common/InterviewsPremiumBadge';
 import { useIntl } from '~/components/intl';
 import MDXContent from '~/components/mdx/MDXContent';
 import Divider from '~/components/ui/Divider';
@@ -67,6 +68,7 @@ export default function InterviewsStudyListListPage({
           id: 'olxZ5i',
         })}
         features={features}
+        headingAddOnElement={<InterviewsPremiumBadge />}
         title={intl.formatMessage({
           defaultMessage: 'Company guides',
           description: 'Title of company guides page',

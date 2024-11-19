@@ -10,6 +10,7 @@ import { RiListCheck3, RiTimerLine, RiVerifiedBadgeLine } from 'react-icons/ri';
 import { trpc } from '~/hooks/trpc';
 
 import InterviewsPageHeader from '~/components/interviews/common/InterviewsPageHeader';
+import InterviewsPremiumBadge from '~/components/interviews/common/InterviewsPremiumBadge';
 import {
   createStudyListMapFromArray,
   StudyPlanIcons,
@@ -100,6 +101,7 @@ export default function InterviewsStudyPlansPage({
           id: '+wAHkD',
         })}
         features={features}
+        headingAddOnElement={<InterviewsPremiumBadge />}
         title={intl.formatMessage({
           defaultMessage: 'Study plans',
           description: 'Title of study plans page',

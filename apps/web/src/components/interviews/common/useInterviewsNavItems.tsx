@@ -24,6 +24,7 @@ import {
 
 import { useGuidesData } from '~/data/Guides';
 
+import SidebarPremiumChip from '~/components/global/sidebar/SidebarPremiumChip';
 import { StudyPlanIcons } from '~/components/interviews/questions/content/study-list/StudyListUtils';
 import { useIntl } from '~/components/intl';
 import Badge from '~/components/ui/Badge';
@@ -201,6 +202,7 @@ export default function useInterviewsNavItems(placement: 'nav' | 'sidebar') {
     itemKey: 'time-savers',
     items: [
       {
+        addOnElement: <SidebarPremiumChip />,
         currentMatchRegex: /^\/interviews\/study-plans/,
         href: '/interviews/study-plans',
         icon: RiCalendar2Line,
@@ -226,6 +228,7 @@ export default function useInterviewsNavItems(placement: 'nav' | 'sidebar') {
         type: 'popover-link',
       },
       {
+        addOnElement: <SidebarPremiumChip />,
         bottomEl: (
           <div className="flex gap-1.5">
             {[
@@ -281,6 +284,7 @@ export default function useInterviewsNavItems(placement: 'nav' | 'sidebar') {
         type: 'popover-link',
       },
       {
+        addOnElement: <SidebarPremiumChip />,
         bottomEl: (
           <div className="flex flex-wrap gap-2">
             {[

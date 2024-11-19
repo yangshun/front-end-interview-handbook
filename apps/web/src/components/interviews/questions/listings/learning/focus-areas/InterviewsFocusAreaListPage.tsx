@@ -14,6 +14,7 @@ import {
 import { trpc } from '~/hooks/trpc';
 
 import InterviewsPageHeader from '~/components/interviews/common/InterviewsPageHeader';
+import InterviewsPremiumBadge from '~/components/interviews/common/InterviewsPremiumBadge';
 import {
   categorizeFocusAreas,
   FocusAreaIcons,
@@ -89,6 +90,7 @@ export default function InterviewsRevampFocusAreaListPage({
           id: 'CPBDLd',
         })}
         features={features}
+        headingAddOnElement={<InterviewsPremiumBadge />}
         title={intl.formatMessage({
           defaultMessage: 'Focus areas',
           description: 'Title of focus areas page',

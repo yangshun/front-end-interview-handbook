@@ -16,6 +16,7 @@ type Props = Readonly<{
     icon: (props: React.ComponentProps<'svg'>) => JSX.Element;
     label: string;
   }>;
+  headingAddOnElement?: ReactNode;
   icon?: (props: React.ComponentProps<'svg'>) => JSX.Element;
   logo?: React.ReactNode;
   logoImgSrc?: string;
@@ -35,6 +36,7 @@ export default function InterviewsPageHeader({
   logoImgSrc,
   metadata,
   sideElement,
+  headingAddOnElement,
   title,
   ...props
 }: Props) {
@@ -80,7 +82,10 @@ export default function InterviewsPageHeader({
           )}>
           <div className="flex items-center gap-6">
             {iconEl}
-            <Heading level="heading4">{title}</Heading>
+            <div className="flex items-center gap-4">
+              <Heading level="heading4">{title}</Heading>
+              {headingAddOnElement}
+            </div>
           </div>
           <Text
             className="block max-w-2xl"
