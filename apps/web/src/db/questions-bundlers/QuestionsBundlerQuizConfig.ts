@@ -61,6 +61,27 @@ export const QuestionsQuizSourceConfigJavaScript: QuestionsQuizSourceConfig = {
   questionsListPath: QUESTIONS_SRC_DIR_QUIZ_JS,
 };
 
+const QUESTIONS_SRC_DIR_QUIZ_REACT = path.join(
+  process.cwd(),
+  '..',
+  '..',
+  'submodules',
+  'top-reactjs-interview-questions',
+  'questions',
+);
+
+export const QuestionsQuizSourceConfigReact: QuestionsQuizSourceConfig = {
+  gitHubEditUrl: (slug: string, locale = 'en-US') =>
+    `https://github.com/yangshun/top-reactjs-interview-questions/blob/main/questions/${slug}/${locale}.mdx`,
+  questionsItemFilePath: (slug: string, locale: string) =>
+    path.join(QUESTIONS_SRC_DIR_QUIZ_REACT, slug, `${locale}.mdx`),
+  questionsItemMetadataPath: (slug: string) =>
+    path.join(QUESTIONS_SRC_DIR_QUIZ_REACT, slug, 'metadata.json'),
+  questionsItemPath: (slug: string) =>
+    path.join(QUESTIONS_SRC_DIR_QUIZ_REACT, slug),
+  questionsListPath: QUESTIONS_SRC_DIR_QUIZ_REACT,
+};
+
 export function getQuestionOutPathQuiz(slug: string) {
   return path.join(QUESTIONS_OUT_DIR_QUIZ, slug);
 }

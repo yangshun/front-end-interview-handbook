@@ -1,0 +1,32 @@
+{
+  "description": null,
+  "format": "quiz",
+  "metadata": {
+    "access": "free",
+    "author": null,
+    "companies": [],
+    "created": 1630800000,
+    "difficulty": "medium",
+    "duration": 5,
+    "excerpt": null,
+    "featured": true,
+    "format": "quiz",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/quiz/explain-the-composition-pattern-in-react",
+    "importance": "medium",
+    "languages": [],
+    "nextQuestions": [],
+    "published": true,
+    "ranking": 440,
+    "similarQuestions": [],
+    "slug": "explain-the-composition-pattern-in-react",
+    "subtitle": null,
+    "title": "Explain the composition pattern in React",
+    "topics": [
+      "react"
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-reactjs-interview-questions/blob/main/questions/explain-the-composition-pattern-in-react/en-US.mdx"
+  },
+  "solution": "var Component=(()=>{var h=Object.create;var s=Object.defineProperty;var d=Object.getOwnPropertyDescriptor;var m=Object.getOwnPropertyNames;var u=Object.getPrototypeOf,g=Object.prototype.hasOwnProperty;var f=(i,n)=>()=>(n||i((n={exports:{}}).exports,n),n.exports),b=(i,n)=>{for(var o in n)s(i,o,{get:n[o],enumerable:!0})},c=(i,n,o,a)=>{if(n&&typeof n==\"object\"||typeof n==\"function\")for(let t of m(n))!g.call(i,t)&&t!==o&&s(i,t,{get:()=>n[t],enumerable:!(a=d(n,t))||a.enumerable});return i};var v=(i,n,o)=>(o=i!=null?h(u(i)):{},c(n||!i||!i.__esModule?s(o,\"default\",{value:i,enumerable:!0}):o,i)),x=i=>c(s({},\"__esModule\",{value:!0}),i);var l=f((C,r)=>{r.exports=_jsx_runtime});var R={};b(R,{default:()=>D,frontmatter:()=>y});var e=v(l()),y={title:\"Explain the composition pattern in React\"};function p(i){let n=Object.assign({h2:\"h2\",p:\"p\",pre:\"pre\",code:\"code\",hr:\"hr\",h3:\"h3\",h4:\"h4\",ul:\"ul\",li:\"li\",strong:\"strong\",a:\"a\"},i.components);return(0,e.jsxs)(e.Fragment,{children:[(0,e.jsx)(n.h2,{children:\"TL;DR\"}),`\n`,(0,e.jsx)(n.p,{children:\"The composition pattern in React is a way to build components by combining smaller, reusable components. Instead of using inheritance, React encourages composition to create complex UIs. You can pass components as children or props to other components to achieve this. For example:\"}),`\n`,(0,e.jsx)(n.pre,{children:(0,e.jsx)(n.code,{className:\"language-jsx\",children:`function WelcomeDialog() {\n  return (\n    <Dialog>\n      <h1>Welcome</h1>\n      <p>Thank you for visiting our spacecraft!</p>\n    </Dialog>\n  );\n}\n\nfunction Dialog(props) {\n  return (\n    <div className=\"dialog\">\n      {props.children}\n    </div>\n  );\n}\n`})}),`\n`,(0,e.jsx)(n.hr,{}),`\n`,(0,e.jsx)(n.h2,{children:\"Composition pattern in React\"}),`\n`,(0,e.jsx)(n.h3,{children:\"What is composition?\"}),`\n`,(0,e.jsx)(n.p,{children:\"Composition is a design principle that involves combining smaller, reusable components to build more complex components. In React, this is preferred over inheritance for creating complex UIs.\"}),`\n`,(0,e.jsx)(n.h3,{children:\"How to use composition in React\"}),`\n`,(0,e.jsx)(n.h4,{children:\"Passing components as children\"}),`\n`,(0,e.jsx)(n.p,{children:\"One common way to use composition is by passing components as children to other components. This allows you to nest components and create a hierarchy.\"}),`\n`,(0,e.jsx)(n.pre,{children:(0,e.jsx)(n.code,{className:\"language-jsx\",children:`function Dialog(props) {\n  return (\n    <div className=\"dialog\">\n      {props.children}\n    </div>\n  );\n}\n\nfunction WelcomeDialog() {\n  return (\n    <Dialog>\n      <h1>Welcome</h1>\n      <p>Thank you for visiting our spacecraft!</p>\n    </Dialog>\n  );\n}\n`})}),`\n`,(0,e.jsx)(n.h4,{children:\"Passing components as props\"}),`\n`,(0,e.jsx)(n.p,{children:\"Another way to achieve composition is by passing components as props. This allows for more flexibility and customization.\"}),`\n`,(0,e.jsx)(n.pre,{children:(0,e.jsx)(n.code,{className:\"language-jsx\",children:`function SplitPane(props) {\n  return (\n    <div className=\"split-pane\">\n      <div className=\"split-pane-left\">\n        {props.left}\n      </div>\n      <div className=\"split-pane-right\">\n        {props.right}\n      </div>\n    </div>\n  );\n}\n\nfunction App() {\n  return (\n    <SplitPane\n      left={<Contacts />}\n      right={<Chat />}\n    />\n  );\n}\n`})}),`\n`,(0,e.jsx)(n.h3,{children:\"Benefits of composition\"}),`\n`,(0,e.jsxs)(n.ul,{children:[`\n`,(0,e.jsxs)(n.li,{children:[(0,e.jsx)(n.strong,{children:\"Reusability\"}),\": Smaller components can be reused across different parts of the application.\"]}),`\n`,(0,e.jsxs)(n.li,{children:[(0,e.jsx)(n.strong,{children:\"Maintainability\"}),\": Easier to manage and update smaller components.\"]}),`\n`,(0,e.jsxs)(n.li,{children:[(0,e.jsx)(n.strong,{children:\"Flexibility\"}),\": Components can be easily combined in different ways to create complex UIs.\"]}),`\n`]}),`\n`,(0,e.jsx)(n.h3,{children:\"When to use composition\"}),`\n`,(0,e.jsxs)(n.ul,{children:[`\n`,(0,e.jsx)(n.li,{children:\"When you need to create complex UIs from smaller, reusable components.\"}),`\n`,(0,e.jsx)(n.li,{children:\"When you want to avoid the pitfalls of inheritance, such as tight coupling and difficulty in managing state.\"}),`\n`]}),`\n`,(0,e.jsx)(n.h2,{children:\"Further reading\"}),`\n`,(0,e.jsxs)(n.ul,{children:[`\n`,(0,e.jsx)(n.li,{children:(0,e.jsx)(n.a,{href:\"https://reactjs.org/docs/composition-vs-inheritance.html\",children:\"React documentation on composition vs inheritance\"})}),`\n`,(0,e.jsx)(n.li,{children:(0,e.jsx)(n.a,{href:\"https://reactpatterns.com/#composition\",children:\"React patterns: Composition\"})}),`\n`,(0,e.jsx)(n.li,{children:(0,e.jsx)(n.a,{href:\"https://medium.com/@dan_abramov/smart-and-dumb-components-7ca2f9a7c7d0\",children:\"Medium article on React composition\"})}),`\n`]})]})}function j(i={}){let{wrapper:n}=i.components||{};return n?(0,e.jsx)(n,Object.assign({},i,{children:(0,e.jsx)(p,i)})):p(i)}var D=j;return x(R);})();\n;return Component;"
+}

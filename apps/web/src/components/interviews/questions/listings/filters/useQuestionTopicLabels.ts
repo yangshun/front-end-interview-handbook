@@ -83,6 +83,13 @@ export default function useQuestionTopicLabels() {
         id: 'd1LTa+',
       }),
     },
+    react: {
+      label: intl.formatMessage({
+        defaultMessage: 'React',
+        description: 'Front end development topic',
+        id: 'J4hWfE',
+      }),
+    },
     recursion: {
       label: intl.formatMessage({
         defaultMessage: 'Recursion',

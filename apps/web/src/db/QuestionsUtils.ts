@@ -421,6 +421,7 @@ export function categorizeQuestionsByTopic(
     networking: [],
     oop: [],
     performance: [],
+    react: [],
     recursion: [],
     security: [],
     seo: [],

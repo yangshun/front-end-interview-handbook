@@ -25,6 +25,7 @@ const topicRanks: Record<QuestionTopic, number> = {
   networking: 60,
   oop: 0,
   performance: 50,
+  react: 0,
   recursion: 99,
   security: 80,
   seo: 99,

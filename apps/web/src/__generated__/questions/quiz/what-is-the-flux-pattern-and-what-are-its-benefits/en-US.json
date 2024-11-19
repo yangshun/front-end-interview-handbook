@@ -1,0 +1,32 @@
+{
+  "description": null,
+  "format": "quiz",
+  "metadata": {
+    "access": "free",
+    "author": null,
+    "companies": [],
+    "created": 1630800000,
+    "difficulty": "medium",
+    "duration": 5,
+    "excerpt": null,
+    "featured": true,
+    "format": "quiz",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/quiz/what-is-the-flux-pattern-and-what-are-its-benefits",
+    "importance": "medium",
+    "languages": [],
+    "nextQuestions": [],
+    "published": true,
+    "ranking": 340,
+    "similarQuestions": [],
+    "slug": "what-is-the-flux-pattern-and-what-are-its-benefits",
+    "subtitle": null,
+    "title": "What is the Flux pattern and what are its benefits?",
+    "topics": [
+      "react"
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-reactjs-interview-questions/blob/main/questions/what-is-the-flux-pattern-and-what-are-its-benefits/en-US.mdx"
+  },
+  "solution": "var Component=(()=>{var m=Object.create;var o=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var _=Object.getOwnPropertyNames;var d=Object.getPrototypeOf,h=Object.prototype.hasOwnProperty;var j=(t,e)=>()=>(e||t((e={exports:{}}).exports,e),e.exports),l=(t,e)=>{for(var n in e)o(t,n,{get:e[n],enumerable:!0})},i=(t,e,n,s)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let a of _(e))!h.call(t,a)&&a!==n&&o(t,a,{get:()=>e[a],enumerable:!(s=f(e,a))||s.enumerable});return t};var p=(t,e,n)=>(n=t!=null?m(d(t)):{},i(e||!t||!t.__esModule?o(n,\"default\",{value:t,enumerable:!0}):n,t)),g=t=>i(o({},\"__esModule\",{value:!0}),t);var u=j((D,c)=>{c.exports=_jsx_runtime});var w={};l(w,{default:()=>b,frontmatter:()=>F});var r=p(u()),F={title:\"What is the Flux pattern and what are its benefits?\"};function x(t){return(0,r.jsx)(r.Fragment,{})}function M(t={}){let{wrapper:e}=t.components||{};return e?(0,r.jsx)(e,Object.assign({},t,{children:(0,r.jsx)(x,t)})):x(t)}var b=M;return g(w);})();\n;return Component;"
+}

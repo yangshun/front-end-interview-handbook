@@ -172,6 +172,7 @@ export type QuestionTopic =
   | 'networking'
   | 'oop'
   | 'performance'
+  | 'react'
   | 'recursion'
   | 'security'
   | 'seo'

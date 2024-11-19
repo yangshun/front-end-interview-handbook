@@ -1,0 +1,32 @@
+{
+  "description": null,
+  "format": "quiz",
+  "metadata": {
+    "access": "free",
+    "author": null,
+    "companies": [],
+    "created": 1630800000,
+    "difficulty": "medium",
+    "duration": 5,
+    "excerpt": null,
+    "featured": true,
+    "format": "quiz",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/quiz/what-is-the-consequence-of-using-array-indices-as-the-value-for-key-s-in-react",
+    "importance": "medium",
+    "languages": [],
+    "nextQuestions": [],
+    "published": true,
+    "ranking": 60,
+    "similarQuestions": [],
+    "slug": "what-is-the-consequence-of-using-array-indices-as-the-value-for-key-s-in-react",
+    "subtitle": null,
+    "title": "What is the consequence of using array indices as the value for `key`s in React?",
+    "topics": [
+      "react"
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-reactjs-interview-questions/blob/main/questions/what-is-the-consequence-of-using-array-indices-as-the-value-for-key-s-in-react/en-US.mdx"
+  },
+  "solution": "var Component=(()=>{var l=Object.create;var r=Object.defineProperty;var m=Object.getOwnPropertyDescriptor;var u=Object.getOwnPropertyNames;var p=Object.getPrototypeOf,y=Object.prototype.hasOwnProperty;var f=(t,e)=>()=>(e||t((e={exports:{}}).exports,e),e.exports),g=(t,e)=>{for(var i in e)r(t,i,{get:e[i],enumerable:!0})},c=(t,e,i,s)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let a of u(e))!y.call(t,a)&&a!==i&&r(t,a,{get:()=>e[a],enumerable:!(s=m(e,a))||s.enumerable});return t};var k=(t,e,i)=>(i=t!=null?l(p(t)):{},c(e||!t||!t.__esModule?r(i,\"default\",{value:t,enumerable:!0}):i,t)),x=t=>c(r({},\"__esModule\",{value:!0}),t);var o=f((w,d)=>{d.exports=_jsx_runtime});var j={};g(j,{default:()=>I,frontmatter:()=>b});var n=k(o()),b={title:\"What is the consequence of using array indices as the value for `key`s in React?\"};function h(t){let e=Object.assign({h2:\"h2\",p:\"p\",code:\"code\",hr:\"hr\",h3:\"h3\",pre:\"pre\",ul:\"ul\",li:\"li\",a:\"a\"},t.components);return(0,n.jsxs)(n.Fragment,{children:[(0,n.jsx)(e.h2,{children:\"TL;DR\"}),`\n`,(0,n.jsxs)(e.p,{children:[\"Using array indices as the value for \",(0,n.jsx)(e.code,{children:\"key\"}),\"s in React can lead to performance issues and bugs. When the order of items changes, React may not correctly identify which items have changed, leading to unnecessary re-renders or incorrect component updates. It's better to use unique identifiers for \",(0,n.jsx)(e.code,{children:\"key\"}),\"s to ensure React can efficiently manage and update the DOM.\"]}),`\n`,(0,n.jsx)(e.hr,{}),`\n`,(0,n.jsxs)(e.h2,{children:[\"Consequence of using array indices as the value for \",(0,n.jsx)(e.code,{children:\"key\"}),\"s in React\"]}),`\n`,(0,n.jsx)(e.h3,{children:\"Performance issues\"}),`\n`,(0,n.jsxs)(e.p,{children:[\"When array indices are used as \",(0,n.jsx)(e.code,{children:\"key\"}),\"s, React may not efficiently update the DOM. If the order of items in the array changes, React will not be able to correctly identify which items have been added, removed, or moved. This can lead to unnecessary re-renders and decreased performance.\"]}),`\n`,(0,n.jsx)(e.h3,{children:\"Incorrect component updates\"}),`\n`,(0,n.jsxs)(e.p,{children:[\"Using array indices as \",(0,n.jsx)(e.code,{children:\"key\"}),\"s can cause bugs in your application. For example, if the order of items changes, React may reuse the same component instances for different items, leading to incorrect state and props being passed to components. This can result in unexpected behavior and hard-to-debug issues.\"]}),`\n`,(0,n.jsx)(e.h3,{children:\"Example\"}),`\n`,(0,n.jsxs)(e.p,{children:[\"Consider the following example where array indices are used as \",(0,n.jsx)(e.code,{children:\"key\"}),\"s:\"]}),`\n`,(0,n.jsx)(e.pre,{children:(0,n.jsx)(e.code,{className:\"language-jsx\",children:`const items = ['Item 1', 'Item 2', 'Item 3'];\n\nconst List = () => (\n  <ul>\n    {items.map((item, index) => (\n      <li key={index}>{item}</li>\n    ))}\n  </ul>\n);\n`})}),`\n`,(0,n.jsxs)(e.p,{children:[\"If the order of \",(0,n.jsx)(e.code,{children:\"items\"}),\" changes, React may not correctly update the DOM, leading to performance issues and potential bugs.\"]}),`\n`,(0,n.jsx)(e.h3,{children:\"Better approach\"}),`\n`,(0,n.jsxs)(e.p,{children:[\"Instead of using array indices, use unique identifiers for \",(0,n.jsx)(e.code,{children:\"key\"}),\"s. This ensures that React can efficiently manage and update the DOM.\"]}),`\n`,(0,n.jsx)(e.pre,{children:(0,n.jsx)(e.code,{className:\"language-jsx\",children:`const items = [\n  { id: 1, name: 'Item 1' },\n  { id: 2, name: 'Item 2' },\n  { id: 3, name: 'Item 3' },\n];\n\nconst List = () => (\n  <ul>\n    {items.map((item) => (\n      <li key={item.id}>{item.name}</li>\n    ))}\n  </ul>\n);\n`})}),`\n`,(0,n.jsxs)(e.p,{children:[\"In this example, using \",(0,n.jsx)(e.code,{children:\"item.id\"}),\" as the \",(0,n.jsx)(e.code,{children:\"key\"}),\" ensures that React can correctly identify and update items when the order changes.\"]}),`\n`,(0,n.jsx)(e.h2,{children:\"Further reading\"}),`\n`,(0,n.jsxs)(e.ul,{children:[`\n`,(0,n.jsx)(e.li,{children:(0,n.jsx)(e.a,{href:\"https://reactjs.org/docs/lists-and-keys.html#keys\",children:\"React documentation on keys\"})}),`\n`,(0,n.jsx)(e.li,{children:(0,n.jsx)(e.a,{href:\"https://medium.com/@robinpokorny/index-as-a-key-is-an-anti-pattern-e0349aece318\",children:\"Why using array index as a key is an anti-pattern\"})}),`\n`,(0,n.jsx)(e.li,{children:(0,n.jsx)(e.a,{href:\"https://kentcdodds.com/blog/understanding-reacts-key-prop\",children:\"React performance optimization with keys\"})}),`\n`]})]})}function R(t={}){let{wrapper:e}=t.components||{};return e?(0,n.jsx)(e,Object.assign({},t,{children:(0,n.jsx)(h,t)})):h(t)}var I=R;return x(j);})();\n;return Component;"
+}

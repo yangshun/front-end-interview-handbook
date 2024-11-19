@@ -1,0 +1,32 @@
+{
+  "description": null,
+  "format": "quiz",
+  "metadata": {
+    "access": "free",
+    "author": null,
+    "companies": [],
+    "created": 1630800000,
+    "difficulty": "medium",
+    "duration": 5,
+    "excerpt": null,
+    "featured": true,
+    "format": "quiz",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/quiz/what-is-the-difference-between-useeffect-and-uselayouteffect-in-react",
+    "importance": "low",
+    "languages": [],
+    "nextQuestions": [],
+    "published": true,
+    "ranking": 110,
+    "similarQuestions": [],
+    "slug": "what-is-the-difference-between-useeffect-and-uselayouteffect-in-react",
+    "subtitle": null,
+    "title": "What is the difference between `useEffect` and `useLayoutEffect` in React?",
+    "topics": [
+      "react"
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-reactjs-interview-questions/blob/main/questions/what-is-the-difference-between-useeffect-and-uselayouteffect-in-react/en-US.mdx"
+  },
+  "solution": "var Component=(()=>{var m=Object.create;var o=Object.defineProperty;var x=Object.getOwnPropertyDescriptor;var d=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,j=Object.prototype.hasOwnProperty;var g=(t,e)=>()=>(e||t((e={exports:{}}).exports,e),e.exports),h=(t,e)=>{for(var n in e)o(t,n,{get:e[n],enumerable:!0})},s=(t,e,n,c)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let a of d(e))!j.call(t,a)&&a!==n&&o(t,a,{get:()=>e[a],enumerable:!(c=x(e,a))||c.enumerable});return t};var l=(t,e,n)=>(n=t!=null?m(_(t)):{},s(e||!t||!t.__esModule?o(n,\"default\",{value:t,enumerable:!0}):n,t)),p=t=>s(o({},\"__esModule\",{value:!0}),t);var i=g((D,f)=>{f.exports=_jsx_runtime});var y={};h(y,{default:()=>w,frontmatter:()=>M});var r=l(i()),M={title:\"What is the difference between `useEffect` and `useLayoutEffect` in React?\"};function u(t){return(0,r.jsx)(r.Fragment,{})}function b(t={}){let{wrapper:e}=t.components||{};return e?(0,r.jsx)(e,Object.assign({},t,{children:(0,r.jsx)(u,t)})):u(t)}var w=b;return p(y);})();\n;return Component;"
+}

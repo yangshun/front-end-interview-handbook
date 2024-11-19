@@ -1,6 +1,7 @@
 import {
   QuestionsQuizSourceConfigJavaScript,
   QuestionsQuizSourceConfigNonJavaScript,
+  QuestionsQuizSourceConfigReact,
 } from '~/db/questions-bundlers/QuestionsBundlerQuizConfig';
 
 import { generateChallengesSolutionsSetup } from './challenges-solution-setup';
@@ -19,6 +20,7 @@ export async function generate() {
     generateUserInterfaceQuestionsSetup(),
     generateQuizQuestionsSetup(QuestionsQuizSourceConfigNonJavaScript),
     generateQuizQuestionsSetup(QuestionsQuizSourceConfigJavaScript),
+    generateQuizQuestionsSetup(QuestionsQuizSourceConfigReact),
     generateSystemDesignQuestionsSetup(),
     generateChallengesSolutionsSetup(),
   ]);

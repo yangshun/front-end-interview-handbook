@@ -11,6 +11,7 @@ import type { QuestionsQuizSourceConfig } from './QuestionsBundlerQuizConfig';
 import {
   QuestionsQuizSourceConfigJavaScript,
   QuestionsQuizSourceConfigNonJavaScript,
+  QuestionsQuizSourceConfigReact,
 } from './QuestionsBundlerQuizConfig';
 import { normalizeQuestionFrontMatter } from '../QuestionsUtils';
 
@@ -133,7 +134,32 @@ export async function readQuestionListMetadataQuiz(
     }),
   );
 
-  const questions = [...javaScriptQuestions, ...nonJavaScriptQuestions];
+  // React.
+  const reactQuestionsDirectories = fs
+    .readdirSync(QuestionsQuizSourceConfigReact.questionsListPath, {
+      withFileTypes: true,
+    })
+    .filter((dirent) => dirent.isDirectory());
+
+  const reactQuestions = await Promise.all(
+    reactQuestionsDirectories.map(async (dirent) => {
+      const slug = dirent.name;
+
+      const { metadata } = await readQuestionMetadataWithFallbackQuiz(
+        QuestionsQuizSourceConfigReact,
+        slug,
+        locale,
+      );
+
+      return metadata;
+    }),
+  );
+
+  const questions = [
+    ...javaScriptQuestions,
+    ...nonJavaScriptQuestions,
+    ...reactQuestions,
+  ];
 
   return questions.filter(({ published }) => published);
 }

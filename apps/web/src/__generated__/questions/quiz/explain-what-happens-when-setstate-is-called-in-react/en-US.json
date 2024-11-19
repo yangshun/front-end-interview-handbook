@@ -1,0 +1,32 @@
+{
+  "description": null,
+  "format": "quiz",
+  "metadata": {
+    "access": "free",
+    "author": null,
+    "companies": [],
+    "created": 1630800000,
+    "difficulty": "medium",
+    "duration": 5,
+    "excerpt": null,
+    "featured": true,
+    "format": "quiz",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/quiz/explain-what-happens-when-setstate-is-called-in-react",
+    "importance": "medium",
+    "languages": [],
+    "nextQuestions": [],
+    "published": true,
+    "ranking": 500,
+    "similarQuestions": [],
+    "slug": "explain-what-happens-when-setstate-is-called-in-react",
+    "subtitle": null,
+    "title": "Explain what happens when `setState` is called in React",
+    "topics": [
+      "react"
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-reactjs-interview-questions/blob/main/questions/explain-what-happens-when-setstate-is-called-in-react/en-US.mdx"
+  },
+  "solution": "var Component=(()=>{var l=Object.create;var s=Object.defineProperty;var p=Object.getOwnPropertyDescriptor;var m=Object.getOwnPropertyNames;var u=Object.getPrototypeOf,g=Object.prototype.hasOwnProperty;var f=(n,e)=>()=>(e||n((e={exports:{}}).exports,e),e.exports),S=(n,e)=>{for(var a in e)s(n,a,{get:e[a],enumerable:!0})},r=(n,e,a,h)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let c of m(e))!g.call(n,c)&&c!==a&&s(n,c,{get:()=>e[c],enumerable:!(h=p(e,c))||h.enumerable});return n};var R=(n,e,a)=>(a=n!=null?l(u(n)):{},r(e||!n||!n.__esModule?s(a,\"default\",{value:n,enumerable:!0}):a,n)),w=n=>r(s({},\"__esModule\",{value:!0}),n);var d=f((M,i)=>{i.exports=_jsx_runtime});var x={};S(x,{default:()=>y,frontmatter:()=>b});var t=R(d()),b={title:\"Explain what happens when `setState` is called in React\"};function o(n){let e=Object.assign({h2:\"h2\",p:\"p\",code:\"code\",hr:\"hr\",h3:\"h3\",pre:\"pre\",ul:\"ul\",li:\"li\",a:\"a\"},n.components);return(0,t.jsxs)(t.Fragment,{children:[(0,t.jsx)(e.h2,{children:\"TL;DR\"}),`\n`,(0,t.jsxs)(e.p,{children:[\"When \",(0,t.jsx)(e.code,{children:\"setState\"}),\" is called in React, it schedules an update to the component's state object. React then merges the new state with the current state and triggers a re-render of the component. This process is asynchronous, meaning the state change might not happen immediately. React batches multiple \",(0,t.jsx)(e.code,{children:\"setState\"}),\" calls for performance optimization.\"]}),`\n`,(0,t.jsx)(e.hr,{}),`\n`,(0,t.jsxs)(e.h2,{children:[\"What happens when \",(0,t.jsx)(e.code,{children:\"setState\"}),\" is called in React\"]}),`\n`,(0,t.jsx)(e.h3,{children:\"State update scheduling\"}),`\n`,(0,t.jsxs)(e.p,{children:[\"When \",(0,t.jsx)(e.code,{children:\"setState\"}),\" is called, React schedules an update to the component's state. This means that the state change does not happen immediately. Instead, React marks the component as needing an update and will process the state change later.\"]}),`\n`,(0,t.jsx)(e.pre,{children:(0,t.jsx)(e.code,{className:\"language-javascript\",children:`this.setState({ count: this.state.count + 1 });\n`})}),`\n`,(0,t.jsx)(e.h3,{children:\"Merging state\"}),`\n`,(0,t.jsxs)(e.p,{children:[\"React merges the new state with the current state. The \",(0,t.jsx)(e.code,{children:\"setState\"}),\" method performs a shallow merge, meaning it only updates the properties specified in the new state object and leaves the rest unchanged.\"]}),`\n`,(0,t.jsx)(e.pre,{children:(0,t.jsx)(e.code,{className:\"language-javascript\",children:`this.setState({ name: 'John' });\n// Only the 'name' property is updated, other state properties remain the same\n`})}),`\n`,(0,t.jsx)(e.h3,{children:\"Re-rendering\"}),`\n`,(0,t.jsxs)(e.p,{children:[\"After merging the state, React triggers a re-render of the component. The component's \",(0,t.jsx)(e.code,{children:\"render\"}),\" method is called, and the virtual DOM is updated. React then compares the virtual DOM with the actual DOM and makes the necessary updates to the actual DOM.\"]}),`\n`,(0,t.jsx)(e.h3,{children:\"Asynchronous nature\"}),`\n`,(0,t.jsxs)(e.p,{children:[\"The \",(0,t.jsx)(e.code,{children:\"setState\"}),\" method is asynchronous. React batches multiple \",(0,t.jsx)(e.code,{children:\"setState\"}),\" calls for performance optimization. This means that if you call \",(0,t.jsx)(e.code,{children:\"setState\"}),\" multiple times in a row, React may combine them into a single update.\"]}),`\n`,(0,t.jsx)(e.pre,{children:(0,t.jsx)(e.code,{className:\"language-javascript\",children:`this.setState({ count: this.state.count + 1 });\nthis.setState({ count: this.state.count + 1 });\n// React may batch these updates into a single update\n`})}),`\n`,(0,t.jsx)(e.h3,{children:\"Callback function\"}),`\n`,(0,t.jsxs)(e.p,{children:[\"You can pass a callback function as the second argument to \",(0,t.jsx)(e.code,{children:\"setState\"}),\". This function will be called after the state has been updated and the component has re-rendered.\"]}),`\n`,(0,t.jsx)(e.pre,{children:(0,t.jsx)(e.code,{className:\"language-javascript\",children:`this.setState({ count: this.state.count + 1 }, () => {\n  console.log('State updated and component re-rendered');\n});\n`})}),`\n`,(0,t.jsx)(e.h2,{children:\"Further reading\"}),`\n`,(0,t.jsxs)(e.ul,{children:[`\n`,(0,t.jsx)(e.li,{children:(0,t.jsx)(e.a,{href:\"https://reactjs.org/docs/react-component.html#setstate\",children:\"React documentation on setState\"})}),`\n`,(0,t.jsx)(e.li,{children:(0,t.jsx)(e.a,{href:\"https://medium.com/@baphemot/understanding-react-setstate-a4640451865b\",children:\"Understanding setState in React\"})}),`\n`,(0,t.jsx)(e.li,{children:(0,t.jsx)(e.a,{href:\"https://daveceddia.com/where-fetch-data-componentwillmount-vs-componentdidmount/\",children:\"React's setState explained\"})}),`\n`]})]})}function j(n={}){let{wrapper:e}=n.components||{};return e?(0,t.jsx)(e,Object.assign({},n,{children:(0,t.jsx)(o,n)})):o(n)}var y=j;return w(x);})();\n;return Component;"
+}

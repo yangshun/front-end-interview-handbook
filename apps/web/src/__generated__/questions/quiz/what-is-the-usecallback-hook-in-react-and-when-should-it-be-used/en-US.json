@@ -1,0 +1,32 @@
+{
+  "description": null,
+  "format": "quiz",
+  "metadata": {
+    "access": "free",
+    "author": null,
+    "companies": [],
+    "created": 1630800000,
+    "difficulty": "medium",
+    "duration": 5,
+    "excerpt": null,
+    "featured": true,
+    "format": "quiz",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/quiz/what-is-the-usecallback-hook-in-react-and-when-should-it-be-used",
+    "importance": "medium",
+    "languages": [],
+    "nextQuestions": [],
+    "published": true,
+    "ranking": 150,
+    "similarQuestions": [],
+    "slug": "what-is-the-usecallback-hook-in-react-and-when-should-it-be-used",
+    "subtitle": null,
+    "title": "What is the `useCallback` hook in React and when should it be used?",
+    "topics": [
+      "react"
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-reactjs-interview-questions/blob/main/questions/what-is-the-usecallback-hook-in-react-and-when-should-it-be-used/en-US.mdx"
+  },
+  "solution": "var Component=(()=>{var h=Object.create;var t=Object.defineProperty;var u=Object.getOwnPropertyDescriptor;var m=Object.getOwnPropertyNames;var p=Object.getPrototypeOf,g=Object.prototype.hasOwnProperty;var b=(c,e)=>()=>(e||c((e={exports:{}}).exports,e),e.exports),f=(c,e)=>{for(var a in e)t(c,a,{get:e[a],enumerable:!0})},i=(c,e,a,r)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let o of m(e))!g.call(c,o)&&o!==a&&t(c,o,{get:()=>e[o],enumerable:!(r=u(e,o))||r.enumerable});return c};var k=(c,e,a)=>(a=c!=null?h(p(c)):{},i(e||!c||!c.__esModule?t(a,\"default\",{value:c,enumerable:!0}):a,c)),C=c=>i(t({},\"__esModule\",{value:!0}),c);var l=b((R,s)=>{s.exports=_jsx_runtime});var x={};f(x,{default:()=>j,frontmatter:()=>y});var n=k(l()),y={title:\"What is the `useCallback` hook in React and when should it be used?\"};function d(c){let e=Object.assign({h2:\"h2\",p:\"p\",code:\"code\",pre:\"pre\",hr:\"hr\",h3:\"h3\",h4:\"h4\",ul:\"ul\",li:\"li\",strong:\"strong\",a:\"a\"},c.components);return(0,n.jsxs)(n.Fragment,{children:[(0,n.jsx)(e.h2,{children:\"TL;DR\"}),`\n`,(0,n.jsxs)(e.p,{children:[\"The \",(0,n.jsx)(e.code,{children:\"useCallback\"}),\" hook in React is used to memoize functions, preventing them from being recreated on every render. This is particularly useful when passing callbacks to optimized child components that rely on reference equality to prevent unnecessary renders. You should use \",(0,n.jsx)(e.code,{children:\"useCallback\"}),\" when you have a function that is passed as a prop to a child component and you want to avoid the child component re-rendering unnecessarily.\"]}),`\n`,(0,n.jsx)(e.pre,{children:(0,n.jsx)(e.code,{className:\"language-javascript\",children:`const memoizedCallback = useCallback(() => {\n  doSomething(a, b);\n}, [a, b]);\n`})}),`\n`,(0,n.jsx)(e.hr,{}),`\n`,(0,n.jsxs)(e.h2,{children:[\"What is the \",(0,n.jsx)(e.code,{children:\"useCallback\"}),\" hook in React and when should it be used?\"]}),`\n`,(0,n.jsxs)(e.h3,{children:[\"What is \",(0,n.jsx)(e.code,{children:\"useCallback\"}),\"?\"]}),`\n`,(0,n.jsxs)(e.p,{children:[\"The \",(0,n.jsx)(e.code,{children:\"useCallback\"}),\" hook is a React hook that returns a memoized version of the callback function that only changes if one of the dependencies has changed. It is useful for optimizing performance by preventing unnecessary re-creations of functions.\"]}),`\n`,(0,n.jsx)(e.h3,{children:\"Syntax\"}),`\n`,(0,n.jsx)(e.pre,{children:(0,n.jsx)(e.code,{className:\"language-javascript\",children:`const memoizedCallback = useCallback(() => {\n  doSomething(a, b);\n}, [a, b]);\n`})}),`\n`,(0,n.jsxs)(e.h3,{children:[\"When should \",(0,n.jsx)(e.code,{children:\"useCallback\"}),\" be used?\"]}),`\n`,(0,n.jsx)(e.h4,{children:\"Preventing unnecessary re-renders\"}),`\n`,(0,n.jsxs)(e.p,{children:[\"When you pass a function as a prop to a child component, the child component may re-render every time the parent component re-renders, even if the function itself hasn't changed. Using \",(0,n.jsx)(e.code,{children:\"useCallback\"}),\" ensures that the function reference remains the same as long as its dependencies haven't changed, thus preventing unnecessary re-renders.\"]}),`\n`,(0,n.jsx)(e.pre,{children:(0,n.jsx)(e.code,{className:\"language-javascript\",children:`const ParentComponent = () => {\n  const [count, setCount] = useState(0);\n\n  const handleClick = useCallback(() => {\n    setCount(count + 1);\n  }, [count]);\n\n  return <ChildComponent onClick={handleClick} />;\n};\n\nconst ChildComponent = React.memo(({ onClick }) => {\n  console.log('ChildComponent rendered');\n  return <button onClick={onClick}>Click me</button>;\n});\n`})}),`\n`,(0,n.jsx)(e.h4,{children:\"Optimizing performance\"}),`\n`,(0,n.jsxs)(e.p,{children:[\"In complex applications, re-creating functions on every render can be costly in terms of performance. By using \",(0,n.jsx)(e.code,{children:\"useCallback\"}),\", you can avoid this overhead and make your application more efficient.\"]}),`\n`,(0,n.jsx)(e.h3,{children:\"Caveats\"}),`\n`,(0,n.jsxs)(e.ul,{children:[`\n`,(0,n.jsxs)(e.li,{children:[(0,n.jsx)(e.strong,{children:\"Overuse\"}),\": Overusing \",(0,n.jsx)(e.code,{children:\"useCallback\"}),\" can lead to more complex code and may not always result in performance improvements. It should be used judiciously.\"]}),`\n`,(0,n.jsxs)(e.li,{children:[(0,n.jsx)(e.strong,{children:\"Dependencies\"}),\": Ensure that all dependencies are correctly specified in the dependency array. Missing dependencies can lead to stale closures and bugs.\"]}),`\n`]}),`\n`,(0,n.jsx)(e.h2,{children:\"Further reading\"}),`\n`,(0,n.jsxs)(e.ul,{children:[`\n`,(0,n.jsx)(e.li,{children:(0,n.jsxs)(e.a,{href:\"https://reactjs.org/docs/hooks-reference.html#usecallback\",children:[\"React documentation on \",(0,n.jsx)(e.code,{children:\"useCallback\"})]})}),`\n`,(0,n.jsx)(e.li,{children:(0,n.jsx)(e.a,{href:\"https://reactjs.org/docs/optimizing-performance.html#use-memo\",children:\"React memoization techniques\"})}),`\n`,(0,n.jsx)(e.li,{children:(0,n.jsxs)(e.a,{href:\"https://kentcdodds.com/blog/usememo-and-usecallback\",children:[\"Understanding React's \",(0,n.jsx)(e.code,{children:\"useCallback\"}),\" and \",(0,n.jsx)(e.code,{children:\"useMemo\"})]})}),`\n`]})]})}function v(c={}){let{wrapper:e}=c.components||{};return e?(0,n.jsx)(e,Object.assign({},c,{children:(0,n.jsx)(d,c)})):d(c)}var j=v;return C(x);})();\n;return Component;"
+}
