@@ -27,7 +27,7 @@ export default function QuestionsSubnav({ items }: Props) {
     <div
       className={clsx(
         'relative',
-        'flex items-center gap-6 xl:justify-end',
+        'flex items-center gap-6 lg:justify-end',
         'h-[var(--subnav-height)] w-full px-6',
         'z-fixed sticky top-[var(--global-sticky-height)]',
         'backdrop-blur',
