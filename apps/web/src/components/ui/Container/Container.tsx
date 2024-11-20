@@ -33,7 +33,7 @@ const widthStyles: Record<ContainerWidth, string> = {
   '7xl': clsx('max-w-7xl', 'max-lg:px-6'),
   app: clsx(
     'max-w-[1400px]', // 1280 + 60 * 2
-    'px-6 xl:px-10 min-[1440px]:px-[60px]',
+    'px-6 lg:px-10 xl:px-[60px]',
   ),
   lg: clsx('max-w-lg', 'max-lg:px-6'),
   marketing: clsx(
