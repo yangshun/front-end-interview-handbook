@@ -159,6 +159,7 @@ export default function InterviewsGuideCard({ data }: Props) {
       <div
         className={clsx(
           'relative isolate overflow-hidden rounded-lg',
+          hasMultipleGuides && !isOpen && 'cursor-pointer',
           !hasMultipleGuides && [
             'group',
             'focus-within:ring-brand focus-within:ring-2 focus-within:ring-inset',
@@ -169,7 +170,13 @@ export default function InterviewsGuideCard({ data }: Props) {
             'hover:bg-white dark:hover:bg-neutral-950',
             'transition-[background-color]',
           ],
-        )}>
+        )}
+        onClick={() => {
+          if (!hasMultipleGuides || isOpen) {
+            return;
+          }
+          setIsOpen(!isOpen);
+        }}>
         {/* Radial glow */}
         <div className="theme-bg-radial-glow absolute inset-0 before:h-[136px] before:opacity-20 dark:-top-10" />
         <div className={clsx('flex flex-col gap-6', 'px-6 py-4')}>
