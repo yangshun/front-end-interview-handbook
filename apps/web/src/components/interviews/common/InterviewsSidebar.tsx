@@ -43,11 +43,13 @@ export function InterviewsSidebarExpanded({
       isLoading={isLoading}
       isViewerPremium={isPremium}
       moreMenuItems={
-        <DropdownMenu.Item
-          href={commonNavItems.interviewsSettings.href}
-          icon={commonNavItems.interviewsSettings.icon}
-          label={commonNavItems.interviewsSettings.label}
-        />
+        userProfile ? (
+          <DropdownMenu.Item
+            href={commonNavItems.interviewsSettings.href}
+            icon={commonNavItems.interviewsSettings.icon}
+            label={commonNavItems.interviewsSettings.label}
+          />
+        ) : undefined
       }
       product="interviews"
       renderBottomAddonElements={() => <SocialDiscountSidebarMention />}
