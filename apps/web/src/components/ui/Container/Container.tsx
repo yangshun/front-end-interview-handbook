@@ -25,19 +25,25 @@ type Props = Readonly<{
 }>;
 
 const widthStyles: Record<ContainerWidth, string> = {
-  '2xl': 'max-w-2xl',
-  '3xl': 'max-w-3xl',
-  '4xl': 'max-w-4xl',
-  '5xl': 'max-w-5xl',
-  '6xl': 'max-w-6xl',
-  '7xl': 'max-w-7xl',
-  app: 'min-[1264px]:max-w-[904px] min-[1440px]:max-w-[1040px] min-[1920px]:max-w-[1280px]',
-  lg: 'max-w-lg',
-  marketing: 'lg:max-w-[928px] xl:max-w-[1104px]',
-  md: 'max-w-md',
-  'screen-2xl': 'max-w-screen-2xl',
-  'screen-xl': 'max-w-screen-xl',
-  xl: 'max-w-xl',
+  '2xl': clsx('max-w-2xl', 'max-lg:px-6'),
+  '3xl': clsx('max-w-3xl', 'max-lg:px-6'),
+  '4xl': clsx('max-w-4xl', 'max-lg:px-6'),
+  '5xl': clsx('max-w-5xl', 'max-lg:px-6'),
+  '6xl': clsx('max-w-6xl', 'max-lg:px-6'),
+  '7xl': clsx('max-w-7xl', 'max-lg:px-6'),
+  app: clsx(
+    'max-w-[1400px]', // 1280 + 60 * 2
+    'px-6 xl:px-10 min-[1440px]:px-[60px]',
+  ),
+  lg: clsx('max-w-lg', 'max-lg:px-6'),
+  marketing: clsx(
+    '2xl:max-w-[1152px]', // 1104 + 24 * 2
+    'px-6 xl:max-2xl:px-[160px]',
+  ),
+  md: clsx('max-w-md', 'max-lg:px-6'),
+  'screen-2xl': clsx('max-w-screen-2xl', 'max-lg:px-6'),
+  'screen-xl': clsx('max-w-screen-xl', 'max-lg:px-6'),
+  xl: clsx('max-w-xl', 'max-lg:px-6'),
 };
 
 export default function Container({
@@ -48,12 +54,7 @@ export default function Container({
 }: Props) {
   return (
     <div
-      className={clsx(
-        'mx-auto w-full',
-        width === 'marketing' ? 'max-lg:px-6' : 'max-xl:px-6',
-        widthStyles[width],
-        className,
-      )}
+      className={clsx('mx-auto w-full', widthStyles[width], className)}
       style={style}>
       {children}
     </div>
