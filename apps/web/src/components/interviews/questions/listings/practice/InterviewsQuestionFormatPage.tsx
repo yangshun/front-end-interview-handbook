@@ -8,7 +8,7 @@ import {
   RiWindow2Line,
 } from 'react-icons/ri';
 
-import { useQuestionFormatsData } from '~/data/QuestionLists';
+import { useQuestionFormatsData } from '~/data/QuestionCategories';
 
 import type {
   FrontEndInterviewSlugType,

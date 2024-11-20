@@ -1,6 +1,6 @@
 import { useId } from 'react';
 
-import { useQuestionFrameworksData } from '~/data/QuestionLists';
+import { useQuestionFrameworksData } from '~/data/QuestionCategories';
 
 import { FormattedMessage, useIntl } from '~/components/intl';
 import Anchor from '~/components/ui/Anchor';

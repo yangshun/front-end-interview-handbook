@@ -115,7 +115,7 @@ export default function InterviewsQuestionsCategoryContentSlider({
 
   return (
     <TabsPrimitive.Root
-      className="flex w-full flex-col gap-2.5 lg:w-[331px]"
+      className="flex w-full flex-col gap-2.5 sm:max-w-[331px]"
       value={dataValue}
       onValueChange={(newValue) => {
         // Stop auto-advancing if user interacts with steppers.

@@ -11,7 +11,6 @@ import {
 } from 'react-icons/ri';
 
 import InterviewsGuideCard from '~/components/interviews/guides/InterviewsGuideCard';
-import InterviewsMarketingCompaniesMarquee from '~/components/interviews/marketing/InterviewsMarketingCompaniesMarquee';
 import InterviewsQuestionsCategoryContentSlider from '~/components/interviews/questions/listings/category/InterviewsQuestionsCategoryContentSlider';
 import QuestionListingTopicFilters from '~/components/interviews/questions/listings/filters/QuestionListingTopicFilters';
 import QuestionsProgressPanel from '~/components/interviews/questions/listings/stats/QuestionsProgressPanel';
@@ -243,18 +242,6 @@ export default function ScrapbookPage() {
                   }}
                   values={selectedFilters}
                 />
-              </div>
-            </UIExamplesGroup>
-          </div>
-        </Section>
-        <Container>
-          <Heading level="heading3">Marketing</Heading>
-        </Container>
-        <Section>
-          <div>
-            <UIExamplesGroup darkMode="vertical">
-              <div>
-                <InterviewsMarketingCompaniesMarquee />
               </div>
             </UIExamplesGroup>
           </div>

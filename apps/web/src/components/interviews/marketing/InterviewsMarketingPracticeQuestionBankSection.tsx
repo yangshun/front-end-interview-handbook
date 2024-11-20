@@ -6,7 +6,7 @@ import {
   useQuestionFormatsData,
   useQuestionFrameworksData,
   useQuestionLanguagesData,
-} from '~/data/QuestionLists';
+} from '~/data/QuestionCategories';
 
 import SideNavigation from '~/components/common/SideNavigation';
 import type {

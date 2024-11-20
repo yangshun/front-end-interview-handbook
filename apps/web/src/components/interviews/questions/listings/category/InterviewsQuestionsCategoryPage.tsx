@@ -11,7 +11,7 @@ import {
 import {
   useQuestionFrameworksData,
   useQuestionLanguagesData,
-} from '~/data/QuestionLists';
+} from '~/data/QuestionCategories';
 
 import type {
   FrontEndInterviewSlugType,

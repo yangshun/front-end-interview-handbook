@@ -1,7 +1,7 @@
 'use client';
 
 import { useGuidesData } from '~/data/Guides';
-import { useQuestionFormatsData } from '~/data/QuestionLists';
+import { useQuestionFormatsData } from '~/data/QuestionCategories';
 
 import { useIntl } from '~/components/intl';
 

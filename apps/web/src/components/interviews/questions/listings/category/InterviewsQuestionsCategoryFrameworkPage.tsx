@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 
-import { useQuestionFrameworksData } from '~/data/QuestionLists';
+import { useQuestionFrameworksData } from '~/data/QuestionCategories';
 
 import type { GuideCardMetadata } from '~/components/guides/types';
 import { useIntl } from '~/components/intl';

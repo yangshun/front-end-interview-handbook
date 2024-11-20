@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 
-import { useQuestionLanguagesData } from '~/data/QuestionLists';
+import { useQuestionLanguagesData } from '~/data/QuestionCategories';
 
 import { useIntl } from '~/components/intl';
 import TabsUnderline from '~/components/ui/Tabs/TabsUnderline';

@@ -1,6 +1,6 @@
 'use client';
 
-import { useQuestionFormatsData } from '~/data/QuestionLists';
+import { useQuestionFormatsData } from '~/data/QuestionCategories';
 
 import QuestionsSubnav from '~/components/interviews/questions/common/QuestionsSubnav';
 import Container from '~/components/ui/Container';
