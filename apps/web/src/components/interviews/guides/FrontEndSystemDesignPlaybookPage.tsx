@@ -22,7 +22,6 @@ import Divider from '~/components/ui/Divider';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 import Text from '~/components/ui/Text';
-import { themeBorderEmphasizeColor } from '~/components/ui/theme';
 
 import type { QuestionCompletionCount } from '~/db/QuestionsCount';
 import { roundQuestionCountToNearestTen } from '~/db/QuestionsUtils';
@@ -155,10 +154,7 @@ export default function FrontEndSystemDesignPlaybookPage({
                   <div className="hidden lg:block">
                     <QuestionListingAccessSummary
                       {...questionsCount}
-                      className={clsx('pb-10', [
-                        'border-b',
-                        themeBorderEmphasizeColor,
-                      ])}
+                      className="mb-6"
                     />
                   </div>
                 }

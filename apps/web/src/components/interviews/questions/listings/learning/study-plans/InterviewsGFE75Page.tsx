@@ -28,10 +28,7 @@ import MDXContent from '~/components/mdx/MDXContent';
 import Divider from '~/components/ui/Divider';
 import Section from '~/components/ui/Heading/HeadingContext';
 import Text, { textVariants } from '~/components/ui/Text';
-import {
-  themeBorderEmphasizeColor,
-  themeOutlineElementBrandColor_FocusVisible,
-} from '~/components/ui/theme';
+import { themeOutlineElementBrandColor_FocusVisible } from '~/components/ui/theme';
 
 import {
   categorizeQuestionsProgress,
@@ -170,10 +167,7 @@ export default function InterviewsGFE75Page({
               <div className="hidden lg:block">
                 <QuestionListingAccessSummary
                   {...questionsCount}
-                  className={clsx('pb-10', [
-                    'border-b',
-                    themeBorderEmphasizeColor,
-                  ])}
+                  className="mb-6"
                 />
               </div>
             }

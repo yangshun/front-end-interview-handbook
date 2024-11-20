@@ -33,7 +33,6 @@ import QuestionListingAccessSummary from '~/components/interviews/questions/list
 import { useIntl } from '~/components/intl';
 import Section from '~/components/ui/Heading/HeadingContext';
 import Text from '~/components/ui/Text';
-import { themeBorderEmphasizeColor } from '~/components/ui/theme';
 
 import type { QuestionCompletionCount } from '~/db/QuestionsCount';
 
@@ -228,10 +227,7 @@ export default function InterviewsQuestionsCategoryPage({
             <div className="hidden lg:block">
               <QuestionListingAccessSummary
                 {...questionsCount}
-                className={clsx('pb-10', [
-                  'border-b',
-                  themeBorderEmphasizeColor,
-                ])}
+                className="mb-6"
               />
             </div>
           }

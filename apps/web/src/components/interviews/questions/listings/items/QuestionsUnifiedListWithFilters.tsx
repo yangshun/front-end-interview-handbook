@@ -302,7 +302,7 @@ export default function QuestionsUnifiedListWithFilters({
     </div>
   );
   const searchFilterRow = (
-    <div className="flex flex-col gap-4 xl:gap-8">
+    <div className="flex flex-col gap-5 xl:gap-8">
       <div className={clsx('flex justify-end gap-2 md:gap-4')}>
         <div className="flex-1">
           <TextInput
@@ -422,7 +422,7 @@ export default function QuestionsUnifiedListWithFilters({
         {sideColumnAddOn}
         <section
           className={clsx(
-            'sticky top-[var(--global-sticky-height)] h-[calc(100vh_-_var(--global-sticky-height))]',
+            'sticky top-[var(--global-sticky-height)] -mt-6 h-[calc(100vh_-_var(--global-sticky-height))]',
             'flex-col gap-y-10 lg:flex',
             ['divide-y', themeDivideEmphasizeColor],
           )}>
