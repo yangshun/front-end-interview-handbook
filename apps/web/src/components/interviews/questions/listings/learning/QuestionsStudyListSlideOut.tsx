@@ -6,7 +6,6 @@ import {
   RiArrowUpSLine,
   RiFilterLine,
   RiSearchLine,
-  RiSortDesc,
 } from 'react-icons/ri';
 import { useMediaQuery } from 'usehooks-ts';
 
@@ -19,7 +18,6 @@ import type {
   QuestionLanguage,
   QuestionMetadata,
   QuestionMetadataWithCompletedStatus,
-  QuestionSortField,
 } from '~/components/interviews/questions/common/QuestionsTypes';
 import useQuestionCodingSorting from '~/components/interviews/questions/listings/filters/hooks/useQuestionCodingSorting';
 import useQuestionUnifiedFilters from '~/components/interviews/questions/listings/filters/hooks/useQuestionUnifiedFilters';
@@ -37,7 +35,6 @@ import { FormattedMessage, useIntl } from '~/components/intl';
 import Badge from '~/components/ui/Badge';
 import Button from '~/components/ui/Button';
 import Divider from '~/components/ui/Divider';
-import DropdownMenu from '~/components/ui/DropdownMenu';
 import FilterButton from '~/components/ui/FilterButton/FilterButton';
 import Popover from '~/components/ui/Popover';
 import ScrollArea from '~/components/ui/ScrollArea';
@@ -49,6 +46,7 @@ import { themeBorderColor, themeTextInvertColor } from '~/components/ui/theme';
 
 import InterviewsStudyListQuestions from './InterviewsStudyListQuestions';
 import useQuestionsWithCompletionStatus from '../filters/hooks/useQuestionsWithCompletionStatus';
+import QuestionsListSortButton from '../items/QuestionsListSortButton';
 import { questionHrefWithList } from '../../common/questionHref';
 
 function FilterSection<T extends string, Q extends QuestionMetadata>({
@@ -234,14 +232,7 @@ function Contents({
   const defaultSortField = listKey == null ? 'difficulty' : 'default';
 
   // Sorting.
-  const {
-    isAscendingOrder,
-    setIsAscendingOrder,
-    sortField,
-    setSortField,
-    defaultSortFields,
-    premiumSortFields,
-  } = useQuestionCodingSorting({
+  const { defaultSortFields, premiumSortFields } = useQuestionCodingSorting({
     defaultSortField,
     filterNamespace,
   });
@@ -261,156 +252,12 @@ function Contents({
 
   const numberOfFilters = filters.filter(([size]) => size > 0).length;
 
-  function makeDropdownItemProps(
-    label: string,
-    itemField: QuestionSortField,
-    isItemAscendingOrder: boolean,
-  ) {
-    return {
-      isSelected:
-        sortField === itemField && isAscendingOrder === isItemAscendingOrder,
-      label,
-      onClick: () => {
-        setSortField(itemField), setIsAscendingOrder(isItemAscendingOrder);
-      },
-    };
-  }
-
   const sortFilter = (
-    <DropdownMenu
-      align="end"
-      icon={RiSortDesc}
+    <QuestionsListSortButton
+      defaultSortField={defaultSortField}
+      filterNamespace={filterNamespace}
       isLabelHidden={true}
-      label={intl.formatMessage({
-        defaultMessage: 'Sort by',
-        description: 'Tooltip for sorting button',
-        id: 'IAQscN',
-      })}
-      showChevron={false}
-      size="sm"
-      tooltip={intl.formatMessage({
-        defaultMessage: 'Sort by',
-        description: 'Label for sort by',
-        id: '4A5Ogu',
-      })}>
-      {/* TODO(interviews): consolidate with QuestionsUnifiedListWithFilters */}
-      {[
-        defaultSortField === 'default' &&
-          makeDropdownItemProps(
-            intl.formatMessage({
-              defaultMessage: 'Default',
-              description: 'Default sorting',
-              id: 'vcnpme',
-            }),
-            'default',
-            true,
-          ),
-        makeDropdownItemProps(
-          intl.formatMessage({
-            defaultMessage: 'Title: A to Z',
-            description:
-              'Sorting option for question list - sort titles from A to Z',
-            id: 'tsVEh8',
-          }),
-          'title',
-          true,
-        ),
-        makeDropdownItemProps(
-          intl.formatMessage({
-            defaultMessage: 'Title: Z to A',
-            description:
-              'Sorting option for question list - sort titles from Z to A',
-            id: 'jblvez',
-          }),
-          'title',
-          false,
-        ),
-        makeDropdownItemProps(
-          intl.formatMessage({
-            defaultMessage: 'Difficulty: Easy to Hard',
-            description:
-              'Sorting option for question list - sort by difficulty from easy to hard',
-            id: 'oNMAi3',
-          }),
-          'difficulty',
-          true,
-        ),
-        makeDropdownItemProps(
-          intl.formatMessage({
-            defaultMessage: 'Difficulty: Hard to Easy',
-            description:
-              'Sorting option for question list - sort by difficulty from hard to easy',
-            id: 'tDJ0XN',
-          }),
-          'difficulty',
-          false,
-        ),
-        makeDropdownItemProps(
-          intl.formatMessage({
-            defaultMessage: 'Importance: High to Low',
-            description:
-              'Sorting option for question list - sort by importance from high to low',
-            id: 'Tt86gs',
-          }),
-          'importance',
-          false,
-        ),
-        makeDropdownItemProps(
-          intl.formatMessage({
-            defaultMessage: 'Importance: Low to High',
-            description:
-              'Sorting option for question list - sort by importance from low to high',
-            id: 'MYNtBs',
-          }),
-          'importance',
-          true,
-        ),
-        makeDropdownItemProps(
-          intl.formatMessage({
-            defaultMessage: 'Duration: Low to High',
-            description:
-              'Sorting option for question list - sort by duration from low to high',
-            id: 'JJ0V4Y',
-          }),
-          'duration',
-          true,
-        ),
-        makeDropdownItemProps(
-          intl.formatMessage({
-            defaultMessage: 'Duration: High to Low',
-            description:
-              'Sorting option for question list - sort by duration from high to low',
-            id: 'KjD2cI',
-          }),
-          'duration',
-          false,
-        ),
-        makeDropdownItemProps(
-          intl.formatMessage({
-            defaultMessage: 'Created: Newest to Oldest',
-            description:
-              'Sorting option on question list page to sort by creation time, from newest to oldest',
-            id: 'A+qESm',
-          }),
-          'created',
-          true,
-        ),
-        makeDropdownItemProps(
-          intl.formatMessage({
-            defaultMessage: 'Created: Oldest to Newest',
-            description:
-              'Sorting option on question list page to sort by creation time, from oldest to newest',
-            id: 'HEQbsp',
-          }),
-          'created',
-          false,
-        ),
-      ]
-        .flatMap((item) => (item ? [item] : []))
-        .map((props) => (
-          <DropdownMenu.Item key={props.label} {...props} />
-        ))}
-    </DropdownMenu>
+    />
   );
 
   const embedFilters = (

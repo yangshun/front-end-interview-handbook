@@ -871,10 +871,6 @@
     "defaultMessage": "{count, plural, one {1 credit} other {# credits}}",
     "description": "Number of credits"
   },
-  "4A5Ogu": {
-    "defaultMessage": "Sort by",
-    "description": "Label for sort by"
-  },
   "4AAKga": {
     "defaultMessage": "Vue Interview Questions | Solutions by Ex-FAANG interviewers",
     "description": "Title of React Interview Questions page"
@@ -2890,10 +2886,6 @@
   "I9lFwb": {
     "defaultMessage": "A forum where you can clarify doubts.",
     "description": "FAQ answer for projects platform"
-  },
-  "IAQscN": {
-    "defaultMessage": "Sort by",
-    "description": "Tooltip for sorting button"
   },
   "IBP/D0": {
     "defaultMessage": "Tell us your email if you want us to follow up with you.",
