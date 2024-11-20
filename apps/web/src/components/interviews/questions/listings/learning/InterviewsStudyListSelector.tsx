@@ -1,10 +1,10 @@
 import clsx from 'clsx';
 import { useState } from 'react';
-import { RiArrowRightSLine, RiFilterLine, RiLockLine } from 'react-icons/ri';
+import { RiArrowRightSLine, RiFilterLine } from 'react-icons/ri';
 
 import { trpc } from '~/hooks/trpc';
 
-import { useUserProfile } from '~/components/global/UserProfileProvider';
+import SidebarPremiumChip from '~/components/global/sidebar/SidebarPremiumChip';
 import InterviewsPricingTableDialog from '~/components/interviews/purchase/InterviewsPricingTableDialog';
 import type { QuestionFeatureType } from '~/components/interviews/questions/common/QuestionsTypes';
 import { useIntl } from '~/components/intl';
@@ -30,8 +30,7 @@ function StudyListsItems({
   onChangeStudyList: (value: StudyListItemType) => void;
   openPricingDialog: (feature: QuestionFeatureType | undefined) => void;
 }>) {
-  const { userProfile } = useUserProfile();
-  const showPremiumLock = item.isPremium && !userProfile?.isInterviewsPremium;
+  const showPremiumLock = item.isPremium;
 
   return (
     <AccordionPrimitive.Item className="flex flex-col gap-1" value={item.key}>
@@ -50,9 +49,12 @@ function StudyListsItems({
             'transition-colors',
             themeBackgroundElementEmphasizedStateColor_Hover,
           )}>
-          <Text color="secondary" size="body3" weight="medium">
-            {item.label}
-          </Text>
+          <div className="flex items-center gap-2">
+            <Text color="secondary" size="body3" weight="medium">
+              {item.label}
+            </Text>
+            {showPremiumLock && <SidebarPremiumChip />}
+          </div>
           <RiArrowRightSLine
             aria-hidden={true}
             className={clsx(
@@ -72,13 +74,6 @@ function StudyListsItems({
           {item.items.map((studyListItem) => (
             <DropdownMenu.Item
               key={studyListItem.listKey}
-              endAddOn={
-                showPremiumLock ? (
-                  <RiLockLine
-                    className={clsx('size-4 shrink-0', themeTextSubtleColor)}
-                  />
-                ) : undefined
-              }
               label={
                 <Text className="w-full" size="body2">
                   {studyListItem.name}
