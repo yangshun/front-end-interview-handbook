@@ -3,7 +3,7 @@ import type { Metadata } from 'next/types';
 import InterviewsQuestionsCategoryLanguagePage from '~/components/interviews/questions/listings/category/InterviewsQuestionsCategoryLanguagePage';
 
 import { readAllFrontEndInterviewGuides } from '~/db/guides/GuidesReader';
-import { fetchQuestionCompletionCount } from '~/db/QuestionsCount';
+import { fetchQuestionsCompletionCount } from '~/db/QuestionsCount';
 import {
   fetchQuestionsListCoding,
   fetchQuestionsListQuiz,
@@ -27,7 +27,6 @@ type Props = Readonly<{
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = params;
-
   const [intl, { questions: questionsCoding }, { questions: questionsQuiz }] =
     await Promise.all([
       getIntlServerOnly(locale),
@@ -81,7 +80,7 @@ export default async function Page({ params }: Props) {
   ] = await Promise.all([
     fetchQuestionsListCoding(locale),
     fetchQuestionsListQuiz(locale),
-    fetchQuestionCompletionCount(['javascript', 'user-interface', 'quiz']),
+    fetchQuestionsCompletionCount(['javascript', 'user-interface', 'quiz']),
     readAllFrontEndInterviewGuides(params.locale),
   ]);
 

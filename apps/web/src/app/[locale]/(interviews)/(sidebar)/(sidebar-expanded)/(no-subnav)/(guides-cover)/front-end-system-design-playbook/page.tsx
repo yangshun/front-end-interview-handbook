@@ -4,7 +4,7 @@ import FrontEndSystemDesignPlaybookPage from '~/components/interviews/guides/Fro
 import { basePath } from '~/components/interviews/questions/content/system-design/SystemDesignNavigation';
 
 import { readAllFrontendSystemDesignGuides } from '~/db/guides/GuidesReader';
-import { fetchQuestionCompletionCount } from '~/db/QuestionsCount';
+import { fetchQuestionsCompletionCount } from '~/db/QuestionsCount';
 import { fetchQuestionsListSystemDesign } from '~/db/QuestionsListReader';
 import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
@@ -71,7 +71,7 @@ export default async function Page({ params }: Props) {
   ] = await Promise.all([
     readAllFrontendSystemDesignGuides(params.locale),
     fetchQuestionsListSystemDesign(locale),
-    fetchQuestionCompletionCount(['system-design']),
+    fetchQuestionsCompletionCount(['system-design']),
     getPageSEOMetadata({ params }),
   ]);
 

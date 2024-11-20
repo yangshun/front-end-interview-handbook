@@ -216,10 +216,11 @@ export async function fetchQuestionsListSystemDesign(
   };
 }
 
-export async function fetchCodingQuestionsForFramework(
+export async function fetchQuestionsListCodingForFramework(
   framework: QuestionFramework,
+  locale = 'en-US',
 ): Promise<ReadonlyArray<QuestionMetadata>> {
-  const { questions } = await fetchQuestionsListCoding();
+  const { questions } = await fetchQuestionsListCoding(locale);
 
   return filterQuestions(questions, [
     (question) =>

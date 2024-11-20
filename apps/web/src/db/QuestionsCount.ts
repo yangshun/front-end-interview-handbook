@@ -8,7 +8,7 @@ export type QuestionCompletionCount = Partial<
   Record<QuestionFormat, Record<string, number>>
 >;
 
-export async function fetchQuestionCompletionCount(
+export async function fetchQuestionsCompletionCount(
   formats: ReadonlyArray<QuestionFormat>,
 ) {
   const questionProgresses = await prisma.questionProgress.groupBy({

@@ -12,7 +12,7 @@ import {
   readAllFrontEndInterviewGuides,
   readAllFrontendSystemDesignGuides,
 } from '~/db/guides/GuidesReader';
-import { fetchQuestionCompletionCount } from '~/db/QuestionsCount';
+import { fetchQuestionsCompletionCount } from '~/db/QuestionsCount';
 import {
   fetchQuestionsListCoding,
   fetchQuestionsListQuiz,
@@ -318,7 +318,7 @@ export default async function Page({ params }: Props) {
     guides,
   ] = await Promise.all([
     processParams(params),
-    fetchQuestionCompletionCount([questionFormat]),
+    fetchQuestionsCompletionCount([questionFormat]),
     fetchInterviewListingBottomContent(`${format}-question-format`),
     format === 'system-design'
       ? readAllFrontendSystemDesignGuides(params.locale)

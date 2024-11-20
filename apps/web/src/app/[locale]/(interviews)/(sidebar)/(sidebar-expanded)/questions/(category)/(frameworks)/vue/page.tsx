@@ -3,8 +3,8 @@ import type { Metadata } from 'next/types';
 import InterviewsQuestionsCategoryFrameworkPage from '~/components/interviews/questions/listings/category/InterviewsQuestionsCategoryFrameworkPage';
 
 import { readAllFrontEndInterviewGuides } from '~/db/guides/GuidesReader';
-import { fetchQuestionCompletionCount } from '~/db/QuestionsCount';
-import { fetchCodingQuestionsForFramework } from '~/db/QuestionsListReader';
+import { fetchQuestionsCompletionCount } from '~/db/QuestionsCount';
+import { fetchQuestionsListCodingForFramework } from '~/db/QuestionsListReader';
 import { roundQuestionCountToNearestTen } from '~/db/QuestionsUtils';
 import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
@@ -21,18 +21,13 @@ type Props = Readonly<{
 
 async function processParams(params: Props['params']) {
   const { locale } = params;
-  const [intl, questionList] = await Promise.all([
+  const [intl, codingQuestions] = await Promise.all([
     getIntlServerOnly(locale),
-    fetchCodingQuestionsForFramework(framework),
+    fetchQuestionsListCodingForFramework(framework, locale),
   ]);
-  const questionListForFramework = questionList.filter((metadata) =>
-    metadata.frameworks.some(
-      ({ framework: frameworkValue }) => frameworkValue === framework,
-    ),
-  );
 
   return {
-    questionListForFramework,
+    codingQuestions,
     seoDescription: intl.formatMessage(
       {
         defaultMessage:
@@ -41,9 +36,7 @@ async function processParams(params: Props['params']) {
         id: 'ih/GUI',
       },
       {
-        questionCount: roundQuestionCountToNearestTen(
-          questionListForFramework.length,
-        ),
+        questionCount: roundQuestionCountToNearestTen(codingQuestions.length),
       },
     ),
     seoTitle: intl.formatMessage({
@@ -62,7 +55,6 @@ async function processParams(params: Props['params']) {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = params;
-
   const { socialTitle, seoDescription, seoTitle } = await processParams(params);
 
   return defaultMetadata({
@@ -75,19 +67,19 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function Page({ params }: Props) {
-  const [{ questionListForFramework }, questionCompletionCount, guides] =
-    await Promise.all([
-      processParams(params),
-      fetchQuestionCompletionCount(['user-interface']),
-      readAllFrontEndInterviewGuides(params.locale),
-    ]);
+  const { locale } = params;
+  const [codingQuestions, questionCompletionCount, guides] = await Promise.all([
+    fetchQuestionsListCodingForFramework(framework, locale),
+    fetchQuestionsCompletionCount(['user-interface']),
+    readAllFrontEndInterviewGuides(locale),
+  ]);
 
   return (
     <InterviewsQuestionsCategoryFrameworkPage
       framework={framework}
       guides={guides}
       questionCompletionCount={questionCompletionCount}
-      questionList={questionListForFramework}
+      questionList={codingQuestions}
     />
   );
 }
