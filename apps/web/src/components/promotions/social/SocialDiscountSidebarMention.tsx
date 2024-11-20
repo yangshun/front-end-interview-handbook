@@ -93,7 +93,8 @@ function SocialDiscountSidebarMentionImpl() {
       <Anchor
         className="inline-flex items-center gap-1"
         href="/rewards/social"
-        variant="flat">
+        variant="flat"
+        weight="normal">
         <Text color="subtitle" size="body3">
           <FormattedMessage
             defaultMessage="Complete simple social tasks"
