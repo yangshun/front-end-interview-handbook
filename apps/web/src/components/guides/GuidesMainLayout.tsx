@@ -48,8 +48,8 @@ type Props = Readonly<
     bottomNav?: ReactNode;
     children?: React.ReactNode;
     isAccessibleForFree?: boolean;
-    listKey?: string;
     navigation: GuideNavigation;
+    studyListKey?: string;
     tableOfContents?: TableOfContents;
   }
 >;
@@ -58,7 +58,7 @@ export default function GuidesMainLayout({
   bottomNav,
   children,
   navigation,
-  listKey,
+  studyListKey,
   tableOfContents,
   showMarkAsComplete = false,
   metadata,
@@ -126,8 +126,8 @@ export default function GuidesMainLayout({
                         guideProgress={
                           'guideProgress' in props ? props.guideProgress : null
                         }
-                        listKey={listKey}
                         metadata={metadata}
+                        studyListKey={studyListKey}
                       />
                       <CheckboxInput
                         label={intl.formatMessage({
@@ -172,8 +172,8 @@ export default function GuidesMainLayout({
                     {
                       book: metadata.book,
                       guideName: currentItem.label,
-                      listKey,
                       slug: metadata.slug,
+                      studyListKey,
                     },
                     {
                       onError: () => {

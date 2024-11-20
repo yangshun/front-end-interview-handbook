@@ -90,7 +90,7 @@ function JavaScriptCodingWorkspaceImpl({
   question: QuestionJavaScript;
   similarQuestions: ReadonlyArray<QuestionMetadata>;
   skeleton: QuestionJavaScriptSkeleton;
-  studyList?: Readonly<{ listKey: string; name: string }>;
+  studyList?: Readonly<{ name: string; studyListKey: string }>;
   workspace: QuestionJavaScriptWorkspace;
 }>) {
   const { description, metadata, solution } = question;
@@ -127,7 +127,7 @@ function JavaScriptCodingWorkspaceImpl({
 
   useMonacoEditorModels(monaco, files);
 
-  useQuestionsAutoMarkAsComplete(metadata, studyList?.listKey);
+  useQuestionsAutoMarkAsComplete(metadata, studyList?.studyListKey);
 
   function openSubmission(submissionId: string) {
     const tabIdForSubmission = codingWorkspaceTabSubmissionId(submissionId);
@@ -257,7 +257,7 @@ function JavaScriptCodingWorkspaceImpl({
     submit: {
       contents: (
         <JavaScriptCodingWorkspaceTestsSubmitTab
-          listKey={studyList?.listKey}
+          studyListKey={studyList?.studyListKey}
           metadata={metadata}
           openBesideTabId={codingWorkspaceTabFileId(workspace.run)}
           specPath={workspace.submit}
@@ -421,7 +421,7 @@ export default function JavaScriptCodingWorkspace({
   question: QuestionJavaScript;
   similarQuestions: ReadonlyArray<QuestionMetadata>;
   skeleton: QuestionJavaScriptSkeleton;
-  studyList?: Readonly<{ listKey: string; name: string }>;
+  studyList?: Readonly<{ name: string; studyListKey: string }>;
   workspace: QuestionJavaScriptWorkspace;
 }>) {
   const { sandpack } = useSandpack();

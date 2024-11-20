@@ -28,7 +28,7 @@ type Props = Readonly<{
   ) => void;
   question: QuestionUserInterface;
   similarQuestions: ReadonlyArray<QuestionMetadata>;
-  studyList?: Readonly<{ listKey: string; name: string }>;
+  studyList?: Readonly<{ name: string, studyListKey: string; }>;
   timeoutLoggerInstance: string;
 }>;
 

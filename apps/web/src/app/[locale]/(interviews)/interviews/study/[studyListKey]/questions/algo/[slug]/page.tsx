@@ -9,7 +9,7 @@ import CodingWorkspacePaywallPage from '~/components/workspace/common/CodingWork
 import JavaScriptCodingWorkspacePage from '~/components/workspace/javascript/JavaScriptCodingWorkspacePage';
 
 import { fetchInterviewsStudyList } from '~/db/contentlayer/InterviewsStudyListReader';
-import { readQuestionJavaScriptContents } from '~/db/QuestionsContentsReader';
+import { readQuestionAlgoContents } from '~/db/QuestionsContentsReader';
 import { fetchQuestionsListCoding } from '~/db/QuestionsListReader';
 import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
@@ -18,7 +18,7 @@ import { readViewerFromToken } from '~/supabase/SupabaseServerGFE';
 import { createSupabaseAdminClientGFE_SERVER_ONLY } from '~/supabase/SupabaseServerGFE';
 
 type Props = Readonly<{
-  params: Readonly<{ listKey: string; locale: string; slug: string }>;
+  params: Readonly<{ locale: string; slug: string, studyListKey: string; }>;
 }>;
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
@@ -31,7 +31,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const intl = await getIntlServerOnly(locale);
 
   try {
-    const { question } = readQuestionJavaScriptContents(slug, false, locale);
+    const { question } = readQuestionAlgoContents(slug, false, locale);
 
     return defaultMetadata({
       description: question.metadata.excerpt!,
@@ -53,7 +53,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function Page({ params }: Props) {
-  const { locale, slug: rawSlug, listKey } = params;
+  const { locale, slug: rawSlug, studyListKey } = params;
   // So that we handle typos like extra characters.
   const slug = decodeURIComponent(rawSlug)
     .replaceAll(/[^\da-zA-Z-]/g, '')
@@ -61,7 +61,6 @@ export default async function Page({ params }: Props) {
   const supabaseAdmin = createSupabaseAdminClientGFE_SERVER_ONLY();
 
   const viewer = await readViewerFromToken();
-
   let isViewerPremium = false;
 
   if (viewer != null) {
@@ -78,18 +77,14 @@ export default async function Page({ params }: Props) {
     );
   }
 
-  const { question } = readQuestionJavaScriptContents(
-    slug,
-    isViewerPremium,
-    locale,
-  );
+  const { question } = readQuestionAlgoContents(slug, isViewerPremium, locale);
 
   const isQuestionLockedForUser =
     question.metadata.access === 'premium' && !isViewerPremium;
 
   const [{ questions: codingQuestions }, studyList] = await Promise.all([
     fetchQuestionsListCoding(locale),
-    fetchInterviewsStudyList(listKey),
+    fetchInterviewsStudyList(studyListKey),
   ]);
   const nextQuestions = sortQuestionsMultiple(
     codingQuestions.filter((questionItem) =>
@@ -146,18 +141,18 @@ export default async function Page({ params }: Props) {
             mode="practice"
           />
           <QuestionsStudyListBottomNav
-            listKey={listKey}
             paginationEl={
               <QuestionsStudyListSlideOutButton
                 metadata={question.metadata}
                 studyList={
                   studyList != null
-                    ? { listKey, name: studyList.name }
+                    ? { name: studyList.name, studyListKey }
                     : undefined
                 }
               />
             }
             question={question}
+            studyListKey={studyListKey}
           />
         </>
       ) : (
@@ -167,7 +162,9 @@ export default async function Page({ params }: Props) {
           question={question}
           similarQuestions={similarQuestions}
           studyList={
-            studyList != null ? { listKey, name: studyList.name } : undefined
+            studyList != null
+              ? { name: studyList.name, studyListKey }
+              : undefined
           }
         />
       )}

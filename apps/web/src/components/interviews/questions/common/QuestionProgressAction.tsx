@@ -28,7 +28,7 @@ import CodingWorkspaceBottomBarEmitter from '../../../workspace/common/CodingWor
 import { useUser } from '@supabase/auth-helpers-react';
 
 type Props = Readonly<{
-  listKey?: string;
+  studyListKey?: string;
   metadata: QuestionMetadata;
   questionProgress?: QuestionProgress | null;
   signInModalContents?: React.ReactNode;
@@ -38,7 +38,7 @@ export default function QuestionProgressAction({
   signInModalContents,
   questionProgress,
   metadata,
-  listKey,
+  studyListKey,
 }: Props) {
   const intl = useIntl();
   const pathname = usePathname();
@@ -137,7 +137,7 @@ export default function QuestionProgressAction({
             {
               format: metadata.format,
               slug: metadata.slug,
-              studyListKey: listKey,
+              studyListKey,
             },
             {
               onError: (error) => {
@@ -189,7 +189,7 @@ export default function QuestionProgressAction({
           {
             format: metadata.format,
             slug: metadata.slug,
-            studyListKey: listKey,
+            studyListKey,
           },
           {
             onError: (error) => {

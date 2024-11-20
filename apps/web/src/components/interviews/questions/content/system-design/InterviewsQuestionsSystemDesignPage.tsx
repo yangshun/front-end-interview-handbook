@@ -18,7 +18,7 @@ type Props = Readonly<{
   canViewPremiumContent: boolean;
   isQuestionLocked: boolean;
   question: QuestionSystemDesign;
-  studyList?: Readonly<{ listKey: string; name: string }>;
+  studyList?: Readonly<{ name: string; studyListKey: string }>;
 }>;
 
 export default function InterviewsQuestionsSystemDesignPage({
@@ -44,8 +44,8 @@ export default function InterviewsQuestionsSystemDesignPage({
   return (
     <GuidesMainLayout
       bottomNav={bottomNav}
-      listKey={studyList?.listKey}
       navigation={navigation}
+      studyListKey={studyList?.studyListKey}
       tableOfContents={tableOfContents}>
       {!isAvailable ? (
         <QuestionPaywall
@@ -58,7 +58,7 @@ export default function InterviewsQuestionsSystemDesignPage({
           key={hashQuestion(question.metadata)}
           canViewPremiumContent={canViewPremiumContent}
           isQuestionLocked={isQuestionLocked}
-          listKey={studyList?.listKey}
+          studyListKey={studyList?.studyListKey}
           question={question}
         />
       )}

@@ -21,13 +21,13 @@ import InterviewsPremiumBadge from '../../../common/InterviewsPremiumBadge';
 type Props = Readonly<{
   canViewPremiumContent: boolean;
   isQuestionLocked: boolean;
-  listKey?: string;
+  studyListKey?: string;
   question: QuestionBase;
 }>;
 
 export default function QuestionContentsSystemDesign({
   canViewPremiumContent,
-  listKey,
+  studyListKey,
   isQuestionLocked,
   question,
 }: Props) {
@@ -36,10 +36,10 @@ export default function QuestionContentsSystemDesign({
   const { description, metadata, solution } = question;
   const { data: questionProgress, isSuccess } = useQueryQuestionProgress(
     question.metadata,
-    listKey,
+    studyListKey,
   );
 
-  useQuestionsAutoMarkAsComplete(question.metadata, listKey);
+  useQuestionsAutoMarkAsComplete(question.metadata, studyListKey);
 
   return (
     <article ref={copyRef} className="space-y-8">
@@ -108,7 +108,7 @@ export default function QuestionContentsSystemDesign({
               isSuccess ? 'opacity-100' : 'opacity-0',
             )}>
             <QuestionProgressAction
-              listKey={listKey}
+              studyListKey={studyListKey}
               metadata={question.metadata}
               questionProgress={questionProgress}
             />

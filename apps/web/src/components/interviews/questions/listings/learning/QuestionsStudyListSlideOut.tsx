@@ -470,7 +470,7 @@ type Props = Readonly<{
   isDisabled: boolean;
   metadata: QuestionMetadata;
   processedQuestions: ReadonlyArray<QuestionMetadataWithCompletedStatus>;
-  studyList?: Readonly<{ listKey: string; name: string }>;
+  studyList?: Readonly<{ name: string; studyListKey: string }>;
 }>;
 
 export default function QuestionsStudyListSlideOut({
@@ -489,7 +489,7 @@ export default function QuestionsStudyListSlideOut({
   const [currentStudyList, setCurrentStudyList] =
     useState<StudyListItemType | null>(studyList ?? null);
   const filterNamespace = studyList
-    ? `study-list:${currentStudyList?.listKey}`
+    ? `study-list:${currentStudyList?.studyListKey}`
     : 'prepare-coding';
   const [showStudyListSwitchDialog, setShowStudyListSwitchDialog] = useState<{
     href: string | null;
@@ -509,7 +509,10 @@ export default function QuestionsStudyListSlideOut({
     if (processedQuestions.length === 0) {
       return;
     }
-    if (studyList?.listKey && studyList.listKey !== currentStudyList?.listKey) {
+    if (
+      studyList?.studyListKey &&
+      studyList.studyListKey !== currentStudyList?.studyListKey
+    ) {
       setShowStudyListSwitchDialog({
         href: firstQuestionHref,
         show: true,
@@ -617,10 +620,10 @@ export default function QuestionsStudyListSlideOut({
       {isShown && (
         <ScrollArea>
           <Contents
-            key={currentStudyList?.listKey ?? 'coding'}
-            currentListKey={currentStudyList?.listKey}
+            key={currentStudyList?.studyListKey ?? 'coding'}
+            currentListKey={currentStudyList?.studyListKey}
             filterNamespace={filterNamespace}
-            listKey={currentStudyList?.listKey}
+            listKey={currentStudyList?.studyListKey}
             metadata={metadata}
             setFirstQuestionHref={setFirstQuestionHref}
             onClickDifferentStudyListQuestion={(href: string) =>

@@ -21,7 +21,7 @@ type Props = Readonly<{
   nextQuestions: ReadonlyArray<QuestionMetadata>;
   question: QuestionUserInterface;
   resetToDefaultCode: () => void;
-  studyList?: Readonly<{ listKey: string; name: string }>;
+  studyList?: Readonly<{ name: string, studyListKey: string; }>;
 }>;
 
 export default function UserInterfaceCodingWorkspaceBottomBar({

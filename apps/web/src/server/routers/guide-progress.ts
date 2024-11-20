@@ -16,53 +16,56 @@ export const guideProgressRouter = router({
     .input(
       z.object({
         book: guidebookZodEnum,
-        guideName: z.string(), // Only used by the client for showing within the response toast.
-        listKey: z.string().optional(),
+        guideName: z.string(), 
         slug: z.string(),
+        // Only used by the client for showing within the response toast.
+studyListKey: z.string().optional(),
       }),
     )
-    .mutation(async ({ input: { book, slug, listKey }, ctx: { viewer } }) => {
-      if (!viewer) {
-        return null;
-      }
+    .mutation(
+      async ({ input: { book, slug, studyListKey }, ctx: { viewer } }) => {
+        if (!viewer) {
+          return null;
+        }
 
-      try {
-        const guideProgress = await prisma.guideProgress.create({
-          data: {
-            book,
-            slug,
-            status: 'COMPLETED',
+        try {
+          const guideProgress = await prisma.guideProgress.create({
+            data: {
+              book,
+              slug,
+              status: 'COMPLETED',
+              userId: viewer.id,
+            },
+          });
+
+          if (studyListKey == null) {
+            return guideProgress;
+          }
+        } catch (_err) {
+          // Do nothing because it's a unique index.
+        }
+
+        const session = await prisma.learningSession.findFirst({
+          where: {
+            key: studyListKey,
+            status: 'IN_PROGRESS',
             userId: viewer.id,
           },
         });
 
-        if (listKey == null) {
-          return guideProgress;
+        if (session == null) {
+          throw 'No ongoing learning session. Start tracking progress first.';
         }
-      } catch (_err) {
-        // Do nothing because it's a unique index.
-      }
 
-      const session = await prisma.learningSession.findFirst({
-        where: {
-          key: listKey,
-          status: 'IN_PROGRESS',
-          userId: viewer.id,
-        },
-      });
-
-      if (session == null) {
-        throw 'No ongoing learning session. Start tracking progress first.';
-      }
-
-      return await prisma.learningSessionProgress.create({
-        data: {
-          key: hashGuide(book, slug),
-          sessionId: session.id,
-          status: 'COMPLETED',
-        },
-      });
-    }),
+        return await prisma.learningSessionProgress.create({
+          data: {
+            key: hashGuide(book, slug),
+            sessionId: session.id,
+            status: 'COMPLETED',
+          },
+        });
+      },
+    ),
   delete: userProcedure
     .input(
       z.object({

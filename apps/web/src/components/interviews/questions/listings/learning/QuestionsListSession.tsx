@@ -115,7 +115,7 @@ export default function QuestionsListSession({
 
     startSessionMutation.mutate(
       {
-        listKey: questionListKey,
+        studyListKey: questionListKey,
       },
       {
         onSuccess: () => {

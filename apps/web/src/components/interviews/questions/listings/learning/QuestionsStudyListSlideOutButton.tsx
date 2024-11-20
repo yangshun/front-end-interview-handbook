@@ -23,7 +23,7 @@ import { questionHrefWithList } from '../../common/questionHref';
 
 type Props = Readonly<{
   metadata: QuestionMetadata;
-  studyList?: Readonly<{ listKey: string; name: string }>;
+  studyList?: Readonly<{ name: string, studyListKey: string; }>;
 }>;
 
 export default function QuestionsStudyListSlideOutButton({
@@ -33,16 +33,16 @@ export default function QuestionsStudyListSlideOutButton({
   const { userProfile } = useUserProfile();
   const { isLoading, data: questions } =
     trpc.questionLists.getQuestions.useQuery({
-      listKey: studyList?.listKey,
+      listKey: studyList?.studyListKey,
     });
 
   const questionsWithCompletionStatus = useQuestionsWithCompletionStatus(
     questions ?? [],
-    studyList?.listKey,
+    studyList?.studyListKey,
   );
 
   const filterNamespace = studyList
-    ? `study-list:${studyList?.listKey}`
+    ? `study-list:${studyList?.studyListKey}`
     : 'prepare-coding';
   // Filtering.
   const { filters } = useQuestionUnifiedFilters({
@@ -90,8 +90,8 @@ export default function QuestionsStudyListSlideOutButton({
             ? undefined
             : questionHrefWithList(
                 prevQuestion?.href,
-                studyList?.listKey
-                  ? { studyList: studyList?.listKey }
+                studyList?.studyListKey
+                  ? { studyList: studyList?.studyListKey }
                   : undefined,
               )
         }
@@ -122,8 +122,8 @@ export default function QuestionsStudyListSlideOutButton({
             ? undefined
             : questionHrefWithList(
                 nextQuestion?.href,
-                studyList?.listKey
-                  ? { studyList: studyList?.listKey }
+                studyList?.studyListKey
+                  ? { studyList: studyList?.studyListKey }
                   : undefined,
               )
         }

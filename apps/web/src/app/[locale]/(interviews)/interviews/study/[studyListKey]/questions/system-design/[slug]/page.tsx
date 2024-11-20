@@ -17,9 +17,9 @@ import {
 
 type Props = Readonly<{
   params: Readonly<{
-    listKey: string;
     locale: string;
     slug: string;
+    studyListKey: string;
   }>;
 }>;
 
@@ -76,7 +76,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function Page({ params }: Props) {
-  const { locale, slug, listKey } = params;
+  const { locale, slug, studyListKey } = params;
 
   const { question } = readQuestionSystemDesignContents(slug, locale);
 
@@ -100,7 +100,7 @@ export default async function Page({ params }: Props) {
 
   const isQuestionLocked =
     question.metadata.access === 'premium' && !isViewerPremium;
-  const studyList = await fetchInterviewsStudyList(listKey);
+  const studyList = await fetchInterviewsStudyList(studyListKey);
 
   return (
     <>
@@ -113,18 +113,18 @@ export default async function Page({ params }: Props) {
       <InterviewsQuestionsSystemDesignPage
         bottomNav={
           <QuestionsStudyListBottomNav
-            listKey={listKey}
             paginationEl={
               <QuestionsStudyListSlideOutButton
                 metadata={question.metadata}
                 studyList={
                   studyList != null
-                    ? { listKey, name: studyList.name }
+                    ? { name: studyList.name, studyListKey }
                     : undefined
                 }
               />
             }
             question={question}
+            studyListKey={studyListKey}
           />
         }
         canViewPremiumContent={isViewerPremium}
@@ -136,7 +136,7 @@ export default async function Page({ params }: Props) {
           solution: isQuestionLocked ? null : question.solution,
         }}
         studyList={
-          studyList != null ? { listKey, name: studyList.name } : undefined
+          studyList != null ? { name: studyList.name, studyListKey } : undefined
         }
       />
     </>

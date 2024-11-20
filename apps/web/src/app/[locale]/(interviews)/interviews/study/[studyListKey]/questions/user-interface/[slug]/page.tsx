@@ -25,10 +25,10 @@ import {
 
 type Props = Readonly<{
   params: Readonly<{
-    listKey: string;
     locale: string;
     rest: ReadonlyArray<string>;
     slug: string;
+    studyListKey: string;
   }>;
 }>;
 
@@ -139,7 +139,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function Page({ params }: Props) {
-  const { slug: rawSlug, rest, locale, listKey } = params;
+  const { slug: rawSlug, rest, locale, studyListKey } = params;
   // So that we handle typos like extra characters.
   const slug = decodeURIComponent(rawSlug)
     .replaceAll(/[^\da-zA-Z-]/g, '')
@@ -195,7 +195,7 @@ export default async function Page({ params }: Props) {
 
   const [{ questions: codingQuestions }, studyList] = await Promise.all([
     fetchQuestionsListCoding(locale),
-    fetchInterviewsStudyList(listKey),
+    fetchInterviewsStudyList(studyListKey),
   ]);
   const nextQuestions = sortQuestionsMultiple(
     codingQuestions.filter((questionItem) =>
@@ -254,18 +254,18 @@ export default async function Page({ params }: Props) {
             mode="practice"
           />
           <QuestionsStudyListBottomNav
-            listKey={listKey}
             paginationEl={
               <QuestionsStudyListSlideOutButton
                 metadata={question.metadata}
                 studyList={
                   studyList != null
-                    ? { listKey, name: studyList.name }
+                    ? { name: studyList.name, studyListKey }
                     : undefined
                 }
               />
             }
             question={question}
+            studyListKey={studyListKey}
           />
         </>
       ) : (
@@ -276,7 +276,9 @@ export default async function Page({ params }: Props) {
           question={question}
           similarQuestions={similarQuestions}
           studyList={
-            studyList != null ? { listKey, name: studyList.name } : undefined
+            studyList != null
+              ? { name: studyList.name, studyListKey }
+              : undefined
           }
         />
       )}

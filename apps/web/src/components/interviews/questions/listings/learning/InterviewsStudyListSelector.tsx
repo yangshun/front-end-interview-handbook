@@ -73,7 +73,7 @@ function StudyListsItems({
         <ul className={clsx('flex flex-col gap-y-px')} role="list">
           {item.items.map((studyListItem) => (
             <DropdownMenu.Item
-              key={studyListItem.listKey}
+              key={studyListItem.studyListKey}
               label={
                 <Text className="w-full" size="body2">
                   {studyListItem.name}
@@ -167,7 +167,7 @@ function DropdownContent({
     return items
       .filter((section) => {
         return !!section.items.find(
-          (item) => item.listKey === currentStudyList.listKey,
+          (item) => item.studyListKey === currentStudyList.studyListKey,
         );
       })
       .map((section) => section.key);
@@ -196,8 +196,8 @@ function DropdownContent({
 }
 
 export type StudyListItemType = Readonly<{
-  listKey: string;
   name: string;
+  studyListKey: string;
 }>;
 
 type StudyListItemsType = Readonly<{
@@ -210,7 +210,7 @@ type StudyListItemsType = Readonly<{
 
 function convertToMap(studyLists: ReadonlyArray<StudyListItemType>) {
   return studyLists.reduce((acc: Record<string, StudyListItemType>, item) => {
-    acc[item.listKey] = item;
+    acc[item.studyListKey] = item;
 
     return acc;
   }, {});

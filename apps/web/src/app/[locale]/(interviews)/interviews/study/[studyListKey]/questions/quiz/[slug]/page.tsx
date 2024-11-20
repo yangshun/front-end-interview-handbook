@@ -14,9 +14,9 @@ import { getSiteOrigin } from '~/seo/siteUrl';
 
 type Props = Readonly<{
   params: Readonly<{
-    listKey: string;
     locale: string;
     slug: string;
+    studyListKey: string;
   }>;
 }>;
 
@@ -56,10 +56,10 @@ export async function generateStaticParams({ params }: Props) {
 }
 
 export default async function Page({ params }: Props) {
-  const { locale, slug, listKey } = params;
+  const { locale, slug, studyListKey } = params;
   const { question } = readQuestionQuizContents(slug, locale);
 
-  const studyList = await fetchInterviewsStudyList(listKey);
+  const studyList = await fetchInterviewsStudyList(studyListKey);
 
   return (
     <>
@@ -79,16 +79,18 @@ export default async function Page({ params }: Props) {
         useAppDir={true}
       />
       <QuestionQuizContents
-        listKey={listKey}
         paginationEl={
           <QuestionsStudyListSlideOutButton
             metadata={question.metadata}
             studyList={
-              studyList != null ? { listKey, name: studyList.name } : undefined
+              studyList != null
+                ? { name: studyList.name, studyListKey }
+                : undefined
             }
           />
         }
         question={question}
+        studyListKey={studyListKey}
       />
     </>
   );

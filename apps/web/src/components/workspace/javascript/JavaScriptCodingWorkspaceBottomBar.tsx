@@ -17,7 +17,7 @@ type Props = Readonly<{
   layout: 'full' | 'minimal';
   metadata: QuestionMetadata;
   nextQuestions: ReadonlyArray<QuestionMetadata>;
-  studyList?: Readonly<{ listKey: string; name: string }>;
+  studyList?: Readonly<{ name: string, studyListKey: string; }>;
 }>;
 
 export default function JavaScriptCodingWorkspaceBottomBar({

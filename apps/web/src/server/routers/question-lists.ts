@@ -72,8 +72,7 @@ export const questionListsRouter = router({
 
       return fetchQuestionsByHash(studyList.questionHashes);
     }),
-  getRecommendedStudyList: publicProcedure
-  .query(async () => {
+  getRecommendedStudyList: publicProcedure.query(async () => {
     const blind75 = await fetchInterviewsStudyList('blind75');
     const gfe75 = await fetchInterviewsStudyList('gfe75');
     const { questions } = await fetchQuestionsListSystemDesign('en-US');
@@ -81,14 +80,14 @@ export const questionListsRouter = router({
     return {
       blind75: {
         listKey: blind75?.slug ?? '',
-        questionCount: blind75?.questionHashes.length ?? 0
+        questionCount: blind75?.questionHashes.length ?? 0,
       },
       gfe75: {
         listKey: gfe75?.slug ?? '',
-        questionCount: gfe75?.questionHashes.length ?? 0
+        questionCount: gfe75?.questionHashes.length ?? 0,
       },
       systemDesignQuestionCount: questions.length,
-    }
+    };
   }),
   getSessionProgress: userProcedure
     .input(
@@ -147,13 +146,13 @@ export const questionListsRouter = router({
   startSession: userProcedure
     .input(
       z.object({
-        listKey: z.string(),
+        studyListKey: z.string(),
       }),
     )
-    .mutation(async ({ input: { listKey }, ctx: { viewer } }) => {
+    .mutation(async ({ input: { studyListKey }, ctx: { viewer } }) => {
       const existingSession = await prisma.learningSession.findFirst({
         where: {
-          key: listKey,
+          key: studyListKey,
           status: 'IN_PROGRESS',
           userId: viewer.id,
         },
@@ -166,7 +165,7 @@ export const questionListsRouter = router({
 
       // No existing session, create one.
       const createData = {
-        key: listKey,
+        key: studyListKey,
         userId: viewer.id,
       };
 

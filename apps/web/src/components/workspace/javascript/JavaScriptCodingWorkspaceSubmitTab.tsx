@@ -23,11 +23,11 @@ import { useUser } from '@supabase/auth-helpers-react';
 
 export default function JavaScriptCodingWorkspaceTestsSubmitTab({
   metadata,
-  listKey,
+  studyListKey,
   openBesideTabId,
   specPath,
 }: Readonly<{
-  listKey?: string;
+  studyListKey?: string;
   metadata: QuestionMetadata;
   openBesideTabId: CodingWorkspaceTabFileType;
   specPath: string;
@@ -101,7 +101,7 @@ export default function JavaScriptCodingWorkspaceTestsSubmitTab({
             {
               format: metadata.format,
               slug: metadata.slug,
-              studyListKey: listKey,
+              studyListKey,
             },
             {
               onSuccess: (data) => {

@@ -16,7 +16,7 @@ type Props = Readonly<{
   nextQuestions: ReadonlyArray<QuestionMetadata>;
   rightElements?: ReactNode;
   showQuestionsListButton?: boolean;
-  studyList?: Readonly<{ listKey: string; name: string }>;
+  studyList?: Readonly<{ name: string; studyListKey: string }>;
 }>;
 
 export default function CodingWorkspaceBottomBar({
@@ -29,7 +29,7 @@ export default function CodingWorkspaceBottomBar({
 }: Props) {
   const { data: questionProgress } = useQueryQuestionProgress(
     metadata,
-    studyList?.listKey,
+    studyList?.studyListKey,
   );
 
   return (
@@ -50,7 +50,7 @@ export default function CodingWorkspaceBottomBar({
           <CodingWorkspaceTimer />
         </div>
         <QuestionProgressAction
-          listKey={studyList?.listKey}
+          studyListKey={studyList?.studyListKey}
           metadata={metadata}
           questionProgress={questionProgress}
           signInModalContents={

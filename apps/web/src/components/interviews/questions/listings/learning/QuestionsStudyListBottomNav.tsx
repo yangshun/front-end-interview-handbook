@@ -18,20 +18,20 @@ import type { QuestionQuiz } from '../../common/QuestionsTypes';
 import { useUser } from '@supabase/auth-helpers-react';
 
 type Props = Readonly<{
-  listKey?: string;
   paginationEl: ReactNode;
   question: QuestionQuiz;
+  studyListKey?: string;
 }>;
 
 export default function QuestionsStudyListBottomNav({
   paginationEl,
   question,
-  listKey,
+  studyListKey,
 }: Props) {
   const user = useUser();
   const { data: questionProgress, isLoading } = useQueryQuestionProgress(
     question.metadata,
-    listKey,
+    studyListKey,
   );
 
   return (
@@ -66,7 +66,7 @@ export default function QuestionsStudyListBottomNav({
               title={question.metadata.title}
             />
             <QuestionProgressAction
-              listKey={listKey}
+              studyListKey={studyListKey}
               metadata={question.metadata}
               questionProgress={questionProgress}
             />

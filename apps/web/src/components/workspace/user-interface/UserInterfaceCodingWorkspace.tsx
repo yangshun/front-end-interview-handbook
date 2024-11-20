@@ -93,7 +93,7 @@ function UserInterfaceCodingWorkspaceImpl({
   ) => void;
   question: QuestionUserInterface;
   similarQuestions: ReadonlyArray<QuestionMetadata>;
-  studyList?: Readonly<{ listKey: string; name: string }>;
+  studyList?: Readonly<{ name: string, studyListKey: string; }>;
 }>) {
   const { framework, metadata: rawMetadata, description, solution } = question;
 
@@ -151,7 +151,7 @@ function UserInterfaceCodingWorkspaceImpl({
     },
   );
 
-  useQuestionsAutoMarkAsComplete(metadata, studyList?.listKey);
+  useQuestionsAutoMarkAsComplete(metadata, studyList?.studyListKey);
 
   useEffect(() => {
     dispatch({
@@ -516,7 +516,7 @@ export default function UserInterfaceCodingWorkspace({
   ) => void;
   question: QuestionUserInterface;
   similarQuestions: ReadonlyArray<QuestionMetadata>;
-  studyList?: Readonly<{ listKey: string; name: string }>;
+  studyList?: Readonly<{ name: string, studyListKey: string; }>;
 }>) {
   const { sandpack } = useSandpack();
   const { activeFile, visibleFiles } = sandpack;

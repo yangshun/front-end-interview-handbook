@@ -21,15 +21,15 @@ import { useUser } from '@supabase/auth-helpers-react';
 type Props = Readonly<{
   guideName: string;
   guideProgress?: GuideProgress | null;
-  listKey: string | undefined;
   metadata: GuideMetadata;
+  studyListKey: string | undefined;
 }>;
 
 export default function GuidesProgressAction({
   guideName,
   guideProgress,
   metadata,
-  listKey,
+  studyListKey,
 }: Props) {
   const intl = useIntl();
   const user = useUser();
@@ -133,8 +133,8 @@ export default function GuidesProgressAction({
         addGuideProgressMutation.mutate({
           book: metadata.book,
           guideName,
-          listKey,
           slug: metadata.slug,
+          studyListKey,
         });
 
         logEvent('guide.mark_complete', {
