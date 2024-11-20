@@ -6,13 +6,18 @@
     "author": null,
     "companies": [],
     "created": 1630800000,
-    "difficulty": "medium",
+    "difficulty": "easy",
     "duration": 5,
     "excerpt": null,
     "featured": true,
     "format": "quiz",
-    "frameworkDefault": null,
-    "frameworks": [],
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/quiz/how-would-one-optimise-the-performance-of-react-contexts-to-reduce-rerenders/react"
+      }
+    ],
     "href": "/questions/quiz/how-would-one-optimise-the-performance-of-react-contexts-to-reduce-rerenders",
     "importance": "low",
     "languages": [],

@@ -11,8 +11,13 @@
     "excerpt": null,
     "featured": true,
     "format": "quiz",
-    "frameworkDefault": null,
-    "frameworks": [],
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/quiz/explain-what-react-hydration-is/react"
+      }
+    ],
     "href": "/questions/quiz/explain-what-react-hydration-is",
     "importance": "low",
     "languages": [],

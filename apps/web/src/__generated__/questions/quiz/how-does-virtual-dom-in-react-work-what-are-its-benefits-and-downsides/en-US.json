@@ -11,8 +11,13 @@
     "excerpt": null,
     "featured": true,
     "format": "quiz",
-    "frameworkDefault": null,
-    "frameworks": [],
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/quiz/how-does-virtual-dom-in-react-work-what-are-its-benefits-and-downsides/react"
+      }
+    ],
     "href": "/questions/quiz/how-does-virtual-dom-in-react-work-what-are-its-benefits-and-downsides",
     "importance": "high",
     "languages": [],

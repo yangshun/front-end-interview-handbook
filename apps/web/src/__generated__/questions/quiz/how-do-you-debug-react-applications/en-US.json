@@ -11,8 +11,13 @@
     "excerpt": null,
     "featured": true,
     "format": "quiz",
-    "frameworkDefault": null,
-    "frameworks": [],
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/quiz/how-do-you-debug-react-applications/react"
+      }
+    ],
     "href": "/questions/quiz/how-do-you-debug-react-applications",
     "importance": "low",
     "languages": [],

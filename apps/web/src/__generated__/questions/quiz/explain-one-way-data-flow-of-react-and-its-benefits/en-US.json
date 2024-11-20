@@ -11,8 +11,13 @@
     "excerpt": null,
     "featured": true,
     "format": "quiz",
-    "frameworkDefault": null,
-    "frameworks": [],
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/quiz/explain-one-way-data-flow-of-react-and-its-benefits/react"
+      }
+    ],
     "href": "/questions/quiz/explain-one-way-data-flow-of-react-and-its-benefits",
     "importance": "medium",
     "languages": [],

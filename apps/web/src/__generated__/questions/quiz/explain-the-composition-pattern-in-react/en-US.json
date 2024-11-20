@@ -11,8 +11,13 @@
     "excerpt": null,
     "featured": true,
     "format": "quiz",
-    "frameworkDefault": null,
-    "frameworks": [],
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/quiz/explain-the-composition-pattern-in-react/react"
+      }
+    ],
     "href": "/questions/quiz/explain-the-composition-pattern-in-react",
     "importance": "medium",
     "languages": [],

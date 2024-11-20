@@ -11,8 +11,13 @@
     "excerpt": null,
     "featured": true,
     "format": "quiz",
-    "frameworkDefault": null,
-    "frameworks": [],
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/quiz/what-is-jsx-and-how-does-it-work/react"
+      }
+    ],
     "href": "/questions/quiz/what-is-jsx-and-how-does-it-work",
     "importance": "medium",
     "languages": [],

@@ -11,8 +11,13 @@
     "excerpt": null,
     "featured": true,
     "format": "quiz",
-    "frameworkDefault": null,
-    "frameworks": [],
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/quiz/what-is-the-difference-between-react-node-react-element-and-a-react-component/react"
+      }
+    ],
     "href": "/questions/quiz/what-is-the-difference-between-react-node-react-element-and-a-react-component",
     "importance": "medium",
     "languages": [],

@@ -11,8 +11,13 @@
     "excerpt": null,
     "featured": true,
     "format": "quiz",
-    "frameworkDefault": null,
-    "frameworks": [],
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/quiz/what-is-the-difference-between-useeffect-and-uselayouteffect-in-react/react"
+      }
+    ],
     "href": "/questions/quiz/what-is-the-difference-between-useeffect-and-uselayouteffect-in-react",
     "importance": "low",
     "languages": [],

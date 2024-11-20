@@ -11,8 +11,13 @@
     "excerpt": null,
     "featured": true,
     "format": "quiz",
-    "frameworkDefault": null,
-    "frameworks": [],
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/quiz/explain-what-happens-when-setstate-is-called-in-react/react"
+      }
+    ],
     "href": "/questions/quiz/explain-what-happens-when-setstate-is-called-in-react",
     "importance": "medium",
     "languages": [],

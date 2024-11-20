@@ -11,8 +11,13 @@
     "excerpt": null,
     "featured": true,
     "format": "quiz",
-    "frameworkDefault": null,
-    "frameworks": [],
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/quiz/how-do-you-handle-asynchronous-data-loading-in-react-applications/react"
+      }
+    ],
     "href": "/questions/quiz/how-do-you-handle-asynchronous-data-loading-in-react-applications",
     "importance": "high",
     "languages": [],

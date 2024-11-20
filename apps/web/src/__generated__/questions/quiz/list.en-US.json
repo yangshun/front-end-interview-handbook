@@ -6460,8 +6460,13 @@
     "excerpt": null,
     "featured": true,
     "format": "quiz",
-    "frameworkDefault": null,
-    "frameworks": [],
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/quiz/explain-one-way-data-flow-of-react-and-its-benefits/react"
+      }
+    ],
     "href": "/questions/quiz/explain-one-way-data-flow-of-react-and-its-benefits",
     "importance": "medium",
     "languages": [],
@@ -6487,8 +6492,13 @@
     "excerpt": null,
     "featured": true,
     "format": "quiz",
-    "frameworkDefault": null,
-    "frameworks": [],
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/quiz/explain-server-side-rendering-of-react-applications-and-its-benefits/react"
+      }
+    ],
     "href": "/questions/quiz/explain-server-side-rendering-of-react-applications-and-its-benefits",
     "importance": "low",
     "languages": [],
@@ -6514,8 +6524,13 @@
     "excerpt": null,
     "featured": true,
     "format": "quiz",
-    "frameworkDefault": null,
-    "frameworks": [],
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/quiz/explain-static-generation-of-react-applications-and-its-benefits/react"
+      }
+    ],
     "href": "/questions/quiz/explain-static-generation-of-react-applications-and-its-benefits",
     "importance": "low",
     "languages": [],
@@ -6541,8 +6556,13 @@
     "excerpt": null,
     "featured": true,
     "format": "quiz",
-    "frameworkDefault": null,
-    "frameworks": [],
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/quiz/explain-the-composition-pattern-in-react/react"
+      }
+    ],
     "href": "/questions/quiz/explain-the-composition-pattern-in-react",
     "importance": "medium",
     "languages": [],
@@ -6568,8 +6588,13 @@
     "excerpt": null,
     "featured": true,
     "format": "quiz",
-    "frameworkDefault": null,
-    "frameworks": [],
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/quiz/explain-the-presentational-vs-container-component-pattern-in-react/react"
+      }
+    ],
     "href": "/questions/quiz/explain-the-presentational-vs-container-component-pattern-in-react",
     "importance": "medium",
     "languages": [],
@@ -6595,8 +6620,13 @@
     "excerpt": null,
     "featured": true,
     "format": "quiz",
-    "frameworkDefault": null,
-    "frameworks": [],
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/quiz/explain-what-happens-when-setstate-is-called-in-react/react"
+      }
+    ],
     "href": "/questions/quiz/explain-what-happens-when-setstate-is-called-in-react",
     "importance": "medium",
     "languages": [],
@@ -6622,8 +6652,13 @@
     "excerpt": null,
     "featured": true,
     "format": "quiz",
-    "frameworkDefault": null,
-    "frameworks": [],
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/quiz/explain-what-react-hydration-is/react"
+      }
+    ],
     "href": "/questions/quiz/explain-what-react-hydration-is",
     "importance": "low",
     "languages": [],
@@ -6649,8 +6684,13 @@
     "excerpt": null,
     "featured": true,
     "format": "quiz",
-    "frameworkDefault": null,
-    "frameworks": [],
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/quiz/how-do-you-debug-react-applications/react"
+      }
+    ],
     "href": "/questions/quiz/how-do-you-debug-react-applications",
     "importance": "low",
     "languages": [],
@@ -6676,8 +6716,13 @@
     "excerpt": null,
     "featured": true,
     "format": "quiz",
-    "frameworkDefault": null,
-    "frameworks": [],
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/quiz/how-do-you-decide-between-using-react-state-context-and-external-state-managers/react"
+      }
+    ],
     "href": "/questions/quiz/how-do-you-decide-between-using-react-state-context-and-external-state-managers",
     "importance": "high",
     "languages": [],
@@ -6703,8 +6748,13 @@
     "excerpt": null,
     "featured": true,
     "format": "quiz",
-    "frameworkDefault": null,
-    "frameworks": [],
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/quiz/how-do-you-handle-asynchronous-data-loading-in-react-applications/react"
+      }
+    ],
     "href": "/questions/quiz/how-do-you-handle-asynchronous-data-loading-in-react-applications",
     "importance": "high",
     "languages": [],
@@ -6731,8 +6781,13 @@
     "excerpt": null,
     "featured": true,
     "format": "quiz",
-    "frameworkDefault": null,
-    "frameworks": [],
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/quiz/how-do-you-localize-react-applications/react"
+      }
+    ],
     "href": "/questions/quiz/how-do-you-localize-react-applications",
     "importance": "low",
     "languages": [],
@@ -6759,8 +6814,13 @@
     "excerpt": null,
     "featured": true,
     "format": "quiz",
-    "frameworkDefault": null,
-    "frameworks": [],
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/quiz/how-do-you-reset-a-components-state-in-react/react"
+      }
+    ],
     "href": "/questions/quiz/how-do-you-reset-a-components-state-in-react",
     "importance": "medium",
     "languages": [],
@@ -6786,8 +6846,13 @@
     "excerpt": null,
     "featured": true,
     "format": "quiz",
-    "frameworkDefault": null,
-    "frameworks": [],
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/quiz/how-do-you-test-react-applications/react"
+      }
+    ],
     "href": "/questions/quiz/how-do-you-test-react-applications",
     "importance": "low",
     "languages": [],
@@ -6813,8 +6878,13 @@
     "excerpt": null,
     "featured": true,
     "format": "quiz",
-    "frameworkDefault": null,
-    "frameworks": [],
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/quiz/how-does-virtual-dom-in-react-work-what-are-its-benefits-and-downsides/react"
+      }
+    ],
     "href": "/questions/quiz/how-does-virtual-dom-in-react-work-what-are-its-benefits-and-downsides",
     "importance": "high",
     "languages": [],
@@ -6840,8 +6910,13 @@
     "excerpt": null,
     "featured": true,
     "format": "quiz",
-    "frameworkDefault": null,
-    "frameworks": [],
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/quiz/how-would-one-optimize-the-performance-of-react-contexts-to-reduce-rerenders/react"
+      }
+    ],
     "href": "/questions/quiz/how-would-one-optimize-the-performance-of-react-contexts-to-reduce-rerenders",
     "importance": "high",
     "languages": [],
@@ -6868,8 +6943,13 @@
     "excerpt": null,
     "featured": true,
     "format": "quiz",
-    "frameworkDefault": null,
-    "frameworks": [],
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/quiz/what-are-error-boundaries-in-react-for/react"
+      }
+    ],
     "href": "/questions/quiz/what-are-error-boundaries-in-react-for",
     "importance": "low",
     "languages": [],
@@ -6895,8 +6975,13 @@
     "excerpt": null,
     "featured": true,
     "format": "quiz",
-    "frameworkDefault": null,
-    "frameworks": [],
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/quiz/what-are-higher-order-components-in-react/react"
+      }
+    ],
     "href": "/questions/quiz/what-are-higher-order-components-in-react",
     "importance": "medium",
     "languages": [],
@@ -6922,8 +7007,13 @@
     "excerpt": null,
     "featured": true,
     "format": "quiz",
-    "frameworkDefault": null,
-    "frameworks": [],
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/quiz/what-are-react-fragments-used-for/react"
+      }
+    ],
     "href": "/questions/quiz/what-are-react-fragments-used-for",
     "importance": "medium",
     "languages": [],
@@ -6949,8 +7039,13 @@
     "excerpt": null,
     "featured": true,
     "format": "quiz",
-    "frameworkDefault": null,
-    "frameworks": [],
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/quiz/what-are-react-portals-used-for/react"
+      }
+    ],
     "href": "/questions/quiz/what-are-react-portals-used-for",
     "importance": "medium",
     "languages": [],
@@ -6976,8 +7071,13 @@
     "excerpt": null,
     "featured": true,
     "format": "quiz",
-    "frameworkDefault": null,
-    "frameworks": [],
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/quiz/what-are-render-props-in-react-and-what-are-they-for/react"
+      }
+    ],
     "href": "/questions/quiz/what-are-render-props-in-react-and-what-are-they-for",
     "importance": "medium",
     "languages": [],
@@ -7003,8 +7103,13 @@
     "excerpt": null,
     "featured": true,
     "format": "quiz",
-    "frameworkDefault": null,
-    "frameworks": [],
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/quiz/what-are-some-common-pitfalls-when-doing-data-fetching-in-react/react"
+      }
+    ],
     "href": "/questions/quiz/what-are-some-common-pitfalls-when-doing-data-fetching-in-react",
     "importance": "low",
     "languages": [],
@@ -7030,8 +7135,13 @@
     "excerpt": null,
     "featured": true,
     "format": "quiz",
-    "frameworkDefault": null,
-    "frameworks": [],
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/quiz/what-are-some-pitfalls-about-using-context-in-react/react"
+      }
+    ],
     "href": "/questions/quiz/what-are-some-pitfalls-about-using-context-in-react",
     "importance": "medium",
     "languages": [],
@@ -7057,8 +7167,13 @@
     "excerpt": null,
     "featured": true,
     "format": "quiz",
-    "frameworkDefault": null,
-    "frameworks": [],
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/quiz/what-are-some-react-anti-patterns/react"
+      }
+    ],
     "href": "/questions/quiz/what-are-some-react-anti-patterns",
     "importance": "low",
     "languages": [],
@@ -7084,8 +7199,13 @@
     "excerpt": null,
     "featured": true,
     "format": "quiz",
-    "frameworkDefault": null,
-    "frameworks": [],
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/quiz/what-are-the-benefits-of-using-hooks-in-react/react"
+      }
+    ],
     "href": "/questions/quiz/what-are-the-benefits-of-using-hooks-in-react",
     "importance": "high",
     "languages": [],
@@ -7111,8 +7231,13 @@
     "excerpt": null,
     "featured": true,
     "format": "quiz",
-    "frameworkDefault": null,
-    "frameworks": [],
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/quiz/what-are-the-rules-of-react-hooks/react"
+      }
+    ],
     "href": "/questions/quiz/what-are-the-rules-of-react-hooks",
     "importance": "high",
     "languages": [],
@@ -7138,8 +7263,13 @@
     "excerpt": null,
     "featured": true,
     "format": "quiz",
-    "frameworkDefault": null,
-    "frameworks": [],
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/quiz/what-does-re-rendering-mean-in-react/react"
+      }
+    ],
     "href": "/questions/quiz/what-does-re-rendering-mean-in-react",
     "importance": "high",
     "languages": [],
@@ -7165,8 +7295,13 @@
     "excerpt": null,
     "featured": true,
     "format": "quiz",
-    "frameworkDefault": null,
-    "frameworks": [],
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/quiz/what-does-the-dependency-array-of-useeffect-affect/react"
+      }
+    ],
     "href": "/questions/quiz/what-does-the-dependency-array-of-useeffect-affect",
     "importance": "medium",
     "languages": [],
@@ -7192,8 +7327,13 @@
     "excerpt": null,
     "featured": true,
     "format": "quiz",
-    "frameworkDefault": null,
-    "frameworks": [],
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/quiz/what-is-code-splitting-in-a-react-application/react"
+      }
+    ],
     "href": "/questions/quiz/what-is-code-splitting-in-a-react-application",
     "importance": "low",
     "languages": [],
@@ -7219,8 +7359,13 @@
     "excerpt": null,
     "featured": true,
     "format": "quiz",
-    "frameworkDefault": null,
-    "frameworks": [],
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/quiz/what-is-forwardref-in-react-used-for/react"
+      }
+    ],
     "href": "/questions/quiz/what-is-forwardref-in-react-used-for",
     "importance": "low",
     "languages": [],
@@ -7246,8 +7391,13 @@
     "excerpt": null,
     "featured": true,
     "format": "quiz",
-    "frameworkDefault": null,
-    "frameworks": [],
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/quiz/what-is-jsx-and-how-does-it-work/react"
+      }
+    ],
     "href": "/questions/quiz/what-is-jsx-and-how-does-it-work",
     "importance": "medium",
     "languages": [],
@@ -7273,8 +7423,13 @@
     "excerpt": null,
     "featured": true,
     "format": "quiz",
-    "frameworkDefault": null,
-    "frameworks": [],
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/quiz/what-is-react-describe-the-benefits-of-react/react"
+      }
+    ],
     "href": "/questions/quiz/what-is-react-describe-the-benefits-of-react",
     "importance": "high",
     "languages": [],
@@ -7300,8 +7455,13 @@
     "excerpt": null,
     "featured": true,
     "format": "quiz",
-    "frameworkDefault": null,
-    "frameworks": [],
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/quiz/what-is-react-fiber-and-how-is-it-an-improvement-over-the-previous-approach/react"
+      }
+    ],
     "href": "/questions/quiz/what-is-react-fiber-and-how-is-it-an-improvement-over-the-previous-approach",
     "importance": "medium",
     "languages": [],
@@ -7327,8 +7487,13 @@
     "excerpt": null,
     "featured": true,
     "format": "quiz",
-    "frameworkDefault": null,
-    "frameworks": [],
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/quiz/what-is-react-strict-mode-and-what-are-its-benefits/react"
+      }
+    ],
     "href": "/questions/quiz/what-is-react-strict-mode-and-what-are-its-benefits",
     "importance": "low",
     "languages": [],
@@ -7354,8 +7519,13 @@
     "excerpt": null,
     "featured": true,
     "format": "quiz",
-    "frameworkDefault": null,
-    "frameworks": [],
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/quiz/what-is-react-suspense-and-what-does-it-enable/react"
+      }
+    ],
     "href": "/questions/quiz/what-is-react-suspense-and-what-does-it-enable",
     "importance": "medium",
     "languages": [],
@@ -7381,8 +7551,13 @@
     "excerpt": null,
     "featured": true,
     "format": "quiz",
-    "frameworkDefault": null,
-    "frameworks": [],
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/quiz/what-is-reconciliation-in-react/react"
+      }
+    ],
     "href": "/questions/quiz/what-is-reconciliation-in-react",
     "importance": "high",
     "languages": [],
@@ -7408,8 +7583,13 @@
     "excerpt": null,
     "featured": true,
     "format": "quiz",
-    "frameworkDefault": null,
-    "frameworks": [],
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/quiz/what-is-the-consequence-of-using-array-indices-as-the-value-for-key-s-in-react/react"
+      }
+    ],
     "href": "/questions/quiz/what-is-the-consequence-of-using-array-indices-as-the-value-for-key-s-in-react",
     "importance": "medium",
     "languages": [],
@@ -7435,8 +7615,13 @@
     "excerpt": null,
     "featured": true,
     "format": "quiz",
-    "frameworkDefault": null,
-    "frameworks": [],
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/quiz/what-is-the-difference-between-controlled-and-uncontrolled-react-components/react"
+      }
+    ],
     "href": "/questions/quiz/what-is-the-difference-between-controlled-and-uncontrolled-react-components",
     "importance": "low",
     "languages": [],
@@ -7462,8 +7647,13 @@
     "excerpt": null,
     "featured": true,
     "format": "quiz",
-    "frameworkDefault": null,
-    "frameworks": [],
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/quiz/what-is-the-difference-between-react-node-react-element-and-a-react-component/react"
+      }
+    ],
     "href": "/questions/quiz/what-is-the-difference-between-react-node-react-element-and-a-react-component",
     "importance": "medium",
     "languages": [],
@@ -7489,8 +7679,13 @@
     "excerpt": null,
     "featured": true,
     "format": "quiz",
-    "frameworkDefault": null,
-    "frameworks": [],
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/quiz/what-is-the-difference-between-state-and-props-in-react/react"
+      }
+    ],
     "href": "/questions/quiz/what-is-the-difference-between-state-and-props-in-react",
     "importance": "high",
     "languages": [],
@@ -7516,8 +7711,13 @@
     "excerpt": null,
     "featured": true,
     "format": "quiz",
-    "frameworkDefault": null,
-    "frameworks": [],
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/quiz/what-is-the-difference-between-useeffect-and-uselayouteffect-in-react/react"
+      }
+    ],
     "href": "/questions/quiz/what-is-the-difference-between-useeffect-and-uselayouteffect-in-react",
     "importance": "low",
     "languages": [],
@@ -7543,8 +7743,13 @@
     "excerpt": null,
     "featured": true,
     "format": "quiz",
-    "frameworkDefault": null,
-    "frameworks": [],
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/quiz/what-is-the-flux-pattern-and-what-are-its-benefits/react"
+      }
+    ],
     "href": "/questions/quiz/what-is-the-flux-pattern-and-what-are-its-benefits",
     "importance": "medium",
     "languages": [],
@@ -7570,8 +7775,13 @@
     "excerpt": null,
     "featured": true,
     "format": "quiz",
-    "frameworkDefault": null,
-    "frameworks": [],
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/quiz/what-is-the-purpose-of-callback-function-argument-format-of-setstate-in-react-and-when-should-it-be-used/react"
+      }
+    ],
     "href": "/questions/quiz/what-is-the-purpose-of-callback-function-argument-format-of-setstate-in-react-and-when-should-it-be-used",
     "importance": "low",
     "languages": [],
@@ -7597,8 +7807,13 @@
     "excerpt": null,
     "featured": true,
     "format": "quiz",
-    "frameworkDefault": null,
-    "frameworks": [],
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/quiz/what-is-the-purpose-of-the-key-prop-in-react/react"
+      }
+    ],
     "href": "/questions/quiz/what-is-the-purpose-of-the-key-prop-in-react",
     "importance": "high",
     "languages": [],
@@ -7624,8 +7839,13 @@
     "excerpt": null,
     "featured": true,
     "format": "quiz",
-    "frameworkDefault": null,
-    "frameworks": [],
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/quiz/what-is-the-usecallback-hook-in-react-and-when-should-it-be-used/react"
+      }
+    ],
     "href": "/questions/quiz/what-is-the-usecallback-hook-in-react-and-when-should-it-be-used",
     "importance": "medium",
     "languages": [],
@@ -7651,8 +7871,13 @@
     "excerpt": null,
     "featured": true,
     "format": "quiz",
-    "frameworkDefault": null,
-    "frameworks": [],
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/quiz/what-is-the-useid-hook-in-react-and-when-should-it-be-used/react"
+      }
+    ],
     "href": "/questions/quiz/what-is-the-useid-hook-in-react-and-when-should-it-be-used",
     "importance": "low",
     "languages": [],
@@ -7678,8 +7903,13 @@
     "excerpt": null,
     "featured": true,
     "format": "quiz",
-    "frameworkDefault": null,
-    "frameworks": [],
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/quiz/what-is-the-usememo-hook-in-react-and-when-should-it-be-used/react"
+      }
+    ],
     "href": "/questions/quiz/what-is-the-usememo-hook-in-react-and-when-should-it-be-used",
     "importance": "medium",
     "languages": [],
@@ -7705,8 +7935,13 @@
     "excerpt": null,
     "featured": true,
     "format": "quiz",
-    "frameworkDefault": null,
-    "frameworks": [],
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/quiz/what-is-the-usereducer-hook-in-react-and-when-should-it-be-used/react"
+      }
+    ],
     "href": "/questions/quiz/what-is-the-usereducer-hook-in-react-and-when-should-it-be-used",
     "importance": "medium",
     "languages": [],
@@ -7732,8 +7967,13 @@
     "excerpt": null,
     "featured": true,
     "format": "quiz",
-    "frameworkDefault": null,
-    "frameworks": [],
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/quiz/what-is-the-useref-hook-in-react-and-when-should-it-be-used/react"
+      }
+    ],
     "href": "/questions/quiz/what-is-the-useref-hook-in-react-and-when-should-it-be-used",
     "importance": "medium",
     "languages": [],
@@ -7759,8 +7999,13 @@
     "excerpt": null,
     "featured": true,
     "format": "quiz",
-    "frameworkDefault": null,
-    "frameworks": [],
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/quiz/what-is-virtual-dom-in-react/react"
+      }
+    ],
     "href": "/questions/quiz/what-is-virtual-dom-in-react",
     "importance": "high",
     "languages": [],
@@ -7786,8 +8031,13 @@
     "excerpt": null,
     "featured": true,
     "format": "quiz",
-    "frameworkDefault": null,
-    "frameworks": [],
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/quiz/why-does-react-recommend-against-mutating-state/react"
+      }
+    ],
     "href": "/questions/quiz/why-does-react-recommend-against-mutating-state",
     "importance": "low",
     "languages": [],

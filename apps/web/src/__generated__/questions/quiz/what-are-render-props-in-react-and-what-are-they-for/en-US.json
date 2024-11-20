@@ -11,8 +11,13 @@
     "excerpt": null,
     "featured": true,
     "format": "quiz",
-    "frameworkDefault": null,
-    "frameworks": [],
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/quiz/what-are-render-props-in-react-and-what-are-they-for/react"
+      }
+    ],
     "href": "/questions/quiz/what-are-render-props-in-react-and-what-are-they-for",
     "importance": "medium",
     "languages": [],

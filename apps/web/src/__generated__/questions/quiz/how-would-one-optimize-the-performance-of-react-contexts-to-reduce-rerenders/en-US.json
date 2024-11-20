@@ -11,8 +11,13 @@
     "excerpt": null,
     "featured": true,
     "format": "quiz",
-    "frameworkDefault": null,
-    "frameworks": [],
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/quiz/how-would-one-optimize-the-performance-of-react-contexts-to-reduce-rerenders/react"
+      }
+    ],
     "href": "/questions/quiz/how-would-one-optimize-the-performance-of-react-contexts-to-reduce-rerenders",
     "importance": "high",
     "languages": [],

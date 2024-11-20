@@ -11,8 +11,13 @@
     "excerpt": null,
     "featured": true,
     "format": "quiz",
-    "frameworkDefault": null,
-    "frameworks": [],
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/quiz/what-is-the-usememo-hook-in-react-and-when-should-it-be-used/react"
+      }
+    ],
     "href": "/questions/quiz/what-is-the-usememo-hook-in-react-and-when-should-it-be-used",
     "importance": "medium",
     "languages": [],

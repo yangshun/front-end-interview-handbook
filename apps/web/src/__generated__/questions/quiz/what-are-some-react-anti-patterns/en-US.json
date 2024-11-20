@@ -11,8 +11,13 @@
     "excerpt": null,
     "featured": true,
     "format": "quiz",
-    "frameworkDefault": null,
-    "frameworks": [],
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/quiz/what-are-some-react-anti-patterns/react"
+      }
+    ],
     "href": "/questions/quiz/what-are-some-react-anti-patterns",
     "importance": "low",
     "languages": [],

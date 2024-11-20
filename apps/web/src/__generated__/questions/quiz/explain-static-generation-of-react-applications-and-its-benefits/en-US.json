@@ -11,8 +11,13 @@
     "excerpt": null,
     "featured": true,
     "format": "quiz",
-    "frameworkDefault": null,
-    "frameworks": [],
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/quiz/explain-static-generation-of-react-applications-and-its-benefits/react"
+      }
+    ],
     "href": "/questions/quiz/explain-static-generation-of-react-applications-and-its-benefits",
     "importance": "low",
     "languages": [],

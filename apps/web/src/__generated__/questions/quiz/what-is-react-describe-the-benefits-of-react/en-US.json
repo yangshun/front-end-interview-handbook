@@ -11,8 +11,13 @@
     "excerpt": null,
     "featured": true,
     "format": "quiz",
-    "frameworkDefault": null,
-    "frameworks": [],
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/quiz/what-is-react-describe-the-benefits-of-react/react"
+      }
+    ],
     "href": "/questions/quiz/what-is-react-describe-the-benefits-of-react",
     "importance": "high",
     "languages": [],
