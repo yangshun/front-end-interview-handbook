@@ -8,7 +8,7 @@ type Props = Readonly<{
 
 export default function QuestionsProgressFraction({ completed, total }: Props) {
   return (
-    <Text color="secondary" size="body3">
+    <Text className="whitespace-nowrap" color="secondary" size="body3">
       <FormattedMessage
         defaultMessage="<bold>{completedQuestions}</bold>/{totalQuestions} completed"
         description="Line describing the number of questions completed by user over the total number of questions"

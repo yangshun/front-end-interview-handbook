@@ -146,6 +146,7 @@ export default function InterviewsQuestionsCategoryPage({
   return (
     <div className={clsx('flex flex-col', 'gap-y-10 xl:gap-y-16')}>
       <InterviewsPageHeader
+        className="flex-col min-[1186px]:flex-row"
         description={intl.formatMessage(
           {
             defaultMessage:
@@ -163,9 +164,11 @@ export default function InterviewsQuestionsCategoryPage({
         features={features}
         icon={Icon}
         sideElement={
-          <InterviewsQuestionsCategoryContentSlider
-            framework={frameworkOrLanguage}
-          />
+          <div className="w-full min-[1186px]:w-auto min-[1186px]:max-w-[292px] xl:max-w-[363px]">
+            <InterviewsQuestionsCategoryContentSlider
+              framework={frameworkOrLanguage}
+            />
+          </div>
         }
         title={title}>
         <Text

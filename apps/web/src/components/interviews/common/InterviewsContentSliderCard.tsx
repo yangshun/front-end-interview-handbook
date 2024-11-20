@@ -38,17 +38,60 @@ export default function InterviewsContentSliderCard({
     backgroundColorClass,
   );
 
+  const githubStar = (
+    <div className="flex gap-1.5">
+      <div className={tagCommonClass}>
+        <RiGithubFill className="size-4 shrink-0" />
+        <Text size="body2" weight="bold">
+          {type === 'github-star' && (
+            <FormattedMessage
+              defaultMessage="Star"
+              description="Label for github star button"
+              id="/KVfm1"
+            />
+          )}
+          {type === 'github-follow' && (
+            <FormattedMessage
+              defaultMessage="Follow"
+              description="Label for github follow button"
+              id="MMflpy"
+            />
+          )}
+        </Text>
+      </div>
+      {count && (
+        <div className={clsx('relative', tagCommonClass)}>
+          <Text size="body2" weight="bold">
+            {count.toLocaleString()}
+          </Text>
+          <div
+            aria-hidden={true}
+            className={clsx(
+              'absolute',
+              'z-1',
+              '-left-1',
+              'size-2',
+              '-rotate-45',
+              ['border-l border-t', themeBorderEmphasizeColor],
+              backgroundColorClass,
+            )}
+          />
+        </div>
+      )}
+    </div>
+  );
+
   return (
     <div
       className={clsx(
-        'group relative rounded-lg p-5',
+        'group relative rounded-lg p-[19px]',
         'flex flex-col items-start gap-y-4',
         'size-full',
         themeBackgroundCardAltColor,
         themeGlassyBorder,
         className,
       )}>
-      <div className="flex flex-col gap-2">
+      <div className="flex w-full flex-col gap-2">
         <div className="flex items-center gap-4">
           <Text size="body2" weight="bold">
             {title}
@@ -63,51 +106,20 @@ export default function InterviewsContentSliderCard({
             />
           )}
         </div>
-        <Text color="secondary" size="body2">
-          {description}
-        </Text>
-      </div>
-      {type !== 'link' && (
-        <div className="flex gap-1.5">
-          <div className={tagCommonClass}>
-            <RiGithubFill className="size-4 shrink-0" />
-            <Text size="body2" weight="bold">
-              {type === 'github-star' && (
-                <FormattedMessage
-                  defaultMessage="Star"
-                  description="Label for github star button"
-                  id="/KVfm1"
-                />
-              )}
-              {type === 'github-follow' && (
-                <FormattedMessage
-                  defaultMessage="Follow"
-                  description="Label for github follow button"
-                  id="MMflpy"
-                />
-              )}
-            </Text>
-          </div>
-          {count && (
-            <div className={clsx('relative', tagCommonClass)}>
-              <Text size="body2" weight="bold">
-                {count.toLocaleString()}
-              </Text>
-              <div
-                aria-hidden={true}
-                className={clsx(
-                  'absolute',
-                  'z-1',
-                  '-left-1',
-                  'size-2',
-                  '-rotate-45',
-                  ['border-l border-t', themeBorderEmphasizeColor],
-                  backgroundColorClass,
-                )}
-              />
+        <div className="flex w-full items-center justify-between gap-2">
+          <Text color="secondary" size="body2">
+            {description}
+          </Text>
+          {type !== 'link' && (
+            <div className="hidden lg:block min-[1186px]:hidden">
+              {githubStar}
             </div>
           )}
         </div>
+      </div>
+      {/* Sync the min-width breakpoint with InterviewsQuestionsCategoryPage */}
+      {type !== 'link' && (
+        <div className="block lg:hidden min-[1186px]:block">{githubStar}</div>
       )}
       <Anchor
         aria-label={title}

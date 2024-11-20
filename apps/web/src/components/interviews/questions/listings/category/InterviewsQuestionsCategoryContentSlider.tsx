@@ -115,7 +115,7 @@ export default function InterviewsQuestionsCategoryContentSlider({
 
   return (
     <TabsPrimitive.Root
-      className="flex w-full flex-col gap-2.5 sm:max-w-[331px]"
+      className="-mb-1.5 flex w-full flex-col gap-2.5"
       value={dataValue}
       onValueChange={(newValue) => {
         // Stop auto-advancing if user interacts with steppers.
@@ -127,7 +127,7 @@ export default function InterviewsQuestionsCategoryContentSlider({
           <InterviewsContentSliderCard
             className={clsx(
               data.length > 1 &&
-                'h-full min-h-[154px] md:min-h-[134px] lg:min-h-[154px]',
+                'h-[152px] sm:h-[134px] lg:h-[96px] min-[1186px]:h-[152px]', // Sync the min-width breakpoint with InterviewsQuestionsCategoryPage
             )}
             count={item.count}
             description={item.description}

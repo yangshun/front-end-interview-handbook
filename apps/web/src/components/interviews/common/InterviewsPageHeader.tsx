@@ -11,6 +11,7 @@ import InterviewsPageHeaderActions from './InterviewsPageHeaderActions';
 
 type Props = Readonly<{
   children?: ReactNode;
+  className?: string;
   description: ReactNode;
   features: ReadonlyArray<{
     icon: (props: React.ComponentProps<'svg'>) => JSX.Element;
@@ -38,6 +39,7 @@ export default function InterviewsPageHeader({
   sideElement,
   headingAddOnElement,
   title,
+  className,
   ...props
 }: Props) {
   const iconEl =
@@ -72,14 +74,15 @@ export default function InterviewsPageHeader({
       )}
       <div
         className={clsx(
-          'flex w-full flex-col justify-between xl:flex-row',
+          'flex w-full justify-between',
           'gap-x-6 gap-y-8 sm:gap-y-6',
+          className,
         )}>
         <div className={clsx('flex flex-col gap-8 xl:col-span-2')}>
           <div
             className={clsx(
               'flex flex-col',
-              iconEl ? 'gap-2 xl:gap-8' : 'gap-3.5 xl:gap-4',
+              iconEl ? 'gap-2 lg:gap-4 xl:gap-8' : 'gap-3.5 xl:gap-4',
             )}>
             <div className="flex items-center gap-6">
               {iconEl}
@@ -99,9 +102,7 @@ export default function InterviewsPageHeader({
           {/* Features */}
           <InterviewsPageFeatures features={features} />
         </div>
-        {sideElement && (
-          <div className="w-full lg:w-auto lg:max-w-[363px]">{sideElement}</div>
-        )}
+        {sideElement}
       </div>
       <Divider />
       {children}

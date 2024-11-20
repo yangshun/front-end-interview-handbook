@@ -147,7 +147,7 @@ export default function QuestionsListSession({
   }, [automaticallyStartLearning, isUserProfileLoading, onStartLearning, user]);
 
   return (
-    <div className="w-full lg:w-auto">
+    <div className="w-full lg:w-auto lg:max-w-[292px] xl:max-w-[363px]">
       {(() => {
         if (isQuestionListSessionLoading && !!user) {
           return null;
@@ -207,7 +207,7 @@ export default function QuestionsListSession({
           <div
             className={clsx(
               'flex flex-col items-end gap-y-2',
-              'w-full min-w-[332px] 2xl:min-w-[363px]',
+              'w-full lg:min-w-[292px] xl:min-w-[363px]',
             )}>
             <Card
               className="flex justify-between gap-4 px-4 py-3"
@@ -224,7 +224,7 @@ export default function QuestionsListSession({
                   />
                 </Text>
                 <div className="flex items-center gap-3">
-                  <div className="w-[112px]">
+                  <div className="w-[112px] lg:w-20 xl:w-[112px]">
                     <ProgressBar
                       heightClass="h-1.5"
                       label={intl.formatMessage({

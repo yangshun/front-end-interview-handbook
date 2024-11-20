@@ -131,6 +131,7 @@ export default function InterviewsDashboardPageHeader({
 
   return (
     <InterviewsPageHeader
+      className="flex-col lg:flex-row"
       description={intl.formatMessage({
         defaultMessage:
           'The one-stop page to prepare fully for your front end interviews.',
@@ -138,7 +139,11 @@ export default function InterviewsDashboardPageHeader({
         id: 'DgT+f8',
       })}
       features={features}
-      sideElement={<InterviewsDashboardCreateAccountCard />}
+      sideElement={
+        <div className="w-full lg:w-auto lg:max-w-[363px]">
+          <InterviewsDashboardCreateAccountCard />
+        </div>
+      }
       title={intl.formatMessage({
         defaultMessage: 'Get started',
         description: 'Label for dashboard title for guest',
