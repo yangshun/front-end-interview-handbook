@@ -169,7 +169,10 @@ export default function InterviewsQuestionsCategoryPage({
           />
         }
         title={title}>
-        <Text className="block xl:max-w-[75%]" color="secondary" size="body1">
+        <Text
+          className="block text-sm lg:max-w-[75%] xl:text-base"
+          color="secondary"
+          size="inherit">
           {description}
         </Text>
       </InterviewsPageHeader>

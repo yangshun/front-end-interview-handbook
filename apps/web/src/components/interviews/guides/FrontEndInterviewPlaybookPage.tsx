@@ -164,7 +164,7 @@ export default function FrontEndInterviewPlaybookPage({
       features={features}
       icon={RiBookOpenLine}
       longDescription={
-        <Text color="secondary" size="body1">
+        <Text className="text-sm xl:text-base" color="secondary" size="inherit">
           {intl.formatMessage({
             defaultMessage:
               "Tackle your next interview with confidence using this focused, no-nonsense front end prep guide. Created by the author of the Front End Interview Handbook, it's filled with practical strategies and insider tips you won't find anywhere else.",

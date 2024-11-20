@@ -103,7 +103,7 @@ export default function InterviewsRecommendedPrepStrategyPageTitleSection({
           title={title}
           {...props}
         />
-        <div className="w-full lg:w-3/4">{longDescription}</div>
+        <div className="w-full lg:max-w-[75%]">{longDescription}</div>
       </div>
     </div>
   );

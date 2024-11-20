@@ -96,8 +96,12 @@ export default function InterviewsRevampFocusAreaListPage({
           description: 'Title of focus areas page',
           id: 'Zui1cu',
         })}>
-        <div className="flex flex-col gap-4 xl:max-w-[75%]">
-          <Text color="secondary" size="body1">
+        <div
+          className={clsx(
+            'flex flex-col gap-4 lg:max-w-[75%]',
+            'text-sm xl:text-base',
+          )}>
+          <Text color="secondary" size="inherit">
             {intl.formatMessage({
               defaultMessage:
                 'The vast breadth of topics that could come up during a front end interview can be daunting.',
@@ -105,7 +109,7 @@ export default function InterviewsRevampFocusAreaListPage({
               id: 'd/hzjd',
             })}
           </Text>
-          <Text color="secondary" size="body1">
+          <Text color="secondary" size="inherit">
             {intl.formatMessage(
               {
                 defaultMessage:

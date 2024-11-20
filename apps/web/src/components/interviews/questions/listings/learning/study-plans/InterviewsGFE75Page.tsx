@@ -115,15 +115,16 @@ export default function InterviewsGFE75Page({
             />
           }
           longDescription={
-            <div className="flex flex-col gap-4">
-              <Text color="secondary" size="body1">
+            <div
+              className={clsx('flex flex-col gap-4', 'text-sm xl:text-base')}>
+              <Text color="secondary" size="inherit">
                 <FormattedMessage
                   defaultMessage="The smallest list of practice questions that gets you the most mileage in your preparation. Covers the most commonly asked front end interview topics."
                   description="Description for study list"
                   id="oXdinV"
                 />
               </Text>
-              <Text color="secondary" size="body1">
+              <Text color="secondary" size="inherit">
                 <FormattedMessage
                   defaultMessage="Created with the expertise of senior to staff front end interviewers from some of the top companies in the world. <button>Have a suggestion?</button>"
                   description="Description for study list"
@@ -132,7 +133,7 @@ export default function InterviewsGFE75Page({
                     button: (chunks) => (
                       <button
                         className={clsx(
-                          textVariants({ color: 'active', size: 'body1' }),
+                          textVariants({ color: 'active', size: 'inherit' }),
                           themeOutlineElementBrandColor_FocusVisible,
                         )}
                         type="button"

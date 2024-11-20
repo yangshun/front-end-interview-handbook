@@ -105,8 +105,8 @@ export default function FrontEndSystemDesignPlaybookPage({
       features={features}
       icon={RiFlowChart}
       longDescription={
-        <div className="flex flex-col gap-4">
-          <Text color="secondary" size="body1">
+        <div className={clsx('flex flex-col gap-4', 'text-sm xl:text-base')}>
+          <Text color="secondary" size="inherit">
             {intl.formatMessage({
               defaultMessage:
                 "System design interviews are often reserved for mid-to-senior roles, focusing on your ability to design complex, scalable, and maintainable systems. With few resources out there specifically for front-end system design, we've crafted the Front-End System Design Guide—the most comprehensive resource available.",
@@ -115,7 +115,7 @@ export default function FrontEndSystemDesignPlaybookPage({
               id: '1ygaKJ',
             })}
           </Text>
-          <Text color="secondary" size="body1">
+          <Text color="secondary" size="inherit">
             {intl.formatMessage({
               defaultMessage:
                 "It's split into two parts: first, understanding what to expect in these interviews, and second, learning a reliable framework to tackle common challenges, complete with real case studies.",
@@ -156,7 +156,7 @@ export default function FrontEndSystemDesignPlaybookPage({
                     <QuestionListingAccessSummary
                       {...questionsCount}
                       className={clsx('pb-10', [
-                      'border-b',
+                        'border-b',
                         themeBorderEmphasizeColor,
                       ])}
                     />

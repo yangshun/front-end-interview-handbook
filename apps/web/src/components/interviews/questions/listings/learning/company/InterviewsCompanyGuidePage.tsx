@@ -146,7 +146,7 @@ export default function InterviewsCompanyGuidePage({
             fontSize="sm"
             mdxCode={studyList.body.code}
             proseClassName={clsx(
-              'block xl:max-w-[75%]',
+              'block lg:max-w-[75%]',
               themeTextSecondaryColor,
             )}
           />

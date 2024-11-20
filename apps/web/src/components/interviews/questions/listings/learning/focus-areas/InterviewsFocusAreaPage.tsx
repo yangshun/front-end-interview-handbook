@@ -118,7 +118,7 @@ export default function InterviewsFocusAreaPage({
             fontSize="custom"
             mdxCode={studyList.body.code}
             proseClassName={clsx(
-              'block xl:max-w-[75%]',
+              'block lg:max-w-[75%]',
               'text-base',
               themeTextSecondaryColor,
             )}
