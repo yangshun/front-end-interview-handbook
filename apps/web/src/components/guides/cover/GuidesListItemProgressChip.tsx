@@ -16,13 +16,15 @@ export default function GuidesListItemProgressChip<
   onMarkAsCompleted,
   onMarkAsNotCompleted,
   guide,
+  size,
 }: Readonly<{
   className: string;
   guide: Q;
   hasCompleted: boolean;
-  index: number;
+  index?: number;
   onMarkAsCompleted?: (qn: Q) => void;
   onMarkAsNotCompleted?: (qn: Q) => void;
+  size?: 'md' | 'sm';
 }>) {
   const [showHoverState, setShowHoverState] = useState(true);
 
@@ -37,6 +39,7 @@ export default function GuidesListItemProgressChip<
           return (
             <CompletedChip
               showHoverState={onMarkAsCompleted ? showHoverState : false}
+              size={size}
               onClick={
                 onMarkAsCompleted
                   ? () => {
@@ -51,8 +54,9 @@ export default function GuidesListItemProgressChip<
 
         return (
           <NotCompleted
-            number={index + 1}
+            number={index != null ? index + 1 : undefined}
             showHoverState={onMarkAsCompleted ? showHoverState : false}
+            size={size}
             onClick={
               onMarkAsCompleted
                 ? () => {

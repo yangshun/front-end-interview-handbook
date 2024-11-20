@@ -1,4 +1,5 @@
 import clsx from 'clsx';
+import { usePathname, useRouter } from 'next/navigation';
 import { useState } from 'react';
 import {
   RiArrowDownSLine,
@@ -7,7 +8,14 @@ import {
   RiBookOpenLine,
 } from 'react-icons/ri';
 
-import type { GuideCardMetadataWithCompletedStatus } from '~/components/guides/types';
+import { useAuthSignInUp } from '~/hooks/user/useAuthFns';
+
+import GuidesListItemProgressChip from '~/components/guides/cover/GuidesListItemProgressChip';
+import useGuidesActions from '~/components/guides/hooks/useGuidesActions';
+import type {
+  GuideCardMetadata,
+  GuideCardMetadataWithCompletedStatus,
+} from '~/components/guides/types';
 import InterviewsRibbonBadge from '~/components/interviews/common/InterviewsRibbonBadge';
 import { FormattedMessage, useIntl } from '~/components/intl';
 import Anchor from '~/components/ui/Anchor';
@@ -22,60 +30,74 @@ import {
   themeTextSubtleColor,
 } from '~/components/ui/theme';
 
-import InterviewsGuideProgress from './InterviewsGuideProgress';
+import { useUser } from '@supabase/auth-helpers-react';
 
 type GuidesListProps = Readonly<{
   className: string;
   data: ReadonlyArray<GuideCardMetadataWithCompletedStatus>;
+  onMarkAsCompleted: (guide: GuideCardMetadata) => void;
+  onMarkAsNotCompleted: (guide: GuideCardMetadata) => void;
 }>;
 
-function InterviewGuideList({ className, data }: GuidesListProps) {
+function InterviewGuideList({
+  className,
+  data,
+  onMarkAsCompleted,
+  onMarkAsNotCompleted,
+}: GuidesListProps) {
   return (
     <ul className={clsx('isolate flex flex-col gap-2', className)}>
-      {data.map(({ title, description, isCompleted, href }) => (
-        <li
-          key={title}
-          className={clsx(
-            'group relative isolate',
-            'flex items-center gap-4',
-            'p-4',
-            'rounded-lg',
-            'focus-within:ring-brand focus-within:ring-2 focus-within:ring-inset',
-            ['border', themeBorderEmphasizeColor],
-            themeBackgroundEmphasized_Hover,
-          )}>
-          <InterviewsGuideProgress
-            className="z-[1]"
-            completed={isCompleted}
-            size="sm"
-          />
+      {data.map((guide) => {
+        const { title, description, isCompleted, href } = guide;
 
-          <div className="flex flex-1 flex-col gap-1.5">
-            <Anchor
-              className="focus:outline-none"
-              href={href}
-              variant="unstyled">
-              {/* Extend touch target to entire panel */}
-              <span aria-hidden="true" className="absolute inset-0" />
-              <Text size="body2" weight="medium">
-                {title}
-              </Text>
-            </Anchor>
-            <Text color="secondary" size="body3">
-              {description}
-            </Text>
-          </div>
-
-          <RiArrowRightLine
-            aria-hidden="true"
+        return (
+          <li
+            key={title}
             className={clsx(
-              'size-5 shrink-0',
-              themeTextSubtleColor,
-              themeTextBrandColor_GroupHover,
-            )}
-          />
-        </li>
-      ))}
+              'group relative isolate',
+              'flex items-center gap-4',
+              'p-4',
+              'rounded-lg',
+              'focus-within:ring-brand focus-within:ring-2 focus-within:ring-inset',
+              ['border', themeBorderEmphasizeColor],
+              themeBackgroundEmphasized_Hover,
+            )}>
+            <GuidesListItemProgressChip
+              className="z-[1]"
+              guide={guide}
+              hasCompleted={isCompleted}
+              size="sm"
+              onMarkAsCompleted={onMarkAsCompleted}
+              onMarkAsNotCompleted={onMarkAsNotCompleted}
+            />
+
+            <div className="flex flex-1 flex-col gap-1.5">
+              <Anchor
+                className="focus:outline-none"
+                href={href}
+                variant="unstyled">
+                {/* Extend touch target to entire panel */}
+                <span aria-hidden="true" className="absolute inset-0" />
+                <Text size="body2" weight="medium">
+                  {title}
+                </Text>
+              </Anchor>
+              <Text color="secondary" size="body3">
+                {description}
+              </Text>
+            </div>
+
+            <RiArrowRightLine
+              aria-hidden="true"
+              className={clsx(
+                'size-5 shrink-0',
+                themeTextSubtleColor,
+                themeTextBrandColor_GroupHover,
+              )}
+            />
+          </li>
+        );
+      })}
     </ul>
   );
 }
@@ -91,6 +113,12 @@ type Props = Readonly<{
 export default function InterviewsGuideCard({ data }: Props) {
   const intl = useIntl();
   const [isOpen, setIsOpen] = useState(false);
+  const router = useRouter();
+  const pathname = usePathname();
+  const user = useUser();
+  const { signInUpHref } = useAuthSignInUp();
+  const { addQueryParamToPath, markGuideAsCompleted, markGuideAsNotCompleted } =
+    useGuidesActions();
 
   const DropdownIcon = isOpen ? RiArrowUpSLine : RiArrowDownSLine;
 
@@ -108,6 +136,22 @@ export default function InterviewsGuideCard({ data }: Props) {
 
   if (items.length === 0) {
     return null;
+  }
+
+  function onMarkGuideAsCompleted(guide: GuideCardMetadata) {
+    if (user === null) {
+      router.push(
+        signInUpHref({
+          next: addQueryParamToPath(pathname || '', {
+            book: guide.book,
+            slug: guide.slug,
+            title: guide.title,
+          }),
+        }),
+      );
+    } else {
+      markGuideAsCompleted(guide);
+    }
   }
 
   return (
@@ -130,10 +174,21 @@ export default function InterviewsGuideCard({ data }: Props) {
         <div className="theme-bg-radial-glow absolute inset-0 before:h-[136px] before:opacity-20 dark:-top-10" />
         <div className={clsx('flex flex-col gap-6', 'px-6 py-4')}>
           <div className={clsx('flex items-center gap-x-6')}>
-            <InterviewsGuideProgress
-              className="z-[1]"
-              completed={isGuideCompleted}
-            />
+            {hasMultipleGuides ? (
+              <GuidesListItemProgressChip
+                className="z-[1]"
+                guide={data.items[0]}
+                hasCompleted={isGuideCompleted}
+              />
+            ) : (
+              <GuidesListItemProgressChip
+                className="z-[1]"
+                guide={data.items[0]}
+                hasCompleted={data.items[0].isCompleted}
+                onMarkAsCompleted={onMarkGuideAsCompleted}
+                onMarkAsNotCompleted={markGuideAsNotCompleted}
+              />
+            )}
             <div className="flex flex-1 flex-col gap-4">
               <div className="flex flex-col gap-2">
                 <Text size="body2" weight="bold">
@@ -212,7 +267,14 @@ export default function InterviewsGuideCard({ data }: Props) {
               />
             )}
           </div>
-          {isOpen && <InterviewGuideList className="pl-14" data={data.items} />}
+          {isOpen && (
+            <InterviewGuideList
+              className="pl-14"
+              data={data.items}
+              onMarkAsCompleted={onMarkGuideAsCompleted}
+              onMarkAsNotCompleted={markGuideAsNotCompleted}
+            />
+          )}
           {!hasMultipleGuides && (
             <Anchor className="absolute inset-0" href={items[0].href} />
           )}
