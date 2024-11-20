@@ -89,7 +89,7 @@ export default function InterviewsPageHeader({
               </div>
             </div>
             <Text
-              className={clsx('block max-w-2xl text-sm lg:text-base')}
+              className={clsx('block max-w-2xl text-sm xl:text-base')}
               color="subtitle"
               size="inherit"
               weight="medium">
