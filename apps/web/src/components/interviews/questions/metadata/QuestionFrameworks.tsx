@@ -2,11 +2,13 @@ import { useId } from 'react';
 
 import { useQuestionFrameworksData } from '~/data/QuestionCategories';
 
+import { questionHrefWithList } from '~/components/interviews/questions/common/questionHref';
 import { FormattedMessage, useIntl } from '~/components/intl';
 import Anchor from '~/components/ui/Anchor';
 import Tooltip from '~/components/ui/Tooltip';
 
 import QuestionFrameworkIcon from './QuestionFrameworkIcon';
+import type { QuestionListData } from '../common/questionHref';
 import type { QuestionFramework } from '../common/QuestionsTypes';
 
 type Props = Readonly<{
@@ -16,9 +18,10 @@ type Props = Readonly<{
       href: string;
     }>
   >;
+  list?: QuestionListData;
 }>;
 
-export default function QuestionFrameworks({ frameworks }: Props) {
+export default function QuestionFrameworks({ frameworks, list }: Props) {
   const id = useId();
   const frameworksData = useQuestionFrameworksData();
   const intl = useIntl();
@@ -49,7 +52,7 @@ export default function QuestionFrameworks({ frameworks }: Props) {
             )}>
             <Anchor
               aria-label={frameworksData[framework].label}
-              href={href}
+              href={questionHrefWithList(href, list)}
               variant="unstyled"
               onClick={(event) => {
                 event.stopPropagation();

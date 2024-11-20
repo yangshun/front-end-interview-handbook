@@ -339,7 +339,14 @@ function Contents({
   useEffect(() => {
     if (processedQuestions.length > 0 && !showCompanyPaywall) {
       setFirstQuestionHref(
-        questionHrefWithList(processedQuestions[0].href, currentListKey),
+        questionHrefWithList(
+          processedQuestions[0].href,
+          currentListKey
+            ? {
+                studyList: currentListKey,
+              }
+            : undefined,
+        ),
       );
     }
   }, [
@@ -434,8 +441,16 @@ function Contents({
       ) : (
         <InterviewsStudyListQuestions
           checkIfCompletedQuestion={(question) => question.isCompleted}
-          currentListKey={currentListKey}
-          listKey={listKey}
+          currentList={
+            currentListKey ? { studyList: currentListKey } : undefined
+          }
+          list={
+            listKey
+              ? {
+                  studyList: listKey,
+                }
+              : undefined
+          }
           metadata={metadata}
           questions={
             showCompanyPaywall

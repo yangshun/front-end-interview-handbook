@@ -140,7 +140,7 @@ export default function ScrapbookPage() {
               />
             </UIExamplesGroup>
             <UIExamplesGroup darkMode="horizontal">
-              <InterviewsQuestionsCategoryContentSlider framework="js" />
+              <InterviewsQuestionsCategoryContentSlider frameworkOrLanguage="js" />
             </UIExamplesGroup>
             <UIExamplesGroup darkMode="horizontal">
               <InterviewsGuideCard

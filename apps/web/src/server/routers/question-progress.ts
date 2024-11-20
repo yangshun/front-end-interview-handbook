@@ -16,122 +16,126 @@ export const questionProgressRouter = router({
     .input(
       z.object({
         format: z.string(),
-        listKey: z.string().optional(),
         slug: z.string(),
+        studyListKey: z.string().optional(),
       }),
     )
-    .mutation(async ({ input: { format, slug, listKey }, ctx: { viewer } }) => {
-      if (!viewer) {
-        return null;
-      }
+    .mutation(
+      async ({ input: { format, slug, studyListKey }, ctx: { viewer } }) => {
+        if (!viewer) {
+          return null;
+        }
 
-      const questionProgress = await prisma.questionProgress.upsert({
-        create: {
-          format,
-          slug,
-          status: 'complete',
-          userId: viewer.id,
-        },
-        update: {},
-        where: {
-          format_slug_status_userId: {
+        const questionProgress = await prisma.questionProgress.upsert({
+          create: {
             format,
             slug,
             status: 'complete',
             userId: viewer.id,
           },
-        },
-      });
-
-      if (listKey == null) {
-        return { newSessionCreated: false, questionProgress };
-      }
-
-      const [newSessionCreated, session] = await (async () => {
-        // We don't check if the user is premium and can
-        // start a premium list, it's probably fine.
-        const session_ = await prisma.learningSession.findFirst({
+          update: {},
           where: {
-            key: listKey,
-            status: 'IN_PROGRESS',
-            userId: viewer.id,
+            format_slug_status_userId: {
+              format,
+              slug,
+              status: 'complete',
+              userId: viewer.id,
+            },
           },
         });
 
-        if (session_ != null) {
-          return [false, session_];
+        if (studyListKey == null) {
+          return { newSessionCreated: false, questionProgress };
         }
 
-        // Create a session.
-        const session__ = await prisma.learningSession.create({
-          data: {
-            key: listKey,
-            userId: viewer.id,
+        const [newSessionCreated, session] = await (async () => {
+          // We don't check if the user is premium and can
+          // start a premium list, it's probably fine.
+          const session_ = await prisma.learningSession.findFirst({
+            where: {
+              key: studyListKey,
+              status: 'IN_PROGRESS',
+              userId: viewer.id,
+            },
+          });
+
+          if (session_ != null) {
+            return [false, session_];
+          }
+
+          // Create a session.
+          const session__ = await prisma.learningSession.create({
+            data: {
+              key: studyListKey,
+              userId: viewer.id,
+            },
+          });
+
+          return [true, session__];
+        })();
+
+        const key = hashQuestion({ format: format as QuestionFormat, slug });
+        const sessionId = session.id;
+
+        const sessionProgress = await prisma.learningSessionProgress.upsert({
+          create: {
+            key,
+            sessionId,
+            status: 'COMPLETED',
+          },
+          update: {},
+          where: {
+            sessionId_key: {
+              key,
+              sessionId,
+            },
           },
         });
 
-        return [true, session__];
-      })();
-
-      const key = hashQuestion({ format: format as QuestionFormat, slug });
-      const sessionId = session.id;
-
-      const sessionProgress = await prisma.learningSessionProgress.upsert({
-        create: {
-          key,
-          sessionId,
-          status: 'COMPLETED',
-        },
-        update: {},
-        where: {
-          sessionId_key: {
-            key,
-            sessionId,
-          },
-        },
-      });
-
-      return { newSessionCreated, questionProgress, sessionProgress };
-    }),
+        return { newSessionCreated, questionProgress, sessionProgress };
+      },
+    ),
   delete: userProcedure
     .input(
       z.object({
         format: z.string(),
-        listKey: z.string().optional(),
         slug: z.string(),
+        studyListKey: z.string().optional(),
       }),
     )
-    .mutation(async ({ input: { slug, format, listKey }, ctx: { viewer } }) => {
-      // Remove EITHER overall progress or learning session progress but not both.
-      if (listKey) {
-        const session = await prisma.learningSession.findFirst({
+    .mutation(
+      async ({ input: { slug, format, studyListKey }, ctx: { viewer } }) => {
+        // Remove EITHER overall progress or learning session progress but not both.
+        if (studyListKey) {
+          const session = await prisma.learningSession.findFirst({
+            where: {
+              key: studyListKey,
+              status: 'IN_PROGRESS',
+              userId: viewer.id,
+            },
+          });
+
+          if (session == null) {
+            throw 'No ongoing learning session. Start tracking progress first.';
+          }
+
+          return await prisma.learningSessionProgress.deleteMany({
+            where: {
+              key: hashQuestion({ format: format as QuestionFormat, slug }),
+              sessionId: session.id,
+            },
+          });
+        }
+
+        return await prisma.questionProgress.deleteMany({
           where: {
-            key: listKey,
-            status: 'IN_PROGRESS',
+            format,
+            slug,
             userId: viewer.id,
           },
         });
-
-        if (session == null) {
-          throw 'No ongoing learning session. Start tracking progress first.';
-        }
-
-        return await prisma.learningSessionProgress.deleteMany({
-          where: {
-            key: hashQuestion({ format: format as QuestionFormat, slug }),
-            sessionId: session.id,
-          },
-        });
-      }
-
-      return await prisma.questionProgress.deleteMany({
-        where: {
-          format,
-          slug,
-          userId: viewer.id,
-        },
-      });
-    }),
+      },
+    ),
   deleteAll: userProcedure.mutation(async ({ ctx: { viewer } }) => {
     await prisma.questionProgress.deleteMany({
       where: {

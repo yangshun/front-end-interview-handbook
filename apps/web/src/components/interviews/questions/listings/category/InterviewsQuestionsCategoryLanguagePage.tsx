@@ -16,8 +16,9 @@ import type {
 
 type Props = Omit<
   React.ComponentProps<typeof InterviewsQuestionsCategoryPage>,
+  | 'category'
+  | 'categoryValue'
   | 'description'
-  | 'frameworkOrLanguage'
   | 'questionList'
   | 'searchPlaceholder'
   | 'title'
@@ -72,9 +73,10 @@ export default function InterviewsQuestionsCategoryLanguagePage({
 
   return (
     <InterviewsQuestionsCategoryPage
+      category="language"
       categoryTabs={categoryTabs}
+      categoryValue={language}
       description={languages[language].getDescription(totalQuestionsCount)}
-      frameworkOrLanguage={language}
       questionList={filteredQuestions}
       searchPlaceholder={languages[language].getSearchPlaceholder(
         totalQuestionsCount,

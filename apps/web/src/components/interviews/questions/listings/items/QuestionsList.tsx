@@ -20,6 +20,7 @@ import type { QuestionCompletionCount } from '~/db/QuestionsCount';
 import { hashQuestion } from '~/db/QuestionsUtils';
 
 import QuestionsListItemProgressChip from './QuestionsListItemProgressChip';
+import type { QuestionListData } from '../../common/questionHref';
 import { questionHrefWithList } from '../../common/questionHref';
 import type {
   QuestionFramework,
@@ -40,7 +41,7 @@ type Props<Q extends QuestionMetadata> = Readonly<{
   checkIfCompletedQuestion: (question: Q) => boolean;
   checkIfCompletedQuestionBefore?: (question: Q) => boolean;
   framework?: QuestionFramework;
-  listKey?: string;
+  list?: QuestionListData;
   mode?: 'default' | 'study-list';
   onMarkAsCompleted?: (question: Q) => void;
   onMarkAsNotCompleted?: (question: Q) => void;
@@ -57,7 +58,7 @@ export default function QuestionsList<Q extends QuestionMetadata>({
   checkIfCompletedQuestionBefore,
   framework,
   primaryLabel = 'difficulty',
-  listKey,
+  list,
   questions,
   questionCompletionCount,
   showProgress = true,
@@ -106,12 +107,11 @@ export default function QuestionsList<Q extends QuestionMetadata>({
           : false;
 
         // Redirect to framework-specific page if framework prop is provided.
-        const redirectHref = questionHrefWithList(
+        const maybeFrameworkHref =
           questionMetadata.frameworks.find(
             ({ framework: frameworkType }) => frameworkType === framework,
-          )?.href ?? questionMetadata.href,
-          listKey,
-        );
+          )?.href ?? questionMetadata.href;
+        const questionHref = questionHrefWithList(maybeFrameworkHref, list);
 
         return (
           <li
@@ -146,7 +146,7 @@ export default function QuestionsList<Q extends QuestionMetadata>({
                   weight="bold">
                   <Anchor
                     className="focus:outline-none"
-                    href={redirectHref}
+                    href={questionHref}
                     variant="unstyled">
                     {/* Extend touch target to entire panel */}
                     <span aria-hidden="true" className="absolute inset-0" />
@@ -224,6 +224,7 @@ export default function QuestionsList<Q extends QuestionMetadata>({
                         return (
                           <QuestionFrameworks
                             frameworks={questionMetadata.frameworks}
+                            list={list}
                           />
                         );
                       case 'quiz':

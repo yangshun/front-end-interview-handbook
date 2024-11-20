@@ -100,8 +100,8 @@ export default function JavaScriptCodingWorkspaceTestsSubmitTab({
           markCompleteMutation.mutate(
             {
               format: metadata.format,
-              listKey,
               slug: metadata.slug,
+              studyListKey: listKey,
             },
             {
               onSuccess: (data) => {

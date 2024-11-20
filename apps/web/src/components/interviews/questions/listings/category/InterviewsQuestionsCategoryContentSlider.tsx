@@ -15,22 +15,22 @@ import {
 import * as TabsPrimitive from '@radix-ui/react-tabs';
 
 type Props = Readonly<{
-  framework?: QuestionFrameworkOrLanguage;
+  frameworkOrLanguage?: QuestionFrameworkOrLanguage;
 }>;
 
 export default function InterviewsQuestionsCategoryContentSlider({
-  framework,
+  frameworkOrLanguage,
 }: Props) {
   const intl = useIntl();
   const [index, setIndex] = useState(0);
   const timer = useRef<NodeJS.Timeout>();
   const { data: starCountJS } = useGitHubStars(
     'yangshun/top-javascript-interview-questions',
-    framework === 'js',
+    frameworkOrLanguage === 'js',
   );
   const { data: starCountReact } = useGitHubStars(
     'yangshun/top-reactjs-interview-questions',
-    framework === 'react',
+    frameworkOrLanguage === 'react',
   );
 
   const jsRepoData = {
@@ -95,8 +95,8 @@ export default function InterviewsQuestionsCategoryContentSlider({
 
   const data = (
     [
-      framework === 'js' ? jsRepoData : null,
-      framework === 'react' ? reactRepoData : null,
+      frameworkOrLanguage === 'js' ? jsRepoData : null,
+      frameworkOrLanguage === 'react' ? reactRepoData : null,
       frontEndInterviewData,
     ] as const
   ).flatMap((item) => (item != null ? [item] : []));

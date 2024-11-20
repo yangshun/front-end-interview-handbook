@@ -1,9 +1,14 @@
 import clsx from 'clsx';
+import { isEqual } from 'lodash-es';
 
 import VignetteOverlay from '~/components/common/VignetteOverlay';
 import { useUserProfile } from '~/components/global/UserProfileProvider';
 import InterviewsPremiumBadge from '~/components/interviews/common/InterviewsPremiumBadge';
-import { questionHrefWithList } from '~/components/interviews/questions/common/questionHref';
+import type {
+  QuestionListData} from '~/components/interviews/questions/common/questionHref';
+import {
+  questionHrefWithList
+} from '~/components/interviews/questions/common/questionHref';
 import type { QuestionMetadata } from '~/components/interviews/questions/common/QuestionsTypes';
 import QuestionsListItemProgressChip from '~/components/interviews/questions/listings/items/QuestionsListItemProgressChip';
 import InterviewsStudyListQuestionHovercardContents from '~/components/interviews/questions/listings/learning/InterviewsStudyListQuestionHovercardContents';
@@ -34,8 +39,8 @@ import QuestionPaywall from '../../common/QuestionPaywall';
 
 type Props<Q extends QuestionMetadata> = Readonly<{
   checkIfCompletedQuestion?: (question: Q) => boolean;
-  currentListKey?: string;
-  listKey?: string;
+  currentList?: QuestionListData;
+  list?: QuestionListData;
   metadata: QuestionMetadata;
   onClickDifferentStudyListQuestion: (href: string) => void;
   questions: ReadonlyArray<Q>;
@@ -46,8 +51,8 @@ export default function InterviewsStudyListQuestions<
   Q extends QuestionMetadata,
 >({
   checkIfCompletedQuestion,
-  listKey,
-  currentListKey,
+  list,
+  currentList,
   questions,
   metadata,
   onClickDifferentStudyListQuestion,
@@ -81,7 +86,7 @@ export default function InterviewsStudyListQuestions<
   const isCurrentQuestionInTheList = !!questions.find(
     (question) => hashQuestion(question) === hashQuestion(metadata),
   );
-  const isDifferentStudyList = listKey && listKey !== currentListKey;
+  const isDifferentList = list != null && !isEqual(list, currentList);
 
   return (
     <div>
@@ -146,12 +151,12 @@ export default function InterviewsStudyListQuestions<
 
               // If the current question is not in the list or different study list, the first question is going to be the active question
               const isActiveQuestion =
-                isCurrentQuestionInTheList && !isDifferentStudyList
+                isCurrentQuestionInTheList && !isDifferentList
                   ? hashQuestion(questionMetadata) === hashQuestion(metadata)
                   : index === 0;
               const href = questionHrefWithList(
                 questionMetadata.href,
-                currentListKey,
+                currentList,
               );
 
               return (
@@ -191,10 +196,10 @@ export default function InterviewsStudyListQuestions<
                                 weight="medium">
                                 <Anchor
                                   className="focus:outline-none"
-                                  href={isDifferentStudyList ? '#' : href}
+                                  href={isDifferentList ? '#' : href}
                                   variant="unstyled"
                                   onClick={
-                                    isDifferentStudyList
+                                    isDifferentList
                                       ? () =>
                                           onClickDifferentStudyListQuestion(
                                             href,
@@ -241,7 +246,7 @@ export default function InterviewsStudyListQuestions<
                       // fast enough before the card disappears.
                       sideOffset={0}>
                       <InterviewsStudyListQuestionHovercardContents
-                        listKey={listKey}
+                        list={currentList}
                         question={questionMetadata}
                       />
                     </HovercardContent>
@@ -274,7 +279,7 @@ export default function InterviewsStudyListQuestions<
 
               const href = questionHrefWithList(
                 questionMetadata.href,
-                currentListKey,
+                currentList,
               );
 
               return (
@@ -308,10 +313,10 @@ export default function InterviewsStudyListQuestions<
                           weight="medium">
                           <Anchor
                             className="focus:outline-none"
-                            href={isDifferentStudyList ? '#' : href}
+                            href={isDifferentList ? '#' : href}
                             variant="unstyled"
                             onClick={
-                              isDifferentStudyList
+                              isDifferentList
                                 ? () => onClickDifferentStudyListQuestion(href)
                                 : undefined
                             }>

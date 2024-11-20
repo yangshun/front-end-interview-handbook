@@ -37,7 +37,7 @@ const MARK_QN_COMPLETE_ACTION = 'mark-question-complete';
 
 export default function QuestionsUnifiedListWithFiltersAndProgress({
   questions,
-  listKey,
+  list,
   ...props
 }: Props) {
   const trpcUtils = trpc.useUtils();
@@ -62,9 +62,11 @@ export default function QuestionsUnifiedListWithFiltersAndProgress({
     ['format', 'slug', 'title'],
   );
 
+  const studyListKey =
+    list != null && 'studyList' in list ? list.studyList : undefined;
   const questionsWithCompletionStatus = useQuestionsWithCompletionStatus(
     questions,
-    listKey,
+    studyListKey,
   );
   const markCompleteMutation = useMutationQuestionProgressAdd();
   const markNotCompleteMutation = useMutationQuestionProgressDelete();
@@ -82,8 +84,8 @@ export default function QuestionsUnifiedListWithFiltersAndProgress({
       markCompleteMutation.mutate(
         {
           format,
-          listKey,
           slug,
+          studyListKey,
         },
         {
           onSuccess: () => {
@@ -108,7 +110,7 @@ export default function QuestionsUnifiedListWithFiltersAndProgress({
     },
     [
       intl,
-      listKey,
+      studyListKey,
       markCompleteMutation,
       showToast,
       trpcUtils.questionLists,
@@ -137,8 +139,8 @@ export default function QuestionsUnifiedListWithFiltersAndProgress({
     markNotCompleteMutation.mutate(
       {
         format: question.format,
-        listKey,
         slug: question.slug,
+        studyListKey,
       },
       {
         onSuccess: () => {
@@ -164,7 +166,7 @@ export default function QuestionsUnifiedListWithFiltersAndProgress({
 
   return (
     <QuestionsUnifiedListWithFilters
-      listKey={listKey}
+      list={list}
       questions={questionsWithCompletionStatus}
       onMarkAsCompleted={
         user == null

@@ -88,7 +88,12 @@ export default function QuestionsStudyListSlideOutButton({
         href={
           prevQuestionButtonDisabled
             ? undefined
-            : questionHrefWithList(prevQuestion?.href, studyList?.listKey)
+            : questionHrefWithList(
+                prevQuestion?.href,
+                studyList?.listKey
+                  ? { studyList: studyList?.listKey }
+                  : undefined,
+              )
         }
         icon={RiArrowLeftSLine}
         isDisabled={prevQuestionButtonDisabled}
@@ -115,7 +120,12 @@ export default function QuestionsStudyListSlideOutButton({
         href={
           nextQuestionButtonDisabled
             ? undefined
-            : questionHrefWithList(nextQuestion?.href, studyList?.listKey)
+            : questionHrefWithList(
+                nextQuestion?.href,
+                studyList?.listKey
+                  ? { studyList: studyList?.listKey }
+                  : undefined,
+              )
         }
         icon={RiArrowRightSLine}
         isDisabled={nextQuestionButtonDisabled}

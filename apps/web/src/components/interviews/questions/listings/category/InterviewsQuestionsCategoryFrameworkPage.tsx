@@ -17,11 +17,7 @@ import type {
 
 type Props = Omit<
   React.ComponentProps<typeof InterviewsQuestionsCategoryPage>,
-  | 'description'
-  | 'frameworkOrLanguage'
-  | 'questionList'
-  | 'searchPlaceholder'
-  | 'title'
+  'category' | 'categoryValue' | 'description' | 'list' | 'questionList' | 'searchPlaceholder' | 'title'
 > &
   Readonly<{
     framework: QuestionFramework;
@@ -74,9 +70,10 @@ export default function InterviewsQuestionsCategoryFrameworkPage({
 
   return (
     <InterviewsQuestionsCategoryPage
+      category="framework"
       categoryTabs={questionsQuiz.length > 0 ? categoryTabs : undefined}
+      categoryValue={framework}
       description={frameworks[framework].getDescription(totalQuestionsCount)}
-      frameworkOrLanguage={framework}
       questionList={filteredQuestions}
       searchPlaceholder={frameworks[framework].getSearchPlaceholder(
         totalQuestionsCount,

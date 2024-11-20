@@ -48,14 +48,14 @@ type Props = Readonly<{
     a: QuestionFormat,
     b: QuestionFormat,
   ) => number;
-  framework?: QuestionFrameworkOrLanguage;
+  frameworkOrLanguage?: QuestionFrameworkOrLanguage;
   guides?: {
     description: string;
     items: ReadonlyArray<GuideCardMetadataWithCompletedStatus>;
     title: string;
   };
   initialFormat?: QuestionFormat | null;
-  listKey?: string;
+  list?: React.ComponentProps<typeof QuestionsList>['list'];
   listMode?: React.ComponentProps<typeof QuestionsList>['mode'];
   mode?: 'default' | 'framework';
   onMarkAsCompleted?: (question: QuestionMetadata) => void;
@@ -71,8 +71,8 @@ export default function QuestionsUnifiedListWithFilters({
   categoryTabs,
   defaultSortField = 'default',
   initialFormat = null,
-  framework,
-  listKey,
+  frameworkOrLanguage,
+  list,
   listMode,
   mode = 'default',
   filterNamespace,
@@ -172,19 +172,11 @@ export default function QuestionsUnifiedListWithFilters({
             })}
             placeholder={
               searchPlaceholder ??
-              (listKey
-                ? intl.formatMessage({
-                    defaultMessage: 'Search within this list of questions',
-                    description:
-                      'Placeholder for search input of question list',
-                    id: 'WUBRnN',
-                  })
-                : intl.formatMessage({
-                    defaultMessage: 'Search questions',
-                    description:
-                      'Placeholder for search input of question list',
-                    id: '1w3zxf',
-                  }))
+              intl.formatMessage({
+                defaultMessage: 'Search within this list of questions',
+                description: 'Placeholder for search input of question list',
+                id: 'WUBRnN',
+              })
             }
             size="sm"
             startIcon={RiSearchLine}
@@ -250,14 +242,14 @@ export default function QuestionsUnifiedListWithFilters({
                     }
                     framework={
                       // TODO(interviews): improve this
-                      framework !== 'html' &&
-                      framework !== 'js' &&
-                      framework !== 'ts' &&
-                      framework !== 'css'
-                        ? framework
+                      frameworkOrLanguage !== 'html' &&
+                      frameworkOrLanguage !== 'js' &&
+                      frameworkOrLanguage !== 'ts' &&
+                      frameworkOrLanguage !== 'css'
+                        ? frameworkOrLanguage
                         : undefined
                     }
-                    listKey={listKey}
+                    list={list}
                     mode={listMode}
                     questionCompletionCount={questionCompletionCount}
                     questions={processedQuestions}

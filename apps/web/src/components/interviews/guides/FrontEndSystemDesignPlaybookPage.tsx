@@ -148,6 +148,9 @@ export default function FrontEndSystemDesignPlaybookPage({
               <QuestionsUnifiedListWithFiltersAndProgress
                 defaultSortField="difficulty"
                 filterNamespace="system-design-format"
+                list={{
+                  format: 'system-design',
+                }}
                 questionCompletionCount={questionCompletionCount}
                 questions={questions}
                 sideColumnAddOn={

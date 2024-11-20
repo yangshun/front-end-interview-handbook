@@ -132,6 +132,7 @@ export default function InterviewsQuestionFormatPage({
                 }
               : undefined
           }
+          list={{ format }}
           questionCompletionCount={questionCompletionCount}
           questions={questions}
           searchPlaceholder={formatData[format].searchPlaceholder}

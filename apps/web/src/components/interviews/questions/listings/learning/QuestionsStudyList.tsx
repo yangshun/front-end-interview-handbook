@@ -37,7 +37,7 @@ export default function QuestionsStudyList({
           }
           defaultSortField="default"
           filterNamespace={filterNamespace}
-          listKey={listKey}
+          list={{ studyList: listKey }}
           listMode="study-list"
           questions={questions}
           sideColumnAddOn={sideColumnAddOn}

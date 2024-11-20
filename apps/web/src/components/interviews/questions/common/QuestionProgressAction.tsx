@@ -134,7 +134,11 @@ export default function QuestionProgressAction({
         variant="success"
         onClick={() => {
           deleteProgressMutation.mutate(
-            { format: metadata.format, listKey, slug: metadata.slug },
+            {
+              format: metadata.format,
+              slug: metadata.slug,
+              studyListKey: listKey,
+            },
             {
               onError: (error) => {
                 showToast({
@@ -184,8 +188,8 @@ export default function QuestionProgressAction({
         markCompleteMutation.mutate(
           {
             format: metadata.format,
-            listKey,
             slug: metadata.slug,
+            studyListKey: listKey,
           },
           {
             onError: (error) => {

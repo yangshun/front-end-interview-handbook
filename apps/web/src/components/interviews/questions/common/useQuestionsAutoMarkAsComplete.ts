@@ -25,8 +25,8 @@ export default function useQuestionsAutoMarkAsComplete(
     markCompleteMutation.mutate(
       {
         format: metadata.format,
-        listKey,
         slug: metadata.slug,
+        studyListKey: listKey,
       },
       {
         onError: (error) => {
