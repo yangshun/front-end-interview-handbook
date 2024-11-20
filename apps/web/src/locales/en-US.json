@@ -2523,6 +2523,10 @@
     "defaultMessage": "Manage your subscription status and payment methods on the Stripe billing portal.",
     "description": "Call to action text to uppgrade plan."
   },
+  "FtnCTh": {
+    "defaultMessage": "Explore our starter guides to get a solid grasp of {category} interview prep before jumping into practice.",
+    "description": "Description for guide card"
+  },
   "FyfO1X": {
     "defaultMessage": "Front End System Design Playbook",
     "description": "Front end system design guidebook title"
@@ -2686,6 +2690,10 @@
   "Gv0+LY": {
     "defaultMessage": "Woohoo! You completed the question!",
     "description": "Toast congratulating user once they mark a question as complete"
+  },
+  "GwrX5t": {
+    "defaultMessage": "{category} interview questions with detailed solutions and tests",
+    "description": "Description for guide card"
   },
   "GyDKzV": {
     "defaultMessage": "Filters",
@@ -4927,6 +4935,10 @@
     "defaultMessage": "{count} more",
     "description": "Label for more challenges count"
   },
+  "VYDUrI": {
+    "defaultMessage": "{category} Interview Guides",
+    "description": "Description for guide card"
+  },
   "VYwrk6": {
     "defaultMessage": "Get access to some of our best real-world project challenges and resources with Premium.",
     "description": "Description of Pricing page"
@@ -6666,10 +6678,6 @@
   "gZL62Q": {
     "defaultMessage": "Change password for {userEmail}",
     "description": "Title of Change Password page"
-  },
-  "gaTO0X": {
-    "defaultMessage": "{framework} Interview Guides",
-    "description": "Description for guide card"
   },
   "gbjgjg": {
     "defaultMessage": "<authorProfileLink>{author}</authorProfileLink> left a question on their submission <link>{submissionTitle}</link>: <comment>\"{description}\"</comment>",
@@ -8999,10 +9007,6 @@
     "defaultMessage": "Scores of our users have landed multiple offers at the world's top companies with substantial TC gains. Be the next.",
     "description": "Subtitle for the offers don't lie section"
   },
-  "wC2T5Q": {
-    "defaultMessage": "{framework} interview questions with detailed solutions and tests",
-    "description": "Description for guide card"
-  },
   "wDKscz": {
     "defaultMessage": "Completed",
     "description": "Projects challenge completed"
@@ -9178,10 +9182,6 @@
   "xmK6tB": {
     "defaultMessage": "Build the foundation from ground up for reuse",
     "description": "Short description for \"Design systems\" feature on Projects home page"
-  },
-  "xnNQIA": {
-    "defaultMessage": "Explore our starter guides to get a solid grasp of {framework} interview prep before jumping into practice.",
-    "description": "Description for guide card"
   },
   "xoXirC": {
     "defaultMessage": "Time-efficient",

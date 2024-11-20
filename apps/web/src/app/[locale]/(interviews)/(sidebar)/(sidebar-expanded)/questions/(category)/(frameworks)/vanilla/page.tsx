@@ -22,13 +22,13 @@ type Props = Readonly<{
 
 async function processParams(params: Props['params']) {
   const { locale } = params;
-  const [intl, codingQuestions] = await Promise.all([
+  const [intl, questionsCoding] = await Promise.all([
     getIntlServerOnly(locale),
     fetchQuestionsListCodingForFramework(framework, locale),
   ]);
 
   return {
-    codingQuestions,
+    questionsCoding,
     seoDescription: intl.formatMessage(
       {
         defaultMessage:
@@ -37,7 +37,7 @@ async function processParams(params: Props['params']) {
         id: '+5hnxx',
       },
       {
-        questionCount: roundQuestionCountToNearestTen(codingQuestions.length),
+        questionCount: roundQuestionCountToNearestTen(questionsCoding.length),
       },
     ),
     seoTitle: intl.formatMessage({
@@ -70,7 +70,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function Page({ params }: Props) {
   const { locale } = params;
-  const [codingQuestions, questionCompletionCount, guides] = await Promise.all([
+  const [questionsCoding, questionCompletionCount, guides] = await Promise.all([
     fetchQuestionsListCodingForFramework(framework, locale),
     fetchQuestionsCompletionCount(['user-interface']),
     readAllFrontEndInterviewGuides(locale),
@@ -81,7 +81,8 @@ export default async function Page({ params }: Props) {
       framework={framework}
       guides={guides}
       questionCompletionCount={questionCompletionCount}
-      questionList={codingQuestions}
+      questionsCoding={questionsCoding}
+      questionsQuiz={[]}
     />
   );
 }

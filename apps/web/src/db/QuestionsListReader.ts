@@ -230,6 +230,20 @@ export async function fetchQuestionsListCodingForFramework(
   ]);
 }
 
+export async function fetchQuestionsListQuizForFramework(
+  framework: QuestionFramework,
+  locale = 'en-US',
+): Promise<ReadonlyArray<QuestionMetadata>> {
+  const { questions } = await fetchQuestionsListQuiz(locale);
+
+  return filterQuestions(questions, [
+    (question) =>
+      question.frameworks.some(
+        (frameworkItem) => framework === frameworkItem.framework,
+      ),
+  ]);
+}
+
 export async function fetchQuestionsByHash(
   questionHashes: ReadonlyArray<QuestionHash>,
   locale = 'en-US',

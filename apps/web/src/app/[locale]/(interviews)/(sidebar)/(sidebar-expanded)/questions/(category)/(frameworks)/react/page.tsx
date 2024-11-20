@@ -5,7 +5,10 @@ import InterviewsQuestionsCategoryFrameworkPage from '~/components/interviews/qu
 
 import { readAllFrontEndInterviewGuides } from '~/db/guides/GuidesReader';
 import { fetchQuestionsCompletionCount } from '~/db/QuestionsCount';
-import { fetchQuestionsListCodingForFramework } from '~/db/QuestionsListReader';
+import {
+  fetchQuestionsListCodingForFramework,
+  fetchQuestionsListQuizForFramework,
+} from '~/db/QuestionsListReader';
 import { roundQuestionCountToNearestTen } from '~/db/QuestionsUtils';
 import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
@@ -22,13 +25,14 @@ type Props = Readonly<{
 
 async function processParams(params: Props['params']) {
   const { locale } = params;
-  const [intl, codingQuestions] = await Promise.all([
+  const [intl, questionsCoding, questionsQuiz] = await Promise.all([
     getIntlServerOnly(locale),
     fetchQuestionsListCodingForFramework(framework, locale),
+    fetchQuestionsListQuizForFramework(framework, locale),
   ]);
 
   return {
-    codingQuestions,
+    questionsCoding,
     seoDescription: intl.formatMessage(
       {
         defaultMessage:
@@ -37,7 +41,9 @@ async function processParams(params: Props['params']) {
         id: 'muCdsx',
       },
       {
-        questionCount: roundQuestionCountToNearestTen(codingQuestions.length),
+        questionCount: roundQuestionCountToNearestTen(
+          questionsCoding.length + questionsQuiz.length,
+        ),
       },
     ),
     seoTitle: intl.formatMessage({
@@ -71,18 +77,21 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function Page({ params }: Props) {
   const { locale } = params;
 
-  const [codingQuestions, questionCompletionCount, guides] = await Promise.all([
-    fetchQuestionsListCodingForFramework(framework, locale),
-    fetchQuestionsCompletionCount(['user-interface']),
-    readAllFrontEndInterviewGuides(locale),
-  ]);
+  const [questionsCoding, quizQuestions, questionCompletionCount, guides] =
+    await Promise.all([
+      fetchQuestionsListCodingForFramework(framework, locale),
+      fetchQuestionsListQuizForFramework(framework, locale),
+      fetchQuestionsCompletionCount(['user-interface', 'quiz']),
+      readAllFrontEndInterviewGuides(locale),
+    ]);
 
   return (
     <InterviewsQuestionsCategoryFrameworkPage
       framework={framework}
       guides={guides}
       questionCompletionCount={questionCompletionCount}
-      questionList={codingQuestions}
+      questionsCoding={questionsCoding}
+      questionsQuiz={quizQuestions}
     />
   );
 }

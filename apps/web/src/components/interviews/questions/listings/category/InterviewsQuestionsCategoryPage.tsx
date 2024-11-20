@@ -40,7 +40,7 @@ import type { QuestionCompletionCount } from '~/db/QuestionsCount';
 type Props = Readonly<{
   categoryTabs?: ReactNode;
   description: string;
-  framework: QuestionFrameworkOrLanguage;
+  frameworkOrLanguage: QuestionFrameworkOrLanguage;
   guides: ReadonlyArray<GuideCardMetadata>;
   questionCompletionCount?: QuestionCompletionCount;
   questionList: ReadonlyArray<QuestionMetadata>;
@@ -53,7 +53,7 @@ type Props = Readonly<{
 export default function InterviewsQuestionsCategoryPage({
   categoryTabs,
   description,
-  framework,
+  frameworkOrLanguage,
   questionCompletionCount,
   questionList,
   searchPlaceholder,
@@ -64,11 +64,11 @@ export default function InterviewsQuestionsCategoryPage({
   const languages = useQuestionLanguagesData();
   const frameworks = useQuestionFrameworksData();
   const Icon =
-    framework in languages
-      ? languages[framework as QuestionLanguage].icon
-      : frameworks[framework as QuestionFramework].icon;
+    frameworkOrLanguage in languages
+      ? languages[frameworkOrLanguage as QuestionLanguage].icon
+      : frameworks[frameworkOrLanguage as QuestionFramework].icon;
   const intl = useIntl();
-  const filterNamespace = `category:${framework}`;
+  const filterNamespace = `category:${frameworkOrLanguage}`;
   const features = [
     {
       icon: RiVerifiedBadgeLine,
@@ -81,7 +81,7 @@ export default function InterviewsQuestionsCategoryPage({
     {
       icon: RiTestTubeLine,
       label:
-        framework in languages
+        frameworkOrLanguage in languages
           ? intl.formatMessage({
               defaultMessage: 'Test cases',
               description: 'Features for question format page',
@@ -134,7 +134,9 @@ export default function InterviewsQuestionsCategoryPage({
   };
 
   const filteredGuides = guides.filter((guide) =>
-    guidesSlugs[framework].includes(guide.slug as FrontEndInterviewSlugType),
+    guidesSlugs[frameworkOrLanguage].includes(
+      guide.slug as FrontEndInterviewSlugType,
+    ),
   );
 
   const guidesWithCompletionStatus =
@@ -148,21 +150,23 @@ export default function InterviewsQuestionsCategoryPage({
         description={intl.formatMessage(
           {
             defaultMessage:
-              '{framework} interview questions with detailed solutions and tests',
+              '{category} interview questions with detailed solutions and tests',
             description: 'Description for guide card',
-            id: 'wC2T5Q',
+            id: 'GwrX5t',
           },
           {
-            framework:
-              framework in languages
-                ? languages[framework as QuestionLanguage].label
-                : frameworks[framework as QuestionFramework].label,
+            category:
+              frameworkOrLanguage in languages
+                ? languages[frameworkOrLanguage as QuestionLanguage].label
+                : frameworks[frameworkOrLanguage as QuestionFramework].label,
           },
         )}
         features={features}
         icon={Icon}
         sideElement={
-          <InterviewsQuestionsCategoryContentSlider framework={framework} />
+          <InterviewsQuestionsCategoryContentSlider
+            framework={frameworkOrLanguage}
+          />
         }
         title={title}>
         <Text className="block xl:max-w-[75%]" color="secondary" size="body1">
@@ -174,36 +178,40 @@ export default function InterviewsQuestionsCategoryPage({
           categoryTabs={categoryTabs}
           defaultSortField="difficulty"
           filterNamespace={filterNamespace}
-          framework={framework}
+          framework={frameworkOrLanguage}
           guides={
             guidesWithCompletionStatus.length > 0
               ? {
                   description: intl.formatMessage(
                     {
                       defaultMessage:
-                        'Explore our starter guides to get a solid grasp of {framework} interview prep before jumping into practice.',
+                        'Explore our starter guides to get a solid grasp of {category} interview prep before jumping into practice.',
                       description: 'Description for guide card',
-                      id: 'xnNQIA',
+                      id: 'FtnCTh',
                     },
                     {
-                      framework:
-                        framework in languages
-                          ? languages[framework as QuestionLanguage].label
-                          : frameworks[framework as QuestionFramework].label,
+                      category:
+                        frameworkOrLanguage in languages
+                          ? languages[frameworkOrLanguage as QuestionLanguage]
+                              .label
+                          : frameworks[frameworkOrLanguage as QuestionFramework]
+                              .label,
                     },
                   ),
                   items: guidesWithCompletionStatus,
                   title: intl.formatMessage(
                     {
-                      defaultMessage: '{framework} Interview Guides',
+                      defaultMessage: '{category} Interview Guides',
                       description: 'Description for guide card',
-                      id: 'gaTO0X',
+                      id: 'VYDUrI',
                     },
                     {
-                      framework:
-                        framework in languages
-                          ? languages[framework as QuestionLanguage].label
-                          : frameworks[framework as QuestionFramework].label,
+                      category:
+                        frameworkOrLanguage in languages
+                          ? languages[frameworkOrLanguage as QuestionLanguage]
+                              .label
+                          : frameworks[frameworkOrLanguage as QuestionFramework]
+                              .label,
                     },
                   ),
                 }

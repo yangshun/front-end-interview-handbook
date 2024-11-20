@@ -16,7 +16,11 @@ import type {
 
 type Props = Omit<
   React.ComponentProps<typeof InterviewsQuestionsCategoryPage>,
-  'description' | 'framework' | 'questionList' | 'searchPlaceholder' | 'title'
+  | 'description'
+  | 'frameworkOrLanguage'
+  | 'questionList'
+  | 'searchPlaceholder'
+  | 'title'
 > &
   Readonly<{
     language: QuestionLanguage;
@@ -64,16 +68,16 @@ export default function InterviewsQuestionsCategoryLanguagePage({
     />
   );
 
+  const totalQuestionsCount = questionsCoding.length + questionsQuiz.length;
+
   return (
     <InterviewsQuestionsCategoryPage
       categoryTabs={categoryTabs}
-      description={languages[language].getDescription(
-        questionsCoding.length + questionsQuiz.length,
-      )}
-      framework={language}
+      description={languages[language].getDescription(totalQuestionsCount)}
+      frameworkOrLanguage={language}
       questionList={filteredQuestions}
       searchPlaceholder={languages[language].getSearchPlaceholder(
-        questionsCoding.length + questionsQuiz.length,
+        totalQuestionsCount,
       )}
       selectedCategoryTab={selectedTab}
       title={languages[language].longName}
