@@ -191,7 +191,7 @@ function SidebarLinks({
           'data-[state=open]:animate-accordion-down',
           'data-[state=closed]:animate-accordion-up overflow-hidden',
         )}>
-        <ul className={clsx('flex flex-col gap-y-px', 'py-1 pl-3')} role="list">
+        <ul className={clsx('flex flex-col gap-y-1', 'py-1 pl-3')} role="list">
           {item.items.map((linkItem) => (
             <SidebarLinkItem
               key={linkItem.href}
