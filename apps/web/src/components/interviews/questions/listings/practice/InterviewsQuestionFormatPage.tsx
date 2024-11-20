@@ -2,11 +2,6 @@
 
 import clsx from 'clsx';
 import type { InterviewsListingBottomContent } from 'contentlayer/generated';
-import {
-  RiTestTubeLine,
-  RiVerifiedBadgeLine,
-  RiWindow2Line,
-} from 'react-icons/ri';
 
 import { useQuestionFormatsData } from '~/data/QuestionCategories';
 
@@ -29,6 +24,8 @@ import Section from '~/components/ui/Heading/HeadingContext';
 
 import type { QuestionCompletionCount } from '~/db/QuestionsCount';
 
+import useInterviewsQuestionFormatFeatures from './useInterviewsQuestionFormatFeatures';
+
 type Props = Readonly<{
   bottomContent?: InterviewsListingBottomContent;
   description: string;
@@ -49,32 +46,7 @@ export default function InterviewsQuestionFormatPage({
   guides,
 }: Props) {
   const intl = useIntl();
-  const features = [
-    {
-      icon: RiWindow2Line,
-      label: intl.formatMessage({
-        defaultMessage: 'Code in browser',
-        description: 'Features for question format page',
-        id: 'X/O+1P',
-      }),
-    },
-    {
-      icon: RiVerifiedBadgeLine,
-      label: intl.formatMessage({
-        defaultMessage: 'Solved by ex-interviewers',
-        description: 'Features for question format page',
-        id: 'gl9tj6',
-      }),
-    },
-    {
-      icon: RiTestTubeLine,
-      label: intl.formatMessage({
-        defaultMessage: 'Test cases',
-        description: 'Features for question format page',
-        id: 'nI4Alg',
-      }),
-    },
-  ];
+  const features = useInterviewsQuestionFormatFeatures(questions.length);
 
   const guidesSlugs: Record<
     QuestionFormat,
@@ -138,7 +110,7 @@ export default function InterviewsQuestionFormatPage({
     <div className={clsx('flex flex-col', 'gap-y-8 md:gap-y-10 2xl:gap-y-12')}>
       <InterviewsPageHeader
         description={description}
-        features={features}
+        features={features[format]}
         icon={formatData[format].icon}
         title={title}
       />

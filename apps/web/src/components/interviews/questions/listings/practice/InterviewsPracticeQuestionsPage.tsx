@@ -2,15 +2,11 @@
 
 import clsx from 'clsx';
 import type { InterviewsListingBottomContent } from 'contentlayer/generated';
-import {
-  RiTestTubeLine,
-  RiVerifiedBadgeLine,
-  RiWindow2Line,
-} from 'react-icons/ri';
 
 import { trpc } from '~/hooks/trpc';
 
 import InterviewsPageHeader from '~/components/interviews/common/InterviewsPageHeader';
+import useInterviewsQuestionsFeatures from '~/components/interviews/common/useInterviewsQuestionsFeatures';
 import type {
   QuestionFramework,
   QuestionLanguage,
@@ -49,6 +45,7 @@ export default function InterviewsPracticeQuestionsPage({
   const intl = useIntl();
 
   const user = useUser();
+  const questionFeatures = useInterviewsQuestionsFeatures();
   const { data: questionsProgress } = trpc.questionProgress.getAll.useQuery(
     undefined,
     {
@@ -63,30 +60,9 @@ export default function InterviewsPracticeQuestionsPage({
   );
 
   const features = [
-    {
-      icon: RiWindow2Line,
-      label: intl.formatMessage({
-        defaultMessage: 'Code in browser',
-        description: 'Features for all practice questions page',
-        id: 'c4TqOR',
-      }),
-    },
-    {
-      icon: RiVerifiedBadgeLine,
-      label: intl.formatMessage({
-        defaultMessage: 'Official solutions',
-        description: 'Features for all practice questions page',
-        id: 'vlMgF6',
-      }),
-    },
-    {
-      icon: RiTestTubeLine,
-      label: intl.formatMessage({
-        defaultMessage: 'Test cases',
-        description: 'Features for all practice questions page',
-        id: 'vncIYl',
-      }),
-    },
+    questionFeatures.codeInBrowser,
+    questionFeatures.officialSolutions,
+    questionFeatures.testCases,
   ];
 
   return (

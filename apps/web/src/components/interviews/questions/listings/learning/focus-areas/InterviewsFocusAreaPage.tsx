@@ -5,16 +5,12 @@ import type {
   InterviewsListingBottomContent,
   InterviewsStudyList,
 } from 'contentlayer/generated';
-import {
-  RiQuestionnaireLine,
-  RiTimerLine,
-  RiVerifiedBadgeLine,
-} from 'react-icons/ri';
 
 import { trpc } from '~/hooks/trpc';
 
 import VignetteOverlay from '~/components/common/VignetteOverlay';
 import { useUserProfile } from '~/components/global/UserProfileProvider';
+import useInterviewsQuestionsFeatures from '~/components/interviews/common/useInterviewsQuestionsFeatures';
 import QuestionPaywall from '~/components/interviews/questions/common/QuestionPaywall';
 import type {
   QuestionFormat,
@@ -25,7 +21,6 @@ import { FocusAreaIcons } from '~/components/interviews/questions/content/study-
 import QuestionsList from '~/components/interviews/questions/listings/items/QuestionsList';
 import QuestionsStudyList from '~/components/interviews/questions/listings/learning/QuestionsStudyList';
 import QuestionsStudyListPageTitleSection from '~/components/interviews/questions/listings/learning/QuestionsStudyListPageTitleSection';
-import { useIntl } from '~/components/intl';
 import MDXContent from '~/components/mdx/MDXContent';
 import Divider from '~/components/ui/Divider';
 import Section from '~/components/ui/Heading/HeadingContext';
@@ -51,9 +46,9 @@ export default function InterviewsFocusAreaPage({
   questions,
   questionsSlugs,
 }: Props) {
-  const intl = useIntl();
   const user = useUser();
   const { userProfile } = useUserProfile();
+  const questionFeatures = useInterviewsQuestionsFeatures(questions.length);
   const canViewFocusAreas = userProfile?.isInterviewsPremium;
   const { data: questionProgressParam } = trpc.questionProgress.getAll.useQuery(
     undefined,
@@ -71,33 +66,9 @@ export default function InterviewsFocusAreaPage({
   );
 
   const features = [
-    {
-      icon: RiQuestionnaireLine,
-      label: intl.formatMessage(
-        {
-          defaultMessage: '{questionCount} solved practice questions',
-          description: 'Features for focus areas question listing',
-          id: 'DthPOl',
-        },
-        { questionCount: questions.length },
-      ),
-    },
-    {
-      icon: RiVerifiedBadgeLine,
-      label: intl.formatMessage({
-        defaultMessage: 'Curated by ex-interviewers',
-        description: 'Features for focus areas question listing',
-        id: '0/Rv7O',
-      }),
-    },
-    {
-      icon: RiTimerLine,
-      label: intl.formatMessage({
-        defaultMessage: 'Time efficient',
-        description: 'Features for focus areas question listing',
-        id: 'nyYJ7j',
-      }),
-    },
+    questionFeatures.solvedPracticeQuestions,
+    questionFeatures.curatedByExInterviews,
+    questionFeatures.timeEfficient,
   ];
 
   return (

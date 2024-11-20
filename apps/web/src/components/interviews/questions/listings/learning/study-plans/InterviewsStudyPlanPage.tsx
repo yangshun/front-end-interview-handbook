@@ -5,16 +5,12 @@ import type {
   InterviewsListingBottomContent,
   InterviewsStudyList,
 } from 'contentlayer/generated';
-import {
-  RiQuestionnaireLine,
-  RiTimerLine,
-  RiVerifiedBadgeLine,
-} from 'react-icons/ri';
 
 import { trpc } from '~/hooks/trpc';
 
 import VignetteOverlay from '~/components/common/VignetteOverlay';
 import { useUserProfile } from '~/components/global/UserProfileProvider';
+import useInterviewsQuestionsFeatures from '~/components/interviews/common/useInterviewsQuestionsFeatures';
 import QuestionPaywall from '~/components/interviews/questions/common/QuestionPaywall';
 import type {
   QuestionFormat,
@@ -25,7 +21,6 @@ import { StudyPlanIcons } from '~/components/interviews/questions/content/study-
 import QuestionsList from '~/components/interviews/questions/listings/items/QuestionsList';
 import QuestionsStudyList from '~/components/interviews/questions/listings/learning/QuestionsStudyList';
 import QuestionsStudyListPageTitleSection from '~/components/interviews/questions/listings/learning/QuestionsStudyListPageTitleSection';
-import { useIntl } from '~/components/intl';
 import MDXContent from '~/components/mdx/MDXContent';
 import Divider from '~/components/ui/Divider';
 import Section from '~/components/ui/Heading/HeadingContext';
@@ -50,9 +45,9 @@ export default function InterviewsStudyPlanPage({
   questions,
   questionsSlugs,
 }: Props) {
-  const intl = useIntl();
   const { userProfile } = useUserProfile();
   const user = useUser();
+  const questionFeatures = useInterviewsQuestionsFeatures(questions.length);
   const canViewStudyPlans = userProfile?.isInterviewsPremium;
 
   const { data: questionProgressParam } = trpc.questionProgress.getAll.useQuery(
@@ -70,33 +65,9 @@ export default function InterviewsStudyPlanPage({
   );
 
   const features = [
-    {
-      icon: RiVerifiedBadgeLine,
-      label: intl.formatMessage({
-        defaultMessage: 'Curated by ex-interviewers',
-        description: 'Features for study plans question listing',
-        id: 'rJK/mv',
-      }),
-    },
-    {
-      icon: RiQuestionnaireLine,
-      label: intl.formatMessage(
-        {
-          defaultMessage: '{questionCount} solved practice questions',
-          description: 'Features for study plans question listing',
-          id: 'wVk78R',
-        },
-        { questionCount: questions.length },
-      ),
-    },
-    {
-      icon: RiTimerLine,
-      label: intl.formatMessage({
-        defaultMessage: 'Time efficient',
-        description: 'Features for study plans question listing',
-        id: 'a3MONw',
-      }),
-    },
+    questionFeatures.curatedByExInterviews,
+    questionFeatures.solvedPracticeQuestions,
+    questionFeatures.timeEfficient,
   ];
 
   return (

@@ -5,10 +5,11 @@ import type {
   InterviewsListingBottomContent,
   InterviewsStudyList,
 } from 'contentlayer/generated';
-import { RiFlaskLine, RiVerifiedBadgeLine, RiWindowLine } from 'react-icons/ri';
+import { RiVerifiedBadgeLine } from 'react-icons/ri';
 
 import { trpc } from '~/hooks/trpc';
 
+import useInterviewsQuestionsFeatures from '~/components/interviews/common/useInterviewsQuestionsFeatures';
 import type {
   QuestionFormat,
   QuestionMetadata,
@@ -47,6 +48,7 @@ export default function InterviewsBlind75Page({
 }: Props) {
   const intl = useIntl();
   const user = useUser();
+  const questionFeatures = useInterviewsQuestionsFeatures();
 
   const { data: questionProgressParam } = trpc.questionProgress.getAll.useQuery(
     undefined,
@@ -65,14 +67,7 @@ export default function InterviewsBlind75Page({
   const questionsCount = countQuestionsByAccess(questions);
 
   const features = [
-    {
-      icon: RiWindowLine,
-      label: intl.formatMessage({
-        defaultMessage: 'Code in browser',
-        description: 'Features for blind75',
-        id: 'e/MXjM',
-      }),
-    },
+    questionFeatures.codeInBrowser,
     {
       icon: RiVerifiedBadgeLine,
       label: intl.formatMessage({
@@ -81,14 +76,7 @@ export default function InterviewsBlind75Page({
         id: 'RW0xSE',
       }),
     },
-    {
-      icon: RiFlaskLine,
-      label: intl.formatMessage({
-        defaultMessage: 'Test cases',
-        description: 'Features for blind75',
-        id: 'KE8wmG',
-      }),
-    },
+    questionFeatures.testCases,
   ];
 
   return (

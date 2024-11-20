@@ -1119,6 +1119,10 @@
     "defaultMessage": "Start the project to access guides, discussions and reference code",
     "description": "Title for project overlay on projects details page"
   },
+  "5pdUYV": {
+    "defaultMessage": "Deep-dives into real world applications",
+    "description": "Features for question format page"
+  },
   "5rd3TN": {
     "defaultMessage": "Companies",
     "description": "Companies section label"
@@ -1751,6 +1755,10 @@
     "defaultMessage": "The company you currently work at. This information can be made private on more sensitive products like interviews.",
     "description": "Description for \"Company\" input on Projects profile onboarding page"
   },
+  "AIKOQQ": {
+    "defaultMessage": "Answers by ex-interviewers",
+    "description": "Features for question format page"
+  },
   "AJuXmH": {
     "defaultMessage": "Add profile photo",
     "description": "Label for add profile photo button on projects profile"
@@ -2054,10 +2062,6 @@
   "CUkv2F": {
     "defaultMessage": "Your subscription renews on <bold>{date}</bold>",
     "description": "Information about subscription"
-  },
-  "CZJo2K": {
-    "defaultMessage": "Test cases",
-    "description": "Features for interviews questions"
   },
   "CbIPy4": {
     "defaultMessage": "Vanilla JavaScript UI Interview Questions with Solutions | GreatFrontEnd",
@@ -2410,6 +2414,10 @@
   "Euaee/": {
     "defaultMessage": "Resubscribe to unlock",
     "description": "Title for a premium project paywall"
+  },
+  "EvFlpz": {
+    "defaultMessage": "Covers critical topics",
+    "description": "Features for question format page"
   },
   "F+4T7/": {
     "defaultMessage": "Only Marketing track",
@@ -3206,10 +3214,6 @@
   "KDDzWX": {
     "defaultMessage": "{questionExcerpt} using {questionFramework}",
     "description": "Description of Front End Interview UI Coding Questions practice page"
-  },
-  "KE8wmG": {
-    "defaultMessage": "Test cases",
-    "description": "Features for blind75"
   },
   "KIP7Ey": {
     "defaultMessage": "Show in progress challenges",
@@ -5607,10 +5611,6 @@
     "defaultMessage": "Web APIs",
     "description": "Front end development topic"
   },
-  "a3MONw": {
-    "defaultMessage": "Time efficient",
-    "description": "Features for study plans question listing"
-  },
   "a3gDom": {
     "defaultMessage": "Social links",
     "description": "Title of social links section of projects profile edit page"
@@ -5963,6 +5963,10 @@
     "defaultMessage": "Tell the community about your motivations for joining this platform",
     "description": "Description for \"Motivation for joining\" for projects profile page"
   },
+  "c23MPV": {
+    "defaultMessage": "Robust framework",
+    "description": "Features for question format page"
+  },
   "c2emAw": {
     "defaultMessage": "Challenge: {challengeName} | Discussions",
     "description": "Title of Projects challenge resources discussions page"
@@ -5974,10 +5978,6 @@
   "c4N2O5": {
     "defaultMessage": "Not signed in",
     "description": "Label indicating user is not signed in"
-  },
-  "c4TqOR": {
-    "defaultMessage": "Code in browser",
-    "description": "Features for all practice questions page"
   },
   "c7eREh": {
     "defaultMessage": "Status",
@@ -6243,10 +6243,6 @@
     "defaultMessage": "Challenges",
     "description": "Link to all projects challenges page"
   },
-  "e/MXjM": {
-    "defaultMessage": "Code in browser",
-    "description": "Features for blind75"
-  },
   "e/t5dH": {
     "defaultMessage": "Download starter files",
     "description": "Label for \"Download starter files\" step in dialog on Projects project page"
@@ -6482,10 +6478,6 @@
   "fMV5UU": {
     "defaultMessage": "{submissionTitle} | {username} | {challengeName}",
     "description": "Title of Projects submission page"
-  },
-  "fNJWwT": {
-    "defaultMessage": "Curated by ex-interviewers",
-    "description": "Features for study plans"
   },
   "fO4Txx": {
     "defaultMessage": "Pin this submission",
@@ -6955,10 +6947,6 @@
     "defaultMessage": "We are giving away an exclusive {discountPercentage}% of all plans for completing simple tasks like following our socials!",
     "description": "Title for rewards page"
   },
-  "iRkjCv": {
-    "defaultMessage": "Code in browser",
-    "description": "Features for focus areas"
-  },
   "iSDQh3": {
     "defaultMessage": "Companies",
     "description": "Title for section on question that shows which companies asked the question"
@@ -7350,10 +7338,6 @@
   "kzxwOd": {
     "defaultMessage": "We appreciate any feedback or bug reports on the product. Feedback that the team finds useful will be rewarded with freebies and discounts or even cashbacks on your order!",
     "description": "Feedback widget description."
-  },
-  "l+NV6Y": {
-    "defaultMessage": "Official solutions",
-    "description": "Features for interviews questions"
   },
   "l/9/qK": {
     "defaultMessage": "Write or film a review of your experience with GreatFrontEnd for a {discountPercentage}% cashback on your first order amount. Success stories are welcome too!",
@@ -8167,10 +8151,6 @@
     "defaultMessage": "Trending user submissions",
     "description": "Title for Trending submissions section on Projects dashboard page"
   },
-  "qZTabX": {
-    "defaultMessage": "Code in browser",
-    "description": "Features for interviews questions"
-  },
   "qdOBuk": {
     "defaultMessage": "Practice questions",
     "description": "Section title"
@@ -8262,10 +8242,6 @@
   "rIxZsj": {
     "defaultMessage": "This challenge can be unlocked without spending any credits because you have unlocked all pre-requisite challenges. Proceed to unlock challenge?",
     "description": "Message about unlocking challenges"
-  },
-  "rJK/mv": {
-    "defaultMessage": "Curated by ex-interviewers",
-    "description": "Features for study plans question listing"
   },
   "rLSGMd": {
     "defaultMessage": "<authorProfileLink>{author}</authorProfileLink> asked a question on the challenge forum for <link>{challengeTitle}</link>: <comment>\"{description}\"</comment>",
@@ -8923,10 +8899,6 @@
     "defaultMessage": "Gain expertise in handling commonly asked question formats in front end interviews",
     "description": "Description for question formats section"
   },
-  "vncIYl": {
-    "defaultMessage": "Test cases",
-    "description": "Features for all practice questions page"
-  },
   "vp4zbB": {
     "defaultMessage": "Purchase premium to see companies which ask this question.",
     "description": "Subtitle for paywall over information about companies that asked the question"
@@ -9038,10 +9010,6 @@
   "wUDPNG": {
     "defaultMessage": "The card has been reported as lost, and the issuer has blocked all transactions.",
     "description": "Decline message for lost card"
-  },
-  "wVk78R": {
-    "defaultMessage": "{questionCount} solved practice questions",
-    "description": "Features for study plans question listing"
   },
   "wW8IAK": {
     "defaultMessage": "No file selected from the repository. Select a file to view.",
@@ -9178,10 +9146,6 @@
   "xmK6tB": {
     "defaultMessage": "Build the foundation from ground up for reuse",
     "description": "Short description for \"Design systems\" feature on Projects home page"
-  },
-  "xoXirC": {
-    "defaultMessage": "Time-efficient",
-    "description": "Features for study plans"
   },
   "xsLz0P": {
     "defaultMessage": "Security",

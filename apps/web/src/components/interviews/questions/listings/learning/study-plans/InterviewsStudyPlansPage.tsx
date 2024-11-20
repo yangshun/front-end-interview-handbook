@@ -5,12 +5,13 @@ import type {
   InterviewsListingBottomContent,
   InterviewsStudyList,
 } from 'contentlayer/generated';
-import { RiListCheck3, RiTimerLine, RiVerifiedBadgeLine } from 'react-icons/ri';
+import { RiListCheck3 } from 'react-icons/ri';
 
 import { trpc } from '~/hooks/trpc';
 
 import InterviewsPageHeader from '~/components/interviews/common/InterviewsPageHeader';
 import InterviewsPremiumBadge from '~/components/interviews/common/InterviewsPremiumBadge';
+import useInterviewsQuestionsFeatures from '~/components/interviews/common/useInterviewsQuestionsFeatures';
 import {
   createStudyListMapFromArray,
   StudyPlanIcons,
@@ -41,6 +42,7 @@ export default function InterviewsStudyPlansPage({
 }: Props) {
   const intl = useIntl();
   const user = useUser();
+  const questionFeatures = useInterviewsQuestionsFeatures();
   const { data: questionListSessions } =
     trpc.questionLists.getActiveSessions.useQuery(undefined, {
       enabled: !!user,
@@ -73,22 +75,8 @@ export default function InterviewsStudyPlansPage({
         id: 'gvncuz',
       }),
     },
-    {
-      icon: RiTimerLine,
-      label: intl.formatMessage({
-        defaultMessage: 'Time-efficient',
-        description: 'Features for study plans',
-        id: 'xoXirC',
-      }),
-    },
-    {
-      icon: RiVerifiedBadgeLine,
-      label: intl.formatMessage({
-        defaultMessage: 'Curated by ex-interviewers',
-        description: 'Features for study plans',
-        id: 'fNJWwT',
-      }),
-    },
+    questionFeatures.timeEfficient,
+    questionFeatures.curatedByExInterviews,
   ];
 
   return (

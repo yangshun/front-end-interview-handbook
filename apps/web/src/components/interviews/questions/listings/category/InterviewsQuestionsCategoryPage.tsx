@@ -2,11 +2,6 @@
 
 import clsx from 'clsx';
 import { type ReactNode } from 'react';
-import {
-  RiTestTubeLine,
-  RiVerifiedBadgeLine,
-  RiWindow2Line,
-} from 'react-icons/ri';
 
 import {
   useQuestionFrameworksData,
@@ -19,6 +14,7 @@ import type {
 } from '~/components/guides/types';
 import useGuidesWithCompletionStatus from '~/components/guides/useGuidesWithCompletionStatus';
 import InterviewsPageHeader from '~/components/interviews/common/InterviewsPageHeader';
+import useInterviewsQuestionsFeatures from '~/components/interviews/common/useInterviewsQuestionsFeatures';
 import type {
   QuestionFramework,
   QuestionFrameworkOrLanguage,
@@ -62,6 +58,7 @@ export default function InterviewsQuestionsCategoryPage({
 }: Props) {
   const languages = useQuestionLanguagesData();
   const frameworks = useQuestionFrameworksData();
+  const questionFeatures = useInterviewsQuestionsFeatures();
   const Icon =
     frameworkOrLanguage in languages
       ? languages[frameworkOrLanguage as QuestionLanguage].icon
@@ -69,37 +66,11 @@ export default function InterviewsQuestionsCategoryPage({
   const intl = useIntl();
   const filterNamespace = `category:${frameworkOrLanguage}`;
   const features = [
-    {
-      icon: RiVerifiedBadgeLine,
-      label: intl.formatMessage({
-        defaultMessage: 'Solved by ex-interviewers',
-        description: 'Features for question format page',
-        id: 'gl9tj6',
-      }),
-    },
-    {
-      icon: RiTestTubeLine,
-      label:
-        frameworkOrLanguage in languages
-          ? intl.formatMessage({
-              defaultMessage: 'Test cases',
-              description: 'Features for question format page',
-              id: 'nI4Alg',
-            })
-          : intl.formatMessage({
-              defaultMessage: 'Test scenarios',
-              description: 'Features for question format page',
-              id: 'HB0fzm',
-            }),
-    },
-    {
-      icon: RiWindow2Line,
-      label: intl.formatMessage({
-        defaultMessage: 'Code in browser',
-        description: 'Features for question format page',
-        id: 'X/O+1P',
-      }),
-    },
+    questionFeatures.solvedByExInterviewers,
+    frameworkOrLanguage in languages
+      ? questionFeatures.testCases
+      : questionFeatures.testScenarios,
+    questionFeatures.codeInBrowser,
   ];
 
   const languageGuidesSlugs: ReadonlyArray<FrontEndInterviewSlugType> =

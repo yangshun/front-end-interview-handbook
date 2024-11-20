@@ -5,16 +5,13 @@ import type {
   InterviewsListingBottomContent,
   InterviewsStudyList,
 } from 'contentlayer/generated';
-import {
-  RiListCheck3,
-  RiVerifiedBadgeLine,
-  RiWindow2Line,
-} from 'react-icons/ri';
+import { RiListCheck3 } from 'react-icons/ri';
 
 import { trpc } from '~/hooks/trpc';
 
 import InterviewsPageHeader from '~/components/interviews/common/InterviewsPageHeader';
 import InterviewsPremiumBadge from '~/components/interviews/common/InterviewsPremiumBadge';
+import useInterviewsQuestionsFeatures from '~/components/interviews/common/useInterviewsQuestionsFeatures';
 import {
   categorizeFocusAreas,
   FocusAreaIcons,
@@ -40,6 +37,9 @@ export default function InterviewsRevampFocusAreaListPage({
 }: Props) {
   const intl = useIntl();
   const user = useUser();
+  const questionFeatures = useInterviewsQuestionsFeatures(
+    Object.keys(focusAreas).length,
+  );
   const { data: questionListSessions } =
     trpc.questionLists.getActiveSessions.useQuery(undefined, {
       enabled: !!user,
@@ -62,22 +62,8 @@ export default function InterviewsRevampFocusAreaListPage({
         },
       ),
     },
-    {
-      icon: RiWindow2Line,
-      label: intl.formatMessage({
-        defaultMessage: 'Code in browser',
-        description: 'Features for focus areas',
-        id: 'iRkjCv',
-      }),
-    },
-    {
-      icon: RiVerifiedBadgeLine,
-      label: intl.formatMessage({
-        defaultMessage: 'Official solutions and tests',
-        description: 'Features for focus areas',
-        id: '1VQd95',
-      }),
-    },
+    questionFeatures.codeInBrowser,
+    questionFeatures.officialSolutionAndTest,
   ];
 
   return (

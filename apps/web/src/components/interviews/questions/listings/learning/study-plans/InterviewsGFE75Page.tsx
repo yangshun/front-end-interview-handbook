@@ -6,13 +6,13 @@ import type {
   InterviewsStudyList,
 } from 'contentlayer/generated';
 import { useState } from 'react';
-import { RiFlaskLine, RiVerifiedBadgeLine, RiWindowLine } from 'react-icons/ri';
 import { useMediaQuery } from 'usehooks-ts';
 
 import { trpc } from '~/hooks/trpc';
 
 import FeedbackDialog from '~/components/global/feedback/FeedbackDialog';
 import { useUserPreferences } from '~/components/global/UserPreferencesProvider';
+import useInterviewsQuestionsFeatures from '~/components/interviews/common/useInterviewsQuestionsFeatures';
 import type {
   QuestionFormat,
   QuestionMetadata,
@@ -23,7 +23,7 @@ import { countQuestionsByAccess } from '~/components/interviews/questions/listin
 import QuestionsStudyList from '~/components/interviews/questions/listings/learning/QuestionsStudyList';
 import QuestionListingAccessSummary from '~/components/interviews/questions/listings/stats/QuestionListingAccessSummary';
 import InterviewsRecommendedPrepStrategyPageTitleSection from '~/components/interviews/recommended/InterviewsRecommendedPrepStrategyPageTitleSection';
-import { FormattedMessage, useIntl } from '~/components/intl';
+import { FormattedMessage } from '~/components/intl';
 import MDXContent from '~/components/mdx/MDXContent';
 import Divider from '~/components/ui/Divider';
 import Section from '~/components/ui/Heading/HeadingContext';
@@ -50,12 +50,12 @@ export default function InterviewsGFE75Page({
   questions,
   questionsSlugs,
 }: Props) {
-  const intl = useIntl();
   const user = useUser();
   const isTabletAndAbove = useMediaQuery('(min-width: 640px)');
   const isLaptopAndAbove = useMediaQuery('(min-width: 1280px)');
 
   const { setShowFeedbackWidget } = useUserPreferences();
+  const questionFeatures = useInterviewsQuestionsFeatures();
   const [isOpenFeedback, setIsOpenFeedback] = useState(false);
 
   const { data: questionProgressParam } = trpc.questionProgress.getAll.useQuery(
@@ -74,30 +74,9 @@ export default function InterviewsGFE75Page({
   const questionsCount = countQuestionsByAccess(questions);
 
   const features = [
-    {
-      icon: RiWindowLine,
-      label: intl.formatMessage({
-        defaultMessage: 'Code in browser',
-        description: 'Features for interviews questions',
-        id: 'qZTabX',
-      }),
-    },
-    {
-      icon: RiVerifiedBadgeLine,
-      label: intl.formatMessage({
-        defaultMessage: 'Official solutions',
-        description: 'Features for interviews questions',
-        id: 'l+NV6Y',
-      }),
-    },
-    {
-      icon: RiFlaskLine,
-      label: intl.formatMessage({
-        defaultMessage: 'Test cases',
-        description: 'Features for interviews questions',
-        id: 'CZJo2K',
-      }),
-    },
+    questionFeatures.codeInBrowser,
+    questionFeatures.officialSolutions,
+    questionFeatures.testCases,
   ];
 
   return (
