@@ -302,7 +302,7 @@ export default function QuestionsUnifiedListWithFilters({
     </div>
   );
   const searchFilterRow = (
-    <>
+    <div className="flex flex-col gap-4 xl:gap-8">
       <div className={clsx('flex justify-end gap-2 md:gap-4')}>
         <div className="flex-1">
           <TextInput
@@ -339,7 +339,7 @@ export default function QuestionsUnifiedListWithFilters({
         {sortAndFilters}
       </div>
       {categoryTabs}
-    </>
+    </div>
   );
   const listMetadata = (
     <div className="flex gap-x-10">
