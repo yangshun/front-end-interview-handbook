@@ -108,7 +108,7 @@ function SidebarLinkItem({
         )}
         <div className="flex w-full items-center gap-x-2">
           <Tooltip asChild={true} label={label} side="right">
-            <span className="line-clamp-1">{label}</span>
+            <span className="line-clamp-2">{label}</span>
           </Tooltip>
           {addOnElement}
         </div>
