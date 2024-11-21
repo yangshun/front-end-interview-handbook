@@ -537,10 +537,13 @@ export default function QuestionsStudyListSlideOut({
     }));
   }
 
-  const { filters } = useQuestionUnifiedFilters({
+  const { filters, query } = useQuestionUnifiedFilters({
     filterNamespace,
   });
-  const numberOfFilters = filters.filter(([size]) => size > 0).length;
+
+  // Add the search query in the active filter count
+  const numberOfFilters =
+    filters.filter(([size]) => size > 0).length + (query.length > 0 ? 1 : 0);
 
   return (
     <SlideOut
