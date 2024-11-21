@@ -62,9 +62,9 @@ function TestimonialCard({
           'before:bg-gradient-to-b before:from-[rgba(0,0,0,0)] before:to-neutral-50 before:dark:to-[#1E1E21]',
         )}>
         <ScrollArea heightClass="h-[160px] sm:h-[134px]">
-          <div className={clsx('pb-5 text-base font-semibold md:text-lg')}>
-            "{testimonial}"
-          </div>
+          <Text className="block pb-5" size="body1">
+            {testimonial}
+          </Text>
         </ScrollArea>
       </blockquote>
       <figcaption className="flex flex-col gap-4 sm:flex-row sm:items-center">
