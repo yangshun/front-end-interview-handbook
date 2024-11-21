@@ -2,6 +2,7 @@ import clsx from 'clsx';
 import { useEffect, useRef, useState } from 'react';
 import url from 'url';
 
+import { trpc } from '~/hooks/trpc';
 import { useGitHubStars } from '~/hooks/useGitHubData';
 import { SCROLL_HASH_INTERVIEWS_DASHBOARD_RECOMMENDED_PREPARATION } from '~/hooks/useScrollToHash';
 
@@ -25,9 +26,17 @@ export default function InterviewsQuestionsCategoryContentSlider({
   frameworkOrLanguage,
 }: Props) {
   const user = useUser();
+
   const intl = useIntl();
   const [index, setIndex] = useState(0);
   const timer = useRef<NodeJS.Timeout>();
+
+  // Eagerly fetch the active sessions, so that when navigating to recommended preparation section with scroll hash SCROLL_HASH_INTERVIEWS_DASHBOARD_RECOMMENDED_PREPARATION for frontend interview roadmap
+  // So that it prevent the layout shift due to continue learning section data not being already present there
+  trpc.questionLists.getActiveSessions.useQuery(undefined, {
+    enabled: !!user,
+  });
+
   const { data: starCountJS } = useGitHubStars(
     'yangshun/top-javascript-interview-questions',
     frameworkOrLanguage === 'js',
