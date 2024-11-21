@@ -42,8 +42,6 @@ export default function GuidesDropdownMenu() {
     (pathname?.includes('/questions/system-design')
       ? guidesData['front-end-system-design-playbook']
       : guides[0]);
-
-  const Icon = selectedGuide.icon;
   const label = selectedGuide.shortName;
 
   return (
@@ -54,8 +52,7 @@ export default function GuidesDropdownMenu() {
           'px-2 py-1.5',
           'transition-colors',
         )}>
-        <div className="flex items-center gap-2 text-[0.8125rem] leading-4">
-          <Icon className="size-4" />
+        <div className="text-[0.8125rem] leading-4">
           <Text
             className="line-clamp-1 text-ellipsis text-left"
             color="secondary"
