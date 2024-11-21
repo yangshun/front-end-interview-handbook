@@ -25,7 +25,7 @@ type Props = Readonly<{
     declineCode_DO_NOT_DISPLAY_TO_USER: string | undefined;
     message: string | undefined;
   }> | null;
-  onClose?: () => void;
+  onClose?: (failureReason: string | null) => void;
 }>;
 
 export default function InterviewsPaymentFailureDialog({
@@ -72,7 +72,13 @@ export default function InterviewsPaymentFailureDialog({
           })}
           size="md"
           variant="primary"
-          onClick={onClose}
+          onClick={() =>
+            onClose?.(
+              lastPaymentError?.declineCode_DO_NOT_DISPLAY_TO_USER ||
+                lastPaymentError?.code ||
+                null,
+            )
+          }
         />
       }
       title={intl.formatMessage({
@@ -81,7 +87,13 @@ export default function InterviewsPaymentFailureDialog({
         id: 'pg9g+C',
       })}
       width="screen-lg"
-      onClose={onClose}>
+      onClose={() =>
+        onClose?.(
+          lastPaymentError?.declineCode_DO_NOT_DISPLAY_TO_USER ||
+            lastPaymentError?.code ||
+            null,
+        )
+      }>
       <div className="mt-3.5 flex w-full flex-col gap-10">
         <Text color="subtitle" size="body2">
           {error.message && lastPaymentError?.code ? (

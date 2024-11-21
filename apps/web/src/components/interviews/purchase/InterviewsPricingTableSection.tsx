@@ -7,7 +7,7 @@ import { useState } from 'react';
 import { FaCheck } from 'react-icons/fa6';
 import { RiDiscountPercentFill, RiInformationLine } from 'react-icons/ri';
 import url from 'url';
-import { useSessionStorage } from 'usehooks-ts';
+import { useLocalStorage } from 'usehooks-ts';
 
 import { isProhibitedCountry } from '~/lib/stripeUtils';
 import { trpc } from '~/hooks/trpc';
@@ -474,14 +474,20 @@ export default function InterviewsPricingTableSection({
   );
   const [showPaymentFailureDialog, setShowPaymentFailureDialog] =
     useState(false);
-  const [hasDismissedFailureDialog, setHasDismissedFailureDialog] =
-    useSessionStorage('gfe:payment-failure', false);
+  const [storedPaymentFailure, setStoredPaymentFailure] = useLocalStorage<
+    string | null
+  >('gfe:payment-failure-reason', null);
 
   useEffect(() => {
-    if (lastPaymentError != null && !hasDismissedFailureDialog) {
+    if (
+      lastPaymentError != null &&
+      storedPaymentFailure !==
+        lastPaymentError.declineCode_DO_NOT_DISPLAY_TO_USER &&
+      storedPaymentFailure !== lastPaymentError.code
+    ) {
       setShowPaymentFailureDialog(true);
     }
-  }, [lastPaymentError, hasDismissedFailureDialog]);
+  }, [lastPaymentError, storedPaymentFailure]);
 
   const isDialogView = view === 'dialog';
 
@@ -1159,9 +1165,9 @@ export default function InterviewsPricingTableSection({
       <InterviewsPaymentFailureDialog
         isShown={showPaymentFailureDialog}
         lastPaymentError={lastPaymentError}
-        onClose={() => {
+        onClose={(failureReason) => {
           setShowPaymentFailureDialog(false);
-          setHasDismissedFailureDialog(true);
+          setStoredPaymentFailure(failureReason);
         }}
       />
     </div>
