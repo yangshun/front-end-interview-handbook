@@ -206,7 +206,7 @@ export default function InterviewsFrameworkAndLanguageSection({
 
   return (
     <div
-      className={clsx('flex flex-col gap-6', 'md:scroll-mt-16 lg:scroll-mt-12')}
+      className={clsx('flex flex-col gap-6', 'scroll-mt-40 lg:scroll-mt-20')}
       id={SCROLL_HASH_INTERVIEWS_QUESTIONS_FRAMEWORK_LANGUAGE}>
       <div className="flex flex-col gap-3">
         <Heading level="heading6">
