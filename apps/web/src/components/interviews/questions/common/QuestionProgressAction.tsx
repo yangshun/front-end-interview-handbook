@@ -28,10 +28,10 @@ import CodingWorkspaceBottomBarEmitter from '../../../workspace/common/CodingWor
 import { useUser } from '@supabase/auth-helpers-react';
 
 type Props = Readonly<{
-  studyListKey?: string;
   metadata: QuestionMetadata;
   questionProgress?: QuestionProgress | null;
   signInModalContents?: React.ReactNode;
+  studyListKey?: string;
 }>;
 
 export default function QuestionProgressAction({

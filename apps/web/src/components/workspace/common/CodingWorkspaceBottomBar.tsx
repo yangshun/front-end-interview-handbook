@@ -50,7 +50,6 @@ export default function CodingWorkspaceBottomBar({
           <CodingWorkspaceTimer />
         </div>
         <QuestionProgressAction
-          studyListKey={studyList?.studyListKey}
           metadata={metadata}
           questionProgress={questionProgress}
           signInModalContents={
@@ -61,6 +60,7 @@ export default function CodingWorkspaceBottomBar({
               </div>
             )
           }
+          studyListKey={studyList?.studyListKey}
         />
         {rightElements}
       </div>

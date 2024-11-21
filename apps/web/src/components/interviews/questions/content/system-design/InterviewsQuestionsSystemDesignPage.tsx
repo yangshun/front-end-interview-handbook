@@ -58,8 +58,8 @@ export default function InterviewsQuestionsSystemDesignPage({
           key={hashQuestion(question.metadata)}
           canViewPremiumContent={canViewPremiumContent}
           isQuestionLocked={isQuestionLocked}
-          studyListKey={studyList?.studyListKey}
           question={question}
+          studyListKey={studyList?.studyListKey}
         />
       )}
     </GuidesMainLayout>

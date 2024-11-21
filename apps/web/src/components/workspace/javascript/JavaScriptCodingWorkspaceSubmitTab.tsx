@@ -27,10 +27,10 @@ export default function JavaScriptCodingWorkspaceTestsSubmitTab({
   openBesideTabId,
   specPath,
 }: Readonly<{
-  studyListKey?: string;
   metadata: QuestionMetadata;
   openBesideTabId: CodingWorkspaceTabFileType;
   specPath: string;
+  studyListKey?: string;
 }>) {
   const trpcUtils = trpc.useUtils();
 

@@ -66,9 +66,9 @@ export default function QuestionsStudyListBottomNav({
               title={question.metadata.title}
             />
             <QuestionProgressAction
-              studyListKey={studyListKey}
               metadata={question.metadata}
               questionProgress={questionProgress}
+              studyListKey={studyListKey}
             />
           </div>
         </Container>

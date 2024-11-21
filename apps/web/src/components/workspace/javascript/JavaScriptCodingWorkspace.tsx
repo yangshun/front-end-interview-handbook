@@ -257,10 +257,10 @@ function JavaScriptCodingWorkspaceImpl({
     submit: {
       contents: (
         <JavaScriptCodingWorkspaceTestsSubmitTab
-          studyListKey={studyList?.studyListKey}
           metadata={metadata}
           openBesideTabId={codingWorkspaceTabFileId(workspace.run)}
           specPath={workspace.submit}
+          studyListKey={studyList?.studyListKey}
         />
       ),
       icon: CodingWorkspaceTabIcons.submit.icon,
