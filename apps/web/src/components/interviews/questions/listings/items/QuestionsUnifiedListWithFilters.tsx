@@ -232,7 +232,12 @@ export default function QuestionsUnifiedListWithFilters({
               </Heading>
               <Section>
                 <div className="flex flex-col gap-4">
-                  {guides && <InterviewsGuideCard data={guides} />}
+                  {guides && (
+                    <InterviewsGuideCard
+                      key={guides.items.length}
+                      data={guides}
+                    />
+                  )}
                   <QuestionsList
                     checkIfCompletedQuestion={(question) =>
                       question.isCompleted
