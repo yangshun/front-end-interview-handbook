@@ -114,7 +114,7 @@ export const questionListsRouter = router({
         },
       });
     }),
-  getStudyListsSelectorData: userProcedure.query(async () => {
+  getStudyListsSelectorData: publicProcedure.query(async () => {
     return await fetchStudyListsSelectorData();
   }),
   resetSessionProgress: userProcedure
