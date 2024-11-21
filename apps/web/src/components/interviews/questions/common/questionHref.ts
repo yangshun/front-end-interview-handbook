@@ -8,39 +8,44 @@ import type {
 
 const origin = getSiteOrigin();
 
-export type QuestionListData =
-  | Readonly<{ format: QuestionFormat }>
-  | Readonly<{ framework: QuestionFramework }>
-  | Readonly<{ language: QuestionLanguage }>
-  | Readonly<{ studyList: string }>;
+export type QuestionListTypeData =
+  | Readonly<{ type: 'coding'; value: 'all' }>
+  | Readonly<{ type: 'format'; value: QuestionFormat }>
+  | Readonly<{ type: 'framework'; value: QuestionFramework }>
+  | Readonly<{ type: 'language'; value: QuestionLanguage }>
+  | Readonly<{ type: 'study-list'; value: string }>;
 
-export function questionHrefWithList(
-  href: string,
-  list?: QuestionListData,
+export function questionListFilterNamespace(
+  listType?: QuestionListTypeData,
 ): string {
-  if (list == null) {
+  if (listType == null || listType.type === 'coding') {
+    return 'coding';
+  }
+
+  return `${listType.type}:${listType.value}`;
+}
+
+export function questionHrefWithListType(
+  href: string,
+  listType?: QuestionListTypeData,
+): string {
+  if (listType == null) {
     return href;
   }
 
   const urlObject = new URL(href, origin);
 
-  if ('studyList' in list) {
+  if (listType.type === 'study-list') {
     return (
-      `/interviews/study/${list.studyList}` +
+      `/interviews/study/${listType.value}` +
       urlObject.pathname +
       urlObject.search +
       urlObject.hash
     );
   }
 
-  if ('format' in list) {
-    urlObject.searchParams.set('format', list.format);
-  }
-  if ('framework' in list) {
-    urlObject.searchParams.set('framework', list.framework);
-  }
-  if ('language' in list) {
-    urlObject.searchParams.set('language', list.language);
+  if (listType.type !== 'coding') {
+    urlObject.searchParams.set(listType.type, listType.value);
   }
 
   return urlObject.pathname + urlObject.search + urlObject.hash;

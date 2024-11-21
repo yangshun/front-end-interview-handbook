@@ -8,6 +8,8 @@ import Section from '~/components/ui/Heading/HeadingContext';
 
 import type { QuestionsCategorizedProgress } from '~/db/QuestionsUtils';
 
+import { questionListFilterNamespace } from '../../common/questionHref';
+
 export default function QuestionsStudyList({
   listKey,
   overallProgress,
@@ -19,7 +21,10 @@ export default function QuestionsStudyList({
   questions: ReadonlyArray<QuestionMetadata>;
   sideColumnAddOn?: ReactNode;
 }>) {
-  const filterNamespace = `study-list:${listKey}`;
+  const filterNamespace = questionListFilterNamespace({
+    type: 'study-list',
+    value: listKey,
+  });
 
   return (
     <div className="flex flex-col gap-y-6">
@@ -37,7 +42,7 @@ export default function QuestionsStudyList({
           }
           defaultSortField="default"
           filterNamespace={filterNamespace}
-          list={{ studyList: listKey }}
+          list={{ type: 'study-list', value: listKey }}
           listMode="study-list"
           questions={questions}
           sideColumnAddOn={sideColumnAddOn}

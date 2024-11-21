@@ -149,7 +149,8 @@ export default function FrontEndSystemDesignPlaybookPage({
                 defaultSortField="difficulty"
                 filterNamespace="system-design-format"
                 list={{
-                  format: 'system-design',
+                  type: 'format',
+                  value: 'system-design',
                 }}
                 questionCompletionCount={questionCompletionCount}
                 questions={questions}

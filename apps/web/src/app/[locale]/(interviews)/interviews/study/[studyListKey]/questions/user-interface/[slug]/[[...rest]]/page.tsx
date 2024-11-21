@@ -12,7 +12,6 @@ import QuestionsStudyListSlideOutButton from '~/components/interviews/questions/
 import CodingWorkspacePaywallPage from '~/components/workspace/common/CodingWorkspacePaywallPage';
 import UserInterfaceCodingWorkspacePage from '~/components/workspace/user-interface/UserInterfaceCodingWorkspacePage';
 
-import { fetchInterviewsStudyList } from '~/db/contentlayer/InterviewsStudyListReader';
 import { readQuestionUserInterface } from '~/db/QuestionsContentsReader';
 import { fetchQuestionsListCoding } from '~/db/QuestionsListReader';
 import { getIntlServerOnly } from '~/i18n';
@@ -193,9 +192,8 @@ export default async function Page({ params }: Props) {
   })();
   const { url } = frameworkAgnosticLinks(question, mode);
 
-  const [{ questions: codingQuestions }, studyList] = await Promise.all([
+  const [{ questions: codingQuestions }] = await Promise.all([
     fetchQuestionsListCoding(locale),
-    fetchInterviewsStudyList(studyListKey),
   ]);
   const nextQuestions = sortQuestionsMultiple(
     codingQuestions.filter((questionItem) =>
@@ -257,11 +255,7 @@ export default async function Page({ params }: Props) {
             paginationEl={
               <QuestionsStudyListSlideOutButton
                 metadata={question.metadata}
-                studyList={
-                  studyList != null
-                    ? { name: studyList.name, studyListKey }
-                    : undefined
-                }
+                studyListKey={studyListKey}
               />
             }
             question={question}
@@ -275,11 +269,7 @@ export default async function Page({ params }: Props) {
           nextQuestions={nextQuestions}
           question={question}
           similarQuestions={similarQuestions}
-          studyList={
-            studyList != null
-              ? { name: studyList.name, studyListKey }
-              : undefined
-          }
+          studyListKey={studyListKey}
         />
       )}
     </>

@@ -1,12 +1,18 @@
 import nullthrows from 'nullthrows';
 import { z } from 'zod';
 
-import type { QuestionMetadata } from '~/components/interviews/questions/common/QuestionsTypes';
+import type {
+  QuestionFormat,
+  QuestionFramework,
+  QuestionLanguage,
+} from '~/components/interviews/questions/common/QuestionsTypes';
 
 import { fetchInterviewsStudyList } from '~/db/contentlayer/InterviewsStudyListReader';
 import {
+  fetchQuestionListForFormat,
   fetchQuestionsByHash,
   fetchQuestionsListCoding,
+  fetchQuestionsListCodingForFramework,
   fetchQuestionsListSystemDesign,
 } from '~/db/QuestionsListReader';
 import { fetchStudyListsSelectorData } from '~/db/StudyListUtils';
@@ -53,29 +59,88 @@ export const questionListsRouter = router({
   getQuestions: publicProcedure
     .input(
       z.object({
-        listKey: z.string().optional(),
+        format: z.string().nullable().optional(),
+        framework: z.string().nullable().optional(),
+        language: z.string().nullable().optional(),
+        studyList: z.string().nullable().optional(),
       }),
     )
-    .query(async ({ input: { listKey } }) => {
-      if (listKey == null) {
-        const { questions } = await fetchQuestionsListCoding();
+    .query(async ({ input: { format, framework, language, studyList } }) => {
+      if (studyList != null) {
+        const studyListData_ = await fetchInterviewsStudyList(studyList);
 
-        return questions as ReadonlyArray<QuestionMetadata>;
+        const studyListData = nullthrows(
+          studyListData_,
+          `Study list not found for key ${studyList}`,
+        );
+
+        const studyListQuestions = await fetchQuestionsByHash(
+          studyListData.questionHashes,
+        );
+
+        return {
+          filterNamespace: `study-list:${studyList}`,
+          questions: studyListQuestions,
+          title: studyListData.name,
+          type: 'study-list',
+          value: studyList,
+        } as const;
       }
 
-      const studyList_ = await fetchInterviewsStudyList(listKey);
+      if (framework) {
+        const framework_ = framework as QuestionFramework;
+        const frameworkQuestions =
+          await fetchQuestionsListCodingForFramework(framework_);
 
-      const studyList = nullthrows(
-        studyList_,
-        `Study list not found for listKey ${listKey}`,
-      );
+        return {
+          questions: frameworkQuestions,
+          title: 'Framework',
+          type: 'framework',
+          value: framework_,
+        } as const;
+      }
 
-      return fetchQuestionsByHash(studyList.questionHashes);
+      if (format) {
+        const format_ = format as QuestionFormat;
+        const { questions } = await fetchQuestionListForFormat(format_);
+
+        return {
+          questions,
+          title: 'Format',
+          type: 'format',
+          value: format_,
+        } as const;
+      }
+
+      const { questions: questionsCoding } = await fetchQuestionsListCoding();
+
+      if (language) {
+        const language_ = language as QuestionLanguage;
+        const languageQuestions = questionsCoding.filter((metadata) =>
+          metadata.languages.includes(language_),
+        );
+
+        return {
+          questions: languageQuestions,
+          title: 'Language',
+          type: 'language',
+          value: language_,
+        } as const;
+      }
+
+      return {
+        questions: questionsCoding,
+        title: 'Coding questions',
+        type: 'coding',
+        value: 'all',
+      } as const;
     }),
   getRecommendedStudyList: publicProcedure.query(async () => {
-    const blind75 = await fetchInterviewsStudyList('blind75');
-    const gfe75 = await fetchInterviewsStudyList('gfe75');
-    const { questions } = await fetchQuestionsListSystemDesign('en-US');
+    const [blind75, gfe75, { questions }] = await Promise.all([
+      fetchInterviewsStudyList('blind75'),
+      fetchInterviewsStudyList('gfe75'),
+      fetchQuestionsListSystemDesign('en-US'),
+    ]);
 
     return {
       blind75: {

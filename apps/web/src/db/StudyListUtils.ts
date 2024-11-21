@@ -6,10 +6,14 @@ export async function fetchStudyListsSelectorData() {
   const studyLists = await fetchInterviewsAllStudyLists();
 
   function reduceStudyListData(studyList: ReadonlyArray<InterviewsStudyList>) {
-    return studyList.map((item) => ({
-      name: item.name,
-      studyListKey: item.slug,
-    }));
+    return studyList.map(
+      (item) =>
+        ({
+          name: item.name,
+          type: 'study-list',
+          value: item.slug,
+        }) as const,
+    );
   }
 
   const focusAreas = reduceStudyListData(studyLists.focusAreas);

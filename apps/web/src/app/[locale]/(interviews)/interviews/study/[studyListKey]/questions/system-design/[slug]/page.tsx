@@ -6,7 +6,6 @@ import InterviewsQuestionsSystemDesignPage from '~/components/interviews/questio
 import QuestionsStudyListBottomNav from '~/components/interviews/questions/listings/learning/QuestionsStudyListBottomNav';
 import QuestionsStudyListSlideOutButton from '~/components/interviews/questions/listings/learning/QuestionsStudyListSlideOutButton';
 
-import { fetchInterviewsStudyList } from '~/db/contentlayer/InterviewsStudyListReader';
 import { readQuestionSystemDesignContents } from '~/db/QuestionsContentsReader';
 import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
@@ -100,7 +99,6 @@ export default async function Page({ params }: Props) {
 
   const isQuestionLocked =
     question.metadata.access === 'premium' && !isViewerPremium;
-  const studyList = await fetchInterviewsStudyList(studyListKey);
 
   return (
     <>
@@ -116,11 +114,7 @@ export default async function Page({ params }: Props) {
             paginationEl={
               <QuestionsStudyListSlideOutButton
                 metadata={question.metadata}
-                studyList={
-                  studyList != null
-                    ? { name: studyList.name, studyListKey }
-                    : undefined
-                }
+                studyListKey={studyListKey}
               />
             }
             question={question}
@@ -135,9 +129,7 @@ export default async function Page({ params }: Props) {
           metadata: question.metadata,
           solution: isQuestionLocked ? null : question.solution,
         }}
-        studyList={
-          studyList != null ? { name: studyList.name, studyListKey } : undefined
-        }
+        studyListKey={studyListKey}
       />
     </>
   );

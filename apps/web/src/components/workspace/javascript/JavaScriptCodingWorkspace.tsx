@@ -77,7 +77,7 @@ function JavaScriptCodingWorkspaceImpl({
   similarQuestions,
   question,
   skeleton,
-  studyList,
+  studyListKey,
   workspace,
 }: Readonly<{
   canViewPremiumContent: boolean;
@@ -90,7 +90,7 @@ function JavaScriptCodingWorkspaceImpl({
   question: QuestionJavaScript;
   similarQuestions: ReadonlyArray<QuestionMetadata>;
   skeleton: QuestionJavaScriptSkeleton;
-  studyList?: Readonly<{ name: string; studyListKey: string }>;
+  studyListKey?: string;
   workspace: QuestionJavaScriptWorkspace;
 }>) {
   const { description, metadata, solution } = question;
@@ -127,7 +127,7 @@ function JavaScriptCodingWorkspaceImpl({
 
   useMonacoEditorModels(monaco, files);
 
-  useQuestionsAutoMarkAsComplete(metadata, studyList?.studyListKey);
+  useQuestionsAutoMarkAsComplete(metadata, studyListKey);
 
   function openSubmission(submissionId: string) {
     const tabIdForSubmission = codingWorkspaceTabSubmissionId(submissionId);
@@ -260,7 +260,7 @@ function JavaScriptCodingWorkspaceImpl({
           metadata={metadata}
           openBesideTabId={codingWorkspaceTabFileId(workspace.run)}
           specPath={workspace.submit}
-          studyListKey={studyList?.studyListKey}
+          studyListKey={studyListKey}
         />
       ),
       icon: CodingWorkspaceTabIcons.submit.icon,
@@ -310,7 +310,7 @@ function JavaScriptCodingWorkspaceImpl({
       layout={embed ? 'minimal' : 'full'}
       metadata={metadata}
       nextQuestions={nextQuestions}
-      studyList={studyList}
+      studyListKey={studyListKey}
     />
   );
 
@@ -409,7 +409,7 @@ export default function JavaScriptCodingWorkspace({
   embed,
   language,
   onLanguageChange,
-  studyList,
+  studyListKey,
 }: Readonly<{
   canViewPremiumContent: boolean;
   defaultFiles: Record<string, string>;
@@ -421,7 +421,7 @@ export default function JavaScriptCodingWorkspace({
   question: QuestionJavaScript;
   similarQuestions: ReadonlyArray<QuestionMetadata>;
   skeleton: QuestionJavaScriptSkeleton;
-  studyList?: Readonly<{ name: string; studyListKey: string }>;
+  studyListKey?: string;
   workspace: QuestionJavaScriptWorkspace;
 }>) {
   const { sandpack } = useSandpack();
@@ -445,7 +445,7 @@ export default function JavaScriptCodingWorkspace({
         question={question}
         similarQuestions={similarQuestions}
         skeleton={skeleton}
-        studyList={studyList}
+        studyListKey={studyListKey}
         workspace={workspace}
         onLanguageChange={onLanguageChange}
       />

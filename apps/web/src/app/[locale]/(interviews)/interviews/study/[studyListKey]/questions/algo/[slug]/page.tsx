@@ -8,7 +8,6 @@ import QuestionsStudyListSlideOutButton from '~/components/interviews/questions/
 import CodingWorkspacePaywallPage from '~/components/workspace/common/CodingWorkspacePaywallPage';
 import JavaScriptCodingWorkspacePage from '~/components/workspace/javascript/JavaScriptCodingWorkspacePage';
 
-import { fetchInterviewsStudyList } from '~/db/contentlayer/InterviewsStudyListReader';
 import { readQuestionAlgoContents } from '~/db/QuestionsContentsReader';
 import { fetchQuestionsListCoding } from '~/db/QuestionsListReader';
 import { getIntlServerOnly } from '~/i18n';
@@ -18,7 +17,7 @@ import { readViewerFromToken } from '~/supabase/SupabaseServerGFE';
 import { createSupabaseAdminClientGFE_SERVER_ONLY } from '~/supabase/SupabaseServerGFE';
 
 type Props = Readonly<{
-  params: Readonly<{ locale: string; slug: string, studyListKey: string; }>;
+  params: Readonly<{ locale: string; slug: string; studyListKey: string }>;
 }>;
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
@@ -82,9 +81,8 @@ export default async function Page({ params }: Props) {
   const isQuestionLockedForUser =
     question.metadata.access === 'premium' && !isViewerPremium;
 
-  const [{ questions: codingQuestions }, studyList] = await Promise.all([
+  const [{ questions: codingQuestions }] = await Promise.all([
     fetchQuestionsListCoding(locale),
-    fetchInterviewsStudyList(studyListKey),
   ]);
   const nextQuestions = sortQuestionsMultiple(
     codingQuestions.filter((questionItem) =>
@@ -144,11 +142,7 @@ export default async function Page({ params }: Props) {
             paginationEl={
               <QuestionsStudyListSlideOutButton
                 metadata={question.metadata}
-                studyList={
-                  studyList != null
-                    ? { name: studyList.name, studyListKey }
-                    : undefined
-                }
+                studyListKey={studyListKey}
               />
             }
             question={question}
@@ -161,11 +155,7 @@ export default async function Page({ params }: Props) {
           nextQuestions={nextQuestions}
           question={question}
           similarQuestions={similarQuestions}
-          studyList={
-            studyList != null
-              ? { name: studyList.name, studyListKey }
-              : undefined
-          }
+          studyListKey={studyListKey}
         />
       )}
     </>

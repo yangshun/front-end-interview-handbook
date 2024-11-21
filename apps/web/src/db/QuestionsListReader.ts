@@ -158,6 +158,29 @@ export async function fetchQuestionsListUserInterface(
   };
 }
 
+export async function fetchQuestionListForFormat(
+  format: QuestionFormat,
+  requestedLocale = 'en-US',
+): Promise<
+  Readonly<{
+    loadedLocale: string;
+    questions: ReadonlyArray<QuestionMetadata>;
+  }>
+> {
+  switch (format) {
+    case 'algo':
+      return fetchQuestionsListAlgo(requestedLocale);
+    case 'javascript':
+      return fetchQuestionsListJavaScript(requestedLocale);
+    case 'user-interface':
+      return fetchQuestionsListUserInterface(requestedLocale);
+    case 'system-design':
+      return fetchQuestionsListSystemDesign(requestedLocale);
+    case 'quiz':
+      return fetchQuestionsListQuiz(requestedLocale);
+  }
+}
+
 export async function fetchQuestionsListCoding(
   requestedLocale = 'en-US',
 ): Promise<

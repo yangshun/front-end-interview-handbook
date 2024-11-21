@@ -3,8 +3,6 @@
 import clsx from 'clsx';
 import { RiArrowLeftSLine, RiArrowRightSLine } from 'react-icons/ri';
 
-import { trpc } from '~/hooks/trpc';
-
 import { useUserProfile } from '~/components/global/UserProfileProvider';
 import type { QuestionMetadata } from '~/components/interviews/questions/common/QuestionsTypes';
 import useQuestionCodingSorting from '~/components/interviews/questions/listings/filters/hooks/useQuestionCodingSorting';
@@ -19,31 +17,31 @@ import Button from '~/components/ui/Button';
 
 import { hashQuestion } from '~/db/QuestionsUtils';
 
-import { questionHrefWithList } from '../../common/questionHref';
+import {
+  questionHrefWithListType,
+  questionListFilterNamespace,
+} from '../../common/questionHref';
+import useQuestionsListDataForType from '../../common/useQuestionsListDataForType';
 
 type Props = Readonly<{
   metadata: QuestionMetadata;
-  studyList?: Readonly<{ name: string, studyListKey: string; }>;
+  studyListKey?: string;
 }>;
 
 export default function QuestionsStudyListSlideOutButton({
   metadata,
-  studyList,
+  studyListKey,
 }: Props) {
   const { userProfile } = useUserProfile();
-  const { isLoading, data: questions } =
-    trpc.questionLists.getQuestions.useQuery({
-      listKey: studyList?.studyListKey,
-    });
+  const { isLoading, data } = useQuestionsListDataForType(studyListKey);
 
   const questionsWithCompletionStatus = useQuestionsWithCompletionStatus(
-    questions ?? [],
-    studyList?.studyListKey,
+    data?.questions ?? [],
+    studyListKey,
   );
 
-  const filterNamespace = studyList
-    ? `study-list:${studyList?.studyListKey}`
-    : 'prepare-coding';
+  const filterNamespace = questionListFilterNamespace(data);
+
   // Filtering.
   const { filters } = useQuestionUnifiedFilters({
     filterNamespace,
@@ -54,6 +52,7 @@ export default function QuestionsStudyListSlideOutButton({
     defaultSortField: 'default',
     filterNamespace,
   });
+
   // Processing.
   const sortedQuestions = sortQuestionsMultiple(
     questionsWithCompletionStatus,
@@ -88,12 +87,7 @@ export default function QuestionsStudyListSlideOutButton({
         href={
           prevQuestionButtonDisabled
             ? undefined
-            : questionHrefWithList(
-                prevQuestion?.href,
-                studyList?.studyListKey
-                  ? { studyList: studyList?.studyListKey }
-                  : undefined,
-              )
+            : questionHrefWithListType(prevQuestion?.href, data)
         }
         icon={RiArrowLeftSLine}
         isDisabled={prevQuestionButtonDisabled}
@@ -110,9 +104,10 @@ export default function QuestionsStudyListSlideOutButton({
       <QuestionsStudyListSlideOut
         currentQuestionPosition={currentQuestionIndex + 1}
         isDisabled={isLoading}
+        listType={data}
         metadata={metadata}
         processedQuestions={processedQuestions}
-        studyList={studyList}
+        title={data?.title}
       />
       <Button
         addonPosition="start"
@@ -120,12 +115,7 @@ export default function QuestionsStudyListSlideOutButton({
         href={
           nextQuestionButtonDisabled
             ? undefined
-            : questionHrefWithList(
-                nextQuestion?.href,
-                studyList?.studyListKey
-                  ? { studyList: studyList?.studyListKey }
-                  : undefined,
-              )
+            : questionHrefWithListType(nextQuestion?.href, data)
         }
         icon={RiArrowRightSLine}
         isDisabled={nextQuestionButtonDisabled}

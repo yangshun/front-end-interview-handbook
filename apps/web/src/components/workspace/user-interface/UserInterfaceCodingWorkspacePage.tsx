@@ -22,7 +22,7 @@ type Props = Readonly<{
   nextQuestions: ReadonlyArray<QuestionMetadata>;
   question: QuestionUserInterface;
   similarQuestions: ReadonlyArray<QuestionMetadata>;
-  studyList?: Readonly<{ name: string, studyListKey: string; }>;
+  studyListKey?: string;
 }>;
 
 export default function UserInterfaceCodingWorkspacePage(props: Props) {

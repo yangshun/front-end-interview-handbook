@@ -4,7 +4,6 @@ import { ArticleJsonLd } from 'next-seo';
 import QuestionQuizContents from '~/components/interviews/questions/content/quiz/QuestionQuizContents';
 import QuestionsStudyListSlideOutButton from '~/components/interviews/questions/listings/learning/QuestionsStudyListSlideOutButton';
 
-import { fetchInterviewsStudyList } from '~/db/contentlayer/InterviewsStudyListReader';
 import { readQuestionQuizContents } from '~/db/QuestionsContentsReader';
 import { fetchQuestionsListQuiz } from '~/db/QuestionsListReader';
 import { getIntlServerOnly } from '~/i18n';
@@ -59,8 +58,6 @@ export default async function Page({ params }: Props) {
   const { locale, slug, studyListKey } = params;
   const { question } = readQuestionQuizContents(slug, locale);
 
-  const studyList = await fetchInterviewsStudyList(studyListKey);
-
   return (
     <>
       <ArticleJsonLd
@@ -82,11 +79,7 @@ export default async function Page({ params }: Props) {
         paginationEl={
           <QuestionsStudyListSlideOutButton
             metadata={question.metadata}
-            studyList={
-              studyList != null
-                ? { name: studyList.name, studyListKey }
-                : undefined
-            }
+            studyListKey={studyListKey}
           />
         }
         question={question}

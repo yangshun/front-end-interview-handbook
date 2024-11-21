@@ -2,7 +2,7 @@ import clsx from 'clsx';
 import { useCallback, useEffect, useState } from 'react';
 import { RiCodeLine } from 'react-icons/ri';
 
-import { questionHrefWithList } from '~/components/interviews/questions/common/questionHref';
+import { questionHrefWithListType } from '~/components/interviews/questions/common/questionHref';
 import type {
   QuestionFramework,
   QuestionMetadata,
@@ -81,7 +81,7 @@ function UserInterfaceCodingWorkspaceImpl({
   nextQuestions,
   similarQuestions,
   onFrameworkChange,
-  studyList,
+  studyListKey,
 }: Readonly<{
   canViewPremiumContent: boolean;
   defaultFiles: SandpackFiles;
@@ -96,7 +96,7 @@ function UserInterfaceCodingWorkspaceImpl({
   ) => void;
   question: QuestionUserInterface;
   similarQuestions: ReadonlyArray<QuestionMetadata>;
-  studyList?: Readonly<{ name: string; studyListKey: string }>;
+  studyListKey?: string;
 }>) {
   const { framework, metadata: rawMetadata, description, solution } = question;
 
@@ -154,7 +154,7 @@ function UserInterfaceCodingWorkspaceImpl({
     },
   );
 
-  useQuestionsAutoMarkAsComplete(metadata, studyList?.studyListKey);
+  useQuestionsAutoMarkAsComplete(metadata, studyListKey);
 
   useEffect(() => {
     dispatch({
@@ -390,7 +390,7 @@ function UserInterfaceCodingWorkspaceImpl({
             nextQuestions={nextQuestions}
             question={question}
             resetToDefaultCode={resetToDefaultCode}
-            studyList={studyList}
+            studyListKey={studyListKey}
           />
         </div>
       )}
@@ -480,7 +480,7 @@ function UserInterfaceCodingWorkspaceImpl({
             nextQuestions={nextQuestions}
             question={question}
             resetToDefaultCode={resetToDefaultCode}
-            studyList={studyList}
+            studyListKey={studyListKey}
           />
         )}
       </div>
@@ -499,7 +499,7 @@ export default function UserInterfaceCodingWorkspace({
   nextQuestions,
   similarQuestions,
   onFrameworkChange,
-  studyList,
+  studyListKey,
 }: Readonly<{
   activeTabScrollIntoView?: boolean;
   canViewPremiumContent: boolean;
@@ -514,17 +514,15 @@ export default function UserInterfaceCodingWorkspace({
   ) => void;
   question: QuestionUserInterface;
   similarQuestions: ReadonlyArray<QuestionMetadata>;
-  studyList?: Readonly<{ name: string; studyListKey: string }>;
+  studyListKey?: string;
 }>) {
   const { sandpack } = useSandpack();
   const { activeFile, visibleFiles } = sandpack;
   const { metadata, framework } = question;
 
-  const frameworkSolutionPath = questionHrefWithList(
+  const frameworkSolutionPath = questionHrefWithListType(
     questionUserInterfaceSolutionPath(metadata, framework),
-    studyList?.studyListKey
-      ? { studyList: studyList?.studyListKey }
-      : undefined,
+    studyListKey ? { type: 'study-list', value: studyListKey } : undefined,
   );
 
   return (
@@ -546,7 +544,7 @@ export default function UserInterfaceCodingWorkspace({
         nextQuestions={nextQuestions}
         question={question}
         similarQuestions={similarQuestions}
-        studyList={studyList}
+        studyListKey={studyListKey}
         onFrameworkChange={onFrameworkChange}
       />
     </TilesProvider>

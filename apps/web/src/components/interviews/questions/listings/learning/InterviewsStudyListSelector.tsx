@@ -19,15 +19,17 @@ import {
   themeTextSubtleColor,
 } from '~/components/ui/theme';
 
+import type { QuestionListTypeData } from '../../common/questionHref';
+
 import * as AccordionPrimitive from '@radix-ui/react-accordion';
 
 function StudyListsItems({
   item,
-  onChangeStudyList,
+  onChangeListType,
   openPricingDialog,
 }: Readonly<{
   item: StudyListItemsType;
-  onChangeStudyList: (value: StudyListItemType) => void;
+  onChangeListType: (value: QuestionListTypeData) => void;
   openPricingDialog: (feature: QuestionFeatureType | undefined) => void;
 }>) {
   const showPremiumLock = item.isPremium;
@@ -73,16 +75,16 @@ function StudyListsItems({
         <ul className={clsx('flex flex-col gap-y-px')} role="list">
           {item.items.map((studyListItem) => (
             <DropdownMenu.Item
-              key={studyListItem.studyListKey}
+              key={studyListItem.value}
               label={
                 <Text className="w-full" size="body2">
-                  {studyListItem.name}
+                  {studyListItem.value}
                 </Text>
               }
               onClick={() =>
                 showPremiumLock
                   ? openPricingDialog(item.pricingTableFeature)
-                  : onChangeStudyList(studyListItem)
+                  : onChangeListType(studyListItem)
               }
             />
           ))}
@@ -93,12 +95,12 @@ function StudyListsItems({
 }
 
 function DropdownContent({
-  currentStudyList,
-  onChangeStudyList,
+  currentListType,
+  onChangeListType,
   openPricingDialog,
 }: Readonly<{
-  currentStudyList: StudyListItemType;
-  onChangeStudyList: (value: StudyListItemType) => void;
+  currentListType: QuestionListTypeData;
+  onChangeListType: (value: QuestionListTypeData) => void;
   openPricingDialog: (feature: QuestionFeatureType | undefined) => void;
 }>) {
   const intl = useIntl();
@@ -165,11 +167,10 @@ function DropdownContent({
 
   function activeAccordionItem() {
     return items
-      .filter((section) => {
-        return !!section.items.find(
-          (item) => item.studyListKey === currentStudyList.studyListKey,
-        );
-      })
+      .filter(
+        (section) =>
+          !!section.items.find((item) => item.value === currentListType.value),
+      )
       .map((section) => section.key);
   }
 
@@ -186,7 +187,7 @@ function DropdownContent({
               key={item.key}
               item={item}
               openPricingDialog={openPricingDialog}
-              onChangeStudyList={onChangeStudyList}
+              onChangeListType={onChangeListType}
             />
           ))}
         </ul>
@@ -195,35 +196,33 @@ function DropdownContent({
   );
 }
 
-export type StudyListItemType = Readonly<{
-  name: string;
-  studyListKey: string;
-}>;
-
 type StudyListItemsType = Readonly<{
   isPremium?: boolean;
-  items: ReadonlyArray<StudyListItemType>;
+  items: ReadonlyArray<QuestionListTypeData>;
   key: string;
   label: string;
   pricingTableFeature?: QuestionFeatureType;
 }>;
 
-function convertToMap(studyLists: ReadonlyArray<StudyListItemType>) {
-  return studyLists.reduce((acc: Record<string, StudyListItemType>, item) => {
-    acc[item.studyListKey] = item;
+function convertToMap(studyLists: ReadonlyArray<QuestionListTypeData>) {
+  return studyLists.reduce(
+    (acc: Record<string, QuestionListTypeData>, item) => {
+      acc[item.value] = item;
 
-    return acc;
-  }, {});
+      return acc;
+    },
+    {},
+  );
 }
 
 type Props = Readonly<{
-  currentStudyList: StudyListItemType;
-  onChangeStudyList: (value: StudyListItemType) => void;
+  currentListType: QuestionListTypeData;
+  onChangeListType: (value: QuestionListTypeData) => void;
 }>;
 
 export default function InterviewsStudyListSelector({
-  currentStudyList,
-  onChangeStudyList,
+  currentListType,
+  onChangeListType,
 }: Props) {
   const [showPricingDialog, setShowPricingDialog] = useState<{
     feature: QuestionFeatureType | undefined;
@@ -238,20 +237,20 @@ export default function InterviewsStudyListSelector({
       <DropdownMenu
         align="start"
         icon={RiFilterLine}
-        label={currentStudyList.name}
+        label={currentListType.value}
         modal={true}
         showChevron={true}
         size="md"
         variant="tertiary">
         <DropdownContent
-          currentStudyList={currentStudyList}
+          currentListType={currentListType}
           openPricingDialog={(feature) =>
             setShowPricingDialog({
               feature,
               show: true,
             })
           }
-          onChangeStudyList={onChangeStudyList}
+          onChangeListType={onChangeListType}
         />
       </DropdownMenu>
       <InterviewsPricingTableDialog

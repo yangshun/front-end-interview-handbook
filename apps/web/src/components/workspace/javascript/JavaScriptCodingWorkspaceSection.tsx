@@ -23,7 +23,7 @@ type Props = Readonly<{
   onLanguageChange: (language: QuestionCodingWorkingLanguage) => void;
   question: QuestionJavaScript;
   similarQuestions: ReadonlyArray<QuestionMetadata>;
-  studyList?: Readonly<{ name: string, studyListKey: string; }>;
+  studyListKey?: string;
   timeoutLoggerInstance: string;
 }>;
 
@@ -35,7 +35,7 @@ export default function JavaScriptCodingWorkspaceSection({
   similarQuestions,
   onLanguageChange,
   language,
-  studyList,
+  studyListKey,
   timeoutLoggerInstance,
 }: Props) {
   const { colorScheme } = useColorSchemePreferences();
@@ -92,7 +92,7 @@ export default function JavaScriptCodingWorkspaceSection({
           question={question}
           similarQuestions={similarQuestions}
           skeleton={skeleton}
-          studyList={studyList}
+          studyListKey={studyListKey}
           workspace={workspace}
           onLanguageChange={onLanguageChange}
         />

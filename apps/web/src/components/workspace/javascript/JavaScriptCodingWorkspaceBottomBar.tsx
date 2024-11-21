@@ -17,13 +17,13 @@ type Props = Readonly<{
   layout: 'full' | 'minimal';
   metadata: QuestionMetadata;
   nextQuestions: ReadonlyArray<QuestionMetadata>;
-  studyList?: Readonly<{ name: string, studyListKey: string; }>;
+  studyListKey?: string;
 }>;
 
 export default function JavaScriptCodingWorkspaceBottomBar({
   metadata,
   layout,
-  studyList,
+  studyListKey,
   nextQuestions,
 }: Props) {
   const { status, runTests, submit, resetToDefaultCode } =
@@ -137,7 +137,7 @@ export default function JavaScriptCodingWorkspaceBottomBar({
       nextQuestions={nextQuestions}
       rightElements={runSubmitButtons}
       showQuestionsListButton={layout === 'full'}
-      studyList={studyList}
+      studyListKey={studyListKey}
     />
   );
 }

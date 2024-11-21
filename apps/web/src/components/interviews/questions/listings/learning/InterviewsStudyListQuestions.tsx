@@ -4,11 +4,8 @@ import { isEqual } from 'lodash-es';
 import VignetteOverlay from '~/components/common/VignetteOverlay';
 import { useUserProfile } from '~/components/global/UserProfileProvider';
 import InterviewsPremiumBadge from '~/components/interviews/common/InterviewsPremiumBadge';
-import type {
-  QuestionListData} from '~/components/interviews/questions/common/questionHref';
-import {
-  questionHrefWithList
-} from '~/components/interviews/questions/common/questionHref';
+import type { QuestionListTypeData } from '~/components/interviews/questions/common/questionHref';
+import { questionHrefWithListType } from '~/components/interviews/questions/common/questionHref';
 import type { QuestionMetadata } from '~/components/interviews/questions/common/QuestionsTypes';
 import QuestionsListItemProgressChip from '~/components/interviews/questions/listings/items/QuestionsListItemProgressChip';
 import InterviewsStudyListQuestionHovercardContents from '~/components/interviews/questions/listings/learning/InterviewsStudyListQuestionHovercardContents';
@@ -39,8 +36,8 @@ import QuestionPaywall from '../../common/QuestionPaywall';
 
 type Props<Q extends QuestionMetadata> = Readonly<{
   checkIfCompletedQuestion?: (question: Q) => boolean;
-  currentList?: QuestionListData;
-  list?: QuestionListData;
+  currentList?: QuestionListTypeData;
+  listType?: QuestionListTypeData;
   metadata: QuestionMetadata;
   onClickDifferentStudyListQuestion: (href: string) => void;
   questions: ReadonlyArray<Q>;
@@ -51,7 +48,7 @@ export default function InterviewsStudyListQuestions<
   Q extends QuestionMetadata,
 >({
   checkIfCompletedQuestion,
-  list,
+  listType,
   currentList,
   questions,
   metadata,
@@ -86,7 +83,7 @@ export default function InterviewsStudyListQuestions<
   const isCurrentQuestionInTheList = !!questions.find(
     (question) => hashQuestion(question) === hashQuestion(metadata),
   );
-  const isDifferentList = list != null && !isEqual(list, currentList);
+  const isDifferentList = listType != null && !isEqual(listType, currentList);
 
   return (
     <div>
@@ -154,7 +151,7 @@ export default function InterviewsStudyListQuestions<
                 isCurrentQuestionInTheList && !isDifferentList
                   ? hashQuestion(questionMetadata) === hashQuestion(metadata)
                   : index === 0;
-              const href = questionHrefWithList(
+              const href = questionHrefWithListType(
                 questionMetadata.href,
                 currentList,
               );
@@ -246,7 +243,7 @@ export default function InterviewsStudyListQuestions<
                       // fast enough before the card disappears.
                       sideOffset={0}>
                       <InterviewsStudyListQuestionHovercardContents
-                        list={currentList}
+                        listType={currentList}
                         question={questionMetadata}
                       />
                     </HovercardContent>
@@ -277,7 +274,7 @@ export default function InterviewsStudyListQuestions<
               const isActiveQuestion =
                 hashQuestion(questionMetadata) === hashQuestion(metadata);
 
-              const href = questionHrefWithList(
+              const href = questionHrefWithListType(
                 questionMetadata.href,
                 currentList,
               );

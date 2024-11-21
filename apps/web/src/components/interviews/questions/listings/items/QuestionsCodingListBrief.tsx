@@ -15,20 +15,20 @@ import {
 
 import { hashQuestion } from '~/db/QuestionsUtils';
 
-import type { QuestionListData } from '../../common/questionHref';
-import { questionHrefWithList } from '../../common/questionHref';
+import type { QuestionListTypeData } from '../../common/questionHref';
+import { questionHrefWithListType } from '../../common/questionHref';
 import type { QuestionMetadata } from '../../common/QuestionsTypes';
 import QuestionDifficultyLabel from '../../metadata/QuestionDifficultyLabel';
 
 type Props<Q extends QuestionMetadata> = Readonly<{
   checkIfCompletedQuestion?: (question: Q) => boolean;
-  list?: QuestionListData;
+  listType?: QuestionListTypeData;
   questions: ReadonlyArray<Q>;
 }>;
 
 export default function QuestionsCodingListBrief<Q extends QuestionMetadata>({
   checkIfCompletedQuestion,
-  list,
+  listType,
   questions,
 }: Props<Q>) {
   const intl = useIntl();
@@ -100,7 +100,10 @@ export default function QuestionsCodingListBrief<Q extends QuestionMetadata>({
                   weight="medium">
                   <Anchor
                     className="focus:outline-none"
-                    href={questionHrefWithList(questionMetadata.href, list)}
+                    href={questionHrefWithListType(
+                      questionMetadata.href,
+                      listType,
+                    )}
                     variant="unstyled">
                     {/* Extend touch target to entire panel */}
                     <span aria-hidden="true" className="absolute inset-0" />

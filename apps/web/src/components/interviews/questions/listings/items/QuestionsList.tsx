@@ -20,8 +20,8 @@ import type { QuestionCompletionCount } from '~/db/QuestionsCount';
 import { hashQuestion } from '~/db/QuestionsUtils';
 
 import QuestionsListItemProgressChip from './QuestionsListItemProgressChip';
-import type { QuestionListData } from '../../common/questionHref';
-import { questionHrefWithList } from '../../common/questionHref';
+import type { QuestionListTypeData } from '../../common/questionHref';
+import { questionHrefWithListType } from '../../common/questionHref';
 import type {
   QuestionFramework,
   QuestionMetadata,
@@ -41,7 +41,7 @@ type Props<Q extends QuestionMetadata> = Readonly<{
   checkIfCompletedQuestion: (question: Q) => boolean;
   checkIfCompletedQuestionBefore?: (question: Q) => boolean;
   framework?: QuestionFramework;
-  list?: QuestionListData;
+  listType?: QuestionListTypeData;
   mode?: 'default' | 'study-list';
   onMarkAsCompleted?: (question: Q) => void;
   onMarkAsNotCompleted?: (question: Q) => void;
@@ -58,7 +58,7 @@ export default function QuestionsList<Q extends QuestionMetadata>({
   checkIfCompletedQuestionBefore,
   framework,
   primaryLabel = 'difficulty',
-  list,
+  listType,
   questions,
   questionCompletionCount,
   showProgress = true,
@@ -111,7 +111,10 @@ export default function QuestionsList<Q extends QuestionMetadata>({
           questionMetadata.frameworks.find(
             ({ framework: frameworkType }) => frameworkType === framework,
           )?.href ?? questionMetadata.href;
-        const questionHref = questionHrefWithList(maybeFrameworkHref, list);
+        const questionHref = questionHrefWithListType(
+          maybeFrameworkHref,
+          listType,
+        );
 
         return (
           <li
@@ -224,7 +227,7 @@ export default function QuestionsList<Q extends QuestionMetadata>({
                         return (
                           <QuestionFrameworks
                             frameworks={questionMetadata.frameworks}
-                            list={list}
+                            listType={listType}
                           />
                         );
                       case 'quiz':

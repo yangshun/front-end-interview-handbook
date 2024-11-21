@@ -1,3 +1,4 @@
+import clsx from 'clsx';
 import type { ReactNode } from 'react';
 
 import QuestionProgressAction from '~/components/interviews/questions/common/QuestionProgressAction';
@@ -16,7 +17,7 @@ type Props = Readonly<{
   nextQuestions: ReadonlyArray<QuestionMetadata>;
   rightElements?: ReactNode;
   showQuestionsListButton?: boolean;
-  studyList?: Readonly<{ name: string; studyListKey: string }>;
+  studyListKey?: string;
 }>;
 
 export default function CodingWorkspaceBottomBar({
@@ -25,15 +26,20 @@ export default function CodingWorkspaceBottomBar({
   nextQuestions,
   rightElements,
   showQuestionsListButton = true,
-  studyList,
+  studyListKey,
 }: Props) {
   const { data: questionProgress } = useQueryQuestionProgress(
     metadata,
-    studyList?.studyListKey,
+    studyListKey,
   );
 
   return (
-    <div className="relative flex flex-wrap items-center justify-between gap-2 px-3 py-3">
+    <div
+      className={clsx(
+        'relative',
+        'flex flex-wrap items-center justify-between gap-2',
+        'px-3 py-3',
+      )}>
       {leftElements && (
         <div className="flex items-center gap-x-2">{leftElements}</div>
       )}
@@ -41,7 +47,7 @@ export default function CodingWorkspaceBottomBar({
         <div className="absolute left-4 md:left-1/2 md:-translate-x-1/2">
           <QuestionsStudyListSlideOutButton
             metadata={metadata}
-            studyList={studyList}
+            studyListKey={studyListKey}
           />
         </div>
       )}
@@ -60,7 +66,7 @@ export default function CodingWorkspaceBottomBar({
               </div>
             )
           }
-          studyListKey={studyList?.studyListKey}
+          studyListKey={studyListKey}
         />
         {rightElements}
       </div>

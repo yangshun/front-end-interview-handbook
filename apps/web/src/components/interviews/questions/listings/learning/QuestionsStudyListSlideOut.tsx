@@ -1,4 +1,5 @@
 import clsx from 'clsx';
+import { eq } from 'lodash-es';
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import {
@@ -8,8 +9,6 @@ import {
   RiSearchLine,
 } from 'react-icons/ri';
 import { useMediaQuery } from 'usehooks-ts';
-
-import { trpc } from '~/hooks/trpc';
 
 import ConfirmationDialog from '~/components/common/ConfirmationDialog';
 import { useUserProfile } from '~/components/global/UserProfileProvider';
@@ -29,7 +28,6 @@ import {
   sortQuestionsMultiple,
   tabulateQuestionsAttributesUnion,
 } from '~/components/interviews/questions/listings/filters/QuestionsProcessor';
-import type { StudyListItemType } from '~/components/interviews/questions/listings/learning/InterviewsStudyListSelector';
 import InterviewsStudyListSelector from '~/components/interviews/questions/listings/learning/InterviewsStudyListSelector';
 import { FormattedMessage, useIntl } from '~/components/intl';
 import Badge from '~/components/ui/Badge';
@@ -47,7 +45,12 @@ import { themeBorderColor, themeTextInvertColor } from '~/components/ui/theme';
 import InterviewsStudyListQuestions from './InterviewsStudyListQuestions';
 import useQuestionsWithCompletionStatus from '../filters/hooks/useQuestionsWithCompletionStatus';
 import QuestionsListSortButton from '../items/QuestionsListSortButton';
-import { questionHrefWithList } from '../../common/questionHref';
+import type { QuestionListTypeData } from '../../common/questionHref';
+import {
+  questionHrefWithListType,
+  questionListFilterNamespace,
+} from '../../common/questionHref';
+import useQuestionsListDataForType from '../../common/useQuestionsListDataForType';
 
 function FilterSection<T extends string, Q extends QuestionMetadata>({
   coveredValues,
@@ -169,16 +172,16 @@ function FrameworkAndLanguageFilterSection<Q extends QuestionMetadata>({
 }
 
 function Contents({
-  listKey,
-  currentListKey,
+  listType,
+  currentListType,
   metadata,
   filterNamespace,
   setFirstQuestionHref,
   onClickDifferentStudyListQuestion,
 }: Readonly<{
-  currentListKey?: string;
+  currentListType?: QuestionListTypeData;
   filterNamespace: string;
-  listKey?: string;
+  listType?: QuestionListTypeData;
   metadata: QuestionMetadata;
   onClickDifferentStudyListQuestion: (href: string) => void;
   setFirstQuestionHref: (href: string) => void;
@@ -188,15 +191,17 @@ function Contents({
 
   const [showFilters, setShowFilters] = useState(false);
 
+  const studyListKey =
+    currentListType != null && currentListType.type === 'study-list'
+      ? currentListType.value
+      : undefined;
+
   // To fetch the list specific question when user change the study list
-  const { data: listQuestions, isLoading } =
-    trpc.questionLists.getQuestions.useQuery({
-      listKey: currentListKey,
-    });
+  const { isLoading, data } = useQuestionsListDataForType(studyListKey);
 
   const questionsWithCompletionStatus = useQuestionsWithCompletionStatus(
-    listQuestions ?? [],
-    currentListKey,
+    data?.questions ?? [],
+    studyListKey,
   );
 
   // Tabulating.
@@ -229,7 +234,7 @@ function Contents({
   } = useQuestionUnifiedFilters({
     filterNamespace,
   });
-  const defaultSortField = listKey == null ? 'difficulty' : 'default';
+  const defaultSortField = studyListKey == null ? 'difficulty' : 'default';
 
   // Sorting.
   const { defaultSortFields, premiumSortFields } = useQuestionCodingSorting({
@@ -339,18 +344,11 @@ function Contents({
   useEffect(() => {
     if (processedQuestions.length > 0 && !showCompanyPaywall) {
       setFirstQuestionHref(
-        questionHrefWithList(
-          processedQuestions[0].href,
-          currentListKey
-            ? {
-                studyList: currentListKey,
-              }
-            : undefined,
-        ),
+        questionHrefWithListType(processedQuestions[0].href, currentListType),
       );
     }
   }, [
-    currentListKey,
+    currentListType,
     processedQuestions,
     setFirstQuestionHref,
     showCompanyPaywall,
@@ -368,32 +366,16 @@ function Contents({
             <TextInput
               autoComplete="off"
               isLabelHidden={true}
-              label={
-                currentListKey
-                  ? intl.formatMessage({
-                      defaultMessage: 'Search in the list',
-                      description: 'Search placeholder for study list',
-                      id: 'y6DqsF',
-                    })
-                  : intl.formatMessage({
-                      defaultMessage: 'Search questions',
-                      description: 'Search placeholder label',
-                      id: 'K4Xbup',
-                    })
-              }
-              placeholder={
-                currentListKey
-                  ? intl.formatMessage({
-                      defaultMessage: 'Search in the list',
-                      description: 'Search placeholder for study list',
-                      id: 'y6DqsF',
-                    })
-                  : intl.formatMessage({
-                      defaultMessage: 'Search questions',
-                      description: 'Search placeholder label',
-                      id: 'K4Xbup',
-                    })
-              }
+              label={intl.formatMessage({
+                defaultMessage: 'Search in the list',
+                description: 'Search placeholder for study list',
+                id: 'y6DqsF',
+              })}
+              placeholder={intl.formatMessage({
+                defaultMessage: 'Search in the list',
+                description: 'Search placeholder for study list',
+                id: 'y6DqsF',
+              })}
               size="sm"
               startIcon={RiSearchLine}
               type="search"
@@ -441,16 +423,8 @@ function Contents({
       ) : (
         <InterviewsStudyListQuestions
           checkIfCompletedQuestion={(question) => question.isCompleted}
-          currentList={
-            currentListKey ? { studyList: currentListKey } : undefined
-          }
-          list={
-            listKey
-              ? {
-                  studyList: listKey,
-                }
-              : undefined
-          }
+          currentList={currentListType}
+          listType={listType}
           metadata={metadata}
           questions={
             showCompanyPaywall
@@ -468,17 +442,19 @@ function Contents({
 type Props = Readonly<{
   currentQuestionPosition: number;
   isDisabled: boolean;
+  listType?: QuestionListTypeData;
   metadata: QuestionMetadata;
   processedQuestions: ReadonlyArray<QuestionMetadataWithCompletedStatus>;
-  studyList?: Readonly<{ name: string; studyListKey: string }>;
+  title?: string;
 }>;
 
 export default function QuestionsStudyListSlideOut({
   isDisabled,
-  studyList,
+  listType,
   currentQuestionPosition,
   processedQuestions,
   metadata,
+  title,
 }: Props) {
   const intl = useIntl();
   // Have to be controlled because we don't want to
@@ -486,11 +462,12 @@ export default function QuestionsStudyListSlideOut({
   const [isShown, setIsShown] = useState(false);
   const isMobile = useMediaQuery('(max-width: 500px)');
   const router = useRouter();
-  const [currentStudyList, setCurrentStudyList] =
-    useState<StudyListItemType | null>(studyList ?? null);
-  const filterNamespace = studyList
-    ? `study-list:${currentStudyList?.studyListKey}`
-    : 'prepare-coding';
+  const [currentListType, setCurrentListType] = useState<
+    QuestionListTypeData | undefined
+  >(listType ?? undefined);
+  const filterNamespace = questionListFilterNamespace(
+    currentListType ?? listType,
+  );
   const [showStudyListSwitchDialog, setShowStudyListSwitchDialog] = useState<{
     href: string | null;
     show: boolean;
@@ -509,10 +486,7 @@ export default function QuestionsStudyListSlideOut({
     if (processedQuestions.length === 0) {
       return;
     }
-    if (
-      studyList?.studyListKey &&
-      studyList.studyListKey !== currentStudyList?.studyListKey
-    ) {
+    if (listType && !eq(listType, currentListType)) {
       setShowStudyListSwitchDialog({
         href: firstQuestionHref,
         show: true,
@@ -552,10 +526,10 @@ export default function QuestionsStudyListSlideOut({
       padding={false}
       size="xl"
       title={
-        currentStudyList != null ? (
+        currentListType != null ? (
           <InterviewsStudyListSelector
-            currentStudyList={currentStudyList}
-            onChangeStudyList={setCurrentStudyList}
+            currentListType={currentListType}
+            onChangeListType={setCurrentListType}
           />
         ) : (
           intl.formatMessage({
@@ -576,33 +550,31 @@ export default function QuestionsStudyListSlideOut({
             isDisabled={isDisabled}
             isLabelHidden={isMobile}
             label={
-              studyList != null
-                ? studyList.name
-                : intl.formatMessage({
-                    defaultMessage: 'Question list',
-                    description: 'Questions list',
-                    id: '5lRIfw',
-                  })
-            }
-            size="xs"
-            variant="secondary"
-            onClick={() => setIsShown(true)}>
-            {studyList == null ? (
+              title ??
               intl.formatMessage({
                 defaultMessage: 'Question list',
                 description: 'Questions list',
                 id: '5lRIfw',
               })
-            ) : (
-              <div className="flex items-center gap-3">
-                <span>{studyList.name}</span>
-                <Badge
-                  label={`${currentQuestionPosition}/${processedQuestions.length}`}
-                  size="xs"
-                  variant="neutral"
-                />
-              </div>
-            )}
+            }
+            size="xs"
+            variant="secondary"
+            onClick={() => setIsShown(true)}>
+            <div className="flex items-center gap-3">
+              <span>
+                {title ??
+                  intl.formatMessage({
+                    defaultMessage: 'Question list',
+                    description: 'Questions list',
+                    id: '5lRIfw',
+                  })}
+              </span>
+              <Badge
+                label={`${currentQuestionPosition}/${processedQuestions.length}`}
+                size="xs"
+                variant="neutral"
+              />
+            </div>
           </Button>
           {numberOfFilters > 0 && (
             <div
@@ -623,10 +595,10 @@ export default function QuestionsStudyListSlideOut({
       {isShown && (
         <ScrollArea>
           <Contents
-            key={currentStudyList?.studyListKey ?? 'coding'}
-            currentListKey={currentStudyList?.studyListKey}
+            key={filterNamespace}
+            currentListType={currentListType}
             filterNamespace={filterNamespace}
-            listKey={currentStudyList?.studyListKey}
+            listType={listType}
             metadata={metadata}
             setFirstQuestionHref={setFirstQuestionHref}
             onClickDifferentStudyListQuestion={(href: string) =>

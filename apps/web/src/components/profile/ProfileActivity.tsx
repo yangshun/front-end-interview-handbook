@@ -72,7 +72,7 @@ export default function ProfileActivity() {
     isError: isErrorQuestionProgress,
   } = trpc.questionProgress.getAll.useQuery();
   const {
-    data: questionList,
+    data,
     isLoading: isFetchingQuestionList,
     isError: isErrorQuestionList,
   } = trpc.questionLists.getQuestions.useQuery({});
@@ -108,7 +108,7 @@ export default function ProfileActivity() {
     .map((progress) => ({
       createdAt: progress.createdAt,
       metadata: getQuestionMetadata(
-        questionList,
+        data.questions ?? [],
         progress.format,
         progress.slug,
       ),

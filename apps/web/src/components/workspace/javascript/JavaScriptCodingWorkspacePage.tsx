@@ -13,7 +13,7 @@ type Props = Readonly<{
   nextQuestions: ReadonlyArray<QuestionMetadata>;
   question: QuestionJavaScript;
   similarQuestions: ReadonlyArray<QuestionMetadata>;
-  studyList?: Readonly<{ name: string, studyListKey: string; }>;
+  studyListKey?: string;
 }>;
 
 export default function JavaScriptCodingWorkspacePage({
@@ -21,7 +21,7 @@ export default function JavaScriptCodingWorkspacePage({
   question,
   nextQuestions,
   similarQuestions,
-  studyList,
+  studyListKey,
 }: Props) {
   const [language, setLanguage] = useCodingWorkspaceWorkingLanguage();
 
@@ -32,7 +32,7 @@ export default function JavaScriptCodingWorkspacePage({
       nextQuestions={nextQuestions}
       question={question}
       similarQuestions={similarQuestions}
-      studyList={studyList}
+      studyListKey={studyListKey}
       timeoutLoggerInstance="workspace.js"
       onLanguageChange={setLanguage}
     />

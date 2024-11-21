@@ -1,10 +1,7 @@
 import clsx from 'clsx';
 
-import type {
-  QuestionListData} from '~/components/interviews/questions/common/questionHref';
-import {
-  questionHrefWithList
-} from '~/components/interviews/questions/common/questionHref';
+import type { QuestionListTypeData } from '~/components/interviews/questions/common/questionHref';
+import { questionHrefWithListType } from '~/components/interviews/questions/common/questionHref';
 import QuestionAuthor from '~/components/interviews/questions/metadata/QuestionAuthor';
 import QuestionDifficultyLabel from '~/components/interviews/questions/metadata/QuestionDifficultyLabel';
 import QuestionDurationLabel from '~/components/interviews/questions/metadata/QuestionDurationLabel';
@@ -15,13 +12,13 @@ import Text, { textVariants } from '~/components/ui/Text';
 import type { QuestionMetadata } from '../../common/QuestionsTypes';
 
 type Props = Readonly<{
-  list?: QuestionListData;
+  listType?: QuestionListTypeData;
   question: QuestionMetadata;
   size?: TextSize;
 }>;
 
 export default function InterviewsStudyListQuestionHovercardContents({
-  list,
+  listType,
   question,
   size = 'body3',
 }: Props) {
@@ -39,7 +36,7 @@ export default function InterviewsStudyListQuestionHovercardContents({
             size: 'body1',
             weight: 'bold',
           })}
-          href={questionHrefWithList(question.href, list)}
+          href={questionHrefWithListType(question.href, listType)}
           variant="flat">
           {question.title}
         </Anchor>

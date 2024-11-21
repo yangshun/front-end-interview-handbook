@@ -62,8 +62,7 @@ export default function QuestionsUnifiedListWithFiltersAndProgress({
     ['format', 'slug', 'title'],
   );
 
-  const studyListKey =
-    list != null && 'studyList' in list ? list.studyList : undefined;
+  const studyListKey = list?.type === 'study-list' ? list.value : undefined;
   const questionsWithCompletionStatus = useQuestionsWithCompletionStatus(
     questions,
     studyListKey,

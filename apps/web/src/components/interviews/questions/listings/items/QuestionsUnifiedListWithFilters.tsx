@@ -55,7 +55,7 @@ type Props = Readonly<{
     title: string;
   };
   initialFormat?: QuestionFormat | null;
-  list?: React.ComponentProps<typeof QuestionsList>['list'];
+  list?: React.ComponentProps<typeof QuestionsList>['listType'];
   listMode?: React.ComponentProps<typeof QuestionsList>['mode'];
   mode?: 'default' | 'framework';
   onMarkAsCompleted?: (question: QuestionMetadata) => void;
@@ -254,7 +254,7 @@ export default function QuestionsUnifiedListWithFilters({
                         ? frameworkOrLanguage
                         : undefined
                     }
-                    list={list}
+                    listType={list}
                     mode={listMode}
                     questionCompletionCount={questionCompletionCount}
                     questions={processedQuestions}
