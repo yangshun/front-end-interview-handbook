@@ -2,6 +2,7 @@ import clsx from 'clsx';
 import { useCallback, useEffect, useState } from 'react';
 import { RiCodeLine } from 'react-icons/ri';
 
+import { questionHrefWithList } from '~/components/interviews/questions/common/questionHref';
 import type {
   QuestionFramework,
   QuestionMetadata,
@@ -71,8 +72,9 @@ const UserInterfaceCodingWorkspaceTilesPanelRoot =
 
 function UserInterfaceCodingWorkspaceImpl({
   canViewPremiumContent,
-  embed,
   defaultFiles,
+  embed,
+  frameworkSolutionPath,
   loadedFilesFromLocalStorage,
   mode,
   question,
@@ -84,6 +86,7 @@ function UserInterfaceCodingWorkspaceImpl({
   canViewPremiumContent: boolean;
   defaultFiles: SandpackFiles;
   embed: boolean;
+  frameworkSolutionPath: string;
   loadedFilesFromLocalStorage: boolean;
   mode: QuestionUserInterfaceMode;
   nextQuestions: ReadonlyArray<QuestionMetadata>;
@@ -93,7 +96,7 @@ function UserInterfaceCodingWorkspaceImpl({
   ) => void;
   question: QuestionUserInterface;
   similarQuestions: ReadonlyArray<QuestionMetadata>;
-  studyList?: Readonly<{ name: string, studyListKey: string; }>;
+  studyList?: Readonly<{ name: string; studyListKey: string }>;
 }>) {
   const { framework, metadata: rawMetadata, description, solution } = question;
 
@@ -202,11 +205,6 @@ function UserInterfaceCodingWorkspaceImpl({
       type: 'tab-set-active-otherwise-open',
     });
   }
-
-  const frameworkSolutionPath = questionUserInterfaceSolutionPath(
-    metadata,
-    framework,
-  );
 
   const predefinedTabs: UserInterfaceCodingWorkspacePredefinedTabsContents = {
     community_solution_create: {
@@ -516,11 +514,18 @@ export default function UserInterfaceCodingWorkspace({
   ) => void;
   question: QuestionUserInterface;
   similarQuestions: ReadonlyArray<QuestionMetadata>;
-  studyList?: Readonly<{ name: string, studyListKey: string; }>;
+  studyList?: Readonly<{ name: string; studyListKey: string }>;
 }>) {
   const { sandpack } = useSandpack();
   const { activeFile, visibleFiles } = sandpack;
   const { metadata, framework } = question;
+
+  const frameworkSolutionPath = questionHrefWithList(
+    questionUserInterfaceSolutionPath(metadata, framework),
+    studyList?.studyListKey
+      ? { studyList: studyList?.studyListKey }
+      : undefined,
+  );
 
   return (
     <TilesProvider
@@ -529,12 +534,13 @@ export default function UserInterfaceCodingWorkspace({
         mode,
         activeFile,
         visibleFiles,
-        questionUserInterfaceSolutionPath(metadata, framework),
+        frameworkSolutionPath,
       )}>
       <UserInterfaceCodingWorkspaceImpl
         canViewPremiumContent={canViewPremiumContent}
         defaultFiles={defaultFiles}
         embed={embed}
+        frameworkSolutionPath={frameworkSolutionPath}
         loadedFilesFromLocalStorage={loadedFilesFromLocalStorage}
         mode={mode}
         nextQuestions={nextQuestions}
