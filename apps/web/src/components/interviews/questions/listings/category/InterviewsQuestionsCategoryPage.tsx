@@ -85,19 +85,28 @@ export default function InterviewsQuestionsCategoryPage({
 
   const languageGuidesSlugs: ReadonlyArray<FrontEndInterviewSlugType> =
     selectedCategoryTab === 'coding'
+      ? props.category === 'language' && props.categoryValue === 'css'
+        ? [
+            'user-interface',
+            'user-interface-questions-cheatsheet',
+            'user-interface-components-api-design-principles',
+          ]
+        : [
+            'javascript',
+            'algorithms',
+            'user-interface',
+            'user-interface-questions-cheatsheet',
+            'user-interface-components-api-design-principles',
+          ]
+      : ['quiz'];
+  const frameworkGuidesSlugs: ReadonlyArray<FrontEndInterviewSlugType> =
+    selectedCategoryTab === 'coding'
       ? [
-          'javascript',
-          'algorithms',
           'user-interface',
           'user-interface-questions-cheatsheet',
           'user-interface-components-api-design-principles',
         ]
       : ['quiz'];
-  const frameworkGuidesSlugs: ReadonlyArray<FrontEndInterviewSlugType> = [
-    'user-interface',
-    'user-interface-questions-cheatsheet',
-    'user-interface-components-api-design-principles',
-  ];
   const guidesSlugs: Record<
     QuestionFrameworkOrLanguage,
     ReadonlyArray<FrontEndInterviewSlugType>
