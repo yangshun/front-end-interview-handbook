@@ -2,6 +2,7 @@
 
 import clsx from 'clsx';
 import type { InterviewsListingBottomContent } from 'contentlayer/generated';
+import { useEffect, useRef } from 'react';
 
 import { trpc } from '~/hooks/trpc';
 
@@ -21,7 +22,10 @@ import Section from '~/components/ui/Heading/HeadingContext';
 
 import { useUser } from '@supabase/auth-helpers-react';
 
+type AnchorSection = 'frameworks';
+
 type Props = Readonly<{
+  anchorSection?: AnchorSection;
   bottomContent?: InterviewsListingBottomContent;
   questions: {
     codingQuestions: ReadonlyArray<QuestionMetadata>;
@@ -41,6 +45,7 @@ type Props = Readonly<{
 export default function InterviewsPracticeQuestionsPage({
   questions,
   bottomContent,
+  anchorSection,
 }: Props) {
   const intl = useIntl();
 
@@ -59,11 +64,25 @@ export default function InterviewsPracticeQuestionsPage({
     },
   );
 
+  const frameworksSectionRef = useRef<HTMLDivElement>(null);
+
   const features = [
     questionFeatures.codeInBrowser,
     questionFeatures.officialSolutions,
     questionFeatures.testCases,
   ];
+
+  useEffect(() => {
+    if (anchorSection == null) {
+      return;
+    }
+
+    switch (anchorSection) {
+      case 'frameworks': {
+        frameworksSectionRef.current?.scrollIntoView();
+      }
+    }
+  }, [anchorSection]);
 
   return (
     <div className={clsx('flex flex-col', 'gap-y-10 xl:gap-y-16')}>
@@ -88,10 +107,14 @@ export default function InterviewsPracticeQuestionsPage({
             questions={questions}
             questionsProgress={questionsProgress ?? []}
           />
-          <InterviewsFrameworkAndLanguageSection
-            questions={questions}
-            questionsProgress={questionsProgress ?? []}
-          />
+          <div
+            ref={frameworksSectionRef}
+            className="scroll-mt-[var(--global-sticky-height)]">
+            <InterviewsFrameworkAndLanguageSection
+              questions={questions}
+              questionsProgress={questionsProgress ?? []}
+            />
+          </div>
         </div>
       </Section>
       {bottomContent && (

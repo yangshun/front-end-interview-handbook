@@ -1,8 +1,6 @@
 import clsx from 'clsx';
 import { RiArrowRightLine, RiChat4Line } from 'react-icons/ri';
 
-import { SCROLL_HASH_INTERVIEWS_QUESTIONS_FORMAT } from '~/hooks/useScrollToHash';
-
 import { useQuestionFormatsData } from '~/data/QuestionCategories';
 
 import useBehavioralInterviewGuidebookNavigation, {
@@ -231,8 +229,7 @@ export default function InterviewsQuestionFormatsSection({
 
   return (
     <div
-      className={clsx('flex flex-col gap-6', 'scroll-mt-40 lg:scroll-mt-20')}
-      id={SCROLL_HASH_INTERVIEWS_QUESTIONS_FORMAT}>
+      className={clsx('flex flex-col gap-6', 'scroll-mt-40 lg:scroll-mt-20')}>
       <div className="flex flex-col gap-3">
         <Heading level="heading6">
           <FormattedMessage

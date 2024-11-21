@@ -16,11 +16,7 @@ import {
 import url from 'url';
 
 import gtag from '~/lib/gtag';
-import {
-  SCROLL_HASH_INTERVIEWS_FEATURES,
-  SCROLL_HASH_INTERVIEWS_QUESTIONS_FORMAT,
-  SCROLL_HASH_INTERVIEWS_QUESTIONS_FRAMEWORK_LANGUAGE,
-} from '~/hooks/useScrollToHash';
+import { SCROLL_HASH_INTERVIEWS_FEATURES } from '~/hooks/useScrollToHash';
 
 import { useGuidesData } from '~/data/Guides';
 
@@ -350,10 +346,7 @@ export default function useInterviewsNavItems(placement: 'nav' | 'sidebar') {
             )}
           </div>
         ),
-        href: url.format({
-          hash: SCROLL_HASH_INTERVIEWS_QUESTIONS_FORMAT,
-          pathname: '/questions',
-        }),
+        href: '/questions',
         icon: RiQuestionAnswerLine,
         itemKey: 'question-format',
         label: intl.formatMessage({
@@ -386,10 +379,7 @@ export default function useInterviewsNavItems(placement: 'nav' | 'sidebar') {
             )}
           </div>
         ),
-        href: url.format({
-          hash: SCROLL_HASH_INTERVIEWS_QUESTIONS_FRAMEWORK_LANGUAGE,
-          pathname: '/questions',
-        }),
+        href: '/questions/frameworks',
         icon: RiReactjsFill,
         itemKey: 'question-framework',
         label: intl.formatMessage({

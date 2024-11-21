@@ -2,9 +2,6 @@ import { usePathname } from 'next/navigation';
 import { useEffect } from 'react';
 
 export const SCROLL_HASH_INTERVIEWS_FEATURES = 'interviews-features';
-export const SCROLL_HASH_INTERVIEWS_QUESTIONS_FORMAT = 'format';
-export const SCROLL_HASH_INTERVIEWS_QUESTIONS_FRAMEWORK_LANGUAGE =
-  'framework-language';
 export const SCROLL_HASH_INTERVIEWS_DASHBOARD_RECOMMENDED_PREPARATION =
   'recommended-preparation';
 export const SCROLL_HASH_PROJECTS_DASHBOARD = 'projects-dashboard';

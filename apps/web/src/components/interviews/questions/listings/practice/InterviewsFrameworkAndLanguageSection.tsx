@@ -2,8 +2,6 @@ import clsx from 'clsx';
 import { type ReactNode, useMemo } from 'react';
 import { RiArrowRightLine } from 'react-icons/ri';
 
-import { SCROLL_HASH_INTERVIEWS_QUESTIONS_FRAMEWORK_LANGUAGE } from '~/hooks/useScrollToHash';
-
 import {
   useQuestionFrameworksData,
   useQuestionLanguagesData,
@@ -206,8 +204,7 @@ export default function InterviewsFrameworkAndLanguageSection({
 
   return (
     <div
-      className={clsx('flex flex-col gap-6', 'scroll-mt-40 lg:scroll-mt-20')}
-      id={SCROLL_HASH_INTERVIEWS_QUESTIONS_FRAMEWORK_LANGUAGE}>
+      className={clsx('flex flex-col gap-6', 'scroll-mt-40 lg:scroll-mt-20')}>
       <div className="flex flex-col gap-3">
         <Heading level="heading6">
           <FormattedMessage
