@@ -29,12 +29,23 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const intl = await getIntlServerOnly(locale);
 
   return defaultMetadata({
+    description: intl.formatMessage({
+      defaultMessage:
+        'Monitor your front end interview preparation progress and milestones.',
+      description: 'Description of dashboard page',
+      id: 'dYeq98',
+    }),
     locale,
     pathname: '/interviews/dashboard',
+    socialTitle: intl.formatMessage({
+      defaultMessage: 'Dashboard | GreatFrontEnd Interviews',
+      description: 'Social title of dashboard page',
+      id: '9y48gK',
+    }),
     title: intl.formatMessage({
       defaultMessage: 'Dashboard - Track your interview preparation progress',
-      description: 'Title of Get Started page',
-      id: '1nme1Z',
+      description: 'Title of dashboard page',
+      id: 'gZ3W0t',
     }),
   });
 }

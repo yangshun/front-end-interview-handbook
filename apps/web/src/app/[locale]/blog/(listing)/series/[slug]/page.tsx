@@ -14,6 +14,7 @@ import BlogList from '~/components/blog/filters/items/BlogList';
 import BlogSeriesLayout from '~/components/blog/series/BlogSeriesLayout';
 import BlogSubseriesSection from '~/components/blog/subseries/BlogSubseriesSection';
 
+import { getIntlServerOnly } from '~/i18n';
 import { generateStaticParamsWithLocale } from '~/next-i18nostic/src';
 import defaultMetadata from '~/seo/defaultMetadata';
 
@@ -35,12 +36,32 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale, slug } = params;
   const series = readBlogSeries(slug || '');
+  const intl = await getIntlServerOnly(locale);
 
   return defaultMetadata({
     description: series?.description,
     locale,
     pathname: series?.href || '',
-    title: `${series?.title} | Blog`,
+    socialTitle: intl.formatMessage(
+      {
+        defaultMessage: '{seriesName} | Series | GreatFrontEnd',
+        description: 'Social title for series page',
+        id: 'lKLdG4',
+      },
+      {
+        seriesName: series?.title,
+      },
+    ),
+    title: intl.formatMessage(
+      {
+        defaultMessage: '{seriesName} | Blog',
+        description: 'Title for series page',
+        id: 'Yo+xvM',
+      },
+      {
+        seriesName: series?.title,
+      },
+    ),
   });
 }
 

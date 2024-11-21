@@ -20,8 +20,19 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const intl = await getIntlServerOnly(locale);
 
   return defaultMetadata({
+    description: intl.formatMessage({
+      defaultMessage:
+        'Learn how GreatFrontEnd collects, uses, and protects your data. Review our privacy policy to understand your rights and our commitment to your privacy.',
+      description: 'Description of Privacy Policy page',
+      id: '5kFTG0',
+    }),
     locale,
     pathname: '/legal/privacy-policy',
+    socialTitle: intl.formatMessage({
+      defaultMessage: 'Privacy Policy | GreatFrontEnd',
+      description: 'Title of Privacy Policy page',
+      id: '+Xw4ly',
+    }),
     title: intl.formatMessage({
       defaultMessage: 'Privacy Policy',
       description: 'Title of Privacy Policy page',

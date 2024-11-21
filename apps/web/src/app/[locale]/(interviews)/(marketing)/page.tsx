@@ -63,9 +63,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     }),
     title: intl.formatMessage({
       defaultMessage:
-        'GreatFrontEnd: The Great Way to Prepare for Front End Interviews',
+        'GreatFrontEnd: The great way to prepare for Front End Interviews',
       description: 'Title of GreatFrontEnd standard page',
-      id: '6xnZGh',
+      id: 'NbNtxn',
     }),
   });
 }

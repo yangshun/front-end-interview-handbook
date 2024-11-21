@@ -20,16 +20,22 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return defaultMetadata({
     description: intl.formatMessage({
       defaultMessage:
-        'Learn new skills, improve your techniques and stay updated on latest front end trends and developments.',
+        'Stay updated with the latest trends, tips, and resources for front-end engineers. Explore expert advice, tutorials, and guides to level up your skills and career.',
       description: 'Description of GreatFrontEnd blog homepage',
-      id: 'saFHOR',
+      id: '0vJviS',
     }),
     locale,
     pathname: '/blog',
-    title: intl.formatMessage({
-      defaultMessage: 'Blog',
+    socialTitle: intl.formatMessage({
+      defaultMessage: 'Blog | GreatFrontEnd',
       description: 'Title of GreatFrontEnd blog homepage',
-      id: 'CtpuLZ',
+      id: 'Q7apLT',
+    }),
+    title: intl.formatMessage({
+      defaultMessage:
+        'GreatFrontEnd Blog - News and insights for Front End Engineers',
+      description: 'Title of GreatFrontEnd blog homepage',
+      id: 'ePTKHr',
     }),
   });
 }

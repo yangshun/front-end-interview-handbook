@@ -19,16 +19,22 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return defaultMetadata({
     description: intl.formatMessage({
       defaultMessage:
-        'Discover roadmap for upcoming features in Great Frontend Interviews.',
+        'Explore upcoming content pieces, features, tools and updates we are designing to enhance your front end interview preparation journey.',
       description: 'Description for interview roadmap page',
-      id: 'IYbT+9',
+      id: '1k8zUZ',
     }),
     locale,
     pathname: '/interviews/roadmap',
-    title: intl.formatMessage({
-      defaultMessage: 'Roadmap for Front End Interviews',
+    socialTitle: intl.formatMessage({
+      defaultMessage: 'Roadmap | GreatFrontEnd Interviews',
       description: 'Title of interview roadmap page',
-      id: '75OcQW',
+      id: 'cw35KA',
+    }),
+    title: intl.formatMessage({
+      defaultMessage:
+        'Roadmap - Upcoming features and updates on GreatFrontEnd Interviews',
+      description: 'Title of interview roadmap page',
+      id: 'yyYVov',
     }),
   });
 }

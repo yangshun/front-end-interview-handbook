@@ -19,16 +19,22 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return defaultMetadata({
     description: intl.formatMessage({
       defaultMessage:
-        'Discover roadmap for upcoming features in Great Frontend Projects.',
+        'Explore upcoming challenges, features, tools and updates we are designing to help you improve your front end skills and build your portfolio.',
       description: 'Description for roadmap page in projects',
-      id: 'h37Wmk',
+      id: 'c8+MMk',
     }),
     locale,
     pathname: '/projects/roadmap',
+    socialTitle: intl.formatMessage({
+      defaultMessage: 'Roadmap | GreatFrontEnd Projects',
+      description: 'Social title of interview roadmap page',
+      id: 'y/r8Q+',
+    }),
     title: intl.formatMessage({
-      defaultMessage: 'Roadmap for GreatFrontEnd in Projects',
+      defaultMessage:
+        'Roadmap - Upcoming features and updates on GreatFrontEnd Projects',
       description: 'Title of interview roadmap page',
-      id: 'eC2IBn',
+      id: 'HCADe/',
     }),
   });
 }

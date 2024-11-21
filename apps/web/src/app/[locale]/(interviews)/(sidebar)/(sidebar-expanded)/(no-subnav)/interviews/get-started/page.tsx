@@ -30,22 +30,23 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   return defaultMetadata({
     description: intl.formatMessage({
-      defaultMessage: `Kickstart your front end interview prep by exploring top resources—recommended prep plans, company guides, and a vast bank of practice questions with solutions.`,
+      defaultMessage:
+        'Kickstart your front end interview prep by exploring top resources—recommended prep plans, company guides, and a vast bank of practice questions with solutions.',
       description: 'Description of Get Started page',
       id: 'hOA7E4',
     }),
     locale,
     pathname: '/interviews/get-started',
     socialTitle: intl.formatMessage({
-      defaultMessage: 'Prepare for your Front End Interviews | Get Started',
+      defaultMessage: 'Get Started | Prepare for Your Front End Interviews',
       description: 'Social title of Get Started page',
-      id: 'DsJgFx',
+      id: 'QqooKN',
     }),
     title: intl.formatMessage({
       defaultMessage:
-        'Get Started - One-Stop to Prepare for your Front End Interviews',
+        'Get Started - One-stop to prepare for your Front End Interviews',
       description: 'Title of Get Started page',
-      id: 'wA6yn6',
+      id: 'xR9d8+',
     }),
   });
 }

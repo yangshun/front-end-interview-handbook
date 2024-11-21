@@ -19,12 +19,17 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return defaultMetadata({
     description: intl.formatMessage({
       defaultMessage:
-        'Have questions, feedback, or anything to say? Let us know and we will get back as soon as possible.',
+        "Have questions or feedback? Contact GreatFrontEnd for support, inquiries, or partnership opportunities. We're here to help front end engineers succeed.",
       description: 'Description of Contact Us page',
-      id: 'kn+R8V',
+      id: 'c9Stvc',
     }),
     locale,
     pathname: '/contact',
+    socialTitle: intl.formatMessage({
+      defaultMessage: 'Contact Us | GreatFrontEnd',
+      description: 'Social title of Contact Us page',
+      id: 'ncfJNb',
+    }),
     title: intl.formatMessage({
       defaultMessage: 'Contact Us',
       description: 'Title of Contact Us page',

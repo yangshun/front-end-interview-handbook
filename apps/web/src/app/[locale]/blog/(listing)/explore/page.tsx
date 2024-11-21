@@ -19,16 +19,22 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return defaultMetadata({
     description: intl.formatMessage({
       defaultMessage:
-        "Here you'll find a curated collection of our most insightful and engaging blog content, neatly organized into series for your convenience. Each series focuses on a unique theme or topic providing a deep dive subject.",
+        'Browse curated content series on front end development. Explore structured guides, tutorials, and expert insights to deepen your knowledge and boost your skills.',
       description: 'Description of GreatFrontEnd blog explore series page',
-      id: 'fiHpIm',
+      id: 'nkhVnD',
     }),
     locale,
     pathname: '/blog/explore',
+    socialTitle: intl.formatMessage({
+      defaultMessage: 'Explore Front End Series | GreatFrontEnd',
+      description: 'Social title of GreatFrontEnd blog explore series page',
+      id: 'FIKuOh',
+    }),
     title: intl.formatMessage({
-      defaultMessage: 'Explore series | Blog',
+      defaultMessage:
+        'Explore Series - Curated content series for Front End Engineers',
       description: 'Title of GreatFrontEnd blog explore series page',
-      id: 'fzfMZ2',
+      id: '55EU+L',
     }),
   });
 }

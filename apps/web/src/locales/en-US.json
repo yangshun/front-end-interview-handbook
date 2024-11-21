@@ -67,6 +67,10 @@
     "defaultMessage": "Submit project",
     "description": "Label for \"Submit project\" button on Projects project page"
   },
+  "+Xw4ly": {
+    "defaultMessage": "Privacy Policy | GreatFrontEnd",
+    "description": "Title of Privacy Policy page"
+  },
   "+Yk101": {
     "defaultMessage": "Step 3",
     "description": "Title for \"Step 3\" tab on Projects project page"
@@ -447,6 +451,10 @@
     "defaultMessage": "You have {amountLeft, plural, =0 {no premium credits} one {<bold>1</bold> premium credit} other {<bold>#</bold> premium credits}} remaining. Resubscribe to premium to unlock this challenge and access all its premium features, including the Figma design files, official guides, and solutions.",
     "description": "Subtitle for project paywall"
   },
+  "0vJviS": {
+    "defaultMessage": "Stay updated with the latest trends, tips, and resources for front-end engineers. Explore expert advice, tutorials, and guides to level up your skills and career.",
+    "description": "Description of GreatFrontEnd blog homepage"
+  },
   "0ySzlP": {
     "defaultMessage": "It is a <strong>one-time purchase, with no recurring subscription</strong>. You get access to all the content on the GreatFrontEnd Interviews platform forever, along with any future updates. This will be useful and relevant for all future job hunts.",
     "description": "Answer to 'What does lifetime access mean?' on Homepage's FAQ sections"
@@ -539,13 +547,13 @@
     "defaultMessage": "Project progress",
     "description": "Project progress item label"
   },
+  "1k8zUZ": {
+    "defaultMessage": "Explore upcoming content pieces, features, tools and updates we are designing to enhance your front end interview preparation journey.",
+    "description": "Description for interview roadmap page"
+  },
   "1lAgj0": {
     "defaultMessage": "YOE / Job status",
     "description": "Label for experience filter for submissions list"
-  },
-  "1nme1Z": {
-    "defaultMessage": "Dashboard - Track your interview preparation progress",
-    "description": "Title of Get Started page"
   },
   "1obIS0": {
     "defaultMessage": "Practice in an environment that simulates real interviews",
@@ -987,6 +995,10 @@
     "defaultMessage": "Preserve logs",
     "description": "Checkbox label to preserve logs in the console in the coding workspace"
   },
+  "55EU+L": {
+    "defaultMessage": "Explore Series - Curated content series for Front End Engineers",
+    "description": "Title of GreatFrontEnd blog explore series page"
+  },
   "56Mzxg": {
     "defaultMessage": "Yes of course! You are encouraged to use your own customized stack to build the challenges and share your implementation and approach.",
     "description": "FAQ answer for projects platform"
@@ -1094,6 +1106,10 @@
   "5jFQfq": {
     "defaultMessage": "Known {company} front end interview questions",
     "description": "Heading for questions listing for company guides"
+  },
+  "5kFTG0": {
+    "defaultMessage": "Learn how GreatFrontEnd collects, uses, and protects your data. Review our privacy policy to understand your rights and our commitment to your privacy.",
+    "description": "Description of Privacy Policy page"
   },
   "5kTIFT": {
     "defaultMessage": "Your dream job is within reach—just a few months of preparation away. Unlock premium for less than the cost of a day's pay and get there faster.",
@@ -1295,10 +1311,6 @@
     "defaultMessage": "Some companies still test data structures and algorithms questions for their front end engineers. Practice the following if you expect these types of questions.",
     "description": "Tooltip for the tag"
   },
-  "6xnZGh": {
-    "defaultMessage": "GreatFrontEnd: The Great Way to Prepare for Front End Interviews",
-    "description": "Title of GreatFrontEnd standard page"
-  },
   "6zZ5vj": {
     "defaultMessage": "{commentsCount, plural, =0 {No comments} one {# comment} other {# comments}}",
     "description": "Number of comments for project submission"
@@ -1335,10 +1347,6 @@
     "defaultMessage": "Link URL",
     "description": "Label for link URL"
   },
-  "75OcQW": {
-    "defaultMessage": "Roadmap for Front End Interviews",
-    "description": "Title of interview roadmap page"
-  },
   "75oHxG": {
     "defaultMessage": "Showing {currentPageCount} out of {totalCount} challenges",
     "description": "Projects challenge pagination label"
@@ -1358,6 +1366,10 @@
   "7ERPcF": {
     "defaultMessage": "User submissions | Mentor others",
     "description": "Page title of projects mentor page"
+  },
+  "7EXFWh": {
+    "defaultMessage": "What's New - Latest Front End updates from around the world",
+    "description": "Title of GreatFrontEnd blog what's new page"
   },
   "7HLv+l": {
     "defaultMessage": "Try these questions next",
@@ -1539,10 +1551,6 @@
     "defaultMessage": "Clarify doubts in forums",
     "description": "Title of 'Clarify doubts in forums' sub-feature in Projects marketing page"
   },
-  "8gXpts": {
-    "defaultMessage": "Tasks | Rewards",
-    "description": "Title of Rewards tasks page"
-  },
   "8hrzCT": {
     "defaultMessage": "Edit",
     "description": "Tooltip for Edit button"
@@ -1718,6 +1726,10 @@
   "9xFHNn": {
     "defaultMessage": "{questionTitle} | Front End System Design Question",
     "description": "Title of system design question page"
+  },
+  "9y48gK": {
+    "defaultMessage": "Dashboard | GreatFrontEnd Interviews",
+    "description": "Social title of dashboard page"
   },
   "A+qESm": {
     "defaultMessage": "Created: Newest to Oldest",
@@ -2099,10 +2111,6 @@
     "defaultMessage": "+ {numberOfTags} more",
     "description": "Number of tags in a list"
   },
-  "CtpuLZ": {
-    "defaultMessage": "Blog",
-    "description": "Title of GreatFrontEnd blog homepage"
-  },
   "CxZ3Vp": {
     "defaultMessage": "Pricing plans tailored to your needs. Grab our all-access lifetime plans at a {discountPercentage}% discount today!",
     "description": "Description of Pricing page"
@@ -2254,10 +2262,6 @@
   "Dq9yul": {
     "defaultMessage": "Back",
     "description": "Button label for back button"
-  },
-  "DsJgFx": {
-    "defaultMessage": "Prepare for your Front End Interviews | Get Started",
-    "description": "Social title of Get Started page"
   },
   "Dt0MpD": {
     "defaultMessage": "This user has not started any projects matching those filters.",
@@ -2466,6 +2470,10 @@
   "FEamkQ": {
     "defaultMessage": "Submit a comment",
     "description": "Label for discussion input textarea"
+  },
+  "FIKuOh": {
+    "defaultMessage": "Explore Front End Series | GreatFrontEnd",
+    "description": "Social title of GreatFrontEnd blog explore series page"
   },
   "FLKG3X": {
     "defaultMessage": "Cut line (empty selection)",
@@ -2751,6 +2759,10 @@
     "defaultMessage": "{count} premium credits every month",
     "description": "Label for unlocks feature for month plan"
   },
+  "HCADe/": {
+    "defaultMessage": "Roadmap - Upcoming features and updates on GreatFrontEnd Projects",
+    "description": "Title of interview roadmap page"
+  },
   "HCcf9D": {
     "defaultMessage": "JavaScript coding",
     "description": "Question format"
@@ -2959,10 +2971,6 @@
     "defaultMessage": "Question Language",
     "description": "Coding question language"
   },
-  "IYbT+9": {
-    "defaultMessage": "Discover roadmap for upcoming features in Great Frontend Interviews.",
-    "description": "Description for interview roadmap page"
-  },
   "IYc+7l": {
     "defaultMessage": "Light",
     "description": "Light color scheme option label"
@@ -3163,6 +3171,10 @@
     "defaultMessage": "To download",
     "description": "Title for To Download section on Projects project assets page"
   },
+  "JwOeCo": {
+    "defaultMessage": "Pricing | GreatFrontEnd Interviews",
+    "description": "Title of Pricing page"
+  },
   "JyoY2G": {
     "defaultMessage": "See all",
     "description": "See all button label in browse series section in blog homepage"
@@ -3178,6 +3190,10 @@
   "K2TQiz": {
     "defaultMessage": "Behavioral Interview Playbook | Made For Front End Engineers",
     "description": "Page title for behavioral interview playbook cover page"
+  },
+  "K366Ff": {
+    "defaultMessage": "Start completing simple tasks to unlock {discount}% off with GreatFrontEnd.",
+    "description": "Title of Rewards tasks page"
   },
   "K4JOjo": {
     "defaultMessage": "Deep-dives into real-world applications",
@@ -3391,6 +3407,10 @@
     "defaultMessage": "Is GreatFrontEnd Interviews targeted at engineers of specific seniority?",
     "description": "Question on Homepage's FAQ section - on the seniority level of engineers that GreatFrontEnd targets"
   },
+  "LC6VcF": {
+    "defaultMessage": "{discount}% Off - GreatFrontEnd Social Rewards Campaign",
+    "description": "Social title of Rewards page"
+  },
   "LChIT/": {
     "defaultMessage": "Show completed challenges",
     "description": "Description of completed challenges filter"
@@ -3418,6 +3438,10 @@
   "LKILl5": {
     "defaultMessage": "Submission successfully unpinned!",
     "description": "Submission unpin toaster"
+  },
+  "LMrUbV": {
+    "defaultMessage": "Get {discount}% Off All Plans - GreatFrontEnd Social Rewards Campaign",
+    "description": "Title of Rewards page"
   },
   "LNBK2M": {
     "defaultMessage": "Our services are unavailable at your location.",
@@ -3534,6 +3558,10 @@
   "M33LzY": {
     "defaultMessage": "Confirm",
     "description": "Confirm action button label"
+  },
+  "M3b/ni": {
+    "defaultMessage": "Enjoy a discount of {discount}% off all plans by completing simple tasks like following our social media pages.",
+    "description": "Title of Rewards page"
   },
   "M6LdL8": {
     "defaultMessage": "{questionCount} known questions with solutions",
@@ -3710,6 +3738,10 @@
   "NXw886": {
     "defaultMessage": "Other",
     "description": "Label for other input for yoe replacement status on projects profile page"
+  },
+  "NbNtxn": {
+    "defaultMessage": "GreatFrontEnd: The great way to prepare for Front End Interviews",
+    "description": "Title of GreatFrontEnd standard page"
   },
   "NdDD5W": {
     "defaultMessage": "Front End System Design Guidebook",
@@ -4111,6 +4143,10 @@
     "defaultMessage": "All premium questions",
     "description": "Paywall tags"
   },
+  "Q7apLT": {
+    "defaultMessage": "Blog | GreatFrontEnd",
+    "description": "Title of GreatFrontEnd blog homepage"
+  },
   "QAFkOT": {
     "defaultMessage": "No coupons available",
     "description": "Title of empty state on coupons page"
@@ -4202,6 +4238,10 @@
   "QqddKP": {
     "defaultMessage": "Quizzes",
     "description": "Tile for quiz question type"
+  },
+  "QqooKN": {
+    "defaultMessage": "Get Started | Prepare for Your Front End Interviews",
+    "description": "Social title of Get Started page"
   },
   "QrikGf": {
     "defaultMessage": "Copy to clipboard",
@@ -4358,10 +4398,6 @@
   "RZedau": {
     "defaultMessage": "See all",
     "description": "Label for See all button on project submission success page"
-  },
-  "Rbapby": {
-    "defaultMessage": "What's new | Blog",
-    "description": "Title of GreatFrontEnd blog what's new page"
   },
   "RdVD3x": {
     "defaultMessage": "Don't hesitate to reach out. We're always here to help.",
@@ -4534,6 +4570,10 @@
   "SbE8XR": {
     "defaultMessage": "Add your socials so that others can find you!",
     "description": "Description for social link input on Projects profile onboarding page"
+  },
+  "ScxpRs": {
+    "defaultMessage": "Start Tasks - GreatFrontEnd Social Rewards Campaign",
+    "description": "Title of Rewards tasks page"
   },
   "SdXQye": {
     "defaultMessage": "Add selection to next find match",
@@ -4986,6 +5026,10 @@
   "Vp6BGE": {
     "defaultMessage": "At least {minLength} character(s).",
     "description": "Error message"
+  },
+  "VpUdT9": {
+    "defaultMessage": "Discover the latest updates on new tools, resources and improvements for front end engineers.",
+    "description": "Description of GreatFrontEnd blog what's new page"
   },
   "Vq8WAa": {
     "defaultMessage": "Premium is required to access official solutions",
@@ -5454,6 +5498,10 @@
   "Yhn5fM": {
     "defaultMessage": "User Interface Coding",
     "description": "Title for ui coding questions"
+  },
+  "Yo+xvM": {
+    "defaultMessage": "{seriesName} | Blog",
+    "description": "Title for series page"
   },
   "YpJ3q8": {
     "defaultMessage": "Reply to comment",
@@ -5987,9 +6035,17 @@
     "defaultMessage": "Don't worry about losing steam. Track your progress and level up as you learn and grow.",
     "description": "Description of 'Gamify your learning' feature in Projects marketing page"
   },
+  "c8+MMk": {
+    "defaultMessage": "Explore upcoming challenges, features, tools and updates we are designing to help you improve your front end skills and build your portfolio.",
+    "description": "Description for roadmap page in projects"
+  },
   "c9D1tn": {
     "defaultMessage": "Only build useful projects",
     "description": "Short title for \"Never waste your time building one-off projects\" feature marketing section on Projects home page"
+  },
+  "c9Stvc": {
+    "defaultMessage": "Have questions or feedback? Contact GreatFrontEnd for support, inquiries, or partnership opportunities. We're here to help front end engineers succeed.",
+    "description": "Description of Contact Us page"
   },
   "cB23kJ": {
     "defaultMessage": "Security | Profile",
@@ -6030,6 +6086,10 @@
   "cWKGyh": {
     "defaultMessage": "You have just gained {points} rep for completing the project! 🔥",
     "description": "Success message after submitting a project"
+  },
+  "cWZk16": {
+    "defaultMessage": "Start Tasks - Unlock {discount}% Off",
+    "description": "Title of Rewards tasks page"
   },
   "cYRco3": {
     "defaultMessage": "{questionCount}+ most important React interview questions on component architecture, hooks, state management, performance, and real-world UI components.",
@@ -6095,6 +6155,10 @@
     "defaultMessage": "There are many ways to host your site. Our recommended hosts are:",
     "description": "Description for recommended hosts in project challenge FAQs"
   },
+  "cw35KA": {
+    "defaultMessage": "Roadmap | GreatFrontEnd Interviews",
+    "description": "Title of interview roadmap page"
+  },
   "cx8XeF": {
     "defaultMessage": "Invalid student email",
     "description": "Button label for student discount"
@@ -6106,6 +6170,10 @@
   "cxo3yi": {
     "defaultMessage": "Bring your own framework",
     "description": "Title for bring your own framework feature"
+  },
+  "d+1G/V": {
+    "defaultMessage": "What's New | GreatFrontEnd",
+    "description": "Title of GreatFrontEnd blog what's new page"
   },
   "d+wYSW": {
     "defaultMessage": "Sign up for a free GreatFrontEnd account to track your progress and access premium",
@@ -6174,6 +6242,10 @@
   "dWy8fS": {
     "defaultMessage": "Success!",
     "description": "Success toast message title for disconnect social"
+  },
+  "dYeq98": {
+    "defaultMessage": "Monitor your front end interview preparation progress and milestones.",
+    "description": "Description of dashboard page"
   },
   "da4RLj": {
     "defaultMessage": "Google logo",
@@ -6271,10 +6343,6 @@
     "defaultMessage": "Reset Progress",
     "description": "Title for reset progress confirmation dialog"
   },
-  "eC2IBn": {
-    "defaultMessage": "Roadmap for GreatFrontEnd in Projects",
-    "description": "Title of interview roadmap page"
-  },
   "eC4GRM": {
     "defaultMessage": "Filter user submissions by whether you have completed their corresponding challenges",
     "description": "Tooltip for Status filter for projects list"
@@ -6302,6 +6370,10 @@
   "eOYq41": {
     "defaultMessage": "Add \"{parentSkill} - {skillName}\" to the skills used for this challenge?",
     "description": "Dialog title for challenge session"
+  },
+  "ePTKHr": {
+    "defaultMessage": "GreatFrontEnd Blog - News and insights for Front End Engineers",
+    "description": "Title of GreatFrontEnd blog homepage"
   },
   "ePyk/V": {
     "defaultMessage": "Get notified about new front end resources, interview tips and practice questions",
@@ -6523,10 +6595,6 @@
     "defaultMessage": "View more",
     "description": "Label of collapsed guide button"
   },
-  "fiHpIm": {
-    "defaultMessage": "Here you'll find a curated collection of our most insightful and engaging blog content, neatly organized into series for your convenience. Each series focuses on a unique theme or topic providing a deep dive subject.",
-    "description": "Description of GreatFrontEnd blog explore series page"
-  },
   "fifBZf": {
     "defaultMessage": "Your edits have been successfully saved. Thank you for contributing to our community!",
     "description": "Update challenge success message"
@@ -6578,10 +6646,6 @@
   "fy7XZW": {
     "defaultMessage": "Detailed test scenarios for UI questions",
     "description": "Features for test code section of homepage"
-  },
-  "fzfMZ2": {
-    "defaultMessage": "Explore series | Blog",
-    "description": "Title of GreatFrontEnd blog explore series page"
   },
   "g+jqM2": {
     "defaultMessage": "You currently have <bold>unlimited premium credits</bold>. Proceed to unlock?",
@@ -6659,6 +6723,10 @@
     "defaultMessage": "<authorLink>{author}</authorLink> left a question on <submissionLink>{entityTitle}</submissionLink> {timestamp}",
     "description": "Notification for question left on your submission"
   },
+  "gZ3W0t": {
+    "defaultMessage": "Dashboard - Track your interview preparation progress",
+    "description": "Title of dashboard page"
+  },
   "gZL62Q": {
     "defaultMessage": "Change password for {userEmail}",
     "description": "Title of Change Password page"
@@ -6726,10 +6794,6 @@
   "h2eWtB": {
     "defaultMessage": "Build dynamic user interfaces using HTML, CSS, JavaScript, or popular UI frameworks like React, Angular, or Vue.",
     "description": "Description for UI question format page"
-  },
-  "h37Wmk": {
-    "defaultMessage": "Discover roadmap for upcoming features in Great Frontend Projects.",
-    "description": "Description for roadmap page in projects"
   },
   "h38yCs": {
     "defaultMessage": "Questions List",
@@ -7283,10 +7347,6 @@
     "defaultMessage": "Submission title",
     "description": "Label for submission title input on project submit page"
   },
-  "kn+R8V": {
-    "defaultMessage": "Have questions, feedback, or anything to say? Let us know and we will get back as soon as possible.",
-    "description": "Description of Contact Us page"
-  },
   "kngdhG": {
     "defaultMessage": "Start tasks",
     "description": "Start rewards tasks to get discount"
@@ -7410,6 +7470,10 @@
   "lKKC9U": {
     "defaultMessage": "Core System Design techniques and in-depth solutions to common questions like building a social media feed, autocomplete component, e-commerce website.",
     "description": "Description for frontend system design guide"
+  },
+  "lKLdG4": {
+    "defaultMessage": "{seriesName} | Series | GreatFrontEnd",
+    "description": "Social title for series page"
   },
   "lMWmct": {
     "defaultMessage": "An 'active day' is a day you completed at least 1 question",
@@ -7695,6 +7759,10 @@
     "defaultMessage": "Amazon logo",
     "description": "Amazon company logo"
   },
+  "ncfJNb": {
+    "defaultMessage": "Contact Us | GreatFrontEnd",
+    "description": "Social title of Contact Us page"
+  },
   "nd58SQ": {
     "defaultMessage": "{readingTime, plural, one {# minute total} other {# minutes total}}",
     "description": "Reading time of the article"
@@ -7714,6 +7782,10 @@
   "nivf5h": {
     "defaultMessage": "General",
     "description": "Profile settings tab title"
+  },
+  "nkhVnD": {
+    "defaultMessage": "Browse curated content series on front end development. Explore structured guides, tutorials, and expert insights to deepen your knowledge and boost your skills.",
+    "description": "Description of GreatFrontEnd blog explore series page"
   },
   "nll//D": {
     "defaultMessage": "What does \"lifetime access\" to GreatFrontEnd Interviews mean?",
@@ -8343,6 +8415,10 @@
     "defaultMessage": "Explore study plans that help you prepare for your front end interviews regardless of time left. Efficiently focus on topics that give you the most mileage for time.",
     "description": "Page description for study plans listing"
   },
+  "s9Oi92": {
+    "defaultMessage": "Terms of Service | GreatFrontEnd",
+    "description": "Title of Terms of Service page"
+  },
   "sAA7bn": {
     "defaultMessage": "Premium",
     "description": "Tooltip label for premium badge"
@@ -8394,10 +8470,6 @@
   "sYQ9YX": {
     "defaultMessage": "Username already exists",
     "description": "Error for user already exists"
-  },
-  "saFHOR": {
-    "defaultMessage": "Learn new skills, improve your techniques and stay updated on latest front end trends and developments.",
-    "description": "Description of GreatFrontEnd blog homepage"
   },
   "saKoIy": {
     "defaultMessage": "Join Discord (public)",
@@ -8594,10 +8666,6 @@
   "thqnR6": {
     "defaultMessage": "Click here to view the full solution and other System Design guides.",
     "description": "Button label within embed"
-  },
-  "tk2fQh": {
-    "defaultMessage": "Social rewards",
-    "description": "Title of Rewards page"
   },
   "tnHfa2": {
     "defaultMessage": "Move line down",
@@ -8955,10 +9023,6 @@
     "defaultMessage": "Team",
     "description": "Link to company's team page"
   },
-  "wA6yn6": {
-    "defaultMessage": "Get Started - One-Stop to Prepare for your Front End Interviews",
-    "description": "Title of Get Started page"
-  },
   "wAOHw9": {
     "defaultMessage": "Similar Questions",
     "description": "Header for similar questions to the current question"
@@ -9099,6 +9163,10 @@
     "defaultMessage": "Front End Interview Playbooks for Target Companies",
     "description": "Page title for company guides listing"
   },
+  "xR9d8+": {
+    "defaultMessage": "Get Started - One-stop to prepare for your Front End Interviews",
+    "description": "Title of Get Started page"
+  },
   "xWAt8Q": {
     "defaultMessage": "The ultimate Front End Interview preparation platform.",
     "description": "Description of GreatFrontEnd page"
@@ -9163,6 +9231,10 @@
     "defaultMessage": "{points} Reputation",
     "description": "Label showing reputation count in profile header of Projects sidebar"
   },
+  "y/r8Q+": {
+    "defaultMessage": "Roadmap | GreatFrontEnd Projects",
+    "description": "Social title of interview roadmap page"
+  },
   "y16Lzt": {
     "defaultMessage": "Find out what questions companies are asking their candidates.",
     "description": "Subtitle for company-tagged questions feature"
@@ -9174,10 +9246,6 @@
   "y4v8AZ": {
     "defaultMessage": "Component libraries",
     "description": "Title for \"Component libraries\" feature on Projects home page"
-  },
-  "y5OP5O": {
-    "defaultMessage": "Here you'll find curated collection of our most insightful and engaging blog content, neatly organized into series for your convenience. Each series focuses on a unique theme or topic providing deep dive subject.",
-    "description": "Description of GreatFrontEnd blog what's new page"
   },
   "y6DqsF": {
     "defaultMessage": "Search in the list",
@@ -9275,6 +9343,10 @@
     "defaultMessage": "Expand filters",
     "description": "Tooltip for expand filters"
   },
+  "yoj8R9": {
+    "defaultMessage": "Review the terms of service for GreatFrontEnd. Understand the rules, guidelines, and user responsibilities for accessing and using our platform.",
+    "description": "Title of Terms of Service page"
+  },
   "ypT9B0": {
     "defaultMessage": "Answering \"Why work here\"",
     "description": "How to answer the \"why work here\" question in behavioral interviews"
@@ -9302,6 +9374,10 @@
   "yw92sr": {
     "defaultMessage": "Unlike other challenge platforms, all our projects are modular with one other as they are constructed with the same design system. Easily mix and match any component or project you build to craft a unique app.",
     "description": "Description of 'Personalized projects' feature in Projects marketing page"
+  },
+  "yyYVov": {
+    "defaultMessage": "Roadmap - Upcoming features and updates on GreatFrontEnd Interviews",
+    "description": "Title of interview roadmap page"
   },
   "z06VRE": {
     "defaultMessage": "To bridge <keywords>skill gaps</keywords>",
