@@ -5,11 +5,13 @@ import type * as trpcNext from '@trpc/server/adapters/next';
 
 export async function createContext({
   req,
+  res,
 }: trpcNext.CreateNextContextOptions) {
   const viewer = await readViewerFromToken(req.cookies['supabase-auth-token']);
 
   return {
     req,
+    res,
     viewer,
   };
 }

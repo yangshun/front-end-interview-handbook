@@ -108,13 +108,21 @@ export const purchasesRouter = router({
         plans,
       };
     }),
-  lastPaymentError: userProcedure.query(async ({ ctx: { viewer } }) => {
+  lastPaymentError: userProcedure.query(async ({ ctx }) => {
+    // Set headers to disable caching
+    ctx.res.setHeader(
+      'Cache-Control',
+      'no-store, no-cache, must-revalidate, proxy-revalidate',
+    );
+    ctx.res.setHeader('Pragma', 'no-cache');
+    ctx.res.setHeader('Expires', '0');
+
     const userProfile = await prisma.profile.findFirst({
       select: {
         stripeCustomer: true,
       },
       where: {
-        id: viewer.id,
+        id: ctx.viewer.id,
       },
     });
 
