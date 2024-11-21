@@ -1,7 +1,9 @@
 import clsx from 'clsx';
 import { useEffect, useRef, useState } from 'react';
+import url from 'url';
 
 import { useGitHubStars } from '~/hooks/useGitHubData';
+import { SCROLL_HASH_INTERVIEWS_DASHBOARD_RECOMMENDED_PREPARATION } from '~/hooks/useScrollToHash';
 
 import InterviewsContentSliderCard from '~/components/interviews/common/InterviewsContentSliderCard';
 import type { QuestionFrameworkOrLanguage } from '~/components/interviews/questions/common/QuestionsTypes';
@@ -13,6 +15,7 @@ import {
 } from '~/components/ui/theme';
 
 import * as TabsPrimitive from '@radix-ui/react-tabs';
+import { useUser } from '@supabase/auth-helpers-react';
 
 type Props = Readonly<{
   frameworkOrLanguage?: QuestionFrameworkOrLanguage;
@@ -21,6 +24,7 @@ type Props = Readonly<{
 export default function InterviewsQuestionsCategoryContentSlider({
   frameworkOrLanguage,
 }: Props) {
+  const user = useUser();
   const intl = useIntl();
   const [index, setIndex] = useState(0);
   const timer = useRef<NodeJS.Timeout>();
@@ -78,12 +82,21 @@ export default function InterviewsQuestionsCategoryContentSlider({
         id="9Oyn4m"
         values={{
           anchor: (chunks) => (
-            <Anchor href="/front-end-interview-playbook">{chunks}</Anchor>
+            <Anchor
+              href={url.format({
+                hash: SCROLL_HASH_INTERVIEWS_DASHBOARD_RECOMMENDED_PREPARATION,
+                pathname: user ? '/dashboard' : '/get-started',
+              })}>
+              {chunks}
+            </Anchor>
           ),
         }}
       />
     ),
-    href: '/front-end-interview-playbook',
+    href: url.format({
+      hash: SCROLL_HASH_INTERVIEWS_DASHBOARD_RECOMMENDED_PREPARATION,
+      pathname: user ? '/interviews/dashboard' : '/get-started',
+    }),
     title: intl.formatMessage({
       defaultMessage: "Don't waste time on mindless grinding",
       description: 'Title for front end interview roadmap',
@@ -123,12 +136,15 @@ export default function InterviewsQuestionsCategoryContentSlider({
         setIndex(data.findIndex(({ value }) => value === newValue));
       }}>
       {data.map((item) => (
-        <TabsPrimitive.Content key={item.value} value={item.value}>
+        <TabsPrimitive.Content
+          key={item.value}
+          className={clsx(
+            data.length > 1 &&
+              'h-[152px] sm:h-[134px] lg:h-[96px] min-[1186px]:h-[152px]', // Sync the min-width breakpoint with InterviewsQuestionsCategoryPage
+          )}
+          value={item.value}>
           <InterviewsContentSliderCard
-            className={clsx(
-              data.length > 1 &&
-                'h-[152px] sm:h-[134px] lg:h-[96px] min-[1186px]:h-[152px]', // Sync the min-width breakpoint with InterviewsQuestionsCategoryPage
-            )}
+            className="h-auto"
             count={item.count}
             description={item.description}
             href={item.href}

@@ -4,6 +4,7 @@ import { FaCheck } from 'react-icons/fa6';
 import { RiArrowRightLine } from 'react-icons/ri';
 
 import { trpc } from '~/hooks/trpc';
+import { SCROLL_HASH_INTERVIEWS_DASHBOARD_RECOMMENDED_PREPARATION } from '~/hooks/useScrollToHash';
 
 import { useGuidesData } from '~/data/Guides';
 
@@ -252,7 +253,9 @@ export default function InterviewsDashboardRecommendedPreparationStrategy({
   ];
 
   return (
-    <div className="flex flex-col gap-8">
+    <div
+      className={clsx('flex flex-col gap-8', 'scroll-mt-36 lg:scroll-mt-20')}
+      id={SCROLL_HASH_INTERVIEWS_DASHBOARD_RECOMMENDED_PREPARATION}>
       <Heading className={themeTextColor} color="custom" level="heading5">
         <FormattedMessage
           defaultMessage="Recommended preparation"
