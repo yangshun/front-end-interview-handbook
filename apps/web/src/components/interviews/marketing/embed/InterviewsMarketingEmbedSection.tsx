@@ -206,15 +206,6 @@ export default function InterviewsMarketingEmbedSection({
                   label: tab.value,
                 });
                 setSelectedTab(tab.value);
-                containerRef.current?.scrollIntoView({
-                  behavior:
-                    // Coding workspace contains some scrolling interaction as well, which
-                    // interferes with a smooth scrollIntoView(), so for embed of workspaces
-                    // we scroll instantly.
-                    tab.value === 'javascript' || tab.value === 'user-interface'
-                      ? 'auto'
-                      : 'smooth',
-                });
               }}
             />
           ))}
