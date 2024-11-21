@@ -122,6 +122,7 @@ type Props = Readonly<{
         logoUrl: string;
         name: string;
       }>;
+      offersLabel?: JSX.Element;
     }
   >;
 }>;
@@ -145,14 +146,18 @@ export default function InterviewsTestimonialsSlider({ data }: Props) {
 
   const overview = [
     {
-      label: intl.formatMessage(
-        {
-          defaultMessage: '{offerCount, plural,=1 {1 offer} other {# offers}}',
-          description: 'Testimonials overview',
-          id: 'GUGImr',
-        },
-        { offerCount: data[currentItemIndex].offers.length },
-      ),
+      id: 'offers',
+      label:
+        data[currentItemIndex]?.offersLabel ||
+        intl.formatMessage(
+          {
+            defaultMessage:
+              '{offerCount, plural,=1 {1 offer} other {# offers}}',
+            description: 'Testimonials overview',
+            id: 'GUGImr',
+          },
+          { offerCount: data[currentItemIndex].offers.length },
+        ),
       logos: data[currentItemIndex].offers,
       subtitle: intl.formatMessage({
         defaultMessage: 'Received after using GreatFrontEnd',
@@ -162,6 +167,7 @@ export default function InterviewsTestimonialsSlider({ data }: Props) {
     },
     data[currentItemIndex].compensationMultiplier
       ? {
+          id: 'compensation',
           label: data[currentItemIndex].compensationMultiplier,
           subtitle: intl.formatMessage({
             defaultMessage: 'Increase in total compensation',
@@ -221,10 +227,8 @@ export default function InterviewsTestimonialsSlider({ data }: Props) {
           )}>
           {overview
             .flatMap((item) => (item != null ? [item] : []))
-            .map(({ label, subtitle, logos }) => (
-              <div
-                key={label}
-                className={clsx('flex flex-1 items-center gap-6')}>
+            .map(({ id, subtitle, logos, label }) => (
+              <div key={id} className={clsx('flex flex-1 items-center gap-6')}>
                 <div
                   className={clsx(
                     'h-6 w-0.5',

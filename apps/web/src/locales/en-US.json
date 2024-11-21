@@ -2847,6 +2847,10 @@
     "defaultMessage": "An error has occurred. Please try again later and contact support if the error persists.",
     "description": "Error message shown to user when they are trying to checkout but it fails"
   },
+  "HkIrn9": {
+    "defaultMessage": "Principal-level offers",
+    "description": "Label for offers"
+  },
   "HlRbK4": {
     "defaultMessage": "High quality solutions",
     "description": "Title for high quality solutions feature"
@@ -7154,6 +7158,10 @@
   "jYsoqB": {
     "defaultMessage": "Component libraries for your portfolio",
     "description": "Title for recommended action for new projects platform user"
+  },
+  "jZ+Gw0": {
+    "defaultMessage": "{offersCount} Senior offers",
+    "description": "Label for offers"
   },
   "jZFgzW": {
     "defaultMessage": "Hear it from our users",

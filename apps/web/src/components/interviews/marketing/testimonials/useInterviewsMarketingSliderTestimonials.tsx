@@ -1,4 +1,5 @@
 import { InterviewsMarketingTestimonialsDict } from '~/components/interviews/marketing/testimonials/InterviewsMarketingTestimonials';
+import { FormattedMessage } from '~/components/intl';
 
 export default function useInterviewsMarketingSliderTestimonials() {
   const testimonials = InterviewsMarketingTestimonialsDict();
@@ -63,6 +64,14 @@ export default function useInterviewsMarketingSliderTestimonials() {
           name: 'Discord',
         },
       ],
+      offersLabel: (
+        <FormattedMessage
+          defaultMessage="{offersCount} Senior offers"
+          description="Label for offers"
+          id="jZ+Gw0"
+          values={{ offersCount: 4 }}
+        />
+      ),
     },
     {
       ...testimonials.edWang,
@@ -73,6 +82,13 @@ export default function useInterviewsMarketingSliderTestimonials() {
           name: 'Microsoft',
         },
       ],
+      offersLabel: (
+        <FormattedMessage
+          defaultMessage="Principal-level offers"
+          description="Label for offers"
+          id="HkIrn9"
+        />
+      ),
     },
     {
       ...testimonials.fernando,
