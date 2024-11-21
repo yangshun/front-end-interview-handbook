@@ -17,7 +17,13 @@ import type {
 
 type Props = Omit<
   React.ComponentProps<typeof InterviewsQuestionsCategoryPage>,
-  'category' | 'categoryValue' | 'description' | 'list' | 'questionList' | 'searchPlaceholder' | 'title'
+  | 'category'
+  | 'categoryValue'
+  | 'description'
+  | 'list'
+  | 'questionList'
+  | 'searchPlaceholder'
+  | 'title'
 > &
   Readonly<{
     framework: QuestionFramework;
@@ -78,6 +84,7 @@ export default function InterviewsQuestionsCategoryFrameworkPage({
       searchPlaceholder={frameworks[framework].getSearchPlaceholder(
         totalQuestionsCount,
       )}
+      selectedCategoryTab={selectedTab}
       title={frameworks[framework].longName}
       {...props}
     />
