@@ -28,7 +28,7 @@ import {
   sortQuestionsMultiple,
   tabulateQuestionsAttributesUnion,
 } from '~/components/interviews/questions/listings/filters/QuestionsProcessor';
-import InterviewsStudyListSelector from '~/components/interviews/questions/listings/learning/InterviewsStudyListSelector';
+import InterviewsQuestionsListSlideOutSelector from '~/components/interviews/questions/listings/slideout/InterviewsQuestionsListSlideOutSelector';
 import { FormattedMessage, useIntl } from '~/components/intl';
 import Badge from '~/components/ui/Badge';
 import Button from '~/components/ui/Button';
@@ -46,7 +46,7 @@ import {
   themeTextInvertColor,
 } from '~/components/ui/theme';
 
-import InterviewsStudyListQuestions from './InterviewsStudyListQuestions';
+import InterviewsQuestionsListSlideOutContents from './InterviewsQuestionsListSlideOutContents';
 import useQuestionsWithCompletionStatus from '../filters/hooks/useQuestionsWithCompletionStatus';
 import QuestionsListSortButton from '../items/QuestionsListSortButton';
 import type { QuestionListTypeData } from '../../common/questionHref';
@@ -428,7 +428,7 @@ function Contents({
           <Spinner size="sm" />
         </div>
       ) : (
-        <InterviewsStudyListQuestions
+        <InterviewsQuestionsListSlideOutContents
           checkIfCompletedQuestion={(question) => question.isCompleted}
           currentListType={currentListType}
           listType={listType}
@@ -455,7 +455,7 @@ type Props = Readonly<{
   title?: string;
 }>;
 
-export default function QuestionsStudyListSlideOut({
+export default function InterviewsQuestionsListSlideOut({
   isLoading,
   listType,
   currentQuestionPosition,
@@ -535,7 +535,7 @@ export default function QuestionsStudyListSlideOut({
       padding={false}
       size="xl"
       title={
-        <InterviewsStudyListSelector
+        <InterviewsQuestionsListSlideOutSelector
           listType={activeListType!}
           onChangeListType={setCurrentListType}
         />

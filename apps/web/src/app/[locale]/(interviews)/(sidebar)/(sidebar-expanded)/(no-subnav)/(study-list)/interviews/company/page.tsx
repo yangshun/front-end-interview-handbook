@@ -2,7 +2,7 @@ import type { Metadata } from 'next/types';
 
 import { INTERVIEWS_REVAMP_BOTTOM_CONTENT } from '~/data/FeatureFlags';
 
-import InterviewsCompanyGuideListPage from '~/components/interviews/questions/listings/learning/company/InterviewsCompanyGuideListPage';
+import InterviewsCompanyGuideListPage from '~/components/interviews/questions/listings/study-list/company/InterviewsCompanyGuideListPage';
 
 import { fetchInterviewListingBottomContent } from '~/db/contentlayer/InterviewsListingBottomContentReader';
 import { fetchInterviewsStudyLists } from '~/db/contentlayer/InterviewsStudyListReader';

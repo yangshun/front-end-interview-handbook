@@ -23,7 +23,7 @@ type Props = Readonly<{
   studyListKey?: string;
 }>;
 
-export default function QuestionsStudyListBottomNav({
+export default function InterviewsStudyListBottomNav({
   paginationEl,
   question,
   studyListKey,

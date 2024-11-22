@@ -17,7 +17,7 @@ type Props = Readonly<{
   size?: TextSize;
 }>;
 
-export default function InterviewsStudyListQuestionHovercardContents({
+export default function InterviewsQuestionsListSlideOutHovercardContents({
   listType,
   question,
   size = 'body3',

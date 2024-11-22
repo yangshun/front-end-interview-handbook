@@ -7,8 +7,8 @@ import { QuestionFrameworkLabels } from '~/components/interviews/questions/commo
 import type { QuestionUserInterfaceMode } from '~/components/interviews/questions/common/QuestionUserInterfacePath';
 import { determineFrameworkAndMode } from '~/components/interviews/questions/common/QuestionUserInterfacePath';
 import { sortQuestionsMultiple } from '~/components/interviews/questions/listings/filters/QuestionsProcessor';
-import QuestionsStudyListBottomNav from '~/components/interviews/questions/listings/learning/QuestionsStudyListBottomNav';
-import QuestionsStudyListSlideOutButton from '~/components/interviews/questions/listings/learning/QuestionsStudyListSlideOutButton';
+import InterviewsQuestionsListSlideOutButton from '~/components/interviews/questions/listings/slideout/InterviewsQuestionsListSlideOutButton';
+import InterviewsStudyListBottomNav from '~/components/interviews/questions/listings/study-list/InterviewsStudyListBottomNav';
 import CodingWorkspacePaywallPage from '~/components/workspace/common/CodingWorkspacePaywallPage';
 import UserInterfaceCodingWorkspacePage from '~/components/workspace/user-interface/UserInterfaceCodingWorkspacePage';
 
@@ -251,9 +251,9 @@ export default async function Page({ params }: Props) {
             metadata={question.metadata}
             mode="practice"
           />
-          <QuestionsStudyListBottomNav
+          <InterviewsStudyListBottomNav
             paginationEl={
-              <QuestionsStudyListSlideOutButton
+              <InterviewsQuestionsListSlideOutButton
                 metadata={question.metadata}
                 studyListKey={studyListKey}
               />

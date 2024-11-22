@@ -4,7 +4,7 @@ import { CourseJsonLd } from 'next-seo';
 
 import { INTERVIEWS_REVAMP_BOTTOM_CONTENT } from '~/data/FeatureFlags';
 
-import InterviewsBlind75Page from '~/components/interviews/questions/listings/learning/study-plans/InterviewsBlind75Page';
+import InterviewsStudyPlanBlind75Page from '~/components/interviews/questions/listings/study-list/study-plans/InterviewsStudyPlanBlind75Page';
 
 import { fetchInterviewListingBottomContent } from '~/db/contentlayer/InterviewsListingBottomContentReader';
 import { fetchInterviewsStudyList } from '~/db/contentlayer/InterviewsStudyListReader';
@@ -74,7 +74,7 @@ export default async function Page({ params }: Props) {
         }}
         useAppDir={true}
       />
-      <InterviewsBlind75Page
+      <InterviewsStudyPlanBlind75Page
         bottomContent={
           INTERVIEWS_REVAMP_BOTTOM_CONTENT ? bottomContent : undefined
         }

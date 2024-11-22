@@ -12,7 +12,7 @@ import { BlogSeriesDocument } from '../components/blog/contentlayer/BlogSeriesDo
 import { BlogSubseriesDocument } from '../components/blog/contentlayer/BlogSubseriesDocument';
 import { JobsPostingDocument } from '../components/hiring/contentlayer/JobsPostingDocument';
 import { InterviewsListingBottomContentDocument } from '../components/interviews/questions/listings/InterviewsListingBottomContentDocument';
-import { InterviewsStudyListDocument } from '../components/interviews/questions/listings/learning/InterviewsStudyListDocument';
+import { InterviewsStudyListDocument } from '../components/interviews/questions/listings/study-list/InterviewsStudyListDocument';
 import { ProjectsChallengeAPIWriteupDocument } from '../components/projects/contentlayer/ProjectsChallengeAPIWriteupDocument';
 import { ProjectsChallengeAppendixDocument } from '../components/projects/contentlayer/ProjectsChallengeAppendixDocument';
 import { ProjectsChallengeBriefDocument } from '../components/projects/contentlayer/ProjectsChallengeBriefDocument';

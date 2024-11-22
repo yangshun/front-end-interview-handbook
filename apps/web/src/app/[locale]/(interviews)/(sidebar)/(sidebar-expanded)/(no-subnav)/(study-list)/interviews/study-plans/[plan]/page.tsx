@@ -4,7 +4,7 @@ import { CourseJsonLd } from 'next-seo';
 
 import { INTERVIEWS_REVAMP_BOTTOM_CONTENT } from '~/data/FeatureFlags';
 
-import InterviewsStudyPlanPage from '~/components/interviews/questions/listings/learning/study-plans/InterviewsStudyPlanPage';
+import InterviewsStudyPlanPage from '~/components/interviews/questions/listings/study-list/study-plans/InterviewsStudyPlanPage';
 
 import { fetchInterviewListingBottomContent } from '~/db/contentlayer/InterviewsListingBottomContentReader';
 import {

@@ -5,7 +5,7 @@ import {
   categorizeFocusAreas,
   FocusAreaIcons,
 } from '~/components/interviews/questions/content/study-list/StudyListUtils';
-import InterviewsStudyListCard from '~/components/interviews/questions/listings/learning/InterviewsStudyListCard';
+import InterviewsStudyListCard from '~/components/interviews/questions/listings/study-list/InterviewsStudyListCard';
 import { useIntl } from '~/components/intl';
 import Text from '~/components/ui/Text';
 

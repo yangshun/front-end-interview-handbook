@@ -6,7 +6,7 @@ import type {
 
 import type { QuestionProgress } from '~/db/QuestionsProgressTypes';
 
-import QuestionsListSession from './QuestionsListSession';
+import InterviewsStudyListSession from './InterviewsStudyListSession';
 
 type Props = React.ComponentProps<typeof InterviewsPageHeader> &
   Readonly<{
@@ -17,7 +17,7 @@ type Props = React.ComponentProps<typeof InterviewsPageHeader> &
     questionsSessionKey?: string;
   }>;
 
-export default function QuestionsStudyListPageTitleSection({
+export default function InterviewsStudyListPageTitleSection({
   feature,
   overallProgress,
   progressTrackingAvailableToNonPremiumUsers = false,
@@ -31,7 +31,7 @@ export default function QuestionsStudyListPageTitleSection({
       {...props}
       sideElement={
         questionsSessionKey ? (
-          <QuestionsListSession
+          <InterviewsStudyListSession
             feature={feature}
             overallProgress={overallProgress}
             progressTrackingAvailableToNonPremiumUsers={

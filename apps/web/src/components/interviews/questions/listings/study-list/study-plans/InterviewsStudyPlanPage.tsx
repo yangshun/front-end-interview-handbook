@@ -19,8 +19,8 @@ import type {
 } from '~/components/interviews/questions/common/QuestionsTypes';
 import { StudyPlanIcons } from '~/components/interviews/questions/content/study-list/StudyListUtils';
 import QuestionsList from '~/components/interviews/questions/listings/items/QuestionsList';
-import QuestionsStudyList from '~/components/interviews/questions/listings/learning/QuestionsStudyList';
-import QuestionsStudyListPageTitleSection from '~/components/interviews/questions/listings/learning/QuestionsStudyListPageTitleSection';
+import InterviewsStudyListPageTitleSection from '~/components/interviews/questions/listings/study-list/InterviewsStudyListPageTitleSection';
+import InterviewsStudyListQuestions from '~/components/interviews/questions/listings/study-list/InterviewsStudyListQuestions';
 import MDXContent from '~/components/mdx/MDXContent';
 import Divider from '~/components/ui/Divider';
 import Section from '~/components/ui/Heading/HeadingContext';
@@ -73,7 +73,7 @@ export default function InterviewsStudyPlanPage({
   return (
     <div className={clsx('flex flex-col gap-y-10 xl:gap-y-16', 'relative')}>
       <div className="relative flex flex-col gap-y-8">
-        <QuestionsStudyListPageTitleSection
+        <InterviewsStudyListPageTitleSection
           description={studyList.description}
           feature="study-plans"
           features={features}
@@ -87,7 +87,7 @@ export default function InterviewsStudyPlanPage({
       <Section>
         <div>
           {canViewStudyPlans ? (
-            <QuestionsStudyList
+            <InterviewsStudyListQuestions
               listKey={studyList.slug}
               overallProgress={questionsOverallProgress}
               questions={questions}

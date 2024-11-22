@@ -3,7 +3,7 @@ import type { InterviewsStudyList } from 'contentlayer/generated';
 import { RiArrowRightLine } from 'react-icons/ri';
 import { useMediaQuery } from 'usehooks-ts';
 
-import InterviewsStudyListCard from '~/components/interviews/questions/listings/learning/InterviewsStudyListCard';
+import InterviewsStudyListCard from '~/components/interviews/questions/listings/study-list/InterviewsStudyListCard';
 import { FormattedMessage, useIntl } from '~/components/intl';
 import Button from '~/components/ui/Button';
 import Container from '~/components/ui/Container';

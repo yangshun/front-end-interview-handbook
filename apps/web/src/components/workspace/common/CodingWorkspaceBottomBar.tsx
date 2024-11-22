@@ -4,7 +4,7 @@ import type { ReactNode } from 'react';
 import QuestionProgressAction from '~/components/interviews/questions/common/QuestionProgressAction';
 import type { QuestionMetadata } from '~/components/interviews/questions/common/QuestionsTypes';
 import QuestionNextQuestions from '~/components/interviews/questions/content/QuestionNextQuestions';
-import QuestionsStudyListSlideOutButton from '~/components/interviews/questions/listings/learning/QuestionsStudyListSlideOutButton';
+import InterviewsQuestionsListSlideOutButton from '~/components/interviews/questions/listings/slideout/InterviewsQuestionsListSlideOutButton';
 import Divider from '~/components/ui/Divider';
 
 import { useQueryQuestionProgress } from '~/db/QuestionsProgressClient';
@@ -45,7 +45,7 @@ export default function CodingWorkspaceBottomBar({
       )}
       {showQuestionsListButton && (
         <div className="absolute left-4 md:left-1/2 md:-translate-x-1/2">
-          <QuestionsStudyListSlideOutButton
+          <InterviewsQuestionsListSlideOutButton
             metadata={metadata}
             studyListKey={studyListKey}
           />

@@ -3,8 +3,8 @@ import type { Metadata } from 'next/types';
 import { ArticleJsonLd } from 'next-seo';
 
 import { sortQuestionsMultiple } from '~/components/interviews/questions/listings/filters/QuestionsProcessor';
-import QuestionsStudyListBottomNav from '~/components/interviews/questions/listings/learning/QuestionsStudyListBottomNav';
-import QuestionsStudyListSlideOutButton from '~/components/interviews/questions/listings/learning/QuestionsStudyListSlideOutButton';
+import InterviewsQuestionsListSlideOutButton from '~/components/interviews/questions/listings/slideout/InterviewsQuestionsListSlideOutButton';
+import InterviewsStudyListBottomNav from '~/components/interviews/questions/listings/study-list/InterviewsStudyListBottomNav';
 import CodingWorkspacePaywallPage from '~/components/workspace/common/CodingWorkspacePaywallPage';
 import JavaScriptCodingWorkspacePage from '~/components/workspace/javascript/JavaScriptCodingWorkspacePage';
 
@@ -143,9 +143,9 @@ export default async function Page({ params }: Props) {
             metadata={question.metadata}
             mode="practice"
           />
-          <QuestionsStudyListBottomNav
+          <InterviewsStudyListBottomNav
             paginationEl={
-              <QuestionsStudyListSlideOutButton
+              <InterviewsQuestionsListSlideOutButton
                 metadata={question.metadata}
                 studyListKey={studyListKey}
               />

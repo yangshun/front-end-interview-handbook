@@ -1,6 +1,6 @@
 import type { Metadata } from 'next/types';
 
-import InterviewsStudyPlansPage from '~/components/interviews/questions/listings/learning/study-plans/InterviewsStudyPlansPage';
+import InterviewsStudyPlansPage from '~/components/interviews/questions/listings/study-list/study-plans/InterviewsStudyPlansPage';
 
 import { fetchInterviewListingBottomContent } from '~/db/contentlayer/InterviewsListingBottomContentReader';
 import { fetchInterviewsStudyLists } from '~/db/contentlayer/InterviewsStudyListReader';

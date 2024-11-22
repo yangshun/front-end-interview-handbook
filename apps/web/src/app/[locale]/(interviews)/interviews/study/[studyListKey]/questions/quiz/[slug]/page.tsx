@@ -2,7 +2,7 @@ import type { Metadata } from 'next/types';
 import { ArticleJsonLd } from 'next-seo';
 
 import QuestionQuizContents from '~/components/interviews/questions/content/quiz/QuestionQuizContents';
-import QuestionsStudyListSlideOutButton from '~/components/interviews/questions/listings/learning/QuestionsStudyListSlideOutButton';
+import InterviewsQuestionsListSlideOutButton from '~/components/interviews/questions/listings/slideout/InterviewsQuestionsListSlideOutButton';
 
 import { readQuestionQuizContents } from '~/db/QuestionsContentsReader';
 import { fetchQuestionsListQuiz } from '~/db/QuestionsListReader';
@@ -77,7 +77,7 @@ export default async function Page({ params }: Props) {
       />
       <QuestionQuizContents
         paginationEl={
-          <QuestionsStudyListSlideOutButton
+          <InterviewsQuestionsListSlideOutButton
             metadata={question.metadata}
             studyListKey={studyListKey}
           />

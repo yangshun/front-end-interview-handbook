@@ -5,7 +5,7 @@ import { RiSearchLine } from 'react-icons/ri';
 
 import { trpc } from '~/hooks/trpc';
 
-import InterviewsStudyListCard from '~/components/interviews/questions/listings/learning/InterviewsStudyListCard';
+import InterviewsStudyListCard from '~/components/interviews/questions/listings/study-list/InterviewsStudyListCard';
 import { useIntl } from '~/components/intl';
 import EmptyState from '~/components/ui/EmptyState';
 import TextInput from '~/components/ui/TextInput';

@@ -22,7 +22,7 @@ type Props = Readonly<{
   questions: ReadonlyArray<QuestionMetadata>;
 }>;
 
-export default function QuestionsImportProgressModal({
+export default function InterviewsStudyListImportProgressDialog({
   questions,
   questionListKey,
   isShown,

@@ -20,13 +20,10 @@ import { themeBorderColor } from '~/components/ui/theme';
 import { hashQuestion } from '~/db/QuestionsUtils';
 
 import QuestionReportIssueButton from '../../common/QuestionReportIssueButton';
-import type {
-  QuestionMetadata,
-  QuestionQuiz,
-} from '../../common/QuestionsTypes';
+import type { QuestionMetadata,QuestionQuiz } from '../../common/QuestionsTypes';
 import useQuestionLogEventCopyContents from '../../common/useQuestionLogEventCopyContents';
 import useQuestionsAutoMarkAsComplete from '../../common/useQuestionsAutoMarkAsComplete';
-import QuestionsStudyListBottomNav from '../../listings/learning/QuestionsStudyListBottomNav';
+import InterviewsStudyListBottomNav from '../../listings/study-list/InterviewsStudyListBottomNav';
 import QuestionDifficultyLabel from '../../metadata/QuestionDifficultyLabel';
 import QuestionImportanceLabel from '../../metadata/QuestionImportanceLabel';
 import QuestionTopics from '../../metadata/QuestionTopics';
@@ -186,7 +183,7 @@ export default function QuestionQuizContents({
           )}
         </div>
       </div>
-      <QuestionsStudyListBottomNav
+      <InterviewsStudyListBottomNav
         paginationEl={paginationEl}
         question={question}
         studyListKey={studyListKey}

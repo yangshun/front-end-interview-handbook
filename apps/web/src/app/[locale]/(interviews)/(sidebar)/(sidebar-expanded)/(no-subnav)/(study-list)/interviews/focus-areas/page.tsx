@@ -1,6 +1,6 @@
 import type { Metadata } from 'next/types';
 
-import InterviewsFocusAreaListPage from '~/components/interviews/questions/listings/learning/focus-areas/InterviewsFocusAreaListPage';
+import InterviewsFocusAreaListPage from '~/components/interviews/questions/listings/study-list/focus-areas/InterviewsFocusAreaListPage';
 
 import { fetchInterviewListingBottomContent } from '~/db/contentlayer/InterviewsListingBottomContentReader';
 import { fetchInterviewsStudyLists } from '~/db/contentlayer/InterviewsStudyListReader';

@@ -24,8 +24,8 @@ import type {
   QuestionTopic,
 } from '~/components/interviews/questions/common/QuestionsTypes';
 import QuestionsList from '~/components/interviews/questions/listings/items/QuestionsList';
-import QuestionsStudyList from '~/components/interviews/questions/listings/learning/QuestionsStudyList';
-import QuestionsStudyListPageTitleSection from '~/components/interviews/questions/listings/learning/QuestionsStudyListPageTitleSection';
+import InterviewsStudyListPageTitleSection from '~/components/interviews/questions/listings/study-list/InterviewsStudyListPageTitleSection';
+import InterviewsStudyListQuestions from '~/components/interviews/questions/listings/study-list/InterviewsStudyListQuestions';
 import { useIntl } from '~/components/intl';
 import MDXContent from '~/components/mdx/MDXContent';
 import Divider from '~/components/ui/Divider';
@@ -122,7 +122,7 @@ export default function InterviewsCompanyGuidePage({
   return (
     <div className={clsx('flex flex-col gap-y-10 xl:gap-y-16', 'relative')}>
       <div className="relative flex flex-col gap-y-8">
-        <QuestionsStudyListPageTitleSection
+        <InterviewsStudyListPageTitleSection
           description={studyList.shortDescription}
           feature="company-guides"
           features={features}
@@ -194,7 +194,7 @@ export default function InterviewsCompanyGuidePage({
               )}
             </Heading>
             {canViewStudyPlans ? (
-              <QuestionsStudyList
+              <InterviewsStudyListQuestions
                 listKey={studyList.slug}
                 overallProgress={questionsOverallProgress}
                 questions={questions}

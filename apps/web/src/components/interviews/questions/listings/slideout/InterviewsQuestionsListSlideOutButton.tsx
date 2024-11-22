@@ -12,7 +12,7 @@ import {
   filterQuestions,
   sortQuestionsMultiple,
 } from '~/components/interviews/questions/listings/filters/QuestionsProcessor';
-import QuestionsStudyListSlideOut from '~/components/interviews/questions/listings/learning/QuestionsStudyListSlideOut';
+import InterviewsQuestionsListSlideOut from '~/components/interviews/questions/listings/slideout/InterviewsQuestionsListSlideOut';
 import Button from '~/components/ui/Button';
 
 import { hashQuestion } from '~/db/QuestionsUtils';
@@ -28,7 +28,7 @@ type Props = Readonly<{
   studyListKey?: string;
 }>;
 
-export default function QuestionsStudyListSlideOutButton({
+export default function InterviewsQuestionsListSlideOutButton({
   metadata,
   studyListKey,
 }: Props) {
@@ -101,7 +101,7 @@ export default function QuestionsStudyListSlideOutButton({
         }
         variant="tertiary"
       />
-      <QuestionsStudyListSlideOut
+      <InterviewsQuestionsListSlideOut
         currentQuestionPosition={currentQuestionIndex + 1}
         isLoading={isLoading}
         listType={data?.listType}

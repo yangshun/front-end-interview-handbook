@@ -4,7 +4,7 @@ import { CourseJsonLd } from 'next-seo';
 
 import { INTERVIEWS_REVAMP_BOTTOM_CONTENT } from '~/data/FeatureFlags';
 
-import InterviewsFocusAreaPage from '~/components/interviews/questions/listings/learning/focus-areas/InterviewsFocusAreaPage';
+import InterviewsFocusAreaPage from '~/components/interviews/questions/listings/study-list/focus-areas/InterviewsFocusAreaPage';
 
 import { fetchInterviewListingBottomContent } from '~/db/contentlayer/InterviewsListingBottomContentReader';
 import {

@@ -220,7 +220,7 @@ type Props = Readonly<{
   onChangeListType: (value: QuestionListTypeData) => void;
 }>;
 
-export default function InterviewsStudyListSelector({
+export default function InterviewsQuestionsListSlideOutSelector({
   listType,
   onChangeListType,
 }: Props) {

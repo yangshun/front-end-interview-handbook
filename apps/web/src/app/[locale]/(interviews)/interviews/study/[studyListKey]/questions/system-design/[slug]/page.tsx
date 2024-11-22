@@ -3,8 +3,8 @@ import type { Metadata } from 'next/types';
 
 import GuidesArticleJsonLd from '~/components/guides/GuidesArticleJsonLd';
 import InterviewsQuestionsSystemDesignPage from '~/components/interviews/questions/content/system-design/InterviewsQuestionsSystemDesignPage';
-import QuestionsStudyListBottomNav from '~/components/interviews/questions/listings/learning/QuestionsStudyListBottomNav';
-import QuestionsStudyListSlideOutButton from '~/components/interviews/questions/listings/learning/QuestionsStudyListSlideOutButton';
+import InterviewsQuestionsListSlideOutButton from '~/components/interviews/questions/listings/slideout/InterviewsQuestionsListSlideOutButton';
+import InterviewsStudyListBottomNav from '~/components/interviews/questions/listings/study-list/InterviewsStudyListBottomNav';
 
 import { readQuestionSystemDesignContents } from '~/db/QuestionsContentsReader';
 import { getIntlServerOnly } from '~/i18n';
@@ -110,9 +110,9 @@ export default async function Page({ params }: Props) {
       />
       <InterviewsQuestionsSystemDesignPage
         bottomNav={
-          <QuestionsStudyListBottomNav
+          <InterviewsStudyListBottomNav
             paginationEl={
-              <QuestionsStudyListSlideOutButton
+              <InterviewsQuestionsListSlideOutButton
                 metadata={question.metadata}
                 studyListKey={studyListKey}
               />

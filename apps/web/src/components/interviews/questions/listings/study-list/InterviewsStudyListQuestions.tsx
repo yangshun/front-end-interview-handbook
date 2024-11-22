@@ -10,7 +10,7 @@ import type { QuestionsCategorizedProgress } from '~/db/QuestionsUtils';
 
 import { questionListFilterNamespace } from '../../common/questionHref';
 
-export default function QuestionsStudyList({
+export default function InterviewsStudyListQuestions({
   listKey,
   overallProgress,
   questions,

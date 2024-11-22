@@ -10,7 +10,7 @@ import type { QuestionProgress } from '~/db/QuestionsProgressTypes';
 import InterviewsRecommendedPrepStrategyPopover from './InterviewsRecommendedPrepStrategyPopover';
 import InterviewsPageHeaderActions from '../common/InterviewsPageHeaderActions';
 import type { QuestionMetadata } from '../questions/common/QuestionsTypes';
-import QuestionsStudyListPageTitleSection from '../questions/listings/learning/QuestionsStudyListPageTitleSection';
+import InterviewsStudyListPageTitleSection from '../questions/listings/study-list/InterviewsStudyListPageTitleSection';
 
 type CommonProps = Readonly<{
   description: ReactNode;
@@ -94,7 +94,7 @@ export default function InterviewsRecommendedPrepStrategyPageTitleSection({
         </div>
       )}
       <div className="flex flex-col gap-8">
-        <QuestionsStudyListPageTitleSection
+        <InterviewsStudyListPageTitleSection
           description={description}
           features={features}
           overallProgress={overallProgress ?? []}

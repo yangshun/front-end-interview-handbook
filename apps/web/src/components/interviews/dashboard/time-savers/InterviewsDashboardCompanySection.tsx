@@ -1,6 +1,6 @@
 import type { InterviewsStudyList } from 'contentlayer/generated';
 
-import InterviewsStudyListCard from '~/components/interviews/questions/listings/learning/InterviewsStudyListCard';
+import InterviewsStudyListCard from '~/components/interviews/questions/listings/study-list/InterviewsStudyListCard';
 import { useIntl } from '~/components/intl';
 
 import InterviewsDashboardLearningSection from '../InterviewsDashboardLearningSection';

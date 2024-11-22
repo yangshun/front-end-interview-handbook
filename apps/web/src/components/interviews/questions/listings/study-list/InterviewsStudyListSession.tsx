@@ -29,8 +29,8 @@ import Text from '~/components/ui/Text';
 import type { QuestionProgress } from '~/db/QuestionsProgressTypes';
 import { questionsForImportProgress } from '~/db/QuestionsUtils';
 
-import QuestionsImportProgressModal from './QuestionsImportProgressModal';
-import { useStartLearningSessionMutation } from './QuestionsListSessionUtils';
+import InterviewsStudyListImportProgressDialog from './InterviewsStudyListImportProgressDialog';
+import { useStartLearningSessionMutation } from './InterviewsStudyListSessionUtils';
 import QuestionsProgressFraction from '../../common/QuestionsProgressFraction';
 
 import { useUser } from '@supabase/auth-helpers-react';
@@ -44,7 +44,7 @@ type Props = Readonly<{
   questions: ReadonlyArray<QuestionMetadata>;
 }>;
 
-export default function QuestionsListSession({
+export default function InterviewsStudyListSession({
   questionListKey,
   progressTrackingAvailableToNonPremiumUsers,
   questionCount,
@@ -435,7 +435,7 @@ export default function QuestionsListSession({
       })()}
       {/* Conditional rendering to clear states of the modal when reopen */}
       {showImportProgressModal && (
-        <QuestionsImportProgressModal
+        <InterviewsStudyListImportProgressDialog
           isShown={showImportProgressModal}
           questionListKey={questionListKey}
           questions={previousSessionQuestionProgress}

@@ -17,8 +17,8 @@ import type {
 } from '~/components/interviews/questions/common/QuestionsTypes';
 import { StudyPlanIcons } from '~/components/interviews/questions/content/study-list/StudyListUtils';
 import { countQuestionsByAccess } from '~/components/interviews/questions/listings/filters/QuestionsProcessor';
-import QuestionsStudyList from '~/components/interviews/questions/listings/learning/QuestionsStudyList';
 import QuestionListingAccessSummary from '~/components/interviews/questions/listings/stats/QuestionListingAccessSummary';
+import InterviewsStudyListQuestions from '~/components/interviews/questions/listings/study-list/InterviewsStudyListQuestions';
 import InterviewsRecommendedPrepStrategyPageTitleSection from '~/components/interviews/recommended/InterviewsRecommendedPrepStrategyPageTitleSection';
 import { FormattedMessage, useIntl } from '~/components/intl';
 import MDXContent from '~/components/mdx/MDXContent';
@@ -40,7 +40,7 @@ type Props = Readonly<{
   studyList: InterviewsStudyList;
 }>;
 
-export default function InterviewsBlind75Page({
+export default function InterviewsStudyPlanBlind75Page({
   bottomContent,
   studyList,
   questions,
@@ -121,7 +121,7 @@ export default function InterviewsBlind75Page({
       </div>
       <Section>
         <div className="flex flex-col gap-20">
-          <QuestionsStudyList
+          <InterviewsStudyListQuestions
             listKey={studyList.slug}
             overallProgress={questionsOverallProgress}
             questions={questions}

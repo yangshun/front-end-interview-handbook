@@ -16,8 +16,8 @@ import {
   createStudyListMapFromArray,
   StudyPlanIcons,
 } from '~/components/interviews/questions/content/study-list/StudyListUtils';
-import InterviewsStudyListCard from '~/components/interviews/questions/listings/learning/InterviewsStudyListCard';
-import InterviewsStudyPlanTestimonialsSection from '~/components/interviews/questions/listings/learning/study-plans/InterviewsStudyPlanTestimonialsSection';
+import InterviewsStudyListCard from '~/components/interviews/questions/listings/study-list/InterviewsStudyListCard';
+import InterviewsStudyPlanTestimonialsSection from '~/components/interviews/questions/listings/study-list/study-plans/InterviewsStudyPlanTestimonialsSection';
 import { useIntl } from '~/components/intl';
 import MDXContent from '~/components/mdx/MDXContent';
 import Divider from '~/components/ui/Divider';

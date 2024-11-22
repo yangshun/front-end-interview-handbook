@@ -8,7 +8,7 @@ import type { QuestionListTypeData } from '~/components/interviews/questions/com
 import { questionHrefWithListType } from '~/components/interviews/questions/common/questionHref';
 import type { QuestionMetadata } from '~/components/interviews/questions/common/QuestionsTypes';
 import QuestionsListItemProgressChip from '~/components/interviews/questions/listings/items/QuestionsListItemProgressChip';
-import InterviewsStudyListQuestionHovercardContents from '~/components/interviews/questions/listings/learning/InterviewsStudyListQuestionHovercardContents';
+import InterviewsQuestionsListSlideOutHovercardContents from '~/components/interviews/questions/listings/slideout/InterviewsQuestionsListSlideOutHovercardContents';
 import QuestionDifficultyLabel from '~/components/interviews/questions/metadata/QuestionDifficultyLabel';
 import QuestionFormatLabel from '~/components/interviews/questions/metadata/QuestionFormatLabel';
 import { useIntl } from '~/components/intl';
@@ -44,7 +44,7 @@ type Props<Q extends QuestionMetadata> = Readonly<{
   showCompanyPaywall?: boolean;
 }>;
 
-export default function InterviewsStudyListQuestions<
+export default function InterviewsQuestionsListSlideOutContents<
   Q extends QuestionMetadata,
 >({
   checkIfCompletedQuestion,
@@ -243,7 +243,7 @@ export default function InterviewsStudyListQuestions<
                       // Remove offset so that cursor can enter the card
                       // fast enough before the card disappears.
                       sideOffset={0}>
-                      <InterviewsStudyListQuestionHovercardContents
+                      <InterviewsQuestionsListSlideOutHovercardContents
                         listType={currentListType}
                         question={questionMetadata}
                       />
