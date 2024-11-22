@@ -43,7 +43,7 @@ function TestimonialCard({
   location,
 }: TestimonialCardProps) {
   const maskClasses = clsx(
-    'motion-safe:[mask-image:linear-gradient(0deg,_rgba(0,_0,_0,_0)_0%,_#000000_30%,_#000000_100%,_rgba(0,_0,_0,_0)_100%)]',
+    'motion-safe:[mask-image:linear-gradient(0deg,_rgba(0,_0,_0,_0)_0%,_#000000_20%,_#000000_100%,_rgba(0,_0,_0,_0)_100%)]',
   );
 
   return (
@@ -51,18 +51,21 @@ function TestimonialCard({
       className={clsx(
         'relative isolate overflow-hidden',
         'flex flex-col justify-between gap-6',
-        'p-8 lg:p-10',
+        'py-8',
         'rounded-lg',
-        'h-[338px] sm:h-[280px]',
+        'h-[338px] sm:h-[252px] lg:h-[280px] xl:h-[252px]',
         themeBackgroundCardColor,
         ['border', themeBorderElementColor],
         [themeWhiteGlowCardBackground, 'before:-left-10 before:-top-10'],
       )}>
       <ScrollArea
-        className={clsx('relative mb-16 sm:mb-14', maskClasses)}
-        heightClass="h-full"
-        viewportClass="pb-10 sm:pb-8 lg:pb-5">
-        <blockquote className={clsx('relative z-[10]')}>
+        className={clsx(
+          'relative',
+          maskClasses,
+          authorThumbnailUrl ? 'mb-20 sm:mb-12' : 'mb-12 sm:mb-9',
+        )}
+        heightClass="h-full">
+        <blockquote className={clsx('pb-8 lg:pb-4', 'px-8 sm:px-10')}>
           <Text className="block" size="body1">
             {testimonial}
           </Text>
@@ -71,7 +74,8 @@ function TestimonialCard({
       <figcaption
         className={clsx(
           'flex flex-col gap-4 sm:flex-row sm:items-center',
-          'absolute bottom-0 pb-8 pr-8 lg:pb-10 lg:pr-10',
+          'absolute bottom-0',
+          'px-8 pb-8 sm:px-10',
         )}>
         {authorThumbnailUrl && (
           <Avatar
