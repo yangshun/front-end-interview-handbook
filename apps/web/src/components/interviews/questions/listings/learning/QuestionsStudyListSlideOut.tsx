@@ -40,7 +40,11 @@ import SlideOut from '~/components/ui/SlideOut';
 import Spinner from '~/components/ui/Spinner';
 import Text from '~/components/ui/Text';
 import TextInput from '~/components/ui/TextInput';
-import { themeBorderColor, themeTextInvertColor } from '~/components/ui/theme';
+import {
+  themeBackgroundGlimmerColor,
+  themeBorderColor,
+  themeTextInvertColor,
+} from '~/components/ui/theme';
 
 import InterviewsStudyListQuestions from './InterviewsStudyListQuestions';
 import useQuestionsWithCompletionStatus from '../filters/hooks/useQuestionsWithCompletionStatus';
@@ -179,7 +183,7 @@ function Contents({
   setFirstQuestionHref,
   onClickDifferentStudyListQuestion,
 }: Readonly<{
-  currentListType?: QuestionListTypeData;
+  currentListType: QuestionListTypeData | null;
   filterNamespace: string;
   listType?: QuestionListTypeData;
   metadata: QuestionMetadata;
@@ -344,7 +348,10 @@ function Contents({
   useEffect(() => {
     if (processedQuestions.length > 0 && !showCompanyPaywall) {
       setFirstQuestionHref(
-        questionHrefWithListType(processedQuestions[0].href, currentListType),
+        questionHrefWithListType(
+          processedQuestions[0].href,
+          currentListType ?? undefined,
+        ),
       );
     }
   }, [
@@ -423,7 +430,7 @@ function Contents({
       ) : (
         <InterviewsStudyListQuestions
           checkIfCompletedQuestion={(question) => question.isCompleted}
-          currentList={currentListType}
+          currentListType={currentListType}
           listType={listType}
           metadata={metadata}
           questions={
@@ -441,7 +448,7 @@ function Contents({
 
 type Props = Readonly<{
   currentQuestionPosition: number;
-  isDisabled: boolean;
+  isLoading: boolean;
   listType?: QuestionListTypeData;
   metadata: QuestionMetadata;
   processedQuestions: ReadonlyArray<QuestionMetadataWithCompletedStatus>;
@@ -449,7 +456,7 @@ type Props = Readonly<{
 }>;
 
 export default function QuestionsStudyListSlideOut({
-  isDisabled,
+  isLoading,
   listType,
   currentQuestionPosition,
   processedQuestions,
@@ -462,12 +469,12 @@ export default function QuestionsStudyListSlideOut({
   const [isShown, setIsShown] = useState(false);
   const isMobile = useMediaQuery('(max-width: 500px)');
   const router = useRouter();
-  const [currentListType, setCurrentListType] = useState<
-    QuestionListTypeData | undefined
-  >(listType ?? undefined);
+  const [currentListType, setCurrentListType] =
+    useState<QuestionListTypeData | null>(null);
   const filterNamespace = questionListFilterNamespace(
     currentListType ?? listType,
   );
+  const activeListType = currentListType ?? listType;
   const [showStudyListSwitchDialog, setShowStudyListSwitchDialog] = useState<{
     href: string | null;
     show: boolean;
@@ -486,7 +493,8 @@ export default function QuestionsStudyListSlideOut({
     if (processedQuestions.length === 0) {
       return;
     }
-    if (listType && !eq(listType, currentListType)) {
+
+    if (currentListType != null && !eq(listType, currentListType)) {
       setShowStudyListSwitchDialog({
         href: firstQuestionHref,
         show: true,
@@ -495,6 +503,7 @@ export default function QuestionsStudyListSlideOut({
 
       return;
     }
+
     // If the active question is not in the list
     // redirect to the first question in the list on closing
     if (currentQuestionPosition === 0 && firstQuestionHref) {
@@ -526,18 +535,10 @@ export default function QuestionsStudyListSlideOut({
       padding={false}
       size="xl"
       title={
-        currentListType != null ? (
-          <InterviewsStudyListSelector
-            currentListType={currentListType}
-            onChangeListType={setCurrentListType}
-          />
-        ) : (
-          intl.formatMessage({
-            defaultMessage: 'Questions',
-            description: 'Questions list',
-            id: 'Lo9TQS',
-          })
-        )
+        <InterviewsStudyListSelector
+          listType={activeListType!}
+          onChangeListType={setCurrentListType}
+        />
       }
       trigger={
         <div className="relative">
@@ -547,7 +548,7 @@ export default function QuestionsStudyListSlideOut({
             iconClassName={clsx(
               numberOfFilters > 0 && 'dark:text-brand text-brand-darker',
             )}
-            isDisabled={isDisabled}
+            isDisabled={isLoading}
             isLabelHidden={isMobile}
             label={
               title ??
@@ -561,19 +562,35 @@ export default function QuestionsStudyListSlideOut({
             variant="secondary"
             onClick={() => setIsShown(true)}>
             <div className="flex items-center gap-3">
-              <span>
-                {title ??
-                  intl.formatMessage({
-                    defaultMessage: 'Question list',
-                    description: 'Questions list',
-                    id: '5lRIfw',
+              {isLoading ? (
+                <div
+                  aria-label={intl.formatMessage({
+                    defaultMessage: 'Loading',
+                    description: 'Loading label',
+                    id: 'TV3jir',
                   })}
-              </span>
-              <Badge
-                label={`${currentQuestionPosition}/${processedQuestions.length}`}
-                size="xs"
-                variant="neutral"
-              />
+                  className={clsx(
+                    'h-2 w-[120px] animate-pulse rounded',
+                    themeBackgroundGlimmerColor,
+                  )}
+                />
+              ) : (
+                <>
+                  <span>
+                    {title ??
+                      intl.formatMessage({
+                        defaultMessage: 'Question list',
+                        description: 'Questions list',
+                        id: '5lRIfw',
+                      })}
+                  </span>
+                  <Badge
+                    label={`${currentQuestionPosition}/${processedQuestions.length}`}
+                    size="xs"
+                    variant="neutral"
+                  />
+                </>
+              )}
             </div>
           </Button>
           {numberOfFilters > 0 && (

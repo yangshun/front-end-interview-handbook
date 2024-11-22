@@ -36,7 +36,7 @@ import QuestionPaywall from '../../common/QuestionPaywall';
 
 type Props<Q extends QuestionMetadata> = Readonly<{
   checkIfCompletedQuestion?: (question: Q) => boolean;
-  currentList?: QuestionListTypeData;
+  currentListType?: QuestionListTypeData | null;
   listType?: QuestionListTypeData;
   metadata: QuestionMetadata;
   onClickDifferentStudyListQuestion: (href: string) => void;
@@ -49,7 +49,7 @@ export default function InterviewsStudyListQuestions<
 >({
   checkIfCompletedQuestion,
   listType,
-  currentList,
+  currentListType,
   questions,
   metadata,
   onClickDifferentStudyListQuestion,
@@ -83,7 +83,8 @@ export default function InterviewsStudyListQuestions<
   const isCurrentQuestionInTheList = !!questions.find(
     (question) => hashQuestion(question) === hashQuestion(metadata),
   );
-  const isDifferentList = listType != null && !isEqual(listType, currentList);
+  const isDifferentList =
+    listType != null && !isEqual(listType, currentListType);
 
   return (
     <div>
@@ -153,7 +154,7 @@ export default function InterviewsStudyListQuestions<
                   : index === 0;
               const href = questionHrefWithListType(
                 questionMetadata.href,
-                currentList,
+                currentListType,
               );
 
               return (
@@ -243,7 +244,7 @@ export default function InterviewsStudyListQuestions<
                       // fast enough before the card disappears.
                       sideOffset={0}>
                       <InterviewsStudyListQuestionHovercardContents
-                        listType={currentList}
+                        listType={currentListType}
                         question={questionMetadata}
                       />
                     </HovercardContent>
@@ -276,7 +277,7 @@ export default function InterviewsStudyListQuestions<
 
               const href = questionHrefWithListType(
                 questionMetadata.href,
-                currentList,
+                currentListType,
               );
 
               return (

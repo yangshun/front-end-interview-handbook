@@ -40,7 +40,7 @@ export default function QuestionsStudyListSlideOutButton({
     studyListKey,
   );
 
-  const filterNamespace = questionListFilterNamespace(data);
+  const filterNamespace = questionListFilterNamespace(data?.listType);
 
   // Filtering.
   const { filters } = useQuestionUnifiedFilters({
@@ -87,7 +87,7 @@ export default function QuestionsStudyListSlideOutButton({
         href={
           prevQuestionButtonDisabled
             ? undefined
-            : questionHrefWithListType(prevQuestion?.href, data)
+            : questionHrefWithListType(prevQuestion?.href, data?.listType)
         }
         icon={RiArrowLeftSLine}
         isDisabled={prevQuestionButtonDisabled}
@@ -103,8 +103,8 @@ export default function QuestionsStudyListSlideOutButton({
       />
       <QuestionsStudyListSlideOut
         currentQuestionPosition={currentQuestionIndex + 1}
-        isDisabled={isLoading}
-        listType={data}
+        isLoading={isLoading}
+        listType={data?.listType}
         metadata={metadata}
         processedQuestions={processedQuestions}
         title={data?.title}
@@ -115,7 +115,7 @@ export default function QuestionsStudyListSlideOutButton({
         href={
           nextQuestionButtonDisabled
             ? undefined
-            : questionHrefWithListType(nextQuestion?.href, data)
+            : questionHrefWithListType(nextQuestion?.href, data?.listType)
         }
         icon={RiArrowRightSLine}
         isDisabled={nextQuestionButtonDisabled}

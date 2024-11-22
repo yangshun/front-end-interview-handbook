@@ -1,6 +1,12 @@
 import nullthrows from 'nullthrows';
 import { z } from 'zod';
 
+import {
+  getQuestionFormatsData,
+  getQuestionFrameworksData,
+  getQuestionLanguagesData,
+} from '~/data/QuestionCategories';
+
 import type {
   QuestionFormat,
   QuestionFramework,
@@ -13,9 +19,11 @@ import {
   fetchQuestionsByHash,
   fetchQuestionsListCoding,
   fetchQuestionsListCodingForFramework,
+  fetchQuestionsListCodingForLanguage,
   fetchQuestionsListSystemDesign,
 } from '~/db/QuestionsListReader';
 import { fetchStudyListsSelectorData } from '~/db/StudyListUtils';
+import { getIntlClientOnly } from '~/i18n/getIntlClientOnly';
 import prisma from '~/server/prisma';
 
 import { publicProcedure, router, userProcedure } from '../trpc';
@@ -66,6 +74,8 @@ export const questionListsRouter = router({
       }),
     )
     .query(async ({ input: { format, framework, language, studyList } }) => {
+      const intl = await getIntlClientOnly('en-US');
+
       if (studyList != null) {
         const studyListData_ = await fetchInterviewsStudyList(studyList);
 
@@ -79,60 +89,71 @@ export const questionListsRouter = router({
         );
 
         return {
-          filterNamespace: `study-list:${studyList}`,
+          listType: {
+            type: 'study-list',
+            value: studyList,
+          },
           questions: studyListQuestions,
           title: studyListData.name,
-          type: 'study-list',
-          value: studyList,
         } as const;
       }
 
       if (framework) {
         const framework_ = framework as QuestionFramework;
+        const frameworksData = getQuestionFrameworksData(intl);
         const frameworkQuestions =
           await fetchQuestionsListCodingForFramework(framework_);
 
         return {
+          listType: {
+            type: 'framework',
+            value: framework_,
+          },
           questions: frameworkQuestions,
-          title: 'Framework',
-          type: 'framework',
-          value: framework_,
+          title: frameworksData[framework_].label,
         } as const;
       }
 
       if (format) {
         const format_ = format as QuestionFormat;
+        const formatData = getQuestionFormatsData(intl);
         const { questions } = await fetchQuestionListForFormat(format_);
 
         return {
+          listType: {
+            type: 'format',
+            value: format_,
+          },
           questions,
-          title: 'Format',
-          type: 'format',
-          value: format_,
+          title: formatData[format_].label,
+        } as const;
+      }
+
+      if (language) {
+        const language_ = language as QuestionLanguage;
+        const languagesData = getQuestionLanguagesData(intl);
+        const languageQuestions =
+          await fetchQuestionsListCodingForLanguage(language_);
+
+        return {
+          listType: {
+            type: 'language',
+            value: language_,
+          },
+          questions: languageQuestions,
+          title: languagesData[language_].label,
         } as const;
       }
 
       const { questions: questionsCoding } = await fetchQuestionsListCoding();
 
-      if (language) {
-        const language_ = language as QuestionLanguage;
-        const languageQuestions = questionsCoding.filter((metadata) =>
-          metadata.languages.includes(language_),
-        );
-
-        return {
-          questions: languageQuestions,
-          title: 'Language',
-          type: 'language',
-          value: language_,
-        } as const;
-      }
-
       return {
+        listType: {
+          type: 'coding',
+          value: 'all',
+        },
         questions: questionsCoding,
         title: 'Coding questions',
-        type: 'coding',
-        value: 'all',
       } as const;
     }),
   getRecommendedStudyList: publicProcedure.query(async () => {

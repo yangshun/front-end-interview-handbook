@@ -9,6 +9,7 @@ import type {
   QuestionFormat,
   QuestionFramework,
   QuestionHash,
+  QuestionLanguage,
   QuestionMetadata,
 } from '~/components/interviews/questions/common/QuestionsTypes';
 import { ReadyQuestions } from '~/components/interviews/questions/content/system-design/SystemDesignConfig';
@@ -248,8 +249,19 @@ export async function fetchQuestionsListCodingForFramework(
   return filterQuestions(questions, [
     (question) =>
       question.frameworks.some(
-        (frameworkItem) => framework === frameworkItem.framework,
+        (frameworkItem) => frameworkItem.framework === framework,
       ),
+  ]);
+}
+
+export async function fetchQuestionsListCodingForLanguage(
+  language: QuestionLanguage,
+  locale = 'en-US',
+): Promise<ReadonlyArray<QuestionMetadata>> {
+  const { questions } = await fetchQuestionsListCoding(locale);
+
+  return filterQuestions(questions, [
+    (question) => question.languages.includes(language),
   ]);
 }
 

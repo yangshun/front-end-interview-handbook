@@ -12,6 +12,7 @@ import {
   RiVuejsLine,
 } from 'react-icons/ri';
 import { TbBinaryTree } from 'react-icons/tb';
+import type { IntlShape } from 'react-intl';
 
 import type {
   QuestionFormat,
@@ -62,6 +63,10 @@ type QuestionFormatData = Record<
 export function useQuestionFormatsData(): QuestionFormatData {
   const intl = useIntl();
 
+  return getQuestionFormatsData(intl);
+}
+
+export function getQuestionFormatsData(intl: IntlShape): QuestionFormatData {
   return {
     algo: {
       briefName: intl.formatMessage({
@@ -284,6 +289,12 @@ export function useQuestionFormatsData(): QuestionFormatData {
 export function useQuestionLanguagesData(): QuestionCategoryLists<QuestionLanguage> {
   const intl = useIntl();
 
+  return getQuestionLanguagesData(intl);
+}
+
+export function getQuestionLanguagesData(
+  intl: IntlShape,
+): QuestionCategoryLists<QuestionLanguage> {
   return {
     css: {
       getDescription: (questionCount) =>
@@ -433,6 +444,12 @@ export function useQuestionLanguagesData(): QuestionCategoryLists<QuestionLangua
 export function useQuestionFrameworksData(): QuestionCategoryLists<QuestionFramework> {
   const intl = useIntl();
 
+  return getQuestionFrameworksData(intl);
+}
+
+export function getQuestionFrameworksData(
+  intl: IntlShape,
+): QuestionCategoryLists<QuestionFramework> {
   return {
     angular: {
       getDescription: (questionCount) =>

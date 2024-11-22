@@ -95,11 +95,11 @@ function StudyListsItems({
 }
 
 function DropdownContent({
-  currentListType,
+  listType,
   onChangeListType,
   openPricingDialog,
 }: Readonly<{
-  currentListType: QuestionListTypeData;
+  listType: QuestionListTypeData;
   onChangeListType: (value: QuestionListTypeData) => void;
   openPricingDialog: (feature: QuestionFeatureType | undefined) => void;
 }>) {
@@ -169,7 +169,7 @@ function DropdownContent({
     return items
       .filter(
         (section) =>
-          !!section.items.find((item) => item.value === currentListType.value),
+          !!section.items.find((item) => item.value === listType.value),
       )
       .map((section) => section.key);
   }
@@ -216,12 +216,12 @@ function convertToMap(studyLists: ReadonlyArray<QuestionListTypeData>) {
 }
 
 type Props = Readonly<{
-  currentListType: QuestionListTypeData;
+  listType: QuestionListTypeData;
   onChangeListType: (value: QuestionListTypeData) => void;
 }>;
 
 export default function InterviewsStudyListSelector({
-  currentListType,
+  listType,
   onChangeListType,
 }: Props) {
   const [showPricingDialog, setShowPricingDialog] = useState<{
@@ -237,13 +237,13 @@ export default function InterviewsStudyListSelector({
       <DropdownMenu
         align="start"
         icon={RiFilterLine}
-        label={currentListType.value}
+        label={listType.value}
         modal={true}
         showChevron={true}
         size="md"
         variant="tertiary">
         <DropdownContent
-          currentListType={currentListType}
+          listType={listType}
           openPricingDialog={(feature) =>
             setShowPricingDialog({
               feature,

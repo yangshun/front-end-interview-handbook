@@ -12,7 +12,7 @@ import Text, { textVariants } from '~/components/ui/Text';
 import type { QuestionMetadata } from '../../common/QuestionsTypes';
 
 type Props = Readonly<{
-  listType?: QuestionListTypeData;
+  listType?: QuestionListTypeData | null;
   question: QuestionMetadata;
   size?: TextSize;
 }>;

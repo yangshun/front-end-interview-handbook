@@ -6,6 +6,7 @@ import { readAllFrontEndInterviewGuides } from '~/db/guides/GuidesReader';
 import { fetchQuestionsCompletionCount } from '~/db/QuestionsCount';
 import {
   fetchQuestionsListCoding,
+  fetchQuestionsListCodingForLanguage,
   fetchQuestionsListQuiz,
 } from '~/db/QuestionsListReader';
 import {
@@ -75,20 +76,17 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function Page({ params }: Props) {
   const { locale } = params;
   const [
-    { questions: questionsCoding },
+    questionsCodingTS,
     { questions: questionsQuiz },
     questionCompletionCount,
     guides,
   ] = await Promise.all([
-    fetchQuestionsListCoding(locale),
+    fetchQuestionsListCodingForLanguage(language, locale),
     fetchQuestionsListQuiz(locale),
     fetchQuestionsCompletionCount(['javascript']),
     readAllFrontEndInterviewGuides(params.locale),
   ]);
 
-  const questionsCodingTS = questionsCoding.filter((metadata) =>
-    metadata.languages.includes(language),
-  );
   const questionsQuizTS = questionsQuiz.filter((metadata) =>
     metadata.topics.includes('javascript'),
   );

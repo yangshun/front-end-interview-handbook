@@ -27,7 +27,7 @@ export function questionListFilterNamespace(
 
 export function questionHrefWithListType(
   href: string,
-  listType?: QuestionListTypeData,
+  listType?: QuestionListTypeData | null,
 ): string {
   if (listType == null) {
     return href;
