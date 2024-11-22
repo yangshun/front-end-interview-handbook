@@ -3203,10 +3203,6 @@
     "defaultMessage": "Deep-dives into real-world applications",
     "description": "Features for frontend system design playbook page"
   },
-  "K4Xbup": {
-    "defaultMessage": "Search questions",
-    "description": "Search placeholder label"
-  },
   "K6BzpD": {
     "defaultMessage": "Intermediate",
     "description": "Intermediate blog"
@@ -3882,6 +3878,10 @@
   "OelRg0": {
     "defaultMessage": "Project challenges",
     "description": "Sidebar navigation label"
+  },
+  "OijcrF": {
+    "defaultMessage": "Question formats",
+    "description": "Practice for interviews question format"
   },
   "OjLxYa": {
     "defaultMessage": "<bold>{count}</bold>",
@@ -6399,10 +6399,6 @@
     "defaultMessage": "View the full solution and other System Design guides.",
     "description": "Button label within embed"
   },
-  "eUSr+T": {
-    "defaultMessage": "By question format",
-    "description": "Practice for interviews question format"
-  },
   "eWWazl": {
     "defaultMessage": "Behavioral Interview Playbook",
     "description": "Title for behavioral interview guide"
@@ -7715,10 +7711,6 @@
     "defaultMessage": "We offer bulk discounts at attractive rates for group trainings. Please send an email to <link>institutions@greatfrontend.com</link> with your company email and address, and we would be happy to assist.",
     "description": "Answer on projects pricing's FAQ section - institutions and organizations discounts"
   },
-  "nLjMCI": {
-    "defaultMessage": "By framework or language",
-    "description": "Practice for interviews by question frameworks or language"
-  },
   "nMbx46": {
     "defaultMessage": "Select all ({questionCount})",
     "description": "Label for select all in import progress dialog"
@@ -8118,6 +8110,10 @@
   "puP8B5": {
     "defaultMessage": "Collapse {replyCount, plural, =0 {none} one {# reply} other {# replies}}",
     "description": "Label for collapse replies button"
+  },
+  "pvBjOq": {
+    "defaultMessage": "Framework / Languages",
+    "description": "Practice for interviews by question frameworks or language"
   },
   "pz1v44": {
     "defaultMessage": "Next",
@@ -8678,6 +8674,10 @@
   "tnHfa2": {
     "defaultMessage": "Move line down",
     "description": "Text describing command to move lines down in the coding workspace shortcuts menu"
+  },
+  "toykkS": {
+    "defaultMessage": "Not sure where to start? This preparation roadmap has been proven to work for most of our users.",
+    "description": "Description for recommended preparation strategy section"
   },
   "tpQwtr": {
     "defaultMessage": "Thanks for contributing",

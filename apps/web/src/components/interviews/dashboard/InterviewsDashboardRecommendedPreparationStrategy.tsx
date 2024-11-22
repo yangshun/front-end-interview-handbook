@@ -63,6 +63,9 @@ function PreparationStrategyCard({ data }: { data: PreparationStrategyItem }) {
     question,
     article,
     href,
+    tagLabel,
+    tagTooltip,
+    variant,
   } = data;
 
   return (
@@ -95,9 +98,19 @@ function PreparationStrategyCard({ data }: { data: PreparationStrategyItem }) {
 
         <div className="flex flex-1 flex-col gap-4">
           <div className="flex flex-col gap-2">
-            <Text className="text-sm sm:text-base" size="inherit" weight="bold">
-              {title}
-            </Text>
+            <div className="flex flex-wrap items-center gap-x-3 gap-y-1.5">
+              <Text size="body1" weight="bold">
+                {title}
+              </Text>
+              {tagLabel &&
+                (tagTooltip ? (
+                  <Tooltip label={tagTooltip}>
+                    <Badge label={tagLabel} size="sm" variant={variant} />
+                  </Tooltip>
+                ) : (
+                  <Badge label={tagLabel} size="sm" variant={variant} />
+                ))}
+            </div>
             <Text color="secondary" size="body2">
               {description}
             </Text>
@@ -254,16 +267,25 @@ export default function InterviewsDashboardRecommendedPreparationStrategy({
 
   return (
     <div
-      className={clsx('flex flex-col gap-8', 'scroll-mt-36 lg:scroll-mt-20')}
+      className={clsx('flex flex-col gap-6', 'scroll-mt-36 lg:scroll-mt-20')}
       id={SCROLL_HASH_INTERVIEWS_DASHBOARD_RECOMMENDED_PREPARATION}>
-      <Heading className={themeTextColor} color="custom" level="heading5">
-        <FormattedMessage
-          defaultMessage="Recommended preparation"
-          description="Title for recommended preparation strategy section"
-          id="zKboNH"
-        />
-      </Heading>
-      <div className={clsx('relative flex flex-col gap-8', 'overflow-hidden')}>
+      <div className="flex flex-col gap-3">
+        <Heading className={themeTextColor} color="custom" level="heading6">
+          <FormattedMessage
+            defaultMessage="Recommended preparation"
+            description="Title for recommended preparation strategy section"
+            id="zKboNH"
+          />
+        </Heading>
+        <Text color="secondary" size="body2">
+          <FormattedMessage
+            defaultMessage="Not sure where to start? This preparation roadmap has been proven to work for most of our users."
+            description="Description for recommended preparation strategy section"
+            id="toykkS"
+          />
+        </Text>
+      </div>
+      <div className={clsx('relative flex flex-col gap-6', 'overflow-hidden')}>
         {preparationStrategies.map((strategy, index) => {
           const { article, question } = strategy;
           const isCompleted =
@@ -287,36 +309,9 @@ export default function InterviewsDashboardRecommendedPreparationStrategy({
                 ) : (
                   <Chip label={(index + 1).toString()} variant="neutral" />
                 )}
-                {index < preparationStrategies.length - 1 && (
-                  <div
-                    className={clsx(
-                      'absolute top-[55%] -z-10 w-px translate-y-3 self-center border-l-2',
-                      // Find a better way to do this
-                      // To fix line not connecting the chip
-                      index === 0 || index !== preparationStrategies.length - 2
-                        ? 'h-[150%]'
-                        : 'h-full',
-                      themeBorderElementColor,
-                    )}
-                  />
-                )}
               </div>
               <div
                 className={clsx('w-full', 'flex flex-col items-start gap-3')}>
-                {strategy.tagLabel &&
-                  (strategy.tagTooltip ? (
-                    <Tooltip label={strategy.tagTooltip}>
-                      <Badge
-                        label={strategy.tagLabel}
-                        variant={strategy.variant}
-                      />
-                    </Tooltip>
-                  ) : (
-                    <Badge
-                      label={strategy.tagLabel}
-                      variant={strategy.variant}
-                    />
-                  ))}
                 <PreparationStrategyCard data={strategy} />
               </div>
             </div>
