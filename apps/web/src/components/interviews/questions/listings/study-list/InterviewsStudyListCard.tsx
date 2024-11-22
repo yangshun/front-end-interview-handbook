@@ -31,6 +31,7 @@ type Props = Readonly<{
   showLogoShadow?: boolean;
   showLongName?: boolean;
   showProgress?: boolean;
+  showTopics?: boolean;
   studyList: InterviewsStudyList;
 }>;
 
@@ -45,6 +46,7 @@ export default function InterviewsStudyListCard({
   backgroundClass = themeBackgroundCardWhiteOnLightColor,
   alignVerticalOnMobile = true,
   showLongName = false,
+  showTopics = true,
 }: Props) {
   const intl = useIntl();
 
@@ -109,10 +111,7 @@ export default function InterviewsStudyListCard({
           )}>
           <div className="flex flex-col items-start gap-2">
             <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
-              <Text
-                className={clsx(showDescription && 'text-sm sm:text-base')}
-                size={showDescription ? 'inherit' : 'body2'}
-                weight="bold">
+              <Text size="body1" weight="bold">
                 {showLongName ? longName : name}
               </Text>
 
@@ -151,7 +150,7 @@ export default function InterviewsStudyListCard({
                 showIcon={true}
               />
             )}
-            {topics.length > 0 && (
+            {topics.length > 0 && showTopics && (
               <QuestionTopics topics={topics as ReadonlyArray<QuestionTopic>} />
             )}
           </div>

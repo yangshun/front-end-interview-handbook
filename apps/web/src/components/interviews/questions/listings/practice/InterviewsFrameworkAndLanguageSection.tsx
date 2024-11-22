@@ -76,7 +76,7 @@ function FrameworkCard({
       </div>
       <div className="flex flex-1 flex-col gap-2">
         <div className="flex flex-wrap gap-x-2.5 gap-y-1">
-          <Text size="body2" weight="bold">
+          <Text size="body1" weight="bold">
             {title}
           </Text>
           {titleAddOnText && (
