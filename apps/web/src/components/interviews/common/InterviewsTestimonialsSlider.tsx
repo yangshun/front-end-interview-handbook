@@ -42,32 +42,37 @@ function TestimonialCard({
   title,
   location,
 }: TestimonialCardProps) {
+  const maskClasses = clsx(
+    'motion-safe:[mask-image:linear-gradient(0deg,_rgba(0,_0,_0,_0)_0%,_#000000_30%,_#000000_100%,_rgba(0,_0,_0,_0)_100%)]',
+  );
+
   return (
     <div
       className={clsx(
-        'isolate overflow-hidden',
+        'relative isolate overflow-hidden',
         'flex flex-col justify-between gap-6',
-        'p-8',
+        'p-8 lg:p-10',
         'rounded-lg',
-        'h-[338px] sm:h-[256px]',
+        'h-[338px] sm:h-[280px]',
         themeBackgroundCardColor,
         ['border', themeBorderElementColor],
         [themeWhiteGlowCardBackground, 'before:-left-10 before:-top-10'],
       )}>
-      <blockquote
-        className={clsx(
-          'relative',
-          'before:absolute before:inset-x-0 before:-bottom-1',
-          'before:z-[1] before:h-12',
-          'before:bg-gradient-to-b before:from-[rgba(0,0,0,0)] before:to-neutral-50 before:dark:to-[#1E1E21]',
-        )}>
-        <ScrollArea heightClass="h-[160px] sm:h-[134px]">
-          <Text className="block pb-5" size="body1">
+      <ScrollArea
+        className={clsx('relative mb-16 sm:mb-14', maskClasses)}
+        heightClass="h-full"
+        viewportClass="pb-10 sm:pb-8 lg:pb-5">
+        <blockquote className={clsx('relative z-[10]')}>
+          <Text className="block" size="body1">
             {testimonial}
           </Text>
-        </ScrollArea>
-      </blockquote>
-      <figcaption className="flex flex-col gap-4 sm:flex-row sm:items-center">
+        </blockquote>
+      </ScrollArea>
+      <figcaption
+        className={clsx(
+          'flex flex-col gap-4 sm:flex-row sm:items-center',
+          'absolute bottom-0 pb-8 pr-8 lg:pb-10 lg:pr-10',
+        )}>
         {authorThumbnailUrl && (
           <Avatar
             alt={name ?? ''}
@@ -201,14 +206,14 @@ export default function InterviewsTestimonialsSlider({ data }: Props) {
 
   return (
     <TabsPrimitive.Root
-      className="flex w-full flex-col gap-x-6 gap-y-8 lg:flex-row lg:items-center"
+      className="flex w-full grid-cols-3 flex-col gap-x-6 gap-y-8 lg:grid lg:flex-row lg:items-center"
       value={dataValue}
       onValueChange={(newValue) => {
         // Stop auto-advancing if user interacts with steppers.
         window.clearInterval(timer.current);
         setCurrentItemIndex(data.findIndex(({ id }) => id === newValue));
       }}>
-      <div className="flex flex-col gap-[18px] overflow-hidden">
+      <div className="flex flex-col gap-[18px] overflow-hidden lg:col-span-2">
         <div className="relative rounded-lg">
           {data.map((item) => (
             <TabsPrimitive.Content key={item.id} value={item.id}>
@@ -219,8 +224,7 @@ export default function InterviewsTestimonialsSlider({ data }: Props) {
         </div>
         <div className="hidden lg:block">{sliderNavigation}</div>
       </div>
-      <div
-        className={clsx('w-full shrink-0 lg:w-[352px]', 'flex items-center')}>
+      <div className={clsx('w-full lg:col-span-1', 'flex items-center')}>
         <div
           className={clsx(
             'flex w-full flex-col gap-y-6 sm:flex-row lg:flex-col',
