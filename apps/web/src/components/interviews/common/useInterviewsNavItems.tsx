@@ -350,15 +350,15 @@ export default function useInterviewsNavItems(placement: 'nav' | 'sidebar') {
         icon: RiQuestionAnswerLine,
         itemKey: 'question-format',
         label: intl.formatMessage({
-          defaultMessage: 'By question format',
+          defaultMessage: 'Question formats',
           description: 'Practice for interviews question format',
-          id: 'eUSr+T',
+          id: 'OijcrF',
         }),
         onClick: () => {
           gtag.event({
             action: `${placement}.prepare.practice_questions.question_format.click`,
             category: 'engagement',
-            label: 'Focus areas',
+            label: 'Question formats',
           });
         },
         sublabel: intl.formatMessage({
@@ -383,16 +383,16 @@ export default function useInterviewsNavItems(placement: 'nav' | 'sidebar') {
         icon: RiReactjsFill,
         itemKey: 'question-framework',
         label: intl.formatMessage({
-          defaultMessage: 'By framework or language',
+          defaultMessage: 'Framework / Languages',
           description:
             'Practice for interviews by question frameworks or language',
-          id: 'nLjMCI',
+          id: 'pvBjOq',
         }),
         onClick: () => {
           gtag.event({
             action: `${placement}.prepare.practice_questions.frameworks.click`,
             category: 'engagement',
-            label: 'By framework or language',
+            label: 'Framework / Languages',
           });
         },
         sublabel: intl.formatMessage({
