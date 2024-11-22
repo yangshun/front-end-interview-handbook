@@ -3523,10 +3523,6 @@
     "defaultMessage": "One-time use; only applicable to GreatFrontEnd Annual plan.",
     "description": "Condition for promotion"
   },
-  "Lo9TQS": {
-    "defaultMessage": "Questions",
-    "description": "Questions list"
-  },
   "LpW2AE": {
     "defaultMessage": "Robust framework",
     "description": "Features for frontend system design playbook page"
@@ -4710,6 +4706,10 @@
   "TQLJ/G": {
     "defaultMessage": "There is something to learn from GreatFrontEnd for engineers of all seniority levels. Junior engineers will be able to solidify their fundamentals and learn techniques they never knew about. Mid-level engineers will benefit from more advanced concepts like internationalization, accessibility, and performance. Senior engineers will benefit most from the system design questions which impart architectural concepts.",
     "description": "Answer to 'Is GreatFrontEnd targeted at engineers of specific seniority?' on Homepage's FAQ sections"
+  },
+  "TV3jir": {
+    "defaultMessage": "Loading",
+    "description": "Loading label"
   },
   "TW5R5d": {
     "defaultMessage": "Dashboard",

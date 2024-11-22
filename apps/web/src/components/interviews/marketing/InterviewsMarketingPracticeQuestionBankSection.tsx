@@ -293,7 +293,6 @@ export default function InterviewsMarketingPracticeQuestionBankSection({
                     key={value}
                     label={label}
                     selected={selectedFilter === value}
-                    variant="solid"
                     onClick={() => setSelectedFilter(value)}
                   />
                 ))}

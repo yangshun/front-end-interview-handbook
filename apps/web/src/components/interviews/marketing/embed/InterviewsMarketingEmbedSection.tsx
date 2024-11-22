@@ -198,7 +198,6 @@ export default function InterviewsMarketingEmbedSection({
               key={tab.value}
               label={tab.label}
               selected={selectedTab === tab.value}
-              variant="solid"
               onClick={() => {
                 gtag.event({
                   action: `homepage.hero.embed.${tab.value}.click`,
