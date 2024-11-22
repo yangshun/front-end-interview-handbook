@@ -102,7 +102,7 @@ export default function InterviewsMarketingSimulateRealInterviews() {
                 themeBackgroundCardColor,
                 [
                   themeWhiteGlowCardBackground,
-                  'before:-left-[70px] before:-top-10 before:h-[105px] before:w-[176px]',
+                  'before:-left-[70px] before:-top-10 before:z-[1] before:h-[105px] before:w-[176px]',
                 ],
               )}
               classNameOuter="flex-1"
@@ -131,7 +131,7 @@ function PreviewSVG() {
     <svg
       fill="none"
       height="100%"
-      viewBox="0 0 302 180"
+      viewBox="0 0 302 154"
       width="100%"
       xmlns="http://www.w3.org/2000/svg">
       <rect
@@ -480,7 +480,7 @@ function WorkspaceSVG() {
     <svg
       fill="none"
       height="100%"
-      viewBox="0 0 302 180"
+      viewBox="0 0 302 154"
       width="100%"
       xmlns="http://www.w3.org/2000/svg">
       <rect
@@ -798,7 +798,7 @@ function KeyboardSVG() {
     <svg
       fill="none"
       height="100%"
-      viewBox="0 0 302 180"
+      viewBox="0 0 302 154"
       width="100%"
       xmlns="http://www.w3.org/2000/svg">
       <g clipPath="url(#clip0_1027_20473)">
