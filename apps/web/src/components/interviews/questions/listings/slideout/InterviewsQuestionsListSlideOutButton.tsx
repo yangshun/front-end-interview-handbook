@@ -3,7 +3,6 @@
 import clsx from 'clsx';
 import { RiArrowLeftSLine, RiArrowRightSLine } from 'react-icons/ri';
 
-import { useUserProfile } from '~/components/global/UserProfileProvider';
 import type { QuestionMetadata } from '~/components/interviews/questions/common/QuestionsTypes';
 import useQuestionCodingSorting from '~/components/interviews/questions/listings/filters/hooks/useQuestionCodingSorting';
 import useQuestionsWithCompletionStatus from '~/components/interviews/questions/listings/filters/hooks/useQuestionsWithCompletionStatus';
@@ -32,7 +31,6 @@ export default function InterviewsQuestionsListSlideOutButton({
   metadata,
   studyListKey,
 }: Props) {
-  const { userProfile } = useUserProfile();
   const { isLoading, data } = useQuestionsListDataForType(studyListKey);
 
   const questionsWithCompletionStatus = useQuestionsWithCompletionStatus(
@@ -48,18 +46,14 @@ export default function InterviewsQuestionsListSlideOutButton({
   });
 
   // Sorting.
-  const { defaultSortFields, premiumSortFields } = useQuestionCodingSorting({
-    defaultSortField: 'default',
-    filterNamespace,
+  const { sortFields } = useQuestionCodingSorting({
+    listType: data?.listType,
   });
 
   // Processing.
   const sortedQuestions = sortQuestionsMultiple(
     questionsWithCompletionStatus,
-    userProfile?.isInterviewsPremium
-      ? defaultSortFields
-      : // Show free questions first if user is not a premium user.
-        defaultSortFields.concat(premiumSortFields),
+    sortFields,
   );
   const processedQuestions = filterQuestions(
     sortedQuestions,

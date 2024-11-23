@@ -1,60 +1,54 @@
-import { useState } from 'react';
 import { useSessionStorage } from 'usehooks-ts';
 
+import { useUserProfile } from '~/components/global/UserProfileProvider';
 import type { QuestionSortField } from '~/components/interviews/questions/common/QuestionsTypes';
 
+import type { QuestionListTypeData } from '~/components/interviews/questions/common/questionHref';
+import { questionListFilterNamespace } from '~/components/interviews/questions/common/questionHref';
+
 type Props = Readonly<{
-  defaultSortField: QuestionSortField;
-  filterNamespace?: string;
+  listType?: QuestionListTypeData;
 }>;
 
-export default function useQuestionCodingSorting(props?: Props) {
-  const { defaultSortField, filterNamespace } = props || {
-    defaultSortField: 'default',
-  };
-  const [isAscendingOrderState, setIsAscendingOrderState] = useState(true);
-  const [sortFieldState, setSortFieldState] =
-    useState<QuestionSortField>(defaultSortField);
-  const [isAscendingOrderSessionStorage, setIsAscendingOrderSessionStorage] =
-    useSessionStorage<boolean>(
-      `gfe:${filterNamespace}:sort-isAscendingOrder`,
-      true,
-    );
-  const [sortFieldSessionStorage, setSortFieldSessionStorage] =
-    useSessionStorage<QuestionSortField>(
-      `gfe:${filterNamespace}:sort-field`,
-      defaultSortField,
-    );
+export default function useQuestionCodingSorting({ listType }: Props) {
+  const { userProfile } = useUserProfile();
+  const filterNamespace = questionListFilterNamespace(listType);
+  const defaultSortField: QuestionSortField =
+    listType?.type === 'study-list' ? 'default' : 'difficulty';
 
-  // Conditionally select which hook's state to use
-  const sortField = filterNamespace ? sortFieldSessionStorage : sortFieldState;
-  const isAscendingOrder = filterNamespace
-    ? isAscendingOrderSessionStorage
-    : isAscendingOrderState;
-  const setSortField = filterNamespace
-    ? setSortFieldSessionStorage
-    : setSortFieldState;
-  const setIsAscendingOrder = filterNamespace
-    ? setIsAscendingOrderSessionStorage
-    : setIsAscendingOrderState;
-  const defaultSortFields: ReadonlyArray<{
+  const [isAscendingOrder, setIsAscendingOrder] = useSessionStorage<boolean>(
+    `gfe:${filterNamespace}:sort-order-ascending`,
+    true,
+  );
+  const [sortField, setSortField] = useSessionStorage<QuestionSortField>(
+    `gfe:${filterNamespace}:sort-field`,
+    defaultSortField,
+  );
+
+  const baseSortFields: ReadonlyArray<{
     field: QuestionSortField;
     isAscendingOrder: boolean;
   }> = [
     { field: 'ranking', isAscendingOrder: true },
     { field: sortField, isAscendingOrder },
   ];
-  const premiumSortFields: ReadonlyArray<{
+  const premiumLastSortFields: ReadonlyArray<{
     field: QuestionSortField;
     isAscendingOrder: boolean;
   }> = [{ field: 'premium', isAscendingOrder: true }];
 
+  const sortFields = userProfile?.isInterviewsPremium
+    ? baseSortFields
+    : // Show free questions first if user is not a premium user.
+      baseSortFields.concat(premiumLastSortFields);
+
   return {
-    defaultSortFields,
+    defaultSortField,
+    filterNamespace,
     isAscendingOrder,
-    premiumSortFields,
     setIsAscendingOrder,
     setSortField,
     sortField,
+    sortFields,
   };
 }

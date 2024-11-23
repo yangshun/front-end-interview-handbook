@@ -238,21 +238,16 @@ function Contents({
   } = useQuestionUnifiedFilters({
     filterNamespace,
   });
-  const defaultSortField = studyListKey == null ? 'difficulty' : 'default';
 
   // Sorting.
-  const { defaultSortFields, premiumSortFields } = useQuestionCodingSorting({
-    defaultSortField,
-    filterNamespace,
+  const { sortFields } = useQuestionCodingSorting({
+    listType,
   });
 
   // Processing.
   const sortedQuestions = sortQuestionsMultiple(
     questionsWithCompletionStatus,
-    userProfile?.isInterviewsPremium
-      ? defaultSortFields
-      : // Show free questions first if user is not a premium user.
-        defaultSortFields.concat(premiumSortFields),
+    sortFields,
   );
   const processedQuestions = filterQuestions(
     sortedQuestions,
@@ -262,11 +257,7 @@ function Contents({
   const numberOfFilters = filters.filter(([size]) => size > 0).length;
 
   const sortFilter = (
-    <QuestionsListSortButton
-      defaultSortField={defaultSortField}
-      filterNamespace={filterNamespace}
-      isLabelHidden={true}
-    />
+    <QuestionsListSortButton isLabelHidden={true} listType={listType} />
   );
 
   const embedFilters = (

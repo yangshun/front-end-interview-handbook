@@ -32,8 +32,6 @@ import Text from '~/components/ui/Text';
 
 import type { QuestionCompletionCount } from '~/db/QuestionsCount';
 
-import { questionListFilterNamespace } from '../../common/questionHref';
-
 type Props = Readonly<{
   categoryTabs?: ReactNode;
   description: string;
@@ -70,17 +68,12 @@ export default function InterviewsQuestionsCategoryPage({
   const languages = useQuestionLanguagesData();
   const frameworks = useQuestionFrameworksData();
   const questionFeatures = useInterviewsQuestionsFeatures();
-  const listType =
-    props.category === 'language'
-      ? ({ type: 'language', value: props.categoryValue } as const)
-      : ({ type: 'framework', value: props.categoryValue } as const);
   const categoryItem =
     props.category === 'language'
       ? languages[props.categoryValue]
       : frameworks[props.categoryValue];
   const { icon: Icon, label } = categoryItem;
   const intl = useIntl();
-  const filterNamespace = questionListFilterNamespace(listType);
   const features = [
     questionFeatures.solvedByExInterviewers,
     props.category === 'language'
@@ -154,7 +147,9 @@ export default function InterviewsQuestionsCategoryPage({
             category:
               props.category === 'language'
                 ? languages[props.categoryValue].label
-                : frameworks[props.categoryValue].label,
+                : props.category === 'framework'
+                  ? frameworks[props.categoryValue].label
+                  : 'Front end',
           },
         )}
         features={features}
@@ -177,8 +172,6 @@ export default function InterviewsQuestionsCategoryPage({
       <Section>
         <QuestionsUnifiedListWithFiltersAndProgress
           categoryTabs={categoryTabs}
-          defaultSortField="difficulty"
-          filterNamespace={filterNamespace}
           guides={
             guidesWithCompletionStatus.length > 0
               ? {
@@ -207,7 +200,7 @@ export default function InterviewsQuestionsCategoryPage({
                 }
               : undefined
           }
-          list={
+          listType={
             props.category === 'framework'
               ? { type: 'framework', value: props.categoryValue }
               : { type: 'language', value: props.categoryValue }

@@ -5,22 +5,26 @@ import DropdownMenu from '~/components/ui/DropdownMenu';
 import FilterButton from '~/components/ui/FilterButton/FilterButton';
 
 import useQuestionCodingSorting from '../filters/hooks/useQuestionCodingSorting';
+import type { QuestionListTypeData } from '../../common/questionHref';
 import type { QuestionSortField } from '../../common/QuestionsTypes';
 
 type Props = Readonly<{
-  defaultSortField?: QuestionSortField;
-  filterNamespace: string;
   isLabelHidden?: boolean;
+  listType?: QuestionListTypeData;
 }>;
 
 export default function QuestionsListSortButton({
-  defaultSortField = 'default',
-  filterNamespace,
+  listType,
   isLabelHidden,
 }: Props) {
   const intl = useIntl();
-  const { isAscendingOrder, setIsAscendingOrder, sortField, setSortField } =
-    useQuestionCodingSorting({ defaultSortField, filterNamespace });
+  const {
+    defaultSortField,
+    isAscendingOrder,
+    setIsAscendingOrder,
+    sortField,
+    setSortField,
+  } = useQuestionCodingSorting({ listType });
 
   function makeDropdownItemProps(
     label: string,

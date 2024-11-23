@@ -12,7 +12,6 @@ import type {
   QuestionFrameworkOrLanguage,
   QuestionMetadata,
   QuestionMetadataWithCompletedStatus,
-  QuestionSortField,
 } from '~/components/interviews/questions/common/QuestionsTypes';
 import {
   countQuestionsTotalDurationMins,
@@ -41,8 +40,6 @@ import QuestionTotalTimeLabel from '../../metadata/QuestionTotalTimeLabel';
 type Props = Readonly<{
   categoryTabs?: ReactNode;
   checkIfCompletedQuestionBefore?: (question: QuestionMetadata) => boolean;
-  defaultSortField: QuestionSortField;
-  filterNamespace: string;
   formatFiltersFilterPredicate?: (format: QuestionFormat) => boolean;
   formatFiltersOrderComparator?: (
     a: QuestionFormat,
@@ -55,8 +52,8 @@ type Props = Readonly<{
     title: string;
   };
   initialFormat?: QuestionFormat | null;
-  list?: React.ComponentProps<typeof QuestionsList>['listType'];
   listMode?: React.ComponentProps<typeof QuestionsList>['mode'];
+  listType?: React.ComponentProps<typeof QuestionsList>['listType'];
   mode?: 'default' | 'framework';
   onMarkAsCompleted?: (question: QuestionMetadata) => void;
   onMarkAsNotCompleted?: (question: QuestionMetadata) => void;
@@ -69,13 +66,11 @@ type Props = Readonly<{
 export default function QuestionsUnifiedListWithFilters({
   checkIfCompletedQuestionBefore,
   categoryTabs,
-  defaultSortField = 'default',
   initialFormat = null,
   frameworkOrLanguage,
-  list,
+  listType,
   listMode,
   mode = 'default',
-  filterNamespace,
   questions,
   questionCompletionCount,
   formatFiltersFilterPredicate,
@@ -91,6 +86,11 @@ export default function QuestionsUnifiedListWithFilters({
 
   // Tabulating.
   const questionAttributesUnion = tabulateQuestionsAttributesUnion(questions);
+
+  // Sorting.
+  const { sortFields, filterNamespace } = useQuestionCodingSorting({
+    listType,
+  });
 
   // Filtering.
   const {
@@ -120,20 +120,8 @@ export default function QuestionsUnifiedListWithFilters({
     initialFormat,
   });
 
-  // Sorting.
-  const { defaultSortFields, premiumSortFields } = useQuestionCodingSorting({
-    defaultSortField,
-    filterNamespace,
-  });
-
   // Processing.
-  const sortedQuestions = sortQuestionsMultiple(
-    questions,
-    userProfile?.isInterviewsPremium
-      ? defaultSortFields
-      : // Show free questions first if user is not a premium user.
-        defaultSortFields.concat(premiumSortFields),
-  );
+  const sortedQuestions = sortQuestionsMultiple(questions, sortFields);
   const processedQuestions = filterQuestions(
     sortedQuestions,
     filters.map(([_, filterFn]) => filterFn),
@@ -152,10 +140,7 @@ export default function QuestionsUnifiedListWithFilters({
           mode={mode}
         />
       </div>
-      <QuestionsListSortButton
-        defaultSortField={defaultSortField}
-        filterNamespace={filterNamespace}
-      />
+      <QuestionsListSortButton listType={listType} />
     </div>
   );
   const searchFilterRow = (
@@ -254,7 +239,7 @@ export default function QuestionsUnifiedListWithFilters({
                         ? frameworkOrLanguage
                         : undefined
                     }
-                    listType={list}
+                    listType={listType}
                     mode={listMode}
                     questionCompletionCount={questionCompletionCount}
                     questions={processedQuestions}

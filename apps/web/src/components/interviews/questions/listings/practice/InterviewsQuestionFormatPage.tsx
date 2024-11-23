@@ -25,7 +25,6 @@ import Section from '~/components/ui/Heading/HeadingContext';
 import type { QuestionCompletionCount } from '~/db/QuestionsCount';
 
 import useInterviewsQuestionFormatFeatures from './useInterviewsQuestionFormatFeatures';
-import { questionListFilterNamespace } from '../../common/questionHref';
 
 type Props = Readonly<{
   bottomContent?: InterviewsListingBottomContent;
@@ -105,10 +104,6 @@ export default function InterviewsQuestionFormatPage({
     useGuidesWithCompletionStatus(filteredGuides);
 
   const formatData = useQuestionFormatsData();
-  const filterNamespace = questionListFilterNamespace({
-    type: 'format',
-    value: format,
-  });
 
   return (
     <div className={clsx('flex flex-col', 'gap-y-8 md:gap-y-10 2xl:gap-y-12')}>
@@ -120,8 +115,6 @@ export default function InterviewsQuestionFormatPage({
       />
       <Section>
         <QuestionsUnifiedListWithFiltersAndProgress
-          defaultSortField="difficulty"
-          filterNamespace={filterNamespace}
           guides={
             guidesWithCompletionStatus.length > 0
               ? {
@@ -136,7 +129,7 @@ export default function InterviewsQuestionFormatPage({
                 }
               : undefined
           }
-          list={{ type: 'format', value: format }}
+          listType={{ type: 'format', value: format }}
           questionCompletionCount={questionCompletionCount}
           questions={questions}
           searchPlaceholder={formatData[format].searchPlaceholder}

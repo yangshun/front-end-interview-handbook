@@ -146,9 +146,7 @@ export default function FrontEndSystemDesignPlaybookPage({
                 })}
               </Heading>
               <QuestionsUnifiedListWithFiltersAndProgress
-                defaultSortField="difficulty"
-                filterNamespace="system-design-format"
-                list={{
+                listType={{
                   type: 'format',
                   value: 'system-design',
                 }}

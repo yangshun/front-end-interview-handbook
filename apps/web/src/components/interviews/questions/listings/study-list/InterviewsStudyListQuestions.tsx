@@ -8,8 +8,6 @@ import Section from '~/components/ui/Heading/HeadingContext';
 
 import type { QuestionsCategorizedProgress } from '~/db/QuestionsUtils';
 
-import { questionListFilterNamespace } from '../../common/questionHref';
-
 export default function InterviewsStudyListQuestions({
   listKey,
   overallProgress,
@@ -21,11 +19,6 @@ export default function InterviewsStudyListQuestions({
   questions: ReadonlyArray<QuestionMetadata>;
   sideColumnAddOn?: ReactNode;
 }>) {
-  const filterNamespace = questionListFilterNamespace({
-    type: 'study-list',
-    value: listKey,
-  });
-
   return (
     <div className="flex flex-col gap-y-6">
       <Heading className="sr-only" level="custom">
@@ -40,10 +33,8 @@ export default function InterviewsStudyListQuestions({
           checkIfCompletedQuestionBefore={(question) =>
             overallProgress[question.format].has(question.slug)
           }
-          defaultSortField="default"
-          filterNamespace={filterNamespace}
-          list={{ type: 'study-list', value: listKey }}
           listMode="study-list"
+          listType={{ type: 'study-list', value: listKey }}
           questions={questions}
           sideColumnAddOn={sideColumnAddOn}
         />
