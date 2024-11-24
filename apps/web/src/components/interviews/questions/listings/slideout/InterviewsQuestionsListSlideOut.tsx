@@ -28,7 +28,7 @@ import {
   sortQuestionsMultiple,
   tabulateQuestionsAttributesUnion,
 } from '~/components/interviews/questions/listings/filters/QuestionsProcessor';
-import InterviewsQuestionsListSlideOutSelector from '~/components/interviews/questions/listings/slideout/InterviewsQuestionsListSlideOutSelector';
+import InterviewsQuestionsListSlideOutSwitcher from '~/components/interviews/questions/listings/slideout/InterviewsQuestionsListSlideOutSwitcher';
 import { FormattedMessage, useIntl } from '~/components/intl';
 import Badge from '~/components/ui/Badge';
 import Button from '~/components/ui/Button';
@@ -526,7 +526,7 @@ export default function InterviewsQuestionsListSlideOut({
       padding={false}
       size="xl"
       title={
-        <InterviewsQuestionsListSlideOutSelector
+        <InterviewsQuestionsListSlideOutSwitcher
           listType={activeListType!}
           onChangeListType={setCurrentListType}
         />
