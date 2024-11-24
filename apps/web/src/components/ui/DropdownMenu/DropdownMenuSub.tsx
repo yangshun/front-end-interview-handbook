@@ -17,6 +17,7 @@ export type Props = Readonly<{
   __forceDark?: boolean;
   children: ChildItem | ReadonlyArray<ChildItem>;
   color?: TextColor;
+  endAddOn?: React.ReactNode;
   icon?: (props: React.ComponentProps<'svg'>) => JSX.Element;
   isDisabled?: boolean;
   isSelected?: boolean;
@@ -28,6 +29,7 @@ export default function DropdownMenuSub({
   __forceDark = false,
   color,
   children,
+  endAddOn,
   icon: Icon,
   isSelected = false,
   label,
@@ -40,6 +42,7 @@ export default function DropdownMenuSub({
         onClick={onClick}>
         <DropdownMenuItemContent
           color={color}
+          endAddOn={endAddOn}
           icon={Icon}
           isSelected={isSelected}
           label={label}
