@@ -2263,6 +2263,10 @@
     "defaultMessage": "Back",
     "description": "Button label for back button"
   },
+  "DqvEKB": {
+    "defaultMessage": "Next question",
+    "description": "Next question"
+  },
   "Dt0MpD": {
     "defaultMessage": "This user has not started any projects matching those filters.",
     "description": "Subtitle for no projects yet on projects progress tab"
@@ -5146,6 +5150,10 @@
   "WNERnb": {
     "defaultMessage": "End session",
     "description": "Label for \"End session\" button on current project session card"
+  },
+  "WPfIhl": {
+    "defaultMessage": "Previous question",
+    "description": "Previous question"
   },
   "WPmd3v": {
     "defaultMessage": "Guides & discussions",

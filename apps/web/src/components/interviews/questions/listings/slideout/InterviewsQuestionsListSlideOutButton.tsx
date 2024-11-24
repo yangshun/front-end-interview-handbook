@@ -3,7 +3,10 @@
 import clsx from 'clsx';
 import { RiArrowLeftSLine, RiArrowRightSLine } from 'react-icons/ri';
 
-import type { QuestionMetadata } from '~/components/interviews/questions/common/QuestionsTypes';
+import type {
+  QuestionMetadata,
+  QuestionMetadataWithCompletedStatus,
+} from '~/components/interviews/questions/common/QuestionsTypes';
 import useQuestionCodingSorting from '~/components/interviews/questions/listings/filters/hooks/useQuestionCodingSorting';
 import useQuestionsWithCompletionStatus from '~/components/interviews/questions/listings/filters/hooks/useQuestionsWithCompletionStatus';
 import useQuestionUnifiedFilters from '~/components/interviews/questions/listings/filters/hooks/useQuestionUnifiedFilters';
@@ -12,10 +15,12 @@ import {
   sortQuestionsMultiple,
 } from '~/components/interviews/questions/listings/filters/QuestionsProcessor';
 import InterviewsQuestionsListSlideOut from '~/components/interviews/questions/listings/slideout/InterviewsQuestionsListSlideOut';
+import { useIntl } from '~/components/intl';
 import Button from '~/components/ui/Button';
 
 import { hashQuestion } from '~/db/QuestionsUtils';
 
+import type { QuestionListTypeData } from '../../common/questionHref';
 import {
   questionHrefWithListType,
   questionListFilterNamespace,
@@ -38,7 +43,45 @@ export default function InterviewsQuestionsListSlideOutButton({
     studyListKey,
   );
 
-  const filterNamespace = questionListFilterNamespace(data?.listType);
+  const hidden = isLoading || data == null;
+
+  return (
+    <div
+      className={clsx(
+        'transition-opacity duration-500',
+        hidden ? 'opacity-0' : 'opacity-100',
+      )}>
+      {(() => {
+        if (hidden) {
+          return null;
+        }
+
+        return (
+          <InterviewsQuestionsListSlideOutButtonImpl
+            listType={data.listType}
+            metadata={metadata}
+            questions={questionsWithCompletionStatus}
+            title={data.title}
+          />
+        );
+      })()}
+    </div>
+  );
+}
+
+function InterviewsQuestionsListSlideOutButtonImpl({
+  title,
+  listType,
+  metadata,
+  questions,
+}: Readonly<{
+  listType: QuestionListTypeData;
+  metadata: QuestionMetadata;
+  questions: ReadonlyArray<QuestionMetadataWithCompletedStatus>;
+  title: string;
+}>) {
+  const intl = useIntl();
+  const filterNamespace = questionListFilterNamespace(listType);
 
   // Filtering.
   const { filters } = useQuestionUnifiedFilters({
@@ -47,14 +90,11 @@ export default function InterviewsQuestionsListSlideOutButton({
 
   // Sorting.
   const { sortFields } = useQuestionCodingSorting({
-    listType: data?.listType,
+    listType,
   });
 
   // Processing.
-  const sortedQuestions = sortQuestionsMultiple(
-    questionsWithCompletionStatus,
-    sortFields,
-  );
+  const sortedQuestions = sortQuestionsMultiple(questions, sortFields);
   const processedQuestions = filterQuestions(
     sortedQuestions,
     filters.map(([_, filterFn]) => filterFn),
@@ -68,59 +108,54 @@ export default function InterviewsQuestionsListSlideOutButton({
   // but `currentQuestionIndex` will return -1 and the next question
   // will be 0 index which is the first question in the processed list.
   const prevQuestion = processedQuestions[currentQuestionIndex - 1];
-  const prevQuestionButtonDisabled = isLoading || prevQuestion == null;
-
   const nextQuestion = processedQuestions[currentQuestionIndex + 1];
-  const nextQuestionButtonDisabled = isLoading || nextQuestion == null;
 
   return (
     <div className="flex gap-x-2">
       <Button
         addonPosition="start"
-        className={clsx(prevQuestionButtonDisabled && 'opacity-50')}
         href={
-          prevQuestionButtonDisabled
-            ? undefined
-            : questionHrefWithListType(prevQuestion?.href, data?.listType)
+          prevQuestion
+            ? questionHrefWithListType(prevQuestion?.href, listType)
+            : undefined
         }
         icon={RiArrowLeftSLine}
-        isDisabled={prevQuestionButtonDisabled}
+        isDisabled={prevQuestion == null}
         isLabelHidden={true}
-        label="Previous question"
+        label={intl.formatMessage({
+          defaultMessage: 'Previous question',
+          description: 'Previous question',
+          id: 'WPfIhl',
+        })}
         size="xs"
-        tooltip={
-          prevQuestionButtonDisabled
-            ? undefined
-            : `Previous question: ${prevQuestion?.title}`
-        }
+        tooltip={prevQuestion ? prevQuestion?.title : undefined}
         variant="tertiary"
       />
       <InterviewsQuestionsListSlideOut
         currentQuestionPosition={currentQuestionIndex + 1}
-        isLoading={isLoading}
-        listType={data?.listType}
+        isLoading={false}
+        listType={listType}
         metadata={metadata}
         processedQuestions={processedQuestions}
-        title={data?.title}
+        title={title}
       />
       <Button
         addonPosition="start"
-        className={clsx(nextQuestionButtonDisabled && 'opacity-50')}
         href={
-          nextQuestionButtonDisabled
-            ? undefined
-            : questionHrefWithListType(nextQuestion?.href, data?.listType)
+          nextQuestion
+            ? questionHrefWithListType(nextQuestion?.href, listType)
+            : undefined
         }
         icon={RiArrowRightSLine}
-        isDisabled={nextQuestionButtonDisabled}
+        isDisabled={nextQuestion == null}
         isLabelHidden={true}
-        label="Next question"
+        label={intl.formatMessage({
+          defaultMessage: 'Next question',
+          description: 'Next question',
+          id: 'DqvEKB',
+        })}
         size="xs"
-        tooltip={
-          nextQuestionButtonDisabled
-            ? undefined
-            : `Next question: ${nextQuestion?.title}`
-        }
+        tooltip={nextQuestion ? nextQuestion?.title : undefined}
         variant="tertiary"
       />
     </div>

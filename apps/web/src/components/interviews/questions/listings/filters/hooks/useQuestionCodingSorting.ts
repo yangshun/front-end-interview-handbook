@@ -1,10 +1,9 @@
 import { useSessionStorage } from 'usehooks-ts';
 
 import { useUserProfile } from '~/components/global/UserProfileProvider';
-import type { QuestionSortField } from '~/components/interviews/questions/common/QuestionsTypes';
-
 import type { QuestionListTypeData } from '~/components/interviews/questions/common/questionHref';
 import { questionListFilterNamespace } from '~/components/interviews/questions/common/questionHref';
+import type { QuestionSortField } from '~/components/interviews/questions/common/QuestionsTypes';
 
 type Props = Readonly<{
   listType?: QuestionListTypeData;

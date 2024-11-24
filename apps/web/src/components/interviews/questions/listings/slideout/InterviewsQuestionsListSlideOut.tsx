@@ -536,9 +536,7 @@ export default function InterviewsQuestionsListSlideOut({
           <Button
             addonPosition="start"
             icon={RiFilterLine}
-            iconClassName={clsx(
-              numberOfFilters > 0 && 'dark:text-brand text-brand-darker',
-            )}
+            iconClassName={clsx(numberOfFilters > 0 && 'dark:text-brand')}
             isDisabled={isLoading}
             isLabelHidden={isMobile}
             label={
