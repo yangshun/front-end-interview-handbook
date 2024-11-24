@@ -199,40 +199,41 @@ const variantClasses: Record<ButtonVariant, string> = {
   unstyled: '',
 };
 
+// Cannot use `disabled:` modifier for classes because they aren't applied to `<a>`.
 const variantDisabledClasses: Record<ButtonVariant, string> = {
   danger: clsx(
-    'disabled:border-transparent',
-    'disabled:text-white dark:disabled:text-neutral-700',
-    'disabled:bg-neutral-300 dark:disabled:bg-neutral-900',
+    'border-transparent',
+    'text-white dark:text-neutral-700',
+    'bg-neutral-300 dark:bg-neutral-900',
   ),
   inverted_INTERNAL_ONLY: clsx(
-    'disabled:border-transparent',
-    'disabled:text-neutral-400 dark:disabled:text-neutral-600',
-    'disabled:bg-neutral-50 dark:disabled:bg-neutral-800',
+    'border-transparent',
+    'text-neutral-400 dark:text-neutral-600',
+    'bg-neutral-50 dark:bg-neutral-800',
   ),
   primary: clsx(
-    'disabled:border-transparent',
-    'disabled:text-neutral-400 dark:disabled:text-neutral-600',
-    'disabled:bg-neutral-50 dark:disabled:bg-neutral-800',
+    'border-transparent',
+    'text-neutral-400 dark:text-neutral-600',
+    'bg-neutral-50 dark:bg-neutral-800',
   ),
   secondary: clsx(
-    'disabled:border-neutral-300 dark:disabled:border-neutral-700',
-    'disabled:text-neutral-300 dark:disabled:text-neutral-700',
-    'disabled:bg-transparent',
+    'border-neutral-300 dark:border-neutral-700',
+    'text-neutral-300 dark:text-neutral-700',
+    'bg-transparent',
   ),
   special: clsx(
-    'disabled:border-neutral-300 dark:disabled:border-neutral-700',
-    'disabled:text-white dark:disabled:text-neutral-700',
-    'disabled:bg-brand-lighter dark:disabled:bg-neutral-900',
+    'border-neutral-300 dark:border-neutral-700',
+    'text-white dark:text-neutral-700',
+    'bg-brand-lighter dark:bg-neutral-900',
   ),
   success: clsx(
-    'disabled:border-transparent',
-    'disabled:text-white dark:disabled:text-neutral-700',
-    'disabled:bg-neutral-300 dark:disabled:bg-neutral-900',
+    'border-transparent',
+    'text-white dark:text-neutral-700',
+    'bg-neutral-300 dark:bg-neutral-900',
   ),
   tertiary: clsx(
-    'disabled:border-transparent',
-    'disabled:text-neutral-300 dark:disabled:text-neutral-700',
+    'border-transparent',
+    'text-neutral-300 dark:text-neutral-700',
   ),
   unstyled: '',
 };
@@ -311,9 +312,12 @@ function Button(
       ['border', borderRadiusClasses[size]],
       'transition-colors',
       themeOutlineElement_FocusVisible,
-      variantClasses[variant],
-      [variantDisabledClasses[variant], 'disabled:cursor-not-allowed'],
-      isDisabled && 'pointer-events-none',
+      isDisabled
+        ? [
+            variantDisabledClasses[variant],
+            'cursor-not-allowed pointer-events-none',
+          ]
+        : variantClasses[variant],
       className,
     ),
     disabled: isDisabled,
