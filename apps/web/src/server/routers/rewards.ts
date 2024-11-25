@@ -62,6 +62,9 @@ const twitterUsernameSchema = z
 const socialTasksDiscountCouponId_TEST = 'HvFQPL5W';
 const socialTasksDiscountCouponId_PROD = 'IAx9mkqM';
 
+const interviewsPremiumPerkProjectsDiscountCouponId_TEST = 'hV8qtZIX';
+const interviewsPremiumPerkProjectsDiscountCouponId_PROD = 'SKcIcPgB';
+
 function delay(ms: number) {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
@@ -261,6 +264,59 @@ export const rewardsRouter = router({
       });
 
       return true;
+    }),
+  generateOrGetInterviewsPremiumPerksProjectsDiscountPromoCode:
+    userProcedure.mutation(async ({ ctx: { viewer } }) => {
+      const userId = viewer.id;
+
+      const profile = await prisma.profile.findFirst({
+        where: {
+          id: userId,
+        },
+      });
+
+      const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string, {
+        apiVersion: '2023-10-16',
+      });
+
+      const stripeCustomer = profile?.stripeCustomer;
+
+      if (profile == null || stripeCustomer == null) {
+        throw 'No profile found';
+      }
+
+      const coupon =
+        process.env.NEXT_PUBLIC_VERCEL_ENV === 'production'
+          ? interviewsPremiumPerkProjectsDiscountCouponId_PROD
+          : interviewsPremiumPerkProjectsDiscountCouponId_TEST;
+
+      const promotionCodes = await stripe.promotionCodes.list({
+        active: true,
+        coupon,
+        customer: stripeCustomer,
+      });
+
+      // Allow 3 promo generations since some users
+      // might waste the promo code on failed payments (e.g. India).
+      if (promotionCodes.data.length > 0) {
+        return promotionCodes.data[0];
+      }
+
+      const today = new Date();
+      const nextThreeDays = new Date(today.setDate(today.getDate() + 3));
+      const nextThreeDaysUnix = Math.round(nextThreeDays.getTime() / 1000);
+
+      const promotionCode = await stripe.promotionCodes.create({
+        coupon,
+        customer: stripeCustomer,
+        expires_at: nextThreeDaysUnix,
+        max_redemptions: 1,
+        metadata: {
+          campaign: 'INTERVIEWS_PREMIUM_PERK_PROJECTS_DISCOUNT',
+        },
+      });
+
+      return promotionCode;
     }),
   generateSocialTasksPromoCode: userProcedure.mutation(
     async ({ ctx: { viewer } }) => {

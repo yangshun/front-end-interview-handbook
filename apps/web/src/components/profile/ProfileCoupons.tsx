@@ -110,17 +110,17 @@ export default function ProfileCoupons() {
                 <tr>
                   <th className="py-3 pl-4 pr-3 text-left">
                     <Text size="body2" weight="medium">
-                      Promo name
-                    </Text>
-                  </th>
-                  <th className="py-3 pl-4 pr-3 text-left">
-                    <Text size="body2" weight="medium">
-                      Code
+                      Promotion
                     </Text>
                   </th>
                   <th className="py-3 pl-4 pr-3 text-left">
                     <Text size="body2" weight="medium">
                       Discount
+                    </Text>
+                  </th>
+                  <th className="py-3 pl-4 pr-3 text-left">
+                    <Text size="body2" weight="medium">
+                      Code
                     </Text>
                   </th>
                   <th className="py-3 pl-4 pr-3 text-left">
@@ -134,7 +134,14 @@ export default function ProfileCoupons() {
                 {profilePromoCodes.data?.data.map((promoCode) => (
                   <tr key={promoCode.id} className="py-2">
                     <td className="py-3 pl-4 pr-3">
-                      <Text size="body2">{promoCode.coupon.name}</Text>
+                      <Text color="secondary" size="body2">
+                        {promoCode.coupon.name}
+                      </Text>
+                    </td>
+                    <td className="py-3 pl-4 pr-3">
+                      <Text color="secondary" size="body2">
+                        {promoCode.coupon.percent_off}%
+                      </Text>
                     </td>
                     <td className="py-3 pl-4 pr-3">
                       <span className="flex items-center gap-1">
@@ -143,11 +150,6 @@ export default function ProfileCoupons() {
                         </Text>
                         <CopyCodeButton code={promoCode.code} />
                       </span>
-                    </td>
-                    <td className="py-3 pl-4 pr-3">
-                      <Text color="secondary" size="body2">
-                        {promoCode.coupon.percent_off}%
-                      </Text>
                     </td>
                     <td className="py-3 pl-4 pr-3">
                       <Text color="secondary" size="body2">

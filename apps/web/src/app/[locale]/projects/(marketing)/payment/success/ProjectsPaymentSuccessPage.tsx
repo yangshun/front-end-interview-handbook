@@ -41,7 +41,7 @@ export default function ProjectsPaymentSuccessPage({
   plansPaymentConfig,
 }: Props): JSX.Element {
   return (
-    <Container className="py-16" width="3xl">
+    <Container className="py-8" width="3xl">
       <ProjectsPurchaseSuccessLogging plansPaymentConfig={plansPaymentConfig} />
       <PurchasePaymentSuccessSection
         actions={actions}

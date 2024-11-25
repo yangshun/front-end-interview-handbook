@@ -5,6 +5,7 @@ import { RiArrowRightCircleLine, RiCodeSSlashLine } from 'react-icons/ri';
 import { SocialLinks } from '~/data/SocialLinks';
 
 import type { InterviewsPricingPlanPaymentConfigLocalizedRecord } from '~/components/interviews/purchase/InterviewsPricingPlans';
+import PromotionsInterviewsPremiumPerksProjectDiscountSection from '~/components/promotions/perks/PromotionsInterviewsPremiumPerksProjectDiscountSection';
 import PurchasePaymentSuccessSection from '~/components/purchase/PurchasePaymentSuccessSection';
 import Container from '~/components/ui/Container';
 
@@ -39,16 +40,19 @@ type Props = Readonly<{
   plansPaymentConfig: InterviewsPricingPlanPaymentConfigLocalizedRecord;
 }>;
 
-export default function PaymentSuccessPage({
+export default function InterviewsPaymentSuccessPage({
   plansPaymentConfig,
 }: Props): JSX.Element {
   return (
-    <Container className="py-16" width="3xl">
+    <Container className="py-8" width="2xl">
       <InterviewsPurchaseSuccessLogging
         plansPaymentConfig={plansPaymentConfig}
       />
       <PurchasePaymentSuccessSection
         actions={actions}
+        crossSellSection={
+          <PromotionsInterviewsPremiumPerksProjectDiscountSection />
+        }
         title="Welcome to the Premium Club for GreatFrontEnd Interviews!"
       />
     </Container>
