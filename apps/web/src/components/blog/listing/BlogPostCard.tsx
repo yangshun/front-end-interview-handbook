@@ -75,9 +75,8 @@ export default function BlogPostCard({
                   className={clsx(
                     titleLines === 1 && 'line-clamp-1',
                     titleLines === 2 && 'line-clamp-2',
-                    type === 'wide' && 'text-base lg:text-xl',
                   )}
-                  size={type === 'default' ? 'body1' : 'inherit'}
+                  size={type === 'default' ? 'body1' : 'body0'}
                   weight="bold">
                   {metadata.title}
                 </Text>
