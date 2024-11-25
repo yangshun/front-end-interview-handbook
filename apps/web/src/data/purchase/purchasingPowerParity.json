@@ -67,7 +67,7 @@
     },
     "currency": {
       "code": "aoa",
-      "exchangeRate": 835.608333,
+      "exchangeRate": 913.0,
       "symbol": "Kz"
     }
   },
@@ -79,7 +79,7 @@
     },
     "currency": {
       "code": "ars",
-      "exchangeRate": 872.2583,
+      "exchangeRate": 998.12,
       "symbol": "$"
     }
   },
@@ -91,7 +91,7 @@
     },
     "currency": {
       "code": "eur",
-      "exchangeRate": 0.919363,
+      "exchangeRate": 0.95,
       "symbol": "€"
     }
   },
@@ -103,7 +103,7 @@
     },
     "currency": {
       "code": "aud",
-      "exchangeRate": 1.554581,
+      "exchangeRate": 1.53,
       "symbol": "$"
     }
   },
@@ -163,7 +163,7 @@
     },
     "currency": {
       "code": "bdt",
-      "exchangeRate": 109.844053,
+      "exchangeRate": 118.81,
       "symbol": "৳"
     }
   },
@@ -175,7 +175,7 @@
     },
     "currency": {
       "code": "eur",
-      "exchangeRate": 0.919363,
+      "exchangeRate": 0.95,
       "symbol": "€"
     }
   },
@@ -199,7 +199,7 @@
     },
     "currency": {
       "code": "bgn",
-      "exchangeRate": 1.836712,
+      "exchangeRate": 1.88,
       "symbol": "лв"
     }
   },
@@ -235,7 +235,7 @@
     },
     "currency": {
       "code": "xof",
-      "exchangeRate": 603.062447,
+      "exchangeRate": 626.06,
       "symbol": "Fr"
     }
   },
@@ -271,7 +271,7 @@
     },
     "currency": {
       "code": "brl",
-      "exchangeRate": 5.2123,
+      "exchangeRate": 5.82,
       "symbol": "R$"
     }
   },
@@ -343,7 +343,7 @@
     },
     "currency": {
       "code": "cad",
-      "exchangeRate": 1.373208,
+      "exchangeRate": 1.39,
       "symbol": "$"
     }
   },
@@ -379,7 +379,7 @@
     },
     "currency": {
       "code": "xaf",
-      "exchangeRate": 603.062447,
+      "exchangeRate": 626.06,
       "symbol": "Fr"
     }
   },
@@ -403,7 +403,7 @@
     },
     "currency": {
       "code": "xof",
-      "exchangeRate": 603.062447,
+      "exchangeRate": 626.06,
       "symbol": "Fr"
     }
   },
@@ -415,7 +415,7 @@
     },
     "currency": {
       "code": "clp",
-      "exchangeRate": 957.65,
+      "exchangeRate": 972.51,
       "symbol": "$"
     }
   },
@@ -427,7 +427,7 @@
     },
     "currency": {
       "code": "xaf",
-      "exchangeRate": 603.062447,
+      "exchangeRate": 626.06,
       "symbol": "Fr"
     }
   },
@@ -499,7 +499,7 @@
     },
     "currency": {
       "code": "eur",
-      "exchangeRate": 0.919363,
+      "exchangeRate": 0.95,
       "symbol": "€"
     }
   },
@@ -607,7 +607,7 @@
     },
     "currency": {
       "code": "eur",
-      "exchangeRate": 0.919363,
+      "exchangeRate": 0.95,
       "symbol": "€"
     }
   },
@@ -619,7 +619,7 @@
     },
     "currency": {
       "code": "egp",
-      "exchangeRate": 48.1654,
+      "exchangeRate": 49.37,
       "symbol": "£"
     }
   },
@@ -643,7 +643,7 @@
     },
     "currency": {
       "code": "eur",
-      "exchangeRate": 0.919363,
+      "exchangeRate": 0.95,
       "symbol": "€"
     }
   },
@@ -667,7 +667,7 @@
     },
     "currency": {
       "code": "eur",
-      "exchangeRate": 0.919363,
+      "exchangeRate": 0.95,
       "symbol": "€"
     }
   },
@@ -703,7 +703,7 @@
     },
     "currency": {
       "code": "eur",
-      "exchangeRate": 0.919363,
+      "exchangeRate": 0.95,
       "symbol": "€"
     }
   },
@@ -715,7 +715,7 @@
     },
     "currency": {
       "code": "xaf",
-      "exchangeRate": 603.062447,
+      "exchangeRate": 626.06,
       "symbol": "Fr"
     }
   },
@@ -727,7 +727,7 @@
     },
     "currency": {
       "code": "gbp",
-      "exchangeRate": 0.810974,
+      "exchangeRate": 0.79,
       "symbol": "£"
     }
   },
@@ -751,7 +751,7 @@
     },
     "currency": {
       "code": "gel",
-      "exchangeRate": 2.665,
+      "exchangeRate": 2.74,
       "symbol": "₾"
     }
   },
@@ -799,7 +799,7 @@
     },
     "currency": {
       "code": "xaf",
-      "exchangeRate": 603.062447,
+      "exchangeRate": 626.06,
       "symbol": "Fr"
     }
   },
@@ -811,7 +811,7 @@
     },
     "currency": {
       "code": "eur",
-      "exchangeRate": 0.919363,
+      "exchangeRate": 0.95,
       "symbol": "€"
     }
   },
@@ -835,7 +835,7 @@
     },
     "currency": {
       "code": "xof",
-      "exchangeRate": 603.062447,
+      "exchangeRate": 626.06,
       "symbol": "Fr"
     }
   },
@@ -859,7 +859,7 @@
     },
     "currency": {
       "code": "hkd",
-      "exchangeRate": 7.835997,
+      "exchangeRate": 7.78,
       "symbol": "$"
     }
   },
@@ -883,7 +883,7 @@
     },
     "currency": {
       "code": "eur",
-      "exchangeRate": 0.919363,
+      "exchangeRate": 0.95,
       "symbol": "€"
     }
   },
@@ -907,7 +907,7 @@
     },
     "currency": {
       "code": "huf",
-      "exchangeRate": 370.639723,
+      "exchangeRate": 392.59,
       "symbol": "Ft"
     }
   },
@@ -919,7 +919,7 @@
     },
     "currency": {
       "code": "idr",
-      "exchangeRate": 15026.274536,
+      "exchangeRate": 15862.01,
       "symbol": "Rp"
     }
   },
@@ -931,7 +931,7 @@
     },
     "currency": {
       "code": "eur",
-      "exchangeRate": 0.919363,
+      "exchangeRate": 0.95,
       "symbol": "€"
     }
   },
@@ -943,7 +943,7 @@
     },
     "currency": {
       "code": "ils",
-      "exchangeRate": 3.7776,
+      "exchangeRate": 3.7,
       "symbol": "₪"
     }
   },
@@ -955,7 +955,7 @@
     },
     "currency": {
       "code": "inr",
-      "exchangeRate": 83.659935,
+      "exchangeRate": 84.31,
       "symbol": "₹"
     }
   },
@@ -1003,7 +1003,7 @@
     },
     "currency": {
       "code": "eur",
-      "exchangeRate": 0.919363,
+      "exchangeRate": 0.95,
       "symbol": "€"
     }
   },
@@ -1087,7 +1087,7 @@
     },
     "currency": {
       "code": "aud",
-      "exchangeRate": 1.496066,
+      "exchangeRate": 1.53,
       "symbol": "$"
     }
   },
@@ -1099,7 +1099,7 @@
     },
     "currency": {
       "code": "kmf",
-      "exchangeRate": 462.574831,
+      "exchangeRate": 472.5,
       "symbol": "Fr"
     }
   },
@@ -1123,7 +1123,7 @@
     },
     "currency": {
       "code": "krw",
-      "exchangeRate": 1378.752957,
+      "exchangeRate": 1399.28,
       "symbol": "₩"
     }
   },
@@ -1147,7 +1147,7 @@
     },
     "currency": {
       "code": "kzt",
-      "exchangeRate": 446.080302,
+      "exchangeRate": 496.4,
       "symbol": "₸"
     }
   },
@@ -1155,11 +1155,11 @@
     "conversionFactor": 0.1552602244778746,
     "country": {
       "code": "LA",
-      "name": "Lao People'S Democratic Republic"
+      "name": "Lao People's Democratic Republic"
     },
     "currency": {
       "code": "lak",
-      "exchangeRate": 19101.737164,
+      "exchangeRate": 21835.83,
       "symbol": "₭"
     }
   },
@@ -1195,7 +1195,7 @@
     },
     "currency": {
       "code": "lkr",
-      "exchangeRate": 300.701498,
+      "exchangeRate": 289.37,
       "symbol": "Rs  රු"
     }
   },
@@ -1231,7 +1231,7 @@
     },
     "currency": {
       "code": "eur",
-      "exchangeRate": 0.919363,
+      "exchangeRate": 0.95,
       "symbol": "€"
     }
   },
@@ -1243,7 +1243,7 @@
     },
     "currency": {
       "code": "eur",
-      "exchangeRate": 0.919363,
+      "exchangeRate": 0.95,
       "symbol": "€"
     }
   },
@@ -1255,7 +1255,7 @@
     },
     "currency": {
       "code": "eur",
-      "exchangeRate": 0.919363,
+      "exchangeRate": 0.95,
       "symbol": "€"
     }
   },
@@ -1303,7 +1303,7 @@
     },
     "currency": {
       "code": "eur",
-      "exchangeRate": 0.919363,
+      "exchangeRate": 0.95,
       "symbol": "€"
     }
   },
@@ -1351,7 +1351,7 @@
     },
     "currency": {
       "code": "xof",
-      "exchangeRate": 603.062447,
+      "exchangeRate": 626.06,
       "symbol": "Fr"
     }
   },
@@ -1411,7 +1411,7 @@
     },
     "currency": {
       "code": "eur",
-      "exchangeRate": 0.919363,
+      "exchangeRate": 0.95,
       "symbol": "€"
     }
   },
@@ -1459,7 +1459,7 @@
     },
     "currency": {
       "code": "mxn",
-      "exchangeRate": 17.14189,
+      "exchangeRate": 20.37,
       "symbol": "$"
     }
   },
@@ -1471,7 +1471,7 @@
     },
     "currency": {
       "code": "myr",
-      "exchangeRate": 4.778,
+      "exchangeRate": 4.44,
       "symbol": "RM"
     }
   },
@@ -1495,7 +1495,7 @@
     },
     "currency": {
       "code": "nad",
-      "exchangeRate": 19.10753,
+      "exchangeRate": 17.94,
       "symbol": "$"
     }
   },
@@ -1507,7 +1507,7 @@
     },
     "currency": {
       "code": "xof",
-      "exchangeRate": 603.062447,
+      "exchangeRate": 626.06,
       "symbol": "Fr"
     }
   },
@@ -1519,7 +1519,7 @@
     },
     "currency": {
       "code": "ngn",
-      "exchangeRate": 1235.924683,
+      "exchangeRate": 1688.46,
       "symbol": "₦"
     }
   },
@@ -1543,7 +1543,7 @@
     },
     "currency": {
       "code": "eur",
-      "exchangeRate": 0.919363,
+      "exchangeRate": 0.95,
       "symbol": "€"
     }
   },
@@ -1579,7 +1579,7 @@
     },
     "currency": {
       "code": "aud",
-      "exchangeRate": 1.496066,
+      "exchangeRate": 1.53,
       "symbol": "$"
     }
   },
@@ -1591,7 +1591,7 @@
     },
     "currency": {
       "code": "nzd",
-      "exchangeRate": 1.69318,
+      "exchangeRate": 1.71,
       "symbol": "$"
     }
   },
@@ -1627,7 +1627,7 @@
     },
     "currency": {
       "code": "pen",
-      "exchangeRate": 3.728776,
+      "exchangeRate": 3.77,
       "symbol": "S/ "
     }
   },
@@ -1639,7 +1639,7 @@
     },
     "currency": {
       "code": "pgk",
-      "exchangeRate": 3.79767,
+      "exchangeRate": 4.0,
       "symbol": "K"
     }
   },
@@ -1651,7 +1651,7 @@
     },
     "currency": {
       "code": "php",
-      "exchangeRate": 57.521165,
+      "exchangeRate": 58.99,
       "symbol": "₱"
     }
   },
@@ -1663,7 +1663,7 @@
     },
     "currency": {
       "code": "pkr",
-      "exchangeRate": 278.126258,
+      "exchangeRate": 276.08,
       "symbol": "₨"
     }
   },
@@ -1675,7 +1675,7 @@
     },
     "currency": {
       "code": "pln",
-      "exchangeRate": 4.053798,
+      "exchangeRate": 4.14,
       "symbol": "zł"
     }
   },
@@ -1699,7 +1699,7 @@
     },
     "currency": {
       "code": "ils",
-      "exchangeRate": 3.441762,
+      "exchangeRate": 3.7,
       "symbol": "₪"
     }
   },
@@ -1711,7 +1711,7 @@
     },
     "currency": {
       "code": "eur",
-      "exchangeRate": 0.919363,
+      "exchangeRate": 0.95,
       "symbol": "€"
     }
   },
@@ -1735,7 +1735,7 @@
     },
     "currency": {
       "code": "pyg",
-      "exchangeRate": 7393.50264,
+      "exchangeRate": 7761,
       "symbol": "₲"
     }
   },
@@ -1747,7 +1747,7 @@
     },
     "currency": {
       "code": "qar",
-      "exchangeRate": 3.650067,
+      "exchangeRate": 3.65,
       "symbol": "ر.ق"
     }
   },
@@ -1759,7 +1759,7 @@
     },
     "currency": {
       "code": "ron",
-      "exchangeRate": 4.6745,
+      "exchangeRate": 4.75,
       "symbol": "lei"
     }
   },
@@ -1771,7 +1771,7 @@
     },
     "currency": {
       "code": "rsd",
-      "exchangeRate": 110.078,
+      "exchangeRate": 111.65,
       "symbol": "дин."
     }
   },
@@ -1783,7 +1783,7 @@
     },
     "currency": {
       "code": "rub",
-      "exchangeRate": 93.54537,
+      "exchangeRate": 103.72,
       "symbol": "₽"
     }
   },
@@ -1795,7 +1795,7 @@
     },
     "currency": {
       "code": "rwf",
-      "exchangeRate": 1288.63354,
+      "exchangeRate": 1357.19,
       "symbol": "Fr"
     }
   },
@@ -1819,7 +1819,7 @@
     },
     "currency": {
       "code": "sbd",
-      "exchangeRate": 8.440171,
+      "exchangeRate": 8.38,
       "symbol": "$"
     }
   },
@@ -1831,7 +1831,7 @@
     },
     "currency": {
       "code": "scr",
-      "exchangeRate": 14.22578,
+      "exchangeRate": 13.62,
       "symbol": "₨"
     }
   },
@@ -1855,7 +1855,7 @@
     },
     "currency": {
       "code": "sek",
-      "exchangeRate": 10.91517,
+      "exchangeRate": 10.98,
       "symbol": "kr"
     }
   },
@@ -1867,7 +1867,7 @@
     },
     "currency": {
       "code": "sgd",
-      "exchangeRate": 1.362685,
+      "exchangeRate": 1.35,
       "symbol": "$"
     }
   },
@@ -1879,7 +1879,7 @@
     },
     "currency": {
       "code": "eur",
-      "exchangeRate": 0.919363,
+      "exchangeRate": 0.95,
       "symbol": "€"
     }
   },
@@ -1891,7 +1891,7 @@
     },
     "currency": {
       "code": "eur",
-      "exchangeRate": 0.919363,
+      "exchangeRate": 0.95,
       "symbol": "€"
     }
   },
@@ -1903,7 +1903,7 @@
     },
     "currency": {
       "code": "sll",
-      "exchangeRate": 17665,
+      "exchangeRate": 22726,
       "symbol": "Le"
     }
   },
@@ -1915,7 +1915,7 @@
     },
     "currency": {
       "code": "eur",
-      "exchangeRate": 0.919363,
+      "exchangeRate": 0.95,
       "symbol": "€"
     }
   },
@@ -1927,7 +1927,7 @@
     },
     "currency": {
       "code": "xof",
-      "exchangeRate": 603.062447,
+      "exchangeRate": 626.06,
       "symbol": "Fr"
     }
   },
@@ -1939,7 +1939,7 @@
     },
     "currency": {
       "code": "sos",
-      "exchangeRate": 572.008018,
+      "exchangeRate": 565.6,
       "symbol": "Sh"
     }
   },
@@ -1951,7 +1951,7 @@
     },
     "currency": {
       "code": "srd",
-      "exchangeRate": 34.456,
+      "exchangeRate": 35.49,
       "symbol": "$"
     }
   },
@@ -1987,7 +1987,7 @@
     },
     "currency": {
       "code": "syp",
-      "exchangeRate": 2512.43,
+      "exchangeRate": 13001,
       "symbol": "LS"
     }
   },
@@ -1999,7 +1999,7 @@
     },
     "currency": {
       "code": "szl",
-      "exchangeRate": 19.10266,
+      "exchangeRate": 17.93,
       "symbol": "L"
     }
   },
@@ -2011,7 +2011,7 @@
     },
     "currency": {
       "code": "xaf",
-      "exchangeRate": 603.062447,
+      "exchangeRate": 626.06,
       "symbol": "Fr"
     }
   },
@@ -2023,7 +2023,7 @@
     },
     "currency": {
       "code": "xof",
-      "exchangeRate": 603.062447,
+      "exchangeRate": 626.06,
       "symbol": "Fr"
     }
   },
@@ -2035,7 +2035,7 @@
     },
     "currency": {
       "code": "thb",
-      "exchangeRate": 37.062625,
+      "exchangeRate": 34.53,
       "symbol": "฿"
     }
   },
@@ -2047,7 +2047,7 @@
     },
     "currency": {
       "code": "tjs",
-      "exchangeRate": 10.918161,
+      "exchangeRate": 10.65,
       "symbol": "ЅМ"
     }
   },
@@ -2107,7 +2107,7 @@
     },
     "currency": {
       "code": "try",
-      "exchangeRate": 32.50568,
+      "exchangeRate": 34.53,
       "symbol": "₺"
     }
   },
@@ -2131,7 +2131,7 @@
     },
     "currency": {
       "code": "aud",
-      "exchangeRate": 1.496066,
+      "exchangeRate": 1.53,
       "symbol": "$"
     }
   },
@@ -2143,7 +2143,7 @@
     },
     "currency": {
       "code": "twd",
-      "exchangeRate": 32.622,
+      "exchangeRate": 32.45,
       "symbol": "$"
     }
   },
@@ -2151,11 +2151,11 @@
     "conversionFactor": 0.34,
     "country": {
       "code": "TZ",
-      "name": "Tanzania, United Republic of"
+      "name": "Tanzania"
     },
     "currency": {
       "code": "tzs",
-      "exchangeRate": 2594,
+      "exchangeRate": 2650,
       "symbol": "Sh"
     }
   },
@@ -2167,7 +2167,7 @@
     },
     "currency": {
       "code": "uah",
-      "exchangeRate": 36.961557,
+      "exchangeRate": 41.13,
       "symbol": "₴"
     }
   },
@@ -2179,7 +2179,7 @@
     },
     "currency": {
       "code": "ugx",
-      "exchangeRate": 3818.112433,
+      "exchangeRate": 3694.04,
       "symbol": "Sh"
     }
   },
@@ -2203,7 +2203,7 @@
     },
     "currency": {
       "code": "uyu",
-      "exchangeRate": 38.394256,
+      "exchangeRate": 42.62,
       "symbol": "$"
     }
   },
@@ -2215,7 +2215,7 @@
     },
     "currency": {
       "code": "uzs",
-      "exchangeRate": 11550.15405,
+      "exchangeRate": 12754.83,
       "symbol": "so'm"
     }
   },
@@ -2239,7 +2239,7 @@
     },
     "currency": {
       "code": "ves",
-      "exchangeRate": 36.296671,
+      "exchangeRate": 46.55,
       "symbol": "Bs.S."
     }
   },
@@ -2251,7 +2251,7 @@
     },
     "currency": {
       "code": "vnd",
-      "exchangeRate": 23716.355426,
+      "exchangeRate": 25412.51,
       "symbol": "₫"
     }
   },
@@ -2263,7 +2263,7 @@
     },
     "currency": {
       "code": "vuv",
-      "exchangeRate": 118.722,
+      "exchangeRate": 121.15,
       "symbol": "Vt"
     }
   },
@@ -2299,7 +2299,7 @@
     },
     "currency": {
       "code": "zar",
-      "exchangeRate": 19.150652,
+      "exchangeRate": 18.07,
       "symbol": "R"
     }
   },
@@ -2311,19 +2311,19 @@
     },
     "currency": {
       "code": "zmw",
-      "exchangeRate": 25.847042,
+      "exchangeRate": 27.63,
       "symbol": "ZK"
     }
   },
   "ZW": {
-    "conversionFactor": 7.23,
+    "conversionFactor": 0.5,
     "country": {
       "code": "ZW",
       "name": "Zimbabwe"
     },
     "currency": {
-      "code": "zwl",
-      "exchangeRate": 322,
+      "code": "zwg",
+      "exchangeRate": 25.32,
       "symbol": "$"
     }
   }
