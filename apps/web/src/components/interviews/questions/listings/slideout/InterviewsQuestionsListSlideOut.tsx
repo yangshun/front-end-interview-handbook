@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import { eq } from 'lodash-es';
 import { useRouter } from 'next/navigation';
-import { useEffect, useState } from 'react';
+import { Suspense, useEffect, useState } from 'react';
 import {
   RiArrowDownSLine,
   RiArrowUpSLine,
@@ -600,21 +600,24 @@ export default function InterviewsQuestionsListSlideOut({
       onClose={onClose}>
       {isShown && (
         <ScrollArea>
-          <Contents
-            key={filterNamespace}
-            currentListType={currentListType}
-            filterNamespace={filterNamespace}
-            listType={listType}
-            metadata={metadata}
-            setFirstQuestionHref={setFirstQuestionHref}
-            onClickDifferentStudyListQuestion={(href: string) =>
-              setShowStudyListSwitchDialog({
-                href,
-                show: true,
-                type: 'question-click',
-              })
-            }
-          />
+          {/* Because useQuestionsListDataForType() uses useSearchParams() */}
+          <Suspense>
+            <Contents
+              key={filterNamespace}
+              currentListType={currentListType}
+              filterNamespace={filterNamespace}
+              listType={listType}
+              metadata={metadata}
+              setFirstQuestionHref={setFirstQuestionHref}
+              onClickDifferentStudyListQuestion={(href: string) =>
+                setShowStudyListSwitchDialog({
+                  href,
+                  show: true,
+                  type: 'question-click',
+                })
+              }
+            />
+          </Suspense>
         </ScrollArea>
       )}
       <ConfirmationDialog

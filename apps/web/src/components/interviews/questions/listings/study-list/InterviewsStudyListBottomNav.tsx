@@ -1,7 +1,7 @@
 'use client';
 
 import clsx from 'clsx';
-import type { ReactNode } from 'react';
+import { type ReactNode, Suspense } from 'react';
 
 import QuestionProgressAction from '~/components/interviews/questions/common/QuestionProgressAction';
 import QuestionReportIssueButton from '~/components/interviews/questions/common/QuestionReportIssueButton';
@@ -46,7 +46,7 @@ export default function InterviewsStudyListBottomNav({
           className="flex h-12 items-center justify-between gap-2 px-6"
           width="screen-2xl">
           <div className="flex shrink-0 justify-center xl:order-2 xl:flex-1">
-            {paginationEl}
+            <Suspense>{paginationEl}</Suspense>
           </div>
           <div className="justify-center max-xl:hidden xl:flex-1">
             <QuestionReportIssueButton

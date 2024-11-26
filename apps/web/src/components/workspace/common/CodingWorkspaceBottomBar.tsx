@@ -1,5 +1,6 @@
 import clsx from 'clsx';
 import type { ReactNode } from 'react';
+import { Suspense } from 'react';
 
 import QuestionProgressAction from '~/components/interviews/questions/common/QuestionProgressAction';
 import type { QuestionMetadata } from '~/components/interviews/questions/common/QuestionsTypes';
@@ -45,10 +46,13 @@ export default function CodingWorkspaceBottomBar({
       )}
       {showQuestionsListButton && (
         <div className="absolute left-4 md:left-1/2 md:-translate-x-1/2">
-          <InterviewsQuestionsListSlideOutButton
-            metadata={metadata}
-            studyListKey={studyListKey}
-          />
+          {/* Because useQuestionsListDataForType() uses useSearchParams() */}
+          <Suspense>
+            <InterviewsQuestionsListSlideOutButton
+              metadata={metadata}
+              studyListKey={studyListKey}
+            />
+          </Suspense>
         </div>
       )}
       <div className="flex items-center gap-x-2">

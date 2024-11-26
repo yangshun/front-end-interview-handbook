@@ -2,6 +2,9 @@ import { useSearchParams } from 'next/navigation';
 
 import { trpc } from '~/hooks/trpc';
 
+/**
+ * Please remember to wrap usage of these components in <Suspense>
+ */
 export default function useQuestionsListDataForType(studyListKey?: string) {
   const searchParams = useSearchParams();
 
