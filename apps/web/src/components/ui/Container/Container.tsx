@@ -38,11 +38,11 @@ const widthStyles: Record<ContainerWidth, string> = {
   lg: clsx('max-w-lg', 'max-lg:px-6'),
   marketing: clsx(
     '2xl:max-w-[1152px]', // 1104 + 24 * 2
-    'px-6 xl:max-2xl:px-[160px]',
+    'px-6 min-[1260px]:max-2xl:px-[168px]',
   ),
   md: clsx('max-w-md', 'max-lg:px-6'),
-  'screen-2xl': clsx('max-w-screen-2xl', 'max-lg:px-6'),
-  'screen-xl': clsx('max-w-screen-xl', 'max-lg:px-6'),
+  'screen-2xl': clsx('max-w-screen-2xl', 'max-2xl:px-6'),
+  'screen-xl': clsx('max-w-screen-xl', 'max-xl:px-6'),
   xl: clsx('max-w-xl', 'max-lg:px-6'),
 };
 
