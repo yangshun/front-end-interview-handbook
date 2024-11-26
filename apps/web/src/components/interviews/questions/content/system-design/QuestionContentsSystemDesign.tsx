@@ -37,7 +37,7 @@ export default function QuestionContentsSystemDesign({
   const user = useUser();
   const { data: questionProgress, isLoading } = useQueryQuestionProgress(
     question.metadata,
-    studyListKey,
+    studyListKey ?? null,
   );
 
   useQuestionsAutoMarkAsComplete(question.metadata, studyListKey);

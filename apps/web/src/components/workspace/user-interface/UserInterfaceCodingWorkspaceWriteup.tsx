@@ -42,6 +42,7 @@ type Props = Readonly<{
     contentType: 'description' | 'solution',
   ) => void;
   similarQuestions: ReadonlyArray<QuestionMetadata>;
+  studyListKey?: string;
   writeup: string | null;
 }>;
 
@@ -55,9 +56,13 @@ export default function UserInterfaceCodingWorkspaceWriteup({
   nextQuestions,
   similarQuestions,
   mode,
+  studyListKey,
   writeup,
 }: Props) {
-  const { data: questionProgress } = useQueryQuestionProgress(metadata);
+  const { data: questionProgress } = useQueryQuestionProgress(
+    metadata,
+    studyListKey ?? null,
+  );
   const { save } = useUserInterfaceCodingWorkspaceSavesContext();
   const intl = useIntl();
   const frameworks = useQuestionFrameworksData();

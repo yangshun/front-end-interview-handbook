@@ -241,6 +241,7 @@ function UserInterfaceCodingWorkspaceImpl({
           mode={mode}
           nextQuestions={nextQuestions}
           similarQuestions={similarQuestions}
+          studyListKey={studyListKey}
           writeup={description}
           onFrameworkChange={onFrameworkChange}
         />
@@ -285,6 +286,7 @@ function UserInterfaceCodingWorkspaceImpl({
             mode={mode}
             nextQuestions={nextQuestions}
             similarQuestions={similarQuestions}
+            studyListKey={studyListKey}
             writeup={solution}
             onFrameworkChange={onFrameworkChange}
           />
@@ -354,6 +356,7 @@ function UserInterfaceCodingWorkspaceImpl({
               mode={mode}
               nextQuestions={[]}
               similarQuestions={[]}
+              studyListKey={studyListKey}
               writeup={description}
               onFrameworkChange={onFrameworkChange}
             />
@@ -367,6 +370,7 @@ function UserInterfaceCodingWorkspaceImpl({
               mode={mode}
               nextQuestions={[]}
               similarQuestions={[]}
+              studyListKey={studyListKey}
               writeup={solution}
               onFrameworkChange={onFrameworkChange}
             />

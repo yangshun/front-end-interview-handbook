@@ -48,7 +48,10 @@ export default function JavaScriptCodingWorkspaceTestsSubmitTab({
     });
 
   const user = useUser();
-  const { data: questionProgress } = useQueryQuestionProgress(metadata);
+  const { data: questionProgress } = useQueryQuestionProgress(
+    metadata,
+    studyListKey ?? null,
+  );
   const { showToast } = useToast();
 
   useEffect(() => {

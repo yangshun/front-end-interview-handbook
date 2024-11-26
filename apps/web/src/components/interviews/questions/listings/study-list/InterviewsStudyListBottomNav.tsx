@@ -31,7 +31,7 @@ export default function InterviewsStudyListBottomNav({
   const user = useUser();
   const { data: questionProgress, isLoading } = useQueryQuestionProgress(
     question.metadata,
-    studyListKey,
+    studyListKey ?? null,
   );
 
   return (

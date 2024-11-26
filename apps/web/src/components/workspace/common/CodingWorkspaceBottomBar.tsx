@@ -30,7 +30,7 @@ export default function CodingWorkspaceBottomBar({
 }: Props) {
   const { data: questionProgress } = useQueryQuestionProgress(
     metadata,
-    studyListKey,
+    studyListKey ?? null,
   );
 
   return (

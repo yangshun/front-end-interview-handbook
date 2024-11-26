@@ -20,6 +20,7 @@ type Props = Readonly<{
   metadata: QuestionMetadata;
   nextQuestions: ReadonlyArray<QuestionMetadata>;
   similarQuestions: ReadonlyArray<QuestionMetadata>;
+  studyListKey?: string;
 }>;
 
 export default function JavaScriptCodingWorkspaceDescription({
@@ -28,8 +29,12 @@ export default function JavaScriptCodingWorkspaceDescription({
   metadata,
   nextQuestions,
   similarQuestions,
+  studyListKey,
 }: Props) {
-  const { data: questionProgress } = useQueryQuestionProgress(metadata);
+  const { data: questionProgress } = useQueryQuestionProgress(
+    metadata,
+    studyListKey ?? null,
+  );
   const intl = useIntl();
 
   return (

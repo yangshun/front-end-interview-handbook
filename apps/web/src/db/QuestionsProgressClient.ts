@@ -13,17 +13,17 @@ import { useUser } from '@supabase/auth-helpers-react';
 
 export function useQueryQuestionProgress(
   metadata: QuestionMetadata,
-  listKey?: string,
+  studyListKey: string | null,
 ) {
   const user = useUser();
 
   return trpc.questionProgress.get.useQuery(
     {
-      listKey,
       question: {
         format: metadata.format,
         slug: metadata.slug,
       },
+      studyListKey: studyListKey ?? undefined,
     },
     {
       enabled: user != null, // Only enable the query if the user is logged in

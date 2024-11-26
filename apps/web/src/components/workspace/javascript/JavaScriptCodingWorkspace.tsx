@@ -213,6 +213,7 @@ function JavaScriptCodingWorkspaceImpl({
           metadata={metadata}
           nextQuestions={nextQuestions}
           similarQuestions={similarQuestions}
+          studyListKey={studyListKey}
         />
       ),
       icon: CodingWorkspaceTabIcons.description.icon,
@@ -338,6 +339,7 @@ function JavaScriptCodingWorkspaceImpl({
               metadata={metadata}
               nextQuestions={[]}
               similarQuestions={[]}
+              studyListKey={studyListKey}
             />
             <JavaScriptCodingWorkspaceSolutionMobile
               canViewPremiumContent={canViewPremiumContent}

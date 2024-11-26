@@ -146,18 +146,18 @@ export const questionProgressRouter = router({
   get: userProcedure
     .input(
       z.object({
-        listKey: z.string().optional(),
         question: z.object({
           format: z.string(),
           slug: z.string(),
         }),
+        studyListKey: z.string().optional(),
       }),
     )
-    .query(async ({ input: { question, listKey }, ctx: { viewer } }) => {
-      if (listKey) {
+    .query(async ({ input: { question, studyListKey }, ctx: { viewer } }) => {
+      if (studyListKey) {
         const session = await prisma.learningSession.findFirst({
           where: {
-            key: listKey,
+            key: studyListKey,
             status: 'IN_PROGRESS',
             userId: viewer.id,
           },
