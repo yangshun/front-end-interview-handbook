@@ -49,7 +49,7 @@ export default function DropdownMenuItem({
       {href == null ? (
         <button type="button" {...props} />
       ) : (
-        <Anchor href={href} variant="unstyled" {...props} />
+        <Anchor href={href} variant="unstyled" weight="normal" {...props} />
       )}
     </DropdownMenuPrimitive.Item>
   );
