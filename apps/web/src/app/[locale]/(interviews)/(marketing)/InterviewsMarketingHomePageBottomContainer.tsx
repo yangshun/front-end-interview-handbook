@@ -5,6 +5,8 @@ import { useInView } from 'framer-motion';
 import dynamic from 'next/dynamic';
 import { useRef } from 'react';
 
+import useScrollToTop from '~/hooks/useScrollToTop';
+
 import InterviewsMarketingPlansSection from '~/components/interviews/marketing/InterviewsMarketingPlansSection';
 import type { QuestionBankDataType } from '~/components/interviews/marketing/InterviewsMarketingPracticeQuestionBankSection';
 import InterviewsMarketingSimulateRealInterviews from '~/components/interviews/marketing/InterviewsMarketingSimulateRealInterviews';
@@ -23,6 +25,8 @@ export default function InterviewsMarketingHomePageBottomContainer({
   companyGuides,
   questions,
 }: Props) {
+  useScrollToTop([]);
+
   const loadBottomHalfMarkerRef = useRef(null);
   const showBottomHalf = useInView(loadBottomHalfMarkerRef, {
     amount: 'some',
