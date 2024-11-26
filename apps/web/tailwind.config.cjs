@@ -162,6 +162,12 @@ module.exports = {
         3: '.046875em',
         4: '.0625em',
       },
+      screens: {
+        sm: '641px',
+        md: '769px',
+        lg: '1025px',
+        xl: '1367px',
+      },
       typography: require('./typography.cjs'),
       zIndex: {
         // Modified from: https://github.com/twbs/bootstrap/blob/main/scss/_variables.scss#L1133
