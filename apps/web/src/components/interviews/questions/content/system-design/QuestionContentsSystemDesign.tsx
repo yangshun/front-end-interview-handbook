@@ -18,6 +18,8 @@ import useQuestionsAutoMarkAsComplete from '../../common/useQuestionsAutoMarkAsC
 import QuestionMetadataSection from '../../metadata/QuestionMetadataSection';
 import InterviewsPremiumBadge from '../../../common/InterviewsPremiumBadge';
 
+import { useUser } from '@supabase/auth-helpers-react';
+
 type Props = Readonly<{
   canViewPremiumContent: boolean;
   isQuestionLocked: boolean;
@@ -32,14 +34,17 @@ export default function QuestionContentsSystemDesign({
   question,
 }: Props) {
   const intl = useIntl();
-  const copyRef = useQuestionLogEventCopyContents<HTMLElement>();
-  const { description, metadata, solution } = question;
-  const { data: questionProgress, isSuccess } = useQueryQuestionProgress(
+  const user = useUser();
+  const { data: questionProgress, isLoading } = useQueryQuestionProgress(
     question.metadata,
     studyListKey,
   );
 
   useQuestionsAutoMarkAsComplete(question.metadata, studyListKey);
+
+  const copyRef = useQuestionLogEventCopyContents<HTMLElement>();
+
+  const { description, metadata, solution } = question;
 
   return (
     <article ref={copyRef} className="space-y-8">
@@ -105,7 +110,7 @@ export default function QuestionContentsSystemDesign({
           <div
             className={clsx(
               'transition-colors',
-              isSuccess ? 'opacity-100' : 'opacity-0',
+              isLoading && user != null ? 'opacity-0' : 'opacity-100',
             )}>
             <QuestionProgressAction
               metadata={question.metadata}
