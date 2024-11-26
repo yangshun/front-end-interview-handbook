@@ -434,7 +434,9 @@ export default function JavaScriptCodingWorkspace({
   );
 
   return (
-    <TilesProvider defaultValue={defaultLayout}>
+    <TilesProvider
+      activeTabScrollIntoView={!embed}
+      defaultValue={defaultLayout}>
       <JavaScriptCodingWorkspaceImpl
         canViewPremiumContent={canViewPremiumContent}
         defaultFiles={defaultFiles}
