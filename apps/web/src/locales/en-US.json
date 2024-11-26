@@ -5443,10 +5443,6 @@
     "defaultMessage": "JavaScript Interview Questions with Solutions | GreatFrontEnd",
     "description": "Social title of JavaScript Interview Questions page"
   },
-  "Y9Lzdo": {
-    "defaultMessage": "It's split into two parts: first, understanding what to expect in these interviews, and second, learning a reliable framework to tackle common challenges, complete with real case studies.",
-    "description": "Long description of frontend interview playbook page"
-  },
   "YBlo/J": {
     "defaultMessage": "As mentioned above, there are many ways to host your project for free. Our recommend hosts are:",
     "description": "Text for Deployment Info in Projects"

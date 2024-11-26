@@ -114,15 +114,6 @@ export default function FrontEndSystemDesignPlaybookPage({
               id: '1ygaKJ',
             })}
           </Text>
-          <Text color="secondary" size="inherit">
-            {intl.formatMessage({
-              defaultMessage:
-                "It's split into two parts: first, understanding what to expect in these interviews, and second, learning a reliable framework to tackle common challenges, complete with real case studies.",
-              description:
-                'Long description of frontend interview playbook page',
-              id: 'Y9Lzdo',
-            })}
-          </Text>
         </div>
       }
       metadata={metadata}
