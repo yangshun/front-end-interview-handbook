@@ -154,13 +154,6 @@ export default function InterviewsQuestionsCategoryPage({
         )}
         features={features}
         icon={Icon}
-        sideElement={
-          <div className="w-full min-[1186px]:w-auto min-[1186px]:max-w-[292px] xl:max-w-[363px]">
-            <InterviewsQuestionsCategoryContentSlider
-              frameworkOrLanguage={props.categoryValue}
-            />
-          </div>
-        }
         title={title}>
         <Text
           className="block text-sm lg:max-w-[75%] xl:text-base"
@@ -210,7 +203,10 @@ export default function InterviewsQuestionsCategoryPage({
           questions={questionList}
           searchPlaceholder={searchPlaceholder}
           sideColumnAddOn={
-            <div className="hidden lg:block">
+            <div className="hidden flex-col gap-8 lg:flex">
+              <InterviewsQuestionsCategoryContentSlider
+                frameworkOrLanguage={props.categoryValue}
+              />
               <QuestionListingAccessSummary
                 {...questionsCount}
                 className="mb-6"

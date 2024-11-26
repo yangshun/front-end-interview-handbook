@@ -110,17 +110,9 @@ export default function InterviewsContentSliderCard({
           <Text color="secondary" size="body2">
             {description}
           </Text>
-          {type !== 'link' && (
-            <div className="hidden lg:block min-[1186px]:hidden">
-              {githubStar}
-            </div>
-          )}
         </div>
       </div>
-      {/* Sync the min-width breakpoint with InterviewsQuestionsCategoryPage */}
-      {type !== 'link' && (
-        <div className="block lg:hidden min-[1186px]:block">{githubStar}</div>
-      )}
+      {type !== 'link' && <div>{githubStar}</div>}
       <Anchor
         aria-label={title}
         className="absolute inset-0"

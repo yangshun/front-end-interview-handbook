@@ -147,10 +147,7 @@ export default function InterviewsQuestionsCategoryContentSlider({
       {data.map((item) => (
         <TabsPrimitive.Content
           key={item.value}
-          className={clsx(
-            data.length > 1 &&
-              'h-[152px] sm:h-[134px] lg:h-[96px] min-[1186px]:h-[152px]', // Sync the min-width breakpoint with InterviewsQuestionsCategoryPage
-          )}
+          className={clsx('xl:h-[170px] min-[1326px]:h-[152px]')}
           value={item.value}>
           <InterviewsContentSliderCard
             className="h-auto"
