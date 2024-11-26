@@ -133,7 +133,7 @@ export default function QuestionsUnifiedListWithFilters({
 
   const sortAndFilters = (
     <div className="flex shrink-0 justify-end gap-2 sm:pt-0 md:gap-4">
-      <div className={clsx('xl:hidden')}>
+      <div className={clsx('min-[1200px]:hidden')}>
         <QuestionsListingFilterSlideOut
           attributesUnion={questionAttributesUnion}
           filterNamespace={filterNamespace}
@@ -185,7 +185,10 @@ export default function QuestionsUnifiedListWithFilters({
   );
 
   return (
-    <div className={clsx('xl:grid xl:grid-cols-3 xl:gap-x-6')}>
+    <div
+      className={clsx(
+        'min-[1200px]:grid min-[1200px]:grid-cols-3 min-[1200px]:gap-x-6',
+      )}>
       {/* Left Column */}
       <section className="flex flex-col gap-8 lg:col-span-2">
         <div className="flex flex-col gap-8">{searchFilterRow}</div>
@@ -255,7 +258,8 @@ export default function QuestionsUnifiedListWithFilters({
       {/* Right Column */}
       <aside
         className={clsx(
-          'hidden h-full flex-col lg:col-span-1 xl:flex',
+          'hidden flex-col min-[1200px]:col-span-1 min-[1200px]:flex',
+          'h-full',
           'px-5',
         )}>
         {sideColumnAddOn}
