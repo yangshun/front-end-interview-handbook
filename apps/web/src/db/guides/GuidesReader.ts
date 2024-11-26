@@ -9,7 +9,9 @@ import type {
   FrontEndSystemDesignRouteType,
   GuideCardMetadata,
 } from '~/components/guides/types';
-import { basePath } from '~/components/guides/useFrontEndInterviewGuidebookNavigation';
+import { basePath as behavioralInterviewGuidebookBasePath } from '~/components/guides/useBehavioralInterviewGuidebookNavigation';
+import { basePath as frontEndInterviewGuidebookBasePath } from '~/components/guides/useFrontEndInterviewGuidebookNavigation';
+import { basePath as frontEndSystemDesignGuidebookBasePath } from '~/components/interviews/questions/content/system-design/SystemDesignNavigation';
 
 import {
   behavioralRouteToFile,
@@ -90,7 +92,7 @@ export async function readAllFrontEndInterviewGuides(locale: string) {
     guidesData.push({
       book: 'FRONT_END_INTERVIEW_PLAYBOOK',
       description,
-      href: `${basePath}/${slug}`,
+      href: `${frontEndInterviewGuidebookBasePath}/${slug}`,
       readingTime: time,
       slug,
       title,
@@ -115,7 +117,7 @@ export async function readAllFrontendSystemDesignGuides(locale: string) {
     guidesData.push({
       book: 'FRONT_END_SYSTEM_DESIGN_PLAYBOOK',
       description,
-      href: `${basePath}/${slug}`,
+      href: `${frontEndSystemDesignGuidebookBasePath}/${slug}`,
       readingTime: time,
       slug,
       title,
@@ -143,7 +145,7 @@ export async function readAllBehavioralGuides(locale: string) {
     guidesData.push({
       book: 'BEHAVIORAL_INTERVIEW_PLAYBOOK',
       description,
-      href: `${basePath}/${slug}`,
+      href: `${behavioralInterviewGuidebookBasePath}/${slug}`,
       readingTime: time,
       slug,
       title,
