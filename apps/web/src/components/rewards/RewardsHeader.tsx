@@ -2,7 +2,7 @@
 
 import { RiTimeLine } from 'react-icons/ri';
 
-import { useIntl } from '~/components/intl';
+import { FormattedMessage, useIntl } from '~/components/intl';
 import Badge from '~/components/ui/Badge';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
@@ -48,17 +48,19 @@ export default function RewardsHeader() {
             color="secondary"
             size="body0"
             weight="medium">
-            {intl.formatMessage(
-              {
-                defaultMessage:
-                  'We are giving away an exclusive {discountPercentage}% of all plans for completing simple tasks like following our socials!',
-                description: 'Title for rewards page',
-                id: 'iP5QzF',
-              },
-              {
+            <FormattedMessage
+              defaultMessage="We are giving away an exclusive <strong>{discountPercentage}% off all purchases</strong> for completing simple tasks!"
+              description="Title for rewards page"
+              id="/arZkH"
+              values={{
                 discountPercentage: SOCIAL_DISCOUNT_PERCENTAGE,
-              },
-            )}
+                strong: (chunks) => (
+                  <Text color="default" weight="medium">
+                    {chunks}
+                  </Text>
+                ),
+              }}
+            />
           </Text>
         </div>
       </Section>

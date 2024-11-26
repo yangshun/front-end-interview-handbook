@@ -243,6 +243,10 @@
     "defaultMessage": "Star our \"JavaScript Interview Questions\" repo",
     "description": "Title for task"
   },
+  "/arZkH": {
+    "defaultMessage": "We are giving away an exclusive <strong>{discountPercentage}% off all purchases</strong> for completing simple tasks!",
+    "description": "Title for rewards page"
+  },
   "/c/hHN": {
     "defaultMessage": "We use this to calculate your YOE and keep it updated",
     "description": "Description for \"When did you start work\" input on Projects profile onboarding page"
@@ -358,6 +362,10 @@
   "0GT0SI": {
     "defaultMessage": "Cancel",
     "description": "Cancel button label"
+  },
+  "0HKI99": {
+    "defaultMessage": "{discountPercentage}% off GreatFrontEnd Projects",
+    "description": "Projects product discount"
   },
   "0IALGm": {
     "defaultMessage": "Hello {userEmail}!",
@@ -1486,6 +1494,10 @@
   "83GIBc": {
     "defaultMessage": "Introduction",
     "description": "Introduction to front end system design"
+  },
+  "83xBqd": {
+    "defaultMessage": "Expires on <strong>{expiryDate}</strong>. You can find your promos codes on the <link>profile page</link>.",
+    "description": "Subtext for rewards complete page"
   },
   "869F+x": {
     "defaultMessage": "{numberOfHours} hours daily",
@@ -6647,6 +6659,10 @@
     "defaultMessage": "No tagged companies",
     "description": "Text that appears if the question does not have any tagged comppanies (where the question was known to be asked)"
   },
+  "fx7H3x": {
+    "defaultMessage": "You've also earned an exclusive promo code:",
+    "description": "Marketing rewards message"
+  },
   "fxfae3": {
     "defaultMessage": "If you're stuck, clarify any doubts within the discussion forums in Step 3's. If you need answers urgently for a critical issue, email as at <link>support@greatfrontend.com</link>.",
     "description": "FAQ answer for projects platform"
@@ -7014,10 +7030,6 @@
   "iLx/BQ": {
     "defaultMessage": "Amazon",
     "description": "Company name for Amazon"
-  },
-  "iP5QzF": {
-    "defaultMessage": "We are giving away an exclusive {discountPercentage}% of all plans for completing simple tasks like following our socials!",
-    "description": "Title for rewards page"
   },
   "iSDQh3": {
     "defaultMessage": "Companies",
