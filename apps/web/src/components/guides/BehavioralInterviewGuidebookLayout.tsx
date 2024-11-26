@@ -50,6 +50,7 @@ export default function BehavioralInterviewGuidebookLayout({
         title={title}
       />
       <GuidesMainLayout
+        guide="BEHAVIORAL_INTERVIEW_PLAYBOOK"
         guideProgress={guideProgress}
         isGuideProgressLoaded={isSuccess}
         metadata={guideMetadata}

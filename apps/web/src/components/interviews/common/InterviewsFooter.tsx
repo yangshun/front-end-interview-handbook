@@ -11,7 +11,7 @@ import FooterNew from '../../global/footers/FooterNew';
 function useFooterNavigation() {
   const intl = useIntl();
   const formats = useQuestionFormatsData();
-  const guides = useGuidesData();
+  const guidesData = useGuidesData();
 
   const navigation: FooterNavigation = [
     {
@@ -58,19 +58,19 @@ function useFooterNavigation() {
       key: 'guides',
       links: [
         {
-          href: guides['front-end-interview-playbook'].href,
-          key: guides['front-end-interview-playbook'].key,
-          name: guides['front-end-interview-playbook'].name,
+          href: guidesData.FRONT_END_INTERVIEW_PLAYBOOK.href,
+          key: guidesData.FRONT_END_INTERVIEW_PLAYBOOK.key,
+          name: guidesData.FRONT_END_INTERVIEW_PLAYBOOK.name,
         },
         {
-          href: guides['front-end-system-design-playbook'].href,
-          key: guides['front-end-system-design-playbook'].key,
-          name: guides['front-end-system-design-playbook'].name,
+          href: guidesData.FRONT_END_SYSTEM_DESIGN_PLAYBOOK.href,
+          key: guidesData.FRONT_END_SYSTEM_DESIGN_PLAYBOOK.key,
+          name: guidesData.FRONT_END_SYSTEM_DESIGN_PLAYBOOK.name,
         },
         {
-          href: guides['behavioral-interview-playbook'].href,
-          key: guides['behavioral-interview-playbook'].key,
-          name: guides['behavioral-interview-playbook'].name,
+          href: guidesData.BEHAVIORAL_INTERVIEW_PLAYBOOK.href,
+          key: guidesData.BEHAVIORAL_INTERVIEW_PLAYBOOK.key,
+          name: guidesData.BEHAVIORAL_INTERVIEW_PLAYBOOK.name,
         },
       ],
       title: intl.formatMessage({

@@ -8,5 +8,9 @@ import { useFrontEndInterviewGuidebookNavigation } from '~/components/guides/use
 export default function Layout({ children }: { children: ReactNode }) {
   const navigation = useFrontEndInterviewGuidebookNavigation();
 
-  return <GuidesLayout navigation={navigation}>{children}</GuidesLayout>;
+  return (
+    <GuidesLayout guide="FRONT_END_INTERVIEW_PLAYBOOK" navigation={navigation}>
+      {children}
+    </GuidesLayout>
+  );
 }

@@ -12,7 +12,10 @@ import GuidesFocusModeToggle from './GuidesFocusModeToggle';
 import type { GuideNavigation } from './types';
 import SidebarLinksSection from '../global/sidebar/SidebarLinksSection';
 
+import type { GuidebookItem } from '@prisma/client';
+
 type Props = Readonly<{
+  guide: GuidebookItem;
   isFocusMode?: boolean;
   mode?: 'navbar' | 'sidebar';
   navigation: GuideNavigation;
@@ -21,6 +24,7 @@ type Props = Readonly<{
 }>;
 
 export function GuidesSidebar({
+  guide,
   sticky = false,
   navigation,
   mode = 'sidebar',
@@ -68,7 +72,7 @@ export function GuidesSidebar({
                   id="3wygra"
                 />
               </Text>
-              <GuidesDropdownMenu />
+              <GuidesDropdownMenu guide={guide} />
             </div>
             <div
               className={clsx(

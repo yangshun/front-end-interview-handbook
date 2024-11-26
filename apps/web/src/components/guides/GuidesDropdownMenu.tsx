@@ -15,32 +15,26 @@ import {
   themeTextSubtleColor,
 } from '~/components/ui/theme';
 
+import type { GuidebookItem } from '@prisma/client';
 import * as DropdownMenuPrimitive from '@radix-ui/react-dropdown-menu';
 
-export default function GuidesDropdownMenu() {
+export default function GuidesDropdownMenu({
+  guide,
+}: Readonly<{ guide: GuidebookItem }>) {
   const guidesData = useGuidesData();
   const guides = [
-    {
-      ...guidesData['front-end-interview-playbook'],
-      href: `${guidesData['front-end-interview-playbook'].href}/introduction`,
-    },
-    {
-      ...guidesData['front-end-system-design-playbook'],
-      href: `${guidesData['front-end-system-design-playbook'].href}/introduction`,
-    },
-    {
-      ...guidesData['behavioral-interview-playbook'],
-      href: `${guidesData['behavioral-interview-playbook'].href}/introduction`,
-    },
+    guidesData.FRONT_END_INTERVIEW_PLAYBOOK,
+    guidesData.FRONT_END_SYSTEM_DESIGN_PLAYBOOK,
+    guidesData.BEHAVIORAL_INTERVIEW_PLAYBOOK,
   ];
 
   const pathname = usePathname();
 
   const selectedGuide =
-    Object.values(guides).find(({ href }) => pathname?.startsWith(href)) ??
+    Object.values(guides).find(({ key }) => key === guide) ??
     // System design questions are part of the FESD guidebook.
     (pathname?.includes('/questions/system-design')
-      ? guidesData['front-end-system-design-playbook']
+      ? guidesData.FRONT_END_SYSTEM_DESIGN_PLAYBOOK
       : guides[0]);
   const label = selectedGuide.shortName;
 
@@ -72,14 +66,14 @@ export default function GuidesDropdownMenu() {
           className={dropdownContentClassName}
           sideOffset={8}>
           {Object.values(guides).map(
-            ({ key, href, shortName, icon: ItemIcon }) => {
-              const isSelected = pathname ? pathname.startsWith(href) : false;
+            ({ key, firstPageHref, shortName, icon: ItemIcon }) => {
+              const isSelected = key === guide;
 
               return (
                 <DropdownMenuPrimitive.Item key={key} asChild={true}>
                   <Anchor
                     className={clsx(dropdownContentItemClassName, 'gap-2')}
-                    href={href}
+                    href={firstPageHref}
                     variant="unstyled">
                     <ItemIcon
                       className={clsx(

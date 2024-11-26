@@ -23,7 +23,9 @@ export default function Layout({ children }: { children: ReactNode }) {
   }));
 
   return (
-    <GuidesLayout navigation={{ ...navigation, items: mappedItems }}>
+    <GuidesLayout
+      guide="FRONT_END_SYSTEM_DESIGN_PLAYBOOK"
+      navigation={{ ...navigation, items: mappedItems }}>
       {children}
     </GuidesLayout>
   );

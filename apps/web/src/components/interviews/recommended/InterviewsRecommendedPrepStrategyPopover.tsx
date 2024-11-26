@@ -57,10 +57,10 @@ function InterviewsRecommendedPrepStrategyPopoverContents({
 
   const items = [
     {
-      href: guidesData['front-end-interview-playbook'].href,
+      href: guidesData.FRONT_END_INTERVIEW_PLAYBOOK.href,
       isCompleted:
         frontendInterviewPlaybook.total === frontendInterviewPlaybook.completed,
-      label: guidesData['front-end-interview-playbook'].name,
+      label: guidesData.FRONT_END_INTERVIEW_PLAYBOOK.name,
     },
     {
       href: '/interviews/gfe75',
@@ -79,14 +79,14 @@ function InterviewsRecommendedPrepStrategyPopoverContents({
       label: 'Blind 75',
     },
     {
-      href: guidesData['front-end-system-design-playbook'].href,
+      href: guidesData.FRONT_END_SYSTEM_DESIGN_PLAYBOOK.href,
       isCompleted:
         recommendedPrepData &&
         questionsProgressAll['system-design'].size +
           systemDesignPlaybook.completed ===
           systemDesignPlaybook.total +
             recommendedPrepData.systemDesignQuestionCount,
-      label: guidesData['front-end-system-design-playbook'].shortName,
+      label: guidesData.FRONT_END_SYSTEM_DESIGN_PLAYBOOK.shortName,
     },
   ];
 

@@ -27,7 +27,7 @@ import useFlattenedNavigationItems from './useFlattenedNavigationItems';
 import { useGuidesAutoMarkAsComplete } from './useGuidesAutoMarkAsComplete';
 import { useToast } from '../global/toasts/useToast';
 
-import type { GuideProgress } from '@prisma/client';
+import type { GuidebookItem, GuideProgress } from '@prisma/client';
 import { useUser } from '@supabase/auth-helpers-react';
 
 type MarkAsCompleteProps = Readonly<
@@ -47,6 +47,7 @@ type Props = Readonly<
   MarkAsCompleteProps & {
     bottomNav?: ReactNode;
     children?: React.ReactNode;
+    guide: GuidebookItem;
     isAccessibleForFree?: boolean;
     navigation: GuideNavigation;
     studyListKey?: string;
@@ -58,6 +59,7 @@ export default function GuidesMainLayout({
   bottomNav,
   children,
   navigation,
+  guide,
   studyListKey,
   tableOfContents,
   showMarkAsComplete = false,
@@ -101,6 +103,7 @@ export default function GuidesMainLayout({
       headingSelectors={['h1', 'h2', 'h3', 'h4', 'h5', 'h6']}>
       <div className="w-full">
         <GuidesNavbar
+          guide={guide}
           navigation={navigation}
           tableOfContents={tableOfContents}
         />

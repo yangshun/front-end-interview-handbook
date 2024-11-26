@@ -8,5 +8,9 @@ import useBehavioralInterviewGuidebookNavigation from '~/components/guides/useBe
 export default function Layout({ children }: { children: ReactNode }) {
   const navigation = useBehavioralInterviewGuidebookNavigation();
 
-  return <GuidesLayout navigation={navigation}>{children}</GuidesLayout>;
+  return (
+    <GuidesLayout guide="BEHAVIORAL_INTERVIEW_PLAYBOOK" navigation={navigation}>
+      {children}
+    </GuidesLayout>
+  );
 }

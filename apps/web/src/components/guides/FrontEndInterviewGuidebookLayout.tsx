@@ -50,6 +50,7 @@ export default function FrontEndInterviewGuidebookLayout({
         title={title}
       />
       <GuidesMainLayout
+        guide="FRONT_END_INTERVIEW_PLAYBOOK"
         guideProgress={guideProgress}
         isGuideProgressLoaded={isSuccess}
         metadata={guideMetadata}

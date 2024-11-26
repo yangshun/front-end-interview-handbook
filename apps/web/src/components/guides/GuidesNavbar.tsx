@@ -19,10 +19,14 @@ import type { TableOfContents } from './GuidesTableOfContents';
 import GuidesTableOfContents from './GuidesTableOfContents';
 import type { GuideNavigation } from './types';
 
+import type { GuidebookItem } from '@prisma/client';
+
 export default function GuidesNavbar({
+  guide,
   navigation,
   tableOfContents,
 }: Readonly<{
+  guide: GuidebookItem;
   navigation: GuideNavigation;
   tableOfContents: TableOfContents | undefined;
 }>) {
@@ -86,7 +90,7 @@ export default function GuidesNavbar({
             />
           }
           onClose={() => setIsLeftSidebarOpen(false)}>
-          <GuidesSidebar mode="navbar" navigation={navigation} />
+          <GuidesSidebar guide={guide} mode="navbar" navigation={navigation} />
         </SlideOut>
         {tableOfContents && (
           <SlideOut

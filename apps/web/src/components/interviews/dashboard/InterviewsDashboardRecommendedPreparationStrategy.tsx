@@ -190,9 +190,9 @@ export default function InterviewsDashboardRecommendedPreparationStrategy({
         description: 'Description for front end interview guide',
         id: '4PQzx7',
       }),
-      href: guidesData['front-end-interview-playbook'].href,
-      icon: guidesData['front-end-interview-playbook'].icon,
-      title: guidesData['front-end-interview-playbook'].name,
+      href: guidesData.FRONT_END_INTERVIEW_PLAYBOOK.href,
+      icon: guidesData.FRONT_END_INTERVIEW_PLAYBOOK.icon,
+      title: guidesData.FRONT_END_INTERVIEW_PLAYBOOK.name,
       variant: 'neutral',
     },
     {
@@ -249,8 +249,8 @@ export default function InterviewsDashboardRecommendedPreparationStrategy({
         description: 'Description for frontend system design guide',
         id: 'lKKC9U',
       }),
-      href: guidesData['front-end-system-design-playbook'].href,
-      icon: guidesData['front-end-system-design-playbook'].icon,
+      href: guidesData.FRONT_END_SYSTEM_DESIGN_PLAYBOOK.href,
+      icon: guidesData.FRONT_END_SYSTEM_DESIGN_PLAYBOOK.icon,
       question: {
         completed: questionsProgressAll['system-design'].size,
         total: recommendedPrepData?.systemDesignQuestionCount ?? 0,
@@ -260,7 +260,7 @@ export default function InterviewsDashboardRecommendedPreparationStrategy({
         description: 'Label for frontend system design tag',
         id: 'jb5IjS',
       }),
-      title: guidesData['front-end-system-design-playbook'].name,
+      title: guidesData.FRONT_END_SYSTEM_DESIGN_PLAYBOOK.name,
       variant: 'info',
     },
   ];

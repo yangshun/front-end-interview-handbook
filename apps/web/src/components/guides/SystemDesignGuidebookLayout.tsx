@@ -54,6 +54,7 @@ export default function SystemDesignGuidebookLayout({
         title={`Front End System Design: ${title}`}
       />
       <GuidesMainLayout
+        guide="FRONT_END_SYSTEM_DESIGN_PLAYBOOK"
         guideProgress={guideProgress}
         isGuideProgressLoaded={isSuccess}
         metadata={guideMetadata}

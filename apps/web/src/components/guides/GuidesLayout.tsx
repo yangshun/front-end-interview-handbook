@@ -9,6 +9,8 @@ import { GuidesSidebar } from '~/components/guides/GuidesSidebar';
 
 import type { GuideNavigation } from './types';
 
+import type { GuidebookItem } from '@prisma/client';
+
 type GuidesContextType = Readonly<{
   collapsedToC: boolean;
   setCollapsedToC: (value: boolean) => void;
@@ -34,10 +36,11 @@ export function useGuidesContext() {
 
 type Props = Readonly<{
   children: ReactNode;
+  guide: GuidebookItem;
   navigation: GuideNavigation;
 }>;
 
-export default function GuidesLayout({ children, navigation }: Props) {
+export default function GuidesLayout({ children, guide, navigation }: Props) {
   const [isFocusMode, toggleFocusMode] = useToggle();
   const [collapsedToC, setCollapsedToC] = useState(isFocusMode);
 
@@ -55,6 +58,7 @@ export default function GuidesLayout({ children, navigation }: Props) {
               'sticky top-[var(--global-sticky-height)]',
             )}>
             <GuidesSidebar
+              guide={guide}
               isFocusMode={isFocusMode}
               navigation={navigation}
               sticky={true}

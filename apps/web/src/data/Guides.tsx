@@ -9,16 +9,14 @@ import { basePath as frontEndInterviewPlaybookBasePath } from '~/components/guid
 import { basePath as frontEndSystemDesignPlaybookBasePath } from '~/components/interviews/questions/content/system-design/SystemDesignNavigation';
 import { useIntl } from '~/components/intl';
 
-type GuideType =
-  | 'behavioral-interview-playbook'
-  | 'front-end-interview-playbook'
-  | 'front-end-system-design-playbook';
+import type { GuidebookItem } from '@prisma/client';
 
 type GuideData = Readonly<{
   description: string;
+  firstPageHref: string;
   href: string;
   icon: (props: React.ComponentProps<'svg'>) => JSX.Element;
-  key: string;
+  key: GuidebookItem;
   name: string;
   shortName: string;
 }>;
@@ -26,17 +24,18 @@ type GuideData = Readonly<{
 export function useGuidesData() {
   const intl = useIntl();
 
-  const items: Record<GuideType, GuideData> = {
-    'behavioral-interview-playbook': {
+  const items: Record<GuidebookItem, GuideData> = {
+    BEHAVIORAL_INTERVIEW_PLAYBOOK: {
       description: intl.formatMessage({
         defaultMessage:
           'The only behavioral interview guide written specifically for front end engineers.',
         description: 'Behavioral interview guidebook description',
         id: 'MV8xp3',
       }),
+      firstPageHref: `${behavioralInterviewPlaybookBasePath}/introduction`,
       href: behavioralInterviewPlaybookBasePath,
       icon: RiQuestionAnswerLine,
-      key: 'big',
+      key: 'BEHAVIORAL_INTERVIEW_PLAYBOOK',
       name: intl.formatMessage({
         defaultMessage: 'Behavioral Interview Playbook',
         description: 'Title for behavioral interview guide',
@@ -48,16 +47,17 @@ export function useGuidesData() {
         id: 'xBNYLl',
       }),
     },
-    'front-end-interview-playbook': {
+    FRONT_END_INTERVIEW_PLAYBOOK: {
       description: intl.formatMessage({
         defaultMessage:
           'The definitive guide to preparing for Front End Interviews, written by the author of Front End Interview Handbook.',
         description: 'Front end interview guidebook description',
         id: 'XtKx03',
       }),
+      firstPageHref: `${frontEndInterviewPlaybookBasePath}/introduction`,
       href: frontEndInterviewPlaybookBasePath,
       icon: RiBookOpenLine,
-      key: 'feig',
+      key: 'FRONT_END_INTERVIEW_PLAYBOOK',
       name: intl.formatMessage({
         defaultMessage: 'Front End Interview Playbook',
         description: 'Front End Interview guide title',
@@ -69,16 +69,17 @@ export function useGuidesData() {
         id: '5DLanP',
       }),
     },
-    'front-end-system-design-playbook': {
+    FRONT_END_SYSTEM_DESIGN_PLAYBOOK: {
       description: intl.formatMessage({
         defaultMessage:
           'The most comprehensive guide to Front End System Design Interviews you can find.',
         description: 'Front end system design guidebook description',
         id: 'jm+fR2',
       }),
+      firstPageHref: `${frontEndSystemDesignPlaybookBasePath}/introduction`,
       href: frontEndSystemDesignPlaybookBasePath,
       icon: RiFlowChart,
-      key: 'fesdg',
+      key: 'FRONT_END_SYSTEM_DESIGN_PLAYBOOK',
       name: intl.formatMessage({
         defaultMessage: 'Front End System Design Playbook',
         description: 'Front end system design guidebook title',

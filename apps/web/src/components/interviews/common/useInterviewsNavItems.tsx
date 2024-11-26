@@ -97,7 +97,7 @@ export default function useInterviewsNavItems(placement: 'nav' | 'sidebar') {
   const recommendedPreparation = {
     align: 'center',
     currentMatchRegex: new RegExp(
-      `(/blind75|/gfe75|${guidesData['front-end-interview-playbook'].href}|${guidesData['front-end-system-design-playbook'].href})`,
+      `(/blind75|/gfe75|${guidesData.FRONT_END_INTERVIEW_PLAYBOOK.href}|${guidesData.FRONT_END_SYSTEM_DESIGN_PLAYBOOK.href})`,
       'i',
     ),
     icon: RiThumbUpLine,
@@ -105,15 +105,15 @@ export default function useInterviewsNavItems(placement: 'nav' | 'sidebar') {
     // TODO(interviews): consolidate with "recommended prep strategy" dropdown menu.
     items: [
       {
-        href: guidesData['front-end-interview-playbook'].href,
-        icon: guidesData['front-end-interview-playbook'].icon,
-        itemKey: guidesData['front-end-interview-playbook'].key,
-        label: guidesData['front-end-interview-playbook'].name,
+        href: guidesData.FRONT_END_INTERVIEW_PLAYBOOK.href,
+        icon: guidesData.FRONT_END_INTERVIEW_PLAYBOOK.icon,
+        itemKey: guidesData.FRONT_END_INTERVIEW_PLAYBOOK.key,
+        label: guidesData.FRONT_END_INTERVIEW_PLAYBOOK.name,
         onClick: () => {
           gtag.event({
             action: `${placement}.prepare.recommended.feig.click`,
             category: 'engagement',
-            label: guidesData['front-end-interview-playbook'].name,
+            label: guidesData.FRONT_END_INTERVIEW_PLAYBOOK.name,
           });
         },
         showAsNumber: true,
@@ -167,10 +167,10 @@ export default function useInterviewsNavItems(placement: 'nav' | 'sidebar') {
         type: 'popover-link',
       },
       {
-        href: guidesData['front-end-system-design-playbook'].href,
-        icon: guidesData['front-end-system-design-playbook'].icon,
-        itemKey: guidesData['front-end-system-design-playbook'].key,
-        label: guidesData['front-end-system-design-playbook'].name,
+        href: guidesData.FRONT_END_SYSTEM_DESIGN_PLAYBOOK.href,
+        icon: guidesData.FRONT_END_SYSTEM_DESIGN_PLAYBOOK.icon,
+        itemKey: guidesData.FRONT_END_SYSTEM_DESIGN_PLAYBOOK.key,
+        label: guidesData.FRONT_END_SYSTEM_DESIGN_PLAYBOOK.name,
         onClick: () => {
           gtag.event({
             action: `${placement}.prepare.recommended.fesdg.click`,
@@ -418,10 +418,10 @@ export default function useInterviewsNavItems(placement: 'nav' | 'sidebar') {
     itemKey: 'guides',
     items: [
       {
-        href: guidesData['front-end-interview-playbook'].href,
-        icon: guidesData['front-end-interview-playbook'].icon,
-        itemKey: guidesData['front-end-interview-playbook'].key,
-        label: guidesData['front-end-interview-playbook'].name,
+        href: guidesData.FRONT_END_INTERVIEW_PLAYBOOK.href,
+        icon: guidesData.FRONT_END_INTERVIEW_PLAYBOOK.icon,
+        itemKey: guidesData.FRONT_END_INTERVIEW_PLAYBOOK.key,
+        label: guidesData.FRONT_END_INTERVIEW_PLAYBOOK.name,
         labelAddon: (
           <Badge
             label={intl.formatMessage({
@@ -448,10 +448,10 @@ export default function useInterviewsNavItems(placement: 'nav' | 'sidebar') {
         type: 'popover-link',
       },
       {
-        href: guidesData['front-end-system-design-playbook'].href,
-        icon: guidesData['front-end-system-design-playbook'].icon,
-        itemKey: guidesData['front-end-system-design-playbook'].key,
-        label: guidesData['front-end-system-design-playbook'].name,
+        href: guidesData.FRONT_END_SYSTEM_DESIGN_PLAYBOOK.href,
+        icon: guidesData.FRONT_END_SYSTEM_DESIGN_PLAYBOOK.icon,
+        itemKey: guidesData.FRONT_END_SYSTEM_DESIGN_PLAYBOOK.key,
+        label: guidesData.FRONT_END_SYSTEM_DESIGN_PLAYBOOK.name,
         onClick: () => {
           gtag.event({
             action: `${placement}.prepare.guides.fesdg.click`,
@@ -459,14 +459,14 @@ export default function useInterviewsNavItems(placement: 'nav' | 'sidebar') {
             label: 'Front End System Design Guidebook',
           });
         },
-        sublabel: guidesData['front-end-system-design-playbook'].description,
+        sublabel: guidesData.FRONT_END_SYSTEM_DESIGN_PLAYBOOK.description,
         type: 'popover-link',
       },
       {
-        href: guidesData['behavioral-interview-playbook'].href,
-        icon: guidesData['behavioral-interview-playbook'].icon,
-        itemKey: guidesData['behavioral-interview-playbook'].key,
-        label: guidesData['behavioral-interview-playbook'].name,
+        href: guidesData.BEHAVIORAL_INTERVIEW_PLAYBOOK.href,
+        icon: guidesData.BEHAVIORAL_INTERVIEW_PLAYBOOK.icon,
+        itemKey: guidesData.BEHAVIORAL_INTERVIEW_PLAYBOOK.key,
+        label: guidesData.BEHAVIORAL_INTERVIEW_PLAYBOOK.name,
         labelAddon: (
           <Badge
             label={intl.formatMessage({
@@ -485,7 +485,7 @@ export default function useInterviewsNavItems(placement: 'nav' | 'sidebar') {
             label: 'Behavioral Interview Guidebook',
           });
         },
-        sublabel: guidesData['behavioral-interview-playbook'].description,
+        sublabel: guidesData.BEHAVIORAL_INTERVIEW_PLAYBOOK.description,
         type: 'popover-link',
       },
     ],

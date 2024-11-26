@@ -253,7 +253,7 @@ export default function DropdownMenuExamples() {
         </DropdownMenu>
       </div>
       <div>
-        <GuidesDropdownMenu />
+        <GuidesDropdownMenu guide="FRONT_END_INTERVIEW_PLAYBOOK" />
       </div>
     </UIExamplesGroup>
   );

@@ -44,6 +44,7 @@ export default function InterviewsQuestionsSystemDesignPage({
   return (
     <GuidesMainLayout
       bottomNav={bottomNav}
+      guide="FRONT_END_SYSTEM_DESIGN_PLAYBOOK"
       navigation={navigation}
       studyListKey={studyListKey}
       tableOfContents={tableOfContents}>
