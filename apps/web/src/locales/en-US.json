@@ -915,10 +915,6 @@
     "defaultMessage": "Don't have an account? <link>Sign up for free</link>",
     "description": "Prompt for account creation on Email Sign In page"
   },
-  "4De8x6": {
-    "defaultMessage": "Front End Interview Playbook | GreatFrontEnd",
-    "description": "Social title for frontend interview playbook cover page"
-  },
   "4EqfQx": {
     "defaultMessage": "Use a different card to make the payment.",
     "description": "Reason label for different card"
@@ -1959,6 +1955,10 @@
     "defaultMessage": "paid once",
     "description": "Pay the price once"
   },
+  "BO6Xxw": {
+    "defaultMessage": "Front End Interview Playbook",
+    "description": "Social title for frontend interview playbook cover page"
+  },
   "BOh0kv": {
     "defaultMessage": "See {username}'s approach to building the {challengeName} on GreatFrontEnd. Engage with their work, share feedback, and gain new perspectives for your projects",
     "description": "Description of Projects submission page"
@@ -2338,10 +2338,6 @@
   "E63Iix": {
     "defaultMessage": "Step-by-step guides on how to approach the challenge.",
     "description": "FAQ answer for projects platform"
-  },
-  "E9XW96": {
-    "defaultMessage": "Front End System Design Playbook | GreatFrontEnd",
-    "description": "Social title for frontend system design playbook cover page"
   },
   "E9Yr6B": {
     "defaultMessage": "Billing",
@@ -4142,10 +4138,6 @@
   "Ptmnjq": {
     "defaultMessage": "Free continuous updates",
     "description": "Title for free continuous updates feature"
-  },
-  "Pv/QiZ": {
-    "defaultMessage": "Behavioral Interview Playbook | GreatFrontEnd",
-    "description": "Social title for behavioral interview playbook cover page"
   },
   "Pw1evM": {
     "defaultMessage": "All of our payments are processed using <link>Stripe</link>; we do not directly store your payment and billing information. If you would like to change them, please use Stripe's customer billing portal to do so. {goToStripeCTA}",
@@ -7847,6 +7839,10 @@
     "defaultMessage": "General",
     "description": "Profile settings tab title"
   },
+  "nkY9S8": {
+    "defaultMessage": "Behavioral Interview Playbook",
+    "description": "Social title for behavioral interview playbook cover page"
+  },
   "nkhVnD": {
     "defaultMessage": "Browse curated content series on front end development. Explore structured guides, tutorials, and expert insights to deepen your knowledge and boost your skills.",
     "description": "Description of GreatFrontEnd blog explore series page"
@@ -8314,6 +8310,10 @@
   "qoTBLI": {
     "defaultMessage": "Know where to find important info",
     "description": "Label for \"Know where to find important info\" step in dialog on Projects project page"
+  },
+  "qpQlsV": {
+    "defaultMessage": "Front End System Design Playbook",
+    "description": "Social title for frontend system design playbook cover page"
   },
   "qsjqbZ": {
     "defaultMessage": "For a profile URL like <bold>https://x.com/in/john-doe</bold>, your handle would be <bold>john-doe</bold>.",

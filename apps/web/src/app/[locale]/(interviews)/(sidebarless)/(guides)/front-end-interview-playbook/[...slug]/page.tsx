@@ -65,6 +65,7 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
   return defaultMetadata({
     description: seo_description || description,
     locale,
+    ogImageTitle: title,
     pathname,
     socialTitle: social_title,
     title: seo_title || title,

@@ -18,6 +18,11 @@ type Props = Readonly<{
 async function getPageSEOMetadata({ params }: Props) {
   const { locale } = params;
   const intl = await getIntlServerOnly(locale);
+  const socialTitle = intl.formatMessage({
+    defaultMessage: 'Behavioral Interview Playbook',
+    description: 'Social title for behavioral interview playbook cover page',
+    id: 'nkY9S8',
+  });
 
   return {
     description: intl.formatMessage({
@@ -28,11 +33,8 @@ async function getPageSEOMetadata({ params }: Props) {
       id: 'zqIbYm',
     }),
     href: basePath,
-    socialTitle: intl.formatMessage({
-      defaultMessage: 'Behavioral Interview Playbook | GreatFrontEnd',
-      description: 'Social title for behavioral interview playbook cover page',
-      id: 'Pv/QiZ',
-    }),
+    ogImageTitle: socialTitle,
+    socialTitle: `${socialTitle} | GreatFrontEnd`,
     title: intl.formatMessage({
       defaultMessage:
         'Behavioral Interview Playbook | Made For Front End Engineers',
@@ -45,13 +47,15 @@ async function getPageSEOMetadata({ params }: Props) {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = params;
 
-  const { title, description, socialTitle, href } = await getPageSEOMetadata({
-    params,
-  });
+  const { title, description, socialTitle, href, ogImageTitle } =
+    await getPageSEOMetadata({
+      params,
+    });
 
   return defaultMetadata({
     description,
     locale,
+    ogImageTitle,
     pathname: href,
     socialTitle,
     title,
