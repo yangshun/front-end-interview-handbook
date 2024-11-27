@@ -58,9 +58,9 @@ export default function InterviewsStudyListImportProgressDialog({
   }
 
   function onImportProgress() {
-    const data = questions.filter((question) =>
-      selectedQuestionsSlug.includes(question.slug),
-    );
+    const data = questions
+      .filter((question) => selectedQuestionsSlug.includes(question.slug))
+      .map(({ format, slug }) => ({ format, slug }));
 
     importProgressMutation.mutate(
       {
