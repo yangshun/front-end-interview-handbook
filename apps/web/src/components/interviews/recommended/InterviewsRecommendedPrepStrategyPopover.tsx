@@ -42,12 +42,13 @@ function InterviewsRecommendedPrepStrategyPopoverContents({
   const sessions = questionListSessions ?? [];
   const gfe75session = sessions.find(
     (session) =>
-      recommendedPrepData && session.key === recommendedPrepData.gfe75.listKey,
+      recommendedPrepData &&
+      session.key === recommendedPrepData.gfe75.studyListKey,
   );
   const blind75session = sessions.find(
     (session) =>
       recommendedPrepData &&
-      session.key === recommendedPrepData.blind75.listKey,
+      session.key === recommendedPrepData.blind75.studyListKey,
   );
   const { frontendInterviewPlaybook, systemDesignPlaybook } =
     useGuideCompletionCount();

@@ -30,7 +30,7 @@ export default function useQuestionsWithCompletionStatus<
   const { data: questionSessionProgress } =
     trpc.questionLists.getSessionProgress.useQuery(
       {
-        listKey: studyListKey!,
+        studyListKey: studyListKey!,
       },
       {
         enabled: user != null && studyListKey != null,

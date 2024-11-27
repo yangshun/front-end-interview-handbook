@@ -80,7 +80,7 @@ export default function InterviewsStudyPlanPage({
           icon={StudyPlanIcons[studyList.slug]}
           overallProgress={questionProgressParam ?? []}
           questions={questions}
-          questionsSessionKey={studyList.slug}
+          studyListKey={studyList.slug}
           title={studyList.longName}
         />
       </div>
@@ -88,9 +88,9 @@ export default function InterviewsStudyPlanPage({
         <div>
           {canViewStudyPlans ? (
             <InterviewsStudyListQuestions
-              listKey={studyList.slug}
               overallProgress={questionsOverallProgress}
               questions={questions}
+              studyListKey={studyList.slug}
             />
           ) : (
             <VignetteOverlay

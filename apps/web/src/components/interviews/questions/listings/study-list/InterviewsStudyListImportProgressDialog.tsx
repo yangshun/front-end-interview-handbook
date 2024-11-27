@@ -18,13 +18,13 @@ import {
 type Props = Readonly<{
   isShown: boolean;
   onClose: () => void;
-  questionListKey: string;
   questions: ReadonlyArray<QuestionMetadata>;
+  studyListKey: string;
 }>;
 
 export default function InterviewsStudyListImportProgressDialog({
   questions,
-  questionListKey,
+  studyListKey,
   isShown,
   onClose,
 }: Props) {
@@ -64,8 +64,8 @@ export default function InterviewsStudyListImportProgressDialog({
 
     importProgressMutation.mutate(
       {
-        listKey: questionListKey,
         questions: data,
+        studyListKey,
       },
       {
         onSuccess() {

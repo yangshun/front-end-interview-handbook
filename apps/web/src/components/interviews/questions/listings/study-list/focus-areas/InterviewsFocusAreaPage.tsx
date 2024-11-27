@@ -81,7 +81,7 @@ export default function InterviewsFocusAreaPage({
           icon={FocusAreaIcons[studyList.slug]}
           overallProgress={questionProgressParam ?? []}
           questions={questions}
-          questionsSessionKey={studyList.slug}
+          studyListKey={studyList.slug}
           title={studyList.longName}
         />
         {studyList.body.code && (
@@ -99,9 +99,9 @@ export default function InterviewsFocusAreaPage({
       <Section>
         {canViewFocusAreas ? (
           <InterviewsStudyListQuestions
-            listKey={studyList.slug}
             overallProgress={questionsOverallProgress}
             questions={questions}
+            studyListKey={studyList.slug}
           />
         ) : (
           <VignetteOverlay

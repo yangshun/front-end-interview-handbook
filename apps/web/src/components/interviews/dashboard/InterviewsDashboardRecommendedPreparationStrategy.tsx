@@ -168,12 +168,13 @@ export default function InterviewsDashboardRecommendedPreparationStrategy({
     trpc.questionLists.getRecommendedStudyList.useQuery(undefined);
   const gfe75session = questionListSessions.find(
     (session) =>
-      recommendedPrepData && session.key === recommendedPrepData.gfe75.listKey,
+      recommendedPrepData &&
+      session.key === recommendedPrepData.gfe75.studyListKey,
   );
   const blind75session = questionListSessions.find(
     (session) =>
       recommendedPrepData &&
-      session.key === recommendedPrepData.blind75.listKey,
+      session.key === recommendedPrepData.blind75.studyListKey,
   );
   const { frontendInterviewPlaybook, systemDesignPlaybook } =
     useGuideCompletionCount();

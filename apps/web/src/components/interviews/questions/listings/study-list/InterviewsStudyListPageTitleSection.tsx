@@ -14,7 +14,7 @@ type Props = React.ComponentProps<typeof InterviewsPageHeader> &
     overallProgress: ReadonlyArray<QuestionProgress>;
     progressTrackingAvailableToNonPremiumUsers?: boolean;
     questions: ReadonlyArray<QuestionMetadata>;
-    questionsSessionKey?: string;
+    studyListKey?: string;
   }>;
 
 export default function InterviewsStudyListPageTitleSection({
@@ -22,7 +22,7 @@ export default function InterviewsStudyListPageTitleSection({
   overallProgress,
   progressTrackingAvailableToNonPremiumUsers = false,
   questions,
-  questionsSessionKey,
+  studyListKey,
   ...props
 }: Props) {
   return (
@@ -30,7 +30,7 @@ export default function InterviewsStudyListPageTitleSection({
       className="flex-col lg:flex-row"
       {...props}
       sideElement={
-        questionsSessionKey ? (
+        studyListKey ? (
           <InterviewsStudyListSession
             feature={feature}
             overallProgress={overallProgress}
@@ -38,8 +38,8 @@ export default function InterviewsStudyListPageTitleSection({
               progressTrackingAvailableToNonPremiumUsers
             }
             questionCount={questions.length}
-            questionListKey={questionsSessionKey}
             questions={questions}
+            studyListKey={studyListKey}
           />
         ) : undefined
       }

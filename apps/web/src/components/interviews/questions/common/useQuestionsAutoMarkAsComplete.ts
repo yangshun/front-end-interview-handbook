@@ -15,7 +15,7 @@ export const MARK_AS_COMPLETE_ACTION_NAME = 'mark-complete';
  */
 export default function useQuestionsAutoMarkAsComplete(
   metadata: QuestionMetadata,
-  listKey?: string,
+  studyListKey?: string,
 ) {
   const intl = useIntl();
   const markCompleteMutation = useMutationQuestionProgressAdd();
@@ -26,7 +26,7 @@ export default function useQuestionsAutoMarkAsComplete(
       {
         format: metadata.format,
         slug: metadata.slug,
-        studyListKey: listKey,
+        studyListKey,
       },
       {
         onError: (error) => {

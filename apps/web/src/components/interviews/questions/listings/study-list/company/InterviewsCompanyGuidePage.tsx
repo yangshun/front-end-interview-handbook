@@ -129,7 +129,7 @@ export default function InterviewsCompanyGuidePage({
           logoImgSrc={studyList.logoUrl}
           overallProgress={questionProgressParam ?? []}
           questions={questions}
-          questionsSessionKey={studyList.slug}
+          studyListKey={studyList.slug}
           title={intl.formatMessage(
             {
               defaultMessage: '{company} Front End Interview Guide',
@@ -195,9 +195,9 @@ export default function InterviewsCompanyGuidePage({
             </Heading>
             {canViewStudyPlans ? (
               <InterviewsStudyListQuestions
-                listKey={studyList.slug}
                 overallProgress={questionsOverallProgress}
                 questions={questions}
+                studyListKey={studyList.slug}
               />
             ) : (
               <VignetteOverlay

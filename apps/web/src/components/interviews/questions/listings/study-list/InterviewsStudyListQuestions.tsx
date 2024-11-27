@@ -9,15 +9,15 @@ import Section from '~/components/ui/Heading/HeadingContext';
 import type { QuestionsCategorizedProgress } from '~/db/QuestionsUtils';
 
 export default function InterviewsStudyListQuestions({
-  listKey,
+  studyListKey,
   overallProgress,
   questions,
   sideColumnAddOn,
 }: Readonly<{
-  listKey: string;
   overallProgress: QuestionsCategorizedProgress;
   questions: ReadonlyArray<QuestionMetadata>;
   sideColumnAddOn?: ReactNode;
+  studyListKey: string;
 }>) {
   return (
     <div className="flex flex-col gap-y-6">
@@ -34,7 +34,7 @@ export default function InterviewsStudyListQuestions({
             overallProgress[question.format].has(question.slug)
           }
           listMode="study-list"
-          listType={{ type: 'study-list', value: listKey }}
+          listType={{ type: 'study-list', value: studyListKey }}
           questions={questions}
           sideColumnAddOn={sideColumnAddOn}
         />

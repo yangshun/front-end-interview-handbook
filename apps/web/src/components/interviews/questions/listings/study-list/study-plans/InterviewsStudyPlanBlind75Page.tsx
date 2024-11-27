@@ -121,7 +121,6 @@ export default function InterviewsStudyPlanBlind75Page({
       <Section>
         <div className="flex flex-col gap-20">
           <InterviewsStudyListQuestions
-            listKey={studyList.slug}
             overallProgress={questionsOverallProgress}
             questions={questions}
             sideColumnAddOn={
@@ -132,6 +131,7 @@ export default function InterviewsStudyPlanBlind75Page({
                 />
               </div>
             }
+            studyListKey={studyList.slug}
           />
           {bottomContent && (
             <Section>

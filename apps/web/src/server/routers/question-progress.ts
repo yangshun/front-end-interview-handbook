@@ -355,43 +355,45 @@ export const questionProgressRouter = router({
   importProgress: userProcedure
     .input(
       z.object({
-        listKey: z.string(),
         questions: z.array(
           z.object({
             format: z.string(),
             slug: z.string(),
           }),
         ),
+        studyListKey: z.string(),
       }),
     )
-    .mutation(async ({ input: { questions, listKey }, ctx: { viewer } }) => {
-      if (!viewer) {
-        return null;
-      }
+    .mutation(
+      async ({ input: { questions, studyListKey }, ctx: { viewer } }) => {
+        if (!viewer) {
+          return null;
+        }
 
-      const session = await prisma.learningSession.findFirst({
-        where: {
-          key: listKey,
-          status: 'IN_PROGRESS',
-          userId: viewer.id,
-        },
-      });
+        const session = await prisma.learningSession.findFirst({
+          where: {
+            key: studyListKey,
+            status: 'IN_PROGRESS',
+            userId: viewer.id,
+          },
+        });
 
-      if (session == null) {
-        throw new TRPCClientError('No session found!');
-      }
+        if (session == null) {
+          throw new TRPCClientError('No session found!');
+        }
 
-      const data = questions.map(
-        ({ format, slug }) =>
-          ({
-            key: hashQuestion({ format: format as QuestionFormat, slug }),
-            sessionId: session.id,
-            status: 'COMPLETED',
-          }) as const,
-      );
+        const data = questions.map(
+          ({ format, slug }) =>
+            ({
+              key: hashQuestion({ format: format as QuestionFormat, slug }),
+              sessionId: session.id,
+              status: 'COMPLETED',
+            }) as const,
+        );
 
-      await prisma.learningSessionProgress.createMany({
-        data,
-      });
-    }),
+        await prisma.learningSessionProgress.createMany({
+          data,
+        });
+      },
+    ),
 });

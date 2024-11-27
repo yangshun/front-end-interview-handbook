@@ -32,16 +32,16 @@ export const questionListsRouter = router({
   getActiveSession: userProcedure
     .input(
       z.object({
-        listKey: z.string(),
+        studyListKey: z.string(),
       }),
     )
-    .query(async ({ input: { listKey }, ctx: { viewer } }) => {
+    .query(async ({ input: { studyListKey }, ctx: { viewer } }) => {
       const session = await prisma.learningSession.findFirst({
         include: {
           progress: true,
         },
         where: {
-          key: listKey,
+          key: studyListKey,
           status: 'IN_PROGRESS',
           userId: viewer.id,
         },
@@ -165,12 +165,12 @@ export const questionListsRouter = router({
 
     return {
       blind75: {
-        listKey: blind75?.slug ?? '',
         questionCount: blind75?.questionHashes.length ?? 0,
+        studyListKey: blind75?.slug ?? '',
       },
       gfe75: {
-        listKey: gfe75?.slug ?? '',
         questionCount: gfe75?.questionHashes.length ?? 0,
+        studyListKey: gfe75?.slug ?? '',
       },
       systemDesignQuestionCount: questions.length,
     };
@@ -178,13 +178,13 @@ export const questionListsRouter = router({
   getSessionProgress: userProcedure
     .input(
       z.object({
-        listKey: z.string(),
+        studyListKey: z.string(),
       }),
     )
-    .query(async ({ input: { listKey }, ctx: { viewer } }) => {
+    .query(async ({ input: { studyListKey }, ctx: { viewer } }) => {
       const session = await prisma.learningSession.findFirst({
         where: {
-          key: listKey,
+          key: studyListKey,
           status: 'IN_PROGRESS',
           userId: viewer.id,
         },

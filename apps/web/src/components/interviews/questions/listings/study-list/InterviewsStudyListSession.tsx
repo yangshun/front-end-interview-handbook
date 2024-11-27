@@ -40,17 +40,17 @@ type Props = Readonly<{
   overallProgress: ReadonlyArray<QuestionProgress>;
   progressTrackingAvailableToNonPremiumUsers?: boolean;
   questionCount: number;
-  questionListKey: string;
   questions: ReadonlyArray<QuestionMetadata>;
+  studyListKey: string;
 }>;
 
 export default function InterviewsStudyListSession({
-  questionListKey,
   progressTrackingAvailableToNonPremiumUsers,
   questionCount,
   questions,
   overallProgress,
   feature,
+  studyListKey,
 }: Props) {
   const intl = useIntl();
   const pathname = usePathname();
@@ -63,7 +63,7 @@ export default function InterviewsStudyListSession({
   const { data: questionListSession, isLoading: isQuestionListSessionLoading } =
     trpc.questionLists.getActiveSession.useQuery(
       {
-        listKey: questionListKey,
+        studyListKey,
       },
       {
         enabled: user != null,
@@ -115,7 +115,7 @@ export default function InterviewsStudyListSession({
 
     startSessionMutation.mutate(
       {
-        studyListKey: questionListKey,
+        studyListKey,
       },
       {
         onSuccess: () => {
@@ -128,7 +128,7 @@ export default function InterviewsStudyListSession({
   }, [
     previousSessionQuestionProgress.length,
     progressTrackingAvailableToNonPremiumUsers,
-    questionListKey,
+    studyListKey,
     startSessionMutation,
     userProfile?.isInterviewsPremium,
   ]);
@@ -437,8 +437,8 @@ export default function InterviewsStudyListSession({
       {showImportProgressModal && (
         <InterviewsStudyListImportProgressDialog
           isShown={showImportProgressModal}
-          questionListKey={questionListKey}
           questions={previousSessionQuestionProgress}
+          studyListKey={studyListKey}
           onClose={() => setShowImportProgressModal(false)}
         />
       )}
