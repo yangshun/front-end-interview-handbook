@@ -16,15 +16,17 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = params;
 
   const intl = await getIntlServerOnly(locale);
+  const title = intl.formatMessage({
+    defaultMessage: 'Account | Profile',
+    description: 'Title of Profile Account page',
+    id: 'fH+NAA',
+  });
 
   return defaultMetadata({
     locale,
+    ogImageTitle: title,
     pathname: '/profile/account',
-    title: intl.formatMessage({
-      defaultMessage: 'Account | Profile',
-      description: 'Title of Profile Account page',
-      id: 'fH+NAA',
-    }),
+    title,
   });
 }
 

@@ -9,6 +9,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = params;
 
   const intl = await getIntlServerOnly(locale);
+  const title = intl.formatMessage({
+    defaultMessage: 'Promotions',
+    description: 'Title of Promotions page',
+    id: 'ZRUNG5',
+  });
 
   return defaultMetadata({
     description: intl.formatMessage({
@@ -18,12 +23,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       id: 'lyxOq4',
     }),
     locale,
+    ogImageTitle: title,
     pathname: '/promotions',
-    title: intl.formatMessage({
-      defaultMessage: 'Promotions',
-      description: 'Title of Promotions page',
-      id: 'ZRUNG5',
-    }),
+    title,
   });
 }
 

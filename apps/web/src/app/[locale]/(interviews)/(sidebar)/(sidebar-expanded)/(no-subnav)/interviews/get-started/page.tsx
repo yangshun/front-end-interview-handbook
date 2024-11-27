@@ -27,6 +27,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = params;
 
   const intl = await getIntlServerOnly(locale);
+  const title = intl.formatMessage({
+    defaultMessage:
+      'Get Started - One-stop to prepare for your Front End Interviews',
+    description: 'Title of Get Started page',
+    id: 'xR9d8+',
+  });
 
   return defaultMetadata({
     description: intl.formatMessage({
@@ -36,18 +42,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       id: 'hOA7E4',
     }),
     locale,
+    ogImageTitle: title,
     pathname: '/interviews/get-started',
     socialTitle: intl.formatMessage({
       defaultMessage: 'Get Started | Prepare for Your Front End Interviews',
       description: 'Social title of Get Started page',
       id: 'QqooKN',
     }),
-    title: intl.formatMessage({
-      defaultMessage:
-        'Get Started - One-stop to prepare for your Front End Interviews',
-      description: 'Title of Get Started page',
-      id: 'xR9d8+',
-    }),
+    title,
   });
 }
 

@@ -27,6 +27,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = params;
 
   const intl = await getIntlServerOnly(locale);
+  const title = intl.formatMessage({
+    defaultMessage: 'Dashboard - Track your interview preparation progress',
+    description: 'Title of dashboard page',
+    id: 'gZ3W0t',
+  });
 
   return defaultMetadata({
     description: intl.formatMessage({
@@ -36,17 +41,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       id: 'dYeq98',
     }),
     locale,
+    ogImageTitle: title,
     pathname: '/interviews/dashboard',
     socialTitle: intl.formatMessage({
       defaultMessage: 'Dashboard | GreatFrontEnd Interviews',
       description: 'Social title of dashboard page',
       id: '9y48gK',
     }),
-    title: intl.formatMessage({
-      defaultMessage: 'Dashboard - Track your interview preparation progress',
-      description: 'Title of dashboard page',
-      id: 'gZ3W0t',
-    }),
+    title,
   });
 }
 

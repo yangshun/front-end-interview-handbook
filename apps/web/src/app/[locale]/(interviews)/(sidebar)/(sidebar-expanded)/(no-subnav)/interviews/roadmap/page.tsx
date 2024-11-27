@@ -24,6 +24,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       id: '1k8zUZ',
     }),
     locale,
+    ogImageTitle: intl.formatMessage({
+      defaultMessage: 'Roadmap - Upcoming features and updates',
+      description: 'OG title of Roadmap page',
+      id: '65orXt',
+    }),
     pathname: '/interviews/roadmap',
     socialTitle: intl.formatMessage({
       defaultMessage: 'Roadmap | GreatFrontEnd Interviews',

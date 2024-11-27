@@ -18,6 +18,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = params;
 
   const intl = await getIntlServerOnly(locale);
+  const title = intl.formatMessage({
+    defaultMessage: 'Terms of Service',
+    description: 'Title of Terms of Service page',
+    id: 'dk2vXq',
+  });
 
   return defaultMetadata({
     description: intl.formatMessage({
@@ -27,17 +32,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       id: 'yoj8R9',
     }),
     locale,
+    ogImageTitle: title,
     pathname: '/legal/terms',
     socialTitle: intl.formatMessage({
       defaultMessage: 'Terms of Service | GreatFrontEnd',
       description: 'Title of Terms of Service page',
       id: 's9Oi92',
     }),
-    title: intl.formatMessage({
-      defaultMessage: 'Terms of Service',
-      description: 'Title of Terms of Service page',
-      id: 'dk2vXq',
-    }),
+    title,
   });
 }
 

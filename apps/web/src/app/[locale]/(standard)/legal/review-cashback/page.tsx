@@ -18,15 +18,17 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = params;
 
   const intl = await getIntlServerOnly(locale);
+  const title = intl.formatMessage({
+    defaultMessage: 'Review Cashback Terms and Conditions',
+    description: 'Title of legal page',
+    id: 'YRVMeX',
+  });
 
   return defaultMetadata({
     locale,
+    ogImageTitle: title,
     pathname: '/legal/review-cashback',
-    title: intl.formatMessage({
-      defaultMessage: 'Review Cashback Terms and Conditions',
-      description: 'Title of legal page',
-      id: 'YRVMeX',
-    }),
+    title,
   });
 }
 

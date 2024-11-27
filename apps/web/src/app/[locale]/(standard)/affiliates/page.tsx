@@ -15,6 +15,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = params;
 
   const intl = await getIntlServerOnly(locale);
+  const title = intl.formatMessage({
+    defaultMessage: 'Affiliate Program',
+    description: 'Title of Affiliate Program page',
+    id: 'X/axGA',
+  });
 
   return defaultMetadata({
     description: intl.formatMessage({
@@ -24,12 +29,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       id: 'cxU8W8',
     }),
     locale,
+    ogImageTitle: title,
     pathname: '/affiliates',
-    title: intl.formatMessage({
-      defaultMessage: 'Affiliate Program',
-      description: 'Title of Affiliate Program page',
-      id: 'X/axGA',
-    }),
+    title,
   });
 }
 

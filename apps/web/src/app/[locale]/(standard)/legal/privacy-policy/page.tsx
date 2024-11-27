@@ -18,6 +18,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = params;
 
   const intl = await getIntlServerOnly(locale);
+  const title = intl.formatMessage({
+    defaultMessage: 'Privacy Policy',
+    description: 'Title of Privacy Policy page',
+    id: 'nTu2nu',
+  });
 
   return defaultMetadata({
     description: intl.formatMessage({
@@ -27,17 +32,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       id: '5kFTG0',
     }),
     locale,
+    ogImageTitle: title,
     pathname: '/legal/privacy-policy',
     socialTitle: intl.formatMessage({
       defaultMessage: 'Privacy Policy | GreatFrontEnd',
       description: 'Title of Privacy Policy page',
       id: '+Xw4ly',
     }),
-    title: intl.formatMessage({
-      defaultMessage: 'Privacy Policy',
-      description: 'Title of Privacy Policy page',
-      id: 'nTu2nu',
-    }),
+    title,
   });
 }
 

@@ -28,6 +28,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       { discount: SOCIAL_DISCOUNT_PERCENTAGE },
     ),
     locale,
+    ogImageTitle: intl.formatMessage(
+      {
+        defaultMessage: '{discount}% Off - Social Rewards Campaign',
+        description: 'Social title of Rewards page',
+        id: '7SDFxN',
+      },
+      { discount: SOCIAL_DISCOUNT_PERCENTAGE },
+    ),
     pathname: '/rewards/social',
     socialTitle: intl.formatMessage(
       {

@@ -15,6 +15,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = params;
 
   const intl = await getIntlServerOnly(locale);
+  const title = intl.formatMessage({
+    defaultMessage: 'Contact Us',
+    description: 'Title of Contact Us page',
+    id: 'R5FPug',
+  });
 
   return defaultMetadata({
     description: intl.formatMessage({
@@ -24,17 +29,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       id: 'c9Stvc',
     }),
     locale,
+    ogImageTitle: title,
     pathname: '/contact',
     socialTitle: intl.formatMessage({
       defaultMessage: 'Contact Us | GreatFrontEnd',
       description: 'Social title of Contact Us page',
       id: 'ncfJNb',
     }),
-    title: intl.formatMessage({
-      defaultMessage: 'Contact Us',
-      description: 'Title of Contact Us page',
-      id: 'R5FPug',
-    }),
+    title,
   });
 }
 

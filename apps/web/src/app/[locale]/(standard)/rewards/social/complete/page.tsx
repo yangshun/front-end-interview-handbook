@@ -18,15 +18,17 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = params;
 
   const intl = await getIntlServerOnly(locale);
+  const title = intl.formatMessage({
+    defaultMessage: 'Complete | Rewards',
+    description: 'Title of Rewards Complete page',
+    id: 'XIMn32',
+  });
 
   return defaultMetadata({
     locale,
+    ogImageTitle: title,
     pathname: '/rewards/social/complete',
-    title: intl.formatMessage({
-      defaultMessage: 'Complete | Rewards',
-      description: 'Title of Rewards Complete page',
-      id: 'XIMn32',
-    }),
+    title,
   });
 }
 

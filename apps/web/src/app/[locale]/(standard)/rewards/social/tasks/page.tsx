@@ -19,6 +19,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = params;
 
   const intl = await getIntlServerOnly(locale);
+  const title = intl.formatMessage(
+    {
+      defaultMessage: 'Start Tasks - Unlock {discount}% Off',
+      description: 'Title of Rewards tasks page',
+      id: 'cWZk16',
+    },
+    { discount: SOCIAL_DISCOUNT_PERCENTAGE },
+  );
 
   return defaultMetadata({
     description: intl.formatMessage(
@@ -31,20 +39,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       { discount: SOCIAL_DISCOUNT_PERCENTAGE },
     ),
     locale,
+    ogImageTitle: title,
     pathname: '/rewards/social/tasks',
     socialTitle: intl.formatMessage({
       defaultMessage: 'Start Tasks - GreatFrontEnd Social Rewards Campaign',
       description: 'Title of Rewards tasks page',
       id: 'ScxpRs',
     }),
-    title: intl.formatMessage(
-      {
-        defaultMessage: 'Start Tasks - Unlock {discount}% Off',
-        description: 'Title of Rewards tasks page',
-        id: 'cWZk16',
-      },
-      { discount: SOCIAL_DISCOUNT_PERCENTAGE },
-    ),
+    title,
   });
 }
 

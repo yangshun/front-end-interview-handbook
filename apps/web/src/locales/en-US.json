@@ -1195,6 +1195,10 @@
     "defaultMessage": "Switching on focus mode collapses all sidebars to provide a better reading experience.",
     "description": "Label for turning focus mode on"
   },
+  "65orXt": {
+    "defaultMessage": "Roadmap - Upcoming features and updates",
+    "description": "OG title of Roadmap page"
+  },
   "68EuCT": {
     "defaultMessage": "Project challenges",
     "description": "Title of Projects challenges page"
@@ -1406,6 +1410,10 @@
   "7Rr7Yf": {
     "defaultMessage": "{minutes} min read",
     "description": "Blog read duration label"
+  },
+  "7SDFxN": {
+    "defaultMessage": "{discount}% Off - Social Rewards Campaign",
+    "description": "Social title of Rewards page"
   },
   "7SOBHl": {
     "defaultMessage": "{creditCount} new premium credits will be added when your subscription renews on <bold>{date}</bold>",
@@ -3502,6 +3510,10 @@
   "Ldysd3": {
     "defaultMessage": "Learn to answer \"Tell me about a time..\" growth mindset questions",
     "description": "How to answer growth mindset collaboration questions"
+  },
+  "Lel52s": {
+    "defaultMessage": "Frameworks",
+    "description": "Label for question framework list"
   },
   "LfcLVQ": {
     "defaultMessage": "Found a bug or have an improvement to suggest to a question? We would prefer if you could create an issue on <link>GitHub</link>.",
@@ -6899,6 +6911,10 @@
     "defaultMessage": "{questionCount}+ most important Angular interview questions on services, directives, RxJS, forms, state management, and dynamic component building.",
     "description": "Subtitle for questions list page"
   },
+  "hUENEC": {
+    "defaultMessage": "Languages",
+    "description": "Label for question languages list"
+  },
   "hURbkG": {
     "defaultMessage": "Contact your bank to get a new card issued.",
     "description": "Reason label for contact bank"
@@ -7730,6 +7746,10 @@
   "nAvA8M": {
     "defaultMessage": "Progress | {name}",
     "description": "Title of user profile progress page"
+  },
+  "nFkt4o": {
+    "defaultMessage": "Formats",
+    "description": "Label for question format list"
   },
   "nI4Alg": {
     "defaultMessage": "Test cases",

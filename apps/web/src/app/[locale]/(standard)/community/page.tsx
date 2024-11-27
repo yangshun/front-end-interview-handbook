@@ -15,6 +15,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = params;
 
   const intl = await getIntlServerOnly(locale);
+  const title = intl.formatMessage({
+    defaultMessage: 'Join the community',
+    description: 'Title of community page',
+    id: 'TO74hd',
+  });
 
   return defaultMetadata({
     description: intl.formatMessage({
@@ -24,12 +29,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       id: 'CUTtb7',
     }),
     locale,
-    pathname: '/community',
-    title: intl.formatMessage({
+    ogImageTitle: intl.formatMessage({
       defaultMessage: 'Join the community',
       description: 'Title of community page',
       id: 'TO74hd',
     }),
+    pathname: '/community',
+    title,
   });
 }
 
