@@ -7,6 +7,10 @@ import type { QuestionMetadata } from '~/components/interviews/questions/common/
 import QuestionNextQuestions from '~/components/interviews/questions/content/QuestionNextQuestions';
 import InterviewsQuestionsListSlideOutButton from '~/components/interviews/questions/listings/slideout/InterviewsQuestionsListSlideOutButton';
 import Divider from '~/components/ui/Divider';
+import {
+  themeBackgroundDarkColor,
+  themeBorderColor,
+} from '~/components/ui/theme';
 
 import { useQueryQuestionProgress } from '~/db/QuestionsProgressClient';
 
@@ -37,7 +41,10 @@ export default function CodingWorkspaceBottomBar({
   return (
     <div
       className={clsx(
-        'relative',
+        'sticky bottom-0',
+        themeBackgroundDarkColor,
+        ['max-lg:border-t', themeBorderColor],
+        'lg:relative',
         'flex flex-wrap items-center justify-between gap-2',
         'px-3 py-3',
       )}>
