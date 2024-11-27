@@ -8,7 +8,7 @@ export default function RewardsLayout({ children }: PropsWithChildren) {
   return (
     <div
       className={clsx(
-        'isolate before:-top-[250px] before:left-1/2 before:-translate-x-1/2 before:opacity-20 before:md:w-1/2',
+        'isolate before:!-top-[180px]',
         themeRadialWhiteGlowBackground,
       )}>
       <Container className={clsx('py-6 lg:py-10')} width="4xl">
