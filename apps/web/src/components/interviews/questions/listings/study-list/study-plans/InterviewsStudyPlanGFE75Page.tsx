@@ -127,7 +127,6 @@ export default function InterviewsStudyPlanGFE75Page({
             href: studyList.href,
             title: studyList.socialTitle || studyList.seoTitle,
           }}
-          overallProgress={questionProgressParam ?? []}
           questions={questions}
           questionsSessionKey="gfe75"
           title={studyList.name}

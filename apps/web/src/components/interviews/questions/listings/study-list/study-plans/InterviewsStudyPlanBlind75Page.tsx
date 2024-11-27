@@ -110,7 +110,6 @@ export default function InterviewsStudyPlanBlind75Page({
             href: studyList.href,
             title: studyList.socialTitle || studyList.seoTitle,
           }}
-          overallProgress={questionProgressParam ?? []}
           questions={questions}
           questionsSessionKey="blind75"
           title={studyList.name}

@@ -1,16 +1,18 @@
 import clsx from 'clsx';
 import { type ReactNode } from 'react';
 
+import { trpc } from '~/hooks/trpc';
+
 import { FormattedMessage, useIntl } from '~/components/intl';
 import Badge from '~/components/ui/Badge';
 import Tooltip from '~/components/ui/Tooltip';
-
-import type { QuestionProgress } from '~/db/QuestionsProgressTypes';
 
 import InterviewsRecommendedPrepStrategyPopover from './InterviewsRecommendedPrepStrategyPopover';
 import InterviewsPageHeaderActions from '../common/InterviewsPageHeaderActions';
 import type { QuestionMetadata } from '../questions/common/QuestionsTypes';
 import InterviewsStudyListPageTitleSection from '../questions/listings/study-list/InterviewsStudyListPageTitleSection';
+
+import { useUser } from '@supabase/auth-helpers-react';
 
 type CommonProps = Readonly<{
   description: ReactNode;
@@ -24,7 +26,6 @@ type CommonProps = Readonly<{
     href: string;
     title: string;
   };
-  overallProgress?: ReadonlyArray<QuestionProgress>;
   questions?: ReadonlyArray<QuestionMetadata>;
   questionsSessionKey?: string;
   title: string;
@@ -49,10 +50,14 @@ export default function InterviewsRecommendedPrepStrategyPageTitleSection({
   longDescription,
   metadata,
   questions,
-  overallProgress,
   ...props
 }: Props) {
   const intl = useIntl();
+  const user = useUser();
+  const { data: questionProgressParam } = trpc.questionProgress.getAll.useQuery(
+    undefined,
+    { enabled: !!user },
+  );
 
   return (
     <div className="flex flex-col gap-4 xl:gap-5">
@@ -83,7 +88,7 @@ export default function InterviewsRecommendedPrepStrategyPageTitleSection({
               />
             </Tooltip>
             <InterviewsRecommendedPrepStrategyPopover
-              overallProgress={overallProgress ?? []}
+              overallProgress={questionProgressParam ?? []}
             />
           </div>
           {metadata && (
@@ -97,7 +102,7 @@ export default function InterviewsRecommendedPrepStrategyPageTitleSection({
         <InterviewsStudyListPageTitleSection
           description={description}
           features={features}
-          overallProgress={overallProgress ?? []}
+          overallProgress={questionProgressParam ?? []}
           progressTrackingAvailableToNonPremiumUsers={true}
           questions={questions ?? []}
           title={title}
