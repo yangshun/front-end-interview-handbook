@@ -9,7 +9,7 @@ import { useSystemDesignNavigation } from '~/components/interviews/questions/con
 export default function Layout({ children }: { children: ReactNode }) {
   const navigation = useSystemDesignNavigation();
 
-  const mappedItems = navigation.items.map((navItem) => ({
+  const mappedItems = navigation.navigation.items.map((navItem) => ({
     ...navItem,
     items:
       navItem.items?.map((navItemItem) => ({
@@ -25,7 +25,10 @@ export default function Layout({ children }: { children: ReactNode }) {
   return (
     <GuidesLayout
       guide="FRONT_END_SYSTEM_DESIGN_PLAYBOOK"
-      navigation={{ ...navigation, items: mappedItems }}>
+      navigation={{
+        ...navigation,
+        navigation: { ...navigation.navigation, items: mappedItems },
+      }}>
       {children}
     </GuidesLayout>
   );

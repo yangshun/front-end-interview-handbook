@@ -72,7 +72,7 @@ export default function GuidesNavbar({
           isShown={isLeftSidebarOpen}
           padding={false}
           size="sm"
-          title={navigation.title}
+          title={navigation.navigation.title}
           trigger={
             <Button
               addonPosition="start"

@@ -11,9 +11,9 @@ type GuideNavigationLinkFlat<T> = T & {
 };
 
 function flattenNavigationItems<Link extends BaseGuideNavigationLink>({
-  title,
-  items,
+  navigation,
 }: GuideNavigation<Link>) {
+  const { title, items } = navigation;
   const flatItems: Array<GuideNavigationLinkFlat<Link>> = [];
   const crumbs: Array<string> = [title];
 

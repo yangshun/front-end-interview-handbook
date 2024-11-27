@@ -28,6 +28,7 @@ type SidebarBaseItem = Readonly<{
   icon?: (props: React.ComponentProps<'svg'>) => JSX.Element;
   label: string;
   showIcon?: boolean;
+  slug: string;
 }>;
 
 type SidebarLink = Readonly<{
@@ -144,7 +145,7 @@ function SidebarLinks({
   );
 
   return (
-    <AccordionPrimitive.Item value={item.label}>
+    <AccordionPrimitive.Item value={item.slug}>
       <AccordionPrimitive.Header>
         <AccordionPrimitive.Trigger
           className={clsx(
@@ -207,10 +208,12 @@ function SidebarLinks({
 }
 
 export default function SidebarLinksSection({
+  defaultOpenSections = [],
   items,
   size,
   type,
 }: Readonly<{
+  defaultOpenSections?: ReadonlyArray<string>;
   items: ReadonlyArray<SidebarLinkEntity>;
   size: SidebarSize;
   type: React.ComponentProps<typeof AccordionPrimitive.Root>['type'];
@@ -221,9 +224,8 @@ export default function SidebarLinksSection({
   const [openSection, setOpenSection] = useState<string | null>(null);
 
   // `multiple` type
-  const [manuallyOpenSections, setManuallyOpenSections] = useState<
-    ReadonlyArray<string>
-  >([]);
+  const [manuallyOpenSections, setManuallyOpenSections] =
+    useState<ReadonlyArray<string>>(defaultOpenSections);
   const [automaticOpenSections, setAutomaticOpenSections] = useState<
     ReadonlyArray<string>
   >([]);
@@ -236,7 +238,7 @@ export default function SidebarLinksSection({
         }
 
         if (item.items.find((linkItem) => isItemActive(linkItem, pathname))) {
-          return item.label;
+          return item.slug;
         }
       }
     })();
@@ -255,29 +257,27 @@ export default function SidebarLinksSection({
     <ul>
       {items.map((item) => (
         <SidebarLinks
-          key={item.label}
+          key={item.slug}
           item={item}
           size={size}
           onToggle={() => {
             if (type === 'single') {
-              setOpenSection(openSection === item.label ? null : item.label);
+              setOpenSection(openSection === item.slug ? null : item.slug);
             } else {
-              const inAutomaticOpen = automaticOpenSections.includes(
-                item.label,
-              );
+              const inAutomaticOpen = automaticOpenSections.includes(item.slug);
 
               if (inAutomaticOpen) {
                 setAutomaticOpenSections(
-                  automaticOpenSections.filter((label) => label !== item.label),
+                  automaticOpenSections.filter((slug) => slug !== item.slug),
                 );
               }
 
-              if (manuallyOpenSections.includes(item.label)) {
+              if (manuallyOpenSections.includes(item.slug)) {
                 setManuallyOpenSections(
-                  manuallyOpenSections.filter((label) => label !== item.label),
+                  manuallyOpenSections.filter((slug) => slug !== item.slug),
                 );
               } else if (!inAutomaticOpen) {
-                setManuallyOpenSections([...manuallyOpenSections, item.label]);
+                setManuallyOpenSections([...manuallyOpenSections, item.slug]);
               }
             }
           }}

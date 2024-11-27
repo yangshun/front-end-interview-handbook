@@ -170,70 +170,75 @@ export function useFrontEndInterviewGuidebookNavigation() {
   const codingSectionFormatItems = useCodingSectionFormatItems();
 
   const navigation: GuideNavigation = {
-    items: [
-      {
-        href: `${basePath}/introduction`,
-        label: intl.formatMessage({
-          defaultMessage: 'Introduction',
-          description: 'Front End interview preparation guide',
-          id: '99Ewym',
-        }),
-        slug: 'introduction',
-        type: 'link',
-      },
-      {
-        items: [
-          codingSectionItem,
-          codingSectionFormatItems.javascript,
-          codingSectionFormatItems.algo,
-        ],
-        label: intl.formatMessage({
-          defaultMessage: 'Coding interviews',
-          description: 'Preparing by front end interview question format',
-          id: 'O6pifk',
-        }),
-        type: 'list',
-      },
-      {
-        items: [
-          codingSectionFormatItems.userInterface,
-          codingSectionFormatItems.userInterfaceCheatsheet,
-          codingSectionFormatItems.userInterfaceAPI,
-        ],
-        label: intl.formatMessage({
-          defaultMessage: 'User interface interviews',
-          description: 'Preparing by front end interview question format',
-          id: '73za88',
-        }),
-        type: 'list',
-      },
-      {
-        href: `${basePath}/system-design`,
-        label: intl.formatMessage({
-          defaultMessage: 'System design interviews',
-          description: 'Front End system design interview questions',
-          id: 'YrEBRj',
-        }),
-        slug: 'system-design',
-        type: 'link',
-      },
-      quizSectionItem,
-      {
-        href: `${basePath}/resume`,
-        label: intl.formatMessage({
-          defaultMessage: 'Resume preparation',
-          description: 'Preparing a resume for front end interviews',
-          id: 'kPBwBR',
-        }),
-        slug: 'resume',
-        type: 'link',
-      },
-    ],
-    title: intl.formatMessage({
-      defaultMessage: 'Front End Interview Guidebook',
-      description: 'Front End Interview Guidebook title',
-      id: 'w0Gmne',
-    }),
+    initialOpenSections: ['coding-interviews', 'ui-interviews'],
+    navigation: {
+      items: [
+        {
+          href: `${basePath}/introduction`,
+          label: intl.formatMessage({
+            defaultMessage: 'Introduction',
+            description: 'Front End interview preparation guide',
+            id: '99Ewym',
+          }),
+          slug: 'introduction',
+          type: 'link',
+        },
+        {
+          items: [
+            codingSectionItem,
+            codingSectionFormatItems.javascript,
+            codingSectionFormatItems.algo,
+          ],
+          label: intl.formatMessage({
+            defaultMessage: 'Coding interviews',
+            description: 'Preparing by front end interview question format',
+            id: 'O6pifk',
+          }),
+          slug: 'coding-interviews',
+          type: 'list',
+        },
+        {
+          items: [
+            codingSectionFormatItems.userInterface,
+            codingSectionFormatItems.userInterfaceCheatsheet,
+            codingSectionFormatItems.userInterfaceAPI,
+          ],
+          label: intl.formatMessage({
+            defaultMessage: 'User interface interviews',
+            description: 'Preparing by front end interview question format',
+            id: '73za88',
+          }),
+          slug: 'ui-interviews',
+          type: 'list',
+        },
+        {
+          href: `${basePath}/system-design`,
+          label: intl.formatMessage({
+            defaultMessage: 'System design interviews',
+            description: 'Front End system design interview questions',
+            id: 'YrEBRj',
+          }),
+          slug: 'system-design',
+          type: 'link',
+        },
+        quizSectionItem,
+        {
+          href: `${basePath}/resume`,
+          label: intl.formatMessage({
+            defaultMessage: 'Resume preparation',
+            description: 'Preparing a resume for front end interviews',
+            id: 'kPBwBR',
+          }),
+          slug: 'resume',
+          type: 'link',
+        },
+      ],
+      title: intl.formatMessage({
+        defaultMessage: 'Front End Interview Guidebook',
+        description: 'Front End Interview Guidebook title',
+        id: 'w0Gmne',
+      }),
+    },
   };
 
   return navigation;

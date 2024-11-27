@@ -36,6 +36,7 @@ export type GuideNavigationItems<
   | Readonly<{
       items: GuideNavigationLinks<Link>;
       label: string;
+      slug: string;
       type: 'list';
     }>
 >;
@@ -43,8 +44,11 @@ export type GuideNavigationItems<
 export type GuideNavigation<
   Link extends BaseGuideNavigationLink = BaseGuideNavigationLink,
 > = Readonly<{
-  items: GuideNavigationItems<Link>;
-  title: string;
+  initialOpenSections: ReadonlyArray<string>;
+  navigation: Readonly<{
+    items: GuideNavigationItems<Link>;
+    title: string;
+  }>;
 }>;
 
 export type GuideMetadata = Readonly<{

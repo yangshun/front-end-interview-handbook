@@ -210,8 +210,9 @@ export default function InterviewsQuestionFormatsSection({
     }),
     question: {
       completed: behavioralGuideProgress.length,
-      total: behavioralInterviewGuidebook.items.map((item) => item.items).flat()
-        .length,
+      total: behavioralInterviewGuidebook.navigation.items
+        .map((item) => item.items)
+        .flat().length,
     },
   };
 

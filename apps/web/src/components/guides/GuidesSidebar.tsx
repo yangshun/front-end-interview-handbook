@@ -1,6 +1,7 @@
 'use client';
 
 import clsx from 'clsx';
+import React from 'react';
 
 import { FormattedMessage } from '~/components/intl';
 import ScrollArea from '~/components/ui/ScrollArea';
@@ -81,7 +82,8 @@ export function GuidesSidebar({
               )}>
               <ScrollArea viewportClass={clsx('p-4')}>
                 <SidebarLinksSection
-                  items={navigation.items}
+                  defaultOpenSections={navigation.initialOpenSections}
+                  items={navigation.navigation.items}
                   size="sm"
                   type="multiple"
                 />
