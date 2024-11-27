@@ -25,7 +25,10 @@ import {
   questionHrefWithListType,
   questionListFilterNamespace,
 } from '../../common/questionHref';
-import useQuestionsListDataForType from '../../common/useQuestionsListDataForType';
+import {
+  useQuestionsListDataForType,
+  useQuestionsListTypeCurrent,
+} from '../../common/useQuestionsListDataForType';
 
 type Props = Readonly<{
   metadata: QuestionMetadata;
@@ -36,7 +39,8 @@ export default function InterviewsQuestionsListSlideOutButton({
   metadata,
   studyListKey,
 }: Props) {
-  const { isLoading, data } = useQuestionsListDataForType(studyListKey);
+  const listData = useQuestionsListTypeCurrent(studyListKey);
+  const { isLoading, data } = useQuestionsListDataForType(listData);
 
   const questionsWithCompletionStatus = useQuestionsWithCompletionStatus(
     data?.questions ?? [],

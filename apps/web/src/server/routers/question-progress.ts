@@ -10,8 +10,6 @@ import prisma from '~/server/prisma';
 
 import { publicProcedure, router, userProcedure } from '../trpc';
 
-import { TRPCClientError } from '@trpc/client';
-
 export const questionProgressRouter = router({
   add: userProcedure
     .input(
@@ -361,48 +359,4 @@ export const questionProgressRouter = router({
 
       return completed;
     }),
-  importProgress: userProcedure
-    .input(
-      z.object({
-        questions: z.array(
-          z.object({
-            format: z.string(),
-            slug: z.string(),
-          }),
-        ),
-        studyListKey: z.string(),
-      }),
-    )
-    .mutation(
-      async ({ input: { questions, studyListKey }, ctx: { viewer } }) => {
-        if (!viewer) {
-          return null;
-        }
-
-        const session = await prisma.learningSession.findFirst({
-          where: {
-            key: studyListKey,
-            status: 'IN_PROGRESS',
-            userId: viewer.id,
-          },
-        });
-
-        if (session == null) {
-          throw new TRPCClientError('No session found!');
-        }
-
-        const data = questions.map(
-          ({ format, slug }) =>
-            ({
-              key: hashQuestion({ format: format as QuestionFormat, slug }),
-              sessionId: session.id,
-              status: 'COMPLETED',
-            }) as const,
-        );
-
-        await prisma.learningSessionProgress.createMany({
-          data,
-        });
-      },
-    ),
 });

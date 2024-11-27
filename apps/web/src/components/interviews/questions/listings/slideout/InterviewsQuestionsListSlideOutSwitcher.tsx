@@ -13,19 +13,20 @@ import Spinner from '~/components/ui/Spinner';
 
 import type { QuestionListTypeData } from '../../common/questionHref';
 
+type QuestionListItem = QuestionListTypeData & Readonly<{ label: string }>;
+
 function DropdownContent({
   onChangeListType,
   openPricingDialog,
 }: Readonly<{
-  onChangeListType: (value: QuestionListTypeData) => void;
+  onChangeListType: (value: QuestionListItem) => void;
   openPricingDialog: (feature: QuestionFeatureType | undefined) => void;
 }>) {
   const intl = useIntl();
-  const { data: studyLists, isLoading } =
-    trpc.questionLists.getStudyListsSelectorData.useQuery();
+  const { data: questionLists, isLoading } = trpc.questionLists.get.useQuery();
   const { userProfile } = useUserProfile();
 
-  if (isLoading || !studyLists) {
+  if (isLoading || !questionLists) {
     return (
       <div className="flex h-40 items-center justify-center">
         <Spinner size="sm" />
@@ -33,7 +34,7 @@ function DropdownContent({
     );
   }
 
-  const studyPlansMap = convertToMap(studyLists.studyPlans);
+  const studyPlansMap = convertToMap(questionLists.studyPlans);
   const categories: ReadonlyArray<QuestionListCategories> = [
     {
       items: [studyPlansMap.gfe75, studyPlansMap.blind75],
@@ -61,7 +62,7 @@ function DropdownContent({
     },
     {
       isPremium: true,
-      items: studyLists.focusAreas,
+      items: questionLists.focusAreas,
       key: 'focus-area',
       label: intl.formatMessage({
         defaultMessage: 'Focus areas',
@@ -72,7 +73,7 @@ function DropdownContent({
     },
     {
       isPremium: true,
-      items: studyLists.companies,
+      items: questionLists.companies,
       key: 'company',
       label: intl.formatMessage({
         defaultMessage: 'Company guides',
@@ -80,6 +81,36 @@ function DropdownContent({
         id: 'Ekf7hb',
       }),
       pricingTableFeature: 'company-guides',
+    },
+    {
+      isPremium: false,
+      items: questionLists.formats,
+      key: 'formats',
+      label: intl.formatMessage({
+        defaultMessage: 'Formats',
+        description: 'Label for question format list',
+        id: 'nFkt4o',
+      }),
+    },
+    {
+      isPremium: false,
+      items: questionLists.frameworks,
+      key: 'frameworks',
+      label: intl.formatMessage({
+        defaultMessage: 'Frameworks',
+        description: 'Label for question framework list',
+        id: 'Lel52s',
+      }),
+    },
+    {
+      isPremium: false,
+      items: questionLists.languages,
+      key: 'languages',
+      label: intl.formatMessage({
+        defaultMessage: 'Languages',
+        description: 'Label for question languages list',
+        id: 'hUENEC',
+      }),
     },
   ];
 
@@ -93,7 +124,7 @@ function DropdownContent({
           {category.items.map((item) => (
             <DropdownMenu.Item
               key={item.value}
-              label={item.value}
+              label={item.label}
               onClick={() => {
                 category.isPremium && !userProfile?.premium
                   ? openPricingDialog(category.pricingTableFeature)
@@ -109,19 +140,18 @@ function DropdownContent({
 
 type QuestionListCategories = Readonly<{
   isPremium?: boolean;
-  items: ReadonlyArray<QuestionListTypeData>;
+  items: ReadonlyArray<QuestionListTypeData & Readonly<{ label: string }>>;
   key: string;
   label: string;
   pricingTableFeature?: QuestionFeatureType;
 }>;
 
-function convertToMap(studyLists: ReadonlyArray<QuestionListTypeData>) {
+function convertToMap(studyLists: ReadonlyArray<QuestionListItem>) {
   return studyLists.reduce(
-    (acc: Record<string, QuestionListTypeData>, item) => {
-      acc[item.value] = item;
-
-      return acc;
-    },
+    (acc: Record<string, QuestionListItem>, item) => ({
+      ...acc,
+      [item.value]: item,
+    }),
     {},
   );
 }

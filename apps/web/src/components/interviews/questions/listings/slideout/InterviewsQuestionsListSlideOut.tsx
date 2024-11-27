@@ -54,7 +54,7 @@ import {
   questionHrefWithListType,
   questionListFilterNamespace,
 } from '../../common/questionHref';
-import useQuestionsListDataForType from '../../common/useQuestionsListDataForType';
+import { useQuestionsListDataForType } from '../../common/useQuestionsListDataForType';
 
 function FilterSection<T extends string, Q extends QuestionMetadata>({
   coveredValues,
@@ -176,15 +176,15 @@ function FrameworkAndLanguageFilterSection<Q extends QuestionMetadata>({
 }
 
 function Contents({
+  initialListType,
   listType,
-  currentListType,
   metadata,
   filterNamespace,
   setFirstQuestionHref,
   onClickDifferentStudyListQuestion,
 }: Readonly<{
-  currentListType: QuestionListTypeData | null;
   filterNamespace: string;
+  initialListType?: QuestionListTypeData;
   listType?: QuestionListTypeData;
   metadata: QuestionMetadata;
   onClickDifferentStudyListQuestion: (href: string) => void;
@@ -196,12 +196,12 @@ function Contents({
   const [showFilters, setShowFilters] = useState(false);
 
   const studyListKey =
-    currentListType != null && currentListType.type === 'study-list'
-      ? currentListType.value
+    listType != null && listType.type === 'study-list'
+      ? listType.value
       : undefined;
 
-  // To fetch the list specific question when user change the study list
-  const { isLoading, data } = useQuestionsListDataForType(studyListKey);
+  // To fetch the list-specific question when user change the study list
+  const { isLoading, data } = useQuestionsListDataForType(listType ?? null);
 
   const questionsWithCompletionStatus = useQuestionsWithCompletionStatus(
     data?.questions ?? [],
@@ -339,18 +339,10 @@ function Contents({
   useEffect(() => {
     if (processedQuestions.length > 0 && !showCompanyPaywall) {
       setFirstQuestionHref(
-        questionHrefWithListType(
-          processedQuestions[0].href,
-          currentListType ?? undefined,
-        ),
+        questionHrefWithListType(processedQuestions[0].href, listType),
       );
     }
-  }, [
-    currentListType,
-    processedQuestions,
-    setFirstQuestionHref,
-    showCompanyPaywall,
-  ]);
+  }, [listType, processedQuestions, setFirstQuestionHref, showCompanyPaywall]);
 
   return (
     <div className="flex flex-col gap-y-4">
@@ -421,8 +413,8 @@ function Contents({
       ) : (
         <InterviewsQuestionsListSlideOutContents
           checkIfCompletedQuestion={(question) => question.isCompleted}
-          currentListType={currentListType}
-          listType={listType}
+          currentListType={listType}
+          listType={initialListType}
           metadata={metadata}
           questions={
             showCompanyPaywall
@@ -600,13 +592,13 @@ export default function InterviewsQuestionsListSlideOut({
       onClose={onClose}>
       {isShown && (
         <ScrollArea>
-          {/* Because useQuestionsListDataForType() uses useSearchParams() */}
+          {/* Because useQuestionsListTypeCurrent() uses useSearchParams() */}
           <Suspense>
             <Contents
               key={filterNamespace}
-              currentListType={currentListType}
               filterNamespace={filterNamespace}
-              listType={listType}
+              initialListType={listType}
+              listType={activeListType}
               metadata={metadata}
               setFirstQuestionHref={setFirstQuestionHref}
               onClickDifferentStudyListQuestion={(href: string) =>

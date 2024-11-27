@@ -46,7 +46,7 @@ export default function CodingWorkspaceBottomBar({
       )}
       {showQuestionsListButton && (
         <div className="absolute left-4 md:left-1/2 md:-translate-x-1/2">
-          {/* Because useQuestionsListDataForType() uses useSearchParams() */}
+          {/* Because useQuestionsListTypeCurrent() uses useSearchParams() */}
           <Suspense>
             <InterviewsQuestionsListSlideOutButton
               metadata={metadata}

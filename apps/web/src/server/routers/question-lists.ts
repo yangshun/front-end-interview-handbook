@@ -22,12 +22,17 @@ import {
   fetchQuestionsListCodingForLanguage,
   fetchQuestionsListSystemDesign,
 } from '~/db/QuestionsListReader';
-import { fetchStudyListsSelectorData } from '~/db/StudyListUtils';
+import { fetchQuestionLists } from '~/db/QuestionsListUtils';
 import { getIntlClientOnly } from '~/i18n/getIntlClientOnly';
 
 import { publicProcedure, router } from '../trpc';
 
 export const questionListsRouter = router({
+  get: publicProcedure.query(async () => {
+    const intl = await getIntlClientOnly('en-US');
+
+    return await fetchQuestionLists(intl);
+  }),
   getQuestions: publicProcedure
     .input(
       z.object({
@@ -138,8 +143,5 @@ export const questionListsRouter = router({
       },
       systemDesignQuestionCount: questions.length,
     };
-  }),
-  getStudyListsSelectorData: publicProcedure.query(async () => {
-    return await fetchStudyListsSelectorData();
   }),
 });

@@ -12,12 +12,14 @@ export async function GET(request: Request) {
     const category = searchParams.get('category');
     const backgroundImageUrl = new URL('/img/seo/og-background.jpg', origin)
       .href;
+
     return new ImageResponse(
       (
         <div
           style={{
             alignItems: 'flex-start',
             backgroundColor: '#000',
+            backgroundImage: `url(${backgroundImageUrl})`,
             display: 'flex',
             flexDirection: 'column',
             fontStyle: 'normal',
@@ -25,7 +27,6 @@ export async function GET(request: Request) {
             justifyContent: 'flex-start',
             padding: '64px',
             width: '100%',
-            backgroundImage: `url(${backgroundImageUrl})`,
           }}>
           <div
             style={{
@@ -84,8 +85,8 @@ export async function GET(request: Request) {
             />
             <div
               style={{
-                display: 'flex',
                 alignItems: 'center',
+                display: 'flex',
                 gap: '10px',
               }}>
               <span
