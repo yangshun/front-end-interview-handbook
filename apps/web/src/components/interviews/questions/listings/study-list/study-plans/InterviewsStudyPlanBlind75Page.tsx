@@ -111,7 +111,7 @@ export default function InterviewsStudyPlanBlind75Page({
             title: studyList.socialTitle || studyList.seoTitle,
           }}
           questions={questions}
-          questionsSessionKey="blind75"
+          studyListKey="blind75"
           title={studyList.name}
         />
         <div className="block lg:hidden">

@@ -128,7 +128,7 @@ export default function InterviewsStudyPlanGFE75Page({
             title: studyList.socialTitle || studyList.seoTitle,
           }}
           questions={questions}
-          questionsSessionKey="gfe75"
+          studyListKey="gfe75"
           title={studyList.name}
         />
         <div className="block lg:hidden">

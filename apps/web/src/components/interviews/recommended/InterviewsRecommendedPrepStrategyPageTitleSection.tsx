@@ -27,7 +27,7 @@ type CommonProps = Readonly<{
     title: string;
   };
   questions?: ReadonlyArray<QuestionMetadata>;
-  questionsSessionKey?: string;
+  studyListKey: string | null;
   title: string;
 }>;
 

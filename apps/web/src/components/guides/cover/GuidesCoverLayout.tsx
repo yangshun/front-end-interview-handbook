@@ -37,6 +37,7 @@ export default function GuidesCoverLayout({
         icon={icon}
         longDescription={longDescription}
         metadata={metadata}
+        studyListKey={null}
         title={title}
       />
       {children}

@@ -14,7 +14,7 @@ type Props = React.ComponentProps<typeof InterviewsPageHeader> &
     overallProgress: ReadonlyArray<QuestionProgress>;
     progressTrackingAvailableToNonPremiumUsers?: boolean;
     questions: ReadonlyArray<QuestionMetadata>;
-    studyListKey?: string;
+    studyListKey: string | null;
   }>;
 
 export default function InterviewsStudyListPageTitleSection({
