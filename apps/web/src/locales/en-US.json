@@ -1339,10 +1339,6 @@
     "defaultMessage": "{count}+ questions are free to do",
     "description": "Marketing page section subtitle"
   },
-  "719/YQ": {
-    "defaultMessage": "GreatFrontEnd Interviews",
-    "description": "Social title of GreatFrontEnd standard page"
-  },
   "72GwzV": {
     "defaultMessage": "Available in {frameworkLabel}",
     "description": "Label indicating what JavaScript frameworks this question is available in"
@@ -9210,6 +9206,10 @@
   "x6+x/5": {
     "defaultMessage": "Edit profile",
     "description": "Title of Projects edit profile page"
+  },
+  "x8SJHC": {
+    "defaultMessage": "GreatFrontEnd",
+    "description": "Social title of GreatFrontEnd standard page"
   },
   "xBNYLl": {
     "defaultMessage": "Behavioral Interview",

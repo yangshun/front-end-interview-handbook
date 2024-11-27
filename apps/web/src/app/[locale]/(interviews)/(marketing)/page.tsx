@@ -57,9 +57,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     locale,
     pathname: '/',
     socialTitle: intl.formatMessage({
-      defaultMessage: 'GreatFrontEnd Interviews',
+      defaultMessage: 'GreatFrontEnd',
       description: 'Social title of GreatFrontEnd standard page',
-      id: '719/YQ',
+      id: 'x8SJHC',
     }),
     title: intl.formatMessage({
       defaultMessage:
