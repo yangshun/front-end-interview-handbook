@@ -264,6 +264,10 @@ export const themeRadialGlowBackground = clsx(
   'relative before:rounded-[inherit] before:opacity-50 before:-z-10 before:top-0 before:left-0 before:right-0 before:absolute before:bg-top before:bg-cover before:w-full before:h-[500px]',
   'before:bg-[radial-gradient(78.57%_78.57%_at_50.65%_0.84%,_var(--brand-gradient-radial-light)_0%,_var(--brand-gradient-radial-dark)_0%,_rgba(15,_23,_42,_0.0001)_100%)]',
 );
+export const themeRadialWhiteGlowBackground = clsx(
+  'relative before:rounded-full before:opacity-50 before:-z-10 before:top-0 before:left-0 before:right-0 before:absolute before:w-full before:h-[500px]',
+  'before:bg-[radial-gradient(78.57%_78.57%_at_50.65%_0.84%,_#FFFFFF_0%,_#D4D4D8_0%,_rgba(15,_23,_42,_0.0001)_100%)] before:blur-[10px]',
+);
 
 export const themeWhiteGlowCardBackground = clsx(
   'relative before:absolute before:-z-[1] before:h-[130px] before:w-[210px] before:rounded-full',
