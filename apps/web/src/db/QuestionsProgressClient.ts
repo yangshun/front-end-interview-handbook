@@ -41,9 +41,9 @@ export function useMutationQuestionProgressAdd() {
       // TODO(interviews): find out why setData is not working
       // trpcUtils.questionProgress.get.setData({ question: variables }, data);
       trpcUtils.questionProgress.invalidate();
+      trpcUtils.questionSessions.invalidate();
 
       if (data?.newSessionCreated) {
-        trpcUtils.questionLists.invalidate();
         if (data.studyListName) {
           showToast({
             title: intl.formatMessage(
@@ -80,6 +80,7 @@ export function useMutationQuestionProgressDelete() {
   return trpc.questionProgress.delete.useMutation({
     onSuccess: () => {
       trpcUtils.questionProgress.invalidate();
+      trpcUtils.questionSessions.invalidate();
     },
   });
 }
@@ -90,6 +91,7 @@ export function useMutationQuestionProgressDeleteAll() {
   return trpc.questionProgress.deleteAll.useMutation({
     onSuccess: () => {
       trpcUtils.questionProgress.invalidate();
+      trpcUtils.questionSessions.invalidate();
     },
   });
 }

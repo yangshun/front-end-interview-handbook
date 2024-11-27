@@ -60,7 +60,7 @@ export default function InterviewsStudyListSession({
   const user = useUser();
   const { signInUpHref } = useAuthSignInUp();
 
-  const { data: questionListSession, isLoading: isQuestionListSessionLoading } =
+  const { data: studyListSession, isLoading: isStudyListSessionLoading } =
     trpc.questionSessions.get.useQuery(
       {
         studyListKey,
@@ -73,23 +73,25 @@ export default function InterviewsStudyListSession({
   const previousSessionQuestionProgress = questionsForImportProgress(
     questions,
     overallProgress,
-    questionListSession?.progress ?? [],
+    studyListSession?.progress ?? [],
   );
 
   const startSessionMutation = useStartLearningSessionMutation();
   const stopSessionMutation = trpc.questionSessions.stop.useMutation({
     onSuccess() {
-      trpcUtils.questionLists.invalidate();
+      trpcUtils.questionProgress.invalidate();
+      trpcUtils.questionSessions.invalidate();
     },
   });
   const resetSessionProgressMutation =
-    trpc.questionSessions.resetProgress.useMutation({
+    trpc.questionProgress.resetSessionProgress.useMutation({
       onSuccess() {
-        trpcUtils.questionLists.invalidate();
+        trpcUtils.questionProgress.invalidate();
+        trpcUtils.questionSessions.invalidate();
       },
     });
 
-  const completedQuestions = questionListSession?.progress?.length ?? 0;
+  const completedQuestions = studyListSession?.progress?.length ?? 0;
   const [showStopStudyPlanConfirmation, setShowStopStudyPlanConfirmation] =
     useState(false);
   const [showResetProgressConfirmation, setShowResetProgressConfirmation] =
@@ -149,11 +151,11 @@ export default function InterviewsStudyListSession({
   return (
     <div className="w-full lg:w-auto lg:max-w-[292px] xl:max-w-[363px]">
       {(() => {
-        if (isQuestionListSessionLoading && !!user) {
+        if (isStudyListSessionLoading && !!user) {
           return null;
         }
 
-        if (questionListSession == null) {
+        if (studyListSession == null) {
           return (
             <div className="flex w-fit flex-col gap-3 lg:items-end">
               <Button
@@ -279,7 +281,7 @@ export default function InterviewsStudyListSession({
                   }
                   variant="secondary"
                   onClick={() => {
-                    if (questionListSession == null) {
+                    if (studyListSession == null) {
                       return;
                     }
 
@@ -305,7 +307,7 @@ export default function InterviewsStudyListSession({
                   })}
                   variant="secondary"
                   onClick={() => {
-                    if (questionListSession == null) {
+                    if (studyListSession == null) {
                       return;
                     }
 
@@ -314,7 +316,7 @@ export default function InterviewsStudyListSession({
                 />
               </div>
             </Card>
-            {questionListSession != null &&
+            {studyListSession != null &&
               previousSessionQuestionProgress.length > 0 && (
                 <div>
                   <Button
@@ -367,7 +369,7 @@ export default function InterviewsStudyListSession({
               onConfirm={() => {
                 stopSessionMutation.mutate(
                   {
-                    sessionId: questionListSession.id,
+                    sessionId: studyListSession.id,
                   },
                   {
                     onSuccess: () => {
@@ -406,7 +408,7 @@ export default function InterviewsStudyListSession({
               onConfirm={() => {
                 resetSessionProgressMutation.mutate(
                   {
-                    sessionId: questionListSession.id,
+                    sessionId: studyListSession.id,
                   },
                   {
                     onSuccess: () => {

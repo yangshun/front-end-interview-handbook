@@ -89,7 +89,9 @@ export default function QuestionsUnifiedListWithFiltersAndProgress({
         },
         {
           onSuccess: () => {
-            trpcUtils.questionLists.invalidate();
+            trpcUtils.questionProgress.invalidate();
+            trpcUtils.questionSessions.invalidate();
+
             showToast({
               title: intl.formatMessage(
                 {
@@ -113,7 +115,8 @@ export default function QuestionsUnifiedListWithFiltersAndProgress({
       studyListKey,
       markCompleteMutation,
       showToast,
-      trpcUtils.questionLists,
+      trpcUtils.questionProgress,
+      trpcUtils.questionSessions,
       user,
     ],
   );
@@ -144,7 +147,11 @@ export default function QuestionsUnifiedListWithFiltersAndProgress({
       },
       {
         onSuccess: () => {
-          trpcUtils.questionLists.invalidate();
+          trpcUtils.questionProgress.invalidate();
+          if (studyListKey) {
+            trpcUtils.questionSessions.invalidate();
+          }
+
           showToast({
             title: intl.formatMessage(
               {

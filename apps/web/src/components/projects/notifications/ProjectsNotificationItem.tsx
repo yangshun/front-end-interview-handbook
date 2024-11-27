@@ -25,14 +25,14 @@ export default function ProjectsNotificationItem({
   handleVisibleLongEnough,
   className,
 }: Props) {
-  const utils = trpc.useUtils();
+  const trcUtils = trpc.useUtils();
   const { elementRef, visibleDuration } = useVisibleDuration();
   const [markAsSeen, setMarkAsSeen] = useState(false);
 
   const markAsRead = trpc.projects.notifications.markAsRead.useMutation({
     onSuccess: () => {
-      utils.projects.notifications.list.invalidate();
-      utils.projects.notifications.getUnreadCount.invalidate();
+      trcUtils.projects.notifications.list.invalidate();
+      trcUtils.projects.notifications.getUnreadCount.invalidate();
     },
   });
   const { read } = item;

@@ -10,7 +10,8 @@ export function useStartLearningSessionMutation() {
 
   return trpc.questionSessions.start.useMutation({
     onSuccess() {
-      trpcUtils.questionLists.invalidate();
+      trpcUtils.questionProgress.invalidate();
+      trpcUtils.questionSessions.invalidate();
       showToast({
         title: intl.formatMessage({
           defaultMessage: "We've started tracking your progress",
