@@ -196,9 +196,11 @@ export default function QuestionsUnifiedListWithFilters({
           {listMetadata}
           {showPaywall ? (
             <VignetteOverlay
+              className="max-h-[500px] md:max-h-none"
               overlay={
                 <QuestionPaywall background={false} feature="company-tags" />
-              }>
+              }
+              overlayClass="top-[20%] md:top-auto md:bottom-0">
               <div
                 className="border-lg pointer-events-none touch-none select-none"
                 // So that focus cannot go into the card, which is not meant to be used.

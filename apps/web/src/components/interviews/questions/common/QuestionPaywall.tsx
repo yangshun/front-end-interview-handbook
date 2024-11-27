@@ -79,9 +79,9 @@ export default function QuestionPaywall({
         id: 'J2nKZE',
       }),
       title: intl.formatMessage({
-        defaultMessage: 'Premium company tag',
+        defaultMessage: 'Premium company tags',
         description: 'Paywall title for company tags feature',
-        id: 'oyk4XO',
+        id: 'YwNyTA',
       }),
     },
     'focus-areas': {

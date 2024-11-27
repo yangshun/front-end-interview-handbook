@@ -105,16 +105,18 @@ export default function InterviewsFocusAreaPage({
           />
         ) : (
           <VignetteOverlay
+            className="max-h-[500px] md:max-h-none"
             overlay={
               <QuestionPaywall background={false} feature="focus-areas" />
-            }>
+            }
+            overlayClass="top-[20%] md:top-auto md:bottom-0">
             <div
               className="border-lg pointer-events-none touch-none select-none"
               // So that focus cannot go into the card, which is not meant to be used.
               inert="">
               <QuestionsList
                 checkIfCompletedQuestion={() => false}
-                questions={questions.slice(0, 5)}
+                questions={questions.slice(0, 4)}
               />
             </div>
           </VignetteOverlay>

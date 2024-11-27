@@ -5531,6 +5531,10 @@
     "defaultMessage": "The skills you are using in this project, which are in our skills roadmap. Helps us track your progress on skills development",
     "description": "Description for skills roadmap input on project submit page"
   },
+  "YwNyTA": {
+    "defaultMessage": "Premium company tags",
+    "description": "Paywall title for company tags feature"
+  },
   "Yx+36F": {
     "defaultMessage": "Challenge: {challengeName} | Guides",
     "description": "Title of Projects challenge resources guides age"
@@ -7970,10 +7974,6 @@
   "oy3YYM": {
     "defaultMessage": "Coupons",
     "description": "Screenreader text for account settings."
-  },
-  "oyk4XO": {
-    "defaultMessage": "Premium company tag",
-    "description": "Paywall title for company tags feature"
   },
   "ozQHOy": {
     "defaultMessage": "Hide widget for this session",
