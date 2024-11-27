@@ -155,150 +155,152 @@ export default function InterviewsGuideCard({ data }: Props) {
   }
 
   return (
-    <div
-      className={clsx(
-        'relative isolate overflow-hidden rounded-lg',
-        !hasMultipleGuides && [
-          'group',
-          'focus-within:ring-brand focus-within:ring-2 focus-within:ring-inset',
-        ],
-        themeBackgroundColor,
-        themeGlassyBorder,
-        !isOpen && [
-          'hover:bg-white dark:hover:bg-neutral-950',
-          'transition-[background-color]',
-        ],
-      )}>
-      {/* Radial glow */}
+    <div className="relative">
       <div
-        aria-hidden={true}
-        className="theme-bg-radial-glow absolute inset-0 before:h-[136px] before:opacity-20 dark:-top-10"
-      />
-      <div className={clsx('flex flex-col gap-2')}>
+        className={clsx(
+          'relative isolate overflow-hidden rounded-lg',
+          !hasMultipleGuides && [
+            'group',
+            'focus-within:ring-brand focus-within:ring-2 focus-within:ring-inset',
+          ],
+          themeBackgroundColor,
+          themeGlassyBorder,
+          !isOpen && [
+            'hover:bg-white dark:hover:bg-neutral-950',
+            'transition-[background-color]',
+          ],
+        )}>
+        {/* Radial glow */}
         <div
-          className={clsx(
-            'flex items-center gap-x-6',
-            'px-6 py-4',
-            hasMultipleGuides && 'cursor-pointer',
-          )}
-          onClick={() => {
-            if (!hasMultipleGuides) {
-              return;
-            }
-            setIsOpen(!isOpen);
-          }}>
-          {hasMultipleGuides ? (
-            <GuidesListItemProgressChip
-              className="z-[1]"
-              guide={data.items[0]}
-              hasCompleted={isGuideCompleted}
-            />
-          ) : (
-            <GuidesListItemProgressChip
-              className="z-[1]"
-              guide={data.items[0]}
-              hasCompleted={data.items[0].isCompleted}
-              onMarkAsCompleted={onMarkGuideAsCompleted}
-              onMarkAsNotCompleted={markGuideAsNotCompleted}
-            />
-          )}
-          <div className="flex flex-1 flex-col gap-4">
-            <div className="flex flex-col gap-2">
-              <Text size="body2" weight="bold">
-                {cardTitle}
-              </Text>
-              <Text color="secondary" size="body2">
-                {cardDescription}
-              </Text>
-            </div>
-            {/* Guides metadata */}
-            <div className="flex items-center gap-1.5">
-              <RiBookOpenLine
-                className={clsx('size-5 shrink-0', themeTextSubtleColor)}
+          aria-hidden={true}
+          className="theme-bg-radial-glow absolute inset-0 before:h-[136px] before:opacity-20 dark:-top-10"
+        />
+        <div className={clsx('flex flex-col gap-2')}>
+          <div
+            className={clsx(
+              'flex items-center gap-x-6',
+              'px-6 py-4',
+              hasMultipleGuides && 'cursor-pointer',
+            )}
+            onClick={() => {
+              if (!hasMultipleGuides) {
+                return;
+              }
+              setIsOpen(!isOpen);
+            }}>
+            {hasMultipleGuides ? (
+              <GuidesListItemProgressChip
+                className="z-[1]"
+                guide={data.items[0]}
+                hasCompleted={isGuideCompleted}
               />
-              <Text color="secondary" size="body3">
-                {hasMultipleGuides ? (
-                  <FormattedMessage
-                    defaultMessage="<bold>{completionCount}</bold>/{totalCount} {totalCount, plural, one {guide} other {guides}}"
-                    description="Label for completed guides"
-                    id="pZpSXp"
-                    values={{
-                      bold: (chunks) => (
-                        <Text size="body2" weight="bold">
-                          {chunks}
-                        </Text>
-                      ),
-                      completionCount,
-                      totalCount,
-                    }}
-                  />
-                ) : (
-                  intl.formatMessage({
-                    defaultMessage: 'Guide',
-                    description: 'Interview guide',
-                    id: 'PFtRJf',
-                  })
-                )}
-              </Text>
+            ) : (
+              <GuidesListItemProgressChip
+                className="z-[1]"
+                guide={data.items[0]}
+                hasCompleted={data.items[0].isCompleted}
+                onMarkAsCompleted={onMarkGuideAsCompleted}
+                onMarkAsNotCompleted={markGuideAsNotCompleted}
+              />
+            )}
+            <div className="flex flex-1 flex-col gap-4">
+              <div className="flex flex-col gap-2">
+                <Text size="body2" weight="bold">
+                  {cardTitle}
+                </Text>
+                <Text color="secondary" size="body2">
+                  {cardDescription}
+                </Text>
+              </div>
+              {/* Guides metadata */}
+              <div className="flex items-center gap-1.5">
+                <RiBookOpenLine
+                  className={clsx('size-5 shrink-0', themeTextSubtleColor)}
+                />
+                <Text color="secondary" size="body3">
+                  {hasMultipleGuides ? (
+                    <FormattedMessage
+                      defaultMessage="<bold>{completionCount}</bold>/{totalCount} {totalCount, plural, one {guide} other {guides}}"
+                      description="Label for completed guides"
+                      id="pZpSXp"
+                      values={{
+                        bold: (chunks) => (
+                          <Text size="body2" weight="bold">
+                            {chunks}
+                          </Text>
+                        ),
+                        completionCount,
+                        totalCount,
+                      }}
+                    />
+                  ) : (
+                    intl.formatMessage({
+                      defaultMessage: 'Guide',
+                      description: 'Interview guide',
+                      id: 'PFtRJf',
+                    })
+                  )}
+                </Text>
+              </div>
             </div>
+            {hasMultipleGuides ? (
+              <Button
+                className={themeTextSubtleColor}
+                icon={DropdownIcon}
+                iconClassName="!size-6"
+                isLabelHidden={true}
+                label={
+                  isOpen
+                    ? intl.formatMessage({
+                        defaultMessage: 'View less',
+                        description: 'Label of expanded guide button',
+                        id: 'P0i492',
+                      })
+                    : intl.formatMessage({
+                        defaultMessage: 'View more',
+                        description: 'Label of collapsed guide button',
+                        id: 'fhfS0P',
+                      })
+                }
+                size="sm"
+                tooltip={
+                  isOpen
+                    ? undefined
+                    : intl.formatMessage({
+                        defaultMessage: 'Expand to view all guides',
+                        description: 'Tooltip for expanded guide button',
+                        id: 'EDnI5H',
+                      })
+                }
+                variant="tertiary"
+                onClick={() => {
+                  setIsOpen(!isOpen);
+                }}
+              />
+            ) : (
+              <RiArrowRightLine
+                className={clsx(
+                  'size-6 transition-colors',
+                  themeTextSubtleColor,
+                  themeTextBrandColor_GroupHover,
+                )}
+              />
+            )}
           </div>
-          {hasMultipleGuides ? (
-            <Button
-              className={themeTextSubtleColor}
-              icon={DropdownIcon}
-              iconClassName="!size-6"
-              isLabelHidden={true}
-              label={
-                isOpen
-                  ? intl.formatMessage({
-                      defaultMessage: 'View less',
-                      description: 'Label of expanded guide button',
-                      id: 'P0i492',
-                    })
-                  : intl.formatMessage({
-                      defaultMessage: 'View more',
-                      description: 'Label of collapsed guide button',
-                      id: 'fhfS0P',
-                    })
-              }
-              size="sm"
-              tooltip={
-                isOpen
-                  ? undefined
-                  : intl.formatMessage({
-                      defaultMessage: 'Expand to view all guides',
-                      description: 'Tooltip for expanded guide button',
-                      id: 'EDnI5H',
-                    })
-              }
-              variant="tertiary"
-              onClick={() => {
-                setIsOpen(!isOpen);
-              }}
-            />
-          ) : (
-            <RiArrowRightLine
-              className={clsx(
-                'size-6 transition-colors',
-                themeTextSubtleColor,
-                themeTextBrandColor_GroupHover,
-              )}
-            />
+          {isOpen && (
+            <div className="px-6 pb-4">
+              <InterviewGuideList
+                className="pl-14"
+                data={data.items}
+                onMarkAsCompleted={onMarkGuideAsCompleted}
+                onMarkAsNotCompleted={markGuideAsNotCompleted}
+              />
+            </div>
+          )}
+          {!hasMultipleGuides && (
+            <Anchor className="absolute inset-0" href={items[0].href} />
           )}
         </div>
-        {isOpen && (
-          <div className="px-6 pb-4">
-            <InterviewGuideList
-              className="pl-14"
-              data={data.items}
-              onMarkAsCompleted={onMarkGuideAsCompleted}
-              onMarkAsNotCompleted={markGuideAsNotCompleted}
-            />
-          </div>
-        )}
-        {!hasMultipleGuides && (
-          <Anchor className="absolute inset-0" href={items[0].href} />
-        )}
       </div>
       <InterviewsRibbonBadge
         label={intl.formatMessage({
