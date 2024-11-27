@@ -8,7 +8,7 @@ export function useStartLearningSessionMutation() {
   const intl = useIntl();
   const { showToast } = useToast();
 
-  return trpc.questionLists.startSession.useMutation({
+  return trpc.questionSessions.start.useMutation({
     onSuccess() {
       trpcUtils.questionLists.invalidate();
       showToast({

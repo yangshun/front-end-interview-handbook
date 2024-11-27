@@ -61,7 +61,7 @@ export default function InterviewsStudyListSession({
   const { signInUpHref } = useAuthSignInUp();
 
   const { data: questionListSession, isLoading: isQuestionListSessionLoading } =
-    trpc.questionLists.getActiveSession.useQuery(
+    trpc.questionSessions.get.useQuery(
       {
         studyListKey,
       },
@@ -77,13 +77,13 @@ export default function InterviewsStudyListSession({
   );
 
   const startSessionMutation = useStartLearningSessionMutation();
-  const stopSessionMutation = trpc.questionLists.stopSession.useMutation({
+  const stopSessionMutation = trpc.questionSessions.stop.useMutation({
     onSuccess() {
       trpcUtils.questionLists.invalidate();
     },
   });
   const resetSessionProgressMutation =
-    trpc.questionLists.resetSessionProgress.useMutation({
+    trpc.questionSessions.resetProgress.useMutation({
       onSuccess() {
         trpcUtils.questionLists.invalidate();
       },

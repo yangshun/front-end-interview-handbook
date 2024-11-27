@@ -28,7 +28,7 @@ export default function useQuestionsWithCompletionStatus<
     },
   );
   const { data: questionSessionProgress } =
-    trpc.questionLists.getSessionProgress.useQuery(
+    trpc.questionSessions.getProgress.useQuery(
       {
         studyListKey: studyListKey!,
       },

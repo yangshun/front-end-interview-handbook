@@ -24,46 +24,10 @@ import {
 } from '~/db/QuestionsListReader';
 import { fetchStudyListsSelectorData } from '~/db/StudyListUtils';
 import { getIntlClientOnly } from '~/i18n/getIntlClientOnly';
-import prisma from '~/server/prisma';
 
-import { publicProcedure, router, userProcedure } from '../trpc';
+import { publicProcedure, router } from '../trpc';
 
 export const questionListsRouter = router({
-  getActiveSession: userProcedure
-    .input(
-      z.object({
-        studyListKey: z.string(),
-      }),
-    )
-    .query(async ({ input: { studyListKey }, ctx: { viewer } }) => {
-      const session = await prisma.learningSession.findFirst({
-        include: {
-          progress: true,
-        },
-        where: {
-          key: studyListKey,
-          status: 'IN_PROGRESS',
-          userId: viewer.id,
-        },
-      });
-
-      return session;
-    }),
-  getActiveSessions: userProcedure.query(async ({ ctx: { viewer } }) => {
-    return await prisma.learningSession.findMany({
-      include: {
-        _count: {
-          select: {
-            progress: true,
-          },
-        },
-      },
-      where: {
-        status: 'IN_PROGRESS',
-        userId: viewer.id,
-      },
-    });
-  }),
   getQuestions: publicProcedure
     .input(
       z.object({
@@ -175,118 +139,7 @@ export const questionListsRouter = router({
       systemDesignQuestionCount: questions.length,
     };
   }),
-  getSessionProgress: userProcedure
-    .input(
-      z.object({
-        studyListKey: z.string(),
-      }),
-    )
-    .query(async ({ input: { studyListKey }, ctx: { viewer } }) => {
-      const session = await prisma.learningSession.findFirst({
-        where: {
-          key: studyListKey,
-          status: 'IN_PROGRESS',
-          userId: viewer.id,
-        },
-      });
-
-      if (session == null) {
-        return null;
-      }
-
-      return await prisma.learningSessionProgress.findMany({
-        where: {
-          sessionId: session.id,
-        },
-      });
-    }),
   getStudyListsSelectorData: publicProcedure.query(async () => {
     return await fetchStudyListsSelectorData();
   }),
-  resetSessionProgress: userProcedure
-    .input(
-      z.object({
-        sessionId: z.string(),
-      }),
-    )
-    .mutation(async ({ input: { sessionId }, ctx: { viewer } }) => {
-      // Make sure the session is active.
-      const session = await prisma.learningSession.findFirst({
-        where: {
-          id: sessionId,
-          status: 'IN_PROGRESS',
-          userId: viewer.id,
-        },
-      });
-
-      if (session == null) {
-        return null;
-      }
-
-      await prisma.learningSessionProgress.deleteMany({
-        where: {
-          sessionId,
-        },
-      });
-    }),
-  startSession: userProcedure
-    .input(
-      z.object({
-        studyListKey: z.string(),
-      }),
-    )
-    .mutation(async ({ input: { studyListKey }, ctx: { viewer } }) => {
-      const existingSession = await prisma.learningSession.findFirst({
-        where: {
-          key: studyListKey,
-          status: 'IN_PROGRESS',
-          userId: viewer.id,
-        },
-      });
-
-      // There's an existing session, return it.
-      if (existingSession != null) {
-        return existingSession;
-      }
-
-      // No existing session, create one.
-      const createData = {
-        key: studyListKey,
-        userId: viewer.id,
-      };
-
-      return await prisma.learningSession.create({
-        data: createData,
-      });
-    }),
-  stopSession: userProcedure
-    .input(
-      z.object({
-        sessionId: z.string(),
-      }),
-    )
-    .mutation(async ({ input: { sessionId }, ctx: { viewer } }) => {
-      // Make sure the session is active.
-      const session = await prisma.learningSession.findFirst({
-        where: {
-          id: sessionId,
-          status: 'IN_PROGRESS',
-          userId: viewer.id,
-        },
-      });
-
-      if (session == null) {
-        return null;
-      }
-
-      return await prisma.learningSession.update({
-        data: {
-          status: 'STOPPED',
-          stoppedAt: new Date(),
-        },
-        where: {
-          id: sessionId,
-        },
-      });
-    }),
 });

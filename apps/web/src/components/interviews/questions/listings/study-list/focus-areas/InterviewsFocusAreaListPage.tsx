@@ -41,7 +41,7 @@ export default function InterviewsRevampFocusAreaListPage({
     Object.keys(focusAreas).length,
   );
   const { data: questionListSessions } =
-    trpc.questionLists.getActiveSessions.useQuery(undefined, {
+    trpc.questionSessions.getActive.useQuery(undefined, {
       enabled: !!user,
     });
 

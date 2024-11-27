@@ -44,7 +44,7 @@ export default function InterviewsStudyPlansPage({
   const user = useUser();
   const questionFeatures = useInterviewsQuestionsFeatures();
   const { data: questionListSessions } =
-    trpc.questionLists.getActiveSessions.useQuery(undefined, {
+    trpc.questionSessions.getActive.useQuery(undefined, {
       enabled: !!user,
     });
 

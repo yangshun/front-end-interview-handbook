@@ -33,7 +33,7 @@ export default function InterviewsQuestionsCategoryContentSlider({
 
   // Eagerly fetch the active sessions, so that when navigating to recommended preparation section with scroll hash SCROLL_HASH_INTERVIEWS_DASHBOARD_RECOMMENDED_PREPARATION for frontend interview roadmap
   // So that it prevent the layout shift due to continue learning section data not being already present there
-  trpc.questionLists.getActiveSessions.useQuery(undefined, {
+  trpc.questionSessions.getActive.useQuery(undefined, {
     enabled: !!user,
   });
 

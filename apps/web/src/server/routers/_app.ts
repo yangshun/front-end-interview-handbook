@@ -10,6 +10,7 @@ import { questionCommunitySolutionRouter } from './question-community-solution';
 import { questionListsRouter } from './question-lists';
 import { questionProgressRouter } from './question-progress';
 import { questionSaveRouter } from './question-save';
+import { questionSessionRouter } from './question-sessions';
 import { questionSubmissionRouter } from './question-submission';
 import { rewardsRouter } from './rewards';
 import { roadmapRouter } from './roadmap';
@@ -28,6 +29,7 @@ export const appRouter = router({
   questionLists: questionListsRouter,
   questionProgress: questionProgressRouter,
   questionSave: questionSaveRouter,
+  questionSessions: questionSessionRouter,
   questionSubmission: questionSubmissionRouter,
   rewards: rewardsRouter,
   roadmap: roadmapRouter,

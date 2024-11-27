@@ -33,7 +33,7 @@ function InterviewsRecommendedPrepStrategyPopoverContents({
 }>) {
   const user = useUser();
   const { data: questionListSessions } =
-    trpc.questionLists.getActiveSessions.useQuery(undefined, {
+    trpc.questionSessions.getActive.useQuery(undefined, {
       enabled: !!user,
     });
   const { data: recommendedPrepData } =

@@ -26,7 +26,7 @@ export default function InterviewsStudyListListWithFilters({
   const intl = useIntl();
   const user = useUser();
   const { data: questionListSessions } =
-    trpc.questionLists.getActiveSessions.useQuery(undefined, {
+    trpc.questionSessions.getActive.useQuery(undefined, {
       enabled: !!user,
     });
 

@@ -32,7 +32,7 @@ export default function InterviewsStudyListImportProgressDialog({
   const utils = trpc.useUtils();
   const { showToast } = useToast();
   const importProgressMutation =
-    trpc.questionProgress.importProgress.useMutation();
+    trpc.questionSessions.importProgress.useMutation();
   const [selectedQuestionsSlug, setSelectedQuestionsSlug] = useState<
     Array<string>
   >([]);
@@ -69,8 +69,8 @@ export default function InterviewsStudyListImportProgressDialog({
       },
       {
         onSuccess() {
-          utils.questionLists.getActiveSession.invalidate();
-          utils.questionLists.getSessionProgress.invalidate();
+          utils.questionSessions.get.invalidate();
+          utils.questionSessions.getProgress.invalidate();
           showToast({
             title: intl.formatMessage({
               defaultMessage: 'Progress imported successfully',

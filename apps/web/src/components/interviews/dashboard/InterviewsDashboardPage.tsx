@@ -67,7 +67,7 @@ export default function InterviewsDashboardPage({
     });
 
   const { data: questionListSessions } =
-    trpc.questionLists.getActiveSessions.useQuery(undefined, {
+    trpc.questionSessions.getActive.useQuery(undefined, {
       enabled: isLoggedIn,
     });
 
