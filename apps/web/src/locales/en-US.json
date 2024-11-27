@@ -3119,6 +3119,10 @@
     "defaultMessage": "Answering \"Tell me about yourself\"",
     "description": "How to answer the self introduction question in behavioral interviews"
   },
+  "JHqEBN": {
+    "defaultMessage": "Framework / Language",
+    "description": "OG image page title of framework and language page"
+  },
   "JIWdeN": {
     "defaultMessage": "Continue tracks and skills",
     "description": "Title for Continue tracks and skills section on Projects dashboard page"
@@ -8810,6 +8814,10 @@
   "uCbhIG": {
     "defaultMessage": "Go back to sign in",
     "description": "Label of link to return to Sign In Page on Password Reset page"
+  },
+  "uEiI+F": {
+    "defaultMessage": "{category} Interview Questions",
+    "description": "OG image title of framework and language page"
   },
   "uFcyu1": {
     "defaultMessage": "Svelte Interview Questions | Solutions by Ex-FAANG interviewers",

@@ -57,6 +57,21 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       },
     ),
     locale,
+    ogImagePageType: intl.formatMessage({
+      defaultMessage: 'Framework / Language',
+      description: 'OG image page title of framework and language page',
+      id: 'JHqEBN',
+    }),
+    ogImageTitle: intl.formatMessage(
+      {
+        defaultMessage: '{category} Interview Questions',
+        description: 'OG image title of framework and language page',
+        id: 'uEiI+F',
+      },
+      {
+        category: 'JavaScript',
+      },
+    ),
     pathname: `/questions/${language}`,
     socialTitle: intl.formatMessage({
       defaultMessage:

@@ -27,6 +27,21 @@ async function processParams(params: Props['params']) {
   ]);
 
   return {
+    ogImagePageType: intl.formatMessage({
+      defaultMessage: 'Framework / Language',
+      description: 'OG image page title of framework and language page',
+      id: 'JHqEBN',
+    }),
+    ogImageTitle: intl.formatMessage(
+      {
+        defaultMessage: '{category} Interview Questions',
+        description: 'OG image title of framework and language page',
+        id: 'uEiI+F',
+      },
+      {
+        category: 'Vue',
+      },
+    ),
     questionsCoding,
     seoDescription: intl.formatMessage(
       {
@@ -55,11 +70,19 @@ async function processParams(params: Props['params']) {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = params;
-  const { socialTitle, seoDescription, seoTitle } = await processParams(params);
+  const {
+    socialTitle,
+    seoDescription,
+    seoTitle,
+    ogImagePageType,
+    ogImageTitle,
+  } = await processParams(params);
 
   return defaultMetadata({
     description: seoDescription,
     locale,
+    ogImagePageType,
+    ogImageTitle,
     pathname: `/questions/${framework}`,
     socialTitle,
     title: seoTitle,
