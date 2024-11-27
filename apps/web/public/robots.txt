@@ -1,6 +1,7 @@
 # *
 User-agent: *
 Allow: /
+Allow: /api/interviews/og/*
 
 Disallow: /logout
 Disallow: /password/
