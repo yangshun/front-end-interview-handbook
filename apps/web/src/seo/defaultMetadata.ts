@@ -1,6 +1,7 @@
 import 'server-only';
 
 import type { Metadata } from 'next/types';
+import url from 'node:url';
 
 import { i18nMetadata } from '~/next-i18nostic/src';
 
@@ -10,6 +11,8 @@ type PageMetadata = Readonly<{
   description?: string;
   imageUrl?: string;
   locale: string;
+  ogImageCategory?: string;
+  ogImageTitle?: string;
   pathname: string;
   siteName?: string;
   socialTitle?: string;
@@ -26,7 +29,19 @@ export default function defaultMetadata({
   title,
   socialTitle,
   imageUrl,
+  ogImageTitle,
+  ogImageCategory,
 }: PageMetadata): Metadata {
+  const ogImageUrl = ogImageTitle
+    ? url.format({
+        pathname: '/api/interviews/og',
+        query: {
+          category: ogImageCategory,
+          title: ogImageTitle,
+        },
+      })
+    : imageUrl || '/img/seo/og.jpg';
+
   return i18nMetadata(
     {
       alternates: {
@@ -36,7 +51,7 @@ export default function defaultMetadata({
       metadataBase: new URL(getSiteOrigin()),
       openGraph: {
         description,
-        images: imageUrl || '/img/seo/og.jpg',
+        images: ogImageUrl,
         locale,
         siteName: siteName || 'GreatFrontEnd',
         title: socialTitle || title,
@@ -59,7 +74,7 @@ export default function defaultMetadata({
         card: 'summary_large_image',
         creator: '@greatfrontend',
         description,
-        images: imageUrl || '/img/seo/og.jpg',
+        images: ogImageUrl,
         site: '@greatfrontend',
         title: socialTitle || title,
       },

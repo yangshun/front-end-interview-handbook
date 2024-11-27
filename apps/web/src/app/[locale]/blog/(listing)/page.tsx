@@ -25,6 +25,16 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       id: '0vJviS',
     }),
     locale,
+    ogImageCategory: intl.formatMessage({
+      defaultMessage: 'Blog',
+      description: 'OG blog category',
+      id: 'QZDp3f',
+    }),
+    ogImageTitle: intl.formatMessage({
+      defaultMessage: 'Blog - News and insights for Front End Engineers',
+      description: 'OG title of GreatFrontEnd blog homepage',
+      id: 'fHu6Te',
+    }),
     pathname: '/blog',
     socialTitle: intl.formatMessage({
       defaultMessage: 'Blog | GreatFrontEnd',

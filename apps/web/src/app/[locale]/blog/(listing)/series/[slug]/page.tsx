@@ -41,6 +41,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return defaultMetadata({
     description: series?.description,
     locale,
+    ogImageCategory: intl.formatMessage({
+      defaultMessage: 'Blog',
+      description: 'OG blog category',
+      id: 'QZDp3f',
+    }),
+    ogImageTitle: series?.title,
     pathname: series?.href || '',
     socialTitle: intl.formatMessage(
       {

@@ -16,6 +16,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   const intl = await getIntlServerOnly(locale);
 
+  const title = intl.formatMessage({
+    defaultMessage:
+      'Explore Series - Curated content series for Front End Engineers',
+    description: 'Title of GreatFrontEnd blog explore series page',
+    id: '55EU+L',
+  });
+
   return defaultMetadata({
     description: intl.formatMessage({
       defaultMessage:
@@ -24,18 +31,19 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       id: 'nkhVnD',
     }),
     locale,
+    ogImageCategory: intl.formatMessage({
+      defaultMessage: 'Blog',
+      description: 'OG blog category',
+      id: 'QZDp3f',
+    }),
+    ogImageTitle: title,
     pathname: '/blog/explore',
     socialTitle: intl.formatMessage({
       defaultMessage: 'Explore Front End Series | GreatFrontEnd',
       description: 'Social title of GreatFrontEnd blog explore series page',
       id: 'FIKuOh',
     }),
-    title: intl.formatMessage({
-      defaultMessage:
-        'Explore Series - Curated content series for Front End Engineers',
-      description: 'Title of GreatFrontEnd blog explore series page',
-      id: '55EU+L',
-    }),
+    title,
   });
 }
 

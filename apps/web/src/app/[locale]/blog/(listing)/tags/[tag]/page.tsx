@@ -33,16 +33,24 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale, tag } = params;
   const intl = await getIntlServerOnly(locale);
 
+  const description = intl.formatMessage(
+    {
+      defaultMessage: 'Explore articles related to "{tagName}"',
+      description: 'Description of GreatFrontEnd blog tag page',
+      id: 'YMPsHi',
+    },
+    { tagName: tag },
+  );
+
   return defaultMetadata({
-    description: intl.formatMessage(
-      {
-        defaultMessage: 'Explore articles related to "{tagName}"',
-        description: 'Description of GreatFrontEnd blog tag page',
-        id: 'YMPsHi',
-      },
-      { tagName: tag },
-    ),
+    description,
     locale,
+    ogImageCategory: intl.formatMessage({
+      defaultMessage: 'Blog',
+      description: 'OG blog category',
+      id: 'QZDp3f',
+    }),
+    ogImageTitle: description,
     pathname: `/blog/tags/${tag}`,
     title: intl.formatMessage(
       {

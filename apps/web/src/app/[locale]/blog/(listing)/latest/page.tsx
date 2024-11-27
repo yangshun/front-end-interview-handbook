@@ -17,6 +17,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = params;
 
   const intl = await getIntlServerOnly(locale);
+  const title = intl.formatMessage({
+    defaultMessage:
+      "What's New - Latest Front End updates from around the world",
+    description: "Title of GreatFrontEnd blog what's new page",
+    id: '7EXFWh',
+  });
 
   return defaultMetadata({
     description: intl.formatMessage({
@@ -26,18 +32,19 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       id: 'VpUdT9',
     }),
     locale,
+    ogImageCategory: intl.formatMessage({
+      defaultMessage: 'Blog',
+      description: 'OG blog category',
+      id: 'QZDp3f',
+    }),
+    ogImageTitle: title,
     pathname: '/blog/latest',
     socialTitle: intl.formatMessage({
       defaultMessage: "What's New | GreatFrontEnd",
       description: "Title of GreatFrontEnd blog what's new page",
       id: 'd+1G/V',
     }),
-    title: intl.formatMessage({
-      defaultMessage:
-        "What's New - Latest Front End updates from around the world",
-      description: "Title of GreatFrontEnd blog what's new page",
-      id: '7EXFWh',
-    }),
+    title,
   });
 }
 

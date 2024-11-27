@@ -4195,6 +4195,10 @@
     "defaultMessage": "If these steps do not resolve the issue, please contact our support team at <link>support@greatfrontend.com</link> or through the <feedback>feedback widget</feedback>.",
     "description": "Bottom content for payment failure dialog"
   },
+  "QZDp3f": {
+    "defaultMessage": "Blog",
+    "description": "OG blog category"
+  },
   "QaaZVv": {
     "defaultMessage": "README file",
     "description": "Provided resource for project"
@@ -6558,6 +6562,10 @@
   "fHpn67": {
     "defaultMessage": "Google",
     "description": "Company name for Google"
+  },
+  "fHu6Te": {
+    "defaultMessage": "Blog - News and insights for Front End Engineers",
+    "description": "OG title of GreatFrontEnd blog homepage"
   },
   "fMAedf": {
     "defaultMessage": "You replied to <bold>yourself</bold> on the challenge forum for <link>{challengeTitle}</link>: <comment>\"{description}\"</comment>",
