@@ -7599,6 +7599,10 @@
     "defaultMessage": "After completion",
     "description": "Tab label for projects challenges"
   },
+  "mVFZ09": {
+    "defaultMessage": "We've started tracking your progress for {studyListName}",
+    "description": "Success message for starting a study plan"
+  },
   "mYn2DH": {
     "defaultMessage": "Get started",
     "description": "Label for dashboard title for guest"

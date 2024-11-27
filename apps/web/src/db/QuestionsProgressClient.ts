@@ -44,14 +44,31 @@ export function useMutationQuestionProgressAdd() {
 
       if (data?.newSessionCreated) {
         trpcUtils.questionLists.invalidate();
-        showToast({
-          title: intl.formatMessage({
-            defaultMessage: "We've started tracking your progress",
-            description: 'Success message for starting a study plan',
-            id: 'HJ+bJn',
-          }),
-          variant: 'success',
-        });
+        if (data.studyListName) {
+          showToast({
+            title: intl.formatMessage(
+              {
+                defaultMessage:
+                  "We've started tracking your progress for {studyListName}",
+                description: 'Success message for starting a study plan',
+                id: 'mVFZ09',
+              },
+              {
+                studyListName: data.studyListName,
+              },
+            ),
+            variant: 'success',
+          });
+        } else {
+          showToast({
+            title: intl.formatMessage({
+              defaultMessage: "We've started tracking your progress",
+              description: 'Success message for starting a study plan',
+              id: 'HJ+bJn',
+            }),
+            variant: 'success',
+          });
+        }
       }
     },
   });

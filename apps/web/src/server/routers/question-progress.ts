@@ -3,6 +3,7 @@ import { z } from 'zod';
 import { groupByDateFormatter } from '~/components/interviews/dashboard/progress/utils';
 import type { QuestionFormat } from '~/components/interviews/questions/common/QuestionsTypes';
 
+import { fetchInterviewsStudyList } from '~/db/contentlayer/InterviewsStudyListReader';
 import type { QuestionProgressStatus } from '~/db/QuestionsProgressTypes';
 import { hashQuestion, unhashQuestion } from '~/db/QuestionsUtils';
 import prisma from '~/server/prisma';
@@ -48,31 +49,34 @@ export const questionProgressRouter = router({
           return { newSessionCreated: false, questionProgress };
         }
 
-        const [newSessionCreated, session] = await (async () => {
-          // We don't check if the user is premium and can
-          // start a premium list, it's probably fine.
-          const session_ = await prisma.learningSession.findFirst({
-            where: {
-              key: studyListKey,
-              status: 'IN_PROGRESS',
-              userId: viewer.id,
-            },
-          });
+        const [{ newSessionCreated, session }, studyList] = await Promise.all([
+          (async () => {
+            // We don't check if the user is premium and can
+            // start a premium list, it's probably fine.
+            const session_ = await prisma.learningSession.findFirst({
+              where: {
+                key: studyListKey,
+                status: 'IN_PROGRESS',
+                userId: viewer.id,
+              },
+            });
 
-          if (session_ != null) {
-            return [false, session_];
-          }
+            if (session_ != null) {
+              return { newSessionCreated: false, session: session_ };
+            }
 
-          // Create a session.
-          const session__ = await prisma.learningSession.create({
-            data: {
-              key: studyListKey,
-              userId: viewer.id,
-            },
-          });
+            // Create a session.
+            const session__ = await prisma.learningSession.create({
+              data: {
+                key: studyListKey,
+                userId: viewer.id,
+              },
+            });
 
-          return [true, session__];
-        })();
+            return { newSessionCreated: true, session: session__ };
+          })(),
+          fetchInterviewsStudyList(studyListKey),
+        ]);
 
         const key = hashQuestion({ format: format as QuestionFormat, slug });
         const sessionId = session.id;
@@ -92,7 +96,12 @@ export const questionProgressRouter = router({
           },
         });
 
-        return { newSessionCreated, questionProgress, sessionProgress };
+        return {
+          newSessionCreated,
+          questionProgress,
+          sessionProgress,
+          studyListName: studyList?.longName,
+        };
       },
     ),
   delete: userProcedure

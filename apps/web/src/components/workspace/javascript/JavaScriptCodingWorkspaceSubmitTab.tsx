@@ -100,27 +100,11 @@ export default function JavaScriptCodingWorkspaceTestsSubmitTab({
             return;
           }
 
-          markCompleteMutation.mutate(
-            {
-              format: metadata.format,
-              slug: metadata.slug,
-              studyListKey,
-            },
-            {
-              onSuccess: (data) => {
-                if (data?.newSessionCreated) {
-                  showToast({
-                    title: intl.formatMessage({
-                      defaultMessage: "We've started tracking your progress",
-                      description: 'Success message for starting a study plan',
-                      id: 'HJ+bJn',
-                    }),
-                    variant: 'success',
-                  });
-                }
-              },
-            },
-          );
+          markCompleteMutation.mutate({
+            format: metadata.format,
+            slug: metadata.slug,
+            studyListKey,
+          });
         }
 
         // Only need to do something when correct or wrong outcome.
