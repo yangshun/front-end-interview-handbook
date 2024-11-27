@@ -11,7 +11,7 @@ type PageMetadata = Readonly<{
   description?: string;
   imageUrl?: string;
   locale: string;
-  ogImageCategory?: string;
+  ogImagePageType?: string;
   ogImageTitle?: string;
   pathname: string;
   siteName?: string;
@@ -30,13 +30,13 @@ export default function defaultMetadata({
   socialTitle,
   imageUrl,
   ogImageTitle,
-  ogImageCategory,
+  ogImagePageType,
 }: PageMetadata): Metadata {
   const ogImageUrl = ogImageTitle
     ? url.format({
         pathname: '/api/interviews/og',
         query: {
-          category: ogImageCategory,
+          category: ogImagePageType,
           title: ogImageTitle,
         },
       })

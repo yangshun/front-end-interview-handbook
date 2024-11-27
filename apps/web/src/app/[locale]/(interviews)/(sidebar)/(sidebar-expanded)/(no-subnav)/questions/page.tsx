@@ -31,6 +31,16 @@ async function getPageSEOMetadata({ params }: Props) {
       id: 'cNg7I1',
     }),
     href: '/questions',
+    ogImagePageType: intl.formatMessage({
+      defaultMessage: 'All Practice Questions',
+      description: 'Page title for all practice questions page',
+      id: 'ua8BRe',
+    }),
+    ogImageTitle: intl.formatMessage({
+      defaultMessage: 'Front End Interview Practice Questions',
+      description: 'OG image page type for all practice questions page',
+      id: 'vs4ab4',
+    }),
     socialTitle: intl.formatMessage({
       defaultMessage: 'Front End Interview Practice Questions | GreatFrontEnd',
       description: 'Social title for focus areas listing',
@@ -53,13 +63,22 @@ async function getPageSEOMetadata({ params }: Props) {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = params;
 
-  const { title, description, socialTitle, href } = await getPageSEOMetadata({
+  const {
+    title,
+    description,
+    socialTitle,
+    href,
+    ogImagePageType,
+    ogImageTitle,
+  } = await getPageSEOMetadata({
     params,
   });
 
   return defaultMetadata({
     description,
     locale,
+    ogImagePageType,
+    ogImageTitle,
     pathname: href,
     socialTitle,
     title,

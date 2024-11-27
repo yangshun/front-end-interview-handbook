@@ -12,6 +12,7 @@ import {
 } from '~/db/contentlayer/InterviewsStudyListReader';
 import { fetchQuestionsByHash } from '~/db/QuestionsListReader';
 import { groupQuestionHashesByFormat } from '~/db/QuestionsUtils';
+import { getIntlServerOnly } from '~/i18n';
 import { generateStaticParamsWithLocale } from '~/next-i18nostic/src';
 import defaultMetadata from '~/seo/defaultMetadata';
 
@@ -40,6 +41,7 @@ async function getPageSEOMetadata({ slug }: Props['params']) {
   return {
     description: companyGuide.seoDescription,
     href: companyGuide.href,
+    ogImageTitle: companyGuide.longName,
     socialTitle: companyGuide.socialTitle,
     title: companyGuide.seoTitle,
   };
@@ -47,12 +49,18 @@ async function getPageSEOMetadata({ slug }: Props['params']) {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = params;
-  const { title, description, socialTitle, href } =
-    await getPageSEOMetadata(params);
+  const [intl, { title, description, socialTitle, href, ogImageTitle }] =
+    await Promise.all([getIntlServerOnly(locale), getPageSEOMetadata(params)]);
 
   return defaultMetadata({
     description,
     locale,
+    ogImagePageType: intl.formatMessage({
+      defaultMessage: 'Company guides',
+      description: 'Title of company guides page',
+      id: 'k2qYCS',
+    }),
+    ogImageTitle,
     pathname: href,
     socialTitle,
     title,

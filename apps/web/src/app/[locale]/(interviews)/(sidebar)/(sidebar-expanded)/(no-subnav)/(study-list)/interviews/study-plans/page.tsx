@@ -27,6 +27,11 @@ async function getPageSEOMetadata({ params }: Props) {
       id: 's7lhuQ',
     }),
     href: '/interviews/study-plans',
+    ogImagePageType: intl.formatMessage({
+      defaultMessage: 'Study plans',
+      description: 'Title of study plans page',
+      id: 'swjkuF',
+    }),
     socialTitle: intl.formatMessage({
       defaultMessage: 'Study Plans | GreatFrontEnd',
       description: 'Social title for study plans listing',
@@ -34,8 +39,8 @@ async function getPageSEOMetadata({ params }: Props) {
     }),
     title: intl.formatMessage({
       defaultMessage: 'Study Plans for Front End Interviews',
-      description: 'Page title for study plans listing',
-      id: 'vNdh9I',
+      description: 'OG page type for study plans',
+      id: 'Jnlfx1',
     }),
   };
 }
@@ -43,13 +48,16 @@ async function getPageSEOMetadata({ params }: Props) {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = params;
 
-  const { title, description, socialTitle, href } = await getPageSEOMetadata({
-    params,
-  });
+  const { title, description, socialTitle, href, ogImagePageType } =
+    await getPageSEOMetadata({
+      params,
+    });
 
   return defaultMetadata({
     description,
     locale,
+    ogImagePageType,
+    ogImageTitle: title,
     pathname: href,
     socialTitle,
     title,

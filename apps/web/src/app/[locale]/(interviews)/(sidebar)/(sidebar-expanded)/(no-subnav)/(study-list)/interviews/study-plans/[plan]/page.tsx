@@ -13,6 +13,7 @@ import {
 } from '~/db/contentlayer/InterviewsStudyListReader';
 import { fetchQuestionsByHash } from '~/db/QuestionsListReader';
 import { groupQuestionHashesByFormat } from '~/db/QuestionsUtils';
+import { getIntlServerOnly } from '~/i18n';
 import { generateStaticParamsWithLocale } from '~/next-i18nostic/src';
 import defaultMetadata from '~/seo/defaultMetadata';
 import { getSiteOrigin } from '~/seo/siteUrl';
@@ -27,6 +28,7 @@ async function getPageSEOMetadata({ plan }: Props['params']) {
   return {
     description: studyPlanDocument.seoDescription,
     href: studyPlanDocument.href,
+    ogImageTitle: studyPlanDocument.longName,
     socialTitle: studyPlanDocument.socialTitle,
     title: studyPlanDocument.seoTitle,
   };
@@ -49,13 +51,18 @@ type Props = Readonly<{
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = params;
-
-  const { title, description, href, socialTitle } =
-    await getPageSEOMetadata(params);
+  const [intl, { title, description, href, socialTitle, ogImageTitle }] =
+    await Promise.all([getIntlServerOnly(locale), getPageSEOMetadata(params)]);
 
   return defaultMetadata({
     description,
     locale,
+    ogImagePageType: intl.formatMessage({
+      defaultMessage: 'Study plans',
+      description: 'Title of study plans page',
+      id: 'swjkuF',
+    }),
+    ogImageTitle,
     pathname: href,
     socialTitle,
     title,

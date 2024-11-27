@@ -35,6 +35,11 @@ async function getPageSEOMetadata({ params }: Props) {
       },
     ),
     href: '/interviews/focus-areas',
+    ogImagePageType: intl.formatMessage({
+      defaultMessage: 'Focus areas',
+      description: 'Title of focus areas page',
+      id: 'Zui1cu',
+    }),
     socialTitle: intl.formatMessage({
       defaultMessage: 'Practice Questions by Focus Area | GreatFrontEnd',
       description: 'Social title for focus areas listing',
@@ -52,13 +57,16 @@ async function getPageSEOMetadata({ params }: Props) {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = params;
 
-  const { title, description, socialTitle, href } = await getPageSEOMetadata({
-    params,
-  });
+  const { title, description, socialTitle, href, ogImagePageType } =
+    await getPageSEOMetadata({
+      params,
+    });
 
   return defaultMetadata({
     description,
     locale,
+    ogImagePageType,
+    ogImageTitle: title,
     pathname: href,
     socialTitle,
     title,

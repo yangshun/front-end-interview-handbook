@@ -35,11 +35,36 @@ async function processParams(params: Props['params']) {
   const questionFormat = format.replace(/\/$/g, '') as QuestionFormat;
 
   const intl = await getIntlServerOnly(locale);
-
+  const algoSocialTitle = intl.formatMessage({
+    defaultMessage: 'Algorithmic Coding Interview Questions',
+    description: 'Social title for algo coding question format page',
+    id: '2T4Rg2',
+  });
+  const jsSocialTitle = intl.formatMessage({
+    defaultMessage: 'JavaScript Coding Interview Questions',
+    description: 'Social title for JavaScript coding question format page',
+    id: 'z9RrSL',
+  });
+  const quizSocialTitle = intl.formatMessage({
+    defaultMessage: 'Front End Quiz Interview Questions',
+    description: 'Social title for quiz question format page',
+    id: '1XIBhp',
+  });
+  const systemDesignSocialTitle = intl.formatMessage({
+    defaultMessage: 'Front End System Design Interview Questions',
+    description: 'Social title for System design question format page',
+    id: 'CmlQsV',
+  });
+  const userInterfaceSocialTitle = intl.formatMessage({
+    defaultMessage: 'User Interfaces Coding Interview Questions',
+    description: 'Social title for UI question format page',
+    id: 'r0OL1W',
+  });
   const QuestionFormatStrings: Record<
     QuestionFormat,
     Readonly<{
       description: string;
+      ogImageTitle: string;
       pageTitle: string;
       seoDescription: string;
       seoTitle: (count: number) => string;
@@ -53,6 +78,7 @@ async function processParams(params: Props['params']) {
         description: 'Description for algo coding question format page',
         id: 'PPjL+V',
       }),
+      ogImageTitle: algoSocialTitle,
       pageTitle: intl.formatMessage({
         defaultMessage: 'Algorithmic Coding',
         description: 'Page title for algo coding question format page',
@@ -71,12 +97,7 @@ async function processParams(params: Props['params']) {
           description: 'SEO title for algo coding question format page',
           id: 'JCAJF/',
         }),
-      socialTitle: intl.formatMessage({
-        defaultMessage:
-          'Algorithmic Coding Interview Questions | GreatFrontEnd',
-        description: 'Social title for algo coding question format page',
-        id: 'jPrd8a',
-      }),
+      socialTitle: `${algoSocialTitle} | GreatFrontEnd`,
     },
     javascript: {
       description: intl.formatMessage({
@@ -85,6 +106,7 @@ async function processParams(params: Props['params']) {
         description: 'JavaScript coding question format page description',
         id: '1a25kg',
       }),
+      ogImageTitle: jsSocialTitle,
       pageTitle: intl.formatMessage({
         defaultMessage: 'JavaScript Coding',
         description: 'Page title for JavaScript coding question format',
@@ -104,11 +126,7 @@ async function processParams(params: Props['params']) {
           description: 'SEO title for JavaScript coding question format page',
           id: 'CJmMgh',
         }),
-      socialTitle: intl.formatMessage({
-        defaultMessage: 'JavaScript Coding Interview Questions | GreatFrontEnd',
-        description: 'Social title for JavaScript coding question format page',
-        id: 'o1/80a',
-      }),
+      socialTitle: `${jsSocialTitle} | GreatFrontEnd`,
     },
     quiz: {
       description: intl.formatMessage({
@@ -117,6 +135,7 @@ async function processParams(params: Props['params']) {
         description: 'Description for quiz question format page',
         id: 'f2JA9U',
       }),
+      ogImageTitle: quizSocialTitle,
       pageTitle: intl.formatMessage({
         defaultMessage: 'Front End Quiz Questions',
         description: 'Page title for quiz question format page',
@@ -140,11 +159,7 @@ async function processParams(params: Props['params']) {
             questionCount: roundQuestionCountToNearestTen(count),
           },
         ),
-      socialTitle: intl.formatMessage({
-        defaultMessage: 'Front End Quiz Interview Questions | GreatFrontEnd',
-        description: 'Social title for quiz question format page',
-        id: '9n2L5+',
-      }),
+      socialTitle: `${quizSocialTitle} | GreatFrontEnd`,
     },
     'system-design': {
       description: intl.formatMessage({
@@ -153,6 +168,7 @@ async function processParams(params: Props['params']) {
         description: 'Description for System design question format page',
         id: 'nyzAxQ',
       }),
+      ogImageTitle: systemDesignSocialTitle,
       pageTitle: intl.formatMessage({
         defaultMessage: 'Front End System Design',
         description: 'Page title for System design question format page',
@@ -171,12 +187,7 @@ async function processParams(params: Props['params']) {
           description: 'SEO title for System design question format page',
           id: 'mtdzmn',
         }),
-      socialTitle: intl.formatMessage({
-        defaultMessage:
-          'Front End System Design Interview Questions | GreatFrontEnd',
-        description: 'Social title for System design question format page',
-        id: 'fnBudE',
-      }),
+      socialTitle: `${systemDesignSocialTitle} | GreatFrontEnd`,
     },
     'user-interface': {
       description: intl.formatMessage({
@@ -185,6 +196,7 @@ async function processParams(params: Props['params']) {
         description: 'Description for UI question format page',
         id: 'h2eWtB',
       }),
+      ogImageTitle: userInterfaceSocialTitle,
       pageTitle: intl.formatMessage({
         defaultMessage: 'User Interface Coding',
         description: 'Page title for UI question format page',
@@ -203,19 +215,12 @@ async function processParams(params: Props['params']) {
           description: 'SEO title for UI question format page',
           id: 'UQMNWX',
         }),
-      socialTitle: intl.formatMessage({
-        defaultMessage:
-          'User Interfaces Coding Interview Questions | GreatFrontEnd',
-        description: 'Social title for UI question format page',
-        id: 'N7Nseb',
-      }),
+      socialTitle: `${userInterfaceSocialTitle} | GreatFrontEnd`,
     },
   };
 
-  const { description } = QuestionFormatStrings[questionFormat];
-  const { pageTitle } = QuestionFormatStrings[questionFormat];
-  const { socialTitle } = QuestionFormatStrings[questionFormat];
-  const { seoDescription } = QuestionFormatStrings[questionFormat];
+  const { seoDescription, socialTitle, pageTitle, description, ogImageTitle } =
+    QuestionFormatStrings[questionFormat];
   let seoTitle = QuestionFormatStrings[questionFormat].seoTitle(0);
   let questions: ReadonlyArray<QuestionMetadata> = [];
 
@@ -264,6 +269,7 @@ async function processParams(params: Props['params']) {
 
   return {
     description,
+    ogImageTitle,
     pageTitle,
     questions,
     seoDescription,
@@ -276,12 +282,18 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale, format } = params;
 
   try {
-    const { seoTitle, socialTitle, seoDescription } =
-      await processParams(params);
+    const [intl, { seoTitle, socialTitle, seoDescription, ogImageTitle }] =
+      await Promise.all([getIntlServerOnly(locale), processParams(params)]);
 
     return defaultMetadata({
       description: seoDescription,
       locale,
+      ogImagePageType: intl.formatMessage({
+        defaultMessage: 'Question Format',
+        description: 'OG image page type for question format page',
+        id: 'BYjsNb',
+      }),
+      ogImageTitle,
       pathname: `/interviews/${format}`,
       socialTitle,
       title: seoTitle,

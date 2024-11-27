@@ -27,28 +27,36 @@ async function getPageSEOMetadata({ params }: Props) {
       id: 'xtUjHr',
     }),
     href: '/interviews/company',
+    ogImagePageType: intl.formatMessage({
+      defaultMessage: 'Company guides',
+      description: 'Title of company guides page',
+      id: 'k2qYCS',
+    }),
     socialTitle: intl.formatMessage({
       defaultMessage: 'Company Interview Guides | GreatFrontEnd',
       description: 'Social title for company guides listing',
       id: 'SyOeb2',
     }),
     title: intl.formatMessage({
-      defaultMessage: 'Front End Interview Playbooks for Target Companies',
+      defaultMessage: 'Front End Interview Guides for Target Companies',
       description: 'Page title for company guides listing',
-      id: 'xR2GQR',
+      id: '7PRS9T',
     }),
   };
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = params;
-  const { title, description, socialTitle, href } = await getPageSEOMetadata({
-    params,
-  });
+  const { title, description, socialTitle, href, ogImagePageType } =
+    await getPageSEOMetadata({
+      params,
+    });
 
   return defaultMetadata({
     description,
     locale,
+    ogImagePageType,
+    ogImageTitle: title,
     pathname: href,
     socialTitle,
     title,

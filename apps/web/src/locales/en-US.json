@@ -43,6 +43,10 @@
     "defaultMessage": "{questionCount}+ most important JavaScript interview questions, from library APIs and utility functions to algorithms and UI components.",
     "description": "Subtitle for questions list page"
   },
+  "+GsP/X": {
+    "defaultMessage": "{focusAreaName} Interview Questions",
+    "description": "OG image page type for focus areas"
+  },
   "+JhlMu": {
     "defaultMessage": "Congratulations on completing the question! Sign into your account or sign up for free to save your progress!",
     "description": "Message shown when user completes a question"
@@ -527,6 +531,10 @@
     "defaultMessage": "Official solutions and tests",
     "description": "Features for focus areas"
   },
+  "1XIBhp": {
+    "defaultMessage": "Front End Quiz Interview Questions",
+    "description": "Social title for quiz question format page"
+  },
   "1XjF3L": {
     "defaultMessage": "Medium",
     "description": "Label for medium question importance"
@@ -678,6 +686,10 @@
   "2SDdF5": {
     "defaultMessage": "Support",
     "description": "Title for FAQ section"
+  },
+  "2T4Rg2": {
+    "defaultMessage": "Algorithmic Coding Interview Questions",
+    "description": "Social title for algo coding question format page"
   },
   "2a6qgD": {
     "defaultMessage": "Your code was restored from client storage. <link>Reset to default</link>",
@@ -1407,6 +1419,10 @@
     "defaultMessage": "Start coding!",
     "description": "Label for \"Start coding!\" step in dialog on Projects project page"
   },
+  "7PRS9T": {
+    "defaultMessage": "Front End Interview Guides for Target Companies",
+    "description": "Page title for company guides listing"
+  },
   "7Rr7Yf": {
     "defaultMessage": "{minutes} min read",
     "description": "Blog read duration label"
@@ -1719,10 +1735,6 @@
     "defaultMessage": "A simple yet comprehensive plan to follow",
     "description": "Title for marketing page study plans section"
   },
-  "9n2L5+": {
-    "defaultMessage": "Front End Quiz Interview Questions | GreatFrontEnd",
-    "description": "Social title for quiz question format page"
-  },
   "9nK/kc": {
     "defaultMessage": "Annual plan",
     "description": "Subscription plan type"
@@ -1983,6 +1995,10 @@
     "defaultMessage": "{totalCount, plural, =0 {No challenges} one {1 challenge} other {# challenges}}",
     "description": "Total number of challenges"
   },
+  "BYjsNb": {
+    "defaultMessage": "Question Format",
+    "description": "OG image page type for question format page"
+  },
   "BfCWYl": {
     "defaultMessage": "Select at least 1 skill that was used",
     "description": "Error message"
@@ -2118,6 +2134,10 @@
   "ClNAgn": {
     "defaultMessage": "Sign in to track your progress",
     "description": "Subtitle of Sign In page"
+  },
+  "CmlQsV": {
+    "defaultMessage": "Front End System Design Interview Questions",
+    "description": "Social title for System design question format page"
   },
   "CqG3Op": {
     "defaultMessage": "Completed Questions",
@@ -3179,6 +3199,10 @@
     "defaultMessage": "This is an irreversible action. You will lose all progress. Are you sure?",
     "description": "Confirmation text for reseting study plan progress"
   },
+  "Jnlfx1": {
+    "defaultMessage": "Study Plans for Front End Interviews",
+    "description": "OG page type for study plans"
+  },
   "JrYZqa": {
     "defaultMessage": "All the resources to help you build a {challengeName}, including how-to-guides, official solutions, references and user discussions",
     "description": "Description of Projects challenge resources page"
@@ -3706,10 +3730,6 @@
   "N5Cp1r": {
     "defaultMessage": "While offer lasts",
     "description": "Label to indicate offer is a limited time deal"
-  },
-  "N7Nseb": {
-    "defaultMessage": "User Interfaces Coding Interview Questions | GreatFrontEnd",
-    "description": "Social title for UI question format page"
   },
   "NA1S3Z": {
     "defaultMessage": "Discussion post comment",
@@ -6647,10 +6667,6 @@
     "defaultMessage": "on your first order amount",
     "description": "GFE discount"
   },
-  "fnBudE": {
-    "defaultMessage": "Front End System Design Interview Questions | GreatFrontEnd",
-    "description": "Social title for System design question format page"
-  },
   "fq5xTR": {
     "defaultMessage": "HTML Interview Questions with Solutions | GreatFrontEnd",
     "description": "Social title of HTML Interview Questions page"
@@ -6830,6 +6846,10 @@
   "gvncuz": {
     "defaultMessage": "Prioritized lists",
     "description": "Features for study plans"
+  },
+  "gyhMDJ": {
+    "defaultMessage": "Special list",
+    "description": "OG category for special list"
   },
   "h2eWtB": {
     "defaultMessage": "Build dynamic user interfaces using HTML, CSS, JavaScript, or popular UI frameworks like React, Angular, or Vue.",
@@ -7158,10 +7178,6 @@
   "jOyFXD": {
     "defaultMessage": "{count, plural, =0 {0 completions} one {<bold>{value}</bold> completion} other {<bold>{value}</bold> completions}} in the last year",
     "description": "Label for completions count"
-  },
-  "jPrd8a": {
-    "defaultMessage": "Algorithmic Coding Interview Questions | GreatFrontEnd",
-    "description": "Social title for algo coding question format page"
   },
   "jQ6uOU": {
     "defaultMessage": "Practice questions",
@@ -7875,10 +7891,6 @@
     "defaultMessage": "Clear Console",
     "description": "Button label to clear the console in the coding workspace"
   },
-  "o1/80a": {
-    "defaultMessage": "JavaScript Coding Interview Questions | GreatFrontEnd",
-    "description": "Social title for JavaScript coding question format page"
-  },
   "o26OYL": {
     "defaultMessage": "The transaction amount is invalid, which might be due to the amount being too low or incorrect formatting.",
     "description": "Decline message for invalid amount"
@@ -8330,6 +8342,10 @@
   "r00qIX": {
     "defaultMessage": "Requirement specs by product managers",
     "description": "Title of 'Specs by product managers' sub-feature in Projects marketing page"
+  },
+  "r0OL1W": {
+    "defaultMessage": "User Interfaces Coding Interview Questions",
+    "description": "Social title for UI question format page"
   },
   "r0smyz": {
     "defaultMessage": "Search system design questions",
@@ -8839,6 +8855,10 @@
     "defaultMessage": "Details of rep gain across skills",
     "description": "Details of rep gain across skills for submission"
   },
+  "ua8BRe": {
+    "defaultMessage": "All Practice Questions",
+    "description": "Page title for all practice questions page"
+  },
   "ub/oYs": {
     "defaultMessage": "Mark complete (previously completed)",
     "description": "Label for questions solved in the past"
@@ -8955,10 +8975,6 @@
     "defaultMessage": "Months",
     "description": "Title of months accordion in Roadmap Slide out filter"
   },
-  "vNdh9I": {
-    "defaultMessage": "Study Plans for Front End Interviews",
-    "description": "Page title for study plans listing"
-  },
   "vNvx2g": {
     "defaultMessage": "Purchase premium to get access to all skill plans as well as exclusive component tracks, official how-to guides and production-ready Figma files.",
     "description": "Subtitle for premium projects skill roadmap"
@@ -9038,6 +9054,10 @@
   "vqL6fD": {
     "defaultMessage": "Start earning passive commissions with a great product",
     "description": "Title of Call to action banner found at the bottom of the 'Become an Affiliate' page."
+  },
+  "vs4ab4": {
+    "defaultMessage": "Front End Interview Practice Questions",
+    "description": "OG image page type for all practice questions page"
   },
   "vsgUOt": {
     "defaultMessage": "Copy the link to this page",
@@ -9214,10 +9234,6 @@
   "xP6aru": {
     "defaultMessage": "Please try retaking the screenshot",
     "description": "Retake error message for screenshot"
-  },
-  "xR2GQR": {
-    "defaultMessage": "Front End Interview Playbooks for Target Companies",
-    "description": "Page title for company guides listing"
   },
   "xR9d8+": {
     "defaultMessage": "Get Started - One-stop to prepare for your Front End Interviews",
@@ -9454,6 +9470,10 @@
   "z7U2cl": {
     "defaultMessage": "Name must contain at most {maxLength} character(s).",
     "description": "Error message when display name is too long"
+  },
+  "z9RrSL": {
+    "defaultMessage": "JavaScript Coding Interview Questions",
+    "description": "Social title for JavaScript coding question format page"
   },
   "z9lq1x": {
     "defaultMessage": "Practicing company-specific questions is the quickest way to ace specific interviews. We regularly survey and update lists for known questions tested in top companies around the world.",

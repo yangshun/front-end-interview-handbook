@@ -13,6 +13,7 @@ import {
 } from '~/db/contentlayer/InterviewsStudyListReader';
 import { fetchQuestionsByHash } from '~/db/QuestionsListReader';
 import { groupQuestionHashesByFormat } from '~/db/QuestionsUtils';
+import { getIntlServerOnly } from '~/i18n';
 import { generateStaticParamsWithLocale } from '~/next-i18nostic/src';
 import defaultMetadata from '~/seo/defaultMetadata';
 import { getSiteOrigin } from '~/seo/siteUrl';
@@ -34,6 +35,7 @@ async function getPageSEOMetadata({ slug }: Props['params']) {
   return {
     description: focusAreaDocument.seoDescription,
     href: focusAreaDocument.href,
+    name: focusAreaDocument.name,
     socialTitle: focusAreaDocument.socialTitle,
     title: focusAreaDocument.seoTitle,
   };
@@ -49,12 +51,27 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = params;
-  const { title, description, href, socialTitle } =
-    await getPageSEOMetadata(params);
+  const [intl, { title, description, href, socialTitle, name }] =
+    await Promise.all([getIntlServerOnly(locale), getPageSEOMetadata(params)]);
 
   return defaultMetadata({
     description,
     locale,
+    ogImagePageType: intl.formatMessage({
+      defaultMessage: 'Focus areas',
+      description: 'Title of focus areas page',
+      id: 'Zui1cu',
+    }),
+    ogImageTitle: intl.formatMessage(
+      {
+        defaultMessage: '{focusAreaName} Interview Questions',
+        description: 'OG image page type for focus areas',
+        id: '+GsP/X',
+      },
+      {
+        focusAreaName: name,
+      },
+    ),
     pathname: href,
     socialTitle,
     title,

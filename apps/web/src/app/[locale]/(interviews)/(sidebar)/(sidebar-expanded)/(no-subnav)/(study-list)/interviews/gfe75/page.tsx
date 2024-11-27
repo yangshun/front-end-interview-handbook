@@ -10,6 +10,7 @@ import { fetchInterviewListingBottomContent } from '~/db/contentlayer/Interviews
 import { fetchInterviewsStudyList } from '~/db/contentlayer/InterviewsStudyListReader';
 import { fetchQuestionsByHash } from '~/db/QuestionsListReader';
 import { groupQuestionHashesByFormat } from '~/db/QuestionsUtils';
+import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
 import { getSiteOrigin } from '~/seo/siteUrl';
 
@@ -36,12 +37,19 @@ type Props = Readonly<{
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = params;
+  const intl = await getIntlServerOnly(locale);
 
   const { title, description, href, socialTitle } = await getPageSEOMetadata();
 
   return defaultMetadata({
     description,
     locale,
+    ogImagePageType: intl.formatMessage({
+      defaultMessage: 'Special list',
+      description: 'OG category for special list',
+      id: 'gyhMDJ',
+    }),
+    ogImageTitle: title,
     pathname: href,
     socialTitle,
     title,

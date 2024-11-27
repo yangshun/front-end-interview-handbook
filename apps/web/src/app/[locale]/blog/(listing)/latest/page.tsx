@@ -32,7 +32,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       id: 'VpUdT9',
     }),
     locale,
-    ogImageCategory: intl.formatMessage({
+    ogImagePageType: intl.formatMessage({
       defaultMessage: 'Blog',
       description: 'OG blog category',
       id: 'QZDp3f',
