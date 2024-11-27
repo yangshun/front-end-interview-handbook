@@ -12,7 +12,7 @@
     }
   },
   "AF": {
-    "conversionFactor": 0.24070965208807435,
+    "conversionFactor": 0.25,
     "country": {
       "code": "AF",
       "name": "Afghanistan"
@@ -24,7 +24,7 @@
     }
   },
   "AG": {
-    "conversionFactor": 0.76,
+    "conversionFactor": 0.75,
     "country": {
       "code": "AG",
       "name": "Antigua and Barbuda"
@@ -84,7 +84,7 @@
     }
   },
   "AT": {
-    "conversionFactor": 0.9071498417926325,
+    "conversionFactor": 0.9,
     "country": {
       "code": "AT",
       "name": "Austria"
@@ -96,14 +96,14 @@
     }
   },
   "AU": {
-    "conversionFactor": 0.9,
+    "conversionFactor": 1,
     "country": {
       "code": "AU",
       "name": "Australia"
     },
     "currency": {
       "code": "aud",
-      "exchangeRate": 1.53,
+      "exchangeRate": 1.55,
       "symbol": "$"
     }
   },
@@ -132,7 +132,7 @@
     }
   },
   "BA": {
-    "conversionFactor": 0.382985427070501,
+    "conversionFactor": 0.4,
     "country": {
       "code": "BA",
       "name": "Bosnia and Herzegovina"
@@ -168,7 +168,7 @@
     }
   },
   "BE": {
-    "conversionFactor": 0.8810448103741395,
+    "conversionFactor": 0.9,
     "country": {
       "code": "BE",
       "name": "Belgium"
@@ -228,7 +228,7 @@
     }
   },
   "BJ": {
-    "conversionFactor": 0.3435000820072618,
+    "conversionFactor": 0.34,
     "country": {
       "code": "BJ",
       "name": "Benin"
@@ -276,7 +276,7 @@
     }
   },
   "BS": {
-    "conversionFactor": 0.81,
+    "conversionFactor": 0.8,
     "country": {
       "code": "BS",
       "name": "Bahamas"
@@ -336,7 +336,7 @@
     }
   },
   "CA": {
-    "conversionFactor": 0.87,
+    "conversionFactor": 0.9,
     "country": {
       "code": "CA",
       "name": "Canada"
@@ -372,7 +372,7 @@
     }
   },
   "CG": {
-    "conversionFactor": 0.2922499997748989,
+    "conversionFactor": 0.3,
     "country": {
       "code": "CG",
       "name": "Congo"
@@ -384,7 +384,7 @@
     }
   },
   "CH": {
-    "conversionFactor": 1.12,
+    "conversionFactor": 1.1,
     "country": {
       "code": "CH",
       "name": "Switzerland"
@@ -396,7 +396,7 @@
     }
   },
   "CI": {
-    "conversionFactor": 0.3632642043784895,
+    "conversionFactor": 0.4,
     "country": {
       "code": "CI",
       "name": "Cote D'Ivoire"
@@ -408,7 +408,7 @@
     }
   },
   "CL": {
-    "conversionFactor": 0.52,
+    "conversionFactor": 0.6,
     "country": {
       "code": "CL",
       "name": "Chile"
@@ -420,7 +420,7 @@
     }
   },
   "CM": {
-    "conversionFactor": 0.36230576300500433,
+    "conversionFactor": 0.4,
     "country": {
       "code": "CM",
       "name": "Cameroon"
@@ -432,7 +432,7 @@
     }
   },
   "CN": {
-    "conversionFactor": 0.54,
+    "conversionFactor": 0.6,
     "country": {
       "code": "CN",
       "name": "China"
@@ -480,7 +480,7 @@
     }
   },
   "CW": {
-    "conversionFactor": 0.7722,
+    "conversionFactor": 0.8,
     "country": {
       "code": "CW",
       "name": "Curaçao"
@@ -492,7 +492,7 @@
     }
   },
   "CY": {
-    "conversionFactor": 0.6537134951047627,
+    "conversionFactor": 0.7,
     "country": {
       "code": "CY",
       "name": "Cyprus"
@@ -516,7 +516,7 @@
     }
   },
   "DE": {
-    "conversionFactor": 0.79,
+    "conversionFactor": 0.9,
     "country": {
       "code": "DE",
       "name": "Germany"
@@ -528,7 +528,7 @@
     }
   },
   "DJ": {
-    "conversionFactor": 0.56,
+    "conversionFactor": 0.6,
     "country": {
       "code": "DJ",
       "name": "Djibouti"
@@ -540,7 +540,7 @@
     }
   },
   "DK": {
-    "conversionFactor": 0.93,
+    "conversionFactor": 1,
     "country": {
       "code": "DK",
       "name": "Denmark"
@@ -552,7 +552,7 @@
     }
   },
   "DM": {
-    "conversionFactor": 0.6997095335886477,
+    "conversionFactor": 0.7,
     "country": {
       "code": "DM",
       "name": "Dominica"
@@ -588,7 +588,7 @@
     }
   },
   "EC": {
-    "conversionFactor": 0.513,
+    "conversionFactor": 0.5,
     "country": {
       "code": "EC",
       "name": "Ecuador"
@@ -600,7 +600,7 @@
     }
   },
   "EE": {
-    "conversionFactor": 0.6428363986803906,
+    "conversionFactor": 0.65,
     "country": {
       "code": "EE",
       "name": "Estonia"
@@ -636,7 +636,7 @@
     }
   },
   "ES": {
-    "conversionFactor": 0.6961341711598139,
+    "conversionFactor": 0.7,
     "country": {
       "code": "ES",
       "name": "Spain"
@@ -660,7 +660,7 @@
     }
   },
   "FI": {
-    "conversionFactor": 0.9767632589086139,
+    "conversionFactor": 1,
     "country": {
       "code": "FI",
       "name": "Finland"
@@ -684,7 +684,7 @@
     }
   },
   "FM": {
-    "conversionFactor": 1.007,
+    "conversionFactor": 1,
     "country": {
       "code": "FM",
       "name": "Micronesia, Federated States of"
@@ -696,7 +696,7 @@
     }
   },
   "FR": {
-    "conversionFactor": 0.8495012307434604,
+    "conversionFactor": 0.9,
     "country": {
       "code": "FR",
       "name": "France"
@@ -708,7 +708,7 @@
     }
   },
   "GA": {
-    "conversionFactor": 0.39399899824967877,
+    "conversionFactor": 0.4,
     "country": {
       "code": "GA",
       "name": "Gabon"
@@ -720,7 +720,7 @@
     }
   },
   "GB": {
-    "conversionFactor": 0.84,
+    "conversionFactor": 0.9,
     "country": {
       "code": "GB",
       "name": "United Kingdom"
@@ -732,7 +732,7 @@
     }
   },
   "GD": {
-    "conversionFactor": 0.6845386764352186,
+    "conversionFactor": 0.7,
     "country": {
       "code": "GD",
       "name": "Grenada"
@@ -792,7 +792,7 @@
     }
   },
   "GQ": {
-    "conversionFactor": 0.4176350247854183,
+    "conversionFactor": 0.4,
     "country": {
       "code": "GQ",
       "name": "Equatorial Guinea"
@@ -804,7 +804,7 @@
     }
   },
   "GR": {
-    "conversionFactor": 0.6308715926135813,
+    "conversionFactor": 0.65,
     "country": {
       "code": "GR",
       "name": "Greece"
@@ -816,7 +816,7 @@
     }
   },
   "GT": {
-    "conversionFactor": 0.52,
+    "conversionFactor": 0.55,
     "country": {
       "code": "GT",
       "name": "Guatemala"
@@ -828,7 +828,7 @@
     }
   },
   "GW": {
-    "conversionFactor": 0.4111282359453564,
+    "conversionFactor": 0.4,
     "country": {
       "code": "GW",
       "name": "Guinea-Bissau"
@@ -852,7 +852,7 @@
     }
   },
   "HK": {
-    "conversionFactor": 0.7,
+    "conversionFactor": 0.8,
     "country": {
       "code": "HK",
       "name": "Hong Kong"
@@ -888,7 +888,7 @@
     }
   },
   "HT": {
-    "conversionFactor": 0.66,
+    "conversionFactor": 0.65,
     "country": {
       "code": "HT",
       "name": "Haiti"
@@ -912,7 +912,7 @@
     }
   },
   "ID": {
-    "conversionFactor": 0.2970510081727951,
+    "conversionFactor": 0.3,
     "country": {
       "code": "ID",
       "name": "Indonesia"
@@ -924,7 +924,7 @@
     }
   },
   "IE": {
-    "conversionFactor": 0.8810448103741395,
+    "conversionFactor": 0.9,
     "country": {
       "code": "IE",
       "name": "Ireland"
@@ -936,7 +936,7 @@
     }
   },
   "IL": {
-    "conversionFactor": 0.95,
+    "conversionFactor": 1.1,
     "country": {
       "code": "IL",
       "name": "Israel"
@@ -972,7 +972,7 @@
     }
   },
   "IR": {
-    "conversionFactor": 0.7486065408953811,
+    "conversionFactor": 0.75,
     "country": {
       "code": "IR",
       "name": "Iran, Islamic Republic Of"
@@ -984,7 +984,7 @@
     }
   },
   "IS": {
-    "conversionFactor": 1.09,
+    "conversionFactor": 1.1,
     "country": {
       "code": "IS",
       "name": "Iceland"
@@ -996,7 +996,7 @@
     }
   },
   "IT": {
-    "conversionFactor": 0.7711861364879813,
+    "conversionFactor": 0.8,
     "country": {
       "code": "IT",
       "name": "Italy"
@@ -1032,7 +1032,7 @@
     }
   },
   "JP": {
-    "conversionFactor": 0.59,
+    "conversionFactor": 0.7,
     "country": {
       "code": "JP",
       "name": "Japan"
@@ -1080,7 +1080,7 @@
     }
   },
   "KI": {
-    "conversionFactor": 0.7125354095340715,
+    "conversionFactor": 0.7,
     "country": {
       "code": "KI",
       "name": "Kiribati"
@@ -1104,7 +1104,7 @@
     }
   },
   "KN": {
-    "conversionFactor": 0.6023940352629923,
+    "conversionFactor": 0.6,
     "country": {
       "code": "KN",
       "name": "Saint Kitts and Nevis"
@@ -1116,7 +1116,7 @@
     }
   },
   "KR": {
-    "conversionFactor": 0.56,
+    "conversionFactor": 0.6,
     "country": {
       "code": "KR",
       "name": "Korea, Republic of"
@@ -1152,7 +1152,7 @@
     }
   },
   "LA": {
-    "conversionFactor": 0.1552602244778746,
+    "conversionFactor": 0.2,
     "country": {
       "code": "LA",
       "name": "Lao People's Democratic Republic"
@@ -1164,7 +1164,7 @@
     }
   },
   "LB": {
-    "conversionFactor": 0.06291595415126258,
+    "conversionFactor": 0.1,
     "country": {
       "code": "LB",
       "name": "Lebanon"
@@ -1176,7 +1176,7 @@
     }
   },
   "LC": {
-    "conversionFactor": 0.7385617287376737,
+    "conversionFactor": 0.75,
     "country": {
       "code": "LC",
       "name": "Saint Lucia"
@@ -1224,7 +1224,7 @@
     }
   },
   "LT": {
-    "conversionFactor": 0.5133989512303627,
+    "conversionFactor": 0.5,
     "country": {
       "code": "LT",
       "name": "Lithuania"
@@ -1236,7 +1236,7 @@
     }
   },
   "LU": {
-    "conversionFactor": 0.9811140974783628,
+    "conversionFactor": 1,
     "country": {
       "code": "LU",
       "name": "Luxembourg"
@@ -1248,7 +1248,7 @@
     }
   },
   "LV": {
-    "conversionFactor": 0.5634335947824743,
+    "conversionFactor": 0.6,
     "country": {
       "code": "LV",
       "name": "Latvia"
@@ -1296,7 +1296,7 @@
     }
   },
   "ME": {
-    "conversionFactor": 0.41441737376857674,
+    "conversionFactor": 0.4,
     "country": {
       "code": "ME",
       "name": "Montenegro"
@@ -1344,7 +1344,7 @@
     }
   },
   "ML": {
-    "conversionFactor": 0.36077026696374614,
+    "conversionFactor": 0.36,
     "country": {
       "code": "ML",
       "name": "Mali"
@@ -1380,7 +1380,7 @@
     }
   },
   "MO": {
-    "conversionFactor": 0.56,
+    "conversionFactor": 0.6,
     "country": {
       "code": "MO",
       "name": "Macao"
@@ -1404,7 +1404,7 @@
     }
   },
   "MT": {
-    "conversionFactor": 0.6319593022560185,
+    "conversionFactor": 0.65,
     "country": {
       "code": "MT",
       "name": "Malta"
@@ -1500,7 +1500,7 @@
     }
   },
   "NE": {
-    "conversionFactor": 0.359811825590261,
+    "conversionFactor": 0.35,
     "country": {
       "code": "NE",
       "name": "Niger"
@@ -1536,7 +1536,7 @@
     }
   },
   "NL": {
-    "conversionFactor": 0.858202907882958,
+    "conversionFactor": 0.9,
     "country": {
       "code": "NL",
       "name": "Netherlands"
@@ -1572,7 +1572,7 @@
     }
   },
   "NR": {
-    "conversionFactor": 0.621630329143233,
+    "conversionFactor": 0.65,
     "country": {
       "code": "NR",
       "name": "Nauru"
@@ -1584,7 +1584,7 @@
     }
   },
   "NZ": {
-    "conversionFactor": 0.85,
+    "conversionFactor": 1,
     "country": {
       "code": "NZ",
       "name": "New Zealand"
@@ -1632,7 +1632,7 @@
     }
   },
   "PG": {
-    "conversionFactor": 0.71,
+    "conversionFactor": 0.7,
     "country": {
       "code": "PG",
       "name": "Papua New Guinea"
@@ -1644,7 +1644,7 @@
     }
   },
   "PH": {
-    "conversionFactor": 0.33,
+    "conversionFactor": 0.35,
     "country": {
       "code": "PH",
       "name": "Philippines"
@@ -1656,7 +1656,7 @@
     }
   },
   "PK": {
-    "conversionFactor": 0.23,
+    "conversionFactor": 0.25,
     "country": {
       "code": "PK",
       "name": "Pakistan"
@@ -1668,7 +1668,7 @@
     }
   },
   "PL": {
-    "conversionFactor": 0.52,
+    "conversionFactor": 0.5,
     "country": {
       "code": "PL",
       "name": "Poland"
@@ -1680,7 +1680,7 @@
     }
   },
   "PR": {
-    "conversionFactor": 0.774,
+    "conversionFactor": 0.8,
     "country": {
       "code": "PR",
       "name": "Puerto Rico"
@@ -1704,7 +1704,7 @@
     }
   },
   "PT": {
-    "conversionFactor": 0.6591520433169488,
+    "conversionFactor": 0.7,
     "country": {
       "code": "PT",
       "name": "Portugal"
@@ -1716,7 +1716,7 @@
     }
   },
   "PW": {
-    "conversionFactor": 1.08,
+    "conversionFactor": 1.1,
     "country": {
       "code": "PW",
       "name": "Palau"
@@ -1728,7 +1728,7 @@
     }
   },
   "PY": {
-    "conversionFactor": 0.36,
+    "conversionFactor": 0.35,
     "country": {
       "code": "PY",
       "name": "Paraguay"
@@ -1740,7 +1740,7 @@
     }
   },
   "QA": {
-    "conversionFactor": 0.66,
+    "conversionFactor": 0.7,
     "country": {
       "code": "QA",
       "name": "Qatar"
@@ -1752,7 +1752,7 @@
     }
   },
   "RO": {
-    "conversionFactor": 0.46,
+    "conversionFactor": 0.45,
     "country": {
       "code": "RO",
       "name": "Romania"
@@ -1764,7 +1764,7 @@
     }
   },
   "RS": {
-    "conversionFactor": 0.44,
+    "conversionFactor": 0.45,
     "country": {
       "code": "RS",
       "name": "Serbia"
@@ -1776,7 +1776,7 @@
     }
   },
   "RU": {
-    "conversionFactor": 0.34,
+    "conversionFactor": 0.35,
     "country": {
       "code": "RU",
       "name": "Russian Federation"
@@ -1788,7 +1788,7 @@
     }
   },
   "RW": {
-    "conversionFactor": 0.29,
+    "conversionFactor": 0.3,
     "country": {
       "code": "RW",
       "name": "RWANDA"
@@ -1812,7 +1812,7 @@
     }
   },
   "SB": {
-    "conversionFactor": 0.94,
+    "conversionFactor": 0.95,
     "country": {
       "code": "SB",
       "name": "Solomon Islands"
@@ -1824,7 +1824,7 @@
     }
   },
   "SC": {
-    "conversionFactor": 0.52,
+    "conversionFactor": 0.5,
     "country": {
       "code": "SC",
       "name": "Seychelles"
@@ -1836,7 +1836,7 @@
     }
   },
   "SD": {
-    "conversionFactor": 0.07530174563591022,
+    "conversionFactor": 0.075,
     "country": {
       "code": "SD",
       "name": "Sudan"
@@ -1848,7 +1848,7 @@
     }
   },
   "SE": {
-    "conversionFactor": 0.82,
+    "conversionFactor": 0.9,
     "country": {
       "code": "SE",
       "name": "Sweden"
@@ -1860,7 +1860,7 @@
     }
   },
   "SG": {
-    "conversionFactor": 0.68,
+    "conversionFactor": 0.7,
     "country": {
       "code": "SG",
       "name": "Singapore"
@@ -1872,7 +1872,7 @@
     }
   },
   "SI": {
-    "conversionFactor": 0.6504503661774511,
+    "conversionFactor": 0.7,
     "country": {
       "code": "SI",
       "name": "Slovenia"
@@ -1884,7 +1884,7 @@
     }
   },
   "SK": {
-    "conversionFactor": 0.519925209084986,
+    "conversionFactor": 0.6,
     "country": {
       "code": "SK",
       "name": "Slovakia"
@@ -1896,7 +1896,7 @@
     }
   },
   "SL": {
-    "conversionFactor": 0.20568525332578544,
+    "conversionFactor": 0.2,
     "country": {
       "code": "SL",
       "name": "Sierra Leone"
@@ -1908,7 +1908,7 @@
     }
   },
   "SM": {
-    "conversionFactor": 0.7309408797178046,
+    "conversionFactor": 0.75,
     "country": {
       "code": "SM",
       "name": "San Marino"
@@ -1920,7 +1920,7 @@
     }
   },
   "SN": {
-    "conversionFactor": 0.3683781026411681,
+    "conversionFactor": 0.4,
     "country": {
       "code": "SN",
       "name": "Senegal"
@@ -1944,7 +1944,7 @@
     }
   },
   "SR": {
-    "conversionFactor": 0.39,
+    "conversionFactor": 0.4,
     "country": {
       "code": "SR",
       "name": "Suriname"
@@ -1956,7 +1956,7 @@
     }
   },
   "ST": {
-    "conversionFactor": 0.56,
+    "conversionFactor": 0.6,
     "country": {
       "code": "ST",
       "name": "Sao Tome and Principe"
@@ -1968,7 +1968,7 @@
     }
   },
   "SV": {
-    "conversionFactor": 0.484,
+    "conversionFactor": 0.5,
     "country": {
       "code": "SV",
       "name": "El Salvador"
@@ -2004,7 +2004,7 @@
     }
   },
   "TD": {
-    "conversionFactor": 0.3445812304078022,
+    "conversionFactor": 0.35,
     "country": {
       "code": "TD",
       "name": "Chad"
@@ -2016,7 +2016,7 @@
     }
   },
   "TG": {
-    "conversionFactor": 0.3652159093898944,
+    "conversionFactor": 0.4,
     "country": {
       "code": "TG",
       "name": "Togo"
@@ -2028,7 +2028,7 @@
     }
   },
   "TH": {
-    "conversionFactor": 0.31,
+    "conversionFactor": 0.3,
     "country": {
       "code": "TH",
       "name": "Thailand"
@@ -2040,7 +2040,7 @@
     }
   },
   "TJ": {
-    "conversionFactor": 0.23,
+    "conversionFactor": 0.25,
     "country": {
       "code": "TJ",
       "name": "Tajikistan"
@@ -2052,7 +2052,7 @@
     }
   },
   "TL": {
-    "conversionFactor": 0.574,
+    "conversionFactor": 0.6,
     "country": {
       "code": "TL",
       "name": "Timor-Leste"
@@ -2076,7 +2076,7 @@
     }
   },
   "TN": {
-    "conversionFactor": 0.34,
+    "conversionFactor": 0.35,
     "country": {
       "code": "TN",
       "name": "Tunisia"
@@ -2088,7 +2088,7 @@
     }
   },
   "TO": {
-    "conversionFactor": 0.77,
+    "conversionFactor": 0.8,
     "country": {
       "code": "TO",
       "name": "Tonga"
@@ -2112,7 +2112,7 @@
     }
   },
   "TT": {
-    "conversionFactor": 0.62,
+    "conversionFactor": 0.65,
     "country": {
       "code": "TT",
       "name": "Trinidad and Tobago"
@@ -2124,7 +2124,7 @@
     }
   },
   "TV": {
-    "conversionFactor": 0.8990245082770413,
+    "conversionFactor": 0.9,
     "country": {
       "code": "TV",
       "name": "Tuvalu"
@@ -2136,7 +2136,7 @@
     }
   },
   "TW": {
-    "conversionFactor": 0.42,
+    "conversionFactor": 0.4,
     "country": {
       "code": "TW",
       "name": "Taiwan, Province of China"
@@ -2148,7 +2148,7 @@
     }
   },
   "TZ": {
-    "conversionFactor": 0.34,
+    "conversionFactor": 0.35,
     "country": {
       "code": "TZ",
       "name": "Tanzania"
@@ -2160,7 +2160,7 @@
     }
   },
   "UA": {
-    "conversionFactor": 0.30861795134874864,
+    "conversionFactor": 0.3,
     "country": {
       "code": "UA",
       "name": "Ukraine"
@@ -2172,7 +2172,7 @@
     }
   },
   "UG": {
-    "conversionFactor": 0.37,
+    "conversionFactor": 0.4,
     "country": {
       "code": "UG",
       "name": "Uganda"
@@ -2196,7 +2196,7 @@
     }
   },
   "UY": {
-    "conversionFactor": 0.83,
+    "conversionFactor": 0.7,
     "country": {
       "code": "UY",
       "name": "Uruguay"
@@ -2208,7 +2208,7 @@
     }
   },
   "UZ": {
-    "conversionFactor": 0.17411629241429902,
+    "conversionFactor": 0.2,
     "country": {
       "code": "UZ",
       "name": "Uzbekistan"
@@ -2220,7 +2220,7 @@
     }
   },
   "VC": {
-    "conversionFactor": 0.6275554568833139,
+    "conversionFactor": 0.65,
     "country": {
       "code": "VC",
       "name": "Saint Vincent and the Grenadines"
@@ -2232,7 +2232,7 @@
     }
   },
   "VE": {
-    "conversionFactor": 1.27,
+    "conversionFactor": 1,
     "country": {
       "code": "VE",
       "name": "Venezuela"
@@ -2244,7 +2244,7 @@
     }
   },
   "VN": {
-    "conversionFactor": 0.3421866410006298,
+    "conversionFactor": 0.35,
     "country": {
       "code": "VN",
       "name": "Viet Nam"
@@ -2256,7 +2256,7 @@
     }
   },
   "VU": {
-    "conversionFactor": 1.04,
+    "conversionFactor": 1,
     "country": {
       "code": "VU",
       "name": "Vanuatu"
@@ -2316,7 +2316,7 @@
     }
   },
   "ZW": {
-    "conversionFactor": 0.5,
+    "conversionFactor": 0.65,
     "country": {
       "code": "ZW",
       "name": "Zimbabwe"
