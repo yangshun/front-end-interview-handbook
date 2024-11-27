@@ -71,7 +71,7 @@ export default function InterviewsStudyPlanPage({
   ];
 
   return (
-    <div className={clsx('flex flex-col gap-y-10 xl:gap-y-16', 'relative')}>
+    <div className={clsx('flex flex-col', 'gap-y-10 xl:gap-y-16', 'relative')}>
       <div className="relative flex flex-col gap-y-8">
         <InterviewsStudyListPageTitleSection
           description={studyList.description}

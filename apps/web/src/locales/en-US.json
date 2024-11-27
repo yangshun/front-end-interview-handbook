@@ -2719,10 +2719,6 @@
     "defaultMessage": "Woohoo! You completed the question!",
     "description": "Toast congratulating user once they mark a question as complete"
   },
-  "GwrX5t": {
-    "defaultMessage": "{category} interview questions with detailed solutions and tests",
-    "description": "Description for guide card"
-  },
   "GyDKzV": {
     "defaultMessage": "Filters",
     "description": "Screenreader text indicating the filters component on question list pages"

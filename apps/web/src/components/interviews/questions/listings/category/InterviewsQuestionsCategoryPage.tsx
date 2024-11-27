@@ -28,7 +28,6 @@ import QuestionsUnifiedListWithFiltersAndProgress from '~/components/interviews/
 import QuestionListingAccessSummary from '~/components/interviews/questions/listings/stats/QuestionListingAccessSummary';
 import { useIntl } from '~/components/intl';
 import Section from '~/components/ui/Heading/HeadingContext';
-import Text from '~/components/ui/Text';
 
 import type { QuestionCompletionCount } from '~/db/QuestionsCount';
 
@@ -136,32 +135,11 @@ export default function InterviewsQuestionsCategoryPage({
     <div className={clsx('flex flex-col', 'gap-y-10 xl:gap-y-16')}>
       <InterviewsPageHeader
         className="flex-col min-[1186px]:flex-row"
-        description={intl.formatMessage(
-          {
-            defaultMessage:
-              '{category} interview questions with detailed solutions and tests',
-            description: 'Description for guide card',
-            id: 'GwrX5t',
-          },
-          {
-            category:
-              props.category === 'language'
-                ? languages[props.categoryValue].label
-                : props.category === 'framework'
-                  ? frameworks[props.categoryValue].label
-                  : 'Front end',
-          },
-        )}
+        description={description}
         features={features}
         icon={Icon}
-        title={title}>
-        <Text
-          className="block text-sm lg:max-w-[75%] xl:text-base"
-          color="secondary"
-          size="inherit">
-          {description}
-        </Text>
-      </InterviewsPageHeader>
+        title={title}
+      />
       <Section>
         <QuestionsUnifiedListWithFiltersAndProgress
           categoryTabs={categoryTabs}

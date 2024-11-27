@@ -106,7 +106,7 @@ export default function InterviewsQuestionFormatPage({
   const formatData = useQuestionFormatsData();
 
   return (
-    <div className={clsx('flex flex-col', 'gap-y-8 md:gap-y-10 2xl:gap-y-12')}>
+    <div className={clsx('flex flex-col', 'gap-y-10 xl:gap-y-16')}>
       <InterviewsPageHeader
         description={description}
         features={features[format]}
