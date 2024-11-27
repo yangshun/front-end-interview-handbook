@@ -19,6 +19,11 @@ import gtag from '~/lib/gtag';
 import { SCROLL_HASH_INTERVIEWS_FEATURES } from '~/hooks/useScrollToHash';
 
 import { useGuidesData } from '~/data/Guides';
+import {
+  useQuestionFormatsData,
+  useQuestionFrameworksData,
+  useQuestionLanguagesData,
+} from '~/data/QuestionCategories';
 
 import SidebarPremiumChip from '~/components/global/sidebar/SidebarPremiumChip';
 import { StudyPlanIcons } from '~/components/interviews/questions/content/study-list/StudyListUtils';
@@ -30,6 +35,9 @@ export default function useInterviewsNavItems(placement: 'nav' | 'sidebar') {
   const intl = useIntl();
 
   const guidesData = useGuidesData();
+  const formatsData = useQuestionFormatsData();
+  const frameworksData = useQuestionFrameworksData();
+  const languagesData = useQuestionLanguagesData();
 
   const dashboard = {
     currentMatchRegex: /\/interviews\/dashboard$/,
@@ -330,6 +338,7 @@ export default function useInterviewsNavItems(placement: 'nav' | 'sidebar') {
     }),
     type: 'popover-list',
   } as const;
+
   const practiceQuestions = {
     align: 'center',
     currentMatchRegex: /\/questions/,
@@ -345,6 +354,12 @@ export default function useInterviewsNavItems(placement: 'nav' | 'sidebar') {
               ),
             )}
           </div>
+        ),
+        currentMatchRegex: new RegExp(
+          `^(${Object.values(formatsData)
+            .map((formatData) => formatData.href)
+            .join('|')})`,
+          'i',
         ),
         href: '/questions',
         icon: RiQuestionAnswerLine,
@@ -378,6 +393,17 @@ export default function useInterviewsNavItems(placement: 'nav' | 'sidebar') {
               ),
             )}
           </div>
+        ),
+        currentMatchRegex: new RegExp(
+          `^(${[
+            ...Object.values(frameworksData).map(
+              (frameworkData) => frameworkData.href,
+            ),
+            ...Object.values(languagesData).map(
+              (languageData) => languageData.href,
+            ),
+          ].join('|')})`,
+          'i',
         ),
         href: '/questions/frameworks',
         icon: RiReactjsFill,
