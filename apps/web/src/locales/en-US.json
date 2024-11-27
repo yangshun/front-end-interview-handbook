@@ -4007,6 +4007,10 @@
     "defaultMessage": "Free project challenges",
     "description": "Label for free challenges feature"
   },
+  "PFtRJf": {
+    "defaultMessage": "Guide",
+    "description": "Interview guide"
+  },
   "PGFsFr": {
     "defaultMessage": "3 Months Plan",
     "description": "Link to three months study plan"
@@ -4742,10 +4746,6 @@
   "Tdn+OY": {
     "defaultMessage": "Starting is as easy as clicking a Start project button, and we will take you through every step of the way.",
     "description": "Ready to start section subtitle"
-  },
-  "TeK1xE": {
-    "defaultMessage": "<bold>{completionCount}</bold>/{totalCount} guides",
-    "description": "Label for completed guides"
   },
   "TebaLD": {
     "defaultMessage": "Continue learning",
@@ -8058,6 +8058,10 @@
   "pYk6+0": {
     "defaultMessage": "Starter files",
     "description": "Label for \"Download starter files\" button on Projects project page"
+  },
+  "pZpSXp": {
+    "defaultMessage": "<bold>{completionCount}</bold>/{totalCount} {totalCount, plural, one {guide} other {guides}}",
+    "description": "Label for completed guides"
   },
   "pZq6+F": {
     "defaultMessage": "Supercharge your growth with concise step-by-step guides for practical development",
