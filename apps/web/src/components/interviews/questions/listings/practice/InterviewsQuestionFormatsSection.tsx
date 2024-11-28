@@ -36,11 +36,12 @@ import QuestionTopics from '../../metadata/QuestionTopics';
 import type { GuideProgress } from '@prisma/client';
 
 type InterviewsQuestionFormatType = Readonly<{
+  entity: React.ComponentProps<typeof InterviewsEntityProgress>['entity'];
   href: string;
   icon: (props: React.ComponentProps<'svg'>) => JSX.Element;
   listingDescription: string;
   listingName: string;
-  question: Readonly<{
+  progress: Readonly<{
     completed: number;
     total: number;
   }>;
@@ -51,11 +52,12 @@ function InterviewsQuestionFormatCard({
   listingDescription: description,
   href,
   icon: Icon,
-  question,
+  progress,
   listingName: title,
   topics,
+  entity,
 }: InterviewsQuestionFormatType) {
-  const { completed, total } = question;
+  const { completed, total } = progress;
 
   return (
     <div
@@ -92,9 +94,9 @@ function InterviewsQuestionFormatCard({
             <div className="flex flex-wrap items-center gap-x-8 gap-y-3">
               <InterviewsEntityProgress
                 completed={completed}
+                entity={entity}
                 title={title}
                 total={total}
-                type="question"
               />
               {topics && <QuestionTopics topics={topics} />}
             </div>
@@ -156,7 +158,8 @@ export default function InterviewsQuestionFormatsSection({
 
   const quizQuestionsData: InterviewsQuestionFormatType = {
     ...formats.quiz,
-    question: {
+    entity: 'question',
+    progress: {
       completed: questionsProgressAll.quiz.size,
       total: quizQuestions.length,
     },
@@ -164,7 +167,8 @@ export default function InterviewsQuestionFormatsSection({
 
   const jsQuestionsData: InterviewsQuestionFormatType = {
     ...formats.javascript,
-    question: {
+    entity: 'question',
+    progress: {
       completed: codingQuestionsProgressAll.javascript.size,
       total: jsQuestions.length,
     },
@@ -172,7 +176,8 @@ export default function InterviewsQuestionFormatsSection({
 
   const uiQuestionsData: InterviewsQuestionFormatType = {
     ...formats['user-interface'],
-    question: {
+    entity: 'question',
+    progress: {
       completed: codingQuestionsProgressAll['user-interface'].size,
       total: uiQuestions.length,
     },
@@ -180,7 +185,8 @@ export default function InterviewsQuestionFormatsSection({
 
   const algoQuestionsData: InterviewsQuestionFormatType = {
     ...formats.algo,
-    question: {
+    entity: 'question',
+    progress: {
       completed: codingQuestionsProgressAll.algo.size,
       total: algoQuestions.length,
     },
@@ -188,13 +194,15 @@ export default function InterviewsQuestionFormatsSection({
 
   const systemDesignQuestionsData: InterviewsQuestionFormatType = {
     ...formats['system-design'],
-    question: {
+    entity: 'question',
+    progress: {
       completed: questionsProgressAll['system-design'].size,
       total: systemDesignQuestions.length,
     },
   };
 
   const behavioralQuestionsData: InterviewsQuestionFormatType = {
+    entity: 'article',
     href: basePath,
     icon: RiChat4Line,
     listingDescription: intl.formatMessage({
@@ -208,7 +216,7 @@ export default function InterviewsQuestionFormatsSection({
       description: 'Title for behavioral questions',
       id: '9EIdsB',
     }),
-    question: {
+    progress: {
       completed: behavioralGuideProgress.length,
       total: behavioralInterviewGuidebook.navigation.items
         .map((item) => item.items)
@@ -246,7 +254,7 @@ export default function InterviewsQuestionFormatsSection({
       </div>
       <div className="flex flex-col gap-6">
         {questionFormatsData.map((item) => (
-          <InterviewsQuestionFormatCard {...item} key={item.listingName} />
+          <InterviewsQuestionFormatCard key={item.listingName} {...item} />
         ))}
       </div>
     </div>

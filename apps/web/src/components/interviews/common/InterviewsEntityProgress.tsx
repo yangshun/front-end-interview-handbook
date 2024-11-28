@@ -12,27 +12,27 @@ import {
 
 type Props = Readonly<{
   completed: number;
+  entity: 'article' | 'question';
   showProgress?: boolean;
   title: string;
   total: number;
-  type: 'article' | 'question';
 }>;
 
 export default function InterviewsEntityProgress({
   total,
   completed,
-  type,
+  entity,
   title,
   showProgress = true,
 }: Props) {
-  const Icon = type === 'question' ? RiQuestionnaireLine : RiBookOpenLine;
+  const Icon = entity === 'question' ? RiQuestionnaireLine : RiBookOpenLine;
 
   return (
     <div className="flex flex-wrap items-center gap-x-2 gap-y-3">
       <div className="flex shrink-0 items-center gap-1.5">
         <Icon className={clsx('size-5 shrink-0', themeTextSubtleColor)} />
         <Text color="secondary" size="body3">
-          {type === 'question' ? (
+          {entity === 'question' ? (
             showProgress ? (
               <FormattedMessage
                 defaultMessage="<bold>{completedQuestions}</bold>/{totalQuestions} questions"

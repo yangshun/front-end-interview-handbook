@@ -121,17 +121,17 @@ function PreparationStrategyCard({ data }: { data: PreparationStrategyItem }) {
             {article && (
               <InterviewsEntityProgress
                 completed={article.completed}
+                entity="article"
                 title={title}
                 total={article.total}
-                type="article"
               />
             )}
             {question && (
               <InterviewsEntityProgress
                 completed={question.completed}
+                entity="question"
                 title={title}
                 total={question.total}
-                type="question"
               />
             )}
           </div>

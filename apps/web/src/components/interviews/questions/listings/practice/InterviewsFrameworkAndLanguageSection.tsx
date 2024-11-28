@@ -85,9 +85,9 @@ function FrameworkCard({
         </div>
         <InterviewsEntityProgress
           completed={completedQuestions}
+          entity="question"
           title={title}
           total={totalQuestions}
-          type="question"
         />
       </div>
       <RiArrowRightLine

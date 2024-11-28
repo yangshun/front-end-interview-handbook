@@ -138,10 +138,10 @@ export default function InterviewsStudyListCard({
           <div className="z-[1] flex flex-wrap items-center gap-x-8 gap-y-2 md:gap-x-10">
             <InterviewsEntityProgress
               completed={completionCount}
+              entity="question"
               showProgress={showProgress && isStarted}
               title={name}
               total={questionCount}
-              type="question"
             />
             {schedule && (
               <QuestionStudyAllocationLabel
