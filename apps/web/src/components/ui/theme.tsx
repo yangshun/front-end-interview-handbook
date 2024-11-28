@@ -120,6 +120,9 @@ export const themeBackgroundElementColor = clsx('bg-white dark:bg-neutral-900');
 export const themeBackgroundElementEmphasizedStateColor = clsx(
   'bg-neutral-100 dark:bg-neutral-800/70',
 );
+export const themeBackgroundElementSubtleStateColor_Hover = clsx(
+  'hover:bg-white dark:hover:bg-neutral-800/70',
+);
 export const themeBackgroundElementEmphasizedStateColor_Hover = clsx(
   'hover:bg-neutral-100 dark:hover:bg-neutral-800/70',
 );

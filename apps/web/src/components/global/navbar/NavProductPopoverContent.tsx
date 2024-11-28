@@ -8,8 +8,8 @@ import Badge from '~/components/ui/Badge';
 import Divider from '~/components/ui/Divider';
 import Text, { textVariants } from '~/components/ui/Text';
 import {
+  themeBackgroundCardNoAlphaColor,
   themeBackgroundElementColor,
-  themeBackgroundElementEmphasizedStateColor,
   themeBackgroundElementEmphasizedStateColor_Focus,
   themeBackgroundElementEmphasizedStateColor_Hover,
   themeBorderElementColor,
@@ -130,7 +130,7 @@ export default function NavProductPopoverContent({ product, ...props }: Props) {
         className={clsx(
           'flex flex-col gap-2',
           'px-5 py-4',
-          themeBackgroundElementEmphasizedStateColor,
+          themeBackgroundCardNoAlphaColor,
         )}>
         <Text color="secondary" size="body3">
           Others

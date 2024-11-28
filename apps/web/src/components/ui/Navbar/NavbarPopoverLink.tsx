@@ -3,7 +3,7 @@ import { RiArrowRightLine } from 'react-icons/ri';
 
 import Anchor from '~/components/ui/Anchor';
 import {
-  themeBackgroundElementEmphasizedStateColor_Hover,
+  themeBackgroundElementSubtleStateColor_Hover,
   themeBorderEmphasizeColor_Hover,
   themeOutlineElement_FocusVisible,
   themeOutlineElementBrandColor_FocusVisible,
@@ -33,8 +33,8 @@ export default function NavbarPopoverLink({
         'p-3',
         'flex items-center gap-4',
         'rounded-md',
-        'transition-colors',
-        themeBackgroundElementEmphasizedStateColor_Hover,
+        'transition-colors duration-100',
+        themeBackgroundElementSubtleStateColor_Hover,
         ['border border-transparent', themeBorderEmphasizeColor_Hover],
       )}>
       <NavbarFeatureIcon
