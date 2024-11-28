@@ -2123,10 +2123,6 @@
     "defaultMessage": "Other skills you are using which are not within the skills roadmap. Also helps community members understand more about the tech stack. If you don't see the tag you need, email us.",
     "description": "Description for \"Other tech stack used\" text input"
   },
-  "Cjz59k": {
-    "defaultMessage": "Click here to try out the actual workspace instead of this embed.",
-    "description": "Button label within embed"
-  },
   "Cl4Ghp": {
     "defaultMessage": "On this page",
     "description": "Title of the table of contents for a guidebook page."
@@ -9362,6 +9358,10 @@
   "yM3vbW": {
     "defaultMessage": "Editor Shortcuts",
     "description": "Label for slideout for code editor shortcuts"
+  },
+  "yQr+jJ": {
+    "defaultMessage": "Click here to try out the actual workspace",
+    "description": "Button label within embed"
   },
   "yUfdpX": {
     "defaultMessage": "Mentor others",

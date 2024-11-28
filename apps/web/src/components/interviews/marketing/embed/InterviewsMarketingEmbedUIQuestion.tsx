@@ -98,22 +98,19 @@ export default function InterviewsMarketingEmbedUIQuestion({
           gtag.event({
             action: `homepage.hero.embed.user_interface.try_out.click`,
             category: 'engagement',
-            label:
-              'Click here to try out the actual workspace instead of this embed',
+            label: 'Click here to try out the actual workspace',
           });
           logEvent('click', {
             element: 'Homepage UI question embed',
-            label:
-              'Click here to try out the actual workspace instead of this embed',
+            label: 'Click here to try out the actual workspace',
             namespace: 'interviews',
           });
         }}>
         <Banner size="xs">
           {intl.formatMessage({
-            defaultMessage:
-              'Click here to try out the actual workspace instead of this embed.',
+            defaultMessage: 'Click here to try out the actual workspace',
             description: 'Button label within embed',
-            id: 'Cjz59k',
+            id: 'yQr+jJ',
           })}
         </Banner>
       </Anchor>

@@ -34,7 +34,7 @@ const variantClasses: Record<
     textColorClass: 'text-white',
   },
   primary: {
-    backgroundColorClass: 'bg-brand-light',
+    backgroundColorClass: 'bg-brand',
     textColorClass: 'text-neutral-900',
   },
 };
@@ -63,7 +63,11 @@ export default function Banner({
       )}
       {...props}>
       <div className={clsx('mx-auto w-full', 'px-4 sm:px-6')}>
-        <div className={clsx('flex items-center justify-center gap-4', 'pr-8')}>
+        <div
+          className={clsx(
+            'flex items-center justify-center gap-4',
+            onHide != null && 'pr-8',
+          )}>
           <Text
             className={clsx(
               'flex gap-4',
