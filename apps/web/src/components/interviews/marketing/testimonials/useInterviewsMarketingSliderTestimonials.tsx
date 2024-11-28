@@ -6,26 +6,6 @@ export default function useInterviewsMarketingSliderTestimonials() {
 
   return [
     {
-      ...testimonials.lunghaoLee,
-      compensationMultiplier: '4x',
-      offers: [
-        {
-          logoUrl: '/img/testimonials/company/tiktok.svg',
-          name: 'TikTok',
-        },
-      ],
-    },
-    {
-      ...testimonials.locChuong,
-      compensationMultiplier: '2x',
-      offers: [
-        {
-          logoUrl: '/img/testimonials/company/amazon.svg',
-          name: 'Amazon',
-        },
-      ],
-    },
-    {
       ...testimonials.yugantJoshi,
       compensationMultiplier: '2x',
       offers: [
@@ -89,6 +69,26 @@ export default function useInterviewsMarketingSliderTestimonials() {
           id="HkIrn9"
         />
       ),
+    },
+    {
+      ...testimonials.lunghaoLee,
+      compensationMultiplier: '4x',
+      offers: [
+        {
+          logoUrl: '/img/testimonials/company/tiktok.svg',
+          name: 'TikTok',
+        },
+      ],
+    },
+    {
+      ...testimonials.locChuong,
+      compensationMultiplier: '2x',
+      offers: [
+        {
+          logoUrl: '/img/testimonials/company/amazon.svg',
+          name: 'Amazon',
+        },
+      ],
     },
     {
       ...testimonials.fernando,
