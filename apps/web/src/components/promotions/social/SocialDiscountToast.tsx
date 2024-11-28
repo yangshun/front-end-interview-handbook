@@ -139,7 +139,7 @@ function SocialDiscountToastImpl() {
                 <Anchor
                   className="inline-flex items-center gap-1"
                   href="/rewards/social"
-                  variant="flat">
+                  variant="flatUnderline">
                   <Text size="body3" weight="bold">
                     {socialDiscountLabels.ctaLabel}
                   </Text>

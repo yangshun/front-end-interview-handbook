@@ -77,7 +77,11 @@ function SocialDiscountSidebarMentionImpl() {
   }
 
   return (
-    <div className="flex flex-1 items-center gap-3">
+    <Anchor
+      className="flex flex-1 items-center gap-3"
+      href="/rewards/social"
+      variant="flat"
+      weight="normal">
       <Ticket padding="none" ratio="wide" variant="normal" width={96}>
         <div
           className={clsx(
@@ -90,11 +94,7 @@ function SocialDiscountSidebarMentionImpl() {
           </Text>
         </div>
       </Ticket>
-      <Anchor
-        className="inline-flex items-center gap-1"
-        href="/rewards/social"
-        variant="flat"
-        weight="normal">
+      <span className="inline-flex">
         <Text color="subtitle" size="body3">
           <FormattedMessage
             defaultMessage="Complete simple social tasks"
@@ -103,11 +103,11 @@ function SocialDiscountSidebarMentionImpl() {
           />
           <RiArrowRightLine
             aria-hidden={true}
-            className={clsx('size-4 ml-1 inline shrink-0')}
+            className={clsx('size-3.5 -mt-0.5 ml-1 inline-flex shrink-0')}
           />
         </Text>
-      </Anchor>
-    </div>
+      </span>
+    </Anchor>
   );
 }
 
