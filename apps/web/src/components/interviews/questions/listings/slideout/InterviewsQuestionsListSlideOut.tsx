@@ -345,6 +345,12 @@ function Contents({
     }
   }, [listType, processedQuestions, setFirstQuestionHref, showCompanyPaywall]);
 
+  const label = intl.formatMessage({
+    defaultMessage: 'Search within this list',
+    description: 'Search placeholder for question list',
+    id: 'hA7U8d',
+  });
+
   return (
     <div className="flex flex-col gap-y-4">
       <form
@@ -357,16 +363,8 @@ function Contents({
             <TextInput
               autoComplete="off"
               isLabelHidden={true}
-              label={intl.formatMessage({
-                defaultMessage: 'Search in the list',
-                description: 'Search placeholder for study list',
-                id: 'y6DqsF',
-              })}
-              placeholder={intl.formatMessage({
-                defaultMessage: 'Search in the list',
-                description: 'Search placeholder for study list',
-                id: 'y6DqsF',
-              })}
+              label={label}
+              placeholder={label}
               size="sm"
               startIcon={RiSearchLine}
               type="search"

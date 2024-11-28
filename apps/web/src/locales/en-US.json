@@ -6855,6 +6855,10 @@
     "defaultMessage": "Questions List",
     "description": "Screenreader text indicating the question list component on question list pages"
   },
+  "hA7U8d": {
+    "defaultMessage": "Search within this list",
+    "description": "Search placeholder for question list"
+  },
   "hALSD8": {
     "defaultMessage": "Front End Interview Playbook: Everything you need to excel",
     "description": "Page title for frontend interview playbook cover page"
@@ -9330,10 +9334,6 @@
   "y4v8AZ": {
     "defaultMessage": "Component libraries",
     "description": "Title for \"Component libraries\" feature on Projects home page"
-  },
-  "y6DqsF": {
-    "defaultMessage": "Search in the list",
-    "description": "Search placeholder for study list"
   },
   "y7pPpV": {
     "defaultMessage": "Delete {skill}",
