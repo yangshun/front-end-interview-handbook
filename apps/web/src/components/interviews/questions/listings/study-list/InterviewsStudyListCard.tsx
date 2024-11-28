@@ -71,7 +71,7 @@ export default function InterviewsStudyListCard({
         alignVerticalOnMobile
           ? 'flex-col sm:flex-row sm:items-center'
           : 'flex-row items-center',
-        showDescription ? 'gap-4' : 'gap-6',
+        'gap-4',
         'rounded-lg',
         'px-6 py-4',
         backgroundClass,
@@ -99,11 +99,7 @@ export default function InterviewsStudyListCard({
           )}
         </div>
       )}
-      <div
-        className={clsx(
-          'flex flex-1 items-center',
-          showDescription ? 'gap-4' : 'gap-6',
-        )}>
+      <div className={clsx('flex flex-1 items-center', 'gap-4')}>
         <div
           className={clsx(
             'flex flex-1 flex-col',

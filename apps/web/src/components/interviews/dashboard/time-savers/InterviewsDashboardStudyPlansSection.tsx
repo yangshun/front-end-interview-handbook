@@ -43,7 +43,7 @@ export default function InterviewsDashboardStudyPlansSection({
         description: 'Title for study plans section',
         id: 'KRGHVm',
       })}>
-      <div className="flex flex-col gap-4">
+      <div className="flex flex-col gap-6">
         {plans.map((studyPlan) => {
           const session = questionListSessions.find(
             (session_) => session_.key === studyPlan.slug,

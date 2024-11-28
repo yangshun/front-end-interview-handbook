@@ -42,7 +42,7 @@ export default function InterviewsDashboardPracticeQuestionsSection({
   guidesProgress,
 }: Props) {
   return (
-    <div className={clsx('flex flex-col gap-12')}>
+    <div className={clsx('flex flex-col gap-16')}>
       <div className="flex flex-col gap-3">
         <Heading className={themeTextColor} color="custom" level="heading5">
           <FormattedMessage
@@ -60,15 +60,18 @@ export default function InterviewsDashboardPracticeQuestionsSection({
         </Text>
       </div>
       <Section>
-        <InterviewsQuestionFormatsSection
-          guidesProgress={guidesProgress}
-          questions={questions}
-          questionsProgress={questionsProgress ?? []}
-        />
-        <InterviewsFrameworkAndLanguageSection
-          questions={questions}
-          questionsProgress={questionsProgress ?? []}
-        />
+        <div className="flex flex-col gap-12">
+          <InterviewsQuestionFormatsSection
+            guidesProgress={guidesProgress}
+            questions={questions}
+            questionsProgress={questionsProgress ?? []}
+            variant="compact"
+          />
+          <InterviewsFrameworkAndLanguageSection
+            questions={questions}
+            questionsProgress={questionsProgress ?? []}
+          />
+        </div>
       </Section>
     </div>
   );

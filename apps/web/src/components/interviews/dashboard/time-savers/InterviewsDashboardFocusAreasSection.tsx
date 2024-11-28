@@ -1,13 +1,9 @@
 import type { InterviewsStudyList } from 'contentlayer/generated';
 
 import InterviewsDashboardLearningSection from '~/components/interviews/dashboard/InterviewsDashboardLearningSection';
-import {
-  categorizeFocusAreas,
-  FocusAreaIcons,
-} from '~/components/interviews/questions/content/study-list/StudyListUtils';
+import { FocusAreaIcons } from '~/components/interviews/questions/content/study-list/StudyListUtils';
 import InterviewsStudyListCard from '~/components/interviews/questions/listings/study-list/InterviewsStudyListCard';
 import { useIntl } from '~/components/intl';
-import Text from '~/components/ui/Text';
 
 import type { LearningSession } from '@prisma/client';
 
@@ -23,7 +19,6 @@ export default function InterviewsDashboardFocusAreasSection({
   focusAreas,
 }: Props) {
   const intl = useIntl();
-  const focusAreasCategories = categorizeFocusAreas(intl, focusAreas);
 
   return (
     <InterviewsDashboardLearningSection
@@ -39,32 +34,25 @@ export default function InterviewsDashboardFocusAreasSection({
         description: 'Title for practice by focus areas section',
         id: 'mcrQEE',
       })}>
-      <div className="flex flex-col gap-10">
-        {focusAreasCategories.map(({ title, items }) => (
-          <div key={title} className="flex flex-col gap-6">
-            <Text color="subtitle" size="body1" weight="bold">
-              {title}
-            </Text>
-            <div className="flex flex-col gap-4">
-              {items.map((focusArea) => {
-                const session = questionListSessions.find(
-                  (session_) => session_.key === focusArea.slug,
-                );
-                const completionCount = session?._count.progress;
+      <div className="grid gap-6 lg:grid-cols-2">
+        {focusAreas.map((focusArea) => {
+          const session = questionListSessions.find(
+            (session_) => session_.key === focusArea.slug,
+          );
+          const completionCount = session?._count.progress;
 
-                return (
-                  <InterviewsStudyListCard
-                    key={focusArea.slug}
-                    completionCount={completionCount}
-                    icon={FocusAreaIcons[focusArea.slug]}
-                    isStarted={session != null}
-                    studyList={focusArea}
-                  />
-                );
-              })}
-            </div>
-          </div>
-        ))}
+          return (
+            <InterviewsStudyListCard
+              key={focusArea.slug}
+              completionCount={completionCount}
+              icon={FocusAreaIcons[focusArea.slug]}
+              isStarted={session != null}
+              showDescription={false}
+              showTopics={false}
+              studyList={focusArea}
+            />
+          );
+        })}
       </div>
     </InterviewsDashboardLearningSection>
   );

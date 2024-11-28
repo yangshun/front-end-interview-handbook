@@ -46,6 +46,7 @@ type InterviewsQuestionFormatType = Readonly<{
     total: number;
   }>;
   topics?: Array<QuestionTopic>;
+  variant?: 'compact' | 'full';
 }>;
 
 function InterviewsQuestionFormatCard({
@@ -55,9 +56,11 @@ function InterviewsQuestionFormatCard({
   progress,
   listingName: title,
   topics,
+  variant = 'full',
   entity,
 }: InterviewsQuestionFormatType) {
   const { completed, total } = progress;
+  const isFull = variant === 'full';
 
   return (
     <div
@@ -82,14 +85,20 @@ function InterviewsQuestionFormatCard({
       </div>
       <div className="flex flex-1 items-center gap-4">
         <div className="flex flex-grow items-center gap-4">
-          <div className="flex flex-1 flex-col gap-4">
+          <div
+            className={clsx(
+              'flex flex-1 flex-col',
+              isFull ? 'gap-4' : 'gap-2',
+            )}>
             <div className="flex flex-1 flex-col gap-2">
               <Text size="body1" weight="bold">
                 {title}
               </Text>
-              <Text color="secondary" size="body2">
-                {description}
-              </Text>
+              {isFull && (
+                <Text color="secondary" size="body2">
+                  {description}
+                </Text>
+              )}
             </div>
             <div className="flex flex-wrap items-center gap-x-8 gap-y-3">
               <InterviewsEntityProgress
@@ -98,7 +107,7 @@ function InterviewsQuestionFormatCard({
                 title={title}
                 total={total}
               />
-              {topics && <QuestionTopics topics={topics} />}
+              {topics && isFull && <QuestionTopics topics={topics} />}
             </div>
           </div>
           <RiArrowRightLine
@@ -125,12 +134,14 @@ type Props = Readonly<{
   questionsProgress: ReadonlyArray<
     Readonly<{ format: string; id: string; slug: QuestionSlug }>
   > | null;
+  variant?: 'compact' | 'full';
 }>;
 
 export default function InterviewsQuestionFormatsSection({
   questions,
   questionsProgress,
   guidesProgress,
+  variant = 'full',
 }: Props) {
   const intl = useIntl();
   const behavioralInterviewGuidebook =
@@ -252,9 +263,17 @@ export default function InterviewsQuestionFormatsSection({
           />
         </Text>
       </div>
-      <div className="flex flex-col gap-6">
+      <div
+        className={clsx(
+          variant === 'full' ? 'flex flex-col' : 'grid sm:grid-cols-2',
+          'gap-6',
+        )}>
         {questionFormatsData.map((item) => (
-          <InterviewsQuestionFormatCard key={item.listingName} {...item} />
+          <InterviewsQuestionFormatCard
+            key={item.listingName}
+            variant={variant}
+            {...item}
+          />
         ))}
       </div>
     </div>

@@ -58,7 +58,7 @@ function FrameworkCard({
   return (
     <div
       className={clsx(
-        'group relative flex items-center gap-6',
+        'group relative flex items-center gap-4',
         'rounded-lg px-6 py-4',
         themeBackgroundCardWhiteOnLightColor,
         ['border', themeBorderElementColor],
@@ -221,7 +221,7 @@ export default function InterviewsFrameworkAndLanguageSection({
           />
         </Text>
       </div>
-      <div className="grid gap-4 sm:grid-cols-2 xl:gap-6">
+      <div className="grid gap-6 lg:grid-cols-2">
         {frameworks.map((framework) => (
           <FrameworkCard key={framework.title} {...framework} />
         ))}

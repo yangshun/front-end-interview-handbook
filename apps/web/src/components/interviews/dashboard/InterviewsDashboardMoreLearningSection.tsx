@@ -57,43 +57,47 @@ export default function InterviewsDashboardMoreLearningSection({
   focusAreas,
 }: Props) {
   return (
-    <div className={clsx('flex flex-col gap-12')}>
-      <div className="flex flex-col gap-3">
-        <Heading className={themeTextColor} color="custom" level="heading5">
-          <FormattedMessage
-            defaultMessage="More time-savers"
-            description="Label for more time savers"
-            id="DK7QZb"
-          />
-        </Heading>
-        <Text color="secondary" size="body2">
-          <FormattedMessage
-            defaultMessage="Efficient ways to prepare when you're short on time."
-            description="Description for time savers"
-            id="agUqSZ"
-          />
-        </Text>
+    <>
+      <div className={clsx('flex flex-col gap-16')}>
+        <div className="flex flex-col gap-3">
+          <Heading className={themeTextColor} color="custom" level="heading5">
+            <FormattedMessage
+              defaultMessage="More time-savers"
+              description="Label for more time savers"
+              id="DK7QZb"
+            />
+          </Heading>
+          <Text color="secondary" size="body2">
+            <FormattedMessage
+              defaultMessage="Efficient ways to prepare when you're short on time."
+              description="Description for time savers"
+              id="agUqSZ"
+            />
+          </Text>
+        </div>
+        <Section>
+          <div className="flex flex-col gap-12">
+            <InterviewsDashboardStudyPlansSection
+              questionListSessions={questionListSessions}
+              studyPlans={studyPlans}
+            />
+            <InterviewsDashboardCompanySection
+              companyGuides={companyGuides}
+              questionListSessions={questionListSessions}
+            />
+            <InterviewsDashboardFocusAreasSection
+              focusAreas={focusAreas}
+              questionListSessions={questionListSessions}
+            />
+          </div>
+        </Section>
       </div>
-      <Section>
-        <InterviewsDashboardStudyPlansSection
-          questionListSessions={questionListSessions}
-          studyPlans={studyPlans}
-        />
-        <InterviewsDashboardCompanySection
-          companyGuides={companyGuides}
-          questionListSessions={questionListSessions}
-        />
-        <InterviewsDashboardFocusAreasSection
-          focusAreas={focusAreas}
-          questionListSessions={questionListSessions}
-        />
-        <Divider />
-        <InterviewsDashboardPracticeQuestionsSection
-          guidesProgress={guidesProgress}
-          questions={questions}
-          questionsProgress={questionsProgress}
-        />
-      </Section>
-    </div>
+      <Divider />
+      <InterviewsDashboardPracticeQuestionsSection
+        guidesProgress={guidesProgress}
+        questions={questions}
+        questionsProgress={questionsProgress}
+      />
+    </>
   );
 }
