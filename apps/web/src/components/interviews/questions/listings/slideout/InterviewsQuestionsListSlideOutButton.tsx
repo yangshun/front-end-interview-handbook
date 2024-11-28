@@ -137,11 +137,10 @@ function InterviewsQuestionsListSlideOutButtonImpl({
       />
       <InterviewsQuestionsListSlideOut
         currentQuestionPosition={currentQuestionIndex + 1}
+        initialListType={{ ...listType, label: title }}
         isLoading={false}
-        listType={listType}
         metadata={metadata}
         processedQuestions={processedQuestions}
-        title={title}
       />
       <Button
         addonPosition="start"

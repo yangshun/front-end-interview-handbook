@@ -28,6 +28,7 @@ import {
   sortQuestionsMultiple,
   tabulateQuestionsAttributesUnion,
 } from '~/components/interviews/questions/listings/filters/QuestionsProcessor';
+import type { QuestionListTypeWithLabel } from '~/components/interviews/questions/listings/slideout/InterviewsQuestionsListSlideOutSwitcher';
 import InterviewsQuestionsListSlideOutSwitcher from '~/components/interviews/questions/listings/slideout/InterviewsQuestionsListSlideOutSwitcher';
 import { FormattedMessage, useIntl } from '~/components/intl';
 import Badge from '~/components/ui/Badge';
@@ -431,8 +432,8 @@ function Contents({
 
 type Props = Readonly<{
   currentQuestionPosition: number;
+  initialListType?: QuestionListTypeWithLabel;
   isLoading: boolean;
-  listType?: QuestionListTypeData;
   metadata: QuestionMetadata;
   processedQuestions: ReadonlyArray<QuestionMetadataWithCompletedStatus>;
   title?: string;
@@ -440,11 +441,10 @@ type Props = Readonly<{
 
 export default function InterviewsQuestionsListSlideOut({
   isLoading,
-  listType,
+  initialListType,
   currentQuestionPosition,
   processedQuestions,
   metadata,
-  title,
 }: Props) {
   const intl = useIntl();
   // Have to be controlled because we don't want to
@@ -453,11 +453,11 @@ export default function InterviewsQuestionsListSlideOut({
   const isMobile = useMediaQuery('(max-width: 500px)');
   const router = useRouter();
   const [currentListType, setCurrentListType] =
-    useState<QuestionListTypeData | null>(null);
+    useState<QuestionListTypeWithLabel | null>(null);
   const filterNamespace = questionListFilterNamespace(
-    currentListType ?? listType,
+    currentListType ?? initialListType,
   );
-  const activeListType = currentListType ?? listType;
+  const activeListType = currentListType ?? initialListType;
   const [showStudyListSwitchDialog, setShowStudyListSwitchDialog] = useState<{
     href: string | null;
     show: boolean;
@@ -477,7 +477,7 @@ export default function InterviewsQuestionsListSlideOut({
       return;
     }
 
-    if (currentListType != null && !eq(listType, currentListType)) {
+    if (currentListType != null && !eq(initialListType, currentListType)) {
       setShowStudyListSwitchDialog({
         href: firstQuestionHref,
         show: true,
@@ -511,6 +511,14 @@ export default function InterviewsQuestionsListSlideOut({
   const numberOfFilters =
     filters.filter(([size]) => size > 0).length + (query.length > 0 ? 1 : 0);
 
+  const listName =
+    initialListType?.label ??
+    intl.formatMessage({
+      defaultMessage: 'Question list',
+      description: 'Questions list',
+      id: '5lRIfw',
+    });
+
   return (
     <SlideOut
       enterFrom="start"
@@ -531,14 +539,7 @@ export default function InterviewsQuestionsListSlideOut({
             iconClassName={clsx(numberOfFilters > 0 && 'dark:text-brand')}
             isDisabled={isLoading}
             isLabelHidden={isMobile}
-            label={
-              title ??
-              intl.formatMessage({
-                defaultMessage: 'Question list',
-                description: 'Questions list',
-                id: '5lRIfw',
-              })
-            }
+            label={listName}
             size="xs"
             variant="secondary"
             onClick={() => setIsShown(true)}>
@@ -557,14 +558,7 @@ export default function InterviewsQuestionsListSlideOut({
                 />
               ) : (
                 <>
-                  <span>
-                    {title ??
-                      intl.formatMessage({
-                        defaultMessage: 'Question list',
-                        description: 'Questions list',
-                        id: '5lRIfw',
-                      })}
-                  </span>
+                  <span>{listName}</span>
                   <Badge
                     label={`${currentQuestionPosition}/${processedQuestions.length}`}
                     size="xs"
@@ -597,7 +591,7 @@ export default function InterviewsQuestionsListSlideOut({
             <Contents
               key={filterNamespace}
               filterNamespace={filterNamespace}
-              initialListType={listType}
+              initialListType={initialListType}
               listType={activeListType}
               metadata={metadata}
               setFirstQuestionHref={setFirstQuestionHref}

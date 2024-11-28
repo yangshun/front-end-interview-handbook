@@ -13,13 +13,14 @@ import Spinner from '~/components/ui/Spinner';
 
 import type { QuestionListTypeData } from '../../common/questionHref';
 
-type QuestionListItem = QuestionListTypeData & Readonly<{ label: string }>;
+export type QuestionListTypeWithLabel = QuestionListTypeData &
+  Readonly<{ label: string }>;
 
 function DropdownContent({
   onChangeListType,
   openPricingDialog,
 }: Readonly<{
-  onChangeListType: (value: QuestionListItem) => void;
+  onChangeListType: (value: QuestionListTypeWithLabel) => void;
   openPricingDialog: (feature: QuestionFeatureType | undefined) => void;
 }>) {
   const intl = useIntl();
@@ -146,9 +147,9 @@ type QuestionListCategories = Readonly<{
   pricingTableFeature?: QuestionFeatureType;
 }>;
 
-function convertToMap(studyLists: ReadonlyArray<QuestionListItem>) {
+function convertToMap(studyLists: ReadonlyArray<QuestionListTypeWithLabel>) {
   return studyLists.reduce(
-    (acc: Record<string, QuestionListItem>, item) => ({
+    (acc: Record<string, QuestionListTypeWithLabel>, item) => ({
       ...acc,
       [item.value]: item,
     }),
@@ -157,8 +158,8 @@ function convertToMap(studyLists: ReadonlyArray<QuestionListItem>) {
 }
 
 type Props = Readonly<{
-  listType: QuestionListTypeData;
-  onChangeListType: (value: QuestionListTypeData) => void;
+  listType: QuestionListTypeWithLabel;
+  onChangeListType: (value: QuestionListTypeWithLabel) => void;
 }>;
 
 export default function InterviewsQuestionsListSlideOutSwitcher({
@@ -178,7 +179,7 @@ export default function InterviewsQuestionsListSlideOutSwitcher({
       <DropdownMenu
         align="start"
         icon={RiFilterLine}
-        label={listType.value}
+        label={listType.label}
         modal={true}
         showChevron={true}
         size="md"
