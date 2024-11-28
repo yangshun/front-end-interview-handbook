@@ -143,10 +143,11 @@ export default function InterviewsCompanyGuidePage({
         />
         {studyList.body.code && (
           <MDXContent
-            fontSize="sm"
+            fontSize="custom"
             mdxCode={studyList.body.code}
             proseClassName={clsx(
               'block lg:max-w-[75%]',
+              'text-sm xl:text-base',
               themeTextSecondaryColor,
             )}
           />

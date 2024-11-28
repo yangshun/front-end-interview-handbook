@@ -90,7 +90,7 @@ export default function InterviewsFocusAreaPage({
             mdxCode={studyList.body.code}
             proseClassName={clsx(
               'block lg:max-w-[75%]',
-              'text-base',
+              'text-sm xl:text-base',
               themeTextSecondaryColor,
             )}
           />
