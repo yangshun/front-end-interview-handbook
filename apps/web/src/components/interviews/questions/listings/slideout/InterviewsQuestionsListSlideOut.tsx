@@ -448,8 +448,8 @@ export default function InterviewsQuestionsListSlideOut({
 }: Props) {
   const intl = useIntl();
   // Have to be controlled because we don't want to
-  // render the contents for nothing because it does a fetch.
-  const [isShown, setIsShown] = useState(false);
+  // fetch the question lists for nothing.
+  const [isSlideOutShown, setIsSlideOutShown] = useState(false);
   const isMobile = useMediaQuery('(max-width: 500px)');
   const router = useRouter();
   const [currentListType, setCurrentListType] =
@@ -458,18 +458,28 @@ export default function InterviewsQuestionsListSlideOut({
     currentListType ?? initialListType,
   );
   const activeListType = currentListType ?? initialListType;
-  const [showStudyListSwitchDialog, setShowStudyListSwitchDialog] = useState<{
-    href: string | null;
-    show: boolean;
-    type: 'question-click' | 'switch';
-  }>({
-    href: null,
-    show: false,
-    type: 'switch',
-  });
-  const [firstQuestionHref, setFirstQuestionHref] = useState<string | null>(
-    null,
-  );
+  const [showSwitchQuestionListDialog, setShowSwitchQuestionListDialog] =
+    useState<{
+      href: string | null;
+      show: boolean;
+      type: 'question-click' | 'switch';
+    }>({
+      href: null,
+      show: false,
+      type: 'switch',
+    });
+  const [firstQuestionInListHref, setFirstQuestionInListHref] = useState<
+    string | null
+  >(null);
+
+  useEffect(() => {
+    if (isSlideOutShown) {
+      return;
+    }
+
+    // Clear current list when slide out is dismissed.
+    setCurrentListType(null);
+  }, [isSlideOutShown, setCurrentListType]);
 
   function onClose() {
     // If there are no questions after the filter, prevent closing
@@ -478,8 +488,8 @@ export default function InterviewsQuestionsListSlideOut({
     }
 
     if (currentListType != null && !eq(initialListType, currentListType)) {
-      setShowStudyListSwitchDialog({
-        href: firstQuestionHref,
+      setShowSwitchQuestionListDialog({
+        href: firstQuestionInListHref,
         show: true,
         type: 'switch',
       });
@@ -487,16 +497,17 @@ export default function InterviewsQuestionsListSlideOut({
       return;
     }
 
-    // If the active question is not in the list
-    // redirect to the first question in the list on closing
-    if (currentQuestionPosition === 0 && firstQuestionHref) {
-      router.push(firstQuestionHref);
+    // If the active question is not in the list, redirect
+    // to the first question in the list upon closing
+    if (currentQuestionPosition === 0 && firstQuestionInListHref) {
+      router.push(firstQuestionInListHref);
     }
-    setIsShown(false);
+
+    setIsSlideOutShown(false);
   }
 
-  function onCloseStudyListSwitchDialog() {
-    setShowStudyListSwitchDialog((prev) => ({
+  function onCloseSwitchQuestionListDialog() {
+    setShowSwitchQuestionListDialog((prev) => ({
       ...prev,
       href: null,
       show: false,
@@ -522,7 +533,7 @@ export default function InterviewsQuestionsListSlideOut({
   return (
     <SlideOut
       enterFrom="start"
-      isShown={isShown}
+      isShown={isSlideOutShown}
       padding={false}
       size="xl"
       title={
@@ -542,7 +553,7 @@ export default function InterviewsQuestionsListSlideOut({
             label={listName}
             size="xs"
             variant="secondary"
-            onClick={() => setIsShown(true)}>
+            onClick={() => setIsSlideOutShown(true)}>
             <div className="flex items-center gap-3">
               {isLoading ? (
                 <div
@@ -584,7 +595,7 @@ export default function InterviewsQuestionsListSlideOut({
         </div>
       }
       onClose={onClose}>
-      {isShown && (
+      {isSlideOutShown && (
         <ScrollArea>
           {/* Because useQuestionsListTypeCurrent() uses useSearchParams() */}
           <Suspense>
@@ -594,9 +605,9 @@ export default function InterviewsQuestionsListSlideOut({
               initialListType={initialListType}
               listType={activeListType}
               metadata={metadata}
-              setFirstQuestionHref={setFirstQuestionHref}
+              setFirstQuestionHref={setFirstQuestionInListHref}
               onClickDifferentStudyListQuestion={(href: string) =>
-                setShowStudyListSwitchDialog({
+                setShowSwitchQuestionListDialog({
                   href,
                   show: true,
                   type: 'question-click',
@@ -607,27 +618,39 @@ export default function InterviewsQuestionsListSlideOut({
         </ScrollArea>
       )}
       <ConfirmationDialog
+        cancelButtonLabel={intl.formatMessage({
+          defaultMessage: 'Stay on previous list',
+          description: 'Stay on previous question list',
+          id: 'IEnLEU',
+        })}
         confirmButtonLabel={intl.formatMessage({
           defaultMessage: 'Switch',
           description: 'Button label for switch study list',
           id: '09QDZQ',
         })}
-        isShown={showStudyListSwitchDialog.show}
+        isShown={showSwitchQuestionListDialog.show}
         title={intl.formatMessage({
           defaultMessage: 'Switch study list',
-          description: 'Label to switch study list dialog',
-          id: '3EzwJo',
+          description: 'Change study list dialog title',
+          id: '6rN7CN',
         })}
-        onCancel={onCloseStudyListSwitchDialog}
+        onCancel={() => {
+          onCloseSwitchQuestionListDialog();
+          setIsSlideOutShown(false);
+        }}
+        onClose={() => {
+          onCloseSwitchQuestionListDialog();
+        }}
         onConfirm={() => {
-          if (!showStudyListSwitchDialog.href) {
+          if (!showSwitchQuestionListDialog.href) {
             return;
           }
-          onCloseStudyListSwitchDialog();
-          setIsShown(false);
-          router.push(showStudyListSwitchDialog.href);
+
+          onCloseSwitchQuestionListDialog();
+          setIsSlideOutShown(false);
+          router.push(showSwitchQuestionListDialog.href);
         }}>
-        {showStudyListSwitchDialog.type === 'question-click' ? (
+        {showSwitchQuestionListDialog.type === 'question-click' ? (
           <FormattedMessage
             defaultMessage="You've selected a question from a different study list than the one you're currently using. Navigating to it will switch your current list. Do you want to proceed?"
             description="Confirmation text for switching study list"

@@ -743,10 +743,6 @@
     "defaultMessage": "Security",
     "description": "Title for Security section on profile page"
   },
-  "3EzwJo": {
-    "defaultMessage": "Switch study list",
-    "description": "Label to switch study list dialog"
-  },
   "3FeosO": {
     "defaultMessage": "NEW",
     "description": "Label for new questions ribbon"
@@ -1326,6 +1322,10 @@
   "6r6UcH": {
     "defaultMessage": "Types of questions",
     "description": "Types of front end system design interview questions"
+  },
+  "6rN7CN": {
+    "defaultMessage": "Switch study list",
+    "description": "Change study list dialog title"
   },
   "6w7Ge4": {
     "defaultMessage": "Some companies still test data structures and algorithms questions for their front end engineers. Practice the following if you expect these types of questions.",
@@ -2954,6 +2954,10 @@
   "IDanmC": {
     "defaultMessage": "Unlock this premium challenge",
     "description": "Title for a premium project paywall"
+  },
+  "IEnLEU": {
+    "defaultMessage": "Stay on previous list",
+    "description": "Stay on previous question list"
   },
   "IG13JQ": {
     "defaultMessage": "How it works",
