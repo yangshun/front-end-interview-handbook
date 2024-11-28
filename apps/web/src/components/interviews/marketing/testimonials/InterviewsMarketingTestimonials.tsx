@@ -234,6 +234,7 @@ export function InterviewsMarketingTestimonialsDict() {
 
   const t4d95: InterviewsMarketingTestimonial = {
     anonymous: true,
+    companyLogoUrl: '/img/testimonials/company/brex.svg',
     createdAt: '2023-08-21',
     featuredOffer: 'Brex',
     fromCompany: null,

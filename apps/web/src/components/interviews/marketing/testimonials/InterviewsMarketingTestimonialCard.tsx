@@ -5,7 +5,6 @@ import Anchor from '~/components/ui/Anchor';
 import Avatar from '~/components/ui/Avatar';
 import Card from '~/components/ui/Card';
 import Text, { textVariants } from '~/components/ui/Text';
-import { themeBackgroundEmphasized } from '~/components/ui/theme';
 
 export type InterviewsMarketingTestimonial = Readonly<{
   anonymous: boolean;
@@ -64,7 +63,7 @@ export default function InterviewsMarketingTestimonialCard({
               <div
                 className={clsx(
                   'grid place-items-center rounded-full p-2',
-                  themeBackgroundEmphasized,
+                  'bg-white',
                 )}>
                 <img
                   alt={featuredOffer}
