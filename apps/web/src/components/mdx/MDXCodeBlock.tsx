@@ -172,7 +172,7 @@ export default function MDXCodeBlock({
                 className={clsx(
                   'code-block__counter',
                   className,
-                  showLineNumbers && 'pl-0',
+                  showLineNumbersValue && 'pl-0',
                 )}
                 style={{
                   ...style,

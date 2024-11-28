@@ -272,7 +272,7 @@ function CodeAnnotationContents({
         </Text>
         &middot;
         <Icon className="inline w-3.5" />
-        <Text color="secondary" size="body3">
+        <Text className="text-neutral-300" color="inherit" size="body3">
           {jobTitle}
         </Text>
       </div>

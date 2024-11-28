@@ -7,9 +7,9 @@ import { useRef } from 'react';
 
 import useScrollToTop from '~/hooks/useScrollToTop';
 
-import InterviewsMarketingPlansSection from '~/components/interviews/marketing/InterviewsMarketingPlansSection';
 import type { QuestionBankDataType } from '~/components/interviews/marketing/InterviewsMarketingPracticeQuestionBankSection';
 import InterviewsMarketingSimulateRealInterviews from '~/components/interviews/marketing/InterviewsMarketingSimulateRealInterviews';
+import InterviewsMarketingStudyPlansSection from '~/components/interviews/marketing/InterviewsMarketingStudyPlansSection';
 
 const InterviewsMarketingHomePageBottom = dynamic(
   () => import('./InterviewsMarketingHomePageBottom'),
@@ -36,7 +36,7 @@ export default function InterviewsMarketingHomePageBottomContainer({
   return (
     <>
       <div ref={loadBottomHalfMarkerRef} />
-      <InterviewsMarketingPlansSection />
+      <InterviewsMarketingStudyPlansSection />
       <InterviewsMarketingSimulateRealInterviews />
       {showBottomHalf ? (
         <InterviewsMarketingHomePageBottom

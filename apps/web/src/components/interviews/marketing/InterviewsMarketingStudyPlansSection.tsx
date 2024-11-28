@@ -22,7 +22,7 @@ import {
   themeTextSubtleColor,
 } from '~/components/ui/theme';
 
-export default function InterviewsMarketingPlansSection() {
+export default function InterviewsMarketingStudyPlansSection() {
   return (
     <Container className={clsx('py-16 sm:py-20')} width="marketing">
       <Heading
@@ -99,10 +99,10 @@ function TopicNodeImpl(
         [themeBorderColor, 'border', themeBorderEmphasizeColor_Hover],
         'rounded-lg',
       )}>
-      {/* To hide the beam running running below */}
+      {/* To hide the beam running running below for semi-transparent bgs */}
       <div
         className={clsx(
-          'absolute inset-0 z-[2] rounded-[inherit]',
+          'absolute inset-0 -z-[1] rounded-[inherit]',
           themeBackgroundCardColor,
         )}
       />

@@ -126,7 +126,7 @@ a {
   counter-increment: line;
   content: counter(line);
   display: inline-block;
-  width: 32px;
+  width: 40px;
   text-align: right;
   margin-right: 12px;
   position: sticky;
