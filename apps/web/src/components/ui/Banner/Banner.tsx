@@ -34,7 +34,7 @@ const variantClasses: Record<
     textColorClass: 'text-white',
   },
   primary: {
-    backgroundColorClass: 'bg-brand-dark',
+    backgroundColorClass: 'bg-brand-light',
     textColorClass: 'text-neutral-900',
   },
 };
@@ -58,8 +58,8 @@ export default function Banner({
         textColorClass,
         className,
         size === 'md' && 'min-h-11',
-        size === 'sm' && 'min-h-[30px]',
-        size === 'xs' && 'min-h-[30px]',
+        size === 'sm' && 'min-h-7',
+        size === 'xs' && 'min-h-7',
       )}
       {...props}>
       <div className={clsx('mx-auto w-full', 'px-4 sm:px-6')}>
@@ -67,9 +67,9 @@ export default function Banner({
           <Text
             className={clsx(
               'flex gap-4',
-              size === 'md' && 'text-xs sm:text-sm md:text-base',
-              size === 'sm' && 'text-xs md:text-sm',
-              size === 'xs' && 'text-xs',
+              size === 'md' && 'text-2xs sm:text-xs md:text-sm lg:text-base',
+              size === 'sm' && 'text-2xs sm:text-xs md:text-sm',
+              size === 'xs' && 'text-2xs sm:text-xs',
               truncate && 'truncate',
             )}
             color="inherit"

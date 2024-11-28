@@ -36,6 +36,13 @@ function MarketingMessage({ rotateMessages }: Props) {
 
   const isInterviewsPremium = userProfile?.isInterviewsPremium ?? false;
 
+  const arrowEl = (
+    <RiArrowRightLine
+      aria-hidden={true}
+      className="size-3.5 -mt-0.5 ml-1 inline-flex shrink-0 md:hidden"
+    />
+  );
+
   const socialMediaSaleMessage = (
     <Anchor href="/rewards/social" target="_blank" variant="flat">
       <FormattedMessage
@@ -50,16 +57,22 @@ function MarketingMessage({ rotateMessages }: Props) {
   );
 
   const projectsLaunchMessage = (
-    <Anchor href="/projects" locale="en-US" target="_blank" variant="flat">
+    <Anchor
+      className="whitespace-nowrap"
+      href="/projects"
+      locale="en-US"
+      target="_blank"
+      variant="flat">
       <FormattedMessage
-        defaultMessage="GreatFrontEnd Projects is now in BETA! Get {percentage}% off with code {promoCode}"
+        defaultMessage="GreatFrontEnd Projects now in BETA! {percentage}% off with {promoCode}"
         description="Text on Promo Banner"
-        id="VR6dnk"
+        id="7AiLO9"
         values={{
           percentage: 30,
           promoCode: 'BETA30',
         }}
       />
+      {arrowEl}
     </Anchor>
   );
 
@@ -143,7 +156,7 @@ function BannerShell({
   return (
     <Banner
       className={clsx(
-        'h-11 lg:h-8', // Sync with sticky.css.
+        'h-7 sm:h-[30px]', // Sync with sticky.css.
         textVariants({ color: 'light' }),
       )}
       data-theme={theme}

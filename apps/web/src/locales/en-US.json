@@ -1379,6 +1379,10 @@
     "defaultMessage": "Let's begin!",
     "description": "Title for Start Coding content section on Before You Get Started dialog"
   },
+  "7AiLO9": {
+    "defaultMessage": "GreatFrontEnd Projects now in BETA! {percentage}% off with {promoCode}",
+    "description": "Text on Promo Banner"
+  },
   "7ERPcF": {
     "defaultMessage": "User submissions | Mentor others",
     "description": "Page title of projects mentor page"
@@ -4998,10 +5002,6 @@
   "VQ9c4+": {
     "defaultMessage": "Feedback received successfully.",
     "description": "Feedback widget success message."
-  },
-  "VR6dnk": {
-    "defaultMessage": "GreatFrontEnd Projects is now in BETA! Get {percentage}% off with code {promoCode}",
-    "description": "Text on Promo Banner"
   },
   "VRv5cU": {
     "defaultMessage": "You have an unused promo code",
