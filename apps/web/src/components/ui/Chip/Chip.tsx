@@ -47,7 +47,7 @@ const variantClasses: Record<
     textClass: 'text-brand',
   },
   neutral: {
-    backgroundClass: 'bg-neutral-100 dark:bg-neutral-800',
+    backgroundClass: 'bg-neutral-50 dark:bg-neutral-800',
     borderClass: 'border border-neutral-200 dark:border-neutral-700',
     iconClass: 'text-neutral-500',
     textClass: 'text-neutral-500 dark:text-neutral-400',

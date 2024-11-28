@@ -38,7 +38,7 @@ export default function GuidesListItemProgressChip<
         if (hasCompleted) {
           return (
             <CompletedChip
-              showHoverState={onMarkAsCompleted ? showHoverState : false}
+              canShowHoverState={onMarkAsCompleted ? showHoverState : false}
               size={size}
               onClick={
                 onMarkAsCompleted
@@ -54,8 +54,8 @@ export default function GuidesListItemProgressChip<
 
         return (
           <NotCompleted
+            canShowHoverState={onMarkAsCompleted ? showHoverState : false}
             number={index != null ? index + 1 : undefined}
-            showHoverState={onMarkAsCompleted ? showHoverState : false}
             size={size}
             onClick={
               onMarkAsCompleted

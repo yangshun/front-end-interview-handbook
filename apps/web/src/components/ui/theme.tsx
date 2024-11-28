@@ -33,6 +33,9 @@ export const themeTextFaintColor = clsx(
 export const themeTextFainterColor = clsx(
   'text-neutral-300 dark:text-neutral-700',
 );
+export const themeTextFainterColor_Hover = clsx(
+  'hover:text-neutral-300 dark:hover:text-neutral-700',
+);
 export const themeTextSecondaryInvertColor = clsx(
   'text-neutral-400 dark:text-neutral-600',
 );

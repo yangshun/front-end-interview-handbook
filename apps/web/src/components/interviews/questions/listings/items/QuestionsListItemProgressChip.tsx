@@ -12,6 +12,7 @@ import {
   themeBorderElementColor_Hover,
   themeTextColor,
   themeTextFainterColor,
+  themeTextFainterColor_Hover,
   themeTextSubtleColor,
   themeTextSuccessColor_Hover,
 } from '~/components/ui/theme';
@@ -65,12 +66,12 @@ function LockedChip({ size = 'md' }: { size?: ProgressChipSize }) {
 }
 
 export function CompletedChip({
-  showHoverState,
+  canShowHoverState,
   onClick,
   size = 'md',
 }: Readonly<{
+  canShowHoverState: boolean;
   onClick?: () => void;
-  showHoverState: boolean;
   size?: ProgressChipSize;
 }>) {
   const intl = useIntl();
@@ -97,8 +98,9 @@ export function CompletedChip({
           progressChipSize,
           ['border', 'border-success dark:border-success-light'],
           'bg-success dark:bg-success-light',
-          themeTextFainterColor,
-          showHoverState && [
+          'text-white dark:text-neutral-950',
+          canShowHoverState && [
+            themeTextFainterColor_Hover,
             themeBorderElementColor_Hover,
             themeBackgroundCardNoAlphaColor_Hover,
           ],
@@ -115,14 +117,14 @@ export function CompletedChip({
 }
 
 function CompletedBeforeChip({
-  showHoverState,
+  canShowHoverState,
   onClick,
   size = 'md',
   number,
 }: Readonly<{
+  canShowHoverState: boolean;
   number?: number;
   onClick?: () => void;
-  showHoverState: boolean;
   size?: ProgressChipSize;
 }>) {
   const intl = useIntl();
@@ -154,11 +156,11 @@ function CompletedBeforeChip({
           'font-semibold',
           'border-success dark:border-success-light border border-dashed',
           number != null ? themeTextSubtleColor : themeTextFainterColor,
-          showHoverState && themeTextSuccessColor_Hover,
+          canShowHoverState && themeTextSuccessColor_Hover,
         )}
         type="button"
         onClick={onClick}>
-        {number != null && showHoverState && !isHover ? (
+        {number != null && canShowHoverState && !isHover ? (
           number
         ) : (
           <FaCheck
@@ -173,13 +175,13 @@ function CompletedBeforeChip({
 
 export function NotCompleted({
   number,
-  showHoverState,
+  canShowHoverState,
   onClick,
   size = 'md',
 }: Readonly<{
+  canShowHoverState: boolean;
   number?: number;
   onClick?: () => void;
-  showHoverState: boolean;
   size?: ProgressChipSize;
 }>) {
   const hoverRef = useRef(null);
@@ -211,11 +213,11 @@ export function NotCompleted({
           ['border', themeBorderElementColor],
           'text-sm font-semibold',
           number != null ? themeTextSubtleColor : themeTextFainterColor,
-          showHoverState && themeTextSuccessColor_Hover,
+          canShowHoverState && themeTextSuccessColor_Hover,
         )}
         type="button"
         onClick={onClick}>
-        {number != null && showHoverState && !isHover ? (
+        {number != null && canShowHoverState && !isHover ? (
           number
         ) : (
           <FaCheck
@@ -251,13 +253,13 @@ export default function QuestionsListItemProgressChip<
   question: Q;
   size?: ProgressChipSize;
 }>) {
-  const [showHoverState, setShowHoverState] = useState(true);
+  const [canShowHoverState, setCanShowHoverState] = useState(true);
 
   return (
     <div
       className={clsx('flex items-center justify-center', className)}
       onMouseLeave={() => {
-        setShowHoverState(true);
+        setCanShowHoverState(true);
       }}>
       {(() => {
         if (questionMetadata.access === 'premium' && !premiumUser) {
@@ -267,13 +269,13 @@ export default function QuestionsListItemProgressChip<
         if (hasCompletedQuestion) {
           return (
             <CompletedChip
-              showHoverState={onMarkAsCompleted ? showHoverState : false}
+              canShowHoverState={onMarkAsCompleted ? canShowHoverState : false}
               size={size}
               onClick={
                 onMarkAsCompleted
                   ? () => {
                       onMarkAsNotCompleted?.(questionMetadata);
-                      setShowHoverState(false);
+                      setCanShowHoverState(false);
                     }
                   : undefined
               }
@@ -283,28 +285,28 @@ export default function QuestionsListItemProgressChip<
 
         return hasCompletedQuestionBefore ? (
           <CompletedBeforeChip
+            canShowHoverState={onMarkAsCompleted ? canShowHoverState : false}
             number={index != null ? index + 1 : undefined}
-            showHoverState={onMarkAsCompleted ? showHoverState : false}
             size={size}
             onClick={
               onMarkAsCompleted
                 ? () => {
                     onMarkAsCompleted?.(questionMetadata);
-                    setShowHoverState(false);
+                    setCanShowHoverState(false);
                   }
                 : undefined
             }
           />
         ) : (
           <NotCompleted
+            canShowHoverState={onMarkAsCompleted ? canShowHoverState : false}
             number={index != null ? index + 1 : undefined}
-            showHoverState={onMarkAsCompleted ? showHoverState : false}
             size={size}
             onClick={
               onMarkAsCompleted
                 ? () => {
                     onMarkAsCompleted?.(questionMetadata);
-                    setShowHoverState(false);
+                    setCanShowHoverState(false);
                   }
                 : undefined
             }
