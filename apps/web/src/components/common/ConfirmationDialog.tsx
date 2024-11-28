@@ -16,6 +16,7 @@ type Props = Readonly<{
   isLoading?: boolean;
   isShown: boolean;
   onCancel?: () => void;
+  onClose?: () => void;
   onConfirm: () => void;
   showCancelButton?: boolean;
   title?: string;
@@ -31,6 +32,7 @@ export default function ConfirmationDialog({
   isDisabled = false,
   isShown,
   onCancel,
+  onClose,
   onConfirm,
   showCancelButton = true,
   title,
@@ -85,7 +87,7 @@ export default function ConfirmationDialog({
         })
       }
       trigger={trigger}
-      onClose={() => onCancel?.()}>
+      onClose={() => (onClose ?? onCancel)?.()}>
       <div className={textVariants({ color: 'subtitle', size: 'body2' })}>
         {children}
       </div>
