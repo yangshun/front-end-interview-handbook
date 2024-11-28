@@ -35,7 +35,10 @@ const anchorWeightClasses: Record<AnchorWeight, string> = {
 };
 
 export const anchorVariants = cva(
-  'transition-colors underline-offset-[3.5px]',
+  clsx(
+    'transition-colors underline-offset-[3.5px]',
+    'break-words', // Some links can be are really long if the raw URL is used.
+  ),
   {
     defaultVariants: {
       variant: 'default',
