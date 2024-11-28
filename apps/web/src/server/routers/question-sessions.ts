@@ -34,6 +34,9 @@ export const questionSessionRouter = router({
           },
         },
       },
+      orderBy: {
+        createdAt: 'desc',
+      },
       where: {
         status: 'IN_PROGRESS',
         userId: viewer.id,

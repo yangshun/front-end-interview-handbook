@@ -32,7 +32,18 @@ export default function InterviewsDashboardContinueLearningSection({
   const intl = useIntl();
 
   const items = questionListSessions
-    .filter(({ key }) => studyListsMap[key] != null)
+    .filter(({ key, _count }) => {
+      const studyList = studyListsMap[key];
+
+      if (!studyList) {
+        return false;
+      }
+
+      const { questionHashes } = studyList;
+
+      // Remove completed session
+      return _count.progress !== questionHashes.length;
+    })
     .map(({ key, _count }) => {
       const { href, longName, questionHashes } = studyListsMap[key];
 
