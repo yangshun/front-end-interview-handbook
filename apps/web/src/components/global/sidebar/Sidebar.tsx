@@ -101,9 +101,14 @@ export function SidebarCollapsed({
             {moreMenuItems}
             <Divider />
             <DropdownMenu.Item
+              href={SocialLinks.github.href}
+              icon={SocialLinks.github.icon}
+              label={SocialLinks.github.name}
+            />
+            <DropdownMenu.Item
               href={SocialLinks.linkedin.href}
               icon={RiLinkedinFill}
-              label="LinkedIn"
+              label={SocialLinks.linkedin.name}
             />
             {showPremiumDiscord ? (
               <DropdownMenu.Item
@@ -120,7 +125,7 @@ export function SidebarCollapsed({
               <DropdownMenu.Item
                 href={SocialLinks.discord.href}
                 icon={RiDiscordLine}
-                label="Discord"
+                label={SocialLinks.discord.name}
               />
             )}
             <Divider />

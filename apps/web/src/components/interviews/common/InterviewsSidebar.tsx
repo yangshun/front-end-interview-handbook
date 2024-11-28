@@ -4,6 +4,8 @@ import clsx from 'clsx';
 
 import useUserProfile from '~/hooks/user/useUserProfile';
 
+import { SocialLinks } from '~/data/SocialLinks';
+
 import useCommonNavItems from '~/components/common/navigation/useCommonNavItems';
 import {
   SidebarCollapsed,
@@ -12,6 +14,7 @@ import {
 import { SocialDiscountSidebarMention } from '~/components/promotions/social/SocialDiscountSidebarMention';
 import { useSocialDiscountLabels } from '~/components/promotions/social/useSocialDiscountLabels';
 import Anchor from '~/components/ui/Anchor';
+import Button from '~/components/ui/Button';
 import Divider from '~/components/ui/Divider';
 import DropdownMenu from '~/components/ui/DropdownMenu';
 import { textVariants } from '~/components/ui/Text';
@@ -40,6 +43,22 @@ export function InterviewsSidebarExpanded({
 
   return (
     <SidebarExpanded
+      bottomBarItems={
+        <>
+          {[SocialLinks.github, SocialLinks.linkedin].map(
+            ({ href, icon, name, key }) => (
+              <Button
+                key={key}
+                href={href}
+                icon={icon}
+                isLabelHidden={true}
+                label={name}
+                variant="secondary"
+              />
+            ),
+          )}
+        </>
+      }
       isLoading={isLoading}
       isViewerPremium={isPremium}
       moreMenuItems={
