@@ -137,7 +137,7 @@ export default function InterviewsQuestionsListSlideOutContents<
             'pointer-events-none touch-none select-none',
           )}
           overlay={
-            <QuestionPaywall background={false} feature="company-tags" />
+            <QuestionPaywall background="vignette" feature="company-tags" />
           }
           showOverlay={showCompanyPaywall}>
           <tbody
@@ -262,7 +262,7 @@ export default function InterviewsQuestionsListSlideOutContents<
             'pointer-events-none touch-none select-none',
           )}
           overlay={
-            <QuestionPaywall background={false} feature="company-tags" />
+            <QuestionPaywall background="vignette" feature="company-tags" />
           }
           showOverlay={showCompanyPaywall}>
           <ul

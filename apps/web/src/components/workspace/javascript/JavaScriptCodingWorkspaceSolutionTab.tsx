@@ -48,7 +48,7 @@ export default function JavaScriptCodingWorkspaceSolutionTab({
 
     return (
       <div className="flex w-full items-center justify-center">
-        <QuestionPaywall background={false} feature="official-solutions" />
+        <QuestionPaywall background="vignette" feature="official-solutions" />
       </div>
     );
   }

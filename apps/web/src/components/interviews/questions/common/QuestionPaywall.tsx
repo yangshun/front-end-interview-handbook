@@ -38,7 +38,7 @@ const colors: Record<PremiumWallVariant, string> = {
 };
 
 type Props = Readonly<{
-  background?: boolean;
+  background?: 'none' | 'solid' | 'vignette';
   feature?: QuestionFeatureType;
   subtitle?: string;
   title?: string;
@@ -49,7 +49,7 @@ export default function QuestionPaywall({
   title: titleProp,
   subtitle: subtitleProp,
   variant = 'not_subscribed',
-  background = true,
+  background = 'solid',
   feature = 'premium-questions',
 }: Props) {
   const intl = useIntl();
@@ -170,11 +170,17 @@ export default function QuestionPaywall({
   return (
     <div
       className={clsx(
-        background &&
+        background === 'solid' &&
           clsx(
             'rounded-lg border px-8 backdrop-blur',
             'bg-white/60 dark:bg-neutral-950/60',
             themeBorderColor,
+          ),
+        background === 'vignette' &&
+          clsx(
+            'bg-gradient-to-t via-75%',
+            'from-white via-white',
+            'dark:from-neutral-900 dark:via-neutral-900',
           ),
       )}>
       <div

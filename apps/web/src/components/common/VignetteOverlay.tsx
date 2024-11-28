@@ -33,9 +33,7 @@ export default function VignetteOverlay({
             'dark:from-neutral-900 dark:via-neutral-900',
           )}
         />
-        <div className={clsx('absolute w-full px-8', overlayClass)}>
-          {overlay}
-        </div>
+        <div className={clsx('absolute w-full', overlayClass)}>{overlay}</div>
       </div>
     </div>
   );

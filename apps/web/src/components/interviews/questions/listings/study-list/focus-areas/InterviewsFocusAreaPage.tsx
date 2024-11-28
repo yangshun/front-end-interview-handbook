@@ -107,9 +107,9 @@ export default function InterviewsFocusAreaPage({
           <VignetteOverlay
             className="max-h-[500px] md:max-h-none"
             overlay={
-              <QuestionPaywall background={false} feature="focus-areas" />
+              <QuestionPaywall background="vignette" feature="focus-areas" />
             }
-            overlayClass="top-[20%] md:top-auto md:bottom-0">
+            overlayClass="top-8 sm:top-16 md:top-24">
             <div
               className="border-lg pointer-events-none touch-none select-none"
               // So that focus cannot go into the card, which is not meant to be used.
