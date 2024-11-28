@@ -139,7 +139,11 @@ export default function ProfileShell({ user, children }: Props) {
                       />
                     </div>
                     {/* Meta info */}
-                    <div className="flex flex-col flex-wrap gap-4 sm:flex-row sm:gap-x-8 xl:flex-col xl:gap-x-0 xl:gap-y-4">
+                    <div
+                      className={clsx(
+                        'flex flex-col flex-wrap sm:flex-row xl:flex-col xl:flex-nowrap',
+                        'gap-4 sm:gap-x-8 xl:gap-x-0 xl:gap-y-4',
+                      )}>
                       {!profileDataQuery.isLoading && (
                         <>
                           {profileDataQuery.data?.name && (
@@ -176,17 +180,17 @@ export default function ProfileShell({ user, children }: Props) {
                               />
                             )}
                           </div>
-                          <div className="flex items-center gap-x-2">
+                          <div className="flex w-full grow items-center gap-x-2">
                             <RiMailLine
                               aria-hidden="true"
                               className="size-5 shrink-0 text-neutral-500"
                             />
-                            <Text className="truncate" size="body2">
+                            <Text className="w-0 grow truncate" size="body2">
                               {user.email}
                             </Text>
                           </div>
                           {profileDataQuery.data?.username && (
-                            <div className="flex items-center gap-x-2">
+                            <div className="flex w-full items-center gap-x-2">
                               <RiUserLine
                                 aria-hidden="true"
                                 className="size-5 shrink-0 text-neutral-500"
@@ -198,7 +202,7 @@ export default function ProfileShell({ user, children }: Props) {
                           )}
                           {process.env.NEXT_PUBLIC_VERCEL_ENV !==
                             'production' && (
-                            <div className="flex items-center gap-x-2">
+                            <div className="flex w-full items-center gap-x-2">
                               <RiShieldUserLine
                                 aria-hidden="true"
                                 className="size-5 shrink-0 text-neutral-500"
@@ -207,7 +211,7 @@ export default function ProfileShell({ user, children }: Props) {
                             </div>
                           )}
                           {profileDataQuery.data?.createdAt && (
-                            <div className="flex items-center gap-x-2">
+                            <div className="flex w-full items-center gap-x-2">
                               <RiCalendarLine
                                 aria-hidden="true"
                                 className="size-5 shrink-0 text-neutral-500"
@@ -232,7 +236,7 @@ export default function ProfileShell({ user, children }: Props) {
                           {/* Signed in via GitHub  */}
                           {user?.user_metadata.user_name &&
                             user?.user_metadata.iss.includes('github.com') && (
-                              <div className="flex items-center gap-x-2">
+                              <div className="flex w-full items-center gap-x-2">
                                 <RiGithubFill
                                   aria-hidden="true"
                                   className="size-5 shrink-0 text-neutral-500"
@@ -259,7 +263,7 @@ export default function ProfileShell({ user, children }: Props) {
                               variant="primary"
                             />
                           ) : (
-                            <div className="flex items-center gap-x-2">
+                            <div className="flex w-full items-center gap-x-2">
                               <SocialLinks.discordPremium.icon
                                 aria-hidden="true"
                                 className="size-5 shrink-0 text-neutral-500"
