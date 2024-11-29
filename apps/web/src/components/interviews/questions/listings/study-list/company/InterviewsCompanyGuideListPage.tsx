@@ -59,7 +59,7 @@ export default function InterviewsStudyListListPage({
   ];
 
   return (
-    <div className={clsx('flex flex-col', 'gap-y-10 xl:gap-y-16')}>
+    <div className={clsx('flex flex-col', 'gap-y-10')}>
       <InterviewsPageHeader
         description={intl.formatMessage({
           defaultMessage:
@@ -78,7 +78,7 @@ export default function InterviewsStudyListListPage({
       <InterviewsCompanyGuideListWithFilters companyGuides={companyGuides} />
       {bottomContent && (
         <>
-          <Divider className="my-10 xl:my-4" />
+          <Divider className="my-10" />
           <Section>
             <MDXContent mdxCode={bottomContent.body.code} />
           </Section>

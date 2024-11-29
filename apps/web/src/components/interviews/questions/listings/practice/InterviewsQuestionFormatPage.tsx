@@ -106,7 +106,7 @@ export default function InterviewsQuestionFormatPage({
   const formatData = useQuestionFormatsData();
 
   return (
-    <div className={clsx('flex flex-col', 'gap-y-10 xl:gap-y-16')}>
+    <div className={clsx('flex flex-col', 'gap-y-10')}>
       <InterviewsPageHeader
         description={description}
         features={features[format]}
@@ -136,7 +136,7 @@ export default function InterviewsQuestionFormatPage({
         />
         {bottomContent && (
           <>
-            <Divider className="my-8" />
+            <Divider className="my-10" />
             <MDXContent mdxCode={bottomContent.body.code} />
           </>
         )}

@@ -71,7 +71,7 @@ export default function InterviewsStudyPlanPage({
   ];
 
   return (
-    <div className={clsx('flex flex-col', 'gap-y-10 xl:gap-y-16', 'relative')}>
+    <div className={clsx('flex flex-col', 'gap-y-10', 'relative')}>
       <div className="relative flex flex-col gap-y-8">
         <InterviewsStudyListPageTitleSection
           description={studyList.description}
@@ -114,7 +114,7 @@ export default function InterviewsStudyPlanPage({
       </Section>
       {bottomContent && (
         <>
-          <Divider className="my-10 xl:my-4" />
+          <Divider className="my-10" />
           <Section>
             <MDXContent mdxCode={bottomContent.body.code} />
           </Section>

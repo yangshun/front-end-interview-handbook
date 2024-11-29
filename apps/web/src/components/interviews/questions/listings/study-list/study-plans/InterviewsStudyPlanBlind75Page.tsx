@@ -80,7 +80,7 @@ export default function InterviewsStudyPlanBlind75Page({
   ];
 
   return (
-    <div className={clsx('flex flex-col', 'gap-y-10 xl:gap-y-16', 'relative')}>
+    <div className={clsx('flex flex-col', 'gap-y-10', 'relative')}>
       <div className="relative flex flex-col gap-y-6">
         <InterviewsRecommendedPrepStrategyPageTitleSection
           description={studyList.description}

@@ -82,7 +82,7 @@ export default function InterviewsPageHeader({
           <div
             className={clsx(
               'flex flex-col',
-              iconEl ? 'gap-2 lg:gap-4 xl:gap-8' : 'gap-3.5 xl:gap-4',
+              iconEl ? 'gap-2 lg:gap-4 xl:gap-6' : 'gap-3.5 xl:gap-4',
             )}>
             <div className="flex items-center gap-6">
               {iconEl}
