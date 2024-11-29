@@ -281,7 +281,7 @@ export default function Dialog({
                 <div
                   className={clsx(
                     '-mx-6 -mb-6 mt-6',
-                    'px-6 py-2',
+                    'px-6 py-3',
                     'bg-white dark:bg-neutral-900',
                   )}>
                   {bottomContents}
