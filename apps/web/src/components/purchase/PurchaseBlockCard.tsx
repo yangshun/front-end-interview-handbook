@@ -51,7 +51,7 @@ export default function PurchaseBlockCard({
       <div
         className={clsx(
           'relative z-10',
-          'flex flex-col gap-x-8 gap-y-10 md:flex-row lg:items-stretch',
+          'flex flex-col gap-x-8 gap-y-6 md:flex-row lg:items-stretch',
           'w-full',
           'rounded-[inherit]',
           'p-6',
@@ -60,7 +60,7 @@ export default function PurchaseBlockCard({
         <div
           className={clsx(
             'flex flex-col gap-y-6 lg:flex-1',
-            'min-w-[240px] lg:min-w-[300px] xl:max-w-[350px]',
+            'md:max-w-[240px] lg:max-w-[300px] xl:max-w-[350px]',
           )}>
           <div className="flex flex-col gap-y-2">
             <Heading

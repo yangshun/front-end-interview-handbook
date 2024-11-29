@@ -499,7 +499,7 @@ export default function InterviewsPricingTableSection({
   } = plans;
 
   const featureAllAccess = (
-    <span>
+    <span className="flex items-center justify-start gap-2">
       {intl.formatMessage({
         defaultMessage: 'Unlock all premium interviews content',
         description: 'Feature of pricing plan',
@@ -575,7 +575,7 @@ export default function InterviewsPricingTableSection({
             ))}
           </ul>
         }
-        triggerClassName="ml-2 inline align-middle">
+        triggerClassName="inline">
         <RiInformationLine
           aria-hidden={true}
           className={clsx('size-4 shrink-0', themeTextSubtleColor)}
@@ -830,21 +830,6 @@ export default function InterviewsPricingTableSection({
                   </span>
                 </Text>
               </div>
-              {!(
-                featuredPlan.paymentConfig.planType === 'lifetime' &&
-                showPPPMessage
-              ) && (
-                <Text
-                  className="mt-2 block"
-                  color="secondary"
-                  size="body2"
-                  weight="medium">
-                  <PricingPlanComparisonDiscount
-                    paymentConfig={featuredPlan.paymentConfig}
-                    showPPPMessage={showPPPMessage}
-                  />
-                </Text>
-              )}
               <div className="mt-6">
                 <PricingButtonSection
                   aria-describedby={featuredPlanId}
