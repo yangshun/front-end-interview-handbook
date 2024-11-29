@@ -9,7 +9,6 @@ import ScrollArea from '~/components/ui/ScrollArea';
 import Text from '~/components/ui/Text';
 import {
   themeBackgroundCardColor,
-  themeFillBrandColor,
   themeGradientHeading,
   themeMarketingHeadingSize,
   themeWhiteGlowCardBackground,
@@ -369,7 +368,7 @@ function PreviewSVG() {
         y="93.25"
       />
       <rect
-        className={themeFillBrandColor}
+        className="fill-brand"
         height="10"
         rx="1.5"
         width="26.6667"
