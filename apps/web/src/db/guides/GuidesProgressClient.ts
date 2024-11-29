@@ -6,13 +6,6 @@ import { useToast } from '~/components/global/toasts/useToast';
 import type { GuideMetadata } from '~/components/guides/types';
 import { useIntl } from '~/components/intl';
 
-import {
-  frontendInterviewSlugs,
-  frontendSystemDesignSlugs,
-  hashGuide,
-  unhashGuide,
-} from './GuidesUtils';
-
 import { useUser } from '@supabase/auth-helpers-react';
 
 export function useQueryGuideProgress(metadata: GuideMetadata) {
@@ -86,64 +79,4 @@ export function useMutationGuideProgressDeleteAll() {
       trpcUtils.guideProgress.invalidate();
     },
   });
-}
-
-export function useGuideCompletionCount() {
-  const user = useUser();
-  const { data: guideProgress } = trpc.guideProgress.getAll.useQuery(
-    undefined,
-    {
-      enabled: !!user,
-    },
-  );
-
-  if (!guideProgress) {
-    return {
-      frontendInterviewPlaybook: {
-        completed: 0,
-        total: frontendInterviewSlugs.length,
-      },
-      systemDesignPlaybook: {
-        completed: 0,
-        total: frontendSystemDesignSlugs.length,
-      },
-    };
-  }
-
-  const completedGuides = new Set(
-    guideProgress.map(({ book, slug }) => hashGuide(book, slug)),
-  );
-
-  const {
-    frontendInterviewPlaybookCompletionCount,
-    systemDesignPlaybookCompletionCount,
-  } = Array.from(completedGuides).reduce(
-    (counts, item) => {
-      const [book] = unhashGuide(item);
-
-      if (book === 'FRONT_END_INTERVIEW_PLAYBOOK') {
-        counts.frontendInterviewPlaybookCompletionCount++;
-      }
-      if (book === 'FRONT_END_SYSTEM_DESIGN_PLAYBOOK') {
-        counts.systemDesignPlaybookCompletionCount++;
-      }
-
-      return counts;
-    },
-    {
-      frontendInterviewPlaybookCompletionCount: 0,
-      systemDesignPlaybookCompletionCount: 0,
-    },
-  );
-
-  return {
-    frontendInterviewPlaybook: {
-      completed: frontendInterviewPlaybookCompletionCount,
-      total: frontendInterviewSlugs.length,
-    },
-    systemDesignPlaybook: {
-      completed: systemDesignPlaybookCompletionCount,
-      total: frontendSystemDesignSlugs.length,
-    },
-  };
 }

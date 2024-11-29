@@ -20,6 +20,9 @@ import Anchor from '~/components/ui/Anchor';
 import Divider from '~/components/ui/Divider';
 import Section from '~/components/ui/Heading/HeadingContext';
 
+import { getGuideCompletionCount } from '~/db/guides/GuidesUtils';
+import { categorizeQuestionsProgress } from '~/db/QuestionsUtils';
+
 import InterviewsDashboardContinueLearningSection from './InterviewsDashboardContinueLearningSection';
 import InterviewsDashboardMoreLearningSection from './InterviewsDashboardMoreLearningSection';
 import InterviewsDashboardPageHeader from './InterviewsDashboardPageHeader';
@@ -102,6 +105,10 @@ export default function InterviewsDashboardPage({
     ...focusAreas,
   ]);
 
+  const guidesProgressCount = getGuideCompletionCount(guidesProgress);
+  const categorizedQuestionsProgress =
+    categorizeQuestionsProgress(questionsProgress);
+
   return (
     <div className={clsx('flex flex-col gap-12')}>
       <InterviewsDashboardPageHeader
@@ -129,8 +136,9 @@ export default function InterviewsDashboardPage({
           </>
         )}
         <InterviewsDashboardRecommendedPreparationStrategy
+          categorizedQuestionsProgress={categorizedQuestionsProgress}
+          guidesProgressCount={guidesProgressCount}
           questionListSessions={sessions}
-          questionsProgress={questionsProgress ?? []}
         />
         <Divider />
         <InterviewsDashboardMoreLearningSection

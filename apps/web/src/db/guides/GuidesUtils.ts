@@ -8,7 +8,7 @@ import type {
   GuideMetadata,
 } from '~/components/guides/types';
 
-import type { GuidebookItem } from '@prisma/client';
+import type { GuidebookItem, GuideProgress } from '@prisma/client';
 
 export function hashGuide(book: GuidebookItem, slug: string) {
   return book + ':' + slug;
@@ -122,4 +122,121 @@ export function categorizeGuides<
 
     return { articles, totalReadingTime };
   });
+}
+
+export type GuidesProgressCount = Record<
+  'behavioralPlaybook' | 'frontendInterviewPlaybook' | 'systemDesignPlaybook',
+  {
+    completed: number;
+    total: number;
+    updatedAt: Date | null;
+  }
+>;
+
+export function getGuideCompletionCount(
+  guidesProgress?: ReadonlyArray<GuideProgress>,
+): GuidesProgressCount {
+  if (!guidesProgress) {
+    return {
+      behavioralPlaybook: {
+        completed: 0,
+        total: behavioralSlugs.length,
+        updatedAt: null,
+      },
+      frontendInterviewPlaybook: {
+        completed: 0,
+        total: frontendInterviewSlugs.length,
+        updatedAt: null,
+      },
+      systemDesignPlaybook: {
+        completed: 0,
+        total: frontendSystemDesignSlugs.length,
+        updatedAt: null,
+      },
+    };
+  }
+
+  const completedGuides = new Set(
+    guidesProgress.map(({ book, slug }) => hashGuide(book, slug)),
+  );
+
+  const {
+    frontendInterviewPlaybookCompletionCount,
+    frontendInterviewPlaybookLatestDate,
+    systemDesignPlaybookCompletionCount,
+    systemDesignPlaybookLatestDate,
+    behavioralPlaybookCompletionCount,
+    behavioralPlaybookLatestDate,
+  } = Array.from(completedGuides).reduce(
+    (counts, item) => {
+      const [book, slug] = unhashGuide(item);
+      const guide = guidesProgress.find(
+        (g) => g.book === book && g.slug === slug,
+      );
+
+      if (book === 'FRONT_END_INTERVIEW_PLAYBOOK') {
+        counts.frontendInterviewPlaybookCompletionCount++;
+        counts.frontendInterviewPlaybookLatestDate = getLatestDate(
+          counts.frontendInterviewPlaybookLatestDate,
+          guide?.createdAt,
+        );
+      }
+
+      if (book === 'FRONT_END_SYSTEM_DESIGN_PLAYBOOK') {
+        counts.systemDesignPlaybookCompletionCount++;
+        counts.systemDesignPlaybookLatestDate = getLatestDate(
+          counts.systemDesignPlaybookLatestDate,
+          guide?.createdAt,
+        );
+      }
+
+      if (book === 'BEHAVIORAL_INTERVIEW_PLAYBOOK') {
+        counts.behavioralPlaybookCompletionCount++;
+        counts.behavioralPlaybookLatestDate = getLatestDate(
+          counts.behavioralPlaybookLatestDate,
+          guide?.createdAt,
+        );
+      }
+
+      return counts;
+    },
+    {
+      behavioralPlaybookCompletionCount: 0,
+      behavioralPlaybookLatestDate: null as Date | null,
+      frontendInterviewPlaybookCompletionCount: 0,
+      frontendInterviewPlaybookLatestDate: null as Date | null,
+      systemDesignPlaybookCompletionCount: 0,
+      systemDesignPlaybookLatestDate: null as Date | null,
+    },
+  );
+
+  return {
+    behavioralPlaybook: {
+      completed: behavioralPlaybookCompletionCount,
+      total: behavioralSlugs.length,
+      updatedAt: behavioralPlaybookLatestDate,
+    },
+    frontendInterviewPlaybook: {
+      completed: frontendInterviewPlaybookCompletionCount,
+      total: frontendInterviewSlugs.length,
+      updatedAt: frontendInterviewPlaybookLatestDate,
+    },
+    systemDesignPlaybook: {
+      completed: systemDesignPlaybookCompletionCount,
+      total: frontendSystemDesignSlugs.length,
+      updatedAt: systemDesignPlaybookLatestDate,
+    },
+  };
+}
+
+// Helper function to get the latest date
+function getLatestDate(currentDate: Date | null, newDate: Date | undefined) {
+  if (!newDate) {
+    return currentDate;
+  }
+  if (!currentDate) {
+    return newDate;
+  }
+
+  return new Date(newDate) > new Date(currentDate) ? newDate : currentDate;
 }

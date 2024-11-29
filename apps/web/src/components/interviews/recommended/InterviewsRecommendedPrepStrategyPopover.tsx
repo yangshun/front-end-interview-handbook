@@ -20,7 +20,7 @@ import {
 } from '~/components/ui/theme';
 import Tooltip from '~/components/ui/Tooltip';
 
-import { useGuideCompletionCount } from '~/db/guides/GuidesProgressClient';
+import { getGuideCompletionCount } from '~/db/guides/GuidesUtils';
 import type { QuestionProgress } from '~/db/QuestionsProgressTypes';
 import { categorizeQuestionsProgress } from '~/db/QuestionsUtils';
 
@@ -36,6 +36,12 @@ function InterviewsRecommendedPrepStrategyPopoverContents({
     trpc.questionSessions.getActive.useQuery(undefined, {
       enabled: !!user,
     });
+  const { data: guideProgress } = trpc.guideProgress.getAll.useQuery(
+    undefined,
+    {
+      enabled: !!user,
+    },
+  );
   const { data: recommendedPrepData } =
     trpc.questionLists.getRecommendedStudyList.useQuery();
 
@@ -51,7 +57,7 @@ function InterviewsRecommendedPrepStrategyPopoverContents({
       session.key === recommendedPrepData.blind75.studyListKey,
   );
   const { frontendInterviewPlaybook, systemDesignPlaybook } =
-    useGuideCompletionCount();
+    getGuideCompletionCount(guideProgress);
   const questionsProgressAll = categorizeQuestionsProgress(overallProgress);
 
   const guidesData = useGuidesData();

@@ -9,7 +9,6 @@ import { SCROLL_HASH_INTERVIEWS_DASHBOARD_RECOMMENDED_PREPARATION } from '~/hook
 import { useGuidesData } from '~/data/Guides';
 
 import InterviewsEntityProgress from '~/components/interviews/common/InterviewsEntityProgress';
-import type { QuestionSlug } from '~/components/interviews/questions/common/QuestionsTypes';
 import PreparationGFE75Logo from '~/components/interviews/questions/content/study-list/logo/PreparationGFE75Logo';
 import { StudyPlanIcons } from '~/components/interviews/questions/content/study-list/StudyListUtils';
 import { FormattedMessage, useIntl } from '~/components/intl';
@@ -30,8 +29,8 @@ import {
 } from '~/components/ui/theme';
 import Tooltip from '~/components/ui/Tooltip';
 
-import { useGuideCompletionCount } from '~/db/guides/GuidesProgressClient';
-import { categorizeQuestionsProgress } from '~/db/QuestionsUtils';
+import type { GuidesProgressCount } from '~/db/guides/GuidesUtils';
+import type { QuestionsCategorizedProgress } from '~/db/QuestionsUtils';
 
 import type { LearningSession } from '@prisma/client';
 
@@ -155,17 +154,17 @@ function PreparationStrategyCard({ data }: { data: PreparationStrategyItem }) {
 }
 
 type Props = Readonly<{
+  categorizedQuestionsProgress: QuestionsCategorizedProgress;
+  guidesProgressCount: GuidesProgressCount;
   questionListSessions: Array<
     LearningSession & { _count: { progress: number } }
-  >;
-  questionsProgress: ReadonlyArray<
-    Readonly<{ format: string; id: string; slug: QuestionSlug }>
   >;
 }>;
 
 export default function InterviewsDashboardRecommendedPreparationStrategy({
   questionListSessions,
-  questionsProgress,
+  categorizedQuestionsProgress,
+  guidesProgressCount,
 }: Props) {
   const intl = useIntl();
   const guidesData = useGuidesData();
@@ -182,8 +181,7 @@ export default function InterviewsDashboardRecommendedPreparationStrategy({
       session.key === recommendedPrepData.blind75.studyListKey,
   );
   const { frontendInterviewPlaybook, systemDesignPlaybook } =
-    useGuideCompletionCount();
-  const questionsProgressAll = categorizeQuestionsProgress(questionsProgress);
+    guidesProgressCount;
 
   const preparationStrategies: Array<PreparationStrategyItem> = [
     {
@@ -258,7 +256,7 @@ export default function InterviewsDashboardRecommendedPreparationStrategy({
       href: guidesData.FRONT_END_SYSTEM_DESIGN_PLAYBOOK.href,
       icon: guidesData.FRONT_END_SYSTEM_DESIGN_PLAYBOOK.icon,
       question: {
-        completed: questionsProgressAll['system-design'].size,
+        completed: categorizedQuestionsProgress['system-design'].size,
         total: recommendedPrepData?.systemDesignQuestionCount ?? 0,
       },
       tagLabel: intl.formatMessage({
