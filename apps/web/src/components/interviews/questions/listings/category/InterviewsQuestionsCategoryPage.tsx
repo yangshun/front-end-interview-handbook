@@ -185,10 +185,7 @@ export default function InterviewsQuestionsCategoryPage({
               <InterviewsQuestionsCategoryContentSlider
                 frameworkOrLanguage={props.categoryValue}
               />
-              <QuestionListingAccessSummary
-                {...questionsCount}
-                className="mb-6"
-              />
+              <QuestionListingAccessSummary {...questionsCount} />
             </div>
           }
         />

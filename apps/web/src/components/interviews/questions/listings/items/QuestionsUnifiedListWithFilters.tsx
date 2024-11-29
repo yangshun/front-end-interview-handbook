@@ -263,6 +263,7 @@ export default function QuestionsUnifiedListWithFilters({
           'hidden flex-col min-[1200px]:col-span-1 min-[1200px]:flex',
           'h-full',
           'px-5',
+          'gap-6',
         )}>
         {sideColumnAddOn}
         <section

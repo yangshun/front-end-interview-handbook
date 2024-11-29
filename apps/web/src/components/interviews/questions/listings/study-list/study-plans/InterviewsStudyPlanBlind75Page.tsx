@@ -125,10 +125,7 @@ export default function InterviewsStudyPlanBlind75Page({
             questions={questions}
             sideColumnAddOn={
               <div className="hidden lg:block">
-                <QuestionListingAccessSummary
-                  {...questionsCount}
-                  className="mb-6"
-                />
+                <QuestionListingAccessSummary {...questionsCount} />
               </div>
             }
             studyListKey={studyList.slug}

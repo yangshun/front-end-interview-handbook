@@ -145,10 +145,7 @@ export default function FrontEndSystemDesignPlaybookPage({
                 questions={questions}
                 sideColumnAddOn={
                   <div className="hidden lg:block">
-                    <QuestionListingAccessSummary
-                      {...questionsCount}
-                      className="mb-6"
-                    />
+                    <QuestionListingAccessSummary {...questionsCount} />
                   </div>
                 }
               />
