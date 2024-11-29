@@ -35,13 +35,15 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     return defaultMetadata({
       description: question.metadata.excerpt!,
       locale,
+      ogImageTitle: question.metadata.title,
       pathname: question.metadata.href,
+      socialTitle: question.metadata.title,
       title: intl.formatMessage(
         {
           defaultMessage:
-            '{questionTitle} | Algorithms Front End Interview Questions with Solutions',
+            '{questionTitle} | Algorithms Interview Questions with Solutions',
           description: 'Title of Algorithms Front End interview questions page',
-          id: '+NJDpT',
+          id: 'JMBOyp',
         },
         { questionTitle: question.metadata.title },
       ),

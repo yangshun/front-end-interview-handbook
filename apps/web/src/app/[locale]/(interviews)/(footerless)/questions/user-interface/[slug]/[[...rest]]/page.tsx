@@ -99,16 +99,44 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
               },
             ),
       locale,
+      ogImageTitle: question.metadata.title,
       pathname,
+      socialTitle:
+        mode === 'solution'
+          ? intl.formatMessage(
+              {
+                defaultMessage:
+                  '{questionTitle} Solution in {questionFramework}',
+                description:
+                  'Title of Front End Interview UI Coding Questions solution page',
+                id: 'rdN/ZV',
+              },
+              {
+                questionFramework: QuestionFrameworkLabels[question.framework],
+                questionTitle: question.metadata.title,
+              },
+            )
+          : intl.formatMessage(
+              {
+                defaultMessage: '{questionTitle} in {questionFramework}',
+                description:
+                  'Title of Front End Interview UI Coding Questions practice page',
+                id: '5tLsdY',
+              },
+              {
+                questionFramework: QuestionFrameworkLabels[question.framework],
+                questionTitle: question.metadata.title,
+              },
+            ),
       title:
         mode === 'solution'
           ? intl.formatMessage(
               {
                 defaultMessage:
-                  'Solution for {questionTitle} in {questionFramework} | Front End Interview UI Coding Questions with Solutions',
+                  '{questionTitle} Solution in {questionFramework} | UI Interview Question',
                 description:
                   'Title of Front End Interview UI Coding Questions solution page',
-                id: 'I5iXtu',
+                id: 'cBUPgC',
               },
               {
                 questionFramework: QuestionFrameworkLabels[question.framework],
@@ -118,10 +146,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
           : intl.formatMessage(
               {
                 defaultMessage:
-                  '{questionTitle} in {questionFramework} | Front End Interview UI Coding Questions with Solutions',
+                  '{questionTitle} in {questionFramework} | UI Interview Question',
                 description:
                   'Title of Front End Interview UI Coding Questions practice page',
-                id: 'huof8A',
+                id: 'X3SfGP',
               },
               {
                 questionFramework: QuestionFrameworkLabels[question.framework],

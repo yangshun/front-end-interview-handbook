@@ -44,6 +44,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         },
       ),
       locale,
+      ogImageTitle: question.metadata.title,
       pathname: question.metadata.href,
       socialTitle: intl.formatMessage(
         {

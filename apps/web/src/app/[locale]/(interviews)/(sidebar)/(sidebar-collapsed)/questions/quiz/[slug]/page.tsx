@@ -28,13 +28,15 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return defaultMetadata({
     description: question.metadata.excerpt ?? '',
     locale,
+    ogImageTitle: question.metadata.title,
     pathname: question.metadata.href,
+    socialTitle: question.metadata.title,
     title: intl.formatMessage(
       {
         defaultMessage:
-          '{questionTitle} | Front End Quiz Interview Questions with Solutions',
+          '{questionTitle} | Quiz Interview Questions with Solutions',
         description: 'Title of quiz question page',
-        id: 'cqEIAI',
+        id: 'wTdDt/',
       },
       {
         questionTitle: question.metadata.title,

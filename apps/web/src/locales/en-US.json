@@ -51,10 +51,6 @@
     "defaultMessage": "Congratulations on completing the question! Sign into your account or sign up for free to save your progress!",
     "description": "Message shown when user completes a question"
   },
-  "+NJDpT": {
-    "defaultMessage": "{questionTitle} | Algorithms Front End Interview Questions with Solutions",
-    "description": "Title of Algorithms Front End interview questions page"
-  },
   "+NbHNn": {
     "defaultMessage": "Practice JavaScript coding interview questions by implementing utility functions like throttle or polyfills. Code in-browser with solutions from ex-interviewers.",
     "description": "SEO description for JavaScript coding question format page"
@@ -1158,6 +1154,10 @@
   "5t66sB": {
     "defaultMessage": "User submission for premium challenge",
     "description": "Title for a paywall of a submission for a premium project"
+  },
+  "5tLsdY": {
+    "defaultMessage": "{questionTitle} in {questionFramework}",
+    "description": "Title of Front End Interview UI Coding Questions practice page"
   },
   "5y9YGh": {
     "defaultMessage": "Submission title must contain at most {maxLength} character(s).",
@@ -2919,10 +2919,6 @@
     "defaultMessage": "John Doe",
     "description": "Placeholder for name field"
   },
-  "I5iXtu": {
-    "defaultMessage": "Solution for {questionTitle} in {questionFramework} | Front End Interview UI Coding Questions with Solutions",
-    "description": "Title of Front End Interview UI Coding Questions solution page"
-  },
   "I872jM": {
     "defaultMessage": "Not completed",
     "description": "Incomplete status for a question"
@@ -3138,6 +3134,10 @@
   "JLYqCO": {
     "defaultMessage": "Includes starter code, image assets, images of the designs, along with a README to help you get started.",
     "description": "Help text for Download starter files button for projects"
+  },
+  "JMBOyp": {
+    "defaultMessage": "{questionTitle} | Algorithms Interview Questions with Solutions",
+    "description": "Title of Algorithms Front End interview questions page"
   },
   "JPr1gs": {
     "defaultMessage": "Collaboration questions",
@@ -5091,10 +5091,6 @@
     "defaultMessage": "Read the project details",
     "description": "Instruction for projects"
   },
-  "Vz/EyQ": {
-    "defaultMessage": "{questionTitle} | JavaScript Front End Interview Questions with Solutions",
-    "description": "Title of JavaScript Front End interview questions page"
-  },
   "W+3cZW": {
     "defaultMessage": "Follow us on X",
     "description": "Label for join X"
@@ -5294,6 +5290,10 @@
   "X2w/yO": {
     "defaultMessage": "Created with the expertise of senior to staff front end interviewers from some of the top companies in the world. <button>Have a suggestion?</button>",
     "description": "Description for study list"
+  },
+  "X3SfGP": {
+    "defaultMessage": "{questionTitle} in {questionFramework} | UI Interview Question",
+    "description": "Title of Front End Interview UI Coding Questions practice page"
   },
   "X6Eh8S": {
     "defaultMessage": "Email us",
@@ -6083,6 +6083,10 @@
     "defaultMessage": "Security | Profile",
     "description": "Title of Profile Security page"
   },
+  "cBUPgC": {
+    "defaultMessage": "{questionTitle} Solution in {questionFramework} | UI Interview Question",
+    "description": "Title of Front End Interview UI Coding Questions solution page"
+  },
   "cCQIST": {
     "defaultMessage": "Open in new tab",
     "description": "Indication that text has been copied"
@@ -6166,10 +6170,6 @@
   "cpvb0H": {
     "defaultMessage": "Search JavaScript coding questions",
     "description": "Search placeholder"
-  },
-  "cqEIAI": {
-    "defaultMessage": "{questionTitle} | Front End Quiz Interview Questions with Solutions",
-    "description": "Title of quiz question page"
   },
   "ctKiBc": {
     "defaultMessage": "User submissions",
@@ -6959,10 +6959,6 @@
     "defaultMessage": "Study plans",
     "description": "Interviews study plans"
   },
-  "huof8A": {
-    "defaultMessage": "{questionTitle} in {questionFramework} | Front End Interview UI Coding Questions with Solutions",
-    "description": "Title of Front End Interview UI Coding Questions practice page"
-  },
   "hz5dJR": {
     "defaultMessage": "No notification yet!",
     "description": "Label for no notification"
@@ -7294,6 +7290,10 @@
   "k8LRFw": {
     "defaultMessage": "Get started",
     "description": "Tab title for projects challenges"
+  },
+  "k8STTf": {
+    "defaultMessage": "{questionTitle} | JavaScript Interview Questions with Solutions",
+    "description": "Title of JavaScript Front End interview questions page"
   },
   "k8wyWA": {
     "defaultMessage": "Submit your project - host your project on any service and submit your Github repo and site url",
@@ -8387,6 +8387,10 @@
     "defaultMessage": "Unpin one or more existing submissions to pin a new one.",
     "description": "Dialog subtitle for pinned submission"
   },
+  "rdN/ZV": {
+    "defaultMessage": "{questionTitle} Solution in {questionFramework}",
+    "description": "Title of Front End Interview UI Coding Questions solution page"
+  },
   "reqKoj": {
     "defaultMessage": "By Senior to Principal-level Engineers at the world's best companies",
     "description": "Prep resources companies"
@@ -9122,6 +9126,10 @@
   "wRV8PN": {
     "defaultMessage": "Settings",
     "description": "Settings page title"
+  },
+  "wTdDt/": {
+    "defaultMessage": "{questionTitle} | Quiz Interview Questions with Solutions",
+    "description": "Title of quiz question page"
   },
   "wUCEFX": {
     "defaultMessage": "Motivations for joining",
