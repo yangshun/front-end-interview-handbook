@@ -92,6 +92,9 @@ export default function InterviewsDashboardPage({
   const sessions = questionListSessions ?? [];
   const showContinueLearning =
     questionListSessions != null && questionListSessions.length > 0;
+  const showProgressAtGlance =
+    (questionsProgress ?? []).length > 0 ||
+    Object.keys(contributions || {}).length > 0;
 
   const studyListsMap = createStudyListMapFromArray([
     ...studyPlans,
@@ -107,7 +110,7 @@ export default function InterviewsDashboardPage({
         isLoggedIn={isLoggedIn}
       />
       <Section>
-        {isLoggedIn && (
+        {isLoggedIn && showProgressAtGlance && (
           <InterviewsDashboardProgressSection
             contributions={contributions}
             isContributionsLoading={isContributionsLoading}
