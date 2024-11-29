@@ -17,6 +17,7 @@ import Button from '~/components/ui/Button';
 import {
   themeBackgroundCardWhiteOnLightColor,
   themeGlassyBorder,
+  themeTextBrandColor,
 } from '~/components/ui/theme';
 
 type Props = Readonly<{
@@ -46,7 +47,8 @@ export default function ArticleViewCard({ metadata }: Props) {
       <div className="flex items-center justify-between">
         <Button
           className={clsx(
-            'dark:text-brand text-brand-dark -ml-4 w-fit border-transparent',
+            '-ml-4 w-fit border-transparent',
+            themeTextBrandColor,
           )}
           icon={isExpanded ? RiArrowUpSLine : RiArrowDownSLine}
           label={
